@@ -1,0 +1,53 @@
+name: Diagnostico dos 3 pilares
+
+# Coleta metricas e aponta o gargalo de cada video publicado.
+on:
+  schedule:
+    - cron: "0 12 * * 1"   # segundas, 12:00 UTC
+  workflow_dispatch:
+
+jobs:
+  diagnosticar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -e .
+
+      - name: Restaurar estado
+        uses: actions/cache@v4
+        with:
+          path: data
+          key: maquina-estado-${{ github.run_id }}
+          restore-keys: maquina-estado-
+
+      - name: Restaurar credencial do YouTube
+        env:
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+        run: |
+          mkdir -p secrets
+          printf '%s' "$YT_TOKEN_JSON" > secrets/youtube_token.json
+
+      - name: Diagnosticar
+        run: maquina diagnosticar | tee diagnostico.txt
+
+      - name: Publicar no resumo do job
+        if: always()
+        run: |
+          {
+            echo "## Diagnostico dos 3 pilares"
+            echo '```'
+            cat diagnostico.txt 2>/dev/null || echo "sem dados"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Limpar credencial
+        if: always()
+        run: rm -f secrets/youtube_token.json

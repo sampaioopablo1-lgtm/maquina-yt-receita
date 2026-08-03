@@ -1,0 +1,31 @@
+canal:
+  nome: "Setiap Level"
+  handle: "@SetiapLevelID"          # https://www.youtube.com/@SetiapLevelID
+  idioma: "id"                      # indonesio
+  tema: "dinheiro, trabalho, status e decisoes"
+  publico_infantil: false
+  categoria_id: "22"                # People & Blogs
+  estilo_narracao: "direto, calmo, com autoridade; frases curtas"
+  # Palavras-chave validadas do subnicho. Alimente esta lista analisando
+  # titulos que ja performam — e a base do pilar 1 (titulo traqueando).
+  referencias_titulo: []
+
+# Os 3 pilares viram numero. Ver docs/02-playbook-youtube.md
+metas:
+  ctr_min: 0.05
+  ctr_bom: 0.08
+  retencao_min_pct: 30.0
+
+# Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md
+publicacao:
+  max_por_dia: 2
+  similaridade_max: 0.75
+  janela_similaridade: 20
+  exigir_revisao: true              # NAO desligue sem ler o doc de compliance
+
+llm_provider: "anthropic"
+tts_provider: "elevenlabs"
+image_provider: "openai"
+llm_model: "claude-sonnet-4-5"
+tts_model: "eleven_multilingual_v2"
+image_model: "gpt-image-1"

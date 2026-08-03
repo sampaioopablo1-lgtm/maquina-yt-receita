@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: ffmpeg -version | head -1
+
+      - run: pip install -e ".[dev]"
+
+      # Providers stub: a suite roda inteira sem nenhuma chave de API.
+      - name: Testes
+        env:
+          MAQ_LLM_PROVIDER: stub
+          MAQ_TTS_PROVIDER: stub
+          MAQ_IMAGE_PROVIDER: stub
+        run: pytest -v
+
+      - name: Smoke da CLI
+        env:
+          MAQ_LLM_PROVIDER: stub
+          MAQ_TTS_PROVIDER: stub
+          MAQ_IMAGE_PROVIDER: stub
+        run: |
+          maquina doctor
+          maquina ideias --formato shorts --n 3

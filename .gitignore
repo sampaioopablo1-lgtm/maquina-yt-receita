@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Segredos e credenciais - NUNCA commitar
+.env
+client_secret*.json
+token*.json
+*.pem
+
+# Artefatos de producao (videos, audios, imagens, banco de jobs)
+out/
+data/
