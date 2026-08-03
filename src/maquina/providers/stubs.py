@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import textwrap
 from pathlib import Path
 
@@ -61,6 +62,10 @@ class LLMStub:
             )
 
         if '"ideias"' in prompt or "ideias" in prompt.lower()[:200]:
+            # Respeita a quantidade pedida, senao o teste offline nao reflete
+            # o comportamento do provider real.
+            pedido = re.search(r"Gere (\d+) ideias", prompt)
+            n = int(pedido.group(1)) if pedido else 5
             return json.dumps(
                 {
                     "ideias": [
@@ -69,7 +74,7 @@ class LLMStub:
                             "angulo": "angulo gerado offline para validar a pipeline",
                             "palavras_chave": ["exemplo", "offline", "stub"],
                         }
-                        for i in range(1, 6)
+                        for i in range(1, n + 1)
                     ]
                 },
                 ensure_ascii=False,

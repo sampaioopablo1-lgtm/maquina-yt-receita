@@ -15,6 +15,7 @@ dependencies = [
     "google-auth-oauthlib>=1.2",
     "google-auth-httplib2>=0.2",
     "rich>=13.7",
+    "mcp>=1.2",
 ]
 
 [project.optional-dependencies]
@@ -22,6 +23,7 @@ dev = ["pytest>=8.2"]
 
 [project.scripts]
 maquina = "maquina.cli:app"
+maquina-mcp = "maquina.mcp_server:main"
 
 [build-system]
 requires = ["setuptools>=68"]

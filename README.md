@@ -44,6 +44,25 @@ MAQ_LLM_PROVIDER=stub MAQ_TTS_PROVIDER=stub MAQ_IMAGE_PROVIDER=stub \
 | `maquina voice-clone <audios>` | Registra sua voz e devolve o `voice_id` |
 | `maquina voice-test` | Amostra no idioma do canal para avaliação nativa |
 
+## Conversar com a máquina (MCP)
+
+Em vez de digitar comandos, você pergunta — *"qual vídeo teve a pior retenção?"*,
+*"o que estão falando nos comentários?"* — e a máquina responde usando a sua
+própria conta, sem terceiro no meio.
+
+```bash
+.venv/bin/maquina-mcp     # servidor MCP local (stdio)
+```
+
+São 9 ferramentas: 7 de leitura e 2 de escrita. `maquina_publicar_video` exige
+`confirmar=true` — numa conversa, uma frase ambígua não pode virar vídeo público
+no canal.
+
+Como conectar ao Claude Desktop: [`docs/05-mcp.md`](docs/05-mcp.md).
+
+> MCP é o volante, o GitHub Actions é o motor. MCP só age quando você pergunta;
+> o canal precisa publicar sozinho no horário marcado.
+
 ## Arquitetura
 
 Três responsabilidades com requisitos incompatíveis, em três lugares:
