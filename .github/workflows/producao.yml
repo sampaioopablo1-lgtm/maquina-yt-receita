@@ -3,8 +3,9 @@ name: Producao de video
 # O motor da maquina. O runner ubuntu-latest ja traz ffmpeg instalado.
 on:
   schedule:
-    # 09:00 UTC (06:00 BRT) as terças e sextas.
-    - cron: "0 9 * * 2,5"
+    # Diario, 09:00 UTC (06:00 BRT). O teto de 3/dia da config e a cota da
+    # YouTube API (~6 uploads/dia) sao os limites reais — nao o cron.
+    - cron: "0 9 * * *"
   workflow_dispatch:
     inputs:
       formato:

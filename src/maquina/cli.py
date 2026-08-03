@@ -202,6 +202,100 @@ def voice_clone(
     console.print(f"Adicione ao .env: [bold]MAQ_TTS_VOICE_ID={voice_id}[/]")
 
 
+@app.command("voice-test")
+def voice_test(
+    voice_id: str = typer.Option("", help="voice_id a testar (padrao: o do .env)"),
+):
+    """Gera uma amostra curta no idioma do canal para avaliacao nativa.
+
+    Rode ANTES de produzir o primeiro video: o sotaque do clone bate direto no
+    pilar 3 (retencao), e 15 minutos de teste evitam semanas de video ruim.
+    """
+    from .providers import obter_llm, obter_tts
+    from .stages.revisao import gerar_amostra_voz
+
+    cfg = _cfg()
+    destino = cfg.out_dir / "_teste_voz"
+    amostra = gerar_amostra_voz(
+        obter_llm(cfg), obter_tts(cfg), cfg, destino, voice_id or cfg.tts_voice_id
+    )
+
+    console.print(f"\n[bold]Texto ({cfg.canal.idioma}):[/]\n{amostra.texto}\n")
+    console.print(f"[green]Audio:[/] {amostra.audio}")
+    console.print(
+        "\n[yellow]Envie este audio para um falante nativo avaliar.[/] Pergunte:\n"
+        "  1. A pronuncia soa nativa ou estrangeira?\n"
+        "  2. O ritmo soa natural para narracao?\n"
+        "  3. Voce assistiria 8 minutos desta voz?\n\n"
+        "Se a resposta 1 for 'estrangeira', troque para voz nativa de catalogo "
+        "(MAQ_TTS_VOICE_ID) antes de escalar."
+    )
+
+
+@app.command()
+def comentarios(
+    slug: str = typer.Argument(..., help="slug do video publicado"),
+    limite: int = typer.Option(50, help="quantos comentarios analisar"),
+):
+    """Le e traduz os comentarios, destacando sinais tecnicos acionaveis."""
+    from .providers import obter_llm
+    from .stages.revisao import analisar_comentarios, buscar_comentarios
+
+    cfg = _cfg()
+    p = Pipeline(cfg)
+    video = p.store.obter(slug)
+    if not video or not video.youtube_id:
+        console.print(f"[red]video '{slug}' nao encontrado ou nao publicado[/]")
+        raise typer.Exit(1)
+
+    brutos = buscar_comentarios(cfg, video.youtube_id, limite)
+    if not brutos:
+        console.print("[yellow]sem comentarios ainda[/]")
+        raise typer.Exit(0)
+
+    analise = analisar_comentarios(obter_llm(cfg), cfg, brutos)
+    if not analise:
+        raise typer.Exit(0)
+
+    console.print(f"\n[bold]Sentimento:[/] {analise.get('sentimento', '?')}")
+    console.print(f"\n{analise.get('resumo', '')}\n")
+
+    if sinais := analise.get("sinais_tecnicos"):
+        console.print("[bold yellow]Sinais tecnicos acionaveis:[/]")
+        for s in sinais:
+            console.print(f"  - {s}")
+
+    if relevantes := analise.get("comentarios_relevantes"):
+        tabela = Table("Original", "Traducao")
+        for c in relevantes[:10]:
+            tabela.add_row(c.get("original", "")[:60], c.get("traducao", "")[:60])
+        console.print(tabela)
+
+
+@app.command()
+def revisar(slug: str):
+    """Traduz o roteiro para o seu idioma e avalia se soa natural."""
+    from .providers import obter_llm
+    from .stages.revisao import revisar_roteiro
+
+    cfg = _cfg()
+    p = Pipeline(cfg)
+    video = p.store.obter(slug)
+    if not video or not video.roteiro:
+        console.print(f"[red]video '{slug}' sem roteiro[/]")
+        raise typer.Exit(1)
+
+    r = revisar_roteiro(obter_llm(cfg), cfg, video.roteiro)
+    naturalidade = r.get("naturalidade", "?")
+    cor = {"natural": "green", "aceitavel": "yellow"}.get(naturalidade, "red")
+
+    console.print(f"\n[bold]{video.roteiro.titulo}[/]")
+    console.print(f"Naturalidade: [{cor}]{naturalidade}[/]")
+    if obs := r.get("observacao"):
+        console.print(f"Observacao: {obs}")
+    console.print(f"\n[bold]Traducao ({cfg.canal.idioma_revisao}):[/]\n{r.get('traducao', '')}")
+
+
 @app.command()
 def custo():
     """Custo de producao acumulado por video."""

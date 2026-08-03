@@ -21,12 +21,17 @@ class MetasQualidade(BaseModel):
 
 
 class LimitesPublicacao(BaseModel):
-    """Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md."""
+    """Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md.
 
-    max_por_dia: int = 2
-    similaridade_max: float = 0.75
+    Em ritmo diario a similaridade fica mais rigorosa (0.65) e a janela de
+    comparacao mais longa (30): 30 videos/mes no mesmo subnicho convergem
+    sozinhos se nao houver pressao ativa por variacao.
+    """
+
+    max_por_dia: int = 3
+    similaridade_max: float = 0.65
     exigir_revisao: bool = True
-    janela_similaridade: int = 20
+    janela_similaridade: int = 30
 
 
 class CanalConfig(BaseModel):
@@ -38,6 +43,12 @@ class CanalConfig(BaseModel):
     categoria_id: str = "22"  # People & Blogs
     estilo_narracao: str = "direto, calmo, com autoridade"
     referencias_titulo: list[str] = Field(default_factory=list)
+    # Eixos tematicos rotacionados a cada video. Em ritmo diario esta e a
+    # principal defesa contra convergencia: forca angulos estruturalmente
+    # diferentes dentro do mesmo subnicho.
+    eixos_tematicos: list[str] = Field(default_factory=list)
+    # Idioma do operador — usado para traduzir comentarios e roteiros na revisao.
+    idioma_revisao: str = "pt-BR"
 
 
 class Config(BaseModel):

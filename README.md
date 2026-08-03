@@ -36,9 +36,12 @@ MAQ_LLM_PROVIDER=stub MAQ_TTS_PROVIDER=stub MAQ_IMAGE_PROVIDER=stub \
 | `maquina retomar <slug>` | Continua um vídeo interrompido, sem refazer |
 | `maquina publicar <slug>` | Publica com agendamento (após revisão) |
 | `maquina diagnosticar` | Aponta qual dos 3 pilares é o gargalo |
+| `maquina revisar <slug>` | Traduz o roteiro e avalia se soa natural |
+| `maquina comentarios <slug>` | Traduz comentários e extrai sinais técnicos |
 | `maquina custo` | Custo de produção por vídeo |
 | `maquina auth-youtube` | Autoriza a conta (uma vez, local) |
 | `maquina voice-clone <audios>` | Registra sua voz e devolve o `voice_id` |
+| `maquina voice-test` | Amostra no idioma do canal para avaliação nativa |
 
 ## Arquitetura
 
@@ -64,14 +67,26 @@ A máquina otimiza três métricas, nesta ordem — acertar duas e errar uma der
 retenção baixa significa problema de **roteiro**, não de thumbnail — e evita
 refazer a coisa errada. Detalhes em [`docs/02-playbook-youtube.md`](docs/02-playbook-youtube.md).
 
+## Canal em idioma estrangeiro
+
+O canal é em indonésio e o operador não lê o idioma. Duas ferramentas fecham essa
+lacuna — sem elas a revisão humana vira carimbo:
+
+- `maquina revisar <slug>` — traduz o roteiro e classifica a naturalidade
+- `maquina comentarios <slug>` — traduz os comentários e destaca sinais técnicos
+  (volume de música, qualidade da voz, ritmo), que aparecem ali antes de aparecerem
+  na curva de retenção
+
 ## Barreiras antes de publicar
 
 O modo de falha mais caro aqui não é um vídeo ruim — é o canal perder monetização
-por conteúdo repetitivo ou spam de automação. Por isso a máquina é
-deliberadamente limitada:
+por conteúdo repetitivo ou spam de automação. Publicar diariamente não viola
+política; produzir em massa com variação mínima, sim. Por isso o ritmo diário vem
+com pressão ativa por variação:
 
-- Teto de **2 publicações/dia**
-- Roteiro **>75% similar** aos últimos 20 → bloqueia
+- Teto de **3 publicações/dia** (a cota da API permite ~6)
+- Roteiro **>65% similar** aos últimos 30 → bloqueia
+- **7 eixos temáticos rotacionados** — força variação estrutural na origem
 - Título quase idêntico a outro do canal → bloqueia
 - Divulgação de conteúdo sintético automática no upload
 - **Revisão humana obrigatória por padrão**

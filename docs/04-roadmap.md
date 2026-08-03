@@ -22,7 +22,7 @@ Depois, cadastre como **secrets do repositório** (Settings → Secrets → Acti
 > ~1.600**. São ~6 uploads/dia no teto — folgado para o limite de 2/dia da
 > máquina, mas não tente escalar sem pedir aumento de cota.
 
-## 2. Sua voz (o ativo de marca)
+## 2. Sua voz — clonar e **testar antes de escalar**
 
 ```bash
 mkdir -p assets/voice   # o .wav NÃO é versionado
@@ -31,9 +31,25 @@ maquina voice-clone assets/voice/Gravando-aprimorado-v2.wav
 ```
 
 Copie o `voice_id` retornado para o `.env` e para o secret `MAQ_TTS_VOICE_ID`.
+Vale gravar 2-3 minutos limpos: a qualidade do clone depende mais da limpeza do
+áudio do que da duração.
 
-Vale gravar 2-3 minutos limpos em vez de um trecho curto: a qualidade do clone
-depende mais da limpeza do áudio do que da duração.
+**Depois, obrigatoriamente, o teste de sotaque:**
+
+```bash
+maquina voice-test
+```
+
+Envie o áudio gerado para um falante nativo de indonésio e faça três perguntas:
+
+1. A pronúncia soa nativa ou estrangeira?
+2. O ritmo soa natural para narração?
+3. Você assistiria 8 minutos desta voz?
+
+Se a resposta 1 for "estrangeira", **troque para voz nativa de catálogo** e fixe
+uma só como identidade do canal. Sotaque perceptível bate direto no pilar 3
+(retenção) — e retenção é o que decide se o vídeo é entregue. Quinze minutos de
+teste aqui evitam semanas de vídeo com curva ruim.
 
 ## 3. Calibrar o conteúdo (é aqui que o canal se define)
 
@@ -73,6 +89,20 @@ Só depois que a saída manual estiver boa:
 - `producao.yml` já roda **terças e sextas, 09:00 UTC**. Ajuste o cron ao seu ritmo.
 - `publicacao.yml` continua **manual e intencional** — é a revisão humana.
 - Configure `environment: youtube` com reviewers para exigir aprovação no Actions.
+
+## 5b. Fechar o loop de feedback (crítico em idioma estrangeiro)
+
+Depois de cada vídeo publicado ganhar tração:
+
+```bash
+maquina revisar <slug>       # o roteiro soa natural para um nativo?
+maquina comentarios <slug>   # o que a audiência está dizendo, traduzido
+```
+
+O segundo comando destaca **sinais técnicos acionáveis** — volume de música,
+qualidade da voz, ritmo, legendas. Esses sinais chegam aos comentários antes de
+aparecerem na curva de retenção. Num canal em idioma que você não lê, esse canal
+de feedback só existe se você rodar isso.
 
 ## 6. Aprender com os números
 

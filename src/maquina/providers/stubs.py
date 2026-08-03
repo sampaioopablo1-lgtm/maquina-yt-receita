@@ -29,6 +29,37 @@ class LLMStub:
     def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
         semente = hashlib.sha1(prompt.encode()).hexdigest()
 
+        if '"traducao"' in prompt and '"naturalidade"' in prompt:
+            return json.dumps(
+                {
+                    "traducao": "Traducao offline do texto enviado.",
+                    "naturalidade": "aceitavel",
+                    "observacao": "avaliacao gerada pelo provider offline",
+                },
+                ensure_ascii=False,
+            )
+
+        if '"sinais_tecnicos"' in prompt:
+            return json.dumps(
+                {
+                    "resumo": "Resumo offline dos comentarios.",
+                    "sinais_tecnicos": ["exemplo: musica alta"],
+                    "sentimento": "misto",
+                    "comentarios_relevantes": [
+                        {"original": "comentario original", "traducao": "traducao"}
+                    ],
+                },
+                ensure_ascii=False,
+            )
+
+        # Amostra de voz: texto puro, sem JSON.
+        if "paragrafo" in prompt and "voz sintetizada" in prompt:
+            return (
+                "Paragrafo de amostra gerado offline para validar o fluxo de "
+                "teste de voz. Ele tem 4 frases. Inclui o numero 30 e um termo "
+                "do nicho. Voce assistiria oito minutos desta voz?"
+            )
+
         if '"ideias"' in prompt or "ideias" in prompt.lower()[:200]:
             return json.dumps(
                 {

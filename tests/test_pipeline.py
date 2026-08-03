@@ -151,6 +151,69 @@ def test_legendas_respeitam_duracao_das_cenas(cfg, tmp_path):
     assert int(h) * 3600 + int(m) * 60 + s <= 7.05
 
 
+# ---------- rotacao de eixos (defesa da cadencia diaria) ----------
+
+def test_eixos_rotacionam_sem_repetir(cfg):
+    from maquina.stages.roteiro import proximo_eixo
+
+    cfg.canal.eixos_tematicos = ["a", "b", "c"]
+    percorridos = [proximo_eixo(cfg, i) for i in range(3)]
+    assert percorridos == ["a", "b", "c"]          # N videos -> N eixos distintos
+    assert proximo_eixo(cfg, 3) == "a"             # so entao reinicia
+
+
+def test_eixo_tolera_lista_vazia(cfg):
+    from maquina.stages.roteiro import proximo_eixo
+
+    cfg.canal.eixos_tematicos = []
+    assert proximo_eixo(cfg, 0) == "(livre)"
+
+
+def test_ideacao_injeta_eixo_no_prompt(cfg, monkeypatch):
+    """O eixo tem que chegar ao LLM — sem isso a defesa e decorativa."""
+    from maquina.stages import roteiro as r
+
+    capturado = {}
+    original = r._json_do_llm
+
+    class LLMEspiao:
+        def completar(self, prompt, *, sistema="", max_tokens=4096):
+            capturado["prompt"] = prompt
+            from maquina.providers.stubs import LLMStub
+
+            return LLMStub().completar(prompt, sistema=sistema)
+
+    cfg.canal.eixos_tematicos = ["eixo-sentinela"]
+    r.gerar_ideias(LLMEspiao(), cfg, Formato.LONGO, n=2, publicados=[])
+    assert "eixo-sentinela" in capturado["prompt"]
+
+
+# ---------- revisao em idioma estrangeiro ----------
+
+def test_amostra_de_voz_produz_audio_real(cfg, tmp_path):
+    from maquina.providers.stubs import LLMStub, TTSStub
+    from maquina.stages.revisao import gerar_amostra_voz
+
+    amostra = gerar_amostra_voz(LLMStub(), TTSStub(), cfg, tmp_path / "voz")
+    assert amostra.texto.strip()
+    assert amostra.audio.exists() and amostra.audio.stat().st_size > 0
+
+
+def test_analise_de_comentarios_extrai_sinais(cfg):
+    from maquina.providers.stubs import LLMStub
+    from maquina.stages.revisao import analisar_comentarios
+
+    r = analisar_comentarios(LLMStub(), cfg, ["komentar satu", "komentar dua"])
+    assert r is not None and "sinais_tecnicos" in r
+
+
+def test_analise_sem_comentarios_retorna_none(cfg):
+    from maquina.providers.stubs import LLMStub
+    from maquina.stages.revisao import analisar_comentarios
+
+    assert analisar_comentarios(LLMStub(), cfg, []) is None
+
+
 # ---------- ponta a ponta ----------
 
 @pytest.mark.slow

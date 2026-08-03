@@ -6,9 +6,20 @@ canal:
   publico_infantil: false
   categoria_id: "22"                # People & Blogs
   estilo_narracao: "direto, calmo, com autoridade; frases curtas"
+  idioma_revisao: "pt-BR"           # traducao de roteiros e comentarios na revisao
   # Palavras-chave validadas do subnicho. Alimente esta lista analisando
   # titulos que ja performam — e a base do pilar 1 (titulo traqueando).
   referencias_titulo: []
+  # Eixos rotacionados a cada video. Em ritmo diario, e o que impede 30
+  # videos/mes de convergirem para o mesmo formato.
+  eixos_tematicos:
+    - "erro comum que custa caro"
+    - "comparacao entre duas escolhas"
+    - "o que ninguem explica sobre"
+    - "passo a passo pratico"
+    - "caso concreto analisado"
+    - "mito desmontado com dados"
+    - "decisao sob restricao de tempo"
 
 # Os 3 pilares viram numero. Ver docs/02-playbook-youtube.md
 metas:
@@ -17,10 +28,12 @@ metas:
   retencao_min_pct: 30.0
 
 # Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md
+# Ritmo diario: teto de 3/dia (a cota da API permite ~6 uploads/dia).
+# Similaridade mais rigorosa que o padrao porque volume alto converge sozinho.
 publicacao:
-  max_por_dia: 2
-  similaridade_max: 0.75
-  janela_similaridade: 20
+  max_por_dia: 3
+  similaridade_max: 0.65
+  janela_similaridade: 30
   exigir_revisao: true              # NAO desligue sem ler o doc de compliance
 
 llm_provider: "anthropic"

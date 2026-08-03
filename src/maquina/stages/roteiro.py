@@ -37,6 +37,10 @@ Titulos ja publicados neste canal (NAO repita tema nem estrutura):
 Palavras-chave que performam no subnicho:
 {chaves}
 
+EIXO OBRIGATORIO desta rodada: {eixo}
+Todas as ideias devem seguir este eixo estrutural. Ele existe para forcar
+variacao real entre videos publicados em sequencia — nao o ignore.
+
 Cada titulo deve usar palavra-chave validada, ser especifico e prometer algo
 concreto. Semelhante ao que funciona no nicho, porem melhorado — nunca copia.
 
@@ -91,16 +95,29 @@ def _sistema(cfg: Config) -> str:
     )
 
 
+def proximo_eixo(cfg: Config, ja_publicados: int) -> str:
+    """Rotaciona o eixo tematico pela contagem de videos ja publicados.
+
+    Deterministico de proposito: em ritmo diario, sorteio aleatorio repete eixo
+    por acaso com frequencia alta. A rotacao garante que N videos seguidos
+    percorram N eixos distintos.
+    """
+    eixos = cfg.canal.eixos_tematicos
+    return eixos[ja_publicados % len(eixos)] if eixos else "(livre)"
+
+
 def gerar_ideias(
     llm: LLM, cfg: Config, formato: Formato, n: int = 5, publicados: list[str] | None = None
 ) -> list[Ideia]:
+    lista_publicados = publicados or []
     prompt = PROMPT_IDEIAS.format(
         n=n,
         formato=formato.value,
         aspect=formato.aspect,
         dur_min=round(formato.duracao_alvo_s / 60, 1),
-        publicados="\n".join(f"- {t}" for t in (publicados or [])) or "(nenhum ainda)",
+        publicados="\n".join(f"- {t}" for t in lista_publicados) or "(nenhum ainda)",
         chaves=", ".join(cfg.canal.referencias_titulo) or "(sem referencias cadastradas)",
+        eixo=proximo_eixo(cfg, len(lista_publicados)),
     )
     dados = _json_do_llm(llm.completar(prompt, sistema=_sistema(cfg)))
     return [
