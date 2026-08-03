@@ -5,14 +5,18 @@ calibrar o conteúdo. Ordem importa: cada bloco depende do anterior.
 
 ## 1. Credenciais (bloqueia tudo)
 
-| Passo | Onde | Resultado |
+**Conta do YouTube:** passo a passo com os cliques exatos em
+[`06-conectar-conta.md`](06-conectar-conta.md). Resumo: ~5 min de cadastro no
+Google Cloud Console (uma vez), depois `maquina auth-youtube` abre a janela do
+Google. O comando confirma qual canal ficou autorizado e falha se for o errado.
+
+**Chaves de API:**
+
+| Chave | Onde | Para quê |
 |---|---|---|
-| Ativar YouTube Data API v3 | Google Cloud Console | projeto habilitado |
-| Criar OAuth client ID tipo **Desktop app** | Console → Credenciais | baixa `client_secret.json` |
-| Rodar `maquina auth-youtube` | máquina local | gera `secrets/youtube_token.json` |
-| Chave Anthropic (roteiro) | console.anthropic.com | `ANTHROPIC_API_KEY` |
-| Chave ElevenLabs (narração) | elevenlabs.io | `ELEVENLABS_API_KEY` |
-| Chave OpenAI (imagens) | platform.openai.com | `OPENAI_API_KEY` |
+| `ANTHROPIC_API_KEY` | console.anthropic.com | roteiro |
+| `ELEVENLABS_API_KEY` | elevenlabs.io | narração |
+| `OPENAI_API_KEY` | platform.openai.com | imagens |
 
 Depois, cadastre como **secrets do repositório** (Settings → Secrets → Actions):
 `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `ELEVENLABS_API_KEY`, `MAQ_TTS_VOICE_ID`,

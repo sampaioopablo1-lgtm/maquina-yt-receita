@@ -62,6 +62,34 @@ def autenticar(cfg: Config) -> Path:
     return cfg.yt_token
 
 
+def canal_autorizado(cfg: Config) -> dict[str, str]:
+    """Qual canal a credencial atual controla.
+
+    Uma conta Google pode ter varios canais (Contas de Marca), e a escolha
+    acontece na tela do Google. Confirmar depois evita o erro caro: publicar
+    no canal errado.
+    """
+    yt = _servico(cfg)
+    resp = yt.channels().list(part="snippet,statistics", mine=True).execute()
+
+    itens = resp.get("items") or []
+    if not itens:
+        raise RuntimeError(
+            "a credencial nao controla nenhum canal. Refaca `maquina auth-youtube` "
+            "e selecione um canal na tela do Google."
+        )
+
+    snip = itens[0]["snippet"]
+    stats = itens[0].get("statistics", {})
+    return {
+        "id": itens[0]["id"],
+        "titulo": snip.get("title", ""),
+        "handle": snip.get("customUrl", ""),
+        "inscritos": stats.get("subscriberCount", "0"),
+        "videos": stats.get("videoCount", "0"),
+    }
+
+
 def _servico(cfg: Config, nome: str = "youtube", versao: str = "v3"):
     from googleapiclient.discovery import build
 

@@ -170,16 +170,89 @@ def diagnosticar(slug: str = typer.Argument("", help="vazio = todos os publicado
 
 @app.command("auth-youtube")
 def auth_youtube():
-    """Autoriza a conta do YouTube (rodar uma vez, localmente)."""
-    from .stages.youtube import autenticar
+    """Abre a janela do Google para autorizar sua conta (uma vez, localmente)."""
+    from .stages.youtube import autenticar, canal_autorizado
 
     cfg = _cfg()
-    caminho = autenticar(cfg)
-    console.print(f"[green]Token salvo em {caminho}[/]")
+
+    if not cfg.yt_client_secret.exists():
+        console.print(f"[red]Falta o arquivo {cfg.yt_client_secret}[/]\n")
+        console.print("Cadastro no Google (uma vez so, ~5 min):")
+        console.print("  1. console.cloud.google.com > criar projeto")
+        console.print("  2. Menu > APIs e servicos > Biblioteca")
+        console.print("     busque [bold]YouTube Data API v3[/] > Ativar")
+        console.print("  3. Menu > APIs e servicos > Tela de permissao OAuth")
+        console.print("     tipo [bold]Externo[/] > preencha nome e email > Salvar")
+        console.print("     em 'Usuarios de teste', adicione seu proprio Gmail")
+        console.print("  4. Menu > Credenciais > Criar credenciais")
+        console.print("     [bold]ID do cliente OAuth[/] > tipo [bold]App para computador[/]")
+        console.print("  5. Baixe o JSON e salve como:")
+        console.print(f"     [bold]{cfg.yt_client_secret}[/]")
+        console.print("\nDepois rode este comando de novo.")
+        raise typer.Exit(1)
+
+    console.print("Abrindo a janela do Google no seu navegador...")
     console.print(
-        "\nPara o GitHub Actions: copie o conteudo deste arquivo para o secret "
+        f"[yellow]Escolha a conta e, se aparecer lista de canais, "
+        f"selecione {cfg.canal.handle}.[/]\n"
+    )
+    caminho = autenticar(cfg)
+
+    try:
+        canal = canal_autorizado(cfg)
+    except Exception as e:
+        console.print(f"[green]Token salvo em {caminho}[/]")
+        console.print(f"[yellow]Nao consegui confirmar o canal: {e}[/]")
+        raise typer.Exit(0)
+
+    tabela = Table("Canal autorizado", "Valor")
+    tabela.add_row("Nome", canal["titulo"])
+    tabela.add_row("Handle", canal["handle"] or "(sem handle)")
+    tabela.add_row("Inscritos", canal["inscritos"])
+    tabela.add_row("Videos", canal["videos"])
+    console.print(tabela)
+
+    esperado = cfg.canal.handle.lstrip("@").lower()
+    obtido = (canal["handle"] or "").lstrip("@").lower()
+    if esperado and obtido and esperado != obtido:
+        console.print(
+            f"\n[bold red]ATENCAO: voce autorizou '{canal['handle']}', mas a config "
+            f"aponta para '{cfg.canal.handle}'.[/]\n"
+            "Se publicar assim, o video vai para o canal errado. Para trocar: "
+            f"apague {cfg.yt_token} e rode este comando de novo."
+        )
+        raise typer.Exit(2)
+
+    console.print(f"\n[green]Pronto. Token salvo em {caminho}[/]")
+    console.print(
+        "Para o GitHub Actions: copie o conteudo deste arquivo para o secret "
         "[bold]YT_TOKEN_JSON[/]."
     )
+
+
+@app.command()
+def canais():
+    """Mostra qual canal esta autorizado no momento."""
+    from .stages.youtube import canal_autorizado
+
+    cfg = _cfg()
+    if not cfg.yt_token.exists():
+        console.print("[yellow]Nenhuma conta autorizada. Rode `maquina auth-youtube`.[/]")
+        raise typer.Exit(1)
+
+    try:
+        canal = canal_autorizado(cfg)
+    except Exception as e:
+        console.print(f"[red]{e}[/]")
+        raise typer.Exit(1)
+
+    tabela = Table("Campo", "Valor")
+    for rotulo, chave in [
+        ("Nome", "titulo"), ("Handle", "handle"),
+        ("ID", "id"), ("Inscritos", "inscritos"), ("Videos", "videos"),
+    ]:
+        tabela.add_row(rotulo, canal[chave] or "-")
+    console.print(tabela)
 
 
 @app.command("voice-clone")
