@@ -29,6 +29,7 @@ MAQ_LLM_PROVIDER=stub MAQ_TTS_PROVIDER=stub MAQ_IMAGE_PROVIDER=stub \
 | Comando | O que faz |
 |---|---|
 | `maquina doctor` | Ambiente, credenciais e providers ativos |
+| `maquina pesquisar "<termo>"` | Descobre o que performa no subnicho (pilar 1) |
 | `maquina ideias --formato longo` | Gera pautas candidatas |
 | `maquina produzir "Título"` | Ideia → MP4 renderizado (não publica) |
 | `maquina auto --formato longo` | Escolhe pauta, produz e passa nas checagens |

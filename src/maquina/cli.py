@@ -202,6 +202,75 @@ def voice_clone(
     console.print(f"Adicione ao .env: [bold]MAQ_TTS_VOICE_ID={voice_id}[/]")
 
 
+@app.command()
+def pesquisar(
+    termo: str = typer.Argument(..., help="termo do subnicho, no idioma do canal"),
+    limite: int = typer.Option(25, help="quantos videos analisar"),
+    aplicar: bool = typer.Option(
+        False, "--aplicar", help="grava as palavras-chave em config/default.yaml"
+    ),
+):
+    """Descobre o que ja performa no subnicho — alimenta o pilar 1 (titulo).
+
+    Usa a API oficial: devolve views e data de forma estruturada, e ordena por
+    views/dia para mostrar o que performa AGORA, nao o que acumulou com o tempo.
+    """
+    import yaml
+
+    from .providers import obter_llm
+    from .stages.pesquisa import buscar, extrair_padroes, palavras_frequentes
+
+    cfg = _cfg()
+    console.print(f"Buscando [bold]{termo}[/] em {cfg.canal.idioma}...")
+
+    videos = buscar(cfg, termo, limite)
+    if not videos:
+        console.print("[yellow]nenhum video encontrado[/]")
+        raise typer.Exit(0)
+
+    tabela = Table("Views", "Views/dia", "Titulo", "Canal")
+    for v in videos[:15]:
+        tabela.add_row(f"{v.views:,}", f"{v.views_por_dia:,.0f}", v.titulo[:55], v.canal[:20])
+    console.print(tabela)
+
+    frequentes = palavras_frequentes(videos)
+    console.print("\n[bold]Palavras-chave ponderadas por performance:[/]")
+    console.print(", ".join(p for p, _ in frequentes))
+
+    analise = extrair_padroes(obter_llm(cfg), cfg, videos)
+
+    if padroes := analise.get("padroes"):
+        console.print("\n[bold]Padroes estruturais:[/]")
+        for p in padroes:
+            console.print(f"  - {p}")
+    if dif := analise.get("diferencial_alta_performance"):
+        console.print(f"\n[bold]O que separa os que performam:[/]\n{dif}")
+    if propostos := analise.get("titulos_propostos"):
+        console.print("\n[bold]Titulos propostos:[/]")
+        for t in propostos:
+            console.print(f"  - {t}")
+
+    if not aplicar:
+        console.print(
+            "\n[dim]Revise antes de adotar. Para gravar as palavras-chave na "
+            "config: --aplicar[/]"
+        )
+        raise typer.Exit(0)
+
+    caminho = Path("config/default.yaml")
+    dados = yaml.safe_load(caminho.read_text(encoding="utf-8")) or {}
+    chaves = analise.get("palavras_chave") or [p for p, _ in frequentes[:15]]
+    atuais = dados.setdefault("canal", {}).get("referencias_titulo") or []
+    dados["canal"]["referencias_titulo"] = sorted({*atuais, *chaves})
+    caminho.write_text(
+        yaml.safe_dump(dados, allow_unicode=True, sort_keys=False), encoding="utf-8"
+    )
+    console.print(
+        f"\n[green]{len(dados['canal']['referencias_titulo'])} palavras-chave "
+        f"gravadas em {caminho}[/]"
+    )
+
+
 @app.command("voice-test")
 def voice_test(
     voice_id: str = typer.Option("", help="voice_id a testar (padrao: o do .env)"),

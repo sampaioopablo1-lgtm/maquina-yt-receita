@@ -54,13 +54,30 @@ teste aqui evitam semanas de vídeo com curva ruim.
 ## 3. Calibrar o conteúdo (é aqui que o canal se define)
 
 O único campo realmente vazio hoje é `canal.referencias_titulo` em
-`config/default.yaml`. Ele alimenta o pilar 1.
+`config/default.yaml`. Ele alimenta o pilar 1 — sem ele o LLM escreve títulos
+genéricos e o título não "traqueia".
 
-1. Levante 15-20 títulos que já performam no subnicho **em indonésio**.
-2. Extraia as palavras-chave recorrentes.
-3. Preencha a lista.
+Isso é automatizado:
 
-Sem isso o LLM escreve títulos genéricos e o pilar 1 não sustenta.
+```bash
+maquina pesquisar "cara mengatur keuangan"     # termo do subnicho, em indonésio
+maquina pesquisar "tips karir" --aplicar       # grava as palavras-chave na config
+```
+
+O comando busca pela API oficial (dados estruturados, não raspagem de tela) e
+ordena por **views/dia**, não por views absolutas: vídeo antigo acumula views e
+parece vencedor mesmo tendo parado de performar. O que interessa para canal novo
+é o que está entregando agora.
+
+A saída traz três coisas: os vídeos ordenados por performance, as palavras-chave
+ponderadas (a palavra que aparece no vídeo que performa vale mais), e os padrões
+estruturais extraídos pelo LLM com 10 títulos novos propostos.
+
+Rode com 3-4 termos diferentes do subnicho para cobrir bem. **Revise antes de
+usar `--aplicar`** — o comando sem a flag só mostra.
+
+> Cota: `search.list` custa 100 unidades. Uma pesquisa fica em ~100-300 do teto
+> diário de 10.000. Não rode em loop.
 
 Opcional, mas recomendado: colocar uma trilha em `assets/musica/trilha.mp3`
 (licença livre). A máquina mixa em -22 dB automaticamente; sem o arquivo ela

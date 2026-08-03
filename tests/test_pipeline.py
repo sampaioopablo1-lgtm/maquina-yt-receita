@@ -214,6 +214,48 @@ def test_analise_sem_comentarios_retorna_none(cfg):
     assert analisar_comentarios(LLMStub(), cfg, []) is None
 
 
+# ---------- pesquisa de subnicho (pilar 1) ----------
+
+def _achado(titulo: str, views: int, dias: int):
+    from datetime import datetime, timedelta, timezone
+
+    from maquina.stages.pesquisa import VideoEncontrado
+
+    return VideoEncontrado(
+        video_id=titulo[:5],
+        titulo=titulo,
+        canal="canal",
+        views=views,
+        publicado_em=datetime.now(timezone.utc) - timedelta(days=dias),
+    )
+
+
+def test_views_por_dia_normaliza_pela_idade():
+    """Video antigo com muitas views nao deve ganhar de um novo em ascensao."""
+    antigo = _achado("antigo", views=100_000, dias=365)
+    novo = _achado("novo", views=20_000, dias=10)
+    assert novo.views_por_dia > antigo.views_por_dia
+
+
+def test_palavras_frequentes_ignora_vazias_e_pondera():
+    from maquina.stages.pesquisa import palavras_frequentes
+
+    videos = [
+        _achado("cara investasi yang benar", views=50_000, dias=5),   # alta performance
+        _achado("tips karir yang biasa", views=100, dias=300),        # baixa
+    ]
+    palavras = dict(palavras_frequentes(videos))
+
+    assert "yang" not in palavras                       # palavra funcional filtrada
+    assert palavras["investasi"] > palavras["karir"]    # ponderado por views/dia
+
+
+def test_palavras_frequentes_com_lista_vazia():
+    from maquina.stages.pesquisa import palavras_frequentes
+
+    assert palavras_frequentes([]) == []
+
+
 # ---------- ponta a ponta ----------
 
 @pytest.mark.slow
