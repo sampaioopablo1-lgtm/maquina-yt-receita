@@ -108,3 +108,30 @@ que existem antes da monetização.
 - [TubeAnalytics — CPM por país](https://www.tubeanalytics.net/blog/youtube-cpm-by-country)
 - [YTface — CPM rates by country](https://www.ytface.com/cpm-rates-by-country)
 - docs/11 (RPM por nicho) e docs/12 (portfólio, compliance)
+
+## Trilha sonora (decidido em 04/08/2026)
+
+Fonte escolhida: **Incompetech (Kevin MacLeod) + Archive.org** — download direto
+sem chave de API (testado: HTTP 200), licenca CC-BY, uso comercial e
+monetizacao liberados. A Biblioteca de Audio do YouTube NAO tem API (so pelo
+Studio), e o Pixabay (CC0, sem credito) exige chave gratuita — fica como
+upgrade futuro.
+
+Faixas baixadas (320/256 kbps, estereo):
+- Deliberate_Thought.mp3 (7,2 MB) — tom analitico, bom para financas
+- Inspired.mp3 (9,2 MB) — tom otimista, bom para carreira/receitas
+- Wholesome.mp3 (14,6 MB) — tom leve, bom para games/lifestyle
+
+Regras aplicadas na fabrica:
+- Trilha **fixa por canal** (hash do slug) — repetir a mesma faixa vira
+  assinatura sonora e ajuda no reconhecimento do canal.
+- Mixada a **-28 dB** sob a narracao. Em video explicador, a trilha existe
+  para tirar o silencio entre as frases, nao para ser ouvida; trilha alta e
+  causa comum de abandono neste formato.
+- Credito obrigatorio no copy.md (exigencia da CC-BY):
+  `Music: <faixa> by Kevin MacLeod (incompetech.com) — Licensed under CC BY 4.0`
+
+Fontes:
+- https://incompetech.com/music/royalty-free/
+- https://archive.org/details/opensource_audio (157.766 faixas em dominio publico)
+- https://pixabay.com/music/ (CC0, requer API key)
