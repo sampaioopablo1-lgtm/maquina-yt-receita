@@ -93,7 +93,7 @@ def render(spec_file):
             open(f"{d}/{pref}{i:02d}.srt","w").write(f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
             z = "zoom+0.0006" if i%2 else "if(eq(on,1),1.06,max(zoom-0.0006,1.0))"
             vf = f"zoompan=z='{z}':d={int(dd*30)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
-            subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-pix_fmt","yuv420p","-c:a","aac","-b:a","160k","-shortest",f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","veryfast","-crf","20","-pix_fmt","yuv420p","-af","loudnorm=I=-14:TP=-1.5:LRA=11","-ac","2","-ar","48000","-c:a","aac","-b:a","192k","-shortest",f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
         with open(f"{d}/{pref}lista.txt","w") as f:
             for i in range(len(cenas)): f.write(f"file '{pref}clip{i:02d}.mp4'\n")
         out = "video.mp4" if pref=="l" else "short.mp4"
