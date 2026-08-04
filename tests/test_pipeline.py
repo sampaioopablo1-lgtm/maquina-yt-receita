@@ -297,6 +297,34 @@ def test_fish_audio_com_chave_instancia_real(cfg, monkeypatch):
     assert tts.voice_id == "abc123"
 
 
+def test_llm_auto_sem_chave_cai_no_stub(cfg, monkeypatch):
+    from maquina.providers import obter_llm
+
+    for env in ("ANTHROPIC_API_KEY", "GEMINI_API_KEY", "OPENAI_API_KEY"):
+        monkeypatch.delenv(env, raising=False)
+    cfg.llm_provider = "auto"
+    assert type(obter_llm(cfg)).__name__ == "LLMStub"
+
+
+def test_llm_auto_prefere_gemini_como_plano_b(cfg, monkeypatch):
+    """Sem Anthropic mas com Gemini, a cadeia escolhe o Gemini (free tier)."""
+    from maquina.providers import obter_llm
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.setenv("GEMINI_API_KEY", "chave-teste")
+    cfg.llm_provider = "auto"
+    assert type(obter_llm(cfg)).__name__ == "LLMGemini"
+
+
+def test_llm_auto_prioriza_anthropic(cfg, monkeypatch):
+    from maquina.providers import obter_llm
+
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "a")
+    monkeypatch.setenv("GEMINI_API_KEY", "g")
+    cfg.llm_provider = "auto"
+    assert type(obter_llm(cfg)).__name__ == "LLMAnthropic"
+
+
 # ---------- pesquisa de subnicho (pilar 1) ----------
 
 def _achado(titulo: str, views: int, dias: int):

@@ -64,7 +64,9 @@ publicacao:
   janela_similaridade: 30
   exigir_revisao: true              # NAO desligue sem ler o doc de compliance
 
-llm_provider: "anthropic"
+# auto: usa a primeira chave disponivel — Anthropic > Gemini (free tier,
+# aistudio.google.com) > OpenAI. Sem nenhuma, cai no stub offline.
+llm_provider: "auto"
 # modal: narracao AUTOMATICA e gratuita — o mesmo Chatterbox indonesio, como
 # servico serverless que o Actions chama sozinho (free tier US$30/mes do Modal
 # cobre o ritmo diario). Setup unico: infra/modal_tts.py. Docs: 09-voz-gratuita.md

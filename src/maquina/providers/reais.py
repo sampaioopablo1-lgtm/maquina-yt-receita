@@ -92,6 +92,54 @@ class LLMOpenAI:
         return dados["choices"][0]["message"]["content"]
 
 
+class LLMGemini:
+    """Plano B do roteiro: Google Gemini, com free tier real.
+
+    O free tier do AI Studio (aistudio.google.com -> Get API key) cobre o ritmo
+    diario do canal sem cartao de credito. Qualidade de roteiro levemente
+    inferior ao caminho principal, mas plenamente utilizavel.
+    """
+
+    def __init__(self, modelo: str = "gemini-2.5-flash"):
+        self.modelo = modelo
+        self.custo_usd = 0.0  # free tier
+        chave = os.getenv("GEMINI_API_KEY")
+        if not chave:
+            raise ErroProvider("GEMINI_API_KEY ausente")
+        self._chave = chave
+        self._cli = httpx.Client(
+            base_url="https://generativelanguage.googleapis.com/v1beta",
+            timeout=TIMEOUT,
+        )
+
+    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+        corpo: dict = {
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"maxOutputTokens": max_tokens},
+        }
+        if sistema:
+            corpo["systemInstruction"] = {"parts": [{"text": sistema}]}
+
+        r = self._cli.post(
+            f"/models/{self.modelo}:generateContent",
+            params={"key": self._chave},
+            json=corpo,
+        )
+        if r.status_code >= 400:
+            raise ErroProvider(f"Gemini {r.status_code}: {r.text[:400]}")
+
+        dados = r.json()
+        partes = (
+            (dados.get("candidates") or [{}])[0]
+            .get("content", {})
+            .get("parts", [])
+        )
+        texto = "".join(p.get("text", "") for p in partes)
+        if not texto:
+            raise ErroProvider(f"Gemini sem texto na resposta: {str(dados)[:300]}")
+        return texto
+
+
 class TTSElevenLabs:
     """Narracao com voz clonada do operador (ver docs/00-decisoes.md)."""
 

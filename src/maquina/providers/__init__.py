@@ -22,13 +22,36 @@ def _fallback(nome: str, erro: Exception, stub):
 
 
 def obter_llm(cfg: Config) -> LLM:
+    """Seleciona o LLM. "auto" percorre a cadeia de fallback pela credencial
+    disponivel: Anthropic -> Gemini (free tier) -> stub. Assim o roteiro nunca
+    bloqueia a pipeline por falta de uma chave especifica."""
     if cfg.llm_provider == "stub":
         return LLMStub()
-    try:
-        from .reais import LLMAnthropic, LLMOpenAI
 
+    from .reais import LLMAnthropic, LLMGemini, LLMOpenAI
+
+    if cfg.llm_provider == "auto":
+        import os
+
+        cadeia = [
+            ("anthropic", "ANTHROPIC_API_KEY", lambda: LLMAnthropic(cfg.llm_model)),
+            ("gemini", "GEMINI_API_KEY", lambda: LLMGemini()),
+            ("openai", "OPENAI_API_KEY", lambda: LLMOpenAI("gpt-4o-mini")),
+        ]
+        for nome, env, fabrica in cadeia:
+            if os.getenv(env):
+                try:
+                    log.info("llm auto: usando %s", nome)
+                    return fabrica()
+                except ErroProvider as e:
+                    log.warning("llm auto: %s falhou (%s), tentando proximo", nome, e)
+        return _fallback("auto", ErroProvider("nenhuma chave de LLM presente"), LLMStub())
+
+    try:
         if cfg.llm_provider == "anthropic":
             return LLMAnthropic(cfg.llm_model)
+        if cfg.llm_provider == "gemini":
+            return LLMGemini()
         if cfg.llm_provider == "openai":
             return LLMOpenAI(cfg.llm_model)
         raise ErroProvider(f"llm_provider desconhecido: {cfg.llm_provider}")
