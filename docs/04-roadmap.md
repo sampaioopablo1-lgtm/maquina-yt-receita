@@ -30,8 +30,13 @@ tomada no processo anterior.
 assim que as chaves estiverem no lugar.
 
 Depois, cadastre como **secrets do repositório** (Settings → Secrets → Actions):
-`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `ELEVENLABS_API_KEY`, `MAQ_TTS_VOICE_ID`,
-`YT_TOKEN_JSON` (o conteúdo inteiro do `youtube_token.json`).
+`ANTHROPIC_API_KEY` ou `GEMINI_API_KEY` (roteiro), `OPENAI_API_KEY` (imagens),
+`MAQ_TTS_VOICE_ID`, `YT_TOKEN_JSON` (o conteúdo inteiro do `youtube_token.json`).
+Se usar o provider `modal` (padrão da config, narração gratuita — ver
+[`09-voz-gratuita.md`](09-voz-gratuita.md)), cadastre também `MAQ_TTS_URL` e
+`MAQ_TTS_TOKEN`; sem eles `producao.yml` cai no stub silencioso mesmo com as
+outras chaves presentes. Se usar `fish` em vez disso, cadastre `ELEVENLABS_API_KEY`
+ou `FISH_AUDIO_API_KEY` conforme o provider escolhido.
 
 > ⚠️ A cota padrão da YouTube Data API é 10.000 unidades/dia e **um upload custa
 > ~1.600**. São ~6 uploads/dia no teto — folgado para o limite de 2/dia da
@@ -118,7 +123,7 @@ maquina publicar <slug> --em-horas 3
 
 Só depois que a saída manual estiver boa:
 
-- `producao.yml` já roda **terças e sextas, 09:00 UTC**. Ajuste o cron ao seu ritmo.
+- `producao.yml` já roda **diariamente, 09:00 UTC**. Ajuste o cron ao seu ritmo.
 - `publicacao.yml` continua **manual e intencional** — é a revisão humana.
 - Configure `environment: youtube` com reviewers para exigir aprovação no Actions.
 

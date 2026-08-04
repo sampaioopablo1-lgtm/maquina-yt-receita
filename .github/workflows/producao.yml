@@ -55,6 +55,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           MAQ_TTS_VOICE_ID: ${{ secrets.MAQ_TTS_VOICE_ID }}
+          MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
+          MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: maquina doctor
 
       - name: Produzir
@@ -64,6 +66,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           MAQ_TTS_VOICE_ID: ${{ secrets.MAQ_TTS_VOICE_ID }}
+          MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
+          MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: |
           if [ -n "${{ inputs.titulo }}" ]; then
             maquina produzir "${{ inputs.titulo }}" --formato "${{ inputs.formato || 'longo' }}"
