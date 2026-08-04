@@ -15,15 +15,15 @@ def test_canal_padrao_continua_setiap_level():
 
 
 def test_canal_do_portfolio_sobrepoe_e_isola_estado():
-    cfg = Config.load(canal="the-power-map")
-    assert cfg.canal.nome == "The Power Map"
-    assert cfg.canal.idioma == "en"
+    cfg = Config.load(canal="kolejny-poziom")
+    assert cfg.canal.nome == "Kolejny Poziom"
+    assert cfg.canal.idioma == "pl"
     assert cfg.canal.estilo_visual == "voxlite"
-    assert cfg.canal.voz_edge == "en-GB-RyanNeural"
+    assert cfg.canal.voz_edge == "pl-PL-MarekNeural"
     # Estado separado: similaridade e teto diario sao por canal.
-    assert cfg.data_dir == ROOT / "data" / "the-power-map"
-    assert cfg.out_dir == ROOT / "out" / "the-power-map"
-    assert cfg.yt_token.name == "youtube_token_the-power-map.json"
+    assert cfg.data_dir == ROOT / "data" / "kolejny-poziom"
+    assert cfg.out_dir == ROOT / "out" / "kolejny-poziom"
+    assert cfg.yt_token.name == "youtube_token_kolejny-poziom.json"
     # Limites de compliance vem do default e continuam valendo.
     assert cfg.publicacao.max_por_dia == 3
 
