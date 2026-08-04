@@ -46,22 +46,30 @@ A leitura de comentários não é conveniência: segundo o próprio material est
 o diagnóstico aparece antes do gráfico de retenção ("música alta"). Num canal em idioma
 estrangeiro, sem tradução esse canal de feedback simplesmente não existe.
 
-## Voz — a validar antes de escalar
+## Voz — Fish Audio (decisão herdada do processo anterior)
 
-A intenção é usar a **voz clonada do operador** (`Gravando-aprimorado-v2.wav`), porque voz
-de catálogo é um dos marcadores mais óbvios de conteúdo produzido em massa, e a voz
-própria é um ativo que o concorrente não replica.
+A voz do operador **já está clonada no Fish Audio** — modelo "Pablo (eu)",
+id `0f8b54a7ec2f4d328a146db341ab63ad` (público, é a URL do modelo). O provider `fish`
+está implementado e é o padrão da config.
 
-⚠️ **Risco em aberto:** o clone é de um falante de português gerando indonésio. O
-`eleven_multilingual_v2` carrega características de pronúncia do falante original, e uma
-audiência nativa percebe sotaque em segundos — batendo direto no pilar 3 (retenção).
+A referência master também já existe: `Gravando-aprimorado-v2.wav` tratado — 71,5s, mono
+48 kHz, pico -1 dB, ruído ~50 dB abaixo da voz. Se precisar reclonar em outro serviço, é
+esse arquivo que se usa (fica em `assets/voice/`, fora do git).
 
-**Decisão: testar antes de escalar.** Rode `maquina voice-test`, envie a amostra para um
-falante nativo e pergunte se a pronúncia soa nativa. Se soar estrangeira, troque para voz
-nativa de catálogo e fixe uma só como identidade do canal.
+🔴 **Segurança:** a chave de API do Fish foi colada em texto aberto no chat do ChatGPT e
+está no export dessa conversa. **Revogar a chave "chatgpt" e gerar outra** antes de usar
+o provider. A nova chave só existe como env `FISH_AUDIO_API_KEY`.
 
-> O `.wav` **não** é versionado (áudio pessoal fora do git). Coloque em `assets/voice/` e
-> rode `maquina voice-clone`.
+**Caminho gratuito** (registrado no processo anterior, para quando não houver assinatura):
+1. **Gravar a própria narração** — automatiza-se tudo menos a voz. Zero custo, zero
+   risco de licença.
+2. **Chatterbox Indonesian no Colab** (modelo aberto, exige GPU CUDA) — é exatamente o
+   papel de laboratório que `01-arquitetura.md` reserva ao Colab. Validar licença
+   comercial antes de usar no canal.
+
+⚠️ **Risco em aberto (continua):** clone de falante de português gerando indonésio tem
+sotaque. Rode `maquina voice-test` e valide com um nativo antes de escalar — vale para o
+Fish tanto quanto valia para o ElevenLabs.
 
 ## Aprovação / revisão
 
@@ -92,6 +100,21 @@ distintas antes de reiniciar.
 
 **Custo estimado:** ~US$ 2,70/vídeo (TTS domina) → **~US$ 80/mês** em ritmo diário.
 Acompanhe com `maquina custo` e compare com o RPM observado.
+
+## Decisões herdadas do processo no ChatGPT (export estudado em 04/08/2026)
+
+| Decisão | Detalhe |
+|---|---|
+| Nome do canal | "Level Hidup" estava ocupado → **Setiap Level** |
+| Primeira pauta | **"7 níveis de salário na Indonésia"** — já estruturada, é o episódio 1 |
+| Trilha sonora | **YouTube Audio Library** (grátis, sem risco de direitos) — não gerar música por IA |
+| Conta Google | Tem **vários canais antigos** — todo OAuth deve confirmar que é o Setiap Level |
+| Cadência | "15/dia" é o limite de seleção do Studio, não permissão; limite real varia por canal |
+| Expectativa | "Monetizar em 48h" não existe: YPP exige 1.000 inscritos + 4.000h + revisão |
+
+Sobre a última linha: a meta operacional do projeto é constância e qualidade dos 3
+pilares. Receita é consequência do acervo, não meta de curto prazo — qualquer promessa
+diferente disso já foi identificada como marketing de mentoria no material de origem.
 
 ## Fora de escopo (decidido não fazer)
 

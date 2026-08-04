@@ -94,10 +94,12 @@ def _erro(e: Exception) -> str:
             f"Erro: chave de API ausente ({texto}). Preencha o .env a partir do "
             ".env.example, ou use MAQ_LLM_PROVIDER=stub para rodar offline."
         )
-    if "ELEVENLABS_API_KEY" in texto or "voice_id" in texto.lower():
+    if any(k in texto for k in ("FISH_AUDIO_API_KEY", "ELEVENLABS_API_KEY")) or "voice_id" in texto.lower():
         return (
-            "Erro: narracao nao configurada. Preencha ELEVENLABS_API_KEY e rode "
-            "`maquina voice-clone` para obter o MAQ_TTS_VOICE_ID."
+            "Erro: narracao nao configurada. Para o Fish Audio (onde a voz do "
+            "operador ja esta clonada), preencha FISH_AUDIO_API_KEY — gere uma "
+            "chave NOVA, a anterior vazou e deve ser revogada. O MAQ_TTS_VOICE_ID "
+            "e o id do modelo em fish.audio/m/<id>."
         )
     if "quota" in texto.lower() or "quotaExceeded" in texto:
         return (
@@ -285,7 +287,10 @@ async def maquina_status() -> str:
         if "Stub" in nomes["llm"]:
             pendencias.append("ANTHROPIC_API_KEY ausente — roteiros serao de teste")
         if "Stub" in nomes["tts"]:
-            pendencias.append("ELEVENLABS_API_KEY/voice_id ausente — narracao sera silencio")
+            pendencias.append(
+                "TTS sem credencial (FISH_AUDIO_API_KEY) — narracao sera silencio. "
+                "Revogue a chave vazada do Fish e gere outra antes de preencher."
+            )
         if "Stub" in nomes["imagem"]:
             pendencias.append("OPENAI_API_KEY ausente — imagens serao placeholders")
         if not yt_ok:

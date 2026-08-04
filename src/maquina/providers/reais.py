@@ -16,6 +16,7 @@ TIMEOUT = httpx.Timeout(300.0, connect=30.0)
 PRECO_ANTHROPIC = {"entrada": 3.00, "saida": 15.00}
 PRECO_OPENAI_LLM = {"entrada": 2.50, "saida": 10.00}
 PRECO_ELEVENLABS_POR_MIL_CHARS = 0.30
+PRECO_FISH_POR_MILHAO_BYTES = 15.0
 PRECO_IMAGEM_UNIDADE = 0.04
 
 
@@ -142,6 +143,54 @@ class TTSElevenLabs:
         if r.status_code >= 400:
             raise ErroProvider(f"ElevenLabs clone {r.status_code}: {r.text[:400]}")
         return r.json()["voice_id"]
+
+
+class TTSFishAudio:
+    """Narracao via Fish Audio — onde a voz clonada do operador ja existe.
+
+    A voz "Pablo (eu)" foi clonada na conta do operador; o voice_id (model id
+    do Fish) vai em MAQ_TTS_VOICE_ID. A chave NUNCA no codigo: apenas na env
+    FISH_AUDIO_API_KEY — a chave anterior vazou em chat e deve estar revogada.
+    """
+
+    def __init__(self, voice_id: str):
+        self.voice_id = voice_id
+        self.custo_usd = 0.0
+        chave = os.getenv("FISH_AUDIO_API_KEY")
+        if not chave:
+            raise ErroProvider("FISH_AUDIO_API_KEY ausente")
+        self._cli = httpx.Client(
+            base_url="https://api.fish.audio",
+            headers={"Authorization": f"Bearer {chave}"},
+            timeout=TIMEOUT,
+        )
+
+    def sintetizar(self, texto: str, saida: Path, *, voice_id: str = "") -> Path:
+        vid = voice_id or self.voice_id
+        if not vid:
+            raise ErroProvider(
+                "MAQ_TTS_VOICE_ID ausente — use o id do modelo de voz do Fish "
+                "(o trecho final da URL fish.audio/m/<id>)"
+            )
+
+        r = self._cli.post(
+            "/v1/tts",
+            json={
+                "text": texto,
+                "reference_id": vid,
+                "format": "mp3",
+                "mp3_bitrate": 192,
+                "normalize": True,
+                "latency": "normal",
+            },
+        )
+        if r.status_code >= 400:
+            raise ErroProvider(f"Fish Audio {r.status_code}: {r.text[:400]}")
+
+        saida.parent.mkdir(parents=True, exist_ok=True)
+        saida.write_bytes(r.content)
+        self.custo_usd += len(texto.encode("utf-8")) / 1e6 * PRECO_FISH_POR_MILHAO_BYTES
+        return saida
 
 
 class TTSOpenAI:

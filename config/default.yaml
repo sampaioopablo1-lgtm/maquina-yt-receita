@@ -65,8 +65,10 @@ publicacao:
   exigir_revisao: true              # NAO desligue sem ler o doc de compliance
 
 llm_provider: "anthropic"
-tts_provider: "elevenlabs"
+# fish: a voz clonada do operador ("Pablo (eu)") ja existe na conta Fish Audio.
+# Alternativas: elevenlabs | openai | stub. Ver docs/00-decisoes.md.
+tts_provider: "fish"
 image_provider: "openai"
 llm_model: "claude-sonnet-4-5"
-tts_model: "eleven_multilingual_v2"
+tts_model: "eleven_multilingual_v2"   # usado apenas se tts_provider=elevenlabs
 image_model: "gpt-image-1"

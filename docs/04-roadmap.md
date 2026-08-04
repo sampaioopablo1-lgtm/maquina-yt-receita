@@ -15,8 +15,19 @@ Google. O comando confirma qual canal ficou autorizado e falha se for o errado.
 | Chave | Onde | Para quê |
 |---|---|---|
 | `ANTHROPIC_API_KEY` | console.anthropic.com | roteiro |
-| `ELEVENLABS_API_KEY` | elevenlabs.io | narração |
+| `FISH_AUDIO_API_KEY` | fish.audio → Developer | narração (voz já clonada lá) |
 | `OPENAI_API_KEY` | platform.openai.com | imagens |
+
+🔴 **Fish Audio: gere uma chave NOVA.** A anterior foi colada em chat e está exposta no
+export da conversa — revogue a chave "chatgpt" antes de qualquer coisa.
+
+**Trilha sonora:** baixar da **YouTube Audio Library** (Studio → Biblioteca de áudio) e
+salvar como `assets/musica/trilha.mp3`. Grátis e sem risco de direitos — decisão já
+tomada no processo anterior.
+
+**Primeiro vídeo:** a pauta já existe — **"7 níveis de salário na Indonésia"**
+("7 Level Gaji di Indonesia"). Não gaste ideação: `maquina produzir` com esse título
+assim que as chaves estiverem no lugar.
 
 Depois, cadastre como **secrets do repositório** (Settings → Secrets → Actions):
 `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `ELEVENLABS_API_KEY`, `MAQ_TTS_VOICE_ID`,

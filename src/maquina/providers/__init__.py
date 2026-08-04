@@ -40,8 +40,10 @@ def obter_tts(cfg: Config) -> TTS:
     if cfg.tts_provider == "stub":
         return TTSStub()
     try:
-        from .reais import TTSElevenLabs, TTSOpenAI
+        from .reais import TTSElevenLabs, TTSFishAudio, TTSOpenAI
 
+        if cfg.tts_provider == "fish":
+            return TTSFishAudio(cfg.tts_voice_id)
         if cfg.tts_provider == "elevenlabs":
             return TTSElevenLabs(cfg.tts_model, cfg.tts_voice_id)
         if cfg.tts_provider == "openai":

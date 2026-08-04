@@ -214,6 +214,28 @@ def test_analise_sem_comentarios_retorna_none(cfg):
     assert analisar_comentarios(LLMStub(), cfg, []) is None
 
 
+# ---------- providers ----------
+
+def test_fish_audio_sem_chave_cai_no_stub(cfg, monkeypatch):
+    """Sem FISH_AUDIO_API_KEY o provider degrada para stub, nao quebra."""
+    from maquina.providers import obter_tts
+
+    monkeypatch.delenv("FISH_AUDIO_API_KEY", raising=False)
+    cfg.tts_provider = "fish"
+    assert type(obter_tts(cfg)).__name__ == "TTSStub"
+
+
+def test_fish_audio_com_chave_instancia_real(cfg, monkeypatch):
+    from maquina.providers import obter_tts
+
+    monkeypatch.setenv("FISH_AUDIO_API_KEY", "sk-teste-nao-real")
+    cfg.tts_provider = "fish"
+    cfg.tts_voice_id = "abc123"
+    tts = obter_tts(cfg)
+    assert type(tts).__name__ == "TTSFishAudio"
+    assert tts.voice_id == "abc123"
+
+
 # ---------- pesquisa de subnicho (pilar 1) ----------
 
 def _achado(titulo: str, views: int, dias: int):
