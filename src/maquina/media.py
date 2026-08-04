@@ -82,6 +82,25 @@ def clipe_de_imagem(
     fps = 30
     quadros = max(int(dur * fps), 1)
 
+    # Guarda de enquadramento: o filtro abaixo faz "cover" (nunca ha barra
+    # preta), mas se a proporcao da imagem divergir da do video o excesso e
+    # CORTADO. Avisar aqui aponta a causa certa: gerar a arte ja no aspecto
+    # do formato, em vez de aceitar corte silencioso.
+    try:
+        from PIL import Image as _Img
+
+        iw, ih = _Img.open(imagem).size
+        if abs((iw / ih) - (larg / alt)) > 0.02:
+            import logging as _log
+
+            _log.getLogger("maquina.media").warning(
+                "imagem %s tem proporcao %.2f mas o video e %.2f (%s) — "
+                "as bordas serao cortadas; gere a arte no aspecto do formato",
+                imagem.name, iw / ih, larg / alt, formato.aspect,
+            )
+    except Exception:
+        pass
+
     # Renderiza num canvas maior e faz zoompan para nao serrilhar a borda.
     escala = f"scale={larg * 2}:{alt * 2}:force_original_aspect_ratio=increase"
     corte = f"crop={larg * 2}:{alt * 2}"

@@ -65,10 +65,11 @@ publicacao:
   exigir_revisao: true              # NAO desligue sem ler o doc de compliance
 
 llm_provider: "anthropic"
-# lote: caminho GRATUITO — narracao gerada no Colab com Chatterbox-TTS-Indonesian
-# (Apache 2.0) clonando assets/voice/referencia.wav. Ver docs/09-voz-gratuita.md.
-# Alternativas: fish (pago, ~US$0,12/video) | elevenlabs | openai | stub.
-tts_provider: "lote"
+# modal: narracao AUTOMATICA e gratuita — o mesmo Chatterbox indonesio, como
+# servico serverless que o Actions chama sozinho (free tier US$30/mes do Modal
+# cobre o ritmo diario). Setup unico: infra/modal_tts.py. Docs: 09-voz-gratuita.md
+# Alternativas: lote (Colab manual) | fish (~US$0,12/video) | elevenlabs | stub.
+tts_provider: "modal"
 image_provider: "openai"
 llm_model: "claude-sonnet-4-5"
 tts_model: "eleven_multilingual_v2"   # usado apenas se tts_provider=elevenlabs

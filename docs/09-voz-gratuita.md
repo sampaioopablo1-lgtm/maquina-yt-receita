@@ -30,11 +30,36 @@ pesquisa e o caminho implementado.
 Para **outros idiomas** no futuro: [Chatterbox Multilingual v3](https://huggingface.co/ResembleAI/chatterbox)
 (MIT, 20+ idiomas) com a mesma referência de voz — o notebook documenta a troca.
 
-## Como funciona na prática
+## Caminho principal: Modal (automático, sem Colab)
 
-A restrição honesta: esses modelos exigem **GPU CUDA**, e o runner do GitHub
-Actions não tem GPU. Então a narração gratuita é **semiautomática** — exatamente
-o papel de "laboratório/GPU pontual" que a arquitetura reserva ao Colab:
+O pedido evoluiu: eliminar o passo manual do Colab. Resolvido com o **Modal** —
+o mesmo Chatterbox indonésio, publicado como serviço serverless que o GitHub
+Actions chama sozinho.
+
+A conta que fecha: o free tier do Modal dá **US$ 30/mês recorrentes** (~50h de
+GPU T4/mês). Um vídeo consome ~3 min de T4; o mês inteiro em ritmo diário usa
+~US$ 1,50 do crédito. **Custo real: zero, permanentemente.**
+
+Setup único (~10 min, instruções no topo de `infra/modal_tts.py`):
+
+```bash
+pip install modal && modal setup
+modal secret create maquina-tts TOKEN=<token-forte>
+modal run infra/modal_tts.py --ref assets/voice/referencia.wav   # sobe sua voz
+modal deploy infra/modal_tts.py                                  # publica
+```
+
+A URL publicada vai para `MAQ_TTS_URL` (+ `MAQ_TTS_TOKEN`) no .env e nos
+secrets do Actions. `tts_provider: "modal"` já é o padrão da config. O
+container morre 2 min após cada uso — não gasta crédito parado.
+
+Stack final do piloto automático: **Actions + Anthropic + Modal + YouTube API.**
+Quatro peças, narração e imagens sem custo.
+
+## Alternativa: Colab (manual, zero setup)
+
+O caminho anterior continua disponível (`tts_provider: "lote"`) para quando não
+houver conta Modal — mesma qualidade, só que semiautomático:
 
 ```
 maquina produzir "Titulo"        # roteiro OK, para na narracao com instrucao

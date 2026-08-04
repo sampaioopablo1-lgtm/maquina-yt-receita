@@ -193,6 +193,35 @@ class TTSFishAudio:
         return saida
 
 
+class TTSModal:
+    """Narracao serverless no Modal — Chatterbox indonesio com a voz clonada.
+
+    Endpoint publicado por `modal deploy infra/modal_tts.py`. O free tier do
+    Modal (US$30/mes recorrentes) cobre o ritmo diario do canal, entao o custo
+    contabilizado aqui e zero.
+    """
+
+    custo_usd = 0.0
+
+    def __init__(self):
+        self.url = os.getenv("MAQ_TTS_URL", "")
+        self.token = os.getenv("MAQ_TTS_TOKEN", "")
+        if not self.url:
+            raise ErroProvider(
+                "MAQ_TTS_URL ausente — rode `modal deploy infra/modal_tts.py` "
+                "e aponte a URL publicada (ver docs/09-voz-gratuita.md)"
+            )
+        self._cli = httpx.Client(timeout=TIMEOUT)
+
+    def sintetizar(self, texto: str, saida: Path, *, voice_id: str = "") -> Path:
+        r = self._cli.post(self.url, json={"text": texto, "token": self.token})
+        if r.status_code >= 400:
+            raise ErroProvider(f"Modal TTS {r.status_code}: {r.text[:300]}")
+        saida.parent.mkdir(parents=True, exist_ok=True)
+        saida.write_bytes(r.content)
+        return saida
+
+
 class TTSOpenAI:
     def __init__(self, modelo: str = "gpt-4o-mini-tts", voz: str = "onyx"):
         self.modelo = modelo

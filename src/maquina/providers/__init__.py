@@ -44,8 +44,10 @@ def obter_tts(cfg: Config) -> TTS:
 
         return TTSLote()
     try:
-        from .reais import TTSElevenLabs, TTSFishAudio, TTSOpenAI
+        from .reais import TTSElevenLabs, TTSFishAudio, TTSModal, TTSOpenAI
 
+        if cfg.tts_provider == "modal":
+            return TTSModal()
         if cfg.tts_provider == "fish":
             return TTSFishAudio(cfg.tts_voice_id)
         if cfg.tts_provider == "elevenlabs":

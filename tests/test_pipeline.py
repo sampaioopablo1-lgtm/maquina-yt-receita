@@ -243,6 +243,42 @@ def test_tts_lote_falta_arquivo_instrui(cfg, tmp_path):
         TTSLote().sintetizar("texto", tmp_path / "cena_001.mp3")
 
 
+def test_tts_modal_sem_url_cai_no_stub(cfg, monkeypatch):
+    from maquina.providers import obter_tts
+
+    monkeypatch.delenv("MAQ_TTS_URL", raising=False)
+    cfg.tts_provider = "modal"
+    assert type(obter_tts(cfg)).__name__ == "TTSStub"
+
+
+def test_tts_modal_com_url_instancia_real(cfg, monkeypatch):
+    from maquina.providers import obter_tts
+
+    monkeypatch.setenv("MAQ_TTS_URL", "https://exemplo.modal.run")
+    monkeypatch.setenv("MAQ_TTS_TOKEN", "t")
+    cfg.tts_provider = "modal"
+    assert type(obter_tts(cfg)).__name__ == "TTSModal"
+
+
+def test_thumbnail_nao_distorce_fundo_vertical(cfg, tmp_path):
+    """Fundo 9:16 numa thumb 16:9 deve ser cover-crop, nunca esticado."""
+    from PIL import Image
+
+    from maquina.models import Cena, Roteiro
+    from maquina.providers.stubs import ImagemStub
+    from maquina.stages.render import montar_thumbnail
+
+    destino = tmp_path
+    # pré-cria o fundo vertical (como no fluxo SVG do canal)
+    Image.new("RGB", (1080, 1920), (200, 30, 30)).save(destino / "thumb_fundo.png")
+    roteiro = Roteiro(titulo="t", gancho="g", texto_thumbnail="TESTE",
+                      cenas=[Cena(indice=0, narracao="n", prompt_visual="p")])
+
+    thumb = montar_thumbnail(ImagemStub(), roteiro, destino)
+    with Image.open(thumb) as img:
+        assert img.size == (1280, 720)
+
+
 def test_tts_lote_selecionado_pela_config(cfg):
     from maquina.providers import obter_tts
 

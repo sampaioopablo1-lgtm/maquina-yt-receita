@@ -6,7 +6,7 @@ import logging
 import textwrap
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 from .. import media
 from ..models import Formato, Roteiro
@@ -79,7 +79,11 @@ def montar_thumbnail(
         prompt = roteiro.prompt_thumbnail or f"cinematic background for: {roteiro.titulo}"
         gerador.gerar(prompt, fundo, largura=largura, altura=altura)
 
-    img = Image.open(fundo).convert("RGB").resize((largura, altura), Image.LANCZOS)
+    # fit = cover centrado: preenche 1280x720 sem distorcer nem deixar barra.
+    # resize() puro esticaria um fundo 9:16 — foi o bug do primeiro teste.
+    img = ImageOps.fit(
+        Image.open(fundo).convert("RGB"), (largura, altura), Image.LANCZOS
+    )
 
     # Escurece o topo para o texto ter contraste garantido sobre qualquer imagem.
     faixa = Image.new("L", (largura, altura), 0)
