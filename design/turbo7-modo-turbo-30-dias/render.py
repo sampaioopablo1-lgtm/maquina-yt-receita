@@ -9,8 +9,8 @@ from PIL import Image
 
 RAIZ = Path(__file__).parent
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
-LARGURA, ALTURA = 1200, 2000          # canvas em px CSS
-ESCALA = 2                            # 2400 × 4000 px na saída
+LARGURA, ALTURA = 1200, 2160          # canvas em px CSS
+ESCALA = 2                            # 2400 × 4320 px na saída
 NOME = "flyer-turbo7-modo-turbo-30-dias"
 
 # O headless reserva ~87px de altura de janela; pede-se folga e recorta-se depois.

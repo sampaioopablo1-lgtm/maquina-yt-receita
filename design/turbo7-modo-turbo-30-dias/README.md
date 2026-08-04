@@ -8,8 +8,8 @@ nos dias de pico.
 
 | Arquivo | Formato | Uso |
 | --- | --- | --- |
-| `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 4000 px (3:5, 2×) | WhatsApp, Instagram, e-mail, apresentações |
-| `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 20,83 in, 1 página | Impressão e envio comercial |
+| `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 4320 px (1:1,8, 2×) | WhatsApp, Instagram, e-mail, apresentações |
+| `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 22,5 in, 1 página | Impressão e envio comercial |
 | `apresentacao.html` | Página autocontida | Link de apresentação (publicado como Artifact) |
 
 ## Fontes do projeto
@@ -28,7 +28,7 @@ nos dias de pico.
 ```bash
 cd design/turbo7-modo-turbo-30-dias
 python3 build.py         # HTML do flyer a partir do conteúdo estruturado
-python3 render.py        # PNG (2400×4000) + PDF
+python3 render.py        # PNG (2400×4320) + PDF
 python3 build_pagina.py  # página de apresentação (usa o PNG já renderizado)
 ```
 
@@ -49,6 +49,9 @@ Tudo o que é editorial está no topo de `build.py`:
 - `INCLUSOS` — os três itens de escopo.
 - `GESTAO_LEAD`, `GESTAO_TEXTO`, `METRICAS` — a seção de acompanhamento de
   performance: a frase-âncora, o texto e os eixos rastreados nas reuniões.
+- `BONUS_METAS` / `BONUS_PREMIO` — as metas diárias do captador e o prêmio que
+  elas destravam. A faixa é desenhada como equação, então acrescentar uma
+  terceira meta só exige mais um item na lista.
 - `LEGENDA` — rótulos dos canais.
 
 Copy da manchete, alerta, estatísticas e bloco de oferta ficam no `TEMPLATE`,
@@ -68,6 +71,10 @@ na mesma seção do arquivo.
 - **Gestão é seção, não item de lista**: o acompanhamento semanal saiu da grade
   de escopo e ganhou bloco próprio, com os eixos que a reunião revisa — volume
   de ligações, alcance das mensagens e qualidade das conversas.
+- **O bônus é uma equação**: as duas metas diárias somam e um conector atravessa
+  o vão até o prêmio, o único bloco de verde chapado antes do CTA. As metas são
+  as mesmas grandezas que a reunião semanal acompanha — a faixa fecha o ciclo
+  entre o que se mede e o que se ganha.
 - **Oferta em dois tempos**: o valor do programa (R$ 20.000) e o que o cliente
   paga para começar (R$ 0 nos primeiros 30 dias) aparecem lado a lado, sem
   ambiguidade sobre o preço.

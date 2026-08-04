@@ -106,6 +106,13 @@ GESTAO_TEXTO = (
     "que <b>acompanha desempenho, ajusta diariamente e traciona resultados</b> — não um "
     "gestor que só cobra o número no fim do mês."
 )
+# O bônus é a resolução das métricas acima: bate as duas metas no dia, ganha.
+BONUS_METAS = [
+    ("100", "Ligações<br>por dia"),
+    ("2", "Visitas agendadas<br>por dia"),
+]
+BONUS_PREMIO = ("+1%", "De bônus na<br>comissão do captador")
+
 METRICAS = [
     ("Volume", "Total de ligações por dia"),
     ("Alcance", "Mensagens enviadas por captador"),
@@ -128,6 +135,18 @@ def construir() -> str:
         f'<span class="met-v sans">{v}</span></div>'
         for k, v in METRICAS
     )
+    alvos = f'<span class="op">+</span>'.join(
+        f'<div class="alvo"><span class="alvo-v">{v}</span>'
+        f'<span class="alvo-k">{k}</span></div>'
+        for v, k in BONUS_METAS
+    )
+    pv, pk = BONUS_PREMIO
+    seta = ('<span class="seta"><i></i>'
+            '<svg width="11" height="11" viewBox="0 0 11 11">'
+            '<path d="M0 0.6 10.4 5.5 0 10.4Z" fill="#7CF01E"/></svg></span>')
+    equacao = (f'{alvos}{seta}'
+               f'<div class="premio"><span class="premio-v">{pv}</span>'
+               f'<span class="premio-k">{pk}</span></div>')
     inclusos = "".join(
         f"""<div class="item">
   <div class="item-n mono-b">{n}</div>
@@ -137,7 +156,7 @@ def construir() -> str:
         for n, t, d in INCLUSOS
     )
     return TEMPLATE.format(colunas=colunas, cintas=cintas, legenda=legenda,
-                           inclusos=inclusos, metricas=metricas,
+                           inclusos=inclusos, metricas=metricas, equacao=equacao,
                            total=TOTAL_CONTATOS, lead=GESTAO_LEAD,
                            texto=GESTAO_TEXTO)
 
@@ -162,10 +181,10 @@ TEMPLATE = """<!DOCTYPE html>
   --seam:rgba(255,255,255,.105);
 }}
 *{{margin:0;padding:0;box-sizing:border-box;}}
-body{{width:1200px;height:2000px;overflow:hidden;background:var(--ink);
+body{{width:1200px;height:2160px;overflow:hidden;background:var(--ink);
   -webkit-font-smoothing:antialiased;}}
 
-.page{{position:relative;width:1200px;height:2000px;overflow:hidden;
+.page{{position:relative;width:1200px;height:2160px;overflow:hidden;
   background:radial-gradient(122% 64% at 50% -10%,#3D1168 0%,#270B45 40%,#180627 74%,#120320 100%);}}
 .page .grid{{position:absolute;inset:0;
   background:repeating-linear-gradient(to right,rgba(255,255,255,.032) 0 1px,transparent 1px 48px),
@@ -311,7 +330,7 @@ h1 em{{font-style:normal;color:var(--green);}}
 .gestao{{display:flex;border:1px solid rgba(124,240,30,.34);
   background:linear-gradient(100deg,rgba(124,240,30,.075) 0%,rgba(124,240,30,.022) 62%,rgba(124,240,30,.06) 100%);}}
 .gestao .rail{{width:4px;background:var(--green);flex:none;}}
-.gestao-corpo{{padding:17px 26px 19px;flex:1;}}
+.gestao-corpo{{padding:15px 26px 17px;flex:1;}}
 .gestao-lead{{font-family:'BigShoulders';font-weight:700;font-size:44px;line-height:.94;
   text-transform:uppercase;color:var(--green);letter-spacing:-.004em;}}
 .gestao-txt{{font-family:'Outfit';font-size:16.5px;line-height:1.46;color:#E4DAEE;
@@ -323,14 +342,37 @@ h1 em{{font-style:normal;color:var(--green);}}
 .met-k{{font-size:8px;color:var(--green);}}
 .met-v{{font-size:14.5px;line-height:1.3;color:var(--white);}}
 
+/* BONUS */
+.bonus{{margin-top:12px;border:1px solid rgba(124,240,30,.45);display:flex;align-items:stretch;
+  background:linear-gradient(100deg,rgba(124,240,30,.05) 0%,rgba(124,240,30,.015) 70%);}}
+.bonus-tag{{writing-mode:vertical-rl;background:var(--green);color:#0E0318;
+  font-size:9px;padding:14px 5px;display:flex;align-items:center;justify-content:center;
+  letter-spacing:.24em;flex:none;}}
+.eq{{display:flex;align-items:stretch;flex:1;}}
+.alvo{{padding:14px 20px 15px;display:flex;flex-direction:column;justify-content:center;gap:5px;}}
+.alvo-v{{font-family:'BigShoulders';font-weight:700;font-size:46px;line-height:.84;color:var(--white);}}
+.alvo-k{{font-family:'GeistMono';font-size:8.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--slate);line-height:1.7;}}
+.op{{font-family:'BigShoulders';font-weight:700;font-size:30px;line-height:1;color:var(--green);
+  display:flex;align-items:center;padding:0 4px;}}
+.seta{{flex:1;display:flex;align-items:center;padding:0 20px 0 26px;min-width:120px;}}
+.seta i{{flex:1;height:1px;
+  background:linear-gradient(to right,rgba(124,240,30,.18),rgba(124,240,30,.85));}}
+.seta svg{{display:block;flex:none;}}
+.premio{{background:var(--green);color:#0E0318;padding:14px 24px 15px;
+  display:flex;flex-direction:column;justify-content:center;gap:5px;min-width:290px;}}
+.premio-v{{font-family:'BigShoulders';font-weight:700;font-size:60px;line-height:.84;}}
+.premio-k{{font-family:'GeistMono';font-weight:700;font-size:8.5px;letter-spacing:.17em;
+  text-transform:uppercase;line-height:1.7;}}
+
 /* RODAPE */
-.foot{{margin-top:13px;padding-top:22px;border-top:1px solid var(--hair);
+.foot{{margin-top:11px;padding-top:22px;border-top:1px solid var(--hair);
   display:flex;align-items:center;justify-content:space-between;}}
 .foot .l{{font-family:'BigShoulders';font-weight:700;font-size:22px;color:var(--white);line-height:1;}}
 .foot .l em{{font-style:normal;color:var(--green);}}
 .foot .c{{font-family:'GeistMono';font-size:8.5px;letter-spacing:.20em;text-transform:uppercase;color:var(--slate);}}
 
-@page{{size:12.5in 20.8333in;margin:0;}}
+@page{{size:12.5in 22.5in;margin:0;}}
 @media print{{html,body{{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}}}
 </style>
 </head>
@@ -426,6 +468,11 @@ h1 em{{font-style:normal;color:var(--green);}}
         <p class="gestao-txt">{texto}</p>
         <div class="metricas">{metricas}</div>
       </div>
+    </div>
+
+    <div class="bonus">
+      <div class="bonus-tag mono-b">A cereja do bolo</div>
+      <div class="eq">{equacao}</div>
     </div>
 
     <div class="oferta">

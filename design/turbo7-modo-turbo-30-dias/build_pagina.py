@@ -11,8 +11,9 @@ from pathlib import Path
 
 from PIL import Image
 
-from build import (CADENCIA, CALL, CALL_WA, GESTAO_LEAD, GESTAO_TEXTO,
-                   INCLUSOS, METRICAS, MSG, TOTAL_CONTATOS)
+from build import (BONUS_METAS, BONUS_PREMIO, CADENCIA, CALL, CALL_WA,
+                   GESTAO_LEAD, GESTAO_TEXTO, INCLUSOS, METRICAS, MSG,
+                   TOTAL_CONTATOS)
 
 RAIZ = Path(__file__).parent
 LARGURA_WEB = 1600  # o flyer nasce com 2400px; 1600 basta para leitura em tela
@@ -52,6 +53,17 @@ def toques() -> str:
             f'<span class="canais">{marcas}</span></li>'
         )
     return "\n".join(linhas)
+
+
+def bonus() -> str:
+    alvos = '<span class="op">+</span>'.join(
+        f'<div class="alvo"><b>{v}</b><span>{k.replace("<br>", " ")}</span></div>'
+        for v, k in BONUS_METAS
+    )
+    pv, pk = BONUS_PREMIO
+    return (f'{alvos}<span class="op seta">&#8594;</span>'
+            f'<div class="premio"><b>{pv}</b>'
+            f'<span>{pk.replace("<br>", " ")}</span></div>')
 
 
 def metricas() -> str:
@@ -182,6 +194,24 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
   text-transform:uppercase;color:var(--accent);}}
 .met-v{{font-size:15px;line-height:1.3;}}
 
+/* bônus */
+.bonus{{border:1px solid var(--accent);display:flex;flex-direction:column;gap:0;}}
+.bonus-tag{{background:var(--accent);color:var(--accent-ink);
+  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;padding:9px 18px;}}
+.bonus-eq{{display:flex;flex-wrap:wrap;align-items:stretch;background:var(--surface);}}
+.alvo{{padding:20px 24px 22px;display:flex;flex-direction:column;gap:4px;}}
+.alvo b,.premio b{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:52px;
+  line-height:.86;font-variant-numeric:tabular-nums;}}
+.alvo span,.premio span{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;line-height:1.7;}}
+.alvo span{{color:var(--muted);}}
+.op{{display:flex;align-items:center;padding:0 6px;color:var(--accent);
+  font-family:'BigShoulders',sans-serif;font-weight:700;font-size:32px;}}
+.op.seta{{flex:1;justify-content:center;min-width:60px;}}
+.premio{{margin-left:auto;background:var(--accent);color:var(--accent-ink);
+  padding:20px 26px 22px;display:flex;flex-direction:column;gap:4px;}}
+
 /* oferta */
 .oferta{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);}}
@@ -237,10 +267,10 @@ footer a:hover{{border-bottom-color:var(--accent);}}
   </header>
 
   <figure>
-    <img src="{flyer}" width="1600" height="2667"
+    <img src="{flyer}" width="1600" height="2880"
          alt="Flyer do Programa Modo Turbo 30 Dias, com o mapa de cadência 12 por 30,
               o escopo do programa e a oferta de 30 dias gratuitos.">
-    <figcaption>Flyer — 2400 × 4000 px · também disponível em PDF para impressão</figcaption>
+    <figcaption>Flyer — 2400 × 4320 px · também disponível em PDF para impressão</figcaption>
   </figure>
 
   <section>
@@ -271,6 +301,16 @@ footer a:hover{{border-bottom-color:var(--accent);}}
   </section>
 
   <section>
+    <h2>Bônus por performance diária</h2>
+    <div class="bonus">
+      <span class="bonus-tag">A cereja do bolo</span>
+      <div class="bonus-eq">
+{bonus}
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2>Investimento</h2>
     <div class="oferta">
       <div class="preco">
@@ -291,9 +331,9 @@ footer a:hover{{border-bottom-color:var(--accent);}}
   <section>
     <h2>Ficha técnica</h2>
     <dl class="ficha">
-      <div><dt>Formato</dt><dd>Vertical 3:5</dd></div>
-      <div><dt>Imagem</dt><dd>PNG 2400 × 4000 px</dd></div>
-      <div><dt>Impressão</dt><dd>PDF, 1 página, 12,5 × 20,83 in</dd></div>
+      <div><dt>Formato</dt><dd>Vertical 1:1,8</dd></div>
+      <div><dt>Imagem</dt><dd>PNG 2400 × 4320 px</dd></div>
+      <div><dt>Impressão</dt><dd>PDF, 1 página, 12,5 × 22,5 in</dd></div>
       <div><dt>Tipografia</dt><dd>Big Shoulders, Outfit, Geist Mono</dd></div>
     </dl>
     <p class="ressalva">As estatísticas da peça — “+80% das conversões vêm da 4ª tentativa
@@ -321,6 +361,7 @@ if __name__ == "__main__":
             flyer=flyer_web(),
             toques=toques(),
             metricas=metricas(),
+            bonus=bonus(),
             total=TOTAL_CONTATOS,
             lead=GESTAO_LEAD,
             texto=GESTAO_TEXTO,
