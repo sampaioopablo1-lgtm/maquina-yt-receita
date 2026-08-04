@@ -164,6 +164,30 @@ def test_legendas_respeitam_duracao_das_cenas(cfg, tmp_path):
     assert int(h) * 3600 + int(m) * 60 + s <= 7.05
 
 
+# ---------- consumo do roteiro criado pela Edge Function no Supabase ----------
+
+def test_auto_consome_roteiro_pendente_em_vez_de_ideiar(cfg):
+    """`maquina sincronizar` traz roteiros da Edge Function como Status.ROTEIRIZADO.
+    `Pipeline.pendente` tem que achar esse video para `auto` continuar em vez de
+    ideiar do zero — sem isso o roteiro so virava video via `retomar` manual."""
+    p = Pipeline(cfg)
+    pendente = Video(
+        slug="pendente-supabase",
+        formato=Formato.LONGO,
+        status=Status.ROTEIRIZADO,
+        roteiro=Roteiro(
+            titulo="Roteiro vindo do Supabase",
+            gancho="g",
+            cenas=[Cena(indice=0, narracao="texto", prompt_visual="p")],
+        ),
+    )
+    p.store.salvar(pendente)
+
+    achado = p.pendente(Formato.LONGO)
+    assert achado is not None and achado.slug == "pendente-supabase"
+    assert p.pendente(Formato.SHORTS) is None
+
+
 # ---------- rotacao de eixos (defesa da cadencia diaria) ----------
 
 def test_eixos_rotacionam_sem_repetir(cfg):
