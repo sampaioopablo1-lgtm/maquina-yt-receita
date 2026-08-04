@@ -1,13 +1,13 @@
 # Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
 # handle: preencher quando o canal for criado no YouTube Studio.
 canal:
-  nome: "Next Level Money"
+  nome: "Nivel do Jogo"
   handle: ""
-  idioma: "en"
-  tema: "economia, dinheiro e poder"
+  idioma: "pt-BR"
+  tema: "a economia dos games"
   estilo_visual: "voxlite"
-  voz_edge: "en-US-AndrewNeural"
+  voz_edge: "pt-BR-AntonioNeural"
   idioma_revisao: "pt-BR"
-# Nicho: explicadores de economia, EUA/global
-# Paleta: creme, tinta preta, vermelho E4572E
+# Nicho: industria dos games explicada, Brasil
+# Paleta: verde 1B4332, magenta D64570
 # Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.
