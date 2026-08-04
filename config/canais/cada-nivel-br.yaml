@@ -1,0 +1,13 @@
+# Canal do portfolio (docs/12-portfolio-10-canais.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Cada Nivel"
+  handle: ""
+  idioma: "pt-BR"
+  tema: "financas pessoais e carreira"
+  estilo_visual: "doodle"
+  voz_edge: "pt-BR-AntonioNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: financas pessoais e carreira no Brasil
+# Regra anti-rede: nunca publicar o mesmo roteiro traduzido de outro canal
+# na mesma semana (similaridade e comparada por canal, nao entre canais).

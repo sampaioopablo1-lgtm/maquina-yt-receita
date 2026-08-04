@@ -1,0 +1,13 @@
+# Canal do portfolio (docs/12-portfolio-10-canais.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Money Machines"
+  handle: ""
+  idioma: "en"
+  tema: "como empresas e industrias ganham dinheiro"
+  estilo_visual: "voxlite"
+  voz_edge: "en-US-GuyNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: modelos de negocio e industrias por dentro
+# Regra anti-rede: nunca publicar o mesmo roteiro traduzido de outro canal
+# na mesma semana (similaridade e comparada por canal, nao entre canais).

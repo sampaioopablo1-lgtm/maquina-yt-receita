@@ -1,0 +1,13 @@
+# Canal do portfolio (docs/12-portfolio-10-canais.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Por Tras do Dinheiro"
+  handle: ""
+  idioma: "pt-BR"
+  tema: "economia e negocios explicados"
+  estilo_visual: "voxlite"
+  voz_edge: "pt-BR-FabioNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: economia e negocios explicados, Brasil
+# Regra anti-rede: nunca publicar o mesmo roteiro traduzido de outro canal
+# na mesma semana (similaridade e comparada por canal, nao entre canais).

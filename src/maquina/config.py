@@ -42,6 +42,11 @@ class CanalConfig(BaseModel):
     publico_infantil: bool = False
     categoria_id: str = "22"  # People & Blogs
     estilo_narracao: str = "direto, calmo, com autoridade"
+    # doodle (traco a mao, fundo branco) ou voxlite (colagem editorial).
+    # Cada canal do portfolio tem identidade propria — ver docs/12.
+    estilo_visual: str = "doodle"
+    # Voz edge-tts do canal (gratuita, sem cota). Vazio = escolhida pelo idioma.
+    voz_edge: str = "id-ID-ArdiNeural"
     referencias_titulo: list[str] = Field(default_factory=list)
     # Eixos tematicos rotacionados a cada video. Em ritmo diario esta e a
     # principal defesa contra convergencia: forca angulos estruturalmente
@@ -73,11 +78,34 @@ class Config(BaseModel):
     yt_token: Path = ROOT / "secrets" / "youtube_token.json"
 
     @classmethod
-    def load(cls, path: Path | None = None) -> "Config":
+    def load(cls, path: Path | None = None, canal: str = "") -> "Config":
+        """Carrega default.yaml e, se `canal` (ou MAQ_CANAL) apontar um slug,
+        mescla config/canais/<slug>.yaml por cima e isola data/ e out/ por
+        canal — 10 canais nao podem compartilhar janela de similaridade nem
+        contadores de publicacao (docs/12-portfolio-10-canais.md)."""
         raw: dict[str, Any] = {}
         cfg_file = path or ROOT / "config" / "default.yaml"
         if cfg_file.exists():
             raw = yaml.safe_load(cfg_file.read_text(encoding="utf-8")) or {}
+
+        slug = canal or os.getenv("MAQ_CANAL", "")
+        if slug and slug != "default":
+            canal_file = ROOT / "config" / "canais" / f"{slug}.yaml"
+            if not canal_file.exists():
+                raise FileNotFoundError(
+                    f"canal '{slug}' nao existe: crie {canal_file}"
+                )
+            extra = yaml.safe_load(canal_file.read_text(encoding="utf-8")) or {}
+            for chave, valor in extra.items():
+                if isinstance(valor, dict) and isinstance(raw.get(chave), dict):
+                    raw[chave] = {**raw[chave], **valor}
+                else:
+                    raw[chave] = valor
+            raw.setdefault("data_dir", ROOT / "data" / slug)
+            raw.setdefault("out_dir", ROOT / "out" / slug)
+            raw.setdefault(
+                "yt_token", ROOT / "secrets" / f"youtube_token_{slug}.json"
+            )
 
         # Env sobrepoe YAML, para o Actions injetar sem editar arquivo.
         for env_key, field in [

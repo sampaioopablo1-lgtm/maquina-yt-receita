@@ -1,0 +1,13 @@
+# Canal do portfolio (docs/12-portfolio-10-canais.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Level Berikutnya"
+  handle: ""
+  idioma: "id"
+  tema: "psicologia do dinheiro e habitos"
+  estilo_visual: "doodle"
+  voz_edge: "id-ID-GadisNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: psicologia do dinheiro e habitos, Indonesia
+# Regra anti-rede: nunca publicar o mesmo roteiro traduzido de outro canal
+# na mesma semana (similaridade e comparada por canal, nao entre canais).

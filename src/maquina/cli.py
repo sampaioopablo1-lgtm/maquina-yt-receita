@@ -23,6 +23,22 @@ logging.basicConfig(
 )
 
 
+@app.callback()
+def _global(
+    canal: str = typer.Option(
+        "",
+        "--canal",
+        help="slug do canal em config/canais/ (vazio = default.yaml)",
+        envvar="MAQ_CANAL",
+    ),
+):
+    """Portfolio multi-canal: cada comando roda no contexto de um canal."""
+    if canal:
+        import os
+
+        os.environ["MAQ_CANAL"] = canal
+
+
 def _cfg() -> Config:
     return Config.load()
 

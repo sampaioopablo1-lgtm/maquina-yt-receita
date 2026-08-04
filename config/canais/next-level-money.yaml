@@ -1,0 +1,13 @@
+# Canal do portfolio (docs/12-portfolio-10-canais.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Next Level Money"
+  handle: ""
+  idioma: "en"
+  tema: "economia, dinheiro e poder"
+  estilo_visual: "voxlite"
+  voz_edge: "en-US-AndrewNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: explicadores de economia e dinheiro para publico americano/global
+# Regra anti-rede: nunca publicar o mesmo roteiro traduzido de outro canal
+# na mesma semana (similaridade e comparada por canal, nao entre canais).

@@ -1,0 +1,13 @@
+# Canal do portfolio (docs/12-portfolio-10-canais.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Setiap Level"
+  handle: "@SetiapLevelID"
+  idioma: "id"
+  tema: "dinheiro, trabalho, status e decisoes"
+  estilo_visual: "doodle"
+  voz_edge: "id-ID-ArdiNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: financas pessoais e carreira na Indonesia
+# Regra anti-rede: nunca publicar o mesmo roteiro traduzido de outro canal
+# na mesma semana (similaridade e comparada por canal, nao entre canais).
