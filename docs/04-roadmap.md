@@ -177,6 +177,10 @@ nessa faixa de propósito. Amostra pequena leva a refazer a coisa errada.
   criou no Supabase, em vez de sempre ideiar do zero. Hoje `maquina sincronizar`
   já traz esses roteiros para o SQLite, mas quem os renderiza é `maquina retomar
   <slug>`, na mão.
+- Agendar a `gerar-roteiro`. Ela está deployada e funciona (uma execução
+  registrada, HTTP 200 em 26s, gerou o roteiro de 13 cenas do "7 Level Gaji"),
+  mas nada a invoca: não há `cron.job` para ela no projeto. Enquanto isso, o
+  cérebro só roda quando alguém chama na mão.
 - Alinhamento de legenda por Whisper (timing por palavra, em vez de proporcional)
 - Cortes de b-roll em vídeo, não só imagem estática com Ken Burns
 - Teste A/B de thumbnail com troca automática por CTR
