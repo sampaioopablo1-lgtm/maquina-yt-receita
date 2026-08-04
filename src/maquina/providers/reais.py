@@ -106,9 +106,11 @@ class LLMGemini:
         chave = os.getenv("GEMINI_API_KEY")
         if not chave:
             raise ErroProvider("GEMINI_API_KEY ausente")
-        self._chave = chave
+        # x-goog-api-key e o metodo atual; cobre tanto chaves AIza classicas
+        # quanto os formatos novos do AI Studio.
         self._cli = httpx.Client(
             base_url="https://generativelanguage.googleapis.com/v1beta",
+            headers={"x-goog-api-key": chave},
             timeout=TIMEOUT,
         )
 
@@ -120,11 +122,7 @@ class LLMGemini:
         if sistema:
             corpo["systemInstruction"] = {"parts": [{"text": sistema}]}
 
-        r = self._cli.post(
-            f"/models/{self.modelo}:generateContent",
-            params={"key": self._chave},
-            json=corpo,
-        )
+        r = self._cli.post(f"/models/{self.modelo}:generateContent", json=corpo)
         if r.status_code >= 400:
             raise ErroProvider(f"Gemini {r.status_code}: {r.text[:400]}")
 
