@@ -225,6 +225,31 @@ def test_fish_audio_sem_chave_cai_no_stub(cfg, monkeypatch):
     assert type(obter_tts(cfg)).__name__ == "TTSStub"
 
 
+def test_tts_lote_usa_arquivo_existente(cfg, tmp_path):
+    """Provider lote consome MP3 pre-gerado no Colab sem sintetizar nada."""
+    from maquina.providers.lote import TTSLote
+
+    destino = tmp_path / "cena_000.mp3"
+    destino.write_bytes(b"fake-mp3")
+    assert TTSLote().sintetizar("texto qualquer", destino) == destino
+
+
+def test_tts_lote_falta_arquivo_instrui(cfg, tmp_path):
+    """Sem o arquivo, o erro ensina o fluxo do Colab em vez de so falhar."""
+    from maquina.providers.base import ErroProvider
+    from maquina.providers.lote import TTSLote
+
+    with pytest.raises(ErroProvider, match="narracao_chatterbox"):
+        TTSLote().sintetizar("texto", tmp_path / "cena_001.mp3")
+
+
+def test_tts_lote_selecionado_pela_config(cfg):
+    from maquina.providers import obter_tts
+
+    cfg.tts_provider = "lote"
+    assert type(obter_tts(cfg)).__name__ == "TTSLote"
+
+
 def test_fish_audio_com_chave_instancia_real(cfg, monkeypatch):
     from maquina.providers import obter_tts
 

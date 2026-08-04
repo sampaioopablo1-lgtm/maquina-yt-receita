@@ -344,6 +344,50 @@ def pesquisar(
     )
 
 
+@app.command("exportar-narracao")
+def exportar_narracao(slug: str):
+    """Exporta os textos das cenas para narrar no Colab (caminho gratuito).
+
+    Gera out/<slug>/narracao.json para o notebooks/narracao_chatterbox.ipynb,
+    que clona sua voz (assets/voice/referencia.wav) e narra cada cena com o
+    Chatterbox-TTS-Indonesian — gratuito, Apache 2.0, GPU T4 do Colab.
+    """
+    import json as _json
+
+    cfg = _cfg()
+    p = Pipeline(cfg)
+    video = p.store.obter(slug)
+    if not video or not video.roteiro:
+        console.print(f"[red]video '{slug}' nao encontrado ou sem roteiro[/]")
+        raise typer.Exit(1)
+
+    destino = video.dir(cfg.out_dir) / "narracao.json"
+    destino.write_text(
+        _json.dumps(
+            {
+                "slug": video.slug,
+                "idioma": video.idioma,
+                "cenas": [
+                    {"indice": c.indice, "texto": c.narracao}
+                    for c in video.roteiro.cenas
+                ],
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    console.print(f"[green]Exportado:[/] {destino}")
+    console.print(
+        "\nProximos passos:\n"
+        "  1. Abra [bold]notebooks/narracao_chatterbox.ipynb[/] no Colab (GPU T4)\n"
+        "  2. Envie este narracao.json + assets/voice/referencia.wav\n"
+        "  3. Extraia o narracao.zip em "
+        f"[bold]out/{video.slug}/audio/[/]\n"
+        f"  4. [bold]maquina retomar {video.slug}[/]"
+    )
+
+
 @app.command("voice-test")
 def voice_test(
     voice_id: str = typer.Option("", help="voice_id a testar (padrao: o do .env)"),

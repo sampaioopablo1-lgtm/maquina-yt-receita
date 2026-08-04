@@ -39,6 +39,10 @@ def obter_llm(cfg: Config) -> LLM:
 def obter_tts(cfg: Config) -> TTS:
     if cfg.tts_provider == "stub":
         return TTSStub()
+    if cfg.tts_provider == "lote":
+        from .lote import TTSLote
+
+        return TTSLote()
     try:
         from .reais import TTSElevenLabs, TTSFishAudio, TTSOpenAI
 
