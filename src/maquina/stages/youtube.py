@@ -123,6 +123,12 @@ def publicar(
     status: dict = {
         "privacyStatus": "private" if agendar_para else privacidade,
         "selfDeclaredMadeForKids": cfg.canal.publico_infantil,
+        # Divulgacao de conteudo alterado/sintetico, obrigatoria para conteudo
+        # realista. Vai aqui, no insert, porque `containsSyntheticMedia` pertence
+        # ao schema VideoStatus — nao a contentDetails, e nao e legivel de volta
+        # num videos.update posterior.
+        # https://support.google.com/youtube/answer/14328491
+        "containsSyntheticMedia": video.conteudo_sintetico,
     }
     if agendar_para:
         status["publishAt"] = agendar_para.astimezone(timezone.utc).isoformat().replace(
@@ -148,7 +154,9 @@ def publicar(
 
     resposta = None
     while resposta is None:
-        progresso, resposta = req.next_chunk()
+        # num_retries=0 (o default) tenta o chunk UMA vez: um 502 transitorio
+        # perderia o upload de um video ja produzido e revisado.
+        progresso, resposta = req.next_chunk(num_retries=5)
         if progresso:
             log.info("upload %d%%", int(progresso.progress() * 100))
 
@@ -164,34 +172,7 @@ def publicar(
             # Thumbnail custom exige canal verificado — nao e motivo para falhar o job.
             log.warning("thumbnail nao aplicada: %s", e)
 
-    if video.conteudo_sintetico:
-        _marcar_conteudo_sintetico(yt, video_id)
-
     return video_id
-
-
-def _marcar_conteudo_sintetico(yt, video_id: str) -> None:
-    """Divulgacao de conteudo alterado/sintetico.
-
-    Obrigatoria para conteudo realista que possa ser confundido com real.
-    Ver https://support.google.com/youtube/answer/14328491
-    """
-    try:
-        yt.videos().update(
-            part="contentDetails",
-            body={
-                "id": video_id,
-                "contentDetails": {"containsSyntheticMedia": True},
-            },
-        ).execute()
-        log.info("conteudo sintetico divulgado")
-    except Exception as e:
-        # O campo varia entre versoes da API; o alerta garante acao manual.
-        log.warning(
-            "NAO foi possivel marcar conteudo sintetico via API (%s). "
-            "Marque manualmente no YouTube Studio antes de tornar publico.",
-            e,
-        )
 
 
 def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
@@ -206,17 +187,21 @@ def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
             ids="channel==MINE",
             startDate=inicio.isoformat(),
             endDate=fim.isoformat(),
+            # Sem `estimatedRevenue` de proposito: e metrica monetaria e exige o
+            # escopo yt-analytics-monetary.readonly, que nao esta em ESCOPOS.
+            # Pedir aqui devolvia 403 e derrubava a coleta INTEIRA — os 3 pilares
+            # junto com a receita. Ela vem depois, em query separada e opcional.
             metrics=(
                 "views,estimatedMinutesWatched,averageViewDuration,"
-                "averageViewPercentage,subscribersGained,estimatedRevenue"
+                "averageViewPercentage,subscribersGained"
             ),
             filters=f"video=={video_id}",
         )
         .execute()
     )
 
-    linhas = resp.get("rows") or [[0, 0, 0, 0, 0, 0]]
-    v, _min_assistidos, dur_media, pct_media, inscritos, receita = linhas[0]
+    linhas = resp.get("rows") or [[0, 0, 0, 0, 0]]
+    v, _min_assistidos, dur_media, pct_media, inscritos = linhas[0]
 
     m = Metricas(
         youtube_id=video_id,
@@ -224,8 +209,26 @@ def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
         duracao_media_s=float(dur_media),
         retencao_media_pct=float(pct_media),
         inscritos_ganhos=int(inscritos),
-        receita_estimada_usd=float(receita or 0),
     )
+
+    # Receita: so responde com o escopo monetario E canal no YPP. Enquanto o
+    # canal nao monetiza, isto e 403 esperado — nao e falha de coleta.
+    try:
+        rec = (
+            analytics.reports()
+            .query(
+                ids="channel==MINE",
+                startDate=inicio.isoformat(),
+                endDate=fim.isoformat(),
+                metrics="estimatedRevenue",
+                filters=f"video=={video_id}",
+            )
+            .execute()
+        )
+        if linhas_rec := rec.get("rows"):
+            m.receita_estimada_usd = float(linhas_rec[0][0] or 0)
+    except Exception as e:
+        log.info("receita indisponivel (escopo monetario ou canal fora do YPP): %s", e)
 
     # CTR e impressoes vivem num relatorio separado.
     try:

@@ -26,11 +26,19 @@ def ffprobe_bin() -> str | None:
     return shutil.which("ffprobe")
 
 
+_SINAIS_DE_ERRO = ("Error", "error", "Invalid", "No such", "Conversion failed", "Unable to")
+
+
 def _run(args: list[str]) -> None:
     proc = subprocess.run(args, capture_output=True, text=True)
     if proc.returncode != 0:
-        cauda = "\n".join(proc.stderr.strip().splitlines()[-15:])
-        raise RuntimeError(f"ffmpeg falhou ({proc.returncode}):\n{cauda}")
+        # A cauda do stderr NAO serve: o ffmpeg despeja os metadados dos streams
+        # depois da mensagem de erro, entao as ultimas linhas sao sempre
+        # "handler_name / vendor_id / encoder" e a causa real fica de fora.
+        linhas = proc.stderr.strip().splitlines()
+        relevantes = [l for l in linhas if any(s in l for s in _SINAIS_DE_ERRO)]
+        trecho = "\n".join((relevantes or linhas)[-15:])
+        raise RuntimeError(f"ffmpeg falhou ({proc.returncode}):\n{trecho}")
 
 
 def duracao(path: Path) -> float:
@@ -161,7 +169,12 @@ def aplicar_trilha(video: Path, musica: Path, saida: Path, ganho_db: float = -24
             "-i", str(video),
             "-stream_loop", "-1", "-i", str(musica),
             "-filter_complex",
-            f"[1:a]volume={ganho_db}dB[bg];[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0[a]",
+            # normalize=0 e obrigatorio: com o default (normalize=1) o amix
+            # divide cada entrada por N=2, derrubando a NARRACAO em 6 dB junto
+            # com a trilha — medido com volumedetect. O YouTube so abaixa audio
+            # alto na normalizacao, nunca sobe, entao o video sairia baixo.
+            f"[1:a]volume={ganho_db}dB[bg];"
+            "[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]",
             "-map", "0:v", "-map", "[a]",
             "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
             "-shortest",

@@ -8,7 +8,7 @@ regerar audio e imagem custa dinheiro.
 from __future__ import annotations
 
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import Config
@@ -108,7 +108,10 @@ class Pipeline:
             video, self.cfg, privacidade=privacidade, agendar_para=agendar_para
         )
         video.status = Status.PUBLICADO
-        video.publicado_em = datetime.now()
+        # Aware, como criado_em e agendado_para: a coluna no Supabase e
+        # timestamptz e uma string sem offset e lida como UTC, gravando a hora
+        # local como se fosse UTC.
+        video.publicado_em = datetime.now(timezone.utc)
         video.agendado_para = agendar_para
         self.store.salvar(video)
         return video

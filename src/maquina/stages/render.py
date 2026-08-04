@@ -9,12 +9,13 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 from .. import media
+from ..config import ROOT
 from ..models import Formato, Roteiro
 from ..providers.base import GeradorImagem
 
 log = logging.getLogger("maquina.render")
 
-TRILHA_PADRAO = Path("assets/musica/trilha.mp3")
+TRILHA_PADRAO = ROOT / "assets" / "musica" / "trilha.mp3"
 
 
 def montar(
@@ -53,7 +54,10 @@ def montar(
     else:
         log.info("sem trilha de fundo (%s nao encontrado)", trilha_path)
 
-    if legendas and legendas.exists():
+    # Tamanho, nao so existencia: gerar_legendas sempre grava o arquivo, e um SRT
+    # vazio (todas as cenas com duracao <= 0) faz o filtro subtitles nao
+    # inicializar e derruba o render inteiro.
+    if legendas and legendas.exists() and legendas.stat().st_size > 0:
         atual = media.gravar_legendas(atual, legendas, destino / "com_legenda.mp4", formato)
 
     final = destino / "final.mp4"

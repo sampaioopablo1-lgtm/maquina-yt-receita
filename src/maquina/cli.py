@@ -330,7 +330,11 @@ def pesquisar(
         )
         raise typer.Exit(0)
 
-    caminho = Path("config/default.yaml")
+    # Relativo ao CWD levantava FileNotFoundError DEPOIS de ja ter gasto 100
+    # unidades da cota da Search API e uma chamada de LLM.
+    from .config import ROOT
+
+    caminho = ROOT / "config" / "default.yaml"
     dados = yaml.safe_load(caminho.read_text(encoding="utf-8")) or {}
     chaves = analise.get("palavras_chave") or [p for p, _ in frequentes[:15]]
     atuais = dados.setdefault("canal", {}).get("referencias_titulo") or []
