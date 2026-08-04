@@ -79,7 +79,12 @@ alter table videos   enable row level security;
 alter table metricas enable row level security;
 
 -- Acesso apenas via service_role (o job do Actions). Sem cliente publico.
-create policy if not exists "service_role_videos"
+-- Postgres nao aceita `create policy if not exists`; o drop antes mantem o
+-- arquivo reaplicavel sem erro.
+drop policy if exists "service_role_videos" on videos;
+create policy "service_role_videos"
     on videos for all to service_role using (true) with check (true);
-create policy if not exists "service_role_metricas"
+
+drop policy if exists "service_role_metricas" on metricas;
+create policy "service_role_metricas"
     on metricas for all to service_role using (true) with check (true);

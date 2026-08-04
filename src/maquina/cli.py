@@ -330,7 +330,11 @@ def pesquisar(
         )
         raise typer.Exit(0)
 
-    caminho = Path("config/default.yaml")
+    # Relativo ao CWD levantava FileNotFoundError DEPOIS de ja ter gasto 100
+    # unidades da cota da Search API e uma chamada de LLM.
+    from .config import ROOT
+
+    caminho = ROOT / "config" / "default.yaml"
     dados = yaml.safe_load(caminho.read_text(encoding="utf-8")) or {}
     chaves = analise.get("palavras_chave") or [p for p, _ in frequentes[:15]]
     atuais = dados.setdefault("canal", {}).get("referencias_titulo") or []
@@ -502,6 +506,31 @@ def custo():
 
 
 @app.command()
+def sincronizar(
+    puxar_antes: bool = typer.Option(
+        True, "--puxar/--sem-puxar", help="traz roteiros criados no Supabase"
+    ),
+):
+    """Espelha o estado local no Supabase (e traz o que nasceu la)."""
+    from . import sincronizacao
+
+    if not sincronizacao.configurado():
+        console.print(
+            "[yellow]sem SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY[/] — "
+            "estado fica so no SQLite local"
+        )
+        raise typer.Exit(0)
+
+    store = Store(_cfg().data_dir / "maquina.db")
+    if puxar_antes:
+        novos = sincronizacao.puxar(store)
+        console.print(f"Puxados do Supabase: [bold]{len(novos)}[/] {', '.join(novos)}")
+
+    videos, metricas = sincronizacao.empurrar(store)
+    console.print(f"[green]Enviados[/] {videos} videos, {metricas} metricas")
+
+
+@app.command()
 def doctor():
     """Verifica ambiente, credenciais e providers ativos."""
     from . import media
@@ -531,6 +560,13 @@ def doctor():
         "YouTube",
         "[green]ok[/]" if cfg.yt_token.exists() else "[yellow]sem token[/]",
         str(cfg.yt_token),
+    )
+    from . import sincronizacao
+
+    tabela.add_row(
+        "Supabase",
+        "[green]ok[/]" if sincronizacao.configurado() else "[yellow]so local[/]",
+        "estado espelhado" if sincronizacao.configurado() else "SUPABASE_URL ausente",
     )
     tabela.add_row("Canal", cfg.canal.nome, f"idioma={cfg.canal.idioma}")
     tabela.add_row("Revisao humana", "on" if cfg.publicacao.exigir_revisao else "off",

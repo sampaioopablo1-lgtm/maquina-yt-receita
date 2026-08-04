@@ -73,6 +73,13 @@ jobs:
             --privacidade "${{ inputs.privacidade }}" \
             --yes
 
+      - name: Sincronizar estado com o Supabase
+        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
+
       - name: Limpar credencial
         if: always()
         run: rm -f secrets/youtube_token.json

@@ -40,6 +40,7 @@ MAQ_LLM_PROVIDER=stub MAQ_TTS_PROVIDER=stub MAQ_IMAGE_PROVIDER=stub \
 | `maquina revisar <slug>` | Traduz o roteiro e avalia se soa natural |
 | `maquina comentarios <slug>` | Traduz comentários e extrai sinais técnicos |
 | `maquina custo` | Custo de produção por vídeo |
+| `maquina sincronizar` | Espelha o estado no Supabase (e puxa roteiros criados lá) |
 | `maquina auth-youtube` | Autoriza a conta (uma vez, local) |
 | `maquina voice-clone <audios>` | Registra sua voz e devolve o `voice_id` |
 | `maquina voice-test` | Amostra no idioma do canal para avaliação nativa |
@@ -123,6 +124,7 @@ src/maquina/
 ├── config.py           # YAML + env
 ├── media.py            # ffmpeg: Ken Burns, concat, trilha, legendas
 ├── storage.py          # SQLite (espelha o schema do Supabase)
+├── sincronizacao.py    # SQLite <-> Supabase no fim de cada job
 ├── providers/          # Anthropic, OpenAI, ElevenLabs + stubs offline
 └── stages/
     ├── roteiro.py      # ideação e roteirização
@@ -143,8 +145,9 @@ docs/                   # decisões, arquitetura, playbook, compliance
 MAQ_LLM_PROVIDER=stub MAQ_TTS_PROVIDER=stub MAQ_IMAGE_PROVIDER=stub .venv/bin/pytest -q
 ```
 
-13 testes, sem rede e sem custo — incluindo um render real de ponta a ponta que
-valida o MP4 gerado.
+50 testes, sem rede e sem custo — incluindo um render real de ponta a ponta que
+valida o MP4 gerado e um PostgREST falso em localhost que valida a sincronização
+com o Supabase.
 
 ## Próximos passos
 

@@ -38,6 +38,15 @@ jobs:
       - name: Diagnosticar
         run: maquina diagnosticar | tee diagnostico.txt
 
+      # Sem isto a tabela `metricas` fica vazia e as views painel_pilares /
+      # progresso_ypp nunca respondem nada.
+      - name: Sincronizar estado com o Supabase
+        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
+
       - name: Publicar no resumo do job
         if: always()
         run: |
