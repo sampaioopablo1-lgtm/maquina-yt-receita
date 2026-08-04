@@ -47,7 +47,7 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
     else:
         raise RuntimeError(
             "sem credencial valida do YouTube. Rode `maquina auth-youtube` uma vez "
-            "e guarde o token resultante no secret MAQ_YT_TOKEN_JSON."
+            "e guarde o token resultante no secret YT_TOKEN_JSON."
         )
 
     cfg.yt_token.parent.mkdir(parents=True, exist_ok=True)
