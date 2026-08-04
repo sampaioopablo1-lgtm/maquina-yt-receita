@@ -79,6 +79,15 @@ jobs:
         if: always()
         run: maquina listar
 
+      # O cache do Actions expira; o Supabase e onde o historico sobrevive.
+      # Sem os secrets o comando avisa e sai com 0 — nao quebra o job.
+      - name: Sincronizar estado com o Supabase
+        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
+
       # O video fica como artefato para revisao humana. A publicacao e um
       # workflow separado, disparado depois que voce assiste. Ver
       # docs/03-compliance-monetizacao.md.

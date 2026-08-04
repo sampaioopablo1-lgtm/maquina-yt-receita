@@ -45,10 +45,13 @@ ou `FISH_AUDIO_API_KEY` conforme o provider escolhido.
 ## 2. Sua voz — clonar e **testar antes de escalar**
 
 ```bash
-mkdir -p assets/voice   # o .wav NÃO é versionado
-# copie Gravando-aprimorado-v2.wav para assets/voice/
-maquina voice-clone assets/voice/Gravando-aprimorado-v2.wav
+maquina voice-clone assets/voice/referencia.wav
 ```
+
+A amostra já está versionada em `assets/voice/referencia.wav` (repositório
+privado). É de onde saem tanto o upload único para o Modal
+(`modal run infra/modal_tts.py --ref assets/voice/referencia.wav`) quanto o
+arquivo que você envia ao notebook do Colab no fluxo `lote`.
 
 Copie o `voice_id` retornado para o `.env` e para o secret `MAQ_TTS_VOICE_ID`.
 Vale gravar 2-3 minutos limpos: a qualidade do clone depende mais da limpeza do
@@ -147,6 +150,12 @@ Aplique `supabase/schema.sql` no seu projeto Supabase. A view `painel_pilares`
 responde direto "qual vídeo tem qual gargalo", e `progresso_ypp` acompanha a
 distância até 1.000 inscritos / 4.000 horas.
 
+Para essas views terem o que responder, cadastre os secrets `SUPABASE_URL` e
+`SUPABASE_SERVICE_ROLE_KEY` (Dashboard → Project Settings → API). Os três
+workflows terminam com `maquina sincronizar`, que empurra vídeos e métricas para
+o banco — sem os secrets o comando avisa e sai sem quebrar o job, e o estado
+fica só no cache efêmero do Actions.
+
 `diagnostico.yml` roda toda segunda e escreve o resultado no summary do job.
 
 **Não conclua nada abaixo de 500 impressões** — a máquina se recusa a diagnosticar
@@ -164,7 +173,10 @@ nessa faixa de propósito. Amostra pequena leva a refazer a coisa errada.
 
 ## Backlog técnico (não bloqueia o lançamento)
 
-- Sincronizar o estado SQLite → Supabase no fim de cada job (hoje o Actions usa cache)
+- Fazer `maquina auto` consumir o roteiro que a Edge Function `gerar-roteiro`
+  criou no Supabase, em vez de sempre ideiar do zero. Hoje `maquina sincronizar`
+  já traz esses roteiros para o SQLite, mas quem os renderiza é `maquina retomar
+  <slug>`, na mão.
 - Alinhamento de legenda por Whisper (timing por palavra, em vez de proporcional)
 - Cortes de b-roll em vídeo, não só imagem estática com Ken Burns
 - Teste A/B de thumbnail com troca automática por CTR
