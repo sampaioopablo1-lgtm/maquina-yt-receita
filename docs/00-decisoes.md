@@ -111,6 +111,11 @@ Acompanhe com `maquina custo` e compare com o RPM observado.
 | Conta Google | Tem **vários canais antigos** — todo OAuth deve confirmar que é o Setiap Level |
 | Cadência | "15/dia" é o limite de seleção do Studio, não permissão; limite real varia por canal |
 | Expectativa | "Monetizar em 48h" não existe: YPP exige 1.000 inscritos + 4.000h + revisão |
+| **Identidade visual** | Doodle: fundo branco, linhas pretas irregulares, poucas cores, 1 imagem/cena, 16:9 — codificada no prompt de roteiro |
+| País BR no canal | **Deliberado**: residência jurídica/pagamentos do dono; conteúdo segue indonésio |
+| Trilha (nível) | -28 a -24 LUFS sob a voz; ganho padrão do mixer ajustado para -24 dB |
+| Teste A/B | YouTube permite testar até 3 títulos/thumbnails em vídeos longos — usar quando houver impressões |
+| Render (backlog) | Remotion avaliado como alternativa programática ao ffmpeg — não necessário agora |
 
 Sobre a última linha: a meta operacional do projeto é constância e qualidade dos 3
 pilares. Receita é consequência do acervo, não meta de curto prazo — qualquer promessa

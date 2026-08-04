@@ -57,13 +57,13 @@ Duas saídas:
 - **Trabalho real:** evoluir a pipeline para animação de verdade (b-roll em
   vídeo, gráficos animados). Está no backlog de `04-roadmap.md`.
 
-### 3. País do canal: Brasil
+### 3. ~~País do canal: Brasil~~ — era decisão, não erro
 
-`country: BR`, com conteúdo em indonésio para audiência indonésia.
-
-Não bloqueia nada, mas é incoerente com o posicionamento e pode influenciar
-sinais de recomendação e a configuração de monetização depois. Considerar mudar
-para `ID` no Studio.
+`country: BR` com conteúdo em indonésio parecia incoerência. O export da
+conversa original mostrou que foi **deliberado**: o país de residência
+representa o proprietário e a futura conta de pagamentos (AdSense), enquanto
+idioma, conteúdo e público-alvo são indonésios. Configuração correta — item
+retirado da lista de pendências.
 
 ## Estado da autorização
 

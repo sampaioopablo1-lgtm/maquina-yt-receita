@@ -128,11 +128,13 @@ def concatenar(clipes: list[Path], saida: Path) -> Path:
     return saida
 
 
-def aplicar_trilha(video: Path, musica: Path, saida: Path, ganho_db: float = -22.0) -> Path:
+def aplicar_trilha(video: Path, musica: Path, saida: Path, ganho_db: float = -24.0) -> Path:
     """Mixa trilha de fundo bem abaixo da voz.
 
-    -22 dB nao e arbitrario: musica alta e a reclamacao mais recorrente nos
-    comentarios e um dos motivos diretos de queda de retencao.
+    Alvo definido no processo editorial: trilha entre -28 e -24 LUFS sob a voz
+    (musica alta e a reclamacao mais recorrente nos comentarios e derruba
+    retencao). O ganho estatico de -24 dB aproxima o teto desse alvo; ducking
+    dinamico por sidechain fica no backlog.
     """
     _run(
         [
