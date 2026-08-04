@@ -100,7 +100,7 @@ class LLMGemini:
     inferior ao caminho principal, mas plenamente utilizavel.
     """
 
-    def __init__(self, modelo: str = "gemini-2.5-flash"):
+    def __init__(self, modelo: str = "gemini-flash-latest"):
         self.modelo = modelo
         self.custo_usd = 0.0  # free tier
         chave = os.getenv("GEMINI_API_KEY")
