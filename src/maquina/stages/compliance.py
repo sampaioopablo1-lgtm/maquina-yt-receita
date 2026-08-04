@@ -65,6 +65,8 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
 
     # 3. Titulo duplicado ou quase identico.
     for titulo in store.titulos_publicados():
+        if titulo == video.roteiro.titulo:
+            continue
         if titulo and similaridade(video.roteiro.titulo, titulo) > 0.90:
             r.bloquear(f"titulo quase identico a '{titulo}'")
             break

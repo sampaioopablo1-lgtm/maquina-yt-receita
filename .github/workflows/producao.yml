@@ -55,6 +55,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           MAQ_TTS_VOICE_ID: ${{ secrets.MAQ_TTS_VOICE_ID }}
+          MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
+          MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: maquina doctor
 
       - name: Produzir
@@ -64,6 +66,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           MAQ_TTS_VOICE_ID: ${{ secrets.MAQ_TTS_VOICE_ID }}
+          MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
+          MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: |
           if [ -n "${{ inputs.titulo }}" ]; then
             maquina produzir "${{ inputs.titulo }}" --formato "${{ inputs.formato || 'longo' }}"
@@ -74,6 +78,15 @@ jobs:
       - name: Listar producao
         if: always()
         run: maquina listar
+
+      # O cache do Actions expira; o Supabase e onde o historico sobrevive.
+      # Sem os secrets o comando avisa e sai com 0 — nao quebra o job.
+      - name: Sincronizar estado com o Supabase
+        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
 
       # O video fica como artefato para revisao humana. A publicacao e um
       # workflow separado, disparado depois que voce assiste. Ver

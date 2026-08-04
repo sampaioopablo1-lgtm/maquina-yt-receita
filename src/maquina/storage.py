@@ -131,6 +131,13 @@ class Store:
             ).fetchone()
         return Metricas.model_validate_json(row["payload"]) if row else None
 
+    def todas_metricas(self) -> list[Metricas]:
+        with self._conn() as c:
+            rows = c.execute(
+                "SELECT payload FROM metricas ORDER BY coletado_em"
+            ).fetchall()
+        return [Metricas.model_validate_json(r["payload"]) for r in rows]
+
     def titulos_publicados(self) -> list[str]:
         with self._conn() as c:
             rows = c.execute(

@@ -30,6 +30,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from .config import Config
 from .models import Formato, Ideia, Status
 from .pipeline import Pipeline
+from .stages import compliance
 
 # stdio: log em stderr. Escrever em stdout corromperia o protocolo.
 logging.basicConfig(level=logging.INFO, stream=sys.stderr)
@@ -829,9 +830,10 @@ async def maquina_publicar_video(params: PublicarInput) -> str:
         if not video.video_path or not Path(video.video_path).exists():
             return f"Erro: '{params.slug}' ainda nao foi renderizado."
 
-        res = await _em_thread(p.verificar, video)
-
         if not params.confirmar:
+            # Simulacao de verdade: usa a checagem pura (sem gravar estado),
+            # para uma pergunta casual na conversa nao mudar o status do video.
+            res = await _em_thread(compliance.verificar, video, p.cfg, p.store)
             return json.dumps(
                 {
                     "simulacao": True,
@@ -847,6 +849,8 @@ async def maquina_publicar_video(params: PublicarInput) -> str:
                 indent=2,
                 ensure_ascii=False,
             )
+
+        res = await _em_thread(p.verificar, video)
 
         if not res.aprovado:
             return json.dumps(

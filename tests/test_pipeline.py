@@ -81,6 +81,19 @@ def test_compliance_bloqueia_roteiro_duplicado(cfg):
     assert any("similar" in b for b in res.bloqueios)
 
 
+def test_compliance_nao_bloqueia_titulo_do_proprio_video(cfg):
+    """O pipeline real salva o video (com titulo) antes de chamar verificar() —
+    titulos_publicados() nao filtra por status, entao sem exclusao do proprio
+    titulo todo video se bloqueava sozinho (similaridade 100% com ele mesmo)."""
+    store = Store(cfg.data_dir / "t.db")
+    video = _video_com_roteiro("Roteiro qualquer para este video " * 5, "Titulo Unico")
+    store.salvar(video)
+
+    res = compliance.verificar(video, cfg, store)
+    assert res.aprovado
+    assert not res.bloqueios
+
+
 def test_compliance_bloqueia_teto_diario(cfg):
     from datetime import datetime
 
