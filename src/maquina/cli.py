@@ -59,18 +59,29 @@ def auto(
     formato: Formato = typer.Option(Formato.LONGO),
     publicar_apos: bool = typer.Option(False, "--publicar", help="publica se passar nas checagens"),
 ):
-    """Ciclo completo: escolhe uma pauta nova, produz e (opcional) publica."""
+    """Ciclo completo: escolhe uma pauta nova, produz e (opcional) publica.
+
+    Antes de ideiar do zero, verifica se ja existe um roteiro pronto esperando
+    (ex.: gerado pela Edge Function `gerar-roteiro` no Supabase e trazido pro
+    SQLite por `maquina sincronizar`) e continua esse em vez de duplicar trabalho.
+    """
     cfg = _cfg()
     p = Pipeline(cfg)
 
-    lista = p.ideias(formato, 5)
-    if not lista:
-        console.print("[red]nenhuma ideia gerada[/]")
-        raise typer.Exit(1)
+    pendente = p.pendente(formato)
+    if pendente:
+        assert pendente.roteiro
+        console.print(f"Roteiro pendente (Supabase): [bold]{pendente.roteiro.titulo}[/]")
+        video = p.retomar(pendente.slug)
+    else:
+        lista = p.ideias(formato, 5)
+        if not lista:
+            console.print("[red]nenhuma ideia gerada[/]")
+            raise typer.Exit(1)
 
-    escolhida = lista[0]
-    console.print(f"Pauta: [bold]{escolhida.titulo}[/]")
-    video = p.produzir(escolhida)
+        escolhida = lista[0]
+        console.print(f"Pauta: [bold]{escolhida.titulo}[/]")
+        video = p.produzir(escolhida)
 
     res = p.verificar(video)
     for a in res.alertas:
