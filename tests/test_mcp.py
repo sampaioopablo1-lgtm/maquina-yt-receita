@@ -118,6 +118,7 @@ def test_publicar_sem_confirmar_nao_publica():
     cfg = Config.load()
     p = Pipeline(cfg)
     video = p.produzir(Ideia(titulo="Teste de protecao", formato=Formato.SHORTS))
+    status_antes = p.store.obter(video.slug).status
 
     saida = _chamar("maquina_publicar_video", {"params": {"slug": video.slug}})
     dados = json.loads(saida)
@@ -128,6 +129,9 @@ def test_publicar_sem_confirmar_nao_publica():
 
     # E o vídeo continua sem ID do YouTube — nada foi enviado.
     assert p.store.obter(video.slug).youtube_id is None
+
+    # Simulacao de verdade: nao pode ter efeito colateral no estado gravado.
+    assert p.store.obter(video.slug).status == status_antes
 
 
 def test_publicar_video_inexistente():
