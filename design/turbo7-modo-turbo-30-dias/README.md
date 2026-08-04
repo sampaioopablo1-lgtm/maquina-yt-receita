@@ -1,14 +1,16 @@
 # Flyer — Programa Modo Turbo 30 Dias (Turbo 7)
 
 Peça de divulgação do programa **Modo Turbo**, construída sobre o fluxo de
-cadência **12 × 30** (12 tentativas de contato distribuídas em 30 dias).
+cadência **12 × 30**: 12 toques distribuídos em 30 dias, cruzando 2 a 3 canais
+nos dias de pico.
 
 ## Entregáveis
 
 | Arquivo | Formato | Uso |
 | --- | --- | --- |
-| `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 3600 px (2:3, 2×) | WhatsApp, Instagram, e-mail, apresentações |
-| `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 18,75 in, 1 página | Impressão e envio comercial |
+| `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 4000 px (3:5, 2×) | WhatsApp, Instagram, e-mail, apresentações |
+| `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 20,83 in, 1 página | Impressão e envio comercial |
+| `apresentacao.html` | Página autocontida | Link de apresentação (publicado como Artifact) |
 
 ## Fontes do projeto
 
@@ -18,14 +20,16 @@ cadência **12 × 30** (12 tentativas de contato distribuídas em 30 dias).
 | `build.py` | Gera `flyer.html` — conteúdo, cadência e diagrama são dados, não markup solto |
 | `flyer.html` | Artefato gerado (não editar à mão; editar `build.py`) |
 | `render.py` | Rasteriza o HTML em PNG 2× e PDF via Chromium headless |
+| `build_pagina.py` | Gera `apresentacao.html`, importando o conteúdo de `build.py` |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
 
 ## Como regerar
 
 ```bash
 cd design/turbo7-modo-turbo-30-dias
-python3 build.py     # HTML a partir do conteúdo estruturado
-python3 render.py    # PNG (2400×3600) + PDF
+python3 build.py         # HTML do flyer a partir do conteúdo estruturado
+python3 render.py        # PNG (2400×4000) + PDF
+python3 build_pagina.py  # página de apresentação (usa o PNG já renderizado)
 ```
 
 Requer `pillow` e o Chromium apontado em `render.py:CHROME`.
@@ -34,12 +38,17 @@ Requer `pillow` e o Chromium apontado em `render.py:CHROME`.
 
 Tudo o que é editorial está no topo de `build.py`:
 
-- `CADENCIA` — os 12 toques: `(dia, canal)`, com canal em `MSG`,
-  `CALL_WA` ou `CALL`. Alterar a lista redesenha o diagrama inteiro,
-  incluindo numeração dos toques e linha de canais.
+- `CADENCIA` — os 12 toques: `(dia, (canais...))`, com cada canal em `MSG`,
+  `CALL_WA` ou `CALL`. Um dia pode acionar 1, 2 ou 3 canais; a pilha de glifos
+  no diagrama cresce junto, e os dias de mais de um canal ganham o anel verde
+  de pico. Alterar a lista redesenha o diagrama inteiro.
+- `TOTAL_CONTATOS` — derivado da cadência, nunca digitado à mão: é o número que
+  aparece na nota sob a legenda e na página.
 - `ABANDONO` / `CONVERSAO` — os intervalos de toques marcados pelas chaves
   vermelha e verde acima do eixo.
-- `INCLUSOS` — os quatro itens de escopo.
+- `INCLUSOS` — os três itens de escopo.
+- `GESTAO_LEAD`, `GESTAO_TEXTO`, `METRICAS` — a seção de acompanhamento de
+  performance: a frase-âncora, o texto e os eixos rastreados nas reuniões.
 - `LEGENDA` — rótulos dos canais.
 
 Copy da manchete, alerta, estatísticas e bloco de oferta ficam no `TEMPLATE`,
@@ -53,6 +62,12 @@ na mesma seção do arquivo.
 - **O diagrama é o argumento**: o mapa 12 × 30 ocupa o centro óptico da peça.
   A chave vermelha marca os toques 3 e 4 (dias 5 e 7), onde a maioria dos
   times para; a verde marca os toques 5 a 12, onde a conversão acontece.
+- **A pilha mede a intensidade**: dias de pico cruzam 2 ou 3 canais, e a coluna
+  fica visivelmente mais alta. A quantidade de contato vira altura no eixo, sem
+  precisar de rótulo.
+- **Gestão é seção, não item de lista**: o acompanhamento semanal saiu da grade
+  de escopo e ganhou bloco próprio, com os eixos que a reunião revisa — volume
+  de ligações, alcance das mensagens e qualidade das conversas.
 - **Oferta em dois tempos**: o valor do programa (R$ 20.000) e o que o cliente
   paga para começar (R$ 0 nos primeiros 30 dias) aparecem lado a lado, sem
   ambiguidade sobre o preço.

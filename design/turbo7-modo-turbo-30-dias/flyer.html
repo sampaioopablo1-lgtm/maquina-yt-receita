@@ -18,10 +18,10 @@
   --seam:rgba(255,255,255,.105);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{width:1200px;height:1800px;overflow:hidden;background:var(--ink);
+body{width:1200px;height:2000px;overflow:hidden;background:var(--ink);
   -webkit-font-smoothing:antialiased;}
 
-.page{position:relative;width:1200px;height:1800px;overflow:hidden;
+.page{position:relative;width:1200px;height:2000px;overflow:hidden;
   background:radial-gradient(122% 64% at 50% -10%,#3D1168 0%,#270B45 40%,#180627 74%,#120320 100%);}
 .page .grid{position:absolute;inset:0;
   background:repeating-linear-gradient(to right,rgba(255,255,255,.032) 0 1px,transparent 1px 48px),
@@ -67,7 +67,7 @@ h1 em{font-style:normal;color:var(--green);}
 /* ALERTA */
 .alert{margin-top:26px;display:flex;border:1px solid rgba(255,68,56,.32);background:rgba(255,68,56,.05);}
 .alert .bar{width:4px;background:var(--red);flex:none;}
-.alert .body{padding:17px 24px 18px;}
+.alert .body{padding:14px 24px 15px;}
 .alert .lbl{display:flex;align-items:center;gap:9px;font-size:9px;color:var(--red);margin-bottom:7px;}
 .alert .lbl i{width:6px;height:6px;background:var(--red);border-radius:50%;box-shadow:0 0 9px rgba(255,68,56,.8);}
 .alert p{font-family:'Outfit';font-size:18px;line-height:1.44;color:#EDE3F5;}
@@ -83,15 +83,15 @@ h1 em{font-style:normal;color:var(--green);}
 .figbar .n{font-size:9.5px;color:var(--slate);}
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--seam);}
-.stat{background:rgba(255,255,255,.020);padding:18px 20px 19px;}
+.stat{background:rgba(255,255,255,.020);padding:14px 20px 15px;}
 .stat .v{font-family:'BigShoulders';font-weight:700;font-size:44px;line-height:.80;color:var(--green);}
 .stat .v small{font-size:19px;}
 .stat .k{font-family:'GeistMono';font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;
   color:var(--slate);margin-top:8px;line-height:1.75;}
 
 /* DIAGRAMA */
-.chart{position:relative;margin-top:28px;}
-.cintas{position:relative;height:46px;}
+.chart{position:relative;margin-top:24px;}
+.cintas{position:relative;height:44px;}
 .cinta{position:absolute;bottom:0;padding:0 5px;}
 .cinta-lbl{font-size:8.5px;text-align:center;line-height:1.3;margin-bottom:6px;}
 .cinta-arco{display:flex;align-items:center;height:7px;}
@@ -103,21 +103,24 @@ h1 em{font-style:normal;color:var(--green);}
 .cinta.ok i,.cinta.ok span{background:rgba(124,240,30,.55);}
 
 .cols{position:relative;display:grid;grid-template-columns:repeat(12,1fr);}
-.cols .axis{position:absolute;left:0;right:0;top:106px;height:1px;
+.cols .axis{position:absolute;left:0;right:0;top:100px;height:1px;
   background:repeating-linear-gradient(to right,rgba(255,255,255,.34) 0 5px,transparent 5px 11px);}
 .col{display:flex;flex-direction:column;align-items:center;}
 .idx{font-size:8px;height:12px;line-height:12px;color:rgba(255,255,255,.52);}
 .stem{width:1px;height:14px;background:rgba(255,255,255,.26);}
-.node{width:66px;height:66px;border-radius:50%;display:flex;flex-direction:column;
+.node{width:60px;height:60px;border-radius:50%;display:flex;flex-direction:column;
   align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.34);
   background:radial-gradient(70% 70% at 50% 22%,rgba(255,255,255,.10),rgba(255,255,255,.022));}
+.node.pico{border-color:rgba(124,240,30,.55);
+  background:radial-gradient(70% 70% at 50% 22%,rgba(124,240,30,.13),rgba(255,255,255,.022));}
 .node .nd{font-size:7px;color:var(--slate);line-height:1;margin-bottom:2px;}
-.node .nn{font-family:'BigShoulders';font-weight:700;font-size:30px;line-height:.8;color:var(--white);}
+.node .nn{font-family:'BigShoulders';font-weight:700;font-size:27px;line-height:.8;color:var(--white);}
 .axis-hit{width:5px;height:5px;border-radius:50%;background:var(--white);margin:-2px 0;}
+.canais{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .gl{display:block;}
 
 /* LEGENDA */
-.legenda{display:flex;align-items:center;gap:36px;margin-top:30px;padding-top:20px;
+.legenda{display:flex;align-items:center;gap:36px;margin-top:24px;padding-top:16px;
   border-top:1px solid var(--hair-soft);}
 .lg{display:flex;align-items:center;gap:11px;}
 .lg span{font-size:13px;line-height:1.32;color:#D8CEE4;}
@@ -126,13 +129,13 @@ h1 em{font-style:normal;color:var(--green);}
 .nota b{color:var(--green);font-weight:700;}
 
 /* INCLUSOS */
-.sec{display:flex;align-items:baseline;justify-content:space-between;margin-top:34px;
+.sec{display:flex;align-items:baseline;justify-content:space-between;margin-top:24px;
   padding-bottom:10px;border-bottom:1px solid var(--hair);}
 .sec .t{font-family:'Outfit';font-weight:700;font-size:16px;color:var(--white);text-transform:uppercase;
   letter-spacing:.03em;}
 .sec .n{font-size:9.5px;color:var(--slate);}
-.itens{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--seam);}
-.item{background:rgba(255,255,255,.020);padding:18px 22px 19px;}
+.itens{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--seam);}
+.item{background:rgba(255,255,255,.020);padding:15px 22px 16px;}
 .item-n{font-size:9px;color:var(--green);margin-bottom:8px;}
 .item-t{font-size:15.5px;line-height:1.24;color:var(--white);text-transform:uppercase;letter-spacing:.01em;}
 .item-d{font-size:13px;line-height:1.45;color:#C3B5D2;margin-top:7px;}
@@ -141,12 +144,12 @@ h1 em{font-style:normal;color:var(--green);}
 .oferta{margin-top:36px;border:1px solid rgba(124,240,30,.42);background:
   linear-gradient(105deg,rgba(124,240,30,.09) 0%,rgba(124,240,30,.03) 46%,rgba(124,240,30,.10) 100%);
   display:flex;align-items:stretch;}
-.of-l{flex:1;padding:22px 26px 23px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(124,240,30,.26);}
+.of-l{flex:1;padding:19px 26px 20px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(124,240,30,.26);}
 .of-k{font-family:'GeistMono';font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);}
 .of-v{font-family:'BigShoulders';font-weight:700;font-size:52px;line-height:.86;color:var(--white);margin-top:9px;}
 .of-v small{font-size:22px;color:var(--slate);}
 .of-s{font-family:'Outfit';font-size:12.5px;color:#C3B5D2;margin-top:8px;line-height:1.4;}
-.of-r{flex:1.12;padding:22px 26px 23px;}
+.of-r{flex:1.12;padding:19px 26px 20px;}
 .of-r .of-v{color:var(--green);font-size:68px;}
 .of-q{font-family:'Outfit';font-weight:700;font-size:19px;letter-spacing:.01em;color:var(--green);
   margin-top:4px;text-transform:uppercase;}
@@ -160,6 +163,22 @@ h1 em{font-style:normal;color:var(--green);}
 .cta .b span{font-family:'GeistMono';font-weight:700;font-size:15px;letter-spacing:.10em;color:#0E0318;}
 .cta .b svg{display:block;}
 
+/* GESTAO */
+.gestao{display:flex;border:1px solid rgba(124,240,30,.34);
+  background:linear-gradient(100deg,rgba(124,240,30,.075) 0%,rgba(124,240,30,.022) 62%,rgba(124,240,30,.06) 100%);}
+.gestao .rail{width:4px;background:var(--green);flex:none;}
+.gestao-corpo{padding:17px 26px 19px;flex:1;}
+.gestao-lead{font-family:'BigShoulders';font-weight:700;font-size:44px;line-height:.94;
+  text-transform:uppercase;color:var(--green);letter-spacing:-.004em;}
+.gestao-txt{font-family:'Outfit';font-size:16.5px;line-height:1.46;color:#E4DAEE;
+  margin-top:9px;max-width:96%;}
+.gestao-txt b{font-weight:700;color:var(--white);}
+.metricas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(124,240,30,.24);
+  margin-top:18px;border-top:1px solid rgba(124,240,30,.24);}
+.met{background:rgba(18,3,32,.42);padding:12px 16px 13px;display:flex;flex-direction:column;gap:5px;}
+.met-k{font-size:8px;color:var(--green);}
+.met-v{font-size:14.5px;line-height:1.3;color:var(--white);}
+
 /* RODAPE */
 .foot{margin-top:13px;padding-top:22px;border-top:1px solid var(--hair);
   display:flex;align-items:center;justify-content:space-between;}
@@ -167,7 +186,7 @@ h1 em{font-style:normal;color:var(--green);}
 .foot .l em{font-style:normal;color:var(--green);}
 .foot .c{font-family:'GeistMono';font-size:8.5px;letter-spacing:.20em;text-transform:uppercase;color:var(--slate);}
 
-@page{size:12.5in 18.75in;margin:0;}
+@page{size:12.5in 20.8333in;margin:0;}
 @media print{html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 </style>
 </head>
@@ -227,7 +246,7 @@ h1 em{font-style:normal;color:var(--green);}
       </div>
       <div class="stats">
         <div class="stat"><div class="v">12</div>
-          <div class="k">Tentativas de contato<br>por lead</div></div>
+          <div class="k">Toques programados<br>ao longo do ciclo</div></div>
         <div class="stat"><div class="v">30<small> dias</small></div>
           <div class="k">Janela de cadência<br>espaçada</div></div>
         <div class="stat"><div class="v">+80<small>%</small></div>
@@ -245,17 +264,19 @@ h1 em{font-style:normal;color:var(--green);}
         <div class="cols"><div class="axis"></div><div class="col">
   <div class="idx mono">01</div>
   <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">01</span></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">01</span></div>
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.25" fill="#7CF01E"/>
-  <g transform="translate(8.8 8.8) scale(1.1)">
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
     <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
     <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
       <circle cx="15.6" cy="10.4" r="1.15"/></g>
-  </g></svg>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">02</div>
   <div class="stem"></div>
@@ -263,33 +284,45 @@ h1 em{font-style:normal;color:var(--green);}
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
-  <g transform="translate(8.8 8.8) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg>
-</div><div class="col">
-  <div class="idx mono">03</div>
-  <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">05</span></div>
-  <div class="stem"></div>
-  <div class="axis-hit"></div>
-  <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.25" fill="#7CF01E"/>
-  <g transform="translate(8.8 8.8) scale(1.1)">
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
     <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
     <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
       <circle cx="15.6" cy="10.4" r="1.15"/></g>
-  </g></svg>
+  </g></svg></div>
 </div><div class="col">
-  <div class="idx mono">04</div>
+  <div class="idx mono">03</div>
   <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">07</span></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">05</span></div>
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
-  <g transform="translate(8.8 8.8) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg>
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
+    <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
+    <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
+      <circle cx="15.6" cy="10.4" r="1.15"/></g>
+  </g></svg></div>
+</div><div class="col">
+  <div class="idx mono">04</div>
+  <div class="stem"></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">07</span></div>
+  <div class="stem"></div>
+  <div class="axis-hit"></div>
+  <div class="stem"></div>
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
+    <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
+    <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
+      <circle cx="15.6" cy="10.4" r="1.15"/></g>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">05</div>
   <div class="stem"></div>
@@ -297,23 +330,31 @@ h1 em{font-style:normal;color:var(--green);}
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.25" fill="#7CF01E"/>
-  <g transform="translate(8.8 8.8) scale(1.1)">
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
     <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
     <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
       <circle cx="15.6" cy="10.4" r="1.15"/></g>
-  </g></svg>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">06</div>
   <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">13</span></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">13</span></div>
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
-  <g transform="translate(8.8 8.8) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg>
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
+    <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
+    <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
+      <circle cx="15.6" cy="10.4" r="1.15"/></g>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">07</div>
   <div class="stem"></div>
@@ -321,23 +362,29 @@ h1 em{font-style:normal;color:var(--green);}
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.25" fill="#7CF01E"/>
-  <g transform="translate(8.8 8.8) scale(1.1)">
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
     <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
     <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
       <circle cx="15.6" cy="10.4" r="1.15"/></g>
-  </g></svg>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">08</div>
   <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">19</span></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">19</span></div>
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
-  <g transform="translate(8.8 8.8) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg>
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
+    <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
+    <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
+      <circle cx="15.6" cy="10.4" r="1.15"/></g>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">09</div>
   <div class="stem"></div>
@@ -345,23 +392,29 @@ h1 em{font-style:normal;color:var(--green);}
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.25" fill="#7CF01E"/>
-  <g transform="translate(8.8 8.8) scale(1.1)">
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
     <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
     <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
       <circle cx="15.6" cy="10.4" r="1.15"/></g>
-  </g></svg>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">10</div>
   <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">25</span></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">25</span></div>
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
-  <g transform="translate(8.8 8.8) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg>
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
+    <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
+    <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
+      <circle cx="15.6" cy="10.4" r="1.15"/></g>
+  </g></svg></div>
 </div><div class="col">
   <div class="idx mono">11</div>
   <div class="stem"></div>
@@ -369,23 +422,31 @@ h1 em{font-style:normal;color:var(--green);}
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
-  <g transform="translate(8.8 8.8) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg>
-</div><div class="col">
-  <div class="idx mono">12</div>
-  <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">30</span></div>
-  <div class="stem"></div>
-  <div class="axis-hit"></div>
-  <div class="stem"></div>
-  <svg class="gl" viewBox="0 0 44 44" width="44" height="44">
-  <circle cx="22.0" cy="22.0" r="21.25" fill="#7CF01E"/>
-  <g transform="translate(8.8 8.8) scale(1.1)">
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
     <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
     <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
       <circle cx="15.6" cy="10.4" r="1.15"/></g>
-  </g></svg>
+  </g></svg></div>
+</div><div class="col">
+  <div class="idx mono">12</div>
+  <div class="stem"></div>
+  <div class="node pico"><span class="nd mono">Dia</span><span class="nn">30</span></div>
+  <div class="stem"></div>
+  <div class="axis-hit"></div>
+  <div class="stem"></div>
+  <div class="canais"><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.1" fill="rgba(124,240,30,.10)" stroke="#7CF01E" stroke-width="1.5"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg><svg class="gl" viewBox="0 0 30 30" width="30" height="30">
+  <circle cx="15.0" cy="15.0" r="14.25" fill="#7CF01E"/>
+  <g transform="translate(1.8000000000000007 1.8000000000000007) scale(1.1)">
+    <path d="M6.9 4.3h10.2a3.3 3.3 0 0 1 3.3 3.3v5.9a3.3 3.3 0 0 1-3.3 3.3h-6.6L6.2 20.1v-3.9a3.3 3.3 0 0 1-2.6-3.2V7.6a3.3 3.3 0 0 1 3.3-3.3Z" fill="#150425"/>
+    <g fill="#7CF01E"><circle cx="8.4" cy="10.4" r="1.15"/><circle cx="12" cy="10.4" r="1.15"/>
+      <circle cx="15.6" cy="10.4" r="1.15"/></g>
+  </g></svg></div>
 </div></div>
       </div>
 
@@ -401,8 +462,8 @@ h1 em{font-style:normal;color:var(--green);}
   <g transform="translate(-0.1999999999999993 -0.1999999999999993) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#7CF01E"/></g></svg><span class="sans">Ligação<br>pelo WhatsApp</span></div><div class="lg"><svg class="gl" viewBox="0 0 26 26" width="26" height="26">
   <circle cx="13.0" cy="13.0" r="12.1" fill="rgba(226,230,236,.09)" stroke="#E2E6EC" stroke-width="1.5"/>
   <g transform="translate(-0.1999999999999993 -0.1999999999999993) scale(1.1)"><path d="M6.6 4.4h3.4l1.6 4.1-2.1 1.3a10.8 10.8 0 0 0 4.8 4.8l1.3-2.1 4.1 1.6v3.4a1.7 1.7 0 0 1-1.8 1.7A15.9 15.9 0 0 1 4.9 6.2a1.7 1.7 0 0 1 1.7-1.8Z" fill="#E2E6EC"/></g></svg><span class="sans">Ligação<br>convencional</span></div>
-        <div class="nota">Abordagem omnichannel · 2 a 3 canais cruzados<br>
-          Alimentação projetada: <b>5 novos leads por dia</b></div>
+        <div class="nota">Nos dias de pico, <b>2 a 3 canais</b> se cruzam no mesmo dia<br>
+          21 contatos no ciclo · alimentação de <b>5 novos leads por dia</b></div>
       </div>
     </div>
 
@@ -422,11 +483,20 @@ h1 em{font-style:normal;color:var(--green);}
   <div class="item-n mono-b">03</div>
   <div class="item-t sans-b">Implementação do CRM Turbo 7 Go</div>
   <div class="item-d sans">Sua central de comando. Nenhum lead perdido por falta de follow-up.</div>
-</div><div class="item">
-  <div class="item-n mono-b">04</div>
-  <div class="item-t sans-b">Diretor de performance dedicado</div>
-  <div class="item-d sans">Reuniões semanais táticas e alinhamento total entre marketing e vendas.</div>
 </div></div>
+
+    <div class="sec">
+      <div class="t">Acompanhamento de performance</div>
+      <div class="n mono">Tab. 02 — gestão semanal</div>
+    </div>
+    <div class="gestao">
+      <div class="rail"></div>
+      <div class="gestao-corpo">
+        <div class="gestao-lead">A meta é conquistada nos detalhes do dia a dia.</div>
+        <p class="gestao-txt">Reuniões semanais de performance com o time inteiro, conduzidas por um diretor que <b>acompanha desempenho, ajusta diariamente e traciona resultados</b> — não um gestor que só cobra o número no fim do mês.</p>
+        <div class="metricas"><div class="met"><span class="met-k mono">Volume</span><span class="met-v sans">Total de ligações por dia</span></div><div class="met"><span class="met-k mono">Alcance</span><span class="met-v sans">Mensagens enviadas por captador</span></div><div class="met"><span class="met-k mono">Qualidade</span><span class="met-v sans">Análise de contexto das conversas</span></div></div>
+      </div>
+    </div>
 
     <div class="oferta">
       <div class="of-l">

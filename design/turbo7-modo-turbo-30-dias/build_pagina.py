@@ -11,7 +11,8 @@ from pathlib import Path
 
 from PIL import Image
 
-from build import CADENCIA, CALL, CALL_WA, INCLUSOS, MSG
+from build import (CADENCIA, CALL, CALL_WA, GESTAO_LEAD, GESTAO_TEXTO,
+                   INCLUSOS, METRICAS, MSG, TOTAL_CONTATOS)
 
 RAIZ = Path(__file__).parent
 LARGURA_WEB = 1600  # o flyer nasce com 2400px; 1600 basta para leitura em tela
@@ -39,15 +40,26 @@ def flyer_web() -> str:
 
 def toques() -> str:
     linhas = []
-    for i, (dia, canal) in enumerate(CADENCIA, 1):
-        rotulo, classe = CANAIS[canal]
+    for i, (dia, canais) in enumerate(CADENCIA, 1):
+        marcas = "".join(
+            f'<span class="canal {CANAIS[c][1]}">{CANAIS[c][0]}</span>' for c in canais
+        )
+        pico = " pico" if len(canais) > 1 else ""
         linhas.append(
-            f'<li class="toque {classe}">'
+            f'<li class="toque{pico}">'
             f'<span class="toque-n">{i:02d}</span>'
             f'<span class="toque-dia">Dia {dia}</span>'
-            f'<span class="toque-canal">{rotulo}</span></li>'
+            f'<span class="canais">{marcas}</span></li>'
         )
     return "\n".join(linhas)
+
+
+def metricas() -> str:
+    return "\n".join(
+        f'<div class="met"><span class="met-k">{eixo}</span>'
+        f'<span class="met-v">{oque}</span></div>'
+        for eixo, oque in METRICAS
+    )
 
 
 def escopo() -> str:
@@ -135,22 +147,40 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
   color:var(--muted);}}
 .toque-dia{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
   line-height:.9;font-variant-numeric:tabular-nums;}}
-.toque-canal{{font-size:13.5px;line-height:1.35;color:var(--muted);
-  padding-left:15px;position:relative;}}
-.toque-canal::before{{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;
+.toque.pico{{box-shadow:inset 3px 0 0 var(--accent);}}
+.canais{{display:flex;flex-direction:column;gap:5px;margin-top:3px;}}
+.canal{{font-size:13px;line-height:1.3;color:var(--muted);padding-left:15px;position:relative;}}
+.canal::before{{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
   border-radius:50%;}}
-.msg .toque-canal::before{{background:var(--msg);}}
-.callwa .toque-canal::before{{background:transparent;border:2px solid var(--callwa);}}
-.call .toque-canal::before{{background:transparent;border:2px solid var(--call);}}
+.canal.msg::before{{background:var(--msg);}}
+.canal.callwa::before{{background:transparent;border:2px solid var(--callwa);}}
+.canal.call::before{{background:transparent;border:2px solid var(--call);}}
 
 /* escopo */
-.escopo{{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:1px;
+.escopo{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);}}
 .escopo-item{{background:var(--surface);padding:22px 24px 24px;
   display:flex;flex-direction:column;gap:7px;}}
 .escopo-item h3{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;
   line-height:1.3;margin:0;text-transform:uppercase;letter-spacing:.02em;}}
 .escopo-item p{{margin:0;font-size:15px;color:var(--muted);}}
+
+/* gestão */
+.gestao{{border:1px solid var(--line);border-left:3px solid var(--accent);
+  background:var(--surface);padding:26px 28px 28px;
+  display:flex;flex-direction:column;gap:14px;}}
+.gestao-lead{{font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:clamp(30px,4.4vw,44px);line-height:.98;text-transform:uppercase;
+  color:var(--accent);margin:0;text-wrap:balance;}}
+.gestao p{{margin:0;max-width:68ch;}}
+.gestao p b{{font-family:'OutfitB',sans-serif;font-weight:700;}}
+.metricas{{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:4px;}}
+.met{{background:var(--ground);padding:15px 18px 17px;
+  display:flex;flex-direction:column;gap:5px;}}
+.met-k{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--accent);}}
+.met-v{{font-size:15px;line-height:1.3;}}
 
 /* oferta */
 .oferta{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;
@@ -200,20 +230,23 @@ footer a:hover{{border-bottom-color:var(--accent);}}
       <span class="eyebrow">Marketing de Planejados</span>
     </div>
     <h1>Programa Modo Turbo<br><em>30 dias</em></h1>
-    <p class="lide">Cadência comercial de 12 contatos ao longo de 30 dias, playbook de
-      vendas, CRM implantado e um diretor de performance acompanhando o time. Esta é a
-      peça de divulgação do programa.</p>
+    <p class="lide">Cadência comercial de 12 toques ao longo de 30 dias — com 2 a 3 canais
+      cruzados nos dias de pico —, playbook de vendas, CRM implantado e reuniões semanais
+      de performance conduzidas por um diretor dedicado. Esta é a peça de divulgação do
+      programa.</p>
   </header>
 
   <figure>
-    <img src="{flyer}" width="1600" height="2400"
+    <img src="{flyer}" width="1600" height="2667"
          alt="Flyer do Programa Modo Turbo 30 Dias, com o mapa de cadência 12 por 30,
               o escopo do programa e a oferta de 30 dias gratuitos.">
-    <figcaption>Flyer — 2400 × 3600 px · também disponível em PDF para impressão</figcaption>
+    <figcaption>Flyer — 2400 × 4000 px · também disponível em PDF para impressão</figcaption>
   </figure>
 
   <section>
     <h2>A cadência 12 × 30</h2>
+    <p class="lide" style="font-size:16px">12 toques em 30 dias, somando
+      {total} contatos: nos dias de pico, 2 a 3 canais se cruzam no mesmo dia.</p>
     <ol class="toques">
 {toques}
     </ol>
@@ -223,6 +256,17 @@ footer a:hover{{border-bottom-color:var(--accent);}}
     <h2>O que está incluso</h2>
     <div class="escopo">
 {escopo}
+    </div>
+  </section>
+
+  <section>
+    <h2>Acompanhamento de performance</h2>
+    <div class="gestao">
+      <p class="gestao-lead">{lead}</p>
+      <p>{texto}</p>
+      <div class="metricas">
+{metricas}
+      </div>
     </div>
   </section>
 
@@ -247,9 +291,9 @@ footer a:hover{{border-bottom-color:var(--accent);}}
   <section>
     <h2>Ficha técnica</h2>
     <dl class="ficha">
-      <div><dt>Formato</dt><dd>Vertical 2:3</dd></div>
-      <div><dt>Imagem</dt><dd>PNG 2400 × 3600 px</dd></div>
-      <div><dt>Impressão</dt><dd>PDF, 1 página, 12,5 × 18,75 in</dd></div>
+      <div><dt>Formato</dt><dd>Vertical 3:5</dd></div>
+      <div><dt>Imagem</dt><dd>PNG 2400 × 4000 px</dd></div>
+      <div><dt>Impressão</dt><dd>PDF, 1 página, 12,5 × 20,83 in</dd></div>
       <div><dt>Tipografia</dt><dd>Big Shoulders, Outfit, Geist Mono</dd></div>
     </dl>
     <p class="ressalva">As estatísticas da peça — “+80% das conversões vêm da 4ª tentativa
@@ -276,6 +320,10 @@ if __name__ == "__main__":
             mono=fonte("GeistMono-Regular.ttf"),
             flyer=flyer_web(),
             toques=toques(),
+            metricas=metricas(),
+            total=TOTAL_CONTATOS,
+            lead=GESTAO_LEAD,
+            texto=GESTAO_TEXTO,
             escopo=escopo(),
         ),
         encoding="utf-8",

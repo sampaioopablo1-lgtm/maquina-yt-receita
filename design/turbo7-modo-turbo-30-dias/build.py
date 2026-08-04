@@ -12,12 +12,25 @@ RAIZ = Path(__file__).parent
 # ── sistema de canais ────────────────────────────────────────────────
 MSG, CALL_WA, CALL = "msg", "call_wa", "call"
 
-# dia do ciclo -> canal do toque (12 contatos ao longo de 30 dias)
+# dia do ciclo -> canais acionados naquele toque.
+# 12 toques em 30 dias; nos dias de pico, 2 a 3 canais se cruzam no mesmo dia.
 CADENCIA = [
-    (1, MSG), (3, CALL_WA), (5, MSG), (7, CALL),
-    (10, MSG), (13, CALL_WA), (16, MSG), (19, CALL),
-    (22, MSG), (25, CALL_WA), (28, CALL), (30, MSG),
+    (1,  (CALL_WA, MSG)),
+    (3,  (MSG,)),
+    (5,  (CALL, MSG)),
+    (7,  (CALL_WA, MSG)),
+    (10, (MSG,)),
+    (13, (CALL, CALL_WA, MSG)),
+    (16, (MSG,)),
+    (19, (CALL_WA, MSG)),
+    (22, (MSG,)),
+    (25, (CALL, MSG)),
+    (28, (MSG,)),
+    (30, (CALL, CALL_WA, MSG)),
 ]
+
+# total de contatos individuais — derivado, para o texto nunca divergir do mapa
+TOTAL_CONTATOS = sum(len(canais) for _, canais in CADENCIA)
 
 # toques 3 e 4 (dias 5 e 7) = onde a maioria dos times desiste
 ABANDONO = (3, 4)
@@ -47,15 +60,17 @@ def glifo(canal: str, d: int = 44) -> str:
   <g transform="translate({r - 13.2} {r - 13.2}) scale(1.1)"><path d="{PATH_FONE}" fill="{cor}"/></g></svg>"""
 
 
-def coluna(i: int, dia: int, canal: str) -> str:
+def coluna(i: int, dia: int, canais: tuple[str, ...]) -> str:
+    pilha = "".join(glifo(c, 30) for c in canais)
+    pico = " pico" if len(canais) > 1 else ""
     return f"""<div class="col">
   <div class="idx mono">{i:02d}</div>
   <div class="stem"></div>
-  <div class="node"><span class="nd mono">Dia</span><span class="nn">{dia:02d}</span></div>
+  <div class="node{pico}"><span class="nd mono">Dia</span><span class="nn">{dia:02d}</span></div>
   <div class="stem"></div>
   <div class="axis-hit"></div>
   <div class="stem"></div>
-  {glifo(canal)}
+  <div class="canais">{pilha}</div>
 </div>"""
 
 
@@ -82,13 +97,24 @@ INCLUSOS = [
      "Scripts validados, regras de cadência, comissionamento e plano de carreira."),
     ("03", "Implementação do CRM Turbo 7 Go",
      "Sua central de comando. Nenhum lead perdido por falta de follow-up."),
-    ("04", "Diretor de performance dedicado",
-     "Reuniões semanais táticas e alinhamento total entre marketing e vendas."),
+]
+
+# O acompanhamento semanal deixou de ser um item de lista: virou seção.
+GESTAO_LEAD = "A meta é conquistada nos detalhes do dia a dia."
+GESTAO_TEXTO = (
+    "Reuniões semanais de performance com o time inteiro, conduzidas por um diretor "
+    "que <b>acompanha desempenho, ajusta diariamente e traciona resultados</b> — não um "
+    "gestor que só cobra o número no fim do mês."
+)
+METRICAS = [
+    ("Volume", "Total de ligações por dia"),
+    ("Alcance", "Mensagens enviadas por captador"),
+    ("Qualidade", "Análise de contexto das conversas"),
 ]
 
 
 def construir() -> str:
-    colunas = "".join(coluna(i, d, c) for i, (d, c) in enumerate(CADENCIA, 1))
+    colunas = "".join(coluna(i, d, cs) for i, (d, cs) in enumerate(CADENCIA, 1))
     cintas = (
         cinta(*ABANDONO, "Onde a maioria<br>dos times para", "alerta")
         + cinta(*CONVERSAO, "Zona de conversão — 80% das vendas acontecem aqui", "ok")
@@ -96,6 +122,11 @@ def construir() -> str:
     legenda = "".join(
         f'<div class="lg">{glifo(c, 26)}<span class="sans">{t}</span></div>'
         for c, t in LEGENDA
+    )
+    metricas = "".join(
+        f'<div class="met"><span class="met-k mono">{k}</span>'
+        f'<span class="met-v sans">{v}</span></div>'
+        for k, v in METRICAS
     )
     inclusos = "".join(
         f"""<div class="item">
@@ -105,7 +136,10 @@ def construir() -> str:
 </div>"""
         for n, t, d in INCLUSOS
     )
-    return TEMPLATE.format(colunas=colunas, cintas=cintas, legenda=legenda, inclusos=inclusos)
+    return TEMPLATE.format(colunas=colunas, cintas=cintas, legenda=legenda,
+                           inclusos=inclusos, metricas=metricas,
+                           total=TOTAL_CONTATOS, lead=GESTAO_LEAD,
+                           texto=GESTAO_TEXTO)
 
 
 TEMPLATE = """<!DOCTYPE html>
@@ -128,10 +162,10 @@ TEMPLATE = """<!DOCTYPE html>
   --seam:rgba(255,255,255,.105);
 }}
 *{{margin:0;padding:0;box-sizing:border-box;}}
-body{{width:1200px;height:1800px;overflow:hidden;background:var(--ink);
+body{{width:1200px;height:2000px;overflow:hidden;background:var(--ink);
   -webkit-font-smoothing:antialiased;}}
 
-.page{{position:relative;width:1200px;height:1800px;overflow:hidden;
+.page{{position:relative;width:1200px;height:2000px;overflow:hidden;
   background:radial-gradient(122% 64% at 50% -10%,#3D1168 0%,#270B45 40%,#180627 74%,#120320 100%);}}
 .page .grid{{position:absolute;inset:0;
   background:repeating-linear-gradient(to right,rgba(255,255,255,.032) 0 1px,transparent 1px 48px),
@@ -177,7 +211,7 @@ h1 em{{font-style:normal;color:var(--green);}}
 /* ALERTA */
 .alert{{margin-top:26px;display:flex;border:1px solid rgba(255,68,56,.32);background:rgba(255,68,56,.05);}}
 .alert .bar{{width:4px;background:var(--red);flex:none;}}
-.alert .body{{padding:17px 24px 18px;}}
+.alert .body{{padding:14px 24px 15px;}}
 .alert .lbl{{display:flex;align-items:center;gap:9px;font-size:9px;color:var(--red);margin-bottom:7px;}}
 .alert .lbl i{{width:6px;height:6px;background:var(--red);border-radius:50%;box-shadow:0 0 9px rgba(255,68,56,.8);}}
 .alert p{{font-family:'Outfit';font-size:18px;line-height:1.44;color:#EDE3F5;}}
@@ -193,15 +227,15 @@ h1 em{{font-style:normal;color:var(--green);}}
 .figbar .n{{font-size:9.5px;color:var(--slate);}}
 
 .stats{{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--seam);}}
-.stat{{background:rgba(255,255,255,.020);padding:18px 20px 19px;}}
+.stat{{background:rgba(255,255,255,.020);padding:14px 20px 15px;}}
 .stat .v{{font-family:'BigShoulders';font-weight:700;font-size:44px;line-height:.80;color:var(--green);}}
 .stat .v small{{font-size:19px;}}
 .stat .k{{font-family:'GeistMono';font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;
   color:var(--slate);margin-top:8px;line-height:1.75;}}
 
 /* DIAGRAMA */
-.chart{{position:relative;margin-top:28px;}}
-.cintas{{position:relative;height:46px;}}
+.chart{{position:relative;margin-top:24px;}}
+.cintas{{position:relative;height:44px;}}
 .cinta{{position:absolute;bottom:0;padding:0 5px;}}
 .cinta-lbl{{font-size:8.5px;text-align:center;line-height:1.3;margin-bottom:6px;}}
 .cinta-arco{{display:flex;align-items:center;height:7px;}}
@@ -213,21 +247,24 @@ h1 em{{font-style:normal;color:var(--green);}}
 .cinta.ok i,.cinta.ok span{{background:rgba(124,240,30,.55);}}
 
 .cols{{position:relative;display:grid;grid-template-columns:repeat(12,1fr);}}
-.cols .axis{{position:absolute;left:0;right:0;top:106px;height:1px;
+.cols .axis{{position:absolute;left:0;right:0;top:100px;height:1px;
   background:repeating-linear-gradient(to right,rgba(255,255,255,.34) 0 5px,transparent 5px 11px);}}
 .col{{display:flex;flex-direction:column;align-items:center;}}
 .idx{{font-size:8px;height:12px;line-height:12px;color:rgba(255,255,255,.52);}}
 .stem{{width:1px;height:14px;background:rgba(255,255,255,.26);}}
-.node{{width:66px;height:66px;border-radius:50%;display:flex;flex-direction:column;
+.node{{width:60px;height:60px;border-radius:50%;display:flex;flex-direction:column;
   align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.34);
   background:radial-gradient(70% 70% at 50% 22%,rgba(255,255,255,.10),rgba(255,255,255,.022));}}
+.node.pico{{border-color:rgba(124,240,30,.55);
+  background:radial-gradient(70% 70% at 50% 22%,rgba(124,240,30,.13),rgba(255,255,255,.022));}}
 .node .nd{{font-size:7px;color:var(--slate);line-height:1;margin-bottom:2px;}}
-.node .nn{{font-family:'BigShoulders';font-weight:700;font-size:30px;line-height:.8;color:var(--white);}}
+.node .nn{{font-family:'BigShoulders';font-weight:700;font-size:27px;line-height:.8;color:var(--white);}}
 .axis-hit{{width:5px;height:5px;border-radius:50%;background:var(--white);margin:-2px 0;}}
+.canais{{display:flex;flex-direction:column;align-items:center;gap:4px;}}
 .gl{{display:block;}}
 
 /* LEGENDA */
-.legenda{{display:flex;align-items:center;gap:36px;margin-top:30px;padding-top:20px;
+.legenda{{display:flex;align-items:center;gap:36px;margin-top:24px;padding-top:16px;
   border-top:1px solid var(--hair-soft);}}
 .lg{{display:flex;align-items:center;gap:11px;}}
 .lg span{{font-size:13px;line-height:1.32;color:#D8CEE4;}}
@@ -236,13 +273,13 @@ h1 em{{font-style:normal;color:var(--green);}}
 .nota b{{color:var(--green);font-weight:700;}}
 
 /* INCLUSOS */
-.sec{{display:flex;align-items:baseline;justify-content:space-between;margin-top:34px;
+.sec{{display:flex;align-items:baseline;justify-content:space-between;margin-top:24px;
   padding-bottom:10px;border-bottom:1px solid var(--hair);}}
 .sec .t{{font-family:'Outfit';font-weight:700;font-size:16px;color:var(--white);text-transform:uppercase;
   letter-spacing:.03em;}}
 .sec .n{{font-size:9.5px;color:var(--slate);}}
-.itens{{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--seam);}}
-.item{{background:rgba(255,255,255,.020);padding:18px 22px 19px;}}
+.itens{{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--seam);}}
+.item{{background:rgba(255,255,255,.020);padding:15px 22px 16px;}}
 .item-n{{font-size:9px;color:var(--green);margin-bottom:8px;}}
 .item-t{{font-size:15.5px;line-height:1.24;color:var(--white);text-transform:uppercase;letter-spacing:.01em;}}
 .item-d{{font-size:13px;line-height:1.45;color:#C3B5D2;margin-top:7px;}}
@@ -251,12 +288,12 @@ h1 em{{font-style:normal;color:var(--green);}}
 .oferta{{margin-top:36px;border:1px solid rgba(124,240,30,.42);background:
   linear-gradient(105deg,rgba(124,240,30,.09) 0%,rgba(124,240,30,.03) 46%,rgba(124,240,30,.10) 100%);
   display:flex;align-items:stretch;}}
-.of-l{{flex:1;padding:22px 26px 23px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(124,240,30,.26);}}
+.of-l{{flex:1;padding:19px 26px 20px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(124,240,30,.26);}}
 .of-k{{font-family:'GeistMono';font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);}}
 .of-v{{font-family:'BigShoulders';font-weight:700;font-size:52px;line-height:.86;color:var(--white);margin-top:9px;}}
 .of-v small{{font-size:22px;color:var(--slate);}}
 .of-s{{font-family:'Outfit';font-size:12.5px;color:#C3B5D2;margin-top:8px;line-height:1.4;}}
-.of-r{{flex:1.12;padding:22px 26px 23px;}}
+.of-r{{flex:1.12;padding:19px 26px 20px;}}
 .of-r .of-v{{color:var(--green);font-size:68px;}}
 .of-q{{font-family:'Outfit';font-weight:700;font-size:19px;letter-spacing:.01em;color:var(--green);
   margin-top:4px;text-transform:uppercase;}}
@@ -270,6 +307,22 @@ h1 em{{font-style:normal;color:var(--green);}}
 .cta .b span{{font-family:'GeistMono';font-weight:700;font-size:15px;letter-spacing:.10em;color:#0E0318;}}
 .cta .b svg{{display:block;}}
 
+/* GESTAO */
+.gestao{{display:flex;border:1px solid rgba(124,240,30,.34);
+  background:linear-gradient(100deg,rgba(124,240,30,.075) 0%,rgba(124,240,30,.022) 62%,rgba(124,240,30,.06) 100%);}}
+.gestao .rail{{width:4px;background:var(--green);flex:none;}}
+.gestao-corpo{{padding:17px 26px 19px;flex:1;}}
+.gestao-lead{{font-family:'BigShoulders';font-weight:700;font-size:44px;line-height:.94;
+  text-transform:uppercase;color:var(--green);letter-spacing:-.004em;}}
+.gestao-txt{{font-family:'Outfit';font-size:16.5px;line-height:1.46;color:#E4DAEE;
+  margin-top:9px;max-width:96%;}}
+.gestao-txt b{{font-weight:700;color:var(--white);}}
+.metricas{{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(124,240,30,.24);
+  margin-top:18px;border-top:1px solid rgba(124,240,30,.24);}}
+.met{{background:rgba(18,3,32,.42);padding:12px 16px 13px;display:flex;flex-direction:column;gap:5px;}}
+.met-k{{font-size:8px;color:var(--green);}}
+.met-v{{font-size:14.5px;line-height:1.3;color:var(--white);}}
+
 /* RODAPE */
 .foot{{margin-top:13px;padding-top:22px;border-top:1px solid var(--hair);
   display:flex;align-items:center;justify-content:space-between;}}
@@ -277,7 +330,7 @@ h1 em{{font-style:normal;color:var(--green);}}
 .foot .l em{{font-style:normal;color:var(--green);}}
 .foot .c{{font-family:'GeistMono';font-size:8.5px;letter-spacing:.20em;text-transform:uppercase;color:var(--slate);}}
 
-@page{{size:12.5in 18.75in;margin:0;}}
+@page{{size:12.5in 20.8333in;margin:0;}}
 @media print{{html,body{{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}}}
 </style>
 </head>
@@ -337,7 +390,7 @@ h1 em{{font-style:normal;color:var(--green);}}
       </div>
       <div class="stats">
         <div class="stat"><div class="v">12</div>
-          <div class="k">Tentativas de contato<br>por lead</div></div>
+          <div class="k">Toques programados<br>ao longo do ciclo</div></div>
         <div class="stat"><div class="v">30<small> dias</small></div>
           <div class="k">Janela de cadência<br>espaçada</div></div>
         <div class="stat"><div class="v">+80<small>%</small></div>
@@ -351,8 +404,8 @@ h1 em{{font-style:normal;color:var(--green);}}
 
       <div class="legenda">
         {legenda}
-        <div class="nota">Abordagem omnichannel · 2 a 3 canais cruzados<br>
-          Alimentação projetada: <b>5 novos leads por dia</b></div>
+        <div class="nota">Nos dias de pico, <b>2 a 3 canais</b> se cruzam no mesmo dia<br>
+          {total} contatos no ciclo · alimentação de <b>5 novos leads por dia</b></div>
       </div>
     </div>
 
@@ -361,6 +414,19 @@ h1 em{{font-style:normal;color:var(--green);}}
       <div class="n mono">Tab. 01 — escopo</div>
     </div>
     <div class="itens">{inclusos}</div>
+
+    <div class="sec">
+      <div class="t">Acompanhamento de performance</div>
+      <div class="n mono">Tab. 02 — gestão semanal</div>
+    </div>
+    <div class="gestao">
+      <div class="rail"></div>
+      <div class="gestao-corpo">
+        <div class="gestao-lead">{lead}</div>
+        <p class="gestao-txt">{texto}</p>
+        <div class="metricas">{metricas}</div>
+      </div>
+    </div>
 
     <div class="oferta">
       <div class="of-l">
