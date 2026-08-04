@@ -28,6 +28,14 @@ canal:
     - "alasan"          # razao
     - "realita"         # realidade
     - "indonesia"
+    # Definidas por voce nas configuracoes do canal — nao apareceram na
+    # pesquisa, mas sao intencionais e delimitam o posicionamento.
+    - "kelas sosial"       # classe social
+    - "biaya hidup"        # custo de vida
+    - "keuangan pribadi"   # financas pessoais
+    - "pendapatan"         # renda
+    - "gaya hidup"         # estilo de vida
+    - "ekonomi indonesia"
 
   # Eixos rotacionados a cada video, derivados dos padroes que de fato
   # performam no nicho — nao inventados. Em ritmo diario, e o que impede
