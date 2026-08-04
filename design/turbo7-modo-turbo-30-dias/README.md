@@ -34,6 +34,17 @@ python3 build_pagina.py  # página de apresentação (usa o PNG já renderizado)
 
 Requer `pillow` e o Chromium apontado em `render.py:CHROME`.
 
+## Publicar o site
+
+`build_site.py` emite `site/`, que é um site estático pronto — sem build step.
+`netlify.toml` na raiz já aponta o `publish` para essa pasta, então basta
+conectar o repositório ao projeto Netlify `modo-turbo-turbo7` (ou arrastar a
+pasta `site/` para o deploy manual da Netlify).
+
+`BASE_URL` em `build_site.py` alimenta as tags Open Graph, que exigem URL
+absoluta. Se o domínio mudar, atualize a constante e regere — senão o preview
+do link no WhatsApp aponta para o endereço antigo.
+
 ## Onde mexer no conteúdo
 
 Tudo o que é editorial está no topo de `build.py`:
