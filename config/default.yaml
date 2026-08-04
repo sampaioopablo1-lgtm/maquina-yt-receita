@@ -7,19 +7,39 @@ canal:
   categoria_id: "22"                # People & Blogs
   estilo_narracao: "direto, calmo, com autoridade; frases curtas"
   idioma_revisao: "pt-BR"           # traducao de roteiros e comentarios na revisao
-  # Palavras-chave validadas do subnicho. Alimente esta lista analisando
-  # titulos que ja performam — e a base do pilar 1 (titulo traqueando).
-  referencias_titulo: []
-  # Eixos rotacionados a cada video. Em ritmo diario, e o que impede 30
-  # videos/mes de convergirem para o mesmo formato.
+  # Palavras-chave extraidas de 144 videos dos canais de referencia do subnicho
+  # (Raymond Chin, Grind Theory, Finance Clipper), ponderadas por views/dia.
+  # Base do pilar 1. Reveja com `maquina pesquisar` a cada 2-3 meses.
+  referencias_titulo:
+    - "kenapa"          # por que — abre pergunta provocativa
+    - "kok bisa"        # como pode — paradoxo
+    - "orang kaya"      # pessoa rica
+    - "orang miskin"    # pessoa pobre
+    - "mental miskin"   # mentalidade pobre
+    - "mindset"
+    - "gaji"            # salario
+    - "kerja"           # trabalho
+    - "karyawan"        # empregado
+    - "karier"          # carreira
+    - "dipecat"         # demitido
+    - "cari kerja"      # procurar emprego
+    - "uang"            # dinheiro
+    - "skill"
+    - "alasan"          # razao
+    - "realita"         # realidade
+    - "indonesia"
+
+  # Eixos rotacionados a cada video, derivados dos padroes que de fato
+  # performam no nicho — nao inventados. Em ritmo diario, e o que impede
+  # 30 videos/mes de convergirem para o mesmo formato.
   eixos_tematicos:
-    - "erro comum que custa caro"
-    - "comparacao entre duas escolhas"
-    - "o que ninguem explica sobre"
-    - "passo a passo pratico"
-    - "caso concreto analisado"
-    - "mito desmontado com dados"
-    - "decisao sob restricao de tempo"
+    - "pergunta provocativa: kenapa X acontece"
+    - "paradoxo: tem X mas continua Y"
+    - "alerta de risco iminente para quem faz X"
+    - "comparacao entre duas escolhas de carreira"
+    - "realidade dura desmontada com dados"
+    - "habilidade ou metodo pratico que muda o jogo"
+    - "geracao ou grupo social sob analise"
 
 # Os 3 pilares viram numero. Ver docs/02-playbook-youtube.md
 metas:
