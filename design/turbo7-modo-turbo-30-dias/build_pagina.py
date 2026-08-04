@@ -151,7 +151,7 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
 
 /* cadência — sequência real, por isso numerada */
 .toques{{list-style:none;margin:0;padding:0;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:1px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(min(158px,100%),1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);}}
 .toque{{background:var(--surface);padding:16px 16px 18px;
   display:flex;flex-direction:column;gap:3px;}}
@@ -169,7 +169,7 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
 .canal.call::before{{background:transparent;border:2px solid var(--call);}}
 
 /* escopo */
-.escopo{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;
+.escopo{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);}}
 .escopo-item{{background:var(--surface);padding:22px 24px 24px;
   display:flex;flex-direction:column;gap:7px;}}
@@ -186,7 +186,7 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
   color:var(--accent);margin:0;text-wrap:balance;}}
 .gestao p{{margin:0;max-width:68ch;}}
 .gestao p b{{font-family:'OutfitB',sans-serif;font-weight:700;}}
-.metricas{{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;
+.metricas{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);margin-top:4px;}}
 .met{{background:var(--ground);padding:15px 18px 17px;
   display:flex;flex-direction:column;gap:5px;}}
@@ -213,7 +213,7 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
   padding:20px 26px 22px;display:flex;flex-direction:column;gap:4px;}}
 
 /* oferta */
-.oferta{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;
+.oferta{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);}}
 .preco{{background:var(--surface);padding:26px 26px 28px;
   display:flex;flex-direction:column;gap:6px;}}
@@ -235,7 +235,7 @@ h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spaci
 @media (prefers-reduced-motion:reduce){{.cta{{transition:none;}}.cta:hover{{transform:none;}}}}
 
 /* ficha */
-.ficha{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;}}
+.ficha{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:22px;}}
 .ficha div{{display:flex;flex-direction:column;gap:4px;}}
 .ficha dt{{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
   text-transform:uppercase;color:var(--muted);}}
@@ -350,23 +350,25 @@ footer a:hover{{border-bottom-color:var(--accent);}}
 """
 
 
+def montar() -> str:
+    """O fragmento da página, sem <html>/<head> — é assim que o Artifact a espera."""
+    return PAGINA.format(
+        big=fonte("BigShoulders-Bold.ttf"),
+        outfit=fonte("Outfit-Regular.ttf"),
+        outfit_b=fonte("Outfit-Bold.ttf"),
+        mono=fonte("GeistMono-Regular.ttf"),
+        flyer=flyer_web(),
+        toques=toques(),
+        metricas=metricas(),
+        bonus=bonus(),
+        total=TOTAL_CONTATOS,
+        lead=GESTAO_LEAD,
+        texto=GESTAO_TEXTO,
+        escopo=escopo(),
+    )
+
+
 if __name__ == "__main__":
     destino = RAIZ / "apresentacao.html"
-    destino.write_text(
-        PAGINA.format(
-            big=fonte("BigShoulders-Bold.ttf"),
-            outfit=fonte("Outfit-Regular.ttf"),
-            outfit_b=fonte("Outfit-Bold.ttf"),
-            mono=fonte("GeistMono-Regular.ttf"),
-            flyer=flyer_web(),
-            toques=toques(),
-            metricas=metricas(),
-            bonus=bonus(),
-            total=TOTAL_CONTATOS,
-            lead=GESTAO_LEAD,
-            texto=GESTAO_TEXTO,
-            escopo=escopo(),
-        ),
-        encoding="utf-8",
-    )
+    destino.write_text(montar(), encoding="utf-8")
     print(f"{destino.name}  ({destino.stat().st_size // 1024} KB)")

@@ -1,0 +1,24 @@
+# Hospedagem da apresentação pública do Programa Modo Turbo.
+# A pasta é gerada por design/turbo7-modo-turbo-30-dias/build_site.py — não há
+# build step aqui, o conteúdo já sai pronto e versionado.
+
+[build]
+  publish = "design/turbo7-modo-turbo-30-dias/site"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# O HTML é regerado a cada mudança da peça; os arquivos pesados podem ficar em cache.
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
