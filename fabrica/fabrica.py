@@ -1,5 +1,9 @@
 import json, subprocess, sys, os, asyncio
+from pathlib import Path
+
 import cairosvg, edge_tts
+
+from maquina.media import duracao as _duracao, ffmpeg_bin
 
 def esc(t): return t.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
 
@@ -57,7 +61,7 @@ def svg_cena(c, pal, W, H):
     return s + '</svg>'
 
 def dur(f):
-    return float(subprocess.check_output(["ffprobe","-v","quiet","-of","csv=p=0","-show_entries","format=duration",f]).strip())
+    return _duracao(Path(f))
 
 def st(x):
     return f"{int(x//3600):02d}:{int(x%3600//60):02d}:{x%60:06.3f}".replace(".",",")
@@ -105,11 +109,11 @@ def render(spec_file):
             if os.path.exists(saida) and os.path.getsize(saida) > 10000:
                 continue
             vf = f"zoompan=z='{z}':d={int(dd*30)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
-            subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            subprocess.run([ffmpeg_bin(),"-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
         with open(f"{d}/{pref}lista.txt","w") as f:
             for i in range(len(cenas)): f.write(f"file '{pref}clip{i:02d}.mp4'\n")
         out = "video.mp4" if pref=="l" else "short.mp4"
-        subprocess.run(["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt","-c","copy","-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
+        subprocess.run([ffmpeg_bin(),"-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt","-c","copy","-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
     caps, t = [], 0.0
     for i, c in enumerate(sp["longo"]):
         m, s2 = int(t//60), int(t%60)

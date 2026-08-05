@@ -41,6 +41,18 @@ class Pipeline:
             self.llm, self.cfg, formato, n, self.store.titulos_publicados()
         )
 
+    def pendente(self, formato: Formato) -> Video | None:
+        """Roteiro ja pronto esperando produzir (ex.: gravado pela Edge Function
+        `gerar-roteiro` no Supabase e trazido pro SQLite por `maquina sincronizar`).
+
+        `maquina auto` consome isso antes de ideiar do zero — sem isto o roteiro
+        so virava video se alguem rodasse `maquina retomar <slug>` na mao.
+        """
+        candidatos = [
+            v for v in self.store.listar(Status.ROTEIRIZADO, limite=50) if v.formato is formato
+        ]
+        return min(candidatos, key=lambda v: v.criado_em) if candidatos else None
+
     def criar(self, ideia: Ideia) -> Video:
         video = Video(slug=ideia.slug, formato=ideia.formato, idioma=self.cfg.canal.idioma, ideia=ideia)
         self.store.salvar(video)
