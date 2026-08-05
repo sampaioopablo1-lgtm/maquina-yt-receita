@@ -39,7 +39,11 @@ create index if not exists idx_metricas_video on metricas (youtube_id, coletado_
 
 -- Ultima leitura de cada video, com o gargalo ja classificado.
 -- E a consulta que responde "o que eu conserto primeiro".
-create or replace view painel_pilares as
+-- security_invoker: sem isso a view roda com o privilegio de quem criou (dono),
+-- ignorando as policies de RLS abaixo e vazando os dados para anon/authenticated
+-- via PostgREST — o oposto do "acesso apenas via service_role" declarado ali.
+create or replace view painel_pilares
+    with (security_invoker = true) as
 select distinct on (m.youtube_id)
     v.slug,
     v.titulo,
@@ -63,7 +67,8 @@ join videos v on v.youtube_id = m.youtube_id
 order by m.youtube_id, m.coletado_em desc;
 
 -- Progresso rumo aos requisitos do YPP (1.000 inscritos + 4.000h em 12 meses).
-create or replace view progresso_ypp as
+create or replace view progresso_ypp
+    with (security_invoker = true) as
 select
     sum(inscritos_ganhos)                              as inscritos_ganhos_periodo,
     round(sum(views * duracao_media_s) / 3600.0, 1)    as horas_estimadas,
