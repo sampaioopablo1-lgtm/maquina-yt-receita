@@ -149,15 +149,26 @@ def render(spec_file):
         RW, RH = render_wh(W, H)
         args = ["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt"]
         if (RW, RH) != (W, H):
-            args += ["-vf",f"scale={W}:{H}:flags=lanczos","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p","-c:a","copy"]
+            # Aqui nao ha zoompan, entao da para usar um preset eficiente sem
+            # risco de OOM: `ultrafast` gerava 178 MB em 12 min (6x maior que
+            # o necessario) e estourava o limite de upload de 50 MB.
+            args += ["-vf",f"scale={W}:{H}:flags=lanczos","-c:v","libx264","-preset","veryfast","-crf","26","-pix_fmt","yuv420p","-c:a","copy"]
         else:
             args += ["-c","copy"]
         subprocess.run(args + ["-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
         aplicar_trilha(d, out, slug)
-    caps, t = [], 0.0
+    # O YouTube exige capitulo >= 10s e descarta a LISTA INTEIRA se um so
+    # violar. Cena tem ~11s e algumas ficam abaixo, entao agrupa: so abre
+    # capitulo novo depois de MIN_CAP segundos (o primeiro e sempre 0:00).
+    # Prefere abrir no `titulo` (a cena que abre secao neste formato), para o
+    # capitulo levar um nome de secao e nao um slide qualquer do meio.
+    MIN_CAP, MAX_CAP = 60, 150
+    caps, t, ultimo = [], 0.0, -1e9
     for i, c in enumerate(sp["longo"]):
-        m, s2 = int(t//60), int(t%60)
-        caps.append(f"{m}:{s2:02d} {c.get('cap', c.get('kicker','...'))}")
+        dt = t - ultimo
+        if i == 0 or (dt >= MIN_CAP and c.get("layout") == "titulo") or dt >= MAX_CAP:
+            caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
+            ultimo = t
         t += tempos[i]
     # Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado.
     faixa = trilha_do_canal(slug)
