@@ -132,6 +132,25 @@ já fazia — e melhor.
 
 ---
 
+## 2c. Sincronizar o sandbox — confira antes de renderizar
+
+`fabrica.py` importa de `src/maquina` (`ffmpeg_bin`, `duracao`). Transferir o arquivo
+sozinho **quebra** o sandbox: leve o fecho de dependências.
+
+```
+fab/fabrica.py + src/maquina/{__init__,models,media}.py
+```
+
+Confira os quatro md5 contra o repositório **antes** de renderizar. Divergiu duas vezes
+no mesmo dia — uma delas com `ken_burns` e `dir_trabalho` diferentes, que é exatamente o
+par que produz vídeo costurando dois roteiros sem levantar erro.
+
+> **O último bloco do tar.gz vai em hex, não em base64.** O padding do gzip é uma corrida
+> longa de caracteres repetidos; em base64 um erro dentro dela mantém o tamanho e não
+> aparece. Aconteceu: 284 bytes certos, md5 errado.
+
+---
+
 ## 3. Produção — o que quebra em silêncio
 
 Estes três já entregaram vídeo defeituoso sem levantar erro nenhum:
