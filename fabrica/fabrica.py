@@ -166,7 +166,11 @@ def render(spec_file):
     caps, t, ultimo = [], 0.0, -1e9
     for i, c in enumerate(sp["longo"]):
         dt = t - ultimo
-        if i == 0 or (dt >= MIN_CAP and c.get("layout") == "titulo") or dt >= MAX_CAP:
+        # `sem_cap` marca cenas de passagem (ponte de fim de capitulo): sao
+        # layout `titulo` mas o texto delas nao nomeia secao nenhuma, e virava
+        # capitulo chamado "Bridge — ...", que nao ajuda ninguem a navegar.
+        pode = not c.get("sem_cap")
+        if i == 0 or (pode and dt >= MIN_CAP and c.get("layout") == "titulo") or (pode and dt >= MAX_CAP):
             caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
             ultimo = t
         t += tempos[i]
