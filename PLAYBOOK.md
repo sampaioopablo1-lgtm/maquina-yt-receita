@@ -79,7 +79,11 @@ endpoints.
 
 O que trava não é a cota, é a auditoria: projeto não verificado tem **todo upload
 travado em privado**, e a diretriz aqui é sempre público. A auditoria é
-**gratuita**, leva semanas e não é garantida.
+**gratuita**, leva semanas e não é garantida. Ela pede três coisas: descrição do caso
+de uso, **vídeo demonstrando o fluxo de OAuth**, e aceite dos Termos — e o vídeo é o
+item que trava quem tenta. Os dois primeiros já estão escritos e prontos para colar em
+`docs/18-submissao-auditoria.md`. O projeto a usar **já existe**: `Youtube RECEITA`, o
+mesmo onde o Gemini roda.
 
 Nenhum serviço grátis dá 100 uploads/dia porque o teto é do YouTube, não do
 intermediário: quem vende plano está vendendo **a auditoria dele**. Postiz
@@ -102,6 +106,16 @@ A ordem importa. Quem inverte produz vídeo bonito que ninguém assiste.
    (`setiap-level-003`, template a 1,0 v/d).
 5. **Pauta = (formato que performa) × (dor real datada) × (eixo ainda não usado).**
 6. **Similaridade ≤ 0,65** contra os vídeos anteriores *do mesmo canal*.
+
+### Dois limites das ferramentas de pesquisa
+
+- **Transcrição do YouTube está bloqueada.** `youtube-transcript-api` devolve
+  `RequestBlocked` do sandbox — IP de nuvem. Testado em dois sandboxes e quatro vídeos.
+  Não insista: use `YOUTUBE_GET_VIDEO_DETAILS_BATCH`, os documentos que a descrição
+  linkar, e a medição do grupo de pares.
+- **O filtro `channelId` do `YOUTUBE_SEARCH_YOU_TUBE` é ignorado.** Ele exige `q` e
+  devolve o YouTube inteiro. Não serve para medir um canal específico — e devolve
+  resultado plausível, então dá para concluir errado sem perceber.
 
 O título modela a **estrutura** do outlier, nunca o assunto. Palavra-chave nos 5 primeiros termos.
 
@@ -146,6 +160,24 @@ Origem: skill `roteiro-deep-time`, publicada no vídeo `bIIACr4z7F4`. O resto do
 aquele material ensina (pesquisa de pauta, fonte dupla, controle de duração) a máquina
 já fazia — e melhor.
 
+### As cenas do longo entram em camadas
+
+Cada cena vira **base + uma camada por elemento**, e os elementos entram no ritmo da
+fala — fade de 0,40 s e deslize de 26 px, espalhados pelos primeiros 62% da cena. A
+camada é do tamanho do quadro, então o `overlay` vai em `x=0` e não há coordenada para
+acertar duas vezes.
+
+Isso substitui a cena que chegava pronta: quatro itens apareciam juntos e ficavam
+parados os dez segundos em que o narrador os percorre um a um.
+
+> **`-framerate 30` em CADA imagem do caminho de camadas.** Sem isso o `-loop 1` entra
+> a 25 fps e as cenas com camada saem a 25 enquanto as sem camada saem a 30 — o concat
+> junta as duas **sem reclamar** e o resultado é fps variável. Medido: 225 quadros em
+> 9 s virando 270.
+
+O **short fica de fora**: são 30 s com legenda queimada, e ali a entrada escalonada
+rouba tempo de leitura em vez de dar ritmo.
+
 ### Dimensione pela fórmula, nunca pela tabela de chars/s
 
 ```
@@ -185,6 +217,22 @@ par que produz vídeo costurando dois roteiros sem levantar erro.
 > **O último bloco do tar.gz vai em hex, não em base64.** O padding do gzip é uma corrida
 > longa de caracteres repetidos; em base64 um erro dentro dela mantém o tamanho e não
 > aparece. Aconteceu: 284 bytes certos, md5 errado.
+
+### O sandbox recicla — guarde a fábrica no Storage
+
+O sandbox some sem aviso e leva junto a fábrica, as dependências, `/tmp/.upk` e
+`/tmp/.sburl`. Aconteceu no meio de um disparo e custou cinco blocos de base64 para
+refazer. **Depois de sincronizar, suba o tar.gz para o bucket:**
+
+```
+curl -s -X POST "$SB/fabrica.tgz" -H "Authorization: Bearer $ANON" -H "apikey: $ANON" \
+     -H "Content-Type: application/gzip" --data-binary @fabrica.tgz
+```
+
+Aí a recuperação vira um `curl` do público + `tar -xzf` + `pip install edge-tts cairosvg`.
+Confira o md5 contra o repositório mesmo assim — o Storage é INSERT-only, então um
+`fabrica.tgz` velho lá dentro **não é sobrescrito** e você baixaria a versão errada
+sem nenhum erro. Se o md5 divergir, suba com nome novo (`fabrica-AAAAMMDD.tgz`).
 
 ---
 
@@ -396,3 +444,10 @@ Regenere `APRENDIZADOS.md` a partir da tabela quando ela mudar. A tabela é a fo
 - Escalonar duração sem correlação medida no grupo de pares.
 - Fechar um pacote com arquivo parado na raiz do Drive.
 - Digitar a URL do Storage à mão — vem de `/tmp/.sburl`.
+- Arredondar número que a fonte institucional deu com precisão — nem na narração,
+  nem no título.
+- Renderizar o longo sem `-framerate 30` em cada imagem do caminho de camadas.
+- Fazer o short ser recorte do longo: ele fecha sozinho e **depois** aponta.
+- Procurar contorno para a publicação em onde o código roda (Colab, Supabase,
+  auto-hospedado). A trava é do **projeto** da API. Três perguntas equivalentes já
+  gastaram tempo com a mesma resposta.
