@@ -4,7 +4,13 @@
 > Ele descreve como a máquina opera *hoje*. Quando o processo mudar, muda aqui — junto
 > com a regra correspondente em `aprendizados` no Supabase. Documento e banco andam juntos.
 
-Projeto Supabase: `cscczluzpblzhvojxanp` · Bucket: `videos-maquina` · Repositório: este.
+Projeto Supabase: **`vevocauwtarctfwngrch`** (`maquina-yt-dark`, us-east-1) · Bucket: `videos-maquina` · Repositório: este.
+
+> O projeto antigo (`cscczluzpblzhvojxanp`) é de um CRM imobiliário e **continua vivo** —
+> as tabelas da máquina eram seis ilhas em ~150 tabelas de outro produto. Nada de vídeo
+> volta a ser gravado lá. A base fica em `/tmp/.sburl`, nunca digitada: o `l` do ref é
+> homóglifo de `1` em fonte de terminal, e o erro que isso produz (`Video URL is not
+> allowed`, DNS sem resolução) não aponta para erro de digitação.
 
 ---
 
@@ -27,42 +33,37 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 
 ## 1. O gargalo, declarado
 
-**`config.api_auditada = 'false'`.** Enquanto isso não virar `true`, nada é publicado e
-a máquina só acumula estoque. Todas as decisões de pauta são cegas — usam grupo de pares,
-nunca retenção própria, porque `metricas` está vazia.
+**Faltam 9 canais no YouTube.** Só `setiap-level` (`@setiaplevelid`) existe. É a única
+coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 10 dos 12
+pacotes prontos — em polonês, grego, turco, espanhol, hindi, português e inglês, todos
+sem destino. Cada canal leva ~2 min no Studio.
 
-Evidência de que não há atalho: o único canal configurado no YouTube
-(`setiap-level`, `UCf4-ZFoZQWKJotZNdi4Yl7w`) tem **4 de 5 vídeos marcados "Deleted video"**.
-Os 4 subiram por app de terceiro. O sobrevivente não.
+A publicação em si **deixou de ser gargalo em 2026-08-05.** Três vídeos subiram pela
+Upload-Post e sobreviveram ao nascimento, contra 6/6 apagados pela Composio.
 
-Há dois caminhos para sair disso, e eles não competem:
+| | duração | id |
+|---|---|---|
+| short do 004 | 0:26 | `ZYh3bpLP5JE` |
+| setiap-level-003 | 25:44 | `G8ocnpQIiyg` |
+| setiap-level-004 | 28:35 | `v-5v7R13BBc` |
 
-**A — auditoria própria** (`docs/10-auditoria-api.md`). Depende de ação humana:
-formulário + criação dos canais no Studio. É o caminho definitivo — projeto próprio,
-sem intermediário, sem mensalidade, sem depender da política de ninguém.
+A regra "nunca por app de terceiro" nunca disse "nenhum terceiro" — disse "nenhum
+terceiro **não auditado**". A Upload-Post opera a YouTube Data API com auditoria
+própria, e é essa a diferença. **A regra da Composio continua valendo.**
 
-**B — Upload-Post** (skill em `.claude/skills/upload-post/`). Serviço que opera a
-YouTube Data API com **quota e auditoria próprias**, então dispensa projeto no Google
-Cloud. A API expõe `privacy_status: public` — e um projeto **não** auditado não
-consegue publicar público, o YouTube força privado. É evidência forte, não prova.
+Duas coisas que o Playbook afirmava e o dado derrubou:
 
-> **A regra dos 6/6 continua valendo até ser refutada com dado.** Ela não diz
-> "nenhum terceiro"; diz "nenhum terceiro **não auditado**". A Composio derrubou
-> 6 de 6 porque o projeto dela não era auditado para este uso. Se o da Upload-Post
-> é, o resultado muda — mas isso se decide medindo, não lendo o site deles.
+- ~~Canal não verificado não sobe vídeo acima de 15 min~~ — `G8ocnpQIiyg` tem 25:44 no
+  mesmo canal não verificado. Regra 43 está `invalidado`.
+- ~~Thumbnail e SRT ficam manuais no Studio~~ — `thumbnail_url` e `youtube_subtitle_file`
+  são parâmetros da API.
 
-**Teste de sobrevivência, obrigatório antes de confiar em B:** subir UM vídeo como
-`unlisted`, esperar 24h, conferir com `YOUTUBE_GET_VIDEO_DETAILS_BATCH`. Sobreviveu →
-`config.api_auditada='true'` e o caminho abre. Sumiu → registra o resultado em
-`aprendizados`, volta ao Drive, e A vira a única rota. Custa um vídeo do estoque de 21.
+O que continua aberto: `metricas` está vazia, então **toda decisão de pauta é cega** —
+só grupo de pares, nunca retenção própria. Com os 3 vídeos no ar, `/analytics/setiaplevel`
+passa a devolver dado em alguns dias e os experimentos abertos fecham.
 
-O que o B ainda **não** cobre e continua manual no Studio: thumbnail (não há parâmetro
-de thumbnail para YouTube na API) e o `legendas.srt`.
-
-O que o B destrava de imediato, e é o motivo real de valer o teste: o endpoint
-`/analytics/<perfil>` devolve métrica do YouTube. Hoje a tabela `metricas` está vazia
-e **toda decisão de pauta é cega** — sem retenção própria, o laço de aprendizado só
-tem grupo de pares. Com métrica entrando, os 3 experimentos abertos fecham.
+**Limites do plano grátis da Upload-Post: 10 uploads/mês, 2 perfis.** Dois perfis é
+menos que dez canais — o portfólio inteiro não cabe nele.
 
 ---
 
@@ -124,6 +125,27 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
 - **Não mande `x-upsert: true`** — a policy anon é INSERT-only e upsert responde 403.
 - Não use `upload_local_file` do workbench: morre quando o kernel reinicia.
 
+### Publicação (Upload-Post)
+
+`POST https://api.upload-post.com/api/upload`, header `Authorization: Apikey <chave>`,
+`async_upload=true`, e depois `/uploadposts/status?request_id=`.
+
+**`privacyStatus=public`, sempre.** Não listado não entra em recomendação e não acumula
+sinal de algoritmo — é vídeo produzido para não ser visto.
+
+**Rode `python3 fabrica/tagbudget.py tags.txt` antes de enviar.** O limite de 500
+caracteres do YouTube vale para o conjunto, e toda tag com espaço entra entre aspas:
+custa `len+2`. Somar só os caracteres aprova lista que o YouTube rejeita — foi o que
+derrubou o `setiap-level-004` duas vezes, com 477 de soma e **542 de custo real**.
+
+Quando a API devolver mensagem específica (`One or more tags are invalid`), **esgote
+essa causa antes de inventar hipótese estrutural.** O `error_code` e o `failure_stage`
+da Upload-Post são genéricos (`media_invalid_format` / `media_validation`) e não
+contradizem a mensagem. Ignorar isso custou dois envios e uma regra falsa.
+
+Leia as tags com `mapfile -t` e grave o arquivo **com quebra de linha final** — o
+`while read` descarta a última linha, e o sintoma é uma tag a menos, silenciosa.
+
 ---
 
 ## 5. Registro
@@ -171,8 +193,13 @@ Regenere `APRENDIZADOS.md` a partir da tabela quando ela mudar. A tabela é a fo
 
 ## 7. Nunca
 
-- Publicar por app de terceiro (6/6 apagados).
+- Publicar pela **Composio** `YOUTUBE_UPLOAD_VIDEO` (6/6 apagados). A Upload-Post é
+  outra coisa: auditada, e com 3/3 sobrevivendo.
+- Publicar como `unlisted` ou `private`.
+- Enviar tags sem passar pelo `tagbudget.py`.
+- Gravar dado de vídeo no projeto `cscczluzpblzhvojxanp` (é o CRM).
 - Criar triggers novos.
 - Longo abaixo de 8 minutos.
 - Escalonar duração sem correlação medida no grupo de pares.
 - Fechar um pacote com arquivo parado na raiz do Drive.
+- Digitar a URL do Storage à mão — vem de `/tmp/.sburl`.
