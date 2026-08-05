@@ -34,8 +34,9 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 ## 1. O gargalo, declarado
 
 **Faltam 9 canais no YouTube.** Só `setiap-level` (`@setiaplevelid`) existe. É a única
-coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 10 dos 12
-pacotes prontos — em polonês, grego, turco, espanhol, hindi, português e inglês, todos
+coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia **18 pacotes
+prontos** (`v_maquina_estoque.aguardando_publicacao`, conferido em 2026-08-05) — em
+polonês, grego, turco, espanhol, hindi, português, indonésio e inglês (2 canais), todos
 sem destino. Cada canal leva ~2 min no Studio.
 
 A publicação em si **deixou de ser gargalo em 2026-08-05.** Três vídeos subiram pela
