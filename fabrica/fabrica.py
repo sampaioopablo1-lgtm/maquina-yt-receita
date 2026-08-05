@@ -81,7 +81,10 @@ def montar(spec_file):
     print(slug, "assets ok")
 
 TRILHA_DIR = "/tmp/trilhas"
-AUDIO_ARGS = ["-af","loudnorm=I=-14:TP=-1.5:LRA=11","-ac","2","-ar","48000","-c:a","aac","-b:a","192k","-shortest"]
+# Sem `-shortest`: o corte era feito pelo audio (a narracao crua), o que comia
+# a folga de 0,5s no fim de cada cena — a fala terminava e a cena virava no
+# mesmo quadro. Quem limita a duracao e o `-t` do clipe, entao a folga volta.
+AUDIO_ARGS = ["-af","loudnorm=I=-14:TP=-1.5:LRA=11","-ac","2","-ar","48000","-c:a","aac","-b:a","192k"]
 
 def trilha_do_canal(slug):
     """Faixa fixa por canal = assinatura sonora. CC-BY, credito no copy.md."""
@@ -133,7 +136,6 @@ def render(spec_file):
     for pref, cenas, W, H in (("l", sp["longo"], 1280, 720), ("s", sp["short"], 720, 1280)):
         for i, c in enumerate(cenas):
             dd = dur(f"{d}/{pref}{i:02d}.mp3") + 0.5
-            if pref == "l": tempos.append(dd)
             open(f"{d}/{pref}{i:02d}.srt","w").write(f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
             RW, RH = render_wh(W, H)
             # Ken Burns em funcao de `on` (numero do frame), nao por incremento
@@ -152,6 +154,12 @@ def render(spec_file):
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
                 mf.write(f"{pref}clip{i:02d}.mp4\n")
+        # Os tempos dos capitulos saem do clipe RENDERIZADO, nunca do mp3: o mp3
+        # e a narracao crua, e a cena tem folga no fim. Estimar pelo mp3 dava um
+        # erro que se acumulava cena a cena (+23s no fim de um video de 12 min),
+        # jogando os capitulos do fim para depois do trecho que nomeiam.
+        if pref == "l":
+            tempos = [dur(f"{d}/lclip{i:02d}.mp4") for i in range(len(cenas))]
         with open(f"{d}/{pref}lista.txt","w") as f:
             for i in range(len(cenas)): f.write(f"file '{pref}clip{i:02d}.mp4'\n")
         out = "video.mp4" if pref=="l" else "short.mp4"
