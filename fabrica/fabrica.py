@@ -43,12 +43,16 @@ def usar_fonte(nome):
 def svg_cena(c, pal, W, H):
     ink, c1, c2 = pal['ink'], pal['c1'], pal['c2']
     bg = pal.get('bg', '#FFFFFF'); lay = c.get('layout','titulo')
-    if lay == 'cta': bg, ink2 = ink, '#FFFFFF'
+    # A cena de CTA invertia o fundo (escuro com texto claro). Como sao as tres
+    # ultimas de cada video, a virada de cor no fim lia como defeito de render,
+    # nao como cartao de encerramento. Agora o CTA segue a identidade do canal.
     s = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}"><rect width="{W}" height="{H}" fill="{bg}"/>'
     cx = W//2
     if lay in ('titulo','cta'):
         fg = c1 if lay=='titulo' else c2
-        sub_fg = ink if lay=='titulo' else '#FFFFFF'
+        # sub_fg era branco no cta — o que so funcionava com o fundo invertido.
+        # Sem a inversao, branco sobre fundo claro sumia por completo.
+        sub_fg = ink
         big = c.get('kicker','')
         s += tsp(big, cx, H*0.40, H*(0.15 if len(big)<=10 else 0.09), fg, n=16)
         s += f'<path d="M {cx-W*0.26} {H*0.52} Q {cx} {H*0.55}, {cx+W*0.26} {H*0.52}" stroke="{c2 if lay=="titulo" else c1}" stroke-width="10" fill="none" stroke-linecap="round"/>'
@@ -140,7 +144,34 @@ def trilha_do_canal(slug):
 # Renderiza menor, entrega em HD (upscale no concat, passe unico).
 ESCALA_RENDER = 0.75
 # Amplitude do Ken Burns por cena (7% = perceptivel sem cortar a arte).
-AMP_ZOOM = 0.07
+AMP_ZOOM = 0.12
+# Fracao da margem disponivel que o pan percorre. 1.0 encostaria na borda e
+# cortaria ate 11% de um dos lados — o suficiente para comer o fim de um item
+# de lista. 0.5 mantem o enquadramento centrado e ainda da deslocamento visivel.
+AMP_PAN = 0.5
+
+
+def ken_burns(i, nf):
+    """Zoom + pan em 4 direcoes alternadas, em funcao de `on` (numero do frame).
+
+    Retorna (expressao de zoom, fracao horizontal, fracao vertical). As fracoes
+    valem 0 a 1 sobre a margem que o zoom abriu; 0.5 e o centro. Alternar em 4
+    (nao em 2) evita que cenas vizinhas facam o mesmo movimento espelhado, que
+    o olho le como repeticao.
+    """
+    p = f"on/{nf}"
+    dentro = f"1+{AMP_ZOOM}*{p}"
+    fora = f"{1 + AMP_ZOOM:.4g}-{AMP_ZOOM}*{p}"
+    meio = 0.5
+    ini = (1 - AMP_PAN) / 2                      # 0.25
+    varre = f"{ini}+{AMP_PAN}*{p}"               # 0.25 -> 0.75
+    volta = f"{ini + AMP_PAN}-{AMP_PAN}*{p}"     # 0.75 -> 0.25
+    return [
+        (dentro, varre, meio),   # aproxima varrendo para a direita
+        (fora,   volta, meio),   # afasta varrendo para a esquerda
+        (dentro, meio,  varre),  # aproxima descendo
+        (fora,   meio,  volta),  # afasta subindo
+    ][i % 4]
 def render_wh(W, H):
     return (int(W * ESCALA_RENDER) // 2 * 2, int(H * ESCALA_RENDER) // 2 * 2)
 
@@ -201,8 +232,18 @@ def render(spec_file):
             # a borda do texto) e o zoom-out travar em 1.0 depois de 3,3s,
             # deixando metade das cenas imovel em ~75% da duracao.
             nf = max(int(dd * 30), 1)
-            z = f"1+{AMP_ZOOM}*on/{nf}" if i % 2 else f"{1+AMP_ZOOM:.4g}-{AMP_ZOOM}*on/{nf}"
-            vf = f"zoompan=z='{z}':d={nf}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={RW}x{RH}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
+            z, fx, fy = ken_burns(i, nf)
+            # x/y ficavam presos no centro, entao o movimento era zoom puro de
+            # 7% em ~10s — imperceptivel, o video lia como imagem parada. Agora
+            # ha deslocamento de verdade, em 4 direcoes alternadas.
+            vf = (f"zoompan=z='{z}':d={nf}"
+                  f":x='(iw-iw/zoom)*({fx})':y='(ih-ih/zoom)*({fy})'"
+                  f":s={RW}x{RH}:fps=30")
+            # Legenda queimada so no short. No longo ela rouba area util e
+            # impede a legenda propria do YouTube (que traduz e e indexada);
+            # o pacote entrega um .srt para subir junto, melhor que a automatica.
+            if pref == "s":
+                vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
             subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
@@ -213,6 +254,16 @@ def render(spec_file):
         # jogando os capitulos do fim para depois do trecho que nomeiam.
         if pref == "l":
             tempos = [dur(f"{d}/lclip{i:02d}.mp4") for i in range(len(cenas))]
+            # Legenda de verdade para subir no Studio. Sai dos clipes
+            # renderizados, entao bate ao milissegundo com o video final —
+            # e e melhor que a automatica do YouTube, que erra nomes proprios
+            # e numeros justamente onde este formato se apoia.
+            with open(f"{d}/legendas.srt", "w", encoding="utf-8") as srt:
+                t = 0.0
+                for i, c in enumerate(cenas):
+                    fim = t + tempos[i]
+                    srt.write(f"{i+1}\n{st(t + 0.15)} --> {st(fim - 0.15)}\n{c['nar']}\n\n")
+                    t = fim
         with open(f"{d}/{pref}lista.txt","w") as f:
             for i in range(len(cenas)): f.write(f"file '{pref}clip{i:02d}.mp4'\n")
         out = "video.mp4" if pref=="l" else "short.mp4"
