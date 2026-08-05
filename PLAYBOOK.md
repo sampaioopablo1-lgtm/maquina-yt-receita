@@ -187,6 +187,26 @@ Depois: `update canais set ultimo_pacote_em = now(), pacotes = pacotes + 1`.
 
 ---
 
+### Reaproveitar pacote de canal irmão
+
+Quando o canal que existe não tem mais nada próprio na fila, um pacote parado em
+canal ainda não criado **pode** ir para ele — mas o critério é **idioma + tema**,
+nunca a mera existência do arquivo.
+
+Feito em 05/08: `resep-naik-level-002` ("Belanja Mingguan Rp100.000", custo de vida
+com preços médios nacionais) subiu no Setiap Level. Indonésio, mesmo país, tema de
+dinheiro — cabe na descrição do canal, que fala de como o dinheiro molda a vida.
+
+O que **não** fazer: publicar grego, turco ou espanhol no canal indonésio. O
+algoritmo aprende o público de um canal pelo histórico; misturar idiomas ensina que
+ele não tem público definido, e aí ele para de recomendar também o que estava certo.
+
+Pacote anterior à exportação de `legendas.srt` sobe **sem legenda** — não dá para
+reconstruir, porque o SRT precisa da duração real de cada clipe, que só existe
+durante o render.
+
+---
+
 ## 5b. Como ler desempenho sem se enganar
 
 **Janela mínima de 48h.** Em 05/08 comparei cinco vídeos publicados e quatro deles tinham
