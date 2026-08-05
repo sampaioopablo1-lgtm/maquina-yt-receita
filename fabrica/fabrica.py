@@ -89,6 +89,12 @@ def trilha_do_canal(slug):
     fs = sorted(glob.glob(f"{TRILHA_DIR}/*.mp3"))
     return fs[sum(map(ord, slug)) % len(fs)] if fs else None
 
+# Escala de render: o sandbox tem ~1GB de RAM e o zoompan e o maior consumidor.
+# Renderiza menor, entrega em HD (upscale no concat, passe unico).
+ESCALA_RENDER = 0.75
+def render_wh(W, H):
+    return (int(W * ESCALA_RENDER) // 2 * 2, int(H * ESCALA_RENDER) // 2 * 2)
+
 EST = "FontName=DejaVu Sans,Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle=3,BackColour=&HB0000000,Outline=1,Shadow=0,MarginV=30"
 
 def render(spec_file):
@@ -100,16 +106,26 @@ def render(spec_file):
             dd = dur(f"{d}/{pref}{i:02d}.mp3") + 0.5
             if pref == "l": tempos.append(dd)
             open(f"{d}/{pref}{i:02d}.srt","w").write(f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
+            RW, RH = render_wh(W, H)
             z = "zoom+0.0006" if i%2 else "if(eq(on,1),1.06,max(zoom-0.0006,1.0))"
             saida = f"{d}/{pref}clip{i:02d}.mp4"  # RETOMA
             if os.path.exists(saida) and os.path.getsize(saida) > 10000:
                 continue
-            vf = f"zoompan=z='{z}':d={int(dd*30)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
+            vf = f"zoompan=z='{z}':d={int(dd*30)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={RW}x{RH}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
             subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
+            with open(f"{d}/manifesto.txt","a") as mf:
+                mf.write(f"{pref}clip{i:02d}.mp4\n")
         with open(f"{d}/{pref}lista.txt","w") as f:
             for i in range(len(cenas)): f.write(f"file '{pref}clip{i:02d}.mp4'\n")
         out = "video.mp4" if pref=="l" else "short.mp4"
-        subprocess.run(["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt","-c","copy","-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
+        RW, RH = render_wh(W, H)
+        args = ["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt"]
+        if (RW, RH) != (W, H):
+            args += ["-vf",f"scale={W}:{H}:flags=lanczos","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p","-c:a","copy"]
+        else:
+            args += ["-c","copy"]
+        subprocess.run(args + ["-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
     caps, t = [], 0.0
     for i, c in enumerate(sp["longo"]):
         m, s2 = int(t//60), int(t%60)
