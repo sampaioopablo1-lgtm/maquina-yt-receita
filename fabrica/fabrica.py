@@ -92,6 +92,8 @@ def trilha_do_canal(slug):
 # Escala de render: o sandbox tem ~1GB de RAM e o zoompan e o maior consumidor.
 # Renderiza menor, entrega em HD (upscale no concat, passe unico).
 ESCALA_RENDER = 0.75
+# Amplitude do Ken Burns por cena (7% = perceptivel sem cortar a arte).
+AMP_ZOOM = 0.07
 def render_wh(W, H):
     return (int(W * ESCALA_RENDER) // 2 * 2, int(H * ESCALA_RENDER) // 2 * 2)
 
@@ -134,11 +136,18 @@ def render(spec_file):
             if pref == "l": tempos.append(dd)
             open(f"{d}/{pref}{i:02d}.srt","w").write(f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
             RW, RH = render_wh(W, H)
-            z = "zoom+0.0006" if i%2 else "if(eq(on,1),1.06,max(zoom-0.0006,1.0))"
+            # Ken Burns em funcao de `on` (numero do frame), nao por incremento
+            # acumulado: assim a amplitude e a mesma nas duas direcoes e ocupa a
+            # cena inteira, seja ela de 8s ou de 15s. O incremento fixo anterior
+            # fazia o zoom-in crescer sem teto (+23% numa cena de 13s, cortando
+            # a borda do texto) e o zoom-out travar em 1.0 depois de 3,3s,
+            # deixando metade das cenas imovel em ~75% da duracao.
+            nf = max(int(dd * 30), 1)
+            z = f"1+{AMP_ZOOM}*on/{nf}" if i % 2 else f"{1+AMP_ZOOM:.4g}-{AMP_ZOOM}*on/{nf}"
             saida = f"{d}/{pref}clip{i:02d}.mp4"  # RETOMA
             if os.path.exists(saida) and os.path.getsize(saida) > 10000:
                 continue
-            vf = f"zoompan=z='{z}':d={int(dd*30)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={RW}x{RH}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
+            vf = f"zoompan=z='{z}':d={nf}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={RW}x{RH}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
             subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
