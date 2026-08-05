@@ -106,6 +106,10 @@ na mesma seção do arquivo.
 - **Glifos próprios**: os três canais usam ícones desenhados para a peça, não
   logomarcas de terceiros — mensagem, ligação pelo app e ligação convencional
   se distinguem por cor e preenchimento, com legenda explícita.
+- **A página carrega leve**: o flyer embutido na apresentação é WebP a 1600px de
+  largura (~300 KB), não o PNG de origem — a página inteira sai de 3,6 MB para
+  ~790 KB, o que muda o tempo de abertura no 4G de um cliente. O PNG 2400 × 4320
+  continua intacto como arquivo de download, para WhatsApp e impressão.
 - **O funil abre a página**: na apresentação web ele vem antes do flyer, com um
   parágrafo de contexto — primeiro se estabelece de quem é cada etapa, depois se
   mostra o programa que roda a metade de vendas. Ali o funil é HTML nativo, não a

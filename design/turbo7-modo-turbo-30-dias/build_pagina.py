@@ -32,12 +32,15 @@ def fonte(nome: str) -> str:
 
 
 def flyer_web() -> str:
+    # WebP em vez de PNG: a peça é chapada, mas o data URI embutido é o que pesa
+    # na página inteira — em PNG ele sozinho passa de 3 MB, em WebP fica em ~300 KB
+    # sem perda visível na tela. O PNG original segue intacto como arquivo de download.
     with Image.open(RAIZ / "flyer-turbo7-modo-turbo-30-dias.png") as im:
         altura = round(im.height * LARGURA_WEB / im.width)
         menor = im.resize((LARGURA_WEB, altura), Image.LANCZOS)
         buf = io.BytesIO()
-        menor.save(buf, "PNG", optimize=True)
-    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+        menor.save(buf, "WEBP", quality=90, method=6)
+    return "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
 def toques() -> str:

@@ -13,3 +13,6 @@ token*.json
 # Artefatos de producao (videos, audios, imagens, banco de jobs)
 out/
 data/
+
+# Pacote gerado para deploy manual (Netlify Drop) — não versionar.
+design/turbo7-modo-turbo-30-dias/site-modo-turbo.zip
