@@ -27,9 +27,19 @@ import sys, os, json, glob, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fabrica as F
 
-spec = sys.argv[1] if len(sys.argv) > 1 else "/tmp/fab/setiap-level-004.json"
+if len(sys.argv) < 2:
+    sys.exit("uso: python3 etapas.py <spec.json>")
+# Sem argumento obrigatorio isto ficava com um default fixo, e uma copia
+# desatualizada no sandbox chegou a IGNORAR o argv: rodou 4 minutos gerando
+# narracao do pacote anterior, no diretorio do canal errado, sem erro nenhum.
+# Nao ha default seguro aqui — o pacote e sempre declarado por quem chama.
+spec = sys.argv[1]
 sp = json.load(open(spec))
 d = F.dir_trabalho(sp)
+# O diretorio de trabalho tem que ser o do pacote pedido. Se a copia da fabrica
+# for antiga e resolver por slug de canal, o disparo para aqui em vez de
+# costurar dois roteiros num video so.
+assert d.endswith(sp.get("pacote") or sp["slug"]), f"dir {d} nao bate com {spec}"
 
 
 def log(m):
