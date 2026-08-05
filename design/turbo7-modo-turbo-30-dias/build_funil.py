@@ -17,22 +17,23 @@ MKT, VND = "mkt", "vnd"
 # "pronto" — deliberadamente não são KPIs inventados.
 ETAPAS = [
     (MKT, "Atração",
-     "Anúncios, conteúdo e presença de marca geram demanda qualificada.",
-     "5 novos leads por dia no topo", "Marketing"),
-    (MKT, "Captura",
+     "Anúncios, conteúdo e presença de marca geram demanda.",
+     "Custo por lead até R$ 50", "Marketing"),
+    (MKT, "Lead",
      "Formulário, WhatsApp e direct viram registro único no CRM.",
-     "Contato e origem registrados", "Marketing"),
-    (MKT, "Qualificação",
-     "Perfil, interesse e momento de compra antes de virar tarefa de vendas.",
-     "Lead classificado antes do repasse", "Marketing"),
+     "100 leads por mês, no mínimo", "Marketing"),
+    (VND, "Qualificação",
+     "O captador envia o projeto. Quem recebe é lead qualificado — é esse "
+     "envio que separa curioso de oportunidade real.",
+     "Projeto enviado ao lead", "Captador"),
     (VND, "Cadência 12 × 30",
      "12 toques em 30 dias, com 2 a 3 canais cruzados nos dias de pico.",
      "100 ligações por dia", "Captador"),
     (VND, "Agendamento",
      "Transformar a conversa em visita marcada na agenda.",
      "2 visitas agendadas por dia", "Captador"),
-    (VND, "Visita e projeto",
-     "Levantamento, apresentação do projeto e proposta.",
+    (VND, "Visita e levantamento",
+     "Medidas no local, ajuste do projeto e proposta final.",
      "Proposta apresentada na visita", "Captador"),
     (VND, "Fechamento",
      "Negociação, contrato e assinatura.",
@@ -41,8 +42,9 @@ ETAPAS = [
 
 FRONTEIRA = {
     "titulo": "Passagem de bastão",
-    "texto": "O lead vira <b>tarefa de vendas</b> no CRM. Antes disso, é do marketing; "
-             "depois, é do captador. Sem essa linha, ninguém responde pelo lead parado.",
+    "texto": "Marketing entrega o lead; daí em diante é do captador — inclusive a "
+             "<b>qualificação</b>. Quem recebe o projeto é lead qualificado. Sem essa "
+             "linha, ninguém responde pelo lead parado.",
     "dono": "Quem responde pela fronteira: Diretor de Performance",
 }
 

@@ -123,3 +123,10 @@ O texto do flyer reproduz as afirmações comerciais fornecidas para a peça
 (“+80% das conversões vêm da 4ª tentativa em diante”, “5 novos leads por dia”).
 São alegações da campanha, não dados medidos neste repositório — vale conferir
 a fonte antes de veicular.
+
+**Divergência conhecida entre as duas peças.** O flyer projeta a alimentação da
+cadência em *5 novos leads por dia* (≈150/mês); o funil registra a meta de
+marketing em *100 leads/mês, no mínimo* (≈3,3/dia). São números de briefings
+diferentes — um é a projeção de volume da máquina de vendas, o outro é o
+compromisso do marketing — mas contradizem se as duas peças forem mostradas
+juntas. Alinhar exige decisão comercial, não de design.
