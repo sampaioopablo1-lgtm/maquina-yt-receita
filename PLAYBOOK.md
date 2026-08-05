@@ -147,7 +147,15 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
 `async_upload=true`, e depois `/uploadposts/status?request_id=`.
 
 **`privacyStatus=public`, sempre.** Não listado não entra em recomendação e não acumula
-sinal de algoritmo — é vídeo produzido para não ser visto.
+sinal de algoritmo — é vídeo produzido para não ser visto. *(Conferido na API: os cinco
+vídeos do canal estão `public`. O parâmetro sempre funcionou.)*
+
+**`youtube_subtitle_file` + `youtube_subtitle_language` são obrigatórios no longo.**
+A API devolve `contentDetails.caption = false` nos cinco vídeos publicados — inclusive
+nos dois longos que têm `legendas.srt` pronto e guardado no Storage. Eu tirei o parâmetro
+durante a bisseção do erro de tags e nunca recoloquei. Em canal de idioma não-inglês a
+legenda alimenta a busca, permite tradução automática e sustenta retenção no mudo.
+A Upload-Post só aceita legenda **no momento do upload** — não dá para anexar depois.
 
 **Rode `python3 fabrica/tagbudget.py tags.txt` antes de enviar.** O limite de 500
 caracteres do YouTube vale para o conjunto, e toda tag com espaço entra entre aspas:
@@ -176,6 +184,32 @@ O `roteiro` jsonb guarda só o que é narrativo.
 > aprendizado era computável por SQL.
 
 Depois: `update canais set ultimo_pacote_em = now(), pacotes = pacotes + 1`.
+
+---
+
+## 5b. Como ler desempenho sem se enganar
+
+**Janela mínima de 48h.** Em 05/08 comparei cinco vídeos publicados e quatro deles tinham
+**uma hora de vida**. Nessa janela qualquer leitura mede relógio, não conteúdo. Registre
+o número, não o veredito.
+
+O que os dados mostraram, com essa ressalva:
+
+| vídeo | duração | idade | views | v/d |
+|---|---|---|---|---|
+| `GKQXVoA1zS0` | 0:27 | 37h | **572** | ~371 |
+| `ZYh3bpLP5JE` | 0:42 | 1h | 0 | — |
+| `I6no74M2NDU` | 0:34 | 1h | 0 | — |
+| `G8ocnpQIiyg` | 25:45 | 1h | 1 | — |
+| `v-5v7R13BBc` | 28:36 | 1h | 1 | — |
+
+A diferença gritante é idade, não formato. Mas há um sinal estrutural que sobrevive à
+ressalva: **o único vídeo com alcance é um short.** O feed de Shorts entrega a canal sem
+histórico; o feed de longos não. Longo em canal frio depende de busca e de sugestão, e
+as duas precisam de sinal que o canal ainda não tem.
+
+Consequência prática, a confirmar na remedição de 48h: o short não é subproduto do longo,
+é o que abre a porta. Vale publicá-lo **antes**, e apontar para o longo.
 
 ---
 
