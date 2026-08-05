@@ -90,11 +90,22 @@ async def vozes(cenas, voz, pref, d):
         com = edge_tts.Communicate(c["nar"], voz, rate="-4%")
         await com.save(f"{d}/{pref}{i:02d}.mp3")
 
+def dir_trabalho(sp):
+    """Diretorio de trabalho do PACOTE, nao do canal.
+
+    O 'slug' da spec e o do canal — ele escolhe a trilha. Usar o mesmo slug como
+    diretorio faz dois pacotes do mesmo canal dividirem a mesma pasta, e ai o
+    RETOMA pula clipes do pacote ANTERIOR: sai um video costurando dois roteiros
+    sem erro nenhum. Specs novas declaram "pacote"; as antigas seguem no slug.
+    """
+    return f"/tmp/f/{sp.get('pacote') or sp['slug']}"
+
+
 def montar(spec_file):
     sp = json.load(open(spec_file))
     usar_fonte(sp.get("fonte"))
     slug, pal, voz = sp["slug"], sp["paleta"], sp["voz"]
-    d = f"/tmp/f/{slug}"; os.makedirs(d, exist_ok=True)
+    d = dir_trabalho(sp); os.makedirs(d, exist_ok=True)
     for pref, cenas, W, H in (("l", sp["longo"], 1280, 720), ("s", sp["short"], 720, 1280)):
         for i, c in enumerate(cenas):
             cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H).encode(), write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
@@ -170,7 +181,7 @@ EST = f"FontName={FONTE},Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle
 def render(spec_file):
     sp = json.load(open(spec_file)); slug = sp["slug"]
     usar_fonte(sp.get("fonte"))
-    d = f"/tmp/f/{slug}"
+    d = dir_trabalho(sp)
     tempos = []
     for pref, cenas, W, H in (("l", sp["longo"], 1280, 720), ("s", sp["short"], 720, 1280)):
         for i, c in enumerate(cenas):
