@@ -102,6 +102,36 @@ O título modela a **estrutura** do outlier, nunca o assunto. Palavra-chave nos 
 
 ---
 
+## 2b. A camada falada — o defeito que a máquina não enxergava
+
+`python3 fabrica/narracao.py <spec.json>` roda **antes do TTS** (é a etapa 0 do
+`etapas.py`) e derruba o build em erro. Existe porque todas as outras etapas medem se o
+vídeo *saiu*, e nenhuma media se ele *prende*.
+
+Rodado nos 7 pacotes que existiam, achou um defeito sistêmico:
+
+**Toda virada de capítulo fechava com ponto final morto — 116 ocorrências, nos 7.**
+É o segundo exato em que o espectador decide sair, e não havia um gancho sequer. A última
+cena antes de um capítulo novo termina em pergunta, dois-pontos ou reticências.
+
+As outras três travas:
+
+| Trava | Limite | Por quê |
+|---|---|---|
+| Frase-planilha | ≤ 3 quantidades por frase | O ouvinte perde a conta. E converge com a deriva de duração: roteiro denso em número derruba a taxa do TTS em **9,1%** |
+| Ritmo | 6% a 45% de frases ≤ 5 palavras | Longa que monta → média → **soco**. `agla-level-003` saiu com 1,3%: monótono do início ao fim |
+| Understatement | zero hype, zero slop | "inacreditável", "neste vídeo vamos", "estudos mostram" sem nome |
+
+> Conta-se **quantidade**, não palavra de número. `dua ribu dua puluh enam` são quatro
+> palavras e **um** número — o ano. A primeira versão contava palavra e acusava 8 numa
+> frase que fala de duas; um linter que grita à toa é um linter que ninguém lê.
+
+Origem: skill `roteiro-deep-time`, publicada no vídeo `bIIACr4z7F4`. O resto do que
+aquele material ensina (pesquisa de pauta, fonte dupla, controle de duração) a máquina
+já fazia — e melhor.
+
+---
+
 ## 3. Produção — o que quebra em silêncio
 
 Estes três já entregaram vídeo defeituoso sem levantar erro nenhum:
