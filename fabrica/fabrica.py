@@ -1,6 +1,9 @@
 import json, subprocess, sys, os, asyncio
 import cairosvg, edge_tts
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+from maquina.media import duracao as _duracao, ffmpeg_bin  # fallback pro binario estatico do imageio-ffmpeg
+
 def esc(t): return t.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
 
 def wrap(t, n):
@@ -57,7 +60,7 @@ def svg_cena(c, pal, W, H):
     return s + '</svg>'
 
 def dur(f):
-    return float(subprocess.check_output(["ffprobe","-v","quiet","-of","csv=p=0","-show_entries","format=duration",f]).strip())
+    return _duracao(f)
 
 def st(x):
     return f"{int(x//3600):02d}:{int(x%3600//60):02d}:{x%60:06.3f}".replace(".",",")
@@ -148,7 +151,7 @@ def render(spec_file):
             if os.path.exists(saida) and os.path.getsize(saida) > 10000:
                 continue
             vf = f"zoompan=z='{z}':d={nf}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={RW}x{RH}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
-            subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            subprocess.run([ffmpeg_bin(),"-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
                 mf.write(f"{pref}clip{i:02d}.mp4\n")
@@ -156,7 +159,7 @@ def render(spec_file):
             for i in range(len(cenas)): f.write(f"file '{pref}clip{i:02d}.mp4'\n")
         out = "video.mp4" if pref=="l" else "short.mp4"
         RW, RH = render_wh(W, H)
-        args = ["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt"]
+        args = [ffmpeg_bin(),"-nostdin","-y","-f","concat","-safe","0","-i",f"{d}/{pref}lista.txt"]
         if (RW, RH) != (W, H):
             # Aqui nao ha zoompan, entao da para usar um preset eficiente sem
             # risco de OOM: `ultrafast` gerava 178 MB em 12 min (6x maior que
