@@ -35,8 +35,34 @@ Evidência de que não há atalho: o único canal configurado no YouTube
 (`setiap-level`, `UCf4-ZFoZQWKJotZNdi4Yl7w`) tem **4 de 5 vídeos marcados "Deleted video"**.
 Os 4 subiram por app de terceiro. O sobrevivente não.
 
-O caminho está em `docs/10-auditoria-api.md` e depende de ação humana:
-formulário de auditoria + criação dos canais no Studio.
+Há dois caminhos para sair disso, e eles não competem:
+
+**A — auditoria própria** (`docs/10-auditoria-api.md`). Depende de ação humana:
+formulário + criação dos canais no Studio. É o caminho definitivo — projeto próprio,
+sem intermediário, sem mensalidade, sem depender da política de ninguém.
+
+**B — Upload-Post** (skill em `.claude/skills/upload-post/`). Serviço que opera a
+YouTube Data API com **quota e auditoria próprias**, então dispensa projeto no Google
+Cloud. A API expõe `privacy_status: public` — e um projeto **não** auditado não
+consegue publicar público, o YouTube força privado. É evidência forte, não prova.
+
+> **A regra dos 6/6 continua valendo até ser refutada com dado.** Ela não diz
+> "nenhum terceiro"; diz "nenhum terceiro **não auditado**". A Composio derrubou
+> 6 de 6 porque o projeto dela não era auditado para este uso. Se o da Upload-Post
+> é, o resultado muda — mas isso se decide medindo, não lendo o site deles.
+
+**Teste de sobrevivência, obrigatório antes de confiar em B:** subir UM vídeo como
+`unlisted`, esperar 24h, conferir com `YOUTUBE_GET_VIDEO_DETAILS_BATCH`. Sobreviveu →
+`config.api_auditada='true'` e o caminho abre. Sumiu → registra o resultado em
+`aprendizados`, volta ao Drive, e A vira a única rota. Custa um vídeo do estoque de 21.
+
+O que o B ainda **não** cobre e continua manual no Studio: thumbnail (não há parâmetro
+de thumbnail para YouTube na API) e o `legendas.srt`.
+
+O que o B destrava de imediato, e é o motivo real de valer o teste: o endpoint
+`/analytics/<perfil>` devolve métrica do YouTube. Hoje a tabela `metricas` está vazia
+e **toda decisão de pauta é cega** — sem retenção própria, o laço de aprendizado só
+tem grupo de pares. Com métrica entrando, os 3 experimentos abertos fecham.
 
 ---
 
