@@ -62,8 +62,24 @@ O que continua aberto: `metricas` está vazia, então **toda decisão de pauta �
 só grupo de pares, nunca retenção própria. Com os 3 vídeos no ar, `/analytics/setiaplevel`
 passa a devolver dado em alguns dias e os experimentos abertos fecham.
 
-**Limites do plano grátis da Upload-Post: 10 uploads/mês, 2 perfis.** Dois perfis é
-menos que dez canais — o portfólio inteiro não cabe nele.
+**Limites do plano grátis da Upload-Post: 10 uploads/mês, 1 perfil.** O portfólio
+inteiro não cabe nele — mas o gargalo real não é cota, é ter um canal só.
+
+### A cota grátis é maior do que este repositório assumia
+
+Eu vinha calculando `10.000 unidades ÷ 1.600 por upload = 6 uploads/dia`.
+**Errado.** `videos.insert` tem balde próprio: **100 uploads/dia**, de graça, em
+projeto próprio do Google Cloud — separado das 10.000 unidades dos outros
+endpoints.
+
+O que trava não é a cota, é a auditoria: projeto não verificado tem **todo upload
+travado em privado**, e a diretriz aqui é sempre público. A auditoria é
+**gratuita**, leva semanas e não é garantida.
+
+Nenhum serviço grátis dá 100 uploads/dia porque o teto é do YouTube, não do
+intermediário: quem vende plano está vendendo **a auditoria dele**. Postiz
+auto-hospedado é grátis no software mas publica com as suas credenciais — mesma
+cota, mesma exigência. Detalhes e a tabela comparativa em `docs/16-cota-de-upload.md`.
 
 ---
 
