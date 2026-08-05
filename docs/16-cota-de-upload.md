@@ -82,3 +82,59 @@ existe — 10 uploads/mês é pouco, mas é exatamente o tamanho do gargalo atua
 3. Enquanto isso, Upload-Post grátis para o `setiap-level`.
 4. Auditoria aprovada → `config.api_auditada = 'true'`, OAuth próprio por canal,
    e a mensalidade nunca chega a existir.
+
+---
+
+## Busca por substituto grátis e ilimitado (2026-08-05)
+
+Pablo pediu para procurar um substituto grátis da Upload-Post, de preferência
+ilimitado. Não existe, e a razão não é preço — é estrutural.
+
+### O que fecha a porta
+
+Confirmado na documentação do YouTube, revisão de **8 de julho de 2026**: todo
+vídeo enviado por `videos.insert` de projeto não auditado criado depois de
+28/07/2020 fica **restrito a privado**.
+
+E o detalhe que mata o contorno óbvio: **o dono do canal não consegue tornar o
+vídeo público na mão.** A Central de Ajuda é explícita — *"unlike user-selected
+private videos, you will not be able to change the video's state until after
+you have successfully submitted the video for re-review"*. Não dá para subir
+pela nossa própria API como privado e destravar no Studio com dois cliques.
+
+Ou seja: **o teto pertence ao YouTube, não à ferramenta.** Quem vende plano
+está vendendo a auditoria dele. É por isso que nenhum plano grátis é generoso.
+
+### Camadas grátis medidas
+
+| ferramenta | grátis | API no grátis? |
+|---|---|---|
+| **Upload-Post** (atual) | 10 envios/mês, 1 perfil | **sim** |
+| Metricool | 20 posts/mês, 1 marca, aceita longo e Shorts | não — API a partir de ~US$ 53/mês |
+| Publer | 10 posts por conta | não |
+| Buffer | 10 posts por canal | não |
+| Blotato | teste de 7 dias | — |
+| Ayrshare | teste de 28 dias, depois US$ 149/mês | — |
+
+**A camada grátis da Upload-Post é a melhor que existe para o nosso caso**, e
+por um motivo específico: é a única com API no plano zero. O dobro de posts da
+Metricool não serve a uma máquina que publica sozinha — sem API, publicar volta
+a ser trabalho manual, e aí o Studio direto é melhor que qualquer intermediário.
+
+### Auto-hospedado não resolve
+
+Postiz e Mixpost são software livre, mas a integração com YouTube pede **as suas
+credenciais** do Google Cloud: OAuth client ID no seu projeto. O software é
+grátis; a parede é a mesma. Vale a pena para outras redes, não para esta.
+
+### A única resposta "grátis e ilimitada"
+
+Projeto próprio no Google Cloud, **auditado**: 100 uploads/dia, de graça, para
+sempre, sem intermediário e sem mensalidade. A auditoria é gratuita. O custo é
+tempo — semanas — e ela não é garantida. Há relato público de fila sem resposta
+além do prazo (fórum de desenvolvedores do Google, tópico *"[URGENT] YouTube API
+Compliance Audit – No Response After Critical Deadline"*).
+
+**Conclusão operacional: a auditoria é o único caminho, e o custo dela é espera.
+Então o erro caro é não ter começado ainda.** Formulário em
+`docs/10-auditoria-api.md`.
