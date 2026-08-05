@@ -46,6 +46,24 @@ def log(m):
     print(m, flush=True)
 
 
+# ------------------------------------------------- 0. a narracao, antes do TTS
+# Roda antes de gastar minutos de sintese e de render: defeito de narracao e o
+# unico que a maquina nao conseguia enxergar sozinha. Um render impecavel de um
+# roteiro que nao prende continua sendo um video que ninguem termina.
+import narracao as N                                              # noqa: E402
+
+_idi = N.idioma_de(sp)
+_erros, _avisos, _frases = N.analisa(sp, _idi)
+log(f"etapa 0: narracao idioma={_idi}, {len(_frases)} frases, "
+    f"{len(_erros)} erro(s), {len(_avisos)} aviso(s)")
+for _a in _avisos:
+    log(f"  aviso  {_a}")
+for _e in _erros:
+    log(f"  ERRO   {_e}")
+assert not _erros, "narracao reprovada — corrija a spec antes de renderizar"
+log("etapa 0 ok")
+
+
 # ---------------------------------------------------------------- 1. assets
 if len(glob.glob(f"{d}/l*.mp3")) < len(sp["longo"]):
     log("etapa 1: montar")
