@@ -43,10 +43,11 @@ ajuste o que estiver entre colchetes.
 **API Project details**
 - Project number: `[número do projeto no Cloud Console]`
 - API Client type: `Internal application (single user — channel owner)`
-- Audience: `This API client is used exclusively by me, the owner of the
-  YouTube channel "Setiap Level" (UCf4-ZFoZQWKJotZNdi4Yl7w), to upload and
-  manage videos on my own channel. It is not distributed to any third party
-  and has no external users.`
+- Audience: `This API client is used exclusively by me to upload and manage
+  videos on a portfolio of YouTube channels that I own and operate. The
+  first is "Setiap Level" (UCf4-ZFoZQWKJotZNdi4Yl7w); further channels in
+  other languages are authorised with the same client as they are created.
+  It is not distributed to any third party and has no external users.`
 
 **Use case description** (o campo mais importante — rejeições comuns vêm de
 descrição vaga):

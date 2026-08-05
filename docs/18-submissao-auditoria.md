@@ -12,8 +12,23 @@ Use o projeto que **já existe**: `Youtube RECEITA`. Não crie outro. Um projeto
 Google Cloud comporta várias APIs — o Gemini já está ativo nele, e a YouTube Data
 API v3 entra ao lado. A auditoria é do projeto, não da API isolada.
 
-Falta só: **APIs e serviços → Biblioteca → ativar YouTube Data API v3**, e anotar
-o *Project number* da página inicial.
+Falta só: **APIs e serviços → Biblioteca → ativar YouTube Data API v3 e YouTube
+Analytics API**, e anotar o *Project number* da página inicial.
+
+## Nome do app na tela de permissão
+
+Use **`Receita Video Pipeline`** — nome de portfólio, não de canal.
+
+Um cliente OAuth autoriza **quantos canais você quiser**: cada canal novo é só
+mais um login com o mesmo cliente. O nome, porém, fica estampado na tela de
+consentimento de todos eles e no registro da auditoria. Nomear o app com o slug
+do primeiro canal (`Setiap Level Pipeline`) faria a tela dizer "Setiap Level"
+enquanto o dono autoriza o canal de espanhol — divergência gratuita entre o que
+a tela afirma e o que está acontecendo, num processo em que divergência é
+exatamente o que reprova.
+
+Pela mesma razão, o campo *Audience* do formulário declara **portfólio**, não
+canal único (ver `10-auditoria-api.md`).
 
 ---
 
