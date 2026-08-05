@@ -118,7 +118,7 @@ As outras três travas:
 
 | Trava | Limite | Por quê |
 |---|---|---|
-| Frase-planilha | ≤ 3 quantidades por frase | O ouvinte perde a conta. E converge com a deriva de duração: roteiro denso em número derruba a taxa do TTS em **9,1%** |
+| Frase-planilha | ≤ 3 quantidades por frase | O ouvinte perde a conta. *(A justificativa de duração que eu tinha escrito aqui era o oposto do medido — ver abaixo.)* |
 | Ritmo | 6% a 45% de frases ≤ 5 palavras | Longa que monta → média → **soco**. `agla-level-003` saiu com 1,3%: monótono do início ao fim |
 | Understatement | zero hype, zero slop | "inacreditável", "neste vídeo vamos", "estudos mostram" sem nome |
 
@@ -129,6 +129,27 @@ As outras três travas:
 Origem: skill `roteiro-deep-time`, publicada no vídeo `bIIACr4z7F4`. O resto do que
 aquele material ensina (pesquisa de pauta, fonte dupla, controle de duração) a máquina
 já fazia — e melhor.
+
+### Dimensione pela fórmula, nunca pela tabela de chars/s
+
+```
+duração = chars / 20,58  +  frases × 0,96  +  cenas × 1,08
+```
+
+A voz lê a 20,58 chars/s; cada ponto final custa **0,96 s de pausa**; cada cena custa
+mais **1,08 s** (é um mp3 separado, com silêncio de borda, e o `etapas.py` soma 0,5 s de
+folga por clipe). Medido para `id-ID-ArdiNeural`.
+
+Duas consequências que contrariam o que este arquivo dizia antes:
+
+- **Número não deixa a narração lenta — deixa rápida.** Amostra densa em número por
+  extenso: **20,58** chars/s. Amostra de frases curtas: **12,01**. O que custa tempo é a
+  pausa, não o número. A regra das ≤3 quantidades continua valendo por *retenção*.
+- **O ritmo que o linter exige alonga o vídeo.** Mais frases curtas = mais pausas. 14% de
+  frases curtas dá 17,0 chars/s efetivos; 50% dá 12,01.
+
+Validação: previu 853 s, o render deu 853,9 s. O termo por cena vem de **um** pacote —
+confirmar no próximo antes de tratar como medido.
 
 ---
 
