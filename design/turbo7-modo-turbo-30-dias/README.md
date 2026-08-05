@@ -11,6 +11,8 @@ nos dias de pico.
 | `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 4320 px (1:1,8, 2×) | WhatsApp, Instagram, e-mail, apresentações |
 | `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 22,5 in, 1 página | Impressão e envio comercial |
 | `apresentacao.html` | Página autocontida | Link de apresentação (publicado como Artifact) |
+| `funil-marketing-vendas-turbo7.png` | 2400 × 3168 px (2×) | Mapa de responsabilidade no funil |
+| `funil-marketing-vendas-turbo7.pdf`  | 12,5 × 16,5 in, 1 página | Impressão e reunião de alinhamento |
 
 ## Fontes do projeto
 
@@ -21,6 +23,8 @@ nos dias de pico.
 | `flyer.html` | Artefato gerado (não editar à mão; editar `build.py`) |
 | `render.py` | Rasteriza o HTML em PNG 2× e PDF via Chromium headless |
 | `build_pagina.py` | Gera `apresentacao.html`, importando o conteúdo de `build.py` |
+| `build_funil.py` | Gera `funil.html` — o mapa de etapas, metas e responsáveis |
+| `build_site.py` | Gera `site/`, versão hospedável da apresentação |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
 
 ## Como regerar
@@ -28,8 +32,10 @@ nos dias de pico.
 ```bash
 cd design/turbo7-modo-turbo-30-dias
 python3 build.py         # HTML do flyer a partir do conteúdo estruturado
-python3 render.py        # PNG (2400×4320) + PDF
+python3 build_funil.py   # HTML do mapa de funil
+python3 render.py        # PNG 2x + PDF das duas peças (ou passe um .html específico)
 python3 build_pagina.py  # página de apresentação (usa o PNG já renderizado)
+python3 build_site.py    # site estático publicável
 ```
 
 Requer `pillow` e o Chromium apontado em `render.py:CHROME`.
@@ -65,6 +71,14 @@ Tudo o que é editorial está no topo de `build.py`:
   terceira meta só exige mais um item na lista.
 - `LEGENDA` — rótulos dos canais.
 
+E em `build_funil.py`:
+
+- `ETAPAS` — a lista `(dono, nome, descrição, meta, responsável)`. O afunilamento,
+  a numeração, a divisão em zonas e a contagem no cabeçalho saem daí; mover uma
+  etapa de `MKT` para `VND` reposiciona a fronteira sozinha.
+- `FRONTEIRA` / `RODAPE` — o bloco de passagem de bastão e a nota de gestão.
+- `LARGURA_TOPO` / `LARGURA_BASE` — quanto o funil afunila, em %.
+
 Copy da manchete, alerta, estatísticas e bloco de oferta ficam no `TEMPLATE`,
 na mesma seção do arquivo.
 
@@ -92,6 +106,11 @@ na mesma seção do arquivo.
 - **Glifos próprios**: os três canais usam ícones desenhados para a peça, não
   logomarcas de terceiros — mensagem, ligação pelo app e ligação convencional
   se distinguem por cor e preenchimento, com legenda explícita.
+- **No funil, a fronteira é o assunto**: marketing em lilás, vendas em verde, e
+  entre os dois uma faixa que atravessa a peça inteira — inclusive as colunas de
+  meta e responsável. O afunilamento carrega a metáfora; a tabela ao lado carrega
+  o dado. A peça responde "de quem é este lead agora?", que é a pergunta que o
+  cliente faz.
 
 ## Observações
 
