@@ -14,6 +14,7 @@ from PIL import Image
 from build import (BONUS_METAS, BONUS_PREMIO, CADENCIA, CALL, CALL_WA,
                    GESTAO_LEAD, GESTAO_TEXTO, INCLUSOS, METRICAS, MSG,
                    TOTAL_CONTATOS)
+from build_funil import ETAPAS, FRONTEIRA, LARGURA_BASE, LARGURA_TOPO, MKT
 
 RAIZ = Path(__file__).parent
 LARGURA_WEB = 1600  # o flyer nasce com 2400px; 1600 basta para leitura em tela
@@ -55,6 +56,41 @@ def toques() -> str:
     return "\n".join(linhas)
 
 
+CONTEXTO = (
+    "É a dúvida mais comum de quem contrata: até onde vai o trabalho do marketing e "
+    "onde começa o de vendas. O funil é um só, mas o dono muda no meio do caminho — e "
+    "é justamente no ponto da troca que o lead costuma ficar parado. O mapa abaixo "
+    "mostra cada etapa, a meta que a define e quem responde por ela."
+)
+
+
+def funil() -> str:
+    """O mesmo mapa da peça impressa, em HTML — legível no celular e selecionável."""
+    passo = (LARGURA_TOPO - LARGURA_BASE) / (len(ETAPAS) - 1)
+    corte = sum(1 for d, *_ in ETAPAS if d == MKT)
+    partes = []
+    for i, (dono, nome, desc, meta, resp) in enumerate(ETAPAS):
+        if i == corte:
+            partes.append(
+                f'<li class="troca">'
+                f'<span class="troca-tag">{FRONTEIRA["titulo"]}</span>'
+                f'<p>{FRONTEIRA["texto"]}</p>'
+                f'<p class="troca-dono">{FRONTEIRA["dono"]}</p></li>'
+            )
+        larg = LARGURA_TOPO - passo * i
+        partes.append(
+            f'<li class="fase {dono}" style="--w:{larg:.2f}%">'
+            f'<span class="fase-n">{i + 1:02d}</span>'
+            f'<h3>{nome}</h3>'
+            f'<p class="fase-d">{desc}</p>'
+            f'<dl class="fase-dados">'
+            f'<div><dt>Meta</dt><dd>{meta}</dd></div>'
+            f'<div><dt>Responsável</dt><dd>{resp}</dd></div>'
+            f'</dl></li>'
+        )
+    return "\n".join(partes)
+
+
 def bonus() -> str:
     alvos = '<span class="op">+</span>'.join(
         f'<div class="alvo"><b>{v}</b><span>{k.replace("<br>", " ")}</span></div>'
@@ -93,6 +129,7 @@ PAGINA = """<title>Modo Turbo 30 Dias — Turbo 7</title>
   --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
   --chip:rgba(78,15,163,.08);
   --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
+  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
 }}
 @media (prefers-color-scheme:dark){{
   :root{{
@@ -100,6 +137,7 @@ PAGINA = """<title>Modo Turbo 30 Dias — Turbo 7</title>
     --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
     --chip:rgba(124,240,30,.11);
     --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
+    --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
   }}
 }}
 :root[data-theme="dark"]{{
@@ -107,12 +145,14 @@ PAGINA = """<title>Modo Turbo 30 Dias — Turbo 7</title>
   --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
   --chip:rgba(124,240,30,.11);
   --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
+  --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
 }}
 :root[data-theme="light"]{{
   --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
   --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
   --chip:rgba(78,15,163,.08);
   --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
+  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
 }}
 
 *{{box-sizing:border-box;}}
@@ -148,6 +188,43 @@ figcaption{{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.16e
 section{{display:flex;flex-direction:column;gap:24px;}}
 h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spacing:.10em;
   text-transform:uppercase;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line);}}
+
+/* funil — a fronteira é o assunto */
+.contexto{{max-width:66ch;color:var(--muted);margin:0;}}
+.funil{{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}}
+.fase{{border:1px solid var(--line);border-left-width:4px;background:var(--surface);
+  padding:18px 22px 20px;position:relative;
+  display:grid;grid-template-columns:1fr;gap:10px;}}
+.fase.mkt{{border-left-color:var(--mkt);}}
+.fase.vnd{{border-left-color:var(--vnd);}}
+.fase-n{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
+  color:var(--muted);}}
+.fase.mkt .fase-n{{color:var(--mkt);}}
+.fase.vnd .fase-n{{color:var(--vnd);}}
+.fase h3{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
+  line-height:.92;text-transform:uppercase;margin:0;}}
+.fase-d{{margin:0;font-size:15px;color:var(--muted);max-width:56ch;}}
+.fase-dados{{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));
+  gap:14px;padding-top:12px;border-top:1px solid var(--line);}}
+.fase-dados div{{display:flex;flex-direction:column;gap:3px;}}
+.fase-dados dt{{font-family:'GeistMono',monospace;font-size:9.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}}
+.fase-dados dd{{margin:0;font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;}}
+
+.troca{{border:1px solid var(--vnd);border-left-width:4px;background:var(--vnd-tint);
+  padding:18px 22px 20px;margin:6px 0;}}
+.troca-tag{{display:inline-block;background:var(--vnd);color:var(--ground);
+  font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;padding:5px 11px 6px;margin-bottom:11px;}}
+.troca p{{margin:0;max-width:64ch;}}
+.troca p b{{font-family:'OutfitB',sans-serif;font-weight:700;color:var(--vnd);}}
+.troca-dono{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--vnd);margin-top:10px !important;}}
+
+/* o afunilamento só faz sentido quando há largura para ele */
+@media (min-width:820px){{
+  .fase{{width:var(--w);margin:0 auto;}}
+}}
 
 /* cadência — sequência real, por isso numerada */
 .toques{{list-style:none;margin:0;padding:0;
@@ -266,6 +343,14 @@ footer a:hover{{border-bottom-color:var(--accent);}}
       programa.</p>
   </header>
 
+  <section>
+    <h2>Onde termina o marketing, onde começa vendas</h2>
+    <p class="contexto">{contexto}</p>
+    <ol class="funil">
+{funil}
+    </ol>
+  </section>
+
   <figure>
     <img src="{flyer}" width="1600" height="2880"
          alt="Flyer do Programa Modo Turbo 30 Dias, com o mapa de cadência 12 por 30,
@@ -361,6 +446,8 @@ def montar() -> str:
         toques=toques(),
         metricas=metricas(),
         bonus=bonus(),
+        funil=funil(),
+        contexto=CONTEXTO,
         total=TOTAL_CONTATOS,
         lead=GESTAO_LEAD,
         texto=GESTAO_TEXTO,

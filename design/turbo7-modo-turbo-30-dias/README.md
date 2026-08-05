@@ -22,7 +22,7 @@ nos dias de pico.
 | `build.py` | Gera `flyer.html` — conteúdo, cadência e diagrama são dados, não markup solto |
 | `flyer.html` | Artefato gerado (não editar à mão; editar `build.py`) |
 | `render.py` | Rasteriza o HTML em PNG 2× e PDF via Chromium headless |
-| `build_pagina.py` | Gera `apresentacao.html`, importando o conteúdo de `build.py` |
+| `build_pagina.py` | Gera `apresentacao.html`, importando o conteúdo de `build.py` e `build_funil.py` |
 | `build_funil.py` | Gera `funil.html` — o mapa de etapas, metas e responsáveis |
 | `build_site.py` | Gera `site/`, versão hospedável da apresentação |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
@@ -106,6 +106,11 @@ na mesma seção do arquivo.
 - **Glifos próprios**: os três canais usam ícones desenhados para a peça, não
   logomarcas de terceiros — mensagem, ligação pelo app e ligação convencional
   se distinguem por cor e preenchimento, com legenda explícita.
+- **O funil abre a página**: na apresentação web ele vem antes do flyer, com um
+  parágrafo de contexto — primeiro se estabelece de quem é cada etapa, depois se
+  mostra o programa que roda a metade de vendas. Ali o funil é HTML nativo, não a
+  imagem: fica legível no celular, o texto é selecionável e o afunilamento só é
+  aplicado acima de 820px, onde há largura para ele significar algo.
 - **No funil, a fronteira é o assunto**: marketing em lilás, vendas em verde, e
   entre os dois uma faixa que atravessa a peça inteira — inclusive as colunas de
   meta e responsável. O afunilamento carrega a metáfora; a tabela ao lado carrega
