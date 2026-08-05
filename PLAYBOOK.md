@@ -225,11 +225,48 @@ O que os dados mostraram, com essa ressalva:
 
 A diferença gritante é idade, não formato. Mas há um sinal estrutural que sobrevive à
 ressalva: **o único vídeo com alcance é um short.** O feed de Shorts entrega a canal sem
-histórico; o feed de longos não. Longo em canal frio depende de busca e de sugestão, e
-as duas precisam de sinal que o canal ainda não tem.
+histórico; o feed de longos não.
 
-Consequência prática, a confirmar na remedição de 48h: o short não é subproduto do longo,
-é o que abre a porta. Vale publicá-lo **antes**, e apontar para o longo.
+### Views acumuladas não são taxa
+
+Eu li "572 views em 37h" como **371 views/dia**, como se fosse ritmo. Na remedição 1h30
+depois o contador estava **congelado em 572**, com as mesmas 2 curtidas.
+
+Não era taxa. Foi **uma rajada única que já terminou** — o vídeo pegou um empurrão do
+feed de Shorts e parou. Antes de citar views/dia, **meça duas vezes com intervalo** e
+confirme que o número anda. Um denominador não transforma um evento em tendência.
+
+### As três diferenças entre o que pegou e o que não pegou
+
+O vídeo que recebeu distribuição foi feito por outro processo, e é diferente em três
+coisas concretas. Nenhuma está provada como causa — o que segue é hipótese com base
+material, para virar experimento.
+
+**1. O short dele resolve; os meus são trailer.** Em 27 segundos ele entrega três
+hábitos completos, cada um explicado, e fecha com uma pergunta. Os meus fecham mandando
+o espectador embora: *"sistem lengkapnya ada di video panjang"*. Short que não resolve
+nada pede clique em vez de dar valor — e o feed mede retenção até o fim. **O short tem
+que se sustentar sozinho.** O longo é continuação opcional, nunca condição para a coisa
+fazer sentido.
+
+**2. As tags estão invertidas.** Ele usa 11 tags largas: `uang`, `gaji`,
+`ekonomi Indonesia`, `gaya hidup`. Eu uso 15 a 19 de cauda longa: `sbn ritel pemula`,
+`harga kedelai 2026`, `iuran bpjs berapa persen`. Cauda longa é a estratégia de quem já
+tem autoridade e disputa termo específico; em canal sem histórico ela **isola** o vídeo
+de qualquer cluster grande. A mistura certa é âncora larga primeiro, cauda longa depois.
+
+**3. Ele fala COM o espectador; os meus descrevem um objeto.** *"Três hábitos pequenos
+que estão secretamente drenando o SEU salário"* contra *"Lista exata para sete dias"*.
+Não é qualidade de escrita — é a quem a frase é dirigida. Pelo menos o gancho e o título
+do short precisam voltar para a segunda pessoa e para uma dor que o espectador reconhece
+em si.
+
+### O que não dá para medir hoje
+
+`/analytics/<perfil>?platforms=youtube` da Upload-Post volta **tudo zerado** — o escopo
+OAuth concedido não inclui YouTube Analytics. Sem impressão, CTR e retenção, a view
+`painel_pilares` não classifica gargalo nenhum, e todo diagnóstico se apoia só em views
+públicas. Isso só se resolve com escopo próprio, o que depende da auditoria.
 
 ---
 
