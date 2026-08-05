@@ -126,8 +126,15 @@ select slug, nome, idioma, nicho, voz, estilo,
     (youtube_channel_id is not null) as no_youtube,
     pacotes, ultimo_pacote_em, trilha, fonte, duracao_alvo_s,
     nicho_mediana_vd, nicho_medido_em,
-    (select count(*) from videos v where v.canal = c.slug and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
-    (select count(distinct v.pacote) from videos v where v.canal = c.slug) as pacotes_registrados
+    (select count(distinct v.pacote) from videos v
+        where v.canal = c.slug and v.status not in ('erro', 'cancelado')
+        and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
+    (select count(distinct v.pacote) from videos v where v.canal = c.slug) as pacotes_registrados,
+    (youtube_channel_id is not null) and (
+        (select count(distinct v.pacote) from videos v
+            where v.canal = c.slug and v.status not in ('erro', 'cancelado')
+            and v.criado_em > now() - interval '24:00:00') < 3
+    ) as pode_produzir
 from canais c
 where ativo
 order by (youtube_channel_id is null), ultimo_pacote_em nulls first;
@@ -149,3 +156,13 @@ select categoria, severidade, titulo, regra, aplicado_em, confianca, evidencia
 from aprendizados
 where status = 'ativo'
 order by array_position(array['critico','alto','medio','baixo'], severidade), categoria;
+
+-- Fila ROTINA.md le antes de tudo: so erro com artefato recuperavel (supabase_url
+-- preenchido), para retomar pelo manifesto em vez de remedir do zero.
+-- Existia em producao sem estar versionada aqui ate 2026-08-05 (achado nesta sessao).
+create or replace view v_maquina_pendencias
+    with (security_invoker = true) as
+select pacote, canal, formato, status, duracao_s, criado_em, supabase_url, erro
+from videos v
+where status in ('erro', 'pronto_nao_entregue') and supabase_url is not null
+order by criado_em;
