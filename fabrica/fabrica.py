@@ -131,7 +131,12 @@ def aplicar_trilha(d, out, slug):
     subprocess.run(["ffmpeg","-nostdin","-y","-i",alvo,"-i",bed,"-filter_complex",
         f"[1:a]volume={VOL_TRILHA}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0,"
         "loudnorm=I=-14:TP=-1.5:LRA=11[a]",
-        "-map","0:v","-map","[a]","-c:v","copy","-c:a","aac","-b:a","192k","-ac","2","-ar","48000",
+        # Num pacote escalonado (25-30 min) o audio passa a dominar o arquivo:
+        # 192k por 26 min ja da ~37 MB e o video inteiro nao cabe no limite de
+        # 50 MB do upload padrao do Supabase. Para narracao com trilha a -28 dB,
+        # 128k e indistinguivel e devolve ~7 MB.
+        "-map","0:v","-map","[a]","-c:v","copy","-c:a","aac",
+        "-b:a", "192k" if dv < 1100 else "128k", "-ac","2","-ar","48000",
         "-t",f"{dv:.2f}","-movflags","+faststart",mix],check=True,capture_output=True)
     os.replace(mix, alvo)
     os.remove(bed)
@@ -178,7 +183,10 @@ def render(spec_file):
             # Aqui nao ha zoompan, entao da para usar um preset eficiente sem
             # risco de OOM: `ultrafast` gerava 178 MB em 12 min (6x maior que
             # o necessario) e estourava o limite de upload de 50 MB.
-            args += ["-vf",f"scale={W}:{H}:flags=lanczos","-c:v","libx264","-preset","veryfast","-crf","26","-pix_fmt","yuv420p","-c:a","copy"]
+            # E o CRF sobe nos pacotes escalonados pelo mesmo motivo: em arte
+            # vetorial chapada com zoom lento, crf 29 e visualmente igual a 26.
+            crf = "26" if pref != "l" or sum(dur(f"{d}/lclip{i:02d}.mp4") for i in range(len(cenas))) < 1100 else "29"
+            args += ["-vf",f"scale={W}:{H}:flags=lanczos","-c:v","libx264","-preset","veryfast","-crf",crf,"-pix_fmt","yuv420p","-c:a","copy"]
         else:
             args += ["-c","copy"]
         subprocess.run(args + ["-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
