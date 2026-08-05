@@ -20,6 +20,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.2"]
+# fabrica/fabrica.py: gerador parametrico de video (fluxo manual, fora da
+# pipeline testada em src/maquina) — custo zero, usa TTS gratuito da Microsoft.
+fabrica = ["cairosvg>=2.7", "edge-tts>=6.1"]
 
 [project.scripts]
 maquina = "maquina.cli:app"
