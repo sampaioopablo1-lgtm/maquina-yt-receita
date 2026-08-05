@@ -120,6 +120,220 @@ def escopo() -> str:
     )
 
 
+# O sistema visual é um só: tokens, tipografia e componentes ficam aqui e
+# servem tanto a apresentacao.html quanto a proposta.html. Duas páginas com
+# duas paletas seria o mesmo erro que a peça inteira existe para evitar.
+CSS_BASE = """:root{
+  --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
+  --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
+  --chip:rgba(78,15,163,.08);
+  --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
+  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#120320; --surface:#1C0733; --ink:#F2ECF8; --muted:#B3A2C6;
+    --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
+    --chip:rgba(124,240,30,.11);
+    --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
+    --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#120320; --surface:#1C0733; --ink:#F2ECF8; --muted:#B3A2C6;
+  --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
+  --chip:rgba(124,240,30,.11);
+  --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
+  --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
+}
+:root[data-theme="light"]{
+  --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
+  --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
+  --chip:rgba(78,15,163,.08);
+  --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
+  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:'Outfit',system-ui,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;}
+
+.wrap{max-width:1080px;margin:0 auto;padding:56px 28px 96px;
+  display:flex;flex-direction:column;gap:64px;}
+
+.eyebrow{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);}
+
+/* topo */
+.topo{display:flex;flex-direction:column;gap:22px;}
+.marca{display:flex;align-items:baseline;gap:14px;}
+.marca .nome{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:40px;
+  line-height:.8;letter-spacing:.01em;}
+.marca .nome em{font-style:normal;color:var(--accent);}
+h1{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:clamp(46px,8vw,84px);
+  line-height:.94;letter-spacing:-.01em;margin:0;text-transform:uppercase;text-wrap:balance;}
+h1 em{font-style:normal;color:var(--accent);}
+.lide{max-width:60ch;color:var(--muted);font-size:19px;margin:0;}
+
+/* prancha do flyer */
+figure{margin:0;display:flex;flex-direction:column;gap:14px;}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);
+  box-shadow:0 22px 60px rgba(12,3,24,.28);}
+figcaption{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);}
+
+/* seções */
+section{display:flex;flex-direction:column;gap:24px;}
+h2{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spacing:.10em;
+  text-transform:uppercase;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line);}
+
+/* funil — a fronteira é o assunto */
+.contexto{max-width:66ch;color:var(--muted);margin:0;}
+.funil{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.fase{border:1px solid var(--line);border-left-width:4px;background:var(--surface);
+  padding:18px 22px 20px;position:relative;
+  display:grid;grid-template-columns:1fr;gap:10px;}
+.fase.mkt{border-left-color:var(--mkt);}
+.fase.vnd{border-left-color:var(--vnd);}
+.fase-n{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
+  color:var(--muted);}
+.fase.mkt .fase-n{color:var(--mkt);}
+.fase.vnd .fase-n{color:var(--vnd);}
+.fase h3{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
+  line-height:.92;text-transform:uppercase;margin:0;}
+.fase-d{margin:0;font-size:15px;color:var(--muted);max-width:56ch;}
+.fase-dados{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));
+  gap:14px;padding-top:12px;border-top:1px solid var(--line);}
+.fase-dados div{display:flex;flex-direction:column;gap:3px;}
+.fase-dados dt{font-family:'GeistMono',monospace;font-size:9.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}
+.fase-dados dd{margin:0;font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;}
+
+.troca{border:1px solid var(--vnd);border-left-width:4px;background:var(--vnd-tint);
+  padding:18px 22px 20px;margin:6px 0;}
+.troca-tag{display:inline-block;background:var(--vnd);color:var(--ground);
+  font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;padding:5px 11px 6px;margin-bottom:11px;}
+.troca p{margin:0;max-width:64ch;}
+.troca p b{font-family:'OutfitB',sans-serif;font-weight:700;color:var(--vnd);}
+.troca-dono{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--vnd);margin-top:10px !important;}
+
+/* o afunilamento só faz sentido quando há largura para ele */
+@media (min-width:820px){
+  .fase{width:var(--w);margin:0 auto;}
+}
+
+/* cadência — sequência real, por isso numerada */
+.toques{list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(min(158px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.toque{background:var(--surface);padding:16px 16px 18px;
+  display:flex;flex-direction:column;gap:3px;}
+.toque-n{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--muted);}
+.toque-dia{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
+  line-height:.9;font-variant-numeric:tabular-nums;}
+.toque.pico{box-shadow:inset 3px 0 0 var(--accent);}
+.canais{display:flex;flex-direction:column;gap:5px;margin-top:3px;}
+.canal{font-size:13px;line-height:1.3;color:var(--muted);padding-left:15px;position:relative;}
+.canal::before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
+  border-radius:50%;}
+.canal.msg::before{background:var(--msg);}
+.canal.callwa::before{background:transparent;border:2px solid var(--callwa);}
+.canal.call::before{background:transparent;border:2px solid var(--call);}
+
+/* escopo */
+.escopo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.escopo-item{background:var(--surface);padding:22px 24px 24px;
+  display:flex;flex-direction:column;gap:7px;}
+.escopo-item h3{font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;
+  line-height:1.3;margin:0;text-transform:uppercase;letter-spacing:.02em;}
+.escopo-item p{margin:0;font-size:15px;color:var(--muted);}
+
+/* gestão */
+.gestao{border:1px solid var(--line);border-left:3px solid var(--accent);
+  background:var(--surface);padding:26px 28px 28px;
+  display:flex;flex-direction:column;gap:14px;}
+.gestao-lead{font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:clamp(30px,4.4vw,44px);line-height:.98;text-transform:uppercase;
+  color:var(--accent);margin:0;text-wrap:balance;}
+.gestao p{margin:0;max-width:68ch;}
+.gestao p b{font-family:'OutfitB',sans-serif;font-weight:700;}
+.metricas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:4px;}
+.met{background:var(--ground);padding:15px 18px 17px;
+  display:flex;flex-direction:column;gap:5px;}
+.met-k{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--accent);}
+.met-v{font-size:15px;line-height:1.3;}
+
+/* bônus */
+.bonus{border:1px solid var(--accent);display:flex;flex-direction:column;gap:0;}
+.bonus-tag{background:var(--accent);color:var(--accent-ink);
+  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;padding:9px 18px;}
+.bonus-eq{display:flex;flex-wrap:wrap;align-items:stretch;background:var(--surface);}
+.alvo{padding:20px 24px 22px;display:flex;flex-direction:column;gap:4px;}
+.alvo b,.premio b{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:52px;
+  line-height:.86;font-variant-numeric:tabular-nums;}
+.alvo span,.premio span{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;line-height:1.7;}
+.alvo span{color:var(--muted);}
+.op{display:flex;align-items:center;padding:0 6px;color:var(--accent);
+  font-family:'BigShoulders',sans-serif;font-weight:700;font-size:32px;}
+.op.seta{flex:1;justify-content:center;min-width:60px;}
+.premio{margin-left:auto;background:var(--accent);color:var(--accent-ink);
+  padding:20px 26px 22px;display:flex;flex-direction:column;gap:4px;}
+
+/* oferta */
+.oferta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.preco{background:var(--surface);padding:26px 26px 28px;
+  display:flex;flex-direction:column;gap:6px;}
+.preco .rot{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}
+.preco .val{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:56px;
+  line-height:.88;font-variant-numeric:tabular-nums;}
+.preco.gratis .val{color:var(--accent);}
+.preco .nota{font-size:14.5px;color:var(--muted);}
+
+.cta{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+  background:var(--accent);color:var(--accent-ink);text-decoration:none;
+  padding:17px 26px;font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:.01em;
+  transition:transform .16s ease,filter .16s ease;}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.06);}
+.cta:focus-visible{outline:3px solid var(--accent);outline-offset:4px;}
+.cta span{font-family:'GeistMono',monospace;font-size:13px;letter-spacing:.10em;}
+@media (prefers-reduced-motion:reduce){.cta{transition:none;}.cta:hover{transform:none;}}
+
+/* ficha */
+.ficha{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:22px;}
+.ficha div{display:flex;flex-direction:column;gap:4px;}
+.ficha dt{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}
+.ficha dd{margin:0;font-size:15.5px;}
+
+.ressalva{border-left:3px solid var(--accent);padding:2px 0 2px 18px;
+  color:var(--muted);font-size:15px;max-width:70ch;}
+
+footer{border-top:1px solid var(--line);padding-top:22px;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:baseline;
+  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+footer a:hover{border-bottom-color:var(--accent);}
+.atalho{display:inline-flex;align-items:baseline;gap:10px;color:var(--ink);
+  text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px;
+  align-self:flex-start;font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;}
+.atalho span{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);}
+"""
+
+
 PAGINA = """<title>Modo Turbo 30 Dias — Turbo 7</title>
 <style>
 @font-face{{font-family:'BigShoulders';src:url('{big}') format('truetype');font-weight:700;font-display:block;}}
@@ -127,209 +341,7 @@ PAGINA = """<title>Modo Turbo 30 Dias — Turbo 7</title>
 @font-face{{font-family:'OutfitB';src:url('{outfit_b}') format('truetype');font-weight:700;font-display:block;}}
 @font-face{{font-family:'GeistMono';src:url('{mono}') format('truetype');font-weight:400;font-display:block;}}
 
-:root{{
-  --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
-  --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
-  --chip:rgba(78,15,163,.08);
-  --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
-  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
-}}
-@media (prefers-color-scheme:dark){{
-  :root{{
-    --ground:#120320; --surface:#1C0733; --ink:#F2ECF8; --muted:#B3A2C6;
-    --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
-    --chip:rgba(124,240,30,.11);
-    --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
-    --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
-  }}
-}}
-:root[data-theme="dark"]{{
-  --ground:#120320; --surface:#1C0733; --ink:#F2ECF8; --muted:#B3A2C6;
-  --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
-  --chip:rgba(124,240,30,.11);
-  --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
-  --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
-}}
-:root[data-theme="light"]{{
-  --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
-  --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
-  --chip:rgba(78,15,163,.08);
-  --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
-  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
-}}
-
-*{{box-sizing:border-box;}}
-body{{margin:0;background:var(--ground);color:var(--ink);
-  font-family:'Outfit',system-ui,sans-serif;font-size:17px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;}}
-
-.wrap{{max-width:1080px;margin:0 auto;padding:56px 28px 96px;
-  display:flex;flex-direction:column;gap:64px;}}
-
-.eyebrow{{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--muted);}}
-
-/* topo */
-.topo{{display:flex;flex-direction:column;gap:22px;}}
-.marca{{display:flex;align-items:baseline;gap:14px;}}
-.marca .nome{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:40px;
-  line-height:.8;letter-spacing:.01em;}}
-.marca .nome em{{font-style:normal;color:var(--accent);}}
-h1{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:clamp(46px,8vw,84px);
-  line-height:.94;letter-spacing:-.01em;margin:0;text-transform:uppercase;text-wrap:balance;}}
-h1 em{{font-style:normal;color:var(--accent);}}
-.lide{{max-width:60ch;color:var(--muted);font-size:19px;margin:0;}}
-
-/* prancha do flyer */
-figure{{margin:0;display:flex;flex-direction:column;gap:14px;}}
-figure img{{display:block;width:100%;height:auto;border:1px solid var(--line);
-  box-shadow:0 22px 60px rgba(12,3,24,.28);}}
-figcaption{{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--muted);}}
-
-/* seções */
-section{{display:flex;flex-direction:column;gap:24px;}}
-h2{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spacing:.10em;
-  text-transform:uppercase;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line);}}
-
-/* funil — a fronteira é o assunto */
-.contexto{{max-width:66ch;color:var(--muted);margin:0;}}
-.funil{{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}}
-.fase{{border:1px solid var(--line);border-left-width:4px;background:var(--surface);
-  padding:18px 22px 20px;position:relative;
-  display:grid;grid-template-columns:1fr;gap:10px;}}
-.fase.mkt{{border-left-color:var(--mkt);}}
-.fase.vnd{{border-left-color:var(--vnd);}}
-.fase-n{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
-  color:var(--muted);}}
-.fase.mkt .fase-n{{color:var(--mkt);}}
-.fase.vnd .fase-n{{color:var(--vnd);}}
-.fase h3{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
-  line-height:.92;text-transform:uppercase;margin:0;}}
-.fase-d{{margin:0;font-size:15px;color:var(--muted);max-width:56ch;}}
-.fase-dados{{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));
-  gap:14px;padding-top:12px;border-top:1px solid var(--line);}}
-.fase-dados div{{display:flex;flex-direction:column;gap:3px;}}
-.fase-dados dt{{font-family:'GeistMono',monospace;font-size:9.5px;letter-spacing:.20em;
-  text-transform:uppercase;color:var(--muted);}}
-.fase-dados dd{{margin:0;font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;}}
-
-.troca{{border:1px solid var(--vnd);border-left-width:4px;background:var(--vnd-tint);
-  padding:18px 22px 20px;margin:6px 0;}}
-.troca-tag{{display:inline-block;background:var(--vnd);color:var(--ground);
-  font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.22em;
-  text-transform:uppercase;padding:5px 11px 6px;margin-bottom:11px;}}
-.troca p{{margin:0;max-width:64ch;}}
-.troca p b{{font-family:'OutfitB',sans-serif;font-weight:700;color:var(--vnd);}}
-.troca-dono{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--vnd);margin-top:10px !important;}}
-
-/* o afunilamento só faz sentido quando há largura para ele */
-@media (min-width:820px){{
-  .fase{{width:var(--w);margin:0 auto;}}
-}}
-
-/* cadência — sequência real, por isso numerada */
-.toques{{list-style:none;margin:0;padding:0;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(min(158px,100%),1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);}}
-.toque{{background:var(--surface);padding:16px 16px 18px;
-  display:flex;flex-direction:column;gap:3px;}}
-.toque-n{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
-  color:var(--muted);}}
-.toque-dia{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
-  line-height:.9;font-variant-numeric:tabular-nums;}}
-.toque.pico{{box-shadow:inset 3px 0 0 var(--accent);}}
-.canais{{display:flex;flex-direction:column;gap:5px;margin-top:3px;}}
-.canal{{font-size:13px;line-height:1.3;color:var(--muted);padding-left:15px;position:relative;}}
-.canal::before{{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
-  border-radius:50%;}}
-.canal.msg::before{{background:var(--msg);}}
-.canal.callwa::before{{background:transparent;border:2px solid var(--callwa);}}
-.canal.call::before{{background:transparent;border:2px solid var(--call);}}
-
-/* escopo */
-.escopo{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);}}
-.escopo-item{{background:var(--surface);padding:22px 24px 24px;
-  display:flex;flex-direction:column;gap:7px;}}
-.escopo-item h3{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;
-  line-height:1.3;margin:0;text-transform:uppercase;letter-spacing:.02em;}}
-.escopo-item p{{margin:0;font-size:15px;color:var(--muted);}}
-
-/* gestão */
-.gestao{{border:1px solid var(--line);border-left:3px solid var(--accent);
-  background:var(--surface);padding:26px 28px 28px;
-  display:flex;flex-direction:column;gap:14px;}}
-.gestao-lead{{font-family:'BigShoulders',sans-serif;font-weight:700;
-  font-size:clamp(30px,4.4vw,44px);line-height:.98;text-transform:uppercase;
-  color:var(--accent);margin:0;text-wrap:balance;}}
-.gestao p{{margin:0;max-width:68ch;}}
-.gestao p b{{font-family:'OutfitB',sans-serif;font-weight:700;}}
-.metricas{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);margin-top:4px;}}
-.met{{background:var(--ground);padding:15px 18px 17px;
-  display:flex;flex-direction:column;gap:5px;}}
-.met-k{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
-  text-transform:uppercase;color:var(--accent);}}
-.met-v{{font-size:15px;line-height:1.3;}}
-
-/* bônus */
-.bonus{{border:1px solid var(--accent);display:flex;flex-direction:column;gap:0;}}
-.bonus-tag{{background:var(--accent);color:var(--accent-ink);
-  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.24em;
-  text-transform:uppercase;padding:9px 18px;}}
-.bonus-eq{{display:flex;flex-wrap:wrap;align-items:stretch;background:var(--surface);}}
-.alvo{{padding:20px 24px 22px;display:flex;flex-direction:column;gap:4px;}}
-.alvo b,.premio b{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:52px;
-  line-height:.86;font-variant-numeric:tabular-nums;}}
-.alvo span,.premio span{{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
-  text-transform:uppercase;line-height:1.7;}}
-.alvo span{{color:var(--muted);}}
-.op{{display:flex;align-items:center;padding:0 6px;color:var(--accent);
-  font-family:'BigShoulders',sans-serif;font-weight:700;font-size:32px;}}
-.op.seta{{flex:1;justify-content:center;min-width:60px;}}
-.premio{{margin-left:auto;background:var(--accent);color:var(--accent-ink);
-  padding:20px 26px 22px;display:flex;flex-direction:column;gap:4px;}}
-
-/* oferta */
-.oferta{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);}}
-.preco{{background:var(--surface);padding:26px 26px 28px;
-  display:flex;flex-direction:column;gap:6px;}}
-.preco .rot{{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
-  text-transform:uppercase;color:var(--muted);}}
-.preco .val{{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:56px;
-  line-height:.88;font-variant-numeric:tabular-nums;}}
-.preco.gratis .val{{color:var(--accent);}}
-.preco .nota{{font-size:14.5px;color:var(--muted);}}
-
-.cta{{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
-  background:var(--accent);color:var(--accent-ink);text-decoration:none;
-  padding:17px 26px;font-family:'BigShoulders',sans-serif;font-weight:700;
-  font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:.01em;
-  transition:transform .16s ease,filter .16s ease;}}
-.cta:hover{{transform:translateY(-2px);filter:brightness(1.06);}}
-.cta:focus-visible{{outline:3px solid var(--accent);outline-offset:4px;}}
-.cta span{{font-family:'GeistMono',monospace;font-size:13px;letter-spacing:.10em;}}
-@media (prefers-reduced-motion:reduce){{.cta{{transition:none;}}.cta:hover{{transform:none;}}}}
-
-/* ficha */
-.ficha{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:22px;}}
-.ficha div{{display:flex;flex-direction:column;gap:4px;}}
-.ficha dt{{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
-  text-transform:uppercase;color:var(--muted);}}
-.ficha dd{{margin:0;font-size:15.5px;}}
-
-.ressalva{{border-left:3px solid var(--accent);padding:2px 0 2px 18px;
-  color:var(--muted);font-size:15px;max-width:70ch;}}
-
-footer{{border-top:1px solid var(--line);padding-top:22px;
-  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:baseline;
-  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--muted);}}
-footer a{{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}}
-footer a:hover{{border-bottom-color:var(--accent);}}
+{css}
 </style>
 
 <div class="wrap">
@@ -414,6 +426,8 @@ footer a:hover{{border-bottom-color:var(--accent);}}
     </div>
     <a class="cta" href="https://www.turbo7.com.br" target="_blank" rel="noopener">
       Reserve sua vaga <span>WWW.TURBO7.COM.BR</span></a>
+    <a class="atalho" href="proposta.html">Ver a proposta comercial
+      <span>Valores, parcelamento e as 3 fases</span></a>
   </section>
 
   <section>
@@ -441,6 +455,7 @@ footer a:hover{{border-bottom-color:var(--accent);}}
 def montar() -> str:
     """O fragmento da página, sem <html>/<head> — é assim que o Artifact a espera."""
     return PAGINA.format(
+        css=CSS_BASE,
         big=fonte("BigShoulders-Bold.ttf"),
         outfit=fonte("Outfit-Regular.ttf"),
         outfit_b=fonte("Outfit-Bold.ttf"),

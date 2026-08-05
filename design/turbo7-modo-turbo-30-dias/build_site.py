@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Monta o site público (pasta `site/`) a partir da mesma página do Artifact.
+"""Monta o site público (pasta `site/`) a partir das mesmas páginas do Artifact.
 
 O Artifact recebe um fragmento e embrulha o documento por conta própria; um host
-comum não faz isso, então aqui o fragmento entra num HTML completo, com as metas
-de compartilhamento que fazem o link render um preview decente no WhatsApp.
+comum não faz isso, então aqui cada fragmento entra num HTML completo, com as
+metas de compartilhamento que fazem o link render um preview decente no WhatsApp.
+
+São duas páginas com o mesmo sistema visual e eixos diferentes: `index.html`
+explica o programa (funil, cadência, flyer) e `proposta.html` o vende (oferta,
+parcelamento e as três fases de implantação). Cada uma aponta para a outra.
 """
 
 import shutil
 from pathlib import Path
 
-from build_pagina import montar
+import build_pagina
+import build_proposta
 
 RAIZ = Path(__file__).parent
 SITE = RAIZ / "site"
@@ -17,14 +22,28 @@ SITE = RAIZ / "site"
 # Preenchido depois do primeiro deploy: crawlers de link exigem URL absoluta.
 BASE_URL = "https://modo-turbo-turbo7.netlify.app"
 
-TITULO = "Programa Modo Turbo 30 Dias — Turbo 7"
-DESCRICAO = (
-    "Cadência comercial de 12 toques em 30 dias, playbook de vendas, CRM "
-    "implantado e reuniões semanais de performance. Os primeiros 30 dias são "
-    "gratuitos para novos clientes."
-)
 FLYER = "flyer-modo-turbo-30-dias.png"
 PDF = "flyer-modo-turbo-30-dias.pdf"
+
+# arquivo -> (título, descrição, montador, se leva o bloco de download)
+PAGINAS = {
+    "index.html": (
+        "Programa Modo Turbo 30 Dias — Turbo 7",
+        "Cadência comercial de 12 toques em 30 dias, playbook de vendas, CRM "
+        "implantado e reuniões semanais de performance. Os primeiros 30 dias são "
+        "gratuitos para novos clientes.",
+        build_pagina.montar,
+        True,
+    ),
+    "proposta.html": (
+        "Proposta comercial — Programa Modo Turbo | Turbo 7",
+        "De R$ 50.000 por R$ 25.000 para quem já é cliente, em até 6× — ou "
+        "R$ 20.000 à vista. Implantação em três fases: treinamento, otimização "
+        "e escala.",
+        build_proposta.montar,
+        False,
+    ),
+}
 
 DOCUMENTO = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -33,7 +52,7 @@ DOCUMENTO = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{descricao}">
 <meta name="theme-color" content="#120320">
-<link rel="canonical" href="{base}/">
+<link rel="canonical" href="{base}/{arquivo}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23120320'/%3E%3Cpath d='M16 4c3.8 4.2 5.8 9.1 5.8 14.4v5.3H10.2v-5.3C10.2 13.1 12.2 8.2 16 4Z' fill='none' stroke='%237CF01E' stroke-width='2'/%3E%3Ccircle cx='16' cy='13.3' r='2.6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
@@ -41,7 +60,7 @@ DOCUMENTO = """<!DOCTYPE html>
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{descricao}">
-<meta property="og:url" content="{base}/">
+<meta property="og:url" content="{base}/{arquivo}">
 <meta property="og:image" content="{base}/{flyer}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{titulo}">
@@ -49,8 +68,12 @@ DOCUMENTO = """<!DOCTYPE html>
 <meta name="twitter:image" content="{base}/{flyer}">
 </head>
 <body>
-{corpo}
+{corpo}{download}
+</body>
+</html>
+"""
 
+DOWNLOAD = """
 <div class="wrap" style="padding-top:0">
   <section>
     <h2>Baixar a peça</h2>
@@ -79,20 +102,21 @@ DOCUMENTO = """<!DOCTYPE html>
 .arq-v{{font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;}}
 @media (prefers-reduced-motion:reduce){{.arq{{transition:none;}}}}
 </style>
-</body>
-</html>
 """
 
 
 def construir() -> Path:
     SITE.mkdir(exist_ok=True)
-    (SITE / "index.html").write_text(
-        DOCUMENTO.format(
-            corpo=montar(), titulo=TITULO, descricao=DESCRICAO,
-            base=BASE_URL, flyer=FLYER, pdf=PDF,
-        ),
-        encoding="utf-8",
-    )
+    for arquivo, (titulo, descricao, montar, baixar) in PAGINAS.items():
+        (SITE / arquivo).write_text(
+            DOCUMENTO.format(
+                corpo=montar(), titulo=titulo, descricao=descricao,
+                base=BASE_URL, arquivo="" if arquivo == "index.html" else arquivo,
+                flyer=FLYER,
+                download=DOWNLOAD.format(flyer=FLYER, pdf=PDF) if baixar else "",
+            ),
+            encoding="utf-8",
+        )
     shutil.copy(RAIZ / "flyer-turbo7-modo-turbo-30-dias.png", SITE / FLYER)
     shutil.copy(RAIZ / "flyer-turbo7-modo-turbo-30-dias.pdf", SITE / PDF)
     (SITE / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")

@@ -11,6 +11,7 @@ nos dias de pico.
 | `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 4320 px (1:1,8, 2×) | WhatsApp, Instagram, e-mail, apresentações |
 | `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 22,5 in, 1 página | Impressão e envio comercial |
 | `apresentacao.html` | Página autocontida | Link de apresentação (publicado como Artifact) |
+| `proposta.html` | Página autocontida | Variação de venda: oferta, parcelamento e as 3 fases |
 | `funil-marketing-vendas-turbo7.png` | 2400 × 3168 px (2×) | Mapa de responsabilidade no funil |
 | `funil-marketing-vendas-turbo7.pdf`  | 12,5 × 16,5 in, 1 página | Impressão e reunião de alinhamento |
 
@@ -22,7 +23,8 @@ nos dias de pico.
 | `build.py` | Gera `flyer.html` — conteúdo, cadência e diagrama são dados, não markup solto |
 | `flyer.html` | Artefato gerado (não editar à mão; editar `build.py`) |
 | `render.py` | Rasteriza o HTML em PNG 2× e PDF via Chromium headless |
-| `build_pagina.py` | Gera `apresentacao.html`, importando o conteúdo de `build.py` e `build_funil.py` |
+| `build_pagina.py` | Gera `apresentacao.html`; guarda o `CSS_BASE` que as duas páginas usam |
+| `build_proposta.py` | Gera `proposta.html` — oferta, condições e o cronograma das fases |
 | `build_funil.py` | Gera `funil.html` — o mapa de etapas, metas e responsáveis |
 | `build_site.py` | Gera `site/`, versão hospedável da apresentação |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
@@ -35,6 +37,7 @@ python3 build.py         # HTML do flyer a partir do conteúdo estruturado
 python3 build_funil.py   # HTML do mapa de funil
 python3 render.py        # PNG 2x + PDF das duas peças (ou passe um .html específico)
 python3 build_pagina.py  # página de apresentação (usa o PNG já renderizado)
+python3 build_proposta.py # página de proposta comercial
 python3 build_site.py    # site estático publicável
 ```
 
@@ -79,6 +82,18 @@ E em `build_funil.py`:
 - `FRONTEIRA` / `RODAPE` — o bloco de passagem de bastão e a nota de gestão.
 - `LARGURA_TOPO` / `LARGURA_BASE` — quanto o funil afunila, em %.
 
+E em `build_proposta.py`:
+
+- `MERCADO` / `CLIENTE` / `AVISTA` / `PARCELAS` — a tabela de preços. Os descontos,
+  o valor da parcela e a economia do à vista são calculados a partir deles, nunca
+  digitados: mudar `CLIENTE` reescreve o selo de %, a nota do cartão e a condição.
+- `FASES` — a lista `(nome, duração, janela, objetivo, entregas, sinal)`. A `janela`
+  é o par de colunas na régua `MESES`, e é dela que sai a barra do cronograma. Uma
+  fase cuja janela ultrapassa a régua é tratada como aberta: o rótulo do sinal muda
+  de “fase fechou” para “fase está saudável”, porque ela não termina.
+- `MESES` — a régua do cronograma. Acrescentar um mês realinha as barras sozinho.
+- `CONDICOES` — as três notas sob a tabela de preços.
+
 Copy da manchete, alerta, estatísticas e bloco de oferta ficam no `TEMPLATE`,
 na mesma seção do arquivo.
 
@@ -106,6 +121,18 @@ na mesma seção do arquivo.
 - **Glifos próprios**: os três canais usam ícones desenhados para a peça, não
   logomarcas de terceiros — mensagem, ligação pelo app e ligação convencional
   se distinguem por cor e preenchimento, com legenda explícita.
+- **Duas páginas, um sistema**: a apresentação explica o programa, a proposta o
+  vende. Os tokens, a tipografia e os componentes moram no `CSS_BASE` de
+  `build_pagina.py` e servem às duas — escopo, gestão, métricas e bônus são as
+  mesmas funções, então as peças não conseguem divergir. Cada página aponta para
+  a outra pelo mesmo componente de atalho.
+- **O cronograma mostra a sobreposição em vez de escondê-la**: a fase 3 começa no
+  3º mês, quando a fase 2 ainda roda. As barras ficam em linhas diferentes e a
+  sobreposição aparece — é informação sobre como a implantação funciona, não um
+  erro de alinhamento a ser disfarçado.
+- **A âncora antes do preço**: R$ 50.000 riscado, depois R$ 25.000, depois o à
+  vista em verde chapado. A ordem de leitura é a ordem do argumento comercial, e
+  o único bloco de cor sólida é aquele para onde a proposta quer levar.
 - **A página carrega leve**: o flyer embutido na apresentação é WebP a 1600px de
   largura (~300 KB), não o PNG de origem — a página inteira sai de 3,6 MB para
   ~790 KB, o que muda o tempo de abertura no 4G de um cliente. O PNG 2400 × 4320
@@ -127,6 +154,13 @@ O texto do flyer reproduz as afirmações comerciais fornecidas para a peça
 (“+80% das conversões vêm da 4ª tentativa em diante”, “5 novos leads por dia”).
 São alegações da campanha, não dados medidos neste repositório — vale conferir
 a fonte antes de veicular.
+
+**Como as duas páginas nomeiam o mesmo R$ 20.000.** Na apresentação, R$ 20.000 é
+“valor do programa”, com os primeiros 30 dias gratuitos para novos clientes. Na
+proposta, R$ 20.000 é o preço *à vista* para quem já é cliente, ancorado nos
+R$ 50.000 de mercado. São duas ofertas para dois públicos, mas o mesmo número
+aparece com dois rótulos — se as páginas forem enviadas juntas ao mesmo cliente,
+vale unificar o discurso antes.
 
 **Divergência conhecida entre as duas peças.** O flyer projeta a alimentação da
 cadência em *5 novos leads por dia* (≈150/mês); o funil registra a meta de
