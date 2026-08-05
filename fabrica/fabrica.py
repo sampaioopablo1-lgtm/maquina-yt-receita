@@ -43,13 +43,51 @@ def usar_fonte(nome):
     EST = EST.replace(f"FontName={FONTE}", f"FontName={nome}")
     FONTE = nome
 
-def svg_cena(c, pal, W, H):
+def elementos(c):
+    """Quantos elementos desta cena entram em cena separadamente.
+
+    Zero significa cena de uma peca so — ela vai inteira no fundo. Acima de
+    zero, `svg_cena(..., camada=k)` devolve o k-esimo elemento sozinho, sobre
+    tela transparente, e quem monta o clipe faz cada um entrar no seu tempo.
+    """
+    lay = c.get('layout', 'titulo')
+    if lay in ('lista', 'barras'):
+        return len(c.get('itens', []))
+    if lay in ('titulo', 'cta'):
+        return 2 if c.get('sub') else 1
+    if lay == 'item':
+        return 2 if c.get('preco') else 1
+    return 0
+
+
+def svg_cena(c, pal, W, H, camada=None):
+    """camada=None: a cena inteira (comportamento historico, e o do short).
+    camada='base': so o fundo e o que nao se move.
+    camada=k (0-based): so o k-esimo elemento, sobre fundo transparente.
+
+    Existe porque a cena estatica era o defeito de retencao mais visivel do
+    formato: quatro itens de uma lista apareciam juntos e ficavam parados os
+    dez segundos inteiros em que o narrador os percorre um a um. Com os
+    elementos entrando no tempo da fala, o olho tem motivo para continuar.
+    """
     ink, c1, c2 = pal['ink'], pal['c1'], pal['c2']
     bg = pal.get('bg', '#FFFFFF'); lay = c.get('layout','titulo')
+
+    def quer(k):
+        """Este elemento entra nesta camada?"""
+        if camada is None:
+            return True
+        if camada == 'base':
+            return k is None      # k=None marca o mobiliario fixo da cena
+        return k == camada
+
+    fundo = (camada is None or camada == 'base')
     # A cena de CTA invertia o fundo (escuro com texto claro). Como sao as tres
     # ultimas de cada video, a virada de cor no fim lia como defeito de render,
     # nao como cartao de encerramento. Agora o CTA segue a identidade do canal.
-    s = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}"><rect width="{W}" height="{H}" fill="{bg}"/>'
+    s = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
+    if fundo:
+        s += f'<rect width="{W}" height="{H}" fill="{bg}"/>'
     cx = W//2
     if lay in ('titulo','cta'):
         fg = c1 if lay=='titulo' else c2
@@ -57,31 +95,43 @@ def svg_cena(c, pal, W, H):
         # Sem a inversao, branco sobre fundo claro sumia por completo.
         sub_fg = ink
         big = c.get('kicker','')
-        s += tsp(big, cx, H*0.40, H*(0.15 if len(big)<=10 else 0.09), fg, n=16)
-        s += f'<path d="M {cx-W*0.26} {H*0.52} Q {cx} {H*0.55}, {cx+W*0.26} {H*0.52}" stroke="{c2 if lay=="titulo" else c1}" stroke-width="10" fill="none" stroke-linecap="round"/>'
-        if c.get('sub'): s += tsp(c['sub'], cx, H*0.65, H*0.055, sub_fg, n=30)
+        if quer(0):
+            s += tsp(big, cx, H*0.40, H*(0.15 if len(big)<=10 else 0.09), fg, n=16)
+            s += f'<path d="M {cx-W*0.26} {H*0.52} Q {cx} {H*0.55}, {cx+W*0.26} {H*0.52}" stroke="{c2 if lay=="titulo" else c1}" stroke-width="10" fill="none" stroke-linecap="round"/>'
+        if c.get('sub') and quer(1):
+            s += tsp(c['sub'], cx, H*0.65, H*0.055, sub_fg, n=30)
     elif lay == 'lista':
-        s += tsp(c.get('kicker',''), cx, H*0.18, H*0.08, ink, n=24)
+        if quer(None):
+            s += tsp(c.get('kicker',''), cx, H*0.18, H*0.08, ink, n=24)
         y = H*0.38
         for i, it in enumerate(c.get('itens', [])):
-            col = [c1, c2, ink][i%3]
-            s += f'<circle cx="{W*0.16}" cy="{y-H*0.02}" r="{H*0.025}" fill="{col}"/>'
-            s += tsp(it, W*0.21, y, H*0.055, ink, n=36, anchor='start')
+            if quer(i):
+                col = [c1, c2, ink][i%3]
+                s += f'<circle cx="{W*0.16}" cy="{y-H*0.02}" r="{H*0.025}" fill="{col}"/>'
+                s += tsp(it, W*0.21, y, H*0.055, ink, n=36, anchor='start')
             y += H*0.17
     elif lay == 'barras':
-        s += tsp(c.get('kicker',''), cx, H*0.16, H*0.08, ink, n=24)
         labs = c.get('itens', ['1','2','3','4']); n = len(labs); bw = W*0.64/n
         alt = c.get('alturas')
+        if quer(None):
+            s += tsp(c.get('kicker',''), cx, H*0.16, H*0.08, ink, n=24)
+            # A linha de base fica no fundo: e o chao contra o qual as barras
+            # sobem, e sem ela as primeiras parecem flutuar no vazio.
+            s += f'<line x1="{W*0.15}" y1="{H*0.82}" x2="{W*0.85}" y2="{H*0.82}" stroke="{ink}" stroke-width="3" opacity="0.35"/>'
         for i, lb in enumerate(labs):
+            if not quer(i):
+                continue
             bh = (H*0.12 + (alt[i]/max(alt))*H*0.48) if alt else (H*0.12 + i*H*0.48/max(n-1,1))
             x = W*0.18 + i*bw
             s += f'<rect x="{x}" y="{H*0.82-bh}" width="{bw*0.72}" height="{bh}" fill="{[c1,c2,ink][i%3]}"/>'
             s += tsp(str(lb), x+bw*0.36, H*0.90, H*0.038, ink, n=14)
     elif lay == 'item':
-        s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.22}" fill="none" stroke="{ink}" stroke-width="9"/>'
-        s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.14}" fill="{c2}" opacity="0.55"/>'
-        s += tsp(c.get('kicker',''), W*0.63, H*0.36, H*0.07, ink, n=20)
-        if c.get('preco'):
+        if quer(None):
+            s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.22}" fill="none" stroke="{ink}" stroke-width="9"/>'
+            s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.14}" fill="{c2}" opacity="0.55"/>'
+        if quer(0):
+            s += tsp(c.get('kicker',''), W*0.63, H*0.36, H*0.07, ink, n=20)
+        if c.get('preco') and quer(1):
             s += f'<rect x="{W*0.51}" y="{H*0.5}" width="{W*0.24}" height="{H*0.13}" fill="{c1}"/>'
             s += tsp(c['preco'], W*0.63, H*0.59, H*0.06, '#FFFFFF', n=12)
     return s + '</svg>'
@@ -115,7 +165,19 @@ def montar(spec_file):
     d = dir_trabalho(sp); os.makedirs(d, exist_ok=True)
     for pref, cenas, W, H in (("l", sp["longo"], 1280, 720), ("s", sp["short"], 720, 1280)):
         for i, c in enumerate(cenas):
-            cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H).encode(), write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
+            # O longo entra em camadas (base + um png por elemento). O short
+            # nao: sao 30s com legenda queimada, e ali a entrada escalonada
+            # rouba tempo de leitura em vez de dar ritmo.
+            if pref == "l":
+                cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H, camada='base').encode(),
+                                 write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
+                for k in range(elementos(c)):
+                    cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H, camada=k).encode(),
+                                     write_to=f"{d}/{pref}{i:02d}_{k}.png",
+                                     output_width=W, output_height=H)
+            else:
+                cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H).encode(),
+                                 write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
         asyncio.run(vozes(cenas, voz, pref, d))
     th = sp["thumb"]
     tsvg = f'<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720"><rect width="1280" height="720" fill="{pal["c1"]}"/><rect x="40" y="40" width="1200" height="640" fill="#FFFFFF"/>' + tsp(th["l1"], 640, 300, 150, pal["ink"], n=12) + tsp(th["l2"], 640, 480, 90, pal["c1"], n=16) + '</svg>'
@@ -247,7 +309,26 @@ def render(spec_file):
             # o pacote entrega um .srt para subir junto, melhor que a automatica.
             if pref == "s":
                 vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
-            subprocess.run([ffmpeg_bin(),"-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            n_cam = elementos(c) if pref == "l" else 0
+            if n_cam:
+                # Composicao em camadas: os elementos entram um a um, no ritmo
+                # da fala, em vez de a cena inteira aparecer de uma vez.
+                # `-framerate 30` em CADA imagem, sempre. Sem isso o `-loop 1`
+                # entra a 25 fps e o clipe inteiro sai a 25 — enquanto as cenas
+                # sem camada continuam a 30, porque ali quem gera os quadros e o
+                # zoompan. O concat junta os dois sem reclamar e o resultado e um
+                # stream de fps variavel. Medido: 225 quadros em 9s virando 270.
+                args = [ffmpeg_bin(),"-nostdin","-y",
+                        "-framerate","30","-loop","1","-t",f"{dd:.2f}","-i",f"{d}/{pref}{i:02d}.png"]
+                for k in range(n_cam):
+                    args += ["-framerate","30","-loop","1","-t",f"{dd:.2f}",
+                             "-i",f"{d}/{pref}{i:02d}_{k}.png"]
+                args += ["-i",f"{d}/{pref}{i:02d}.mp3",
+                         "-filter_complex",filtro_camadas(n_cam, dd, i, nf, RW, RH),
+                         "-map","[v]","-map",f"{n_cam+1}:a"]
+                subprocess.run(args + ["-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            else:
+                subprocess.run([ffmpeg_bin(),"-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
                 mf.write(f"{pref}clip{i:02d}.mp4\n")
@@ -313,3 +394,48 @@ def render(spec_file):
 if __name__ == "__main__":
     fn = sys.argv[1]; spec = sys.argv[2]
     montar(spec) if fn == "montar" else render(spec)
+
+# --------------------------------------------------------------- animacao
+ENTRADA = 0.40      # segundos que cada elemento leva para entrar
+DESLIZE = 26        # pixels que ele sobe enquanto entra
+INICIO = 0.45       # atraso do primeiro elemento, para a cena assentar
+OCUPA = 0.62        # fracao da cena em que todos ja entraram
+
+
+def tempos_entrada(n, dd):
+    """Quando cada um dos n elementos entra, numa cena de dd segundos.
+
+    Espalha as entradas pelos primeiros 62% da cena. Nao ha alinhamento por
+    palavra — nao temos timestamp do TTS — mas o narrador percorre a lista na
+    mesma ordem e no mesmo ritmo, entao a coincidencia e boa o bastante para o
+    olho e muito melhor do que tudo aparecer junto.
+    """
+    if n <= 0:
+        return []
+    fim = max(INICIO + ENTRADA, dd * OCUPA)
+    if n == 1:
+        return [INICIO]
+    passo = (fim - INICIO) / (n - 1)
+    return [INICIO + i * passo for i in range(n)]
+
+
+def filtro_camadas(n, dd, i_cena, nf, RW, RH):
+    """Monta o filter_complex: base + n camadas entrando, e o Ken Burns no fim.
+
+    Cada camada e uma tela transparente do tamanho do quadro, entao o overlay
+    vai em x=0 e so o y anima — nao ha coordenada para acertar aqui, o SVG ja
+    colocou o elemento no lugar certo.
+    """
+    z, fx, fy = ken_burns(i_cena, nf)
+    if n == 0:
+        return (f"[0:v]zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
+                f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
+    partes, atual = [], "0:v"
+    for k, t0 in enumerate(tempos_entrada(n, dd)):
+        partes.append(f"[{k+1}:v]format=rgba,fade=in:st={t0:.2f}:d={ENTRADA}:alpha=1[a{k}]")
+        y = f"{DESLIZE}*max(0\\,1-(t-{t0:.2f})/{ENTRADA})"
+        partes.append(f"[{atual}][a{k}]overlay=x=0:y='{y}':format=auto[o{k}]")
+        atual = f"o{k}"
+    partes.append(f"[{atual}]zoompan=z='{z}':d=1:x='(iw-iw/zoom)*({fx})'"
+                  f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
+    return ";".join(partes)
