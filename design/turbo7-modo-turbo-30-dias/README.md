@@ -11,7 +11,7 @@ nos dias de pico.
 | `flyer-turbo7-modo-turbo-30-dias.png` | 2400 × 4320 px (1:1,8, 2×) | WhatsApp, Instagram, e-mail, apresentações |
 | `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 22,5 in, 1 página | Impressão e envio comercial |
 | `apresentacao.html` | Página autocontida | Link de apresentação (publicado como Artifact) |
-| `proposta.html` | Página autocontida | Variação de venda: oferta, parcelamento e as 3 fases |
+| `proposta.html` | Página autocontida | Proposta comercial: diagnóstico, método, plano e preço |
 | `funil-marketing-vendas-turbo7.png` | 2400 × 3168 px (2×) | Mapa de responsabilidade no funil |
 | `funil-marketing-vendas-turbo7.pdf`  | 12,5 × 16,5 in, 1 página | Impressão e reunião de alinhamento |
 
@@ -24,7 +24,7 @@ nos dias de pico.
 | `flyer.html` | Artefato gerado (não editar à mão; editar `build.py`) |
 | `render.py` | Rasteriza o HTML em PNG 2× e PDF via Chromium headless |
 | `build_pagina.py` | Gera `apresentacao.html`; guarda o `CSS_BASE` que as duas páginas usam |
-| `build_proposta.py` | Gera `proposta.html` — oferta, condições e o cronograma das fases |
+| `build_proposta.py` | Gera `proposta.html` — diagnóstico, fases, compromissos e oferta |
 | `build_funil.py` | Gera `funil.html` — o mapa de etapas, metas e responsáveis |
 | `build_site.py` | Gera `site/`, versão hospedável da apresentação |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
@@ -93,11 +93,14 @@ E em `build_proposta.py`:
   de “fase fechou” para “fase está saudável”, porque ela não termina.
 - `MESES` — a régua do cronograma. Acrescentar um mês realinha as barras sozinho.
 - `CONDICOES` — as três notas sob a tabela de preços.
+- `COMPROMISSOS` — o que o programa depende do cliente. Proposta que só lista o
+  que o fornecedor entrega esconde metade do combinado.
+- `VALIDADE` — o prazo da proposta, sob a tabela de preços.
 - `PERGUNTAS` — o diagnóstico que abre a página. A numeração e o “{n} perguntas”
   do título saem do tamanho da lista, então acrescentar uma pergunta basta.
 - `ABERTURA` / `VEREDITO` / `VEREDITO_NOTA` — a copy que emoldura o diagnóstico.
-- `TORNEIRA` — o SVG da torneira pingando, em `currentColor`: um único desenho
-  serve aos temas claro e escuro.
+- `TORNEIRA` — o SVG da torneira pingando. Usa só tokens do tema, então um único
+  desenho serve ao claro e ao escuro.
 
 Copy da manchete, alerta, estatísticas e bloco de oferta ficam no `TEMPLATE`,
 na mesma seção do arquivo.
@@ -135,15 +138,20 @@ na mesma seção do arquivo.
   3º mês, quando a fase 2 ainda roda. As barras ficam em linhas diferentes e a
   sobreposição aparece — é informação sobre como a implantação funciona, não um
   erro de alinhamento a ser disfarçado.
-- **O diagnóstico vem antes do preço**: a página abre com oito perguntas diretas
-  sobre a operação do cliente, não com o valor. Quem não enxerga a goteira acha
+- **A proposta tem a ordem de uma proposta**: diagnóstico → método → escopo →
+  gestão → plano de implantação → co-responsabilidade → preço → próximo passo.
+  O preço é a penúltima seção, não a primeira. Quem não enxerga a goteira acha
   caro qualquer número; quem acabou de falhar em responder oito perguntas sobre o
   próprio processo lê o preço como conserto. Nenhuma pergunta é retórica — todas
   têm resposta numérica, e é o silêncio diante delas que faz o argumento.
-- **A torneira é glifo, não ilustração**: desenhada em linha no mesmo traço dos
-  ícones de canal do flyer, com a gota, o pontilhado da trajetória e a poça do
-  acumulado. Em `currentColor`, então segue o tema sem uma segunda versão. A
-  bancada termina antes do bico: o que cai, cai na cuba, e a linha não cruza a
+- **A proposta não é um resumo da apresentação**: ela carrega as mesmas seções
+  inteiras — funil, cadência, flyer, escopo, gestão, bônus — porque quem recebe
+  uma proposta não deveria precisar de um segundo link para entender o que está
+  comprando. São as mesmas funções de `build_pagina`, só reordenadas.
+- **A torneira é ilustração própria, não banco de imagem**: corpo cheio em
+  `--ink`, especular em `--surface` para dar volume ao metal, gota e poça em
+  `--accent`. Como só usa tokens do tema, um desenho serve ao claro e ao escuro.
+  A bancada termina antes do bico: o que cai, cai na cuba, e a linha não cruza a
   trajetória da gota.
 - **A âncora antes do preço**: R$ 50.000 riscado, depois R$ 25.000, depois o à
   vista em verde chapado. A ordem de leitura é a ordem do argumento comercial, e

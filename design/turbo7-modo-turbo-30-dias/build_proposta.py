@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-"""Monta a variação de venda da página: a proposta comercial do Modo Turbo.
+"""Monta a variação de venda da página: a proposta do Modo Turbo.
 
-A apresentação explica o programa; esta página o vende. Muda o eixo — abre pela
-oferta e pelo cronograma das três fases — mas reaproveita o mesmo sistema visual
-e os mesmos dados de escopo, cadência, gestão e bônus, para que as duas peças
-não possam divergir.
+Mesma espinha da apresentação — funil, cadência, flyer, escopo, gestão e bônus —
+na ordem que uma proposta comercial pede: primeiro o diagnóstico do problema,
+depois o método, depois o plano de implantação e só então o preço. Quem lê o
+valor antes de enxergar a goteira acha caro qualquer número.
+
+Nada aqui é redigitado da apresentação: as seções compartilhadas são as mesmas
+funções de `build_pagina`, então as duas páginas não conseguem divergir.
 """
 
 from pathlib import Path
 
 from build import GESTAO_LEAD, GESTAO_TEXTO, TOTAL_CONTATOS
-from build_pagina import CSS_BASE, bonus, escopo, fonte, metricas
+from build_pagina import (CONTEXTO, CSS_BASE, bonus, escopo, flyer_web, fonte,
+                          funil, metricas, toques)
 
 RAIZ = Path(__file__).parent
 
@@ -146,33 +150,78 @@ VEREDITO_NOTA = (
     "maior todo mês."
 )
 
-# Glifo próprio, no mesmo traço dos ícones de canal do flyer: a gota é o dado, o
-# pontilhado é a trajetória e a poça é o acumulado. currentColor deixa a peça
-# seguir o tema claro/escuro sem uma segunda versão do desenho.
-TORNEIRA = """<svg class="torneira" viewBox="0 0 200 300" fill="none" role="img"
+# Ilustração própria, não banco de imagem: corpo cheio em --ink com especular em
+# --surface para dar volume ao metal, gota e poça em --accent. Só tokens do tema,
+# então um desenho serve ao claro e ao escuro. A gota é o dado, o pontilhado é a
+# trajetória, os anéis são o acumulado — a peça inteira conta a mesma história.
+TORNEIRA = """<svg class="torneira" viewBox="0 0 240 330" role="img"
      aria-label="Uma torneira pingando sobre uma poça: cada gota é uma venda que escapa.">
-  <g stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M100 236V140"/>
-    <path d="M100 140c0-40 52-40 52 0v28"/>
-    <path d="M92 152h16"/>
-    <path d="M100 158 58 146"/>
-    <path d="M88 250v-14h24v14"/>
-    <path d="M143 168h18l-4 12h-10z"/>
+  <!-- a poça: o acumulado do que já vazou, em anéis -->
+  <ellipse cx="184" cy="306" rx="44" ry="9" fill="var(--accent)" opacity=".10"/>
+  <ellipse cx="184" cy="306" rx="30" ry="6" fill="var(--accent)" opacity=".14"/>
+  <ellipse cx="184" cy="306" rx="16" ry="3.2" fill="var(--accent)" opacity=".22"/>
+
+  <!-- a bancada termina antes do bico: o que cai, cai na cuba -->
+  <path d="M28 268h112" stroke="var(--ink)" stroke-width="3" opacity=".2"
+        stroke-linecap="round"/>
+
+  <g fill="var(--ink)">
+    <rect x="76" y="250" width="64" height="18" rx="7"/>
+    <rect x="93" y="140" width="30" height="116" rx="11"/>
+    <rect x="88" y="158" width="40" height="14" rx="5"/>
+    <rect x="167" y="204" width="34" height="17" rx="5"/>
+    <rect x="173" y="219" width="22" height="8" rx="4"/>
+    <circle cx="50" cy="154" r="12"/>
   </g>
-  <circle cx="53" cy="145" r="7" stroke="currentColor" stroke-width="4"/>
-  <path d="M40 250h86" stroke="currentColor" stroke-width="2" opacity=".38"/>
-  <path d="M152 190v92" stroke="currentColor" stroke-width="1.5"
-        stroke-dasharray="2 9" opacity=".28"/>
-  <g fill="currentColor">
-    <g transform="translate(152 192) scale(.66)">
+  <path d="M108 150c0-56 76-56 76 0v62" fill="none" stroke="var(--ink)"
+        stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M108 178 56 156" fill="none" stroke="var(--ink)" stroke-width="15"
+        stroke-linecap="round"/>
+
+  <!-- especular: o volume do metal, sem sair da paleta -->
+  <rect x="99" y="154" width="5" height="92" rx="2.5" fill="var(--surface)" opacity=".38"/>
+  <rect x="172" y="208" width="4" height="9" rx="2" fill="var(--surface)" opacity=".34"/>
+
+  <!-- a trajetória e as gotas: o que está saindo agora -->
+  <path d="M184 236v62" stroke="var(--accent)" stroke-width="1.5"
+        stroke-dasharray="2 9" opacity=".3"/>
+  <g fill="var(--accent)">
+    <g transform="translate(184 240) scale(.72)">
+      <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/>
+      <ellipse cx="-3.4" cy="16.5" rx="2.4" ry="3.4" fill="var(--surface)" opacity=".55"/>
+    </g>
+    <g transform="translate(184 272) scale(.5)" opacity=".5">
       <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/></g>
-    <g transform="translate(152 228) scale(.52)" opacity=".55">
-      <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/></g>
-    <g transform="translate(152 258) scale(.4)" opacity=".3">
+    <g transform="translate(184 294) scale(.34)" opacity=".26">
       <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/></g>
   </g>
-  <ellipse cx="152" cy="288" rx="30" ry="4.5" fill="currentColor" opacity=".18"/>
 </svg>"""
+
+
+# --------------------------------------------------------- co-responsabilidade
+#
+# Proposta que só lista o que o fornecedor entrega esconde metade do combinado.
+# Estes são os quatro pontos em que o programa depende do cliente — e é melhor
+# que apareçam antes da assinatura do que na terceira semana da fase 1.
+
+COMPROMISSOS = [
+    ("Acesso à base", "O histórico de leads e o CRM atual, para migrar tudo sem "
+                      "perder ninguém no caminho."),
+    ("Agenda do time", "Os captadores disponíveis para o treinamento da fase 1. "
+                       "Playbook não se aprende por e-mail."),
+    ("Um ponto focal", "Uma pessoa da sua equipe como interlocutor único do "
+                       "programa, com autoridade para decidir."),
+    ("Presença na reunião", "A reunião semanal de performance só corrige rota se "
+                            "quem decide estiver na sala."),
+]
+
+VALIDADE = "Esta proposta é válida por 15 dias a partir da data de envio."
+
+
+def compromissos() -> str:
+    return "\n".join(
+        f'<div class="comp"><dt>{k}</dt><dd>{v}</dd></div>' for k, v in COMPROMISSOS
+    )
 
 
 def perguntas() -> str:
@@ -251,6 +300,15 @@ CSS_PROPOSTA = """
   .torneira{width:118px;margin:0 auto;}
   .torneira-nota{text-align:center;}
 }
+
+/* co-responsabilidade */
+.compromissos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);margin:0;}
+.comp{background:var(--surface);padding:20px 24px 22px;
+  display:flex;flex-direction:column;gap:6px;}
+.comp dt{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15.5px;
+  text-transform:uppercase;letter-spacing:.02em;}
+.comp dd{margin:0;font-size:15px;color:var(--muted);}
 
 /* oferta — a âncora primeiro, o preço depois */
 .precos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));
@@ -332,7 +390,7 @@ CSS_PROPOSTA = """
 
 """
 
-PAGINA = """<title>Proposta — Programa Modo Turbo | Turbo 7</title>
+PAGINA = """<title>Programa Modo Turbo 30 Dias — Turbo 7</title>
 <style>
 @font-face{{font-family:'BigShoulders';src:url('{big}') format('truetype');font-weight:700;font-display:block;}}
 @font-face{{font-family:'Outfit';src:url('{outfit}') format('truetype');font-weight:400;font-display:block;}}
@@ -349,14 +407,15 @@ PAGINA = """<title>Proposta — Programa Modo Turbo | Turbo 7</title>
       <span class="nome">TURBO<em>7</em></span>
       <span class="eyebrow">Marketing de Planejados</span>
     </div>
-    <h1>Modo Turbo<br><em>Proposta comercial</em></h1>
-    <p class="lide">A máquina de vendas montada dentro da sua operação: CRM implantado,
-      playbook treinado, cadência de {total} contatos em 30 dias e um diretor conduzindo
-      a performance do time. Implantação em três fases, ao longo do primeiro trimestre.</p>
+    <h1>Programa Modo Turbo<br><em>30 dias</em></h1>
+    <p class="lide">Seu time já tem lead. O que falta é o processo que impede o lead
+      de esfriar: cadência definida, script único, CRM que não perde ninguém e um
+      diretor olhando o número toda semana. É isso que o Modo Turbo instala — em três
+      fases, ao longo do primeiro trimestre.</p>
   </header>
 
   <section>
-    <h2>{n_perguntas} perguntas antes de falar em preço</h2>
+    <h2>{n_perguntas} perguntas antes de qualquer coisa</h2>
     <p class="contexto">{abertura}</p>
     <div class="goteira">
       <div>
@@ -374,46 +433,30 @@ PAGINA = """<title>Proposta — Programa Modo Turbo | Turbo 7</title>
   </section>
 
   <section>
-    <h2>Investimento</h2>
-    <div class="precos">
-      <div class="p ancora">
-        <span class="rot">Valor de mercado</span>
-        <span class="val">{mercado}</span>
-        <span class="nota">O que uma implantação equivalente custa fora daqui.</span>
-      </div>
-      <div class="p">
-        <span class="rot">Para quem já é cliente</span>
-        <span class="val">{cliente}</span>
-        <span class="nota">Em até {parcelas}× de {parcela}.</span>
-        <span class="selo">−{desc_cliente}%</span>
-      </div>
-      <div class="p destaque">
-        <span class="rot">À vista</span>
-        <span class="val">{avista}</span>
-        <span class="nota">{economia} a menos que o parcelado.</span>
-        <span class="selo">−{desc_avista}%</span>
-      </div>
-    </div>
-    <dl class="condicoes">
-{condicoes}
-    </dl>
+    <h2>Onde termina o marketing, onde começa vendas</h2>
+    <p class="contexto">{contexto}</p>
+    <ol class="funil">
+{funil}
+    </ol>
   </section>
 
   <section>
-    <h2>Como a implantação acontece</h2>
-    <p class="contexto">{contexto_fases}</p>
-    <div class="crono" style="--cols:{colunas}">
-      <div class="regua">{regua}</div>
-      <div class="barras">
-{barras}
-      </div>
-      <p class="crono-nota">A escala começa enquanto a otimização ainda roda — no 3º mês
-        as duas fases convivem.</p>
-    </div>
-    <div class="etapas">
-{cartoes}
-    </div>
+    <h2>O método: a cadência 12 × 30</h2>
+    <p class="contexto">A resposta para as três primeiras perguntas deixa de ser
+      “depende do captador”. São 12 toques em 30 dias, somando {total} contatos, com
+      2 a 3 canais cruzados nos dias de pico — o mesmo desenho para todo lead, todo
+      captador, todo dia.</p>
+    <ol class="toques">
+{toques}
+    </ol>
   </section>
+
+  <figure>
+    <img src="{flyer}" width="1600" height="2880"
+         alt="Flyer do Programa Modo Turbo 30 Dias, com o mapa de cadência 12 por 30,
+              o escopo do programa e a oferta de 30 dias gratuitos.">
+    <figcaption>O programa em uma página — material de apoio para o seu time</figcaption>
+  </figure>
 
   <section>
     <h2>O que está incluso</h2>
@@ -444,17 +487,71 @@ PAGINA = """<title>Proposta — Programa Modo Turbo | Turbo 7</title>
   </section>
 
   <section>
+    <h2>Como a implantação acontece</h2>
+    <p class="contexto">{contexto_fases}</p>
+    <div class="crono" style="--cols:{colunas}">
+      <div class="regua">{regua}</div>
+      <div class="barras">
+{barras}
+      </div>
+      <p class="crono-nota">A escala começa enquanto a otimização ainda roda — no 3º mês
+        as duas fases convivem.</p>
+    </div>
+    <div class="etapas">
+{cartoes}
+    </div>
+  </section>
+
+  <section>
+    <h2>O que precisamos de você</h2>
+    <p class="contexto">O programa é implantado dentro da sua operação, não ao lado
+      dela. Estes quatro pontos dependem do seu time — e é melhor combiná-los agora
+      do que descobri-los na terceira semana.</p>
+    <dl class="compromissos">
+{compromissos}
+    </dl>
+  </section>
+
+  <section>
+    <h2>Investimento</h2>
+    <div class="precos">
+      <div class="p ancora">
+        <span class="rot">Valor de mercado</span>
+        <span class="val">{mercado}</span>
+        <span class="nota">O que uma implantação equivalente custa fora daqui.</span>
+      </div>
+      <div class="p">
+        <span class="rot">Para quem já é cliente</span>
+        <span class="val">{cliente}</span>
+        <span class="nota">Em até {parcelas}× de {parcela}.</span>
+        <span class="selo">−{desc_cliente}%</span>
+      </div>
+      <div class="p destaque">
+        <span class="rot">À vista</span>
+        <span class="val">{avista}</span>
+        <span class="nota">{economia} a menos que o parcelado.</span>
+        <span class="selo">−{desc_avista}%</span>
+      </div>
+    </div>
+    <dl class="condicoes">
+{condicoes}
+    </dl>
+    <p class="ressalva">{validade}</p>
+  </section>
+
+  <section>
     <h2>Próximo passo</h2>
     <p class="lide" style="font-size:16px">A fase 1 começa na semana seguinte ao aceite:
-      implantação do CRM e treinamento do time comercial.</p>
+      implantação do CRM e treinamento do time comercial. As oito perguntas do começo
+      passam a ter resposta em número já no primeiro relatório semanal.</p>
     <a class="cta" href="https://www.turbo7.com.br" target="_blank" rel="noopener">
       Quero começar <span>WWW.TURBO7.COM.BR</span></a>
-    <a class="atalho" href="./">Ver a apresentação completa do programa
+    <a class="atalho" href="./">Ver a apresentação do programa
       <span>Funil, cadência e flyer</span></a>
   </section>
 
   <footer>
-    <span>Turbo 7 · Programa Modo Turbo · Proposta comercial</span>
+    <span>Turbo 7 · Programa Modo Turbo</span>
     <a href="https://www.turbo7.com.br" target="_blank" rel="noopener">turbo7.com.br</a>
   </footer>
 
@@ -472,6 +569,12 @@ def montar() -> str:
         outfit_b=fonte("Outfit-Bold.ttf"),
         mono=fonte("GeistMono-Regular.ttf"),
         total=TOTAL_CONTATOS,
+        contexto=CONTEXTO,
+        funil=funil(),
+        toques=toques(),
+        flyer=flyer_web(),
+        compromissos=compromissos(),
+        validade=VALIDADE,
         n_perguntas=len(PERGUNTAS),
         abertura=ABERTURA.format(n=len(PERGUNTAS)),
         torneira=TORNEIRA,

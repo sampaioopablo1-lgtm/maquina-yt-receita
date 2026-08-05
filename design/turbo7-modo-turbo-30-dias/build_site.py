@@ -6,10 +6,12 @@ comum não faz isso, então aqui cada fragmento entra num HTML completo, com as
 metas de compartilhamento que fazem o link render um preview decente no WhatsApp.
 
 São duas páginas com o mesmo sistema visual e eixos diferentes: `index.html`
-explica o programa (funil, cadência, flyer) e `proposta.html` o vende (oferta,
-parcelamento e as três fases de implantação). Cada uma aponta para a outra.
+apresenta o programa e `proposta.html` o propõe — mesmas seções, reordenadas na
+sequência de uma proposta comercial: diagnóstico, método, plano, preço. Cada uma
+aponta para a outra.
 """
 
+import re
 import shutil
 from pathlib import Path
 
@@ -36,10 +38,10 @@ PAGINAS = {
         True,
     ),
     "proposta.html": (
-        "Proposta comercial — Programa Modo Turbo | Turbo 7",
-        "De R$ 50.000 por R$ 25.000 para quem já é cliente, em até 6× — ou "
-        "R$ 20.000 à vista. Implantação em três fases: treinamento, otimização "
-        "e escala.",
+        "Programa Modo Turbo — Proposta | Turbo 7",
+        "Oito perguntas que revelam onde a sua operação comercial está vazando, o "
+        "método que fecha cada goteira e a implantação em três fases — treinamento, "
+        "otimização e escala.",
         build_proposta.montar,
         False,
     ),
@@ -50,6 +52,7 @@ DOCUMENTO = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{titulo}</title>
 <meta name="description" content="{descricao}">
 <meta name="theme-color" content="#120320">
 <link rel="canonical" href="{base}/{arquivo}">
@@ -110,7 +113,8 @@ def construir() -> Path:
     for arquivo, (titulo, descricao, montar, baixar) in PAGINAS.items():
         (SITE / arquivo).write_text(
             DOCUMENTO.format(
-                corpo=montar(), titulo=titulo, descricao=descricao,
+                corpo=re.sub(r'^<title>.*?</title>\n', '', montar()),
+                titulo=titulo, descricao=descricao,
                 base=BASE_URL, arquivo="" if arquivo == "index.html" else arquivo,
                 flyer=FLYER,
                 download=DOWNLOAD.format(flyer=FLYER, pdf=PDF) if baixar else "",
