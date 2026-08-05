@@ -54,8 +54,10 @@ message users, and does not read or store any data belonging to other users.
 SCOPES REQUESTED
 
 - youtube.upload — to upload my own finished videos
-- youtube.readonly — to confirm upload status and read public metrics of my
-  own channels
+- youtube — to set the thumbnail, the subtitle track and the video metadata
+  of the uploads above, on my own channel
+- yt-analytics.readonly — to read the performance of my own videos, so that
+  the pipeline can stop producing formats that do not perform
 
 NATURE OF THE CONTENT
 
