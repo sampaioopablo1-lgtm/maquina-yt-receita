@@ -31,8 +31,14 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Modelo de duracao, medido em 2026-08-05. As duas primeiras parcelas saem de
+# amostras de TTS; a terceira e ajustada sobre o render deste pacote e vale por
+# CENA, porque cada cena e um mp3 separado (silencio de borda) e o etapas.py
+# ainda soma 0,5s de folga por clipe. Sem ela o modelo errou 10,9% para baixo:
+# previu 761s, o render deu 853,9s.
 CHARS_POR_S = 20.58
 PAUSA_POR_FRASE = 0.96
+FOLGA_POR_CENA = 1.08
 
 # ---------------------------------------------------------------------------
 # Cada entrada: (layout, kicker, extra, narracao, capitulo_ou_None)
@@ -110,7 +116,7 @@ if __name__ == "__main__":
     chars = sum(len(c["nar"]) for c in cenas)
     nf = sum(len([f for f in re.split(r"(?<=[.!?…])\s+", c["nar"]) if f.strip()])
              for c in cenas)
-    est = chars / CHARS_POR_S + nf * PAUSA_POR_FRASE
+    est = chars / CHARS_POR_S + nf * PAUSA_POR_FRASE + len(cenas) * FOLGA_POR_CENA
     caps = sum(1 for c in cenas if c.get("cap"))
     print(f"{len(cenas)} cenas, {caps} capitulos, {chars} chars, {nf} frases")
     print(f"estimativa: {est:.0f}s = {est/60:.1f} min")
