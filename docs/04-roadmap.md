@@ -173,10 +173,9 @@ nessa faixa de propósito. Amostra pequena leva a refazer a coisa errada.
 
 ## Backlog técnico (não bloqueia o lançamento)
 
-- Fazer `maquina auto` consumir o roteiro que a Edge Function `gerar-roteiro`
-  criou no Supabase, em vez de sempre ideiar do zero. Hoje `maquina sincronizar`
-  já traz esses roteiros para o SQLite, mas quem os renderiza é `maquina retomar
-  <slug>`, na mão.
+- ~~Fazer `maquina auto` consumir o roteiro que a Edge Function `gerar-roteiro`
+  criou no Supabase~~ — feito: `Pipeline.pendente()` + `maquina auto` verifica
+  antes de ideiar do zero (05/08).
 - Agendar a `gerar-roteiro`. Ela está deployada e funciona (uma execução
   registrada, HTTP 200 em 26s, gerou o roteiro de 13 cenas do "7 Level Gaji"),
   mas nada a invoca: não há `cron.job` para ela no projeto. Enquanto isso, o

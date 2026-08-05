@@ -145,7 +145,7 @@ docs/                   # decisões, arquitetura, playbook, compliance
 MAQ_LLM_PROVIDER=stub MAQ_TTS_PROVIDER=stub MAQ_IMAGE_PROVIDER=stub .venv/bin/pytest -q
 ```
 
-50 testes, sem rede e sem custo — incluindo um render real de ponta a ponta que
+55 testes, sem rede e sem custo — incluindo um render real de ponta a ponta que
 valida o MP4 gerado e um PostgREST falso em localhost que valida a sincronização
 com o Supabase.
 
