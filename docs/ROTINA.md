@@ -24,7 +24,8 @@ ESCALONAMENTO: canal com retenção acima de 40% ou views/vídeo acima da median
 
 FILA: 1) `select * from v_maquina_pendencias limit 1` — só mostra erro com artefato recuperável. 2) senão `select * from v_maquina_fila limit 1` — ela já põe canal com YouTube primeiro e expõe `pode_produzir` com o teto de 3 pacotes/dia descontado. Produzir para canal que não existe engorda estoque que não embarca.
 
-PASSO 0 — DEMANDA: consulte `v_maquina_formatos` e `pautas_banco` ANTES de pesquisar. Depois, via YOUTUBE_SEARCH_YOU_TUBE + YOUTUBE_GET_VIDEO_DETAILS_BATCH, colete vídeos de 90 dias do nicho/idioma, calcule VIEWS/DIA, mediana e outliers (≥3×). Grave TUDO em pautas_banco, inclusive os mortos. Confirme números com WebSearch no idioma e em fonte institucional — duas fontes que batam.
+PASSO 0 — DEMANDA: consulte `v_maquina_formatos` e `pautas_banco` ANTES de pesquisar. Depois, via YOUTUBE_SEARCH_YOU_TUBE + YOUTUBE_GET_VIDEO_DETAILS_BATCH, colete vídeos de 90 dias do nicho/idioma, calcule VIEWS/DIA, mediana e outliers (≥3×). Grave TUDO em pautas_banco, inclusive os mortos.
+- PESQUISE PELOS CANAIS DO NICHO, não por termos amplos. Medido em `07-pesquisa-subnicho.md`: busca por termo cai em cluster curto e repetitivo; partir de 5-10 canais concorrentes e varrer o catálogo deles dá sinal muito melhor. Guarde o CANAL (link, idioma, nicho, mediana de v/d, formato dominante), não só o vídeo — é o canal que se acompanha ao longo dos disparos. Confirme números com WebSearch no idioma e em fonte institucional — duas fontes que batam.
 - Pauta = (formato que performa) × (dor real datada) × (eixo não usado). Similaridade ≤0,65 vs vídeos anteriores do MESMO canal.
 - O título modela a ESTRUTURA do outlier, nunca o assunto; keyword nos 5 primeiros termos.
 - NÚMERO EXATO VENCE NÚMERO REDONDO. Quando a fonte der precisão, não arredonde — nem na narração nem no título. E nunca invente precisão que a fonte não tem.
