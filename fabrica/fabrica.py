@@ -95,6 +95,33 @@ ESCALA_RENDER = 0.75
 def render_wh(W, H):
     return (int(W * ESCALA_RENDER) // 2 * 2, int(H * ESCALA_RENDER) // 2 * 2)
 
+# Em video explicador a trilha existe para tirar o silencio entre as frases,
+# nao para ser ouvida: trilha alta e causa comum de abandono neste formato.
+VOL_TRILHA = "-28dB"
+
+def aplicar_trilha(d, out, slug):
+    """Mixa a trilha CC-BY sob a narracao em UM passe, sobre o arquivo ja
+    concatenado. Por clipe (ou com -stream_loop) estourava a RAM do sandbox;
+    aqui o video sai em copy e so o audio e reencodado."""
+    faixa = trilha_do_canal(slug)
+    if not faixa:
+        return
+    alvo = f"{d}/{out}"
+    dv = dur(alvo)
+    # Loop barato: concat demuxer com stream copy ate cobrir o video.
+    lista, bed = f"{d}/trilha_lista.txt", f"{d}/bed.mp3"
+    with open(lista, "w") as f:
+        f.write(f"file '{faixa}'\n" * (int(dv // dur(faixa)) + 2))
+    subprocess.run(["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",lista,"-c","copy",bed],check=True,capture_output=True)
+    mix = f"{d}/mix_{out}"
+    subprocess.run(["ffmpeg","-nostdin","-y","-i",alvo,"-i",bed,"-filter_complex",
+        f"[1:a]volume={VOL_TRILHA}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0,"
+        "loudnorm=I=-14:TP=-1.5:LRA=11[a]",
+        "-map","0:v","-map","[a]","-c:v","copy","-c:a","aac","-b:a","192k","-ac","2","-ar","48000",
+        "-t",f"{dv:.2f}","-movflags","+faststart",mix],check=True,capture_output=True)
+    os.replace(mix, alvo)
+    os.remove(bed)
+
 EST = "FontName=DejaVu Sans,Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle=3,BackColour=&HB0000000,Outline=1,Shadow=0,MarginV=30"
 
 def render(spec_file):
@@ -126,12 +153,19 @@ def render(spec_file):
         else:
             args += ["-c","copy"]
         subprocess.run(args + ["-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
+        aplicar_trilha(d, out, slug)
     caps, t = [], 0.0
     for i, c in enumerate(sp["longo"]):
         m, s2 = int(t//60), int(t%60)
         caps.append(f"{m}:{s2:02d} {c.get('cap', c.get('kicker','...'))}")
         t += tempos[i]
-    copy = sp["copy"].replace("{CAPITULOS}", "\n".join(caps))
+    # Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado.
+    faixa = trilha_do_canal(slug)
+    credito = "—" if not faixa else (
+        f"Music: {os.path.basename(faixa)[:-4].replace('_', ' ')} by Kevin MacLeod "
+        "(incompetech.com) — Licensed under Creative Commons: By Attribution 4.0\n"
+        "http://creativecommons.org/licenses/by/4.0/")
+    copy = sp["copy"].replace("{CAPITULOS}", "\n".join(caps)).replace("{TRILHA}", credito)
     open(f"{d}/copy.md","w").write(copy)
     print(slug, "render ok", round(t))
 if __name__ == "__main__":
