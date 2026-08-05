@@ -34,18 +34,23 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 ## 1. O gargalo, declarado
 
 **Faltam 9 canais no YouTube.** Só `setiap-level` (`@setiaplevelid`) existe. É a única
-coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 10 dos 12
-pacotes prontos — em polonês, grego, turco, espanhol, hindi, português e inglês, todos
-sem destino. Cada canal leva ~2 min no Studio.
+coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 16 dos 25
+pacotes no estoque (`v_maquina_estoque.aguardando_publicacao`, medido em 2026-08-05) —
+em polonês, grego, turco, espanhol, hindi, português e inglês, todos sem destino. Cada
+canal leva ~2 min no Studio.
 
-A publicação em si **deixou de ser gargalo em 2026-08-05.** Três vídeos subiram pela
-Upload-Post e sobreviveram ao nascimento, contra 6/6 apagados pela Composio.
+A publicação em si **deixou de ser gargalo em 2026-08-05.** Sete vídeos (4 pacotes) subiram
+pela Upload-Post e sobreviveram ao nascimento, contra 6/6 apagados pela Composio.
 
-| | duração | id |
-|---|---|---|
-| short do 004 | 0:26 | `ZYh3bpLP5JE` |
-| setiap-level-003 | 25:44 | `G8ocnpQIiyg` |
-| setiap-level-004 | 28:35 | `v-5v7R13BBc` |
+| pacote | formato | duração | id |
+|---|---|---|---|
+| teste de sobrevivência | short | 0:26 | `GKQXVoA1zS0` |
+| setiap-level-003 | longo | 25:44 | `G8ocnpQIiyg` |
+| setiap-level-003 | short | 0:33 | `I6no74M2NDU` |
+| setiap-level-004 | longo | 28:36 | `v-5v7R13BBc` |
+| setiap-level-004 | short | 0:41 | `ZYh3bpLP5JE` |
+| resep-naik-level-002 | longo | 14:15 | `le6IBDH7u6M` |
+| resep-naik-level-002 | short | 0:42 | `IdcluUKbwJ4` |
 
 A regra "nunca por app de terceiro" nunca disse "nenhum terceiro" — disse "nenhum
 terceiro **não auditado**". A Upload-Post opera a YouTube Data API com auditoria
