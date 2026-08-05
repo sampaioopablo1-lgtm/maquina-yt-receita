@@ -25,44 +25,39 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 
 ---
 
-## 1. O gargalo, declarado
+## 1. O gargalo, declarado (RESOLVIDO em 05/08/2026 — caminho B confirmado)
 
-**`config.api_auditada = 'false'`.** Enquanto isso não virar `true`, nada é publicado e
-a máquina só acumula estoque. Todas as decisões de pauta são cegas — usam grupo de pares,
-nunca retenção própria, porque `metricas` está vazia.
+**`config.api_auditada = 'true'`** desde 05/08/2026 12:04 UTC. O teste de sobrevivência
+obrigatório passou: `3-kebiasaan-kecil-teste-26s` (`GKQXVoA1zS0`, `setiap-level`),
+publicado via Upload-Post em 04/08 02:41 UTC, seguia no ar **33h depois**
+(`status.uploadStatus=processed`, `status.privacyStatus=public`, `embeddable=true`,
+567 views e 2 likes orgânicos) — confirmado com `YOUTUBE_GET_VIDEO_DETAILS_BATCH` via
+Composio, não pela documentação do serviço. Pedido subiu como `unlisted`; o YouTube o
+tornou `public` — o oposto do que um projeto não auditado faria (força privado). Registro
+completo: `experimentos.id=4` (concluído) e `aprendizados.id=35`.
 
-Evidência de que não há atalho: o único canal configurado no YouTube
-(`setiap-level`, `UCf4-ZFoZQWKJotZNdi4Yl7w`) tem **4 de 5 vídeos marcados "Deleted video"**.
-Os 4 subiram por app de terceiro. O sobrevivente não.
+Evidência antiga de que não havia atalho (contexto, não mais o estado atual): o canal
+`setiap-level` tinha 4 de 5 vídeos "Deleted video" — os 4 subidos pela Composio
+(`YOUTUBE_UPLOAD_VIDEO`, projeto não auditado para este uso). **A regra dos 6/6
+continua valendo** — não é sobre terceiro, é sobre auditoria. Upload-Post tem
+auditoria própria; Composio, não. Nunca usar `YOUTUBE_UPLOAD_VIDEO` da Composio para
+publicar.
 
-Há dois caminhos para sair disso, e eles não competem:
+**O que isso destrava agora:**
+- A rotina pode seguir para PASSO 2 (publicação) nos pacotes com
+  `status='listado_para_publicacao'` — hoje **20 pacotes prontos, 0 publicados**.
+- O endpoint `/analytics/<perfil>` da Upload-Post devolve métrica real do YouTube.
+  A tabela `metricas` segue vazia — popular assim que houver vídeo publicado por
+  canal suficiente para medir, e fechar os 3 experimentos abertos de `setiap-level-004`.
 
-**A — auditoria própria** (`docs/10-auditoria-api.md`). Depende de ação humana:
-formulário + criação dos canais no Studio. É o caminho definitivo — projeto próprio,
-sem intermediário, sem mensalidade, sem depender da política de ninguém.
+**O que ainda é manual no Studio, mesmo com o caminho aberto:** thumbnail (a API da
+Upload-Post não tem parâmetro de thumbnail para YouTube) e o `legendas.srt`.
 
-**B — Upload-Post** (skill em `.claude/skills/upload-post/`). Serviço que opera a
-YouTube Data API com **quota e auditoria próprias**, então dispensa projeto no Google
-Cloud. A API expõe `privacy_status: public` — e um projeto **não** auditado não
-consegue publicar público, o YouTube força privado. É evidência forte, não prova.
-
-> **A regra dos 6/6 continua valendo até ser refutada com dado.** Ela não diz
-> "nenhum terceiro"; diz "nenhum terceiro **não auditado**". A Composio derrubou
-> 6 de 6 porque o projeto dela não era auditado para este uso. Se o da Upload-Post
-> é, o resultado muda — mas isso se decide medindo, não lendo o site deles.
-
-**Teste de sobrevivência, obrigatório antes de confiar em B:** subir UM vídeo como
-`unlisted`, esperar 24h, conferir com `YOUTUBE_GET_VIDEO_DETAILS_BATCH`. Sobreviveu →
-`config.api_auditada='true'` e o caminho abre. Sumiu → registra o resultado em
-`aprendizados`, volta ao Drive, e A vira a única rota. Custa um vídeo do estoque de 21.
-
-O que o B ainda **não** cobre e continua manual no Studio: thumbnail (não há parâmetro
-de thumbnail para YouTube na API) e o `legendas.srt`.
-
-O que o B destrava de imediato, e é o motivo real de valer o teste: o endpoint
-`/analytics/<perfil>` devolve métrica do YouTube. Hoje a tabela `metricas` está vazia
-e **toda decisão de pauta é cega** — sem retenção própria, o laço de aprendizado só
-tem grupo de pares. Com métrica entrando, os 3 experimentos abertos fecham.
+**Antes de publicar em lote:** isto é evidência de sobrevivência de UM vídeo curto
+(26s) em UM canal. Ainda vale publicar o próximo pacote como `unlisted` primeiro e
+confirmar de novo antes de assumir que todo canal/formato se comporta igual —
+principalmente os longos escalonados (25-30 min), que são o formato que mais importa
+economicamente e ainda não passou por este teste.
 
 ---
 

@@ -35,7 +35,22 @@ Enquanto `config.api_auditada = 'false'`, a máquina só acumula estoque.
 > 20 pacotes prontos, 0 publicados, 0 métricas coletadas. Consequência: toda decisão de pauta
 > é cega — usa grupo de pares, nunca retenção própria.
 
-`aplicado_em:` `docs/10-auditoria-api.md` · depende de ação humana
+`aplicado_em:` `docs/10-auditoria-api.md` · depende de ação humana · **status: resolvido
+05/08/2026, ver regra abaixo — `api_auditada` agora é `true`**
+
+### Rota Upload-Post sobreviveu ao teste de 24h: gargalo da auditoria resolvido para o caminho B
+Vídeo unlisted publicado pela Upload-Post, conferido 24h+ depois com
+`YOUTUBE_GET_VIDEO_DETAILS_BATCH` (nunca pela documentação do serviço). Sobreviveu →
+`config.api_auditada='true'`.
+
+> `GKQXVoA1zS0` (`setiap-level`), publicado 04/08 02:41 UTC, checado 05/08 12:00 UTC — **33h**
+> depois: `uploadStatus=processed`, `privacyStatus=public` (pedido como `unlisted`, o YouTube
+> tornou `public` — o oposto do que um projeto não auditado faria), `embeddable=true`, 567
+> views e 2 likes orgânicos. `experimentos.id=4` concluído. Ainda manual no Studio: thumbnail
+> e `legendas.srt`. Evidência de UM vídeo curto em UM canal — confirmar de novo antes de
+> publicar em lote, principalmente nos longos escalonados (25-30 min).
+
+`aplicado_em:` `config.api_auditada` · `PLAYBOOK.md` seção 1
 
 ### O que vive só no sandbox está perdido
 Todo script operacional mora no repositório e é reinstalado por bootstrap.
