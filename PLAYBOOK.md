@@ -105,6 +105,17 @@ A ordem importa. Quem inverte produz vídeo bonito que ninguém assiste.
 
 O título modela a **estrutura** do outlier, nunca o assunto. Palavra-chave nos 5 primeiros termos.
 
+**Número exato vence número redondo, e os centavos são a prova.** A precisão sinaliza
+captura de painel real, não alegação: `R$24.540,04 em 60 DIAS` (265 mil views, 7,1% de
+curtidas) e `R$18.503,07 em 10 dias` usam a mesma assinatura, e nenhum arredonda. O mesmo
+padrão apareceu, sem relação nenhuma, no nicho indonésio de dívida — `58 pinjol, 120 juta,
+4 bulan` a 892 v/d contra `Panduan Lengkap` genérico a **0,3 v/d**. Dois idiomas, dois
+nichos, uma assinatura.
+
+> Para nós a regra é estreita: **quando a fonte institucional der precisão, não arredonde**
+> — nem na narração nem no título. E nunca invente precisão que a fonte não tem. O BPS diz
+> 3,34%; é isso que se fala, não "mais de três por cento".
+
 ---
 
 ## 2b. A camada falada — o defeito que a máquina não enxergava
