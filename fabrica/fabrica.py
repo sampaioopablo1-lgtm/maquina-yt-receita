@@ -309,26 +309,7 @@ def render(spec_file):
             # o pacote entrega um .srt para subir junto, melhor que a automatica.
             if pref == "s":
                 vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
-            n_cam = elementos(c) if pref == "l" else 0
-            if n_cam:
-                # Composicao em camadas: os elementos entram um a um, no ritmo
-                # da fala, em vez de a cena inteira aparecer de uma vez.
-                # `-framerate 30` em CADA imagem, sempre. Sem isso o `-loop 1`
-                # entra a 25 fps e o clipe inteiro sai a 25 — enquanto as cenas
-                # sem camada continuam a 30, porque ali quem gera os quadros e o
-                # zoompan. O concat junta os dois sem reclamar e o resultado e um
-                # stream de fps variavel. Medido: 225 quadros em 9s virando 270.
-                args = [ffmpeg_bin(),"-nostdin","-y",
-                        "-framerate","30","-loop","1","-t",f"{dd:.2f}","-i",f"{d}/{pref}{i:02d}.png"]
-                for k in range(n_cam):
-                    args += ["-framerate","30","-loop","1","-t",f"{dd:.2f}",
-                             "-i",f"{d}/{pref}{i:02d}_{k}.png"]
-                args += ["-i",f"{d}/{pref}{i:02d}.mp3",
-                         "-filter_complex",filtro_camadas(n_cam, dd, i, nf, RW, RH),
-                         "-map","[v]","-map",f"{n_cam+1}:a"]
-                subprocess.run(args + ["-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
-            else:
-                subprocess.run([ffmpeg_bin(),"-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
+            clipe_cena(d, pref, i, c, dd, nf, RW, RH)
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
                 mf.write(f"{pref}clip{i:02d}.mp4\n")
@@ -439,3 +420,40 @@ def filtro_camadas(n, dd, i_cena, nf, RW, RH):
     partes.append(f"[{atual}]zoompan=z='{z}':d=1:x='(iw-iw/zoom)*({fx})'"
                   f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
     return ";".join(partes)
+
+
+def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
+    """Renderiza UM clipe de cena. Fonte unica para fabrica.render e etapas.py.
+
+    Existe porque o etapas.py mantinha a propria copia deste loop, e as duas
+    saiam do lugar sem avisar: a composicao em camadas entrou aqui e o etapas.py
+    continuou no caminho antigo de zoompan sobre imagem unica. O pacote sairia
+    sem animacao nenhuma, e nada acusaria — o video tem a duracao certa, o
+    tamanho certo e passa em todos os asserts.
+    """
+    saida = f"{d}/{pref}clip{i:02d}.mp4"
+    n_cam = elementos(c) if pref == "l" else 0
+    if n_cam:
+        args = [ffmpeg_bin(), "-nostdin", "-y",
+                "-framerate", "30", "-loop", "1", "-t", f"{dd:.2f}",
+                "-i", f"{d}/{pref}{i:02d}.png"]
+        for k in range(n_cam):
+            args += ["-framerate", "30", "-loop", "1", "-t", f"{dd:.2f}",
+                     "-i", f"{d}/{pref}{i:02d}_{k}.png"]
+        args += ["-i", f"{d}/{pref}{i:02d}.mp3",
+                 "-filter_complex", filtro_camadas(n_cam, dd, i, nf, RW, RH),
+                 "-map", "[v]", "-map", f"{n_cam+1}:a"]
+    else:
+        z, fx, fy = ken_burns(i, nf)
+        vf = (f"zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
+              f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30")
+        if pref == "s":
+            vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{est or EST}'"
+        args = [ffmpeg_bin(), "-nostdin", "-y", "-loop", "1",
+                "-i", f"{d}/{pref}{i:02d}.png", "-i", f"{d}/{pref}{i:02d}.mp3",
+                "-vf", vf]
+    subprocess.run(args + ["-t", f"{dd:.2f}", "-c:v", "libx264",
+                           "-preset", "ultrafast", "-crf", "23",
+                           "-pix_fmt", "yuv420p", *AUDIO_ARGS, saida],
+                   check=True, capture_output=True)
+    return saida

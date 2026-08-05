@@ -81,14 +81,10 @@ for i, c in enumerate(cenas):
     if not (os.path.exists(saida) and os.path.getsize(saida) > 10000):
         dd = F.dur(f"{d}/l{i:02d}.mp3") + 0.5
         nf = max(int(dd * 30), 1)
-        z, fx, fy = F.ken_burns(i, nf)
-        vf = (f"zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
-              f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30")
-        subprocess.run(["ffmpeg", "-nostdin", "-y", "-loop", "1",
-            "-i", f"{d}/l{i:02d}.png", "-i", f"{d}/l{i:02d}.mp3", "-vf", vf,
-            "-t", f"{dd:.2f}", "-c:v", "libx264", "-preset", "ultrafast",
-            "-crf", "23", "-pix_fmt", "yuv420p", *F.AUDIO_ARGS, saida],
-            check=True, capture_output=True)
+        # Uma unica fonte para o clipe. Este loop ja teve copia propria da
+        # logica e ficou para tras quando a composicao em camadas entrou na
+        # fabrica: o pacote sairia SEM animacao e passaria em todos os asserts.
+        F.clipe_cena(d, "l", i, c, dd, nf, RW, RH)
     tempos.append(F.dur(saida))
     # padrao ancorado: nunca `l*.png`
     for ext in ("png", "mp3"):
@@ -166,4 +162,16 @@ log("etapa 6: trilha")
 F.aplicar_trilha(d, "video.mp4", sp["slug"])
 log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
     f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
+
+# ------------------------------- 7. alguem finalmente OLHA o video
+# As seis etapas acima medem se o arquivo saiu: duracao, tamanho, soma dos
+# clipes. Nenhuma media se ele esta visivel. As duas queixas visuais que
+# chegaram ao dono — cor invertida no CTA e legenda em hindi saindo VAZIA —
+# passaram por todos os asserts, porque o arquivo estava perfeito.
+import visual as VIS                                              # noqa: E402
+
+_erros, _avisos = VIS.conferir(f"{d}/video.mp4",
+                               VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")))
+assert not _erros, "video reprovado no teste visual — nao entregue assim"
+log("etapa 7 ok: video conferido quadro a quadro")
 log("PACOTE OK")
