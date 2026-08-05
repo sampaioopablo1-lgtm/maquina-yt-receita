@@ -115,9 +115,9 @@ def aplicar_trilha(d, out, slug):
     lista, bed = f"{d}/trilha_lista.txt", f"{d}/bed.mp3"
     with open(lista, "w") as f:
         f.write(f"file '{faixa}'\n" * (int(dv // dur(faixa)) + 2))
-    subprocess.run(["ffmpeg","-nostdin","-y","-f","concat","-safe","0","-i",lista,"-c","copy",bed],check=True,capture_output=True)
+    subprocess.run([ffmpeg_bin(),"-nostdin","-y","-f","concat","-safe","0","-i",lista,"-c","copy",bed],check=True,capture_output=True)
     mix = f"{d}/mix_{out}"
-    subprocess.run(["ffmpeg","-nostdin","-y","-i",alvo,"-i",bed,"-filter_complex",
+    subprocess.run([ffmpeg_bin(),"-nostdin","-y","-i",alvo,"-i",bed,"-filter_complex",
         f"[1:a]volume={VOL_TRILHA}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0,"
         "loudnorm=I=-14:TP=-1.5:LRA=11[a]",
         "-map","0:v","-map","[a]","-c:v","copy","-c:a","aac","-b:a","192k","-ac","2","-ar","48000",
