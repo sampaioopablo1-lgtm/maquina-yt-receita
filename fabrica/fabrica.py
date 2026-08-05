@@ -11,11 +11,34 @@ def wrap(t, n):
     if cur: out.append(cur)
     return out
 
+# Fonte do canal. O padrao cobre latino, grego e cirilico, mas nao tem
+# devanagari: em hindi o cairosvg desenhava os glifos soltos (o halant ficava
+# visivel e a matra caia do lado errado) e a legenda queimada saia VAZIA, porque
+# nao havia nenhuma fonte com o script instalada. Specs em hindi declaram
+# "fonte": "Noto Sans Devanagari", e ai os dois motores passam a shapear.
+FONTE = "DejaVu Sans"
+
 def tsp(t, x, y, size, fill, n=30, anchor='middle', lh=1.25):
-    o = f'<text x="{x}" y="{y}" font-family="DejaVu Sans" font-weight="bold" font-size="{int(size)}" fill="{fill}" text-anchor="{anchor}">'
+    o = f'<text x="{x}" y="{y}" font-family="{FONTE}" font-weight="bold" font-size="{int(size)}" fill="{fill}" text-anchor="{anchor}">'
     for i, l in enumerate(wrap(t, n)):
         o += f'<tspan x="{x}" dy="{0 if i==0 else int(size*lh)}">{esc(l)}</tspan>'
     return o + '</text>'
+
+def usar_fonte(nome):
+    """Troca a fonte do canal e CONFERE que ela existe. Sem a conferencia, uma
+    fonte ausente nao da erro: o SVG cai num fallback qualquer e a legenda
+    queimada sai vazia — defeito que so aparece assistindo ao video pronto.
+    A fonte vive em ~/.fonts do sandbox, entao some quando ele recicla."""
+    global FONTE, EST
+    if not nome:
+        return
+    fams = subprocess.run(["fc-list","--format=%{family}\n"], capture_output=True, text=True).stdout
+    if nome not in fams:
+        raise RuntimeError(
+            f"fonte '{nome}' nao instalada no sandbox. Instale em ~/.fonts e rode fc-cache -f. "
+            "Sem ela a legenda queimada sai VAZIA e o texto de tela sai sem shaping.")
+    EST = EST.replace(f"FontName={FONTE}", f"FontName={nome}")
+    FONTE = nome
 
 def svg_cena(c, pal, W, H):
     ink, c1, c2 = pal['ink'], pal['c1'], pal['c2']
@@ -69,6 +92,7 @@ async def vozes(cenas, voz, pref, d):
 
 def montar(spec_file):
     sp = json.load(open(spec_file))
+    usar_fonte(sp.get("fonte"))
     slug, pal, voz = sp["slug"], sp["paleta"], sp["voz"]
     d = f"/tmp/f/{slug}"; os.makedirs(d, exist_ok=True)
     for pref, cenas, W, H in (("l", sp["longo"], 1280, 720), ("s", sp["short"], 720, 1280)):
@@ -141,14 +165,21 @@ def aplicar_trilha(d, out, slug):
     os.replace(mix, alvo)
     os.remove(bed)
 
-EST = "FontName=DejaVu Sans,Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle=3,BackColour=&HB0000000,Outline=1,Shadow=0,MarginV=30"
+EST = f"FontName={FONTE},Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle=3,BackColour=&HB0000000,Outline=1,Shadow=0,MarginV=30"
 
 def render(spec_file):
     sp = json.load(open(spec_file)); slug = sp["slug"]
+    usar_fonte(sp.get("fonte"))
     d = f"/tmp/f/{slug}"
     tempos = []
     for pref, cenas, W, H in (("l", sp["longo"], 1280, 720), ("s", sp["short"], 720, 1280)):
         for i, c in enumerate(cenas):
+            # A checagem do RETOMA vem ANTES de medir o mp3: quando os lotes ja
+            # renderizaram tudo, o png/mp3 foi apagado para caber no tmpfs, e
+            # medir aqui quebrava o render inteiro num clipe que ja existia.
+            saida = f"{d}/{pref}clip{i:02d}.mp4"  # RETOMA
+            if os.path.exists(saida) and os.path.getsize(saida) > 10000:
+                continue
             dd = dur(f"{d}/{pref}{i:02d}.mp3") + 0.5
             open(f"{d}/{pref}{i:02d}.srt","w").write(f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
             RW, RH = render_wh(W, H)
@@ -160,9 +191,6 @@ def render(spec_file):
             # deixando metade das cenas imovel em ~75% da duracao.
             nf = max(int(dd * 30), 1)
             z = f"1+{AMP_ZOOM}*on/{nf}" if i % 2 else f"{1+AMP_ZOOM:.4g}-{AMP_ZOOM}*on/{nf}"
-            saida = f"{d}/{pref}clip{i:02d}.mp4"  # RETOMA
-            if os.path.exists(saida) and os.path.getsize(saida) > 10000:
-                continue
             vf = f"zoompan=z='{z}':d={nf}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={RW}x{RH}:fps=30,subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
             subprocess.run(["ffmpeg","-nostdin","-y","-loop","1","-i",f"{d}/{pref}{i:02d}.png","-i",f"{d}/{pref}{i:02d}.mp3","-vf",vf,"-t",f"{dd:.2f}","-c:v","libx264","-preset","ultrafast","-crf","23","-pix_fmt","yuv420p",*AUDIO_ARGS,f"{d}/{pref}clip{i:02d}.mp4"],check=True,capture_output=True)
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
