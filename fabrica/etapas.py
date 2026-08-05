@@ -82,16 +82,45 @@ with open(f"{d}/legendas.srt", "w", encoding="utf-8") as srt:
 json.dump(tempos, open(f"{d}/tempos.json", "w"))
 log("etapa 3 ok: legendas.srt + tempos.json")
 
-# ------------------------------------ 4. concat: retorna so quando ffmpeg sai
-log("etapa 4: concat")
-with open(f"{d}/llista.txt", "w") as f:
-    for i in range(len(cenas)):
-        f.write(f"file 'lclip{i:02d}.mp4'\n")
+# -------------------------------------------- 4. concat, em DUAS METADES
+# O tmpfs mora na RAM: 196 clipes sao 390 MB dos 985 MB da maquina. Concatenar
+# tudo de uma vez deixava 2 MB livres, com kswapd0 ativo e o ffmpeg a 36% de
+# CPU escrevendo 0,26 MB a cada 50s — horas de encode. Metade de cada vez libera
+# a RAM da primeira antes de codificar a segunda, e a juncao final e -c copy.
+# Medido: 0,26 MB/50s antes, 6 MB/min depois.
+#
+# O aperto piorou quando o Ken Burns passou a ter pan de verdade: com quadros
+# quase identicos o x264 comprimia de graca, e agora nao comprime mais.
 crf = "29" if sum(tempos) >= 1100 else "26"
+meio = len(cenas) // 2
+for parte, (ini, fim) in enumerate(((0, meio), (meio, len(cenas))), start=1):
+    saida = f"{d}/p{parte}.mp4"
+    if os.path.exists(saida) and os.path.getsize(saida) > 100000:
+        log(f"etapa 4: parte {parte} ja existe")
+        continue
+    lista = f"{d}/lista_p{parte}.txt"
+    with open(lista, "w") as f:
+        for i in range(ini, fim):
+            f.write(f"file 'lclip{i:02d}.mp4'\n")
+    log(f"etapa 4: parte {parte}, clipes {ini}-{fim - 1}")
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
+        "-i", lista, "-vf", f"scale={W}:{H}:flags=lanczos", "-c:v", "libx264",
+        "-preset", "veryfast", "-crf", crf, "-pix_fmt", "yuv420p",
+        "-c:a", "copy", saida], check=True, capture_output=True, cwd=d)
+    esperado, real = sum(tempos[ini:fim]), F.dur(saida)
+    log(f"etapa 4: parte {parte} ok, {real:.1f}s (esperado {esperado:.1f}s)")
+    assert abs(real - esperado) < 5, f"parte {parte} truncada"
+    # libera a RAM desta metade antes de codificar a proxima
+    for i in range(ini, fim):
+        try:
+            os.remove(f"{d}/lclip{i:02d}.mp4")
+        except OSError:
+            pass
+
+with open(f"{d}/lista_final.txt", "w") as f:
+    f.write("file 'p1.mp4'\nfile 'p2.mp4'\n")
 subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
-    "-i", f"{d}/llista.txt", "-vf", f"scale={W}:{H}:flags=lanczos",
-    "-c:v", "libx264", "-preset", "veryfast", "-crf", crf,
-    "-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart",
+    "-i", f"{d}/lista_final.txt", "-c", "copy", "-movflags", "+faststart",
     f"{d}/video.mp4"], check=True, capture_output=True, cwd=d)
 dv = F.dur(f"{d}/video.mp4")
 log(f"etapa 4 ok: video.mp4 {dv:.1f}s")
@@ -99,10 +128,10 @@ log(f"etapa 4 ok: video.mp4 {dv:.1f}s")
 # atras de um log de sucesso montado com a medicao da entrada.
 assert abs(dv - sum(tempos)) < 5, f"concat truncado: {dv:.1f} vs {sum(tempos):.1f}"
 
-# ------------------------- 5. so agora, com o concat conferido, libera clipes
-for f in glob.glob(f"{d}/lclip*.mp4"):
+# ------------------------- 5. so agora, com o concat conferido, libera restos
+for f in glob.glob(f"{d}/p[12].mp4") + glob.glob(f"{d}/lclip*.mp4"):
     os.remove(f)
-log("etapa 5 ok: clipes liberados")
+log("etapa 5 ok: partes e clipes liberados")
 
 # ---------------------------------------------------------------- 6. trilha
 log("etapa 6: trilha")
