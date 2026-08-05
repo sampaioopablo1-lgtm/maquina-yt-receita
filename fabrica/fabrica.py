@@ -86,10 +86,19 @@ TRILHA_DIR = "/tmp/trilhas"
 # mesmo quadro. Quem limita a duracao e o `-t` do clipe, entao a folga volta.
 AUDIO_ARGS = ["-af","loudnorm=I=-14:TP=-1.5:LRA=11","-ac","2","-ar","48000","-c:a","aac","-b:a","192k"]
 
+def trilha_ok(f):
+    """Um download que falhou vira um .mp3 com HTML dentro. Ele passa no glob,
+    passa no teste de tamanho, e so estoura no ffprobe — depois de a fabrica ja
+    ter gasto o render inteiro. Entao valida decodificando de verdade."""
+    try:
+        return dur(f) > 30
+    except Exception:
+        return False
+
 def trilha_do_canal(slug):
     """Faixa fixa por canal = assinatura sonora. CC-BY, credito no copy.md."""
     import glob
-    fs = sorted(glob.glob(f"{TRILHA_DIR}/*.mp3"))
+    fs = [f for f in sorted(glob.glob(f"{TRILHA_DIR}/*.mp3")) if trilha_ok(f)]
     return fs[sum(map(ord, slug)) % len(fs)] if fs else None
 
 # Escala de render: o sandbox tem ~1GB de RAM e o zoompan e o maior consumidor.

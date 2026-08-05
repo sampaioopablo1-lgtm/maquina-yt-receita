@@ -1,0 +1,615 @@
+{
+ "slug": "resep-naik-level",
+ "voz": "id-ID-GadisNeural",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#C1440E",
+  "c2": "#F2B134",
+  "bg": "#FFF8EE"
+ },
+ "thumb": {
+  "l1": "Rp100.000",
+  "l2": "cukup berapa hari"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Rp100.000",
+   "sub": "belanja mingguan: sampai hari ke berapa cukup?",
+   "cap": "Intro: angkanya",
+   "nar": "Seratus ribu rupiah. Itu angka yang paling sering dipakai orang untuk belanja mingguan di Indonesia."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rp100.000",
+   "sub": "belanja mingguan: sampai hari ke berapa cukup?",
+   "nar": "Pertanyaannya sederhana tapi jarang dijawab jujur: di tahun dua ribu dua puluh enam, seratus ribu itu benar-benar cukup untuk berapa hari?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang akan kita lakukan",
+   "preco": "hitung, bukan tebak",
+   "nar": "Di video ini kita tidak menebak. Kita pakai harga rata-rata nasional yang dipublikasikan, kita susun daftar belanjanya satu per satu, kita jumlahkan, lalu kita lihat sampai hari ke berapa isinya bertahan untuk dua orang."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga bagian video ini",
+   "itens": [
+    "daftar belanja persisnya",
+    "menu tujuh hari dari daftar itu"
+   ],
+   "cap": "Peta video ini",
+   "nar": "Ada tiga bagian. Pertama, daftar belanja persisnya dengan harga masing-masing. Kedua, menu tujuh hari yang bisa dimasak dari daftar itu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga bagian video ini",
+   "itens": [
+    "menu tujuh hari dari daftar itu",
+    "di mana hitungannya jebol"
+   ],
+   "nar": "Ketiga, dan ini yang paling penting, di mana hitungannya jebol — karena ada dua barang yang bisa merusak seluruh anggaran, dan Anda perlu tahu keduanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mulai dari harga",
+   "sub": "sebelum daftar, kita lihat angkanya",
+   "sem_cap": true,
+   "nar": "Tapi sebelum menyusun daftar, kita harus tahu harga hari ini. Karena angka yang Anda hafal dari tahun lalu sudah tidak berlaku."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 1",
+   "sub": "harga hari ini, bukan harga ingatan",
+   "cap": "Harga hari ini",
+   "nar": "Bagian satu: harga hari ini. Dan saya akan pakai angka yang bisa Anda cek sendiri, bukan perkiraan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Beras medium",
+   "preco": "Rp16.200/kg",
+   "nar": "Beras kualitas medium satu tercatat sekitar enam belas ribu dua ratus rupiah per kilogram."
+  },
+  {
+   "layout": "item",
+   "kicker": "Beras medium",
+   "preco": "Rp16.200/kg",
+   "nar": "Kualitas bawah satu sekitar lima belas ribu dua ratus, dan kualitas super bisa sampai tujuh belas ribu delapan ratus. Ini data Pusat Informasi Harga Pangan Strategis, yang dikelola Bank Indonesia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Telur ayam ras",
+   "preco": "Rp29.650/kg",
+   "nar": "Telur ayam ras sekitar dua puluh sembilan ribu enam ratus lima puluh rupiah per kilogram."
+  },
+  {
+   "layout": "item",
+   "kicker": "Telur ayam ras",
+   "preco": "Rp29.650/kg",
+   "nar": "Satu kilogram itu kira-kira enam belas butir, jadi satu butir telur ada di kisaran seribu delapan ratus rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Minyak goreng",
+   "itens": [
+    "curah: Rp20.500/liter",
+    "kemasan I: Rp24.300/liter"
+   ],
+   "cap": "Minyak goreng",
+   "nar": "Minyak goreng curah sekitar dua puluh ribu lima ratus rupiah per liter. Yang kemasan bermerek lebih mahal: tipe satu sekitar dua puluh empat ribu tiga ratus, tipe dua sekitar dua puluh tiga ribu empat ratus lima puluh."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Minyak goreng",
+   "itens": [
+    "kemasan I: Rp24.300/liter",
+    "kemasan II: Rp23.450/liter"
+   ],
+   "nar": "Selisihnya hampir empat ribu rupiah per liter — dan itu selisih yang nyata untuk anggaran seratus ribu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenaikan beras",
+   "preco": "4,47%",
+   "nar": "Dan perhatikan arahnya. Beras kualitas bawah satu naik empat koma empat tujuh persen, kualitas bawah dua naik lima koma lima persen."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenaikan beras",
+   "preco": "4,47%",
+   "nar": "Yang naik paling tajam justru beras kelas bawah — beras yang dibeli orang yang anggarannya paling ketat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang daftarnya",
+   "sub": "seratus ribu, dibelanjakan",
+   "sem_cap": true,
+   "nar": "Dengan harga-harga itu, sekarang kita bisa menyusun daftarnya. Dan saya akan sebutkan angkanya satu per satu supaya Anda bisa mengoreksi saya."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 2",
+   "sub": "daftar belanja Rp100.000",
+   "cap": "Daftar belanja Rp100.000",
+   "nar": "Bagian dua: daftar belanjanya. Target kita dua orang, tujuh hari, dengan asumsi beras sudah ada di rumah — dan saya akan jelaskan kenapa asumsi itu penting."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pos terbesar",
+   "preco": "beras",
+   "nar": "Kenapa beras dipisahkan? Karena beras biasanya dibeli bulanan, bukan mingguan. Untuk dua orang selama seminggu, kebutuhannya sekitar dua setengah kilogram, atau sekitar empat puluh ribu rupiah."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pos terbesar",
+   "preco": "beras",
+   "nar": "Kalau beras ikut masuk anggaran mingguan, seratus ribu langsung habis empat puluh persennya sebelum Anda beli lauk apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Protein utama",
+   "itens": [
+    "telur 1 kg: Rp29.650",
+    "tempe 4 papan: Rp12.000",
+    "tahu 1 bungkus: Rp6.000"
+   ],
+   "cap": "Protein utama",
+   "nar": "Jadi seratus ribu ini untuk lauk dan sayur. Proteinnya tiga: satu kilogram telur sekitar dua puluh sembilan ribu enam ratus lima puluh, empat papan tempe sekitar dua belas ribu, dan satu bungkus tahu sekitar enam ribu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ke mana Rp100.000 pergi",
+   "itens": [
+    "protein: Rp47.650",
+    "sayur + bumbu: Rp37.000",
+    "minyak: Rp15.350"
+   ],
+   "alturas": [
+    48,
+    37,
+    15
+   ],
+   "cap": "Ke mana uangnya pergi",
+   "nar": "Lihat pembagiannya. Hampir setengah anggaran habis di protein. Sayur dan bumbu sekitar tiga puluh tujuh ribu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ke mana Rp100.000 pergi",
+   "itens": [
+    "protein: Rp47.650",
+    "sayur + bumbu: Rp37.000",
+    "minyak: Rp15.350"
+   ],
+   "alturas": [
+    48,
+    37,
+    15
+   ],
+   "nar": "Sisanya minyak goreng — dan minyak ini yang sering dilupakan orang saat menghitung, padahal dia menghabiskan lima belas ribu tiga ratus lima puluh rupiah dari anggaran Anda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sayur dan bumbu",
+   "itens": [
+    "kangkung, bayam, wortel",
+    "bawang merah dan putih"
+   ],
+   "cap": "Sayur dan bumbu",
+   "nar": "Untuk sayur, tiga jenis yang murah dan tahan: kangkung, bayam, dan wortel. Untuk bumbu, bawang merah, bawang putih, cabai, tomat, dan daun bawang."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sayur dan bumbu",
+   "itens": [
+    "bawang merah dan putih",
+    "cabai, tomat, daun bawang"
+   ],
+   "nar": "Bumbu terlihat sepele karena dibeli seperempat kilo, tapi kalau dijumlahkan seminggu, dia pos ketiga terbesar setelah protein dan sayur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Total daftar",
+   "preco": "Rp100.000",
+   "nar": "Dijumlahkan, daftarnya pas di angka seratus ribu rupiah. Tidak ada sisa. Dan itu sudah jadi peringatan pertama: anggaran ini tidak punya bantalan sama sekali."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Isinya jadi apa?",
+   "sub": "dari daftar ke meja makan",
+   "sem_cap": true,
+   "nar": "Sekarang pertanyaan yang sebenarnya: daftar ini jadi makanan apa selama tujuh hari?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 3",
+   "sub": "menu tujuh hari dari daftar itu",
+   "cap": "Menu tujuh hari",
+   "nar": "Bagian tiga: menu tujuh harinya. Prinsipnya satu — setiap bahan harus dipakai di lebih dari satu masakan, supaya tidak ada yang terbuang."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 1 sampai 3",
+   "itens": [
+    "orak-arik telur + tumis kangkung",
+    "tempe orek + sayur bening bayam"
+   ],
+   "cap": "Hari 1 sampai 3",
+   "nar": "Hari pertama: orak-arik telur dengan tumis kangkung. Hari kedua: tempe orek manis pedas dengan sayur bening bayam."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 1 sampai 3",
+   "itens": [
+    "tempe orek + sayur bening bayam",
+    "tahu goreng + tumis wortel"
+   ],
+   "nar": "Hari ketiga: tahu goreng dengan tumis wortel. Tiga hari, tiga protein berbeda, dan sayurnya bergilir supaya tidak layu sia-sia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 4 sampai 7",
+   "itens": [
+    "telur dadar + sayur sisa",
+    "tempe goreng tepung"
+   ],
+   "cap": "Hari 4 sampai 7",
+   "nar": "Hari keempat: telur dadar dengan sisa sayur. Hari kelima: tempe goreng tepung. Hari keenam: tahu tempe bacem, yang tahan dua hari."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 4 sampai 7",
+   "itens": [
+    "tahu tempe bacem",
+    "nasi goreng bumbu sisa"
+   ],
+   "nar": "Hari ketujuh: nasi goreng dari sisa bumbu dan sisa lauk. Hari ketujuh sengaja dibuat dari sisa — itu bukan kemalasan, itu bagian dari perhitungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kunci menu ini",
+   "preco": "bumbu dasar",
+   "nar": "Kuncinya ada di bumbu dasar. Kalau Anda menghaluskan bawang merah, bawang putih, dan cabai sekaligus di awal minggu lalu menyimpannya, satu bumbu itu jalan untuk lima masakan berbeda."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak masuk",
+   "preco": "ayam dan ikan",
+   "nar": "Dan saya harus jujur soal apa yang tidak masuk. Tidak ada ayam. Tidak ada ikan. Dengan seratus ribu untuk dua orang seminggu, protein hewani hanya sanggup dari telur."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak masuk",
+   "preco": "ayam dan ikan",
+   "nar": "Siapa pun yang bilang Anda bisa makan ayam tiap hari dengan anggaran ini sedang menjual sesuatu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan di sini masalahnya",
+   "sub": "dua barang yang merusak anggaran",
+   "sem_cap": true,
+   "nar": "Sampai sini hitungannya rapi. Masalahnya, ada dua barang di daftar tadi yang tidak mau diam — dan keduanya sudah bergerak tahun ini."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 4",
+   "sub": "di mana hitungan ini jebol",
+   "cap": "Di mana hitungannya jebol",
+   "nar": "Bagian empat: di mana hitungan ini jebol. Ini bagian yang tidak ada di video belanja mana pun, padahal ini yang benar-benar menentukan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Perusak pertama",
+   "preco": "bawang merah",
+   "nar": "Perusak pertama adalah bawang merah. Dalam beberapa pembacaan harga tahun ini, bawang merah tercatat di empat puluh ribu empat ratus lima puluh, lalu empat puluh tiga ribu delapan ratus, dan di satu titik lima puluh empat ribu tiga ratus lima puluh rupiah per kilogram."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ayunan bawang merah",
+   "itens": [
+    "terendah: Rp40.450",
+    "tertinggi: Rp54.350"
+   ],
+   "alturas": [
+    40,
+    54
+   ],
+   "cap": "Ayunan bawang merah",
+   "nar": "Dari empat puluh ribu ke lima puluh empat ribu. Itu ayunan sekitar tiga puluh empat persen pada satu barang saja."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ayunan bawang merah",
+   "itens": [
+    "terendah: Rp40.450",
+    "tertinggi: Rp54.350"
+   ],
+   "alturas": [
+    40,
+    54
+   ],
+   "nar": "Kalau minggu belanja Anda kebetulan jatuh di puncak ayunan itu, anggaran seratus ribu Anda sudah kekurangan sekitar tiga ribu lima ratus rupiah hanya dari bawang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perusak kedua",
+   "preco": "kedelai",
+   "nar": "Perusak kedua adalah kedelai — bahan baku tempe dan tahu. Harganya bertahan di kisaran sepuluh ribu lima ratus rupiah per kilogram selama hampir tiga pekan, lalu melonjak sampai tiga belas ribu pada April dua ribu dua puluh enam."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Efeknya ke meja Anda",
+   "itens": [
+    "tempe: Rp12.000 ke Rp15.000/kg",
+    "pedagang naikkan sampai 20%"
+   ],
+   "cap": "Efeknya ke meja Anda",
+   "nar": "Efeknya langsung terasa. Harga tempe disesuaikan dari sekitar dua belas ribu menjadi lima belas ribu rupiah per kilogram."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Efeknya ke meja Anda",
+   "itens": [
+    "pedagang naikkan sampai 20%",
+    "tahu: ukurannya yang dikecilkan"
+   ],
+   "nar": "Pedagang menaikkan harga tahu dan tempe sampai dua puluh persen. Dan yang paling licik: sebagian pedagang tahu memilih mengecilkan ukuran, bukan menaikkan harga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Namanya ini",
+   "preco": "harga tersembunyi",
+   "nar": "Ukuran yang dikecilkan itu punya nama: kenaikan harga yang disembunyikan. Struk belanja Anda terlihat sama, angkanya tidak berubah, tapi yang sampai di piring lebih sedikit."
+  },
+  {
+   "layout": "item",
+   "kicker": "Namanya ini",
+   "preco": "harga tersembunyi",
+   "nar": "Ini kenaikan harga yang tidak muncul di statistik mana pun, dan hanya Anda yang merasakannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada nuansanya",
+   "preco": "bukan cuma kedelai",
+   "nar": "Tapi saya harus adil di sini. Gakoptindo, gabungan koperasi produsen tempe dan tahu, menegaskan kenaikan harga tempe bukan semata karena kedelai."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada nuansanya",
+   "preco": "bukan cuma kedelai",
+   "nar": "Bahkan ada riset yang menyoroti marjin importir: harga kedelai sempat murah, tapi tahu dan tempe tetap mahal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Kenapa kedelai naik",
+   "itens": [
+    "gangguan rantai pasok global",
+    "biaya energi dan distribusi"
+   ],
+   "cap": "Kenapa kedelai naik",
+   "nar": "Penyebabnya tiga lapis: gangguan rantai pasok global akibat konflik geopolitik, biaya energi dan distribusi yang naik, dan pelemahan rupiah yang memperparah tekanan harga di dalam negeri."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Kenapa kedelai naik",
+   "itens": [
+    "biaya energi dan distribusi",
+    "rupiah melemah"
+   ],
+   "nar": "Kedelai kita sebagian besar impor, jadi rupiah yang melemah langsung terasa di papan tempe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lalu harus bagaimana?",
+   "sub": "yang bisa Anda kendalikan",
+   "sem_cap": true,
+   "nar": "Anda tidak bisa mengendalikan kurs rupiah. Tapi ada beberapa hal di daftar tadi yang benar-benar ada di tangan Anda."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 5",
+   "sub": "yang benar-benar bisa Anda kendalikan",
+   "cap": "Yang bisa Anda kendalikan",
+   "nar": "Bagian lima: yang benar-benar bisa Anda kendalikan. Empat hal, dan semuanya sudah muncul di angka-angka tadi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu",
+   "preco": "minyak curah",
+   "nar": "Pertama, minyak goreng. Beralih dari kemasan bermerek ke curah menghemat sekitar tiga ribu delapan ratus rupiah per liter."
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu",
+   "preco": "minyak curah",
+   "nar": "Dalam anggaran seratus ribu, itu hampir empat persen — cukup untuk menutup satu ayunan harga bawang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua",
+   "preco": "beras kelas bawah? hati-hati",
+   "nar": "Kedua, dan ini menarik: menurunkan kelas beras terlihat menghemat, tapi beras kelas bawahlah yang naik paling tajam tahun ini — empat koma empat tujuh dan lima koma lima persen."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua",
+   "preco": "beras kelas bawah? hati-hati",
+   "nar": "Selisih dengan beras medium menyempit. Jadi periksa selisihnya di pasar Anda, jangan pakai kebiasaan lama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga: beli bumbu di titik yang tepat",
+   "itens": [
+    "cek harga bawang sebelum belanja",
+    "beli banyak saat murah"
+   ],
+   "cap": "Beli bumbu di titik yang tepat",
+   "nar": "Ketiga, karena bawang merah berayun sampai tiga puluh empat persen, jadikan dia satu-satunya barang yang Anda beli oportunis. Cek harganya sebelum berangkat."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga: beli bumbu di titik yang tepat",
+   "itens": [
+    "beli banyak saat murah",
+    "bumbu dasar tahan berminggu"
+   ],
+   "nar": "Kalau sedang di bawah, beli lebih banyak dan olah jadi bumbu dasar — bumbu dasar tahan berminggu-minggu di kulkas, bawang mentah tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Empat",
+   "preco": "ukur, jangan percaya harga",
+   "nar": "Keempat, untuk tahu dan tempe: berhenti membandingkan harga, mulai membandingkan berat. Karena penyesuaian terjadi di ukuran, bukan di label."
+  },
+  {
+   "layout": "item",
+   "kicker": "Empat",
+   "preco": "ukur, jangan percaya harga",
+   "nar": "Timbang sekali saja di rumah, catat, dan Anda akan tahu penjual mana yang benar-benar lebih murah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang tidak berhasil",
+   "itens": [
+    "menimbun bahan yang cepat busuk",
+    "belanja harian tanpa daftar"
+   ],
+   "cap": "Yang justru tidak berhasil",
+   "nar": "Dan tiga hal yang justru tidak berhasil, meski sering disarankan. Menimbun bahan segar karena takut harga naik — itu berujung busuk."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang tidak berhasil",
+   "itens": [
+    "belanja harian tanpa daftar",
+    "ganti protein ke gorengan"
+   ],
+   "nar": "Belanja harian tanpa daftar — itu membuat Anda membeli bumbu berulang kali. Dan mengganti lauk dengan gorengan jajanan — lebih murah per potong, tapi jauh lebih mahal per gram protein.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jawaban jujurnya",
+   "sub": "jadi, cukup berapa hari?",
+   "cap": "Jawaban jujurnya",
+   "nar": "Jadi mari kembali ke pertanyaan di awal, dan saya jawab sejujur-jujurnya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau harga stabil",
+   "preco": "tujuh hari",
+   "nar": "Kalau harga sedang stabil dan beras sudah ada di rumah, seratus ribu rupiah memang cukup untuk dua orang selama tujuh hari."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau harga stabil",
+   "preco": "tujuh hari",
+   "nar": "Menunya sederhana, proteinnya telur, tempe, dan tahu, tapi cukup dan tidak membosankan kalau bumbunya digilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau bawang di puncak",
+   "preco": "lima sampai enam hari",
+   "nar": "Tapi kalau minggu Anda jatuh saat bawang merah di puncak dan tempe sudah disesuaikan, daftar yang sama akan menghabiskan sekitar seratus tujuh ribu rupiah."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau bawang di puncak",
+   "preco": "lima sampai enam hari",
+   "nar": "Artinya seratus ribu Anda berhenti di hari kelima atau keenam. Selisih dua hari itu bukan karena Anda boros — itu karena pasar bergerak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang perlu diingat",
+   "itens": [
+    "anggaran ini tanpa bantalan",
+    "dua barang yang bergerak: bawang dan kedelai"
+   ],
+   "cap": "Ringkasannya",
+   "nar": "Tiga hal untuk diingat. Anggaran seratus ribu ini pas tanpa bantalan sama sekali, jadi satu kenaikan kecil langsung terasa."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang perlu diingat",
+   "itens": [
+    "dua barang yang bergerak: bawang dan kedelai",
+    "ukur berat, jangan percaya label"
+   ],
+   "nar": "Dua barang yang paling sering merusaknya adalah bawang merah dan apa pun yang berbahan kedelai. Dan sebagian kenaikan harga tidak muncul di label, tapi di ukuran.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Giliran Anda",
+   "sub": "berapa anggaran mingguan Anda?",
+   "cap": "Giliran Anda",
+   "nar": "Sekarang giliran Anda. Berapa anggaran belanja mingguan Anda, untuk berapa orang, dan sampai hari ke berapa biasanya bertahan?"
+  },
+  {
+   "layout": "cta",
+   "kicker": "Giliran Anda",
+   "sub": "berapa anggaran mingguan Anda?",
+   "nar": "Tulis di kolom komentar — angka dari daerah yang berbeda sangat membantu, karena harga di setiap pasar tidak sama. Kalau video ini berguna, subscribe ke Resep Naik Level.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Rp100.000",
+   "sub": "cukup untuk berapa hari?",
+   "nar": "Belanja mingguan seratus ribu rupiah. Cukup untuk berapa hari?"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Daftarnya",
+   "itens": [
+    "telur 1 kg: Rp29.650",
+    "tempe + tahu: Rp18.000",
+    "sayur + bumbu + minyak"
+   ],
+   "nar": "Telur satu kilo dua puluh sembilan ribu enam ratus. Tempe dan tahu delapan belas ribu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jawabannya",
+   "preco": "7 hari",
+   "nar": "Kalau beras sudah ada dan harga stabil, cukup tujuh hari untuk dua orang."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi ada perusaknya",
+   "preco": "bawang dan kedelai",
+   "nar": "Tapi bawang merah berayun tiga puluh empat persen, dan tahu dikecilkan ukurannya. Seratus ribu berhenti di hari kelima."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "angka di balik dapur",
+   "nar": "Ukur beratnya, jangan percaya labelnya. Subscribe ke Resep Naik Level."
+  }
+ ],
+ "copy": "# Belanja Mingguan Rp100.000 di 2026: Daftar Persis untuk 7 Hari\n\n## TITLE\nBelanja Mingguan Rp100.000 di 2026: Daftar Persis untuk 7 Hari\n\n## DESCRIPTION\nSeratus ribu rupiah adalah angka belanja mingguan yang paling sering dipakai di Indonesia. Video ini menjawab pertanyaan yang jarang dijawab jujur: di tahun 2026, seratus ribu itu benar-benar cukup untuk berapa hari? Bukan tebakan — kita pakai harga rata-rata nasional yang dipublikasikan, menyusun daftar belanjanya satu per satu, menjumlahkannya, lalu melihat sampai hari ke berapa isinya bertahan untuk dua orang.\n\nHarga yang dipakai: beras kualitas medium I sekitar Rp16.200/kg, kualitas bawah I sekitar Rp15.200/kg dan kualitas super sampai Rp17.800/kg, menurut data Pusat Informasi Harga Pangan Strategis (PIHPS) yang dikelola Bank Indonesia. Telur ayam ras sekitar Rp29.650/kg — kira-kira 16 butir, jadi sekitar Rp1.800 per butir. Minyak goreng curah sekitar Rp20.500/liter, sementara kemasan bermerek Rp23.450–24.300/liter. Perhatikan arah kenaikannya: beras kualitas bawah I naik 4,47% dan bawah II naik 5,5% — yang naik paling tajam justru beras yang dibeli orang dengan anggaran paling ketat.\n\nDaftar belanjanya disusun untuk dua orang selama tujuh hari, dengan asumsi beras sudah ada di rumah (untuk dua orang seminggu butuh sekitar 2,5 kg atau Rp40.000 — kalau ikut masuk, 40% anggaran habis sebelum beli lauk). Proteinnya telur 1 kg, tempe 4 papan, dan tahu 1 bungkus. Sisanya sayur, bumbu, dan minyak. Videonya juga memberikan menu tujuh hari lengkap dari daftar itu, dengan prinsip setiap bahan dipakai di lebih dari satu masakan.\n\nBagian terpenting adalah di mana hitungan ini jebol. Ada dua barang yang merusaknya. Pertama, bawang merah: dalam beberapa pembacaan harga tahun ini tercatat Rp40.450, Rp42.150, Rp43.800, dan di satu titik Rp54.350 per kg — ayunan sekitar 34% pada satu barang. Kedua, kedelai: bertahan di kisaran Rp10.500/kg selama hampir tiga pekan lalu melonjak sampai Rp13.000/kg pada April 2026, mendorong harga tempe dari sekitar Rp12.000 menjadi Rp15.000/kg dan kenaikan tahu-tempe sampai 20%. Yang paling perlu diwaspadai: sebagian pedagang tahu memilih mengecilkan ukuran, bukan menaikkan harga — kenaikan yang tidak muncul di label.\n\nJawaban jujurnya: kalau harga stabil, Rp100.000 cukup tujuh hari. Kalau minggu Anda jatuh saat bawang di puncak dan tempe sudah disesuaikan, daftar yang sama menghabiskan sekitar Rp107.000 dan berhenti di hari kelima atau keenam.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nBerapa anggaran belanja mingguan Anda, untuk berapa orang, dan sampai hari ke berapa biasanya bertahan? Tulis kota atau daerahnya juga — harga di setiap pasar tidak sama, dan saya ingin membandingkan selisihnya untuk video lanjutan. Saya paling penasaran dengan harga tempe dan bawang merah di daerah Anda minggu ini.\n\n## HASHTAGS\n#BelanjaMingguan #MenuHemat #ResepNaikLevel\n\n## TAGS\nbelanja mingguan 100 ribu, menu hemat seminggu, daftar belanja dapur, harga bahan pokok 2026, harga telur ayam per kg, harga tempe naik, harga kedelai 2026, belanja hemat 2 orang, food preparation hemat, menu 7 hari hemat, tips belanja pasar, harga bawang merah naik, minyak goreng curah, anggaran dapur bulanan, masak hemat rumahan\n\n## STUDIO SETTINGS\n- Bahasa: Indonesia (id) | Kategori: Howto & Style (26)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (narasi AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif (durasi di atas 8 menit)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SUMBER DAN CATATAN\nHarga beras, telur, minyak goreng, dan bawang merah mengacu pada publikasi Pusat Informasi Harga Pangan Strategis (PIHPS) Bank Indonesia sebagaimana diberitakan media nasional; angka tersebut adalah rata-rata nasional dan berbeda dari harga di pasar Anda. Harga kedelai dan tempe mengacu pada pemberitaan media ekonomi nasional tahun 2026. Perlu dicatat, Gakoptindo menegaskan kenaikan harga tempe bukan semata karena kedelai, dan ada riset yang menyoroti marjin importir. Susunan daftar belanja dan menu adalah contoh perhitungan, bukan patokan gizi. Konten edukatif, bukan saran keuangan atau saran gizi profesional.\n"
+}
