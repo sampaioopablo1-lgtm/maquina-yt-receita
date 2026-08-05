@@ -103,6 +103,85 @@ CONDICOES = [
 ]
 
 
+# ------------------------------------------------------------- diagnóstico
+#
+# As perguntas vêm antes do preço de propósito: quem não enxerga a goteira acha
+# caro qualquer valor. Nenhuma delas é retórica — todas têm resposta numérica,
+# e é exatamente por isso que funcionam: ou o número existe, ou ele está saindo
+# caro. As três últimas cobrem o que as cinco primeiras deixam de fora — o lead
+# que parou, o fundo do funil e o processo que mora na cabeça de uma pessoa só.
+
+PERGUNTAS = [
+    "Quantas ligações seu captador faz em cada lead até conseguir agendar uma visita?",
+    "Depois da visita marcada, quantas ligações ele faz para o cliente realmente "
+    "aparecer na loja?",
+    "Quantas mensagens seus captadores enviam — e seguindo qual script? Ou cada um "
+    "faz do seu jeito?",
+    "Como o cliente é abordado na ligação? Qual é a primeira frase que ele ouve?",
+    "Em quanto tempo um lead novo é respondido: minutos, horas ou no dia seguinte?",
+    "Dos leads que entraram no mês passado, quantos pararam na segunda tentativa e "
+    "nunca mais foram tocados?",
+    "Das visitas agendadas na semana passada, quantas viraram proposta apresentada?",
+    "Se o seu melhor captador sair amanhã, o método dele fica na empresa ou vai "
+    "embora junto com ele?",
+]
+
+ABERTURA = (
+    "Antes de olhar preço, responda estas {n} perguntas sobre a sua operação — em voz "
+    "alta, agora, sem consultar ninguém. Nenhuma tem pegadinha: todas têm resposta "
+    "numérica. Ou você sabe o número, ou ele está saindo caro."
+)
+
+VEREDITO_TITULO = "Cada “não sei dizer” é uma goteira"
+VEREDITO = (
+    "Se a maioria das respostas for “não sei dizer”, o problema da sua operação não é "
+    "falta de lead. É goteira: venda que escapa gota a gota, sem barulho e sem culpado "
+    "— e por isso ninguém conserta.<br><br>"
+    "Nenhuma dessas perguntas exige um sistema caro para ser respondida. Exige processo "
+    "escrito, cadência definida e alguém olhando o número toda semana. É exatamente "
+    "isso que o Modo Turbo instala — e é por isso que a fase 2 inteira é medição."
+)
+VEREDITO_NOTA = (
+    "Torneira pingando não estoura a conta de uma vez. Ela só faz a conta chegar "
+    "maior todo mês."
+)
+
+# Glifo próprio, no mesmo traço dos ícones de canal do flyer: a gota é o dado, o
+# pontilhado é a trajetória e a poça é o acumulado. currentColor deixa a peça
+# seguir o tema claro/escuro sem uma segunda versão do desenho.
+TORNEIRA = """<svg class="torneira" viewBox="0 0 200 300" fill="none" role="img"
+     aria-label="Uma torneira pingando sobre uma poça: cada gota é uma venda que escapa.">
+  <g stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 236V140"/>
+    <path d="M100 140c0-40 52-40 52 0v28"/>
+    <path d="M92 152h16"/>
+    <path d="M100 158 58 146"/>
+    <path d="M88 250v-14h24v14"/>
+    <path d="M143 168h18l-4 12h-10z"/>
+  </g>
+  <circle cx="53" cy="145" r="7" stroke="currentColor" stroke-width="4"/>
+  <path d="M40 250h86" stroke="currentColor" stroke-width="2" opacity=".38"/>
+  <path d="M152 190v92" stroke="currentColor" stroke-width="1.5"
+        stroke-dasharray="2 9" opacity=".28"/>
+  <g fill="currentColor">
+    <g transform="translate(152 192) scale(.66)">
+      <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/></g>
+    <g transform="translate(152 228) scale(.52)" opacity=".55">
+      <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/></g>
+    <g transform="translate(152 258) scale(.4)" opacity=".3">
+      <path d="M0 0c-6 9-9 13-9 18a9 9 0 0 0 18 0c0-5-3-9-9-18Z"/></g>
+  </g>
+  <ellipse cx="152" cy="288" rx="30" ry="4.5" fill="currentColor" opacity=".18"/>
+</svg>"""
+
+
+def perguntas() -> str:
+    return "\n".join(
+        f'<li><span class="q-n">{i:02d}</span><p>{p}</p></li>'
+        for i, p in enumerate(PERGUNTAS, 1)
+    )
+
+
 def regua() -> str:
     return "".join(f"<span>{m}</span>" for m in MESES)
 
@@ -146,6 +225,33 @@ def condicoes() -> str:
 
 
 CSS_PROPOSTA = """
+/* diagnóstico — a torneira segura o argumento, a lista faz o trabalho */
+.goteira{display:grid;grid-template-columns:200px 1fr;gap:34px;align-items:start;}
+.torneira{width:100%;height:auto;color:var(--accent);display:block;}
+.torneira-nota{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;line-height:1.9;color:var(--muted);margin:16px 0 0;}
+.perguntas{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px;
+  background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.perguntas li{background:var(--ground);padding:15px 2px 17px;
+  display:grid;grid-template-columns:38px 1fr;gap:6px;align-items:baseline;}
+.q-n{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--accent);}
+.perguntas p{margin:0;font-size:17px;line-height:1.45;max-width:56ch;text-wrap:pretty;}
+
+.veredito{border:1px solid var(--accent);border-left-width:4px;background:var(--chip);
+  padding:26px 28px 28px;display:flex;flex-direction:column;gap:12px;}
+.veredito h3{font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:clamp(28px,4.4vw,42px);line-height:.98;text-transform:uppercase;
+  color:var(--accent);margin:0;text-wrap:balance;}
+.veredito p{margin:0;max-width:66ch;}
+
+/* abaixo de 700px a torneira vira faixa horizontal acima das perguntas */
+@media (max-width:699px){
+  .goteira{grid-template-columns:1fr;gap:20px;}
+  .torneira{width:118px;margin:0 auto;}
+  .torneira-nota{text-align:center;}
+}
+
 /* oferta — a âncora primeiro, o preço depois */
 .precos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));
   gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -250,6 +356,24 @@ PAGINA = """<title>Proposta — Programa Modo Turbo | Turbo 7</title>
   </header>
 
   <section>
+    <h2>{n_perguntas} perguntas antes de falar em preço</h2>
+    <p class="contexto">{abertura}</p>
+    <div class="goteira">
+      <div>
+        {torneira}
+        <p class="torneira-nota">{veredito_nota}</p>
+      </div>
+      <ol class="perguntas">
+{perguntas}
+      </ol>
+    </div>
+    <div class="veredito">
+      <h3>{veredito_titulo}</h3>
+      <p>{veredito}</p>
+    </div>
+  </section>
+
+  <section>
     <h2>Investimento</h2>
     <div class="precos">
       <div class="p ancora">
@@ -348,6 +472,13 @@ def montar() -> str:
         outfit_b=fonte("Outfit-Bold.ttf"),
         mono=fonte("GeistMono-Regular.ttf"),
         total=TOTAL_CONTATOS,
+        n_perguntas=len(PERGUNTAS),
+        abertura=ABERTURA.format(n=len(PERGUNTAS)),
+        torneira=TORNEIRA,
+        perguntas=perguntas(),
+        veredito_titulo=VEREDITO_TITULO,
+        veredito=VEREDITO,
+        veredito_nota=VEREDITO_NOTA,
         mercado=moeda(MERCADO),
         cliente=moeda(CLIENTE),
         avista=moeda(AVISTA),

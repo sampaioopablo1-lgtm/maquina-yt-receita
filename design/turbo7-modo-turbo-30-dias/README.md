@@ -93,6 +93,11 @@ E em `build_proposta.py`:
   de “fase fechou” para “fase está saudável”, porque ela não termina.
 - `MESES` — a régua do cronograma. Acrescentar um mês realinha as barras sozinho.
 - `CONDICOES` — as três notas sob a tabela de preços.
+- `PERGUNTAS` — o diagnóstico que abre a página. A numeração e o “{n} perguntas”
+  do título saem do tamanho da lista, então acrescentar uma pergunta basta.
+- `ABERTURA` / `VEREDITO` / `VEREDITO_NOTA` — a copy que emoldura o diagnóstico.
+- `TORNEIRA` — o SVG da torneira pingando, em `currentColor`: um único desenho
+  serve aos temas claro e escuro.
 
 Copy da manchete, alerta, estatísticas e bloco de oferta ficam no `TEMPLATE`,
 na mesma seção do arquivo.
@@ -130,6 +135,16 @@ na mesma seção do arquivo.
   3º mês, quando a fase 2 ainda roda. As barras ficam em linhas diferentes e a
   sobreposição aparece — é informação sobre como a implantação funciona, não um
   erro de alinhamento a ser disfarçado.
+- **O diagnóstico vem antes do preço**: a página abre com oito perguntas diretas
+  sobre a operação do cliente, não com o valor. Quem não enxerga a goteira acha
+  caro qualquer número; quem acabou de falhar em responder oito perguntas sobre o
+  próprio processo lê o preço como conserto. Nenhuma pergunta é retórica — todas
+  têm resposta numérica, e é o silêncio diante delas que faz o argumento.
+- **A torneira é glifo, não ilustração**: desenhada em linha no mesmo traço dos
+  ícones de canal do flyer, com a gota, o pontilhado da trajetória e a poça do
+  acumulado. Em `currentColor`, então segue o tema sem uma segunda versão. A
+  bancada termina antes do bico: o que cai, cai na cuba, e a linha não cruza a
+  trajetória da gota.
 - **A âncora antes do preço**: R$ 50.000 riscado, depois R$ 25.000, depois o à
   vista em verde chapado. A ordem de leitura é a ordem do argumento comercial, e
   o único bloco de cor sólida é aquele para onde a proposta quer levar.
