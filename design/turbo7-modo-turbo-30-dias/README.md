@@ -12,7 +12,7 @@ nos dias de pico.
 | `flyer-turbo7-modo-turbo-30-dias.pdf`  | 12,5 × 22,5 in, 1 página | Impressão e envio comercial |
 | `apresentacao.html` | Página autocontida | Link de apresentação (publicado como Artifact) |
 | `proposta.html` | Página autocontida | Proposta comercial: diagnóstico, método, plano e preço |
-| `proposta-modo-turbo-de-vendas.pdf` | A4, 11 páginas | Proposta para enviar por e-mail, imprimir e assinar |
+| `proposta-modo-turbo-de-vendas.pdf` | A4, 13 páginas | Proposta para enviar por e-mail, imprimir e assinar |
 | `publico.html` | Arquivo único, ~100 KB | A proposta sem nenhuma requisição externa |
 | `funil-marketing-vendas-turbo7.png` | 2400 × 3168 px (2×) | Mapa de responsabilidade no funil |
 | `funil-marketing-vendas-turbo7.pdf`  | 12,5 × 16,5 in, 1 página | Impressão e reunião de alinhamento |
@@ -30,7 +30,7 @@ nos dias de pico.
 | `build_funil.py` | Gera `funil.html` — o mapa de etapas, metas e responsáveis |
 | `build_site.py` | Gera `site/`, versão hospedável das duas páginas |
 | `build_publico.py` | Gera `publico.html` — a proposta em arquivo único, ~100 KB, sem nenhuma requisição externa |
-| `build_pdf.py` | Gera o PDF A4 a partir da mesma página, acrescentando só a folha de impressão |
+| `build_pdf.py` | Gera o PDF A4: capa, sumário, folhas escuras e miolo, montados peça a peça |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
 
 ## Como regerar
@@ -168,13 +168,22 @@ na mesma seção do arquivo.
   `--accent`. Como só usa tokens do tema, um desenho serve ao claro e ao escuro.
   A bancada termina antes do bico: o que cai, cai na cuba, e a linha não cruza a
   trajetória da gota.
-- **O PDF é a mesma página, não uma segunda peça**: `build_pdf.py` reaproveita
-  `build_publico.construir()` e só acrescenta a folha de impressão. Papel não tem
-  tema escuro nem hover — tem quebra de página, e é disso que as regras tratam:
-  bloco nenhum parte no meio, título nenhum fica órfão no pé, e os fundos chapados
-  saem impressos em vez de virarem branco para poupar tinta. Proibir a quebra da
-  *seção* inteira seria o erro fácil: basta um bloco não caber no rodapé para a
-  seção pular adiante e o PDF encher de página pela metade.
+- **O PDF é documento, não página impressa**: capa, sumário, folhas escuras de
+  página inteira nos dois picos — o veredito da goteira e o investimento — e um
+  fecho. O conteúdo continua saindo de `build_publico.construir()`, então mudar a
+  proposta muda o PDF; o que `build_pdf.py` acrescenta é a estrutura editorial.
+  No papel a inversão pesa mais que na tela: é o contraste entre a folha escura e
+  a clara que marca onde a proposta muda de assunto.
+- **Montado peça a peça e juntado no fim**: uma folha que sangra até a borda exige
+  página sem margem; o miolo exige margem. As duas coisas não convivem no mesmo
+  documento — com margem negativa o fundo escorre para o rodapé da página anterior,
+  e com `@page` nomeada o Chromium reduz a escala do documento inteiro para
+  “caber”. Cada peça vira um PDF com a geometria de que precisa e a ordem é
+  remontada com o pypdfium2. Duas armadilhas que custaram caro: proibir a quebra
+  da *seção* inteira enche o PDF de página pela metade, e renderizar cada folha
+  numa corrida separada do Chromium faz o texto em Big Shoulders sumir — a corrida
+  termina antes de a fonte embutida ficar pronta e a caixa fica lá, vazia. Por isso
+  todas as folhas saem de uma renderização só.
 - **A âncora antes do preço**: R$ 50.000 riscado, depois R$ 25.000, depois o à
   vista em verde chapado. A ordem de leitura é a ordem do argumento comercial, e
   o único bloco de cor sólida é aquele para onde a proposta quer levar.
