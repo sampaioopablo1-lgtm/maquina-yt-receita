@@ -332,9 +332,11 @@ CSS_PROPOSTA = """
 .m-lado{background:var(--surface);padding:30px 30px 32px;
   display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
 .m-de{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--muted);}
+  text-transform:uppercase;color:var(--muted);
+  display:flex;flex-direction:column;align-items:flex-start;gap:5px;}
 .m-de s{font-family:'BigShoulders',sans-serif;font-size:26px;letter-spacing:0;
-  text-decoration-thickness:2px;text-decoration-color:var(--accent);}
+  white-space:nowrap;text-decoration-thickness:2px;
+  text-decoration-color:var(--accent);}
 .m-lado .selo{margin-top:0;}
 .m-nota{font-size:15px;color:var(--muted);margin-top:auto;max-width:34ch;}
 @media (max-width:719px){.mensalidade{grid-template-columns:1fr;}}
