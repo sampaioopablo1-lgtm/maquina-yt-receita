@@ -9,13 +9,21 @@ E um arquivo so, de proposito: quem vai gravar nao precisa instalar o projeto
 inteiro, so o Python e duas bibliotecas. Toda a saida sai em INGLES porque o
 terminal aparece no video e quem le e o revisor do Google.
 
-Uso:
-    python auditoria_demo.py <client_secret.json> [video.mp4]
+Uso normal: duplo clique em 1-ENSAIO.bat ou 2-GRAVAR.bat.
 
-Sem o segundo argumento ele so autentica e mostra o canal — util para ensaiar
-antes de gravar. Com o video, faz o upload de verdade, que e o trecho final
-que o revisor precisa ver.
+Pela linha de comando:
+    python auditoria_demo.py [client_secret.json] [video.mp4]
+
+Os dois argumentos sao OPCIONAIS. Sem eles o script procura sozinho, na
+propria pasta, um `client_secret*.json` e o `demo_upload.mp4`. Isso existe
+porque digitar `client_secret_777159180424-a1b2c3.apps.googleusercontent.com
+.json` sem errar, num Prompt de Comando, e um obstaculo real para quem so
+quer gravar um video de 90 segundos.
+
+Sem video ele so autentica e mostra o canal — o ensaio. Com video, faz o
+upload de verdade, que e o trecho final que o revisor precisa ver.
 """
+import glob
 import json
 import os
 import sys
@@ -108,13 +116,36 @@ def enviar(api, caminho):
     linha(f"  url       https://www.youtube.com/watch?v={vid}")
     linha(f"  privacy   {resp['status']['privacyStatus']}")
     linha()
+    # O privado nao e falha nossa e o revisor precisa ler isto na tela: e a
+    # restricao que a auditoria remove, demonstrada ao vivo.
+    linha("Note: the upload is forced to private because this API project has")
+    linha("not been audited yet. Removing that restriction is the purpose of")
+    linha("this audit request.")
+    linha()
     linha("Open YouTube Studio to confirm the video is listed on the channel.")
 
 
+def achar(padrao, dado):
+    """Procura o arquivo na pasta do script, nao no diretorio corrente.
+
+    Um duplo clique no .bat pode abrir o terminal em qualquer lugar; a unica
+    pasta de que se tem certeza e a do proprio script.
+    """
+    aqui = os.path.dirname(os.path.abspath(__file__))
+    achados = sorted(glob.glob(os.path.join(aqui, padrao)))
+    if not achados:
+        sys.exit(f"ERROR: no {dado} found.\n"
+                 f"Expected a file matching '{padrao}' in:\n  {aqui}")
+    if len(achados) > 1:
+        linha(f"Note: {len(achados)} candidates found, using the first:")
+        for a in achados:
+            linha(f"  {os.path.basename(a)}")
+    return achados[0]
+
+
 def main():
-    if len(sys.argv) < 2:
-        sys.exit(__doc__)
-    segredo = sys.argv[1]
+    args = sys.argv[1:]
+    segredo = args[0] if args else achar("client_secret*.json", "client secret")
     if not os.path.exists(segredo):
         sys.exit(f"ERROR: client secret not found at {segredo}")
     # Confere que e mesmo um cliente de app instalado. Cliente "Web" tambem
@@ -135,11 +166,11 @@ def main():
     cred = autenticar(segredo)
     api = build("youtube", "v3", credentials=cred)
     mostrar_canal(api)
-    if len(sys.argv) > 2:
-        enviar(api, sys.argv[2])
-    else:
-        linha("No video file given - authentication only.")
-        linha("Run again with a video path to demonstrate videos.insert.")
+    if os.environ.get("DEMO_UPLOAD") == "0":
+        linha("Rehearsal mode - authentication only, nothing uploaded.")
+        return
+    video = args[1] if len(args) > 1 else achar("demo_upload.mp4", "video file")
+    enviar(api, video)
 
 
 if __name__ == "__main__":
