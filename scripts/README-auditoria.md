@@ -1,43 +1,43 @@
-# Gravar o vídeo da auditoria — o mínimo a fazer na sua máquina
+# Gravar o vídeo da auditoria
 
-Quatro arquivos na mesma pasta, dois duplos-cliques.
+Um arquivo: **`auditoria.ps1`**. Baixar, botão direito, *Executar com o PowerShell*.
 
-| arquivo | o que é |
-|---|---|
-| `1-ENSAIO.bat` | duplo clique: testa o login. Não envia nada |
-| `2-GRAVAR.bat` | duplo clique: é o que você grava |
-| `auditoria_demo.py` | o programa (não precisa abrir) |
-| `demo_upload.mp4` | clipe de 6 s que sobe na demonstração |
+Ele carrega `auditoria_demo.py` e `demo_upload.mp4` dentro de si e grava os dois
+na pasta Downloads. Não precisa baixar mais nada.
 
-E, junto deles, o `client_secret_....json` baixado do Google Cloud.
+Se o Windows recusar (*"a execução de scripts foi desabilitada"*), abra o
+PowerShell e cole:
 
-Os `.bat` acham o `client_secret` sozinhos — não é preciso digitar o nome do
-arquivo, que é longo e fácil de errar.
+```
+Set-ExecutionPolicy -Scope Process Bypass -Force; & "$env:USERPROFILE\Downloads\auditoria.ps1"
+```
 
-## Antes
+## As duas opções
 
-Instalar o Python: [python.org/downloads](https://www.python.org/downloads/),
-marcando **"Add python.exe to PATH"** na primeira tela do instalador. Se
-esquecer disso, o `1-ENSAIO.bat` avisa e reabre a página.
+- **1 — ensaio.** Testa o login e mostra o canal. Não envia nada. Serve para
+  achar problema antes de ligar o gravador.
+- **2 — gravar.** Apaga o `token.json` antes de começar, senão o login guardado
+  faz o script pular a tela de consentimento — o único quadro que decide a
+  auditoria. Roteiro do que enquadrar: `docs/18-submissao-auditoria.md`, seção 2.
 
-## O ensaio
+## Como o client secret é escolhido
 
-Duplo clique em **`1-ENSAIO.bat`**. Ele instala as bibliotecas na primeira vez,
-abre o navegador, mostra a tela de consentimento e imprime o canal autenticado.
+Pelo **conteúdo**, não pelo nome. A pasta Downloads costuma ter o JSON de mais
+de um projeto do Google Cloud, e o nome começa com o número do projeto — ordenar
+por nome escolhe por acaso. Aconteceu: o cliente de outro projeto veio primeiro
+e só falhou depois de instalar o Python e as bibliotecas.
 
-Serve para descobrir problema **antes** de ligar o gravador.
-
-## A gravação
-
-Ligue o gravador de tela e dê duplo clique em **`2-GRAVAR.bat`**. Ele apaga o
-`token.json` antes de começar — sem isso o login guardado faria o script pular
-a tela de consentimento, que é justamente o quadro que decide a auditoria.
-
-Roteiro do que enquadrar: `docs/18-submissao-auditoria.md`, seção 2.
+O programa lê cada JSON, mantém só os que têm a chave `installed` (cliente de
+app para computador; cliente Web tem `web`) e usa o mais recente.
 
 ## Por que o upload sai privado
 
 Enquanto o projeto não está auditado, o YouTube força privado em tudo que entra
-por `videos.insert`. O script imprime isso na tela em inglês, de propósito: o
-revisor lê o terminal no vídeo, e a limitação demonstrada ao vivo é o próprio
-argumento do pedido.
+por `videos.insert`. O programa imprime isso em inglês na tela: o revisor lê o
+terminal no vídeo, e a limitação demonstrada ao vivo é o próprio argumento do
+pedido.
+
+## Manutenção
+
+Nunca edite `auditoria.ps1` — ele é gerado. Mude `auditoria_demo.py` ou
+`auditoria.ps1.molde` e rode `python3 gerar_ps1.py`.

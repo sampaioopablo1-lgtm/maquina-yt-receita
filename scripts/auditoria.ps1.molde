@@ -1,0 +1,112 @@
+# Auditoria da YouTube API - tudo num arquivo so.
+#
+# GERADO por gerar_ps1.py. Nao edite este arquivo: ele carrega copia de
+# auditoria_demo.py dentro de si, e copia mantida a mao e copia que se afasta
+# da original sem avisar. Mude o .py e rode o gerador.
+#
+# Uso:  botao direito -> Executar com o PowerShell
+#   ou: Set-ExecutionPolicy -Scope Process Bypass -Force; & "$env:USERPROFILE\Downloads\auditoria.ps1"
+
+$ErrorActionPreference = "Stop"
+$pasta = Join-Path $env:USERPROFILE "Downloads"
+Set-Location $pasta
+
+Write-Host ""
+Write-Host "=============================================================" -ForegroundColor Cyan
+Write-Host "  Auditoria da YouTube API - Receita Video Pipeline" -ForegroundColor Cyan
+Write-Host "=============================================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Pasta de trabalho: $pasta"
+Write-Host ""
+
+# ---------------------------------------------------------- 1. client secret
+# So confere que EXISTE algum. QUAL usar e decisao do programa, que le o JSON:
+# a pasta costuma ter o client secret de mais de um projeto, e escolher pelo
+# nome escolhe por acaso.
+$n = @(Get-ChildItem -Path $pasta -Filter "client_secret*.json" -ErrorAction SilentlyContinue).Count
+if ($n -eq 0) {
+    Write-Host "  X  Nao achei nenhum client_secret*.json em $pasta" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "     Baixe o JSON do Google Cloud (tela Clientes -> baixar JSON)"
+    Write-Host "     e deixe ele na pasta Downloads. Depois rode este arquivo de novo."
+    Write-Host ""
+    Read-Host "Enter para fechar" ; exit 1
+}
+Write-Host "  ok  client secret presente ($n arquivo(s))" -ForegroundColor Green
+
+# ------------------------------------------------------------------ 2. Python
+function Achar-Python {
+    foreach ($c in @("python", "py")) {
+        $g = Get-Command $c -ErrorAction SilentlyContinue
+        if ($g) {
+            # `python` no Windows costuma ser um atalho da Microsoft Store que
+            # nao executa nada e so abre a loja. Uma chamada real desmascara.
+            try { & $c --version *> $null; if ($LASTEXITCODE -eq 0) { return $c } } catch { }
+        }
+    }
+    $p = Get-ChildItem "$env:LOCALAPPDATA\Programs\Python\Python3*\python.exe" -ErrorAction SilentlyContinue |
+         Sort-Object FullName -Descending | Select-Object -First 1
+    if ($p) { return $p.FullName }
+    return $null
+}
+
+$py = Achar-Python
+if (-not $py) {
+    Write-Host "  ..  Python nao encontrado. Instalando..." -ForegroundColor Yellow
+    if (Get-Command winget -ErrorAction SilentlyContinue) {
+        winget install -e --id Python.Python.3.12 --scope user --silent `
+              --accept-source-agreements --accept-package-agreements
+        $py = Achar-Python
+    }
+}
+if (-not $py) {
+    Write-Host "  X  Nao consegui instalar o Python sozinho." -ForegroundColor Red
+    Write-Host "     Abrindo a pagina. MARQUE 'Add python.exe to PATH' na primeira tela."
+    Start-Process "https://www.python.org/downloads/"
+    Read-Host "Enter para fechar" ; exit 1
+}
+Write-Host "  ok  python: $py" -ForegroundColor Green
+
+# --------------------------------------------------------------- 3. bibliotecas
+Write-Host "  ..  conferindo bibliotecas (demora so na primeira vez)"
+& $py -m pip install --quiet --upgrade --disable-pip-version-check `
+      google-auth-oauthlib google-api-python-client
+Write-Host "  ok  bibliotecas" -ForegroundColor Green
+
+# ------------------------------------------- 4. grava o programa e o video
+$alvo = Join-Path $pasta "auditoria_demo.py"
+$programa = @'
+@@PROGRAMA@@
+'@
+[System.IO.File]::WriteAllText($alvo, $programa, (New-Object System.Text.UTF8Encoding $false))
+
+$mp4 = Join-Path $pasta "demo_upload.mp4"
+$b64 = @"
+@@MP4_B64@@
+"@
+[System.IO.File]::WriteAllBytes($mp4, [Convert]::FromBase64String(($b64 -replace "\s", "")))
+Write-Host "  ok  programa e video de teste gravados" -ForegroundColor Green
+
+# ----------------------------------------------------------------- 5. rodar
+Write-Host ""
+Write-Host "  1 = ENSAIO   (so testa o login, nao envia nada)"
+Write-Host "  2 = GRAVAR   (ligue o gravador de tela antes)"
+Write-Host ""
+$op = Read-Host "Digite 1 ou 2"
+
+if ($op -eq "2") {
+    # Apaga o login guardado. Com token valido o script pula a tela de
+    # consentimento - que e o unico quadro que o revisor precisa ver.
+    Remove-Item (Join-Path $pasta "token.json") -ErrorAction SilentlyContinue
+    Write-Host ""
+    Write-Host "  >> LIGUE O GRAVADOR DE TELA AGORA <<" -ForegroundColor Yellow
+    Read-Host "Enter quando estiver gravando"
+    $env:DEMO_UPLOAD = "1"
+} else {
+    $env:DEMO_UPLOAD = "0"
+}
+
+Write-Host ""
+& $py $alvo
+Write-Host ""
+Read-Host "Enter para fechar"

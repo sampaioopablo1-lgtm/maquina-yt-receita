@@ -1,10 +1,8 @@
 ﻿# Auditoria da YouTube API - tudo num arquivo so.
 #
-# Existe porque o dono nao e programador e travou duas vezes em coisas que nao
-# tem nada a ver com a auditoria: baixar quatro arquivos separados e digitar o
-# nome do client secret sem errar. O repositorio e privado, entao link direto
-# tambem nao resolve. Este script carrega o programa e o video de teste dentro
-# de si mesmo e faz o resto sozinho.
+# GERADO por gerar_ps1.py. Nao edite este arquivo: ele carrega copia de
+# auditoria_demo.py dentro de si, e copia mantida a mao e copia que se afasta
+# da original sem avisar. Mude o .py e rode o gerador.
 #
 # Uso:  botao direito -> Executar com o PowerShell
 #   ou: Set-ExecutionPolicy -Scope Process Bypass -Force; & "$env:USERPROFILE\Downloads\auditoria.ps1"
@@ -22,12 +20,11 @@ Write-Host "Pasta de trabalho: $pasta"
 Write-Host ""
 
 # ---------------------------------------------------------- 1. client secret
-# Sem isto nao ha o que autenticar, e e o unico arquivo que so o dono pode ter
-# baixado. Falhar aqui, cedo e com o caminho na tela, evita descobrir o
-# problema depois de instalar o Python inteiro.
-$seg = Get-ChildItem -Path $pasta -Filter "client_secret*.json" -ErrorAction SilentlyContinue |
-       Sort-Object LastWriteTime -Descending | Select-Object -First 1
-if (-not $seg) {
+# So confere que EXISTE algum. QUAL usar e decisao do programa, que le o JSON:
+# a pasta costuma ter o client secret de mais de um projeto, e escolher pelo
+# nome escolhe por acaso.
+$n = @(Get-ChildItem -Path $pasta -Filter "client_secret*.json" -ErrorAction SilentlyContinue).Count
+if ($n -eq 0) {
     Write-Host "  X  Nao achei nenhum client_secret*.json em $pasta" -ForegroundColor Red
     Write-Host ""
     Write-Host "     Baixe o JSON do Google Cloud (tela Clientes -> baixar JSON)"
@@ -35,7 +32,7 @@ if (-not $seg) {
     Write-Host ""
     Read-Host "Enter para fechar" ; exit 1
 }
-Write-Host "  ok  client secret: $($seg.Name)" -ForegroundColor Green
+Write-Host "  ok  client secret presente ($n arquivo(s))" -ForegroundColor Green
 
 # ------------------------------------------------------------------ 2. Python
 function Achar-Python {
@@ -224,9 +221,47 @@ def achar(padrao, dado):
     return achados[0]
 
 
+def achar_segredo():
+    """Escolhe o client secret pelo CONTEUDO, nunca pela ordem do nome.
+
+    A pasta Downloads costuma ter mais de um: cada projeto do Google Cloud
+    baixa o seu, e o nome comeca com o numero do projeto. Ordenar por nome
+    escolhe por acaso — foi o que aconteceu, e o cliente errado so falhou
+    depois, ja com o Python instalado e as bibliotecas baixadas.
+
+    Cliente de app instalado tem a chave "installed" no JSON; cliente Web tem
+    "web". Filtrar por isso deixa passar so o que pode funcionar, e entre os
+    que sobram vale o mais recente.
+    """
+    aqui = os.path.dirname(os.path.abspath(__file__))
+    cands = sorted(glob.glob(os.path.join(aqui, "client_secret*.json")))
+    if not cands:
+        sys.exit("ERROR: no client secret found.\n"
+                 f"Expected a file matching 'client_secret*.json' in:\n  {aqui}")
+    bons = []
+    for c in cands:
+        try:
+            if "installed" in json.load(open(c, encoding="utf-8")):
+                bons.append(c)
+        except (OSError, ValueError):
+            pass
+    if not bons:
+        linha(f"Found {len(cands)} client secret file(s), none of them a Desktop app client:")
+        for c in cands:
+            linha(f"  {os.path.basename(c)}")
+        sys.exit("\nERROR: in Google Cloud, create the OAuth client with "
+                 "application type 'Desktop app' and download that JSON.")
+    bons.sort(key=os.path.getmtime, reverse=True)
+    if len(cands) > 1:
+        linha(f"{len(cands)} client secret files present; using the most recent "
+              f"Desktop app client:")
+        linha(f"  {os.path.basename(bons[0])}")
+    return bons[0]
+
+
 def main():
     args = sys.argv[1:]
-    segredo = args[0] if args else achar("client_secret*.json", "client secret")
+    segredo = args[0] if args else achar_segredo()
     if not os.path.exists(segredo):
         sys.exit(f"ERROR: client secret not found at {segredo}")
     # Confere que e mesmo um cliente de app instalado. Cliente "Web" tambem
@@ -486,7 +521,7 @@ $op = Read-Host "Digite 1 ou 2"
 
 if ($op -eq "2") {
     # Apaga o login guardado. Com token valido o script pula a tela de
-    # consentimento — que e o unico quadro que o revisor precisa ver.
+    # consentimento - que e o unico quadro que o revisor precisa ver.
     Remove-Item (Join-Path $pasta "token.json") -ErrorAction SilentlyContinue
     Write-Host ""
     Write-Host "  >> LIGUE O GRAVADOR DE TELA AGORA <<" -ForegroundColor Yellow

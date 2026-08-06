@@ -143,9 +143,47 @@ def achar(padrao, dado):
     return achados[0]
 
 
+def achar_segredo():
+    """Escolhe o client secret pelo CONTEUDO, nunca pela ordem do nome.
+
+    A pasta Downloads costuma ter mais de um: cada projeto do Google Cloud
+    baixa o seu, e o nome comeca com o numero do projeto. Ordenar por nome
+    escolhe por acaso — foi o que aconteceu, e o cliente errado so falhou
+    depois, ja com o Python instalado e as bibliotecas baixadas.
+
+    Cliente de app instalado tem a chave "installed" no JSON; cliente Web tem
+    "web". Filtrar por isso deixa passar so o que pode funcionar, e entre os
+    que sobram vale o mais recente.
+    """
+    aqui = os.path.dirname(os.path.abspath(__file__))
+    cands = sorted(glob.glob(os.path.join(aqui, "client_secret*.json")))
+    if not cands:
+        sys.exit("ERROR: no client secret found.\n"
+                 f"Expected a file matching 'client_secret*.json' in:\n  {aqui}")
+    bons = []
+    for c in cands:
+        try:
+            if "installed" in json.load(open(c, encoding="utf-8")):
+                bons.append(c)
+        except (OSError, ValueError):
+            pass
+    if not bons:
+        linha(f"Found {len(cands)} client secret file(s), none of them a Desktop app client:")
+        for c in cands:
+            linha(f"  {os.path.basename(c)}")
+        sys.exit("\nERROR: in Google Cloud, create the OAuth client with "
+                 "application type 'Desktop app' and download that JSON.")
+    bons.sort(key=os.path.getmtime, reverse=True)
+    if len(cands) > 1:
+        linha(f"{len(cands)} client secret files present; using the most recent "
+              f"Desktop app client:")
+        linha(f"  {os.path.basename(bons[0])}")
+    return bons[0]
+
+
 def main():
     args = sys.argv[1:]
-    segredo = args[0] if args else achar("client_secret*.json", "client secret")
+    segredo = args[0] if args else achar_segredo()
     if not os.path.exists(segredo):
         sys.exit(f"ERROR: client secret not found at {segredo}")
     # Confere que e mesmo um cliente de app instalado. Cliente "Web" tambem
