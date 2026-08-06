@@ -26,7 +26,8 @@ nos dias de pico.
 | `build_pagina.py` | Gera `apresentacao.html`; guarda o `CSS_BASE` que as duas páginas usam |
 | `build_proposta.py` | Gera `proposta.html` — diagnóstico, fases, compromissos e oferta |
 | `build_funil.py` | Gera `funil.html` — o mapa de etapas, metas e responsáveis |
-| `build_site.py` | Gera `site/`, versão hospedável da apresentação |
+| `build_site.py` | Gera `site/`, versão hospedável das duas páginas |
+| `build_publico.py` | Gera `publico.html` — a proposta em arquivo único, ~100 KB, sem nenhuma requisição externa |
 | `fonts/` | Big Shoulders, Outfit e Geist Mono (licença OFL) |
 
 ## Como regerar
@@ -39,9 +40,19 @@ python3 render.py        # PNG 2x + PDF das duas peças (ou passe um .html espec
 python3 build_pagina.py  # página de apresentação (usa o PNG já renderizado)
 python3 build_proposta.py # página de proposta comercial
 python3 build_site.py    # site estático publicável
+python3 build_publico.py # proposta em arquivo único (fontes em subset WOFF2)
 ```
 
 Requer `pillow` e o Chromium apontado em `render.py:CHROME`.
+
+## Onde o Supabase não serve
+
+Testado e descartado: o Supabase entrega o arquivo, mas reescreve todo HTML
+servido em `*.supabase.co` para `content-type: text/plain` com
+`content-security-policy: default-src 'none'; sandbox` — vale para Edge Functions
+e para o Storage público, e é proteção antiphishing do domínio deles. O CSS passa
+intacto (`text/css`); só o HTML é rebaixado. Ou seja: a página abre, mas como
+código-fonte, não como página. Não é contornável, e não deveria ser.
 
 ## Publicar o site
 

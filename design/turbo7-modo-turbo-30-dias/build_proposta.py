@@ -13,8 +13,8 @@ funções de `build_pagina`, então as duas páginas não conseguem divergir.
 from pathlib import Path
 
 from build import GESTAO_LEAD, GESTAO_TEXTO, TOTAL_CONTATOS
-from build_pagina import (CONTEXTO, CSS_BASE, bonus, escopo, flyer_web, fonte,
-                          funil, metricas, toques)
+from build_pagina import (CONTEXTO, CSS_BASE, bonus, escopo, fonte, funil,
+                          metricas, toques)
 
 RAIZ = Path(__file__).parent
 
@@ -22,9 +22,13 @@ RAIZ = Path(__file__).parent
 
 MERCADO = 50_000       # valor de mercado do programa, a âncora
 CLIENTE = 25_000       # preço para quem já é cliente
-AVISTA = 20_000        # preço à vista
+AVISTA = 20_000        # preço à vista — hoje fora da peça, mantido para retomar
 PARCELAS = 6
 
+# A peça mostra a mensalidade, não o valor cheio: é o número que o cliente compara
+# com o próprio caixa. O total continua impresso ao lado da parcela — anunciar
+# parcela sem informar o total, além de desonesto, é vedado pelo CDC.
+MENSAL = CLIENTE / PARCELAS                               # R$ 4.166,67
 DESCONTO_CLIENTE = round((1 - CLIENTE / MERCADO) * 100)   # 50%
 DESCONTO_AVISTA = round((1 - AVISTA / MERCADO) * 100)     # 60%
 ECONOMIA_AVISTA = CLIENTE - AVISTA                        # R$ 5.000
@@ -98,8 +102,8 @@ CONTEXTO_FASES = (
 CONDICOES = [
     ("Desconto de cliente", f"Os {DESCONTO_CLIENTE}% de desconto valem para quem já é "
                             "cliente Turbo 7 com contrato ativo."),
-    ("Parcelamento", f"Até {PARCELAS}× de {moeda(CLIENTE / PARCELAS, centavos=True)}, "
-                     "sem entrada."),
+    ("O que o valor cobre", "Implantação do CRM, playbook, treinamento do time e a "
+                            "gestão semanal de performance. Tudo no mesmo valor."),
     # A terceira condição não repete o preço — o cartão já o mostrou. Ela responde
     # a pergunta seguinte do cliente: por quanto tempo isso dura.
     ("Vigência", "As três fases cobrem o primeiro trimestre. A fase de escala não "
@@ -217,6 +221,11 @@ COMPROMISSOS = [
 
 VALIDADE = "Esta proposta é válida por 15 dias a partir da data de envio."
 
+# A frase de posicionamento. Ela precisa dizer duas coisas em uma linha: que o
+# marketing já foi feito e entregou, e que o que vem agora é a loja escalar em
+# cima disso. Sem depreciar o trabalho anterior — é o mesmo cliente que o pagou.
+FRASE = "O marketing já trouxe o lead até a sua porta. Agora a sua loja escala."
+
 
 def compromissos() -> str:
     return "\n".join(
@@ -301,8 +310,37 @@ CSS_PROPOSTA = """
   .torneira-nota{text-align:center;}
 }
 
+/* a frase de posicionamento: entra entre a manchete e a lide */
+.frase{font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:clamp(24px,3.4vw,34px);line-height:1.05;text-transform:uppercase;
+  color:var(--accent);margin:0;max-width:24ch;text-wrap:balance;}
+
+/* mensalidade: um número só, do tamanho da decisão */
+.mensalidade{display:grid;grid-template-columns:1.15fr 1fr;gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.m-corpo{background:var(--accent);color:var(--accent-ink);
+  padding:30px 30px 32px;display:flex;flex-direction:column;gap:8px;}
+.m-corpo .rot{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
+  text-transform:uppercase;opacity:.8;}
+.m-val{font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:clamp(56px,9vw,86px);line-height:.84;font-variant-numeric:tabular-nums;
+  display:flex;align-items:baseline;gap:6px;}
+.m-val i{font-style:normal;font-size:.42em;}
+.m-val b{font-family:'GeistMono',monospace;font-size:.17em;font-weight:400;
+  letter-spacing:.14em;opacity:.85;}
+.m-sub{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;opacity:.9;}
+.m-lado{background:var(--surface);padding:30px 30px 32px;
+  display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+.m-de{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);}
+.m-de s{font-family:'BigShoulders',sans-serif;font-size:26px;letter-spacing:0;
+  text-decoration-thickness:2px;text-decoration-color:var(--accent);}
+.m-lado .selo{margin-top:0;}
+.m-nota{font-size:15px;color:var(--muted);margin-top:auto;max-width:34ch;}
+@media (max-width:719px){.mensalidade{grid-template-columns:1fr;}}
+
 /* co-responsabilidade */
-.compromissos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));
+.compromissos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));
   gap:1px;background:var(--line);border:1px solid var(--line);margin:0;}
 .comp{background:var(--surface);padding:20px 24px 22px;
   display:flex;flex-direction:column;gap:6px;}
@@ -390,7 +428,7 @@ CSS_PROPOSTA = """
 
 """
 
-PAGINA = """<title>Programa Modo Turbo 30 Dias — Turbo 7</title>
+PAGINA = """<title>Programa Modo Turbo de Vendas — Turbo 7</title>
 <style>
 @font-face{{font-family:'BigShoulders';src:url('{big}') format('truetype');font-weight:700;font-display:block;}}
 @font-face{{font-family:'Outfit';src:url('{outfit}') format('truetype');font-weight:400;font-display:block;}}
@@ -407,11 +445,12 @@ PAGINA = """<title>Programa Modo Turbo 30 Dias — Turbo 7</title>
       <span class="nome">TURBO<em>7</em></span>
       <span class="eyebrow">Marketing de Planejados</span>
     </div>
-    <h1>Programa Modo Turbo<br><em>30 dias</em></h1>
-    <p class="lide">Seu time já tem lead. O que falta é o processo que impede o lead
-      de esfriar: cadência definida, script único, CRM que não perde ninguém e um
-      diretor olhando o número toda semana. É isso que o Modo Turbo instala — em três
-      fases, ao longo do primeiro trimestre.</p>
+    <h1>Programa Modo Turbo<br><em>de Vendas</em></h1>
+    <p class="frase">{frase}</p>
+    <p class="lide">O marketing já faz a sua parte: o lead chega. O que falta é o
+      processo que impede esse lead de esfriar — cadência definida, script único, CRM
+      que não perde ninguém e um diretor olhando o número toda semana. É isso que o
+      programa instala na sua loja, em três fases, ao longo do primeiro trimestre.</p>
   </header>
 
   <section>
@@ -450,13 +489,6 @@ PAGINA = """<title>Programa Modo Turbo 30 Dias — Turbo 7</title>
 {toques}
     </ol>
   </section>
-
-  <figure>
-    <img src="{flyer}" width="1600" height="2880"
-         alt="Flyer do Programa Modo Turbo 30 Dias, com o mapa de cadência 12 por 30,
-              o escopo do programa e a oferta de 30 dias gratuitos.">
-    <figcaption>O programa em uma página — material de apoio para o seu time</figcaption>
-  </figure>
 
   <section>
     <h2>O que está incluso</h2>
@@ -514,23 +546,17 @@ PAGINA = """<title>Programa Modo Turbo 30 Dias — Turbo 7</title>
 
   <section>
     <h2>Investimento</h2>
-    <div class="precos">
-      <div class="p ancora">
-        <span class="rot">Valor de mercado</span>
-        <span class="val">{mercado}</span>
-        <span class="nota">O que uma implantação equivalente custa fora daqui.</span>
+    <div class="mensalidade">
+      <div class="m-corpo">
+        <span class="rot">Investimento mensal</span>
+        <span class="m-val"><i>R$</i>{mensal}<b>/mês</b></span>
+        <span class="m-sub">{parcelas} parcelas · total de {cliente}</span>
       </div>
-      <div class="p">
-        <span class="rot">Para quem já é cliente</span>
-        <span class="val">{cliente}</span>
-        <span class="nota">Em até {parcelas}× de {parcela}.</span>
-        <span class="selo">−{desc_cliente}%</span>
-      </div>
-      <div class="p destaque">
-        <span class="rot">À vista</span>
-        <span class="val">{avista}</span>
-        <span class="nota">{economia} a menos que o parcelado.</span>
-        <span class="selo">−{desc_avista}%</span>
+      <div class="m-lado">
+        <span class="m-de">Valor de mercado <s>{mercado}</s></span>
+        <span class="selo">−{desc_cliente}% para cliente Turbo 7</span>
+        <span class="m-nota">É menos do que custa manter um captador parado num
+          lead que já foi pago.</span>
       </div>
     </div>
     <dl class="condicoes">
@@ -572,7 +598,6 @@ def montar() -> str:
         contexto=CONTEXTO,
         funil=funil(),
         toques=toques(),
-        flyer=flyer_web(),
         compromissos=compromissos(),
         validade=VALIDADE,
         n_perguntas=len(PERGUNTAS),
@@ -587,6 +612,8 @@ def montar() -> str:
         avista=moeda(AVISTA),
         parcelas=PARCELAS,
         parcela=moeda(CLIENTE / PARCELAS, centavos=True),
+        mensal=f"{MENSAL:,.2f}".replace(",", "·").replace(".", ",").replace("·", "."),
+        frase=FRASE,
         economia=moeda(ECONOMIA_AVISTA),
         desc_cliente=DESCONTO_CLIENTE,
         desc_avista=DESCONTO_AVISTA,
