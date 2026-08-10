@@ -73,13 +73,9 @@ jobs:
           CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
           TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
           TOKEN="${!TOKEN_VAR}"
-          # Fallback para o secret legado enquanto os canais sao migrados
           if [ -z "$TOKEN" ]; then
-            TOKEN="$YT_TOKEN_JSON"
-            echo "Aviso: ${TOKEN_VAR} nao configurado, usando YT_TOKEN_JSON como fallback"
-          fi
-          if [ -z "$TOKEN" ]; then
-            echo "Erro: nenhum token configurado para canal '${{ inputs.canal }}' (${TOKEN_VAR})"
+            echo "Erro: secret ${TOKEN_VAR} nao configurado para canal '${{ inputs.canal }}'"
+            echo "Adicione o secret em: github.com/${{ github.repository }}/settings/secrets/actions"
             exit 1
           fi
           mkdir -p secrets
