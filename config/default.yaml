@@ -36,10 +36,20 @@ canal:
     - "pendapatan"         # renda
     - "gaya hidup"         # estilo de vida
     - "ekonomi indonesia"
+    # Eixo divida/pinjol — benchmark Rory Asyari: 9.467 views/dia median.
+    # Acrescidos apos analise de mercado ago/2026.
+    - "pinjol"             # fintech pinjaman online — termo de alta busca
+    - "hutang"             # divida
+    - "cicilan"            # prestacao / parcela
+    - "bebas hutang"       # livre de dividas
+    - "dana darurat"       # reserva de emergencia (pilar 1 do sistema)
+    - "investasi"          # investimento
+    - "nabung"             # poupar
+    - "finansial bebas"    # liberdade financeira
 
-  # Eixos rotacionados a cada video, derivados dos padroes que de fato
-  # performam no nicho — nao inventados. Em ritmo diario, e o que impede
-  # 30 videos/mes de convergirem para o mesmo formato.
+  # Eixos rotacionados a cada video — 10 eixos para cobertura completa em
+  # um lote de 10/dia sem repeticao de formato no mesmo ciclo.
+  # Derivados dos padroes que de fato performam no nicho, nao inventados.
   eixos_tematicos:
     - "pergunta provocativa: kenapa X acontece"
     - "paradoxo: tem X mas continua Y"
@@ -48,6 +58,10 @@ canal:
     - "realidade dura desmontada com dados"
     - "habilidade ou metodo pratico que muda o jogo"
     - "geracao ou grupo social sob analise"
+    # Tres eixos adicionais para cobrir o ciclo de 10/dia sem repeticao:
+    - "sistema passo a passo: como sair de pinjol/hutang em N meses com renda concreta"
+    - "numeros reais: quanto custa [habito ou produto financeiro] ao longo de 5 anos"
+    - "mito desmontado: por que o conselho comum sobre [tema financeiro] nao funciona"
 
 # Os 3 pilares viram numero. Ver docs/02-playbook-youtube.md
 metas:
@@ -56,10 +70,11 @@ metas:
   retencao_min_pct: 30.0
 
 # Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md
-# Ritmo diario: teto de 3/dia (a cota da API permite ~6 uploads/dia).
+# Producao: 10/dia (um eixo diferente por video, ciclo sem repeticao).
+# Publicacao: teto de 6/dia = cota real da YouTube Data API por projeto.
 # Similaridade mais rigorosa que o padrao porque volume alto converge sozinho.
 publicacao:
-  max_por_dia: 3
+  max_por_dia: 6
   similaridade_max: 0.65
   janela_similaridade: 30
   exigir_revisao: true              # NAO desligue sem ler o doc de compliance

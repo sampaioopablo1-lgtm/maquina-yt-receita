@@ -1,10 +1,11 @@
 name: Producao de video
 
 # O motor da maquina. O runner ubuntu-latest ja traz ffmpeg instalado.
+# Meta: 10 videos/dia por canal, um eixo tematico diferente por video.
+# Cota YouTube API: ~6 uploads/dia — producao e publicacao sao passos separados.
 on:
   schedule:
-    # Diario, 09:00 UTC (06:00 BRT). O teto de 3/dia da config e a cota da
-    # YouTube API (~6 uploads/dia) sao os limites reais — nao o cron.
+    # Diario, 09:00 UTC (06:00 BRT).
     - cron: "0 9 * * *"
   workflow_dispatch:
     inputs:
@@ -17,6 +18,10 @@ on:
         description: "Titulo especifico (vazio = a maquina escolhe a pauta)"
         type: string
         default: ""
+      quantidade:
+        description: "Quantos videos produzir neste lote (0 ou vazio = 10)"
+        type: string
+        default: "10"
 
 concurrency:
   group: producao
@@ -25,7 +30,8 @@ concurrency:
 jobs:
   produzir:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # ~25 min/video x 10 videos = 250 min; 300 da folga para retomadas.
+    timeout-minutes: 300
 
     steps:
       - uses: actions/checkout@v4
@@ -69,10 +75,29 @@ jobs:
           MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
           MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: |
+          FORMATO="${{ inputs.formato || 'longo' }}"
+          QUANTIDADE="${{ inputs.quantidade || '10' }}"
+          # quantidade=0 ou vazio -> 10; titulo especifico -> 1 video direto
+          [ "$QUANTIDADE" = "0" ] && QUANTIDADE=10
+
           if [ -n "${{ inputs.titulo }}" ]; then
-            maquina produzir "${{ inputs.titulo }}" --formato "${{ inputs.formato || 'longo' }}"
+            maquina produzir "${{ inputs.titulo }}" --formato "$FORMATO"
           else
-            maquina auto --formato "${{ inputs.formato || 'longo' }}"
+            OK=0
+            FAIL=0
+            for i in $(seq 1 "$QUANTIDADE"); do
+              echo ""
+              echo "=== Produzindo video $i de $QUANTIDADE (eixo rotativo) ==="
+              if maquina auto --formato "$FORMATO"; then
+                OK=$((OK+1))
+              else
+                echo "Video $i falhou — continuando o lote..."
+                FAIL=$((FAIL+1))
+              fi
+            done
+            echo ""
+            echo "=== Lote concluido: $OK produzidos, $FAIL falharam ==="
+            [ "$OK" -eq 0 ] && exit 1 || exit 0
           fi
 
       - name: Listar producao
