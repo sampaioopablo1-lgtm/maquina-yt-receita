@@ -172,6 +172,30 @@ def publicar(
             # Thumbnail custom exige canal verificado — nao e motivo para falhar o job.
             log.warning("thumbnail nao aplicada: %s", e)
 
+    if video.legenda_path and Path(video.legenda_path).exists():
+        try:
+            yt.captions().insert(
+                part="snippet",
+                body={
+                    "snippet": {
+                        "videoId": video_id,
+                        "language": cfg.canal.idioma,
+                        "name": "",
+                        "isDraft": False,
+                    }
+                },
+                media_body=MediaFileUpload(
+                    video.legenda_path,
+                    mimetype="application/octet-stream",
+                    resumable=False,
+                ),
+            ).execute()
+            log.info("legenda enviada: %s", video.legenda_path)
+        except HttpError as e:
+            # Legenda falha se o canal nao tiver a permissao de caption habilitada
+            # ou se o token nao cobrir o escopo — nao e motivo para abortar o job.
+            log.warning("legenda nao enviada: %s", e)
+
     return video_id
 
 

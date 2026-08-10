@@ -10,6 +10,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
+from pathlib import Path
 
 from ..config import Config
 from ..models import Formato, Video
@@ -85,6 +86,13 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
         r.alertar("descricao vazia")
     if not video.thumbnail_path:
         r.alertar("sem thumbnail — CTR e o segundo pilar, nao publique sem ela")
+
+    # 5b. Legenda: caption=false prejudica acessibilidade e ranking de pesquisa.
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        r.alertar(
+            "sem legenda (.srt) — o video sera publicado com caption=false; "
+            "gere legendas antes de publicar"
+        )
 
     # 6. Divulgacao de conteudo sintetico: informativo, nao bloqueia.
     if video.conteudo_sintetico:
