@@ -268,6 +268,42 @@ class TTSModal:
         return saida
 
 
+class TTSEdge:
+    """Microsoft Edge TTS — gratuito, sem chave de API.
+
+    Voz padrao: id-ID-ArdiNeural (indonesio masculino, natural).
+    Lista completa: `edge-tts --list` ou docs/09-voz-gratuita.md.
+    Qualidade inferior ao clone de voz do operador, mas plenamente usavel para
+    validar o roteiro e medir retencao antes de investir em TTS pago.
+    """
+
+    custo_usd = 0.0
+
+    def __init__(self, voz: str = "id-ID-ArdiNeural"):
+        try:
+            import edge_tts  # noqa: F401
+        except ImportError:
+            raise ErroProvider(
+                "edge-tts nao instalado — `pip install edge-tts` ou "
+                "`pip install -e '.[gratuito]'`"
+            )
+        self.voz = voz
+
+    def sintetizar(self, texto: str, saida: Path, *, voice_id: str = "") -> Path:
+        import asyncio
+        import edge_tts
+
+        voz = voice_id or self.voz
+        saida.parent.mkdir(parents=True, exist_ok=True)
+
+        async def _gerar():
+            communicate = edge_tts.Communicate(texto, voz)
+            await communicate.save(str(saida))
+
+        asyncio.run(_gerar())
+        return saida
+
+
 class TTSOpenAI:
     def __init__(self, modelo: str = "gpt-4o-mini-tts", voz: str = "onyx"):
         self.modelo = modelo

@@ -67,8 +67,10 @@ def obter_tts(cfg: Config) -> TTS:
 
         return TTSLote()
     try:
-        from .reais import TTSElevenLabs, TTSFishAudio, TTSModal, TTSOpenAI
+        from .reais import TTSEdge, TTSElevenLabs, TTSFishAudio, TTSModal, TTSOpenAI
 
+        if cfg.tts_provider == "edge":
+            return TTSEdge(cfg.canal.voz_edge or "id-ID-ArdiNeural")
         if cfg.tts_provider == "modal":
             return TTSModal()
         if cfg.tts_provider == "fish":
