@@ -336,6 +336,32 @@ class TTSOpenAI:
         return saida
 
 
+class ImagemPollinations:
+    """Geracao de imagem via Pollinations.AI — gratuito, sem chave de API.
+
+    API publica: GET https://image.pollinations.ai/prompt/{prompt}
+    Parametros: width, height, model (flux), nologo=true, seed.
+    Qualidade cinematografica real; adequada para as cenas do canal.
+    """
+
+    custo_usd = 0.0
+
+    def gerar(self, prompt: str, saida: Path, *, largura: int, altura: int) -> Path:
+        import urllib.parse
+
+        prompt_enc = urllib.parse.quote(prompt[:500])
+        url = (
+            f"https://image.pollinations.ai/prompt/{prompt_enc}"
+            f"?width={largura}&height={altura}&model=flux&nologo=true&seed=42"
+        )
+        r = httpx.get(url, timeout=120.0, follow_redirects=True)
+        if r.status_code >= 400:
+            raise ErroProvider(f"Pollinations {r.status_code}: {r.text[:200]}")
+        saida.parent.mkdir(parents=True, exist_ok=True)
+        saida.write_bytes(r.content)
+        return saida
+
+
 class ImagemOpenAI:
     def __init__(self, modelo: str = "gpt-image-1"):
         self.modelo = modelo

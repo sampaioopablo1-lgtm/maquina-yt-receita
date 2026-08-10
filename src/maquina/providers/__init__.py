@@ -88,8 +88,10 @@ def obter_imagem(cfg: Config) -> GeradorImagem:
     if cfg.image_provider == "stub":
         return ImagemStub()
     try:
-        from .reais import ImagemOpenAI
+        from .reais import ImagemOpenAI, ImagemPollinations
 
+        if cfg.image_provider == "pollinations":
+            return ImagemPollinations()
         if cfg.image_provider == "openai":
             return ImagemOpenAI(cfg.image_model)
         raise ErroProvider(f"image_provider desconhecido: {cfg.image_provider}")

@@ -92,9 +92,10 @@ thumbnail_provider: "canva"
 #   quando o canal tiver receita e justificar o clone de voz.
 # Alternativas pagas: modal (Chatterbox, free tier Modal) | fish | elevenlabs | openai.
 tts_provider: "edge"
-# stub: usa PIL local — gratuito. Troque por "openai" (gpt-image-1) quando a
-# monetizacao cobrir o custo de imagem (~US$0,04/imagem).
-image_provider: "stub"
+# pollinations: Pollinations.AI — GRATUITO, sem chave, imagens Flux cinematograficas.
+# Troque por "openai" (gpt-image-1, ~US$0,04/imagem) quando quiser controle total
+# de prompt e resolucao customizada.
+image_provider: "pollinations"
 llm_model: "gemini-flash-latest"      # usado se llm_provider=gemini
 tts_model: "eleven_multilingual_v2"   # usado apenas se tts_provider=elevenlabs
 image_model: "gpt-image-1"            # usado apenas se image_provider=openai

@@ -659,6 +659,10 @@ def doctor():
         "[green]ok[/]" if canva_ok() else "[yellow]nao conf[/]",
         "thumbnail via API" if canva_ok() else "falta CANVA_CLIENT_ID/SECRET/TEMPLATE_ID",
     )
+    tabela.add_row(
+        "thumbnail_provider", cfg.thumbnail_provider,
+        "image_provider=" + cfg.image_provider,
+    )
 
     tabela.add_row("Canal", cfg.canal.nome, f"idioma={cfg.canal.idioma}")
     tabela.add_row("Revisao humana", "on" if cfg.publicacao.exigir_revisao else "off",
