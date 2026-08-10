@@ -34,8 +34,7 @@ jobs:
             -f lavfi -i color=c=black:size=1080x1920:rate=30 \
             -f lavfi -i anullsrc=r=44100:cl=stereo \
             -t 3 \
-            -vf "drawtext=text='Setiap Level':fontsize=100:fontcolor=white:x=(w-text_w)/2:y=(h-text_h)/2-80,\
-drawtext=text='Pipeline Test':fontsize=60:fontcolor=gray:x=(w-text_w)/2:y=(h-text_h)/2+40" \
+            -vf scale=1080:1920 \
             -c:v libx264 -pix_fmt yuv420p \
             -c:a aac -shortest \
             out/teste-pipeline-shorts/final.mp4
