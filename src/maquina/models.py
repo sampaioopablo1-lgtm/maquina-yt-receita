@@ -39,6 +39,9 @@ class Status(str, Enum):
     RENDERIZADO = "renderizado"
     AGUARDANDO_REVISAO = "aguardando_revisao"
     APROVADO = "aprovado"
+    # Aliases legados do Supabase — gerados por workflows externos.
+    LISTADO_PARA_PUBLICACAO = "listado_para_publicacao"
+    CANCELADO = "cancelado"
     PUBLICADO = "publicado"
     REJEITADO = "rejeitado"
     ERRO = "erro"

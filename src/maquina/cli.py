@@ -652,6 +652,14 @@ def doctor():
         "[green]ok[/]" if sincronizacao.configurado() else "[yellow]so local[/]",
         "estado espelhado" if sincronizacao.configurado() else "SUPABASE_URL ausente",
     )
+
+    from .providers.canva import configurado as canva_ok
+    tabela.add_row(
+        "Canva",
+        "[green]ok[/]" if canva_ok() else "[yellow]nao conf[/]",
+        "thumbnail via API" if canva_ok() else "falta CANVA_CLIENT_ID/SECRET/TEMPLATE_ID",
+    )
+
     tabela.add_row("Canal", cfg.canal.nome, f"idioma={cfg.canal.idioma}")
     tabela.add_row("Revisao humana", "on" if cfg.publicacao.exigir_revisao else "off",
                    f"max {cfg.publicacao.max_por_dia}/dia")
