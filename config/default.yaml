@@ -82,6 +82,10 @@ publicacao:
 # auto: usa a primeira chave disponivel — Anthropic > Gemini (free tier,
 # aistudio.google.com) > OpenAI. Sem nenhuma, cai no stub offline.
 llm_provider: "auto"
+# "canva" usa Canva Connect API para thumbnail (CTR maior).
+# Requer CANVA_CLIENT_ID + CANVA_CLIENT_SECRET + CANVA_TEMPLATE_ID no GitHub Secrets.
+# Instrucoes: docs/21-canva-thumbnail.md
+thumbnail_provider: "canva"
 # modal: narracao AUTOMATICA e gratuita — o mesmo Chatterbox indonesio, como
 # servico serverless que o Actions chama sozinho (free tier US$30/mes do Modal
 # cobre o ritmo diario). Setup unico: infra/modal_tts.py. Docs: 09-voz-gratuita.md

@@ -98,7 +98,12 @@ class Pipeline:
         video.video_path, video.duracao_s = str(caminho), dur
 
         video.thumbnail_path = str(
-            render.montar_thumbnail(self.imagem, video.roteiro, destino)
+            render.montar_thumbnail(
+                self.imagem,
+                video.roteiro,
+                destino,
+                usar_canva=self.cfg.thumbnail_provider == "canva",
+            )
         )
         video.status = Status.RENDERIZADO
         video.custo_usd = self.custo_usd

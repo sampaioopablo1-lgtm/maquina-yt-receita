@@ -70,18 +70,34 @@ def montar(
 
 
 def montar_thumbnail(
-    gerador: GeradorImagem, roteiro: Roteiro, destino: Path
+    gerador: GeradorImagem, roteiro: Roteiro, destino: Path, *, usar_canva: bool = False
 ) -> Path:
     """Thumbnail no padrao validado: imagem de fundo + texto curto no topo.
 
     Ver docs/02-playbook-youtube.md — texto de ate 3 palavras, alto contraste,
     legivel em tela de celular.
+
+    Quando `usar_canva=True` e CANVA_CLIENT_ID/SECRET/TEMPLATE_ID estao definidos,
+    o fundo e gerado normalmente pelo provider de imagem, mas o layout final do
+    thumbnail (tipografia, composicao editorial) vem do Canva — resultado muito
+    mais proximo do que creators profissionais publicam, com CTR maior.
+    Fallback automatico para PIL se Canva falhar ou nao estiver configurado.
     """
     largura, altura = 1280, 720
     fundo = destino / "thumb_fundo.png"
     if not fundo.exists():
         prompt = roteiro.prompt_thumbnail or f"cinematic background for: {roteiro.titulo}"
         gerador.gerar(prompt, fundo, largura=largura, altura=altura)
+
+    if usar_canva:
+        try:
+            from ..providers.canva import configurado as canva_ok, gerar_thumbnail
+            if canva_ok():
+                texto = " ".join((roteiro.texto_thumbnail or roteiro.titulo).split()[:4]).upper()
+                return gerar_thumbnail(texto, fundo, destino / "thumbnail.jpg")
+            log.info("canva nao configurado (secrets ausentes) — fallback para PIL")
+        except Exception as e:
+            log.warning("canva falhou (%s) — fallback para PIL", e)
 
     # fit = cover centrado: preenche 1280x720 sem distorcer nem deixar barra.
     # resize() puro esticaria um fundo 9:16 — foi o bug do primeiro teste.

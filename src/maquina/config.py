@@ -65,6 +65,10 @@ class Config(BaseModel):
     llm_provider: str = "anthropic"
     tts_provider: str = "elevenlabs"
     image_provider: str = "openai"
+    # "canva" usa o Canva Connect API para o thumbnail final (layout editorial
+    # profissional, maior CTR). Requer CANVA_CLIENT_ID, CANVA_CLIENT_SECRET e
+    # CANVA_TEMPLATE_ID. Qualquer outro valor usa PIL+OpenAI.
+    thumbnail_provider: str = "openai"
 
     llm_model: str = "claude-sonnet-4-5"
     tts_model: str = "eleven_multilingual_v2"
