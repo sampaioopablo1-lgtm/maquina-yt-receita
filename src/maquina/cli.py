@@ -158,6 +158,36 @@ def publicar(
 
 
 @app.command()
+def legendar(slug: str):
+    """Envia o .srt como faixa de legenda para um video ja publico no YouTube.
+
+    Rode APOS o video ficar publico ou nao-listado — a API do YouTube rejeita
+    captions em videos privados ou ainda em processamento.
+    """
+    from .stages.youtube import enviar_legenda
+
+    cfg = _cfg()
+    p = Pipeline(cfg)
+    video = p.store.obter(slug)
+    if not video:
+        console.print(f"[red]nao encontrei '{slug}'[/]")
+        raise typer.Exit(1)
+    if not video.youtube_id:
+        console.print("[red]video nao publicado no YouTube[/]")
+        raise typer.Exit(1)
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        console.print(f"[red]legenda nao encontrada: {video.legenda_path}[/]")
+        raise typer.Exit(1)
+
+    try:
+        enviar_legenda(video, cfg)
+        console.print(f"[green]Legenda enviada para https://youtu.be/{video.youtube_id}[/]")
+    except Exception as e:
+        console.print(f"[red]{e}[/]")
+        raise typer.Exit(1)
+
+
+@app.command()
 def retomar(slug: str):
     """Continua um video interrompido, sem refazer o que ja existe."""
     p = Pipeline(_cfg())

@@ -17,6 +17,13 @@ ESCOPOS = [
     "https://www.googleapis.com/auth/yt-analytics.readonly",
 ]
 
+# Escopo adicional obrigatorio para captions.insert.
+# Nao esta em ESCOPOS pois alteraria o token de publicacao ja emitido.
+# Para habilitar `maquina legendar`, reautentique com:
+#   ESCOPOS_CAPTIONS = ESCOPOS + ["https://www.googleapis.com/auth/youtube.force-ssl"]
+# e gere um novo token via `maquina auth-youtube`.
+_ESCOPO_CAPTIONS = "https://www.googleapis.com/auth/youtube.force-ssl"
+
 
 def _credenciais(cfg: Config, permitir_interativo: bool = False):
     from google.auth.transport.requests import Request
@@ -56,8 +63,28 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
 
 
 def autenticar(cfg: Config) -> Path:
-    """Fluxo OAuth interativo, executado uma vez pelo operador."""
-    _credenciais(cfg, permitir_interativo=True)
+    """Fluxo OAuth interativo, executado uma vez pelo operador.
+
+    Pede ESCOPOS + force-ssl de uma vez, para que o mesmo token sirva
+    tanto para publicar quanto para `maquina legendar` (captions.insert).
+    Tokens antigos sem force-ssl continuam funcionando para publicacao;
+    so o comando `legendar` requer o novo token.
+    """
+    from google_auth_oauthlib.flow import InstalledAppFlow
+
+    escopos_completos = ESCOPOS + [_ESCOPO_CAPTIONS]
+
+    if not cfg.yt_client_secret.exists():
+        raise FileNotFoundError(
+            f"client secret ausente em {cfg.yt_client_secret}. "
+            "Google Cloud Console > OAuth client ID > Desktop app."
+        )
+    flow = InstalledAppFlow.from_client_secrets_file(
+        str(cfg.yt_client_secret), escopos_completos
+    )
+    cred = flow.run_local_server(port=0)
+    cfg.yt_token.parent.mkdir(parents=True, exist_ok=True)
+    cfg.yt_token.write_text(cred.to_json(), encoding="utf-8")
     log.info("token salvo em %s", cfg.yt_token)
     return cfg.yt_token
 
@@ -172,31 +199,50 @@ def publicar(
             # Thumbnail custom exige canal verificado — nao e motivo para falhar o job.
             log.warning("thumbnail nao aplicada: %s", e)
 
-    if video.legenda_path and Path(video.legenda_path).exists():
-        try:
-            yt.captions().insert(
-                part="snippet",
-                body={
-                    "snippet": {
-                        "videoId": video_id,
-                        "language": cfg.canal.idioma,
-                        "name": "",
-                        "isDraft": False,
-                    }
-                },
-                media_body=MediaFileUpload(
-                    video.legenda_path,
-                    mimetype="application/octet-stream",
-                    resumable=False,
-                ),
-            ).execute()
-            log.info("legenda enviada: %s", video.legenda_path)
-        except HttpError as e:
-            # Legenda falha se o canal nao tiver a permissao de caption habilitada
-            # ou se o token nao cobrir o escopo — nao e motivo para abortar o job.
-            log.warning("legenda nao enviada: %s", e)
-
     return video_id
+
+
+def enviar_legenda(video: Video, cfg: Config) -> None:
+    """Envia o arquivo .srt como faixa de legenda do video no YouTube.
+
+    Deve ser chamado APOS o video estar publico ou nao-listado — a API
+    rejeita captions.insert em videos privados ou ainda em processamento.
+    """
+    from googleapiclient.errors import HttpError
+    from googleapiclient.http import MediaFileUpload
+
+    if not video.youtube_id:
+        raise ValueError("video sem youtube_id — nao foi publicado")
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        raise FileNotFoundError(f"legenda nao encontrada: {video.legenda_path}")
+
+    yt = _servico(cfg)
+    try:
+        yt.captions().insert(
+            part="snippet",
+            body={
+                "snippet": {
+                    "videoId": video.youtube_id,
+                    "language": cfg.canal.idioma,
+                    "name": "",
+                    "isDraft": False,
+                }
+            },
+            media_body=MediaFileUpload(
+                video.legenda_path,
+                mimetype="application/octet-stream",
+                resumable=False,
+            ),
+        ).execute()
+        log.info("legenda enviada para %s: %s", video.youtube_id, video.legenda_path)
+    except HttpError as e:
+        # 403 = video ainda privado ou escopo de caption ausente no token.
+        raise RuntimeError(
+            f"legenda rejeitada pela API ({e.status_code}): "
+            "o video precisa estar publico ou nao-listado, "
+            "e o token deve ter sido gerado com o escopo youtube.force-ssl. "
+            "Reautentique com `maquina auth-youtube` e tente novamente."
+        ) from e
 
 
 def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
