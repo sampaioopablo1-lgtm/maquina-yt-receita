@@ -163,6 +163,9 @@ def legendar(slug: str):
 
     Rode APOS o video ficar publico ou nao-listado — a API do YouTube rejeita
     captions em videos privados ou ainda em processamento.
+
+    Se o arquivo .srt nao existir localmente, regenera a partir do roteiro
+    armazenado — util ao rodar em ambiente de CI sem o artefato original.
     """
     from .stages.youtube import enviar_legenda
 
@@ -175,9 +178,22 @@ def legendar(slug: str):
     if not video.youtube_id:
         console.print("[red]video nao publicado no YouTube[/]")
         raise typer.Exit(1)
+
+    # Regenera o SRT se o arquivo nao existir — acontece em ambientes de CI
+    # onde out/ nao e persistido entre runs, mas o roteiro esta no banco.
     if not video.legenda_path or not Path(video.legenda_path).exists():
-        console.print(f"[red]legenda nao encontrada: {video.legenda_path}[/]")
-        raise typer.Exit(1)
+        if not video.roteiro or not any(c.duracao_s for c in video.roteiro.cenas):
+            console.print(
+                "[red]legenda nao encontrada e roteiro sem duracoes de cena — "
+                "e necessario ter o arquivo .srt original ou o roteiro completo no banco[/]"
+            )
+            raise typer.Exit(1)
+        from .stages.producao import gerar_legendas
+        destino = video.dir(cfg.out_dir) / "legendas.srt"
+        gerar_legendas(video.roteiro, destino)
+        video.legenda_path = str(destino)
+        p.store.salvar(video)
+        console.print(f"[yellow]Legenda regenerada:[/] {destino}")
 
     try:
         enviar_legenda(video, cfg)

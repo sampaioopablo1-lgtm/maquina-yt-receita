@@ -1,0 +1,80 @@
+name: Enviar Legenda ao YouTube
+
+# Rode DEPOIS que o video ficar publico ou nao-listado no YouTube.
+# A API rejeita captions em videos privados ou ainda em processamento.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Slug do video (ex: setiap-level-005)"
+        type: string
+        required: true
+      canal:
+        description: "Canal do video (ex: setiap-level)"
+        type: string
+        required: true
+
+jobs:
+  legendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar
+        run: pip install -e .
+
+      - name: Restaurar estado local
+        uses: actions/cache@v4
+        with:
+          path: data
+          key: maquina-estado-${{ github.run_id }}
+          restore-keys: maquina-estado-
+
+      - name: Sincronizar com Supabase (puxa roteiro e youtube_id)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
+
+      - name: Verificar video no banco
+        run: maquina listar
+
+      - name: Restaurar credencial do YouTube
+        env:
+          YT_TOKEN_AGLA_LEVEL: ${{ secrets.YT_TOKEN_AGLA_LEVEL }}
+          YT_TOKEN_COCINA_POR_NIVELES: ${{ secrets.YT_TOKEN_COCINA_POR_NIVELES }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          YT_TOKEN_NEXT_LEVEL_MONEY: ${{ secrets.YT_TOKEN_NEXT_LEVEL_MONEY }}
+          YT_TOKEN_NIVEL_DO_JOGO: ${{ secrets.YT_TOKEN_NIVEL_DO_JOGO }}
+          YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
+          YT_TOKEN_SEVIYE_SEVIYE: ${{ secrets.YT_TOKEN_SEVIYE_SEVIYE }}
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+        run: |
+          CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
+          TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
+          TOKEN="${!TOKEN_VAR}"
+          if [ -z "$TOKEN" ]; then
+            TOKEN="$YT_TOKEN_JSON"
+          fi
+          if [ -z "$TOKEN" ]; then
+            echo "Erro: nenhum token encontrado para canal '${{ inputs.canal }}'"
+            exit 1
+          fi
+          mkdir -p secrets
+          printf '%s' "$TOKEN" > secrets/youtube_token.json
+          echo "Credencial restaurada para canal: ${{ inputs.canal }}"
+
+      - name: Enviar legenda
+        run: maquina legendar "${{ inputs.slug }}"
+
+      - name: Limpar credencial
+        if: always()
+        run: rm -f secrets/youtube_token.json
