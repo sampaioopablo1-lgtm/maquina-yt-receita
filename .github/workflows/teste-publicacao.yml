@@ -27,16 +27,17 @@ jobs:
       - name: Instalar
         run: pip install -e .
 
+      - name: Instalar ffmpeg
+        run: sudo apt-get install -y ffmpeg -qq
+
       - name: Criar video de teste (3s, 1080x1920 SHORTS)
         run: |
           mkdir -p out/teste-pipeline-shorts
           ffmpeg -y \
             -f lavfi -i color=c=black:size=1080x1920:rate=30 \
-            -f lavfi -i anullsrc=r=44100:cl=stereo \
             -t 3 \
-            -vf scale=1080:1920 \
             -c:v libx264 -pix_fmt yuv420p \
-            -c:a aac -shortest \
+            -an \
             out/teste-pipeline-shorts/final.mp4
           echo "--- arquivo gerado ---"
           ls -lh out/teste-pipeline-shorts/final.mp4
