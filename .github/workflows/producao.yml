@@ -47,12 +47,11 @@ jobs:
       - name: Instalar
         run: pip install -e .
 
-      - name: Restaurar estado
-        uses: actions/cache@v4
-        with:
-          path: data
-          key: maquina-estado-${{ github.run_id }}
-          restore-keys: maquina-estado-
+      - name: Puxar historico do Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
 
       - name: Diagnostico do ambiente
         env:

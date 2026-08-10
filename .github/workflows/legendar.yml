@@ -30,13 +30,6 @@ jobs:
       - name: Instalar
         run: pip install -e .
 
-      - name: Restaurar estado local
-        uses: actions/cache@v4
-        with:
-          path: data
-          key: maquina-estado-${{ github.run_id }}
-          restore-keys: maquina-estado-
-
       - name: Sincronizar com Supabase (puxa roteiro e youtube_id)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

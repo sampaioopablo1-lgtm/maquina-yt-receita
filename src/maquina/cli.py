@@ -132,9 +132,20 @@ def publicar(
     if not video:
         console.print(f"[red]nao encontrei '{slug}'[/]")
         raise typer.Exit(1)
+
+    # Supabase nao armazena video_path (caminho local efemero). Quando o estado
+    # vem do banco e o artefato foi baixado para out/, reconstroi o caminho.
     if not video.video_path or not Path(video.video_path).exists():
-        console.print("[red]video ainda nao renderizado[/]")
-        raise typer.Exit(1)
+        candidato = cfg.out_dir / video.slug / "final.mp4"
+        if candidato.exists():
+            video.video_path = str(candidato)
+            thumb = cfg.out_dir / video.slug / "thumbnail.jpg"
+            if thumb.exists():
+                video.thumbnail_path = str(thumb)
+            p.store.salvar(video)
+        else:
+            console.print("[red]video ainda nao renderizado[/]")
+            raise typer.Exit(1)
 
     res = p.verificar(video)
     for a in res.alertas:
