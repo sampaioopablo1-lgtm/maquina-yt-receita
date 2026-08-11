@@ -83,6 +83,12 @@ PASSO 3 — REGISTRO: insert em videos (fonte_pauta, duração real, youtube_id,
 PASSO 4 — APRENDA. Ao fim de todo disparo grave: o que quebrou → `aprendizados` com evidência numérica e `aplicado_em`; o que foi palpite → `experimentos`; o que mediu → `pautas_banco`. Regra contrariada vira `status='invalidado'` com motivo, nunca apagada.
 NÃO conclua desempenho com menos de 48h de vida. Compare views/dia entre vídeos de idade parecida.
 
+PASSO 5 — ANALISE E TENDÊNCIAS (1x por dia, no primeiro disparo após 06:00 UTC):
+- RESULTADOS: colete views/likes/comments de TODOS os vídeos publicados via videos.list (part=statistics, lotes de 50) e grave snapshot em `metricas`. Compare views/dia entre vídeos de idade parecida do MESMO canal; ganhador/perdedor vira linha em `pautas_banco` (veredito) e, com 48h+ de dados, `aprendizados`.
+- OTIMIZE O PRÓXIMO: o que o ganhador fez (estrutura de título, gancho, duração, eixo) entra na spec seguinte do canal; o que o perdedor fez não se repete sem mudança. Registre a decisão em `experimentos` quando for aposta.
+- MERCADO/TENDÊNCIAS (rotativo, 1 canal por dia): WebSearch de tendências do nicho no idioma (dores novas datadas, mudanças de lei, datas sazonais próximas) + 1 busca YouTube de outliers da SEMANA (não 90 dias) para capturar ondas cedo. Grave em `pautas_banco` com observacao='tendencia-semanal'.
+- PADRÕES DE EXCELÊNCIA (validados 2026-08-11): pattern interrupt nos primeiros 5s (+23% retenção vs abertura estática); loop de retenção a cada 15-30s (pergunta aberta/promessa); estrutura problema→conflito→resolução; CTR e watch time mandam — rosto não. Marcação de IA NÃO reduz alcance nem monetização (política oficial); o risco real é a política de "conteúdo inautêntico" (jul/2025): produção em massa templated sem voz editorial. Antídoto: pesquisa própria com números datados, voz editorial consistente por canal, variedade de formatos. Tração típica: 30-50 uploads; YPP ~12 meses em nicho de retenção alta.
+
 NUNCA criar novos triggers.
 
 Resposta final: canal → título → duração real → fonte da pauta (views/dia) → link do YouTube → links do Drive → "estoque: X/50".
