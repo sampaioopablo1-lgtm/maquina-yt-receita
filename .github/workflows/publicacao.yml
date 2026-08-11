@@ -21,6 +21,18 @@ on:
         type: choice
         options: [public, unlisted, private]
         default: public
+      video_url:
+        description: "URL publica do mp4 (Supabase Storage) — baixado para out/<canal>/<slug>/final.mp4"
+        type: string
+        default: ""
+      thumb_url:
+        description: "URL publica da thumbnail (png/jpg)"
+        type: string
+        default: ""
+      legendar:
+        description: "Enviar legenda .srt apos publicar (regenerada do roteiro)"
+        type: boolean
+        default: false
 
 concurrency:
   group: publicacao
@@ -72,7 +84,10 @@ jobs:
             exit 1
           fi
           mkdir -p secrets
+          # Config.load isola o token por canal (youtube_token_<slug>.json)
+          # quando MAQ_CANAL esta definido; grava nos dois caminhos.
           printf '%s' "$TOKEN" > secrets/youtube_token.json
+          printf '%s' "$TOKEN" > "secrets/youtube_token_${{ inputs.canal }}.json"
           test -s secrets/youtube_token.json || { echo "token vazio"; exit 1; }
           echo "Credencial restaurada para canal: ${{ inputs.canal }}"
 
@@ -80,7 +95,21 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
         run: maquina sincronizar
+
+      - name: Baixar artefatos do Supabase Storage
+        if: inputs.video_url != ''
+        run: |
+          DEST="out/${{ inputs.canal }}/${{ inputs.slug }}"
+          mkdir -p "$DEST"
+          curl -sfL --max-time 300 "${{ inputs.video_url }}" -o "$DEST/final.mp4"
+          test -s "$DEST/final.mp4" || { echo "download do video falhou"; exit 1; }
+          echo "video: $(du -h "$DEST/final.mp4" | cut -f1)"
+          if [ -n "${{ inputs.thumb_url }}" ]; then
+            curl -sfL --max-time 120 "${{ inputs.thumb_url }}" -o "$DEST/thumbnail.jpg"
+            echo "thumbnail: $(du -h "$DEST/thumbnail.jpg" | cut -f1)"
+          fi
 
       - name: Publicar
         env:
@@ -90,19 +119,30 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
         run: |
           maquina publicar "${{ inputs.slug }}" \
             --em-horas "${{ inputs.em_horas }}" \
             --privacidade "${{ inputs.privacidade }}" \
             --yes
 
+      - name: Enviar legenda
+        if: inputs.legendar
+        continue-on-error: true
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: maquina legendar "${{ inputs.slug }}"
+
       - name: Sincronizar resultado de volta ao Supabase
         if: always()
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
         run: maquina sincronizar
 
       - name: Limpar credencial
         if: always()
-        run: rm -f secrets/youtube_token.json
+        run: rm -f secrets/youtube_token.json "secrets/youtube_token_${{ inputs.canal }}.json"

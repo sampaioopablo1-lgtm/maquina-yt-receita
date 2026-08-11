@@ -4,6 +4,7 @@ canal:
   nome: "Kolejny Poziom"
   handle: "@KolejnyPoziom-kp"
   idioma: "pl"
+  categoria_id: "27"  # Educacao — padrao da maquina para os longos
   tema: "finanse osobiste i kariera"
   estilo_visual: "voxlite"
   voz_edge: "pl-PL-MarekNeural"
