@@ -61,13 +61,32 @@ def produzir(
     titulo: str = typer.Argument(..., help="Titulo da pauta"),
     angulo: str = typer.Option("", help="Angulo editorial"),
     formato: Formato = typer.Option(Formato.LONGO),
+    publicar_apos: bool = typer.Option(False, "--publicar", help="publica se passar nas checagens"),
 ):
-    """Produz um video da ideia ate o MP4 (nao publica)."""
-    p = Pipeline(_cfg())
+    """Produz um video da ideia ate o MP4 (opcionalmente publica em seguida)."""
+    cfg = _cfg()
+    p = Pipeline(cfg)
     video = p.produzir(Ideia(titulo=titulo, angulo=angulo, formato=formato))
     console.print(f"[green]OK[/] {video.video_path}")
     console.print(f"Duracao: {video.duracao_s:.1f}s | Custo: US$ {video.custo_usd:.4f}")
-    console.print(f"Revise e publique: [bold]maquina publicar {video.slug}[/]")
+
+    if publicar_apos:
+        res = p.verificar(video)
+        for a in res.alertas:
+            console.print(f"[yellow]alerta:[/] {a}")
+        if not res.aprovado:
+            for b in res.bloqueios:
+                console.print(f"[red]bloqueio:[/] {b}")
+            raise typer.Exit(2)
+        if cfg.publicacao.exigir_revisao:
+            console.print("Aguardando revisao humana: [bold]maquina publicar "
+                          f"{video.slug}[/]")
+            return
+        quando = datetime.now().astimezone() + timedelta(hours=3)
+        p.publicar(video, agendar_para=quando)
+        console.print(f"[green]Agendado[/] para {quando:%d/%m %H:%M}")
+    else:
+        console.print(f"Revise e publique: [bold]maquina publicar {video.slug}[/]")
 
 
 @app.command()
