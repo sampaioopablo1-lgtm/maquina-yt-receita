@@ -2,7 +2,7 @@
 # handle: preencher quando o canal for criado no YouTube Studio.
 canal:
   nome: "Game Money Lab"
-  handle: ""
+  handle: "@GameMoneyLab-new"
   idioma: "en"
   tema: "a economia dos games"
   estilo_visual: "voxlite"

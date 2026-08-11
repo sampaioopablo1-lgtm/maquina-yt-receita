@@ -2,7 +2,7 @@
 # handle: preencher quando o canal for criado no YouTube Studio.
 canal:
   nome: "Agla Level"
-  handle: ""
+  handle: "@AglaLevel"
   idioma: "hi"
   tema: "paisa, naukri aur career"
   estilo_visual: "doodle"

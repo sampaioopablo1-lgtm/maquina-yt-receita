@@ -2,7 +2,7 @@
 # handle: preencher quando o canal for criado no YouTube Studio.
 canal:
   nome: "Nivel do Jogo"
-  handle: ""
+  handle: "@NiveldoJogo"
   idioma: "pt-BR"
   tema: "a economia dos games"
   estilo_visual: "voxlite"

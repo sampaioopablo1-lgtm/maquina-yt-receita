@@ -2,7 +2,7 @@
 # handle: preencher quando o canal for criado no YouTube Studio.
 canal:
   nome: "Resep Naik Level"
-  handle: ""
+  handle: "@ResepNaikLevel"
   idioma: "id"
   tema: "masakan hemat dan uang dapur"
   estilo_visual: "doodle"
