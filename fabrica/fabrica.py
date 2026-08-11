@@ -199,8 +199,27 @@ def st(x):
 
 async def vozes(cenas, voz, pref, d):
     for i, c in enumerate(cenas):
-        com = edge_tts.Communicate(c["nar"], voz, rate="-4%")
-        await com.save(f"{d}/{pref}{i:02d}.mp3")
+        alvo = f"{d}/{pref}{i:02d}.mp3"
+        # RETOMA: mp3 valido nao se refaz — cada restart pos-crash custava
+        # ~10 min de TTS refeito do zero.
+        if os.path.exists(alvo) and os.path.getsize(alvo) > 1000:
+            continue
+        # O websocket do edge-tts ja pendurou sem erro nem timeout (15 min
+        # parado na cena 82 do setiap-006). wait_for + 3 tentativas.
+        for tentativa in range(3):
+            try:
+                com = edge_tts.Communicate(c["nar"], voz, rate="-4%")
+                await asyncio.wait_for(com.save(alvo), timeout=90)
+                if os.path.getsize(alvo) > 1000:
+                    break
+                raise RuntimeError(f"mp3 vazio: {alvo}")
+            except Exception:
+                try:
+                    os.remove(alvo)
+                except OSError:
+                    pass
+                if tentativa == 2:
+                    raise
 
 def dir_trabalho(sp):
     """Diretorio de trabalho do PACOTE, nao do canal.

@@ -27,6 +27,21 @@ import sys, os, json, glob, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fabrica as F
 
+
+def arquivo_valido(caminho, minimo):
+    """Um clipe parcial de um ffmpeg morto por SIGKILL passa no teste de
+    tamanho com conteudo corrompido — o F.dur() seguinte estoura e derruba o
+    RETOMA inteiro (lclip38 e lclip46 do setiap-006). Validar e barato;
+    apagar o invalido aqui faz o loop refazer so aquele clipe."""
+    if not (os.path.exists(caminho) and os.path.getsize(caminho) > minimo):
+        return False
+    try:
+        F.dur(caminho)
+        return True
+    except Exception:
+        os.remove(caminho)
+        return False
+
 if len(sys.argv) < 2:
     sys.exit("uso: python3 etapas.py <spec.json>")
 # Sem argumento obrigatorio isto ficava com um default fixo, e uma copia
@@ -78,7 +93,7 @@ RW, RH = F.render_wh(W, H)
 tempos = []
 for i, c in enumerate(cenas):
     saida = f"{d}/lclip{i:02d}.mp4"
-    if not (os.path.exists(saida) and os.path.getsize(saida) > 10000):
+    if not arquivo_valido(saida, 10000):
         dd = F.dur(f"{d}/l{i:02d}.mp3") + 0.5
         nf = max(int(dd * 30), 1)
         # Uma unica fonte para o clipe. Este loop ja teve copia propria da
@@ -119,7 +134,7 @@ crf = "29" if sum(tempos) >= 1100 else "26"
 meio = len(cenas) // 2
 for parte, (ini, fim) in enumerate(((0, meio), (meio, len(cenas))), start=1):
     saida = f"{d}/p{parte}.mp4"
-    if os.path.exists(saida) and os.path.getsize(saida) > 100000:
+    if arquivo_valido(saida, 100000):
         log(f"etapa 4: parte {parte} ja existe")
         continue
     lista = f"{d}/lista_p{parte}.txt"
@@ -186,7 +201,7 @@ if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") >
     SRW, SRH = F.render_wh(SW, SH)
     for i, c in enumerate(sp["short"]):
         saida = f"{d}/sclip{i:02d}.mp4"
-        if os.path.exists(saida) and os.path.getsize(saida) > 10000:
+        if arquivo_valido(saida, 10000):
             continue
         dd = F.dur(f"{d}/s{i:02d}.mp3") + 0.5
         with open(f"{d}/s{i:02d}.srt", "w") as srt:
