@@ -105,12 +105,13 @@ por conteúdo repetitivo ou spam de automação. Publicar diariamente não viola
 política; produzir em massa com variação mínima, sim. Por isso o ritmo diário vem
 com pressão ativa por variação:
 
-- Teto de **3 publicações/dia** (a cota da API permite ~6)
+- Teto de **6 publicações/dia** (cota real da YouTube Data API, cron a cada 4h)
 - Roteiro **>65% similar** aos últimos 30 → bloqueia
 - **7 eixos temáticos rotacionados** — força variação estrutural na origem
 - Título quase idêntico a outro do canal → bloqueia
 - Divulgação de conteúdo sintético automática no upload
-- **Revisão humana obrigatória por padrão**
+- Publicação automática (`exigir_revisao: false`) — a barreira é a checagem de
+  compliance, não uma pausa manual
 
 Fundamentação e links das políticas oficiais: [`docs/03-compliance-monetizacao.md`](docs/03-compliance-monetizacao.md).
 

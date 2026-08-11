@@ -2,6 +2,15 @@
 
 > Escrito em 05/08/2026, quando ficou claro que este é o único gargalo real.
 
+> **Correção — 11/08/2026 (sessão de continuidade):** confirmado via Postgres do
+> Supabase (`vevocauwtarctfwngrch.canais.youtube_channel_id`) que **8 dos 9
+> canais listados abaixo já existem no YouTube** e têm `youtube_channel_id`
+> gravado — Agla Level, Epomeno Epipedo, Game Money Lab, Kolejny Poziom, Next
+> Level Money, Nível do Jogo, Resep Naik Level e Seviye Seviye. Só **Cocina por
+> Niveles** ainda está com `youtube_channel_id` nulo. O texto abaixo (tabela e
+> instruções de criação) descreve o estado de 05/08 e está desatualizado para
+> os outros 8 — mantido para histórico, não para ação.
+
 ## O diagnóstico, em uma linha
 
 **18 pacotes prontos, 0 publicáveis.** O canal que existe (`setiap-level`) tem
