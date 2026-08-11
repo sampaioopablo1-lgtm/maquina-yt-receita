@@ -28,7 +28,7 @@ class LimitesPublicacao(BaseModel):
     sozinhos se nao houver pressao ativa por variacao.
     """
 
-    max_por_dia: int = 3
+    max_por_dia: int = 6
     similaridade_max: float = 0.65
     exigir_revisao: bool = True
     janela_similaridade: int = 30
