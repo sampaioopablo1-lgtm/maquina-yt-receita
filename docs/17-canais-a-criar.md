@@ -1,6 +1,12 @@
 # Os 9 canais que faltam
 
 > Escrito em 05/08/2026, quando ficou claro que este é o único gargalo real.
+>
+> **Correção datada de 2026-08-11:** só falta 1 canal, não 9. Conferido em
+> `canais.youtube_channel_id` (Supabase `vevocauwtarctfwngrch`): 9 dos 10 canais do
+> portfólio já têm `youtube_channel_id` preenchido. Resta apenas `cocina-por-niveles`
+> — que, por coincidência, já era a prioridade 1 da tabela abaixo. O restante deste
+> documento fica pelo valor histórico (prioridade e contexto de cada canal).
 
 ## O diagnóstico, em uma linha
 

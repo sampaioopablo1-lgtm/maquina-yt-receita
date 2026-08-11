@@ -33,6 +33,12 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 
 ## 1. O gargalo, declarado
 
+> **Correção datada de 2026-08-11:** este parágrafo descreve o estado de 05/08 e está
+> desatualizado. Conferido direto em `canais.youtube_channel_id` (Supabase,
+> `vevocauwtarctfwngrch`): **9 dos 10 canais do portfólio já têm canal no YouTube.**
+> Só `cocina-por-niveles` segue com `youtube_channel_id` nulo — ver `docs/17-canais-a-criar.md`
+> (também desatualizado no mesmo sentido). O texto original abaixo fica pelo valor histórico.
+
 **Faltam 9 canais no YouTube.** Só `setiap-level` (`@setiaplevelid`) existe. É a única
 coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 16 dos 25
 pacotes no estoque (`v_maquina_estoque.aguardando_publicacao`, medido em 2026-08-05) —
