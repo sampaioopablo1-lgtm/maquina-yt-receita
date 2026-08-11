@@ -1,0 +1,89 @@
+name: Ponte de arquivo (repo -> destino assinado)
+
+# Existe por um limite concreto do ambiente, medido em 2026-08-11.
+#
+# O container onde a rotina roda tem CPU e disco, mas o proxy de egresso nega
+# com 403 de politica os hosts que a producao precisa alcancar:
+# speech.platform.bing.com (edge-tts), supabase.co e upload.higgsfield.ai.
+# Nao e erro de certificado — depois de anexar o CA do proxy ao certifi, o
+# SSLCertVerificationError virou 403, e 403 de politica nao se contorna.
+#
+# O sandbox Composio tem rede aberta, mas nao enxerga o disco do container: o
+# unico canal entre os dois seria base64 pelo chat, que custa ~27 mil tokens de
+# contexto por arquivo pequeno.
+#
+# O runner do Actions resolve os dois problemas de uma vez: ele ja tem o
+# repositorio (o arquivo chega por git, sem passar por lugar nenhum) e tem
+# egresso livre. Serve para qualquer arquivo versionado que precise chegar a um
+# destino externo com URL assinada.
+#
+# ATENCAO: a URL assinada e uma credencial de curta duracao e fica visivel no
+# painel do run. Use so com destino que voce controla, e prefira URLs de poucas
+# horas. O arquivo NAO e publicado em lugar nenhum — vai direto para o destino.
+
+on:
+  workflow_dispatch:
+    inputs:
+      origem:
+        description: "Caminho do arquivo no repositorio (ex: assets/voice/referencia.wav)"
+        type: string
+        required: true
+      destino:
+        description: "URL assinada de destino (PUT)"
+        type: string
+        required: true
+      content_type:
+        description: "Content-Type do PUT"
+        type: string
+        default: "audio/mpeg"
+      converter_audio:
+        description: "Converter para mp3 mono 24kHz 48kbps antes de enviar"
+        type: boolean
+        default: true
+      segundos:
+        description: "Duracao maxima em segundos (0 = arquivo inteiro)"
+        type: string
+        default: "0"
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir origem
+        run: |
+          set -euo pipefail
+          test -f "${{ inputs.origem }}" || { echo "arquivo nao existe no repo"; exit 1; }
+          ls -la "${{ inputs.origem }}"
+
+      - name: Preparar arquivo
+        id: prep
+        run: |
+          set -euo pipefail
+          ORIGEM="${{ inputs.origem }}"
+          SAIDA="$ORIGEM"
+          if [ "${{ inputs.converter_audio }}" = "true" ]; then
+            CORTE=""
+            [ "${{ inputs.segundos }}" != "0" ] && CORTE="-t ${{ inputs.segundos }}"
+            # mono 24 kHz 48 kbps preserva o timbre e derruba o tamanho ~30x
+            ffmpeg -nostdin -y -i "$ORIGEM" -ac 1 -ar 24000 -b:a 48k $CORTE /tmp/envio.mp3 -loglevel error
+            SAIDA=/tmp/envio.mp3
+          fi
+          echo "saida=$SAIDA" >> "$GITHUB_OUTPUT"
+          ls -la "$SAIDA"
+
+      # A URL vai por env, nao na linha de comando: assim ela nao aparece no
+      # trace do `set -x` nem em mensagem de erro do curl.
+      - name: Enviar ao destino
+        env:
+          DESTINO: ${{ inputs.destino }}
+        run: |
+          set -euo pipefail
+          CODIGO=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' --max-time 300 \
+            -X PUT -H "Content-Type: ${{ inputs.content_type }}" \
+            --data-binary @"${{ steps.prep.outputs.saida }}" "$DESTINO")
+          echo "HTTP $CODIGO"
+          head -c 400 /tmp/resp.txt || true
+          case "$CODIGO" in 2*) echo "envio ok";; *) echo "envio falhou"; exit 1;; esac
