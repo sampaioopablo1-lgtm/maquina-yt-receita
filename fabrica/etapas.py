@@ -27,6 +27,11 @@ import sys, os, json, glob, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fabrica as F
 
+
+def log(m):
+    print(m, flush=True)
+
+
 if len(sys.argv) < 2:
     sys.exit("uso: python3 etapas.py <spec.json>")
 # Sem argumento obrigatorio isto ficava com um default fixo, e uma copia
@@ -41,9 +46,27 @@ d = F.dir_trabalho(sp)
 # costurar dois roteiros num video so.
 assert d.endswith(sp.get("pacote") or sp["slug"]), f"dir {d} nao bate com {spec}"
 
-
-def log(m):
-    print(m, flush=True)
+# ---- trava contra relancamento concorrente (2 processos no mesmo workdir
+# dobram o consumo de RAM e um refaz o montar apagando o que o outro usa) ----
+os.makedirs(d, exist_ok=True)
+_lock = f"{d}/.etapas.lock"
+if os.path.exists(_lock):
+    _pid_antigo = open(_lock).read().strip()
+    _vivo = False
+    if _pid_antigo.isdigit():
+        try:
+            os.kill(int(_pid_antigo), 0)
+            _vivo = True
+        except (OSError, ProcessLookupError):
+            _vivo = False
+    if _vivo:
+        sys.exit(
+            f"etapas.py ja esta rodando neste workdir (pid {_pid_antigo}, {d}). "
+            f"pkill -f etapas.py, confirme com ps aux | grep python3, e relance UM."
+        )
+    log(f"lock orfao de pid {_pid_antigo} (processo morto) — assumindo o workdir")
+with open(_lock, "w") as f:
+    f.write(str(os.getpid()))
 
 
 # ------------------------------------------------- 0. a narracao, antes do TTS
@@ -75,17 +98,40 @@ log("etapa 2: clipes do longo")
 cenas = sp["longo"]
 W, H = 1280, 720
 RW, RH = F.render_wh(W, H)
+
+
+def _clipe_valido(caminho):
+    """None se o clipe precisa ser (re)gerado.
+
+    O tamanho (>10 KB) nao basta: um lclip parcial de um ffmpeg morto por
+    SIGKILL (OOM do tmpfs) tem tamanho valido e conteudo corrompido — o
+    F.dur() la embaixo levantava RuntimeError e derrubava o render de novo
+    no proximo RETOMA, no mesmo clipe. Decodificar aqui e apagar se falhar
+    faz o RETOMA regenerar em vez de morrer.
+    """
+    if not (os.path.exists(caminho) and os.path.getsize(caminho) > 10000):
+        return None
+    try:
+        return F.dur(caminho)
+    except RuntimeError:
+        log(f"  clipe corrompido, regerando: {caminho}")
+        os.remove(caminho)
+        return None
+
+
 tempos = []
 for i, c in enumerate(cenas):
     saida = f"{d}/lclip{i:02d}.mp4"
-    if not (os.path.exists(saida) and os.path.getsize(saida) > 10000):
+    dur_clipe = _clipe_valido(saida)
+    if dur_clipe is None:
         dd = F.dur(f"{d}/l{i:02d}.mp3") + 0.5
         nf = max(int(dd * 30), 1)
         # Uma unica fonte para o clipe. Este loop ja teve copia propria da
         # logica e ficou para tras quando a composicao em camadas entrou na
         # fabrica: o pacote sairia SEM animacao e passaria em todos os asserts.
         F.clipe_cena(d, "l", i, c, dd, nf, RW, RH)
-    tempos.append(F.dur(saida))
+        dur_clipe = F.dur(saida)
+    tempos.append(dur_clipe)
     # padrao ancorado: nunca `l*.png`
     for ext in ("png", "mp3"):
         try:
@@ -186,7 +232,7 @@ if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") >
     SRW, SRH = F.render_wh(SW, SH)
     for i, c in enumerate(sp["short"]):
         saida = f"{d}/sclip{i:02d}.mp4"
-        if os.path.exists(saida) and os.path.getsize(saida) > 10000:
+        if _clipe_valido(saida) is not None:
             continue
         dd = F.dur(f"{d}/s{i:02d}.mp3") + 0.5
         with open(f"{d}/s{i:02d}.srt", "w") as srt:
@@ -209,3 +255,8 @@ _erros, _avisos = VIS.conferir(f"{d}/short.mp4",
 assert not _erros, "short reprovado no teste visual — nao entregue assim"
 log(f"etapa 8 ok: short.mp4 {ds:.1f}s, conferido quadro a quadro")
 log("PACOTE OK")
+
+try:
+    os.remove(_lock)
+except OSError:
+    pass
