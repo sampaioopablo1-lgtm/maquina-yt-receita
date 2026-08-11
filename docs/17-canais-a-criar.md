@@ -1,6 +1,12 @@
-# Os 9 canais que faltam
+# O canal que falta
 
 > Escrito em 05/08/2026, quando ficou claro que este é o único gargalo real.
+>
+> **Correção em 11/08/2026** (sessão de continuidade): dos 9 canais listados
+> abaixo, 8 já foram criados e têm `youtube_channel_id` gravado em `canais`
+> (confirmado via query direta ao Postgres do Supabase, `vevocauwtarctfwngrch`).
+> Só **Cocina por Niveles** segue com `youtube_channel_id` nulo — o resto do
+> conteúdo abaixo (prioridade, contexto) é histórico e não foi reescrito.
 
 ## O diagnóstico, em uma linha
 

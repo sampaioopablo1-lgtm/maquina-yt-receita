@@ -33,11 +33,17 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 
 ## 1. O gargalo, declarado
 
-**Faltam 9 canais no YouTube.** Só `setiap-level` (`@setiaplevelid`) existe. É a única
-coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 16 dos 25
-pacotes no estoque (`v_maquina_estoque.aguardando_publicacao`, medido em 2026-08-05) —
-em polonês, grego, turco, espanhol, hindi, português e inglês, todos sem destino. Cada
-canal leva ~2 min no Studio.
+> **Correção em 11/08/2026** (sessão de continuidade): o parágrafo abaixo ficou
+> desatualizado. Confirmado via query direta ao Postgres do Supabase
+> (`vevocauwtarctfwngrch`, tabela `canais`): **9 dos 10 canais do portfólio já
+> têm `youtube_channel_id` gravado** — só `cocina-por-niveles` segue nulo. O
+> gargalo real hoje é criar **um** canal, não nove. Ver `docs/17-canais-a-criar.md`
+> para os detalhes atualizados.
+
+**Faltava 1 canal no YouTube** (`cocina-por-niveles`, es-MX) — os outros 9, incluindo
+`setiap-level` (`@setiaplevelid`), já existem e têm `youtube_channel_id`. Isso era
+9 canais faltando quando este documento foi escrito, em 2026-08-05; ver a correção
+acima. Cada canal leva ~2 min no Studio.
 
 A publicação em si **deixou de ser gargalo em 2026-08-05.** Sete vídeos (4 pacotes) subiram
 pela Upload-Post e sobreviveram ao nascimento, contra 6/6 apagados pela Composio.
