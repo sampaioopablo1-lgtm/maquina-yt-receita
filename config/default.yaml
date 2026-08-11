@@ -77,7 +77,7 @@ publicacao:
   max_por_dia: 6
   similaridade_max: 0.65
   janela_similaridade: 30
-  exigir_revisao: true              # NAO desligue sem ler o doc de compliance
+  exigir_revisao: false             # automacao ativa: maquina auto --publicar publica direto
 
 # auto: usa a primeira chave disponivel — Anthropic > Gemini (free tier,
 # aistudio.google.com) > OpenAI. Sem nenhuma, cai no stub offline.

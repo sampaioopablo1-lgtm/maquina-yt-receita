@@ -5,8 +5,8 @@ name: Producao de video
 # Cota YouTube API: ~6 uploads/dia — producao e publicacao sao passos separados.
 on:
   schedule:
-    # Diario, 09:00 UTC (06:00 BRT).
-    - cron: "0 9 * * *"
+    # A cada 4h = 6 videos/dia (cota real da YouTube Data API por projeto).
+    - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
       formato:
@@ -19,9 +19,9 @@ on:
         type: string
         default: ""
       quantidade:
-        description: "Quantos videos produzir neste lote (0 ou vazio = 10)"
+        description: "Quantos videos produzir neste lote (0 ou vazio = 1)"
         type: string
-        default: "10"
+        default: "1"
 
 concurrency:
   group: producao
@@ -64,7 +64,19 @@ jobs:
           MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: maquina doctor
 
-      - name: Produzir
+      - name: Restaurar credencial do YouTube
+        env:
+          YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
+        run: |
+          if [ -n "$YT_TOKEN_SETIAP_LEVEL" ]; then
+            mkdir -p secrets
+            printf '%s' "$YT_TOKEN_SETIAP_LEVEL" > secrets/youtube_token.json
+            echo "Credencial YouTube restaurada."
+          else
+            echo "YT_TOKEN_SETIAP_LEVEL nao configurado — producao sem publicacao."
+          fi
+
+      - name: Produzir e publicar
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -76,21 +88,35 @@ jobs:
           CANVA_CLIENT_ID: ${{ secrets.CANVA_CLIENT_ID }}
           CANVA_CLIENT_SECRET: ${{ secrets.CANVA_CLIENT_SECRET }}
           CANVA_TEMPLATE_ID: ${{ secrets.CANVA_TEMPLATE_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           FORMATO="${{ inputs.formato || 'longo' }}"
-          QUANTIDADE="${{ inputs.quantidade || '10' }}"
-          # quantidade=0 ou vazio -> 10; titulo especifico -> 1 video direto
-          [ "$QUANTIDADE" = "0" ] && QUANTIDADE=10
+          QUANTIDADE="${{ inputs.quantidade || '1' }}"
+          # quantidade=0 ou vazio -> 1 por run (cron horario); titulo especifico -> 1 direto
+          [ "$QUANTIDADE" = "0" ] && QUANTIDADE=1
+
+          TEM_YT=false
+          [ -s secrets/youtube_token.json ] && TEM_YT=true
 
           if [ -n "${{ inputs.titulo }}" ]; then
-            maquina produzir "${{ inputs.titulo }}" --formato "$FORMATO"
+            if $TEM_YT; then
+              maquina produzir "${{ inputs.titulo }}" --formato "$FORMATO" --publicar
+            else
+              maquina produzir "${{ inputs.titulo }}" --formato "$FORMATO"
+            fi
           else
             OK=0
             FAIL=0
             for i in $(seq 1 "$QUANTIDADE"); do
               echo ""
               echo "=== Produzindo video $i de $QUANTIDADE (eixo rotativo) ==="
-              if maquina auto --formato "$FORMATO"; then
+              if $TEM_YT; then
+                CMD="maquina auto --formato $FORMATO --publicar"
+              else
+                CMD="maquina auto --formato $FORMATO"
+              fi
+              if $CMD; then
                 OK=$((OK+1))
               else
                 echo "Video $i falhou — continuando o lote..."
@@ -101,6 +127,10 @@ jobs:
             echo "=== Lote concluido: $OK produzidos, $FAIL falharam ==="
             [ "$OK" -eq 0 ] && exit 1 || exit 0
           fi
+
+      - name: Limpar credencial
+        if: always()
+        run: rm -f secrets/youtube_token.json
 
       - name: Listar producao
         if: always()
