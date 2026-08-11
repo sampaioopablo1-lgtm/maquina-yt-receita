@@ -2,6 +2,14 @@
 
 > Escrito em 05/08/2026, quando ficou claro que este é o único gargalo real.
 
+> **Atualização 2026-08-11 (checagem de continuidade):** 8 dos 9 já foram criados —
+> `canais.youtube_channel_id` está preenchido no Postgres para Next Level Money,
+> Seviye Seviye, Agla Level, Epomeno Epipedo, Kolejny Poziom, Game Money Lab, Resep
+> Naik Level e Nível do Jogo, todos coerentes com o `handle` do respectivo
+> `config/canais/*.yaml`. Só **Cocina por Niveles** (item 1 da tabela, o de maior
+> mediana) continua sem canal — é o único item que ainda bloqueia publicação. A
+> tabela abaixo é o registro original; o estado real é: 1 pendente, não 9.
+
 ## O diagnóstico, em uma linha
 
 **18 pacotes prontos, 0 publicáveis.** O canal que existe (`setiap-level`) tem
