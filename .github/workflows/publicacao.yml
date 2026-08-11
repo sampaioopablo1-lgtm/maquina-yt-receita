@@ -74,13 +74,24 @@ jobs:
           YT_TOKEN_SEVIYE_SEVIYE: ${{ secrets.YT_TOKEN_SEVIYE_SEVIYE }}
           # Legado — removido apos migrar todos os canais
           YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
           TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
           TOKEN="${!TOKEN_VAR}"
           if [ -z "$TOKEN" ]; then
-            echo "Erro: secret ${TOKEN_VAR} nao configurado para canal '${{ inputs.canal }}'"
-            echo "Adicione o secret em: github.com/${{ github.repository }}/settings/secrets/actions"
+            # Fallback: token guardado em config.yt_token_<canal> no Supabase
+            # (jsonb com o authorized-user JSON). Elimina um secret por canal.
+            echo "secret ${TOKEN_VAR} ausente — buscando em config.yt_token_${{ inputs.canal }} no Supabase"
+            TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_${{ inputs.canal }}&select=valor" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+          fi
+          if [ -z "$TOKEN" ]; then
+            echo "Erro: nem o secret ${TOKEN_VAR} nem config.yt_token_${{ inputs.canal }} existem"
+            echo "Adicione o secret em github.com/${{ github.repository }}/settings/secrets/actions"
+            echo "ou grave o token na tabela config do Supabase."
             exit 1
           fi
           mkdir -p secrets
