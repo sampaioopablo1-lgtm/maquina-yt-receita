@@ -25,7 +25,7 @@ def test_canal_do_portfolio_sobrepoe_e_isola_estado():
     assert cfg.out_dir == ROOT / "out" / "kolejny-poziom"
     assert cfg.yt_token.name == "youtube_token_kolejny-poziom.json"
     # Limites de compliance vem do default e continuam valendo.
-    assert cfg.publicacao.max_por_dia == 3
+    assert cfg.publicacao.max_por_dia == 6
 
 
 def test_canal_inexistente_falha_alto():

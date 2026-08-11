@@ -55,9 +55,11 @@ jobs:
           YT_TOKEN_AGLA_LEVEL: ${{ secrets.YT_TOKEN_AGLA_LEVEL }}
           YT_TOKEN_COCINA_POR_NIVELES: ${{ secrets.YT_TOKEN_COCINA_POR_NIVELES }}
           YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_GAME_MONEY_LAB: ${{ secrets.YT_TOKEN_GAME_MONEY_LAB }}
           YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
           YT_TOKEN_NEXT_LEVEL_MONEY: ${{ secrets.YT_TOKEN_NEXT_LEVEL_MONEY }}
           YT_TOKEN_NIVEL_DO_JOGO: ${{ secrets.YT_TOKEN_NIVEL_DO_JOGO }}
+          YT_TOKEN_RESEP_NAIK_LEVEL: ${{ secrets.YT_TOKEN_RESEP_NAIK_LEVEL }}
           YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
           YT_TOKEN_SEVIYE_SEVIYE: ${{ secrets.YT_TOKEN_SEVIYE_SEVIYE }}
           # Legado — removido apos migrar todos os canais

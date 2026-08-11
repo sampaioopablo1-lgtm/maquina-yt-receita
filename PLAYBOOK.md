@@ -39,6 +39,15 @@ pacotes no estoque (`v_maquina_estoque.aguardando_publicacao`, medido em 2026-08
 em polonês, grego, turco, espanhol, hindi, português e inglês, todos sem destino. Cada
 canal leva ~2 min no Studio.
 
+> **Corrigido em 2026-08-11 (checagem de continuidade):** 9 dos 10 canais já têm
+> `youtube_channel_id` real gravado em `canais` (confirmado no Postgres, coerente com
+> o `handle` de cada `config/canais/*.yaml`). Só `cocina-por-niveles` continua sem
+> canal criado. `.github/workflows/publicacao.yml` e `legendar.yml`, porém, só
+> resolviam o secret de token para 8 desses 9 — faltavam `YT_TOKEN_GAME_MONEY_LAB` e
+> `YT_TOKEN_RESEP_NAIK_LEVEL` no mapeamento `env:`, então os dois canais recém-criados
+> não conseguiam publicar nem legendar por essa rota mesmo já existindo no YouTube.
+> Corrigido nos dois workflows nesta sessão.
+
 A publicação em si **deixou de ser gargalo em 2026-08-05.** Sete vídeos (4 pacotes) subiram
 pela Upload-Post e sobreviveram ao nascimento, contra 6/6 apagados pela Composio.
 
