@@ -33,11 +33,28 @@ mediana de views/dia por família de formato, acumulada ao longo das semanas.
 
 ## 1. O gargalo, declarado
 
-**Faltam 9 canais no YouTube.** Só `setiap-level` (`@setiaplevelid`) existe. É a única
-coisa nesta lista que a máquina não consegue fazer sozinha, e ela bloqueia 16 dos 25
-pacotes no estoque (`v_maquina_estoque.aguardando_publicacao`, medido em 2026-08-05) —
-em polonês, grego, turco, espanhol, hindi, português e inglês, todos sem destino. Cada
-canal leva ~2 min no Studio.
+**O gargalo é 1 CPU renderizando a 22x o tempo real.** Medido em 2026-08-11, lado a
+lado, com a mesma fábrica:
+
+| máquina | CPU / RAM | s por cena | pacote de 75 cenas | × tempo real |
+|---|---|---|---|---|
+| sandbox Composio | 1 / 985 MB | 208 s | **4 h 20 min** | 22,7× |
+| runner 4 vCPU | 4 / 16 GB | 10,3 s | **~13 min** | 1,14× |
+
+São **20× de diferença**, e ela explica o teto de ~5 pacotes/dia melhor do que qualquer
+conta de cota. A cota do YouTube é de 100 uploads/dia por projeto e usamos 10. O
+`ESCALA_RENDER = 0.75` da fábrica existe só porque o `zoompan` não cabia em 1 GB — num
+runner ele não é necessário. O caminho para escalar está em `.github/workflows/frota.yml`:
+um job por canal, `max-parallel: 10`, spec vinda do Storage.
+
+O que **não** resolve: o container do Claude Code tem o hardware (4 CPU/16 GB, medido)
+mas o proxy de egresso nega `speech.platform.bing.com` (edge-tts) e `supabase.co` com
+403 de política — depois de anexar o CA ao certifi o erro deixou de ser de certificado e
+passou a ser de política, que não se contorna. Ele só computa dado que chega por git.
+
+**Os 12 canais publicam direto** (2026-08-11): cada um tem OAuth próprio em
+`config.yt_token_<slug>`, e 7 deles já passaram pela verificação por telefone — sem ela
+o `thumbnails/set` responde 403 e só a capa fica pendente, o vídeo sobe igual.
 
 A publicação em si **deixou de ser gargalo em 2026-08-05.** Sete vídeos (4 pacotes) subiram
 pela Upload-Post e sobreviveram ao nascimento, contra 6/6 apagados pela Composio.
@@ -331,6 +348,51 @@ contradizem a mensagem. Ignorar isso custou dois envios e uma regra falsa.
 
 Leia as tags com `mapfile -t` e grave o arquivo **com quebra de linha final** — o
 `while read` descarta a última linha, e o sintoma é uma tag a menos, silenciosa.
+
+### Rota própria: `fabrica/publicar.py`
+
+O que publicou os pacotes de 2026-08-11 era código solto dentro de uma sessão, reescrito
+a cada disparo. Agora mora em `fabrica/publicar.py`, e a **ordem dos passos é medida**:
+
+1. **Short primeiro.** Em canal frio o feed de Shorts entrega e o de longos não — 4
+   shorts entre 1,7 e 17,9 views/hora contra 4 longos entre 0 e 0,2. O short leva o
+   link do longo, nunca o contrário.
+2. **Longo**, com a descrição já apontando para o short que acabou de subir.
+3. `thumbnails/set` — **403 aqui não é defeito do código**, é canal sem verificação por
+   telefone. O vídeo continua público; só a capa fica pendente.
+4. `captions.insert` (multipart) — **409 é sucesso**: o vídeo já tem faixa naquele
+   idioma. Foi esse 409 lido como falha que manteve viva a regra "nenhum vídeo tem
+   legenda" depois de ela já estar resolvida.
+5. `playlistItems.insert` — playlist por canal levanta sessão, e é uma chamada.
+
+Os passos 3 a 5 **não precisam de Studio manual**: num único passe em 2026-08-11 saíram
+9 thumbnails, 3 faixas de legenda e 4 playlists sobre vídeos **já publicados**.
+
+---
+
+## 4c. A frota — 12 canais e a divisão do dia
+
+`config.plano_diario_canais` guarda a conta; ela parte da capacidade medida, não do teto
+da cota:
+
+| cenário | pacotes/dia | uploads/dia | % da cota (100) |
+|---|---|---|---|
+| hoje, sandbox de 1 CPU | 5 | 10 | 10% |
+| frota no Actions | 24 (2/canal) | 48 | 48% |
+| teto da cota | 50 | 100 | 100% |
+
+O teto de 100 **não é alcançável hoje** e nem é o alvo certo: 4 pacotes/dia/canal passa
+do limite anti-spam de 2 longos/dia/canal. O alvo é 2 pacotes/dia/canal.
+
+O que separa a linha 1 da linha 2 é orçamento de minutos do Actions, não código. O repo é
+**privado**: 2.000 min/mês grátis, e um pacote custa ~25 min num runner de 2 vCPU. Para
+24 pacotes/dia são ~18.000 min/mês (~US$ 128/mês). **Repo público zera isso** — minutos
+ilimitados e runner de 4 vCPU, que é justamente o porte medido em 13 min/pacote. É uma
+decisão do dono, não da máquina; o que a máquina pode dizer é o número.
+
+Divisão do dia: `v_maquina_fila` já ordena por canal com YouTube primeiro e
+`ultimo_pacote_em` mais antigo — a rotação sai dela, sem lista fixa. Um canal por disparo,
+completo, continua valendo dentro de cada job.
 
 ---
 

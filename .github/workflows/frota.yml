@@ -1,0 +1,130 @@
+name: Frota — render paralelo por canal
+
+# Por que este workflow existe, com numero:
+#
+# O sandbox Composio tem 1 CPU e 985 MB. Medido em 2026-08-11, ele renderiza a
+# 208 s por cena — 260 min para um pacote de 75 cenas, 22,7x o tempo real do
+# video. A MESMA fabrica num runner de 4 vCPU/16 GB faz 10,3 s por cena (1,14x
+# tempo real): 20x mais rapido, sem precisar do ESCALA_RENDER 0.75 que existe so
+# porque o zoompan nao cabia em 1 GB.
+#
+# Ou seja: o teto de ~5 pacotes/dia nunca foi da cota do YouTube (100 uploads/dia
+# por projeto, dos quais usamos 10) nem do plano da Upload-Post. Era 1 CPU.
+# Aqui cada canal vira um job, e os jobs correm juntos.
+#
+# A PAUTA e o ROTEIRO continuam fora daqui, na rotina horaria: e de la que vem a
+# qualidade. Este workflow recebe a spec pronta e faz a parte mecanica —
+# renderizar, entregar, publicar e fechar os passos de Studio.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pacotes:
+        description: 'JSON: [{"canal":"kolejny-poziom","pacote":"kolejny-poziom-008","idioma":"pl"}]'
+        type: string
+        required: true
+      publicar:
+        description: "Publicar no YouTube ao fim do render"
+        type: boolean
+        default: true
+
+concurrency:
+  group: frota-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    outputs:
+      matriz: ${{ steps.ler.outputs.matriz }}
+    steps:
+      - id: ler
+        # jq sem espaco depois dos dois-pontos: `{include: .}` num escalar YAML
+        # sem aspas e erro de sintaxe do proprio arquivo, nao do jq.
+        run: |
+          echo "matriz=$(echo '${{ inputs.pacotes }}' | jq -c '{include:.}')" >> "$GITHUB_OUTPUT"
+
+  produzir:
+    needs: preparar
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false          # um canal que quebra nao derruba os outros
+      max-parallel: 10
+      matrix: ${{ fromJSON(needs.preparar.outputs.matriz) }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar fabrica
+        run: |
+          pip install -q edge-tts cairosvg pydantic
+          ffmpeg -version | head -1
+
+      # Devanagari nao vem no runner e o cairosvg NAO da erro sem ela: o SVG cai
+      # num fallback e a legenda queimada sai VAZIA. Instalar antes de renderizar.
+      - name: Fontes de script nao-latino
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk
+
+      - name: Baixar spec e trilhas
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/trilhas
+          curl -sS --fail -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+            "$SB/storage/v1/object/videos-maquina/specs/${{ matrix.pacote }}.json" -o spec.json
+          # A trilha e assinatura sonora do canal; sem ela a fabrica renderiza mudo.
+          curl -sS -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+            "$SB/storage/v1/object/videos-maquina/trilhas.tgz" -o /tmp/trilhas.tgz || true
+          [ -s /tmp/trilhas.tgz ] && tar xzf /tmp/trilhas.tgz -C /tmp/trilhas || echo "sem trilhas — render seguira mudo"
+          python3 -c "import json;s=json.load(open('spec.json'));print('cenas:',len(s['longo']),'| short:',len(s.get('short',[])))"
+
+      - name: Renderizar
+        run: python3 fabrica/etapas.py spec.json
+
+      - name: Entregar no Storage
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          D="/tmp/f/${{ matrix.pacote }}"
+          HOJE=$(date -u +%F)
+          for par in video.mp4:video/mp4 short.mp4:video/mp4 thumbnail.png:image/png legendas.srt:text/plain; do
+            arq="${par%%:*}"; mime="${par##*:}"
+            [ -f "$D/$arq" ] || continue
+            curl -sS --fail -X POST \
+              "$SB/storage/v1/object/videos-maquina/$HOJE-${{ matrix.pacote }}-$arq" \
+              -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              -H "Content-Type: $mime" --data-binary @"$D/$arq" --max-time 300 >/dev/null
+            echo "entregue: $arq"
+          done
+
+      - name: Publicar no YouTube
+        if: ${{ inputs.publicar }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 fabrica/publicar.py spec.json --canal "${{ matrix.canal }}"
+
+      # O video fica disponivel mesmo se a publicacao falhar — o render custa
+      # caro e nao se refaz por causa de um 4xx da API.
+      - name: Artefato para revisao
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pacote-${{ matrix.pacote }}
+          path: |
+            /tmp/f/${{ matrix.pacote }}/video.mp4
+            /tmp/f/${{ matrix.pacote }}/short.mp4
+            /tmp/f/${{ matrix.pacote }}/thumbnail.png
+            /tmp/f/${{ matrix.pacote }}/legendas.srt
+          retention-days: 14
+          if-no-files-found: warn
