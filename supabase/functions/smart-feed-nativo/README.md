@@ -37,7 +37,11 @@ feed vazio.
 **Endereço.** O número de rua publicado é aleatório e estável por imóvel
 (derivado do código, faixa 101–999), nunca o número real do cadastro; se o
 sorteio coincidir com o real, é deslocado. O `displayAddress` vai como
-`Street`, então o portal exibe rua e bairro mas não o número.
+`All` (decisão do usuário em 11/08, para a categoria Endereço do portal
+pontuar completa): o endereço é exibido inteiro, incluindo o número
+aleatório. Imóveis sem logradouro no cadastro caem para `Neighborhood`.
+Coordenadas ausentes são preenchidas por propagação de CEP idêntico
+(média dos vizinhos com GPS, marcadas com `gps_origem: cep_vizinho`).
 
 Ressalva conhecida: o número aleatório trafega junto com CEP e coordenada
 GPS reais, o que é internamente incoerente e pode motivar recusa do portal.
@@ -48,7 +52,16 @@ Se anúncios voltarem a ser desativados, o próximo passo é baixar o
 
 Um anúncio ativo só entra no XML se tiver oferta válida (venda e/ou locação),
 preço coerente com a transação, preço de venda entre R$ 15 mil e R$ 150
-milhões, e no mínimo 5 fotos em formato aceito (jpg/png/webp).
+milhões, e book completo pela régua do portal: 20 fotos para residencial,
+10 para terreno e comercial (jpg/png/webp). A régua de fotos segue a nota
+máxima da categoria Imagens do Grupo Zap — anúncio abaixo dela fica fora
+até o book ser completado no Vista.
+
+**Tour virtual** só é emitido quando a ficha tem tour 360 real. O link
+padrão apontando para página própria foi removido na v7: o portal pontuou
+0% na categoria com ele. Replicar o tour de um imóvel nos demais foi
+descartado por ser enganoso ao comprador (mostra o interior de outro
+imóvel) e por risco de derrubada em massa por duplicação.
 
 ## Variáveis de ambiente
 
