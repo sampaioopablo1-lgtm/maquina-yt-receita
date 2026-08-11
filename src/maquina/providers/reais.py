@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 import os
+import time
 from pathlib import Path
 
 import httpx
@@ -346,6 +347,12 @@ class ImagemPollinations:
 
     custo_usd = 0.0
 
+    # 429 = fila cheia (limite de 1 requisicao concorrente por IP no plano gratuito);
+    # 5xx = instabilidade do servico. Ambos passam com uma pausa curta.
+    _STATUS_TRANSITORIOS = {429, 500, 502, 503, 504}
+    _TENTATIVAS = 4
+    _ESPERA_S = 8
+
     def gerar(self, prompt: str, saida: Path, *, largura: int, altura: int) -> Path:
         import urllib.parse
 
@@ -354,12 +361,23 @@ class ImagemPollinations:
             f"https://image.pollinations.ai/prompt/{prompt_enc}"
             f"?width={largura}&height={altura}&model=flux&nologo=true&seed=42"
         )
-        r = httpx.get(url, timeout=120.0, follow_redirects=True)
-        if r.status_code >= 400:
-            raise ErroProvider(f"Pollinations {r.status_code}: {r.text[:200]}")
-        saida.parent.mkdir(parents=True, exist_ok=True)
-        saida.write_bytes(r.content)
-        return saida
+        ultimo_erro: Exception | None = None
+        for tentativa in range(1, self._TENTATIVAS + 1):
+            try:
+                r = httpx.get(url, timeout=120.0, follow_redirects=True)
+            except httpx.TransportError as e:
+                ultimo_erro = e
+            else:
+                if r.status_code < 400:
+                    saida.parent.mkdir(parents=True, exist_ok=True)
+                    saida.write_bytes(r.content)
+                    return saida
+                ultimo_erro = ErroProvider(f"Pollinations {r.status_code}: {r.text[:200]}")
+                if r.status_code not in self._STATUS_TRANSITORIOS:
+                    raise ultimo_erro
+            if tentativa < self._TENTATIVAS:
+                time.sleep(self._ESPERA_S * tentativa)
+        raise ultimo_erro
 
 
 class ImagemOpenAI:
