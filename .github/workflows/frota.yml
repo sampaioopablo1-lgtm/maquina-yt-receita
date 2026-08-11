@@ -61,15 +61,20 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Instalar fabrica
+      # O runner ubuntu-latest NAO traz ffmpeg — medido em 2026-08-11, exit 127
+      # "command not found". Sem este passo a fabrica morre na primeira cena.
+      #
+      # Devanagari tambem nao vem, e a falta dela NAO da erro: o cairosvg cai num
+      # fallback e a legenda queimada sai VAZIA, defeito que so aparece assistindo
+      # ao video pronto.
+      - name: Instalar ffmpeg e fontes
         run: |
-          pip install -q edge-tts cairosvg pydantic
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk
           ffmpeg -version | head -1
 
-      # Devanagari nao vem no runner e o cairosvg NAO da erro sem ela: o SVG cai
-      # num fallback e a legenda queimada sai VAZIA. Instalar antes de renderizar.
-      - name: Fontes de script nao-latino
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk
+      - name: Instalar fabrica
+        run: pip install -q edge-tts cairosvg pydantic
 
       - name: Baixar spec e trilhas
         env:

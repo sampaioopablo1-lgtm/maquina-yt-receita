@@ -58,6 +58,12 @@ jobs:
           test -f "${{ inputs.origem }}" || { echo "arquivo nao existe no repo"; exit 1; }
           ls -la "${{ inputs.origem }}"
 
+      # O runner ubuntu-latest NAO traz ffmpeg (medido em 2026-08-11: exit 127,
+      # "command not found"). O comentario do producao.yml dizia o contrario.
+      - name: Instalar ffmpeg
+        if: ${{ inputs.converter_audio }}
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && ffmpeg -version | head -1
+
       - name: Preparar arquivo
         id: prep
         run: |
