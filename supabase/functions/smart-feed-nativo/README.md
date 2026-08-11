@@ -23,7 +23,11 @@ Invocada por POST com `{"acao": "..."}`:
 **Imóvel com data de venda sai do ar.** Desde a v10, `vendido_em`
 preenchido no espelho conta como indisponível: o sync desliga e a
 reativação ignora, mesmo com `ativo_vista = true` (decisão do usuário em
-11/08 — melhor segurar um disponível do que anunciar um vendido). Nota:
+11/08 — melhor segurar um disponível do que anunciar um vendido). A v11
+fechou a janela do meio de ciclo: o upsert já grava indisponível como
+`ativo=false` (flag `indisponivel_espelho`), em vez de deixar a limpeza
+só para o fechamento do ciclo — antes disso, um `precomputar` no meio do
+ciclo podia fotografar vendidos como ativos. Nota:
 os 311 carimbos existentes datam todos de 07/06/2026 (varredura em lote);
 se um deles voltar ao mercado, limpe o `vendido_em` no espelho.
 
