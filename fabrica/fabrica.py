@@ -60,6 +60,56 @@ def elementos(c):
     return 0
 
 
+def svg_cena_retrato(c, pal, W, H):
+    """Cena 9:16 com geometria propria, dimensionada pela LARGURA.
+
+    O svg_cena dimensiona fonte e formas por H, que em paisagem e o lado
+    menor. Em retrato H e o lado MAIOR: o circulo do layout `item` saia com
+    borda esquerda em x negativo e o kicker de `titulo` nao cabia na largura.
+    O visual.py pegou 6/6 quadros do short com tinta na borda (3-6,3%) — e os
+    shorts anteriores foram publicados assim, porque so o longo era conferido.
+    Medido no kp-plan-9233: esta geometria devolve margem 0,00%.
+    """
+    ink, c1, c2 = pal['ink'], pal['c1'], pal['c2']
+    bg = pal.get('bg', '#FFFFFF'); lay = c.get('layout', 'titulo')
+    s = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
+    s += f'<rect width="{W}" height="{H}" fill="{bg}"/>'
+    cx = W // 2
+    if lay in ('titulo', 'cta'):
+        fg = c1 if lay == 'titulo' else c2
+        big = c.get('kicker', '')
+        s += tsp(big, cx, H*0.40, W*(0.15 if len(big) <= 8 else 0.10), fg, n=11)
+        s += f'<path d="M {cx-W*0.30} {H*0.50} Q {cx} {H*0.52}, {cx+W*0.30} {H*0.50}" stroke="{c2 if lay=="titulo" else c1}" stroke-width="9" fill="none" stroke-linecap="round"/>'
+        if c.get('sub'):
+            s += tsp(c['sub'], cx, H*0.58, W*0.055, ink, n=22)
+    elif lay == 'item':
+        s += f'<circle cx="{cx}" cy="{H*0.28}" r="{W*0.24}" fill="none" stroke="{ink}" stroke-width="8"/>'
+        s += f'<circle cx="{cx}" cy="{H*0.28}" r="{W*0.15}" fill="{c2}" opacity="0.55"/>'
+        s += tsp(c.get('kicker', ''), cx, H*0.50, W*0.085, ink, n=14)
+        if c.get('preco'):
+            s += f'<rect x="{cx-W*0.26}" y="{H*0.56}" width="{W*0.52}" height="{H*0.075}" fill="{c1}"/>'
+            s += tsp(c['preco'], cx, H*0.615, W*0.075, '#FFFFFF', n=12)
+    elif lay == 'lista':
+        s += tsp(c.get('kicker', ''), cx, H*0.16, W*0.08, ink, n=16)
+        y = H * 0.30
+        for i, it in enumerate(c.get('itens', [])):
+            col = [c1, c2, ink][i % 3]
+            s += f'<circle cx="{W*0.12}" cy="{y-H*0.012}" r="{W*0.022}" fill="{col}"/>'
+            s += tsp(it, W*0.18, y, W*0.055, ink, n=26, anchor='start')
+            y += H * 0.10
+    elif lay == 'barras':
+        labs = c.get('itens', ['1', '2', '3', '4']); n = len(labs); bw = W*0.76/n
+        alt = c.get('alturas')
+        s += tsp(c.get('kicker', ''), cx, H*0.14, W*0.08, ink, n=16)
+        s += f'<line x1="{W*0.10}" y1="{H*0.60}" x2="{W*0.90}" y2="{H*0.60}" stroke="{ink}" stroke-width="3" opacity="0.35"/>'
+        for i, lb in enumerate(labs):
+            bh = (H*0.06 + (alt[i]/max(alt))*H*0.28) if alt else (H*0.06 + i*H*0.28/max(n-1, 1))
+            x = W*0.12 + i*bw
+            s += f'<rect x="{x}" y="{H*0.60-bh}" width="{bw*0.72}" height="{bh}" fill="{[c1,c2,ink][i%3]}"/>'
+            s += tsp(str(lb), x+bw*0.36, H*0.65, W*0.035, ink, n=12)
+    return s + '</svg>'
+
+
 def svg_cena(c, pal, W, H, camada=None):
     """camada=None: a cena inteira (comportamento historico, e o do short).
     camada='base': so o fundo e o que nao se move.
@@ -69,7 +119,12 @@ def svg_cena(c, pal, W, H, camada=None):
     formato: quatro itens de uma lista apareciam juntos e ficavam parados os
     dez segundos inteiros em que o narrador os percorre um a um. Com os
     elementos entrando no tempo da fala, o olho tem motivo para continuar.
+
+    Retrato (short 9:16) desvia para svg_cena_retrato: a geometria daqui e
+    16:9 e estoura as bordas laterais quando H > W.
     """
+    if H > W and camada is None:
+        return svg_cena_retrato(c, pal, W, H)
     ink, c1, c2 = pal['ink'], pal['c1'], pal['c2']
     bg = pal.get('bg', '#FFFFFF'); lay = c.get('layout','titulo')
 
@@ -272,7 +327,10 @@ def aplicar_trilha(d, out, slug):
     os.replace(mix, alvo)
     os.remove(bed)
 
-EST = f"FontName={FONTE},Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle=3,BackColour=&HB0000000,Outline=1,Shadow=0,MarginV=30"
+# MarginL/R forcam a quebra de linha antes da caixa encostar nas laterais do
+# 9:16 — sem eles a legenda queimada tocava as duas bordas em TODO quadro do
+# short (medido pelo visual.py: 3-6,3% de tinta na borda; com margens, 0,00%).
+EST = f"FontName={FONTE},Fontsize=13,Bold=1,PrimaryColour=&H00FFFFFF,BorderStyle=3,BackColour=&HB0000000,Outline=1,Shadow=0,MarginV=36,MarginL=18,MarginR=18"
 
 def render(spec_file):
     sp = json.load(open(spec_file)); slug = sp["slug"]

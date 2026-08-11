@@ -234,6 +234,27 @@ Confira o md5 contra o repositório mesmo assim — o Storage é INSERT-only, en
 `fabrica.tgz` velho lá dentro **não é sobrescrito** e você baixaria a versão errada
 sem nenhum erro. Se o md5 divergir, suba com nome novo (`fabrica-AAAAMMDD.tgz`).
 
+> **Aconteceu em 2026-08-11 e custou a publicação de um pacote.** O sandbox
+> reciclou, o bucket **não tinha** o tar prometido acima, e `/tmp/.upk` (chave
+> da Upload-Post) sumiu junto — a chave não existia em nenhum outro lugar. A
+> fábrica foi restaurada arquivo a arquivo com md5 conferido (8/8), e o backup
+> atual é `fabrica-20260811.tgz`. A chave só o Pablo pode repor; enquanto ela
+> não tiver casa persistente (GitHub secret `UPLOAD_POST_KEY`), todo recycle
+> do sandbox bloqueia a publicação de novo.
+
+### O short passou a ser conferido — e o layout 16:9 não serve para ele
+
+Todos os shorts publicados até 2026-08-11 saíram com a geometria 16:9 esticada
+no quadro 9:16: o círculo do layout `item` começava fora da borda esquerda e a
+legenda queimada encostava nas duas laterais (visual.py: 6/6 quadros com tinta
+na borda, 3–6,3%). Ninguém viu porque o `etapas.py` só conferia o longo.
+
+Correções, todas no repositório: `svg_cena` desvia para `svg_cena_retrato`
+quando H > W (geometria dimensionada pela largura — margem medida: 0,00%);
+`EST` ganhou `MarginL/R=18`; e o `etapas.py` ganhou a **etapa 8**, que
+renderiza o short pela mesma fábrica e o reprova no mesmo teste visual do
+longo. Short de script avulso acabou.
+
 ---
 
 ## 3. Produção — o que quebra em silêncio
@@ -248,13 +269,20 @@ Estes três já entregaram vídeo defeituoso sem levantar erro nenhum:
 
 **Meça a taxa da voz antes de dimensionar o roteiro.** Elas variam 53%:
 
-| Voz | chars/s |
-|---|---|
-| `hi-IN-MadhurNeural` | 9,85 |
-| `id-ID-GadisNeural` | 11,8 |
-| `pt-BR-AntonioNeural` | 13,42 |
-| `en-*` | 14,5 |
-| `id-ID-ArdiNeural` | 15,1 |
+| Voz | chars/s | pausa s/frase |
+|---|---|---|
+| `hi-IN-MadhurNeural` | 9,85 | — |
+| `id-ID-GadisNeural` | 11,8 | — |
+| `pt-BR-AntonioNeural` | 13,42 | — |
+| `en-*` | 14,5 | — |
+| `id-ID-ArdiNeural` | 15,1 (20,58 pura) | 0,96 |
+| `pl-PL-MarekNeural` | 23,05 pura | **1,40** |
+
+> A coluna de pausa importa mais que a de taxa: no `pl-PL-MarekNeural` a pausa
+> por frase é a maior já medida e as pausas custaram 284s dos 773s do
+> `kp-plan-9233` — o modelo de três termos previu 757s e o render deu 772,6s
+> (erro +2%). Em polonês, menos frases e mais longas rendem mais minuto por
+> caractere.
 
 Limites do sandbox: tmpfs **493 MB**, RAM ~985 MB, bash **180s por comando**. Renderize em
 lotes de 10 cenas apagando png/mp3 consumidos. Acima de ~18 min: áudio 128k e CRF 29, senão

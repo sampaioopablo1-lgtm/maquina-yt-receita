@@ -174,4 +174,38 @@ _erros, _avisos = VIS.conferir(f"{d}/video.mp4",
                                VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")))
 assert not _erros, "video reprovado no teste visual — nao entregue assim"
 log("etapa 7 ok: video conferido quadro a quadro")
+
+# ---------------------------------------------------------------- 8. short
+# O short era renderizado por script avulso e NUNCA passava no teste visual —
+# foi assim que todos os shorts 9:16 sairam com o layout 16:9 estourando as
+# bordas sem ninguem notar (kp-plan-9233 pegou 6/6 quadros com tinta na borda).
+# Agora ele e parte do pacote: mesma fabrica, mesmo teste, mesmo assert.
+log("etapa 8: short")
+if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") > 100000):
+    SW, SH = 720, 1280
+    SRW, SRH = F.render_wh(SW, SH)
+    for i, c in enumerate(sp["short"]):
+        saida = f"{d}/sclip{i:02d}.mp4"
+        if os.path.exists(saida) and os.path.getsize(saida) > 10000:
+            continue
+        dd = F.dur(f"{d}/s{i:02d}.mp3") + 0.5
+        with open(f"{d}/s{i:02d}.srt", "w") as srt:
+            srt.write(f"1\n{F.st(0.2)} --> {F.st(dd - 0.15)}\n{c['nar']}\n")
+        nf = max(int(dd * 30), 1)
+        F.clipe_cena(d, "s", i, c, dd, nf, SRW, SRH)
+    with open(f"{d}/slista.txt", "w") as f:
+        for i in range(len(sp["short"])):
+            f.write(f"file 'sclip{i:02d}.mp4'\n")
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
+        "-i", f"{d}/slista.txt", "-vf", f"scale={SW}:{SH}:flags=lanczos",
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "26",
+        "-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart",
+        f"{d}/short.mp4"], check=True, capture_output=True, cwd=d)
+    F.aplicar_trilha(d, "short.mp4", sp["slug"])
+ds = F.dur(f"{d}/short.mp4")
+assert 20 <= ds <= 60, f"short com {ds:.1f}s — fora da faixa 30-45s (tolerancia 20-60)"
+_erros, _avisos = VIS.conferir(f"{d}/short.mp4",
+                               VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")))
+assert not _erros, "short reprovado no teste visual — nao entregue assim"
+log(f"etapa 8 ok: short.mp4 {ds:.1f}s, conferido quadro a quadro")
 log("PACOTE OK")
