@@ -1,0 +1,7 @@
+-- Disponivel para o feed = ativo no Vista E sem vendido_em.
+-- Decisao do usuario (11/08): imovel com data de venda registrada sai do
+-- XML mesmo que o CRM ainda o marque como Ativo. O vigia passa a usar o
+-- mesmo predicado para nao acusar divergencia sobre esses imoveis.
+-- (create or replace de fn_vigia_acervo_feed aplicado no projeto em 11/08;
+-- corpo identico ao de 20260810_vigia_acervo_feed.sql com o filtro
+-- "and v.vendido_em is null" nas duas consultas de divergentes.)
