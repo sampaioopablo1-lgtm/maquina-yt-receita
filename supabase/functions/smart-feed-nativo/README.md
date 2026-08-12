@@ -37,6 +37,22 @@ ativo no Vista volta a ligar, inativo no Vista desliga. Antes existia só o
 caminho de desligar, e anúncios derrubados pela regra de "fantasma" (ausentes
 do XML por mais de 7 dias) ficavam presos em inativo para sempre.
 
+**O XML do Vista é quem manda sobre publicar.** O espelho `vista_imoveis_log`
+é cego pra desativação: a sincronização lê a carteira ativa via API e um
+imóvel desativado some da resposta em vez de vir marcado como inativo — foi
+assim que 42426 e 44666 seguiram no ar com `ativo_vista = true` e geraram
+lead errado (12/08). A trava está no banco, em
+`fn_gate_feed_xml_vista()` (cron `feed-gate-xml-vista`, de 5 em 5 minutos):
+o que não aparece no XML de portais do Vista entra em
+`feed_property_portal_publicacao` como desabilitado, e o gerador de XML já
+respeita essa tabela. Ficar no banco é proposital — o sync não passa por ali,
+então um ciclo de sincronização não desfaz o bloqueio. `motivo =
+'ausente_xml_vista'` separa o bloqueio automático do bloqueio feito por
+pessoa: a regra só religa o que ela mesma desligou. `fn_vigia_gate_xml_vista()`
+(cron `vigia-gate-xml-vista`, de hora em hora) alerta se algum ativo ausente
+do XML escapar sem trava. Na aplicação, 282 anúncios ativos estavam ausentes
+do XML do Vista e 183 deles estavam no ar: o feed caiu de 2.714 para 2.531.
+
 **Desativação em massa é bloqueada.** Se os candidatos a desligar passarem de
 20% do acervo ativo, nada é desligado e fica um erro no log — protege contra
 um XML truncado do Vista zerar os portais.
