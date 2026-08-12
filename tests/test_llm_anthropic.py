@@ -118,6 +118,36 @@ def test_resposta_truncada_diz_que_foi_truncada(monkeypatch):
         llm.completar("oi")
 
 
+def test_campo_recusado_com_400_nao_mata_o_run(monkeypatch):
+    """Rede contra corpo de request que envelhece.
+
+    `thinking` e `output_config` dao qualidade ao roteiro, mas nao SAO o
+    roteiro. Um 400 neles sem esta rede viraria queda para o Gemini (que esta
+    sem cota) e run perdido — o problema que a migracao veio resolver.
+    """
+    respostas = {
+        1: httpx.Response(400, json={"error": {"message": "output_config: unsupported"}}),
+        2: httpx.Response(200, content=_resposta_ok()),
+    }
+    llm, corpos = _anthropic(monkeypatch, lambda n: respostas[n])
+
+    assert llm.completar("oi") == "resposta"
+    assert "output_config" in corpos[0]
+    assert "output_config" not in corpos[1]
+    assert corpos[1]["thinking"] == {"type": "adaptive"}, "so o campo recusado sai"
+
+
+def test_400_que_nao_e_de_campo_opcional_falha_na_hora(monkeypatch):
+    """Modelo inexistente ou prompt invalido nao se resolve tirando campo."""
+    llm, corpos = _anthropic(
+        monkeypatch, lambda _: httpx.Response(400, json={"error": "model not found"})
+    )
+
+    with pytest.raises(ErroProvider, match="400"):
+        llm.completar("oi")
+    assert len(corpos) == 1, "nao insiste no que nao vai mudar"
+
+
 def test_modelo_de_outro_provider_falha_na_construcao(monkeypatch):
     """`llm_model: gemini-flash-latest` servia aos tres providers.
 

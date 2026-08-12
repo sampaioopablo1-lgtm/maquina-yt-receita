@@ -132,7 +132,7 @@ class LLMAnthropic:
         if sistema:
             corpo["system"] = sistema
 
-        texto, uso, parou_por = self._com_retry_stream(corpo)
+        texto, uso, parou_por = self._sem_campo_recusado(corpo)
 
         preco = PRECO_ANTHROPIC.get(self.modelo, PRECO_ANTHROPIC_PADRAO)
         self.custo_usd += (
@@ -149,6 +149,37 @@ class LLMAnthropic:
         if not texto.strip():
             raise ErroProvider("Anthropic devolveu resposta sem texto")
         return texto
+
+    # Campos que a familia atual aceita mas que uma familia futura (ou uma conta
+    # sem acesso a eles) pode recusar. Ver OPCIONAIS abaixo.
+    OPCIONAIS = ("output_config", "thinking")
+
+    def _sem_campo_recusado(self, corpo: dict) -> tuple[str, dict, str]:
+        """Tenta de novo sem o campo que a API recusou, em vez de matar o run.
+
+        `thinking` e `output_config` sao o que da qualidade ao roteiro, mas nao
+        sao o roteiro. Se um deles for recusado com 400, produzir um video sem
+        ele e melhor que nao produzir video nenhum — e o aviso no log diz o que
+        ajustar. Sem esta rede, um 400 aqui viraria queda para o Gemini (sem
+        cota) e run perdido, que e exatamente o que esta migracao veio resolver.
+        """
+        for _ in range(len(self.OPCIONAIS) + 1):
+            try:
+                return self._com_retry_stream(corpo)
+            except ErroProvider as e:
+                msg = str(e)
+                recusado = next(
+                    (c for c in self.OPCIONAIS if c in corpo and c in msg), ""
+                )
+                if "400" not in msg or not recusado:
+                    raise
+                log.warning(
+                    "Anthropic recusou '%s' (%s) — repetindo sem esse campo. "
+                    "Qualidade cai; ajuste o corpo do request.",
+                    recusado, msg[:200],
+                )
+                corpo.pop(recusado)
+        raise ErroProvider("Anthropic recusou todos os campos opcionais")
 
     def _com_retry_stream(self, corpo: dict) -> tuple[str, dict, str]:
         ultimo = ""
