@@ -4,7 +4,12 @@ canal:
   idioma: "id"                      # indonesio
   tema: "dinheiro, trabalho, status e decisoes"
   publico_infantil: false
-  categoria_id: "22"                # People & Blogs
+  # 27 = Educacao. A rotina exige categoryId 27 em todo pacote, mas o padrao
+  # aqui era 22 (People & Blogs) e so 4 dos 13 canais sobrescreviam — os outros
+  # nove publicavam na categoria errada sem ninguem notar. Medido em 2026-08-12
+  # no iYe04WMYDxQ, que subiu como 22. A maquina ensina procedimento; o default
+  # tem que ser o da maquina, nao o do primeiro canal que existiu.
+  categoria_id: "27"
   estilo_narracao: "direto, calmo, com autoridade; frases curtas"
   idioma_revisao: "pt-BR"           # traducao de roteiros e comentarios na revisao
   # Palavras-chave extraidas de 144 videos dos canais de referencia do subnicho

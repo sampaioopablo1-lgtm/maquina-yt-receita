@@ -139,6 +139,20 @@ jobs:
             --privacidade "${{ inputs.privacidade }}" \
             --yes
 
+      # PROBLEMA ABERTO em 2026-08-12: os longos iYe04WMYDxQ e XgqPVJuAk3o
+      # subiram com contentDetails.caption=false apesar de legendar=true, e os
+      # dois runs manuais do legendar.yml (31591900543 e 31591913712) tambem
+      # falharam DEPOIS de os videos ja estarem uploadStatus=processed. Ou seja:
+      # a hipotese obvia — captions.insert perder a corrida contra o
+      # processamento — NAO explica, porque na segunda tentativa nao havia mais
+      # corrida. A causa real ainda nao foi diagnosticada.
+      #
+      # O retry abaixo nao conserta isso; ele so cobre o caso de processamento e,
+      # principalmente, para de esconder a falha. O `continue-on-error` fica de
+      # proposito (legenda faltando nao deve reprovar uma publicacao que deu
+      # certo), mas antes ele engolia o erro sem rastro nenhum e "sem legenda" so
+      # aparecia como caption=false na API dias depois. Agora sai um ::warning::
+      # no resumo do run.
       - name: Enviar legenda
         if: inputs.legendar
         continue-on-error: true
@@ -146,7 +160,17 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           MAQ_CANAL: ${{ inputs.canal }}
-        run: maquina legendar "${{ inputs.slug }}"
+        run: |
+          for tentativa in 1 2 3 4 5; do
+            if maquina legendar "${{ inputs.slug }}"; then
+              echo "legenda enviada na tentativa $tentativa"
+              exit 0
+            fi
+            echo "tentativa $tentativa falhou (video provavelmente ainda processando); aguardando 60s"
+            sleep 60
+          done
+          echo "::warning title=Legenda nao enviada::${{ inputs.slug }} publicou sem legenda apos 5 tentativas. Rode o workflow legendar.yml quando o video terminar de processar."
+          exit 1
 
       - name: Sincronizar resultado de volta ao Supabase
         if: always()
