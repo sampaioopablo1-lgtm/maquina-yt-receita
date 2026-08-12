@@ -47,6 +47,22 @@ conta de cota. A cota do YouTube é de 100 uploads/dia por projeto e usamos 10. 
 runner ele não é necessário. O caminho para escalar está em `.github/workflows/frota.yml`:
 um job por canal, `max-parallel: 10`, spec vinda do Storage.
 
+> **O gargalo mudou de lugar — medido em 2026-08-12.** Não é mais render nem
+> TTS: é `publicacao.max_por_dia`, que vale **6 e é da CONTA, não do canal**.
+> Os 13 canais competem pelo mesmo teto, e cada pacote gasta 2 vagas (short +
+> longo), então a frota inteira publica **3 pacotes/dia** — contra os 9 longos/dia
+> que a produção entrega. Em 12/08 o teto bloqueou 3 publicações e cinco ciclos
+> seguidos da rotina não tiveram pacote para entregar.
+>
+> A trava existe de propósito: automação em escala com variação mínima é lida
+> como spam, e contorná-la para destravar um pacote troca um vídeo por risco de
+> canal. Mas o número em si é decisão do Pablo, e enquanto ele não for revisto a
+> máquina vai continuar produzindo três vezes mais do que consegue publicar.
+>
+> **E a vaga não vale o mesmo nos dois formatos.** Com 154 a 194 horas de vida,
+> os 5 shorts do setiap-level medem mediana de **19,32 views/dia** e os 4 longos
+> **0,15** — 129×. A vaga gasta com longo em canal frio rende quase nada.
+
 O que **não** resolve: o container do Claude Code tem o hardware (4 CPU/16 GB, medido)
 mas o proxy de egresso nega `speech.platform.bing.com` (edge-tts) e `supabase.co` com
 403 de política — depois de anexar o CA ao certifi o erro deixou de ser de certificado e
@@ -258,6 +274,35 @@ sem nenhum erro. Se o md5 divergir, suba com nome novo (`fabrica-AAAAMMDD.tgz`).
 > atual é `fabrica-20260811.tgz`. A chave só o Pablo pode repor; enquanto ela
 > não tiver casa persistente (GitHub secret `UPLOAD_POST_KEY`), todo recycle
 > do sandbox bloqueia a publicação de novo.
+
+> **`/mnt/files` NÃO é disco durável — medido em 2026-08-12.** Era tratado como
+> a cópia segura do sandbox. Numa reciclagem o diretório veio **vazio**, com um
+> `/tmp/s3fs_mount.err` no lugar: é um s3fs e o mount pode simplesmente falhar.
+> Quem salvou foi o Storage — 6/6 recursos responderam HTTP 206 e a fábrica
+> inteira, as três trilhas e a referência de voz voltaram em ~1 minuto.
+> **A única cópia durável é o Storage.** `/mnt/files` serve como cache; nada
+> pode depender dele para sobreviver a um recycle.
+
+**Restaurar um sandbox novo** (o caminho testado, `videos-maquina/fabrica/`):
+
+```bash
+B=https://vevocauwtarctfwngrch.supabase.co/storage/v1/object/public/videos-maquina
+mkdir -p /tmp/spec /tmp/trilhas
+for f in etapas.py fabrica.py visual.py narracao.py tagbudget.py publicar.py; do
+  curl -sfL -o /tmp/spec/$f "$B/fabrica/$f"; done
+for t in Wholesome Inspired Deliberate_Thought; do
+  curl -sfL -o /tmp/trilhas/$t.mp3 "$B/trilhas/$t.mp3"; done
+curl -sfL -o /tmp/referencia-corte.wav "$B/voz/referencia-corte.wav"
+pip install -q edge-tts cairosvg
+md5sum /tmp/spec/*.py     # tem que bater com fabrica/*.py do repositório
+```
+
+Para **atualizar** um arquivo no Storage, use `.github/workflows/ponte-arquivo.yml`
+com `destino_storage`. Ele existe porque o container da rotina leva 403 de política
+em `supabase.co`, e porque o Storage separa criar de atualizar: `POST` recusa objeto
+existente e `PUT` recusa objeto inexistente — a ponte tenta os dois. Sem isso, o
+reenvio falha e a cópia durável envelhece uma versão atrás sem ninguém notar
+(aconteceu com `fabrica/etapas.py` em 2026-08-12).
 
 ### O short passou a ser conferido — e o layout 16:9 não serve para ele
 
