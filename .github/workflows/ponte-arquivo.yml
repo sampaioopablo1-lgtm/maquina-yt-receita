@@ -111,11 +111,27 @@ jobs:
           ALVO: ${{ inputs.destino_storage }}
         run: |
           set -euo pipefail
-          CODIGO=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' --max-time 300 \
-            -X POST "$SB/storage/v1/object/videos-maquina/$ALVO" \
-            -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
-            -H "Content-Type: ${{ inputs.content_type }}" \
-            --data-binary @"${{ steps.prep.outputs.saida }}")
+          URL="$SB/storage/v1/object/videos-maquina/$ALVO"
+          # O Storage separa criar de atualizar: POST recusa se o objeto ja
+          # existe (409 Duplicate) e PUT recusa se nao existe. Nenhum dos dois
+          # sozinho serve para uma ponte que tanto publica arquivo novo quanto
+          # atualiza copia de seguranca — e o modo silencioso disso e pior que
+          # o barulhento: a copia no Storage envelhece sem ninguem notar.
+          # Medido em 2026-08-12: reenviar fabrica/etapas.py com POST falhou, e
+          # a copia durável ficou uma versao atras da do repositorio.
+          enviar() {
+            curl -sS -o /tmp/resp.txt -w '%{http_code}' --max-time 300 \
+              -X "$1" "$URL" \
+              -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              -H "Content-Type: ${{ inputs.content_type }}" \
+              --data-binary @"${{ steps.prep.outputs.saida }}"
+          }
+          CODIGO=$(enviar POST)
+          case "$CODIGO" in
+            2*) echo "criado (POST $CODIGO)";;
+            *)  echo "POST devolveu $CODIGO — objeto ja existe, atualizando com PUT"
+                CODIGO=$(enviar PUT);;
+          esac
           echo "HTTP $CODIGO"
           head -c 400 /tmp/resp.txt || true
           case "$CODIGO" in
