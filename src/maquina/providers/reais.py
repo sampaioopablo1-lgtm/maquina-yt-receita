@@ -323,8 +323,23 @@ class TTSEdge:
             )
         self.voz = voz
 
+    # O endpoint da Microsoft nega pedido de IP de datacenter de forma
+    # INTERMITENTE, e o erro nao diz isso: vem como NoAudioReceived, "verifique
+    # seus parametros", que aponta para a voz ou o texto. Os parametros estavam
+    # certos. Medido em 2026-08-12: o mesmo runner narrou um video inteiro as
+    # 14:46 e as 16:50 nao recebeu audio nenhum; a mesma voz e o mesmo texto
+    # funcionaram no sandbox no mesmo minuto.
+    #
+    # Sem retry, UMA cena recusada derruba o lote inteiro — e um longo tem 78
+    # cenas, entao a chance de nenhuma ser recusada e baixa. O custo de errar
+    # aqui e o pacote todo; o custo de tentar de novo sao segundos.
+    TENTATIVAS = 4
+    ESPERA_S = 3
+
     def sintetizar(self, texto: str, saida: Path, *, voice_id: str = "") -> Path:
         import asyncio
+        import time
+
         import edge_tts
 
         voz = voice_id or self.voz
@@ -334,8 +349,27 @@ class TTSEdge:
             communicate = edge_tts.Communicate(texto, voz)
             await communicate.save(str(saida))
 
-        asyncio.run(_gerar())
-        return saida
+        ultimo: Exception | None = None
+        for tentativa in range(1, self.TENTATIVAS + 1):
+            try:
+                asyncio.run(_gerar())
+                # Arquivo vazio conta como falha: o edge-tts as vezes fecha o
+                # stream sem erro e deixa um mp3 de zero byte, que so apareceria
+                # depois, na concatenacao, como cena muda.
+                if saida.exists() and saida.stat().st_size > 0:
+                    return saida
+                ultimo = ErroProvider(f"edge-tts devolveu arquivo vazio para {saida.name}")
+            except Exception as e:  # NoAudioReceived, ClientResponseError, timeout
+                ultimo = e
+            if tentativa < self.TENTATIVAS:
+                time.sleep(self.ESPERA_S * tentativa)  # 3s, 6s, 9s
+
+        raise ErroProvider(
+            f"edge-tts falhou em {self.TENTATIVAS} tentativas para a voz {voz}: "
+            f"{type(ultimo).__name__}: {ultimo}. "
+            "NoAudioReceived costuma ser recusa por IP de datacenter, nao "
+            "parametro errado — a mesma chamada tende a funcionar fora do runner."
+        ) from ultimo
 
 
 class TTSOpenAI:
