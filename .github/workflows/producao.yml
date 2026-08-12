@@ -26,6 +26,10 @@ on:
         description: "Quantos videos produzir neste lote (0 ou vazio = 1)"
         type: string
         default: "1"
+      canal:
+        description: "Slug do canal (ex: sx-educacao). VAZIO = default.yaml, que e a config do Setiap Level."
+        type: string
+        default: ""
 
 concurrency:
   group: producao
@@ -71,13 +75,33 @@ jobs:
       - name: Restaurar credencial do YouTube
         env:
           YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          if [ -n "$YT_TOKEN_SETIAP_LEVEL" ]; then
-            mkdir -p secrets
+          # Ate 2026-08-12 este passo so conhecia o YT_TOKEN_SETIAP_LEVEL, e o
+          # job nunca definia MAQ_CANAL — entao o cron de 4 em 4 horas produzia
+          # SEMPRE contra o default.yaml, que e a config do Setiap Level, e
+          # gravava as linhas sem canal. Resultado medido: 15 das 30 linhas do
+          # estoque estao com canal nulo. A frota de treze nao era servida por
+          # ele; era um produtor monocanal disfarcado de motor da frota.
+          mkdir -p secrets
+          CANAL="${{ inputs.canal }}"
+          if [ -n "$CANAL" ]; then
+            TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_$CANAL&select=valor" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+            if [ -n "$TOKEN" ]; then
+              printf '%s' "$TOKEN" > secrets/youtube_token.json
+              printf '%s' "$TOKEN" > "secrets/youtube_token_$CANAL.json"
+              echo "Credencial do canal $CANAL (Supabase)."
+            else
+              echo "::warning::sem token para $CANAL — produz sem publicar"
+            fi
+          elif [ -n "$YT_TOKEN_SETIAP_LEVEL" ]; then
             printf '%s' "$YT_TOKEN_SETIAP_LEVEL" > secrets/youtube_token.json
-            echo "Credencial YouTube restaurada."
+            echo "Sem canal informado — usando default.yaml (Setiap Level)."
           else
-            echo "YT_TOKEN_SETIAP_LEVEL nao configurado — producao sem publicacao."
+            echo "Sem credencial — producao sem publicacao."
           fi
 
       - name: Produzir e publicar
@@ -94,6 +118,9 @@ jobs:
           CANVA_TEMPLATE_ID: ${{ secrets.CANVA_TEMPLATE_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # Sem isto o Config.load cai no default.yaml e o video sai no idioma e
+          # no nicho do Setiap Level, seja qual for o canal pedido.
+          MAQ_CANAL: ${{ inputs.canal }}
         run: |
           FORMATO="${{ inputs.formato || 'longo' }}"
           QUANTIDADE="${{ inputs.quantidade || '1' }}"
