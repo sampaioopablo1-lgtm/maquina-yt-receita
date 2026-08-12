@@ -28,15 +28,30 @@ log = logging.getLogger("maquina.producao")
 ORCAMENTO_TTS_S = 60.0
 ORCAMENTO_IMAGEM_S = 90.0
 
+# Teto ABSOLUTO por etapa, e e ele que faz o teto morder no longo.
+#
+# So com o valor por cena o orcamento nao protegia nada onde mais importa: 78
+# cenas x 60 s dao 78 minutos so de narracao, e x 90 s dao 117 de imagem — 195
+# minutos somados, contra 26 de execucao normal e um timeout de job de 300. Ou
+# seja, o teto quase nunca disparava antes do job inteiro estourar, que era
+# exatamente o problema que ele deveria resolver.
+#
+# Com o teto absoluto o longo passa a ser cortado em 25 + 45 = 70 minutos, ~2,7x
+# o normal — folga de sobra para retentativa real de provider, e curto o
+# bastante para o job nao virar refem. No short quem manda continua sendo o
+# valor por cena, porque 5 cenas nunca chegam perto destes numeros.
+TETO_TTS_S = 25 * 60.0
+TETO_IMAGEM_S = 45 * 60.0
+
 
 class OrcamentoEstourado(RuntimeError):
     """Etapa passou do teto de tempo. Os artefatos parciais estao preservados."""
 
 
-def _vigia(etapa: str, total: int, por_cena: float):
+def _vigia(etapa: str, total: int, por_cena: float, teto_absoluto: float):
     """Devolve uma funcao que levanta quando o tempo acumulado passa do teto."""
     inicio = time.monotonic()
-    teto = por_cena * max(total, 1)
+    teto = min(por_cena * max(total, 1), teto_absoluto)
 
     def conferir(feitas: int) -> None:
         gasto = time.monotonic() - inicio
@@ -60,7 +75,7 @@ def narrar(tts: TTS, roteiro: Roteiro, destino: Path, voice_id: str = "") -> Non
     pasta = destino / "audio"
     pasta.mkdir(parents=True, exist_ok=True)
 
-    conferir = _vigia("narracao", len(roteiro.cenas), ORCAMENTO_TTS_S)
+    conferir = _vigia("narracao", len(roteiro.cenas), ORCAMENTO_TTS_S, TETO_TTS_S)
     for feitas, cena in enumerate(roteiro.cenas, 1):
         saida = pasta / f"cena_{cena.indice:03d}.mp3"
         if not saida.exists():
@@ -78,7 +93,7 @@ def ilustrar(
     pasta.mkdir(parents=True, exist_ok=True)
     largura, altura = formato.resolucao
 
-    conferir = _vigia("ilustracao", len(roteiro.cenas), ORCAMENTO_IMAGEM_S)
+    conferir = _vigia("ilustracao", len(roteiro.cenas), ORCAMENTO_IMAGEM_S, TETO_IMAGEM_S)
     for feitas, cena in enumerate(roteiro.cenas, 1):
         saida = pasta / f"cena_{cena.indice:03d}.png"
         if not saida.exists():

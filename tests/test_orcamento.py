@@ -103,3 +103,41 @@ def test_mensagem_diz_onde_parou(tmp_path, monkeypatch):
     texto = str(e.value)
     assert "de 20 cenas" in texto
     assert "retomar" in texto
+
+
+def test_o_teto_absoluto_e_o_que_morde_no_longo():
+    """So o valor por cena nao protegia nada onde mais importa.
+
+    78 cenas x 60 s dao 78 min so de narracao, e x 90 s dao 117 de imagem: 195
+    somados, contra ~26 min de execucao normal e um timeout de job de 300. O
+    teto quase nunca disparava antes do job inteiro estourar — que era
+    exatamente o problema que ele deveria resolver.
+    """
+    cenas_longo = 78
+    tts = min(producao.ORCAMENTO_TTS_S * cenas_longo, producao.TETO_TTS_S)
+    imagem = min(producao.ORCAMENTO_IMAGEM_S * cenas_longo, producao.TETO_IMAGEM_S)
+
+    normal_s = cenas_longo * (5 + 15)  # 5 s por TTS, 15 s por imagem, medidos
+    assert tts + imagem < normal_s * 3, "o teto tem que morder bem antes de 3x o normal"
+    # E bem abaixo do timeout do job, senao nao adianta ter teto.
+    assert (tts + imagem) / 60 < 120
+
+
+def test_no_short_quem_manda_e_o_valor_por_cena():
+    """5 cenas nunca chegam perto do teto absoluto — se chegassem, o short
+    ganharia uma tolerancia de 45 min que nao faz sentido para 38 segundos."""
+    cenas_short = 5
+    assert producao.ORCAMENTO_TTS_S * cenas_short < producao.TETO_TTS_S
+    assert producao.ORCAMENTO_IMAGEM_S * cenas_short < producao.TETO_IMAGEM_S
+
+
+def test_teto_absoluto_corta_video_com_muitas_cenas(tmp_path, monkeypatch):
+    monkeypatch.setattr(producao, "ORCAMENTO_TTS_S", 10.0)   # por cena, generoso
+    monkeypatch.setattr(producao, "TETO_TTS_S", 0.05)        # mas o teto e curto
+    monkeypatch.setattr(producao.media, "duracao", lambda _: 3.0)
+    tts = TTSLento(atraso_s=0.08)
+
+    with pytest.raises(producao.OrcamentoEstourado):
+        producao.narrar(tts, _roteiro(40), tmp_path)
+
+    assert tts.chamadas < 40
