@@ -83,3 +83,34 @@ def test_upload_pede_retry_no_chunk(upload):
     registro, video = upload
     youtube.publicar(video, Config.load())
     assert registro["num_retries"] >= 1
+
+
+def test_credenciais_nao_sobrescreve_escopo_do_token_existente(monkeypatch, tmp_path):
+    """aprendizado 155 (critico): passar ESCOPOS para from_authorized_user_file
+    sobrescreve os escopos gravados no arquivo, e o refresh passa a pedir ao
+    Google um escopo fora da concessao original — RefreshError: invalid_scope
+    em todo canal cujo token nao tenha exatamente a lista atual de ESCOPOS."""
+    chamadas = []
+
+    class _CredFake:
+        valid = True
+        expired = False
+        refresh_token = "r"
+
+        @classmethod
+        def from_authorized_user_file(cls, filename, scopes=None):
+            chamadas.append(scopes)
+            return cls()
+
+    monkeypatch.setattr(
+        "google.oauth2.credentials.Credentials", _CredFake
+    )
+
+    token = tmp_path / "token.json"
+    token.write_text("{}", encoding="utf-8")
+    cfg = Config.load()
+    cfg.yt_token = token
+
+    youtube._credenciais(cfg)
+
+    assert chamadas == [None]

@@ -33,9 +33,9 @@ def test_canal_inexistente_falha_alto():
         Config.load(canal="canal-fantasma")
 
 
-def test_todos_os_10_canais_do_portfolio_carregam():
+def test_todos_os_canais_do_portfolio_carregam():
     canais = sorted(p.stem for p in (ROOT / "config" / "canais").glob("*.yaml"))
-    assert len(canais) == 10
+    assert len(canais) == 11
     vozes = set()
     for slug in canais:
         cfg = Config.load(canal=slug)
@@ -43,4 +43,4 @@ def test_todos_os_10_canais_do_portfolio_carregam():
         assert cfg.canal.voz_edge
         vozes.add(cfg.canal.voz_edge)
     # Identidades distintas: nenhuma voz repetida no portfolio (anti-rede).
-    assert len(vozes) == 10
+    assert len(vozes) == len(canais)

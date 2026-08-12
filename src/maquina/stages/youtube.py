@@ -14,15 +14,16 @@ log = logging.getLogger("maquina.youtube")
 ESCOPOS = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",
-    "https://www.googleapis.com/auth/yt-analytics.readonly",
+    "https://www.googleapis.com/auth/youtube.force-ssl",
 ]
 
-# Escopo adicional obrigatorio para captions.insert.
-# Nao esta em ESCOPOS pois alteraria o token de publicacao ja emitido.
-# Para habilitar `maquina legendar`, reautentique com:
-#   ESCOPOS_CAPTIONS = ESCOPOS + ["https://www.googleapis.com/auth/youtube.force-ssl"]
-# e gere um novo token via `maquina auth-youtube`.
-_ESCOPO_CAPTIONS = "https://www.googleapis.com/auth/youtube.force-ssl"
+# aprendizado 155 (critico, 2026-08-11): os 12 tokens ja emitidos carregam
+# exatamente [youtube, youtube.upload, youtube.force-ssl] — nenhum tem
+# yt-analytics.readonly, que nunca foi de fato concedido. Passar uma lista de
+# escopos para from_authorized_user_file SOBRESCREVE os escopos do arquivo, e
+# o refresh passa a pedir ao Google escopo fora da concessao original, o que
+# sempre falha com invalid_scope. Por isso o load de token existente abaixo
+# nao passa ESCOPOS — usa os escopos gravados no proprio arquivo.
 
 
 def _credenciais(cfg: Config, permitir_interativo: bool = False):
@@ -31,7 +32,7 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
 
     cred = None
     if cfg.yt_token.exists():
-        cred = Credentials.from_authorized_user_file(str(cfg.yt_token), ESCOPOS)
+        cred = Credentials.from_authorized_user_file(str(cfg.yt_token))
 
     if cred and cred.valid:
         return cred
@@ -65,14 +66,10 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
 def autenticar(cfg: Config) -> Path:
     """Fluxo OAuth interativo, executado uma vez pelo operador.
 
-    Pede ESCOPOS + force-ssl de uma vez, para que o mesmo token sirva
-    tanto para publicar quanto para `maquina legendar` (captions.insert).
-    Tokens antigos sem force-ssl continuam funcionando para publicacao;
-    so o comando `legendar` requer o novo token.
+    ESCOPOS ja inclui force-ssl, entao o mesmo token serve tanto para
+    publicar quanto para `maquina legendar` (captions.insert).
     """
     from google_auth_oauthlib.flow import InstalledAppFlow
-
-    escopos_completos = ESCOPOS + [_ESCOPO_CAPTIONS]
 
     if not cfg.yt_client_secret.exists():
         raise FileNotFoundError(
@@ -80,7 +77,7 @@ def autenticar(cfg: Config) -> Path:
             "Google Cloud Console > OAuth client ID > Desktop app."
         )
     flow = InstalledAppFlow.from_client_secrets_file(
-        str(cfg.yt_client_secret), escopos_completos
+        str(cfg.yt_client_secret), ESCOPOS
     )
     cred = flow.run_local_server(port=0)
     cfg.yt_token.parent.mkdir(parents=True, exist_ok=True)
