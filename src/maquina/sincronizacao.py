@@ -56,9 +56,13 @@ def _cliente() -> httpx.Client:
 
 
 def _linha_video(v: Video) -> dict:
-    return {
+    # `canal` so entra quando existe. Mandar None faria o upsert SOBRESCREVER
+    # com NULL o canal que a linha ja tinha no Supabase — e os payloads locais
+    # foram gravados antes do campo existir, entao quase todos vem sem ele.
+    # Medido em 2026-08-12: o primeiro sync depois de eu adicionar o campo
+    # apagou o canal de linhas que estavam corretas, inclusive labtreinamento-001.
+    linha = {
         "slug": v.slug,
-        "canal": v.canal,
         "status": v.status.value,
         "formato": v.formato.value,
         "titulo": v.roteiro.titulo if v.roteiro else (v.ideia.titulo if v.ideia else None),
@@ -71,6 +75,9 @@ def _linha_video(v: Video) -> dict:
         "publicado_em": v.publicado_em.isoformat() if v.publicado_em else None,
         "agendado_para": v.agendado_para.isoformat() if v.agendado_para else None,
     }
+    if v.canal:
+        linha["canal"] = v.canal
+    return linha
 
 
 def _linha_metrica(m: Metricas) -> dict:
