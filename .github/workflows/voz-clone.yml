@@ -15,24 +15,20 @@ name: Voz clonada (Chatterbox, gratuito)
 # speech.platform.bing.com (403 de politica do proxy), e o sandbox Composio tem
 # 1 CPU e ~1 GB de RAM — nao segura um modelo de 0,5B.
 #
-# A referencia vem do proprio checkout (assets/voice/referencia.wav), entao o
-# audio nunca precisa passar por servico externo nenhum.
+# TODOS os idiomas num job so: carregar o modelo custa ~3 min e a geracao de uma
+# frase custa segundos. Um job por idioma pagaria a carga oito vezes.
 
 on:
   workflow_dispatch:
     inputs:
-      texto:
-        description: "Texto a narrar"
+      idiomas:
+        description: "Codigos separados por virgula (pt,en,es,hi,pl,tr,el,id) ou 'todos'"
         type: string
-        default: "Existe mesmo um Ozempic natural? A Anvisa acabou de proibir tres produtos vendidos com essa promessa. Vou te mostrar quais sao, e o que a ciencia realmente diz sobre cada um deles."
-      idioma:
-        description: "Codigo do idioma (pt, en, es, hi, id, el, vi, th, ur)"
-        type: string
-        default: "pt"
+        default: "pt,en,es,hi,pl,tr,el,id"
       referencia:
         description: "Audio de referencia no repositorio"
         type: string
-        default: "assets/voice/referencia.wav"
+        default: "assets/voice/referencia-corte.wav"
       exaggeration:
         description: "Expressividade 0.25-2.0 (0.5 = neutro documental)"
         type: string
@@ -45,7 +41,7 @@ on:
 jobs:
   clonar:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -53,6 +49,7 @@ jobs:
         with:
           python-version: "3.11"
 
+      # O runner ubuntu-latest NAO traz ffmpeg (medido em 2026-08-11: exit 127).
       - name: Instalar ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
@@ -68,79 +65,114 @@ jobs:
       - name: Preparar referencia
         run: |
           set -euo pipefail
-          # O modelo quer fala limpa e curta. 24 kHz mono, e corta os 3 primeiros
-          # segundos porque gravacao caseira costuma comecar com respiro/clique.
-          ffmpeg -nostdin -y -ss 3 -i "${{ inputs.referencia }}" \
-            -ac 1 -ar 24000 -t 20 /tmp/ref.wav -loglevel error
-          ls -la /tmp/ref.wav
+          # A referencia ja vem densificada e normalizada do repositorio; aqui so
+          # se garante mono 24 kHz, que e o que o modelo consome.
+          ffmpeg -nostdin -y -i "${{ inputs.referencia }}" -ac 1 -ar 24000 \
+            /tmp/ref.wav -loglevel error
+          ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 /tmp/ref.wav
 
-      - name: Gerar narracao
-        id: gerar
+      - name: Gerar narracao em cada idioma
         env:
-          TEXTO: ${{ inputs.texto }}
-          IDIOMA: ${{ inputs.idioma }}
+          IDIOMAS: ${{ inputs.idiomas }}
           EXAG: ${{ inputs.exaggeration }}
           CFG: ${{ inputs.cfg_weight }}
         run: |
           set -euo pipefail
           python - <<'PY'
-          import os, time, torch, torchaudio
+          import os, time, json, torch, torchaudio
           from chatterbox.mtl_tts import ChatterboxMultilingualTTS
 
-          texto  = os.environ["TEXTO"]
-          idioma = os.environ["IDIOMA"]
+          # Uma frase por idioma, do nicho do canal que fala aquele idioma — o
+          # timbre clonado precisa ser julgado no material real, nao num
+          # "pangrama" que ninguem vai narrar.
+          FRASES = {
+              "pt": "Existe mesmo um Ozempic natural? A Anvisa acabou de proibir tres produtos vendidos com essa promessa.",
+              "en": "Your paycheck did not get smaller. The tax bracket moved, and almost nobody noticed it happening.",
+              "es": "Con cien pesos de despensa se cocina toda la semana. Te muestro exactamente como se reparte.",
+              "hi": "आपकी सैलरी कम नहीं हुई है। टैक्स का नियम बदला है, और किसी ने ध्यान नहीं दिया।",
+              "pl": "Twoja rata wlasnie spadla, i to jest najniebezpieczniejszy moment calego kredytu.",
+              "tr": "Asgari ucret zamlandi ama market fisi daha hizli buyudu. Farki birlikte hesaplayalim.",
+              "el": "Ο μισθός σου δεν μειώθηκε. Άλλαξε η φορολογική κλίμακα, και σχεδόν κανείς δεν το πρόσεξε.",
+              "id": "Gaji kamu tidak berkurang. Aturan pajaknya yang berubah, dan hampir tidak ada yang sadar.",
+          }
+
+          pedidos = os.environ["IDIOMAS"].strip()
+          pedidos = list(FRASES) if pedidos == "todos" else [
+              c.strip() for c in pedidos.split(",") if c.strip()]
 
           t0 = time.time()
           modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
-          t_carga = time.time() - t0
-          print(f"modelo carregado em {t_carga:.0f}s")
+          print(f"modelo carregado em {time.time()-t0:.0f}s")
 
-          t0 = time.time()
-          wav = modelo.generate(
-              texto,
-              language_id=idioma,
-              audio_prompt_path="/tmp/ref.wav",
-              exaggeration=float(os.environ["EXAG"]),
-              cfg_weight=float(os.environ["CFG"]),
-          )
-          t_gera = time.time() - t0
+          suportados = None
+          for attr in ("supported_languages", "SUPPORTED_LANGUAGES", "languages"):
+              v = getattr(modelo, attr, None) or getattr(ChatterboxMultilingualTTS, attr, None)
+              if v:
+                  suportados = sorted(v.keys() if isinstance(v, dict) else v)
+                  break
+          print("idiomas do modelo:", suportados if suportados else "(nao expostos)")
 
-          torchaudio.save("/tmp/saida.wav", wav, modelo.sr)
-          dur = wav.shape[-1] / modelo.sr
+          relatorio = []
+          for cod in pedidos:
+              if cod not in FRASES:
+                  print(f"  {cod}: sem frase cadastrada, pulado"); continue
+              if suportados and cod not in suportados:
+                  print(f"  {cod}: NAO SUPORTADO pelo modelo, pulado")
+                  relatorio.append({"idioma": cod, "suportado": False}); continue
+              try:
+                  t0 = time.time()
+                  wav = modelo.generate(
+                      FRASES[cod], language_id=cod, audio_prompt_path="/tmp/ref.wav",
+                      exaggeration=float(os.environ["EXAG"]),
+                      cfg_weight=float(os.environ["CFG"]))
+                  gasto = time.time() - t0
+                  torchaudio.save(f"/tmp/voz-{cod}.wav", wav, modelo.sr)
+                  d = wav.shape[-1] / modelo.sr
+                  fator = gasto / d if d else 0
+                  print(f"  {cod}: {d:.1f}s de audio em {gasto:.0f}s = {fator:.1f}x tempo real")
+                  relatorio.append({"idioma": cod, "suportado": True,
+                                    "duracao_s": round(d, 2), "cpu_s": round(gasto),
+                                    "fator": round(fator, 1)})
+              except Exception as e:
+                  print(f"  {cod}: FALHOU — {type(e).__name__}: {e}")
+                  relatorio.append({"idioma": cod, "suportado": True, "erro": str(e)[:200]})
 
-          # A medida que decide se isto entra na producao: quantos segundos de
-          # CPU custa 1 segundo de audio. Acima de ~20x, um video de 12 min nao
-          # cabe no limite de 6h do runner.
-          fator = t_gera / dur if dur else 0
-          print(f"MEDIDO: {dur:.1f}s de audio em {t_gera:.0f}s de CPU = {fator:.1f}x tempo real")
-          print(f"PROJECAO: um video de 12 min (740s) levaria {740*fator/60:.0f} min")
-
-          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              f.write(f"fator={fator:.1f}\n")
-              f.write(f"duracao={dur:.1f}\n")
+          json.dump(relatorio, open("/tmp/relatorio.json", "w"), ensure_ascii=False, indent=1)
+          ok = [r for r in relatorio if r.get("fator")]
+          if ok:
+              print(f"\n{len(ok)} idiomas gerados | fator medio "
+                    f"{sum(r['fator'] for r in ok)/len(ok):.1f}x tempo real")
           PY
-          ffmpeg -nostdin -y -i /tmp/saida.wav -b:a 96k /tmp/amostra.mp3 -loglevel error
-          ls -la /tmp/amostra.mp3
+          for f in /tmp/voz-*.wav; do
+            [ -e "$f" ] || continue
+            ffmpeg -nostdin -y -i "$f" -b:a 96k "${f%.wav}.mp3" -loglevel error
+          done
+          ls -la /tmp/voz-*.mp3 2>/dev/null || echo "nenhuma amostra gerada"
 
-      - name: Publicar amostra
+      - name: Publicar amostras
+        if: always()
         env:
           SB: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           set -euo pipefail
-          ALVO="amostras/voz-pablo-${{ inputs.idioma }}-${{ github.run_id }}.mp3"
-          CODIGO=$(curl -sS -o /tmp/r.txt -w '%{http_code}' -X POST \
-            "$SB/storage/v1/object/videos-maquina/$ALVO" \
-            -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
-            -H "Content-Type: audio/mpeg" --data-binary @/tmp/amostra.mp3)
-          echo "HTTP $CODIGO"
-          case "$CODIGO" in 2*) ;; *) cat /tmp/r.txt; exit 1;; esac
-          echo "AMOSTRA: $SB/storage/v1/object/public/videos-maquina/$ALVO"
-          echo "custo: ${{ steps.gerar.outputs.fator }}x tempo real"
+          for f in /tmp/voz-*.mp3; do
+            [ -e "$f" ] || continue
+            COD=$(basename "$f" .mp3 | sed 's/^voz-//')
+            ALVO="amostras/voz-pablo-${COD}-${{ github.run_id }}.mp3"
+            CODIGO=$(curl -sS -o /dev/null -w '%{http_code}' -X POST \
+              "$SB/storage/v1/object/videos-maquina/$ALVO" \
+              -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              -H "Content-Type: audio/mpeg" --data-binary @"$f")
+            echo "$COD -> HTTP $CODIGO | $SB/storage/v1/object/public/videos-maquina/$ALVO"
+          done
+          [ -f /tmp/relatorio.json ] && cat /tmp/relatorio.json || true
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: amostra-voz-${{ inputs.idioma }}
-          path: /tmp/amostra.mp3
+          name: amostras-voz
+          path: |
+            /tmp/voz-*.mp3
+            /tmp/relatorio.json
           if-no-files-found: warn
