@@ -109,10 +109,17 @@ def auto(
     p = Pipeline(cfg)
 
     pendente = p.pendente(formato)
+    guardada = None if pendente else p.ideia_guardada(formato)
     if pendente:
         assert pendente.roteiro
         console.print(f"Roteiro pendente (Supabase): [bold]{pendente.roteiro.titulo}[/]")
         video = p.retomar(pendente.slug)
+    elif guardada:
+        # Pauta escolhida numa rodada anterior. Economiza a chamada de ideacao,
+        # que no plano gratuito do Gemini custa uma das vinte diarias.
+        assert guardada.ideia
+        console.print(f"Pauta do banco: [bold]{guardada.ideia.titulo}[/]")
+        video = p.retomar(guardada.slug)
     else:
         lista = p.ideias(formato, 5)
         if not lista:
@@ -121,6 +128,10 @@ def auto(
 
         escolhida = lista[0]
         console.print(f"Pauta: [bold]{escolhida.titulo}[/]")
+        # As outras quatro ficam para as proximas rodadas em vez de irem para o
+        # lixo. Uma chamada de ideacao passa a servir cinco disparos.
+        if guardadas := p.guardar_ideias(lista[1:]):
+            console.print(f"[dim]{guardadas} pautas guardadas para as proximas rodadas[/]")
         video = p.produzir(escolhida)
 
     res = p.verificar(video)

@@ -54,6 +54,38 @@ class Pipeline:
         ]
         return min(candidatos, key=lambda v: v.criado_em) if candidatos else None
 
+    def ideia_guardada(self, formato: Formato) -> Video | None:
+        """Pauta ja escolhida em rodada anterior, esperando virar video.
+
+        `gerar_ideias` pede CINCO ideias numa chamada e o `auto` usava uma,
+        jogando quatro fora. Parecia gratuito e nao era: o Gemini do plano
+        gratuito da 20 requisicoes por dia, e cada video gasta uma na ideacao,
+        uma no roteiro, ate duas na extensao e mais uma no short companheiro.
+        Com seis disparos diarios isso estoura a cota — foi o que derrubou
+        next-level-money em 12/08/2026 com 429.
+
+        Guardando as quatro sobras, a ideacao passa a custar UMA chamada a cada
+        cinco rodadas em vez de uma por rodada.
+        """
+        candidatos = [
+            v for v in self.store.listar(Status.IDEIA, limite=50)
+            if v.formato is formato
+            and v.ideia
+            and (v.canal or None) == (self.cfg.canal_slug or None)
+        ]
+        return min(candidatos, key=lambda v: v.criado_em) if candidatos else None
+
+    def guardar_ideias(self, ideias: list[Ideia]) -> int:
+        """Salva pautas para as proximas rodadas. Devolve quantas entraram."""
+        conhecidos = {v.slug for v in self.store.listar(limite=10_000)}
+        novas = 0
+        for ideia in ideias:
+            if ideia.slug in conhecidos:
+                continue
+            self.criar(ideia)
+            novas += 1
+        return novas
+
     def criar(self, ideia: Ideia) -> Video:
         video = Video(slug=ideia.slug, formato=ideia.formato,
                       idioma=self.cfg.canal.idioma,
