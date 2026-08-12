@@ -79,10 +79,17 @@ Se anúncios voltarem a ser desativados, o próximo passo é baixar o
 
 Um anúncio ativo só entra no XML se tiver oferta válida (venda e/ou locação),
 preço coerente com a transação, preço de venda entre R$ 15 mil e R$ 150
-milhões, e book completo pela régua do portal: 20 fotos para residencial,
-10 para terreno e comercial (jpg/png/webp). A régua de fotos segue a nota
-máxima da categoria Imagens do Grupo Zap — anúncio abaixo dela fica fora
-até o book ser completado no Vista.
+milhões, e pelo menos **7 fotos** (jpg/png/webp).
+
+A régua de emissão (7) não é a mesma coisa que a régua de nota (20
+residencial / 10 terreno-comercial, em `metaFotosPortal`). Até 12/08 as duas
+eram a mesma, e isso custava estoque: mirando a nota máxima da categoria
+Imagens, o feed publicava 2.531 anúncios quando 3.442 atendiam o piso do
+portal. As duas passaram a viver separadas — `minFotosEmissao()` decide quem
+entra, `metaFotosPortal()` segue alimentando o score, as sugestões de
+melhoria e a ordem de prioridade. Quem tem book completo e ficha completa
+continua no topo da fila; com o teto de 3.000 anúncios do contrato, o corte
+por prioridade é o que decide quem fica de fora.
 
 **Tour virtual** só é emitido quando a ficha tem tour 360 real. O link
 padrão apontando para página própria foi removido na v7: o portal pontuou
@@ -100,3 +107,5 @@ imóvel) e por risco de derrubada em massa por duplicação.
 | `JAZZ_ANO_CONSTRUCAO_PADRAO` | ano de construção de fallback |
 | `JAZZ_TELEFONE_CONTATO` | telefone no cabeçalho do feed |
 | `JAZZ_FEED_MIN_LISTINGS` | piso do guard de estoque (padrão 50) |
+| `JAZZ_FEED_MIN_FOTOS` | régua de fotos pra entrar no XML (padrão 7) |
+| `JAZZ_FEED_MAX_LISTINGS` | teto de anúncios no XML (padrão 3000) |
