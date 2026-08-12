@@ -28,8 +28,12 @@ jobs:
         with:
           python-version: "3.11"
 
+      # imageio-ffmpeg traz um binario estatico proprio. Nao da para contar com
+      # o do runner: esta imagem nao tem ffmpeg nem ffprobe no PATH, embora o
+      # runner do producao.yml tenha. Descoberto em duas execucoes seguidas
+      # deste workflow, cada uma morrendo num binario diferente.
       - name: Instalar
-        run: pip install edge-tts pyyaml
+        run: pip install edge-tts pyyaml imageio-ffmpeg
 
       - name: Medir
         run: python scripts/medir_vozes.py ${{ inputs.vozes }}
