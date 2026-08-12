@@ -83,9 +83,13 @@ def produzir(
         raise typer.Exit(2)
 
     if not cfg.publicacao.exigir_revisao:
-        quando = datetime.now().astimezone() + timedelta(hours=3)
-        p.publicar(video, agendar_para=quando)
-        console.print(f"[green]Agendado[/] para {quando:%d/%m %H:%M}")
+        horas = cfg.publicacao.agendar_horas
+        quando = datetime.now().astimezone() + timedelta(hours=horas) if horas else None
+        p.publicar(video, agendar_para=quando, privacidade="public")
+        console.print(
+            f"[green]Agendado[/] para {quando:%d/%m %H:%M}" if quando
+            else "[green]Publicado[/] agora, publico"
+        )
     else:
         console.print(f"Aguardando revisao humana: [bold]maquina publicar {video.slug}[/]")
 
@@ -130,9 +134,13 @@ def auto(
     console.print(f"[green]Produzido:[/] {video.video_path}")
 
     if publicar_apos and not cfg.publicacao.exigir_revisao:
-        quando = datetime.now().astimezone() + timedelta(hours=3)
-        p.publicar(video, agendar_para=quando)
-        console.print(f"[green]Agendado[/] para {quando:%d/%m %H:%M}")
+        horas = cfg.publicacao.agendar_horas
+        quando = datetime.now().astimezone() + timedelta(hours=horas) if horas else None
+        p.publicar(video, agendar_para=quando, privacidade="public")
+        console.print(
+            f"[green]Agendado[/] para {quando:%d/%m %H:%M}" if quando
+            else "[green]Publicado[/] agora, publico"
+        )
     else:
         console.print("Aguardando revisao humana: [bold]maquina publicar "
                       f"{video.slug}[/]")

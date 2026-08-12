@@ -39,6 +39,12 @@ class LimitesPublicacao(BaseModel):
     # rotina sempre pediu e que nao existia em codigo ate 2026-08-12, porque o
     # Video nao tinha campo `canal` para separar um canal dos outros doze.
     max_por_canal_dia: int = 6
+    # Horas de agendamento no caminho automatico. 0 = publica JA, publico.
+    # Era 3 fixo no codigo do cli.py, e agendar forca privacyStatus=private com
+    # publishAt — o video fica invisivel ate a hora marcada. A rotina exige
+    # publico, e em canal frio o feed de Shorts so entrega o que ja esta no ar.
+    # Medido em 2026-08-12: iSby7u2ltf8 subiu private, agendado para 21:17.
+    agendar_horas: int = 0
     similaridade_max: float = 0.65
     exigir_revisao: bool = True
     janela_similaridade: int = 30
