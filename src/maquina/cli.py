@@ -139,11 +139,51 @@ def auto(
         p.publicar(video, agendar_para=quando, privacidade="public")
         console.print(
             f"[green]Agendado[/] para {quando:%d/%m %H:%M}" if quando
-            else "[green]Publicado[/] agora, publico"
+            else f"[green]Publicado[/] https://youtu.be/{video.youtube_id}"
         )
+        if video.formato is Formato.LONGO:
+            _companheiro(p, cfg, video)
     else:
         console.print("Aguardando revisao humana: [bold]maquina publicar "
                       f"{video.slug}[/]")
+
+
+def _companheiro(p: Pipeline, cfg: Config, longo) -> None:
+    """Produz e publica o short que leva publico ao longo.
+
+    A regra mestra da rotina pede pacote — longo E short — e o caminho
+    automatico sempre entregou um video sozinho. O custo estava medido: longo
+    publicado sem short faz 0,14 view/dia, contra 22,97 do short, porque em
+    canal frio o feed de Shorts entrega e o de longos nao. O longo nao e o
+    produto que falha; e o produto que ninguem alcanca.
+
+    DESVIO ASSUMIDO: a rotina manda publicar o SHORT primeiro. Aqui o longo sai
+    antes, porque a descricao do short precisa do youtube_id dele — que so
+    existe depois do upload. Os dois saem com poucos minutos de diferenca, e a
+    razao da regra (o Short e que puxa a descoberta) fica preservada.
+
+    Falhar aqui nao derruba nada: o longo ja esta no ar, e o short e ganho, nao
+    requisito.
+    """
+    try:
+        short = p.companheiro(longo)
+    except Exception as e:
+        console.print(f"[yellow]short companheiro nao saiu:[/] {e}")
+        return
+
+    res = p.verificar(short)
+    for a in res.alertas:
+        console.print(f"[yellow]alerta (short):[/] {a}")
+    if not res.aprovado:
+        for b in res.bloqueios:
+            console.print(f"[red]bloqueio (short):[/] {b}")
+        return
+
+    try:
+        p.publicar(short, privacidade="public")
+        console.print(f"[green]Short:[/] https://youtu.be/{short.youtube_id}")
+    except Exception as e:
+        console.print(f"[yellow]short nao publicado:[/] {e}")
 
 
 @app.command()

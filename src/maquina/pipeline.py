@@ -165,6 +165,35 @@ class Pipeline:
 
         return video
 
+    def companheiro(self, longo: Video) -> Video:
+        """Produz o short que leva publico ao longo. Nao publica.
+
+        A regra mestra da rotina pede pacote — longo E short — e o caminho
+        automatico sempre entregou um video sozinho. O custo disso estava
+        medido: longo publicado sem short faz 0,14 view/dia, porque em canal
+        frio o feed de Shorts entrega e o de longos nao.
+        """
+        if not longo.roteiro:
+            raise ValueError(f"{longo.slug} nao tem roteiro para derivar o short")
+
+        video = Video(
+            slug=f"{longo.slug}-short",
+            formato=Formato.SHORTS,
+            idioma=longo.idioma,
+            canal=longo.canal,
+            roteiro=roteiro_stage.roteiro_companheiro(
+                self.llm, self.cfg, longo.roteiro, longo.youtube_id or ""
+            ),
+            status=Status.ROTEIRIZADO,
+        )
+        self.store.salvar(video)
+        log.info("short companheiro de %s: %d cenas", longo.slug, len(video.roteiro.cenas))
+
+        self.narrar(video)
+        self.ilustrar(video)
+        self.renderizar(video)
+        return video
+
     # ---------- fluxos completos ----------
 
     def produzir(self, ideia: Ideia) -> Video:

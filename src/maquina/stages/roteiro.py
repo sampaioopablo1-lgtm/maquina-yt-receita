@@ -100,6 +100,37 @@ Mesmo estilo de prompt de imagem em INGLES das cenas anteriores.
 JSON: {{"cenas":[{{"narracao":"...","prompt_visual":"..."}}]}}"""
 
 
+PROMPT_COMPANHEIRO = """Escreva o SHORT que leva o publico a este video longo.
+
+Titulo do longo: {titulo}
+Gancho do longo: {gancho}
+
+Trechos mais fortes da narracao:
+{trechos}
+
+O short tem {dur_s} segundos e {n_cenas} cenas, entao cabe UMA ideia — a mais
+chocante ou mais concreta do longo, nao um resumo dele. Resumo entrega o
+conteudo e mata o motivo de assistir.
+
+Estrutura:
+1. Primeira cena: o gancho, nos DOIS primeiros segundos. Comece pela afirmacao
+   mais forte, sem introducao e sem dizer "neste video".
+2. Cenas do meio: entregue essa unica ideia com um numero ou exemplo concreto.
+3. Ultima cena: CTA FALADO apontando o longo — diga que a explicacao completa
+   esta no video do canal. Sem "link na descricao", que nao existe em Shorts.
+
+Vertical 9:16: descreva a composicao pensando em enquadramento em pe.
+
+Aproximadamente {chars} caracteres de narracao no TOTAL, somando as cenas.
+Numeros por extenso, nunca digito cru.
+
+JSON:
+{{"titulo":"...","gancho":"...",
+  "cenas":[{{"narracao":"...","prompt_visual":"..."}}],
+  "descricao":"...","tags":["..."],
+  "prompt_thumbnail":"...","texto_thumbnail":"..."}}"""
+
+
 def _json_do_llm(bruto: str) -> dict:
     """LLM as vezes devolve cercado por ```json. Extrai o objeto de forma tolerante."""
     texto = bruto.strip()
@@ -280,6 +311,62 @@ def _estender(
             sum(len(c.narracao) for c in cenas) / taxa / 60,
         )
     return cenas
+
+
+def roteiro_companheiro(llm: LLM, cfg: Config, longo: Roteiro, youtube_id: str = "") -> Roteiro:
+    """Deriva o short que leva publico ao longo.
+
+    A regra mestra da rotina pede pacote — longo E short —, e o caminho
+    automatico sempre produziu um video sozinho. A consequencia estava medida:
+    longo publicado sem short faz 0,14 view/dia, porque em canal frio o feed de
+    Shorts entrega e o de longos nao. O longo nao e o produto que falha; e o
+    produto que ninguem alcanca.
+
+    Nao e um resumo. Resumo entrega o conteudo e mata o motivo de assistir — o
+    short carrega UMA ideia do longo e um CTA falado apontando para ele.
+    """
+    dur_s = Formato.SHORTS.duracao_alvo_s
+    chars = int(dur_s * _chars_por_s(cfg))
+
+    # As cenas do meio, onde mora o argumento. As primeiras sao gancho e as
+    # ultimas sao despedida — nenhuma das duas ajuda a escolher a ideia forte.
+    miolo = longo.cenas[3:-3] or longo.cenas
+    passo = max(len(miolo) // 8, 1)
+    trechos = [c.narracao for c in miolo[::passo]][:8]
+
+    prompt = PROMPT_COMPANHEIRO.format(
+        titulo=longo.titulo,
+        gancho=longo.gancho,
+        trechos="\n".join(f"- {t}" for t in trechos),
+        dur_s=dur_s,
+        n_cenas=5,
+        chars=chars,
+    )
+    dados = _json_do_llm(llm.completar(prompt, sistema=_sistema(cfg), max_tokens=8192))
+
+    cenas = [
+        Cena(indice=i, narracao=c["narracao"].strip(), prompt_visual=c["prompt_visual"].strip())
+        for i, c in enumerate(dados.get("cenas", []))
+        if c.get("narracao", "").strip()
+    ]
+    if not cenas:
+        raise ValueError("LLM nao devolveu cena para o short companheiro")
+
+    descricao = dados.get("descricao", "")
+    if youtube_id:
+        # O link so existe na descricao do short; o CTA falado e o que converte,
+        # mas quem pausa e le precisa achar o longo.
+        descricao = f"{descricao}\n\nVideo completo: https://youtu.be/{youtube_id}".strip()
+
+    return Roteiro(
+        titulo=dados.get("titulo", longo.titulo)[:100],
+        gancho=dados.get("gancho", ""),
+        cenas=cenas,
+        descricao=descricao,
+        tags=dados.get("tags", longo.tags),
+        prompt_thumbnail=dados.get("prompt_thumbnail", ""),
+        texto_thumbnail=dados.get("texto_thumbnail", "")[:40],
+    )
 
 
 def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
