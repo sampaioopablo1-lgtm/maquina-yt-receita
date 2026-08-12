@@ -1,0 +1,35 @@
+name: Medir taxa das vozes
+
+# A rotina manda medir a taxa da voz antes de dimensionar o roteiro, porque as
+# vozes vao de 9,85 a 20,02 chars/s e assumir a errada ja produziu 9:25 onde se
+# queria 13:00. Em 12/08/2026 nove dos treze canais usavam voz sem taxa medida.
+#
+# Roda aqui e nao no container do agente porque speech.platform.bing.com nao e
+# alcancavel de la. Dois minutos de runner, e o resultado vale para sempre —
+# a taxa de uma voz nao muda.
+
+on:
+  workflow_dispatch:
+    inputs:
+      vozes:
+        description: "Vozes separadas por espaco (vazio = todas as da frota)"
+        type: string
+        default: ""
+
+jobs:
+  medir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar
+        run: pip install edge-tts pyyaml
+
+      - name: Medir
+        run: python scripts/medir_vozes.py ${{ inputs.vozes }}

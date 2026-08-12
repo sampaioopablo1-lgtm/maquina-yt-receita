@@ -160,14 +160,28 @@ def gerar_ideias(
 # Taxa MEDIDA de cada voz, em caracteres por segundo de audio, com numeros por
 # extenso e rate -4%. Medir importa: as vozes vao de 9,85 a 20,02 chars/s, e
 # dimensionar pela taxa errada e o que ja produziu 9:25 onde se queria 13:00.
-# Voz ausente daqui cai no piso conservador — errar para MAIS texto so alonga o
-# video, errar para menos o derruba abaixo do piso de 8 min.
+# Para medir uma voz nova: workflow medir-vozes.yml.
 CHARS_POR_S = {
     "pt-BR-AntonioNeural": 14.30,
     "pt-BR-ThalitaMultilingualNeural": 16.52,
     "pt-BR-FranciscaNeural": 14.01,
 }
-CHARS_POR_S_PADRAO = 12.0
+
+# Padrao de quem ainda nao foi medido, e a direcao do erro NAO e simetrica.
+#
+# chars_alvo = duracao_alvo * taxa_assumida, e a duracao que sai e
+# chars_alvo / taxa_real. Entao o video so alcanca o alvo se a taxa assumida for
+# MAIOR OU IGUAL a real. Assumir menos encurta o video na mesma proporcao.
+#
+# Era 12.0, com o comentario "piso conservador". Estava trocado: 12 e menor que
+# quase todas as taxas reais. Numa voz de 20 chars/s, 780 s de alvo viram 468 —
+# sete minutos e meio, abaixo do piso de 8 min, e o video morre na compliance
+# depois de ja ter custado o render inteiro. Errar para cima so alonga.
+#
+# 16.52 e a maior taxa que medimos ate agora. Nao e um chute para o alto: e o
+# teto do que ja foi visto nesta frota, e vale enquanto as nove vozes sem medida
+# nao passarem pelo medir-vozes.yml.
+CHARS_POR_S_PADRAO = 16.52
 
 # Fracao minima do texto-alvo que o LLM precisa entregar. Abaixo disso o roteiro
 # e recusado ANTES de renderizar: render custa ~18 min de runner, e um roteiro

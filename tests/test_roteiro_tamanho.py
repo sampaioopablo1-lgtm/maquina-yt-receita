@@ -122,3 +122,26 @@ def test_shorts_nao_e_estendido(cfg):
     llm = LLMFalso(chars_primeira=int(alvo_short * 0.80), cenas=5)
     R.escrever_roteiro(llm, cfg, Ideia(titulo="Curto", formato=Formato.SHORTS))
     assert len(llm.prompts) == 1
+
+
+def test_padrao_de_voz_nao_medida_nunca_e_menor_que_o_maior_medido():
+    """A direcao do erro nao e simetrica.
+
+    chars_alvo = duracao_alvo * taxa_assumida, e a duracao que sai e
+    chars_alvo / taxa_real. O video so alcanca o alvo se a taxa assumida for
+    >= a real. Assumir 12,0 numa voz de 20 entrega 60% da duracao: 780 s viram
+    468, abaixo do piso de 8 min, e o video morre na compliance depois de ja ter
+    custado o render inteiro.
+    """
+    assert R.CHARS_POR_S_PADRAO >= max(R.CHARS_POR_S.values())
+
+
+def test_voz_desconhecida_nao_encurta_o_video_abaixo_do_piso():
+    """Simula a pior voz plausivel contra o padrao atual."""
+    alvo_s = Formato.LONGO.duracao_alvo_s
+    taxa_real_mais_rapida = 20.02  # a mais rapida que o dono ja mediu
+    chars_alvo = alvo_s * R.CHARS_POR_S_PADRAO
+    duracao_saida = chars_alvo / taxa_real_mais_rapida
+    assert duracao_saida >= 8 * 60, (
+        f"{duracao_saida / 60:.1f} min fica abaixo do piso de 8 min"
+    )
