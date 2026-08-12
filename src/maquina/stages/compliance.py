@@ -82,10 +82,17 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
             break
 
     # 4. Duracao: abaixo de 8 min o formato longo perde blocos de anuncio.
+    #
+    # BLOQUEIA, nao alerta. Era alerta ate 2026-08-12, e alerta nao impede nada:
+    # o cron de 4 em 4 horas do producao.yml roda `maquina auto --publicar` sem
+    # ninguem olhando, e nesse dia publicou EtVxgh1x-Q4 com 226 s — tres minutos
+    # e quarenta e seis — como formato longo, publico. A regra da rotina e
+    # "NUNCA abaixo de 8 min"; um aviso que ninguem le nao e nunca.
     if video.formato is Formato.LONGO and video.duracao_s and video.duracao_s < 8 * 60:
-        r.alertar(
-            f"duracao {video.duracao_s / 60:.1f} min < 8 min — "
-            "sem multiplos blocos de anuncio"
+        r.bloquear(
+            f"duracao {video.duracao_s / 60:.1f} min < 8 min — longo abaixo do piso "
+            "perde os blocos de anuncio do meio. Republique como shorts ou "
+            "estenda o roteiro."
         )
 
     # 5. Metadados minimos.

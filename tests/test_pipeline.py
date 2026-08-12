@@ -109,13 +109,32 @@ def test_compliance_bloqueia_teto_diario(cfg):
     assert any("cota diaria da conta" in b for b in res.bloqueios)
 
 
-def test_compliance_alerta_video_longo_curto_demais(cfg):
+def test_compliance_bloqueia_video_longo_curto_demais(cfg):
+    """Piso de 8 min BLOQUEIA o longo — nao alerta.
+
+    Este teste ja afirmou `res.aprovado`, porque a regra era so um aviso. Em
+    2026-08-12 o cron de 4 em 4 horas do producao.yml publicou EtVxgh1x-Q4 com
+    226 s como formato longo, publico, sem ninguem no caminho. Alerta que roda
+    em automacao desacompanhada nao protege de nada.
+    """
     store = Store(cfg.data_dir / "t.db")
     v = _video_com_roteiro("Roteiro unico para este teste " * 5, "Curto")
     v.duracao_s = 5 * 60
     res = compliance.verificar(v, cfg, store)
-    assert res.aprovado
-    assert any("8 min" in a for a in res.alertas)
+    assert not res.aprovado
+    assert any("8 min" in b for b in res.bloqueios)
+
+
+def test_compliance_nao_bloqueia_short_curto(cfg):
+    """O piso e do LONGO. Short de 40 s e o formato funcionando, nao defeito."""
+    from maquina.models import Formato
+
+    store = Store(cfg.data_dir / "t.db")
+    v = _video_com_roteiro("Outro roteiro exclusivo para o short " * 5, "Short")
+    v.formato = Formato.SHORTS
+    v.duracao_s = 40
+    res = compliance.verificar(v, cfg, store)
+    assert not any("8 min" in b for b in res.bloqueios)
 
 
 # ---------- diagnostico dos 3 pilares ----------

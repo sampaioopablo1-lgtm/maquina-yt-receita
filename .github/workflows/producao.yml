@@ -2,10 +2,14 @@ name: Producao de video
 
 # O motor da maquina. O runner ubuntu-latest ja traz ffmpeg instalado.
 # Meta: 10 videos/dia por canal, um eixo tematico diferente por video.
-# Cota YouTube API: ~6 uploads/dia — producao e publicacao sao passos separados.
+# Cota YouTube API: 100 uploads/dia por projeto (videos.insert tem balde
+# proprio). O comentario antigo dizia ~6, vindo de dividir 10.000 unidades por
+# 1.600 — conta errada, ver aprendizados #57 e #174.
 on:
   schedule:
-    # A cada 4h = 6 videos/dia (cota real da YouTube Data API por projeto).
+    # A cada 4h = 6 videos/dia. A cadencia foi escolhida para casar com um teto
+    # de 6 que NAO EXISTE (o real e 100/dia). Mantida por ora porque o gargalo
+    # verdadeiro e CPU de render, nao cota — ver aprendizado #139.
     - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
