@@ -45,6 +45,7 @@ class Status(str, Enum):
     PUBLICADO = "publicado"
     REJEITADO = "rejeitado"
     ERRO = "erro"
+    PRONTO_NAO_ENTREGUE = "pronto_nao_entregue"
 
 
 class Ideia(BaseModel):
