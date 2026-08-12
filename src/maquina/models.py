@@ -42,6 +42,7 @@ class Status(str, Enum):
     # Aliases legados do Supabase — gerados por workflows externos.
     LISTADO_PARA_PUBLICACAO = "listado_para_publicacao"
     CANCELADO = "cancelado"
+    PRONTO_NAO_ENTREGUE = "pronto_nao_entregue"
     PUBLICADO = "publicado"
     REJEITADO = "rejeitado"
     ERRO = "erro"

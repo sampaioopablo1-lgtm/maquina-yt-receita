@@ -1,0 +1,25 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: nao confirmado (sandbox sem acesso a youtube.com) — conferir no
+# YouTube Studio e corrigir aqui. youtube_channel_id ja gravado em canais:
+# UC8Cp8c9QQgz9c1Kb2qlURfA.
+canal:
+  nome: "SX Educação"
+  handle: "@sxeducacao"
+  idioma: "pt-BR"
+  tema: "Excel, Power BI e carreira de analista de dados"
+  estilo_visual: "voxlite"
+  # pt-BR-AntonioNeural (o registrado em canais.voz) ja pertence ao
+  # nivel-do-jogo — anti-rede exige voz unica por canal no portfolio.
+  voz_edge: "pt-BR-DonatoNeural"
+  idioma_revisao: "pt-BR"
+  # 27 (Educacao), nao o 22 herdado do default: o canal ensina ferramenta.
+  categoria_id: "27"
+# Nicho: Excel, Power BI e carreira de analista de dados, Brasil
+# Paleta (canais.paleta): fundo F1F7F4, verde 217346, amarelo F2B134, tinta 10261C
+#
+# ATENCAO — este NAO e um canal novo do portfolio automatizado: e o canal
+# COMERCIAL ativo do Pablo (curso presencial em SJC, captacao de matriculas;
+# 11.974 views ja acumuladas). O conteudo automatico entra SOMENTE no eixo
+# Excel/Power BI/carreira de dados — nunca oferta, preco ou promessa
+# comercial do curso. O funil de vendas continua humano, fora da maquina.
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

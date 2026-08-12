@@ -35,7 +35,7 @@ def test_canal_inexistente_falha_alto():
 
 def test_todos_os_canais_do_portfolio_carregam():
     canais = sorted(p.stem for p in (ROOT / "config" / "canais").glob("*.yaml"))
-    assert len(canais) == 11
+    assert len(canais) == 13
     vozes = set()
     for slug in canais:
         cfg = Config.load(canal=slug)
