@@ -29,8 +29,12 @@ on:
         description: "URL publica da thumbnail (png/jpg)"
         type: string
         default: ""
+      legenda_url:
+        description: "URL publica do .srt no Storage. Necessario com legendar=true: o runner nao tem o artefato e o roteiro nao guarda duracao de cena."
+        type: string
+        default: ""
       legendar:
-        description: "Enviar legenda .srt apos publicar (regenerada do roteiro)"
+        description: "Enviar legenda .srt apos publicar (exige legenda_url)"
         type: boolean
         default: false
 
@@ -122,6 +126,13 @@ jobs:
           if [ -n "${{ inputs.thumb_url }}" ]; then
             curl -sfL --max-time 120 "${{ inputs.thumb_url }}" -o "$DEST/thumbnail.jpg"
             echo "thumbnail: $(du -h "$DEST/thumbnail.jpg" | cut -f1)"
+          fi
+          # O .srt tambem precisa descer, e pelo mesmo motivo do video: o runner
+          # e efemero. `maquina legendar` procura em out/<canal>/<slug>/legendas.srt
+          # antes de tentar regenerar do roteiro.
+          if [ -n "${{ inputs.legenda_url }}" ]; then
+            curl -sfL --max-time 120 "${{ inputs.legenda_url }}" -o "$DEST/legendas.srt"
+            echo "legenda: $(wc -l < "$DEST/legendas.srt") linhas"
           fi
 
       - name: Publicar

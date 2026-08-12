@@ -213,10 +213,28 @@ def legendar(slug: str):
     # Regenera o SRT se o arquivo nao existir — acontece em ambientes de CI
     # onde out/ nao e persistido entre runs, mas o roteiro esta no banco.
     if not video.legenda_path or not Path(video.legenda_path).exists():
+        # Antes de regenerar, olhe o caminho convencional. O runner e efemero e
+        # `legenda_path` no banco aponta para o disco de quem produziu, que nao
+        # existe mais — mas o workflow pode ter baixado o .srt do Storage para
+        # out/<canal>/<slug>/legendas.srt. Preferir esse arquivo a regenerar:
+        # ele traz as marcacoes reais que a fabrica calculou, e a regeneracao e
+        # aproximacao a partir de duracao_s de cena.
+        #
+        # Sem esta checagem, `maquina legendar` morria em "roteiro sem duracoes
+        # de cena" mesmo com o .srt correto ao lado — foi o que deixou
+        # iYe04WMYDxQ e XgqPVJuAk3o publicados com caption=false em 2026-08-12.
+        convencional = video.dir(cfg.out_dir) / "legendas.srt"
+        if convencional.exists() and convencional.stat().st_size > 0:
+            video.legenda_path = str(convencional)
+            p.store.salvar(video)
+            console.print(f"[green]Legenda encontrada no disco:[/] {convencional}")
+
+    if not video.legenda_path or not Path(video.legenda_path).exists():
         if not video.roteiro or not any(c.duracao_s for c in video.roteiro.cenas):
             console.print(
                 "[red]legenda nao encontrada e roteiro sem duracoes de cena — "
-                "e necessario ter o arquivo .srt original ou o roteiro completo no banco[/]"
+                "e necessario ter o arquivo .srt original ou o roteiro completo no banco. "
+                "Se o .srt esta no Storage, passe legenda_url no workflow.[/]"
             )
             raise typer.Exit(1)
         from .stages.producao import gerar_legendas

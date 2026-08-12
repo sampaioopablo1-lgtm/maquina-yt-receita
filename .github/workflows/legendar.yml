@@ -13,6 +13,11 @@ on:
         description: "Canal do video (ex: setiap-level)"
         type: string
         required: true
+      legenda_url:
+        description: "URL publica do .srt no Storage. O runner e efemero e o legenda_path do banco aponta para o disco de quem produziu, que nao existe mais."
+        type: string
+        required: false
+        default: ""
 
 jobs:
   legendar:
@@ -34,6 +39,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
         run: maquina sincronizar
 
       - name: Verificar video no banco
@@ -65,11 +71,36 @@ jobs:
           fi
           mkdir -p secrets
           printf '%s' "$TOKEN" > secrets/youtube_token.json
+          # Config.load isola o token por canal quando MAQ_CANAL esta definido.
+          # Gravar so o nome generico deixava este workflow preso ao canal legado.
+          printf '%s' "$TOKEN" > "secrets/youtube_token_${{ inputs.canal }}.json"
           echo "Credencial restaurada para canal: ${{ inputs.canal }}"
 
+      # Sem isto o `maquina legendar` nao acha o .srt: ele existe no Storage, mas
+      # o runner e efemero e o legenda_path gravado no banco aponta para o disco
+      # de quem produziu o pacote. Foi essa falta que deixou iYe04WMYDxQ e
+      # XgqPVJuAk3o publicados com caption=false em 2026-08-12 — o erro dizia
+      # "roteiro sem duracoes de cena", que e o caminho de REGENERACAO, e mandava
+      # procurar a causa no roteiro em vez de no arquivo que nunca foi baixado.
+      - name: Baixar legenda do Storage
+        if: inputs.legenda_url != ''
+        env:
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: |
+          set -euo pipefail
+          DEST="out/${{ inputs.canal }}/${{ inputs.slug }}"
+          mkdir -p "$DEST"
+          curl -sfL --max-time 120 "${{ inputs.legenda_url }}" -o "$DEST/legendas.srt"
+          test -s "$DEST/legendas.srt" || { echo "download do .srt falhou"; exit 1; }
+          echo "legenda: $(wc -l < "$DEST/legendas.srt") linhas"
+
       - name: Enviar legenda
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
         run: maquina legendar "${{ inputs.slug }}"
 
       - name: Limpar credencial
         if: always()
-        run: rm -f secrets/youtube_token.json
+        run: rm -f secrets/youtube_token.json "secrets/youtube_token_${{ inputs.canal }}.json"
