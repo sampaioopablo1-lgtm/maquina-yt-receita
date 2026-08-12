@@ -97,6 +97,13 @@ padrão apontando para página própria foi removido na v7: o portal pontuou
 descartado por ser enganoso ao comprador (mostra o interior de outro
 imóvel) e por risco de derrubada em massa por duplicação.
 
+Auditoria de 12/08 no XML nativo do Vista: o acervo tem **zero** tours 360.
+As 6 tags `<VirtualTourLink>` preenchidas carregam vídeo do YouTube — quatro
+Shorts, dois `watch`, e uma delas contém só `&quot;`. O classificador já
+trata link de YouTube/Vimeo como vídeo e não como tour, então a categoria
+sair zerada está correto e não é falha do pipeline. Enquanto não houver
+captação de tour 360 de verdade, essa categoria não pontua.
+
 ## Variáveis de ambiente
 
 | Variável | Uso |
