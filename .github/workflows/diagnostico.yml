@@ -1,15 +1,38 @@
 name: Diagnostico dos 3 pilares
 
-# Coleta metricas e aponta o gargalo de cada video publicado.
+# Coleta metricas de TODOS os canais e alimenta a tabela `metricas`.
+#
+# Isto deixou de ser relatorio e virou parte do circuito. Desde 12/08/2026 o
+# cron decide o formato pela audiencia: short por padrao, longo so quando o
+# canal ja tem um short acima de 300 views (v_maquina_longos_liberados). Esse
+# numero sai de `metricas`. Metrica velha significa portao travado — canal que
+# ja mereceu o longo continua recebendo short para sempre.
+#
+# Antes rodava as segundas e usava UM token (YT_TOKEN_JSON), entao coletava um
+# canal e ignorava os outros doze. Medido em 12/08: a ultima coleta de
+# kolejny-poziom, epomeno-epipedo e next-level-money era do dia anterior, e
+# labtreinamento, nivel-do-jogo e seja-mais-magra nunca tinham sido coletados.
+#
+# Agora e diario e por canal. Custa poucos minutos: coletar metrica e chamada de
+# API, nao render.
 on:
   schedule:
-    - cron: "0 12 * * 1"   # segundas, 12:00 UTC
+    - cron: "0 5 * * *"   # todo dia, 05:00 UTC — antes do primeiro cron de producao
   workflow_dispatch:
+    inputs:
+      canal:
+        description: "Slug do canal (vazio = todos os que tem token)"
+        type: string
+        default: ""
+
+concurrency:
+  group: diagnostico
+  cancel-in-progress: false
 
 jobs:
   diagnosticar:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
 
     steps:
       - uses: actions/checkout@v4
@@ -21,42 +44,85 @@ jobs:
 
       - run: pip install -e .
 
-      - name: Restaurar estado
-        uses: actions/cache@v4
-        with:
-          path: data
-          key: maquina-estado-${{ github.run_id }}
-          restore-keys: maquina-estado-
-
-      - name: Restaurar credencial do YouTube
+      - name: Coletar de cada canal
         env:
-          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
+          set -u
           mkdir -p secrets
-          printf '%s' "$YT_TOKEN_JSON" > secrets/youtube_token.json
 
-      - name: Diagnosticar
-        run: maquina diagnosticar | tee diagnostico.txt
+          CANAIS="${{ inputs.canal }}"
+          if [ -z "$CANAIS" ]; then
+            CANAIS=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=like.yt_token_*&select=chave" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+              | jq -r '.[].chave | sub("^yt_token_"; "")')
+          fi
 
-      # Sem isto a tabela `metricas` fica vazia e as views painel_pilares /
-      # progresso_ypp nunca respondem nada.
-      - name: Sincronizar estado com o Supabase
+          OK=0
+          FALHOU=0
+          for CANAL in $CANAIS; do
+            # Canal sem YAML no repo derrubaria o Config.load com
+            # FileNotFoundError e levaria a coleta dos outros junto.
+            if [ ! -f "config/canais/$CANAL.yaml" ]; then
+              echo "::warning::$CANAL nao tem config/canais/$CANAL.yaml — pulado"
+              continue
+            fi
+
+            TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_$CANAL&select=valor" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+            if [ -z "$TOKEN" ]; then
+              echo "::warning::$CANAL sem refresh_token — pulado"
+              continue
+            fi
+            printf '%s' "$TOKEN" > "secrets/youtube_token_$CANAL.json"
+
+            echo ""
+            echo "=== $CANAL ==="
+            # Puxa o historico do canal para o SQLite dele antes de diagnosticar:
+            # `maquina diagnosticar` le de p.store, e num runner novo esse banco
+            # nasce vazio.
+            if MAQ_CANAL="$CANAL" maquina sincronizar \
+               && MAQ_CANAL="$CANAL" maquina diagnosticar; then
+              OK=$((OK+1))
+            else
+              echo "::warning::coleta de $CANAL falhou"
+              FALHOU=$((FALHOU+1))
+            fi
+          done
+
+          echo ""
+          echo "=== Coleta concluida: $OK canais, $FALHOU falhas ==="
+          # Um canal com token revogado nao pode derrubar a coleta da frota.
+          [ "$OK" -eq 0 ] && exit 1 || exit 0
+
+      - name: Gravar metricas no Supabase
         if: always()
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: maquina sincronizar
 
-      - name: Publicar no resumo do job
+      - name: Quem ganhou o direito ao longo
         if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           {
-            echo "## Diagnostico dos 3 pilares"
-            echo '```'
-            cat diagnostico.txt 2>/dev/null || echo "sem dados"
-            echo '```'
+            echo "## Canais liberados para longo"
+            echo ""
+            echo "Short acima de 300 views. Os demais seguem em short ate provarem o nicho."
+            echo ""
+            curl -sf "$SUPABASE_URL/rest/v1/v_maquina_longos_liberados?select=slug,melhor_short,shorts_publicados" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+              | jq -r '.[] | "- \(.slug): melhor short \(.melhor_short) views, \(.shorts_publicados) publicados"' \
+              || echo "(consulta indisponivel)"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Limpar credencial
+      - name: Limpar credenciais
         if: always()
-        run: rm -f secrets/youtube_token.json
+        run: rm -f secrets/youtube_token*.json
