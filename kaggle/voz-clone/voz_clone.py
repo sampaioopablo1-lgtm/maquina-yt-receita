@@ -116,7 +116,17 @@ def subir(caminho, alvo, mime, chave):
 
 # ------------------------------------------------------------------- execucao
 
-import torch  # noqa: E402  (depois da config: o import custa segundos)
+# O Kaggle traz torch com CUDA, mas nao traz o chatterbox — e kernel do tipo
+# `script` nao aceita a sintaxe `!pip` do notebook. Sem esta linha o run morre
+# no import, depois de ja ter reservado a GPU. `--no-deps` nao serve: o pacote
+# puxa dependencias reais (transformers, s3tokenizer) que a imagem nao tem.
+import subprocess  # noqa: E402
+import sys  # noqa: E402
+
+subprocess.run([sys.executable, "-m", "pip", "install", "-q", "chatterbox-tts"],
+               check=True)
+
+import torch  # noqa: E402  (depois do pip: a versao pode mudar na instalacao)
 import torchaudio  # noqa: E402
 
 print("torch", torch.__version__, "| cuda", torch.cuda.is_available())
