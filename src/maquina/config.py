@@ -28,7 +28,13 @@ class LimitesPublicacao(BaseModel):
     sozinhos se nao houver pressao ativa por variacao.
     """
 
+    # Teto POR CANAL. Guarda anti-spam, nao cota de API: cada canal tem o seu
+    # proprio SQLite, entao esta contagem nunca ve os outros doze.
     max_por_dia: int = 6
+    # Teto da CONTA, somando todos os canais. Este sim e cota real: videos.insert
+    # tem balde proprio de 100 chamadas/dia por projeto do Google Cloud, separado
+    # das 10.000 unidades do resto da API.
+    max_conta_por_dia: int = 100
     similaridade_max: float = 0.65
     exigir_revisao: bool = True
     janela_similaridade: int = 30

@@ -46,12 +46,25 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
         r.bloquear("video sem roteiro")
         return r
 
-    # 1. Teto diario — automacao em escala com variacao minima e tratada como spam.
+    # 1. Teto diario DO CANAL — automacao em escala com variacao minima e
+    # tratada como spam. Conta so este canal, porque o SQLite e por canal.
     publicados = store.publicados_hoje()
     if publicados >= cfg.publicacao.max_por_dia:
         r.bloquear(
-            f"teto diario atingido ({publicados}/{cfg.publicacao.max_por_dia}). "
+            f"teto diario do canal atingido ({publicados}/{cfg.publicacao.max_por_dia}). "
             "Ver docs/03-compliance-monetizacao.md"
+        )
+
+    # 1b. Teto diario DA CONTA — este e cota de verdade, e ate 2026-08-12 nao
+    # era checado em lugar nenhum. Os 13 canais publicam pelo mesmo projeto do
+    # Google Cloud, e videos.insert da 100 chamadas/dia POR PROJETO. Sem esta
+    # soma, treze canais gastariam treze tetos e o estouro apareceria so como
+    # quotaExceeded no meio de um upload, com o pacote ja renderizado.
+    da_conta = store.publicados_hoje_conta()
+    if da_conta >= cfg.publicacao.max_conta_por_dia:
+        r.bloquear(
+            f"cota diaria da conta atingida ({da_conta}/{cfg.publicacao.max_conta_por_dia} "
+            "uploads em todos os canais). videos.insert reabre as 00:00 UTC."
         )
 
     # 2. Similaridade de roteiro contra o historico recente.

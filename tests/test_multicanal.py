@@ -35,12 +35,19 @@ def test_canal_inexistente_falha_alto():
 
 def test_todos_os_canais_do_portfolio_carregam():
     canais = sorted(p.stem for p in (ROOT / "config" / "canais").glob("*.yaml"))
-    assert len(canais) == 11
-    vozes = set()
+    assert len(canais) == 13
+    vozes = []
     for slug in canais:
         cfg = Config.load(canal=slug)
         assert cfg.canal.estilo_visual in {"doodle", "voxlite"}
         assert cfg.canal.voz_edge
-        vozes.add(cfg.canal.voz_edge)
-    # Identidades distintas: nenhuma voz repetida no portfolio (anti-rede).
-    assert len(vozes) == len(canais)
+        vozes.append(cfg.canal.voz_edge)
+    # Identidades distintas: voz repetida entre canais le como rede (anti-rede).
+    #
+    # EXCECAO UNICA E DOCUMENTADA: o edge-tts oferece tres vozes pt-BR e o
+    # portfolio tem quatro canais pt-BR, entao a quarta identidade nao existe
+    # para sortear — sx-educacao repete o pt-BR-AntonioNeural do nivel-do-jogo
+    # ate a voz clonada do Pablo entrar. Qualquer OUTRA repeticao e defeito, e
+    # e por isso que este teste compara o conjunto em vez de contar.
+    repetidas = {v for v in vozes if vozes.count(v) > 1}
+    assert repetidas == {"pt-BR-AntonioNeural"}

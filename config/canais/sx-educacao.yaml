@@ -5,6 +5,14 @@ canal:
   idioma: "pt-BR"
   tema: "Excel, Power BI e carreira de analista de dados"
   estilo_visual: "voxlite"
+  # COLISAO CONHECIDA, nao e descuido: o edge-tts tem exatamente tres vozes
+  # pt-BR (Antonio, Francisca, ThalitaMultilingual) e o portfolio tem quatro
+  # canais pt-BR. Antonio ja e do nivel-do-jogo. Nao existe quarta voz para
+  # sortear — medido em 2026-08-12 com edge_tts.list_voices().
+  # Este e o fallback mecanico, para o pipeline nao quebrar. A identidade real
+  # deste canal e a VOZ CLONADA DO PABLO (assets/voice/referencia-corte.wav),
+  # que alem de resolver a colisao e a escolha certa aqui: o canal capta
+  # matricula para o curso presencial DELE, entao a voz dele nao e disfarce.
   voz_edge: "pt-BR-AntonioNeural"
   idioma_revisao: "pt-BR"
   # 27 (Educacao): o canal ensina ferramenta, nao entretem.
