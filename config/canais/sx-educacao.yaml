@@ -5,7 +5,7 @@ canal:
   idioma: "pt-BR"
   tema: "Excel, Power BI e carreira de analista de dados"
   estilo_visual: "voxlite"
-  voz_edge: "pt-BR-AntonioNeural"
+  voz_edge: "pt-BR-DonatoNeural"
   idioma_revisao: "pt-BR"
   # 27 (Educacao): o canal ensina ferramenta, nao entretem.
   categoria_id: "27"
@@ -46,8 +46,11 @@ canal:
 # clipe e short, entao parte do efeito e formato, nao duracao — nao escalonar
 # para 25-30 min so com isso.
 #
-# Taxa MEDIDA da voz: pt-BR-AntonioNeural = 14,30 chars/s com numeros por
-# extenso e rate -4%. Para 780s isso da ~134 chars por cena em 80 cenas.
+# Voz trocada em 2026-08-12: pt-BR-AntonioNeural ja pertence ao nivel-do-jogo
+# (regra anti-rede exige voz unica por canal — as duas listas colidiam).
+# Taxa antiga (14,30 chars/s, AntonioNeural) NAO vale para pt-BR-DonatoNeural.
+# PENDENTE: medir a taxa real da nova voz (mp3 de teste, numeros por extenso)
+# antes do proximo disparo dimensionar um roteiro por aqui.
 #
 # Regra anti-rede: o labtreinamento tambem e pt-BR e tambem fala de Excel.
 # Nunca o mesmo roteiro nos dois, e nunca na mesma semana. A divisao e de

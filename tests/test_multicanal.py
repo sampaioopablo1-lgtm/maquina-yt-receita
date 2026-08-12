@@ -35,7 +35,10 @@ def test_canal_inexistente_falha_alto():
 
 def test_todos_os_canais_do_portfolio_carregam():
     canais = sorted(p.stem for p in (ROOT / "config" / "canais").glob("*.yaml"))
-    assert len(canais) == 11
+    # Contagem minima, nao fixa: cada novo YAML de canal ja derrubou o CI tres
+    # vezes (seja-mais-magra, labtreinamento, sx-educacao) por travar um numero
+    # exato aqui. O que importa e que o portfolio carregue, nao quantos sao.
+    assert len(canais) >= 13
     vozes = set()
     for slug in canais:
         cfg = Config.load(canal=slug)
