@@ -115,11 +115,26 @@ if LONGO_PRONTO:
     log("etapas 1-6: longo ja montado e com trilha, retomando do teste visual")
 
 # ---------------------------------------------------------------- 1. assets
+# A guarda conta mp3 E thumbnail porque `montar` produz os dois, e a thumbnail
+# sai por ultimo (fabrica.py, no fim de montar). Em labtreinamento-001 o
+# primeiro run morreu num KeyError do campo `thumb` DEPOIS de gerar os 80 mp3;
+# na retomada a contagem de mp3 estava completa, `montar` foi pulado inteiro, e
+# o pacote chegou ao fim sem thumbnail — sem nenhum assert reclamar, porque
+# nenhuma etapa seguinte olha para esse arquivo.
+_mp3_ok = len(glob.glob(f"{d}/l*.mp3")) >= len(sp["longo"])
+_thumb = f"{d}/thumbnail.png"
 if not LONGO_PRONTO:
-    if len(glob.glob(f"{d}/l*.mp3")) < len(sp["longo"]):
+    if not (_mp3_ok and os.path.exists(_thumb)):
         log("etapa 1: montar")
         F.montar(spec)
-    log(f"etapa 1 ok: {len(glob.glob(f'{d}/l*.mp3'))} mp3")
+    log(f"etapa 1 ok: {len(glob.glob(f'{d}/l*.mp3'))} mp3 + thumbnail")
+
+# A thumbnail e entregavel: sem ela o pacote sobe sem capa e o CTR morre. Vale
+# tanto para o caminho normal quanto para a retomada com LONGO_PRONTO, que pula
+# a etapa 1 e nunca passaria pela verificacao acima.
+assert os.path.exists(_thumb) and os.path.getsize(_thumb) > 2000, (
+    f"thumbnail ausente ou vazia em {_thumb} — `montar` nao chegou ao fim; "
+    f"apague os l*.mp3 do pacote e rode de novo, ou gere a thumb antes de seguir")
 
 # ------------------------------------------- 2. clipes, liberando um a um
 log("etapa 2: clipes do longo")
