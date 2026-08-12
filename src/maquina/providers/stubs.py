@@ -27,7 +27,9 @@ class LLMStub:
 
     custo_usd = 0.0
 
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str:
         semente = hashlib.sha1(prompt.encode()).hexdigest()
 
         if '"traducao"' in prompt and '"naturalidade"' in prompt:

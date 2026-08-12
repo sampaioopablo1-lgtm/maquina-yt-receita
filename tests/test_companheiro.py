@@ -24,7 +24,9 @@ class LLMDeShort:
         self.chars_por_cena = chars_por_cena
         self.prompts: list[str] = []
 
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str:
         self.prompts.append(prompt)
         return json.dumps({
             "titulo": "O erro que custa caro",
@@ -107,7 +109,7 @@ def test_short_sai_dimensionado_para_a_faixa_da_rotina(cfg):
 
 def test_llm_sem_cena_falha_alto(cfg):
     class Vazio(LLMDeShort):
-        def completar(self, prompt, *, sistema="", max_tokens=4096):
+        def completar(self, prompt, *, sistema="", max_tokens=4096, esforco=""):
             return json.dumps({"cenas": []})
 
     with pytest.raises(ValueError, match="nao devolveu cena"):

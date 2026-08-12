@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import base64
+import json
+import logging
 import os
 import time
 from pathlib import Path
@@ -10,7 +12,9 @@ from typing import Callable
 
 import httpx
 
-from .base import ErroProvider
+from .base import ErroOrcamento, ErroProvider
+
+log = logging.getLogger("maquina.providers")
 
 TIMEOUT = httpx.Timeout(300.0, connect=30.0)
 
@@ -37,17 +41,63 @@ def _com_retry(
 
 
 # Precos por 1M de tokens / por unidade. Usados so para estimar custo por video.
-PRECO_ANTHROPIC = {"entrada": 3.00, "saida": 15.00}
+PRECO_ANTHROPIC = {
+    "claude-opus-5": {"entrada": 5.00, "saida": 25.00},
+    "claude-sonnet-5": {"entrada": 3.00, "saida": 15.00},
+    "claude-haiku-4-5": {"entrada": 1.00, "saida": 5.00},
+}
+# Desconhecido cobra como o mais caro: subestimar gasto derrota o teto.
+PRECO_ANTHROPIC_PADRAO = {"entrada": 5.00, "saida": 25.00}
 PRECO_OPENAI_LLM = {"entrada": 2.50, "saida": 10.00}
 PRECO_ELEVENLABS_POR_MIL_CHARS = 0.30
 PRECO_FISH_POR_MILHAO_BYTES = 15.0
 PRECO_IMAGEM_UNIDADE = 0.04
 
 
+class _Transitorio(RuntimeError):
+    """Falha que vale repetir na mesma chamada (429, 5xx, queda de conexao)."""
+
+
 class LLMAnthropic:
-    def __init__(self, modelo: str):
-        self.modelo = modelo
+    """Roteirista da maquina desde 13/08/2026 — saimos do Gemini.
+
+    O free tier do Gemini da 20 requisicoes por DIA e cada pacote consome de 2 a
+    5 (ideacao, roteiro, ate duas extensoes, short companheiro). Com seis
+    disparos diarios a cota estoura antes do meio-dia: foi o 429 que derrubou
+    next-level-money em 12/08/2026. O teto nao era de qualidade, era de
+    quantidade — a maquina nao cabia no plano gratuito.
+
+    Tres decisoes que valem explicacao:
+
+    * `thinking: {type: "adaptive"}` — o roteiro e a unica peca que decide se o
+      video presta; o modelo pensa o quanto o problema pedir. `budget_tokens`
+      NAO existe mais nesta familia (400 na hora).
+    * `stream: True` sempre — o roteiro do longo pede 16k tokens de saida e a
+      chamada nao-streaming estoura o limite de tempo do request antes de
+      terminar. Streaming tambem e o que a API exige acima de ~21k.
+    * `max_tokens` recebe RESERVA_PENSAMENTO por cima do pedido, porque o
+      pensamento sai do mesmo orcamento da resposta. Sem a folga o modelo pensa
+      e e cortado no meio do JSON — que aparece la na frente como
+      "JSON invalido", sem dizer que a causa foi truncamento.
+    """
+
+    MODELO_PADRAO = "claude-opus-5"
+    RESERVA_PENSAMENTO = 8192
+    TENTATIVAS = 3
+
+    def __init__(self, modelo: str = "", *, esforco: str = "medium", teto_usd: float = 0.0):
+        self.modelo = modelo or self.MODELO_PADRAO
+        self.esforco = esforco
+        self.teto_usd = teto_usd
         self.custo_usd = 0.0
+        # Guarda contra o mesmo campo `llm_model` servir a tres providers: com
+        # `llm_model: gemini-flash-latest` no YAML, esta classe pedia um modelo
+        # do Google a api.anthropic.com e tomava 404 no meio da producao.
+        if not self.modelo.startswith("claude-"):
+            raise ErroProvider(
+                f"llm_model '{self.modelo}' nao e um modelo Anthropic — use "
+                f"llm_model_gemini/llm_model_openai para os outros providers"
+            )
         chave = os.getenv("ANTHROPIC_API_KEY")
         if not chave:
             raise ErroProvider("ANTHROPIC_API_KEY ausente")
@@ -61,26 +111,94 @@ class LLMAnthropic:
             timeout=TIMEOUT,
         )
 
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str:
+        if self.teto_usd and self.custo_usd >= self.teto_usd:
+            raise ErroOrcamento(
+                f"LLM ja gastou US$ {self.custo_usd:.2f} neste run e o teto e "
+                f"US$ {self.teto_usd:.2f} — run interrompido antes de gastar mais. "
+                f"Ajuste MAQ_LLM_TETO_USD se o teto e que esta baixo."
+            )
+
         corpo: dict = {
             "model": self.modelo,
-            "max_tokens": max_tokens,
+            "max_tokens": max_tokens + self.RESERVA_PENSAMENTO,
             "messages": [{"role": "user", "content": prompt}],
+            "thinking": {"type": "adaptive"},
+            "output_config": {"effort": esforco or self.esforco},
+            "stream": True,
         }
         if sistema:
             corpo["system"] = sistema
 
-        r = _com_retry(lambda: self._cli.post("/v1/messages", json=corpo))
-        if r.status_code >= 400:
-            raise ErroProvider(f"Anthropic {r.status_code}: {r.text[:400]}")
-        dados = r.json()
+        texto, uso, parou_por = self._com_retry_stream(corpo)
 
-        uso = dados.get("usage", {})
+        preco = PRECO_ANTHROPIC.get(self.modelo, PRECO_ANTHROPIC_PADRAO)
         self.custo_usd += (
-            uso.get("input_tokens", 0) / 1e6 * PRECO_ANTHROPIC["entrada"]
-            + uso.get("output_tokens", 0) / 1e6 * PRECO_ANTHROPIC["saida"]
+            uso.get("input_tokens", 0) / 1e6 * preco["entrada"]
+            + uso.get("output_tokens", 0) / 1e6 * preco["saida"]
         )
-        return "".join(b.get("text", "") for b in dados.get("content", []))
+
+        if parou_por == "max_tokens":
+            raise ErroProvider(
+                f"Anthropic cortou a resposta em max_tokens ({max_tokens} + "
+                f"{self.RESERVA_PENSAMENTO} de pensamento). O texto veio pela "
+                f"metade — nao e JSON invalido, e resposta truncada."
+            )
+        if not texto.strip():
+            raise ErroProvider("Anthropic devolveu resposta sem texto")
+        return texto
+
+    def _com_retry_stream(self, corpo: dict) -> tuple[str, dict, str]:
+        ultimo = ""
+        for tentativa in range(self.TENTATIVAS):
+            try:
+                return self._uma_chamada(corpo)
+            except _Transitorio as e:
+                ultimo = str(e)
+                if tentativa < self.TENTATIVAS - 1:
+                    espera = 4.0 * (2**tentativa)
+                    log.warning("Anthropic transitorio (%s) — repete em %.0fs", e, espera)
+                    time.sleep(espera)
+        raise ErroProvider(f"Anthropic falhou em {self.TENTATIVAS} tentativas: {ultimo}")
+
+    def _uma_chamada(self, corpo: dict) -> tuple[str, dict, str]:
+        pedacos: list[str] = []
+        uso: dict = {}
+        parou_por = ""
+        try:
+            with self._cli.stream("POST", "/v1/messages", json=corpo) as r:
+                if r.status_code >= 400:
+                    r.read()
+                    msg = f"Anthropic {r.status_code}: {r.text[:400]}"
+                    if r.status_code in _STATUS_TRANSITORIOS:
+                        raise _Transitorio(msg)
+                    raise ErroProvider(msg)
+
+                for linha in r.iter_lines():
+                    if not linha.startswith("data:"):
+                        continue
+                    evento = json.loads(linha[5:].strip())
+                    tipo = evento.get("type")
+                    if tipo == "content_block_delta":
+                        delta = evento.get("delta", {})
+                        # Blocos de pensamento vem no mesmo stream; so o texto
+                        # entra na resposta.
+                        if delta.get("type") == "text_delta":
+                            pedacos.append(delta.get("text", ""))
+                    elif tipo == "message_start":
+                        uso.update(evento.get("message", {}).get("usage", {}))
+                    elif tipo == "message_delta":
+                        uso.update(evento.get("usage", {}))
+                        parou_por = evento.get("delta", {}).get("stop_reason") or parou_por
+                    elif tipo == "error":
+                        raise _Transitorio(f"evento de erro no stream: {str(evento)[:300]}")
+        except httpx.TransportError as e:
+            # Stream longo cai por rede com mais frequencia que POST curto.
+            raise _Transitorio(f"{type(e).__name__}: {e}") from e
+
+        return "".join(pedacos), uso, parou_por
 
 
 class LLMOpenAI:
@@ -96,7 +214,9 @@ class LLMOpenAI:
             timeout=TIMEOUT,
         )
 
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str:
         mensagens = ([{"role": "system", "content": sistema}] if sistema else []) + [
             {"role": "user", "content": prompt}
         ]
@@ -140,7 +260,9 @@ class LLMGemini:
             timeout=TIMEOUT,
         )
 
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str:
         corpo: dict = {
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {"maxOutputTokens": max_tokens},

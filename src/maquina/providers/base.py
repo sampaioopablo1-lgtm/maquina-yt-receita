@@ -12,7 +12,12 @@ from typing import Protocol
 
 
 class LLM(Protocol):
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str: ...
+    # `esforco` e uma dica de quanto o modelo deve raciocinar ("low" a "max").
+    # So a Anthropic a implementa; os demais aceitam e ignoram, para que a
+    # etapa possa pedir esforco sem saber quem esta atendendo.
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str: ...
 
     @property
     def custo_usd(self) -> float: ...
@@ -34,3 +39,12 @@ class GeradorImagem(Protocol):
 
 class ErroProvider(RuntimeError):
     """Falha recuperavel de provider externo."""
+
+
+class ErroOrcamento(RuntimeError):
+    """Teto de gasto do run estourado.
+
+    NAO herda de ErroProvider de proposito: a cadeia de fallback trata
+    ErroProvider trocando de fornecedor, e trocar de fornecedor por causa de
+    orcamento so moveria o gasto de lugar. Estourou o teto, o run para.
+    """

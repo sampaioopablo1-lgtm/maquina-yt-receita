@@ -30,7 +30,7 @@ tomada no processo anterior.
 assim que as chaves estiverem no lugar.
 
 Depois, cadastre como **secrets do repositório** (Settings → Secrets → Actions):
-`ANTHROPIC_API_KEY` ou `GEMINI_API_KEY` (roteiro), `OPENAI_API_KEY` (imagens),
+`ANTHROPIC_API_KEY` (roteiro; `GEMINI_API_KEY` so como rede de seguranca), `OPENAI_API_KEY` (imagens),
 `MAQ_TTS_VOICE_ID`, `YT_TOKEN_JSON` (o conteúdo inteiro do `youtube_token.json`).
 Se usar o provider `modal` (padrão da config, narração gratuita — ver
 [`09-voz-gratuita.md`](09-voz-gratuita.md)), cadastre também `MAQ_TTS_URL` e

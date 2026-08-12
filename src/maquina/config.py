@@ -86,7 +86,17 @@ class Config(BaseModel):
     # CANVA_TEMPLATE_ID. Qualquer outro valor usa PIL+OpenAI.
     thumbnail_provider: str = "openai"
 
-    llm_model: str = "claude-sonnet-4-5"
+    # Um campo `llm_model` para tres providers era uma armadilha: com
+    # "gemini-flash-latest" no YAML, o caminho Anthropic pedia um modelo do
+    # Google a api.anthropic.com. Cada provider tem o seu.
+    llm_model: str = "claude-opus-5"          # Anthropic (o roteirista)
+    llm_model_gemini: str = "gemini-flash-latest"
+    llm_model_openai: str = "gpt-4o-mini"
+    # Quanto o modelo raciocina por padrao. O roteiro pede "high" na chamada.
+    llm_esforco: str = "medium"
+    # Teto de gasto de LLM POR RUN, em dolar. Um pacote normal custa centavos;
+    # US$ 2,00 e ~10x isso, entao so morde em laco descontrolado. Zero desliga.
+    llm_teto_usd: float = 2.00
     tts_model: str = "eleven_multilingual_v2"
     tts_voice_id: str = ""
     image_model: str = "gpt-image-1"
@@ -139,6 +149,8 @@ class Config(BaseModel):
             ("MAQ_TTS_PROVIDER", "tts_provider"),
             ("MAQ_IMAGE_PROVIDER", "image_provider"),
             ("MAQ_LLM_MODEL", "llm_model"),
+            ("MAQ_LLM_ESFORCO", "llm_esforco"),
+            ("MAQ_LLM_TETO_USD", "llm_teto_usd"),
             ("MAQ_TTS_MODEL", "tts_model"),
             ("MAQ_TTS_VOICE_ID", "tts_voice_id"),
             ("MAQ_IMAGE_MODEL", "image_model"),

@@ -26,7 +26,9 @@ class LLMFalso:
         self.cenas = cenas
         self.prompts: list[str] = []
 
-    def completar(self, prompt: str, *, sistema: str = "", max_tokens: int = 4096) -> str:
+    def completar(
+        self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
+    ) -> str:
         self.prompts.append(prompt)
         primeira = len(self.prompts) == 1
         total = self.chars_primeira if primeira else self.chars_extensao
@@ -98,7 +100,7 @@ def test_extensao_que_falha_nao_derruba_o_roteiro(cfg):
     """Estender e melhoria, nao requisito: 80% ainda passa do piso de 75%."""
 
     class Quebra(LLMFalso):
-        def completar(self, prompt, *, sistema="", max_tokens=4096):
+        def completar(self, prompt, *, sistema="", max_tokens=4096, esforco=""):
             if self.prompts:
                 self.prompts.append(prompt)
                 raise RuntimeError("gemini fora do ar")

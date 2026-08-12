@@ -342,7 +342,11 @@ def roteiro_companheiro(llm: LLM, cfg: Config, longo: Roteiro, youtube_id: str =
         n_cenas=5,
         chars=chars,
     )
-    dados = _json_do_llm(llm.completar(prompt, sistema=_sistema(cfg), max_tokens=8192))
+    # Esforco alto no short: e o formato que traz view (23,0/dia contra 0,1 do
+    # longo em setiap-level) e sao 5 cenas — pensar mais custa centavos.
+    dados = _json_do_llm(
+        llm.completar(prompt, sistema=_sistema(cfg), max_tokens=8192, esforco="high")
+    )
 
     cenas = [
         Cena(indice=i, narracao=c["narracao"].strip(), prompt_visual=c["prompt_visual"].strip())
@@ -394,8 +398,10 @@ def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
         palavras=palavras,
         n_cenas=n_cenas,
     )
+    # O roteiro e a unica peca que decide se o video presta: aqui o modelo
+    # pensa o quanto precisar.
     dados = _json_do_llm(
-        llm.completar(prompt, sistema=_sistema(cfg), max_tokens=16384)
+        llm.completar(prompt, sistema=_sistema(cfg), max_tokens=16384, esforco="high")
     )
 
     cenas = [

@@ -98,8 +98,11 @@ publicacao:
   janela_similaridade: 30
   exigir_revisao: false             # automacao ativa: maquina auto --publicar publica direto
 
-# auto: usa a primeira chave disponivel — Anthropic > Gemini (free tier,
-# aistudio.google.com) > OpenAI. Sem nenhuma, cai no stub offline.
+# auto: cadeia Anthropic > OpenAI > Gemini, trocando de elo NA CHAMADA se um
+# cair. Sem nenhuma chave, cai no stub offline.
+# O Gemini deixou de ser o padrao em 13/08/2026: 20 requisicoes/dia no free tier
+# nao cabem seis pacotes diarios (cada um gasta de 2 a 5) e o roteiro e a peca
+# que decide se o video presta. Requer ANTHROPIC_API_KEY no GitHub Secrets.
 llm_provider: "auto"
 # "canva" usa Canva Connect API para thumbnail (CTR maior).
 # Requer CANVA_CLIENT_ID + CANVA_CLIENT_SECRET + CANVA_TEMPLATE_ID no GitHub Secrets.
@@ -115,6 +118,10 @@ tts_provider: "edge"
 # Troque por "openai" (gpt-image-1, ~US$0,04/imagem) quando quiser controle total
 # de prompt e resolucao customizada.
 image_provider: "pollinations"
-llm_model: "gemini-flash-latest"      # usado se llm_provider=gemini
+llm_model: "claude-opus-5"            # roteirista principal (Anthropic)
+llm_model_gemini: "gemini-flash-latest"   # so se a cadeia chegar no Gemini
+llm_model_openai: "gpt-4o-mini"           # so se a cadeia chegar na OpenAI
+llm_esforco: "medium"                 # raciocinio padrao; o roteiro pede "high"
+llm_teto_usd: 2.00                    # teto de gasto de LLM por run (0 desliga)
 tts_model: "eleven_multilingual_v2"   # usado apenas se tts_provider=elevenlabs
 image_model: "gpt-image-1"            # usado apenas se image_provider=openai

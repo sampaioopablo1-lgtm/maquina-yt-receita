@@ -233,7 +233,7 @@ def test_ideacao_injeta_eixo_no_prompt(cfg, monkeypatch):
     original = r._json_do_llm
 
     class LLMEspiao:
-        def completar(self, prompt, *, sistema="", max_tokens=4096):
+        def completar(self, prompt, *, sistema="", max_tokens=4096, esforco=""):
             capturado["prompt"] = prompt
             from maquina.providers.stubs import LLMStub
 
@@ -362,23 +362,8 @@ def test_llm_auto_sem_chave_cai_no_stub(cfg, monkeypatch):
     assert type(obter_llm(cfg)).__name__ == "LLMStub"
 
 
-def test_llm_auto_prefere_gemini_como_plano_b(cfg, monkeypatch):
-    """Sem Anthropic mas com Gemini, a cadeia escolhe o Gemini (free tier)."""
-    from maquina.providers import obter_llm
-
-    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
-    monkeypatch.setenv("GEMINI_API_KEY", "chave-teste")
-    cfg.llm_provider = "auto"
-    assert type(obter_llm(cfg)).__name__ == "LLMGemini"
-
-
-def test_llm_auto_prioriza_anthropic(cfg, monkeypatch):
-    from maquina.providers import obter_llm
-
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "a")
-    monkeypatch.setenv("GEMINI_API_KEY", "g")
-    cfg.llm_provider = "auto"
-    assert type(obter_llm(cfg)).__name__ == "LLMAnthropic"
+# A ordem da cadeia e o fallback na chamada estao em tests/test_llm_anthropic.py:
+# desde 13/08/2026 `obter_llm` devolve uma LLMCadeia, nao um provider unico.
 
 
 # ---------- pesquisa de subnicho (pilar 1) ----------
