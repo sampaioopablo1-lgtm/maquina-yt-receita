@@ -33,6 +33,8 @@ MIN_TINTA = 0.0015        # abaixo disto o quadro esta praticamente vazio. Baixo
                           # proposito: uma cena legitima pode ter so o kicker, e nos
                           # primeiros 0,45s de uma cena em camadas nenhum elemento
                           # entrou ainda. Render que falhou de verdade da 0,00%.
+MIN_TINTA_MEDIANA = 0.02  # o piso acima julga um quadro; este julga o video inteiro.
+                          # Cena com kicker mede ~6% de tinta, cena sem texto ~0,9%.
 MAX_TINTA = 0.62          # acima disto o fundo provavelmente nao e o fundo
 MAX_MARGEM = 0.012        # tinta encostada na borda
 MIN_CONTRASTE = 70        # distancia RGB media entre tinta e fundo
@@ -111,10 +113,12 @@ def analisa(q):
 def conferir(video, fundo_esperado=None, n=QUADROS):
     qs, d = quadros(video, n)
     erros, avisos = [], []
+    tintas = []
     print(f"{video}  {d:.1f}s  {len(qs)} quadros")
     print(f"{'t(s)':>7} {'tinta':>7} {'margem':>7} {'contr':>6}  fundo")
     for i, q in enumerate(qs):
         m = analisa(q)
+        tintas.append(m["tinta"])
         t = d * (i + 0.5) / len(qs)
         f = m["fundo"]
         print(f"{t:>7.1f} {m['tinta']*100:>6.2f}% {m['margem']*100:>6.2f}% "
@@ -137,6 +141,25 @@ def conferir(video, fundo_esperado=None, n=QUADROS):
         if fundo_esperado and dist(f, fundo_esperado) > MAX_DESVIO_FUNDO:
             avisos.append(f"{onde}: fundo #{f[0]:02X}{f[1]:02X}{f[2]:02X} nao e o do canal "
                           f"#{fundo_esperado[0]:02X}{fundo_esperado[1]:02X}{fundo_esperado[2]:02X}")
+    # MIN_TINTA julga um quadro de cada vez, e por bom motivo e frouxo. Mas um
+    # video pode estar vazio sem que nenhum quadro sozinho encoste no piso: em
+    # seja-mais-magra-001, 59 das 76 cenas foram escritas sem `kicker`, entao a
+    # fabrica desenhou so o fundo e a legenda queimada. Deu 0,88% de tinta
+    # quadro apos quadro — seis vezes acima do piso individual, e ainda assim
+    # doze minutos de tela cinza. Passou no teste; so nao passou porque UMA
+    # cena deu 0,00% por acidente.
+    #
+    # A mediana denuncia o que o minimo nao ve. Cena legitima com kicker mede
+    # ~6% de tinta; cena sem texto mede ~0,9%. O corte em 2% separa as duas sem
+    # ambiguidade, e a mediana (nao a media) aguenta um ou outro quadro escuro
+    # de transicao sem reprovar o video inteiro.
+    if tintas:
+        med = sorted(tintas)[len(tintas) // 2]
+        if med < MIN_TINTA_MEDIANA:
+            erros.append(
+                f"mediana de tinta {med*100:.2f}% em {len(tintas)} quadros "
+                f"(minimo aceitavel {MIN_TINTA_MEDIANA*100:.0f}%) — o video esta "
+                f"quase vazio do inicio ao fim; provavelmente faltou `kicker` nas cenas")
     for a in avisos:
         print(f"  aviso  {a}")
     for e in erros:
