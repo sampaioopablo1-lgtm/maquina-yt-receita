@@ -143,6 +143,18 @@ import sys  # noqa: E402
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "chatterbox-tts"],
                check=True)
 
+# O pip acima troca a versao do torch, e o torchvision que veio na imagem fica
+# ligado a uma ABI que nao existe mais. O sintoma nao aponta para isso: quebra
+# em "operator torchvision::nms does not exist" e depois em
+# "Could not import module 'LlamaModel'", porque o transformers checa o
+# torchvision ao resolver o Llama e o import estoura antes de chegar no modelo.
+#
+# Nada aqui usa visao. Desinstalar e mais seguro que tentar casar as versoes:
+# sem torchvision instalado o transformers simplesmente nao percorre esse
+# caminho, em vez de percorrer com um binario quebrado.
+subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "-q", "torchvision"],
+               check=False)
+
 import torch  # noqa: E402  (depois do pip: a versao pode mudar na instalacao)
 import torchaudio  # noqa: E402
 
