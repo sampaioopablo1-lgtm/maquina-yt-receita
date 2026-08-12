@@ -1,0 +1,146 @@
+name: Voz clonada (Chatterbox, gratuito)
+
+# Clona a voz do Pablo e gera narracao com ela, de graca e sem servico pago.
+#
+# Por que Chatterbox e nao os outros:
+#   - Chatterbox Multilingual v3 (Resemble AI, jun/2026): licenca MIT, 23 idiomas
+#     com modelos dedicados para portugues do Brasil, clonagem zero-shot a partir
+#     de ~10s de referencia. MIT importa: os canais sao monetizados.
+#   - XTTS-v2 da Coqui e o mais citado, mas a licenca (CPML) proibe uso
+#     comercial — inutil aqui, por melhor que soe.
+#   - OpenVoice v2 e MIT, mas a base (MeloTTS) nao cobre portugues.
+#   - Qwen3-TTS e Apache-2.0 e cobre portugues; fica como plano B.
+#
+# Roda no runner porque o container da rotina nao alcanca huggingface.co nem
+# speech.platform.bing.com (403 de politica do proxy), e o sandbox Composio tem
+# 1 CPU e ~1 GB de RAM — nao segura um modelo de 0,5B.
+#
+# A referencia vem do proprio checkout (assets/voice/referencia.wav), entao o
+# audio nunca precisa passar por servico externo nenhum.
+
+on:
+  workflow_dispatch:
+    inputs:
+      texto:
+        description: "Texto a narrar"
+        type: string
+        default: "Existe mesmo um Ozempic natural? A Anvisa acabou de proibir tres produtos vendidos com essa promessa. Vou te mostrar quais sao, e o que a ciencia realmente diz sobre cada um deles."
+      idioma:
+        description: "Codigo do idioma (pt, en, es, hi, id, el, vi, th, ur)"
+        type: string
+        default: "pt"
+      referencia:
+        description: "Audio de referencia no repositorio"
+        type: string
+        default: "assets/voice/referencia.wav"
+      exaggeration:
+        description: "Expressividade 0.25-2.0 (0.5 = neutro documental)"
+        type: string
+        default: "0.5"
+      cfg_weight:
+        description: "Aderencia ao ritmo da referencia 0.0-1.0"
+        type: string
+        default: "0.5"
+
+jobs:
+  clonar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      # torch CPU explicito: o wheel padrao arrasta ~2,5 GB de CUDA que o runner
+      # nao tem GPU para usar.
+      - name: Instalar Chatterbox
+        run: |
+          set -euo pipefail
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+          python -c "import torch; print('torch', torch.__version__, '| threads', torch.get_num_threads())"
+
+      - name: Preparar referencia
+        run: |
+          set -euo pipefail
+          # O modelo quer fala limpa e curta. 24 kHz mono, e corta os 3 primeiros
+          # segundos porque gravacao caseira costuma comecar com respiro/clique.
+          ffmpeg -nostdin -y -ss 3 -i "${{ inputs.referencia }}" \
+            -ac 1 -ar 24000 -t 20 /tmp/ref.wav -loglevel error
+          ls -la /tmp/ref.wav
+
+      - name: Gerar narracao
+        id: gerar
+        env:
+          TEXTO: ${{ inputs.texto }}
+          IDIOMA: ${{ inputs.idioma }}
+          EXAG: ${{ inputs.exaggeration }}
+          CFG: ${{ inputs.cfg_weight }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os, time, torch, torchaudio
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          texto  = os.environ["TEXTO"]
+          idioma = os.environ["IDIOMA"]
+
+          t0 = time.time()
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          t_carga = time.time() - t0
+          print(f"modelo carregado em {t_carga:.0f}s")
+
+          t0 = time.time()
+          wav = modelo.generate(
+              texto,
+              language_id=idioma,
+              audio_prompt_path="/tmp/ref.wav",
+              exaggeration=float(os.environ["EXAG"]),
+              cfg_weight=float(os.environ["CFG"]),
+          )
+          t_gera = time.time() - t0
+
+          torchaudio.save("/tmp/saida.wav", wav, modelo.sr)
+          dur = wav.shape[-1] / modelo.sr
+
+          # A medida que decide se isto entra na producao: quantos segundos de
+          # CPU custa 1 segundo de audio. Acima de ~20x, um video de 12 min nao
+          # cabe no limite de 6h do runner.
+          fator = t_gera / dur if dur else 0
+          print(f"MEDIDO: {dur:.1f}s de audio em {t_gera:.0f}s de CPU = {fator:.1f}x tempo real")
+          print(f"PROJECAO: um video de 12 min (740s) levaria {740*fator/60:.0f} min")
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"fator={fator:.1f}\n")
+              f.write(f"duracao={dur:.1f}\n")
+          PY
+          ffmpeg -nostdin -y -i /tmp/saida.wav -b:a 96k /tmp/amostra.mp3 -loglevel error
+          ls -la /tmp/amostra.mp3
+
+      - name: Publicar amostra
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          ALVO="amostras/voz-pablo-${{ inputs.idioma }}-${{ github.run_id }}.mp3"
+          CODIGO=$(curl -sS -o /tmp/r.txt -w '%{http_code}' -X POST \
+            "$SB/storage/v1/object/videos-maquina/$ALVO" \
+            -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+            -H "Content-Type: audio/mpeg" --data-binary @/tmp/amostra.mp3)
+          echo "HTTP $CODIGO"
+          case "$CODIGO" in 2*) ;; *) cat /tmp/r.txt; exit 1;; esac
+          echo "AMOSTRA: $SB/storage/v1/object/public/videos-maquina/$ALVO"
+          echo "custo: ${{ steps.gerar.outputs.fator }}x tempo real"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amostra-voz-${{ inputs.idioma }}
+          path: /tmp/amostra.mp3
+          if-no-files-found: warn
