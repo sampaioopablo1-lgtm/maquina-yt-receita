@@ -424,9 +424,28 @@ class ImagemPollinations:
             f"https://image.pollinations.ai/prompt/{prompt_enc}"
             f"?width={largura}&height={altura}&model=flux&nologo=true&seed=42"
         )
-        r = _com_retry(lambda: httpx.get(url, timeout=120.0, follow_redirects=True))
+        # Retry mais paciente que o padrao (3 tentativas, 12 s no total): a
+        # Pollinations limita por janela de tempo, e 12 s nao atravessa a janela.
+        # Medido: o video kenapa-karyawan-... morreu inteiro com
+        # "Pollinations 429: Too Many Requests" numa cena so.
+        #
+        # Aqui esperar e de graca e falhar custa o pacote: um longo tem 78 cenas
+        # geradas em sequencia, entao a chance de nenhuma cair numa janela cheia
+        # e baixa. 5 tentativas com 8/16/32/64 s cobrem dois minutos de limite.
+        r = _com_retry(
+            lambda: httpx.get(url, timeout=120.0, follow_redirects=True),
+            tentativas=5,
+            espera_inicial=8.0,
+        )
         if r.status_code >= 400:
-            raise ErroProvider(f"Pollinations {r.status_code}: {r.text[:200]}")
+            raise ErroProvider(
+                f"Pollinations {r.status_code} apos 5 tentativas: {r.text[:200]}. "
+                "429 aqui e limite de taxa, nao prompt invalido."
+            )
+        # Corpo vazio com status 200 acontece quando a geracao expira do lado
+        # deles. Sem esta checagem o arquivo entra no video como cena preta.
+        if not r.content:
+            raise ErroProvider("Pollinations devolveu 200 com corpo vazio")
         saida.parent.mkdir(parents=True, exist_ok=True)
         saida.write_bytes(r.content)
         return saida
