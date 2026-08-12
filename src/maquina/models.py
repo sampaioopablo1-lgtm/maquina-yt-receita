@@ -110,6 +110,11 @@ class Video(BaseModel):
     formato: Formato
     status: Status = Status.IDEIA
     idioma: str = "id"
+    # A que canal este video pertence. Ausente ate 2026-08-12, e a falta doia em
+    # dois lugares: o sync nunca gravava canal no Supabase (15 de 33 linhas
+    # ficaram orfas e a v_maquina_fila nao as via), e a compliance nao conseguia
+    # contar publicacoes POR CANAL — o teto diario media a frota inteira somada.
+    canal: str | None = None
 
     ideia: Ideia | None = None
     roteiro: Roteiro | None = None

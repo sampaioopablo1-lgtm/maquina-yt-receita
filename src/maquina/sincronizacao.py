@@ -58,6 +58,7 @@ def _cliente() -> httpx.Client:
 def _linha_video(v: Video) -> dict:
     return {
         "slug": v.slug,
+        "canal": v.canal,
         "status": v.status.value,
         "formato": v.formato.value,
         "titulo": v.roteiro.titulo if v.roteiro else (v.ideia.titulo if v.ideia else None),

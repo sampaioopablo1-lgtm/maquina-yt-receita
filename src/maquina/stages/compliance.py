@@ -51,10 +51,6 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
     # contagem e dos treze canais somados — e o teto e a cota real de
     # videos.insert, 100/dia por projeto do Google Cloud.
     #
-    # FALTA AQUI, e nao da para fingir que nao: a guarda anti-spam POR CANAL
-    # (3 pacotes/dia/canal) nao existe. Implementa-la exige um campo `canal` no
-    # modelo Video e na tabela SQLite, que hoje nao existem — sem isso nao ha
-    # como separar os videos de um canal dos outros doze dentro deste banco.
     publicados = store.publicados_hoje()
     if publicados >= cfg.publicacao.max_por_dia:
         r.bloquear(
@@ -62,6 +58,22 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
             "uploads somando todos os canais). videos.insert reabre as 00:00 UTC. "
             "Ver docs/03-compliance-monetizacao.md"
         )
+
+    # 1b. Teto POR CANAL — a guarda anti-spam de verdade. A cota da conta e de
+    # 100/dia e nao protege canal nenhum: treze canais cabem nela publicando
+    # sete vezes cada, que e exatamente o padrao que o YouTube le como spam.
+    # So passou a ser possivel quando o Video ganhou campo `canal` (2026-08-12);
+    # antes disso nao havia como separar um canal dos outros doze neste banco.
+    canal = video.canal or cfg.canal_slug
+    if canal:
+        do_canal = store.publicados_hoje_canal(canal)
+        if do_canal >= cfg.publicacao.max_por_canal_dia:
+            r.bloquear(
+                f"teto diario do canal {canal} atingido "
+                f"({do_canal}/{cfg.publicacao.max_por_canal_dia} videos = "
+                f"{cfg.publicacao.max_por_canal_dia // 2} pacotes). "
+                "Automacao em escala com variacao minima e lida como spam."
+            )
 
     # 2. Similaridade de roteiro contra o historico recente.
     limite = cfg.publicacao.similaridade_max

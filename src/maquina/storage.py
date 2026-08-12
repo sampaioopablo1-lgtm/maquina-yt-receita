@@ -103,6 +103,32 @@ class Store:
             ).fetchone()
         return int(row["n"])
 
+    def publicados_hoje_canal(self, canal: str) -> int:
+        """Publicados hoje SO deste canal.
+
+        Existe porque `publicados_hoje` conta a frota inteira: o
+        `maquina sincronizar` traz todos os canais para dentro do mesmo SQLite.
+        Sem esta separacao nao havia como aplicar o teto de 3 pacotes/dia/canal
+        que a rotina pede — a unica barreira era a cota agregada da conta.
+
+        Filtra pelo payload porque `canal` nao esta em coluna propria: a tabela
+        e antiga e migrar exigiria mexer no schema em producao. A contagem e de
+        dezenas de linhas por dia, entao ler o JSON sai barato.
+        """
+        hoje = date.today().isoformat()
+        with self._conn() as c:
+            linhas = c.execute(
+                "SELECT payload FROM videos WHERE publicado_em LIKE ?", (f"{hoje}%",)
+            ).fetchall()
+        n = 0
+        for r in linhas:
+            try:
+                if Video.model_validate_json(r["payload"]).canal == canal:
+                    n += 1
+            except Exception:
+                continue  # linha antiga ou corrompida nao pode travar publicacao
+        return n
+
     def roteiros_recentes(self, limite: int = 20) -> list[tuple[str, str]]:
         """(titulo, texto do roteiro) dos ultimos videos — base da checagem de similaridade."""
         with self._conn() as c:

@@ -35,6 +35,10 @@ class LimitesPublicacao(BaseModel):
     # videos.insert: 100 chamadas/dia por projeto do Google Cloud, num balde
     # separado das 10.000 unidades do resto da API.
     max_por_dia: int = 100
+    # Teto POR CANAL: 3 pacotes = 6 videos (longo + short). E o numero que a
+    # rotina sempre pediu e que nao existia em codigo ate 2026-08-12, porque o
+    # Video nao tinha campo `canal` para separar um canal dos outros doze.
+    max_por_canal_dia: int = 6
     similaridade_max: float = 0.65
     exigir_revisao: bool = True
     janela_similaridade: int = 30
@@ -81,6 +85,11 @@ class Config(BaseModel):
     tts_voice_id: str = ""
     image_model: str = "gpt-image-1"
 
+    # Slug do canal ativo. Vazio = default.yaml, que NAO e um padrao neutro da
+    # maquina — e a config do Setiap Level. Sem este campo o pipeline nao tinha
+    # como carimbar o canal no Video, e o sync gravava linha orfa no Supabase.
+    canal_slug: str = ""
+
     data_dir: Path = ROOT / "data"
     out_dir: Path = ROOT / "out"
 
@@ -111,6 +120,7 @@ class Config(BaseModel):
                     raw[chave] = {**raw[chave], **valor}
                 else:
                     raw[chave] = valor
+            raw.setdefault("canal_slug", slug)
             raw.setdefault("data_dir", ROOT / "data" / slug)
             raw.setdefault("out_dir", ROOT / "out" / slug)
             raw.setdefault(

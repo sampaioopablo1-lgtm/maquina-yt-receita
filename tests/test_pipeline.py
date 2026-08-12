@@ -438,3 +438,46 @@ def test_produzir_gera_mp4_real(cfg):
     assert caminho.exists() and caminho.stat().st_size > 10_000
     assert media.duracao(caminho) > 1.0
     assert (cfg.out_dir / video.slug / "thumbnail.jpg").exists()
+
+
+def test_compliance_bloqueia_teto_por_canal(cfg):
+    """Teto POR CANAL, que a cota da conta nao cobre.
+
+    100/dia da conta cabe treze canais publicando sete vezes cada — que e
+    justamente o padrao que o YouTube le como spam. So virou possivel quando o
+    Video ganhou campo `canal` em 2026-08-12.
+    """
+    from datetime import datetime
+
+    store = Store(cfg.data_dir / "canal.db")
+    for i in range(cfg.publicacao.max_por_canal_dia):
+        v = _video_com_roteiro(f"Texto exclusivo do canal {i} " * 5, f"Canal {i}")
+        v.canal = "nivel-do-jogo"
+        v.duracao_s = 800
+        v.publicado_em = datetime.now()
+        store.salvar(v)
+
+    novo = _video_com_roteiro("Assunto totalmente diferente dos outros " * 5, "Novo")
+    novo.canal = "nivel-do-jogo"
+    novo.duracao_s = 800
+    res = compliance.verificar(novo, cfg, store)
+    assert not res.aprovado
+    assert any("teto diario do canal" in b for b in res.bloqueios)
+
+
+def test_compliance_nao_conta_video_de_outro_canal(cfg):
+    """Um canal cheio nao pode travar outro — era o defeito do teto agregado."""
+    from datetime import datetime
+
+    store = Store(cfg.data_dir / "outro.db")
+    for i in range(cfg.publicacao.max_por_canal_dia + 2):
+        v = _video_com_roteiro(f"Roteiro do vizinho numero {i} " * 5, f"Vizinho {i}")
+        v.canal = "seviye-seviye"
+        v.publicado_em = datetime.now()
+        store.salvar(v)
+
+    novo = _video_com_roteiro("Pauta propria e distinta do vizinho " * 5, "Meu")
+    novo.canal = "nivel-do-jogo"
+    novo.duracao_s = 800
+    res = compliance.verificar(novo, cfg, store)
+    assert not any("teto diario do canal" in b for b in res.bloqueios)

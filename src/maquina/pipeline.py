@@ -54,7 +54,9 @@ class Pipeline:
         return min(candidatos, key=lambda v: v.criado_em) if candidatos else None
 
     def criar(self, ideia: Ideia) -> Video:
-        video = Video(slug=ideia.slug, formato=ideia.formato, idioma=self.cfg.canal.idioma, ideia=ideia)
+        video = Video(slug=ideia.slug, formato=ideia.formato,
+                      idioma=self.cfg.canal.idioma,
+                      canal=self.cfg.canal_slug or None, ideia=ideia)
         self.store.salvar(video)
         return video
 
