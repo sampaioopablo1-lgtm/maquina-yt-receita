@@ -133,10 +133,43 @@ def gerar_ideias(
     ]
 
 
+# Taxa MEDIDA de cada voz, em caracteres por segundo de audio, com numeros por
+# extenso e rate -4%. Medir importa: as vozes vao de 9,85 a 20,02 chars/s, e
+# dimensionar pela taxa errada e o que ja produziu 9:25 onde se queria 13:00.
+# Voz ausente daqui cai no piso conservador — errar para MAIS texto so alonga o
+# video, errar para menos o derruba abaixo do piso de 8 min.
+CHARS_POR_S = {
+    "pt-BR-AntonioNeural": 14.30,
+    "pt-BR-ThalitaMultilingualNeural": 16.52,
+    "pt-BR-FranciscaNeural": 14.01,
+}
+CHARS_POR_S_PADRAO = 12.0
+
+# Fracao minima do texto-alvo que o LLM precisa entregar. Abaixo disso o roteiro
+# e recusado ANTES de renderizar: render custa ~18 min de runner, e um roteiro
+# curto so revela o problema no fim, quando ja gastou tudo.
+MIN_FRACAO_TEXTO = 0.75
+
+
+def _chars_por_s(cfg: Config) -> float:
+    return CHARS_POR_S.get(cfg.canal.voz_edge or "", CHARS_POR_S_PADRAO)
+
+
 def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
-    dur_min = ideia.formato.duracao_alvo_s / 60
-    palavras = int(dur_min * 150)  # ~150 palavras/min de narracao
-    n_cenas = 5 if ideia.formato is Formato.SHORTS else max(int(dur_min * 1.6), 8)
+    dur_alvo_s = ideia.formato.duracao_alvo_s
+    dur_min = dur_alvo_s / 60
+    taxa = _chars_por_s(cfg)
+
+    # O alvo e em CARACTERES, nao em palavras: e caractere que o TTS converte em
+    # tempo, e a razao palavra/caractere muda com o idioma. O "150 palavras por
+    # minuto" que estava aqui era um numero generico de locucao em ingles.
+    chars_alvo = int(dur_alvo_s * taxa)
+    palavras = int(chars_alvo / 5.5)  # so para orientar o LLM, nao para medir
+
+    # A rotina pede 70-90 cenas no longo. A conta antiga (dur_min * 1.6) dava
+    # VINTE cenas para treze minutos — o LLM entregava vinte cenas curtas e o
+    # video saia com um terco da duracao.
+    n_cenas = 5 if ideia.formato is Formato.SHORTS else max(int(dur_min * 6), 70)
 
     prompt = PROMPT_ROTEIRO.format(
         titulo=ideia.titulo,
@@ -148,7 +181,7 @@ def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
         n_cenas=n_cenas,
     )
     dados = _json_do_llm(
-        llm.completar(prompt, sistema=_sistema(cfg), max_tokens=8192)
+        llm.completar(prompt, sistema=_sistema(cfg), max_tokens=16384)
     )
 
     cenas = [
@@ -157,6 +190,21 @@ def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
     ]
     if not cenas:
         raise ValueError("LLM devolveu roteiro sem cenas")
+
+    # CONFERIR ANTES DE RENDERIZAR. Medido em 2026-08-12 sobre os dez longos que
+    # o caminho automatico produziu: mediana de 231 s contra alvo de 780, e nove
+    # dos dez abaixo do piso de 8 min. Nenhum foi barrado aqui — todos foram
+    # renderizados inteiros e so entao reprovados, ou pior, publicados.
+    chars = sum(len(c.narracao) for c in cenas)
+    estimado_s = chars / taxa
+    if chars < chars_alvo * MIN_FRACAO_TEXTO:
+        raise ValueError(
+            f"roteiro curto demais: {chars} caracteres para alvo de {chars_alvo} "
+            f"({chars / chars_alvo:.0%}), o que da ~{estimado_s / 60:.1f} min contra "
+            f"{dur_min:.1f} de alvo, em {len(cenas)} cenas de {n_cenas} pedidas. "
+            f"Taxa usada: {taxa} chars/s ({cfg.canal.voz_edge}). "
+            "Rejeitado antes de renderizar — render custa ~18 min."
+        )
 
     return Roteiro(
         titulo=dados.get("titulo", ideia.titulo),

@@ -23,8 +23,15 @@ class Formato(str, Enum):
 
     @property
     def duracao_alvo_s(self) -> int:
-        # Longo mira acima de 8 min para liberar multiplos blocos de anuncio.
-        return 50 if self is Formato.SHORTS else 8 * 60
+        # 780 s = 13 min, meio da faixa de 12-15 que a rotina pede, e o mesmo
+        # valor que canais.duracao_alvo_s guarda no banco desde sempre.
+        #
+        # Era 8*60 com o comentario "mira acima de 8 min". Mirar EM 8 min e o
+        # erro: 8 min e o PISO, nao o alvo, entao qualquer roteiro que ficasse
+        # um pouco abaixo do pedido caia direto abaixo do minimo. Combinado com
+        # o gerador pedindo 12 cenas em vez de 70, deu a mediana de 231 s dos
+        # dez longos automaticos (aprendizado #181).
+        return 50 if self is Formato.SHORTS else 780
 
     @property
     def aspect(self) -> str:
