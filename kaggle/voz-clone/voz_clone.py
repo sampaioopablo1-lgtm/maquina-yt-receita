@@ -61,10 +61,20 @@ def anon():
     O script fica num kernel privado, mas kernel privado pode ser tornado
     publico com dois cliques e o historico do commit continua la. Chave em
     Add-ons -> Secrets, nome SUPABASE_ANON.
-    """
-    from kaggle_secrets import UserSecretsClient
 
-    return UserSecretsClient().get_secret("SUPABASE_ANON")
+    Devolve None se o segredo nao existir, em vez de estourar. O segredo so se
+    cadastra pela interface, e a medicao do fator em GPU nao depende dele: sem
+    chave o audio fica em /kaggle/working e sai pelo `kaggle kernels output`.
+    Morrer aqui desperdicaria a carga do modelo, que e o passo caro.
+    """
+    try:
+        from kaggle_secrets import UserSecretsClient
+
+        return UserSecretsClient().get_secret("SUPABASE_ANON")
+    except Exception as e:
+        print(f"AVISO: sem SUPABASE_ANON ({type(e).__name__}) — "
+              "nada sobe para o Storage; use `kaggle kernels output`")
+        return None
 
 
 def baixar(url, destino):
@@ -80,6 +90,8 @@ def subir(caminho, alvo, mime, chave):
     """POST cria, PUT atualiza. O Storage separa os dois e nenhum sozinho serve
     para uma rotina que tanto publica arquivo novo quanto regrava — e o modo
     silencioso disso e pior: a copia envelhece sem ninguem notar."""
+    if not chave:
+        return False
     url = f"{SB}/storage/v1/object/{BUCKET}/{alvo}"
     corpo = open(caminho, "rb").read()
     cabecalho = {
