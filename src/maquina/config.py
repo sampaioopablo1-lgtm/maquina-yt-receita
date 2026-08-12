@@ -60,6 +60,13 @@ class CanalConfig(BaseModel):
     eixos_tematicos: list[str] = Field(default_factory=list)
     # Idioma do operador — usado para traduzir comentarios e roteiros na revisao.
     idioma_revisao: str = "pt-BR"
+    # Alvo de duracao do formato longo, em minutos. ROTINA.md pede 12-15 min;
+    # 12 e o piso dessa faixa, com folga sobre o bloqueio de compliance de 8 min
+    # (docs/03-compliance-monetizacao.md). Formato.duracao_alvo_s tambem vale
+    # 8 min — mirar exatamente no piso, sem folga, e o que produziu o video de
+    # 4.8 min bloqueado em sx-educacao no dispatch de 2026-08-12: o roteiro do
+    # LLM varia, e sem margem qualquer variacao para baixo cruza o piso.
+    duracao_longo_min: float = 12.0
 
 
 class Config(BaseModel):

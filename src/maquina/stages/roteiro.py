@@ -108,6 +108,15 @@ def proximo_eixo(cfg: Config, ja_publicados: int) -> str:
     return eixos[ja_publicados % len(eixos)] if eixos else "(livre)"
 
 
+def _duracao_alvo_min(cfg: Config, formato: Formato) -> float:
+    """Minutos-alvo de narracao. Longo usa o valor do canal (ROTINA.md pede
+    12-15 min), nunca o piso de compliance de 8 min — mirar no piso deixa
+    zero margem para a variacao natural do LLM."""
+    if formato is Formato.LONGO:
+        return cfg.canal.duracao_longo_min
+    return formato.duracao_alvo_s / 60
+
+
 def gerar_ideias(
     llm: LLM, cfg: Config, formato: Formato, n: int = 5, publicados: list[str] | None = None
 ) -> list[Ideia]:
@@ -116,7 +125,7 @@ def gerar_ideias(
         n=n,
         formato=formato.value,
         aspect=formato.aspect,
-        dur_min=round(formato.duracao_alvo_s / 60, 1),
+        dur_min=round(_duracao_alvo_min(cfg, formato), 1),
         publicados="\n".join(f"- {t}" for t in lista_publicados) or "(nenhum ainda)",
         chaves=", ".join(cfg.canal.referencias_titulo) or "(sem referencias cadastradas)",
         eixo=proximo_eixo(cfg, len(lista_publicados)),
@@ -134,7 +143,7 @@ def gerar_ideias(
 
 
 def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
-    dur_min = ideia.formato.duracao_alvo_s / 60
+    dur_min = _duracao_alvo_min(cfg, ideia.formato)
     palavras = int(dur_min * 150)  # ~150 palavras/min de narracao
     n_cenas = 5 if ideia.formato is Formato.SHORTS else max(int(dur_min * 1.6), 8)
 

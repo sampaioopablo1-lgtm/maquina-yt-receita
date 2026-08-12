@@ -17,6 +17,10 @@ canal:
   idioma_revisao: "pt-BR"
   # 27 (Educacao): o canal ensina ferramenta, nao entretem.
   categoria_id: "27"
+  # Medido abaixo (par maduro, concursos fora): 7-15min mediana 77,3 v/d,
+  # >15min mediana 117,8. 13 fica dentro da faixa vencedora com folga sobre o
+  # piso de compliance de 8 min.
+  duracao_longo_min: 13.0
 #
 # GUARDA COMERCIAL — leia antes de escolher pauta.
 # Este canal nao e um canal de portfolio: ele capta matricula para um curso

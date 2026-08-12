@@ -244,6 +244,36 @@ def test_ideacao_injeta_eixo_no_prompt(cfg, monkeypatch):
     assert "eixo-sentinela" in capturado["prompt"]
 
 
+# ---------- duracao alvo do longo (defesa contra mirar exatamente no piso) ----------
+
+def test_roteiro_longo_mira_config_do_canal_nao_o_piso(cfg):
+    """duracao_alvo_s do Formato e o piso de compliance (8 min). Se o roteiro
+    mirasse nele sem folga, qualquer variacao do LLM para baixo derruba o
+    video no bloqueio — foi o que aconteceu com sx-educacao em 2026-08-12
+    (4.8 min gerado, 8 min exigido)."""
+    from maquina.stages.roteiro import _duracao_alvo_min
+
+    assert cfg.canal.duracao_longo_min > Formato.LONGO.duracao_alvo_s / 60
+    assert _duracao_alvo_min(cfg, Formato.LONGO) == cfg.canal.duracao_longo_min
+    assert _duracao_alvo_min(cfg, Formato.SHORTS) == Formato.SHORTS.duracao_alvo_s / 60
+
+
+def test_escrever_roteiro_usa_duracao_do_canal(cfg):
+    from maquina.providers.stubs import LLMStub
+    from maquina.stages.roteiro import escrever_roteiro
+
+    cfg.canal.duracao_longo_min = 20.0
+    capturado = {}
+
+    class LLMEspiao(LLMStub):
+        def completar(self, prompt, *, sistema="", max_tokens=4096):
+            capturado["prompt"] = prompt
+            return super().completar(prompt, sistema=sistema)
+
+    escrever_roteiro(LLMEspiao(), cfg, Ideia(titulo="T", formato=Formato.LONGO))
+    assert "Duracao alvo: 20.0 minutos" in capturado["prompt"]
+
+
 # ---------- revisao em idioma estrangeiro ----------
 
 def test_amostra_de_voz_produz_audio_real(cfg, tmp_path):
