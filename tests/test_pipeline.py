@@ -106,7 +106,7 @@ def test_compliance_bloqueia_teto_diario(cfg):
     novo = _video_com_roteiro("Assunto completamente diferente dos demais " * 5, "Novo")
     res = compliance.verificar(novo, cfg, store)
     assert not res.aprovado
-    assert any("teto diario" in b for b in res.bloqueios)
+    assert any("cota diaria da conta" in b for b in res.bloqueios)
 
 
 def test_compliance_alerta_video_longo_curto_demais(cfg):

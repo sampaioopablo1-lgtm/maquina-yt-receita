@@ -72,22 +72,23 @@ metas:
 # Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md
 # Producao: 10/dia (um eixo diferente por video, ciclo sem repeticao).
 #
-# Os dois tetos de publicacao sao coisas diferentes, e confundi-los custou sete
-# ciclos parados em 2026-08-12:
-#   max_por_dia       = 6, POR CANAL, guarda anti-spam. O SQLite e por canal
-#                       (data/<slug>/maquina.db), entao esta contagem nunca ve
-#                       os outros doze. 6 videos = 3 pacotes, o mesmo teto que a
-#                       rotina ja pedia por canal.
-#   max_conta_por_dia = 100, DA CONTA, cota real. videos.insert tem balde
-#                       proprio de 100 chamadas/dia por PROJETO do Google Cloud,
-#                       separado das 10.000 unidades do resto da API.
-# O comentario antigo dizia que 6 era "cota real da YouTube Data API por
-# projeto". Nao era: vinha de dividir 10.000 por 1.600, e upload nao sai das
-# 10.000. Ver aprendizados #57.
+# max_por_dia e teto DA CONTA, nao do canal. O SQLite mora em data/<slug>/, o
+# que sugere teto por canal, mas o `maquina sincronizar` puxa a frota inteira
+# para dentro dele — e o modelo Video nem tem campo `canal` — entao a contagem
+# sempre somou os treze. Medido em 2026-08-12: com 6 publicados no dia por
+# quatro canais diferentes, o job do setiap-level (que tinha zero) foi
+# bloqueado mesmo assim.
+#
+# O valor 6 vinha de dividir 10.000 unidades por 1.600 e supor que videos.insert
+# saia desse balde. Nao sai: a documentacao do metodo diz "100 calls per day",
+# balde separado (aprendizados #57). O teto real da conta e 100/dia por projeto
+# do Google Cloud, e e esse que vale agora.
+#
+# FALTA: a guarda anti-spam POR CANAL (3 pacotes/dia/canal, que a rotina pede)
+# nao existe em codigo. Depende de um campo `canal` no Video e no SQLite.
 # Similaridade mais rigorosa que o padrao porque volume alto converge sozinho.
 publicacao:
-  max_por_dia: 6
-  max_conta_por_dia: 100
+  max_por_dia: 100
   similaridade_max: 0.65
   janela_similaridade: 30
   exigir_revisao: false             # automacao ativa: maquina auto --publicar publica direto

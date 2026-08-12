@@ -103,33 +103,6 @@ class Store:
             ).fetchone()
         return int(row["n"])
 
-    def publicados_hoje_conta(self) -> int:
-        """Publicados hoje somando TODOS os canais.
-
-        `publicados_hoje` acima conta so este canal, e isso e correto para a
-        guarda anti-spam: cada canal tem o seu proprio SQLite em
-        data/<slug>/maquina.db. Mas a cota de videos.insert e do PROJETO do
-        Google Cloud, nao do canal — os 13 canais publicam pelo mesmo projeto
-        "Youtube RECEITA". Sem somar os bancos irmaos, treze canais podem gastar
-        treze vezes o teto da conta sem nenhum deles perceber, e o estouro so
-        aparece como quotaExceeded no meio de um upload.
-        """
-        hoje = date.today().isoformat()
-        total = 0
-        for db in sorted(self.path.parent.parent.glob(f"*/{self.path.name}")):
-            try:
-                with sqlite3.connect(f"file:{db}?mode=ro", uri=True) as c:
-                    row = c.execute(
-                        "SELECT COUNT(*) FROM videos WHERE publicado_em LIKE ?",
-                        (f"{hoje}%",),
-                    ).fetchone()
-                total += int(row[0])
-            except sqlite3.Error:
-                # Banco de outro canal ausente, vazio ou corrompido nao pode
-                # travar a publicacao deste. Subcontar erra para o lado seguro.
-                continue
-        return total
-
     def roteiros_recentes(self, limite: int = 20) -> list[tuple[str, str]]:
         """(titulo, texto do roteiro) dos ultimos videos — base da checagem de similaridade."""
         with self._conn() as c:

@@ -46,25 +46,21 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
         r.bloquear("video sem roteiro")
         return r
 
-    # 1. Teto diario DO CANAL — automacao em escala com variacao minima e
-    # tratada como spam. Conta so este canal, porque o SQLite e por canal.
+    # 1. Teto diario DA CONTA. Apesar do SQLite morar em data/<slug>/, o
+    # `maquina sincronizar` enche esse banco com a frota inteira, entao esta
+    # contagem e dos treze canais somados — e o teto e a cota real de
+    # videos.insert, 100/dia por projeto do Google Cloud.
+    #
+    # FALTA AQUI, e nao da para fingir que nao: a guarda anti-spam POR CANAL
+    # (3 pacotes/dia/canal) nao existe. Implementa-la exige um campo `canal` no
+    # modelo Video e na tabela SQLite, que hoje nao existem — sem isso nao ha
+    # como separar os videos de um canal dos outros doze dentro deste banco.
     publicados = store.publicados_hoje()
     if publicados >= cfg.publicacao.max_por_dia:
         r.bloquear(
-            f"teto diario do canal atingido ({publicados}/{cfg.publicacao.max_por_dia}). "
+            f"cota diaria da conta atingida ({publicados}/{cfg.publicacao.max_por_dia} "
+            "uploads somando todos os canais). videos.insert reabre as 00:00 UTC. "
             "Ver docs/03-compliance-monetizacao.md"
-        )
-
-    # 1b. Teto diario DA CONTA — este e cota de verdade, e ate 2026-08-12 nao
-    # era checado em lugar nenhum. Os 13 canais publicam pelo mesmo projeto do
-    # Google Cloud, e videos.insert da 100 chamadas/dia POR PROJETO. Sem esta
-    # soma, treze canais gastariam treze tetos e o estouro apareceria so como
-    # quotaExceeded no meio de um upload, com o pacote ja renderizado.
-    da_conta = store.publicados_hoje_conta()
-    if da_conta >= cfg.publicacao.max_conta_por_dia:
-        r.bloquear(
-            f"cota diaria da conta atingida ({da_conta}/{cfg.publicacao.max_conta_por_dia} "
-            "uploads em todos os canais). videos.insert reabre as 00:00 UTC."
         )
 
     # 2. Similaridade de roteiro contra o historico recente.
