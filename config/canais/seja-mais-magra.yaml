@@ -1,0 +1,26 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Seja Mais Magra e Saudável"
+  handle: "@SejaMaisMagraeSaudavel"
+  idioma: "pt-BR"
+  tema: "emagrecimento com evidencia, sem promessa milagrosa"
+  estilo_visual: "voxlite"
+  voz_edge: "pt-BR-AntonioNeural"
+  idioma_revisao: "pt-BR"
+  # 27 (Educacao), nao 22: o canal checa regulacao e estudo, e a categoria
+  # informa a recomendacao alem de aparecer na ficha.
+  categoria_id: "27"
+# Nicho: saude e peso, Brasil
+# Paleta: fundo F6F6F6, verde 2D6A4F, coral E76F51
+#
+# Este e nicho YMYL (saude), entao a regra do canal e mais dura que a da rede:
+# todo numero sai de fonte institucional datada (Anvisa, Ministerio da Saude),
+# nunca de reportagem que cita a fonte. Medido em 2026-08-11 no proprio nicho, o
+# eixo de CHECAR bate o de RECOMENDAR em 15x — 12.354 views/dia contra 794 — e
+# ainda e o unico que nao expoe o canal a alegacao de saude sem respaldo.
+#
+# Nada de dose, posologia ou indicacao: o canal aponta o que a agencia decidiu e
+# ensina o espectador a conferir sozinho. Toda copy leva o aviso de que o video
+# nao substitui consulta medica.
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.
