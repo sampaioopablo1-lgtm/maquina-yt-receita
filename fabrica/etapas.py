@@ -61,6 +61,29 @@ def log(m):
     print(m, flush=True)
 
 
+# ---- trava contra relancamento concorrente (2 processos no mesmo workdir
+# dobram o consumo de RAM e um refaz o montar apagando o que o outro usa) ----
+os.makedirs(d, exist_ok=True)
+_lock = f"{d}/.etapas.lock"
+if os.path.exists(_lock):
+    _pid_antigo = open(_lock).read().strip()
+    _vivo = False
+    if _pid_antigo.isdigit():
+        try:
+            os.kill(int(_pid_antigo), 0)
+            _vivo = True
+        except (OSError, ProcessLookupError):
+            _vivo = False
+    if _vivo:
+        sys.exit(
+            f"etapas.py ja esta rodando neste workdir (pid {_pid_antigo}, {d}). "
+            f"pkill -f etapas.py, confirme com ps aux | grep python3, e relance UM."
+        )
+    log(f"lock orfao de pid {_pid_antigo} (processo morto) — assumindo o workdir")
+with open(_lock, "w") as f:
+    f.write(str(os.getpid()))
+
+
 # ------------------------------------------------- 0. a narracao, antes do TTS
 # Roda antes de gastar minutos de sintese e de render: defeito de narracao e o
 # unico que a maquina nao conseguia enxergar sozinha. Um render impecavel de um
@@ -249,3 +272,8 @@ _erros, _avisos = VIS.conferir(f"{d}/short.mp4",
 assert not _erros, "short reprovado no teste visual — nao entregue assim"
 log(f"etapa 8 ok: short.mp4 {ds:.1f}s, conferido quadro a quadro")
 log("PACOTE OK")
+
+try:
+    os.remove(_lock)
+except OSError:
+    pass

@@ -228,8 +228,15 @@ def dir_trabalho(sp):
     diretorio faz dois pacotes do mesmo canal dividirem a mesma pasta, e ai o
     RETOMA pula clipes do pacote ANTERIOR: sai um video costurando dois roteiros
     sem erro nenhum. Specs novas declaram "pacote"; as antigas seguem no slug.
+
+    Raiz configuravel via FABRICA_WORKDIR — o default /tmp/f mora no tmpfs do
+    sandbox (985 MB de RAM total) e um render de 130+ cenas mata o ffmpeg por
+    OOM perto do clipe 40 (~250 MB por clipe de 4 camadas). Apontar para disco
+    real (ex.: /home/user/frender/f, ext4) resolve sem mexer no resto da
+    fabrica: FABRICA_WORKDIR=/home/user/frender/f python3 etapas.py <spec>.
     """
-    return f"/tmp/f/{sp.get('pacote') or sp['slug']}"
+    raiz = os.environ.get("FABRICA_WORKDIR", "/tmp/f")
+    return f"{raiz}/{sp.get('pacote') or sp['slug']}"
 
 
 def montar(spec_file):

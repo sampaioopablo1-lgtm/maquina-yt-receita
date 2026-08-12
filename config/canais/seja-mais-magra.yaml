@@ -6,7 +6,7 @@ canal:
   idioma: "pt-BR"
   tema: "emagrecimento com evidencia, sem promessa milagrosa"
   estilo_visual: "voxlite"
-  voz_edge: "pt-BR-AntonioNeural"
+  voz_edge: "pt-BR-FranciscaNeural"
   idioma_revisao: "pt-BR"
   # 27 (Educacao), nao 22: o canal checa regulacao e estudo, e a categoria
   # informa a recomendacao alem de aparecer na ficha.
