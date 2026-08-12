@@ -55,25 +55,42 @@ FRASES = {
 SAIDA = "/kaggle/working"
 
 
+DATASET = "/kaggle/input/maquina-yt-config/config.json"
+
+
 def anon():
-    """Chave anon vem do cofre do Kaggle, nunca do codigo.
+    """Chave anon, na ordem do que da para automatizar.
 
-    O script fica num kernel privado, mas kernel privado pode ser tornado
-    publico com dois cliques e o historico do commit continua la. Chave em
-    Add-ons -> Secrets, nome SUPABASE_ANON.
+    1. Dataset PRIVADO `maquina-yt-config`. Os Secrets do Kaggle (Add-ons ->
+       Secrets) nao tem rota de API — so se cadastram clicando, o que quebraria
+       a automacao a cada kernel novo. Dataset tem: `kaggle datasets create`
+       e `version`. Por isso a chave mora aqui, e o kernel so precisa declarar
+       o dataset em `dataset_sources`.
+    2. Secret, se alguem tiver cadastrado a mao.
+    3. None — e segue mesmo assim. A medicao do fator em GPU nao depende de
+       upload: sem chave o audio fica em /kaggle/working e sai pelo
+       `kaggle kernels output`. Morrer aqui desperdicaria a carga do modelo,
+       que e o passo caro.
 
-    Devolve None se o segredo nao existir, em vez de estourar. O segredo so se
-    cadastra pela interface, e a medicao do fator em GPU nao depende dele: sem
-    chave o audio fica em /kaggle/working e sai pelo `kaggle kernels output`.
-    Morrer aqui desperdicaria a carga do modelo, que e o passo caro.
+    A chave anon e desenhada para ser publica (o Supabase a manda para o
+    navegador; quem protege e o RLS), entao dataset privado e folgado para ela.
+    Chave de service_role NUNCA entra aqui.
     """
+    if os.path.exists(DATASET):
+        try:
+            with open(DATASET) as f:
+                print("chave: dataset maquina-yt-config")
+                return json.load(f)["anon"]
+        except Exception as e:
+            print(f"AVISO: dataset ilegivel ({type(e).__name__})")
     try:
         from kaggle_secrets import UserSecretsClient
 
+        print("chave: secret SUPABASE_ANON")
         return UserSecretsClient().get_secret("SUPABASE_ANON")
-    except Exception as e:
-        print(f"AVISO: sem SUPABASE_ANON ({type(e).__name__}) — "
-              "nada sobe para o Storage; use `kaggle kernels output`")
+    except Exception:
+        print("AVISO: sem dataset e sem secret — nada sobe para o Storage; "
+              "use `kaggle kernels output`")
         return None
 
 

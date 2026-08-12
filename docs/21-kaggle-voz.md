@@ -65,13 +65,43 @@ token novo.
 > como "despublicar" um segredo. Vazou em 2026-08-12 exatamente assim, num
 > print da tela de criacao.
 
-### 3. O segredo do Supabase
+### 3. O segredo do Supabase — por dataset, nao por Secret
 
-No editor do notebook: **Add-ons → Secrets → Add a new secret**, nome
-`SUPABASE_ANON`, valor = a chave anon do projeto.
+Os **Secrets do Kaggle** (Add-ons → Secrets) resolvem o problema mas nao tem
+rota de API: so se cadastram clicando, e por kernel. Isso quebraria a automacao
+toda vez que um kernel novo aparecesse.
 
-Nao coloque a chave no codigo. O kernel nasce privado, mas privado vira publico
-com dois cliques e o historico do commit continua la.
+Um **dataset privado** faz o mesmo e tem API. Ja criado:
+
+```bash
+# so para referencia — ja existe como pablosampaio/maquina-yt-config
+kaggle datasets create -p <dir com config.json e dataset-metadata.json>
+kaggle datasets version -p <dir> -m "gira a chave"   # para atualizar depois
+```
+
+O kernel declara `"dataset_sources": ["pablosampaio/maquina-yt-config"]` e le
+`/kaggle/input/maquina-yt-config/config.json`. O script tenta dataset, depois
+Secret, depois segue sem chave — nessa ordem.
+
+> So a chave **anon** entra ai. Ela e desenhada para ser publica (o Supabase a
+> manda para o navegador; quem protege e o RLS), entao dataset privado e folgado
+> para ela. `service_role` NUNCA.
+
+### 3b. Nada disso precisa da sua mao
+
+O token do Kaggle vive em `config.kaggle_token` no Supabase, na mesma tabela
+dos `yt_token_<canal>` e com o mesmo RLS de service_role. O workflow
+`.github/workflows/kaggle-voz.yml` le de la, publica o kernel, acompanha,
+busca a saida e devolve tudo ao Storage:
+
+```
+Actions → "Kaggle — clonagem de voz em GPU" → Run workflow
+  modo: bench (mede o fator) | fila (narra voz/fila.json)
+```
+
+Segredo em dois lugares e segredo que envelhece em um deles — por isso o token
+nao virou secret do repositorio. Girar o token e um `UPDATE` na tabela, sem
+tocar em Settings do GitHub.
 
 ### 4. Publicar e rodar o kernel
 

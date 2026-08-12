@@ -1,0 +1,180 @@
+name: Kaggle — clonagem de voz em GPU
+
+# Ciclo inteiro sem ninguem no meio: le a credencial do Supabase, publica o
+# kernel, espera, busca a saida e devolve ao Storage.
+#
+# Por que o token vem do banco e nao de um secret do repositorio: ele ja vive em
+# config.kaggle_token (mesma tabela dos yt_token_<canal>, com RLS de
+# service_role), e um segredo em dois lugares e um segredo que envelhece em um
+# deles. Girar o token passa a ser um UPDATE, sem mexer em Settings do GitHub.
+#
+# Por que Actions e nao o container da rotina: o proxy do container nega
+# api.kaggle.com com 403 de politica, o mesmo que ja barra supabase.co e
+# huggingface.co. Medido em 2026-08-12.
+#
+# A chave anon que o kernel usa NAO vai por aqui — ela mora no dataset privado
+# pablosampaio/maquina-yt-config, porque os Secrets do Kaggle nao tem rota de
+# API e exigiriam um clique por kernel novo.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "bench (mede o fator em GPU) ou fila (narra voz/fila.json)"
+        type: choice
+        options: [bench, fila]
+        default: bench
+      exaggeration:
+        description: "Expressividade 0.25-2.0 (0.5 = neutro documental)"
+        type: string
+        default: "0.5"
+      cfg_weight:
+        description: "Aderencia ao ritmo da referencia 0.0-1.0"
+        type: string
+        default: "0.5"
+      espera_max_min:
+        description: "Minutos a esperar o kernel antes de desistir de acompanhar"
+        type: string
+        default: "40"
+
+concurrency:
+  group: kaggle-voz
+  cancel-in-progress: false
+
+jobs:
+  clonar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar CLI do Kaggle
+        run: pip install -q kaggle
+
+      - name: Credencial do Kaggle (vem do Supabase)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          RESP=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.kaggle_token&select=valor" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY")
+          TOKEN=$(echo "$RESP" | jq -r '.[0].valor.token // empty')
+          USUARIO=$(echo "$RESP" | jq -r '.[0].valor.usuario // empty')
+          if [ -z "$TOKEN" ] || [ -z "$USUARIO" ]; then
+            echo "::error::config.kaggle_token ausente ou sem os campos token/usuario"
+            exit 1
+          fi
+          # ::add-mask:: antes de qualquer uso: sem isto o token sairia legivel
+          # em qualquer `set -x` ou mensagem de erro do curl no painel do run.
+          echo "::add-mask::$TOKEN"
+          mkdir -p ~/.kaggle
+          printf '%s' "$TOKEN" > ~/.kaggle/access_token
+          chmod 600 ~/.kaggle/access_token
+          echo "KAGGLE_USUARIO=$USUARIO" >> "$GITHUB_ENV"
+          echo "credencial pronta para $USUARIO"
+
+      - name: Publicar kernel
+        run: |
+          set -euo pipefail
+          cd kaggle/voz-clone
+          # O id no arquivo versionado pode divergir da conta que o banco aponta;
+          # o banco manda. Assim trocar de conta e um UPDATE, nao um commit.
+          jq --arg id "$KAGGLE_USUARIO/voz-clone-chatterbox" '.id = $id' \
+            kernel-metadata.json > /tmp/km.json && mv /tmp/km.json kernel-metadata.json
+          # Os inputs viram variaveis de ambiente lidas pelo script no Kaggle.
+          python - <<'PY'
+          import os, pathlib
+          p = pathlib.Path("voz_clone.py"); s = p.read_text()
+          cab = (f'import os\n'
+                 f'os.environ.setdefault("MODO", "{os.environ["MODO"]}")\n'
+                 f'os.environ.setdefault("EXAG", "{os.environ["EXAG"]}")\n'
+                 f'os.environ.setdefault("CFG", "{os.environ["CFG"]}")\n')
+          p.write_text(cab + s)
+          print("parametros injetados:", os.environ["MODO"], os.environ["EXAG"], os.environ["CFG"])
+          PY
+          kaggle kernels push -p .
+        env:
+          MODO: ${{ inputs.modo }}
+          EXAG: ${{ inputs.exaggeration }}
+          CFG: ${{ inputs.cfg_weight }}
+
+      - name: Acompanhar ate terminar
+        id: espera
+        run: |
+          set -uo pipefail
+          ALVO="$KAGGLE_USUARIO/voz-clone-chatterbox"
+          LIMITE=$(( ${{ inputs.espera_max_min }} * 60 / 30 ))
+          for i in $(seq 1 "$LIMITE"); do
+            S=$(kaggle kernels status "$ALVO" 2>&1 | tail -1)
+            echo "[$i/$LIMITE] $S"
+            case "$S" in
+              *COMPLETE*) echo "estado=completo" >> "$GITHUB_OUTPUT"; exit 0;;
+              *ERROR*|*CANCEL*) echo "estado=falhou" >> "$GITHUB_OUTPUT"; exit 0;;
+            esac
+            sleep 30
+          done
+          # Nao e falha: a cota do Kaggle e por sessao e o kernel segue rodando
+          # sozinho. Falhar aqui mataria o job e daria a impressao errada.
+          echo "::warning title=Kernel ainda rodando::passou de ${{ inputs.espera_max_min }} min; rode de novo o passo de saida depois"
+          echo "estado=rodando" >> "$GITHUB_OUTPUT"
+
+      - name: Buscar saida e devolver ao Storage
+        if: steps.espera.outputs.estado == 'completo'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p saida
+          kaggle kernels output "$KAGGLE_USUARIO/voz-clone-chatterbox" -p saida
+          ls -la saida
+          for f in saida/*; do
+            [ -f "$f" ] || continue
+            NOME=$(basename "$f")
+            case "$NOME" in
+              *.wav) MIME=audio/wav;;
+              *.json) MIME=application/json;;
+              *) MIME=application/octet-stream;;
+            esac
+            URL="$SUPABASE_URL/storage/v1/object/videos-maquina/voz/${{ inputs.modo }}/$NOME"
+            CODIGO=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "$URL" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Content-Type: $MIME" --data-binary @"$f" --max-time 300)
+            case "$CODIGO" in
+              2*) echo "  $NOME: criado";;
+              *)  curl -sS -o /dev/null -X PUT "$URL" \
+                    -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+                    -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+                    -H "Content-Type: $MIME" --data-binary @"$f" --max-time 300
+                  echo "  $NOME: atualizado";;
+            esac
+          done
+
+      - name: Resumo do fator medido
+        if: steps.espera.outputs.estado == 'completo'
+        run: |
+          set -euo pipefail
+          test -f saida/relatorio.json || { echo "sem relatorio.json"; exit 0; }
+          {
+            echo "### Fator medido em GPU"
+            echo ""
+            jq -r '"GPU: \(.gpu)  |  carga do modelo: \(.carga_s)s"' saida/relatorio.json
+            echo ""
+            echo "| idioma | audio (s) | gpu (s) | fator |"
+            echo "|---|---|---|---|"
+            jq -r '.itens[] | select(.fator) | "| \(.idioma) | \(.duracao_s) | \(.gpu_s) | \(.fator)x |"' saida/relatorio.json
+            echo ""
+            jq -r 'select(.fator_mediano) | "**Mediana \(.fator_mediano)x** contra **23,5x** da CPU do Actions = **\(.ganho)x mais rapido** (aprendizado #152)"' saida/relatorio.json
+          } >> "$GITHUB_STEP_SUMMARY"
+          cat saida/relatorio.json
+
+      - name: Limpar credencial
+        if: always()
+        run: rm -f ~/.kaggle/access_token
