@@ -28,11 +28,13 @@ import urllib.parse
 CLIENT_ID = "777159180424-p853u21ksnlhgjd4s9d2f5bum9hllumo.apps.googleusercontent.com"
 
 # Espelha ESCOPOS de src/maquina/stages/youtube.py. force-ssl e o que
-# captions.insert exige e o que os tokens antigos NAO tem.
+# captions.insert exige; yt-analytics.readonly e o que falta para medir
+# retencao/CTR/impressoes (aprendizados.id=144) — nenhum dos 13 tokens tem.
 ESCOPOS = " ".join([
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",
     "https://www.googleapis.com/auth/youtube.force-ssl",
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
 ])
 
 CANAIS = [
