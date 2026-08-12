@@ -47,17 +47,28 @@ conta de cota. A cota do YouTube é de 100 uploads/dia por projeto e usamos 10. 
 runner ele não é necessário. O caminho para escalar está em `.github/workflows/frota.yml`:
 um job por canal, `max-parallel: 10`, spec vinda do Storage.
 
-> **O gargalo mudou de lugar — medido em 2026-08-12.** Não é mais render nem
-> TTS: é `publicacao.max_por_dia`, que vale **6 e é da CONTA, não do canal**.
-> Os 13 canais competem pelo mesmo teto, e cada pacote gasta 2 vagas (short +
-> longo), então a frota inteira publica **3 pacotes/dia** — contra os 9 longos/dia
-> que a produção entrega. Em 12/08 o teto bloqueou 3 publicações e cinco ciclos
-> seguidos da rotina não tiveram pacote para entregar.
+> **O gargalo NÃO é a cota — corrigido em 2026-08-12.** Durante sete ciclos esta
+> seção afirmou que `publicacao.max_por_dia` valia 6 e travava a frota. O número
+> estava errado, e a informação certa estava quatro linhas acima, no parágrafo
+> anterior: a cota é de **100 uploads/dia por projeto**. O 6 vinha de dividir as
+> 10.000 unidades diárias da API por 1.600, supondo que `videos.insert` saísse
+> desse balde — não sai, são 100 chamadas num balde separado (aprendizados #57
+> e #174).
 >
-> A trava existe de propósito: automação em escala com variação mínima é lida
-> como spam, e contorná-la para destravar um pacote troca um vídeo por risco de
-> canal. Mas o número em si é decisão do Pablo, e enquanto ele não for revisto a
-> máquina vai continuar produzindo três vezes mais do que consegue publicar.
+> O que era verdade: o teto é **da CONTA, não do canal**. `maquina sincronizar`
+> puxa a frota inteira para o SQLite do canal, e o modelo `Video` nem tem campo
+> `canal`, então `publicados_hoje()` soma os treze. Prova de 12/08: o job do
+> `setiap-level`, com ZERO publicados no dia, foi bloqueado porque outros quatro
+> canais somavam 6.
+>
+> Com 100/dia a conta fica: **50 pacotes/dia de teto contra ~9 longos/dia de
+> render**. A cota tem folga de 5×; o gargalo volta a ser CPU, como o
+> aprendizado #139 já dizia.
+>
+> **Falta a guarda por canal.** O limite de 3 pacotes/dia/canal que a rotina pede
+> não existe em código, e não dá para escrevê-lo sem um campo `canal` no `Video`
+> e no SQLite. A trava anti-spam continua sendo necessária — automação em escala
+> com variação mínima é lida como spam — mas hoje ela só existe no teto agregado.
 >
 > **E a vaga não vale o mesmo nos dois formatos.** Com 154 a 194 horas de vida,
 > os 5 shorts do setiap-level medem mediana de **19,32 views/dia** e os 4 longos
