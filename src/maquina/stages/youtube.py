@@ -214,8 +214,20 @@ def publicar(
                 videoId=video_id, media_body=MediaFileUpload(video.thumbnail_path)
             ).execute()
         except HttpError as e:
-            # Thumbnail custom exige canal verificado — nao e motivo para falhar o job.
-            log.warning("thumbnail nao aplicada: %s", e)
+            # Thumbnail custom exige canal verificado por telefone. Sem isso a
+            # API responde 403 youtube.thumbnail/forbidden e o YouTube escolhe
+            # um frame qualquer do video — medido em iSby7u2ltf8 (nivel-do-jogo).
+            # Nao derruba o job: o video ja subiu. Mas a mensagem tem que dizer
+            # o que fazer, senao vira um warning que ninguem liga a nada.
+            log.warning(
+                "thumbnail nao aplicada em %s: %s. Se o motivo for "
+                "'doesn't have permissions to upload and set custom video "
+                "thumbnails', o canal nao esta verificado — youtube.com/verify "
+                "com a conta do canal resolve, e vale para todos os videos "
+                "seguintes.",
+                video_id,
+                e,
+            )
 
     return video_id
 

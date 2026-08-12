@@ -7,9 +7,16 @@ name: Producao de video
 # 1.600 — conta errada, ver aprendizados #57 e #174.
 on:
   schedule:
-    # A cada 4h = 6 videos/dia. A cadencia foi escolhida para casar com um teto
-    # de 6 que NAO EXISTE (o real e 100/dia). Mantida por ora porque o gargalo
-    # verdadeiro e CPU de render, nao cota — ver aprendizado #139.
+    # A cada 4h = 6 runs/dia, um canal diferente por run (ver "Escolher canal").
+    # Com treze canais no rodizio, cada um sai a cada ~2 dias.
+    #
+    # A cadencia foi escolhida um dia para casar com um teto de 6/dia que NAO
+    # EXISTE — o real e 100/dia. O limite de verdade e o runner: um longo de 13
+    # min levou 83 min de ubuntu-latest medidos no run 31619957726 (82 cenas,
+    # 78 chamadas sequenciais de TTS e imagem). 6 runs/dia x 83 min = ~500
+    # min/dia, ~15.000 min/mes, e este repositorio e privado — muito acima dos
+    # 2.000 min inclusos. Manter esta cadencia e uma decisao de custo, nao um
+    # detalhe tecnico.
     - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
@@ -38,7 +45,8 @@ concurrency:
 jobs:
   produzir:
     runs-on: ubuntu-latest
-    # ~25 min/video x 10 videos = 250 min; 300 da folga para retomadas.
+    # 83 min medidos para um longo de 13 min (run 31619957726). 300 cobre um
+    # lote de tres com folga, ou um video que precise de muita retentativa.
     timeout-minutes: 300
 
     steps:
@@ -55,10 +63,50 @@ jobs:
       - name: Instalar
         run: pip install -e .
 
+      # Sem este passo o cron nao servia a frota.
+      #
+      # `inputs.canal` so existe no workflow_dispatch: no evento `schedule` ele
+      # vem vazio, o Config.load cai no default.yaml — que NAO e um padrao
+      # neutro, e a config do Setiap Level — e as linhas eram gravadas sem
+      # canal. Treze canais conectados, e o motor automatico alimentava um.
+      #
+      # A escolha vem da v_maquina_rodizio: canal ativo, com refresh_token no
+      # Supabase, ordenado por quem esta ha mais tempo sem publicar. Rodizio por
+      # carencia e nao por indice fixo — canal que falhou nao perde a vez, e
+      # canal reautorizado volta ao topo sozinho.
+      - name: Escolher canal
+        id: canal
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          CANAL="${{ inputs.canal }}"
+          if [ -z "$CANAL" ] && [ -n "$SUPABASE_URL" ]; then
+            # Pega os primeiros da fila e fica no primeiro que tem YAML no repo:
+            # canal cadastrado no banco sem config/canais/<slug>.yaml faria o
+            # Config.load levantar FileNotFoundError e derrubaria o job.
+            FILA=$(curl -sf "$SUPABASE_URL/rest/v1/v_maquina_rodizio?select=slug&limit=13" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -r '.[].slug')
+            for s in $FILA; do
+              if [ -f "config/canais/$s.yaml" ]; then CANAL="$s"; break; fi
+            done
+          fi
+          if [ -z "$CANAL" ]; then
+            echo "::warning::rodizio indisponivel — caindo no default.yaml (Setiap Level)"
+          else
+            echo "Canal deste run: $CANAL"
+          fi
+          echo "canal=$CANAL" >> "$GITHUB_OUTPUT"
+
       - name: Puxar historico do Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # Sem isto o puxar enche data/maquina.db enquanto a producao le
+          # data/<canal>/maquina.db — a compliance comeca o job sem historico
+          # nenhum, e as tres barreiras anti-spam rodam cegas.
+          MAQ_CANAL: ${{ steps.canal.outputs.canal }}
         run: maquina sincronizar
 
       - name: Diagnostico do ambiente
@@ -78,14 +126,14 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          # Ate 2026-08-12 este passo so conhecia o YT_TOKEN_SETIAP_LEVEL, e o
-          # job nunca definia MAQ_CANAL — entao o cron de 4 em 4 horas produzia
-          # SEMPRE contra o default.yaml, que e a config do Setiap Level, e
-          # gravava as linhas sem canal. Resultado medido: 15 das 30 linhas do
-          # estoque estao com canal nulo. A frota de treze nao era servida por
-          # ele; era um produtor monocanal disfarcado de motor da frota.
+          # O canal vem do passo "Escolher canal" — no cron ele e o do
+          # rodizio, no dispatch e o que o operador pediu. Ate 2026-08-12 este
+          # passo so conhecia o YT_TOKEN_SETIAP_LEVEL e o job nunca definia
+          # MAQ_CANAL: o cron produzia SEMPRE contra o default.yaml e gravava as
+          # linhas sem canal. Resultado medido: 15 das 30 linhas do estoque com
+          # canal nulo. Era um produtor monocanal disfarcado de motor da frota.
           mkdir -p secrets
-          CANAL="${{ inputs.canal }}"
+          CANAL="${{ steps.canal.outputs.canal }}"
           if [ -n "$CANAL" ]; then
             TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_$CANAL&select=valor" \
               -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
@@ -120,7 +168,7 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           # Sem isto o Config.load cai no default.yaml e o video sai no idioma e
           # no nicho do Setiap Level, seja qual for o canal pedido.
-          MAQ_CANAL: ${{ inputs.canal }}
+          MAQ_CANAL: ${{ steps.canal.outputs.canal }}
         run: |
           FORMATO="${{ inputs.formato || 'longo' }}"
           QUANTIDADE="${{ inputs.quantidade || '1' }}"
@@ -174,6 +222,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ steps.canal.outputs.canal }}
         run: maquina sincronizar
 
       # O video fica como artefato para revisao humana. A publicacao e um

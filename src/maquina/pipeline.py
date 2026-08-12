@@ -8,6 +8,7 @@ regerar audio e imagem custa dinheiro.
 from __future__ import annotations
 
 import logging
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -133,6 +134,35 @@ class Pipeline:
         video.publicado_em = datetime.now(timezone.utc)
         video.agendado_para = agendar_para
         self.store.salvar(video)
+
+        # Legenda no mesmo passo da publicacao.
+        #
+        # Ate 2026-08-12 o .srt so subia pelo legendar.yml, um workflow manual —
+        # entao todo video do cron nascia com caption=false, medido em
+        # iSby7u2ltf8. captions.insert exige o video publico ou nao-listado, o
+        # que so passou a valer quando o caminho automatico parou de agendar
+        # (publicacao.agendar_horas = 0).
+        #
+        # Nao derruba a publicacao: o video ja esta no ar, e legenda ausente e
+        # um alerta da compliance, nao um bloqueio.
+        if video.legenda_path and Path(video.legenda_path).exists():
+            # Logo apos o insert o video ainda esta em processamento e a API
+            # devolve 403 na faixa de legenda. Esperar e barato; perder a
+            # legenda de um video de treze minutos nao e.
+            for tentativa in range(4):
+                try:
+                    youtube.enviar_legenda(video, self.cfg)
+                    break
+                except Exception as e:
+                    if tentativa == 3:
+                        log.warning(
+                            "legenda nao enviada para %s: %s", video.youtube_id, e
+                        )
+                    else:
+                        time.sleep(30 * (tentativa + 1))
+        else:
+            log.warning("sem .srt em disco — %s fica com caption=false", video.youtube_id)
+
         return video
 
     # ---------- fluxos completos ----------

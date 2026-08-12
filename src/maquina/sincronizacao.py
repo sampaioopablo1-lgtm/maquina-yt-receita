@@ -145,6 +145,10 @@ def puxar(store: Store) -> list[str]:
                     "formato": linha["formato"],
                     "status": linha["status"],
                     "roteiro": linha["roteiro"],
+                    # Sem isto o teto por canal ficava cego num runner novo: a
+                    # linha voltava do Supabase com canal preenchido e era
+                    # gravada no SQLite sem ele.
+                    "canal": linha.get("canal"),
                     "youtube_id": linha.get("youtube_id"),
                     "duracao_s": linha.get("duracao_s"),
                     "custo_usd": linha.get("custo_usd") or 0.0,
@@ -155,8 +159,58 @@ def puxar(store: Store) -> list[str]:
                 }
             )
         except Exception as e:
-            log.warning("slug %s ignorado (%s)", linha.get("slug"), e)
-            continue
+            video = _resgatar(linha, e)
+            if video is None:
+                continue
         store.salvar(video)
         novos.append(video.slug)
     return novos
+
+
+def _resgatar(linha: dict, erro: Exception) -> Video | None:
+    """Ultimo recurso quando `roteiro` do Supabase nao e um Roteiro.
+
+    Metade das linhas da tabela foram gravadas pelo caminho da `fabrica/`, que
+    usa a coluna `roteiro` como saco de metricas — {'mb': 29, 'lufs': -14.1,
+    'cenas': 57, ...}. O `Video.model_validate` rejeita todas, e ate 2026-08-12
+    o puxar simplesmente as descartava: no run 31619957726, 23 de 30 linhas
+    cairam assim.
+
+    O estrago nao e cosmetico. Num runner novo o SQLite nasce vazio, e e o
+    puxar que enche a janela que a compliance usa. Descartando a maioria das
+    linhas, `publicados_hoje`, `titulos_publicados` e a checagem de
+    similaridade rodavam praticamente cegas — as tres barreiras anti-spam
+    valendo sobre um setimo do historico real.
+
+    Entao reconstruimos um Roteiro minimo a partir de `titulo`, que a linha
+    sempre tem. Sem cenas: a similaridade compara texto vazio e nao acusa nada,
+    mas o titulo e a data de publicacao passam a contar, que e o que as
+    barreiras precisam. Rows em `roteirizado` ficam de fora — essas existem
+    para serem RETOMADAS, e retomar um roteiro sem cenas produziria um video
+    vazio.
+    """
+    slug = linha.get("slug")
+    titulo = (linha.get("titulo") or "").strip()
+    if linha.get("status") == "roteirizado" or not titulo:
+        log.warning("slug %s ignorado (%s)", slug, erro)
+        return None
+    try:
+        return Video.model_validate(
+            {
+                "slug": slug,
+                "formato": linha["formato"],
+                "status": linha["status"],
+                "roteiro": {"titulo": titulo, "gancho": "", "cenas": []},
+                "canal": linha.get("canal"),
+                "youtube_id": linha.get("youtube_id"),
+                "duracao_s": linha.get("duracao_s"),
+                "custo_usd": linha.get("custo_usd") or 0.0,
+                "erro": linha.get("erro"),
+                "criado_em": linha["criado_em"],
+                "publicado_em": linha.get("publicado_em"),
+                "agendado_para": linha.get("agendado_para"),
+            }
+        )
+    except Exception as e:
+        log.warning("slug %s ignorado mesmo apos resgate (%s)", slug, e)
+        return None
