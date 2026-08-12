@@ -59,10 +59,12 @@ Estrutura obrigatoria:
    auto-contido de 2 a 4 frases, com UMA ideia clara.
 3. Fechamento: sintese + convite a comentar (sem prometer retorno financeiro).
 
-Para cada cena escreva tambem um prompt de imagem em INGLES, descrevendo uma
-composicao visual concreta. As imagens NAO devem conter texto. Varie
-enquadramento e cenario entre as cenas — sequencia visualmente identica derruba
-retencao e caracteriza conteudo de template.
+Para cada cena escreva tambem um prompt de imagem em INGLES, seguindo a
+identidade visual do canal: "simple doodle illustration, white background,
+irregular hand-drawn black lines, minimal color palette (2-3 accent colors),
+16:9, no text". Descreva a COMPOSICAO concreta da cena dentro desse estilo.
+Varie enquadramento e elementos entre as cenas — sequencia visualmente identica
+derruba retencao e caracteriza conteudo de template.
 
 Thumbnail: proponha o prompt de imagem (ingles) e o texto de no maximo 3
 palavras que vai no topo, coerente com o titulo.

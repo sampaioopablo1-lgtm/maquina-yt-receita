@@ -1,0 +1,14 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Kolejny Poziom"
+  handle: "@KolejnyPoziom-kp"
+  idioma: "pl"
+  categoria_id: "27"  # Educacao — padrao da maquina para os longos
+  tema: "finanse osobiste i kariera"
+  estilo_visual: "voxlite"
+  voz_edge: "pl-PL-MarekNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: financas pessoais, Polonia (oceano azul, CPM 2.5)
+# Paleta: azul-marinho 1B2A4A, dourado F2B134
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

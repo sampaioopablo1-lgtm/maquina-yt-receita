@@ -1,0 +1,476 @@
+{
+ "slug": "nivel-do-jogo",
+ "voz": "pt-BR-AntonioNeural",
+ "paleta": {
+  "ink": "#1B4332",
+  "c1": "#D64570",
+  "c2": "#7FB069",
+  "bg": "#EFF6F1"
+ },
+ "thumb": {
+  "l1": "R$ 333 MILHÕES",
+  "l2": "a caixinha acabou"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "R$ 333 MILHÕES",
+   "sub": "a conta que chegou para as empresas de games no Brasil",
+   "cap": "Intro: o número",
+   "nar": "Em nove de junho de 2026, a Primeira Vara da Infância e da Juventude do Distrito Federal condenou desenvolvedoras de jogos e operadoras de lojas de aplicativos a pagar dano moral coletivo. Somando as condenações, a conta passa de trezentos e trinta e três milhões de reais. Cerca de sessenta e cinco milhões de dólares."
+  },
+  {
+   "layout": "item",
+   "kicker": "O motivo da condenação",
+   "preco": "loot box",
+   "nar": "E o motivo não foi um bug, nem um vazamento de dados. Foi a caixinha. A caixa de recompensa aleatória que você compra sem saber o que vem dentro. Aquela mecânica que virou o motor financeiro de metade dos jogos que você abre no celular."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que este vídeo responde",
+   "itens": [
+    "por que a caixinha existia",
+    "o que a lei mudou de fato",
+    "quem vai pagar essa conta"
+   ],
+   "cap": "O mapa do vídeo",
+   "nar": "Neste vídeo eu faço três coisas. Explico por que a caixinha existia — e ela não existia por acaso, existia por matemática. Mostro o que a lei mudou de fato. E respondo quem paga essa conta no fim, porque receita desse tamanho não evapora: ela muda de lugar."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comece pelo texto",
+   "sub": "antes do efeito, o que a lei diz",
+   "sem_cap": true,
+   "nar": "Mas antes de falar de dinheiro, precisamos ler a lei. Porque quase tudo que circulou sobre ela nas últimas semanas está errado."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capítulo 1",
+   "sub": "o que a lei realmente diz",
+   "cap": "O que a lei realmente diz",
+   "nar": "Capítulo um: o que a lei realmente diz. E vou avisar desde já: ela é mais estreita do que a manchete sugere."
+  },
+  {
+   "layout": "item",
+   "kicker": "A norma",
+   "preco": "Lei 15.211/2025",
+   "nar": "O texto é a Lei quinze mil duzentos e onze, de dois mil e vinte e cinco: o Estatuto da Criança e do Adolescente no ambiente digital, o ECA Digital. Ficou conhecida como Lei Felca, por causa do criador de conteúdo cuja denúncia levou o tema ao Congresso."
+  },
+  {
+   "layout": "item",
+   "kicker": "O ponto central",
+   "preco": "caça-níquel",
+   "nar": "O ponto central para os games é um só: a lei equipara a loot box paga a jogo de azar. Não é uma analogia de jornalista. É o enquadramento jurídico. Se você paga um valor certo para receber um prêmio incerto, o Estado brasileiro passa a tratar aquilo como aposta."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que a lei proíbe",
+   "itens": [
+    "venda de loot box a menor de 18",
+    "autodeclaração de idade",
+    "mecânica de azar em jogo livre"
+   ],
+   "cap": "O que ela proíbe de fato",
+   "nar": "Na prática, três proibições. Vender caixa aleatória para menor de dezoito anos. Verificar idade por autodeclaração — aquele campo onde você digita o ano de nascimento. E manter mecânica de azar em jogo de classificação livre. Vale desde março de dois mil e vinte e seis."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que ela NÃO proíbe",
+   "itens": [
+    "jogar",
+    "vender item com preço fixo",
+    "passe de temporada"
+   ],
+   "cap": "O que ela não proíbe",
+   "nar": "E aqui está a parte que quase ninguém leu. Ela não proíbe jogar, não proíbe vender cosmético com preço fixo, não proíbe passe de temporada. O próprio governo veio a público dizer: o ECA Digital não proíbe jogos, apenas loot boxes que são caça-níqueis."
+  },
+  {
+   "layout": "item",
+   "kicker": "A diferença que decide tudo",
+   "preco": "preço certo",
+   "nar": "Guarde essa distinção, porque ela decide o vídeo inteiro. Se você sabe exatamente o que está comprando, é comércio. Se você paga para girar uma roleta, é azar. A lei não atacou a monetização. Atacou a aleatoriedade."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora sim, o dinheiro",
+   "sub": "por que a roleta existia",
+   "sem_cap": true,
+   "nar": "Entendido o texto, dá para fazer a pergunta que interessa: por que a indústria inteira se apoiou justamente na roleta?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capítulo 2",
+   "sub": "a economia do jogo grátis",
+   "cap": "Por que a caixinha existia",
+   "nar": "Capítulo dois: a economia do jogo grátis. E é aqui que a coisa fica interessante, porque a caixinha não é ganância pura. Ela é a resposta a um problema real de contabilidade."
+  },
+  {
+   "layout": "item",
+   "kicker": "O problema de base",
+   "preco": "grátis",
+   "nar": "O problema é simples de enunciar. O jogo é grátis. O servidor não é. A equipe que faz evento novo toda temporada não é. O custo de manter um jogo vivo é contínuo, e a receita da instalação é exatamente zero."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Onde nasce a receita do grátis",
+   "itens": [
+    "quem baixa não paga",
+    "quem paga é minoria",
+    "quem paga muito é minoria da minoria"
+   ],
+   "cap": "Como o grátis se paga",
+   "nar": "O dinheiro vem de uma fatia estreita. A regra de bolso da indústria é conhecida: a esmagadora maioria nunca gasta um centavo, uma minoria gasta pouco, e uma minoria dentro dessa minoria sustenta a operação inteira. O grátis é financiado por poucos milhares de pessoas."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Item fixo × caixa aleatória",
+   "itens": [
+    "preço fixo: você para no que queria",
+    "aleatório: você para quando sai"
+   ],
+   "alturas": [
+    30,
+    78
+   ],
+   "cap": "Por que o aleatório rende mais",
+   "nar": "A pergunta dentro do estúdio, então, não é como fazer mais gente pagar — é como extrair mais de quem já paga. Compare os dois modelos. Com preço fixo, você compra a skin que queria e para: o teto é o seu desejo. Com caixa aleatória, você não compra o item, compra uma chance. E a compra só termina quando o item sai."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Por que o cérebro insiste",
+   "itens": [
+    "recompensa imprevisível",
+    "quase ganhou",
+    "custo já afundado"
+   ],
+   "cap": "Por que o cérebro insiste",
+   "nar": "Três mecanismos fazem isso funcionar. Recompensa imprevisível prende mais atenção que recompensa garantida, mesmo princípio da máquina de cassino. O quase ganhou, quando vem um raro que não é o seu, lê como progresso. E o custo afundado: depois de trinta caixas, parar parece desperdício."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O tamanho do mercado aqui",
+   "itens": [
+    "mais de 100 milhões de jogadores",
+    "cerca de US$ 2,8 bi em 2026",
+    "mobile é mais da metade"
+   ],
+   "cap": "O tamanho do Brasil nessa conta",
+   "nar": "Agora coloque o Brasil nessa equação. Segundo a Pesquisa Game Brasil, o país tem mais de cem milhões de jogadores. A projeção da PwC para dois mil e vinte e seis é da ordem de dois vírgula oito bilhões de dólares. E mais da metade vem do mobile, que é onde a caixinha mora."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Regra nova, base gigante",
+   "sub": "agora veja quem foi atingido",
+   "sem_cap": true,
+   "nar": "Ou seja: a regra nova caiu exatamente em cima do maior segmento do maior mercado da América Latina. Vamos ver quem sentiu."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capítulo 3",
+   "sub": "quem foi atingido e como reagiu",
+   "cap": "Quem foi atingido",
+   "nar": "Capítulo três: quem foi atingido e como reagiu. E as reações se dividiram em dois caminhos bem claros."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Reclassificados para 18+",
+   "itens": [
+    "Roblox",
+    "EA Sports FC 26",
+    "NBA 2K26 e WWE 2K26"
+   ],
+   "cap": "Os reclassificados",
+   "nar": "O Ministério da Justiça reclassificou para dezoito anos uma lista de títulos por causa da mecânica de caixa: Roblox, EA Sports FC vinte e seis, NBA dois K vinte e seis, WWE dois K vinte e seis e MLB The Show vinte e seis. Jogos que até ontem estavam na estante infantil."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O pacote da Riot",
+   "itens": [
+    "League of Legends",
+    "Teamfight Tactics e Wild Rift",
+    "2XKO e Legends of Runeterra"
+   ],
+   "cap": "O pacote da Riot",
+   "nar": "O caso mais visível foi o da Riot, que elevou temporariamente para dezoito anos League of Legends, Teamfight Tactics, Wild Rift, 2XKO e Legends of Runeterra. Um adolescente que jogava League ontem simplesmente não entrava hoje. E há disputa pública: o próprio Felca declarou que a Riot bloqueou porque quis, não porque a lei obrigava."
+  },
+  {
+   "layout": "item",
+   "kicker": "A exceção da casa",
+   "preco": "Valorant",
+   "nar": "A exceção dentro da própria Riot foi Valorant, que manteve o acesso para adolescentes — mas exigindo autorização do responsável legal, enviada por e-mail. Guarde esse detalhe, porque ele mostra que existia caminho alternativo."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O outro caminho",
+   "itens": [
+    "Fortnite",
+    "Free Fire",
+    "Overwatch"
+   ],
+   "cap": "Quem escolheu o outro caminho",
+   "nar": "Porque um segundo grupo fez a escolha oposta. Fortnite, Free Fire e Overwatch desativaram a venda de itens aleatórios e seguiram operando normalmente, para todas as idades. Não subiram a classificação. Tiraram a roleta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Duas portas",
+   "preco": "mesma lei",
+   "nar": "Repare no que isso significa. Diante exatamente da mesma lei, uma empresa preferiu perder os menores de dezoito e manter a caixinha. Outra preferiu perder a caixinha e manter os menores de dezoito. Essa escolha é a coisa mais reveladora desta história toda."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E quem ficou?",
+   "sub": "provar idade também custa",
+   "sem_cap": true,
+   "nar": "E para quem escolheu manter a caixinha, apareceu um custo novo que quase ninguém tinha na planilha: provar quem é maior de idade."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capítulo 4",
+   "sub": "o custo de provar a idade",
+   "cap": "O custo de provar a idade",
+   "nar": "Capítulo quatro: o custo de provar a idade. Porque a lei não só proibiu vender para menor. Ela proibiu o método barato de verificar."
+  },
+  {
+   "layout": "item",
+   "kicker": "O que acabou",
+   "preco": "autodeclaração",
+   "nar": "Aquele campo em que você digitava a data de nascimento acabou. A lei exige mecanismo confiável, e diz explicitamente que autodeclaração não serve. O que era um formulário de dois segundos virou um processo."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que passou a valer",
+   "itens": [
+    "CPF",
+    "documento oficial",
+    "cartão de pagamento",
+    "estimativa facial"
+   ],
+   "cap": "Como se prova idade agora",
+   "nar": "No caso da Riot, os métodos aceitos incluem CPF, documento oficial, cartão de pagamento e até estimativa de idade por reconhecimento facial. Para continuar no mesmo jogo grátis de sempre, você entrega documento, dado bancário ou o seu rosto."
+  },
+  {
+   "layout": "item",
+   "kicker": "O nome disso",
+   "preco": "atrito",
+   "nar": "Em produto, isso tem nome: atrito. E atrito na porta de entrada é o item mais caro que existe num jogo grátis, porque o modelo inteiro depende de volume de gente entrando de graça para depois converter uma fração."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que o atrito cobra",
+   "itens": [
+    "menos cadastro novo",
+    "menos jogador ativo",
+    "menos base para converter"
+   ],
+   "cap": "O que o atrito cobra",
+   "nar": "E o atrito cobra em cascata. Menos gente completa o cadastro. Menos jogador ativo significa fila de partida mais lenta, o que piora a experiência de quem ficou. E base menor significa menos gente para converter em pagante. O custo não aparece na multa: aparece na curva."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Como o bloqueio funciona",
+   "itens": [
+    "ANPD pede",
+    "ANATEL executa",
+    "vale para o app inteiro"
+   ],
+   "cap": "Como o bloqueio funciona",
+   "nar": "E se a empresa ignorar tudo isso, a sanção máxima não é multa: é o bloqueio da plataforma no país. O mecanismo é dividido — a ANPD, autoridade de proteção de dados, faz o pedido, e a ANATEL executa tecnicamente. Vale para a plataforma inteira. É a diferença entre levar uma multa e perder cem milhões de clientes de uma vez."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta não some",
+   "sub": "ela muda de lugar",
+   "sem_cap": true,
+   "nar": "Somando tudo: receita que caiu, atrito que subiu, risco regulatório novo. A pergunta inevitável é quem vai pagar por isso."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capítulo 5",
+   "sub": "quem paga a conta no fim",
+   "cap": "Quem paga a conta",
+   "nar": "Capítulo cinco: quem paga a conta. E aqui eu preciso ser bem direto com você, porque essa é a parte desconfortável."
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra que não muda",
+   "preco": "o custo continua",
+   "nar": "Nada do que aconteceu tornou o jogo mais barato de operar. O servidor custa igual. A equipe custa igual. A meta de receita do trimestre continua na planilha, escrita pela mesma pessoa. O que mudou foi só o instrumento de cobrança."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A receita migra, não some",
+   "itens": [
+    "antes: caixa aleatória",
+    "depois: preço fixo mais alto"
+   ],
+   "alturas": [
+    70,
+    70
+   ],
+   "cap": "A receita migra, não some",
+   "nar": "Então observe o que acontece com a barra da receita: ela não encolhe, ela troca de nome. O que saía da roleta passa a sair de outro lugar. E esse outro lugar é sempre mais visível para você — o que, aliás, é justamente o objetivo da lei."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Para onde a receita migra",
+   "itens": [
+    "loja direta com preço maior",
+    "passe de temporada mais caro",
+    "assinatura mensal"
+   ],
+   "cap": "Para onde a receita migra",
+   "nar": "Os três destinos são previsíveis. Loja direta, vendendo o mesmo cosmético por preço fixo mais alto. Passe de temporada mais caro ou com mais níveis pagos. E assinatura mensal, o formato que a indústria mais deseja, porque é receita recorrente."
+  },
+  {
+   "layout": "item",
+   "kicker": "O efeito no seu bolso",
+   "preco": "mais caro à vista",
+   "nar": "Para você, isso tem um efeito imediato e contraintuitivo: o item fica mais caro na etiqueta. Porque antes o preço estava escondido dentro de uma probabilidade, diluído entre quem abriu vinte caixas. Agora ele está impresso na tela, inteiro."
+  },
+  {
+   "layout": "item",
+   "kicker": "A troca real",
+   "preco": "caro e honesto",
+   "nar": "E essa é a troca que a lei realmente fez. Você não ganhou preço menor. Você ganhou preço conhecido. É pior para a carteira de quem tinha sorte e melhor para a carteira de quem não tinha — que era a maioria."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Quem sai ganhando",
+   "itens": [
+    "quem gastava pouco",
+    "quem tem menor em casa",
+    "quem já sabia o que queria"
+   ],
+   "cap": "Quem realmente ganha",
+   "nar": "Quem sai ganhando com isso é bem definido. Quem gastava pouco e nunca tirava nada. Quem tem criança ou adolescente em casa com cartão salvo no aparelho. E quem já sabia exatamente qual item queria e agora pode simplesmente comprá-lo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem sai perdendo",
+   "preco": "o caçador de sorte",
+   "nar": "E quem perde também é bem definido: o jogador que tirava item raro cedo e sentia que tinha feito um bom negócio. Esse deixa de existir. A distribuição de sorte foi substituída por uma tabela de preços."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Da lei para a sua rotina",
+   "sub": "o que observar daqui pra frente",
+   "sem_cap": true,
+   "nar": "Então, saindo do plano da lei e voltando para o seu jogo do dia a dia: o que muda de fato na sua rotina?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capítulo 6",
+   "sub": "o que muda para quem joga",
+   "cap": "O que muda para quem joga",
+   "nar": "Capítulo seis: o que muda para quem joga. E eu vou te dar sinais concretos para acompanhar, em vez de opinião."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sinais para acompanhar",
+   "itens": [
+    "preço da loja direta",
+    "níveis pagos no passe",
+    "aparecimento de assinatura"
+   ],
+   "cap": "Três sinais para acompanhar",
+   "nar": "Três sinais. O preço do cosmético na loja direta dos jogos que você joga. Quantos níveis do passe de temporada viraram pagos. E o aparecimento de assinatura mensal em jogo que antes não tinha. Se os três subirem juntos, a receita migrou exatamente como eu descrevi."
+  },
+  {
+   "layout": "item",
+   "kicker": "O sinal mais forte",
+   "preco": "volta atrás",
+   "nar": "Mas o sinal mais forte de todos é outro: reclassificação revertida. Se um jogo que subiu para dezoito anos voltar para livre nos próximos meses, é porque a empresa fez a conta e concluiu que a base de adolescentes vale mais do que a caixinha valia."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Se tem menor em casa",
+   "itens": [
+    "confira a classificação atual",
+    "revise cartão salvo no aparelho",
+    "ative o controle parental"
+   ],
+   "cap": "Se você tem menor em casa",
+   "nar": "E se você tem criança ou adolescente em casa, três coisas práticas. Confira a classificação atual dos jogos que ele abre, porque ela mudou sem aviso. Revise se há cartão salvo no aparelho. E ative o controle parental, que virou obrigação legal e ficou fácil de achar no menu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Um alerta honesto",
+   "preco": "ainda é 2026",
+   "nar": "Uma ressalva honesta: isso tudo é muito recente. A condenação é de junho de dois mil e vinte e seis, cabe recurso, e a interpretação da lei ainda vai ser disputada nos tribunais. Os números que eu citei são os que estão públicos hoje."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A pergunta melhor",
+   "sub": "não é se encareceu — é o que estava escondido",
+   "cap": "A pergunta melhor",
+   "nar": "Mas tem uma pergunta melhor do que a que a maioria está fazendo. A discussão pública virou se o jogo ficou mais caro. Essa é a pergunta pequena."
+  },
+  {
+   "layout": "item",
+   "kicker": "A pergunta grande",
+   "preco": "quanto era invisível",
+   "nar": "A pergunta grande é: quanto do que você gastava era invisível para você? Porque se colocar o preço na etiqueta faz o produto parecer caro, o preço já era esse. Ele só estava diluído numa probabilidade que ninguém calculava."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que aprendemos aqui",
+   "itens": [
+    "a roleta era o motor do grátis",
+    "a lei atacou o acaso, não o preço",
+    "a receita migra para a etiqueta"
+   ],
+   "cap": "O resumo",
+   "nar": "Recapitulando o essencial. A caixa aleatória era o motor financeiro do jogo grátis, e não um detalhe. A lei brasileira não atacou a monetização, atacou o acaso dentro dela. E a receita não desaparece: ela migra da roleta para a etiqueta, onde você consegue ver."
+  },
+  {
+   "layout": "item",
+   "kicker": "O número do começo",
+   "preco": "R$ 333 milhões",
+   "nar": "E aquele número do começo, os trezentos e trinta e três milhões, é só a primeira parcela dessa transição. Não é o fim da história: é o preço que o mercado brasileiro cobrou para tornar a conta visível."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sua vez",
+   "sub": "qual jogo seu já mudou de preço?",
+   "cap": "A sua vez",
+   "nar": "Agora eu quero saber de você. Qual jogo que você joga já mudou de preço, de passe ou de classificação depois de março? Escreve nos comentários o nome do jogo e o que mudou — eu leio todos, e os casos mais interessantes viram vídeo. E se inscreve aqui no Nível do Jogo."
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "R$ 333 MILHÕES",
+   "sub": "a conta da caixinha no Brasil",
+   "nar": "Trezentos e trinta e três milhões: foi quanto empresas de games foram condenadas a pagar no Brasil pela caixinha."
+  },
+  {
+   "layout": "item",
+   "kicker": "O enquadramento",
+   "preco": "caça-níquel",
+   "nar": "A lei passou a tratar loot box paga como jogo de azar: prêmio incerto por valor certo é aposta."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que aconteceu",
+   "itens": [
+    "Roblox e EA FC: 18+",
+    "Riot subiu League para 18+",
+    "Fortnite tirou a caixinha"
+   ],
+   "nar": "Roblox e EA Sports FC foram para dezoito anos. A Riot subiu League of Legends. Já Fortnite desligou a caixa."
+  },
+  {
+   "layout": "item",
+   "kicker": "A parte que ninguém conta",
+   "preco": "o custo não some",
+   "nar": "Mas operar o jogo custa igual. A receita migra da roleta para a loja, o passe e a assinatura."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Nível do Jogo",
+   "sub": "a economia por trás dos games",
+   "nar": "Você não ganhou preço menor. Ganhou preço conhecido. Se inscreve no Nível do Jogo."
+  }
+ ],
+ "copy": "# Lei Felca nos Games: R$ 333 Milhões e o Fim da Caixinha\n\n## TITLE\nLei Felca nos Games: R$ 333 Milhões e o Fim da Caixinha\n\n## DESCRIPTION\nEm 9 de junho de 2026, a 1ª Vara da Infância e da Juventude do Distrito Federal condenou desenvolvedoras de jogos e operadoras de lojas de aplicativos ao pagamento de dano moral coletivo por oferecerem loot boxes a menores. Somadas, as condenações passam de R$ 333 milhões — cerca de US$ 65 milhões. Este vídeo não é sobre a notícia: é sobre a economia que estava por trás da caixinha aleatória e o que acontece com o seu bolso agora que ela saiu.\n\nA norma é a Lei nº 15.211/2025, o ECA Digital, apelidada de Lei Felca. O ponto central para os games é que ela equipara a loot box paga a jogo de azar: pagar um valor certo por um prêmio incerto passou a ser tratado como aposta. Desde março de 2026 está proibida a venda de caixa aleatória para menores de 18 anos, e a verificação de idade por autodeclaração deixou de ser aceita. O governo foi explícito ao dizer que o ECA Digital não proíbe jogos, apenas loot boxes que funcionam como caça-níqueis — a lei não atacou a monetização, atacou a aleatoriedade dentro dela.\n\nO vídeo explica por que a caixinha existia em primeiro lugar. Um jogo grátis tem receita zero na instalação e custo contínuo de operação, e é sustentado por uma fatia estreita de pagantes. Com preço fixo, a compra tem um teto natural: o seu desejo. Com caixa aleatória, você compra uma chance, e a compra só termina quando o item sai — o teto deixa de ser o desejo e passa a ser o bolso. Recompensa imprevisível, efeito do \"quase ganhou\" e custo afundado são os três mecanismos que fazem isso funcionar.\n\nDepois, quem foi atingido e como cada empresa reagiu. O Ministério da Justiça reclassificou para 18+ títulos como Roblox, EA Sports FC 26, NBA 2K26, WWE 2K26 e MLB The Show 26. A Riot Games elevou temporariamente para 18+ League of Legends, Teamfight Tactics, Wild Rift, 2XKO e Legends of Runeterra, mantendo Valorant acessível a adolescentes mediante autorização do responsável por e-mail. Já Fortnite, Free Fire e Overwatch fizeram a escolha oposta: desativaram a venda de itens aleatórios e seguiram operando para todas as idades. Diante da mesma lei, uma empresa preferiu perder os menores de 18 e manter a caixinha; outra preferiu perder a caixinha e manter os menores de 18.\n\nPor fim, quem paga a conta. O custo de operar não caiu, então a receita não desaparece — ela migra para a loja direta com preço maior, para o passe de temporada e para a assinatura mensal. O item fica mais caro na etiqueta porque o preço antes estava diluído dentro de uma probabilidade. Você não ganhou preço menor: ganhou preço conhecido.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nQual jogo que você joga já mudou de preço, de passe ou de classificação depois de março de 2026? Escreve aqui o nome do jogo e o que mudou — estou juntando os casos para um vídeo de acompanhamento. Tenho curiosidade especial nos títulos que subiram para 18+ e podem voltar atrás.\n\n## HASHTAGS\n#LeiFelca #Games #NivelDoJogo\n\n## TAGS\nlei felca games, eca digital jogos, loot box proibida brasil, caixa de recompensa lei, r$ 333 milhoes games, riot games 18 anos brasil, league of legends 18+, fortnite tirou loot box, economia dos games, monetizacao de jogos, free to play como ganha dinheiro, passe de temporada preco, mercado de games brasil, classificacao indicativa jogos, microtransacoes explicadas\n\n## STUDIO SETTINGS\n- Idioma: Português (pt-BR) | Categoria: Jogos (20)\n- Não feito para crianças\n- Divulgação de conteúdo sintético: SIM (narração por IA)\n- Localização: Brasil | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ativados (duração acima de 8 minutos)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## FONTES E RESSALVAS\nLei nº 15.211/2025 (ECA Digital). Condenação de 9/6/2026 da 1ª Vara da Infância e da Juventude do DF, valores de dano moral coletivo conforme noticiado — cabe recurso e os valores podem mudar. Reclassificações conforme anúncios do Ministério da Justiça e das próprias publicadoras. Dados de mercado: Pesquisa Game Brasil (base de jogadores) e projeção PwC para 2026 (faturamento); são estimativas de consultoria, não números auditados. A interpretação da lei ainda está em disputa judicial. Conteúdo educativo e informativo, não é aconselhamento jurídico.\n"
+}

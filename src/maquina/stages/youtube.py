@@ -11,11 +11,26 @@ from ..models import Metricas, Video
 
 log = logging.getLogger("maquina.youtube")
 
+# Usado SO na autenticacao interativa (`maquina auth-youtube`), para pedir o
+# consentimento. Nao serve para carregar token ja emitido: ver _credenciais.
 ESCOPOS = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",
-    "https://www.googleapis.com/auth/yt-analytics.readonly",
+    "https://www.googleapis.com/auth/youtube.force-ssl",
 ]
+
+# Escopo obrigatorio para captions.insert. Esta na lista acima, mas ESTAR NA
+# LISTA NAO E TER: escopo se concede no consentimento, e os refresh_token
+# gravados em config.yt_token_<canal> foram emitidos ANTES de force-ssl entrar
+# aqui. Mudar esta constante nao alcanca token ja existente.
+#
+# Medido em 2026-08-12: `maquina legendar` devolveu 403 insufficientPermissions
+# nos dois longos publicados no dia, com o .srt correto em disco. Upload nao e
+# afetado (youtube.upload foi concedido); so a legenda cai.
+#
+# Enquanto os canais nao forem reautorizados com consentimento novo, todo longo
+# publica com caption=false. O comentario anterior aqui afirmava o oposto.
+_ESCOPO_CAPTIONS = "https://www.googleapis.com/auth/youtube.force-ssl"
 
 
 def _credenciais(cfg: Config, permitir_interativo: bool = False):
@@ -24,7 +39,17 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
 
     cred = None
     if cfg.yt_token.exists():
-        cred = Credentials.from_authorized_user_file(str(cfg.yt_token), ESCOPOS)
+        # Sem forcar ESCOPOS: o segundo argumento SOBREPOE os escopos gravados
+        # no arquivo, e o refresh passa a pedir ao Google exatamente essa lista.
+        # Os tokens emitidos carregam [youtube, youtube.force-ssl,
+        # youtube.upload]; ESCOPOS pede yt-analytics.readonly, que nunca foi
+        # consentido. Pedir escopo fora da concessao original faz o Google
+        # responder `invalid_scope: Bad Request` — e como nenhum token guardado
+        # no Supabase tem access token, TODO canal passa pelo refresh e TODO
+        # canal quebrava por isso (medido em seja-mais-magra em 2026-08-12).
+        # Lendo o arquivo sem lista, o refresh pede os escopos realmente
+        # concedidos e a credencial sai valida.
+        cred = Credentials.from_authorized_user_file(str(cfg.yt_token))
 
     if cred and cred.valid:
         return cred
@@ -47,7 +72,7 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
     else:
         raise RuntimeError(
             "sem credencial valida do YouTube. Rode `maquina auth-youtube` uma vez "
-            "e guarde o token resultante no secret MAQ_YT_TOKEN_JSON."
+            "e guarde o token resultante no secret YT_TOKEN_JSON."
         )
 
     cfg.yt_token.parent.mkdir(parents=True, exist_ok=True)
@@ -56,8 +81,28 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
 
 
 def autenticar(cfg: Config) -> Path:
-    """Fluxo OAuth interativo, executado uma vez pelo operador."""
-    _credenciais(cfg, permitir_interativo=True)
+    """Fluxo OAuth interativo, executado uma vez pelo operador.
+
+    Pede ESCOPOS + force-ssl de uma vez, para que o mesmo token sirva
+    tanto para publicar quanto para `maquina legendar` (captions.insert).
+    Tokens antigos sem force-ssl continuam funcionando para publicacao;
+    so o comando `legendar` requer o novo token.
+    """
+    from google_auth_oauthlib.flow import InstalledAppFlow
+
+    escopos_completos = ESCOPOS + [_ESCOPO_CAPTIONS]
+
+    if not cfg.yt_client_secret.exists():
+        raise FileNotFoundError(
+            f"client secret ausente em {cfg.yt_client_secret}. "
+            "Google Cloud Console > OAuth client ID > Desktop app."
+        )
+    flow = InstalledAppFlow.from_client_secrets_file(
+        str(cfg.yt_client_secret), escopos_completos
+    )
+    cred = flow.run_local_server(port=0)
+    cfg.yt_token.parent.mkdir(parents=True, exist_ok=True)
+    cfg.yt_token.write_text(cred.to_json(), encoding="utf-8")
     log.info("token salvo em %s", cfg.yt_token)
     return cfg.yt_token
 
@@ -123,6 +168,12 @@ def publicar(
     status: dict = {
         "privacyStatus": "private" if agendar_para else privacidade,
         "selfDeclaredMadeForKids": cfg.canal.publico_infantil,
+        # Divulgacao de conteudo alterado/sintetico, obrigatoria para conteudo
+        # realista. Vai aqui, no insert, porque `containsSyntheticMedia` pertence
+        # ao schema VideoStatus — nao a contentDetails, e nao e legivel de volta
+        # num videos.update posterior.
+        # https://support.google.com/youtube/answer/14328491
+        "containsSyntheticMedia": video.conteudo_sintetico,
     }
     if agendar_para:
         status["publishAt"] = agendar_para.astimezone(timezone.utc).isoformat().replace(
@@ -148,7 +199,9 @@ def publicar(
 
     resposta = None
     while resposta is None:
-        progresso, resposta = req.next_chunk()
+        # num_retries=0 (o default) tenta o chunk UMA vez: um 502 transitorio
+        # perderia o upload de um video ja produzido e revisado.
+        progresso, resposta = req.next_chunk(num_retries=5)
         if progresso:
             log.info("upload %d%%", int(progresso.progress() * 100))
 
@@ -164,34 +217,50 @@ def publicar(
             # Thumbnail custom exige canal verificado — nao e motivo para falhar o job.
             log.warning("thumbnail nao aplicada: %s", e)
 
-    if video.conteudo_sintetico:
-        _marcar_conteudo_sintetico(yt, video_id)
-
     return video_id
 
 
-def _marcar_conteudo_sintetico(yt, video_id: str) -> None:
-    """Divulgacao de conteudo alterado/sintetico.
+def enviar_legenda(video: Video, cfg: Config) -> None:
+    """Envia o arquivo .srt como faixa de legenda do video no YouTube.
 
-    Obrigatoria para conteudo realista que possa ser confundido com real.
-    Ver https://support.google.com/youtube/answer/14328491
+    Deve ser chamado APOS o video estar publico ou nao-listado — a API
+    rejeita captions.insert em videos privados ou ainda em processamento.
     """
+    from googleapiclient.errors import HttpError
+    from googleapiclient.http import MediaFileUpload
+
+    if not video.youtube_id:
+        raise ValueError("video sem youtube_id — nao foi publicado")
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        raise FileNotFoundError(f"legenda nao encontrada: {video.legenda_path}")
+
+    yt = _servico(cfg)
     try:
-        yt.videos().update(
-            part="contentDetails",
+        yt.captions().insert(
+            part="snippet",
             body={
-                "id": video_id,
-                "contentDetails": {"containsSyntheticMedia": True},
+                "snippet": {
+                    "videoId": video.youtube_id,
+                    "language": cfg.canal.idioma,
+                    "name": "",
+                    "isDraft": False,
+                }
             },
+            media_body=MediaFileUpload(
+                video.legenda_path,
+                mimetype="application/octet-stream",
+                resumable=False,
+            ),
         ).execute()
-        log.info("conteudo sintetico divulgado")
-    except Exception as e:
-        # O campo varia entre versoes da API; o alerta garante acao manual.
-        log.warning(
-            "NAO foi possivel marcar conteudo sintetico via API (%s). "
-            "Marque manualmente no YouTube Studio antes de tornar publico.",
-            e,
-        )
+        log.info("legenda enviada para %s: %s", video.youtube_id, video.legenda_path)
+    except HttpError as e:
+        # 403 = video ainda privado ou escopo de caption ausente no token.
+        raise RuntimeError(
+            f"legenda rejeitada pela API ({e.status_code}): "
+            "o video precisa estar publico ou nao-listado, "
+            "e o token deve ter sido gerado com o escopo youtube.force-ssl. "
+            "Reautentique com `maquina auth-youtube` e tente novamente."
+        ) from e
 
 
 def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
@@ -206,17 +275,21 @@ def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
             ids="channel==MINE",
             startDate=inicio.isoformat(),
             endDate=fim.isoformat(),
+            # Sem `estimatedRevenue` de proposito: e metrica monetaria e exige o
+            # escopo yt-analytics-monetary.readonly, que nao esta em ESCOPOS.
+            # Pedir aqui devolvia 403 e derrubava a coleta INTEIRA — os 3 pilares
+            # junto com a receita. Ela vem depois, em query separada e opcional.
             metrics=(
                 "views,estimatedMinutesWatched,averageViewDuration,"
-                "averageViewPercentage,subscribersGained,estimatedRevenue"
+                "averageViewPercentage,subscribersGained"
             ),
             filters=f"video=={video_id}",
         )
         .execute()
     )
 
-    linhas = resp.get("rows") or [[0, 0, 0, 0, 0, 0]]
-    v, _min_assistidos, dur_media, pct_media, inscritos, receita = linhas[0]
+    linhas = resp.get("rows") or [[0, 0, 0, 0, 0]]
+    v, _min_assistidos, dur_media, pct_media, inscritos = linhas[0]
 
     m = Metricas(
         youtube_id=video_id,
@@ -224,8 +297,26 @@ def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
         duracao_media_s=float(dur_media),
         retencao_media_pct=float(pct_media),
         inscritos_ganhos=int(inscritos),
-        receita_estimada_usd=float(receita or 0),
     )
+
+    # Receita: so responde com o escopo monetario E canal no YPP. Enquanto o
+    # canal nao monetiza, isto e 403 esperado — nao e falha de coleta.
+    try:
+        rec = (
+            analytics.reports()
+            .query(
+                ids="channel==MINE",
+                startDate=inicio.isoformat(),
+                endDate=fim.isoformat(),
+                metrics="estimatedRevenue",
+                filters=f"video=={video_id}",
+            )
+            .execute()
+        )
+        if linhas_rec := rec.get("rows"):
+            m.receita_estimada_usd = float(linhas_rec[0][0] or 0)
+    except Exception as e:
+        log.info("receita indisponivel (escopo monetario ou canal fora do YPP): %s", e)
 
     # CTR e impressoes vivem num relatorio separado.
     try:

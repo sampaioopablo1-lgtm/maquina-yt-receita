@@ -1,0 +1,119 @@
+name: Enviar Legenda ao YouTube
+
+# Rode DEPOIS que o video ficar publico ou nao-listado no YouTube.
+# A API rejeita captions em videos privados ou ainda em processamento.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Slug do video (ex: setiap-level-005)"
+        type: string
+        required: true
+      canal:
+        description: "Canal do video (ex: setiap-level)"
+        type: string
+        required: true
+      legenda_url:
+        description: "URL publica do .srt no Storage. O runner e efemero e o legenda_path do banco aponta para o disco de quem produziu, que nao existe mais."
+        type: string
+        required: false
+        default: ""
+
+jobs:
+  legendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar
+        run: pip install -e .
+
+      - name: Sincronizar com Supabase (puxa roteiro e youtube_id)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: maquina sincronizar
+
+      - name: Verificar video no banco
+        run: maquina listar
+
+      - name: Restaurar credencial do YouTube
+        env:
+          YT_TOKEN_AGLA_LEVEL: ${{ secrets.YT_TOKEN_AGLA_LEVEL }}
+          YT_TOKEN_COCINA_POR_NIVELES: ${{ secrets.YT_TOKEN_COCINA_POR_NIVELES }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_GAME_MONEY_LAB: ${{ secrets.YT_TOKEN_GAME_MONEY_LAB }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          YT_TOKEN_NEXT_LEVEL_MONEY: ${{ secrets.YT_TOKEN_NEXT_LEVEL_MONEY }}
+          YT_TOKEN_NIVEL_DO_JOGO: ${{ secrets.YT_TOKEN_NIVEL_DO_JOGO }}
+          YT_TOKEN_RESEP_NAIK_LEVEL: ${{ secrets.YT_TOKEN_RESEP_NAIK_LEVEL }}
+          YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
+          YT_TOKEN_SEVIYE_SEVIYE: ${{ secrets.YT_TOKEN_SEVIYE_SEVIYE }}
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          # ORDEM IMPORTA: Supabase PRIMEIRO. A reautorizacao OAuth grava em
+          # config.yt_token_<canal>, e nada nunca atualiza os secrets do GitHub —
+          # entao preferir o secret significa usar um token que envelhece para
+          # sempre. Medido em 2026-08-12: o setiap-level foi reautorizado com
+          # force-ssl, e o legendar.yml continuou dando 403 porque pegou o
+          # YT_TOKEN_SETIAP_LEVEL antigo. O secret vira so plano B.
+          TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_${{ inputs.canal }}&select=valor" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+          if [ -n "$TOKEN" ]; then
+            echo "token: Supabase (config.yt_token_${{ inputs.canal }})"
+          else
+            CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
+            TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
+            TOKEN="${!TOKEN_VAR:-$YT_TOKEN_JSON}"
+            echo "token: secret do repositorio (fallback) — pode estar desatualizado"
+          fi
+          if [ -z "$TOKEN" ]; then
+            echo "::error::sem token para ${{ inputs.canal }} no Supabase nem em secret"
+            exit 1
+          fi
+          mkdir -p secrets
+          printf '%s' "$TOKEN" > secrets/youtube_token.json
+          # Config.load isola o token por canal quando MAQ_CANAL esta definido.
+          # Gravar so o nome generico deixava este workflow preso ao canal legado.
+          printf '%s' "$TOKEN" > "secrets/youtube_token_${{ inputs.canal }}.json"
+          echo "Credencial restaurada para canal: ${{ inputs.canal }}"
+
+      # Sem isto o `maquina legendar` nao acha o .srt: ele existe no Storage, mas
+      # o runner e efemero e o legenda_path gravado no banco aponta para o disco
+      # de quem produziu o pacote. Foi essa falta que deixou iYe04WMYDxQ e
+      # XgqPVJuAk3o publicados com caption=false em 2026-08-12 — o erro dizia
+      # "roteiro sem duracoes de cena", que e o caminho de REGENERACAO, e mandava
+      # procurar a causa no roteiro em vez de no arquivo que nunca foi baixado.
+      - name: Baixar legenda do Storage
+        if: inputs.legenda_url != ''
+        env:
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: |
+          set -euo pipefail
+          DEST="out/${{ inputs.canal }}/${{ inputs.slug }}"
+          mkdir -p "$DEST"
+          curl -sfL --max-time 120 "${{ inputs.legenda_url }}" -o "$DEST/legendas.srt"
+          test -s "$DEST/legendas.srt" || { echo "download do .srt falhou"; exit 1; }
+          echo "legenda: $(wc -l < "$DEST/legendas.srt") linhas"
+
+      - name: Enviar legenda
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: maquina legendar "${{ inputs.slug }}"
+
+      - name: Limpar credencial
+        if: always()
+        run: rm -f secrets/youtube_token.json "secrets/youtube_token_${{ inputs.canal }}.json"

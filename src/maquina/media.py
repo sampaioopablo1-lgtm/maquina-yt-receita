@@ -26,11 +26,19 @@ def ffprobe_bin() -> str | None:
     return shutil.which("ffprobe")
 
 
+_SINAIS_DE_ERRO = ("Error", "error", "Invalid", "No such", "Conversion failed", "Unable to")
+
+
 def _run(args: list[str]) -> None:
     proc = subprocess.run(args, capture_output=True, text=True)
     if proc.returncode != 0:
-        cauda = "\n".join(proc.stderr.strip().splitlines()[-15:])
-        raise RuntimeError(f"ffmpeg falhou ({proc.returncode}):\n{cauda}")
+        # A cauda do stderr NAO serve: o ffmpeg despeja os metadados dos streams
+        # depois da mensagem de erro, entao as ultimas linhas sao sempre
+        # "handler_name / vendor_id / encoder" e a causa real fica de fora.
+        linhas = proc.stderr.strip().splitlines()
+        relevantes = [l for l in linhas if any(s in l for s in _SINAIS_DE_ERRO)]
+        trecho = "\n".join((relevantes or linhas)[-15:])
+        raise RuntimeError(f"ffmpeg falhou ({proc.returncode}):\n{trecho}")
 
 
 def duracao(path: Path) -> float:
@@ -82,6 +90,25 @@ def clipe_de_imagem(
     fps = 30
     quadros = max(int(dur * fps), 1)
 
+    # Guarda de enquadramento: o filtro abaixo faz "cover" (nunca ha barra
+    # preta), mas se a proporcao da imagem divergir da do video o excesso e
+    # CORTADO. Avisar aqui aponta a causa certa: gerar a arte ja no aspecto
+    # do formato, em vez de aceitar corte silencioso.
+    try:
+        from PIL import Image as _Img
+
+        iw, ih = _Img.open(imagem).size
+        if abs((iw / ih) - (larg / alt)) > 0.02:
+            import logging as _log
+
+            _log.getLogger("maquina.media").warning(
+                "imagem %s tem proporcao %.2f mas o video e %.2f (%s) — "
+                "as bordas serao cortadas; gere a arte no aspecto do formato",
+                imagem.name, iw / ih, larg / alt, formato.aspect,
+            )
+    except Exception:
+        pass
+
     # Renderiza num canvas maior e faz zoompan para nao serrilhar a borda.
     escala = f"scale={larg * 2}:{alt * 2}:force_original_aspect_ratio=increase"
     corte = f"crop={larg * 2}:{alt * 2}"
@@ -128,11 +155,13 @@ def concatenar(clipes: list[Path], saida: Path) -> Path:
     return saida
 
 
-def aplicar_trilha(video: Path, musica: Path, saida: Path, ganho_db: float = -22.0) -> Path:
+def aplicar_trilha(video: Path, musica: Path, saida: Path, ganho_db: float = -24.0) -> Path:
     """Mixa trilha de fundo bem abaixo da voz.
 
-    -22 dB nao e arbitrario: musica alta e a reclamacao mais recorrente nos
-    comentarios e um dos motivos diretos de queda de retencao.
+    Alvo definido no processo editorial: trilha entre -28 e -24 LUFS sob a voz
+    (musica alta e a reclamacao mais recorrente nos comentarios e derruba
+    retencao). O ganho estatico de -24 dB aproxima o teto desse alvo; ducking
+    dinamico por sidechain fica no backlog.
     """
     _run(
         [
@@ -140,7 +169,12 @@ def aplicar_trilha(video: Path, musica: Path, saida: Path, ganho_db: float = -22
             "-i", str(video),
             "-stream_loop", "-1", "-i", str(musica),
             "-filter_complex",
-            f"[1:a]volume={ganho_db}dB[bg];[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0[a]",
+            # normalize=0 e obrigatorio: com o default (normalize=1) o amix
+            # divide cada entrada por N=2, derrubando a NARRACAO em 6 dB junto
+            # com a trilha — medido com volumedetect. O YouTube so abaixa audio
+            # alto na normalizacao, nunca sobe, entao o video sairia baixo.
+            f"[1:a]volume={ganho_db}dB[bg];"
+            "[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]",
             "-map", "0:v", "-map", "[a]",
             "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
             "-shortest",

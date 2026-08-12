@@ -81,6 +81,19 @@ def test_compliance_bloqueia_roteiro_duplicado(cfg):
     assert any("similar" in b for b in res.bloqueios)
 
 
+def test_compliance_nao_bloqueia_titulo_do_proprio_video(cfg):
+    """O pipeline real salva o video (com titulo) antes de chamar verificar() —
+    titulos_publicados() nao filtra por status, entao sem exclusao do proprio
+    titulo todo video se bloqueava sozinho (similaridade 100% com ele mesmo)."""
+    store = Store(cfg.data_dir / "t.db")
+    video = _video_com_roteiro("Roteiro qualquer para este video " * 5, "Titulo Unico")
+    store.salvar(video)
+
+    res = compliance.verificar(video, cfg, store)
+    assert res.aprovado
+    assert not res.bloqueios
+
+
 def test_compliance_bloqueia_teto_diario(cfg):
     from datetime import datetime
 
@@ -93,7 +106,7 @@ def test_compliance_bloqueia_teto_diario(cfg):
     novo = _video_com_roteiro("Assunto completamente diferente dos demais " * 5, "Novo")
     res = compliance.verificar(novo, cfg, store)
     assert not res.aprovado
-    assert any("teto diario" in b for b in res.bloqueios)
+    assert any("cota diaria da conta" in b for b in res.bloqueios)
 
 
 def test_compliance_alerta_video_longo_curto_demais(cfg):
@@ -149,6 +162,30 @@ def test_legendas_respeitam_duracao_das_cenas(cfg, tmp_path):
     h, m, resto = ultimo.split(":")
     s = float(resto.replace(",", "."))
     assert int(h) * 3600 + int(m) * 60 + s <= 7.05
+
+
+# ---------- consumo do roteiro criado pela Edge Function no Supabase ----------
+
+def test_auto_consome_roteiro_pendente_em_vez_de_ideiar(cfg):
+    """`maquina sincronizar` traz roteiros da Edge Function como Status.ROTEIRIZADO.
+    `Pipeline.pendente` tem que achar esse video para `auto` continuar em vez de
+    ideiar do zero — sem isso o roteiro so virava video via `retomar` manual."""
+    p = Pipeline(cfg)
+    pendente = Video(
+        slug="pendente-supabase",
+        formato=Formato.LONGO,
+        status=Status.ROTEIRIZADO,
+        roteiro=Roteiro(
+            titulo="Roteiro vindo do Supabase",
+            gancho="g",
+            cenas=[Cena(indice=0, narracao="texto", prompt_visual="p")],
+        ),
+    )
+    p.store.salvar(pendente)
+
+    achado = p.pendente(Formato.LONGO)
+    assert achado is not None and achado.slug == "pendente-supabase"
+    assert p.pendente(Formato.SHORTS) is None
 
 
 # ---------- rotacao de eixos (defesa da cadencia diaria) ----------
@@ -212,6 +249,117 @@ def test_analise_sem_comentarios_retorna_none(cfg):
     from maquina.stages.revisao import analisar_comentarios
 
     assert analisar_comentarios(LLMStub(), cfg, []) is None
+
+
+# ---------- providers ----------
+
+def test_fish_audio_sem_chave_cai_no_stub(cfg, monkeypatch):
+    """Sem FISH_AUDIO_API_KEY o provider degrada para stub, nao quebra."""
+    from maquina.providers import obter_tts
+
+    monkeypatch.delenv("FISH_AUDIO_API_KEY", raising=False)
+    cfg.tts_provider = "fish"
+    assert type(obter_tts(cfg)).__name__ == "TTSStub"
+
+
+def test_tts_lote_usa_arquivo_existente(cfg, tmp_path):
+    """Provider lote consome MP3 pre-gerado no Colab sem sintetizar nada."""
+    from maquina.providers.lote import TTSLote
+
+    destino = tmp_path / "cena_000.mp3"
+    destino.write_bytes(b"fake-mp3")
+    assert TTSLote().sintetizar("texto qualquer", destino) == destino
+
+
+def test_tts_lote_falta_arquivo_instrui(cfg, tmp_path):
+    """Sem o arquivo, o erro ensina o fluxo do Colab em vez de so falhar."""
+    from maquina.providers.base import ErroProvider
+    from maquina.providers.lote import TTSLote
+
+    with pytest.raises(ErroProvider, match="narracao_chatterbox"):
+        TTSLote().sintetizar("texto", tmp_path / "cena_001.mp3")
+
+
+def test_tts_modal_sem_url_cai_no_stub(cfg, monkeypatch):
+    from maquina.providers import obter_tts
+
+    monkeypatch.delenv("MAQ_TTS_URL", raising=False)
+    cfg.tts_provider = "modal"
+    assert type(obter_tts(cfg)).__name__ == "TTSStub"
+
+
+def test_tts_modal_com_url_instancia_real(cfg, monkeypatch):
+    from maquina.providers import obter_tts
+
+    monkeypatch.setenv("MAQ_TTS_URL", "https://exemplo.modal.run")
+    monkeypatch.setenv("MAQ_TTS_TOKEN", "t")
+    cfg.tts_provider = "modal"
+    assert type(obter_tts(cfg)).__name__ == "TTSModal"
+
+
+def test_thumbnail_nao_distorce_fundo_vertical(cfg, tmp_path):
+    """Fundo 9:16 numa thumb 16:9 deve ser cover-crop, nunca esticado."""
+    from PIL import Image
+
+    from maquina.models import Cena, Roteiro
+    from maquina.providers.stubs import ImagemStub
+    from maquina.stages.render import montar_thumbnail
+
+    destino = tmp_path
+    # pré-cria o fundo vertical (como no fluxo SVG do canal)
+    Image.new("RGB", (1080, 1920), (200, 30, 30)).save(destino / "thumb_fundo.png")
+    roteiro = Roteiro(titulo="t", gancho="g", texto_thumbnail="TESTE",
+                      cenas=[Cena(indice=0, narracao="n", prompt_visual="p")])
+
+    thumb = montar_thumbnail(ImagemStub(), roteiro, destino)
+    with Image.open(thumb) as img:
+        assert img.size == (1280, 720)
+
+
+def test_tts_lote_selecionado_pela_config(cfg):
+    from maquina.providers import obter_tts
+
+    cfg.tts_provider = "lote"
+    assert type(obter_tts(cfg)).__name__ == "TTSLote"
+
+
+def test_fish_audio_com_chave_instancia_real(cfg, monkeypatch):
+    from maquina.providers import obter_tts
+
+    monkeypatch.setenv("FISH_AUDIO_API_KEY", "sk-teste-nao-real")
+    cfg.tts_provider = "fish"
+    cfg.tts_voice_id = "abc123"
+    tts = obter_tts(cfg)
+    assert type(tts).__name__ == "TTSFishAudio"
+    assert tts.voice_id == "abc123"
+
+
+def test_llm_auto_sem_chave_cai_no_stub(cfg, monkeypatch):
+    from maquina.providers import obter_llm
+
+    for env in ("ANTHROPIC_API_KEY", "GEMINI_API_KEY", "OPENAI_API_KEY"):
+        monkeypatch.delenv(env, raising=False)
+    cfg.llm_provider = "auto"
+    assert type(obter_llm(cfg)).__name__ == "LLMStub"
+
+
+def test_llm_auto_prefere_gemini_como_plano_b(cfg, monkeypatch):
+    """Sem Anthropic mas com Gemini, a cadeia escolhe o Gemini (free tier)."""
+    from maquina.providers import obter_llm
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.setenv("GEMINI_API_KEY", "chave-teste")
+    cfg.llm_provider = "auto"
+    assert type(obter_llm(cfg)).__name__ == "LLMGemini"
+
+
+def test_llm_auto_prioriza_anthropic(cfg, monkeypatch):
+    from maquina.providers import obter_llm
+
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "a")
+    monkeypatch.setenv("GEMINI_API_KEY", "g")
+    cfg.llm_provider = "auto"
+    assert type(obter_llm(cfg)).__name__ == "LLMAnthropic"
 
 
 # ---------- pesquisa de subnicho (pilar 1) ----------

@@ -1,0 +1,13 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Resep Naik Level"
+  handle: "@ResepNaikLevel"
+  idioma: "id"
+  tema: "masakan hemat dan uang dapur"
+  estilo_visual: "doodle"
+  voz_edge: "id-ID-GadisNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: receitas economicas + custo por porcao, Indonesia
+# Paleta: vermelho quente C1440E, creme
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

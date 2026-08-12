@@ -6,11 +6,16 @@ vira trabalho perdido. A máquina tem verificações automáticas para cada item
 
 ## Requisitos do YPP (Programa de Parcerias do YouTube)
 
-Não existe pagamento por visualização fora do YPP. Para receita de anúncios é necessário
-atingir **1.000 inscritos** E uma destas alternativas:
+Não existe pagamento por visualização fora do YPP. Para **receita de anúncios** é
+necessário atingir **1.000 inscritos** E uma destas alternativas:
 
 - **4.000 horas** públicas de exibição em 12 meses, ou
 - **10 milhões** de visualizações válidas de Shorts em 90 dias.
+
+Existe também o **tier de entrada antecipada**: **500 inscritos + 3 uploads públicos em
+90 dias + 3.000 horas** (ou 3M de views de Shorts). Ele **não libera receita de
+anúncios** — libera financiamento por fãs (Super Thanks, membros) e recursos de
+Shopping. É um marco intermediário útil, não a monetização principal.
 
 Além disso, o canal passa por **revisão humana** de conformidade. Aprovação não é
 automática ao bater a métrica.

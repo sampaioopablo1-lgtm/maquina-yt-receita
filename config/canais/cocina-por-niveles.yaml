@@ -1,0 +1,13 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Cocina por Niveles"
+  handle: ""
+  idioma: "es-MX"
+  tema: "cocina economica y dinero"
+  estilo_visual: "doodle"
+  voz_edge: "es-MX-DaliaNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: receitas economicas + custo por porcao, Mexico/LatAm
+# Paleta: laranja E36414, verde 3A7D44
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

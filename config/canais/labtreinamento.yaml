@@ -1,0 +1,28 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+canal:
+  nome: "LabTreinamento"
+  handle: "@labtreinamento"
+  idioma: "pt-BR"
+  tema: "produtividade e carreira tecnica: Excel, Project, ISO, processos"
+  estilo_visual: "voxlite"
+  voz_edge: "pt-BR-ThalitaMultilingualNeural"
+  idioma_revisao: "pt-BR"
+  # 27 (Educacao), nao o 22 herdado do default: o canal ensina procedimento.
+  categoria_id: "27"
+# Nicho: produtividade e carreira tecnica, Brasil
+# Paleta: fundo F7F6F3, azul 1D3557, terracota E07A5F
+#
+# O que este nicho ensinou, medido em 2026-08-12 sobre 16 videos de 90 dias:
+# a mediana dos longos e 1,8 views/dia e o topo e 40,0 — vinte e duas vezes.
+# O que separa nao e tema nem duracao, e ARTEFATO. Todo o cluster de ISO
+# conceitual ("Maturidade Organizacional", "Nao Conformidade como Oportunidade")
+# ficou entre 0,7 e 1,8 v/d; o topo entrega uma PLANILHA que resolve uma
+# obrigacao regulatoria concreta.
+#
+# Formato do canal, entao: [EXCEL] Planilha de <obrigacao com data em vigor> —
+# Controle Completo em Excel. Nunca ensaio sobre gestao; sempre coluna, nota e
+# prazo que o espectador consegue copiar.
+#
+# Taxa MEDIDA da voz: pt-BR-ThalitaMultilingualNeural = 16,52 chars/s. Para 780s
+# com 80 cenas isso da ~150 chars por cena — bem mais que os 134 do Antonio.
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

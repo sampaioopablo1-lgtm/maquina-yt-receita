@@ -6,15 +6,16 @@ import logging
 import textwrap
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 from .. import media
+from ..config import ROOT
 from ..models import Formato, Roteiro
 from ..providers.base import GeradorImagem
 
 log = logging.getLogger("maquina.render")
 
-TRILHA_PADRAO = Path("assets/musica/trilha.mp3")
+TRILHA_PADRAO = ROOT / "assets" / "musica" / "trilha.mp3"
 
 
 def montar(
@@ -53,7 +54,10 @@ def montar(
     else:
         log.info("sem trilha de fundo (%s nao encontrado)", trilha_path)
 
-    if legendas and legendas.exists():
+    # Tamanho, nao so existencia: gerar_legendas sempre grava o arquivo, e um SRT
+    # vazio (todas as cenas com duracao <= 0) faz o filtro subtitles nao
+    # inicializar e derruba o render inteiro.
+    if legendas and legendas.exists() and legendas.stat().st_size > 0:
         atual = media.gravar_legendas(atual, legendas, destino / "com_legenda.mp4", formato)
 
     final = destino / "final.mp4"
@@ -66,12 +70,18 @@ def montar(
 
 
 def montar_thumbnail(
-    gerador: GeradorImagem, roteiro: Roteiro, destino: Path
+    gerador: GeradorImagem, roteiro: Roteiro, destino: Path, *, usar_canva: bool = False
 ) -> Path:
     """Thumbnail no padrao validado: imagem de fundo + texto curto no topo.
 
     Ver docs/02-playbook-youtube.md — texto de ate 3 palavras, alto contraste,
     legivel em tela de celular.
+
+    Quando `usar_canva=True` e CANVA_CLIENT_ID/SECRET/TEMPLATE_ID estao definidos,
+    o fundo e gerado normalmente pelo provider de imagem, mas o layout final do
+    thumbnail (tipografia, composicao editorial) vem do Canva — resultado muito
+    mais proximo do que creators profissionais publicam, com CTR maior.
+    Fallback automatico para PIL se Canva falhar ou nao estiver configurado.
     """
     largura, altura = 1280, 720
     fundo = destino / "thumb_fundo.png"
@@ -79,7 +89,21 @@ def montar_thumbnail(
         prompt = roteiro.prompt_thumbnail or f"cinematic background for: {roteiro.titulo}"
         gerador.gerar(prompt, fundo, largura=largura, altura=altura)
 
-    img = Image.open(fundo).convert("RGB").resize((largura, altura), Image.LANCZOS)
+    if usar_canva:
+        try:
+            from ..providers.canva import configurado as canva_ok, gerar_thumbnail
+            if canva_ok():
+                texto = " ".join((roteiro.texto_thumbnail or roteiro.titulo).split()[:4]).upper()
+                return gerar_thumbnail(texto, fundo, destino / "thumbnail.jpg")
+            log.info("canva nao configurado (secrets ausentes) — fallback para PIL")
+        except Exception as e:
+            log.warning("canva falhou (%s) — fallback para PIL", e)
+
+    # fit = cover centrado: preenche 1280x720 sem distorcer nem deixar barra.
+    # resize() puro esticaria um fundo 9:16 — foi o bug do primeiro teste.
+    img = ImageOps.fit(
+        Image.open(fundo).convert("RGB"), (largura, altura), Image.LANCZOS
+    )
 
     # Escurece o topo para o texto ter contraste garantido sobre qualquer imagem.
     faixa = Image.new("L", (largura, altura), 0)

@@ -16,10 +16,17 @@ dependencies = [
     "google-auth-httplib2>=0.2",
     "rich>=13.7",
     "mcp>=1.2",
+    "edge-tts>=6.1",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.2"]
+# fabrica/fabrica.py: gerador parametrico de video (fluxo manual, fora da
+# pipeline testada em src/maquina) — custo zero, usa TTS gratuito da Microsoft.
+fabrica = ["cairosvg>=2.7"]
+# Stack totalmente gratuita: Gemini (roteiro) + edge-tts (voz) + PIL (imagens).
+# Nenhuma chave paga. Unica secret necessaria: GEMINI_API_KEY (aistudio.google.com).
+gratuito = []
 
 [project.scripts]
 maquina = "maquina.cli:app"

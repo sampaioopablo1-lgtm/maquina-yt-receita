@@ -22,13 +22,36 @@ def _fallback(nome: str, erro: Exception, stub):
 
 
 def obter_llm(cfg: Config) -> LLM:
+    """Seleciona o LLM. "auto" percorre a cadeia de fallback pela credencial
+    disponivel: Anthropic -> Gemini (free tier) -> stub. Assim o roteiro nunca
+    bloqueia a pipeline por falta de uma chave especifica."""
     if cfg.llm_provider == "stub":
         return LLMStub()
-    try:
-        from .reais import LLMAnthropic, LLMOpenAI
 
+    from .reais import LLMAnthropic, LLMGemini, LLMOpenAI
+
+    if cfg.llm_provider == "auto":
+        import os
+
+        cadeia = [
+            ("anthropic", "ANTHROPIC_API_KEY", lambda: LLMAnthropic(cfg.llm_model)),
+            ("gemini", "GEMINI_API_KEY", lambda: LLMGemini()),
+            ("openai", "OPENAI_API_KEY", lambda: LLMOpenAI("gpt-4o-mini")),
+        ]
+        for nome, env, fabrica in cadeia:
+            if os.getenv(env):
+                try:
+                    log.info("llm auto: usando %s", nome)
+                    return fabrica()
+                except ErroProvider as e:
+                    log.warning("llm auto: %s falhou (%s), tentando proximo", nome, e)
+        return _fallback("auto", ErroProvider("nenhuma chave de LLM presente"), LLMStub())
+
+    try:
         if cfg.llm_provider == "anthropic":
             return LLMAnthropic(cfg.llm_model)
+        if cfg.llm_provider == "gemini":
+            return LLMGemini()
         if cfg.llm_provider == "openai":
             return LLMOpenAI(cfg.llm_model)
         raise ErroProvider(f"llm_provider desconhecido: {cfg.llm_provider}")
@@ -39,9 +62,19 @@ def obter_llm(cfg: Config) -> LLM:
 def obter_tts(cfg: Config) -> TTS:
     if cfg.tts_provider == "stub":
         return TTSStub()
-    try:
-        from .reais import TTSElevenLabs, TTSOpenAI
+    if cfg.tts_provider == "lote":
+        from .lote import TTSLote
 
+        return TTSLote()
+    try:
+        from .reais import TTSEdge, TTSElevenLabs, TTSFishAudio, TTSModal, TTSOpenAI
+
+        if cfg.tts_provider == "edge":
+            return TTSEdge(cfg.canal.voz_edge or "id-ID-ArdiNeural")
+        if cfg.tts_provider == "modal":
+            return TTSModal()
+        if cfg.tts_provider == "fish":
+            return TTSFishAudio(cfg.tts_voice_id)
         if cfg.tts_provider == "elevenlabs":
             return TTSElevenLabs(cfg.tts_model, cfg.tts_voice_id)
         if cfg.tts_provider == "openai":
@@ -55,8 +88,10 @@ def obter_imagem(cfg: Config) -> GeradorImagem:
     if cfg.image_provider == "stub":
         return ImagemStub()
     try:
-        from .reais import ImagemOpenAI
+        from .reais import ImagemOpenAI, ImagemPollinations
 
+        if cfg.image_provider == "pollinations":
+            return ImagemPollinations()
         if cfg.image_provider == "openai":
             return ImagemOpenAI(cfg.image_model)
         raise ErroProvider(f"image_provider desconhecido: {cfg.image_provider}")

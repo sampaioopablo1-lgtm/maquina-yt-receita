@@ -1,11 +1,12 @@
 name: Producao de video
 
 # O motor da maquina. O runner ubuntu-latest ja traz ffmpeg instalado.
+# Meta: 10 videos/dia por canal, um eixo tematico diferente por video.
+# Cota YouTube API: ~6 uploads/dia — producao e publicacao sao passos separados.
 on:
   schedule:
-    # Diario, 09:00 UTC (06:00 BRT). O teto de 3/dia da config e a cota da
-    # YouTube API (~6 uploads/dia) sao os limites reais — nao o cron.
-    - cron: "0 9 * * *"
+    # A cada 4h = 6 videos/dia (cota real da YouTube Data API por projeto).
+    - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
       formato:
@@ -17,6 +18,10 @@ on:
         description: "Titulo especifico (vazio = a maquina escolhe a pauta)"
         type: string
         default: ""
+      quantidade:
+        description: "Quantos videos produzir neste lote (0 ou vazio = 1)"
+        type: string
+        default: "1"
 
 concurrency:
   group: producao
@@ -25,7 +30,8 @@ concurrency:
 jobs:
   produzir:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # ~25 min/video x 10 videos = 250 min; 300 da folga para retomadas.
+    timeout-minutes: 300
 
     steps:
       - uses: actions/checkout@v4
@@ -41,37 +47,103 @@ jobs:
       - name: Instalar
         run: pip install -e .
 
-      - name: Restaurar estado
-        uses: actions/cache@v4
-        with:
-          path: data
-          key: maquina-estado-${{ github.run_id }}
-          restore-keys: maquina-estado-
+      - name: Puxar historico do Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
 
       - name: Diagnostico do ambiente
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           MAQ_TTS_VOICE_ID: ${{ secrets.MAQ_TTS_VOICE_ID }}
+          MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
+          MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
         run: maquina doctor
 
-      - name: Produzir
+      - name: Restaurar credencial do YouTube
+        env:
+          YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
+        run: |
+          if [ -n "$YT_TOKEN_SETIAP_LEVEL" ]; then
+            mkdir -p secrets
+            printf '%s' "$YT_TOKEN_SETIAP_LEVEL" > secrets/youtube_token.json
+            echo "Credencial YouTube restaurada."
+          else
+            echo "YT_TOKEN_SETIAP_LEVEL nao configurado — producao sem publicacao."
+          fi
+
+      - name: Produzir e publicar
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           MAQ_TTS_VOICE_ID: ${{ secrets.MAQ_TTS_VOICE_ID }}
+          MAQ_TTS_URL: ${{ secrets.MAQ_TTS_URL }}
+          MAQ_TTS_TOKEN: ${{ secrets.MAQ_TTS_TOKEN }}
+          CANVA_CLIENT_ID: ${{ secrets.CANVA_CLIENT_ID }}
+          CANVA_CLIENT_SECRET: ${{ secrets.CANVA_CLIENT_SECRET }}
+          CANVA_TEMPLATE_ID: ${{ secrets.CANVA_TEMPLATE_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
+          FORMATO="${{ inputs.formato || 'longo' }}"
+          QUANTIDADE="${{ inputs.quantidade || '1' }}"
+          # quantidade=0 ou vazio -> 1 por run (cron horario); titulo especifico -> 1 direto
+          [ "$QUANTIDADE" = "0" ] && QUANTIDADE=1
+
+          TEM_YT=false
+          [ -s secrets/youtube_token.json ] && TEM_YT=true
+
           if [ -n "${{ inputs.titulo }}" ]; then
-            maquina produzir "${{ inputs.titulo }}" --formato "${{ inputs.formato || 'longo' }}"
+            if $TEM_YT; then
+              maquina produzir "${{ inputs.titulo }}" --formato "$FORMATO" --publicar
+            else
+              maquina produzir "${{ inputs.titulo }}" --formato "$FORMATO"
+            fi
           else
-            maquina auto --formato "${{ inputs.formato || 'longo' }}"
+            OK=0
+            FAIL=0
+            for i in $(seq 1 "$QUANTIDADE"); do
+              echo ""
+              echo "=== Produzindo video $i de $QUANTIDADE (eixo rotativo) ==="
+              if $TEM_YT; then
+                CMD="maquina auto --formato $FORMATO --publicar"
+              else
+                CMD="maquina auto --formato $FORMATO"
+              fi
+              if $CMD; then
+                OK=$((OK+1))
+              else
+                echo "Video $i falhou — continuando o lote..."
+                FAIL=$((FAIL+1))
+              fi
+            done
+            echo ""
+            echo "=== Lote concluido: $OK produzidos, $FAIL falharam ==="
+            [ "$OK" -eq 0 ] && exit 1 || exit 0
           fi
+
+      - name: Limpar credencial
+        if: always()
+        run: rm -f secrets/youtube_token.json
 
       - name: Listar producao
         if: always()
         run: maquina listar
+
+      # O cache do Actions expira; o Supabase e onde o historico sobrevive.
+      # Sem os secrets o comando avisa e sai com 0 — nao quebra o job.
+      - name: Sincronizar estado com o Supabase
+        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: maquina sincronizar
 
       # O video fica como artefato para revisao humana. A publicacao e um
       # workflow separado, disparado depois que voce assiste. Ver

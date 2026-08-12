@@ -23,6 +23,22 @@ logging.basicConfig(
 )
 
 
+@app.callback()
+def _global(
+    canal: str = typer.Option(
+        "",
+        "--canal",
+        help="slug do canal em config/canais/ (vazio = default.yaml)",
+        envvar="MAQ_CANAL",
+    ),
+):
+    """Portfolio multi-canal: cada comando roda no contexto de um canal."""
+    if canal:
+        import os
+
+        os.environ["MAQ_CANAL"] = canal
+
+
 def _cfg() -> Config:
     return Config.load()
 
@@ -45,13 +61,33 @@ def produzir(
     titulo: str = typer.Argument(..., help="Titulo da pauta"),
     angulo: str = typer.Option("", help="Angulo editorial"),
     formato: Formato = typer.Option(Formato.LONGO),
+    publicar_apos: bool = typer.Option(False, "--publicar", help="publica se passar nas checagens"),
 ):
-    """Produz um video da ideia ate o MP4 (nao publica)."""
-    p = Pipeline(_cfg())
+    """Produz um video da ideia ate o MP4 (e opcionalmente publica)."""
+    cfg = _cfg()
+    p = Pipeline(cfg)
     video = p.produzir(Ideia(titulo=titulo, angulo=angulo, formato=formato))
     console.print(f"[green]OK[/] {video.video_path}")
     console.print(f"Duracao: {video.duracao_s:.1f}s | Custo: US$ {video.custo_usd:.4f}")
-    console.print(f"Revise e publique: [bold]maquina publicar {video.slug}[/]")
+
+    if not publicar_apos:
+        console.print(f"Revise e publique: [bold]maquina publicar {video.slug}[/]")
+        return
+
+    res = p.verificar(video)
+    for a in res.alertas:
+        console.print(f"[yellow]alerta:[/] {a}")
+    if not res.aprovado:
+        for b in res.bloqueios:
+            console.print(f"[red]bloqueio:[/] {b}")
+        raise typer.Exit(2)
+
+    if not cfg.publicacao.exigir_revisao:
+        quando = datetime.now().astimezone() + timedelta(hours=3)
+        p.publicar(video, agendar_para=quando)
+        console.print(f"[green]Agendado[/] para {quando:%d/%m %H:%M}")
+    else:
+        console.print(f"Aguardando revisao humana: [bold]maquina publicar {video.slug}[/]")
 
 
 @app.command()
@@ -59,18 +95,29 @@ def auto(
     formato: Formato = typer.Option(Formato.LONGO),
     publicar_apos: bool = typer.Option(False, "--publicar", help="publica se passar nas checagens"),
 ):
-    """Ciclo completo: escolhe uma pauta nova, produz e (opcional) publica."""
+    """Ciclo completo: escolhe uma pauta nova, produz e (opcional) publica.
+
+    Antes de ideiar do zero, verifica se ja existe um roteiro pronto esperando
+    (ex.: gerado pela Edge Function `gerar-roteiro` no Supabase e trazido pro
+    SQLite por `maquina sincronizar`) e continua esse em vez de duplicar trabalho.
+    """
     cfg = _cfg()
     p = Pipeline(cfg)
 
-    lista = p.ideias(formato, 5)
-    if not lista:
-        console.print("[red]nenhuma ideia gerada[/]")
-        raise typer.Exit(1)
+    pendente = p.pendente(formato)
+    if pendente:
+        assert pendente.roteiro
+        console.print(f"Roteiro pendente (Supabase): [bold]{pendente.roteiro.titulo}[/]")
+        video = p.retomar(pendente.slug)
+    else:
+        lista = p.ideias(formato, 5)
+        if not lista:
+            console.print("[red]nenhuma ideia gerada[/]")
+            raise typer.Exit(1)
 
-    escolhida = lista[0]
-    console.print(f"Pauta: [bold]{escolhida.titulo}[/]")
-    video = p.produzir(escolhida)
+        escolhida = lista[0]
+        console.print(f"Pauta: [bold]{escolhida.titulo}[/]")
+        video = p.produzir(escolhida)
 
     res = p.verificar(video)
     for a in res.alertas:
@@ -105,9 +152,20 @@ def publicar(
     if not video:
         console.print(f"[red]nao encontrei '{slug}'[/]")
         raise typer.Exit(1)
+
+    # Supabase nao armazena video_path (caminho local efemero). Quando o estado
+    # vem do banco e o artefato foi baixado para out/, reconstroi o caminho.
     if not video.video_path or not Path(video.video_path).exists():
-        console.print("[red]video ainda nao renderizado[/]")
-        raise typer.Exit(1)
+        candidato = cfg.out_dir / video.slug / "final.mp4"
+        if candidato.exists():
+            video.video_path = str(candidato)
+            thumb = cfg.out_dir / video.slug / "thumbnail.jpg"
+            if thumb.exists():
+                video.thumbnail_path = str(thumb)
+            p.store.salvar(video)
+        else:
+            console.print("[red]video ainda nao renderizado[/]")
+            raise typer.Exit(1)
 
     res = p.verificar(video)
     for a in res.alertas:
@@ -128,6 +186,70 @@ def publicar(
     quando = datetime.now().astimezone() + timedelta(hours=em_horas) if em_horas else None
     p.publicar(video, agendar_para=quando, privacidade=privacidade)
     console.print(f"[green]https://youtu.be/{video.youtube_id}[/]")
+
+
+@app.command()
+def legendar(slug: str):
+    """Envia o .srt como faixa de legenda para um video ja publico no YouTube.
+
+    Rode APOS o video ficar publico ou nao-listado — a API do YouTube rejeita
+    captions em videos privados ou ainda em processamento.
+
+    Se o arquivo .srt nao existir localmente, regenera a partir do roteiro
+    armazenado — util ao rodar em ambiente de CI sem o artefato original.
+    """
+    from .stages.youtube import enviar_legenda
+
+    cfg = _cfg()
+    p = Pipeline(cfg)
+    video = p.store.obter(slug)
+    if not video:
+        console.print(f"[red]nao encontrei '{slug}'[/]")
+        raise typer.Exit(1)
+    if not video.youtube_id:
+        console.print("[red]video nao publicado no YouTube[/]")
+        raise typer.Exit(1)
+
+    # Regenera o SRT se o arquivo nao existir — acontece em ambientes de CI
+    # onde out/ nao e persistido entre runs, mas o roteiro esta no banco.
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        # Antes de regenerar, olhe o caminho convencional. O runner e efemero e
+        # `legenda_path` no banco aponta para o disco de quem produziu, que nao
+        # existe mais — mas o workflow pode ter baixado o .srt do Storage para
+        # out/<canal>/<slug>/legendas.srt. Preferir esse arquivo a regenerar:
+        # ele traz as marcacoes reais que a fabrica calculou, e a regeneracao e
+        # aproximacao a partir de duracao_s de cena.
+        #
+        # Sem esta checagem, `maquina legendar` morria em "roteiro sem duracoes
+        # de cena" mesmo com o .srt correto ao lado — foi o que deixou
+        # iYe04WMYDxQ e XgqPVJuAk3o publicados com caption=false em 2026-08-12.
+        convencional = video.dir(cfg.out_dir) / "legendas.srt"
+        if convencional.exists() and convencional.stat().st_size > 0:
+            video.legenda_path = str(convencional)
+            p.store.salvar(video)
+            console.print(f"[green]Legenda encontrada no disco:[/] {convencional}")
+
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        if not video.roteiro or not any(c.duracao_s for c in video.roteiro.cenas):
+            console.print(
+                "[red]legenda nao encontrada e roteiro sem duracoes de cena — "
+                "e necessario ter o arquivo .srt original ou o roteiro completo no banco. "
+                "Se o .srt esta no Storage, passe legenda_url no workflow.[/]"
+            )
+            raise typer.Exit(1)
+        from .stages.producao import gerar_legendas
+        destino = video.dir(cfg.out_dir) / "legendas.srt"
+        gerar_legendas(video.roteiro, destino)
+        video.legenda_path = str(destino)
+        p.store.salvar(video)
+        console.print(f"[yellow]Legenda regenerada:[/] {destino}")
+
+    try:
+        enviar_legenda(video, cfg)
+        console.print(f"[green]Legenda enviada para https://youtu.be/{video.youtube_id}[/]")
+    except Exception as e:
+        console.print(f"[red]{e}[/]")
+        raise typer.Exit(1)
 
 
 @app.command()
@@ -330,7 +452,11 @@ def pesquisar(
         )
         raise typer.Exit(0)
 
-    caminho = Path("config/default.yaml")
+    # Relativo ao CWD levantava FileNotFoundError DEPOIS de ja ter gasto 100
+    # unidades da cota da Search API e uma chamada de LLM.
+    from .config import ROOT
+
+    caminho = ROOT / "config" / "default.yaml"
     dados = yaml.safe_load(caminho.read_text(encoding="utf-8")) or {}
     chaves = analise.get("palavras_chave") or [p for p, _ in frequentes[:15]]
     atuais = dados.setdefault("canal", {}).get("referencias_titulo") or []
@@ -341,6 +467,50 @@ def pesquisar(
     console.print(
         f"\n[green]{len(dados['canal']['referencias_titulo'])} palavras-chave "
         f"gravadas em {caminho}[/]"
+    )
+
+
+@app.command("exportar-narracao")
+def exportar_narracao(slug: str):
+    """Exporta os textos das cenas para narrar no Colab (caminho gratuito).
+
+    Gera out/<slug>/narracao.json para o notebooks/narracao_chatterbox.ipynb,
+    que clona sua voz (assets/voice/referencia.wav) e narra cada cena com o
+    Chatterbox-TTS-Indonesian — gratuito, Apache 2.0, GPU T4 do Colab.
+    """
+    import json as _json
+
+    cfg = _cfg()
+    p = Pipeline(cfg)
+    video = p.store.obter(slug)
+    if not video or not video.roteiro:
+        console.print(f"[red]video '{slug}' nao encontrado ou sem roteiro[/]")
+        raise typer.Exit(1)
+
+    destino = video.dir(cfg.out_dir) / "narracao.json"
+    destino.write_text(
+        _json.dumps(
+            {
+                "slug": video.slug,
+                "idioma": video.idioma,
+                "cenas": [
+                    {"indice": c.indice, "texto": c.narracao}
+                    for c in video.roteiro.cenas
+                ],
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    console.print(f"[green]Exportado:[/] {destino}")
+    console.print(
+        "\nProximos passos:\n"
+        "  1. Abra [bold]notebooks/narracao_chatterbox.ipynb[/] no Colab (GPU T4)\n"
+        "  2. Envie este narracao.json + assets/voice/referencia.wav\n"
+        "  3. Extraia o narracao.zip em "
+        f"[bold]out/{video.slug}/audio/[/]\n"
+        f"  4. [bold]maquina retomar {video.slug}[/]"
     )
 
 
@@ -458,6 +628,31 @@ def custo():
 
 
 @app.command()
+def sincronizar(
+    puxar_antes: bool = typer.Option(
+        True, "--puxar/--sem-puxar", help="traz roteiros criados no Supabase"
+    ),
+):
+    """Espelha o estado local no Supabase (e traz o que nasceu la)."""
+    from . import sincronizacao
+
+    if not sincronizacao.configurado():
+        console.print(
+            "[yellow]sem SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY[/] — "
+            "estado fica so no SQLite local"
+        )
+        raise typer.Exit(0)
+
+    store = Store(_cfg().data_dir / "maquina.db")
+    if puxar_antes:
+        novos = sincronizacao.puxar(store)
+        console.print(f"Puxados do Supabase: [bold]{len(novos)}[/] {', '.join(novos)}")
+
+    videos, metricas = sincronizacao.empurrar(store)
+    console.print(f"[green]Enviados[/] {videos} videos, {metricas} metricas")
+
+
+@app.command()
 def doctor():
     """Verifica ambiente, credenciais e providers ativos."""
     from . import media
@@ -488,6 +683,25 @@ def doctor():
         "[green]ok[/]" if cfg.yt_token.exists() else "[yellow]sem token[/]",
         str(cfg.yt_token),
     )
+    from . import sincronizacao
+
+    tabela.add_row(
+        "Supabase",
+        "[green]ok[/]" if sincronizacao.configurado() else "[yellow]so local[/]",
+        "estado espelhado" if sincronizacao.configurado() else "SUPABASE_URL ausente",
+    )
+
+    from .providers.canva import configurado as canva_ok
+    tabela.add_row(
+        "Canva",
+        "[green]ok[/]" if canva_ok() else "[yellow]nao conf[/]",
+        "thumbnail via API" if canva_ok() else "falta CANVA_CLIENT_ID/SECRET/TEMPLATE_ID",
+    )
+    tabela.add_row(
+        "thumbnail_provider", cfg.thumbnail_provider,
+        "image_provider=" + cfg.image_provider,
+    )
+
     tabela.add_row("Canal", cfg.canal.nome, f"idioma={cfg.canal.idioma}")
     tabela.add_row("Revisao humana", "on" if cfg.publicacao.exigir_revisao else "off",
                    f"max {cfg.publicacao.max_por_dia}/dia")

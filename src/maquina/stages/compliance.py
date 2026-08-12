@@ -10,6 +10,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
+from pathlib import Path
 
 from ..config import Config
 from ..models import Formato, Video
@@ -45,11 +46,20 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
         r.bloquear("video sem roteiro")
         return r
 
-    # 1. Teto diario — automacao em escala com variacao minima e tratada como spam.
+    # 1. Teto diario DA CONTA. Apesar do SQLite morar em data/<slug>/, o
+    # `maquina sincronizar` enche esse banco com a frota inteira, entao esta
+    # contagem e dos treze canais somados — e o teto e a cota real de
+    # videos.insert, 100/dia por projeto do Google Cloud.
+    #
+    # FALTA AQUI, e nao da para fingir que nao: a guarda anti-spam POR CANAL
+    # (3 pacotes/dia/canal) nao existe. Implementa-la exige um campo `canal` no
+    # modelo Video e na tabela SQLite, que hoje nao existem — sem isso nao ha
+    # como separar os videos de um canal dos outros doze dentro deste banco.
     publicados = store.publicados_hoje()
     if publicados >= cfg.publicacao.max_por_dia:
         r.bloquear(
-            f"teto diario atingido ({publicados}/{cfg.publicacao.max_por_dia}). "
+            f"cota diaria da conta atingida ({publicados}/{cfg.publicacao.max_por_dia} "
+            "uploads somando todos os canais). videos.insert reabre as 00:00 UTC. "
             "Ver docs/03-compliance-monetizacao.md"
         )
 
@@ -65,6 +75,8 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
 
     # 3. Titulo duplicado ou quase identico.
     for titulo in store.titulos_publicados():
+        if titulo == video.roteiro.titulo:
+            continue
         if titulo and similaridade(video.roteiro.titulo, titulo) > 0.90:
             r.bloquear(f"titulo quase identico a '{titulo}'")
             break
@@ -83,6 +95,13 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
         r.alertar("descricao vazia")
     if not video.thumbnail_path:
         r.alertar("sem thumbnail — CTR e o segundo pilar, nao publique sem ela")
+
+    # 5b. Legenda: caption=false prejudica acessibilidade e ranking de pesquisa.
+    if not video.legenda_path or not Path(video.legenda_path).exists():
+        r.alertar(
+            "sem legenda (.srt) — o video sera publicado com caption=false; "
+            "gere legendas antes de publicar"
+        )
 
     # 6. Divulgacao de conteudo sintetico: informativo, nao bloqueia.
     if video.conteudo_sintetico:

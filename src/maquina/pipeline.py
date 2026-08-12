@@ -8,7 +8,7 @@ regerar audio e imagem custa dinheiro.
 from __future__ import annotations
 
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import Config
@@ -40,6 +40,18 @@ class Pipeline:
         return roteiro_stage.gerar_ideias(
             self.llm, self.cfg, formato, n, self.store.titulos_publicados()
         )
+
+    def pendente(self, formato: Formato) -> Video | None:
+        """Roteiro ja pronto esperando produzir (ex.: gravado pela Edge Function
+        `gerar-roteiro` no Supabase e trazido pro SQLite por `maquina sincronizar`).
+
+        `maquina auto` consome isso antes de ideiar do zero — sem isto o roteiro
+        so virava video se alguem rodasse `maquina retomar <slug>` na mao.
+        """
+        candidatos = [
+            v for v in self.store.listar(Status.ROTEIRIZADO, limite=50) if v.formato is formato
+        ]
+        return min(candidatos, key=lambda v: v.criado_em) if candidatos else None
 
     def criar(self, ideia: Ideia) -> Video:
         video = Video(slug=ideia.slug, formato=ideia.formato, idioma=self.cfg.canal.idioma, ideia=ideia)
@@ -86,7 +98,12 @@ class Pipeline:
         video.video_path, video.duracao_s = str(caminho), dur
 
         video.thumbnail_path = str(
-            render.montar_thumbnail(self.imagem, video.roteiro, destino)
+            render.montar_thumbnail(
+                self.imagem,
+                video.roteiro,
+                destino,
+                usar_canva=self.cfg.thumbnail_provider == "canva",
+            )
         )
         video.status = Status.RENDERIZADO
         video.custo_usd = self.custo_usd
@@ -108,7 +125,10 @@ class Pipeline:
             video, self.cfg, privacidade=privacidade, agendar_para=agendar_para
         )
         video.status = Status.PUBLICADO
-        video.publicado_em = datetime.now()
+        # Aware, como criado_em e agendado_para: a coluna no Supabase e
+        # timestamptz e uma string sem offset e lida como UTC, gravando a hora
+        # local como se fosse UTC.
+        video.publicado_em = datetime.now(timezone.utc)
         video.agendado_para = agendar_para
         self.store.salvar(video)
         return video

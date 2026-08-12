@@ -1,0 +1,485 @@
+{
+ "slug": "game-money-lab",
+ "voz": "en-GB-RyanNeural",
+ "paleta": {
+  "ink": "#2A1E4F",
+  "c1": "#7FB069",
+  "c2": "#F2B134",
+  "bg": "#F1EFF8"
+ },
+ "thumb": {
+  "l1": "$300 MILLION",
+  "l2": "why AAA broke"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "$300 MILLION",
+   "sub": "what one AAA game now costs to build",
+   "cap": "Intro: the number",
+   "nar": "Three hundred million dollars. That is roughly what it now costs to build one triple-A game in North America. At seventy dollars a copy, that game has to sell around six million units before it earns a single dollar of profit. This video is about what that number does to everything you play."
+  },
+  {
+   "layout": "lista",
+   "kicker": "What we cover",
+   "itens": [
+    "why costs exploded",
+    "why the price did not",
+    "who pays for the gap"
+   ],
+   "cap": "The map of this video",
+   "nar": "Seven chapters: the three numbers that define the problem, why development costs exploded, why the price barely moved, the real break-even maths, the five things the industry tried instead, the human cost in jobs, and what all of it means for the games you actually get."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 1",
+   "sub": "three numbers",
+   "cap": "Three numbers",
+   "nar": "Chapter one. Three numbers, and the tension between them explains almost every strange decision the games industry has made in the last decade."
+  },
+  {
+   "layout": "item",
+   "kicker": "Cost to build",
+   "preco": "$300M",
+   "cap": "Number one: $300 million",
+   "nar": "Number one: around three hundred million dollars. That is the reported budget range for a major triple-A production in North America today, and the largest single line inside it is developer salaries."
+  },
+  {
+   "layout": "item",
+   "kicker": "Price on the shelf",
+   "preco": "$70",
+   "cap": "Number two: $70",
+   "nar": "Number two: seventy dollars. That is what the player pays. And that number has moved almost nothing in twenty years — sixty dollars was standard from the mid two thousands until very recently."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Where your $70 goes",
+   "itens": [
+    "platform cut ~$21",
+    "publisher ~$49"
+   ],
+   "alturas": [
+    21,
+    49
+   ],
+   "cap": "Where your $70 actually goes",
+   "nar": "Number three, and this is the one people forget: the publisher does not get seventy dollars. The platform takes roughly thirty percent, so around forty-nine dollars reaches the publisher on a digital sale. Everything else has to come out of that."
+  },
+  {
+   "layout": "item",
+   "kicker": "Copies to break even",
+   "preco": "~6 million",
+   "cap": "Six million copies",
+   "nar": "Put those together and you get the number that governs the industry: roughly six million copies sold, just to recover the build cost. Not to profit. To break even on development alone."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "For scale",
+   "sub": "most games never sell 1 million",
+   "cap": "Six million, for scale",
+   "nar": "For scale: the overwhelming majority of games released in any year never sell one million copies. Six million is not a normal outcome. It is a hit. The industry has built a cost structure where the only acceptable result is a hit."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge to chapter 2",
+   "sub": "so why did the cost go up?",
+   "cap": "Bridge — why costs rose",
+   "nar": "So the first question is the obvious one. Why did it get so expensive to build a game in the first place? That is chapter two.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 2",
+   "sub": "why costs exploded",
+   "cap": "Why costs exploded",
+   "nar": "Chapter two: the cost side. And the answer is not one thing going wrong. It is three things compounding."
+  },
+  {
+   "layout": "lista",
+   "kicker": "The three drivers",
+   "itens": [
+    "salaries",
+    "5-7 year cycles",
+    "scope creep"
+   ],
+   "cap": "The three drivers",
+   "nar": "Three drivers do most of the work: rising salaries, development cycles stretching to five, six, seven years, and scope creep. Each one is defensible on its own. Together they multiply."
+  },
+  {
+   "layout": "item",
+   "kicker": "Salaries",
+   "preco": "biggest line",
+   "cap": "Salaries — the biggest line",
+   "nar": "Salaries first, because they are the biggest line in the budget. Game development competes for the same engineers and artists as every other technology sector, in the same expensive cities. When those wages rise, so does every project running at the same time."
+  },
+  {
+   "layout": "item",
+   "kicker": "Development cycle",
+   "preco": "5-7 years",
+   "cap": "The length of the cycle",
+   "nar": "Then the cycle. A five to seven year build means you are paying a large team for five to seven years before a single copy sells. And it means you are guessing what players will want more than half a decade in advance."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The compounding part",
+   "sub": "cost per year x number of years",
+   "cap": "Why the two multiply",
+   "nar": "And here is why those two multiply rather than add. Budget is roughly team cost per year times number of years. If salaries rise thirty percent and the cycle stretches from four years to six, the total does not rise thirty percent. It nearly doubles."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Scope creep",
+   "itens": [
+    "bigger maps",
+    "more voice acting",
+    "higher fidelity assets"
+   ],
+   "cap": "Scope creep",
+   "nar": "The third driver is scope creep, and it is the most self-inflicted. Bigger maps, more voice acting, higher fidelity assets — each addition is individually reasonable, and each one adds months. Nobody decides to double the budget. It happens one reasonable decision at a time."
+  },
+  {
+   "layout": "item",
+   "kicker": "And then marketing",
+   "preco": "+$100-150M",
+   "cap": "And then marketing",
+   "nar": "And none of that includes marketing. A game that costs one hundred and fifty million to build can carry another hundred to a hundred and fifty million just to launch. The build cost is often only half the real number."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge to chapter 3",
+   "sub": "so why not just charge more?",
+   "cap": "Bridge — why not charge more",
+   "nar": "Which raises the obvious question, and the industry has been asking it for fifteen years. If everything got more expensive to make, why did the price on the box barely move?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 3",
+   "sub": "why the price did not move",
+   "cap": "Why the price never moved",
+   "nar": "Chapter three: the price side. This is the part where the maths goes properly wrong."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Cost vs price since 2005",
+   "itens": [
+    "build cost",
+    "shelf price"
+   ],
+   "alturas": [
+    100,
+    17
+   ],
+   "cap": "Cost versus price",
+   "nar": "Look at the two lines since the mid two thousands. Development budgets have grown by an order of magnitude. The shelf price went from sixty dollars to seventy — about seventeen percent. Those two lines have to meet somewhere, and they have not."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Why publishers cannot raise it",
+   "itens": [
+    "price is an anchor",
+    "competition is free",
+    "the backlog is infinite"
+   ],
+   "cap": "Why they cannot just raise it",
+   "nar": "Three reasons publishers cannot simply charge more. Sixty dollars became a psychological anchor over two decades. The competition is free-to-play and costs nothing to try. And every player already owns a backlog they have not finished."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The backlog problem",
+   "sub": "your competition is the game you already own",
+   "cap": "The backlog problem",
+   "nar": "That last one is underrated. A new release is not only competing with other new releases. It is competing with the game you bought two years ago and never finished, which costs you nothing to load right now."
+  },
+  {
+   "layout": "item",
+   "kicker": "Inflation-adjusted",
+   "preco": "cheaper",
+   "cap": "Adjusted for inflation",
+   "nar": "And here is the fact that surprises people: adjusted for inflation, games are cheaper today than they were in the nineteen nineties, when cartridges regularly sold for the equivalent of well over a hundred dollars in today's money. The player is not being overcharged. The maths simply stopped working."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge to chapter 4",
+   "sub": "so what does break-even really look like?",
+   "cap": "Bridge — the real break-even",
+   "nar": "So costs went up tenfold and revenue per copy went up by a sixth. Chapter four does the full sum, because the six million figure was the optimistic version.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 4",
+   "sub": "the real break-even",
+   "cap": "The real break-even",
+   "nar": "Chapter four. Let us do the honest arithmetic, with everything included."
+  },
+  {
+   "layout": "lista",
+   "kicker": "The full cost stack",
+   "itens": [
+    "build ~$300M",
+    "marketing ~$100M+",
+    "platform takes 30%"
+   ],
+   "cap": "The full cost stack",
+   "nar": "The full stack: roughly three hundred million to build, often a hundred million or more to market, and thirty percent of every sale going to the platform before the publisher sees anything."
+  },
+  {
+   "layout": "item",
+   "kicker": "True break-even",
+   "preco": "8M+ copies",
+   "cap": "The true break-even",
+   "nar": "Run that through and break-even moves from six million copies to eight million or more once marketing is included. Eight million copies is a number that perhaps a handful of releases reach in any given year."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What this creates",
+   "sub": "a portfolio where one miss kills the studio",
+   "cap": "What that structure creates",
+   "nar": "And this creates a specific kind of business. When a single project needs a top-ten result to survive, the studio is not running a portfolio any more. It is placing one bet, every five years, with everyone's job attached to it."
+  },
+  {
+   "layout": "lista",
+   "kicker": "How studios respond",
+   "itens": [
+    "fewer, bigger bets",
+    "sequels over new IP",
+    "risk moved to the small teams"
+   ],
+   "cap": "How studios respond",
+   "nar": "The rational response is predictable: fewer and bigger bets, sequels and established franchises instead of new intellectual property, and original risk pushed down to small teams who cannot afford to take it either."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Notice what this explains",
+   "sub": "not laziness — arithmetic",
+   "cap": "What this actually explains",
+   "nar": "Notice what this explains. When people ask why everything is a sequel, the honest answer is not that the industry ran out of ideas. It is that a three hundred million dollar bet on an unknown quantity is not a decision any executive survives making twice.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 5",
+   "sub": "the five things they tried instead",
+   "cap": "Five things they tried instead",
+   "nar": "Chapter five. If you cannot raise the price and you cannot lower the cost, you have to find revenue somewhere else. Here are the five attempts, in order."
+  },
+  {
+   "layout": "item",
+   "kicker": "1. Paid DLC",
+   "preco": "~2008",
+   "cap": "Attempt 1 — paid DLC",
+   "nar": "Attempt one: paid downloadable content. Sell more of the same game to the people who already liked it. Cheap to produce, well received at first — and nowhere near enough revenue to close a two hundred million dollar gap."
+  },
+  {
+   "layout": "item",
+   "kicker": "2. Season passes",
+   "preco": "~2012",
+   "cap": "Attempt 2 — season passes",
+   "nar": "Attempt two: the season pass. Take the money up front for content that does not exist yet. Solves the cash flow problem, creates a trust problem — and trust, once spent, does not come back."
+  },
+  {
+   "layout": "item",
+   "kicker": "3. Microtransactions",
+   "preco": "~2015",
+   "cap": "Attempt 3 — microtransactions",
+   "nar": "Attempt three: microtransactions. This one genuinely works, financially. A small percentage of players spend heavily and carry the revenue for everyone else. It also permanently changed how games are designed, because a game built to sell items is not built the same way."
+  },
+  {
+   "layout": "item",
+   "kicker": "4. Live service",
+   "preco": "~2018",
+   "cap": "Attempt 4 — live service",
+   "nar": "Attempt four: live service. Stop shipping a product and start running a subscription-shaped thing forever. The maths is excellent when it works, and catastrophic when it does not — because you have to keep paying the team long after launch."
+  },
+  {
+   "layout": "item",
+   "kicker": "5. Subscriptions",
+   "preco": "~2020",
+   "cap": "Attempt 5 — subscriptions",
+   "nar": "Attempt five: catalogue subscriptions. Steady revenue for the platform, exposure for the studio — but a game that is played through a subscription does not sell six million copies. It solves the platform's problem, not the studio's."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The common thread",
+   "sub": "every fix moves money, none lowers cost",
+   "cap": "The common thread",
+   "nar": "And here is what all five have in common. Every single one is an attempt to get more revenue out of the same player. Not one of them makes a three hundred million dollar game cheaper to build. The cost side was never addressed."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge to chapter 6",
+   "sub": "so who absorbs the difference?",
+   "cap": "Bridge — who absorbs it",
+   "nar": "If revenue cannot rise enough and cost will not fall, the difference has to be absorbed by someone. Chapter six is about who.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 6",
+   "sub": "who actually pays",
+   "cap": "Who actually pays",
+   "nar": "Chapter six, and this is the part the business coverage tends to skip."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Games industry layoffs",
+   "itens": [
+    "2022-2025 ~45.000",
+    "2026 forecast ~14.259"
+   ],
+   "alturas": [
+    45000,
+    14259
+   ],
+   "cap": "The layoff numbers",
+   "nar": "Between two thousand twenty-two and the middle of two thousand twenty-five, roughly forty-five thousand jobs were cut across the games industry. For two thousand twenty-six alone, one widely cited tracker forecasts around fourteen thousand two hundred and fifty-nine."
+  },
+  {
+   "layout": "item",
+   "kicker": "Forecast revision",
+   "preco": "+78%",
+   "cap": "The forecast that got worse",
+   "nar": "And that forecast is worth sitting with. It started the year at around eight thousand and was revised up by seventy-eight percent. The people making these projections were themselves too optimistic in January."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Why cuts follow the model",
+   "itens": [
+    "cost is mostly people",
+    "cycles are long",
+    "one miss ends the runway"
+   ],
+   "cap": "Why the cuts are structural",
+   "nar": "And this follows directly from the maths we just did. If the budget is mostly people, and the cycle is long, and a single commercial miss ends the runway — then the only lever left after a disappointing launch is the headcount that built it."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The uncomfortable part",
+   "sub": "layoffs are not a downturn signal here",
+   "cap": "The uncomfortable part",
+   "nar": "The uncomfortable part is that these cuts have continued through years when the industry's total revenue was at record highs. That tells you this is not a demand problem. It is a cost structure problem, and cost structure problems do not fix themselves with a good quarter."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge to chapter 7",
+   "sub": "and what does it mean for you?",
+   "cap": "Bridge — what it means for you",
+   "nar": "So what does a broken cost structure actually feel like from the sofa? That is the last chapter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Chapter 7",
+   "sub": "what it means for what you play",
+   "cap": "What it means for what you play",
+   "nar": "Chapter seven. Everything above shows up in your library, whether you follow the business side or not."
+  },
+  {
+   "layout": "lista",
+   "kicker": "What you already noticed",
+   "itens": [
+    "more sequels",
+    "longer gaps",
+    "more monetised systems"
+   ],
+   "cap": "What you have already noticed",
+   "nar": "You have already seen the consequences without needing the spreadsheet: more sequels and remakes, longer gaps between entries, and more systems in the game designed to be monetised rather than played."
+  },
+  {
+   "layout": "item",
+   "kicker": "The middle disappeared",
+   "preco": "AA",
+   "cap": "The missing middle",
+   "nar": "The clearest casualty is the middle. The double-A game — the twenty to forty million dollar project that was ambitious but not enormous — has largely vanished. The maths pushes everything to either tiny or gigantic, and the interesting middle is where a lot of the best games used to live."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Where the good news is",
+   "itens": [
+    "tools got cheaper",
+    "distribution is open",
+    "small teams can reach millions"
+   ],
+   "cap": "Where the good news actually is",
+   "nar": "But there is genuine good news, and it is on the other end of the scale. Engines and tools that cost a fortune fifteen years ago are now free or nearly free, distribution is open to anyone, and a team of five can now reach an audience of millions without a publisher."
+  },
+  {
+   "layout": "item",
+   "kicker": "The pattern",
+   "preco": "cost decides",
+   "cap": "The pattern to take away",
+   "nar": "So the pattern to take away is this: the cost structure decides the creative output. Not executive taste, not audience demand. When a game must sell eight million copies, it will be designed like something that sells eight million copies."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The real question",
+   "sub": "not 'why are games worse' — 'what can this budget allow'",
+   "cap": "The better question",
+   "nar": "Which means the question to ask about any game is not whether the industry has lost its way. It is what a budget of that size was ever going to allow. Once you know the number, most of the decisions stop being mysterious."
+  },
+  {
+   "layout": "lista",
+   "kicker": "The whole video in 3",
+   "itens": [
+    "$300M build, ~$49 per sale",
+    "8M copies to truly break even",
+    "every fix raised revenue, none cut cost"
+   ],
+   "cap": "Summary in 3 lines",
+   "nar": "The whole video in three lines. A triple-A game costs around three hundred million to build, and the publisher sees about forty-nine dollars per sale. True break-even is closer to eight million copies than six. And every fix the industry tried raised revenue from the same players — not one of them lowered the cost of building the game."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Your turn",
+   "sub": "which game did the budget clearly ruin?",
+   "cap": "Your next step",
+   "nar": "Tell me in the comments which game you think was visibly shaped — or ruined — by its budget rather than its ideas. And if you want more of these, subscribe. We take one number in this industry and follow it all the way down."
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "$300 MILLION",
+   "sub": "to build one AAA game",
+   "cap": "Hook",
+   "nar": "Three hundred million dollars. That is what one triple-A game now costs to build."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Your $70 game",
+   "itens": [
+    "platform $21",
+    "publisher $49"
+   ],
+   "alturas": [
+    21,
+    49
+   ],
+   "cap": "Where the money goes",
+   "nar": "You pay seventy. The platform takes about thirty percent, so the publisher sees roughly forty-nine."
+  },
+  {
+   "layout": "item",
+   "kicker": "To break even",
+   "preco": "6M copies",
+   "cap": "Break-even",
+   "nar": "That means about six million copies just to cover development. With marketing, closer to eight. Almost no game sells that."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "So the answer is",
+   "sub": "sequels, not lack of ideas",
+   "cap": "A tese",
+   "nar": "That is why everything is a sequel. Not missing ideas — nobody survives betting three hundred million on an unknown twice."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Full breakdown",
+   "sub": "and who absorbs the gap",
+   "cap": "CTA",
+   "nar": "The full maths, and who actually absorbs the gap, is in the video on the channel."
+  }
+ ],
+ "copy": "# $300 Million Per Game: The Math That Broke AAA\n\n## TITLE\n$300 Million Per Game: The Math That Broke AAA\n\n## DESCRIPTION\nA triple-A game now costs around $300 million to build in North America, and the single largest line in that budget is developer salaries. At a $70 price point the platform takes roughly 30%, leaving the publisher about $49 per digital sale — which means roughly 6 million copies sold just to recover development, before marketing is counted at all. Add a typical $100–150 million launch campaign and true break-even moves closer to 8 million copies, a number only a handful of releases reach in any given year.\n\nThis video works through that arithmetic and what it produces. Why costs exploded: rising salaries, development cycles stretching to 5–7 years, and scope creep — and why those multiply rather than add (team cost per year × number of years). Why the price barely moved: $60 became a psychological anchor across two decades, free-to-play sets the competing price at zero, and every player already owns an unfinished backlog. Adjusted for inflation, games are actually cheaper now than in the 1990s.\n\nThen the five things the industry tried instead of fixing the cost side — paid DLC, season passes, microtransactions, live service, and catalogue subscriptions — and the thread connecting all of them: every single one raises revenue from the same players, and not one makes a $300 million game cheaper to build.\n\nFinally, who absorbs the gap. Roughly 45,000 jobs were cut across the industry between 2022 and mid-2025, and one widely cited tracker forecasts around 14,259 for 2026 alone — revised up 78% from its January estimate. These cuts continued through years of record industry revenue, which is what tells you this is a cost structure problem rather than a demand problem.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nWhich game do you think was visibly shaped — or ruined — by its budget rather than its ideas? I am especially interested in the double-A tier that mostly disappeared: the $20–40M projects that were ambitious without being enormous. Name the last one you loved.\n\n## HASHTAGS\n#GameIndustry #GameDev #GameMoneyLab\n\n## TAGS\naaa game development cost, game industry economics, why games cost 300 million, game development budget, video game layoffs 2026, break even game sales, why games are sequels, live service games, microtransactions explained, game industry business model, scope creep, platform cut 30 percent, game pricing 70 dollars, double a games, games industry analysis\n\n## STUDIO SETTINGS\n- Language: English (en) | Category: Science & Technology (28)\n- Not made for kids\n- Synthetic content disclosure: YES (AI narration)\n- Location: United Kingdom | Licence: Standard YouTube Licence\n- Mid-roll ads: enabled (runtime > 8 minutes)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SOURCES AND CAVEATS\nBudget figures are reported industry ranges, not audited accounts — individual projects vary widely and most publishers do not disclose per-title budgets. The ~30% platform cut is the standard storefront rate; negotiated rates exist. Layoff totals come from public industry trackers and differ between sources depending on what counts as a verified cut. Figures are current as of 2026 and will move. Educational content, not investment advice.\n"
+}

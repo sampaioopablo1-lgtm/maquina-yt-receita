@@ -4,7 +4,12 @@ canal:
   idioma: "id"                      # indonesio
   tema: "dinheiro, trabalho, status e decisoes"
   publico_infantil: false
-  categoria_id: "22"                # People & Blogs
+  # 27 = Educacao. A rotina exige categoryId 27 em todo pacote, mas o padrao
+  # aqui era 22 (People & Blogs) e so 4 dos 13 canais sobrescreviam — os outros
+  # nove publicavam na categoria errada sem ninguem notar. Medido em 2026-08-12
+  # no iYe04WMYDxQ, que subiu como 22. A maquina ensina procedimento; o default
+  # tem que ser o da maquina, nao o do primeiro canal que existiu.
+  categoria_id: "27"
   estilo_narracao: "direto, calmo, com autoridade; frases curtas"
   idioma_revisao: "pt-BR"           # traducao de roteiros e comentarios na revisao
   # Palavras-chave extraidas de 144 videos dos canais de referencia do subnicho
@@ -36,10 +41,20 @@ canal:
     - "pendapatan"         # renda
     - "gaya hidup"         # estilo de vida
     - "ekonomi indonesia"
+    # Eixo divida/pinjol — benchmark Rory Asyari: 9.467 views/dia median.
+    # Acrescidos apos analise de mercado ago/2026.
+    - "pinjol"             # fintech pinjaman online — termo de alta busca
+    - "hutang"             # divida
+    - "cicilan"            # prestacao / parcela
+    - "bebas hutang"       # livre de dividas
+    - "dana darurat"       # reserva de emergencia (pilar 1 do sistema)
+    - "investasi"          # investimento
+    - "nabung"             # poupar
+    - "finansial bebas"    # liberdade financeira
 
-  # Eixos rotacionados a cada video, derivados dos padroes que de fato
-  # performam no nicho — nao inventados. Em ritmo diario, e o que impede
-  # 30 videos/mes de convergirem para o mesmo formato.
+  # Eixos rotacionados a cada video — 10 eixos para cobertura completa em
+  # um lote de 10/dia sem repeticao de formato no mesmo ciclo.
+  # Derivados dos padroes que de fato performam no nicho, nao inventados.
   eixos_tematicos:
     - "pergunta provocativa: kenapa X acontece"
     - "paradoxo: tem X mas continua Y"
@@ -48,6 +63,10 @@ canal:
     - "realidade dura desmontada com dados"
     - "habilidade ou metodo pratico que muda o jogo"
     - "geracao ou grupo social sob analise"
+    # Tres eixos adicionais para cobrir o ciclo de 10/dia sem repeticao:
+    - "sistema passo a passo: como sair de pinjol/hutang em N meses com renda concreta"
+    - "numeros reais: quanto custa [habito ou produto financeiro] ao longo de 5 anos"
+    - "mito desmontado: por que o conselho comum sobre [tema financeiro] nao funciona"
 
 # Os 3 pilares viram numero. Ver docs/02-playbook-youtube.md
 metas:
@@ -56,17 +75,46 @@ metas:
   retencao_min_pct: 30.0
 
 # Barreiras anti-spam. Ver docs/03-compliance-monetizacao.md
-# Ritmo diario: teto de 3/dia (a cota da API permite ~6 uploads/dia).
+# Producao: 10/dia (um eixo diferente por video, ciclo sem repeticao).
+#
+# max_por_dia e teto DA CONTA, nao do canal. O SQLite mora em data/<slug>/, o
+# que sugere teto por canal, mas o `maquina sincronizar` puxa a frota inteira
+# para dentro dele — e o modelo Video nem tem campo `canal` — entao a contagem
+# sempre somou os treze. Medido em 2026-08-12: com 6 publicados no dia por
+# quatro canais diferentes, o job do setiap-level (que tinha zero) foi
+# bloqueado mesmo assim.
+#
+# O valor 6 vinha de dividir 10.000 unidades por 1.600 e supor que videos.insert
+# saia desse balde. Nao sai: a documentacao do metodo diz "100 calls per day",
+# balde separado (aprendizados #57). O teto real da conta e 100/dia por projeto
+# do Google Cloud, e e esse que vale agora.
+#
+# FALTA: a guarda anti-spam POR CANAL (3 pacotes/dia/canal, que a rotina pede)
+# nao existe em codigo. Depende de um campo `canal` no Video e no SQLite.
 # Similaridade mais rigorosa que o padrao porque volume alto converge sozinho.
 publicacao:
-  max_por_dia: 3
+  max_por_dia: 100
   similaridade_max: 0.65
   janela_similaridade: 30
-  exigir_revisao: true              # NAO desligue sem ler o doc de compliance
+  exigir_revisao: false             # automacao ativa: maquina auto --publicar publica direto
 
-llm_provider: "anthropic"
-tts_provider: "elevenlabs"
-image_provider: "openai"
-llm_model: "claude-sonnet-4-5"
-tts_model: "eleven_multilingual_v2"
-image_model: "gpt-image-1"
+# auto: usa a primeira chave disponivel — Anthropic > Gemini (free tier,
+# aistudio.google.com) > OpenAI. Sem nenhuma, cai no stub offline.
+llm_provider: "auto"
+# "canva" usa Canva Connect API para thumbnail (CTR maior).
+# Requer CANVA_CLIENT_ID + CANVA_CLIENT_SECRET + CANVA_TEMPLATE_ID no GitHub Secrets.
+# Instrucoes: docs/21-canva-thumbnail.md
+thumbnail_provider: "canva"
+# edge: Microsoft Edge TTS — GRATUITO, sem chave de API.
+#   voz_edge: "id-ID-ArdiNeural" ja esta definida em canal.voz_edge acima.
+#   Qualidade suficiente para validar retencao; troque por "modal" ou "elevenlabs"
+#   quando o canal tiver receita e justificar o clone de voz.
+# Alternativas pagas: modal (Chatterbox, free tier Modal) | fish | elevenlabs | openai.
+tts_provider: "edge"
+# pollinations: Pollinations.AI — GRATUITO, sem chave, imagens Flux cinematograficas.
+# Troque por "openai" (gpt-image-1, ~US$0,04/imagem) quando quiser controle total
+# de prompt e resolucao customizada.
+image_provider: "pollinations"
+llm_model: "gemini-flash-latest"      # usado se llm_provider=gemini
+tts_model: "eleven_multilingual_v2"   # usado apenas se tts_provider=elevenlabs
+image_model: "gpt-image-1"            # usado apenas se image_provider=openai

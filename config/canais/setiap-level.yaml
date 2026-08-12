@@ -1,0 +1,13 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Setiap Level"
+  handle: "@SetiapLevelID"
+  idioma: "id"
+  tema: "dinheiro, trabalho, status e decisoes"
+  estilo_visual: "doodle"
+  voz_edge: "id-ID-ArdiNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: financas e carreira, Indonesia
+# Paleta: branco, traco preto, acentos vermelho/amarelo
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

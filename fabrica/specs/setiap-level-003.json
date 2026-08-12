@@ -1,0 +1,1328 @@
+{
+ "slug": "setiap-level",
+ "voz": "id-ID-ArdiNeural",
+ "paleta": {
+  "ink": "#12303A",
+  "c1": "#1B7A8C",
+  "c2": "#F2B134",
+  "bg": "#F0F6F7"
+ },
+ "thumb": {
+  "l1": "Rp100 RIBU/HARI",
+  "l2": "berapa lama"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "59,3%",
+   "sub": "pekerja Indonesia tanpa gaji bulanan",
+   "cap": "Intro: angka yang tidak cocok",
+   "nar": "Lima puluh sembilan koma tiga persen. Itu porsi pekerja Indonesia yang bekerja di sektor informal per Mei dua ribu dua puluh enam, menurut Badan Pusat Statistik."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "59,3%",
+   "sub": "pekerja Indonesia tanpa gaji bulanan",
+   "nar": "Dalam angka: sekitar delapan puluh tujuh koma delapan juta orang dari total seratus empat puluh tujuh juta pekerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya",
+   "preco": "6 dari 10",
+   "nar": "Artinya enam dari sepuluh orang yang bekerja di negara ini tidak menerima yang namanya gaji bulanan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya",
+   "preco": "6 dari 10",
+   "nar": "Mereka menerima uang harian, mingguan, atau borongan. Angkanya berubah tiap bulan, dan kadang tidak ada sama sekali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi lihat judul-judulnya",
+   "preco": "\"gaji 3 juta\"",
+   "nar": "Sekarang perhatikan hampir semua konten keuangan berbahasa Indonesia. Judulnya selalu sama: gaji tiga juta, gaji lima juta, gaji UMR."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi lihat judul-judulnya",
+   "preco": "\"gaji 3 juta\"",
+   "nar": "Semuanya bicara kepada empat dari sepuluh orang, dan menganggap enam sisanya tidak ada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang akan kita lakukan",
+   "itens": [
+    "hitung dari penghasilan harian",
+    "cari angka waktunya yang jujur"
+   ],
+   "cap": "Peta video ini",
+   "nar": "Video ini menghitung dari sisi sebaliknya. Kita mulai dari penghasilan harian, bukan gaji bulanan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang akan kita lakukan",
+   "itens": [
+    "cari angka waktunya yang jujur",
+    "lihat apa yang benar-benar mempercepat"
+   ],
+   "nar": "Kita cari berapa lama sebenarnya sampai ke seratus juta rupiah. Dan kita lihat apa yang benar-benar mempercepatnya, bukan apa yang enak didengar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Peringatan",
+   "preco": "ini akan lama",
+   "nar": "Saya beri peringatan sejak awal. Jawaban jujurnya akan terdengar lambat."
+  },
+  {
+   "layout": "item",
+   "kicker": "Peringatan",
+   "preco": "ini akan lama",
+   "nar": "Kalau kamu mencari video yang bilang bisa punya seratus juta dalam dua tahun dengan penghasilan harian, tutup video ini sekarang — karena saya tidak akan mengatakan itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mulai dari data",
+   "sub": "siapa sebenarnya kamu dalam angka BPS",
+   "sem_cap": true,
+   "nar": "Tapi sebelum menghitung, kita perlu tahu di mana posisimu dalam data. Karena posisimu menentukan nasihat mana yang berlaku dan mana yang tidak."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 1",
+   "sub": "siapa kamu dalam data",
+   "cap": "Siapa kamu dalam data",
+   "nar": "Bagian satu: siapa kamu dalam data. Dan ini bukan basa-basi statistik — ini menentukan seluruh perhitungan di sisa video."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Pembagian besarnya",
+   "itens": [
+    "informal: 87,9 juta orang",
+    "formal: 59,9 juta orang"
+   ],
+   "cap": "Pembagian besarnya",
+   "nar": "Pembagiannya begini. Pekerja informal sekitar delapan puluh tujuh koma sembilan juta orang."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Pembagian besarnya",
+   "itens": [
+    "formal: 59,9 juta orang",
+    "total bekerja: 147,7 juta"
+   ],
+   "nar": "Pekerja formal lima puluh sembilan koma sembilan juta, atau empat puluh koma lima delapan persen. Totalnya seratus empat puluh tujuh koma tujuh juta orang yang bekerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Isi kelompok informal",
+   "itens": [
+    "berusaha sendiri: 20,57%",
+    "dibantu pekerja tidak tetap: 15,97%"
+   ],
+   "cap": "Isi kelompok informal",
+   "nar": "Dan kelompok informal itu bukan satu jenis orang. BPS memecahnya: yang berusaha sendiri dua puluh koma lima tujuh persen dari seluruh pekerja."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Isi kelompok informal",
+   "itens": [
+    "dibantu pekerja tidak tetap: 15,97%",
+    "pekerja keluarga tak dibayar: 13,67%"
+   ],
+   "nar": "Yang dibantu pekerja tidak tetap atau anggota keluarga lima belas koma sembilan tujuh persen. Dan pekerja keluarga yang tidak dibayar tiga belas koma enam tujuh persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang terakhir itu",
+   "preco": "tidak dibayar",
+   "nar": "Berhenti sebentar di angka terakhir. Tiga belas koma enam tujuh persen pekerja Indonesia bekerja tanpa dibayar sama sekali — biasanya membantu usaha keluarga."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang terakhir itu",
+   "preco": "tidak dibayar",
+   "nar": "Untuk mereka, seluruh percakapan tentang mengatur gaji bahkan belum dimulai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Upah rata-rata nasional",
+   "preco": "Rp3,29 juta",
+   "nar": "Sekarang angka pembanding. Survei Angkatan Kerja Nasional BPS bulan Februari dua ribu dua puluh enam mencatat upah rata-rata pekerja Indonesia sebesar tiga koma dua sembilan juta rupiah per bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan dengan Jakarta",
+   "preco": "Rp5,72 juta",
+   "nar": "Bandingkan dengan upah minimum provinsi Jakarta tahun dua ribu dua puluh enam yang mencapai lima koma tujuh dua juta rupiah."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan dengan Jakarta",
+   "preco": "Rp5,72 juta",
+   "nar": "Upah rata-rata nasional ada jauh di bawah UMP satu provinsi. Rata-rata nasional itu bukan angka Jakarta, dan kebanyakan konten keuangan menulis seolah semua orang tinggal di Jakarta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "UMP 2026 naik",
+   "preco": "sekitar 6,5-7%",
+   "nar": "UMP dua ribu dua puluh enam sendiri naik di kisaran lima sampai delapan persen, dengan rata-rata nasional sekitar enam koma lima sampai tujuh persen."
+  },
+  {
+   "layout": "item",
+   "kicker": "UMP 2026 naik",
+   "preco": "sekitar 6,5-7%",
+   "nar": "Kedengarannya baik. Tapi ingat: kenaikan UMP hanya menyentuh pekerja formal — empat dari sepuluh orang tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk enam sisanya",
+   "preco": "tidak ada kenaikan",
+   "nar": "Untuk enam dari sepuluh orang lainnya, tidak ada surat keputusan gubernur yang menaikkan penghasilan mereka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk enam sisanya",
+   "preco": "tidak ada kenaikan",
+   "nar": "Yang naik hanya harga di pasar. Ini asimetri yang jarang disebut, dan ini alasan pertama kenapa nasihat keuangan standar tidak nyambung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa nasihatnya gagal",
+   "sub": "tiga asumsi yang tidak berlaku",
+   "sem_cap": true,
+   "nar": "Jadi mari kita bongkar nasihat standar itu, dan lihat asumsi mana yang patah begitu penghasilanmu tidak bulanan."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 2",
+   "sub": "kenapa nasihat keuangan biasa gagal",
+   "cap": "Kenapa nasihat biasa gagal",
+   "nar": "Bagian dua: kenapa nasihat keuangan biasa gagal untuk penghasilan harian. Ada tiga asumsi tersembunyi di dalamnya, dan ketiganya patah."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Asumsi 1",
+   "itens": [
+    "jumlahnya sama tiap bulan",
+    "tanggalnya tetap"
+   ],
+   "cap": "Asumsi 1: penghasilan tetap",
+   "nar": "Asumsi pertama: penghasilanmu jumlahnya sama tiap bulan, datang di tanggal yang tetap, jadi bisa dijadwalkan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Asumsi 1",
+   "itens": [
+    "tanggalnya tetap",
+    "bisa dijadwalkan"
+   ],
+   "nar": "Semua aturan seperti lima puluh tiga puluh dua puluh dibangun di atas asumsi ini. Kalau penghasilanmu harian, tidak satu pun dari ketiganya benar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Akibatnya",
+   "preco": "autodebit gagal",
+   "nar": "Akibat praktisnya nyata. Autodebit menabung di tanggal satu akan gagal kalau minggu itu sepi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Akibatnya",
+   "preco": "autodebit gagal",
+   "nar": "Sekali gagal, banyak orang berhenti sama sekali — bukan karena tidak mampu, tapi karena sistemnya dirancang untuk ritme yang bukan ritme mereka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Asumsi 2",
+   "itens": [
+    "ada dana darurat dulu",
+    "baru boleh investasi"
+   ],
+   "cap": "Asumsi 2: urutan yang kaku",
+   "nar": "Asumsi kedua: kamu harus punya dana darurat penuh dulu, baru boleh investasi. Urutannya kaku. Untuk penghasilan tetap, itu masuk akal."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Asumsi 2",
+   "itens": [
+    "baru boleh investasi",
+    "urutannya kaku"
+   ],
+   "nar": "Untuk penghasilan harian, dana darurat enam bulan bisa makan bertahun-tahun sebelum kamu menyentuh instrumen apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang terjadi",
+   "preco": "tidak pernah mulai",
+   "nar": "Yang terjadi kemudian bisa ditebak: orang menunggu syarat pertama selesai, tidak pernah selesai, dan akhirnya tidak pernah mulai sama sekali. Menunggu sempurna itu sendiri yang jadi biayanya."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Asumsi 3",
+   "itens": [
+    "pengeluaran bisa dipangkas",
+    "kopi dan langganan"
+   ],
+   "cap": "Asumsi 3: masih ada yang bisa dipangkas",
+   "nar": "Asumsi ketiga, dan ini yang paling menyakitkan: bahwa masih ada yang bisa dipangkas. Nasihatnya selalu tentang kopi, langganan, dan gaya hidup."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Asumsi 3",
+   "itens": [
+    "kopi dan langganan",
+    "gaya hidup"
+   ],
+   "nar": "Itu berlaku kalau ada kelebihan. Kalau penghasilanmu di bawah rata-rata nasional, sebagian besar pengeluaranmu bukan gaya hidup — itu kebutuhan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesimpulan bagian ini",
+   "preco": "bukan salahmu",
+   "nar": "Jadi kesimpulan bagian ini penting: kalau nasihat keuangan populer tidak pernah berhasil untukmu, kemungkinan besar bukan karena kamu kurang disiplin."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesimpulan bagian ini",
+   "preco": "bukan salahmu",
+   "nar": "Kemungkinan besar nasihat itu memang tidak ditulis untuk bentuk penghasilanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lalu apa yang berlaku?",
+   "sub": "kita hitung dari harian",
+   "sem_cap": true,
+   "nar": "Kalau begitu, apa yang berlaku? Kita bangun ulang dari nol, dan kali ini dari angka harian."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 3",
+   "sub": "matematika Rp100 ribu per hari",
+   "cap": "Matematika Rp100 ribu per hari",
+   "nar": "Bagian tiga: matematika seratus ribu rupiah per hari. Saya pakai angka ini karena inilah cara sebagian besar pekerja informal benar-benar menghitung penghasilan mereka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Per bulan",
+   "preco": "Rp2,6 juta",
+   "nar": "Seratus ribu rupiah per hari, dikali dua puluh enam hari kerja, sama dengan dua koma enam juta rupiah per bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Per bulan",
+   "preco": "Rp2,6 juta",
+   "nar": "Itu angka bulananmu — dan perhatikan, itu di bawah upah rata-rata nasional yang tiga koma dua sembilan juta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Posisimu dalam data",
+   "itens": [
+    "harian Rp100rb: Rp2,6 jt",
+    "rata-rata nasional: Rp3,29 jt",
+    "UMP Jakarta: Rp5,72 jt"
+   ],
+   "alturas": [
+    26,
+    33,
+    57
+   ],
+   "cap": "Posisimu dalam data",
+   "nar": "Lihat ketiganya berdampingan. Penghasilan harian seratus ribu memberi dua koma enam juta. Rata-rata nasional tiga koma dua sembilan juta."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Posisimu dalam data",
+   "itens": [
+    "harian Rp100rb: Rp2,6 jt",
+    "rata-rata nasional: Rp3,29 jt",
+    "UMP Jakarta: Rp5,72 jt"
+   ],
+   "alturas": [
+    26,
+    33,
+    57
+   ],
+   "nar": "UMP Jakarta lima koma tujuh dua juta. Jarak antara yang pertama dan yang terakhir lebih dari dua kali lipat — dan keduanya sama-sama disebut bekerja penuh waktu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang menabung",
+   "preco": "20% = Rp520 ribu",
+   "nar": "Sekarang bagian menabungnya. Anggap kamu menyisihkan dua puluh persen. Dari dua koma enam juta, itu lima ratus dua puluh ribu rupiah per bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang menabung",
+   "preco": "20% = Rp520 ribu",
+   "nar": "Saya sengaja pakai dua puluh persen, bukan tiga puluh, karena dua puluh persen sudah termasuk agresif untuk penghasilan sebesar itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara menyisihkannya",
+   "preco": "harian, bukan bulanan",
+   "nar": "Tapi caranya yang harus berbeda. Jangan menyisihkan lima ratus dua puluh ribu sekali sebulan. Sisihkan dua puluh ribu rupiah setiap hari kerja."
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara menyisihkannya",
+   "preco": "harian, bukan bulanan",
+   "nar": "Dua puluh ribu kali dua puluh enam hari sama dengan lima ratus dua puluh ribu — jumlah yang sama, tapi ritmenya cocok dengan ritme uang masuk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini penting",
+   "preco": "tidak ada tanggal gagal",
+   "nar": "Kenapa ini bukan sekadar teknis? Karena dengan ritme harian tidak ada satu tanggal yang bisa gagal total."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini penting",
+   "preco": "tidak ada tanggal gagal",
+   "nar": "Hari yang sepi hanya memotong satu setoran kecil, bukan menggagalkan seluruh bulan. Sistem yang bisa gagal sedikit jauh lebih tahan daripada sistem yang gagal sekaligus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aturan hari sepi",
+   "itens": [
+    "hari sepi: setor separuh",
+    "hari nol: lewati, jangan berhenti"
+   ],
+   "cap": "Aturan hari sepi",
+   "nar": "Dan buat aturannya sekarang, bukan nanti saat panik. Hari sepi, setor separuh. Hari tanpa pemasukan, lewati — tapi jangan berhenti."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aturan hari sepi",
+   "itens": [
+    "hari nol: lewati, jangan berhenti",
+    "hari ramai: setor dobel"
+   ],
+   "nar": "Hari ramai, setor dobel. Aturan yang sudah diputuskan sebelumnya menghilangkan kebutuhan mengambil keputusan saat sedang tertekan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi berapa lama?",
+   "sub": "ini bagian yang jujur",
+   "sem_cap": true,
+   "nar": "Baik. Lima ratus dua puluh ribu per bulan. Sekarang pertanyaan yang sebenarnya kamu datang untuk dengar: berapa lama sampai seratus juta?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 4",
+   "sub": "dana darurat untuk penghasilan tidak tetap",
+   "cap": "Dana darurat versi harian",
+   "nar": "Bagian empat: dana darurat, tapi versi penghasilan tidak tetap. Ini bagian yang paling sering ditulis salah, dan salahnya mahal."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nasihat standarnya",
+   "preco": "6 bulan pengeluaran",
+   "nar": "Nasihat standarnya: kumpulkan enam bulan pengeluaran sebelum melakukan apa pun. Untuk penghasilan dua koma enam juta dengan pengeluaran dua juta, itu dua belas juta rupiah."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nasihat standarnya",
+   "preco": "6 bulan pengeluaran",
+   "nar": "Dengan menabung lima ratus dua puluh ribu sebulan, butuh dua puluh tiga bulan — hampir dua tahun sebelum kamu boleh menyentuh instrumen apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa itu keliru di sini",
+   "preco": "dua tahun hilang",
+   "nar": "Dua tahun itu bukan cuma lama. Itu dua tahun paling berharga dari efek bunga berbunga yang hilang."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa itu keliru di sini",
+   "preco": "dua tahun hilang",
+   "nar": "Dan lebih buruk lagi: kebanyakan orang tidak bertahan dua puluh tiga bulan tanpa melihat hasil, lalu berhenti di bulan kedelapan dan kehilangan keduanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Versi yang lebih masuk akal",
+   "itens": [
+    "tahap 1: 2 minggu pengeluaran",
+    "tahap 2: 6 minggu"
+   ],
+   "cap": "Dana darurat bertahap",
+   "nar": "Versi yang lebih masuk akal untuk penghasilan harian adalah bertahap. Tahap pertama, kumpulkan dua minggu pengeluaran — sekitar satu juta rupiah."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Versi yang lebih masuk akal",
+   "itens": [
+    "tahap 2: 6 minggu",
+    "tahap 3: baru 3 bulan"
+   ],
+   "nar": "Tahap kedua, enam minggu. Tahap ketiga, baru tiga bulan. Setiap tahap selesai memberi bukti bahwa sistemnya jalan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa dua minggu dulu",
+   "preco": "itu risiko nyatamu",
+   "nar": "Kenapa dua minggu, bukan enam bulan? Karena untuk penghasilan harian, risiko yang benar-benar sering terjadi bukan kehilangan pekerjaan selama setengah tahun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa dua minggu dulu",
+   "preco": "itu risiko nyatamu",
+   "nar": "Yang sering terjadi adalah dua minggu sepi, motor rusak, atau sakit beberapa hari. Dana darurat harus dirancang untuk risiko yang sering, bukan yang paling dramatis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Setelah tahap satu",
+   "preco": "jalan berbarengan",
+   "nar": "Dan begitu tahap pertama selesai, jangan menunggu sisanya. Jalankan berbarengan: sebagian menambah dana darurat, sebagian masuk ke instrumen."
+  },
+  {
+   "layout": "item",
+   "kicker": "Setelah tahap satu",
+   "preco": "jalan berbarengan",
+   "nar": "Urutan yang kaku itulah yang membuat banyak orang tidak pernah sampai ke bagian kedua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Di mana menyimpannya",
+   "itens": [
+    "bisa diambil hari itu juga",
+    "terpisah dari rekening harian"
+   ],
+   "cap": "Di mana menyimpan dana darurat",
+   "nar": "Tiga syarat tempat menyimpannya. Bisa diambil di hari yang sama saat dibutuhkan. Terpisah dari rekening yang kamu pakai sehari-hari, supaya tidak terkikis tanpa sadar."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Di mana menyimpannya",
+   "itens": [
+    "terpisah dari rekening harian",
+    "jangan yang ada kartunya"
+   ],
+   "nar": "Dan sebaiknya tanpa kartu yang menempel di dompet — gesekan kecil untuk mengambilnya justru berguna di sini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang hitung waktunya",
+   "sub": "dengan pengaman sudah terpasang",
+   "sem_cap": true,
+   "nar": "Dengan pengaman terpasang, sekarang kita bisa menghitung berapa lama tabungannya benar-benar tumbuh."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 5",
+   "sub": "berapa lama sampai Rp100 juta",
+   "cap": "Berapa lama sampai Rp100 juta",
+   "nar": "Bagian empat: berapa lama sampai seratus juta rupiah. Saya akan berikan tiga angka, dan angka pertama sengaja yang paling pahit."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tanpa imbal hasil",
+   "sub": "16 tahun",
+   "cap": "Skenario 1: tanpa imbal hasil",
+   "nar": "Kalau uangnya hanya ditumpuk tanpa imbal hasil sama sekali — di bawah bantal, di celengan, di rekening yang tidak berbunga — seratus juta dibagi lima ratus dua puluh ribu sama dengan seratus sembilan puluh dua bulan. Itu enam belas tahun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dengan imbal hasil 6%",
+   "preco": "sekitar 11 tahun",
+   "nar": "Sekarang taruh uang yang sama di instrumen yang memberi sekitar enam persen per tahun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dengan imbal hasil 6%",
+   "preco": "sekitar 11 tahun",
+   "nar": "Angkanya jatuh ke sekitar seratus tiga puluh enam bulan — kira-kira sebelas tahun empat bulan. Bukan karena kamu menabung lebih banyak. Hanya karena uangnya tidak diam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Selisih yang dibuat imbal hasil",
+   "itens": [
+    "tanpa imbal hasil: 16 thn",
+    "dengan 6%/tahun: 11,3 thn"
+   ],
+   "alturas": [
+    16,
+    11
+   ],
+   "cap": "Selisih yang dibuat imbal hasil",
+   "nar": "Lihat selisihnya: hampir lima tahun. Lima tahun hidupmu, hanya dari keputusan menaruh uang di tempat yang berbunga alih-alih di tempat yang diam. Itu keputusan sekali, bukan disiplin harian bertahun-tahun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau naik ke 30%",
+   "preco": "sekitar 8 tahun",
+   "nar": "Angka ketiga. Kalau kamu bisa menaikkan porsi menabung dari dua puluh ke tiga puluh persen — tujuh ratus delapan puluh ribu per bulan — waktunya turun lagi ke sekitar sembilan puluh sembilan bulan, atau sekitar delapan tahun tiga bulan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga skenario",
+   "itens": [
+    "20%, tanpa bunga: 16 tahun",
+    "20%, bunga 6%: 11,3 tahun"
+   ],
+   "cap": "Tiga skenario berdampingan",
+   "nar": "Tiga skenario berdampingan. Dua puluh persen tanpa bunga: enam belas tahun. Dua puluh persen dengan bunga enam persen: sebelas koma tiga tahun."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga skenario",
+   "itens": [
+    "20%, bunga 6%: 11,3 tahun",
+    "30%, bunga 6%: 8,3 tahun"
+   ],
+   "nar": "Tiga puluh persen dengan bunga yang sama: delapan koma tiga tahun. Rentangnya hampir delapan tahun, dan semuanya dari penghasilan yang persis sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang perlu dijujuri",
+   "preco": "ini lama",
+   "nar": "Dan sekarang saya jujur: delapan sampai enam belas tahun itu lama. Tidak ada video yang bisa mengubah aritmetika itu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang perlu dijujuri",
+   "preco": "ini lama",
+   "nar": "Siapa pun yang menjanjikan seratus juta dalam dua tahun dari penghasilan seratus ribu per hari sedang menjual sesuatu, biasanya kelas atau aplikasi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi perhatikan ini",
+   "preco": "rentangnya 8 tahun",
+   "nar": "Tapi perhatikan hal yang lebih berguna daripada angka absolutnya: rentang antara skenario terbaik dan terburuk hampir delapan tahun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi perhatikan ini",
+   "preco": "rentangnya 8 tahun",
+   "nar": "Kamu mungkin tidak bisa mengubah penghasilanmu bulan depan. Tapi kamu bisa mengubah posisimu di dalam rentang itu, mulai minggu ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Apa yang menggeser rentang",
+   "sub": "tiga hal, diurutkan dari yang terkuat",
+   "sem_cap": true,
+   "nar": "Jadi mari kita lihat apa saja yang benar-benar menggeser posisimu di dalam rentang delapan tahun itu — diurutkan dari yang paling kuat."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 6",
+   "sub": "tiga hal yang benar-benar mempercepat",
+   "cap": "Yang benar-benar mempercepat",
+   "nar": "Bagian lima: tiga hal yang benar-benar mempercepat. Saya urutkan berdasarkan besar dampaknya, bukan berdasarkan mana yang paling mudah."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nomor satu",
+   "sub": "menaikkan penghasilan harian",
+   "cap": "Nomor satu: penghasilan",
+   "nar": "Nomor satu, dan tidak ada yang mendekatinya: menaikkan penghasilan harian."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nomor satu",
+   "sub": "menaikkan penghasilan harian",
+   "nar": "Naik dari seratus ribu ke seratus tiga puluh ribu per hari saja sudah menambah tujuh ratus delapan puluh ribu sebulan — lebih besar daripada seluruh tabunganmu di skenario dua puluh persen tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini diabaikan",
+   "preco": "lebih sulit dijual",
+   "nar": "Kenapa konten keuangan jarang membahas ini? Karena memangkas kopi bisa dijelaskan dalam tiga puluh detik, sedangkan menaikkan tarif harian butuh keterampilan, keberanian, dan waktu. Yang mudah dijelaskan bukan berarti yang paling berdampak."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Cara menaikkannya",
+   "itens": [
+    "naikkan tarif ke pelanggan lama",
+    "tambah satu keterampilan yang dibayar"
+   ],
+   "cap": "Tiga cara menaikkan penghasilan harian",
+   "nar": "Tiga jalur yang realistis. Naikkan tarif ke pelanggan yang sudah ada — biasanya lebih mudah daripada mencari pelanggan baru. Tambah satu keterampilan yang benar-benar dibayar lebih di bidangmu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Cara menaikkannya",
+   "itens": [
+    "tambah satu keterampilan yang dibayar",
+    "kurangi hari tanpa pemasukan"
+   ],
+   "nar": "Dan kurangi jumlah hari tanpa pemasukan, karena hari kosong memotong penghasilan bulanan lebih dalam daripada tarif yang rendah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nomor dua",
+   "sub": "konsistensi, bukan besarnya",
+   "cap": "Nomor dua: konsistensi",
+   "nar": "Nomor dua: konsistensi, bukan besarnya. Menyetor dua puluh ribu setiap hari kerja selama sepuluh tahun mengalahkan menyetor satu juta sekali saat sedang ada rezeki."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nomor dua",
+   "sub": "konsistensi, bukan besarnya",
+   "nar": "Bukan karena jumlahnya, tapi karena yang kedua hampir tidak pernah terjadi dua kali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nomor tiga",
+   "sub": "menaruhnya di tempat berimbal hasil",
+   "cap": "Nomor tiga: imbal hasil",
+   "nar": "Nomor tiga: menaruhnya di tempat yang memberi imbal hasil. Kita sudah lihat angkanya — hampir lima tahun selisihnya."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nomor tiga",
+   "sub": "menaruhnya di tempat berimbal hasil",
+   "nar": "Ini yang paling sering dilewati, karena terasa rumit. Padahal ini keputusan sekali seumur hidup, bukan kebiasaan harian.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang TIDAK masuk daftar",
+   "itens": [
+    "memangkas kopi harian",
+    "berhenti langganan kecil"
+   ],
+   "cap": "Yang tidak masuk daftar",
+   "nar": "Dan yang tidak masuk daftar ini: memangkas kopi, berhenti langganan kecil, dan tantangan menabung tiga puluh hari."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang TIDAK masuk daftar",
+   "itens": [
+    "berhenti langganan kecil",
+    "tantangan menabung 30 hari"
+   ],
+   "nar": "Bukan karena salah — semuanya membantu sedikit. Tapi di penghasilan dua koma enam juta, ketiganya bersama-sama tidak menggeser garis waktu satu tahun pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Di mana menaruhnya",
+   "sub": "sekarang bagian instrumennya",
+   "sem_cap": true,
+   "nar": "Karena imbal hasil ternyata menghemat hampir lima tahun, pertanyaan berikutnya jadi wajib: di mana sebenarnya uang itu ditaruh?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 7",
+   "sub": "di mana menaruh uangnya",
+   "cap": "Di mana menaruh uangnya",
+   "nar": "Bagian enam: di mana menaruh uangnya. Dan di sini saya akan pakai angka pasar yang berlaku, bukan janji."
+  },
+  {
+   "layout": "item",
+   "kicker": "Suku bunga acuan",
+   "preco": "BI-Rate 5,75%",
+   "nar": "Rapat Dewan Gubernur Bank Indonesia dua puluh satu sampai dua puluh dua Juli dua ribu dua puluh enam memutuskan mempertahankan BI-Rate di lima koma tujuh lima persen, dengan suku bunga Deposit Facility empat koma tujuh lima persen."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Bagaimana sampai ke situ",
+   "itens": [
+    "Mei: naik 50 bps ke 5,25%",
+    "9 Juni: naik 25 bps ke 5,5%"
+   ],
+   "cap": "Bagaimana bunga sampai ke situ",
+   "nar": "Dan perhatikan lintasannya, karena ini memberi tahu arah. Mei naik lima puluh basis poin ke lima koma dua lima persen."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Bagaimana sampai ke situ",
+   "itens": [
+    "9 Juni: naik 25 bps ke 5,5%",
+    "Juni: naik 25 bps ke 5,75%"
+   ],
+   "nar": "Sembilan Juni naik dua puluh lima basis poin ke lima koma lima. Lalu naik dua puluh lima lagi ke lima koma tujuh lima. Tiga kenaikan dalam dua bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Inflasi Juni",
+   "preco": "3,34%",
+   "nar": "Di sisi lain, inflasi Juni dua ribu dua puluh enam tercatat tiga koma tiga empat persen secara tahunan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Inflasi Juni",
+   "preco": "3,34%",
+   "nar": "Sasaran Bank Indonesia sendiri dua koma lima persen plus minus satu — jadi inflasi sedang berada di bagian atas sasaran, belum di luarnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka yang penting",
+   "preco": "imbal hasil riil",
+   "nar": "Dari dua angka itu muncul yang benar-benar penting: imbal hasil riil. Yaitu imbal hasil dikurangi inflasi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka yang penting",
+   "preco": "imbal hasil riil",
+   "nar": "Kalau instrumenmu memberi lima persen sementara inflasi tiga koma tiga empat, kekayaanmu hanya tumbuh satu koma enam enam persen setahun. Sisanya cuma mengejar harga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "SBN tenor 10 tahun",
+   "preco": "sekitar 7,3%",
+   "nar": "Sebagai patokan pasar: imbal hasil surat berharga negara tenor sepuluh tahun bertahan di kisaran tujuh koma tiga persen pada akhir Juli dua ribu dua puluh enam."
+  },
+  {
+   "layout": "item",
+   "kicker": "SBN tenor 10 tahun",
+   "preco": "sekitar 7,3%",
+   "nar": "Terhadap inflasi tiga koma tiga empat, itu imbal hasil riil sekitar empat persen — jauh lebih baik daripada uang yang diam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Untuk pemula, urutannya",
+   "itens": [
+    "dana darurat: rekening likuid",
+    "jangka menengah: SBN ritel"
+   ],
+   "cap": "Urutan untuk pemula",
+   "nar": "Urutan praktisnya untuk pemula begini. Dana darurat di tempat yang bisa diambil kapan saja, walau bunganya kecil — fungsinya bukan tumbuh, tapi tersedia."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Untuk pemula, urutannya",
+   "itens": [
+    "jangka menengah: SBN ritel",
+    "jangan mulai dari yang rumit"
+   ],
+   "nar": "Uang jangka menengah bisa ke SBN ritel. Dan jangan memulai dari instrumen yang rumit hanya karena imbal hasilnya terlihat besar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Soal SBN ritel",
+   "preco": "kupon floating with floor",
+   "nar": "Satu catatan teknis yang berguna soal SBN ritel: saat suku bunga sedang naik seperti sekarang, seri dengan kupon mengambang berbatas bawah — floating with floor — memberi perlindungan dua arah."
+  },
+  {
+   "layout": "item",
+   "kicker": "Soal SBN ritel",
+   "preco": "kupon floating with floor",
+   "nar": "Kuponnya ikut naik kalau bunga naik, tapi tidak jatuh di bawah batas kalau bunga turun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Soal emas",
+   "sub": "tidak ada arus kas sama sekali",
+   "cap": "Soal emas",
+   "nar": "Dan soal emas, yang selalu ditanyakan. Emas tidak memberi arus kas sama sekali. Saat suku bunga tinggi seperti sekarang, instrumen berbunga jadi lebih menarik dibandingkan emas."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Soal emas",
+   "sub": "tidak ada arus kas sama sekali",
+   "nar": "Emas bisa jadi pelindung nilai, tapi dia bukan mesin yang memperpendek sebelas tahun tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang saya tidak sebutkan",
+   "preco": "pajak dan biaya",
+   "nar": "Satu hal yang sengaja tidak saya beri angka: pajak dan biaya administrasi. Keduanya ada, keduanya memotong imbal hasil bersihmu, dan besarnya berbeda antar instrumen."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang saya tidak sebutkan",
+   "preco": "pajak dan biaya",
+   "nar": "Periksa sendiri sebelum memutuskan — saya lebih memilih tidak menyebut angka daripada menyebut angka yang salah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang harus dihindari",
+   "sub": "dan jawaban jujurnya",
+   "sem_cap": true,
+   "nar": "Sebelum menutup, ada beberapa hal yang justru memundurkan garis waktu itu — dan sebagian dijual sebagai jalan pintas."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 8",
+   "sub": "menguji rencana saat penghasilan turun",
+   "cap": "Menguji rencana saat turun",
+   "nar": "Bagian delapan: menguji rencana ini saat penghasilan turun. Karena setiap rencana terlihat bagus di atas kertas, dan penghasilan harian tidak pernah datar."
+  },
+  {
+   "layout": "item",
+   "kicker": "Skenario nyata",
+   "preco": "turun 30% tiga bulan",
+   "nar": "Ambil skenario yang realistis, bukan yang ekstrem. Penghasilanmu turun tiga puluh persen selama tiga bulan — musim sepi, sakit, atau pelanggan besar berhenti."
+  },
+  {
+   "layout": "item",
+   "kicker": "Skenario nyata",
+   "preco": "turun 30% tiga bulan",
+   "nar": "Dari dua koma enam juta jadi sekitar satu koma delapan juta sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang terjadi tanpa aturan",
+   "preco": "setoran berhenti",
+   "nar": "Tanpa aturan yang sudah disiapkan, yang terjadi hampir selalu sama: setoran berhenti total di bulan pertama."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang terjadi tanpa aturan",
+   "preco": "setoran berhenti",
+   "nar": "Bukan dikurangi — dihentikan. Dan setelah berhenti tiga bulan, kebiasaannya ikut hilang, bukan cuma uangnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aturan turun bertingkat",
+   "itens": [
+    "turun 30%: setor separuh",
+    "turun 50%: setor seperempat"
+   ],
+   "cap": "Aturan turun bertingkat",
+   "nar": "Jadi tentukan aturannya sekarang. Kalau penghasilan turun tiga puluh persen, setor separuh dari biasanya."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aturan turun bertingkat",
+   "itens": [
+    "turun 50%: setor seperempat",
+    "turun lebih: setor Rp5.000"
+   ],
+   "nar": "Turun setengah, setor seperempat. Turun lebih dari itu, setor lima ribu rupiah sehari — jumlah yang hampir tidak terasa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa Rp5.000",
+   "preco": "menjaga rantai",
+   "nar": "Kenapa repot menyetor lima ribu yang jelas tidak berarti secara angka? Karena yang kamu jaga bukan saldonya, tapi rantainya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa Rp5.000",
+   "preco": "menjaga rantai",
+   "nar": "Orang yang tidak pernah berhenti sama sekali jauh lebih mungkin kembali ke jumlah penuh saat keadaan membaik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitung dampaknya",
+   "preco": "mundur 4 bulan",
+   "nar": "Dan mari kita jujur soal dampaknya. Tiga bulan menyetor separuh berarti kehilangan sekitar tujuh ratus delapan puluh ribu rupiah dari rencana."
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitung dampaknya",
+   "preco": "mundur 4 bulan",
+   "nar": "Dalam garis waktu sebelas tahun tadi, itu memundurkanmu sekitar empat bulan. Bukan bencana — asal tidak berulang tiap tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Urutan saat darurat",
+   "itens": [
+    "pakai dana darurat dulu",
+    "baru kurangi setoran"
+   ],
+   "cap": "Urutan saat darurat",
+   "nar": "Dan kalau benar-benar darurat, ini urutan mengambilnya. Pakai dana darurat lebih dulu — memang untuk itu dia ada. Baru kurangi setoran bulanan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Urutan saat darurat",
+   "itens": [
+    "baru kurangi setoran",
+    "instrumen jangka panjang paling akhir"
+   ],
+   "nar": "Dan instrumen jangka panjang disentuh paling akhir, karena menjualnya di waktu yang salah adalah cara paling mahal untuk mendapat uang tunai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang bandingkan",
+   "sub": "naik tarif atau lebih hemat?",
+   "sem_cap": true,
+   "nar": "Tadi saya bilang menaikkan penghasilan mengalahkan berhemat. Sekarang saya buktikan dengan angka, bukan dengan keyakinan."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 9",
+   "sub": "naik tarif versus lebih hemat",
+   "cap": "Naik tarif vs lebih hemat",
+   "nar": "Bagian sembilan: naik tarif versus lebih hemat. Dua jalur yang sering dianggap setara, padahal tidak."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jalur hemat",
+   "preco": "potong 10% pengeluaran",
+   "nar": "Jalur pertama: berhemat. Anggap kamu berhasil memotong sepuluh persen dari pengeluaran."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jalur hemat",
+   "preco": "potong 10% pengeluaran",
+   "nar": "Dari pengeluaran dua juta rupiah, itu dua ratus ribu rupiah sebulan yang bisa ditambahkan ke tabungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jalur tarif",
+   "preco": "naik 10% penghasilan",
+   "nar": "Jalur kedua: menaikkan tarif harian sepuluh persen. Dari seratus ribu jadi seratus sepuluh ribu per hari."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jalur tarif",
+   "preco": "naik 10% penghasilan",
+   "nar": "Dikali dua puluh enam hari, itu dua ratus enam puluh ribu rupiah sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Selisih per bulan",
+   "itens": [
+    "hemat 10%: Rp200 ribu",
+    "tarif +10%: Rp260 ribu"
+   ],
+   "alturas": [
+    20,
+    26
+   ],
+   "cap": "Selisih per bulan",
+   "nar": "Sekilas selisihnya kecil: dua ratus ribu lawan dua ratus enam puluh ribu. Enam puluh ribu rupiah sebulan. Tapi selisih angka bukan bagian yang penting di sini."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga perbedaan yang nyata",
+   "itens": [
+    "hemat punya batas, tarif tidak",
+    "hemat harus diulang tiap bulan"
+   ],
+   "cap": "Tiga perbedaan yang nyata",
+   "nar": "Yang penting adalah tiga perbedaan sifatnya. Berhemat punya batas keras — kamu tidak bisa memotong lebih dari yang kamu keluarkan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga perbedaan yang nyata",
+   "itens": [
+    "hemat harus diulang tiap bulan",
+    "tarif naik ikut bertahan"
+   ],
+   "nar": "Menaikkan tarif tidak punya batas sekeras itu. Berhemat harus diulangi setiap bulan dengan tenaga baru. Tarif yang sudah naik cenderung bertahan sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perbedaan ketiga",
+   "preco": "hemat memakan hidup",
+   "nar": "Dan perbedaan ketiga yang paling jarang disebut: berhemat sepuluh persen dari pengeluaran yang sudah pas-pasan berarti memotong sesuatu yang nyata dari hidupmu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Perbedaan ketiga",
+   "preco": "hemat memakan hidup",
+   "nar": "Menaikkan tarif tidak memotong apa pun. Keduanya menambah angka yang mirip, tapi biaya hidupnya sangat berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesimpulan praktisnya",
+   "preco": "lakukan keduanya, urutannya beda",
+   "nar": "Kesimpulan praktisnya bukan memilih satu. Lakukan keduanya, tapi berikan energi terbesarmu ke jalur tarif."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesimpulan praktisnya",
+   "preco": "lakukan keduanya, urutannya beda",
+   "nar": "Jadikan berhemat sebagai perawatan rutin, bukan sebagai strategi utama — karena strategi yang punya batas keras tidak bisa jadi strategi utama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau tarif tidak bisa naik",
+   "preco": "tambah hari, bukan jam",
+   "nar": "Dan kalau tarifmu benar-benar tidak bisa naik sekarang, targetnya bergeser: kurangi hari tanpa pemasukan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau tarif tidak bisa naik",
+   "preco": "tambah hari, bukan jam",
+   "nar": "Dua hari kosong yang berhasil diisi sebulan memberi dua ratus ribu rupiah — setara dengan seluruh usaha berhemat tadi, tanpa memotong apa pun dari hidupmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 10",
+   "sub": "yang justru memundurkan",
+   "cap": "Yang justru memundurkan",
+   "nar": "Bagian tujuh: yang justru memundurkan garis waktumu. Tiga hal, dan ketiganya populer."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hindari 1",
+   "sub": "pinjaman untuk konsumsi",
+   "cap": "Hindari: pinjaman konsumtif",
+   "nar": "Pertama, pinjaman untuk konsumsi. Bunga pinjaman hampir selalu jauh di atas imbal hasil tabunganmu."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hindari 1",
+   "sub": "pinjaman untuk konsumsi",
+   "nar": "Selama ada pinjaman konsumtif berbunga tinggi, melunasinya memberi hasil pasti yang lebih besar daripada instrumen mana pun yang saya sebut tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua",
+   "preco": "janji imbal hasil tetap tinggi",
+   "nar": "Kedua, apa pun yang menjanjikan imbal hasil tetap jauh di atas angka pasar. Kita baru saja lihat patokannya: SBN sepuluh tahun sekitar tujuh koma tiga persen."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua",
+   "preco": "janji imbal hasil tetap tinggi",
+   "nar": "Kalau ada yang menjanjikan sepuluh persen sebulan, itu bukan investasi — dan uang yang hilang di sana memundurkan garis waktumu bertahun-tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tiga",
+   "preco": "menunggu modal besar",
+   "nar": "Ketiga, menunggu sampai punya modal besar untuk mulai. Ini kesalahan yang paling sunyi karena tidak terasa seperti kesalahan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tiga",
+   "preco": "menunggu modal besar",
+   "nar": "Padahal setiap tahun menunggu adalah satu tahun yang hilang dari efek bunga berbunga, dan tahun-tahun awal justru yang paling berharga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Jawaban jujurnya",
+   "itens": [
+    "Rp100 juta: 8 sampai 16 tahun",
+    "yang mengubahnya: penghasilan"
+   ],
+   "cap": "Jawaban jujurnya",
+   "nar": "Jadi jawaban jujurnya, dirangkum. Dari penghasilan seratus ribu per hari, seratus juta rupiah butuh antara delapan sampai enam belas tahun, tergantung porsi menabung dan imbal hasil."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Jawaban jujurnya",
+   "itens": [
+    "yang mengubahnya: penghasilan",
+    "yang mempercepat: mulai hari ini"
+   ],
+   "nar": "Yang paling mengubah angkanya adalah penghasilan itu sendiri. Dan yang paling mempercepatnya adalah memulai hari ini, bukan nanti.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang berubah duluan",
+   "preco": "bukan angkanya",
+   "nar": "Tapi ada satu hal yang berubah jauh lebih cepat daripada saldonya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang berubah duluan",
+   "preco": "bukan angkanya",
+   "nar": "Setelah beberapa bulan menyetor dua puluh ribu tiap hari kerja, kamu berhenti merasa uang datang dan pergi tanpa jejak. Rasa kendali itu muncul jauh sebelum angkanya besar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ingat angka pertama",
+   "preco": "59,3%",
+   "nar": "Dan tutup dengan angka yang kita buka tadi. Lima puluh sembilan koma tiga persen."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ingat angka pertama",
+   "preco": "59,3%",
+   "nar": "Kalau kamu ada di kelompok itu, kamu bukan pengecualian dari ekonomi Indonesia — kamu justru mayoritasnya. Konten yang selama ini tidak nyambung denganmu memang tidak ditulis untukmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagian 11",
+   "sub": "apa yang dilakukan minggu ini",
+   "cap": "Mulai minggu ini",
+   "nar": "Bagian sebelas, dan yang terakhir: apa yang benar-benar dilakukan minggu ini. Karena video yang tidak berakhir di tindakan cuma jadi hiburan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 1 sampai 2",
+   "itens": [
+    "catat penghasilan 7 hari terakhir",
+    "hitung rata-rata hariannya"
+   ],
+   "cap": "Hari 1 sampai 2",
+   "nar": "Hari pertama dan kedua, jangan menabung dulu. Catat saja penghasilanmu tujuh hari terakhir, sejujurnya. Hitung rata-rata hariannya."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 1 sampai 2",
+   "itens": [
+    "hitung rata-rata hariannya",
+    "tentukan angka setoran harian"
+   ],
+   "nar": "Lalu tentukan angka setoran harian yang terasa hampir terlalu kecil — karena angka yang terlalu besar adalah alasan paling umum orang berhenti di minggu kedua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 3 sampai 5",
+   "itens": [
+    "buka tempat simpan terpisah",
+    "setor pertama hari itu juga"
+   ],
+   "cap": "Hari 3 sampai 5",
+   "nar": "Hari ketiga sampai kelima, buka tempat menyimpan yang terpisah dari uang harianmu. Setor pertama kali di hari yang sama kamu membukanya, berapa pun jumlahnya."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 3 sampai 5",
+   "itens": [
+    "setor pertama hari itu juga",
+    "tulis aturan hari sepi"
+   ],
+   "nar": "Dan tulis aturan hari sepi di kertas atau di ponsel, supaya nanti kamu tidak perlu berpikir saat sedang tertekan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 6 sampai 7",
+   "itens": [
+    "target tahap 1: 2 minggu pengeluaran",
+    "tanggal cek ulang sebulan lagi"
+   ],
+   "cap": "Hari 6 sampai 7",
+   "nar": "Hari keenam dan ketujuh, tetapkan target tahap pertama: dua minggu pengeluaran. Pasang tanggal untuk mengecek ulang sebulan lagi."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Hari 6 sampai 7",
+   "itens": [
+    "tanggal cek ulang sebulan lagi",
+    "satu ide menaikkan tarif"
+   ],
+   "nar": "Dan tulis satu ide konkret untuk menaikkan penghasilan harianmu — satu saja, yang bisa kamu coba bulan ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak perlu minggu ini",
+   "preco": "memilih instrumen",
+   "nar": "Dan yang tidak perlu kamu lakukan minggu ini: memilih instrumen investasi. Itu keputusan untuk nanti, setelah tahap pertama selesai."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak perlu minggu ini",
+   "preco": "memilih instrumen",
+   "nar": "Banyak orang menghabiskan berminggu-minggu membandingkan produk sebelum menyetor rupiah pertamanya, lalu tidak pernah menyetor sama sekali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ukuran keberhasilan",
+   "preco": "30 hari berturut",
+   "nar": "Ukuran keberhasilan bulan pertamamu bukan jumlah yang terkumpul. Ukurannya adalah berapa hari berturut-turut kamu tidak melewatkan setoran, sekecil apa pun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ukuran keberhasilan",
+   "preco": "30 hari berturut",
+   "nar": "Angka akan mengikuti kebiasaan. Kebiasaan tidak pernah mengikuti angka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Giliran kamu",
+   "sub": "berapa penghasilan harianmu?",
+   "cap": "Giliran kamu",
+   "nar": "Sekarang giliranmu. Berapa penghasilan harianmu, dan berapa yang realistis kamu sisihkan tiap hari kerja? Tulis di kolom komentar, dan tulis juga jenis pekerjaannya — saya sedang mengumpulkan angka nyata dari berbagai bidang untuk video lanjutan."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Giliran kamu",
+   "sub": "berapa penghasilan harianmu?",
+   "nar": "Kalau video ini masuk akal buatmu, subscribe ke Setiap Level. Di sini kita membedah angka, bukan menjual jalan pintas.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "59,3%",
+   "sub": "pekerja RI tanpa gaji bulanan",
+   "nar": "Enam dari sepuluh pekerja Indonesia tidak punya gaji bulanan. Tapi semua konten keuangan bicara soal gaji tiga juta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Rp100 ribu per hari",
+   "preco": "Rp2,6 juta",
+   "nar": "Seratus ribu per hari jadi dua koma enam juta sebulan."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sampai Rp100 juta",
+   "itens": [
+    "tanpa bunga: 16 tahun",
+    "dengan 6%: 11 tahun",
+    "nabung 30%: 8 tahun"
+   ],
+   "nar": "Menyisihkan dua puluh persen tanpa bunga: enam belas tahun. Dengan imbal hasil enam persen: sebelas tahun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Caranya",
+   "preco": "Rp20 ribu per hari",
+   "nar": "Sisihkan dua puluh ribu tiap hari kerja, bukan sekali sebulan."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "kita membedah angka",
+   "nar": "Delapan tahun atau enam belas, kamu yang pilih. Subscribe ke Setiap Level."
+  }
+ ],
+ "copy": "# Gaji Harian Rp100 Ribu: Matematika Nyata Menuju Rp100 Juta\n\n## TITLE\nGaji Harian Rp100 Ribu: Matematika Nyata Menuju Rp100 Juta\n\n## DESCRIPTION\nPer Mei 2026, Badan Pusat Statistik mencatat 59,30% pekerja Indonesia berada di sektor informal — sekitar 87,88 juta orang dari total 147,67 juta pekerja. Artinya enam dari sepuluh orang yang bekerja di negara ini tidak menerima gaji bulanan; mereka menerima uang harian, mingguan, atau borongan. Hampir semua konten keuangan berbahasa Indonesia menulis untuk empat dari sepuluh sisanya. Video ini menghitung dari arah sebaliknya: mulai dari penghasilan harian.\n\nAngka pembandingnya: survei Sakernas BPS Februari 2026 mencatat upah rata-rata pekerja Indonesia Rp3,29 juta per bulan, jauh di bawah UMP Jakarta 2026 yang mencapai Rp5,72 juta. UMP 2026 sendiri naik di kisaran 5–8% dengan rata-rata nasional sekitar 6,5–7%, tetapi kenaikan itu hanya menyentuh pekerja formal. Untuk enam dari sepuluh pekerja lainnya, yang naik hanya harga di pasar.\n\nPerhitungannya: penghasilan Rp100.000 per hari × 26 hari kerja = Rp2,6 juta per bulan. Menyisihkan 20% berarti Rp520.000 per bulan, atau Rp20.000 setiap hari kerja — dan ritme harian ini penting, karena tidak ada satu tanggal yang bisa menggagalkan seluruh bulan. Sampai Rp100 juta: tanpa imbal hasil sama sekali butuh 192 bulan alias 16 tahun; dengan imbal hasil sekitar 6% per tahun turun ke sekitar 11 tahun 4 bulan; dan bila porsi menabung dinaikkan ke 30%, sekitar 8 tahun 3 bulan. Rentang antara skenario terbaik dan terburuk hampir delapan tahun, dari penghasilan yang persis sama.\n\nVideo ini juga membahas dana darurat versi penghasilan tidak tetap (bertahap: 2 minggu, 6 minggu, baru 3 bulan — bukan langsung 6 bulan), dan di mana menaruh uangnya dengan angka pasar yang berlaku: BI-Rate dipertahankan 5,75% pada RDG 21–22 Juli 2026 setelah tiga kali kenaikan dalam dua bulan, inflasi Juni 2026 tercatat 3,34% secara tahunan, dan imbal hasil SBN pemerintah tenor 10 tahun bertahan di kisaran 7,3% pada akhir Juli 2026. Dari situ muncul konsep imbal hasil riil — imbal hasil dikurangi inflasi — yang menentukan apakah kekayaanmu benar-benar tumbuh atau hanya mengejar harga.\n\nJawaban jujurnya: 8 sampai 16 tahun. Tidak ada video yang bisa mengubah aritmetika itu. Yang paling mengubah angkanya adalah penghasilan harianmu sendiri, bukan memangkas kopi.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nBerapa penghasilan harianmu, dan berapa yang realistis kamu sisihkan tiap hari kerja? Tulis juga jenis pekerjaannya — saya sedang mengumpulkan angka nyata dari berbagai bidang untuk video lanjutan. Saya paling ingin tahu dari teman-teman yang penghasilannya berubah tiap minggu: aturan apa yang kamu pakai di hari sepi?\n\n## HASHTAGS\n#KeuanganPribadi #PekerjaHarian #SetiapLevel\n\n## TAGS\ngaji harian, penghasilan harian, cara menabung penghasilan tidak tetap, pekerja informal indonesia, tabungan 100 juta, upah rata rata indonesia 2026, ump 2026, bi rate 2026, inflasi indonesia 2026, sbn ritel pemula, imbal hasil riil, dana darurat penghasilan harian, keuangan pekerja lepas, cara mengatur uang harian, menabung 20 ribu per hari\n\n## STUDIO SETTINGS\n- Bahasa: Indonesia (id) | Kategori: Education (27)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (narasi AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif, beberapa titik (durasi di atas 25 menit)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SUMBER DAN CATATAN\nData ketenagakerjaan dan upah: Badan Pusat Statistik (Sakernas Februari 2026 dan rilis Mei 2026) sebagaimana diberitakan media nasional. UMP 2026 mengacu pada keputusan gubernur akhir 2025. Suku bunga acuan dan lintasannya: rilis Rapat Dewan Gubernur Bank Indonesia. Inflasi Juni 2026 dan sasaran inflasi: BPS dan Bank Indonesia. Imbal hasil SBN tenor 10 tahun: data pasar akhir Juli 2026. Perhitungan Rp100 juta memakai asumsi 26 hari kerja per bulan dan imbal hasil 6% per tahun yang dimajemukkan bulanan; asumsi berbeda akan memberi hasil berbeda. Pajak dan biaya administrasi sengaja tidak diberi angka karena berbeda antar instrumen dan harus diperiksa sendiri. Konten edukatif, bukan rekomendasi investasi.\n"
+}

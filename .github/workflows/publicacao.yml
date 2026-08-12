@@ -9,6 +9,10 @@ on:
         description: "Slug do video (veja em `maquina listar`)"
         type: string
         required: true
+      canal:
+        description: "Canal do video (ex: setiap-level, next-level-money, cocina-por-niveles)"
+        type: string
+        required: true
       em_horas:
         description: "Agendar para daqui a N horas (0 = publicar agora)"
         type: string
@@ -17,6 +21,22 @@ on:
         type: choice
         options: [public, unlisted, private]
         default: public
+      video_url:
+        description: "URL publica do mp4 (Supabase Storage) — baixado para out/<canal>/<slug>/final.mp4"
+        type: string
+        default: ""
+      thumb_url:
+        description: "URL publica da thumbnail (png/jpg)"
+        type: string
+        default: ""
+      legenda_url:
+        description: "URL publica do .srt no Storage. Necessario com legendar=true: o runner nao tem o artefato e o roteiro nao guarda duracao de cena."
+        type: string
+        default: ""
+      legendar:
+        description: "Enviar legenda .srt apos publicar (exige legenda_url)"
+        type: boolean
+        default: false
 
 concurrency:
   group: publicacao
@@ -39,13 +59,6 @@ jobs:
       - name: Instalar
         run: pip install -e .
 
-      - name: Restaurar estado
-        uses: actions/cache@v4
-        with:
-          path: data
-          key: maquina-estado-${{ github.run_id }}
-          restore-keys: maquina-estado-
-
       - name: Baixar video revisado
         uses: actions/download-artifact@v4
         with:
@@ -55,23 +68,135 @@ jobs:
 
       - name: Restaurar credencial do YouTube
         env:
+          YT_TOKEN_AGLA_LEVEL: ${{ secrets.YT_TOKEN_AGLA_LEVEL }}
+          YT_TOKEN_COCINA_POR_NIVELES: ${{ secrets.YT_TOKEN_COCINA_POR_NIVELES }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_GAME_MONEY_LAB: ${{ secrets.YT_TOKEN_GAME_MONEY_LAB }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          YT_TOKEN_NEXT_LEVEL_MONEY: ${{ secrets.YT_TOKEN_NEXT_LEVEL_MONEY }}
+          YT_TOKEN_NIVEL_DO_JOGO: ${{ secrets.YT_TOKEN_NIVEL_DO_JOGO }}
+          YT_TOKEN_RESEP_NAIK_LEVEL: ${{ secrets.YT_TOKEN_RESEP_NAIK_LEVEL }}
+          YT_TOKEN_SETIAP_LEVEL: ${{ secrets.YT_TOKEN_SETIAP_LEVEL }}
+          YT_TOKEN_SEVIYE_SEVIYE: ${{ secrets.YT_TOKEN_SEVIYE_SEVIYE }}
+          # Legado — removido apos migrar todos os canais
           YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
+          # ORDEM IMPORTA: Supabase PRIMEIRO. A reautorizacao OAuth grava em
+          # config.yt_token_<canal>, e nada nunca atualiza os secrets do GitHub —
+          # preferir o secret significa usar um token que envelhece para sempre.
+          # Medido em 2026-08-12 no legendar.yml, que tinha a ordem invertida:
+          # o setiap-level foi reautorizado com force-ssl e mesmo assim deu 403,
+          # porque o job pegou o YT_TOKEN_SETIAP_LEVEL antigo. O secret e plano B.
+          TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_${{ inputs.canal }}&select=valor" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+          if [ -n "$TOKEN" ]; then
+            echo "token: Supabase (config.yt_token_${{ inputs.canal }})"
+          else
+            CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
+            TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
+            TOKEN="${!TOKEN_VAR}"
+            echo "token: secret ${TOKEN_VAR} (fallback) — pode estar desatualizado"
+          fi
+          if [ -z "$TOKEN" ]; then
+            echo "Erro: nem o secret ${TOKEN_VAR} nem config.yt_token_${{ inputs.canal }} existem"
+            echo "Adicione o secret em github.com/${{ github.repository }}/settings/secrets/actions"
+            echo "ou grave o token na tabela config do Supabase."
+            exit 1
+          fi
           mkdir -p secrets
-          printf '%s' "$YT_TOKEN_JSON" > secrets/youtube_token.json
-          test -s secrets/youtube_token.json || { echo "secret YT_TOKEN_JSON vazio"; exit 1; }
+          # Config.load isola o token por canal (youtube_token_<slug>.json)
+          # quando MAQ_CANAL esta definido; grava nos dois caminhos.
+          printf '%s' "$TOKEN" > secrets/youtube_token.json
+          printf '%s' "$TOKEN" > "secrets/youtube_token_${{ inputs.canal }}.json"
+          test -s secrets/youtube_token.json || { echo "token vazio"; exit 1; }
+          echo "Credencial restaurada para canal: ${{ inputs.canal }}"
+
+      - name: Sincronizar estado do Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: maquina sincronizar
+
+      - name: Baixar artefatos do Supabase Storage
+        if: inputs.video_url != ''
+        run: |
+          DEST="out/${{ inputs.canal }}/${{ inputs.slug }}"
+          mkdir -p "$DEST"
+          curl -sfL --max-time 300 "${{ inputs.video_url }}" -o "$DEST/final.mp4"
+          test -s "$DEST/final.mp4" || { echo "download do video falhou"; exit 1; }
+          echo "video: $(du -h "$DEST/final.mp4" | cut -f1)"
+          if [ -n "${{ inputs.thumb_url }}" ]; then
+            curl -sfL --max-time 120 "${{ inputs.thumb_url }}" -o "$DEST/thumbnail.jpg"
+            echo "thumbnail: $(du -h "$DEST/thumbnail.jpg" | cut -f1)"
+          fi
+          # O .srt tambem precisa descer, e pelo mesmo motivo do video: o runner
+          # e efemero. `maquina legendar` procura em out/<canal>/<slug>/legendas.srt
+          # antes de tentar regenerar do roteiro.
+          if [ -n "${{ inputs.legenda_url }}" ]; then
+            curl -sfL --max-time 120 "${{ inputs.legenda_url }}" -o "$DEST/legendas.srt"
+            echo "legenda: $(wc -l < "$DEST/legendas.srt") linhas"
+          fi
 
       - name: Publicar
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
         run: |
           maquina publicar "${{ inputs.slug }}" \
             --em-horas "${{ inputs.em_horas }}" \
             --privacidade "${{ inputs.privacidade }}" \
             --yes
 
+      # PROBLEMA ABERTO em 2026-08-12: os longos iYe04WMYDxQ e XgqPVJuAk3o
+      # subiram com contentDetails.caption=false apesar de legendar=true, e os
+      # dois runs manuais do legendar.yml (31591900543 e 31591913712) tambem
+      # falharam DEPOIS de os videos ja estarem uploadStatus=processed. Ou seja:
+      # a hipotese obvia — captions.insert perder a corrida contra o
+      # processamento — NAO explica, porque na segunda tentativa nao havia mais
+      # corrida. A causa real ainda nao foi diagnosticada.
+      #
+      # O retry abaixo nao conserta isso; ele so cobre o caso de processamento e,
+      # principalmente, para de esconder a falha. O `continue-on-error` fica de
+      # proposito (legenda faltando nao deve reprovar uma publicacao que deu
+      # certo), mas antes ele engolia o erro sem rastro nenhum e "sem legenda" so
+      # aparecia como caption=false na API dias depois. Agora sai um ::warning::
+      # no resumo do run.
+      - name: Enviar legenda
+        if: inputs.legendar
+        continue-on-error: true
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: |
+          for tentativa in 1 2 3 4 5; do
+            if maquina legendar "${{ inputs.slug }}"; then
+              echo "legenda enviada na tentativa $tentativa"
+              exit 0
+            fi
+            echo "tentativa $tentativa falhou (video provavelmente ainda processando); aguardando 60s"
+            sleep 60
+          done
+          echo "::warning title=Legenda nao enviada::${{ inputs.slug }} publicou sem legenda apos 5 tentativas. Rode o workflow legendar.yml quando o video terminar de processar."
+          exit 1
+
+      - name: Sincronizar resultado de volta ao Supabase
+        if: always()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          MAQ_CANAL: ${{ inputs.canal }}
+        run: maquina sincronizar
+
       - name: Limpar credencial
         if: always()
-        run: rm -f secrets/youtube_token.json
+        run: rm -f secrets/youtube_token.json "secrets/youtube_token_${{ inputs.canal }}.json"

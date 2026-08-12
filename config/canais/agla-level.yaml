@@ -1,0 +1,13 @@
+# Canal do portfolio v2 (docs/13-oceano-azul-fluxo.md). Sobrepoe default.yaml.
+# handle: preencher quando o canal for criado no YouTube Studio.
+canal:
+  nome: "Agla Level"
+  handle: "@AglaLevel"
+  idioma: "hi"
+  tema: "paisa, naukri aur career"
+  estilo_visual: "doodle"
+  voz_edge: "hi-IN-MadhurNeural"
+  idioma_revisao: "pt-BR"
+# Nicho: financas e carreira, India (volume colossal)
+# Paleta: acafrao FF9933, verde 138808
+# Regra anti-rede: nunca o mesmo roteiro traduzido em dois canais na mesma semana.

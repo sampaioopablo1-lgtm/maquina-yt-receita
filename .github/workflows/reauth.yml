@@ -1,0 +1,135 @@
+name: OAuth — auditar escopos e trocar codigo
+
+# Duas coisas que eram manuais e nao precisam ser.
+#
+# AUDITAR: diz quais canais realmente precisam de reautorizacao. Reautorizar e
+# um clique humano por canal, e treze cliques e o tipo de tarefa que nao
+# acontece. O endpoint de refresh do Google devolve o campo `scope` com o que o
+# token carrega de verdade — entao da para saber sem supor, e pedir so os que
+# faltam.
+#
+# TROCAR: recebe a URL de retorno (http://localhost/?code=...&state=<canal>) e
+# grava o refresh_token no banco. O `state` diz o canal, e o canal e CONFIRMADO
+# por channels.list mine=true antes de gravar — nunca assumido pelo slug.
+#
+# O codigo expira em ~10 min e e de uso unico. Rode logo depois de autorizar.
+
+on:
+  workflow_dispatch:
+    inputs:
+      acao:
+        description: "auditar (lista quem falta) ou trocar (grava o token)"
+        type: choice
+        options: [auditar, trocar]
+        default: auditar
+      url_retorno:
+        description: "So para 'trocar': a URL INTEIRA da barra de enderecos apos autorizar"
+        type: string
+        default: ""
+
+jobs:
+  oauth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Auditar escopos
+        if: inputs.acao == 'auditar'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/auditar_escopos.py | tee /tmp/aud.txt
+          { echo '### Escopos por canal'; echo '```'; cat /tmp/aud.txt; echo '```'; } \
+            >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Trocar codigo por refresh_token
+        if: inputs.acao == 'trocar'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          URL_RETORNO: ${{ inputs.url_retorno }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, urllib.parse, urllib.request
+
+          SB = os.environ["SUPABASE_URL"].rstrip("/")
+          KEY = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+          q = urllib.parse.parse_qs(urllib.parse.urlparse(os.environ["URL_RETORNO"]).query)
+          code = q.get("code", [None])[0]
+          slug = q.get("state", [None])[0]
+          if not code or not slug:
+              raise SystemExit("::error::URL sem code ou sem state — cole a URL inteira")
+          print(f"::add-mask::{code}")
+          print(f"canal declarado no state: {slug}")
+
+          def cfg(chave):
+              url = f"{SB}/rest/v1/config?chave=eq.{chave}&select=valor"
+              r = urllib.request.Request(url, headers={"apikey": KEY, "Authorization": f"Bearer {KEY}"})
+              linhas = json.load(urllib.request.urlopen(r, timeout=60))
+              return linhas[0]["valor"] if linhas else None
+
+          tok = cfg(f"yt_token_{slug}")
+          if not tok:
+              raise SystemExit(f"::error::config.yt_token_{slug} nao existe")
+
+          d = urllib.parse.urlencode({
+              "client_id": tok["client_id"], "client_secret": tok["client_secret"],
+              "code": code, "grant_type": "authorization_code",
+              "redirect_uri": "http://localhost"}).encode()
+          r = json.load(urllib.request.urlopen(urllib.request.Request(
+              tok.get("token_uri", "https://oauth2.googleapis.com/token"),
+              data=d, method="POST"), timeout=60))
+          rt = r.get("refresh_token")
+          if not rt:
+              raise SystemExit("::error::sem refresh_token na resposta — "
+                               "o link precisa de prompt=consent")
+          print(f"::add-mask::{rt}")
+          escopos = r.get("scope", "")
+          print("escopos concedidos:", escopos)
+          if "force-ssl" not in escopos:
+              print("::warning::force-ssl NAO veio — a legenda continuara falhando")
+
+          # Confirmar de quem e o token. O `state` e so o que o link declarou;
+          # quem escolhe o canal e a pessoa na tela de consentimento, e errar
+          # aqui grava o token de um canal na linha de outro.
+          ch = json.load(urllib.request.urlopen(urllib.request.Request(
+              "https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
+              headers={"Authorization": "Bearer " + r["access_token"]}), timeout=60))
+          itens = ch.get("items", [])
+          if not itens:
+              raise SystemExit("::error::token sem canal — conta errada na tela de consentimento?")
+          cid, titulo = itens[0]["id"], itens[0]["snippet"]["title"]
+          print(f"canal confirmado pela API: {cid} | {titulo}")
+
+          url = f"{SB}/rest/v1/canais?slug=eq.{slug}&select=youtube_channel_id,nome"
+          rr = urllib.request.Request(url, headers={"apikey": KEY, "Authorization": f"Bearer {KEY}"})
+          linhas = json.load(urllib.request.urlopen(rr, timeout=60))
+          if linhas and linhas[0].get("youtube_channel_id") and linhas[0]["youtube_channel_id"] != cid:
+              raise SystemExit(
+                  f"::error::canal errado. O state dizia {slug} "
+                  f"({linhas[0]['youtube_channel_id']}) mas o token e de {cid} ({titulo}). "
+                  "Refaca escolhendo o canal certo na tela do Google.")
+
+          novo = dict(tok)
+          novo.update({"refresh_token": rt, "scopes": escopos,
+                       "reautorizado_em": "via workflow reauth.yml",
+                       "canal_confirmado": f"{cid} ({titulo})"})
+          req = urllib.request.Request(
+              f"{SB}/rest/v1/config?chave=eq.yt_token_{slug}",
+              data=json.dumps({"valor": novo}).encode(), method="PATCH",
+              headers={"apikey": KEY, "Authorization": f"Bearer {KEY}",
+                       "Content-Type": "application/json", "Prefer": "return=minimal"})
+          urllib.request.urlopen(req, timeout=60)
+          print(f"gravado em config.yt_token_{slug}")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+              f.write(f"### {slug} reautorizado\n\n"
+                      f"- canal: `{cid}` — {titulo}\n"
+                      f"- force-ssl: {'sim' if 'force-ssl' in escopos else 'NAO'}\n")
+          PY

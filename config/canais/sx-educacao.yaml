@@ -1,0 +1,63 @@
+# Canal COMERCIAL ativo do Pablo. Sobrepoe default.yaml.
+canal:
+  nome: "SX Educação"
+  handle: "@sxeducacao"
+  idioma: "pt-BR"
+  tema: "Excel, Power BI e carreira de analista de dados"
+  estilo_visual: "voxlite"
+  # COLISAO CONHECIDA, nao e descuido: o edge-tts tem exatamente tres vozes
+  # pt-BR (Antonio, Francisca, ThalitaMultilingual) e o portfolio tem quatro
+  # canais pt-BR. Antonio ja e do nivel-do-jogo. Nao existe quarta voz para
+  # sortear — medido em 2026-08-12 com edge_tts.list_voices().
+  # Este e o fallback mecanico, para o pipeline nao quebrar. A identidade real
+  # deste canal e a VOZ CLONADA DO PABLO (assets/voice/referencia-corte.wav),
+  # que alem de resolver a colisao e a escolha certa aqui: o canal capta
+  # matricula para o curso presencial DELE, entao a voz dele nao e disfarce.
+  voz_edge: "pt-BR-AntonioNeural"
+  idioma_revisao: "pt-BR"
+  # 27 (Educacao): o canal ensina ferramenta, nao entretem.
+  categoria_id: "27"
+#
+# GUARDA COMERCIAL — leia antes de escolher pauta.
+# Este canal nao e um canal de portfolio: ele capta matricula para um curso
+# PRESENCIAL em Sao Jose dos Campos, e o funil de vendas e humano. Conteudo
+# automatico entra so no eixo Excel / Power BI / carreira de dados, e NUNCA
+# faz oferta, promessa de resultado, preco, prazo de turma ou chamada para
+# matricula. Se uma pauta so funciona com promessa comercial, ela nao e deste
+# canal.
+#
+# Paleta: fundo F1F7F4, verde Excel 217346, ambar F2B134, tinta 10261C.
+# Trilha: Deliberate_Thought.
+#
+# GRUPO DE PARES MEDIDO em 2026-08-12 (janela de 90 dias, 4 eixos de busca,
+# 45 videos coletados, 33 em pt, 28 maduros depois de descartar os de menos
+# de 48h de vida):
+#
+#   mediana do nicho    79,6 views/dia      topo 2112,4      outlier >= 238,8
+#
+#   artefato Excel/BI   n=10   mediana  93,0   topo 2112,4
+#   concurso/vaga       n= 6   mediana 133,1   topo 1807,1
+#   carreira/opiniao    n=12   mediana   8,1   topo  837,7
+#
+# O eixo carreira/opiniao esta MORTO: onze vezes abaixo do eixo artefato.
+# "O que um analista de dados realmente faz" mede 1,3 v/d; "Faculdade ou
+# Portfolio" mede 0,5. Nunca abrir com video de carreira, portfolio ou
+# "vale a pena virar analista". Sempre com artefato que o espectador copia.
+#
+# O outlier do grupo (2112,4 v/d, 132 mil views em 62 dias) e "Como Criar
+# Qualquer Planilha Excel com I.A (100% Gratis) mesmo sendo total iniciante".
+# Modelar a ESTRUTURA — [criar QUALQUER <artefato>] + [com IA] + [gratis] +
+# [mesmo sendo iniciante] — e nunca o assunto dele.
+#
+# Duracao (18 pares maduros, concursos fora): <7min mediana 2,8 v/d; 7-15min
+# mediana 77,3; >15min mediana 117,8. Ficar em 12-15 min. A faixa curta mistura
+# clipe e short, entao parte do efeito e formato, nao duracao — nao escalonar
+# para 25-30 min so com isso.
+#
+# Taxa MEDIDA da voz: pt-BR-AntonioNeural = 14,30 chars/s com numeros por
+# extenso e rate -4%. Para 780s isso da ~134 chars por cena em 80 cenas.
+#
+# Regra anti-rede: o labtreinamento tambem e pt-BR e tambem fala de Excel.
+# Nunca o mesmo roteiro nos dois, e nunca na mesma semana. A divisao e de
+# dominio: labtreinamento pega obrigacao legal (ISO, NR, SST), sx-educacao
+# pega ferramenta e analise de dados.

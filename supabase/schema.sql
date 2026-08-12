@@ -39,7 +39,11 @@ create index if not exists idx_metricas_video on metricas (youtube_id, coletado_
 
 -- Ultima leitura de cada video, com o gargalo ja classificado.
 -- E a consulta que responde "o que eu conserto primeiro".
-create or replace view painel_pilares as
+-- security_invoker: sem isso a view roda com o privilegio de quem criou (dono),
+-- ignorando as policies de RLS abaixo e vazando os dados para anon/authenticated
+-- via PostgREST — o oposto do "acesso apenas via service_role" declarado ali.
+create or replace view painel_pilares
+    with (security_invoker = true) as
 select distinct on (m.youtube_id)
     v.slug,
     v.titulo,
@@ -63,7 +67,8 @@ join videos v on v.youtube_id = m.youtube_id
 order by m.youtube_id, m.coletado_em desc;
 
 -- Progresso rumo aos requisitos do YPP (1.000 inscritos + 4.000h em 12 meses).
-create or replace view progresso_ypp as
+create or replace view progresso_ypp
+    with (security_invoker = true) as
 select
     sum(inscritos_ganhos)                              as inscritos_ganhos_periodo,
     round(sum(views * duracao_media_s) / 3600.0, 1)    as horas_estimadas,
@@ -79,7 +84,68 @@ alter table videos   enable row level security;
 alter table metricas enable row level security;
 
 -- Acesso apenas via service_role (o job do Actions). Sem cliente publico.
-create policy if not exists "service_role_videos"
+-- Postgres nao aceita `create policy if not exists`; o drop antes mantem o
+-- arquivo reaplicavel sem erro.
+drop policy if exists "service_role_videos" on videos;
+create policy "service_role_videos"
     on videos for all to service_role using (true) with check (true);
-create policy if not exists "service_role_metricas"
+
+drop policy if exists "service_role_metricas" on metricas;
+create policy "service_role_metricas"
     on metricas for all to service_role using (true) with check (true);
+
+-- ============================================================
+-- As quatro consultas de abertura (PLAYBOOK.md secao 0).
+--
+-- As tabelas base (canais, aprendizados, pautas_banco) foram criadas direto em
+-- producao por sessoes anteriores e NAO estao neste arquivo — reaplicar este
+-- schema.sql do zero NAO recria essas views porque as tabelas nao existem
+-- aqui. Documentado como gap conhecido em `aprendizados` (categoria processo,
+-- 2026-08-05); as definicoes abaixo servem para manter as views versionadas,
+-- nao para reconstruir o banco do zero.
+--
+-- Todas com security_invoker=true: sem isso a view roda com o privilegio de
+-- quem criou (SECURITY DEFINER, por omissao) e ignora a RLS das tabelas base,
+-- vazando os dados para anon/authenticated via PostgREST — achado como ERROR
+-- pelo Supabase Advisor em 2026-08-05 e corrigido nesta mesma sessao.
+-- ============================================================
+
+create or replace view v_maquina_estoque
+    with (security_invoker = true) as
+select count(distinct pacote) as pacotes,
+    count(distinct pacote) filter (where status = 'publicado') as publicados,
+    count(distinct pacote) filter (where status = 'erro') as com_erro,
+    count(distinct pacote) filter (where status = 'listado_para_publicacao') as aguardando_publicacao,
+    round(sum(duracao_s) filter (where formato = 'longo') / 3600.0, 1) as horas_de_longo,
+    round(avg(duracao_s) filter (where formato = 'longo')) as duracao_media_s
+from videos;
+
+create or replace view v_maquina_fila
+    with (security_invoker = true) as
+select slug, nome, idioma, nicho, voz, estilo,
+    (youtube_channel_id is not null) as no_youtube,
+    pacotes, ultimo_pacote_em, trilha, fonte, duracao_alvo_s,
+    nicho_mediana_vd, nicho_medido_em,
+    (select count(*) from videos v where v.canal = c.slug and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
+    (select count(distinct v.pacote) from videos v where v.canal = c.slug) as pacotes_registrados
+from canais c
+where ativo
+order by (youtube_channel_id is null), ultimo_pacote_em nulls first;
+
+create or replace view v_maquina_formatos
+    with (security_invoker = true) as
+select canal, formato, veredito, count(*) as n,
+    round(percentile_cont(0.5) within group (order by views_dia::double precision)::numeric, 1) as mediana_vd,
+    round(max(views_dia), 1) as topo_vd,
+    max(medido_em) as medido_em
+from pautas_banco
+where formato is not null
+group by canal, formato, veredito
+order by canal, round(percentile_cont(0.5) within group (order by views_dia::double precision)::numeric, 1) desc;
+
+create or replace view v_maquina_regras
+    with (security_invoker = true) as
+select categoria, severidade, titulo, regra, aplicado_em, confianca, evidencia
+from aprendizados
+where status = 'ativo'
+order by array_position(array['critico','alto','medio','baixo'], severidade), categoria;

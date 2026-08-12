@@ -1,0 +1,178 @@
+name: Voz clonada (Chatterbox, gratuito)
+
+# Clona a voz do Pablo e gera narracao com ela, de graca e sem servico pago.
+#
+# Por que Chatterbox e nao os outros:
+#   - Chatterbox Multilingual v3 (Resemble AI, jun/2026): licenca MIT, 23 idiomas
+#     com modelos dedicados para portugues do Brasil, clonagem zero-shot a partir
+#     de ~10s de referencia. MIT importa: os canais sao monetizados.
+#   - XTTS-v2 da Coqui e o mais citado, mas a licenca (CPML) proibe uso
+#     comercial — inutil aqui, por melhor que soe.
+#   - OpenVoice v2 e MIT, mas a base (MeloTTS) nao cobre portugues.
+#   - Qwen3-TTS e Apache-2.0 e cobre portugues; fica como plano B.
+#
+# Roda no runner porque o container da rotina nao alcanca huggingface.co nem
+# speech.platform.bing.com (403 de politica do proxy), e o sandbox Composio tem
+# 1 CPU e ~1 GB de RAM — nao segura um modelo de 0,5B.
+#
+# TODOS os idiomas num job so: carregar o modelo custa ~3 min e a geracao de uma
+# frase custa segundos. Um job por idioma pagaria a carga oito vezes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      idiomas:
+        description: "Codigos separados por virgula (pt,en,es,hi,pl,tr,el,id) ou 'todos'"
+        type: string
+        default: "pt,en,es,hi,pl,tr,el,id"
+      referencia:
+        description: "Audio de referencia no repositorio"
+        type: string
+        default: "assets/voice/referencia-corte.wav"
+      exaggeration:
+        description: "Expressividade 0.25-2.0 (0.5 = neutro documental)"
+        type: string
+        default: "0.5"
+      cfg_weight:
+        description: "Aderencia ao ritmo da referencia 0.0-1.0"
+        type: string
+        default: "0.5"
+
+jobs:
+  clonar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # O runner ubuntu-latest NAO traz ffmpeg (medido em 2026-08-11: exit 127).
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      # torch CPU explicito: o wheel padrao arrasta ~2,5 GB de CUDA que o runner
+      # nao tem GPU para usar.
+      - name: Instalar Chatterbox
+        run: |
+          set -euo pipefail
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+          python -c "import torch; print('torch', torch.__version__, '| threads', torch.get_num_threads())"
+
+      - name: Preparar referencia
+        run: |
+          set -euo pipefail
+          # A referencia ja vem densificada e normalizada do repositorio; aqui so
+          # se garante mono 24 kHz, que e o que o modelo consome.
+          ffmpeg -nostdin -y -i "${{ inputs.referencia }}" -ac 1 -ar 24000 \
+            /tmp/ref.wav -loglevel error
+          ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 /tmp/ref.wav
+
+      - name: Gerar narracao em cada idioma
+        env:
+          IDIOMAS: ${{ inputs.idiomas }}
+          EXAG: ${{ inputs.exaggeration }}
+          CFG: ${{ inputs.cfg_weight }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os, time, json, torch, torchaudio
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          # Uma frase por idioma, do nicho do canal que fala aquele idioma — o
+          # timbre clonado precisa ser julgado no material real, nao num
+          # "pangrama" que ninguem vai narrar.
+          FRASES = {
+              "pt": "Existe mesmo um Ozempic natural? A Anvisa acabou de proibir tres produtos vendidos com essa promessa.",
+              "en": "Your paycheck did not get smaller. The tax bracket moved, and almost nobody noticed it happening.",
+              "es": "Con cien pesos de despensa se cocina toda la semana. Te muestro exactamente como se reparte.",
+              "hi": "आपकी सैलरी कम नहीं हुई है। टैक्स का नियम बदला है, और किसी ने ध्यान नहीं दिया।",
+              "pl": "Twoja rata wlasnie spadla, i to jest najniebezpieczniejszy moment calego kredytu.",
+              "tr": "Asgari ucret zamlandi ama market fisi daha hizli buyudu. Farki birlikte hesaplayalim.",
+              "el": "Ο μισθός σου δεν μειώθηκε. Άλλαξε η φορολογική κλίμακα, και σχεδόν κανείς δεν το πρόσεξε.",
+              "id": "Gaji kamu tidak berkurang. Aturan pajaknya yang berubah, dan hampir tidak ada yang sadar.",
+          }
+
+          pedidos = os.environ["IDIOMAS"].strip()
+          pedidos = list(FRASES) if pedidos == "todos" else [
+              c.strip() for c in pedidos.split(",") if c.strip()]
+
+          t0 = time.time()
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          print(f"modelo carregado em {time.time()-t0:.0f}s")
+
+          suportados = None
+          for attr in ("supported_languages", "SUPPORTED_LANGUAGES", "languages"):
+              v = getattr(modelo, attr, None) or getattr(ChatterboxMultilingualTTS, attr, None)
+              if v:
+                  suportados = sorted(v.keys() if isinstance(v, dict) else v)
+                  break
+          print("idiomas do modelo:", suportados if suportados else "(nao expostos)")
+
+          relatorio = []
+          for cod in pedidos:
+              if cod not in FRASES:
+                  print(f"  {cod}: sem frase cadastrada, pulado"); continue
+              if suportados and cod not in suportados:
+                  print(f"  {cod}: NAO SUPORTADO pelo modelo, pulado")
+                  relatorio.append({"idioma": cod, "suportado": False}); continue
+              try:
+                  t0 = time.time()
+                  wav = modelo.generate(
+                      FRASES[cod], language_id=cod, audio_prompt_path="/tmp/ref.wav",
+                      exaggeration=float(os.environ["EXAG"]),
+                      cfg_weight=float(os.environ["CFG"]))
+                  gasto = time.time() - t0
+                  torchaudio.save(f"/tmp/voz-{cod}.wav", wav, modelo.sr)
+                  d = wav.shape[-1] / modelo.sr
+                  fator = gasto / d if d else 0
+                  print(f"  {cod}: {d:.1f}s de audio em {gasto:.0f}s = {fator:.1f}x tempo real")
+                  relatorio.append({"idioma": cod, "suportado": True,
+                                    "duracao_s": round(d, 2), "cpu_s": round(gasto),
+                                    "fator": round(fator, 1)})
+              except Exception as e:
+                  print(f"  {cod}: FALHOU — {type(e).__name__}: {e}")
+                  relatorio.append({"idioma": cod, "suportado": True, "erro": str(e)[:200]})
+
+          json.dump(relatorio, open("/tmp/relatorio.json", "w"), ensure_ascii=False, indent=1)
+          ok = [r for r in relatorio if r.get("fator")]
+          if ok:
+              print(f"\n{len(ok)} idiomas gerados | fator medio "
+                    f"{sum(r['fator'] for r in ok)/len(ok):.1f}x tempo real")
+          PY
+          for f in /tmp/voz-*.wav; do
+            [ -e "$f" ] || continue
+            ffmpeg -nostdin -y -i "$f" -b:a 96k "${f%.wav}.mp3" -loglevel error
+          done
+          ls -la /tmp/voz-*.mp3 2>/dev/null || echo "nenhuma amostra gerada"
+
+      - name: Publicar amostras
+        if: always()
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          for f in /tmp/voz-*.mp3; do
+            [ -e "$f" ] || continue
+            COD=$(basename "$f" .mp3 | sed 's/^voz-//')
+            ALVO="amostras/voz-pablo-${COD}-${{ github.run_id }}.mp3"
+            CODIGO=$(curl -sS -o /dev/null -w '%{http_code}' -X POST \
+              "$SB/storage/v1/object/videos-maquina/$ALVO" \
+              -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              -H "Content-Type: audio/mpeg" --data-binary @"$f")
+            echo "$COD -> HTTP $CODIGO | $SB/storage/v1/object/public/videos-maquina/$ALVO"
+          done
+          [ -f /tmp/relatorio.json ] && cat /tmp/relatorio.json || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amostras-voz
+          path: |
+            /tmp/voz-*.mp3
+            /tmp/relatorio.json
+          if-no-files-found: warn

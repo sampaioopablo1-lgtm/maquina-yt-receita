@@ -1,0 +1,679 @@
+{
+ "slug": "cocina-por-niveles",
+ "voz": "es-MX-DaliaNeural",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#E36414",
+  "c2": "#3A7D44"
+ },
+ "thumb": {
+  "l1": "$500",
+  "l2": "7 dias de despensa"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "$500",
+   "sub": "la despensa completa de 7 dias",
+   "cap": "Intro: el problema real",
+   "nar": "Quinientos pesos. Con eso vamos a llenar la despensa de una semana entera: catorce comidas, la lista exacta, producto por producto y precio por precio. Y al final vas a saber por qué la mayoría gasta el doble y come peor."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Lo que vas a llevarte",
+   "itens": [
+    "la lista exacta de $500",
+    "14 comidas dia por dia",
+    "donde y cuando comprar"
+   ],
+   "cap": "El mapa del video",
+   "nar": "En siete capítulos: cuánto cuesta la despensa de verdad, las doce bases que más rinden, la lista exacta de quinientos pesos, dónde y cuándo comprar, las catorce comidas día por día, los seis errores que vacían la alacena, y tu plan para el próximo domingo."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 1",
+   "sub": "cuanto cuesta la despensa de verdad",
+   "cap": "Cap. 1 — El costo real",
+   "nar": "Capítulo uno. Antes de la lista, los números reales — porque casi nadie sabe cuánto está gastando de verdad."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Canasta basica 2026",
+   "itens": [
+    "Durango 778",
+    "promedio 860",
+    "mas cara 949"
+   ],
+   "alturas": [
+    778,
+    860,
+    949
+   ],
+   "cap": "Los números de 2026",
+   "nar": "En junio de dos mil veintiséis, la canasta básica familiar costaba entre setecientos setenta y ocho pesos en Durango y novecientos cuarenta y nueve en las zonas más caras. Ese es el punto de partida real, no el que uno imagina."
+  },
+  {
+   "layout": "item",
+   "kicker": "El tope de Profeco",
+   "preco": "$910",
+   "cap": "El tope oficial",
+   "nar": "La Profeco fijó un tope de novecientos diez pesos para veinticuatro productos del paquete contra la inflación. Sirve como referencia: si estás pagando bastante más que eso por lo mismo, el problema es dónde compras, no cuánto ganas."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Por que se dispara",
+   "itens": [
+    "compras sin lista",
+    "compras con hambre",
+    "compras cada tercer dia"
+   ],
+   "cap": "Por qué se dispara la cuenta",
+   "nar": "Tres cosas disparan la cuenta: entrar sin lista, entrar con hambre, y entrar cada tercer día. Cada visita extra al súper añade entre setenta y cien pesos que nadie planeó."
+  },
+  {
+   "layout": "item",
+   "kicker": "El costo de improvisar",
+   "preco": "$1.200",
+   "cap": "El costo de improvisar",
+   "nar": "Tres visitas improvisadas a la semana son unos trescientos pesos extra. Al mes son mil doscientos. Es una despensa completa que se te fue sin cocinar ni una comida."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "La regla del video",
+   "sub": "primero la lista, luego el menu",
+   "cap": "La regla que cambia todo",
+   "nar": "Y aquí está la regla que cambia todo, y va al revés de lo que hace la mayoría: primero se arma la lista, después se decide el menú. Cuando eliges el menú primero, la lista te obliga a comprar lo que no rinde."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Que significa rendir",
+   "itens": [
+    "alcanza para varias comidas",
+    "aguanta la semana",
+    "combina con todo"
+   ],
+   "cap": "Qué significa que un producto rinda",
+   "nar": "Un producto rinde cuando cumple tres cosas: alcanza para más de una comida, aguanta toda la semana sin echarse a perder, y combina con casi todo lo demás. Si le falla una, ocupa lugar y presupuesto."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pesos por porcion",
+   "itens": [
+    "frijol 4",
+    "huevo 7",
+    "pollo 19"
+   ],
+   "alturas": [
+    4,
+    7,
+    19
+   ],
+   "cap": "El costo por porción",
+   "nar": "Míralo por porción y todo se aclara: el frijol sale como cuatro pesos la porción, el huevo siete, el pollo diecinueve. No se trata de eliminar el pollo — se trata de saber cuál es tu base y cuál es tu lujo."
+  },
+  {
+   "layout": "item",
+   "kicker": "El numero que importa",
+   "preco": "$36",
+   "cap": "El número que importa",
+   "nar": "Quinientos pesos entre catorce comidas son treinta y seis pesos por comida para dos personas. Ese es el número que vamos a respetar, y vas a ver que alcanza mejor de lo que suena."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cierre del capitulo 1",
+   "sub": "no comes caro. compras sin plan",
+   "cap": "El cierre del cap. 1",
+   "nar": "El diagnóstico casi siempre es el mismo: no comes caro, compras sin plan. Y eso sí se arregla en una tarde."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 2",
+   "sub": "las 12 bases que mas rinden",
+   "cap": "Cap. 2 — Las 12 bases",
+   "nar": "Capítulo dos: las doce bases. Estas son las que sostienen la semana, y con ellas se arma casi cualquier cosa."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Las tres columnas",
+   "itens": [
+    "frijol",
+    "arroz",
+    "huevo"
+   ],
+   "cap": "Las tres columnas",
+   "nar": "Las tres columnas de la despensa mexicana barata: frijol, arroz y huevo. Entre las tres cubren proteína, energía y la mitad de las cenas de la semana."
+  },
+  {
+   "layout": "item",
+   "kicker": "Frijol 1 kilo",
+   "preco": "$38",
+   "cap": "Frijol — el rey del rendimiento",
+   "nar": "Un kilo de frijol cuesta unos treinta y ocho pesos y rinde alrededor de doce porciones. Es el producto con mejor rendimiento de toda la lista, y encima aguanta meses en la alacena."
+  },
+  {
+   "layout": "item",
+   "kicker": "Arroz 1 kilo",
+   "preco": "$32",
+   "cap": "Arroz — el multiplicador",
+   "nar": "El arroz cuesta unos treinta y dos pesos el kilo y da como diez porciones. Su trabajo no es ser el plato: es multiplicar lo poco que tengas de proteína y convertirlo en comida completa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Huevo 18 piezas",
+   "preco": "$58",
+   "cap": "Huevo — el comodín",
+   "nar": "Dieciocho huevos por unos cincuenta y ocho pesos. Es el comodín: desayuno, cena, o rescate del día que no alcanzó nada más. Nunca debe faltar."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Las tres verduras base",
+   "itens": [
+    "jitomate",
+    "cebolla",
+    "zanahoria"
+   ],
+   "cap": "Las tres verduras base",
+   "nar": "Tres verduras hacen el ochenta por ciento del sabor: jitomate, cebolla y zanahoria. Son baratas, duran, y con ellas más ajo tienes la base de casi cualquier guiso mexicano."
+  },
+  {
+   "layout": "item",
+   "kicker": "Papa 2 kilos",
+   "preco": "$40",
+   "cap": "Papa — la que llena",
+   "nar": "Dos kilos de papa por unos cuarenta pesos. La papa hace algo que ninguna otra hace igual de barato: llena. En una semana ajustada, eso vale mucho."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tortilla 2 kilos",
+   "preco": "$50",
+   "cap": "Tortilla — el vehículo",
+   "nar": "Dos kilos de tortilla, unos cincuenta pesos. La tortilla convierte cualquier sobra en comida: un taco de papa o unas enfrijoladas salen de lo que ya tenías."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Las que dan proteina",
+   "itens": [
+    "pollo en pierna",
+    "lenteja",
+    "huevo otra vez"
+   ],
+   "cap": "De dónde sale la proteína",
+   "nar": "La proteína viene de tres lados: pollo en pierna y muslo, que es la parte barata; lenteja, que cuesta poco y rinde muchísimo; y otra vez el huevo. Pechuga no entra en esta lista: cuesta casi el doble y rinde menos."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pollo 1 kilo",
+   "preco": "$75",
+   "cap": "Pollo — el gasto grande",
+   "nar": "Un kilo de pierna y muslo, unos setenta y cinco pesos. Es el gasto más grande de la lista, el quince por ciento del total, y se estira a lo largo de tres comidas — no se sirve todo el mismo día."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Lo que cierra la lista",
+   "itens": [
+    "aceite",
+    "pasta",
+    "chile, ajo y sal"
+   ],
+   "cap": "Lo que cierra la lista",
+   "nar": "Cierran la lista el aceite, la pasta y el paquete de chile, ajo y sal. Son baratos, pero sin ellos las bases no saben a nada — y una comida que no sabe rica no se repite."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 3",
+   "sub": "la lista exacta de $500",
+   "cap": "Cap. 3 — La lista exacta",
+   "nar": "Capítulo tres: la lista exacta, con precios. Aquí es donde el video se vuelve útil de verdad — toma nota o guárdala."
+  },
+  {
+   "layout": "item",
+   "kicker": "1. Frijol 1 kg",
+   "preco": "$38",
+   "cap": "1 y 2 — Frijol y arroz",
+   "nar": "Uno: frijol, un kilo, treinta y ocho pesos. Dos: arroz, un kilo, treinta y dos pesos. Llevamos setenta pesos y ya tenemos la base de siete comidas."
+  },
+  {
+   "layout": "item",
+   "kicker": "3. Huevo 18 pzas",
+   "preco": "$58",
+   "cap": "3 y 4 — Huevo y tortilla",
+   "nar": "Tres: dieciocho huevos, cincuenta y ocho pesos. Cuatro: dos kilos de tortilla, cincuenta pesos. Vamos en ciento setenta y ocho, y ya están cubiertas todas las cenas de la semana."
+  },
+  {
+   "layout": "item",
+   "kicker": "5. Pollo 1 kg",
+   "preco": "$75",
+   "cap": "5 — Pollo",
+   "nar": "Cinco: un kilo de pierna y muslo, setenta y cinco pesos. Este es el único producto caro de la lista y lo compramos una sola vez. Vamos en doscientos cincuenta y tres."
+  },
+  {
+   "layout": "item",
+   "kicker": "6. Papa 2 kg",
+   "preco": "$40",
+   "cap": "6 y 7 — Papa y jitomate",
+   "nar": "Seis: dos kilos de papa, cuarenta pesos. Siete: dos kilos de jitomate, cincuenta pesos. Trescientos cuarenta y tres."
+  },
+  {
+   "layout": "item",
+   "kicker": "8. Cebolla 1 kg",
+   "preco": "$22",
+   "cap": "8 y 9 — Cebolla y zanahoria",
+   "nar": "Ocho: un kilo de cebolla, veintidós pesos. Nueve: un kilo de zanahoria, veinte pesos. Trescientos ochenta y cinco, y con esto ya está toda la base de sabor."
+  },
+  {
+   "layout": "item",
+   "kicker": "10. Lenteja 500 g",
+   "preco": "$20",
+   "cap": "10 y 11 — Lenteja y pasta",
+   "nar": "Diez: medio kilo de lenteja, veinte pesos, que da cuatro porciones. Once: dos paquetes de pasta, veintidós pesos. Cuatrocientos veintisiete."
+  },
+  {
+   "layout": "item",
+   "kicker": "12. Aceite 1 L",
+   "preco": "$38",
+   "cap": "12 — Aceite y sazón",
+   "nar": "Doce: un litro de aceite, treinta y ocho pesos, más treinta y cinco de chile, ajo, sal y especias. Total: quinientos pesos exactos."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A donde se va el dinero",
+   "itens": [
+    "proteina 153",
+    "base 172",
+    "verdura 175"
+   ],
+   "alturas": [
+    153,
+    172,
+    175
+   ],
+   "cap": "A dónde se fue el dinero",
+   "nar": "Mira el reparto: ciento cincuenta y tres pesos en proteína, ciento setenta y dos en bases, ciento setenta y cinco en verdura y sazón. Casi en tercios — y ese equilibrio es justo lo que hace que la semana no se sienta pobre."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Lo que NO va en la lista",
+   "itens": [
+    "refresco y jugos",
+    "botanas y galletas",
+    "carne de res"
+   ],
+   "cap": "Lo que no entra",
+   "nar": "Y lo que deliberadamente no entra: refrescos, botanas y carne de res. No es moralina — es que esos tres se comen ciento cincuenta pesos y no aportan ni una comida completa."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 4",
+   "sub": "donde y cuando comprar",
+   "cap": "Cap. 4 — Dónde y cuándo",
+   "nar": "Capítulo cuatro: dónde y cuándo. La misma lista puede costarte quinientos o seiscientos ochenta pesos, y la diferencia no es la marca."
+  },
+  {
+   "layout": "barras",
+   "kicker": "La misma lista",
+   "itens": [
+    "mercado 500",
+    "super 590",
+    "tienda 680"
+   ],
+   "alturas": [
+    500,
+    590,
+    680
+   ],
+   "cap": "La misma lista, tres precios",
+   "nar": "La misma lista: quinientos pesos en el mercado, quinientos noventa en el súper, seiscientos ochenta en la tienda de la esquina. Treinta y seis por ciento de diferencia por comprar en el lugar equivocado."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Reparte la compra",
+   "itens": [
+    "verdura en el mercado",
+    "granos y aceite en el super",
+    "nada en la tienda"
+   ],
+   "cap": "Reparte la compra",
+   "nar": "La estrategia que gana es mixta: verdura y fruta en el mercado, donde la diferencia es enorme; granos, aceite y huevo en el súper, donde el kilo grande sale mejor; y la tienda de la esquina solo para la emergencia."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Las tres reglas del carrito",
+   "itens": [
+    "ve con la lista escrita",
+    "no vayas con hambre",
+    "revisa el precio por kilo"
+   ],
+   "cap": "Las tres reglas del carrito",
+   "nar": "Tres reglas dentro del changarro: lista escrita en la mano, nunca con hambre, y siempre mirando el precio por kilo, no el de la etiqueta. El empaque chico casi siempre es el más caro por kilo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Una vez por semana",
+   "preco": "1 viaje",
+   "cap": "Un solo viaje",
+   "nar": "Y la regla que más dinero salva: un solo viaje a la semana. No es por comodidad — es que cada visita extra trae en promedio ochenta pesos de cosas que no estaban en la lista."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Al llegar a casa",
+   "itens": [
+    "lava y seca la verdura",
+    "guarda el jitomate fuera del refri",
+    "congela el pollo en 3 partes"
+   ],
+   "cap": "Los 20 minutos al llegar",
+   "nar": "Veinte minutos al llegar y la despensa dura el doble: lava y seca bien la verdura, deja el jitomate fuera del refrigerador, y separa el pollo en tres bolsas antes de congelarlo. Descongelar todo junto es la causa número uno de que se eche a perder."
+  },
+  {
+   "layout": "item",
+   "kicker": "Cocina la base el domingo",
+   "preco": "90 min",
+   "cap": "Los 90 minutos del domingo",
+   "nar": "Y noventa minutos el domingo: la olla de frijol y la olla de arroz. Con esas dos ollas hechas, las comidas entre semana bajan a quince minutos cada una."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "La verdad del capitulo",
+   "sub": "no cocinas mal. compras mal",
+   "cap": "El cierre del cap. 4",
+   "nar": "Y ese es el capítulo en una frase: la mayoría no cocina mal, compra mal. Lo que pasa dentro de la cocina ya estaba decidido en el mercado."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 5",
+   "sub": "las 14 comidas, dia por dia",
+   "cap": "Cap. 5 — Las 14 comidas",
+   "nar": "Capítulo cinco: las catorce comidas, día por día. Todo sale de los doce productos que ya compramos — no hay que volver a la tienda."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Lunes",
+   "itens": [
+    "arroz con pollo y zanahoria",
+    "quesadillas de frijol"
+   ],
+   "cap": "Lunes",
+   "nar": "Lunes. De comida, arroz con pollo y zanahoria: usas un tercio del pollo y ya tienes el arroz del domingo. De cena, quesadillas de frijol. Costo del día: unos cincuenta y ocho pesos para dos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Martes",
+   "itens": [
+    "sopa de pasta con jitomate",
+    "huevos con papa"
+   ],
+   "cap": "Martes",
+   "nar": "Martes. Sopa de pasta con jitomate y un plato de frijoles al lado. De cena, huevos con papa. El martes es el día más barato de la semana: treinta y dos pesos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Miercoles",
+   "itens": [
+    "pollo en salsa de jitomate",
+    "tacos de papa"
+   ],
+   "cap": "Miércoles",
+   "nar": "Miércoles. Pollo en salsa de jitomate con arroz — el segundo tercio del pollo. De cena, tacos de papa con la salsa que sobró. Cincuenta y cinco pesos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Jueves",
+   "itens": [
+    "lentejas con zanahoria",
+    "huevo con frijol"
+   ],
+   "cap": "Jueves",
+   "nar": "Jueves. Lentejas con zanahoria y un poco de cebolla, que es de los platos más completos y más baratos que existen. De cena, huevo con frijol y tortilla. Treinta y cuatro pesos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Viernes",
+   "itens": [
+    "pasta con jitomate y ajo",
+    "enfrijoladas"
+   ],
+   "cap": "Viernes",
+   "nar": "Viernes. Pasta con jitomate y ajo, y si te queda queso, encima. De cena, enfrijoladas. Treinta y ocho pesos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sabado",
+   "itens": [
+    "caldo de pollo con verdura",
+    "papas con huevo"
+   ],
+   "cap": "Sábado",
+   "nar": "Sábado. Caldo de pollo con toda la verdura que vaya quedando — es el día que limpia el refrigerador. De cena, papas con huevo. Cuarenta y ocho pesos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Domingo",
+   "itens": [
+    "arroz frito con huevo",
+    "frijoles refritos"
+   ],
+   "cap": "Domingo",
+   "nar": "Domingo. Arroz frito con huevo y zanahoria, hecho con el arroz que sobró. De cena, frijoles refritos con tortilla. Treinta pesos, y cierras la semana."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Costo por dia",
+   "itens": [
+    "mas barato 30",
+    "promedio 42",
+    "mas caro 58"
+   ],
+   "alturas": [
+    30,
+    42,
+    58
+   ],
+   "cap": "El costo día por día",
+   "nar": "Los días van de treinta a cincuenta y ocho pesos, con un promedio de cuarenta y dos para dos personas. Y fíjate en el diseño: los días caros están separados, nunca seguidos."
+  },
+  {
+   "layout": "item",
+   "kicker": "Total real",
+   "preco": "$295",
+   "cap": "El total real de la semana",
+   "nar": "Suma la semana y son doscientos noventa y cinco pesos de consumo. Los doscientos cinco restantes quedan en la alacena — frijol, arroz, aceite y pasta — y arrancan la semana siguiente."
+  },
+  {
+   "layout": "lista",
+   "kicker": "La regla del menu",
+   "itens": [
+    "proteina cara solo en la comida",
+    "cena siempre de huevo o frijol",
+    "un dia de sobras"
+   ],
+   "cap": "Las tres reglas del menú",
+   "nar": "Tres reglas explican todo el menú: la proteína cara solo aparece en la comida, la cena siempre sale del huevo o del frijol, y hay un día fijo de sobras. Sin esas tres, cualquier lista se rompe el jueves."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lo que nadie te dice",
+   "sub": "el menu se diseña, no se improvisa",
+   "cap": "El cierre del cap. 5",
+   "nar": "Y esto es lo que casi nadie dice: el menú se diseña una vez y se repite. Improvisar todos los días no es libertad — es lo que te está costando el doble."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 6",
+   "sub": "los 6 errores que vacian la despensa",
+   "cap": "Cap. 6 — Los 6 errores",
+   "nar": "Capítulo seis: los seis errores. Todos cuestan dinero y todos son fáciles de corregir."
+  },
+  {
+   "layout": "item",
+   "kicker": "1. Comprar sin lista",
+   "preco": "+$80",
+   "cap": "Error 1 — sin lista",
+   "nar": "Error uno: entrar sin lista. Son ochenta pesos extra por visita, sin excepción. La lista no es organización — es un límite."
+  },
+  {
+   "layout": "item",
+   "kicker": "2. Comprar en oferta lo que no usas",
+   "preco": "$0 comidas",
+   "cap": "Error 2 — la oferta",
+   "nar": "Error dos: comprar en oferta algo que no estaba en el menú. Ahorraste veinte pesos en algo que no vas a cocinar. Eso no es ahorro, es un producto caro con descuento."
+  },
+  {
+   "layout": "item",
+   "kicker": "3. Empaques chicos",
+   "preco": "+35%",
+   "cap": "Error 3 — el empaque chico",
+   "nar": "Error tres: comprar empaques chicos. El arroz de doscientos gramos cuesta hasta treinta y cinco por ciento más por kilo que el de uno. En una despensa completa son casi cien pesos."
+  },
+  {
+   "layout": "item",
+   "kicker": "4. No revisar lo que ya tienes",
+   "preco": "2x",
+   "cap": "Error 4 — comprar duplicado",
+   "nar": "Error cuatro: no revisar la alacena antes de salir. Terminas con tres aceites y ningún frijol. Cinco minutos de revisión antes de escribir la lista evitan esto siempre."
+  },
+  {
+   "layout": "item",
+   "kicker": "5. Guardar mal",
+   "preco": "-30%",
+   "cap": "Error 5 — guardar mal",
+   "nar": "Error cinco: guardar mal. Hasta el treinta por ciento de la verdura se echa a perder por humedad o por meter al refrigerador lo que no va. Eso es dinero que compraste y tiraste."
+  },
+  {
+   "layout": "item",
+   "kicker": "6. Cocinar solo para hoy",
+   "preco": "+40 min",
+   "cap": "Error 6 — cocinar solo para hoy",
+   "nar": "Error seis: cocinar solo para hoy. Cuando la olla se hace una vez y rinde tres días, ahorras cuarenta minutos diarios y gas. Cocinar de más es lo único que sí conviene hacer de más."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "El patron",
+   "sub": "los 6 son errores de sistema",
+   "cap": "El patrón de los seis",
+   "nar": "Fíjate en el patrón: ninguno de los seis es falta de dinero ni falta de disciplina. Los seis son fallas de sistema — y los sistemas se arreglan mucho más fácil que los hábitos."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Capitulo 7",
+   "sub": "tu plan para el proximo domingo",
+   "cap": "Cap. 7 — Tu plan",
+   "nar": "Capítulo siete, el último: tu plan concreto para el próximo domingo."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sabado en la noche",
+   "itens": [
+    "revisa la alacena",
+    "escribe la lista de 12",
+    "define los 7 dias"
+   ],
+   "cap": "Sábado en la noche",
+   "nar": "Sábado en la noche, veinte minutos: revisa qué te queda, escribe la lista de los doce productos ajustada a lo que ya tienes, y anota los siete días. Con eso ya ganaste la semana."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Domingo en la mañana",
+   "itens": [
+    "mercado primero, super despues",
+    "un solo viaje",
+    "paga en efectivo"
+   ],
+   "cap": "Domingo en la mañana",
+   "nar": "Domingo temprano: mercado primero, súper después, un solo viaje. Y si te cuesta frenarte, lleva el efectivo justo. El límite físico funciona mejor que la fuerza de voluntad."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Domingo en la tarde",
+   "itens": [
+    "olla de frijol",
+    "olla de arroz",
+    "pollo en 3 bolsas"
+   ],
+   "cap": "Domingo en la tarde",
+   "nar": "Domingo en la tarde, noventa minutos: la olla de frijol, la olla de arroz, y el pollo separado en tres bolsas al congelador. A partir de ahí, entre semana solo armas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Lo que ganas al mes",
+   "preco": "$1.400",
+   "cap": "Lo que ganas en un mes",
+   "nar": "En un mes esto son unos mil cuatrocientos pesos que dejan de irse, y algo que se nota más: nunca más la pregunta de qué hay de comer a las dos de la tarde."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "La ultima regla",
+   "sub": "empieza con la lista, no con el menu",
+   "cap": "La última regla",
+   "nar": "Y si te llevas una sola cosa del video, que sea esta: empieza por la lista, no por el menú. Todo lo demás se acomoda solo detrás de esa decisión."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Todo el video en 3",
+   "itens": [
+    "12 productos, no 30",
+    "un viaje por semana",
+    "olla de frijol el domingo"
+   ],
+   "cap": "Resumen en 3 líneas",
+   "nar": "Todo el video en tres líneas: doce productos y no treinta, un solo viaje por semana, y la olla de frijol del domingo. Con esas tres, quinientos pesos alcanzan."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cuentame",
+   "sub": "cuanto gastas hoy en tu despensa semanal",
+   "cap": "Tu siguiente paso",
+   "nar": "Escríbeme en los comentarios cuánto gastas hoy en tu despensa de la semana, y vuelve en siete días a contarme cómo te fue con la lista. Si te sirvió, suscríbete: cada semana subimos un nivel en la cocina."
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "$500",
+   "sub": "7 dias de despensa completa",
+   "cap": "Hook",
+   "nar": "Quinientos pesos para siete días completos de despensa. No es dieta de arroz: son catorce comidas."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A donde se va",
+   "itens": [
+    "proteina 153",
+    "base 172",
+    "verdura 175"
+   ],
+   "alturas": [
+    153,
+    172,
+    175
+   ],
+   "cap": "El reparto",
+   "nar": "El secreto está en el reparto: casi en tercios entre proteína, bases y verdura. Si un tercio se te dispara, la semana se rompe."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Las 3 columnas",
+   "itens": [
+    "frijol",
+    "arroz",
+    "huevo"
+   ],
+   "cap": "Las 3 columnas",
+   "nar": "Y todo se apoya en tres cosas baratas: frijol, arroz y huevo. El frijol sale a cuatro pesos la porción."
+  },
+  {
+   "layout": "item",
+   "kicker": "El error caro",
+   "preco": "+$80",
+   "cap": "El error",
+   "nar": "El error que más cuesta es entrar al súper sin lista: ochenta pesos extra cada visita."
+  },
+  {
+   "layout": "cta",
+   "kicker": "La lista completa",
+   "sub": "los 12 productos con precios, en el canal",
+   "cap": "CTA",
+   "nar": "La lista completa de los doce productos, con precios y el menú de los siete días, está en el video del canal. Ve por ella."
+  }
+ ],
+ "copy": "# Despensa de $500 pesos: la lista exacta para 7 días y 14 comidas\n\n## TÍTULO\nDespensa de $500 pesos: la lista exacta para 7 días (14 comidas)\n\n## DESCRIPCIÓN\nDespensa de $500 pesos para una semana completa: la lista exacta producto por producto, con precios de 2026, y las 14 comidas que salen de ella día por día. En junio de 2026 la canasta básica familiar costaba entre $777 y $949 pesos según la región, y la Profeco fijó un tope de $910 para los 24 productos del paquete contra la inflación. Este video no discute esos números: muestra cómo armar una semana que funcione con la mitad, sin comer solo arroz.\n\nAdentro vas a encontrar los 12 productos que más rinden y por qué (frijol a $4 la porción, huevo a $7, pollo a $19), la lista completa sumada peso por peso hasta llegar a $500 exactos, la diferencia real de precio entre mercado, súper y tienda de la esquina (hasta 36% por la misma lista), el menú de 7 días con costo por día, y los 6 errores que vacían la despensa antes del jueves.\n\nLa idea central va al revés de lo que hace la mayoría: primero se arma la lista, después se decide el menú. Cuando eliges el menú primero, terminas comprando lo que no rinde. Todo el plan cabe en 20 minutos el sábado, un solo viaje el domingo en la mañana y 90 minutos de olla el domingo en la tarde.\n\nLos precios son referencias de México en 2026 y varían por región y temporada — la lista y las proporciones son lo que se sostiene en cualquier caso.\n\n## CAPÍTULOS\n{CAPITULOS}\n\n## COMENTARIO FIJADO\n¿Cuánto gastas hoy en tu despensa de la semana y en qué ciudad? Ponlo aquí abajo — estoy juntando precios reales de varias regiones para el próximo video. Y si haces la lista, vuelve en 7 días a contarme cómo te fue.\n\n## HASHTAGS\n#RecetasEconomicas #DespensaBarata #CocinaPorNiveles\n\n## TAGS\ndespensa de 500 pesos, recetas economicas, despensa barata, lista de compras semanal, menu semanal economico, canasta basica 2026, como ahorrar en la despensa, comida barata para la semana, cocina economica mexicana, presupuesto de comida, recetas con frijol, recetas con huevo, meal prep mexicano, comida rendidora, ahorrar dinero en comida\n\n## CONFIGURACIÓN DE STUDIO\n- Idioma: Español (México) — es-MX | Categoría: Howto & Style (26)\n- No hecho para niños\n- Declaración de contenido sintético: SÍ (narración con IA)\n- Ubicación: México | Licencia: Standard YouTube License\n- Anuncios mid-roll: activados (duración > 8 minutos)\n\n## MÚSICA / LICENCIA\n{TRILHA}\n\n## AVISO\nLos precios son estimaciones de referencia para México en 2026 y cambian por región, tienda y temporada. Este contenido es informativo y no sustituye asesoría nutricional."
+}
