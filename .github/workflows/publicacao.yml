@@ -83,16 +83,22 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
-          TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
-          TOKEN="${!TOKEN_VAR}"
-          if [ -z "$TOKEN" ]; then
-            # Fallback: token guardado em config.yt_token_<canal> no Supabase
-            # (jsonb com o authorized-user JSON). Elimina um secret por canal.
-            echo "secret ${TOKEN_VAR} ausente — buscando em config.yt_token_${{ inputs.canal }} no Supabase"
-            TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_${{ inputs.canal }}&select=valor" \
-              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+          # ORDEM IMPORTA: Supabase PRIMEIRO. A reautorizacao OAuth grava em
+          # config.yt_token_<canal>, e nada nunca atualiza os secrets do GitHub —
+          # preferir o secret significa usar um token que envelhece para sempre.
+          # Medido em 2026-08-12 no legendar.yml, que tinha a ordem invertida:
+          # o setiap-level foi reautorizado com force-ssl e mesmo assim deu 403,
+          # porque o job pegou o YT_TOKEN_SETIAP_LEVEL antigo. O secret e plano B.
+          TOKEN=$(curl -sf "$SUPABASE_URL/rest/v1/config?chave=eq.yt_token_${{ inputs.canal }}&select=valor" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -c '.[0].valor // empty')
+          if [ -n "$TOKEN" ]; then
+            echo "token: Supabase (config.yt_token_${{ inputs.canal }})"
+          else
+            CANAL_KEY=$(echo "${{ inputs.canal }}" | tr '[:lower:]-' '[:upper:]_')
+            TOKEN_VAR="YT_TOKEN_${CANAL_KEY}"
+            TOKEN="${!TOKEN_VAR}"
+            echo "token: secret ${TOKEN_VAR} (fallback) — pode estar desatualizado"
           fi
           if [ -z "$TOKEN" ]; then
             echo "Erro: nem o secret ${TOKEN_VAR} nem config.yt_token_${{ inputs.canal }} existem"
