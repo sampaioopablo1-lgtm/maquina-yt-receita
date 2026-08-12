@@ -1,0 +1,25 @@
+-- Correcoes do sistema de captacao (auditoria de 11-12/08, aplicadas em 12/08):
+--
+-- 1) fn_rebalancear_tarefas_captacao v3 (create or replace aplicado via MCP;
+--    corpo definitivo na migration captacao_rebalanceador_v3_fix_nome_tabela
+--    do historico do projeto):
+--    - O teto fixo max_tarefas=50 travava o rebalanceador: todos acima do
+--      teto => nenhum destino elegivel => rodava a cada 3h sem mover nada.
+--      Passou a equalizar pela MEDIA dos captadores disponiveis (+-20%).
+--    - Captador indisponivel (inativo, pausado manual/automatico/por
+--      engajamento) tem a fila drenada INTEGRALMENTE - antes a fila ficava
+--      presa com ele; o guard tentativas_feitas=0 permanece apenas para a
+--      equalizacao entre disponiveis (protege lead trabalhado por humano).
+--    - Do sobrecarregado saem primeiro os leads de MENOR score.
+--    - Atualiza captadores.tarefas_ativas ao final.
+--
+-- 2) fn_agendar_cadencia_captacao (nova) + cron jazz-cadencia-agendar-horaria
+--    (minuto 40): 100% das pendentes estavam sem proximo_contato_em - sem
+--    agenda nao existe fila do dia nem SLA. Agenda 15 tarefas/dia por
+--    captador, melhores scores primeiro, 12:00 UTC (09:00 BRT), a partir do
+--    dia seguinte. Idempotente: so preenche nulos, roda de hora em hora.
+--
+-- Resultado da aplicacao: filas de pausados/inativos zeradas (Flavio 56,
+-- thalia 45, Luh 34, Ederson 34, Pablo 2), disponiveis equalizados em 211
+-- pendentes cada, Bete mantem 553 ja trabalhados por ela (protegidos),
+-- 2.241 tarefas agendadas de 13/08 a 18/09, 9 captadores com fila amanha.
