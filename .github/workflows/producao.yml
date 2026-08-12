@@ -70,10 +70,13 @@ jobs:
       # neutro, e a config do Setiap Level — e as linhas eram gravadas sem
       # canal. Treze canais conectados, e o motor automatico alimentava um.
       #
-      # A escolha vem da v_maquina_rodizio: canal ativo, com refresh_token no
-      # Supabase, ordenado por quem esta ha mais tempo sem publicar. Rodizio por
-      # carencia e nao por indice fixo — canal que falhou nao perde a vez, e
-      # canal reautorizado volta ao topo sozinho.
+      # A escolha vem da v_maquina_rodizio, que envolve a v_maquina_fila — a
+      # mesma fila que a rotina horaria le. A ordem e por carencia
+      # (ultimo_pacote_em), nao por indice fixo: canal que falhou nao perde a
+      # vez e canal reautorizado volta ao topo sozinho. O rodizio so acrescenta
+      # o portao que faltava na fila: ter refresh_token. `pode_produzir` cobre
+      # youtube_channel_id e o teto de 3 pacotes em 24h, mas nao a credencial —
+      # sem ela o job renderiza 83 minutos de video e nao publica.
       - name: Escolher canal
         id: canal
         env:

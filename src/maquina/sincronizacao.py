@@ -161,7 +161,52 @@ def empurrar(store: Store) -> tuple[int, int]:
         _upsert(cli, "videos", com_canal, "slug")
         _upsert(cli, "videos", sem_canal, "slug")
         _upsert(cli, "metricas", linhas_m, "youtube_id,coletado_em")
+        _marcar_canais(cli, videos)
     return len(linhas_v), len(linhas_m)
+
+
+def _marcar_canais(cli: httpx.Client, videos: list[Video]) -> None:
+    """PASSO 3 da rotina: `update canais set ultimo_pacote_em`.
+
+    Esse passo existe na rotina desde sempre e nunca foi implementado no
+    caminho automatico — so o caminho manual da fabrica/ carimbava a coluna.
+    O resultado media-se no proprio banco em 12/08/2026: nivel-do-jogo tinha
+    publicado as 18:17 daquele dia e a v_maquina_fila ainda mostrava
+    ultimo_pacote_em de 05/08. A fila e ordenada por essa coluna, entao um
+    canal recem-atendido voltava para a frente e era servido de novo, enquanto
+    canais realmente parados esperavam.
+
+    Deriva do dado em vez de incrementar: `pacotes = pacotes + 1` erra toda vez
+    que o sync roda duas vezes para o mesmo video, e o sync roda no inicio E no
+    fim de cada job. Aqui a data vem do max(publicado_em) real.
+
+    So anda para frente. Se o remoto ja tem uma data mais nova — porque a
+    fabrica/ publicou por fora — nao sobrescreve.
+    """
+    ultima: dict[str, str] = {}
+    for v in videos:
+        if not (v.canal and v.publicado_em):
+            continue
+        quando = v.publicado_em.isoformat()
+        if quando > ultima.get(v.canal, ""):
+            ultima[v.canal] = quando
+
+    for canal, quando in ultima.items():
+        r = cli.patch(
+            "/canais",
+            params={
+                "slug": f"eq.{canal}",
+                # `or` para cobrir o canal que nunca publicou: NULL nao e
+                # menor que nada em SQL, entao o lt sozinho nao pegaria.
+                "or": f"(ultimo_pacote_em.is.null,ultimo_pacote_em.lt.{quando})",
+            },
+            headers={"Prefer": "return=minimal"},
+            json={"ultimo_pacote_em": quando},
+        )
+        if r.status_code >= 400:
+            # Nao derruba o job: os videos ja foram gravados, e a fila
+            # desatualizada e um problema de ordenacao, nao de perda de dado.
+            log.warning("canais %s nao atualizado (%s): %s", canal, r.status_code, r.text[:200])
 
 
 def puxar(store: Store) -> list[str]:

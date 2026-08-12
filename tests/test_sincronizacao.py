@@ -40,6 +40,19 @@ class _Handler(BaseHTTPRequestHandler):
         self.send_response(201)
         self.end_headers()
 
+    def do_PATCH(self):
+        corpo = self.rfile.read(int(self.headers.get("Content-Length", 0) or 0))
+        RECEBIDO.append(
+            {
+                "path": self.path,
+                "prefer": self.headers.get("Prefer", ""),
+                "apikey": self.headers.get("apikey", ""),
+                "linhas": json.loads(corpo) if corpo else {},
+            }
+        )
+        self.send_response(204)
+        self.end_headers()
+
     def do_GET(self):
         corpo = json.dumps(REMOTO).encode()
         self.send_response(200)
@@ -287,3 +300,35 @@ def test_linha_resgatada_nunca_volta_para_o_supabase(servidor, tmp_path):
         for linha in r["linhas"]
     }
     assert enviados == {"produzido-aqui"}
+
+
+def test_empurrar_carimba_ultimo_pacote_no_canal(servidor, tmp_path):
+    """PASSO 3 da rotina, que so existia no caminho manual.
+
+    v_maquina_fila ordena por canais.ultimo_pacote_em. Sem este carimbo o canal
+    recem-atendido volta para a frente da fila e e servido de novo — medido em
+    12/08/2026, com nivel-do-jogo publicando as 18:17 e a fila ainda lendo
+    05/08.
+    """
+    store = Store(tmp_path / "t.db")
+    quando = datetime(2026, 8, 12, 18, 17, 41, tzinfo=timezone.utc)
+    store.salvar(
+        _video("pub", canal="nivel-do-jogo", status=Status.PUBLICADO,
+               youtube_id="ABC", publicado_em=quando)
+    )
+    empurrar(store)
+
+    patches = [r for r in RECEBIDO if r["path"].startswith("/rest/v1/canais")]
+    assert len(patches) == 1
+    assert "slug=eq.nivel-do-jogo" in patches[0]["path"]
+    assert patches[0]["linhas"] == {"ultimo_pacote_em": quando.isoformat()}
+    # So anda para frente: cobre tambem o canal que nunca publicou (NULL).
+    assert "ultimo_pacote_em.is.null" in patches[0]["path"]
+    assert "ultimo_pacote_em.lt." in patches[0]["path"]
+
+
+def test_empurrar_ignora_canal_de_video_nao_publicado(servidor, tmp_path):
+    store = Store(tmp_path / "t.db")
+    store.salvar(_video("rascunho", canal="nivel-do-jogo"))  # sem publicado_em
+    empurrar(store)
+    assert [r for r in RECEBIDO if r["path"].startswith("/rest/v1/canais")] == []
