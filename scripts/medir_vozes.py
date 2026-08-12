@@ -30,6 +30,8 @@ Uso:
 from __future__ import annotations
 
 import asyncio
+import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -71,12 +73,39 @@ def vozes_da_frota() -> list[str]:
 
 
 def duracao_s(caminho: Path) -> float:
-    saida = subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-         "-of", "default=noprint_wrappers=1:nokey=1", str(caminho)],
-        capture_output=True, text=True, check=True,
-    ).stdout.strip()
-    return float(saida)
+    """Duracao do mp3, com ffprobe se houver e ffmpeg se nao houver.
+
+    O runner do Actions tem ffmpeg e NAO tem ffprobe — descoberto na primeira
+    execucao deste script, que sintetizou as doze vozes e perdeu todas na hora
+    de medir. Sao dois binarios distintos e so um vem na imagem.
+    """
+    if probe := shutil.which("ffprobe"):
+        saida = subprocess.run(
+            [probe, "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", str(caminho)],
+            capture_output=True, text=True, check=True,
+        ).stdout.strip()
+        return float(saida)
+
+    # Sem ffprobe: decodifica para o vazio e le o `time=` final do stderr, que e
+    # a duracao real processada.
+    proc = subprocess.run(
+        [_ffmpeg(), "-i", str(caminho), "-f", "null", "-"],
+        capture_output=True, text=True,
+    )
+    marcas = re.findall(r"time=(\d+):(\d\d):(\d\d\.\d+)", proc.stderr)
+    if not marcas:
+        raise RuntimeError(f"nao consegui medir {caminho.name}:\n{proc.stderr[-400:]}")
+    h, m, s = marcas[-1]
+    return int(h) * 3600 + int(m) * 60 + float(s)
+
+
+def _ffmpeg() -> str:
+    if achado := shutil.which("ffmpeg"):
+        return achado
+    import imageio_ffmpeg
+
+    return imageio_ffmpeg.get_ffmpeg_exe()
 
 
 async def medir(voz: str, destino: Path) -> float:
