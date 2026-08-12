@@ -4,13 +4,37 @@ from __future__ import annotations
 
 import base64
 import os
+import time
 from pathlib import Path
+from typing import Callable
 
 import httpx
 
 from .base import ErroProvider
 
 TIMEOUT = httpx.Timeout(300.0, connect=30.0)
+
+# Erros transitorios do lado do provider (rate limit, sobrecarga) — a mesma
+# chamada tende a funcionar minutos depois. Ver ROTINA.md/APRENDIZADOS.md:
+# Gemini 503 e Pollinations 429 ja derrubaram lotes inteiros de producao.
+_STATUS_TRANSITORIOS = {429, 500, 502, 503, 504}
+
+
+def _com_retry(
+    fazer_chamada: Callable[[], httpx.Response],
+    *,
+    tentativas: int = 3,
+    espera_inicial: float = 4.0,
+) -> httpx.Response:
+    """Repete uma chamada HTTP em erro transitorio, com backoff exponencial."""
+    r = fazer_chamada()
+    tentativa = 0
+    while r.status_code in _STATUS_TRANSITORIOS and tentativa < tentativas - 1:
+        time.sleep(espera_inicial * (2**tentativa))
+        tentativa += 1
+        r = fazer_chamada()
+    return r
+
 
 # Precos por 1M de tokens / por unidade. Usados so para estimar custo por video.
 PRECO_ANTHROPIC = {"entrada": 3.00, "saida": 15.00}
@@ -46,7 +70,7 @@ class LLMAnthropic:
         if sistema:
             corpo["system"] = sistema
 
-        r = self._cli.post("/v1/messages", json=corpo)
+        r = _com_retry(lambda: self._cli.post("/v1/messages", json=corpo))
         if r.status_code >= 400:
             raise ErroProvider(f"Anthropic {r.status_code}: {r.text[:400]}")
         dados = r.json()
@@ -76,9 +100,11 @@ class LLMOpenAI:
         mensagens = ([{"role": "system", "content": sistema}] if sistema else []) + [
             {"role": "user", "content": prompt}
         ]
-        r = self._cli.post(
-            "/chat/completions",
-            json={"model": self.modelo, "messages": mensagens, "max_tokens": max_tokens},
+        r = _com_retry(
+            lambda: self._cli.post(
+                "/chat/completions",
+                json={"model": self.modelo, "messages": mensagens, "max_tokens": max_tokens},
+            )
         )
         if r.status_code >= 400:
             raise ErroProvider(f"OpenAI {r.status_code}: {r.text[:400]}")
@@ -122,7 +148,9 @@ class LLMGemini:
         if sistema:
             corpo["systemInstruction"] = {"parts": [{"text": sistema}]}
 
-        r = self._cli.post(f"/models/{self.modelo}:generateContent", json=corpo)
+        r = _com_retry(
+            lambda: self._cli.post(f"/models/{self.modelo}:generateContent", json=corpo)
+        )
         if r.status_code >= 400:
             raise ErroProvider(f"Gemini {r.status_code}: {r.text[:400]}")
 
@@ -159,18 +187,20 @@ class TTSElevenLabs:
         if not vid:
             raise ErroProvider("MAQ_TTS_VOICE_ID ausente — rode `maquina voice-clone`")
 
-        r = self._cli.post(
-            f"/text-to-speech/{vid}",
-            json={
-                "text": texto,
-                "model_id": self.modelo,
-                "voice_settings": {
-                    "stability": 0.5,
-                    "similarity_boost": 0.8,
-                    "style": 0.15,
-                    "use_speaker_boost": True,
+        r = _com_retry(
+            lambda: self._cli.post(
+                f"/text-to-speech/{vid}",
+                json={
+                    "text": texto,
+                    "model_id": self.modelo,
+                    "voice_settings": {
+                        "stability": 0.5,
+                        "similarity_boost": 0.8,
+                        "style": 0.15,
+                        "use_speaker_boost": True,
+                    },
                 },
-            },
+            )
         )
         if r.status_code >= 400:
             raise ErroProvider(f"ElevenLabs {r.status_code}: {r.text[:400]}")
@@ -219,16 +249,18 @@ class TTSFishAudio:
                 "(o trecho final da URL fish.audio/m/<id>)"
             )
 
-        r = self._cli.post(
-            "/v1/tts",
-            json={
-                "text": texto,
-                "reference_id": vid,
-                "format": "mp3",
-                "mp3_bitrate": 192,
-                "normalize": True,
-                "latency": "normal",
-            },
+        r = _com_retry(
+            lambda: self._cli.post(
+                "/v1/tts",
+                json={
+                    "text": texto,
+                    "reference_id": vid,
+                    "format": "mp3",
+                    "mp3_bitrate": 192,
+                    "normalize": True,
+                    "latency": "normal",
+                },
+            )
         )
         if r.status_code >= 400:
             raise ErroProvider(f"Fish Audio {r.status_code}: {r.text[:400]}")
@@ -260,7 +292,9 @@ class TTSModal:
         self._cli = httpx.Client(timeout=TIMEOUT)
 
     def sintetizar(self, texto: str, saida: Path, *, voice_id: str = "") -> Path:
-        r = self._cli.post(self.url, json={"text": texto, "token": self.token})
+        r = _com_retry(
+            lambda: self._cli.post(self.url, json={"text": texto, "token": self.token})
+        )
         if r.status_code >= 400:
             raise ErroProvider(f"Modal TTS {r.status_code}: {r.text[:300]}")
         saida.parent.mkdir(parents=True, exist_ok=True)
@@ -319,14 +353,16 @@ class TTSOpenAI:
         )
 
     def sintetizar(self, texto: str, saida: Path, *, voice_id: str = "") -> Path:
-        r = self._cli.post(
-            "/audio/speech",
-            json={
-                "model": self.modelo,
-                "voice": voice_id or self.voz,
-                "input": texto,
-                "response_format": "mp3",
-            },
+        r = _com_retry(
+            lambda: self._cli.post(
+                "/audio/speech",
+                json={
+                    "model": self.modelo,
+                    "voice": voice_id or self.voz,
+                    "input": texto,
+                    "response_format": "mp3",
+                },
+            )
         )
         if r.status_code >= 400:
             raise ErroProvider(f"OpenAI TTS {r.status_code}: {r.text[:400]}")
@@ -354,7 +390,7 @@ class ImagemPollinations:
             f"https://image.pollinations.ai/prompt/{prompt_enc}"
             f"?width={largura}&height={altura}&model=flux&nologo=true&seed=42"
         )
-        r = httpx.get(url, timeout=120.0, follow_redirects=True)
+        r = _com_retry(lambda: httpx.get(url, timeout=120.0, follow_redirects=True))
         if r.status_code >= 400:
             raise ErroProvider(f"Pollinations {r.status_code}: {r.text[:200]}")
         saida.parent.mkdir(parents=True, exist_ok=True)
@@ -378,9 +414,11 @@ class ImagemOpenAI:
     def gerar(self, prompt: str, saida: Path, *, largura: int, altura: int) -> Path:
         # A API aceita um conjunto fechado de tamanhos; escolhe pela orientacao.
         tamanho = "1024x1536" if altura > largura else "1536x1024"
-        r = self._cli.post(
-            "/images/generations",
-            json={"model": self.modelo, "prompt": prompt, "size": tamanho, "n": 1},
+        r = _com_retry(
+            lambda: self._cli.post(
+                "/images/generations",
+                json={"model": self.modelo, "prompt": prompt, "size": tamanho, "n": 1},
+            )
         )
         if r.status_code >= 400:
             raise ErroProvider(f"OpenAI Images {r.status_code}: {r.text[:400]}")
