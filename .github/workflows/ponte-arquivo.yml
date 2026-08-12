@@ -29,9 +29,15 @@ on:
         type: string
         required: true
       destino:
-        description: "URL assinada de destino (PUT)"
+        description: "URL assinada de destino (PUT). Vazio se usar destino_storage."
         type: string
-        required: true
+        required: false
+        default: ""
+      destino_storage:
+        description: "Caminho no bucket videos-maquina (ex: voz/referencia-corte.wav). Usa os secrets do repo, entao nenhuma credencial passa por input."
+        type: string
+        required: false
+        default: ""
       content_type:
         description: "Content-Type do PUT"
         type: string
@@ -82,7 +88,8 @@ jobs:
 
       # A URL vai por env, nao na linha de comando: assim ela nao aparece no
       # trace do `set -x` nem em mensagem de erro do curl.
-      - name: Enviar ao destino
+      - name: Enviar ao destino assinado
+        if: inputs.destino != ''
         env:
           DESTINO: ${{ inputs.destino }}
         run: |
@@ -93,3 +100,25 @@ jobs:
           echo "HTTP $CODIGO"
           head -c 400 /tmp/resp.txt || true
           case "$CODIGO" in 2*) echo "envio ok";; *) echo "envio falhou"; exit 1;; esac
+
+      # Caminho preferido para o Storage do projeto: a credencial vem do secret
+      # do repositorio e nunca aparece em input nem no painel do run.
+      - name: Enviar ao Supabase Storage
+        if: inputs.destino_storage != ''
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ALVO: ${{ inputs.destino_storage }}
+        run: |
+          set -euo pipefail
+          CODIGO=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' --max-time 300 \
+            -X POST "$SB/storage/v1/object/videos-maquina/$ALVO" \
+            -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+            -H "Content-Type: ${{ inputs.content_type }}" \
+            --data-binary @"${{ steps.prep.outputs.saida }}")
+          echo "HTTP $CODIGO"
+          head -c 400 /tmp/resp.txt || true
+          case "$CODIGO" in
+            2*) echo "publico: $SB/storage/v1/object/public/videos-maquina/$ALVO";;
+            *) echo "envio falhou"; exit 1;;
+          esac
