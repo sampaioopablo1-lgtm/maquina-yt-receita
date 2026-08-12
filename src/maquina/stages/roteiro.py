@@ -8,11 +8,14 @@ para sustentar retencao de 30%.
 from __future__ import annotations
 
 import json
+import logging
 import re
 
 from ..config import Config
 from ..models import Cena, Formato, Ideia, Roteiro
 from ..providers.base import LLM
+
+log = logging.getLogger("maquina.roteiro")
 
 SISTEMA = """Voce e roteirista de um canal do YouTube subnichado e sem rosto.
 Escreve em {idioma}. Tema do canal: {tema}. Tom: {tom}.
@@ -74,6 +77,27 @@ JSON:
   "cenas":[{{"narracao":"...","prompt_visual":"..."}}],
   "descricao":"...","tags":["..."],
   "prompt_thumbnail":"...","texto_thumbnail":"..."}}"""
+
+PROMPT_ESTENDER = """Este roteiro ficou curto: tem {chars} caracteres de
+narracao e precisa de pelo menos {faltam} a mais para o video durar os
+{dur_min} minutos pedidos.
+
+Titulo: {titulo}
+
+Ultimas cenas escritas, para voce continuar sem repetir:
+{cauda}
+
+Escreva {n_novas} cenas NOVAS que APROFUNDAM o tema — exemplo concreto, numero,
+objecao respondida, contra-argumento, caso real. Elas entram ANTES do
+fechamento, entao nao escreva despedida nem convite a comentar.
+
+Nao reescreva o que ja existe e nao repita ideia ja dita. Cada cena e um bloco
+auto-contido de 3 a 5 frases, mais longo do que as que voce escreveu antes —
+foi justamente a brevidade delas que deixou o roteiro curto.
+
+Mesmo estilo de prompt de imagem em INGLES das cenas anteriores.
+
+JSON: {{"cenas":[{{"narracao":"...","prompt_visual":"..."}}]}}"""
 
 
 def _json_do_llm(bruto: str) -> dict:
@@ -150,9 +174,85 @@ CHARS_POR_S_PADRAO = 12.0
 # curto so revela o problema no fim, quando ja gastou tudo.
 MIN_FRACAO_TEXTO = 0.75
 
+# Abaixo disto o roteiro ganha uma segunda chamada pedindo o que falta. 0.90 de
+# 780 s da 702 s = 11,7 min, que e a borda de baixo dos "12 a 15 minutos" da
+# rotina depois da variacao normal do TTS.
+ALVO_MINIMO = 0.90
+
+# Quantas vezes insistir. Duas rodadas cobrem o caso medido (80% -> alvo) sem
+# transformar um roteiro teimoso em espera longa.
+MAX_EXTENSOES = 2
+
 
 def _chars_por_s(cfg: Config) -> float:
     return CHARS_POR_S.get(cfg.canal.voz_edge or "", CHARS_POR_S_PADRAO)
+
+
+def _estender(
+    llm: LLM,
+    cfg: Config,
+    ideia: Ideia,
+    cenas: list[Cena],
+    chars_alvo: int,
+    taxa: float,
+    dur_min: float,
+) -> list[Cena]:
+    """Pede cenas novas ate o roteiro alcancar ALVO_MINIMO.
+
+    As cenas novas entram ANTES do fechamento — as tres ultimas cenas sao a
+    sintese e o convite a comentar, e enfiar desenvolvimento depois delas
+    deixaria o video terminando duas vezes.
+    """
+    for tentativa in range(MAX_EXTENSOES):
+        chars = sum(len(c.narracao) for c in cenas)
+        faltam = int(chars_alvo * ALVO_MINIMO) - chars
+        if faltam <= 0:
+            break
+
+        # Divide pelo tamanho medio das cenas que ele mesmo escreveu, com piso
+        # de 3: pedir "uma cena" para cobrir 2.000 caracteres so devolve outra
+        # cena curta.
+        media = max(chars // max(len(cenas), 1), 1)
+        n_novas = max(faltam // media, 3)
+        corpo, fecho = cenas[:-3], cenas[-3:]
+
+        prompt = PROMPT_ESTENDER.format(
+            chars=chars,
+            faltam=faltam,
+            dur_min=round(dur_min, 1),
+            titulo=ideia.titulo,
+            cauda="\n".join(f"- {c.narracao}" for c in corpo[-4:]),
+            n_novas=n_novas,
+        )
+        try:
+            dados = _json_do_llm(
+                llm.completar(prompt, sistema=_sistema(cfg), max_tokens=16384)
+            )
+            novas = [
+                Cena(indice=0, narracao=c["narracao"].strip(),
+                     prompt_visual=c["prompt_visual"].strip())
+                for c in dados.get("cenas", [])
+                if c.get("narracao", "").strip()
+            ]
+        except Exception as e:
+            # Extensao e melhoria, nao requisito. Se falhar, o roteiro original
+            # segue para a checagem de piso, que decide se serve.
+            log.warning("extensao %d falhou (%s) — segue com o que tem", tentativa + 1, e)
+            break
+
+        if not novas:
+            log.warning("extensao %d nao devolveu cena nova — parando", tentativa + 1)
+            break
+
+        cenas = corpo + novas + fecho
+        for i, c in enumerate(cenas):
+            c.indice = i
+        log.info(
+            "roteiro estendido: +%d cenas, %d -> %d caracteres (~%.1f min)",
+            len(novas), chars, sum(len(c.narracao) for c in cenas),
+            sum(len(c.narracao) for c in cenas) / taxa / 60,
+        )
+    return cenas
 
 
 def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
@@ -195,6 +295,18 @@ def escrever_roteiro(llm: LLM, cfg: Config, ideia: Ideia) -> Roteiro:
     # o caminho automatico produziu: mediana de 231 s contra alvo de 780, e nove
     # dos dez abaixo do piso de 8 min. Nenhum foi barrado aqui — todos foram
     # renderizados inteiros e so entao reprovados, ou pior, publicados.
+    # Curto, mas nao perdido: peca o que falta em vez de jogar fora.
+    #
+    # O primeiro longo do caminho automatico saiu com 623 s contra 780 de alvo —
+    # 80%, acima do piso de 8 min e acima do MIN_FRACAO_TEXTO, entao passou
+    # limpo. Mas a rotina pede 12 a 15 minutos, e 10:23 nao e isso. Falhar o
+    # video inteiro por causa de 20% de texto seria pior: joga fora um roteiro
+    # bom e 83 minutos de runner por uma diferenca que uma segunda chamada
+    # resolve. O LLM e gratuito; o runner nao.
+    chars = sum(len(c.narracao) for c in cenas)
+    if chars < chars_alvo * ALVO_MINIMO and ideia.formato is Formato.LONGO:
+        cenas = _estender(llm, cfg, ideia, cenas, chars_alvo, taxa, dur_min)
+
     chars = sum(len(c.narracao) for c in cenas)
     estimado_s = chars / taxa
     if chars < chars_alvo * MIN_FRACAO_TEXTO:
