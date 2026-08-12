@@ -19,8 +19,17 @@ ESCOPOS = [
     "https://www.googleapis.com/auth/youtube.force-ssl",
 ]
 
-# Escopo obrigatorio para captions.insert. Ja faz parte de ESCOPOS acima, e os
-# tokens emitidos o carregam — `maquina legendar` funciona sem reautenticar.
+# Escopo obrigatorio para captions.insert. Esta na lista acima, mas ESTAR NA
+# LISTA NAO E TER: escopo se concede no consentimento, e os refresh_token
+# gravados em config.yt_token_<canal> foram emitidos ANTES de force-ssl entrar
+# aqui. Mudar esta constante nao alcanca token ja existente.
+#
+# Medido em 2026-08-12: `maquina legendar` devolveu 403 insufficientPermissions
+# nos dois longos publicados no dia, com o .srt correto em disco. Upload nao e
+# afetado (youtube.upload foi concedido); so a legenda cai.
+#
+# Enquanto os canais nao forem reautorizados com consentimento novo, todo longo
+# publica com caption=false. O comentario anterior aqui afirmava o oposto.
 _ESCOPO_CAPTIONS = "https://www.googleapis.com/auth/youtube.force-ssl"
 
 
