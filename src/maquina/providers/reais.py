@@ -424,7 +424,16 @@ class ImagemPollinations:
             f"https://image.pollinations.ai/prompt/{prompt_enc}"
             f"?width={largura}&height={altura}&model=flux&nologo=true&seed=42"
         )
-        r = _com_retry(lambda: httpx.get(url, timeout=120.0, follow_redirects=True))
+        # O retry padrao (3 tentativas, 4s/8s) esgotou em producao: 2026-08-11
+        # 20:54, "Queue full for IP ...: 1 requests already queued (max: 1)" —
+        # o limite e por IP do runner, e a fila leva mais de 12s para esvaziar
+        # quando ha producao concorrente. Derrubou o video inteiro (status=erro
+        # no Supabase). Mais tentativas e espera maior cobrem essa janela.
+        r = _com_retry(
+            lambda: httpx.get(url, timeout=120.0, follow_redirects=True),
+            tentativas=5,
+            espera_inicial=6.0,
+        )
         if r.status_code >= 400:
             raise ErroProvider(f"Pollinations {r.status_code}: {r.text[:200]}")
         saida.parent.mkdir(parents=True, exist_ok=True)
