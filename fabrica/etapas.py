@@ -79,11 +79,24 @@ assert not _erros, "narracao reprovada — corrija a spec antes de renderizar"
 log("etapa 0 ok")
 
 
+# A etapa 7 e a que mais reprova — e ela roda DEPOIS de a etapa 5 apagar os
+# clipes e de a 6 mixar a trilha. Sem esta marca, rodar de novo apos uma
+# reprovacao refazia os 76 clipes (35 min) e, pior, chamava aplicar_trilha
+# sobre um video que JA tinha trilha, somando a musica duas vezes num arquivo
+# que passa em todos os asserts de duracao e tamanho.
+# Aconteceu em seja-mais-magra-001: o teste reprovou por falso positivo e a
+# retomada comecou a reconstruir tudo do zero.
+PRONTO = f"{d}/longo.ok"
+LONGO_PRONTO = arquivo_valido(f"{d}/video.mp4", 1_000_000) and os.path.exists(PRONTO)
+if LONGO_PRONTO:
+    log("etapas 1-6: longo ja montado e com trilha, retomando do teste visual")
+
 # ---------------------------------------------------------------- 1. assets
-if len(glob.glob(f"{d}/l*.mp3")) < len(sp["longo"]):
-    log("etapa 1: montar")
-    F.montar(spec)
-log(f"etapa 1 ok: {len(glob.glob(f'{d}/l*.mp3'))} mp3")
+if not LONGO_PRONTO:
+    if len(glob.glob(f"{d}/l*.mp3")) < len(sp["longo"]):
+        log("etapa 1: montar")
+        F.montar(spec)
+    log(f"etapa 1 ok: {len(glob.glob(f'{d}/l*.mp3'))} mp3")
 
 # ------------------------------------------- 2. clipes, liberando um a um
 log("etapa 2: clipes do longo")
@@ -91,7 +104,14 @@ cenas = sp["longo"]
 W, H = 1280, 720
 RW, RH = F.render_wh(W, H)
 tempos = []
-for i, c in enumerate(cenas):
+# Com o longo pronto os clipes ja foram apagados pela etapa 5, e refaze-los so
+# para recalcular `tempos` custa 35 min. Os mesmos numeros estao em tempos.json,
+# gravados na etapa 3 a partir dos clipes RENDERIZADOS.
+pendentes = [] if LONGO_PRONTO else list(enumerate(cenas))
+if LONGO_PRONTO:
+    tempos = json.load(open(f"{d}/tempos.json"))
+    log(f"etapa 2 pulada: {len(tempos)} tempos lidos de tempos.json")
+for i, c in pendentes:
     saida = f"{d}/lclip{i:02d}.mp4"
     if not arquivo_valido(saida, 10000):
         dd = F.dur(f"{d}/l{i:02d}.mp3") + 0.5
@@ -132,7 +152,8 @@ log("etapa 3 ok: legendas.srt + tempos.json")
 # quase identicos o x264 comprimia de graca, e agora nao comprime mais.
 crf = "29" if sum(tempos) >= 1100 else "26"
 meio = len(cenas) // 2
-for parte, (ini, fim) in enumerate(((0, meio), (meio, len(cenas))), start=1):
+partes = [] if LONGO_PRONTO else list(enumerate(((0, meio), (meio, len(cenas))), start=1))
+for parte, (ini, fim) in partes:
     saida = f"{d}/p{parte}.mp4"
     if arquivo_valido(saida, 100000):
         log(f"etapa 4: parte {parte} ja existe")
@@ -156,27 +177,31 @@ for parte, (ini, fim) in enumerate(((0, meio), (meio, len(cenas))), start=1):
         except OSError:
             pass
 
-with open(f"{d}/lista_final.txt", "w") as f:
-    f.write("file 'p1.mp4'\nfile 'p2.mp4'\n")
-subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
-    "-i", f"{d}/lista_final.txt", "-c", "copy", "-movflags", "+faststart",
-    f"{d}/video.mp4"], check=True, capture_output=True, cwd=d)
-dv = F.dur(f"{d}/video.mp4")
-log(f"etapa 4 ok: video.mp4 {dv:.1f}s")
-# A etapa confere a PROPRIA saida. Sem isto, um concat truncado passa batido
-# atras de um log de sucesso montado com a medicao da entrada.
-assert abs(dv - sum(tempos)) < 5, f"concat truncado: {dv:.1f} vs {sum(tempos):.1f}"
+if not LONGO_PRONTO:
+    with open(f"{d}/lista_final.txt", "w") as f:
+        f.write("file 'p1.mp4'\nfile 'p2.mp4'\n")
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
+        "-i", f"{d}/lista_final.txt", "-c", "copy", "-movflags", "+faststart",
+        f"{d}/video.mp4"], check=True, capture_output=True, cwd=d)
+    dv = F.dur(f"{d}/video.mp4")
+    log(f"etapa 4 ok: video.mp4 {dv:.1f}s")
+    # A etapa confere a PROPRIA saida. Sem isto, um concat truncado passa batido
+    # atras de um log de sucesso montado com a medicao da entrada.
+    assert abs(dv - sum(tempos)) < 5, f"concat truncado: {dv:.1f} vs {sum(tempos):.1f}"
 
-# ------------------------- 5. so agora, com o concat conferido, libera restos
-for f in glob.glob(f"{d}/p[12].mp4") + glob.glob(f"{d}/lclip*.mp4"):
-    os.remove(f)
-log("etapa 5 ok: partes e clipes liberados")
+    # --------------------- 5. so agora, com o concat conferido, libera restos
+    for f in glob.glob(f"{d}/p[12].mp4") + glob.glob(f"{d}/lclip*.mp4"):
+        os.remove(f)
+    log("etapa 5 ok: partes e clipes liberados")
 
-# ---------------------------------------------------------------- 6. trilha
-log("etapa 6: trilha")
-F.aplicar_trilha(d, "video.mp4", sp["slug"])
-log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
-    f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
+    # ------------------------------------------------------------ 6. trilha
+    # A marca so e escrita DEPOIS da trilha entrar. Ela e o que impede a
+    # proxima retomada de mixar musica sobre musica.
+    log("etapa 6: trilha")
+    F.aplicar_trilha(d, "video.mp4", sp["slug"])
+    open(PRONTO, "w").write("longo montado e com trilha\n")
+    log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
+        f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
 
 # ------------------------------- 7. alguem finalmente OLHA o video
 # As seis etapas acima medem se o arquivo saiu: duracao, tamanho, soma dos

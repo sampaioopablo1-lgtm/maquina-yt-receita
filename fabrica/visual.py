@@ -37,6 +37,7 @@ MIN_TINTA_MEDIANA = 0.02  # o piso acima julga um quadro; este julga o video int
                           # Cena com kicker mede ~6% de tinta, cena sem texto ~0,9%.
 MAX_TINTA = 0.62          # acima disto o fundo provavelmente nao e o fundo
 MAX_MARGEM = 0.012        # tinta encostada na borda
+RECONFERIR_S = 0.8        # quanto adiante reamostrar um quadro que mediu vazio
 MIN_CONTRASTE = 70        # distancia RGB media entre tinta e fundo
 MAX_DESVIO_FUNDO = 60     # distancia da cor dominante ate o fundo declarado
 
@@ -60,6 +61,17 @@ def quadros(v, n=QUADROS):
         capture_output=True)
     px = W * H * 3
     return [r.stdout[i:i + px] for i in range(0, len(r.stdout) - px + 1, px)], d
+
+
+def quadro_em(v, t):
+    """Um quadro avulso no instante t. Custa uma decodificacao, entao so e
+    usado para reconferir um quadro que ja acusou problema."""
+    r = subprocess.run(
+        ["ffmpeg", "-v", "error", "-ss", f"{t:.2f}", "-i", v, "-frames:v", "1",
+         "-vf", f"scale={W}:{H}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+        capture_output=True)
+    px = W * H * 3
+    return r.stdout[:px] if len(r.stdout) >= px else None
 
 
 def dist(a, b):
@@ -124,6 +136,24 @@ def conferir(video, fundo_esperado=None, n=QUADROS):
         print(f"{t:>7.1f} {m['tinta']*100:>6.2f}% {m['margem']*100:>6.2f}% "
               f"{m['contraste']:>6.0f}  #{f[0]:02X}{f[1]:02X}{f[2]:02X}")
         onde = f"t={t:.1f}s"
+        # A amostragem e uniforme e nao sabe onde as cenas comecam, entao um
+        # quadro pode cair na janela de entrada da animacao — nos primeiros
+        # ~0,45s de uma cena em camadas ainda nao ha elemento nenhum na tela, e
+        # medir zero ali e o comportamento correto da fabrica, nao defeito.
+        # Aconteceu duas vezes seguidas em seja-mais-magra-001, no mesmo
+        # t=732,4s: a cena 72 comeca em 732,1s e mede 0,00% a 0,3s dela, 4,94%
+        # a 1,0s e 5,22% a 2,9s. Sem esta reconferencia o teste reprova um video
+        # perfeito, e reprovar bom video ensina a ignorar o teste.
+        if m["tinta"] < MIN_TINTA:
+            q2 = quadro_em(video, min(t + RECONFERIR_S, d - 0.1))
+            if q2:
+                m2 = analisa(q2)
+                if m2["tinta"] >= MIN_TINTA:
+                    print(f"{'':>7} {m2['tinta']*100:>6.2f}%  (reconferido a "
+                          f"+{RECONFERIR_S}s: a cena renderiza, o quadro caiu na "
+                          f"entrada da animacao)")
+                    tintas[-1] = m2["tinta"]
+                    m = m2
         if m["tinta"] < MIN_TINTA:
             if m["fraco"] > MIN_TINTA * 2:
                 erros.append(f"{onde}: ha desenho, mas nenhum contraste legivel "
