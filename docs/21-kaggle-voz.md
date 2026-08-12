@@ -39,18 +39,31 @@ nao consegue devolver nada ao Storage.
 
 ### 2. Token da API
 
-**Settings → API → Create New Token**. O navegador baixa `kaggle.json` com
-`username` e `key`. Na maquina onde voce vai disparar os jobs:
+O Kaggle tem DOIS formatos na mesma pagina (`kaggle.com/settings/api`), e
+confundi-los faz a CLI falhar sem dizer por que:
+
+**Atual — `Generate New Token`.** Devolve um token unico no formato
+`KGAT_...`, sem username. A pagina mostra as duas formas de instalar:
 
 ```bash
-mkdir -p ~/.kaggle
-mv ~/Downloads/kaggle.json ~/.kaggle/kaggle.json
-chmod 600 ~/.kaggle/kaggle.json     # a CLI recusa o arquivo se estiver aberto
+export KAGGLE_API_TOKEN=KGAT_...            # por variavel de ambiente
+# ou, para a CLI achar sozinha:
+mkdir -p ~/.kaggle && echo KGAT_... > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
 pip install kaggle
-kaggle kernels list --mine           # confirma que autenticou
+kaggle kernels list --mine                   # confirma que autenticou
 ```
 
-Alternativa sem arquivo: variaveis `KAGGLE_USERNAME` e `KAGGLE_KEY`.
+**Legado — secao `Legacy API`, mais abaixo.** Baixa um `kaggle.json` com
+`username` e `key`, que vai para `~/.kaggle/kaggle.json` com `chmod 600` (a CLI
+recusa o arquivo se estiver com permissao aberta). Equivale as variaveis
+`KAGGLE_USERNAME` e `KAGGLE_KEY`. Ainda funciona; nao gere um se ja tiver o
+token novo.
+
+> **O token e uma senha, e ele aparece na tela uma vez so.** Nao mande print
+> dessa janela para lugar nenhum — chat, issue, commit. Se o valor vazou, o
+> conserto e apagar o token pelos tres pontinhos na lista e gerar outro; nao ha
+> como "despublicar" um segredo. Vazou em 2026-08-12 exatamente assim, num
+> print da tela de criacao.
 
 ### 3. O segredo do Supabase
 
