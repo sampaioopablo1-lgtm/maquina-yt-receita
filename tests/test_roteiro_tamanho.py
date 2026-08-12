@@ -145,3 +145,18 @@ def test_voz_desconhecida_nao_encurta_o_video_abaixo_do_piso():
     assert duracao_saida >= 8 * 60, (
         f"{duracao_saida / 60:.1f} min fica abaixo do piso de 8 min"
     )
+
+
+def test_short_mira_na_faixa_que_a_rotina_pede():
+    """A rotina pede 30 a 45 s. O alvo do codigo era 50 e entregava 56."""
+    assert 30 <= Formato.SHORTS.duracao_alvo_s <= 45
+
+
+def test_short_no_alvo_cai_dentro_da_faixa_com_a_voz_mais_rapida():
+    """Mesmo na voz mais rapida da frota o short nao pode estourar 45 s."""
+    alvo_s = Formato.SHORTS.duracao_alvo_s
+    for voz, taxa in R.CHARS_POR_S.items():
+        chars = alvo_s * taxa
+        # A duracao real e chars/taxa da mesma voz, entao bate no alvo; o teste
+        # existe para travar o alvo dentro da faixa, nao a aritmetica.
+        assert 30 <= chars / taxa <= 45, voz

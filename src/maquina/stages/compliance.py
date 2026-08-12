@@ -107,6 +107,34 @@ def verificar(video: Video, cfg: Config, store: Store) -> Resultado:
             "estenda o roteiro."
         )
 
+    # 4b. Short fora da faixa de 30 a 45 s que a rotina pede.
+    #
+    # Acima de 60 s BLOQUEIA: o feed de Shorts e o unico que entrega em canal
+    # frio — medido, 23,0 views/dia contra 0,1 do longo — e passar do minuto
+    # arrisca sair dele. Entre 45 e 60 apenas alerta, porque ja esta publicado
+    # e o estrago e de ritmo, nao de distribuicao.
+    #
+    # Abaixo de 20 s tambem bloqueia: nao cabe gancho, desenvolvimento e CTA
+    # falado, e sem CTA o short nao converte em inscrito — que e a unica razao
+    # de ele existir na estrategia.
+    if video.formato is Formato.SHORTS and video.duracao_s:
+        if video.duracao_s > 60:
+            r.bloquear(
+                f"short com {video.duracao_s:.0f} s — acima de 60 arrisca sair "
+                "do feed de Shorts, que e o unico que entrega em canal frio. "
+                "A rotina pede 30 a 45."
+            )
+        elif video.duracao_s < 20:
+            r.bloquear(
+                f"short com {video.duracao_s:.0f} s — curto demais para gancho, "
+                "desenvolvimento e CTA falado. Sem CTA nao vira inscrito."
+            )
+        elif video.duracao_s > 45:
+            r.alertar(
+                f"short com {video.duracao_s:.0f} s, acima dos 45 que a rotina "
+                "pede — ainda no feed, mas o ritmo afrouxa"
+            )
+
     # 5. Metadados minimos.
     if len(video.roteiro.titulo) > 100:
         r.bloquear("titulo acima de 100 caracteres (limite do YouTube)")

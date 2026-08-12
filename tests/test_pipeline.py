@@ -481,3 +481,47 @@ def test_compliance_nao_conta_video_de_outro_canal(cfg):
     novo.duracao_s = 800
     res = compliance.verificar(novo, cfg, store)
     assert not any("teto diario do canal" in b for b in res.bloqueios)
+
+
+def test_compliance_bloqueia_short_acima_de_60s(cfg, tmp_path):
+    """Passar do minuto arrisca sair do feed de Shorts — o unico que entrega
+    em canal frio: 23,0 views/dia contra 0,1 do longo, medido em 12/08/2026."""
+    from maquina.models import Formato
+
+    store = Store(tmp_path / "t.db")
+    v = _video_com_roteiro("texto de um short", "Short comprido")
+    v.formato = Formato.SHORTS
+    v.duracao_s = 72.0
+
+    res = compliance.verificar(v, cfg, store)
+
+    assert not res.aprovado
+    assert any("60" in b for b in res.bloqueios)
+
+
+def test_compliance_alerta_short_entre_45_e_60s(cfg, tmp_path):
+    from maquina.models import Formato
+
+    store = Store(tmp_path / "t.db")
+    v = _video_com_roteiro("texto de um short", "Short quase certo")
+    v.formato = Formato.SHORTS
+    v.duracao_s = 56.0
+
+    res = compliance.verificar(v, cfg, store)
+
+    assert res.aprovado, "56 s ainda entrega — alerta, nao bloqueio"
+    assert any("45" in a for a in res.alertas)
+
+
+def test_compliance_aceita_short_na_faixa(cfg, tmp_path):
+    from maquina.models import Formato
+
+    store = Store(tmp_path / "t.db")
+    v = _video_com_roteiro("texto de um short", "Short certo")
+    v.formato = Formato.SHORTS
+    v.duracao_s = 38.0
+
+    res = compliance.verificar(v, cfg, store)
+
+    assert res.aprovado
+    assert not any("45" in a or "60" in a for a in res.alertas)

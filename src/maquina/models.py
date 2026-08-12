@@ -31,7 +31,11 @@ class Formato(str, Enum):
         # um pouco abaixo do pedido caia direto abaixo do minimo. Combinado com
         # o gerador pedindo 12 cenas em vez de 70, deu a mediana de 231 s dos
         # dez longos automaticos (aprendizado #181).
-        return 50 if self is Formato.SHORTS else 780
+        # SHORTS: a rotina pede 30 a 45 s. Era 50 — o alvo do codigo nunca foi
+        # alinhado com o pedido, e 50 mais a variacao normal do TTS entrega
+        # acima da faixa: _5rPClaanvw saiu com 56 s em 12/08/2026. 38 e o meio
+        # de 30-45, e sobra margem para o TTS passar um pouco sem sair fora.
+        return 38 if self is Formato.SHORTS else 780
 
     @property
     def aspect(self) -> str:
