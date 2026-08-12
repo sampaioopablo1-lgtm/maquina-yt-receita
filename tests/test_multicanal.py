@@ -51,3 +51,41 @@ def test_todos_os_canais_do_portfolio_carregam():
     # e por isso que este teste compara o conjunto em vez de contar.
     repetidas = {v for v in vozes if vozes.count(v) > 1}
     assert repetidas == {"pt-BR-AntonioNeural"}
+
+
+def test_sincronizar_varre_todos_os_bancos_da_frota(tmp_path):
+    """O sync nao pode enxergar so o banco do canal ativo.
+
+    Config.load isola data_dir por canal. Quando o job produz com
+    MAQ_CANAL=nivel-do-jogo e sincroniza sem a variavel, sao dois bancos
+    diferentes — foi assim que iSby7u2ltf8 subiu ao YouTube em 12/08/2026 e
+    nunca ganhou linha no Supabase, com o job terminando verde.
+    """
+    from maquina.sincronizacao import bancos_locais
+
+    for sub in ("", "nivel-do-jogo", "kolejny-poziom"):
+        d = tmp_path / sub if sub else tmp_path
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "maquina.db").write_bytes(b"")
+    # Banco de um canal que nunca rodou nao existe e nao pode entrar na lista.
+    (tmp_path / "seviye-seviye").mkdir()
+
+    ativo = Config.load(canal="nivel-do-jogo")
+    ativo.data_dir = tmp_path / "nivel-do-jogo"
+    achados = {b.parent.name for b in bancos_locais(ativo)}
+    assert achados == {tmp_path.name, "nivel-do-jogo", "kolejny-poziom"}
+
+
+def test_sincronizar_sem_canal_tambem_alcanca_os_subdiretorios(tmp_path):
+    """O caso que quebrou: sync rodando sem MAQ_CANAL, producao com."""
+    from maquina.sincronizacao import bancos_locais
+
+    (tmp_path / "maquina.db").write_bytes(b"")
+    (tmp_path / "nivel-do-jogo").mkdir()
+    (tmp_path / "nivel-do-jogo" / "maquina.db").write_bytes(b"")
+
+    padrao = Config.load()
+    padrao.data_dir = tmp_path
+    assert padrao.canal_slug == ""
+    achados = {b.parent.name for b in bancos_locais(padrao)}
+    assert "nivel-do-jogo" in achados

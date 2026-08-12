@@ -657,23 +657,8 @@ def sincronizar(
         novos = sincronizacao.puxar(store)
         console.print(f"Puxados do Supabase: [bold]{len(novos)}[/] {', '.join(novos)}")
 
-    # Empurra TODOS os bancos por canal, nao so o ativo.
-    #
-    # Config.load isola data/ por canal quando MAQ_CANAL aponta um slug. O
-    # producao.yml define MAQ_CANAL no passo que produz, mas nao nos passos que
-    # sincronizam — entao a producao gravava em data/nivel-do-jogo/maquina.db e
-    # o sync lia data/maquina.db, um banco diferente. Foi assim que iSby7u2ltf8
-    # subiu para o YouTube em 12/08 e nunca ganhou linha no Supabase: o job
-    # terminou verde dizendo "Enviados 23 videos", nenhum deles o que acabara de
-    # produzir. Varrer os bancos torna o passo correto mesmo se alguem esquecer
-    # a variavel de novo.
-    bancos = {cfg.data_dir / "maquina.db"}
-    raiz = cfg.data_dir.parent if cfg.canal_slug else cfg.data_dir
-    bancos.update(raiz.glob("*/maquina.db"))
-    bancos.add(raiz / "maquina.db")
-
     total_v = total_m = 0
-    for banco in sorted(b for b in bancos if b.exists()):
+    for banco in sincronizacao.bancos_locais(cfg):
         v, m = sincronizacao.empurrar(Store(banco))
         total_v += v
         total_m += m

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import logging
 import os
+from pathlib import Path
 
 import httpx
 
@@ -107,9 +108,38 @@ def _upsert(cli: httpx.Client, tabela: str, linhas: list[dict], on_conflict: str
         raise ErroSincronizacao(f"{tabela} {r.status_code}: {r.text[:300]}")
 
 
+def bancos_locais(cfg) -> list[Path]:
+    """Todos os SQLite do projeto, nao so o do canal ativo.
+
+    Config.load isola data_dir em data/<slug>/ quando MAQ_CANAL aponta um
+    canal. O producao.yml definia MAQ_CANAL no passo que produz e nao nos que
+    sincronizam, entao a producao gravava em data/nivel-do-jogo/maquina.db e o
+    sync lia data/maquina.db — um banco que aquela producao nunca tocou. Foi
+    assim que iSby7u2ltf8 subiu para o YouTube em 12/08/2026 e nunca ganhou
+    linha no Supabase: o job terminou verde anunciando "Enviados 23 videos",
+    nenhum deles o que acabara de produzir.
+
+    A variavel foi corrigida no workflow. Varrer os bancos e o cinto de
+    seguranca: mesmo que alguem esqueca MAQ_CANAL de novo, nada produzido fica
+    fora do Supabase — e o Supabase e o unico lugar onde o estado sobrevive ao
+    runner efemero.
+    """
+    raiz = cfg.data_dir.parent if cfg.canal_slug else cfg.data_dir
+    bancos = {cfg.data_dir / "maquina.db", raiz / "maquina.db"}
+    bancos.update(raiz.glob("*/maquina.db"))
+    return sorted(b for b in bancos if b.exists())
+
+
 def empurrar(store: Store) -> tuple[int, int]:
-    """Manda videos e metricas locais para o Supabase. Devolve (videos, metricas)."""
-    videos = store.listar(limite=10_000)
+    """Manda videos e metricas locais para o Supabase. Devolve (videos, metricas).
+
+    Linhas resgatadas ficam de fora. Elas nasceram de uma linha do proprio
+    Supabase cujo `roteiro` nao era um Roteiro, e o que guardamos local e um
+    Roteiro so com titulo. Devolver isso apagaria o blob original — nas linhas
+    da fabrica/ ele carrega fonte_pauta com a analise de peer group, a trilha,
+    os IDs do Drive e a URL do Storage. Trafego de mao unica, de proposito.
+    """
+    videos = [v for v in store.listar(limite=10_000) if not v.resgatado]
     # Videos primeiro: metricas.youtube_id tem FK para videos.youtube_id.
     linhas_v = [_linha_video(v) for v in videos]
     ids = [v.youtube_id for v in videos if v.youtube_id]
@@ -117,8 +147,19 @@ def empurrar(store: Store) -> tuple[int, int]:
     # Metrica de video ausente no lote violaria a FK e derrubaria o job inteiro.
     linhas_m = [m for m in linhas_m if m["youtube_id"] in ids]
 
+    # Dois lotes, por causa do PostgREST: um POST em massa exige que TODAS as
+    # linhas tenham exatamente as mesmas chaves, senao devolve
+    # PGRST102 "All object keys must match" e o job inteiro cai. E `canal` so
+    # entra na linha quando existe (ver _linha_video), entao basta um video sem
+    # canal ao lado de um com canal para o lote inteiro ser recusado. Enquanto
+    # o puxar nao carimbava canal, todas as linhas vinham sem ele e o problema
+    # nao aparecia; passou a aparecer no primeiro sync depois disso.
+    com_canal = [linha for linha in linhas_v if "canal" in linha]
+    sem_canal = [linha for linha in linhas_v if "canal" not in linha]
+
     with _cliente() as cli:
-        _upsert(cli, "videos", linhas_v, "slug")
+        _upsert(cli, "videos", com_canal, "slug")
+        _upsert(cli, "videos", sem_canal, "slug")
         _upsert(cli, "metricas", linhas_m, "youtube_id,coletado_em")
     return len(linhas_v), len(linhas_m)
 
@@ -201,6 +242,7 @@ def _resgatar(linha: dict, erro: Exception) -> Video | None:
                 "formato": linha["formato"],
                 "status": linha["status"],
                 "roteiro": {"titulo": titulo, "gancho": "", "cenas": []},
+                "resgatado": True,
                 "canal": linha.get("canal"),
                 "youtube_id": linha.get("youtube_id"),
                 "duracao_s": linha.get("duracao_s"),

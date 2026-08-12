@@ -135,6 +135,14 @@ class Video(BaseModel):
     criado_em: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     custo_usd: float = 0.0
 
+    # Linha que veio do Supabase com um `roteiro` que nao e um Roteiro (as da
+    # fabrica/ guardam metricas ali) e foi reconstruida a partir do titulo so
+    # para alimentar os contadores da compliance. Existe local, nunca volta ao
+    # Supabase: o roteiro reconstruido tem titulo e nada mais, e empurrar
+    # sobrescreveria o blob original — que e a unica copia de fonte_pauta,
+    # trilha e dos IDs do Drive. Ver sincronizacao._resgatar.
+    resgatado: bool = False
+
     def dir(self, base: Path) -> Path:
         d = base / self.slug
         d.mkdir(parents=True, exist_ok=True)
