@@ -161,10 +161,23 @@ def gerar_ideias(
 # extenso e rate -4%. Medir importa: as vozes vao de 9,85 a 20,02 chars/s, e
 # dimensionar pela taxa errada e o que ja produziu 9:25 onde se queria 13:00.
 # Para medir uma voz nova: workflow medir-vozes.yml.
+# Medido em 12/08/2026 pelo medir-vozes.yml, cada voz lendo um texto NA PROPRIA
+# LINGUA. Isso importa mais do que parece: a mesma medicao feita com um texto so
+# em portugues errou o ingles em 30% (12,50 contra 16,19 reais) e o indonesio em
+# 9%. A tabela anterior, escrita a mao, errava a Francisca em 15%.
 CHARS_POR_S = {
-    "pt-BR-AntonioNeural": 14.30,
-    "pt-BR-ThalitaMultilingualNeural": 16.52,
-    "pt-BR-FranciscaNeural": 14.01,
+    "el-GR-NestorasNeural": 15.65,
+    "en-GB-RyanNeural": 15.42,
+    "en-US-AndrewNeural": 16.19,
+    "es-MX-DaliaNeural": 14.80,
+    "hi-IN-MadhurNeural": 10.04,
+    "id-ID-ArdiNeural": 15.90,
+    "id-ID-GadisNeural": 12.63,
+    "pl-PL-MarekNeural": 15.37,
+    "pt-BR-AntonioNeural": 14.41,
+    "pt-BR-FranciscaNeural": 16.15,
+    "pt-BR-ThalitaMultilingualNeural": 15.69,
+    "tr-TR-AhmetNeural": 12.63,
 }
 
 # Padrao de quem ainda nao foi medido, e a direcao do erro NAO e simetrica.

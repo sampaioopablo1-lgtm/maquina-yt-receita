@@ -8,23 +8,20 @@ name: Producao de video
 on:
   schedule:
     # A cada 4h = 6 runs/dia, um canal diferente por run (ver "Escolher canal").
-    # Com treze canais no rodizio, cada um sai a cada ~2 dias.
     #
-    # A cadencia foi escolhida um dia para casar com um teto de 6/dia que NAO
-    # EXISTE — o real e 100/dia. O limite de verdade e o runner: um longo de 13
-    # min levou 83 min de ubuntu-latest medidos no run 31619957726 (82 cenas,
-    # 78 chamadas sequenciais de TTS e imagem). 6 runs/dia x 83 min = ~500
-    # min/dia, ~15.000 min/mes, e este repositorio e privado — muito acima dos
-    # 2.000 min inclusos. Manter esta cadencia e uma decisao de custo, nao um
-    # detalhe tecnico.
+    # Esta cadencia era insustentavel enquanto o padrao era longo: 83 min de
+    # runner por video, medidos no run 31619957726, dao ~15.000 min/mes num
+    # repositorio privado com 2.000 inclusos. Com o padrao em short — 5 cenas
+    # em vez de 78 — o mesmo ritmo cabe folgado no plano gratuito, e o gasto
+    # so aparece nos canais que ja provaram que alguem assiste.
     - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
       formato:
-        description: "Formato do video"
+        description: "Formato. auto = short, ou longo se o canal ja passou de 300 views num short."
         type: choice
-        options: [longo, shorts]
-        default: longo
+        options: [auto, shorts, longo]
+        default: auto
       titulo:
         description: "Titulo especifico (vazio = a maquina escolhe a pauta)"
         type: string
@@ -102,6 +99,33 @@ jobs:
           fi
           echo "canal=$CANAL" >> "$GITHUB_OUTPUT"
 
+          # Formato: short por padrao, longo so em canal que ganhou o direito.
+          #
+          # Medido em 12/08/2026, idade comparavel e regra das 48h respeitada:
+          # shorts fazem 23,0 views/dia e longos fazem 0,1. Dezenove longos
+          # publicados somam SETE views; quatorze shorts somam 2.363. E o longo
+          # custa 83 min de runner contra ~5 do short.
+          #
+          # Short constroi inscrito, inscrito torna o longo assistivel, longo
+          # gera hora de exibicao para o YPP. A ordem importa e estava invertida.
+          FORMATO="${{ inputs.formato }}"
+          # No evento `schedule` inputs.formato vem vazio; no dispatch, "auto"
+          # significa a mesma coisa — decida por mim.
+          [ "$FORMATO" = "auto" ] && FORMATO=""
+          if [ -z "$FORMATO" ] && [ -n "$CANAL" ] && [ -n "$SUPABASE_URL" ]; then
+            LIBERADO=$(curl -sf "$SUPABASE_URL/rest/v1/v_maquina_longos_liberados?slug=eq.$CANAL&select=slug" \
+              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -r '.[0].slug // empty')
+            if [ -n "$LIBERADO" ]; then
+              FORMATO=longo
+              echo "$CANAL ja tem short acima de 300 views — este run e longo."
+            else
+              FORMATO=shorts
+              echo "$CANAL ainda nao provou o nicho — este run e short."
+            fi
+          fi
+          echo "formato=${FORMATO:-shorts}" >> "$GITHUB_OUTPUT"
+
       - name: Puxar historico do Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -173,7 +197,7 @@ jobs:
           # no nicho do Setiap Level, seja qual for o canal pedido.
           MAQ_CANAL: ${{ steps.canal.outputs.canal }}
         run: |
-          FORMATO="${{ inputs.formato || 'longo' }}"
+          FORMATO="${{ steps.canal.outputs.formato }}"
           QUANTIDADE="${{ inputs.quantidade || '1' }}"
           # quantidade=0 ou vazio -> 1 por run (cron horario); titulo especifico -> 1 direto
           [ "$QUANTIDADE" = "0" ] && QUANTIDADE=1

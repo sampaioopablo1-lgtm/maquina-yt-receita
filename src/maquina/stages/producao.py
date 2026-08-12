@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import time
 from pathlib import Path
 
 from .. import media
@@ -10,6 +11,44 @@ from ..models import Formato, Roteiro
 from ..providers.base import GeradorImagem, TTS
 
 log = logging.getLogger("maquina.producao")
+
+# Teto de tempo por cena, em segundos, para cada etapa que fala com provider
+# externo. Nao e uma estimativa do normal — e o ponto a partir do qual desistir
+# vale mais que insistir.
+#
+# O normal medido e ~5 s por cena no TTS e ~15 s na imagem. Em 12/08/2026 um job
+# ficou DUAS HORAS no passo de producao sem terminar e sem nada que o
+# interrompesse: as retentativas de TTS e de Pollinations nao tem teto agregado,
+# entao um provider degradado consome os 300 min de timeout do job inteiro e o
+# unico sinal e o silencio.
+#
+# Com teto, um provider ruim custa alguns minutos e devolve um erro que diz onde
+# parou. Os arquivos ja gerados ficam em disco e `maquina retomar <slug>`
+# continua de la — desistir aqui nao joga trabalho fora.
+ORCAMENTO_TTS_S = 60.0
+ORCAMENTO_IMAGEM_S = 90.0
+
+
+class OrcamentoEstourado(RuntimeError):
+    """Etapa passou do teto de tempo. Os artefatos parciais estao preservados."""
+
+
+def _vigia(etapa: str, total: int, por_cena: float):
+    """Devolve uma funcao que levanta quando o tempo acumulado passa do teto."""
+    inicio = time.monotonic()
+    teto = por_cena * max(total, 1)
+
+    def conferir(feitas: int) -> None:
+        gasto = time.monotonic() - inicio
+        if gasto > teto:
+            raise OrcamentoEstourado(
+                f"{etapa} passou do teto: {gasto / 60:.1f} min para {feitas} de "
+                f"{total} cenas (teto {teto / 60:.1f} min, {por_cena:.0f} s/cena). "
+                "Provider degradado. Os arquivos prontos ficaram em disco — "
+                "`maquina retomar <slug>` continua daqui."
+            )
+
+    return conferir
 
 
 def narrar(tts: TTS, roteiro: Roteiro, destino: Path, voice_id: str = "") -> None:
@@ -21,13 +60,15 @@ def narrar(tts: TTS, roteiro: Roteiro, destino: Path, voice_id: str = "") -> Non
     pasta = destino / "audio"
     pasta.mkdir(parents=True, exist_ok=True)
 
-    for cena in roteiro.cenas:
+    conferir = _vigia("narracao", len(roteiro.cenas), ORCAMENTO_TTS_S)
+    for feitas, cena in enumerate(roteiro.cenas, 1):
         saida = pasta / f"cena_{cena.indice:03d}.mp3"
         if not saida.exists():
             tts.sintetizar(cena.narracao, saida, voice_id=voice_id)
         cena.audio_path = str(saida)
         cena.duracao_s = media.duracao(saida)
-        log.info("cena %d narrada (%.1fs)", cena.indice, cena.duracao_s)
+        log.info("cena %d/%d narrada (%.1fs)", feitas, len(roteiro.cenas), cena.duracao_s)
+        conferir(feitas)
 
 
 def ilustrar(
@@ -37,12 +78,14 @@ def ilustrar(
     pasta.mkdir(parents=True, exist_ok=True)
     largura, altura = formato.resolucao
 
-    for cena in roteiro.cenas:
+    conferir = _vigia("ilustracao", len(roteiro.cenas), ORCAMENTO_IMAGEM_S)
+    for feitas, cena in enumerate(roteiro.cenas, 1):
         saida = pasta / f"cena_{cena.indice:03d}.png"
         if not saida.exists():
             gerador.gerar(cena.prompt_visual, saida, largura=largura, altura=altura)
         cena.imagem_path = str(saida)
-        log.info("cena %d ilustrada", cena.indice)
+        log.info("cena %d/%d ilustrada", feitas, len(roteiro.cenas))
+        conferir(feitas)
 
 
 def _timestamp(segundos: float) -> str:
