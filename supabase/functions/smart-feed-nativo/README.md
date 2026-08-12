@@ -104,6 +104,16 @@ trata link de YouTube/Vimeo como vídeo e não como tour, então a categoria
 sair zerada está correto e não é falha do pipeline. Enquanto não houver
 captação de tour 360 de verdade, essa categoria não pontua.
 
+**Características.** O Vista já entrega `<Feature>` no vocabulário do VRSync,
+em inglês — `Pool`, `BBQ`, `Elevator`, `Maids Quarters`, 32 termos ao todo,
+17.813 ocorrências no XML nativo. O mapeador original só conhecia o caminho
+português→inglês (`/piscina/i` → `Pool`), então quase tudo caía fora: só 772
+dos 3.000 anúncios publicados levavam características, contra 80% de
+cobertura na origem. Desde a v16 o termo que já chega no vocabulário oficial
+passa direto, e `BarbecueBalcony` — que o Vista emite colado — vira `BBQ` +
+`Balcony`. Resultado medido: 2.612 anúncios com características (87%) e
+15.053 tags emitidas.
+
 ## Variáveis de ambiente
 
 | Variável | Uso |
