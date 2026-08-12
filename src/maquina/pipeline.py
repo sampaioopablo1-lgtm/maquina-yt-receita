@@ -255,9 +255,20 @@ class Pipeline:
             (Status.NARRADO, self.ilustrar),
             (Status.ILUSTRADO, self.renderizar),
         ]
-        # Status ERRO retoma da etapa correspondente ao ultimo artefato valido.
-        if video.status is Status.ERRO:
-            video.status = _ultimo_estado_valido(video)
+        # O status diz ate onde a producao chegou; o disco diz o que ainda
+        # existe. Quando os dois discordam, manda o disco.
+        #
+        # Isso valia so para status ERRO, e a suposicao por tras disso — que os
+        # artefatos sobrevivem ate a retomada — e falsa no caso NORMAL: todo job
+        # do Actions e um runner novo, e o `maquina sincronizar` traz do Supabase
+        # linhas em `narrado` e `ilustrado` cujos mp3 e png morreram com a
+        # maquina que os gerou. Medido em 12/08/2026: skill-stacking-2-8af772
+        # ficou em `ilustrado` quando cancelei o job, e retomar pularia direto
+        # para renderizar, montando video a partir de caminhos que nao existem.
+        #
+        # A funcao so anda para TRAS — nunca promove status —, entao aplicar
+        # sempre e seguro: no maximo confirma o que ja estava la.
+        video.status = _ultimo_estado_valido(video)
 
         iniciar = False
         for estado, etapa in ordem:
@@ -275,7 +286,56 @@ class Pipeline:
         return diagnostico.diagnosticar(m, self.cfg)
 
 
+# Estados em que o video ja saiu da esteira de producao. Rebobinar qualquer um
+# destes seria destrutivo: no melhor caso re-renderiza o que ja estava pronto,
+# no pior re-produz um video que ja esta no YouTube.
+# Ordem da esteira de producao. Usada para garantir que a conferencia de disco
+# so ande para tras.
+_ESTEIRA = [
+    Status.IDEIA,
+    Status.ROTEIRIZADO,
+    Status.NARRADO,
+    Status.ILUSTRADO,
+    Status.RENDERIZADO,
+    Status.AGUARDANDO_REVISAO,
+    Status.APROVADO,
+]
+
+_FORA_DA_ESTEIRA = {
+    Status.PUBLICADO,
+    Status.REJEITADO,
+    Status.CANCELADO,
+    Status.LISTADO_PARA_PUBLICACAO,
+}
+
+
 def _ultimo_estado_valido(video: Video) -> Status:
+    """Ate onde a producao chegou DE VERDADE, conferindo o disco.
+
+    O status diz ate onde chegou; o disco diz o que ainda existe. Quando os dois
+    discordam, manda o disco — e eles discordam no caso normal, porque todo job
+    do Actions e um runner novo e o `maquina sincronizar` traz do Supabase linhas
+    cujos artefatos morreram com a maquina que os gerou.
+    """
+    if video.status in _FORA_DA_ESTEIRA:
+        return video.status
+
+    achado = _pelo_disco(video)
+
+    # Nunca promove. So rebobina.
+    #
+    # Sem este teto a funcao promovia `ideia` para `roteirizado` sempre que a
+    # linha ja carregasse um roteiro — e `ideia` nao significa "sem roteiro",
+    # significa "ainda nao passou pela roteirizacao". As pautas guardadas pelo
+    # banco nascem exatamente assim, e promove-las puleria a etapa que existe
+    # para escreve-las. Nao promover e o que torna seguro aplicar isto em TODA
+    # retomada, e nao so quando o status e ERRO.
+    if _ESTEIRA.index(achado) > _ESTEIRA.index(video.status):
+        return video.status
+    return achado
+
+
+def _pelo_disco(video: Video) -> Status:
     if not video.roteiro:
         return Status.IDEIA
     cenas = video.roteiro.cenas
@@ -283,4 +343,8 @@ def _ultimo_estado_valido(video: Video) -> Status:
         return Status.ROTEIRIZADO
     if not all(c.imagem_path and Path(c.imagem_path).exists() for c in cenas):
         return Status.NARRADO
+    # Com o mp4 em disco nao ha o que refazer: renderizar de novo gastaria os
+    # minutos mais caros da pipeline para produzir o mesmo arquivo.
+    if video.video_path and Path(video.video_path).exists():
+        return Status.RENDERIZADO
     return Status.ILUSTRADO
