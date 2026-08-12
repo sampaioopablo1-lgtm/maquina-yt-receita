@@ -11,17 +11,16 @@ from ..models import Metricas, Video
 
 log = logging.getLogger("maquina.youtube")
 
+# Usado SO na autenticacao interativa (`maquina auth-youtube`), para pedir o
+# consentimento. Nao serve para carregar token ja emitido: ver _credenciais.
 ESCOPOS = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",
-    "https://www.googleapis.com/auth/yt-analytics.readonly",
+    "https://www.googleapis.com/auth/youtube.force-ssl",
 ]
 
-# Escopo adicional obrigatorio para captions.insert.
-# Nao esta em ESCOPOS pois alteraria o token de publicacao ja emitido.
-# Para habilitar `maquina legendar`, reautentique com:
-#   ESCOPOS_CAPTIONS = ESCOPOS + ["https://www.googleapis.com/auth/youtube.force-ssl"]
-# e gere um novo token via `maquina auth-youtube`.
+# Escopo obrigatorio para captions.insert. Ja faz parte de ESCOPOS acima, e os
+# tokens emitidos o carregam — `maquina legendar` funciona sem reautenticar.
 _ESCOPO_CAPTIONS = "https://www.googleapis.com/auth/youtube.force-ssl"
 
 
@@ -31,7 +30,17 @@ def _credenciais(cfg: Config, permitir_interativo: bool = False):
 
     cred = None
     if cfg.yt_token.exists():
-        cred = Credentials.from_authorized_user_file(str(cfg.yt_token), ESCOPOS)
+        # Sem forcar ESCOPOS: o segundo argumento SOBREPOE os escopos gravados
+        # no arquivo, e o refresh passa a pedir ao Google exatamente essa lista.
+        # Os tokens emitidos carregam [youtube, youtube.force-ssl,
+        # youtube.upload]; ESCOPOS pede yt-analytics.readonly, que nunca foi
+        # consentido. Pedir escopo fora da concessao original faz o Google
+        # responder `invalid_scope: Bad Request` — e como nenhum token guardado
+        # no Supabase tem access token, TODO canal passa pelo refresh e TODO
+        # canal quebrava por isso (medido em seja-mais-magra em 2026-08-12).
+        # Lendo o arquivo sem lista, o refresh pede os escopos realmente
+        # concedidos e a credencial sai valida.
+        cred = Credentials.from_authorized_user_file(str(cfg.yt_token))
 
     if cred and cred.valid:
         return cred
