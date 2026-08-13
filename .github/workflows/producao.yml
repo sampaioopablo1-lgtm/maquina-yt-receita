@@ -99,15 +99,22 @@ jobs:
           fi
           echo "canal=$CANAL" >> "$GITHUB_OUTPUT"
 
-          # Formato: short por padrao, longo so em canal que ganhou o direito.
+          # Formato: LONGO enquanto o canal nao tiver dez; short depois.
           #
-          # Medido em 12/08/2026, idade comparavel e regra das 48h respeitada:
-          # shorts fazem 23,0 views/dia e longos fazem 0,1. Dezenove longos
-          # publicados somam SETE views; quatorze shorts somam 2.363. E o longo
-          # custa 83 min de runner contra ~5 do short.
+          # Ate 12/08 era o contrario, e o portao exigia 300 views num short
+          # antes de liberar longo. A medicao que sustentava aquilo continua
+          # valendo — shorts fazem 23,0 views/dia contra 0,1 dos longos, e o
+          # longo custa 83 min de runner contra ~5 do short — mas ela responde
+          # a pergunta errada.
           #
-          # Short constroi inscrito, inscrito torna o longo assistivel, longo
-          # gera hora de exibicao para o YPP. A ordem importa e estava invertida.
+          # O YPP exige 1.000 inscritos MAIS 4.000 horas de exibicao em 12
+          # meses, e view de Short NAO conta nessas horas: o caminho alternativo
+          # e 10 milhoes de views de Shorts em 90 dias, inatingivel em canal
+          # frio. Otimizar views/dia com o objetivo sendo receita e escolher o
+          # placar errado. A partir de 01/02/2027 a exigencia dobra para 8.000
+          # horas, entao o prazo tambem pesa.
+          #
+          # Meta do operador (13/08/2026): dez longos por canal, nos treze.
           FORMATO="${{ inputs.formato }}"
           # No evento `schedule` inputs.formato vem vazio; no dispatch, "auto"
           # significa a mesma coisa — decida por mim.
@@ -118,10 +125,10 @@ jobs:
               -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" | jq -r '.[0].slug // empty')
             if [ -n "$LIBERADO" ]; then
               FORMATO=longo
-              echo "$CANAL ja tem short acima de 300 views — este run e longo."
+              echo "$CANAL ainda deve longos para a meta de dez — este run e longo."
             else
               FORMATO=shorts
-              echo "$CANAL ainda nao provou o nicho — este run e short."
+              echo "$CANAL ja tem os dez longos — este run e short (topo do funil)."
             fi
           fi
           echo "formato=${FORMATO:-shorts}" >> "$GITHUB_OUTPUT"
