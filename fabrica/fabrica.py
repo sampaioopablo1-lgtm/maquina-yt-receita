@@ -427,6 +427,14 @@ def aplicar_trilha(d, out, slug, registrada=None):
         # Calado ele e invisivel duas vezes: o log escreve "etapa 6 ok" e a
         # marca de pronto dizia "longo montado e com trilha". O video sai sem a
         # assinatura sonora do canal e ninguem fica sabendo.
+        #
+        # QUANTO ISSO PEGOU, medido em 15/08/2026 nos artefatos ENTREGUES no
+        # bucket (piso de ruido, percentil 5 em janelas de 0,5 s): dos SETE
+        # pacotes medidos, SEIS sairam sem musica nenhuma. So o
+        # labtreinamento-001 tem trilha. Nao e caso raro, e a regra.
+        #
+        # E os artefatos do bucket SAO os publicados: duracao e tamanho batem
+        # na casa decimal contra videos.duracao_s e videos.tamanho_mb.
         raise RuntimeError(
             f"nenhuma trilha utilizavel em {TRILHA_DIR} para o canal {slug} "
             f"(registrada={registrada!r}). Renderizar sem musica e uma saida "
