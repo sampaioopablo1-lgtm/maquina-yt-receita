@@ -306,6 +306,10 @@ _FORA_DA_ESTEIRA = {
     Status.REJEITADO,
     Status.CANCELADO,
     Status.LISTADO_PARA_PUBLICACAO,
+    # Vem da fabrica/, cujos artefatos vivem no disco do sandbox Composio, nao
+    # neste runner. _pelo_disco nunca acha o video la e _ESTEIRA.index(video.status)
+    # estouraria ValueError — este status nem faz parte da esteira automatica.
+    Status.PRONTO_NAO_ENTREGUE,
 }
 
 

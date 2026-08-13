@@ -71,7 +71,7 @@ def test_com_mp4_em_disco_nao_re_renderiza(tmp_path):
 
 @pytest.mark.parametrize("status", [
     Status.PUBLICADO, Status.REJEITADO, Status.CANCELADO,
-    Status.LISTADO_PARA_PUBLICACAO,
+    Status.LISTADO_PARA_PUBLICACAO, Status.PRONTO_NAO_ENTREGUE,
 ])
 def test_video_fora_da_esteira_nunca_e_rebobinado(status, tmp_path):
     """Rebobinar um publicado re-produziria um video que ja esta no YouTube."""

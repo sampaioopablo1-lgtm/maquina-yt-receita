@@ -52,6 +52,13 @@ class Status(str, Enum):
     APROVADO = "aprovado"
     # Aliases legados do Supabase — gerados por workflows externos.
     LISTADO_PARA_PUBLICACAO = "listado_para_publicacao"
+    # Gerado pela fabrica/ (fluxo manual no sandbox Composio, fora desta
+    # pipeline). Sem este membro, Video.model_validate rejeitava a linha
+    # inteira e sincronizacao.puxar() a descartava: o video nunca chegava ao
+    # SQLite local, entao `maquina publicar <slug>` respondia "nao encontrei" —
+    # medido em labtreinamento-001, 6 tentativas de workflow_dispatch em
+    # 12/08/2026, sempre pelo mesmo motivo.
+    PRONTO_NAO_ENTREGUE = "pronto_nao_entregue"
     CANCELADO = "cancelado"
     PUBLICADO = "publicado"
     REJEITADO = "rejeitado"
