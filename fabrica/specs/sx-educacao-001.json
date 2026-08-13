@@ -1,0 +1,659 @@
+{
+ "slug": "sx-educacao",
+ "pacote": "sx-educacao-001",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-AntonioNeural",
+ "paleta": {
+  "ink": "#10261C",
+  "c1": "#217346",
+  "c2": "#F2B134",
+  "bg": "#F1F7F4"
+ },
+ "thumb": {
+  "l1": "LICENCAS DORMINDO",
+  "l2": "a planilha que acha"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "A conta que cresce sozinha",
+   "sub": "e ninguem confere",
+   "nar": "A licenca do Power BI e cobrada por pessoa, todo mes, e ninguem na empresa recebe um aviso quando ela cresce. Ela so aparece na fatura.",
+   "cap": "A conta que ninguem confere"
+  },
+  {
+   "layout": "item",
+   "kicker": "O padrao",
+   "preco": "todo mundo ganha licenca",
+   "nar": "O que acontece na maioria das empresas e simples. Alguem pede acesso ao painel, o time de tecnologia compra mais uma licenca, e ninguem volta para conferir se ela ainda e usada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Seis meses depois",
+   "preco": "a lista so cresceu",
+   "nar": "Seis meses depois a lista tem nomes de gente que mudou de area, de gente que saiu, e de gente que abre o painel duas vezes por ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o reajuste",
+   "preco": "primeiro em quase dez anos",
+   "nar": "E em dois mil e vinte e cinco a Microsoft reajustou essas licencas pela primeira vez em quase dez anos. Quem nao mexeu na lista sentiu o aumento em cima de um numero que ja estava inflado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quanto pesa",
+   "preco": "some por doze meses",
+   "nar": "E reajuste em licenca mensal nao se sente no mes. Se sente no ano, porque ele multiplica por doze antes de aparecer no orcamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Este video",
+   "sub": "a planilha, coluna por coluna",
+   "nar": "Entao a pergunta deste video nao e quanto custa a licenca. E quanto custa a SUA, com os seus nomes, e quantos deles nao precisavam existir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que a gente monta",
+   "itens": [
+    "As tres licencas",
+    "As colunas da planilha",
+    "A formula que decide",
+    "O erro mais caro",
+    "Quando a capacidade compensa"
+   ],
+   "nar": "A gente monta uma planilha do zero. Cinco partes: as tres licencas, as colunas, a formula que decide quem precisa de qual, o erro mais caro, e quando vale trocar o modelo inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem instalar nada",
+   "preco": "Excel que voce ja tem",
+   "nar": "Nao precisa instalar nada. Tudo isso e Excel comum, com funcoes que existem ha anos. Nenhuma delas e avancada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E antes de comecar",
+   "preco": "os precos sao entrada, nao verdade",
+   "nar": "Um aviso que vale o video inteiro. Os precos mudam e variam por contrato, entao a planilha nunca traz preco escrito dentro da formula. O preco e sempre uma celula que voce preenche:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "As tres licencas",
+   "sub": "e o que cada uma permite",
+   "nar": "Comeca entendendo o que voce esta comprando. Sao tres formas de pagar, e elas nao servem para a mesma coisa.",
+   "cap": "As tres licencas, sem jargao"
+  },
+  {
+   "layout": "item",
+   "kicker": "Gratuita",
+   "preco": "voce cria, ninguem ve",
+   "nar": "A primeira e a gratuita. Voce cria relatorio, conecta dados e monta o painel. O que voce nao faz e compartilhar com outra pessoa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por usuario",
+   "preco": "criar e compartilhar",
+   "nar": "A segunda e a licenca por usuario. Ela libera o compartilhamento. E aqui mora a confusao mais cara do Power BI.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A confusao",
+   "preco": "quem LE tambem paga",
+   "nar": "Nesse modelo, quem le o painel tambem precisa de licenca. Nao basta o analista ter. O gerente que so abre e olha tambem consome uma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como saber a sua",
+   "preco": "portal de administracao",
+   "nar": "Para descobrir qual dessas voce paga hoje, olhe o portal de administracao do Microsoft trezentos e sessenta e cinco. Nao pergunte, confira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A terceira",
+   "preco": "capacidade, nao pessoa",
+   "nar": "A terceira e diferente. Voce nao paga por pessoa, paga por uma capacidade de processamento reservada, e quem so le passa a ler sem licenca propria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma pergunta antes",
+   "preco": "voce compartilha com quantos?",
+   "nar": "E antes de escolher, responda uma coisa. Com quantas pessoas voce compartilha painel hoje? Se voce nao sabe de cabeca, ja e sinal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Como o custo cresce",
+   "itens": [
+    "Por usuario",
+    "Capacidade"
+   ],
+   "alturas": [
+    100,
+    45
+   ],
+   "nar": "A diferenca de formato importa mais que o preco. Por usuario, o custo cresce junto com o numero de pessoas. Por capacidade, ele e fixo e nao olha quantas pessoas leem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Entao existe um ponto",
+   "preco": "onde os dois se cruzam",
+   "nar": "O que significa que existe um ponto de cruzamento. Abaixo dele, pagar por pessoa sai mais barato. Acima, sai mais caro, e a diferenca so aumenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Achar esse ponto",
+   "preco": "e o objetivo da planilha",
+   "nar": "Achar esse ponto para a sua empresa e exatamente o que a planilha faz. E ela precisa de menos dados do que voce imagina.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "so quatro informacoes",
+   "nar": "Na verdade a planilha inteira roda com quatro informacoes. Quais sao elas?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "As colunas",
+   "sub": "quatro, e mais nada",
+   "nar": "Abra uma aba nova e chame de Pessoas. Vamos precisar de quatro colunas, e nenhuma delas e dificil de conseguir.",
+   "cap": "A planilha: as colunas"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aba Pessoas",
+   "itens": [
+    "Nome",
+    "Area",
+    "Papel",
+    "Ultimo acesso"
+   ],
+   "nar": "Nome, area, papel, e ultimo acesso. Nome e area voce ja tem. Papel e ultimo acesso sao os dois que fazem o trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Papel",
+   "preco": "so tres valores",
+   "nar": "A coluna papel aceita so tres valores. Cria, edita, ou apenas le. Sem meio-termo e sem texto livre, senao a formula nao consegue contar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como travar",
+   "preco": "validacao de dados",
+   "nar": "Para garantir isso, use validacao de dados na coluna. Uma lista com os tres valores, e o Excel passa a recusar qualquer outra coisa digitada ali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ultimo acesso",
+   "preco": "a data, nao a impressao",
+   "nar": "A coluna ultimo acesso e uma data. Ela vem do relatorio de uso do proprio Power BI, e nao da sua lembranca de quem usa o painel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "De onde vem",
+   "preco": "exporte, nao estime",
+   "nar": "Esse relatorio sai do proprio Power BI, na area de administracao. Exporte para Excel e cole na aba. Nunca preencha de cabeca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se nao tiver acesso",
+   "preco": "peca uma vez so",
+   "nar": "Se voce nao tem acesso a essa area, peca ao administrador. E um pedido unico, e ele destrava a planilha inteira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que ela decide",
+   "preco": "aqui mora a economia",
+   "nar": "Essa coluna e a que mais economiza dinheiro. Ela transforma uma discussao de opiniao numa contagem, e contagem ninguem discute.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segunda aba",
+   "sub": "os precos, isolados",
+   "nar": "Agora uma segunda aba, chamada Precos. Ela existe por um motivo de manutencao, nao de organizacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aba Precos",
+   "itens": [
+    "Licenca por usuario",
+    "Licenca premium por usuario",
+    "Capacidade mensal",
+    "Cambio"
+   ],
+   "nar": "Quatro celulas. O valor da licenca por usuario, o da premium por usuario, o da capacidade mensal, e a taxa de cambio se a sua cobranca vier em dolar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra de ouro",
+   "preco": "nenhum preco na formula",
+   "nar": "A regra de ouro e essa: nenhum preco escrito dentro de formula. Se o valor muda, voce troca uma celula e a planilha inteira se atualiza sozinha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se voce ignorar",
+   "preco": "vira arqueologia",
+   "nar": "Quem ignora isso descobre o custo seis meses depois, quando precisa cacar precos escondidos dentro de vinte formulas diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O bloqueio",
+   "preco": "proteja a aba",
+   "nar": "Vale proteger essa aba com senha e liberar so as quatro celulas. Nao e desconfianca. E que planilha compartilhada acumula edicao acidental.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "agora a conta",
+   "nar": "Com as duas abas prontas, falta a parte que de fato decide alguma coisa:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A formula",
+   "sub": "quem precisa e quem nao",
+   "nar": "A primeira conta responde uma pergunta so. Quantas licencas voce esta pagando sem necessidade?",
+   "cap": "A formula que decide"
+  },
+  {
+   "layout": "item",
+   "kicker": "A funcao",
+   "preco": "CONT.SES, nada alem",
+   "nar": "A funcao e CONT.SES. Ela conta linhas que atendem varias condicoes ao mesmo tempo, e e a unica funcao nova que este video pede.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira condicao",
+   "preco": "papel igual a apenas le",
+   "nar": "A primeira condicao e o papel igual a apenas le. Isso separa quem consome de quem produz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda condicao",
+   "preco": "sem acesso ha noventa dias",
+   "nar": "A segunda e o ultimo acesso anterior a noventa dias atras. Para isso use HOJE menos noventa, dentro da propria formula, para o corte andar sozinho todo dia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O resultado",
+   "preco": "licencas dormindo",
+   "nar": "O resultado e o numero de licencas que estao sendo pagas por gente que so leria, e que nem isso fez no ultimo trimestre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiplique",
+   "preco": "e voce tem o desperdicio",
+   "nar": "Multiplique esse numero pelo valor da licenca, la da aba Precos. Esse e o seu desperdicio mensal, e ele costuma surpreender.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cuidado com a data vazia",
+   "preco": "celula em branco engana",
+   "nar": "Um detalhe que estraga a conta: quem nunca acessou costuma vir com a celula vazia, e celula vazia nao entra na comparacao de data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O conserto",
+   "preco": "trate vazio como nunca",
+   "nar": "O conserto e tratar vazio como nunca acessou, e contar essas linhas separadamente. Elas sao as licencas mais desperdicadas de todas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que noventa",
+   "preco": "e nao trinta",
+   "nar": "Noventa dias e proposital. Trinta dias pega ferias e afastamento, e voce acaba cortando acesso de gente que vai voltar a usar na semana seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tres numeros que saem",
+   "itens": [
+    "Licencas ativas",
+    "Licencas dormindo",
+    "Custo por area"
+   ],
+   "nar": "Da mesma aba saem mais dois numeros. Licencas ativas, licencas dormindo, e o custo por area quando voce usa SOMASES em vez de CONT.SES.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A diferenca das duas",
+   "preco": "contar contra somar",
+   "nar": "A diferenca entre elas e simples. CONT.SES conta linhas; SOMASES soma valores dessas linhas. Uma da quantidade, a outra da dinheiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Custo por area",
+   "preco": "aqui a conversa muda",
+   "nar": "O custo por area e o que muda a conversa dentro da empresa. Ele para de ser um problema de tecnologia e vira um numero de cada diretoria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "mas tem um erro maior",
+   "nar": "So que existe um erro que custa mais caro que todas as licencas dormindo somadas. Qual?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O erro mais caro",
+   "sub": "licenca para quem so le",
+   "nar": "O erro mais caro nao e licenca esquecida. E dar licenca paga para muita gente que so precisa olhar.",
+   "cap": "O erro que dobra a conta"
+  },
+  {
+   "layout": "item",
+   "kicker": "O caminho natural",
+   "preco": "cada pedido, uma licenca",
+   "nar": "Ele acontece naturalmente. Cada pedido de acesso vira uma licenca, e ninguem para para perguntar quantos pedidos ja foram atendidos assim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cinquenta leitores",
+   "preco": "cinquenta licencas",
+   "nar": "Pense numa area com cinquenta pessoas que so abrem o painel e olham. Isso vira cinquenta licencas pagas. Todo mes, para gente que nunca criou nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E cresce sem pedir",
+   "preco": "cada contratacao entra na conta",
+   "nar": "Pior: essa conta cresce sozinha. Cada pessoa nova que entra na area vira mais uma licenca, sem ninguem decidir nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A alternativa",
+   "preco": "a mesma leitura, sem licenca",
+   "nar": "No modelo de capacidade, essas mesmas cinquenta pessoas leem sem licenca propria. Voce paga a capacidade, e a leitura deixa de ser cobrada por cabeca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Entao a pergunta muda",
+   "preco": "quantos LEEM, nao quantos usam",
+   "nar": "Entao a pergunta certa nao e quantas pessoas usam o Power BI. E quantas delas apenas leem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na planilha",
+   "preco": "voce ja tem esse numero",
+   "nar": "E esse numero voce ja tem. E a contagem de papel igual a apenas le, sem nenhum filtro de data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cuidado com o atalho",
+   "preco": "capacidade nao e so preco",
+   "nar": "Um cuidado antes de correr para a capacidade. Ela tambem muda como o dado e processado e como a area de tecnologia administra o ambiente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "a decisao nao e so da planilha",
+   "nar": "Ou seja, a planilha diz quando vale a pena olhar. A decisao final passa por quem cuida da infraestrutura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "entao quando vale?",
+   "nar": "O que deixa uma pergunta em aberto, e ela tem resposta numerica:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O ponto de virada",
+   "sub": "uma divisao, so isso",
+   "nar": "O calculo do ponto de virada e uma divisao. Custo mensal da capacidade dividido pelo custo de uma licenca por usuario.",
+   "cap": "Quando a capacidade compensa"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que sai",
+   "preco": "um numero de pessoas",
+   "nar": "O que sai e um numero de pessoas. Acima dele, a capacidade tende a sair mais barata. Abaixo, a licenca por pessoa ganha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um exemplo do formato",
+   "preco": "sem numero de contrato",
+   "nar": "Um exemplo do formato, com valores inventados so para mostrar a conta. Se a capacidade custa mil e a licenca custa vinte, o ponto fica em cinquenta pessoas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare com o seu",
+   "preco": "leitores, nao usuarios",
+   "nar": "Compare esse numero com a sua contagem de leitores. Se a sua contagem for maior, voce esta pagando a mais todo mes desde que passou desse ponto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E ele se move",
+   "preco": "para os dois lados",
+   "nar": "E o ponto se move. Reajuste de licenca empurra ele para baixo, o que faz a capacidade compensar com menos gente do que compensava antes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se a cobranca vier em dolar",
+   "preco": "o cambio entra na conta",
+   "nar": "E se a sua cobranca vier em dolar, o cambio mexe no ponto de virada sem que nenhum preco tenha mudado. Por isso ele e uma celula tambem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso a data",
+   "preco": "carimbe a planilha",
+   "nar": "Por isso carimbe a data em que voce preencheu os precos. Sem a data, daqui a um ano ninguem sabe se aquele numero ainda vale.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tres numeros para revisar",
+   "itens": [
+    "Precos",
+    "Ultimo acesso",
+    "Papel de cada um"
+   ],
+   "nar": "Tres coisas envelhecem nessa planilha. Os precos, a coluna de ultimo acesso, e o papel de cada pessoa quando ela muda de area.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Com que frequencia",
+   "preco": "trimestral basta",
+   "nar": "Uma revisao por trimestre basta. Mensal vira burocracia e ninguem mantem; anual deixa passar tres meses de licenca dormindo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O ganho real",
+   "preco": "nao e so o dinheiro",
+   "nar": "E o ganho maior nem e o dinheiro. E parar de discutir acesso por opiniao e passar a discutir por contagem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "para nao morrer na gaveta",
+   "nar": "Falta so a parte que decide se essa planilha vai durar ou virar mais um arquivo esquecido:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Manter viva",
+   "sub": "tres habitos",
+   "nar": "Uma planilha dessas morre por falta de rotina, nunca por falta de formula. Tres habitos resolvem.",
+   "cap": "Como manter a planilha viva"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro",
+   "preco": "a fonte, sempre a mesma",
+   "nar": "Primeiro: o ultimo acesso vem sempre do relatorio de uso, sempre exportado do mesmo lugar. Fonte que muda de mes para mes destroi a comparacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segundo",
+   "preco": "uma aba de historico",
+   "nar": "Segundo: guarde uma aba de historico com o total de cada mes. Uma linha por mes, e em um ano voce enxerga a tendencia em vez de um retrato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceiro",
+   "preco": "um dono, com nome",
+   "nar": "Terceiro: a planilha precisa de um dono com nome. Planilha de todo mundo e planilha de ninguem, e essa some em dois trimestres.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Recapitulando",
+   "itens": [
+    "Quatro colunas",
+    "Precos isolados",
+    "CONT.SES com HOJE menos noventa",
+    "Leitores contra o ponto"
+   ],
+   "nar": "Recapitulando o que voce monta. Quatro colunas na aba Pessoas, os precos isolados numa aba propria, CONT.SES com HOJE menos noventa, e a contagem de leitores comparada ao ponto de virada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A parte que quase ninguem faz",
+   "preco": "a coluna de papel",
+   "nar": "A parte que quase ninguem faz e a coluna papel. Sem ela a planilha vira uma lista de nomes, e lista de nomes nao decide nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que nao fazer",
+   "preco": "cortar acesso sem avisar",
+   "nar": "Uma coisa a nao fazer: cortar acesso de ninguem so porque a formula apontou. Avise a area primeiro, e deixe a pessoa dizer se ainda precisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Senao",
+   "preco": "a planilha vira inimiga",
+   "nar": "Senao a planilha deixa de ser ferramenta e vira motivo de briga. E ai ninguem mais atualiza a coluna de papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se voce so fizer uma coisa",
+   "preco": "conte os leitores",
+   "nar": "Se voce so fizer uma coisa depois deste video, conte quantas pessoas apenas leem os seus paineis. Esse numero sozinho ja muda a conversa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E leva minutos",
+   "preco": "nao um projeto",
+   "nar": "E leva minutos, nao um projeto. A planilha inteira cabe numa manha, e a primeira contagem cabe num cafe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E documente a decisao",
+   "preco": "uma linha basta",
+   "nar": "Quando decidir mudar ou ficar, escreva uma linha na propria planilha dizendo por que. Daqui a um ano, ninguem vai lembrar do motivo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "SX Educacao",
+   "sub": "Excel, dados e decisao",
+   "nar": "Se voce montou a planilha, escreve nos comentarios quantos leitores voce achou. Estou juntando esses numeros para o proximo video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "SX Educacao",
+   "sub": "Excel, dados e decisao",
+   "nar": "E se voce quer a proxima planilha sobre outro custo escondido, diz qual. A mais pedida sai primeiro.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Sua conta do Power BI",
+   "sub": "esta inflada",
+   "nar": "A sua conta do Power BI provavelmente esta inflada. E da para provar com uma planilha de quatro colunas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O erro",
+   "preco": "quem so LE tambem paga",
+   "nar": "No modelo por usuario, quem so le o painel tambem consome licenca. Cinquenta leitores viram cinquenta licencas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A formula",
+   "preco": "CONT.SES + HOJE menos noventa",
+   "nar": "Uma funcao resolve. CONT.SES com papel igual a apenas le, e ultimo acesso anterior a noventa dias atras.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que sai",
+   "preco": "licencas dormindo",
+   "nar": "O que sai e o numero de licencas pagas por gente que nem abriu o painel no ultimo trimestre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "SX Educacao",
+   "sub": "a planilha completa",
+   "nar": "A planilha inteira, coluna por coluna, esta no video longo. Assiste agora.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Licencas dormindo: a planilha que acha o desperdicio do Power BI\n\n## TITULO\nExcel: A Planilha que Acha Licencas do Power BI que Voce Paga e Ninguem Usa\n\n## DESCRICAO\nA licenca do Power BI e cobrada por pessoa, todo mes, e ninguem na empresa recebe um aviso quando ela cresce. Ela so aparece na fatura.\n\nO padrao e sempre o mesmo: alguem pede acesso ao painel, o time de tecnologia compra mais uma licenca, e ninguem volta para conferir se ela ainda e usada. Seis meses depois a lista tem nomes de gente que mudou de area, de gente que saiu, e de gente que abre o painel duas vezes por ano. E em 2025 a Microsoft reajustou essas licencas pela primeira vez em quase dez anos — quem nao mexeu na lista sentiu o aumento em cima de um numero que ja estava inflado.\n\nEste video nao responde quanto custa a licenca. Responde quanto custa A SUA, com os seus nomes, e quantos deles nao precisavam existir.\n\nA gente monta a planilha do zero, coluna por coluna, sem instalar nada e sem funcao avancada.\n\nO QUE TEM DENTRO:\n\nAs tres licencas sem jargao — a gratuita (voce cria, ninguem ve), a licenca por usuario, e o modelo de capacidade. E a confusao mais cara do Power BI, que e esta: no modelo por usuario, quem so LE o painel tambem consome licenca. O gerente que abre e olha custa igual ao analista que construiu.\n\nAs quatro colunas da aba Pessoas: nome, area, papel e ultimo acesso. A coluna papel aceita so tres valores — cria, edita, ou apenas le — travada por validacao de dados, porque texto livre impede a formula de contar. A coluna ultimo acesso vem exportada do relatorio de uso do proprio Power BI, nunca de memoria.\n\nA aba Precos, isolada, com a regra de ouro do video: nenhum preco escrito dentro de formula. Preco e sempre celula. Quem ignora isso descobre o custo seis meses depois, cacando valores escondidos dentro de vinte formulas.\n\nA formula que decide: CONT.SES com papel igual a \"apenas le\" e ultimo acesso anterior a HOJE menos noventa. O resultado e o numero de licencas pagas por gente que nem abriu o painel no ultimo trimestre. Multiplique pelo valor da licenca e voce tem o desperdicio mensal. Noventa dias e proposital — trinta pega ferias e afastamento.\n\nO erro que dobra a conta, e o ponto de virada: uma area com cinquenta pessoas que so leem vira cinquenta licencas pagas todo mes. O calculo de quando a capacidade compensa e uma divisao — custo da capacidade dividido pelo custo de uma licenca por usuario — e o resultado e um numero de pessoas para comparar com a sua contagem de leitores.\n\nE os tres habitos que impedem a planilha de morrer na gaveta.\n\nSE VOCE SO FIZER UMA COISA: conte quantas pessoas apenas leem os seus paineis. Esse numero sozinho ja muda a conversa, e a contagem cabe num cafe.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nDuas perguntas, porque as respostas variam muito mais do que parece: quantos leitores voce achou quando contou? E a sua empresa paga por usuario ou por capacidade? Estou juntando esses numeros para o proximo video — a media esconde exatamente o caso que interessa.\n\n## HASHTAGS\n#Excel #PowerBI #SXEducacao\n\n## TAGS\nexcel, power bi, licenca power bi, custo power bi, cont.ses, planilha de controle, analise de dados, power bi pro, capacidade fabric, planilha excel, controle de licencas, excel para analistas, somases, validacao de dados, gestao de custos\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nO reajuste citado e o aumento das licencas Power BI anunciado pela Microsoft com vigencia a partir de abril de 2025, o primeiro em quase dez anos. Os valores de licenca e de capacidade mudam com o tempo e variam conforme contrato, regiao e acordo corporativo — por isso a planilha deste video nunca traz preco dentro de formula: confira o valor vigente do seu contrato e preencha a celula. O exemplo do ponto de virada usa numeros inventados apenas para mostrar a mecanica da divisao. Este conteudo e educativo sobre Excel e controle de custos; nao e consultoria de licenciamento nem recomendacao de compra.\n"
+}
