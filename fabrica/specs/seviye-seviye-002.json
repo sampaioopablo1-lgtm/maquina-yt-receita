@@ -19,7 +19,7 @@
    "kicker": "28.075 TL",
    "sub": "aclik sinirinin altinda kalan maas",
    "cap": "Giriş: üç sayı",
-   "nar": "Yirmi sekiz bin yetmiş beş lira. Bu, iki bin yirmi altı yılının net asgari ücreti. Otuz altı bin dokuz yüz kırk lira ise dört kişilik bir ailenin açlık sınırı. Yani asgari ücret, bir ailenin sadece gıda harcamasını bile karşılamıyor. Bu videoda bunun neden matematiksel olarak kaçınılmaz olduğunu göstereceğim."
+   "nar": "Yirmi sekiz bin yetmiş beş lira. Bu, iki bin yirmi altı yılının net asgari ücreti. Açlık sınırı ise otuz altı bin dokuz yüz kırk lira. Dört kişilik bir aile için, ve sadece gıda için. Yani asgari ücret, bir ailenin mutfak masrafını bile karşılamıyor. Bunun neden matematiksel olarak kaçınılmaz olduğunu göstereceğim."
   },
   {
    "layout": "lista",
@@ -30,7 +30,7 @@
     "sistemde ne degismesi gerekir"
    ],
    "cap": "Videonun planı",
-   "nar": "Yedi bölümde: üç resmî sayı ve aralarındaki uçurum, asgari ücret zammının nasıl hesaplandığı, erimenin bileşik etkisi, hissedilen enflasyonun neden farklı olduğu, orta sınıfa ne olduğu, bireysel olarak gerçekten ne yapılabilir ve sistemde neyin değişmesi gerekir."
+   "nar": "Yedi bölümde: üç resmî sayı ve aralarındaki uçurum, asgari ücret zammının nasıl hesaplandığı, erimenin bileşik etkisi, hissedilen enflasyonun neden farklı olduğu, orta sınıfa ne olduğu, bireysel olarak gerçekten ne yapılabilir ve sistemde neyin değişmesi gerekir. Önce şu: bu üç sayı neden bu kadar uzak?"
   },
   {
    "layout": "titulo",
@@ -53,7 +53,7 @@
     120325
    ],
    "cap": "Üç sayı yan yana",
-   "nar": "Net asgari ücret yirmi sekiz bin yetmiş beş lira. Türk-İş'in temmuz iki bin yirmi altı verisine göre açlık sınırı otuz altı bin dokuz yüz kırk lira, yoksulluk sınırı ise yüz yirmi bin üç yüz yirmi beş lira. Grafiğe bakın — asgari ücret ilk çubuğun bile altında kalıyor."
+   "nar": "Net asgari ücret yirmi sekiz bin yetmiş beş lira. Türk-İş'in temmuz iki bin yirmi altı verisine bakalım. Açlık sınırı otuz altı bin dokuz yüz kırk lira. Yoksulluk sınırı ise yüz yirmi bin üç yüz yirmi beş. Grafiğe bakın — asgari ücret ilk çubuğun bile altında kalıyor."
   },
   {
    "layout": "item",
@@ -102,7 +102,7 @@
    "kicker": "Bolum 2'ye gecis",
    "sub": "peki zam nasil hesaplaniyor?",
    "cap": "Geçiş — zam nasıl hesaplanıyor",
-   "nar": "Bu uçurum bir kaza değil. Zammın hesaplanma biçiminden çıkıyor, ve ikinci bölüm tam olarak bunu anlatıyor.",
+   "nar": "Bu uçurum bir kaza değil. Zammın hesaplanma biçiminden çıkıyor. Peki tam olarak nasıl hesaplanıyor?",
    "sem_cap": true
   },
   {
@@ -131,7 +131,7 @@
     30
    ],
    "cap": "2024 örneği",
-   "nar": "Somut bir örnek: TÜİK iki bin yirmi dördü yüzde kırk dört virgül otuz sekiz enflasyonla kapattı, ama asgari ücrete yüzde otuz zam yapıldı. On dört puanlık fark, tek bir yılda doğrudan alım gücünden düştü."
+   "nar": "Somut bir örnek. TÜİK iki bin yirmi dördü yüzde kırk dört virgül otuz sekiz enflasyonla kapattı. Ama asgari ücrete yüzde otuz zam yapıldı. On dört puanlık fark, tek bir yılda doğrudan alım gücünden düştü."
   },
   {
    "layout": "lista",
@@ -163,7 +163,7 @@
    "kicker": "Bolum 3'e gecis",
    "sub": "ve bu her yil ust uste biniyor",
    "cap": "Geçiş — bileşik etki",
-   "nar": "Tek bir yılda birkaç puanlık fark küçük görünür. Üst üste bindiğinde ne olduğu üçüncü bölümün konusu.",
+   "nar": "Tek bir yılda birkaç puanlık fark küçük görünür. Peki üst üste bindiğinde ne oluyor?",
    "sem_cap": true
   },
   {
@@ -226,7 +226,7 @@
    "kicker": "Bolum 4'e gecis",
    "sub": "peki resmi enflasyon neden farkli hissettiriyor?",
    "cap": "Geçiş — hissedilen enflasyon",
-   "nar": "Bu noktada çoğu kişinin aklına gelen soru şu: madem enflasyon şu kadar, market neden çok daha pahalı hissettiriyor? Dördüncü bölüm.",
+   "nar": "Bu noktada çoğu kişinin aklına gelen soru şu: madem enflasyon şu kadar, market neden çok daha pahalı hissettiriyor?",
    "sem_cap": true
   },
   {
@@ -284,7 +284,7 @@
    "kicker": "Bolum 5'e gecis",
    "sub": "orta sinifa ne oldu?",
    "cap": "Geçiş — orta sınıf",
-   "nar": "Bu mekanizma yeterince uzun sürerse ne olur? Beşinci bölümün konusu, ve Türkiye'de en çok konuşulan başlık.",
+   "nar": "Türkiye'de en çok konuşulan başlık şu: bu mekanizma yeterince uzun sürerse ne olur?",
    "sem_cap": true
   },
   {
@@ -303,7 +303,7 @@
     "birikim yapabilmek"
    ],
    "cap": "Eski tanım",
-   "nar": "Bir kuşak önce orta sınıf olmak üç şey demekti: bir ev sahibi olabilmek, çocuğunu okutabilmek ve ay sonunda bir miktar biriktirebilmek. Üçü de tek bir maaşla mümkündü."
+   "nar": "Bir kuşak önce orta sınıf olmak üç şey demekti. Ev sahibi olabilmek, çocuğunu okutabilmek ve ay sonunda para biriktirebilmek. Üçü de tek maaşla mümkündü."
   },
   {
    "layout": "item",
@@ -335,7 +335,7 @@
    "kicker": "Bolum 6'ya gecis",
    "sub": "peki birey ne yapabilir?",
    "cap": "Geçiş — birey ne yapabilir",
-   "nar": "Şimdi zor soruya geliyoruz. Yapısal bir sorun karşısında birey ne yapabilir? Cevabı dürüst vereceğim.",
+   "nar": "Şimdi zor soruya geliyoruz. Cevabı dürüst vereceğim: yapısal bir sorun karşısında birey ne yapabilir?",
    "sem_cap": true
   },
   {
@@ -400,7 +400,7 @@
    "kicker": "Bolum 7'ye gecis",
    "sub": "asil cozum nerede?",
    "cap": "Geçiş — sistem",
-   "nar": "Bireysel hamleler kaybı yavaşlatır ama tersine çevirmez. Onu tersine çevirecek şey sistemde, ve son bölüm orada.",
+   "nar": "Bireysel hamleler kaybı yavaşlatır ama tersine çevirmez. Peki onu tersine çevirecek şey tam olarak nerede?",
    "sem_cap": true
   },
   {
@@ -426,7 +426,7 @@
    "kicker": "Ara zam neyi degistirir",
    "preco": "6 ay",
    "cap": "Ara zam neyi değiştirir",
-   "nar": "Bunlardan en somut olanı ara zam. Kaybın on iki ay yerine altı ay birikmesi, bileşik erimeyi kabaca yarıya indirir. Bu videoda gördüğümüz beş bin beş yüz yetmiş altı liralık altı aylık kaybın büyük kısmı buradan geliyor."
+   "nar": "Bunlardan en somut olanı ara zam. Kaybın on iki ay yerine altı ay birikmesi, bileşik erimeyi kabaca yarıya indirir. Az önce gördüğümüz beş bin beş yüz yetmiş altı liralık kayıp büyük ölçüde buradan geliyor."
   },
   {
    "layout": "lista",
