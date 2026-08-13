@@ -39,6 +39,11 @@ class LLMCadeia:
         self._elos = elos            # [(nome, fabrica)] na ordem de preferencia
         self._construidos: dict[str, object] = {}
         self._mortos: set[str] = set()
+        # Quantas chamadas cada elo atendeu. O teto do free tier do Gemini e
+        # por REQUISICAO (20/dia), nao por token — entao o unico numero que
+        # decide se precisamos de plano pago e este, e ate 13/08/2026 ele nunca
+        # foi medido: a discussao toda foi por estimativa.
+        self.chamadas: dict[str, int] = {}
 
     @property
     def custo_usd(self) -> float:
@@ -59,9 +64,11 @@ class LLMCadeia:
                 if llm is None:
                     llm = self._construidos[nome] = fabrica()
                     log.info("llm: usando %s", nome)
-                return llm.completar(
+                texto = llm.completar(
                     prompt, sistema=sistema, max_tokens=max_tokens, esforco=esforco
                 )
+                self.chamadas[nome] = self.chamadas.get(nome, 0) + 1
+                return texto
             except ErroOrcamento:
                 # Teto de gasto e decisao do operador, nao falha de fornecedor:
                 # cair para o proximo elo so mudaria de bolso.

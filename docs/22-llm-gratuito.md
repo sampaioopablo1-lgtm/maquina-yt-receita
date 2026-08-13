@@ -1,8 +1,28 @@
 # A cadeia de LLM: Gemini no Tier 1, free tiers como rede
 
-**Decisão final (13/08/2026):** o Gemini continua escrevendo o roteiro, agora
-com **faturamento ativo** no projeto `Youtube RECEITA`. Atrás dele fica uma
-cadeia de planos gratuitos que assume se ele cair.
+**Decisão (13/08/2026): não fazer nada.** O free tier do Gemini cabe a máquina
+como ela está hoje. Atrás dele existe uma cadeia de planos gratuitos, inerte
+enquanto não houver chave — ela só precisa existir para que um 429 de pico não
+mate o job.
+
+Contagem de chamadas por pacote, no código de hoje:
+
+| | chamadas |
+|---|---|
+| short (o que a máquina produz agora) | **1** + 0,2 de ideação amortizada |
+| longo (só 2 canais passam no portão de 300 views) | até 5 |
+
+Seis disparos por dia dão **~11 a 13 chamadas** contra o teto de 20. O 429 que
+derrubou `next-level-money` em 12/08 aconteceu **antes** do banco de pautas
+(`ideia_guardada`, que amortiza a ideação em 5 pacotes) e da virada para
+shorts — os dois consertos que reduziram a conta. Tratar a cota como problema
+aberto depois deles foi resolver duas vezes o mesmo sintoma.
+
+`maquina auto` agora imprime quantas chamadas o disparo gastou, por provedor.
+Seis disparos dizem a verdade; até lá a conta acima é leitura de código.
+
+**Ative faturamento só se o contador cruzar 20/dia** — aí o caminho está
+descrito abaixo e leva 2 minutos.
 
 > **O plano de consumidor não resolve.** Google AI Plus / Pro / Ultra (app do
 > Gemini, Flow, NotebookLM) e a **API** do Gemini são medidores separados.

@@ -158,6 +158,29 @@ def auto(
         console.print("Aguardando revisao humana: [bold]maquina publicar "
                       f"{video.slug}[/]")
 
+    _contar_chamadas(p)
+
+
+def _contar_chamadas(p: Pipeline) -> None:
+    """Imprime quantas chamadas de LLM o disparo gastou, por provedor.
+
+    O teto do free tier do Gemini e por REQUISICAO — 20 por dia — e nao por
+    token. Entao este e o unico numero que decide se a maquina precisa de plano
+    pago, e ate 13/08/2026 ele nunca foi medido: a conta "cada pacote gasta de
+    2 a 5" era estimativa de leitura de codigo, feita antes do banco de pautas
+    e da virada para shorts existirem. Com o log, seis disparos dizem a
+    verdade em vez de a gente discutir.
+    """
+    chamadas = getattr(p.llm, "chamadas", None)
+    if not chamadas:
+        return
+    total = sum(chamadas.values())
+    detalhe = ", ".join(f"{nome} {n}" for nome, n in sorted(chamadas.items()))
+    console.print(
+        f"[dim]LLM: {total} chamada(s) neste disparo ({detalhe}). "
+        f"Free tier do Gemini: 20/dia.[/]"
+    )
+
 
 def _companheiro(p: Pipeline, cfg: Config, longo) -> None:
     """Produz e publica o short que leva publico ao longo.

@@ -244,3 +244,47 @@ def test_a_cadeia_padrao_poe_o_gemini_na_frente_e_a_anthropic_por_ultimo():
 
     assert cadeia[0] == "gemini"
     assert cadeia[-1] == "anthropic"
+
+
+# ---------- quantas chamadas um disparo gasta ----------
+
+class LLMFake:
+    def __init__(self, resposta="", erro=None):
+        self.resposta, self.erro, self.custo_usd = resposta, erro, 0.0
+
+    def completar(self, prompt, *, sistema="", max_tokens=4096, esforco=""):
+        if self.erro:
+            raise self.erro
+        return self.resposta
+
+
+def test_a_cadeia_conta_as_chamadas_por_provedor():
+    """O teto do free tier do Gemini e por REQUISICAO (20/dia), nao por token.
+
+    Entao este e o unico numero que decide se a maquina precisa de plano pago —
+    e a conta "cada pacote gasta de 2 a 5" era leitura de codigo, feita antes
+    de o banco de pautas e a virada para shorts existirem.
+    """
+    from maquina.providers import LLMCadeia
+
+    vivo = LLMFake(resposta="ok")
+    cadeia = LLMCadeia([("gemini", lambda: vivo)])
+
+    for _ in range(3):
+        cadeia.completar("x")
+
+    assert cadeia.chamadas == {"gemini": 3}
+
+
+def test_chamada_que_falhou_nao_conta_para_o_elo_que_caiu():
+    """429 nao consome cota do provedor que atendeu — nem do que recusou."""
+    from maquina.providers import LLMCadeia
+
+    cadeia = LLMCadeia([
+        ("gemini", lambda: LLMFake(erro=ErroProvider("429"))),
+        ("groq", lambda: LLMFake(resposta="ok")),
+    ])
+
+    cadeia.completar("x")
+
+    assert cadeia.chamadas == {"groq": 1}
