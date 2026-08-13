@@ -1,0 +1,754 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-002",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "paleta": {
+  "ink": "#101B2B",
+  "c1": "#1D3557",
+  "c2": "#E07A5F",
+  "bg": "#F7F6F3"
+ },
+ "thumb": {
+  "l1": "NR-1 PSICOSSOCIAL",
+  "l2": "o inventario que falta"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Sexta, dez da manha",
+   "sub": "o e-mail do juridico",
+   "nar": "Sexta-feira, dez da manha. Chega um e-mail do juridico com uma pergunta de uma linha so. Onde esta o nosso inventario de riscos psicossociais?",
+   "cap": "O e-mail que muda a semana"
+  },
+  {
+   "layout": "item",
+   "kicker": "Voce abre o PGR",
+   "preco": "e ele nao fala disso",
+   "nar": "Voce abre o programa de gerenciamento de riscos da empresa. Ele existe ha anos e esta bem feito. E nao tem uma linha sobre o assunto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A data",
+   "preco": "vinte e seis de maio",
+   "nar": "A data que fez o juridico escrever e vinte e seis de maio de dois mil e vinte e seis. Foi o dia em que terminou o prazo de adaptacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que terminou ali",
+   "preco": "a fase orientativa",
+   "nar": "Antes dessa data a fiscalizacao era orientativa. O auditor via a falha e orientava. Depois dela, a mesma falha vira autuacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "De onde vem a regra",
+   "preco": "Portaria MTE 1.419/2024",
+   "nar": "A regra vem da Portaria do Ministerio do Trabalho numero mil quatrocentos e dezenove, publicada em dois mil e vinte e quatro. Ela alterou a Norma Regulamentadora numero um.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que ela manda fazer",
+   "preco": "tratar como risco, e nao como tema",
+   "nar": "E o que ela manda e direto. O risco psicossocial passa a ser gerenciado como qualquer outro risco ocupacional, dentro do mesmo programa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem excecao por porte",
+   "preco": "onde ha CLT, ha obrigacao",
+   "nar": "A portaria nao abriu excecao por tamanho de empresa nem por numero de empregados. Onde existe empregado com carteira assinada, existe a obrigacao de gerenciar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A reacao mais comum",
+   "preco": "vamos contratar psicologo",
+   "nar": "A reacao dentro das empresas foi quase sempre a mesma. Vamos ter que contratar psicologo e aplicar teste em todo mundo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Essa leitura e cara",
+   "preco": "e nao e a que a norma pede",
+   "nar": "Essa leitura e cara e lenta. E nao e a que a norma pede. Ela ja custou a muita empresa um orcamento que nao precisava existir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que a norma pede",
+   "preco": "cabe numa planilha",
+   "nar": "O que a norma pede de verdade cabe numa pasta de trabalho com quatro abas. E ela que a gente monta aqui, coluna por coluna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O caminho",
+   "itens": [
+    "Os seis grupos de fator",
+    "A aba Inventario",
+    "A formula do nivel",
+    "O plano de acao",
+    "Os erros mais caros"
+   ],
+   "nar": "Sao cinco partes. Os seis grupos de fator que o auditor procura. As colunas do inventario e a formula que classifica. O plano de acao. E os erros que saem mais caros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "e sem teste nenhum",
+   "nar": "E nada disso exige aplicar teste psicologico em ninguem. O que exige e olhar para outro lugar. Para onde?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O objeto da avaliacao",
+   "sub": "o trabalho, nao o trabalhador",
+   "nar": "A norma nao pede o estado mental de ninguem. Ela pede a avaliacao de como o trabalho esta organizado. O objeto e o trabalho.",
+   "cap": "Nao se avalia a pessoa"
+  },
+  {
+   "layout": "item",
+   "kicker": "A diferenca e pratica",
+   "preco": "ela decide as colunas",
+   "nar": "Essa diferenca nao e filosofica. Ela decide o que entra na sua planilha e o que nunca pode entrar nela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que nunca entra",
+   "preco": "nome, diagnostico, atestado",
+   "nar": "Nome de pessoa nao entra. Diagnostico nao entra. Atestado nao entra. Dado de saude tem regra propria e nao mora no inventario de riscos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que entra",
+   "preco": "a situacao de trabalho",
+   "nar": "O que entra e a situacao. Prazo definido por quem nao executa. Turno que muda sem aviso. Meta revisada no meio do mes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A pergunta muda",
+   "preco": "de quem para o que",
+   "nar": "Entao a pergunta deixa de ser quem esta adoecendo. Passa a ser o que na rotina de trabalho produz o desgaste, e com que frequencia isso acontece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A norma nao da lista fechada",
+   "preco": "os guias agrupam em seis",
+   "nar": "A norma nao entrega uma lista pronta de fatores. Os guias de referencia costumam agrupar em seis familias, e e assim que a planilha organiza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Os tres primeiros",
+   "itens": [
+    "Carga e jornada",
+    "Autonomia",
+    "Clareza de papeis"
+   ],
+   "nar": "Os tres primeiros vem do desenho do trabalho. Quanto se pede e em quanto tempo. Quanto a pessoa decide do proprio ritmo. E o quanto esta claro o que cabe a cada um.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Carga e jornada",
+   "preco": "o exemplo tipico",
+   "nar": "Carga aparece assim: escala aberta com dois dias de antecedencia, ou hora extra virando regra num setor especifico. Isso e situacao, e da para registrar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Autonomia",
+   "preco": "quem decide o ritmo",
+   "nar": "Autonomia aparece quando o sistema mede cada minuto e a pessoa nao pode parar sem justificar. Quanto menor o controle sobre o proprio ritmo, maior o desgaste.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Clareza de papeis",
+   "preco": "duas chefias, uma pessoa",
+   "nar": "Clareza de papeis aparece na pessoa que responde a duas chefias com prioridades diferentes. Ela erra decidindo, e erra tambem sem decidir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Os outros tres",
+   "itens": [
+    "Apoio da chefia",
+    "Reconhecimento",
+    "Assedio e violencia"
+   ],
+   "nar": "Os outros tres vem da relacao. O apoio que existe quando algo da errado. O reconhecimento do que foi feito. E a violencia, que inclui assedio e agressao de cliente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Apoio da chefia",
+   "preco": "o teste do erro",
+   "nar": "Apoio se mede por um teste simples. Quando alguem erra, o time resolve junto ou a pessoa fica sozinha com o problema?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Assedio e violencia",
+   "preco": "tem regra propria",
+   "nar": "Assedio e violencia tem tratamento proprio e canal proprio. Eles entram no inventario como risco, mas a apuracao de caso nunca vira linha de planilha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "e agora vira coluna",
+   "nar": "Seis familias, e todas descrevem organizacao de trabalho. Falta transformar isso em algo que o auditor consiga ler:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quatro abas",
+   "sub": "e a primeira e o trabalho",
+   "nar": "Abra uma pasta nova. Sao quatro abas. Inventario, Matriz, Plano e Historico. Comece pela primeira, que e onde mora o trabalho de verdade.",
+   "cap": "A aba Inventario, coluna por coluna"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aba Inventario",
+   "itens": [
+    "Codigo",
+    "Setor ou grupo",
+    "Fator",
+    "Situacao observada",
+    "Fonte da evidencia"
+   ],
+   "nar": "As cinco primeiras colunas descrevem o achado. Codigo, setor ou grupo, fator, situacao observada e fonte da evidencia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Codigo",
+   "preco": "para o plano poder apontar",
+   "nar": "O codigo existe para o plano de acao apontar para a linha certa. Sem ele, duas situacoes parecidas viram a mesma e uma some.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Setor ou grupo",
+   "preco": "nunca uma pessoa",
+   "nar": "O setor identifica um grupo de gente que trabalha nas mesmas condicoes. Nunca uma pessoa. Se a linha so descreve alguem, ela esta na aba errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fator",
+   "preco": "lista fechada, nao texto livre",
+   "nar": "O fator vem de uma lista fechada com as seis familias. Use validacao de dados na coluna. Texto livre aqui destroi qualquer contagem depois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Situacao observada",
+   "preco": "verbo, prazo, frequencia",
+   "nar": "A situacao e a coluna que o auditor le primeiro. Ela precisa de verbo e de frequencia. Escala publicada com dois dias de antecedencia, toda semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O contraexemplo",
+   "preco": "estresse na equipe",
+   "nar": "O contraexemplo e escrever estresse na equipe. Isso nao e situacao, e conclusao. Nao da para agir sobre ela nem verificar se melhorou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna que decide tudo",
+   "preco": "Fonte da evidencia",
+   "nar": "E se existe uma coluna que separa um inventario defensavel de um inventario inventado, e a quinta. Ela responde uma pergunta: como voce soube disso?",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Fontes que valem",
+   "itens": [
+    "Pesquisa anonima",
+    "Escuta por grupo",
+    "Absenteismo",
+    "Horas extras",
+    "Canal de denuncia"
+   ],
+   "nar": "Pesquisa anonima. Escuta por grupo. Absenteismo. Registro de horas extras. Canal de denuncia e atas da comissao interna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que elas tem em comum",
+   "preco": "todas descrevem grupo",
+   "nar": "Repare no que todas tem em comum. Nenhuma delas e individual. Todas descrevem grupo, e e por isso que o inventario fica util sem virar prontuario.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A pesquisa anonima",
+   "preco": "so funciona se for anonima",
+   "nar": "E a pesquisa so produz dado verdadeiro enquanto for anonima de verdade. Basta uma vez identificar alguem para ela nunca mais servir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um numero por linha",
+   "preco": "a data da coleta",
+   "nar": "Guarde tambem a data da coleta junto da fonte. Daqui a um ano ninguem lembra se aquele numero veio de marco ou de novembro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "e quanto pesa cada uma?",
+   "nar": "Com isso a planilha ja descreve o que acontece. Falta o que ela ainda nao sabe dizer: qual dessas linhas e a mais grave?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Duas notas",
+   "sub": "e uma multiplicacao",
+   "nar": "A classificacao sai de duas notas e uma multiplicacao. Probabilidade e severidade, cada uma de um a cinco, e o produto das duas.",
+   "cap": "A formula que classifica o risco"
+  },
+  {
+   "layout": "item",
+   "kicker": "Probabilidade",
+   "preco": "frequencia, nao chute",
+   "nar": "Probabilidade e frequencia da exposicao. Nota um e situacao rara. Nota cinco e situacao presente na rotina, toda semana, para todo o grupo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Severidade",
+   "preco": "consequencia se acontecer",
+   "nar": "Severidade e o tamanho da consequencia. Nota um e desconforto pontual. Nota cinco e afastamento, acidente ou saida de gente boa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trave as duas colunas",
+   "preco": "validacao de dados",
+   "nar": "Ponha validacao de dados nas duas colunas, aceitando so numero inteiro entre um e cinco. Sem isso alguem digita quatro virgula cinco e a faixa para de fechar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A formula do nivel",
+   "preco": "igual a probabilidade vezes severidade",
+   "nar": "O nivel e a multiplicacao. Na coluna nivel voce escreve igual. Depois a celula da probabilidade. Depois asterisco. Depois a celula da severidade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A faixa",
+   "preco": "e escolha sua, nao da norma",
+   "nar": "Agora a parte que quase ninguem escreve. A faixa que separa alto de medio e escolha da empresa. A norma nao dita esses cortes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Entao deixe visivel",
+   "preco": "a aba Matriz existe para isso",
+   "nar": "Por isso a aba Matriz existe. Ela guarda os cortes escritos, com a data em que foram definidos e por quem. Criterio que so mora na cabeca vira discussao no dia da auditoria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Um corte possivel",
+   "itens": [
+    "Ate tres: baixo",
+    "Quatro a oito: medio",
+    "Nove a quatorze: alto",
+    "Quinze ou mais: critico"
+   ],
+   "nar": "Um corte possivel. Ate tres e baixo. De quatro a oito e medio. De nove a quatorze e alto. Quinze ou mais e critico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A formula da classificacao",
+   "preco": "SE aninhado",
+   "nar": "A classificacao sai de um SE aninhado sobre o nivel. Ele testa do maior para o menor: critico primeiro, depois alto, depois medio, e o resto cai em baixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se preferir sem aninhar",
+   "preco": "PROCV na aba Matriz",
+   "nar": "Quem nao gosta de SE aninhado usa PROCV na aba Matriz com correspondencia aproximada. Mesma resposta, e o criterio passa a viver numa tabela em vez de dentro da formula.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Envolva com SEERRO",
+   "preco": "linha em branco nao acusa",
+   "nar": "Envolva com SEERRO para a linha ainda em branco nao mostrar erro. Planilha cheia de aviso vermelho e planilha que ninguem preenche.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Onde as linhas caem",
+   "itens": [
+    "Baixo",
+    "Medio",
+    "Alto",
+    "Critico"
+   ],
+   "alturas": [
+    55,
+    100,
+    62,
+    18
+   ],
+   "nar": "E quando voce termina, aparece o desenho. A maioria das linhas cai no meio, poucas no topo, e sao essas poucas que decidem o que voce faz na segunda de manha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Formatacao condicional",
+   "preco": "so nas duas faixas de cima",
+   "nar": "Pinte so alto e critico. Se tudo tem cor, nada tem destaque, e a planilha volta a ser uma lista onde a urgencia nao aparece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "e o que se faz com elas?",
+   "nar": "Entao voce ja sabe quais linhas pesam mais. O auditor nao para ai, e a proxima pergunta dele e sempre a mesma:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O plano",
+   "sub": "cinco colunas e nenhuma frouxa",
+   "nar": "O que voce fez a respeito. Essa e a pergunta. E ela se responde em cinco colunas, sem nenhuma delas ficar frouxa.",
+   "cap": "O plano de acao que o auditor le"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Aba Plano",
+   "itens": [
+    "Codigo do risco",
+    "Medida",
+    "Responsavel",
+    "Prazo",
+    "Verificacao"
+   ],
+   "nar": "Codigo do risco, medida de controle, responsavel, prazo e verificacao da eficacia. Cinco colunas, e a ultima e a que quase todo mundo deixa vazia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Puxe so o que pesa",
+   "preco": "alto e critico",
+   "nar": "O plano nao repete o inventario inteiro. Ele puxa so as linhas classificadas como alto e critico, que sao as que exigem acao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como puxar",
+   "preco": "FILTRO, ou PROCV pelo codigo",
+   "nar": "Se o seu Excel tem a funcao FILTRO, uma formula resolve. Se nao tem, use PROCV pelo codigo do risco, que funciona em qualquer versao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A medida",
+   "preco": "e aqui mora o erro caro",
+   "nar": "A medida de controle e a coluna onde mora o erro mais caro deste tema inteiro. E ele quase sempre tem a mesma cara.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A medida individual",
+   "preco": "palestra, aplicativo, ginastica",
+   "nar": "Palestra sobre saude mental. Aplicativo de meditacao. Ginastica laboral. Nenhuma delas e ruim, e nenhuma delas responde a um risco que nasce da organizacao do trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A ordem importa",
+   "preco": "primeiro na fonte",
+   "nar": "A norma trabalha com ordem de prioridade. Primeiro elimina ou reduz na fonte. Depois medida coletiva e organizacional. So por ultimo a medida voltada ao individuo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Traduzindo",
+   "preco": "a medida certa muda a rotina",
+   "nar": "Traduzindo para a planilha: se a situacao e escala publicada com dois dias de antecedencia, a medida e publicar com quinze. Nao e ensinar o grupo a lidar com a incerteza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Responsavel",
+   "preco": "um nome, nunca uma area",
+   "nar": "O responsavel e um nome. Nunca uma area. Medida de responsabilidade do Recursos Humanos e medida de ninguem, e essa nao acontece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prazo",
+   "preco": "uma data, nunca continuo",
+   "nar": "O prazo e uma data no calendario. Continuo nao e prazo. Imediato tambem nao. Data que passou vale mais que prazo que nunca chega.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna do atrasado",
+   "preco": "uma formula com HOJE",
+   "nar": "Ponha uma coluna que compara o prazo com a funcao HOJE e marca atrasado quando a data passou e o status ainda nao esta concluido. Ela faz o trabalho de cobrar sozinha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Verificacao da eficacia",
+   "preco": "a que mais falta",
+   "nar": "E a ultima coluna e a que mais falta nos planos que eu vejo. Ela responde se a medida funcionou, com que evidencia, e em que data isso foi conferido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como verificar",
+   "preco": "a mesma fonte, de novo",
+   "nar": "Verificar e simples: use a mesma fonte que gerou o achado. Se veio de pesquisa anonima, a proxima rodada compara. Se veio de hora extra, o relatorio compara.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "e o que mais derruba?",
+   "nar": "Com essas cinco colunas o plano para de ser lista de boa intencao. Falta so conhecer os tres jeitos de perder tudo isso:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro um",
+   "sub": "risco generico sem fonte",
+   "nar": "O primeiro erro e a linha generica. Estresse elevado no setor, sem situacao e sem fonte. Isso nao e inventario, e opiniao com aparencia de documento.",
+   "cap": "Os tres erros mais caros"
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que ele custa",
+   "preco": "nao da para verificar",
+   "nar": "Ele custa porque impede as duas pontas. Nao da para escolher uma medida para ele, e nao da para verificar depois se melhorou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O conserto",
+   "preco": "quebre em situacoes",
+   "nar": "O conserto e quebrar em situacoes concretas. Uma linha generica costuma virar tres linhas especificas, e cada uma com uma medida diferente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Erro dois",
+   "preco": "so medida individual",
+   "nar": "O segundo erro e responder tudo com medida voltada ao individuo. O plano fica bonito, o custo aparece, e a causa continua exatamente onde estava.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como o auditor ve",
+   "preco": "a fonte segue apontando",
+   "nar": "E ele aparece sozinho na verificacao. A rodada seguinte da pesquisa mostra o mesmo numero, e o registro de hora extra tambem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Erro tres",
+   "preco": "sem verificacao e sem data",
+   "nar": "O terceiro erro e o plano sem verificacao e sem data. A empresa fez, gastou e nao registrou se funcionou. Na pratica, e como se nao tivesse feito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E um quarto",
+   "preco": "que nao e da norma",
+   "nar": "Tem um quarto erro que nao vem da norma, e ele e o mais silencioso. E colocar nome de pessoa ou dado de saude na planilha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O custo real",
+   "preco": "a pesquisa morre",
+   "nar": "O custo dele nao e a multa. E que a noticia corre, a proxima pesquisa vem respondida com o que a pessoa acha que deve responder, e voce fica cego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cego e pior que sem planilha",
+   "preco": "porque parece que voce sabe",
+   "nar": "E ficar cego com uma planilha cheia e pior que nao ter planilha nenhuma. Porque agora existe um documento dizendo que esta tudo bem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra simples",
+   "preco": "linha descreve trabalho",
+   "nar": "A regra que resolve os quatro cabe numa frase. Cada linha descreve uma situacao de trabalho, com uma fonte e uma data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponte",
+   "sub": "e como isso nao morre?",
+   "nar": "Essa planilha resolve o dia da auditoria. Sobra a parte que decide se ela vai durar ou virar mais um arquivo esquecido:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Manter viva",
+   "sub": "tres habitos",
+   "nar": "Uma planilha dessas morre por falta de rotina, nunca por falta de formula. Tres habitos resolvem.",
+   "cap": "Como manter a planilha viva"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro",
+   "preco": "a mesma fonte, sempre",
+   "nar": "Primeiro: a fonte de cada coluna nunca muda no meio do caminho. Fonte que troca de origem destroi a comparacao, e comparacao e a unica prova de que a medida funcionou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segundo",
+   "preco": "a aba Historico",
+   "nar": "Segundo: a aba Historico guarda uma linha por mes, com a contagem de quantas linhas estao em cada faixa. Em um ano voce enxerga tendencia em vez de retrato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A formula do historico",
+   "preco": "CONT.SES",
+   "nar": "Essa contagem e uma funcao so. CONT.SES sobre a coluna de classificacao, cruzando com o status. Uma coluna para alto em aberto, outra para critico em aberto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceiro",
+   "preco": "um dono com nome",
+   "nar": "Terceiro: a planilha precisa de um dono com nome, do mesmo jeito que cada medida precisa. Planilha de todo mundo e planilha de ninguem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quando revisar",
+   "preco": "a norma diz, e voce confere la",
+   "nar": "Sobre a frequencia de revisao, o intervalo esta escrito na propria norma e e la que voce confere. O que ninguem discute e revisar quando a organizacao do trabalho muda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que conta como mudanca",
+   "preco": "e mais comum do que parece",
+   "nar": "E isso e mais comum do que parece. Troca de sistema. Mudanca de escala. Fusao de setores ou corte de time. Cada uma delas muda a exposicao do grupo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Recapitulando",
+   "itens": [
+    "Situacao com verbo",
+    "Fonte da evidencia",
+    "Nota vezes nota",
+    "Responsavel e prazo",
+    "Verificacao"
+   ],
+   "nar": "Recapitulando o que voce monta. Situacao com verbo e frequencia. Fonte da evidencia. Nota vezes nota para o nivel. Responsavel com nome e prazo com data. E a verificacao da eficacia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A parte que quase ninguem faz",
+   "preco": "a coluna da fonte",
+   "nar": "A parte que quase ninguem faz e a coluna da fonte. Sem ela a planilha vira uma lista de impressoes, e lista de impressoes nao sustenta nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que nao fazer",
+   "preco": "montar sozinho no RH",
+   "nar": "Uma coisa a nao fazer: montar isso sozinho dentro de uma sala. A comissao interna e o time de saude e seguranca precisam ver antes, porque metade das situacoes eles ja conhecem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se voce so fizer uma coisa",
+   "preco": "tres linhas com fonte",
+   "nar": "Se voce so fizer uma coisa depois deste video, escreva tres linhas com situacao e fonte. So tres. Elas ja mostram se voce tem material ou nao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E leva uma tarde",
+   "preco": "nao um projeto",
+   "nar": "E leva uma tarde, nao um projeto. A estrutura inteira cabe numa manha, e as tres primeiras linhas cabem num cafe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "processos, planilha e prova",
+   "nar": "Se voce montou o inventario, escreve nos comentarios quantas linhas ficaram em alto. Estou juntando esses numeros para o proximo video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "processos, planilha e prova",
+   "nar": "E se voce quer a proxima planilha sobre outra obrigacao, diz qual. A mais pedida sai primeiro.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "NR-1 psicossocial",
+   "sub": "leram errado",
+   "nar": "A maior parte das empresas leu a NR-1 psicossocial errado. E a leitura errada e justamente a mais cara de todas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O erro",
+   "preco": "avaliar a pessoa",
+   "nar": "Acharam que precisavam contratar psicologo e aplicar teste em todo mundo. Nao e isso. A norma nao avalia o trabalhador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O objeto",
+   "preco": "o trabalho, nao quem trabalha",
+   "nar": "Ela avalia como o trabalho esta organizado. Jornada, autonomia, clareza de papeis, apoio da chefia quando algo da errado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna que salva",
+   "preco": "fonte da evidencia",
+   "nar": "E no inventario existe uma coluna que decide tudo. Fonte da evidencia. Ela responde uma pergunta so: como voce soube disso?",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "a planilha completa",
+   "nar": "A planilha inteira, coluna por coluna e formula por formula, esta no video longo. Assiste agora.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Planilha de riscos psicossociais da NR-1\n\n## TITULO\n[EXCEL] Planilha de Riscos Psicossociais NR-1: Inventario e Plano de Acao\n\n## DESCRICAO\nDesde 26 de maio de 2026 acabou o periodo de adaptacao: a falha que antes rendia orientacao do auditor passou a render autuacao. A regra vem da Portaria MTE n. 1.419, de 2024, que incluiu os riscos psicossociais no Gerenciamento de Riscos Ocupacionais e no PGR, sem abrir excecao por porte de empresa ou numero de empregados.\n\nA leitura mais cara dessa norma e a errada, e ela se espalhou: \"vamos ter que contratar psicologo e aplicar teste em todo mundo\". Nao e isso. O objeto da avaliacao e o trabalho, nao o trabalhador. O que entra no inventario e a situacao de trabalho — escala publicada com dois dias de antecedencia, meta revisada no meio do mes, pessoa respondendo a duas chefias com prioridades diferentes. Nome, diagnostico e atestado nao entram: dado de saude tem regra propria e nao mora no inventario de riscos.\n\nNeste video a planilha e montada do zero, com quatro abas: Inventario, Matriz, Plano e Historico.\n\nInventario: as cinco colunas que descrevem o achado, por que o fator precisa de validacao de dados em vez de texto livre, e a coluna que separa um inventario defensavel de um inventado — Fonte da evidencia. Pesquisa anonima, escuta por grupo, absenteismo, registro de horas extras, canal de denuncia e atas da CIPA. Nenhuma delas individual, todas descrevendo grupo.\n\nMatriz: probabilidade e severidade de um a cinco, o nivel como produto das duas, SE aninhado ou PROCV com correspondencia aproximada para classificar, e SEERRO para a linha em branco nao acusar erro. A faixa que separa alto de medio e escolha da empresa, e a norma nao dita esses cortes — por isso eles ficam escritos na aba Matriz, com data e responsavel.\n\nPlano: codigo do risco, medida, responsavel com nome, prazo com data e verificacao da eficacia. A ordem de prioridade das medidas importa — primeiro eliminar ou reduzir na fonte, depois medida coletiva e organizacional, e so por ultimo a medida voltada ao individuo. Palestra, aplicativo de meditacao e ginastica laboral nao respondem a um risco que nasce da organizacao do trabalho.\n\nE os quatro erros que saem mais caros, incluindo o mais silencioso: colocar nome de pessoa na planilha. O custo dele nao e a multa, e sim a pesquisa anonima deixar de produzir dado verdadeiro.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nUma pergunta, porque a resposta varia muito: quantas linhas do seu inventario ficaram classificadas como alto? E, se voce ja passou por auditoria depois de maio, o que o auditor pediu primeiro? Estou juntando esses relatos para o proximo video.\n\n## HASHTAGS\n#NR1 #RiscosPsicossociais #LabTreinamento\n\n## TAGS\nnr1, riscos psicossociais, pgr, gro, portaria 1419, saude mental no trabalho, inventario de riscos, plano de acao, excel, planilha, sst, seguranca do trabalho, matriz de risco, cipa, rh\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Portugues (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo alterado ou sintetico: SIM (voz gerada por IA)\n- Local: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios no meio: ligados (duracao acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nA base normativa citada e a Portaria MTE n. 1.419, de 27 de agosto de 2024, que alterou a NR-1, e o encerramento do periodo de adaptacao em 26 de maio de 2026. Os cortes da matriz de risco usados aqui (ate 3 baixo, 4 a 8 medio, 9 a 14 alto, 15 ou mais critico) NAO vem da norma: sao um criterio de exemplo, e cada empresa define o seu e registra onde definiu. O agrupamento em seis familias de fator segue os guias de referencia usados na pratica, e nao uma lista fechada da norma. O intervalo de revisao do inventario esta na propria NR-1 e deve ser conferido no texto vigente. Este video e material educativo sobre construcao de planilha e organizacao de processo; nao e consultoria juridica nem parecer tecnico de saude e seguranca do trabalho.\n"
+}
