@@ -36,6 +36,8 @@ import urllib.parse
 import urllib.request
 import uuid
 
+from caminhos import dir_trabalho
+
 API = "https://www.googleapis.com/youtube/v3"
 UPLOAD = "https://www.googleapis.com/upload/youtube/v3"
 
@@ -454,7 +456,8 @@ def main():
     p.add_argument("spec")
     p.add_argument("--canal", required=True)
     p.add_argument("--playlist", default=None)
-    p.add_argument("--dir", default=None, help="workdir (padrao: /tmp/f/<pacote>)")
+    p.add_argument("--dir", default=None,
+                   help="workdir (padrao: $FABRICA_WORKDIR/<pacote>, ou /tmp/f/<pacote>)")
     p.add_argument("--idioma", default="",
                    help="Idioma do canal (tr, hi, es-MX...). Vence o da spec.")
     p.add_argument("--reparar", default="",
@@ -468,7 +471,11 @@ def main():
     sb_url = os.environ["SUPABASE_URL"].rstrip("/")
     sb_key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
     sp = json.load(open(args.spec))
-    d = args.dir or f"/tmp/f/{sp.get('pacote') or sp['slug']}"
+    # `caminhos.dir_trabalho` e nao a string a mao: este literal ignorava
+    # FABRICA_WORKDIR, entao render em disco real + publicar caiam em raizes
+    # diferentes — e o modo de falha ruim nao e "nao achei", e achar o resto de
+    # uma tentativa velha em /tmp/f e publicar o video errado com o nome certo.
+    d = args.dir or dir_trabalho(sp)
     # O idioma decide defaultLanguage e defaultAudioLanguage do video, e a
     # linguagem da faixa de legenda. Tres fontes, da mais explicita para a mais
     # estavel: o argumento, a spec, e o config/canais/<slug>.yaml.

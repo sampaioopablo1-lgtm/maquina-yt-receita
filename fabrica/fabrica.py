@@ -293,22 +293,14 @@ async def vozes(cenas, voz, pref, d):
                 if tentativa == 2:
                     raise
 
-def dir_trabalho(sp):
-    """Diretorio de trabalho do PACOTE, nao do canal.
 
-    O 'slug' da spec e o do canal — ele escolhe a trilha. Usar o mesmo slug como
-    diretorio faz dois pacotes do mesmo canal dividirem a mesma pasta, e ai o
-    RETOMA pula clipes do pacote ANTERIOR: sai um video costurando dois roteiros
-    sem erro nenhum. Specs novas declaram "pacote"; as antigas seguem no slug.
+from caminhos import dir_trabalho as _dir_trabalho  # noqa: E402
 
-    Raiz configuravel via FABRICA_WORKDIR — o default /tmp/f mora no tmpfs do
-    sandbox (985 MB de RAM total) e um render de 130+ cenas mata o ffmpeg por
-    OOM perto do clipe 40 (~250 MB por clipe de 4 camadas). Apontar para disco
-    real (ex.: /home/user/frender/f, ext4) resolve sem mexer no resto da
-    fabrica: FABRICA_WORKDIR=/home/user/frender/f python3 etapas.py <spec>.
-    """
-    raiz = os.environ.get("FABRICA_WORKDIR", "/tmp/f")
-    return f"{raiz}/{sp.get('pacote') or sp['slug']}"
+# Reexportado de `caminhos`, que e texto puro e nao arrasta cairosvg/edge_tts.
+# O `publicar.py` e o `vozes.py` precisam do MESMO caminho e nao podem pagar
+# esta stack — quando cada um resolvia o seu, o publicar.py ficou procurando
+# em /tmp/f um pacote renderizado noutra raiz.
+dir_trabalho = _dir_trabalho
 
 
 def montar(spec_file):

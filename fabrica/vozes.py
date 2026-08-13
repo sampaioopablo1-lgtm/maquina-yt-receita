@@ -35,6 +35,8 @@ import os
 
 import edge_tts
 
+from caminhos import dir_trabalho
+
 # Mesma taxa do fabrica.vozes: mudar aqui sem mudar la desalinha a legenda, que
 # e cronometrada pela duracao real do mp3.
 RATE = "-4%"
@@ -83,15 +85,12 @@ async def narrar(sp: dict, d: str) -> tuple[int, int]:
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("spec")
-    p.add_argument("--dir", default=None, help="workdir (padrao: /tmp/f/<pacote>)")
+    p.add_argument("--dir", default=None,
+                   help="workdir (padrao: $FABRICA_WORKDIR/<pacote>, ou /tmp/f/<pacote>)")
     args = p.parse_args()
 
     sp = json.load(open(args.spec, encoding="utf-8"))
-    # Mesma resolucao do dir_trabalho, sem importar fabrica.py: o `pacote` e o
-    # diretorio, e usar o slug do canal faz dois pacotes se sobrescreverem.
-    d = args.dir or os.path.join(
-        os.environ.get("FABRICA_WORKDIR", "/tmp/f"), sp.get("pacote") or sp["slug"]
-    )
+    d = args.dir or dir_trabalho(sp)
     os.makedirs(d, exist_ok=True)
 
     total = len(sp.get("longo") or []) + len(sp.get("short") or [])
