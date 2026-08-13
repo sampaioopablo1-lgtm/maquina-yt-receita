@@ -73,17 +73,18 @@ Coordenadas ausentes são preenchidas por propagação de CEP idêntico
 (`gps_origem: nominatim`, Edge Function `geocode-enderecos`).
 
 O resultado da varredura completa: **90,4% dos anúncios ativos com coordenada**
-(3.329 de 3.681), contra 56% antes. Origem: 1.693 do próprio Vista, 1.510
+(3.328 de 3.681), contra 56% antes. Origem: 1.693 do próprio Vista, 1.509
 geocodificadas, 126 ainda aproximadas por CEP vizinho. No XML publicado são
-2.697 dos 3.000 anúncios.
+cerca de 2.700 dos 3.000 anúncios.
 
 Duas conferências foram necessárias, e ambas nasceram de erro observado:
 `viaConfere` compara o nome da via devolvida com o logradouro pedido — passar
 o CEP faz o Nominatim casar pelo CEP e devolver outra rua quando o logradouro
 não existe na base ("Atlantica, Caraguatatuba" voltou como "Avenida Geraldo
 Nogueira da Silva"). `cidadeConfere` exige o município no endereço devolvido —
-a regra da via sozinha deixou passar um caso em 1.517, "Saldanha Marinho,
-Campinas" casando com a rua homônima em Hortolândia. Coordenada errada é pior
+a regra da via sozinha deixou passar dois casos em 1.517: "Saldanha Marinho,
+Campinas" casando com a rua homônima em Hortolândia, e "Rua Sete, Jacareí"
+com a de São José dos Campos. Ambos foram revertidos na auditoria final. Coordenada errada é pior
 que coordenada ausente, porque o comprador filtra por mapa.
 
 Os 352 sem coordenada são logradouros que o OpenStreetMap não tem mapeados —
