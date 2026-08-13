@@ -9,7 +9,7 @@ qualquer um deles pode quebrar numa spec especifica, depois de doze minutos de
 render, dentro de um runner que so existe enquanto o job vive.
 
 Aqui a narracao e substituida por silencio com a DURACAO que o TTS produziria
-(chars dividido pela taxa medida da voz). Todo o resto e real: os mesmos PNG, o
+(chars/R + frases*P, os dois termos medidos por voz). Todo o resto e real: os mesmos PNG, o
 mesmo ffmpeg, os mesmos asserts, o mesmo visual.py sobre o video pronto.
 
 O que este ensaio NAO cobre, e e bom dizer: a voz em si, a pronuncia de numero
@@ -37,41 +37,58 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAIZ_ENSAIO = os.environ.get("ENSAIO_WORKDIR", "/tmp/ensaio")
 MARCA = "ENSAIO-NAO-PUBLICAR"
 
-# Taxas MEDIDAS, todas as onze vozes do portfolio, rate=-4%, numeros por
-# extenso. As oito ultimas sairam de uma bateria unica no sandbox Composio em
-# 13/08/2026; as tres primeiras vieram dos configs de canal.
+# Duracao de fala TTS tem DOIS termos, nao um. Uma taxa unica de chars/s nao
+# prediz nada, porque a pausa entre frases domina em roteiro de frase curta.
 #
-# Por que isto importa mais do que parece: eu usava 14,50 como padrao e a taxa
-# real varia de 10,75 (hindi) a 17,60 (indonesio) — 64% de diferenca entre as
-# pontas. Com o padrao errado a agla-level-003 media 8:30 e o short 26s, e eu
-# quase reescrevi um roteiro que estava certo: com a taxa medida ela e 11,1 min
-# e o short 34s, dentro da faixa.
-TAXA_CHARS_S = {
-    # dos configs de canal
-    "pt-BR-AntonioNeural": 14.30,
-    "pt-BR-ThalitaMultilingualNeural": 16.52,
-    "id-ID-GadisNeural": 14.37,
-    # medidas em 13/08/2026 (chars / duracao do mp3 de teste)
-    "hi-IN-MadhurNeural": 10.75,     #  98 chars / 9,120 s
-    "tr-TR-AhmetNeural": 13.32,      #  94 chars / 7,056 s
-    "es-MX-DaliaNeural": 15.94,      # 114 chars / 7,152 s
-    "en-GB-RyanNeural": 16.72,       # 120 chars / 7,176 s
-    "pl-PL-MarekNeural": 16.75,      # 119 chars / 7,104 s
-    "en-US-AndrewNeural": 17.21,     # 121 chars / 7,032 s
-    "el-GR-NestorasNeural": 17.40,   # 119 chars / 6,840 s
-    "id-ID-ArdiNeural": 17.60,       # 117 chars / 6,648 s
-    "pt-BR-FranciscaNeural": 15.51,  # 131 chars / 8,448 s
+# A prova, medida em 14/08/2026 na id-ID-GadisNeural: dois textos da MESMA voz,
+# um com duas frases longas e outro com doze curtas, devolveram 15,19 e 8,19
+# chars/s. A mesma voz, 85% de diferenca — a "taxa medida" da voz depende do
+# roteiro que voce usou para medir, entao ela nao e uma propriedade da voz.
+#
+# O modelo com dois termos separa o que e da voz do que e do roteiro:
+#
+#     duracao = chars / R + frases * P
+#
+# R = chars por segundo de FALA. P = segundos de silencio por ponto final.
+# Cada voz foi medida com duas amostras no idioma dela (uma de 2 frases longas,
+# outra de 12 curtas), e o par de equacoes resolve R e P sem chute.
+#
+# Isto ja estava registrado em `aprendizados` como critico para a id-ID-Ardi
+# ("duracao = chars/20,58 + frases x 0,96") e mesmo assim o portao de duracao
+# seguia dividindo por uma taxa unica. Agora nao.
+#
+# Voz nova entra MEDIDA com as duas amostras, nunca estimada.
+MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
+    "pt-BR-AntonioNeural":            (18.56, 0.980),
+    "pt-BR-ThalitaMultilingualNeural": (19.09, 0.571),
+    "pt-BR-FranciscaNeural":          (16.97, 0.310),
+    "id-ID-GadisNeural":              (17.42, 1.376),
+    "id-ID-ArdiNeural":               (23.76, 1.277),
+    "es-MX-DaliaNeural":              (21.14, 1.163),
+    "en-GB-RyanNeural":               (21.90, 1.131),
+    "en-US-AndrewNeural":             (18.45, 0.243),
+    "pl-PL-MarekNeural":              (22.75, 1.291),
+    "tr-TR-AhmetNeural":              (16.96, 1.289),
+    "el-GR-NestorasNeural":           (25.37, 1.315),
+    "hi-IN-MadhurNeural":             (13.10, 1.165),
 }
-# Com esta, as TREZE vozes do portfolio estao medidas. Nenhum canal fica com
-# orcamento de caracteres chutado — que foi como um roteiro de 11,1 min
-# apareceu como 8:30 e quase virou reescrita.
-# Voz nova entra medida, nunca estimada. Este valor existe so para o ensaio nao
-# abortar; ele NAO serve para dimensionar roteiro.
-TAXA_PADRAO = 14.50
 
 
-def taxa(voz: str) -> float:
-    return TAXA_CHARS_S.get(voz, TAXA_PADRAO)
+def duracao_cena(nar: str, voz: str) -> float:
+    """Segundos que esta narracao vai ocupar, pelos dois termos.
+
+    Conta frase com `narracao.frases`, que e quem ja sabe que o fim de frase em
+    devanagari e o danda e nao o ponto. Contar aqui de outro jeito faria o
+    portao medir o hindi como uma frase unica de mil caracteres.
+    """
+    from narracao import frases
+
+    R, P = MODELO_VOZ[voz]
+    return len(nar) / R + len(frases(nar)) * P
+
+
+def duracao_estimada(cenas, voz: str) -> float:
+    return sum(duracao_cena(c.get("nar", ""), voz) for c in cenas)
 
 
 def _ffmpeg(args: list[str]) -> None:
@@ -125,21 +142,21 @@ def prepara(spec_caminho: str) -> str:
         "Os mp3 deste diretorio sao SILENCIO. Nada daqui vai ao ar.\n"
     )
 
-    t = taxa(sp["voz"])
+    voz = sp["voz"]
     feitos = 0
     for pref, bloco in (("l", "longo"), ("s", "short")):
         for i, c in enumerate(sp.get(bloco) or []):
             alvo = os.path.join(d, f"{pref}{i:02d}.mp3")
             if os.path.exists(alvo) and os.path.getsize(alvo) > 500:
                 continue
-            silencio(len(c["nar"]) / t, alvo)
+            silencio(duracao_cena(c["nar"], voz), alvo)
             feitos += 1
-    return d, feitos, t
+    return d, feitos, voz
 
 
 def ensaia(spec_caminho: str) -> dict:
     nome = os.path.basename(spec_caminho)[:-5]
-    d, feitos, t = prepara(spec_caminho)
+    d, feitos, voz = prepara(spec_caminho)
 
     env = dict(os.environ, FABRICA_WORKDIR=RAIZ_ENSAIO)
     inicio = time.time()
@@ -165,7 +182,7 @@ def ensaia(spec_caminho: str) -> dict:
         f.write(p.stderr or "")
     return {
         "spec": nome, "ok": p.returncode == 0, "segundos": round(gasto, 1),
-        "mp3_gerados": feitos, "taxa": t, "saidas": saidas, "log": log,
+        "mp3_gerados": feitos, "voz": voz, "saidas": saidas, "log": log,
         "erro": (p.stderr or p.stdout).strip().splitlines()[-6:] if p.returncode else [],
     }
 

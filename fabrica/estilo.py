@@ -36,12 +36,17 @@ sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 # repeti-los aqui a mao criaria duas verdades.
 from narracao import MAX_NUM_FRASE, MAX_PALAVRAS, MAX_VIRGULAS, SLOP, VAGO  # noqa: E402
 from copy_md import MAX_CAP, MIN_CAP  # noqa: E402
-from ensaio import TAXA_CHARS_S  # noqa: E402
+from ensaio import MODELO_VOZ  # noqa: E402
 from prontidao import (  # noqa: E402
     MIN_PALAVRAS_DESCRICAO, PISO_LONGO_S, SHORT_MAX_S, SHORT_MIN_S, TETO_LONGO_S,
 )
 
 # Alvo de duracao no meio da faixa: 13 min e o centro dos 12-15 da rotina.
+# Mediana do corpus: 3.562 frases em 1.669 cenas nas 25 specs de 14/08/2026.
+# Vai de 1,53 (agla-level-003) a 3,20 (nivel-do-jogo-002) — por isso e premissa
+# de planejamento, e o portao conta as frases de verdade.
+FRASES_POR_CENA = 2.13
+
 ALVO_LONGO_S = 780
 ALVO_SHORT_S = 37
 CENAS_MIN, CENAS_MAX = 70, 90
@@ -130,23 +135,32 @@ def _voz_do_config(texto: str) -> str:
 
 
 def orcamento(voz: str) -> dict:
-    """Quantos caracteres cabem, pela taxa MEDIDA da voz.
+    """Quantos caracteres cabem, pelos DOIS termos medidos da voz.
 
-    Sem isto o modelo escreve pelo numero de cenas e a duracao sai a esmo: as
-    taxas do portfolio vao de 10,75 a 17,60 chars/s, 64% entre as pontas. Foi
-    assumindo taxa errada que um roteiro de 11 minutos apareceu como 8:30.
+    O orcamento nao sai de uma taxa: sai de chars/R + frases*P. Escrever pelo
+    numero de cenas fazia a duracao sair a esmo, mas escrever por taxa unica
+    fazia pior, porque a taxa aparente da MESMA voz varia 85% conforme o
+    roteiro seja de frase longa ou curta (id-ID-Gadis, 14/08/2026).
+
+    FRASES_POR_CENA e a mediana do corpus (3.562 frases em 1.669 cenas nas 25
+    specs de 14/08/2026). E premissa de planejamento, nao medicao da spec: o
+    portao conta as frases de verdade. Quem escreve frase mais curta que a
+    mediana gasta mais segundo por caractere e cabe menos texto — e o portao
+    dira isso antes do render.
     """
-    t = TAXA_CHARS_S.get(voz)
-    if not t:
-        return {"taxa": None}
+    if voz not in MODELO_VOZ:
+        return {"modelo": None}
+    R, P = MODELO_VOZ[voz]
     cenas = 80
+    frases_longo = cenas * FRASES_POR_CENA
+    frases_short = 5 * FRASES_POR_CENA
+    chars_longo = int((ALVO_LONGO_S - frases_longo * P) * R)
     return {
-        "taxa": t,
+        "modelo": (R, P),
         "cenas_alvo": cenas,
-        # cada cena custa +0,5 s de respiracao no clipe montado
-        "chars_longo": int((ALVO_LONGO_S - 0.5 * cenas) * t),
-        "chars_por_cena": int((ALVO_LONGO_S - 0.5 * cenas) * t / cenas),
-        "chars_short": int((ALVO_SHORT_S - 0.5 * 5) * t),
+        "chars_longo": chars_longo,
+        "chars_por_cena": int(chars_longo / cenas),
+        "chars_short": int((ALVO_SHORT_S - frases_short * P) * R),
     }
 
 
@@ -169,14 +183,18 @@ def chave(canal: str, titulos_anteriores: list[str] | None = None) -> str:
     L.append("")
     L.append(cfg)
     L.append("")
-    L.append("2. TAMANHO — pela taxa MEDIDA desta voz, nao por contagem de cenas.")
-    if orc["taxa"]:
-        L.append(f"   voz {voz}: {orc['taxa']} chars/s")
+    L.append("2. TAMANHO — pelos DOIS termos medidos desta voz.")
+    if orc["modelo"]:
+        R, P = orc["modelo"]
+        L.append(f"   voz {voz}: {R} chars/s de fala + {P} s por frase")
         L.append(f"   longo: ~{orc['chars_longo']} chars de narracao em "
                  f"{CENAS_MIN}-{CENAS_MAX} cenas (~{orc['chars_por_cena']} por cena)")
         L.append(f"   short: ~{orc['chars_short']} chars em 5 cenas")
+        L.append(f"   Isto supoe {FRASES_POR_CENA} frases por cena (mediana do corpus).")
+        L.append(f"   Cada ponto final a mais custa {P} s: frase curta e ritmo, e")
+        L.append("   tambem e orcamento. Escreva mais seco e caberao menos caracteres.")
     else:
-        L.append(f"   voz {voz} SEM TAXA MEDIDA — meca antes de dimensionar.")
+        L.append(f"   voz {voz} SEM MODELO MEDIDO — meca antes de dimensionar.")
     L.append(f"   O portao reprova longo abaixo de {PISO_LONGO_S//60} min ou acima "
              f"de {TETO_LONGO_S//60}, e short fora de {SHORT_MIN_S}-{SHORT_MAX_S} s.")
     L.append("")

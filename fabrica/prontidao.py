@@ -191,28 +191,33 @@ SHORT_MIN_S, SHORT_MAX_S = 30, 45
 
 
 def _gate_duracao(sp):
-    """Duracao estimada pela taxa MEDIDA da voz.
+    """Duracao pelos DOIS termos medidos da voz: chars/R + frases*P.
 
-    So vale porque a taxa e medida por voz. Com um padrao unico de 14,50 a
-    agla-level-003 aparecia com 8:30 de longo e 26 s de short — as duas coisas
-    fora de faixa — quando a taxa real do hindi (10,75 chars/s, a mais lenta do
-    portfolio) poe o longo em 11,1 min e o short em 34 s, dentro. Eu quase
-    reescrevi um roteiro que estava certo.
+    A versao anterior dividia por uma taxa unica e somava 0,5 s por CENA de
+    respiracao. Os dois pedacos estavam errados, e no mesmo sentido.
+
+    A taxa unica nao existe: medido em 14/08/2026, a id-ID-Gadis le a 15,19
+    chars/s num texto de duas frases longas e a 8,19 no mesmo idioma com doze
+    frases curtas. Mesma voz, 85% de diferenca. O que muda nao e a voz, e a
+    quantidade de pontos finais — e cada ponto final custa silencio.
+
+    E a respiracao nao e por cena: e por FRASE. O corpus tem 2,13 frases por
+    cena na mediana, mas vai de 1,53 (agla-level-003) a 3,20 (nivel-do-jogo-002)
+    — um fator de dois que o termo por cena nao enxergava.
 
     O short e o que mais importa aqui: em canal frio e ele que entrega, e a
     rotina exige 30 a 45 s. Abaixo de 30 nao e "curtinho", e fora do formato.
     """
-    from ensaio import TAXA_CHARS_S
+    from ensaio import MODELO_VOZ, duracao_estimada
 
     voz = sp.get("voz", "")
-    if voz not in TAXA_CHARS_S:
-        return [f"voz {voz!r} sem taxa medida — meca antes de dimensionar"]
-    t = TAXA_CHARS_S[voz]
+    if voz not in MODELO_VOZ:
+        return [f"voz {voz!r} sem modelo medido — meca antes de dimensionar"]
 
     faltas = []
     longo = sp.get("longo") or []
     if longo:
-        d = sum(len(c["nar"]) for c in longo) / t + 0.5 * len(longo)
+        d = duracao_estimada(longo, voz)
         if d < PISO_LONGO_S:
             faltas.append(f"longo com {d/60:.1f} min — abaixo do piso de 8 min")
         elif d > TETO_LONGO_S:
@@ -220,7 +225,7 @@ def _gate_duracao(sp):
                           f"em canal escalonado, e o escalonamento vai no config")
     short = sp.get("short") or []
     if short:
-        ds = sum(len(c["nar"]) for c in short) / t + 0.5 * len(short)
+        ds = duracao_estimada(short, voz)
         if not SHORT_MIN_S <= ds <= SHORT_MAX_S:
             faltas.append(f"short com {ds:.0f} s — fora dos {SHORT_MIN_S}-"
                           f"{SHORT_MAX_S} s que a rotina pede")

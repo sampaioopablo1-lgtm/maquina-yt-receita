@@ -25,7 +25,7 @@ import estilo as E  # noqa: E402
 import narracao as N  # noqa: E402
 import prontidao as P  # noqa: E402
 from copy_md import MAX_CAP, MIN_CAP  # noqa: E402
-from ensaio import TAXA_CHARS_S  # noqa: E402
+from ensaio import MODELO_VOZ  # noqa: E402
 
 CANAIS = sorted(p.stem for p in (RAIZ / "config" / "canais").glob("*.yaml"))
 
@@ -80,7 +80,7 @@ def test_config_do_canal_entra_verbatim():
 
 @pytest.mark.parametrize("canal", CANAIS)
 def test_orcamento_usa_taxa_medida_ou_avisa(canal):
-    """Nenhum canal pode receber orcamento de caracteres com taxa chutada.
+    """Nenhum canal pode receber orcamento de caracteres com modelo chutado.
 
     Foi assumindo taxa errada que um roteiro de 11,1 min apareceu como 8:30 e
     eu quase reescrevi um texto que estava certo.
@@ -88,11 +88,12 @@ def test_orcamento_usa_taxa_medida_ou_avisa(canal):
     texto = E.chave(canal)
     cfg = (RAIZ / "config" / "canais" / f"{canal}.yaml").read_text(encoding="utf-8")
     voz = E._voz_do_config(cfg)
-    if voz in TAXA_CHARS_S:
-        assert f"{TAXA_CHARS_S[voz]} chars/s" in texto
-        assert "SEM TAXA MEDIDA" not in texto
+    if voz in MODELO_VOZ:
+        R, P_ = MODELO_VOZ[voz]
+        assert f"{R} chars/s de fala + {P_} s por frase" in texto
+        assert "SEM MODELO MEDIDO" not in texto
     else:
-        assert "SEM TAXA MEDIDA" in texto
+        assert "SEM MODELO MEDIDO" in texto
 
 
 def test_orcamento_bate_com_a_spec_que_escrevi_a_mao():
@@ -121,15 +122,16 @@ def test_canal_inexistente_para_em_vez_de_inventar():
 def test_toda_voz_do_portfolio_tem_taxa_medida():
     """Nenhum canal pode ficar com orcamento de caracteres chutado.
 
-    A faixa medida vai de 10,75 (hindi) a 17,60 (indonesio) — 64% entre as
-    pontas. Um padrao unico poe o roteiro fora da faixa de duracao e o autor vai
-    reescrever texto que estava certo.
+    R vai de 13,10 (hindi) a 25,37 (grego) e P de 0,243 (en-US-Andrew) a 1,376
+    (id-ID-Gadis). Voz nova entra com as DUAS amostras medidas — uma de frases
+    longas e outra de frases curtas — porque uma amostra so nao separa os
+    termos, ela devolve a media dos dois no roteiro que voce usou para medir.
     """
     faltando = []
     for canal in CANAIS:
         cfg = (RAIZ / "config" / "canais" / f"{canal}.yaml").read_text(encoding="utf-8")
         voz = E._voz_do_config(cfg)
-        if voz not in TAXA_CHARS_S:
+        if voz not in MODELO_VOZ:
             faltando.append((canal, voz))
     assert not faltando, f"vozes sem medicao: {faltando}"
 

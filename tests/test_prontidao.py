@@ -255,3 +255,70 @@ def test_sem_trilha_nenhuma_continua_devolvendo_none(tmp_path, monkeypatch):
 
     monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
     assert C.trilha_do_canal("qualquer") is None
+
+
+# --------------------------------------------------------------------------
+# Duracao. O portao dividia por uma taxa unica de chars/s e somava 0,5 s por
+# CENA. Os dois pedacos estavam errados, e o erro so aparece em roteiro de
+# frase curta — que e exatamente o que a chave de estilo manda escrever.
+
+def _cenas(*nars):
+    return [{"layout": "item", "kicker": "k", "preco": "p", "nar": n} for n in nars]
+
+
+def test_a_mesma_quantidade_de_texto_dura_mais_em_frases_curtas():
+    """O defeito de fundo, provado com o modelo e nao com uma opiniao.
+
+    Medido em 14/08/2026 na id-ID-Gadis: dois textos da MESMA voz devolveram
+    15,19 e 8,19 chars/s de taxa aparente. O que muda nao e a voz, e o numero
+    de pontos finais — e cada um custa 1,376 s de silencio nessa voz.
+
+    Uma taxa unica nao consegue exprimir isto: ela da o MESMO numero para os
+    dois. Este teste falha em qualquer volta para o modelo de um termo.
+    """
+    from ensaio import duracao_estimada
+
+    corrido = _cenas("a" * 200)
+    picado = _cenas(". ".join("a" * 18 for _ in range(10)) + ".")
+    assert abs(len(corrido[0]["nar"]) - len(picado[0]["nar"])) <= 12
+    assert duracao_estimada(picado, "id-ID-GadisNeural") > \
+        duracao_estimada(corrido, "id-ID-GadisNeural") + 8
+
+
+def test_o_portao_de_duracao_conta_frase_de_hindi_pelo_danda():
+    """Em devanagari o fim de frase e o danda, nao o ponto.
+
+    Contando ponto, um roteiro em hindi vira UMA frase e o portao subestima a
+    duracao em toda a pausa — no agla-level-003 sao 110 frases a 1,165 s, dois
+    minutos inteiros que sumiriam da conta.
+    """
+    from ensaio import duracao_estimada
+
+    d = duracao_estimada(_cenas("क ख ग। घ ङ च। छ ज झ।"), "hi-IN-MadhurNeural")
+    assert d > 3 * 1.165
+
+
+def test_voz_sem_modelo_reprova_em_vez_de_supor():
+    faltas = prontidao._gate_duracao(
+        {"voz": "xx-XX-NinguemMediuNeural", "longo": _cenas("oi"), "short": []}
+    )
+    assert faltas and "sem modelo medido" in faltas[0]
+
+
+@pytest.mark.parametrize(
+    "spec", [p for p in SPECS_REAIS
+             if re.search(r"-\d{3}$", p.stem)
+             and json.loads(p.read_text(encoding="utf-8")).get("short")],
+    ids=lambda p: p.stem,
+)
+def test_short_de_producao_cabe_na_faixa_de_shorts(spec):
+    """O short e o formato que ENTREGA: mede-se 25 a 96x o longo do mesmo
+    pacote. Um short de 29 s nao e curtinho, e fora do formato — e essa conta
+    mudou quando o modelo passou a contar pausa por frase."""
+    from ensaio import MODELO_VOZ, duracao_estimada
+
+    sp = json.loads(spec.read_text(encoding="utf-8"))
+    if sp.get("voz") not in MODELO_VOZ:
+        pytest.skip("voz sem modelo medido")
+    d = duracao_estimada(sp["short"], sp["voz"])
+    assert prontidao.SHORT_MIN_S <= d <= prontidao.SHORT_MAX_S, f"{d:.0f} s"
