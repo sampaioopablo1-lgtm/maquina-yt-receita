@@ -68,7 +68,29 @@ sorteio coincidir com o real, é deslocado. O `displayAddress` vai como
 pontuar completa): o endereço é exibido inteiro, incluindo o número
 aleatório. Imóveis sem logradouro no cadastro caem para `Neighborhood`.
 Coordenadas ausentes são preenchidas por propagação de CEP idêntico
-(média dos vizinhos com GPS, marcadas com `gps_origem: cep_vizinho`).
+(média dos vizinhos com GPS, marcadas com `gps_origem: cep_vizinho`) e, desde
+13/08, por geocodificação do logradouro real via Nominatim/OpenStreetMap
+(`gps_origem: nominatim`, Edge Function `geocode-enderecos`).
+
+O resultado da varredura completa: **90,4% dos anúncios ativos com coordenada**
+(3.329 de 3.681), contra 56% antes. Origem: 1.693 do próprio Vista, 1.510
+geocodificadas, 126 ainda aproximadas por CEP vizinho. No XML publicado são
+2.697 dos 3.000 anúncios.
+
+Duas conferências foram necessárias, e ambas nasceram de erro observado:
+`viaConfere` compara o nome da via devolvida com o logradouro pedido — passar
+o CEP faz o Nominatim casar pelo CEP e devolver outra rua quando o logradouro
+não existe na base ("Atlantica, Caraguatatuba" voltou como "Avenida Geraldo
+Nogueira da Silva"). `cidadeConfere` exige o município no endereço devolvido —
+a regra da via sozinha deixou passar um caso em 1.517, "Saldanha Marinho,
+Campinas" casando com a rua homônima em Hortolândia. Coordenada errada é pior
+que coordenada ausente, porque o comprador filtra por mapa.
+
+Os 352 sem coordenada são logradouros que o OpenStreetMap não tem mapeados —
+alameda interna de condomínio fechado, principalmente. Concentram-se em
+Campinas (83), Atibaia (56), Bertioga (38), Caraguatatuba (29) e Bragança
+Paulista (27). Não são preenchidos por média de bairro: centroide a
+quilômetros do imóvel seria número inventado com cara de precisão.
 
 Ressalva conhecida: o número aleatório trafega junto com CEP e coordenada
 GPS reais, o que é internamente incoerente e pode motivar recusa do portal.
