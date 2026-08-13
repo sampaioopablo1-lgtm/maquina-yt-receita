@@ -114,6 +114,16 @@ melhoria e a ordem de prioridade. Quem tem book completo e ficha completa
 continua no topo da fila; com o teto de 3.000 anúncios do contrato, o corte
 por prioridade é o que decide quem fica de fora.
 
+**Meta de fotos do portal: 12.** O relatório de qualidade de 13/08 trouxe
+Imagens em 89% com 330 anúncios incompletos entre 2.902 publicados. A
+distribuição do acervo dá o número exato: 173 anúncios com 7 a 9 fotos e 150
+com 10 a 11 somam 323. A régua que o portal usa pra pontuar é 12, não as 20
+do material de nota máxima. `fn_gate_fotos_portal(12)` (cron
+`feed-gate-fotos`) bloqueia quem está abaixo e religa quem ganha fotos no
+Vista; a régua mora no banco pra ser ajustável sem republicar o bundle. Custo
+medido: 2.996 anúncios no ar contra 3.000 vagas — quatro vagas trocadas por
+20 pontos cheios na categoria.
+
 **Tour virtual** só é emitido quando a ficha tem tour 360 real. O link
 padrão apontando para página própria foi removido na v7: o portal pontuou
 0% na categoria com ele. Replicar o tour de um imóvel nos demais foi
