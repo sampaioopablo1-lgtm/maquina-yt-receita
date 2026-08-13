@@ -154,14 +154,28 @@ class Video(BaseModel):
 
 
 class Metricas(BaseModel):
-    """Snapshot de performance vindo do YouTube Analytics."""
+    """Snapshot de performance vindo do YouTube Analytics.
+
+    AUSENCIA E `None`, NUNCA ZERO. Estes campos nasciam com default 0.0, e o
+    resultado era o banco AFIRMANDO uma medida falsa: `retencao_media_pct = 0`
+    nao quer dizer "nao medimos", quer dizer "ninguem assiste nada". Sao
+    coisas opostas, e a segunda e uma acusacao contra o roteiro.
+
+    Medido em 13/08/2026: as 88 coletas tinham retencao, ctr, impressoes,
+    duracao media, inscritos e receita todos em zero — e NENHUMA delas jamais
+    foi medida, porque nenhum dos treze tokens carrega o escopo
+    yt-analytics.readonly. O painel inteiro parecia dado e era default.
+
+    `views` fica com default 0 de proposito: ele vem da Data API, que os
+    tokens alcancam, entao zero ali e medida de verdade.
+    """
 
     youtube_id: str
-    impressoes: int = 0
     views: int = 0
-    ctr: float = 0.0
-    retencao_media_pct: float = 0.0
-    duracao_media_s: float = 0.0
-    inscritos_ganhos: int = 0
-    receita_estimada_usd: float = 0.0
+    impressoes: int | None = None
+    ctr: float | None = None
+    retencao_media_pct: float | None = None
+    duracao_media_s: float | None = None
+    inscritos_ganhos: int | None = None
+    receita_estimada_usd: float | None = None
     coletado_em: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
