@@ -277,7 +277,12 @@ def _sem_chaves(monkeypatch):
         monkeypatch.delenv(env, raising=False)
 
 
-def test_auto_poe_a_anthropic_na_frente_do_gemini(cfg, monkeypatch):
+def test_a_anthropic_nao_se_promove_sozinha_ao_ganhar_uma_chave(cfg, monkeypatch):
+    """Ela e a melhor E 13x mais cara que o Gemini no Tier 1.
+
+    Com ela na frente, "adicionei a chave para testar" viraria fatura sem
+    ninguem escolher isso. Para usa-la e preciso dizer: llm_provider=anthropic.
+    """
     _sem_chaves(monkeypatch)
     monkeypatch.setenv("ANTHROPIC_API_KEY", "a")
     monkeypatch.setenv("GEMINI_API_KEY", "g")
@@ -285,11 +290,15 @@ def test_auto_poe_a_anthropic_na_frente_do_gemini(cfg, monkeypatch):
 
     cadeia = obter_llm(cfg)
 
-    assert [nome for nome, _ in cadeia._elos] == ["anthropic", "gemini"]
+    assert [nome for nome, _ in cadeia._elos] == ["gemini", "anthropic"]
 
 
-def test_a_cadeia_empilha_os_free_tiers_na_ordem_do_yaml(cfg, monkeypatch):
-    """Nenhum plano gratuito sozinho aguenta seis pacotes/dia; somados, sobram."""
+def test_os_free_tiers_ficam_atras_do_gemini_como_rede(cfg, monkeypatch):
+    """Com faturamento o Gemini nao tem mais teto diario, mas pode cair.
+
+    Os free tiers deixam de ser necessidade e viram rede: a cadeia troca de elo
+    NA CHAMADA, entao um 429 ou um 503 nao mata mais o job.
+    """
     _sem_chaves(monkeypatch)
     for env in ("CEREBRAS_API_KEY", "GROQ_API_KEY", "MISTRAL_API_KEY"):
         monkeypatch.setenv(env, "x")
@@ -298,7 +307,7 @@ def test_a_cadeia_empilha_os_free_tiers_na_ordem_do_yaml(cfg, monkeypatch):
 
     cadeia = obter_llm(cfg)
 
-    assert [n for n, _ in cadeia._elos] == ["cerebras", "groq", "mistral", "gemini"]
+    assert [n for n, _ in cadeia._elos] == ["gemini", "cerebras", "groq", "mistral"]
 
 
 def test_provedor_da_cadeia_sem_chave_e_pulado_em_silencio(cfg, monkeypatch):

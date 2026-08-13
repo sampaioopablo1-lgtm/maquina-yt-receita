@@ -139,3 +139,108 @@ def test_sem_chave_recusa_na_construcao_dizendo_qual_env(monkeypatch):
         LLMCompativelOpenAI(
             "cerebras", "https://api.cerebras.ai/v1", "CEREBRAS_API_KEY", "gpt-oss-120b"
         )
+
+
+# ---------- Gemini no Tier 1 (faturamento ativo) ----------
+
+def _gemini(monkeypatch, resposta, modelo="gemini-flash-latest", **kw):
+    from maquina.providers.reais import LLMGemini
+
+    monkeypatch.setenv("GEMINI_API_KEY", "chave-de-teste")
+    llm = LLMGemini(modelo, **kw)
+    llm._cli = httpx.Client(
+        transport=httpx.MockTransport(lambda _: resposta),
+        base_url="https://generativelanguage.googleapis.com/v1beta",
+    )
+    return llm
+
+
+def _resposta_gemini(texto="ok", entrada=100_000, saida=10_000):
+    return httpx.Response(200, json={
+        "candidates": [{"content": {"parts": [{"text": texto}]}}],
+        "usageMetadata": {"promptTokenCount": entrada, "candidatesTokenCount": saida},
+    })
+
+
+def test_com_faturamento_o_gemini_deixa_de_contar_zero(monkeypatch):
+    """`custo_usd` alimenta videos.custo_usd e `maquina custo`.
+
+    Enquanto era free tier, zero era a verdade. Com billing ativo continuar
+    somando zero faz o relatorio de custo por video mentir justamente quando
+    ele passou a ter numero.
+    """
+    llm = _gemini(monkeypatch, _resposta_gemini())
+
+    llm.completar("x")
+
+    # 100k entrada a US$1,50/1M + 10k saida a US$7,50/1M
+    assert llm.custo_usd == pytest.approx(0.1 * 1.50 + 0.01 * 7.50, rel=1e-6)
+
+
+def test_flash_lite_cobra_menos_que_flash(monkeypatch):
+    """A diferenca e de 4x na fatura — o id nao pode cair no preco errado."""
+    lite = _gemini(monkeypatch, _resposta_gemini(), modelo="gemini-flash-lite-latest")
+    flash = _gemini(monkeypatch, _resposta_gemini(), modelo="gemini-flash-latest")
+
+    lite.completar("x")
+    flash.completar("x")
+
+    assert lite.custo_usd < flash.custo_usd
+
+
+def test_modelo_desconhecido_cobra_como_o_mais_caro(monkeypatch):
+    """`gemini-flash-latest` e alias e ja mudou de preco 5x entre versoes.
+
+    Subestimar gasto derrota o teto, que e a unica protecao contra laco
+    descontrolado agora que o provedor principal e pago.
+    """
+    novo = _gemini(monkeypatch, _resposta_gemini(), modelo="gemini-4-experimental")
+    flash = _gemini(monkeypatch, _resposta_gemini(), modelo="gemini-flash-latest")
+
+    novo.completar("x")
+    flash.completar("x")
+
+    assert novo.custo_usd >= flash.custo_usd
+
+
+def test_tokens_de_raciocinio_entram_na_conta(monkeypatch):
+    """thoughtsTokenCount e cobrado como saida e nao aparece no texto —
+    e exatamente o tipo de token que ninguem orca."""
+    from maquina.providers.reais import LLMGemini
+
+    monkeypatch.setenv("GEMINI_API_KEY", "k")
+    llm = LLMGemini("gemini-flash-latest")
+    llm._cli = httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, json={
+            "candidates": [{"content": {"parts": [{"text": "ok"}]}}],
+            "usageMetadata": {"promptTokenCount": 0, "candidatesTokenCount": 1000,
+                              "thoughtsTokenCount": 9000},
+        })),
+        base_url="https://generativelanguage.googleapis.com/v1beta",
+    )
+
+    llm.completar("x")
+
+    assert llm.custo_usd == pytest.approx(0.010 * 7.50, rel=1e-6)
+
+
+def test_o_teto_de_gasto_vale_para_o_gemini_tambem(monkeypatch):
+    """O teto so existia na Anthropic — mas o provedor pago agora e este."""
+    from maquina.providers.base import ErroOrcamento
+
+    llm = _gemini(monkeypatch, _resposta_gemini(), teto_usd=0.01)
+
+    llm.completar("x")
+    with pytest.raises(ErroOrcamento, match="teto"):
+        llm.completar("de novo")
+
+
+def test_a_cadeia_padrao_poe_o_gemini_na_frente_e_a_anthropic_por_ultimo():
+    """Um elo 13x mais caro na frente da fila transformaria "adicionei a chave
+    para testar" em fatura, sem ninguem escolher isso."""
+    from maquina.config import Config
+
+    cadeia = Config().llm_cadeia
+
+    assert cadeia[0] == "gemini"
+    assert cadeia[-1] == "anthropic"

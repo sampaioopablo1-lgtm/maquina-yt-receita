@@ -109,7 +109,10 @@ def catalogo_llm(cfg: Config) -> dict:
         ),
         "gemini": (
             "GEMINI_API_KEY",
-            lambda: LLMGemini(cfg.llm_modelos.get("gemini", "gemini-flash-latest")),
+            lambda: LLMGemini(
+                cfg.llm_modelos.get("gemini", "gemini-flash-latest"),
+                teto_usd=cfg.llm_teto_usd,
+            ),
         ),
     }
     for nome in COMPATIVEIS_OPENAI:

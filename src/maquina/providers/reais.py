@@ -328,17 +328,35 @@ def LLMOpenAI(modelo: str) -> LLMCompativelOpenAI:  # noqa: N802 — era uma cla
     )
 
 
-class LLMGemini:
-    """Plano B do roteiro: Google Gemini, com free tier real.
+# Precos do Gemini por 1M de tokens, Tier 1 (com faturamento ativo).
+# O prefixo do id decide; o default cobra como Flash, que e o mais caro dos
+# dois — subestimar gasto derrota o teto e mente no custo por video.
+PRECO_GEMINI = {
+    "gemini-flash-lite": {"entrada": 0.30, "saida": 2.50},
+    "gemini-flash": {"entrada": 1.50, "saida": 7.50},
+}
+PRECO_GEMINI_PADRAO = {"entrada": 1.50, "saida": 7.50}
 
-    O free tier do AI Studio (aistudio.google.com -> Get API key) cobre o ritmo
-    diario do canal sem cartao de credito. Qualidade de roteiro levemente
-    inferior ao caminho principal, mas plenamente utilizavel.
+
+class LLMGemini:
+    """Roteirista principal desde 13/08/2026, com faturamento no Tier 1.
+
+    O teto de 20 requisicoes/DIA que derrubou next-level-money as 22:14 de
+    12/08 era do Free Tier, nao do modelo: seis pacotes diarios consomem ~30.
+    Com billing ativo no projeto Youtube RECEITA o teto deixa de existir, por
+    ~US$ 8/mes no volume atual contra ~US$ 26 da Anthropic.
+
+    ATENCAO ao id: `gemini-flash-latest` e um ALIAS que segue o Flash mais
+    novo, e o preco do Flash ja subiu 5x (de 0,30/2,50 para 1,50/7,50 por 1M
+    entre versoes). O alias e conveniencia que pode multiplicar a fatura sem
+    aviso — `maquina llm-modelos --provedor gemini` lista os ids fixos para
+    quem quiser cravar um.
     """
 
-    def __init__(self, modelo: str = "gemini-flash-latest"):
+    def __init__(self, modelo: str = "gemini-flash-latest", *, teto_usd: float = 0.0):
         self.modelo = modelo
-        self.custo_usd = 0.0  # free tier
+        self.teto_usd = teto_usd
+        self.custo_usd = 0.0
         chave = os.getenv("GEMINI_API_KEY")
         if not chave:
             raise ErroProvider("GEMINI_API_KEY ausente")
@@ -353,6 +371,13 @@ class LLMGemini:
     def completar(
         self, prompt: str, *, sistema: str = "", max_tokens: int = 4096, esforco: str = ""
     ) -> str:
+        if self.teto_usd and self.custo_usd >= self.teto_usd:
+            raise ErroOrcamento(
+                f"LLM ja gastou US$ {self.custo_usd:.2f} neste run e o teto e "
+                f"US$ {self.teto_usd:.2f} — run interrompido antes de gastar mais. "
+                f"Ajuste MAQ_LLM_TETO_USD se o teto e que esta baixo."
+            )
+
         corpo: dict = {
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {"maxOutputTokens": max_tokens},
@@ -367,6 +392,22 @@ class LLMGemini:
             raise ErroProvider(f"Gemini {r.status_code}: {r.text[:400]}")
 
         dados = r.json()
+
+        # Com faturamento ativo o Gemini deixou de ser gratis, e `custo_usd`
+        # alimenta videos.custo_usd e `maquina custo`. Continuar somando zero
+        # faria o relatorio de custo por video mentir justamente quando ele
+        # passou a ter numero.
+        uso = dados.get("usageMetadata", {})
+        preco = next(
+            (v for k, v in PRECO_GEMINI.items() if self.modelo.startswith(k)),
+            PRECO_GEMINI_PADRAO,
+        )
+        saida_tokens = uso.get("candidatesTokenCount", 0) + uso.get("thoughtsTokenCount", 0)
+        self.custo_usd += (
+            uso.get("promptTokenCount", 0) / 1e6 * preco["entrada"]
+            + saida_tokens / 1e6 * preco["saida"]
+        )
+
         partes = (
             (dados.get("candidates") or [{}])[0]
             .get("content", {})
@@ -376,6 +417,15 @@ class LLMGemini:
         if not texto:
             raise ErroProvider(f"Gemini sem texto na resposta: {str(dados)[:300]}")
         return texto
+
+    def modelos_disponiveis(self) -> list[str]:
+        """Os ids fixos por tras do alias. Ver `maquina llm-modelos`."""
+        r = self._cli.get("/models")
+        if r.status_code >= 400:
+            raise ErroProvider(f"Gemini /models {r.status_code}: {r.text[:200]}")
+        return sorted(
+            m.get("name", "?").removeprefix("models/") for m in r.json().get("models", [])
+        )
 
 
 class TTSElevenLabs:

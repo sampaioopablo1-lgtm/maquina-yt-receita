@@ -94,12 +94,20 @@ class Config(BaseModel):
     # A cadeia, em ordem de preferencia. So entra quem tiver chave no ambiente,
     # entao a lista pode citar provedor que voce ainda nao assinou.
     #
-    # A estrategia e EMPILHAR PLANO GRATUITO. Nenhum free tier sozinho aguenta
-    # seis pacotes por dia — foi por isso que o Gemini (20 req/dia) quebrou —
-    # mas quatro empilhados sobram, e a cadeia troca de elo sozinha quando um
-    # bate no limite. Ver docs/22-llm-gratuito.md.
+    # O Gemini volta a ser o primeiro em 13/08/2026, agora com faturamento
+    # ativo no projeto Youtube RECEITA. O problema dele nunca foi qualidade nem
+    # preco — era o teto de 20 requisicoes/dia do Free Tier contra as ~30 que
+    # seis pacotes consomem. Com billing o projeto sai para o Tier 1 e o teto
+    # deixa de existir por ~US$ 2/mes no volume atual, contra ~US$ 26 da
+    # Anthropic. Os free tiers ficam atras como rede: a cadeia troca de elo NA
+    # CHAMADA, entao um 429 do Gemini nao mata mais o job.
+    #
+    # A Anthropic fica por ULTIMO de proposito, apesar de ser a melhor: ela e
+    # 13x mais cara, e um elo caro na frente da fila transformaria "adicionei a
+    # chave para testar" em fatura, sem ninguem escolher isso. Para usa-la,
+    # llm_provider: "anthropic" — decisao explicita.
     llm_cadeia: list[str] = Field(
-        default_factory=lambda: ["anthropic", "cerebras", "groq", "mistral", "gemini"]
+        default_factory=lambda: ["gemini", "cerebras", "groq", "mistral", "anthropic"]
     )
     # Ids mudam depressa nestes provedores (o qwen3-32b da Groq foi
     # descontinuado em jun/2026). `maquina llm-modelos` lista o que ha hoje.

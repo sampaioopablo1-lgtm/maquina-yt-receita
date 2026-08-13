@@ -1,19 +1,48 @@
-# LLM sem cartão de crédito: empilhar free tiers
+# A cadeia de LLM: Gemini no Tier 1, free tiers como rede
 
-**Decisão (13/08/2026):** a máquina sai do Gemini como provedor único, mas não
-troca por plano pago. Passa a usar uma **cadeia de planos gratuitos** que troca
-de elo sozinha quando um bate no limite.
+**Decisão final (13/08/2026):** o Gemini continua escrevendo o roteiro, agora
+com **faturamento ativo** no projeto `Youtube RECEITA`. Atrás dele fica uma
+cadeia de planos gratuitos que assume se ele cair.
 
-## O problema não era qualidade, era cota
+> **O plano de consumidor não resolve.** Google AI Plus / Pro / Ultra (app do
+> Gemini, Flow, NotebookLM) e a **API** do Gemini são medidores separados.
+> Assinar o Plus não levanta o teto de 20 req/dia da API — o que levanta é
+> vincular uma conta de faturamento ao projeto do Cloud, o que move a chave do
+> Free Tier para o **Tier 1**.
+
+**Custo medido no volume atual** (~30 chamadas/dia, ~60k tokens de entrada e
+~22k de saída):
+
+| Caminho | US$/mês |
+|---|---|
+| Gemini Flash (Tier 1) | ~8 |
+| Gemini Flash-Lite | ~2 |
+| Anthropic Opus 5 | ~26 |
+
+> **Cuidado com o alias.** `gemini-flash-latest` segue o Flash mais novo, e o
+> preço do Flash já subiu 5x entre versões (de 0,30/2,50 para 1,50/7,50 por 1M).
+> O alias é conveniência que pode multiplicar a fatura sem aviso. Para cravar um
+> id fixo: `maquina llm-modelos --provedor gemini`.
+
+`llm_teto_usd` (padrão US$ 2,00 por run) agora vale para o Gemini também — não é
+fallback para o próximo elo, é parada: trocar de fornecedor por orçamento só
+mudaria de bolso.
+
+---
+
+## Por que a cadeia continua existindo, mesmo com o teto removido
 
 O free tier do Gemini dá **20 requisições por dia**. Cada pacote consome de 2 a
 5 (ideação, roteiro, até duas extensões, short companheiro). Com seis disparos
 diários a conta é ~30 requisições — a cota estoura antes do meio-dia. Foi o que
 derrubou `next-level-money` em 12/08/2026 às 22:14 com HTTP 429.
 
-Trocar Gemini por outro provedor único só move a parede de lugar. A saída é
-somar, porque nenhum plano gratuito sozinho aguenta o ritmo e quatro somados
-sobram com folga de ordem de grandeza.
+O faturamento resolve o teto **diário**, não a indisponibilidade: um 503, um
+429 de pico ou um 400 de campo continuam derrubando o job se não houver para
+onde ir. Foi isso que aquele run provou — a Anthropic estava configurada e
+ociosa e o job morreu mesmo assim, porque o provedor era escolhido uma vez, na
+construção. Os free tiers atrás do Gemini custam zero e removem essa classe
+inteira de falha.
 
 ## As cotas (agosto/2026)
 
@@ -44,7 +73,7 @@ aguenta o request que estamos mandando**.
 
 ```yaml
 llm_provider: "auto"
-llm_cadeia: ["anthropic", "cerebras", "groq", "mistral", "gemini"]
+llm_cadeia: ["gemini", "cerebras", "groq", "mistral", "anthropic"]
 llm_modelos:
   cerebras: "gpt-oss-120b"
   groq: "openai/gpt-oss-120b"
@@ -52,9 +81,13 @@ llm_modelos:
   gemini: "gemini-flash-latest"
 ```
 
-`anthropic` fica na frente da lista mesmo sem assinatura: **a lista é desejo, a
-chave é que decide**. Sem `ANTHROPIC_API_KEY` no ambiente o elo é pulado em
-silêncio, e no dia em que a chave existir a máquina passa a usá-la sozinha.
+**A lista é desejo; a chave é que decide.** Provedor sem chave no ambiente é
+pulado em silêncio, então a cadeia pode citar quem você ainda não assinou.
+
+`anthropic` fica em **último** de propósito, apesar de ser a melhor: é 13x mais
+cara que o Gemini no Tier 1, e um elo caro na frente da fila transformaria
+"adicionei a chave para testar" em fatura sem ninguém escolher isso. Para usá-la
+é preciso dizer: `llm_provider: "anthropic"`.
 
 ## Os ids de modelo mudam — não chumbe em código
 
@@ -87,7 +120,7 @@ grego por provedor e comparar com a revisão de tradução que a máquina já te
 (`stages/revisao.py` já pede naturalidade e devolve `aceitavel`/não). Até lá,
 tratar a escolha de modelo como hipótese.
 
-## Chaves a criar (todas gratuitas, sem cartão)
+## Chaves opcionais da rede (todas gratuitas, sem cartão)
 
 | Secret | Onde | Minutos |
 |---|---|---|
@@ -96,5 +129,5 @@ tratar a escolha de modelo como hipótese.
 | `MISTRAL_API_KEY` | console.mistral.ai | ~3 (verifica telefone) |
 
 Adicionar em **Settings → Secrets and variables → Actions** do repositório. Os
-workflows já passam as três. Enquanto nenhuma existir, a máquina continua no
-Gemini exatamente como hoje — nada quebra, só continua limitada a 20/dia.
+workflows já passam as três. Enquanto nenhuma existir a máquina roda só no
+Gemini — funciona, mas volta a ter um ponto único de falha.
