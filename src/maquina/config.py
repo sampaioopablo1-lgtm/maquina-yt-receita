@@ -86,12 +86,34 @@ class Config(BaseModel):
     # CANVA_TEMPLATE_ID. Qualquer outro valor usa PIL+OpenAI.
     thumbnail_provider: str = "openai"
 
-    # Um campo `llm_model` para tres providers era uma armadilha: com
+    # Um campo `llm_model` para varios providers era uma armadilha: com
     # "gemini-flash-latest" no YAML, o caminho Anthropic pedia um modelo do
-    # Google a api.anthropic.com. Cada provider tem o seu.
-    llm_model: str = "claude-opus-5"          # Anthropic (o roteirista)
-    llm_model_gemini: str = "gemini-flash-latest"
-    llm_model_openai: str = "gpt-4o-mini"
+    # Google a api.anthropic.com. Cada provider tem o seu, em llm_modelos.
+    llm_model: str = "claude-opus-5"          # Anthropic (se houver chave)
+
+    # A cadeia, em ordem de preferencia. So entra quem tiver chave no ambiente,
+    # entao a lista pode citar provedor que voce ainda nao assinou.
+    #
+    # A estrategia e EMPILHAR PLANO GRATUITO. Nenhum free tier sozinho aguenta
+    # seis pacotes por dia — foi por isso que o Gemini (20 req/dia) quebrou —
+    # mas quatro empilhados sobram, e a cadeia troca de elo sozinha quando um
+    # bate no limite. Ver docs/22-llm-gratuito.md.
+    llm_cadeia: list[str] = Field(
+        default_factory=lambda: ["anthropic", "cerebras", "groq", "mistral", "gemini"]
+    )
+    # Ids mudam depressa nestes provedores (o qwen3-32b da Groq foi
+    # descontinuado em jun/2026). `maquina llm-modelos` lista o que ha hoje.
+    llm_modelos: dict[str, str] = Field(
+        default_factory=lambda: {
+            "cerebras": "gpt-oss-120b",
+            "groq": "openai/gpt-oss-120b",
+            "mistral": "mistral-large-latest",
+            "openrouter": "meta-llama/llama-3.3-70b-instruct:free",
+            "github": "openai/gpt-4o",
+            "gemini": "gemini-flash-latest",
+            "openai": "gpt-4o-mini",
+        }
+    )
     # Quanto o modelo raciocina por padrao. O roteiro pede "high" na chamada.
     llm_esforco: str = "medium"
     # Teto de gasto de LLM POR RUN, em dolar. Um pacote normal custa centavos;

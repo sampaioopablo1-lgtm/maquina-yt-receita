@@ -232,15 +232,38 @@ class LLMAnthropic:
         return "".join(pedacos), uso, parou_por
 
 
-class LLMOpenAI:
-    def __init__(self, modelo: str):
+class LLMCompativelOpenAI:
+    """Qualquer API que fale /chat/completions — e sao quase todas.
+
+    Groq, Cerebras, Mistral, OpenRouter, GitHub Models e a propria OpenAI usam
+    o mesmo formato. Uma classe cobre todos, e trocar de fornecedor vira uma
+    linha de YAML em vez de uma classe nova. Isso importa aqui porque a maquina
+    vive de empilhar plano gratuito: nenhum free tier sozinho aguenta seis
+    pacotes por dia, mas quatro empilhados sobram.
+
+    Os ids de modelo destes provedores mudam depressa (o qwen3-32b da Groq foi
+    descontinuado em junho/2026). Por isso o id vem da config, nunca do codigo,
+    e `maquina llm-modelos` lista o que cada um serve HOJE.
+    """
+
+    def __init__(
+        self,
+        nome: str,
+        base_url: str,
+        env_chave: str,
+        modelo: str,
+        *,
+        preco: dict | None = None,
+    ):
+        self.nome = nome
         self.modelo = modelo
+        self.preco = preco or {"entrada": 0.0, "saida": 0.0}   # free tier
         self.custo_usd = 0.0
-        chave = os.getenv("OPENAI_API_KEY")
+        chave = os.getenv(env_chave)
         if not chave:
-            raise ErroProvider("OPENAI_API_KEY ausente")
+            raise ErroProvider(f"{env_chave} ausente")
         self._cli = httpx.Client(
-            base_url="https://api.openai.com/v1",
+            base_url=base_url,
             headers={"Authorization": f"Bearer {chave}"},
             timeout=TIMEOUT,
         )
@@ -254,19 +277,55 @@ class LLMOpenAI:
         r = _com_retry(
             lambda: self._cli.post(
                 "/chat/completions",
-                json={"model": self.modelo, "messages": mensagens, "max_tokens": max_tokens},
+                json={
+                    "model": self.modelo,
+                    "messages": mensagens,
+                    "max_tokens": max_tokens,
+                    "stream": False,
+                },
             )
         )
         if r.status_code >= 400:
-            raise ErroProvider(f"OpenAI {r.status_code}: {r.text[:400]}")
+            raise ErroProvider(f"{self.nome} {r.status_code}: {r.text[:400]}")
         dados = r.json()
 
         uso = dados.get("usage", {})
         self.custo_usd += (
-            uso.get("prompt_tokens", 0) / 1e6 * PRECO_OPENAI_LLM["entrada"]
-            + uso.get("completion_tokens", 0) / 1e6 * PRECO_OPENAI_LLM["saida"]
+            uso.get("prompt_tokens", 0) / 1e6 * self.preco["entrada"]
+            + uso.get("completion_tokens", 0) / 1e6 * self.preco["saida"]
         )
-        return dados["choices"][0]["message"]["content"]
+
+        escolha = (dados.get("choices") or [{}])[0]
+        texto = (escolha.get("message") or {}).get("content") or ""
+        if not texto.strip():
+            raise ErroProvider(f"{self.nome} devolveu resposta vazia: {str(dados)[:300]}")
+
+        # Modelos de raciocinio aberto (gpt-oss, qwen com think) as vezes
+        # devolvem o rascunho no proprio content. O roteiro e parseado como
+        # JSON logo depois, entao o rascunho tem que sair aqui.
+        if "</think>" in texto:
+            texto = texto.rsplit("</think>", 1)[1]
+
+        if escolha.get("finish_reason") == "length":
+            raise ErroProvider(
+                f"{self.nome} cortou a resposta em max_tokens ({max_tokens}) — "
+                f"texto truncado, nao JSON invalido. Modelo: {self.modelo}"
+            )
+        return texto
+
+    def modelos_disponiveis(self) -> list[str]:
+        """O que este provedor serve HOJE. Ver `maquina llm-modelos`."""
+        r = self._cli.get("/models")
+        if r.status_code >= 400:
+            raise ErroProvider(f"{self.nome} /models {r.status_code}: {r.text[:200]}")
+        return sorted(m.get("id", "?") for m in r.json().get("data", []))
+
+
+def LLMOpenAI(modelo: str) -> LLMCompativelOpenAI:  # noqa: N802 — era uma classe
+    return LLMCompativelOpenAI(
+        "OpenAI", "https://api.openai.com/v1", "OPENAI_API_KEY", modelo,
+        preco=PRECO_OPENAI_LLM,
+    )
 
 
 class LLMGemini:

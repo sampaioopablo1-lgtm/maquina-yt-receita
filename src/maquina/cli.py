@@ -686,6 +686,50 @@ def custo():
         console.print(f"Media por video: US$ {total / len(com_custo):.4f}")
 
 
+@app.command("llm-modelos")
+def llm_modelos(
+    provedor: str = typer.Option("", help="So este provedor (ex: groq). Vazio = todos."),
+    filtro: str = typer.Option("", help="Mostra so ids que contenham este texto."),
+):
+    """Lista os modelos que cada provedor da cadeia serve HOJE.
+
+    Os ids destes provedores mudam depressa — o qwen3-32b da Groq foi
+    descontinuado em jun/2026 e duas fontes publicas discordavam do id certo no
+    mesmo dia. Chumbar id em codigo aqui e garantir 404 daqui a dois meses;
+    este comando e o jeito de conferir antes de editar `llm_modelos` no YAML.
+    """
+    import os
+
+    from .providers import catalogo_llm
+
+    cfg = _cfg()
+    catalogo = catalogo_llm(cfg)
+    nomes = [provedor] if provedor else list(catalogo)
+
+    for nome in nomes:
+        if nome not in catalogo:
+            console.print(f"[red]{nome}: nao esta no catalogo[/]")
+            continue
+        env, fabrica = catalogo[nome]
+        if not os.getenv(env):
+            console.print(f"[dim]{nome}: sem {env}[/]")
+            continue
+        try:
+            llm = fabrica()
+            if not hasattr(llm, "modelos_disponiveis"):
+                console.print(f"[dim]{nome}: nao expoe lista de modelos[/]")
+                continue
+            ids = [m for m in llm.modelos_disponiveis() if filtro in m]
+            atual = cfg.llm_modelos.get(nome, "")
+            console.print(f"\n[bold]{nome}[/] ({len(ids)} modelos, config: {atual or '—'})")
+            for m in ids:
+                console.print(f"  {'[green]*[/]' if m == atual else ' '} {m}")
+            if atual and atual not in ids:
+                console.print(f"  [red]! '{atual}' nao esta na lista — ajuste o YAML[/]")
+        except Exception as e:
+            console.print(f"[red]{nome}: {e}[/]")
+
+
 @app.command()
 def sincronizar(
     puxar_antes: bool = typer.Option(

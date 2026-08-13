@@ -76,13 +76,53 @@ class LLMCadeia:
         )
 
 
+# Provedores que falam /chat/completions: nome -> (env da chave, base_url).
+# Todos tem plano gratuito sem cartao, com excecao da OpenAI. Empilhar os free
+# tiers e a estrategia — ver docs/22-llm-gratuito.md para as cotas medidas.
+COMPATIVEIS_OPENAI = {
+    "cerebras": ("CEREBRAS_API_KEY", "https://api.cerebras.ai/v1"),
+    "groq": ("GROQ_API_KEY", "https://api.groq.com/openai/v1"),
+    "mistral": ("MISTRAL_API_KEY", "https://api.mistral.ai/v1"),
+    "openrouter": ("OPENROUTER_API_KEY", "https://openrouter.ai/api/v1"),
+    "github": ("GITHUB_MODELS_TOKEN", "https://models.github.ai/inference"),
+    "openai": ("OPENAI_API_KEY", "https://api.openai.com/v1"),
+}
+
+
+def catalogo_llm(cfg: Config) -> dict:
+    """nome -> (env da chave, fabrica). Base de `obter_llm` e de `llm-modelos`."""
+    from .reais import LLMAnthropic, LLMCompativelOpenAI, LLMGemini, PRECO_OPENAI_LLM
+
+    def _compativel(nome: str):
+        env, base = COMPATIVEIS_OPENAI[nome]
+        return lambda: LLMCompativelOpenAI(
+            nome, base, env, cfg.llm_modelos.get(nome, ""),
+            preco=PRECO_OPENAI_LLM if nome == "openai" else None,
+        )
+
+    catalogo = {
+        "anthropic": (
+            "ANTHROPIC_API_KEY",
+            lambda: LLMAnthropic(
+                cfg.llm_model, esforco=cfg.llm_esforco, teto_usd=cfg.llm_teto_usd
+            ),
+        ),
+        "gemini": (
+            "GEMINI_API_KEY",
+            lambda: LLMGemini(cfg.llm_modelos.get("gemini", "gemini-flash-latest")),
+        ),
+    }
+    for nome in COMPATIVEIS_OPENAI:
+        catalogo[nome] = (COMPATIVEIS_OPENAI[nome][0], _compativel(nome))
+    return catalogo
+
+
 def obter_llm(cfg: Config) -> LLM:
     """Seleciona o LLM.
 
-    A ordem de preferencia e Anthropic -> OpenAI -> Gemini. O Gemini saiu da
-    frente em 13/08/2026: o free tier de 20 requisicoes/dia nao cabe seis
-    pacotes diarios, e roteiro e a peca que decide o video. Ele fica no fim da
-    fila como rede de seguranca gratuita, nao como padrao.
+    "auto" monta a cadeia de `cfg.llm_cadeia`, pulando quem nao tem chave no
+    ambiente. Ela pode citar provedor que voce nao assinou — a lista e desejo,
+    a chave e que decide.
 
     Sem nenhuma chave, cai no stub offline — e o que mantem o CI verde. Mas se
     HA chave e o provider morre no meio, a cadeia levanta erro em vez de
@@ -93,21 +133,10 @@ def obter_llm(cfg: Config) -> LLM:
 
     import os
 
-    from .reais import LLMAnthropic, LLMGemini, LLMOpenAI
-
-    def _anthropic():
-        return LLMAnthropic(
-            cfg.llm_model, esforco=cfg.llm_esforco, teto_usd=cfg.llm_teto_usd
-        )
-
-    catalogo = {
-        "anthropic": ("ANTHROPIC_API_KEY", _anthropic),
-        "openai": ("OPENAI_API_KEY", lambda: LLMOpenAI(cfg.llm_model_openai)),
-        "gemini": ("GEMINI_API_KEY", lambda: LLMGemini(cfg.llm_model_gemini)),
-    }
+    catalogo = catalogo_llm(cfg)
 
     if cfg.llm_provider == "auto":
-        ordem = ["anthropic", "openai", "gemini"]
+        ordem = [nome for nome in cfg.llm_cadeia if nome in catalogo]
     elif cfg.llm_provider in catalogo:
         # Provider explicito e escolha, nao sugestao: sem cadeia atras dele.
         ordem = [cfg.llm_provider]

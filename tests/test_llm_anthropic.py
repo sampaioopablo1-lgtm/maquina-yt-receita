@@ -288,6 +288,28 @@ def test_auto_poe_a_anthropic_na_frente_do_gemini(cfg, monkeypatch):
     assert [nome for nome, _ in cadeia._elos] == ["anthropic", "gemini"]
 
 
+def test_a_cadeia_empilha_os_free_tiers_na_ordem_do_yaml(cfg, monkeypatch):
+    """Nenhum plano gratuito sozinho aguenta seis pacotes/dia; somados, sobram."""
+    _sem_chaves(monkeypatch)
+    for env in ("CEREBRAS_API_KEY", "GROQ_API_KEY", "MISTRAL_API_KEY"):
+        monkeypatch.setenv(env, "x")
+    monkeypatch.setenv("GEMINI_API_KEY", "g")
+    cfg.llm_provider = "auto"
+
+    cadeia = obter_llm(cfg)
+
+    assert [n for n, _ in cadeia._elos] == ["cerebras", "groq", "mistral", "gemini"]
+
+
+def test_provedor_da_cadeia_sem_chave_e_pulado_em_silencio(cfg, monkeypatch):
+    """A lista e desejo; a chave e que decide. Citar quem nao assinei nao quebra."""
+    _sem_chaves(monkeypatch)
+    monkeypatch.setenv("GROQ_API_KEY", "x")
+    cfg.llm_provider = "auto"
+
+    assert [n for n, _ in obter_llm(cfg)._elos] == ["groq"]
+
+
 def test_o_gemini_continua_como_rede_de_seguranca(cfg, monkeypatch):
     """Sair do Gemini como padrao nao e o mesmo que jogar fora a chave gratis."""
     _sem_chaves(monkeypatch)
@@ -330,4 +352,4 @@ def test_cada_provider_recebe_o_seu_modelo(cfg, monkeypatch):
     construidos = {nome: fabrica() for nome, fabrica in cadeia._elos}
 
     assert construidos["anthropic"].modelo.startswith("claude-")
-    assert construidos["gemini"].modelo == cfg.llm_model_gemini
+    assert construidos["gemini"].modelo == cfg.llm_modelos["gemini"]
