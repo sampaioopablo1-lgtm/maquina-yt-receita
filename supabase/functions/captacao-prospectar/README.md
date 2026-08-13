@@ -76,21 +76,51 @@ real de estoque compatível (ex.: aluguel de R$ 10–15 mil/mês em SJC, nicho
 que praticamente não aparece nos portais); 5 ainda giravam quando este
 texto foi escrito, resolvem no próximo ciclo do cron.
 
-## Achado ao avaliar o fluxo: `solicitacao_sugestoes` não é captação
+## Achado ao avaliar o fluxo: descoberto o caminho real até a tela do captador
 
-Depois da correção acima, uma solicitação de venda (SJC, R$650-800 mil)
-apareceu com 18 "sugestões boas" e mesmo assim a tela do captador mostrava
-"nenhum imóvel pra trabalhar aqui agora". Causa: `solicitacao_sugestoes`
-tem `imovel_id` — é o motor de VENDAS, que casa a solicitação contra o
-**estoque já cadastrado no Vista**, sem nenhuma relação com captação de
-proprietário novo. Contar as duas tabelas juntas (a correção do achado
-anterior) resolveu o empilhamento infinito e criou um bug novo: uma
-solicitação com match de estoque mas zero sugestão de captação passava a
-ser marcada "já coberta". Corrigido de novo: a contagem de "já está
-coberta" para fins de captação olha só `solicitacao_sugestoes_externas`.
-Reprocessadas 1.481 solicitações que tinham sido fechadas incorretamente;
-a maioria (>1.300) ganhou sugestão de captação real na sequência, porque o
-estoque de prospects já estava grande o bastante.
+Depois das correções abaixo, o usuário mandou print do painel inteiro do
+captador: **todas** as solicitações mostravam "0 pendentes / nenhum imóvel
+pra trabalhar", mesmo com sugestões de captação já gravadas. Isso levou a
+mapear o caminho real, ponta a ponta:
+
+```
+solicitacoes → solicitacao_sugestoes (imovel_id) → imoveis
+                                                  ↓
+                                        fn_gerar_tarefa_passo1()
+                                                  ↓
+                                         tarefas_captacao (o que a tela
+                                         realmente renderiza — "Reservar
+                                         7d" / "Captado")
+```
+
+`imoveis` é a tabela real de candidatos a captar — na prática, a planilha
+Plancap digitalizada (6.309 linhas com `origem='manual'`, 7 com
+`'importacao_lista'`; a constraint já previa `'externo'` e `'plancap'`
+como origens válidas, mas nenhuma nunca tinha sido usada).
+`solicitacao_sugestoes.imovel_id` aponta pra essa MESMA tabela — não existe
+tabela separada pra "match contra estoque de venda"; toda sugestão,
+captação ou venda, é uma linha em `imoveis`. Um trigger
+(`trg_sugestao_after_insert`) chama `fn_gerar_tarefa_passo1()` a cada
+INSERT em `solicitacao_sugestoes`, que promove a sugestão pra uma tarefa
+visível — mas só UMA de cada vez por solicitação, e só se o captador não
+tiver tarefa ativa ali. "0 pendentes" também pode significar captador
+sobrecarregado (a Camila do print tinha 349 tarefas abertas contra um
+limite de 50), não necessariamente falta de sugestão.
+
+Tudo que a sessão tinha construído até aqui —
+`captacao_prospects`/`captacao_fila_solicitacoes`/
+`solicitacao_sugestoes_externas` — é um pipeline paralelo que **nenhuma
+tela do app lê**. Ficou no lugar (continua alimentando o estoque de
+prospects), mas a entrega real é a migração
+`captacao_gravar_na_tabela_real`: os prospects (particular/indefinido, com
+telefone) entram direto em `imoveis` (`origem='externo'`,
+`status_captacao='Disponível'`, dedup por `codigo_jazz` = `'EXT-' || id`
+do prospect, índice único parcial já existente) e viram
+`solicitacao_sugestoes` de verdade para as solicitações compatíveis (até
+15 por imóvel, pra não estourar em faixas de preço largas). Resultado
+medido: 380 imóveis inseridos, 1.042 sugestões criadas, **31 tarefas já
+promovidas automaticamente** pelo trigger existente — confirmado
+consultando `tarefas_captacao` direto, sem depender do front-end.
 
 ## Achado ao avaliar o fluxo: `\b` no Postgres não é fronteira de palavra
 
@@ -145,20 +175,26 @@ falso) → empresa (CRECI presente) → empresa (nome de empresa) → particular
 (nome com 2+ palavras, sem sinal de empresa) → indefinido. Yield real:
 ~6-8% de particular por página, não os 43% que o CRECI vazio sugeria.
 
-## Onde a tela do captador lê os dados
+## Onde a tela do captador lê os dados (confirmado, não mais suposição)
 
-A tela "Minhas Captações" (worker `jazz-lead-conecta`) já tem UI própria
-pra captação sob demanda por solicitação (botões "Cadastrar no Vista",
-"Captei outro (por código)", "Gerar +10", seção "Portais Externos"). O
-código desse worker não está neste repositório, então não dá pra confirmar
-por aqui se ele lê `solicitacao_sugestoes_externas` diretamente ou se
-"Gerar +10" chama outro endpoint — mas o caso testado (solicitação de
-goncalves goncalves, SJC) confirma que a tela reage ao conteúdo real da
-fila: estava vazia quando a solicitação tinha 0 sugestões de captação, e
-o mesmo card deve passar a mostrar as 2 sugestões de particular geradas
-depois da correção do bug de regex. Se não mostrar, aí sim é sinal de que
-o worker lê de outro lugar e precisa de ajuste — vale confirmar com o
-captador na tela antes de investir mais tempo nisso.
+A tela "Minhas Captações" (worker `jazz-lead-conecta`, código fora deste
+repositório) renderiza `tarefas_captacao` — confirmado batendo os FKs e o
+trigger `trg_sugestao_after_insert` no banco, e verificando com uma
+consulta direta que os cards "score / Reservar 7d / Captado por código"
+correspondem a linhas de `tarefas_captacao` cujo `imovel_id` aponta pra
+`imoveis`. `solicitacao_sugestoes_externas` (a tabela que a sessão criou
+antes de mapear esse caminho) nunca teve relação com o que a tela mostra.
+Ver "Achado ao avaliar o fluxo: descoberto o caminho real" acima pro
+diagrama completo e o que foi corrigido.
+
+Uma tarefa (`tarefas_captacao`) só é criada quando um trigger de INSERT em
+`solicitacao_sugestoes` roda `fn_gerar_tarefa_passo1()`, e essa função
+promove no máximo UMA sugestão por vez por solicitação, respeitando o
+limite diário de contatos do captador (50 ligações / 20 WhatsApp) e um
+teto de tarefas simultaneamente abertas. Uma solicitação pode ter dezenas
+de sugestões `sugerido` em fila e mesmo assim mostrar "0 pendentes" na
+tela se o captador responsável estiver com a cota de tarefas abertas
+estourada — isso é limite operacional do captador, não falta de dado.
 
 ## Economia
 
