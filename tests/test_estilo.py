@@ -132,3 +132,39 @@ def test_toda_voz_do_portfolio_tem_taxa_medida():
         if voz not in TAXA_CHARS_S:
             faltando.append((canal, voz))
     assert not faltando, f"vozes sem medicao: {faltando}"
+
+
+def test_a_chave_carrega_o_arco_emocional():
+    """Seis portoes conferem se o roteiro esta CERTO. Nenhum pergunta se alguem
+    se importa.
+
+    Sem esta secao a chave descreve um produto correto e morto — e um roteiro
+    correto e morto passa em tudo. O arco nao vira portao de proposito: emocao
+    nao se afere por expressao regular, e um portao burro sobre ela produziria
+    reprovacao arbitraria em texto bom.
+    """
+    texto = E.chave("nivel-do-jogo")
+    assert "7. O ARCO" in texto
+    for marca in ("A ABERTURA", "MOVIMENTO CENTRAL", "FALE COM ALGUEM",
+                  "NOMEIE O CUSTO NA VIDA", "O RITMO", "FECHE DEVOLVENDO CONTROLE"):
+        assert marca in texto, f"o arco perdeu: {marca}"
+
+
+def test_o_arco_ensina_com_frase_do_proprio_acervo():
+    """Os exemplos saem das specs deste repositorio, nao de manual de copywriting.
+
+    "Dia vinte e cinco, saldo zero" e a abertura real da setiap-level-004, e a
+    frase sobre construir contra sobreviver e da epomeno-epipedo-002. Exemplo
+    inventado ensina um estilo que a maquina nao tem.
+    """
+    texto = E.chave("setiap-level")
+    assert "Dia vinte e cinco, saldo zero" in texto
+    assert "construir alguma coisa e sobreviver" in texto
+    assert "Nao e porque voce e gastador" in texto
+
+
+@pytest.mark.parametrize("canal", CANAIS)
+def test_o_arco_vale_para_todo_canal(canal):
+    """O arco nao e de financas: e de como se fala com quem assiste. Vale para
+    receita barata e para planilha de Excel igual."""
+    assert "7. O ARCO" in E.chave(canal)

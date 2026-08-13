@@ -47,6 +47,65 @@ ALVO_SHORT_S = 37
 CENAS_MIN, CENAS_MAX = 70, 90
 CAPS_MIN, CAPS_MAX = 6, 8
 
+# O unico pedaco desta chave que NAO e uma regra medida — e por isso e o mais
+# importante. Os seis portoes conferem se o roteiro esta CERTO: densidade de
+# numero, duracao, borda, glifo, estrutura da copy. Nenhum deles pergunta se
+# alguem se importa. Um roteiro pode passar nos seis e nao mexer com ninguem.
+#
+# O que esta abaixo saiu de LER as dezessete specs do repositorio e comparar as
+# aberturas. Metade abre com um numero; metade abre com uma pessoa numa
+# situacao. As segundas sao melhores, no mesmo canal e com a mesma voz — e o
+# movimento que se repete nelas nunca tinha sido escrito em lugar nenhum.
+ARCO_EMOCIONAL = """7. O ARCO — a parte que nenhum portao mede.
+
+   Os portoes conferem se o roteiro esta certo. Nenhum pergunta se alguem se
+   importa. Isto aqui e o que separa os dois.
+
+   A ABERTURA nao anuncia o assunto: poe alguem dentro de um momento.
+
+       fraco  "Cinquenta e nove virgula tres por cento dos trabalhadores
+               brasileiros estao no setor informal."
+       forte  "Dia vinte e cinco, saldo zero."
+
+       fraco  "O salario minimo subiu treze por cento."
+       forte  "Teu salario subiu. E por alguns dias voce sentiu alivio."
+
+   O numero nao some — ele entra na SEGUNDA cena, para explicar o que a
+   primeira fez sentir. Abrir com estatistica gasta o unico momento em que
+   o espectador ainda nao decidiu ficar.
+
+   O MOVIMENTO CENTRAL, que e o melhor que esta maquina faz: o espectador
+   chega achando que a culpa e dele, e o video mostra que e estrutural.
+
+       "Nao e porque voce e gastador. E porque seu dinheiro nao tem ordem."
+       "Essa explicacao e comoda porque fecha o assunto rapido e poe todo o
+        peso numa pessoa so. Mas nao explica por que milhoes passam pelo
+        mesmo, no mesmo mes, com o mesmo padrao."
+
+   Faca esse giro cedo, no primeiro capitulo. Ele e o que compra os treze
+   minutos seguintes: a pessoa para de se defender e comeca a querer entender.
+
+   FALE COM ALGUEM. Segunda pessoa, sempre. "Quanto sobra pra voce depois de
+   pagar" prende; "o rendimento medio das familias" nao.
+
+   NOMEIE O CUSTO NA VIDA, nao na planilha. O numero sozinho e inerte; o que
+   ele impede e que doi.
+
+       inerte  "A diferenca e de trezentos euros."
+       vivo    "Nao e uma diferenca de trezentos euros. E a diferenca entre
+                construir alguma coisa e sobreviver."
+
+   O RITMO carrega emocao. Frase longa para explicar, frase curta para
+   assentar. Tres frases do mesmo tamanho seguidas achatam qualquer verdade.
+
+   FECHE DEVOLVENDO CONTROLE. Depois de treze minutos mostrando um sistema
+   maior que a pessoa, entregue uma coisa que ela faz sozinha esta semana, com
+   o custo em tempo dito na cara: "leva cinco minutos", "cabe num cafe".
+   Sem isso o video informa e desanima, e desanimado ninguem volta.
+
+   O QUE NAO FAZER: pena, alarme, culpa e promessa. O tom e de alguem que
+   respeita quem ouve — mostra a conta, nao vende susto nem salvacao."""
+
 LAYOUTS = {
     "titulo": "kicker, sub. Abre secao. Com `cap` vira capitulo; sem, leva sem_cap.",
     "item":   "kicker, preco. Uma afirmacao com um destaque curto ao lado.",
@@ -151,7 +210,9 @@ def chave(canal: str, titulos_anteriores: list[str] | None = None) -> str:
     L.append("   Todo numero da copy tem que estar no roteiro. Nao invente, e")
     L.append("   nao nomeie instituicao que nao de para verificar.")
     L.append("")
-    L.append("7. NAO REPETIR — similaridade maxima de 0,65 contra estes titulos")
+    L.append(ARCO_EMOCIONAL)
+    L.append("")
+    L.append("8. NAO REPETIR — similaridade maxima de 0,65 contra estes titulos")
     L.append("   ja publicados neste canal:")
     for t in (titulos_anteriores or []):
         L.append(f"   - {t}")
