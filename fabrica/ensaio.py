@@ -60,7 +60,11 @@ TAXA_CHARS_S = {
     "en-US-AndrewNeural": 17.21,     # 121 chars / 7,032 s
     "el-GR-NestorasNeural": 17.40,   # 119 chars / 6,840 s
     "id-ID-ArdiNeural": 17.60,       # 117 chars / 6,648 s
+    "pt-BR-FranciscaNeural": 15.51,  # 131 chars / 8,448 s
 }
+# Com esta, as TREZE vozes do portfolio estao medidas. Nenhum canal fica com
+# orcamento de caracteres chutado — que foi como um roteiro de 11,1 min
+# apareceu como 8:30 e quase virou reescrita.
 # Voz nova entra medida, nunca estimada. Este valor existe so para o ensaio nao
 # abortar; ele NAO serve para dimensionar roteiro.
 TAXA_PADRAO = 14.50
