@@ -1,1 +1,720 @@
-{"slug": "setiap-level", "pacote": "setiap-level-005", "voz": "id-ID-ArdiNeural", "paleta": {"ink": "#14213D", "c1": "#E5A200", "c2": "#00897B", "bg": "#F7F3E8"}, "thumb": {"l1": "GAJI NAIK", "l2": "uang tetap habis"}, "longo": [{"layout": "titulo", "kicker": "Gajimu naik", "nar": "Tahun ini gajimu naik. Angkanya nyata, tercatat hitam di atas putih pada slip yang kamu terima, dan selama beberapa hari pertama kamu benar-benar merasa lega.", "sub": "bulanmu sama", "cap": "Kenaikan yang hilang"}, {"layout": "titulo", "kicker": "Lalu bulan berjalan", "nar": "Lalu bulan berjalan seperti biasa. Di minggu ketiga kamu sudah mulai menghitung lagi, memilih mana yang bisa ditunda sampai tanggal muda. Persis seperti tahun lalu, dengan gaji yang lebih kecil.", "sub": "seperti biasa", "sem_cap": true}, {"layout": "item", "kicker": "Yang hilang", "nar": "Penjelasan yang paling sering kamu dengar adalah bahwa kamu kurang disiplin, bahwa ada kebocoran kecil yang tidak kamu sadari, bahwa kopi dan langganan itu yang menghabiskan semuanya.", "preco": "bukan disiplinmu", "sem_cap": true}, {"layout": "titulo", "kicker": "Penjelasan itu", "nar": "Penjelasan itu nyaman karena menutup perkara dengan cepat dan meletakkan seluruh bebannya pada satu orang. Tapi ia tidak menjelaskan kenapa jutaan orang mengalami hal yang sama, di bulan yang sama, dengan pola yang sama.", "sub": "terlalu mudah", "sem_cap": true}, {"layout": "titulo", "kicker": "Kalau semua orang gagal", "nar": "Kalau begitu banyak orang gagal di titik yang persis sama, yang sedang kamu lihat bukan kumpulan kesalahan pribadi. Yang sedang kamu lihat adalah sebuah struktur.", "sub": "di titik yang sama", "sem_cap": true}, {"layout": "lista", "kicker": "Lima bagian", "nar": "Struktur itu punya lima bagian, dan setiap bagian bisa dihitung dengan angka yang berlaku sekarang, bukan dengan perkiraan.", "itens": ["Rumus kenaikanmu", "Keranjang belanjamu", "Biaya yang menempel", "Bunga", "Yang menyusut duluan"], "sem_cap": true}, {"layout": "item", "kicker": "Semua angka di sini", "nar": "Semua angka dalam video ini adalah angka tahun berjalan, dari lembaga resmi, dan setiap sumbernya saya tulis di deskripsi supaya bisa kamu periksa sendiri.", "preco": "angka dua ribu dua puluh enam", "sem_cap": true}, {"layout": "item", "kicker": "Pertanyaannya", "nar": "Kalau gajimu naik tujuh persen dan hidupmu terasa sama, uang itu tidak menguap begitu saja. Ia pindah ke suatu tempat yang punya nama dan punya angka. Ke mana?", "preco": "ke mana perginya", "sem_cap": true}, {"layout": "titulo", "kicker": "Kenaikan upah", "nar": "Kenaikan upah minimum bukan angka yang dipilih oleh seseorang berdasarkan perasaan. Ia keluar dari sebuah rumus, dan rumus itu tertulis serta bisa dibaca siapa saja.", "sub": "punya rumus tertulis", "cap": "Rumus yang menentukan kenaikanmu"}, {"layout": "lista", "kicker": "Bahannya tiga", "nar": "Bahannya tiga: inflasi, pertumbuhan ekonomi, dan sebuah indeks daerah yang disebut alpha. Ketiganya digabung menjadi satu angka kenaikan.", "itens": ["Inflasi", "Pertumbuhan ekonomi", "Indeks alpha daerah"], "sem_cap": true}, {"layout": "item", "kicker": "Susunannya", "nar": "Susunannya begini. Inflasi ditambah hasil perkalian antara pertumbuhan ekonomi dan indeks alpha daerahmu.", "preco": "inflasi ditambah pertumbuhan dikali alpha", "sem_cap": true}, {"layout": "item", "kicker": "Indeks alpha", "nar": "Indeks alpha bergerak antara nol koma lima dan nol koma sembilan, menyesuaikan kondisi ekonomi tiap wilayah. Semakin kuat daerahmu, semakin besar porsi pertumbuhan yang ikut masuk.", "preco": "antara nol koma lima dan nol koma sembilan", "sem_cap": true}, {"layout": "item", "kicker": "Hasil nasionalnya", "nar": "Hasil nasionalnya untuk tahun ini berada di kisaran lima sampai delapan persen, ditetapkan lewat surat keputusan gubernur di akhir tahun sebelumnya.", "preco": "lima sampai delapan persen", "sem_cap": true}, {"layout": "titulo", "kicker": "Sampai sini", "nar": "Sampai di sini rumusnya masuk akal. Ia menjaga daya beli terhadap kenaikan harga, lalu menambahkan sedikit bagian dari pertumbuhan supaya pekerja ikut menikmati ekonomi yang membesar.", "sub": "rumusnya masuk akal", "sem_cap": true}, {"layout": "titulo", "kicker": "Sekarang perhatikan", "nar": "Sekarang perhatikan bahan pertamanya lebih dekat. Inflasi. Bukan inflasi yang kamu alami di warung dekat rumah, melainkan inflasi yang diukur secara nasional.", "sub": "bahan pertamanya", "sem_cap": true}, {"layout": "item", "kicker": "Angka resminya", "nar": "Angka resminya untuk Juni tahun ini adalah tiga koma tiga empat persen secara tahunan, tercatat oleh badan statistik dan dipakai sebagai rujukan semua kebijakan.", "preco": "tiga koma tiga empat persen", "sem_cap": true}, {"layout": "titulo", "kicker": "Angka itu adalah", "nar": "Angka itu adalah sebuah rata-rata. Dan rata-rata, menurut definisinya, adalah satu bilangan yang berdiri di tengah ribuan bilangan lain, sebagian jauh di bawahnya, sebagian jauh di atasnya.", "sub": "sebuah rata-rata", "sem_cap": true}, {"layout": "barras", "kicker": "Yang dirata-ratakan", "nar": "Harga elektronik dan pakaian bergerak pelan, dan itu menahan rata-rata ke bawah. Harga pangan dan transportasi bergerak jauh lebih cepat, dan itu mendorongnya ke atas.", "itens": ["Elektronik", "Pakaian", "Pangan", "Transportasi"], "alturas": [30, 45, 80, 95], "sem_cap": true}, {"layout": "item", "kicker": "Yang keluar", "nar": "Yang keluar dari penggabungan itu adalah satu angka di tengah, yang tidak menggambarkan pengalaman siapa pun secara persis. Termasuk pengalamanmu.", "preco": "satu angka di tengah", "sem_cap": true}, {"layout": "titulo", "kicker": "Gajimu diindeks", "nar": "Gajimu dinaikkan mengikuti titik tengah itu. Bukan mengikuti daftar barang yang benar-benar keluar dari dompetmu setiap minggu.", "sub": "ke titik tengah itu", "sem_cap": true}, {"layout": "titulo", "kicker": "Jadi pertanyaannya berubah", "nar": "Jadi pertanyaannya bukan lagi berapa persen kenaikanmu. Pertanyaannya menjadi: seberapa mirip keranjang belanjamu dengan keranjang rata-rata?", "sub": "dan jadi lebih tajam", "sem_cap": true}, {"layout": "titulo", "kicker": "Mari bongkar", "nar": "Mari bongkar satu bulan saja, sampai ke bagian-bagiannya. Juni tahun ini, inflasi bulanan tercatat nol koma empat empat persen.", "sub": "satu bulan saja", "cap": "Keranjangmu bukan keranjang rata-rata"}, {"layout": "item", "kicker": "Penyumbang terbesar", "nar": "Penyumbang terbesarnya bukan pangan dan bukan perumahan. Penyumbang terbesarnya adalah kelompok transportasi, dengan kontribusi nol koma dua delapan persen.", "preco": "kelompok transportasi", "sem_cap": true}, {"layout": "barras", "kicker": "Dari total 0,44", "nar": "Artinya lebih dari separuh kenaikan harga di bulan itu datang dari satu kelompok saja, sementara seluruh kelompok lain berbagi sisanya.", "itens": ["Transportasi", "Semua sisanya"], "alturas": [64, 36], "sem_cap": true}, {"layout": "lista", "kicker": "Dua pemicunya", "nar": "Pemicunya dua, dan keduanya disebut secara eksplisit dalam laporan: harga bahan bakar dan tarif tiket pesawat.", "itens": ["Harga bahan bakar", "Tarif tiket pesawat"], "sem_cap": true}, {"layout": "titulo", "kicker": "Tiket pesawat", "nar": "Tiket pesawat mungkin bukan urusanmu sama sekali. Mungkin kamu naik pesawat sekali dalam dua tahun, atau tidak pernah.", "sub": "mungkin bukan urusanmu", "sem_cap": true}, {"layout": "titulo", "kicker": "Tapi bahan bakar", "nar": "Tapi bahan bakar adalah urusanmu setiap hari, entah lewat tangki motormu sendiri, lewat ongkos angkutan umum, atau lewat harga barang yang harus diangkut sampai ke tokomu.", "sub": "urusanmu setiap hari", "sem_cap": true}, {"layout": "item", "kicker": "Coba hitung", "nar": "Coba hitung sendiri. Dalam satu bulan, berapa hari kamu sama sekali tidak mengeluarkan uang untuk bergerak dari satu titik ke titik lain?", "preco": "berapa hari kamu tidak bergerak", "sem_cap": true}, {"layout": "item", "kicker": "Untuk yang bekerja", "nar": "Untuk hampir semua orang yang bekerja di luar rumah, jawabannya mendekati nol. Ongkos bukan pengeluaran bulanan. Ongkos adalah pengeluaran harian yang menyamar jadi bulanan.", "preco": "jawabannya mendekati nol", "sem_cap": true}, {"layout": "titulo", "kicker": "Di sinilah jurangnya", "nar": "Di sinilah jurang itu terbuka. Rata-rata nasional menjumlahkan orang yang bekerja dari rumah dan orang yang menghabiskan dua jam sehari di jalan, lalu membaginya rata.", "sub": "terbuka", "sem_cap": true}, {"layout": "item", "kicker": "Kamu berdiri", "nar": "Kamu berdiri di salah satu sisi jurang itu, bukan di tengahnya. Tapi kenaikan gajimu dihitung dari tengahnya.", "preco": "di salah satu sisi", "sem_cap": true}, {"layout": "titulo", "kicker": "Selisih itu", "nar": "Selisih antara inflasi rata-rata dan inflasi yang kamu alami tidak pernah muncul sebagai baris di slip gajimu. Ia muncul sebagai perasaan bahwa bulanmu lebih pendek dari seharusnya.", "sub": "tidak pernah muncul di slip", "sem_cap": true}, {"layout": "titulo", "kicker": "Dan transportasi", "nar": "Dan transportasi baru satu pos. Ada pos lain yang perilakunya jauh lebih aneh, karena ia tidak menunggu harga pasar:", "sub": "baru pos pertama", "sem_cap": true}, {"layout": "titulo", "kicker": "Ada biaya", "nar": "Ada jenis biaya yang tidak naik karena harga di pasar berubah. Ia naik karena penghasilanmu naik. Ia menempel pada gajimu seperti bayangan.", "sub": "yang menempel pada penghasilan", "cap": "Biaya yang ikut naik bersama gajimu"}, {"layout": "lista", "kicker": "Tiga pos yang membesar", "nar": "Data struktur pengeluaran rumah tangga menunjukkan tiga pos yang porsinya membesar dalam lima tahun terakhir, dibanding sebelumnya: pangan, perumahan, serta iuran dan pajak.", "itens": ["Pangan", "Perumahan", "Iuran dan pajak"], "sem_cap": true}, {"layout": "item", "kicker": "Iuran dan pajak", "nar": "Iuran dan pajak yang dipotong dari gaji dihitung sebagai persentase dari upah. Upah naik, potongan ikut naik pada hari yang sama, tanpa keputusan apa pun darimu.", "preco": "dihitung sebagai persentase upah", "sem_cap": true}, {"layout": "titulo", "kicker": "Itu bukan kesalahan sistem", "nar": "Itu bukan cacat dalam sistem, itu memang cara kerjanya. Tapi efeknya nyata: sebagian kenaikanmu sudah hilang sebelum uangnya sampai ke rekening.", "sub": "itu memang desainnya", "sem_cap": true}, {"layout": "titulo", "kicker": "Perumahan", "nar": "Perumahan bergerak lewat jalur yang berbeda. Jalurnya lebih pelan, tapi lebih dalam, dan hampir selalu satu arah.", "sub": "bergerak lewat jalur lain", "sem_cap": true}, {"layout": "item", "kicker": "Sewa disesuaikan", "nar": "Sewa disesuaikan setiap kali kontrak diperpanjang, dan penyesuaiannya mengikuti kondisi daerah serta permintaan di sekitarmu, bukan mengikuti kondisi dompetmu di bulan itu.", "preco": "tiap kontrak diperpanjang", "sem_cap": true}, {"layout": "titulo", "kicker": "Lalu ada jenis ketiga", "nar": "Lalu ada jenis ketiga, dan yang ini memang keputusanmu sendiri. Tapi ia bukan keputusan yang kamu sadari sedang kamu ambil.", "sub": "dan ini keputusanmu", "sem_cap": true}, {"layout": "lista", "kicker": "Perubahan yang menetap", "nar": "Pindah kos yang lebih dekat kantor supaya tidak berangkat pukul lima pagi. Satu langganan baru. Satu kali makan di luar tambahan setiap minggu.", "itens": ["Kos lebih dekat kantor", "Satu langganan baru", "Makan di luar sekali lagi"], "sem_cap": true}, {"layout": "item", "kicker": "Masing-masing wajar", "nar": "Masing-masing terasa wajar, dan sejujurnya masing-masing memang wajar. Setelah bertahun-tahun bertahan, sedikit ruang bernapas bukan kejahatan.", "preco": "dan memang wajar", "sem_cap": true}, {"layout": "titulo", "kicker": "Yang perlu diperhatikan", "nar": "Yang perlu diperhatikan bukan soal wajar atau tidak wajar. Yang perlu diperhatikan adalah sifat biaya itu setelah ia masuk.", "sub": "bukan wajar atau tidak", "sem_cap": true}, {"layout": "item", "kicker": "Sekali naik", "nar": "Biaya seperti ini tidak turun lagi ketika bulanmu memburuk. Sekali ia naik, ia menjadi lantai baru. Gajimu bisa turun, lantai itu tidak ikut turun.", "preco": "ia jadi lantai baru", "sem_cap": true}, {"layout": "titulo", "kicker": "Kontrak sewa", "nar": "Kontrak sewa tidak peduli bonusmu batal. Sekolah tidak menurunkan biaya karena lemburmu dihapus. Lantai itu keras.", "sub": "tidak peduli bonusmu batal", "sem_cap": true}, {"layout": "item", "kicker": "Karena itu", "nar": "Karena itu waktu paling penting untuk menghitung ulang anggaran bukan saat kamu sedang kesulitan. Waktunya justru di bulan gajimu naik, ketika semuanya terasa longgar.", "preco": "hitung ulang saat naik, bukan saat susah", "sem_cap": true}, {"layout": "titulo", "kicker": "Dan di atas lantai baru itu", "nar": "Dan di atas lantai baru itu duduk satu angka yang jarang sekali masuk hitungan orang:", "sub": "duduk satu angka lagi", "sem_cap": true}, {"layout": "titulo", "kicker": "Suku bunga acuan", "nar": "Suku bunga acuan bank sentral berada di lima koma tujuh lima persen, setelah dinaikkan dua puluh lima basis poin dalam pertemuan terakhirnya.", "sub": "lima koma tujuh lima persen", "cap": "Bunga yang memakan sisanya"}, {"layout": "item", "kicker": "Alasannya", "nar": "Alasannya menahan laju inflasi, karena angka tahunan sudah melewati batas atas sasaran yang ditetapkan. Itu tugas yang memang ada di tangan mereka.", "preco": "menahan laju inflasi", "sem_cap": true}, {"layout": "titulo", "kicker": "Bagi bank sentral", "nar": "Bagi bank sentral, menaikkan bunga adalah obat. Bagi orang yang punya cicilan berjalan, obat itu punya harga yang dibayar bulanan.", "sub": "itu obat", "sem_cap": true}, {"layout": "item", "kicker": "Bunga acuan naik", "nar": "Ketika suku bunga acuan naik, biaya meminjam ikut naik di seluruh sistem. Cicilan rumah dengan bunga mengambang menyesuaikan, dan pembiayaan kendaraan baru dihitung ulang.", "preco": "biaya meminjam naik", "sem_cap": true}, {"layout": "titulo", "kicker": "Sekarang perhatikan", "nar": "Sekarang perhatikan urutan waktunya, karena di situ letak persoalannya. Kenaikan gajimu ditetapkan satu kali, di akhir tahun sebelumnya, lalu dikunci selama dua belas bulan.", "sub": "urutan waktunya", "sem_cap": true}, {"layout": "item", "kicker": "Suku bunga", "nar": "Suku bunga acuan ditinjau setiap bulan dan bisa bergerak beberapa kali di dalam tahun yang sama, mengikuti kondisi yang berubah.", "preco": "bisa bergerak beberapa kali setahun", "sem_cap": true}, {"layout": "titulo", "kicker": "Jadi satu sisi neracamu", "nar": "Jadi satu sisi neracamu dibekukan selama setahun penuh, sementara sisi lainnya tetap bebas bergerak. Kamu masuk ke tahun itu dengan angka yang sudah ditetapkan sebelum kondisinya diketahui.", "sub": "beku", "sem_cap": true}, {"layout": "item", "kicker": "Kamu tidak kalah", "nar": "Kamu tidak sedang kalah bersaing dengan siapa pun. Kamu sedang terlambat secara struktural, sepanjang tahun, karena memang begitu jadwalnya disusun.", "preco": "kamu terlambat", "sem_cap": true}, {"layout": "titulo", "kicker": "Ini juga menjelaskan", "nar": "Ini juga menjelaskan kenapa utang terasa berbeda sekarang dibanding beberapa tahun lalu, meskipun jumlah pinjamanmu sama persis.", "sub": "kenapa utang terasa berbeda", "sem_cap": true}, {"layout": "item", "kicker": "Cicilan yang dulu ringan", "nar": "Cicilan yang dulu terasa ringan bisa menjadi berat tanpa kamu menambah pinjaman sama sekali. Yang berubah bukan utangmu, melainkan harga uang itu sendiri.", "preco": "bisa jadi berat tanpa kamu menambah apa pun", "sem_cap": true}, {"layout": "titulo", "kicker": "Sampai titik ini", "nar": "Sampai titik ini kebanyakan orang masih bertahan. Yang berubah pada mereka bukan angka di rekening, melainkan sesuatu yang jauh lebih sulit dilihat:", "sub": "kebanyakan orang masih bertahan", "sem_cap": true}, {"layout": "titulo", "kicker": "Ketika ruang menyempit", "nar": "Ketika ruang di anggaran menyempit, pemotongan tidak terjadi secara acak. Ada urutannya, urutan itu sama di banyak rumah tangga, dan yang menarik, urutan itu tercatat dalam data.", "sub": "pemotongan punya urutan", "cap": "Yang menyusut lebih dulu"}, {"layout": "barras", "kicker": "Porsi pengeluaran", "nar": "Porsi pengeluaran untuk hiburan turun dari nol koma empat tujuh persen menjadi nol koma tiga delapan persen dalam lima tahun.", "itens": ["Hiburan 2019", "Hiburan 2024", "Kendaraan 2019", "Kendaraan 2024"], "alturas": [47, 38, 90, 64], "sem_cap": true}, {"layout": "item", "kicker": "Kendaraan", "nar": "Porsi untuk kendaraan turun jauh lebih tajam, dari lima koma enam tiga persen menjadi tiga koma sembilan sembilan persen dalam periode yang sama.", "preco": "dari lima koma enam tiga ke tiga koma sembilan sembilan", "sem_cap": true}, {"layout": "titulo", "kicker": "Angkanya terlihat kecil", "nar": "Angka-angka itu terlihat kecil kalau dibaca sebagai persen. Artinya sama sekali tidak kecil, karena yang sedang kamu lihat adalah jutaan keputusan yang diambil ke arah yang sama.", "sub": "artinya tidak kecil", "sem_cap": true}, {"layout": "item", "kicker": "Yang dipotong duluan", "nar": "Dan yang dipotong lebih dulu selalu yang paling mudah ditunda. Bukan yang paling tidak penting. Dua hal itu sering kali bukan hal yang sama.", "preco": "yang paling mudah ditunda", "sem_cap": true}, {"layout": "lista", "kicker": "Yang biasanya ditunda", "nar": "Liburan ditunda ke tahun depan. Ganti kendaraan ditunda sampai yang lama benar-benar berhenti. Kelas dan pelatihan ditunda sampai keadaan membaik.", "itens": ["Liburan", "Ganti kendaraan", "Kelas dan pelatihan"], "sem_cap": true}, {"layout": "titulo", "kicker": "Dua yang pertama", "nar": "Dua yang pertama memang bisa menunggu, dan menundanya tidak melukai siapa pun. Liburan yang ditunda tetap bisa terjadi tahun depan.", "sub": "memang bisa menunggu", "sem_cap": true}, {"layout": "item", "kicker": "Yang ketiga", "nar": "Yang ketiga bukan hiburan yang tertunda. Yang ketiga adalah penghasilanmu tiga tahun lagi, dipotong hari ini, tanpa terlihat sebagai pemotongan.", "preco": "adalah penghasilanmu tiga tahun lagi", "sem_cap": true}, {"layout": "titulo", "kicker": "Ia tidak muncul", "nar": "Ia tidak pernah muncul sebagai kerugian di catatan mana pun, karena kerugiannya berupa sesuatu yang tidak jadi terjadi.", "sub": "sebagai kerugian", "sem_cap": true}, {"layout": "titulo", "kicker": "Di situ lingkarannya", "nar": "Di situ lingkarannya menutup. Tekanan hari ini memotong justru hal yang seharusnya mengangkatmu keluar dari tekanan itu.", "sub": "menutup", "sem_cap": true}, {"layout": "item", "kicker": "Dan begitu terpotong", "nar": "Dan begitu hal itu terpotong, tekanan tahun depan menjadi sedikit lebih besar, yang membuat pemotongan berikutnya terasa lebih masuk akal lagi.", "preco": "tekanan tahun depan lebih besar", "sem_cap": true}, {"layout": "item", "kicker": "Lingkaran ini", "nar": "Lingkaran ini bukan cerita satu rumah tangga yang sedang sial. Ia meninggalkan jejak yang cukup besar untuk dihitung:", "preco": "punya jejak nasional", "sem_cap": true}, {"layout": "barras", "kicker": "Jumlah kelas menengah", "nar": "Jumlah kelas menengah tercatat lima puluh tujuh koma tiga tiga juta orang pada dua ribu sembilan belas.", "itens": ["2019", "2024", "2025"], "alturas": [100, 83, 81], "cap": "Angka yang sebenarnya"}, {"layout": "item", "kicker": "Lima tahun kemudian", "nar": "Lima tahun kemudian angkanya empat puluh tujuh koma delapan lima juta orang.", "preco": "empat puluh tujuh koma delapan lima juta", "sem_cap": true}, {"layout": "item", "kicker": "Setahun setelahnya", "nar": "Setahun setelahnya, empat puluh enam koma tujuh juta. Penurunannya belum berhenti.", "preco": "empat puluh enam koma tujuh juta", "sem_cap": true}, {"layout": "titulo", "kicker": "Sekitar sepuluh juta orang", "nar": "Sekitar sepuluh juta orang berpindah posisi dalam waktu enam tahun. Itu bukan angka statistik yang jauh, itu jumlah penduduk beberapa kota besar sekaligus.", "sub": "berpindah posisi", "sem_cap": true}, {"layout": "titulo", "kicker": "Dan ini bagian pentingnya", "nar": "Dan ini bagian pentingnya. Sebagian besar dari mereka tidak kehilangan pekerjaan. Mereka tetap bekerja, dan gaji mereka juga naik setiap tahun, mengikuti rumus yang sama.", "sub": "mereka tetap bekerja", "sem_cap": true}, {"layout": "titulo", "kicker": "Itu poinnya", "nar": "Itulah poin yang tidak nyaman untuk diterima. Gaji naik tidak menjamin apa pun, kalau yang naik lebih cepat justru hal-hal yang tidak kamu pilih.", "sub": "dan poin ini tidak nyaman", "sem_cap": true}, {"layout": "titulo", "kicker": "Ini bukan alasan menyerah", "nar": "Ini bukan alasan untuk menyerah, dan juga bukan alasan untuk terus menyalahkan diri sendiri. Ini alasan untuk berhenti mengukur diri dengan alat ukur yang salah.", "sub": "dan bukan alasan menyalahkan diri", "sem_cap": true}, {"layout": "titulo", "kicker": "Jadi apa yang bisa dilakukan", "nar": "Jadi apa yang benar-benar bisa dilakukan, tanpa menjanjikan hal yang tidak bisa dijanjikan siapa pun?", "sub": "tanpa janji kosong", "sem_cap": true}, {"layout": "lista", "kicker": "Tiga langkah", "nar": "Tiga langkah, dan ketiganya bisa kamu ukur hasilnya bulan depan, bukan bertahun-tahun lagi.", "itens": ["Hitung ulang saat gaji naik", "Kunci satu pos", "Jaga pos yang mengangkat"], "sem_cap": true}, {"layout": "item", "kicker": "Pertama", "nar": "Pertama, hitung ulang persis di bulan gajimu naik. Bukan tiga bulan setelahnya, karena lantai baru itu terbentuk dalam tiga puluh hari pertama, saat semuanya masih terasa longgar.", "preco": "hitung ulang di bulan gajimu naik", "sem_cap": true}, {"layout": "item", "kicker": "Kedua", "nar": "Kedua, pilih satu pos yang menempel pada penghasilan, dan kunci nilainya di angka lama selama enam bulan. Satu pos saja, bukan semuanya, karena yang mencoba mengunci semuanya biasanya berhenti di minggu ketiga.", "preco": "kunci satu pos yang menempel", "sem_cap": true}, {"layout": "item", "kicker": "Selisihnya", "nar": "Selisih yang muncul dari satu pos itu dipindahkan otomatis di hari gajian, sebelum sempat kamu lihat sebagai uang yang tersedia.", "preco": "pindahkan sebelum kamu melihatnya", "sem_cap": true}, {"layout": "item", "kicker": "Ketiga", "nar": "Ketiga, jangan potong pos yang mengangkat penghasilanmu nanti, meskipun itu pos yang paling mudah dipotong dan paling tidak menimbulkan keributan di rumah.", "preco": "jaga pos yang mengangkat penghasilanmu", "sem_cap": true}, {"layout": "titulo", "kicker": "Tiga langkah ini", "nar": "Tiga langkah ini tidak mengubah rumus kenaikan upah, tidak menurunkan suku bunga, dan tidak membuat harga bahan bakar berhenti bergerak.", "sub": "tidak mengubah rumusnya", "sem_cap": true}, {"layout": "item", "kicker": "Yang berubah", "nar": "Yang berubah adalah jarak antara kenaikan yang tercatat di slipmu dan kenaikan yang benar-benar kamu rasakan di minggu ketiga.", "preco": "jarak antara dua angka", "sem_cap": true}, {"layout": "cta", "kicker": "Bagian mana", "nar": "Dari lima bagian tadi, mana yang paling terasa di bulanmu? Tulis di kolom komentar, karena angka setiap orang berbeda, dan bagian itu justru yang paling berguna dibaca bersama-sama.", "sub": "yang paling terasa di bulanmu", "sem_cap": true}], "short": [{"layout": "titulo", "kicker": "Gajimu naik", "nar": "Gajimu naik tahun ini. Bulanmu terasa sama.", "sub": "bulanmu sama"}, {"layout": "item", "kicker": "Rumusnya", "nar": "Kenaikan upah minimum diindeks ke inflasi rata-rata nasional.", "preco": "inflasi rata-rata"}, {"layout": "titulo", "kicker": "Tapi belanjamu", "nar": "Tapi belanjamu bukan rata-rata. Bulan Juni, transportasi menyumbang lebih dari separuh kenaikan harga.", "sub": "bukan rata-rata"}, {"layout": "item", "kicker": "Dan ongkos", "nar": "Dan ongkos keluar setiap hari kerja.", "preco": "keluar tiap hari kerja"}, {"layout": "cta", "kicker": "Hitungan lengkapnya", "nar": "Lima pos, semuanya dengan angka dua ribu dua puluh enam. Hitungan lengkapnya ada di video panjangnya.", "sub": "di video panjangnya"}]}
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-005",
+ "voz": "id-ID-ArdiNeural",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#E5A200",
+  "c2": "#00897B",
+  "bg": "#F7F3E8"
+ },
+ "thumb": {
+  "l1": "GAJI NAIK",
+  "l2": "uang tetap habis"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Gajimu naik",
+   "nar": "Tahun ini gajimu naik. Angkanya nyata, tercatat hitam di atas putih pada slip yang kamu terima, dan selama beberapa hari pertama kamu benar-benar merasa lega.",
+   "sub": "bulanmu sama",
+   "cap": "Kenaikan yang hilang"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lalu bulan berjalan",
+   "nar": "Lalu bulan berjalan seperti biasa. Di minggu ketiga kamu sudah mulai menghitung lagi, memilih mana yang bisa ditunda sampai tanggal muda. Persis seperti tahun lalu, dengan gaji yang lebih kecil.",
+   "sub": "seperti biasa",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang hilang",
+   "nar": "Penjelasan yang paling sering kamu dengar adalah bahwa kamu kurang disiplin, bahwa ada kebocoran kecil yang tidak kamu sadari, bahwa kopi dan langganan itu yang menghabiskan semuanya.",
+   "preco": "bukan disiplinmu",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Penjelasan itu",
+   "nar": "Penjelasan itu nyaman karena menutup perkara dengan cepat dan meletakkan seluruh bebannya pada satu orang. Tapi ia tidak menjelaskan kenapa jutaan orang mengalami hal yang sama, di bulan yang sama, dengan pola yang sama.",
+   "sub": "terlalu mudah",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau semua orang gagal",
+   "nar": "Kalau begitu banyak orang gagal di titik yang persis sama, yang sedang kamu lihat bukan kumpulan kesalahan pribadi. Yang sedang kamu lihat adalah sebuah struktur.",
+   "sub": "di titik yang sama",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Lima bagian",
+   "nar": "Struktur itu punya lima bagian, dan setiap bagian bisa dihitung dengan angka yang berlaku sekarang, bukan dengan perkiraan.",
+   "itens": [
+    "Rumus kenaikanmu",
+    "Keranjang belanjamu",
+    "Biaya yang menempel",
+    "Bunga",
+    "Yang menyusut duluan"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Semua angka di sini",
+   "nar": "Semua angka dalam video ini adalah angka tahun berjalan, dari lembaga resmi, dan setiap sumbernya saya tulis di deskripsi supaya bisa kamu periksa sendiri.",
+   "preco": "angka dua ribu dua puluh enam",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertanyaannya",
+   "nar": "Kalau gajimu naik tujuh persen dan hidupmu terasa sama, uang itu tidak menguap begitu saja. Ia pindah ke suatu tempat yang punya nama dan punya angka. Ke mana?",
+   "preco": "ke mana perginya",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenaikan upah",
+   "nar": "Kenaikan upah minimum bukan angka yang dipilih oleh seseorang berdasarkan perasaan. Ia keluar dari sebuah rumus, dan rumus itu tertulis serta bisa dibaca siapa saja.",
+   "sub": "punya rumus tertulis",
+   "cap": "Rumus yang menentukan kenaikanmu"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Bahannya tiga",
+   "nar": "Bahannya tiga: inflasi, pertumbuhan ekonomi, dan sebuah indeks daerah yang disebut alpha. Ketiganya digabung menjadi satu angka kenaikan.",
+   "itens": [
+    "Inflasi",
+    "Pertumbuhan ekonomi",
+    "Indeks alpha daerah"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Susunannya",
+   "nar": "Susunannya begini. Inflasi ditambah hasil perkalian antara pertumbuhan ekonomi dan indeks alpha daerahmu.",
+   "preco": "inflasi ditambah pertumbuhan dikali alpha",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Indeks alpha",
+   "nar": "Indeks alpha bergerak antara nol koma lima dan nol koma sembilan, menyesuaikan kondisi ekonomi tiap wilayah. Semakin kuat daerahmu, semakin besar porsi pertumbuhan yang ikut masuk.",
+   "preco": "antara nol koma lima dan nol koma sembilan",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hasil nasionalnya",
+   "nar": "Hasil nasionalnya untuk tahun ini berada di kisaran lima sampai delapan persen, ditetapkan lewat surat keputusan gubernur di akhir tahun sebelumnya.",
+   "preco": "lima sampai delapan persen",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sampai sini",
+   "nar": "Sampai di sini rumusnya masuk akal. Ia menjaga daya beli terhadap kenaikan harga, lalu menambahkan sedikit bagian dari pertumbuhan supaya pekerja ikut menikmati ekonomi yang membesar.",
+   "sub": "rumusnya masuk akal",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang perhatikan",
+   "nar": "Sekarang perhatikan bahan pertamanya lebih dekat. Inflasi. Bukan inflasi yang kamu alami di warung dekat rumah, melainkan inflasi yang diukur secara nasional.",
+   "sub": "bahan pertamanya",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka resminya",
+   "nar": "Angka resminya untuk Juni tahun ini adalah tiga koma tiga empat persen secara tahunan, tercatat oleh badan statistik dan dipakai sebagai rujukan semua kebijakan.",
+   "preco": "tiga koma tiga empat persen",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka itu adalah",
+   "nar": "Angka itu adalah sebuah rata-rata. Dan rata-rata, menurut definisinya, adalah satu bilangan yang berdiri di tengah ribuan bilangan lain, sebagian jauh di bawahnya, sebagian jauh di atasnya.",
+   "sub": "sebuah rata-rata",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Yang dirata-ratakan",
+   "nar": "Harga elektronik dan pakaian bergerak pelan, dan itu menahan rata-rata ke bawah. Harga pangan dan transportasi bergerak jauh lebih cepat, dan itu mendorongnya ke atas.",
+   "itens": [
+    "Elektronik",
+    "Pakaian",
+    "Pangan",
+    "Transportasi"
+   ],
+   "alturas": [
+    30,
+    45,
+    80,
+    95
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang keluar",
+   "nar": "Yang keluar dari penggabungan itu adalah satu angka di tengah, yang tidak menggambarkan pengalaman siapa pun secara persis. Termasuk pengalamanmu.",
+   "preco": "satu angka di tengah",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Gajimu diindeks",
+   "nar": "Gajimu dinaikkan mengikuti titik tengah itu. Bukan mengikuti daftar barang yang benar-benar keluar dari dompetmu setiap minggu.",
+   "sub": "ke titik tengah itu",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi pertanyaannya berubah",
+   "nar": "Jadi pertanyaannya bukan lagi berapa persen kenaikanmu. Pertanyaannya menjadi: seberapa mirip keranjang belanjamu dengan keranjang rata-rata?",
+   "sub": "dan jadi lebih tajam",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mari bongkar",
+   "nar": "Mari bongkar satu bulan saja, sampai ke bagian-bagiannya. Juni tahun ini, inflasi bulanan tercatat nol koma empat empat persen.",
+   "sub": "satu bulan saja",
+   "cap": "Keranjangmu bukan keranjang rata-rata"
+  },
+  {
+   "layout": "item",
+   "kicker": "Penyumbang terbesar",
+   "nar": "Penyumbang terbesarnya bukan pangan dan bukan perumahan. Penyumbang terbesarnya adalah kelompok transportasi, dengan kontribusi nol koma dua delapan persen.",
+   "preco": "kelompok transportasi",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dari total 0,44",
+   "nar": "Artinya lebih dari separuh kenaikan harga di bulan itu datang dari satu kelompok saja, sementara seluruh kelompok lain berbagi sisanya.",
+   "itens": [
+    "Transportasi",
+    "Semua sisanya"
+   ],
+   "alturas": [
+    64,
+    36
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dua pemicunya",
+   "nar": "Pemicunya dua, dan keduanya disebut secara eksplisit dalam laporan: harga bahan bakar dan tarif tiket pesawat.",
+   "itens": [
+    "Harga bahan bakar",
+    "Tarif tiket pesawat"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiket pesawat",
+   "nar": "Tiket pesawat mungkin bukan urusanmu sama sekali. Mungkin kamu naik pesawat sekali dalam dua tahun, atau tidak pernah.",
+   "sub": "mungkin bukan urusanmu",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tapi bahan bakar",
+   "nar": "Tapi bahan bakar adalah urusanmu setiap hari, entah lewat tangki motormu sendiri, lewat ongkos angkutan umum, atau lewat harga barang yang harus diangkut sampai ke tokomu.",
+   "sub": "urusanmu setiap hari",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coba hitung",
+   "nar": "Coba hitung sendiri. Dalam satu bulan, berapa hari kamu sama sekali tidak mengeluarkan uang untuk bergerak dari satu titik ke titik lain?",
+   "preco": "berapa hari kamu tidak bergerak",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk yang bekerja",
+   "nar": "Untuk hampir semua orang yang bekerja di luar rumah, jawabannya mendekati nol. Ongkos bukan pengeluaran bulanan. Ongkos adalah pengeluaran harian yang menyamar jadi bulanan.",
+   "preco": "jawabannya mendekati nol",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Di sinilah jurangnya",
+   "nar": "Di sinilah jurang itu terbuka. Rata-rata nasional menjumlahkan orang yang bekerja dari rumah dan orang yang menghabiskan dua jam sehari di jalan, lalu membaginya rata.",
+   "sub": "terbuka",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kamu berdiri",
+   "nar": "Kamu berdiri di salah satu sisi jurang itu, bukan di tengahnya. Tapi kenaikan gajimu dihitung dari tengahnya.",
+   "preco": "di salah satu sisi",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Selisih itu",
+   "nar": "Selisih antara inflasi rata-rata dan inflasi yang kamu alami tidak pernah muncul sebagai baris di slip gajimu. Ia muncul sebagai perasaan bahwa bulanmu lebih pendek dari seharusnya.",
+   "sub": "tidak pernah muncul di slip",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan transportasi",
+   "nar": "Dan transportasi baru satu pos. Ada pos lain yang perilakunya jauh lebih aneh, karena ia tidak menunggu harga pasar:",
+   "sub": "baru pos pertama",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ada biaya",
+   "nar": "Ada jenis biaya yang tidak naik karena harga di pasar berubah. Ia naik karena penghasilanmu naik. Ia menempel pada gajimu seperti bayangan.",
+   "sub": "yang menempel pada penghasilan",
+   "cap": "Biaya yang ikut naik bersama gajimu"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga pos yang membesar",
+   "nar": "Data struktur pengeluaran rumah tangga menunjukkan tiga pos yang porsinya membesar dalam lima tahun terakhir, dibanding sebelumnya: pangan, perumahan, serta iuran dan pajak.",
+   "itens": [
+    "Pangan",
+    "Perumahan",
+    "Iuran dan pajak"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Iuran dan pajak",
+   "nar": "Iuran dan pajak yang dipotong dari gaji dihitung sebagai persentase dari upah. Upah naik, potongan ikut naik pada hari yang sama, tanpa keputusan apa pun darimu.",
+   "preco": "dihitung sebagai persentase upah",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Itu bukan kesalahan sistem",
+   "nar": "Itu bukan cacat dalam sistem, itu memang cara kerjanya. Tapi efeknya nyata: sebagian kenaikanmu sudah hilang sebelum uangnya sampai ke rekening.",
+   "sub": "itu memang desainnya",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Perumahan",
+   "nar": "Perumahan bergerak lewat jalur yang berbeda. Jalurnya lebih pelan, tapi lebih dalam, dan hampir selalu satu arah.",
+   "sub": "bergerak lewat jalur lain",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sewa disesuaikan",
+   "nar": "Sewa disesuaikan setiap kali kontrak diperpanjang, dan penyesuaiannya mengikuti kondisi daerah serta permintaan di sekitarmu, bukan mengikuti kondisi dompetmu di bulan itu.",
+   "preco": "tiap kontrak diperpanjang",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lalu ada jenis ketiga",
+   "nar": "Lalu ada jenis ketiga, dan yang ini memang keputusanmu sendiri. Tapi ia bukan keputusan yang kamu sadari sedang kamu ambil.",
+   "sub": "dan ini keputusanmu",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Perubahan yang menetap",
+   "nar": "Pindah kos yang lebih dekat kantor supaya tidak berangkat pukul lima pagi. Satu langganan baru. Satu kali makan di luar tambahan setiap minggu.",
+   "itens": [
+    "Kos lebih dekat kantor",
+    "Satu langganan baru",
+    "Makan di luar sekali lagi"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Masing-masing wajar",
+   "nar": "Masing-masing terasa wajar, dan sejujurnya masing-masing memang wajar. Setelah bertahun-tahun bertahan, sedikit ruang bernapas bukan kejahatan.",
+   "preco": "dan memang wajar",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang perlu diperhatikan",
+   "nar": "Yang perlu diperhatikan bukan soal wajar atau tidak wajar. Yang perlu diperhatikan adalah sifat biaya itu setelah ia masuk.",
+   "sub": "bukan wajar atau tidak",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekali naik",
+   "nar": "Biaya seperti ini tidak turun lagi ketika bulanmu memburuk. Sekali ia naik, ia menjadi lantai baru. Gajimu bisa turun, lantai itu tidak ikut turun.",
+   "preco": "ia jadi lantai baru",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kontrak sewa",
+   "nar": "Kontrak sewa tidak peduli bonusmu batal. Sekolah tidak menurunkan biaya karena lemburmu dihapus. Lantai itu keras.",
+   "sub": "tidak peduli bonusmu batal",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu",
+   "nar": "Karena itu waktu paling penting untuk menghitung ulang anggaran bukan saat kamu sedang kesulitan. Waktunya justru di bulan gajimu naik, ketika semuanya terasa longgar.",
+   "preco": "hitung ulang saat naik, bukan saat susah",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan di atas lantai baru itu",
+   "nar": "Dan di atas lantai baru itu duduk satu angka yang jarang sekali masuk hitungan orang:",
+   "sub": "duduk satu angka lagi",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Suku bunga acuan",
+   "nar": "Suku bunga acuan bank sentral berada di lima koma tujuh lima persen, setelah dinaikkan dua puluh lima basis poin dalam pertemuan terakhirnya.",
+   "sub": "lima koma tujuh lima persen",
+   "cap": "Bunga yang memakan sisanya"
+  },
+  {
+   "layout": "item",
+   "kicker": "Alasannya",
+   "nar": "Alasannya menahan laju inflasi, karena angka tahunan sudah melewati batas atas sasaran yang ditetapkan. Itu tugas yang memang ada di tangan mereka.",
+   "preco": "menahan laju inflasi",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagi bank sentral",
+   "nar": "Bagi bank sentral, menaikkan bunga adalah obat. Bagi orang yang punya cicilan berjalan, obat itu punya harga yang dibayar bulanan.",
+   "sub": "itu obat",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bunga acuan naik",
+   "nar": "Ketika suku bunga acuan naik, biaya meminjam ikut naik di seluruh sistem. Cicilan rumah dengan bunga mengambang menyesuaikan, dan pembiayaan kendaraan baru dihitung ulang.",
+   "preco": "biaya meminjam naik",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang perhatikan",
+   "nar": "Sekarang perhatikan urutan waktunya, karena di situ letak persoalannya. Kenaikan gajimu ditetapkan satu kali, di akhir tahun sebelumnya, lalu dikunci selama dua belas bulan.",
+   "sub": "urutan waktunya",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Suku bunga",
+   "nar": "Suku bunga acuan ditinjau setiap bulan dan bisa bergerak beberapa kali di dalam tahun yang sama, mengikuti kondisi yang berubah.",
+   "preco": "bisa bergerak beberapa kali setahun",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi satu sisi neracamu",
+   "nar": "Jadi satu sisi neracamu dibekukan selama setahun penuh, sementara sisi lainnya tetap bebas bergerak. Kamu masuk ke tahun itu dengan angka yang sudah ditetapkan sebelum kondisinya diketahui.",
+   "sub": "beku",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kamu tidak kalah",
+   "nar": "Kamu tidak sedang kalah bersaing dengan siapa pun. Kamu sedang terlambat secara struktural, sepanjang tahun, karena memang begitu jadwalnya disusun.",
+   "preco": "kamu terlambat",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ini juga menjelaskan",
+   "nar": "Ini juga menjelaskan kenapa utang terasa berbeda sekarang dibanding beberapa tahun lalu, meskipun jumlah pinjamanmu sama persis.",
+   "sub": "kenapa utang terasa berbeda",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cicilan yang dulu ringan",
+   "nar": "Cicilan yang dulu terasa ringan bisa menjadi berat tanpa kamu menambah pinjaman sama sekali. Yang berubah bukan utangmu, melainkan harga uang itu sendiri.",
+   "preco": "bisa jadi berat tanpa kamu menambah apa pun",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sampai titik ini",
+   "nar": "Sampai titik ini kebanyakan orang masih bertahan. Yang berubah pada mereka bukan angka di rekening, melainkan sesuatu yang jauh lebih sulit dilihat:",
+   "sub": "kebanyakan orang masih bertahan",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ketika ruang menyempit",
+   "nar": "Ketika ruang di anggaran menyempit, pemotongan tidak terjadi secara acak. Ada urutannya, urutan itu sama di banyak rumah tangga, dan yang menarik, urutan itu tercatat dalam data.",
+   "sub": "pemotongan punya urutan",
+   "cap": "Yang menyusut lebih dulu"
+  },
+  {
+   "layout": "barras",
+   "kicker": "Porsi pengeluaran",
+   "nar": "Porsi pengeluaran untuk hiburan turun dari nol koma empat tujuh persen menjadi nol koma tiga delapan persen dalam lima tahun.",
+   "itens": [
+    "Hiburan 2019",
+    "Hiburan 2024",
+    "Kendaraan 2019",
+    "Kendaraan 2024"
+   ],
+   "alturas": [
+    47,
+    38,
+    90,
+    64
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kendaraan",
+   "nar": "Porsi untuk kendaraan turun jauh lebih tajam, dari lima koma enam tiga persen menjadi tiga koma sembilan sembilan persen dalam periode yang sama.",
+   "preco": "dari lima koma enam tiga ke tiga koma sembilan sembilan",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angkanya terlihat kecil",
+   "nar": "Angka-angka itu terlihat kecil kalau dibaca sebagai persen. Artinya sama sekali tidak kecil, karena yang sedang kamu lihat adalah jutaan keputusan yang diambil ke arah yang sama.",
+   "sub": "artinya tidak kecil",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang dipotong duluan",
+   "nar": "Dan yang dipotong lebih dulu selalu yang paling mudah ditunda. Bukan yang paling tidak penting. Dua hal itu sering kali bukan hal yang sama.",
+   "preco": "yang paling mudah ditunda",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang biasanya ditunda",
+   "nar": "Liburan ditunda ke tahun depan. Ganti kendaraan ditunda sampai yang lama benar-benar berhenti. Kelas dan pelatihan ditunda sampai keadaan membaik.",
+   "itens": [
+    "Liburan",
+    "Ganti kendaraan",
+    "Kelas dan pelatihan"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua yang pertama",
+   "nar": "Dua yang pertama memang bisa menunggu, dan menundanya tidak melukai siapa pun. Liburan yang ditunda tetap bisa terjadi tahun depan.",
+   "sub": "memang bisa menunggu",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang ketiga",
+   "nar": "Yang ketiga bukan hiburan yang tertunda. Yang ketiga adalah penghasilanmu tiga tahun lagi, dipotong hari ini, tanpa terlihat sebagai pemotongan.",
+   "preco": "adalah penghasilanmu tiga tahun lagi",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ia tidak muncul",
+   "nar": "Ia tidak pernah muncul sebagai kerugian di catatan mana pun, karena kerugiannya berupa sesuatu yang tidak jadi terjadi.",
+   "sub": "sebagai kerugian",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Di situ lingkarannya",
+   "nar": "Di situ lingkarannya menutup. Tekanan hari ini memotong justru hal yang seharusnya mengangkatmu keluar dari tekanan itu.",
+   "sub": "menutup",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan begitu terpotong",
+   "nar": "Dan begitu hal itu terpotong, tekanan tahun depan menjadi sedikit lebih besar, yang membuat pemotongan berikutnya terasa lebih masuk akal lagi.",
+   "preco": "tekanan tahun depan lebih besar",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lingkaran ini",
+   "nar": "Lingkaran ini bukan cerita satu rumah tangga yang sedang sial. Ia meninggalkan jejak yang cukup besar untuk dihitung:",
+   "preco": "punya jejak nasional",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Jumlah kelas menengah",
+   "nar": "Jumlah kelas menengah tercatat lima puluh tujuh koma tiga tiga juta orang pada dua ribu sembilan belas.",
+   "itens": [
+    "2019",
+    "2024",
+    "2025"
+   ],
+   "alturas": [
+    100,
+    83,
+    81
+   ],
+   "cap": "Angka yang sebenarnya"
+  },
+  {
+   "layout": "item",
+   "kicker": "Lima tahun kemudian",
+   "nar": "Lima tahun kemudian angkanya empat puluh tujuh koma delapan lima juta orang.",
+   "preco": "empat puluh tujuh koma delapan lima juta",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Setahun setelahnya",
+   "nar": "Setahun setelahnya, empat puluh enam koma tujuh juta. Penurunannya belum berhenti.",
+   "preco": "empat puluh enam koma tujuh juta",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekitar sepuluh juta orang",
+   "nar": "Sekitar sepuluh juta orang berpindah posisi dalam waktu enam tahun. Itu bukan angka statistik yang jauh, itu jumlah penduduk beberapa kota besar sekaligus.",
+   "sub": "berpindah posisi",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan ini bagian pentingnya",
+   "nar": "Dan ini bagian pentingnya. Sebagian besar dari mereka tidak kehilangan pekerjaan. Mereka tetap bekerja, dan gaji mereka juga naik setiap tahun, mengikuti rumus yang sama.",
+   "sub": "mereka tetap bekerja",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Itu poinnya",
+   "nar": "Itulah poin yang tidak nyaman untuk diterima. Gaji naik tidak menjamin apa pun, kalau yang naik lebih cepat justru hal-hal yang tidak kamu pilih.",
+   "sub": "dan poin ini tidak nyaman",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ini bukan alasan menyerah",
+   "nar": "Ini bukan alasan untuk menyerah, dan juga bukan alasan untuk terus menyalahkan diri sendiri. Ini alasan untuk berhenti mengukur diri dengan alat ukur yang salah.",
+   "sub": "dan bukan alasan menyalahkan diri",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi apa yang bisa dilakukan",
+   "nar": "Jadi apa yang benar-benar bisa dilakukan, tanpa menjanjikan hal yang tidak bisa dijanjikan siapa pun?",
+   "sub": "tanpa janji kosong",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga langkah",
+   "nar": "Tiga langkah, dan ketiganya bisa kamu ukur hasilnya bulan depan, bukan bertahun-tahun lagi.",
+   "itens": [
+    "Hitung ulang saat gaji naik",
+    "Kunci satu pos",
+    "Jaga pos yang mengangkat"
+   ],
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "nar": "Pertama, hitung ulang persis di bulan gajimu naik. Bukan tiga bulan setelahnya, karena lantai baru itu terbentuk dalam tiga puluh hari pertama, saat semuanya masih terasa longgar.",
+   "preco": "hitung ulang di bulan gajimu naik",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "nar": "Kedua, pilih satu pos yang menempel pada penghasilan, dan kunci nilainya di angka lama selama enam bulan. Satu pos saja, bukan semuanya, karena yang mencoba mengunci semuanya biasanya berhenti di minggu ketiga.",
+   "preco": "kunci satu pos yang menempel",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Selisihnya",
+   "nar": "Selisih yang muncul dari satu pos itu dipindahkan otomatis di hari gajian, sebelum sempat kamu lihat sebagai uang yang tersedia.",
+   "preco": "pindahkan sebelum kamu melihatnya",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "nar": "Ketiga, jangan potong pos yang mengangkat penghasilanmu nanti, meskipun itu pos yang paling mudah dipotong dan paling tidak menimbulkan keributan di rumah.",
+   "preco": "jaga pos yang mengangkat penghasilanmu",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga langkah ini",
+   "nar": "Tiga langkah ini tidak mengubah rumus kenaikan upah, tidak menurunkan suku bunga, dan tidak membuat harga bahan bakar berhenti bergerak.",
+   "sub": "tidak mengubah rumusnya",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang berubah",
+   "nar": "Yang berubah adalah jarak antara kenaikan yang tercatat di slipmu dan kenaikan yang benar-benar kamu rasakan di minggu ketiga.",
+   "preco": "jarak antara dua angka",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Bagian mana",
+   "nar": "Dari lima bagian tadi, mana yang paling terasa di bulanmu? Tulis di kolom komentar, karena angka setiap orang berbeda, dan bagian itu justru yang paling berguna dibaca bersama-sama.",
+   "sub": "yang paling terasa di bulanmu",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Gajimu naik",
+   "nar": "Gajimu naik tahun ini. Bulanmu terasa sama.",
+   "sub": "bulanmu sama"
+  },
+  {
+   "layout": "item",
+   "kicker": "Rumusnya",
+   "nar": "Kenaikan upah minimum diindeks ke inflasi rata-rata nasional.",
+   "preco": "inflasi rata-rata"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tapi belanjamu",
+   "nar": "Tapi belanjamu bukan rata-rata. Bulan Juni, transportasi menyumbang lebih dari separuh kenaikan harga.",
+   "sub": "bukan rata-rata"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ongkos",
+   "nar": "Dan ongkos keluar setiap hari kerja.",
+   "preco": "keluar tiap hari kerja"
+  },
+  {
+   "layout": "cta",
+   "kicker": "Hitungan lengkapnya",
+   "nar": "Lima pos, semuanya dengan angka dua ribu dua puluh enam. Hitungan lengkapnya ada di video panjangnya.",
+   "sub": "di video panjangnya"
+  }
+ ],
+ "copy": "# Gaji naik, uang tetap habis: ke mana kenaikan itu pergi (angka 2026)\n\n## JUDUL\nGaji Naik Tujuh Persen, Hidup Terasa Sama: Ke Mana Uang Itu Pergi?\n\n## DESKRIPSI\nGajimu naik tahun ini. Bulanmu terasa sama. Dan penjelasan yang paling sering kamu dengar — kamu kurang disiplin — nyaman karena menutup perkara dengan cepat dan meletakkan seluruh bebannya pada satu orang. Tapi ia tidak menjelaskan kenapa jutaan orang mengalami hal yang sama, di bulan yang sama, dengan pola yang sama.\n\nKalau gajimu naik tujuh persen dan hidupmu terasa sama, uang itu tidak menguap. Ia pindah ke tempat yang punya nama dan punya angka. Video ini menelusuri ke mana.\n\nYANG DIBAHAS:\n\nRumus kenaikan upah minimum, dan tiga bahannya: inflasi, pertumbuhan ekonomi, dan indeks daerah yang disebut alpha. Hasil nasionalnya untuk tahun ini berada di kisaran lima sampai delapan persen, ditetapkan lewat surat keputusan gubernur di akhir tahun sebelumnya.\n\nLalu bahan pertamanya, lebih dekat: inflasi. Bukan inflasi yang kamu alami di warung dekat rumah — inflasi yang diukur secara nasional. Angka resminya untuk Juni tahun ini adalah 3,34 persen secara tahunan. Dan angka itu adalah sebuah RATA-RATA: satu bilangan yang berdiri di tengah ribuan bilangan lain, sebagian jauh di bawahnya, sebagian jauh di atasnya.\n\nJadi pertanyaannya bukan berapa persen kenaikanmu. Pertanyaannya: seberapa mirip keranjang belanjamu dengan keranjang rata-rata?\n\nKita bongkar satu bulan sampai ke bagian-bagiannya. Juni tahun ini, inflasi bulanan tercatat 0,44 persen — dan penyumbang terbesarnya bukan pangan, bukan perumahan, melainkan kelompok transportasi, dengan kontribusi 0,28 persen. Lebih dari separuh kenaikan bulan itu. Ongkos transportasi keluar setiap hari kerja, bukan sebulan sekali.\n\nBiaya yang ikut naik bersama gajimu: iuran dan pajak dihitung sebagai persentase dari upah, jadi upah naik dan potongan ikut naik pada hari yang sama, tanpa keputusan apa pun darimu.\n\nBunga yang memakan sisanya: suku bunga acuan bank sentral berada di 5,75 persen setelah dinaikkan 25 basis poin dalam pertemuan terakhirnya, dengan alasan menahan laju inflasi karena angka tahunan sudah melewati batas atas sasaran.\n\nDan pos yang menyusut lebih dulu, yang menjelaskan banyak hal. Porsi pengeluaran untuk hiburan turun dari 0,47 menjadi 0,38 persen dalam lima tahun. Porsi untuk kendaraan turun jauh lebih tajam, dari 5,63 menjadi 3,99 persen dalam periode yang sama. Angka-angka itu terlihat kecil kalau dibaca sebagai persen; artinya sama sekali tidak kecil, karena yang sedang kamu lihat adalah jutaan keputusan yang diambil ke arah yang sama.\n\nANGKA YANG SEBENARNYA: jumlah kelas menengah tercatat 57,33 juta orang pada 2019. Lima tahun kemudian 47,85 juta. Setahun setelahnya 46,7 juta, dan penurunannya belum berhenti. Sekitar sepuluh juta orang berpindah posisi dalam waktu enam tahun — itu bukan angka statistik yang jauh, itu jumlah penduduk beberapa kota besar sekaligus.\n\nDitutup dengan apa yang bisa kamu lakukan, termasuk yang ini: hitung ulang persis di bulan gajimu naik, bukan tiga bulan setelahnya — karena lantai pengeluaran yang baru terbentuk dalam tiga puluh hari pertama, saat semuanya masih terasa longgar.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR DISEMATKAN\nSatu pertanyaan, karena jawabannya beda jauh tiap daerah: pos mana yang paling naik untuk KAMU tahun ini — transportasi, pangan, sewa, atau cicilan? Sebutkan kotamu juga. Saya sedang mengumpulkan jawaban nyata untuk video lanjutan, karena angka rata-rata nasional justru menyembunyikan bagian yang paling penting.\n\n## HASHTAG\n#Inflasi #UpahMinimum #SetiapLevel\n\n## TAG\ninflasi 2026, upah minimum 2026, ump 2026, kenaikan gaji, kelas menengah indonesia, bps inflasi, suku bunga acuan, biaya hidup naik, keuangan pribadi, gaji habis, daya beli turun, inflasi transportasi, ekonomi indonesia, potongan gaji, anggaran rumah tangga\n\n## PENGATURAN STUDIO\n- Bahasa: Indonesia (id) | Kategori: Edukasi (27)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (suara dihasilkan AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif (durasi > 8 menit)\n\n## MUSIK / LISENSI\n{TRILHA}\n\n## CATATAN SUMBER\nAngka inflasi tahunan dan bulanan serta kontribusi kelompok transportasi adalah data bulan Juni tahun berjalan dari badan statistik nasional; data inflasi diperbarui setiap bulan, jadi periksa rilis terbaru sebelum memakainya untuk keputusan. Suku bunga acuan berubah setiap kali rapat dewan gubernur bank sentral — angka di video adalah posisi setelah pertemuan terakhir sebelum produksi. Rentang kenaikan upah minimum berbeda tiap provinsi dan ditetapkan lewat surat keputusan gubernur; cek angka resmi daerahmu, bukan angka nasional. Data kelas menengah dan porsi pengeluaran mengikuti definisi dan metode yang dipakai lembaga statistik, yang bisa berubah antar periode. Konten ini edukasi ekonomi umum, bukan nasihat keuangan.\n",
+ "idioma": "id"
+}

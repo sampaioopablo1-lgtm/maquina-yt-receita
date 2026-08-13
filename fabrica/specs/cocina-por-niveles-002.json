@@ -1,6 +1,7 @@
 {
  "slug": "cocina-por-niveles",
- "pacote": "cocina-por-niveles-002", "voz": "es-MX-DaliaNeural",
+ "pacote": "cocina-por-niveles-002",
+ "voz": "es-MX-DaliaNeural",
  "paleta": {
   "ink": "#1A1A1A",
   "c1": "#E36414",
@@ -27,7 +28,7 @@
     "donde y cuando comprar"
    ],
    "cap": "El mapa del video",
-   "nar": "En siete capítulos: cuánto cuesta la despensa de verdad, las doce bases que más rinden, la lista exacta de quinientos pesos, dónde y cuándo comprar, las catorce comidas día por día, los seis errores que vacían la alacena, y tu plan para el próximo domingo."
+   "nar": "En siete capítulos. Cuánto cuesta la despensa de verdad. Las doce bases que más rinden. La lista exacta de quinientos pesos. Dónde y cuándo comprar. Las catorce comidas día por día. Los seis errores que vacían la alacena. Y tu plan para el próximo domingo."
   },
   {
    "layout": "titulo",
@@ -116,7 +117,7 @@
    "kicker": "El numero que importa",
    "preco": "$36",
    "cap": "El número que importa",
-   "nar": "Quinientos pesos entre catorce comidas son treinta y seis pesos por comida para dos personas. Ese es el número que vamos a respetar, y vas a ver que alcanza mejor de lo que suena."
+   "nar": "Quinientos pesos repartidos entre catorce comidas. Eso da treinta y seis pesos por comida, para dos personas. Ese es el número que vamos a respetar, y vas a ver que alcanza mejor de lo que suena."
   },
   {
    "layout": "titulo",
@@ -469,7 +470,7 @@
     58
    ],
    "cap": "El costo día por día",
-   "nar": "Los días van de treinta a cincuenta y ocho pesos, con un promedio de cuarenta y dos para dos personas. Y fíjate en el diseño: los días caros están separados, nunca seguidos."
+   "nar": "Los días van de treinta a cincuenta y ocho pesos. El promedio queda en cuarenta y dos, para dos personas. Y fíjate en el diseño: los días caros están separados, nunca seguidos."
   },
   {
    "layout": "item",
@@ -675,5 +676,6 @@
    "nar": "La lista completa de los doce productos, con precios y el menú de los siete días, está en el video del canal. Ve por ella."
   }
  ],
- "copy": "# Despensa de $500 pesos: la lista exacta para 7 días y 14 comidas\n\n## TÍTULO\nDespensa de $500 pesos: la lista exacta para 7 días (14 comidas)\n\n## DESCRIPCIÓN\nDespensa de $500 pesos para una semana completa: la lista exacta producto por producto, con precios de 2026, y las 14 comidas que salen de ella día por día. En junio de 2026 la canasta básica familiar costaba entre $777 y $949 pesos según la región, y la Profeco fijó un tope de $910 para los 24 productos del paquete contra la inflación. Este video no discute esos números: muestra cómo armar una semana que funcione con la mitad, sin comer solo arroz.\n\nAdentro vas a encontrar los 12 productos que más rinden y por qué (frijol a $4 la porción, huevo a $7, pollo a $19), la lista completa sumada peso por peso hasta llegar a $500 exactos, la diferencia real de precio entre mercado, súper y tienda de la esquina (hasta 36% por la misma lista), el menú de 7 días con costo por día, y los 6 errores que vacían la despensa antes del jueves.\n\nLa idea central va al revés de lo que hace la mayoría: primero se arma la lista, después se decide el menú. Cuando eliges el menú primero, terminas comprando lo que no rinde. Todo el plan cabe en 20 minutos el sábado, un solo viaje el domingo en la mañana y 90 minutos de olla el domingo en la tarde.\n\nLos precios son referencias de México en 2026 y varían por región y temporada — la lista y las proporciones son lo que se sostiene en cualquier caso.\n\n## CAPÍTULOS\n{CAPITULOS}\n\n## COMENTARIO FIJADO\n¿Cuánto gastas hoy en tu despensa de la semana y en qué ciudad? Ponlo aquí abajo — estoy juntando precios reales de varias regiones para el próximo video. Y si haces la lista, vuelve en 7 días a contarme cómo te fue.\n\n## HASHTAGS\n#RecetasEconomicas #DespensaBarata #CocinaPorNiveles\n\n## TAGS\ndespensa de 500 pesos, recetas economicas, despensa barata, lista de compras semanal, menu semanal economico, canasta basica 2026, como ahorrar en la despensa, comida barata para la semana, cocina economica mexicana, presupuesto de comida, recetas con frijol, recetas con huevo, meal prep mexicano, comida rendidora, ahorrar dinero en comida\n\n## CONFIGURACIÓN DE STUDIO\n- Idioma: Español (México) — es-MX | Categoría: Howto & Style (26)\n- No hecho para niños\n- Declaración de contenido sintético: SÍ (narración con IA)\n- Ubicación: México | Licencia: Standard YouTube License\n- Anuncios mid-roll: activados (duración > 8 minutos)\n\n## MÚSICA / LICENCIA\n{TRILHA}\n\n## AVISO\nLos precios son estimaciones de referencia para México en 2026 y cambian por región, tienda y temporada. Este contenido es informativo y no sustituye asesoría nutricional."
+ "copy": "# Despensa de $500 pesos: la lista exacta para 7 días y 14 comidas\n\n## TÍTULO\nDespensa de $500 pesos: la lista exacta para 7 días (14 comidas)\n\n## DESCRIPCIÓN\nDespensa de $500 pesos para una semana completa: la lista exacta producto por producto, con precios de 2026, y las 14 comidas que salen de ella día por día. En junio de 2026 la canasta básica familiar costaba entre $777 y $949 pesos según la región, y la Profeco fijó un tope de $910 para los 24 productos del paquete contra la inflación. Este video no discute esos números: muestra cómo armar una semana que funcione con la mitad, sin comer solo arroz.\n\nAdentro vas a encontrar los 12 productos que más rinden y por qué (frijol a $4 la porción, huevo a $7, pollo a $19), la lista completa sumada peso por peso hasta llegar a $500 exactos, la diferencia real de precio entre mercado, súper y tienda de la esquina (hasta 36% por la misma lista), el menú de 7 días con costo por día, y los 6 errores que vacían la despensa antes del jueves.\n\nLa idea central va al revés de lo que hace la mayoría: primero se arma la lista, después se decide el menú. Cuando eliges el menú primero, terminas comprando lo que no rinde. Todo el plan cabe en 20 minutos el sábado, un solo viaje el domingo en la mañana y 90 minutos de olla el domingo en la tarde.\n\nLos precios son referencias de México en 2026 y varían por región y temporada — la lista y las proporciones son lo que se sostiene en cualquier caso.\n\n## CAPÍTULOS\n{CAPITULOS}\n\n## COMENTARIO FIJADO\n¿Cuánto gastas hoy en tu despensa de la semana y en qué ciudad? Ponlo aquí abajo — estoy juntando precios reales de varias regiones para el próximo video. Y si haces la lista, vuelve en 7 días a contarme cómo te fue.\n\n## HASHTAGS\n#RecetasEconomicas #DespensaBarata #CocinaPorNiveles\n\n## TAGS\ndespensa de 500 pesos, recetas economicas, despensa barata, lista de compras semanal, menu semanal economico, canasta basica 2026, como ahorrar en la despensa, comida barata para la semana, cocina economica mexicana, presupuesto de comida, recetas con frijol, recetas con huevo, meal prep mexicano, comida rendidora, ahorrar dinero en comida\n\n## CONFIGURACIÓN DE STUDIO\n- Idioma: Español (México) — es-MX | Categoría: Howto & Style (26)\n- No hecho para niños\n- Declaración de contenido sintético: SÍ (narración con IA)\n- Ubicación: México | Licencia: Standard YouTube License\n- Anuncios mid-roll: activados (duración > 8 minutos)\n\n## MÚSICA / LICENCIA\n{TRILHA}\n\n## AVISO\nLos precios son estimaciones de referencia para México en 2026 y cambian por región, tienda y temporada. Este contenido es informativo y no sustituye asesoría nutricional.",
+ "idioma": "es-MX"
 }

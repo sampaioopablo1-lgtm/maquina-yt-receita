@@ -1,6 +1,7 @@
 {
  "slug": "setiap-level",
- "pacote": "setiap-level-003", "voz": "id-ID-ArdiNeural",
+ "pacote": "setiap-level-003",
+ "voz": "id-ID-ArdiNeural",
  "paleta": {
   "ink": "#12303A",
   "c1": "#1B7A8C",
@@ -175,7 +176,7 @@
    "layout": "item",
    "kicker": "UMP 2026 naik",
    "preco": "sekitar 6,5-7%",
-   "nar": "UMP dua ribu dua puluh enam sendiri naik di kisaran lima sampai delapan persen, dengan rata-rata nasional sekitar enam koma lima sampai tujuh persen."
+   "nar": "UMP dua ribu dua puluh enam sendiri naik di kisaran lima sampai delapan persen. Rata-rata nasionalnya sekitar enam koma lima sampai tujuh persen."
   },
   {
    "layout": "item",
@@ -334,9 +335,9 @@
    "layout": "barras",
    "kicker": "Posisimu dalam data",
    "itens": [
-    "harian Rp100rb: Rp2,6 jt",
-    "rata-rata nasional: Rp3,29 jt",
-    "UMP Jakarta: Rp5,72 jt"
+    "harian",
+    "rata-rata",
+    "UMP Jakarta"
    ],
    "alturas": [
     26,
@@ -350,9 +351,9 @@
    "layout": "barras",
    "kicker": "Posisimu dalam data",
    "itens": [
-    "harian Rp100rb: Rp2,6 jt",
-    "rata-rata nasional: Rp3,29 jt",
-    "UMP Jakarta: Rp5,72 jt"
+    "harian",
+    "rata-rata",
+    "UMP Jakarta"
    ],
    "alturas": [
     26,
@@ -579,7 +580,7 @@
    "layout": "item",
    "kicker": "Kalau naik ke 30%",
    "preco": "sekitar 8 tahun",
-   "nar": "Angka ketiga. Kalau kamu bisa menaikkan porsi menabung dari dua puluh ke tiga puluh persen — tujuh ratus delapan puluh ribu per bulan — waktunya turun lagi ke sekitar sembilan puluh sembilan bulan, atau sekitar delapan tahun tiga bulan."
+   "nar": "Angka ketiga. Kalau kamu bisa menaikkan porsi menabung dari dua puluh ke tiga puluh persen, setorannya jadi tujuh ratus delapan puluh ribu per bulan. Waktunya turun ke sekitar sembilan puluh sembilan bulan. Itu sekitar delapan tahun tiga bulan."
   },
   {
    "layout": "lista",
@@ -652,7 +653,7 @@
    "layout": "titulo",
    "kicker": "Nomor satu",
    "sub": "menaikkan penghasilan harian",
-   "nar": "Naik dari seratus ribu ke seratus tiga puluh ribu per hari saja sudah menambah tujuh ratus delapan puluh ribu sebulan — lebih besar daripada seluruh tabunganmu di skenario dua puluh persen tadi.",
+   "nar": "Naik dari seratus ribu ke seratus tiga puluh ribu per hari. Cuma itu, dan sudah menambah tujuh ratus delapan puluh ribu sebulan. Lebih besar daripada seluruh tabunganmu di skenario dua puluh persen tadi.",
    "sem_cap": true
   },
   {
@@ -747,7 +748,7 @@
    "layout": "item",
    "kicker": "Suku bunga acuan",
    "preco": "BI-Rate 5,75%",
-   "nar": "Rapat Dewan Gubernur Bank Indonesia dua puluh satu sampai dua puluh dua Juli dua ribu dua puluh enam memutuskan mempertahankan BI-Rate di lima koma tujuh lima persen, dengan suku bunga Deposit Facility empat koma tujuh lima persen."
+   "nar": "Rapat Dewan Gubernur Bank Indonesia pada dua puluh satu dan dua puluh dua Juli memutuskan mempertahankan BI-Rate. Angkanya lima koma tujuh lima persen. Suku bunga Deposit Facility ada di empat koma tujuh lima persen."
   },
   {
    "layout": "lista",
@@ -1142,7 +1143,7 @@
     "yang mengubahnya: penghasilan"
    ],
    "cap": "Jawaban jujurnya",
-   "nar": "Jadi jawaban jujurnya, dirangkum. Dari penghasilan seratus ribu per hari, seratus juta rupiah butuh antara delapan sampai enam belas tahun, tergantung porsi menabung dan imbal hasil."
+   "nar": "Jadi jawaban jujurnya, dirangkum. Dari penghasilan seratus ribu per hari, seratus juta rupiah butuh waktu panjang. Antara delapan sampai enam belas tahun, tergantung porsi menabung dan imbal hasil."
   },
   {
    "layout": "lista",
@@ -1324,5 +1325,6 @@
    "nar": "Delapan tahun atau enam belas, kamu yang pilih. Subscribe ke Setiap Level."
   }
  ],
- "copy": "# Gaji Harian Rp100 Ribu: Matematika Nyata Menuju Rp100 Juta\n\n## TITLE\nGaji Harian Rp100 Ribu: Matematika Nyata Menuju Rp100 Juta\n\n## DESCRIPTION\nPer Mei 2026, Badan Pusat Statistik mencatat 59,30% pekerja Indonesia berada di sektor informal — sekitar 87,88 juta orang dari total 147,67 juta pekerja. Artinya enam dari sepuluh orang yang bekerja di negara ini tidak menerima gaji bulanan; mereka menerima uang harian, mingguan, atau borongan. Hampir semua konten keuangan berbahasa Indonesia menulis untuk empat dari sepuluh sisanya. Video ini menghitung dari arah sebaliknya: mulai dari penghasilan harian.\n\nAngka pembandingnya: survei Sakernas BPS Februari 2026 mencatat upah rata-rata pekerja Indonesia Rp3,29 juta per bulan, jauh di bawah UMP Jakarta 2026 yang mencapai Rp5,72 juta. UMP 2026 sendiri naik di kisaran 5–8% dengan rata-rata nasional sekitar 6,5–7%, tetapi kenaikan itu hanya menyentuh pekerja formal. Untuk enam dari sepuluh pekerja lainnya, yang naik hanya harga di pasar.\n\nPerhitungannya: penghasilan Rp100.000 per hari × 26 hari kerja = Rp2,6 juta per bulan. Menyisihkan 20% berarti Rp520.000 per bulan, atau Rp20.000 setiap hari kerja — dan ritme harian ini penting, karena tidak ada satu tanggal yang bisa menggagalkan seluruh bulan. Sampai Rp100 juta: tanpa imbal hasil sama sekali butuh 192 bulan alias 16 tahun; dengan imbal hasil sekitar 6% per tahun turun ke sekitar 11 tahun 4 bulan; dan bila porsi menabung dinaikkan ke 30%, sekitar 8 tahun 3 bulan. Rentang antara skenario terbaik dan terburuk hampir delapan tahun, dari penghasilan yang persis sama.\n\nVideo ini juga membahas dana darurat versi penghasilan tidak tetap (bertahap: 2 minggu, 6 minggu, baru 3 bulan — bukan langsung 6 bulan), dan di mana menaruh uangnya dengan angka pasar yang berlaku: BI-Rate dipertahankan 5,75% pada RDG 21–22 Juli 2026 setelah tiga kali kenaikan dalam dua bulan, inflasi Juni 2026 tercatat 3,34% secara tahunan, dan imbal hasil SBN pemerintah tenor 10 tahun bertahan di kisaran 7,3% pada akhir Juli 2026. Dari situ muncul konsep imbal hasil riil — imbal hasil dikurangi inflasi — yang menentukan apakah kekayaanmu benar-benar tumbuh atau hanya mengejar harga.\n\nJawaban jujurnya: 8 sampai 16 tahun. Tidak ada video yang bisa mengubah aritmetika itu. Yang paling mengubah angkanya adalah penghasilan harianmu sendiri, bukan memangkas kopi.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nBerapa penghasilan harianmu, dan berapa yang realistis kamu sisihkan tiap hari kerja? Tulis juga jenis pekerjaannya — saya sedang mengumpulkan angka nyata dari berbagai bidang untuk video lanjutan. Saya paling ingin tahu dari teman-teman yang penghasilannya berubah tiap minggu: aturan apa yang kamu pakai di hari sepi?\n\n## HASHTAGS\n#KeuanganPribadi #PekerjaHarian #SetiapLevel\n\n## TAGS\ngaji harian, penghasilan harian, cara menabung penghasilan tidak tetap, pekerja informal indonesia, tabungan 100 juta, upah rata rata indonesia 2026, ump 2026, bi rate 2026, inflasi indonesia 2026, sbn ritel pemula, imbal hasil riil, dana darurat penghasilan harian, keuangan pekerja lepas, cara mengatur uang harian, menabung 20 ribu per hari\n\n## STUDIO SETTINGS\n- Bahasa: Indonesia (id) | Kategori: Education (27)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (narasi AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif, beberapa titik (durasi di atas 25 menit)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SUMBER DAN CATATAN\nData ketenagakerjaan dan upah: Badan Pusat Statistik (Sakernas Februari 2026 dan rilis Mei 2026) sebagaimana diberitakan media nasional. UMP 2026 mengacu pada keputusan gubernur akhir 2025. Suku bunga acuan dan lintasannya: rilis Rapat Dewan Gubernur Bank Indonesia. Inflasi Juni 2026 dan sasaran inflasi: BPS dan Bank Indonesia. Imbal hasil SBN tenor 10 tahun: data pasar akhir Juli 2026. Perhitungan Rp100 juta memakai asumsi 26 hari kerja per bulan dan imbal hasil 6% per tahun yang dimajemukkan bulanan; asumsi berbeda akan memberi hasil berbeda. Pajak dan biaya administrasi sengaja tidak diberi angka karena berbeda antar instrumen dan harus diperiksa sendiri. Konten edukatif, bukan rekomendasi investasi.\n"
+ "copy": "# Gaji Harian Rp100 Ribu: Matematika Nyata Menuju Rp100 Juta\n\n## TITLE\nGaji Harian Rp100 Ribu: Matematika Nyata Menuju Rp100 Juta\n\n## DESCRIPTION\nPer Mei 2026, Badan Pusat Statistik mencatat 59,30% pekerja Indonesia berada di sektor informal — sekitar 87,88 juta orang dari total 147,67 juta pekerja. Artinya enam dari sepuluh orang yang bekerja di negara ini tidak menerima gaji bulanan; mereka menerima uang harian, mingguan, atau borongan. Hampir semua konten keuangan berbahasa Indonesia menulis untuk empat dari sepuluh sisanya. Video ini menghitung dari arah sebaliknya: mulai dari penghasilan harian.\n\nAngka pembandingnya: survei Sakernas BPS Februari 2026 mencatat upah rata-rata pekerja Indonesia Rp3,29 juta per bulan, jauh di bawah UMP Jakarta 2026 yang mencapai Rp5,72 juta. UMP 2026 sendiri naik di kisaran 5–8% dengan rata-rata nasional sekitar 6,5–7%, tetapi kenaikan itu hanya menyentuh pekerja formal. Untuk enam dari sepuluh pekerja lainnya, yang naik hanya harga di pasar.\n\nPerhitungannya: penghasilan Rp100.000 per hari × 26 hari kerja = Rp2,6 juta per bulan. Menyisihkan 20% berarti Rp520.000 per bulan, atau Rp20.000 setiap hari kerja — dan ritme harian ini penting, karena tidak ada satu tanggal yang bisa menggagalkan seluruh bulan. Sampai Rp100 juta: tanpa imbal hasil sama sekali butuh 192 bulan alias 16 tahun; dengan imbal hasil sekitar 6% per tahun turun ke sekitar 11 tahun 4 bulan; dan bila porsi menabung dinaikkan ke 30%, sekitar 8 tahun 3 bulan. Rentang antara skenario terbaik dan terburuk hampir delapan tahun, dari penghasilan yang persis sama.\n\nVideo ini juga membahas dana darurat versi penghasilan tidak tetap (bertahap: 2 minggu, 6 minggu, baru 3 bulan — bukan langsung 6 bulan), dan di mana menaruh uangnya dengan angka pasar yang berlaku: BI-Rate dipertahankan 5,75% pada RDG 21–22 Juli 2026 setelah tiga kali kenaikan dalam dua bulan, inflasi Juni 2026 tercatat 3,34% secara tahunan, dan imbal hasil SBN pemerintah tenor 10 tahun bertahan di kisaran 7,3% pada akhir Juli 2026. Dari situ muncul konsep imbal hasil riil — imbal hasil dikurangi inflasi — yang menentukan apakah kekayaanmu benar-benar tumbuh atau hanya mengejar harga.\n\nJawaban jujurnya: 8 sampai 16 tahun. Tidak ada video yang bisa mengubah aritmetika itu. Yang paling mengubah angkanya adalah penghasilan harianmu sendiri, bukan memangkas kopi.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nBerapa penghasilan harianmu, dan berapa yang realistis kamu sisihkan tiap hari kerja? Tulis juga jenis pekerjaannya — saya sedang mengumpulkan angka nyata dari berbagai bidang untuk video lanjutan. Saya paling ingin tahu dari teman-teman yang penghasilannya berubah tiap minggu: aturan apa yang kamu pakai di hari sepi?\n\n## HASHTAGS\n#KeuanganPribadi #PekerjaHarian #SetiapLevel\n\n## TAGS\ngaji harian, penghasilan harian, cara menabung penghasilan tidak tetap, pekerja informal indonesia, tabungan 100 juta, upah rata rata indonesia 2026, ump 2026, bi rate 2026, inflasi indonesia 2026, sbn ritel pemula, imbal hasil riil, dana darurat penghasilan harian, keuangan pekerja lepas, cara mengatur uang harian, menabung 20 ribu per hari\n\n## STUDIO SETTINGS\n- Bahasa: Indonesia (id) | Kategori: Education (27)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (narasi AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif, beberapa titik (durasi di atas 25 menit)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SUMBER DAN CATATAN\nData ketenagakerjaan dan upah: Badan Pusat Statistik (Sakernas Februari 2026 dan rilis Mei 2026) sebagaimana diberitakan media nasional. UMP 2026 mengacu pada keputusan gubernur akhir 2025. Suku bunga acuan dan lintasannya: rilis Rapat Dewan Gubernur Bank Indonesia. Inflasi Juni 2026 dan sasaran inflasi: BPS dan Bank Indonesia. Imbal hasil SBN tenor 10 tahun: data pasar akhir Juli 2026. Perhitungan Rp100 juta memakai asumsi 26 hari kerja per bulan dan imbal hasil 6% per tahun yang dimajemukkan bulanan; asumsi berbeda akan memberi hasil berbeda. Pajak dan biaya administrasi sengaja tidak diberi angka karena berbeda antar instrumen dan harus diperiksa sendiri. Konten edukatif, bukan rekomendasi investasi.\n",
+ "idioma": "id"
 }
