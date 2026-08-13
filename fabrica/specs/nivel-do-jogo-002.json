@@ -126,8 +126,8 @@
    "layout": "barras",
    "kicker": "Item fixo × caixa aleatória",
    "itens": [
-    "preço fixo: você para no que queria",
-    "aleatório: você para quando sai"
+    "item fixo",
+    "caixa aleatória"
    ],
    "alturas": [
     30,

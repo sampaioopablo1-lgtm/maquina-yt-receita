@@ -74,7 +74,7 @@ jobs:
           ffmpeg -version | head -1
 
       - name: Instalar fabrica
-        run: pip install -q edge-tts cairosvg pydantic
+        run: pip install -q edge-tts cairosvg pydantic pillow
 
       - name: Baixar spec e trilhas
         env:
@@ -118,6 +118,15 @@ jobs:
           [ "$N" -gt 0 ] || { echo "::error::nenhuma trilha baixada — o render sairia mudo"; exit 1; }
 
           python3 -c "import json;s=json.load(open('spec.json'));print('cenas:',len(s['longo']),'| short:',len(s.get('short',[])))"
+
+      # Enquadramento ANTES do render. O visual.py ja media tinta na borda, mas
+      # so no video pronto e amostrando 12 quadros: o nivel-do-jogo-002 reprovou
+      # em t=250,1s DEPOIS de renderizar 51 clipes e a trilha (run 31659140900),
+      # e amostrar 12 quadros de 51 cenas ve uma cena em quatro — o defeito
+      # ainda podia passar. Aqui cada cena e rasterizada sozinha, todas entram,
+      # e custa segundos.
+      - name: Conferir enquadramento
+        run: python3 fabrica/layout.py spec.json
 
       - name: Renderizar
         run: python3 fabrica/etapas.py spec.json
