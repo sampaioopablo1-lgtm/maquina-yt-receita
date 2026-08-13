@@ -1,0 +1,75 @@
+name: Reparar descricao de pacote publicado
+
+# Conserta a descricao de um pacote que ja esta no ar, sem repetir o render.
+#
+# Existe por um estrago concreto: em 13/08/2026 o seviye-seviye-002 subiu com
+# "{CAPITULOS}" literal na descricao. O `etapas.py` nunca escrevia copy.md (a
+# funcao vivia dentro do `render()` da fabrica, que aquela esteira nao chama) e
+# o publicar.py caiu no texto cru da spec com um aviso que nao impedia nada.
+#
+# Os dois defeitos estao consertados, mas video publicado nao se conserta
+# sozinho — e refazer treze minutos de render so para recalcular capitulos e
+# desperdicio, porque o `legendas.srt` entregue no Storage carrega os mesmos
+# tempos que o tempos.json que morreu com o runner.
+
+on:
+  workflow_dispatch:
+    inputs:
+      canal:
+        description: "Slug do canal (ex: seviye-seviye)"
+        type: string
+        required: true
+      pacote:
+        description: "Pacote (ex: seviye-seviye-002) — le fabrica/specs/<pacote>.json"
+        type: string
+        required: true
+      ids:
+        description: 'JSON dos videos publicados: {"short":"abc","longo":"xyz"}'
+        type: string
+        required: true
+      srt:
+        description: "Caminho do .srt no bucket (ex: 2026-08-13-seviye-seviye-002-legendas.srt)"
+        type: string
+        required: true
+
+jobs:
+  reparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Baixar legenda entregue
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          D="/tmp/f/${{ inputs.pacote }}"
+          mkdir -p "$D" /tmp/trilhas
+          curl -sS --fail -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+            "$SB/storage/v1/object/videos-maquina/${{ inputs.srt }}" -o "$D/legendas.srt"
+          echo "legenda: $(grep -c ' --> ' "$D/legendas.srt") cenas"
+          # O credito CC-BY da trilha entra no copy, e trilha_do_canal escolhe
+          # por hash sobre os arquivos presentes: sem as quatro faixas o credito
+          # sairia com o nome de outra musica.
+          for faixa in Wholesome Inspired Deliberate_Thought Cipher2; do
+            curl -sS -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              "$SB/storage/v1/object/videos-maquina/trilhas/$faixa.mp3" \
+              -o "/tmp/trilhas/$faixa.mp3" || true
+            [ -s "/tmp/trilhas/$faixa.mp3" ] || rm -f "/tmp/trilhas/$faixa.mp3"
+          done
+
+      - name: Reparar descricao
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          python3 fabrica/publicar.py "fabrica/specs/${{ inputs.pacote }}.json" \
+            --canal "${{ inputs.canal }}" \
+            --dir "/tmp/f/${{ inputs.pacote }}" \
+            --reparar '${{ inputs.ids }}'

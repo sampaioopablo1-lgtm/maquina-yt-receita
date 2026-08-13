@@ -34,6 +34,32 @@ def _publicar():
 pub = _publicar()
 
 
+def _fabrica():
+    """fabrica.py importa cairosvg e edge_tts, que so existem no runner.
+
+    `capitulos` e `escrever_copy` nao usam nenhum dos dois — sao texto puro —
+    entao os modulos entram como stub para o import passar.
+    """
+    import sys
+    import types
+
+    for nome in ("cairosvg", "edge_tts"):
+        sys.modules.setdefault(nome, types.ModuleType(nome))
+    sys.path.insert(0, str(RAIZ / "fabrica"))
+    spec = importlib.util.spec_from_file_location("fab", RAIZ / "fabrica" / "fabrica.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+fab = _fabrica()
+
+
+def _copy_renderizado(spec, destino, dur_cena=15.0):
+    """Escreve o copy.md como o render escreveria, com capitulos cronometrados."""
+    fab.escrever_copy(spec, [dur_cena] * len(spec["longo"]), str(destino))
+
+
 def _com_copy_markdown():
     """Specs cujo `copy` traz as secoes de fato.
 
@@ -71,6 +97,7 @@ def test_spec_sem_secoes_exige_o_copy_md_em_vez_de_publicar_o_bilhete(caminho, t
 @pytest.mark.parametrize("caminho", list(_com_copy_markdown()))
 def test_toda_spec_do_repo_rende_titulo_e_descricao(caminho, tmp_path):
     spec = json.loads(caminho.read_text(encoding="utf-8"))
+    _copy_renderizado(spec, tmp_path)
 
     cp = pub.ler_copy(spec, str(tmp_path))
 
@@ -82,14 +109,19 @@ def test_toda_spec_do_repo_rende_titulo_e_descricao(caminho, tmp_path):
 
 @pytest.mark.parametrize("caminho", list(_com_copy_markdown()))
 def test_nenhum_placeholder_vaza_para_a_descricao(caminho, tmp_path):
-    """`{CAPITULOS}` literal na descricao do YouTube e o defeito visivel."""
+    """`{CAPITULOS}` literal na descricao do YouTube e o defeito visivel.
+
+    Aconteceu de verdade em 13/08/2026 com o seviye-seviye-002, para os
+    assinantes do canal.
+    """
     spec = json.loads(caminho.read_text(encoding="utf-8"))
+    _copy_renderizado(spec, tmp_path)
 
     cp = pub.ler_copy(spec, str(tmp_path))
 
-    # Da spec cru o placeholder AINDA existe — o teste abaixo cobre o caminho
-    # certo, com copy.md. Aqui so garantimos que nao inventamos outro.
-    assert "PLACEHOLDER" not in cp["descricao"].upper()
+    assert "{" not in cp["descricao"] or "PLACEHOLDER" not in cp["descricao"].upper()
+    assert "{CAPITULOS}" not in cp["descricao"]
+    assert "{TRILHA}" not in cp["descricao"]
 
 
 def test_o_copy_md_do_render_vence_a_spec(tmp_path):
@@ -173,6 +205,7 @@ def test_a_spec_do_seviye_002_esta_publicavel(tmp_path):
 
     assert spec.get("pacote") == "seviye-seviye-002", "frota.yml resolve o workdir por `pacote`"
     assert spec.get("idioma") == "tr"
+    _copy_renderizado(spec, tmp_path)
 
     cp = pub.ler_copy(spec, str(tmp_path))
 
@@ -180,3 +213,65 @@ def test_a_spec_do_seviye_002_esta_publicavel(tmp_path):
     assert len(cp["tags"]) == 15
     mantidas, total = pub.orcamento_tags(cp["tags"])
     assert total <= 480, f"orcamento estourado: {total}"
+
+
+# ---------- reparo de pacote ja publicado ----------
+
+def test_placeholder_nao_publica_mais(tmp_path):
+    """O aviso "copy.md ausente" existia e nao impediu nada.
+
+    Em 13/08/2026 o seviye-seviye-002 subiu com "{CAPITULOS}" literal para os
+    assinantes. Um run que falha se refaz em treze minutos; descricao quebrada
+    no ar so sai se alguem perceber.
+    """
+    spec = {"copy": "# T\n\n## TITULO\nT\n\n## DESCRICAO\n" + "d" * 250
+                    + "\n\n## CAPITULOS\n{CAPITULOS}\n"}
+
+    with pytest.raises(SystemExit, match=r"\{CAPITULOS\}"):
+        pub.ler_copy(spec, str(tmp_path))
+
+
+def test_tempos_saem_do_srt_quando_o_tempos_json_morreu(tmp_path):
+    """O runner e efemero e leva o tempos.json junto; o .srt vai para o Storage.
+
+    Os dois carregam a mesma informacao, entao o reparo nao precisa repetir
+    treze minutos de render so para recalcular capitulos.
+    """
+    srt = tmp_path / "legendas.srt"
+    srt.write_text(
+        "1\n00:00:00,150 --> 00:00:09,850\ncena um\n\n"
+        "2\n00:00:10,150 --> 00:00:24,850\ncena dois\n\n"
+        "3\n00:00:25,150 --> 00:00:30,850\ncena tres\n\n",
+        encoding="utf-8",
+    )
+
+    tempos = pub.tempos_do_srt(str(srt))
+
+    assert tempos == pytest.approx([10.0, 15.0, 6.0], abs=0.01)
+    assert sum(tempos) == pytest.approx(31.0, abs=0.01)
+
+
+def test_srt_sem_bloco_de_tempo_e_erro_claro(tmp_path):
+    vazio = tmp_path / "legendas.srt"
+    vazio.write_text("nao e legenda", encoding="utf-8")
+
+    with pytest.raises(SystemExit, match="bloco de tempo"):
+        pub.tempos_do_srt(str(vazio))
+
+
+def test_capitulos_do_seviye_002_batem_com_a_duracao_real():
+    """Capítulo depois do fim do video seria pior que nao ter capitulo."""
+    import json as _json
+
+    spec = _json.loads(
+        (RAIZ / "fabrica" / "specs" / "seviye-seviye-002.json").read_text(encoding="utf-8")
+    )
+    tempos = [15.0] * len(spec["longo"])          # ~13 min no total
+
+    caps = fab.capitulos(spec, tempos)
+
+    assert caps[0].startswith("0:00"), "o YouTube exige que o primeiro seja 0:00"
+    assert len(caps) >= 6, "6-8 capitulos e o que a rotina pede num longo"
+    minutos = [int(c.split(":")[0]) for c in caps]
+    assert minutos == sorted(minutos), "capitulos fora de ordem invalidam a lista inteira"
+    assert minutos[-1] * 60 < sum(tempos), "capitulo depois do fim do video"

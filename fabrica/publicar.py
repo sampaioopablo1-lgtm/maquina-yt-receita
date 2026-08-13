@@ -200,6 +200,70 @@ def apontar_para_longo(acc, short_id, longo_id):
         return f"falhou: {str(e)[:120]}"
 
 
+def tempos_do_srt(caminho):
+    """Reconstroi a duracao de cada cena a partir da legenda.
+
+    O `tempos.json` morre com o runner, mas o .srt vai para o Storage e carrega
+    a mesma informacao: a etapa 3 escreve cada cena como um bloco unico, de
+    t+0,15 a t+dur-0,15. Isso permite consertar capitulos de um pacote ja
+    publicado sem repetir treze minutos de render.
+    """
+    def _seg(marca):
+        h, m, resto = marca.split(":")
+        s, ms = resto.replace(",", ".").split(".")
+        return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
+
+    inicios, fins = [], []
+    with open(caminho, encoding="utf-8") as f:
+        for linha in f:
+            if "-->" in linha:
+                a, b = linha.split("-->")
+                inicios.append(_seg(a.strip()) - 0.15)
+                fins.append(_seg(b.strip()) + 0.15)
+    if not inicios:
+        raise SystemExit(f"{caminho} nao tem nenhum bloco de tempo")
+    return [
+        (inicios[i + 1] - inicios[i]) if i + 1 < len(inicios) else (fins[i] - inicios[i])
+        for i in range(len(inicios))
+    ]
+
+
+def atualizar_descricao(acc, video_id, nova):
+    """videos.update exige o snippet INTEIRO — mandar so a descricao apaga
+    titulo, tags e categoria. Por isso le antes."""
+    atual = json.load(_req(f"{API}/videos?part=snippet&id={video_id}",
+                           headers={"Authorization": "Bearer " + acc}))
+    itens = atual.get("items") or []
+    if not itens:
+        return f"{video_id} nao existe ou nao e deste canal"
+    snip = itens[0]["snippet"]
+    if snip.get("description") == nova:
+        return "ja estava certa"
+    snip["description"] = nova
+    _req(f"{API}/videos?part=snippet",
+         data=json.dumps({"id": video_id, "snippet": snip}).encode(), method="PUT",
+         headers={"Authorization": "Bearer " + acc,
+                  "Content-Type": "application/json; charset=UTF-8"})
+    return "ok"
+
+
+def _sem_placeholder(texto, esperado_em):
+    """Placeholder na descricao de um video PUBLICO nao se desfaz sozinho.
+
+    O aviso "copy.md ausente" existia e nao impediu nada: em 13/08/2026 o
+    seviye-seviye-002 subiu com "{CAPITULOS}" literal para os assinantes. Um
+    run que falha se refaz em treze minutos; uma descricao quebrada no ar so
+    sai se alguem perceber.
+    """
+    achados = [p for p in ("{CAPITULOS}", "{TRILHA}", "PLACEHOLDER") if p in texto]
+    if achados:
+        raise SystemExit(
+            f"copy ainda tem {', '.join(achados)} — o render nao preencheu. "
+            f"Esperado em {esperado_em}. Publicar assim poe o placeholder na "
+            f"descricao do video; rode o render de novo em vez de seguir."
+        )
+
+
 def ler_copy(spec, workdir):
     """Devolve {titulo, descricao, tags, hashtags, comentario} a partir do copy.
 
@@ -228,6 +292,7 @@ def ler_copy(spec, workdir):
     else:
         bruto = spec.get("copy") or ""
         print("aviso: copy.md ausente — usando a spec, capitulos podem vir sem tempo")
+    _sem_placeholder(bruto, md)
     if not bruto.strip():
         raise SystemExit("spec sem copy: nao da para publicar sem titulo e descricao")
 
@@ -287,12 +352,54 @@ def meta_video(titulo, descricao, tags, idioma, publico=True):
     }
 
 
+def reparar(args, sp, d, sb_url, sb_key):
+    """Conserta a descricao de um pacote ja publicado, sem re-renderizar.
+
+    Existe porque em 13/08/2026 o seviye-seviye-002 subiu com "{CAPITULOS}"
+    literal na descricao: o `etapas.py` nunca escrevia copy.md e o publicar.py
+    caiu no texto cru da spec com um aviso que nao impedia nada. Os dois
+    defeitos estao consertados, mas os videos ja estavam no ar — e refazer
+    treze minutos de render so para recalcular capitulos e desperdicio quando
+    o .srt entregue no Storage carrega os mesmos tempos.
+    """
+    import fabrica as F
+
+    alvos = json.loads(args.reparar)
+    srt = os.path.join(d, "legendas.srt")
+    if not os.path.exists(srt):
+        raise SystemExit(f"preciso de {srt} para recalcular os capitulos")
+
+    F.escrever_copy(sp, tempos_do_srt(srt), d)
+    cp = ler_copy(sp, d)
+
+    acc = access_token(token_do_canal(args.canal, sb_url, sb_key))
+    saida = {}
+    if alvos.get("longo"):
+        desc = cp["descricao"]
+        if alvos.get("short"):
+            desc += f"\n\nVersao curta: https://youtube.com/shorts/{alvos['short']}"
+        saida["longo"] = atualizar_descricao(acc, alvos["longo"], desc)
+        print("LONGO:", alvos["longo"], "->", saida["longo"])
+    if alvos.get("short"):
+        curta = cp["descricao"].split("\n\n")[0]
+        if alvos.get("longo"):
+            curta += f"\n\nhttps://youtu.be/{alvos['longo']}"
+        saida["short"] = atualizar_descricao(acc, alvos["short"], curta)
+        print("SHORT:", alvos["short"], "->", saida["short"])
+
+    print(json.dumps(saida))
+    return saida
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("spec")
     p.add_argument("--canal", required=True)
     p.add_argument("--playlist", default=None)
     p.add_argument("--dir", default=None, help="workdir (padrao: /tmp/f/<pacote>)")
+    p.add_argument("--reparar", default="",
+                   help='JSON {"short":"id","longo":"id"} — so conserta a descricao '
+                        'de video ja publicado, nao envia nada')
     args = p.parse_args()
 
     sb_url = os.environ["SUPABASE_URL"].rstrip("/")
@@ -300,6 +407,10 @@ def main():
     sp = json.load(open(args.spec))
     d = args.dir or f"/tmp/f/{sp.get('pacote') or sp['slug']}"
     idioma = sp.get("idioma") or "en"
+
+    if args.reparar:
+        return reparar(args, sp, d, sb_url, sb_key)
+
     cp = ler_copy(sp, d)
 
     acc = access_token(token_do_canal(args.canal, sb_url, sb_key))

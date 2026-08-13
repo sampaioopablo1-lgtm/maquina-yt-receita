@@ -177,7 +177,15 @@ with open(f"{d}/legendas.srt", "w", encoding="utf-8") as srt:
         srt.write(f"{i+1}\n{F.st(t + 0.15)} --> {F.st(fim - 0.15)}\n{c['nar']}\n\n")
         t = fim
 json.dump(tempos, open(f"{d}/tempos.json", "w"))
-log("etapa 3 ok: legendas.srt + tempos.json")
+
+# O copy.md sai daqui e nao do `render()` da fabrica, que esta esteira nunca
+# chama — era por isso que TODO pacote feito por etapas.py ficava sem ele, e o
+# publicar.py caia no texto da spec com "{CAPITULOS}" ainda por preencher.
+# Medido em 13/08/2026 no seviye-seviye-002, ja publicado com o placeholder.
+# Fica junto da legenda de proposito: os dois dependem de `tempos`, que so
+# existe aqui e some quando os clipes sao apagados.
+F.escrever_copy(sp, tempos, d)
+log("etapa 3 ok: legendas.srt + tempos.json + copy.md")
 
 # -------------------------------------------- 4. concat, em DUAS METADES
 # O tmpfs mora na RAM: 196 clipes sao 390 MB dos 985 MB da maquina. Concatenar

@@ -280,6 +280,56 @@ def trilha_ok(f):
     except Exception:
         return False
 
+def capitulos(sp, tempos):
+    """Capitulos cronometrados a partir dos clipes RENDERIZADOS.
+
+    Os tempos saem do clipe renderizado, nunca do mp3: o mp3 nao inclui a
+    respiracao entre cenas, e o erro acumula ao longo de 50 cenas jogando os
+    capitulos do fim para depois do trecho que nomeiam.
+
+    O YouTube exige capitulo >= 10s e descarta a LISTA INTEIRA se um so violar.
+    Cena tem ~11s e algumas ficam abaixo, entao agrupa: so abre capitulo novo
+    depois de MIN_CAP segundos (o primeiro e sempre 0:00). Prefere abrir no
+    `titulo` — a cena que abre secao neste formato — para o capitulo levar nome
+    de secao e nao um slide qualquer do meio.
+    """
+    MIN_CAP, MAX_CAP = 60, 150
+    caps, t, ultimo = [], 0.0, -1e9
+    for i, c in enumerate(sp["longo"]):
+        dt = t - ultimo
+        # `sem_cap` marca cenas de passagem (ponte de fim de capitulo): sao
+        # layout `titulo` mas o texto delas nao nomeia secao nenhuma, e virava
+        # capitulo chamado "Bridge — ...", que nao ajuda ninguem a navegar.
+        pode = not c.get("sem_cap")
+        if i == 0 or (pode and dt >= MIN_CAP and c.get("layout") == "titulo") or (pode and dt >= MAX_CAP):
+            caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
+            ultimo = t
+        t += tempos[i]
+    return caps
+
+
+def escrever_copy(sp, tempos, d):
+    """Preenche {CAPITULOS} e {TRILHA} e grava copy.md no workdir.
+
+    Vivia dentro de `render()`, que o `etapas.py` nao chama — e por isso todo
+    pacote feito pela esteira sequencial ficava SEM copy.md. Medido em
+    13/08/2026: o seviye-seviye-002 subiu para o YouTube com "{CAPITULOS}"
+    literal na descricao, porque o publicar.py caiu no texto da spec.
+    """
+    caps = capitulos(sp, tempos)
+    # Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado.
+    faixa = trilha_do_canal(sp["slug"])
+    credito = "—" if not faixa else (
+        f"Music: {os.path.basename(faixa)[:-4].replace('_', ' ')} by Kevin MacLeod "
+        "(incompetech.com) — Licensed under Creative Commons: By Attribution 4.0\n"
+        "http://creativecommons.org/licenses/by/4.0/")
+    copy = (sp.get("copy") or "").replace("{CAPITULOS}", "\n".join(caps)) \
+                                 .replace("{TRILHA}", credito)
+    with open(f"{d}/copy.md", "w", encoding="utf-8") as f:
+        f.write(copy)
+    return copy
+
+
 def trilha_do_canal(slug):
     """Faixa fixa por canal = assinatura sonora. CC-BY, credito no copy.md."""
     import glob
@@ -430,32 +480,8 @@ def render(spec_file):
             args += ["-c","copy"]
         subprocess.run(args + ["-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
         aplicar_trilha(d, out, slug)
-    # O YouTube exige capitulo >= 10s e descarta a LISTA INTEIRA se um so
-    # violar. Cena tem ~11s e algumas ficam abaixo, entao agrupa: so abre
-    # capitulo novo depois de MIN_CAP segundos (o primeiro e sempre 0:00).
-    # Prefere abrir no `titulo` (a cena que abre secao neste formato), para o
-    # capitulo levar um nome de secao e nao um slide qualquer do meio.
-    MIN_CAP, MAX_CAP = 60, 150
-    caps, t, ultimo = [], 0.0, -1e9
-    for i, c in enumerate(sp["longo"]):
-        dt = t - ultimo
-        # `sem_cap` marca cenas de passagem (ponte de fim de capitulo): sao
-        # layout `titulo` mas o texto delas nao nomeia secao nenhuma, e virava
-        # capitulo chamado "Bridge — ...", que nao ajuda ninguem a navegar.
-        pode = not c.get("sem_cap")
-        if i == 0 or (pode and dt >= MIN_CAP and c.get("layout") == "titulo") or (pode and dt >= MAX_CAP):
-            caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
-            ultimo = t
-        t += tempos[i]
-    # Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado.
-    faixa = trilha_do_canal(slug)
-    credito = "—" if not faixa else (
-        f"Music: {os.path.basename(faixa)[:-4].replace('_', ' ')} by Kevin MacLeod "
-        "(incompetech.com) — Licensed under Creative Commons: By Attribution 4.0\n"
-        "http://creativecommons.org/licenses/by/4.0/")
-    copy = sp["copy"].replace("{CAPITULOS}", "\n".join(caps)).replace("{TRILHA}", credito)
-    open(f"{d}/copy.md","w").write(copy)
-    print(slug, "render ok", round(t))
+    escrever_copy(sp, tempos, d)
+    print(slug, "render ok", round(sum(tempos)))
 if __name__ == "__main__":
     fn = sys.argv[1]; spec = sys.argv[2]
     montar(spec) if fn == "montar" else render(spec)
