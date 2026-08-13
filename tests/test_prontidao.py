@@ -11,6 +11,7 @@ Estes testes trancam a equivalencia nos dois pontos onde ela pode escorregar.
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -361,3 +362,33 @@ def test_auditoria_de_canal_separa_certo_de_errado(monkeypatch):
     assert [e[0]["youtube_id"] for e in erradas] == ["ERRADO"]
     assert [a["youtube_id"] for a in ausentes] == ["SUMIU"]
     assert erradas[0][2] == "setiap-level"
+
+
+def test_arquivo_estranho_na_pasta_nao_vira_trilha(tmp_path, monkeypatch):
+    """O sorteio de trilha divide pelos arquivos PRESENTES.
+
+    Medido em 14/08/2026 no container da sessao: um `bench.mp3` de benchmark
+    esquecido em /tmp/trilhas entrava no sorteio e saia escolhido como trilha
+    do nivel-do-jogo e do kolejny-poziom. Nunca foi trilha de nada, e o credito
+    CC-BY do copy nomearia outra faixa.
+    """
+    import copy_md as C
+
+    for f in ("Wholesome", "Inspired", "Deliberate_Thought", "bench", "teste_2"):
+        (tmp_path / f"{f}.mp3").write_bytes(b"")
+    monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
+
+    for slug in ("nivel-do-jogo", "kolejny-poziom", "resep-naik-level",
+                 "labtreinamento", "setiap-level", "agla-level"):
+        escolhida = C.trilha_do_canal(slug)
+        assert os.path.basename(escolhida)[:-4] in C.TRILHAS_VALIDAS, escolhida
+
+
+def test_so_arquivo_estranho_e_o_mesmo_que_nenhuma_trilha(tmp_path, monkeypatch):
+    """Pasta so com lixo tem que devolver None — o frota.yml aborta em zero
+    trilhas, e essa e a falha barulhenta que a gente quer."""
+    import copy_md as C
+
+    (tmp_path / "bench.mp3").write_bytes(b"")
+    monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
+    assert C.trilha_do_canal("qualquer") is None

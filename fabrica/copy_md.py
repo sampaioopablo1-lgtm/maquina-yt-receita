@@ -23,6 +23,18 @@ import os
 
 TRILHA_DIR = "/tmp/trilhas"
 
+# As UNICAS faixas do portfolio. E a mesma lista que o frota.yml baixa.
+#
+# Sem isto, `trilha_do_canal` fazia glob de *.mp3 e sorteava por hash sobre
+# QUALQUER arquivo presente. Medido em 14/08/2026 no container da sessao: um
+# `bench.mp3` de benchmark esquecido em /tmp/trilhas entrava no sorteio e era
+# escolhido como trilha do nivel-do-jogo e do kolejny-poziom — um arquivo que
+# nunca foi trilha de nada, com o credito CC-BY do copy nomeando outra coisa.
+#
+# O modo de falha certo e "faixa faltando", que e barulhento, e nunca "faixa
+# trocada", que sai no ar sem ninguem perceber.
+TRILHAS_VALIDAS = ("Cipher2", "Deliberate_Thought", "Inspired", "Wholesome")
+
 # O YouTube exige capitulo >= 10s e descarta a LISTA INTEIRA se um so violar.
 # Cena tem ~11s e algumas ficam abaixo, entao agrupa.
 MIN_CAP, MAX_CAP = 60, 150
@@ -48,7 +60,8 @@ def trilha_do_canal(slug, valida=None, registrada=None):
     que pega mp3 com HTML dentro). Sem ela, lista pelo nome — que e o suficiente
     para descobrir QUAL faixa creditar.
     """
-    fs = sorted(glob.glob(f"{TRILHA_DIR}/*.mp3"))
+    fs = sorted(f for f in glob.glob(f"{TRILHA_DIR}/*.mp3")
+                if os.path.basename(f)[:-4] in TRILHAS_VALIDAS)
     if valida:
         fs = [f for f in fs if valida(f)]
     if not fs:
