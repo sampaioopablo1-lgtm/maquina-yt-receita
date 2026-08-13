@@ -105,7 +105,15 @@ def _gate_narracao(caminho):
 
 
 def _gate_layout(sp):
-    import layout
+    try:
+        import layout
+    except ModuleNotFoundError as e:
+        # layout.py importa cairosvg no topo do modulo. O extra `fabrica` (que
+        # traz cairosvg) nao esta em todo ambiente que roda prontidao.py — o
+        # `.[dev]` do CI, por exemplo, so instala pytest. Falta de dependencia
+        # e defeito do AMBIENTE, nao da spec: mesmo tratamento do fonte ausente
+        # abaixo, para nao reprovar pacote bom por causa de quem mediu.
+        return [f"AMBIENTE, nao a spec: {e}"]
 
     try:
         return layout.analisa(sp)
