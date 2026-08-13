@@ -362,14 +362,17 @@ def reparar(args, sp, d, sb_url, sb_key):
     treze minutos de render so para recalcular capitulos e desperdicio quando
     o .srt entregue no Storage carrega os mesmos tempos.
     """
-    import fabrica as F
+    # copy_md, nao fabrica: formatar markdown nao pode exigir cairosvg.
+    # O primeiro run deste reparo morreu exatamente nisso (run 31656308340).
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import copy_md
 
     alvos = json.loads(args.reparar)
     srt = os.path.join(d, "legendas.srt")
     if not os.path.exists(srt):
         raise SystemExit(f"preciso de {srt} para recalcular os capitulos")
 
-    F.escrever_copy(sp, tempos_do_srt(srt), d)
+    copy_md.escrever_copy(sp, tempos_do_srt(srt), d)
     cp = ler_copy(sp, d)
 
     acc = access_token(token_do_canal(args.canal, sb_url, sb_key))

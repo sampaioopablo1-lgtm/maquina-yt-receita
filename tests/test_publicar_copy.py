@@ -35,18 +35,14 @@ pub = _publicar()
 
 
 def _fabrica():
-    """fabrica.py importa cairosvg e edge_tts, que so existem no runner.
+    """copy_md.py: capitulos e copy.md, sem a stack de render.
 
-    `capitulos` e `escrever_copy` nao usam nenhum dos dois — sao texto puro —
-    entao os modulos entram como stub para o import passar.
+    Este helper injetava cairosvg e edge_tts falsos em sys.modules para
+    conseguir importar fabrica.py. Contornar em teste o que trava em producao
+    esconde o defeito: o mesmo import derrubou o job de reparo de descricao
+    (run 31656308340) em 13/08/2026. As funcoes sairam para um modulo proprio.
     """
-    import sys
-    import types
-
-    for nome in ("cairosvg", "edge_tts"):
-        sys.modules.setdefault(nome, types.ModuleType(nome))
-    sys.path.insert(0, str(RAIZ / "fabrica"))
-    spec = importlib.util.spec_from_file_location("fab", RAIZ / "fabrica" / "fabrica.py")
+    spec = importlib.util.spec_from_file_location("copy_md", RAIZ / "fabrica" / "copy_md.py")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
@@ -275,3 +271,23 @@ def test_capitulos_do_seviye_002_batem_com_a_duracao_real():
     minutos = [int(c.split(":")[0]) for c in caps]
     assert minutos == sorted(minutos), "capitulos fora de ordem invalidam a lista inteira"
     assert minutos[-1] * 60 < sum(tempos), "capitulo depois do fim do video"
+
+
+def test_copy_md_nao_arrasta_a_stack_de_render():
+    """Formatar markdown nao pode exigir cairosvg.
+
+    O job de reparo de descricao morreu com ModuleNotFoundError importando
+    fabrica.py para chamar uma funcao que so conta segundos e junta texto.
+    """
+    import ast
+
+    arvore = ast.parse((RAIZ / "fabrica" / "copy_md.py").read_text(encoding="utf-8"))
+    importados = set()
+    for no in ast.walk(arvore):
+        if isinstance(no, ast.Import):
+            importados.update(a.name.split(".")[0] for a in no.names)
+        elif isinstance(no, ast.ImportFrom) and no.module:
+            importados.add(no.module.split(".")[0])
+
+    assert importados <= {"glob", "os", "__future__"}, (
+        f"copy_md.py so pode usar a biblioteca padrao leve; achei {importados}")

@@ -265,7 +265,22 @@ def montar(spec_file):
     cairosvg.svg2png(bytestring=tsvg.encode(), write_to=f"{d}/thumbnail.png", output_width=1280, output_height=720)
     print(slug, "assets ok")
 
+# Capitulos e copy.md vivem em copy_md.py: sao texto puro e nao podem exigir
+# cairosvg/edge_tts de quem so precisa deles (o job de reparo de descricao
+# morria importando esta stack inteira para formatar markdown).
+from copy_md import capitulos, credito_trilha, escrever_copy as _escrever_copy  # noqa: E402,F401
+from copy_md import trilha_do_canal as _trilha_do_canal  # noqa: E402
+
 TRILHA_DIR = "/tmp/trilhas"
+
+
+def trilha_do_canal(slug):
+    """Assinatura sonora do canal, validando o mp3 de verdade (ver trilha_ok)."""
+    return _trilha_do_canal(slug, trilha_ok)
+
+
+def escrever_copy(sp, tempos, d):
+    return _escrever_copy(sp, tempos, d, trilha_ok)
 # Sem `-shortest`: o corte era feito pelo audio (a narracao crua), o que comia
 # a folga de 0,5s no fim de cada cena — a fala terminava e a cena virava no
 # mesmo quadro. Quem limita a duracao e o `-t` do clipe, entao a folga volta.
@@ -280,61 +295,6 @@ def trilha_ok(f):
     except Exception:
         return False
 
-def capitulos(sp, tempos):
-    """Capitulos cronometrados a partir dos clipes RENDERIZADOS.
-
-    Os tempos saem do clipe renderizado, nunca do mp3: o mp3 nao inclui a
-    respiracao entre cenas, e o erro acumula ao longo de 50 cenas jogando os
-    capitulos do fim para depois do trecho que nomeiam.
-
-    O YouTube exige capitulo >= 10s e descarta a LISTA INTEIRA se um so violar.
-    Cena tem ~11s e algumas ficam abaixo, entao agrupa: so abre capitulo novo
-    depois de MIN_CAP segundos (o primeiro e sempre 0:00). Prefere abrir no
-    `titulo` — a cena que abre secao neste formato — para o capitulo levar nome
-    de secao e nao um slide qualquer do meio.
-    """
-    MIN_CAP, MAX_CAP = 60, 150
-    caps, t, ultimo = [], 0.0, -1e9
-    for i, c in enumerate(sp["longo"]):
-        dt = t - ultimo
-        # `sem_cap` marca cenas de passagem (ponte de fim de capitulo): sao
-        # layout `titulo` mas o texto delas nao nomeia secao nenhuma, e virava
-        # capitulo chamado "Bridge — ...", que nao ajuda ninguem a navegar.
-        pode = not c.get("sem_cap")
-        if i == 0 or (pode and dt >= MIN_CAP and c.get("layout") == "titulo") or (pode and dt >= MAX_CAP):
-            caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
-            ultimo = t
-        t += tempos[i]
-    return caps
-
-
-def escrever_copy(sp, tempos, d):
-    """Preenche {CAPITULOS} e {TRILHA} e grava copy.md no workdir.
-
-    Vivia dentro de `render()`, que o `etapas.py` nao chama — e por isso todo
-    pacote feito pela esteira sequencial ficava SEM copy.md. Medido em
-    13/08/2026: o seviye-seviye-002 subiu para o YouTube com "{CAPITULOS}"
-    literal na descricao, porque o publicar.py caiu no texto da spec.
-    """
-    caps = capitulos(sp, tempos)
-    # Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado.
-    faixa = trilha_do_canal(sp["slug"])
-    credito = "—" if not faixa else (
-        f"Music: {os.path.basename(faixa)[:-4].replace('_', ' ')} by Kevin MacLeod "
-        "(incompetech.com) — Licensed under Creative Commons: By Attribution 4.0\n"
-        "http://creativecommons.org/licenses/by/4.0/")
-    copy = (sp.get("copy") or "").replace("{CAPITULOS}", "\n".join(caps)) \
-                                 .replace("{TRILHA}", credito)
-    with open(f"{d}/copy.md", "w", encoding="utf-8") as f:
-        f.write(copy)
-    return copy
-
-
-def trilha_do_canal(slug):
-    """Faixa fixa por canal = assinatura sonora. CC-BY, credito no copy.md."""
-    import glob
-    fs = [f for f in sorted(glob.glob(f"{TRILHA_DIR}/*.mp3")) if trilha_ok(f)]
-    return fs[sum(map(ord, slug)) % len(fs)] if fs else None
 
 # Escala de render: o sandbox tem ~1GB de RAM e o zoompan e o maior consumidor.
 # Renderiza menor, entrega em HD (upscale no concat, passe unico).
