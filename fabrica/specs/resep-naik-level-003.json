@@ -1,0 +1,685 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-003",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "paleta": {
+  "ink": "#3A1008",
+  "c1": "#C1440E",
+  "c2": "#E8B84B",
+  "bg": "#FDF6EC"
+ },
+ "thumb": {
+  "l1": "HARGA NAIK TIAP MINGGU",
+  "l2": "anggaranmu tidak tahu"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Sabtu pagi",
+   "sub": "uang yang sama",
+   "nar": "Sabtu pagi, kamu ke pasar dengan uang yang sama seperti minggu lalu. Kantong belanjamu pulang lebih ringan. Kamu tidak salah hitung.",
+   "cap": "Sabtu pagi di pasar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa yang naik",
+   "preco": "lima ratus sampai seribu lima ratus",
+   "nar": "Pertengahan Agustus dua ribu dua puluh enam, harga beras di banyak daerah naik lima ratus sampai seribu lima ratus rupiah per kilogram.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dalam berapa lama",
+   "preco": "dua minggu",
+   "nar": "Kenaikan itu terjadi hanya dalam dua minggu. Bukan setahun, bukan sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan bukan sekali",
+   "preco": "awal Juni juga",
+   "nar": "Dan itu bukan kejadian tunggal. Awal Juni beras kualitas bawah sudah naik lebih dari tujuh persen dalam satu putaran.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rupiah ikut bergerak",
+   "preco": "menembus delapan belas ribu",
+   "nar": "Di bulan yang sama rupiah sempat menembus delapan belas ribu per dolar Amerika. Barang impor ikut terseret, dan minyak goreng termasuk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang kamu rasakan",
+   "preco": "bukan persen",
+   "nar": "Tapi kamu tidak merasakan persen. Kamu merasakan lauk yang mengecil di hari Kamis, dan itu jauh lebih jelas daripada grafik mana pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Reaksi pertama",
+   "preco": "menyalahkan diri sendiri",
+   "nar": "Reaksi pertama hampir selalu sama. Pasti aku yang boros. Pasti aku kurang pintar mengatur uang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Penjelasan itu nyaman",
+   "preco": "tapi tidak menjelaskan",
+   "nar": "Penjelasan itu nyaman karena cepat selesai. Tapi ia tidak menjelaskan kenapa jutaan rumah tangga mengalami hal yang sama di bulan yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada penjelasan lain",
+   "preco": "dan yang ini bisa diperbaiki",
+   "nar": "Ada penjelasan lain yang lebih sederhana. Dan yang satu ini bisa kamu perbaiki minggu ini juga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang kita bangun",
+   "itens": [
+    "Kenapa anggaran telat",
+    "Panel harga resmi",
+    "Tiga angka",
+    "Amplop yang bergerak",
+    "Kesalahan mahal"
+   ],
+   "nar": "Lima bagian. Kenapa anggaranmu selalu telat. Panel harga resmi yang gratis. Tiga angka yang dicatat. Amplop yang ikut bergerak. Dan kesalahan yang paling mahal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tidak perlu aplikasi",
+   "preco": "buku tulis cukup",
+   "nar": "Tidak perlu aplikasi dan tidak perlu langganan apa pun. Buku tulis biasa sudah cukup, dan justru itu yang paling awet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu hal dulu",
+   "preco": "ini bukan soal makan sedikit",
+   "nar": "Satu hal perlu jelas sejak awal. Ini bukan tentang makan lebih sedikit. Ini tentang tahu harga sebelum berdiri di depan pedagang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi",
+   "sub": "kenapa selalu telat?",
+   "nar": "Kalau begitu pertanyaannya berubah. Kenapa anggaran yang kamu susun rapi selalu kalah cepat dari harga?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anggaranmu",
+   "sub": "tahu harga bulan lalu",
+   "nar": "Jawabannya ada di tanggal. Anggaran yang kamu pakai hari ini dibuat dari harga bulan lalu, dan tidak ada yang memperbaruinya.",
+   "cap": "Anggaranmu tahu harga bulan lalu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara anggaran dibuat",
+   "preco": "dari ingatan",
+   "nar": "Kebanyakan anggaran dapur lahir dari ingatan. Kamu ingat beras kira-kira sekian, telur kira-kira sekian, lalu angka itu dipakai berbulan-bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ingatan tidak diperbarui",
+   "preco": "harga diperbarui tiap hari",
+   "nar": "Masalahnya ingatan tidak ikut naik. Harga di pasar berubah setiap hari, dan angka di kepalamu berhenti di hari kamu terakhir memperhatikannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Selisihnya kecil",
+   "preco": "sampai dikali tiga puluh",
+   "nar": "Selisih per barang memang kecil. Tapi ia dikalikan jumlah barang, lalu dikalikan jumlah hari, dan di situ ia berhenti terasa kecil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu sebabnya",
+   "preco": "uang habis lebih cepat",
+   "nar": "Itu sebabnya uang belanja habis lebih cepat tanpa kamu berbelanja lebih banyak. Isi kantongmu sama, isi anggaranmu yang ketinggalan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya penting",
+   "preco": "boros dan telat itu lain",
+   "nar": "Dan bedanya penting. Boros artinya kamu membeli lebih banyak. Telat artinya kamu membeli hal yang sama dengan angka yang sudah kedaluwarsa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang kedua bisa dibetulkan",
+   "preco": "tanpa mengurangi apa pun",
+   "nar": "Yang pertama minta kamu menahan diri. Yang kedua cuma minta angka yang benar, dan tidak menyuruhmu mengurangi apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa sering diperbarui",
+   "preco": "sekali seminggu cukup",
+   "nar": "Lalu seberapa sering angkanya harus diperbarui? Sekali seminggu sudah cukup, dan setiap hari malah membuat orang berhenti mencatat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dari mana angkanya",
+   "preco": "bukan dari tebakan",
+   "nar": "Pertanyaan berikutnya lebih penting. Angka yang benar itu diambil dari mana, kalau bukan dari tebakan sendiri?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bertanya ke pedagang",
+   "preco": "sudah terlambat",
+   "nar": "Bertanya ke pedagang saat sudah berdiri di lapak itu terlambat. Di titik itu kamu sedang menawar, bukan sedang merencanakan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bertanya ke tetangga",
+   "preco": "harga daerah lain",
+   "nar": "Bertanya ke tetangga juga meleset. Harga berbeda antar daerah, kadang cukup jauh, dan pengalaman orang lain bukan harga pasarmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Padahal",
+   "sub": "angkanya sudah ada",
+   "nar": "Padahal angka resminya sudah ada, diperbarui tiap hari, dan bisa dibuka gratis. Di mana?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Panel harga resmi",
+   "sub": "gratis, dan hampir tak dipakai",
+   "nar": "Pemerintah menerbitkan harga pangan harian lewat panel resmi. Badan Pangan Nasional punya satu, dan Bank Indonesia punya satu lagi.",
+   "cap": "Panel harga yang hampir tak dipakai"
+  },
+  {
+   "layout": "item",
+   "kicker": "Apa yang ada di sana",
+   "preco": "harga per komoditas",
+   "nar": "Di dalamnya ada harga per komoditas. Beras dan telur. Cabai dan gula. Minyak goreng dan daging ayam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Beras dipecah",
+   "preco": "per kualitas",
+   "nar": "Beras tidak ditulis sebagai satu angka. Ia dipecah per kualitas, dari bawah sampai super, karena yang kamu beli belum tentu yang diberitakan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ini yang sering keliru",
+   "preco": "berita pakai angka mana",
+   "nar": "Dan di situ letak salah paham yang sering terjadi. Berita menyebut satu angka, kamu membeli kualitas lain, lalu keduanya terasa tidak cocok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada per daerah juga",
+   "preco": "bukan rata-rata nasional",
+   "nar": "Panel itu juga memisahkan per provinsi. Rata-rata nasional hampir tidak berguna untuk dapurmu, karena kamu tidak belanja di rata-rata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa lama membukanya",
+   "preco": "kurang dari lima menit",
+   "nar": "Membukanya butuh kurang dari lima menit. Pilih daerahmu, catat komoditas yang kamu beli rutin, dan sudah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan untuk menawar",
+   "preco": "untuk merencanakan",
+   "nar": "Panel ini bukan alat menawar. Pedagang punya biaya sendiri dan harga eceran wajar berbeda dari harga acuan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gunanya lain",
+   "preco": "tahu arah, bukan menang debat",
+   "nar": "Gunanya adalah tahu arah. Naik, turun, atau diam. Itu saja sudah mengubah keputusan belanjamu minggu ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau naik",
+   "preco": "belanja lebih awal",
+   "nar": "Kalau arahnya naik, kamu memajukan belanja barang tahan lama. Bukan memborong, hanya memajukan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau turun",
+   "preco": "tunda yang bisa ditunda",
+   "nar": "Kalau arahnya turun, kamu menunda yang memang bisa ditunda. Keputusan yang sama, cuma pindah beberapa hari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau diam",
+   "preco": "jangan ubah apa pun",
+   "nar": "Dan kalau harganya diam, kamu tidak mengubah apa pun. Tidak melakukan apa pun juga sebuah keputusan, asal kamu tahu alasannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang",
+   "sub": "apa yang dicatat?",
+   "nar": "Panelnya sudah terbuka. Tinggal satu hal, dan ini bagian yang membuatnya jadi kebiasaan: apa yang kamu catat?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga angka",
+   "sub": "cuma tiga",
+   "nar": "Kamu mencatat tiga angka per komoditas. Bukan sepuluh, bukan semua isi panel. Tiga.",
+   "cap": "Tiga angka yang kamu catat"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Per komoditas",
+   "itens": [
+    "Harga panel",
+    "Harga yang kamu bayar",
+    "Selisihnya"
+   ],
+   "nar": "Harga di panel. Harga yang benar-benar kamu bayar. Dan selisih antara keduanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kolom pertama",
+   "preco": "harga panel hari itu",
+   "nar": "Kolom pertama diisi sebelum berangkat. Itu harga panel di hari itu, untuk daerahmu, untuk kualitas yang biasa kamu beli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kolom kedua",
+   "preco": "struk atau ingatan segar",
+   "nar": "Kolom kedua diisi sepulang belanja. Ambil dari struk, atau dari ingatan yang masih segar, bukan dari perkiraan minggu depan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kolom ketiga",
+   "preco": "yang paling berguna",
+   "nar": "Kolom ketiga adalah selisihnya, dan justru kolom itu yang paling berguna. Ia memberitahu berapa jarak antara acuan dan lapak langgananmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Selisih itu tetap",
+   "preco": "dan itu kabar baik",
+   "nar": "Untuk satu pedagang, selisih itu biasanya cukup stabil. Artinya setelah beberapa minggu kamu bisa menebak harga sebelum sampai di pasar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa komoditas",
+   "preco": "lima sampai delapan",
+   "nar": "Jangan mencatat semuanya. Lima sampai delapan komoditas yang paling sering kamu beli sudah menutup sebagian besar belanjamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau lebih dari itu",
+   "preco": "catatan berhenti",
+   "nar": "Kalau daftarnya terlalu panjang, catatan berhenti di minggu ketiga. Itu pola yang sama di semua kebiasaan baru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Kemana uangnya",
+   "itens": [
+    "Beras",
+    "Lauk",
+    "Sayur",
+    "Minyak"
+   ],
+   "alturas": [
+    100,
+    78,
+    45,
+    30
+   ],
+   "nar": "Dan ketika tiga bulan berlalu, kamu punya gambar. Bukan perasaan tentang apa yang mahal, tapi urutan yang bisa dilihat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gambar itu mengubah",
+   "preco": "urutan prioritas",
+   "nar": "Gambar itu mengubah keputusan. Barang di batang tertinggi layak dicari alternatifnya. Barang di batang terpendek tidak usah dipikirkan lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu menghemat tenaga",
+   "preco": "bukan cuma uang",
+   "nar": "Dan itu menghemat sesuatu yang jarang dihitung. Tenaga. Kamu berhenti menawar hal-hal yang tidak menggerakkan total belanjamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angkanya sudah ada",
+   "sub": "lalu uangnya bagaimana?",
+   "nar": "Sekarang angkanya kamu punya. Pertanyaan terakhir yang tersisa adalah soal uangnya sendiri:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Amplop",
+   "sub": "yang ikut bergerak",
+   "nar": "Sistem amplop sudah lama dipakai, dan ada satu hal yang membuatnya gagal belakangan ini. Amplopnya tidak pernah berubah isinya.",
+   "cap": "Amplop yang ikut bergerak"
+  },
+  {
+   "layout": "item",
+   "kicker": "Amplop tetap",
+   "preco": "harga tidak tetap",
+   "nar": "Kamu memasukkan jumlah yang sama tiap minggu, sementara harga di luar terus bergerak. Amplop yang diam melawan harga yang berjalan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Akibatnya",
+   "preco": "bukan hemat, tapi kurang",
+   "nar": "Akibatnya bukan hemat. Akibatnya kurang di hari Kamis, setiap minggu. Dan orang menyalahkan dirinya lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perbaikannya kecil",
+   "preco": "satu amplop tambahan",
+   "nar": "Perbaikannya kecil dan hanya butuh satu amplop lagi. Namanya amplop selisih.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isinya berapa",
+   "preco": "dari kolom ketiga",
+   "nar": "Isinya diambil dari kolom ketiga catatanmu. Kalau harga panel naik, kenaikan itu yang masuk ke amplop selisih.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau harga turun",
+   "preco": "isinya tidak diambil",
+   "nar": "Dan kalau harga turun, uang di amplop itu tidak diambil. Ia menumpuk, dan menjadi bantalan untuk minggu yang buruk berikutnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu yang membedakan",
+   "preco": "bantalan, bukan kejutan",
+   "nar": "Perbedaannya di situ. Kenaikan harga berhenti menjadi kejutan dan berubah menjadi pos yang sudah punya tempat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa besar bantalannya",
+   "preco": "biasanya kecil",
+   "nar": "Bantalan itu biasanya lebih kecil dari yang orang kira. Karena bukan seluruh belanja yang naik, hanya beberapa barang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan itu terlihat",
+   "preco": "di catatanmu sendiri",
+   "nar": "Dan itu terlihat di catatanmu sendiri, bukan di berita. Berita bicara tentang rata-rata; catatanmu bicara tentang dapurmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau uangnya tidak ada",
+   "preco": "dahulukan yang bergerak",
+   "nar": "Kalau amplop selisih tidak bisa diisi bulan ini, dahulukan komoditas yang paling bergerak. Beras hampir selalu masuk daftar itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan berarti berhasil selalu",
+   "preco": "ada bulan yang memang berat",
+   "nar": "Dan ini perlu dikatakan jujur. Ada bulan yang memang tidak cukup, dan catatan rapi tidak mengubah harga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang berubah",
+   "preco": "kamu tahu lebih awal",
+   "nar": "Yang berubah adalah waktunya. Kamu tahu di hari Senin, bukan di hari Kamis, dan seminggu lebih awal itu ruang untuk memutuskan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sistemnya sudah utuh",
+   "sub": "apa yang merusaknya?",
+   "nar": "Sampai di sini sistemnya sudah utuh. Tinggal mengenali empat hal yang paling sering merusaknya:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kesalahan pertama",
+   "sub": "memborong saat panik",
+   "nar": "Yang pertama adalah memborong ketika berita bilang harga naik. Terasa cerdas, dan hampir selalu merugikan.",
+   "cap": "Empat kesalahan yang mahal"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa merugi",
+   "preco": "uang terkunci",
+   "nar": "Uangmu terkunci di barang, dan sebagian barang itu rusak sebelum habis. Beras berkutu dan minyak berubah bau bukan hal langka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya dengan memajukan",
+   "preco": "jumlahnya",
+   "nar": "Memajukan belanja berbeda dari memborong. Memajukan artinya membeli jumlah yang sama lebih awal. Memborong artinya membeli jumlah yang lebih besar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan kedua",
+   "preco": "ganti merek tanpa hitung",
+   "nar": "Yang kedua adalah pindah ke merek lebih murah tanpa menghitung harga per satuan. Kemasan mengecil lebih sering daripada harga naik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara memeriksanya",
+   "preco": "bagi dengan isinya",
+   "nar": "Memeriksanya gampang. Bagi harga dengan gram atau mililiter yang tertulis, dan bandingkan angka itu, bukan angka di rak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan ketiga",
+   "preco": "mencatat tanpa tanggal",
+   "nar": "Yang ketiga adalah mencatat harga tanpa tanggal. Catatan tanpa tanggal tidak bisa dibandingkan, dan tiga bulan lagi ia cuma daftar angka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan keempat",
+   "preco": "memakai rata-rata nasional",
+   "nar": "Yang keempat adalah memakai angka rata-rata nasional untuk dapur sendiri. Itu angka yang benar untuk pertanyaan yang berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang menyatukan keempatnya",
+   "preco": "angka tanpa konteks",
+   "nar": "Keempatnya punya akar yang sama. Angka dipakai tanpa konteks, dan angka tanpa konteks memberi rasa yakin yang keliru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan itu lebih berbahaya",
+   "preco": "daripada tidak mencatat",
+   "nar": "Merasa yakin dengan angka yang salah lebih berbahaya daripada tidak mencatat sama sekali. Karena sekarang ada dokumen yang membenarkanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan satu kalimat",
+   "preco": "tanggal, daerah, kualitas",
+   "nar": "Satu kalimat menutup keempatnya. Setiap angka yang kamu catat punya tanggal, punya daerah, dan punya kualitas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lalu",
+   "sub": "bagaimana ini bertahan?",
+   "nar": "Sistemnya sekarang benar. Yang tersisa cuma satu, dan ini yang menentukan apakah ia masih hidup bulan depan:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bertahan",
+   "sub": "tiga kebiasaan",
+   "nar": "Catatan seperti ini mati karena rutinitas, tidak pernah karena rumusnya. Tiga kebiasaan sudah cukup.",
+   "cap": "Supaya ini bertahan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "hari dan jam yang tetap",
+   "nar": "Pertama, satu hari tetap dalam seminggu untuk membuka panel. Hari yang berpindah-pindah adalah kebiasaan yang tidak pernah terbentuk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "satu buku, bukan banyak kertas",
+   "nar": "Kedua, satu buku saja. Catatan yang tersebar di banyak kertas dan banyak aplikasi hilang dalam dua bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "preco": "satu orang yang bertanggung jawab",
+   "nar": "Ketiga, satu orang yang memegangnya. Catatan milik semua orang adalah catatan milik siapa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bagi tugasnya",
+   "preco": "kalau berdua",
+   "nar": "Kalau di rumah ada dua orang dewasa, bagi tugasnya. Satu membuka panel, satu mengisi kolom belanja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang jangan dilakukan",
+   "preco": "menyalahkan lewat catatan",
+   "nar": "Satu hal yang jangan dilakukan. Jangan memakai catatan itu untuk menyalahkan siapa pun di rumah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau itu terjadi",
+   "preco": "catatan berhenti diisi",
+   "nar": "Begitu catatan berubah jadi alat menyalahkan, ia berhenti diisi dengan jujur. Dan catatan yang tidak jujur lebih buruk daripada tidak ada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ringkasnya",
+   "itens": [
+    "Panel dulu",
+    "Tiga kolom",
+    "Amplop selisih",
+    "Tanggal dan daerah",
+    "Satu pemegang"
+   ],
+   "nar": "Ringkasnya begini. Buka panel sebelum belanja. Catat tiga kolom. Sediakan amplop selisih. Beri tanggal dan daerah. Dan tunjuk satu pemegang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bagian yang jarang dilakukan",
+   "preco": "kolom selisih",
+   "nar": "Bagian yang hampir tidak pernah dilakukan orang adalah kolom selisih. Tanpa dia, catatanmu cuma daftar harga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau cuma satu hal",
+   "preco": "buka panelnya sekali",
+   "nar": "Kalau kamu hanya melakukan satu hal setelah video ini, buka panel harga untuk daerahmu satu kali. Cuma satu kali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Waktunya",
+   "preco": "lebih cepat dari antre",
+   "nar": "Itu memakan waktu lebih sedikit daripada mengantre di kasir. Dan angka pertama yang kamu lihat biasanya sudah mengubah daftar belanjamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "uang dapur, bukan resep",
+   "nar": "Kalau kamu sudah membuka panelnya, tulis di komentar berapa selisih beras di daerahmu. Aku sedang mengumpulkan angka itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "uang dapur, bukan resep",
+   "nar": "Dan kalau ada pos belanja lain yang mau dibedah, sebutkan. Yang paling banyak diminta akan dibuat lebih dulu.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Uang belanja habis",
+   "sub": "bukan karena boros",
+   "nar": "Uang belanjamu habis lebih cepat, dan kemungkinan besar bukan karena kamu boros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Penyebabnya",
+   "preco": "anggaran kedaluwarsa",
+   "nar": "Anggaranmu memakai harga bulan lalu. Harga di pasar berubah tiap hari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak dipakai orang",
+   "preco": "panel harga resmi",
+   "nar": "Badan Pangan Nasional menerbitkan harga harian per daerah dan per kualitas. Gratis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Catat tiga angka",
+   "preco": "panel, bayar, selisih",
+   "nar": "Harga panel, harga yang kamu bayar, dan selisihnya. Selisih itu yang menebak harga minggu depan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "sistem lengkapnya",
+   "nar": "Buka panelnya sekali minggu ini. Sistem lengkapnya ada di video panjang.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Sistem uang dapur saat harga bergerak\n\n## JUDUL\n5 Strategi Ibu Mengatur Uang Dapur Saat Harga Beras Naik Tiap Minggu (2026)\n\n## DESKRIPSI\nSabtu pagi kamu ke pasar dengan uang yang sama seperti minggu lalu, dan kantong belanjamu pulang lebih ringan. Kamu tidak salah hitung.\n\nPertengahan Agustus 2026 harga beras di banyak daerah naik antara Rp500 dan Rp1.500 per kilogram hanya dalam dua minggu. Awal Juni beras kualitas bawah sudah naik lebih dari tujuh persen dalam satu putaran, di bulan yang sama ketika rupiah sempat menembus Rp18.000 per dolar Amerika.\n\nReaksi pertama hampir selalu sama: pasti aku yang boros. Penjelasan itu nyaman karena cepat selesai, tapi ia tidak menjelaskan kenapa jutaan rumah tangga mengalami hal yang sama di bulan yang sama.\n\nAda penjelasan lain yang lebih sederhana, dan yang ini bisa diperbaiki minggu ini juga: anggaranmu memakai harga bulan lalu, dan tidak ada yang memperbaruinya. Boros artinya kamu membeli lebih banyak. Telat artinya kamu membeli hal yang sama dengan angka yang sudah kedaluwarsa. Yang kedua tidak menyuruhmu mengurangi apa pun.\n\nVideo ini membangun sistemnya dari nol, tanpa aplikasi dan tanpa langganan. Buku tulis biasa sudah cukup.\n\nIsinya: kenapa anggaran dapur selalu kalah cepat dari harga, dan kenapa selisih kecil per barang berhenti terasa kecil setelah dikalikan jumlah barang dan jumlah hari.\n\nPanel harga resmi yang hampir tidak dipakai siapa pun. Badan Pangan Nasional dan Bank Indonesia menerbitkan harga pangan harian, dipecah per komoditas, per kualitas beras dari bawah sampai super, dan per daerah. Rata-rata nasional hampir tidak berguna untuk dapurmu, karena kamu tidak belanja di rata-rata.\n\nTiga angka yang kamu catat per komoditas: harga panel sebelum berangkat, harga yang benar-benar kamu bayar, dan selisih antara keduanya. Kolom ketiga yang paling berguna, karena selisih terhadap pedagang langgananmu biasanya stabil — setelah beberapa minggu kamu bisa menebak harga sebelum sampai di pasar. Cukup lima sampai delapan komoditas; daftar yang terlalu panjang berhenti diisi di minggu ketiga.\n\nAmplop selisih: kenapa sistem amplop gagal belakangan ini, dan perbaikan kecil yang membuat kenaikan harga berhenti menjadi kejutan dan berubah menjadi pos yang sudah punya tempat.\n\nDan empat kesalahan yang paling mahal, termasuk memborong saat panik (uangmu terkunci di barang, sebagian rusak sebelum habis), pindah merek tanpa menghitung harga per satuan karena kemasan mengecil lebih sering daripada harga naik, dan mencatat angka tanpa tanggal.\n\nSatu kalimat menutup semuanya: setiap angka yang kamu catat punya tanggal, punya daerah, dan punya kualitas.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR\nSatu pertanyaan, karena jawabannya pasti berbeda-beda: berapa selisih harga beras antara panel resmi dan lapak langgananmu di daerahmu? Aku sedang mengumpulkan angka itu untuk video berikutnya. Sebutkan juga daerahmu, karena tanpa itu angkanya tidak bisa dibandingkan.\n\n## HASHTAG\n#UangDapur #HargaBeras #ResepNaikLevel\n\n## TAG\nuang dapur, atur uang belanja, harga beras 2026, panel harga pangan, belanja hemat, ibu rumah tangga, keuangan rumah tangga, sistem amplop, harga sembako, inflasi pangan, catatan belanja, hemat belanja bulanan, bapanas, harga pangan harian, dapur hemat\n\n## PENGATURAN STUDIO\n- Bahasa: Indonesia (id) | Kategori: Pendidikan (27)\n- Bukan untuk anak-anak\n- Pengungkapan konten yang diubah atau sintetis: YA (suara dibuat dengan AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan tengah: aktif (durasi di atas delapan menit)\n\n## MUSIK / LISENSI\n{TRILHA}\n\n## CATATAN SUMBER\nAngka kenaikan harga di video ini berasal dari laporan media Indonesia pada Juni dan Agustus 2026 yang saling bersesuaian: kenaikan beras premium dan medium sekitar Rp500 sampai Rp1.500 per kilogram dalam dua minggu di pertengahan Agustus 2026, kenaikan beras kualitas bawah lebih dari tujuh persen pada awal Juni 2026, dan nilai tukar rupiah yang sempat menembus Rp18.000 per dolar Amerika pada periode yang sama. Angka-angka itu BERUBAH CEPAT dan sengaja tidak dijadikan dasar perhitungan mana pun di video ini — justru itu alasan sistemnya mengambil harga dari panel resmi, bukan dari angka yang disebut di sini. Harga harian resmi dapat diperiksa sendiri di Panel Harga Pangan Badan Pangan Nasional dan di Pusat Informasi Harga Pangan Strategis Bank Indonesia, keduanya gratis dan dipisahkan per daerah serta per kualitas. Video ini adalah materi edukasi tentang cara menyusun catatan belanja rumah tangga; ini bukan nasihat keuangan, bukan nasihat investasi, dan bukan rekomendasi membeli komoditas apa pun.\n"
+}
