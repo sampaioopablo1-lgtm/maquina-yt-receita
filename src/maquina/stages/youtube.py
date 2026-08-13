@@ -13,10 +13,17 @@ log = logging.getLogger("maquina.youtube")
 
 # Usado SO na autenticacao interativa (`maquina auth-youtube`), para pedir o
 # consentimento. Nao serve para carregar token ja emitido: ver _credenciais.
+#
+# yt-analytics.readonly presente desde 13/08 (aprendizados #144, fabrica/escopos.py):
+# sem ele o token nunca devolve retencao/CTR/impressoes, so views acumuladas via
+# Data API - confirmado nas 13 metricas mais recentes do Supabase, todas com esses
+# campos NULL. So afeta consentimento NOVO (ver _credenciais: o refresh de token
+# ja emitido nao forca esta lista, entao tokens existentes nao quebram).
 ESCOPOS = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",
     "https://www.googleapis.com/auth/youtube.force-ssl",
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
 ]
 
 # Escopo obrigatorio para captions.insert. Esta na lista acima, mas ESTAR NA
