@@ -75,6 +75,22 @@ jobs:
           echo "matriz=$MATRIZ" >> "$GITHUB_OUTPUT"
           echo "quantos=$(echo "$MATRIZ" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
 
+      # Um video no canal errado nao aparece como falha em lugar nenhum —
+      # aparece como pauta que nao pegou. Medido em 14/08/2026: o pacote
+      # resep-naik-level-002 inteiro foi para o canal do setiap-level e marcou
+      # 0,0 views/dia, e a leitura obvia teria sido reescrever o roteiro.
+      #
+      # `continue-on-error` de proposito: isto e informe, nao portao. Bloquear
+      # o disparo da frota por causa de um video ja publicado no lugar errado
+      # nao conserta o video e para a producao dos outros doze canais.
+      - name: Auditar canal de destino
+        continue-on-error: true
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          python3 fabrica/auditoria_canal.py | tee -a "$GITHUB_STEP_SUMMARY"
+
       # O informe vai para o banco, nao so para a aba de Actions: a rotina
       # horaria le config e repassa ao Pablo. Aba de Actions ninguem abre.
       - name: Guardar o informe no banco

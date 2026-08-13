@@ -322,3 +322,42 @@ def test_short_de_producao_cabe_na_faixa_de_shorts(spec):
         pytest.skip("voz sem modelo medido")
     d = duracao_estimada(sp["short"], sp["voz"])
     assert prontidao.SHORT_MIN_S <= d <= prontidao.SHORT_MAX_S, f"{d:.0f} s"
+
+
+# --------------------------------------------------------------------------
+# Canal de destino. Medido em 14/08/2026: o pacote resep-naik-level-002 inteiro
+# foi publicado no canal do setiap-level. Nenhuma trava pegava, porque quem
+# escolhe o destino e o perfil da Upload-Post e nao a spec.
+
+def test_auditoria_de_canal_separa_certo_de_errado(monkeypatch):
+    """A logica do audit, sem depender de rede.
+
+    O caso real tinha 41 videos certos e 2 errados; aqui o que se prova e que
+    ele nao confunde os dois, e que video que a API nao devolve vira AUSENTE em
+    vez de virar 'canal errado' — sumido e removido, nao e mal publicado.
+    """
+    import auditoria_canal as A
+
+    monkeypatch.setattr(A, "canais_registrados",
+                        lambda u, k: {"resep-naik-level": "UC_RESEP",
+                                      "setiap-level": "UC_SETIAP"})
+    monkeypatch.setattr(A, "publicados", lambda u, k, s=None: [
+        {"canal": "resep-naik-level", "pacote": "rnl-002", "formato": "longo",
+         "youtube_id": "ERRADO"},
+        {"canal": "setiap-level", "pacote": "sl-005", "formato": "longo",
+         "youtube_id": "CERTO"},
+        {"canal": "setiap-level", "pacote": "sl-006", "formato": "longo",
+         "youtube_id": "SUMIU"},
+    ])
+    monkeypatch.setattr(A, "token_do_canal", lambda s, u, k: {})
+    monkeypatch.setattr(A, "access_token", lambda t: "x")
+    monkeypatch.setattr(A, "canal_real", lambda acc, ids: {
+        i: {"ERRADO": ("UC_SETIAP", "Setiap Level"),
+            "CERTO": ("UC_SETIAP", "Setiap Level")}[i]
+        for i in ids if i in ("ERRADO", "CERTO")})
+
+    ok, erradas, ausentes = A.audita("u", "k")
+    assert ok == 1
+    assert [e[0]["youtube_id"] for e in erradas] == ["ERRADO"]
+    assert [a["youtube_id"] for a in ausentes] == ["SUMIU"]
+    assert erradas[0][2] == "setiap-level"
