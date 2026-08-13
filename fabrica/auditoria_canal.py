@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import urllib.parse
 
@@ -106,6 +107,33 @@ def audita(sb_url, sb_key, slug=None):
     return ok, erradas, ausentes
 
 
+def ja_publicado_pelo_titulo(copys, sb_url, sb_key):
+    """Quais destes copy.md do bucket descrevem um video que JA esta no ar.
+
+    Cruza por TITULO, nunca por nome de pacote. Medido em 15/08/2026: o mesmo
+    render vive no bucket sob DOIS nomes — o da spec (kolejny-poziom-002) e o
+    da rodada (kp-plan-9233-20260811) — e `videos.pacote` guarda o segundo.
+    Cruzando por nome, tres renders ja publicados apareceram como ineditos, e
+    eu so nao publiquei as tres duplicatas porque li o copy.md antes de subir.
+
+    O titulo e o que o espectador ve, entao e ele que decide se e o mesmo
+    video. `copys` e uma lista de (nome_do_objeto, texto_do_copy_md) — quem
+    chama baixa, porque listar o bucket exige service role no Storage e esta
+    funcao nao inventa rota.
+    """
+    no_ar = {(l.get("titulo") or "").strip().casefold()
+             for l in _sb("videos?youtube_id=not.is.null&select=titulo",
+                          sb_url, sb_key)
+             if l.get("titulo")}
+
+    veredito = []
+    for nome, texto in copys:
+        m = re.search(r"^## +[^\n]*\n+(.+)$", texto, re.M)
+        titulo = (m.group(1).strip() if m else "")
+        veredito.append((nome, titulo, titulo.casefold() in no_ar))
+    return veredito
+
+
 def main() -> int:
     sb_url = os.environ["SUPABASE_URL"].rstrip("/")
     sb_key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
@@ -129,3 +157,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

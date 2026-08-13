@@ -538,3 +538,31 @@ def test_rebuild_de_spec_nao_apaga_copy_pronta():
                    env={**os.environ, "PYTHONPATH": str(RAIZ / "fabrica")})
     depois = json.loads(alvo.read_text(encoding="utf-8"))["copy"]
     assert depois == antes, "o rebuild trocou a copy"
+
+
+def test_cruzar_por_titulo_pega_render_ja_publicado(monkeypatch):
+    """O mesmo render vive no bucket sob DOIS nomes.
+
+    Medido em 15/08/2026: `2026-08-11-kolejny-poziom-002-*` e o render do
+    pacote `kp-plan-9233-20260811`, que ja estava no ar desde 11/08. Cruzando
+    storage.objects com videos por NOME DE PACOTE, ele aparecia inedito — e o
+    mesmo valia para epomeno-epipedo-003 e seviye-seviye-002. Tres duplicatas
+    a um passo de subir.
+    """
+    import auditoria_canal as A
+
+    monkeypatch.setattr(A, "_sb", lambda q, u, k: [
+        {"titulo": "Jak ułożyć finanse przy średniej pensji 9233 zł? Konkretny plan na 2026"},
+        {"titulo": "The Economics of the Dutch East India Company: The $7.9 Trillion Myth"},
+    ])
+    copys = [
+        ("2026-08-11-kolejny-poziom-002-copy.md",
+         "# Kolejny Poziom — kp-plan-9233-20260811\n\n## Tytuł (YouTube)\n"
+         "Jak ułożyć finanse przy średniej pensji 9233 zł? Konkretny plan na 2026\n"),
+        ("2026-08-05-next-level-money-003-copy.md",
+         "# Credit Bureaus\n\n## TITLE\n"
+         "The Economics Behind Credit Bureaus: You Are the Product, Not the Customer\n"),
+    ]
+    r = dict((n, ja) for n, _t, ja in A.ja_publicado_pelo_titulo(copys, "u", "k"))
+    assert r["2026-08-11-kolejny-poziom-002-copy.md"] is True     # duplicata
+    assert r["2026-08-05-next-level-money-003-copy.md"] is False  # inedito
