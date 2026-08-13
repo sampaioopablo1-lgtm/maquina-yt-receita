@@ -154,10 +154,11 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        # --idioma vem da MATRIZ, nao da spec: nenhuma das 22 specs declarava
-        # `idioma`, entao todas caiam no default "en" — um video em hindi
-        # subiria marcado como ingles em defaultLanguage, defaultAudioLanguage
-        # e na faixa de legenda.
+        # --idioma pode vir vazio: o publicar.py resolve por
+        # config/canais/<slug>.yaml, que e onde os treze canais declaram idioma
+        # desde sempre. A matriz continua vencendo quando preenchida, mas nao e
+        # mais a UNICA fonte — repetir o idioma a mao em cada disparo e como um
+        # video em hindi subia marcado como ingles.
         run: |
           python3 fabrica/publicar.py spec.json \
             --canal "${{ matrix.canal }}" \

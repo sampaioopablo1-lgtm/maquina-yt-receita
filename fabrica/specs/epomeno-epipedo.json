@@ -1,6 +1,6 @@
 {
  "slug": "epomeno-epipedo",
- "voz": "el-GR-NestorasNeural",
+ "pacote": "epomeno-epipedo", "voz": "el-GR-NestorasNeural",
  "paleta": {
   "ink": "#1A1A1A",
   "c1": "#2E86AB",

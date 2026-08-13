@@ -39,6 +39,30 @@ import uuid
 API = "https://www.googleapis.com/youtube/v3"
 UPLOAD = "https://www.googleapis.com/upload/youtube/v3"
 
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def idioma_do_canal(slug):
+    """Le o idioma declarado em config/canais/<slug>.yaml.
+
+    Esta e a fonte de verdade: os treze canais declaram idioma la desde sempre,
+    um por arquivo, e e o mesmo valor que a rotina usa para escolher a voz. A
+    matriz do frota.yml repetia esse valor a mao — e valor repetido a mao e
+    valor que uma hora diverge, calado, num campo que ninguem confere depois de
+    publicado.
+
+    Le com regex de proposito: o passo de publicacao do frota.yml instala
+    `edge-tts cairosvg pydantic pillow`, sem PyYAML. Um `import yaml` aqui
+    derrubaria a publicacao com ModuleNotFoundError DEPOIS do render — o mesmo
+    acoplamento que ja matou o reparar-copy com `import cairosvg`.
+    """
+    caminho = os.path.join(RAIZ, "config", "canais", f"{slug}.yaml")
+    if not os.path.exists(caminho):
+        return ""
+    with open(caminho, encoding="utf-8") as f:
+        m = re.search(r'^\s*idioma:\s*"?([\w-]+)"?', f.read(), re.M)
+    return m.group(1) if m else ""
+
 
 def _ctx():
     """Um proxy que re-termina TLS quebra o edge-tts e tambem estas chamadas se
@@ -417,11 +441,20 @@ def main():
     sp = json.load(open(args.spec))
     d = args.dir or f"/tmp/f/{sp.get('pacote') or sp['slug']}"
     # O idioma decide defaultLanguage e defaultAudioLanguage do video, e a
-    # linguagem da faixa de legenda. Nenhuma spec do repositorio declarava
-    # `idioma`, entao todas caiam no "en" — o que poria um video em hindi no
-    # ar marcado como ingles. A matriz do frota.yml SEMPRE carrega o idioma
-    # certo; ela e que manda, e a spec fica como plano B.
-    idioma = args.idioma or sp.get("idioma") or "en"
+    # linguagem da faixa de legenda. Tres fontes, da mais explicita para a mais
+    # estavel: o argumento, a spec, e o config/canais/<slug>.yaml.
+    #
+    # O default "en" que estava aqui era o defeito: 21 das 24 specs nao
+    # declaram `idioma`, entao qualquer disparo que esquecesse --idioma poria
+    # o video no ar marcado como ingles — em grego, em hindi, em polones. Nao
+    # ha default seguro para idioma, do mesmo jeito que nao ha para o pacote.
+    idioma = args.idioma or sp.get("idioma") or idioma_do_canal(args.canal)
+    if not idioma:
+        raise SystemExit(
+            f"idioma indefinido para o canal {args.canal}: nao veio em --idioma, "
+            f"nem na spec, nem em config/canais/{args.canal}.yaml. Publicar assim "
+            f"marcaria o video na lingua errada."
+        )
 
     if args.reparar:
         return reparar(args, sp, d, sb_url, sb_key)
