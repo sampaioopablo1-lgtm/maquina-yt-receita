@@ -57,10 +57,25 @@ def _ffmpeg(args: list[str]) -> None:
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *args], check=True)
 
 
+# Ruido inaudivel, NAO silencio digital. `anullsrc` produz amostras exatamente
+# zero, e o loudnorm=I=-14 da esteira precisa de ganho infinito para levar zero
+# a -14 LUFS: o encoder AAC recebe NaN/Inf e o clipe morre com "Input contains
+# (near) NaN/+-Inf".
+#
+# Medido em 13/08/2026: com anullsrc a agla-level-003 quebrou na cena 65 de 72,
+# e o game-money-lab-002 passou inteiro — a falha depende do trecho, entao um
+# ensaio com silencio puro reprova specs BOAS de forma intermitente, que e o
+# pior defeito possivel numa ferramenta de conferencia.
+#
+# -60 dBFS e inaudivel e da ao loudnorm um sinal finito para medir.
+AMPLITUDE = 0.001   # ~-60 dBFS
+
+
 def silencio(segundos: float, alvo: str) -> None:
-    """mp3 mudo de duracao exata. lavfi anullsrc nao precisa de rede."""
-    _ffmpeg(["-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
-             "-t", f"{max(segundos, 0.4):.3f}", "-q:a", "9", alvo])
+    """mp3 de duracao exata com ruido inaudivel. lavfi nao precisa de rede."""
+    _ffmpeg(["-f", "lavfi",
+             "-i", f"anoisesrc=r=24000:c=pink:a={AMPLITUDE}",
+             "-t", f"{max(segundos, 0.4):.3f}", "-ac", "1", "-q:a", "9", alvo])
 
 
 def trilhas_falsas(destino: str) -> int:
@@ -117,10 +132,20 @@ def ensaia(spec_caminho: str) -> dict:
               for a in ("video.mp4", "short.mp4", "thumbnail.png",
                         "legendas.srt", "copy.md")
               if os.path.exists(os.path.join(d, a))}
+
+    # A saida INTEIRA vai para o disco. Truncar aqui ja me custou uma
+    # investigacao: o corte pelos ultimos 900 chars comeu o inicio da linha de
+    # comando do ffmpeg, eu reproduzi o comando SEM o PNG base e persegui um
+    # "stream specifier matches no streams" que nunca existiu.
+    log = os.path.join(d, "ensaio.log")
+    with open(log, "w", encoding="utf-8") as f:
+        f.write(p.stdout or "")
+        f.write("\n--- stderr ---\n")
+        f.write(p.stderr or "")
     return {
         "spec": nome, "ok": p.returncode == 0, "segundos": round(gasto, 1),
-        "mp3_gerados": feitos, "taxa": t, "saidas": saidas,
-        "erro": (p.stderr or p.stdout)[-900:] if p.returncode else "",
+        "mp3_gerados": feitos, "taxa": t, "saidas": saidas, "log": log,
+        "erro": (p.stderr or p.stdout).strip().splitlines()[-6:] if p.returncode else [],
     }
 
 
@@ -141,8 +166,9 @@ def main() -> int:
         print(f"{marca} {r['spec']:24} {r['segundos']:7.1f}s  {arte}")
         if not r["ok"]:
             falhou += 1
-            for linha in r["erro"].splitlines()[-12:]:
+            for linha in r["erro"]:
                 print("        ", linha)
+            print(f"         (saida completa em {r['log']})")
     print(f"\n-> {len(alvos) - falhou}/{len(alvos)} chegaram ao fim da esteira")
     return 1 if falhou else 0
 

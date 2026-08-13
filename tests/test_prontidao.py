@@ -135,3 +135,35 @@ def test_toda_spec_com_copy_real_passa_no_portao_copy(spec):
     if not re.search(r"-\d{3}$", spec.stem):
         pytest.skip("spec v1 sem sufixo de pacote, fora da producao")
     assert not prontidao._gate_copy(sp), f"{spec.stem}: {prontidao._gate_copy(sp)}"
+
+
+def test_portao_de_glifos_morde_quando_nenhuma_fonte_cobre(monkeypatch):
+    """A logica do portao, provada sem depender das fontes desta maquina.
+
+    Nao da para exercitar isto com um caractere de verdade aqui: o container da
+    sessao cobre TODO codepoint alfabetico testado (medido em 13/08/2026, nem
+    Osage nem Cuneiforme ficam em zero). Um teste que dependesse disso passaria
+    por acidente e nao provaria nada — entao a contagem de fontes e substituida.
+    """
+    monkeypatch.setattr(prontidao, "_fontes_que_cobrem", lambda cp: 0)
+    faltas = prontidao._gate_glifos(
+        {"longo": [{"kicker": "abc"}], "short": [], "thumb": {}}
+    )
+    assert faltas and "tofu" in faltas[0]
+
+
+def test_portao_de_glifos_ignora_o_nar_do_longo(monkeypatch):
+    """O `nar` do longo vai para o .srt, que o YouTube renderiza com as fontes
+    do espectador — nao passa pela fabrica e nao pode reprovar a spec."""
+    monkeypatch.setattr(prontidao, "_fontes_que_cobrem", lambda cp: 0)
+    assert not prontidao._gate_glifos(
+        {"longo": [{"nar": "texto so na narracao"}], "short": [], "thumb": {}}
+    )
+
+
+def test_portao_de_glifos_cobre_a_legenda_queimada_do_short(monkeypatch):
+    """O `nar` do SHORT vira legenda queimada no pixel — esse entra."""
+    monkeypatch.setattr(prontidao, "_fontes_que_cobrem", lambda cp: 0)
+    assert prontidao._gate_glifos(
+        {"longo": [], "short": [{"nar": "legenda queimada"}], "thumb": {}}
+    )

@@ -118,10 +118,78 @@ def _gate_layout(sp):
         return [f"AMBIENTE, nao a spec: {e}"]
 
 
+_COBERTURA: dict[int, int] = {}
+
+
+def _fontes_que_cobrem(cp: int) -> int:
+    """Quantas fontes instaladas tem glifo para este codepoint."""
+    import subprocess
+
+    if cp not in _COBERTURA:
+        r = subprocess.run(["fc-list", f":charset={cp:#x}"],
+                           capture_output=True, text=True)
+        _COBERTURA[cp] = len([l for l in r.stdout.splitlines() if l.strip()])
+    return _COBERTURA[cp]
+
+
+def _gate_glifos(sp):
+    """Nenhum caractere de TELA pode cair em tofu.
+
+    `usar_fonte` ja protege a spec que DECLARA fonte — ele aborta se a familia
+    nao estiver instalada. O que ele nao cobre e a spec que NAO declara: ela usa
+    o DejaVu Sans e o fontconfig escolhe um fallback sozinho. Se nenhuma fonte
+    da maquina tiver o glifo, o resultado nao e vazio, e TOFU: o retangulo
+    branco. Tofu tem tinta, entao passa no visual.py e no layout.py, e so
+    aparece assistindo ao video.
+
+    ATENCAO, e o que mais importa aqui: a resposta deste portao so vale na
+    MAQUINA QUE VAI RENDERIZAR. O container desta sessao tem cobertura Noto
+    muito mais larga que o runner do frota.yml, que instala apenas
+    fonts-noto-core e fonts-noto-cjk — medido em 13/08/2026, aqui nao existe
+    um so codepoint alfabetico com zero fontes, entao rodar isto aqui aprova
+    coisa que o runner transformaria em tofu. Por isso o frota.yml chama este
+    modulo ANTES do render, junto com o layout.py: la o resultado e verdadeiro.
+
+    O corpus de hoje tem duas escritas nao latinas — grego (64 fontes aqui) e
+    devanagari (13, e a agla-level-003 ainda declara a familia certa). Nenhuma
+    corre risco agora; este portao existe para a proxima spec, nao para as de
+    hoje.
+
+    So o texto de TELA entra: kicker, sub, preco, itens, thumb, e o `nar` do
+    short (que vira legenda queimada). O `nar` do longo vai para o .srt, que o
+    YouTube renderiza com as fontes do espectador.
+    """
+    alvos = []
+    for c in sp.get("longo") or []:
+        for k in ("kicker", "sub", "preco"):
+            if c.get(k):
+                alvos.append(c[k])
+        alvos.extend(c.get("itens") or [])
+    for c in sp.get("short") or []:
+        for k in ("kicker", "sub", "preco", "nar"):
+            if c.get(k):
+                alvos.append(c[k])
+        alvos.extend(c.get("itens") or [])
+    for k in ("l1", "l2"):
+        if (sp.get("thumb") or {}).get(k):
+            alvos.append(sp["thumb"][k])
+
+    sem_glifo = sorted({
+        ch for ch in "".join(alvos)
+        if ch.isalpha() and _fontes_que_cobrem(ord(ch)) == 0
+    })
+    if not sem_glifo:
+        return []
+    amostra = " ".join(f"{ch!r} (U+{ord(ch):04X})" for ch in sem_glifo[:8])
+    return [f"{len(sem_glifo)} caractere(s) sem fonte nesta maquina — sairiam "
+            f"como tofu: {amostra}"]
+
+
 PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
     ("copy", lambda c, s: _gate_copy(s)),
     ("narracao", lambda c, s: _gate_narracao(c)),
+    ("glifos", lambda c, s: _gate_glifos(s)),
     ("layout", lambda c, s: _gate_layout(s)),
 )
 
