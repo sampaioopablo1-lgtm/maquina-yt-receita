@@ -1,5 +1,6 @@
 {
  "slug": "game-money-lab",
+ "pacote": "game-money-lab-002",
  "voz": "en-GB-RyanNeural",
  "paleta": {
   "ink": "#2A1E4F",
@@ -124,7 +125,7 @@
    "kicker": "The compounding part",
    "sub": "cost per year x number of years",
    "cap": "Why the two multiply",
-   "nar": "And here is why those two multiply rather than add. Budget is roughly team cost per year times number of years. If salaries rise thirty percent and the cycle stretches from four years to six, the total does not rise thirty percent. It nearly doubles."
+   "nar": "And here is why those two multiply rather than add. Budget is roughly team cost per year times number of years. If salaries rise thirty percent while the cycle stretches from four years to six, the total does not rise in proportion. It nearly doubles."
   },
   {
    "layout": "lista",

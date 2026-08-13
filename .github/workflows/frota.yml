@@ -145,7 +145,14 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python3 fabrica/publicar.py spec.json --canal "${{ matrix.canal }}"
+        # --idioma vem da MATRIZ, nao da spec: nenhuma das 22 specs declarava
+        # `idioma`, entao todas caiam no default "en" — um video em hindi
+        # subiria marcado como ingles em defaultLanguage, defaultAudioLanguage
+        # e na faixa de legenda.
+        run: |
+          python3 fabrica/publicar.py spec.json \
+            --canal "${{ matrix.canal }}" \
+            --idioma "${{ matrix.idioma }}"
 
       # O video fica disponivel mesmo se a publicacao falhar — o render custa
       # caro e nao se refaz por causa de um 4xx da API.

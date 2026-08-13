@@ -1,5 +1,6 @@
 {
  "slug": "nivel-do-jogo",
+ "pacote": "nivel-do-jogo-002",
  "voz": "pt-BR-AntonioNeural",
  "paleta": {
   "ink": "#1B4332",
@@ -180,7 +181,7 @@
     "NBA 2K26 e WWE 2K26"
    ],
    "cap": "Os reclassificados",
-   "nar": "O Ministério da Justiça reclassificou para dezoito anos uma lista de títulos por causa da mecânica de caixa: Roblox, EA Sports FC vinte e seis, NBA dois K vinte e seis, WWE dois K vinte e seis e MLB The Show vinte e seis. Jogos que até ontem estavam na estante infantil."
+   "nar": "O Ministério da Justiça reclassificou para dezoito anos uma lista de títulos por causa da mecânica de caixa. Entre eles: Roblox, EA Sports FC vinte e seis e NBA dois K vinte e seis. Também WWE dois K vinte e seis e MLB The Show vinte e seis. Jogos que até ontem estavam na estante infantil."
   },
   {
    "layout": "lista",

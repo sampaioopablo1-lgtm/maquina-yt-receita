@@ -127,8 +127,20 @@ def idioma_de(spec, forcado=None):
     return IDIOMA_BASE.get(tag, tag[:2] or "en")
 
 
+# Fim de frase em devanagari e o DANDA (।), nao o ponto. Sem ele, todo roteiro
+# em hindi virava UMA frase so: o agla-level-003 foi acusado de "4 numeros numa
+# frase" num trecho que tem dois em cada uma das duas frases, e a trava
+# reprovaria qualquer roteiro em hindi para sempre. O canal tem 0 publicados.
+# O danda duplo (॥) fecha verso/estrofe e tambem encerra.
+FIM_DE_FRASE = ".!?…।॥"
+
+
 def frases(texto):
-    return [f.strip() for f in re.split(r"(?<=[.!?…])\s+|\n+", texto) if f.strip()]
+    return [
+        f.strip()
+        for f in re.split(rf"(?<=[{re.escape(FIM_DE_FRASE)}])\s+|\n+", texto)
+        if f.strip()
+    ]
 
 
 def conta_numeros(frase, idi):

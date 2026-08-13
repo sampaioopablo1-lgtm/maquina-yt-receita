@@ -405,6 +405,8 @@ def main():
     p.add_argument("--canal", required=True)
     p.add_argument("--playlist", default=None)
     p.add_argument("--dir", default=None, help="workdir (padrao: /tmp/f/<pacote>)")
+    p.add_argument("--idioma", default="",
+                   help="Idioma do canal (tr, hi, es-MX...). Vence o da spec.")
     p.add_argument("--reparar", default="",
                    help='JSON {"short":"id","longo":"id"} — so conserta a descricao '
                         'de video ja publicado, nao envia nada')
@@ -414,7 +416,12 @@ def main():
     sb_key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
     sp = json.load(open(args.spec))
     d = args.dir or f"/tmp/f/{sp.get('pacote') or sp['slug']}"
-    idioma = sp.get("idioma") or "en"
+    # O idioma decide defaultLanguage e defaultAudioLanguage do video, e a
+    # linguagem da faixa de legenda. Nenhuma spec do repositorio declarava
+    # `idioma`, entao todas caiam no "en" — o que poria um video em hindi no
+    # ar marcado como ingles. A matriz do frota.yml SEMPRE carrega o idioma
+    # certo; ela e que manda, e a spec fica como plano B.
+    idioma = args.idioma or sp.get("idioma") or "en"
 
     if args.reparar:
         return reparar(args, sp, d, sb_url, sb_key)

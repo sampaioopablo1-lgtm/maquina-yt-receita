@@ -1,1 +1,761 @@
-{"slug": "cocina-por-niveles", "pacote": "cocina-por-niveles-003", "voz": "es-MX-DaliaNeural", "paleta": {"ink": "#1A1A1A", "c1": "#E36414", "c2": "#3A7D44", "bg": "#FDF6EC"}, "thumb": {"l1": "$32 = 5 COMIDAS", "l2": "el secreto"}, "longo": [{"layout": "titulo", "kicker": "13%", "sub": "subió el salario mínimo", "nar": "El salario mínimo subió trece por ciento en dos mil veintiséis. Trescientos quince pesos con cuatro centavos al día en la zona general.", "cap": "El aumento que no se siente"}, {"layout": "titulo", "kicker": "13%", "sub": "subió el salario mínimo", "nar": "En la Zona Libre de la Frontera Norte, cuatrocientos cuarenta pesos con ochenta y siete centavos. El aumento más grande en años.", "sem_cap": true}, {"layout": "item", "kicker": "Y aun así", "preco": "no alcanza", "nar": "Y aun así, llegas al quince y ya no alcanza. No es que lo estés imaginando. Es que la despensa subió por otro lado.", "sem_cap": true}, {"layout": "barras", "kicker": "Canasta básica 2026", "itens": ["Más barata", "PACIC", "Más cara"], "alturas": [77, 91, 95], "nar": "La canasta básica de enero de dos mil veintiséis va de setecientos setenta y dos pesos hasta novecientos cuarenta y siete, según Profeco. El acuerdo contra la inflación apunta a novecientos diez.", "sem_cap": true}, {"layout": "item", "kicker": "Al mes", "preco": "más de cuatro mil", "nar": "Para una familia de cuatro en zona urbana, la canasta alimentaria mensual pasa de cuatro mil pesos. Casi la mitad de un salario mínimo mensual.", "sem_cap": true}, {"layout": "titulo", "kicker": "Hoy", "sub": "un solo ingrediente", "nar": "Hoy no vamos a ver una lista de veinte recetas. Vamos a ver un solo ingrediente, y el secreto que lo hace rendir cinco veces.", "sem_cap": true}, {"layout": "titulo", "kicker": "El frijol", "sub": "treinta y dos pesos el kilo", "nar": "El frijol. Treinta y dos pesos el kilo, según los precios de este año. Y ese kilo, bien hecho, da cinco comidas para una familia.", "sem_cap": true}, {"layout": "item", "kicker": "El secreto", "preco": "no es la receta", "nar": "El secreto no está en la receta. Está en cómo lo cueces y en cómo lo repartes. Y ahí es donde casi todos pierden dinero sin darse cuenta.", "sem_cap": true}, {"layout": "lista", "kicker": "Lo que vamos a ver", "itens": ["Qué compra un kilo", "El secreto del rendimiento", "Cinco comidas del mismo pote", "El costo real por porción"], "nar": "Cuatro partes: qué compra de verdad un kilo, el secreto del rendimiento, las cinco comidas que salen del mismo pote, y cuánto cuesta cada porción.", "sem_cap": true}, {"layout": "item", "kicker": "Si tienes prisa", "preco": "ve al minuto del secreto", "nar": "Si solo tienes tiempo para una parte, ve directo al secreto del rendimiento. Ahí está la diferencia entre tres comidas y cinco.", "sem_cap": true}, {"layout": "titulo", "kicker": "Empecemos", "sub": "por el kilo", "nar": "Empecemos por lo básico: qué te llevas realmente cuando pagas esos treinta y dos pesos.", "sem_cap": true}, {"layout": "titulo", "kicker": "1 kilo seco", "sub": "2,5 kilos cocido", "nar": "Un kilo de frijol seco no se queda en un kilo. Al cocerse absorbe agua y se convierte en unos dos kilos y medio de frijol listo.", "cap": "Qué compra un kilo de frijol"}, {"layout": "item", "kicker": "Eso significa", "preco": "el precio real baja", "nar": "Eso significa que el precio por kilo servido no es treinta y dos pesos. Es alrededor de trece, porque el agua hace parte del trabajo.", "sem_cap": true}, {"layout": "barras", "kicker": "Costo por kilo servido", "itens": ["Frijol", "Huevo", "Pollo"], "alturas": [22, 60, 100], "nar": "Comparado con otras fuentes de proteína, el frijol cocido queda muy por debajo. El huevo de dieciocho piezas anda en cuarenta y dos pesos con treinta y cuatro, y bajó siete punto cuatro por ciento este año.", "sem_cap": true}, {"layout": "item", "kicker": "La tortilla", "preco": "diecisiete el kilo", "nar": "Y la tortilla de maíz, diecisiete pesos el kilo. Frijol con tortilla sigue siendo la comida más barata que existe en México, y por mucho.", "sem_cap": true}, {"layout": "titulo", "kicker": "Pero", "sub": "no todo kilo rinde igual", "nar": "Pero aquí está el detalle que casi nadie dice: no todos los kilos rinden lo mismo. Dos personas compran el mismo kilo y una saca el doble.", "sem_cap": true}, {"layout": "item", "kicker": "La diferencia", "preco": "está en tres decisiones", "nar": "La diferencia está en tres decisiones que se toman antes de que el frijol toque el fuego. Y ninguna cuesta dinero.", "sem_cap": true}, {"layout": "lista", "kicker": "Antes de cocer", "itens": ["Revisar y limpiar", "Remojar o no", "Cuánto agua"], "nar": "Antes de cocer: revisar y limpiar, decidir si remojas, y cuánta agua pones. Esas tres deciden cuánto rinde el pote.", "sem_cap": true}, {"layout": "item", "kicker": "Revisar", "preco": "piedras y frijol partido", "nar": "Revisar toma cinco minutos. Sacas piedras y frijol partido. El frijol partido se deshace y espesa el caldo, y ese caldo es parte del rendimiento.", "sem_cap": true}, {"layout": "titulo", "kicker": "El remojo", "sub": "aquí hay discusión", "nar": "El remojo es donde la gente discute. Hay quien jura que sí y quien jura que no. Los dos tienen parte de razón, y el motivo es práctico.", "sem_cap": true}, {"layout": "item", "kicker": "Con remojo", "preco": "menos gas, más parejo", "nar": "Con remojo de una noche, el frijol cuece más rápido y más parejo. Ahorras gas, que también es dinero, y quedan menos granos duros.", "sem_cap": true}, {"layout": "item", "kicker": "Sin remojo", "preco": "más sabor, más tiempo", "nar": "Sin remojo el caldo queda más espeso y con más sabor, pero tarda más y gasta más gas. Si tienes olla de presión, sin remojo funciona bien.", "sem_cap": true}, {"layout": "titulo", "kicker": "Ahora sí", "sub": "el secreto", "nar": "Y ahora sí, el secreto del rendimiento, que no está en nada de lo anterior.", "sem_cap": true}, {"layout": "titulo", "kicker": "La sal", "sub": "hasta el final", "nar": "El secreto es la sal. Se pone al final, cuando el frijol ya está suave. Nunca al principio.", "cap": "El secreto del rendimiento"}, {"layout": "item", "kicker": "Por qué", "preco": "la cáscara se endurece", "nar": "Si salas desde el inicio, la cáscara se endurece y el frijol tarda mucho más en cocer. Gastas más gas y quedan granos duros que nadie come.", "sem_cap": true}, {"layout": "item", "kicker": "Y los duros", "preco": "son pérdida directa", "nar": "Y cada grano duro que se queda en el plato es dinero que compraste y no comiste. Ahí se va el rendimiento sin que lo veas.", "sem_cap": true}, {"layout": "titulo", "kicker": "Segundo", "sub": "el agua justa", "nar": "Segundo: el agua justa. Demasiada agua diluye el caldo y te obliga a hervir de más para espesarlo, otra vez gastando gas.", "sem_cap": true}, {"layout": "item", "kicker": "La regla", "preco": "tres dedos arriba", "nar": "La regla vieja sirve: agua tres dedos arriba del frijol, y agregar agua caliente si hace falta. Agua fría a medio cocimiento endurece el grano.", "sem_cap": true}, {"layout": "titulo", "kicker": "Tercero", "sub": "el pote grande", "nar": "Tercero, y es el que más rinde: cuece de más. El mismo gas, la misma hora de tu tiempo, y sale para varios días.", "sem_cap": true}, {"layout": "barras", "kicker": "Costo por comida", "itens": ["Cocer 1 día", "Cocer 3 días", "Cocer 5 días"], "alturas": [100, 45, 30], "nar": "Cocer para un día y cocer para cinco cuesta casi el mismo gas y el mismo tiempo. El costo por comida se desploma.", "sem_cap": true}, {"layout": "item", "kicker": "Eso es el secreto", "preco": "no es una receta", "nar": "Ese es el verdadero secreto, y por eso no es una receta: es una decisión de cantidad. La olla llena rinde mucho más que la olla chica.", "sem_cap": true}, {"layout": "item", "kicker": "El límite", "preco": "cuánto aguanta", "nar": "El límite es cuánto aguanta bien: en refrigerador, unos cuatro días. Congelado en porciones, meses. Y ahí el rendimiento se multiplica otra vez.", "sem_cap": true}, {"layout": "lista", "kicker": "Guardar bien", "itens": ["Enfriar antes de tapar", "Porciones separadas", "Caldo aparte"], "nar": "Guardar bien es parte del secreto: enfriar antes de tapar, separar en porciones, y guardar algo de caldo aparte para las recetas que lo piden.", "sem_cap": true}, {"layout": "titulo", "kicker": "Con eso", "sub": "ya tienes la base", "nar": "Con esas tres decisiones ya tienes la base. Ahora veamos las cinco comidas distintas que salen del mismo pote.", "sem_cap": true}, {"layout": "titulo", "kicker": "Comida uno", "sub": "de la olla", "nar": "Comida uno: frijoles de la olla. El pote tal cual, con su caldo, cebolla y sal. Es la más simple y la más barata.", "cap": "Cinco comidas del mismo pote"}, {"layout": "item", "kicker": "Con tortilla", "preco": "ya es comida completa", "nar": "Con tortilla de maíz ya es una comida completa en proteína, porque el maíz y el frijol se complementan. Eso no es opinión, es composición.", "sem_cap": true}, {"layout": "titulo", "kicker": "Comida dos", "sub": "refritos", "nar": "Comida dos: frijoles refritos. Machacas una parte con un poco de su caldo y grasa. Cambia por completo la textura y el sabor.", "sem_cap": true}, {"layout": "item", "kicker": "El truco", "preco": "no dejarlos secos", "nar": "El truco es no dejarlos secos: se agrega caldo poco a poco. Refritos secos se sirven menos y sobran más, y lo que sobra sin gustar se tira.", "sem_cap": true}, {"layout": "titulo", "kicker": "Comida tres", "sub": "enfrijoladas", "nar": "Comida tres: enfrijoladas. Licúas frijol con su caldo, bañas tortillas y listo. Aquí el caldo que ibas a tirar es el platillo entero.", "sem_cap": true}, {"layout": "item", "kicker": "Rinden mucho", "preco": "y se ven distintas", "nar": "Es la que más rinde de las cinco, porque el frijol se convierte en salsa. Y en la mesa se ve como otra comida, que es lo que evita el cansancio.", "sem_cap": true}, {"layout": "titulo", "kicker": "Comida cuatro", "sub": "sopa de frijol", "nar": "Comida cuatro: sopa de frijol. Más caldo, un poco de verdura, y se estira sin perder sustancia.", "sem_cap": true}, {"layout": "item", "kicker": "Aquí entra", "preco": "lo que quedó", "nar": "Aquí entra lo que quedó de la semana: un pedazo de cebolla, medio jitomate, un chile. Es la comida que limpia el refrigerador.", "sem_cap": true}, {"layout": "titulo", "kicker": "Comida cinco", "sub": "tacos o tostadas", "nar": "Comida cinco: tacos o tostadas de frijol. Los refritos que quedaron, sobre tortilla, con lo que haya encima.", "sem_cap": true}, {"layout": "lista", "kicker": "Las cinco", "itens": ["De la olla", "Refritos", "Enfrijoladas", "Sopa", "Tacos o tostadas"], "nar": "Cinco comidas, un solo pote: de la olla, refritos, enfrijoladas, sopa y tacos. Nadie en la mesa siente que comió lo mismo cinco veces.", "sem_cap": true}, {"layout": "item", "kicker": "Eso importa", "preco": "más que el precio", "nar": "Y eso importa más que el precio, porque la comida barata que se repite igual termina en el bote de basura al tercer día.", "sem_cap": true}, {"layout": "titulo", "kicker": "Ahora", "sub": "las cuentas", "nar": "Ahora hagamos las cuentas completas, con los precios de este año.", "sem_cap": true}, {"layout": "titulo", "kicker": "La base", "sub": "treinta y dos pesos", "nar": "La base: un kilo de frijol, treinta y dos pesos. Ese es todo el gasto principal de las cinco comidas.", "cap": "El costo real por porción"}, {"layout": "item", "kicker": "Agrega", "preco": "cebolla, ajo, sal, gas", "nar": "Agrega cebolla, ajo, sal y el gas de la cocción. Redondeando con holgura, unos cincuenta pesos por todo el pote.", "sem_cap": true}, {"layout": "item", "kicker": "Tortillas", "preco": "para cinco comidas", "nar": "Súmale tortillas para acompañar las cinco comidas. Con dos kilos a diecisiete pesos, treinta y cuatro pesos más.", "sem_cap": true}, {"layout": "barras", "kicker": "El pote completo", "itens": ["Frijol", "Extras y gas", "Tortillas"], "alturas": [32, 18, 34], "nar": "El total del pote completo ronda ochenta y cuatro pesos, para cinco comidas de una familia.", "sem_cap": true}, {"layout": "titulo", "kicker": "Divide", "sub": "y aparece el número", "nar": "Divide y aparece el número que importa: alrededor de diecisiete pesos por comida familiar. No por persona. Por comida.", "sem_cap": true}, {"layout": "item", "kicker": "Compáralo", "preco": "con comer fuera", "nar": "Compáralo con una comida corrida fuera de casa, que en muchas ciudades ya no baja de cien pesos por persona.", "sem_cap": true}, {"layout": "barras", "kicker": "Por comida familiar", "itens": ["El pote", "Fuera de casa"], "alturas": [17, 100], "nar": "La diferencia no es de veinte por ciento. Es de varias veces, y se repite cinco veces en la semana.", "sem_cap": true}, {"layout": "titulo", "kicker": "Pero ojo", "sub": "no es todos los días", "nar": "Pero seamos honestos: nadie come frijol cinco días seguidos y queda contento. Y ese es justo el punto de las cinco versiones.", "sem_cap": true}, {"layout": "item", "kicker": "La meta", "preco": "que rinda sin cansar", "nar": "La meta no es comer frijol siempre. Es que cuando lo cocines, rinda de verdad y no canse. Eso es lo que baja el gasto del mes.", "sem_cap": true}, {"layout": "item", "kicker": "Y el ahorro real", "preco": "está en no tirar", "nar": "Y el ahorro más grande no está en comprar más barato. Está en no tirar. La comida que se echa a perder es el gasto invisible.", "sem_cap": true}, {"layout": "titulo", "kicker": "Hablemos", "sub": "de esos errores", "nar": "Hablemos entonces de los errores que tiran dinero, porque son pocos y siempre son los mismos.", "sem_cap": true}, {"layout": "titulo", "kicker": "Error uno", "sub": "cocer poquito", "nar": "Error uno: cocer poquito. Prendes el gas una hora para dos platos. El costo por plato se dispara y ni lo notas.", "cap": "Los errores que tiran dinero"}, {"layout": "item", "kicker": "El gas", "preco": "cuesta igual", "nar": "El gas cuesta casi lo mismo para media olla que para la olla llena. Es el gasto que más se desperdicia en la cocina mexicana.", "sem_cap": true}, {"layout": "titulo", "kicker": "Error dos", "sub": "salar al principio", "nar": "Error dos, y ya lo vimos: salar al principio. Endurece la cáscara, alarga la cocción y deja granos que nadie se come.", "sem_cap": true}, {"layout": "titulo", "kicker": "Error tres", "sub": "tirar el caldo", "nar": "Error tres: tirar el caldo. Ahí van las enfrijoladas y la sopa, que son dos de las cinco comidas.", "sem_cap": true}, {"layout": "item", "kicker": "Tirar caldo", "preco": "es tirar dos comidas", "nar": "Dicho de otro modo: tirar el caldo del frijol es tirar dos de cada cinco comidas que ya pagaste.", "sem_cap": true}, {"layout": "titulo", "kicker": "Error cuatro", "sub": "guardar caliente", "nar": "Error cuatro: guardar caliente y tapado. Se agria antes de tiempo y la mitad del pote termina en la basura.", "sem_cap": true}, {"layout": "titulo", "kicker": "Error cinco", "sub": "repetir igual", "nar": "Error cinco: servirlo idéntico tres días. Aunque esté bueno, la familia deja de comerlo, y lo que no se come se tira.", "sem_cap": true}, {"layout": "item", "kicker": "Variar", "preco": "cuesta cero", "nar": "Variar no cuesta dinero: es machacar, licuar o poner sobre tortilla. Los mismos frijoles, tres platos distintos.", "sem_cap": true}, {"layout": "lista", "kicker": "Los cinco errores", "itens": ["Cocer poquito", "Salar al inicio", "Tirar el caldo", "Guardar caliente", "Repetir igual"], "nar": "Los cinco errores: cocer poquito, salar al inicio, tirar el caldo, guardar caliente y repetir igual. Ninguno se arregla con dinero.", "sem_cap": true}, {"layout": "item", "kicker": "Todos", "preco": "se arreglan con orden", "nar": "Todos se arreglan con orden, y el orden es gratis. Por eso el rendimiento no depende de cuánto ganas.", "sem_cap": true}, {"layout": "titulo", "kicker": "Cerremos", "sub": "con el plan", "nar": "Cerremos con el plan concreto de la semana, para que esto no se quede en teoría.", "sem_cap": true}, {"layout": "titulo", "kicker": "Domingo", "sub": "el pote grande", "nar": "Domingo: el pote grande. Un kilo completo, sal al final, y dejas enfriar destapado antes de guardar.", "cap": "El plan de la semana"}, {"layout": "item", "kicker": "Separa", "preco": "desde el primer día", "nar": "Separa desde ese momento: una parte con caldo, una parte para machacar, y algo de caldo solo, aparte.", "sem_cap": true}, {"layout": "item", "kicker": "Ese reparto", "preco": "es todo el trabajo", "nar": "Ese reparto de cinco minutos el domingo es prácticamente todo el trabajo de la semana. Lo demás es calentar y cambiar la forma.", "sem_cap": true}, {"layout": "titulo", "kicker": "Lunes", "sub": "de la olla", "nar": "Lunes: de la olla, con tortilla. La versión más simple, cuando todavía está en su mejor punto.", "sem_cap": true}, {"layout": "titulo", "kicker": "Martes", "sub": "refritos", "nar": "Martes: refritos, con caldo poco a poco para que no queden secos.", "sem_cap": true}, {"layout": "titulo", "kicker": "Jueves", "sub": "enfrijoladas", "nar": "Jueves: enfrijoladas, con el caldo que guardaste aparte. Deja un día de por medio y nadie siente repetición.", "sem_cap": true}, {"layout": "titulo", "kicker": "Viernes", "sub": "sopa o tacos", "nar": "Viernes: sopa con lo que quedó en el refrigerador, o tacos con los refritos que sobraron.", "sem_cap": true}, {"layout": "lista", "kicker": "Resumen del plan", "itens": ["Domingo: cocer y repartir", "Lunes: de la olla", "Martes: refritos", "Jueves: enfrijoladas", "Viernes: sopa o tacos"], "nar": "Ese es el plan: domingo cueces y repartes, y de lunes a viernes solo cambias la forma. Un pote, cinco comidas.", "sem_cap": true}, {"layout": "item", "kicker": "Y si sobra", "preco": "al congelador", "nar": "Y si sobra, al congelador en porciones. El frijol congelado aguanta meses y te salva un día de prisa sin gastar de más.", "sem_cap": true}, {"layout": "item", "kicker": "Ese día", "preco": "es el que más ahorra", "nar": "Ese día de prisa es justo cuando la gente pide comida a domicilio. Tener una porción lista es lo que evita ese gasto.", "sem_cap": true}, {"layout": "titulo", "kicker": "Y así", "sub": "el número final", "nar": "Y así el número final se sostiene: alrededor de diecisiete pesos por comida familiar, con precios de dos mil veintiséis.", "sem_cap": true}, {"layout": "titulo", "kicker": "Tres cosas", "sub": "para recordar", "nar": "Si te llevas solo tres cosas de este video, que sean estas.", "cap": "Lo que te llevas"}, {"layout": "item", "kicker": "Uno", "preco": "la sal hasta el final", "nar": "Uno: la sal hasta el final. Es gratis y es la diferencia entre frijol suave y granos duros que nadie come.", "sem_cap": true}, {"layout": "item", "kicker": "Dos", "preco": "cuece de más", "nar": "Dos: cuece de más. El mismo gas y el mismo tiempo, repartido entre cinco comidas en vez de una.", "sem_cap": true}, {"layout": "item", "kicker": "Tres", "preco": "el caldo no se tira", "nar": "Tres: el caldo no se tira nunca. Ahí viven dos de las cinco comidas.", "sem_cap": true}, {"layout": "titulo", "kicker": "El resto", "sub": "es repartir", "nar": "Todo lo demás es repartir bien y cambiar la forma. Ninguna de esas cosas cuesta un peso adicional.", "sem_cap": true}, {"layout": "item", "kicker": "Y por eso", "preco": "funciona con cualquier salario", "nar": "Y por eso este método funciona igual con salario mínimo que sin él. No depende de cuánto ganas, depende de cómo cueces.", "sem_cap": true}, {"layout": "titulo", "kicker": "El contexto", "sub": "no va a mejorar solo", "nar": "El contexto no va a mejorar solo. La canasta básica seguirá moviéndose, y el aumento del salario se lo come el precio.", "sem_cap": true}, {"layout": "item", "kicker": "Lo que sí controlas", "preco": "es el rendimiento", "nar": "Lo único que controlas de verdad es el rendimiento de lo que ya compraste. Y eso se decide en tu cocina, no en el mercado.", "sem_cap": true}, {"layout": "item", "kicker": "Empieza", "preco": "este domingo", "nar": "Empieza este domingo con un kilo. Si funciona, la semana siguiente ya sabes exactamente qué hacer.", "sem_cap": true}, {"layout": "cta", "kicker": "Cocina por Niveles", "sub": "un nivel a la vez", "nar": "Cuéntame en los comentarios a cuánto está el kilo de frijol en tu ciudad. Estoy juntando precios reales para el siguiente video.", "sem_cap": true}, {"layout": "cta", "kicker": "Cocina por Niveles", "sub": "un nivel a la vez", "nar": "Y si quieres el mismo análisis con otro ingrediente básico, escribe cuál. El más pedido se hace primero.", "sem_cap": true}, {"layout": "cta", "kicker": "Cocina por Niveles", "sub": "un nivel a la vez", "nar": "Gracias por llegar hasta el final. Nos vemos en el siguiente, aquí en Cocina por Niveles.", "sem_cap": true}], "short": [{"layout": "titulo", "kicker": "$32", "sub": "un kilo de frijol", "nar": "Un kilo de frijol cuesta treinta y dos pesos. Bien hecho, da cinco comidas para toda la familia."}, {"layout": "item", "kicker": "El secreto", "preco": "la sal al final", "nar": "El secreto no es la receta: es la sal hasta el final. Salar al inicio endurece la cáscara y deja granos que nadie come."}, {"layout": "titulo", "kicker": "No tires", "sub": "el caldo", "nar": "Y el caldo no se tira nunca. Ahí viven las enfrijoladas y la sopa: dos de las cinco comidas."}, {"layout": "item", "kicker": "Resultado", "preco": "diecisiete por comida", "nar": "El pote completo con tortillas sale en unos ochenta y cuatro pesos. Diecisiete por comida familiar."}, {"layout": "cta", "kicker": "Cocina por Niveles", "sub": "el plan completo", "nar": "El plan de los cinco días y los errores que tiran dinero están en el video largo."}], "copy": "gerado a partir dos capitulos reais apos o render"}
+{
+ "slug": "cocina-por-niveles",
+ "pacote": "cocina-por-niveles-003",
+ "voz": "es-MX-DaliaNeural",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#E36414",
+  "c2": "#3A7D44",
+  "bg": "#FDF6EC"
+ },
+ "thumb": {
+  "l1": "$32 = 5 COMIDAS",
+  "l2": "el secreto"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "13%",
+   "sub": "subió el salario mínimo",
+   "nar": "El salario mínimo subió trece por ciento en dos mil veintiséis. Trescientos quince pesos con cuatro centavos al día en la zona general.",
+   "cap": "El aumento que no se siente"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "13%",
+   "sub": "subió el salario mínimo",
+   "nar": "En la Zona Libre de la Frontera Norte, cuatrocientos cuarenta pesos con ochenta y siete centavos. El aumento más grande en años.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Y aun así",
+   "preco": "no alcanza",
+   "nar": "Y aun así, llegas al quince y ya no alcanza. No es que lo estés imaginando. Es que la despensa subió por otro lado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Canasta básica 2026",
+   "itens": [
+    "Más barata",
+    "PACIC",
+    "Más cara"
+   ],
+   "alturas": [
+    77,
+    91,
+    95
+   ],
+   "nar": "La canasta básica de enero de dos mil veintiséis va de setecientos setenta y dos pesos hasta novecientos cuarenta y siete, según Profeco. El acuerdo contra la inflación apunta a novecientos diez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Al mes",
+   "preco": "más de cuatro mil",
+   "nar": "Para una familia de cuatro en zona urbana, la canasta alimentaria mensual pasa de cuatro mil pesos. Casi la mitad de un salario mínimo mensual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hoy",
+   "sub": "un solo ingrediente",
+   "nar": "Hoy no vamos a ver una lista de veinte recetas. Vamos a ver un solo ingrediente, y el secreto que lo hace rendir cinco veces.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "El frijol",
+   "sub": "treinta y dos pesos el kilo",
+   "nar": "El frijol. Treinta y dos pesos el kilo, según los precios de este año. Y ese kilo, bien hecho, da cinco comidas para una familia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "El secreto",
+   "preco": "no es la receta",
+   "nar": "El secreto no está en la receta. Está en cómo lo cueces y en cómo lo repartes. Y ahí es donde casi todos pierden dinero sin darse cuenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Lo que vamos a ver",
+   "itens": [
+    "Qué compra un kilo",
+    "El secreto del rendimiento",
+    "Cinco comidas del mismo pote",
+    "El costo real por porción"
+   ],
+   "nar": "Cuatro partes: qué compra de verdad un kilo, el secreto del rendimiento, las cinco comidas que salen del mismo pote, y cuánto cuesta cada porción.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Si tienes prisa",
+   "preco": "ve al minuto del secreto",
+   "nar": "Si solo tienes tiempo para una parte, ve directo al secreto del rendimiento. Ahí está la diferencia entre tres comidas y cinco.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Empecemos",
+   "sub": "por el kilo",
+   "nar": "Empecemos por lo básico: qué te llevas realmente cuando pagas esos treinta y dos pesos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "1 kilo seco",
+   "sub": "2,5 kilos cocido",
+   "nar": "Un kilo de frijol seco no se queda en un kilo. Al cocerse absorbe agua y se convierte en unos dos kilos y medio de frijol listo.",
+   "cap": "Qué compra un kilo de frijol"
+  },
+  {
+   "layout": "item",
+   "kicker": "Eso significa",
+   "preco": "el precio real baja",
+   "nar": "Eso significa que el precio por kilo servido no es treinta y dos pesos. Es alrededor de trece, porque el agua hace parte del trabajo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Costo por kilo servido",
+   "itens": [
+    "Frijol",
+    "Huevo",
+    "Pollo"
+   ],
+   "alturas": [
+    22,
+    60,
+    100
+   ],
+   "nar": "Comparado con otras fuentes de proteína, el frijol cocido queda muy por debajo. El huevo de dieciocho piezas anda en cuarenta y dos pesos con treinta y cuatro. Y bajó siete punto cuatro por ciento este año.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "La tortilla",
+   "preco": "diecisiete el kilo",
+   "nar": "Y la tortilla de maíz, diecisiete pesos el kilo. Frijol con tortilla sigue siendo la comida más barata que existe en México, y por mucho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pero",
+   "sub": "no todo kilo rinde igual",
+   "nar": "Pero aquí está el detalle que casi nadie dice: no todos los kilos rinden lo mismo. Dos personas compran el mismo kilo y una saca el doble.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "La diferencia",
+   "preco": "está en tres decisiones",
+   "nar": "La diferencia está en tres decisiones que se toman antes de que el frijol toque el fuego. Y ninguna cuesta dinero.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Antes de cocer",
+   "itens": [
+    "Revisar y limpiar",
+    "Remojar o no",
+    "Cuánto agua"
+   ],
+   "nar": "Antes de cocer: revisar y limpiar, decidir si remojas, y cuánta agua pones. Esas tres deciden cuánto rinde el pote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Revisar",
+   "preco": "piedras y frijol partido",
+   "nar": "Revisar toma cinco minutos. Sacas piedras y frijol partido. El frijol partido se deshace y espesa el caldo, y ese caldo es parte del rendimiento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "El remojo",
+   "sub": "aquí hay discusión",
+   "nar": "El remojo es donde la gente discute. Hay quien jura que sí y quien jura que no. Los dos tienen parte de razón, y el motivo es práctico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Con remojo",
+   "preco": "menos gas, más parejo",
+   "nar": "Con remojo de una noche, el frijol cuece más rápido y más parejo. Ahorras gas, que también es dinero, y quedan menos granos duros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sin remojo",
+   "preco": "más sabor, más tiempo",
+   "nar": "Sin remojo el caldo queda más espeso y con más sabor, pero tarda más y gasta más gas. Si tienes olla de presión, sin remojo funciona bien.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ahora sí",
+   "sub": "el secreto",
+   "nar": "Y ahora sí, el secreto del rendimiento, que no está en nada de lo anterior.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "La sal",
+   "sub": "hasta el final",
+   "nar": "El secreto es la sal. Se pone al final, cuando el frijol ya está suave. Nunca al principio.",
+   "cap": "El secreto del rendimiento"
+  },
+  {
+   "layout": "item",
+   "kicker": "Por qué",
+   "preco": "la cáscara se endurece",
+   "nar": "Si salas desde el inicio, la cáscara se endurece y el frijol tarda mucho más en cocer. Gastas más gas y quedan granos duros que nadie come.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Y los duros",
+   "preco": "son pérdida directa",
+   "nar": "Y cada grano duro que se queda en el plato es dinero que compraste y no comiste. Ahí se va el rendimiento sin que lo veas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segundo",
+   "sub": "el agua justa",
+   "nar": "Segundo: el agua justa. Demasiada agua diluye el caldo y te obliga a hervir de más para espesarlo, otra vez gastando gas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "La regla",
+   "preco": "tres dedos arriba",
+   "nar": "La regla vieja sirve: agua tres dedos arriba del frijol, y agregar agua caliente si hace falta. Agua fría a medio cocimiento endurece el grano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tercero",
+   "sub": "el pote grande",
+   "nar": "Tercero, y es el que más rinde: cuece de más. El mismo gas, la misma hora de tu tiempo, y sale para varios días.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Costo por comida",
+   "itens": [
+    "Cocer 1 día",
+    "Cocer 3 días",
+    "Cocer 5 días"
+   ],
+   "alturas": [
+    100,
+    45,
+    30
+   ],
+   "nar": "Cocer para un día y cocer para cinco cuesta casi el mismo gas y el mismo tiempo. El costo por comida se desploma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Eso es el secreto",
+   "preco": "no es una receta",
+   "nar": "Ese es el verdadero secreto, y por eso no es una receta: es una decisión de cantidad. La olla llena rinde mucho más que la olla chica.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "El límite",
+   "preco": "cuánto aguanta",
+   "nar": "El límite es cuánto aguanta bien: en refrigerador, unos cuatro días. Congelado en porciones, meses. Y ahí el rendimiento se multiplica otra vez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Guardar bien",
+   "itens": [
+    "Enfriar antes de tapar",
+    "Porciones separadas",
+    "Caldo aparte"
+   ],
+   "nar": "Guardar bien es parte del secreto: enfriar antes de tapar, separar en porciones, y guardar algo de caldo aparte para las recetas que lo piden.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Con eso",
+   "sub": "ya tienes la base",
+   "nar": "Con esas tres decisiones ya tienes la base. Ahora veamos las cinco comidas distintas que salen del mismo pote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comida uno",
+   "sub": "de la olla",
+   "nar": "Comida uno: frijoles de la olla. El pote tal cual, con su caldo, cebolla y sal. Es la más simple y la más barata.",
+   "cap": "Cinco comidas del mismo pote"
+  },
+  {
+   "layout": "item",
+   "kicker": "Con tortilla",
+   "preco": "ya es comida completa",
+   "nar": "Con tortilla de maíz ya es una comida completa en proteína, porque el maíz y el frijol se complementan. Eso no es opinión, es composición.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comida dos",
+   "sub": "refritos",
+   "nar": "Comida dos: frijoles refritos. Machacas una parte con un poco de su caldo y grasa. Cambia por completo la textura y el sabor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "El truco",
+   "preco": "no dejarlos secos",
+   "nar": "El truco es no dejarlos secos: se agrega caldo poco a poco. Refritos secos se sirven menos y sobran más, y lo que sobra sin gustar se tira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comida tres",
+   "sub": "enfrijoladas",
+   "nar": "Comida tres: enfrijoladas. Licúas frijol con su caldo, bañas tortillas y listo. Aquí el caldo que ibas a tirar es el platillo entero.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rinden mucho",
+   "preco": "y se ven distintas",
+   "nar": "Es la que más rinde de las cinco, porque el frijol se convierte en salsa. Y en la mesa se ve como otra comida, que es lo que evita el cansancio.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comida cuatro",
+   "sub": "sopa de frijol",
+   "nar": "Comida cuatro: sopa de frijol. Más caldo, un poco de verdura, y se estira sin perder sustancia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aquí entra",
+   "preco": "lo que quedó",
+   "nar": "Aquí entra lo que quedó de la semana: un pedazo de cebolla, medio jitomate, un chile. Es la comida que limpia el refrigerador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comida cinco",
+   "sub": "tacos o tostadas",
+   "nar": "Comida cinco: tacos o tostadas de frijol. Los refritos que quedaron, sobre tortilla, con lo que haya encima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Las cinco",
+   "itens": [
+    "De la olla",
+    "Refritos",
+    "Enfrijoladas",
+    "Sopa",
+    "Tacos o tostadas"
+   ],
+   "nar": "Cinco comidas, un solo pote: de la olla, refritos, enfrijoladas, sopa y tacos. Nadie en la mesa siente que comió lo mismo cinco veces.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Eso importa",
+   "preco": "más que el precio",
+   "nar": "Y eso importa más que el precio, porque la comida barata que se repite igual termina en el bote de basura al tercer día.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ahora",
+   "sub": "las cuentas",
+   "nar": "Ahora hagamos las cuentas completas, con los precios de este año.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "La base",
+   "sub": "treinta y dos pesos",
+   "nar": "La base: un kilo de frijol, treinta y dos pesos. Ese es todo el gasto principal de las cinco comidas.",
+   "cap": "El costo real por porción"
+  },
+  {
+   "layout": "item",
+   "kicker": "Agrega",
+   "preco": "cebolla, ajo, sal, gas",
+   "nar": "Agrega cebolla, ajo, sal y el gas de la cocción. Redondeando con holgura, unos cincuenta pesos por todo el pote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tortillas",
+   "preco": "para cinco comidas",
+   "nar": "Súmale tortillas para acompañar las cinco comidas. Con dos kilos a diecisiete pesos, treinta y cuatro pesos más.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "El pote completo",
+   "itens": [
+    "Frijol",
+    "Extras y gas",
+    "Tortillas"
+   ],
+   "alturas": [
+    32,
+    18,
+    34
+   ],
+   "nar": "El total del pote completo ronda ochenta y cuatro pesos, para cinco comidas de una familia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divide",
+   "sub": "y aparece el número",
+   "nar": "Divide y aparece el número que importa: alrededor de diecisiete pesos por comida familiar. No por persona. Por comida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compáralo",
+   "preco": "con comer fuera",
+   "nar": "Compáralo con una comida corrida fuera de casa, que en muchas ciudades ya no baja de cien pesos por persona.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Por comida familiar",
+   "itens": [
+    "El pote",
+    "Fuera de casa"
+   ],
+   "alturas": [
+    17,
+    100
+   ],
+   "nar": "La diferencia no es de veinte por ciento. Es de varias veces, y se repite cinco veces en la semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pero ojo",
+   "sub": "no es todos los días",
+   "nar": "Pero seamos honestos: nadie come frijol cinco días seguidos y queda contento. Y ese es justo el punto de las cinco versiones.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "La meta",
+   "preco": "que rinda sin cansar",
+   "nar": "La meta no es comer frijol siempre. Es que cuando lo cocines, rinda de verdad y no canse. Eso es lo que baja el gasto del mes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Y el ahorro real",
+   "preco": "está en no tirar",
+   "nar": "Y el ahorro más grande no está en comprar más barato. Está en no tirar. La comida que se echa a perder es el gasto invisible.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hablemos",
+   "sub": "de esos errores",
+   "nar": "Hablemos entonces de los errores que tiran dinero, porque son pocos y siempre son los mismos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Error uno",
+   "sub": "cocer poquito",
+   "nar": "Error uno: cocer poquito. Prendes el gas una hora para dos platos. El costo por plato se dispara y ni lo notas.",
+   "cap": "Los errores que tiran dinero"
+  },
+  {
+   "layout": "item",
+   "kicker": "El gas",
+   "preco": "cuesta igual",
+   "nar": "El gas cuesta casi lo mismo para media olla que para la olla llena. Es el gasto que más se desperdicia en la cocina mexicana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Error dos",
+   "sub": "salar al principio",
+   "nar": "Error dos, y ya lo vimos: salar al principio. Endurece la cáscara, alarga la cocción y deja granos que nadie se come.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Error tres",
+   "sub": "tirar el caldo",
+   "nar": "Error tres: tirar el caldo. Ahí van las enfrijoladas y la sopa, que son dos de las cinco comidas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tirar caldo",
+   "preco": "es tirar dos comidas",
+   "nar": "Dicho de otro modo: tirar el caldo del frijol es tirar dos de cada cinco comidas que ya pagaste.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Error cuatro",
+   "sub": "guardar caliente",
+   "nar": "Error cuatro: guardar caliente y tapado. Se agria antes de tiempo y la mitad del pote termina en la basura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Error cinco",
+   "sub": "repetir igual",
+   "nar": "Error cinco: servirlo idéntico tres días. Aunque esté bueno, la familia deja de comerlo, y lo que no se come se tira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Variar",
+   "preco": "cuesta cero",
+   "nar": "Variar no cuesta dinero: es machacar, licuar o poner sobre tortilla. Los mismos frijoles, tres platos distintos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Los cinco errores",
+   "itens": [
+    "Cocer poquito",
+    "Salar al inicio",
+    "Tirar el caldo",
+    "Guardar caliente",
+    "Repetir igual"
+   ],
+   "nar": "Los cinco errores: cocer poquito, salar al inicio, tirar el caldo, guardar caliente y repetir igual. Ninguno se arregla con dinero.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Todos",
+   "preco": "se arreglan con orden",
+   "nar": "Todos se arreglan con orden, y el orden es gratis. Por eso el rendimiento no depende de cuánto ganas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cerremos",
+   "sub": "con el plan",
+   "nar": "Cerremos con el plan concreto de la semana, para que esto no se quede en teoría.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Domingo",
+   "sub": "el pote grande",
+   "nar": "Domingo: el pote grande. Un kilo completo, sal al final, y dejas enfriar destapado antes de guardar.",
+   "cap": "El plan de la semana"
+  },
+  {
+   "layout": "item",
+   "kicker": "Separa",
+   "preco": "desde el primer día",
+   "nar": "Separa desde ese momento: una parte con caldo, una parte para machacar, y algo de caldo solo, aparte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ese reparto",
+   "preco": "es todo el trabajo",
+   "nar": "Ese reparto de cinco minutos el domingo es prácticamente todo el trabajo de la semana. Lo demás es calentar y cambiar la forma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lunes",
+   "sub": "de la olla",
+   "nar": "Lunes: de la olla, con tortilla. La versión más simple, cuando todavía está en su mejor punto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Martes",
+   "sub": "refritos",
+   "nar": "Martes: refritos, con caldo poco a poco para que no queden secos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jueves",
+   "sub": "enfrijoladas",
+   "nar": "Jueves: enfrijoladas, con el caldo que guardaste aparte. Deja un día de por medio y nadie siente repetición.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Viernes",
+   "sub": "sopa o tacos",
+   "nar": "Viernes: sopa con lo que quedó en el refrigerador, o tacos con los refritos que sobraron.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Resumen del plan",
+   "itens": [
+    "Domingo: cocer y repartir",
+    "Lunes: de la olla",
+    "Martes: refritos",
+    "Jueves: enfrijoladas",
+    "Viernes: sopa o tacos"
+   ],
+   "nar": "Ese es el plan: domingo cueces y repartes, y de lunes a viernes solo cambias la forma. Un pote, cinco comidas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Y si sobra",
+   "preco": "al congelador",
+   "nar": "Y si sobra, al congelador en porciones. El frijol congelado aguanta meses y te salva un día de prisa sin gastar de más.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ese día",
+   "preco": "es el que más ahorra",
+   "nar": "Ese día de prisa es justo cuando la gente pide comida a domicilio. Tener una porción lista es lo que evita ese gasto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Y así",
+   "sub": "el número final",
+   "nar": "Y así el número final se sostiene: alrededor de diecisiete pesos por comida familiar, con precios de dos mil veintiséis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tres cosas",
+   "sub": "para recordar",
+   "nar": "Si te llevas solo tres cosas de este video, que sean estas.",
+   "cap": "Lo que te llevas"
+  },
+  {
+   "layout": "item",
+   "kicker": "Uno",
+   "preco": "la sal hasta el final",
+   "nar": "Uno: la sal hasta el final. Es gratis y es la diferencia entre frijol suave y granos duros que nadie come.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dos",
+   "preco": "cuece de más",
+   "nar": "Dos: cuece de más. El mismo gas y el mismo tiempo, repartido entre cinco comidas en vez de una.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tres",
+   "preco": "el caldo no se tira",
+   "nar": "Tres: el caldo no se tira nunca. Ahí viven dos de las cinco comidas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "El resto",
+   "sub": "es repartir",
+   "nar": "Todo lo demás es repartir bien y cambiar la forma. Ninguna de esas cosas cuesta un peso adicional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Y por eso",
+   "preco": "funciona con cualquier salario",
+   "nar": "Y por eso este método funciona igual con salario mínimo que sin él. No depende de cuánto ganas, depende de cómo cueces.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "El contexto",
+   "sub": "no va a mejorar solo",
+   "nar": "El contexto no va a mejorar solo. La canasta básica seguirá moviéndose, y el aumento del salario se lo come el precio.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lo que sí controlas",
+   "preco": "es el rendimiento",
+   "nar": "Lo único que controlas de verdad es el rendimiento de lo que ya compraste. Y eso se decide en tu cocina, no en el mercado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Empieza",
+   "preco": "este domingo",
+   "nar": "Empieza este domingo con un kilo. Si funciona, la semana siguiente ya sabes exactamente qué hacer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cocina por Niveles",
+   "sub": "un nivel a la vez",
+   "nar": "Cuéntame en los comentarios a cuánto está el kilo de frijol en tu ciudad. Estoy juntando precios reales para el siguiente video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cocina por Niveles",
+   "sub": "un nivel a la vez",
+   "nar": "Y si quieres el mismo análisis con otro ingrediente básico, escribe cuál. El más pedido se hace primero.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cocina por Niveles",
+   "sub": "un nivel a la vez",
+   "nar": "Gracias por llegar hasta el final. Nos vemos en el siguiente, aquí en Cocina por Niveles.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "$32",
+   "sub": "un kilo de frijol",
+   "nar": "Un kilo de frijol cuesta treinta y dos pesos. Bien hecho, da cinco comidas para toda la familia."
+  },
+  {
+   "layout": "item",
+   "kicker": "El secreto",
+   "preco": "la sal al final",
+   "nar": "El secreto no es la receta: es la sal hasta el final. Salar al inicio endurece la cáscara y deja granos que nadie come."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No tires",
+   "sub": "el caldo",
+   "nar": "Y el caldo no se tira nunca. Ahí viven las enfrijoladas y la sopa: dos de las cinco comidas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Resultado",
+   "preco": "diecisiete por comida",
+   "nar": "El pote completo con tortillas sale en unos ochenta y cuatro pesos. Diecisiete por comida familiar."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cocina por Niveles",
+   "sub": "el plan completo",
+   "nar": "El plan de los cinco días y los errores que tiran dinero están en el video largo."
+  }
+ ],
+ "copy": "gerado a partir dos capitulos reais apos o render"
+}
