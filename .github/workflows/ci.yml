@@ -20,7 +20,12 @@ jobs:
 
       - run: ffmpeg -version | head -1
 
-      - run: pip install -e ".[dev]"
+      # tests/test_prontidao.py importa fabrica/layout.py (cairosvg) e confere
+      # a fonte Devanagari da spec agla-level-003 — sem isso o "Testes" abaixo
+      # quebra em 27 casos. Mesmo pacote que o frota.yml ja instala pro render.
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk
+
+      - run: pip install -e ".[dev,fabrica]"
 
       # Providers stub: a suite roda inteira sem nenhuma chave de API.
       - name: Testes
