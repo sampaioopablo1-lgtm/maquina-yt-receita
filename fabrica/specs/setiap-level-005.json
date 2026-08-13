@@ -693,7 +693,7 @@
   {
    "layout": "item",
    "kicker": "Rumusnya",
-   "nar": "Kenaikan upah minimum diindeks ke inflasi rata-rata nasional.",
+   "nar": "Kenaikan upah minimum diindeks ke inflasi rata-rata nasional. Angka resminya untuk Juni tahun ini tiga koma tiga empat persen.",
    "preco": "inflasi rata-rata"
   },
   {
@@ -705,7 +705,7 @@
   {
    "layout": "item",
    "kicker": "Dan ongkos",
-   "nar": "Dan ongkos keluar setiap hari kerja.",
+   "nar": "Dan ongkos transportasi keluar setiap hari kerja, bukan sebulan sekali. Di situ selisihnya menumpuk tanpa kelihatan.",
    "preco": "keluar tiap hari kerja"
   },
   {

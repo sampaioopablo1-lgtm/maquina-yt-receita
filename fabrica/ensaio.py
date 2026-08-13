@@ -37,16 +37,33 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAIZ_ENSAIO = os.environ.get("ENSAIO_WORKDIR", "/tmp/ensaio")
 MARCA = "ENSAIO-NAO-PUBLICAR"
 
-# Taxas MEDIDAS, com a fonte de cada uma. Onde nao ha medicao, o default entra
-# declarado — estimar duracao errada aqui nao invalida o ensaio (ele procura
-# quebra, nao duracao), mas registrar de onde veio o numero evita que alguem
-# use esta tabela como se fosse medicao.
+# Taxas MEDIDAS, todas as onze vozes do portfolio, rate=-4%, numeros por
+# extenso. As oito ultimas sairam de uma bateria unica no sandbox Composio em
+# 13/08/2026; as tres primeiras vieram dos configs de canal.
+#
+# Por que isto importa mais do que parece: eu usava 14,50 como padrao e a taxa
+# real varia de 10,75 (hindi) a 17,60 (indonesio) — 64% de diferenca entre as
+# pontas. Com o padrao errado a agla-level-003 media 8:30 e o short 26s, e eu
+# quase reescrevi um roteiro que estava certo: com a taxa medida ela e 11,1 min
+# e o short 34s, dentro da faixa.
 TAXA_CHARS_S = {
-    "pt-BR-AntonioNeural": 14.30,          # config/canais/sx-educacao.yaml
-    "pt-BR-ThalitaMultilingualNeural": 16.52,  # config/canais/labtreinamento.yaml
-    "id-ID-GadisNeural": 14.37,            # medido 13/08/2026, 199 chars/13,848 s
+    # dos configs de canal
+    "pt-BR-AntonioNeural": 14.30,
+    "pt-BR-ThalitaMultilingualNeural": 16.52,
+    "id-ID-GadisNeural": 14.37,
+    # medidas em 13/08/2026 (chars / duracao do mp3 de teste)
+    "hi-IN-MadhurNeural": 10.75,     #  98 chars / 9,120 s
+    "tr-TR-AhmetNeural": 13.32,      #  94 chars / 7,056 s
+    "es-MX-DaliaNeural": 15.94,      # 114 chars / 7,152 s
+    "en-GB-RyanNeural": 16.72,       # 120 chars / 7,176 s
+    "pl-PL-MarekNeural": 16.75,      # 119 chars / 7,104 s
+    "en-US-AndrewNeural": 17.21,     # 121 chars / 7,032 s
+    "el-GR-NestorasNeural": 17.40,   # 119 chars / 6,840 s
+    "id-ID-ArdiNeural": 17.60,       # 117 chars / 6,648 s
 }
-TAXA_PADRAO = 14.50   # NAO medida: media grosseira das tres acima
+# Voz nova entra medida, nunca estimada. Este valor existe so para o ensaio nao
+# abortar; ele NAO serve para dimensionar roteiro.
+TAXA_PADRAO = 14.50
 
 
 def taxa(voz: str) -> float:

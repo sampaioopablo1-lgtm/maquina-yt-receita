@@ -185,11 +185,54 @@ def _gate_glifos(sp):
             f"como tofu: {amostra}"]
 
 
+PISO_LONGO_S = 480     # 8 min: piso duro da rotina
+TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
+SHORT_MIN_S, SHORT_MAX_S = 30, 45
+
+
+def _gate_duracao(sp):
+    """Duracao estimada pela taxa MEDIDA da voz.
+
+    So vale porque a taxa e medida por voz. Com um padrao unico de 14,50 a
+    agla-level-003 aparecia com 8:30 de longo e 26 s de short — as duas coisas
+    fora de faixa — quando a taxa real do hindi (10,75 chars/s, a mais lenta do
+    portfolio) poe o longo em 11,1 min e o short em 34 s, dentro. Eu quase
+    reescrevi um roteiro que estava certo.
+
+    O short e o que mais importa aqui: em canal frio e ele que entrega, e a
+    rotina exige 30 a 45 s. Abaixo de 30 nao e "curtinho", e fora do formato.
+    """
+    from ensaio import TAXA_CHARS_S
+
+    voz = sp.get("voz", "")
+    if voz not in TAXA_CHARS_S:
+        return [f"voz {voz!r} sem taxa medida — meca antes de dimensionar"]
+    t = TAXA_CHARS_S[voz]
+
+    faltas = []
+    longo = sp.get("longo") or []
+    if longo:
+        d = sum(len(c["nar"]) for c in longo) / t + 0.5 * len(longo)
+        if d < PISO_LONGO_S:
+            faltas.append(f"longo com {d/60:.1f} min — abaixo do piso de 8 min")
+        elif d > TETO_LONGO_S:
+            faltas.append(f"longo com {d/60:.1f} min — acima de 15 min; so vale "
+                          f"em canal escalonado, e o escalonamento vai no config")
+    short = sp.get("short") or []
+    if short:
+        ds = sum(len(c["nar"]) for c in short) / t + 0.5 * len(short)
+        if not SHORT_MIN_S <= ds <= SHORT_MAX_S:
+            faltas.append(f"short com {ds:.0f} s — fora dos {SHORT_MIN_S}-"
+                          f"{SHORT_MAX_S} s que a rotina pede")
+    return faltas
+
+
 PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
     ("copy", lambda c, s: _gate_copy(s)),
     ("narracao", lambda c, s: _gate_narracao(c)),
     ("glifos", lambda c, s: _gate_glifos(s)),
+    ("duracao", lambda c, s: _gate_duracao(s)),
     ("layout", lambda c, s: _gate_layout(s)),
 )
 
