@@ -1,6 +1,7 @@
 {
  "slug": "resep-naik-level",
- "pacote": "resep-naik-level-002", "voz": "id-ID-GadisNeural",
+ "pacote": "resep-naik-level-002",
+ "voz": "id-ID-GadisNeural",
  "paleta": {
   "ink": "#1A1A1A",
   "c1": "#C1440E",
@@ -89,7 +90,7 @@
    "layout": "item",
    "kicker": "Telur ayam ras",
    "preco": "Rp29.650/kg",
-   "nar": "Satu kilogram itu kira-kira enam belas butir, jadi satu butir telur ada di kisaran seribu delapan ratus rupiah.",
+   "nar": "Satu kilogram itu kira-kira enam belas butir. Jadi satu butirnya ada di kisaran seribu delapan ratus rupiah.",
    "sem_cap": true
   },
   {
@@ -100,7 +101,7 @@
     "kemasan I: Rp24.300/liter"
    ],
    "cap": "Minyak goreng",
-   "nar": "Minyak goreng curah sekitar dua puluh ribu lima ratus rupiah per liter. Yang kemasan bermerek lebih mahal: tipe satu sekitar dua puluh empat ribu tiga ratus, tipe dua sekitar dua puluh tiga ribu empat ratus lima puluh."
+   "nar": "Minyak goreng curah sekitar dua puluh ribu lima ratus rupiah per liter. Yang kemasan bermerek lebih mahal. Tipe satu sekitar dua puluh empat ribu tiga ratus. Tipe dua sekitar dua puluh tiga ribu empat ratus lima puluh."
   },
   {
    "layout": "lista",
@@ -116,7 +117,7 @@
    "layout": "item",
    "kicker": "Kenaikan beras",
    "preco": "4,47%",
-   "nar": "Dan perhatikan arahnya. Beras kualitas bawah satu naik empat koma empat tujuh persen, kualitas bawah dua naik lima koma lima persen."
+   "nar": "Dan perhatikan arahnya. Beras kualitas bawah satu naik empat koma empat tujuh persen. Yang kualitas bawah dua naik lima koma lima persen."
   },
   {
    "layout": "item",
@@ -161,7 +162,7 @@
     "tahu 1 bungkus: Rp6.000"
    ],
    "cap": "Protein utama",
-   "nar": "Jadi seratus ribu ini untuk lauk dan sayur. Proteinnya tiga: satu kilogram telur sekitar dua puluh sembilan ribu enam ratus lima puluh, empat papan tempe sekitar dua belas ribu, dan satu bungkus tahu sekitar enam ribu."
+   "nar": "Jadi seratus ribu ini untuk lauk dan sayur. Proteinnya ada tiga. Satu kilogram telur sekitar dua puluh sembilan ribu enam ratus lima puluh. Empat papan tempe sekitar dua belas ribu. Dan satu bungkus tahu sekitar enam ribu."
   },
   {
    "layout": "barras",
@@ -312,7 +313,7 @@
    "layout": "item",
    "kicker": "Perusak pertama",
    "preco": "bawang merah",
-   "nar": "Perusak pertama adalah bawang merah. Dalam beberapa pembacaan harga tahun ini, bawang merah tercatat di empat puluh ribu empat ratus lima puluh, lalu empat puluh tiga ribu delapan ratus, dan di satu titik lima puluh empat ribu tiga ratus lima puluh rupiah per kilogram."
+   "nar": "Perusak pertama adalah bawang merah. Dalam beberapa pembacaan harga tahun ini, dia tercatat di empat puluh ribu empat ratus lima puluh. Lalu di empat puluh tiga ribu delapan ratus. Dan di satu titik, lima puluh empat ribu tiga ratus lima puluh rupiah per kilogram."
   },
   {
    "layout": "barras",
@@ -346,7 +347,7 @@
    "layout": "item",
    "kicker": "Perusak kedua",
    "preco": "kedelai",
-   "nar": "Perusak kedua adalah kedelai — bahan baku tempe dan tahu. Harganya bertahan di kisaran sepuluh ribu lima ratus rupiah per kilogram selama hampir tiga pekan, lalu melonjak sampai tiga belas ribu pada April dua ribu dua puluh enam."
+   "nar": "Perusak kedua adalah kedelai — bahan baku tempe dan tahu. Harganya bertahan di kisaran sepuluh ribu lima ratus rupiah per kilogram selama hampir tiga pekan. Lalu melonjak sampai tiga belas ribu pada April dua ribu dua puluh enam."
   },
   {
    "layout": "lista",
@@ -537,7 +538,7 @@
    "layout": "item",
    "kicker": "Kalau bawang di puncak",
    "preco": "lima sampai enam hari",
-   "nar": "Artinya seratus ribu Anda berhenti di hari kelima atau keenam. Selisih dua hari itu bukan karena Anda boros — itu karena pasar bergerak.",
+   "nar": "Artinya seratus ribu Anda berhenti di hari kelima atau keenam. Selisih dua hari itu bukan karena Anda boros — itu karena pasar bergerak. Jadi apa yang sebenarnya perlu Anda ingat dari semua ini?",
    "sem_cap": true
   },
   {
@@ -557,7 +558,7 @@
     "dua barang yang bergerak: bawang dan kedelai",
     "ukur berat, jangan percaya label"
    ],
-   "nar": "Dua barang yang paling sering merusaknya adalah bawang merah dan apa pun yang berbahan kedelai. Dan sebagian kenaikan harga tidak muncul di label, tapi di ukuran.",
+   "nar": "Dua barang yang paling sering merusaknya adalah bawang merah dan apa pun yang berbahan kedelai. Dan sebagian kenaikan harga tidak muncul di label, tapi di ukuran. Sekarang giliran Anda:",
    "sem_cap": true
   },
   {
@@ -611,5 +612,6 @@
    "nar": "Ukur beratnya, jangan percaya labelnya. Subscribe ke Resep Naik Level."
   }
  ],
- "copy": "# Belanja Mingguan Rp100.000 di 2026: Daftar Persis untuk 7 Hari\n\n## TITLE\nBelanja Mingguan Rp100.000 di 2026: Daftar Persis untuk 7 Hari\n\n## DESCRIPTION\nSeratus ribu rupiah adalah angka belanja mingguan yang paling sering dipakai di Indonesia. Video ini menjawab pertanyaan yang jarang dijawab jujur: di tahun 2026, seratus ribu itu benar-benar cukup untuk berapa hari? Bukan tebakan — kita pakai harga rata-rata nasional yang dipublikasikan, menyusun daftar belanjanya satu per satu, menjumlahkannya, lalu melihat sampai hari ke berapa isinya bertahan untuk dua orang.\n\nHarga yang dipakai: beras kualitas medium I sekitar Rp16.200/kg, kualitas bawah I sekitar Rp15.200/kg dan kualitas super sampai Rp17.800/kg, menurut data Pusat Informasi Harga Pangan Strategis (PIHPS) yang dikelola Bank Indonesia. Telur ayam ras sekitar Rp29.650/kg — kira-kira 16 butir, jadi sekitar Rp1.800 per butir. Minyak goreng curah sekitar Rp20.500/liter, sementara kemasan bermerek Rp23.450–24.300/liter. Perhatikan arah kenaikannya: beras kualitas bawah I naik 4,47% dan bawah II naik 5,5% — yang naik paling tajam justru beras yang dibeli orang dengan anggaran paling ketat.\n\nDaftar belanjanya disusun untuk dua orang selama tujuh hari, dengan asumsi beras sudah ada di rumah (untuk dua orang seminggu butuh sekitar 2,5 kg atau Rp40.000 — kalau ikut masuk, 40% anggaran habis sebelum beli lauk). Proteinnya telur 1 kg, tempe 4 papan, dan tahu 1 bungkus. Sisanya sayur, bumbu, dan minyak. Videonya juga memberikan menu tujuh hari lengkap dari daftar itu, dengan prinsip setiap bahan dipakai di lebih dari satu masakan.\n\nBagian terpenting adalah di mana hitungan ini jebol. Ada dua barang yang merusaknya. Pertama, bawang merah: dalam beberapa pembacaan harga tahun ini tercatat Rp40.450, Rp42.150, Rp43.800, dan di satu titik Rp54.350 per kg — ayunan sekitar 34% pada satu barang. Kedua, kedelai: bertahan di kisaran Rp10.500/kg selama hampir tiga pekan lalu melonjak sampai Rp13.000/kg pada April 2026, mendorong harga tempe dari sekitar Rp12.000 menjadi Rp15.000/kg dan kenaikan tahu-tempe sampai 20%. Yang paling perlu diwaspadai: sebagian pedagang tahu memilih mengecilkan ukuran, bukan menaikkan harga — kenaikan yang tidak muncul di label.\n\nJawaban jujurnya: kalau harga stabil, Rp100.000 cukup tujuh hari. Kalau minggu Anda jatuh saat bawang di puncak dan tempe sudah disesuaikan, daftar yang sama menghabiskan sekitar Rp107.000 dan berhenti di hari kelima atau keenam.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nBerapa anggaran belanja mingguan Anda, untuk berapa orang, dan sampai hari ke berapa biasanya bertahan? Tulis kota atau daerahnya juga — harga di setiap pasar tidak sama, dan saya ingin membandingkan selisihnya untuk video lanjutan. Saya paling penasaran dengan harga tempe dan bawang merah di daerah Anda minggu ini.\n\n## HASHTAGS\n#BelanjaMingguan #MenuHemat #ResepNaikLevel\n\n## TAGS\nbelanja mingguan 100 ribu, menu hemat seminggu, daftar belanja dapur, harga bahan pokok 2026, harga telur ayam per kg, harga tempe naik, harga kedelai 2026, belanja hemat 2 orang, food preparation hemat, menu 7 hari hemat, tips belanja pasar, harga bawang merah naik, minyak goreng curah, anggaran dapur bulanan, masak hemat rumahan\n\n## STUDIO SETTINGS\n- Bahasa: Indonesia (id) | Kategori: Howto & Style (26)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (narasi AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif (durasi di atas 8 menit)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SUMBER DAN CATATAN\nHarga beras, telur, minyak goreng, dan bawang merah mengacu pada publikasi Pusat Informasi Harga Pangan Strategis (PIHPS) Bank Indonesia sebagaimana diberitakan media nasional; angka tersebut adalah rata-rata nasional dan berbeda dari harga di pasar Anda. Harga kedelai dan tempe mengacu pada pemberitaan media ekonomi nasional tahun 2026. Perlu dicatat, Gakoptindo menegaskan kenaikan harga tempe bukan semata karena kedelai, dan ada riset yang menyoroti marjin importir. Susunan daftar belanja dan menu adalah contoh perhitungan, bukan patokan gizi. Konten edukatif, bukan saran keuangan atau saran gizi profesional.\n"
+ "copy": "# Belanja Mingguan Rp100.000 di 2026: Daftar Persis untuk 7 Hari\n\n## TITLE\nBelanja Mingguan Rp100.000 di 2026: Daftar Persis untuk 7 Hari\n\n## DESCRIPTION\nSeratus ribu rupiah adalah angka belanja mingguan yang paling sering dipakai di Indonesia. Video ini menjawab pertanyaan yang jarang dijawab jujur: di tahun 2026, seratus ribu itu benar-benar cukup untuk berapa hari? Bukan tebakan — kita pakai harga rata-rata nasional yang dipublikasikan, menyusun daftar belanjanya satu per satu, menjumlahkannya, lalu melihat sampai hari ke berapa isinya bertahan untuk dua orang.\n\nHarga yang dipakai: beras kualitas medium I sekitar Rp16.200/kg, kualitas bawah I sekitar Rp15.200/kg dan kualitas super sampai Rp17.800/kg, menurut data Pusat Informasi Harga Pangan Strategis (PIHPS) yang dikelola Bank Indonesia. Telur ayam ras sekitar Rp29.650/kg — kira-kira 16 butir, jadi sekitar Rp1.800 per butir. Minyak goreng curah sekitar Rp20.500/liter, sementara kemasan bermerek Rp23.450–24.300/liter. Perhatikan arah kenaikannya: beras kualitas bawah I naik 4,47% dan bawah II naik 5,5% — yang naik paling tajam justru beras yang dibeli orang dengan anggaran paling ketat.\n\nDaftar belanjanya disusun untuk dua orang selama tujuh hari, dengan asumsi beras sudah ada di rumah (untuk dua orang seminggu butuh sekitar 2,5 kg atau Rp40.000 — kalau ikut masuk, 40% anggaran habis sebelum beli lauk). Proteinnya telur 1 kg, tempe 4 papan, dan tahu 1 bungkus. Sisanya sayur, bumbu, dan minyak. Videonya juga memberikan menu tujuh hari lengkap dari daftar itu, dengan prinsip setiap bahan dipakai di lebih dari satu masakan.\n\nBagian terpenting adalah di mana hitungan ini jebol. Ada dua barang yang merusaknya. Pertama, bawang merah: dalam beberapa pembacaan harga tahun ini tercatat Rp40.450, Rp42.150, Rp43.800, dan di satu titik Rp54.350 per kg — ayunan sekitar 34% pada satu barang. Kedua, kedelai: bertahan di kisaran Rp10.500/kg selama hampir tiga pekan lalu melonjak sampai Rp13.000/kg pada April 2026, mendorong harga tempe dari sekitar Rp12.000 menjadi Rp15.000/kg dan kenaikan tahu-tempe sampai 20%. Yang paling perlu diwaspadai: sebagian pedagang tahu memilih mengecilkan ukuran, bukan menaikkan harga — kenaikan yang tidak muncul di label.\n\nJawaban jujurnya: kalau harga stabil, Rp100.000 cukup tujuh hari. Kalau minggu Anda jatuh saat bawang di puncak dan tempe sudah disesuaikan, daftar yang sama menghabiskan sekitar Rp107.000 dan berhenti di hari kelima atau keenam.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nBerapa anggaran belanja mingguan Anda, untuk berapa orang, dan sampai hari ke berapa biasanya bertahan? Tulis kota atau daerahnya juga — harga di setiap pasar tidak sama, dan saya ingin membandingkan selisihnya untuk video lanjutan. Saya paling penasaran dengan harga tempe dan bawang merah di daerah Anda minggu ini.\n\n## HASHTAGS\n#BelanjaMingguan #MenuHemat #ResepNaikLevel\n\n## TAGS\nbelanja mingguan 100 ribu, menu hemat seminggu, daftar belanja dapur, harga bahan pokok 2026, harga telur ayam per kg, harga tempe naik, harga kedelai 2026, belanja hemat 2 orang, food preparation hemat, menu 7 hari hemat, tips belanja pasar, harga bawang merah naik, minyak goreng curah, anggaran dapur bulanan, masak hemat rumahan\n\n## STUDIO SETTINGS\n- Bahasa: Indonesia (id) | Kategori: Howto & Style (26)\n- Bukan untuk anak-anak\n- Pengungkapan konten sintetis: YA (narasi AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan mid-roll: aktif (durasi di atas 8 menit)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## SUMBER DAN CATATAN\nHarga beras, telur, minyak goreng, dan bawang merah mengacu pada publikasi Pusat Informasi Harga Pangan Strategis (PIHPS) Bank Indonesia sebagaimana diberitakan media nasional; angka tersebut adalah rata-rata nasional dan berbeda dari harga di pasar Anda. Harga kedelai dan tempe mengacu pada pemberitaan media ekonomi nasional tahun 2026. Perlu dicatat, Gakoptindo menegaskan kenaikan harga tempe bukan semata karena kedelai, dan ada riset yang menyoroti marjin importir. Susunan daftar belanja dan menu adalah contoh perhitungan, bukan patokan gizi. Konten edukatif, bukan saran keuangan atau saran gizi profesional.\n",
+ "idioma": "id"
 }
