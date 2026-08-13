@@ -1,4 +1,4 @@
-name: Diario — informe e disparo da frota
+name: Ciclo — informe e disparo da frota
 
 # O informe e o disparo moram JUNTOS de proposito. Separados, o relatorio conta
 # uma coisa e a frota faz outra: foi assim que eu reportei "quinze pacotes
@@ -11,9 +11,21 @@ name: Diario — informe e disparo da frota
 
 on:
   schedule:
-    # 09:00 UTC = 06:00 em Brasilia. Cedo o bastante para o dia render, tarde o
-    # bastante para o disparo da madrugada anterior ja ter terminado.
-    - cron: "0 9 * * *"
+    # A CADA 15 MINUTOS, nao uma vez ao dia. O ciclo curto so faz sentido
+    # porque o orquestrador ja e idempotente: ele descarta pacote com
+    # youtube_id, respeita o teto de tres por dia por canal, e o publicar.py
+    # recusa republicacao consultando o banco. Sem essas tres travas, disparar
+    # de quinze em quinze minutos seria uma maquina de duplicata.
+    #
+    # Quando nao ha nada pronto o job termina em segundos com um `notice` — o
+    # custo de um ciclo vazio e desprezivel, e o ganho e que um pacote que
+    # ficou pronto as 09:05 nao espera ate o dia seguinte.
+    #
+    # ATENCAO ao custo: em repositorio PRIVADO isto consome os 2.000 min/mes.
+    # Em repositorio publico o Actions nao tem cota, e ai o ciclo de quinze
+    # minutos e gratuito. Hoje o repo e privado e sem minutos: o cron nao
+    # roda, e o unico efeito e que ele ja esta armado para quando destravar.
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       disparar:

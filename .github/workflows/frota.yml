@@ -1,16 +1,26 @@
 name: Frota — render paralelo por canal
 
-# Por que este workflow existe, com numero:
+# Por que este workflow existe — e a CORRECAO do numero que o justificava.
 #
-# O sandbox Composio tem 1 CPU e 985 MB. Medido em 2026-08-11, ele renderiza a
-# 208 s por cena — 260 min para um pacote de 75 cenas, 22,7x o tempo real do
-# video. A MESMA fabrica num runner de 4 vCPU/16 GB faz 10,3 s por cena (1,14x
-# tempo real): 20x mais rapido, sem precisar do ESCALA_RENDER 0.75 que existe so
-# porque o zoompan nao cabia em 1 GB.
+# Este cabecalho dizia: "o sandbox Composio renderiza a 208 s por cena, 260 min
+# para um pacote de 75 cenas". Esse numero esta ERRADO por um fator de 25, e
+# custou caro: durante toda a sessao de 13/08 eu descartei o sandbox como rota
+# de render por causa dele, enquanto o Actions estava sem minutos e a maquina
+# publicava zero.
 #
-# Ou seja: o teto de ~5 pacotes/dia nunca foi da cota do YouTube (100 uploads/dia
-# por projeto, dos quais usamos 10) nem do plano da Upload-Post. Era 1 CPU.
-# Aqui cada canal vira um job, e os jobs correm juntos.
+# MEDIDO em 13/08/2026 no proprio sandbox (1 vCPU, 985 MB), no caso real de
+# composicao em camadas — tres PNG de 1280x720, zoompan, loudnorm, aac:
+#
+#     cena em camadas (11 s de video)      8,4 s
+#     cena simples sem camadas             1,2 s
+#     projecao para 81 cenas              11 min
+#
+# Onze minutos, nao duzentos e sessenta. O sandbox da conta de um pacote
+# inteiro. A frota continua valendo pelo PARALELISMO — dez canais ao mesmo
+# tempo, cada um no seu job — e nao porque o sandbox seja inviavel.
+#
+# Licao: numero em comentario envelhece igual a numero em codigo, e ninguem
+# reconfere porque ele parece medido. Este agora traz a data e o metodo.
 #
 # A PAUTA e o ROTEIRO continuam fora daqui, na rotina horaria: e de la que vem a
 # qualidade. Este workflow recebe a spec pronta e faz a parte mecanica —
