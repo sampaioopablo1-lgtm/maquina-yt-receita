@@ -517,3 +517,24 @@ def test_render_sem_trilha_para_em_vez_de_seguir_calado(tmp_path, monkeypatch):
     monkeypatch.setattr(F, "trilha_do_canal", lambda slug, reg=None: None)
     with pytest.raises(RuntimeError, match="nenhuma trilha utilizavel"):
         F.aplicar_trilha(str(tmp_path), "video.mp4", "nivel-do-jogo", "Inspired")
+
+
+def test_rebuild_de_spec_nao_apaga_copy_pronta():
+    """Um build script que carrega bilhete no campo `copy` DESTROI a spec.
+
+    Aconteceu em 14/08/2026: rodei sx-educacao-001.build.py so para acrescentar
+    o campo `trilha` e o script sobrescreveu 4.288 chars de copy pronta pelo
+    bilhete "gerado a partir dos capitulos reais apos o render". A spec caiu do
+    portao de copy e sumiu da fila sem ninguem reclamar.
+    """
+    import subprocess
+    import sys as _sys
+
+    alvo = RAIZ / "fabrica" / "specs" / "sx-educacao-001.json"
+    antes = json.loads(alvo.read_text(encoding="utf-8"))["copy"]
+    assert len(antes) > 500, "a fixture ja esta quebrada"
+    subprocess.run([_sys.executable, "fabrica/specs/sx-educacao-001.build.py"],
+                   cwd=RAIZ, check=True, capture_output=True,
+                   env={**os.environ, "PYTHONPATH": str(RAIZ / "fabrica")})
+    depois = json.loads(alvo.read_text(encoding="utf-8"))["copy"]
+    assert depois == antes, "o rebuild trocou a copy"

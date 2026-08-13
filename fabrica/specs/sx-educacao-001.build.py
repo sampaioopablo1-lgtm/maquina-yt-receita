@@ -332,6 +332,17 @@ SHORT = [
             "Assiste agora.", "sem_cap": True},
 ]
 
+def _copy_existente():
+    """Le a copy do .json ao lado, se ele ja existir."""
+    import os
+    alvo = "fabrica/specs/sx-educacao-001.json"
+    if os.path.exists(alvo):
+        c = json.load(open(alvo, encoding="utf-8")).get("copy") or ""
+        if len(c) > 500:
+            return c
+    return "gerado a partir dos capitulos reais apos o render"
+
+
 SPEC = {
     "slug": "sx-educacao",
     "pacote": "sx-educacao-001",
@@ -342,7 +353,11 @@ SPEC = {
     "thumb": {"l1": "LICENCAS DORMINDO", "l2": "a planilha que acha"},
     "longo": CENAS,
     "short": SHORT,
-    "copy": "gerado a partir dos capitulos reais apos o render",
+    # A copy REAL vive no .json e nao aqui: ela foi escrita depois deste
+    # script. Reconstruir a partir do bilhete apaga 4.288 chars de copy pronta
+    # e derruba a spec no portao — foi o que aconteceu em 14/08/2026, quando
+    # rodei este build so para acrescentar o campo `trilha`.
+    "copy": _copy_existente(),
 }
 
 if __name__ == "__main__":
