@@ -76,6 +76,41 @@ real de estoque compatível (ex.: aluguel de R$ 10–15 mil/mês em SJC, nicho
 que praticamente não aparece nos portais); 5 ainda giravam quando este
 texto foi escrito, resolvem no próximo ciclo do cron.
 
+## Achado ao avaliar o fluxo: `solicitacao_sugestoes` não é captação
+
+Depois da correção acima, uma solicitação de venda (SJC, R$650-800 mil)
+apareceu com 18 "sugestões boas" e mesmo assim a tela do captador mostrava
+"nenhum imóvel pra trabalhar aqui agora". Causa: `solicitacao_sugestoes`
+tem `imovel_id` — é o motor de VENDAS, que casa a solicitação contra o
+**estoque já cadastrado no Vista**, sem nenhuma relação com captação de
+proprietário novo. Contar as duas tabelas juntas (a correção do achado
+anterior) resolveu o empilhamento infinito e criou um bug novo: uma
+solicitação com match de estoque mas zero sugestão de captação passava a
+ser marcada "já coberta". Corrigido de novo: a contagem de "já está
+coberta" para fins de captação olha só `solicitacao_sugestoes_externas`.
+Reprocessadas 1.481 solicitações que tinham sido fechadas incorretamente;
+a maioria (>1.300) ganhou sugestão de captação real na sequência, porque o
+estoque de prospects já estava grande o bastante.
+
+## Achado ao avaliar o fluxo: `\b` no Postgres não é fronteira de palavra
+
+Entre as sugestões geradas apareceu "Grupo Kaza Apolo 05" (e dezenas de
+variantes numeradas — Kaza Jacareí, Kaza Satélite, Kaza Aquarius — mais
+"Grupo Intervale", 16 anúncios) marcadas como particular. O classificador
+já tinha `\bgrupo\b` na lista de marcas de empresa, mas a engine de regex
+do Postgres é ARE (não PCRE): `\b` significa **backspace**, não fronteira
+de palavra — a fronteira certa é `\y`. Confirmado:
+`'Grupo Kaza' ~ '(?i)\bgrupo\b'` → `false`; com `\y` → `true`. Isso
+significa que **nenhum** termo com `\b...\b` na regra (`me`, `mei`, `epp`,
+`spe`, `cia`, `grupo`, `home`, `homes`, `house`, `prime`, `elite`, `vip`,
+`master`, `plan`, `planej`, `ventures`, `corp`, `group`) jamais excluiu
+nada desde que o classificador foi escrito. Corrigido trocando `\b` por
+`\y` em toda a regra; reclassificado o acervo inteiro (particulares caiu
+de 373 para 255 — 118 eram empresa disfarçada de nome de rede) e removidas
+as sugestões de captação já emitidas com prospect que virou empresa sob a
+régua corrigida, reabrindo as solicitações afetadas pra ganhar sugestão de
+verdade.
+
 ## Gatilho automático por solicitação nova
 
 `tg_solicitacao_captacao` (AFTER INSERT em `solicitacoes`, só nos status
@@ -110,13 +145,20 @@ falso) → empresa (CRECI presente) → empresa (nome de empresa) → particular
 (nome com 2+ palavras, sem sinal de empresa) → indefinido. Yield real:
 ~6-8% de particular por página, não os 43% que o CRECI vazio sugeria.
 
-## Limitação conhecida
+## Onde a tela do captador lê os dados
 
-As sugestões da captação externa vivem em `solicitacao_sugestoes_externas`;
-a tela do captador lê `solicitacao_sugestoes`. Aparecer no mesmo lugar que
-as sugestões internas do app precisa de mudança no front-end do worker
-`jazz-lead-conecta`, fora do alcance desta sessão (sem acesso de deploy a
-esse repositório).
+A tela "Minhas Captações" (worker `jazz-lead-conecta`) já tem UI própria
+pra captação sob demanda por solicitação (botões "Cadastrar no Vista",
+"Captei outro (por código)", "Gerar +10", seção "Portais Externos"). O
+código desse worker não está neste repositório, então não dá pra confirmar
+por aqui se ele lê `solicitacao_sugestoes_externas` diretamente ou se
+"Gerar +10" chama outro endpoint — mas o caso testado (solicitação de
+goncalves goncalves, SJC) confirma que a tela reage ao conteúdo real da
+fila: estava vazia quando a solicitação tinha 0 sugestões de captação, e
+o mesmo card deve passar a mostrar as 2 sugestões de particular geradas
+depois da correção do bug de regex. Se não mostrar, aí sim é sinal de que
+o worker lê de outro lugar e precisa de ajuste — vale confirmar com o
+captador na tela antes de investir mais tempo nisso.
 
 ## Economia
 
