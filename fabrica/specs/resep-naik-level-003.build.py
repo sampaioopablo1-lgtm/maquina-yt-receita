@@ -442,6 +442,9 @@ SPEC = {
     "pacote": "resep-naik-level-003",
     "idioma": "id",
     "voz": "id-ID-GadisNeural",
+    # canais.trilha do banco. Sem este campo o credito CC-BY sai do hash,
+    # e o hash ja creditou Cipher2 para um canal registrado em Deliberate_Thought.
+    "trilha": "Deliberate_Thought",
     "paleta": {"ink": "#3A1008", "c1": "#C1440E", "c2": "#E8B84B", "bg": "#FDF6EC"},
     "thumb": {"l1": "HARGA NAIK TIAP MINGGU", "l2": "anggaranmu tidak tahu"},
     "longo": CENAS,

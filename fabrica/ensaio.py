@@ -87,8 +87,30 @@ def duracao_cena(nar: str, voz: str) -> float:
     return len(nar) / R + len(frases(nar)) * P
 
 
+# Sobra de MONTAGEM, medida no render e nao no TTS. O clipe pronto e mais longo
+# que o audio dele: sobra um resto dentro da cena e um intervalo ate a proxima.
+#
+# MEDIDO em 14/08/2026 no ensaio completo do resep-naik-level-003: o modelo de
+# TTS somava 849,9 s e o video.mp4 saiu com 894,4 s. Sao 44,5 s em 86 cenas.
+# Duas medicoes independentes batem — o .srt mostra 0,3 s de intervalo entre o
+# fim de uma cena e o inicio da seguinte, mais 0,26 s de mediana de folga dentro
+# da cena.
+#
+# POR QUE IMPORTA: sem este termo o portao aprovou 14,2 min para um video que
+# saiu com 14,9, contra um teto de 15,0. Sobraram cinco segundos. Um roteiro
+# um pouco maior passa no portao e estoura o teto sem ninguem ver.
+#
+# n=1 spec. Confirmar num segundo render antes de tratar como constante firme.
+#
+# E fica FORA de `duracao_cena` de proposito: o ensaio gera o silencio pela
+# duracao do TTS, e a montagem adiciona a sobra depois. Somar aqui faria o
+# silencio ja nascer com a sobra e o video sairia mais longo ainda.
+PADDING_CENA_S = 0.517
+
+
 def duracao_estimada(cenas, voz: str) -> float:
-    return sum(duracao_cena(c.get("nar", ""), voz) for c in cenas)
+    return (sum(duracao_cena(c.get("nar", ""), voz) for c in cenas)
+            + PADDING_CENA_S * len(cenas))
 
 
 def _ffmpeg(args: list[str]) -> None:

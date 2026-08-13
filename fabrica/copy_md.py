@@ -106,9 +106,19 @@ def capitulos(sp, tempos):
     return caps
 
 
-def credito_trilha(slug, valida=None):
-    """Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado."""
-    faixa = trilha_do_canal(slug, valida)
+def credito_trilha(slug, valida=None, registrada=None):
+    """Credito CC-BY obrigatorio: sem ele o uso da faixa deixa de ser licenciado.
+
+    `registrada` PRECISA chegar ate aqui. O parametro existia em
+    `trilha_do_canal` desde 13/08/2026 e nao era repassado por ninguem, entao o
+    credito continuava saindo do hash — medido em 14/08/2026 no ensaio do
+    resep-naik-level-003: canais.trilha diz Deliberate_Thought e o copy.md
+    renderizado creditava Cipher2.
+
+    Credito errado nao e detalhe de estilo: e o que torna o uso da faixa
+    licenciado. Nomear a faixa errada e o mesmo que nao creditar.
+    """
+    faixa = trilha_do_canal(slug, valida, registrada)
     if not faixa:
         return "—"
     nome = os.path.basename(faixa)[:-4].replace("_", " ")
@@ -127,7 +137,8 @@ def escrever_copy(sp, tempos, d, valida_trilha=None):
     """
     copy = (sp.get("copy") or "") \
         .replace("{CAPITULOS}", "\n".join(capitulos(sp, tempos))) \
-        .replace("{TRILHA}", credito_trilha(sp["slug"], valida_trilha))
+        .replace("{TRILHA}", credito_trilha(sp["slug"], valida_trilha,
+                                            sp.get("trilha")))
     with open(f"{d}/copy.md", "w", encoding="utf-8") as f:
         f.write(copy)
     return copy

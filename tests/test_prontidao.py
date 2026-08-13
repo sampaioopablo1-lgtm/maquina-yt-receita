@@ -392,3 +392,61 @@ def test_so_arquivo_estranho_e_o_mesmo_que_nenhuma_trilha(tmp_path, monkeypatch)
     (tmp_path / "bench.mp3").write_bytes(b"")
     monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
     assert C.trilha_do_canal("qualquer") is None
+
+
+def test_o_credito_segue_a_trilha_registrada_e_nao_o_hash(tmp_path, monkeypatch):
+    """O credito CC-BY e o que torna o uso da faixa licenciado.
+
+    Medido em 14/08/2026 no ensaio do resep-naik-level-003: canais.trilha diz
+    Deliberate_Thought e o copy.md renderizado creditava Cipher2. O parametro
+    `registrada` existia em trilha_do_canal desde 13/08 e ninguem o repassava,
+    entao o credito continuava saindo do hash. Nomear a faixa errada e o mesmo
+    que nao creditar.
+    """
+    import copy_md as C
+
+    for f in C.TRILHAS_VALIDAS:
+        (tmp_path / f"{f}.mp3").write_bytes(b"")
+    monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
+
+    pelo_hash = C.credito_trilha("resep-naik-level")
+    registrado = C.credito_trilha("resep-naik-level", None, "Deliberate_Thought")
+    assert "Cipher2" in pelo_hash                      # o defeito, reproduzido
+    assert "Deliberate Thought" in registrado          # e a correcao
+
+
+def test_escrever_copy_repassa_a_trilha_da_spec(tmp_path, monkeypatch):
+    """A ponta que faltava: quem escreve o copy.md tem que LER sp['trilha'].
+
+    Sem isto a correcao acima fica sendo codigo morto, que foi exatamente o
+    estado entre 13 e 14 de agosto.
+    """
+    import copy_md as C
+
+    trilhas = tmp_path / "t"
+    trilhas.mkdir()
+    for f in C.TRILHAS_VALIDAS:
+        (trilhas / f"{f}.mp3").write_bytes(b"")
+    monkeypatch.setattr(C, "TRILHA_DIR", str(trilhas))
+
+    sp = {"slug": "resep-naik-level", "trilha": "Deliberate_Thought",
+          "longo": [{"nar": "a", "cap": "um", "kicker": "k"}],
+          "copy": "# t\n\n## A\n{TRILHA}\n"}
+    d = tmp_path / "wd"
+    d.mkdir()
+    saida = C.escrever_copy(sp, [10.0], str(d))
+    assert "Deliberate Thought" in saida, saida
+
+
+def test_trilha_declarada_na_spec_tem_que_ser_valida():
+    """Nome errado no campo levanta em vez de cair no hash calado."""
+    import copy_md as C
+
+    specs = sorted((RAIZ / "fabrica" / "specs").glob("*.json"))
+    ruins = []
+    for p in specs:
+        sp = json.loads(p.read_text(encoding="utf-8"))
+        t = sp.get("trilha")
+        if t and t not in C.TRILHAS_VALIDAS:
+            ruins.append((p.stem, t))
+    assert not ruins, ruins
