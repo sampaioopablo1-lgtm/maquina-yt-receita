@@ -1,1 +1,725 @@
-{"slug": "next-level-money", "pacote": "next-level-money-003", "voz": "en-US-AndrewNeural", "paleta": {"ink": "#1A1A1A", "c1": "#E4572E", "c2": "#F2B134", "bg": "#F2ECDF"}, "thumb": {"l1": "YOU ARE THE PRODUCT", "l2": "credit, explained"}, "longo": [{"layout": "titulo", "kicker": "Not a customer", "sub": "a product", "nar": "There is a company that holds a file on you. You never signed up for it, you cannot delete it, and you are not its customer. You are its inventory.", "cap": "You are not the customer"}, {"layout": "titulo", "kicker": "Three companies", "sub": "one file each", "nar": "Three of them, actually. Equifax, Experian and TransUnion. Between them they hold a file on nearly every adult in the country.", "sem_cap": true}, {"layout": "item", "kicker": "The file decides", "preco": "far more than loans", "nar": "That file decides whether you get an apartment, what you pay for insurance in many states, and in some cases whether you get the job at all.", "sem_cap": true}, {"layout": "item", "kicker": "And yet", "preco": "you are not the buyer", "nar": "And yet nobody in that transaction is buying anything from you. The lender is the customer. The landlord is the customer. You are the thing being sold.", "sem_cap": true}, {"layout": "barras", "kicker": "Revenue, billions", "itens": ["Experian", "Equifax"], "alturas": [100, 89], "nar": "Experian reported trailing revenue of about seven point five two billion dollars in its first half of fiscal twenty twenty-six. Equifax guided to between six point six six and six point seven eight billion for the year.", "sem_cap": true}, {"layout": "item", "kicker": "That is the size", "preco": "of a data business", "nar": "Together with TransUnion, that is well over fifteen billion dollars a year, built almost entirely on information that people hand over without ever deciding to.", "sem_cap": true}, {"layout": "titulo", "kicker": "This video", "sub": "follows the money", "nar": "This video follows that money. Not how to raise your score — there are ten thousand videos on that. How the business underneath it actually works.", "sem_cap": true}, {"layout": "lista", "kicker": "What we cover", "itens": ["What the file holds", "Who buys it", "Why the score is a separate business", "What it costs you"], "nar": "Four parts: what is actually in the file, who buys it and why, why the score itself is a completely separate business, and what all of it costs you in real money.", "sem_cap": true}, {"layout": "item", "kicker": "One thing first", "preco": "this is not a scam story", "nar": "One thing up front. This is not a story about a scam. Everything here is legal, disclosed, and regulated. That is exactly what makes it worth understanding.", "sem_cap": true}, {"layout": "item", "kicker": "The system works", "preco": "just not for you", "nar": "The system works. It is efficient, it prices risk well, and it lets strangers lend to strangers. It simply was not designed with you as the beneficiary.", "sem_cap": true}, {"layout": "titulo", "kicker": "Start here", "sub": "what is in the file", "nar": "So let us start with the thing itself. What is actually written in your file?", "sem_cap": true}, {"layout": "lista", "kicker": "Four categories", "itens": ["Who you are", "What you owe", "How you pay", "Who has looked"], "nar": "Four categories. Identifying information, the accounts you hold, your payment behaviour on each, and a log of everyone who has requested the file.", "cap": "What the file actually holds"}, {"layout": "item", "kicker": "Identity", "preco": "thinner than you think", "nar": "The identity section is thinner than people expect. Name, current and former addresses, date of birth, and in most cases a social security number.", "sem_cap": true}, {"layout": "item", "kicker": "Accounts", "preco": "the bulk of the file", "nar": "The accounts section is the bulk of it. Every credit card, loan, mortgage and line of credit, with its limit, balance and age.", "sem_cap": true}, {"layout": "titulo", "kicker": "Payment history", "sub": "month by month", "nar": "Payment history is recorded month by month, for years. Not a summary — a grid, with a mark for every billing cycle you have ever had.", "sem_cap": true}, {"layout": "item", "kicker": "Why the grid", "preco": "patterns price better", "nar": "The grid matters because lenders are not really pricing whether you paid. They are pricing the pattern. A single miss four years ago reads very differently from three misses last spring.", "sem_cap": true}, {"layout": "item", "kicker": "The inquiry log", "preco": "who asked about you", "nar": "The last section is the inquiry log: every company that pulled your file, and when. It is the part almost nobody reads, and it quietly reveals a lot about the business.", "sem_cap": true}, {"layout": "titulo", "kicker": "What is not there", "sub": "and this surprises people", "nar": "Now the part that surprises people. Several things you would expect to be in the file simply are not.", "sem_cap": true}, {"layout": "lista", "kicker": "Not in the file", "itens": ["Your income", "Your savings", "Your job title", "Your assets"], "nar": "Your income is not in there. Neither are your savings, your job title, or anything you own outright. The file describes your debt, not your wealth.", "sem_cap": true}, {"layout": "item", "kicker": "So a person", "preco": "with no debt looks blank", "nar": "Which produces an odd result. A person who has never borrowed, who pays cash and owns their home, can look almost invisible to the system.", "sem_cap": true}, {"layout": "item", "kicker": "That is not a bug", "preco": "it is the design", "nar": "That is not a flaw in the data. It is the design. The file exists to describe how you handle borrowed money, and nothing else.", "sem_cap": true}, {"layout": "titulo", "kicker": "Which raises", "sub": "who is asking", "nar": "Which brings us to the question that actually explains the revenue. Who is asking to see it?", "sem_cap": true}, {"layout": "titulo", "kicker": "Lenders", "sub": "the obvious buyer", "nar": "The obvious buyer is the lender. A bank deciding on a card or a mortgage pulls the file, and pays for it. That is the business everyone assumes.", "cap": "Who buys the file"}, {"layout": "item", "kicker": "But lending", "preco": "is not the whole story", "nar": "But lending is nowhere near the whole story, and the other buyers are where the interesting money is.", "sem_cap": true}, {"layout": "lista", "kicker": "Also buying", "itens": ["Landlords", "Insurers", "Employers", "Utilities", "Debt collectors"], "nar": "Landlords screening tenants. Insurers in many states. Employers running background checks. Utility companies. And debt collectors deciding who is worth pursuing.", "sem_cap": true}, {"layout": "item", "kicker": "Insurance", "preco": "the one people miss", "nar": "The insurance one catches people off guard. In many states an insurer may use a credit-based score to help set your premium, on the argument that it predicts claims.", "sem_cap": true}, {"layout": "item", "kicker": "So a thin file", "preco": "can cost you twice", "nar": "Which means a thin or damaged file can raise what you pay for car insurance, in a transaction that has nothing to do with borrowing at all.", "sem_cap": true}, {"layout": "titulo", "kicker": "Prescreening", "sub": "sold in bulk", "nar": "Then there is the part that explains the mailbox. Bureaus sell lists, in bulk, before anyone has applied for anything.", "sem_cap": true}, {"layout": "item", "kicker": "How it works", "preco": "criteria, then names", "nar": "A card issuer describes the customer it wants — a score band, an age range, a region. The bureau returns a list of people who match, and the issuer mails them.", "sem_cap": true}, {"layout": "item", "kicker": "That is why", "preco": "the offers find you", "nar": "That is why offers arrive addressed to you for products you never looked at. You were not targeted by accident. You were selected, and someone paid for the selection.", "sem_cap": true}, {"layout": "item", "kicker": "You can opt out", "preco": "and almost nobody does", "nar": "You can opt out of that specific use. The mechanism exists, it is free, and almost nobody uses it, because almost nobody knows the list exists.", "sem_cap": true}, {"layout": "titulo", "kicker": "And finally", "sub": "they sell to you", "nar": "And there is one more buyer, the one that closes the loop. They sell it back to you.", "sem_cap": true}, {"layout": "item", "kicker": "Monitoring", "preco": "the consumer product", "nar": "Credit monitoring, score tracking, identity alerts — subscription products, sold to the person the file is about, describing the file they already own.", "sem_cap": true}, {"layout": "item", "kicker": "Legally", "preco": "you are entitled to it", "nar": "You are legally entitled to your reports for free. The paid product sells convenience and alerts on top of information you can already get.", "sem_cap": true}, {"layout": "titulo", "kicker": "Two businesses", "sub": "not one", "nar": "Here is where most explanations go wrong. The file and the score are two different products, made by two different kinds of company.", "cap": "The score is a different business"}, {"layout": "item", "kicker": "The bureau", "preco": "holds the data", "nar": "The bureau holds the data. That is one business: collect, store, verify, sell access.", "sem_cap": true}, {"layout": "item", "kicker": "The model", "preco": "turns data into a number", "nar": "The score is a model that turns that data into a number. Building that model is a separate business, with a separate owner, taking a separate cut.", "sem_cap": true}, {"layout": "titulo", "kicker": "FICO", "sub": "licenses the formula", "nar": "The best known of those models comes from Fair Isaac. The bureaus license the formula, run your data through it, and resell the result along with the file.", "sem_cap": true}, {"layout": "item", "kicker": "So one pull", "preco": "pays two companies", "nar": "Which means a single credit pull often pays two companies. One for the data, one for the number calculated from it.", "sem_cap": true}, {"layout": "item", "kicker": "And that", "preco": "is a fragile arrangement", "nar": "That arrangement works right up until one side decides it would rather have the whole margin.", "sem_cap": true}, {"layout": "titulo", "kicker": "Twenty twenty-six", "sub": "the arrangement cracked", "nar": "Which is roughly what happened. Fair Isaac moved to sell scores directly to mortgage lenders and resellers, going around the bureaus.", "sem_cap": true}, {"layout": "item", "kicker": "The response", "preco": "push the alternative", "nar": "Equifax responded by pushing VantageScore more aggressively into mortgage — a competing model, built by the bureaus themselves.", "sem_cap": true}, {"layout": "item", "kicker": "Read plainly", "preco": "a fight over the cut", "nar": "Stripped of the press releases, that is a fight over who keeps the margin on a number describing you, in which you have no seat and no vote.", "sem_cap": true}, {"layout": "item", "kicker": "And note", "preco": "there is no single score", "nar": "It also explains something confusing: there is no single score. Different models, different bureaus, different versions, all producing different numbers about the same person.", "sem_cap": true}, {"layout": "titulo", "kicker": "So when someone", "sub": "quotes you a number", "nar": "So when an app shows you a score, the honest question is which model, which bureau, and which version — because a lender may be looking at a different one entirely.", "sem_cap": true}, {"layout": "titulo", "kicker": "You can dispute", "sub": "and it does work", "nar": "You have a legal right to dispute anything in the file, and disputes genuinely do get things removed. But the shape of the process tells you something.", "cap": "Why disputes work the way they do"}, {"layout": "item", "kicker": "The burden", "preco": "starts with you", "nar": "The burden starts with you. You must find the error, in a file you did not compile, describing accounts opened by companies you may not remember.", "sem_cap": true}, {"layout": "item", "kicker": "Then the bureau", "preco": "asks the furnisher", "nar": "The bureau then asks the company that reported the item whether it is correct. That company is the bureau's customer.", "sem_cap": true}, {"layout": "item", "kicker": "Which is why", "preco": "confirmations are common", "nar": "Which is why a dispute is frequently returned as confirmed. The check is real, but it is a check with the party that supplied the information in the first place.", "sem_cap": true}, {"layout": "titulo", "kicker": "Volume", "sub": "explains the rest", "nar": "Volume explains most of the rest. With files on nearly every adult, disputes arrive in enormous numbers, and the process is built to run at that scale.", "sem_cap": true}, {"layout": "item", "kicker": "Automation", "preco": "is not malice", "nar": "So it is heavily automated. That is not malice; it is arithmetic. But automation is why a nuanced dispute and a simple one can come back looking the same.", "sem_cap": true}, {"layout": "item", "kicker": "The practical read", "preco": "be specific", "nar": "The practical consequence is that specific, documented disputes do far better than general ones. Name the account, the date, the exact field, and attach proof.", "sem_cap": true}, {"layout": "titulo", "kicker": "Medical debt", "sub": "a special case", "nar": "Medical debt has become its own category, because it behaves differently from borrowing: it arrives without a decision, often without a price known in advance.", "sem_cap": true}, {"layout": "item", "kicker": "Rules have moved", "preco": "and keep moving", "nar": "The rules on how medical debt appears have moved repeatedly in recent years. If you have any on file, it is worth checking what currently applies rather than what applied last time you looked.", "sem_cap": true}, {"layout": "item", "kicker": "Same for", "preco": "old negative items", "nar": "The same is true of old negative items. Most fall off after a defined period, and items that should have aged off sometimes do not, on their own.", "sem_cap": true}, {"layout": "titulo", "kicker": "Now", "sub": "the cost", "nar": "Which leaves the question that actually matters to your money. What does all of this cost you?", "sem_cap": true}, {"layout": "titulo", "kicker": "A mortgage", "sub": "the biggest number", "nar": "The clearest place to see it is a mortgage, because the loan is large and it runs for decades.", "cap": "What it costs you in real money"}, {"layout": "barras", "kicker": "Rate by score band", "itens": ["Top band", "Middle", "Lower"], "alturas": [55, 75, 100], "nar": "Between the top score band and a lower one, the rate difference on the same loan is routinely more than a full percentage point.", "sem_cap": true}, {"layout": "item", "kicker": "On a long loan", "preco": "that compounds", "nar": "On a thirty-year loan, a difference of one point can mean tens of thousands of dollars in additional interest, for the identical house and identical borrower.", "sem_cap": true}, {"layout": "item", "kicker": "Same borrower", "preco": "different price", "nar": "Same person, same income, same job. The only variable is the file — and the file mostly measures how long you have been borrowing and how consistently you repaid.", "sem_cap": true}, {"layout": "titulo", "kicker": "Then the small ones", "sub": "which add up", "nar": "Then there are the smaller charges, which are easier to ignore and land more often.", "sem_cap": true}, {"layout": "lista", "kicker": "Where else it shows up", "itens": ["Car insurance premiums", "Rental deposits", "Phone and utility deposits", "Card interest rates"], "nar": "Insurance premiums in many states. Larger rental deposits. Deposits for phone and utility service. And the rate on any card you carry a balance on.", "sem_cap": true}, {"layout": "item", "kicker": "Each one small", "preco": "the pattern is not", "nar": "Each one is small enough to shrug at. The pattern is not: the same file makes the same person more expensive in a dozen unrelated places at once.", "sem_cap": true}, {"layout": "titulo", "kicker": "And the reverse", "sub": "compounds too", "nar": "The reverse compounds as well, which is the genuinely encouraging part of this.", "sem_cap": true}, {"layout": "item", "kicker": "Improving the file", "preco": "pays in many places", "nar": "Improving the file does not just lower one rate. It lowers several prices at once, in transactions you were not thinking about when you made the change.", "sem_cap": true}, {"layout": "item", "kicker": "The mechanism", "preco": "is boring on purpose", "nar": "And the mechanism is deliberately boring: pay on time, keep balances well below limits, and let accounts age. There is no clever move, because the model is mostly measuring time.", "sem_cap": true}, {"layout": "titulo", "kicker": "Which is", "sub": "the honest answer", "nar": "That is the honest answer to how you improve it, and it is why the improvement videos all end up saying roughly the same thing.", "sem_cap": true}, {"layout": "lista", "kicker": "Free and worth doing", "itens": ["Pull all three reports", "Opt out of prescreened offers", "Freeze the file", "Fix specific errors"], "nar": "Four things that cost nothing: pull all three reports, opt out of prescreened offers, freeze the file, and dispute specific errors with documentation.", "cap": "What you can actually do"}, {"layout": "item", "kicker": "All three", "preco": "because they differ", "nar": "Pull all three, not one. The bureaus receive different data from different companies, and an error often exists on only one of them.", "sem_cap": true}, {"layout": "titulo", "kicker": "The freeze", "sub": "the strongest tool", "nar": "The freeze is the strongest tool most people never use. It blocks new accounts from being opened against your file until you lift it.", "sem_cap": true}, {"layout": "item", "kicker": "It is free", "preco": "and reversible", "nar": "It is free by law, reversible in minutes, and it does not affect your score or your existing accounts at all.", "sem_cap": true}, {"layout": "item", "kicker": "The trade-off", "preco": "one extra step", "nar": "The trade-off is one extra step whenever you genuinely apply for something. For most people that is a few minutes a year against a permanent reduction in exposure.", "sem_cap": true}, {"layout": "titulo", "kicker": "Opting out", "sub": "stops the list sales", "nar": "Opting out of prescreened offers stops your name being sold into those bulk marketing lists. It is one form, and it does not affect anything else.", "sem_cap": true}, {"layout": "item", "kicker": "And it is", "preco": "the clearest lever", "nar": "It is also the one place in this entire system where you can directly remove yourself from a revenue stream, which makes it worth doing on principle alone.", "sem_cap": true}, {"layout": "titulo", "kicker": "What not to pay for", "sub": "in most cases", "nar": "And one thing worth being blunt about: what is usually not worth paying for.", "sem_cap": true}, {"layout": "item", "kicker": "Repair services", "preco": "do what you can do", "nar": "Credit repair companies mostly perform disputes you can file yourself, at no cost, using the same process and the same evidence.", "sem_cap": true}, {"layout": "item", "kicker": "Nobody", "preco": "can remove accurate items", "nar": "And no service can remove an accurate item. If a claim to do so is made, that alone tells you what kind of company it is.", "sem_cap": true}, {"layout": "titulo", "kicker": "Everything else", "sub": "is time", "nar": "Everything else is just time. Which is unsatisfying, and also true.", "sem_cap": true}, {"layout": "titulo", "kicker": "Step back", "sub": "the pattern", "nar": "Step back from the mechanics and there is a pattern worth naming, because it is not unique to credit.", "cap": "What this is really about"}, {"layout": "item", "kicker": "A record about you", "preco": "sold to decide about you", "nar": "A record is compiled about you without your involvement, sold to institutions that make decisions about you, and then sold back to you as a subscription.", "sem_cap": true}, {"layout": "item", "kicker": "That shape", "preco": "appears everywhere", "nar": "That shape shows up in tenant screening, in employment background checks, in insurance rating. Credit is simply the oldest and most refined version of it.", "sem_cap": true}, {"layout": "titulo", "kicker": "The lesson", "sub": "not outrage", "nar": "The useful reaction is not outrage. Systems like this exist because the alternative — lending only to people you personally know — was far worse and far smaller.", "sem_cap": true}, {"layout": "item", "kicker": "The lesson is", "preco": "know you are in it", "nar": "The useful reaction is knowing you are inside a market you did not enter, and using the few levers that market gives you.", "sem_cap": true}, {"layout": "lista", "kicker": "Three to remember", "itens": ["You are the product, not the client", "The file measures debt, not wealth", "Time does most of the work"], "nar": "Three things to carry: you are the product and not the client. The file measures debt, not wealth. And time does most of the work, in both directions.", "sem_cap": true}, {"layout": "item", "kicker": "The first", "preco": "changes how you read offers", "nar": "The first one changes how you read every offer that arrives unsolicited: someone paid to put your name on that list.", "sem_cap": true}, {"layout": "item", "kicker": "The second", "preco": "explains the blank file", "nar": "The second explains why paying cash for everything can leave you looking invisible, and why that is not a compliment.", "sem_cap": true}, {"layout": "cta", "kicker": "Next Level Money", "sub": "money, and who holds it", "nar": "If this was useful, tell me in the comments which institution you want taken apart next. The most requested one gets made first.", "sem_cap": true}, {"layout": "cta", "kicker": "Next Level Money", "sub": "money, and who holds it", "nar": "And if you have ever had something removed from your file, say what actually worked. Specifics help more people than general advice does.", "sem_cap": true}, {"layout": "cta", "kicker": "Next Level Money", "sub": "money, and who holds it", "nar": "Thanks for watching to the end. See you in the next one, here on Next Level Money.", "sem_cap": true}], "short": [{"layout": "titulo", "kicker": "Not a client", "sub": "the product", "nar": "Three companies hold a file on you. You never signed up, you cannot delete it, and you are not their customer."}, {"layout": "item", "kicker": "The file", "preco": "measures debt, not wealth", "nar": "Your income is not in it. Neither are your savings. It describes how you handle borrowed money, and nothing else."}, {"layout": "titulo", "kicker": "Two products", "sub": "data and score", "nar": "And the score is a separate business. One pull often pays two companies: one for the data, one for the number."}, {"layout": "item", "kicker": "Free lever", "preco": "freeze and opt out", "nar": "Freezing the file and opting out of prescreened offers are both free, and almost nobody does either."}, {"layout": "cta", "kicker": "Next Level Money", "sub": "the full breakdown", "nar": "The full economics, and what it actually costs you, are in the long video."}], "copy": "gerado a partir dos capitulos reais apos o render"}
+{
+ "slug": "next-level-money",
+ "pacote": "next-level-money-003",
+ "voz": "en-US-AndrewNeural",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#E4572E",
+  "c2": "#F2B134",
+  "bg": "#F2ECDF"
+ },
+ "thumb": {
+  "l1": "YOU ARE THE PRODUCT",
+  "l2": "credit, explained"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Not a customer",
+   "sub": "a product",
+   "nar": "There is a company that holds a file on you. You never signed up for it, you cannot delete it, and you are not its customer. You are its inventory.",
+   "cap": "You are not the customer"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Three companies",
+   "sub": "one file each",
+   "nar": "Three of them, actually. Equifax, Experian and TransUnion. Between them they hold a file on nearly every adult in the country.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The file decides",
+   "preco": "far more than loans",
+   "nar": "That file decides whether you get an apartment, what you pay for insurance in many states, and in some cases whether you get the job at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And yet",
+   "preco": "you are not the buyer",
+   "nar": "And yet nobody in that transaction is buying anything from you. The lender is the customer. The landlord is the customer. You are the thing being sold.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Revenue, billions",
+   "itens": [
+    "Experian",
+    "Equifax"
+   ],
+   "alturas": [
+    100,
+    89
+   ],
+   "nar": "Experian reported trailing revenue of about seven point five two billion dollars in its first half of fiscal twenty twenty-six. Equifax guided to between six point six six and six point seven eight billion for the year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That is the size",
+   "preco": "of a data business",
+   "nar": "Together with TransUnion, that is well over fifteen billion dollars a year, built almost entirely on information that people hand over without ever deciding to.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "This video",
+   "sub": "follows the money",
+   "nar": "This video follows that money. Not how to raise your score — there are ten thousand videos on that. How the business underneath it actually works.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "What we cover",
+   "itens": [
+    "What the file holds",
+    "Who buys it",
+    "Why the score is a separate business",
+    "What it costs you"
+   ],
+   "nar": "Four parts: what is actually in the file, who buys it and why, why the score itself is a completely separate business, and what all of it costs you in real money.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One thing first",
+   "preco": "this is not a scam story",
+   "nar": "One thing up front. This is not a story about a scam. Everything here is legal, disclosed, and regulated. That is exactly what makes it worth understanding.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The system works",
+   "preco": "just not for you",
+   "nar": "The system works. It is efficient, it prices risk well, and it lets strangers lend to strangers. It simply was not designed with you as the beneficiary.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Start here",
+   "sub": "what is in the file",
+   "nar": "So let us start with the thing itself. What is actually written in your file?",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Four categories",
+   "itens": [
+    "Who you are",
+    "What you owe",
+    "How you pay",
+    "Who has looked"
+   ],
+   "nar": "Four categories. Identifying information, the accounts you hold, your payment behaviour on each, and a log of everyone who has requested the file.",
+   "cap": "What the file actually holds"
+  },
+  {
+   "layout": "item",
+   "kicker": "Identity",
+   "preco": "thinner than you think",
+   "nar": "The identity section is thinner than people expect. Name, current and former addresses, date of birth, and in most cases a social security number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Accounts",
+   "preco": "the bulk of the file",
+   "nar": "The accounts section is the bulk of it. Every credit card, loan, mortgage and line of credit, with its limit, balance and age.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Payment history",
+   "sub": "month by month",
+   "nar": "Payment history is recorded month by month, for years. Not a summary — a grid, with a mark for every billing cycle you have ever had.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why the grid",
+   "preco": "patterns price better",
+   "nar": "The grid matters because lenders are not really pricing whether you paid. They are pricing the pattern. A single miss four years ago reads very differently from three misses last spring.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The inquiry log",
+   "preco": "who asked about you",
+   "nar": "The last section is the inquiry log: every company that pulled your file, and when. It is the part almost nobody reads, and it quietly reveals a lot about the business.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What is not there",
+   "sub": "and this surprises people",
+   "nar": "Now the part that surprises people. Several things you would expect to be in the file simply are not.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Not in the file",
+   "itens": [
+    "Your income",
+    "Your savings",
+    "Your job title",
+    "Your assets"
+   ],
+   "nar": "Your income is not in there. Neither are your savings, your job title, or anything you own outright. The file describes your debt, not your wealth.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So a person",
+   "preco": "with no debt looks blank",
+   "nar": "Which produces an odd result. A person who has never borrowed, who pays cash and owns their home, can look almost invisible to the system.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That is not a bug",
+   "preco": "it is the design",
+   "nar": "That is not a flaw in the data. It is the design. The file exists to describe how you handle borrowed money, and nothing else.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Which raises",
+   "sub": "who is asking",
+   "nar": "Which brings us to the question that actually explains the revenue. Who is asking to see it?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lenders",
+   "sub": "the obvious buyer",
+   "nar": "The obvious buyer is the lender. A bank deciding on a card or a mortgage pulls the file, and pays for it. That is the business everyone assumes.",
+   "cap": "Who buys the file"
+  },
+  {
+   "layout": "item",
+   "kicker": "But lending",
+   "preco": "is not the whole story",
+   "nar": "But lending is nowhere near the whole story, and the other buyers are where the interesting money is.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Also buying",
+   "itens": [
+    "Landlords",
+    "Insurers",
+    "Employers",
+    "Utilities",
+    "Debt collectors"
+   ],
+   "nar": "Landlords screening tenants. Insurers in many states. Employers running background checks. Utility companies. And debt collectors deciding who is worth pursuing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Insurance",
+   "preco": "the one people miss",
+   "nar": "The insurance one catches people off guard. In many states an insurer may use a credit-based score to help set your premium, on the argument that it predicts claims.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So a thin file",
+   "preco": "can cost you twice",
+   "nar": "Which means a thin or damaged file can raise what you pay for car insurance, in a transaction that has nothing to do with borrowing at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Prescreening",
+   "sub": "sold in bulk",
+   "nar": "Then there is the part that explains the mailbox. Bureaus sell lists, in bulk, before anyone has applied for anything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "How it works",
+   "preco": "criteria, then names",
+   "nar": "A card issuer describes the customer it wants — a score band, an age range, a region. The bureau returns a list of people who match, and the issuer mails them.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That is why",
+   "preco": "the offers find you",
+   "nar": "That is why offers arrive addressed to you for products you never looked at. You were not targeted by accident. You were selected, and someone paid for the selection.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "You can opt out",
+   "preco": "and almost nobody does",
+   "nar": "You can opt out of that specific use. The mechanism exists, it is free, and almost nobody uses it, because almost nobody knows the list exists.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And finally",
+   "sub": "they sell to you",
+   "nar": "And there is one more buyer, the one that closes the loop. They sell it back to you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Monitoring",
+   "preco": "the consumer product",
+   "nar": "Credit monitoring, score tracking, identity alerts — subscription products, sold to the person the file is about, describing the file they already own.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Legally",
+   "preco": "you are entitled to it",
+   "nar": "You are legally entitled to your reports for free. The paid product sells convenience and alerts on top of information you can already get. But it cannot sell you the number, and that is the part worth understanding: where does the score actually come from?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Two businesses",
+   "sub": "not one",
+   "nar": "Here is where most explanations go wrong. The file and the score are two different products, made by two different kinds of company.",
+   "cap": "The score is a different business"
+  },
+  {
+   "layout": "item",
+   "kicker": "The bureau",
+   "preco": "holds the data",
+   "nar": "The bureau holds the data. That is one business: collect, store, verify, sell access.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The model",
+   "preco": "turns data into a number",
+   "nar": "The score is a model that turns that data into a number. Building that model is a separate business, with a separate owner, taking a separate cut.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "FICO",
+   "sub": "licenses the formula",
+   "nar": "The best known of those models comes from Fair Isaac. The bureaus license the formula, run your data through it, and resell the result along with the file.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So one pull",
+   "preco": "pays two companies",
+   "nar": "Which means a single credit pull often pays two companies. One for the data, one for the number calculated from it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And that",
+   "preco": "is a fragile arrangement",
+   "nar": "That arrangement works right up until one side decides it would rather have the whole margin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Twenty twenty-six",
+   "sub": "the arrangement cracked",
+   "nar": "Which is roughly what happened. Fair Isaac moved to sell scores directly to mortgage lenders and resellers, going around the bureaus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The response",
+   "preco": "push the alternative",
+   "nar": "Equifax responded by pushing VantageScore more aggressively into mortgage — a competing model, built by the bureaus themselves.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Read plainly",
+   "preco": "a fight over the cut",
+   "nar": "Stripped of the press releases, that is a fight over who keeps the margin on a number describing you, in which you have no seat and no vote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And note",
+   "preco": "there is no single score",
+   "nar": "It also explains something confusing: there is no single score. Different models, different bureaus, different versions, all producing different numbers about the same person.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "So when someone",
+   "sub": "quotes you a number",
+   "nar": "So when an app shows you a score, the honest question is which model, which bureau, and which version — because a lender may be looking at a different one entirely. And if the number can differ, so can the record underneath it. Which leaves one question:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "You can dispute",
+   "sub": "and it does work",
+   "nar": "You have a legal right to dispute anything in the file, and disputes genuinely do get things removed. But the shape of the process tells you something.",
+   "cap": "Why disputes work the way they do"
+  },
+  {
+   "layout": "item",
+   "kicker": "The burden",
+   "preco": "starts with you",
+   "nar": "The burden starts with you. You must find the error, in a file you did not compile, describing accounts opened by companies you may not remember.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Then the bureau",
+   "preco": "asks the furnisher",
+   "nar": "The bureau then asks the company that reported the item whether it is correct. That company is the bureau's customer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which is why",
+   "preco": "confirmations are common",
+   "nar": "Which is why a dispute is frequently returned as confirmed. The check is real, but it is a check with the party that supplied the information in the first place.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Volume",
+   "sub": "explains the rest",
+   "nar": "Volume explains most of the rest. With files on nearly every adult, disputes arrive in enormous numbers, and the process is built to run at that scale.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Automation",
+   "preco": "is not malice",
+   "nar": "So it is heavily automated. That is not malice; it is arithmetic. But automation is why a nuanced dispute and a simple one can come back looking the same.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The practical read",
+   "preco": "be specific",
+   "nar": "The practical consequence is that specific, documented disputes do far better than general ones. Name the account, the date, the exact field, and attach proof.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Medical debt",
+   "sub": "a special case",
+   "nar": "Medical debt has become its own category, because it behaves differently from borrowing: it arrives without a decision, often without a price known in advance.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rules have moved",
+   "preco": "and keep moving",
+   "nar": "The rules on how medical debt appears have moved repeatedly in recent years. If you have any on file, it is worth checking what currently applies rather than what applied last time you looked.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Same for",
+   "preco": "old negative items",
+   "nar": "The same is true of old negative items. Most fall off after a defined period, and items that should have aged off sometimes do not, on their own.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Now",
+   "sub": "the cost",
+   "nar": "Which leaves the question that actually matters to your money. What does all of this cost you?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A mortgage",
+   "sub": "the biggest number",
+   "nar": "The clearest place to see it is a mortgage, because the loan is large and it runs for decades.",
+   "cap": "What it costs you in real money"
+  },
+  {
+   "layout": "barras",
+   "kicker": "Rate by score band",
+   "itens": [
+    "Top band",
+    "Middle",
+    "Lower"
+   ],
+   "alturas": [
+    55,
+    75,
+    100
+   ],
+   "nar": "Between the top score band and a lower one, the rate difference on the same loan is routinely more than a full percentage point.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "On a long loan",
+   "preco": "that compounds",
+   "nar": "On a thirty-year loan, a difference of one point can mean tens of thousands of dollars in additional interest, for the identical house and identical borrower.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Same borrower",
+   "preco": "different price",
+   "nar": "Same person, same income, same job. The only variable is the file — and the file mostly measures how long you have been borrowing and how consistently you repaid.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Then the small ones",
+   "sub": "which add up",
+   "nar": "Then there are the smaller charges, which are easier to ignore and land more often.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Where else it shows up",
+   "itens": [
+    "Car insurance premiums",
+    "Rental deposits",
+    "Phone and utility deposits",
+    "Card interest rates"
+   ],
+   "nar": "Insurance premiums in many states. Larger rental deposits. Deposits for phone and utility service. And the rate on any card you carry a balance on.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Each one small",
+   "preco": "the pattern is not",
+   "nar": "Each one is small enough to shrug at. The pattern is not: the same file makes the same person more expensive in a dozen unrelated places at once.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And the reverse",
+   "sub": "compounds too",
+   "nar": "The reverse compounds as well, which is the genuinely encouraging part of this.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Improving the file",
+   "preco": "pays in many places",
+   "nar": "Improving the file does not just lower one rate. It lowers several prices at once, in transactions you were not thinking about when you made the change.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The mechanism",
+   "preco": "is boring on purpose",
+   "nar": "And the mechanism is deliberately boring: pay on time, keep balances well below limits, and let accounts age. There is no clever move, because the model is mostly measuring time.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Which is",
+   "sub": "the honest answer",
+   "nar": "That is the honest answer to how you improve it, and it is why the improvement videos all end up saying roughly the same thing. But boring is not the same as nothing. There are four things worth doing, and every one of them is free:",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Free and worth doing",
+   "itens": [
+    "Pull all three reports",
+    "Opt out of prescreened offers",
+    "Freeze the file",
+    "Fix specific errors"
+   ],
+   "nar": "Four things that cost nothing: pull all three reports, opt out of prescreened offers, freeze the file, and dispute specific errors with documentation.",
+   "cap": "What you can actually do"
+  },
+  {
+   "layout": "item",
+   "kicker": "All three",
+   "preco": "because they differ",
+   "nar": "Pull all three, not one. The bureaus receive different data from different companies, and an error often exists on only one of them.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The freeze",
+   "sub": "the strongest tool",
+   "nar": "The freeze is the strongest tool most people never use. It blocks new accounts from being opened against your file until you lift it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It is free",
+   "preco": "and reversible",
+   "nar": "It is free by law, reversible in minutes, and it does not affect your score or your existing accounts at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The trade-off",
+   "preco": "one extra step",
+   "nar": "The trade-off is one extra step whenever you genuinely apply for something. For most people that is a few minutes a year against a permanent reduction in exposure.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Opting out",
+   "sub": "stops the list sales",
+   "nar": "Opting out of prescreened offers stops your name being sold into those bulk marketing lists. It is one form, and it does not affect anything else.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it is",
+   "preco": "the clearest lever",
+   "nar": "It is also the one place in this entire system where you can directly remove yourself from a revenue stream, which makes it worth doing on principle alone.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What not to pay for",
+   "sub": "in most cases",
+   "nar": "And one thing worth being blunt about: what is usually not worth paying for.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Repair services",
+   "preco": "do what you can do",
+   "nar": "Credit repair companies mostly perform disputes you can file yourself, at no cost, using the same process and the same evidence.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nobody",
+   "preco": "can remove accurate items",
+   "nar": "And no service can remove an accurate item. If a claim to do so is made, that alone tells you what kind of company it is.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Everything else",
+   "sub": "is time",
+   "nar": "Everything else is just time. Which is unsatisfying, and also true. So it is worth stepping back and asking what this file really is:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step back",
+   "sub": "the pattern",
+   "nar": "Step back from the mechanics and there is a pattern worth naming, because it is not unique to credit.",
+   "cap": "What this is really about"
+  },
+  {
+   "layout": "item",
+   "kicker": "A record about you",
+   "preco": "sold to decide about you",
+   "nar": "A record is compiled about you without your involvement, sold to institutions that make decisions about you, and then sold back to you as a subscription.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That shape",
+   "preco": "appears everywhere",
+   "nar": "That shape shows up in tenant screening, in employment background checks, in insurance rating. Credit is simply the oldest and most refined version of it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The lesson",
+   "sub": "not outrage",
+   "nar": "The useful reaction is not outrage. Systems like this exist because the alternative — lending only to people you personally know — was far worse and far smaller.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The lesson is",
+   "preco": "know you are in it",
+   "nar": "The useful reaction is knowing you are inside a market you did not enter, and using the few levers that market gives you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Three to remember",
+   "itens": [
+    "You are the product, not the client",
+    "The file measures debt, not wealth",
+    "Time does most of the work"
+   ],
+   "nar": "Three things to carry: you are the product and not the client. The file measures debt, not wealth. And time does most of the work, in both directions.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The first",
+   "preco": "changes how you read offers",
+   "nar": "The first one changes how you read every offer that arrives unsolicited: someone paid to put your name on that list.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second",
+   "preco": "explains the blank file",
+   "nar": "The second explains why paying cash for everything can leave you looking invisible, and why that is not a compliment.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "money, and who holds it",
+   "nar": "If this was useful, tell me in the comments which institution you want taken apart next. The most requested one gets made first.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "money, and who holds it",
+   "nar": "And if you have ever had something removed from your file, say what actually worked. Specifics help more people than general advice does.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "money, and who holds it",
+   "nar": "Thanks for watching to the end. See you in the next one, here on Next Level Money.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Not a client",
+   "sub": "the product",
+   "nar": "Three companies hold a file on you. You never signed up, you cannot delete it, and you are not their customer."
+  },
+  {
+   "layout": "item",
+   "kicker": "The file",
+   "preco": "measures debt, not wealth",
+   "nar": "Your income is not in it. Neither are your savings. It describes how you handle borrowed money, and nothing else."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Two products",
+   "sub": "data and score",
+   "nar": "And the score is a separate business. One pull often pays two companies: one for the data, one for the number."
+  },
+  {
+   "layout": "item",
+   "kicker": "Free lever",
+   "preco": "freeze and opt out",
+   "nar": "Freezing the file and opting out of prescreened offers are both free, and almost nobody does either."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "the full breakdown",
+   "nar": "The full economics, and what it actually costs you, are in the long video."
+  }
+ ],
+ "copy": "# You are the product: how the credit bureaus actually make money\n\n## TITLE\nYou Are the Product: How Credit Bureaus Really Make Money\n\n## DESCRIPTION\nThree companies hold a file on you. You never signed up for it, you cannot delete it, and you are not their customer. You are their inventory.\n\nThe scale is not small. Experian reported trailing revenue of about $7.52 billion in the first half of its 2026 fiscal year. Equifax guided to between $6.66 and $6.78 billion for the year. Add TransUnion and it is well over fifteen billion dollars a year, built almost entirely on information people hand over without ever deciding to.\n\nThis video is not about raising your score. There are ten thousand videos on that. This one follows the money underneath it.\n\nInside: what the four sections of your file actually hold, and the things that surprise people by NOT being in there — your income, your savings, your job title, anything you own outright. The file describes your debt, not your wealth, which is why someone who pays cash and owns their home can look almost invisible to the system.\n\nThen: who buys the file besides lenders — landlords, insurers in many states, employers running background checks, utility companies and debt collectors. Why prescreened offers arrive for products you never looked at (you were not targeted by accident; you were selected, and someone paid for the selection). And the split most explanations miss — the file and the score are two different products from two different kinds of company, which is why a single credit pull often pays two companies: one for the data, one for the number calculated from it.\n\nThat arrangement is now under strain. Fair Isaac moved to sell scores directly to mortgage lenders and resellers, going around the bureaus; Equifax responded by pushing VantageScore harder into mortgage. Stripped of the press releases, it is a fight over who keeps the margin on a number describing you, in which you have no seat and no vote.\n\nThe part that costs real money: between the top score band and a lower one, the rate difference on the same loan is routinely more than a full percentage point. On a thirty-year loan, one point can mean tens of thousands of dollars in additional interest — identical house, identical borrower. And it does not stop at mortgages: insurance premiums in many states, larger rental deposits, phone and utility deposits, and the rate on any card you carry a balance on.\n\nFour things that cost nothing: pull all three reports (not one — an error often exists on only one bureau), opt out of prescreened offers, freeze the file, and dispute specific errors with documentation. The freeze is free by law, reversible in minutes, and does not affect your score or your existing accounts at all. Almost nobody uses it.\n\nAnd one thing worth being blunt about: credit repair companies mostly perform disputes you can file yourself, at no cost, with the same process and the same evidence. No service can remove an accurate item. A claim to do so tells you what kind of company it is.\n\nThe shape of all this — a record compiled about you without your involvement, sold to institutions that decide about you, then sold back to you as a subscription — shows up in tenant screening, employment background checks and insurance rating too. Credit is simply the oldest and most refined version of it.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nTwo questions, because the answers differ enormously and the averages hide it: have you ever actually frozen your file — and if you did, did anything break? And which institution do you want taken apart next? Most requested one gets made first.\n\n## HASHTAGS\n#CreditScore #PersonalFinance #NextLevelMoney\n\n## TAGS\ncredit bureaus, credit report, credit score explained, fico score, vantagescore, experian, equifax, transunion, credit freeze, prescreened offers, opt out, credit dispute, personal finance, mortgage rates, credit repair scams, financial literacy\n\n## STUDIO SETTINGS\n- Language: English (en) | Category: Education (27)\n- Not made for kids\n- Altered or synthetic content disclosure: YES (AI-generated voice)\n- Location: United States | License: Standard YouTube License\n- Mid-roll ads: on (runtime > 8 minutes)\n\n## MUSIC / LICENSE\n{TRILHA}\n\n## NOTE ON SOURCES\nRevenue figures are the companies' own published numbers: Experian's reported trailing revenue for the first half of fiscal 2026, and Equifax's full-year guidance range. The rate gap between score bands, the reach of credit-based insurance scoring, and the rules on how medical debt appears on a file all vary by lender, by state and over time — the medical-debt rules in particular have moved repeatedly in recent years, so check what currently applies rather than what applied last time you looked. This is general education about how the credit reporting industry works, not financial, legal or credit advice.\n",
+ "idioma": "en"
+}
