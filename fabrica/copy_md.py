@@ -28,8 +28,21 @@ TRILHA_DIR = "/tmp/trilhas"
 MIN_CAP, MAX_CAP = 60, 150
 
 
-def trilha_do_canal(slug, valida=None):
+def trilha_do_canal(slug, valida=None, registrada=None):
     """Faixa fixa por canal = assinatura sonora. CC-BY, credito no copy.md.
+
+    `registrada` e o nome gravado em canais.trilha e VENCE o hash. O hash foi
+    como as faixas se distribuiram na primeira vez; o banco e o registro do que
+    cada canal REALMENTE usa desde entao.
+
+    Isso importa porque o hash divide pelos arquivos PRESENTES, e o conjunto
+    varia. Medido em 13/08/2026: Cipher2.mp3 nao existe no bucket (404
+    NoSuchKey), entao quem baixa as quatro fica com tres — e o nivel-do-jogo,
+    registrado em Inspired, passaria a receber Wholesome. Faixa trocada sem
+    erro nenhum, com o credito CC-BY do copy apontando para a outra.
+
+    O frota.yml tolera isso hoje: baixa as quatro com `|| true` e so aborta se
+    ZERO chegarem.
 
     `valida` e opcional para quem puder decodificar (a fabrica passa a checagem
     que pega mp3 com HTML dentro). Sem ela, lista pelo nome — que e o suficiente
@@ -38,7 +51,21 @@ def trilha_do_canal(slug, valida=None):
     fs = sorted(glob.glob(f"{TRILHA_DIR}/*.mp3"))
     if valida:
         fs = [f for f in fs if valida(f)]
-    return fs[sum(map(ord, slug)) % len(fs)] if fs else None
+    if not fs:
+        return None
+    if registrada:
+        alvo = os.path.join(TRILHA_DIR, f"{registrada}.mp3")
+        if alvo in fs:
+            return alvo
+        # Registrada e ausente e defeito de entrega, nao motivo para escolher
+        # outra calada: quem chamou decide o que fazer com o None.
+        raise FileNotFoundError(
+            f"trilha registrada '{registrada}' do canal {slug} nao esta em "
+            f"{TRILHA_DIR} (tem: {[os.path.basename(f)[:-4] for f in fs]}). "
+            f"Renderizar com outra faixa troca a assinatura sonora do canal e "
+            f"deixa o credito CC-BY do copy apontando para a errada."
+        )
+    return fs[sum(map(ord, slug)) % len(fs)]
 
 
 def capitulos(sp, tempos):

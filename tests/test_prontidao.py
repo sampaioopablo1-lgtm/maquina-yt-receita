@@ -215,3 +215,43 @@ def test_toda_spec_tem_thumbnail_legivel(spec):
     import layout as L
 
     assert not L.analisa_thumb(json.loads(spec.read_text(encoding="utf-8")))
+
+
+# --------------------------------------------------------------------------
+# Trilha. A assinatura sonora do canal, e o credito CC-BY que o copy declara.
+
+def test_trilha_registrada_vence_o_hash(tmp_path, monkeypatch):
+    """O hash divide pelos arquivos PRESENTES, e o conjunto varia.
+
+    Medido em 13/08/2026: Cipher2.mp3 nao existe no bucket (404 NoSuchKey),
+    entao quem baixa as quatro fica com tres — e o nivel-do-jogo, registrado
+    em Inspired, passava a receber Wholesome. Faixa trocada sem erro nenhum,
+    com o credito do copy apontando para a outra.
+    """
+    import copy_md as C
+
+    for f in ("Deliberate_Thought", "Inspired", "Wholesome"):
+        (tmp_path / f"{f}.mp3").write_bytes(b"")
+    monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
+
+    assert C.trilha_do_canal("nivel-do-jogo").endswith("Wholesome.mp3")
+    assert C.trilha_do_canal("nivel-do-jogo", registrada="Inspired").endswith("Inspired.mp3")
+
+
+def test_trilha_registrada_ausente_levanta_em_vez_de_trocar(tmp_path, monkeypatch):
+    """Escolher outra faixa calada troca a assinatura do canal E mente no
+    credito CC-BY. Quem chamou tem que decidir, nao a funcao."""
+    import copy_md as C
+
+    (tmp_path / "Wholesome.mp3").write_bytes(b"")
+    monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
+
+    with pytest.raises(FileNotFoundError, match="Cipher2"):
+        C.trilha_do_canal("resep-naik-level", registrada="Cipher2")
+
+
+def test_sem_trilha_nenhuma_continua_devolvendo_none(tmp_path, monkeypatch):
+    import copy_md as C
+
+    monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
+    assert C.trilha_do_canal("qualquer") is None
