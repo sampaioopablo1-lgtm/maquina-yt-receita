@@ -1,0 +1,118 @@
+name: Diario — informe e disparo da frota
+
+# O informe e o disparo moram JUNTOS de proposito. Separados, o relatorio conta
+# uma coisa e a frota faz outra: foi assim que eu reportei "quinze pacotes
+# prontos" enquanto dez ja estavam no ar. Aqui os dois leem o mesmo `orquestra.py`
+# contra o mesmo banco, no mesmo minuto.
+#
+# O que este workflow NAO faz: escolher pauta e escrever roteiro. Isso continua
+# na rotina horaria, que e de onde vem a qualidade. Aqui e a parte mecanica —
+# olhar o estado, escolher o que ja esta pronto, e mandar renderizar.
+
+on:
+  schedule:
+    # 09:00 UTC = 06:00 em Brasilia. Cedo o bastante para o dia render, tarde o
+    # bastante para o disparo da madrugada anterior ja ter terminado.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      disparar:
+        description: "Disparar a frota, alem de informar"
+        type: boolean
+        default: true
+      n:
+        description: "Maximo de pacotes no disparo"
+        type: string
+        default: "10"
+
+permissions:
+  contents: read
+  actions: write        # para disparar o frota.yml
+
+jobs:
+  informe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # A fabrica inteira nao entra: o orquestra.py so precisa dos portoes
+      # baratos, e o layout (que pede cairosvg e pillow) roda dentro do
+      # frota.yml, por pacote, onde reprovar custa segundos.
+      - name: Instalar
+        run: pip install -q pyyaml
+
+      - name: Montar o informe
+        id: informe
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          python3 fabrica/orquestra.py relatorio | tee informe.txt
+          {
+            echo '```'
+            cat informe.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          MATRIZ=$(python3 fabrica/orquestra.py proximo --n "${{ inputs.n || '10' }}")
+          echo "matriz=$MATRIZ" >> "$GITHUB_OUTPUT"
+          echo "quantos=$(echo "$MATRIZ" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+
+      # O informe vai para o banco, nao so para a aba de Actions: a rotina
+      # horaria le config e repassa ao Pablo. Aba de Actions ninguem abre.
+      - name: Guardar o informe no banco
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > corpo.json
+          import json, os
+          print(json.dumps({
+              "chave": "relatorio_diario",
+              "valor": {"texto": open("informe.txt", encoding="utf-8").read(),
+                        "run": os.environ.get("GITHUB_RUN_ID", "")},
+          }))
+          PY
+          curl -sS --fail -X POST "$SB/rest/v1/config" \
+            -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: resolution=merge-duplicates" \
+            --data-binary @corpo.json >/dev/null
+          echo "informe gravado em config.relatorio_diario"
+
+      # A matriz viaja por ENV, nunca interpolada na linha de comando: ela e
+      # JSON com aspas duplas, e `${{ }}` dentro de um `run:` cola o conteudo
+      # cru no shell. Um pacote com aspas quebraria o comando — ou pior, seria
+      # executado.
+      - name: Disparar a frota
+        if: ${{ (inputs.disparar == null || inputs.disparar) && steps.informe.outputs.quantos != '0' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MATRIZ: ${{ steps.informe.outputs.matriz }}
+          QUANTOS: ${{ steps.informe.outputs.quantos }}
+        run: |
+          set -euo pipefail
+          echo "disparando $QUANTOS pacotes"
+          python3 - <<'PY' > disparo.json
+          import json, os
+          # `pacotes` do frota.yml e string: quem faz o jq e ele.
+          print(json.dumps({"ref": os.environ["GITHUB_REF_NAME"],
+                            "inputs": {"pacotes": os.environ["MATRIZ"],
+                                       "publicar": True}}))
+          PY
+          curl -sS --fail -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/frota.yml/dispatches" \
+            --data-binary @disparo.json
+
+      - name: Nada a disparar
+        if: ${{ steps.informe.outputs.quantos == '0' }}
+        run: |
+          echo "::notice::Nenhum pacote pronto. O informe acima diz o motivo de cada descarte."

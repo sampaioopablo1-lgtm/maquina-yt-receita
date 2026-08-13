@@ -337,7 +337,11 @@ def ler_copy(spec, workdir):
             bruto = f.read()
     else:
         bruto = spec.get("copy") or ""
-        print("aviso: copy.md ausente — usando a spec, capitulos podem vir sem tempo")
+        # stderr, nao stdout: o `maquina.py proximo` imprime a matriz JSON em
+        # stdout e o diario.yml alimenta o disparo com ela. Um aviso no meio
+        # corrompe o JSON e o disparo morre — ou pior, dispara errado.
+        print("aviso: copy.md ausente — usando a spec, capitulos podem vir sem tempo",
+              file=sys.stderr)
     _sem_placeholder(bruto, md)
     if not bruto.strip():
         raise SystemExit("spec sem copy: nao da para publicar sem titulo e descricao")
