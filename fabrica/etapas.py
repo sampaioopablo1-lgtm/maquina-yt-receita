@@ -245,7 +245,7 @@ if not LONGO_PRONTO:
     # proxima retomada de mixar musica sobre musica.
     log("etapa 6: trilha")
     F.aplicar_trilha(d, "video.mp4", sp["slug"], sp.get("trilha"))
-    open(PRONTO, "w").write("longo montado e com trilha\n")
+    open(PRONTO, "w").write(f"longo montado, trilha {sp['trilha']}\n")
     log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
         f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
 

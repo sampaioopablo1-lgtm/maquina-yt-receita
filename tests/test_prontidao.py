@@ -498,3 +498,22 @@ def test_cipher2_nao_volta_para_a_lista():
     frota = (RAIZ / ".github" / "workflows" / "frota.yml").read_text(encoding="utf-8")
     baixa = [l for l in frota.splitlines() if "for faixa in" in l]
     assert baixa and all("Cipher2" not in l for l in baixa), baixa
+
+
+def test_render_sem_trilha_para_em_vez_de_seguir_calado(tmp_path, monkeypatch):
+    """Video sem musica e saida ERRADA, nao saida menor.
+
+    Ate 14/08/2026 `aplicar_trilha` fazia `if not faixa: return`. Calado ele
+    era invisivel duas vezes: o log escrevia "etapa 6 ok" e a marca de pronto
+    dizia "longo montado e com trilha".
+
+    Medido nesse dia em quatro videos ENTREGUES no bucket: um tinha trilha e
+    nao creditava (labtreinamento-001, piso de ruido -29,6 dB), e outro
+    creditava Inspired sem ter trilha (setiap-level-006, piso -48,5 dB). O
+    credito e o audio andavam soltos um do outro.
+    """
+    import fabrica as F
+
+    monkeypatch.setattr(F, "trilha_do_canal", lambda slug, reg=None: None)
+    with pytest.raises(RuntimeError, match="nenhuma trilha utilizavel"):
+        F.aplicar_trilha(str(tmp_path), "video.mp4", "nivel-do-jogo", "Inspired")

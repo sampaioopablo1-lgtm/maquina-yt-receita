@@ -419,7 +419,21 @@ def aplicar_trilha(d, out, slug, registrada=None):
     aqui o video sai em copy e so o audio e reencodado."""
     faixa = trilha_do_canal(slug, registrada)
     if not faixa:
-        return
+        # NAO retorne calado. Este `return` existiu ate 14/08/2026 e e o
+        # mecanismo por tras da inconsistencia medida naquele dia: dos quatro
+        # videos entregues que eu analisei no bucket, um tinha trilha e nao
+        # creditava, e outro creditava Inspired sem ter trilha nenhuma.
+        #
+        # Calado ele e invisivel duas vezes: o log escreve "etapa 6 ok" e a
+        # marca de pronto dizia "longo montado e com trilha". O video sai sem a
+        # assinatura sonora do canal e ninguem fica sabendo.
+        raise RuntimeError(
+            f"nenhuma trilha utilizavel em {TRILHA_DIR} para o canal {slug} "
+            f"(registrada={registrada!r}). Renderizar sem musica e uma saida "
+            f"ERRADA, nao uma saida menor: o canal perde a assinatura sonora e "
+            f"o copy.md pode creditar uma faixa que nao toca. Baixe as trilhas "
+            f"antes de renderizar."
+        )
     alvo = f"{d}/{out}"
     dv = dur(alvo)
     # Loop barato: concat demuxer com stream copy ate cobrir o video.
