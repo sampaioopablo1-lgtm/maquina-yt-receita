@@ -9,7 +9,7 @@ thumbnail → checagens de compliance → upload agendado → diagnóstico de m�
 ## Começando
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
+python3 -m venv .venv && .venv/bin/pip install -e ".[dev,fabrica]"
 cp .env.example .env          # preencha as chaves
 .venv/bin/maquina doctor      # confere ambiente e providers ativos
 ```

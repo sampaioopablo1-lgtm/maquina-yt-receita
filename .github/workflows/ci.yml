@@ -20,7 +20,8 @@ jobs:
 
       - run: ffmpeg -version | head -1
 
-      - run: pip install -e ".[dev]"
+      # fabrica: cairosvg do fabrica/layout.py, importado por test_prontidao.py.
+      - run: pip install -e ".[dev,fabrica]"
 
       # Providers stub: a suite roda inteira sem nenhuma chave de API.
       - name: Testes
