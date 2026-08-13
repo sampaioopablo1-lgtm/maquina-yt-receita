@@ -27,6 +27,78 @@ def tsp(t, x, y, size, fill, n=30, anchor='middle', lh=1.25):
         o += f'<tspan x="{x}" dy="{0 if i==0 else int(size*lh)}">{esc(l)}</tspan>'
     return o + '</text>'
 
+def geometria_thumb(th, H=720):
+    """Onde cada linha da thumbnail comeca e termina, em pixel.
+
+    Vive separado do desenho porque o PORTAO precisa da mesma conta. Medir a
+    imagem pronta nao serve: renderizar uma linha de cada vez para comparar as
+    faixas muda a geometria — ela depende das duas — e o portao reprovava as
+    dezenove specs, inclusive as boas. Tentei desse jeito primeiro.
+
+    Devolve tambem `topo` e `base` de cada bloco, que e o que o portao compara.
+    """
+    MARGEM, GAP, LH = 40, 54, 1.25
+    l1, l2 = wrap(th.get("l1", ""), 12), wrap(th.get("l2", ""), 16)
+    disponivel = H - 2 * MARGEM
+
+    # Encolhe ate caber, em vez de dois degraus fixos. Com degrau fixo um
+    # titulo de quatro linhas transbordava a imagem inteira (topo em -24,
+    # base em 744 num quadro de 720) — o teste pegou.
+    #
+    # A rotina pede no maximo tres palavras na thumbnail, entao o caso longo
+    # nao deveria existir; mesmo assim ele encolhe em vez de estourar, porque
+    # capa cortada e pior que capa pequena.
+    for s1, s2 in ((150, 90), (120, 76), (96, 62), (76, 50), (60, 40)):
+        passo1, passo2 = int(s1 * LH), int(s2 * LH)
+        alt1 = s1 + max(0, len(l1) - 1) * passo1 if l1 else 0
+        alt2 = s2 + max(0, len(l2) - 1) * passo2 if l2 else 0
+        total = alt1 + (GAP if l1 and l2 else 0) + alt2
+        if total <= disponivel:
+            break
+
+    topo = MARGEM + (disponivel - total) / 2
+    base1 = topo + alt1
+    topo2 = base1 + (GAP if l1 and l2 else 0)
+    return {
+        "margem": MARGEM, "lh": LH, "gap": GAP,
+        "s1": s1, "s2": s2,
+        "y1": topo + s1 * 0.78, "y2": topo2 + s2 * 0.78,
+        "topo1": topo, "base1": base1,
+        "topo2": topo2, "base2": topo2 + alt2,
+        "linhas1": len(l1), "linhas2": len(l2),
+    }
+
+
+def svg_thumb(th, pal, W=1280, H=720):
+    """A thumbnail, com as duas linhas posicionadas por CALCULO.
+
+    Antes as posicoes eram fixas: l1 em y=300 com corpo 150, l2 em y=480. Com
+    entrelinha de 1,25 a segunda linha de l1 cai em 487 — sete pixels DEPOIS
+    do topo de l2. Toda thumbnail cujo l1 quebrasse em duas linhas saia com os
+    textos empilhados um sobre o outro, ilegivel.
+
+    Estava assim em todo pacote e nenhum portao via: o layout.py mede as CENAS
+    e o visual.py amostra o VIDEO. A thumbnail nao passava por nenhum dos dois
+    — e ela e a unica imagem que decide se alguem clica.
+
+    Aqui o bloco inteiro e medido antes de ser posicionado, e centrado na caixa
+    branca. O corpo de l1 encolhe quando o texto e longo, para o bloco nao
+    transbordar em vez de colidir.
+    """
+    g = geometria_thumb(th, H)
+    s1, y1, s2, y2 = g["s1"], g["y1"], g["s2"], g["y2"]
+    MARGEM, LH = g["margem"], g["lh"]
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}">'
+        f'<rect width="{W}" height="{H}" fill="{pal["c1"]}"/>'
+        f'<rect x="{MARGEM}" y="{MARGEM}" width="{W - 2 * MARGEM}" '
+        f'height="{H - 2 * MARGEM}" fill="#FFFFFF"/>'
+        + tsp(th["l1"], W // 2, y1, s1, pal["ink"], n=12, lh=LH)
+        + tsp(th["l2"], W // 2, y2, s2, pal["c1"], n=16, lh=LH)
+        + '</svg>'
+    )
+
+
 def usar_fonte(nome):
     """Troca a fonte do canal e CONFERE que ela existe. Sem a conferencia, uma
     fonte ausente nao da erro: o SVG cai num fallback qualquer e a legenda
@@ -260,9 +332,9 @@ def montar(spec_file):
                 cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H).encode(),
                                  write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
         asyncio.run(vozes(cenas, voz, pref, d))
-    th = sp["thumb"]
-    tsvg = f'<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720"><rect width="1280" height="720" fill="{pal["c1"]}"/><rect x="40" y="40" width="1200" height="640" fill="#FFFFFF"/>' + tsp(th["l1"], 640, 300, 150, pal["ink"], n=12) + tsp(th["l2"], 640, 480, 90, pal["c1"], n=16) + '</svg>'
-    cairosvg.svg2png(bytestring=tsvg.encode(), write_to=f"{d}/thumbnail.png", output_width=1280, output_height=720)
+    cairosvg.svg2png(bytestring=svg_thumb(sp["thumb"], pal).encode(),
+                     write_to=f"{d}/thumbnail.png",
+                     output_width=1280, output_height=720)
     print(slug, "assets ok")
 
 # Capitulos e copy.md vivem em copy_md.py: sao texto puro e nao podem exigir

@@ -167,3 +167,51 @@ def test_portao_de_glifos_cobre_a_legenda_queimada_do_short(monkeypatch):
     assert prontidao._gate_glifos(
         {"longo": [], "short": [{"nar": "legenda queimada"}], "thumb": {}}
     )
+
+
+# --------------------------------------------------------------------------
+# Thumbnail. A unica imagem que decide o clique, e ate 13/08/2026 nao passava
+# por portao nenhum: o layout.py media as CENAS, o visual.py amostrava o VIDEO.
+
+def _spec_thumb(l1, l2):
+    return {"paleta": {"ink": "#102618", "c1": "#217346", "c2": "#F2B134",
+                       "bg": "#F1F7F4"},
+            "thumb": {"l1": l1, "l2": l2}, "longo": [], "short": []}
+
+
+def test_thumbnail_com_titulo_de_duas_linhas_nao_colide():
+    """O defeito real: com posicao fixa (l1 em y=300 corpo 150, l2 em y=480),
+    a segunda linha do titulo caia em 487 — sete pixels DEPOIS do topo do
+    subtitulo. Estava assim em todo pacote de titulo longo."""
+    import layout as L
+
+    assert not L.analisa_thumb(_spec_thumb("LICENCAS DORMINDO", "a planilha que acha"))
+
+
+def test_geometria_do_thumb_mantem_as_faixas_separadas():
+    """A conta e a fonte da verdade, e o portao le a MESMA conta que o desenho.
+
+    Medir a imagem pronta nao serve: renderizar uma linha de cada vez para
+    comparar faixas muda a geometria, porque ela depende das duas. Tentei
+    assim primeiro e o portao reprovou as dezenove specs, inclusive as boas.
+    """
+    import fabrica as F
+
+    for l1, l2 in [("R$ 333 MILHÕES", "a caixinha acabou"),
+                   ("YOU ARE THE PRODUCT", "credit, explained"),
+                   ("4 PILAR", "urutannya"),
+                   ("UM TITULO BEM MAIS COMPRIDO QUE O NORMAL", "e um subtitulo longo tambem")]:
+        g = F.geometria_thumb({"l1": l1, "l2": l2})
+        assert g["base1"] <= g["topo2"], f"{l1!r} colide com {l2!r}"
+        assert g["topo1"] >= 40 and g["base2"] <= 680, f"{l1!r} sai da caixa"
+
+
+@pytest.mark.parametrize(
+    "spec", [p for p in SPECS_REAIS
+             if json.loads(p.read_text(encoding="utf-8")).get("longo")],
+    ids=lambda p: p.stem,
+)
+def test_toda_spec_tem_thumbnail_legivel(spec):
+    import layout as L
+
+    assert not L.analisa_thumb(json.loads(spec.read_text(encoding="utf-8")))

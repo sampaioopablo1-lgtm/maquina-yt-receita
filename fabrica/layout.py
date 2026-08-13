@@ -59,6 +59,74 @@ def tinta_na_borda(svg: str, largura: int, altura: int) -> float:
     return 100.0 * fora / len(pontos)
 
 
+# A moldura da thumbnail tem 40 px de cor CHAPADA, e cor chapada e escura em
+# tons de cinza. Amostrar a largura inteira faz toda linha de 0 a 719 parecer
+# ter tinta, e ai o portao reprova as dezenove specs — inclusive as boas.
+# Aconteceu comigo na primeira versao. A janela de amostra fica dentro da
+# caixa branca, com folga.
+FOLGA = 22
+
+
+def _faixa_de_tinta(svg: str, largura: int, altura: int,
+                    caixa: int = 40) -> tuple[int, int] | None:
+    """Primeira e ultima linha com tinta DENTRO da caixa branca.
+
+    None quando nao ha texto — que e o caso proposital ao renderizar uma linha
+    de cada vez para comparar as faixas.
+    """
+    png = cairosvg.svg2png(bytestring=svg.encode(),
+                           output_width=largura, output_height=altura)
+    im = Image.open(io.BytesIO(png)).convert("L")
+    x0, x1 = caixa + FOLGA, largura - caixa - FOLGA
+    y0, y1 = caixa + FOLGA, altura - caixa - FOLGA
+    linhas = [y for y in range(y0, y1)
+              if min(im.getpixel((x, y)) for x in range(x0, x1, 4)) < 140]
+    return (linhas[0], linhas[-1]) if linhas else None
+
+
+def analisa_thumb(spec: dict) -> list[str]:
+    """A thumbnail e a unica imagem que decide o clique, e nao passava por
+    portao nenhum: o layout mede as CENAS, o visual amostra o VIDEO.
+
+    Medido em 13/08/2026: com posicao fixa (l1 em y=300 corpo 150, l2 em
+    y=480), toda thumbnail cujo titulo quebrasse em duas linhas saia com os
+    dois textos empilhados um sobre o outro. Estava assim em TODO pacote com
+    titulo longo — sx-educacao-001 e nivel-do-jogo-002 entre eles.
+
+    Tinta na borda nao pegaria isso: a colisao acontece no meio da imagem. Por
+    isso o teste renderiza cada linha SOZINHA e compara a faixa vertical que
+    cada uma ocupa. Sobreposicao de faixa e sobreposicao de texto.
+    """
+    th, pal = spec.get("thumb"), spec["paleta"]
+    if not th:
+        return ["spec sem `thumb` — o video subiria sem capa e o CTR morre"]
+
+    W, H = 1280, 720
+    F.usar_fonte(spec.get("fonte", ""))
+    erros = []
+
+    g = F.geometria_thumb(th, H)
+    if g["linhas1"] and g["linhas2"] and g["base1"] > g["topo2"]:
+        erros.append(
+            f"thumbnail: as duas linhas se sobrepoem — o titulo termina em "
+            f"{g['base1']:.0f} e o subtitulo comeca em {g['topo2']:.0f}. "
+            f"l1={th['l1']!r} l2={th['l2']!r}"
+        )
+
+    # A moldura colorida tem 40 px; texto invadindo ela some no player. Aqui a
+    # medida e do PIXEL, e nao da conta: o wrap pode estourar a largura mesmo
+    # com a altura certa, e so a rasterizacao mostra isso.
+    juntos = _faixa_de_tinta(F.svg_thumb(th, pal), W, H)
+    if juntos is None:
+        erros.append("thumbnail: nenhuma tinta dentro da caixa — capa em branco")
+    elif juntos[0] < 40 or juntos[1] > H - 40:
+        erros.append(
+            f"thumbnail: texto fora da caixa branca (tinta de {juntos[0]} a "
+            f"{juntos[1]}, caixa de 40 a {H - 40})"
+        )
+    return erros
+
+
 def analisa(spec: dict) -> list[str]:
     pal = spec["paleta"]
     F.usar_fonte(spec.get("fonte", ""))
