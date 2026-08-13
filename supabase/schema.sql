@@ -126,11 +126,78 @@ select slug, nome, idioma, nicho, voz, estilo,
     (youtube_channel_id is not null) as no_youtube,
     pacotes, ultimo_pacote_em, trilha, fonte, duracao_alvo_s,
     nicho_mediana_vd, nicho_medido_em,
-    (select count(*) from videos v where v.canal = c.slug and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
-    (select count(distinct v.pacote) from videos v where v.canal = c.slug) as pacotes_registrados
+    (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+        from videos v
+        where v.canal = c.slug and v.status not in ('erro', 'cancelado')
+          and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
+    (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+        from videos v where v.canal = c.slug) as pacotes_registrados,
+    (youtube_channel_id is not null) and
+    (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+        from videos v
+        where v.canal = c.slug and v.status not in ('erro', 'cancelado')
+          and v.criado_em > now() - interval '24:00:00') < 3 as pode_produzir
 from canais c
 where ativo
 order by (youtube_channel_id is null), ultimo_pacote_em nulls first;
+
+-- As 4 views abaixo (v_maquina_meta_longos, v_maquina_longos_liberados,
+-- v_maquina_placar, v_maquina_rodizio) foram criadas direto em producao apos
+-- 2026-08-05 e nunca passaram por este arquivo ate agora (achado de sessao de
+-- continuidade em 13/08: producao ja tinha security_invoker=true nas 5,
+-- confirmado por advisor com 0 lints; so faltava versionar aqui).
+
+create or replace view v_maquina_meta_longos
+    with (security_invoker = true) as
+select c.slug, c.idioma,
+    count(*) filter (where v.formato = 'longo') as longos,
+    count(*) filter (where v.formato = 'shorts') as shorts,
+    10 as meta,
+    greatest(0::bigint, 10 - count(*) filter (where v.formato = 'longo')) as faltam,
+    round(coalesce(sum(v.duracao_s) filter (where v.formato = 'longo'), 0) / 3600.0, 2) as horas_no_ar
+from canais c
+left join videos v on v.canal = c.slug and v.status = 'publicado'
+where c.ativo
+group by c.slug, c.idioma;
+
+create or replace view v_maquina_longos_liberados
+    with (security_invoker = true) as
+select slug, longos, faltam, horas_no_ar
+from v_maquina_meta_longos
+where faltam > 0;
+
+create or replace view v_maquina_placar
+    with (security_invoker = true) as
+with ultima as (
+    select distinct on (metricas.youtube_id) metricas.youtube_id, metricas.views
+    from metricas
+    order by metricas.youtube_id, metricas.coletado_em desc
+)
+select v.canal as slug, v.formato,
+    count(*) as publicados,
+    round(avg(extract(epoch from now() - v.publicado_em) / 86400.0), 1) as idade_media_dias,
+    round(avg(coalesce(u.views, 0)::numeric / greatest(extract(epoch from now() - v.publicado_em) / 86400.0, 1::numeric)), 2) as views_por_dia,
+    max(u.views) as melhor,
+    count(*) filter (where u.views is null) as sem_metrica
+from videos v
+left join ultima u on u.youtube_id = v.youtube_id
+where v.status = 'publicado' and v.canal is not null and v.publicado_em is not null
+  and (now() - v.publicado_em) > interval '48:00:00'
+group by v.canal, v.formato
+order by views_por_dia desc nulls last;
+
+create or replace view v_maquina_rodizio
+    with (security_invoker = true) as
+select f.slug, f.nome, f.idioma, f.nicho, f.voz, f.estilo, f.no_youtube,
+    f.pacotes, f.ultimo_pacote_em, f.trilha, f.fonte, f.duracao_alvo_s,
+    f.nicho_mediana_vd, f.nicho_medido_em, f.pacotes_24h, f.pacotes_registrados, f.pode_produzir,
+    exists (select 1 from config g where g.chave = 'canais_verificados' and (g.valor -> 'allowed') ? f.slug) as verificado,
+    coalesce(m.faltam, 10::bigint) as faltam_longos
+from v_maquina_fila f
+left join v_maquina_meta_longos m on m.slug = f.slug
+where f.pode_produzir
+  and exists (select 1 from config g where g.chave = 'yt_token_' || f.slug and (g.valor ->> 'refresh_token') is not null)
+order by coalesce(m.faltam, 10::bigint) desc, f.ultimo_pacote_em nulls first;
 
 create or replace view v_maquina_formatos
     with (security_invoker = true) as
