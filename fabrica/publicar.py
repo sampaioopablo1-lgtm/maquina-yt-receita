@@ -88,6 +88,28 @@ def token_do_canal(slug, sb_url, sb_key):
     return linhas[0]["valor"]
 
 
+def ja_publicado(pacote, sb_url, sb_key):
+    """Devolve os youtube_id ja registrados para este pacote, por formato.
+
+    Existe porque a spec no repositorio NAO diz se o pacote ja foi ao ar. Em
+    13/08/2026 eu contei quinze specs como "prontas para disparar" olhando so os
+    portoes — e dez delas ja estavam publicadas desde 05/08. Disparar a frota
+    com aquela lista teria posto duplicata em dez canais.
+
+    A checagem mora aqui, e nao numa contagem minha, porque aqui e o unico
+    ponto por onde toda publicacao passa: nao importa quem disparou nem com que
+    lista, o pacote ja publicado para antes de subir o primeiro byte.
+    """
+    # safe="" porque o padrao do quote NAO escapa a barra, e aqui o valor vai
+    # dentro da query-string: uma barra crua mudaria o caminho da requisicao e
+    # a resposta viria vazia — liberando exatamente a republicacao que esta
+    # funcao existe para impedir.
+    url = (f"{sb_url}/rest/v1/videos?pacote=eq.{urllib.parse.quote(pacote, safe='')}"
+           f"&youtube_id=not.is.null&select=formato,youtube_id")
+    r = _req(url, headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key})
+    return {linha["formato"]: linha["youtube_id"] for linha in json.load(r)}
+
+
 def access_token(tok):
     data = urllib.parse.urlencode({
         "client_id": tok["client_id"], "client_secret": tok["client_secret"],
@@ -434,6 +456,9 @@ def main():
     p.add_argument("--reparar", default="",
                    help='JSON {"short":"id","longo":"id"} — so conserta a descricao '
                         'de video ja publicado, nao envia nada')
+    p.add_argument("--repetir", action="store_true",
+                   help="publica mesmo que o pacote ja tenha youtube_id em videos. "
+                        "So para republicacao deliberada — o padrao e recusar.")
     args = p.parse_args()
 
     sb_url = os.environ["SUPABASE_URL"].rstrip("/")
@@ -458,6 +483,20 @@ def main():
 
     if args.reparar:
         return reparar(args, sp, d, sb_url, sb_key)
+
+    # Republicar e pior que nao publicar: o canal fica com dois videos iguais,
+    # o algoritmo divide a entrega entre eles, e a limpeza e manual em treze
+    # canais. Como a spec no repositorio nao carrega o youtube_id, so o banco
+    # sabe — entao pergunta-se ao banco, aqui, antes de subir o primeiro byte.
+    pacote = sp.get("pacote") or sp["slug"]
+    if not args.repetir:
+        vivos = ja_publicado(pacote, sb_url, sb_key)
+        if vivos:
+            onde = ", ".join(f"{f}={i}" for f, i in sorted(vivos.items()))
+            raise SystemExit(
+                f"{pacote} JA ESTA no ar ({onde}). Para trocar a descricao use "
+                f"--reparar; para republicar de proposito use --repetir."
+            )
 
     cp = ler_copy(sp, d)
 

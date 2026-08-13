@@ -291,3 +291,60 @@ def test_copy_md_nao_arrasta_a_stack_de_render():
 
     assert importados <= {"glob", "os", "__future__"}, (
         f"copy_md.py so pode usar a biblioteca padrao leve; achei {importados}")
+
+
+# ---------------------------------------------------------------------------
+# Trava contra republicacao.
+#
+# Em 13/08/2026 eu contei quinze specs como "prontas para disparar" olhando so
+# os portoes do prontidao.py — e dez delas ja estavam no ar desde 05/08
+# (setiap-level-003/004/005, agla-level-003, epomeno-epipedo-002,
+# game-money-lab-002, resep-naik-level-002, kolejny-poziom-007,
+# labtreinamento-001, seja-mais-magra-001). Disparar aquela lista teria posto
+# duplicata em dez canais.
+#
+# A spec no repositorio nao carrega youtube_id, entao nenhuma leitura de spec
+# resolve isso. So o banco sabe — e a pergunta tem que sair de dentro do
+# publicar.py, que e o unico ponto por onde toda publicacao passa.
+
+def test_ja_publicado_devolve_ids_por_formato(monkeypatch):
+    import io
+    import json as _json
+
+    chamadas = []
+
+    def _falso_req(url, **kw):
+        chamadas.append(url)
+        return io.BytesIO(_json.dumps([
+            {"formato": "longo", "youtube_id": "v-5v7R13BBc"},
+            {"formato": "shorts", "youtube_id": "ZYh3bpLP5JE"},
+        ]).encode())
+
+    monkeypatch.setattr(pub, "_req", _falso_req)
+    vivos = pub.ja_publicado("setiap-level-004", "https://sb", "chave")
+
+    assert vivos == {"longo": "v-5v7R13BBc", "shorts": "ZYh3bpLP5JE"}
+    # O filtro tem que excluir linha sem youtube_id: um pacote registrado com
+    # erro, sem id, NAO conta como publicado e precisa poder subir.
+    assert "youtube_id=not.is.null" in chamadas[0]
+    assert "pacote=eq.setiap-level-004" in chamadas[0]
+
+
+def test_ja_publicado_vazio_quando_nada_foi_ao_ar(monkeypatch):
+    import io
+
+    monkeypatch.setattr(pub, "_req", lambda url, **kw: io.BytesIO(b"[]"))
+    assert pub.ja_publicado("sx-educacao-001", "https://sb", "chave") == {}
+
+
+def test_pacote_com_barra_ou_espaco_nao_quebra_a_query(monkeypatch):
+    """O nome do pacote entra na URL: sem quote, um caractere estranho viraria
+    outro filtro e a consulta responderia sobre o pacote errado — devolvendo
+    vazio e liberando a republicacao."""
+    import io
+
+    vistos = []
+    monkeypatch.setattr(pub, "_req",
+                        lambda url, **kw: (vistos.append(url), io.BytesIO(b"[]"))[1])
+    pub.ja_publicado("nome com espaco/e-barra", "https://sb", "chave")
+    assert " " not in vistos[0] and "espaco%2Fe-barra" in vistos[0]
