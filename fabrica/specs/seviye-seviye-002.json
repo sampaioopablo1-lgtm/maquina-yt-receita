@@ -1,5 +1,7 @@
 {
  "slug": "seviye-seviye",
+ "pacote": "seviye-seviye-002",
+ "idioma": "tr",
  "voz": "tr-TR-AhmetNeural",
  "paleta": {
   "ink": "#0F3538",

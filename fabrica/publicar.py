@@ -28,6 +28,7 @@ Uso:
 import argparse
 import json
 import os
+import re
 import ssl
 import sys
 import urllib.error
@@ -157,6 +158,122 @@ def orcamento_tags(tags, limite=480):
     return mantidas, total
 
 
+def _parece_lista_de_tags(corpo):
+    """Distingue a secao de TAGS de um paragrafo que por acaso tem virgulas.
+
+    Sem isso o parse pegava a SORUMLULUK REDDİ (o disclaimer de fontes) do
+    seviye-seviye-002 como lista de tags: uma linha so, cinco virgulas, e o
+    video subiria com "Verilerin kaynakları: asgari ücret için Çalışma ve
+    Sosyal Güvenlik Bakanlığı" como tag de busca.
+
+    Tag e termo de busca: curta e sem pontuacao de frase.
+    """
+    itens = [t.strip() for t in corpo.split(",") if t.strip()]
+    return len(itens) >= 4 and all(
+        len(t) <= 40 and ":" not in t and not t.endswith(".") for t in itens
+    )
+
+
+def apontar_para_longo(acc, short_id, longo_id):
+    """Reescreve a descricao do short com o link do longo.
+
+    videos.update exige o snippet INTEIRO — mandar so a descricao apaga titulo,
+    tags e categoria. Por isso le primeiro.
+    """
+    try:
+        atual = json.load(_req(
+            f"{API}/videos?part=snippet&id={short_id}",
+            headers={"Authorization": "Bearer " + acc}))
+        snip = atual["items"][0]["snippet"]
+        link = f"https://youtu.be/{longo_id}"
+        if link in (snip.get("description") or ""):
+            return "ja apontava"
+        snip["description"] = ((snip.get("description") or "").strip()
+                               + f"\n\n{link}").strip()
+        _req(f"{API}/videos?part=snippet",
+             data=json.dumps({"id": short_id, "snippet": snip}).encode(),
+             method="PUT",
+             headers={"Authorization": "Bearer " + acc,
+                      "Content-Type": "application/json; charset=UTF-8"})
+        return "ok"
+    except Exception as e:  # nunca derruba a publicacao: os videos ja subiram
+        return f"falhou: {str(e)[:120]}"
+
+
+def ler_copy(spec, workdir):
+    """Devolve {titulo, descricao, tags, hashtags, comentario} a partir do copy.
+
+    Duas fontes, nesta ordem: o `copy.md` que o render escreveu no workdir, e o
+    `copy` da spec. A ordem importa — o render substitui {CAPITULOS} pelos
+    tempos medidos nos clipes RENDERIZADOS, e a spec so tem o placeholder.
+    Publicar da spec poria "{CAPITULOS}" literal na descricao do YouTube.
+
+    O `copy` e markdown em TODAS as 22 specs do repositorio, mas esta funcao
+    aceitava apenas dict — `cp["titulo"]` num str e AttributeError, entao o
+    passo de publicacao do frota.yml nunca completou com spec de verdade.
+
+    O parse e por CONTEUDO, nao por cabecalho: os cabecalhos sao traduzidos
+    (TITULO, TITLE, TÍTULO, ΤΙΤΛΟΣ, TYTUŁ, BAŞLIK) e a ordem varia entre as
+    specs de 5 e as de 9 secoes. Posicao 1 e 2 sao estaveis (titulo, descricao);
+    o resto se reconhece pelo formato do corpo.
+    """
+    if isinstance(spec.get("copy"), dict):
+        return spec["copy"]
+
+    bruto = ""
+    md = os.path.join(workdir, "copy.md")
+    if os.path.exists(md):
+        with open(md, encoding="utf-8") as f:
+            bruto = f.read()
+    else:
+        bruto = spec.get("copy") or ""
+        print("aviso: copy.md ausente — usando a spec, capitulos podem vir sem tempo")
+    if not bruto.strip():
+        raise SystemExit("spec sem copy: nao da para publicar sem titulo e descricao")
+
+    secoes = []
+    for bloco in re.split(r"^## +", bruto, flags=re.M)[1:]:
+        linhas = bloco.split("\n")
+        secoes.append((linhas[0].strip(), "\n".join(linhas[1:]).strip()))
+    if len(secoes) < 2:
+        # Cinco specs trazem `copy` so como bilhete ("gerado a partir dos
+        # capitulos reais apos o render") — para elas o copy.md nao e preferido,
+        # e obrigatorio. Melhor parar aqui do que publicar o bilhete como
+        # descricao, que e exatamente o que o codigo antigo faria.
+        raise SystemExit(
+            f"copy sem secoes reconheciveis (achei {len(secoes)}). Esta spec depende "
+            f"do copy.md que o render escreve em {workdir} — publique a partir do "
+            f"workdir do render, nao da spec."
+        )
+
+    titulo = secoes[0][1].strip().split("\n")[0]
+    descricao = secoes[1][1].strip()
+
+    tags, hashtags, comentario, capitulos = [], "", "", ""
+    for _, corpo in secoes[2:]:
+        linhas = [x for x in corpo.split("\n") if x.strip()]
+        if not linhas:
+            continue
+        if all(re.match(r"^\d{1,3}:\d{2}\b", x) for x in linhas):
+            capitulos = corpo
+        elif len(linhas) == 1 and linhas[0].startswith("#"):
+            hashtags = linhas[0]
+        elif len(linhas) == 1 and corpo.count(",") >= 3 and _parece_lista_de_tags(corpo):
+            tags = [t.strip() for t in corpo.split(",") if t.strip()]
+        elif not comentario and not corpo.startswith("-"):
+            comentario = corpo
+
+    # Capitulos entram na descricao so se o proprio texto ainda nao os tiver:
+    # o placeholder {CAPITULOS} pode estar no meio da AÇIKLAMA em spec antiga.
+    if capitulos and capitulos not in descricao:
+        descricao = f"{descricao}\n\n{capitulos}"
+    if hashtags:
+        descricao = f"{descricao}\n\n{hashtags}"
+
+    return {"titulo": titulo, "descricao": descricao, "tags": tags,
+            "hashtags": hashtags, "comentario": comentario}
+
+
 def meta_video(titulo, descricao, tags, idioma, publico=True):
     mantidas, _ = orcamento_tags(tags)
     return {
@@ -183,17 +300,19 @@ def main():
     sp = json.load(open(args.spec))
     d = args.dir or f"/tmp/f/{sp.get('pacote') or sp['slug']}"
     idioma = sp.get("idioma") or "en"
-    cp = sp["copy"]
+    cp = ler_copy(sp, d)
 
     acc = access_token(token_do_canal(args.canal, sb_url, sb_key))
     saida = {}
 
     # 1) SHORT primeiro — e ele que recebe distribuicao em canal frio.
+    #    Medido: com 6 a 8 dias de vida o short entrega 130x o longo.
     curto = os.path.join(d, "short.mp4")
     if os.path.exists(curto):
         sid = subir(acc, curto, meta_video(
-            cp.get("short_titulo", cp["titulo"]), cp.get("short_descricao", ""),
-            cp.get("short_tags", cp.get("tags", []))[:8], idioma))
+            cp.get("short_titulo") or cp["titulo"],
+            cp.get("short_descricao") or cp["descricao"].split("\n\n")[0],
+            (cp.get("short_tags") or cp.get("tags") or [])[:8], idioma))
         saida["short"] = sid
         print("SHORT:", sid, "| playlist:", na_playlist(acc, args.playlist, sid))
 
@@ -209,6 +328,13 @@ def main():
         print("  thumbnail:", thumbnail(acc, vid, os.path.join(d, "thumbnail.png")))
         print("  legenda  :", legenda(acc, vid, os.path.join(d, "legendas.srt"), idioma))
         print("  playlist :", na_playlist(acc, args.playlist, vid))
+
+        # O short sobe ANTES do longo existir, entao o CTA dele ("a conta
+        # completa esta no canal") aponta para lugar nenhum ate aqui. Sem este
+        # passo o short manda o publico procurar sozinho — e a razao de existir
+        # do short e justamente levar ao longo.
+        if saida.get("short"):
+            print("  short->longo:", apontar_para_longo(acc, saida["short"], vid))
 
     print(json.dumps(saida))
     return saida

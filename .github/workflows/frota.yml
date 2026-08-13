@@ -83,12 +83,40 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/trilhas
-          curl -sS --fail -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
-            "$SB/storage/v1/object/videos-maquina/specs/${{ matrix.pacote }}.json" -o spec.json
-          # A trilha e assinatura sonora do canal; sem ela a fabrica renderiza mudo.
-          curl -sS -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
-            "$SB/storage/v1/object/videos-maquina/trilhas.tgz" -o /tmp/trilhas.tgz || true
-          [ -s /tmp/trilhas.tgz ] && tar xzf /tmp/trilhas.tgz -C /tmp/trilhas || echo "sem trilhas — render seguira mudo"
+
+          # O REPOSITORIO e a versao de registro da spec, nao o Storage. As 22
+          # specs vivem em fabrica/specs/ e sao versionadas; a copia no Storage
+          # e que envelhece calada — e a rotina ja avisa disso ("a copia em
+          # /tmp/fab ficou desatualizada e produziu o pacote errado sem levantar
+          # erro"). O Storage fica como plano B, para spec gerada fora do git.
+          if [ -f "fabrica/specs/${{ matrix.pacote }}.json" ]; then
+            cp "fabrica/specs/${{ matrix.pacote }}.json" spec.json
+            echo "spec: repositorio (fabrica/specs/${{ matrix.pacote }}.json)"
+          else
+            curl -sS --fail -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              "$SB/storage/v1/object/videos-maquina/specs/${{ matrix.pacote }}.json" -o spec.json
+            echo "spec: Storage (nao existe no repo)"
+          fi
+
+          # A trilha e assinatura sonora do canal; sem ela a fabrica renderiza
+          # mudo. Este passo baixava `trilhas.tgz`, que NAO EXISTE no bucket —
+          # as faixas estao soltas em trilhas/*.mp3. Com `|| true` e o `[ -s ]`
+          # a falha virava a linha "sem trilhas" e o render seguia sem musica,
+          # sem nenhum passo reclamar.
+          #
+          # Baixar TODAS importa: trilha_do_canal escolhe por hash do slug sobre
+          # os arquivos presentes, entao um subconjunto daria outra faixa — e o
+          # canal perderia a assinatura que ja tem registrada.
+          for faixa in Wholesome Inspired Deliberate_Thought Cipher2; do
+            curl -sS -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+              "$SB/storage/v1/object/videos-maquina/trilhas/$faixa.mp3" \
+              -o "/tmp/trilhas/$faixa.mp3" || true
+            [ -s "/tmp/trilhas/$faixa.mp3" ] || rm -f "/tmp/trilhas/$faixa.mp3"
+          done
+          N=$(ls /tmp/trilhas/*.mp3 2>/dev/null | wc -l)
+          echo "trilhas: $N faixas"
+          [ "$N" -gt 0 ] || { echo "::error::nenhuma trilha baixada — o render sairia mudo"; exit 1; }
+
           python3 -c "import json;s=json.load(open('spec.json'));print('cenas:',len(s['longo']),'| short:',len(s.get('short',[])))"
 
       - name: Renderizar
