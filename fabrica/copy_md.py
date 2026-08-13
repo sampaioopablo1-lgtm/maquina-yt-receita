@@ -33,7 +33,12 @@ TRILHA_DIR = "/tmp/trilhas"
 #
 # O modo de falha certo e "faixa faltando", que e barulhento, e nunca "faixa
 # trocada", que sai no ar sem ninguem perceber.
-TRILHAS_VALIDAS = ("Cipher2", "Deliberate_Thought", "Inspired", "Wholesome")
+#
+# O Cipher2 saiu da lista em 14/08/2026. Baixado do bucket direto: HTTP 404,
+# NoSuchKey, 88 bytes de JSON de erro. E nenhum dos treze canais esta
+# registrado nele em canais.trilha — era fantasma puro, e um fantasma na lista
+# fazia o hash dividir por quatro quando so tres chegam.
+TRILHAS_VALIDAS = ("Deliberate_Thought", "Inspired", "Wholesome")
 
 # O YouTube exige capitulo >= 10s e descarta a LISTA INTEIRA se um so violar.
 # Cena tem ~11s e algumas ficam abaixo, entao agrupa.

@@ -409,10 +409,14 @@ def test_o_credito_segue_a_trilha_registrada_e_nao_o_hash(tmp_path, monkeypatch)
         (tmp_path / f"{f}.mp3").write_bytes(b"")
     monkeypatch.setattr(C, "TRILHA_DIR", str(tmp_path))
 
+    # Com as TRES faixas que o bucket realmente tem, o hash manda o
+    # resep-naik-level para Inspired e canais.trilha diz Deliberate_Thought.
+    # Medido em 14/08/2026: o hash acerta 3 dos 13 canais e erra 10.
     pelo_hash = C.credito_trilha("resep-naik-level")
     registrado = C.credito_trilha("resep-naik-level", None, "Deliberate_Thought")
-    assert "Cipher2" in pelo_hash                      # o defeito, reproduzido
+    assert "Inspired" in pelo_hash                     # o defeito, reproduzido
     assert "Deliberate Thought" in registrado          # e a correcao
+    assert pelo_hash != registrado
 
 
 def test_escrever_copy_repassa_a_trilha_da_spec(tmp_path, monkeypatch):
@@ -450,3 +454,47 @@ def test_trilha_declarada_na_spec_tem_que_ser_valida():
         if t and t not in C.TRILHAS_VALIDAS:
             ruins.append((p.stem, t))
     assert not ruins, ruins
+
+
+# --------------------------------------------------------------------------
+# Trilha declarada. Medido em 14/08/2026 baixando o bucket pelo sandbox: das
+# quatro faixas da lista, TRES existem (Wholesome 363,8s / Inspired 286,1s /
+# Deliberate_Thought 177,5s) e o Cipher2 devolve 404 NoSuchKey. Com as tres
+# reais, o hash acerta 3 dos 13 canais e erra 10 — e nao erra so o credito,
+# erra o AUDIO, porque aplicar_trilha chama a mesma funcao.
+
+SPECS_DE_VIDEO = [p for p in SPECS_REAIS
+                  if json.loads(p.read_text(encoding="utf-8")).get("longo")]
+
+
+@pytest.mark.parametrize("spec", SPECS_DE_VIDEO, ids=lambda p: p.stem)
+def test_toda_spec_declara_a_trilha(spec):
+    """Sem o campo, a faixa sai do hash — e o hash erra 10 dos 13 canais."""
+    import copy_md as C
+
+    sp = json.loads(spec.read_text(encoding="utf-8"))
+    assert sp.get("trilha") in C.TRILHAS_VALIDAS, sp.get("trilha")
+
+
+def test_specs_do_mesmo_canal_declaram_a_MESMA_trilha():
+    """A trilha e assinatura do CANAL, nao do pacote. Dois pacotes do mesmo
+    canal com faixas diferentes seriam dois canais soando diferente."""
+    por_slug = {}
+    for p in SPECS_DE_VIDEO:
+        sp = json.loads(p.read_text(encoding="utf-8"))
+        por_slug.setdefault(sp["slug"], {}).setdefault(sp["trilha"], []).append(p.stem)
+    divergem = {s: v for s, v in por_slug.items() if len(v) > 1}
+    assert not divergem, divergem
+
+
+def test_cipher2_nao_volta_para_a_lista():
+    """Faixa fantasma na lista faz o hash dividir por um conjunto que nunca
+    chega inteiro. Baixado do bucket em 14/08/2026: 404 NoSuchKey."""
+    import copy_md as C
+
+    assert "Cipher2" not in C.TRILHAS_VALIDAS
+    # So a linha de download importa; o comentario ao lado dela EXPLICA por que
+    # o Cipher2 saiu, e apagar a explicacao seria perder o motivo.
+    frota = (RAIZ / ".github" / "workflows" / "frota.yml").read_text(encoding="utf-8")
+    baixa = [l for l in frota.splitlines() if "for faixa in" in l]
+    assert baixa and all("Cipher2" not in l for l in baixa), baixa

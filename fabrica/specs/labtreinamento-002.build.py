@@ -457,6 +457,7 @@ SPEC = {
     "pacote": "labtreinamento-002",
     "idioma": "pt-BR",
     "voz": "pt-BR-ThalitaMultilingualNeural",
+    "trilha": "Inspired",   # canais.trilha
     "paleta": {"ink": "#101B2B", "c1": "#1D3557", "c2": "#E07A5F", "bg": "#F7F6F3"},
     "thumb": {"l1": "NR-1 PSICOSSOCIAL", "l2": "o inventario que falta"},
     "longo": CENAS,

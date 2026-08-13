@@ -114,10 +114,12 @@ jobs:
           # a falha virava a linha "sem trilhas" e o render seguia sem musica,
           # sem nenhum passo reclamar.
           #
-          # Baixar TODAS importa: trilha_do_canal escolhe por hash do slug sobre
-          # os arquivos presentes, entao um subconjunto daria outra faixa — e o
-          # canal perderia a assinatura que ja tem registrada.
-          for faixa in Wholesome Inspired Deliberate_Thought Cipher2; do
+          # O Cipher2 saiu da lista em 14/08/2026: baixado direto do bucket,
+          # HTTP 404 NoSuchKey, e nenhum dos treze canais esta registrado nele.
+          # Um fantasma na lista fazia o hash dividir por quatro quando so tres
+          # chegam — e o hash so importa como ultimo recurso, porque desde
+          # 14/08 toda spec declara `trilha` e ela vence.
+          for faixa in Wholesome Inspired Deliberate_Thought; do
             curl -sS -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
               "$SB/storage/v1/object/videos-maquina/trilhas/$faixa.mp3" \
               -o "/tmp/trilhas/$faixa.mp3" || true

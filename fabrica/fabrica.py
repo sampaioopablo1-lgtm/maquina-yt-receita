@@ -346,9 +346,15 @@ from copy_md import trilha_do_canal as _trilha_do_canal  # noqa: E402
 TRILHA_DIR = "/tmp/trilhas"
 
 
-def trilha_do_canal(slug):
-    """Assinatura sonora do canal, validando o mp3 de verdade (ver trilha_ok)."""
-    return _trilha_do_canal(slug, trilha_ok)
+def trilha_do_canal(slug, registrada=None):
+    """Assinatura sonora do canal, validando o mp3 de verdade (ver trilha_ok).
+
+    `registrada` vem de sp["trilha"] e PRECISA chegar aqui. Medido em
+    14/08/2026 contra o bucket: com as tres faixas que existem de verdade, o
+    hash acerta 3 dos 13 canais e erra 10 — e nao erra so o credito, erra o
+    AUDIO, porque `aplicar_trilha` chama esta mesma funcao.
+    """
+    return _trilha_do_canal(slug, trilha_ok, registrada)
 
 
 def escrever_copy(sp, tempos, d):
@@ -407,11 +413,11 @@ def render_wh(W, H):
 # nao para ser ouvida: trilha alta e causa comum de abandono neste formato.
 VOL_TRILHA = "-28dB"
 
-def aplicar_trilha(d, out, slug):
+def aplicar_trilha(d, out, slug, registrada=None):
     """Mixa a trilha CC-BY sob a narracao em UM passe, sobre o arquivo ja
     concatenado. Por clipe (ou com -stream_loop) estourava a RAM do sandbox;
     aqui o video sai em copy e so o audio e reencodado."""
-    faixa = trilha_do_canal(slug)
+    faixa = trilha_do_canal(slug, registrada)
     if not faixa:
         return
     alvo = f"{d}/{out}"
@@ -511,7 +517,7 @@ def render(spec_file):
         else:
             args += ["-c","copy"]
         subprocess.run(args + ["-movflags","+faststart",f"{d}/{out}"],check=True,capture_output=True,cwd=d)
-        aplicar_trilha(d, out, slug)
+        aplicar_trilha(d, out, slug, sp.get("trilha"))
     escrever_copy(sp, tempos, d)
     print(slug, "render ok", round(sum(tempos)))
 if __name__ == "__main__":

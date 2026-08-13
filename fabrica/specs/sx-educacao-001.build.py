@@ -337,6 +337,7 @@ SPEC = {
     "pacote": "sx-educacao-001",
     "idioma": "pt-BR",
     "voz": "pt-BR-AntonioNeural",
+    "trilha": "Deliberate_Thought",   # canais.trilha
     "paleta": {"ink": "#10261C", "c1": "#217346", "c2": "#F2B134", "bg": "#F1F7F4"},
     "thumb": {"l1": "LICENCAS DORMINDO", "l2": "a planilha que acha"},
     "longo": CENAS,

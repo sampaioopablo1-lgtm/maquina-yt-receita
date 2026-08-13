@@ -244,7 +244,7 @@ if not LONGO_PRONTO:
     # A marca so e escrita DEPOIS da trilha entrar. Ela e o que impede a
     # proxima retomada de mixar musica sobre musica.
     log("etapa 6: trilha")
-    F.aplicar_trilha(d, "video.mp4", sp["slug"])
+    F.aplicar_trilha(d, "video.mp4", sp["slug"], sp.get("trilha"))
     open(PRONTO, "w").write("longo montado e com trilha\n")
     log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
         f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
@@ -287,7 +287,7 @@ if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") >
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "26",
         "-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart",
         f"{d}/short.mp4"], check=True, capture_output=True, cwd=d)
-    F.aplicar_trilha(d, "short.mp4", sp["slug"])
+    F.aplicar_trilha(d, "short.mp4", sp["slug"], sp.get("trilha"))
 ds = F.dur(f"{d}/short.mp4")
 assert 20 <= ds <= 60, f"short com {ds:.1f}s — fora da faixa 30-45s (tolerancia 20-60)"
 _erros, _avisos = VIS.conferir(f"{d}/short.mp4",
