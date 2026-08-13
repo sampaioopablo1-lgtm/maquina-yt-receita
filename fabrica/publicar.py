@@ -372,7 +372,12 @@ def reparar(args, sp, d, sb_url, sb_key):
     if not os.path.exists(srt):
         raise SystemExit(f"preciso de {srt} para recalcular os capitulos")
 
-    copy_md.escrever_copy(sp, tempos_do_srt(srt), d)
+    tempos = tempos_do_srt(srt)
+    caps = copy_md.capitulos(sp, tempos)
+    # A rotina registra `capitulos` em videos, e ate aqui esse numero so existia
+    # dentro do markdown. Sem imprimir, o registro fica nulo ou chutado.
+    print(f"capitulos: {len(caps)} em {sum(tempos):.1f}s ({caps[0]} ... {caps[-1]})")
+    copy_md.escrever_copy(sp, tempos, d)
     cp = ler_copy(sp, d)
 
     acc = access_token(token_do_canal(args.canal, sb_url, sb_key))
