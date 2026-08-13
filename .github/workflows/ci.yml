@@ -1,9 +1,21 @@
 name: CI
 
+# Gatilhos separados de propósito. Antes eram `push` em todas as branches MAIS
+# `pull_request`: cada commit numa branch com PR aberto rodava a suíte duas
+# vezes, com o mesmo resultado. Agora `push` cobre só o tronco e as branches
+# sem PR; quem tem PR aberto é coberto pelo `pull_request`.
 on:
   push:
-    branches: ["**"]
+    branches: [main, master]
   pull_request:
+  workflow_dispatch:
+
+# Commit novo cancela a execução anterior da mesma branch. Sem isso, uma
+# sequência de commits enfileira execuções que já nasceram obsoletas — e todas
+# consomem minutos da conta.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   testes:
