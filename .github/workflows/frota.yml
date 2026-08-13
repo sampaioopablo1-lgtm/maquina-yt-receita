@@ -147,6 +147,14 @@ jobs:
       # E tofu nao e um erro visivel: e o retangulo branco. Ele TEM tinta,
       # entao passa no layout.py e no visual.py, e so aparece assistindo ao
       # video pronto. Custa segundos conferir; custa um pacote nao conferir.
+      # Idioma ANTES do render, e barato: le texto e nao abre nem uma fonte.
+      # Nenhum outro passo pega isto — o layout mede pixel, o glifo pergunta se
+      # existe desenho para o caractere, e portugues e indonesio usam o mesmo
+      # alfabeto. Um roteiro meio virado passa em tudo e produz um video que o
+      # TTS le com os fonemas errados. Nao tem conserto parcial: reescreve.
+      - name: Conferir idioma
+        run: python3 fabrica/idioma.py spec.json
+
       - name: Conferir glifos
         run: python3 fabrica/prontidao.py spec.json
 

@@ -2,7 +2,7 @@
 """Quantos pacotes a frota dispara AGORA, e o que falta em cada um dos outros.
 
 Existe porque a pergunta "quantos pacotes estao prontos?" vinha sendo respondida
-de cabeca, e a resposta mudava. Cada spec passa por quatro portoes, cada um com
+de cabeca, e a resposta mudava. Cada spec passa por sete portoes, cada um com
 um custo de descoberta diferente:
 
   identidade   `pacote` e `idioma` presentes e coerentes com config/canais/.
@@ -11,6 +11,9 @@ um custo de descoberta diferente:
   copy         >= 2 secoes reconheciveis, tags dentro do orcamento de 480, e a
                descricao acima das 200 palavras que a rotina pede. Custo tarde:
                o publicar.py aborta DEPOIS do render.
+  idioma       a narracao inteira na lingua da VOZ. Custo tarde: o pacote —
+               um roteiro meio virado passa nos outros seis e nao tem conserto
+               parcial, o roteiro se reescreve.
   narracao     0 erros duros (planilha falada, slop). Custo tarde: o video sai
                com uma cena que ninguem consegue ouvir.
   layout       0 cenas com texto na borda. Custo tarde: 17 min de render e uma
@@ -232,10 +235,24 @@ def _gate_duracao(sp):
     return faltas
 
 
+def _gate_idioma(sp):
+    """A narracao INTEIRA na lingua da voz. Nenhum outro portao olha para isso.
+
+    Custo de descobrir tarde: o pacote. Um roteiro meio indonesio e meio
+    portugues passa nos outros seis — o ritmo e medido igual, o alfabeto e o
+    mesmo, os caracteres contam igual — e produz um video que ninguem assiste,
+    porque o TTS le portugues com fonemas indonesios.
+    """
+    import idioma
+
+    return idioma.analisa(sp)
+
+
 PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
     ("copy", lambda c, s: _gate_copy(s)),
     ("narracao", lambda c, s: _gate_narracao(c)),
+    ("idioma", lambda c, s: _gate_idioma(s)),
     ("glifos", lambda c, s: _gate_glifos(s)),
     ("duracao", lambda c, s: _gate_duracao(s)),
     ("layout", lambda c, s: _gate_layout(s)),
