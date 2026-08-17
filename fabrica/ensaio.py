@@ -99,7 +99,7 @@ MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
     # cuja pausa entre frases e que estoura o roteiro.
     "pt-BR-FranciscaNeural":          (16.92, 1.036),   # n=76
     # --- ainda de laboratorio, provavelmente otimistas ---
-    "pl-PL-MarekNeural":              (22.75, 1.291),
+    "pl-PL-MarekNeural":              (23.58, 1.428),   # n=8, ensaio 17/08
     "el-GR-NestorasNeural":           (25.37, 1.315),
 }
 

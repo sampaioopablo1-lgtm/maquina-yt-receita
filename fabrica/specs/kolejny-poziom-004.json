@@ -1,0 +1,631 @@
+{
+  "slug": "kolejny-poziom",
+  "pacote": "kolejny-poziom-004",
+  "voz": "pl-PL-MarekNeural",
+  "idioma": "pl",
+  "trilha": "Wholesome",
+  "paleta": {
+    "bg": "#F4F6FB",
+    "c1": "#1D3557",
+    "c2": "#E63946",
+    "ink": "#14213D"
+  },
+  "thumb": {
+    "l1": "2% ROCZNIE",
+    "l2": "50 TYS. MNIEJ"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "DWIESCIE ZLOTYCH",
+      "sub": "co miesiac, przez trzydziesci lat",
+      "nar": "Odkladasz dwiescie zlotych miesiecznie. Robisz to przez trzydziesci lat, bez jednej przerwy. Na koniec patrzysz na rachunek i liczba jest mniejsza, niz powinna byc.",
+      "cap": "Przelew, ktory wychodzi"
+    },
+    {
+      "layout": "item",
+      "kicker": "Ile wplacasz",
+      "preco": "siedemdziesiat dwa tysiace",
+      "nar": "Zacznijmy od tego, co wychodzi z twojego konta. Dwiescie zlotych razy trzysta szescdziesiat miesiecy to siedemdziesiat dwa tysiace zlotych wlasnych pieniedzy."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ile powinno urosnac",
+      "preco": "sto szescdziesiat szesc tysiecy",
+      "nar": "Przy piecioprocentowej realnej stopie zwrotu te wplaty rosna do okolo stu szescdziesieciu szesciu tysiecy zlotych. Tak wyglada wykres, ktory pokazuja ci przy podpisywaniu umowy."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A TERAZ PRAWDA",
+      "sub": "ten wykres nic nie odejmuje",
+      "nar": "Tylko ze ten wykres nic nie odejmuje. Nie ma w nim oplaty za zarzadzanie ani podatku od zysku. Oba istnieja i oba pobiera sie automatycznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co ten wykres pomija",
+      "itens": [
+        "oplata za zarzadzanie",
+        "podatek od zysku",
+        "kolejnosc obu"
+      ],
+      "nar": "Ten film liczy trzy rzeczy. Ile zabiera roczna oplata za zarzadzanie. Ile zabiera podatek od zysku. I dlaczego kolejnosc, w jakiej sie je placi, zmienia wynik bardziej niz sama stawka."
+    },
+    {
+      "layout": "item",
+      "kicker": "Zasada calego filmu",
+      "preco": "liczby, nie opinie",
+      "nar": "Nie bede ci mowil, w co inwestowac. Pokaze konkretne liczby i zrodla, a decyzje podejmiesz sam, znajac koszt."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "PIERWSZY UBYTEK",
+      "sub": "oplata za zarzadzanie",
+      "nar": "Zacznijmy od oplaty za zarzadzanie. To procent, ktory fundusz pobiera co roku od calego twojego kapitalu — nie od zysku, od calosci.",
+      "cap": "Oplata, ktorej nie widac"
+    },
+    {
+      "layout": "item",
+      "kicker": "Od czego jest liczona",
+      "preco": "od calego kapitalu",
+      "nar": "Ta roznica jest wieksza, niz brzmi. Podatek placisz od zysku, wiec w zlym roku placisz mniej. Oplate placisz zawsze, takze w roku, w ktorym stracilies."
+    },
+    {
+      "layout": "item",
+      "kicker": "Gdzie ja widzisz",
+      "preco": "nigdzie",
+      "nar": "I nie zobaczysz jej na zadnym przelewie. Jest juz odjeta w wycenie jednostki, ktora ogladasz. Rachunek pokazuje ci kwote po oplacie i wyglada to jak twoj prawdziwy stan."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Gorny limit oplaty w Polsce",
+      "itens": [
+        "dwa tysiace dziewietnascie",
+        "dwa tysiace dwadziescia jeden",
+        "od dwa tysiace dwudziestego drugiego"
+      ],
+      "alturas": [
+        35,
+        25,
+        20
+      ],
+      "nar": "Panstwo uznalo, ze bylo za drogo, i limit obnizano etapami. W dwa tysiace dziewietnastym roku gorna granica wynosila trzy i pol procent. W dwa tysiace dwudziestym pierwszym dwa i pol. Od pierwszego stycznia dwa tysiace dwudziestego drugiego roku maksimum to dwa procent wartosci aktywow w skali roku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Zrodlo tej liczby",
+      "preco": "rozporzadzenie ministra",
+      "nar": "To nie jest branzowa plotka. Limit ustanowilo rozporzadzenie ministra finansow, a obnizke kosztow polskich funduszy opisaly niezaleznie Analizy kropka pl i Stowarzyszenie Inwestorow Indywidualnych."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlaczego to zrobiono",
+      "preco": "bylismy powyzej sredniej",
+      "nar": "Powod podano wprost. Koszty inwestowania w Polsce byly znaczaco wyzsze od sredniej europejskiej, a roznice place uczestnik, nie fundusz."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "UWAGA NA SLOWO MAKSIMUM",
+      "sub": "limit to sufit, nie cena",
+      "nar": "Tylko uwazaj na slowo maksimum. Dwa procent to sufit ustawowy, a nie cena, ktora musisz zaplacic. Sa produkty za znacznie mniej i to ty wybierasz, ktory bierzesz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co sklada sie na twoj koszt",
+      "itens": [
+        "oplata za zarzadzanie",
+        "oplata zmienna za wynik",
+        "koszty transakcyjne"
+      ],
+      "nar": "I jeszcze jedno: sama oplata za zarzadzanie to nie caly koszt. Do niej dochodzi oplata zmienna za wynik oraz koszty transakcyjne funduszu. Dlatego porownuj sume kosztow rocznych, a nie jedna pozycje."
+    },
+    {
+      "layout": "item",
+      "kicker": "Zmiana od tego roku",
+      "preco": "piec lat zamiast jednego",
+      "nar": "Oplata zmienna wlasnie zmienila zasady. W dwa tysiace dwudziestym drugim roku fundusz musial pobic swoj punkt odniesienia w ciagu jednego roku, zeby ja pobrac. Od tego roku liczy sie okres pieciu lat."
+    },
+    {
+      "layout": "item",
+      "kicker": "Co to dla ciebie znaczy",
+      "preco": "trudniej o premie",
+      "nar": "To zmiana na twoja korzysc. Jeden dobry rok po czterech slabych przestaje wystarczac do premii dla zarzadzajacego."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "DWA PROCENT",
+      "sub": "brzmi jak nic",
+      "nar": "Dwa procent rocznie brzmi jak zaokraglenie. Zaraz zobaczysz, co dwa procent robia przez trzydziesci lat z twoimi dwustu zlotymi.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TA SAMA WPLATA",
+      "sub": "dwa rachunki, jedna roznica",
+      "nar": "Bierzemy dwa identyczne rachunki. Ta sama wplata dwustu zlotych, ten sam okres trzydziestu lat, ta sama stopa zwrotu piec procent. Rozni je tylko oplata.",
+      "cap": "Co robia dwa procent"
+    },
+    {
+      "layout": "barras",
+      "kicker": "Kapital po trzydziestu latach",
+      "itens": [
+        "bez oplaty",
+        "przy jednym procencie",
+        "przy dwoch procentach"
+      ],
+      "alturas": [
+        166,
+        139,
+        117
+      ],
+      "nar": "Bez oplaty konczysz z okolo stu szescdziesiecioma szescioma tysiacami zlotych. Przy jednym procencie rocznie zostaje okolo stu trzydziestu dziewieciu tysiecy. Przy dwoch procentach — okolo stu siedemnastu tysiecy."
+    },
+    {
+      "layout": "item",
+      "kicker": "Roznica miedzy skrajnymi",
+      "preco": "piecdziesiat tysiecy",
+      "nar": "Miedzy rachunkiem bez oplaty a rachunkiem z dwoma procentami jest okolo piecdziesieciu tysiecy zlotych roznicy. To wiecej niz dwie trzecie wszystkiego, co sam wplaciles."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ile to twoich wplat",
+      "preco": "dwadziescia jeden lat",
+      "nar": "Sprobuj przelozyc to na przelewy. Piecdziesiat tysiecy przy wplacie dwustu zlotych to dwiescie piecdziesiat miesiecy oszczedzania — ponad dwadziescia lat przelewow, ktore poszly na oplate."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "DLACZEGO TAK DUZO",
+      "sub": "oplata tez sie sklada",
+      "nar": "Powod jest ten sam, dla ktorego twoj kapital rosnie. Procent skladany dziala w obie strony: to, co fundusz zabral w piatym roku, nie pracuje przez pozostalych dwadziescia piec lat.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Rok pierwszy",
+      "preco": "prawie nic",
+      "nar": "W pierwszym roku dwa procent od malego kapitalu to kilkadziesiat zlotych. Nie czujesz tego i dlatego nie reagujesz."
+    },
+    {
+      "layout": "item",
+      "kicker": "Rok trzydziesty",
+      "preco": "ponad dwa tysiace",
+      "nar": "W trzydziestym roku te same dwa procent liczone sa juz od stu kilkunastu tysiecy i kosztuja ponad dwa tysiace zlotych rocznie. Stawka sie nie zmienila, zmienila sie podstawa."
+    },
+    {
+      "layout": "item",
+      "kicker": "Sprawdzmy to na polowie drogi",
+      "preco": "po pietnastu latach",
+      "nar": "Zobaczmy jeszcze polowe drogi. Po pietnastu latach roznica miedzy rachunkiem bez oplaty a rachunkiem z dwoma procentami to okolo osmiu tysiecy zlotych. Wydaje sie do zniesienia."
+    },
+    {
+      "layout": "item",
+      "kicker": "A w drugiej polowie",
+      "preco": "czterdziesci dwa tysiace",
+      "nar": "Cala reszta, czyli okolo czterdziestu dwoch tysiecy, narasta w drugiej polowie. Koszt oplaty nie rozklada sie rowno w czasie — czeka na koniec, kiedy juz nie mozesz go cofnac."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "STAD BIERZE SIE BLAD",
+      "sub": "wczesnie nie boli",
+      "nar": "Stad bierze sie najczestszy blad. Oceniasz produkt po pierwszych latach, kiedy oplata jest niewidoczna, i zostajesz w nim na trzydziesci.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co z tego wynika",
+      "itens": [
+        "oplata rosnie z kapitalem",
+        "placisz ja takze na stracie",
+        "sprawdzasz ja raz"
+      ],
+      "nar": "Trzy wnioski. Oplata rosnie razem z twoim kapitalem. Placisz ja rowniez w latach stratnych. I sprawdzasz ja raz, przy wyborze produktu, a skutki ponosisz przez trzydziesci lat."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "DRUGI UBYTEK",
+      "sub": "podatek od zysku",
+      "nar": "Teraz drugi ubytek. Od zysku kapitalowego w Polsce placi sie dziewietnascie procent — potocznie podatek Belki.",
+      "cap": "Podatek od zysku"
+    },
+    {
+      "layout": "item",
+      "kicker": "Od czego jest liczony",
+      "preco": "tylko od zysku",
+      "nar": "Tu podstawa jest inna niz przy oplacie. Dziewietnascie procent liczy sie od zysku, a nie od calego kapitalu. Wlasnych wplat nikt nie opodatkowuje drugi raz."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kiedy sie go placi",
+      "preco": "przy sprzedazy",
+      "nar": "Placisz go w momencie sprzedazy. Dopoki nie sprzedajesz, podatek nie istnieje na twoim rachunku — i to jest wazniejsze, niz wyglada."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Sto szesnascie tysiecy po podatku",
+      "itens": [
+        "twoje wplaty",
+        "zysk przed podatkiem",
+        "zysk po podatku"
+      ],
+      "alturas": [
+        72,
+        44,
+        36
+      ],
+      "nar": "Wroc do rachunku z dwoma procentami oplaty. Ze stu szesnastu tysiecy siedemdziesiat dwa tysiace to twoje wlasne wplaty, a okolo czterdziestu czterech tysiecy to zysk. Dziewietnascie procent od tego zysku to okolo osmiu tysiecy czterystu zlotych podatku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Zostaje ci",
+      "preco": "okolo stu osmiu tysiecy",
+      "nar": "Po podatku zostaje okolo stu osmiu tysiecy zlotych. Zaczynalismy od stu szescdziesieciu czterech na wykresie sprzedawcy."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Czego podatek nie zabiera",
+      "itens": [
+        "wlasnych wplat",
+        "zysku, ktorego nie zrealizowales",
+        "straty, ktora odliczysz"
+      ],
+      "nar": "Warto wiedziec, czego podatek nie dotyka. Nie dotyka twoich wlasnych wplat. Nie dotyka zysku, dopoki nie sprzedasz. A strate z jednego roku mozesz rozliczyc z zyskiem w kolejnych latach."
+    },
+    {
+      "layout": "item",
+      "kicker": "Praktyczny wniosek",
+      "preco": "kazda sprzedaz kosztuje",
+      "nar": "Praktycznie wynika z tego jedno. Kazde przelozenie pieniedzy z produktu do produktu realizuje zysk i uruchamia podatek, ktory do tej pory pracowal dla ciebie."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlatego czesta zmiana boli",
+      "preco": "podatek plus oplata",
+      "nar": "Dlatego czesta zmiana funduszu kosztuje podwojnie: placisz podatek wczesniej, niz musiales, i zwykle wchodzisz w kolejna oplate."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "PODSUMOWANIE POLOWY",
+      "sub": "piecdziesiat szesc tysiecy",
+      "nar": "Oplata i podatek razem zabraly okolo piecdziesieciu szesciu tysiecy zlotych z tego samego planu, tej samej wplaty i tej samej stopy zwrotu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TERAZ WAZNE",
+      "sub": "kolejnosc, nie stawka",
+      "nar": "I tu dochodzimy do rzeczy, ktora zmienia wynik bardziej niz sama stawka: kolejnosc, w jakiej te dwa koszty sie pojawiaja.",
+      "cap": "Kolejnosc ma znaczenie"
+    },
+    {
+      "layout": "item",
+      "kicker": "Oplata",
+      "preco": "co roku",
+      "nar": "Oplate placisz co roku, z kapitalu, ktory mial pracowac. Zabrana zlotowka nigdy juz nie zarobi."
+    },
+    {
+      "layout": "item",
+      "kicker": "Podatek",
+      "preco": "raz, na koncu",
+      "nar": "Podatek placisz raz, przy wyplacie, od zysku, ktory juz sie zdarzyl. Do tego momentu cala kwota pracuje dla ciebie."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dlaczego to nie to samo",
+      "itens": [
+        "oplata rozklada sie na trzydziesci lat",
+        "podatek spada raz na koncu",
+        "tylko jedno z tego zatrzymuje wzrost"
+      ],
+      "nar": "Dlatego dwa procent oplaty rocznie kosztuja cie wiecej niz dziewietnascie procent podatku jednorazowo. Procent zabierany co roku wycina takze przyszly wzrost. Podatek zabiera plaster z tortu, ktory juz urosl."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Ile kosztuje kazdy z nich",
+      "itens": [
+        "oplata przez trzydziesci lat",
+        "podatek raz na koncu"
+      ],
+      "alturas": [
+        50,
+        8
+      ],
+      "nar": "Zestawmy to wprost. Oplata dwuprocentowa zabrala okolo piecdziesieciu tysiecy zlotych. Podatek zabral okolo osmiu i pol tysiaca. Stawka podatku jest prawie dziesiec razy wyzsza, a kosztuje szesc razy mniej."
+    },
+    {
+      "layout": "item",
+      "kicker": "Skad ta odwrotnosc",
+      "preco": "z czasu, nie ze stawki",
+      "nar": "Ta odwrotnosc nie bierze sie ze stawek, tylko z czasu. Oplata dziala trzysta szescdziesiat razy, podatek jeden raz."
+    },
+    {
+      "layout": "item",
+      "kicker": "Wniosek praktyczny",
+      "preco": "najpierw oplata",
+      "nar": "Praktycznie znaczy to tyle: jesli masz porownac dwa produkty, najpierw porownaj oplate roczna, a dopiero potem zastanawiaj sie nad podatkiem."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I JESZCZE JEDNO",
+      "sub": "to dziala tez w druga strone",
+      "nar": "I zapamietaj, ze to dziala tez w druga strone. Kazdy obnizony punkt procentowy oplaty pracuje dla ciebie przez wszystkie trzydziesci lat, bez zadnego ryzyka.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "JEST OBEJSCIE",
+      "sub": "i jest legalne",
+      "nar": "Na podatek istnieje legalne obejscie, wpisane w ustawe. Nazywa sie IKE i IKZE, i wiekszosc ludzi go nie uzywa.",
+      "cap": "Co panstwo daje"
+    },
+    {
+      "layout": "item",
+      "kicker": "IKE — limit na rok",
+      "preco": "dwadziescia osiem tysiecy",
+      "nar": "Limit wplat na indywidualne konto emerytalne w dwa tysiace dwudziestym szostym roku wynosi dwadziescia osiem tysiecy dwiescie szescdziesiat zlotych. Ta kwota pochodzi z obwieszczenia ministra rodziny z siedemnastego listopada dwa tysiace dwudziestego piatego roku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Co daje IKE",
+      "preco": "zero podatku po szescdziesiatce",
+      "nar": "Po ukonczeniu szescdziesiatego roku zycia wyplata z IKE jest wolna od podatku od zysku. Nie odroczona — zwolniona."
+    },
+    {
+      "layout": "item",
+      "kicker": "IKZE — limit na rok",
+      "preco": "jedenascie tysiecy trzysta cztery",
+      "nar": "Limit na indywidualne konto zabezpieczenia emerytalnego to jedenascie tysiecy trzysta cztery zlote. Kto prowadzi dzialalnosc gospodarcza, ma szesnascie tysiecy dziewiecset piecdziesiat szesc."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Zwrot z PIT za wplate na IKZE",
+      "itens": [
+        "prog dwunastoprocentowy",
+        "prog trzydziestodwuprocentowy"
+      ],
+      "alturas": [
+        1356,
+        3617
+      ],
+      "nar": "IKZE dziala inaczej niz IKE: wplate odliczasz od dochodu w tym samym roku. Przy pierwszym progu podatkowym to okolo tysiaca trzystu piecdziesieciu szesciu zlotych zwrotu, przy drugim okolo trzech tysiecy szesciuset siedemnastu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Koszt IKZE na koncu",
+      "preco": "dziesiec procent",
+      "nar": "Za to przy wyplacie po szescdziesiatym piatym roku zycia placisz dziesiecioprocentowy ryczalt. Dziesiec procent zamiast dziewietnastu, i to od kwoty, ktora rosla bez podatku po drodze."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Warunek, o ktorym sie zapomina",
+      "itens": [
+        "wplaty w pieciu latach kalendarzowych",
+        "szescdziesiat lat przy IKE",
+        "szescdziesiat piec lat przy IKZE"
+      ],
+      "nar": "Oba konta maja ten sam warunek wstepny: wplaty w co najmniej pieciu roznych latach kalendarzowych. Dlatego male konto zalozone dzisiaj jest warte wiecej niz duze konto zalozone za cztery lata."
+    },
+    {
+      "layout": "item",
+      "kicker": "Twoje dwiescie zlotych",
+      "preco": "miesci sie z zapasem",
+      "nar": "Twoje dwiescie zlotych miesiecznie to dwa tysiace czterysta zlotych rocznie. To okolo dziewieciu procent limitu IKE. Limit nie jest twoim problemem."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "KTORE WYBRAC",
+      "sub": "to zalezy od jednej liczby",
+      "nar": "Zostaje pytanie, ktore z dwoch kont wybrac. Odpowiedz zalezy od jednej liczby: twojego progu podatkowego dzisiaj.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Jesli jestes w drugim progu",
+      "preco": "IKZE zwraca wiecej",
+      "nar": "Jesli placisz trzydziesci dwa procent, IKZE oddaje ci co roku okolo trzech tysiecy szesciuset siedemnastu zlotych, a przy wyplacie zabiera dziesiec. Kupujesz roznice dwudziestu dwoch punktow procentowych."
+    },
+    {
+      "layout": "item",
+      "kicker": "Jesli jestes w pierwszym progu",
+      "preco": "IKE bywa prostsze",
+      "nar": "Jesli placisz dwanascie procent, zwrot jest mniejszy, a IKE ma te przewage, ze na koncu nie placisz nic i nie musisz czekac do szescdziesiatego piatego roku zycia."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Trzy roznice do zapamietania",
+      "itens": [
+        "ulga teraz albo zero na koncu",
+        "szescdziesiat albo szescdziesiat piec",
+        "limit wiekszy albo mniejszy"
+      ],
+      "nar": "Trzy roznice wystarczy zapamietac. IKZE daje ulge teraz, IKE daje zero podatku na koncu. IKE od szescdziesiatki, IKZE od szescdziesiatego piatego roku. I limit IKE jest ponad dwa i pol raza wiekszy."
+    },
+    {
+      "layout": "item",
+      "kicker": "Nie musisz wybierac",
+      "preco": "mozesz miec oba",
+      "nar": "I nie musisz wybierac jednego. Ustawa pozwala miec oba konta naraz, a limity licza sie osobno."
+    },
+    {
+      "layout": "item",
+      "kicker": "A jesli bede musial wyplacic",
+      "preco": "zwrot jest mozliwy",
+      "nar": "Czesta obawa brzmi: a jesli bede potrzebowal tych pieniedzy wczesniej. Mozesz je wyplacic w kazdej chwili — tracisz wtedy tylko preferencje podatkowa, nie same pieniadze."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TRZY RACHUNKI",
+      "sub": "ta sama wplata, trzy wyniki",
+      "nar": "Policzmy teraz to samo dwiescie zlotych w trzech wariantach, przez te same trzydziesci lat.",
+      "cap": "Trzy rachunki"
+    },
+    {
+      "layout": "barras",
+      "kicker": "Ile zostaje w kieszeni",
+      "itens": [
+        "dwa procent i podatek",
+        "pol procent i podatek",
+        "pol procent w IKE"
+      ],
+      "alturas": [
+        108,
+        137,
+        151
+      ],
+      "nar": "Wariant pierwszy, dwa procent oplaty i podatek na koncu: okolo stu osmiu tysiecy. Wariant drugi, tani produkt za pol procenta i ten sam podatek: okolo stu trzydziestu siedmiu tysiecy. Wariant trzeci, ten sam tani produkt wewnatrz IKE: okolo stu piecdziesieciu jeden tysiecy."
+    },
+    {
+      "layout": "item",
+      "kicker": "Roznica pierwsza",
+      "preco": "sama oplata",
+      "nar": "Miedzy pierwszym a drugim wariantem jest okolo dwudziestu dziewieciu tysiecy zlotych, i cala ta roznica bierze sie z jednej decyzji — z wyboru taniego produktu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Roznica druga",
+      "preco": "sam rachunek",
+      "nar": "Miedzy drugim a trzecim jest okolo pietnastu tysiecy, i tu decyzja jest jeszcze prostsza: ten sam produkt, tylko trzymany na koncie IKE zamiast na zwyklym."
+    },
+    {
+      "layout": "item",
+      "kicker": "Razem",
+      "preco": "czterdziesci cztery tysiace",
+      "nar": "Razem dwie decyzje, ktore nie wymagaja przewidzenia rynku, warte okolo czterdziestu czterech tysiecy zlotych."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "CZEGO TU NIE MA",
+      "sub": "zadnej prognozy",
+      "nar": "Zwroc uwage, czego w tej liczbie nie ma. Nie ma trafienia w dobra spolke ani przewidzenia kryzysu. Stopa zwrotu byla taka sama we wszystkich trzech wariantach.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "CO SPRAWDZIC",
+      "sub": "cztery liczby",
+      "nar": "Zostawiam cie z czterema liczbami do sprawdzenia w twoim wlasnym produkcie.",
+      "cap": "Cztery liczby do sprawdzenia"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Pierwsza i druga",
+      "itens": [
+        "laczna oplata roczna",
+        "czy masz IKE"
+      ],
+      "nar": "Pierwsza: laczna oplata roczna twojego produktu, wszystkie skladniki razem. Druga: czy w ogole masz zalozone IKE albo IKZE, choc na male kwoty."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Trzecia i czwarta",
+      "itens": [
+        "w ilu latach byly wplaty",
+        "twoj prog podatkowy"
+      ],
+      "nar": "Trzecia: w ilu roznych latach kalendarzowych zrobiles juz wplate, bo licza sie lata, nie kwoty. Czwarta: w ktorym progu podatkowym jestes, bo to zmienia oplacalnosc IKZE wobec IKE."
+    },
+    {
+      "layout": "item",
+      "kicker": "Gdzie szukac oplaty",
+      "preco": "kluczowe informacje",
+      "nar": "Oplate znajdziesz w dokumencie z kluczowymi informacjami dla inwestora. Szukaj sumy kosztow rocznych, a nie samej oplaty za zarzadzanie."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ile to zajmuje",
+      "preco": "jedno popoludnie",
+      "nar": "Sprawdzenie tych czterech liczb zajmuje jedno popoludnie. Skutek sprawdzenia trwa trzydziesci lat, i widzielismy juz, ile jest wart."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "CZEGO TU NIE PADLO",
+      "sub": "zadna nazwa produktu",
+      "nar": "Zwroc uwage, ze nie padla nazwa zadnego funduszu ani zadnej platformy. To nie jest przypadek — koszt umiesz policzyc sam, a rekomendacji nie potrzebujesz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Co zrobic z ta wiedza",
+      "preco": "jedna decyzja",
+      "nar": "Jesli mialbys zrobic tylko jedna rzecz po tym filmie, niech to bedzie sprawdzenie lacznego kosztu rocznego produktu, ktory juz masz. Reszta wynika z tej liczby."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "JEDNO ZDANIE",
+      "sub": "koszt jest jedyna pewna liczba",
+      "nar": "Jesli masz zapamietac jedno zdanie, niech to bedzie to: stopy zwrotu nie znasz, a koszt znasz dzisiaj, co do drugiego miejsca po przecinku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "KOLEJNY POZIOM",
+      "sub": "sprawdz swoja oplate w ten weekend",
+      "nar": "Sprawdz swoja oplate w ten weekend, zanim zrobisz kolejny przelew. Jesli takie liczenie ma dla ciebie sens, zasubskrybuj kanal.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "DWA PROCENT",
+      "sub": "piecdziesiat tysiecy mniej",
+      "nar": "Dwa procent oplaty rocznie kosztuja cie piecdziesiat tysiecy zlotych przez trzydziesci lat."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ta sama wplata",
+      "preco": "dwiescie zlotych",
+      "nar": "Dwiescie zlotych miesiecznie, trzydziesci lat, piec procent zwrotu."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Kapital po trzydziestu latach",
+      "itens": [
+        "bez oplaty",
+        "przy dwoch procentach"
+      ],
+      "alturas": [
+        166,
+        117
+      ],
+      "nar": "Bez oplaty sto szescdziesiat szesc tysiecy. Przy dwoch procentach sto siedemnascie."
+    },
+    {
+      "layout": "item",
+      "kicker": "To twoje przelewy",
+      "preco": "dwadziescia jeden lat",
+      "nar": "Ta roznica to ponad dwadziescia lat twoich wlasnych przelewow."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlaczego tyle",
+      "preco": "oplata tez sie sklada",
+      "nar": "Powod jest prosty. To, co fundusz zabral w piatym roku, nie pracuje przez pozostalych dwadziescia piec."
+    },
+    {
+      "layout": "cta",
+      "kicker": "PELNA KONCOWKA",
+      "sub": "razem z podatkiem i IKE",
+      "nar": "Cala konta, razem z podatkiem i kontem IKE, jest w dlugim filmie na kanale."
+    }
+  ],
+  "copy": "# Oplaty i podatek: ile ubywa z dwustu zlotych miesiecznie\n\n## TYTUL\nOplaty i podatek Belki: ile zjadaja z 200 zl miesiecznie przez 30 lat\n\n## OPIS\nOdkladasz 200 zl miesiecznie przez 30 lat. Wykres przy podpisywaniu umowy\npokazuje okolo 166 tys. zl. W kieszeni zostaje okolo 108 tys. Ten film pokazuje,\ngdzie znika reszta — i ile z tego mozesz zatrzymac bez zmiany stopy zwrotu.\n\nLiczby, ktore padaja w filmie:\n\n• Gorny limit oplaty za zarzadzanie w Polsce to 2% wartosci aktywow rocznie, od\n1 stycznia 2022 r. Wczesniej bylo 3,5% (2019), 3% (2020) i 2,5% (2021). Limit\nustanowilo rozporzadzenie Ministra Finansow.\n\n• Przy tej samej wplacie i tej samej stopie zwrotu roznica miedzy rachunkiem bez\noplaty a rachunkiem z 2% oplaty rocznej wynosi okolo 50 tys. zl — wiecej niz\ndwie trzecie wszystkiego, co sam wplaciles.\n\n• Podatek od zysku kapitalowego wynosi 19% i liczony jest od zysku, nie od\ncalego kapitalu. Placisz go dopiero przy sprzedazy.\n\n• Limit wplat na IKE w 2026 r. to 28 260 zl (obwieszczenie MRPiPS z 17 listopada\n2025 r.). Limit na IKZE to 11 304 zl, a przy dzialalnosci gospodarczej 16 956 zl.\n\n• Wplata na IKZE daje odliczenie od dochodu: okolo 1 356 zl zwrotu przy progu\n12% i okolo 3 617 zl przy progu 32%. Wyplata z IKZE po 65. roku zycia jest\nopodatkowana ryczaltem 10% zamiast 19%.\n\n• Oba konta wymagaja wplat w co najmniej pieciu roznych latach kalendarzowych.\nDlatego male konto zalozone dzisiaj bywa warte wiecej niz duze zalozone pozniej.\n\nGlowna mysl filmu dotyczy kolejnosci, a nie stawki. Oplata pobierana jest co\nroku z kapitalu, ktory mial pracowac, wiec wycina takze przyszly wzrost. Podatek\npobierany jest raz, na koncu, od zysku, ktory juz sie zdarzyl. Dlatego 2%\nrocznie kosztuje wiecej niz 19% jednorazowo — i dlatego przy porownywaniu\nproduktow oplata jest pierwsza liczba do sprawdzenia, a nie ostatnia.\n\nNa koncu sa cztery liczby do sprawdzenia we wlasnym produkcie: laczna oplata\nroczna, czy masz zalozone IKE lub IKZE, w ilu latach kalendarzowych byly juz\nwplaty, i w ktorym progu podatkowym jestes.\n\nTo nie jest doradztwo inwestycyjne ani rekomendacja konkretnego produktu. To\nrachunek, ktory mozesz powtorzyc na wlasnych danych.\n\nJesli takie liczenie ma dla ciebie sens, zasubskrybuj kanal.\n\n## ROZDZIALY\n{CAPITULOS}\n\n## KOMENTARZ\nCztery liczby do sprawdzenia w ten weekend: 1) laczna oplata roczna twojego\nproduktu, 2) czy masz zalozone IKE albo IKZE, 3) w ilu roznych latach\nkalendarzowych zrobiles juz wplate, 4) w ktorym progu podatkowym jestes. Napisz\nw komentarzu, ktora z nich cie zaskoczyla.\n\n## HASHTAGI\n#finanseosobiste #IKE #oszczedzanie\n\n## TAGI\noplata za zarzadzanie, podatek Belki, IKE, IKZE, limity IKE 2026, finanse osobiste, oszczedzanie na emeryture, procent skladany, fundusze inwestycyjne, koszty inwestowania, ulga podatkowa, inwestowanie dla poczatkujacych, 200 zl miesiecznie, emerytura, TFI\n\n## USTAWIENIA STUDIO\nKategoria 27 (Edukacja). Jezyk polski, sciezka dzwiekowa polska. Nie dla dzieci.\nZawiera tresci syntetyczne — zadeklarowane przy publikacji. Napisy z pliku SRT.\n\n## MUZYKA / LICENCJA\nWholesome — YouTube Audio Library, bez obowiazku oznaczania autorstwa. Poziom\nminus dwadziescia osiem decybeli wzgledem narracji.\n\n## ZRODLA\nObwieszczenie MRPiPS z 17.11.2025 (limit IKE 2026, Monitor Polski) i z\n10.11.2025 (limit IKZE 2026). Rozporzadzenie Ministra Finansow w sprawie\nmaksymalnej wysokosci wynagrodzenia stalego towarzystwa za zarzadzanie\nfunduszem. Analizy.pl oraz Stowarzyszenie Inwestorow Indywidualnych — przebieg\nobnizki limitu z 3,5% do 2%.\n",
+  "tags": [
+    "oplata za zarzadzanie",
+    "podatek Belki",
+    "IKE",
+    "IKZE",
+    "limity IKE 2026",
+    "finanse osobiste",
+    "oszczedzanie na emeryture",
+    "procent skladany",
+    "fundusze inwestycyjne",
+    "koszty inwestowania",
+    "ulga podatkowa",
+    "inwestowanie dla poczatkujacych",
+    "200 zl miesiecznie",
+    "emerytura",
+    "TFI"
+  ],
+  "fonte_pauta": "W co inwestowac 200 zl miesiecznie? KONKRETY (5755,7 v/d)"
+}
