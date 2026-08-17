@@ -30,7 +30,9 @@ import json
 import os
 import re
 import ssl
+import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -304,6 +306,96 @@ def tempos_do_srt(caminho):
         (inicios[i + 1] - inicios[i]) if i + 1 < len(inicios) else (fins[i] - inicios[i])
         for i in range(len(inicios))
     ]
+
+
+def _duracao(d, sp):
+    """(duracao do longo, duracao do short) em segundos, ou None quando nao da.
+
+    O longo sai de `tempos.json`, que a etapa 3 escreve com a duracao MEDIDA de
+    cada clipe renderizado — a mesma lista que o `etapas.py` soma para imprimir
+    "video.mp4 781.2s". O short nao tem tempos.json proprio; sobra o ffprobe,
+    que existe no runner mas nao em toda maquina, entao a falta dele devolve
+    None em vez de derrubar a publicacao.
+    """
+    longo = None
+    try:
+        longo = round(sum(json.load(open(os.path.join(d, "tempos.json")))), 1)
+    except Exception:
+        pass
+    curto = None
+    try:
+        curto = round(float(subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", os.path.join(d, "short.mp4")],
+            capture_output=True, text=True, timeout=30, check=True).stdout.strip()), 1)
+    except Exception:
+        pass
+    return longo, curto
+
+
+def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
+    """Escreve em `videos` o que acabou de subir.
+
+    Este passo NAO EXISTIA, e a ausencia dele nao dava erro nenhum: o
+    publicar.py imprimia os dois ids e saia com codigo 0. Medido em 17/08/2026
+    no seja-mais-magra-002 — short 58oHNtVaAbg e longo 8ffwzHFW9ws publicos no
+    canal certo as 16:33, e `videos` sem uma linha sequer do pacote.
+
+    O estrago nao e so o registro faltando. As duas travas anti-duplicata la de
+    cima consultam `videos`; se a frota publica sem registrar, elas ficam cegas
+    justamente para o que a frota publicou. O disparo do cron das 17:01 pos o
+    mesmo pacote na fila de novo e as duas travas o teriam deixado passar.
+
+    Falhar aqui nao desfaz nada — os videos ja estao no ar —, entao o erro vira
+    aviso com o SQL pronto para a mao, e nao uma excecao que mascara o sucesso.
+    """
+    longo_s, curto_s = _duracao(d, sp)
+    pacote = sp.get("pacote") or sp["slug"]
+    hoje = time.strftime("%Y-%m-%d", time.gmtime())
+    base = f"{sb_url}/storage/v1/object/public/videos-maquina/{hoje}-{pacote}"
+    linhas = []
+    if saida.get("longo"):
+        linhas.append({
+            "slug": pacote, "status": "publicado", "formato": "longo",
+            "titulo": cp["titulo"], "youtube_id": saida["longo"],
+            "duracao_s": longo_s, "duracao_short_s": curto_s,
+            "cenas": len(sp.get("longo") or []),
+            "capitulos": len(re.findall(r"^\d{1,3}:\d{2}\b", cp["descricao"], re.M)),
+            "supabase_url": f"{base}-video.mp4",
+        })
+    if saida.get("short"):
+        linhas.append({
+            "slug": f"{pacote}-short", "status": "publicado", "formato": "shorts",
+            "titulo": cp.get("short_titulo") or cp["titulo"],
+            "youtube_id": saida["short"],
+            "duracao_s": curto_s, "duracao_short_s": curto_s,
+            "cenas": len(sp.get("short") or []), "capitulos": 0,
+            "supabase_url": f"{base}-short.mp4",
+        })
+    for l in linhas:
+        l.update({"canal": canal, "pacote": pacote,
+                  "fonte_pauta": sp.get("fonte_pauta"),
+                  "publicado_em": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())})
+    if not linhas:
+        return []
+    try:
+        _req(f"{sb_url}/rest/v1/videos",
+             data=json.dumps(linhas).encode(), method="POST",
+             headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key,
+                      "Content-Type": "application/json",
+                      "Prefer": "return=minimal"})
+        _req(f"{sb_url}/rest/v1/canais?slug=eq.{urllib.parse.quote(canal, safe='')}",
+             data=json.dumps({"ultimo_pacote_em": "now()"}).encode(), method="PATCH",
+             headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key,
+                      "Content-Type": "application/json",
+                      "Prefer": "return=minimal"})
+        print(f"  registro : {len(linhas)} linha(s) em videos")
+    except Exception as e:
+        # stderr para nao sujar o JSON que o passo seguinte le em stdout.
+        print(f"aviso: registro em videos falhou ({e}). Rode a mao:\n"
+              f"  insert into videos {json.dumps(linhas, ensure_ascii=False)}",
+              file=sys.stderr)
+    return linhas
 
 
 def atualizar_descricao(acc, video_id, nova):
@@ -590,6 +682,11 @@ def main():
         # do short e justamente levar ao longo.
         if saida.get("short"):
             print("  short->longo:", apontar_para_longo(acc, saida["short"], vid))
+
+    # Publicar sem registrar deixa as duas travas la de cima cegas para o que a
+    # propria frota acabou de subir. Por isso o registro fica aqui, no mesmo
+    # processo que publicou, e nao numa etapa separada que alguem pode esquecer.
+    registrar(saida, sp, cp, d, args.canal, sb_url, sb_key)
 
     print(json.dumps(saida))
     return saida
