@@ -92,8 +92,13 @@ MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
     "en-US-AndrewNeural":             (16.50, 0.101),   # n=142
     "tr-TR-AhmetNeural":              (15.82, 1.339),   # n=52
     "hi-IN-MadhurNeural":             (12.03, 1.244),   # n=72
+    # Decima medida, 17/08/2026, spec do seja-mais-magra-001 vinda do Storage.
+    # Aqui o erro NAO estava em R (16,97 -> 16,92, praticamente igual) e sim em
+    # P: 0,310 -> 1,036, tres vezes maior. Mesmo +15,6% de subestimacao no
+    # total. Serve de aviso: conferir so a taxa de chars/s deixa passar uma voz
+    # cuja pausa entre frases e que estoura o roteiro.
+    "pt-BR-FranciscaNeural":          (16.92, 1.036),   # n=76
     # --- ainda de laboratorio, provavelmente otimistas ---
-    "pt-BR-FranciscaNeural":          (16.97, 0.310),
     "pl-PL-MarekNeural":              (22.75, 1.291),
     "el-GR-NestorasNeural":           (25.37, 1.315),
 }

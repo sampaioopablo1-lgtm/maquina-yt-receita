@@ -27,7 +27,7 @@ MEDIDAS_EM_PRODUCAO = {
     "pt-BR-AntonioNeural", "pt-BR-ThalitaMultilingualNeural",
     "id-ID-GadisNeural", "id-ID-ArdiNeural", "es-MX-DaliaNeural",
     "en-GB-RyanNeural", "en-US-AndrewNeural", "tr-TR-AhmetNeural",
-    "hi-IN-MadhurNeural",
+    "hi-IN-MadhurNeural", "pt-BR-FranciscaNeural",
 }
 
 
@@ -141,3 +141,17 @@ def test_nenhuma_voz_medida_voltou_ao_valor_de_laboratorio():
         assert MODELO_VOZ[voz][0] != R_velho, f"{voz} voltou ao valor de laboratorio"
         # todas as nove mediram MAIS LENTO que o laboratorio dizia
         assert MODELO_VOZ[voz][0] < R_velho, f"{voz} ficou mais rapido que o medido"
+
+
+def test_francisca_errava_na_pausa_e_nao_na_taxa():
+    """A decima voz medida (17/08/2026) erra num eixo diferente das nove.
+
+    R praticamente nao mudou (16,97 -> 16,92) e P triplicou (0,310 -> 1,036),
+    e mesmo assim o total subestimava 15,6%. Conferir so chars/s deixaria essa
+    voz passar — por isso o modelo tem que ter os dois termos MEDIDOS, nao um
+    medido e outro herdado.
+    """
+    R, P = MODELO_VOZ["pt-BR-FranciscaNeural"]
+    assert R == pytest.approx(16.92, abs=0.01)
+    assert P == pytest.approx(1.036, abs=0.001)
+    assert P > 3 * 0.310, "P voltou ao valor de laboratorio"

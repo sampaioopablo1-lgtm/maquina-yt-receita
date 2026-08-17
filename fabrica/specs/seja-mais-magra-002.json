@@ -1,0 +1,594 @@
+{
+  "slug": "seja-mais-magra",
+  "pacote": "seja-mais-magra-002",
+  "voz": "pt-BR-FranciscaNeural",
+  "idioma": "pt-BR",
+  "trilha": "Wholesome",
+  "paleta": {
+    "bg": "#FDF3F4",
+    "c1": "#C9184A",
+    "c2": "#7FB069",
+    "ink": "#2B1B1F"
+  },
+  "thumb": {
+    "l1": "40% NÃO",
+    "l2": "ERA GORDURA"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "MENOS DEZ QUILOS",
+      "sub": "e o espelho discordando da balança",
+      "nar": "A balança marcou dez quilos a menos. Você olhou no espelho e alguma coisa não fechou. O número desceu, mas o corpo não ficou do jeito que você imaginou que ficaria.",
+      "cap": "Intro: o espelho e a balança"
+    },
+    {
+      "layout": "item",
+      "kicker": "O que a balança mede",
+      "preco": "peso total",
+      "nar": "A explicação não é frescura, nem impressão sua. É que a balança mede uma coisa só: o peso total do corpo. Ela não pergunta de onde veio o que saiu."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que ela não separa",
+      "preco": "gordura de músculo",
+      "nar": "E o que saiu não é uma coisa só. Todo emagrecimento tira gordura e tira também massa magra, que é músculo, água e outros tecidos. A balança soma os dois e mostra um número só."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A PERGUNTA DO VÍDEO",
+      "sub": "quanto do que você perdeu era músculo",
+      "nar": "Então a pergunta que interessa não é quanto você perdeu. É quanto do que você perdeu era músculo. E essa conta muda tudo o que vem depois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que agora",
+      "preco": "as canetas",
+      "nar": "Essa pergunta virou urgente por um motivo simples. As canetas emagrecedoras colocaram milhões de pessoas perdendo peso rápido, e perdendo muito peso."
+    },
+    {
+      "layout": "item",
+      "kicker": "Os nomes",
+      "preco": "semaglutida e tirzepatida",
+      "nar": "Você conhece pelos nomes comerciais. Por trás deles estão duas substâncias diferentes: a semaglutida e a tirzepatida. Guarde essa diferença, porque ela vai importar."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que este vídeo responde",
+      "itens": [
+        "quanto da perda é músculo",
+        "o que acontece quando para",
+        "o que muda essa conta"
+      ],
+      "nar": "Este vídeo responde três coisas. Quanto do peso perdido é músculo. O que acontece com o corpo quando o tratamento para. E o que, segundo os estudos, muda essa conta a seu favor."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O AVISO",
+      "sub": "isto não é indicação de tratamento",
+      "nar": "Um aviso antes de continuar, e ele é sério. Este vídeo não diz para você começar nem para parar nada. Quem decide isso é o seu médico, com os seus exames na frente.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que ele é",
+      "preco": "informação para perguntar melhor",
+      "nar": "O que este vídeo faz é outra coisa. Ele mostra o que os estudos mediram, para você chegar na consulta sabendo o que perguntar e o que pedir para acompanhar."
+    },
+    {
+      "layout": "item",
+      "kicker": "A diferença",
+      "preco": "medir, não adivinhar",
+      "nar": "Porque a diferença entre um bom resultado e um resultado frustrante, aqui, quase sempre está no que foi medido e no que ninguém mediu."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O NÚMERO QUE FALTA",
+      "sub": "a balança sozinha não conta a história",
+      "nar": "E a coisa mais importante que quase ninguém mede é justamente a que a balança não sabe mostrar sozinha.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "COMO SE MEDE",
+      "sub": "o exame que separa o que saiu",
+      "nar": "Existe um exame que separa. Ele se chama densitometria de corpo inteiro, conhecida pela sigla em inglês, dexa. Ele diz quanto do seu peso é gordura e quanto é massa magra.",
+      "cap": "Como se mede o que saiu"
+    },
+    {
+      "layout": "item",
+      "kicker": "O que ele faz",
+      "preco": "divide o peso",
+      "nar": "Em vez de um número só, o exame devolve a divisão. Tantos quilos de gordura. Tantos quilos de massa magra. E aí dá para acompanhar cada um separado ao longo do tratamento."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que isso importa",
+      "preco": "dois cenários, mesmo peso",
+      "nar": "Imagine duas pessoas que perderam os mesmos dez quilos. Na primeira, oito eram gordura e dois eram músculo. Na segunda, seis eram gordura e quatro eram músculo. A balança conta a mesma história para as duas."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Mesma perda, composição diferente",
+      "itens": [
+        "oito de gordura",
+        "seis de gordura"
+      ],
+      "alturas": [
+        80,
+        60
+      ],
+      "nar": "Mas o corpo das duas não é o mesmo no fim. E o que vai acontecer com cada uma nos meses seguintes também não vai ser o mesmo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que o músculo faz",
+      "preco": "sustenta o gasto",
+      "nar": "Massa magra não é estética. É o tecido que sustenta boa parte do que você gasta em repouso, que segura a força para as tarefas do dia e que protege articulação e osso."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que ele faz com a glicose",
+      "preco": "guarda o açúcar",
+      "nar": "O músculo também é o maior destino do açúcar que entra pela comida. Menos músculo significa menos lugar para guardar essa glicose."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A CONTA MUDA",
+      "sub": "perder músculo cobra depois",
+      "nar": "Por isso a mesma perda de peso pode cobrar preços diferentes. E o preço de perder músculo não aparece na hora. Ele aparece meses depois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Onde os estudos mediram",
+      "preco": "subgrupos com o exame",
+      "nar": "A boa notícia é que os grandes estudos das canetas fizeram esse exame. Não em todo mundo, mas em subgrupos. E os números foram publicados."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que vem agora",
+      "preco": "os dois estudos",
+      "nar": "São dois estudos, um para cada substância. E eles não deram o mesmo resultado. Vamos aos dois."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "ESTUDO UM",
+      "sub": "semaglutida, subgrupo com exame",
+      "nar": "O primeiro é o estudo da semaglutida, chamado step um. No subgrupo que fez a densitometria, foram noventa e cinco participantes acompanhados.",
+      "cap": "Semaglutida: o que o exame mostrou"
+    },
+    {
+      "layout": "item",
+      "kicker": "O que aconteceu com a gordura",
+      "preco": "queda de cerca de dezenove por cento",
+      "nar": "A gordura total caiu cerca de dezenove por cento. É uma queda expressiva, e é exatamente o que se espera de um tratamento que funciona para reduzir peso."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que aconteceu com o músculo",
+      "preco": "queda de cerca de dez por cento",
+      "nar": "A massa magra também caiu. Cerca de dez por cento. E é aqui que a conta começa a ficar interessante."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Da perda total, o que era músculo",
+      "itens": [
+        "gordura",
+        "massa magra"
+      ],
+      "alturas": [
+        60,
+        40
+      ],
+      "nar": "Quando se olha o peso perdido como um todo, cerca de quarenta por cento dele saiu como massa magra. Quatro de cada dez quilos que sumiram da balança não eram gordura.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "QUARENTA POR CENTO",
+      "sub": "quatro em cada dez quilos",
+      "nar": "Vale repetir o número devagar, porque ele é o centro deste vídeo. Quatro em cada dez quilos perdidos, no subgrupo medido da semaglutida, não eram gordura.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "ESTUDO DOIS",
+      "sub": "tirzepatida, subgrupo com exame",
+      "nar": "O segundo estudo é o da tirzepatida, chamado surmount um. O subgrupo com densitometria teve cento e vinte e quatro participantes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O peso na semana setenta e dois",
+      "preco": "menos vinte e um vírgula três por cento",
+      "nar": "Na semana setenta e dois, o peso corporal tinha caído vinte e um vírgula três por cento. Uma perda grande, de gente que perdeu de verdade."
+    },
+    {
+      "layout": "item",
+      "kicker": "A gordura",
+      "preco": "menos trinta e três vírgula nove por cento",
+      "nar": "A gordura caiu bem mais que o peso, em termos proporcionais. Trinta e três vírgula nove por cento a menos. É esse descompasso que interessa."
+    },
+    {
+      "layout": "item",
+      "kicker": "A massa magra",
+      "preco": "menos dez vírgula nove por cento",
+      "nar": "E a massa magra caiu dez vírgula nove por cento. Um número parecido com o da semaglutida em queda absoluta, mas com um peso total bem maior embaixo."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Da perda total, o que era músculo",
+      "itens": [
+        "gordura",
+        "massa magra"
+      ],
+      "alturas": [
+        75,
+        25
+      ],
+      "nar": "Resultado: cerca de vinte e cinco por cento do peso perdido era massa magra. Um quarto, e não quatro décimos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A DIFERENÇA",
+      "sub": "vinte e cinco contra quarenta",
+      "nar": "Então as duas substâncias não se comportam igual nesse ponto. Vinte e cinco por cento contra cerca de quarenta por cento da perda saindo como massa magra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O cuidado com a comparação",
+      "preco": "estudos diferentes",
+      "nar": "Um cuidado honesto aqui. São estudos diferentes, com desenhos e populações diferentes. Comparar lado a lado não é o mesmo que ter feito um estudo que compare as duas de frente."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que dá para dizer",
+      "preco": "as duas tiram músculo",
+      "nar": "O que dá para afirmar com segurança é o mais simples. As duas tiram músculo junto com a gordura. Nenhuma das duas tira só gordura."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E ISSO É NORMAL",
+      "sub": "toda perda de peso faz isso",
+      "nar": "E aqui vem uma coisa que quase nunca é dita. Isso não é defeito da caneta. Emagrecimento por dieta também tira massa magra. A questão nunca foi se tira, foi quanto tira.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que muda",
+      "preco": "a velocidade e o tamanho",
+      "nar": "O que a caneta muda é a escala. Perde-se mais peso, e mais rápido. Então a fatia de músculo que sai junto também fica maior em quilos, mesmo que a porcentagem fosse a mesma."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A SEGUNDA METADE",
+      "sub": "o que acontece quando o tratamento para",
+      "nar": "Agora a segunda metade da história, que é a que quase ninguém conta. O que acontece quando o tratamento para.",
+      "cap": "O que acontece quando para"
+    },
+    {
+      "layout": "item",
+      "kicker": "O estudo",
+      "preco": "surmount quatro",
+      "nar": "Existe um estudo desenhado exatamente para isso, chamado surmount quatro. Todo mundo usou o tratamento por trinta e seis semanas primeiro."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que aconteceu nas trinta e seis semanas",
+      "preco": "menos vinte por cento",
+      "nar": "Nessas trinta e seis semanas, o grupo perdeu em média vinte vírgula nove por cento do peso. Um resultado forte, do tipo que muda a vida de quem conseguiu."
+    },
+    {
+      "layout": "item",
+      "kicker": "A divisão do grupo",
+      "preco": "continuar ou parar",
+      "nar": "Aí o grupo foi dividido. Metade continuou com o tratamento. A outra metade passou a receber placebo, ou seja, na prática parou."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Cinquenta e duas semanas depois",
+      "itens": [
+        "quem continuou",
+        "quem parou"
+      ],
+      "alturas": [
+        82,
+        30
+      ],
+      "nar": "Cinquenta e duas semanas depois, quem parou tinha reganhado catorze pontos percentuais de peso. Sobrou cerca de dez por cento de perda em relação ao ponto de partida.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "DOIS TERÇOS",
+      "sub": "a maior parte do peso volta",
+      "nar": "Juntando os estudos de interrupção, o padrão se repete. Em torno de um ano depois de parar, cerca de dois terços do peso perdido voltaram.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A velocidade",
+      "preco": "os três primeiros meses",
+      "nar": "E não volta devagar e por igual. Volta rápido no começo. Os três primeiros meses depois da parada são os mais intensos, e depois o ritmo desacelera."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que isso diz",
+      "preco": "é tratamento, não é curso",
+      "nar": "O que esse desenho de estudo mostra é uma característica do tratamento, não uma falha de quem usou. A obesidade é tratada como doença crônica, e o efeito acompanha o uso."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "MAS FALTA UMA COISA",
+      "sub": "o peso voltou. e o músculo?",
+      "nar": "Só que tem uma pergunta que esses números de peso não respondem. O peso voltou, sim. Mas voltou como o quê?",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A assimetria",
+      "preco": "a volta não é simétrica",
+      "nar": "E é aqui que a conta fica desconfortável. Porque não há razão para o peso voltar na mesma proporção em que saiu."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que reganha sozinho",
+      "preco": "gordura",
+      "nar": "Ganhar gordura de volta é o que acontece por padrão quando o apetite volta e o consumo sobe. Não exige nada de você além de comer mais."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que não reganha sozinho",
+      "preco": "músculo",
+      "nar": "Recuperar massa magra é outra história. Músculo não volta só porque você voltou a comer. Ele responde a estímulo de força e a proteína suficiente."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A TROCA SILENCIOSA",
+      "sub": "sai músculo, volta gordura",
+      "nar": "Junte as duas metades e aparece a troca silenciosa. Você perdeu uma parte em músculo. E o que voltou tende a ser, em maior proporção, gordura.",
+      "cap": "A troca silenciosa"
+    },
+    {
+      "layout": "item",
+      "kicker": "O resultado no ciclo",
+      "preco": "mesmo peso, corpo diferente",
+      "nar": "O resultado é que a pessoa pode voltar ao mesmo peso de antes com uma composição pior que a de antes. Mesma balança, corpo diferente."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que o espelho estranha",
+      "preco": "menos músculo por baixo",
+      "nar": "É por isso que o espelho às vezes discorda da balança. Com menos massa magra por baixo, o mesmo peso ocupa o corpo de outro jeito."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O EFEITO SANFONA",
+      "sub": "por que ele fica mais difícil a cada volta",
+      "nar": "E isso ajuda a explicar por que cada rodada do efeito sanfona costuma parecer mais difícil que a anterior.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que sobra no fim",
+      "preco": "menos músculo sustentando",
+      "nar": "Se a cada ciclo sai músculo e volta gordura, a base que sustenta o gasto diário vai ficando menor. E o corpo que precisa emagrecer de novo tem menos estrutura para isso."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que isso não significa",
+      "preco": "não é culpa de quem usou",
+      "nar": "Isso não é um argumento contra o tratamento, e não é culpa de quem tratou. É um argumento contra tratar sem medir e contra parar sem plano."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A PERGUNTA CERTA",
+      "sub": "não é se emagrece. é o que fica",
+      "nar": "Então a pergunta certa nunca foi se a caneta emagrece. Ela emagrece, e os números disso são grandes. A pergunta é o que fica no corpo depois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que a resposta depende",
+      "preco": "do que foi feito junto",
+      "nar": "E essa resposta não depende só da substância. Depende bastante do que foi feito junto com ela."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O QUE MUDA A CONTA",
+      "sub": "duas alavancas conhecidas",
+      "nar": "Os estudos de composição corporal apontam para duas alavancas. Nenhuma delas é novidade, e é justamente por isso que são subestimadas.",
+      "cap": "O que muda essa conta"
+    },
+    {
+      "layout": "item",
+      "kicker": "Alavanca um",
+      "preco": "treino de força",
+      "nar": "A primeira é treino de força. É o estímulo que sinaliza para o corpo que aquele músculo está em uso e precisa ser mantido enquanto o peso desce."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que isso não é",
+      "preco": "não é cardio",
+      "nar": "E não é a mesma coisa que caminhar ou pedalar. Caminhada é excelente para muita coisa, e vale a pena. Mas o sinal que preserva músculo em déficit vem principalmente da carga."
+    },
+    {
+      "layout": "item",
+      "kicker": "Alavanca dois",
+      "preco": "proteína suficiente",
+      "nar": "A segunda é proteína suficiente ao longo do dia. Com o apetite reduzido pela medicação, comer menos no total é fácil. Comer pouca proteína também."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O problema do apetite baixo",
+      "itens": [
+        "come-se menos no total",
+        "a proteína cai junto",
+        "o músculo perde matéria-prima"
+      ],
+      "nar": "E aí se forma o pior arranjo possível. Menos comida no total, menos proteína dentro dela, e o corpo sem a matéria-prima para segurar a massa magra enquanto perde peso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que perguntar",
+      "preco": "quanta proteína no meu caso",
+      "nar": "Uma pergunta concreta para a consulta: quanta proteína por dia faz sentido no meu caso, com o meu peso e a minha função renal? Esse número não é igual para todo mundo."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que pedir",
+      "preco": "acompanhar a composição",
+      "nar": "E outra: dá para acompanhar a composição corporal, e não só o peso, ao longo do tratamento? Nem sempre haverá o exame disponível, mas a pergunta muda a conversa."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "POR QUE PERGUNTAR MUDA",
+      "sub": "o que se mede é o que se cuida",
+      "nar": "Porque o que não é medido não é cuidado. Se a única coisa acompanhada for o número da balança, é ele que vai guiar as decisões — e ele não separa o que saiu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O terceiro ponto",
+      "preco": "o plano de saída",
+      "nar": "E existe um terceiro ponto, que aparece pouco. Qual é o plano para depois? Porque os estudos de interrupção mostram que parar sem plano tem um resultado bem previsível."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que já se sabe",
+      "preco": "o reganho é esperado",
+      "nar": "Se dois terços do peso costumam voltar em cerca de um ano, isso deixa de ser surpresa e passa a ser algo a planejar desde o começo."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O QUE PROTEGE",
+      "sub": "força e proteína continuam depois",
+      "nar": "E as duas alavancas do tratamento são as mesmas do depois. Manter treino de força e proteína adequada é o que continua trabalhando quando a medicação sai de cena.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "RECAPITULANDO",
+      "sub": "os quatro números",
+      "nar": "Vamos fechar com os quatro números que importam deste vídeo.",
+      "cap": "Os quatro números"
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que ficou medido",
+      "itens": [
+        "quarenta por cento na semaglutida",
+        "vinte e cinco por cento na tirzepatida",
+        "catorze pontos reganhos ao parar"
+      ],
+      "nar": "No subgrupo medido da semaglutida, cerca de quarenta por cento da perda era massa magra. No da tirzepatida, cerca de vinte e cinco. E quem parou reganhou catorze pontos percentuais em um ano."
+    },
+    {
+      "layout": "item",
+      "kicker": "O quarto número",
+      "preco": "dois terços voltam",
+      "nar": "E o quarto: em torno de dois terços do peso perdido volta cerca de um ano depois da parada, mais rápido nos três primeiros meses."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O QUE FAZER COM ISSO",
+      "sub": "não é parar. é medir",
+      "nar": "O que fazer com esses números não é largar tratamento nenhum por causa de um vídeo. É levar as perguntas certas para quem acompanha você.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "As três perguntas",
+      "itens": [
+        "quanta proteína no meu caso",
+        "dá para acompanhar a composição",
+        "qual é o plano depois"
+      ],
+      "nar": "São três. Quanta proteína por dia no meu caso. Dá para acompanhar a composição corporal e não só o peso. E qual é o plano para quando o tratamento terminar."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A PONTE",
+      "sub": "o peso é o placar, não o jogo",
+      "nar": "E fica a ideia que atravessa tudo isso. O peso é o placar. Ele é fácil de ler e por isso vira o centro de tudo. Mas o jogo que está sendo disputado por baixo é outro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que está em disputa",
+      "preco": "o que sai e o que volta",
+      "nar": "O que está em disputa é a composição do que sai agora e a composição do que volta depois. Duas contas que a balança soma numa só e entrega resolvida."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Sua vez",
+      "sub": "você já mediu composição, ou só peso?",
+      "cap": "A sua vez",
+      "nar": "Agora me conta nos comentários: no seu acompanhamento, alguém já mediu sua composição corporal, ou foi sempre só a balança? Sua resposta ajuda a escolher o próximo vídeo."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "ATÉ O PRÓXIMO",
+      "sub": "se inscreva para os próximos números",
+      "nar": "Se você quer os próximos assuntos de saúde tratados assim, com o número e a fonte na mesa, se inscreva no canal. Até o próximo vídeo.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "QUARENTA POR CENTO",
+      "sub": "do que você perdeu pode não ser gordura",
+      "nar": "Quarenta por cento do peso que você perdeu pode não ser gordura."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que o exame separou",
+      "preco": "massa magra",
+      "nar": "No exame do estudo da semaglutida, quatro em cada dez quilos perdidos eram massa magra."
+    },
+    {
+      "layout": "item",
+      "kicker": "Quando o tratamento para",
+      "preco": "dois terços",
+      "nar": "E quando o tratamento para, cerca de dois terços do peso voltam em um ano. Só que o que volta é, em maior proporção, gordura."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A TROCA",
+      "sub": "mesmo peso, corpo diferente",
+      "nar": "Sai músculo, volta gordura. Dá para terminar no mesmo peso com uma composição pior."
+    },
+    {
+      "layout": "cta",
+      "kicker": "No vídeo completo",
+      "sub": "os quatro números e as três perguntas",
+      "nar": "No vídeo do canal estão as três perguntas para levar ao seu médico. Não é indicação de tratamento."
+    }
+  ],
+  "copy": "# O que se reganha depois da caneta nao e o que se perdeu\n\n## TÍTULO\nOzempic e Mounjaro: O Que Você Reganha Não É o Que Você Perdeu\n\n## DESCRIÇÃO\nA balança mede uma coisa só: o peso total. Ela não separa gordura de massa magra — e é essa diferença que decide o que acontece com o seu corpo depois.\n\nNeste vídeo eu mostro o que os exames de composição corporal dos grandes estudos das canetas emagrecedoras encontraram, e por que o peso que volta depois não é o mesmo peso que saiu.\n\nOs números que aparecem aqui:\n\n• No subgrupo com densitometria (DXA) do estudo STEP-1, com semaglutida e 95 participantes, cerca de 40% do peso perdido saiu como massa magra. A gordura total caiu cerca de 19% e a massa magra cerca de 10%.\n\n• No subgrupo com densitometria do estudo SURMOUNT-1, com tirzepatida e 124 participantes, cerca de 25% do peso perdido saiu como massa magra. Na semana 72: peso −21,3%, gordura −33,9% e massa magra −10,9%.\n\n• No estudo SURMOUNT-4, o grupo perdeu 20,9% do peso em 36 semanas. Quem passou para placebo reganhou 14 pontos percentuais em 52 semanas, sobrando cerca de 10% de perda em relação ao início.\n\n• Nos estudos de interrupção, cerca de dois terços do peso perdido volta em torno de um ano, mais rápido nos três primeiros meses.\n\nA assimetria é o ponto central do vídeo: gordura volta sozinha quando o apetite retorna, mas músculo não volta só porque a pessoa voltou a comer. Ele responde a treino de força e a proteína suficiente. Por isso um ciclo de perder e reganhar pode terminar no mesmo peso da balança com uma composição corporal pior do que a de antes — e é isso que ajuda a explicar por que cada rodada do efeito sanfona costuma parecer mais difícil que a anterior.\n\nIsso não é um argumento contra o tratamento, e não é culpa de quem tratou. É um argumento contra tratar sem medir e contra parar sem plano.\n\nAs três perguntas para levar à consulta estão no fim do vídeo: quanta proteína por dia no seu caso, se dá para acompanhar composição corporal e não apenas o peso, e qual é o plano para quando o tratamento terminar.\n\nAVISO: este vídeo é informativo e NÃO é indicação de tratamento. Ele não recomenda começar, ajustar ou interromper qualquer medicamento. Quem decide isso é o seu médico, com os seus exames na frente.\n\nSe você quer assuntos de saúde tratados assim, com o número e a fonte na mesa, se inscreva no canal.\n\n## CAPÍTULOS\n{CAPITULOS}\n\n## COMENTÁRIO\nNo seu acompanhamento, alguém já mediu sua composição corporal, ou foi sempre só a balança? Conta aqui — a resposta ajuda a escolher o próximo vídeo. E lembrando: nada aqui substitui a conversa com o seu médico.\n\n## HASHTAGS\n#emagrecimento #massamagra #saude\n\n## TAGS\nozempic, mounjaro, semaglutida, tirzepatida, canetas emagrecedoras, massa magra, composicao corporal, efeito sanfona, reganho de peso, emagrecimento saudavel, perder gordura, musculo, proteina, treino de forca, saude baseada em evidencia\n\n## CONFIGURAÇÕES DO STUDIO\nCategoria: Educação. Idioma do vídeo e do áudio: português (Brasil). Não é conteúdo para crianças. Conteúdo sintético declarado: sim (narração e ilustração geradas por IA). Legendas: arquivo .srt em português enviado junto. Visibilidade: público.\n\n## MÚSICA / LICENÇA\n{TRILHA}\n\n## FONTES\nSTEP-1 (semaglutida), subgrupo com DXA, n=95. SURMOUNT-1 (tirzepatida), subgrupo com DXA, n=124, semana 72. SURMOUNT-4 (interrupção após 36 semanas). Revisões de reganho após interrupção de agonistas de GLP-1.\n\nConteúdo produzido com narração e ilustração sintéticas (geradas por inteligência artificial). Os dados citados vêm dos estudos nomeados acima.\n",
+  "tags": [
+    "ozempic",
+    "mounjaro",
+    "semaglutida",
+    "tirzepatida",
+    "canetas emagrecedoras",
+    "massa magra",
+    "composicao corporal",
+    "efeito sanfona",
+    "reganho de peso",
+    "emagrecimento saudavel",
+    "perder gordura",
+    "musculo",
+    "proteina",
+    "treino de forca",
+    "saude baseada em evidencia"
+  ],
+  "fonte_pauta": "jVWCkaXZ83c"
+}
