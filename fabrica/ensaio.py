@@ -57,20 +57,45 @@ MARCA = "ENSAIO-NAO-PUBLICAR"
 # ("duracao = chars/20,58 + frases x 0,96") e mesmo assim o portao de duracao
 # seguia dividindo por uma taxa unica. Agora nao.
 #
-# Voz nova entra MEDIDA com as duas amostras, nunca estimada.
+# Voz nova entra MEDIDA, nunca estimada.
+#
+# E MEDIDA EM PRODUCAO, nao em amostra de laboratorio. Os valores anteriores
+# vinham de duas amostras sinteticas por voz (uma de 2 frases longas, outra de
+# 12 curtas) e TODOS erravam para o mesmo lado. Medido em 17/08/2026 contra os
+# .srt de nove vozes ja publicadas — 1.069 cenas reais, `fabrica/calibra_voz.py`:
+#
+#     en-GB-Ryan      +12,0%      id-ID-Gadis     +11,6%
+#     en-US-Andrew     +8,1%      pt-BR-Antonio   +11,1%
+#     es-MX-Dalia     +18,0%      pt-BR-Thalita   +11,1%
+#     hi-IN-Madhur     +8,9%      tr-TR-Ahmet      +6,6%
+#     id-ID-Ardi      +13,9%
+#
+# Nove de nove subestimando e viés, nao ruido: duas amostras nao cobrem a
+# distribuicao de tamanho de frase de um roteiro de 86 cenas, e o ajuste por
+# minimos quadrados sobre elas devolve um R alto demais.
+#
+# O QUE ISSO CUSTOU: o resep-naik-level-003 foi dimensionado para 14,2 min,
+# passou no portao (teto 15,0) e saiu com 16:14 — 74 s acima do teto, publicado.
+#
+# Os tres que faltam (Francisca, Marek, Nestoras) NAO tem .srt de producao
+# utilizavel e seguem com o valor de laboratorio. Pelo viés das outras nove,
+# presuma que tambem estao otimistas em ~10% ate que um pacote publicado permita
+# rodar o calibra_voz.py neles.
 MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
-    "pt-BR-AntonioNeural":            (18.56, 0.980),
-    "pt-BR-ThalitaMultilingualNeural": (19.09, 0.571),
+    # --- medidas em producao (n = cenas reais) ---
+    "pt-BR-AntonioNeural":            (16.11, 0.939),   # n=132
+    "pt-BR-ThalitaMultilingualNeural": (17.48, 0.686),  # n=92
+    "id-ID-GadisNeural":              (14.55, 1.276),   # n=86
+    "id-ID-ArdiNeural":               (18.72, 1.079),   # n=282
+    "es-MX-DaliaNeural":              (17.20, 1.210),   # n=160
+    "en-GB-RyanNeural":               (18.74, 1.089),   # n=51
+    "en-US-AndrewNeural":             (16.50, 0.101),   # n=142
+    "tr-TR-AhmetNeural":              (15.82, 1.339),   # n=52
+    "hi-IN-MadhurNeural":             (12.03, 1.244),   # n=72
+    # --- ainda de laboratorio, provavelmente otimistas ---
     "pt-BR-FranciscaNeural":          (16.97, 0.310),
-    "id-ID-GadisNeural":              (17.42, 1.376),
-    "id-ID-ArdiNeural":               (23.76, 1.277),
-    "es-MX-DaliaNeural":              (21.14, 1.163),
-    "en-GB-RyanNeural":               (21.90, 1.131),
-    "en-US-AndrewNeural":             (18.45, 0.243),
     "pl-PL-MarekNeural":              (22.75, 1.291),
-    "tr-TR-AhmetNeural":              (16.96, 1.289),
     "el-GR-NestorasNeural":           (25.37, 1.315),
-    "hi-IN-MadhurNeural":             (13.10, 1.165),
 }
 
 
@@ -87,30 +112,31 @@ def duracao_cena(nar: str, voz: str) -> float:
     return len(nar) / R + len(frases(nar)) * P
 
 
-# Sobra de MONTAGEM, medida no render e nao no TTS. O clipe pronto e mais longo
-# que o audio dele: sobra um resto dentro da cena e um intervalo ate a proxima.
+# Intervalo de MONTAGEM entre uma cena e a seguinte, medido no render.
 #
-# MEDIDO em 14/08/2026 no ensaio completo do resep-naik-level-003: o modelo de
-# TTS somava 849,9 s e o video.mp4 saiu com 894,4 s. Sao 44,5 s em 86 cenas.
-# Duas medicoes independentes batem — o .srt mostra 0,3 s de intervalo entre o
-# fim de uma cena e o inicio da seguinte, mais 0,26 s de mediana de folga dentro
-# da cena.
+# MEDIDO em 17/08/2026 sobre os .srt de treze pacotes publicados: 1.056
+# intervalos, TODOS exatamente 0,300 s. Valor unico, sem dispersao — a esteira
+# insere um intervalo fixo, nao uma folga variavel.
 #
-# POR QUE IMPORTA: sem este termo o portao aprovou 14,2 min para um video que
-# saiu com 14,9, contra um teto de 15,0. Sobraram cinco segundos. Um roteiro
-# um pouco maior passa no portao e estoura o teto sem ninguem ver.
+# O 0,517 que estava aqui era ARTEFATO DO ENSAIO, nao propriedade do render. O
+# ensaio gera silencio com a duracao que o MODELO previa; quando o modelo errava
+# 11% para menos, o video do ensaio saia mais longo que a soma prevista e a
+# diferenca era creditada a "sobra de montagem". Media-se o erro do modelo e
+# chamava-se de padding — e por isso o numero era `n=1, confirmar depois`.
 #
-# n=1 spec. Confirmar num segundo render antes de tratar como constante firme.
+# Com o modelo recalibrado em producao, o resto e so o intervalo: no
+# resep-naik-level-003 os clipes somam 948,3 s, mais 85 intervalos de 0,3 s da
+# 973,8 s, contra 974,2 s de video real. Sobram 0,4 s no pacote inteiro.
 #
-# E fica FORA de `duracao_cena` de proposito: o ensaio gera o silencio pela
-# duracao do TTS, e a montagem adiciona a sobra depois. Somar aqui faria o
-# silencio ja nascer com a sobra e o video sairia mais longo ainda.
-PADDING_CENA_S = 0.517
+# Sao os INTERVALOS que contam, e ha um a menos que cenas: n cenas, n-1
+# intervalos. Multiplicar por n somava uma cena fantasma no fim.
+GAP_CENA_S = 0.300
 
 
 def duracao_estimada(cenas, voz: str) -> float:
+    """Duracao do video montado: a fala de cada cena mais os intervalos."""
     return (sum(duracao_cena(c.get("nar", ""), voz) for c in cenas)
-            + PADDING_CENA_S * len(cenas))
+            + GAP_CENA_S * max(len(cenas) - 1, 0))
 
 
 def _ffmpeg(args: list[str]) -> None:

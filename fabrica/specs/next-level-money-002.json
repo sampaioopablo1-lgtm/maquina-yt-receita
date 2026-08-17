@@ -1,535 +1,537 @@
 {
- "slug": "next-level-money",
- "pacote": "next-level-money-002", "voz": "en-US-AndrewNeural", "trilha": "Deliberate_Thought",
- "paleta": {
-  "ink": "#1A1A1A",
-  "c1": "#E4572E",
-  "c2": "#F2B134",
-  "bg": "#F2ECDF"
- },
- "thumb": {
-  "l1": "$7.9 TRILLION?",
-  "l2": "the number is wrong"
- },
- "longo": [
-  {
-   "layout": "titulo",
-   "kicker": "$7.9 TRILLION",
-   "sub": "the most repeated number in business history",
-   "cap": "Intro: the number everyone repeats",
-   "nar": "You have seen the headline. The Dutch East India Company was worth seven point nine trillion dollars. Bigger than Apple, Google and Amazon combined. That number is everywhere. It is also almost certainly wrong, and the real story is far more interesting."
+  "slug": "next-level-money",
+  "pacote": "next-level-money-002",
+  "voz": "en-US-AndrewNeural",
+  "trilha": "Deliberate_Thought",
+  "paleta": {
+    "ink": "#1A1A1A",
+    "c1": "#E4572E",
+    "c2": "#F2B134",
+    "bg": "#F2ECDF"
   },
-  {
-   "layout": "lista",
-   "kicker": "What we cover",
-   "itens": [
-    "what the company actually was",
-    "how the money machine worked",
-    "why the trillion number breaks"
-   ],
-   "cap": "The map of this video",
-   "nar": "Seven chapters: what this company actually was, how its money machine worked, the sovereign powers no modern corporation has, why the trillion dollar number falls apart, what an honest comparison looks like, how it all collapsed, and what survives of it today."
+  "thumb": {
+    "l1": "$7.9 TRILLION?",
+    "l2": "the number is wrong"
   },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 1",
-   "sub": "the invention nobody planned",
-   "cap": "Ch. 1 — The invention",
-   "nar": "Chapter one. Before we can value this thing, we need to understand what it was — because it was not a company in any sense you would recognise today."
-  },
-  {
-   "layout": "item",
-   "kicker": "Founded",
-   "preco": "1602",
-   "cap": "1602 — the starting point",
-   "nar": "The Vereenigde Oostindische Compagnie, the V O C, was chartered in sixteen oh two. It ran for one hundred and ninety seven years. For context, that is longer than the United States has existed."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Three firsts",
-   "itens": [
-    "first publicly traded company",
-    "first permanent share capital",
-    "first modern stock exchange"
-   ],
-   "cap": "Three genuine firsts",
-   "nar": "Three things happened here for the first time in history. Shares sold to the general public. Capital that stayed locked in the company instead of being paid out after each voyage. And a permanent market where those shares changed hands daily."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "The real innovation",
-   "sub": "capital that does not go home",
-   "cap": "The innovation that mattered",
-   "nar": "That second one is the quiet revolution. Before the V O C, you funded one voyage, the ship came back, everyone split the proceeds and the partnership dissolved. Permanent capital meant the company could think in decades. Every corporation you know inherited that idea."
-  },
-  {
-   "layout": "item",
-   "kicker": "The Amsterdam exchange",
-   "preco": "1602",
-   "cap": "The first stock market",
-   "nar": "And because the capital was locked in, investors who wanted out had to sell to someone else. That need created the Amsterdam exchange — the first place on earth where you could buy a piece of a company on a Tuesday and sell it on a Wednesday."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Invented here too",
-   "itens": [
-    "short selling",
-    "options trading",
-    "the first market panic"
-   ],
-   "cap": "What else was invented there",
-   "nar": "Within a few decades that market had produced short selling, options, futures and the first documented attempt at market manipulation. Every trick people think is modern was already running in Amsterdam before sixteen fifty."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bridge to chapter 2",
-   "sub": "so where did the money come from?",
-   "cap": "Bridge — where the money came from",
-   "nar": "So the financial plumbing was genuinely new. But plumbing does not make you rich. The money came from somewhere else entirely, and that is chapter two.",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 2",
-   "sub": "the money machine",
-   "cap": "Ch. 2 — The money machine",
-   "nar": "Chapter two: how the machine actually made money. And the answer is not trade. It was something much more specific than that."
-  },
-  {
-   "layout": "lista",
-   "kicker": "The cargo",
-   "itens": [
-    "nutmeg and mace",
-    "cloves",
-    "pepper and cinnamon"
-   ],
-   "cap": "What was in the hold",
-   "nar": "The cargo was spice. Nutmeg, mace, cloves, pepper, cinnamon. Today these are things you buy for two dollars and forget in a cupboard. Then, they were the highest value per kilogram cargo on the planet."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Nutmeg markup",
-   "itens": [
-    "Banda islands",
-    "Amsterdam"
-   ],
-   "alturas": [
-    1,
-    300
-   ],
-   "cap": "The nutmeg markup",
-   "nar": "Here is the number that explains everything. Nutmeg bought in the Banda Islands and sold in Amsterdam could carry a markup of several hundred times. Not several hundred percent — several hundred times."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "The uncomfortable part",
-   "sub": "that margin was not earned by trading",
-   "cap": "Where the margin really came from",
-   "nar": "But that margin was not a trading margin. You do not get three hundred times by buying low and selling high. You get it by being the only legal buyer at one end and the only legal seller at the other. The V O C's product was not spice. It was monopoly."
-  },
-  {
-   "layout": "item",
-   "kicker": "Banda, 1621",
-   "preco": "~15,000",
-   "cap": "Banda, 1621",
-   "nar": "And monopolies over a place have to be enforced on the people who live there. In sixteen twenty one, the V O C took the Banda Islands by force. The pre-invasion population of roughly fifteen thousand was almost entirely destroyed by killing, deportation and starvation. The nutmeg margin sits on top of that fact, and any honest economics of this company has to say so."
-  },
-  {
-   "layout": "lista",
-   "kicker": "How the monopoly held",
-   "itens": [
-    "destroy trees outside the network",
-    "fixed prices at both ends",
-    "forced labour on the plantations"
-   ],
-   "cap": "How the monopoly was held",
-   "nar": "The system was maintained by cutting down spice trees outside the company's control, fixing prices at both ends of the route, and running the plantations on forced labour. This is the part the trillion dollar headline never mentions."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Average annual dividend",
-   "itens": [
-    "VOC ~18%",
-    "S&P 500 ~2%"
-   ],
-   "alturas": [
-    18,
-    2
-   ],
-   "cap": "The dividend nobody matches",
-   "nar": "The result: across roughly two centuries the V O C paid an average dividend of about eighteen percent a year. The S and P five hundred today pays under two. In the early decades the dividend was sometimes paid in spice itself, because that was more reliable than cash."
-  },
-  {
-   "layout": "item",
-   "kicker": "Ships sent east",
-   "preco": "~4,700",
-   "cap": "The scale of operations",
-   "nar": "Over its life the company sent roughly four thousand seven hundred ships east and moved around a million Europeans to Asia. No state-backed enterprise before it had operated at that scale, for that long, that consistently."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bridge to chapter 3",
-   "sub": "and it could declare war",
-   "cap": "Bridge — the powers",
-   "nar": "So: permanent capital, a monopoly held by force, and a dividend no modern company approaches. But there is one more feature that makes every comparison to Apple fall apart, and that is chapter three.",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 3",
-   "sub": "a company with sovereign powers",
-   "cap": "Ch. 3 — Sovereign powers",
-   "nar": "Chapter three. This is where the V O C stops being a company in any modern sense at all."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Written into the charter",
-   "itens": [
-    "declare war and sign treaties",
-    "mint its own currency",
-    "build forts and try prisoners"
-   ],
-   "cap": "What the charter granted",
-   "nar": "The charter of sixteen oh two granted the company the right to wage war, negotiate treaties with foreign rulers, mint its own coinage, build fortresses, maintain an army and a navy, and run courts that could imprison and execute."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Read that again",
-   "sub": "a private firm with an army and a mint",
-   "cap": "What that actually means",
-   "nar": "Read that list again and notice what it is. Those are not corporate powers. Those are the powers of a state. The Dutch Republic did not hire the V O C to act on its behalf — it delegated pieces of sovereignty to a private firm with shareholders."
-  },
-  {
-   "layout": "item",
-   "kicker": "Its own soldiers",
-   "preco": "~25,000",
-   "cap": "The private army",
-   "nar": "At its height the company kept in the order of twenty five thousand soldiers and dozens of warships. It fought wars against Portugal, against England, and against local rulers across Asia — on its own account, for its own commercial interests."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Why this matters for valuation",
-   "itens": [
-    "revenue backed by coercion",
-    "no competitor allowed to exist",
-    "no regulator above it"
-   ],
-   "cap": "Why this breaks comparison",
-   "nar": "This matters enormously for what comes next. A company whose revenue is backed by its own army, in markets where competitors are not permitted to exist, and with no regulator above it, is not producing the same kind of value as a company selling you a phone."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bridge to chapter 4",
-   "sub": "now the famous number",
-   "cap": "Bridge — to the number",
-   "nar": "Keep that in mind, because now we can finally take apart the number that brought most of you to this video.",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 4",
-   "sub": "why $7.9 trillion breaks",
-   "cap": "Ch. 4 — The number breaks",
-   "nar": "Chapter four: the seven point nine trillion dollar claim. Where it comes from, and why economic historians do not accept it."
-  },
-  {
-   "layout": "item",
-   "kicker": "The source figure",
-   "preco": "78 million",
-   "cap": "The one real number",
-   "nar": "There is exactly one hard number underneath all of this. In sixteen thirty seven, at the height of the tulip mania, the V O C's market value was around seventy eight million Dutch guilders. Everything else is a conversion argument."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Three ways to convert",
-   "itens": [
-    "consumer prices",
-    "share of the economy",
-    "average wages"
-   ],
-   "cap": "Three ways to convert",
-   "nar": "There is no single correct way to move a number across four hundred years. You can adjust by consumer prices, by share of total economic output, or by what it would buy in labour. These three methods do not give similar answers. They give wildly different ones."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Same 78m guilders",
-   "itens": [
-    "price basis ~$1bn",
-    "viral claim $7.9tn"
-   ],
-   "alturas": [
-    1,
-    7900
-   ],
-   "cap": "The gap between methods",
-   "nar": "On a consumer price basis, seventy eight million guilders comes out somewhere around one billion dollars — roughly eight hundred and twenty million euros. The viral figure is seven point nine trillion. That is a gap of almost eight thousand times, from the same starting number."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Where the big number comes from",
-   "sub": "share of a much smaller economy",
-   "cap": "Where the big number comes from",
-   "nar": "The trillion dollar version comes from the share-of-the-economy method. The seventeenth century Dutch economy was tiny compared to today's world economy, so anything that was a large slice of it becomes an enormous number when you scale that slice up to modern global output."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Why that method misleads",
-   "itens": [
-    "it measures relative weight, not wealth",
-    "you cannot spend a percentage",
-    "it flatters every old fortune"
-   ],
-   "cap": "Why that method misleads",
-   "nar": "That method is not nonsense — it tells you something real about relative dominance. But it does not tell you what the company was worth. It measures weight inside an economy, not purchasing power. Apply it consistently and half the merchants of history become trillionaires."
-  },
-  {
-   "layout": "item",
-   "kicker": "The honest range",
-   "preco": "$1bn – $10tn",
-   "cap": "The honest answer",
-   "nar": "So the honest answer is uncomfortable and it is this: depending on which question you are asking, the V O C was worth somewhere between about one billion and about ten trillion dollars. Anyone quoting a single confident figure is hiding the method."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bridge to chapter 5",
-   "sub": "so what can we compare?",
-   "cap": "Bridge — what can be compared",
-   "nar": "Which raises the obvious question. If the valuation comparison is broken, is there anything we can honestly compare? There is, and it is more revealing than the dollar figure ever was.",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 5",
-   "sub": "the comparison that actually works",
-   "cap": "Ch. 5 — The honest comparison",
-   "nar": "Chapter five. Forget the dollars. Compare the things that survive translation across four centuries."
-  },
-  {
-   "layout": "lista",
-   "kicker": "What travels across time",
-   "itens": [
-    "share of its own economy",
-    "duration",
-    "power over its market"
-   ],
-   "cap": "What travels across time",
-   "nar": "Three measures survive the journey: how much of its own economy the company represented, how long it lasted, and how much control it had over its own market. On all three, the V O C is genuinely extraordinary."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Years of operation",
-   "itens": [
-    "VOC 197",
-    "Apple 50",
-    "Amazon 32"
-   ],
-   "alturas": [
-    197,
-    50,
-    32
-   ],
-   "cap": "Duration",
-   "nar": "Duration first. One hundred and ninety seven years. Apple is around fifty. Amazon around thirty. Almost no commercial organisation in history has run a continuous operation for two centuries."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Market control",
-   "sub": "not dominant — exclusive",
-   "cap": "Market control",
-   "nar": "Then market control. We call modern firms monopolies when they hold seventy or eighty percent of a market. The V O C held one hundred percent of the legal European trade in several spices, enforced by law at home and by cannon abroad. That is a different category of thing."
-  },
-  {
-   "layout": "item",
-   "kicker": "Employees at peak",
-   "preco": "~70,000",
-   "cap": "Scale of employment",
-   "nar": "At its peak the company employed something like seventy thousand people across Europe and Asia, at a time when Amsterdam itself had around two hundred thousand residents. Relative to its home economy, no modern employer comes close."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Where it loses",
-   "itens": [
-    "absolute output",
-    "productivity per worker",
-    "number of customers reached"
-   ],
-   "cap": "Where the VOC loses badly",
-   "nar": "And here is where it loses, badly. In absolute output, in productivity per worker, and in number of people served, a single modern logistics company dwarfs the entire V O C. Being a huge share of a small economy is not the same as being big."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "The honest verdict",
-   "sub": "most powerful, not most valuable",
-   "cap": "The honest verdict",
-   "nar": "So the honest verdict is this. The V O C was probably the most powerful company that has ever existed. It was almost certainly not the most valuable. Those are two different claims, and the viral headline quietly swaps one for the other."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 6",
-   "sub": "how it actually ended",
-   "cap": "Ch. 6 — The collapse",
-   "nar": "Chapter six, and it is the part almost nobody tells. This company did not get bought, broken up or outcompeted into retirement. It went bankrupt."
-  },
-  {
-   "layout": "item",
-   "kicker": "Dissolved",
-   "preco": "1799",
-   "cap": "1799 — the end",
-   "nar": "The V O C was formally dissolved on the thirty first of December, seventeen ninety nine. Its debts were absorbed by the Dutch state. The most profitable company in history ended insolvent."
-  },
-  {
-   "layout": "lista",
-   "kicker": "What killed it",
-   "itens": [
-    "the monopoly stopped holding",
-    "corruption inside the company",
-    "war with Britain"
-   ],
-   "cap": "What killed it",
-   "nar": "Three forces did it. Competitors broke the spice monopoly, so the three hundred times markup collapsed toward normal trade margins. Internal corruption drained profits into private pockets. And the fourth Anglo-Dutch war wrecked the shipping the whole system depended on."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "The structural flaw",
-   "sub": "it kept paying dividends it had not earned",
-   "cap": "The structural flaw",
-   "nar": "But underneath all three sits one structural flaw. For decades the company kept paying that famous dividend even in years when it had not earned it, funding the difference with debt. The eighteen percent that made it legendary is also part of what killed it."
-  },
-  {
-   "layout": "lista",
-   "kicker": "The pattern to notice",
-   "itens": [
-    "margin from exclusivity, not efficiency",
-    "payouts detached from earnings",
-    "debt covering the gap"
-   ],
-   "cap": "The pattern to notice",
-   "nar": "Notice the shape of that. A margin that came from exclusivity rather than efficiency, payouts disconnected from actual earnings, and borrowing to cover the difference. That pattern did not stay in the eighteenth century."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bridge to chapter 7",
-   "sub": "and yet it never really left",
-   "cap": "Bridge — what survived",
-   "nar": "And yet the company that went bankrupt in seventeen ninety nine left more behind than almost any firm that is still trading today.",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Chapter 7",
-   "sub": "what survived",
-   "cap": "Ch. 7 — What survived",
-   "nar": "Chapter seven, the last one. What the V O C actually left us — and it is sitting in your retirement account right now."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Still with us",
-   "itens": [
-    "the joint stock company",
-    "the stock exchange",
-    "the annual report to shareholders"
-   ],
-   "cap": "The three inheritances",
-   "nar": "Three inheritances. The joint stock company with permanent capital and tradeable shares. The public exchange where those shares are priced continuously. And the idea that management owes shareholders a periodic account of what it did with their money."
-  },
-  {
-   "layout": "item",
-   "kicker": "Every listed company",
-   "preco": "since 1602",
-   "cap": "The direct line",
-   "nar": "Every listed company on earth today is running a version of the structure written into that sixteen oh two charter. Not a similar idea — the same idea, refined for four hundred years."
-  },
-  {
-   "layout": "lista",
-   "kicker": "The warnings too",
-   "itens": [
-    "monopoly profit is fragile",
-    "dividends must come from earnings",
-    "power without accountability rots"
-   ],
-   "cap": "The warnings it left",
-   "nar": "It also left three warnings. Profit that depends on exclusivity disappears the moment exclusivity does. Dividends that are not funded by earnings are just debt with better branding. And commercial power with no accountability above it ends badly — for the people under it first, and for the company eventually."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "The real answer",
-   "sub": "the question was wrong, not the number",
-   "cap": "The real answer",
-   "nar": "So, what was the Dutch East India Company worth? The most useful answer is that the question is wrong. Asking for a dollar figure across four centuries produces an argument about method, not a fact about history."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Ask this instead",
-   "itens": [
-    "what share of its world did it hold?",
-    "how long did it hold it?",
-    "what did holding it cost?"
-   ],
-   "cap": "The better questions",
-   "nar": "Ask the better questions instead. What share of its world did it control, for how long, and what did maintaining that control cost — in guilders, and in lives. Those questions have answers, and the answers are far more striking than seven point nine trillion."
-  },
-  {
-   "layout": "lista",
-   "kicker": "The whole video in 3",
-   "itens": [
-    "$7.9tn is a method, not a fact",
-    "monopoly was the product",
-    "the structure outlived the company"
-   ],
-   "cap": "Summary in 3 lines",
-   "nar": "The whole video in three lines. The trillion dollar figure is a choice of method, not a fact. The company's product was never spice — it was exclusivity, held by force. And the structure it invented outlived it by more than two centuries."
-  },
-  {
-   "layout": "cta",
-   "kicker": "Your turn",
-   "sub": "which company would you compare it to?",
-   "cap": "Your next step",
-   "nar": "Tell me in the comments which modern company you think comes closest — not in market cap, but in power over the market it sits in. And if you want more of these, subscribe. We take one number everyone repeats and find out whether it holds up."
-  }
- ],
- "short": [
-  {
-   "layout": "titulo",
-   "kicker": "$7.9 TRILLION",
-   "sub": "the number is wrong",
-   "cap": "Hook",
-   "nar": "The Dutch East India Company was worth seven point nine trillion dollars. That number is everywhere, and it is wrong."
-  },
-  {
-   "layout": "item",
-   "kicker": "The one real figure",
-   "preco": "78 million",
-   "cap": "The real figure",
-   "nar": "There is one hard number underneath it. In sixteen thirty seven the company was worth seventy eight million guilders. Everything else is a conversion argument."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Same 78m guilders",
-   "itens": [
-    "price basis ~$1bn",
-    "viral claim $7.9tn"
-   ],
-   "alturas": [
-    1,
-    7900
-   ],
-   "cap": "The gap",
-   "nar": "Convert by consumer prices and you get about one billion dollars. Convert by share of the economy and you get seven point nine trillion. Same starting number, eight thousand times apart."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "The honest verdict",
-   "sub": "most powerful, not most valuable",
-   "cap": "The verdict",
-   "nar": "The honest verdict: it was probably the most powerful company in history. It was almost certainly not the most valuable. The headline swaps one for the other."
-  },
-  {
-   "layout": "cta",
-   "kicker": "Full breakdown",
-   "sub": "how the monopoly actually worked",
-   "cap": "CTA",
-   "nar": "The full breakdown — how the monopoly worked and what it cost — is on the channel. Go watch it."
-  }
- ],
- "copy": "# The Economics of the Dutch East India Company: The $7.9 Trillion Myth\n\n## TITLE\nThe Economics of the Dutch East India Company: The $7.9 Trillion Myth\n\n## DESCRIPTION\nThe Dutch East India Company is constantly described as the most valuable company in history, worth $7.9 trillion in today's money — more than Apple, Google and Amazon combined. That figure is repeated everywhere, and economic historians do not accept it. This video takes the claim apart and rebuilds it honestly.\n\nThere is exactly one hard number underneath the myth: in 1637, at the height of the tulip mania, the VOC's market value was around 78 million Dutch guilders. Everything after that is a conversion argument. Adjust by consumer prices and you land near $1 billion. Adjust by share of total economic output and you land near $7.9 trillion. Same starting figure, roughly eight thousand times apart — which tells you the number is a choice of method, not a fact about history.\n\nWe also cover what the company actually was: the first publicly traded company, the inventor of permanent share capital, and the reason the Amsterdam stock exchange exists. How the money machine really worked — the several-hundred-times nutmeg markup that came from monopoly rather than trade, and the violence in the Banda Islands in 1621 that enforced it. The sovereign powers written into the 1602 charter: the right to wage war, mint currency, build forts and run courts. Why it paid roughly 18% average annual dividends for two centuries, and why that dividend is part of what bankrupted it in 1799.\n\nThe honest verdict: the VOC was probably the most powerful company that has ever existed. It was almost certainly not the most valuable. Those are different claims, and the viral headline quietly swaps one for the other.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nWhich modern company comes closest to the VOC — not in market cap, but in raw power over the market it sits in? And do you think the share-of-economy method is ever a fair way to compare wealth across centuries? Sources for the 78 million guilder figure and both conversions are in the description.\n\n## HASHTAGS\n#Economics #BusinessHistory #NextLevelMoney\n\n## TAGS\ndutch east india company, VOC, most valuable company in history, economics explained, business history, 7.9 trillion, first publicly traded company, amsterdam stock exchange, joint stock company, spice trade monopoly, banda islands, economic history, company valuation, inflation adjustment, corporate power\n\n## STUDIO SETTINGS\n- Language: English (en) | Category: Education (27)\n- Not made for kids\n- Synthetic content disclosure: YES (AI narration)\n- Location: United States | Licence: Standard YouTube Licence\n- Mid-roll ads: enabled (runtime > 8 minutes)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## NOTE ON SOURCES\nThe 78 million guilder figure for 1637 is the one widely agreed data point; the $1bn and $7.9tn conversions come from consumer-price and share-of-economy methods respectively, and economic historians dispute the latter as a measure of value. Population and casualty figures for the 1621 Banda campaign are historians' estimates and vary by source. This video is educational and is not investment advice."
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "$7.9 TRILLION",
+      "sub": "the most repeated number in business history",
+      "cap": "Intro: the number everyone repeats",
+      "nar": "You have seen the headline. The Dutch East India Company was worth seven point nine trillion dollars. Bigger than Apple, Google and Amazon combined. That number is everywhere. It is also almost certainly wrong, and the real story is far more interesting."
+    },
+    {
+      "layout": "lista",
+      "kicker": "What we cover",
+      "itens": [
+        "what the company actually was",
+        "how the money machine worked",
+        "why the trillion number breaks"
+      ],
+      "cap": "The map of this video",
+      "nar": "Seven chapters: what this company actually was, how its money machine worked, the sovereign powers no modern corporation has, why the trillion dollar number falls apart, what an honest comparison looks like, how it all collapsed, and what survives of it today."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 1",
+      "sub": "the invention nobody planned",
+      "cap": "Ch. 1 — The invention",
+      "nar": "Chapter one. Before we can value this thing, we need to understand what it was — because it was not a company in any sense you would recognise today."
+    },
+    {
+      "layout": "item",
+      "kicker": "Founded",
+      "preco": "1602",
+      "cap": "1602 — the starting point",
+      "nar": "The Vereenigde Oostindische Compagnie, the V O C, was chartered in sixteen oh two. It ran for one hundred and ninety seven years. For context, that is longer than the United States has existed."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Three firsts",
+      "itens": [
+        "first publicly traded company",
+        "first permanent share capital",
+        "first modern stock exchange"
+      ],
+      "cap": "Three genuine firsts",
+      "nar": "Three things happened here for the first time in history. Shares sold to the general public. Capital that stayed locked in the company instead of being paid out after each voyage. And a permanent market where those shares changed hands daily."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The real innovation",
+      "sub": "capital that does not go home",
+      "cap": "The innovation that mattered",
+      "nar": "That second one is the quiet revolution. Before the V O C, you funded one voyage, the ship came back, everyone split the proceeds and the partnership dissolved. Permanent capital meant the company could think in decades. Every corporation you know inherited that idea."
+    },
+    {
+      "layout": "item",
+      "kicker": "The Amsterdam exchange",
+      "preco": "1602",
+      "cap": "The first stock market",
+      "nar": "And because the capital was locked in, investors who wanted out had to sell to someone else. That need created the Amsterdam exchange — the first place on earth where you could buy a piece of a company on a Tuesday and sell it on a Wednesday."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Invented here too",
+      "itens": [
+        "short selling",
+        "options trading",
+        "the first market panic"
+      ],
+      "cap": "What else was invented there",
+      "nar": "Within a few decades that market had produced short selling, options, futures and the first documented attempt at market manipulation. Every trick people think is modern was already running in Amsterdam before sixteen fifty."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bridge to chapter 2",
+      "sub": "so where did the money come from?",
+      "cap": "Bridge — where the money came from",
+      "nar": "So the financial plumbing was genuinely new. But plumbing does not make you rich. The money came from somewhere else entirely, and that is chapter two.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 2",
+      "sub": "the money machine",
+      "cap": "Ch. 2 — The money machine",
+      "nar": "Chapter two: how the machine actually made money. And the answer is not trade. It was something much more specific than that."
+    },
+    {
+      "layout": "lista",
+      "kicker": "The cargo",
+      "itens": [
+        "nutmeg and mace",
+        "cloves",
+        "pepper and cinnamon"
+      ],
+      "cap": "What was in the hold",
+      "nar": "The cargo was spice. Nutmeg, mace, cloves, pepper, cinnamon. Today these are things you buy for two dollars and forget in a cupboard. Then, they were the highest value per kilogram cargo on the planet."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Nutmeg markup",
+      "itens": [
+        "Banda islands",
+        "Amsterdam"
+      ],
+      "alturas": [
+        1,
+        300
+      ],
+      "cap": "The nutmeg markup",
+      "nar": "Here is the number that explains everything. Nutmeg bought in the Banda Islands and sold in Amsterdam could carry a markup of several hundred times. Not several hundred percent — several hundred times."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The uncomfortable part",
+      "sub": "that margin was not earned by trading",
+      "cap": "Where the margin really came from",
+      "nar": "But that margin was not a trading margin. You do not get three hundred times by buying low and selling high. You get it by being the only legal buyer at one end and the only legal seller at the other. The V O C's product was not spice. It was monopoly."
+    },
+    {
+      "layout": "item",
+      "kicker": "Banda, 1621",
+      "preco": "~15,000",
+      "cap": "Banda, 1621",
+      "nar": "And monopolies over a place have to be enforced on the people who live there. In sixteen twenty one, the V O C took the Banda Islands by force. The pre-invasion population of roughly fifteen thousand was almost entirely destroyed by killing, deportation and starvation. The nutmeg margin sits on top of that fact, and any honest economics of this company has to say so."
+    },
+    {
+      "layout": "lista",
+      "kicker": "How the monopoly held",
+      "itens": [
+        "destroy trees outside the network",
+        "fixed prices at both ends",
+        "forced labour on the plantations"
+      ],
+      "cap": "How the monopoly was held",
+      "nar": "The system was maintained by cutting down spice trees outside the company's control, fixing prices at both ends of the route, and running the plantations on forced labour. This is the part the trillion dollar headline never mentions."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Average annual dividend",
+      "itens": [
+        "VOC ~18%",
+        "S&P 500 ~2%"
+      ],
+      "alturas": [
+        18,
+        2
+      ],
+      "cap": "The dividend nobody matches",
+      "nar": "The result: across roughly two centuries the V O C paid an average dividend of about eighteen percent a year. The S and P five hundred today pays under two. In the early decades the dividend was sometimes paid in spice itself, because that was more reliable than cash."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ships sent east",
+      "preco": "~4,700",
+      "cap": "The scale of operations",
+      "nar": "Over its life the company sent roughly four thousand seven hundred ships east and moved around a million Europeans to Asia. No state-backed enterprise before it had operated at that scale, for that long, that consistently."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bridge to chapter 3",
+      "sub": "and it could declare war",
+      "cap": "Bridge — the powers",
+      "nar": "So: permanent capital, a monopoly held by force, and a dividend no modern company approaches. But there is one more feature that makes every comparison to Apple fall apart, and that is chapter three.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 3",
+      "sub": "a company with sovereign powers",
+      "cap": "Ch. 3 — Sovereign powers",
+      "nar": "Chapter three. This is where the V O C stops being a company in any modern sense at all."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Written into the charter",
+      "itens": [
+        "declare war and sign treaties",
+        "mint its own currency",
+        "build forts and try prisoners"
+      ],
+      "cap": "What the charter granted",
+      "nar": "The charter of sixteen oh two granted the company the right to wage war, negotiate treaties with foreign rulers, mint its own coinage, build fortresses, maintain an army and a navy, and run courts that could imprison and execute."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Read that again",
+      "sub": "a private firm with an army and a mint",
+      "cap": "What that actually means",
+      "nar": "Read that list again and notice what it is. Those are not corporate powers. Those are the powers of a state. The Dutch Republic did not hire the V O C to act on its behalf — it delegated pieces of sovereignty to a private firm with shareholders."
+    },
+    {
+      "layout": "item",
+      "kicker": "Its own soldiers",
+      "preco": "~25,000",
+      "cap": "The private army",
+      "nar": "At its height the company kept in the order of twenty five thousand soldiers and dozens of warships. It fought wars against Portugal, against England, and against local rulers across Asia — on its own account, for its own commercial interests."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Why this matters for valuation",
+      "itens": [
+        "revenue backed by coercion",
+        "no competitor allowed to exist",
+        "no regulator above it"
+      ],
+      "cap": "Why this breaks comparison",
+      "nar": "This matters enormously for what comes next. A company whose revenue is backed by its own army, in markets where competitors are not permitted to exist, and with no regulator above it, is not producing the same kind of value as a company selling you a phone."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bridge to chapter 4",
+      "sub": "now the famous number",
+      "cap": "Bridge — to the number",
+      "nar": "Keep that in mind, because now we can finally take apart the number that brought most of you to this video.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 4",
+      "sub": "why $7.9 trillion breaks",
+      "cap": "Ch. 4 — The number breaks",
+      "nar": "Chapter four: the seven point nine trillion dollar claim. Where it comes from, and why economic historians do not accept it."
+    },
+    {
+      "layout": "item",
+      "kicker": "The source figure",
+      "preco": "78 million",
+      "cap": "The one real number",
+      "nar": "There is exactly one hard number underneath all of this. In sixteen thirty seven, at the height of the tulip mania, the V O C's market value was around seventy eight million Dutch guilders. Everything else is a conversion argument."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Three ways to convert",
+      "itens": [
+        "consumer prices",
+        "share of the economy",
+        "average wages"
+      ],
+      "cap": "Three ways to convert",
+      "nar": "There is no single correct way to move a number across four hundred years. You can adjust by consumer prices, by share of total economic output, or by what it would buy in labour. These three methods do not give similar answers. They give wildly different ones."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Same 78m guilders",
+      "itens": [
+        "price basis ~$1bn",
+        "viral claim $7.9tn"
+      ],
+      "alturas": [
+        1,
+        7900
+      ],
+      "cap": "The gap between methods",
+      "nar": "On a consumer price basis, seventy eight million guilders comes out somewhere around one billion dollars — roughly eight hundred and twenty million euros. The viral figure is seven point nine trillion. That is a gap of almost eight thousand times, from the same starting number."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Where the big number comes from",
+      "sub": "share of a much smaller economy",
+      "cap": "Where the big number comes from",
+      "nar": "The trillion dollar version comes from the share-of-the-economy method. The seventeenth century Dutch economy was tiny compared to today's world economy, so anything that was a large slice of it becomes an enormous number when you scale that slice up to modern global output."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Why that method misleads",
+      "itens": [
+        "it measures relative weight, not wealth",
+        "you cannot spend a percentage",
+        "it flatters every old fortune"
+      ],
+      "cap": "Why that method misleads",
+      "nar": "That method is not nonsense — it tells you something real about relative dominance. But it does not tell you what the company was worth. It measures weight inside an economy, not purchasing power. Apply it consistently and half the merchants of history become trillionaires."
+    },
+    {
+      "layout": "item",
+      "kicker": "The honest range",
+      "preco": "$1bn – $10tn",
+      "cap": "The honest answer",
+      "nar": "So the honest answer is uncomfortable and it is this: depending on which question you are asking, the V O C was worth somewhere between about one billion and about ten trillion dollars. Anyone quoting a single confident figure is hiding the method."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bridge to chapter 5",
+      "sub": "so what can we compare?",
+      "cap": "Bridge — what can be compared",
+      "nar": "Which raises the obvious question. If the valuation comparison is broken, is there anything we can honestly compare? There is, and it is more revealing than the dollar figure ever was.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 5",
+      "sub": "the comparison that actually works",
+      "cap": "Ch. 5 — The honest comparison",
+      "nar": "Chapter five. Forget the dollars. Compare the things that survive translation across four centuries."
+    },
+    {
+      "layout": "lista",
+      "kicker": "What travels across time",
+      "itens": [
+        "share of its own economy",
+        "duration",
+        "power over its market"
+      ],
+      "cap": "What travels across time",
+      "nar": "Three measures survive the journey: how much of its own economy the company represented, how long it lasted, and how much control it had over its own market. On all three, the V O C is genuinely extraordinary."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Years of operation",
+      "itens": [
+        "VOC 197",
+        "Apple 50",
+        "Amazon 32"
+      ],
+      "alturas": [
+        197,
+        50,
+        32
+      ],
+      "cap": "Duration",
+      "nar": "Duration first. One hundred and ninety seven years. Apple is around fifty. Amazon around thirty. Almost no commercial organisation in history has run a continuous operation for two centuries."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Market control",
+      "sub": "not dominant — exclusive",
+      "cap": "Market control",
+      "nar": "Then market control. We call modern firms monopolies when they hold seventy or eighty percent of a market. The V O C held one hundred percent of the legal European trade in several spices, enforced by law at home and by cannon abroad. That is a different category of thing."
+    },
+    {
+      "layout": "item",
+      "kicker": "Employees at peak",
+      "preco": "~70,000",
+      "cap": "Scale of employment",
+      "nar": "At its peak the company employed something like seventy thousand people across Europe and Asia, at a time when Amsterdam itself had around two hundred thousand residents. Relative to its home economy, no modern employer comes close."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Where it loses",
+      "itens": [
+        "absolute output",
+        "productivity per worker",
+        "number of customers reached"
+      ],
+      "cap": "Where the VOC loses badly",
+      "nar": "And here is where it loses, badly. In absolute output, in productivity per worker, and in number of people served, a single modern logistics company dwarfs the entire V O C. Being a huge share of a small economy is not the same as being big."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The honest verdict",
+      "sub": "most powerful, not most valuable",
+      "cap": "The honest verdict",
+      "nar": "So the honest verdict is this. The V O C was probably the most powerful company that has ever existed. It was almost certainly not the most valuable. Those are two different claims, and the viral headline quietly swaps one for the other."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 6",
+      "sub": "how it actually ended",
+      "cap": "Ch. 6 — The collapse",
+      "nar": "Chapter six, and it is the part almost nobody tells. This company did not get bought, broken up or outcompeted into retirement. It went bankrupt."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dissolved",
+      "preco": "1799",
+      "cap": "1799 — the end",
+      "nar": "The V O C was formally dissolved on the thirty first of December, seventeen ninety nine. Its debts were absorbed by the Dutch state. The most profitable company in history ended insolvent."
+    },
+    {
+      "layout": "lista",
+      "kicker": "What killed it",
+      "itens": [
+        "the monopoly stopped holding",
+        "corruption inside the company",
+        "war with Britain"
+      ],
+      "cap": "What killed it",
+      "nar": "Three forces did it. Competitors broke the spice monopoly, so the three hundred times markup collapsed toward normal trade margins. Internal corruption drained profits into private pockets. And the fourth Anglo-Dutch war wrecked the shipping the whole system depended on."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The structural flaw",
+      "sub": "it kept paying dividends it had not earned",
+      "cap": "The structural flaw",
+      "nar": "But underneath all three sits one structural flaw. For decades the company kept paying that famous dividend even in years when it had not earned it, funding the difference with debt. The eighteen percent that made it legendary is also part of what killed it."
+    },
+    {
+      "layout": "lista",
+      "kicker": "The pattern to notice",
+      "itens": [
+        "margin from exclusivity, not efficiency",
+        "payouts detached from earnings",
+        "debt covering the gap"
+      ],
+      "cap": "The pattern to notice",
+      "nar": "Notice the shape of that. A margin that came from exclusivity rather than efficiency, payouts disconnected from actual earnings, and borrowing to cover the difference. That pattern did not stay in the eighteenth century."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bridge to chapter 7",
+      "sub": "and yet it never really left",
+      "cap": "Bridge — what survived",
+      "nar": "And yet the company that went bankrupt in seventeen ninety nine left more behind than almost any firm that is still trading today.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Chapter 7",
+      "sub": "what survived",
+      "cap": "Ch. 7 — What survived",
+      "nar": "Chapter seven, the last one. What the V O C actually left us — and it is sitting in your retirement account right now."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Still with us",
+      "itens": [
+        "the joint stock company",
+        "the stock exchange",
+        "the annual report to shareholders"
+      ],
+      "cap": "The three inheritances",
+      "nar": "Three inheritances. The joint stock company with permanent capital and tradeable shares. The public exchange where those shares are priced continuously. And the idea that management owes shareholders a periodic account of what it did with their money."
+    },
+    {
+      "layout": "item",
+      "kicker": "Every listed company",
+      "preco": "since 1602",
+      "cap": "The direct line",
+      "nar": "Every listed company on earth today is running a version of the structure written into that sixteen oh two charter. Not a similar idea — the same idea, refined for four hundred years."
+    },
+    {
+      "layout": "lista",
+      "kicker": "The warnings too",
+      "itens": [
+        "monopoly profit is fragile",
+        "dividends must come from earnings",
+        "power without accountability rots"
+      ],
+      "cap": "The warnings it left",
+      "nar": "It also left three warnings. Profit that depends on exclusivity disappears the moment exclusivity does. Dividends that are not funded by earnings are just debt with better branding. And commercial power with no accountability above it ends badly — for the people under it first, and for the company eventually."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The real answer",
+      "sub": "the question was wrong, not the number",
+      "cap": "The real answer",
+      "nar": "So, what was the Dutch East India Company worth? The most useful answer is that the question is wrong. Asking for a dollar figure across four centuries produces an argument about method, not a fact about history."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Ask this instead",
+      "itens": [
+        "what share of its world did it hold?",
+        "how long did it hold it?",
+        "what did holding it cost?"
+      ],
+      "cap": "The better questions",
+      "nar": "Ask the better questions instead. What share of its world did it control, for how long, and what did maintaining that control cost — in guilders, and in lives. Those questions have answers, and the answers are far more striking than seven point nine trillion."
+    },
+    {
+      "layout": "lista",
+      "kicker": "The whole video in 3",
+      "itens": [
+        "$7.9tn is a method, not a fact",
+        "monopoly was the product",
+        "the structure outlived the company"
+      ],
+      "cap": "Summary in 3 lines",
+      "nar": "The whole video in three lines. The trillion dollar figure is a choice of method, not a fact. The company's product was never spice — it was exclusivity, held by force. And the structure it invented outlived it by more than two centuries."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Your turn",
+      "sub": "which company would you compare it to?",
+      "cap": "Your next step",
+      "nar": "Tell me in the comments which modern company you think comes closest — not in market cap, but in power over the market it sits in. And if you want more of these, subscribe. We take one number everyone repeats and find out whether it holds up."
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "$7.9 TRILLION",
+      "sub": "the number is wrong",
+      "cap": "Hook",
+      "nar": "The Dutch East India Company was worth seven point nine trillion dollars. That number is everywhere, and it is wrong."
+    },
+    {
+      "layout": "item",
+      "kicker": "The one real figure",
+      "preco": "78 million",
+      "cap": "The real figure",
+      "nar": "There is one hard number underneath it. In sixteen thirty seven the company was worth seventy eight million guilders. Everything else is a conversion argument."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Same 78m guilders",
+      "itens": [
+        "price basis ~$1bn",
+        "viral claim $7.9tn"
+      ],
+      "alturas": [
+        1,
+        7900
+      ],
+      "cap": "The gap",
+      "nar": "Convert by consumer prices: about one billion dollars. By share of the economy: seven point nine trillion. Same number, eight thousand times apart."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The honest verdict",
+      "sub": "most powerful, not most valuable",
+      "cap": "The verdict",
+      "nar": "The honest verdict: it was probably the most powerful company in history. It was almost certainly not the most valuable. The headline swaps one for the other."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Full breakdown",
+      "sub": "how the monopoly actually worked",
+      "cap": "CTA",
+      "nar": "The full breakdown — how the monopoly worked and what it cost — is on the channel. Go watch it."
+    }
+  ],
+  "copy": "# The Economics of the Dutch East India Company: The $7.9 Trillion Myth\n\n## TITLE\nThe Economics of the Dutch East India Company: The $7.9 Trillion Myth\n\n## DESCRIPTION\nThe Dutch East India Company is constantly described as the most valuable company in history, worth $7.9 trillion in today's money — more than Apple, Google and Amazon combined. That figure is repeated everywhere, and economic historians do not accept it. This video takes the claim apart and rebuilds it honestly.\n\nThere is exactly one hard number underneath the myth: in 1637, at the height of the tulip mania, the VOC's market value was around 78 million Dutch guilders. Everything after that is a conversion argument. Adjust by consumer prices and you land near $1 billion. Adjust by share of total economic output and you land near $7.9 trillion. Same starting figure, roughly eight thousand times apart — which tells you the number is a choice of method, not a fact about history.\n\nWe also cover what the company actually was: the first publicly traded company, the inventor of permanent share capital, and the reason the Amsterdam stock exchange exists. How the money machine really worked — the several-hundred-times nutmeg markup that came from monopoly rather than trade, and the violence in the Banda Islands in 1621 that enforced it. The sovereign powers written into the 1602 charter: the right to wage war, mint currency, build forts and run courts. Why it paid roughly 18% average annual dividends for two centuries, and why that dividend is part of what bankrupted it in 1799.\n\nThe honest verdict: the VOC was probably the most powerful company that has ever existed. It was almost certainly not the most valuable. Those are different claims, and the viral headline quietly swaps one for the other.\n\n## CHAPTERS\n{CAPITULOS}\n\n## PINNED COMMENT\nWhich modern company comes closest to the VOC — not in market cap, but in raw power over the market it sits in? And do you think the share-of-economy method is ever a fair way to compare wealth across centuries? Sources for the 78 million guilder figure and both conversions are in the description.\n\n## HASHTAGS\n#Economics #BusinessHistory #NextLevelMoney\n\n## TAGS\ndutch east india company, VOC, most valuable company in history, economics explained, business history, 7.9 trillion, first publicly traded company, amsterdam stock exchange, joint stock company, spice trade monopoly, banda islands, economic history, company valuation, inflation adjustment, corporate power\n\n## STUDIO SETTINGS\n- Language: English (en) | Category: Education (27)\n- Not made for kids\n- Synthetic content disclosure: YES (AI narration)\n- Location: United States | Licence: Standard YouTube Licence\n- Mid-roll ads: enabled (runtime > 8 minutes)\n\n## MUSIC / LICENCE\n{TRILHA}\n\n## NOTE ON SOURCES\nThe 78 million guilder figure for 1637 is the one widely agreed data point; the $1bn and $7.9tn conversions come from consumer-price and share-of-economy methods respectively, and economic historians dispute the latter as a measure of value. Population and casualty figures for the 1621 Banda campaign are historians' estimates and vary by source. This video is educational and is not investment advice."
 }

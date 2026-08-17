@@ -1,522 +1,523 @@
 {
- "slug": "seviye-seviye",
- "pacote": "seviye-seviye-002",
- "idioma": "tr",
- "voz": "tr-TR-AhmetNeural", "trilha": "Wholesome",
- "paleta": {
-  "ink": "#0F3538",
-  "c1": "#E4572E",
-  "c2": "#F2B134",
-  "bg": "#EAF3F3"
- },
- "thumb": {
-  "l1": "28.075 TL",
-  "l2": "aclik sinirinin altinda"
- },
- "longo": [
-  {
-   "layout": "titulo",
-   "kicker": "28.075 TL",
-   "sub": "aclik sinirinin altinda kalan maas",
-   "cap": "Giriş: üç sayı",
-   "nar": "Yirmi sekiz bin yetmiş beş lira. Bu, iki bin yirmi altı yılının net asgari ücreti. Açlık sınırı ise otuz altı bin dokuz yüz kırk lira. Dört kişilik bir aile için, ve sadece gıda için. Yani asgari ücret, bir ailenin mutfak masrafını bile karşılamıyor. Bunun neden matematiksel olarak kaçınılmaz olduğunu göstereceğim."
+  "slug": "seviye-seviye",
+  "pacote": "seviye-seviye-002",
+  "idioma": "tr",
+  "voz": "tr-TR-AhmetNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#0F3538",
+    "c1": "#E4572E",
+    "c2": "#F2B134",
+    "bg": "#EAF3F3"
   },
-  {
-   "layout": "lista",
-   "kicker": "Ne anlatacagiz",
-   "itens": [
-    "zammin nasil hesaplandigi",
-    "erimenin bilesik etkisi",
-    "sistemde ne degismesi gerekir"
-   ],
-   "cap": "Videonun planı",
-   "nar": "Yedi bölümde: üç resmî sayı ve aralarındaki uçurum, asgari ücret zammının nasıl hesaplandığı, erimenin bileşik etkisi, hissedilen enflasyonun neden farklı olduğu, orta sınıfa ne olduğu, bireysel olarak gerçekten ne yapılabilir ve sistemde neyin değişmesi gerekir. Önce şu: bu üç sayı neden bu kadar uzak?"
+  "thumb": {
+    "l1": "28.075 TL",
+    "l2": "aclik sinirinin altinda"
   },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 1",
-   "sub": "uc resmi sayi",
-   "cap": "Böl. 1 — Üç resmî sayı",
-   "nar": "Birinci bölüm. Üç sayıyla başlıyoruz ve üçü de resmî kurumların açıkladığı rakamlar — benim yorumum değil."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Temmuz 2026, dort kisilik aile",
-   "itens": [
-    "asgari ucret 28.075",
-    "aclik siniri 36.940",
-    "yoksulluk siniri 120.325"
-   ],
-   "alturas": [
-    28075,
-    36940,
-    120325
-   ],
-   "cap": "Üç sayı yan yana",
-   "nar": "Net asgari ücret yirmi sekiz bin yetmiş beş lira. Türk-İş'in temmuz iki bin yirmi altı verisine bakalım. Açlık sınırı otuz altı bin dokuz yüz kırk lira. Yoksulluk sınırı ise yüz yirmi bin üç yüz yirmi beş. Grafiğe bakın — asgari ücret ilk çubuğun bile altında kalıyor."
-  },
-  {
-   "layout": "item",
-   "kicker": "Aclik siniri nedir",
-   "preco": "sadece gida",
-   "cap": "Açlık sınırı ne demek",
-   "nar": "Burada bir yanlış anlaşılmayı düzeltelim. Açlık sınırı, bir ailenin yoksul sayılmama eşiği değil. Sadece ve sadece yeterli beslenmesi için gereken gıda harcaması. Kira yok, fatura yok, ulaşım yok, giyim yok. Sadece mutfak."
-  },
-  {
-   "layout": "item",
-   "kicker": "Fark",
-   "preco": "8.865 TL",
-   "cap": "Aradaki fark",
-   "nar": "Asgari ücretle açlık sınırı arasındaki fark sekiz bin sekiz yüz altmış beş lira. Bu, tek bir maaşla dört kişilik bir ailenin sadece yemek masrafının bile yaklaşık dörtte biri kadar açık verdiği anlamına geliyor."
-  },
-  {
-   "layout": "item",
-   "kicker": "Asgari ucretli sayisi",
-   "preco": "milyonlarca",
-   "cap": "Bu kaç kişiyi ilgilendiriyor",
-   "nar": "Ve bu bir azınlığın meselesi değil. Türkiye'de çalışanların çok büyük bir bölümü asgari ücret ya da ona yakın bir ücret alıyor. Yani bu grafik, ülkenin ücretli kesiminin ortalama hâlini gösteriyor — istisnasını değil."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Yoksulluk siniri kac asgari ucret",
-   "itens": [
-    "1 asgari ucret",
-    "yoksulluk siniri"
-   ],
-   "alturas": [
-    1,
-    43
-   ],
-   "cap": "Yoksulluk sınırı kaç maaş eder",
-   "nar": "Yoksulluk sınırına bakınca tablo daha da netleşiyor: yüz yirmi bin lira, asgari ücretin yaklaşık dört buçuk katı. Yani bir ailenin yoksulluk sınırının üstüne çıkması için dört buçuk asgari ücret gerekiyor."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bu bir gorus degil",
-   "sub": "hepsi resmi veri",
-   "cap": "Bunlar resmî veriler",
-   "nar": "Ve altını çizeyim: bu üç sayının hiçbiri tahmin değil. Asgari ücret Bakanlığın, sınırlar Türk-İş'in, enflasyon TÜİK'in verisi. Tartışma sayıların doğruluğunda değil — neden böyle olduğunda."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 2'ye gecis",
-   "sub": "peki zam nasil hesaplaniyor?",
-   "cap": "Geçiş — zam nasıl hesaplanıyor",
-   "nar": "Bu uçurum bir kaza değil. Zammın hesaplanma biçiminden çıkıyor. Peki tam olarak nasıl hesaplanıyor?",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 2",
-   "sub": "zam nasil hesaplaniyor",
-   "cap": "Böl. 2 — Zam nasıl hesaplanıyor",
-   "nar": "İkinci bölüm: mekanik. Asgari ücret zammı nasıl belirleniyor ve neden neredeyse her yıl geriden geliyor."
-  },
-  {
-   "layout": "item",
-   "kicker": "2026 zammi",
-   "preco": "%27",
-   "cap": "2026 zammı: yüzde 27",
-   "nar": "İki bin yirmi altı için asgari ücrete yüzde yirmi yedi zam yapıldı. Brüt otuz üç bin otuz lira, net yirmi sekiz bin yetmiş beş lira. Kulağa yüksek geliyor — ta ki neyle karşılaştırdığınıza bakana kadar."
-  },
-  {
-   "layout": "barras",
-   "kicker": "2024: enflasyon vs zam",
-   "itens": [
-    "enflasyon %44,4",
-    "zam %30"
-   ],
-   "alturas": [
-    44,
-    30
-   ],
-   "cap": "2024 örneği",
-   "nar": "Somut bir örnek. TÜİK iki bin yirmi dördü yüzde kırk dört virgül otuz sekiz enflasyonla kapattı. Ama asgari ücrete yüzde otuz zam yapıldı. On dört puanlık fark, tek bir yılda doğrudan alım gücünden düştü."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Zam neden geriden gelir",
-   "itens": [
-    "gecmis enflasyona gore hesaplanir",
-    "yil ici enflasyon telafi edilmez",
-    "hedef enflasyon gercege esit degildir"
-   ],
-   "cap": "Neden hep geriden gelir",
-   "nar": "Üç yapısal neden var. Zam geçmiş yılın enflasyonuna göre belirlenir. Yıl içinde biriken enflasyon çoğu zaman telafi edilmez. Ve hesaplamada kullanılan hedef enflasyon, gerçekleşen enflasyonun altında kalır."
-  },
-  {
-   "layout": "item",
-   "kicker": "Ilk 6 ayda kayip",
-   "preco": "5.576 TL",
-   "cap": "İlk altı ayın kaybı",
-   "nar": "DİSK-AR'ın TÜİK verileri üzerinden yaptığı hesaba göre asgari ücret, iki bin yirmi altının ilk altı ayında beş bin beş yüz yetmiş altı lira değer kaybetti. Ocakta aldığınız zam, temmuzda çoktan erimiş oluyor."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Kritik nokta",
-   "sub": "zam bir artis degil, gecikmis bir telafi",
-   "cap": "Zam nedir, aslında",
-   "nar": "Buradaki kritik nokta şu: asgari ücret zammı bir artış değil. Geçmiş yılın kaybının gecikmiş ve genelde eksik telafisi. Bu ayrımı görünce her şey yerine oturuyor."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 3'e gecis",
-   "sub": "ve bu her yil ust uste biniyor",
-   "cap": "Geçiş — bileşik etki",
-   "nar": "Tek bir yılda birkaç puanlık fark küçük görünür. Peki üst üste bindiğinde ne oluyor?",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 3",
-   "sub": "bilesik erime",
-   "cap": "Böl. 3 — Bileşik erime",
-   "nar": "Üçüncü bölüm: bileşik etki. Faizin lehinize çalışan versiyonunu herkes bilir. Bu, aleyhinize çalışan versiyonu."
-  },
-  {
-   "layout": "item",
-   "kicker": "Yilda 5 puan fark",
-   "preco": "10 yil",
-   "cap": "Yılda beş puan",
-   "nar": "Basit bir model kuralım. Diyelim ki zam her yıl enflasyonun beş puan altında kaldı. Tek yılda yüzde beş kayıp — katlanılabilir görünüyor. Ama bu her yıl tekrarlanıyor."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Alim gucu (baslangic 100)",
-   "itens": [
-    "1. yil 95",
-    "5. yil 77",
-    "10. yil 60"
-   ],
-   "alturas": [
-    95,
-    77,
-    60
-   ],
-   "cap": "On yılın matematiği",
-   "nar": "Yılda beş puanlık fark on yıl üst üste binince, alım gücünüzün yüzde kırkı gider. Maaşınızın rakamı her yıl büyümüş olur — ama aldığınız şey küçülmüştür. İnsanların 'zam aldım ama daha fakirim' demesinin matematiği tam olarak budur."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Illuzyonun kaynagi",
-   "sub": "rakam buyuyor, mal azaliyor",
-   "cap": "İllüzyonun kaynağı",
-   "nar": "İllüzyonun kaynağı burada. Beynimiz maaşı bir rakam olarak takip ediyor, ama satın alma gücü bir sepet. Rakam her yıl büyüdüğü için ilerlediğimizi sanıyoruz, sepet küçüldüğü için de bir yanlışlık olduğunu hissediyoruz."
-  },
-  {
-   "layout": "item",
-   "kicker": "Kira ozel bir kalem",
-   "preco": "cift vurus",
-   "cap": "Kira neden çift vuruş",
-   "nar": "Kirada oturanlar için erime iki kat sert. Çünkü kira hem bütçenin en büyük kalemi, hem de enflasyona en hızlı tepki veren kalemlerden biri. Maaş yılda bir kez, kira ise sözleşme yenilendiğinde bir anda güncelleniyor."
-  },
-  {
-   "layout": "lista",
-   "kicker": "En cok kimi vurur",
-   "itens": [
-    "birikimi olmayani",
-    "kirada oturani",
-    "geliri tek kalemden geleni"
-   ],
-   "cap": "En çok kimi vurur",
-   "nar": "Ve bu erime herkesi eşit vurmuyor. En sert vurduğu üç grup: birikimi olmayanlar, kirada oturanlar, ve geliri tek bir maaştan ibaret olanlar. Varlığı olan kişinin varlığı da enflasyonla birlikte değerleniyor — maaşı ise değerlenmiyor."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 4'e gecis",
-   "sub": "peki resmi enflasyon neden farkli hissettiriyor?",
-   "cap": "Geçiş — hissedilen enflasyon",
-   "nar": "Bu noktada çoğu kişinin aklına gelen soru şu: madem enflasyon şu kadar, market neden çok daha pahalı hissettiriyor?",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 4",
-   "sub": "hissedilen enflasyon neden farkli",
-   "cap": "Böl. 4 — Hissedilen enflasyon",
-   "nar": "Dördüncü bölüm. Resmî enflasyonla sizin hissettiğiniz enflasyon neden farklı — ve bu bir komplo değil, bir sepet meselesi."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Enflasyon bir ortalamadir",
-   "itens": [
-    "gida ayri artar",
-    "kira ayri artar",
-    "elektronik ayri artar"
-   ],
-   "cap": "Enflasyon bir ortalamadır",
-   "nar": "TÜİK'in açıkladığı enflasyon tek bir sepetin ortalaması. Ama gıda, kira ve elektronik aynı hızda artmaz. Ortalama, hepsinin ortasında bir yerde durur — yani neredeyse hiç kimsenin gerçek sepeti değildir."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Butcedeki gida payi",
-   "itens": [
-    "asgari ucretli ~%40",
-    "ust gelir ~%15"
-   ],
-   "alturas": [
-    40,
-    15
-   ],
-   "cap": "Herkesin sepeti farklı",
-   "nar": "İşte kritik nokta: asgari ücretli bir hane bütçesinin yaklaşık kırk yüzdesini gıdaya ayırır, üst gelir grubu ise yaklaşık on beş. Gıda enflasyonu ortalamanın üstünde olduğunda, düşük gelirli hane resmî rakamdan daha yüksek bir enflasyon yaşar. Aynı ülkede, aynı ay."
-  },
-  {
-   "layout": "item",
-   "kicker": "Sonuc",
-   "preco": "iki enflasyon",
-   "cap": "Aynı ülkede iki enflasyon",
-   "nar": "Sonuç şu: aynı ülkede fiilen iki farklı enflasyon yaşanıyor. Biri istatistiklerde, biri mutfakta. İkisi de doğru — sadece farklı sepetleri ölçüyorlar."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Sepet zamanla degisir",
-   "itens": [
-    "urun agirliklari guncellenir",
-    "ikame varsayilir",
-    "ucuza gecis normal sayilir"
-   ],
-   "cap": "Sepetin kendisi de değişir",
-   "nar": "Bir ayrıntı daha: sepetin içindeki ürün ağırlıkları zamanla güncelleniyor ve hesapta ikame varsayımı var — yani bir ürün pahalanınca insanların ucuzuna geçtiği kabul ediliyor. Bu teknik olarak doğru bir yöntem, ama pratikte 'ucuzuna geçmek' zaten hayat standardının düşmesi demek."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 5'e gecis",
-   "sub": "orta sinifa ne oldu?",
-   "cap": "Geçiş — orta sınıf",
-   "nar": "Türkiye'de en çok konuşulan başlık şu: bu mekanizma yeterince uzun sürerse ne olur?",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 5",
-   "sub": "orta sinifa ne oldu",
-   "cap": "Böl. 5 — Orta sınıfa ne oldu",
-   "nar": "Beşinci bölüm: orta sınıf. Ve tanımdan başlamak gerekiyor, çünkü tanım değişti."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Eski orta sinif tanimi",
-   "itens": [
-    "ev sahibi olmak",
-    "cocugu okutmak",
-    "birikim yapabilmek"
-   ],
-   "cap": "Eski tanım",
-   "nar": "Bir kuşak önce orta sınıf olmak üç şey demekti. Ev sahibi olabilmek, çocuğunu okutabilmek ve ay sonunda para biriktirebilmek. Üçü de tek maaşla mümkündü."
-  },
-  {
-   "layout": "item",
-   "kicker": "Bugun ayni tanim icin",
-   "preco": "4,3 maas",
-   "cap": "Bugün aynı tanım için",
-   "nar": "Bugün aynı hanenin sadece yoksulluk sınırının üzerine çıkması için yaklaşık dört buçuk asgari ücret gerekiyor. Tanım değişmedi — o tanıma ulaşmanın maliyeti değişti."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Nasil telafi ediliyor",
-   "itens": [
-    "hanede ikinci gelir",
-    "ek is",
-    "birikimden yemek"
-   ],
-   "cap": "Nasıl telafi ediliyor",
-   "nar": "Hanelerin bunu telafi etme yolları belli: ikinci bir gelir, ek iş, ya da varsa birikimi tüketmek. İlk ikisi zamanı, üçüncüsü geleceği harcıyor. Üçü de sürdürülebilir değil."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Yapisal sonuc",
-   "sub": "orta sinif kucultmuyor — ikiye ayriliyor",
-   "cap": "Yapısal sonuç",
-   "nar": "Yapısal sonuç şu: orta sınıf küçülmüyor, ikiye ayrılıyor. Varlığı olanlar enflasyonla birlikte yukarı, sadece maaşı olanlar aşağı gidiyor. Aradaki mesafeyi açan şey çalışkanlık değil, varlık sahipliği."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 6'ya gecis",
-   "sub": "peki birey ne yapabilir?",
-   "cap": "Geçiş — birey ne yapabilir",
-   "nar": "Şimdi zor soruya geliyoruz. Cevabı dürüst vereceğim: yapısal bir sorun karşısında birey ne yapabilir?",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 6",
-   "sub": "birey gercekte ne yapabilir",
-   "cap": "Böl. 6 — Birey ne yapabilir",
-   "nar": "Altıncı bölüm. Ve burada size beş altın kural vermeyeceğim, çünkü yapısal bir sorunu bireysel tasarrufla çözemezsiniz."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Once durustluk",
-   "sub": "birikim tavsiyesi bu sorunu cozmez",
-   "cap": "Önce dürüstlük",
-   "nar": "Açık konuşalım: açlık sınırının altında bir gelirle 'daha az kahve iç' türü tavsiyeler işe yaramaz. Matematik izin vermiyor. Bunu söylemeyen her içerik size zaman kaybettiriyor."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Yine de anlamli olan uc sey",
-   "itens": [
-    "gelirin kendisini buyutmek",
-    "birikimi enflasyona endekslemek",
-    "sabit gideri dusurmek"
-   ],
-   "cap": "Yine de anlamlı olan üç şey",
-   "nar": "Yine de bu koşullarda anlamlı olan üç hamle var, ve sıralaması önemli. Birincisi ve en güçlüsü: gelirin kendisini büyütmek. İkincisi: birikim varsa onu enflasyona karşı korumak. Üçüncüsü: sabit gideri düşürmek."
-  },
-  {
-   "layout": "item",
-   "kicker": "Neden gelir once",
-   "preco": "tavan yok",
-   "cap": "Neden gelir önce gelir",
-   "nar": "Neden bu sıra? Çünkü kısabileceğiniz masrafın bir tabanı var, ama öğrenebileceğiniz becerinin bir tavanı yok. Enflasyonun üstünde artan tek kalem, piyasada karşılığı olan beceridir."
-  },
-  {
-   "layout": "item",
-   "kicker": "Sik yapilan hata",
-   "preco": "stok yapmak",
-   "cap": "En sık yapılan hata",
-   "nar": "Bu arada en sık yapılan hatayı da söyleyeyim: zam gelecek diye peşin peşin stok yapmak. Bozulabilen üründe bu doğrudan zarar, dayanıklı üründe ise nakdi kilitlemek demek. Enflasyondan kaçarken likiditeyi kaybetmek, çoğu hanenin gerçek riski."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Beceri seciminde olcut",
-   "itens": [
-    "ucreti dovize bagli mi",
-    "uzaktan yapilabilir mi",
-    "talep artiyor mu"
-   ],
-   "cap": "Beceri seçiminde ölçüt",
-   "nar": "Beceri seçerken üç ölçüt: ücreti dövize ya da ihracata bağlı mı, uzaktan yapılabiliyor mu, ve talebi artıyor mu. Üçünü birden karşılayan işler, yerel enflasyondan kısmen korunur."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Ve bir uyari",
-   "sub": "yatirim tavsiyesi vermiyorum",
-   "cap": "Bir uyarı",
-   "nar": "Bir uyarı da şart: birikimi korumak için hangi aracı kullanacağınız kişisel duruma bağlı ve bu video yatırım tavsiyesi değil. Vergi, likidite ve risk üçlüsünü kendi durumunuza göre değerlendirin."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 7'ye gecis",
-   "sub": "asil cozum nerede?",
-   "cap": "Geçiş — sistem",
-   "nar": "Bireysel hamleler kaybı yavaşlatır ama tersine çevirmez. Peki onu tersine çevirecek şey tam olarak nerede?",
-   "sem_cap": true
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Bolum 7",
-   "sub": "sistemde ne degismesi gerekir",
-   "cap": "Böl. 7 — Sistemde ne değişmeli",
-   "nar": "Yedinci ve son bölüm. Bu erimeyi durduracak şey teknik olarak biliniyor — siyasi olarak tartışmalı, ama teknik olarak net."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Uc teknik degisiklik",
-   "itens": [
-    "yil icinde ara zam",
-    "gerceklesen enflasyona endeksleme",
-    "dusuk gelire ozel sepet"
-   ],
-   "cap": "Üç teknik değişiklik",
-   "nar": "Üç değişiklik konuşuluyor. Yıl içinde ara zam, böylece kayıp on iki ay birikmez. Gerçekleşen enflasyona endeksleme, hedefe değil. Ve düşük gelirli hanenin sepetine göre ayrı bir ölçüm — çünkü onların enflasyonu farklı."
-  },
-  {
-   "layout": "item",
-   "kicker": "Ara zam neyi degistirir",
-   "preco": "6 ay",
-   "cap": "Ara zam neyi değiştirir",
-   "nar": "Bunlardan en somut olanı ara zam. Kaybın on iki ay yerine altı ay birikmesi, bileşik erimeyi kabaca yarıya indirir. Az önce gördüğümüz beş bin beş yüz yetmiş altı liralık kayıp büyük ölçüde buradan geliyor."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Baska ulkelerde ne yapildi",
-   "itens": [
-    "otomatik endeksleme",
-    "daha sik ayarlama",
-    "dusuk gelire ayri olcum"
-   ],
-   "cap": "Başka ülkelerde ne yapıldı",
-   "nar": "Ve bu deneme yanılma değil: yüksek enflasyon yaşamış birçok ülke aynı üç aracı kullandı — ücretin otomatik endekslenmesi, yılda birden fazla ayarlama ve düşük gelirli hane için ayrı ölçüm. Hiçbiri enflasyonu tek başına düşürmez, ama erimenin faturasını ücretliye kesmeyi durdurur."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Neden onemli",
-   "sub": "sorunu dogru adlandirmak ilk adim",
-   "cap": "Neden bunu bilmek önemli",
-   "nar": "Peki bunu bilmek size ne kazandırır? Şunu: sorunu doğru adlandırmayı. Kendi bütçenizde beceriksiz olduğunuzu düşünerek geçirdiğiniz her yıl, aslında bir endeksleme farkıydı. Bunu bilmek, enerjinizi doğru yere koymanızı sağlar."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Son soz",
-   "sub": "bu bir butce sorunu degil, bir endeksleme sorunu",
-   "cap": "Son söz",
-   "nar": "Son söz: bu bir bütçe sorunu değil, bir endeksleme sorunu. Ve endeksleme sorunları tasarrufla değil, kuralla çözülür."
-  },
-  {
-   "layout": "lista",
-   "kicker": "Videonun ozeti",
-   "itens": [
-    "28.075 < 36.940",
-    "zam gecikmis telafidir",
-    "beceri tek enflasyon ustu kalem"
-   ],
-   "cap": "Üç satırda özet",
-   "nar": "Videonun özeti üç satırda. Asgari ücret açlık sınırının altında: yirmi sekiz bin yetmiş beşe karşı otuz altı bin dokuz yüz kırk. Zam bir artış değil, gecikmiş bir telafi. Ve enflasyonun üstünde artan tek kalem, piyasada karşılığı olan beceridir."
-  },
-  {
-   "layout": "cta",
-   "kicker": "Yorumda yaz",
-   "sub": "senin sepetinde en cok ne zamlandi?",
-   "cap": "Sıradaki adımın",
-   "nar": "Yorumlara yazın: sizin sepetinizde son bir yılda en çok ne zamlandı ve hangi şehirdesiniz? Bir sonraki video için gerçek sepet verisi topluyorum. Faydalı bulduysanız abone olun — her hafta bir seviye yukarı."
-  }
- ],
- "short": [
-  {
-   "layout": "titulo",
-   "kicker": "28.075 TL",
-   "sub": "aclik sinirinin altinda",
-   "cap": "Hook",
-   "nar": "Asgari ücret yirmi sekiz bin yetmiş beş lira. Dört kişilik bir ailenin açlık sınırı otuz altı bin dokuz yüz kırk."
-  },
-  {
-   "layout": "barras",
-   "kicker": "Temmuz 2026",
-   "itens": [
-    "asgari 28.075",
-    "aclik 36.940",
-    "yoksulluk 120.325"
-   ],
-   "alturas": [
-    28075,
-    36940,
-    120325
-   ],
-   "cap": "Üç sayı",
-   "nar": "Açlık sınırı sadece gıda demek. Yoksulluk sınırı ise yüz yirmi bin — dört buçuk asgari ücret."
-  },
-  {
-   "layout": "item",
-   "kicker": "Ilk 6 ayda kayip",
-   "preco": "5.576 TL",
-   "cap": "Erime",
-   "nar": "DİSK-AR'a göre asgari ücret ilk altı ayda beş bin beş yüz yetmiş altı lira eridi."
-  },
-  {
-   "layout": "titulo",
-   "kicker": "Asil mesele",
-   "sub": "zam bir artis degil, gecikmis telafi",
-   "cap": "A tese",
-   "nar": "Çünkü zam bir artış değil. Geçmiş yılın kaybının gecikmiş ve eksik telafisi. Bu yüzden rakam büyürken sepet küçülüyor."
-  },
-  {
-   "layout": "cta",
-   "kicker": "Tam hesap",
-   "sub": "bilesik erimenin matematigi kanalda",
-   "cap": "CTA",
-   "nar": "On yılda bunun ne ettiğini ve ne yapılabileceğini kanaldaki videoda hesapladım. Buyurun."
-  }
- ],
- "copy": "# Asgari ücret 28.075 TL, açlık sınırı 36.940 TL: erimenin matematiği\n\n## BAŞLIK\nAsgari ücret açlık sınırının altında: 28.075 TL'nin matematiği\n\n## AÇIKLAMA\nAsgari ücret 2026'da net 28.075 TL (brüt 33.030 TL) olarak belirlendi ve yüzde 27 zam yapıldı. Türk-İş'in Temmuz 2026 verilerine göre dört kişilik bir ailenin açlık sınırı 36.939,87 TL, yoksulluk sınırı ise 120.325,30 TL. Yani tek bir asgari ücret, bir ailenin sadece gıda harcamasını bile karşılamıyor. Bu video, bunun neden bir bütçe sorunu değil bir endeksleme sorunu olduğunu resmî verilerle anlatıyor.\n\nİçeride: açlık sınırının aslında ne ölçtüğü (sadece gıda — kira, fatura ve ulaşım hariç), asgari ücret zammının nasıl hesaplandığı ve neden neredeyse her yıl geriden geldiği (2024'te TÜİK enflasyonu %44,38 açıklarken zam %30 olmuştu), DİSK-AR hesabına göre asgari ücretin 2026'nın ilk altı ayında kaybettiği 5.576 TL, ve yılda birkaç puanlık farkın on yılda alım gücünün yaklaşık %40'ını nasıl götürdüğü.\n\nAyrıca hissedilen enflasyonun resmî enflasyondan neden farklı olduğunu açıklıyoruz: enflasyon tek bir sepetin ortalaması, ama asgari ücretli hane bütçesinin yaklaşık %40'ını gıdaya ayırırken üst gelir grubu %15 ayırıyor — yani aynı ülkede fiilen iki farklı enflasyon yaşanıyor.\n\nSon iki bölümde dürüst bir değerlendirme var: yapısal bir sorunu bireysel tasarrufla çözemezsiniz, ama gelirin kendisini büyütmek, birikimi korumak ve sabit gideri düşürmek bu sırayla anlamlıdır. Ve sistemde teknik olarak neyin değişmesi gerektiği: yıl içinde ara zam, gerçekleşen enflasyona endeksleme, düşük gelirli haneye özel sepet ölçümü.\n\n## BÖLÜMLER\n{CAPITULOS}\n\n## SABİTLENMİŞ YORUM\nSizin sepetinizde son bir yılda en çok ne zamlandı ve hangi şehirdesiniz? Bir sonraki video için gerçek sepet verisi topluyorum — özellikle gıda ve kira kalemlerini merak ediyorum, çünkü resmî ortalamayla arasındaki fark tam olarak bu videonun konusu.\n\n## ETİKETLER\n#AsgariUcret #Enflasyon #SeviyeSeviye\n\n## TAGS\nasgari ücret 2026, açlık sınırı, yoksulluk sınırı, türk-iş, enflasyon, tüik, alım gücü, asgari ücret zammı, disk-ar, orta sınıf, hissedilen enflasyon, gıda enflasyonu, maaş erimesi, endeksleme, türkiye ekonomisi\n\n## STUDIO AYARLARI\n- Dil: Türkçe (tr) | Kategori: Education (27)\n- Çocuklar için yapılmamıştır\n- Sentetik içerik beyanı: EVET (yapay zekâ seslendirme)\n- Konum: Türkiye | Lisans: Standart YouTube Lisansı\n- Mid-roll reklamlar: açık (süre > 8 dakika)\n\n## MÜZİK / LİSANS\n{TRILHA}\n\n## SORUMLULUK REDDİ\nVerilerin kaynakları: asgari ücret için Çalışma ve Sosyal Güvenlik Bakanlığı, açlık ve yoksulluk sınırı için Türk-İş (Temmuz 2026), enflasyon için TÜİK, alım gücü kaybı hesabı için DİSK-AR. Rakamlar açıklandıkları tarihe aittir ve güncellenebilir. Bu içerik eğitim amaçlıdır; yatırım, vergi veya hukuk tavsiyesi değildir."
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "28.075 TL",
+      "sub": "aclik sinirinin altinda kalan maas",
+      "cap": "Giriş: üç sayı",
+      "nar": "Yirmi sekiz bin yetmiş beş lira. Bu, iki bin yirmi altı yılının net asgari ücreti. Açlık sınırı ise otuz altı bin dokuz yüz kırk lira. Dört kişilik bir aile için, ve sadece gıda için. Yani asgari ücret, bir ailenin mutfak masrafını bile karşılamıyor. Bunun neden matematiksel olarak kaçınılmaz olduğunu göstereceğim."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Ne anlatacagiz",
+      "itens": [
+        "zammin nasil hesaplandigi",
+        "erimenin bilesik etkisi",
+        "sistemde ne degismesi gerekir"
+      ],
+      "cap": "Videonun planı",
+      "nar": "Yedi bölümde: üç resmî sayı ve aralarındaki uçurum, asgari ücret zammının nasıl hesaplandığı, erimenin bileşik etkisi, hissedilen enflasyonun neden farklı olduğu, orta sınıfa ne olduğu, bireysel olarak gerçekten ne yapılabilir ve sistemde neyin değişmesi gerekir. Önce şu: bu üç sayı neden bu kadar uzak?"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 1",
+      "sub": "uc resmi sayi",
+      "cap": "Böl. 1 — Üç resmî sayı",
+      "nar": "Birinci bölüm. Üç sayıyla başlıyoruz ve üçü de resmî kurumların açıkladığı rakamlar — benim yorumum değil."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Temmuz 2026, dort kisilik aile",
+      "itens": [
+        "asgari ucret 28.075",
+        "aclik siniri 36.940",
+        "yoksulluk siniri 120.325"
+      ],
+      "alturas": [
+        28075,
+        36940,
+        120325
+      ],
+      "cap": "Üç sayı yan yana",
+      "nar": "Net asgari ücret yirmi sekiz bin yetmiş beş lira. Türk-İş'in temmuz iki bin yirmi altı verisine bakalım. Açlık sınırı otuz altı bin dokuz yüz kırk lira. Yoksulluk sınırı ise yüz yirmi bin üç yüz yirmi beş. Grafiğe bakın — asgari ücret ilk çubuğun bile altında kalıyor."
+    },
+    {
+      "layout": "item",
+      "kicker": "Aclik siniri nedir",
+      "preco": "sadece gida",
+      "cap": "Açlık sınırı ne demek",
+      "nar": "Burada bir yanlış anlaşılmayı düzeltelim. Açlık sınırı, bir ailenin yoksul sayılmama eşiği değil. Sadece ve sadece yeterli beslenmesi için gereken gıda harcaması. Kira yok, fatura yok, ulaşım yok, giyim yok. Sadece mutfak."
+    },
+    {
+      "layout": "item",
+      "kicker": "Fark",
+      "preco": "8.865 TL",
+      "cap": "Aradaki fark",
+      "nar": "Asgari ücretle açlık sınırı arasındaki fark sekiz bin sekiz yüz altmış beş lira. Bu, tek bir maaşla dört kişilik bir ailenin sadece yemek masrafının bile yaklaşık dörtte biri kadar açık verdiği anlamına geliyor."
+    },
+    {
+      "layout": "item",
+      "kicker": "Asgari ucretli sayisi",
+      "preco": "milyonlarca",
+      "cap": "Bu kaç kişiyi ilgilendiriyor",
+      "nar": "Ve bu bir azınlığın meselesi değil. Türkiye'de çalışanların çok büyük bir bölümü asgari ücret ya da ona yakın bir ücret alıyor. Yani bu grafik, ülkenin ücretli kesiminin ortalama hâlini gösteriyor — istisnasını değil."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Yoksulluk siniri kac asgari ucret",
+      "itens": [
+        "1 asgari ucret",
+        "yoksulluk siniri"
+      ],
+      "alturas": [
+        1,
+        43
+      ],
+      "cap": "Yoksulluk sınırı kaç maaş eder",
+      "nar": "Yoksulluk sınırına bakınca tablo daha da netleşiyor: yüz yirmi bin lira, asgari ücretin yaklaşık dört buçuk katı. Yani bir ailenin yoksulluk sınırının üstüne çıkması için dört buçuk asgari ücret gerekiyor."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu bir gorus degil",
+      "sub": "hepsi resmi veri",
+      "cap": "Bunlar resmî veriler",
+      "nar": "Ve altını çizeyim: bu üç sayının hiçbiri tahmin değil. Asgari ücret Bakanlığın, sınırlar Türk-İş'in, enflasyon TÜİK'in verisi. Tartışma sayıların doğruluğunda değil — neden böyle olduğunda."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 2'ye gecis",
+      "sub": "peki zam nasil hesaplaniyor?",
+      "cap": "Geçiş — zam nasıl hesaplanıyor",
+      "nar": "Bu uçurum bir kaza değil. Zammın hesaplanma biçiminden çıkıyor. Peki tam olarak nasıl hesaplanıyor?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 2",
+      "sub": "zam nasil hesaplaniyor",
+      "cap": "Böl. 2 — Zam nasıl hesaplanıyor",
+      "nar": "İkinci bölüm: mekanik. Asgari ücret zammı nasıl belirleniyor ve neden neredeyse her yıl geriden geliyor."
+    },
+    {
+      "layout": "item",
+      "kicker": "2026 zammi",
+      "preco": "%27",
+      "cap": "2026 zammı: yüzde 27",
+      "nar": "İki bin yirmi altı için asgari ücrete yüzde yirmi yedi zam yapıldı. Brüt otuz üç bin otuz lira, net yirmi sekiz bin yetmiş beş lira. Kulağa yüksek geliyor — ta ki neyle karşılaştırdığınıza bakana kadar."
+    },
+    {
+      "layout": "barras",
+      "kicker": "2024: enflasyon vs zam",
+      "itens": [
+        "enflasyon %44,4",
+        "zam %30"
+      ],
+      "alturas": [
+        44,
+        30
+      ],
+      "cap": "2024 örneği",
+      "nar": "Somut bir örnek. TÜİK iki bin yirmi dördü yüzde kırk dört virgül otuz sekiz enflasyonla kapattı. Ama asgari ücrete yüzde otuz zam yapıldı. On dört puanlık fark, tek bir yılda doğrudan alım gücünden düştü."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Zam neden geriden gelir",
+      "itens": [
+        "gecmis enflasyona gore hesaplanir",
+        "yil ici enflasyon telafi edilmez",
+        "hedef enflasyon gercege esit degildir"
+      ],
+      "cap": "Neden hep geriden gelir",
+      "nar": "Üç yapısal neden var. Zam geçmiş yılın enflasyonuna göre belirlenir. Yıl içinde biriken enflasyon çoğu zaman telafi edilmez. Ve hesaplamada kullanılan hedef enflasyon, gerçekleşen enflasyonun altında kalır."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ilk 6 ayda kayip",
+      "preco": "5.576 TL",
+      "cap": "İlk altı ayın kaybı",
+      "nar": "DİSK-AR'ın TÜİK verileri üzerinden yaptığı hesaba göre asgari ücret, iki bin yirmi altının ilk altı ayında beş bin beş yüz yetmiş altı lira değer kaybetti. Ocakta aldığınız zam, temmuzda çoktan erimiş oluyor."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kritik nokta",
+      "sub": "zam bir artis degil, gecikmis bir telafi",
+      "cap": "Zam nedir, aslında",
+      "nar": "Buradaki kritik nokta şu: asgari ücret zammı bir artış değil. Geçmiş yılın kaybının gecikmiş ve genelde eksik telafisi. Bu ayrımı görünce her şey yerine oturuyor."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 3'e gecis",
+      "sub": "ve bu her yil ust uste biniyor",
+      "cap": "Geçiş — bileşik etki",
+      "nar": "Tek bir yılda birkaç puanlık fark küçük görünür. Peki üst üste bindiğinde ne oluyor?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 3",
+      "sub": "bilesik erime",
+      "cap": "Böl. 3 — Bileşik erime",
+      "nar": "Üçüncü bölüm: bileşik etki. Faizin lehinize çalışan versiyonunu herkes bilir. Bu, aleyhinize çalışan versiyonu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Yilda 5 puan fark",
+      "preco": "10 yil",
+      "cap": "Yılda beş puan",
+      "nar": "Basit bir model kuralım. Diyelim ki zam her yıl enflasyonun beş puan altında kaldı. Tek yılda yüzde beş kayıp — katlanılabilir görünüyor. Ama bu her yıl tekrarlanıyor."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Alim gucu (baslangic 100)",
+      "itens": [
+        "1. yil 95",
+        "5. yil 77",
+        "10. yil 60"
+      ],
+      "alturas": [
+        95,
+        77,
+        60
+      ],
+      "cap": "On yılın matematiği",
+      "nar": "Yılda beş puanlık fark on yıl üst üste binince, alım gücünüzün yüzde kırkı gider. Maaşınızın rakamı her yıl büyümüş olur — ama aldığınız şey küçülmüştür. İnsanların 'zam aldım ama daha fakirim' demesinin matematiği tam olarak budur."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Illuzyonun kaynagi",
+      "sub": "rakam buyuyor, mal azaliyor",
+      "cap": "İllüzyonun kaynağı",
+      "nar": "İllüzyonun kaynağı burada. Beynimiz maaşı bir rakam olarak takip ediyor, ama satın alma gücü bir sepet. Rakam her yıl büyüdüğü için ilerlediğimizi sanıyoruz, sepet küçüldüğü için de bir yanlışlık olduğunu hissediyoruz."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kira ozel bir kalem",
+      "preco": "cift vurus",
+      "cap": "Kira neden çift vuruş",
+      "nar": "Kirada oturanlar için erime iki kat sert. Çünkü kira hem bütçenin en büyük kalemi, hem de enflasyona en hızlı tepki veren kalemlerden biri. Maaş yılda bir kez, kira ise sözleşme yenilendiğinde bir anda güncelleniyor."
+    },
+    {
+      "layout": "lista",
+      "kicker": "En cok kimi vurur",
+      "itens": [
+        "birikimi olmayani",
+        "kirada oturani",
+        "geliri tek kalemden geleni"
+      ],
+      "cap": "En çok kimi vurur",
+      "nar": "Ve bu erime herkesi eşit vurmuyor. En sert vurduğu üç grup: birikimi olmayanlar, kirada oturanlar, ve geliri tek bir maaştan ibaret olanlar. Varlığı olan kişinin varlığı da enflasyonla birlikte değerleniyor — maaşı ise değerlenmiyor."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 4'e gecis",
+      "sub": "peki resmi enflasyon neden farkli hissettiriyor?",
+      "cap": "Geçiş — hissedilen enflasyon",
+      "nar": "Bu noktada çoğu kişinin aklına gelen soru şu: madem enflasyon şu kadar, market neden çok daha pahalı hissettiriyor?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 4",
+      "sub": "hissedilen enflasyon neden farkli",
+      "cap": "Böl. 4 — Hissedilen enflasyon",
+      "nar": "Dördüncü bölüm. Resmî enflasyonla sizin hissettiğiniz enflasyon neden farklı — ve bu bir komplo değil, bir sepet meselesi."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Enflasyon bir ortalamadir",
+      "itens": [
+        "gida ayri artar",
+        "kira ayri artar",
+        "elektronik ayri artar"
+      ],
+      "cap": "Enflasyon bir ortalamadır",
+      "nar": "TÜİK'in açıkladığı enflasyon tek bir sepetin ortalaması. Ama gıda, kira ve elektronik aynı hızda artmaz. Ortalama, hepsinin ortasında bir yerde durur — yani neredeyse hiç kimsenin gerçek sepeti değildir."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Butcedeki gida payi",
+      "itens": [
+        "asgari ucretli ~%40",
+        "ust gelir ~%15"
+      ],
+      "alturas": [
+        40,
+        15
+      ],
+      "cap": "Herkesin sepeti farklı",
+      "nar": "İşte kritik nokta: asgari ücretli bir hane bütçesinin yaklaşık kırk yüzdesini gıdaya ayırır, üst gelir grubu ise yaklaşık on beş. Gıda enflasyonu ortalamanın üstünde olduğunda, düşük gelirli hane resmî rakamdan daha yüksek bir enflasyon yaşar. Aynı ülkede, aynı ay."
+    },
+    {
+      "layout": "item",
+      "kicker": "Sonuc",
+      "preco": "iki enflasyon",
+      "cap": "Aynı ülkede iki enflasyon",
+      "nar": "Sonuç şu: aynı ülkede fiilen iki farklı enflasyon yaşanıyor. Biri istatistiklerde, biri mutfakta. İkisi de doğru — sadece farklı sepetleri ölçüyorlar."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Sepet zamanla degisir",
+      "itens": [
+        "urun agirliklari guncellenir",
+        "ikame varsayilir",
+        "ucuza gecis normal sayilir"
+      ],
+      "cap": "Sepetin kendisi de değişir",
+      "nar": "Bir ayrıntı daha: sepetin içindeki ürün ağırlıkları zamanla güncelleniyor ve hesapta ikame varsayımı var — yani bir ürün pahalanınca insanların ucuzuna geçtiği kabul ediliyor. Bu teknik olarak doğru bir yöntem, ama pratikte 'ucuzuna geçmek' zaten hayat standardının düşmesi demek."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 5'e gecis",
+      "sub": "orta sinifa ne oldu?",
+      "cap": "Geçiş — orta sınıf",
+      "nar": "Türkiye'de en çok konuşulan başlık şu: bu mekanizma yeterince uzun sürerse ne olur?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 5",
+      "sub": "orta sinifa ne oldu",
+      "cap": "Böl. 5 — Orta sınıfa ne oldu",
+      "nar": "Beşinci bölüm: orta sınıf. Ve tanımdan başlamak gerekiyor, çünkü tanım değişti."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Eski orta sinif tanimi",
+      "itens": [
+        "ev sahibi olmak",
+        "cocugu okutmak",
+        "birikim yapabilmek"
+      ],
+      "cap": "Eski tanım",
+      "nar": "Bir kuşak önce orta sınıf olmak üç şey demekti. Ev sahibi olabilmek, çocuğunu okutabilmek ve ay sonunda para biriktirebilmek. Üçü de tek maaşla mümkündü."
+    },
+    {
+      "layout": "item",
+      "kicker": "Bugun ayni tanim icin",
+      "preco": "4,3 maas",
+      "cap": "Bugün aynı tanım için",
+      "nar": "Bugün aynı hanenin sadece yoksulluk sınırının üzerine çıkması için yaklaşık dört buçuk asgari ücret gerekiyor. Tanım değişmedi — o tanıma ulaşmanın maliyeti değişti."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Nasil telafi ediliyor",
+      "itens": [
+        "hanede ikinci gelir",
+        "ek is",
+        "birikimden yemek"
+      ],
+      "cap": "Nasıl telafi ediliyor",
+      "nar": "Hanelerin bunu telafi etme yolları belli: ikinci bir gelir, ek iş, ya da varsa birikimi tüketmek. İlk ikisi zamanı, üçüncüsü geleceği harcıyor. Üçü de sürdürülebilir değil."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yapisal sonuc",
+      "sub": "orta sinif kucultmuyor — ikiye ayriliyor",
+      "cap": "Yapısal sonuç",
+      "nar": "Yapısal sonuç şu: orta sınıf küçülmüyor, ikiye ayrılıyor. Varlığı olanlar enflasyonla birlikte yukarı, sadece maaşı olanlar aşağı gidiyor. Aradaki mesafeyi açan şey çalışkanlık değil, varlık sahipliği."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 6'ya gecis",
+      "sub": "peki birey ne yapabilir?",
+      "cap": "Geçiş — birey ne yapabilir",
+      "nar": "Şimdi zor soruya geliyoruz. Cevabı dürüst vereceğim: yapısal bir sorun karşısında birey ne yapabilir?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 6",
+      "sub": "birey gercekte ne yapabilir",
+      "cap": "Böl. 6 — Birey ne yapabilir",
+      "nar": "Altıncı bölüm. Ve burada size beş altın kural vermeyeceğim, çünkü yapısal bir sorunu bireysel tasarrufla çözemezsiniz."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Once durustluk",
+      "sub": "birikim tavsiyesi bu sorunu cozmez",
+      "cap": "Önce dürüstlük",
+      "nar": "Açık konuşalım: açlık sınırının altında bir gelirle 'daha az kahve iç' türü tavsiyeler işe yaramaz. Matematik izin vermiyor. Bunu söylemeyen her içerik size zaman kaybettiriyor."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Yine de anlamli olan uc sey",
+      "itens": [
+        "gelirin kendisini buyutmek",
+        "birikimi enflasyona endekslemek",
+        "sabit gideri dusurmek"
+      ],
+      "cap": "Yine de anlamlı olan üç şey",
+      "nar": "Yine de bu koşullarda anlamlı olan üç hamle var, ve sıralaması önemli. Birincisi ve en güçlüsü: gelirin kendisini büyütmek. İkincisi: birikim varsa onu enflasyona karşı korumak. Üçüncüsü: sabit gideri düşürmek."
+    },
+    {
+      "layout": "item",
+      "kicker": "Neden gelir once",
+      "preco": "tavan yok",
+      "cap": "Neden gelir önce gelir",
+      "nar": "Neden bu sıra? Çünkü kısabileceğiniz masrafın bir tabanı var, ama öğrenebileceğiniz becerinin bir tavanı yok. Enflasyonun üstünde artan tek kalem, piyasada karşılığı olan beceridir."
+    },
+    {
+      "layout": "item",
+      "kicker": "Sik yapilan hata",
+      "preco": "stok yapmak",
+      "cap": "En sık yapılan hata",
+      "nar": "Bu arada en sık yapılan hatayı da söyleyeyim: zam gelecek diye peşin peşin stok yapmak. Bozulabilen üründe bu doğrudan zarar, dayanıklı üründe ise nakdi kilitlemek demek. Enflasyondan kaçarken likiditeyi kaybetmek, çoğu hanenin gerçek riski."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Beceri seciminde olcut",
+      "itens": [
+        "ucreti dovize bagli mi",
+        "uzaktan yapilabilir mi",
+        "talep artiyor mu"
+      ],
+      "cap": "Beceri seçiminde ölçüt",
+      "nar": "Beceri seçerken üç ölçüt: ücreti dövize ya da ihracata bağlı mı, uzaktan yapılabiliyor mu, ve talebi artıyor mu. Üçünü birden karşılayan işler, yerel enflasyondan kısmen korunur."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ve bir uyari",
+      "sub": "yatirim tavsiyesi vermiyorum",
+      "cap": "Bir uyarı",
+      "nar": "Bir uyarı da şart: birikimi korumak için hangi aracı kullanacağınız kişisel duruma bağlı ve bu video yatırım tavsiyesi değil. Vergi, likidite ve risk üçlüsünü kendi durumunuza göre değerlendirin."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 7'ye gecis",
+      "sub": "asil cozum nerede?",
+      "cap": "Geçiş — sistem",
+      "nar": "Bireysel hamleler kaybı yavaşlatır ama tersine çevirmez. Peki onu tersine çevirecek şey tam olarak nerede?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bolum 7",
+      "sub": "sistemde ne degismesi gerekir",
+      "cap": "Böl. 7 — Sistemde ne değişmeli",
+      "nar": "Yedinci ve son bölüm. Bu erimeyi durduracak şey teknik olarak biliniyor — siyasi olarak tartışmalı, ama teknik olarak net."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Uc teknik degisiklik",
+      "itens": [
+        "yil icinde ara zam",
+        "gerceklesen enflasyona endeksleme",
+        "dusuk gelire ozel sepet"
+      ],
+      "cap": "Üç teknik değişiklik",
+      "nar": "Üç değişiklik konuşuluyor. Yıl içinde ara zam, böylece kayıp on iki ay birikmez. Gerçekleşen enflasyona endeksleme, hedefe değil. Ve düşük gelirli hanenin sepetine göre ayrı bir ölçüm — çünkü onların enflasyonu farklı."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ara zam neyi degistirir",
+      "preco": "6 ay",
+      "cap": "Ara zam neyi değiştirir",
+      "nar": "Bunlardan en somut olanı ara zam. Kaybın on iki ay yerine altı ay birikmesi, bileşik erimeyi kabaca yarıya indirir. Az önce gördüğümüz beş bin beş yüz yetmiş altı liralık kayıp büyük ölçüde buradan geliyor."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Baska ulkelerde ne yapildi",
+      "itens": [
+        "otomatik endeksleme",
+        "daha sik ayarlama",
+        "dusuk gelire ayri olcum"
+      ],
+      "cap": "Başka ülkelerde ne yapıldı",
+      "nar": "Ve bu deneme yanılma değil: yüksek enflasyon yaşamış birçok ülke aynı üç aracı kullandı — ücretin otomatik endekslenmesi, yılda birden fazla ayarlama ve düşük gelirli hane için ayrı ölçüm. Hiçbiri enflasyonu tek başına düşürmez, ama erimenin faturasını ücretliye kesmeyi durdurur."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Neden onemli",
+      "sub": "sorunu dogru adlandirmak ilk adim",
+      "cap": "Neden bunu bilmek önemli",
+      "nar": "Peki bunu bilmek size ne kazandırır? Şunu: sorunu doğru adlandırmayı. Kendi bütçenizde beceriksiz olduğunuzu düşünerek geçirdiğiniz her yıl, aslında bir endeksleme farkıydı. Bunu bilmek, enerjinizi doğru yere koymanızı sağlar."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Son soz",
+      "sub": "bu bir butce sorunu degil, bir endeksleme sorunu",
+      "cap": "Son söz",
+      "nar": "Son söz: bu bir bütçe sorunu değil, bir endeksleme sorunu. Ve endeksleme sorunları tasarrufla değil, kuralla çözülür."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Videonun ozeti",
+      "itens": [
+        "28.075 < 36.940",
+        "zam gecikmis telafidir",
+        "beceri tek enflasyon ustu kalem"
+      ],
+      "cap": "Üç satırda özet",
+      "nar": "Videonun özeti üç satırda. Asgari ücret açlık sınırının altında: yirmi sekiz bin yetmiş beşe karşı otuz altı bin dokuz yüz kırk. Zam bir artış değil, gecikmiş bir telafi. Ve enflasyonun üstünde artan tek kalem, piyasada karşılığı olan beceridir."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Yorumda yaz",
+      "sub": "senin sepetinde en cok ne zamlandi?",
+      "cap": "Sıradaki adımın",
+      "nar": "Yorumlara yazın: sizin sepetinizde son bir yılda en çok ne zamlandı ve hangi şehirdesiniz? Bir sonraki video için gerçek sepet verisi topluyorum. Faydalı bulduysanız abone olun — her hafta bir seviye yukarı."
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "28.075 TL",
+      "sub": "aclik sinirinin altinda",
+      "cap": "Hook",
+      "nar": "Asgari ücret yirmi sekiz bin yetmiş beş lira. Dört kişilik bir ailenin açlık sınırı otuz altı bin dokuz yüz kırk."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Temmuz 2026",
+      "itens": [
+        "asgari 28.075",
+        "aclik 36.940",
+        "yoksulluk 120.325"
+      ],
+      "alturas": [
+        28075,
+        36940,
+        120325
+      ],
+      "cap": "Üç sayı",
+      "nar": "Açlık sınırı sadece gıda demek. Yoksulluk sınırı ise yüz yirmi bin — dört buçuk asgari ücret."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ilk 6 ayda kayip",
+      "preco": "5.576 TL",
+      "cap": "Erime",
+      "nar": "DİSK-AR'a göre asgari ücret ilk altı ayda beş bin beş yüz yetmiş altı lira eridi."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Asil mesele",
+      "sub": "zam bir artis degil, gecikmis telafi",
+      "cap": "A tese",
+      "nar": "Çünkü zam artış değil, geçmiş yılın kaybının gecikmiş telafisi. Bu yüzden rakam büyürken sepet küçülüyor."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Tam hesap",
+      "sub": "bilesik erimenin matematigi kanalda",
+      "cap": "CTA",
+      "nar": "On yılda bunun ne ettiğini ve ne yapılabileceğini kanaldaki videoda hesapladım. Buyurun."
+    }
+  ],
+  "copy": "# Asgari ücret 28.075 TL, açlık sınırı 36.940 TL: erimenin matematiği\n\n## BAŞLIK\nAsgari ücret açlık sınırının altında: 28.075 TL'nin matematiği\n\n## AÇIKLAMA\nAsgari ücret 2026'da net 28.075 TL (brüt 33.030 TL) olarak belirlendi ve yüzde 27 zam yapıldı. Türk-İş'in Temmuz 2026 verilerine göre dört kişilik bir ailenin açlık sınırı 36.939,87 TL, yoksulluk sınırı ise 120.325,30 TL. Yani tek bir asgari ücret, bir ailenin sadece gıda harcamasını bile karşılamıyor. Bu video, bunun neden bir bütçe sorunu değil bir endeksleme sorunu olduğunu resmî verilerle anlatıyor.\n\nİçeride: açlık sınırının aslında ne ölçtüğü (sadece gıda — kira, fatura ve ulaşım hariç), asgari ücret zammının nasıl hesaplandığı ve neden neredeyse her yıl geriden geldiği (2024'te TÜİK enflasyonu %44,38 açıklarken zam %30 olmuştu), DİSK-AR hesabına göre asgari ücretin 2026'nın ilk altı ayında kaybettiği 5.576 TL, ve yılda birkaç puanlık farkın on yılda alım gücünün yaklaşık %40'ını nasıl götürdüğü.\n\nAyrıca hissedilen enflasyonun resmî enflasyondan neden farklı olduğunu açıklıyoruz: enflasyon tek bir sepetin ortalaması, ama asgari ücretli hane bütçesinin yaklaşık %40'ını gıdaya ayırırken üst gelir grubu %15 ayırıyor — yani aynı ülkede fiilen iki farklı enflasyon yaşanıyor.\n\nSon iki bölümde dürüst bir değerlendirme var: yapısal bir sorunu bireysel tasarrufla çözemezsiniz, ama gelirin kendisini büyütmek, birikimi korumak ve sabit gideri düşürmek bu sırayla anlamlıdır. Ve sistemde teknik olarak neyin değişmesi gerektiği: yıl içinde ara zam, gerçekleşen enflasyona endeksleme, düşük gelirli haneye özel sepet ölçümü.\n\n## BÖLÜMLER\n{CAPITULOS}\n\n## SABİTLENMİŞ YORUM\nSizin sepetinizde son bir yılda en çok ne zamlandı ve hangi şehirdesiniz? Bir sonraki video için gerçek sepet verisi topluyorum — özellikle gıda ve kira kalemlerini merak ediyorum, çünkü resmî ortalamayla arasındaki fark tam olarak bu videonun konusu.\n\n## ETİKETLER\n#AsgariUcret #Enflasyon #SeviyeSeviye\n\n## TAGS\nasgari ücret 2026, açlık sınırı, yoksulluk sınırı, türk-iş, enflasyon, tüik, alım gücü, asgari ücret zammı, disk-ar, orta sınıf, hissedilen enflasyon, gıda enflasyonu, maaş erimesi, endeksleme, türkiye ekonomisi\n\n## STUDIO AYARLARI\n- Dil: Türkçe (tr) | Kategori: Education (27)\n- Çocuklar için yapılmamıştır\n- Sentetik içerik beyanı: EVET (yapay zekâ seslendirme)\n- Konum: Türkiye | Lisans: Standart YouTube Lisansı\n- Mid-roll reklamlar: açık (süre > 8 dakika)\n\n## MÜZİK / LİSANS\n{TRILHA}\n\n## SORUMLULUK REDDİ\nVerilerin kaynakları: asgari ücret için Çalışma ve Sosyal Güvenlik Bakanlığı, açlık ve yoksulluk sınırı için Türk-İş (Temmuz 2026), enflasyon için TÜİK, alım gücü kaybı hesabı için DİSK-AR. Rakamlar açıklandıkları tarihe aittir ve güncellenebilir. Bu içerik eğitim amaçlıdır; yatırım, vergi veya hukuk tavsiyesi değildir."
 }
