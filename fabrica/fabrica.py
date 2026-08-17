@@ -7,9 +7,17 @@ from maquina.media import duracao as _duracao, ffmpeg_bin  # fallback pro binari
 def esc(t): return t.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
 
 def wrap(t, n):
+    """Quebra por ESPACO. Palavra maior que `n` fica inteira numa linha so —
+    e por isso `n` nunca garantiu largura; quem garante e `corpo_que_cabe`.
+
+    O `if cur` na primeira palavra existe porque sem ele uma palavra sozinha
+    maior que `n` devolvia ['', 'LabTreinamento']: a linha vazia virava um
+    <tspan> que empurrava o bloco inteiro uma entrelinha para baixo, e para
+    baixo e onde o Ken Burns corta. Achado pelo teste, nao em producao.
+    """
     out, cur = [], ''
     for w in t.split():
-        if len(cur)+len(w)+1 > n: out.append(cur); cur = w
+        if cur and len(cur)+len(w)+1 > n: out.append(cur); cur = w
         else: cur = (cur+' '+w).strip()
     if cur: out.append(cur)
     return out
@@ -21,9 +29,75 @@ def wrap(t, n):
 # "fonte": "Noto Sans Devanagari", e ai os dois motores passam a shapear.
 FONTE = "DejaVu Sans"
 
-def tsp(t, x, y, size, fill, n=30, anchor='middle', lh=1.25):
-    o = f'<text x="{x}" y="{y}" font-family="{FONTE}" font-weight="bold" font-size="{int(size)}" fill="{fill}" text-anchor="{anchor}">'
-    for i, l in enumerate(wrap(t, n)):
+# Largura media de um glifo bold em fracao do corpo. MEDIDA, nao estimada:
+# "LabTreinamento" com corpo 108 rasterizou 981 px de tinta em 14 caracteres,
+# o que da 0,649. 0,62 fica abaixo do medido de proposito — errar para menos
+# aqui encolhe um texto que caberia; errar para mais deixa tinta na borda.
+LARGURA_GLIFO = 0.62
+
+# A faixa que o Ken Burns corta MAIS a borda de 4% do visual.py: e a mesma
+# conta do `layout.corte_do_ken_burns`, e o desenho tem de respeitar o que o
+# portao mede. Repetida aqui como numero porque o layout.py importa este
+# modulo, e nao o contrario.
+MARGEM_SEGURA = 0.1204
+LARGURA_SEGURA = 1 - 2 * MARGEM_SEGURA
+
+
+def corpo_que_cabe(t, n, size, largura):
+    """Maior corpo ate `size` em que a linha mais larga cabe em `largura`.
+
+    `wrap` divide por ESPACO e nunca parte uma palavra: 'LabTreinamento' com
+    n=11 sai numa linha de 14 caracteres, e o `n` que parecia limitar a largura
+    nao limita nada. Medido em 17/08/2026 no labtreinamento-002 short cena 4 —
+    tinta de x=49 a x=1030 num quadro de 1080, com a zona segura em 130..950.
+
+    Por isso a largura passa a ser conferida DEPOIS da quebra, contra a linha
+    que realmente saiu, do mesmo jeito que a `geometria_thumb` ja encolhia o
+    titulo em vez de escolher entre dois degraus fixos.
+    """
+    maior = max((len(l) for l in wrap(t, n)), default=0)
+    if not maior or largura <= 0:
+        return size
+    return min(size, largura / (maior * LARGURA_GLIFO))
+
+
+def texto_na_caixa(t, cx, cy, largura, altura, fill, n=12, corpo_max=None, lh=1.25):
+    """Texto centrado numa caixa, encolhido ate caber nos DOIS eixos.
+
+    O campo `preco` foi desenhado para caber um preco, e chega frase: no
+    setiap-level-005 cena 60 ele vale 'dari lima koma enam tiga ke tiga koma
+    sembilan sembilan' — 54 caracteres que com n=12 viram cinco linhas. Elas
+    desciam de 0,59H ate 0,957H, transbordando a propria tarja e entrando na
+    borda que o Ken Burns corta.
+
+    Encolher e melhor do que cortar: o numero continua legivel, e nenhuma spec
+    precisa ser reescrita para o desenho parar de estourar.
+    """
+    corpo = corpo_max or altura * 0.5
+    linhas = wrap(t, n) or ['']
+    corpo = min(corpo, corpo_que_cabe(t, n, corpo, largura),
+                altura / (1 + (len(linhas) - 1) * lh) * 0.82)
+    # `y` da PRIMEIRA linha: sobe metade do bloco e desce a altura de uma maiuscula.
+    alt = corpo * (1 + (len(linhas) - 1) * lh)
+    return tsp(t, cx, cy - alt / 2 + corpo * 0.78, corpo, fill, n=n, lh=lh)
+
+
+def tsp(t, x, y, size, fill, n=30, anchor='middle', lh=1.25, subindo=False,
+        largura=None):
+    """`subindo=True` ancora `y` na ULTIMA linha, e nao na primeira.
+
+    O texto que quebra cresce para baixo, e embaixo e onde o Ken Burns corta.
+    Medido em 17/08/2026: o rotulo de barra 'antes: caixa aleatoria' quebra em
+    duas linhas a partir de y=0,865H e poe tinta ate 0,912H — dentro da zona de
+    risco, que comeca em 0,88H. Com `subindo` a segunda linha fica onde a unica
+    ficaria, e a primeira sobe: o bloco cresce para dentro do quadro.
+    """
+    linhas = wrap(t, n) or ['']
+    if largura:
+        size = corpo_que_cabe(t, n, size, largura)
+    topo = y - int(size * lh) * (len(linhas) - 1) if subindo else y
+    o = f'<text x="{x}" y="{topo}" font-family="{FONTE}" font-weight="bold" font-size="{int(size)}" fill="{fill}" text-anchor="{anchor}">'
+    for i, l in enumerate(linhas):
         o += f'<tspan x="{x}" dy="{0 if i==0 else int(size*lh)}">{esc(l)}</tspan>'
     return o + '</text>'
 
@@ -150,35 +224,49 @@ def svg_cena_retrato(c, pal, W, H):
     if lay in ('titulo', 'cta'):
         fg = c1 if lay == 'titulo' else c2
         big = c.get('kicker', '')
-        s += tsp(big, cx, H*0.40, W*(0.15 if len(big) <= 8 else 0.10), fg, n=11)
+        s += tsp(big, cx, H*0.40, W*(0.15 if len(big) <= 8 else 0.10), fg, n=11,
+                 largura=W*LARGURA_SEGURA)
         s += f'<path d="M {cx-W*0.30} {H*0.50} Q {cx} {H*0.52}, {cx+W*0.30} {H*0.50}" stroke="{c2 if lay=="titulo" else c1}" stroke-width="9" fill="none" stroke-linecap="round"/>'
         if c.get('sub'):
-            s += tsp(c['sub'], cx, H*0.58, W*0.055, ink, n=22)
+            s += tsp(c['sub'], cx, H*0.58, W*0.055, ink, n=22, largura=W*LARGURA_SEGURA)
     elif lay == 'item':
         s += f'<circle cx="{cx}" cy="{H*0.28}" r="{W*0.24}" fill="none" stroke="{ink}" stroke-width="8"/>'
         s += f'<circle cx="{cx}" cy="{H*0.28}" r="{W*0.15}" fill="{c2}" opacity="0.55"/>'
-        s += tsp(c.get('kicker', ''), cx, H*0.50, W*0.085, ink, n=14)
+        s += tsp(c.get('kicker', ''), cx, H*0.50, W*0.085, ink, n=14,
+                 largura=W*LARGURA_SEGURA)
         if c.get('preco'):
             s += f'<rect x="{cx-W*0.26}" y="{H*0.56}" width="{W*0.52}" height="{H*0.075}" fill="{c1}"/>'
-            s += tsp(c['preco'], cx, H*0.615, W*0.075, '#FFFFFF', n=12)
+            s += texto_na_caixa(c['preco'], cx, H*0.5975, W*0.50, H*0.075,
+                                '#FFFFFF', n=12, corpo_max=W*0.075)
     elif lay == 'lista':
-        s += tsp(c.get('kicker', ''), cx, H*0.16, W*0.08, ink, n=16)
+        s += tsp(c.get('kicker', ''), cx, H*0.16, W*0.08, ink, n=16, largura=W*LARGURA_SEGURA)
         y = H * 0.30
         for i, it in enumerate(c.get('itens', [])):
             col = [c1, c2, ink][i % 3]
-            s += f'<circle cx="{W*0.12}" cy="{y-H*0.012}" r="{W*0.022}" fill="{col}"/>'
-            s += tsp(it, W*0.18, y, W*0.055, ink, n=26, anchor='start')
+            # O bullet em 0,12W com raio 0,022W comeca em 0,098W, e a zona
+            # segura so comeca em 0,1204W: a bolinha encostava na borda mesmo
+            # com o texto curto. Medido no setiap-level-004 short cena 1.
+            s += f'<circle cx="{W*0.15}" cy="{y-H*0.012}" r="{W*0.022}" fill="{col}"/>'
+            # n=26 a corpo 0,055W chegava a x=1038 num quadro de 1080, e o pan
+            # horizontal poe a faixa direita a partir de 1013. Medido no
+            # setiap-level-004 short cena 1: 1,03%. Aqui a conta e pela LARGURA,
+            # que em retrato e o lado curto — cabem 22 caracteres, nao 26.
+            s += tsp(it, W*0.18, y, W*0.05, ink, n=22, anchor='start',
+                     largura=W*(1 - 0.18 - MARGEM_SEGURA))
             y += H * 0.10
     elif lay == 'barras':
         labs = c.get('itens', ['1', '2', '3', '4']); n = len(labs); bw = W*0.76/n
         alt = c.get('alturas')
-        s += tsp(c.get('kicker', ''), cx, H*0.14, W*0.08, ink, n=16)
+        # 0,14H com corpo 0,08W punha o ascender em 0,106H, e a faixa de topo do
+        # pan vertical so termina em 0,116H. Mesmo defeito do 16:9, outra conta.
+        s += tsp(c.get('kicker', ''), cx, H*0.175, W*0.075, ink, n=18,
+                 largura=W*LARGURA_SEGURA)
         s += f'<line x1="{W*0.10}" y1="{H*0.60}" x2="{W*0.90}" y2="{H*0.60}" stroke="{ink}" stroke-width="3" opacity="0.35"/>'
         for i, lb in enumerate(labs):
             bh = (H*0.06 + (alt[i]/max(alt))*H*0.28) if alt else (H*0.06 + i*H*0.28/max(n-1, 1))
             x = W*0.12 + i*bw
             s += f'<rect x="{x}" y="{H*0.60-bh}" width="{bw*0.72}" height="{bh}" fill="{[c1,c2,ink][i%3]}"/>'
-            s += tsp(str(lb), x+bw*0.36, H*0.65, W*0.035, ink, n=12)
+            s += tsp(str(lb), x+bw*0.36, H*0.65, W*0.035, ink, n=12, largura=bw*0.9)
     return s + '</svg>'
 
 
@@ -223,32 +311,51 @@ def svg_cena(c, pal, W, H, camada=None):
         sub_fg = ink
         big = c.get('kicker','')
         if quer(0):
-            s += tsp(big, cx, H*0.40, H*(0.15 if len(big)<=10 else 0.09), fg, n=16)
+            s += tsp(big, cx, H*0.40, H*(0.15 if len(big)<=10 else 0.09), fg, n=16,
+                     largura=W*LARGURA_SEGURA)
             s += f'<path d="M {cx-W*0.26} {H*0.52} Q {cx} {H*0.55}, {cx+W*0.26} {H*0.52}" stroke="{c2 if lay=="titulo" else c1}" stroke-width="10" fill="none" stroke-linecap="round"/>'
         if c.get('sub') and quer(1):
-            s += tsp(c['sub'], cx, H*0.65, H*0.055, sub_fg, n=30)
+            s += tsp(c['sub'], cx, H*0.65, H*0.055, sub_fg, n=30, largura=W*LARGURA_SEGURA)
     elif lay == 'lista':
         if quer(None):
-            s += tsp(c.get('kicker',''), cx, H*0.18, H*0.08, ink, n=24)
+            s += tsp(c.get('kicker',''), cx, H*0.18, H*0.08, ink, n=24, largura=W*LARGURA_SEGURA)
+        # Passo FIXO de 0,17H punha o quarto item em 0,89H — dentro da zona que
+        # o Ken Burns corta, que comeca em 0,88H. Nao era uma spec infeliz: TODA
+        # lista de quatro itens reprovava, por construcao. Agora o passo divide a
+        # faixa segura (0,38H a 0,80H) pelo numero de itens e so encolhe quando
+        # precisa; com tres ou menos nada muda, que e como as boas ja estavam.
+        itens = c.get('itens', [])
+        passo = min(H*0.17, H*0.42/max(len(itens)-1, 1))
         y = H*0.38
-        for i, it in enumerate(c.get('itens', [])):
+        for i, it in enumerate(itens):
             if quer(i):
                 col = [c1, c2, ink][i%3]
                 s += f'<circle cx="{W*0.16}" cy="{y-H*0.02}" r="{H*0.025}" fill="{col}"/>'
-                s += tsp(it, W*0.21, y, H*0.055, ink, n=36, anchor='start')
-            y += H*0.17
+                s += tsp(it, W*0.21, y, H*0.055, ink, n=36, anchor='start',
+                         largura=W*(1 - 0.21 - MARGEM_SEGURA))
+            y += passo
     elif lay == 'barras':
         labs = c.get('itens', ['1','2','3','4']); n = len(labs); bw = W*0.64/n
         alt = c.get('alturas')
         if quer(None):
-            s += tsp(c.get('kicker',''), cx, H*0.16, H*0.08, ink, n=24)
+            # Kicker em 0,16H com corpo 0,08H punha o ASCENDER em 0,102H, e o
+            # pan vertical (i%4 em 2 e 3) sobe o enquadramento ate a faixa de
+            # topo terminar em 0,115H. Medido no kolejny-poziom-002 cena 35:
+            # 6,55% de tinta na borda de CIMA, nao na de baixo. Baseline em
+            # 0,205H com corpo 0,07H poe o ascender em 0,154H, com folga.
+            s += tsp(c.get('kicker',''), cx, H*0.205, H*0.07, ink, n=26,
+                     largura=W*LARGURA_SEGURA)
             # A linha de base fica no fundo: e o chao contra o qual as barras
             # sobem, e sem ela as primeiras parecem flutuar no vazio.
             s += f'<line x1="{W*0.15}" y1="{H*0.82}" x2="{W*0.85}" y2="{H*0.82}" stroke="{ink}" stroke-width="3" opacity="0.35"/>'
         for i, lb in enumerate(labs):
             if not quer(i):
                 continue
-            bh = (H*0.12 + (alt[i]/max(alt))*H*0.48) if alt else (H*0.12 + i*H*0.48/max(n-1,1))
+            # Amplitude 0,48H punha o topo da barra mais alta em 0,22H, onde o
+            # kicker agora desce quando quebra em duas linhas. 0,42H deixa o
+            # topo em 0,28H e a proporcao entre as barras nao muda — o que se
+            # le num grafico de barras e a razao, nao o valor absoluto.
+            bh = (H*0.12 + (alt[i]/max(alt))*H*0.42) if alt else (H*0.12 + i*H*0.42/max(n-1,1))
             x = W*0.18 + i*bw
             s += f'<rect x="{x}" y="{H*0.82-bh}" width="{bw*0.72}" height="{bh}" fill="{[c1,c2,ink][i%3]}"/>'
             # y=0,90H punha o rotulo dentro da faixa que o Ken Burns corta.
@@ -258,16 +365,24 @@ def svg_cena(c, pal, W, H, camada=None):
             # descender da fonte punha tinta ate 0,908H — 77 das 99 cenas
             # `barras` de TODAS as specs reprovavam. 0,865H sai da zona com
             # folga e mantem o rotulo abaixo da linha de base.
-            s += tsp(str(lb), x+bw*0.36, H*0.865, H*0.038, ink, n=14)
+            #
+            # `subindo` porque o rotulo de duas linhas crescia justamente para
+            # dentro da zona: 'antes: caixa aleatoria' punha tinta ate 0,912H.
+            # Ancorado na ultima linha, o bloco cresce para cima e a base fica
+            # onde sempre esteve.
+            s += tsp(str(lb), x+bw*0.36, H*0.865, H*0.038, ink, n=14, subindo=True,
+                     largura=bw*0.9)
     elif lay == 'item':
         if quer(None):
             s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.22}" fill="none" stroke="{ink}" stroke-width="9"/>'
             s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.14}" fill="{c2}" opacity="0.55"/>'
         if quer(0):
-            s += tsp(c.get('kicker',''), W*0.63, H*0.36, H*0.07, ink, n=20)
+            s += tsp(c.get('kicker',''), W*0.63, H*0.36, H*0.07, ink, n=20,
+                     largura=W*(1 - 0.63 - MARGEM_SEGURA)*2)
         if c.get('preco') and quer(1):
             s += f'<rect x="{W*0.51}" y="{H*0.5}" width="{W*0.24}" height="{H*0.13}" fill="{c1}"/>'
-            s += tsp(c['preco'], W*0.63, H*0.59, H*0.06, '#FFFFFF', n=12)
+            s += texto_na_caixa(c['preco'], W*0.63, H*0.565, W*0.22, H*0.13,
+                                '#FFFFFF', n=12, corpo_max=H*0.06)
     return s + '</svg>'
 
 def dur(f):
