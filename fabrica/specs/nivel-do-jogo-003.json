@@ -1,0 +1,594 @@
+{
+  "slug": "nivel-do-jogo",
+  "pacote": "nivel-do-jogo-003",
+  "voz": "pt-BR-AntonioNeural",
+  "idioma": "pt-BR",
+  "trilha": "Inspired",
+  "paleta": {
+    "bg": "#0F1020",
+    "c1": "#FF4D6D",
+    "c2": "#4CC9F0",
+    "ink": "#F2F2F7"
+  },
+  "thumb": {
+    "l1": "61 HORAS",
+    "l2": "DE TRABALHO"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "QUATROCENTOS E CINQUENTA",
+      "sub": "e a pergunta que ninguém faz",
+      "nar": "Quatrocentos e quarenta e nove reais e noventa centavos. Esse é o preço do jogo mais esperado de dois mil e vinte e seis. E quase ninguém fez a pergunta que importa.",
+      "cap": "O número na tela"
+    },
+    {
+      "layout": "item",
+      "kicker": "A pergunta certa",
+      "preco": "quantas horas",
+      "nar": "A pergunta não é se está caro. Caro é opinião. A pergunta é quantas horas do seu trabalho esse número representa."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que essa pergunta",
+      "preco": "preço não muda, salário sim",
+      "nar": "Ela é melhor porque o preço na loja é igual para todo mundo, e o tempo que cada um leva para juntar esse valor não é."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que este vídeo faz",
+      "itens": [
+        "converte preço em horas",
+        "compara Brasil e Estados Unidos",
+        "mostra o que mudou"
+      ],
+      "nar": "Neste vídeo eu converto o preço em horas de trabalho, comparo o mesmo jogo no Brasil e nos Estados Unidos, e mostro o que realmente mudou na conta dos últimos anos."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que agora",
+      "preco": "o preço saiu",
+      "nar": "O gatilho deste vídeo é simples: o preço saiu, com data de lançamento marcada, e virou assunto em todo canal de games do Brasil."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que quase todos fizeram",
+      "preco": "compararam com o passado",
+      "nar": "E quase todos fizeram a mesma comparação: com o preço do jogo anterior. É uma comparação fraca, porque compara dois números que não são da mesma moeda no tempo."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "REGRA DA CASA",
+      "sub": "todo número tem fonte",
+      "nar": "Regra da casa: todo número que aparecer aqui tem fonte, e a fonte está na descrição. O que eu não consegui confirmar em duas fontes, eu não falo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TRÊS NÚMEROS",
+      "sub": "e o resto é conta",
+      "nar": "A conta inteira sai de três números. Guarde os três, porque o resto é aritmética.",
+      "cap": "Os três números"
+    },
+    {
+      "layout": "item",
+      "kicker": "Número um",
+      "preco": "quatrocentos e quarenta e nove reais",
+      "nar": "O primeiro: a edição padrão custa quatrocentos e quarenta e nove reais e noventa centavos no Brasil, na loja digital do console."
+    },
+    {
+      "layout": "item",
+      "kicker": "Número dois",
+      "preco": "setenta e nove dólares",
+      "nar": "O segundo: a mesma edição padrão custa setenta e nove dólares e noventa e nove centavos nos Estados Unidos."
+    },
+    {
+      "layout": "item",
+      "kicker": "Número três",
+      "preco": "mil seiscentos e vinte e um reais",
+      "nar": "O terceiro: o salário mínimo brasileiro em dois mil e vinte e seis é de mil seiscentos e vinte e um reais, com reajuste de seis vírgula setenta e nove por cento."
+    },
+    {
+      "layout": "item",
+      "kicker": "De onde vem o terceiro",
+      "preco": "decreto",
+      "nar": "Esse último não é estimativa de mercado. Está em decreto publicado, e o número é o mesmo em toda fonte que você consultar."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que eu deixei de fora",
+      "preco": "a inflação de trinta anos",
+      "nar": "E tem um número que eu queria trazer e não trouxe. Eu queria comparar com a inflação acumulada de trinta anos, mas não consegui confirmar o índice longo em duas fontes independentes."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que isso importa",
+      "preco": "melhor faltar que errar",
+      "nar": "Então esse trecho ficou de fora. Prefiro um vídeo com menos números do que um vídeo com um número que eu não checei."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "AGORA A CONTA",
+      "sub": "só divisão",
+      "nar": "Com esses três, tudo o que vem a seguir é divisão. Nenhuma projeção, nenhum palpite sobre o futuro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "PRIMEIRA CONTA",
+      "sub": "que fatia do salário",
+      "nar": "Primeira conta, a mais simples. Que fatia do salário mínimo mensal esse jogo representa.",
+      "cap": "Que fatia do salário"
+    },
+    {
+      "layout": "barras",
+      "kicker": "Um jogo dentro do salário mínimo",
+      "itens": [
+        "preço do jogo",
+        "o que sobra do mínimo"
+      ],
+      "alturas": [
+        45,
+        117
+      ],
+      "nar": "Quatrocentos e quarenta e nove e noventa dividido por mil seiscentos e vinte e um dá vinte e sete vírgula setenta e cinco por cento. Mais de um quarto de um salário mínimo inteiro, num único produto."
+    },
+    {
+      "layout": "item",
+      "kicker": "Traduzindo",
+      "preco": "mais de uma semana",
+      "nar": "Traduzindo para o calendário: mais de uma semana de trabalho de quem ganha o mínimo, para levar um jogo."
+    },
+    {
+      "layout": "item",
+      "kicker": "E a edição maior",
+      "preco": "trinta e três por cento",
+      "nar": "A edição Ultimate custa quinhentos e quarenta e nove reais e noventa centavos. Isso é trinta e três vírgula noventa e um por cento do salário mínimo — um terço do mês."
+    },
+    {
+      "layout": "item",
+      "kicker": "Para dimensionar",
+      "preco": "quatro dias de comida",
+      "nar": "Para dimensionar: mais de um quarto do salário é a fatia que muita família reserva para o mês inteiro de mercado, ou para o aluguel de uma quitinete em cidade pequena."
+    },
+    {
+      "layout": "item",
+      "kicker": "A comparação que não fiz",
+      "preco": "não é sobre prioridade",
+      "nar": "E não estou dizendo que jogo não vale isso. Estou dizendo qual é o tamanho da decisão, que é diferente de dizer se ela é certa."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E ISSO É SÓ O JOGO",
+      "sub": "o console é outra conta",
+      "nar": "E repare que estamos falando só do jogo. O aparelho que roda o jogo é uma conta separada, e bem maior.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "SEGUNDA CONTA",
+      "sub": "em horas de trabalho",
+      "nar": "Segunda conta, e é ela que dá a dimensão real. Vamos converter o preço em horas.",
+      "cap": "O preço em horas"
+    },
+    {
+      "layout": "item",
+      "kicker": "A jornada padrão",
+      "preco": "duzentas e vinte horas",
+      "nar": "A base de cálculo da carteira assinada no Brasil é de duzentas e vinte horas por mês. É o divisor que aparece no seu contracheque."
+    },
+    {
+      "layout": "item",
+      "kicker": "O valor da hora",
+      "preco": "sete reais e trinta e sete",
+      "nar": "Divida o mínimo pela jornada. O resultado é sete reais e trinta e sete centavos por hora, antes de qualquer desconto."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Horas de trabalho por edição",
+      "itens": [
+        "edição padrão",
+        "edição Ultimate"
+      ],
+      "alturas": [
+        61,
+        75
+      ],
+      "nar": "Agora divida. A edição padrão custa sessenta e uma horas de trabalho. A Ultimate custa setenta e cinco horas."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que são sessenta e uma horas",
+      "preco": "uma semana e meia",
+      "nar": "Sessenta e uma horas são mais de sete dias de expediente completo. Uma semana e meia de trabalho, sem contar desconto nenhum."
+    },
+    {
+      "layout": "item",
+      "kicker": "Se você ganha o dobro",
+      "preco": "trinta horas",
+      "nar": "Se você ganha o dobro do mínimo, a conta cai pela metade: cerca de trinta horas. Ainda são quase quatro dias de trabalho."
+    },
+    {
+      "layout": "item",
+      "kicker": "Se você ganha cinco mínimos",
+      "preco": "doze horas",
+      "nar": "Com cinco salários mínimos, caem para cerca de doze horas. É por isso que o mesmo preço não é o mesmo preço para duas pessoas."
+    },
+    {
+      "layout": "barras",
+      "kicker": "O mesmo jogo, três salários",
+      "itens": [
+        "um mínimo",
+        "dois mínimos",
+        "cinco mínimos"
+      ],
+      "alturas": [
+        61,
+        30,
+        12
+      ],
+      "nar": "Olhe as três barras. O preço na loja não mudou nenhuma vez. O que mudou foi quem está pagando."
+    },
+    {
+      "layout": "item",
+      "kicker": "Antes ou depois dos descontos",
+      "preco": "isso é antes",
+      "nar": "E esse número é otimista de propósito. Ele usa o salário bruto. Com os descontos, as horas necessárias aumentam."
+    },
+    {
+      "layout": "item",
+      "kicker": "O console entra na conta",
+      "preco": "e é maior",
+      "nar": "E vale abrir esse parênteses. O aparelho custa vários jogos, e ele vem antes do primeiro. Quem está entrando na geração agora soma as duas contas."
+    },
+    {
+      "layout": "item",
+      "kicker": "O jogo é o gasto recorrente",
+      "preco": "o console é uma vez",
+      "nar": "A diferença é que o console você compra uma vez por geração, e o jogo você compra várias vezes por ano. É o gasto que se repete que decide o orçamento."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TERCEIRA CONTA",
+      "sub": "o mesmo jogo lá fora",
+      "nar": "Terceira conta, e aqui aparece o número que mais incomoda. O mesmo arquivo, o mesmo download, nos Estados Unidos.",
+      "cap": "O mesmo jogo lá fora"
+    },
+    {
+      "layout": "item",
+      "kicker": "O preço lá",
+      "preco": "setenta e nove dólares",
+      "nar": "Lá a edição padrão sai por setenta e nove dólares e noventa e nove centavos. É o mesmo produto, entregue pela mesma loja digital."
+    },
+    {
+      "layout": "item",
+      "kicker": "O piso salarial de lá",
+      "preco": "sete dólares e vinte e cinco",
+      "nar": "O piso salarial federal americano é de sete dólares e vinte e cinco centavos por hora, e está parado nesse valor há muitos anos."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Horas de trabalho no piso salarial",
+      "itens": [
+        "Estados Unidos",
+        "Brasil"
+      ],
+      "alturas": [
+        11,
+        61
+      ],
+      "nar": "Onze horas de trabalho no piso americano. Sessenta e uma no piso brasileiro. O mesmo arquivo digital."
+    },
+    {
+      "layout": "item",
+      "kicker": "A razão entre as duas",
+      "preco": "cinco vezes e meia",
+      "nar": "A diferença é de cinco vezes e meia. Não em reais, não em dólares: em horas da própria vida de quem compra."
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma ressalva honesta",
+      "preco": "o piso não é o salário médio",
+      "nar": "Uma ressalva antes de seguir: o piso salarial não é o salário médio, nem lá nem aqui. Ele é o chão, e serve para comparar chão com chão."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que uso o piso",
+      "preco": "é o número comparável",
+      "nar": "Uso o piso porque ele é definido por lei nos dois países, e por isso é comparável. Salário médio muda de metodologia de um país para outro."
+    },
+    {
+      "layout": "item",
+      "kicker": "Se usar o salário médio",
+      "preco": "a distância diminui",
+      "nar": "Se você refizer a conta com o salário médio dos dois países, a distância diminui — mas não desaparece."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O PONTO DO VÍDEO",
+      "sub": "o preço é global, o salário não",
+      "nar": "E esse é o ponto do vídeo inteiro. O preço de um produto digital é praticamente global. O salário que paga por ele não é.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Onde entra o imposto",
+      "preco": "parte da diferença",
+      "nar": "Parte da diferença é tributo. Software e serviço digital são tributados de forma diferente em cada país, e o Brasil está no lado mais pesado dessa comparação."
+    },
+    {
+      "layout": "item",
+      "kicker": "Mas não é tudo imposto",
+      "preco": "há decisão de preço",
+      "nar": "Só que tributo não fecha os cinco vezes e meia sozinho. O resto é decisão de quanto o mercado local aguenta pagar."
+    },
+    {
+      "layout": "item",
+      "kicker": "Como saber qual é qual",
+      "preco": "olhe outros países",
+      "nar": "Dá para separar os dois olhando países com tributação parecida e salário diferente. Quando o preço acompanha o salário, é decisão comercial."
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que isso importa agora",
+      "preco": "digital não tem frete",
+      "nar": "Isso ficou mais visível com o digital. Não há frete, não há estoque, não há caixa para fabricar. O que resta na diferença de preço é decisão comercial e imposto."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O QUE MUDOU",
+      "sub": "e o que não mudou",
+      "nar": "Agora a parte que costuma ser contada errado: o que de fato mudou nessa conta.",
+      "cap": "O que mudou de verdade"
+    },
+    {
+      "layout": "item",
+      "kicker": "O que subiu",
+      "preco": "o preço nominal",
+      "nar": "O preço nominal dos jogos subiu, e subiu bastante. Isso é fato e ninguém discute."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que também subiu",
+      "preco": "o custo de produzir",
+      "nar": "O custo de produzir também subiu. Equipes maiores, ciclos mais longos, marketing mais caro. Isso explica parte da alta."
+    },
+    {
+      "layout": "item",
+      "kicker": "Um dado do lado da indústria",
+      "preco": "a receita migrou",
+      "nar": "Do lado da indústria há um fato que ajuda a entender: a receita dos grandes estúdios deixou de vir principalmente da venda de cópias."
+    },
+    {
+      "layout": "item",
+      "kicker": "De onde ela vem hoje",
+      "preco": "do que vem depois",
+      "nar": "Ela vem cada vez mais do que acontece depois da compra — passes, itens, temporadas. O preço de entrada virou uma parte do modelo, não o modelo inteiro."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que a alta NÃO explica sozinha",
+      "itens": [
+        "a diferença entre países",
+        "o preço da edição maior",
+        "o que veio junto"
+      ],
+      "nar": "Mas o custo de produção não explica três coisas. Não explica a diferença entre países, porque o custo é o mesmo. Não explica o salto da edição maior. E não explica o que passou a vir junto do jogo."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que passou a vir junto",
+      "preco": "compras dentro do jogo",
+      "nar": "Porque o preço de entrada subiu ao mesmo tempo em que as compras dentro do jogo se tornaram comuns. Antes, o preço cheio comprava o jogo inteiro."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A CONTA COMPLETA",
+      "sub": "entrada mais o resto",
+      "nar": "Então a conta honesta de hoje não é o preço de entrada. É o preço de entrada mais o que vem depois — e essa segunda parte não aparece em nenhuma etiqueta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Um efeito colateral",
+      "preco": "a pirataria e o mercado cinza",
+      "nar": "Essa distância tem um efeito colateral conhecido: quanto maior ela é, mais gente procura chave de região, conta estrangeira e caminho irregular."
+    },
+    {
+      "layout": "item",
+      "kicker": "Não é recomendação",
+      "preco": "é descrição",
+      "nar": "Não estou recomendando nada disso, e boa parte fere os termos de uso. Estou descrevendo o que acontece quando o preço se descola do salário."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O QUE FAZER",
+      "sub": "com essa conta",
+      "nar": "Tudo isso serve para alguma coisa prática. Três usos.",
+      "cap": "O que fazer com a conta"
+    },
+    {
+      "layout": "item",
+      "kicker": "Uso um",
+      "preco": "converta antes de comprar",
+      "nar": "Primeiro: antes de comprar qualquer jogo, divida o preço pelo valor da sua hora. Não pelo salário do mínimo — pelo seu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Como achar sua hora",
+      "preco": "salário dividido por jornada",
+      "nar": "Sua hora é o seu salário mensal dividido pela sua jornada mensal. Se você trabalha as duzentas e vinte horas padrão, é só dividir por duzentos e vinte."
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma regra prática",
+      "preco": "compare com o seu mês",
+      "nar": "Uma regra prática que eu uso: se o preço passar de dez por cento do meu salário mensal, eu espero. Não porque seja errado, mas porque a espera quase sempre derruba esse número."
+    },
+    {
+      "layout": "item",
+      "kicker": "Uso dois",
+      "preco": "espere o preço cair",
+      "nar": "Segundo: o preço de lançamento é o preço mais alto que aquele jogo vai ter. Ele cai, e cai bastante, e a espera não custa nada além de paciência."
+    },
+    {
+      "layout": "item",
+      "kicker": "Quanto costuma cair",
+      "preco": "muito, e rápido",
+      "nar": "Jogos grandes costumam ter a primeira queda relevante de preço em poucos meses, e promoções fortes no primeiro ano. Ninguém precisa te avisar: basta esperar."
+    },
+    {
+      "layout": "item",
+      "kicker": "O custo de esperar",
+      "preco": "spoiler e conversa",
+      "nar": "O custo de esperar não é dinheiro, é social. Você perde a conversa do lançamento. Isso tem valor real, e cada um mede o seu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Uso três",
+      "preco": "conte o que vem depois",
+      "nar": "Terceiro: some o que você costuma gastar dentro do jogo ao longo de um ano. Esse número costuma surpreender mais que o preço de entrada."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Três perguntas antes de comprar",
+      "itens": [
+        "quantas horas isso custa",
+        "quanto cai em seis meses",
+        "quanto gasto dentro dele"
+      ],
+      "nar": "Três perguntas, então. Quantas horas do meu trabalho isso custa. Quanto esse preço cai em seis meses. E quanto eu costumo gastar dentro do jogo depois de comprar."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Onde achar o preço real",
+      "itens": [
+        "a loja do console",
+        "os comparadores de preço",
+        "o histórico de promoções"
+      ],
+      "nar": "E para fazer a conta com dado atual: o preço oficial está na loja do console, os comparadores mostram o varejo, e o histórico de promoções mostra quanto aquele jogo já caiu antes."
+    },
+    {
+      "layout": "item",
+      "kicker": "O histórico é o mais útil",
+      "preco": "ele mostra o padrão",
+      "nar": "O histórico é o mais útil dos três, porque revela o padrão daquela publicadora. Algumas derrubam o preço rápido, outras seguram por anos."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O NÚMERO PARA GUARDAR",
+      "sub": "sessenta e uma horas",
+      "nar": "Se você guardar um número deste vídeo, guarde este: sessenta e uma horas.",
+      "cap": "O número para guardar"
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que esse",
+      "preco": "é o preço em vida",
+      "nar": "Porque ele não está em reais, e por isso não muda com a inflação nem com o câmbio. Ele está na única moeda que não dá para imprimir."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que ele não é",
+      "preco": "não é julgamento",
+      "nar": "E ele não é um julgamento. Sessenta e uma horas pode valer muito a pena para você, e não valer nada para outra pessoa. Quem decide é quem trabalhou as horas."
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma alternativa que existe",
+      "preco": "assinatura",
+      "nar": "Existe ainda um caminho do meio que a conta favorece: as assinaturas mensais de catálogo. Elas trocam um pagamento grande por um pequeno e recorrente."
+    },
+    {
+      "layout": "item",
+      "kicker": "Como medir a assinatura",
+      "preco": "em horas por mês",
+      "nar": "E a conta é a mesma: divida a mensalidade pelo valor da sua hora. Se der menos de uma hora por mês, a decisão é bem diferente. Compare com o pagamento único lá do começo."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que a assinatura não dá",
+      "preco": "posse",
+      "nar": "O que ela não dá é posse. O jogo sai do catálogo e você fica sem ele. É aluguel, e aluguel tem vantagem e tem desvantagem."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O QUE MUDA",
+      "sub": "saber antes, não depois",
+      "nar": "O que muda é saber o número antes de clicar em comprar, e não depois de olhar a fatura.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "NÍVEL DO JOGO",
+      "sub": "faça a conta com o seu salário",
+      "nar": "Faça essa conta com o seu próprio salário e escreve nos comentários quantas horas deu. Se esse tipo de conta te interessa, se inscreve no canal.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "SESSENTA E UMA HORAS",
+      "sub": "é o preço real do jogo",
+      "nar": "Sessenta e uma horas de trabalho. Esse é o preço do jogo mais esperado de dois mil e vinte e seis."
+    },
+    {
+      "layout": "item",
+      "kicker": "O preço na loja",
+      "preco": "quatrocentos e quarenta e nove",
+      "nar": "Quatrocentos e quarenta e nove reais e noventa centavos no Brasil."
+    },
+    {
+      "layout": "item",
+      "kicker": "O salário mínimo",
+      "preco": "mil seiscentos e vinte e um",
+      "nar": "O mínimo de dois mil e vinte e seis é mil seiscentos e vinte e um reais. A hora sai por sete e trinta e sete."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Horas no piso salarial",
+      "itens": [
+        "Estados Unidos",
+        "Brasil"
+      ],
+      "alturas": [
+        11,
+        61
+      ],
+      "nar": "Nos Estados Unidos, onze horas. No Brasil, sessenta e uma. O mesmo arquivo digital."
+    },
+    {
+      "layout": "item",
+      "kicker": "A diferença",
+      "preco": "cinco vezes e meia",
+      "nar": "Cinco vezes e meia, medida em horas da própria vida."
+    },
+    {
+      "layout": "cta",
+      "kicker": "A CONTA INTEIRA",
+      "sub": "está no vídeo longo",
+      "nar": "A conta inteira, com as fontes, está no vídeo longo aqui do canal."
+    }
+  ],
+  "copy": "# O preço dos jogos medido em horas de trabalho\n\n## TÍTULO\nPreço dos Jogos em 2026: Quantas Horas de Trabalho Custa GTA 6\n\n## DESCRIÇÃO\nQuatrocentos e quarenta e nove reais e noventa centavos. Esse é o preço da\nedição padrão do jogo mais esperado de 2026 no Brasil. A pergunta que quase\nninguém faz não é se está caro — caro é opinião. É quantas horas do seu trabalho\nesse número representa.\n\nOs números usados neste vídeo, todos confirmados em mais de uma fonte:\n\n• GTA 6 edição padrão: R$ 449,90 no Brasil e US$ 79,99 nos Estados Unidos. A\nedição Ultimate sai por R$ 549,90 e US$ 99,99. Lançamento em 19 de novembro de\n2026.\n\n• Salário mínimo brasileiro em 2026: R$ 1.621,00, com reajuste de 6,79%,\ndefinido por decreto.\n\n• Jornada mensal de referência da CLT: 220 horas. Isso põe a hora do salário\nmínimo em R$ 7,37 antes de qualquer desconto.\n\nAs contas que saem daí:\n\n• O jogo custa 27,75% de um salário mínimo mensal. A edição Ultimate custa\n33,92% — um terço do mês.\n\n• Em horas: 61 horas de trabalho para a edição padrão, 75 para a Ultimate. São\nmais de sete dias de expediente completo, usando o salário bruto.\n\n• Nos Estados Unidos, com o piso federal de US$ 7,25 por hora, o mesmo jogo\ncusta cerca de 11 horas. A diferença é de cinco vezes e meia — não em moeda, mas\nem horas da vida de quem compra.\n\nO ponto do vídeo é esse: o preço de um produto digital é praticamente global, e\no salário que paga por ele não é. Sem frete, sem estoque e sem caixa para\nfabricar, o que resta na diferença entre países é decisão comercial e imposto.\n\nO vídeo também separa o que a alta de custo de produção explica do que ela não\nexplica: ela não explica a diferença entre países, porque o custo é o mesmo; não\nexplica o salto da edição maior; e não explica o preço de entrada ter subido ao\nmesmo tempo em que as compras dentro do jogo se tornaram comuns.\n\nNo fim ficam três perguntas para antes de comprar: quantas horas do meu trabalho\nisso custa, quanto esse preço cai em seis meses, e quanto eu costumo gastar\ndentro do jogo depois de comprar.\n\nIsto não é recomendação de compra nem crítica a quem compra. É a conta, com as\nfontes na mesa.\n\nSe esse tipo de conta te interessa, se inscreve no canal.\n\n## CAPÍTULOS\n{CAPITULOS}\n\n## COMENTÁRIO FIXADO\nFaça a conta com o SEU salário: pegue seu salário mensal, divida pela sua jornada\nmensal (220h se for a padrão da CLT) e divida o preço do jogo pelo resultado.\nEscreve nos comentários quantas horas deu. No mínimo de 2026 dá 61 horas.\n\n## HASHTAGS\n#games #economia #gta6\n\n## TAGS\npreco dos jogos, GTA 6, GTA 6 preco Brasil, salario minimo 2026, economia dos games, quantas horas de trabalho, poder de compra, jogos caros, industria dos games, preco digital, Brasil x Estados Unidos, custo de vida, PS5, Xbox, financas pessoais\n\n## CONFIGURAÇÕES DO STUDIO\nCategoria 27 (Educação). Idioma português do Brasil, faixa de áudio pt-BR. Não é\npara crianças. Contém conteúdo sintético — declarado na publicação. Legendas a\npartir do arquivo SRT.\n\n## MÚSICA / LICENÇA\nInspired — YouTube Audio Library, sem obrigação de atribuição. Nível de menos\nvinte e oito decibéis em relação à narração.\n\n## FONTES\nPreço do GTA 6 no Brasil e nos EUA: Tecnoblog, O Tempo, Omelete, Pichau Arena,\nGamers&Games e GameVicio. Salário mínimo 2026: Decreto 12.797 (planalto.gov.br),\nAgência Brasil e tabela histórica da Contabeis. Piso federal americano: US\nDepartment of Labor.\n",
+  "tags": [
+    "preco dos jogos",
+    "GTA 6",
+    "GTA 6 preco Brasil",
+    "salario minimo 2026",
+    "economia dos games",
+    "quantas horas de trabalho",
+    "poder de compra",
+    "jogos caros",
+    "industria dos games",
+    "preco digital",
+    "Brasil x Estados Unidos",
+    "custo de vida",
+    "PS5",
+    "Xbox",
+    "financas pessoais"
+  ],
+  "fonte_pauta": "osn4DtAc5fY"
+}
