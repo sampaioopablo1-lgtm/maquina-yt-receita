@@ -138,8 +138,9 @@ LONGO = [
       "Imagine duas pessoas que perderam os mesmos dez quilos. Na primeira, oito "
       "eram gordura e dois eram músculo. Na segunda, seis eram gordura e quatro "
       "eram músculo. A balança conta a mesma história para as duas."),
-    b("Mesma perda, composição diferente",
-      ["oito de gordura", "seis de gordura"], [80, 60],
+    li("Mesma perda, composição diferente",
+       ["oito quilos de gordura, dois de músculo",
+        "seis quilos de gordura, quatro de músculo"],
       "Mas o corpo das duas não é o mesmo no fim. E o que vai acontecer com cada "
       "uma nos meses seguintes também não vai ser o mesmo.",
       sem_cap=True),
@@ -173,9 +174,10 @@ LONGO = [
     i("O que aconteceu com o músculo", "queda de cerca de dez por cento",
       "A massa magra também caiu. Cerca de dez por cento. E é aqui que a conta "
       "começa a ficar interessante."),
-    b("Da perda total, o que era músculo",
-      ["gordura", "massa magra"], [60, 40],
-      "Quando se olha o peso perdido como um todo, cerca de quarenta por cento "
+    li("Da perda total, o que era músculo",
+       ["gordura: cerca de sessenta por cento",
+        "massa magra: cerca de quarenta por cento"],
+       "Quando se olha o peso perdido como um todo, cerca de quarenta por cento "
       "dele saiu como massa magra. Quatro de cada dez quilos que sumiram da "
       "balança não eram gordura.",
       sem_cap=True),
@@ -198,9 +200,10 @@ LONGO = [
       "E a massa magra caiu dez vírgula nove por cento. Um número parecido com o "
       "da semaglutida em queda absoluta, mas com um peso total bem maior "
       "embaixo."),
-    b("Da perda total, o que era músculo",
-      ["gordura", "massa magra"], [75, 25],
-      "Resultado: cerca de vinte e cinco por cento do peso perdido era massa "
+    li("Da perda total, o que era músculo",
+       ["gordura: cerca de setenta e cinco por cento",
+        "massa magra: cerca de vinte e cinco por cento"],
+       "Resultado: cerca de vinte e cinco por cento do peso perdido era massa "
       "magra. Um quarto, e não quatro décimos.",
       sem_cap=True),
     t("A DIFERENÇA", "vinte e cinco contra quarenta",
@@ -240,8 +243,9 @@ LONGO = [
     i("A divisão do grupo", "continuar ou parar",
       "Aí o grupo foi dividido. Metade continuou com o tratamento. A outra "
       "metade passou a receber placebo, ou seja, na prática parou."),
-    b("Cinquenta e duas semanas depois",
-      ["quem continuou", "quem parou"], [82, 30],
+    li("Cinquenta e duas semanas depois",
+       ["quem continuou manteve a perda",
+        "quem parou reganhou catorze pontos"],
       "Cinquenta e duas semanas depois, quem parou tinha reganhado catorze "
       "pontos percentuais de peso. Sobrou cerca de dez por cento de perda em "
       "relação ao ponto de partida.",
