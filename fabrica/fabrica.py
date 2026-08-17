@@ -435,16 +435,17 @@ def montar(spec_file):
             # O longo entra em camadas (base + um png por elemento). O short
             # nao: sao 30s com legenda queimada, e ali a entrada escalonada
             # rouba tempo de leitura em vez de dar ritmo.
+            FW, FH = W, H
             if pref == "l":
                 cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H, camada='base').encode(),
-                                 write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
+                                 write_to=f"{d}/{pref}{i:02d}.png", output_width=FW, output_height=FH)
                 for k in range(elementos(c)):
                     cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H, camada=k).encode(),
                                      write_to=f"{d}/{pref}{i:02d}_{k}.png",
-                                     output_width=W, output_height=H)
+                                     output_width=FW, output_height=FH)
             else:
                 cairosvg.svg2png(bytestring=svg_cena(c, pal, W, H).encode(),
-                                 write_to=f"{d}/{pref}{i:02d}.png", output_width=W, output_height=H)
+                                 write_to=f"{d}/{pref}{i:02d}.png", output_width=FW, output_height=FH)
         asyncio.run(vozes(cenas, voz, pref, d))
     cairosvg.svg2png(bytestring=svg_thumb(sp["thumb"], pal).encode(),
                      write_to=f"{d}/thumbnail.png",
@@ -488,9 +489,33 @@ def trilha_ok(f):
         return False
 
 
-# Escala de render: o sandbox tem ~1GB de RAM e o zoompan e o maior consumidor.
-# Renderiza menor, entrega em HD (upscale no concat, passe unico).
-ESCALA_RENDER = 0.75
+# Escala de render. Era 0,75 para caber no sandbox de ~1GB, e o concat fazia
+# upscale de 960x540 para 1280x720 — texto fino ampliado, borrado de saida. O
+# render vive no Actions desde 15/08 e la ha 7GB, entao nao ha mais motivo.
+ESCALA_RENDER = 1.0
+
+# Quantas vezes o quadro e AMPLIADO logo antes do zoompan.
+#
+# ISTO E O CONSERTO DO TREMOR. O `zoompan` avalia x e y por quadro e ARREDONDA
+# PARA PIXEL INTEIRO. Com AMP_ZOOM 0,12 e AMP_PAN 0,5 o pan anda de 0,13 a 0,53
+# px por quadro sobre um quadro de 1280 — menos de um pixel. A imagem fica
+# parada de dois a oito quadros e entao salta 1px de uma vez. E isso que se ve
+# como imagem tremendo. Ampliando antes, 1px de arredondamento vale meio pixel
+# na saida, e o movimento passa a ser continuo.
+#
+# MEDIDO em 17/08/2026 sobre uma cena `lista` de quatro itens com camadas,
+# quarenta quadros, contando os que ficam praticamente identicos ao anterior:
+#
+#     variante                              travados   desvio   custo/clipe
+#     hoje: overlay 1x -> 960x540            8 de 39    0,476       9,3 s
+#     ampliar 2x antes do zoompan            0 de 39    0,274      15,3 s
+#     rasterizar tudo em 2x                  0 de 39    0,286      29,9 s
+#
+# Ampliar no filtro da o MESMO resultado que rasterizar em 2x pela metade do
+# custo: o que importa para o arredondamento e a resolucao que o zoompan ve, e
+# nao de onde ela veio. Rasterizar em 2x custa caro porque os overlays das
+# camadas passam a rodar todos em 2560x1440.
+SUAVIZA = 2
 # Amplitude do Ken Burns por cena (7% = perceptivel sem cortar a arte).
 AMP_ZOOM = 0.12
 # Fracao da margem disponivel que o pan percorre. 1.0 encostaria na borda e
@@ -609,7 +634,8 @@ def render(spec_file):
             # x/y ficavam presos no centro, entao o movimento era zoom puro de
             # 7% em ~10s — imperceptivel, o video lia como imagem parada. Agora
             # ha deslocamento de verdade, em 4 direcoes alternadas.
-            vf = (f"zoompan=z='{z}':d={nf}"
+            vf = (f"scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
+                  f"zoompan=z='{z}':d={nf}"
                   f":x='(iw-iw/zoom)*({fx})':y='(ih-ih/zoom)*({fy})'"
                   f":s={RW}x{RH}:fps=30")
             # Legenda queimada so no short. No longo ela rouba area util e
@@ -693,7 +719,8 @@ def filtro_camadas(n, dd, i_cena, nf, RW, RH):
     """
     z, fx, fy = ken_burns(i_cena, nf)
     if n == 0:
-        return (f"[0:v]zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
+        return (f"[0:v]scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
+                f"zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
                 f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
     partes, atual = [], "0:v"
     for k, t0 in enumerate(tempos_entrada(n, dd)):
@@ -701,7 +728,11 @@ def filtro_camadas(n, dd, i_cena, nf, RW, RH):
         y = f"{DESLIZE}*max(0\\,1-(t-{t0:.2f})/{ENTRADA})"
         partes.append(f"[{atual}][a{k}]overlay=x=0:y='{y}':format=auto[o{k}]")
         atual = f"o{k}"
-    partes.append(f"[{atual}]zoompan=z='{z}':d=1:x='(iw-iw/zoom)*({fx})'"
+    # A ampliacao vem DEPOIS dos overlays de proposito: ampliar antes faria
+    # cada camada compor em 2560x1440 e dobraria o custo sem ganho — o que o
+    # zoompan precisa e so da resolucao que ELE ve.
+    partes.append(f"[{atual}]scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
+                  f"zoompan=z='{z}':d=1:x='(iw-iw/zoom)*({fx})'"
                   f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
     return ";".join(partes)
 
@@ -729,7 +760,8 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
                  "-map", "[v]", "-map", f"{n_cam+1}:a"]
     else:
         z, fx, fy = ken_burns(i, nf)
-        vf = (f"zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
+        vf = (f"scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
+              f"zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
               f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30")
         if pref == "s":
             vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{est or EST}'"
