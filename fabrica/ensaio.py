@@ -98,8 +98,20 @@ MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
     # total. Serve de aviso: conferir so a taxa de chars/s deixa passar uma voz
     # cuja pausa entre frases e que estoura o roteiro.
     "pt-BR-FranciscaNeural":          (16.92, 1.036),   # n=76
-    # --- ainda de laboratorio, provavelmente otimistas ---
-    "pl-PL-MarekNeural":              (23.58, 1.428),   # n=8, ensaio 17/08
+    # Decima primeira, 17/08/2026, do .srt do kolejny-poziom-004 ja publicado.
+    # Este e o caso mais claro de que ENSAIO NAO SERVE. No mesmo dia eu medi a
+    # voz com oito amostras sinteticas e achei R=23,58 e P=1,428; aquele ajuste
+    # previa as PROPRIAS amostras com 0,6% de erro e errou 12,3% no roteiro de
+    # verdade. A taxa real e quinze por cento mais lenta que a do ensaio.
+    #
+    # O motivo e sempre o mesmo: a bateria de ensaio nao tem a distribuicao de
+    # frases de um roteiro — nem os numeros por extenso, que sao longos e
+    # frequentes nestes canais e derrubam a taxa.
+    "pl-PL-MarekNeural":              (19.93, 1.477),   # n=74
+    # --- ainda de laboratorio, provavelmente otimista ---
+    # Nao dimensione roteiro grego mirando o piso da faixa: os dois casos
+    # medidos ate agora (Marek e Francisca) mostraram o laboratorio otimista em
+    # 12 a 16%. Mire o meio-alto e recalibre no primeiro .srt de producao.
     "el-GR-NestorasNeural":           (25.37, 1.315),
 }
 
