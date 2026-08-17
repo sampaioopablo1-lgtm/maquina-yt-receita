@@ -1,0 +1,651 @@
+{
+  "slug": "setiap-level",
+  "pacote": "setiap-level-007",
+  "voz": "id-ID-ArdiNeural",
+  "idioma": "id",
+  "trilha": "Wholesome",
+  "paleta": {
+    "bg": "#FFF8F0",
+    "c1": "#0B6E4F",
+    "c2": "#F2A104",
+    "ink": "#1B2021"
+  },
+  "thumb": {
+    "l1": "63 JUTA",
+    "l2": "BERTAHAN BERAPA LAMA?"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "SURAT ITU DATANG",
+      "sub": "dan rekeningmu tiba-tiba penuh",
+      "nar": "Surat PHK datang hari Senin. Hari Jumat rekeningmu penuh — angka paling besar yang pernah kamu lihat di sana. Dan justru di situ letak bahayanya.",
+      "cap": "Amplop yang terasa banyak"
+    },
+    {
+      "layout": "item",
+      "kicker": "Berapa orang seperti kamu",
+      "preco": "empat puluh tiga ribu",
+      "nar": "Kamu tidak sendirian. Kementerian Ketenagakerjaan mencatat empat puluh tiga ribu delapan ratus lima orang terkena PHK sepanjang Januari sampai Juli dua ribu dua puluh enam."
+    },
+    {
+      "layout": "item",
+      "kicker": "Provinsi terbanyak",
+      "preco": "Jawa Barat",
+      "nar": "Jawa Barat menyumbang angka terbesar, delapan ribu delapan ratus tiga puluh orang. Ini bukan kasus langka yang menimpa orang lain."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "PERTANYAAN VIDEO INI",
+      "sub": "berapa lama uang itu bertahan",
+      "nar": "Pertanyaannya bukan berapa besar uang yang kamu terima. Pertanyaannya berapa lama uang itu bertahan, dan apa yang menentukan lamanya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Yang akan kita hitung",
+      "itens": [
+        "berapa hakmu",
+        "berapa lama bertahan",
+        "empat langkah pertama"
+      ],
+      "nar": "Kita hitung tiga hal. Berapa sebenarnya hakmu menurut aturan. Berapa lama uang itu bertahan dengan pengeluaranmu yang sekarang. Dan empat langkah di tiga puluh hari pertama yang mengubah hitungan itu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Aturan mainnya",
+      "preco": "angka, bukan semangat",
+      "nar": "Tidak ada kalimat penyemangat di video ini. Hanya angka, sumbernya, dan apa yang bisa kamu lakukan dengan angka itu."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "HAKMU ADA TIGA",
+      "sub": "bukan satu angka",
+      "nar": "Kesalahan pertama dimulai lebih awal dari yang kamu kira: menganggap pesangon itu satu angka. Menurut aturan, hakmu terdiri dari tiga komponen.",
+      "cap": "Tiga amplop, bukan satu"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tiga komponen itu",
+      "itens": [
+        "uang pesangon",
+        "penghargaan masa kerja",
+        "penggantian hak"
+      ],
+      "nar": "Uang pesangon, disingkat U P. Uang penghargaan masa kerja, U P M K. Dan uang penggantian hak, U P H. Tiga pos berbeda, dengan cara hitung yang berbeda pula."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dasar hukumnya",
+      "preco": "Peraturan Pemerintah tiga lima",
+      "nar": "Dasarnya Peraturan Pemerintah nomor tiga puluh lima tahun dua ribu dua puluh satu, turunan dari Undang-Undang Cipta Kerja. Ini bukan kebijakan internal perusahaanmu."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Uang pesangon menurut masa kerja",
+      "itens": [
+        "satu tahun",
+        "empat tahun",
+        "delapan tahun ke atas"
+      ],
+      "alturas": [
+        2,
+        5,
+        9
+      ],
+      "nar": "Besarnya naik menurut masa kerja. Satu tahun memberi dua bulan upah. Empat tahun memberi lima bulan. Delapan tahun atau lebih memberi sembilan bulan upah, dan di situ tabelnya berhenti naik."
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang sering dilupakan",
+      "preco": "pengali",
+      "nar": "Ada satu hal yang sering hilang dalam pembicaraan. Angka di tabel itu masih dikalikan faktor pengali, dan pengalinya tergantung ALASAN PHK-nya — efisiensi, penggabungan usaha, atau pelanggaran berat."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa itu penting",
+      "preco": "selisihnya besar",
+      "nar": "Selisihnya bukan receh. Alasan yang tertulis di surat PHK-mu bisa menggandakan atau memotong separuh angka akhirnya."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Faktor pengali menurut alasan",
+      "itens": [
+        "pelanggaran berat",
+        "efisiensi perusahaan",
+        "perusahaan tutup rugi"
+      ],
+      "alturas": [
+        5,
+        10,
+        10
+      ],
+      "nar": "Contohnya begini. PHK karena efisiensi memakai pengali penuh. PHK karena pelanggaran berat bisa memakai setengah. Dua orang dengan masa kerja sama bisa pulang dengan angka yang berbeda jauh."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "KOMPONEN KEDUA",
+      "sub": "uang penghargaan masa kerja",
+      "nar": "Komponen kedua, U P M K, punya tabel sendiri dan mulai dihitung dari masa kerja tiga tahun — bukan dari satu tahun seperti pesangon.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bagaimana naiknya",
+      "preco": "lebih landai",
+      "nar": "Kenaikannya lebih landai daripada pesangon, tapi tetap bertambah sepanjang masa kerjamu. Untuk masa kerja panjang, ini bukan angka kecil."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "KOMPONEN KETIGA",
+      "sub": "uang penggantian hak",
+      "nar": "Komponen ketiga, U P H, adalah yang paling sering hilang begitu saja karena tidak ada yang menagihnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Apa saja isinya",
+      "itens": [
+        "cuti tahunan yang belum diambil",
+        "biaya pulang ke tempat asal",
+        "hal lain di perjanjian kerja"
+      ],
+      "nar": "Isinya cuti tahunan yang belum kamu ambil, biaya pulang ke tempat asal kalau kamu direkrut dari kota lain, dan hal-hal lain yang tertulis di perjanjian kerja atau peraturan perusahaan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa sering hilang",
+      "preco": "harus kamu sebut",
+      "nar": "Ini sering hilang karena tidak muncul otomatis di hitungan HRD. Kalau kamu tidak menyebutkannya, sering kali tidak dibayarkan."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "LANGKAH NOL",
+      "sub": "baca alasan di suratmu",
+      "nar": "Jadi sebelum menghitung apa pun, baca alasan yang tertulis di suratmu. Itu variabel terbesar dalam seluruh perhitungan ini.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "ADA UANG KEDUA",
+      "sub": "namanya JKP",
+      "nar": "Sekarang bagian yang paling sering terlewat: selain pesangon, ada uang kedua dari negara. Namanya Jaminan Kehilangan Pekerjaan, disingkat JKP.",
+      "cap": "Uang kedua yang terlewat"
+    },
+    {
+      "layout": "item",
+      "kicker": "Berapa besarnya",
+      "preco": "enam puluh persen",
+      "nar": "JKP memberi enam puluh persen dari upahmu, selama enam bulan penuh. Persentasenya rata setiap bulan, tidak turun di pertengahan seperti aturan yang lama."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dasar aturannya",
+      "preco": "Peraturan Pemerintah enam",
+      "nar": "Besaran ini datang dari Peraturan Pemerintah nomor enam tahun dua ribu dua puluh lima. Sebelumnya, tiga bulan terakhir dibayar lebih kecil."
+    },
+    {
+      "layout": "item",
+      "kicker": "Batas atasnya",
+      "preco": "lima juta rupiah",
+      "nar": "Ada batas atas. Upah yang dipakai menghitung dibatasi lima juta rupiah, jadi yang bergaji di atas itu tetap dihitung dari lima juta."
+    },
+    {
+      "layout": "barras",
+      "kicker": "JKP per bulan menurut upah",
+      "itens": [
+        "upah tiga juta",
+        "upah lima juta",
+        "upah sepuluh juta"
+      ],
+      "alturas": [
+        18,
+        30,
+        30
+      ],
+      "nar": "Artinya upah tiga juta memberi satu koma delapan juta per bulan. Upah lima juta memberi tiga juta. Dan upah sepuluh juta juga memberi tiga juta — bukan enam, karena batas atasnya berlaku."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Syarat yang harus dipenuhi",
+      "itens": [
+        "dua belas bulan iuran",
+        "dalam dua puluh empat bulan terakhir",
+        "PHK yang tercatat"
+      ],
+      "nar": "Syaratnya tiga. Sudah menjadi peserta minimal dua belas bulan. Dua belas bulan itu berada dalam dua puluh empat bulan terakhir. Dan PHK-mu tercatat resmi, dibuktikan dengan tanda terima laporan."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "BATAS WAKTUNYA",
+      "sub": "enam bulan",
+      "nar": "Dan ini yang membuat orang kehilangan haknya bukan karena tidak berhak: klaim JKP harus diajukan paling lambat enam bulan sejak tanggal PHK.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa banyak yang terlewat",
+      "preco": "menunggu terlalu lama",
+      "nar": "Banyak yang melewatkannya karena menunggu — menunggu tenang dulu, menunggu dapat kerja dulu. Enam bulan lewat lebih cepat dari yang kamu rasakan saat sedang mencari kerja."
+    },
+    {
+      "layout": "item",
+      "kicker": "Satu catatan jujur",
+      "preco": "angka ini contoh",
+      "nar": "Satu catatan jujur sebelum kita mulai. Angka ini contoh, bukan janji. Punyamu bergantung pada pengali dan pada komponen U P M K dan U P H yang tadi kita bahas."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "SEKARANG HITUNG",
+      "sub": "berapa lama uang itu bertahan",
+      "nar": "Sekarang kita gabungkan keduanya dan jawab pertanyaan judul. Berapa lama uang itu bertahan.",
+      "cap": "Berapa lama uang itu bertahan"
+    },
+    {
+      "layout": "item",
+      "kicker": "Contoh yang kita pakai",
+      "preco": "upah lima juta",
+      "nar": "Pakai satu contoh sepanjang video: upah lima juta rupiah, masa kerja delapan tahun, PHK karena efisiensi."
+    },
+    {
+      "layout": "item",
+      "kicker": "Pesangon sembilan bulan",
+      "preco": "empat puluh lima juta",
+      "nar": "Sembilan bulan upah memberi empat puluh lima juta rupiah, sebelum pengali dan sebelum komponen lain."
+    },
+    {
+      "layout": "item",
+      "kicker": "JKP enam bulan",
+      "preco": "delapan belas juta",
+      "nar": "JKP memberi tiga juta per bulan selama enam bulan, jadi delapan belas juta rupiah, dibayarkan bulanan dan bukan sekaligus."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Dua sumber, satu kolom",
+      "itens": [
+        "pesangon",
+        "JKP",
+        "total"
+      ],
+      "alturas": [
+        45,
+        18,
+        63
+      ],
+      "nar": "Digabung, uang yang lewat di tanganmu sekitar enam puluh tiga juta rupiah. Angka ini terasa seperti tabungan bertahun-tahun yang tiba-tiba muncul."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TAPI ITU BUKAN TABUNGAN",
+      "sub": "itu gaji yang dibayar di muka",
+      "nar": "Tapi itu bukan tabungan. Itu gaji beberapa bulan ke depan yang dibayar di muka, dan cara memperlakukannya menentukan segalanya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "Enam puluh tiga juta bertahan berapa lama",
+      "itens": [
+        "pengeluaran lima juta",
+        "pengeluaran empat juta",
+        "pengeluaran tiga juta"
+      ],
+      "alturas": [
+        12,
+        15,
+        21
+      ],
+      "nar": "Dengan pengeluaran lima juta sebulan, uang itu bertahan sekitar dua belas setengah bulan. Dengan empat juta, hampir enam belas bulan. Dengan tiga juta, dua puluh satu bulan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Selisih dua juta",
+      "preco": "delapan bulan lebih",
+      "nar": "Perhatikan selisihnya. Potong pengeluaranmu dari lima juta ke tiga. Waktumu bertambah lebih dari delapan bulan. Dan waktu adalah satu-satunya hal yang kamu butuhkan untuk mencari kerja tanpa panik."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "KENAPA BEDANYA BESAR",
+      "sub": "pembaginya, bukan uangnya",
+      "nar": "Perhatikan apa yang berubah di tiga hitungan itu. Uangnya sama persis. Yang berubah cuma pembaginya — dan pembagi itu satu-satunya angka yang masih kamu kendalikan setelah PHK.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang tidak kamu kendalikan",
+      "preco": "masa kerja dan alasan",
+      "nar": "Masa kerjamu sudah tertulis. Alasan PHK sudah tertulis. Upahmu sudah tertulis. Tiga dari empat variabel sudah terkunci sebelum kamu membaca suratnya."
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang kamu kendalikan",
+      "preco": "pengeluaran bulanmu",
+      "nar": "Yang keempat, pengeluaran bulananmu, masih bisa berubah bulan depan. Di situlah seluruh sisa video ini bekerja."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ini bukan soal hemat",
+      "preco": "ini soal waktu",
+      "nar": "Jadi memotong pengeluaran di sini bukan soal berhemat demi berhemat. Itu cara membeli bulan tambahan untuk menolak tawaran kerja yang buruk."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "SATU POTONGAN LAGI",
+      "sub": "pajak",
+      "nar": "Ada satu potongan yang belum masuk hitungan tadi, dan lebih baik kamu tahu sekarang daripada saat uangnya masuk: pesangon dikenai pajak penghasilan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bagaimana tarifnya",
+      "preco": "berlapis",
+      "nar": "Tarifnya berlapis dan khusus untuk pesangon, bukan tarif gaji biasa. Bagian pertama dari uangmu dikenai tarif nol persen, dan lapisan di atasnya bertarif lebih tinggi."
+    },
+    {
+      "layout": "item",
+      "kicker": "Artinya buat kamu",
+      "preco": "hitung yang bersih",
+      "nar": "Artinya angka yang masuk rekeningmu lebih kecil dari angka di surat. Pakai angka BERSIH untuk semua hitungan bulanmu, bukan angka kotor."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "JANGAN LUPA INI JUGA",
+      "sub": "BPJS Kesehatanmu",
+      "nar": "Dan satu hal yang tidak berhubungan dengan uang tunai, tapi bisa menghancurkan seluruh rencanamu: iuran BPJS Kesehatan yang selama ini dipotong dari gaji berhenti bersamaan dengan gajimu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa ini penting",
+      "preco": "satu sakit cukup",
+      "nar": "Satu kejadian sakit tanpa jaminan bisa menghapus seluruh sisa pesangonmu. Masukkan iuran mandiri ke daftar pengeluaran wajibmu sejak bulan pertama."
+    },
+    {
+      "layout": "item",
+      "kicker": "Berapa besarnya",
+      "preco": "kecil dibanding risikonya",
+      "nar": "Nilainya kecil dibandingkan angka-angka lain di video ini, dan justru karena kecil ia sering terlupa saat menyusun anggaran."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TIGA PULUH HARI PERTAMA",
+      "sub": "empat langkah",
+      "nar": "Sekarang bagian yang bisa kamu kerjakan besok. Empat langkah di tiga puluh hari pertama, berurutan.",
+      "cap": "Tiga puluh hari pertama"
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah satu",
+      "preco": "laporkan PHK-mu",
+      "nar": "Langkah pertama, dalam minggu pertama: laporkan PHK-mu dan ambil tanda terima laporannya. Tanpa dokumen ini, klaim JKP-mu tidak jalan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa ini nomor satu",
+      "preco": "semua bergantung padanya",
+      "nar": "Ini nomor satu bukan karena paling mendesak rasanya, tapi karena semua langkah lain bergantung padanya, dan jam enam bulan sudah berjalan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah dua",
+      "preco": "hitung pengeluaran wajibmu",
+      "nar": "Langkah kedua: hitung pengeluaran WAJIB bulananmu — sewa, cicilan, makan, listrik, sekolah anak. Bukan pengeluaran idealmu, pengeluaran yang tidak bisa kamu hentikan bulan depan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa yang wajib saja",
+      "preco": "itu yang jadi penyebut",
+      "nar": "Angka itu yang menjadi penyebut dalam hitungan tadi. Selama kamu belum tahu angkanya, kamu tidak tahu kamu punya berapa bulan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah tiga",
+      "preco": "pisahkan uangnya",
+      "nar": "Langkah ketiga: pisahkan uang pesangon ke rekening yang berbeda dari rekening harian. Uang yang terlihat setiap hari akan terpakai setiap hari."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Bagi jadi tiga pos",
+      "itens": [
+        "enam bulan biaya hidup",
+        "cicilan yang jalan terus",
+        "sisanya jangan disentuh"
+      ],
+      "nar": "Bagi menjadi tiga pos. Biaya hidup enam bulan ke depan. Cicilan yang tetap berjalan. Dan sisanya, yang tidak kamu sentuh sampai kamu punya penghasilan lagi."
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah empat",
+      "preco": "jangan lunasi cicilan besar dulu",
+      "nar": "Langkah keempat, dan yang paling kontra-intuitif: jangan buru-buru melunasi cicilan besar dengan uang pesangon."
+    },
+    {
+      "layout": "item",
+      "kicker": "Alasannya",
+      "preco": "uang tunai adalah waktu",
+      "nar": "Alasannya sederhana. Saat belum ada penghasilan, uang tunai adalah waktu dan pilihan. Melunasi cicilan menukar keduanya dengan bunga yang dihemat, dan bunga itu jauh lebih murah dari panik."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "PENGECUALIAN SATU",
+      "sub": "kecuali bunganya mencekik",
+      "nar": "Ada satu pengecualian jujur: kalau cicilanmu berbunga sangat tinggi, seperti pinjaman online harian, hitungannya berbalik dan melunasi lebih dulu masuk akal.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "YANG BERUBAH",
+      "sub": "dua hal di dua ribu dua puluh lima",
+      "nar": "Dua hal berubah belakangan ini, dan keduanya menguntungkanmu.",
+      "cap": "Yang berubah tahun ini"
+    },
+    {
+      "layout": "item",
+      "kicker": "Perubahan pertama",
+      "preco": "enam puluh persen rata",
+      "nar": "Pertama, JKP sekarang enam puluh persen rata selama enam bulan. Aturan lama membayar lebih kecil di tiga bulan terakhir."
+    },
+    {
+      "layout": "item",
+      "kicker": "Perubahan kedua",
+      "preco": "waktu klaim lebih panjang",
+      "nar": "Kedua, tenggat pengajuan klaim menjadi enam bulan sejak PHK, lebih panjang dari sebelumnya."
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang tidak berubah",
+      "preco": "kamu harus mengajukan",
+      "nar": "Yang tidak berubah: tidak ada yang otomatis. Kamu tetap harus melapor dan mengajukan sendiri."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "JKP BUKAN CUMA UANG",
+      "sub": "ada dua manfaat lain",
+      "nar": "Dan JKP bukan cuma uang tunai. Ada dua manfaat lain yang jarang disebut, dan keduanya gratis.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dua manfaat lainnya",
+      "itens": [
+        "akses informasi pasar kerja",
+        "pelatihan kerja"
+      ],
+      "nar": "Pertama, akses ke informasi pasar kerja. Kedua, pelatihan kerja. Keduanya bagian dari program yang sama, dan tidak menambah potongan apa pun."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kenapa ini masuk hitungan",
+      "preco": "mempersingkat bulan menganggur",
+      "nar": "Ini masuk hitungan karena tujuan seluruh video ini adalah memperpanjang waktumu. Mempersingkat bulan menganggur bekerja dari sisi yang lain."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tiga dokumen yang disiapkan",
+      "itens": [
+        "bukti penerimaan PHK",
+        "tanda terima laporan",
+        "kartu kepesertaan"
+      ],
+      "nar": "Siapkan tiga dokumen sejak sekarang. Bukti penerimaan PHK. Tanda terima laporan PHK. Dan kartu kepesertaanmu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kalau kamu punya usaha sampingan",
+      "preco": "hitung sebagai pengurang",
+      "nar": "Kalau kamu punya penghasilan sampingan, sekecil apa pun, masukkan ke hitungan sebagai pengurang pengeluaran. Satu juta per bulan mengubah pembagi dari lima menjadi empat."
+    },
+    {
+      "layout": "item",
+      "kicker": "Efeknya pada waktu",
+      "preco": "tiga bulan lebih",
+      "nar": "Satu juta per bulan itu menambah lebih dari tiga bulan pada hitungan tadi, tanpa memotong satu pun pengeluaranmu."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "TIGA KESALAHAN",
+      "sub": "yang paling mahal",
+      "nar": "Sebelum menutup, tiga kesalahan yang paling mahal — dan ketiganya dilakukan di bulan pertama.",
+      "cap": "Tiga kesalahan mahal"
+    },
+    {
+      "layout": "item",
+      "kicker": "Kesalahan pertama",
+      "preco": "menunda lapor",
+      "nar": "Menunda melapor karena merasa belum siap secara mental. Jam enam bulan tidak menunggu kesiapan siapa pun."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kesalahan kedua",
+      "preco": "mempertahankan gaya hidup",
+      "nar": "Mempertahankan pengeluaran seperti masih bergaji, karena rekening terlihat penuh. Ini yang mengubah dua puluh satu bulan menjadi dua belas setengah."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kesalahan ketiga",
+      "preco": "modal usaha di bulan pertama",
+      "nar": "Memakai seluruh pesangon sebagai modal usaha di bulan pertama, sebelum biaya hidup enam bulan diamankan lebih dulu."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "BUKAN LARANGAN",
+      "sub": "soal urutan",
+      "nar": "Yang ketiga bukan larangan berusaha. Ini soal urutan: amankan bulan hidupmu dulu, baru sisihkan modal dari sisanya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "EMPAT ANGKA",
+      "sub": "yang perlu kamu tahu minggu ini",
+      "nar": "Aku tinggalkan kamu dengan empat angka yang perlu kamu tahu minggu ini.",
+      "cap": "Empat angka untuk minggu ini"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Angka pertama dan kedua",
+      "itens": [
+        "masa kerjamu dalam tahun",
+        "alasan PHK di suratmu"
+      ],
+      "nar": "Pertama, masa kerjamu dalam tahun penuh — itu menentukan baris di tabel. Kedua, alasan PHK yang tertulis di suratmu, karena itu menentukan pengalinya."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Angka ketiga dan keempat",
+      "itens": [
+        "pengeluaran wajib bulananmu",
+        "bulan iuran dalam dua tahun terakhir"
+      ],
+      "nar": "Ketiga, pengeluaran wajib bulananmu — penyebut dari seluruh hitungan. Keempat, berapa bulan kamu sudah beriuran dalam dua puluh empat bulan terakhir, karena itu menentukan hakmu atas JKP."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kalau keempatnya sudah ada",
+      "preco": "hitungannya lima menit",
+      "nar": "Kalau keempat angka itu sudah ada di tanganmu, seluruh hitungan di video ini selesai dalam lima menit."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "SATU KALIMAT",
+      "sub": "uang itu waktu, bukan tabungan",
+      "nar": "Kalau hanya satu kalimat yang kamu bawa: uang pesangon bukan tabungan, itu waktu — dan berapa lama waktunya kamu yang tentukan lewat pengeluaran bulananmu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Catatan penting",
+      "preco": "ini bukan nasihat hukum",
+      "nar": "Catatan penting: ini penjelasan umum, bukan nasihat hukum. Angka akhirmu bergantung pada isi surat dan perjanjian kerjamu."
+    },
+    {
+      "layout": "cta",
+      "kicker": "SETIAP LEVEL",
+      "sub": "hitung empat angkamu minggu ini",
+      "nar": "Hitung empat angkamu minggu ini, sebelum bulan pertama lewat. Kalau cara berhitung seperti ini masuk akal buatmu, subscribe.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "PESANGON ITU WAKTU",
+      "sub": "bukan tabungan",
+      "nar": "Uang pesangonmu bukan tabungan. Itu waktu, dan kamu yang menentukan berapa lama."
+    },
+    {
+      "layout": "item",
+      "kicker": "Contoh nyata",
+      "preco": "enam puluh tiga juta",
+      "nar": "Upah lima juta, masa kerja delapan tahun. Pesangon dan JKP digabung sekitar enam puluh tiga juta."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Bertahan berapa lama",
+      "itens": [
+        "belanja lima juta",
+        "belanja tiga juta"
+      ],
+      "alturas": [
+        126,
+        210
+      ],
+      "nar": "Dengan pengeluaran lima juta sebulan, dua belas setengah bulan. Dengan tiga juta, dua puluh satu bulan."
+    },
+    {
+      "layout": "item",
+      "kicker": "Selisihnya",
+      "preco": "delapan bulan lebih",
+      "nar": "Delapan bulan lebih untuk menolak tawaran kerja yang buruk."
+    },
+    {
+      "layout": "item",
+      "kicker": "Jangan lupa ini",
+      "preco": "enam bulan",
+      "nar": "Dan klaim JKP-mu hangus kalau lewat enam bulan sejak PHK."
+    },
+    {
+      "layout": "cta",
+      "kicker": "EMPAT LANGKAH",
+      "sub": "ada di video panjang",
+      "nar": "Empat langkah tiga puluh hari pertama ada di video panjang di kanal."
+    }
+  ],
+  "copy": "# Pesangon itu waktu: berapa lama uang PHK bertahan\n\n## JUDUL\nKena PHK 2026: Berapa Lama Pesangon Bertahan dan 4 Langkah Pertama\n\n## DESKRIPSI\nSurat PHK datang hari Senin, rekeningmu penuh hari Jumat, dan justru di situ\nletak bahayanya. Video ini menghitung berapa lama uang itu benar-benar bertahan\n— dan apa yang menentukan lamanya.\n\nAngka-angka yang dipakai di video ini:\n\n• Kementerian Ketenagakerjaan mencatat 43.805 orang terkena PHK sepanjang\nJanuari–Juli 2026. Jawa Barat menyumbang angka terbesar, 8.830 orang.\n\n• Hak pekerja yang di-PHK terdiri dari tiga komponen, bukan satu: uang pesangon\n(UP), uang penghargaan masa kerja (UPMK), dan uang penggantian hak (UPH). Dasar\nhukumnya PP No. 35 Tahun 2021, turunan UU Cipta Kerja.\n\n• Masa kerja 8 tahun atau lebih memberi 9 bulan upah sebagai uang pesangon, dan\ndi situ tabelnya berhenti naik. Angka itu masih dikalikan faktor pengali yang\ntergantung ALASAN PHK — variabel terbesar dalam seluruh perhitungan.\n\n• JKP (Jaminan Kehilangan Pekerjaan) memberi 60% upah selama 6 bulan penuh,\nrata setiap bulan, dengan batas atas upah Rp5.000.000. Dasarnya PP No. 6 Tahun\n2025. Syaratnya: peserta minimal 12 bulan dalam 24 bulan terakhir, dan PHK yang\ntercatat resmi.\n\n• Klaim JKP harus diajukan paling lambat 6 bulan sejak tanggal PHK. Banyak orang\nkehilangan haknya bukan karena tidak berhak, tapi karena menunggu terlalu lama.\n\nContoh yang dipakai sepanjang video: upah Rp5 juta, masa kerja 8 tahun. Pesangon\nsekitar Rp45 juta dan JKP Rp18 juta, total sekitar Rp63 juta. Dengan pengeluaran\nRp5 juta sebulan uang itu bertahan sekitar 12,6 bulan; dengan Rp3 juta, 21\nbulan. Selisih pengeluaran Rp2 juta membeli lebih dari delapan bulan waktu — dan waktu\nadalah yang kamu butuhkan untuk menolak tawaran kerja yang buruk.\n\nEmpat langkah di 30 hari pertama, berurutan: laporkan PHK dan ambil tanda terima\nlaporannya; hitung pengeluaran WAJIB bulananmu; pisahkan uang pesangon ke\nrekening berbeda; dan jangan buru-buru melunasi cicilan besar — kecuali bunganya\nsangat tinggi seperti pinjaman online harian.\n\nIni penjelasan umum, bukan nasihat hukum. Angka akhirmu bergantung pada isi surat\nPHK dan perjanjian kerjamu.\n\nKalau cara berhitung seperti ini masuk akal buatmu, subscribe.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR\nEmpat angka yang perlu kamu tahu minggu ini: 1) masa kerjamu dalam tahun penuh,\n2) alasan PHK yang tertulis di suratmu, 3) pengeluaran WAJIB bulananmu, 4) berapa\nbulan kamu sudah beriuran dalam 24 bulan terakhir. Kalau keempatnya sudah ada,\nseluruh hitungan di video ini selesai dalam lima menit.\n\n## TAGAR\n#PHK #pesangon #JKP\n\n## TAG\nPHK 2026, pesangon, JKP, BPJS Ketenagakerjaan, uang pesangon, PP 35 2021, hak pekerja, korban PHK, keuangan setelah PHK, dana darurat, UU Cipta Kerja, kehilangan pekerjaan, atur keuangan, cicilan, Kemnaker\n\n## PENGATURAN STUDIO\nKategori 27 (Pendidikan). Bahasa Indonesia, audio Bahasa Indonesia. Bukan untuk\nanak-anak. Mengandung konten sintetis — dideklarasikan saat publikasi. Subtitle\ndari berkas SRT.\n\n## MUSIK / LISENSI\nWholesome — YouTube Audio Library, tanpa kewajiban atribusi. Level minus dua\npuluh delapan desibel terhadap narasi.\n\n## SUMBER\nData PHK Januari–Juli 2026: Kementerian Ketenagakerjaan, dikutip Bisnis.com\n(10/08/2026) dan Pajakonline. Pesangon: PP No. 35 Tahun 2021, turunan UU Cipta\nKerja — tabel dikonfirmasi ANTARA News dan Gadjian. JKP: PP No. 6 Tahun 2025,\ndikonfirmasi Tempo dan Kompas.\n",
+  "tags": [
+    "PHK 2026",
+    "pesangon",
+    "JKP",
+    "BPJS Ketenagakerjaan",
+    "uang pesangon",
+    "PP 35 2021",
+    "hak pekerja",
+    "korban PHK",
+    "keuangan setelah PHK",
+    "dana darurat",
+    "UU Cipta Kerja",
+    "kehilangan pekerjaan",
+    "atur keuangan",
+    "cicilan",
+    "Kemnaker"
+  ],
+  "fonte_pauta": "Korban PHK & Hutang Wajib Nonton (1693,1 v/d)"
+}
