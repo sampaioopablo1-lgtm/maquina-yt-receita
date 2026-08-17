@@ -251,7 +251,14 @@ def svg_cena(c, pal, W, H, camada=None):
             bh = (H*0.12 + (alt[i]/max(alt))*H*0.48) if alt else (H*0.12 + i*H*0.48/max(n-1,1))
             x = W*0.18 + i*bw
             s += f'<rect x="{x}" y="{H*0.82-bh}" width="{bw*0.72}" height="{bh}" fill="{[c1,c2,ink][i%3]}"/>'
-            s += tsp(str(lb), x+bw*0.36, H*0.90, H*0.038, ink, n=14)
+            # y=0,90H punha o rotulo dentro da faixa que o Ken Burns corta.
+            # Medido em 17/08/2026: com AMP_ZOOM 0,12 e AMP_PAN 0,5 o zoom tira
+            # ate 8,04% de um lado, e somando os 4% que o visual.py chama de
+            # borda a zona de risco comeca em 0,88H. Baseline em 0,90H mais o
+            # descender da fonte punha tinta ate 0,908H — 77 das 99 cenas
+            # `barras` de TODAS as specs reprovavam. 0,865H sai da zona com
+            # folga e mantem o rotulo abaixo da linha de base.
+            s += tsp(str(lb), x+bw*0.36, H*0.865, H*0.038, ink, n=14)
     elif lay == 'item':
         if quer(None):
             s += f'<circle cx="{W*0.27}" cy="{H*0.55}" r="{H*0.22}" fill="none" stroke="{ink}" stroke-width="9"/>'
