@@ -112,6 +112,36 @@ def ja_publicado(pacote, sb_url, sb_key):
     return {linha["formato"]: linha["youtube_id"] for linha in json.load(r)}
 
 
+def ja_no_ar_pelo_titulo(titulo, sb_url, sb_key):
+    """O MESMO titulo ja esta publicado, sob qualquer nome de pacote?
+
+    A trava por `pacote` acima nao basta, e isso foi medido em 17/08/2026. O
+    mesmo render vive sob DOIS nomes: o da spec (kolejny-poziom-002) e o da
+    rodada que o publicou (kp-plan-9233-20260811). `videos.pacote` guarda o
+    segundo. Perguntando pelo primeiro, o banco responde "nunca publicado" —
+    corretamente, e liberando a duplicata.
+
+    Aconteceu de verdade: um disparo automatico da frota levava
+    kolejny-poziom-002, seviye-seviye-002 e next-level-money-002, os tres com
+    zero linhas na trava por pacote e os tres ja no ar como YLGwalTND7M,
+    v2j35YekImM e UK-FswAW4QE. Foram tres duplicatas em tres canais, barradas
+    porque alguem cruzou por titulo a mao.
+
+    O titulo e o que o espectador ve, entao e ele que decide se e o mesmo
+    video. A comparacao ignora caixa e espaco nas pontas; nao tenta ser
+    esperta alem disso, porque um falso positivo aqui SEGURA publicacao boa e o
+    operador precisa entender na hora por que segurou.
+    """
+    alvo = (titulo or "").strip().casefold()
+    if not alvo:
+        return []
+    r = _req(f"{sb_url}/rest/v1/videos?youtube_id=not.is.null"
+             f"&select=pacote,formato,youtube_id,titulo",
+             headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key})
+    return [l for l in json.load(r)
+            if (l.get("titulo") or "").strip().casefold() == alvo]
+
+
 def access_token(tok):
     data = urllib.parse.urlencode({
         "client_id": tok["client_id"], "client_secret": tok["client_secret"],
@@ -510,6 +540,22 @@ def main():
             )
 
     cp = ler_copy(sp, d)
+
+    # Segunda trava, pelo TITULO. A de cima pergunta pelo nome do pacote, e o
+    # mesmo render vive sob dois nomes — o da spec e o da rodada que publicou.
+    # So da para conferir aqui embaixo porque o titulo sai do copy.md, que so
+    # existe depois do render.
+    if not args.repetir:
+        iguais = ja_no_ar_pelo_titulo(cp.get("titulo"), sb_url, sb_key)
+        if iguais:
+            onde = ", ".join(f"{l['formato']}={l['youtube_id']} (pacote {l['pacote']})"
+                             for l in iguais)
+            raise SystemExit(
+                f"titulo JA ESTA no ar: {cp.get('titulo')!r} -> {onde}. O pacote "
+                f"{pacote} nao consta publicado porque o banco guarda o nome da "
+                f"RODADA, nao o da spec. Para republicar de proposito use "
+                f"--repetir."
+            )
 
     acc = access_token(token_do_canal(args.canal, sb_url, sb_key))
     saida = {}
