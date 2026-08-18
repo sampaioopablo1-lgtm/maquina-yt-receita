@@ -180,6 +180,12 @@ jobs:
         run: python3 fabrica/prontidao.py spec.json
 
       - name: Renderizar
+        # SB/KEY entram para o broll.py buscar config.pexels_api_key — a chave
+        # do Pexels mora no banco, nao no git nem nos secrets. Sem eles a
+        # etapa 1.5 so cai no fallback; o render nunca depende de broll.
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python3 fabrica/etapas.py spec.json
 
       - name: Entregar no Storage

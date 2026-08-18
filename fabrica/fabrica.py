@@ -368,6 +368,10 @@ def elementos(c):
     tela transparente, e quem monta o clipe faz cada um entrar no seu tempo.
     """
     lay = c.get('layout', 'titulo')
+    if lay == 'broll':
+        # Uma peca so: o movimento da cena vem do proprio footage, nao de
+        # camadas entrando. Zero manda o clipe_cena para o ramo simples.
+        return 0
     if lay in ('lista', 'barras'):
         return len(c.get('itens', []))
     if lay in ('titulo', 'cta'):
@@ -472,9 +476,25 @@ def svg_cena(c, pal, W, H, camada=None):
     # ultimas de cada video, a virada de cor no fim lia como defeito de render,
     # nao como cartao de encerramento. Agora o CTA segue a identidade do canal.
     s = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
-    if fundo:
+    # A cena broll nao pinta fundo: o PNG sai com alpha e o clipe_cena poe o
+    # footage por baixo. Se o footage faltar, o fallback compoe sobre preto —
+    # texto branco sobre preto le, entao o degrade e o pior caso aceitavel.
+    if fundo and lay != 'broll':
         s += f'<rect width="{W}" height="{H}" fill="{bg}"/>'
     cx = W//2
+    if lay == 'broll':
+        # Lower-third documental: faixa escura translucida embaixo, kicker
+        # branco grande, sub na cor de destaque. Margens generosas de
+        # proposito — o portao de layout mede tinta na borda e o overlay nao
+        # passa por Ken Burns, mas a folga custa nada.
+        s += (f'<rect x="0" y="{H*0.68}" width="{W}" height="{H*0.32}" '
+              f'fill="#000000" opacity="0.45"/>')
+        s += tsp(c.get('kicker', ''), W*0.08, H*0.80, H*0.075, '#FFFFFF',
+                 n=24, anchor='start', largura=W*0.84)
+        if c.get('sub'):
+            s += tsp(c['sub'], W*0.08, H*0.90, H*0.045, c2, n=40,
+                     anchor='start', largura=W*0.84)
+        return s + '</svg>'
     if lay in ('titulo','cta'):
         fg = c1 if lay=='titulo' else c2
         # sub_fg era branco no cta — o que so funcionava com o fundo invertido.
@@ -918,6 +938,27 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
     tamanho certo e passa em todos os asserts.
     """
     saida = f"{d}/{pref}clip{i:02d}.mp4"
+    broll_mp4 = f"{d}/{pref}{i:02d}_broll.mp4"
+    if (c.get("layout") == "broll" and os.path.exists(broll_mp4)
+            and os.path.getsize(broll_mp4) > 10000):
+        # Footage por baixo, lower-third transparente por cima. O broll ja
+        # vem preparado (dd segundos, RWxRH, 30fps, escurecido, sem audio)
+        # pelo broll.py; o PNG e renderizado em WxH e sobe para RWxRH aqui.
+        # stream_loop -1 cobre a diferenca de arredondamento entre o -t do
+        # preparo e o -t deste corte: sem ele um broll 0,1s curto congela.
+        args = [ffmpeg_bin(), "-nostdin", "-y",
+                "-stream_loop", "-1", "-t", f"{dd:.2f}", "-i", broll_mp4,
+                "-framerate", "30", "-loop", "1", "-t", f"{dd:.2f}",
+                "-i", f"{d}/{pref}{i:02d}.png",
+                "-i", f"{d}/{pref}{i:02d}.mp3",
+                "-filter_complex",
+                f"[1:v]scale={RW}:{RH}[t];[0:v][t]overlay=0:0:format=auto[v]",
+                "-map", "[v]", "-map", "2:a"]
+        subprocess.run(args + ["-t", f"{dd:.2f}", "-c:v", "libx264",
+                               "-preset", "ultrafast", "-crf", "23",
+                               "-pix_fmt", "yuv420p", *AUDIO_ARGS, saida],
+                       check=True, capture_output=True)
+        return saida
     n_cam = elementos(c) if pref == "l" else 0
     if n_cam:
         args = [ffmpeg_bin(), "-nostdin", "-y",

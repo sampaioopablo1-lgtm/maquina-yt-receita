@@ -136,11 +136,29 @@ assert os.path.exists(_thumb) and os.path.getsize(_thumb) > 2000, (
     f"thumbnail ausente ou vazia em {_thumb} — `montar` nao chegou ao fim; "
     f"apague os l*.mp3 do pacote e rode de novo, ou gere a thumb antes de seguir")
 
-# ------------------------------------------- 2. clipes, liberando um a um
-log("etapa 2: clipes do longo")
+# --------------------------- 1.5. broll das cenas que pedem (experimento 10)
+# Roda ANTES da etapa 2 porque o clipe_cena decide o ramo pela existencia do
+# arquivo _broll.mp4. Falha aqui nunca para o render: a cena cai no fallback
+# (lower-third sobre preto), que le e nao trava — broll e enfeite.
 cenas = sp["longo"]
 W, H = 1280, 720
 RW, RH = F.render_wh(W, H)
+_pedem_broll = [(i, c) for i, c in enumerate(cenas)
+                if c.get("layout") == "broll"]
+if _pedem_broll and not LONGO_PRONTO:
+    import broll as BR                                            # noqa: E402
+    _k = BR.chave()
+    _ok = 0
+    for _i, _c in _pedem_broll:
+        _dd = F.dur(f"{d}/l{_i:02d}.mp3") + 0.5
+        if BR.garantir(d, "l", _i, _c, _dd, RW, RH, api_key=_k):
+            _ok += 1
+        else:
+            log(f"  broll cena {_i}: sem footage ('{_c.get('broll_q','')}') — fallback")
+    log(f"etapa 1.5 ok: broll em {_ok}/{len(_pedem_broll)} cenas")
+
+# ------------------------------------------- 2. clipes, liberando um a um
+log("etapa 2: clipes do longo")
 tempos = []
 # Com o longo pronto os clipes ja foram apagados pela etapa 5, e refaze-los so
 # para recalcular `tempos` custa 35 min. Os mesmos numeros estao em tempos.json,
