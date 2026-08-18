@@ -47,8 +47,11 @@ MAX_POR_DIA_POR_CANAL = 3  # trava da rotina contra spam
 # --------------------------------------------------------------------- estado
 
 def busca_videos(sb_url: str, sb_key: str) -> list[dict]:
+    # `titulo` entra porque a trava por pacote sozinha nao basta: o banco
+    # guarda o nome da RODADA e a spec tem outro. Sem esta coluna a conferencia
+    # por titulo devolve conjunto vazio e nao barra nada.
     url = (f"{sb_url}/rest/v1/videos"
-           f"?select=canal,pacote,formato,youtube_id,publicado_em,erro")
+           f"?select=canal,pacote,formato,youtube_id,publicado_em,erro,titulo")
     req = urllib.request.Request(
         url, headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key})
     with urllib.request.urlopen(req, timeout=60) as r:
@@ -60,6 +63,21 @@ def carrega_videos(args) -> list[dict]:
         return json.load(open(args.dados, encoding="utf-8"))
     return busca_videos(os.environ["SUPABASE_URL"].rstrip("/"),
                         os.environ["SUPABASE_SERVICE_ROLE_KEY"])
+
+
+def busca_canais_com_destino(sb_url: str, sb_key: str) -> set[str]:
+    """Slugs cujo canal EXISTE no YouTube.
+
+    `canais.youtube_channel_id` e a mesma coluna que a `v_maquina_fila` usa
+    para o campo `no_youtube`. O handle do config/canais/*.yaml nao serve: em
+    onze dos treze arquivos ele ainda e o comentario "preencher quando o canal
+    for criado".
+    """
+    url = f"{sb_url}/rest/v1/canais?select=slug,youtube_channel_id"
+    req = urllib.request.Request(
+        url, headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return {c["slug"] for c in json.load(r) if c.get("youtube_channel_id")}
 
 
 def canais_do_repo() -> list[str]:
@@ -86,9 +104,64 @@ def publicados_por_pacote(videos: list[dict]) -> set[str]:
     return {v["pacote"] for v in videos if v.get("pacote") and v.get("youtube_id")}
 
 
+def titulos_no_ar(videos: list[dict]) -> set[str]:
+    """Titulos ja publicados, normalizados para comparacao."""
+    return {v["titulo"].strip().casefold()
+            for v in videos if v.get("titulo") and v.get("youtube_id")}
+
+
+def titulo_da_spec(sp: dict) -> str:
+    """O titulo que a spec vai publicar, lido do `copy` ANTES do render.
+
+    NAO usa `publicar.ler_copy` de proposito. Ele recusa qualquer copy que
+    ainda tenha `{CAPITULOS}` — e ter esse placeholder e o estado normal de uma
+    spec que nao renderizou, que e exatamente quando esta pergunta e feita.
+    Tentei por ali primeiro e a funcao devolvia string vazia para TODAS as
+    specs, o que fazia a trava por titulo nao barrar nada.
+
+    O titulo e a primeira secao `## ` do markdown, mesma convencao que o
+    `ler_copy` usa para a posicao 1.
+    """
+    copy = sp.get("copy")
+    if isinstance(copy, dict):
+        return copy.get("titulo", "") or ""
+    if not isinstance(copy, str) or not copy.strip():
+        return ""
+    import re
+    secoes = re.split(r"^## +", copy, flags=re.M)[1:]
+    if not secoes:
+        return ""
+    corpo = secoes[0].split("\n")[1:]
+    for linha in corpo:
+        if linha.strip():
+            return linha.strip()
+    return ""
+
+
+def ja_no_ar(nome: str, sp: dict, por_pacote: set[str], por_titulo: set[str]) -> str:
+    """Por que esta spec NAO deve entrar na matriz, ou string vazia.
+
+    Duas perguntas, porque uma so nao basta. `videos.pacote` guarda o nome da
+    RODADA que publicou (nivel-do-jogo-cron-2026-08-13), nao o da spec
+    (nivel-do-jogo-002): perguntar so pelo pacote devolve "nunca publicado",
+    que e verdade sobre o nome e mentira sobre o video.
+
+    Medido em 17/08/2026: cinco dos seis pacotes de cada disparo do cron ja
+    estavam no ar e mesmo assim renderizavam doze minutos cada para abortar na
+    trava do publicar.py — que pergunta pelo titulo e por isso acertava.
+    """
+    if nome in por_pacote:
+        return "ja publicado (pelo nome do pacote)"
+    t = titulo_da_spec(sp).strip().casefold()
+    if t and t in por_titulo:
+        return "ja publicado (pelo titulo, sob outro nome de pacote)"
+    return ""
+
+
 def estado(videos: list[dict]) -> dict:
     specs = specs_do_repo()
     ja = publicados_por_pacote(videos)
+    titulos = titulos_no_ar(videos)
 
     por_canal = {}
     for c in canais_do_repo():
@@ -102,8 +175,10 @@ def estado(videos: list[dict]) -> dict:
             "publicados": len(longos),
             "faltam": max(0, META_POR_CANAL - len(longos)),
             "specs": sorted(minhas),
-            "specs_no_ar": sorted(n for n in minhas if n in ja),
-            "specs_pendentes": sorted(n for n in minhas if n not in ja),
+            "specs_no_ar": sorted(n for n in minhas
+                                  if ja_no_ar(n, minhas[n], ja, titulos)),
+            "specs_pendentes": sorted(n for n in minhas
+                                      if not ja_no_ar(n, minhas[n], ja, titulos)),
         }
 
     orfas = [v for v in videos if v.get("youtube_id") and not v.get("pacote")]
@@ -137,7 +212,8 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
     return faltas
 
 
-def proximo(videos: list[dict], n: int) -> tuple[list[dict], list[dict]]:
+def proximo(videos: list[dict], n: int,
+            com_destino: set[str] | None = None) -> tuple[list[dict], list[dict]]:
     """A matriz do frota.yml, e o motivo de cada spec descartada.
 
     Ordem: canal mais LONGE da meta primeiro. Um canal em zero vale mais que o
@@ -149,6 +225,7 @@ def proximo(videos: list[dict], n: int) -> tuple[list[dict], list[dict]]:
     est = estado(videos)
     specs = specs_do_repo()
     ja = publicados_por_pacote(videos)
+    titulos = titulos_no_ar(videos)
 
     escolhidas, descartadas = [], []
     por_canal_hoje: dict[str, int] = {}
@@ -159,8 +236,17 @@ def proximo(videos: list[dict], n: int) -> tuple[list[dict], list[dict]]:
         for nome in info["specs_pendentes"]:
             if len(escolhidas) >= n:
                 break
-            if nome in ja:                       # cinto e suspensorio
-                descartadas.append({"spec": nome, "motivo": "ja publicado"})
+            repetido = ja_no_ar(nome, specs[nome], ja, titulos)
+            if repetido:
+                descartadas.append({"spec": nome, "motivo": repetido})
+                continue
+            # Canal que nao existe no YouTube renderiza doze minutos e nao tem
+            # onde publicar. O cocina-por-niveles esta assim desde 05/08 e
+            # entrava em toda matriz. `None` desliga a conferencia, que e o que
+            # os testes sem rede querem.
+            if com_destino is not None and canal not in com_destino:
+                descartadas.append({"spec": nome,
+                                    "motivo": "canal ainda nao existe no YouTube"})
                 continue
             if por_canal_hoje.get(canal, 0) >= MAX_POR_DIA_POR_CANAL:
                 descartadas.append({"spec": nome,
@@ -240,7 +326,12 @@ def main() -> int:
     if args.acao == "estado":
         print(json.dumps(estado(videos), ensure_ascii=False, indent=1))
     elif args.acao == "proximo":
-        escolhidas, _ = proximo(videos, args.n)
+        com_destino = None
+        if not args.dados:
+            com_destino = busca_canais_com_destino(
+                os.environ["SUPABASE_URL"].rstrip("/"),
+                os.environ["SUPABASE_SERVICE_ROLE_KEY"])
+        escolhidas, _ = proximo(videos, args.n, com_destino)
         print(json.dumps(escolhidas, ensure_ascii=False))
     else:
         print(relatorio(videos))

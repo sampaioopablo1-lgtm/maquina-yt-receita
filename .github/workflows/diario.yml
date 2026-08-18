@@ -25,7 +25,11 @@ on:
     # Em repositorio publico o Actions nao tem cota, e ai o ciclo de quinze
     # minutos e gratuito. Hoje o repo e privado e sem minutos: o cron nao
     # roda, e o unico efeito e que ele ja esta armado para quando destravar.
-    - cron: "*/15 * * * *"
+    # A cada 15 min o disparo chegava antes de o anterior terminar: o
+    # `concurrency` do frota.yml deixa 1 rodando e 1 pendente, e o terceiro
+    # CANCELA o pendente. Com o teto de 25 min por job, 30 min garante que a
+    # vaga esteja livre quando o proximo chegar.
+    - cron: "*/30 * * * *"
   workflow_dispatch:
     inputs:
       disparar:
