@@ -52,7 +52,10 @@ SPECS = [p for p in sorted((RAIZ / "fabrica" / "specs").glob("*.json"))
 # alguem descobrir isso esperando um video que nunca vem.
 PARADAS = {
     "cocina-por-niveles-002": "15,0 min — acima do teto, canal sem escalonamento",
-    "kolejny-poziom-003":     "copy ainda em bilhete + 16,6 min",
+    # kolejny-poziom-003 saiu daqui em 18/08/2026: 88 cenas viraram 79
+    # (16,6 -> 13,0 min no Marek) e a copy-bilhete virou markdown completo.
+    # Os limites de 2026 do roteiro foram reconferidos antes (28.260 /
+    # 11.304 / 16.956 zl — Analizy.pl, BDO e PZU batem).
     # labtreinamento-002 saiu daqui em 18/08/2026: encurtada de 92 para 87
     # cenas (15,33 -> 14,49 min) e devolvida a matriz.
     # resep-naik-level-003 saiu em 18/08/2026: encurtada de 86 para 76 cenas
