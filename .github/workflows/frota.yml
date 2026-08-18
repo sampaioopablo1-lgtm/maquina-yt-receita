@@ -59,11 +59,24 @@ jobs:
     runs-on: ubuntu-latest
     # 120 min era o teto do render; virou o tempo que um job PENDURADO segura
     # a frota inteira. Medido em 17/08/2026: tres vezes no mesmo dia um job
-    # ficou preso em `Instalar ffmpeg e fontes` — passo de apt-get que leva 40
-    # segundos — por 45 a 100 minutos. Como o `concurrency` deixa so 1 run
+    # ficou preso por 45 a 100 minutos. Como o `concurrency` deixa so 1 run
     # rodando e 1 pendente, os disparos seguintes se cancelavam um ao outro e
-    # NADA era produzido. Nenhum render legitimo passa de 15 min.
-    timeout-minutes: 25
+    # NADA era produzido.
+    #
+    # O 25 que ficou aqui veio de "nenhum render legitimo passa de 15 min",
+    # que eu ESCREVI SEM CONFERIR. O historico do proprio repositorio ja
+    # desmentia: dos runs que produziram alguma coisa em 17/08, os bem
+    # sucedidos levaram 10,7, 16,4 e 26,6 min. O teto de 25 matava o de 26,6.
+    #
+    # E o custo subiu depois disso. O conserto do tremor (SUAVIZA=2, ampliar
+    # antes do zoompan) levou o clipe de 9,3 s para 11,7 s — mais 26%. Um
+    # pacote de 65 cenas passa de 12 min so nos clipes do longo, e ainda tem
+    # TTS por cena, short, concat, apt-get e pip. Em 18/08/2026 o teto de 25
+    # matou o sx-educacao-002 aos 25 min exatos, duas vezes.
+    #
+    # 40 fica acima do render legitimo mais caro (26,6 + 26% = 33,5) e abaixo
+    # do menor travamento observado (45). O numero e medido dos dois lados.
+    timeout-minutes: 40
     strategy:
       fail-fast: false          # um canal que quebra nao derruba os outros
       max-parallel: 10

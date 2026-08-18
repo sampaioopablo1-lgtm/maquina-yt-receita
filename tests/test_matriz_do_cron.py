@@ -120,15 +120,28 @@ def _yaml(nome):
                 encoding="utf-8").read()
 
 
-def test_o_job_tem_teto_curto_de_tempo():
-    """120 min era o teto do render e virou o tempo que um job PENDURADO segura
-    a frota. Tres vezes em 17/08/2026 um job ficou preso em `Instalar ffmpeg`
-    — passo de 40 s — por 45 a 100 minutos, e os disparos seguintes se
-    cancelavam na fila. Nenhum render legitimo passa de 15 min."""
+def test_o_teto_de_tempo_fica_entre_o_render_caro_e_o_travamento():
+    """A faixa tem os dois lados MEDIDOS, e eu errei o de baixo primeiro.
+
+    Escrevi "nenhum render legitimo passa de 15 min" sem conferir e derivei um
+    teto de 25. O historico do repositorio ja desmentia: em 17/08/2026 os runs
+    de Frota bem sucedidos levaram 10,7, 16,4 e 26,6 min. Depois o conserto do
+    tremor encareceu o clipe em 26% (9,3 s -> 11,7 s), o que poe o render caro
+    perto de 33 min. Em 18/08/2026 o teto de 25 matou o sx-educacao-002 aos 25
+    min exatos — duas vezes, e a segunda ja com o pacote quase pronto.
+
+    Piso: acima de 33,5 min, senao o teto mata producao boa.
+    Teto: abaixo de 45 min, o menor travamento observado, senao um job
+    pendurado volta a segurar a frota inteira.
+    """
     linha = [l for l in _yaml("frota.yml").splitlines()
              if l.strip().startswith("timeout-minutes:")]
     assert linha, "frota.yml sem timeout-minutes"
-    assert int(linha[0].split(":")[1]) <= 30
+    minutos = int(linha[0].split(":")[1])
+    assert 34 <= minutos < 45, (
+        f"timeout de {minutos} min: abaixo de 34 mata render legitimo "
+        f"(26,6 medidos + 26% do SUAVIZA), de 45 para cima deixa job pendurado "
+        f"segurar a frota")
 
 
 def test_o_cron_espera_mais_que_um_run():
