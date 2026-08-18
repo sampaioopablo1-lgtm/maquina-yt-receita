@@ -101,6 +101,134 @@ def tsp(t, x, y, size, fill, n=30, anchor='middle', lh=1.25, subindo=False,
         o += f'<tspan x="{x}" dy="{0 if i==0 else int(size*lh)}">{esc(l)}</tspan>'
     return o + '</text>'
 
+W_THUMB = 1280          # a capa e sempre 16:9, mesmo em canal de retrato
+
+_LARG_REF = 100.0       # corpo em que a largura e medida uma vez por string
+_LARG_CACHE = {}
+
+
+def largura_do_texto(t, size):
+    """Largura em pixels da linha `t` no corpo `size` — MEDIDA, nao estimada.
+
+    `LARGURA_GLIFO = 0,62` foi medido em 'LabTreinamento', que e caixa mista, e
+    a constante virou a largura de TODO texto. Medido em 18/08/2026 na propria
+    fonte de producao, a razao real varia por um fator de tres:
+
+        iiiiiiiiii .............. 0,324
+        10.685 ................... 0,614
+        LabTreinamento ........... 0,649
+        BERAPA LAMA? ............. 0,704      <- maiuscula
+        MILHOES .................. 0,704
+        WWWWWWWWWW ............... 1,094
+
+    Com 0,62 para tudo, 'BERAPA LAMA?' foi calculado em 1.101 px e saiu com
+    1.251: a capa do setiap-level-007 renderizou com as duas pontas cortadas
+    pela moldura. Nenhum portao viu, porque `analisa_thumb` so conferia a faixa
+    VERTICAL da tinta.
+
+    A largura de uma fonte vetorial escala linear com o corpo, entao basta uma
+    rasterizacao por string — no corpo de referencia — e uma regra de tres. O
+    cache existe porque a busca de corpo em `geometria_thumb` reavalia as
+    mesmas linhas dezenas de vezes.
+    """
+    if not t:
+        return 0.0
+    chave = (t, FONTE)
+    if chave not in _LARG_CACHE:
+        _LARG_CACHE[chave] = _mede_largura(t, _LARG_REF)
+    return _LARG_CACHE[chave] * size / _LARG_REF
+
+
+def _mede_largura(t, size):
+    """Largura da tinta de `t`, rasterizando uma vez. Sem PIL cai na estimativa."""
+    alt = int(size * 2)
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="6000" height="{alt}">'
+           f'<rect width="6000" height="{alt}" fill="#FFFFFF"/>'
+           f'<text x="20" y="{int(size)}" font-family="{FONTE}" font-weight="bold" '
+           f'font-size="{int(size)}" fill="#000000">{esc(t)}</text></svg>')
+    try:
+        import io
+
+        from PIL import Image
+        png = cairosvg.svg2png(bytestring=svg.encode(), output_width=6000,
+                               output_height=alt)
+        im = Image.open(io.BytesIO(png)).convert("L")
+        caixa = im.point(lambda v: 255 if v < 128 else 0).getbbox()
+        if caixa:
+            return float(caixa[2] - caixa[0])
+    except Exception:
+        pass
+    return len(t) * size * LARGURA_GLIFO
+
+
+def quebra_por_largura(t, size, largura):
+    """Quebra `t` em linhas que cabem em `largura` PIXELS no corpo `size`.
+
+    `wrap` recebe um numero de CARACTERES, que nao e largura: 'IIIII' e 'WWWWW'
+    tem cinco caracteres e larguras muito diferentes. Aqui a contagem sai da
+    largura util dividida pela largura media de glifo — o mesmo 0,62 medido em
+    'LabTreinamento' e ja usado pelo `corpo_que_cabe`.
+
+    Uma palavra sozinha maior que o limite continua inteira numa linha, porque
+    `wrap` nunca parte palavra. Quem garante a largura nesse caso e a busca de
+    corpo em `geometria_thumb`, que desce ate a palavra caber.
+    """
+    if not t:
+        return []
+    out, cur = [], ''
+    for w in t.split():
+        cand = (cur + ' ' + w).strip()
+        if cur and largura_do_texto(cand, size) > largura:
+            out.append(cur)
+            cur = w
+        else:
+            cur = cand
+    if cur:
+        out.append(cur)
+    return _sem_orfao(out, size, largura)
+
+
+def _sem_orfao(linhas, size, largura):
+    """Nenhuma linha termina numa palavrinha de ate dois caracteres.
+
+    "10.685 x 4.503" quebrava em "10.685 x" / "4.503": o `x` da comparacao —
+    que E o video — ficava pendurado no fim da primeira linha, longe do segundo
+    numero. "$32 = 5 COMIDAS" quebrava em "$32 = 5" / "COMIDAS" pelo mesmo
+    motivo, com o `=` e o `5` separados do que eles igualam.
+
+    A palavrinha desce para a linha seguinte, e so quando as tres condicoes
+    valem: a linha tem mais de uma palavra (senao ela ficaria vazia), existe
+    linha seguinte, e a linha seguinte continua cabendo depois de receber.
+    Sem a terceira condicao o conserto do orfao vira um estouro de largura.
+    """
+    linhas = list(linhas)
+    for i in range(len(linhas) - 1):
+        for _ in range(3):                  # "$32 = 5" precisa de duas passadas
+            palavras = linhas[i].split()
+            if len(palavras) < 2 or len(palavras[-1]) > 2:
+                break
+            if largura_do_texto(f"{palavras[-1]} {linhas[i + 1]}", size) > largura:
+                break
+            linhas[i] = " ".join(palavras[:-1])
+            linhas[i + 1] = f"{palavras[-1]} {linhas[i + 1]}"
+    return linhas
+
+
+def tsp_linhas(linhas, x, y, size, fill, lh=1.25):
+    """Igual ao `tsp`, mas recebe as linhas PRONTAS em vez de quebrar de novo.
+
+    Existe para a thumbnail: quem mede e quem desenha tem de olhar para as
+    mesmas linhas, e o `tsp` so aceita texto solto mais um `n`.
+    """
+    if not linhas:
+        return ''
+    o = (f'<text x="{x}" y="{y}" font-family="{FONTE}" font-weight="bold" '
+         f'font-size="{int(size)}" fill="{fill}" text-anchor="middle">')
+    for i, l in enumerate(linhas):
+        o += f'<tspan x="{x}" dy="{0 if i == 0 else int(size * lh)}">{esc(l)}</tspan>'
+    return o + '</text>'
+
+
 def geometria_thumb(th, H=720):
     """Onde cada linha da thumbnail comeca e termina, em pixel.
 
@@ -109,26 +237,64 @@ def geometria_thumb(th, H=720):
     faixas muda a geometria — ela depende das duas — e o portao reprovava as
     dezenove specs, inclusive as boas. Tentei desse jeito primeiro.
 
-    Devolve tambem `topo` e `base` de cada bloco, que e o que o portao compara.
+    Devolve tambem `topo` e `base` de cada bloco, que e o que o portao compara,
+    e as LINHAS ja quebradas — quem desenha tem de usar exatamente estas, senao
+    a conta e o desenho divergem e a colisao volta por outro caminho.
     """
     MARGEM, GAP, LH = 40, 54, 1.25
-    l1, l2 = wrap(th.get("l1", ""), 12), wrap(th.get("l2", ""), 16)
     disponivel = H - 2 * MARGEM
 
-    # Encolhe ate caber, em vez de dois degraus fixos. Com degrau fixo um
-    # titulo de quatro linhas transbordava a imagem inteira (topo em -24,
-    # base em 744 num quadro de 720) — o teste pegou.
+    # Antes: `wrap(l1, 12)` e `wrap(l2, 16)`, e uma escada que so ENCOLHIA a
+    # partir de 150. Duas consequencias medidas em 18/08/2026 nas vinte e
+    # quatro specs de producao:
     #
-    # A rotina pede no maximo tres palavras na thumbnail, entao o caso longo
-    # nao deveria existir; mesmo assim ele encolhe em vez de estourar, porque
-    # capa cortada e pior que capa pequena.
-    for s1, s2 in ((150, 90), (120, 76), (96, 62), (76, 50), (60, 40)):
-        passo1, passo2 = int(s1 * LH), int(s2 * LH)
-        alt1 = s1 + max(0, len(l1) - 1) * passo1 if l1 else 0
-        alt2 = s2 + max(0, len(l2) - 1) * passo2 if l2 else 0
-        total = alt1 + (GAP if l1 and l2 else 0) + alt2
-        if total <= disponivel:
+    #   1. as vinte e quatro paravam em s1=150, o teto. A escada nunca disparou
+    #      uma vez sequer. "61 HORAS" — sete caracteres — saia no mesmo corpo
+    #      de um titulo de duas linhas, com metade do quadro em branco. Numa
+    #      capa, branco sobrando e legibilidade jogada fora: no feed ela aparece
+    #      com 120 px de altura, e ali so o tamanho decide.
+    #
+    #   2. quebrar por CONTAGEM DE CARACTERE erra onde importa. "10.685 x 4.503"
+    #      com n=12 vira "10.685 x" / "4.503": o `x` da comparacao fica orfao no
+    #      fim da primeira linha, e a comparacao — que e o video inteiro — se
+    #      parte no meio. "BERTAHAN BERAPA LAMA?" vira "BERTAHAN BERAPA" /
+    #      "LAMA?" pelo mesmo motivo.
+    #
+    # Agora a busca vai do maior para o menor e a quebra e por LARGURA MEDIDA,
+    # com o mesmo LARGURA_GLIFO de 0,62 que o `corpo_que_cabe` usa. O primeiro
+    # corpo que cabe nos DOIS eixos vence, entao titulo curto cresce e titulo
+    # longo encolhe — sem escada, sem degrau, e sem teto artificial em 150.
+    #
+    # TETO=300 nao e estetica, e o limite em que uma palavra de cinco letras
+    # ainda cabe na largura util (1200 / (5 x 0,62) = 387, com folga).
+    # RESPIRO: sem ele o texto cabe na conta e encosta na moldura. 'BERAPA
+    # LAMA?' saia de ponta a ponta do branco, tecnicamente dentro e visualmente
+    # espremido — e uma letra a mais de folga vira corte no player.
+    TETO, PISO, PROPORCAO, RESPIRO = 300, 40, 0.60, 28
+    largura = W_THUMB - 2 * MARGEM - 2 * RESPIRO
+
+    s1 = PISO
+    l1 = quebra_por_largura(th.get("l1", ""), PISO, largura)
+    l2 = quebra_por_largura(th.get("l2", ""), int(PISO * PROPORCAO), largura)
+    for corpo in range(TETO, PISO - 1, -2):
+        s2c = max(1, int(corpo * PROPORCAO))
+        c1 = quebra_por_largura(th.get("l1", ""), corpo, largura)
+        c2 = quebra_por_largura(th.get("l2", ""), s2c, largura)
+        a1 = corpo + max(0, len(c1) - 1) * int(corpo * LH) if c1 else 0
+        a2 = s2c + max(0, len(c2) - 1) * int(s2c * LH) if c2 else 0
+        # A ALTURA cabendo nao basta: `wrap` nunca parte palavra, entao uma
+        # palavra sozinha maior que a largura util atravessa a moldura sem
+        # alterar a contagem de linhas. E o que cortava 'BERAPA LAMA?'.
+        cabe_largura = (max((largura_do_texto(l, corpo) for l in c1), default=0) <= largura
+                        and max((largura_do_texto(l, s2c) for l in c2), default=0) <= largura)
+        if cabe_largura and a1 + (GAP if c1 and c2 else 0) + a2 <= disponivel:
+            s1, l1, l2 = corpo, c1, c2
             break
+
+    s2 = max(1, int(s1 * PROPORCAO))
+    alt1 = s1 + max(0, len(l1) - 1) * int(s1 * LH) if l1 else 0
+    alt2 = s2 + max(0, len(l2) - 1) * int(s2 * LH) if l2 else 0
+    total = alt1 + (GAP if l1 and l2 else 0) + alt2
 
     topo = MARGEM + (disponivel - total) / 2
     base1 = topo + alt1
@@ -140,6 +306,7 @@ def geometria_thumb(th, H=720):
         "topo1": topo, "base1": base1,
         "topo2": topo2, "base2": topo2 + alt2,
         "linhas1": len(l1), "linhas2": len(l2),
+        "l1": l1, "l2": l2,
     }
 
 
@@ -167,8 +334,12 @@ def svg_thumb(th, pal, W=1280, H=720):
         f'<rect width="{W}" height="{H}" fill="{pal["c1"]}"/>'
         f'<rect x="{MARGEM}" y="{MARGEM}" width="{W - 2 * MARGEM}" '
         f'height="{H - 2 * MARGEM}" fill="#FFFFFF"/>'
-        + tsp(th["l1"], W // 2, y1, s1, pal["ink"], n=12, lh=LH)
-        + tsp(th["l2"], W // 2, y2, s2, pal["c1"], n=16, lh=LH)
+        # As LINHAS vem da geometria, nao de um `wrap` repetido aqui com outro
+        # `n`. Era assim antes (n=12 e n=16) e funcionava por coincidencia: bastava
+        # a conta e o desenho discordarem de uma linha para o portao aprovar uma
+        # capa que sai colidindo.
+        + tsp_linhas(g["l1"], W // 2, y1, s1, pal["ink"], lh=LH)
+        + tsp_linhas(g["l2"], W // 2, y2, s2, pal["c1"], lh=LH)
         + '</svg>'
     )
 

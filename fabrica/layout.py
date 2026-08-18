@@ -176,6 +176,25 @@ def analisa_thumb(spec: dict) -> list[str]:
     # A moldura colorida tem 40 px; texto invadindo ela some no player. Aqui a
     # medida e do PIXEL, e nao da conta: o wrap pode estourar a largura mesmo
     # com a altura certa, e so a rasterizacao mostra isso.
+    # LARGURA. Medida pela conta, e nao pelo pixel, por um motivo que so
+    # aparece olhando a capa: `l2` e desenhado em `c1`, a MESMA cor da moldura.
+    # Uma linha que transborda nao sai cortada — sai INVISIVEL, verde sobre
+    # verde, e qualquer varredura por luminancia a confunde com a moldura.
+    # Medido em 18/08/2026 no setiap-level-007: 'BERAPA LAMA?' calculado em
+    # 1.101 px pela constante 0,62 e renderizado com 1.251, com as duas pontas
+    # dentro da moldura. O portao aprovava, porque so olhava a faixa vertical.
+    util = W - 2 * g["margem"]
+    for rotulo, linhas, corpo in (("titulo", g["l1"], g["s1"]),
+                                  ("subtitulo", g["l2"], g["s2"])):
+        for linha in linhas:
+            larg = F.largura_do_texto(linha, corpo)
+            if larg > util:
+                erros.append(
+                    f"thumbnail: {rotulo} {linha!r} tem {larg:.0f} px no corpo "
+                    f"{corpo} e a caixa branca so tem {util} px — a sobra cai "
+                    f"na moldura, e em `c1` ela some em vez de aparecer cortada"
+                )
+
     juntos = _faixa_de_tinta(F.svg_thumb(th, pal), W, H)
     if juntos is None:
         erros.append("thumbnail: nenhuma tinta dentro da caixa — capa em branco")
