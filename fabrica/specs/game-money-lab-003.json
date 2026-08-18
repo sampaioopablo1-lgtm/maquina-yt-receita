@@ -1,0 +1,585 @@
+{
+ "slug": "game-money-lab",
+ "pacote": "game-money-lab-003",
+ "idioma": "en",
+ "voz": "en-GB-RyanNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#131A26",
+  "c1": "#5B2A86",
+  "c2": "#3DDC97",
+  "bg": "#F2F0FA"
+ },
+ "thumb": {
+  "l1": "$79.99 vs $98.89",
+  "l2": "the price freeze"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Two numbers",
+   "sub": "one broken argument",
+   "nar": "Seventy nine ninety nine. And ninety eight dollars eighty nine. The first is the most controversial price in gaming. The second is why the controversy has the maths backwards.",
+   "cap": "The two numbers"
+  },
+  {
+   "layout": "item",
+   "kicker": "The first",
+   "preco": "GTA Six, standard edition",
+   "nar": "The first number is official. GTA Six, standard edition, seventy nine ninety nine. Launching November the nineteenth, digital only, pre-orders open since June.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second",
+   "preco": "your 2005 game, today",
+   "nar": "The second number is what a sixty dollar game from two thousand and five costs in today's money. Ninety eight dollars and eighty nine cents.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Side by side",
+   "itens": [
+    "GTA 6",
+    "2005 game, real terms"
+   ],
+   "alturas": [
+    81,
+    100
+   ],
+   "nar": "Put them side by side and the outrage inverts. The most expensive blockbuster ever made is still cheaper, in real money, than a mid two-thousands disc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So the question changes",
+   "preco": "from why so dear to why so cheap",
+   "nar": "So the honest question is not why games got so expensive. It is how they stayed this cheap — and who has been quietly paying the difference.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "This video",
+   "sub": "the maths, not the mood",
+   "nar": "This video does the maths the comment section skips. No outrage, no defence of publishers. Just where the money actually went.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "The route",
+   "itens": [
+    "The 20-year freeze",
+    "Where the rise hid",
+    "The producer squeeze",
+    "Cost per hour",
+    "Your own sheet"
+   ],
+   "nar": "Five stops. The twenty year price freeze. Where the rise went into hiding. What the freeze did to the people making games. The only number that matters to a player. And a sheet you fill in yourself.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One warning",
+   "preco": "every number has an owner",
+   "nar": "One warning before we start: every number here has an owner and a date. Official announcements, and inflation maths on public price records.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Starting point",
+   "preco": "the freezer",
+   "nar": "Start with the freezer. Because the strangest thing about game prices is not that they finally moved. It is how long they refused to:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Fifteen years",
+   "sub": "of fifty nine ninety nine",
+   "nar": "From the mid two-thousands to twenty twenty, a full priced console game cost fifty nine ninety nine. Consoles changed twice. The sticker did not move once.",
+   "cap": "The 20-year freeze"
+  },
+  {
+   "layout": "item",
+   "kicker": "Meanwhile",
+   "preco": "everything else rose",
+   "nar": "Meanwhile everything else in your life rose. Rent rose. Food rose. Cinema tickets and streaming rose. The game on the shelf sat still.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What inflation did",
+   "preco": "ate forty percent",
+   "nar": "And a frozen sticker is not a frozen price. Inflation ate roughly forty percent of its value while it sat there.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "In real terms",
+   "preco": "games got cheaper every year",
+   "nar": "In real terms, every year of the freeze made games cheaper. Silently, automatically, without a single press release.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Go back further",
+   "preco": "the SNES cartridge",
+   "nar": "Go back further and it gets starker. A Super Nintendo cartridge in the early nineties cost, in today's money, nearly double a current release.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why freeze at all",
+   "preco": "a price war in disguise",
+   "nar": "Why would an industry freeze its own price? Because the sticker was a weapon. Two console makers anchoring at fifty nine ninety nine, each afraid to blink first.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the 2020 move",
+   "preco": "undershot",
+   "nar": "And look closely at the twenty twenty move. Ten dollars, after fifteen years in which inflation had taken forty percent. The rise itself undershot the freeze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The first move",
+   "preco": "seventy, in 2020",
+   "nar": "The first sticker move in fifteen years came in twenty twenty: seventy dollars for the new console generation.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second move",
+   "preco": "eighty, now",
+   "nar": "The second is happening now. Eighty dollars, with GTA Six as the battering ram. Two moves in twenty years.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "The sticker vs inflation",
+   "itens": [
+    "Sticker path",
+    "Inflation path"
+   ],
+   "alturas": [
+    81,
+    100
+   ],
+   "nar": "And even after both moves, the sticker sits below where inflation alone would have carried it. That gap is the whole story.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Because that gap",
+   "preco": "did not stay unpaid",
+   "nar": "Because that gap did not stay unpaid. Somebody built a second floor on top of the sticker, and that is our next stop.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "where the rise hid",
+   "nar": "If the front door price could not rise, the rise had to come in through the back. Here is the back door:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The price did not rise",
+   "sub": "it moved",
+   "nar": "Here is the real headline. The price of games did not rise. It moved — out of the sticker and into everything around it.",
+   "cap": "Where the rise hid"
+  },
+  {
+   "layout": "lista",
+   "kicker": "The second floor",
+   "itens": [
+    "Deluxe editions",
+    "Season passes",
+    "Battle passes",
+    "Virtual currency"
+   ],
+   "nar": "The second floor has four rooms. Deluxe and ultimate editions. Season passes. Battle passes. And virtual currency sold in bundles that never quite match the shop prices.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Exhibit one",
+   "preco": "the Ultimate edition",
+   "nar": "Exhibit one is on the GTA Six pre-order page itself. Standard, seventy nine ninety nine. Ultimate, ninety nine ninety nine. The eighty dollar game comes with a hundred dollar option attached.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The complete game",
+   "preco": "roughly doubled",
+   "nar": "Add the passes and the add-ons, and the cost of the complete experience of a big game has roughly doubled compared to the disc era.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which explains the feeling",
+   "preco": "both sides are right",
+   "nar": "Which explains why both sides of the argument feel right. The sticker really is historically cheap. And your total spend really is higher than ever.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The trick",
+   "preco": "unbundling",
+   "nar": "The trick has a boring name: unbundling. Sell the core for a frozen price, and price the rest of the experience separately, where inflation can run free.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Exhibit two",
+   "preco": "Rockstar's own history",
+   "nar": "Exhibit two is the seller itself. GTA Five sold over two hundred million copies — and its online mode still made billions AFTER the purchase, year upon year, through virtual currency.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which reframes the 80",
+   "preco": "an entry ticket",
+   "nar": "Which reframes the eighty dollars. For a game built to live for a decade, the sticker is not the price. It is the entry ticket.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the ground floor",
+   "preco": "costs zero",
+   "nar": "And do not forget the ground floor of this building: free to play. The most profitable games of the last decade charged nothing at the door. We counted that model on this channel before.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Subscriptions",
+   "preco": "the third floor",
+   "nar": "And above the second floor there is a third: subscriptions. A monthly fee that never appears in any argument about the price of a game, and never stops charging.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "None of this is a scandal",
+   "preco": "it is a structure",
+   "nar": "None of this is a hidden scandal. Every price is public. It is a structure — one designed so that no single number looks like a rise.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "who paid on the other side",
+   "nar": "And structures have two ends. If the player's sticker was frozen, someone on the making side was absorbing the freeze:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The other side",
+   "sub": "of a frozen sticker",
+   "nar": "On the other side of a frozen sticker sits a studio whose costs were never frozen.",
+   "cap": "The producer squeeze"
+  },
+  {
+   "layout": "item",
+   "kicker": "We counted it",
+   "preco": "three hundred million",
+   "nar": "We counted that side on this channel already: the three hundred million dollar blockbuster. Budgets that grew tenfold while the sticker grew thirty three percent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The squeeze",
+   "preco": "two lines crossing",
+   "nar": "That is the squeeze in one picture. Costs climbing for twenty years, revenue per copy flat for fifteen of them. Two lines crossing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What crossing lines buy",
+   "preco": "layoffs and closures",
+   "nar": "And the news you have been reading for three years — the layoffs, the studio closures, the cancelled projects — lives exactly where those lines cross.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The scale",
+   "preco": "tens of thousands",
+   "nar": "Industry trackers have counted tens of thousands of games jobs lost across the last three years. Not one bad quarter — a structural wave.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The eighty dollars",
+   "preco": "arrives late",
+   "nar": "Seen from that side, the eighty dollar sticker is not greed arriving early. It is arithmetic arriving late.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But honesty cuts both ways",
+   "preco": "the second floor pays too",
+   "nar": "But honesty cuts both ways. The publishers crying over costs also built the second floor, and the second floor collects billions. The squeeze is real, and so is the workaround.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "so what should YOU pay",
+   "nar": "Which leaves the only question this channel cares about. Not what games should cost. What they cost YOU:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The only honest metric",
+   "sub": "cost per hour",
+   "nar": "The only honest price of a game is not on the box. It is the price divided by the hours you actually play.",
+   "cap": "Cost per hour"
+  },
+  {
+   "layout": "item",
+   "kicker": "The eighty dollar game",
+   "preco": "at a hundred hours",
+   "nar": "Take the eighty dollar blockbuster you play for a hundred hours. Eighty cents an hour.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare the cinema",
+   "preco": "several times that",
+   "nar": "A cinema ticket buys two hours. Do that division and the game is one of the cheapest hours of entertainment money can buy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now flip it",
+   "preco": "the impulse buy",
+   "nar": "Now flip it. The thirty dollar impulse buy you drop after ninety minutes costs twenty dollars an hour. The expensive game is the one you do not play.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Same logic",
+   "preco": "for the passes",
+   "nar": "The same division works on the second floor. A pass you grind every week is cheap. A pass you bought in March and forgot by April is the most expensive item in your library.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And timing is a price too",
+   "preco": "the patient discount",
+   "nar": "Timing is a price lever as well. The same game, six or twelve months after launch, routinely sells for a fraction of the sticker. Patience is the one discount nobody advertises.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Launch price",
+   "preco": "is a choice, not a rule",
+   "nar": "So the launch price is a choice you make, not a rule you obey. Paying it is rational exactly when your hours will be highest at launch — which is true for some games and false for most.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Price tags lie",
+   "preco": "libraries do not",
+   "nar": "Price tags start arguments. Libraries end them. Your play history already knows which purchases were worth it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "make it a sheet",
+   "nar": "So let us turn your library into the sheet that answers this for your case, not for the comment section's:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Six lines",
+   "sub": "any spreadsheet will do",
+   "nar": "Six lines. Any spreadsheet, or the notes app on your phone.",
+   "cap": "Your own sheet"
+  },
+  {
+   "layout": "lista",
+   "kicker": "The six lines",
+   "itens": [
+    "Games bought this year",
+    "Editions and passes",
+    "Subscriptions x 12",
+    "Hours actually played",
+    "Cost per hour",
+    "The one to cut"
+   ],
+   "nar": "Games bought this year. Editions and passes on top. Subscriptions times twelve. Hours actually played, from your console's own stats. Cost per hour. And the line you decide to cut.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line one and two",
+   "preco": "sticker versus second floor",
+   "nar": "Lines one and two split your spend into sticker and second floor. Most people have never seen that split. It is usually the surprise.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line three",
+   "preco": "the invisible twelve",
+   "nar": "Line three is the quiet one. Any subscription times twelve. It never feels like game spending, and it is often the biggest number on the sheet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line four",
+   "preco": "your console already counts it",
+   "nar": "Line four needs no honesty test. Your console and your launcher already count your hours. Copy the number, do not estimate it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line five",
+   "preco": "one division",
+   "nar": "Line five is one division: total spend over total hours. That is your personal price of gaming. Not the industry's. Yours.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line six",
+   "preco": "the cut",
+   "nar": "Line six is the decision. Whatever scored worst per hour this year — a subscription, a pass, a genre — that is the line you cut before the next launch season.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Date it",
+   "preco": "prices move twice a year now",
+   "nar": "And date the sheet. The freeze is over — stickers move now, and passes reprice every season. An undated sheet goes stale in months.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "three mistakes before we close",
+   "nar": "Before we close, the three mistakes that ruin this comparison every single time:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Three mistakes",
+   "sub": "and the takeaway",
+   "nar": "Three mistakes, each one expensive in its own way.",
+   "cap": "Three mistakes and the takeaway"
+  },
+  {
+   "layout": "item",
+   "kicker": "First",
+   "preco": "comparing stickers across decades",
+   "nar": "First: comparing stickers across decades without inflation. Sixty dollars in two thousand five is not sixty dollars today. It is nearly a hundred.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second",
+   "preco": "judging the sticker, ignoring the floor",
+   "nar": "Second: judging the sticker and ignoring the second floor. The eighty is historically cheap. The eighty plus edition plus pass plus subscription is not.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Third",
+   "preco": "paying for hours you never play",
+   "nar": "Third: paying for hours you never play. The most expensive game in your life is almost certainly one you barely opened.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "The video in five lines",
+   "itens": [
+    "$60 of 2005 = $98.89 today",
+    "Two sticker moves in 20 years",
+    "The rise moved into passes",
+    "Squeeze on the maker side",
+    "Judge by cost per hour"
+   ],
+   "nar": "The recap is on screen. Pause it and steal it. Argue with it in the comments — with numbers, preferably.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What almost nobody does",
+   "preco": "the split",
+   "nar": "The thing almost nobody does is line two: splitting sticker from second floor. Do that once and every future purchase gets easier to judge.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What not to do",
+   "preco": "argue the sticker in the abstract",
+   "nar": "One thing not to do: argue about the eighty dollars in the abstract. Without your hours, the sticker is just a number shouting at other numbers.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If you do one thing",
+   "preco": "run the division",
+   "nar": "If you do one thing after this video, open your play stats and run the division on your last three purchases. That is the whole method.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It takes an evening",
+   "preco": "not a project",
+   "nar": "It takes an evening, not a project. Six lines on one screen, and the first division fits in a coffee break.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "count the fun, then buy it",
+   "nar": "If you ran the numbers, drop your cost per hour in the comments. I am collecting them for the next video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "count the fun, then buy it",
+   "nar": "And if you want this same maths on another corner of gaming — subscriptions, hardware, virtual currency — say which. Most requested goes first.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "$79.99 vs $98.89",
+   "sub": "the maths is backwards",
+   "nar": "GTA Six costs eighty dollars. And the maths behind the outrage is backwards.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Your 2005 game",
+   "preco": "$98.89 today",
+   "nar": "A sixty dollar game from two thousand five costs ninety eight eighty nine in today's money. The freeze ate forty percent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So the price",
+   "preco": "did not rise — it moved",
+   "nar": "The real rise moved out of the sticker. Into editions, passes and subscriptions. The complete game roughly doubled.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The honest metric",
+   "preco": "cost per hour",
+   "nar": "And the only honest price is cost per hour played. Eighty dollars for a hundred hours is eighty cents an hour.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "the full 20-year maths",
+   "nar": "The full twenty year maths, and the sheet that prices YOUR library, is in the long video.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# The 20-year price freeze behind the $80 game\n\n## TITULO\nGTA 6 Costs $80: The 20-Year Price Freeze That Broke Gaming's Math\n\n## DESCRICAO\n$79.99. And $98.89. The first is the most controversial price in gaming — GTA 6, standard edition, launching November 19th, digital only, pre-orders open since June. The second is what your $60 game from 2005 costs in today's money. Put them side by side and the outrage inverts: the most expensive blockbuster ever made is still cheaper, in real terms, than a mid-2000s disc.\n\nThis video does the maths the comment section skips. No outrage, no defence of publishers — just where the money actually went.\n\nTHE 20-YEAR FREEZE. From the mid-2000s to 2020, a full-priced console game cost $59.99. Consoles changed twice; the sticker never moved. Inflation quietly ate about 40% of its value — and a SNES cartridge in the early 90s cost, in today's money, nearly double a current release. Even after the two moves ($70 in 2020, $80 now), the sticker still sits below where inflation alone would have carried it.\n\nWHERE THE RISE HID. The price didn't rise — it moved. Out of the sticker and into deluxe editions ($99.99 Ultimate is on the GTA 6 pre-order page itself), season passes, battle passes, virtual currency and subscriptions. The cost of the complete experience roughly doubled — which is why both sides of the argument feel right: the sticker is historically cheap AND your total spend is higher than ever. GTA 5 sold over 200 million copies and still made billions AFTER the purchase; for a game built to live a decade, $80 is not the price. It's the entry ticket.\n\nTHE PRODUCER SQUEEZE. On the other side of a frozen sticker sits a studio whose costs were never frozen — we counted the $300 million blockbuster on this channel already. Costs climbing for twenty years, revenue per copy flat for fifteen: the layoffs you've been reading about live exactly where those lines cross.\n\nCOST PER HOUR. The only honest price of a game is the price divided by the hours you actually play. $80 across 100 hours is $0.80 an hour. The $30 impulse buy you drop after 90 minutes costs $20 an hour. Price tags start arguments; libraries end them.\n\nThen we build the six-line sheet that prices YOUR library: games bought, editions and passes, subscriptions ×12, hours actually played (your console already counts them), cost per hour, and the line you cut.\n\nIF YOU DO ONE THING after this video: open your play stats and run the division on your last three purchases. That's the whole method.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nTwo questions, because the averages hide exactly the interesting cases: what's your real cost per hour this year? And which line surprised you most when you split sticker from second floor — editions, passes, or the subscription ×12? I'm collecting the numbers for the next video; most requested corner of gaming maths goes first.\n\n## HASHTAGS\n#GTA6 #GamingEconomics #GameMoneyLab\n\n## TAGS\ngta 6 price, 80 dollar games, video game prices, game prices inflation, gaming economics, gta 6 preorder, cost per hour gaming, video game industry, season pass, microtransactions, game pass, deluxe edition, gaming industry crisis, why games cost 80, patient gamer\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Ingles (en) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Reino Unido | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nGTA 6 pricing ($79.99 standard / $99.99 Ultimate), the November 19, 2026 launch date, digital-only distribution and the June 25 pre-order opening are Rockstar's official announcements as reported by Variety and specialist outlets. The inflation adjustment ($60 in 2005 ≈ $98.89 today; ~40% of value eroded during the freeze; early-90s SNES cartridges at nearly double a current release in real terms) is based on official US CPI data as compiled by public game-price trackers (Gameflation, Video Game Console Library, Apophenia Labs). \"GTA 5 sold over 200 million copies\" is Take-Two's own reported figure. \"Tens of thousands of games jobs lost across three years\" refers to totals compiled by public industry layoff trackers. The cost-per-hour examples are arithmetic illustrations, not measurements. All prices change over time and by region — which is why the sheet in this video locks no number in: fill in your own. This content is education about personal spending on games; it is not financial advice, and it is not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.\n"
+}
