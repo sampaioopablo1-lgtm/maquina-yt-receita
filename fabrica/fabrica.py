@@ -483,17 +483,19 @@ def svg_cena(c, pal, W, H, camada=None):
         s += f'<rect width="{W}" height="{H}" fill="{bg}"/>'
     cx = W//2
     if lay == 'broll':
-        # Lower-third documental: faixa escura translucida embaixo, kicker
-        # branco grande, sub na cor de destaque. Margens generosas de
-        # proposito — o portao de layout mede tinta na borda e o overlay nao
-        # passa por Ken Burns, mas a folga custa nada.
-        s += (f'<rect x="0" y="{H*0.68}" width="{W}" height="{H*0.32}" '
-              f'fill="#000000" opacity="0.45"/>')
-        s += tsp(c.get('kicker', ''), W*0.08, H*0.80, H*0.075, '#FFFFFF',
-                 n=24, anchor='start', largura=W*0.84)
+        # Cartao flutuante, NAO faixa ate a borda: o portao do prontidao.py
+        # mede tinta nos 4% externos (MAX 1,2%) e a primeira versao — faixa
+        # colada no rodape + descendentes do devanagari — reprovou 6/7 cenas
+        # do agla-level-004 com 1,3 a 1,6%. O cartao termina em 0,86H e o
+        # texto mais fundo fica em ~0,84H: folga de 10 pontos ate a zona.
+        s += (f'<rect x="{W*0.07}" y="{H*0.62}" width="{W*0.86}" '
+              f'height="{H*0.24}" rx="{H*0.02}" fill="#000000" '
+              f'opacity="0.45"/>')
+        s += tsp(c.get('kicker', ''), W*0.11, H*0.735, H*0.065, '#FFFFFF',
+                 n=24, anchor='start', largura=W*0.78)
         if c.get('sub'):
-            s += tsp(c['sub'], W*0.08, H*0.90, H*0.045, c2, n=40,
-                     anchor='start', largura=W*0.84)
+            s += tsp(c['sub'], W*0.11, H*0.825, H*0.042, c2, n=42,
+                     anchor='start', largura=W*0.78)
         return s + '</svg>'
     if lay in ('titulo','cta'):
         fg = c1 if lay=='titulo' else c2
