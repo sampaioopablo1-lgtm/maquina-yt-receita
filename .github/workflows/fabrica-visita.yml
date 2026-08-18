@@ -48,6 +48,20 @@ jobs:
           path: /tmp/midas_small.onnx
           key: midas-small-v2_1
 
+
+      - name: Converter fotos PNG para JPEG real
+        env:
+          AUDITORIA_TOKEN: ${{ secrets.AUDITORIA_TOKEN }}
+        run: |
+          # O portal só importa jpg; PNG disfarçado é descartado em silêncio.
+          # O token interno vem do secret AUDITORIA_TOKEN (mesmo valor de
+          # integracao_credenciais.auditoria_interna_token).
+          if [ -n "$AUDITORIA_TOKEN" ]; then
+            python3 scripts/converter_fotos_png.py
+          else
+            echo "AUDITORIA_TOKEN ausente — pulei a conversão"
+          fi
+
       - name: Gerar mapas de profundidade
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
