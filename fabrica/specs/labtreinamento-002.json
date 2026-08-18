@@ -135,13 +135,6 @@
   },
   {
    "layout": "item",
-   "kicker": "A pergunta muda",
-   "preco": "de quem para o que",
-   "nar": "Entao a pergunta deixa de ser quem esta adoecendo. Passa a ser o que na rotina de trabalho produz o desgaste, e com que frequencia isso acontece.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
    "kicker": "A norma nao da lista fechada",
    "preco": "os guias agrupam em seis",
    "nar": "A norma nao entrega uma lista pronta de fatores. Os guias de referencia costumam agrupar em seis familias, e e assim que a planilha organiza.",
@@ -384,13 +377,6 @@
   },
   {
    "layout": "item",
-   "kicker": "Se preferir sem aninhar",
-   "preco": "PROCV na aba Matriz",
-   "nar": "Quem nao gosta de SE aninhado usa PROCV na aba Matriz com correspondencia aproximada. Mesma resposta, e o criterio passa a viver numa tabela em vez de dentro da formula.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
    "kicker": "Envolva com SEERRO",
    "preco": "linha em branco nao acusa",
    "nar": "Envolva com SEERRO para a linha ainda em branco nao mostrar erro. Planilha cheia de aviso vermelho e planilha que ninguem preenche.",
@@ -453,13 +439,6 @@
    "kicker": "Puxe so o que pesa",
    "preco": "alto e critico",
    "nar": "O plano nao repete o inventario inteiro. Ele puxa so as linhas classificadas como alto e critico, que sao as que exigem acao.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Como puxar",
-   "preco": "FILTRO, ou PROCV pelo codigo",
-   "nar": "Se o seu Excel tem a funcao FILTRO, uma formula resolve. Se nao tem, use PROCV pelo codigo do risco, que funciona em qualquer versao.",
    "sem_cap": true
   },
   {
@@ -652,13 +631,6 @@
    "sem_cap": true
   },
   {
-   "layout": "item",
-   "kicker": "O que conta como mudanca",
-   "preco": "e mais comum do que parece",
-   "nar": "E isso e mais comum do que parece. Troca de sistema. Mudanca de escala. Fusao de setores ou corte de time. Cada uma delas muda a exposicao do grupo.",
-   "sem_cap": true
-  },
-  {
    "layout": "lista",
    "kicker": "Recapitulando",
    "itens": [
@@ -690,13 +662,6 @@
    "kicker": "Se voce so fizer uma coisa",
    "preco": "tres linhas com fonte",
    "nar": "Se voce so fizer uma coisa depois deste video, escreva tres linhas com situacao e fonte. So tres. Elas ja mostram se voce tem material ou nao.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "E leva uma tarde",
-   "preco": "nao um projeto",
-   "nar": "E leva uma tarde, nao um projeto. A estrutura inteira cabe numa manha, e as tres primeiras linhas cabem num cafe.",
    "sem_cap": true
   },
   {

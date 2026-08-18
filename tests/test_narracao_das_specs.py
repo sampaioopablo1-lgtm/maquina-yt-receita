@@ -53,7 +53,8 @@ SPECS = [p for p in sorted((RAIZ / "fabrica" / "specs").glob("*.json"))
 PARADAS = {
     "cocina-por-niveles-002": "15,0 min — acima do teto, canal sem escalonamento",
     "kolejny-poziom-003":     "copy ainda em bilhete + 16,6 min",
-    "labtreinamento-002":     "15,3 min — acima do teto",
+    # labtreinamento-002 saiu daqui em 18/08/2026: encurtada de 92 para 87
+    # cenas (15,33 -> 14,49 min) e devolvida a matriz.
     "resep-naik-level-003":   "16,2 min — acima do teto",
     "setiap-level-003":       "26,0 min — desescalonado por medicao em 17/08",
     "setiap-level-004":       "28,1 min — desescalonado por medicao em 17/08",

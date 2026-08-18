@@ -21,6 +21,14 @@ mundo". A norma avalia o TRABALHO, nao o trabalhador. Isso e ao mesmo tempo
 verdadeiro, barato e libertador, e e o que compra os treze minutos.
 
 Taxa MEDIDA de pt-BR-ThalitaMultilingualNeural: 16,52 chars/s.
+
+ENCURTADA em 18/08/2026: a spec estava com 92 cenas e 15,33 min estimados —
+0,33 acima do teto de 15 — e por isso ficou SEIS DIAS fora da matriz do cron,
+sem que nada ficasse vermelho. Sairam cinco cenas (~51 s) que nao carregavam
+fato novo: a reafirmacao "a pergunta muda", as duas variantes opcionais de
+formula (PROCV alternativo ao SE aninhado; FILTRO/PROCV para puxar linhas),
+os exemplos de mudanca organizacional cuja regra ja esta na cena anterior, e
+o eco "leva uma tarde". Nenhum numero e nenhuma ponte de capitulo sairam.
 """
 import json
 
@@ -113,9 +121,6 @@ I("O que nunca entra", "nome, diagnostico, atestado",
 I("O que entra", "a situacao de trabalho",
   "O que entra e a situacao. Prazo definido por quem nao executa. Turno que "
   "muda sem aviso. Meta revisada no meio do mes.")
-I("A pergunta muda", "de quem para o que",
-  "Entao a pergunta deixa de ser quem esta adoecendo. Passa a ser o que na "
-  "rotina de trabalho produz o desgaste, e com que frequencia isso acontece.")
 I("A norma nao da lista fechada", "os guias agrupam em seis",
   "A norma nao entrega uma lista pronta de fatores. Os guias de referencia "
   "costumam agrupar em seis familias, e e assim que a planilha organiza.")
@@ -226,10 +231,6 @@ I("A formula da classificacao", "SE aninhado",
   "A classificacao sai de um SE aninhado sobre o nivel. Ele testa do maior "
   "para o menor: critico primeiro, depois alto, depois medio, e o resto cai em "
   "baixo.")
-I("Se preferir sem aninhar", "PROCV na aba Matriz",
-  "Quem nao gosta de SE aninhado usa PROCV na aba Matriz com correspondencia "
-  "aproximada. Mesma resposta, e o criterio passa a viver numa tabela em vez "
-  "de dentro da formula.")
 I("Envolva com SEERRO", "linha em branco nao acusa",
   "Envolva com SEERRO para a linha ainda em branco nao mostrar erro. Planilha "
   "cheia de aviso vermelho e planilha que ninguem preenche.")
@@ -257,9 +258,6 @@ L("Aba Plano", ["Codigo do risco", "Medida", "Responsavel", "Prazo",
 I("Puxe so o que pesa", "alto e critico",
   "O plano nao repete o inventario inteiro. Ele puxa so as linhas classificadas "
   "como alto e critico, que sao as que exigem acao.")
-I("Como puxar", "FILTRO, ou PROCV pelo codigo",
-  "Se o seu Excel tem a funcao FILTRO, uma formula resolve. Se nao tem, use "
-  "PROCV pelo codigo do risco, que funciona em qualquer versao.")
 I("A medida", "e aqui mora o erro caro",
   "A medida de controle e a coluna onde mora o erro mais caro deste tema "
   "inteiro. E ele quase sempre tem a mesma cara.")
@@ -357,9 +355,6 @@ I("Quando revisar", "a norma diz, e voce confere la",
   "Sobre a frequencia de revisao, o intervalo esta escrito na propria norma e e "
   "la que voce confere. O que ninguem discute e revisar quando a organizacao "
   "do trabalho muda.")
-I("O que conta como mudanca", "e mais comum do que parece",
-  "E isso e mais comum do que parece. Troca de sistema. Mudanca de escala. "
-  "Fusao de setores ou corte de time. Cada uma delas muda a exposicao do grupo.")
 L("Recapitulando", ["Situacao com verbo", "Fonte da evidencia",
                     "Nota vezes nota", "Responsavel e prazo", "Verificacao"],
   "Recapitulando o que voce monta. Situacao com verbo e frequencia. Fonte da "
@@ -375,9 +370,6 @@ I("O que nao fazer", "montar sozinho no RH",
 I("Se voce so fizer uma coisa", "tres linhas com fonte",
   "Se voce so fizer uma coisa depois deste video, escreva tres linhas com "
   "situacao e fonte. So tres. Elas ja mostram se voce tem material ou nao.")
-I("E leva uma tarde", "nao um projeto",
-  "E leva uma tarde, nao um projeto. A estrutura inteira cabe numa manha, e as "
-  "tres primeiras linhas cabem num cafe.")
 C("LabTreinamento", "processos, planilha e prova",
   "Se voce montou o inventario, escreve nos comentarios quantas linhas "
   "ficaram em alto. Estou juntando esses numeros para o proximo video.")
