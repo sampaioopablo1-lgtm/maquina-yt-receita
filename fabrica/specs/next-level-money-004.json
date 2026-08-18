@@ -1,0 +1,657 @@
+{
+ "slug": "next-level-money",
+ "pacote": "next-level-money-004",
+ "idioma": "en",
+ "voz": "en-US-AndrewNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#E4572E",
+  "c2": "#F2B134",
+  "bg": "#F2ECDF"
+ },
+ "thumb": {
+  "l1": "$87.50 OF $100",
+  "l2": "the minimum trap"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Two numbers",
+   "sub": "from the same week",
+   "nar": "One point two six trillion dollars. And eighty seven dollars fifty. The first made every headline last week. The second explains it, and almost nobody says it out loud.",
+   "cap": "The two numbers"
+  },
+  {
+   "layout": "item",
+   "kicker": "The first",
+   "preco": "the New York Fed's count",
+   "nar": "The first is the New York Fed's official count of America's credit card debt. One point two six trillion dollars, as of the second quarter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second",
+   "preco": "inside a minimum payment",
+   "nar": "The second is what happens inside one ordinary minimum payment on a five thousand dollar balance. We will get there, and it will explain more than the trillion does.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "This is not a lecture",
+   "preco": "it is a machine",
+   "nar": "This video is not a lecture about spending less. It is a tour of a machine — a beautifully engineered one — and the maths it runs on.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why this matters now",
+   "preco": "the report is a week old",
+   "nar": "Why now? Because the Fed's quarterly report landed a week ago, every outlet quoted the trillion, and every one of them stopped exactly where the interesting part begins.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The news tells you the size",
+   "preco": "we do the mechanism",
+   "nar": "The news tells you the size of the lake. This channel is about the plumbing — where the water comes in, and why the drain is built so narrow.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The claim",
+   "sub": "the minimum is the product",
+   "nar": "Here is the claim we will test with arithmetic: the minimum payment is not a safety feature. It is the product.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "The route",
+   "itens": [
+    "The record, in context",
+    "The delinquency curve",
+    "The minimum payment machine",
+    "Why twenty one percent",
+    "Your six-line sheet"
+   ],
+   "nar": "Five stops. The record and what sits inside it. The delinquency curve. The minimum payment machine itself. Why the interest rate is what it is. And the sheet that turns your own balance into your own answer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One promise",
+   "preco": "every number has an owner",
+   "nar": "One promise before we start. Every number here has an owner and a date — most of them from the Fed's own quarterly report, published August the eleventh.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And one warning",
+   "preco": "the examples are examples",
+   "nar": "And one warning. The five thousand dollar balance we will use is an illustration. The method is the point — you will run it on your own numbers at the end.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Start",
+   "preco": "with the record",
+   "nar": "Start with the record, because the trillion is not the interesting part:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The record",
+   "sub": "and what it hides",
+   "nar": "One point two six trillion. Up twenty one billion in a single quarter. Just short of the all time peak of one point two eight trillion.",
+   "cap": "The record, in context"
+  },
+  {
+   "layout": "item",
+   "kicker": "Who holds it",
+   "preco": "175 million people",
+   "nar": "Who holds it? About one hundred and seventy five million Americans have at least one credit card.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The split that matters",
+   "preco": "sixty percent carry",
+   "nar": "And the split that matters: roughly sixty percent of them do not pay the balance off each month. They carry it, and the interest meter runs.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Two Americas",
+   "itens": [
+    "Pay in full",
+    "Carry a balance"
+   ],
+   "alturas": [
+    67,
+    100
+   ],
+   "nar": "That is the real headline. Two groups using the same product. For one it is a payments tool with rewards. For the other it is the most expensive loan they will ever hold.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Scale check",
+   "preco": "per carrying household",
+   "nar": "Do the scale check yourself. A trillion and a quarter, spread over the carrying minority, lands in the thousands per household — not a rounding error in anyone's budget.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it grew",
+   "preco": "twenty one billion in ninety days",
+   "nar": "And it grew by twenty one billion dollars in ninety days. That is the speed of the gap between paychecks and prices, measured quarterly.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Near the peak",
+   "preco": "and climbing back",
+   "nar": "The all time peak was set just two quarters ago. After a brief dip, the balance is climbing straight back toward it. Records here do not stand for long.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The Fed's own phrase",
+   "preco": "a K-shaped economy",
+   "nar": "The Fed's own researchers describe it as a K-shaped economy. One arm of the K rising, one falling, both holding the same piece of plastic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the trillion",
+   "preco": "is the falling arm's bill",
+   "nar": "And the trillion is mostly the falling arm's bill. Money already spent — on groceries, on repairs, on months where the paycheck ran out early.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which is why",
+   "preco": "the record keeps records",
+   "nar": "Which is why this record keeps breaking. It is not a shopping spree. It is a gap between income and life, financed at card rates.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "and the cracks show",
+   "nar": "And when a gap is financed at card rates, the cracks show up in one specific statistic. That is our second stop:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The curve",
+   "sub": "nobody puts on a thumbnail",
+   "nar": "The share of card balances that have gone at least ninety days without a payment. The quiet statistic. And the one that moved most.",
+   "cap": "The delinquency curve"
+  },
+  {
+   "layout": "item",
+   "kicker": "From seven point six",
+   "preco": "to twelve point eight",
+   "nar": "In mid twenty twenty two, seven point six percent of balances were that far behind. By early this year: twelve point eight percent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "The climb",
+   "itens": [
+    "Mid-2022",
+    "Early 2026"
+   ],
+   "alturas": [
+    59,
+    100
+   ],
+   "nar": "That is not a wobble. That is a climb of two thirds, through years the economy was officially fine.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What ninety days means",
+   "preco": "the account changes state",
+   "nar": "Ninety days is not just a number. Past it, the account changes state. Collection calls, frozen limits, and a credit score that falls faster than it will ever climb back.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it is selective",
+   "preco": "the K again",
+   "nar": "The curve is selective too. It is the same K shape. Households with a cushion barely register in it. Stretched households slide from thirty days late to sixty and then to ninety.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ninety is a cliff",
+   "preco": "not a milestone",
+   "nar": "And ninety days is a cliff, not a milestone. Before it, a hardship plan can still reset the account. After it, the options narrow to collections or charge-off.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which explains",
+   "preco": "the freezing you read about",
+   "nar": "Which explains the other headline going around: banks quietly freezing and cutting card limits. They read this same curve, and they are closing the exits.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One in eight dollars",
+   "preco": "is already stuck",
+   "nar": "Put simply: about one in eight borrowed dollars on America's cards is already stuck. The machine keeps running anyway. In fact, it runs ON this.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "open the machine",
+   "nar": "So let us open the machine and look at the gears. This is the part the news never does:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The machine",
+   "sub": "one ordinary payment",
+   "nar": "Take one ordinary card. Five thousand dollars of balance, twenty one percent interest — the average rate. Now watch a single minimum payment move through it.",
+   "cap": "The minimum payment machine"
+  },
+  {
+   "layout": "item",
+   "kicker": "Step one",
+   "preco": "the interest meter",
+   "nar": "Step one, the meter. Take the balance and apply the average rate. The result is eighty seven dollars fifty of interest per month. Before you buy a single new thing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Step two",
+   "preco": "the minimum arrives",
+   "nar": "Step two. The typical minimum is around two percent of the balance. On five thousand, that is one hundred dollars.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Where the $100 goes",
+   "itens": [
+    "Interest",
+    "Your debt"
+   ],
+   "alturas": [
+    100,
+    14
+   ],
+   "nar": "Step three. Of your hundred dollars, eighty seven fifty pays the interest meter. Twelve dollars fifty touches the actual debt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Read that again",
+   "preco": "12.50 of 100",
+   "nar": "Read that again. You paid a hundred. Your debt shrank by twelve and a half. The other eighty seven and a half bought you one more month of owing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now stretch it",
+   "preco": "the decades shape",
+   "nar": "Now stretch that forward. At minimums only, a balance like this takes decades to die, and the interest paid along the way can exceed the original debt itself.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the meter reloads",
+   "preco": "every single month",
+   "nar": "Remember: the meter reloads every month. Pay the minimum, and next month the balance is nearly unchanged — so the interest charge is nearly unchanged too. The wheel resets.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare a mortgage",
+   "preco": "same idea, honest version",
+   "nar": "Compare a mortgage. It also starts interest-heavy — but it is built to END, on a fixed schedule. A card minimum has no schedule. It is a loan designed to renew itself.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The industry word",
+   "preco": "revolvers",
+   "nar": "The industry has a word for people in this loop: revolvers. Not borrowers. Revolvers. The name of the customer is the name of the motion.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "This is not an accident",
+   "preco": "it is the design",
+   "nar": "And none of this is an accident. The minimum is set low enough to keep the account alive and paying, not high enough to kill the debt. That is the design brief.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The proof",
+   "preco": "your own statement",
+   "nar": "The proof is printed on your own statement. US card statements must show the minimum-payments-only payoff time by law. Find that box. It is the most honest sentence your bank publishes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That box has a birthday",
+   "preco": "2009",
+   "nar": "That disclosure box has a birthday, by the way. It was forced onto statements by the two thousand nine CARD Act — because before it, the payoff maths lived nowhere at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the escape",
+   "preco": "is boring arithmetic",
+   "nar": "The escape is boring arithmetic. Any fixed payment above the minimum — even slightly above — collapses the timeline, because every extra dollar goes straight to the debt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Minimum vs fixed",
+   "itens": [
+    "Minimum only",
+    "Fixed higher payment"
+   ],
+   "alturas": [
+    100,
+    30
+   ],
+   "nar": "Same balance, same rate. One choice pays for decades. The other pays for a couple of years. The difference is not income. It is the shape of the payment.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "but why twenty one",
+   "nar": "Which leaves one question the machine prefers you not ask. Why is the rate twenty one percent in the first place?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why 21%",
+   "sub": "the stickiest price in finance",
+   "nar": "Card interest is the stickiest price in American finance. It climbs quickly when rates rise, and it barely moves when they fall.",
+   "cap": "Why twenty one percent"
+  },
+  {
+   "layout": "item",
+   "kicker": "How it is built",
+   "preco": "a base plus a margin",
+   "nar": "The rate is built as a base — tied to the Fed — plus a margin the bank chooses. The base moves with the economy. The margin mostly grows.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why it can grow",
+   "preco": "you are not shopping",
+   "nar": "The margin can grow because almost nobody shops for card rates. People shop rewards, cash back, sign-up bonuses. The rate is read later, in a bad month.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And risk is priced in",
+   "preco": "the twelve point eight",
+   "nar": "And the twelve point eight percent of stuck balances is priced in too. The borrowers who pay are charged for the borrowers who cannot.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The margin's history",
+   "preco": "it widened",
+   "nar": "And the margin has widened over the years — quietly, a fraction at a time, in the fine print of terms updates almost nobody reads.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Deposits versus cards",
+   "preco": "the spread in one glance",
+   "nar": "Want the spread in one glance? Look at what your bank pays on your savings, and what it charges on your card. Same institution, same dollar, two different worlds.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The uncomfortable line",
+   "preco": "reliable payers subsidise",
+   "nar": "Which produces the uncomfortable line of this chapter: if you carry a balance and pay reliably, part of your twenty one percent is covering someone else's default.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "your sheet",
+   "nar": "You cannot vote on the margin. You can only decide how many months it gets to bill you. So let us build your sheet:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Six lines",
+   "sub": "your balance, your answer",
+   "nar": "Six lines. Any spreadsheet, or paper. Ten minutes.",
+   "cap": "Your six-line sheet"
+  },
+  {
+   "layout": "lista",
+   "kicker": "The six lines",
+   "itens": [
+    "Balance",
+    "Your APR",
+    "Interest per month",
+    "Your minimum",
+    "Debt actually paid",
+    "Months to zero"
+   ],
+   "nar": "Your balance. Your interest rate. Interest per month. Your minimum. How much of it actually pays debt. And months to zero at your current pace.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gather three documents",
+   "preco": "statement, app, rate table",
+   "nar": "You need three things: your latest statement, your banking app for the exact balance, and the rate table from your card agreement. Five minutes of gathering.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line three",
+   "preco": "one multiplication",
+   "nar": "Line three is one multiplication: balance, times rate, divided by twelve. That is the meter. Most people have never once computed it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line five",
+   "preco": "the twelve fifty line",
+   "nar": "Line five is the twelve-fifty line: your payment minus line three. If it is small, you are renting your debt, not repaying it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Line six",
+   "preco": "steal it from the statement",
+   "nar": "Line six you do not even have to compute. Steal it from the statement's own payoff box, then watch it collapse as you test higher fixed payments.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The lever",
+   "preco": "fix the payment",
+   "nar": "The lever is one decision: stop paying the minimum percentage and pay a fixed amount. The minimum shrinks as the balance falls. Your fixed payment does not — so it kills the debt faster every month.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If you hold several cards",
+   "preco": "highest rate first",
+   "nar": "If you hold several cards, list the rates and put every spare dollar on the highest one while paying minimums on the rest. The arithmetic of that order beats every other order.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A worked example",
+   "preco": "watch the collapse",
+   "nar": "Run one worked example to feel it. On the five thousand dollar balance, test a fixed two hundred a month against the shrinking minimum. Watch years turn into a couple of dozen months.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And stop the refill",
+   "preco": "while you drain",
+   "nar": "One structural rule while you drain the balance: new purchases go on debit or cash. Draining a tank while refilling it is the machine's favourite customer behaviour.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Date the sheet",
+   "preco": "rates move",
+   "nar": "And date the sheet. Rates move, balances move. A sheet from last year answers last year's question.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bridge",
+   "sub": "three mistakes",
+   "nar": "Before we close, the three mistakes that keep the machine fed:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Three mistakes",
+   "sub": "and the takeaway",
+   "nar": "Three mistakes. Each one is a gift to the margin.",
+   "cap": "Three mistakes and the takeaway"
+  },
+  {
+   "layout": "item",
+   "kicker": "First",
+   "preco": "reading the minimum as advice",
+   "nar": "First: reading the minimum as a recommendation. It is not a suggestion of what you should pay. It is the smallest amount that keeps you profitable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A mistake inside the first",
+   "preco": "trusting autopay minimums",
+   "nar": "A sub-mistake inside the first: setting autopay to the minimum and calling the debt handled. Automation makes the machine frictionless — for the machine.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second",
+   "preco": "judging debt by the payment",
+   "nar": "Second: judging affordability by the monthly payment instead of the meter. A hundred a month feels fine — until you see that twelve fifty is all that reaches the debt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Third",
+   "preco": "waiting for rates to fall",
+   "nar": "Third: waiting for card rates to fall. They are the stickiest price in finance. The falling you are waiting for is not coming to this product.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "The video in five lines",
+   "itens": [
+    "$1.26T, near the peak",
+    "12.8% of balances stuck",
+    "$87.50 of the first $100",
+    "The minimum is the product",
+    "Fix the payment, kill the debt"
+   ],
+   "nar": "The recap is on screen. Pause it, and argue with it in the comments — with your line five, ideally.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What almost nobody does",
+   "preco": "line three",
+   "nar": "The thing almost nobody does is line three. One multiplication. Balance times rate over twelve. It changes how every statement reads forever.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What not to do",
+   "preco": "shame arithmetic",
+   "nar": "One thing not to do: turn this into shame. Sixty percent of cardholders carry a balance. The maths is not a moral failing. It is just a machine — and machines can be beaten by design, not by guilt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A note on balance transfers",
+   "preco": "a tool, with a fee",
+   "nar": "A note on the famous escape hatch: zero percent balance transfers. They work — as a tool, with a transfer fee, and only if the spending that built the balance stops. Otherwise they are a second tank.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If you do one thing",
+   "preco": "find the payoff box",
+   "nar": "If you do one thing after this video, open your last statement and find the minimum-payment payoff box. Read the number of years out loud. That is the whole wake-up call.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It takes ten minutes",
+   "preco": "not a finance degree",
+   "nar": "And the sheet takes ten minutes, not a finance degree. Six lines, one multiplication, one decision.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "count it before it counts you",
+   "nar": "If you ran your sheet, drop line five in the comments — how much of your payment actually reaches the debt. I am collecting them for the next video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "count it before it counts you",
+   "nar": "And if you want this same treatment on another machine — auto loans, buy now pay later, student debt — say which. Most requested goes first.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "$1.26 TRILLION",
+   "sub": "and one payment",
+   "nar": "America's credit card debt just hit one point two six trillion. But the real story fits inside one minimum payment.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "$5,000 at 21%",
+   "preco": "$87.50/month interest",
+   "nar": "Five thousand dollars at twenty one percent generates eighty seven fifty of interest a month. Before you buy anything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Your $100 minimum",
+   "preco": "$12.50 hits the debt",
+   "nar": "So of a hundred dollar minimum payment, twelve fifty touches the debt. The rest buys you another month of owing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Not a bug",
+   "preco": "the design",
+   "nar": "That is not a bug. The minimum is set to keep the account alive, not to kill the debt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Next Level Money",
+   "sub": "the full machine",
+   "nar": "The full machine, and the six line sheet that beats it, is in the long video.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# The minimum payment machine behind the $1.26 trillion record\n\n## TITULO\nCredit Card Debt Hit $1.26 Trillion: The Minimum Payment Math Banks Count On\n\n## DESCRICAO\n$1.26 trillion. And $87.50. The first number made every headline last week — the New York Fed's official count of America's credit card debt, published August 11th, up $21 billion in a single quarter and just short of the all-time $1.28 trillion peak. The second number explains it, and almost nobody says it out loud: it's where the first $100 of a minimum payment actually goes.\n\nThis is not a lecture about spending less. It's a tour of a machine — a beautifully engineered one — and the maths it runs on.\n\nTHE RECORD, IN CONTEXT. About 175 million Americans hold a credit card, and roughly 60% don't pay the balance off each month. Two groups using the same product: for one it's a payments tool with rewards; for the other it's the most expensive loan they'll ever hold. The Fed's own researchers call it a K-shaped economy.\n\nTHE DELINQUENCY CURVE. The share of card balances at least 90 days past due climbed from 7.6% in mid-2022 to 12.8% in early 2026 — roughly one in eight borrowed dollars already stuck. Which explains the other headline going around: banks quietly freezing and cutting limits.\n\nTHE MINIMUM PAYMENT MACHINE. One ordinary card: $5,000 balance at the ~21% average rate generates $87.50 of interest per month. The typical ~2% minimum on that balance is $100. So of your first $100, $87.50 feeds the interest meter and $12.50 touches the actual debt. At minimums only, the balance takes decades to die — and that's not a bug. The minimum is set low enough to keep the account alive and paying, not high enough to kill the debt. Your own statement admits it: the minimum-payments-only payoff box was forced onto statements by the 2009 CARD Act.\n\nWHY 21%. Card interest is the stickiest price in American finance — a base tied to the Fed plus a margin the bank chooses, and the margin mostly grows, because nobody shops for card rates and the 12.8% of stuck balances is priced into everyone else's rate.\n\nThen we build the six-line sheet that turns YOUR balance into YOUR answer: balance, APR, interest per month (one multiplication: balance × rate ÷ 12), your minimum, how much of it actually pays debt, and months to zero — plus the one lever that collapses the timeline: a fixed payment instead of the shrinking minimum, highest-rate card first.\n\nIF YOU DO ONE THING after this video: open your last statement and find the minimum-payment payoff box. Read the number of years out loud. That's the whole wake-up call.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nTwo questions, because the averages hide exactly the cases that matter: what's YOUR line five — how much of your monthly payment actually reaches the debt? And which machine should we open next: auto loans, buy-now-pay-later, or student debt? I'm collecting the numbers for the next video; most requested goes first.\n\n## HASHTAGS\n#CreditCardDebt #PersonalFinance #NextLevelMoney\n\n## TAGS\ncredit card debt, minimum payment, credit card interest, 1.26 trillion, ny fed report, credit card trap, pay off credit card, debt payoff, apr explained, credit card math, personal finance, delinquency, revolving debt, avalanche method, card act\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Ingles (en) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Estados Unidos | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nThe headline figures come from the Federal Reserve Bank of New York's Quarterly Report on Household Debt and Credit, published August 11, 2026: $1.26 trillion in credit card balances in Q2 2026 (up $21 billion on the quarter; all-time peak $1.28 trillion in Q4 2025) and the rise in balances at least 90 days delinquent from 7.6% (mid-2022) to 12.8% (early 2026), with the \"K-shaped\" characterization coming from the Fed's own researchers. The ~175 million cardholders and ~60% share carrying balances are compiled from LendingTree and U.S. News summaries of industry data; the ~21% average APR reflects widely reported early-2026 figures. The $5,000 / $87.50 / $12.50 walk-through is an arithmetic ILLUSTRATION of how minimum payments interact with interest, not a description of any specific card; real minimums, rates and payoff times vary by issuer and agreement — which is why the six-line sheet in this video locks no number in: fill in your own statement's figures. The minimum-payments payoff disclosure was mandated by the Credit CARD Act of 2009. This content is education about personal finance mechanics; it is not financial, legal or credit advice.\n"
+}
