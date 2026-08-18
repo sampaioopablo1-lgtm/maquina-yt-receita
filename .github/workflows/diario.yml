@@ -130,6 +130,24 @@ jobs:
           QUANTOS: ${{ steps.informe.outputs.quantos }}
         run: |
           set -euo pipefail
+
+          # NAO despachar com frota ja em andamento. Medido em 18/08/2026, run
+          # 32093415020: o ciclo das 02:52 despachou enquanto a frota das 02:44
+          # ainda renderizava o MESMO pacote — a matriz e calculada antes de o
+          # pacote em voo publicar, entao ele parece pendente. O segundo run
+          # renderizou 30 minutos e morreu na trava de titulo do publicar.py.
+          # A trava segura a duplicata; quem devolve os 30 minutos e este
+          # guarda. O pacote nao se perde: o proximo ciclo o pega.
+          EM_VOO=$(curl -sS \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/frota.yml/runs?per_page=10" \
+            | python3 -c 'import json,sys; print(sum(1 for r in json.load(sys.stdin)["workflow_runs"] if r["status"] in ("queued","in_progress")))')
+          if [ "$EM_VOO" != "0" ]; then
+            echo "::notice::Frota com $EM_VOO run em voo — disparo adiado para o proximo ciclo."
+            exit 0
+          fi
+
           echo "disparando $QUANTOS pacotes"
           python3 - <<'PY' > disparo.json
           import json, os
