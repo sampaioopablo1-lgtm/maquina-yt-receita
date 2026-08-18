@@ -1,0 +1,615 @@
+{
+ "slug": "seviye-seviye",
+ "pacote": "seviye-seviye-003",
+ "idioma": "tr",
+ "voz": "tr-TR-AhmetNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1C2B33",
+  "c1": "#C0392B",
+  "c2": "#F4B942",
+  "bg": "#FAF6F0"
+ },
+ "thumb": {
+  "l1": "23.552 TL",
+  "l2": "zammın matematiği"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "İki sayı",
+   "sub": "aynı ayda açıklandı",
+   "nar": "Yirmi üç bin beş yüz elli iki lira. Ve otuz altı bin dokuz yüz kırk lira. İkisi de temmuzda açıklandı. Aradaki boşluk, bu videonun konusu.",
+   "cap": "Temmuzun iki sayısı"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci sayı",
+   "preco": "en düşük emekli aylığı",
+   "nar": "Birinci sayı, zam sonrası en düşük emekli aylığı. Yirmi üç bin beş yüz elli iki lira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci sayı",
+   "preco": "dört kişilik açlık sınırı",
+   "nar": "İkinci sayı, Türk-İş'in ölçtüğü açlık sınırı. Dört kişilik bir ailenin sadece mutfak masrafı: yaklaşık otuz yedi bin lira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Yan yana",
+   "itens": [
+    "Taban aylık",
+    "Açlık sınırı"
+   ],
+   "alturas": [
+    64,
+    100
+   ],
+   "nar": "Yan yana koyunca taban aylık, açlık sınırının yüzde altmış dördü. Zam geldi, boşluk yerinde duruyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu video ne değil",
+   "preco": "öfke değil, hesap",
+   "nar": "Bu video kızgınlık videosu değil. Zammın nasıl hesaplandığını, neyi ödediğini ve neyi ödemediğini rakamla göstereceğiz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu kanalda daha önce",
+   "preco": "asgari ücreti saymıştık",
+   "nar": "Bu kanalda asgari ücretin açlık sınırıyla yarışını zaten saymıştık. Bugün sıra emeklide. Çünkü temmuz zammı geldi ve herkes orana bakıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Oysa oran",
+   "preco": "tek başına bir şey demez",
+   "nar": "Oysa oran tek başına bir şey söylemez. Yüzde on yedi neyin yüzde on yedisi? Ve geldiğinde fiyatlar neredeydi? Cevaplar sırayla.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yol haritası",
+   "sub": "beş adım",
+   "nar": "Önce zammın matematiği. Sonra zammın ödemediği şey. Sonra tabanda kaç kişi var. Sonra seyyanen tartışması. En sonda kendi zammını hesaplayan tablo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Kaynaklar",
+   "itens": [
+    "SGK zam oranı",
+    "Türk-İş sınırları",
+    "Resmî ortalama"
+   ],
+   "nar": "Her sayının sahibi ve tarihi var. Zam oranı resmî. Sınırlar Türk-İş'in. Ortalama, hükümetin kendi açıklaması. Tahmin yok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir uyarı",
+   "preco": "kulise itibar yok",
+   "nar": "Ve bir uyarı. Kuliste dolaşan rakamları haber gibi anlatmayacağız. İddia neyse iddia diye söyleyeceğiz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Başlıyoruz",
+   "preco": "zam nereden çıktı",
+   "nar": "Başlayalım. Yüzde on yedi virgül yetmiş altı nereden çıktı?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zam bir hediye değil",
+   "sub": "bir formül",
+   "nar": "Temmuz zammı bir müjde gibi sunuldu. Ama zam bir hediye değil. Kanunla yazılmış bir formülün sonucu.",
+   "cap": "Zammın matematiği"
+  },
+  {
+   "layout": "item",
+   "kicker": "Formül",
+   "preco": "altı aylık enflasyon",
+   "nar": "Formül şu: son altı ayın enflasyonu neyse, emekli aylığı o oranda artar. Bu kez sonuç yüzde on yedi virgül yetmiş altı çıktı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tabanda",
+   "preco": "20.000'den 23.552'ye",
+   "nar": "Tabanda hesap basit. Yirmi bin lira, yüzde on yedi virgül yetmiş altı artınca yirmi üç bin beş yüz elli iki lira oldu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fark",
+   "preco": "aylık 3.552 lira",
+   "nar": "Aylık fark üç bin beş yüz elli iki lira. Bu sayıyı aklında tut, birazdan mutfak masrafıyla karşılaştıracağız.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İki kavram",
+   "preco": "kök maaş ve ele geçen",
+   "nar": "Burada iki kavramı ayır. Kök maaş, sistemdeki çıplak rakam. Ele geçen, kesintiler ve eklemeler sonrası cebe giren. Zam oranı KÖK maaşa işler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yılda iki kez",
+   "preco": "ocak ve temmuz",
+   "nar": "Ve bu formül yılda iki kez çalışır. Ocakta bir, temmuzda bir. Her seferinde bir önceki altı ayın enflasyonu kadar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kapsam",
+   "preco": "SSK ve Bağ-Kur",
+   "nar": "Bir not: bu formül SSK ve Bağ-Kur emeklisi için. Memur emeklisinin hesabında toplu sözleşme payı da var; o ayrı bir video konusu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yani zam",
+   "preco": "geçmişin faturası",
+   "nar": "Dikkat et: formül geleceğe değil, geçmişe bakıyor. Zam, zaten yaşanmış altı ayın fiyat artışını ödüyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sıra hep aynı",
+   "preco": "önce fiyat, sonra maaş",
+   "nar": "Sıralama hep aynı. Önce fiyatlar yükseliyor. Altı ay sonra maaş onları takip ediyor. Aradaki altı ayı emekli cebinden ödüyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Buna koşu bandı denir",
+   "preco": "yerinde koşmak",
+   "nar": "Buna koşu bandı ekonomisi diyebilirsin. Hızlanırsın, terlersin, ama bant da hızlanır. Yerinde kalırsın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Köprü",
+   "sub": "peki bant ne kadar hızlı",
+   "nar": "Peki bant gerçekte ne kadar hızlı dönüyor? Mutfağa bakalım:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mutfak",
+   "sub": "zamdan hızlı",
+   "nar": "Türk-İş her ay aynı sepeti fiyatlıyor. Aynı gıdalar, aynı miktar, her ay. Bu yüzden karşılaştırması sağlam.",
+   "cap": "Zammın ödemediği şey"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yedi ayda",
+   "preco": "gıda yüzde 22,54",
+   "nar": "Sonuç: gıda fiyatları yedi ayda yüzde yirmi iki virgül elli dört arttı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zam ise",
+   "preco": "yüzde 17,76",
+   "nar": "Emekli zammı ise yüzde on yedi virgül yetmiş altı. Mutfak, zammın önünde koşuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Yedi ayın yarışı",
+   "itens": [
+    "Gıda artışı",
+    "Emekli zammı"
+   ],
+   "alturas": [
+    100,
+    79
+   ],
+   "nar": "Yani zam yattığı gün bile mutfak alışverişi, ocak ayına göre daha pahalıydı. Fark kapanmadı, sadece küçüldü.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sepette ne var",
+   "preco": "sadece gıda",
+   "nar": "Türk-İş sepetinde ne olduğunu da söyleyelim: sadece gıda. Dört kişinin sağlıklı beslenme maliyeti. Kira yok, fatura yok, ulaşım yok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yani açlık sınırı",
+   "preco": "iyimser bir alt çizgi",
+   "nar": "Yani açlık sınırı aslında iyimser bir alt çizgidir. Gerçek ay sonu hesabı, üstüne kira ve faturayla başlar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bekleme",
+   "preco": "altı ay cepten",
+   "nar": "Bir de zamanlama var. Ocaktaki fiyat artışını temmuzdaki maaş ödedi. O altı ay boyunca fark, emeklinin birikiminden ya da borcundan çıktı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve tek ayda",
+   "preco": "yüzde 3,30",
+   "nar": "Üstelik bant durmuyor. Sadece temmuz ayında mutfak yüzde üç virgül otuz daha pahalandı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "3.552'nin ömrü",
+   "preco": "birkaç pazar",
+   "nar": "Şimdi o üç bin beş yüz elli iki liralık farkı hatırla. Dört kişilik mutfağın tek aylık artışı bile onun büyük kısmını yutuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu yüzden",
+   "preco": "zam günü rahatlama kısa",
+   "nar": "Bu yüzden zam günü hissedilen rahatlama birkaç hafta sürüyor. Sayılar duyguyu doğruluyor; kuruntu değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Köprü",
+   "sub": "tabanda kimler var",
+   "nar": "Buraya kadar oran konuştuk. Şimdi insan sayısı konuşalım:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Taban bir istisna değil",
+   "sub": "beş milyondan fazla kişi",
+   "nar": "En düşük aylık bir istisna sanılır. Değil. Beş virgül bir milyon emekli tam olarak bu taban aylığı alıyor.",
+   "cap": "Tabanda kaç kişi var"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve sayı büyüyor",
+   "preco": "4,9'dan 5,1 milyona",
+   "nar": "Ve bu sayı büyüyor. Bir önceki dönemde dört virgül dokuz milyondu. Şimdi beş virgül bir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden büyüyor",
+   "preco": "düşük kök maaşlar tabana yapışıyor",
+   "nar": "Neden? Çünkü kök maaşı düşük olan herkes, zam yüzde kaç olursa olsun tabana yapışıyor. Taban bir ağ gibi; her yıl daha çok kişiyi tutuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Resmî ortalama",
+   "preco": "35.759 lira",
+   "nar": "Hükümetin açıkladığı ortalama emekli aylığı ise otuz beş bin yedi yüz elli dokuz lira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Taban ve ortalama",
+   "itens": [
+    "Taban",
+    "Ortalama",
+    "Bekâr geçim"
+   ],
+   "alturas": [
+    49,
+    75,
+    100
+   ],
+   "nar": "Ama ortalama bile Türk-İş'in tek kişilik geçim maliyetinin altında. Bekâr bir insanın aylık yaşama maliyeti: kırk yedi bin yedi yüz elli sekiz lira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tek kişi bile",
+   "preco": "ortalamayla geçinemiyor",
+   "nar": "Yani sadece taban değil. Ortalama emekli aylığı bile tek kişilik geçim sınırının belirgin altında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yüzde 64 nereden",
+   "preco": "bölmeyi göster",
+   "nar": "Yüzde altmış dördün hesabı basit. Taban aylığı açlık sınırına böl. Sonuç: taban, ailenin sadece mutfağının üçte ikisini karşılıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İki emekli bir evde",
+   "preco": "yine dar",
+   "nar": "En iyi senaryoyu da kuralım: aynı evde iki taban emekli. İkisinin toplamı kırk yedi bin lira eder. Mutfağı geçer, ama tek kişilik insanca geçim sınırının hâlâ altındadır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yoksulluk sınırı",
+   "preco": "120 binin üstünde",
+   "nar": "Dört kişilik ailenin insanca geçim sınırı ise yüz yirmi bin lirayı geçti. O sayıyı tabana bölmek istemiyorum bile; sen böl.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Köprü",
+   "sub": "peki çözüm seyyanen mi",
+   "nar": "Bu tabloya karşı en çok konuşulan öneri seyyanen zam. Ona da hesapla bakalım:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Seyyanen ne demek",
+   "sub": "herkese eşit lira",
+   "nar": "Seyyanen zam, herkese aynı LİRA tutarının verilmesi demek. Yüzde değil. Tabana da tepeye de aynı rakam.",
+   "cap": "Seyyanen tartışmasının matematiği"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kuliste dolaşan",
+   "preco": "10 ile 25 bin arası iddialar",
+   "nar": "Meclis kulislerinde on bin ile yirmi beş bin lira arasında rakamlar dolaşıyor. Bunlar iddia. Karar yok, kanun yok, tarih yok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Peki fark ne",
+   "preco": "yüzde tabanı geride bırakır",
+   "nar": "Farkı gösterelim. Yüzde zammı herkese aynı ORAN verir. Ama oran, düşük maaşta az lira, yüksek maaşta çok lira eder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Somut örnek",
+   "preco": "aynı yüzde, farklı lira",
+   "nar": "Aynı yüzde on yedi virgül yetmiş altı: tabanda üç bin beş yüz lira eder. Elli bin alan birinde ise sekiz bin sekiz yüz lira eder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Aynı zam, iki cüzdan",
+   "itens": [
+    "Tabanın farkı",
+    "Yüksek maaşın farkı"
+   ],
+   "alturas": [
+    40,
+    100
+   ],
+   "nar": "Yani her yüzde zammında, liralar cinsinden makas biraz daha açılır. Taban her yıl ortalamadan biraz daha uzaklaşır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Seyyanen bunu tersine çevirir",
+   "preco": "makası kapatır",
+   "nar": "Seyyanen tam tersini yapar: tabana oransal olarak en büyük desteği verir, makası kapatır. Matematiği bu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Daha önce oldu mu",
+   "preco": "bir kez: 2023",
+   "nar": "Seyyanen daha önce bir kez uygulandı. İki bin yirmi üç temmuzunda, herkese beş bin lira eklendi. Yani teknik olarak imkânsız değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden tartışmalı",
+   "preco": "bütçeye maliyeti",
+   "nar": "Neden her seferinde tartışma çıkıyor? Çünkü milyonlarca kişiye aynı lirayı vermek bütçede kalıcı bir kalem açıyor. Karar siyasi, matematik değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama unutma",
+   "preco": "hâlâ karar değil",
+   "nar": "Ama bugün itibarıyla bu bir tartışma. Videonun yayınlandığı gün kanunlaşmış bir seyyanen zam yok. Duyarsan önce tarihe bak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Köprü",
+   "sub": "kendi sayına dön",
+   "nar": "Ve büyük tartışma ne olursa olsun, senin cebini senin sayıların belirliyor. Onları tabloya dökelim:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Altı satır",
+   "sub": "kendi zam hesabın",
+   "nar": "Altı satırlık bir tablo. Kağıt da olur, telefon notu da, Excel de.",
+   "cap": "Kendi hesabını yap"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Altı satır",
+   "itens": [
+    "Kök maaşın",
+    "Zam oranı",
+    "Yeni maaş",
+    "Kira ve aidat",
+    "Mutfak",
+    "Kalan"
+   ],
+   "nar": "Kök maaşın. Zam oranı. Yeni maaş. Kiran ve aidatın. Mutfak masrafın. Ve kalan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satır bir",
+   "preco": "kök maaş, ele geçen değil",
+   "nar": "Satır bir: kök maaş. Eline geçen değil, sistemdeki çıplak maaşın. Zam ona uygulanıyor; ikisini karıştırınca hesap hep yanlış çıkar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satır iki",
+   "preco": "oranı kaynağından al",
+   "nar": "Satır iki: zam oranı. Onu haberden değil, resmî enflasyon duyurusundan al. Altı aylık toplamı yaz; aylıkları toplama, bileşik hesap farklı çıkar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satır üç",
+   "preco": "çarp ve yuvarlama",
+   "nar": "Satır üç: yeni maaş. Kök maaşını oranla çarp. Kuruşu atma; yıl sonunda kuruşlar yüzlerce lira eder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satır dört ve beş",
+   "preco": "kendi fiyatların",
+   "nar": "Kira ve mutfak satırlarına ülke ortalaması yazma. Kendi kiranı, kendi pazar fişini yaz. Ortalamada kimse oturmuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalan satırı",
+   "preco": "cevap orada",
+   "nar": "Kalan satırı cevabın kendisi. Zam öncesi kalanla zam sonrası kalanı karşılaştır. Rahatlama gerçek mi, kaç lira, orada görünür.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tarih at",
+   "preco": "tablo eskir",
+   "nar": "Ve tabloya tarih at. Zam yılda iki kez, fiyat her ay değişiyor. Tarihsiz tablo, altı ay sonra seni yanıltır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tek uğraş",
+   "preco": "ayda beş dakika",
+   "nar": "Bütün bunlar ayda beş dakika. Bir kere kurunca, her ay sadece iki satırı güncelliyorsun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Köprü",
+   "sub": "kapanış",
+   "nar": "Kapanmadan, akılda kalması gereken üç şey:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Üç cümle",
+   "sub": "götürülecek olanlar",
+   "nar": "Üç cümle. Üçü de rakamla desteklendi.",
+   "cap": "Akılda kalacak üç şey"
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir",
+   "preco": "zam geçmişi ödüyor",
+   "nar": "Bir: zam bir formül ve geçmişi ödüyor. Aradaki altı ayın farkı cebinden çıkıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İki",
+   "preco": "taban açlık sınırının altında",
+   "nar": "İki: yeni taban, dört kişilik açlık sınırının yüzde altmış dördü. Ve o tabanda beş milyondan fazla insan var.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üç",
+   "preco": "yüzde zam makası açar",
+   "nar": "Üç: yüzde zam her turda liralar makasını biraz daha açar. Seyyanen onu kapatır ama bugün sadece bir tartışma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Videonun özeti",
+   "itens": [
+    "+%17,76 = geçmiş enflasyon",
+    "Taban: 23.552",
+    "Açlık sınırı: 36.940",
+    "Tabanda 5,1 milyon kişi",
+    "Tablonu kur"
+   ],
+   "nar": "Özet ekranda. İstersen durdur, kendi tablonu bu sayılarla karşılaştır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "En sık hata",
+   "preco": "ele geçenle çarpmak",
+   "nar": "Bu hesapta en sık hata: zam oranını ele geçen maaşla çarpmak. Oran kök maaşa uygulanır; ikisini karıştıran herkes zammı olduğundan büyük görür.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yapılmayacak şey",
+   "preco": "kulis rakamıyla plan",
+   "nar": "Bir şey yapma: kulis rakamıyla bütçe planlama. Kanunlaşmamış zam, gelmemiş paradır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tek şey yapacaksan",
+   "preco": "kalan satırını hesapla",
+   "nar": "Tek şey yapacaksan, kalan satırını hesapla. Zam öncesi ve sonrası. O tek sayı, bütün haberlerden daha dürüst.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "sayıyı say, habere değil",
+   "nar": "Tablonu kurduysan, kalan satırın kaç çıktı? Yoruma yaz. Sayıları bir sonraki video için topluyorum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "sayıyı say, habere değil",
+   "nar": "Ve aynı hesabı hangi maaş için istersin? Memur mu, asgari ücret mi? En çok istenen önce gelir.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "23.552 TL",
+   "sub": "yeni taban aylık",
+   "nar": "Zam geldi. En düşük emekli aylığı yirmi üç bin beş yüz elli iki lira oldu. Şimdi ikinci sayıya bak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Açlık sınırı",
+   "preco": "36.940 TL",
+   "nar": "Ailenin sadece mutfak masrafı: otuz yedi bin lira. Taban, bunun yüzde altmış dördü.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve zam",
+   "preco": "geçmişi ödüyor",
+   "nar": "O yüzde on yedi virgül yetmiş altı, gelecek için değil. Zaten yaşanmış altı ayın faturası.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tabanda",
+   "preco": "5,1 milyon kişi",
+   "nar": "Ve bu taban bir istisna değil. Beş virgül bir milyon emekli tam olarak bu aylığı alıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "zammın tam matematiği",
+   "nar": "Zammın tam matematiği ve kendi hesabını yapacağın tablo, uzun videoda. Şimdi izle.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# En düşük emekli aylığı: zammın gerçek matematiği\n\n## TITULO\nEn Düşük Emekli Aylığı 23.552 TL: %17,76 Zammın Gerçek Matematiği\n\n## DESCRICAO\nYirmi üç bin beş yüz elli iki lira. Ve otuz altı bin dokuz yüz kırk lira. İkisi de temmuzda açıklandı — biri zam sonrası en düşük emekli aylığı, öteki Türk-İş'in ölçtüğü dört kişilik açlık sınırı. Aradaki boşluk, bu videonun konusu.\n\nBu bir öfke videosu değil; bir hesap videosu. Adım adım:\n\nZAMMIN MATEMATİĞİ. Temmuz zammı bir müjde değil, kanunla yazılmış bir formülün sonucu: son altı ayın enflasyonu kadar artış. Bu kez %17,76 çıktı ve taban aylık 20.000 liradan 23.552 liraya geldi. Aylık fark: 3.552 lira. Formül SSK ve Bağ-Kur emeklisi için; zam oranı kök maaşa uygulanır, ele geçene değil — bu ayrımı karıştıran herkes zammı olduğundan büyük görür.\n\nZAMMIN ÖDEMEDİĞİ ŞEY. Formül geçmişe bakar: zam, zaten yaşanmış altı ayın fiyat artışını öder. O altı ay boyunca fark, emeklinin cebinden çıkar. Ve mutfak zamdan hızlı koşuyor: Türk-İş'in aynı sepetle yaptığı ölçümde gıda, yedi ayda %22,54 arttı — zam %17,76'da kaldı. Üstelik sepette sadece gıda var; kira yok, fatura yok.\n\nTABANDA KAÇ KİŞİ VAR. Taban bir istisna değil: 5,1 milyon emekli tam olarak bu aylığı alıyor ve sayı büyüyor. Hükümetin açıkladığı ortalama (35.759 TL) bile Türk-İş'in tek kişilik geçim maliyetinin (47.758 TL) altında. Dört kişilik insanca geçim sınırı ise 120 bin lirayı aştı.\n\nSEYYANEN TARTIŞMASI. Yüzde zam, liralar cinsinden makası her turda biraz daha açar: aynı %17,76 tabanda 3.552 lira, elli bin lirada 8.880 lira eder. Seyyanen (herkese eşit lira) bu makası kapatır — 2023 temmuzunda bir kez uygulandı, beş bin lira. Ama bugün kuliste dolaşan 10-25 bin liralık rakamlar iddia; karar yok, kanun yok, tarih yok. Kanunlaşmamış zam, gelmemiş paradır.\n\nSonda, kendi zammını kendin hesaplayasın diye altı satırlık bir tablo kuruyoruz: kök maaş, zam oranı, yeni maaş, kira, mutfak, kalan. Kalan satırı cevabın kendisi.\n\nTEK ŞEY YAPACAKSAN: zam öncesi ve sonrası \"kalan\" satırını hesapla. O tek sayı, bütün haberlerden daha dürüst.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nİki soru — çünkü cevaplar ortalamanın gösterdiğinden çok daha fazla değişiyor: senin tablonda \"kalan\" satırı zamdan sonra kaç lira değişti? Ve aynı hesabı hangi maaş için istersin — memur mu, asgari ücret mi? Sayıları bir sonraki video için topluyorum; en çok istenen önce gelir.\n\n## HASHTAGS\n#emeklimaaşı #zam #SeviyeSeviye\n\n## TAGS\nemekli maaşı, en düşük emekli aylığı, emekli zammı, temmuz zammı, seyyanen zam, kök maaş, enflasyon farkı, açlık sınırı, türk iş, emekli maaşı hesaplama, sgk emekli, bağkur emekli, asgari ücret, ekonomi, bütçe hesabı\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Turco (tr) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Turquia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZam oranı (%17,76) ve taban aylık (20.000 → 23.552 TL), Temmuz 2026'da yürürlüğe giren altı aylık enflasyon farkı düzenlemesinin kamuoyuna yansıyan resmî sonuçlarıdır (SSK ve Bağ-Kur aylıkları için). Açlık sınırı (36.939,87 TL), yoksulluk sınırı (120.325,30 TL), bekâr çalışanın yaşama maliyeti (47.758,39 TL) ve mutfak enflasyonu verileri TÜRK-İŞ'in Temmuz 2026 araştırmasından alınmıştır (turkis.org.tr). Tabandaki emekli sayısı (5,1 milyon) basında yer alan resmî verilere, ortalama aylık (35.759 TL) hükümet açıklamasına dayanır. Seyyanen zam bölümünde geçen 10-25 bin liralık rakamlar karar değil, Meclis kulislerinde dolaşan iddialardır ve videoda da öyle sunulmuştur. Tüm tutarlar zamanla değişir — bu yüzden videodaki tablo hiçbir sayıyı kilitlemez: kendi kök maaşını ve kendi fiyatlarını yaz. Bu içerik kişisel finans üzerine eğitim amaçlıdır; hukuki veya mali danışmanlık değildir.\n"
+}
