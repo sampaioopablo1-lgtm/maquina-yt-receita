@@ -107,7 +107,14 @@ def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
         return False
     try:
         url = f"{API}?{urllib.parse.urlencode({'query': q, 'per_page': 8, 'orientation': 'landscape'})}"
-        req = urllib.request.Request(url, headers={"Authorization": api_key})
+        # O Pexels devolve 403 para o User-Agent padrao do urllib ("Python-
+        # urllib/3.x") — medido em 18/08/2026 no teste de fumaca: o curl com a
+        # MESMA chave passava e o urllib nao. Sem este header a busca falharia
+        # em todo render e o broll cairia no fallback em silencio, que e o
+        # jeito mais caro de descobrir.
+        req = urllib.request.Request(
+            url, headers={"Authorization": api_key,
+                          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"})
         with urllib.request.urlopen(req, timeout=30, context=_ctx()) as r:
             achado = escolher(json.load(r), dd)
         if not achado:
