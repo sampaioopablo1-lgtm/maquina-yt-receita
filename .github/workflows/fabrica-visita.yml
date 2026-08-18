@@ -62,8 +62,15 @@ jobs:
             echo "AUDITORIA_TOKEN ausente — pulei a conversão"
           fi
 
+      # NÃO usa os secrets SUPABASE_* do repositório: eles apontam para o
+      # projeto da máquina YT (a 1ª execução falhou com 404 na RPC por isso).
+      # Todo acesso ao projeto da Jazz passa por Edge Functions token-gated.
       - name: Gerar mapas de profundidade
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python3 scripts/gerar_depths.py "${{ inputs.lote || '800' }}"
+          AUDITORIA_TOKEN: ${{ secrets.AUDITORIA_TOKEN }}
+        run: |
+          if [ -n "$AUDITORIA_TOKEN" ]; then
+            python3 scripts/gerar_depths.py "${{ inputs.lote || '800' }}"
+          else
+            echo "AUDITORIA_TOKEN ausente — pulei a geração de mapas"
+          fi
