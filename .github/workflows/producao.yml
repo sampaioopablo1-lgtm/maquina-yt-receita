@@ -5,16 +5,16 @@ name: Producao de video
 # Cota YouTube API: 100 uploads/dia por projeto (videos.insert tem balde
 # proprio). O comentario antigo dizia ~6, vindo de dividir 10.000 unidades por
 # 1.600 — conta errada, ver aprendizados #57 e #174.
+# SEM AGENDAMENTO desde 18/08/2026 — o cron de 4 em 4 horas rodou o dia
+# inteiro de 17/08 e os quatro disparos falharam com "ErroProvider: nenhum
+# LLM" (a GEMINI_API_KEY nao chega ao job). Este pipeline (src/maquina, guiado
+# por LLM) foi substituido pela dupla diario.yml -> frota.yml (specs
+# versionadas em fabrica/specs); mante-lo agendado era queimar 6 runs/dia por
+# nada e, no dia em que a chave voltasse, publicar em paralelo com a frota nos
+# MESMOS canais — a receita das duplicatas que o cron acabou de aprender a
+# barrar. O dispatch manual continua aqui para quem quiser o motor antigo de
+# proposito. Reativar = devolver o bloco `schedule` com o cron "0 */4 * * *".
 on:
-  schedule:
-    # A cada 4h = 6 runs/dia, um canal diferente por run (ver "Escolher canal").
-    #
-    # Esta cadencia era insustentavel enquanto o padrao era longo: 83 min de
-    # runner por video, medidos no run 31619957726, dao ~15.000 min/mes num
-    # repositorio privado com 2.000 inclusos. Com o padrao em short — 5 cenas
-    # em vez de 78 — o mesmo ritmo cabe folgado no plano gratuito, e o gasto
-    # so aparece nos canais que ja provaram que alguem assiste.
-    - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
       formato:
