@@ -78,9 +78,9 @@ I("O primeiro", "edital da Dataprev",
   "de julho de dois mil e vinte e seis. E a remuneracao inicial do analista "
   "de tecnologia da informacao, quarenta horas semanais.")
 I("Como ele e montado", "salario mais adicional",
-  "E ele nao e um numero so. Sao nove mil quatrocentos e vinte e tres reais "
-  "e trinta centavos de salario nominal, mais mil duzentos e sessenta e dois "
-  "reais e catorze centavos de adicional de atividade.")
+  "E ele nao e um numero so. O salario nominal e nove mil quatrocentos e "
+  "vinte e tres reais. Em cima dele vem um adicional de atividade de mil "
+  "duzentos e sessenta e dois.")
 I("O segundo", "CAGED, Ministerio do Trabalho",
   "O segundo sai do CAGED, o cadastro do Ministerio do Trabalho. E a media "
   "de quem foi admitido como analista de dados em carteira assinada nos "
@@ -100,13 +100,13 @@ L("O que este video faz", ["O que o edital de fato oferece",
                            "O custo do tempo de estudo",
                            "A conta de cinco anos",
                            "Como decidir com a sua planilha"],
-  "Entao vamos por partes. O que o edital de fato oferece, o teto que a "
-  "tabela nao tem, o custo do tempo, a conta de cinco anos, e como voce "
-  "monta a sua propria versao dessa comparacao.")
+  "Entao vamos por partes. O que o edital de fato oferece. O teto que a "
+  "tabela nao tem. O custo do tempo, a conta de cinco anos, e como voce "
+  "monta a sua propria versao.")
 I("Um aviso", "nao vou dizer o que escolher",
   "E um aviso que vale o video inteiro. Nao vou dizer qual caminho e melhor. "
-  "Vou mostrar quais numeros entram na conta, porque a maioria das pessoas "
-  "decide com metade deles.")
+  "Vou mostrar quais numeros entram na conta, porque a maioria decide com "
+  "metade deles. Comecando pelo que o edital de fato oferece:")
 
 # ---------------------------------------------------------------- cap 2
 T("O edital", "mil oitocentas e vinte e tres vagas",
@@ -163,8 +163,8 @@ B("A conta que ninguem faz", ["Dataprev", "Teto CLT"], [56, 100],
   "mes de diferenca, agora para o outro lado. E o mesmo mercado, o mesmo "
   "pais, a mesma fonte de dados.")
 I("Tem um terceiro cargo", "estatistico analista",
-  "E tem um terceiro. Estatistico analista, media de sete mil oitocentos e "
-  "trinta reais e setenta e nove centavos, teto de dezesseis mil duzentos e "
+  "E tem mais um cargo na mesma tabela. Estatistico analista, com media de "
+  "sete mil oitocentos e trinta reais. E teto de dezesseis mil duzentos e "
   "sessenta e oito.")
 L("Os tres cargos, mesma base", ["Analista de dados: 4.503",
                                  "Estatistico: 7.830",
