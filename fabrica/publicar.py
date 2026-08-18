@@ -379,11 +379,31 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
     if not linhas:
         return []
     try:
-        _req(f"{sb_url}/rest/v1/videos",
-             data=json.dumps(linhas).encode(), method="POST",
-             headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key,
-                      "Content-Type": "application/json",
-                      "Prefer": "return=minimal"})
+        try:
+            _req(f"{sb_url}/rest/v1/videos",
+                 data=json.dumps(linhas).encode(), method="POST",
+                 headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key,
+                          "Content-Type": "application/json",
+                          "Prefer": "return=minimal"})
+        except urllib.error.HTTPError as e:
+            if e.code != 409:
+                raise
+            # 409 = slug ja usado. Aconteceu em 18/08/2026 com o
+            # epomeno-epipedo-003: uma rodada de 11/08, cuja spec nunca entrou
+            # no repositorio, ja tinha gravado esse slug para OUTRO video. O
+            # video novo estava no ar e ficou fora do banco — cego para as
+            # travas anti-duplicata. O slug e so identidade da linha; quem
+            # deduplica e (pacote, titulo). Sufixar e registrar vale mais que
+            # abortar com o video ja publico.
+            for l in linhas:
+                l["slug"] = f"{l['slug']}-r2"
+            _req(f"{sb_url}/rest/v1/videos",
+                 data=json.dumps(linhas).encode(), method="POST",
+                 headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key,
+                          "Content-Type": "application/json",
+                          "Prefer": "return=minimal"})
+            print("  registro : slug ja existia; gravado com sufixo -r2",
+                  file=sys.stderr)
         _req(f"{sb_url}/rest/v1/canais?slug=eq.{urllib.parse.quote(canal, safe='')}",
              data=json.dumps({"ultimo_pacote_em": "now()"}).encode(), method="PATCH",
              headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key,

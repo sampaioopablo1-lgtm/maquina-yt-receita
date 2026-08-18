@@ -112,14 +112,20 @@ MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
     # Nao dimensione roteiro grego mirando o piso da faixa: os dois casos
     # medidos ate agora (Marek e Francisca) mostraram o laboratorio otimista em
     # 12 a 16%. Mire o meio-alto e recalibre no primeiro .srt de producao.
-    # Remedido em 18/08/2026 com um par longa/curta EM GREGO (341 chars/2
-    # frases = 17,93 s; 220 chars/15 frases = 29,35 s). R caiu de 25,37 para
-    # 22,24: o valor antigo subestimava a duracao em ~12%, o mesmo desvio que
-    # o Marek de ensaio tinha antes da calibracao por producao. Recalibrar
-    # pelos .srt do bucket quando houver acesso: o anon nao LISTA o Storage
-    # (so GET com nome exato) e os pacotes antigos do canal nao tem spec no
-    # repositorio para casar com legenda.
-    "el-GR-NestorasNeural":           (22.24, 1.297),
+    # Calibrada em DOIS passos em 18/08/2026, e cada passo moveu na mesma
+    # direcao — para mais lento:
+    #   laboratorio antigo ........ 25,37  (subestimava ~12%)
+    #   par longa/curta em grego .. 22,24  (o epomeno-epipedo-003 foi
+    #                                       dimensionado com este: previu
+    #                                       769,5 s, saiu 810,7 — +5,3%)
+    #   AGREGADO DE PRODUCAO ...... 20,49  (10.696 chars, 204 frases, 24 s de
+    #                                       gaps contra os 810,7 s reais do
+    #                                       proprio pacote; P mantido em
+    #                                       1,297 porque um ponto agregado
+    #                                       nao separa R de P)
+    # Quando o calibra_voz.py alcancar o .srt do bucket, o ajuste por cena
+    # substitui este agregado.
+    "el-GR-NestorasNeural":           (20.49, 1.297),
 }
 
 
