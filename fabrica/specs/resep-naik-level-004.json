@@ -1,0 +1,605 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-004",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#3A1008",
+  "c1": "#C1440E",
+  "c2": "#E8B84B",
+  "bg": "#FDF6EC"
+ },
+ "thumb": {
+  "l1": "MENU 100 RIBU SEMINGGU",
+  "l2": "kenapa gagal di rumahmu"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Kamu pernah lihat",
+   "sub": "video seratus ribu",
+   "nar": "Satu video muncul di berandamu. Uang seratus ribu, katanya, cukup untuk makan seminggu.",
+   "cap": "Video seratus ribu itu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Videonya meyakinkan",
+   "preco": "masakannya jadi",
+   "nar": "Videonya tidak bohong. Masakannya benar-benar jadi, dan totalnya benar-benar seratus ribu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu kamu coba",
+   "preco": "di dapurmu sendiri",
+   "nar": "Lalu kamu mencobanya di dapurmu sendiri. Menu yang sama, urutan yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hasilnya",
+   "preco": "habis di hari Rabu",
+   "nar": "Hasilnya berbeda. Uangnya habis di hari Rabu, dan sisa minggunya berjalan dengan rasa bersalah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesimpulan yang biasa",
+   "preco": "aku yang gagal",
+   "nar": "Kesimpulan yang biasa muncul: pasti aku yang gagal. Pasti tanganku yang boros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesimpulan yang benar",
+   "preco": "hitungannya beda",
+   "nar": "Kesimpulan yang benar lebih sederhana. Hitungan di video itu bukan hitungan rumahmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan salah videonya",
+   "preco": "angkanya tidak lengkap",
+   "nar": "Ini bukan soal videonya jujur atau tidak. Angkanya saja yang tidak lengkap untuk dapur orang lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang kita bedah",
+   "itens": [
+    "Angka tersembunyi",
+    "Matematika protein",
+    "Lembar enam baris",
+    "Menyesuaikan menu",
+    "Kesalahan mahal"
+   ],
+   "nar": "Lima bagian. Angka yang tidak disebut video. Matematika protein. Lembar enam baris. Cara menyesuaikan menu orang lain. Dan kesalahan yang mahal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu hal dulu",
+   "preco": "bukan makan lebih sedikit",
+   "nar": "Satu hal perlu jelas dari awal. Ini bukan tentang makan lebih sedikit, tapi tentang menghitung sebelum meniru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi",
+   "sub": "angka apa yang hilang?",
+   "nar": "Kalau videonya jujur tapi hasilmu beda, pertanyaannya tinggal satu. Angka apa yang tidak ikut difilmkan?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka pertama",
+   "sub": "jumlah orang",
+   "nar": "Angka pertama yang jarang disebut: menu itu dihitung untuk berapa orang.",
+   "cap": "Angka yang tidak ikut difilmkan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Porsi video",
+   "preco": "sering dua orang",
+   "nar": "Banyak menu hemat dihitung untuk dua porsi. Rumahmu mungkin berisi lima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Efeknya",
+   "preco": "bukan tambah sedikit",
+   "nar": "Efeknya bukan menambah sedikit. Setiap lauk dan setiap bumbu ikut dikalikan jumlah kepala.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka kedua",
+   "preco": "isi rak sebelum mulai",
+   "nar": "Angka kedua adalah isi dapur sebelum menu dimulai. Dapur di video sudah punya minyak, bumbu, dan beras.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang difilmkan",
+   "preco": "hanya belanja tambahan",
+   "nar": "Yang masuk kamera hanya belanja tambahannya. Rak yang sudah penuh tidak pernah dihitung sebagai biaya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau rakmu kosong",
+   "preco": "minggu pertama pasti kalah",
+   "nar": "Kalau rakmu kosong, minggu pertamamu pasti lebih mahal dari video mana pun. Itu bukan kegagalan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka ketiga",
+   "preco": "harga daerahmu",
+   "nar": "Angka ketiga adalah harga di daerahmu. Harga beras berbeda antar daerah dan antar kualitas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Buktinya masih hangat",
+   "preco": "naik dalam dua minggu",
+   "nar": "Buktinya masih hangat. Pertengahan Agustus, harga beras di banyak daerah naik hanya dalam dua minggu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa naiknya",
+   "preco": "sampai seribu lima ratus",
+   "nar": "Kenaikannya antara lima ratus dan seribu lima ratus rupiah per kilogram, tergantung daerah dan kualitas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya",
+   "preco": "total video cepat basi",
+   "nar": "Artinya total belanja di video punya tanggal kedaluwarsa. Angka yang difilmkan bulan lalu bukan angka bulan ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga angka itu",
+   "sub": "milik rumahmu",
+   "nar": "Jumlah orang, isi rak, harga daerah. Tiga-tiganya milik rumahmu. Lalu dari mana mulai menghitung?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Satu pembagian",
+   "sub": "yang mengubah semuanya",
+   "nar": "Semua dimulai dari satu pembagian. Anggaran seminggu, dibagi jumlah orang, dibagi jumlah hari.",
+   "cap": "Matematika protein"
+  },
+  {
+   "layout": "item",
+   "kicker": "Contohnya",
+   "preco": "empat belas ribu sehari",
+   "nar": "Seratus ribu dibagi tujuh hari itu sekitar empat belas ribu sehari. Dan itu untuk seisi rumah, bukan per orang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Per orang",
+   "preco": "baru terasa jujur",
+   "nar": "Untuk empat orang, jatahnya sekitar tiga ribu lima ratus per orang per hari. Angka itu yang jujur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka itu kecil",
+   "preco": "dan justru itu gunanya",
+   "nar": "Angka itu terasa kecil, dan justru itu gunanya. Ia langsung memberitahu kelas menu mana yang masuk akal untukmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di mana uang habis",
+   "preco": "di lauk",
+   "nar": "Di dapur, uang tidak habis di nasi. Uang habis di lauk, karena protein adalah baris termahal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karbohidrat",
+   "preco": "murah dan stabil",
+   "nar": "Nasi dan karbohidrat lain relatif murah per porsi. Bukan di situ pertarungannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Protein",
+   "preco": "penentu anggaran",
+   "nar": "Protein yang menentukan. Telur, tempe, dan tahu ada di satu kelas harga. Ayam dan daging di kelas yang lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rahasia menu viral",
+   "preco": "kelas proteinnya",
+   "nar": "Menu seratus ribu bisa jadi karena proteinnya dipilih dari kelas yang murah. Bagian itu layak ditiru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak bisa ditiru",
+   "preco": "jumlahnya",
+   "nar": "Yang tidak bisa ditiru mentah-mentah adalah jumlahnya, karena jumlah mengikuti isi rumahmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara membandingkan",
+   "preco": "harga per porsi",
+   "nar": "Bandingkan protein dengan harga per porsi, bukan harga per bungkus. Bungkus besar yang tidak habis bukan penghematan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hitungannya ada",
+   "sub": "tinggal ditulis",
+   "nar": "Pembagiannya sudah kamu punya. Sekarang kita taruh di selembar kertas, supaya tidak tinggal di kepala.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Lembar enam baris",
+   "sub": "sekali seminggu",
+   "nar": "Sistemnya muat di selembar kertas. Enam baris, diisi sekali seminggu, sebelum belanja.",
+   "cap": "Lembar enam baris"
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris pertama",
+   "preco": "jumlah orang",
+   "nar": "Baris pertama: jumlah orang yang makan dari dapurmu minggu ini. Termasuk yang cuma makan malam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris kedua",
+   "preco": "anggaran minggu ini",
+   "nar": "Baris kedua: anggaran minggu ini. Angka yang sungguh ada di dompet, bukan angka yang kamu harapkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris ketiga",
+   "preco": "hasil pembagian",
+   "nar": "Baris ketiga: anggaran dibagi orang, dibagi hari. Satu-satunya perhitungan di lembar ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris keempat",
+   "preco": "harga beras daerahmu",
+   "nar": "Baris keempat: harga beras di daerahmu minggu ini. Ambil dari panel harga resmi Badan Pangan, bukan dari ingatan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa beras duluan",
+   "preco": "jangkar belanja",
+   "nar": "Beras ditulis duluan karena ia jangkar belanja. Kalau jangkarnya naik, semua baris di bawahnya ikut menyesuaikan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris kelima",
+   "preco": "jatah protein",
+   "nar": "Baris kelima: jatah protein per hari, dipilih dari kelas harga yang masuk di baris ketiga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris keenam",
+   "preco": "sisa untuk sayur dan bumbu",
+   "nar": "Baris keenam: sisanya, untuk sayur dan bumbu. Sisa itu ditulis, bukan dikira-kira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Bentuk belanjamu",
+   "itens": [
+    "Beras",
+    "Protein",
+    "Sayur",
+    "Bumbu"
+   ],
+   "alturas": [
+    90,
+    100,
+    50,
+    25
+   ],
+   "nar": "Kalau enam baris itu diisi jujur, bentuk belanjamu kelihatan. Protein dan beras hampir selalu jadi batang tertinggi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lima menit",
+   "preco": "sebelum ke pasar",
+   "nar": "Mengisinya butuh sekitar lima menit, sekali seminggu. Lebih cepat daripada memilih video menu berikutnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fungsi lembarnya",
+   "preco": "penyaring video",
+   "nar": "Lembar itu juga penyaring. Setiap menu viral yang lewat tinggal diuji: cocok dengan baris ketigamu atau tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau cocok",
+   "sub": "bagaimana menirunya?",
+   "nar": "Dan kalau menunya lolos saringan, cara menirunya pun ada aturannya:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aturan pertama",
+   "sub": "skalakan porsinya",
+   "nar": "Aturan pertama: skalakan porsinya. Menu untuk dua orang dikalikan dulu ke jumlah rumahmu, baru dihitung ulang totalnya.",
+   "cap": "Menyesuaikan menu orang lain"
+  },
+  {
+   "layout": "item",
+   "kicker": "Jangan kaget",
+   "preco": "totalnya berubah",
+   "nar": "Setelah dikalikan, totalnya hampir pasti melewati angka di judul video. Itu bukan menu yang bohong. Itu perkalian.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan kedua",
+   "preco": "tukar protein sekelas",
+   "nar": "Aturan kedua: protein boleh ditukar selama kelas harganya sama. Tempe dan telur saling menggantikan dengan mulus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang sering salah",
+   "preco": "naik kelas diam-diam",
+   "nar": "Yang sering terjadi: mengganti tempe dengan ayam karena bosan, lalu heran anggarannya jebol. Itu naik kelas, bukan menukar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan ketiga",
+   "preco": "tiru strukturnya",
+   "nar": "Aturan ketiga: yang paling berharga dari menu viral bukan resepnya, tapi strukturnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Struktur itu apa",
+   "preco": "masak sekali, makan dua kali",
+   "nar": "Misalnya masak sekali untuk dua waktu makan, atau bumbu dasar yang sama untuk beberapa masakan. Struktur bebas dibawa pulang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan keempat",
+   "preco": "harga dari daerahmu",
+   "nar": "Aturan keempat: harga selalu diambil dari daerahmu, bukan dari keterangan video. Panel resmi lebih dekat ke lapakmu daripada kolom komentar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ukuran keberhasilan",
+   "preco": "baris ketigamu",
+   "nar": "Ukuran keberhasilanmu bukan total di video. Ukurannya apakah belanjamu masuk di baris ketiga lembarmu sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau tidak masuk",
+   "preco": "geser satu hal saja",
+   "nar": "Kalau tidak masuk, jangan buang menunya. Geser satu hal saja: kelas protein, atau jumlah masakan berbumbu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Menu yang sama",
+   "preco": "dua rumah, dua angka",
+   "nar": "Menu yang sama akan menghasilkan angka berbeda di dua rumah. Dan dua-duanya bisa benar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sampai sini aman",
+   "sub": "kecuali empat jebakan",
+   "nar": "Sampai di sini sistemnya jalan. Yang bisa merusaknya tinggal empat kebiasaan, dan semuanya terasa masuk akal:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kesalahan pertama",
+   "sub": "meniru mentah-mentah",
+   "nar": "Kesalahan pertama: meniru menu mentah-mentah, porsi dan totalnya sekaligus. Itu memindahkan dapur orang lain ke rumahmu.",
+   "cap": "Empat kesalahan yang mahal"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan kedua",
+   "preco": "lupa isi rak",
+   "nar": "Kesalahan kedua: membandingkan minggu pertamamu dengan video. Dapur video mulai dari rak penuh, dapurmu mungkin tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perbaikannya",
+   "preco": "nilai di minggu ketiga",
+   "nar": "Perbaikannya sederhana: nilai sistem ini di minggu ketiga, bukan minggu pertama. Rak butuh waktu untuk terisi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan ketiga",
+   "preco": "menghitung per masakan",
+   "nar": "Kesalahan ketiga: menghitung per masakan, bukan per minggu. Masakan murah yang bahannya cuma dipakai sekali itu mahal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ukur yang adil",
+   "preco": "sisa bahan ikut dihitung",
+   "nar": "Bahan yang bersisa dan terpakai lagi menurunkan biaya masakan berikutnya. Hitungannya baru adil kalau seminggu penuh.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan keempat",
+   "preco": "mengejar angka judul",
+   "nar": "Kesalahan keempat: mengejar angka di judul video. Angka judul dibuat untuk diklik, bukan untuk dapurmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Empat-empatnya",
+   "preco": "akar yang sama",
+   "nar": "Empat-empatnya berakar sama: memakai angka orang lain untuk keputusan rumah sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Penangkalnya",
+   "preco": "satu kalimat",
+   "nar": "Penangkalnya satu kalimat. Angka yang boleh masuk lembarmu hanyalah angka yang datang dari rumahmu atau dari panel resmi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sisanya",
+   "preco": "inspirasi, bukan patokan",
+   "nar": "Video menu tetap berguna sebagai ide masakan dan struktur. Ia berhenti berguna saat dijadikan patokan angka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terakhir",
+   "sub": "supaya tidak mati minggu depan",
+   "nar": "Tinggal menjaga supaya lembar ini bertahan lebih dari seminggu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Umurnya seminggu",
+   "sub": "dan memang begitu",
+   "nar": "Lembar ini umurnya memang seminggu. Minggu baru, lembar baru. Yang lama jangan dibuang.",
+   "cap": "Supaya bertahan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa disimpan",
+   "preco": "polamu kelihatan",
+   "nar": "Setelah beberapa lembar terkumpul, pola rumahmu kelihatan. Baris mana yang selalu jebol, minggu mana yang selalu berat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ritualnya",
+   "preco": "hari yang sama",
+   "nar": "Isi lembarnya di hari yang sama tiap minggu, sebelum belanja besar. Hari yang berpindah-pindah membunuh kebiasaan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pemegangnya",
+   "preco": "satu orang",
+   "nar": "Satu orang yang memegang lembarnya. Catatan milik semua orang berakhir jadi milik tidak seorang pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang dilarang",
+   "preco": "menyalahkan lewat lembar",
+   "nar": "Dan jangan pakai lembar itu untuk menyalahkan siapa pun di rumah. Lembar yang menakutkan berhenti diisi dengan jujur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ringkasnya",
+   "itens": [
+    "Bagi dulu anggaranmu",
+    "Enam baris",
+    "Protein sekelas",
+    "Harga daerahmu",
+    "Nilai per minggu"
+   ],
+   "nar": "Ringkasnya begini. Bagi anggaranmu per orang per hari. Isi enam baris. Tukar protein hanya sekelas. Pakai harga daerahmu. Dan nilai per minggu, bukan per masakan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau cuma satu hal",
+   "preco": "lakukan pembagiannya",
+   "nar": "Kalau kamu cuma sempat satu hal setelah video ini, lakukan pembagiannya. Anggaran, dibagi orang, dibagi hari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Waktunya",
+   "preco": "lebih cepat dari satu video",
+   "nar": "Itu lebih cepat daripada menonton satu video menu lagi. Dan angkanya akan mengubah cara kamu menonton semuanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "uang dapur, bukan resep",
+   "nar": "Kalau pembagianmu sudah ketemu, tulis angkanya di komentar. Jatah per orang per hari di rumahmu, dan untuk berapa orang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "uang dapur, bukan resep",
+   "nar": "Aku sedang mengumpulkan angka itu dari banyak rumah. Kalau ada pos dapur lain yang mau dibedah, sebutkan. Yang paling diminta dibuat lebih dulu.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Menu seratus ribu gagal",
+   "sub": "bukan salahmu",
+   "nar": "Menu seratus ribu seminggu itu benar di video, dan gagal di dapurmu. Kamu tidak salah masak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak difilmkan",
+   "preco": "tiga angka",
+   "nar": "Videonya tidak memfilmkan tiga angka: jumlah orang, isi rak, dan harga daerahmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitungan yang jujur",
+   "preco": "bagi dua kali",
+   "nar": "Bagi anggaranmu dengan jumlah orang, lalu dengan tujuh hari. Itu angka dapurmu yang sebenarnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baru bandingkan",
+   "preco": "menu apa pun",
+   "nar": "Setelah itu, menu viral mana pun bisa diuji: cocok dengan angkamu, atau cuma cocok di video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "lembar lengkapnya",
+   "nar": "Lembar enam barisnya ada di video panjang. Lakukan pembagiannya hari ini.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Matematika di balik menu seratus ribu seminggu\n\n## JUDUL\nMenu Hemat Rp100 Ribu Seminggu: Matematika yang Tidak Difilmkan Siapa Pun\n\n## DESKRIPSI\nSatu video muncul di berandamu: uang Rp100.000 cukup untuk makan seminggu. Videonya tidak bohong — masakannya jadi, totalnya benar. Lalu kamu mencobanya di dapurmu sendiri, dan uangnya habis di hari Rabu.\n\nKesimpulan yang biasa muncul: pasti aku yang gagal. Kesimpulan yang benar lebih sederhana: hitungan di video itu bukan hitungan rumahmu, dan tidak pernah dimaksudkan begitu.\n\nVideo ini membedah matematika yang video menu tidak filmkan.\n\nTIGA ANGKA YANG TIDAK IKUT DIFILMKAN. Menu itu dihitung untuk berapa orang — banyak menu hemat dibuat untuk dua porsi, sementara rumahmu berisi lima. Isi rak sebelum menu dimulai — dapur di video sudah punya minyak, bumbu dan beras, dan rak penuh itu tidak pernah dihitung sebagai biaya. Dan harga di daerahmu — pertengahan Agustus 2026 harga beras di banyak daerah naik antara Rp500 dan Rp1.500 per kilogram hanya dalam dua minggu, jadi total belanja yang difilmkan bulan lalu bukan angka bulan ini.\n\nSATU PEMBAGIAN YANG MENGUBAH SEMUANYA. Anggaran seminggu dibagi jumlah orang, dibagi jumlah hari. Rp100.000 dibagi tujuh hari itu sekitar Rp14.000 sehari untuk seisi rumah; untuk empat orang, sekitar Rp3.500 per orang per hari. Angka itu terasa kecil, dan justru itu gunanya: ia langsung memberitahu kelas menu mana yang masuk akal untukmu.\n\nMATEMATIKA PROTEIN. Uang dapur tidak habis di nasi — ia habis di lauk, karena protein adalah baris termahal. Menu viral bisa murah karena proteinnya dipilih dari kelas harga yang murah. Bagian itu layak ditiru; jumlahnya tidak, karena jumlah mengikuti isi rumahmu.\n\nLEMBAR ENAM BARIS. Jumlah orang, anggaran minggu ini, hasil pembagian, harga beras daerahmu dari panel resmi Badan Pangan, jatah protein per hari, dan sisa untuk sayur dan bumbu. Diisi lima menit, sekali seminggu, sebelum belanja. Lembar ini sekaligus penyaring: setiap menu viral tinggal diuji cocok atau tidak dengan baris ketigamu.\n\nCARA MENYESUAIKAN MENU ORANG LAIN. Skalakan porsinya dulu. Tukar protein hanya di kelas harga yang sama. Tiru strukturnya, bukan totalnya. Dan ambil harga dari daerahmu, bukan dari keterangan video.\n\nEMPAT KESALAHAN YANG MAHAL, termasuk membandingkan minggu pertamamu dengan dapur video yang mulai dari rak penuh, dan menghitung per masakan padahal hitungan yang adil adalah per minggu.\n\nMenu yang sama menghasilkan angka berbeda di dua rumah — dan dua-duanya bisa benar. Itu inti videonya.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR\nSatu pertanyaan, karena jawabannya pasti berbeda di tiap rumah: setelah kamu bagi anggaran dengan jumlah orang dan tujuh hari, berapa jatah per orang per hari di rumahmu — dan untuk berapa orang? Aku sedang mengumpulkan angka itu dari banyak rumah untuk video berikutnya. Kalau ada pos dapur lain yang mau dibedah, sebutkan juga.\n\n## HASHTAG\n#MenuHemat #UangDapur #ResepNaikLevel\n\n## TAG\nmenu hemat, menu 100 ribu, menu seminggu, uang dapur, anggaran belanja, masak hemat, menu murah, menu keluarga, atur uang belanja, keuangan rumah tangga, harga beras 2026, dapur hemat, belanja mingguan, tips hemat, resep naik level\n\n## PENGATURAN STUDIO\n- Bahasa: Indonesia (id) | Kategori: Pendidikan (27)\n- Bukan untuk anak-anak\n- Pengungkapan konten yang diubah atau sintetis: YA (suara dibuat dengan AI)\n- Lokasi: Indonesia | Lisensi: Lisensi YouTube standar\n- Iklan tengah: aktif (durasi di atas delapan menit)\n\n## MUSIK / LISENSI\n{TRILHA}\n\n## CATATAN SUMBER\nSatu-satunya fakta harga berwaktu di video ini adalah kenaikan harga beras sekitar Rp500 sampai Rp1.500 per kilogram dalam dua minggu pada pertengahan Agustus 2026, sesuai laporan media Indonesia yang saling bersesuaian pada periode itu, dan keberadaan panel harga pangan harian resmi (Panel Harga Pangan Badan Pangan Nasional dan Pusat Informasi Harga Pangan Strategis Bank Indonesia), keduanya gratis dan dipisahkan per daerah serta per kualitas. Angka Rp100.000, Rp14.000 dan Rp3.500 adalah ILUSTRASI ARITMETIKA dari sebuah pembagian, bukan klaim harga pangan atau klaim kecukupan gizi; jumlah yang benar untuk rumahmu keluar dari lembar yang kamu isi sendiri, bukan dari video ini. Tidak ada harga bahan makanan spesifik yang diklaim di sini, dan justru itu intinya: setiap angka diambil dari rumahmu atau dari panel resmi, pada tanggalmu sendiri. Video ini materi edukasi tentang cara menghitung belanja dapur rumah tangga; ini bukan nasihat keuangan dan bukan nasihat gizi.\n"
+}
