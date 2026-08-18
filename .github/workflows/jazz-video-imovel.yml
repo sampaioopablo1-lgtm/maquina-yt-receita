@@ -1,7 +1,7 @@
-name: Video de imovel
+name: "Jazz — Video de imovel"
 
 # Monta o vídeo de apresentação de um imóvel a partir das fotos REAIS dele
-# (scripts/video_imovel.sh) e publica no bucket videos-imoveis. Reaproveita o
+# (jazz/scripts/video_imovel.sh) e publica no bucket videos-imoveis. Reaproveita o
 # mesmo runner com ffmpeg que já produz os vídeos do YouTube.
 #
 # Não é tour 360 e não alimenta o campo de tour — é o campo de vídeo do
@@ -37,8 +37,8 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          chmod +x scripts/video_imovel.sh
+          chmod +x jazz/scripts/video_imovel.sh
           for c in ${{ inputs.codigos }}; do
             echo "=== imóvel $c ==="
-            ./scripts/video_imovel.sh "$c"
+            ./jazz/scripts/video_imovel.sh "$c"
           done
