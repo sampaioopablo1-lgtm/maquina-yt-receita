@@ -175,8 +175,10 @@ $$;
 revoke all on function public.fn_descricao_rica_colher() from public, anon, authenticated;
 
 -- Pede e colhe em ciclos de 15 min até a fila secar (o alvo <700 encolhe a
--- cada aceitação; reprovada volta a ser elegível no pedido seguinte).
+-- cada aceitação; reprovada/erro volta a ser elegível no pedido seguinte).
+-- Lote de 10: o primeiro disparo com 8 simultâneos já levou 429 do Gemini
+-- em 2 pedidos — acima disso o rate limit come o lote.
 select cron.schedule('descricao-rica-pedir', '1,16,31,46 * * * *',
-  $$select public.fn_descricao_rica_pedir(30);$$);
+  $$select public.fn_descricao_rica_pedir(10);$$);
 select cron.schedule('descricao-rica-colher', '6,21,36,51 * * * *',
   $$select public.fn_descricao_rica_colher();$$);
