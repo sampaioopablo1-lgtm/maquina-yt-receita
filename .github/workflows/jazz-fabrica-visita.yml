@@ -1,4 +1,4 @@
-name: Fabrica de visita virtual
+name: "Jazz — Fabrica de visita virtual"
 
 # A rotina contínua pedida pelo usuário: de hora em hora, cada imóvel
 # publicado vai ganhando seu tour virtual sem ninguém tocar em nada.
@@ -57,7 +57,7 @@ jobs:
           # O token interno vem do secret AUDITORIA_TOKEN (mesmo valor de
           # integracao_credenciais.auditoria_interna_token).
           if [ -n "$AUDITORIA_TOKEN" ]; then
-            python3 scripts/converter_fotos_png.py
+            python3 jazz/scripts/converter_fotos_png.py
           else
             echo "AUDITORIA_TOKEN ausente — pulei a conversão"
           fi
@@ -70,7 +70,7 @@ jobs:
           AUDITORIA_TOKEN: ${{ secrets.AUDITORIA_TOKEN }}
         run: |
           if [ -n "$AUDITORIA_TOKEN" ]; then
-            python3 scripts/gerar_depths.py "${{ inputs.lote || '800' }}"
+            python3 jazz/scripts/gerar_depths.py "${{ inputs.lote || '800' }}"
           else
             echo "AUDITORIA_TOKEN ausente — pulei a geração de mapas"
           fi
