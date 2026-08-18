@@ -1,0 +1,17 @@
+-- Vigia v3 (aplicado no projeto em 11/08): fecha as duas brechas achadas
+-- na revisao final de "imovel nao realmente ativo no XML".
+--
+-- (a) INDEVIDOS NO AR: feed ativo com espelho dizendo indisponivel
+--     (ativo_vista=false OU vendido_em preenchido). Cobre o cenario de a
+--     trava anti-desativacao em massa bloquear a limpeza em silencio: o
+--     sync nao desliga, mas o vigia acusa em ate 1h via vista_alertas
+--     (tipo feed_anuncio_indevido_no_ar).
+-- (b) ESPELHO PARADO: vista_imoveis_log sem atualizacao ha +24h abre
+--     alerta tipo feed_espelho_parado (codigo 'ESPELHO') - feed operando
+--     sobre retrato velho e' feed cego.
+--
+-- Tambem: coluna indevidos em feed_acervo_snapshot para tendencia, e os
+-- dois tipos novos liberados na constraint de vista_alertas.
+-- Corpo completo da funcao: ver o create or replace aplicado via MCP em
+-- 11/08 (migration vigia_acervo_v3_indevidos_e_frescor no historico do
+-- projeto Supabase).

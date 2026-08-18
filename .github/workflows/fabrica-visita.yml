@@ -1,0 +1,69 @@
+name: Fabrica de visita virtual
+
+# A rotina contínua pedida pelo usuário: de hora em hora, cada imóvel
+# publicado vai ganhando seu tour virtual sem ninguém tocar em nada.
+#
+# Divisão de trabalho com o banco:
+#   - o cron do banco (visita-publicar-no-feed, a cada 10 min) garante que
+#     TODO imóvel com 5+ fotos tenha o link /visita/ no campo de tour;
+#   - este workflow produz os mapas de profundidade (MiDaS em CPU, ~1s/foto)
+#     que transformam a visita de Ken Burns em parallax 2.5D — movimento
+#     tridimensional dentro da foto real, sem inventar um pixel;
+#   - prioridade: imóvel de maior valor primeiro (fn_fotos_sem_depth).
+#
+# 800 fotos/hora ≈ acervo inteiro (94 mil) coberto em ~5 dias; depois disso
+# cada rodada só processa foto nova que o sync trouxer.
+
+on:
+  schedule:
+    - cron: "40 * * * *"
+  workflow_dispatch:
+    inputs:
+      lote:
+        description: "Fotos por rodada"
+        type: string
+        default: "800"
+
+concurrency:
+  group: fabrica-visita
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install -q onnxruntime pillow numpy
+
+      - name: Cache do modelo MiDaS
+        uses: actions/cache@v4
+        with:
+          path: /tmp/midas_small.onnx
+          key: midas-small-v2_1
+
+
+      - name: Converter fotos PNG para JPEG real
+        env:
+          AUDITORIA_TOKEN: ${{ secrets.AUDITORIA_TOKEN }}
+        run: |
+          # O portal só importa jpg; PNG disfarçado é descartado em silêncio.
+          # O token interno vem do secret AUDITORIA_TOKEN (mesmo valor de
+          # integracao_credenciais.auditoria_interna_token).
+          if [ -n "$AUDITORIA_TOKEN" ]; then
+            python3 scripts/converter_fotos_png.py
+          else
+            echo "AUDITORIA_TOKEN ausente — pulei a conversão"
+          fi
+
+      - name: Gerar mapas de profundidade
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 scripts/gerar_depths.py "${{ inputs.lote || '800' }}"

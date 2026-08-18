@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tour Virtual · Jazz Imobiliária</title>
+<style>
+:root{--accent:#0F6B66;--paper:#101214}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:#eee;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;display:flex;flex-direction:column}
+header{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+header b{font-size:15px;letter-spacing:.02em}
+header span{font-size:12px;color:#9aa}
+#palco{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:60vh}
+#palco img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:6px}
+.seta{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:none;color:#fff;font-size:26px;width:46px;height:64px;cursor:pointer;border-radius:8px}
+.seta:focus{outline:2px solid var(--accent)}
+#ant{left:10px}#prox{right:10px}
+#tira{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;background:#0b0d0e}
+#tira img{height:56px;border-radius:4px;cursor:pointer;opacity:.55}
+#tira img.atual{opacity:1;outline:2px solid var(--accent)}
+#contador{position:absolute;bottom:12px;right:16px;background:rgba(0,0,0,.55);padding:3px 10px;border-radius:99px;font-size:12px}
+#aviso{padding:40px 20px;text-align:center;color:#9aa;font-size:15px}
+footer{padding:10px 18px;font-size:12px;color:#788}
+@media (prefers-reduced-motion: no-preference){#palco img{transition:opacity .15s}}
+</style>
+</head>
+<body>
+<header><b>Jazz Imobiliária</b><span id="titulo"></span></header>
+<div id="palco"><div id="aviso">Carregando fotos…</div></div>
+<div id="tira"></div>
+<footer>Tour de fotos · agende sua visita com a Jazz Imobiliária</footer>
+<script>
+(function(){
+var SUPA="https://cscczluzpblzhvojxanp.supabase.co";
+var KEY="sb_publishable_9E12YLZmV_zq1yN64wUBoQ_ZADvi5JW";
+var c=new URLSearchParams(location.search).get("c");
+var palco=document.getElementById("palco"),tira=document.getElementById("tira"),tit=document.getElementById("titulo");
+function aviso(t){palco.innerHTML='<div id="aviso">'+t+'</div>'}
+if(!c){aviso("Imóvel não informado.");return}
+fetch(SUPA+"/rest/v1/rpc/fn_tour_publico",{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+KEY},body:JSON.stringify({p_codigo:c})})
+.then(function(r){return r.json()})
+.then(function(d){
+ if(!d||!d.fotos||!d.fotos.length){aviso("Fotos indisponíveis no momento.");return}
+ tit.textContent=(d.titulo||"")+(d.bairro?" · "+d.bairro:"");
+ var i=0,fotos=d.fotos;
+ palco.innerHTML='<img id="foto" alt="Foto do imóvel"><button class="seta" id="ant" aria-label="Anterior">‹</button><button class="seta" id="prox" aria-label="Próxima">›</button><span id="contador"></span>';
+ var img=document.getElementById("foto"),cont=document.getElementById("contador");
+ fotos.forEach(function(f,j){var t=document.createElement("img");t.src=f;t.loading="lazy";t.alt="Miniatura "+(j+1);t.onclick=function(){i=j;mostra()};tira.appendChild(t)});
+ function mostra(){img.src=fotos[i];cont.textContent=(i+1)+" / "+fotos.length;var ms=tira.children;for(var j=0;j<ms.length;j++)ms[j].className=j===i?"atual":"";ms[i].scrollIntoView({inline:"center",block:"nearest"})}
+ document.getElementById("ant").onclick=function(){i=(i-1+fotos.length)%fotos.length;mostra()};
+ document.getElementById("prox").onclick=function(){i=(i+1)%fotos.length;mostra()};
+ document.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")document.getElementById("ant").click();if(e.key==="ArrowRight")document.getElementById("prox").click()});
+ mostra();
+})
+.catch(function(){aviso("Falha ao carregar. Tente novamente.")});
+})();
+</script>
+</body>
+</html>
