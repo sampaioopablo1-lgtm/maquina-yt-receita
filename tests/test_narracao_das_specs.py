@@ -55,7 +55,8 @@ PARADAS = {
     "kolejny-poziom-003":     "copy ainda em bilhete + 16,6 min",
     # labtreinamento-002 saiu daqui em 18/08/2026: encurtada de 92 para 87
     # cenas (15,33 -> 14,49 min) e devolvida a matriz.
-    "resep-naik-level-003":   "16,2 min — acima do teto",
+    # resep-naik-level-003 saiu em 18/08/2026: encurtada de 86 para 76 cenas
+    # (16,20 -> 14,32 min) e devolvida a matriz.
     "setiap-level-003":       "26,0 min — desescalonado por medicao em 17/08",
     "setiap-level-004":       "28,1 min — desescalonado por medicao em 17/08",
     "setiap-level-006":       "copy ainda em bilhete",

@@ -66,13 +66,6 @@
   },
   {
    "layout": "item",
-   "kicker": "Penjelasan itu nyaman",
-   "preco": "tapi tidak menjelaskan",
-   "nar": "Penjelasan itu nyaman karena cepat selesai. Tapi ia tidak menjelaskan kenapa jutaan rumah tangga mengalami hal yang sama di bulan yang sama.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
    "kicker": "Ada penjelasan lain",
    "preco": "dan yang ini bisa diperbaiki",
    "nar": "Ada penjelasan lain yang lebih sederhana. Dan yang satu ini bisa kamu perbaiki minggu ini juga.",
@@ -89,13 +82,6 @@
     "Kesalahan mahal"
    ],
    "nar": "Lima bagian. Kenapa anggaranmu selalu telat. Panel harga resmi yang gratis. Tiga angka yang dicatat. Amplop yang ikut bergerak. Dan kesalahan yang paling mahal.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Tidak perlu aplikasi",
-   "preco": "buku tulis cukup",
-   "nar": "Tidak perlu aplikasi dan tidak perlu langganan apa pun. Buku tulis biasa sudah cukup, dan justru itu yang paling awet.",
    "sem_cap": true
   },
   {
@@ -156,13 +142,6 @@
   },
   {
    "layout": "item",
-   "kicker": "Yang kedua bisa dibetulkan",
-   "preco": "tanpa mengurangi apa pun",
-   "nar": "Yang pertama minta kamu menahan diri. Yang kedua cuma minta angka yang benar, dan tidak menyuruhmu mengurangi apa pun.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
    "kicker": "Berapa sering diperbarui",
    "preco": "sekali seminggu cukup",
    "nar": "Lalu seberapa sering angkanya harus diperbarui? Sekali seminggu sudah cukup, dan setiap hari malah membuat orang berhenti mencatat.",
@@ -180,13 +159,6 @@
    "kicker": "Bertanya ke pedagang",
    "preco": "sudah terlambat",
    "nar": "Bertanya ke pedagang saat sudah berdiri di lapak itu terlambat. Di titik itu kamu sedang menawar, bukan sedang merencanakan.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Bertanya ke tetangga",
-   "preco": "harga daerah lain",
-   "nar": "Bertanya ke tetangga juga meleset. Harga berbeda antar daerah, kadang cukup jauh, dan pengalaman orang lain bukan harga pasarmu.",
    "sem_cap": true
   },
   {
@@ -236,13 +208,6 @@
    "kicker": "Berapa lama membukanya",
    "preco": "kurang dari lima menit",
    "nar": "Membukanya butuh kurang dari lima menit. Pilih daerahmu, catat komoditas yang kamu beli rutin, dan sudah.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Bukan untuk menawar",
-   "preco": "untuk merencanakan",
-   "nar": "Panel ini bukan alat menawar. Pedagang punya biaya sendiri dan harga eceran wajar berbeda dari harga acuan.",
    "sem_cap": true
   },
   {
@@ -334,13 +299,6 @@
    "sem_cap": true
   },
   {
-   "layout": "item",
-   "kicker": "Kalau lebih dari itu",
-   "preco": "catatan berhenti",
-   "nar": "Kalau daftarnya terlalu panjang, catatan berhenti di minggu ketiga. Itu pola yang sama di semua kebiasaan baru.",
-   "sem_cap": true
-  },
-  {
    "layout": "barras",
    "kicker": "Kemana uangnya",
    "itens": [
@@ -363,13 +321,6 @@
    "kicker": "Gambar itu mengubah",
    "preco": "urutan prioritas",
    "nar": "Gambar itu mengubah keputusan. Barang di batang tertinggi layak dicari alternatifnya. Barang di batang terpendek tidak usah dipikirkan lagi.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Itu menghemat tenaga",
-   "preco": "bukan cuma uang",
-   "nar": "Dan itu menghemat sesuatu yang jarang dihitung. Tenaga. Kamu berhenti menawar hal-hal yang tidak menggerakkan total belanjamu.",
    "sem_cap": true
   },
   {
@@ -433,13 +384,6 @@
    "kicker": "Berapa besar bantalannya",
    "preco": "biasanya kecil",
    "nar": "Bantalan itu biasanya lebih kecil dari yang orang kira. Karena bukan seluruh belanja yang naik, hanya beberapa barang.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Dan itu terlihat",
-   "preco": "di catatanmu sendiri",
-   "nar": "Dan itu terlihat di catatanmu sendiri, bukan di berita. Berita bicara tentang rata-rata; catatanmu bicara tentang dapurmu.",
    "sem_cap": true
   },
   {
@@ -528,13 +472,6 @@
   },
   {
    "layout": "item",
-   "kicker": "Dan itu lebih berbahaya",
-   "preco": "daripada tidak mencatat",
-   "nar": "Merasa yakin dengan angka yang salah lebih berbahaya daripada tidak mencatat sama sekali. Karena sekarang ada dokumen yang membenarkanmu.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
    "kicker": "Aturan satu kalimat",
    "preco": "tanggal, daerah, kualitas",
    "nar": "Satu kalimat menutup keempatnya. Setiap angka yang kamu catat punya tanggal, punya daerah, dan punya kualitas.",
@@ -573,13 +510,6 @@
    "kicker": "Ketiga",
    "preco": "satu orang yang bertanggung jawab",
    "nar": "Ketiga, satu orang yang memegangnya. Catatan milik semua orang adalah catatan milik siapa pun.",
-   "sem_cap": true
-  },
-  {
-   "layout": "item",
-   "kicker": "Bagi tugasnya",
-   "preco": "kalau berdua",
-   "nar": "Kalau di rumah ada dua orang dewasa, bagi tugasnya. Satu membuka panel, satu mengisi kolom belanja.",
    "sem_cap": true
   },
   {

@@ -107,9 +107,6 @@ I("Yang kamu rasakan", "bukan persen",
 I("Reaksi pertama", "menyalahkan diri sendiri",
   "Reaksi pertama hampir selalu sama. Pasti aku yang boros. Pasti aku kurang "
   "pintar mengatur uang.")
-I("Penjelasan itu nyaman", "tapi tidak menjelaskan",
-  "Penjelasan itu nyaman karena cepat selesai. Tapi ia tidak menjelaskan kenapa "
-  "jutaan rumah tangga mengalami hal yang sama di bulan yang sama.")
 I("Ada penjelasan lain", "dan yang ini bisa diperbaiki",
   "Ada penjelasan lain yang lebih sederhana. Dan yang satu ini bisa kamu "
   "perbaiki minggu ini juga.")
@@ -118,9 +115,6 @@ L("Yang kita bangun", ["Kenapa anggaran telat", "Panel harga resmi",
   "Lima bagian. Kenapa anggaranmu selalu telat. Panel harga resmi yang gratis. "
   "Tiga angka yang dicatat. Amplop yang ikut bergerak. Dan kesalahan yang "
   "paling mahal.")
-I("Tidak perlu aplikasi", "buku tulis cukup",
-  "Tidak perlu aplikasi dan tidak perlu langganan apa pun. Buku tulis biasa "
-  "sudah cukup, dan justru itu yang paling awet.")
 I("Satu hal dulu", "ini bukan soal makan sedikit",
   "Satu hal perlu jelas sejak awal. Ini bukan tentang makan lebih sedikit. Ini "
   "tentang tahu harga sebelum berdiri di depan pedagang.")
@@ -148,9 +142,6 @@ I("Itu sebabnya", "uang habis lebih cepat",
 I("Bedanya penting", "boros dan telat itu lain",
   "Dan bedanya penting. Boros artinya kamu membeli lebih banyak. Telat artinya "
   "kamu membeli hal yang sama dengan angka yang sudah kedaluwarsa.")
-I("Yang kedua bisa dibetulkan", "tanpa mengurangi apa pun",
-  "Yang pertama minta kamu menahan diri. Yang kedua cuma minta angka yang "
-  "benar, dan tidak menyuruhmu mengurangi apa pun.")
 I("Berapa sering diperbarui", "sekali seminggu cukup",
   "Lalu seberapa sering angkanya harus diperbarui? Sekali seminggu sudah "
   "cukup, dan setiap hari malah membuat orang berhenti mencatat.")
@@ -160,9 +151,6 @@ I("Dari mana angkanya", "bukan dari tebakan",
 I("Bertanya ke pedagang", "sudah terlambat",
   "Bertanya ke pedagang saat sudah berdiri di lapak itu terlambat. Di titik "
   "itu kamu sedang menawar, bukan sedang merencanakan.")
-I("Bertanya ke tetangga", "harga daerah lain",
-  "Bertanya ke tetangga juga meleset. Harga berbeda antar daerah, kadang cukup "
-  "jauh, dan pengalaman orang lain bukan harga pasarmu.")
 T("Padahal", "angkanya sudah ada",
   "Padahal angka resminya sudah ada, diperbarui tiap hari, dan bisa dibuka "
   "gratis. Di mana?")
@@ -187,9 +175,6 @@ I("Ada per daerah juga", "bukan rata-rata nasional",
 I("Berapa lama membukanya", "kurang dari lima menit",
   "Membukanya butuh kurang dari lima menit. Pilih daerahmu, catat komoditas "
   "yang kamu beli rutin, dan sudah.")
-I("Bukan untuk menawar", "untuk merencanakan",
-  "Panel ini bukan alat menawar. Pedagang punya biaya sendiri dan harga eceran "
-  "wajar berbeda dari harga acuan.")
 I("Gunanya lain", "tahu arah, bukan menang debat",
   "Gunanya adalah tahu arah. Naik, turun, atau diam. Itu saja sudah mengubah "
   "keputusan belanjamu minggu ini.")
@@ -229,18 +214,12 @@ I("Selisih itu tetap", "dan itu kabar baik",
 I("Berapa komoditas", "lima sampai delapan",
   "Jangan mencatat semuanya. Lima sampai delapan komoditas yang paling sering "
   "kamu beli sudah menutup sebagian besar belanjamu.")
-I("Kalau lebih dari itu", "catatan berhenti",
-  "Kalau daftarnya terlalu panjang, catatan berhenti di minggu ketiga. Itu "
-  "pola yang sama di semua kebiasaan baru.")
 B("Kemana uangnya", ["Beras", "Lauk", "Sayur", "Minyak"], [100, 78, 45, 30],
   "Dan ketika tiga bulan berlalu, kamu punya gambar. Bukan perasaan tentang "
   "apa yang mahal, tapi urutan yang bisa dilihat.")
 I("Gambar itu mengubah", "urutan prioritas",
   "Gambar itu mengubah keputusan. Barang di batang tertinggi layak dicari "
   "alternatifnya. Barang di batang terpendek tidak usah dipikirkan lagi.")
-I("Itu menghemat tenaga", "bukan cuma uang",
-  "Dan itu menghemat sesuatu yang jarang dihitung. Tenaga. Kamu berhenti "
-  "menawar hal-hal yang tidak menggerakkan total belanjamu.")
 T("Angkanya sudah ada", "lalu uangnya bagaimana?",
   "Sekarang angkanya kamu punya. Pertanyaan terakhir yang tersisa adalah soal "
   "uangnya sendiri:")
@@ -270,9 +249,6 @@ I("Itu yang membedakan", "bantalan, bukan kejutan",
 I("Berapa besar bantalannya", "biasanya kecil",
   "Bantalan itu biasanya lebih kecil dari yang orang kira. Karena bukan seluruh "
   "belanja yang naik, hanya beberapa barang.")
-I("Dan itu terlihat", "di catatanmu sendiri",
-  "Dan itu terlihat di catatanmu sendiri, bukan di berita. Berita bicara "
-  "tentang rata-rata; catatanmu bicara tentang dapurmu.")
 I("Kalau uangnya tidak ada", "dahulukan yang bergerak",
   "Kalau amplop selisih tidak bisa diisi bulan ini, dahulukan komoditas yang "
   "paling bergerak. Beras hampir selalu masuk daftar itu.")
@@ -312,9 +288,6 @@ I("Kesalahan keempat", "memakai rata-rata nasional",
 I("Yang menyatukan keempatnya", "angka tanpa konteks",
   "Keempatnya punya akar yang sama. Angka dipakai tanpa konteks, dan angka "
   "tanpa konteks memberi rasa yakin yang keliru.")
-I("Dan itu lebih berbahaya", "daripada tidak mencatat",
-  "Merasa yakin dengan angka yang salah lebih berbahaya daripada tidak "
-  "mencatat sama sekali. Karena sekarang ada dokumen yang membenarkanmu.")
 I("Aturan satu kalimat", "tanggal, daerah, kualitas",
   "Satu kalimat menutup keempatnya. Setiap angka yang kamu catat punya "
   "tanggal, punya daerah, dan punya kualitas.")
@@ -336,9 +309,6 @@ I("Kedua", "satu buku, bukan banyak kertas",
 I("Ketiga", "satu orang yang bertanggung jawab",
   "Ketiga, satu orang yang memegangnya. Catatan milik semua orang adalah "
   "catatan milik siapa pun.")
-I("Bagi tugasnya", "kalau berdua",
-  "Kalau di rumah ada dua orang dewasa, bagi tugasnya. Satu membuka panel, "
-  "satu mengisi kolom belanja.")
 I("Yang jangan dilakukan", "menyalahkan lewat catatan",
   "Satu hal yang jangan dilakukan. Jangan memakai catatan itu untuk "
   "menyalahkan siapa pun di rumah.")
