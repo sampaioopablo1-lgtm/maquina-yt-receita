@@ -1,0 +1,598 @@
+{
+ "slug": "seja-mais-magra",
+ "pacote": "seja-mais-magra-003",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-FranciscaNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#2B1B1F",
+  "c1": "#C9184A",
+  "c2": "#7FB069",
+  "bg": "#FDF3F4"
+ },
+ "thumb": {
+  "l1": "PROTEÍNA EM TUDO",
+  "l2": "a conta que falta"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "A prateleira mudou",
+   "sub": "proteína em tudo",
+   "nar": "Pão com proteína. Iogurte com proteína. Até água com proteína. A prateleira inteira decidiu, de repente, que você precisa de mais.",
+   "cap": "A prateleira encheu de proteína"
+  },
+  {
+   "layout": "item",
+   "kicker": "O preço acompanhou",
+   "preco": "a versão proteica custa mais",
+   "nar": "E cada versão proteica custa mais que a versão comum ao lado. Você paga a diferença acreditando que está comprando saúde.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A pergunta errada",
+   "preco": "isso é saudável?",
+   "nar": "A pergunta que a embalagem quer que você faça é: isso é saudável? Essa pergunta não tem número, e por isso ela é tão fácil de vender.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "As perguntas certas",
+   "preco": "duas contas",
+   "nar": "As perguntas que decidem a compra são outras. De quantos gramas você precisa por dia? E quanto custa cada grama que está no seu carrinho?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem responde",
+   "preco": "não é a frente do pote",
+   "nar": "Nenhuma das duas é respondida pela frente da embalagem. As duas são respondidas por uma multiplicação e uma divisão que cabem num guardanapo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que este vídeo monta",
+   "itens": [
+    "A conta do seu corpo",
+    "O truque da porção",
+    "Proteína por real",
+    "Folha de seis linhas",
+    "Armadilhas caras"
+   ],
+   "nar": "Cinco partes. A conta do seu corpo. O truque da porção no rótulo. A proteína por real. A folha de seis linhas. E as armadilhas mais caras da gôndola.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Antes de tudo",
+   "preco": "proteína não é vilã",
+   "nar": "Uma coisa precisa ficar clara desde já. Proteína não é vilã, e comer pouca proteína é um problema real. O assunto aqui é o preço da embalagem, não o nutriente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra da casa",
+   "preco": "fonte, número e conta",
+   "nar": "E vale a regra de sempre deste canal: fonte com nome, número com data, e uma conta que você refaz em casa sem acreditar em ninguém.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então",
+   "sub": "quanto você precisa?",
+   "nar": "Começando pela pergunta que sustenta todas as outras: de quantos gramas o seu corpo realmente precisa por dia?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta do corpo",
+   "sub": "peso vezes fator",
+   "nar": "A resposta inteira cabe numa multiplicação: o seu peso vezes um fator. Todo o resto da discussão é detalhe em cima disso.",
+   "cap": "A conta do seu corpo"
+  },
+  {
+   "layout": "item",
+   "kicker": "O fator mínimo",
+   "preco": "zero vírgula oito",
+   "nar": "A Organização Mundial da Saúde usa zero vírgula oito grama por quilo de peso por dia como referência mínima para adulto saudável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na prática",
+   "preco": "setenta quilos",
+   "nar": "Para uma pessoa de setenta quilos, isso dá cinquenta e seis gramas por dia. Esse número é o piso de sobrevivência, não a meta de todo mundo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "De onde vem",
+   "preco": "OMS e FAO",
+   "nar": "O valor vem do documento de necessidades de proteína da OMS com a FAO, publicado em dois mil e sete. É referência antiga, e continua sendo a referência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem precisa de mais",
+   "preco": "treino, dieta, idade",
+   "nar": "Quem treina força, quem está emagrecendo e quem está envelhecendo precisa de mais. A faixa citada na literatura vai de um vírgula dois a dois gramas por quilo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que na dieta",
+   "preco": "proteger o músculo",
+   "nar": "Durante o emagrecimento a proteína ganha um papel extra: segurar a massa magra enquanto o peso desce. Foi exatamente o assunto do vídeo anterior deste canal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sua meta",
+   "preco": "sai do seu peso",
+   "nar": "A sua meta, portanto, não sai de vídeo nenhum, nem deste. Sai do seu peso, multiplicado pelo fator da sua situação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "É faixa, não gatilho",
+   "preco": "sem neurose de gatilho",
+   "nar": "E é uma faixa, não um gatilho. Ficar um pouco abaixo num dia não desfaz nada, e estourar a faixa não constrói músculo extra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem cronômetro",
+   "preco": "o dia inteiro conta",
+   "nar": "Também não precisa de cronômetro nem de balança de bolso. O que conta é o total do dia, somado do jeito que a sua rotina permitir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O caso dos mais velhos",
+   "preco": "o corpo responde menos",
+   "nar": "Nos mais velhos há um agravante com nome: resistência anabólica. O corpo responde menos ao mesmo estímulo, e por isso a faixa deles fica na parte de cima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A exceção séria",
+   "preco": "rim é caso de consulta",
+   "nar": "Uma exceção importante: quem tem doença renal ou outra condição de saúde faz essa conta com um profissional, nunca com um vídeo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Meta na mão",
+   "sub": "agora, o rótulo",
+   "nar": "Com a sua meta na mão, a pergunta vira: onde esses gramas estão? E é aí que o rótulo começa a trabalhar contra você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O rótulo",
+   "sub": "duas colunas, duas histórias",
+   "nar": "Todo rótulo brasileiro mostra a proteína em duas colunas: por porção e por cem gramas. As colunas contam histórias diferentes.",
+   "cap": "O truque da porção"
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem escolhe a porção",
+   "preco": "a marca",
+   "nar": "A porção é definida pela marca, produto a produto. Um pacote usa trinta gramas, outro usa duzentos mililitros. São números que não se comparam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O número da frente",
+   "preco": "o que fica bem na foto",
+   "nar": "E o número estampado na frente da embalagem é sempre o que fica melhor na foto. A frente é publicidade. A tabela é obrigação legal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna que compara",
+   "preco": "cem gramas",
+   "nar": "A coluna que serve para comparar é a de cem gramas. Ela iguala a régua entre qualquer pote, pacote ou garrafa da loja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Desde quando",
+   "preco": "regra da Anvisa",
+   "nar": "Isso não é gentileza da marca: é regra da Anvisa em vigor desde outubro de dois mil e vinte e dois, criada exatamente para permitir comparação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra prática",
+   "preco": "ignore a frente",
+   "nar": "A regra prática tem uma linha só: ignore a frente, vire a embalagem, leia a coluna dos cem gramas. Sempre a mesma coluna, em todos os produtos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que aparece",
+   "preco": "surpresas na mesma régua",
+   "nar": "Lida na mesma régua, a gôndola surpreende. Um iogurte proteico pode ter menos proteína por cem gramas que um iogurte natural comum ao lado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O pão proteico",
+   "preco": "compare com o pão comum",
+   "nar": "O pão proteico passa pelo mesmo teste: parte da diferença que você paga está na receita, e parte está só na palavra impressa na frente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A água com proteína",
+   "preco": "o caso extremo",
+   "nar": "O caso extremo da onda é a água com proteína. Poucos gramas por garrafa, preço de suplemento, e a mesma palavra grande na frente fazendo o trabalho todo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Selo não é medida",
+   "preco": "efeito halo",
+   "nar": "A palavra proteína escrita em letra grande não mede nada. É o efeito halo: um atributo bom iluminando o resto do produto na sua cabeça.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O resto vem junto",
+   "preco": "açúcar e sódio na carona",
+   "nar": "Porque o resto vem junto. Açúcar, sódio e a lista de ingredientes continuam lá, embaixo da palavra que fez você pegar o pote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Coluna certa",
+   "sub": "falta o preço",
+   "nar": "Coluna certa escolhida. Agora falta cruzar o rótulo com o número que ele nunca mostra: o preço de cada grama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Proteína por real",
+   "sub": "a divisão da casa",
+   "nar": "A conta é uma divisão: os gramas de proteína do pacote inteiro, divididos pelo preço do pacote. O resultado é proteína por real.",
+   "cap": "Proteína por real"
+  },
+  {
+   "layout": "item",
+   "kicker": "Como montar",
+   "preco": "tabela, peso, etiqueta",
+   "nar": "Os ingredientes da conta já estão na loja. A tabela diz os gramas por cem gramas. A embalagem diz o peso total. A etiqueta da gôndola diz o preço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que sem preços aqui",
+   "preco": "a conta é sua",
+   "nar": "Este vídeo não vai te dar preço nenhum, de propósito. Preço muda por cidade, por semana e por marca. O método é o que fica valendo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O padrão",
+   "preco": "a comida comum ganha",
+   "nar": "Mas o padrão que a divisão revela é consistente: as fontes comuns quase sempre entregam o grama de proteína mais barato da loja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O exemplo clássico",
+   "preco": "o ovo",
+   "nar": "O exemplo clássico é o ovo: cerca de seis gramas de proteína por unidade, num dos custos por grama mais baixos que existem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O prato de casa",
+   "preco": "arroz com feijão",
+   "nar": "E o prato mais brasileiro de todos entra na lista: arroz com feijão forma proteína completa, por um custo que nenhum pote com nome em inglês alcança.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O frango da semana",
+   "preco": "quilo rende",
+   "nar": "Frango, ovos, sardinha, leite: a lista de fontes baratas é curta, conhecida e resolve a maior parte da meta de quase todo mundo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "O desenho da divisão",
+   "itens": [
+    "Ovo",
+    "Feijão",
+    "Frango",
+    "Pote proteico"
+   ],
+   "alturas": [
+    100,
+    90,
+    70,
+    25
+   ],
+   "nar": "Feita a divisão, o desenho costuma ser esse: comida comum no topo da entrega por real, produto de marketing lá embaixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que o pote vende",
+   "preco": "conveniência",
+   "nar": "O que o produto proteico vende de verdade é conveniência: abrir e comer. Conveniência é um valor real. Só precisa ser cobrada pelo nome certo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quando vale",
+   "preco": "sabendo o multiplicador",
+   "nar": "E há dias em que ela vale: rotina apertada, viagem, falta de opção. O problema nunca é comprar. É comprar sem saber quantas vezes mais caro o grama saiu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Meta e preço na mão",
+   "sub": "falta o papel",
+   "nar": "Meta calculada, preço por grama entendido. Falta organizar tudo num papel que dura a semana:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Folha de seis linhas",
+   "sub": "sua meta num papel",
+   "nar": "Seis linhas resolvem. Uma folha, preenchida uma vez, ajustada quando o peso mudar.",
+   "cap": "A folha de seis linhas"
+  },
+  {
+   "layout": "item",
+   "kicker": "Linha um",
+   "preco": "seu peso",
+   "nar": "Linha um: o seu peso atual. É ele que dimensiona todo o resto da folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Linha dois",
+   "preco": "seu fator",
+   "nar": "Linha dois: o fator da sua situação. O piso da OMS para quem é sedentário e saudável, a faixa de cima para quem treina ou está emagrecendo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Linha três",
+   "preco": "a multiplicação",
+   "nar": "Linha três: a meta diária. É a linha um vezes a linha dois, e é a única multiplicação da folha inteira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Linha quatro",
+   "preco": "o que já entra",
+   "nar": "Linha quatro: uma estimativa honesta do que você já come de proteína num dia comum. A maioria descobre que não está tão longe quanto pensava.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Linha cinco",
+   "preco": "a lacuna",
+   "nar": "Linha cinco: a diferença entre a meta e o que já entra. É essa lacuna, e só ela, que precisa de solução. Não o dia inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Linha seis",
+   "preco": "como preencher",
+   "nar": "Linha seis: com o que a lacuna será preenchida, começando pelas fontes comuns que a sua conta por real apontou. Ovo, feijão, frango.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o suplemento",
+   "preco": "última linha, não primeira",
+   "nar": "Suplemento entra na linha seis quando a rotina pede, com o preço por grama anotado do lado. Ele é atalho de conveniência, não requisito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que a folha funciona",
+   "preco": "tira o marketing da decisão",
+   "nar": "A folha funciona por um motivo simples: quando a lacuna tem tamanho escrito, a promessa da embalagem para de mandar na compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sistema no papel",
+   "sub": "faltam as armadilhas",
+   "nar": "Sistema no papel. Falta blindar contra os quatro erros que mais custam caro nessa prateleira:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Armadilha um",
+   "sub": "saúde por associação",
+   "nar": "A primeira: levar ultraprocessado para casa como se fosse saúde porque a frente diz proteína. A palavra não muda a lista de ingredientes.",
+   "cap": "Quatro armadilhas caras"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que vem na carona",
+   "preco": "doses que você recusaria",
+   "nar": "Em muitos desses produtos, a proteína chega acompanhada de açúcar e sódio em doses que você não aceitaria num produto sem a palavra mágica.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Armadilha dois",
+   "preco": "mais é sempre melhor",
+   "nar": "A segunda: achar que estourar a faixa constrói músculo extra. Acima do teto da sua faixa, o corpo não guarda o excedente como músculo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Armadilha três",
+   "preco": "o teto dos trinta gramas",
+   "nar": "A terceira é o mito invertido: o suposto teto de trinta gramas por refeição, aquele medo de que o resto vira desperdício.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O estudo que testou",
+   "preco": "doses grandes numa refeição",
+   "nar": "O estudo que testou isso é de dois mil e vinte e três. Ele comparou doses pequenas contra uma dose de cem gramas, numa refeição única, e acompanhou as horas seguintes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que ele viu",
+   "preco": "o corpo dá conta",
+   "nar": "O corpo aproveitou a dose maior ao longo do tempo. Distribuir proteína pode ser estratégia útil; obrigação biológica não é.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Armadilha quatro",
+   "preco": "colágeno como proteína",
+   "nar": "A quarta: pagar colágeno como se fosse proteína completa. Colágeno é proteína incompleta, sem o conjunto de aminoácidos que a conta da sua meta pressupõe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O detalhe do colágeno",
+   "preco": "some da conta da meta",
+   "nar": "Isso não faz do colágeno um produto inútil para outros fins. Faz dele um número que não entra na linha da sua meta de proteína, e o rótulo não avisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O fio comum",
+   "preco": "decidir sem número",
+   "nar": "As quatro têm o mesmo fio: uma decisão de compra tomada pela frente da embalagem, sem nenhum número do seu lado da mesa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O antídoto",
+   "preco": "duas contas",
+   "nar": "O antídoto são as duas contas deste vídeo: peso vezes fator, e gramas por real. Com as duas na mão, o marketing perde a alavanca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Última parte",
+   "sub": "fazer durar",
+   "nar": "Falta o de sempre: fazer isso sobreviver à semana que vem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Para durar",
+   "sub": "três hábitos",
+   "nar": "Isso se mantém com três hábitos pequenos. Nenhum exige força de vontade. Todos exigem lugar fixo.",
+   "cap": "Para durar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro",
+   "preco": "a folha na cozinha",
+   "nar": "Primeiro: a folha de seis linhas fica na cozinha, visível. Meta que mora numa gaveta não muda compra nenhuma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segundo",
+   "preco": "um rótulo por compra",
+   "nar": "Segundo: um rótulo novo lido por compra, sempre na coluna dos cem gramas. Um por vez, sem transformar o mercado em auditoria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceiro",
+   "preco": "refazer quando o peso mudar",
+   "nar": "Terceiro: refazer a linha três quando o peso mudar. A meta acompanha o corpo, e não o contrário.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O resumo",
+   "itens": [
+    "Peso vezes fator",
+    "Coluna dos cem gramas",
+    "Gramas por real",
+    "Comida comum primeiro",
+    "Folha na cozinha"
+   ],
+   "nar": "O resumo cabe em cinco linhas. Multiplique peso por fator. Leia a coluna dos cem gramas. Divida gramas por real. Preencha com comida comum primeiro. Deixe a folha à vista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se fizer uma coisa só",
+   "preco": "uma conta e um rótulo",
+   "nar": "Se for fazer só o essencial depois deste vídeo, faça isto. Multiplique seu peso por zero vírgula oito, e leia um rótulo na coluna dos cem gramas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O tempo que leva",
+   "preco": "menos que a fila do caixa",
+   "nar": "As duas coisas juntas levam menos tempo que a fila do caixa. E mudam a próxima compra inteira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra",
+   "sub": "evidência, não promessa",
+   "nar": "Agora me conta nos comentários: qual produto proteico da sua despensa perdeu para o ovo na conta por grama? Estou juntando os casos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra",
+   "sub": "evidência, não promessa",
+   "nar": "E se existe outro rótulo que você quer ver passar pela mesma conta, escreve o nome dele. O mais pedido vira o próximo vídeo do canal.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Proteína em tudo",
+   "sub": "a conta que falta",
+   "nar": "A prateleira encheu de pão proteico e iogurte proteico. A conta que decide a compra ninguém imprime.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sua meta",
+   "preco": "peso vezes o fator",
+   "nar": "Multiplique seu peso por zero vírgula oito. Esse é o mínimo de gramas de proteína por dia segundo a OMS.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O rótulo",
+   "preco": "coluna dos cem gramas",
+   "nar": "No rótulo, ignore a frente e leia a coluna dos cem gramas. Ela existe por regra da Anvisa exatamente para comparar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A divisão",
+   "preco": "gramas por real",
+   "nar": "Divida os gramas do pacote pelo preço. O ovo costuma vencer quase todo pote com proteína no nome.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra",
+   "sub": "a conta completa",
+   "nar": "Essa é a conta inteira: meta, coluna e divisão. Qual produto da sua despensa perde para o ovo? Comenta aí.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# A conta por grama que a prateleira proteica não imprime\n\n## TÍTULO\nProdutos com Proteína: A Conta por Grama que Ninguém Faz no Supermercado\n\n## DESCRIÇÃO\nPão proteico, iogurte proteico, água com proteína. A prateleira inteira decidiu que você precisa de mais — e cada versão proteica custa mais que a versão comum ao lado. Este vídeo não pergunta se isso é saudável. Ele faz as duas contas que a embalagem espera que você não faça.\n\nA CONTA DO SEU CORPO. A Organização Mundial da Saúde usa 0,8 g de proteína por quilo de peso por dia como referência mínima para adulto saudável (documento OMS/FAO de necessidades de proteína, 2007) — para 70 kg, 56 g por dia. Quem treina força, está emagrecendo ou envelhecendo trabalha com a faixa maior citada na literatura, de 1,2 a 2,0 g/kg. Sua meta não sai de vídeo nenhum: sai do seu peso vezes o seu fator.\n\nO TRUQUE DA PORÇÃO. A porção do rótulo é escolhida pela marca e não se compara entre produtos. A coluna que compara é a de 100 g — obrigatória por regra da Anvisa (RDC 429/2020 e IN 75/2020) em vigor desde outubro de 2022, criada exatamente para isso. Lida na mesma régua, a gôndola surpreende: um iogurte proteico pode ter menos proteína por 100 g que o iogurte natural ao lado.\n\nPROTEÍNA POR REAL. A divisão da casa: gramas de proteína do pacote inteiro divididos pelo preço. Este vídeo não dá preço nenhum de propósito — preço muda por cidade e por semana; o método fica. O padrão que a conta revela é consistente: ovo (cerca de 6 g por unidade), feijão com arroz, frango e sardinha entregam o grama mais barato da loja, e o que o pote proteico vende de verdade é conveniência. Conveniência tem valor — só precisa ser cobrada pelo nome certo.\n\nA FOLHA DE SEIS LINHAS. Peso, fator, meta (a única multiplicação), o que você já come, a lacuna, e como preenchê-la começando pela comida comum. Suplemento entra na última linha quando a rotina pede, com o custo por grama anotado do lado.\n\nE AS QUATRO ARMADILHAS CARAS: o ultraprocessado comprado como saúde por causa de uma palavra na frente; o mito de que estourar a faixa vira músculo; o falso teto de 30 g por refeição — um estudo de 2023 que comparou doses de 25 g e 100 g numa única refeição mostrou o corpo aproveitando a dose maior ao longo das horas; e o colágeno pago como se fosse proteína completa.\n\nSe você fizer uma única coisa depois deste vídeo: multiplique seu peso por 0,8 e leia um único rótulo na coluna dos 100 g. Leva menos tempo que a fila do caixa.\n\n## CAPÍTULOS\n{CAPITULOS}\n\n## COMENTÁRIO\nUma pergunta, porque a resposta muda de despensa para despensa: qual produto proteico da sua casa perdeu para o ovo quando você fez a conta por grama? E qual rótulo você quer ver passar pela mesma conta no próximo vídeo? O mais pedido vai primeiro.\n\n## HASHTAGS\n#Proteina #RotuloNutricional #SejaMaisMagra\n\n## TAGS\nprodutos com proteína, quanta proteína por dia, proteína por dia, rótulo nutricional, pão proteico, iogurte proteico, whey protein vale a pena, alimentos ricos em proteína, marketing nutricional, ultraprocessados, tabela nutricional, proteína para emagrecer, quanto custa proteína, nutrição baseada em evidências, efeito halo\n\n## CONFIGURAÇÕES DO STUDIO\n- Idioma: Português (Brasil) | Categoria: Educação (27)\n- Não é conteúdo para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Localização: Brasil | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ativados (duração acima de 8 minutos)\n\n## MÚSICA / LICENÇA\n{TRILHA}\n\n## FONTES\nA referência de 0,8 g de proteína por quilo por dia para adultos saudáveis vem do documento \"Protein and Amino Acid Requirements in Human Nutrition\" (OMS/FAO/UNU, 2007); o exemplo de 56 g/dia para 70 kg é aritmética direta desse fator. A faixa de 1,2 a 2,0 g/kg para pessoas ativas, em emagrecimento ou mais velhas reflete o intervalo citado na literatura esportiva e geriátrica recente. A obrigatoriedade da coluna por 100 g na tabela nutricional é da Anvisa (RDC 429/2020 e IN 75/2020, em vigor desde 09/10/2022), criada para permitir comparação entre produtos. O estudo sobre doses altas numa única refeição é o ensaio publicado em dezembro de 2023 que comparou 25 g e 100 g de proteína pós-treino (PubMed 38118410). O dado de ~6 g de proteína por ovo é o valor aproximado de tabelas de composição de alimentos para um ovo de tamanho médio. NENHUM preço de produto é afirmado neste vídeo, de propósito: preços variam por cidade, semana e marca, e o método ensinado usa os números que você mesmo coleta na loja. Este vídeo é conteúdo educativo sobre leitura de rótulos e matemática de consumo; não é aconselhamento médico nem nutricional, não substitui consulta com profissional de saúde, e quem tem doença renal ou outra condição clínica deve definir metas de proteína com seu médico ou nutricionista.\n"
+}
