@@ -103,19 +103,30 @@ jobs:
       # perde a rodada em silencio; com teto, falha em cinco minutos, aparece
       # em vermelho e o redisparo (que passou nas duas vezes) e imediato.
       #
-      # O retry esta aqui pelo mesmo motivo: se a causa e espelho lento, a
-      # segunda tentativa resolve sozinha e nem chega a falhar.
+      # O retry precisa de teto POR CHAMADA, nao so por passo. Na primeira
+      # versao deste conserto o loop era inutil: o `apt-get update` pendurou
+      # sem imprimir uma linha sequer e comeu os cinco minutos inteiros, entao
+      # a segunda tentativa nunca aconteceu. Medido no run 32229424929 —
+      # nenhuma saida entre 07:47:13 e o timeout as 07:52:26.
+      #
+      # Com `timeout` em cada chamada, um espelho pendurado custa 100 segundos
+      # e a tentativa seguinte comeca de verdade. Tres tentativas cabem
+      # folgadas no teto do passo.
       - name: Instalar ffmpeg e fontes
-        timeout-minutes: 5
+        timeout-minutes: 6
         run: |
-          set -euo pipefail
-          for tentativa in 1 2; do
-            sudo apt-get update -qq \
-              && sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk \
-              && break
-            echo "::warning::apt falhou na tentativa $tentativa — repetindo"
+          set -uo pipefail
+          ok=""
+          for tentativa in 1 2 3; do
+            if timeout 100 sudo apt-get update -qq \
+               && timeout 150 sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk; then
+              ok=1
+              break
+            fi
+            echo "::warning::apt pendurou ou falhou na tentativa $tentativa — repetindo"
             sleep 5
           done
+          [ -n "$ok" ] || { echo "::error::apt nao respondeu em tres tentativas"; exit 1; }
           ffmpeg -version | head -1
 
       - name: Instalar fabrica
