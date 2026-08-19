@@ -350,8 +350,10 @@ def test_auditoria_de_canal_separa_certo_de_errado(monkeypatch):
         {"canal": "setiap-level", "pacote": "sl-006", "formato": "longo",
          "youtube_id": "SUMIU"},
     ])
-    monkeypatch.setattr(A, "token_do_canal", lambda s, u, k: {})
-    monkeypatch.setattr(A, "access_token", lambda t: "x")
+    # A costura e `_algum_access_token`: desde 19/08/2026 a auditoria nao usa
+    # o token do proprio canal, e sim o de QUALQUER canal vivo — com dez dos
+    # doze mortos, insistir no proprio parava a auditoria no primeiro canal.
+    monkeypatch.setattr(A, "_algum_access_token", lambda c, u, k: "x")
     monkeypatch.setattr(A, "canal_real", lambda acc, ids: {
         i: {"ERRADO": ("UC_SETIAP", "Setiap Level"),
             "CERTO": ("UC_SETIAP", "Setiap Level")}[i]

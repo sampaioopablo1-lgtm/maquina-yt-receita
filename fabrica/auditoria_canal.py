@@ -41,7 +41,7 @@ import urllib.parse
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 
-from publicar import API, _req, access_token, token_do_canal  # noqa: E402
+from publicar import API, _req  # noqa: E402
 
 
 def _sb(caminho, sb_url, sb_key):
@@ -92,9 +92,20 @@ def audita(sb_url, sb_key, slug=None):
             print(f"  {canal}: sem youtube_channel_id no banco — nao da para auditar",
                   file=sys.stderr)
             continue
-        # O token de QUALQUER canal serve: videos.list e leitura publica. Usa o
-        # do proprio canal quando existe, para nao depender de um so.
-        acc = access_token(token_do_canal(canal, sb_url, sb_key))
+        # O token de QUALQUER canal serve: videos.list e leitura publica. Este
+        # comentario ja estava aqui, mas o codigo nao fazia o que ele promete:
+        # usava so o token do proprio canal e morria em traceback cru se ele
+        # estivesse morto. Com dez dos doze tokens mortos em 19/08/2026, a
+        # auditoria parava no PRIMEIRO canal e nao auditava nada — e o que ela
+        # procura (video no canal errado) nao aparece como falha em lugar
+        # nenhum, so como pauta que nao pegou. Perder a conferencia em silencio
+        # e pior que o traceback.
+        acc = _algum_access_token(canal, sb_url, sb_key)
+        if acc is None:
+            print(f"  {canal}: nenhum token vivo na frota — nao da para auditar. "
+                  f"Reautorize com `python3 fabrica/tokens.py link`.",
+                  file=sys.stderr)
+            continue
         reais = canal_real(acc, [l["youtube_id"] for l in linhas])
         for l in linhas:
             real = reais.get(l["youtube_id"])
@@ -105,6 +116,36 @@ def audita(sb_url, sb_key, slug=None):
             else:
                 ok += 1
     return ok, erradas, ausentes
+
+
+_TOKENS: dict = {}          # slug -> access token, ou None se o refresh falhou
+
+
+def _algum_access_token(preferido, sb_url, sb_key):
+    """Access token de leitura: o do canal pedido, ou o de qualquer outro.
+
+    `videos.list` e leitura publica, entao serve o token de QUALQUER canal da
+    frota — a auditoria nao pode depender de um so. Cada refresh e feito no
+    maximo uma vez por execucao (`_TOKENS`), entao auditar treze canais com um
+    token vivo custa um refresh, nao treze.
+    """
+    import tokens as T
+
+    if "_todos" not in _TOKENS:
+        _TOKENS["_todos"] = T.tokens_do_banco(sb_url, sb_key)
+    todos = _TOKENS["_todos"]
+
+    def vivo(slug):
+        if slug not in _TOKENS:
+            _TOKENS[slug] = T.refrescar(todos[slug])[0]
+        return _TOKENS[slug]
+
+    if preferido in todos and vivo(preferido):
+        return _TOKENS[preferido]
+    for slug in sorted(k for k in todos if k != preferido):
+        if vivo(slug):
+            return _TOKENS[slug]
+    return None
 
 
 def ja_publicado_pelo_titulo(copys, sb_url, sb_key):
