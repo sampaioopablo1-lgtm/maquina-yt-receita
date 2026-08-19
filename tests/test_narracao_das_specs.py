@@ -50,8 +50,28 @@ SPECS = [p for p in sorted((RAIZ / "fabrica" / "specs").glob("*.json"))
 # mesmo tirei do escalonamento em 17/08/2026, porque longos de 25 a 28 min
 # rendiam 0,30 view/dia contra 91,25 da mediana do nicho. O que nao pode e
 # alguem descobrir isso esperando um video que nunca vem.
+#
+# O inventario tem DOIS tipos de parada, e confundi-los foi um defeito real
+# deste teste ate 19/08/2026. "portao" e spec que reprova num portao barato —
+# se voltar a passar, tem de sair daqui, e e isso que o assert protege.
+# "sem portao" e spec que passa em tudo e mesmo assim nao deve ser disparada,
+# por um motivo que portao nenhum enxerga. Exigir falha de portao das duas
+# obrigava a inventar defeito para justificar parada legitima.
 PARADAS = {
-    "cocina-por-niveles-002": "15,0 min — acima do teto, canal sem escalonamento",
+    # Passa nos portoes e continua parada: o canal NAO EXISTE no YouTube
+    # (canais.no_youtube = false e config.yt_token_cocina-por-niveles com
+    # refresh_token nulo, conferidos em 19/08/2026). Renderizar quinze minutos
+    # aqui e renderizar para o vazio. Encurtar o roteiro nao resolveria nada.
+    #
+    # Ela entrou aqui por outro motivo — "15,0 min, acima do teto" — que a
+    # recalibracao de 19/08/2026 dissolveu: com o Dalia medido cena-a-cena
+    # (17,20 -> 17,48 chars/s) a spec passou a prever 14,95 min. So que 14,95
+    # contra teto de 15,00 e margem de 3 s, menor que o erro tipico do proprio
+    # modelo (0,75% de 897 s = 6,7 s). Passar no portao por menos que a barra
+    # de erro nao e passar.
+    "cocina-por-niveles-002": ("sem portao",
+                               "canal nao existe no YouTube; e 14,95 min contra "
+                               "teto de 15,00 e margem menor que o erro do modelo"),
     # kolejny-poziom-003 saiu daqui em 18/08/2026: 88 cenas viraram 79
     # (16,6 -> 13,0 min no Marek) e a copy-bilhete virou markdown completo.
     # Os limites de 2026 do roteiro foram reconferidos antes (28.260 /
@@ -60,9 +80,9 @@ PARADAS = {
     # cenas (15,33 -> 14,49 min) e devolvida a matriz.
     # resep-naik-level-003 saiu em 18/08/2026: encurtada de 86 para 76 cenas
     # (16,20 -> 14,32 min) e devolvida a matriz.
-    "setiap-level-003":       "26,0 min — desescalonado por medicao em 17/08",
-    "setiap-level-004":       "28,1 min — desescalonado por medicao em 17/08",
-    "setiap-level-006":       "copy ainda em bilhete",
+    "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
+    "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
+    "setiap-level-006":       ("portao", "copy ainda em bilhete"),
 }
 
 
@@ -76,9 +96,16 @@ def test_spec_de_producao_ou_entra_na_matriz_ou_esta_no_inventario(spec):
     sp = json.loads(spec.read_text(encoding="utf-8"))
     faltas = O._falhas_baratas(spec.stem, sp)
     if spec.stem in PARADAS:
-        assert faltas, (f"{spec.stem} voltou a passar nos portoes — tire do "
-                        f"inventario PARADAS, o motivo registrado era: "
-                        f"{PARADAS[spec.stem]}")
+        tipo, motivo = PARADAS[spec.stem]
+        if tipo == "portao":
+            assert faltas, (f"{spec.stem} voltou a passar nos portoes — tire do "
+                            f"inventario PARADAS, o motivo registrado era: "
+                            f"{motivo}")
+        else:
+            assert not faltas, (
+                f"{spec.stem} esta no inventario como parada SEM portao, mas "
+                f"reprova em portao barato. Ou o motivo mudou, ou o tipo esta "
+                f"errado:\n  " + "\n  ".join(faltas))
         return
     assert not faltas, (f"{spec.stem} sairia da matriz calada:\n  "
                         + "\n  ".join(faltas))

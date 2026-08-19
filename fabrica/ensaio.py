@@ -59,74 +59,65 @@ MARCA = "ENSAIO-NAO-PUBLICAR"
 #
 # Voz nova entra MEDIDA, nunca estimada.
 #
-# E MEDIDA EM PRODUCAO, nao em amostra de laboratorio. Os valores anteriores
+# E MEDIDA EM PRODUCAO, nao em amostra de laboratorio. Os valores originais
 # vinham de duas amostras sinteticas por voz (uma de 2 frases longas, outra de
-# 12 curtas) e TODOS erravam para o mesmo lado. Medido em 17/08/2026 contra os
-# .srt de nove vozes ja publicadas — 1.069 cenas reais, `fabrica/calibra_voz.py`:
-#
-#     en-GB-Ryan      +12,0%      id-ID-Gadis     +11,6%
-#     en-US-Andrew     +8,1%      pt-BR-Antonio   +11,1%
-#     es-MX-Dalia     +18,0%      pt-BR-Thalita   +11,1%
-#     hi-IN-Madhur     +8,9%      tr-TR-Ahmet      +6,6%
-#     id-ID-Ardi      +13,9%
-#
-# Nove de nove subestimando e viés, nao ruido: duas amostras nao cobrem a
-# distribuicao de tamanho de frase de um roteiro de 86 cenas, e o ajuste por
-# minimos quadrados sobre elas devolve um R alto demais.
+# 12 curtas) e TODOS erravam para o mesmo lado, de +6,6% a +18,0%. Nove de nove
+# subestimando e vies, nao ruido: duas amostras nao cobrem a distribuicao de
+# tamanho de frase de um roteiro de 86 cenas.
 #
 # O QUE ISSO CUSTOU: o resep-naik-level-003 foi dimensionado para 14,2 min,
 # passou no portao (teto 15,0) e saiu com 16:14 — 74 s acima do teto, publicado.
 #
-# Os tres que faltam (Francisca, Marek, Nestoras) NAO tem .srt de producao
-# utilizavel e seguem com o valor de laboratorio. Pelo viés das outras nove,
-# presuma que tambem estao otimistas em ~10% ate que um pacote publicado permita
-# rodar o calibra_voz.py neles.
+# ESTES VALORES SAO DE 19/08/2026, e pela primeira vez as DOZE vozes vem do
+# mesmo lugar: ajuste por minimos quadrados cena-a-cena sobre os `legendas.srt`
+# que os proprios pacotes publicados deixaram no bucket. Antes disso o
+# calibra_voz.py existia mas nunca alcancava o bucket — faltava o workflow
+# `calibrar-vozes.yml`, que roda onde o repositorio e o Storage sao alcancaveis
+# ao mesmo tempo. Sao 2.317 cenas reais no total.
+#
+# Como o erro do modelo ANTERIOR se distribuia (real/previsto - 1, entao
+# POSITIVO = o video sai mais longo que o previsto, que e o lado perigoso):
+#
+#     pt-BR-Francisca  -7,0%      pl-PL-Marek      -1,5%
+#     en-US-Andrew     +3,8%      es-MX-Dalia      -0,1%
+#     id-ID-Gadis      +3,4%      el-GR-Nestoras   -0,1%
+#     tr-TR-Ahmet      +2,2%      hi-IN-Madhur     +0,0%
+#     en-GB-Ryan       +1,2%      pt-BR-Thalita    +0,3%
+#     id-ID-Ardi       +0,7%      pt-BR-Antonio    -0,4%
+#
+# A Francisca e o caso que mais movimentou: P caiu de 1,036 para 0,298 com
+# n=149. Ja tinha sido avisado antes que nesta voz o erro mora em P e nao em R
+# — conferir so chars/s deixa passar uma voz cuja pausa entre frases e que
+# estoura o roteiro. Agora vale ao contrario: a pausa dela e MENOR do que se
+# supunha, e o modelo antigo alongava o roteiro em 7%.
 MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
-    # --- medidas em producao (n = cenas reais) ---
-    "pt-BR-AntonioNeural":            (16.11, 0.939),   # n=132
-    "pt-BR-ThalitaMultilingualNeural": (17.48, 0.686),  # n=92
-    "id-ID-GadisNeural":              (14.55, 1.276),   # n=86
-    "id-ID-ArdiNeural":               (18.72, 1.079),   # n=282
-    "es-MX-DaliaNeural":              (17.20, 1.210),   # n=160
-    "en-GB-RyanNeural":               (18.74, 1.089),   # n=51
-    "en-US-AndrewNeural":             (16.50, 0.101),   # n=142
-    "tr-TR-AhmetNeural":              (15.82, 1.339),   # n=52
-    "hi-IN-MadhurNeural":             (12.03, 1.244),   # n=72
-    # Decima medida, 17/08/2026, spec do seja-mais-magra-001 vinda do Storage.
-    # Aqui o erro NAO estava em R (16,97 -> 16,92, praticamente igual) e sim em
-    # P: 0,310 -> 1,036, tres vezes maior. Mesmo +15,6% de subestimacao no
-    # total. Serve de aviso: conferir so a taxa de chars/s deixa passar uma voz
-    # cuja pausa entre frases e que estoura o roteiro.
-    "pt-BR-FranciscaNeural":          (16.92, 1.036),   # n=76
-    # Decima primeira, 17/08/2026, do .srt do kolejny-poziom-004 ja publicado.
-    # Este e o caso mais claro de que ENSAIO NAO SERVE. No mesmo dia eu medi a
-    # voz com oito amostras sinteticas e achei R=23,58 e P=1,428; aquele ajuste
-    # previa as PROPRIAS amostras com 0,6% de erro e errou 12,3% no roteiro de
-    # verdade. A taxa real e quinze por cento mais lenta que a do ensaio.
-    #
-    # O motivo e sempre o mesmo: a bateria de ensaio nao tem a distribuicao de
-    # frases de um roteiro — nem os numeros por extenso, que sao longos e
-    # frequentes nestes canais e derrubam a taxa.
-    "pl-PL-MarekNeural":              (19.93, 1.477),   # n=74
-    # --- ainda de laboratorio, provavelmente otimista ---
-    # Nao dimensione roteiro grego mirando o piso da faixa: os dois casos
-    # medidos ate agora (Marek e Francisca) mostraram o laboratorio otimista em
-    # 12 a 16%. Mire o meio-alto e recalibre no primeiro .srt de producao.
-    # Calibrada em DOIS passos em 18/08/2026, e cada passo moveu na mesma
-    # direcao — para mais lento:
-    #   laboratorio antigo ........ 25,37  (subestimava ~12%)
-    #   par longa/curta em grego .. 22,24  (o epomeno-epipedo-003 foi
-    #                                       dimensionado com este: previu
-    #                                       769,5 s, saiu 810,7 — +5,3%)
-    #   AGREGADO DE PRODUCAO ...... 20,49  (10.696 chars, 204 frases, 24 s de
-    #                                       gaps contra os 810,7 s reais do
-    #                                       proprio pacote; P mantido em
-    #                                       1,297 porque um ponto agregado
-    #                                       nao separa R de P)
-    # Quando o calibra_voz.py alcancar o .srt do bucket, o ajuste por cena
-    # substitui este agregado.
-    "el-GR-NestorasNeural":           (20.49, 1.297),
+    # Todas medidas cena-a-cena nos .srt publicados, 19/08/2026.
+    "el-GR-NestorasNeural":            (20.40, 1.257),   # n=429
+    "en-GB-RyanNeural":                (18.92, 1.162),   # n=121
+    "en-US-AndrewNeural":              (16.00, 0.119),   # n=79
+    "es-MX-DaliaNeural":               (17.48, 1.242),   # n=91
+    "hi-IN-MadhurNeural":              (11.92, 1.194),   # n=140
+    "id-ID-ArdiNeural":                (18.86, 1.115),   # n=450
+    "id-ID-GadisNeural":               (14.12, 1.318),   # n=75
+    "pl-PL-MarekNeural":               (20.07, 1.419),   # n=409
+    "pt-BR-AntonioNeural":             (16.68, 1.040),   # n=214
+    "pt-BR-FranciscaNeural":           (15.24, 0.298),   # n=149
+    "pt-BR-ThalitaMultilingualNeural": (17.52, 0.702),   # n=87
+    "tr-TR-AhmetNeural":               (15.35, 1.337),   # n=73
 }
+
+# O ajuste do Nestoras foi refeito EM PAR com o conserto do FIM_DE_FRASE, como
+# o aprendizado 313 exigia — mudar o divisor de frase sem recalibrar a voz
+# trocaria um vies por outro. Medido nos mesmos 429 pares, antes e depois:
+#
+#     antes do conserto ... R 20,35  P 1,251
+#     depois .............. R 20,40  P 1,257
+#
+# O deslocamento e pequeno porque as pontes gregas ja terminavam em ";" e o
+# portao do gancho (tabela GANCHO) ja as aceitava; o que mudou foi a contagem
+# passar a enxergar essas perguntas como frase inteira. As outras onze vozes
+# saíram IDENTICAS nas duas medicoes, que e a prova de que a tabela por idioma
+# nao vazou para polones, portugues nem indonesio.
 
 
 def duracao_cena(nar: str, voz: str) -> float:

@@ -143,15 +143,33 @@ def test_nenhuma_voz_medida_voltou_ao_valor_de_laboratorio():
         assert MODELO_VOZ[voz][0] < R_velho, f"{voz} ficou mais rapido que o medido"
 
 
-def test_francisca_errava_na_pausa_e_nao_na_taxa():
-    """A decima voz medida (17/08/2026) erra num eixo diferente das nove.
+def test_francisca_erra_na_pausa_e_nao_na_taxa():
+    """Nesta voz o erro mora em P, e ja mudou de sinal uma vez.
 
-    R praticamente nao mudou (16,97 -> 16,92) e P triplicou (0,310 -> 1,036),
-    e mesmo assim o total subestimava 15,6%. Conferir so chars/s deixaria essa
-    voz passar — por isso o modelo tem que ter os dois termos MEDIDOS, nao um
-    medido e outro herdado.
+    Historico, porque a licao esta na SEQUENCIA e nao num valor:
+
+        laboratorio (ate 17/08) .... R 16,97  P 0,310
+        n=76, spec do Storage ...... R 16,92  P 1,036   (P triplicou)
+        n=149, cena-a-cena do bucket R 15,24  P 0,298   (P voltou a cair)
+
+    Em 17/08 a conclusao foi "P estava tres vezes pequeno demais". Em
+    19/08, com o dobro das cenas e ajuste cena-a-cena sobre os .srt
+    publicados, o P desabou de novo — e o modelo de 17/08 estava
+    SUPERestimando a duracao em 7,0%, o maior erro das doze vozes.
+
+    O que sobrevive das duas medicoes e a mesma frase: nesta voz conferir so
+    chars/s nao diz nada, porque o erro esta na pausa. O que NAO sobrevive e
+    o valor — por isso o assert acompanha a medicao corrente em vez de
+    congelar a conclusao de um dia especifico.
+
+    Conferencia independente: os dois pacotes publicados com esta voz batem
+    dentro de 3% com as constantes atuais (seja-mais-magra-002 -1,2% e -003
+    +2,3%).
     """
     R, P = MODELO_VOZ["pt-BR-FranciscaNeural"]
-    assert R == pytest.approx(16.92, abs=0.01)
-    assert P == pytest.approx(1.036, abs=0.001)
-    assert P > 3 * 0.310, "P voltou ao valor de laboratorio"
+    assert R == pytest.approx(15.24, abs=0.01)
+    assert P == pytest.approx(0.298, abs=0.001)
+    # O ponto que vale para sempre: R sozinho nao separa esta voz das outras.
+    # Antonio esta em 16,68 e Thalita em 17,52 — a Francisca so se distingue
+    # pelo P, que e quase um terco do deles.
+    assert P < 0.5 * MODELO_VOZ["pt-BR-AntonioNeural"][1]
