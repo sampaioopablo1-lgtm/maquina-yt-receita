@@ -86,12 +86,26 @@ NUMEROS = {
           r"noventa|cien|ciento|doscientos|quinientos|mil|millon|millones|por ciento|coma)\b",
     "id": r"\b(satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|sebelas|belas|"
           r"puluh|seratus|ratus|seribu|ribu|juta|miliar|triliun|persen|koma)\b",
-    "el": r"\b(ενα|δυο|τρια|τεσσερα|πεντε|εξι|επτα|οκτω|εννεα|δεκα|εικοσι|τριαντα|σαραντα|"
+    # Os compostos de 11 a 19 precisam estar INTEIROS: "δεκατεσσερα" nao casa
+    # nem \bδεκα\b nem \bτεσσερα\b, entao o numero era invisivel ao contador.
+    # Mesma coisa em polones com "czternascie". Achado pela varredura de
+    # 19/08/2026 (aprendizado 319).
+    "el": r"\b(ενα|δυο|τρια|τεσσερα|πεντε|εξι|επτα|οκτω|εννεα|δεκα|εντεκα|δωδεκα|"
+          r"δεκατρια|δεκατεσσερα|δεκαπεντε|δεκαεξι|δεκαεπτα|δεκαοκτω|δεκαεννεα|"
+          r"εικοσι|τριαντα|σαραντα|"
           r"πενηντα|εξηντα|εβδομηντα|ογδοντα|ενενηντα|εκατο|χιλια|χιλιαδες|εκατομμυρια|τοις εκατο)\b",
     "tr": r"\b(bir|iki|uc|dort|bes|alti|yedi|sekiz|dokuz|on|yirmi|otuz|kirk|elli|altmis|"
           r"yetmis|seksen|doksan|yuz|bin|milyon|milyar|yuzde|virgul)\b",
-    "pl": r"\b(jeden|dwa|trzy|cztery|piec|szesc|siedem|osiem|dziewiec|dziesiec|dwadziescia|"
-          r"trzydziesci|czterdziesci|piecdziesiat|sto|tysiac|tysiace|milion|miliard|procent)\b",
+    # "przecinek" e a virgula decimal falada em polones — pt tem "virgula", es
+    # "coma", tr "virgul", en "point", id "koma". O polones era o ultimo sem o
+    # seu, achado pela varredura que o aprendizado 316 pediu, ANTES de custar
+    # um pacote (19/08/2026).
+    "pl": r"\b(jeden|dwa|trzy|cztery|piec|szesc|siedem|osiem|dziewiec|dziesiec|"
+          r"jedenascie|dwanascie|trzynascie|czternascie|pietnascie|szesnascie|"
+          r"siedemnascie|osiemnascie|dziewietnascie|dwadziescia|"
+          r"trzydziesci|czterdziesci|piecdziesiat|szescdziesiat|siedemdziesiat|"
+          r"osiemdziesiat|dziewiecdziesiat|sto|dwiescie|trzysta|czterysta|piecset|"
+          r"tysiac|tysiace|tysiecy|milion|miliard|procent|przecinek|setnych)\b",
     "hi": r"(एक|दो|तीन|चार|पाँच|पांच|छह|सात|आठ|नौ|दस|बीस|तीस|सौ|हज़ार|हजार|लाख|करोड़|प्रतिशत)",
 }
 
@@ -107,7 +121,14 @@ CONECTOR = {
     # (aprendizado 315).
     # sem tonos: `conta_numeros` compara depois de normaliza(), que tira acento —
     # como ja fazem todas as outras entradas gregas destas tabelas.
-    "el": r"\b(και|με|κομμα)\b", "tr": r"\b(ve)\b", "pl": r"\b(i|z)\b", "hi": r"(और)",
+    #
+    # "τοις" entra pelo MESMO motivo que "por" esta na lista do portugues e do
+    # espanhol: o percentual grego, "τοις εκατο", tem DUAS palavras, e o
+    # contador separa por espaco. Sem isto, "τοις" nao era nem numero nem
+    # conector, fechava o grupo, e "εκατο" abria outro — cada percentual grego
+    # valia DOIS. Como quase toda frase de dados termina em percentual, o teto
+    # de quatro caia com dois numeros de verdade (aprendizado 319).
+    "el": r"\b(και|με|κομμα|τοις)\b", "tr": r"\b(ve)\b", "pl": r"\b(i|z)\b", "hi": r"(और)",
 }
 
 MAX_NUM_FRASE = 4      # 4+ QUANTIDADES numa frase e planilha falada

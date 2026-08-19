@@ -1,0 +1,663 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-005",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#C1121F",
+  "c2": "#457B9D",
+  "bg": "#F1F0EA"
+ },
+ "thumb": {
+  "l1": "5862 CZY 3605?",
+  "l2": "ta sama umowa"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Trzy liczby",
+   "sub": "jedna umowa",
+   "nar": "Trzy liczby opisują tę samą umowę o pracę. Prawie nikt nie zna pierwszej.",
+   "cap": "Trzy liczby, jedna umowa"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "co wydaje pracodawca",
+   "nar": "Pierwsza to kwota, którą pracodawca faktycznie wydaje na to stanowisko każdego miesiąca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "brutto z umowy",
+   "nar": "Druga to brutto zapisane w umowie. Tę znasz, bo ją podpisałeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "co wpływa na konto",
+   "nar": "Trzecia to kwota, która wpływa na konto. Tę znasz najlepiej, bo to ona kupuje zakupy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Przy najniższej krajowej",
+   "preco": "brutto cztery osiemset sześć",
+   "nar": "Weźmy najniższą krajową dwa tysiące dwadzieścia sześć. Brutto to cztery tysiące osiemset sześć złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na rękę",
+   "preco": "około trzy sześćset pięć",
+   "nar": "Na rękę zostaje z tego około trzy tysiące sześćset pięć złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A koszt pracodawcy",
+   "preco": "pięć osiemset sześćdziesiąt dwa",
+   "nar": "A pracodawca wydaje na to samo stanowisko pięć tysięcy osiemset sześćdziesiąt dwa złote i trzydzieści siedem groszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ta sama umowa",
+   "itens": [
+    "Koszt",
+    "Brutto",
+    "Na rękę"
+   ],
+   "alturas": [
+    1.0,
+    0.82,
+    0.615
+   ],
+   "nar": "Ta sama umowa, trzy słupki. Z lewej to, co wychodzi z firmy. Z prawej to, co wchodzi do ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Różnica",
+   "preco": "sześćdziesiąt jeden procent",
+   "nar": "Do ciebie trafia około sześćdziesięciu jeden procent tego, co zostało wydane. Reszta nie znika. Ma nazwy, i zaraz je wypiszemy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno od razu",
+   "preco": "to nie jest film polityczny",
+   "nar": "Jedno od razu i wyraźnie. To nie jest film polityczny i nikogo tu nie oskarżamy. Czytamy przepisy i liczymy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada kanału",
+   "preco": "liczby ze źródłem",
+   "nar": "I obowiązuje zasada kanału. Liczby ze źródłem i datą, a czego nie da się zmierzyć, tego nie mówimy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dla kogo to jest",
+   "preco": "dla każdego na etacie",
+   "nar": "I dotyczy to każdego na umowie o pracę, niezależnie od kwoty. Zmienia się wysokość, nie mechanizm.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co zobaczymy",
+   "itens": [
+    "Co dopłaca pracodawca ponad brutto",
+    "Co znika z brutto zanim zobaczysz",
+    "Ta sama liczba przy średniej krajowej",
+    "Dlaczego to nie jest to samo co B2B",
+    "Co z tym zrobić"
+   ],
+   "nar": "Pięć części. Co pracodawca dopłaca ponad brutto. Co znika z brutto, zanim je zobaczysz. Jak to wygląda przy średniej krajowej. Dlaczego to nie jest to samo co B2B. I co z tym zrobić.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zaczynamy",
+   "sub": "co dopłaca pracodawca?",
+   "nar": "Zacznijmy od strony, której nie widać na pasku. Co dokładnie dopłaca pracodawca?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ponad brutto",
+   "sub": "około dwadzieścia procent",
+   "nar": "Ponad kwotę brutto pracodawca dokłada jeszcze około dwudziestu procent. To pięć pozycji, i każda ma swoją nazwę.",
+   "cap": "Co dopłaca pracodawca"
+  },
+  {
+   "layout": "item",
+   "kicker": "Emerytalna",
+   "preco": "dziewięć siedemdziesiąt sześć",
+   "nar": "Składka emerytalna po stronie pracodawcy to dziewięć i siedemdziesiąt sześć setnych procent podstawy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta sama liczba u ciebie",
+   "preco": "składka jest dzielona",
+   "nar": "Dokładnie tyle samo płacisz ty. Ta składka jest dzielona po połowie, i to jedyna, która tak działa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rentowa",
+   "preco": "sześć i pół",
+   "nar": "Rentowa po stronie pracodawcy to sześć i pół procenta. Po twojej stronie tylko półtora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wypadkowa",
+   "preco": "około jeden sześćdziesiąt siedem",
+   "nar": "Wypadkowa to około jeden i sześćdziesiąt siedem setnych procenta. Płaci ją wyłącznie pracodawca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ona się zmienia",
+   "preco": "od branży",
+   "nar": "I to jedyna, która zależy od branży. Waha się mniej więcej od zera sześćdziesiąt siedem do trzech trzydziestu trzech setnych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fundusz Pracy",
+   "preco": "dwa czterdzieści pięć",
+   "nar": "Fundusz Pracy razem z Funduszem Solidarnościowym to dwa i czterdzieści pięć setnych procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "FGŚP",
+   "preco": "dziesięć setnych",
+   "nar": "I najmniejsza pozycja na liście. Fundusz Gwarantowanych Świadczeń Pracowniczych, dziesięć setnych procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Razem",
+   "preco": "dwadzieścia i pół",
+   "nar": "Razem daje to około dwudziestu i pół procenta ponad brutto. Nie zobaczysz tego na pasku, bo to nie jest twoja wypłata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A PPK",
+   "preco": "jeszcze półtora",
+   "nar": "A jeśli jesteś w PPK i nie zrezygnowałeś, pracodawca dokłada jeszcze półtora procenta. Wtedy koszt rośnie do tych pięciu tysięcy ośmiuset sześćdziesięciu dwóch.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna rzecz, której tu nie ma",
+   "preco": "koszty okołopłacowe",
+   "nar": "I jedna rzecz, której w tych procentach nie ma. Płatny urlop i szkolenia to osobny koszt. Sprzęt i miejsce pracy również. Prawdziwy koszt stanowiska jest więc jeszcze wyższy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to ważne",
+   "preco": "to jest twoja cena",
+   "nar": "To ma znaczenie z jednego powodu. Kiedy firma liczy, ile kosztujesz, liczy tę kwotę. Nie brutto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dobra",
+   "sub": "a co znika z brutto?",
+   "nar": "Wiemy już, co jest nad brutto. A co znika spod niego?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pod brutto",
+   "sub": "trzy potrącenia",
+   "nar": "Z brutto schodzą trzy rzeczy, w tej kolejności. ZUS, zdrowotna, podatek.",
+   "cap": "Co znika z brutto"
+  },
+  {
+   "layout": "item",
+   "kicker": "Najpierw ZUS",
+   "preco": "trzynaście siedemdziesiąt jeden",
+   "nar": "Najpierw twoje składki społeczne. Trzynaście i siedemdziesiąt jeden setnych procenta brutto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Z czego się składa",
+   "itens": [
+    "Emerytalna 9,76%",
+    "Rentowa 1,50%",
+    "Chorobowa 2,45%"
+   ],
+   "nar": "Emerytalna, rentowa i chorobowa. Chorobowa to ta, dzięki której masz płatne zwolnienie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potem zdrowotna",
+   "preco": "dziewięć procent",
+   "nar": "Potem składka zdrowotna, dziewięć procent. I tu jest szczegół, który myli prawie wszystkich.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Od czego liczona",
+   "preco": "nie od brutto",
+   "nar": "Zdrowotna nie jest liczona od brutto. Jest liczona od brutto pomniejszonego o składki społeczne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to istotne",
+   "preco": "kolejność ma znaczenie",
+   "nar": "Dlatego kolejność ma znaczenie. Każde potrącenie zmienia podstawę dla następnego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na końcu podatek",
+   "preco": "od tego, co zostało",
+   "nar": "Na końcu podatek dochodowy. Liczy się go od tego, co zostało, i pomniejsza o kwotę wolną rozłożoną na miesiące.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kwota wolna",
+   "preco": "trzysta złotych miesięcznie",
+   "nar": "Warto znać jeszcze jeden mechanizm, bo działa co miesiąc. Kwota wolna od podatku jest rozłożona na dwanaście części i zmniejsza zaliczkę o trzysta złotych miesięcznie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Efekt",
+   "preco": "trzy tysiące sześćset pięć",
+   "nar": "Efekt przy najniższej krajowej znasz z początku filmu. Trzy tysiące sześćset pięć złotych na konto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Policzmy dystans",
+   "preco": "od pięciu ośmiuset do trzech sześciuset",
+   "nar": "Policzmy więc cały dystans. Firma wydaje pięć tysięcy osiemset sześćdziesiąt dwa. Ty dostajesz trzy tysiące sześćset pięć.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie jest oskarżenie",
+   "preco": "to jest mapa",
+   "nar": "I jeszcze raz: to nie jest oskarżenie. To mapa. Część tych pieniędzy wróci do ciebie w emeryturze i w zwolnieniu lekarskim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale warto ją znać",
+   "preco": "bo zmienia rozmowę",
+   "nar": "Warto ją jednak znać, bo zmienia jedną konkretną rozmowę. Tę o podwyżce.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zobaczmy wyżej",
+   "sub": "a przy średniej krajowej?",
+   "nar": "To była najniższa krajowa. A jak to wygląda przy średniej?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Średnia krajowa",
+   "sub": "około dziewięć tysięcy czterysta",
+   "nar": "Przeciętne wynagrodzenie w dwa tysiące dwadzieścia sześć to około dziewięciu tysięcy czterystu złotych brutto.",
+   "cap": "Przy średniej krajowej"
+  },
+  {
+   "layout": "item",
+   "kicker": "Mały przypis",
+   "preco": "w zeszłym filmie było mniej",
+   "nar": "Mały przypis do naszego filmu o planie finansowym. Wtedy liczyliśmy przy dziewięciu tysiącach dwustu trzydziestu trzech. Średnia od tego czasu urosła.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszt pracodawcy",
+   "preco": "jedenaście trzysta czterdzieści dziewięć",
+   "nar": "Przy tej pensji koszt pracodawcy to jedenaście tysięcy trzysta czterdzieści dziewięć złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Proporcja się trzyma",
+   "preco": "około sześćdziesiąt procent",
+   "nar": "Proporcja trzyma się bardzo podobnie. Do ciebie trafia mniej więcej sześćdziesiąt procent tego wydatku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I tu wchodzi mediana",
+   "preco": "siedem sześćset dziewięćdziesiąt",
+   "nar": "Ale jest jeszcze jedna liczba, ważniejsza od średniej. Mediana wynagrodzeń w lutym to siedem tysięcy sześćset dziewięćdziesiąt złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ponad dwadzieścia procent niżej",
+   "preco": "od średniej",
+   "nar": "To ponad dwadzieścia procent poniżej średniej. I to mediana, a nie średnia, opisuje typowego pracownika.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie mieszka mediana",
+   "preco": "zależy od wielkości firmy",
+   "nar": "Mediana też nie jest jedna. W dużych firmach potrafi sięgać dziewięciu tysięcy, a w najmniejszych schodzi do samej płacy minimalnej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego średnia zawyża",
+   "preco": "kilka bardzo wysokich pensji",
+   "nar": "Średnią windują nieliczne bardzo wysokie pensje. Mediana jest odporna na to, bo dzieli ludzi na pół.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tego wynika",
+   "preco": "porównuj się z medianą",
+   "nar": "Praktyczny wniosek jest prosty. Jeśli porównujesz swoją pensję do średniej krajowej, porównujesz się z rozkładem, a nie z ludźmi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest jeszcze sufit",
+   "preco": "trzydziestokrotność",
+   "nar": "Jest też sufit, o którym mało kto wie. Roczna podstawa składek emerytalnej i rentowej ma limit, w tym roku dwieście osiemdziesiąt dwa tysiące sześćset złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co się dzieje powyżej",
+   "preco": "składki się zatrzymują",
+   "nar": "Powyżej tego limitu te dwie składki przestają być naliczane do końca roku. Dlatego wysokie pensje mają inną proporcję niż twoja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Skoro tak",
+   "sub": "to może B2B?",
+   "nar": "Skoro etat kosztuje tyle, to nasuwa się jedno pytanie. Może B2B?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Etat i B2B",
+   "sub": "to nie są te same liczby",
+   "nar": "I tu popełnia się najczęstszy błąd w całym temacie. Porównuje się brutto z etatu do kwoty z faktury.",
+   "cap": "Dlaczego to nie to samo co B2B"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to źle",
+   "preco": "różne poziomy",
+   "nar": "To dwa różne poziomy tej samej drabiny. Brutto z etatu nie zawiera składek pracodawcy. Kwota z faktury zawiera wszystko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Właściwe porównanie",
+   "preco": "koszt do faktury",
+   "nar": "Uczciwe porównanie jest inne. Zestaw koszt pracodawcy z kwotą na fakturze. Dopiero te dwie liczby stoją na tym samym poziomie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Przy najniższej",
+   "preco": "pięć osiemset sześćdziesiąt dwa",
+   "nar": "Czyli przy najniższej krajowej punktem odniesienia nie jest cztery osiemset sześć. Jest pięć osiemset sześćdziesiąt dwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co dochodzi po drugiej stronie",
+   "preco": "urlop i chorobowe",
+   "nar": "A po stronie B2B trzeba dodać rzeczy, których faktura nie pokazuje. Urlop, który sam sobie płacisz. Chorobowe, którego może nie być.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I jeszcze emerytura",
+   "preco": "składki budują kapitał",
+   "nar": "Jest też różnica, której nie widać przez kilka lat. Składki emerytalne z etatu budują kapitał na twoim koncie w ZUS. Na najniższych składkach z działalności ten kapitał rośnie wolniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I księgowość",
+   "preco": "koszt stały",
+   "nar": "Dochodzi też księgowość, własne ubezpieczenie i czas na formalności. To nie są duże kwoty osobno, ale są stałe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie mówię, że B2B jest gorsze",
+   "preco": "mówię, że liczy się inaczej",
+   "nar": "Nie twierdzę, że B2B jest gorsze. Twierdzę, że wymaga innego rachunku, i że większość porównań w internecie porównuje niewłaściwe liczby.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Test na trzy pytania",
+   "preco": "zanim policzysz",
+   "nar": "Zanim policzysz, odpowiedz sobie na trzy rzeczy. Ile dni urlopu bierzesz rocznie. Ile razy chorowałeś. I jak stabilny jest ten jeden klient.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mamy mapę",
+   "sub": "co z nią zrobić?",
+   "nar": "Mamy komplet liczb. Co z nimi zrobić w praktyce?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery ruchy",
+   "sub": "dziesięć minut",
+   "nar": "Cztery ruchy, wszystkie na jedną kartkę, wszystkie w dziesięć minut.",
+   "cap": "Co z tym zrobić"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy",
+   "preco": "znajdź swój koszt",
+   "nar": "Pierwszy. Policz swój koszt pracodawcy. Weź brutto i dodaj do niego około dwudziestu i pół procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Po co",
+   "preco": "to jest twoja cena rynkowa",
+   "nar": "To jest liczba, którą firma widzi obok twojego nazwiska. I to od niej zaczyna się każda decyzja o twoim stanowisku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi",
+   "preco": "policz swoją proporcję",
+   "nar": "Drugi. Podziel to, co masz na koncie, przez ten koszt. Dostaniesz swoją własną proporcję, w procentach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I sprawdź stawkę wypadkową",
+   "preco": "jest na deklaracji",
+   "nar": "Sprawdź też, jaka stawka wypadkowa obowiązuje w twojej firmie. To jedyna pozycja z całej listy, która potrafi się różnić kilkukrotnie między branżami.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci",
+   "preco": "przelicz podwyżkę w kosztach",
+   "nar": "Trzeci, i ten zmienia rozmowy o pieniądzach. Kiedy prosisz o podwyżkę brutto, firma widzi wzrost powiększony o te dwadzieścia procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tego wynika",
+   "preco": "wiesz, o czym rozmawiacie",
+   "nar": "Nie znaczy to, że masz prosić o mniej. Znaczy, że wiesz, jaką liczbę widzi druga strona. I przestajesz się dziwić jej reakcji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarty",
+   "preco": "sprawdź PPK świadomie",
+   "nar": "Czwarty. Sprawdź, czy jesteś w PPK, i zdecyduj świadomie. To jedyna pozycja z tej listy, o której naprawdę decydujesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to zajmuje",
+   "preco": "dziesięć minut",
+   "nar": "Wszystkie cztery razem to dziesięć minut z paskiem wypłaty. Żaden nie wymaga rozmowy z nikim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kartka gotowa",
+   "sub": "co może to zepsuć?",
+   "nar": "Kartka jest gotowa. Co może ją zepsuć?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery błędy",
+   "sub": "które psują rachunek",
+   "nar": "Pierwszy błąd to mylenie kosztu pracodawcy z twoim brutto. To dwie różne liczby i różnią się o jedną piątą.",
+   "cap": "Cztery błędy"
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi błąd",
+   "preco": "liczyć zdrowotną od brutto",
+   "nar": "Drugi to liczenie zdrowotnej od brutto. Ona jest liczona od podstawy pomniejszonej o składki społeczne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci błąd",
+   "preco": "brać wypadkową jak stałą",
+   "nar": "Trzeci to traktowanie składki wypadkowej jak stałej. Ona zależy od branży i potrafi się różnić kilkukrotnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarty błąd",
+   "preco": "mylić średnią z medianą",
+   "nar": "I czwarty, najczęstszy poza tym tematem. Mylenie średniej z medianą. Mediana jest ponad dwadzieścia procent niżej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno zastrzeżenie",
+   "preco": "to są liczby typowe",
+   "nar": "I jedno uczciwe zastrzeżenie. Wszystkie te liczby to wartości typowe, a nie twoja umowa. Ulgi, wiek i forma zatrudnienia potrafią je zmienić.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego to NIE mówi",
+   "preco": "nie mówi, czy zarabiasz mało",
+   "nar": "I na koniec, uczciwie. Ta kartka nie mówi ci, czy zarabiasz mało, ani czy składki są za wysokie. Mówi tylko, gdzie dokładnie są twoje pieniądze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Podsumowanie",
+   "itens": [
+    "Koszt 5862, na rękę 3605",
+    "Pracodawca dopłaca ~20,5% ponad brutto",
+    "Zdrowotna nie od brutto",
+    "Mediana 7690, nie średnia",
+    "B2B porównuj do kosztu"
+   ],
+   "nar": "Pięć rzeczy do zapamiętania. Dystans między kosztem a kontem. Że pracodawca dopłaca około jednej piątej ponad brutto. Że zdrowotna nie jest liczona od brutto. Że mediana jest niżej niż średnia. I że B2B porównuje się do kosztu, nie do brutto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli zrobisz jedną rzecz",
+   "preco": "policz swój koszt",
+   "nar": "Jeśli po tym filmie zrobisz jedną rzecz, policz swój koszt pracodawcy. Brutto plus jedna piąta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego akurat to",
+   "preco": "zmienia następną decyzję",
+   "nar": "Bo od momentu, w którym znasz tę liczbę, każda następna rozmowa o pieniądzach wygląda inaczej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "na liczbach, nie na wrażeniach",
+   "nar": "To wszystko. Kolejny Poziom, na liczbach i źródłach, nie na wrażeniach.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "5862 zł",
+   "sub": "i 3605 zł",
+   "nar": "Pracodawca wydaje pięć tysięcy osiemset sześćdziesiąt dwa złote. Ty dostajesz trzy tysiące sześćset pięć.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta sama",
+   "preco": "umowa",
+   "nar": "Ta sama umowa. Najniższa krajowa dwa tysiące dwadzieścia sześć.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do ciebie",
+   "preco": "61 procent",
+   "nar": "Do ciebie trafia około sześćdziesięciu jeden procent tego wydatku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Reszta",
+   "preco": "ma nazwy",
+   "nar": "Reszta nie znika. Emerytalna, rentowa, zdrowotna, podatek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Źródło",
+   "preco": "ZUS i MF",
+   "nar": "Stawki z ZUS i Ministerstwa Finansów, rok bieżący.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cały rozkład",
+   "sub": "na kanale",
+   "nar": "Cały rozkład i cztery ruchy na kartkę, w pełnym filmie.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Koszt pracodawcy 5862 zł, na rękę 3605 zł: gdzie znika reszta\n\n## TYTUŁ\nPłaca Minimalna 2026: Pracodawca Płaci 5862 zł, a Ty Dostajesz 3605 zł\n\n## OPIS\nTrzy liczby opisują tę samą umowę o pracę, a większość ludzi zna tylko dwie. Przy najniższej krajowej w 2026 roku brutto wynosi 4806 zł, na konto wpływa około 3605 zł, a całkowity koszt po stronie pracodawcy to 5862,37 zł miesięcznie. Oznacza to, że do pracownika trafia mniej więcej 61% tego, co realnie zostało wydane na jego stanowisko.\n\nTen film nie jest materiałem politycznym i nikogo nie oskarża. Reszta tych pieniędzy nie znika — ma konkretne nazwy, konkretne stawki i częściowo wraca do ciebie w postaci emerytury czy płatnego zwolnienia. Chodzi o to, żeby wiedzieć, gdzie dokładnie jest ta różnica i jak ją policzyć na własnym pasku.\n\nRozkładamy obie strony. Ponad kwotą brutto pracodawca dopłaca około 20,5%: emerytalną 9,76%, rentową 6,50%, wypadkową około 1,67% (stawka zależy od branży i waha się od 0,67% do 3,33%), Fundusz Pracy z Funduszem Solidarnościowym 2,45% oraz FGŚP 0,10%. Do tego dochodzi 1,5% wpłaty do PPK, jeśli pracownik nie zrezygnował. Pod kwotą brutto znikają natomiast twoje składki społeczne w wysokości 13,71%, składka zdrowotna 9% — i tu ważny szczegół, którego prawie nikt nie liczy poprawnie: zdrowotna naliczana jest nie od brutto, tylko od podstawy pomniejszonej o składki społeczne — a na końcu podatek dochodowy.\n\nPokazujemy też, jak te same proporcje wyglądają przy średniej krajowej, gdzie przy około 9420 zł brutto koszt pracodawcy sięga 11 349,22 zł. I dlaczego znacznie ważniejsza od średniej jest mediana wynagrodzeń, która w lutym 2026 wyniosła 7690,82 zł — ponad 20% mniej niż średnia. Wyjaśniamy, dlaczego to mediana, a nie średnia, opisuje typowego pracownika.\n\nNa koniec najczęstszy błąd w porównaniach etatu z B2B: zestawianie brutto z etatu z kwotą na fakturze. To dwa różne poziomy tej samej drabiny. Uczciwe porównanie to koszt pracodawcy kontra faktura — i pokazujemy, co jeszcze trzeba doliczyć po stronie działalności. Wychodzisz z filmu z czterema ruchami na jedną kartkę, do zrobienia w dziesięć minut.\n\n## ROZDZIAŁY\n{CAPITULOS}\n\n## KOMENTARZ\nJedno pytanie, bo odpowiedź zmienia się z branży na branżę: znałeś swój koszt pracodawcy przed tym filmem, czy widzisz tę liczbę pierwszy raz? Bez wstydu — zbieram odpowiedzi do następnego materiału. A jeśli chcesz ten sam rozkład dla B2B albo dla umowy zlecenia, napisz którą; najczęściej wskazana idzie pierwsza.\n\n## HASHTAG\n#PłacaMinimalna #KosztPracodawcy #KolejnyPoziom\n\n## TAGI\nplaca minimalna 2026, koszt pracodawcy, skladki zus, wynagrodzenie brutto netto, zus 2026, skladka zdrowotna, na reke, etat czy b2b, mediana wynagrodzen, srednia krajowa, ppk, finanse osobiste, polska, podatki, kolejny poziom\n\n## USTAWIENIA STUDIO\n- Język: polski (pl) | Kategoria: Edukacja (27)\n- Nie jest przeznaczone dla dzieci\n- Deklaracja treści syntetycznej: TAK (głos AI)\n- Lokalizacja: Polska | Licencja: standardowa licencja YouTube\n- Reklamy mid-roll: włączone (powyżej 8 minut)\n\n## MUZYKA / LICENCJA\n{TRILHA}\n\n## ŹRÓDŁA\nStawki składek na 2026 rok pochodzą z zestawień powołujących się na ZUS i Ministerstwo Finansów, zgodnych między sobą co do wartości (podatnik.info, „Całkowity koszt zatrudnienia pracownika w 2026 roku\", oraz zarobkistatystyki.pl, „Składki ZUS 2026 — stawki, tabela i koszt pracodawcy\"), dostęp 19.08.2026. Konkretnie: po stronie pracownika emerytalna 9,76%, rentowa 1,50% i chorobowa 2,45%, razem 13,71%, oraz zdrowotna 9% liczona od podstawy pomniejszonej o składki społeczne; po stronie pracodawcy emerytalna 9,76%, rentowa 6,50%, wypadkowa około 1,67% (zakres 0,67%–3,33% zależnie od branży), Fundusz Pracy i Fundusz Solidarnościowy 2,45% oraz FGŚP 0,10%, łącznie około 20,48% ponad brutto, plus 1,5% wpłaty podstawowej pracodawcy do PPK. Płaca minimalna 2026: 4806 zł brutto, minimalna stawka godzinowa 31,40 zł, około 3605 zł netto, całkowity koszt zatrudnienia 5862,37 zł. Przeciętne wynagrodzenie 2026: około 9420 zł brutto przy koszcie pracodawcy 11 349,22 zł. Mediana wynagrodzeń, luty 2026: 7690,82 zł. Roczny limit podstawy wymiaru składek emerytalnej i rentowej (trzydziestokrotność) w 2026 roku: 282 600 zł. Wszystkie kwoty są wartościami typowymi dla standardowych założeń i NIE stanowią wyliczenia dla konkretnej umowy — ulgi podatkowe, wiek, forma zatrudnienia i stawka wypadkowa danej branży zmieniają wynik. To materiał edukacyjny o czytaniu paska wypłaty; nie jest poradą podatkową ani prawną.\n"
+}

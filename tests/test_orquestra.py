@@ -37,12 +37,36 @@ def test_pacote_no_ar_nunca_entra_no_disparo():
 
 def test_contagem_so_conta_longo_com_youtube_id():
     """Eu vinha reportando "estoque 31/50". Os dois numeros estavam errados: 31
-    contava linha sem youtube_id, e 50 nao era a meta de 10 por canal."""
+    contava linha sem youtube_id, e 50 nao era a meta de 10 por canal.
+
+    Em 19/08/2026 a chave ficou mais forte: conta video DISTINTO, nao linha —
+    o cron republicava o mesmo pacote e o placar somava cada copia. Onde nao
+    ha titulo, a chave cai no youtube_id e o comportamento antigo continua,
+    que e o caso desta fixture.
+    """
     est = M.estado(DADOS)
     assert est["meta_total"] == 10 * len(M.canais_do_repo())
     esperado = len({(v["canal"], v["youtube_id"]) for v in DADOS
                     if v["formato"] == "longo" and v["youtube_id"]})
     assert est["publicados_total"] == esperado
+
+
+def test_republicacao_nao_infla_o_placar():
+    """Seis linhas do mesmo titulo sao UM video, mesmo com seis ids."""
+    c = sorted(M.canais_do_repo())[0]
+    videos = [{"canal": c, "formato": "longo", "pacote": None,
+               "titulo": "Emerytura z ZUS: 34,4% pensji", "youtube_id": f"id{i}"}
+              for i in range(6)]
+    assert M.estado(videos)["canais"][c]["publicados"] == 1
+
+
+def test_linha_sem_titulo_nao_some_da_contagem():
+    """O modo de falha oposto e pior: sumir com video que existe faria a
+    maquina reproduzir o que ja esta no ar."""
+    c = sorted(M.canais_do_repo())[0]
+    videos = [{"canal": c, "formato": "longo", "pacote": None,
+               "titulo": None, "youtube_id": f"id{i}"} for i in range(3)]
+    assert M.estado(videos)["canais"][c]["publicados"] == 3
 
 
 def test_canal_mais_longe_da_meta_vem_primeiro():

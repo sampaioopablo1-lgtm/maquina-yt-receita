@@ -1,585 +1,585 @@
 {
-  "slug": "kolejny-poziom",
-  "pacote": "kolejny-poziom-002",
-  "voz": "pl-PL-MarekNeural",
-  "trilha": "Wholesome",
-  "paleta": {
-    "ink": "#1B2A4A",
-    "c1": "#E4572E",
-    "c2": "#F2B134",
-    "bg": "#EFF1F6"
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-002",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B2A4A",
+  "c1": "#E4572E",
+  "c2": "#F2B134",
+  "bg": "#EFF1F6"
+ },
+ "thumb": {
+  "l1": "34%",
+  "l2": "tyle zostanie z pensji"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "34,4%",
+   "sub": "tyle z twojej pensji zostanie na emeryturze",
+   "cap": "Wstęp: liczba, która wszystko zmienia",
+   "nar": "Trzydzieści cztery przecinek cztery procent. Tyle z twojej ostatniej pensji zostanie ci na emeryturze, jeśli przejdziesz na nią około dwa tysiące pięćdziesiątego roku. To nie jest scenariusz katastroficzny z internetu. To oficjalna prognoza Zakładu Ubezpieczeń Społecznych."
   },
-  "thumb": {
-    "l1": "34%",
-    "l2": "tyle zostanie z pensji"
+  {
+   "layout": "lista",
+   "kicker": "Co bedzie w filmie",
+   "itens": [
+    "prawdziwe liczby ZUS",
+    "ile zabraknie w zlotowkach",
+    "co z tym zrobic"
+   ],
+   "cap": "Plan filmu",
+   "nar": "W siedmiu rozdziałach: prawdziwe prognozy ZUS, jak liczona jest twoja emerytura, ile dokładnie zabraknie w złotówkach, dlaczego stopa zastąpienia spada, ile musisz odłożyć sam, gdzie to odkładać i konkretny plan według wieku."
   },
-  "longo": [
-    {
-      "layout": "titulo",
-      "kicker": "34,4%",
-      "sub": "tyle z twojej pensji zostanie na emeryturze",
-      "cap": "Wstęp: liczba, która wszystko zmienia",
-      "nar": "Trzydzieści cztery przecinek cztery procent. Tyle z twojej ostatniej pensji zostanie ci na emeryturze, jeśli przejdziesz na nią około dwa tysiące pięćdziesiątego roku. To nie jest scenariusz katastroficzny z internetu. To oficjalna prognoza Zakładu Ubezpieczeń Społecznych."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Co bedzie w filmie",
-      "itens": [
-        "prawdziwe liczby ZUS",
-        "ile zabraknie w zlotowkach",
-        "co z tym zrobic"
-      ],
-      "cap": "Plan filmu",
-      "nar": "W siedmiu rozdziałach: prawdziwe prognozy ZUS, jak liczona jest twoja emerytura, ile dokładnie zabraknie w złotówkach, dlaczego stopa zastąpienia spada, ile musisz odłożyć sam, gdzie to odkładać i konkretny plan według wieku."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 1",
-      "sub": "stopa zastapienia — prawdziwe liczby",
-      "cap": "Rozdz. 1 — Stopa zastąpienia",
-      "nar": "Rozdział pierwszy. Zaczynamy od jednego wskaźnika, bo on decyduje o wszystkim — a większość ludzi nigdy o nim nie słyszała."
-    },
-    {
-      "layout": "item",
-      "kicker": "Stopa zastapienia",
-      "preco": "54,2%",
-      "cap": "Co to jest stopa zastąpienia",
-      "nar": "Stopa zastąpienia to stosunek twojej pierwszej emerytury do ostatniej pensji. Dziś, w dwa tysiące dwudziestym szóstym roku, wynosi około pięćdziesiąt cztery przecinek dwa procent. Innymi słowy: przechodząc na emeryturę tracisz mniej więcej połowę dochodu."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Prognoza ZUS",
-      "itens": [
-        "2026: 54%",
-        "2040: 43%",
-        "2050: 34%",
-        "2080: 24%"
-      ],
-      "alturas": [
-        54,
-        43,
-        34,
-        24
-      ],
-      "cap": "Prognoza do 2080 roku",
-      "nar": "A teraz prognoza samego ZUS-u. W dwa tysiące czterdziestym: czterdzieści trzy procent. W dwa tysiące pięćdziesiątym: trzydzieści cztery przecinek cztery. W dwa tysiące osiemdziesiątym: dwadzieścia cztery przecinek pięć. To spadek o ponad połowę w ciągu jednego życia zawodowego."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Przeczytaj to jeszcze raz",
-      "sub": "to nie prognoza krytykow — to prognoza ZUS",
-      "cap": "Czyja to prognoza",
-      "nar": "I chcę, żeby to wybrzmiało: to nie są liczby od krytyków systemu. To symulacja instytucji, która te emerytury wypłaca. ZUS sam mówi, ile będzie w stanie wypłacić."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Co to znaczy w praktyce",
-      "itens": [
-        "polowa dochodu znika",
-        "i to w najlepszym scenariuszu",
-        "im mlodszy jestes, tym gorzej"
-      ],
-      "cap": "Co to znaczy w praktyce",
-      "nar": "W praktyce oznacza to trzy rzeczy. Połowa dochodu znika z dnia na dzień. To jest wariant dla dzisiejszych emerytów. A im jesteś młodszy, tym niższą stopę zastąpienia dostaniesz — i to jest zapisane w prognozie."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Most do rozdzialu 2",
-      "sub": "skad biora sie te liczby?",
-      "cap": "Most — skąd te liczby",
-      "nar": "Zanim policzymy, ile ci zabraknie, musisz zrozumieć, skąd ta liczba się bierze. Bo to nie jest decyzja urzędnika — to wzór.",
-      "sem_cap": true
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 2",
-      "sub": "jak ZUS liczy twoja emeryture",
-      "cap": "Rozdz. 2 — Jak ZUS liczy",
-      "nar": "Rozdział drugi: mechanika. Wzór jest zaskakująco prosty i to właśnie ta prostota jest problemem."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Wzor ma dwa elementy",
-      "itens": [
-        "kapital na twoim koncie",
-        "przewidywana dlugosc zycia"
-      ],
-      "cap": "Wzór w dwóch elementach",
-      "nar": "Twoja emerytura to kapitał zgromadzony na koncie w ZUS podzielony przez przewidywaną liczbę miesięcy życia po przejściu na emeryturę. Dwa elementy. Nic więcej."
-    },
-    {
-      "layout": "item",
-      "kicker": "Twoje konto w ZUS",
-      "preco": "19,52%",
-      "cap": "Co trafia na twoje konto",
-      "nar": "Na twoje konto emerytalne trafia dziewiętnaście przecinek pięćdziesiąt dwa procent podstawy wymiaru składek. To nie są pieniądze leżące na rachunku — to zapis księgowy, który jest co roku waloryzowany."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Kluczowa roznica",
-      "sub": "to nie oszczednosci — to obietnica",
-      "cap": "To nie są oszczędności",
-      "nar": "I tu jest różnica, której wiele osób nie widzi. Na twoim koncie w ZUS nie leżą pieniądze. Twoje składki finansują dzisiejsze emerytury, a ty dostajesz zapis, że państwo jest ci winne. To obietnica, nie oszczędności."
-    },
-    {
-      "layout": "item",
-      "kicker": "Dzielnik",
-      "preco": "~250 mies.",
-      "cap": "Dzielnik, który rośnie",
-      "nar": "Drugi element to dzielnik — statystyczna liczba miesięcy życia po sześćdziesiątym piątym roku. Ten dzielnik z każdą dekadą rośnie, bo żyjemy dłużej. Ten sam kapitał podzielony przez większą liczbę daje mniejszą emeryturę. To cała tajemnica spadku."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Co obniza twoja emeryture",
-      "itens": [
-        "przerwy w skladkach",
-        "praca na umowie o dzielo",
-        "wczesniejsze przejscie"
-      ],
-      "cap": "Co obniża twoją emeryturę",
-      "nar": "Trzy rzeczy obniżają wynik najbardziej: przerwy w opłacaniu składek, praca bez składek emerytalnych, i wcześniejsze przejście na emeryturę — bo wtedy mniejszy kapitał dzielisz przez większy dzielnik. Podwójna strata."
-    },
-    {
-      "layout": "item",
-      "kicker": "JDG na skladce minimalnej",
-      "preco": "~1 900 zl",
-      "cap": "Jeśli masz firmę na składce minimalnej",
-      "nar": "I przypadek, o którym mówi się za rzadko: jednoosobowa działalność ze składkami od minimalnej podstawy. Płacisz najmniej, więc na koncie odkłada się najmniej. Po trzydziestu latach takiej działalności emerytura potrafi wynieść okolice tysiąca dziewięciuset złotych — niezależnie od tego, ile firma naprawdę zarabiała."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Most do rozdzialu 3",
-      "sub": "teraz konkretne zlotowki",
-      "cap": "Most — do złotówek",
-      "nar": "Znasz już wzór. Czas zamienić procenty na złotówki, bo dopiero wtedy widać skalę.",
-      "sem_cap": true
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 3",
-      "sub": "ile to jest w zlotowkach",
-      "cap": "Rozdz. 3 — Ile to w złotówkach",
-      "nar": "Rozdział trzeci, najważniejszy. Konkretne kwoty według prognoz ZUS na dwa tysiące dwudziesty szósty rok."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Pensja 7 145 zl (mediana)",
-      "itens": [
-        "mezczyzna 4 009",
-        "kobieta 2 690"
-      ],
-      "alturas": [
-        4009,
-        2690
-      ],
-      "cap": "Przy medianie wynagrodzeń",
-      "nar": "Zacznijmy od mediany wynagrodzeń, czyli siedem tysięcy sto czterdzieści pięć złotych brutto. Mężczyzna dostanie około czterech tysięcy dziewięciu złotych emerytury. Kobieta — dwa tysiące sześćset dziewięćdziesiąt."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Ta roznica nie jest bledem",
-      "sub": "1 319 zl miesiecznie mniej",
-      "cap": "Różnica, która nie jest błędem",
-      "nar": "Tysiąc trzysta dziewiętnaście złotych różnicy miesięcznie, przy dokładnie tej samej pensji. To nie pomyłka. To wynik krótszego stażu, przerw na dzieci i niższego wieku emerytalnego przy dłuższym życiu."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Stopa zastapienia wg plci",
-      "itens": [
-        "mezczyzni 57-61%",
-        "kobiety 37-42%"
-      ],
-      "alturas": [
-        59,
-        39
-      ],
-      "cap": "Stopa zastąpienia według płci",
-      "nar": "W przedziale zarobków od pięciu do dziesięciu tysięcy złotych mężczyźni mają stopę zastąpienia około pięćdziesięciu siedmiu do sześćdziesięciu jeden procent. Kobiety: trzydziestu siedmiu do czterdziestu dwóch. To jest ta sama praca i inna emerytura."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Pensja 4 666 zl (minimalna)",
-      "itens": [
-        "mezczyzna 2 200",
-        "kobieta 1 750"
-      ],
-      "alturas": [
-        2200,
-        1750
-      ],
-      "cap": "Przy płacy minimalnej",
-      "nar": "Przy płacy minimalnej, czyli cztery tysiące sześćset sześćdziesiąt sześć złotych brutto, emerytura wynosi około dwóch tysięcy dwustu złotych dla mężczyzny i tysiąca siedmiuset pięćdziesięciu dla kobiety."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Pensja 10 000 zl",
-      "itens": [
-        "mezczyzna 5 800",
-        "kobieta 3 800"
-      ],
-      "alturas": [
-        5800,
-        3800
-      ],
-      "cap": "Przy 10 000 zł",
-      "nar": "A przy dziesięciu tysiącach złotych brutto: pięć tysięcy osiemset dla mężczyzny, trzy tysiące osiemset dla kobiety. Zwróć uwagę — im wyższa pensja, tym większa luka w złotówkach."
-    },
-    {
-      "layout": "item",
-      "kicker": "Luka miesieczna",
-      "preco": "4 455 zl",
-      "cap": "Twoja luka w jednej liczbie",
-      "nar": "Weźmy kobietę zarabiającą medianę. Siedem tysięcy sto czterdzieści pięć złotych pensji, dwa tysiące sześćset dziewięćdziesiąt emerytury. Luka: cztery tysiące czterysta pięćdziesiąt pięć złotych miesięcznie. To jest liczba, wokół której trzeba zbudować plan."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Para przy medianie",
-      "itens": [
-        "dzis 14 290",
-        "na emeryturze 6 699"
-      ],
-      "alturas": [
-        14290,
-        6699
-      ],
-      "cap": "Jak to wygląda dla pary",
-      "nar": "Popatrzmy na parę. Dwie pensje po medianie to czternaście tysięcy dwieście dziewięćdziesiąt złotych miesięcznie. Ich wspólna emerytura to sześć tysięcy sześćset dziewięćdziesiąt dziewięć. Domowy budżet spada o ponad połowę, a rachunki i czynsz zostają te same."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Most do rozdzialu 4",
-      "sub": "dlaczego to sie pogarsza?",
-      "cap": "Most — dlaczego spada",
-      "nar": "Zanim policzymy, ile trzeba odłożyć, warto wiedzieć, dlaczego ten wskaźnik spada — bo to przesądza, czy można liczyć na poprawę.",
-      "sem_cap": true
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 4",
-      "sub": "dlaczego stopa zastapienia spada",
-      "cap": "Rozdz. 4 — Dlaczego spada",
-      "nar": "Rozdział czwarty. Dwie przyczyny, obie znane od dawna i obie niemożliwe do odwrócenia dekretem."
-    },
-    {
-      "layout": "item",
-      "kicker": "Przyczyna 1",
-      "preco": "dluzsze zycie",
-      "cap": "Przyczyna 1 — żyjemy dłużej",
-      "nar": "Pierwsza: żyjemy dłużej. To dobra wiadomość dla ciebie i zła dla wzoru. Ten sam kapitał trzeba rozłożyć na więcej lat, więc miesięczna kwota musi spaść. Nie ma tu żadnej złej woli — jest dzielenie."
-    },
-    {
-      "layout": "item",
-      "kicker": "Przyczyna 2",
-      "preco": "waloryzacja",
-      "cap": "Przyczyna 2 — waloryzacja",
-      "nar": "Druga: wynagrodzenia rosną szybciej, niż waloryzowane są emerytury. Twoja pensja goni rynek, twoja przyszła emerytura goni wskaźnik. Z każdym rokiem te dwie linie się rozjeżdżają."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Czego to NIE jest",
-      "itens": [
-        "to nie jest kwestia rzadu",
-        "to nie jest chwilowy kryzys",
-        "to nie zalezy od skladek"
-      ],
-      "cap": "Czego to nie jest",
-      "nar": "Warto powiedzieć, czym ten spadek nie jest. Nie jest kwestią jednej ekipy rządzącej, nie jest chwilowym kryzysem i nie zależy od tego, czy będziesz płacił wyższe składki. Wynika z demografii wpisanej we wzór."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Wniosek z rozdzialu",
-      "sub": "system dziala tak, jak zostal zaprojektowany",
-      "cap": "Wniosek rozdziału 4",
-      "nar": "Wniosek jest niewygodny, ale prosty: system nie jest zepsuty. On działa dokładnie tak, jak został zaprojektowany. Po prostu został zaprojektowany dla innej demografii."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Most do rozdzialu 5",
-      "sub": "wiec ile trzeba odlozyc?",
-      "cap": "Most — do rachunku",
-      "nar": "Skoro poprawa nie przyjdzie z zewnątrz, zostaje pytanie praktyczne: ile trzeba odłożyć samemu. Liczymy.",
-      "sem_cap": true
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 5",
-      "sub": "ile musisz odlozyc sam",
-      "cap": "Rozdz. 5 — Ile odłożyć",
-      "nar": "Rozdział piąty: rachunek. Uprzedzam — pierwsza liczba przestraszy, druga uspokoi."
-    },
-    {
-      "layout": "item",
-      "kicker": "Regula 4 procent",
-      "preco": "x 300",
-      "cap": "Reguła 4 procent",
-      "nar": "Standardowa reguła mówi, że z kapitału można bezpiecznie wypłacać około czterech procent rocznie. Żeby dostawać tysiąc złotych miesięcznie, potrzebujesz mniej więcej trzysta tysięcy kapitału."
-    },
-    {
-      "layout": "item",
-      "kicker": "Pelna luka 4 455 zl",
-      "preco": "1,3 mln zl",
-      "cap": "Pełna luka to 1,3 mln zł",
-      "nar": "Żeby zasypać całą lukę czterech tysięcy czterystu pięćdziesięciu pięciu złotych, potrzebowałbyś około miliona trzystu tysięcy złotych. I to jest ta liczba, po której większość ludzi zamyka film."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Nie zamykaj",
-      "sub": "nikt nie zasypuje calej luki",
-      "cap": "Nie zamykaj filmu",
-      "nar": "Więc powiem od razu: prawie nikt nie zasypuje całej luki i nie o to chodzi. Na emeryturze zwykle nie masz kredytu hipotecznego, nie utrzymujesz dzieci i nie dojeżdżasz do pracy. Realny cel to zwykle połowa luki."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Kapital po 30 latach (5% realnie)",
-      "itens": [
-        "300 zl/mies",
-        "500 zl/mies",
-        "1000 zl/mies"
-      ],
-      "alturas": [
-        239,
-        399,
-        797
-      ],
-      "cap": "Ile daje regularne odkładanie",
-      "nar": "Przy realnej stopie zwrotu pięciu procent rocznie: trzysta złotych miesięcznie przez trzydzieści lat daje około dwustu czterdziestu tysięcy. Pięćset złotych — czterysta tysięcy. Tysiąc złotych — blisko ośmiuset tysięcy."
-    },
-    {
-      "layout": "item",
-      "kicker": "500 zl miesiecznie daje",
-      "preco": "1 330 zl/mies",
-      "cap": "Co to daje na emeryturze",
-      "nar": "Przełóżmy to na emeryturę. Czterysta tysięcy kapitału to według reguły czterech procent około tysiąca trzystu trzydziestu złotych miesięcznie dożywotnio. Pięćset złotych dziś zamienia się w tysiąc trzysta później."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Najwazniejsza zmienna",
-      "sub": "to czas, nie kwota",
-      "cap": "Najważniejsza zmienna",
-      "nar": "I tu jest rzecz, którą warto zapamiętać z całego filmu: najważniejszą zmienną nie jest kwota, tylko liczba lat. Trzysta złotych odkładane przez trzydzieści lat bije tysiąc złotych odkładane przez dziesięć."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Koszt zwloki (500 zl/mies)",
-      "itens": [
-        "start dzis: 399 tys",
-        "start za 5 lat: 300 tys"
-      ],
-      "alturas": [
-        399,
-        300
-      ],
-      "cap": "Ile kosztuje 5 lat zwłoki",
-      "nar": "Policzmy cenę odkładania decyzji. Pięćset złotych miesięcznie od dziś przez trzydzieści lat to około czterystu tysięcy. To samo pięćset złotych zaczęte pięć lat później to trzysta tysięcy. Pięć lat zwłoki kosztuje sto tysięcy — mimo że wpłacasz tylko trzydzieści tysięcy mniej."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Most do rozdzialu 6",
-      "sub": "wiec gdzie to odkladac?",
-      "cap": "Most — gdzie odkładać",
-      "nar": "Zostaje pytanie, na które w Polsce jest kilka konkretnych odpowiedzi z ulgą podatkową.",
-      "sem_cap": true
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 6",
-      "sub": "gdzie to odkladac",
-      "cap": "Rozdz. 6 — Gdzie odkładać",
-      "nar": "Rozdział szósty. Nie polecam produktów ani instytucji — pokazuję trzy rodzaje kont, które w polskim prawie mają przewagę podatkową."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Trzy konta z ulga",
-      "itens": [
-        "IKE",
-        "IKZE",
-        "PPK"
-      ],
-      "cap": "Trzy konta z ulgą",
-      "nar": "Są trzy: I K E, I K Z E i P P K. Każde działa inaczej i każde ma roczny limit wpłat, który zmienia się co roku — dlatego nie podaję kwot, tylko mechanizm."
-    },
-    {
-      "layout": "item",
-      "kicker": "IKE",
-      "preco": "0% Belki",
-      "cap": "IKE — bez podatku Belki",
-      "nar": "I K E: wpłacasz z pieniędzy już opodatkowanych, ale przy wypłacie po osiągnięciu wieku nie płacisz podatku od zysków kapitałowych. Przy trzydziestoletnim horyzoncie ten jeden przepis potrafi być wart dziesiątki tysięcy złotych."
-    },
-    {
-      "layout": "item",
-      "kicker": "IKZE",
-      "preco": "ulga PIT",
-      "cap": "IKZE — ulga w PIT",
-      "nar": "I K Z E działa odwrotnie: wpłatę odliczasz od podstawy opodatkowania już w tym roku, a podatek płacisz dopiero przy wypłacie, według niższej stawki ryczałtowej. Korzyść dostajesz od razu."
-    },
-    {
-      "layout": "item",
-      "kicker": "PPK",
-      "preco": "doplata pracodawcy",
-      "cap": "PPK — dopłaca pracodawca",
-      "nar": "P P K to program przy pracodawcy, w którym do twojej wpłaty dokłada się pracodawca i państwo. To jedyne miejsce na tej liście, gdzie ktoś dokłada do twojego kapitału z zewnątrz."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Na co patrzec",
-      "itens": [
-        "niskie oplaty",
-        "szeroka dywersyfikacja",
-        "regularnosc, nie timing"
-      ],
-      "cap": "Na co patrzeć",
-      "nar": "Niezależnie od konta, kryteria są te same: niskie opłaty, szeroka dywersyfikacja i regularność. Różnica jednego procenta w opłatach potrafi zjeść znaczną część kapitału w trzydziestoletnim horyzoncie."
-    },
-    {
-      "layout": "item",
-      "kicker": "Najdrozszy blad",
-      "preco": "19% + ulga",
-      "cap": "Najdroższy błąd na tych kontach",
-      "nar": "Najdroższy błąd na tych kontach to wypłata przed osiągnięciem wieku. Tracisz wtedy całą korzyść podatkową, dla której to konto założyłeś — przy I K E płacisz podatek Belki od zysków, przy I K Z E oddajesz odliczone ulgi. Pieniądze na emeryturę traktuj jak zamrożone."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Uczciwe zastrzezenie",
-      "sub": "to nie jest porada inwestycyjna",
-      "cap": "Zastrzeżenie",
-      "nar": "I uczciwe zastrzeżenie: to nie jest porada inwestycyjna. Limity, stawki i zasady zmieniają się co roku, a twoja sytuacja jest twoja. Sprawdź aktualne przepisy, zanim cokolwiek podpiszesz."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Rozdzial 7",
-      "sub": "plan wedlug wieku",
-      "cap": "Rozdz. 7 — Plan według wieku",
-      "nar": "Rozdział siódmy, ostatni. Ten sam problem wygląda inaczej w zależności od tego, ile masz lat."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Masz 30 lat",
-      "itens": [
-        "masz 35 lat skladania",
-        "300 zl wystarczy na start",
-        "priorytet: zaczac"
-      ],
-      "cap": "Jeśli masz 30 lat",
-      "nar": "Trzydzieści lat: masz trzydzieści pięć lat pracy przed sobą i to jest twoja największa przewaga. Trzysta złotych miesięcznie wystarczy na start. Priorytet to nie kwota — priorytet to zacząć w tym miesiącu."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Masz 40 lat",
-      "itens": [
-        "25 lat skladania",
-        "cel: 500-700 zl",
-        "sprawdz stan konta ZUS"
-      ],
-      "cap": "Jeśli masz 40 lat",
-      "nar": "Czterdzieści lat: zostało dwadzieścia pięć. Realny cel to pięćset do siedmiuset złotych miesięcznie. I koniecznie sprawdź swój stan konta na profilu ZUS — tam jest twoja prognozowana emerytura, wyliczona na twoich danych."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Masz 50 lat",
-      "itens": [
-        "15 lat skladania",
-        "kazdy rok pracy wiecej to duzo",
-        "PPK najszybciej"
-      ],
-      "cap": "Jeśli masz 50 lat",
-      "nar": "Pięćdziesiąt lat: piętnaście lat składania to mniej, ale wciąż dużo. Tu największą dźwignią jest każdy dodatkowy rok pracy — podnosi kapitał i obniża dzielnik jednocześnie. A P P K daje najszybszy efekt, bo dokłada pracodawca."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Masz wlasna firme",
-      "itens": [
-        "policz emeryture przy minimalnej",
-        "wyzsza podstawa = wyzsza emerytura",
-        "IKZE odlicza od podatku"
-      ],
-      "cap": "Jeśli masz własną firmę",
-      "nar": "A jeśli prowadzisz firmę, twoja sytuacja wymaga osobnej decyzji. Sprawdź, jaka emerytura wychodzi przy składce minimalnej, i porównaj dwie drogi: podniesienie podstawy składek albo odkładanie tej samej kwoty na I K Z E, które odliczysz od podatku. To rachunek, który warto zrobić raz, a porządnie."
-    },
-    {
-      "layout": "item",
-      "kicker": "Zrob to w tym tygodniu",
-      "preco": "20 minut",
-      "cap": "Jeden krok w tym tygodniu",
-      "nar": "Jeden konkretny krok na ten tydzień, dwadzieścia minut: zaloguj się na Platformę Usług Elektronicznych ZUS i sprawdź swoją prognozowaną emeryturę. Nie na podstawie tego filmu — na podstawie twoich składek."
-    },
-    {
-      "layout": "titulo",
-      "kicker": "Ostatnia mysl",
-      "sub": "system nie klamie — on tylko nie krzyczy",
-      "cap": "Ostatnia myśl",
-      "nar": "System nie ukrywa tych liczb. ZUS je publikuje. Po prostu nikt ich nie czyta, bo emerytura wydaje się odległa — a to jedyna rzecz w finansach, w której czas jest ważniejszy niż kwota."
-    },
-    {
-      "layout": "lista",
-      "kicker": "Caly film w 3 zdaniach",
-      "itens": [
-        "34% pensji w 2050",
-        "luka to ~4 400 zl/mies",
-        "500 zl/mies przez 30 lat"
-      ],
-      "cap": "Podsumowanie w 3 zdaniach",
-      "nar": "Cały film w trzech zdaniach. Prognoza ZUS to trzydzieści cztery procent pensji w dwa tysiące pięćdziesiątym roku. Luka przy medianie zarobków to około czterech i pół tysiąca złotych miesięcznie. A pięćset złotych odkładane przez trzydzieści lat zamienia się w tysiąc trzysta złotych dożywotnio."
-    },
-    {
-      "layout": "cta",
-      "kicker": "Napisz w komentarzu",
-      "sub": "jaka emeryture pokazal ci PUE ZUS?",
-      "cap": "Twój następny krok",
-      "nar": "Sprawdź swoją prognozę na profilu ZUS i napisz w komentarzu, ile ci wyszło i w jakim jesteś wieku. Zbieram te liczby do kolejnego materiału. A jeśli film się przydał — subskrybuj. Co tydzień wchodzimy na kolejny poziom."
-    }
-  ],
-  "short": [
-    {
-      "layout": "titulo",
-      "kicker": "34,4%",
-      "sub": "tyle zostanie z twojej pensji",
-      "cap": "Hook",
-      "nar": "Trzydzieści cztery procent. Tyle z twojej pensji zostanie na emeryturze w dwa tysiące pięćdziesiątym roku. To prognoza samego ZUS-u."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Prognoza ZUS",
-      "itens": [
-        "2026: 54%",
-        "2050: 34%",
-        "2080: 24%"
-      ],
-      "alturas": [
-        54,
-        34,
-        24
-      ],
-      "cap": "Spadek",
-      "nar": "Dziś jest pięćdziesiąt cztery procent. W dwa tysiące pięćdziesiątym trzydzieści cztery. W dwa tysiące osiemdziesiątym dwadzieścia cztery."
-    },
-    {
-      "layout": "barras",
-      "kicker": "Pensja 7 145 zl",
-      "itens": [
-        "mezczyzna 4 009",
-        "kobieta 2 690"
-      ],
-      "alturas": [
-        4009,
-        2690
-      ],
-      "cap": "W złotówkach",
-      "nar": "Przy medianie zarobkow mezczyzna dostanie cztery tysiace, kobieta dwa tysiace siedemset."
-    },
-    {
-      "layout": "item",
-      "kicker": "500 zl miesiecznie",
-      "preco": "1 330 zl",
-      "cap": "Co robić",
-      "nar": "Piecset zlotych miesiecznie przez trzydziesci lat to okolo tysiaca trzystu zlotych emerytury."
-    },
-    {
-      "layout": "cta",
-      "kicker": "Sprawdz swoja",
-      "sub": "pelne wyliczenia na kanale",
-      "cap": "CTA",
-      "nar": "Sprawdź swoją prognozę na profilu ZUS. Pełne wyliczenia są na kanale."
-    }
-  ],
-  "copy": "# Emerytura z ZUS: 34,4% pensji w 2050 roku. Ile musisz odłożyć sam?\n\n## TYTUŁ\nEmerytura z ZUS: 34,4% pensji w 2050 roku. Ile musisz odłożyć sam?\n\n## OPIS\nEmerytura z ZUS wyniesie 34,4% twojej ostatniej pensji, jeśli przejdziesz na nią około 2050 roku. To nie jest scenariusz od krytyków systemu — to oficjalna symulacja Zakładu Ubezpieczeń Społecznych. Dziś stopa zastąpienia wynosi około 54,2%, w 2040 roku spadnie do 43%, a w 2080 do 24,5%. W tym materiale zamieniamy te procenty na złotówki i liczymy, ile trzeba odłożyć samemu.\n\nKonkretne kwoty z prognoz na 2026 rok: przy medianie wynagrodzeń (7 145 zł brutto) mężczyzna dostanie około 4 009 zł emerytury, a kobieta 2 690 zł — 1 319 zł różnicy przy tej samej pensji. Przy płacy minimalnej (4 666 zł) jest to 2 200 zł i 1 750 zł. Przy 10 000 zł brutto — 5 800 zł i 3 800 zł. Stopa zastąpienia dla mężczyzn w przedziale 5–10 tys. zł wynosi 57–61%, dla kobiet 37–42%.\n\nPokazujemy też, jak dokładnie ZUS liczy emeryturę (kapitał podzielony przez przewidywaną długość życia i dlaczego rosnący dzielnik obniża wynik), dlaczego stopa zastąpienia spada niezależnie od tego, kto rządzi, ile kapitału potrzeba według reguły 4 procent, co realnie daje 300, 500 i 1000 zł odkładane miesięcznie przez 30 lat, oraz czym różnią się IKE, IKZE i PPK pod względem podatkowym.\n\nNa końcu jest plan według wieku — inny dla 30, 40 i 50 lat — i jeden konkretny krok na ten tydzień: sprawdzenie własnej prognozy na profilu PUE ZUS.\n\n## ROZDZIAŁY\n{CAPITULOS}\n\n## KOMENTARZ PRZYPIĘTY\nSprawdziłeś swoją prognozę na PUE ZUS? Napisz, ile ci wyszło i w jakim jesteś wieku — zbieram te liczby do kolejnego materiału. Ciekawi mnie zwłaszcza, jak bardzo prognoza ZUS różni się od tego, czego ludzie się spodziewali.\n\n## HASHTAGI\n#Emerytura #FinanseOsobiste #KolejnyPoziom\n\n## TAGI\nemerytura zus, stopa zastąpienia, prognoza zus 2026, ile wyniesie moja emerytura, ike ikze ppk, oszczędzanie na emeryturę, finanse osobiste, emerytura kobiet, pue zus, kapitał emerytalny, waloryzacja składek, reguła 4 procent, inwestowanie długoterminowe, luka emerytalna, emerytura 2050\n\n## USTAWIENIA STUDIO\n- Język: polski (pl) | Kategoria: Edukacja (27)\n- Nie jest przeznaczony dla dzieci\n- Deklaracja treści syntetycznych: TAK (narracja AI)\n- Lokalizacja: Polska | Licencja: Standardowa licencja YouTube\n- Reklamy mid-roll: włączone (czas trwania > 8 minut)\n\n## MUZYKA / LICENCJA\n{TRILHA}\n\n## ZASTRZEŻENIE\nDane pochodzą z prognoz ZUS publikowanych w 2026 roku i mogą ulec zmianie. Materiał ma charakter edukacyjny i nie stanowi porady inwestycyjnej ani podatkowej. Limity wpłat na IKE i IKZE oraz zasady PPK zmieniają się co roku — sprawdź aktualne przepisy przed podjęciem decyzji."
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 1",
+   "sub": "stopa zastapienia — prawdziwe liczby",
+   "cap": "Rozdz. 1 — Stopa zastąpienia",
+   "nar": "Rozdział pierwszy. Zaczynamy od jednego wskaźnika, bo on decyduje o wszystkim — a większość ludzi nigdy o nim nie słyszała."
+  },
+  {
+   "layout": "item",
+   "kicker": "Stopa zastapienia",
+   "preco": "54,2%",
+   "cap": "Co to jest stopa zastąpienia",
+   "nar": "Stopa zastąpienia to stosunek twojej pierwszej emerytury do ostatniej pensji. Dziś, w dwa tysiące dwudziestym szóstym roku, wynosi około pięćdziesiąt cztery przecinek dwa procent. Innymi słowy: przechodząc na emeryturę tracisz mniej więcej połowę dochodu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Prognoza ZUS",
+   "itens": [
+    "2026: 54%",
+    "2040: 43%",
+    "2050: 34%",
+    "2080: 24%"
+   ],
+   "alturas": [
+    54,
+    43,
+    34,
+    24
+   ],
+   "cap": "Prognoza do 2080 roku",
+   "nar": "A teraz prognoza samego ZUS-u. W dwa tysiące czterdziestym: czterdzieści trzy procent. W dwa tysiące pięćdziesiątym: trzydzieści cztery przecinek cztery. W dwa tysiące osiemdziesiątym: dwadzieścia cztery przecinek pięć. To spadek o ponad połowę w ciągu jednego życia zawodowego."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Przeczytaj to jeszcze raz",
+   "sub": "to nie prognoza krytykow — to prognoza ZUS",
+   "cap": "Czyja to prognoza",
+   "nar": "I chcę, żeby to wybrzmiało: to nie są liczby od krytyków systemu. To symulacja instytucji, która te emerytury wypłaca. ZUS sam mówi, ile będzie w stanie wypłacić."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co to znaczy w praktyce",
+   "itens": [
+    "polowa dochodu znika",
+    "i to w najlepszym scenariuszu",
+    "im mlodszy jestes, tym gorzej"
+   ],
+   "cap": "Co to znaczy w praktyce",
+   "nar": "W praktyce oznacza to trzy rzeczy. Połowa dochodu znika z dnia na dzień. To jest wariant dla dzisiejszych emerytów. A im jesteś młodszy, tym niższą stopę zastąpienia dostaniesz — i to jest zapisane w prognozie."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Most do rozdzialu 2",
+   "sub": "skad biora sie te liczby?",
+   "cap": "Most — skąd te liczby",
+   "nar": "Zanim policzymy, ile ci zabraknie, musisz zrozumieć, skąd ta liczba się bierze. Bo to nie jest decyzja urzędnika — to wzór.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 2",
+   "sub": "jak ZUS liczy twoja emeryture",
+   "cap": "Rozdz. 2 — Jak ZUS liczy",
+   "nar": "Rozdział drugi: mechanika. Wzór jest zaskakująco prosty i to właśnie ta prostota jest problemem."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Wzor ma dwa elementy",
+   "itens": [
+    "kapital na twoim koncie",
+    "przewidywana dlugosc zycia"
+   ],
+   "cap": "Wzór w dwóch elementach",
+   "nar": "Twoja emerytura to kapitał zgromadzony na koncie w ZUS podzielony przez przewidywaną liczbę miesięcy życia po przejściu na emeryturę. Dwa elementy. Nic więcej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Twoje konto w ZUS",
+   "preco": "19,52%",
+   "cap": "Co trafia na twoje konto",
+   "nar": "Na twoje konto emerytalne trafia dziewiętnaście przecinek pięćdziesiąt dwa procent podstawy wymiaru składek. To nie są pieniądze leżące na rachunku — to zapis księgowy, który jest co roku waloryzowany."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kluczowa roznica",
+   "sub": "to nie oszczednosci — to obietnica",
+   "cap": "To nie są oszczędności",
+   "nar": "I tu jest różnica, której wiele osób nie widzi. Na twoim koncie w ZUS nie leżą pieniądze. Twoje składki finansują dzisiejsze emerytury, a ty dostajesz zapis, że państwo jest ci winne. To obietnica, nie oszczędności."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dzielnik",
+   "preco": "~250 mies.",
+   "cap": "Dzielnik, który rośnie",
+   "nar": "Drugi element to dzielnik — statystyczna liczba miesięcy życia po sześćdziesiątym piątym roku. Ten dzielnik z każdą dekadą rośnie, bo żyjemy dłużej. Ten sam kapitał podzielony przez większą liczbę daje mniejszą emeryturę. To cała tajemnica spadku."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co obniza twoja emeryture",
+   "itens": [
+    "przerwy w skladkach",
+    "praca na umowie o dzielo",
+    "wczesniejsze przejscie"
+   ],
+   "cap": "Co obniża twoją emeryturę",
+   "nar": "Trzy rzeczy obniżają wynik najbardziej: przerwy w opłacaniu składek, praca bez składek emerytalnych, i wcześniejsze przejście na emeryturę — bo wtedy mniejszy kapitał dzielisz przez większy dzielnik. Podwójna strata."
+  },
+  {
+   "layout": "item",
+   "kicker": "JDG na skladce minimalnej",
+   "preco": "~1 900 zl",
+   "cap": "Jeśli masz firmę na składce minimalnej",
+   "nar": "I przypadek, o którym mówi się za rzadko: jednoosobowa działalność ze składkami od minimalnej podstawy. Płacisz najmniej, więc na koncie odkłada się najmniej. Po trzydziestu latach takiej działalności emerytura potrafi wynieść okolice tysiąca dziewięciuset złotych — niezależnie od tego, ile firma naprawdę zarabiała."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Most do rozdzialu 3",
+   "sub": "teraz konkretne zlotowki",
+   "cap": "Most — do złotówek",
+   "nar": "Znasz już wzór. Czas zamienić procenty na złotówki, bo dopiero wtedy widać skalę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 3",
+   "sub": "ile to jest w zlotowkach",
+   "cap": "Rozdz. 3 — Ile to w złotówkach",
+   "nar": "Rozdział trzeci, najważniejszy. Konkretne kwoty według prognoz ZUS na dwa tysiące dwudziesty szósty rok."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pensja 7 145 zl (mediana)",
+   "itens": [
+    "mezczyzna 4 009",
+    "kobieta 2 690"
+   ],
+   "alturas": [
+    4009,
+    2690
+   ],
+   "cap": "Przy medianie wynagrodzeń",
+   "nar": "Zacznijmy od mediany wynagrodzeń, czyli siedem tysięcy sto czterdzieści pięć złotych brutto. Mężczyzna dostanie około czterech tysięcy dziewięciu złotych emerytury. Kobieta — dwa tysiące sześćset dziewięćdziesiąt."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ta roznica nie jest bledem",
+   "sub": "1 319 zl miesiecznie mniej",
+   "cap": "Różnica, która nie jest błędem",
+   "nar": "Tysiąc trzysta dziewiętnaście złotych różnicy miesięcznie, przy dokładnie tej samej pensji. To nie pomyłka. To wynik krótszego stażu, przerw na dzieci i niższego wieku emerytalnego przy dłuższym życiu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Stopa zastapienia wg plci",
+   "itens": [
+    "mezczyzni 57-61%",
+    "kobiety 37-42%"
+   ],
+   "alturas": [
+    59,
+    39
+   ],
+   "cap": "Stopa zastąpienia według płci",
+   "nar": "W przedziale zarobków od pięciu do dziesięciu tysięcy złotych mężczyźni mają stopę zastąpienia około pięćdziesięciu siedmiu do sześćdziesięciu jeden procent. Kobiety: trzydziestu siedmiu do czterdziestu dwóch. To jest ta sama praca i inna emerytura."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pensja 4 666 zl (minimalna)",
+   "itens": [
+    "mezczyzna 2 200",
+    "kobieta 1 750"
+   ],
+   "alturas": [
+    2200,
+    1750
+   ],
+   "cap": "Przy płacy minimalnej",
+   "nar": "Przy płacy minimalnej, czyli cztery tysiące sześćset sześćdziesiąt sześć złotych brutto, emerytura wynosi około dwóch tysięcy dwustu złotych dla mężczyzny i tysiąca siedmiuset pięćdziesięciu dla kobiety."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pensja 10 000 zl",
+   "itens": [
+    "mezczyzna 5 800",
+    "kobieta 3 800"
+   ],
+   "alturas": [
+    5800,
+    3800
+   ],
+   "cap": "Przy 10 000 zł",
+   "nar": "A przy dziesięciu tysiącach złotych brutto: pięć tysięcy osiemset dla mężczyzny, trzy tysiące osiemset dla kobiety. Zwróć uwagę — im wyższa pensja, tym większa luka w złotówkach."
+  },
+  {
+   "layout": "item",
+   "kicker": "Luka miesieczna",
+   "preco": "4 455 zl",
+   "cap": "Twoja luka w jednej liczbie",
+   "nar": "Weźmy kobietę zarabiającą medianę. Siedem tysięcy sto czterdzieści pięć złotych pensji, dwa tysiące sześćset dziewięćdziesiąt emerytury. Luka: cztery tysiące czterysta pięćdziesiąt pięć złotych miesięcznie. To jest liczba, wokół której trzeba zbudować plan."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Para przy medianie",
+   "itens": [
+    "dzis 14 290",
+    "na emeryturze 6 699"
+   ],
+   "alturas": [
+    14290,
+    6699
+   ],
+   "cap": "Jak to wygląda dla pary",
+   "nar": "Popatrzmy na parę. Dwie pensje po medianie to czternaście tysięcy dwieście dziewięćdziesiąt złotych miesięcznie. Ich wspólna emerytura to sześć tysięcy sześćset dziewięćdziesiąt dziewięć. Domowy budżet spada o ponad połowę, a rachunki i czynsz zostają te same."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Most do rozdzialu 4",
+   "sub": "dlaczego to sie pogarsza?",
+   "cap": "Most — dlaczego spada",
+   "nar": "Zanim policzymy, ile trzeba odłożyć, warto wiedzieć, dlaczego ten wskaźnik spada — bo to przesądza, czy można liczyć na poprawę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 4",
+   "sub": "dlaczego stopa zastapienia spada",
+   "cap": "Rozdz. 4 — Dlaczego spada",
+   "nar": "Rozdział czwarty. Dwie przyczyny, obie znane od dawna i obie niemożliwe do odwrócenia dekretem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Przyczyna 1",
+   "preco": "dluzsze zycie",
+   "cap": "Przyczyna 1 — żyjemy dłużej",
+   "nar": "Pierwsza: żyjemy dłużej. To dobra wiadomość dla ciebie i zła dla wzoru. Ten sam kapitał trzeba rozłożyć na więcej lat, więc miesięczna kwota musi spaść. Nie ma tu żadnej złej woli — jest dzielenie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Przyczyna 2",
+   "preco": "waloryzacja",
+   "cap": "Przyczyna 2 — waloryzacja",
+   "nar": "Druga: wynagrodzenia rosną szybciej, niż waloryzowane są emerytury. Twoja pensja goni rynek, twoja przyszła emerytura goni wskaźnik. Z każdym rokiem te dwie linie się rozjeżdżają."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Czego to NIE jest",
+   "itens": [
+    "to nie jest kwestia rzadu",
+    "to nie jest chwilowy kryzys",
+    "to nie zalezy od skladek"
+   ],
+   "cap": "Czego to nie jest",
+   "nar": "Warto powiedzieć, czym ten spadek nie jest. Nie jest kwestią jednej ekipy rządzącej, nie jest chwilowym kryzysem i nie zależy od tego, czy będziesz płacił wyższe składki. Wynika z demografii wpisanej we wzór."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wniosek z rozdzialu",
+   "sub": "system dziala tak, jak zostal zaprojektowany",
+   "cap": "Wniosek rozdziału 4",
+   "nar": "Wniosek jest niewygodny, ale prosty: system nie jest zepsuty. On działa dokładnie tak, jak został zaprojektowany. Po prostu został zaprojektowany dla innej demografii."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Most do rozdzialu 5",
+   "sub": "wiec ile trzeba odlozyc?",
+   "cap": "Most — do rachunku",
+   "nar": "Skoro poprawa nie przyjdzie z zewnątrz, zostaje pytanie praktyczne: ile trzeba odłożyć samemu. Liczymy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 5",
+   "sub": "ile musisz odlozyc sam",
+   "cap": "Rozdz. 5 — Ile odłożyć",
+   "nar": "Rozdział piąty: rachunek. Uprzedzam — pierwsza liczba przestraszy, druga uspokoi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Regula 4 procent",
+   "preco": "x 300",
+   "cap": "Reguła 4 procent",
+   "nar": "Standardowa reguła mówi, że z kapitału można bezpiecznie wypłacać około czterech procent rocznie. Żeby dostawać tysiąc złotych miesięcznie, potrzebujesz mniej więcej trzysta tysięcy kapitału."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pelna luka 4 455 zl",
+   "preco": "1,3 mln zl",
+   "cap": "Pełna luka to 1,3 mln zł",
+   "nar": "Żeby zasypać całą lukę czterech tysięcy czterystu pięćdziesięciu pięciu złotych, potrzebowałbyś około miliona trzystu tysięcy złotych. I to jest ta liczba, po której większość ludzi zamyka film."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie zamykaj",
+   "sub": "nikt nie zasypuje calej luki",
+   "cap": "Nie zamykaj filmu",
+   "nar": "Więc powiem od razu: prawie nikt nie zasypuje całej luki i nie o to chodzi. Na emeryturze zwykle nie masz kredytu hipotecznego, nie utrzymujesz dzieci i nie dojeżdżasz do pracy. Realny cel to zwykle połowa luki."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Kapital po 30 latach (5% realnie)",
+   "itens": [
+    "300 zl/mies",
+    "500 zl/mies",
+    "1000 zl/mies"
+   ],
+   "alturas": [
+    239,
+    399,
+    797
+   ],
+   "cap": "Ile daje regularne odkładanie",
+   "nar": "Przy realnej stopie zwrotu pięciu procent rocznie liczby wyglądają tak. Trzysta złotych miesięcznie przez trzydzieści lat daje około dwustu czterdziestu tysięcy. Pięćset złotych — czterysta tysięcy. Tysiąc złotych — blisko ośmiuset tysięcy."
+  },
+  {
+   "layout": "item",
+   "kicker": "500 zl miesiecznie daje",
+   "preco": "1 330 zl/mies",
+   "cap": "Co to daje na emeryturze",
+   "nar": "Przełóżmy to na emeryturę. Czterysta tysięcy kapitału to według reguły czterech procent około tysiąca trzystu trzydziestu złotych miesięcznie dożywotnio. Pięćset złotych dziś zamienia się w tysiąc trzysta później."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Najwazniejsza zmienna",
+   "sub": "to czas, nie kwota",
+   "cap": "Najważniejsza zmienna",
+   "nar": "I tu jest rzecz, którą warto zapamiętać z całego filmu: najważniejszą zmienną nie jest kwota, tylko liczba lat. Trzysta złotych odkładane przez trzydzieści lat bije tysiąc złotych. Bo tysiąc odkładasz tylko przez dziesięć."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Koszt zwloki (500 zl/mies)",
+   "itens": [
+    "start dzis: 399 tys",
+    "start za 5 lat: 300 tys"
+   ],
+   "alturas": [
+    399,
+    300
+   ],
+   "cap": "Ile kosztuje 5 lat zwłoki",
+   "nar": "Policzmy cenę odkładania decyzji. Pięćset złotych miesięcznie od dziś przez trzydzieści lat to około czterystu tysięcy. To samo pięćset złotych zaczęte pięć lat później to trzysta tysięcy. Pięć lat zwłoki kosztuje sto tysięcy — mimo że wpłacasz tylko trzydzieści tysięcy mniej."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Most do rozdzialu 6",
+   "sub": "wiec gdzie to odkladac?",
+   "cap": "Most — gdzie odkładać",
+   "nar": "Zostaje pytanie, na które w Polsce jest kilka konkretnych odpowiedzi z ulgą podatkową.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 6",
+   "sub": "gdzie to odkladac",
+   "cap": "Rozdz. 6 — Gdzie odkładać",
+   "nar": "Rozdział szósty. Nie polecam produktów ani instytucji — pokazuję trzy rodzaje kont, które w polskim prawie mają przewagę podatkową."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy konta z ulga",
+   "itens": [
+    "IKE",
+    "IKZE",
+    "PPK"
+   ],
+   "cap": "Trzy konta z ulgą",
+   "nar": "Są trzy: I K E, I K Z E i P P K. Każde działa inaczej i każde ma roczny limit wpłat, który zmienia się co roku — dlatego nie podaję kwot, tylko mechanizm."
+  },
+  {
+   "layout": "item",
+   "kicker": "IKE",
+   "preco": "0% Belki",
+   "cap": "IKE — bez podatku Belki",
+   "nar": "I K E: wpłacasz z pieniędzy już opodatkowanych, ale przy wypłacie po osiągnięciu wieku nie płacisz podatku od zysków kapitałowych. Przy trzydziestoletnim horyzoncie ten jeden przepis potrafi być wart dziesiątki tysięcy złotych."
+  },
+  {
+   "layout": "item",
+   "kicker": "IKZE",
+   "preco": "ulga PIT",
+   "cap": "IKZE — ulga w PIT",
+   "nar": "I K Z E działa odwrotnie: wpłatę odliczasz od podstawy opodatkowania już w tym roku, a podatek płacisz dopiero przy wypłacie, według niższej stawki ryczałtowej. Korzyść dostajesz od razu."
+  },
+  {
+   "layout": "item",
+   "kicker": "PPK",
+   "preco": "doplata pracodawcy",
+   "cap": "PPK — dopłaca pracodawca",
+   "nar": "P P K to program przy pracodawcy, w którym do twojej wpłaty dokłada się pracodawca i państwo. To jedyne miejsce na tej liście, gdzie ktoś dokłada do twojego kapitału z zewnątrz."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Na co patrzec",
+   "itens": [
+    "niskie oplaty",
+    "szeroka dywersyfikacja",
+    "regularnosc, nie timing"
+   ],
+   "cap": "Na co patrzeć",
+   "nar": "Niezależnie od konta, kryteria są te same: niskie opłaty, szeroka dywersyfikacja i regularność. Różnica jednego procenta w opłatach potrafi zjeść znaczną część kapitału w trzydziestoletnim horyzoncie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Najdrozszy blad",
+   "preco": "19% + ulga",
+   "cap": "Najdroższy błąd na tych kontach",
+   "nar": "Najdroższy błąd na tych kontach to wypłata przed osiągnięciem wieku. Tracisz wtedy całą korzyść podatkową, dla której to konto założyłeś — przy I K E płacisz podatek Belki od zysków, przy I K Z E oddajesz odliczone ulgi. Pieniądze na emeryturę traktuj jak zamrożone."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uczciwe zastrzezenie",
+   "sub": "to nie jest porada inwestycyjna",
+   "cap": "Zastrzeżenie",
+   "nar": "I uczciwe zastrzeżenie: to nie jest porada inwestycyjna. Limity, stawki i zasady zmieniają się co roku, a twoja sytuacja jest twoja. Sprawdź aktualne przepisy, zanim cokolwiek podpiszesz."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozdzial 7",
+   "sub": "plan wedlug wieku",
+   "cap": "Rozdz. 7 — Plan według wieku",
+   "nar": "Rozdział siódmy, ostatni. Ten sam problem wygląda inaczej w zależności od tego, ile masz lat."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Masz 30 lat",
+   "itens": [
+    "masz 35 lat skladania",
+    "300 zl wystarczy na start",
+    "priorytet: zaczac"
+   ],
+   "cap": "Jeśli masz 30 lat",
+   "nar": "Trzydzieści lat: masz trzydzieści pięć lat pracy przed sobą i to jest twoja największa przewaga. Trzysta złotych miesięcznie wystarczy na start. Priorytet to nie kwota — priorytet to zacząć w tym miesiącu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Masz 40 lat",
+   "itens": [
+    "25 lat skladania",
+    "cel: 500-700 zl",
+    "sprawdz stan konta ZUS"
+   ],
+   "cap": "Jeśli masz 40 lat",
+   "nar": "Czterdzieści lat: zostało dwadzieścia pięć. Realny cel to pięćset do siedmiuset złotych miesięcznie. I koniecznie sprawdź swój stan konta na profilu ZUS — tam jest twoja prognozowana emerytura, wyliczona na twoich danych."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Masz 50 lat",
+   "itens": [
+    "15 lat skladania",
+    "kazdy rok pracy wiecej to duzo",
+    "PPK najszybciej"
+   ],
+   "cap": "Jeśli masz 50 lat",
+   "nar": "Pięćdziesiąt lat: piętnaście lat składania to mniej, ale wciąż dużo. Tu największą dźwignią jest każdy dodatkowy rok pracy — podnosi kapitał i obniża dzielnik jednocześnie. A P P K daje najszybszy efekt, bo dokłada pracodawca."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Masz wlasna firme",
+   "itens": [
+    "policz emeryture przy minimalnej",
+    "wyzsza podstawa = wyzsza emerytura",
+    "IKZE odlicza od podatku"
+   ],
+   "cap": "Jeśli masz własną firmę",
+   "nar": "A jeśli prowadzisz firmę, twoja sytuacja wymaga osobnej decyzji. Sprawdź, jaka emerytura wychodzi przy składce minimalnej, i porównaj dwie drogi: podniesienie podstawy składek albo odkładanie tej samej kwoty na I K Z E, które odliczysz od podatku. To rachunek, który warto zrobić raz, a porządnie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zrob to w tym tygodniu",
+   "preco": "20 minut",
+   "cap": "Jeden krok w tym tygodniu",
+   "nar": "Jeden konkretny krok na ten tydzień, dwadzieścia minut: zaloguj się na Platformę Usług Elektronicznych ZUS i sprawdź swoją prognozowaną emeryturę. Nie na podstawie tego filmu — na podstawie twoich składek."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ostatnia mysl",
+   "sub": "system nie klamie — on tylko nie krzyczy",
+   "cap": "Ostatnia myśl",
+   "nar": "System nie ukrywa tych liczb. ZUS je publikuje. Po prostu nikt ich nie czyta, bo emerytura wydaje się odległa — a to jedyna rzecz w finansach, w której czas jest ważniejszy niż kwota."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Caly film w 3 zdaniach",
+   "itens": [
+    "34% pensji w 2050",
+    "luka to ~4 400 zl/mies",
+    "500 zl/mies przez 30 lat"
+   ],
+   "cap": "Podsumowanie w 3 zdaniach",
+   "nar": "Cały film w trzech zdaniach. Prognoza ZUS to trzydzieści cztery procent pensji w dwa tysiące pięćdziesiątym roku. Luka przy medianie zarobków to około czterech i pół tysiąca złotych miesięcznie. A pięćset złotych odkładane przez trzydzieści lat zamienia się w tysiąc trzysta złotych dożywotnio."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Napisz w komentarzu",
+   "sub": "jaka emeryture pokazal ci PUE ZUS?",
+   "cap": "Twój następny krok",
+   "nar": "Sprawdź swoją prognozę na profilu ZUS i napisz w komentarzu, ile ci wyszło i w jakim jesteś wieku. Zbieram te liczby do kolejnego materiału. A jeśli film się przydał — subskrybuj. Co tydzień wchodzimy na kolejny poziom."
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "34,4%",
+   "sub": "tyle zostanie z twojej pensji",
+   "cap": "Hook",
+   "nar": "Trzydzieści cztery procent. Tyle z twojej pensji zostanie na emeryturze w dwa tysiące pięćdziesiątym roku. To prognoza samego ZUS-u."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Prognoza ZUS",
+   "itens": [
+    "2026: 54%",
+    "2050: 34%",
+    "2080: 24%"
+   ],
+   "alturas": [
+    54,
+    34,
+    24
+   ],
+   "cap": "Spadek",
+   "nar": "Dziś jest pięćdziesiąt cztery procent. W dwa tysiące pięćdziesiątym trzydzieści cztery. W dwa tysiące osiemdziesiątym dwadzieścia cztery."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pensja 7 145 zl",
+   "itens": [
+    "mezczyzna 4 009",
+    "kobieta 2 690"
+   ],
+   "alturas": [
+    4009,
+    2690
+   ],
+   "cap": "W złotówkach",
+   "nar": "Przy medianie zarobkow mezczyzna dostanie cztery tysiace, kobieta dwa tysiace siedemset."
+  },
+  {
+   "layout": "item",
+   "kicker": "500 zl miesiecznie",
+   "preco": "1 330 zl",
+   "cap": "Co robić",
+   "nar": "Piecset zlotych miesiecznie przez trzydziesci lat to okolo tysiaca trzystu zlotych emerytury."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdz swoja",
+   "sub": "pelne wyliczenia na kanale",
+   "cap": "CTA",
+   "nar": "Sprawdź swoją prognozę na profilu ZUS. Pełne wyliczenia są na kanale."
+  }
+ ],
+ "copy": "# Emerytura z ZUS: 34,4% pensji w 2050 roku. Ile musisz odłożyć sam?\n\n## TYTUŁ\nEmerytura z ZUS: 34,4% pensji w 2050 roku. Ile musisz odłożyć sam?\n\n## OPIS\nEmerytura z ZUS wyniesie 34,4% twojej ostatniej pensji, jeśli przejdziesz na nią około 2050 roku. To nie jest scenariusz od krytyków systemu — to oficjalna symulacja Zakładu Ubezpieczeń Społecznych. Dziś stopa zastąpienia wynosi około 54,2%, w 2040 roku spadnie do 43%, a w 2080 do 24,5%. W tym materiale zamieniamy te procenty na złotówki i liczymy, ile trzeba odłożyć samemu.\n\nKonkretne kwoty z prognoz na 2026 rok: przy medianie wynagrodzeń (7 145 zł brutto) mężczyzna dostanie około 4 009 zł emerytury, a kobieta 2 690 zł — 1 319 zł różnicy przy tej samej pensji. Przy płacy minimalnej (4 666 zł) jest to 2 200 zł i 1 750 zł. Przy 10 000 zł brutto — 5 800 zł i 3 800 zł. Stopa zastąpienia dla mężczyzn w przedziale 5–10 tys. zł wynosi 57–61%, dla kobiet 37–42%.\n\nPokazujemy też, jak dokładnie ZUS liczy emeryturę (kapitał podzielony przez przewidywaną długość życia i dlaczego rosnący dzielnik obniża wynik), dlaczego stopa zastąpienia spada niezależnie od tego, kto rządzi, ile kapitału potrzeba według reguły 4 procent, co realnie daje 300, 500 i 1000 zł odkładane miesięcznie przez 30 lat, oraz czym różnią się IKE, IKZE i PPK pod względem podatkowym.\n\nNa końcu jest plan według wieku — inny dla 30, 40 i 50 lat — i jeden konkretny krok na ten tydzień: sprawdzenie własnej prognozy na profilu PUE ZUS.\n\n## ROZDZIAŁY\n{CAPITULOS}\n\n## KOMENTARZ PRZYPIĘTY\nSprawdziłeś swoją prognozę na PUE ZUS? Napisz, ile ci wyszło i w jakim jesteś wieku — zbieram te liczby do kolejnego materiału. Ciekawi mnie zwłaszcza, jak bardzo prognoza ZUS różni się od tego, czego ludzie się spodziewali.\n\n## HASHTAGI\n#Emerytura #FinanseOsobiste #KolejnyPoziom\n\n## TAGI\nemerytura zus, stopa zastąpienia, prognoza zus 2026, ile wyniesie moja emerytura, ike ikze ppk, oszczędzanie na emeryturę, finanse osobiste, emerytura kobiet, pue zus, kapitał emerytalny, waloryzacja składek, reguła 4 procent, inwestowanie długoterminowe, luka emerytalna, emerytura 2050\n\n## USTAWIENIA STUDIO\n- Język: polski (pl) | Kategoria: Edukacja (27)\n- Nie jest przeznaczony dla dzieci\n- Deklaracja treści syntetycznych: TAK (narracja AI)\n- Lokalizacja: Polska | Licencja: Standardowa licencja YouTube\n- Reklamy mid-roll: włączone (czas trwania > 8 minut)\n\n## MUZYKA / LICENCJA\n{TRILHA}\n\n## ZASTRZEŻENIE\nDane pochodzą z prognoz ZUS publikowanych w 2026 roku i mogą ulec zmianie. Materiał ma charakter edukacyjny i nie stanowi porady inwestycyjnej ani podatkowej. Limity wpłat na IKE i IKZE oraz zasady PPK zmieniają się co roku — sprawdź aktualne przepisy przed podjęciem decyzji."
 }

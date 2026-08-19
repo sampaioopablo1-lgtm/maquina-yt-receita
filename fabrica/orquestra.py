@@ -165,9 +165,24 @@ def estado(videos: list[dict]) -> dict:
 
     por_canal = {}
     for c in canais_do_repo():
-        longos = [v for v in videos
+        # DISTINTOS por titulo, nao linhas. A meta e "dez videos diferentes
+        # no canal", e o cron republicou o MESMO pacote todo dia: em
+        # 19/08/2026 havia 26 duplicatas em seis canais, e as duas piores
+        # eram justamente as que o placar dava por prontas — o kolejny-poziom
+        # marcava 10 de 10 com CINCO videos distintos, seis linhas do mesmo
+        # "Emerytura z ZUS" publicadas de 11 a 17/08.
+        #
+        # Contar linha nao so inflava o placar: punha o canal em faltam=0, no
+        # fim da ordem de `proximo`, onde ele nunca mais seria escolhido.
+        # Um canal pela metade ficava invisivel para a propria maquina.
+        # Chave: o TITULO quando existe, senao o proprio youtube_id. Assim uma
+        # republicacao (mesmo titulo, id novo) colapsa, e uma linha sem titulo
+        # continua valendo um — porque o modo de falha oposto e pior: sumir com
+        # um video que existe faz a maquina reproduzir o que ja tem.
+        longos = {(v.get("titulo") or "").strip().casefold() or v["youtube_id"]
+                  for v in videos
                   if v.get("canal") == c and v.get("formato") == "longo"
-                  and v.get("youtube_id")]
+                  and v.get("youtube_id")}
         # Spec de producao e a que tem sufixo -00N; as sem sufixo sao pilotos v1.
         minhas = {n: sp for n, sp in specs.items()
                   if sp.get("slug") == c and n[-4:-3] == "-" and n[-3:].isdigit()}
