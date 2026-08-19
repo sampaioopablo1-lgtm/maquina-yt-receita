@@ -1,0 +1,100 @@
+name: Calibrar vozes pelos .srt publicados
+
+# Por que este workflow existe.
+#
+# O `fabrica/calibra_voz.py` foi escrito para PARAR de medir voz em
+# laboratorio: toda voz calibrada com duas amostras sinteticas subestimava a
+# duracao, nove de nove para o mesmo lado, de +6,6% a +18,0%. O preco foi o
+# resep-naik-level-003, dimensionado para 14,2 min e publicado com 16:14.
+#
+# A materia-prima certa ja existe e e de graca: cada pacote publicado deixa um
+# `legendas.srt` no bucket com o tempo REAL de cada cena, e a spec no
+# repositorio tem o texto de cada cena. Cruzando os dois sai (chars, frases) ->
+# duracao real, centenas de pontos por voz.
+#
+# So que o docstring do proprio calibra_voz.py dizia "quando o calibra_voz.py
+# alcancar o .srt do bucket" — e ele nunca alcancava, porque o container do
+# agente nao chega em supabase.co e o medir-vozes.yml so sabe sintetizar
+# amostra nova. Este workflow e a ponte que faltava: roda onde o repositorio e
+# o bucket sao alcancaveis ao mesmo tempo.
+#
+# O nome do .srt sai do PROPRIO `videos.supabase_url`, trocando o sufixo. Nao
+# adivinho a data: pacote publicado em dia diferente do render ja existiu, e
+# adivinhar produziria 404 silencioso em vez de medicao.
+
+on:
+  workflow_dispatch:
+    inputs:
+      canal:
+        description: "So este canal (vazio = todos)"
+        type: string
+        default: ""
+
+jobs:
+  calibrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Baixar os .srt publicados
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          CANAL: ${{ inputs.canal }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/srt
+          python3 - <<'PY'
+          import json, os, urllib.parse, urllib.request
+
+          sb = os.environ["SB"].rstrip("/")
+          key = os.environ["KEY"]
+          canal = os.environ.get("CANAL", "").strip()
+
+          q = ("videos?select=pacote,canal,supabase_url"
+               "&formato=eq.longo&supabase_url=not.is.null&pacote=not.is.null")
+          if canal:
+              q += "&canal=eq." + urllib.parse.quote(canal, safe="")
+          req = urllib.request.Request(
+              f"{sb}/rest/v1/{q}",
+              headers={"Authorization": f"Bearer {key}", "apikey": key})
+          with urllib.request.urlopen(req, timeout=60) as r:
+              linhas = json.load(r)
+
+          # Um pacote pode ter varias linhas (longo e shorts); o set evita
+          # baixar o mesmo .srt tres vezes e evita contar cena em duplicata.
+          vistos, ok, faltando = set(), 0, []
+          for l in linhas:
+              pac, url = l["pacote"], l["supabase_url"]
+              if pac in vistos:
+                  continue
+              vistos.add(pac)
+              srt = url.replace("-video.mp4", "-legendas.srt")
+              if srt == url:
+                  faltando.append((pac, "supabase_url nao termina em -video.mp4"))
+                  continue
+              try:
+                  with urllib.request.urlopen(srt, timeout=60) as r:
+                      dados = r.read()
+              except Exception as e:
+                  faltando.append((pac, f"{type(e).__name__} {str(e)[:40]}"))
+                  continue
+              with open(f"/tmp/srt/{pac}.srt", "wb") as f:
+                  f.write(dados)
+              ok += 1
+          print(f"baixados: {ok} | sem .srt no bucket: {len(faltando)}")
+          for pac, motivo in faltando:
+              print(f"  sem srt {pac}: {motivo}")
+          PY
+          ls -1 /tmp/srt | wc -l | sed "s/^/arquivos em \/tmp\/srt: /"
+
+      - name: Ajustar R e P por voz
+        run: |
+          set -uo pipefail
+          python3 fabrica/calibra_voz.py /tmp/srt | tee /tmp/cal.txt
+          { echo '### Calibracao por cena, a partir dos .srt publicados';
+            echo '```'; cat /tmp/cal.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
