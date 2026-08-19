@@ -75,6 +75,13 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+          # Vigia dos tokens: roda ANTES da matriz e nunca derruba o ciclo
+          # (|| true). Em 19/08/2026 nove dos doze tokens morreram na
+          # madrugada e a maquina so descobriu no meio de um render de 20
+          # min — token morto tem que aparecer no log do ciclo, nao no
+          # pacote parado.
+          python3 fabrica/tokens.py vigiar || echo "::warning::ha canais com token MORTO — reautorize antes que a matriz os escolha"
+
           MATRIZ=$(python3 fabrica/orquestra.py proximo --n "${{ inputs.n || '10' }}")
           echo "matriz=$MATRIZ" >> "$GITHUB_OUTPUT"
           echo "quantos=$(echo "$MATRIZ" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
