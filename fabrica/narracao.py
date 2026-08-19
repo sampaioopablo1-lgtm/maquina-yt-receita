@@ -134,6 +134,31 @@ CONECTOR = {
 MAX_NUM_FRASE = 4      # 4+ QUANTIDADES numa frase e planilha falada
 MAX_PALAVRAS = 34      # nao cabe num folego so
 MAX_VIRGULAS = 3       # 3+ virgulas viram frases separadas
+
+# Virgulas que pertencem a PALAVRA, nao a frase.
+#
+# Em grego "o,ti" (o que/qualquer coisa) se escreve COM virgula no meio, e a
+# virgula e ortografica: e ela que distingue de "oti" (que). Contar essa
+# virgula como pausa inflava a conta e reprovava frase de duas virgulas de
+# verdade como se tivesse tres. Medido em 19/08/2026 no epomeno-epipedo-007,
+# cena 85: "Posostó, metá sympsifismós, metá ó,ti ménei se séna" tem DUAS
+# pausas, nao tres.
+#
+# Mesma familia dos consertos de GANCHO, CONECTOR, NUMEROS e FIM_DE_FRASE: a
+# tabela de um idioma nao pode ser herdada de outro sem conferir a ortografia.
+VIRGULA_DE_PALAVRA = {
+    "el": (re.compile(r"\u1F45,\u03C4\u03B9", re.IGNORECASE),
+           re.compile(r"\u03CC,\u03C4\u03B9", re.IGNORECASE)),
+}
+
+
+def conta_virgulas(frase, idi):
+    """Virgulas que separam oracao, ignorando as que fazem parte da palavra."""
+    txt = frase
+    for padrao in VIRGULA_DE_PALAVRA.get(idi, ()):
+        txt = padrao.sub("", txt)
+    return txt.count(",")
+
 MIN_SOCO_PCT = 6.0     # % minimo de frases curtas (<=5 palavras): o ritmo
 MAX_SOCO_PCT = 45.0    # acima disso nao e ritmo, e telegrama
 
@@ -265,8 +290,9 @@ def analisa(spec, idi):
             pal = len(f.split())
             if pal > MAX_PALAVRAS:
                 avisos.append(f"{onde}: frase de {pal} palavras, nao cabe num folego")
-            if f.count(",") >= MAX_VIRGULAS:
-                avisos.append(f"{onde}: {f.count(',')} virgulas numa frase — vire frases separadas")
+            nv = conta_virgulas(f, idi)
+            if nv >= MAX_VIRGULAS:
+                avisos.append(f"{onde}: {nv} virgulas numa frase — vire frases separadas")
 
         # Cliffhanger: so na cena que ANTECEDE uma troca de capitulo. `sem_cap`
         # marca quase toda cena — nao e sinal de ponte, e o contrario disso.
