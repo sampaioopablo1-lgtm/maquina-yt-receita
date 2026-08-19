@@ -126,8 +126,31 @@ jobs:
             echo "::warning::apt pendurou ou falhou na tentativa $tentativa — repetindo"
             sleep 5
           done
-          [ -n "$ok" ] || { echo "::error::apt nao respondeu em tres tentativas"; exit 1; }
+          # Rota alternativa quando o espelho do apt esta fora — o que aconteceu
+          # em QUATRO runs seguidos em 19/08/2026, sempre sem imprimir uma
+          # linha. O binario estatico vem de release do GitHub, que o runner
+          # comprovadamente alcanca (o checkout deste repo passou).
+          #
+          # As FONTES nao tem rota alternativa aqui, e isso e deliberado: o
+          # passo "Conferir glifos" ja rasteriza cada caractere de tela e
+          # reprova o pacote com "sairiam como tofu" quando falta glifo. Ou
+          # seja, sem apt um pacote latino segue e um pacote em devanagari ou
+          # grego para no portao — em vez de sair com legenda vazia, que era
+          # o modo de falha silencioso que este passo sempre temeu.
+          if [ -z "$ok" ]; then
+            echo "::warning::apt fora — baixando ffmpeg estatico do GitHub"
+            URL=https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
+            curl -sSL --fail --max-time 180 "$URL" -o /tmp/ff.tar.xz \
+              && mkdir -p /tmp/ffbin \
+              && tar -xJf /tmp/ff.tar.xz -C /tmp/ffbin --strip-components=2 \
+              && sudo install -m 755 /tmp/ffbin/ffmpeg /usr/local/bin/ffmpeg \
+              && sudo install -m 755 /tmp/ffbin/ffprobe /usr/local/bin/ffprobe \
+              && ok=estatico
+          fi
+          [ -n "$ok" ] || { echo "::error::sem ffmpeg: apt fora e download estatico falhou"; exit 1; }
+          echo "ffmpeg via: ${ok}"
           ffmpeg -version | head -1
+          fc-list | wc -l | sed "s/^/fontes instaladas: /"
 
       - name: Instalar fabrica
         run: pip install -q edge-tts cairosvg pydantic pillow
