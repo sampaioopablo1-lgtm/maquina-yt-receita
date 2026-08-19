@@ -98,3 +98,31 @@ Isso não se conserta por SQL: exige reinício dos serviços — botão
 Apagar o objeto `feeds-precomputados/vrsync.xml` (escrito às 22:52, durante
 a instabilidade, e ilegível desde então) e deixar o gerador recriá-lo do
 zero, em vez de sobrescrever um arquivo possivelmente corrompido.
+
+## Atualização 04:20 UTC — a recuperação não se sustenta
+
+A melhora das 03:40 (leitura em 0,08 s) **regrediu para 24,67 s** em 40
+minutos. Causa: ao religar as rotinas de negócio, voltaram junto três que
+dependem do XML — que está quebrado — e portanto giravam em falso:
+
+| Rotina | Execuções em 40 min | Tempo médio |
+|---|---|---|
+| espelho-do-xml-nativo | 4 | **66,8 s** |
+| feed-gate-xml-vista | 8 | 30,5 s |
+| captacao-processar-fila | 7 | 28,1 s |
+
+Só essas três somaram ~708 s de processamento em 2.400 s de relógio —
+perto de 30% de ocupação contínua, antes de contar o resto. Erro meu ao
+religá-las sem notar a dependência do feed.
+
+Ação: desativadas espelho-do-xml-nativo, feed-gate-xml-vista e
+feed-vigia-qualidade (todas inúteis enquanto o feed não volta), e
+espaçadas captacao-processar-fila (6→20 min) e smart-feed-sincronizar
+(5→15 min).
+
+### Conclusão que isso força
+A instância recupera quando ociosa e degrada de novo sob a carga normal.
+Não é só o incidente de ontem: **o volume de rotinas está acima da
+capacidade contratada**. Depois de restabelecer o feed, é preciso decidir
+entre aumentar o compute ou reduzir permanentemente a cadência — a lista
+de 57 crons ativos merece uma revisão de necessidade real.
