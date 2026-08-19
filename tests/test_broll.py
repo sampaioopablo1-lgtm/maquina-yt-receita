@@ -93,3 +93,34 @@ def test_garantir_sem_query_e_fallback_silencioso(tmp_path):
     ok = broll.garantir(str(tmp_path), "l", 0, {"layout": "broll"},
                         8.0, 2560, 1440, api_key="chave-qualquer")
     assert ok is False
+
+
+# --------------------------------------------------- o motivo, sempre escrito
+
+def test_sem_chave_diz_que_faltou_chave(tmp_path, monkeypatch):
+    """O agla-level-004 gastou 20 min de render para produzir a duvida "por
+    que nao teve footage?". Agora a resposta vem escrita."""
+    monkeypatch.delenv("PEXELS_API_KEY", raising=False)
+    monkeypatch.delenv("SB", raising=False)
+    monkeypatch.delenv("KEY", raising=False)
+    monkeypatch.delenv("SUPABASE_URL", raising=False)
+    monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
+    ok = broll.garantir(str(tmp_path), "l", 0,
+                        {"layout": "broll", "broll_q": "money"}, 8.0, 2560, 1440)
+    assert ok is False
+    assert "sem chave" in broll.ULTIMO_MOTIVO
+    assert "AUSENTE" in broll.ORIGEM_DA_CHAVE
+
+
+def test_sem_query_diz_que_faltou_query(tmp_path):
+    ok = broll.garantir(str(tmp_path), "l", 0, {"layout": "broll"},
+                        8.0, 2560, 1440, api_key="chave-qualquer")
+    assert ok is False
+    assert "broll_q" in broll.ULTIMO_MOTIVO
+
+
+def test_a_etapa_15_loga_origem_e_motivo():
+    """Se o log voltar a ser mudo, este teste cai — nao o proximo render."""
+    fonte = (RAIZ / "fabrica" / "etapas.py").read_text(encoding="utf-8")
+    assert "ORIGEM_DA_CHAVE" in fonte, "etapa 1.5 nao loga de onde veio a chave"
+    assert "ULTIMO_MOTIVO" in fonte, "etapa 1.5 nao loga por que a cena desistiu"

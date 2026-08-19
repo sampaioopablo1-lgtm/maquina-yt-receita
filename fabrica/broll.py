@@ -34,13 +34,25 @@ def _ctx():
     return ssl.create_default_context()
 
 
+# Onde a ultima chamada de chave() achou (ou nao achou) a chave. O render
+# loga isto: "sem footage" sem dizer por que custa 20 min de render para
+# produzir a mesma duvida — foi o que aconteceu no agla-level-004
+# (aprendizado 304).
+ORIGEM_DA_CHAVE = "nao consultada"
+
+
 def chave():
+    global ORIGEM_DA_CHAVE
     k = os.environ.get("PEXELS_API_KEY")
     if k:
+        ORIGEM_DA_CHAVE = "env PEXELS_API_KEY"
         return k.strip()
     sb = os.environ.get("SB") or os.environ.get("SUPABASE_URL")
     sk = os.environ.get("KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
     if not (sb and sk):
+        ORIGEM_DA_CHAVE = ("AUSENTE: sem PEXELS_API_KEY e sem SB/KEY no "
+                           "ambiente — o passo do workflow nao exporta os "
+                           "secrets do Supabase")
         return None
     url = f"{sb.rstrip('/')}/rest/v1/config?chave=eq.pexels_api_key&select=valor"
     req = urllib.request.Request(
@@ -48,8 +60,17 @@ def chave():
     try:
         with urllib.request.urlopen(req, timeout=30, context=_ctx()) as r:
             linhas = json.load(r)
-        return linhas[0]["valor"] if linhas else None
-    except Exception:
+        if not linhas:
+            ORIGEM_DA_CHAVE = "AUSENTE: config.pexels_api_key nao existe no banco"
+            return None
+        valor = linhas[0]["valor"]
+        if not isinstance(valor, str) or not valor.strip():
+            ORIGEM_DA_CHAVE = f"AUSENTE: config.pexels_api_key com valor invalido ({type(valor).__name__})"
+            return None
+        ORIGEM_DA_CHAVE = "banco (config.pexels_api_key)"
+        return valor.strip()
+    except Exception as e:
+        ORIGEM_DA_CHAVE = f"AUSENTE: erro ao ler config.pexels_api_key — {type(e).__name__}: {e}"
         return None
 
 
@@ -92,18 +113,31 @@ def _valido(caminho, dd):
         return False
 
 
+# Por que a ULTIMA cena desistiu do broll. Fica em variavel de modulo em vez
+# de retorno para nao mudar a assinatura que os testes ja cercam.
+ULTIMO_MOTIVO = ""
+
+
 def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
     """Deixa {d}/{pref}{i:02d}_broll.mp4 pronto (dd segundos, RWxRH, sem
     audio, escurecido para o lower-third ler). Devolve True se conseguiu.
 
-    Nunca levanta: broll e enfeite, e enfeite nao derruba render.
+    Nunca levanta: broll e enfeite, e enfeite nao derruba render. Mas
+    desistir CALADO tambem nao serve: `ULTIMO_MOTIVO` diz por que, e a etapa
+    1.5 loga cena por cena.
     """
+    global ULTIMO_MOTIVO
+    ULTIMO_MOTIVO = ""
     saida = f"{d}/{pref}{i:02d}_broll.mp4"
     if _valido(saida, dd):
         return True
     api_key = api_key or chave()
     q = (c.get("broll_q") or "").strip()
-    if not (api_key and q):
+    if not api_key:
+        ULTIMO_MOTIVO = f"sem chave do Pexels ({ORIGEM_DA_CHAVE})"
+        return False
+    if not q:
+        ULTIMO_MOTIVO = "cena sem broll_q na spec"
         return False
     try:
         url = f"{API}?{urllib.parse.urlencode({'query': q, 'per_page': 8, 'orientation': 'landscape'})}"
@@ -118,6 +152,8 @@ def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
         with urllib.request.urlopen(req, timeout=30, context=_ctx()) as r:
             achado = escolher(json.load(r), dd)
         if not achado:
+            ULTIMO_MOTIVO = (f"nenhum candidato para '{q}' (paisagem, "
+                             f">= {dd + 1:.1f}s, >= 1280px)")
             return False
         link, credito = achado
         bruto = f"{d}/{pref}{i:02d}_broll_bruto.mp4"
@@ -141,6 +177,7 @@ def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
             check=True, capture_output=True, timeout=300)
         os.remove(bruto)
         if not _valido(saida, dd):
+            ULTIMO_MOTIVO = "clipe cortado saiu invalido (duracao ou tamanho)"
             return False
         cred_path = f"{d}/broll_creditos.json"
         todos = []
@@ -149,7 +186,8 @@ def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
         todos.append({"cena": i, **credito})
         json.dump(todos, open(cred_path, "w", encoding="utf-8"), ensure_ascii=False)
         return True
-    except Exception:
+    except Exception as e:
+        ULTIMO_MOTIVO = f"{type(e).__name__}: {e}"
         for lixo in (f"{d}/{pref}{i:02d}_broll_bruto.mp4",):
             try:
                 os.remove(lixo)

@@ -148,13 +148,18 @@ _pedem_broll = [(i, c) for i, c in enumerate(cenas)
 if _pedem_broll and not LONGO_PRONTO:
     import broll as BR                                            # noqa: E402
     _k = BR.chave()
+    # A origem da chave vai para o log ANTES de qualquer cena: no
+    # agla-level-004 as 7 cenas cairam no fallback e o log nao dizia se
+    # faltou chave, candidato ou rede — 20 min de render para a mesma
+    # duvida (aprendizado 304).
+    log(f"etapa 1.5: chave do Pexels — {BR.ORIGEM_DA_CHAVE}")
     _ok = 0
     for _i, _c in _pedem_broll:
         _dd = F.dur(f"{d}/l{_i:02d}.mp3") + 0.5
         if BR.garantir(d, "l", _i, _c, _dd, RW, RH, api_key=_k):
             _ok += 1
         else:
-            log(f"  broll cena {_i}: sem footage ('{_c.get('broll_q','')}') — fallback")
+            log(f"  broll cena {_i} ({_dd:.1f}s) SEM FOOTAGE: {BR.ULTIMO_MOTIVO}")
     log(f"etapa 1.5 ok: broll em {_ok}/{len(_pedem_broll)} cenas")
 
 # ------------------------------------------- 2. clipes, liberando um a um
