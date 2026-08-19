@@ -189,6 +189,17 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python3 fabrica/confere_token.py "${{ matrix.canal }}"
 
+      # A spec que declara footage e nao acha a chave produz um pacote que
+      # NAO e o que ela descreve — o agla-level-004 saiu com 7 cenas de
+      # desenho onde a spec pedia 7 de footage, e a causa era uma linha que
+      # nunca foi gravada no banco (aprendizado 309). Falhar aqui custa dois
+      # segundos; descobrir no frame custa o render inteiro.
+      - name: Conferir chave do broll
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 fabrica/confere_broll.py spec.json
+
       - name: Renderizar
         # SB/KEY entram para o broll.py buscar config.pexels_api_key — a chave
         # do Pexels mora no banco, nao no git nem nos secrets. Sem eles a
