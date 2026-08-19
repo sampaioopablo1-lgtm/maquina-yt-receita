@@ -179,6 +179,16 @@ jobs:
       - name: Conferir glifos
         run: python3 fabrica/prontidao.py spec.json
 
+      # Trinta segundos aqui valem vinte minutos la na frente: em 19/08/2026
+      # nove dos doze tokens morreram em cascata e o agla-level-004
+      # renderizou inteiro antes de descobrir que nao tinha onde publicar.
+      - name: Conferir token do canal
+        if: ${{ inputs.publicar }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 fabrica/confere_token.py "${{ matrix.canal }}"
+
       - name: Renderizar
         # SB/KEY entram para o broll.py buscar config.pexels_api_key — a chave
         # do Pexels mora no banco, nao no git nem nos secrets. Sem eles a
