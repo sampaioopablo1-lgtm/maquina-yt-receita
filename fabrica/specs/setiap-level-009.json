@@ -1,0 +1,715 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-009",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#E5A200",
+  "c2": "#00897B",
+  "bg": "#F7F3E8"
+ },
+ "thumb": {
+  "l1": "BUNGA 5,5%",
+  "l2": "sisanya 1,5%"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Angka di brosur",
+   "sub": "bukan angka yang tinggal",
+   "nar": "Bank memasang satu angka di brosur deposito. Yang tinggal di kantongmu adalah angka lain, dan jaraknya lebih besar dari yang kamu kira.",
+   "cap": "Angka brosur bukan angka simpan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan tipuan",
+   "preco": "cuma dua potongan",
+   "nar": "Ini bukan tipuan dan tidak ada yang disembunyikan. Cuma ada dua potongan yang tidak muncul di halaman depan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potongan pertama",
+   "preco": "pajak",
+   "nar": "Potongan pertama adalah pajak atas bunganya. Ia dipotong langsung, sebelum uang itu sampai ke rekeningmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potongan kedua",
+   "preco": "inflasi",
+   "nar": "Potongan kedua adalah inflasi. Ia tidak muncul di mutasi rekening sama sekali, tapi ia yang menentukan apakah kamu benar-benar maju.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa sekarang",
+   "preco": "keputusan hari ini",
+   "nar": "Dan kenapa hari ini. Bank Indonesia baru saja mengumumkan keputusannya, jadi angka acuannya masih hangat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "BI Rate",
+   "preco": "lima koma tujuh lima persen",
+   "nar": "Suku bunga acuan ditahan di lima koma tujuh lima persen. Ini bulan ketiga berturut-turut tanpa perubahan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua angka pendamping",
+   "preco": "fasilitas simpanan dan pinjaman",
+   "nar": "Suku bunga fasilitas simpanan ada di empat koma tujuh lima persen, dan fasilitas pinjaman di enam koma lima nol persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan inflasinya",
+   "preco": "dua koma delapan delapan persen",
+   "nar": "Sementara itu inflasi tahunan per Juli tercatat dua koma delapan delapan persen menurut Badan Pusat Statistik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sudah kelihatan",
+   "preco": "jaraknya tipis",
+   "nar": "Letakkan dua angka itu berdampingan dan masalahnya sudah kelihatan. Jarak antara bunga dan inflasi lebih tipis dari yang terasa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu pajak masuk",
+   "preco": "dan jaraknya menyempit lagi",
+   "nar": "Lalu pajak masuk ke tengah-tengahnya, dan jarak yang sudah tipis itu menyempit lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini bukan detail",
+   "preco": "uang yang mengendap lama",
+   "nar": "Ini bukan detail akuntansi. Untuk uang yang mengendap bertahun-tahun, selisih satu dua persen setahun berubah jadi angka yang terasa. Dan hampir semua orang punya uang yang mengendap.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang akan kita bahas",
+   "itens": [
+    "Kenapa bunga brosur bukan bunga bersih",
+    "Pajak dua puluh persen dan pengecualiannya",
+    "Inflasi: potongan yang tak terlihat",
+    "Hitungan penuh atas sepuluh juta rupiah",
+    "Kapan deposito tetap masuk akal"
+   ],
+   "nar": "Lima bagian. Kenapa bunga brosur bukan bunga bersih. Pajaknya berapa dan kapan tidak kena. Bagaimana inflasi memotong tanpa terlihat. Hitungan penuhnya. Dan kapan deposito tetap pilihan yang benar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu hal dulu",
+   "preco": "ini bukan ajakan",
+   "nar": "Satu hal dulu. Ini bukan ajakan membeli atau menjual apa pun, dan tidak menyebut bank mana pun. Kita membahas mekanisme.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan kanal",
+   "preco": "angka dengan sumber",
+   "nar": "Aturan kanal tetap berlaku. Angka dengan sumber dan tanggal. Yang tidak bisa diukur, tidak kita ucapkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kita mulai",
+   "sub": "kenapa dua angka itu beda?",
+   "nar": "Kita mulai dari pertanyaan yang paling sering muncul. Kenapa bunga yang dijanjikan dan bunga yang diterima bisa beda?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bunga brosur",
+   "sub": "selalu bruto",
+   "nar": "Angka yang dipasang di brosur selalu angka bruto. Artinya, itu jumlah sebelum potongan apa pun.",
+   "cap": "Bunga brosur bukan bunga bersih"
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu bukan kesalahan",
+   "preco": "memang standarnya",
+   "nar": "Itu bukan kesalahan bank. Menampilkan bunga bruto memang cara standar di seluruh industri, supaya angkanya bisa dibandingkan antarbank.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi buat kamu",
+   "preco": "yang penting yang bersih",
+   "nar": "Tapi buat kamu yang menaruh uang, angka yang berarti hanya satu. Yang bersih, setelah potongan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya ke mana",
+   "preco": "ke kas negara",
+   "nar": "Selisihnya tidak hilang. Ia masuk ke kas negara sebagai pajak penghasilan atas bunga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dipotong di mana",
+   "preco": "di bank, otomatis",
+   "nar": "Pemotongannya terjadi di bank, otomatis. Kamu tidak perlu melapor atau menyetor sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Praktisnya",
+   "preco": "yang masuk sudah bersih",
+   "nar": "Praktisnya, yang masuk ke rekeningmu tiap jatuh tempo sudah bersih. Karena itu banyak orang tidak pernah sadar ada potongan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di situ jebakannya",
+   "preco": "membandingkan bruto dengan bruto",
+   "nar": "Dan di situ jebakannya. Orang membandingkan bunga bruto deposito dengan imbal hasil bersih instrumen lain, lalu menyimpulkan salah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contoh salah kaprah",
+   "preco": "membandingkan dengan reksadana",
+   "nar": "Contoh yang paling sering saya lihat: orang membandingkan bunga bruto deposito dengan imbal hasil reksadana pasar uang yang sudah bersih. Deposito jadi terlihat unggul padahal belum tentu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perbandingan yang adil",
+   "preco": "bersih lawan bersih",
+   "nar": "Perbandingan yang adil selalu bersih lawan bersih. Kalau tidak, kamu sedang membandingkan dua hal yang berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sudah jelas",
+   "sub": "berapa pajaknya?",
+   "nar": "Kita tahu ada potongan. Berapa persisnya, dan apakah selalu kena?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua puluh persen",
+   "sub": "dan bersifat final",
+   "nar": "Bunga deposito dan tabungan dikenakan pajak penghasilan sebesar dua puluh persen dari jumlah bruto, dan sifatnya final.",
+   "cap": "Pajak dua puluh persen"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dasar hukumnya",
+   "preco": "peraturan tahun dua ribu",
+   "nar": "Dasarnya adalah Peraturan Pemerintah nomor seratus tiga puluh satu tahun dua ribu, yang berlaku sejak awal tahun dua ribu satu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Final artinya",
+   "preco": "selesai di situ",
+   "nar": "Final artinya selesai di situ. Bunga itu tidak digabungkan lagi dengan penghasilanmu yang lain di laporan tahunan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu ada sisi baiknya",
+   "preco": "tidak mendorong ke lapisan atas",
+   "nar": "Ada sisi baiknya. Bunga deposito tidak mendorongmu naik ke lapisan tarif yang lebih tinggi, seperti yang terjadi pada penghasilan biasa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan dengan gaji",
+   "preco": "gaji digabung, ini tidak",
+   "nar": "Bandingkan dengan gaji bulanan. Gaji digabungkan dan bisa mendorongmu ke lapisan tarif berikutnya. Bunga deposito berhenti di tarif tunggalnya sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ada pengecualian",
+   "preco": "batas tujuh setengah juta",
+   "nar": "Ada juga pengecualian yang jarang disebut. Kalau saldonya tidak melebihi tujuh juta lima ratus ribu rupiah, bunganya tidak dipotong pajak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baca batasnya baik-baik",
+   "preco": "soal saldo, bukan bunga",
+   "nar": "Perhatikan bahwa batas itu soal saldo, bukan soal besar bunganya. Ini sering tertukar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk siapa ini berguna",
+   "preco": "yang baru mulai",
+   "nar": "Buat siapa aturan ini berguna? Buat orang yang baru mulai menabung dengan jumlah kecil, dan mengira pasti kena potongan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi jangan dipecah",
+   "preco": "itu bukan celah",
+   "nar": "Tapi ini bukan celah untuk memecah simpanan besar menjadi banyak deposito kecil. Ketentuannya memang mengantisipasi pemecahan seperti itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Efek praktisnya",
+   "preco": "seperlima bunga hilang",
+   "nar": "Efek praktis dari tarif ini sederhana. Dari setiap lima rupiah bunga yang dijanjikan, satu rupiah tidak pernah sampai padamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pajak sudah jelas",
+   "sub": "sekarang yang tak terlihat",
+   "nar": "Potongan pertama sudah jelas dan bisa dihitung. Bagaimana dengan yang tidak muncul di mana-mana?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Inflasi",
+   "sub": "potongan tanpa kuitansi",
+   "nar": "Inflasi adalah potongan yang tidak punya kuitansi. Saldomu naik, tapi apa yang bisa kamu beli dengan saldo itu turun.",
+   "cap": "Inflasi: potongan tak terlihat"
+  },
+  {
+   "layout": "item",
+   "kicker": "Angkanya sekarang",
+   "preco": "dua koma delapan delapan persen",
+   "nar": "Angka resminya, inflasi tahunan per Juli dua ribu dua puluh enam, adalah dua koma delapan delapan persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dari mana angka itu",
+   "preco": "indeks harga konsumen",
+   "nar": "Angka itu datang dari indeks harga konsumen, yang naik dari seratus delapan koma enam nol menjadi seratus sebelas koma tujuh tiga dalam setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada juga inflasi inti",
+   "preco": "dua koma tujuh enam persen",
+   "nar": "Ada juga inflasi inti, yang membuang komponen paling bergejolak. Angkanya dua koma tujuh enam persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa dua angka",
+   "preco": "satu lebih stabil",
+   "nar": "Dua angka itu ada karena yang satu lebih stabil dari yang lain. Untuk keputusan jangka panjang, yang inti biasanya lebih berguna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu peringatan soal angka ini",
+   "preco": "inflasimu bisa beda",
+   "nar": "Satu peringatan yang jujur. Angka inflasi itu rata-rata nasional atas keranjang belanja tertentu. Kalau pengeluaranmu berat di komponen yang naik lebih cepat, inflasi yang kamu rasakan lebih tinggi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Apa artinya buat simpanan",
+   "preco": "titik impas",
+   "nar": "Buat uang yang mengendap, artinya begini. Ada satu titik impas, dan di bawah titik itu kamu mundur meski saldomu naik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Titik impasnya",
+   "preco": "bunga bersih sama dengan inflasi",
+   "nar": "Titik impasnya adalah saat bunga bersihmu persis sama dengan inflasi. Di situ dayamu beli tidak bertambah sama sekali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perhatikan katanya",
+   "preco": "bunga BERSIH",
+   "nar": "Perhatikan kata bersih di kalimat tadi. Titik impasnya diukur setelah pajak, bukan sebelum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu yang bikin kaget",
+   "preco": "syaratnya lebih tinggi dari dugaan",
+   "nar": "Dan itu yang biasanya mengagetkan orang. Bunga bruto yang dibutuhkan untuk sekadar impas lebih tinggi dari angka inflasi itu sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ia bekerja tiap tahun",
+   "preco": "ke arah yang berlawanan",
+   "nar": "Inflasi juga bekerja seperti bunga majemuk, hanya ke arah yang berlawanan. Ia menggerus dasar yang sudah tergerus tahun sebelumnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua potongan sudah jelas",
+   "sub": "mari hitung penuh",
+   "nar": "Kita sudah punya kedua potongan dan kedua angkanya. Berapa hasilnya kalau dijalankan sampai habis?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sepuluh juta rupiah",
+   "sub": "satu tahun",
+   "nar": "Ambil satu angka yang mudah dibayangkan. Sepuluh juta rupiah, disimpan satu tahun penuh.",
+   "cap": "Hitungan penuh sepuluh juta"
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu premis dulu",
+   "preco": "saya asumsikan bunganya",
+   "nar": "Satu premis yang saya sebut terus terang. Tarif deposito berbeda tiap bank dan tiap tenor, jadi angka bunga di sini adalah asumsi, bukan kutipan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Asumsinya",
+   "preco": "lima koma lima persen",
+   "nar": "Anggap saja depositomu memberi lima koma lima persen setahun. Kamu bisa mengganti angka ini dengan tarif bankmu sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bunga brutonya",
+   "preco": "lima ratus lima puluh ribu",
+   "nar": "Bunga bruto setahun jadi lima ratus lima puluh ribu rupiah. Ini angka yang muncul di brosur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pajaknya",
+   "preco": "seratus sepuluh ribu",
+   "nar": "Pajak dua puluh persen atas jumlah itu adalah seratus sepuluh ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bunga bersihnya",
+   "preco": "empat ratus empat puluh ribu",
+   "nar": "Yang benar-benar masuk ke rekeningmu adalah empat ratus empat puluh ribu rupiah. Itu setara empat koma empat persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang inflasi",
+   "preco": "dua ratus delapan puluh delapan ribu",
+   "nar": "Sekarang inflasi. Dengan dua koma delapan delapan persen, daya beli sepuluh juta rupiahmu berkurang setara dua ratus delapan puluh delapan ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dari bunga brosur ke sisa nyata",
+   "itens": [
+    "Bruto",
+    "Bersih",
+    "Nyata"
+   ],
+   "alturas": [
+    100,
+    80,
+    28
+   ],
+   "nar": "Sisa nyatanya seratus lima puluh dua ribu rupiah. Dari lima ratus lima puluh ribu yang dijanjikan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dalam persen",
+   "preco": "sekitar satu setengah",
+   "nar": "Dalam persentase, keuntungan nyatamu sekitar satu koma lima persen setahun. Bukan lima koma lima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perhatikan proporsinya",
+   "preco": "yang tersisa kurang dari sepertiga",
+   "nar": "Perhatikan proporsinya, karena di situ kejutannya. Yang tersisa kurang dari sepertiga angka yang dipasang di brosur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ini kasus normal",
+   "preco": "bukan skenario buruk",
+   "nar": "Dan ini bukan skenario buruk. Ini hitungan dengan angka resmi hari ini, pada asumsi bunga yang wajar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara memakai hitungan ini",
+   "preco": "ganti satu angka",
+   "nar": "Cara memakai hitungan ini gampang. Ganti satu angka saja, yaitu tarif bankmu, dan seluruh urutannya tetap berlaku persis sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau bunganya lebih rendah",
+   "preco": "titik impas mendekat",
+   "nar": "Kalau bunga bankmu lebih rendah dari asumsi tadi, sisa nyatanya mengecil cepat. Di bawah kira-kira tiga koma enam persen bruto, kamu berhenti maju.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angkanya sudah jelas",
+   "sub": "lalu deposito untuk apa?",
+   "nar": "Kalau sisanya setipis itu, buat apa deposito ada?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Deposito punya tugas",
+   "sub": "bukan tumbuh",
+   "nar": "Deposito bukan alat untuk menumbuhkan kekayaan, dan memang tidak pernah dirancang untuk itu.",
+   "cap": "Kapan deposito tetap masuk akal"
+  },
+  {
+   "layout": "item",
+   "kicker": "Tugasnya",
+   "preco": "menjaga, bukan menambah",
+   "nar": "Tugasnya menjaga nilai dan memastikan uangnya ada saat dibutuhkan. Itu pekerjaan yang berbeda dari menumbuhkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kasus pertama",
+   "preco": "dana darurat",
+   "nar": "Kasus pertama yang jelas adalah dana darurat. Uang yang harus ada persis saat keadaan memburuk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa cocok",
+   "preco": "nilainya tidak berayun",
+   "nar": "Cocok karena nilainya tidak berayun. Dana darurat yang turun tiga puluh persen justru gagal tepat saat kamu memerlukannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kasus kedua",
+   "preco": "tujuan dekat",
+   "nar": "Kasus kedua adalah uang untuk tujuan yang dekat. Biaya yang sudah pasti keluar dalam satu atau dua tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa cocok",
+   "preco": "waktunya terlalu pendek",
+   "nar": "Untuk jangka sependek itu, instrumen yang bisa turun bukan pilihan. Waktunya tidak cukup untuk pulih.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kasus ketiga",
+   "preco": "menunggu keputusan",
+   "nar": "Kasus ketiga adalah uang yang sedang menunggu. Kamu belum memutuskan mau diapakan, dan tidak mau ia menganggur begitu saja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di ketiga kasus itu",
+   "preco": "satu setengah persen cukup",
+   "nar": "Di ketiga kasus itu, keuntungan nyata satu setengah persen sudah memadai. Kamu memang tidak sedang membayar untuk pertumbuhan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada juga sisi biaya",
+   "preco": "uang terkunci",
+   "nar": "Ada sisi lain yang perlu disebut. Uang di deposito terkunci sampai jatuh tempo, dan itu punya harga tersendiri saat peluang lain muncul.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak cocok",
+   "preco": "dana pensiun puluhan tahun",
+   "nar": "Yang tidak cocok adalah menaruh dana pensiun puluhan tahun di sana. Selisih kecil tiap tahun jadi jurang besar dalam tiga puluh tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi pertanyaannya bukan",
+   "preco": "bagus atau jelek",
+   "nar": "Jadi pertanyaan yang benar bukan apakah deposito bagus atau jelek. Pertanyaannya adalah untuk pekerjaan yang mana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sudah jelas tugasnya",
+   "sub": "apa yang sering salah?",
+   "nar": "Tugasnya sudah jelas. Kesalahan apa yang paling sering terjadi di sekitarnya?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Empat kesalahan",
+   "sub": "yang paling mahal",
+   "nar": "Kesalahan pertama adalah membandingkan bunga bruto deposito dengan imbal hasil bersih instrumen lain.",
+   "cap": "Empat kesalahan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa mahal",
+   "preco": "menang di atas kertas saja",
+   "nar": "Mahal karena deposito jadi terlihat menang di atas kertas, padahal perbandingannya tidak setara sejak awal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan kedua",
+   "preco": "lupa inflasi",
+   "nar": "Kedua, melihat saldo naik dan menyimpulkan bahwa kamu maju. Saldo naik dan daya beli turun bisa terjadi bersamaan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan ketiga",
+   "preco": "menaruh dana jangka panjang",
+   "nar": "Ketiga, memakai deposito untuk uang yang tidak akan disentuh belasan tahun. Itu memakai alat yang salah untuk pekerjaan yang salah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan keempat",
+   "preco": "mengejar tenor terpanjang",
+   "nar": "Keempat, mengunci tenor terpanjang demi bunga sedikit lebih tinggi, lalu membutuhkan uangnya di tengah jalan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa itu mahal",
+   "preco": "penalti memakan selisihnya",
+   "nar": "Penalti pencairan sebelum jatuh tempo biasanya memakan lebih dari selisih bunga yang kamu kejar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang bisa kamu lakukan",
+   "preco": "hitung bersihmu sendiri",
+   "nar": "Yang bisa kamu lakukan hari ini gratis. Ambil tarif bankmu, kurangi dua puluh persen, lalu kurangi inflasi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka itu namanya",
+   "preco": "keuntungan nyata",
+   "nar": "Angka yang keluar dari situ adalah keuntungan nyatamu. Itu satu-satunya angka yang layak dibandingkan dengan apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu tanyakan",
+   "preco": "untuk pekerjaan apa",
+   "nar": "Lalu tanyakan untuk pekerjaan apa uang ini ada. Kalau jawabannya menjaga, deposito masuk akal walau angkanya tipis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu catatan jujur",
+   "preco": "angka berubah",
+   "nar": "Satu catatan jujur untuk menutup. Suku bunga acuan dan inflasi berubah tiap bulan, jadi hitungan ini perlu diulang, bukan dihafal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak berubah",
+   "preco": "urutan potongannya",
+   "nar": "Yang tidak berubah adalah urutannya. Bruto, lalu pajak, lalu inflasi. Urutan itu tetap sama berapa pun angkanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa urutannya penting",
+   "preco": "pajak dulu, baru inflasi",
+   "nar": "Urutan itu penting karena banyak orang mengurangi inflasi dari bunga bruto dan berhenti di situ. Pajaknya harus keluar lebih dulu, dan hasilnya berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ringkasan",
+   "itens": [
+    "Bunga brosur selalu bruto",
+    "Pajak dua puluh persen, final",
+    "Bebas bila saldo di bawah tujuh setengah juta",
+    "Inflasi Juli dua koma delapan delapan persen",
+    "Yang dibandingkan: keuntungan nyata"
+   ],
+   "nar": "Lima hal untuk diingat. Bunga brosur selalu bruto. Pajaknya dua puluh persen dan final. Ada pembebasan untuk saldo kecil. Inflasi terakhir dua koma delapan delapan persen. Dan yang dibandingkan selalu keuntungan nyata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau cuma satu hal",
+   "preco": "hitung yang nyata",
+   "nar": "Kalau dari video ini kamu melakukan satu hal saja, hitung keuntungan nyata dari simpanan yang sudah kamu punya sekarang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa justru itu",
+   "preco": "keputusan lain mengikuti",
+   "nar": "Karena begitu angka itu ada di depanmu, semua keputusan berikutnya jadi jauh lebih mudah diambil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "dengan angka dan sumber",
+   "nar": "Sekian. Setiap Level, dengan angka dan sumbernya, bukan dengan kesan.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Bunga deposito",
+   "sub": "bukan yang kamu simpan",
+   "nar": "Bunga yang dipasang bank di brosur bukan bunga yang tinggal di kantongmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potongan pertama",
+   "preco": "pajak dua puluh persen",
+   "nar": "Bunga deposito kena pajak final dua puluh persen. Dipotong otomatis di bank.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potongan kedua",
+   "preco": "inflasi",
+   "nar": "Lalu inflasi tahunan, yang per Juli tercatat dua koma delapan delapan persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contohnya",
+   "preco": "lima ratus lima puluh ribu",
+   "nar": "Dari lima ratus lima puluh ribu rupiah bunga setahun, yang benar benar tersisa sekitar seratus lima puluh dua ribu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya",
+   "preco": "kurang dari sepertiga",
+   "nar": "Kurang dari sepertiga angka yang dijanjikan di brosur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Hitungannya",
+   "sub": "di video lengkap",
+   "nar": "Hitungan penuhnya ada di video lengkap.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Bunga deposito 2026: berapa yang benar-benar kamu simpan\n\n## JUDUL\nBunga Deposito 2026: Berapa yang Benar-Benar Kamu Simpan Setelah Pajak dan Inflasi\n\n## DESKRIPSI\nBank memasang satu angka di brosur deposito, dan yang tinggal di kantongmu adalah angka lain. Ini bukan tipuan dan tidak ada yang disembunyikan — cuma ada dua potongan yang tidak muncul di halaman depan: pajak atas bunga, yang dipotong otomatis sebelum uangnya sampai ke rekeningmu, dan inflasi, yang tidak muncul di mutasi rekening sama sekali tapi menentukan apakah kamu benar-benar maju.\n\nKonteksnya hari ini. Bank Indonesia menahan BI Rate di 5,75% pada Rapat Dewan Gubernur 18–19 Agustus 2026, bulan ketiga berturut-turut tanpa perubahan; suku bunga Deposit Facility 4,75% dan Lending Facility 6,50%. Sementara itu Badan Pusat Statistik mencatat inflasi tahunan Juli 2026 sebesar 2,88%, dengan inflasi inti 2,76%, seiring naiknya Indeks Harga Konsumen dari 108,60 menjadi 111,73 dalam setahun.\n\nPajaknya diatur di PP 131 Tahun 2000: bunga deposito dan tabungan dikenakan PPh sebesar 20% dari jumlah bruto, dan sifatnya final — tidak digabungkan lagi dengan penghasilan lain di laporan tahunan. Ada pengecualian yang jarang disebut: bila saldonya tidak melebihi Rp7.500.000, bunganya tidak dipotong. Perhatikan bahwa batas itu soal saldo, bukan soal besar bunganya.\n\nDi video ini kita jalankan hitungannya sampai habis atas Rp10 juta selama setahun. Tarif deposito berbeda tiap bank dan tiap tenor, jadi angka bunganya kami sebut terus terang sebagai asumsi, bukan kutipan — kamu bisa menggantinya dengan tarif bankmu sendiri. Dari bunga bruto, dikurangi pajak, lalu dikurangi inflasi, yang tersisa ternyata kurang dari sepertiga angka yang dipasang di brosur.\n\nLalu bagian yang lebih penting: kapan deposito tetap pilihan yang benar. Ada tiga pekerjaan yang memang cocok untuknya — dana darurat, tujuan yang tinggal satu atau dua tahun lagi, dan uang yang sedang menunggu keputusan. Untuk ketiganya, keuntungan nyata yang tipis sudah memadai, karena kamu memang tidak sedang membayar untuk pertumbuhan. Kita tutup dengan empat kesalahan yang paling sering terjadi dan satu langkah gratis yang bisa kamu lakukan hari ini.\n\nCatatan: suku bunga acuan dan inflasi berubah tiap bulan, jadi hitungan ini perlu diulang, bukan dihafal. Materi edukasi; bukan ajakan membeli atau menjual produk apa pun, dan tidak menyebut bank mana pun.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR\nSatu pertanyaan, karena jawabannya sering mengejutkan: kamu tahu berapa tarif bunga deposito atau tabunganmu sekarang, tanpa mengeceknya dulu? Tidak perlu menyebut nominal atau nama bank — cukup jawab tahu atau tidak. Saya kumpulkan jawabannya untuk materi berikutnya. Kalau kamu ingin hitungan yang sama dibuat untuk reksadana pasar uang, tulis saja di kolom komentar.\n\n## HASHTAG\n#Deposito #KeuanganPribadi #SetiapLevel\n\n## TAG\ndeposito, bunga deposito, pajak bunga deposito, pph final, bi rate, inflasi 2026, bps, keuntungan nyata, dana darurat, tabungan, investasi pemula, reksadana pasar uang, keuangan pribadi, indonesia, setiap level\n\n## PENGATURAN STUDIO\n- Bahasa: Indonesia (id) | Kategori: Edukasi (27)\n- Tidak dibuat untuk anak-anak\n- Deklarasi konten sintetis: YA (suara AI)\n- Lokasi: Indonesia | Lisensi: lisensi YouTube standar\n- Iklan mid-roll: aktif (di atas 8 menit)\n\n## MUSIK / LISENSI\n{TRILHA}\n\n## SUMBER\nSuku bunga acuan: Bank Indonesia menahan BI Rate di 5,75% pada Rapat Dewan Gubernur 18–19 Agustus 2026 — bulan ketiga berturut-turut — dengan Deposit Facility 4,75% dan Lending Facility 6,50%; dilaporkan secara konsisten oleh Kompas, CNN Indonesia, CNBC Indonesia, Republika, Antara dan Sindonews, semuanya mengutip Bank Indonesia (akses 19 Agustus 2026). Inflasi: Badan Pusat Statistik mencatat inflasi tahunan Juli 2026 sebesar 2,88% dan inflasi inti 2,76%, dengan Indeks Harga Konsumen naik dari 108,60 (Juli 2025) menjadi 111,73 (Juli 2026); dilaporkan secara konsisten oleh Beritasatu, Jawapos, Kompas, Republika dan Aspek. Pajak: PPh atas bunga deposito dan tabungan sebesar 20% dari jumlah bruto dan bersifat final, serta pembebasan bila saldo tidak melebihi Rp7.500.000, diatur dalam Peraturan Pemerintah Nomor 131 Tahun 2000 yang berlaku sejak 1 Januari 2001; sebagaimana diuraikan oleh Ortax dan tax-guide Pajakku, yang sama isinya. Tarif bunga deposito yang dipakai dalam simulasi adalah ASUMSI yang disebut terus terang di dalam video, bukan kutipan dari bank mana pun, karena tarif berbeda antarbank dan antartenor; hitungan turunannya (bunga bruto, potongan pajak, bunga bersih, dan sisa setelah inflasi) adalah aritmetika langsung atas asumsi tersebut dan atas angka resmi di atas. Tingkat bunga penjaminan LPS sengaja TIDAK disebutkan karena tidak ditemukan dua sumber bertanggal yang bersesuaian untuk Agustus 2026. Materi edukasi; bukan nasihat investasi, bukan rekomendasi produk, dan tidak menyebut bank mana pun.\n"
+}
