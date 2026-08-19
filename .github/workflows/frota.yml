@@ -96,10 +96,26 @@ jobs:
       # Devanagari tambem nao vem, e a falta dela NAO da erro: o cairosvg cai num
       # fallback e a legenda queimada sai VAZIA, defeito que so aparece assistindo
       # ao video pronto.
+      # 24 segundos e o tempo tipico deste passo, medido em toda rodada. Em
+      # 19/08/2026 ele pendurou DUAS vezes em duas horas — 21,5 min e 9,5 min
+      # sem sair do lugar, com o espelho do apt sem responder. Sem teto, um
+      # apt pendurado come o orcamento de 120 min do job inteiro e o pacote
+      # perde a rodada em silencio; com teto, falha em cinco minutos, aparece
+      # em vermelho e o redisparo (que passou nas duas vezes) e imediato.
+      #
+      # O retry esta aqui pelo mesmo motivo: se a causa e espelho lento, a
+      # segunda tentativa resolve sozinha e nem chega a falhar.
       - name: Instalar ffmpeg e fontes
+        timeout-minutes: 5
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk
+          set -euo pipefail
+          for tentativa in 1 2; do
+            sudo apt-get update -qq \
+              && sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk \
+              && break
+            echo "::warning::apt falhou na tentativa $tentativa — repetindo"
+            sleep 5
+          done
           ffmpeg -version | head -1
 
       - name: Instalar fabrica
