@@ -70,10 +70,52 @@ def _patch(url, sk, corpo):
     urllib.request.urlopen(req, timeout=30).read()
 
 
+# Quando o app OAuth saiu de Testing para In production (aprendizado 303).
+# Token emitido ANTES disto carrega o pavio de 7 dias e morre no proprio
+# marco, mesmo com o app ja publicado. Token emitido DEPOIS nao expira.
+PUBLICACAO_DO_APP = "2026-08-18T17:35:00+00:00"
+VALIDADE_TESTING_D = 7
+
+
 def tokens_do_banco(sb, sk):
-    linhas = _get(f"{sb}/rest/v1/config?chave=like.yt_token_*&select=chave,valor", sk)
-    return {l["chave"].replace("yt_token_", ""): l["valor"] for l in linhas
-            if isinstance(l.get("valor"), dict) and l["valor"].get("refresh_token")}
+    """slug -> token. Traz `atualizado_em` junto, dentro do proprio dict.
+
+    A idade do token e o unico numero que PREVE a morte, e ate 19/08/2026 a
+    maquina nao a tinha: `config.atualizado_em` so recebe o default `now()` no
+    INSERT, nao ha trigger, e o `trocar` gravava por PATCH sem tocar na coluna.
+    Resultado: as doze linhas diziam 11/08 mesmo depois de reautorizacoes em
+    12/08 e 18/08, e nao havia como conferir se a correcao do modo Testing
+    pegou. Por isso `_emitido` viaja com o token.
+    """
+    linhas = _get(
+        f"{sb}/rest/v1/config?chave=like.yt_token_*&select=chave,valor,atualizado_em",
+        sk)
+    fora = {}
+    for l in linhas:
+        v = l.get("valor")
+        if isinstance(v, dict) and v.get("refresh_token"):
+            fora[l["chave"].replace("yt_token_", "")] = dict(
+                v, _emitido=l.get("atualizado_em"))
+    return fora
+
+
+def _idade(emitido):
+    """(dias de vida, morte prevista) — ou (None, None) se a data faltar."""
+    import datetime as dt
+
+    if not emitido:
+        return None, None
+    try:
+        nasceu = dt.datetime.fromisoformat(emitido.replace("Z", "+00:00"))
+    except ValueError:
+        return None, None
+    if not nasceu.tzinfo:
+        nasceu = nasceu.replace(tzinfo=dt.timezone.utc)
+    dias = (dt.datetime.now(dt.timezone.utc) - nasceu).total_seconds() / 86400
+    corte = dt.datetime.fromisoformat(PUBLICACAO_DO_APP)
+    morre = (nasceu + dt.timedelta(days=VALIDADE_TESTING_D)
+             if nasceu < corte else None)
+    return dias, morre
 
 
 def canais_do_banco(sb, sk):
@@ -176,9 +218,14 @@ def cmd_trocar(_):
                   f"canais.youtube_channel_id — token NAO gravado")
             falhas += 1
             continue
+        # `atualizado_em` explicito: nao ha trigger na tabela e o default so
+        # vale para INSERT. Sem esta linha a coluna congela na criacao da
+        # linha e o `vigiar` nao consegue dizer a idade de nada.
+        import datetime as dt
         corpo = {"valor": {"type": "authorized_user", "scopes": ESCOPOS,
                            "client_id": cid, "token_uri": TOKEN_URI,
-                           "client_secret": cs, "refresh_token": rt}}
+                           "client_secret": cs, "refresh_token": rt},
+                 "atualizado_em": dt.datetime.now(dt.timezone.utc).isoformat()}
         _patch(f"{sb}/rest/v1/config?chave=eq.yt_token_{slug}", sk, corpo)
         print(f"  OK {slug:20} <- {titulo}")
     print(f"\n{len(urls) - falhas}/{len(urls)} tokens gravados")
@@ -186,19 +233,35 @@ def cmd_trocar(_):
 
 
 def cmd_vigiar(_):
-    """Testa todos. O silencio de um token morto e o que quebra a producao."""
+    """Testa todos. O silencio de um token morto e o que quebra a producao.
+
+    Diz tambem a IDADE e, para token emitido antes da publicacao do app,
+    a data em que ele vai morrer. Sem isso o unico aviso e o proprio
+    apagao: o agla-level foi testado VIVO as 21:20 e morreu as 22:15,
+    onze minutos depois do marco de 7 dias da emissao dele.
+    """
     sb, sk = _sb()
     tokens = tokens_do_banco(sb, sk)
-    vivos, mortos = [], []
+    vivos, mortos, condenados = [], [], []
     for slug, tok in sorted(tokens.items()):
+        dias, morre = _idade(tok.get("_emitido"))
+        idade = f"{dias:5.1f}d" if dias is not None else "  ? d"
         acc, motivo = refrescar(tok)
         if acc:
             vivos.append(slug)
-            print(f"  VIVO  {slug}")
+            aviso = ""
+            if morre:
+                condenados.append(slug)
+                aviso = (f"  <- emitido em modo Testing, morre "
+                         f"{morre:%d/%m %H:%M} UTC")
+            print(f"  VIVO  {idade}  {slug}{aviso}")
         else:
             mortos.append(slug)
-            print(f"  MORTO {slug}: {motivo}")
+            print(f"  MORTO {idade}  {slug}: {motivo}")
     print(f"\n{len(vivos)} vivos, {len(mortos)} mortos, de {len(tokens)}")
+    if condenados:
+        print(f"AVISO: {len(condenados)} token(s) com pavio de 7 dias aceso — "
+              f"reautorize junto com os mortos: " + ", ".join(condenados))
     if mortos:
         print("Reautorize estes: " + ", ".join(mortos))
         print("  python3 fabrica/tokens.py link")
