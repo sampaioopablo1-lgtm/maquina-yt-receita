@@ -1,0 +1,699 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-007",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#C1121F",
+  "c2": "#457B9D",
+  "bg": "#F1F0EA"
+ },
+ "thumb": {
+  "l1": "TEN SAM DOCHÓD",
+  "l2": "dwie różne kwoty"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam wniosek",
+   "sub": "dwie różne kwoty",
+   "nar": "Ta sama osoba, ten sam dochód, ten sam miesiąc. Dwa banki i dwie zupełnie różne kwoty kredytu.",
+   "cap": "Ten sam wniosek, dwie kwoty"
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie pomyłka",
+   "preco": "tak działa system",
+   "nar": "To nie jest pomyłka ani złośliwość jednego z nich. Tak po prostu działa liczenie zdolności kredytowej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to boli",
+   "preco": "planujesz na złej liczbie",
+   "nar": "Problem jest praktyczny. Jeśli planujesz zakup na podstawie własnego dochodu, planujesz na liczbie, której bank nigdy nie użyje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bank nie liczy dochodu",
+   "preco": "liczy nadwyżkę",
+   "nar": "Bank nie pyta, ile zarabiasz. Pyta, ile ci zostaje po wszystkim. To dwie różne liczby.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I nie dzisiejszej raty",
+   "preco": "tylko wyższej",
+   "nar": "I nie sprawdza raty przy dzisiejszym oprocentowaniu. Sprawdza ją przy wyższym, na wypadek gdyby stopy wróciły w górę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dziś stopa NBP",
+   "preco": "trzy przecinek siedemdziesiąt pięć",
+   "nar": "Dla kontekstu: stopa referencyjna NBP wynosi trzy przecinek siedemdziesiąt pięć procent i trzyma się na tym poziomie od marca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A WIBOR",
+   "preco": "trzy przecinek osiemdziesiąt cztery",
+   "nar": "WIBOR trzymiesięczny, od którego zależy większość rat, jest przy trzech przecinek osiemdziesięciu czterech.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale bank liczy wyżej",
+   "preco": "to jest bufor",
+   "nar": "Bank i tak policzy twoją ratę przy stawce wyższej niż ta. I to jest pierwszy powód, dla którego twoja zdolność jest niższa, niż liczysz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to zmienia",
+   "preco": "całą listę mieszkań",
+   "nar": "Różnica między jedną kwotą a drugą to nie jest szczegół w tabelce. To inna lista mieszkań, na które w ogóle patrzysz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co zobaczymy",
+   "itens": [
+    "Co bank liczy zamiast dochodu",
+    "Bufor, czyli test przy wyższej stopie",
+    "Co obniża zdolność, choć o tym nie myślisz",
+    "Co ją realnie podnosi",
+    "Jak się przygotować przed wnioskiem"
+   ],
+   "nar": "Pięć części. Co bank liczy zamiast dochodu. Czym jest bufor. Co obniża zdolność, choć nikt o tym nie myśli. Co ją realnie podnosi. I jak przygotować się przed złożeniem wniosku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno od razu",
+   "preco": "to nie jest doradztwo",
+   "nar": "Jedno od razu. To nie jest doradztwo kredytowe i nie polecam żadnego banku. Opisujemy mechanizm.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada kanału",
+   "preco": "liczby ze źródłem",
+   "nar": "I obowiązuje zasada kanału. Liczby ze źródłem i datą, a czego nie da się zmierzyć, tego nie mówimy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zaczynamy",
+   "sub": "co bank liczy zamiast dochodu?",
+   "nar": "Zacznijmy od pierwszej różnicy, bo z niej wynika reszta. Co bank liczy zamiast twojego dochodu?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nadwyżka",
+   "sub": "to, co zostaje",
+   "nar": "Bank liczy nadwyżkę. Bierze twój dochód netto i odejmuje od niego wszystko, co musisz płacić co miesiąc.",
+   "cap": "Co bank liczy zamiast dochodu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsze odjęcie",
+   "preco": "koszty utrzymania",
+   "nar": "Pierwsze odjęcie to koszty utrzymania. Bank nie pyta, ile wydajesz. Przyjmuje własną kwotę na osobę w gospodarstwie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego rodzina zmienia wynik",
+   "preco": "każda osoba kosztuje",
+   "nar": "Dlatego dwie osoby o tym samym dochodzie, ale z inną liczbą dzieci, dostają różne kwoty. Każda osoba w domu ma swój koszt w tabeli banku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugie odjęcie",
+   "preco": "twoje raty",
+   "nar": "Drugie odjęcie to twoje obecne raty. Kredyt samochodowy albo ratalny telefon. Wszystko, co widać w rejestrze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I tu już się rozjeżdża",
+   "preco": "każdy bank ma własną tabelę",
+   "nar": "I tu zaczyna się rozjazd między bankami. Przyjmowane koszty utrzymania są wewnętrzną zasadą każdego z nich i nie są takie same.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecie odjęcie",
+   "preco": "limity, nawet niewykorzystane",
+   "nar": "Trzecie odjęcie zaskakuje najczęściej. Limit na karcie i debet w koncie liczą się nawet wtedy, gdy ich nie używasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego",
+   "preco": "bank liczy to, co MOŻESZ wydać",
+   "nar": "Bo bank nie liczy tego, co wydałeś. Liczy to, co możesz wydać jutro, bez pytania go o zgodę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A twoja umowa",
+   "preco": "typ zatrudnienia waży",
+   "nar": "Waży też forma zatrudnienia. Umowa o pracę na czas nieokreślony jest dla banku najprostsza do policzenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Działalność",
+   "preco": "liczona inaczej",
+   "nar": "Przy własnej działalności bank nie patrzy na przychód, tylko na dochód, i często uśrednia go z kilkunastu miesięcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stąd ta różnica",
+   "preco": "przychód to nie zdolność",
+   "nar": "I stąd bierze się najczęstsze rozczarowanie w całym temacie. Wysoki przychód z faktur nie jest wysoką zdolnością.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zlecenie i dzieło",
+   "preco": "liczone ostrożniej",
+   "nar": "Umowa zlecenie i umowa o dzieło są liczone ostrożniej. Bank patrzy, jak długo trwają i czy powtarzają się co miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ryczałt jeszcze inaczej",
+   "preco": "przyjmowany procent",
+   "nar": "A przy ryczałcie część banków przyjmuje ustalony procent przychodu jako dochód. Każdy bank ma tu własny procent, i to jedno z miejsc, gdzie wyniki się rozjeżdżają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Liczy się też staż",
+   "preco": "jak długo, nie tylko ile",
+   "nar": "Waży również to, jak długo masz obecny dochód. Bank chce zobaczyć historię, a nie jeden dobry miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mamy nadwyżkę",
+   "sub": "to skąd bufor?",
+   "nar": "Wiemy już, co bank odejmuje. Ale dlaczego liczy ratę wyższą niż dzisiejsza?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bufor",
+   "sub": "test przy wyższej stopie",
+   "nar": "Bank nie sprawdza, czy stać cię na dzisiejszą ratę. Sprawdza, czy będzie cię stać, jeśli stopy wzrosną.",
+   "cap": "Bufor: test przy wyższej stopie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd to się wzięło",
+   "preco": "z doświadczenia rynku",
+   "nar": "Ten wymóg nie jest kaprysem banku. Jest odpowiedzią nadzoru na to, co działo się z ratami, gdy stopy szły ostro w górę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak to wygląda",
+   "preco": "doliczają punkty",
+   "nar": "W praktyce bank dolicza do dzisiejszego oprocentowania kilka punktów procentowych i dopiero z tego liczy ratę do testu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Efekt",
+   "preco": "rata testowa jest wyższa",
+   "nar": "Efekt jest taki, że rata w kalkulatorze banku jest wyższa niż ta, którą faktycznie zapłacisz w pierwszym miesiącu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I dlatego",
+   "preco": "zdolność spada",
+   "nar": "A skoro rata testowa jest wyższa, to zdolność wychodzi niższa. To nie błąd kalkulatora, to jego cel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Skala jest odczuwalna",
+   "preco": "to nie jest zaokrąglenie",
+   "nar": "To nie jest kosmetyka na końcu wyliczenia. Kilka punktów doliczonych do oprocentowania przesuwa ratę testową na tyle, że zmienia całą kwotę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bufor bywa różny",
+   "preco": "bank od banku",
+   "nar": "Wysokość bufora bywa różna w różnych bankach i przy różnych typach oprocentowania. To kolejny powód, dla którego wyniki się rozjeżdżają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stałe oprocentowanie",
+   "preco": "zwykle liczone łagodniej",
+   "nar": "Przy oprocentowaniu okresowo stałym bufor bywa mniejszy, bo przez kilka pierwszych lat rata z definicji się nie zmienia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To ma konsekwencję",
+   "preco": "ten sam wniosek, dwie ścieżki",
+   "nar": "Ta sama osoba może więc dostać różne kwoty w jednym banku, zależnie od tego, czy wybiera stałe czy zmienne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Warto to wiedzieć wcześniej",
+   "preco": "zanim wybierzesz",
+   "nar": "Warto o tym wiedzieć przed rozmową, a nie po. To pytanie, które możesz zadać sam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I jeszcze jedno",
+   "preco": "WIBOR odchodzi",
+   "nar": "I jeszcze jedna rzecz na horyzoncie. WIBOR ma zostać zastąpiony wskaźnikiem POLSTR, a nowe umowy przestaną się na nim opierać od stycznia dwa tysiące dwudziestego ósmego roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bufor działa też dla ciebie",
+   "preco": "margines, nie kara",
+   "nar": "Bufor bywa odbierany jako utrudnienie. Ale to jest margines na wypadek, gdyby rata wzrosła. A płacić będziesz ty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rozumiemy bufor",
+   "sub": "to co jeszcze obniża zdolność?",
+   "nar": "Rozumiemy już mechanizm. Co jeszcze potrafi obniżyć zdolność, choć nikt o tym nie myśli?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ciche obciążenia",
+   "sub": "cztery rzeczy",
+   "nar": "Są cztery rzeczy, które obniżają zdolność, a prawie nikt o nich nie myśli przed złożeniem wniosku.",
+   "cap": "Co obniża zdolność"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "karta z wysokim limitem",
+   "nar": "Pierwsza to karta kredytowa z wysokim limitem, której nie używasz. Sam limit jest liczony jako możliwe zadłużenie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "debet w koncie",
+   "nar": "Druga to debet w koncie osobistym. Ta sama logika i ten sam skutek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "raty na sprzęt",
+   "nar": "Trzecia to raty na sprzęt, nawet zerowe. Zero procent dla ciebie wciąż jest zobowiązaniem w rejestrze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarta",
+   "preco": "częste zapytania",
+   "nar": "Czwarta jest subtelniejsza. Wiele wniosków kredytowych złożonych w krótkim czasie zostawia ślad w rejestrze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tego wynika",
+   "preco": "porządki przed wnioskiem",
+   "nar": "Wniosek praktyczny jest prosty. Porządki w zobowiązaniach robi się PRZED wnioskiem, nie w jego trakcie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to trwa",
+   "preco": "zamknięcie limitu nie jest natychmiastowe",
+   "nar": "I warto zacząć wcześniej, bo zamknięcie limitu i aktualizacja rejestru potrzebują czasu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest jeszcze cudzy kredyt",
+   "preco": "poręczenie to zobowiązanie",
+   "nar": "Jest też coś, o czym łatwo zapomnieć. Kredyt, który poręczyłeś albo podpisałeś z kimś, obciąża również twoją zdolność.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest też odwrotna strona",
+   "preco": "historia się liczy",
+   "nar": "Jest też druga strona tej samej monety. Brak jakiejkolwiek historii kredytowej też nie pomaga, bo bank nie ma czego oceniać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czyli nie chodzi o zero",
+   "preco": "chodzi o porządek",
+   "nar": "Nie chodzi więc o to, żeby nie mieć nic. Chodzi o to, żeby twoje zobowiązania były spłacane w terminie i nie zajmowały miejsca bez powodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I stałe płatności",
+   "preco": "alimenty, leasing",
+   "nar": "Dochodzą do tego stałe płatności spoza rejestru. Alimenty czy leasing też są odejmowane, bo co miesiąc wychodzą z konta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To jasne",
+   "sub": "a co ją podnosi?",
+   "nar": "Wiemy, co obniża. A co realnie podnosi zdolność?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery dźwignie",
+   "sub": "i ich koszt",
+   "nar": "Są cztery sposoby, żeby podnieść zdolność. Każdy działa, i każdy ma cenę, o której warto wiedzieć.",
+   "cap": "Co realnie ją podnosi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "dłuższy okres",
+   "nar": "Pierwsza to wydłużenie okresu kredytowania. Rata spada, więc zdolność rośnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cena",
+   "preco": "więcej odsetek w sumie",
+   "nar": "Cena jest jednak realna. Przy dłuższym okresie zapłacisz więcej odsetek w całym kredycie, nawet jeśli miesięcznie jest lżej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Policz to na swoim przypadku",
+   "preco": "suma odsetek, nie rata",
+   "nar": "Wydłużenie okresu wygląda kusząco w kalkulatorze. Policz jednak sumę odsetek w obu wariantach, zanim uznasz to za wygraną.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "wyższy wkład własny",
+   "nar": "Druga to wyższy wkład własny. Mniejszy kredyt to mniejsza rata i często lepsza marża.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego marża spada",
+   "preco": "mniejsze ryzyko banku",
+   "nar": "Marża spada, bo bank ryzykuje mniej, gdy pożycza mniejszą część wartości nieruchomości.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "współkredytobiorca",
+   "nar": "Trzecia to dołączenie współkredytobiorcy. Dwa dochody liczą się razem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale uwaga",
+   "preco": "to zobowiązanie na lata",
+   "nar": "Tylko że to nie jest formalność. Współkredytobiorca odpowiada za dług tak samo jak ty, przez cały okres.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarta",
+   "preco": "porządek w zobowiązaniach",
+   "nar": "Czwarta to ta z poprzedniej części. Zamknięcie limitów i spłacenie drobnych rat potrafi zmienić wynik bez zmiany dochodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uwaga przy dwóch osobach",
+   "preco": "jego raty też się liczą",
+   "nar": "Przy dwóch osobach bank liczy oba dochody, ale też oba zestawy zobowiązań. Jeśli druga osoba ma własne raty, zysk bywa mniejszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co NIE działa",
+   "preco": "podwyżka tuż przed wnioskiem",
+   "nar": "A co zwykle nie działa tak, jak się liczy? Podwyżka na miesiąc przed wnioskiem. Bank chce zobaczyć dochód w dłuższym okresie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ani zmiana pracy",
+   "preco": "nawet na lepszą",
+   "nar": "Ani zmiana pracy tuż przed wnioskiem, nawet na lepiej płatną. Świeży okres próbny jest dla banku ryzykiem, a nie awansem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ani premia raz w roku",
+   "preco": "liczona ostrożnie",
+   "nar": "Nie działa też liczenie na premię czy nadgodziny. Dochód nieregularny bank przyjmuje częściowo albo pomija.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mamy dźwignie",
+   "sub": "to jak się przygotować?",
+   "nar": "Mamy komplet mechanizmów. Jak się z tym praktycznie przygotować?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pięć kroków",
+   "sub": "przed wnioskiem",
+   "nar": "Pięć kroków, wszystkie do zrobienia zanim w ogóle wejdziesz do banku.",
+   "cap": "Jak się przygotować"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy",
+   "preco": "pobierz swój raport",
+   "nar": "Pierwszy. Pobierz własny raport z rejestru kredytowego i zobacz to, co widzi bank. Masz do niego prawo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Po co",
+   "preco": "żeby nie było niespodzianek",
+   "nar": "Nie po to, żeby coś ukryć, tylko żeby nie dowiedzieć się o starym limicie dopiero przy wniosku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi",
+   "preco": "policz swoją nadwyżkę",
+   "nar": "Drugi. Policz własną nadwyżkę tak, jak liczy ją bank. Dochód netto minus koszty utrzymania minus wszystkie raty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci",
+   "preco": "dolicz bufor sam",
+   "nar": "Trzeci. Do dzisiejszego oprocentowania dolicz kilka punktów i policz ratę z tej wyższej stawki. To będzie bliżej wyniku banku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarty",
+   "preco": "sprawdź w kilku bankach",
+   "nar": "Czwarty, i najważniejszy w tym temacie. Sprawdź zdolność w kilku bankach, bo to jedyny sposób, żeby zobaczyć rozrzut na własnym przypadku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I poproś o wyliczenie",
+   "preco": "z zapisanymi założeniami",
+   "nar": "Poproś też o wyliczenie z zapisanymi założeniami. Wtedy masz co porównać, zamiast pamiętać dwie kwoty z rozmowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Piąty",
+   "preco": "zapytaj o bufor i o stałe",
+   "nar": "Piąty. Zapytaj wprost o dwie rzeczy: jaki bufor stosują i jak zmienia się kwota przy oprocentowaniu stałym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna zasada przy porównaniu",
+   "preco": "te same założenia",
+   "nar": "I jedna zasada przy porównywaniu. Pytaj wszędzie o ten sam okres i ten sam wkład własny. Inaczej porównujesz dwie różne sprawy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to zajmuje",
+   "preco": "kilka dni, nie miesięcy",
+   "nar": "Wszystkie pięć to kwestia kilku dni, nie miesięcy. A różnica w wyniku bywa większa niż wszystko, co ugrasz negocjując marżę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Plan gotowy",
+   "sub": "co może go zepsuć?",
+   "nar": "Plan jest gotowy. Co może go zepsuć?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery błędy",
+   "sub": "które psują wniosek",
+   "nar": "Pierwszy błąd to traktowanie kalkulatora z internetu jak decyzji banku. To orientacja, nie wynik.",
+   "cap": "Cztery błędy"
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi błąd",
+   "preco": "brać pierwszą kwotę za ostateczną",
+   "nar": "Drugi to przyjęcie pierwszej otrzymanej kwoty jako ostatecznej. To wynik jednego banku, przy jednym zestawie założeń.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci błąd",
+   "preco": "maksymalna zdolność jako cel",
+   "nar": "Trzeci jest najdroższy. Traktowanie maksymalnej zdolności jako celu. To jest granica, a nie rekomendacja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego",
+   "preco": "na granicy nie ma miejsca",
+   "nar": "Bo kredyt na granicy zdolności nie zostawia miejsca na remont, na przeprowadzkę ani na miesiąc bez premii.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarty błąd",
+   "preco": "porządki w trakcie wniosku",
+   "nar": "I czwarty. Robienie porządków w zobowiązaniach dopiero po złożeniu wniosku, gdy rejestr jeszcze ich nie widzi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wspólny mianownik",
+   "preco": "wszystkie cztery to pośpiech",
+   "nar": "Wszystkie cztery mają ten sam mianownik. Pośpiech. Każdy z nich znika, jeśli zaczniesz kilka tygodni wcześniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno zastrzeżenie",
+   "preco": "każdy bank ma własne zasady",
+   "nar": "I jedno uczciwe zastrzeżenie. Konkretne progi, bufory i koszty utrzymania są wewnętrzne dla każdego banku i zmieniają się w czasie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Podsumowanie",
+   "itens": [
+    "Bank liczy nadwyżkę, nie dochód",
+    "Rata liczona przy wyższej stopie",
+    "Limity liczą się nawet nieużywane",
+    "Stopa NBP 3,75%, WIBOR 3M 3,84%",
+    "Sprawdź w kilku bankach"
+   ],
+   "nar": "Pięć rzeczy do zapamiętania. Że bank liczy nadwyżkę, nie dochód. Że ratę testuje przy wyższej stopie. Że limity liczą się nawet nieużywane. Dzisiejsze wskaźniki. I że rozrzut widać dopiero w kilku bankach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli zrobisz jedną rzecz",
+   "preco": "policz nadwyżkę",
+   "nar": "Jeśli po tym filmie zrobisz jedną rzecz, policz własną nadwyżkę. Dochód netto minus koszty utrzymania minus raty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego akurat to",
+   "preco": "to jest liczba, którą widzi bank",
+   "nar": "Bo to jest jedyna liczba z twojego budżetu, na którą bank naprawdę patrzy. Reszta to szczegóły wokół niej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I jedno na koniec",
+   "preco": "pytanie kosztuje najmniej",
+   "nar": "I jedno na koniec. Sprawdzenie zdolności w drugim banku kosztuje kilka godzin. Różnica, którą pokazuje, bywa największa w całym procesie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "na liczbach, nie na wrażeniach",
+   "nar": "To wszystko. Kolejny Poziom, na liczbach i źródłach, nie na wrażeniach.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam dochód",
+   "sub": "dwie kwoty",
+   "nar": "Ta sama osoba, ten sam dochód, dwa banki. I dwie zupełnie różne kwoty kredytu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo bank",
+   "preco": "nie liczy dochodu",
+   "nar": "Bank nie liczy tego, ile zarabiasz. Liczy to, ile ci zostaje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I testuje",
+   "preco": "wyższą ratę",
+   "nar": "A ratę sprawdza przy stopie wyższej niż dzisiejsza. To się nazywa bufor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dziś",
+   "preco": "NBP 3,75%",
+   "nar": "Dziś stopa referencyjna NBP to trzy przecinek siedemdziesiąt pięć procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I limity",
+   "preco": "liczą się zawsze",
+   "nar": "A nieużywany limit na karcie liczy się tak, jakbyś go wydał.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Pięć kroków",
+   "sub": "na kanale",
+   "nar": "Pięć kroków przed wnioskiem, w pełnym filmie.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Zdolność kredytowa 2026: ten sam dochód, dwa banki, dwie różne kwoty\n\n## TYTUŁ\nZdolność Kredytowa 2026: Ten Sam Dochód, Dwa Banki, Dwie Różne Kwoty\n\n## OPIS\nTa sama osoba, ten sam dochód, ten sam miesiąc — i dwie zupełnie różne kwoty kredytu w dwóch bankach. To nie jest pomyłka ani złośliwość jednego z nich. Tak działa liczenie zdolności kredytowej, a różnica potrafi być na tyle duża, że zmienia plan zakupu mieszkania.\n\nŹródło nieporozumienia jest jedno: bank nie pyta, ile zarabiasz. Pyta, ile ci zostaje. Od dochodu netto odejmuje przyjęte przez siebie koszty utrzymania — własną kwotę na każdą osobę w gospodarstwie domowym — a potem wszystkie twoje raty. I jeszcze limity: karta kredytowa i debet w koncie liczą się nawet wtedy, gdy ich nie używasz, bo bank liczy nie to, co wydałeś, ale to, co możesz wydać jutro bez pytania go o zgodę.\n\nDruga rzecz, która zaskakuje, to bufor. Bank nie sprawdza, czy stać cię na dzisiejszą ratę, tylko czy będzie cię stać przy wyższym oprocentowaniu. Dla kontekstu: stopa referencyjna NBP wynosi 3,75% i obowiązuje od 5 marca 2026, a WIBOR 3M jest w okolicach 3,84%. Bank i tak policzy twoją ratę wyżej — i dlatego wynik jego kalkulatora jest niższy, niż wychodzi z twojego. Wysokość bufora bywa różna między bankami i między oprocentowaniem stałym a zmiennym, co jest kolejnym powodem, dla którego wyniki się rozjeżdżają.\n\nW filmie przechodzimy przez cztery ciche obciążenia, które obniżają zdolność, choć prawie nikt o nich nie myśli przed wnioskiem, oraz przez cztery dźwignie, które ją realnie podnoszą — każda z ceną, o której warto wiedzieć zawczasu. Pokazujemy też, dlaczego przy własnej działalności wysoki przychód z faktur nie jest wysoką zdolnością, a przy ryczałcie każdy bank przyjmuje własny procent przychodu jako dochód. Na koniec pięć kroków do zrobienia zanim w ogóle wejdziesz do banku, w kilka dni, nie miesięcy.\n\nTo nie jest doradztwo kredytowe i nie polecamy żadnego banku. Konkretne progi, bufory i przyjmowane koszty utrzymania są wewnętrznymi zasadami każdego banku i zmieniają się w czasie — dlatego jedyny sposób, żeby zobaczyć rozrzut na własnym przypadku, to sprawdzić zdolność w kilku miejscach.\n\n## ROZDZIAŁY\n{CAPITULOS}\n\n## KOMENTARZ\nJedno pytanie, bo odpowiedzi bywają zaskakujące: sprawdzałeś kiedyś zdolność w więcej niż jednym banku — i jak duża była różnica? Nie musisz podawać kwot, wystarczy rząd wielkości. Zbieram odpowiedzi do następnego materiału. A jeśli chcesz ten sam rozkład zrobiony dla działalności albo dla ryczałtu, napisz który; najczęściej wskazany idzie pierwszy.\n\n## HASHTAG\n#ZdolnośćKredytowa #KredytHipoteczny #KolejnyPoziom\n\n## TAGI\nzdolnosc kredytowa, kredyt hipoteczny, wklad wlasny, bufor, wibor, stopa referencyjna nbp, rata kredytu, bik, limit na karcie, wspolkredytobiorca, jdg kredyt, ryczalt kredyt, finanse osobiste, polska, kolejny poziom\n\n## USTAWIENIA STUDIO\n- Język: polski (pl) | Kategoria: Edukacja (27)\n- Nie jest przeznaczone dla dzieci\n- Deklaracja treści syntetycznej: TAK (głos AI)\n- Lokalizacja: Polska | Licencja: standardowa licencja YouTube\n- Reklamy mid-roll: włączone (powyżej 8 minut)\n\n## MUZYKA / LICENCJA\n{TRILHA}\n\n## ŹRÓDŁA\nWskaźniki rynkowe pochodzą z zestawień powołujących się na NBP i GPW Benchmark, zgodnych między sobą co do wartości (finwire.pl oraz bankowynet.pl, dostęp 19.08.2026): stopa referencyjna NBP 3,75% obowiązująca od 5 marca 2026 po obniżce o 25 punktów bazowych, przy czym RPP utrzymała stopy bez zmian na posiedzeniach w kwietniu, maju, czerwcu i lipcu 2026; stopa lombardowa 4,25%, depozytowa 3,25%, redyskontowa 3,80%; WIBOR 1M 3,81%, WIBOR 3M 3,84%, WIBOR 6M 3,84%, WIBOR 12M 3,84%. Informacja o zastąpieniu WIBOR wskaźnikiem POLSTR i o tym, że nowe umowy przestaną opierać się na WIBOR od stycznia 2028, pochodzi z tych samych źródeł. Opis mechanizmu liczenia zdolności — nadwyżka zamiast dochodu, przyjmowane koszty utrzymania na osobę, doliczanie bufora do oprocentowania przy teście raty, traktowanie limitów i debetu jako zobowiązań — jest opisem ZASADY, a nie parametrów konkretnego banku: progi, wysokość bufora i przyjmowane koszty są wewnętrznymi zasadami każdej instytucji, różnią się między nimi i zmieniają w czasie. Nie podajemy w tym materiale żadnej konkretnej kwoty przyznanego kredytu, ponieważ takie liczby zależą od kompletu parametrów indywidualnej sprawy. Materiał edukacyjny; nie stanowi doradztwa kredytowego, rekomendacji banku ani porady inwestycyjnej.\n"
+}
