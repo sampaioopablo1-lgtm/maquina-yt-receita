@@ -93,8 +93,9 @@ def capitulos(sp, tempos):
     respiracao entre cenas, e o erro acumula ao longo de 50 cenas jogando os
     capitulos do fim para depois do trecho que nomeiam.
 
-    Prefere abrir no `titulo` — a cena que abre secao neste formato — para o
-    capitulo levar nome de secao e nao um slide qualquer do meio.
+    Prefere abrir no `titulo` ou no `broll` — as cenas que abrem secao nos
+    dois formatos — para o capitulo levar nome de secao e nao um slide
+    qualquer do meio.
     """
     caps, t, ultimo = [], 0.0, -1e9
     for i, c in enumerate(sp["longo"]):
@@ -103,7 +104,15 @@ def capitulos(sp, tempos):
         # layout `titulo` mas o texto delas nao nomeia secao nenhuma, e virava
         # capitulo chamado "Bridge — ...", que nao ajuda ninguem a navegar.
         pode = not c.get("sem_cap")
-        if i == 0 or (pode and dt >= MIN_CAP and c.get("layout") == "titulo") \
+        # `broll` entra ao lado de `titulo` porque no formato com footage a
+        # cena que ABRE capitulo e uma cena broll — o epomeno-epipedo-004
+        # desenhou 7 capitulos e publicou 4, porque as 7 aberturas eram broll
+        # e so `titulo` contava como abertura de secao (aprendizado 311).
+        # A regra continua sendo "abertura de secao", nao "tem cap": `cap`
+        # aparece em 785 cenas de todos os layouts e viraria capitulo a cada
+        # minuto.
+        if i == 0 or (pode and dt >= MIN_CAP and
+                      c.get("layout") in ("titulo", "broll")) \
                 or (pode and dt >= MAX_CAP):
             caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
             ultimo = t

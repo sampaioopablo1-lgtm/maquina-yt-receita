@@ -23,6 +23,7 @@ RAIZ = Path(__file__).resolve().parents[1]
 sys.modules.setdefault("edge_tts", types.ModuleType("edge_tts"))
 sys.path.insert(0, str(RAIZ / "fabrica"))
 
+import broll as BR  # noqa: E402
 import confere_broll as CB  # noqa: E402
 
 SEM = {"pacote": "x-001", "longo": [{"layout": "titulo", "kicker": "k"}]}
@@ -68,10 +69,77 @@ def test_a_falha_diz_onde_procurou_e_como_gravar(tmp_path, monkeypatch, capsys):
     assert "2 cenas" in saida or "declara 2" in saida
 
 
-def test_com_chave_no_ambiente_passa(tmp_path, monkeypatch):
+def test_com_chave_e_sonda_boa_passa(tmp_path, monkeypatch):
     _sem_ambiente(monkeypatch)
     monkeypatch.setenv("PEXELS_API_KEY", "chave-de-teste")
+    monkeypatch.setattr(BR, "buscar",
+                        lambda q, k, **kw: {"videos": [{"id": 1}]})
     assert CB.main(_spec(tmp_path, COM)) == 0
+
+
+def test_chave_boa_mas_pexels_inalcancavel_falha(tmp_path, monkeypatch, capsys):
+    """O modo de falha REAL do epomeno-epipedo-004: a chave resolveu e o
+    Pexels nao respondeu. Sem sonda, isto so aparece 20 min depois."""
+    _sem_ambiente(monkeypatch)
+    monkeypatch.setenv("PEXELS_API_KEY", "chave-de-teste")
+
+    def morre(q, k, **kw):
+        raise TimeoutError("The read operation timed out")
+
+    monkeypatch.setattr(BR, "buscar", morre)
+    assert CB.main(_spec(tmp_path, COM)) == 1
+    saida = capsys.readouterr().out
+    assert "INALCANCAVEL" in saida
+    assert "TimeoutError" in saida, "nao diz qual foi o erro"
+    assert "desenho" in saida, "nao diz o que o render entregaria mesmo assim"
+
+
+def test_busca_vazia_tambem_falha(tmp_path, monkeypatch):
+    """Chave boa, rede boa, zero resultados: as cenas ainda viram desenho."""
+    _sem_ambiente(monkeypatch)
+    monkeypatch.setenv("PEXELS_API_KEY", "chave-de-teste")
+    monkeypatch.setattr(BR, "buscar",
+                        lambda q, k, **kw: {"videos": []})
+    assert CB.main(_spec(tmp_path, COM)) == 1
+
+
+def test_buscar_tenta_de_novo_antes_de_desistir(monkeypatch):
+    """Uma tentativa so nao distingue lentidao de bloqueio."""
+    import broll as BR
+
+    chamadas = []
+
+    class Falsa:
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def read(self, *a): return b'{"videos": [{"id": 7}]}'
+
+    def urlopen(req, timeout=None, context=None):
+        chamadas.append(timeout)
+        if len(chamadas) < 3:
+            raise TimeoutError("The read operation timed out")
+        return Falsa()
+
+    monkeypatch.setattr(BR.urllib.request, "urlopen", urlopen)
+    assert BR.buscar("money", "k")["videos"][0]["id"] == 7
+    assert len(chamadas) == 3, "desistiu antes das tres tentativas"
+    assert chamadas == sorted(chamadas) and chamadas[0] < chamadas[-1], \
+        "o timeout precisa crescer entre as tentativas"
+
+
+def test_buscar_levanta_o_ultimo_erro_quando_todas_falham(monkeypatch):
+    import broll as BR
+
+    def urlopen(req, timeout=None, context=None):
+        raise TimeoutError("The read operation timed out")
+
+    monkeypatch.setattr(BR.urllib.request, "urlopen", urlopen)
+    try:
+        BR.buscar("money", "k")
+    except TimeoutError:
+        pass
+    else:
+        raise AssertionError("engoliu a falha em vez de levantar")
 
 
 def test_o_portao_roda_antes_do_render():
@@ -80,3 +148,41 @@ def test_o_portao_roda_antes_do_render():
     assert "confere_broll.py" in y, "portao nao esta no workflow"
     assert y.index("confere_broll.py") < y.index("- name: Renderizar"), \
         "o portao do broll ficou DEPOIS do render"
+
+
+# ------------------------------------------- capitulo abre em broll tambem
+
+def test_broll_abre_capitulo_como_titulo():
+    """No formato com footage a cena que ABRE capitulo e broll, nao titulo.
+
+    O epomeno-epipedo-004 desenhou 7 capitulos e publicou 4: as 7 aberturas
+    eram broll, e so `titulo` contava como abertura de secao. O video foi ao
+    ar com metade da navegacao que a spec descrevia, e nenhum portao acusou —
+    a contagem de capitulos so era conhecida DEPOIS de publicar.
+    """
+    import copy_md
+
+    sp = {"longo": [
+        {"layout": "broll", "cap": "Abertura", "nar": "a"},
+        {"layout": "item", "kicker": "meio", "nar": "b"},
+        {"layout": "broll", "cap": "Segundo", "nar": "c"},
+        {"layout": "item", "kicker": "meio", "nar": "d"},
+        {"layout": "titulo", "cap": "Terceiro", "nar": "e"},
+    ]}
+    tempos = [70.0, 70.0, 70.0, 70.0, 70.0]
+    caps = copy_md.capitulos(sp, tempos)
+    assert [c.split(" ", 1)[1] for c in caps] == ["Abertura", "Segundo", "Terceiro"]
+
+
+def test_cap_sozinho_nao_faz_capitulo():
+    """A regra e "abre secao", nao "tem cap" — `cap` aparece em cena de todo
+    layout, e vira-lo em capitulo daria um capitulo por minuto."""
+    import copy_md
+
+    sp = {"longo": [
+        {"layout": "broll", "cap": "Abertura", "nar": "a"},
+        {"layout": "lista", "cap": "Uma lista qualquer", "nar": "b"},
+        {"layout": "item", "cap": "Um item qualquer", "nar": "c"},
+    ]}
+    caps = copy_md.capitulos(sp, [70.0, 70.0, 70.0])
+    assert len(caps) == 1, f"lista/item viraram capitulo: {caps}"

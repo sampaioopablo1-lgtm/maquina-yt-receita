@@ -113,6 +113,36 @@ def _valido(caminho, dd):
         return False
 
 
+def buscar(q, api_key, tentativas=3):
+    """A resposta da busca, ou levanta.
+
+    Tres tentativas com timeout crescente porque o modo de falha medido em
+    19/08/2026 nao foi 403 nem resposta vazia: foi `TimeoutError: The read
+    operation timed out` em 7 de 7 cenas do epomeno-epipedo-004, rodando em
+    runner do GitHub Actions. A MESMA chave respondia do sandbox. Uma unica
+    tentativa de 30s nao distingue "o Pexels nao fala com este IP" de "a
+    primeira conexao TLS demorou" — tres, com folga crescente, distinguem.
+    """
+    url = f"{API}?{urllib.parse.urlencode({'query': q, 'per_page': 8, 'orientation': 'landscape'})}"
+    # O Pexels devolve 403 para o User-Agent padrao do urllib ("Python-
+    # urllib/3.x") — medido em 18/08/2026 no teste de fumaca: o curl com a
+    # MESMA chave passava e o urllib nao. Sem este header a busca falharia
+    # em todo render e o broll cairia no fallback em silencio, que e o
+    # jeito mais caro de descobrir.
+    req = urllib.request.Request(
+        url, headers={"Authorization": api_key,
+                      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"})
+    ultimo = None
+    for n in range(tentativas):
+        try:
+            with urllib.request.urlopen(req, timeout=30 * (n + 1),
+                                        context=_ctx()) as r:
+                return json.load(r)
+        except Exception as e:
+            ultimo = e
+    raise ultimo
+
+
 # Por que a ULTIMA cena desistiu do broll. Fica em variavel de modulo em vez
 # de retorno para nao mudar a assinatura que os testes ja cercam.
 ULTIMO_MOTIVO = ""
@@ -146,11 +176,7 @@ def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
         # MESMA chave passava e o urllib nao. Sem este header a busca falharia
         # em todo render e o broll cairia no fallback em silencio, que e o
         # jeito mais caro de descobrir.
-        req = urllib.request.Request(
-            url, headers={"Authorization": api_key,
-                          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"})
-        with urllib.request.urlopen(req, timeout=30, context=_ctx()) as r:
-            achado = escolher(json.load(r), dd)
+        achado = escolher(buscar(q, api_key), dd)
         if not achado:
             ULTIMO_MOTIVO = (f"nenhum candidato para '{q}' (paisagem, "
                              f">= {dd + 1:.1f}s, >= 1280px)")

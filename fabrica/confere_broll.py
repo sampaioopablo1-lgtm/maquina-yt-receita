@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A spec pede footage do Pexels? Entao a chave precisa existir ANTES do render.
+"""A spec pede footage do Pexels? Entao o footage precisa ser ALCANCAVEL antes do render.
 
 Por que este portao existe (19/08/2026). O agla-level-004 declarou 7 cenas
 com layout "broll" e entregou 7 cenas de desenho. As sete cairam no fallback
@@ -21,6 +21,13 @@ contradiz — ele separa dois casos que so parecem iguais:
     pacote inteiro sai diferente do que foi desenhado. Ai falhar custa dois
     segundos e um novo disparo; nao falhar custa vinte minutos e uma vaga de
     publicacao.
+
+E por que uma SONDA e nao so a chave? Porque ter a chave nao e chegar ao
+Pexels. No epomeno-epipedo-004 a chave veio do banco — o log diz "banco
+(config.pexels_api_key)" — e mesmo assim as 7 cenas cairam, todas em
+`TimeoutError: The read operation timed out`. A mesma chave respondia do
+sandbox e nao respondia do runner. So uma busca de verdade separa "a linha
+existe" de "o footage vem".
 
 Uso:
     python3 fabrica/confere_broll.py spec.json
@@ -61,7 +68,31 @@ def main(caminho: str) -> int:
         return 1
     print(f"chave do Pexels ok ({BR.ORIGEM_DA_CHAVE}) para "
           f"{len(pedem)} cenas broll")
-    return 0
+
+    # Ter a chave nao e chegar ao Pexels. No epomeno-epipedo-004 a chave veio
+    # do banco e as 7 cenas morreram em `TimeoutError` — a mesma chave que
+    # respondia do sandbox nao respondia do runner. Uma busca de verdade
+    # aqui custa uma chamada e responde em segundos o que o render responde
+    # em vinte minutos.
+    q = next((c["broll_q"] for c in sp["longo"]
+              if c.get("layout") == "broll" and c.get("broll_q")), None)
+    if not q:
+        print("nenhuma cena broll declara broll_q — nada a sondar")
+        return 1
+    try:
+        dados = BR.buscar(q, k)
+    except Exception as e:
+        print(f"PEXELS INALCANCAVEL DAQUI: {type(e).__name__}: {e}")
+        print(f"A chave resolve, mas a busca por '{q}' nao completou em "
+              f"3 tentativas. Renderizar agora entrega {len(pedem)} cenas de "
+              f"desenho onde a spec pede footage — o pacote sai diferente do "
+              f"que foi desenhado, e isso so apareceria olhando frame.")
+        print("Caminhos: conferir se o Pexels responde a este runner, ou "
+              "tirar o layout broll da spec e despachar de novo.")
+        return 1
+    n = len(dados.get("videos", []))
+    print(f"sonda ok: '{q}' devolveu {n} resultado(s)")
+    return 0 if n else 1
 
 
 if __name__ == "__main__":
