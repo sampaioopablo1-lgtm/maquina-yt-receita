@@ -50,8 +50,13 @@ def busca_videos(sb_url: str, sb_key: str) -> list[dict]:
     # `titulo` entra porque a trava por pacote sozinha nao basta: o banco
     # guarda o nome da RODADA e a spec tem outro. Sem esta coluna a conferencia
     # por titulo devolve conjunto vazio e nao barra nada.
+    # `criado_em`, `status` e `slug` entram para a janela de 24h. Sao as tres
+    # colunas que a `v_maquina_fila` usa em `pacotes_24h`; sem elas a matriz
+    # conta uma coisa e a fila da rotina conta outra, que e exatamente o
+    # descompasso que deixou o epomeno-epipedo publicar quatro em 19/08.
     url = (f"{sb_url}/rest/v1/videos"
-           f"?select=canal,pacote,formato,youtube_id,publicado_em,erro,titulo")
+           f"?select=canal,pacote,formato,youtube_id,publicado_em,erro,titulo"
+           f",criado_em,status,slug")
     req = urllib.request.Request(
         url, headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key})
     with urllib.request.urlopen(req, timeout=60) as r:
@@ -108,6 +113,59 @@ def titulos_no_ar(videos: list[dict]) -> set[str]:
     """Titulos ja publicados, normalizados para comparacao."""
     return {v["titulo"].strip().casefold()
             for v in videos if v.get("titulo") and v.get("youtube_id")}
+
+
+JANELA_H = 24             # a mesma janela movel da v_maquina_fila
+
+
+def _instante(txt: str):
+    """Timestamp do PostgREST em datetime com fuso, ou None se ilegivel."""
+    import datetime as dt
+
+    if not isinstance(txt, str) or not txt.strip():
+        return None
+    try:
+        d = dt.datetime.fromisoformat(txt.strip().replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return d if d.tzinfo else d.replace(tzinfo=dt.timezone.utc)
+
+
+def pacotes_na_janela(videos: list[dict], agora=None,
+                      janela_h: int = JANELA_H) -> dict[str, int]:
+    """Pacotes DISTINTOS que cada canal registrou nas ultimas `janela_h` horas.
+
+    Copia deliberada da conta de `pacotes_24h` da `v_maquina_fila`: mesma
+    chave (`pacote`, ou o `slug` sem o sufixo `-short`), mesmo filtro de
+    status, mesma janela movel sobre `criado_em`. Duas contagens do mesmo teto
+    que discordam sao piores que uma so — o relatorio diria uma coisa e a
+    frota faria outra.
+
+    Linha sem `criado_em` fica de fora da janela. Em producao a coluna e NOT
+    NULL com default `now()`, entao isso so alcanca corpus de teste escrito a
+    mao; e o `test_a_consulta_traz_as_colunas_da_janela` e que impede a
+    coluna de sumir do `select` e zerar a conta em silencio.
+    """
+    import datetime as dt
+    import re
+
+    if agora is None:
+        agora = dt.datetime.now(dt.timezone.utc)
+    corte = agora - dt.timedelta(hours=janela_h)
+
+    por_canal: dict[str, set[str]] = {}
+    for v in videos:
+        canal = v.get("canal")
+        if not canal or v.get("status") in ("erro", "cancelado"):
+            continue
+        quando = _instante(v.get("criado_em"))
+        if quando is None or quando <= corte:
+            continue
+        chave = v.get("pacote") or re.sub(r"-short$", "", v.get("slug") or "")
+        if not chave:
+            continue
+        por_canal.setdefault(canal, set()).add(chave)
+    return {c: len(p) for c, p in por_canal.items()}
 
 
 def titulo_da_spec(sp: dict) -> str:
@@ -243,7 +301,11 @@ def proximo(videos: list[dict], n: int,
     titulos = titulos_no_ar(videos)
 
     escolhidas, descartadas = [], []
-    por_canal_hoje: dict[str, int] = {}
+    # Semeado com o que o canal JA registrou na janela, nao zerado. Nascendo
+    # vazio, o teto valia por DISPARO e nao por dia — e o diario.yml dispara
+    # de meia em meia hora. Foi assim que o epomeno-epipedo recebeu um quarto
+    # pacote em 19/08 com a trava de tres "funcionando".
+    por_canal_hoje: dict[str, int] = dict(pacotes_na_janela(videos))
 
     ordem = sorted(est["canais"].items(),
                    key=lambda kv: (-kv[1]["faltam"], kv[0]))
@@ -264,8 +326,11 @@ def proximo(videos: list[dict], n: int,
                                     "motivo": "canal ainda nao existe no YouTube"})
                 continue
             if por_canal_hoje.get(canal, 0) >= MAX_POR_DIA_POR_CANAL:
-                descartadas.append({"spec": nome,
-                                    "motivo": f"teto de {MAX_POR_DIA_POR_CANAL}/dia no canal"})
+                descartadas.append({
+                    "spec": nome,
+                    "motivo": f"teto de {MAX_POR_DIA_POR_CANAL}/dia no canal "
+                              f"({por_canal_hoje.get(canal, 0)} nas ultimas "
+                              f"{JANELA_H}h, contando o que ja esta registrado)"})
                 continue
             faltas = _falhas_baratas(nome, specs[nome])
             if faltas:
@@ -300,10 +365,15 @@ def relatorio(videos: list[dict]) -> str:
     L.append(f"MAQUINA — {pub}/{meta} longos publicados "
              f"({META_POR_CANAL} por canal em {len(est['canais'])} canais)")
     L.append("")
-    L.append(f"{'canal':22} {'no ar':>6} {'faltam':>7}  specs pendentes")
+    # A coluna `24h` e o teto que a `proximo` aplica, impresso. Enquanto ela
+    # nao existia o teto era invisivel: o relatorio dizia que a spec estava
+    # pendente e nao dizia que o canal ja tinha esgotado o dia.
+    janela = pacotes_na_janela(videos)
+    L.append(f"{'canal':22} {'no ar':>6} {'faltam':>7} {'24h':>4}  specs pendentes")
     for c, i in sorted(est["canais"].items(), key=lambda kv: (-kv[1]["faltam"], kv[0])):
         pend = ", ".join(i["specs_pendentes"]) or "—"
-        L.append(f"{c:22} {i['publicados']:6} {i['faltam']:7}  {pend}")
+        L.append(f"{c:22} {i['publicados']:6} {i['faltam']:7} "
+                 f"{janela.get(c, 0):4}  {pend}")
 
     L.append("")
     L.append(f"PROXIMO DISPARO ({len(escolhidas)} pacotes):")

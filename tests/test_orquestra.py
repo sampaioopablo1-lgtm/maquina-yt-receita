@@ -160,3 +160,124 @@ def test_orquestra_nao_colide_com_o_pacote_maquina():
     )
     assert Path(M.__file__).name == "orquestra.py"
     assert Path(M.__file__).parent.name == "fabrica"
+
+
+# ------------------------------------------------ o teto que valia por disparo
+
+def _agora():
+    import datetime as dt
+    return dt.datetime(2026, 8, 19, 18, 0, tzinfo=dt.timezone.utc)
+
+
+def _ha(horas: float) -> str:
+    import datetime as dt
+    return (_agora() - dt.timedelta(hours=horas)).isoformat()
+
+
+def test_a_consulta_traz_as_colunas_da_janela(monkeypatch):
+    """Some `criado_em` do select e a janela zera em silencio — o teto volta a
+    valer por disparo sem que nada falhe. Este teste e o que segura a coluna."""
+    vistas = {}
+
+    class Falsa:
+        def __init__(self, url, headers=None):
+            vistas["url"] = url
+
+        def __enter__(self):
+            import io
+            return io.BytesIO(b"[]")
+
+        def __exit__(self, *a):
+            return False
+
+    monkeypatch.setattr(M.urllib.request, "Request", Falsa)
+    monkeypatch.setattr(M.urllib.request, "urlopen", lambda req, timeout=0: req)
+    M.busca_videos("https://x", "k")
+    for col in ("criado_em", "status", "slug", "pacote", "canal"):
+        assert col in vistas["url"], f"{col} sumiu do select: {vistas['url']}"
+
+
+def test_janela_conta_pacote_distinto_como_a_v_maquina_fila():
+    """Mesma chave, mesmo filtro, mesma janela movel. Duas contagens do mesmo
+    teto que discordam sao piores que uma so."""
+    videos = [
+        # um pacote, duas linhas (longo + short) — vale UM
+        {"canal": "epomeno-epipedo", "pacote": "epomeno-epipedo-007",
+         "slug": "epomeno-epipedo-007", "status": "publicado",
+         "criado_em": _ha(2)},
+        {"canal": "epomeno-epipedo", "pacote": "epomeno-epipedo-007",
+         "slug": "epomeno-epipedo-007-short", "status": "publicado",
+         "criado_em": _ha(2)},
+        # sem `pacote`: a chave cai no slug sem o sufixo -short
+        {"canal": "epomeno-epipedo", "pacote": None,
+         "slug": "epomeno-epipedo-006-short", "status": "publicado",
+         "criado_em": _ha(6)},
+        {"canal": "epomeno-epipedo", "pacote": None,
+         "slug": "epomeno-epipedo-006", "status": "publicado",
+         "criado_em": _ha(6)},
+        # fora da janela
+        {"canal": "epomeno-epipedo", "pacote": "epomeno-epipedo-005",
+         "slug": "epomeno-epipedo-005", "status": "publicado",
+         "criado_em": _ha(30)},
+        # status descartado pela view
+        {"canal": "epomeno-epipedo", "pacote": "epomeno-epipedo-009",
+         "slug": "epomeno-epipedo-009", "status": "erro",
+         "criado_em": _ha(1)},
+        {"canal": "epomeno-epipedo", "pacote": "epomeno-epipedo-010",
+         "slug": "epomeno-epipedo-010", "status": "cancelado",
+         "criado_em": _ha(1)},
+    ]
+    assert M.pacotes_na_janela(videos, agora=_agora()) == {"epomeno-epipedo": 2}
+
+
+def test_janela_e_movel_e_nao_o_relogio_do_dia():
+    """A `v_maquina_fila` usa `now() - 24h`, nao meia-noite. Se a matriz usasse
+    o dia civil, um disparo as 23h e outro a 00h dariam seis pacotes em duas
+    horas com as duas contagens dizendo tres."""
+    videos = [{"canal": "c", "pacote": f"c-00{i}", "slug": f"c-00{i}",
+               "status": "publicado", "criado_em": _ha(h)}
+              for i, h in enumerate((23.9, 24.1))]
+    assert M.pacotes_na_janela(videos, agora=_agora()) == {"c": 1}
+
+
+def test_teto_conta_o_que_ja_esta_no_banco_e_nao_so_o_disparo(monkeypatch):
+    """O defeito de 19/08/2026: `por_canal_hoje` nascia VAZIO, entao contava so
+    o que a propria matriz escolhia. Com o diario.yml disparando de meia em
+    meia hora, "tres por dia" era na verdade "tres por disparo" — o
+    epomeno-epipedo recebeu o quarto pacote do dia com a trava intacta.
+
+    O teste antigo (`test_teto_de_tres_por_dia_por_canal`) passava o tempo
+    todo: ele so olhava as escolhidas de UMA chamada.
+    """
+    canal = sorted(M.canais_do_repo())[0]
+    livre, _ = M.proximo(DADOS, n=50)
+    disponiveis = [e for e in livre if e["canal"] == canal]
+    if not disponiveis:
+        pytest.skip(f"{canal} nao tem spec pendente aprovada no corpus")
+
+    # o canal ja registrou o teto inteiro nas ultimas 24h, em outro disparo
+    cheio = DADOS + [{"canal": canal, "pacote": f"{canal}-j{i}",
+                      "slug": f"{canal}-j{i}", "status": "publicado",
+                      "formato": "longo", "youtube_id": None, "titulo": None,
+                      "criado_em": _ha(i + 1)}
+                     for i in range(M.MAX_POR_DIA_POR_CANAL)]
+    escolhidas, descartadas = M.proximo(cheio, n=50)
+    assert not [e for e in escolhidas if e["canal"] == canal], \
+        f"{canal} ja tinha {M.MAX_POR_DIA_POR_CANAL} na janela e entrou de novo"
+    motivos = [d["motivo"] for d in descartadas
+               if d["spec"].startswith(canal) and "teto" in d["motivo"]]
+    assert motivos, "descartou sem dizer que foi o teto"
+    assert str(M.MAX_POR_DIA_POR_CANAL) in motivos[0], motivos[0]
+
+
+def test_janela_ignora_linha_sem_criado_em():
+    """Corpus antigo nao tem a coluna. Contar essas linhas como recentes
+    travaria a frota inteira num teto que ninguem pediu."""
+    assert M.pacotes_na_janela(DADOS, agora=_agora()) == {}
+
+
+def test_relatorio_mostra_a_janela_de_24h():
+    """Teto invisivel e teto que ninguem entende: o relatorio dizia que a spec
+    estava pendente sem dizer que o canal ja tinha esgotado o dia."""
+    txt = M.relatorio(DADOS)
+    assert "24h" in txt
