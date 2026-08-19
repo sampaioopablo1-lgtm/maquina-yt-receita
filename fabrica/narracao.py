@@ -135,6 +135,22 @@ def idioma_de(spec, forcado=None):
 FIM_DE_FRASE = ".!?…।॥"
 
 
+# Como se fecha uma pergunta, por idioma. O grego NAO usa "?": o ponto de
+# interrogacao grego e ";" (U+003B) e o codepoint dedicado U+037E, que o
+# Unicode define como canonicamente equivalente a ele. Sem esta tabela o
+# portao do gancho era IMPOSSIVEL de passar em grego — o roteiro certo
+# levava aviso e o errado tambem, o que e o mesmo que nao ter portao.
+# Medido em 19/08/2026: 5 avisos no epomeno-epipedo-004 e 5 no 005, todos
+# em pontes que JA terminavam em pergunta.
+#
+# O ";" fica fora do padrao geral de proposito: em portugues, ingles ou
+# polones ponto e virgula nao fecha pergunta nenhuma.
+GANCHO = {
+    None: ("?", ":", "\u2026", "..."),
+    "el": ("?", ";", "\u037e", ":", "\u2026", "..."),
+}
+
+
 def frases(texto):
     return [
         f.strip()
@@ -208,7 +224,7 @@ def analisa(spec, idi):
         # marca quase toda cena — nao e sinal de ponte, e o contrario disso.
         proxima_abre_cap = i + 1 < len(cenas) and cenas[i + 1].get("cap")
         if proxima_abre_cap and fs:
-            if not fs[-1].rstrip().endswith(("?", ":", "…", "...")):
+            if not fs[-1].rstrip().endswith(GANCHO.get(idi, GANCHO[None])):
                 avisos.append(f"{onde}: ultima cena do capitulo fecha com ponto final morto "
                               f"— vira '{cenas[i + 1]['cap']}' sem gancho")
 
