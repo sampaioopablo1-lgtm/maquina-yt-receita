@@ -126,3 +126,43 @@ Não é só o incidente de ontem: **o volume de rotinas está acima da
 capacidade contratada**. Depois de restabelecer o feed, é preciso decidir
 entre aumentar o compute ou reduzir permanentemente a cadência — a lista
 de 57 crons ativos merece uma revisão de necessidade real.
+
+## RESOLVIDO — 04:40 UTC
+
+Storage e PostgREST voltaram (reinício do projeto). Verificação do feed
+servido, com XML regerado às 04:38 (28.654.167 bytes):
+
+| Conferência | Resultado |
+|---|---|
+| Anúncios no XML | 2.949 |
+| Com tour virtual | 2.939 → 2.944 após rodar a publicação |
+| Com vídeo | 2.949 (100%) |
+| Fotos convertidas de PNG presentes | 280 |
+| ListingID duplicado | 0 |
+| CRECI / telefone expostos | nenhum |
+| Tempo de download | 5,6 s |
+
+O arquivo de 22:52 **não estava corrompido** — o Storage é que não
+conseguia entregá-lo. A hipótese de apagar o objeto era desnecessária.
+
+### Cadências novas (lição aplicada)
+O que voltou ficou mais folgado do que antes do incidente, para respeitar
+a capacidade da instância:
+
+| Rotina | Antes | Agora |
+|---|---|---|
+| feed-precomputar-vrsync | 10 min | **30 min** |
+| espelho-do-xml-nativo | 10 min | 30 min |
+| feed-gate-xml-vista | 5 min | 15 min |
+| visita-publicar-no-feed | 10 min | 30 min |
+| feed-trocar-fotos-convertidas | 10 min | 30 min |
+| video-imovel-publicar-no-feed | 10 min | 30 min |
+| feed-medir-fotos | 3 min | 30 min (lote 300) |
+| descricao-rica-pedir/colher | 15 min | 30 min |
+| smart-feed-sincronizar | 5 min | 15 min |
+| captacao-processar-fila | 6 min | 20 min |
+
+### Pendência de capacidade
+Segue valendo o achado: a instância satura sob a carga anterior. As
+cadências acima reduzem muito o consumo, mas convém revisar as 57 rotinas
+ativas ou aumentar o compute antes de adicionar qualquer automação nova.
