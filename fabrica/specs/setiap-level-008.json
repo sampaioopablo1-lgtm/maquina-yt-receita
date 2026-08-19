@@ -1,0 +1,713 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-008",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#E5A200",
+  "c2": "#00897B",
+  "bg": "#F7F3E8"
+ },
+ "thumb": {
+  "l1": "SALDO SAMA",
+  "l2": "pajak beda 3x"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Saldo sama",
+   "sub": "pajak beda",
+   "nar": "Dua orang keluar dari perusahaan di bulan yang sama. Saldo Jaminan Hari Tua mereka sama persis.",
+   "cap": "Saldo sama, pajak beda"
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi yang diterima",
+   "preco": "tidak sama",
+   "nar": "Yang satu membayar pajak dua belas juta lima ratus ribu rupiah. Yang lain membayar empat puluh empat juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan salah hitung",
+   "preco": "begitulah aturannya",
+   "nar": "Ini bukan salah hitung kantor pajak. Ini memang hasil dari aturan yang berlaku sekarang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang membedakan",
+   "preco": "satu tanggal",
+   "nar": "Yang membedakan bukan besar saldo. Yang membedakan adalah satu tanggal di masa lalu yang hampir tidak ada yang mencatat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini penting",
+   "preco": "kamu merencanakan dari angka kotor",
+   "nar": "Masalahnya praktis. Kalau kamu merencanakan hidup setelah resign dari angka saldo di aplikasi, kamu merencanakan dari angka yang belum dipotong.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kabar baiknya dulu",
+   "preco": "sebagian besar bebas",
+   "nar": "Kabar baiknya perlu disebut lebih dulu. Sebagian besar peserta tidak membayar apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka resminya",
+   "preco": "satu juta enam ratus empat puluh ribu",
+   "nar": "Dari Januari sampai Mei dua ribu dua puluh enam, ada satu juta tujuh ratus dua puluh ribu klaim. Sebanyak satu juta enam ratus empat puluh ribu di antaranya kena tarif nol persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang kena tarif",
+   "preco": "tujuh puluh delapan ribu",
+   "nar": "Hanya tujuh puluh delapan ribu empat ratus empat puluh satu klaim yang kena tarif lima persen. Itu angka Kementerian Keuangan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi kenapa dibahas",
+   "preco": "karena yang kena, kena keras",
+   "nar": "Jadi kenapa ini dibahas? Karena yang jatuh di sisi lain aturan bisa membayar berkali lipat, dan biasanya baru tahu saat uang sudah masuk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa besar taruhannya",
+   "preco": "puluhan juta rupiah",
+   "nar": "Selisih antara dua skenario itu bisa puluhan juta rupiah. Itu bukan detail administratif, itu beberapa bulan biaya hidup.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Yang akan kita bahas",
+   "itens": [
+    "Kapan JHT boleh dicairkan",
+    "Tarif final: nol dan lima persen",
+    "Jam dua tahun yang mengubah semuanya",
+    "Kalau lewat: tarif progresif",
+    "Hitungan berdampingan"
+   ],
+   "nar": "Lima bagian. Kapan JHT boleh cair. Berapa tarif finalnya. Apa itu jam dua tahun. Apa yang terjadi kalau lewat. Dan hitungannya berdampingan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu hal dulu",
+   "preco": "ini bukan nasihat pajak",
+   "nar": "Satu hal dulu. Ini bukan nasihat pajak dan bukan ajakan mempercepat atau menunda pencairan. Kita membahas mekanisme.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan kanal",
+   "preco": "angka dengan sumber",
+   "nar": "Dan aturan kanal tetap berlaku. Angka dengan sumber dan tanggal. Yang tidak bisa diukur, tidak kita ucapkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kita mulai",
+   "sub": "kapan JHT boleh cair?",
+   "nar": "Kita mulai dari yang paling dasar, karena dari sini semuanya mengalir. Kapan JHT sebenarnya boleh dicairkan?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga keadaan",
+   "sub": "untuk manfaat penuh",
+   "nar": "Menurut Peraturan Pemerintah nomor empat puluh enam tahun dua ribu lima belas, manfaat penuh dibayar dalam tiga keadaan.",
+   "cap": "Kapan JHT boleh dicairkan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Tiga keadaan itu",
+   "preco": "usia, meninggal, cacat",
+   "nar": "Pertama, saat peserta mencapai usia lima puluh enam tahun. Kedua, saat peserta meninggal dunia. Ketiga, saat mengalami cacat total tetap.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dalam tiga keadaan itu",
+   "preco": "dibayar sekaligus",
+   "nar": "Dalam ketiga keadaan itu manfaat dibayarkan sekaligus. Ini jalur yang paling sederhana secara pajak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi ada jalur lain",
+   "preco": "sepuluh tahun kepesertaan",
+   "nar": "Tapi ada jalur lain yang jauh lebih sering dipakai. Peserta dengan masa kepesertaan paling singkat sepuluh tahun boleh mengambil sebagian.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa yang boleh",
+   "preco": "sepuluh atau tiga puluh persen",
+   "nar": "Yang boleh diambil adalah sepuluh persen untuk keperluan lain, atau tiga puluh persen untuk kepemilikan rumah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kapan orang memakainya",
+   "preco": "renovasi, sekolah, usaha",
+   "nar": "Jalur ini biasanya dipakai untuk renovasi rumah, biaya sekolah anak, atau modal usaha kecil. Semuanya alasan yang masuk akal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terdengar aman",
+   "preco": "uangnya memang milikmu",
+   "nar": "Terdengar aman, dan memang uangnya milikmu. Banyak orang mengambilnya tanpa berpikir dua kali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di sinilah jamnya mulai",
+   "preco": "tanggal itu dicatat",
+   "nar": "Tapi di sinilah jam yang tadi saya sebut mulai berjalan. Tanggal pengambilan sebagian itu dicatat, dan nanti dipakai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sebelum ke sana",
+   "preco": "kita perlu tarifnya",
+   "nar": "Sebelum sampai ke akibatnya, kita perlu tahu tarifnya dulu. Tanpa itu perbedaannya tidak kelihatan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Catat satu hal",
+   "preco": "tanggal, bukan jumlah",
+   "nar": "Kalau kamu hanya mencatat satu hal dari bagian ini, catat tanggalnya. Bukan jumlah yang kamu ambil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sudah jelas",
+   "sub": "sekarang tarifnya",
+   "nar": "Kita sudah tahu kapan JHT bisa cair. Berapa pajaknya kalau cair?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua tarif",
+   "sub": "nol dan lima",
+   "nar": "Dasarnya ada di Peraturan Pemerintah nomor enam puluh delapan tahun dua ribu sembilan, dan di aturan menteri keuangan turunannya.",
+   "cap": "Tarif final: nol dan lima persen"
+  },
+  {
+   "layout": "item",
+   "kicker": "Tarif pertama",
+   "preco": "nol persen",
+   "nar": "Tarif pertama adalah nol persen. Itu berlaku atas penghasilan bruto sampai dengan lima puluh juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tarif kedua",
+   "preco": "lima persen",
+   "nar": "Tarif kedua adalah lima persen. Itu berlaku atas bagian di atas lima puluh juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perhatikan katanya",
+   "preco": "bagian di atas",
+   "nar": "Perhatikan kata bagiannya. Yang kena lima persen bukan seluruh saldo, hanya kelebihan di atas batas tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contoh cepat",
+   "preco": "saldo delapan puluh juta",
+   "nar": "Contohnya, dengan saldo delapan puluh juta rupiah, yang kena lima persen hanya tiga puluh juta rupiah. Sisanya nol.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Siapa yang memotong",
+   "preco": "dipotong di sumber",
+   "nar": "Pajaknya tidak perlu kamu setor sendiri. Pemotongan dilakukan langsung saat manfaat dibayarkan, jadi yang masuk rekening sudah bersih.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan pajaknya final",
+   "preco": "tidak digabung",
+   "nar": "Yang lebih penting, pajak ini bersifat final. Final artinya selesai di situ. Untungnya nyata. Penghasilan itu tidak digabungkan dengan gaji atau penghasilan lain di surat pemberitahuan tahunanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan dengan gaji",
+   "preco": "gaji digabung, ini tidak",
+   "nar": "Bandingkan dengan gaji bulanan, yang digabung dan bisa mendorongmu ke lapisan tarif lebih tinggi. Penghasilan final tidak melakukan itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu sebagian besar",
+   "preco": "membayar nol",
+   "nar": "Karena batasnya lima puluh juta rupiah, sebagian besar peserta memang membayar nol. Itu yang terlihat di angka Kementerian Keuangan tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu salah paham",
+   "preco": "kena PHK bukan progresif",
+   "nar": "Ada satu salah paham yang perlu diluruskan. Pencairan karena pemutusan hubungan kerja tetap masuk tarif final ini, bukan tarif progresif.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu ditegaskan",
+   "preco": "oleh otoritas pajak",
+   "nar": "Itu ditegaskan langsung oleh otoritas pajak pada pertengahan tahun ini, setelah ramai anggapan sebaliknya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau begitu",
+   "sub": "kok bisa beda tiga kali lipat?",
+   "nar": "Kalau tarifnya seringan itu, bagaimana ceritanya ada yang membayar tiga kali lipat lebih banyak?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jam dua tahun",
+   "sub": "definisi sekaligus",
+   "nar": "Jawabannya ada pada satu definisi yang jarang dibaca. Definisi kata sekaligus.",
+   "cap": "Jam dua tahun"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang kamu kira",
+   "preco": "dan yang tertulis",
+   "nar": "Kita cenderung mengira sekaligus berarti satu kali transfer, semuanya sekarang. Yang tertulis lain. Sekaligus berarti pembayaran sebagian atau seluruh manfaat dalam jangka waktu paling lama dua tahun kalender.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baca ulang",
+   "preco": "sebagian juga masuk",
+   "nar": "Bacalah bagian sebagiannya sekali lagi. Pengambilan sepuluh atau tiga puluh persen tadi juga masuk hitungan itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya",
+   "preco": "jam mulai di saku pertama",
+   "nar": "Artinya jam dua tahun mulai berjalan sejak pembayaran pertama. Bukan sejak kamu berhenti bekerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ada batas waktu",
+   "preco": "supaya tidak dipecah",
+   "nar": "Batas waktu itu ada supaya satu manfaat tidak dipecah menjadi banyak potongan kecil demi mengejar tarif nol berkali-kali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang di dalam jam",
+   "preco": "tetap final",
+   "nar": "Semua yang dibayarkan di dalam jendela dua tahun itu tetap memakai tarif final yang tadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang di luar",
+   "preco": "berubah sifat",
+   "nar": "Yang dibayarkan setelah jendela itu lewat berubah sifat sepenuhnya. Aturannya menyebut hal ini secara langsung: manfaat yang diambil lebih dari dua tahun setelah peserta mengambil sebagian, tidak lagi final.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi urutannya penting",
+   "preco": "bukan hanya jumlahnya",
+   "nar": "Jadi yang menentukan bukan hanya berapa yang kamu ambil. Yang menentukan juga kapan kamu mulai mengambil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan itu tidak diingatkan",
+   "preco": "tidak ada notifikasi",
+   "nar": "Dan tidak ada notifikasi yang mengingatkan. Tanggal itu ada di riwayat klaimmu, dan hanya kamu yang bisa membukanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang membuatnya sunyi",
+   "preco": "jaraknya bertahun-tahun",
+   "nar": "Yang membuat aturan ini sunyi adalah jaraknya. Antara pengambilan pertama dan pencairan terakhir bisa lewat lima atau sepuluh tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kita tahu jamnya",
+   "sub": "apa yang terjadi kalau lewat?",
+   "nar": "Kita sudah tahu jamnya. Apa persisnya yang terjadi kalau jendela itu lewat?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak final lagi",
+   "sub": "masuk tarif progresif",
+   "nar": "Kalau lewat, manfaat JHT dikenakan pajak yang tidak final, dengan tarif progresif menurut pasal tujuh belas undang-undang pajak penghasilan.",
+   "cap": "Kalau lewat: tarif progresif"
+  },
+  {
+   "layout": "item",
+   "kicker": "Progresif artinya",
+   "preco": "berlapis",
+   "nar": "Progresif artinya berlapis. Semakin besar jumlahnya, semakin tinggi tarif di lapisan atasnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua lapisan pertama",
+   "preco": "lima dan lima belas",
+   "nar": "Lapisan pertama lima persen, sampai dengan enam puluh juta rupiah. Lapisan kedua lima belas persen, sampai dengan dua ratus lima puluh juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lapisan sisanya",
+   "preco": "dua puluh lima ke atas",
+   "nar": "Lapisan ketiga dua puluh lima persen, sampai dengan lima ratus juta rupiah. Lalu tiga puluh persen sampai lima miliar rupiah, dan tiga puluh lima persen di atasnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sama seperti tadi",
+   "preco": "berlaku per bagian",
+   "nar": "Sama seperti tarif final, lapisan ini berlaku per bagian. Bukan satu tarif tunggal atas seluruh jumlah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan sekarang",
+   "preco": "lima persen jadi lima belas",
+   "nar": "Bandingkan dengan tarif final tadi. Bagian yang sebelumnya kena lima persen kini bisa masuk lapisan lima belas atau dua puluh lima persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi ada yang lebih berat",
+   "preco": "kata tidak final",
+   "nar": "Ada satu hal yang lebih berat dari tarifnya sendiri, dan itu tersembunyi di kata tidak final.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tidak final berarti",
+   "preco": "digabung",
+   "nar": "Tidak final berarti penghasilan itu digabungkan dengan penghasilanmu yang lain di tahun yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau kamu masih bekerja",
+   "preco": "menumpuk di atas gaji",
+   "nar": "Kalau saat itu kamu sudah bekerja lagi, jumlah ini menumpuk di atas gajimu. Ia masuk dari lapisan tempat gajimu berhenti, bukan dari nol.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada konsekuensi lain",
+   "preco": "masuk laporan tahunan",
+   "nar": "Ada konsekuensi administratif juga. Penghasilan yang tidak final ikut masuk perhitungan surat pemberitahuan tahunanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu",
+   "preco": "hitungan kita konservatif",
+   "nar": "Karena itu hitungan yang akan saya tunjukkan sebentar lagi adalah batas bawah. Kenyataannya bisa lebih tinggi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Teorinya cukup",
+   "sub": "mari lihat angkanya",
+   "nar": "Teorinya sudah cukup. Sekarang pertanyaan yang sebenarnya: atas saldo yang sama, berapa persisnya selisihnya?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Saldo yang sama",
+   "sub": "tiga ratus juta",
+   "nar": "Ambil satu saldo yang sama untuk keduanya: tiga ratus juta rupiah. Ini contoh yang dipakai juga oleh literatur pajak.",
+   "cap": "Hitungan berdampingan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa angka ini",
+   "preco": "cukup besar untuk terlihat",
+   "nar": "Saldo sebesar ini dipilih karena cukup besar untuk melewati batas lima puluh juta rupiah. Di bawah batas itu kedua skenario sama saja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Skenario pertama",
+   "preco": "semua di dalam jendela",
+   "nar": "Skenario pertama. Seluruhnya dicairkan di dalam jendela dua tahun, jadi tarif final berlaku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua bagiannya",
+   "preco": "nol lalu lima persen",
+   "nar": "Lima puluh juta rupiah pertama kena nol persen. Pajaknya nol. Sisanya, dua ratus lima puluh juta rupiah, kena lima persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Totalnya",
+   "preco": "dua belas juta lima ratus ribu",
+   "nar": "Totalnya dua belas juta lima ratus ribu rupiah. Itu sekitar empat persen dari saldo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Skenario kedua",
+   "preco": "lewat jendela",
+   "nar": "Skenario kedua. Orang ini mengambil sebagian lebih dari dua tahun sebelumnya, jadi sisanya jatuh ke tarif progresif.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua lapisan pertama",
+   "preco": "tiga dan dua puluh delapan juta",
+   "nar": "Enam puluh juta rupiah pertama kena lima persen. Itu tiga juta rupiah. Lapisan berikutnya, seratus sembilan puluh juta rupiah, kena lima belas persen. Itu dua puluh delapan juta lima ratus ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lapisan ketiga",
+   "preco": "dua belas juta lima ratus ribu",
+   "nar": "Sisa lima puluh juta rupiah kena dua puluh lima persen. Itu dua belas juta lima ratus ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pajak atas saldo yang sama",
+   "itens": [
+    "Final",
+    "Progresif"
+   ],
+   "alturas": [
+    28,
+    100
+   ],
+   "nar": "Jumlahnya empat puluh empat juta rupiah, atas saldo yang persis sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Selisihnya",
+   "preco": "tiga koma lima kali",
+   "nar": "Selisihnya sekitar tiga koma lima kali lipat. Tiga puluh satu juta lima ratus ribu rupiah lebih banyak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dalam persen",
+   "preco": "empat persen lawan lima belas",
+   "nar": "Dalam persentase, yang pertama membayar sekitar empat persen dari saldonya. Yang kedua membayar sekitar lima belas persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ingat",
+   "preco": "ini masih batas bawah",
+   "nar": "Dan ingat catatan tadi. Angka kedua masih batas bawah, karena belum ditumpuk di atas penghasilan lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Apa yang membedakan",
+   "preco": "bukan keputusan besar",
+   "nar": "Yang membedakan keduanya bukan keputusan besar. Hanya satu pengambilan sebagian, bertahun-tahun sebelumnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angkanya jelas",
+   "sub": "apa yang bisa salah?",
+   "nar": "Angkanya sudah jelas. Sekarang, kesalahan apa yang paling sering terjadi?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Empat kesalahan",
+   "sub": "yang paling mahal",
+   "nar": "Kesalahan pertama adalah mengambil sepuluh atau tiga puluh persen tanpa mencatat tanggalnya.",
+   "cap": "Empat kesalahan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa mahal",
+   "preco": "tanggal itu yang dipakai",
+   "nar": "Mahal karena justru tanggal itulah yang nanti menentukan tarif atas sisa saldomu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan kedua",
+   "preco": "mengira PHK berarti progresif",
+   "nar": "Kedua, mengira pencairan karena pemutusan hubungan kerja otomatis kena progresif. Itu keliru, dan sudah diluruskan otoritas pajak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan ketiga",
+   "preco": "merencanakan dari angka kotor",
+   "nar": "Ketiga, menyusun rencana dari angka saldo di aplikasi. Angka itu belum dipotong apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahan keempat",
+   "preco": "menunggu tanpa tahu jamnya",
+   "nar": "Keempat, menunda sisa pencairan tanpa tahu bahwa jendelanya sedang berjalan. Menunggu bisa memindahkanmu ke tarif yang lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu hal yang tidak saya sarankan",
+   "preco": "buru-buru mencairkan",
+   "nar": "Satu hal yang tidak saya sarankan adalah buru-buru mencairkan hanya karena video ini. Uang yang keluar lebih awal juga punya biayanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang bisa kamu lakukan",
+   "preco": "buka riwayat klaim",
+   "nar": "Yang bisa kamu lakukan hari ini cuma satu, dan gratis. Buka riwayat klaimmu dan cari tanggal pengambilan pertama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau belum pernah",
+   "preco": "jendelamu belum jalan",
+   "nar": "Kalau kamu belum pernah mengambil sebagian, jendelamu belum berjalan sama sekali. Itu kabar baik dan perlu kamu ketahui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau sudah pernah",
+   "preco": "hitung dari tanggal itu",
+   "nar": "Kalau sudah pernah, hitung dua tahun dari tanggal itu. Dari situ kamu tahu di sisi mana kamu berdiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Simpan buktinya",
+   "preco": "bukti potong",
+   "nar": "Simpan juga bukti potong pajaknya. Itu dokumen yang kamu perlukan kalau nanti ada pertanyaan atas laporan tahunanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan tanyakan",
+   "preco": "sebelum menandatangani",
+   "nar": "Lalu tanyakan langsung ke petugas, sebelum menandatangani apa pun, tarif mana yang akan dipakai atas klaimmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu ressalva jujur",
+   "preco": "aturannya sedang ditinjau",
+   "nar": "Satu catatan jujur untuk menutup. Aturan pajak atas JHT sedang ditinjau ulang oleh menteri keuangan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Apa yang diminta",
+   "preco": "nol persen untuk semua",
+   "nar": "Serikat pekerja meminta tarifnya menjadi nol persen untuk semua nilai. Sampai ada aturan baru, yang berlaku adalah yang kita bahas hari ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ringkasan",
+   "itens": [
+    "Tarif final: nol dan lima persen",
+    "Batasnya lima puluh juta rupiah",
+    "Sekaligus artinya dua tahun kalender",
+    "Ambil sebagian memulai jamnya",
+    "Lewat jendela: tarif progresif"
+   ],
+   "nar": "Lima hal untuk diingat. Tarif finalnya nol dan lima persen. Batasnya lima puluh juta rupiah. Sekaligus berarti dua tahun kalender. Mengambil sebagian memulai jam itu. Dan lewat jendela, tarifnya progresif.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau cuma satu hal",
+   "preco": "cari tanggalnya",
+   "nar": "Kalau dari video ini kamu hanya melakukan satu hal, cari tanggal pengambilan pertamamu. Karena dari tanggal itulah semua sisanya mengalir. Sisanya hanya aritmetika di sekitarnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "dengan angka dan sumber",
+   "nar": "Sekian. Setiap Level, dengan angka dan sumbernya, bukan dengan kesan.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Saldo JHT sama",
+   "sub": "pajak beda",
+   "nar": "Dua orang, saldo Jaminan Hari Tua sama persis. Pajaknya beda tiga kali lipat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau sekaligus",
+   "preco": "nol dan lima persen",
+   "nar": "Kalau cair di dalam jendela dua tahun, tarifnya final. Nol persen sampai lima puluh juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau lewat",
+   "preco": "progresif",
+   "nar": "Kalau lewat jendela itu, tarifnya jadi progresif dan digabung dengan penghasilan lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang memulai jam",
+   "preco": "ambil sebagian",
+   "nar": "Dan yang memulai jamnya adalah pengambilan sepuluh atau tiga puluh persen bertahun-tahun lalu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya",
+   "preco": "tiga koma lima kali",
+   "nar": "Atas saldo tiga ratus juta rupiah, selisihnya tiga koma lima kali lipat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cek tanggalnya",
+   "sub": "di video lengkap",
+   "nar": "Cara mengeceknya ada di video lengkap.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Pencairan JHT 2026: saldo sama, pajak bisa beda tiga kali lipat\n\n## JUDUL\nPencairan JHT: Saldo Sama Rp300 Juta, Pajak Rp12,5 Juta atau Rp44 Juta\n\n## DESKRIPSI\nDua orang keluar dari perusahaan di bulan yang sama, dengan saldo Jaminan Hari Tua yang sama persis. Yang satu membayar pajak Rp12,5 juta, yang lain membayar Rp44 juta. Ini bukan salah hitung — ini hasil dari satu definisi yang jarang dibaca, dan dari satu tanggal di masa lalu yang hampir tidak ada yang mencatat.\n\nKabar baiknya perlu disebut lebih dulu: sebagian besar peserta tidak membayar apa pun. Dari 1,72 juta klaim JHT sepanjang Januari–Mei 2026, sebanyak 1,64 juta klaim kena tarif 0% karena nilainya tidak melebihi Rp50 juta. Hanya 78.441 klaim yang kena tarif 5%. Itu angka Kementerian Keuangan.\n\nTarif PPh Pasal 21 atas pencairan JHT yang dibayarkan sekaligus diatur di PP 68/2009 dan PMK 16/PMK.03/2010: 0% atas penghasilan bruto sampai dengan Rp50 juta, dan 5% atas bagian di atasnya. Sifatnya final — tidak digabungkan dengan penghasilan lain. Perlu diluruskan juga satu salah paham yang sempat ramai: pencairan karena PHK tetap masuk tarif final ini, bukan tarif progresif.\n\nPersoalannya ada pada arti kata \"sekaligus\". Menurut aturannya, sekaligus berarti pembayaran sebagian atau seluruh manfaat dalam jangka waktu paling lama 2 tahun kalender. Artinya jam dua tahun itu mulai berjalan sejak pembayaran pertama — termasuk pengambilan sebagian 10% atau 30% yang boleh diambil setelah 10 tahun kepesertaan. Manfaat yang diambil lebih dari 2 tahun setelah pengambilan sebagian itu tidak lagi final, melainkan kena tarif progresif Pasal 17 UU PPh: 5% sampai Rp60 juta, 15% sampai Rp250 juta, 25% sampai Rp500 juta, 30% sampai Rp5 miliar, dan 35% di atasnya.\n\nDi video ini kita letakkan dua skenario itu berdampingan atas saldo yang sama, Rp300 juta, lalu membahas empat kesalahan yang paling sering terjadi dan satu langkah gratis yang bisa kamu lakukan hari ini: membuka riwayat klaim dan mencari tanggal pengambilan pertama.\n\nCatatan: aturan pajak atas JHT sedang ditinjau ulang oleh Menteri Keuangan, dan serikat pekerja meminta tarif 0% untuk semua nilai. Sampai ada aturan baru, yang berlaku adalah yang dibahas di sini. Materi ini bersifat edukasi, bukan nasihat pajak, dan bukan ajakan mempercepat atau menunda pencairan.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR\nSatu pertanyaan, karena jawabannya sering mengejutkan: kamu pernah mengambil JHT sebagian 10% atau 30%? Kalau pernah, kamu ingat tahun berapa? Tidak perlu menyebut nominal. Saya kumpulkan jawabannya untuk materi berikutnya. Kalau kamu ingin hitungan yang sama dibuat untuk pesangon, tulis saja di kolom komentar.\n\n## HASHTAG\n#JHT #BPJSKetenagakerjaan #SetiapLevel\n\n## TAG\njht, bpjs ketenagakerjaan, pencairan jht, pajak jht, pph 21 final, tarif progresif, pasal 17, jmo, klaim jht, saldo jht, phk 2026, pesangon, keuangan pribadi, indonesia, setiap level\n\n## PENGATURAN STUDIO\n- Bahasa: Indonesia (id) | Kategori: Edukasi (27)\n- Tidak dibuat untuk anak-anak\n- Deklarasi konten sintetis: YA (suara AI)\n- Lokasi: Indonesia | Lisensi: lisensi YouTube standar\n- Iklan mid-roll: aktif (di atas 8 menit)\n\n## MUSIK / LISENSI\n{TRILHA}\n\n## SUMBER\nTarif dan definisi berasal dari Peraturan Pemerintah Nomor 68 Tahun 2009 dan Peraturan Menteri Keuangan Nomor 16/PMK.03/2010, sebagaimana diuraikan oleh Ortax (18 April 2025) dan DDTCNews (30 Juni 2026), yang saling bersesuaian: PPh Pasal 21 final atas pencairan JHT sekaligus sebesar 0% atas penghasilan bruto sampai dengan Rp50.000.000 dan 5% atas bagian di atasnya; \"sekaligus\" didefinisikan sebagai pembayaran sebagian atau seluruh manfaat dalam jangka waktu paling lama 2 tahun kalender; manfaat yang diambil lebih dari 2 tahun setelah pengambilan sebagian (10% atau 30%) dikenakan PPh Pasal 21 tidak final dengan tarif progresif Pasal 17 UU PPh. Ketentuan pencairan (usia 56 tahun, meninggal dunia, cacat total tetap; pengambilan sebagian 10–30% setelah masa kepesertaan paling singkat 10 tahun) berasal dari Peraturan Pemerintah Nomor 46 Tahun 2015. Lapisan tarif Pasal 17 pasca UU HPP (5% s.d. Rp60 juta; 15% s.d. Rp250 juta; 25% s.d. Rp500 juta; 30% s.d. Rp5 miliar; 35% di atasnya) dikutip dari pajakku dan online-pajak, yang sama nilainya. Data klaim Januari–Mei 2026 (1,72 juta klaim; 1,64 juta atau 95,45% kena tarif 0%; 78.441 klaim kena tarif 5%) berasal dari Kementerian Keuangan dan Direktorat Jenderal Pajak, sebagaimana dilaporkan secara konsisten oleh Tirto, Liputan6, RRI, DDTCNews dan IKPI (akses 19 Agustus 2026). Perhitungan berdampingan atas saldo Rp300.000.000 adalah aritmetika langsung atas tarif-tarif di atas dan disebut sebagai batas bawah, karena penghasilan yang tidak final digabungkan dengan penghasilan lain pada tahun yang sama. Materi edukasi; bukan nasihat pajak, bukan rekomendasi produk, dan bukan ajakan mempercepat atau menunda pencairan.\n"
+}
