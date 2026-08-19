@@ -330,3 +330,33 @@ def test_duvida_sobre_o_token_nao_condena_o_canal(monkeypatch):
 
     assert M.canais_sem_token_morto("https://x", "k") == {
         "vivo", "timeout", "instavel"}
+
+
+# ------------------- `canal` e onde o video FOI PARAR, nao o prefixo do pacote
+
+def test_estado_conta_pelo_canal_publicado_e_nao_pelo_prefixo_do_pacote():
+    """Caso real, e uma regra que ja foi "consertada" errado uma vez.
+
+    O resep-naik-level-002 foi publicado DE PROPOSITO no setiap-level em
+    05/08/2026 (aprendizado 69): mesmo idioma, tema compativel, e o canal
+    resep-naik-level ainda nao existia no YouTube. Em 13/08 isso foi lido como
+    bug de dado e `videos.canal` foi reescrito para resep-naik-level sob a
+    regra "canal tem que bater com o prefixo do pacote" — regra falsa, e
+    invalidada em 19/08 (aprendizado 230).
+
+    O estrago: a auditoria de canal passou a acusar CANAL ERRADO em todo ciclo,
+    48 vezes por dia, sobre uma decisao correta. `pacote` diz onde o conteudo
+    foi PRODUZIDO; `canal` diz onde ele FOI PARAR. Divergir e legitimo.
+    """
+    videos = [
+        {"canal": "setiap-level", "pacote": "resep-naik-level-002",
+         "formato": "longo", "titulo": "Belanja Mingguan", "youtube_id": "le6IBDH7u6M"},
+        {"canal": "setiap-level", "pacote": "setiap-level-002",
+         "formato": "longo", "titulo": "Outro", "youtube_id": "xxx"},
+    ]
+    est = M.estado(videos)
+    assert est["canais"]["setiap-level"]["publicados"] == 2, (
+        "video do pacote resep-naik-level-002 conta para o setiap-level, "
+        "que e onde ele esta")
+    assert est["canais"]["resep-naik-level"]["publicados"] == 0, (
+        "o canal que NAO recebeu o video nao pode conta-lo")
