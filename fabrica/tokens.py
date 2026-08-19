@@ -240,20 +240,42 @@ def cmd_vigiar(_):
     apagao: o agla-level foi testado VIVO as 21:20 e morreu as 22:15,
     onze minutos depois do marco de 7 dias da emissao dele.
     """
+    import datetime as dt
+
     sb, sk = _sb()
+    agora = dt.datetime.now(dt.timezone.utc)
     tokens = tokens_do_banco(sb, sk)
-    vivos, mortos, condenados = [], [], []
+    vivos, mortos, condenados, datas_furadas = [], [], [], []
     for slug, tok in sorted(tokens.items()):
         dias, morre = _idade(tok.get("_emitido"))
         idade = f"{dias:5.1f}d" if dias is not None else "  ? d"
         acc, motivo = refrescar(tok)
         if acc:
             vivos.append(slug)
-            aviso = ""
-            if morre:
+            if morre and morre <= agora:
+                # Token VIVO depois do proprio marco de 7 dias nao e token
+                # condenado: e prova de que a data de emissao guardada esta
+                # ERRADA. O Google cumpre o prazo — se ele nao morreu, nao
+                # nasceu quando a linha diz. Foi o que aconteceu com estes
+                # dois: reautorizados em 18/08, mas o `trocar` daquela epoca
+                # ainda nao gravava `atualizado_em`, entao a linha jurava 11/08.
+                #
+                # Isto e correcao de um defeito MEU, publicado duas horas antes:
+                # a versao anterior imprimia "VIVO ... morre 18/08" no dia 19 e
+                # mandava reautorizar dois canais que nao precisavam — gastando
+                # consentimento do dono e refresh token contra o teto da conta.
+                datas_furadas.append(slug)
+                aviso = (f"  <- data de emissao FURADA: a linha diz "
+                         f"{morre - dt.timedelta(days=VALIDADE_TESTING_D):%d/%m}, "
+                         f"mas o token passou do marco de {VALIDADE_TESTING_D}d "
+                         f"e esta vivo. Idade real desconhecida ate a proxima "
+                         f"reautorizacao.")
+            elif morre:
                 condenados.append(slug)
                 aviso = (f"  <- emitido em modo Testing, morre "
                          f"{morre:%d/%m %H:%M} UTC")
+            else:
+                aviso = ""
             print(f"  VIVO  {idade}  {slug}{aviso}")
         else:
             mortos.append(slug)
@@ -262,6 +284,11 @@ def cmd_vigiar(_):
     if condenados:
         print(f"AVISO: {len(condenados)} token(s) com pavio de 7 dias aceso — "
               f"reautorize junto com os mortos: " + ", ".join(condenados))
+    if datas_furadas:
+        print(f"NOTA: {len(datas_furadas)} token(s) com data de emissao velha no "
+              f"banco (reautorizados antes de o `trocar` gravar a coluna): "
+              + ", ".join(datas_furadas)
+              + ". Estao VIVOS — nao reautorize por causa da data.")
     if mortos:
         print("Reautorize estes: " + ", ".join(mortos))
         print("  python3 fabrica/tokens.py link")

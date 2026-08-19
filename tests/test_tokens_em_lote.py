@@ -123,3 +123,56 @@ def test_o_vigia_avisa_de_quem_ainda_carrega_o_pavio():
     mortos, nao na proxima surpresa."""
     corpo = FONTE[FONTE.index("def cmd_vigiar"):]
     assert "condenados" in corpo and "pavio" in corpo
+
+
+# ------------------- token vivo depois do marco: a DATA e que esta errada
+
+def test_vivo_depois_do_marco_nao_e_condenado(monkeypatch, capsys):
+    """Defeito meu, publicado em 19/08 e visto no log do ciclo das 19:01:
+
+        VIVO  8.2d  epomeno-epipedo  <- emitido em modo Testing, morre 18/08
+
+    Vivo hoje com morte prevista ontem: as duas metades da linha se
+    contradizem. O Google cumpre o prazo de sete dias — se o token NAO morreu,
+    entao ele nao nasceu quando a linha diz. A conclusao certa e que a data
+    esta furada, nao que o token esta condenado.
+
+    Custo do defeito: o vigia mandava reautorizar dois canais saudaveis,
+    gastando consentimento do dono e refresh token contra o teto da conta.
+    """
+    monkeypatch.setattr(T, "_sb", lambda: ("https://x", "k"))
+    monkeypatch.setattr(T, "tokens_do_banco", lambda sb, sk: {
+        # emitido em modo Testing pela linha, mas VIVO muito depois do marco
+        "epomeno-epipedo": {"_emitido": "2026-08-11T15:12:35+00:00"},
+        # emitido depois da publicacao do app: sem pavio nenhum
+        "novo-canal": {"_emitido": "2026-08-18T18:00:00+00:00"},
+    })
+    monkeypatch.setattr(T, "refrescar", lambda tok: ("ya29.acc", None))
+
+    assert T.cmd_vigiar([]) == 0
+    saida = capsys.readouterr().out
+
+    assert "FURADA" in saida, saida
+    assert "pavio de 7 dias aceso" not in saida, (
+        "mandou reautorizar um canal vivo por causa de uma data velha")
+    assert "morre 18/08" not in saida, "ainda anuncia morte que ja nao aconteceu"
+    assert "nao reautorize por causa da data" in saida
+
+
+def test_vivo_antes_do_marco_continua_condenado(monkeypatch, capsys):
+    """O aviso legitimo nao pode sumir junto: token emitido em Testing que
+    AINDA nao chegou ao marco tem pavio aceso de verdade."""
+    import datetime as dt
+
+    daqui_a_2d = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=5)
+    monkeypatch.setattr(T, "_sb", lambda: ("https://x", "k"))
+    monkeypatch.setattr(T, "PUBLICACAO_DO_APP",
+                        (daqui_a_2d + dt.timedelta(days=1)).isoformat())
+    monkeypatch.setattr(T, "tokens_do_banco", lambda sb, sk: {
+        "com-pavio": {"_emitido": daqui_a_2d.isoformat()}})
+    monkeypatch.setattr(T, "refrescar", lambda tok: ("ya29.acc", None))
+
+    T.cmd_vigiar([])
+    saida = capsys.readouterr().out
+    assert "pavio de 7 dias aceso" in saida, saida
+    assert "FURADA" not in saida
