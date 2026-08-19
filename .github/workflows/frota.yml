@@ -109,46 +109,73 @@ jobs:
       # a segunda tentativa nunca aconteceu. Medido no run 32229424929 —
       # nenhuma saida entre 07:47:13 e o timeout as 07:52:26.
       #
-      # Com `timeout` em cada chamada, um espelho pendurado custa 100 segundos
-      # e a tentativa seguinte comeca de verdade. Tres tentativas cabem
-      # folgadas no teto do passo.
+      # Com `timeout` em cada chamada, um espelho pendurado custa segundos
+      # contados e a tentativa seguinte comeca de verdade. O que estava
+      # ERRADO aqui era a frase seguinte: "tres tentativas cabem folgadas no
+      # teto do passo". Nao cabiam — 3 x 250 s = 750 s contra um teto de
+      # 360 s. Eu somei o orcamento de cabeca e nao conferi contra o teto que
+      # eu mesmo tinha escrito duas horas antes. A conta agora esta escrita
+      # dentro do passo, em numeros, para ser conferivel sem confiar em mim.
       - name: Instalar ffmpeg e fontes
-        timeout-minutes: 6
+        timeout-minutes: 10
         run: |
           set -uo pipefail
-          ok=""
-          for tentativa in 1 2 3; do
-            if timeout 100 sudo apt-get update -qq \
-               && timeout 150 sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk; then
-              ok=1
-              break
-            fi
-            echo "::warning::apt pendurou ou falhou na tentativa $tentativa — repetindo"
-            sleep 5
-          done
-          # Rota alternativa quando o espelho do apt esta fora — o que aconteceu
-          # em QUATRO runs seguidos em 19/08/2026, sempre sem imprimir uma
-          # linha. O binario estatico vem de release do GitHub, que o runner
-          # comprovadamente alcanca (o checkout deste repo passou).
+
+          # ORCAMENTO. O teto do PASSO precisa ser maior que a soma dos tetos
+          # internos, senao a rota alternativa nunca chega a rodar. Foi o que
+          # aconteceu no run 32237753936 em 19/08/2026: tres tentativas de apt
+          # a ~250 s cada dentro de um teto de 6 min mataram o passo NO MEIO da
+          # terceira, e o download estatico — escrito justamente para o apt
+          # fora — nunca foi tentado. Rota de fuga que nao cabe no orcamento
+          # nao e rota de fuga.
           #
-          # As FONTES nao tem rota alternativa aqui, e isso e deliberado: o
-          # passo "Conferir glifos" ja rasteriza cada caractere de tela e
-          # reprova o pacote com "sairiam como tofu" quando falta glifo. Ou
-          # seja, sem apt um pacote latino segue e um pacote em devanagari ou
-          # grego para no portao — em vez de sair com legenda vazia, que era
-          # o modo de falha silencioso que este passo sempre temeu.
-          if [ -z "$ok" ]; then
-            echo "::warning::apt fora — baixando ffmpeg estatico do GitHub"
+          #     apt, 1a tentativa        60 + 120 = 180 s
+          #     ffmpeg estatico                    120 s
+          #     apt, 2a tentativa        60 + 120 = 180 s
+          #                                       -------
+          #                                        480 s  <  600 s do teto
+          #
+          # E a ORDEM tambem mudou. O estatico vem DEPOIS de uma unica
+          # tentativa de apt, nao de tres: quando o espelho esta fora, cada
+          # tentativa extra custa 3 min para chegar no mesmo lugar. A segunda
+          # tentativa de apt sobrou para o fim porque, se o estatico ja deu
+          # ffmpeg, o que ainda falta sao as FONTES — e ai falhar nao e fatal.
+          apt_tenta() {
+            timeout 60 sudo apt-get update -qq \
+              && timeout 120 sudo apt-get install -y -qq \
+                   ffmpeg fonts-noto-core fonts-noto-cjk
+          }
+
+          via=""
+          if apt_tenta; then
+            via=apt
+          else
+            echo "::warning::apt nao respondeu na 1a tentativa — indo pelo binario estatico"
             URL=https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
-            curl -sSL --fail --max-time 180 "$URL" -o /tmp/ff.tar.xz \
-              && mkdir -p /tmp/ffbin \
-              && tar -xJf /tmp/ff.tar.xz -C /tmp/ffbin --strip-components=2 \
-              && sudo install -m 755 /tmp/ffbin/ffmpeg /usr/local/bin/ffmpeg \
-              && sudo install -m 755 /tmp/ffbin/ffprobe /usr/local/bin/ffprobe \
-              && ok=estatico
+            if curl -sSL --fail --max-time 120 "$URL" -o /tmp/ff.tar.xz \
+               && mkdir -p /tmp/ffbin \
+               && tar -xJf /tmp/ff.tar.xz -C /tmp/ffbin --strip-components=2 \
+               && sudo install -m 755 /tmp/ffbin/ffmpeg /usr/local/bin/ffmpeg \
+               && sudo install -m 755 /tmp/ffbin/ffprobe /usr/local/bin/ffprobe; then
+              via=estatico
+            fi
+            # Segunda tentativa de apt: com o estatico no lugar ela existe so
+            # pelas fontes; sem ele, e a ultima chance de ter ffmpeg.
+            if apt_tenta; then
+              via="${via:-apt}+apt"
+            elif [ -z "$via" ]; then
+              echo "::error::sem ffmpeg: apt fora nas duas tentativas e o download estatico falhou"
+              exit 1
+            else
+              # As FONTES nao tem rota alternativa, e isso e deliberado: o passo
+              # "Conferir glifos" ja rasteriza cada caractere de tela e reprova
+              # o pacote com "sairiam como tofu" quando falta glifo. Sem apt um
+              # pacote latino segue e um em devanagari ou grego para no portao,
+              # em vez de sair com legenda vazia.
+              echo "::warning::sem apt: fontes ficaram com o que a imagem do runner ja tinha — o portao de glifos decide"
+            fi
           fi
-          [ -n "$ok" ] || { echo "::error::sem ffmpeg: apt fora e download estatico falhou"; exit 1; }
-          echo "ffmpeg via: ${ok}"
+          echo "ffmpeg via: ${via}"
           ffmpeg -version | head -1
           fc-list | wc -l | sed "s/^/fontes instaladas: /"
 
