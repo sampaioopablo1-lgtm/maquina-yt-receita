@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Monta a spec kolejny-poziom-007 — o mesmo pedido, duas respostas.
+"""Monta a spec kolejny-poziom-008 — o mesmo pedido, duas respostas.
+
+POR QUE 008 E NAO 007. O nome kolejny-poziom-007 ja pertencia a "Nadplacac
+Kredyt czy Inwestowac", publicado em 12/08/2026. A numeracao deste canal
+nunca foi sequencial — 007 e de 11/08, 003 e de 18/08 — e eu escolhi o
+numero contando longos distintos em vez de olhar os nomes ja usados. A
+trava do publicar.py pegou, mas so depois de 89 cenas renderizadas.
 
 PAUTA, medida em 19/08/2026. Medi TRES eixos nesta rodada, e a comparacao
 entre eles e o achado antes mesmo do roteiro:
@@ -447,7 +453,7 @@ Wskaźniki rynkowe pochodzą z zestawień powołujących się na NBP i GPW Bench
 
 SPEC = {
     "slug": "kolejny-poziom",
-    "pacote": "kolejny-poziom-007",
+    "pacote": "kolejny-poziom-008",
     "idioma": "pl",
     "voz": "pl-PL-MarekNeural",
     "trilha": "Wholesome",  # identidade do canal, conferida pelo portao
@@ -462,7 +468,7 @@ if __name__ == "__main__":
     import os
     import sys
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    p = "fabrica/specs/kolejny-poziom-007.json"
+    p = "fabrica/specs/kolejny-poziom-008.json"
     with open(p, "w", encoding="utf-8") as f:
         json.dump(SPEC, f, ensure_ascii=False, indent=1)
         f.write("\n")

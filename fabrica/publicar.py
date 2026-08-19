@@ -629,6 +629,10 @@ def main():
     p.add_argument("--repetir", action="store_true",
                    help="publica mesmo que o pacote ja tenha youtube_id em videos. "
                         "So para republicacao deliberada — o padrao e recusar.")
+    p.add_argument("--so-conferir-nome", action="store_true",
+                   help="roda SO a trava por nome de pacote e sai. Serve para "
+                        "rodar ANTES do render, que e onde a colisao custa "
+                        "barato.")
     args = p.parse_args()
 
     sb_url = os.environ["SUPABASE_URL"].rstrip("/")
@@ -657,6 +661,33 @@ def main():
 
     if args.reparar:
         return reparar(args, sp, d, sb_url, sb_key)
+
+    # Conferencia ANTECIPADA do nome do pacote.
+    #
+    # A trava logo abaixo sempre existiu e sempre funcionou — mas so roda
+    # DEPOIS do render, porque publicar e o ultimo passo. Em 19/08/2026 o
+    # kolejny-poziom-007 renderizou 89 cenas, 17 minutos de runner, e so entao
+    # descobriu que o nome ja pertencia a um video de 11/08. A numeracao deste
+    # canal nunca foi sequencial (007 e de 11/08, 003 e de 18/08), e eu escolhi
+    # o numero contando longos distintos em vez de olhar os nomes existentes.
+    #
+    # A pergunta e a mesma; o que muda e a HORA de faze-la. Uma chamada HTTP
+    # antes do render custa um segundo e devolve os dezessete minutos.
+    #
+    # So a trava por PACOTE cabe aqui. A trava por TITULO precisa do copy.md,
+    # que so existe depois do render — essa continua no lugar dela.
+    if args.so_conferir_nome:
+        vivos = ja_publicado(sp.get("pacote") or sp["slug"], sb_url, sb_key)
+        if vivos and not args.repetir:
+            onde = ", ".join(f"{f}={i}" for f, i in sorted(vivos.items()))
+            raise SystemExit(
+                f"{sp.get('pacote') or sp['slug']} JA ESTA no ar ({onde}) — "
+                f"escolha outro nome de pacote ANTES de renderizar. Confira os "
+                f"nomes ja usados no canal, nao a contagem de videos: a "
+                f"numeracao nao e sequencial."
+            )
+        print(f"nome do pacote livre: {sp.get('pacote') or sp['slug']}")
+        return
 
     # Republicar e pior que nao publicar: o canal fica com dois videos iguais,
     # o algoritmo divide a entrega entre eles, e a limpeza e manual em treze
