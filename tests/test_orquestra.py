@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+import types
 from pathlib import Path
 
 import pytest
@@ -281,3 +282,51 @@ def test_relatorio_mostra_a_janela_de_24h():
     estava pendente sem dizer que o canal ja tinha esgotado o dia."""
     txt = M.relatorio(DADOS)
     assert "24h" in txt
+
+
+# ------------------------------- canal com token morto nao entra no disparo
+
+def test_token_morto_tira_o_canal_da_matriz():
+    """Renderizar doze minutos para um canal que nao consegue publicar e o
+    mesmo defeito que o `com_destino` ja resolvia para canal inexistente.
+
+    Em 19/08/2026 o ciclo despachou agla-level e setiap-level segundos depois
+    de o proprio vigia imprimir MORTO para os dois: runs 32275727227 e
+    32278632502, falha em ~3 min cada, de meia em meia hora.
+    """
+    escolhidas, descartadas = M.proximo(DADOS, n=50, com_destino=None,
+                                        com_token={"setiap-level"})
+    canais = {e["canal"] for e in escolhidas}
+    assert canais <= {"setiap-level"}, f"despachou canal sem token vivo: {canais}"
+    motivos = [d["motivo"] for d in descartadas if "token" in d["motivo"]]
+    assert motivos, "descartou por token sem dizer que foi o token"
+    assert "reautorize" in motivos[0].lower(), motivos[0]
+
+
+def test_com_token_none_desliga_a_conferencia():
+    """Os testes sem rede — e o `--dados` — nao tem como perguntar ao Google."""
+    a, _ = M.proximo(DADOS, n=50)
+    b, _ = M.proximo(DADOS, n=50, com_token=None)
+    assert a == b
+
+
+def test_duvida_sobre_o_token_nao_condena_o_canal(monkeypatch):
+    """So 400/401 e resposta definitiva do Google. Timeout ou 5xx devolve o
+    canal para a fila: um soluco de rede parando a frota inteira em silencio e
+    pior que um render perdido, que o portao do frota.yml ainda pega."""
+    respostas = {
+        "vivo":     ("ya29.token", None),
+        "morto":    (None, "400 Token has been expired or revoked."),
+        "sem_auth": (None, "401 unauthorized_client"),
+        "timeout":  (None, "TimeoutError: timed out"),
+        "instavel": (None, "503 Service Unavailable"),
+    }
+    falso = types.ModuleType("tokens")
+    # o token de cada canal e o proprio slug: basta para o falso devolver a
+    # resposta certa sem inventar estrutura que o modulo real nao tem
+    falso.tokens_do_banco = lambda sb, sk: {k: k for k in respostas}
+    falso.refrescar = lambda slug: respostas[slug]
+    monkeypatch.setitem(sys.modules, "tokens", falso)
+
+    assert M.canais_sem_token_morto("https://x", "k") == {
+        "vivo", "timeout", "instavel"}

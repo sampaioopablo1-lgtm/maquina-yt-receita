@@ -85,6 +85,36 @@ def busca_canais_com_destino(sb_url: str, sb_key: str) -> set[str]:
         return {c["slug"] for c in json.load(r) if c.get("youtube_channel_id")}
 
 
+def canais_sem_token_morto(sb_url: str, sb_key: str) -> set[str]:
+    """Slugs cujo token NAO foi rejeitado de forma definitiva pelo Google.
+
+    Canal com token morto renderiza doze minutos e nao tem como publicar —
+    mesmo defeito que o `com_destino` resolve para canal que nao existe no
+    YouTube. Em 19/08/2026 dez dos doze tokens morreram e o ciclo seguiu
+    despachando de meia em meia hora: os runs 32275727227 e 32278632502
+    falharam em ~3 min cada, um atras do outro, com o vigia tendo impresso
+    MORTO para os mesmos canais segundos antes.
+
+    Inclui o token DUVIDOSO de proposito. So exclui quem o Google rejeitou
+    com 400/401 — resposta definitiva. Timeout ou 5xx devolve o canal para a
+    fila, porque o modo de falha oposto e pior: um soluco de rede pararia a
+    frota inteira em silencio, e o portao do frota.yml ainda pega o caso raro
+    antes do render.
+    """
+    import tokens as T
+
+    vivos = set()
+    for slug, tok in T.tokens_do_banco(sb_url, sb_key).items():
+        acc, motivo = T.refrescar(tok)
+        if acc:
+            vivos.add(slug)
+            continue
+        definitivo = motivo and motivo.split(" ", 1)[0] in ("400", "401")
+        if not definitivo:
+            vivos.add(slug)          # duvida nao condena
+    return vivos
+
+
 def canais_do_repo() -> list[str]:
     d = os.path.join(RAIZ, "config", "canais")
     return sorted(os.path.basename(p)[:-5] for p in glob.glob(f"{d}/*.yaml"))
@@ -286,7 +316,8 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
 
 
 def proximo(videos: list[dict], n: int,
-            com_destino: set[str] | None = None) -> tuple[list[dict], list[dict]]:
+            com_destino: set[str] | None = None,
+            com_token: set[str] | None = None) -> tuple[list[dict], list[dict]]:
     """A matriz do frota.yml, e o motivo de cada spec descartada.
 
     Ordem: canal mais LONGE da meta primeiro. Um canal em zero vale mais que o
@@ -324,6 +355,14 @@ def proximo(videos: list[dict], n: int,
             if com_destino is not None and canal not in com_destino:
                 descartadas.append({"spec": nome,
                                     "motivo": "canal ainda nao existe no YouTube"})
+                continue
+            # Token morto e a mesma classe de defeito: renderiza e nao publica.
+            # `None` desliga a conferencia, que e o que os testes sem rede
+            # querem.
+            if com_token is not None and canal not in com_token:
+                descartadas.append({"spec": nome,
+                                    "motivo": "token OAuth do canal esta morto — "
+                                              "reautorize antes de despachar"})
                 continue
             if por_canal_hoje.get(canal, 0) >= MAX_POR_DIA_POR_CANAL:
                 descartadas.append({
@@ -411,12 +450,13 @@ def main() -> int:
     if args.acao == "estado":
         print(json.dumps(estado(videos), ensure_ascii=False, indent=1))
     elif args.acao == "proximo":
-        com_destino = None
+        com_destino = com_token = None
         if not args.dados:
-            com_destino = busca_canais_com_destino(
-                os.environ["SUPABASE_URL"].rstrip("/"),
-                os.environ["SUPABASE_SERVICE_ROLE_KEY"])
-        escolhidas, _ = proximo(videos, args.n, com_destino)
+            sb = os.environ["SUPABASE_URL"].rstrip("/")
+            sk = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+            com_destino = busca_canais_com_destino(sb, sk)
+            com_token = canais_sem_token_morto(sb, sk)
+        escolhidas, _ = proximo(videos, args.n, com_destino, com_token)
         print(json.dumps(escolhidas, ensure_ascii=False))
     else:
         print(relatorio(videos))
