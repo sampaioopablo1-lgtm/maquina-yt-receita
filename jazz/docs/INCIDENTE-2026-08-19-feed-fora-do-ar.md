@@ -47,3 +47,54 @@ Reinício de verdade só pelo painel do Supabase, pelo dono da conta.
 Precompute de um documento de 28 MB a cada 10 minutos é caro demais para a
 classe da instância. Ao voltar, avaliar: espaçar para 30 min, gerar só quando
 houver mudança (hash do conjunto), ou paginar a geração.
+
+## Atualização 03:40 UTC — banco recuperou, plataforma não
+
+Depois de ~50 min com a carga cortada, o Postgres voltou ao normal:
+
+| Medição | Durante a crise | Agora |
+|---|---|---|
+| Ler 8,8 MB de jsonb (3.952 linhas) | > 60 s (estourava) | **0,08 s** |
+
+Ou seja: o alívio de carga resolveu o lado do banco e confirmou o
+diagnóstico de CPU esgotada. **Mas o feed continua fora do ar**, porque o
+problema agora está nos serviços gerenciados, não no banco:
+
+- **Storage**: `HEAD` responde 200 com `content-length: 28630672`, mas
+  qualquer `GET` do corpo — inclusive com `Range: 0-2000` — devolve
+  `544 DatabaseTimeout`. Metadados sãos, corpo inacessível. Arquivos
+  pequenos de outros buckets seguem servindo 200.
+- **PostgREST**: cache de schema não recarrega. Uma função criada e
+  concedida a `anon` continuou invisível (`PGRST202`) minutos depois de
+  `NOTIFY pgrst, 'reload schema'`; a primeira chamada levou 32 s.
+- **Gerador**: segue falhando com statement timeout ao ler
+  `feed_properties` — apesar de a mesma leitura levar 0,08 s em SQL
+  direto. Consistente com PostgREST degradado, não com o banco.
+- **Edge Functions**: saudáveis (visita responde 200).
+- **Worker público**: 500 após 26 s (depende da cadeia quebrada).
+
+Dois dos quatro serviços gerenciados estão presos desde a queda de ontem.
+Isso não se conserta por SQL: exige reinício dos serviços — botão
+`Restart project` no painel, ou suporte do Supabase.
+
+### Estado deixado
+- `statement_timeout` **restaurados** ao padrão (anon 3s, authenticated 8s,
+  authenticator 8s) — a ampliação não era o caminho, já que o gerador usa
+  `service_role` (global de 120 s).
+- Função de teste `fn_teste_dormir` removida.
+- Reativadas as rotinas de negócio: smart-feed-sincronizar,
+  smart-feed-enriquecer-pendentes, captacao-processar-fila,
+  captacao-repor-prospects, feed-ficha-backfill, feed-geocode-saude,
+  feed-endereco-viacep-reaplicar, feed-gate-xml-vista, espelho-do-xml-nativo.
+- Seguem **desativadas** até o reinício (só consumiriam recurso falhando):
+  feed-precomputar-vrsync, vigia-feed-interno, vigia-feed-interno-coleta,
+  vigia-feed-auditar, vigia-feed-storage-frescor, vigia-acervo-feed,
+  vigia-site-interno, vigia-site-interno-coleta.
+- Continuam fora do agendamento (recriar depois): visita-publicar-no-feed,
+  feed-trocar-fotos-convertidas, video-imovel-publicar-no-feed,
+  feed-medir-fotos, descricao-rica-pedir, descricao-rica-colher.
+
+### Primeira ação após o reinício
+Apagar o objeto `feeds-precomputados/vrsync.xml` (escrito às 22:52, durante
+a instabilidade, e ilegível desde então) e deixar o gerador recriá-lo do
+zero, em vez de sobrescrever um arquivo possivelmente corrompido.
