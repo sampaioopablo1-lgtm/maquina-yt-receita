@@ -7,6 +7,7 @@ canal:
   tema: "a economia dos games"
   estilo_visual: "voxlite"
   voz_edge: "pt-BR-AntonioNeural"
+  trilha: "Inspired"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: industria dos games explicada, Brasil
 # Paleta: verde 1B4332, magenta D64570

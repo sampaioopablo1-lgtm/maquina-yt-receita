@@ -7,6 +7,7 @@ canal:
   tema: "dinheiro, trabalho, status e decisoes"
   estilo_visual: "doodle"
   voz_edge: "id-ID-ArdiNeural"
+  trilha: "Wholesome"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: financas e carreira, Indonesia
 # Paleta: branco, traco preto, acentos vermelho/amarelo

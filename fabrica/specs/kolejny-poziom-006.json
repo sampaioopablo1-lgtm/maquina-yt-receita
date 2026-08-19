@@ -1,0 +1,686 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-006",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#C1121F",
+  "c2": "#457B9D",
+  "bg": "#F1F0EA"
+ },
+ "thumb": {
+  "l1": "PRÓG: 3,70%",
+  "l2": "jedna nie przechodzi"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Sześć ofert",
+   "sub": "jedna przegrywa",
+   "nar": "Ministerstwo Finansów wystawiło w sierpniu sześć rodzajów obligacji oszczędnościowych. Pięć z nich chroni twoje pieniądze. Jedna nie.",
+   "cap": "Sześć ofert, jedna przegrywa"
+  },
+  {
+   "layout": "item",
+   "kicker": "Która",
+   "preco": "ta najkrótsza",
+   "nar": "I to nie jest ta, którą byś obstawił. Przegrywa ta najkrótsza, trzymiesięczna. Czyli ta, która wygląda najbezpieczniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego",
+   "preco": "dwa odejmowania",
+   "nar": "Powód nie jest w ofercie. Jest w dwóch odejmowaniach, które dzieją się po niej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsze",
+   "preco": "podatek Belki",
+   "nar": "Pierwsze odejmowanie to podatek Belki. Dziewiętnaście procent od odsetek, pobierane automatycznie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugie",
+   "preco": "inflacja",
+   "nar": "Drugie to inflacja. W lipcu wyniosła trzy procent w skali roku, według GUS.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Po obu",
+   "preco": "zostaje mniej niż widzisz",
+   "nar": "Dopiero po obu wiadomo, ile naprawdę zostało. I to jest zawsze mniej, niż mówi tabelka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest próg",
+   "preco": "trzy przecinek siedemdziesiąt",
+   "nar": "Z tych dwóch liczb wychodzi jeden próg. Żeby wyjść na zero, obligacja musi dać co najmniej trzy przecinek siedemdziesiąt procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Poniżej niego",
+   "preco": "tracisz, mimo odsetek",
+   "nar": "Poniżej tego progu tracisz siłę nabywczą, mimo że dostajesz odsetki. Rachunek rośnie, a zakupy się kurczą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dla kogo to jest",
+   "preco": "dla każdego, kto ma odłożone",
+   "nar": "I dotyczy każdego, kto ma cokolwiek odłożone na koncie. Nie trzeba mieć dużo, żeby ta arytmetyka działała przeciwko tobie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co zobaczymy",
+   "itens": [
+    "Czym są obligacje oszczędnościowe",
+    "Sześć ofert sierpnia, po kolei",
+    "Dwa odejmowania i próg 3,70%",
+    "Która przegrywa i o ile",
+    "Jak wybrać: horyzont, nie oprocentowanie"
+   ],
+   "nar": "Pięć części. Czym te obligacje są. Sześć ofert po kolei. Dwa odejmowania i próg. Która przegrywa i o ile. I jak wybierać, żeby nie patrzeć na samo oprocentowanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno od razu",
+   "preco": "to nie jest rekomendacja",
+   "nar": "Jedno od razu. To nie jest rekomendacja zakupu i nie namawiam do niczego. Czytamy ofertę i liczymy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada kanału",
+   "preco": "liczby ze źródłem",
+   "nar": "I obowiązuje zasada kanału. Liczby ze źródłem i datą, a czego nie da się zmierzyć, tego nie mówimy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zaczynamy",
+   "sub": "czym one w ogóle są?",
+   "nar": "Zacznijmy od podstawy, bo bez niej reszta nie ma sensu. Czym te obligacje w ogóle są?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Obligacja",
+   "sub": "pożyczasz państwu",
+   "nar": "Kupując obligację oszczędnościową, pożyczasz pieniądze państwu na określony czas. Państwo płaci ci odsetki i oddaje kapitał.",
+   "cap": "Czym one są"
+  },
+  {
+   "layout": "item",
+   "kicker": "Cena",
+   "preco": "sto złotych za sztukę",
+   "nar": "Jedna obligacja kosztuje sto złotych. Możesz kupić jedną albo tysiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie",
+   "preco": "przez internet albo w banku",
+   "nar": "Kupuje się przez internet, telefonicznie albo w oddziale. Sprzedaż prowadzą PKO Bank Polski i Pekao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czym różni się od lokaty",
+   "preco": "to nie bank ci płaci",
+   "nar": "Od lokaty różni się jedną rzeczą, którą warto zrozumieć. Tu nie bank jest twoim dłużnikiem, tylko Skarb Państwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest limit zakupu",
+   "preco": "ale wysoki",
+   "nar": "Jest też limit, choć rzadko kogo dotyczy. Na jedną emisję można kupić określoną liczbę sztuk, i dla zwykłego oszczędzającego on nie stanowi przeszkody.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Można wyjść wcześniej",
+   "preco": "za opłatą",
+   "nar": "I nie jesteś zamknięty do końca. Możesz złożyć dyspozycję przedterminowego wykupu i dostać pieniądze wcześniej, z potrąceniem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwie rodziny",
+   "preco": "stałe i indeksowane",
+   "nar": "Ofert jest sześć, ale rodziny są dwie. Jedne mają oprocentowanie ustalone z góry. Drugie doganiają inflację.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Te pierwsze",
+   "preco": "wiesz dokładnie ile",
+   "nar": "W tych pierwszych wiesz od razu, ile dostaniesz. To wygoda, ale i ryzyko, jeśli inflacja przyspieszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Te drugie",
+   "preco": "inflacja plus marża",
+   "nar": "W tych drugich, od drugiego roku, dostajesz inflację powiększoną o marżę. Nie wiesz ile, ale wiesz, że nie zostaniesz w tyle.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To jest cała różnica",
+   "preco": "pewność albo ochrona",
+   "nar": "I to jest cała różnica między nimi. Pewność kwoty albo ochrona wartości. Jedno kosztuje drugie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sierpniowa ciekawostka",
+   "preco": "zamiana taniej",
+   "nar": "W sierpniu jest jeszcze jedna rzecz. Kto ma obligacje wykupywane w tym miesiącu, może je wymienić na nowe po dziewięćdziesiąt dziewięć złotych dziewięćdziesiąt groszy zamiast stu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to daje",
+   "preco": "dziesięć groszy na sztukę",
+   "nar": "To dziesięć groszy taniej na każdej sztuce, i nie dotyczy tych trzymiesięcznych. Drobiazg, ale darmowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dobra",
+   "sub": "to teraz konkretne liczby",
+   "nar": "Skoro wiemy, czym one są, przejdźmy do konkretów. Ile dokładnie płaci każda z sześciu?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sześć ofert",
+   "sub": "sierpień dwa tysiące dwadzieścia sześć",
+   "nar": "Oto sierpniowa oferta, w kolejności od najkrótszej do najdłuższej. Ministerstwo zostawiło oprocentowanie bez zmian wobec lipca.",
+   "cap": "Sześć ofert sierpnia"
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzy miesiące",
+   "preco": "dwa procent",
+   "nar": "Trzymiesięczne OTS. Dwa procent w skali roku, stałe. Najkrótsza i najprostsza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rok",
+   "preco": "cztery procent",
+   "nar": "Roczne ROR. Cztery procent w pierwszym miesiącu, potem podąża za stopą referencyjną NBP. Marża zero.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwa lata",
+   "preco": "cztery przecinek piętnaście",
+   "nar": "Dwuletnie DOR. Cztery przecinek piętnaście na start, marża zero przecinek piętnaście.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzy lata",
+   "preco": "cztery przecinek czterdzieści",
+   "nar": "Trzyletnie TOS. Cztery przecinek czterdzieści, i to jest stałe przez cały okres.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cztery lata",
+   "preco": "cztery przecinek siedemdziesiąt pięć",
+   "nar": "Czteroletnie COI. Cztery przecinek siedemdziesiąt pięć w pierwszym roku, potem inflacja plus marża półtora procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dziesięć lat",
+   "preco": "pięć przecinek trzydzieści pięć",
+   "nar": "Dziesięcioletnie EDO. Pięć przecinek trzydzieści pięć w pierwszym roku, potem inflacja plus dwa procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Sześć ofert",
+   "itens": [
+    "OTS",
+    "ROR",
+    "DOR",
+    "TOS",
+    "COI",
+    "EDO"
+   ],
+   "alturas": [
+    0.37,
+    0.75,
+    0.78,
+    0.82,
+    0.89,
+    1.0
+   ],
+   "nar": "Tak wyglądają obok siebie. Widać jedną regułę: im dłużej, tym więcej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego tak",
+   "preco": "płacą ci za czas",
+   "nar": "To nie jest przypadek. Płacą ci za to, że oddajesz dostęp do pieniędzy na dłużej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Są jeszcze rodzinne",
+   "preco": "dla pobierających 800 plus",
+   "nar": "Są też dwie obligacje rodzinne, dostępne dla osób pobierających świadczenie osiemset plus. Sześcioletnia i dwunastoletnia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mają wyższe marże",
+   "preco": "dwa i dwa i pół",
+   "nar": "Ich marże są wyższe. Dwa procent przy sześcioletniej i dwa i pół przy dwunastoletniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiedy poznajesz nową ofertę",
+   "preco": "co miesiąc, z góry",
+   "nar": "Warto wiedzieć, kiedy patrzeć. Ministerstwo ogłasza ofertę na kolejny miesiąc jeszcze przed jego początkiem, więc porównanie robi się spokojnie, bez pośpiechu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Polacy kupują",
+   "preco": "rekord w czerwcu",
+   "nar": "I nie jest to nisza. W czerwcu Polacy kupili obligacji za osiem i sześć dziesiątych miliarda złotych, rekord od ponad roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mamy tabelkę",
+   "sub": "ale ile z tego zostaje?",
+   "nar": "Mamy więc tabelkę. Tylko że tabelka pokazuje kwotę brutto. Ile z tego naprawdę zostaje?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa odejmowania",
+   "sub": "Belka i inflacja",
+   "nar": "Między oprocentowaniem a twoim realnym zyskiem stoją dwie rzeczy. Zawsze te same, zawsze w tej kolejności.",
+   "cap": "Dwa odejmowania i próg"
+  },
+  {
+   "layout": "item",
+   "kicker": "Najpierw Belka",
+   "preco": "dziewiętnaście procent od odsetek",
+   "nar": "Najpierw podatek Belki. Dziewiętnaście procent, ale uwaga: nie od kapitału, tylko od samych odsetek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak to działa",
+   "preco": "zostaje osiemdziesiąt jeden procent",
+   "nar": "Praktycznie oznacza to, że z każdej złotówki odsetek zostaje ci osiemdziesiąt jeden groszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Przykład",
+   "preco": "cztery procent staje się",
+   "nar": "Weźmy cztery procent. Po podatku zostaje trzy przecinek dwadzieścia cztery.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potem inflacja",
+   "preco": "trzy procent w lipcu",
+   "nar": "Potem wchodzi inflacja. Według GUS w lipcu ceny były o trzy procent wyższe niż rok wcześniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co ona robi",
+   "preco": "zjada resztę",
+   "nar": "Ona nie pobiera niczego z konta. Robi coś gorszego. Sprawia, że ta sama kwota kupuje mniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stąd próg",
+   "preco": "trzy przecinek siedemdziesiąt",
+   "nar": "Z tych dwóch liczb wychodzi próg. Dzielisz trzy przez zero osiemdziesiąt jeden i dostajesz trzy przecinek siedemdziesiąt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co on znaczy",
+   "preco": "tyle trzeba na zero",
+   "nar": "To jest oprocentowanie, przy którym wychodzisz dokładnie na zero. Ani nie zyskujesz, ani nie tracisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Policz to sam",
+   "preco": "jedno dzielenie",
+   "nar": "I to jest liczba, którą możesz przeliczyć sam w dziesięć sekund. Aktualna inflacja podzielona przez zero osiemdziesiąt jeden.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uwaga na jedną rzecz",
+   "preco": "inflacja to przeszłość",
+   "nar": "I jedno zastrzeżenie do samego progu. Inflacja GUS opisuje ostatnie dwanaście miesięcy, a twoja obligacja dotyczy przyszłych. Próg jest punktem odniesienia, nie prognozą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ona się zmienia",
+   "preco": "razem z inflacją",
+   "nar": "Próg nie jest stały. Rośnie i spada razem z inflacją, więc warto go przeliczać, a nie zapamiętywać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mamy próg",
+   "sub": "to kto go nie przechodzi?",
+   "nar": "Mamy próg i mamy sześć ofert. Kto go nie przechodzi?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Przegrywa jedna",
+   "sub": "trzymiesięczna",
+   "nar": "Wracamy do tabelki, tym razem z progiem. I odpada dokładnie jedna pozycja: trzymiesięczna OTS.",
+   "cap": "Która przegrywa i o ile"
+  },
+  {
+   "layout": "item",
+   "kicker": "Jej liczba",
+   "preco": "dwa procent",
+   "nar": "Ona daje dwa procent. Po podatku Belki zostaje jeden przecinek sześćdziesiąt dwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wobec inflacji",
+   "preco": "trzy procent",
+   "nar": "A inflacja wynosi trzy. Różnica działa przeciwko tobie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Realnie",
+   "preco": "minus prawie półtora",
+   "nar": "Realnie tracisz około jednego przecinek trzydzieści osiem procent rocznie. Z pieczątką Skarbu Państwa na dokumencie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie jest oszustwo",
+   "preco": "to jest krótki termin",
+   "nar": "I to nie jest żadne oszustwo. Za trzy miesiące płynności nikt nie płaci premii. Płacisz za to, że możesz wyjść szybko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Reszta przechodzi",
+   "preco": "wszystkie pozostałe pięć",
+   "nar": "Pozostałe pięć przechodzi próg. Roczna z czterema procentami wychodzi na lekki plus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Im dłużej",
+   "preco": "tym większy zapas",
+   "nar": "A im dłuższy termin, tym większy zapas nad progiem. Dziesięcioletnia ma go najwięcej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale uwaga na indeksowane",
+   "preco": "one zmieniają się po roku",
+   "nar": "Tylko pamiętaj o jednym. W czteroletniej i dziesięcioletniej podane oprocentowanie dotyczy PIERWSZEGO roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potem",
+   "preco": "inflacja plus marża",
+   "nar": "Od drugiego roku liczy się inflacja powiększona o marżę. To znaczy, że one z definicji zostają nad progiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I działa też odwrotnie",
+   "preco": "gdy inflacja spada",
+   "nar": "Działa to zresztą w obie strony. Jeśli inflacja spadnie, stała stawka nagle staje się bardzo dobra, a indeksowana się kurczy. Nikt nie wie z góry, która wygra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A stałe?",
+   "preco": "ryzyko idzie w drugą stronę",
+   "nar": "W tych o stałym oprocentowaniu ryzyko jest odwrotne. Jeśli inflacja wróci wyżej, twoja stawka zostanie w miejscu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wiemy już wszystko",
+   "sub": "to jak wybrać?",
+   "nar": "Wiemy, ile płacą i ile zostaje. To jak w końcu wybrać?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wybieraj horyzontem",
+   "sub": "nie oprocentowaniem",
+   "nar": "Najważniejsza zasada tego filmu jest jedna. Zacznij od pytania KIEDY będziesz potrzebować tych pieniędzy, a nie od tabelki.",
+   "cap": "Jak wybrać"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego tak",
+   "preco": "wcześniejszy wykup kosztuje",
+   "nar": "Bo przedterminowy wykup kosztuje. Wybierasz obligację dłuższą niż twój horyzont i płacisz karę za własną decyzję.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pieniądze na pół roku",
+   "preco": "krótki termin, świadomie",
+   "nar": "Jeśli pieniądze są potrzebne za pół roku, krótki termin jest właściwy — nawet wiedząc, że przegrywa z inflacją.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo alternatywa",
+   "preco": "konto osobiste to zero",
+   "nar": "Bo prawdziwa alternatywa dla nich to nie dziesięciolatka. To konto osobiste, na którym leżą prawie bez oprocentowania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pieniądze na lata",
+   "preco": "indeksowane mają sens",
+   "nar": "Jeśli horyzont to lata, a nie miesiące, sprawa wygląda inaczej. Obligacje indeksowane inflacją robią wtedy dokładnie to, po co istnieją.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi krok",
+   "preco": "policz próg na dziś",
+   "nar": "Drugi krok to przeliczyć próg na dziś. Sprawdź inflację GUS i podziel przez zero osiemdziesiąt jeden.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci krok",
+   "preco": "porównaj z lokatą tak samo",
+   "nar": "Trzeci: porównując z lokatą, licz ją tak samo. Też po Belce. Inaczej porównujesz brutto z netto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarty krok",
+   "preco": "sprawdź zamianę",
+   "nar": "Czwarty, jeśli masz obligacje wykupywane w tym miesiącu. Sprawdź zamianę, bo daje niższą cenę zakupu bez żadnej opłaty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Piąty krok, opcjonalny",
+   "preco": "rozłóż na terminy",
+   "nar": "Jest jeszcze piąty krok, dla tych, którzy nie chcą zgadywać. Rozłożyć kwotę na różne terminy, zamiast stawiać wszystko na jeden. Wtedy żadna zmiana stóp nie trafia w całość.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to zajmuje",
+   "preco": "kwadrans",
+   "nar": "Wszystkie cztery to kwadrans z kalkulatorem. Żaden nie wymaga rozmowy z doradcą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Plan gotowy",
+   "sub": "co może go zepsuć?",
+   "nar": "Plan jest gotowy. Co może go zepsuć?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery błędy",
+   "sub": "które psują rachunek",
+   "nar": "Pierwszy błąd to porównywanie oprocentowania brutto z inflacją. Między nimi stoi jeszcze podatek, i to on decyduje o progu.",
+   "cap": "Cztery błędy"
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi błąd",
+   "preco": "brać pierwszy rok za cały okres",
+   "nar": "Drugi to traktowanie oprocentowania z pierwszego roku jak stawki na cały okres. W indeksowanych to tylko start.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci błąd",
+   "preco": "kupować dłużej niż horyzont",
+   "nar": "Trzeci to kupowanie na dłużej, niż naprawdę możesz czekać. Kara za wcześniejszy wykup potrafi zjeść cały zysk z krótkiego trzymania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarty błąd",
+   "preco": "mylić bezpieczne z zyskownym",
+   "nar": "I czwarty, najczęstszy w tym temacie. Mylenie bezpieczeństwa kapitału z ochroną wartości. To dwie różne rzeczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co to znaczy",
+   "preco": "sto złotych wraca zawsze",
+   "nar": "Twoje sto złotych wróci. Pytanie brzmi, ile będzie wtedy warte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno zastrzeżenie",
+   "preco": "oferta zmienia się co miesiąc",
+   "nar": "I jedno uczciwe zastrzeżenie. Ta oferta dotyczy sierpnia. Ministerstwo ogłasza nową co miesiąc, więc liczby sprawdzaj u źródła.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Podsumowanie",
+   "itens": [
+    "Sześć ofert, od 2,00% do 5,35%",
+    "Belka zabiera 19% odsetek",
+    "Inflacja GUS: 3,0%",
+    "Próg wyjścia na zero: 3,70%",
+    "Wybieraj horyzontem"
+   ],
+   "nar": "Pięć rzeczy do zapamiętania. Sześć ofert i ich rozpiętość. Że Belka zabiera dziewiętnaście procent odsetek. Aktualna inflacja. Próg wyjścia na zero. I że wybiera się horyzontem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli zrobisz jedną rzecz",
+   "preco": "policz próg",
+   "nar": "Jeśli po tym filmie zrobisz jedną rzecz, policz dzisiejszy próg. Inflacja podzielona przez zero osiemdziesiąt jeden.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego akurat to",
+   "preco": "działa na wszystko",
+   "nar": "Bo ta jedna liczba działa nie tylko na obligacje. Działa na lokatę i na konto oszczędnościowe. Na wszystko, co obiecuje ci procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "na liczbach, nie na wrażeniach",
+   "nar": "To wszystko. Kolejny Poziom, na liczbach i źródłach, nie na wrażeniach.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "2,00%",
+   "sub": "przegrywa z inflacją",
+   "nar": "Obligacja trzymiesięczna daje dwa procent. Inflacja wynosi trzy. To już przegrana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A jeszcze",
+   "preco": "podatek Belki",
+   "nar": "A przed inflacją wchodzi jeszcze Belka. Dziewiętnaście procent od odsetek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zostaje",
+   "preco": "1,62%",
+   "nar": "Z dwóch procent zostaje jeden przecinek sześćdziesiąt dwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Próg",
+   "preco": "3,70%",
+   "nar": "Żeby wyjść na zero, potrzebujesz trzy przecinek siedemdziesiąt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Policz sam",
+   "preco": "inflacja ÷ 0,81",
+   "nar": "Aktualna inflacja podzielona przez zero osiemdziesiąt jeden. Jedno dzielenie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sześć ofert",
+   "sub": "na kanale",
+   "nar": "Wszystkie sześć ofert sierpnia i która przechodzi próg, w pełnym filmie.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Obligacje skarbowe sierpień 2026: sześć ofert, jedna przegrywa z inflacją\n\n## TYTUŁ\nObligacje Skarbowe 2026: Sześć Ofert, Jedna Przegrywa z Inflacją\n\n## OPIS\nMinisterstwo Finansów wystawiło w sierpniu 2026 sześć powszechnie dostępnych obligacji oszczędnościowych i zostawiło oprocentowanie bez zmian wobec lipca. Pięć z nich chroni realną wartość pieniędzy. Jedna nie — i akurat ta, która wygląda najbezpieczniej, czyli najkrótsza, trzymiesięczna.\n\nPowodu nie widać w tabelce, bo tabelka pokazuje kwoty brutto. Między oprocentowaniem a twoim realnym zyskiem stoją dwa odejmowania: podatek Belki, który zabiera 19% od samych odsetek, oraz inflacja, która według GUS wyniosła w lipcu 3,0% rok do roku. Z tych dwóch liczb wychodzi jeden próg: żeby wyjść dokładnie na zero, obligacja musi dać co najmniej 3,70% w skali roku. To wynik dzielenia 3,0 przez 0,81 — działanie, które przeliczysz sam w dziesięć sekund i które warto powtarzać, bo próg zmienia się razem z inflacją.\n\nW filmie przechodzimy przez wszystkie sześć ofert po kolei: trzymiesięczne OTS z 2,00%, roczne ROR z 4,00% i marżą zero, dwuletnie DOR z 4,15%, trzyletnie TOS ze stałymi 4,40%, czteroletnie COI z 4,75% w pierwszym roku oraz dziesięcioletnie EDO z 5,35% w pierwszym roku. Wyjaśniamy różnicę, która decyduje o wszystkim: obligacje o stałym oprocentowaniu dają pewność kwoty, a indeksowane od drugiego roku płacą inflację powiększoną o marżę — czyli z definicji zostają nad progiem. Pokazujemy też, ile realnie traci trzymiesięczna: po podatku zostaje z niej 1,62%, co przy inflacji 3,0% oznacza około -1,38% rocznie.\n\nNa koniec cztery kroki do wyboru, wszystkie do zrobienia w kwadrans z kalkulatorem. Najważniejszy z nich jest pierwszy i wcale nie dotyczy oprocentowania: zacznij od pytania, KIEDY będziesz potrzebować tych pieniędzy. Przedterminowy wykup kosztuje, więc obligacja dłuższa niż twój horyzont to kara za własną decyzję. Wspominamy również o sierpniowej zamianie, w której nowe obligacje kupuje się po 99,90 zł zamiast 100 zł.\n\nTo nie jest rekomendacja zakupu ani porada inwestycyjna. Czytamy publiczną ofertę i liczymy.\n\n## ROZDZIAŁY\n{CAPITULOS}\n\n## KOMENTARZ\nJedno pytanie, bo odpowiedź dzieli ludzi na pół: liczyłeś kiedyś swoje oszczędności PO podatku Belki i PO inflacji, czy patrzyłeś tylko na oprocentowanie? Bez oceniania — zbieram odpowiedzi do następnego materiału. A jeśli chcesz ten sam rachunek zrobiony dla lokat albo dla konta oszczędnościowego, napisz który; najczęściej wskazany idzie pierwszy.\n\n## HASHTAG\n#ObligacjeSkarbowe #PodatekBelki #KolejnyPoziom\n\n## TAGI\nobligacje skarbowe, obligacje 2026, podatek belki, inflacja gus, oszczedzanie, lokata czy obligacje, edo, coi, ots, ror, ministerstwo finansow, finanse osobiste, polska, realna stopa zwrotu, kolejny poziom\n\n## USTAWIENIA STUDIO\n- Język: polski (pl) | Kategoria: Edukacja (27)\n- Nie jest przeznaczone dla dzieci\n- Deklaracja treści syntetycznej: TAK (głos AI)\n- Lokalizacja: Polska | Licencja: standardowa licencja YouTube\n- Reklamy mid-roll: włączone (powyżej 8 minut)\n\n## MUZYKA / LICENCJA\n{TRILHA}\n\n## ŹRÓDŁA\nOprocentowanie obligacji pochodzi z oferty oszczędnościowych obligacji skarbowych na sierpień 2026, opublikowanej przez Ministerstwo Finansów na gov.pl i zreferowanej z tymi samymi wartościami przez strefainwestorow.pl (dostęp 19.08.2026): OTS 3-miesięczne 2,00% stałe; ROR 1-roczne 4,00% w pierwszym miesiącu, następnie stopa referencyjna NBP, marża 0,00%; DOR 2-letnie 4,15% w pierwszym okresie, marża 0,15%; TOS 3-letnie 4,40% stałe; COI 4-letnie 4,75% w pierwszym roku, następnie inflacja + 1,50%; EDO 10-letnie 5,35% w pierwszym roku, następnie inflacja + 2,00%. Obligacje rodzinne dla beneficjentów świadczenia 800+: 6-letnie z marżą 2,00% i 12-letnie z marżą 2,50%. Zamiana obligacji wykupywanych w sierpniu: cena 99,90 zł za sztukę zamiast 100 zł, z wyłączeniem OTS. Sprzedaż obligacji w czerwcu 2026: 8,6 mld zł. Inflacja CPI: dane GUS za lipiec 2026, 3,0% rok do roku i 0,8% miesiąc do miesiąca. Podatek od dochodów kapitałowych (tzw. podatek Belki): 19% od odsetek. Próg 3,70% jest naszym wyliczeniem, nie danymi urzędowymi: to iloraz 3,0 i 0,81, czyli oprocentowanie nominalne potrzebne do wyjścia na zero po podatku przy tej inflacji — sprawdź je samodzielnie i przelicz, gdy inflacja się zmieni. Oferta obligacji zmienia się co miesiąc, więc aktualne wartości weryfikuj u źródła. Materiał edukacyjny; nie stanowi rekomendacji inwestycyjnej ani porady finansowej.\n"
+}

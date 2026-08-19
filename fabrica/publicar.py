@@ -46,6 +46,27 @@ UPLOAD = "https://www.googleapis.com/upload/youtube/v3"
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+def trilha_do_canal_config(slug):
+    """A assinatura sonora declarada em config/canais/<slug>.yaml.
+
+    Existia so em `canais.trilha`, no banco — fora do alcance dos portoes, que
+    rodam offline. O resultado: em 19/08/2026 o kolejny-poziom-005 foi ao ar
+    com Deliberate_Thought num canal cuja identidade e Wholesome, e nenhum dos
+    sete portoes viu. Quem viu foi um teste do repositorio, e so DEPOIS de
+    existir uma segunda spec para divergir dela — tarde demais.
+
+    Regex pelo mesmo motivo que `idioma_do_canal`: o passo de publicacao nao
+    instala PyYAML, e um `import yaml` aqui derrubaria a publicacao depois do
+    render.
+    """
+    caminho = os.path.join(RAIZ, "config", "canais", f"{slug}.yaml")
+    if not os.path.exists(caminho):
+        return ""
+    with open(caminho, encoding="utf-8") as f:
+        m = re.search(r'^\s*trilha:\s*"?([\w-]+)"?', f.read(), re.M)
+    return m.group(1) if m else ""
+
+
 def idioma_do_canal(slug):
     """Le o idioma declarado em config/canais/<slug>.yaml.
 

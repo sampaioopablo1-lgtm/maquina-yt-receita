@@ -7,6 +7,7 @@ canal:
   tema: "masakan hemat dan uang dapur"
   estilo_visual: "doodle"
   voz_edge: "id-ID-GadisNeural"
+  trilha: "Deliberate_Thought"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: receitas economicas + custo por porcao, Indonesia
 # Paleta: vermelho quente C1440E, creme

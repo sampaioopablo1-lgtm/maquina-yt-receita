@@ -6,6 +6,7 @@ canal:
   tema: "produtividade e carreira tecnica: Excel, Project, ISO, processos"
   estilo_visual: "voxlite"
   voz_edge: "pt-BR-ThalitaMultilingualNeural"
+  trilha: "Inspired"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
   # 27 (Educacao), nao o 22 herdado do default: o canal ensina procedimento.
   categoria_id: "27"

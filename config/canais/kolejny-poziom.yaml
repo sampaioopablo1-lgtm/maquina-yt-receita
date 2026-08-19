@@ -8,6 +8,7 @@ canal:
   tema: "finanse osobiste i kariera"
   estilo_visual: "voxlite"
   voz_edge: "pl-PL-MarekNeural"
+  trilha: "Wholesome"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: financas pessoais, Polonia (oceano azul, CPM 2.5)
 # Paleta: azul-marinho 1B2A4A, dourado F2B134

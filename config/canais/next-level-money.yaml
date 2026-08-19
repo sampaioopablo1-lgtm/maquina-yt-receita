@@ -7,6 +7,7 @@ canal:
   tema: "economia, dinheiro e poder"
   estilo_visual: "voxlite"
   voz_edge: "en-US-AndrewNeural"
+  trilha: "Deliberate_Thought"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: explicadores de economia, EUA/global
 # Paleta: creme, tinta preta, vermelho E4572E

@@ -7,6 +7,7 @@ canal:
   tema: "oikonomika kai kariera"
   estilo_visual: "doodle"
   voz_edge: "el-GR-NestorasNeural"
+  trilha: "Inspired"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: financas pessoais, Grecia (quase sem concorrencia)
 # Paleta: azul egeu 2E86AB, branco

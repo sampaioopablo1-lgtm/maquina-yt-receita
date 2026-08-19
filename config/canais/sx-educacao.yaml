@@ -14,6 +14,7 @@ canal:
   # que alem de resolver a colisao e a escolha certa aqui: o canal capta
   # matricula para o curso presencial DELE, entao a voz dele nao e disfarce.
   voz_edge: "pt-BR-AntonioNeural"
+  trilha: "Deliberate_Thought"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
   # 27 (Educacao): o canal ensina ferramenta, nao entretem.
   categoria_id: "27"

@@ -42,7 +42,7 @@ MIN_PALAVRAS_DESCRICAO = 200
 
 
 def _gate_identidade(caminho, sp):
-    from publicar import idioma_do_canal
+    from publicar import idioma_do_canal, trilha_do_canal_config
 
     faltas = []
     nome = os.path.basename(caminho)[:-5]
@@ -54,6 +54,20 @@ def _gate_identidade(caminho, sp):
             faltas.append(f"idioma={sp['idioma']!r} mas canal e {do_canal!r}")
     elif not do_canal:
         faltas.append("sem idioma na spec e sem config/canais/")
+
+    # A trilha e do CANAL, nunca do pacote: e a assinatura sonora que o
+    # espectador reconhece antes de ler qualquer coisa. Trocar de faixa entre
+    # videos do mesmo canal e o equivalente sonoro de trocar de logo.
+    #
+    # Este portao existe porque em 19/08/2026 o kolejny-poziom-005 foi ao ar
+    # com Deliberate_Thought num canal registrado em Wholesome. Os sete
+    # portoes passaram — nenhum lia a trilha do canal, que so existia no
+    # banco. O unico que pegou foi um teste de repositorio, e ele so podia
+    # pegar DEPOIS de uma segunda spec divergir da primeira.
+    do_canal_trilha = trilha_do_canal_config(sp["slug"])
+    if do_canal_trilha and sp.get("trilha") and sp["trilha"] != do_canal_trilha:
+        faltas.append(f"trilha={sp['trilha']!r} mas a identidade do canal e "
+                      f"{do_canal_trilha!r} (config/canais/{sp['slug']}.yaml)")
     return faltas
 
 

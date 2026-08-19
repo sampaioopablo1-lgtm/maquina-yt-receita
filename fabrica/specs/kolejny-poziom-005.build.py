@@ -448,7 +448,12 @@ SPEC = {
     "pacote": "kolejny-poziom-005",
     "idioma": "pl",
     "voz": "pl-PL-MarekNeural",
-    "trilha": "Deliberate_Thought",
+    # CORRIGIDO depois da publicacao. Eu declarei Deliberate_Thought e o video
+    # foi ao ar assim; a identidade do canal e Wholesome (canais.trilha e as
+    # specs 002-004). O video publicado mantem a faixa antiga — republicar so
+    # por causa dela criaria a duplicata que passei a manha consertando. A
+    # spec fica certa para qualquer render futuro.
+    "trilha": "Wholesome",
     "paleta": {"ink": "#14213D", "c1": "#C1121F", "c2": "#457B9D", "bg": "#F1F0EA"},
     "thumb": {"l1": "5862 CZY 3605?", "l2": "ta sama umowa"},
     "longo": CENAS,

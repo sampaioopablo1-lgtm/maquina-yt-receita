@@ -7,6 +7,7 @@ canal:
   tema: "cocina economica y dinero"
   estilo_visual: "doodle"
   voz_edge: "es-MX-DaliaNeural"
+  trilha: "Inspired"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: receitas economicas + custo por porcao, Mexico/LatAm
 # Paleta: laranja E36414, verde 3A7D44

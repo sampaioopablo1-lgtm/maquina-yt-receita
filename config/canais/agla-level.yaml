@@ -7,6 +7,7 @@ canal:
   tema: "paisa, naukri aur career"
   estilo_visual: "doodle"
   voz_edge: "hi-IN-MadhurNeural"
+  trilha: "Inspired"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: financas e carreira, India (volume colossal)
 # Paleta: acafrao FF9933, verde 138808

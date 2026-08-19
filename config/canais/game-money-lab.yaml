@@ -7,6 +7,7 @@ canal:
   tema: "a economia dos games"
   estilo_visual: "voxlite"
   voz_edge: "en-GB-RyanNeural"
+  trilha: "Wholesome"  # assinatura sonora do canal, nunca do pacote
   idioma_revisao: "pt-BR"
 # Nicho: quanto ganham estudios, matematica do free-to-play
 # Paleta: roxo 5E48A8, verde neon 7FB069
