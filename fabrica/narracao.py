@@ -161,7 +161,25 @@ def idioma_de(spec, forcado=None):
 # frase" num trecho que tem dois em cada uma das duas frases, e a trava
 # reprovaria qualquer roteiro em hindi para sempre. O canal tem 0 publicados.
 # O danda duplo (॥) fecha verso/estrofe e tambem encerra.
-FIM_DE_FRASE = ".!?…।॥"
+# O fim de frase e POR IDIOMA, e a razao esta uma tabela abaixo: em grego o
+# ponto de interrogacao e ";" (U+003B) e o codepoint dedicado U+037E. Sem eles
+# aqui, pergunta grega NAO encerra frase — e a contagem de frases alimenta
+# tres portoes (virgulas por frase, palavras por frase, numeros por frase) e o
+# termo `frases x P` do modelo de duracao.
+#
+# A tabela existe em vez de uma string global porque ";" e ponto-e-virgula
+# comum em polones, portugues e indonesio. Trocar global partiria frase alheia
+# ao meio para consertar a grega.
+#
+# O conserto foi feito EM PAR com a recalibracao do Nestoras, como o
+# aprendizado 313 exigia: as constantes antigas (20,49 chars/s + 1,297 s/frase)
+# tinham sido ajustadas COM o divisor errado, entao mexer num sem o outro
+# trocaria um vies por outro. Medido nos 429 pares cena-a-cena dos cinco
+# pacotes gregos publicados.
+FIM_DE_FRASE = {
+    None: ".!?\u2026\u0964\u0965",
+    "el": ".!?\u2026\u0964\u0965;\u037e",
+}
 
 
 # Como se fecha uma pergunta, por idioma. O grego NAO usa "?": o ponto de
@@ -180,10 +198,11 @@ GANCHO = {
 }
 
 
-def frases(texto):
+def frases(texto, idi=None):
+    fim = FIM_DE_FRASE.get(idi, FIM_DE_FRASE[None])
     return [
         f.strip()
-        for f in re.split(rf"(?<=[{re.escape(FIM_DE_FRASE)}])\s+|\n+", texto)
+        for f in re.split(rf"(?<=[{re.escape(fim)}])\s+|\n+", texto)
         if f.strip()
     ]
 
@@ -236,7 +255,7 @@ def analisa(spec, idi):
             if normaliza(termo) in n:
                 avisos.append(f"{onde}: estatistica sem dono '{termo}' — use NOME + ANO + NUMERO")
 
-        fs = frases(nar)
+        fs = frases(nar, idi)
         todas.extend(fs)
         for f in fs:
             nn = conta_numeros(f, idi)

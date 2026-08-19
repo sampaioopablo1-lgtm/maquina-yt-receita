@@ -105,7 +105,7 @@ def coleta(dir_srt: str, dir_specs: str):
         v["pac"].append(pacote)
         for (ini, fim), c in zip(t, cenas):
             v["C"].append(len(c["nar"]))
-            v["F"].append(len(frases(c["nar"])))
+            v["F"].append(len(frases(c["nar"], sp.get("idioma"))))
             v["D"].append(fim - ini)
     return por_voz, gaps, pulados
 

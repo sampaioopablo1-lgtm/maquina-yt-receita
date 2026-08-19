@@ -138,8 +138,12 @@ def duracao_cena(nar: str, voz: str) -> float:
     """
     from narracao import frases
 
+    # O idioma sai do PREFIXO da voz, nao de um parametro novo: quem chama aqui
+    # nem sempre tem a spec na mao, e o nome da voz do edge-tts sempre comeca
+    # pelo idioma (el-GR-NestorasNeural -> el). Sem isso, `frases` usaria o
+    # divisor padrao e o grego voltaria a contar pergunta como meia frase.
     R, P = MODELO_VOZ[voz]
-    return len(nar) / R + len(frases(nar)) * P
+    return len(nar) / R + len(frases(nar, voz.split("-")[0])) * P
 
 
 # Intervalo de MONTAGEM entre uma cena e a seguinte, medido no render.
