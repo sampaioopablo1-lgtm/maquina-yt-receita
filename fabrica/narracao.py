@@ -99,7 +99,15 @@ NUMEROS = {
 CONECTOR = {
     "pt": r"\b(e|de|do|da|com|por)\b", "en": r"\b(and|point|of|to|a|per)\b",
     "es": r"\b(y|con|de|por)\b", "id": r"\b(dan|koma|per)\b",
-    "el": r"\b(και|με)\b", "tr": r"\b(ve)\b", "pl": r"\b(i|z)\b", "hi": r"(और)",
+    # "κόμμα" e a VIRGULA DECIMAL falada em grego, do mesmo jeito que "koma" em
+    # indonesio e "point" em ingles — que ja estavam nesta tabela. Sem ela,
+    # "τρία κόμμα τέσσερα" contava como DOIS numeros em vez de um, e o teto de
+    # quatro por frase caia com duas casas decimais. Medido em 19/08/2026 no
+    # epomeno-epipedo-006: duas frases reprovadas com dois decimais cada
+    # (aprendizado 315).
+    # sem tonos: `conta_numeros` compara depois de normaliza(), que tira acento —
+    # como ja fazem todas as outras entradas gregas destas tabelas.
+    "el": r"\b(και|με|κομμα)\b", "tr": r"\b(ve)\b", "pl": r"\b(i|z)\b", "hi": r"(और)",
 }
 
 MAX_NUM_FRASE = 4      # 4+ QUANTIDADES numa frase e planilha falada
