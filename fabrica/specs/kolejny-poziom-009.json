@@ -1,0 +1,658 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-009",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#12233A",
+  "c1": "#1F6FB2",
+  "c2": "#E8A33D",
+  "bg": "#F2F6FA"
+ },
+ "thumb": {
+  "l1": "551 zł",
+  "l2": "szkoda 11 600"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Najtańsze od dwóch lat",
+   "sub": "i to jest ostrzeżenie",
+   "nar": "Twoje OC jest dziś najtańsze od dwóch lat. Brzmi jak dobra wiadomość, i właśnie dlatego warto obejrzeć to, zanim odnowisz polisę.",
+   "cap": "Najtańsze od dwóch lat — i dlaczego to ostrzeżenie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Co mówią nagłówki",
+   "preco": "spadek ceny",
+   "nar": "Nagłówki z tego lata mówią jedno: ceny OC spadły. To prawda. Sprawdziłem liczby i one się zgadzają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co mówi druga liczba",
+   "preco": "szkoda w górę",
+   "nar": "Tylko że obok ceny stoi druga liczba, z tego samego raportu. Średnia szkoda z OC wzrosła. I to ona decyduje o tym, co będzie dalej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kto to policzył",
+   "preco": "PIU i KNF",
+   "nar": "Dane są z dwóch niezależnych źródeł. Polska Izba Ubezpieczeń i Komisja Nadzoru Finansowego. Obie instytucje, oba raporty za pierwszy kwartał tego roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dwie strzałki",
+   "itens": [
+    "Składka",
+    "Szkoda"
+   ],
+   "alturas": [
+    12,
+    100
+   ],
+   "nar": "I te dwie strzałki idą w przeciwne strony. Składka lekko w dół, szkoda wyraźnie w górę. Tak wygląda rachunek, który się nie spina.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czym to NIE jest",
+   "sub": "nie przewiduję podwyżki",
+   "nar": "Zanim pójdziemy dalej, jedna rzecz. Nie powiem ci, że polisa zdrożeje o konkretny procent w konkretnym miesiącu. Nikt tego nie wie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co powiem",
+   "preco": "pokażę rachunek",
+   "nar": "Powiem coś węższego i sprawdzalnego. Pokażę rachunek ubezpieczycieli i to, że w tej chwili on nie domyka się. Wniosek wyciągniesz sam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Po kolei",
+   "itens": [
+    "Ile naprawdę kosztuje średnie OC",
+    "O ile urosła średnia szkoda",
+    "Rachunek, który się nie spina",
+    "Dlaczego cena jeszcze nie poszła w górę",
+    "Co zrobić przed odnowieniem"
+   ],
+   "nar": "Po kolei. Ile kosztuje średnie OC, o ile urosła szkoda, dlaczego rachunek się nie spina, czemu cena jeszcze nie poszła w górę i co z tym zrobić przed odnowieniem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno zastrzeżenie",
+   "preco": "średnia to nie twoja cena",
+   "nar": "I jedno zastrzeżenie na cały film. Średnia rynkowa to nie jest twoja cena. Twoja zależy od wieku, miasta, auta i historii szkód.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Po co więc średnia",
+   "preco": "pokazuje kierunek",
+   "nar": "Średnia służy do czegoś innego. Ona nie mówi, ile zapłacisz. Ona pokazuje, w którą stronę idzie cały rynek — a rynek prędzej czy później dogania twoją polisę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zaczynamy od ceny",
+   "preco": "od tego, co widzisz",
+   "nar": "Zaczynamy od tego, co widzisz jako pierwsze: od ceny.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pięćset pięćdziesiąt jeden",
+   "sub": "średnia składka OC",
+   "nar": "Średnia składka za OC komunikacyjne wyniosła pięćset pięćdziesiąt jeden złotych. To dane Polskiej Izby Ubezpieczeń za pierwszy kwartał tego roku.",
+   "cap": "Ile naprawdę kosztuje średnie OC"
+  },
+  {
+   "layout": "item",
+   "kicker": "O ile mniej",
+   "preco": "cztery złote",
+   "nar": "Rok wcześniej było o cztery złote więcej. Spadek o siedem dziesiątych procenta. Realnie: prawie nic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego mówią o dwóch latach",
+   "preco": "poziom sprzed dwóch lat",
+   "nar": "Skąd więc nagłówek o najtańszej polisie od dwóch lat? Stąd, że po serii podwyżek średnia wróciła mniej więcej tam, gdzie była dwa lata temu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A porównywarki",
+   "preco": "sześćset pięćdziesiąt",
+   "nar": "Jeśli sprawdzasz cenę w porównywarce, zobaczysz raczej około sześciuset pięćdziesięciu złotych. To nie jest sprzeczność, tylko inna liczba.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego się różnią",
+   "preco": "portfel kontra oferta",
+   "nar": "Izba liczy średnią ze wszystkich czynnych polis, także tych kupionych dawno i tanio. Porównywarka pokazuje ofertę na dziś, dla kierowcy, który kupuje teraz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dwa różne pytania",
+   "itens": [
+    "Średnia z portfela",
+    "Oferta na dziś"
+   ],
+   "alturas": [
+    85,
+    100
+   ],
+   "nar": "To są odpowiedzi na dwa różne pytania, i mylenie ich jest najczęstszym błędem w rozmowie o cenach polis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Która jest ważniejsza",
+   "preco": "zależy po co",
+   "nar": "Która się liczy? Do twojej decyzji — ta z porównywarki. Do zrozumienia, co się stanie z rynkiem — ta z Izby. Interesuje nas teraz ta druga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile jest tych polis",
+   "preco": "osiem milionów osiemset tysięcy",
+   "nar": "Warto wiedzieć, na czym liczona jest ta średnia. Na koniec kwartału czynnych polis OC było osiem milionów osiemset tysięcy. To nie jest badanie na próbce — to cały rynek policzony co do sztuki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I ich przybywa",
+   "preco": "cztery procent więcej",
+   "nar": "I jest ich coraz więcej: o cztery procent w skali roku, czyli o jakieś trzysta dwadzieścia tysięcy sztuk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co to znaczy dla składki",
+   "preco": "więcej klientów, ta sama cena",
+   "nar": "Zapamiętaj to, bo wrócimy do tego w rozdziale o konkurencji. Klientów przybywa, a cena stoi. To nie jest przypadek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Teraz druga liczba",
+   "preco": "ta z drugiej strony rachunku",
+   "nar": "Cena to jedna strona rachunku. Teraz druga, i to ona jest tu ważniejsza:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jedenaście tysięcy sześćset",
+   "sub": "średnia szkoda",
+   "nar": "Średnia szkoda wypłacana z OC komunikacyjnego to dziś jedenaście tysięcy sześćset złotych. Rok wcześniej była o sześć procent niższa.",
+   "cap": "O ile urosła średnia szkoda"
+  },
+  {
+   "layout": "item",
+   "kicker": "Skala porównania",
+   "preco": "dwadzieścia jeden razy składka",
+   "nar": "Zestaw to ze składką. Jedna średnia szkoda kosztuje ubezpieczyciela mniej więcej tyle, ile dwadzieścia jeden średnich polis przynosi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego szkody drożeją",
+   "preco": "części i robocizna",
+   "nar": "Powody nie są tajemnicze i żaden z nich nie jest chwilowy. Części drożeją, robocizna w warsztacie drożeje, a auta mają w sobie coraz więcej elektroniki. Te trzy rzeczy działają razem i wszystkie w tę samą stronę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Konkretny przykład",
+   "preco": "zderzak z czujnikami",
+   "nar": "Weź zderzak. Dekadę temu to był kawałek plastiku i godzina pracy. Dziś w tym samym zderzaku siedzą czujniki parkowania i radar, a po wymianie trzeba to jeszcze skalibrować na stanowisku. Ta sama stłuczka, zupełnie inny kosztorys.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi powód",
+   "preco": "więcej zgłoszeń",
+   "nar": "Do tego doszła druga rzecz: zgłoszeń jest po prostu więcej niż rok temu. I te dwie rzeczy się mnożą, a nie dodają. Więcej szkód razy droższa szkoda to podwójny ruch w tę samą stronę, i dlatego suma wypłat rośnie szybciej niż sam koszt naprawy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Wypłaty w górę",
+   "itens": [
+    "Rok temu",
+    "Teraz"
+   ],
+   "alturas": [
+    92,
+    100
+   ],
+   "nar": "Efekt widać w wypłatach. Ubezpieczyciele wypłacili o dziewięć procent więcej niż w tym samym kwartale rok wcześniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zestaw trzy liczby",
+   "sub": "i wszystko się wyjaśnia",
+   "nar": "I teraz zestaw trzy liczby z tego samego kwartału, bo dopiero razem one coś znaczą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "składka minus zero siedem",
+   "nar": "Składka: minus siedem dziesiątych procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "szkoda plus sześć i cztery",
+   "nar": "Średnia szkoda: plus sześć i cztery dziesiąte procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "wypłaty plus dziewięć",
+   "nar": "Suma wypłat: plus dziewięć procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wniosek",
+   "preco": "wpływy stoją, wydatki rosną",
+   "nar": "Wpływy stoją w miejscu, wydatki rosną w dwóch wymiarach naraz. To nie jest opinia — to trzy liczby z raportów. Zobaczmy, ile to kosztuje:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Z zysku na stratę",
+   "sub": "w dwanaście miesięcy",
+   "nar": "Komisja Nadzoru Finansowego liczy to samo od strony wyniku. W grupie dziesiątej, czyli w obowiązkowym OC posiadaczy pojazdów, wynik techniczny zmienił znak.",
+   "cap": "Rachunek, który się nie spina"
+  },
+  {
+   "layout": "item",
+   "kicker": "Rok temu",
+   "preco": "czterdzieści trzy miliony zysku",
+   "nar": "Rok temu ta linia dała czterdzieści trzy miliony dwieście tysięcy złotych zysku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Teraz",
+   "preco": "prawie dziewiętnaście milionów straty",
+   "nar": "W pierwszym kwartale tego roku dała osiemnaście milionów dziewięćset dwadzieścia tysięcy złotych straty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Zmiana znaku",
+   "itens": [
+    "Rok temu",
+    "Teraz"
+   ],
+   "alturas": [
+    100,
+    -44
+   ],
+   "nar": "To nie jest spadek zysku. To przejście na drugą stronę zera, i to w dwanaście miesięcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile wpłynęło",
+   "preco": "cztery miliardy osiemset milionów",
+   "nar": "A przecież przypis składki wcale nie spadł. Wyniósł cztery miliardy osiemset milionów złotych, o trzy procent więcej niż rok temu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czyli",
+   "preco": "więcej wpływów, i strata",
+   "nar": "Czyli wpłynęło więcej pieniędzy niż rok temu, a linia i tak wyszła na minus. Cała różnica siedzi po stronie kosztów.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co to jest wynik techniczny",
+   "sub": "bez inwestycji",
+   "nar": "Jedno wyjaśnienie, żeby ta liczba nie brzmiała groźniej niż jest.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Definicja",
+   "preco": "sama działalność ubezpieczeniowa",
+   "nar": "Wynik techniczny to sam rachunek ubezpieczeniowy: składki minus szkody minus koszty. Nie obejmuje tego, co firma zarobi, inwestując pieniądze klientów.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to ważne",
+   "preco": "firma nie bankrutuje",
+   "nar": "Ubezpieczyciel ze stratą techniczną nie bankrutuje — zwykle nadrabia to na inwestycjach. Ale to jest sygnał, że sama cena polis przestała pokrywać ryzyko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak firmy reagują",
+   "preco": "podnoszą cenę",
+   "nar": "A kiedy cena przestaje pokrywać ryzyko, firmy robią jedną z dwóch rzeczy: podnoszą składkę albo zaostrzają kryteria. Zwykle obie naraz, tylko w innym tempie — kryteria zmienia się z dnia na dzień, cennik wolniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Skoro tak",
+   "preco": "czemu jeszcze nie",
+   "nar": "Skoro rachunek nie domyka się od kwartału, pojawia się oczywiste pytanie: dlaczego cena jeszcze nie poszła w górę?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bo trwa walka o klienta",
+   "sub": "i ona ma koniec",
+   "nar": "Odpowiedź jest prosta i ma datę ważności. Trwa walka o udział w rynku, a w takiej walce nikt nie chce podnieść ceny pierwszy.",
+   "cap": "Dlaczego cena jeszcze nie poszła w górę"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dowód",
+   "preco": "portfel rośnie",
+   "nar": "Dowód jest w liczbie polis, o której mówiłem wcześniej. Portfel urósł o cztery procent — firmy nadal zdobywają klientów, nie tracą ich.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak się zdobywa klienta",
+   "preco": "ceną",
+   "nar": "A klienta w OC zdobywa się prawie wyłącznie ceną, bo produkt jest z definicji taki sam. Zakres obowiązkowego OC ustala ustawa, nie firma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rola porównywarek",
+   "preco": "sortowanie po cenie",
+   "nar": "Porównywarki tylko to wzmacniają. Kierowca sortuje po cenie i wybiera pierwszą pozycję z listy, więc podniesienie składki o kilkadziesiąt złotych oznacza wypadnięcie z pierwszego ekranu. A z drugiego ekranu praktycznie nikt nie kupuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ta sama polisa",
+   "itens": [
+    "Zakres OC",
+    "Cena"
+   ],
+   "alturas": [
+    100,
+    100
+   ],
+   "nar": "Dlatego przy identycznym zakresie cała konkurencja przenosi się na jedno pole. I dlatego cena trzyma się nisko dłużej, niż wynikałoby z kosztów.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ale to nie jest wieczne",
+   "sub": "co przerywa taki cykl",
+   "nar": "Tyle że taki układ nigdy nie trwa długo, i wiadomo, co go zwykle przerywa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy scenariusz",
+   "preco": "ktoś podnosi pierwszy",
+   "nar": "Pierwszy scenariusz: jedna duża firma podnosi stawki, przyjmuje na siebie utratę części klientów, a reszta rynku idzie za nią w kilka miesięcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi scenariusz",
+   "preco": "cicha selekcja",
+   "nar": "Drugi jest cichszy i dlatego groźniejszy. Cena z reklamy zostaje na miejscu, ale zaostrzają się kryteria. Młody kierowca, starsze auto albo jedna szkoda w historii — i nagle twoja konkretna oferta jest zupełnie inna niż ta, którą widziałeś w nagłówku. Statystyka rynkowa dalej wygląda spokojnie, bo średnia się nie rusza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Który jest bardziej prawdopodobny",
+   "preco": "nie zgaduję",
+   "nar": "Nie będę zgadywał, który przyjdzie pierwszy. To już byłoby wróżenie, a obiecałem trzymać się rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co jest pewne",
+   "preco": "koszt nie cofnie się",
+   "nar": "Pewne jest co innego, i to wystarczy. Koszt naprawy nie wróci do poziomu sprzed dwóch lat, bo części i robocizna nie tanieją, a elektroniki w autach nie ubywa. Skoro koszt zostaje na górze, cena prędzej czy później musi się z nim spotkać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc co robić",
+   "preco": "korzystać z okna",
+   "nar": "Z tego wynika coś praktycznego, i to jest właściwa część roboty:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery rzeczy",
+   "sub": "przed odnowieniem",
+   "nar": "Cztery rzeczy do zrobienia przed odnowieniem polisy. Żadna z nich nie wymaga wiedzy ubezpieczeniowej, każda zajmuje kilkanaście minut.",
+   "cap": "Co zrobić przed odnowieniem"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "sprawdź datę końca polisy",
+   "nar": "Po pierwsze: sprawdź, kiedy kończy się twoja polisa. Brzmi banalnie, a to jedyna data, która daje ci wybór — po niej wybór robi się za ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to ważne",
+   "preco": "automatyczne wznowienie",
+   "nar": "Bo OC wznawia się samo, jeśli nie wypowiesz go na dzień przed końcem. Wznowione automatycznie jest zwykle droższe niż to samo OC kupione od nowa w tej samej firmie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "policz cenę teraz, nie w ostatnim tygodniu",
+   "nar": "Po drugie: sprawdź ofertę już teraz, a nie w ostatnim tygodniu. Kalkulacja nic nie kosztuje i nie zobowiązuje, a daje ci punkt odniesienia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tym punktem",
+   "preco": "porównasz za rok",
+   "nar": "Zapisz tę kwotę razem z datą, choćby w notatkach w telefonie. Za rok będziesz mieć własny pomiar zamiast wrażenia. To jest jedyny sposób, żeby wiedzieć, czy podwyżka dotknęła właśnie ciebie, czy tylko czytałeś o niej w nagłówkach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "sprawdź, za co płacisz",
+   "nar": "Po trzecie: sprawdź, co masz w pakiecie poza obowiązkowym OC. Assistance, ochrona zniżek, ubezpieczenie szyb. Część z tego bywa dopisana automatycznie przy wznowieniu i zostaje na kolejne lata, bo nikt tego nie czyta drugi raz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uwaga",
+   "preco": "nie tnij w ciemno",
+   "nar": "Ale nie tnij wszystkiego w ciemno. Assistance za kilkadziesiąt złotych przy jednej awarii zwraca się z nawiązką. Chodzi o to, żeby wiedzieć, za co płacisz, a nie żeby płacić jak najmniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarta",
+   "preco": "sprawdź zniżki i przebieg",
+   "nar": "Po czwarte: sprawdź dane, na podstawie których liczą ci cenę. Roczny przebieg, miejsce garażowania, kto jeszcze jeździ autem. Nieaktualne dane potrafią kosztować.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego NIE robić",
+   "sub": "jedna pułapka",
+   "nar": "I jedna rzecz, której robić nie warto, choć kusi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pułapka",
+   "preco": "najtańsza oferta z listy",
+   "nar": "Nie bierz automatycznie pierwszej pozycji z listy. W obowiązkowym OC zakres jest ustawowy i faktycznie identyczny, ale to jest jedyny element, który jest identyczny.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co się różni",
+   "preco": "likwidacja szkody",
+   "nar": "Różni się to, jak firma likwiduje szkodę. Ile czeka się na oględziny, czy dostaniesz auto zastępcze, czy kosztorys liczą po częściach oryginalnych, czy po zamiennikach. Tego nie widać w kolumnie z ceną, a widać dokładnie wtedy, kiedy polisa ma zadziałać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Przejdźmy do liczb",
+   "preco": "twoich, nie średnich",
+   "nar": "Zostaje ostatnia część, i jest najbardziej twoja: zamiana tego wszystkiego na własną tabelę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pięć wierszy",
+   "sub": "i decyzja robi się sama",
+   "nar": "Pięć wierszy w arkuszu. Każdy to liczba, którą albo już masz, albo zdobędziesz w kwadrans.",
+   "cap": "Twoja własna tabela"
+  },
+  {
+   "layout": "item",
+   "kicker": "Wiersz pierwszy",
+   "preco": "składka z zeszłego roku",
+   "nar": "Wiersz pierwszy: ile zapłaciłeś za OC rok temu. Znajdziesz to na polisie albo na wyciągu z konta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wiersz drugi",
+   "preco": "najlepsza oferta na dziś",
+   "nar": "Wiersz drugi: najlepsza oferta, jaką dostajesz dzisiaj, po sprawdzeniu w co najmniej trzech miejscach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wiersz trzeci",
+   "preco": "oferta na wznowienie",
+   "nar": "Wiersz trzeci: kwota, którą proponuje ci twoja obecna firma na wznowienie. To jest ten numer, który najczęściej wygrywa przez bezwładność.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wiersz czwarty",
+   "preco": "różnica w złotych",
+   "nar": "Wiersz czwarty: różnica między drugim a trzecim. To są pieniądze, które kosztuje cię nierobienie niczego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wiersz piąty",
+   "preco": "data następnego końca polisy",
+   "nar": "Wiersz piąty: data, kiedy kończy się nowa polisa, minus trzydzieści dni. Wpisz to od razu w kalendarz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co pokaże tabela",
+   "itens": [
+    "Wznowienie",
+    "Najlepsza oferta"
+   ],
+   "alturas": [
+    100,
+    78
+   ],
+   "nar": "U większości kierowców czwarty wiersz wychodzi kilkadziesiąt albo kilkaset złotych. Za kwadrans pracy raz w roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak to czytać za rok",
+   "preco": "porównanie z sobą",
+   "nar": "A rok później ta sama tabela robi coś, czego żaden raport rynkowy nie zrobi: porównuje ciebie z tobą sprzed roku, a nie ze średnią całego kraju. Średnia opisuje osiem milionów kierowców, z których żaden nie jeździ twoim autem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wracając do początku",
+   "preco": "najtańsze od dwóch lat",
+   "nar": "I wtedy zdanie z początku filmu ustawia się na swoim miejscu. Najtańsze od dwóch lat opisuje przeszłość, nie obietnicę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno zdanie",
+   "preco": "jeśli masz zapamiętać jedno",
+   "nar": "Jeśli masz zapamiętać jedno zdanie, niech to będzie to: składka spadła o siedem dziesiątych procenta, a szkoda urosła o sześć i cztery dziesiąte. Reszta wynika z tych dwóch liczb.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "konkretne liczby, co tydzień",
+   "nar": "Sprawdź dziś datę końca swojej polisy i zapisz ją w kalendarzu. To zajmuje minutę. A jeśli ten film oszczędził ci pieniądze — zostaw subskrypcję.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "OC najtańsze od 2 lat",
+   "sub": "i to jest ostrzeżenie",
+   "nar": "OC jest najtańsze od dwóch lat. To nie prezent, tylko koniec cyklu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Składka",
+   "preco": "551 zł, minus 0,7%",
+   "nar": "Średnia składka to pięćset pięćdziesiąt jeden złotych, o siedem dziesiątych procenta mniej niż rok temu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Szkoda",
+   "preco": "11 600 zł, plus 6,4%",
+   "nar": "A średnia szkoda urosła do jedenastu tysięcy sześciuset złotych. Dane Izby Ubezpieczeń.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wynik",
+   "preco": "z zysku na stratę",
+   "nar": "Efekt według Komisji Nadzoru: obowiązkowe OC przeszło z zysku na stratę w dwanaście miesięcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co zrobić",
+   "preco": "sprawdź datę",
+   "nar": "Sprawdź dziś, kiedy kończy się twoja polisa. OC wznawia się samo i wznowione bywa droższe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zanim odnowisz",
+   "nar": "Policz ofertę teraz i zapisz kwotę z datą.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# OC najtańsze od dwóch lat — i dlaczego to jest ostrzeżenie\n\n## TITULO\nOC najtańsze od dwóch lat. Zobacz to, zanim odnowisz polisę\n\n## DESCRICAO\nTwoje OC jest dziś najtańsze od dwóch lat. Brzmi jak dobra wiadomość — i właśnie dlatego warto obejrzeć ten film, zanim odnowisz polisę.\n\nDane pochodzą z dwóch niezależnych źródeł, obu oficjalnych, za ten sam pierwszy kwartał 2026 roku.\n\nPolska Izba Ubezpieczeń: średnia składka za OC komunikacyjne wyniosła 551 zł, czyli o 4 zł (0,7%) mniej niż rok wcześniej. W tym samym czasie średnia szkoda wypłacana z OC wzrosła o 6,4% i wyniosła 11,6 tys. zł. Czynnych polis OC było 8,8 mln — o 4% (320 tys.) więcej niż rok wcześniej. Cały rynek ubezpieczeń urósł o 7%, do 23,9 mld zł.\n\nKomisja Nadzoru Finansowego, ta sama grupa 10 (obowiązkowe OC posiadaczy pojazdów): wynik techniczny to strata 18,92 mln zł, wobec 43,2 mln zł ZYSKU rok wcześniej. Przypis składki wzrósł o 3%, do 4,8 mld zł, a wypłacone odszkodowania o 9%.\n\nDwa raporty, dwie instytucje, jeden wniosek: cena spadła o 0,7%, a koszt szkody urósł o 6,4%. To się nie spina.\n\nO CZYM JEST TEN FILM:\n\nDlaczego średnia z raportu (551 zł) różni się od tego, co widzisz w porównywarce (ok. 650 zł) — i która z tych liczb odpowiada na TWOJE pytanie. Izba liczy średnią ze wszystkich czynnych polis, także kupionych dawno i tanio; porównywarka pokazuje ofertę na dziś.\n\nDlaczego szkody drożeją i dlaczego to nie cofnie się: części, robocizna i elektronika w aucie. Zderzak sprzed dekady był kawałkiem plastiku; dziś siedzą w nim czujniki i radar, które po wymianie trzeba skalibrować.\n\nCo znaczy „wynik techniczny\" i dlaczego strata w tej pozycji NIE oznacza, że ubezpieczyciel bankrutuje — ale oznacza, że sama cena polis przestała pokrywać ryzyko.\n\nDlaczego cena mimo to jeszcze nie poszła w górę: trwa walka o udział w rynku, a przy ustawowo identycznym zakresie OC konkurencja przenosi się wyłącznie na cenę. Portfel urósł o 4%, więc firmy nadal zdobywają klientów — i nikt nie chce podnieść stawek pierwszy.\n\nDwa scenariusze wyjścia z tego układu: głośny (jedna duża firma podnosi stawki, reszta idzie za nią) i cichy, groźniejszy (cena z reklamy zostaje, ale zaostrzają się kryteria — młody kierowca, starsze auto, szkoda w historii).\n\nCztery rzeczy do zrobienia przed odnowieniem: sprawdzić datę końca polisy (OC wznawia się samo, a wznowione bywa droższe), policzyć ofertę już teraz i zapisać kwotę z datą, sprawdzić co siedzi w pakiecie, i zaktualizować dane, na podstawie których liczą cenę.\n\nTabela pięciu wierszy, która zamienia to wszystko w twoją własną decyzję — i która za rok porówna CIEBIE z TOBĄ, a nie ze średnią kraju.\n\nCZEGO W TYM FILMIE NIE MA: nie przewiduję, że polisa zdrożeje o X procent w konkretnym miesiącu. Nikt tego nie wie. Pokazuję rachunek i to, że w tej chwili on się nie domyka.\n\nJEŚLI ZROBISZ TYLKO JEDNĄ RZECZ: sprawdź dziś datę końca swojej polisy i wpisz do kalendarza przypomnienie 30 dni wcześniej.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nDwa pytania do was, bo odpowiedzi różnią się dużo bardziej niż średnia sugeruje: ile zapłaciliście za OC w tym roku, i o ile to więcej lub mniej niż rok temu? Zbieram te liczby do kolejnego materiału — interesuje mnie zwłaszcza to, czy podwyżka trafia równo, czy tylko w niektóre grupy kierowców.\n\n## HASHTAGS\n#OC #Ubezpieczenia #KolejnyPoziom\n\n## TAGS\noc komunikacyjne, ubezpieczenie samochodu, cena oc 2026, polisa oc, ubezpieczenia, finanse osobiste, oszczedzanie, porownywarka oc, skladka oc, szkoda komunikacyjna, knf, piu, wznowienie polisy, ac autocasco, kierowcy\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Polski (pl) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Polonia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nWszystkie liczby pochodzą z raportów za I kwartał 2026 r. Średnia składka OC (551 zł, −4 zł / −0,7% r/r), średnia szkoda z OC (11,6 tys. zł, +6,4%), liczba polis OC (8,8 mln, +4%) i AC (2,3 mln, +6%) oraz wielkość rynku (23,9 mld zł, +7%) — dane Polskiej Izby Ubezpieczeń, raport opublikowany w połowie czerwca 2026 r. Wynik techniczny grupy 10 (obowiązkowe OC posiadaczy pojazdów mechanicznych): strata 18,92 mln zł wobec 43,2 mln zł zysku rok wcześniej, przypis 4,8 mld zł (+3%), odszkodowania +9% — dane Komisji Nadzoru Finansowego za ten sam okres. Kwota ok. 650 zł to typowa oferta z porównywarek dla kierowcy kupującego polisę teraz i nie jest tą samą wielkością co średnia z portfela — różnicę tłumaczę w filmie. Średnia rynkowa nie jest twoją ceną: twoja zależy od wieku, miejsca zamieszkania, auta i historii szkód. Film nie przewiduje wysokości ani terminu przyszłych podwyżek — pokazuje rachunek, który dziś się nie domyka. To materiał edukacyjny o finansach osobistych, nie jest to doradztwo ubezpieczeniowe ani rekomendacja konkretnej oferty.\n"
+}
