@@ -60,6 +60,38 @@ def canal_de(access_token):
     return itens[0]["snippet"]["title"] if itens else "(sem canal)"
 
 
+def marcar(vivos: dict) -> None:
+    """Escreve token_vivo/token_testado_em em config.yt_token_<slug>.
+
+    Le e reescreve o jsonb inteiro de proposito: PATCH numa coluna jsonb
+    substitui o valor todo, e mandar so os dois campos apagaria o
+    refresh_token. Ler antes custa uma chamada e evita destruir a credencial
+    que este script existe para auditar.
+    """
+    from datetime import datetime, timezone
+    agora = datetime.now(timezone.utc).isoformat()
+    atuais = config_tokens()
+    for slug, vivo in sorted(vivos.items()):
+        valor = dict(atuais.get(slug) or {})
+        if not valor:
+            continue
+        valor["token_vivo"] = vivo
+        valor["token_testado_em"] = agora
+        url = (f"{SB}/rest/v1/config?chave=eq."
+               f"{urllib.parse.quote('yt_token_' + slug, safe='')}")
+        req = urllib.request.Request(
+            url, data=json.dumps({"valor": valor}).encode(), method="PATCH",
+            headers={"apikey": KEY, "Authorization": f"Bearer {KEY}",
+                     "Content-Type": "application/json",
+                     "Prefer": "return=minimal"})
+        try:
+            urllib.request.urlopen(req, timeout=30)
+        except Exception as e:
+            # Auditoria que falha ao gravar ainda serve pelo log. Derrubar o
+            # script aqui perderia o relatorio inteiro por causa do rodape.
+            print(f"  (nao consegui marcar {slug}: {type(e).__name__}: {e})")
+
+
 def main():
     faltam, ok, quebrados = [], [], []
     for slug, tok in sorted(config_tokens().items()):
@@ -97,6 +129,20 @@ def main():
                "sem_force_ssl": [s for s, _ in faltam],
                "quebrados": [s for s, _ in quebrados]},
               open("escopos.json", "w"), indent=1)
+
+    # O resultado volta para o banco, e nao so para o log do Actions.
+    #
+    # Em 20/08/2026 a fila me entregou o sx-educacao como proximo da vez, eu
+    # escrevi 78 cenas e so descobri o token morto no passo de conferencia do
+    # render. A fila nao tinha como saber: ela le `canais` e `videos`, e saude
+    # de token nao mora em nenhum dos dois. Gravar aqui e o que permite a
+    # `v_maquina_fila` deixar canal sem rota de publicacao por ultimo.
+    #
+    # Grava o RESULTADO, nunca o veredito humano: `token_vivo` diz se o refresh
+    # respondeu agora, e `token_testado_em` diz quando. Sem a data o campo
+    # envelhece calado e vira a mesma armadilha que ele existe para fechar.
+    marcar({s: True for s, _ in ok} | {s: True for s, _ in faltam}
+           | {s: False for s, _ in quebrados})
 
 
 if __name__ == "__main__":

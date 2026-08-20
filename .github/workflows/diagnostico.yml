@@ -123,6 +123,31 @@ jobs:
               || echo "(consulta indisponivel)"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # Saude de token entra no banco aqui, e nao num disparo manual.
+      #
+      # Em 20/08/2026 a fila entregou um canal cujo refresh_token estava morto.
+      # O portao do render pegou antes de gastar os vinte minutos — mas a
+      # escolha do canal ja tinha custado um roteiro inteiro, porque a fila nao
+      # tem como enxergar token. A auditoria ja existia; o que faltava era ela
+      # rodar sozinha e ESCREVER o resultado.
+      #
+      # Vai junto da coleta diaria de proposito: nao e trigger novo, e a coleta
+      # ja acorda todo dia as 05:00 UTC, antes do primeiro cron de producao.
+      #
+      # `continue-on-error` porque isto informa a fila, nao decide nada: a
+      # auditoria falhar nao pode derrubar a coleta de metricas, e o portao do
+      # confere_token.py continua sendo a rede de baixo.
+      - name: Auditar tokens e marcar a fila
+        if: always()
+        continue-on-error: true
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          python3 scripts/auditar_escopos.py | tee /tmp/aud.txt
+          { echo "## Tokens"; echo '```'; cat /tmp/aud.txt; echo '```'; } \
+            >> "$GITHUB_STEP_SUMMARY"
+
       - name: Limpar credenciais
         if: always()
         run: rm -f secrets/youtube_token*.json
