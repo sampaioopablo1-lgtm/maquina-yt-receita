@@ -467,6 +467,20 @@ O resep-naik-level-002 foi renderizado antes de a fabrica exportar legendas.srt,
 
 `aplicado_em:` src/maquina/stages/youtube.py coletar_metricas
 
+### A fila escolhia canal sem saber se ele tem rota de publicacao
+`v_maquina_fila` lê `canais` e `videos`, e saúde de token não mora em nenhum dos dois. Ela entregou o `sx-educacao` como próximo da vez; escrevi 78 cenas, sete capítulos e a copy inteira, e só então o portão do render descobriu o refresh_token morto. O portão funcionou — abortou em 90 s em vez de 20 min — mas a escolha do canal já tinha custado o roteiro. A auditoria já existia e já sabia responder; faltava ela **rodar sozinha e gravar**.
+
+> **canal**: sx-educacao · **erro**: invalid_grant, token expirado ou revogado · **custo**: 78 cenas escritas antes de descobrir · **frota agora**: 11 com force-ssl, 0 sem, 2 quebrados (cocina-por-niveles nunca teve; sx-educacao morreu) · **decisões**: token morto NÃO zera `pode_produzir`; ausência de medida NÃO é morte · **data**: 2026-08-20
+
+`aplicado_em:` v_maquina_fila + scripts/auditar_escopos.py + diagnostico.yml
+
+### Portao que compara com o proprio canal e cego a canal errado por inteiro
+O portão de ortografia media a spec contra as OUTRAS DO MESMO CANAL. Num canal cujas specs estão TODAS erradas a referência é zero, e ele se cala exatamente onde havia mais o que dizer. Quando um portão compara com uma população, pergunte o que acontece se a população inteira estiver defeituosa — e ao trocar de população, deixe entrar só os membros sãos, senão o defeito rebaixa a barra que existe para acusá-lo.
+
+> **canais pt em ASCII**: sx-educacao, labtreinamento · **mediana pt com as zeradas**: 1,85% (abaixo do piso, portão mudo) · **mediana só das que acentuam**: 4,10% · **mínimo para referência**: 3 specs · **novas no inventário**: 4, todas no ar · **produzíveis paradas**: 0 · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/prontidao.py _referencia_do_idioma
+
 ### Antes de medir uma por uma, procure a coluna onde a esteira ja gravou todas
 Passei duas semanas medindo o erro do modelo em short de UM em UM, a cada publicação, e subindo uma margem para cobrir o pior caso. A esteira grava `videos.duracao_s` com o ffprobe do arquivo montado: a duração REAL de TODOS os shorts publicados estava no banco desde o primeiro dia. Antes de instrumentar medição nova, procure a coluna que a esteira já preenche.
 
@@ -522,6 +536,13 @@ Todo dado que vai ser comparado entre pacotes mora em coluna, nao em roteiro jso
 > **achado**: videos nao tinha coluna de canal — impossivel juntar com canais · **consequencia**: nenhum aprendizado era computavel por SQL · **chaves_divergentes**: ['drive_video vs entrega.video', 'similaridade_vs_video1 vs similaridade_vs_anteriores vs fonte_pauta.similaridade_vs_anterior']
 
 `aplicado_em:` schema videos
+
+### Eixo confirmado por SEIS canais distintos vale mais que um pico isolado
+Ao escolher eixo, conte **canais distintos**, não vídeos: um canal com três outliers pode ser só um canal grande; seis canais independentes batendo no mesmo eixo é o nicho falando.
+
+> **canal**: sx-educacao (`canal frio`) · **eixo escolhido**: ia-operando-a-planilha · **canais distintos no eixo**: 6 · **faixa**: 778,7 a 3.859,3 v/d · **eixos já usados no canal**: licença Power BI 0,00 v/d e concurso×CLT 1,08 v/d · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/specs/sx-educacao-003.build.py
 
 ### Pesquisa do PASSO 0 tem que virar acervo
 Gravar cada medicao de par em pautas_banco. Sem isso cada disparo remede o mesmo grupo do zero e nunca se ve um formato morrer ao longo do tempo.
