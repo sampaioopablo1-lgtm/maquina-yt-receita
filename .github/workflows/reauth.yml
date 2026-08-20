@@ -23,14 +23,14 @@ on:
         options: [auditar, trocar]
         default: auditar
       url_retorno:
-        description: "So para 'trocar': a URL INTEIRA da barra de enderecos apos autorizar"
+        description: "So para 'trocar': cole TODAS as URLs de localhost de uma vez (qualquer separador)"
         type: string
         default: ""
 
 jobs:
   oauth:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,7 +48,7 @@ jobs:
           { echo '### Escopos por canal'; echo '```'; cat /tmp/aud.txt; echo '```'; } \
             >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Trocar codigo por refresh_token
+      - name: Trocar codigos por refresh_token
         if: inputs.acao == 'trocar'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -57,79 +57,128 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json, os, urllib.parse, urllib.request
+          import datetime as dt, json, os, re, sys, urllib.error, urllib.parse, urllib.request
 
           SB = os.environ["SUPABASE_URL"].rstrip("/")
           KEY = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
-          q = urllib.parse.parse_qs(urllib.parse.urlparse(os.environ["URL_RETORNO"]).query)
-          code = q.get("code", [None])[0]
-          slug = q.get("state", [None])[0]
-          if not code or not slug:
-              raise SystemExit("::error::URL sem code ou sem state — cole a URL inteira")
-          print(f"::add-mask::{code}")
-          print(f"canal declarado no state: {slug}")
+          CAB = {"apikey": KEY, "Authorization": f"Bearer {KEY}"}
+
+          # Uma caixa de texto do workflow_dispatch e de UMA linha: colar dez
+          # URLs ali pode chegar separado por espaco, por nada, ou com as
+          # quebras engolidas pelo navegador. Entao o corte nao usa separador —
+          # usa o proprio prefixo do callback como fronteira.
+          #
+          # NAO cortar em "https?://" generico: o Google devolve
+          # `iss=https://accounts.google.com` e um `scope=` cheio de
+          # `https://www.googleapis.com/...` DENTRO da mesma URL. Cortar ali
+          # parte a URL ao meio e o parse_qs devolve vazio — contando o numero
+          # certo de URLs e o conteudo errado, que e a pior forma de errar.
+          bruto = os.environ["URL_RETORNO"]
+          urls = [u.strip() for u in re.findall(
+              r"http://localhost.*?(?=http://localhost|$)", bruto, re.S) if "code=" in u]
+          if not urls:
+              raise SystemExit("::error::nenhuma URL com ?code= encontrada no campo")
+          print(f"{len(urls)} URL(s) recebida(s)")
 
           def cfg(chave):
-              url = f"{SB}/rest/v1/config?chave=eq.{chave}&select=valor"
-              r = urllib.request.Request(url, headers={"apikey": KEY, "Authorization": f"Bearer {KEY}"})
+              r = urllib.request.Request(f"{SB}/rest/v1/config?chave=eq.{chave}&select=valor",
+                                         headers=CAB)
               linhas = json.load(urllib.request.urlopen(r, timeout=60))
               return linhas[0]["valor"] if linhas else None
 
-          tok = cfg(f"yt_token_{slug}")
-          if not tok:
-              raise SystemExit(f"::error::config.yt_token_{slug} nao existe")
+          def uma(url):
+              """(slug, mensagem) — levanta ValueError com o motivo se falhar."""
+              q = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
+              code = q.get("code", [None])[0]
+              slug = q.get("state", [None])[0]
+              if not code:
+                  raise ValueError("URL sem ?code= — cole a URL inteira")
+              print(f"::add-mask::{code}")
+              if not slug:
+                  raise ValueError("URL sem &state= — use os links do links_reauth.py")
+              tok = cfg(f"yt_token_{slug}")
+              if not tok:
+                  raise ValueError(f"config.yt_token_{slug} nao existe")
 
-          d = urllib.parse.urlencode({
-              "client_id": tok["client_id"], "client_secret": tok["client_secret"],
-              "code": code, "grant_type": "authorization_code",
-              "redirect_uri": "http://localhost"}).encode()
-          r = json.load(urllib.request.urlopen(urllib.request.Request(
-              tok.get("token_uri", "https://oauth2.googleapis.com/token"),
-              data=d, method="POST"), timeout=60))
-          rt = r.get("refresh_token")
-          if not rt:
-              raise SystemExit("::error::sem refresh_token na resposta — "
-                               "o link precisa de prompt=consent")
-          print(f"::add-mask::{rt}")
-          escopos = r.get("scope", "")
-          print("escopos concedidos:", escopos)
-          if "force-ssl" not in escopos:
-              print("::warning::force-ssl NAO veio — a legenda continuara falhando")
+              d = urllib.parse.urlencode({
+                  "client_id": tok["client_id"], "client_secret": tok["client_secret"],
+                  "code": code, "grant_type": "authorization_code",
+                  "redirect_uri": "http://localhost"}).encode()
+              try:
+                  r = json.load(urllib.request.urlopen(urllib.request.Request(
+                      tok.get("token_uri", "https://oauth2.googleapis.com/token"),
+                      data=d, method="POST"), timeout=60))
+              except urllib.error.HTTPError as e:
+                  corpo = e.read().decode("utf-8", "replace")[:200]
+                  raise ValueError(f"troca recusada ({e.code}): codigo expirado ou ja "
+                                   f"usado — {corpo}")
+              rt = r.get("refresh_token")
+              if not rt:
+                  raise ValueError("sem refresh_token na resposta — o link precisa "
+                                   "de prompt=consent")
+              print(f"::add-mask::{rt}")
+              escopos = r.get("scope", "")
 
-          # Confirmar de quem e o token. O `state` e so o que o link declarou;
-          # quem escolhe o canal e a pessoa na tela de consentimento, e errar
-          # aqui grava o token de um canal na linha de outro.
-          ch = json.load(urllib.request.urlopen(urllib.request.Request(
-              "https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
-              headers={"Authorization": "Bearer " + r["access_token"]}), timeout=60))
-          itens = ch.get("items", [])
-          if not itens:
-              raise SystemExit("::error::token sem canal — conta errada na tela de consentimento?")
-          cid, titulo = itens[0]["id"], itens[0]["snippet"]["title"]
-          print(f"canal confirmado pela API: {cid} | {titulo}")
+              # Quem escolhe o canal e a pessoa na tela de consentimento; o
+              # `state` e so o que o link declarou. Confirmar pela API antes de
+              # gravar impede o token de um canal cair na linha de outro.
+              ch = json.load(urllib.request.urlopen(urllib.request.Request(
+                  "https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
+                  headers={"Authorization": "Bearer " + r["access_token"]}), timeout=60))
+              itens = ch.get("items", [])
+              if not itens:
+                  raise ValueError("token sem canal — conta errada na tela do Google?")
+              cid, titulo = itens[0]["id"], itens[0]["snippet"]["title"]
 
-          url = f"{SB}/rest/v1/canais?slug=eq.{slug}&select=youtube_channel_id,nome"
-          rr = urllib.request.Request(url, headers={"apikey": KEY, "Authorization": f"Bearer {KEY}"})
-          linhas = json.load(urllib.request.urlopen(rr, timeout=60))
-          if linhas and linhas[0].get("youtube_channel_id") and linhas[0]["youtube_channel_id"] != cid:
-              raise SystemExit(
-                  f"::error::canal errado. O state dizia {slug} "
-                  f"({linhas[0]['youtube_channel_id']}) mas o token e de {cid} ({titulo}). "
-                  "Refaca escolhendo o canal certo na tela do Google.")
+              rr = urllib.request.Request(
+                  f"{SB}/rest/v1/canais?slug=eq.{slug}&select=youtube_channel_id", headers=CAB)
+              linhas = json.load(urllib.request.urlopen(rr, timeout=60))
+              esperado = (linhas or [{}])[0].get("youtube_channel_id")
+              if esperado and esperado != cid:
+                  raise ValueError(f"canal ERRADO: o state dizia {slug} ({esperado}) "
+                                   f"mas o token e de {cid} ({titulo})")
 
-          novo = dict(tok)
-          novo.update({"refresh_token": rt, "scopes": escopos,
-                       "reautorizado_em": "via workflow reauth.yml",
-                       "canal_confirmado": f"{cid} ({titulo})"})
-          req = urllib.request.Request(
-              f"{SB}/rest/v1/config?chave=eq.yt_token_{slug}",
-              data=json.dumps({"valor": novo}).encode(), method="PATCH",
-              headers={"apikey": KEY, "Authorization": f"Bearer {KEY}",
-                       "Content-Type": "application/json", "Prefer": "return=minimal"})
-          urllib.request.urlopen(req, timeout=60)
-          print(f"gravado em config.yt_token_{slug}")
+              novo = dict(tok)
+              novo.update({"refresh_token": rt, "scopes": escopos,
+                           "reautorizado_em": "via workflow reauth.yml",
+                           "canal_confirmado": f"{cid} ({titulo})"})
+              # `atualizado_em` explicito: a coluna so tem default no INSERT e a
+              # tabela nao tem trigger, entao sem esta linha o vigia nunca sabe
+              # a idade real do token (aprendizado 345).
+              corpo = {"valor": novo,
+                       "atualizado_em": dt.datetime.now(dt.timezone.utc).isoformat()}
+              urllib.request.urlopen(urllib.request.Request(
+                  f"{SB}/rest/v1/config?chave=eq.yt_token_{slug}",
+                  data=json.dumps(corpo).encode(), method="PATCH",
+                  headers={**CAB, "Content-Type": "application/json",
+                           "Prefer": "return=minimal"}), timeout=60)
+              return slug, f"{titulo} ({cid}){'' if 'force-ssl' in escopos else ' SEM force-ssl'}"
+
+          ok, falhas = [], []
+          for url in urls:
+              try:
+                  slug, msg = uma(url)
+                  ok.append((slug, msg))
+                  print(f"  OK     {slug:20} <- {msg}")
+              except Exception as e:
+                  # Uma URL ruim nao pode derrubar as outras nove: cada codigo e
+                  # de uso unico e refazer a rodada inteira custa mais dez
+                  # cliques humanos.
+                  q = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
+                  slug = q.get("state", ["?"])[0]
+                  falhas.append((slug, str(e)))
+                  print(f"  FALHOU {slug:20} {e}")
+
+          linhas = [f"### Reautorizacao: {len(ok)}/{len(urls)} gravados", ""]
+          for slug, msg in ok:
+              linhas.append(f"- OK `{slug}` — {msg}")
+          for slug, err in falhas:
+              linhas.append(f"- FALHOU `{slug}` — {err}")
+          if falhas:
+              linhas += ["", "Refaca **so os que falharam**: gere link novo, autorize e "
+                             "dispare este workflow de novo. Os que deram OK ja estao no banco."]
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
-              f.write(f"### {slug} reautorizado\n\n"
-                      f"- canal: `{cid}` — {titulo}\n"
-                      f"- force-ssl: {'sim' if 'force-ssl' in escopos else 'NAO'}\n")
+              f.write("\n".join(linhas) + "\n")
+          print(f"\n{len(ok)}/{len(urls)} tokens gravados")
+          sys.exit(1 if falhas else 0)
           PY
