@@ -78,7 +78,7 @@ PARADAS = {
     "cocina-por-niveles-002": ("portao",
                                "canal nao existe no YouTube (motivo principal, "
                                "que portao nenhum enxerga); alem disso short de "
-                               "43,0 s contra teto de 42,8, e longo de 14,95 min "
+                               "43,0 s contra teto de 41,8, e longo de 14,95 min "
                                "contra teto de 15,00 — margem menor que o erro "
                                "do proprio modelo"),
     # kolejny-poziom-003 saiu daqui em 18/08/2026: 88 cenas viraram 79
@@ -101,9 +101,31 @@ PARADAS = {
     # contra o banco — e uma spec que sai da matriz sem registro e exatamente o
     # defeito que este teste existe para pegar. Se um dia forem reaproveitadas,
     # o corte e de uma frase no short.
-    "labtreinamento-003":     ("portao", "short 43,4 s contra teto de 42,8 (MARGEM_SHORT 5%); ja no ar"),
-    "seviye-seviye-003":      ("portao", "short 43,4 s contra teto de 42,8 (MARGEM_SHORT 5%); ja no ar"),
-    "sx-educacao-002":        ("portao", "short 43,6 s contra teto de 42,8 (MARGEM_SHORT 5%); ja no ar"),
+    #
+    # Em 20/08/2026, mais tarde no mesmo dia, a QUINTA medida de short
+    # (seja-mais-magra-004: previsto 35,8 s, real 38,2 s, +6,7%) levou a
+    # MARGEM_SHORT de 5% para 7%, e o teto previsto de 42,8 para 41,8 s. Isso
+    # trouxe SEIS specs a mais para ca, nenhuma delas alterada em uma linha.
+    #
+    # O custo disso e zero e foi conferido no banco, nao suposto: das dez specs
+    # que 7% segura, OITO ja estao publicadas — e o orquestrador descarta
+    # pacote com youtube_id, entao elas nunca mais entram em matriz nenhuma.
+    # Das duas restantes, a do cocina nao tem canal no YouTube e a
+    # seviye-seviye-002 tem o titulo ja no ar sob outro pacote (aprendizado 378).
+    #
+    # Elas ficam listadas aqui, e nao apagadas, porque o inventario mede spec
+    # contra PORTAO e nao contra o banco: uma spec que sai da matriz sem
+    # registro e exatamente o defeito que este teste existe para pegar. Se
+    # alguma for reaproveitada um dia, o corte e de uma frase no short.
+    "labtreinamento-003":     ("portao", "short 43,4 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "seviye-seviye-003":      ("portao", "short 43,4 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "sx-educacao-002":        ("portao", "short 43,6 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "labtreinamento-002":     ("portao", "short 42,7 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "seviye-seviye-002":      ("portao", "short 42,5 s contra teto de 41,8 (MARGEM_SHORT 7%); titulo ja no ar sob outro pacote"),
+    "resep-naik-level-004":   ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "agla-level-004":         ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "resep-naik-level-002":   ("portao", "short 42,1 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    "kolejny-poziom-003":     ("portao", "short 42,0 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),
