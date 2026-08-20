@@ -1,0 +1,675 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-003",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#101B2B",
+  "c1": "#1D3557",
+  "c2": "#E07A5F",
+  "bg": "#F7F6F3"
+ },
+ "thumb": {
+  "l1": "ISO 9001:2026",
+  "l2": "o diagnostico antes do texto"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Dezesseis de setembro",
+   "sub": "a data que ja esta marcada",
+   "nar": "Existe uma data marcada no calendario da sua empresa que quase ninguem olhou ainda. Dezesseis de setembro de dois mil e vinte e seis.",
+   "cap": "A data que ja esta marcada"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que acontece nela",
+   "preco": "sai a sexta edicao",
+   "nar": "E o dia em que sai a sexta edicao da ISO nove mil e um. O rascunho final ja foi aprovado, com apoio internacional amplo. Nao e rumor, e cronograma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O prazo de transicao",
+   "preco": "tres anos",
+   "nar": "Quem ja e certificado tem tres anos para migrar. A conta fecha em setembro de dois mil e vinte e nove.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A leitura confortavel",
+   "preco": "temos tres anos",
+   "nar": "A leitura confortavel e imediata. Temos tres anos, da tempo. E verdade que da tempo. E e exatamente por isso que a maioria vai chegar apertada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O detalhe que ninguem conta",
+   "preco": "voce nao escolhe a auditoria",
+   "nar": "Porque o prazo nao e seu. Sua certificacao tem ciclo, e o organismo certificador tem agenda. Voce nao escolhe em que auditoria a versao nova vai bater.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Duas empresas, mesmo prazo",
+   "preco": "resultados opostos",
+   "nar": "Duas empresas com o mesmo prazo terminam em situacoes opostas. Uma diagnostica agora e escolhe a data. A outra espera e recebe a data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E quem ainda nao e certificado",
+   "preco": "o prazo e outro",
+   "nar": "E se voce esta implantando agora, sem certificado ainda, o calculo muda. Nao ha transicao para fazer. Ha uma escolha de qual versao usar como referencia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A resposta pratica",
+   "preco": "monte pela nova",
+   "nar": "A resposta pratica e monte pela versao nova desde ja. Certificar na versao que sai daqui a um mes e depois nao ter transicao nenhuma pela frente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que este video entrega",
+   "preco": "uma pasta com quatro abas",
+   "nar": "O que a gente monta aqui e uma pasta de trabalho com quatro abas. Diagnostico, Lacunas, Plano e Cronograma. Coluna por coluna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem promessa falsa",
+   "preco": "isto nao substitui a norma",
+   "nar": "E uma coisa fica dita ja. Planilha nenhuma substitui ler a norma publicada. Ela organiza a leitura e o prazo, que e onde as empresas costumam se perder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que muda de verdade",
+   "sub": "menos do que o boato diz",
+   "nar": "Antes de montar coluna, vale saber o que muda. E aqui tem uma boa noticia que quase nunca circula.",
+   "cap": "O que muda, e o que nao muda"
+  },
+  {
+   "layout": "item",
+   "kicker": "A maior parte",
+   "preco": "e esclarecimento de texto",
+   "nar": "Boa parte das alteracoes e editorial. Sao ajustes de redacao sobre a versao de dois mil e quinze, para tirar ambiguidade de interpretacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sua estrutura sobrevive",
+   "preco": "o sistema nao vai ao chao",
+   "nar": "Isso significa que o seu sistema de gestao nao vai ao chao. Procedimento, registro e indicador que funcionam hoje continuam valendo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro eixo novo",
+   "preco": "cultura da qualidade",
+   "nar": "O que ganha peso e outra coisa. Primeiro, cultura da qualidade. Deixa de ser palavra de discurso e passa a ser algo que a auditoria procura evidencia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segundo eixo",
+   "preco": "comportamento etico",
+   "nar": "Segundo, comportamento etico. Entra explicitamente no vocabulario da norma, ligado a como a organizacao decide e se comporta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceiro eixo",
+   "preco": "papel da lideranca",
+   "nar": "Terceiro, o papel da lideranca em puxar melhoria continua. Nao assinar a politica da qualidade e sim aparecer no processo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quarto eixo",
+   "preco": "mudanca climatica no contexto",
+   "nar": "Quarto, e esse pega muita gente de surpresa. Mudanca climatica e sustentabilidade passam a fazer parte explicita do contexto da organizacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso importa",
+   "preco": "contexto e a base de tudo",
+   "nar": "Importa porque contexto e a primeira coisa que a norma pede. Se o contexto muda, mudam riscos, partes interessadas e objetivos que saem dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que escrever em clima",
+   "preco": "risco do clima sobre voce",
+   "nar": "E o que se escreve ali nao e meta de carbono. E como o clima afeta a sua operacao. Chuva que para a entrega, calor que muda turno, seca que encarece insumo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quinto eixo",
+   "preco": "risco e oportunidade mais claros",
+   "nar": "Quinto, a gestao de risco e oportunidade fica mais explicita. Menos espaco para a matriz de risco existir so para mostrar ao auditor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma novidade de forma",
+   "preco": "um anexo de orientacao",
+   "nar": "E tem uma novidade de forma, inedita nesta norma. Ela vem com um anexo de orientacao suplementar, de cerca de quinze paginas, para ajudar na interpretacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que isso muda na pratica",
+   "preco": "menos briga com o auditor",
+   "nar": "Na pratica, isso reduz aquela discussao em que voce entende uma coisa e o auditor entende outra, e nenhum dos dois tem onde apoiar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O limite honesto disto aqui",
+   "preco": "o texto final sai dia dezesseis",
+   "nar": "E o limite honesto: o texto final so existe em dezesseis de setembro. Quem hoje recita numero de clausula da versao nova esta inventando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Entao o que da para fazer",
+   "preco": "diagnosticar o que ja da",
+   "nar": "O que da para fazer agora, e vale muito, e diagnosticar onde voce esta nos eixos que ja estao claros. Isso nao muda no dia dezesseis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aba um",
+   "sub": "Diagnostico",
+   "nar": "Primeira aba. Diagnostico. Ela responde uma pergunta so: onde a gente esta hoje, em cada eixo que a versao nova reforca.",
+   "cap": "Aba Diagnostico: onde voce esta"
+  },
+  {
+   "layout": "lista",
+   "kicker": "As cinco colunas",
+   "itens": [
+    "Eixo",
+    "Situacao atual",
+    "Evidencia",
+    "Nota de zero a cinco",
+    "Responsavel"
+   ],
+   "nar": "Cinco colunas bastam. Eixo, situacao atual, evidencia, nota de zero a cinco, e responsavel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Eixo",
+   "preco": "lista fechada, nunca texto livre",
+   "nar": "A coluna Eixo tem lista fechada. Cultura, etica, lideranca, contexto climatico, risco e oportunidade. Use validacao de dados.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que lista fechada",
+   "preco": "texto livre nao agrupa",
+   "nar": "Se cada pessoa escrever o eixo com as proprias palavras, a planilha vira um caderno. Ninguem consegue contar quantas linhas estao em cada eixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Situacao atual",
+   "preco": "uma frase, sem adjetivo",
+   "nar": "Situacao atual e uma frase curta e sem adjetivo. Nao escreva bom ou fraco. Escreva o que existe ou o que nao existe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Exemplo de frase certa",
+   "preco": "descreve, nao julga",
+   "nar": "Em vez de a lideranca participa pouco, escreva: a analise critica ocorre por semestre e a direcao participou de uma das duas ultimas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Evidencia",
+   "preco": "a que separa diagnostico de opiniao",
+   "nar": "Evidencia e a coluna que separa diagnostico de opiniao. Onde esta o documento que sustenta a frase anterior.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que serve de evidencia",
+   "itens": [
+    "Ata de analise critica",
+    "Registro de treinamento",
+    "Indicador com serie",
+    "Procedimento aprovado",
+    "Registro de auditoria"
+   ],
+   "nar": "Serve ata de analise critica, registro de treinamento, indicador com serie historica, procedimento aprovado e registro de auditoria interna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que nao serve",
+   "preco": "achismo com nome bonito",
+   "nar": "Nao serve a percepcao da equipe sem registro. Se nao ha onde apontar, a nota daquela linha ja nasce baixa, e tudo bem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Nota",
+   "preco": "zero a cinco, com regra escrita",
+   "nar": "A nota vai de zero a cinco. Zero, nao existe. Cinco, existe, esta escrito, e roda ha pelo menos um ciclo com evidencia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O truque da nota",
+   "preco": "escreva a regra na propria aba",
+   "nar": "Escreva essa regra dentro da aba, num canto. Nota sem criterio visivel muda de significado conforme quem preenche.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Responsavel",
+   "preco": "nome, nao area",
+   "nar": "Responsavel e nome de pessoa. Qualidade nao e nome de pessoa. Area nao responde a e-mail nem cumpre prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma linha inteira, de exemplo",
+   "preco": "para nao ficar abstrato",
+   "nar": "Uma linha completa, para nao ficar abstrato. Eixo lideranca. Situacao: a direcao participou de uma das duas ultimas analises criticas. Evidencia: atas de marco e agosto. Nota dois. Responsavel, o gerente da qualidade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quantas linhas esperar",
+   "preco": "entre quinze e trinta",
+   "nar": "Um diagnostico honesto de empresa media fica entre quinze e trinta linhas. Se der cinco, faltou olhar. Se der cem, virou lista de tarefas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aba dois",
+   "sub": "Lacunas",
+   "nar": "Segunda aba. Lacunas. Ela nao coleta nada novo. Ela transforma o diagnostico em prioridade, que e outra coisa.",
+   "cap": "Aba Lacunas: o que vira prioridade"
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta base",
+   "preco": "cinco menos a nota",
+   "nar": "A conta e simples. Lacuna e cinco menos a nota. Nota dois vira lacuna tres. Nota cinco vira lacuna zero e sai da fila.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So isso nao basta",
+   "preco": "nem toda lacuna pesa igual",
+   "nar": "Mas so isso nao basta, porque nem toda lacuna pesa igual. Faltar registro de treinamento e diferente de nao ter contexto definido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "A coluna Peso",
+   "itens": [
+    "Um: ajuste local",
+    "Dois: afeta um processo",
+    "Tres: afeta o sistema inteiro"
+   ],
+   "nar": "Entao entra a coluna Peso, de um a tres. Um, ajuste local. Dois, afeta um processo. Tres, afeta o sistema inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A prioridade",
+   "preco": "lacuna vezes peso",
+   "nar": "Prioridade e lacuna vezes peso. O maximo e quinze, e quem chega perto disso e o que voce ataca primeiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A formula que classifica",
+   "preco": "SE aninhado ou PROCV",
+   "nar": "Para virar rotulo, use SE aninhado: ate quatro, baixa. De cinco a nove, media. De dez em diante, alta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A alternativa mais limpa",
+   "preco": "PROCV com aproximado",
+   "nar": "Se preferir nao aninhar, monte uma tabelinha de cortes e use PROCV com correspondencia aproximada. Muda o corte num lugar so.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A protecao contra linha vazia",
+   "preco": "SEERRO por fora",
+   "nar": "Envolva com SEERRO. Sem isso, cada linha em branco acusa erro e a aba inteira parece quebrada quando so esta incompleta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O corte e seu",
+   "preco": "e a norma nao dita isso",
+   "nar": "E fica registrado: esses cortes sao criterio da empresa. A norma nao define faixa de prioridade. Escreva na aba quem definiu e quando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que sai daqui",
+   "preco": "poucas linhas altas",
+   "nar": "De um diagnostico de vinte linhas, costumam sobrar poucas lacunas altas. Entre tres e seis, na pratica. Esse e o tamanho real do seu projeto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso alivia",
+   "preco": "o projeto encolhe",
+   "nar": "E aqui a maioria respira. O projeto que parecia gigante encolhe para meia duzia de frentes com nome e prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aba tres",
+   "sub": "Plano",
+   "nar": "Terceira aba. Plano. E onde lacuna vira acao com dono e data, ou fica sendo so uma queixa organizada.",
+   "cap": "Aba Plano: acao com dono e data"
+  },
+  {
+   "layout": "lista",
+   "kicker": "As colunas do plano",
+   "itens": [
+    "Codigo da lacuna",
+    "Acao",
+    "Responsavel",
+    "Prazo",
+    "Evidencia esperada",
+    "Verificacao"
+   ],
+   "nar": "Seis colunas. Codigo da lacuna, acao, responsavel, prazo, evidencia esperada e verificacao.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Codigo",
+   "preco": "amarra plano e diagnostico",
+   "nar": "Codigo amarra as duas abas. Sem ele, seis meses depois ninguem sabe qual acao respondia a qual achado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Acao",
+   "preco": "verbo no infinitivo, uma so",
+   "nar": "Acao comeca com verbo no infinitivo e traz uma acao so. Revisar e treinar e implantar na mesma celula sao tres linhas disfarcadas de uma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Evidencia esperada",
+   "preco": "escrita ANTES de comecar",
+   "nar": "Evidencia esperada e a coluna mais subestimada. Escreva antes de comecar qual documento vai provar que a acao aconteceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que antes",
+   "preco": "senao voce fabrica prova depois",
+   "nar": "Se voce escreve depois, vai procurar o que ja tem e chamar de prova. Escrevendo antes, a acao nasce com o registro dentro dela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Verificacao",
+   "preco": "eficacia, nao conclusao",
+   "nar": "Verificacao nao pergunta se foi feito. Pergunta se resolveu. Sao coisas diferentes e a segunda e a que a auditoria olha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Exemplo da diferenca",
+   "preco": "treinou nao e sabe",
+   "nar": "Treinamento aplicado e conclusao. Amostra de cinco pessoas respondendo certo dois meses depois e eficacia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem verifica",
+   "preco": "nunca quem executou",
+   "nar": "E quem verifica nao pode ser quem executou. Nao por desconfianca, por cegueira mesmo. Quem fez a acao ja sabe o que ela deveria resolver.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Acao atrasada",
+   "preco": "reprograme uma vez, e registre",
+   "nar": "Acao que estourou o prazo: reprograme uma vez, com data nova e motivo escrito. Na segunda reprogramacao, o problema nao e prazo. E a acao que esta errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Coluna Prazo",
+   "preco": "data, nunca trimestre",
+   "nar": "Prazo e data com dia. Segundo trimestre nao e prazo, e uma faixa onde ninguem esta atrasado ate o ultimo dia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Formatacao condicional",
+   "preco": "duas regras bastam",
+   "nar": "Duas regras de formatacao condicional resolvem o acompanhamento. Vermelho quando a data passou e a verificacao esta vazia. Amarelo faltando quinze dias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aba quatro",
+   "sub": "Cronograma",
+   "nar": "Quarta aba. Cronograma. E a que transforma tres anos em decisao, em vez de tres anos em adiamento.",
+   "cap": "Aba Cronograma: contar de tras para frente"
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra do cronograma",
+   "preco": "conte de tras para frente",
+   "nar": "A regra e contar de tras para frente. O fim nao e setembro de dois mil e vinte e nove. O fim e a sua auditoria de transicao, que vem antes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Marco um",
+   "preco": "a publicacao",
+   "nar": "Primeiro marco, dezesseis de setembro de dois mil e vinte e seis. Publicacao. Aqui voce le o texto e confere o diagnostico contra ele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer nesse dia",
+   "preco": "revisar, nao recomecar",
+   "nar": "E revisar nao e recomecar. As cinco linhas de eixo continuam. O que muda e o detalhe de cada exigencia, e ai a coluna Situacao atual e corrigida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Marco dois",
+   "preco": "conversa com o certificador",
+   "nar": "Segundo marco. Perguntar ao seu organismo certificador em que auditoria ele pretende aplicar a versao nova no seu ciclo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que essa pergunta importa",
+   "preco": "ela define todo o resto",
+   "nar": "Essa pergunta define o resto do cronograma. Sem ela voce planeja para setembro de dois mil e vinte e nove e pode ser cobrado bem antes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Marco tres",
+   "preco": "fechar as lacunas altas",
+   "nar": "Terceiro marco. Fechar as lacunas de prioridade alta, com verificacao de eficacia feita, e nao apenas acao concluida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Marco quatro",
+   "preco": "auditoria interna na versao nova",
+   "nar": "Quarto marco. Rodar uma auditoria interna ja com o criterio novo, antes da externa. E o ensaio que custa barato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Marco cinco",
+   "preco": "analise critica pela direcao",
+   "nar": "Quinto marco. Levar o resultado a analise critica pela direcao. Como lideranca ganhou peso, essa ata passa a ser evidencia forte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A pergunta do orcamento",
+   "preco": "precisa de consultoria?",
+   "nar": "A pergunta que sempre vem: precisa contratar consultoria? Para o diagnostico, nao. Ele e feito com quem ja conhece os processos por dentro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde consultoria ajuda",
+   "preco": "na leitura do texto novo",
+   "nar": "Onde ela ajuda de verdade e depois de dezesseis de setembro, na leitura fina do texto e do anexo. Contratar antes disso e pagar para alguem esperar junto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna que faz funcionar",
+   "preco": "responsavel por marco",
+   "nar": "Cada marco leva responsavel e data. Cronograma sem dono e uma linha do tempo bonita que ninguem cumpre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Os erros que saem caros",
+   "sub": "quatro, e o ultimo e o pior",
+   "nar": "Para fechar, os quatro erros que mais aparecem em transicao de norma. O ultimo e o mais caro e o mais silencioso.",
+   "cap": "Quatro erros que saem caros"
+  },
+  {
+   "layout": "item",
+   "kicker": "Erro um",
+   "preco": "esperar o texto para comecar",
+   "nar": "Erro um. Esperar o texto sair para comecar. Os eixos que a gente diagnosticou aqui nao mudam em dezesseis de setembro. So ficam mais detalhados.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Erro dois",
+   "preco": "tratar como projeto de documento",
+   "nar": "Erro dois. Tratar a transicao como projeto de reescrever manual. Se o resultado for so documento novo, a auditoria encontra a mesma pratica de antes com capa diferente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Erro tres",
+   "preco": "deixar a lideranca de fora",
+   "nar": "Erro tres. Rodar o projeto so dentro da qualidade. Com o peso que lideranca ganhou, um projeto sem a direcao dentro ja nasce com lacuna que planilha nenhuma fecha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Erro quatro",
+   "preco": "confundir conclusao com eficacia",
+   "nar": "Erro quatro, o silencioso. Marcar acao como concluida sem verificar eficacia. A planilha fica verde, o sistema continua igual, e a nao conformidade aparece na externa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que ele e o pior",
+   "preco": "ele esconde o problema",
+   "nar": "E o pior porque os outros tres voce enxerga. Esse aqui produz uma sensacao de pronto que so quebra na hora errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O sinal de que esta indo bem",
+   "preco": "a planilha fica menor",
+   "nar": "Um sinal de que a transicao esta indo bem: a aba Lacunas encolhe mes a mes. Se ela so cresce, voce esta diagnosticando e nao executando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O sinal de alerta",
+   "preco": "tudo alta prioridade",
+   "nar": "E o sinal de alerta oposto: se quase tudo saiu como prioridade alta, o peso foi preenchido sem criterio. Refaca a coluna Peso antes de seguir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O resumo em uma frase",
+   "preco": "diagnostico, corte, dono, data",
+   "nar": "Se voce guardar so uma coisa deste video, guarde a sequencia. Diagnostico com evidencia, corte de prioridade escrito, dono com nome, e data com dia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer hoje",
+   "preco": "quinze linhas bastam",
+   "nar": "E o que da para fazer hoje, em uma tarde: abrir a aba Diagnostico e preencher quinze linhas com evidencia de verdade. O resto sai disso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ponte",
+   "sub": "no dia dezesseis a gente confere",
+   "nar": "No dia dezesseis de setembro eu volto com o texto publicado na mao, para conferir este diagnostico linha por linha. Inscreva-se para nao perder essa conferencia, e me conte nos comentarios quantas lacunas altas sobraram na sua.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "16/09/2026",
+   "sub": "a data que ja esta marcada",
+   "nar": "Dezesseis de setembro de dois mil e vinte e seis. Sai a sexta edicao da ISO nove mil e um.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tres anos",
+   "sub": "e voce nao escolhe a data",
+   "nar": "Voce tem tres anos para migrar. So que quem escolhe em que auditoria isso cai nao e voce, e o seu certificador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que ja da para fazer",
+   "sub": "sem esperar o texto",
+   "nar": "Da para diagnosticar hoje. Cultura, etica, lideranca, clima no contexto, risco e oportunidade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cinco colunas",
+   "sub": "eixo, situacao, evidencia, nota, dono",
+   "nar": "Cinco colunas resolvem: eixo, situacao atual, evidencia, nota de zero a cinco e responsavel com nome.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O corte",
+   "sub": "lacuna vezes peso",
+   "nar": "Lacuna vezes peso da a prioridade. De vinte linhas saem umas cinco altas. Esse e o tamanho real do seu projeto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O video completo",
+   "sub": "as quatro abas, coluna por coluna",
+   "nar": "No video completo eu monto as quatro abas inteiras, com as formulas. Link aqui em cima.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Planilha de transicao para a ISO 9001:2026\n\n## TITULO\n[EXCEL] ISO 9001:2026 — Planilha de Transicao com Diagnostico dos Eixos Novos\n\n## DESCRICAO\nA sexta edicao da ISO 9001 tem publicacao marcada para 16 de setembro de 2026, depois de o rascunho final (FDIS) ser aprovado com amplo apoio internacional. Quem ja e certificado tera tres anos de transicao, ate setembro de 2029.\n\nO problema nao e o prazo. E que voce nao escolhe em que auditoria do seu ciclo a versao nova vai bater — quem define isso e o organismo certificador. Quem diagnostica agora escolhe a data da transicao; quem espera recebe a data.\n\nBoa parte das alteracoes e editorial, esclarecendo a redacao de 2015: o seu sistema de gestao nao vai ao chao. O que ganha peso e outra coisa — cultura da qualidade, comportamento etico, o papel da lideranca em puxar melhoria continua, a entrada explicita de mudanca climatica e sustentabilidade no contexto da organizacao, e uma gestao de risco e oportunidade mais clara. Pela primeira vez a norma vem com um anexo de orientacao suplementar para apoiar a interpretacao.\n\nNeste video a planilha e montada do zero, com quatro abas.\n\nDiagnostico: cinco colunas — eixo, situacao atual, evidencia, nota de zero a cinco e responsavel. Por que a coluna Eixo precisa de validacao de dados em vez de texto livre, por que a Situacao atual e escrita sem adjetivo, e por que Evidencia e a coluna que separa diagnostico de opiniao. Um diagnostico honesto de empresa media fica entre quinze e trinta linhas.\n\nLacunas: lacuna e cinco menos a nota, peso de um a tres, e prioridade e o produto dos dois. SE aninhado ou PROCV com correspondencia aproximada para classificar, SEERRO para a linha em branco nao acusar erro. Os cortes de faixa sao criterio da empresa e ficam escritos na propria aba, com data e responsavel — a norma nao define faixa de prioridade.\n\nPlano: codigo da lacuna, acao com um verbo so, responsavel com nome, prazo com dia, evidencia esperada escrita ANTES de comecar, e verificacao de eficacia — que pergunta se resolveu, nao se foi feito.\n\nCronograma: contado de tras para frente, a partir da sua auditoria de transicao e nao de setembro de 2029. Cinco marcos, incluindo a pergunta ao certificador que define todo o resto.\n\nE os quatro erros que saem mais caros, sendo o ultimo o mais silencioso: marcar acao como concluida sem verificar eficacia. A planilha fica verde e a nao conformidade aparece na auditoria externa.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nDuas perguntas, porque a resposta varia muito de empresa para empresa: quantas lacunas de prioridade alta sobraram no seu diagnostico? E voce ja perguntou ao seu organismo certificador em que auditoria do ciclo ele pretende aplicar a versao nova? Estou juntando essas respostas para o video de 16 de setembro.\n\n## HASHTAGS\n#ISO9001 #Qualidade #LabTreinamento\n\n## TAGS\niso 9001, iso 9001 2026, sistema de gestao da qualidade, sgq, transicao iso, auditoria interna, qualidade, excel, planilha, gestao de riscos, melhoria continua, certificacao, analise critica, nao conformidade, processos\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Portugues (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo alterado ou sintetico: SIM (voz gerada por IA)\n- Local: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios no meio: ligados (duracao acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nA data de publicacao (16 de setembro de 2026) e o periodo de transicao de tres anos vem de comunicados dos organismos certificadores (DNV, SGS, BSI, TUV) e da pagina de noticias do ISO/TC 176/SC 2, comite responsavel pela norma, consultados em 20 de agosto de 2026. Ate a publicacao, o conteudo da versao nova e conhecido pelo rascunho final (FDIS) e por esses comunicados — por isso este video NAO cita numero de clausula nem transcreve requisito da versao nova, e trata apenas dos eixos ja anunciados. Confira tudo contra o texto publicado a partir de 16 de setembro. Os cortes de faixa de prioridade usados na planilha (ate 4 baixa, 5 a 9 media, 10 ou mais alta) sao criterio de exemplo e nao vem da norma. Este video e material educativo sobre construcao de planilha e organizacao de projeto; nao e consultoria, parecer tecnico nem servico de certificacao.\n"
+}
