@@ -1,0 +1,660 @@
+{
+  "slug": "seja-mais-magra",
+  "pacote": "seja-mais-magra-004",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-FranciscaNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#2B1B1F",
+    "c1": "#C9184A",
+    "c2": "#7FB069",
+    "bg": "#FDF3F4"
+  },
+  "thumb": {
+    "l1": "189 alegacoes permitidas",
+    "l2": "emagrecer nao e uma"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Cento e oitenta e nove",
+      "sub": "e emagrecer nao esta la",
+      "nar": "Existe uma lista oficial do que um suplemento alimentar pode prometer no rotulo. Ela tem cento e oitenta e nove alegacoes. Emagrecer nao e uma delas.",
+      "cap": "A regra que ninguem leu"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Isso nao e opiniao",
+      "sub": "e a norma em vigor",
+      "nar": "Isso nao e a minha opiniao sobre se funciona ou nao. E o que a Anvisa permite escrever. Duas coisas bem diferentes, e a segunda da para conferir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A lista existe",
+      "preco": "e e publica",
+      "nar": "A lista e publica. Cada alegacao dela precisou de evidencia para entrar. E nenhuma diz que o produto faz voce perder peso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Entao pense",
+      "sub": "no ultimo anuncio que voce viu",
+      "nar": "Agora pense no ultimo anuncio de termogenico que apareceu para voce. Provavelmente prometia exatamente isso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A distancia entre os dois",
+      "sub": "e o video de hoje",
+      "nar": "A distancia entre o que a norma permite e o que o anuncio promete: e disso que este video trata.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tres coisas",
+      "itens": [
+        "O que a norma diz",
+        "Por que o anuncio existe",
+        "Como fazer a sua conta"
+      ],
+      "nar": "Tres coisas. O que a norma diz. Por que o anuncio existe mesmo assim. E como fazer a conta do que isso custa para voce.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que nao vou fazer",
+      "preco": "dizer que nao funciona",
+      "nar": "O que eu nao vou fazer: dizer que suplemento nao funciona. Nao tenho como sustentar isso, e nem preciso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E nao vou dar",
+      "preco": "um numero de gasto medio",
+      "nar": "Tambem nao vou inventar quanto o brasileiro gasta em media. Nao existe pesquisa com esse numero, e chutar seria pior que nao falar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que eu tenho",
+      "sub": "duas coisas solidas",
+      "nar": "O que eu tenho e solido: o texto da norma, e aritmetica. A aritmetica quem faz e voce, com o seu proprio extrato.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E uma coisa importante",
+      "sub": "isto nao substitui profissional",
+      "nar": "E uma coisa que precisa ser dita antes de tudo. Nada aqui substitui nutricionista ou medico. Se voce usa alguma coisa, converse com quem acompanha voce.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que insisto nisso",
+      "preco": "tem dado atras",
+      "nar": "Insisto nisso porque tem dado atras, e eu mostro ele no fim. Guarde a pergunta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Vamos comecar",
+      "sub": "pelo texto da norma",
+      "nar": "Vamos comecar pelo texto. Pelo que esta escrito e assinado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quatro normas",
+      "sub": "de dois mil e dezoito",
+      "nar": "O que rege suplemento alimentar no Brasil sao quatro normas da Anvisa, todas de dois mil e dezoito.",
+      "cap": "O que a norma diz, exatamente"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Quais sao",
+      "itens": [
+        "RDC duzentos e quarenta e tres",
+        "Instrucao Normativa vinte e oito",
+        "RDC duzentos e quarenta e um",
+        "RDC duzentos e quarenta e dois"
+      ],
+      "nar": "Sao a resolucao duzentos e quarenta e tres, a instrucao normativa vinte e oito, e as resolucoes duzentos e quarenta e um e duzentos e quarenta e dois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A duzentos e quarenta e tres",
+      "preco": "limites",
+      "nar": "A primeira estabelece limites de nutrientes e de substancias bioativas. Quanto pode ter de cada coisa, no maximo e no minimo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A instrucao normativa",
+      "preco": "a lista de ingredientes",
+      "nar": "A instrucao normativa lista quais ingredientes sao autorizados. Se nao esta nela, nao pode estar no produto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "As outras duas",
+      "preco": "fabricacao e propaganda",
+      "nar": "As duas ultimas tratam de fabricacao, de registro, e de propaganda. E a propaganda e onde a coisa aperta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Por que essas normas existem",
+      "sub": "tem historia atras",
+      "nar": "Essas regras nao nasceram do nada. Elas vieram depois de substancias como efedrina e dinitrofenol circularem em produto de emagrecimento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O dinitrofenol",
+      "preco": "caso fatal",
+      "nar": "O dinitrofenol chegou a estar ligado a mortes. Nao e exagero regulatorio: e resposta a desfecho grave.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Voltando a lista",
+      "sub": "as cento e oitenta e nove",
+      "nar": "Voltando a lista das cento e oitenta e nove alegacoes permitidas. Ela diz coisas como contribui para o funcionamento do intestino, ou auxilia na formacao de ossos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sao alegacoes de funcao",
+      "sub": "nao de resultado",
+      "nar": "Repare no tipo de frase. Sao alegacoes de funcao no corpo. Nenhuma promete um resultado na balanca.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E a agencia diz mais",
+      "preco": "desconfie de milagre",
+      "nar": "E a propria agencia orienta o consumidor a desconfiar de propaganda que promete efeito milagroso. Esta escrito no material dela.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Entao a regra e simples",
+      "sub": "e pouca gente sabe",
+      "nar": "A regra, resumida: suplemento alimentar nao pode alegar emagrecimento. Simples assim, e pouca gente sabe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "A pergunta seguinte",
+      "sub": "por que o anuncio continua",
+      "nar": "O que leva a pergunta obvia. Se e proibido, por que os anuncios continuam aparecendo?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A resposta curta",
+      "sub": "onde ele e vendido",
+      "nar": "A resposta curta esta em onde esses produtos sao vendidos hoje. Boa parte da venda irregular saiu da loja fisica e foi para o comercio eletronico. Fiscalizar prateleira e uma coisa; fiscalizar anuncio que aparece so para voce, no seu celular, e outra bem diferente.",
+      "cap": "Por que o anuncio existe mesmo assim"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O anuncio segmentado",
+      "sub": "some antes de ser visto",
+      "nar": "O anuncio segmentado tem uma propriedade incomoda para quem fiscaliza: ele nao fica exposto. Aparece para o perfil escolhido, roda alguns dias, e sai do ar. Quando a denuncia chega, nao ha mais o que olhar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que a agencia passou a fazer",
+      "preco": "monitorar com IA",
+      "nar": "Diante disso a Anvisa passou a monitorar anuncios online com ferramentas de inteligencia artificial. E uma mudanca de metodo: da denuncia pontual para a varredura continua.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tem outra frente",
+      "sub": "no Congresso",
+      "nar": "E tem uma segunda frente aberta, fora da agencia. Em dois mil e vinte e seis a Camara dos Deputados instalou um grupo de trabalho especifico sobre a comercializacao de suplementos alimentares, com relatorio proprio.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que isso sinaliza",
+      "preco": "o assunto virou pauta",
+      "nar": "Nao antecipo o que vai sair dali. O que isso sinaliza e outra coisa, e ja vale: o assunto deixou de ser reclamacao de consumidor e virou pauta legislativa, com prazo e relator.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Junte as duas pontas",
+      "sub": "e o quadro muda",
+      "nar": "Junte as duas pontas. De um lado, uma regra clara que proibe a promessa. Do outro, um canal de venda onde ela circula rapido demais para ser alcancada. O resultado e o que voce ve na tela.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E aqui e importante separar",
+      "sub": "produto e propaganda",
+      "nar": "E aqui vale separar duas coisas que vem grudadas. Uma e o produto, que pode ser regular, notificado, com rotulo dentro da norma. A outra e a propaganda, que promete o que o rotulo nao pode dizer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Da para ter os dois",
+      "preco": "produto legal, anuncio nao",
+      "nar": "Da para existir produto perfeitamente regular sendo vendido com anuncio irregular. E esse e, provavelmente, o caso mais comum de todos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Por isso a pergunta muda",
+      "sub": "nao e o produto e bom",
+      "nar": "Por isso a pergunta util nao e se o produto e bom. E outra, mais simples de responder: o que exatamente esta escrito no rotulo dele, e o que esta escrito no anuncio que te trouxe ate ele?",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Duas leituras",
+      "itens": [
+        "O rotulo, com a alegacao",
+        "O anuncio, com a promessa"
+      ],
+      "nar": "Duas leituras, dois minutos. O rotulo, para ver qual alegacao ele usa. E o anuncio, para ver o que ele prometeu. Quando os dois nao batem, voce ja sabe qual dos dois esta preso a norma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Isso muda a decisao",
+      "preco": "de crenca para conferencia",
+      "nar": "Isso tira a decisao do terreno da crenca e devolve para o terreno da conferencia. Voce nao precisa saber bioquimica para fazer essa comparacao.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Agora o tamanho",
+      "sub": "de quanto dinheiro estamos falando",
+      "nar": "Antes de chegar na sua conta, vale ver o tamanho do mercado inteiro. Ele explica por que o anuncio insiste tanto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Sete bilhoes e seiscentos",
+      "preco": "em um ano",
+      "nar": "Segundo levantamento da Brasnutri com dados da Euromonitor, o setor de suplementos alimentares movimentou cerca de sete bilhoes e seiscentos milhoes de reais no Brasil em dois mil e vinte e cinco.",
+      "cap": "O tamanho disso"
+    },
+    {
+      "layout": "item",
+      "kicker": "Crescendo quinze por cento",
+      "preco": "ao ano",
+      "nar": "E crescendo em torno de quinze por cento ao ano. A projecao do proprio setor fala em treze bilhoes e oitocentos milhoes de reais ate dois mil e trinta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "O caminho projetado",
+      "itens": [
+        "2025",
+        "2030"
+      ],
+      "alturas": [
+        0.55,
+        1.0
+      ],
+      "nar": "Ou seja: a expectativa e quase dobrar em cinco anos. Isso e o setor falando do setor, entao trate como projecao, nao como fato consumado. Mas projecao tambem informa, porque mostra em que aposta quem investe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Cinquenta e nove por cento",
+      "preco": "dos lares",
+      "nar": "Do lado de quem compra, uma pesquisa da Abiad aponta que cinquenta e nove por cento dos lares brasileiros ja consomem algum suplemento alimentar. Dez pontos a mais que em dois mil e quinze.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ou seja",
+      "sub": "e mais da metade das casas",
+      "nar": "Mais da metade das casas do pais. Isso deixou de ser habito de academia ha bastante tempo, e passou a ser item de lista de mercado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E olha esse dado",
+      "preco": "noventa por cento",
+      "nar": "E tem um numero dessa mesma pesquisa que eu acho o mais interessante de todos. Noventa por cento das pessoas entendem suplemento como complemento da alimentacao. Complemento. Nao substituto, e nao tratamento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quer dizer",
+      "sub": "a maioria ja sabe",
+      "nar": "Quer dizer que a maioria absoluta ja tem a ideia certa na cabeca. O problema nao e ignorancia do publico.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E oitenta e cinco por cento",
+      "preco": "consomem por saude",
+      "nar": "Oitenta e cinco por cento dizem consumir por razoes de saude. Tambem coerente. As pessoas nao estao comprando por promessa milagrosa; estao comprando por cuidado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Entao onde entra o desencontro",
+      "sub": "na propaganda, de novo",
+      "nar": "Entao onde mora o desencontro? Na ponta da propaganda, de novo. O publico compra pensando em complemento, e o anuncio vende prometendo resultado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E o resultado prometido",
+      "sub": "e o que a norma proibe",
+      "nar": "E o resultado prometido e exatamente aquele que a lista de alegacoes nao autoriza. Voltamos ao ponto de partida, agora com o tamanho do mercado do lado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma ressalva honesta",
+      "preco": "sao numeros de setor",
+      "nar": "Uma ressalva: esses numeros de faturamento vem de levantamento de mercado, nao de censo publico. Sao a melhor medida disponivel, e eu digo de onde vieram.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Agora sim",
+      "sub": "a sua conta",
+      "nar": "Com o tamanho na mesa, vamos para a parte que interessa mais. A sua conta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Aqui eu nao te dou",
+      "sub": "um numero pronto",
+      "nar": "Agora a parte que da titulo a muito video por ai: quanto custa cinco anos disso. E aqui eu vou fazer o contrario do que se costuma fazer. Nao vou te dar um numero pronto, porque nao existe pesquisa que meca esse gasto medio no Brasil. Quem te da um numero desses inventou.",
+      "cap": "A conta de cinco anos"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que existe",
+      "sub": "e a sua conta",
+      "nar": "O que existe, e vale muito mais, e a sua propria conta. Ela leva tres minutos e usa dados que so voce tem.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Do que voce precisa",
+      "itens": [
+        "O que voce compra por mes",
+        "Quanto pagou da ultima vez",
+        "Ha quanto tempo compra"
+      ],
+      "nar": "Voce precisa de tres coisas. O que voce compra num mes tipico. Quanto pagou da ultima vez em cada item. E ha quanto tempo isso se repete.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O primeiro numero",
+      "preco": "o mes tipico",
+      "nar": "Comece pelo mes tipico, e nao pelo mes em que voce comprou tudo de uma vez. Se o pote dura quarenta e cinco dias, ele nao e um gasto mensal cheio. Divida pelo tempo real de duracao, sempre.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Esse detalhe muda tudo",
+      "sub": "duracao real, nao embalagem",
+      "nar": "Esse detalhe e o que mais erra na conta de cabeca. A gente lembra do preco da embalagem e esquece de dividir pelo tempo que ela durou. O gasto mensal sai inflado, e a conta perde credibilidade justamente com voce.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Depois multiplique",
+      "preco": "por doze e por cinco",
+      "nar": "Com o mensal na mao, multiplique por doze para ter o ano. E o ano por cinco. Nada mais sofisticado que isso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Uma correcao honesta",
+      "sub": "preco nao fica parado",
+      "nar": "Uma correcao que quase ninguem faz e vale fazer: preco nao fica parado por cinco anos. Se voce quiser ser justo com o passado, use o que pagou naquela epoca, e nao o preco de hoje aplicado para tras.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E se voce nao lembra",
+      "sub": "tem um jeito melhor",
+      "nar": "E se voce nao lembra dos precos antigos, ha um caminho melhor que a memoria. Busque no extrato do cartao ou no historico do aplicativo de compra. O numero real esta la, e ele costuma surpreender.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que fazer com o resultado",
+      "preco": "nada, por enquanto",
+      "nar": "Quando o resultado aparecer, nao faca nada com ele por enquanto. Nao cancele nada, nao se culpe. Ele e so uma informacao que voce nao tinha cinco minutos atras.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porque ele pode ir",
+      "sub": "para os dois lados",
+      "nar": "E ele pode ir para dois lados. Pode vir menor do que voce imaginava, e ai o gasto nunca foi o problema. Ou maior, e ai voce tem uma pergunta nova para levar a consulta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "A pergunta seguinte",
+      "sub": "e o que ele compraria",
+      "nar": "E a pergunta que vem depois do numero e sempre a mesma. Esse dinheiro compraria o que?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cuidado com esta parte",
+      "sub": "e onde se mente mais",
+      "nar": "Esta e a parte em que mais se mente em video de saude, entao vou pisar devagar. O truque comum e comparar o seu gasto com algo que supostamente resolveria o problema. Nao vou fazer isso: eu nao sei o que resolve o seu caso.",
+      "cap": "O que esse dinheiro compra"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que da para dizer",
+      "sub": "o que tem efeito documentado",
+      "nar": "O que da para dizer com honestidade e outra coisa. Existem gastos cujo efeito e documentado e verificavel, e existem gastos cujo efeito prometido nao pode nem ser escrito no rotulo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Da primeira categoria",
+      "itens": [
+        "Consulta com nutricionista",
+        "Exames de acompanhamento",
+        "Atividade fisica orientada"
+      ],
+      "nar": "Na primeira categoria estao coisas como consulta com nutricionista, exames de acompanhamento, e atividade fisica com orientacao. Nao porque garantem resultado, mas porque geram medida.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Essa e a diferenca",
+      "preco": "medida contra promessa",
+      "nar": "E essa e a diferenca que interessa. Um exame te devolve um numero seu. Um anuncio te devolve uma promessa generica, feita para milhoes de pessoas ao mesmo tempo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nao estou dizendo",
+      "sub": "troque um pelo outro",
+      "nar": "Repare que eu nao disse para trocar um pelo outro. Muita gente faz os dois, e com orientacao. O que eu estou dizendo e para saber qual dos dois voce esta comprando.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Porque as vezes",
+      "preco": "e o mesmo dinheiro",
+      "nar": "Porque, dependendo da sua conta, e o mesmo dinheiro. E ai deixa de ser uma questao de disciplina e passa a ser uma questao de escolha informada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tem um caso especifico",
+      "sub": "que merece atencao",
+      "nar": "Tem um caso em que essa escolha pesa mais que nos outros, e ele aparece muito no meu comentario aqui do canal. O da pessoa que ja tentou varias vezes e sempre recomeca do zero.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nesse caso",
+      "sub": "o gasto se repete",
+      "nar": "Nesse caso o gasto nao acontece uma vez. Ele se repete a cada recomeco, junto com o desgaste de recomecar. E a conta de cinco anos costuma ser bem diferente da que a pessoa imaginava.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Se for o seu caso",
+      "preco": "leve o numero a consulta",
+      "nar": "Se for o seu caso, ha algo concreto para fazer com o numero que voce acabou de calcular. Leve ele para a consulta. E um dado sobre o seu historico, e poucos profissionais recebem esse dado dos pacientes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nao e vergonha",
+      "sub": "e informacao",
+      "nar": "E nao ha nada de vergonhoso nesse numero. Ele nao mede a sua forca de vontade. Ele mede quanto um mercado de bilhoes conseguiu conversar com uma dor real que voce tem.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Falta a ultima parte",
+      "sub": "os limites do que eu disse",
+      "nar": "Falta a parte que quase nenhum video tem, e que eu acho a mais importante de todas. Os limites do que eu acabei de dizer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Primeiro limite",
+      "sub": "eu nao disse que nao funciona",
+      "nar": "Primeiro limite, e o principal. Em nenhum momento eu disse que suplemento nao funciona. Eu disse o que a norma permite alegar, que e uma afirmacao sobre rotulo e nao sobre o seu corpo.",
+      "cap": "O que este video nao afirma"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Segundo limite",
+      "sub": "nao ha numero de gasto medio",
+      "nar": "Segundo limite. Eu nao te dei o custo medio de cinco anos porque ele nao existe medido. Se voce vir esse numero por ai, pergunte de qual pesquisa ele saiu. Quase sempre nao ha resposta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Terceiro limite",
+      "preco": "os numeros de mercado",
+      "nar": "Terceiro. Os numeros de faturamento que eu citei vem de levantamento de setor, com dados de consultoria, e nao de estatistica publica. Sao a melhor medida que existe hoje, e ainda assim sao estimativa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Agora o dado que faltava",
+      "sub": "o que eu pedi para guardar",
+      "nar": "E agora o dado que eu pedi para voce guardar la no comeco. Ele e o motivo pelo qual eu insisto tanto em conversar com profissional.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Vinte e oito virgula sete",
+      "preco": "por cento",
+      "nar": "Uma pesquisa publicada na Revista Eletronica Acervo Saude, em dois mil e vinte e seis, na Faculdade Pernambucana de Saude, encontrou que vinte e oito virgula sete por cento dos universitarios da area da saude usam termogenico sem prescricao.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Repare em quem",
+      "sub": "sao os da area da saude",
+      "nar": "Repare em quem sao essas pessoas. Estudantes da area da saude. Nao e desinformacao, e a proximidade com o assunto nao protegeu ninguem.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que eles relataram",
+      "itens": [
+        "Insonia",
+        "Agitacao",
+        "Dor gastrica",
+        "Palpitacao"
+      ],
+      "nar": "E o que eles relataram foi insonia, agitacao, dor gastrica e palpitacao. Sao os sintomas do proprio grupo pesquisado, e nao previsao para voce.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Por isso a frase",
+      "sub": "que parece protocolo",
+      "nar": "Por isso aquela frase que soa a protocolo chato. Converse com um profissional. Ela existe porque estimulante sem acompanhamento tem efeito antes de qualquer resultado na balanca.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que fica",
+      "itens": [
+        "Confira a alegacao no rotulo",
+        "Compare com a promessa do anuncio",
+        "Faca a sua conta de cinco anos"
+      ],
+      "nar": "Tres coisas para levar. Confira qual alegacao esta no rotulo. Compare com o que o anuncio prometeu. E faca a sua conta de cinco anos, com o extrato na mao e sem culpa nenhuma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "No proximo",
+      "sub": "o rotulo linha por linha",
+      "nar": "No proximo video eu abro um rotulo de suplemento linha por linha, e mostro onde exatamente fica a alegacao permitida. Depois de ver uma vez, voce repara sempre.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Cento e oitenta e nove",
+      "sub": "e emagrecer nao esta la",
+      "nar": "A Anvisa tem uma lista do que suplemento pode prometer no rotulo. Sao cento e oitenta e nove alegacoes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nenhuma delas",
+      "sub": "diz emagrecer",
+      "nar": "Nenhuma delas e emagrecer. Suplemento alimentar nao pode alegar emagrecimento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nao e opiniao",
+      "sub": "e a norma",
+      "nar": "Isso nao e opiniao sobre eficacia. E o que a norma deixa escrever.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Entao compare",
+      "sub": "rotulo e anuncio",
+      "nar": "Entao compare duas coisas. A alegacao no rotulo, e a promessa do anuncio que te trouxe ate ele.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quando nao batem",
+      "sub": "voce ja sabe qual vale",
+      "nar": "Quando as duas nao batem, voce ja sabe qual das duas responde a norma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "No video completo",
+      "sub": "a conta de cinco anos",
+      "nar": "No video completo eu mostro como fazer a sua conta de cinco anos.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# A regra da Anvisa sobre o que suplemento pode prometer\n\n## TITULO\nShake e Termogênico: 189 Alegações Permitidas, e Emagrecer Não É Uma Delas\n\n## DESCRICAO\nA Anvisa mantém uma lista de 189 alegações funcionais ou de saúde que um suplemento alimentar pode usar em rotulagem — todas com exigência de evidência científica para entrar. Emagrecimento não está entre elas: suplemento alimentar não pode alegar emagrecimento. Isso não é uma opinião sobre eficácia, é o que a norma permite escrever, e dá para conferir.\n\nEste vídeo trata da distância entre o que a norma permite e o que o anúncio promete.\n\nO que rege o setor são quatro normas de 2018: a RDC 243, que estabelece limites de nutrientes e substâncias bioativas; a Instrução Normativa 28, com a lista de ingredientes autorizados; e as RDCs 241 e 242, que tratam de fabricação, registro e propaganda. Elas vieram depois de substâncias como efedrina e dinitrofenol circularem em produtos de emagrecimento — o dinitrofenol chegou a ser associado a desfechos fatais. Não é excesso regulatório, é resposta a dano.\n\nPor que o anúncio continua existindo então? Porque boa parte da venda irregular migrou para o comércio eletrônico, e anúncio segmentado não fica exposto: aparece para um perfil, roda alguns dias e sai do ar. A Anvisa passou a monitorar anúncios online com ferramentas de inteligência artificial, e em 2026 a Câmara dos Deputados instalou um grupo de trabalho específico sobre a comercialização de suplementos alimentares.\n\nVale separar produto de propaganda: existe produto perfeitamente regular sendo vendido com anúncio irregular, e esse é provavelmente o caso mais comum. Por isso a pergunta útil não é \"esse produto é bom\", e sim: qual alegação está no rótulo, e o que o anúncio prometeu?\n\nSobre o tamanho disso — segundo levantamento da Brasnutri com dados da Euromonitor, o setor movimentou cerca de R$ 7,6 bilhões no Brasil em 2025, crescendo cerca de 15% ao ano, com projeção de R$ 13,8 bilhões até 2030. Pesquisa da ABIAD aponta que 59% dos lares brasileiros consomem algum suplemento, 10 pontos acima de 2015; 90% entendem suplemento como complemento da alimentação e 85% consomem por razões de saúde. Ou seja: o público já tem a ideia certa. O desencontro está na ponta da propaganda.\n\nE a conta de cinco anos: eu não dou um número pronto, porque não existe pesquisa medindo esse gasto médio no Brasil. O vídeo ensina a fazer a sua, com o extrato na mão — incluindo o erro mais comum, que é esquecer de dividir o preço da embalagem pelo tempo real de duração.\n\nNada aqui substitui nutricionista ou médico.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nUma pergunta e um pedido. A pergunta: você já tinha lido qual alegação está escrita no rótulo do que você usa? E o pedido: se você fizer a conta de cinco anos, não precisa contar o valor aqui — só me diga se veio maior ou menor do que você imaginava. Estou juntando isso para o próximo vídeo, em que abro um rótulo linha por linha.\n\n## HASHTAGS\n#Anvisa #Suplementos #SejaMaisMagra\n\n## TAGS\nanvisa, suplemento alimentar, termogenico, shake, rotulo de suplemento, alegacao funcional, rdc 243, propaganda irregular, emagrecimento, saude, nutricao, consumo consciente, mercado de suplementos, abiad, whey\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Português (pt-BR) | Categoria: Educação (27)\n- Não feito para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Brasil | Licença: Licença padrão do YouTube\n- Anúncios no meio: ligados (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nA lista de 189 alegações funcionais ou de saúde permitidas em rotulagem, a vedação de alegação de emagrecimento para suplemento alimentar e a orientação para desconfiar de propaganda com efeito milagroso são da Anvisa. O marco regulatório citado é composto pela RDC 243/2018, pela Instrução Normativa 28/2018 e pelas RDCs 241/2018 e 242/2018. O grupo de trabalho da Câmara dos Deputados sobre comercialização de suplementos alimentares tem relatório de 2026. Os dados de faturamento (cerca de R$ 7,6 bilhões em 2025, crescimento em torno de 15% e projeção de R$ 13,8 bilhões até 2030) vêm de levantamento da Brasnutri com dados da Euromonitor International — são estimativa de mercado, não estatística pública. Os percentuais de consumo (59% dos lares, 90%, 85%) são de pesquisa da ABIAD. O dado de 28,7% de universitários da área da saúde consumindo termogênico sem prescrição, com relato de insônia, agitação, dor gástrica e palpitação, é de pesquisa publicada na Revista Eletrônica Acervo Saúde em 2026, conduzida na Faculdade Pernambucana de Saúde, e descreve o grupo pesquisado — não é previsão para quem assiste. Consultado em 20 de agosto de 2026. Este vídeo NÃO afirma que suplementos não funcionam, não promete emagrecimento por nenhuma via, não apresenta custo médio de consumo porque não há pesquisa que o meça, e não substitui avaliação de nutricionista ou médico.\n"
+}
