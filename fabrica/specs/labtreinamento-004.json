@@ -1,0 +1,664 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-004",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16222F",
+  "c1": "#0F6E8C",
+  "c2": "#E0A02E",
+  "bg": "#F1F5F7"
+ },
+ "thumb": {
+  "l1": "NR-10 nova",
+  "l2": "prazo jun/2027"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Nove meses",
+   "sub": "e não é muito",
+   "nar": "A NR dez inteira foi reescrita, e a sua empresa tem pouco mais de nove meses para se adequar. Parece bastante. Não é.",
+   "cap": "Nove meses, e por que não é muito"
+  },
+  {
+   "layout": "item",
+   "kicker": "Qual norma",
+   "preco": "instalações elétricas",
+   "nar": "Estamos falando da norma que rege segurança em instalações e serviços com eletricidade. A que trata de quem trabalha energizado, de quem projeta e de quem autoriza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que aprovou",
+   "preco": "Portaria setecentos e trinta e sete",
+   "nar": "O texto novo veio pela Portaria do Ministério do Trabalho e Emprego número setecentos e trinta e sete, assinada em vinte e nove de maio deste ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quando foi publicada",
+   "preco": "primeiro de junho",
+   "nar": "Ela saiu no Diário Oficial da União em primeiro de junho, e o arquivo está no site do próprio Ministério. Não é interpretação de ninguém.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quando passa a valer",
+   "preco": "junho de dois mil e vinte e sete",
+   "nar": "A transição é de doze meses. O texto novo passa a valer em primeiro de junho do ano que vem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que ela substitui",
+   "preco": "duas portarias antigas",
+   "nar": "E ela não emenda o texto anterior: substitui por inteiro o que valia desde dois mil e quatro, com a revisão de dois mil e dezesseis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso importa",
+   "preco": "não dá para comparar linha a linha",
+   "nar": "Substituição integral muda a forma de estudar. Não adianta procurar o que mudou comparando parágrafo com parágrafo, porque o texto foi reescrito, não remendado. O caminho é ler o novo inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quanto tempo isso leva",
+   "preco": "uma tarde",
+   "nar": "Ler a norma inteira leva uma tarde. Descobrir o que ela exige da sua instalação leva meses, e é essa segunda parte que o prazo cobra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que nove meses é pouco",
+   "sub": "não é treinamento",
+   "nar": "Agora a parte que decide se você vai chegar no prazo ou não.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O engano comum",
+   "preco": "achar que é curso",
+   "nar": "Muita gente lê atualização de norma e pensa em reciclagem de treinamento. Marca o curso, tira a lista de presença e considera resolvido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aqui não resolve",
+   "preco": "levantamento e projeto",
+   "nar": "Nesta aqui não resolve. Parte do que mudou exige levantamento em campo, revisão de projeto e, em alguns casos, estudo de engenharia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta do calendário",
+   "preco": "quem começa tarde não termina",
+   "nar": "Levantamento, projeto e estudo não são coisas de duas semanas. Quem começar em maio do ano que vem não termina em junho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E tem fila",
+   "preco": "todo mundo no mesmo prazo",
+   "nar": "Some a isso uma coisa que quase ninguém considera: o prazo é o mesmo para todo mundo. Quem fornece estudo de engenharia vai ter fila nos últimos meses, e fila não se resolve com urgência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Quando a demanda aparece",
+   "itens": [
+    "Agosto de 2026",
+    "Abril de 2027"
+   ],
+   "alturas": [
+    18,
+    100
+   ],
+   "nar": "A procura por quem faz esse trabalho não é constante ao longo do prazo. Ela se concentra no fim, e é justamente quando você vai precisar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que vem agora",
+   "itens": [
+    "As três mudanças que pesam",
+    "O que fazer nos próximos noventa dias",
+    "Quem a norma alcança",
+    "O que eu não vou te dizer"
+   ],
+   "nar": "Então vamos ver as três mudanças que realmente pesam, o que dá para fazer nos próximos noventa dias, quem exatamente a norma alcança, e o que eu não vou te dizer aqui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Começando pela primeira",
+   "preco": "a que inverte a lógica",
+   "nar": "Começando pela mudança que inverte a lógica de decisão no campo:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Desenergizar primeiro",
+   "sub": "o EPI vem depois",
+   "nar": "A primeira mudança: o texto novo prioriza a desenergização sobre o equipamento de proteção individual.",
+   "cap": "Mudança um: desenergizar vem primeiro"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que isso quer dizer",
+   "preco": "ordem de preferência",
+   "nar": "Na prática, isso estabelece uma ordem. A pergunta deixa de ser qual EPI usar, e passa a ser se dava para desligar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E se não dava",
+   "preco": "precisa justificar",
+   "nar": "Se não dava para desligar, isso precisa estar justificado — não é uma escolha de conveniência do time em campo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso é grande",
+   "preco": "muda o registro",
+   "nar": "É grande porque muda o que fica registrado. O documento deixa de provar que havia EPI e passa a precisar provar que a energização era necessária.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "A ordem que a norma quer",
+   "itens": [
+    "Desenergizar",
+    "Se não der: proteger"
+   ],
+   "alturas": [
+    100,
+    55
+   ],
+   "nar": "Desenergizar primeiro. Só depois, e com justificativa, trabalhar protegido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem sente primeiro",
+   "preco": "manutenção",
+   "nar": "Quem sente isso primeiro é a manutenção, porque desligar quase sempre significa parar produção. E aí a conversa sai da segurança e entra no planejamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O conflito real",
+   "preco": "produção contra parada",
+   "nar": "É um conflito real e não adianta fingir que não existe. Parar uma linha custa dinheiro medido em hora, e a justificativa de trabalhar energizado costuma nascer dessa conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que muda na conversa",
+   "preco": "a conta vai para o papel",
+   "nar": "O que muda é que essa conta passa a precisar estar escrita. Não é proibido trabalhar energizado; é obrigatório registrar por que não deu para desligar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem assina",
+   "preco": "e é aí que aperta",
+   "nar": "E alguém assina esse registro. Quando a justificativa sai do subentendido e vira documento assinado, a decisão muda de qualidade — em geral para melhor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer com isso",
+   "preco": "olhar as ordens de serviço",
+   "nar": "O trabalho prático aqui é olhar as ordens de serviço que hoje autorizam trabalho energizado e perguntar, uma por uma, se a justificativa está escrita ou está subentendida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Subentendida não serve",
+   "preco": "é o ponto",
+   "nar": "Subentendida não serve, e esse é exatamente o ponto da mudança.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um teste rápido",
+   "preco": "pergunte ao eletricista",
+   "nar": "Um teste que você pode fazer amanhã: pergunte a quem executa por que aquele serviço é feito energizado. Se a resposta for sempre foi assim, você encontrou uma das linhas do seu plano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Próxima mudança",
+   "preco": "a que exige cálculo",
+   "nar": "A segunda mudança é a que traz cálculo para dentro da norma:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Arco elétrico",
+   "sub": "virou exigência",
+   "nar": "Segunda mudança: o arco elétrico passa a ser tratado como exigência, e não como assunto de curso avançado.",
+   "cap": "Mudança dois: arco elétrico com categoria"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que é o arco",
+   "preco": "não é choque",
+   "nar": "E vale separar, porque muita gente mistura. Arco elétrico não é choque. É a liberação de energia em forma de calor e pressão quando a corrente encontra caminho pelo ar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que separar importa",
+   "preco": "o EPI é outro",
+   "nar": "Importa porque a proteção é outra. O que protege de choque não protege de queimadura por arco.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que o arco faz",
+   "preco": "calor e pressão",
+   "nar": "O arco libera calor suficiente para queimar através de roupa comum, e pressão suficiente para arremessar quem está perto. São dois danos diferentes acontecendo no mesmo instante.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso categoria",
+   "preco": "não é sim ou não",
+   "nar": "Por isso a proteção não é sim ou não: é por nível. Uma vestimenta adequada para um ponto da instalação pode ser insuficiente em outro, na mesma empresa e no mesmo dia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que a norma pede",
+   "preco": "EPI por categoria",
+   "nar": "O texto novo trabalha com EPI por categoria — ou seja, o equipamento precisa corresponder ao nível de energia daquele ponto da instalação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E como se sabe o nível",
+   "preco": "estudo de energia incidente",
+   "nar": "E para saber o nível, em parte dos casos é preciso estudo de energia incidente. Isso é cálculo de engenharia sobre a instalação real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aqui está o prazo",
+   "preco": "estudo não é rápido",
+   "nar": "É aqui que os nove meses apertam. Estudo de energia incidente depende de levantar a instalação como ela está, não como está no projeto antigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que a diferença importa",
+   "preco": "projeto e realidade divergem",
+   "nar": "E em instalação com anos de operação essas duas coisas quase nunca coincidem. Cada ampliação, cada troca de equipamento e cada reforma afastaram um pouco a planta do papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O trabalho invisível",
+   "preco": "atualizar o unifilar",
+   "nar": "Então boa parte do esforço não é o cálculo em si: é atualizar o diagrama unifilar até ele descrever a instalação que existe. Isso é campo, não escritório.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um aviso honesto",
+   "sub": "não vou dar preço",
+   "nar": "E aqui eu vou te dever uma informação, de propósito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que não digo o preço",
+   "preco": "varia demais",
+   "nar": "Não vou dizer quanto custa esse estudo. O valor varia com o tamanho da instalação e com o estado da documentação, e um número médio aqui enganaria mais do que ajudaria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que dá para dizer",
+   "preco": "peça três orçamentos",
+   "nar": "O que dá para dizer com segurança: peça pelo menos três orçamentos, e compare o escopo antes do preço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceira mudança",
+   "preco": "a que junta tudo",
+   "nar": "A terceira mudança é a que costura as outras duas ao que você já faz:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Risco elétrico no GRO",
+   "sub": "deixa de ser ilha",
+   "nar": "Terceira mudança: o risco elétrico passa a estar integrado ao gerenciamento de riscos ocupacionais.",
+   "cap": "Mudança três: o elétrico entra no GRO"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que isso muda",
+   "preco": "sai do documento separado",
+   "nar": "Até aqui, o elétrico vivia num documento próprio, com vida própria, muitas vezes atualizado por gente diferente de quem cuida do resto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora",
+   "preco": "mesmo inventário",
+   "nar": "Agora ele entra no mesmo inventário de riscos que o resto da empresa, com o mesmo plano de ação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso é bom",
+   "preco": "para de contradizer",
+   "nar": "Isso é bom por um motivo prático: para de existir a situação em que dois documentos da mesma empresa dizem coisas diferentes sobre o mesmo risco.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso acontece mais do que parece",
+   "preco": "auditoria encontra",
+   "nar": "E acontece bastante. Em auditoria é comum aparecer um risco elétrico classificado de um jeito no documento da área e de outro no inventário geral, sem que ninguém tivesse notado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Qual dos dois vale",
+   "preco": "a pergunta que ninguém quer",
+   "nar": "Quando isso aparece, a pergunta seguinte é qual dos dois vale — e não existe resposta boa. Integrar os dois é o que faz essa pergunta deixar de existir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E por que dá trabalho",
+   "preco": "os dois precisam conversar",
+   "nar": "E dá trabalho pelo mesmo motivo. Se o inventário e o documento elétrico nunca conversaram, alguém vai ter que sentar e conciliar os dois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Antes e depois",
+   "itens": [
+    "Documentos separados",
+    "Um inventário só"
+   ],
+   "alturas": [
+    100,
+    100
+   ],
+   "nar": "Não é mais documento, é o mesmo documento. O volume não muda; o que muda é que agora existe uma versão só da verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem faz isso",
+   "preco": "quem já faz o PGR",
+   "nar": "Na maioria das empresas isso cai para quem já cuida do PGR, e é comum essa pessoa não ser a mesma que assina a parte elétrica.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O primeiro passo",
+   "preco": "descobrir quem são os dois",
+   "nar": "Então o primeiro passo é banal e quase sempre pulado: descobrir quem são essas duas pessoas e colocar as duas na mesma sala.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora o prático",
+   "preco": "noventa dias",
+   "nar": "Com as três mudanças na mesa, o que dá para fazer nos próximos noventa dias:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quatro passos",
+   "sub": "nos próximos noventa dias",
+   "nar": "Quatro passos para os próximos noventa dias. Nenhum deles depende de orçamento aprovado.",
+   "cap": "O que fazer nos próximos noventa dias"
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo um",
+   "preco": "baixar a portaria",
+   "nar": "Primeiro: baixe a portaria no site do Ministério do Trabalho. O texto oficial é gratuito, e ler a fonte evita depender de resumo de terceiro — inclusive deste aqui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo dois",
+   "preco": "listar trabalhos energizados",
+   "nar": "Segundo: liste todos os trabalhos energizados que a empresa faz hoje, com a justificativa de cada um. Se a justificativa não existe por escrito, anote isso também.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que essa lista",
+   "preco": "ela vira o plano",
+   "nar": "Essa lista é o que vira seu plano. Cada linha sem justificativa escrita é uma tarefa, e você já sabe quantas são.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo três",
+   "preco": "mapear onde falta estudo",
+   "nar": "Terceiro: identifique em quais pontos da instalação você não sabe o nível de energia incidente. Não precisa calcular agora — precisa saber onde falta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo quatro",
+   "preco": "juntar as duas pessoas",
+   "nar": "Quarto: marque uma reunião entre quem mantém o inventário de riscos e quem responde pela parte elétrica. Uma hora, com as duas listas na mesa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que sai dessa reunião",
+   "preco": "a lista de divergências",
+   "nar": "O produto dessa hora não é um plano. É uma lista de divergências entre os dois documentos — e essa lista é mais útil que qualquer cronograma feito antes de conhecê-la.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um erro de sequência",
+   "sub": "comum e caro",
+   "nar": "E aqui cabe um aviso sobre a ordem em que as empresas costumam fazer isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O erro",
+   "preco": "contratar antes de saber",
+   "nar": "O erro comum é contratar o estudo de engenharia primeiro, antes de saber quais pontos realmente precisam dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que sai caro",
+   "preco": "escopo inflado",
+   "nar": "Sai caro porque o escopo vira a instalação inteira, quando talvez metade dela não exigisse. E o fornecedor não tem como saber isso por você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A ordem certa",
+   "preco": "levantar, depois contratar",
+   "nar": "A ordem que funciona é a inversa: levantar primeiro, descobrir onde falta, e só então pedir orçamento com escopo definido. Os passos dois e três deste vídeo existem exatamente para isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que eu não vou te dizer",
+   "sub": "três coisas",
+   "nar": "E encerro com três coisas que eu não vou te dizer, porque não sei.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira",
+   "preco": "artigo por artigo",
+   "nar": "Não vou percorrer a norma artigo por artigo. Ela substitui um texto de duas décadas, e um resumo falado não substitui a leitura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda",
+   "preco": "quanto custa",
+   "nar": "Não vou dizer quanto custa a adequação. Depende do estado da sua instalação, e quem te der um número sem olhar está chutando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceira",
+   "preco": "quando a fiscalização aperta",
+   "nar": "E não vou dizer quando a fiscalização vai apertar. O que eu sei é a data em que o texto passa a valer, e essa data é primeiro de junho do ano que vem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que não estimo isso",
+   "preco": "seria chute com voz firme",
+   "nar": "Poderia dar um palpite e ele soaria bem, porque palpite dito com voz firme soa igual a informação. Mas você tomaria decisão de orçamento com base nele, e eu não tenho como sustentá-lo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer com a incerteza",
+   "preco": "trate a data como o prazo",
+   "nar": "O jeito prático de lidar com isso é simples: trate a data de vigência como se fosse a data da cobrança. Ela é a única que está escrita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem a norma alcança",
+   "sub": "quatro palavras que confundem",
+   "nar": "Antes de fechar, um trecho de vocabulário que confunde muita gente e atravessa tudo o que falamos.",
+   "cap": "Quem a norma alcança"
+  },
+  {
+   "layout": "item",
+   "kicker": "A norma separa pessoas",
+   "preco": "por autorização e formação",
+   "nar": "A NR dez não trata todo mundo igual. Ela separa quem pode fazer o quê a partir de formação e de autorização formal da empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Habilitado",
+   "preco": "registro no conselho",
+   "nar": "Profissional habilitado é quem tem formação em engenharia elétrica com registro no conselho de classe. É quem pode projetar e assinar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Qualificado",
+   "preco": "curso específico reconhecido",
+   "nar": "Qualificado é quem comprova curso específico na área elétrica reconhecido pelo sistema oficial de ensino.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Capacitado",
+   "preco": "trabalha sob supervisão",
+   "nar": "Capacitado é quem trabalha sob supervisão de habilitado ou qualificado, e com autorização da empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Autorizado",
+   "preco": "a empresa designou por escrito",
+   "nar": "E autorizado é a camada que muita empresa esquece: é o ato formal da empresa designando aquela pessoa para aquele serviço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Onde mora a falha comum",
+   "itens": [
+    "Tem treinamento",
+    "Tem autorização escrita"
+   ],
+   "alturas": [
+    100,
+    45
+   ],
+   "nar": "A falha mais comum que eu vejo não é falta de treinamento — é ter treinamento e não ter a autorização registrada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso liga com o resto",
+   "preco": "quem assina a justificativa",
+   "nar": "E isso conecta com a primeira mudança: se trabalhar energizado passa a exigir justificativa registrada, alguém autorizado precisa estar do outro lado da assinatura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que conferir hoje",
+   "preco": "a lista de autorizados",
+   "nar": "Então vale conferir se a sua lista de autorizados existe, está atualizada e corresponde a quem de fato executa. Em muitas empresas ela envelheceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "norma com data, não com achismo",
+   "nar": "Faça hoje só o passo dois: liste os trabalhos energizados e marque quais não têm justificativa escrita. Se este vídeo te poupou tempo, inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "NR-10 reescrita",
+   "sub": "prazo: junho de 2027",
+   "nar": "A NR dez foi reescrita inteira, e o prazo para se adequar termina em junho do ano que vem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que aprovou",
+   "preco": "Portaria 737/2026",
+   "nar": "Portaria do Ministério do Trabalho número setecentos e trinta e sete, publicada em primeiro de junho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Muda 1",
+   "preco": "desenergizar antes do EPI",
+   "nar": "Primeira mudança: desenergizar vem antes do EPI, e trabalhar energizado precisa de justificativa escrita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Muda 2",
+   "preco": "arco elétrico com categoria",
+   "nar": "Segunda: arco elétrico vira exigência, com EPI por categoria e estudo de energia incidente em parte dos casos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Muda 3",
+   "preco": "risco elétrico no GRO",
+   "nar": "Terceira: o risco elétrico entra no mesmo inventário do resto da empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "comece pela lista",
+   "nar": "Liste hoje os trabalhos energizados sem justificativa escrita.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# NR-10 atualizada: o prazo termina em junho de 2027\n\n## TITULO\nNR-10 Atualizada: o Prazo Termina em Junho de 2027 e Três Exigências São Novas\n\n## DESCRICAO\nA NR-10 inteira foi reescrita, e a sua empresa tem pouco mais de nove meses para se adequar. Parece bastante — não é, e este vídeo explica por quê.\n\nO QUE ACONTECEU, COM FONTE\n\nA Portaria MTE nº 737, de 29 de maio de 2026, publicada no Diário Oficial da União em 1º de junho de 2026, aprovou o novo texto da NR-10 (Segurança em Instalações Elétricas). O arquivo da portaria está hospedado no site do próprio Ministério do Trabalho e Emprego. A transição é de 12 meses: o texto novo passa a valer em 1º de junho de 2027. Ele não emenda a norma anterior — substitui integralmente os textos das Portarias MTE nº 598/2004 e MTPS nº 508/2016.\n\nPOR QUE NOVE MESES É POUCO\n\nPorque parte do que mudou não se resolve com reciclagem de treinamento. Exige levantamento em campo, revisão de projeto e, em alguns casos, estudo de engenharia. Quem começar em maio de 2027 não termina em junho.\n\nAS TRÊS MUDANÇAS QUE PESAM\n\n1) DESENERGIZAR VEM PRIMEIRO. O texto prioriza a desenergização sobre o EPI. A pergunta deixa de ser qual equipamento usar e passa a ser se dava para desligar — e, se não dava, isso precisa estar justificado. Na prática muda o que fica registrado: o documento deixa de provar que havia EPI e passa a precisar provar que a energização era necessária.\n\n2) ARCO ELÉTRICO COM CATEGORIA. Arco elétrico não é choque: é liberação de energia em forma de calor e pressão. O que protege de um não protege do outro. O texto novo trabalha com EPI por categoria, o que exige saber o nível de energia daquele ponto — e, em parte dos casos, estudo de energia incidente sobre a instalação real, não sobre o projeto antigo.\n\n3) RISCO ELÉTRICO NO GRO. O elétrico deixa de viver num documento próprio e entra no mesmo inventário de riscos e plano de ação do resto da empresa. Acaba a situação em que dois documentos da mesma empresa dizem coisas diferentes sobre o mesmo risco — e começa o trabalho de conciliar os dois, normalmente feito por duas pessoas que nunca conversaram.\n\nO QUE FAZER NOS PRÓXIMOS 90 DIAS (nada depende de orçamento aprovado)\n\nBaixar a portaria no site do MTE e ler a fonte. Listar todos os trabalhos energizados que a empresa faz hoje, com a justificativa de cada um — cada linha sem justificativa escrita é uma tarefa, e você já sabe quantas são. Identificar em quais pontos você não sabe o nível de energia incidente (não precisa calcular agora, precisa saber onde falta). E marcar uma reunião de uma hora entre quem mantém o inventário de riscos e quem responde pela parte elétrica.\n\nO QUE ESTE VÍDEO NÃO FAZ\n\nNão percorre a norma artigo por artigo — ela substitui um texto de duas décadas e resumo falado não substitui leitura. Não diz quanto custa a adequação, porque depende do estado da instalação e quem der um número sem olhar está chutando. E não diz quando a fiscalização vai apertar: o que se sabe é a data em que o texto passa a valer, 1º de junho de 2027.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nDuas perguntas para quem trabalha com isso, e as respostas variam muito mais do que parece: na sua empresa, quantos trabalhos energizados têm justificativa ESCRITA hoje, e vocês já sabem em quais pontos falta estudo de energia incidente? Estou juntando essas respostas para o próximo material — o que mais me interessa é saber se a conciliação entre o documento elétrico e o inventário de riscos já começou em algum lugar.\n\n## HASHTAGS\n#NR10 #SegurancaDoTrabalho #LabTreinamento\n\n## TAGS\nnr 10, nr10 atualizada, portaria 737 2026, seguranca do trabalho, arco eletrico, energia incidente, desenergizacao, gro, pgr, sst, instalacoes eletricas, tecnico de seguranca, engenharia de seguranca, nr 10 2027, ministerio do trabalho\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nPortaria MTE nº 737, de 29/05/2026, publicada no DOU em 01/06/2026, aprovando o novo texto da NR-10; transição de 12 meses e vigência em 01/06/2027; substituição integral das Portarias MTE nº 598/2004 e MTPS nº 508/2016. Conferido em duas passagens de busca com veículos independentes que coincidem, e o PDF da portaria está hospedado em gov.br (Ministério do Trabalho e Emprego) — leia a fonte, ela é gratuita. Este vídeo NÃO percorre a norma artigo por artigo e não substitui a leitura do texto oficial nem a consulta a profissional habilitado. Não há neste vídeo estimativa de custo de adequação nem de estudo de energia incidente, porque o valor depende do porte e do estado da instalação. Não há previsão sobre intensidade ou calendário de fiscalização — a única data afirmada é a de vigência. Material educativo para profissionais de SST, não é consultoria nem parecer técnico.\n"
+}
