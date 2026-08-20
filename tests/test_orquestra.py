@@ -201,8 +201,25 @@ def test_orquestra_nao_colide_com_o_pacote_maquina():
 # ------------------------------------------------ o teto que valia por disparo
 
 def _agora():
+    """AGORA de verdade, e nao um instante fixo.
+
+    Ate 20/08/2026 esta funcao devolvia 2026-08-19T18:00Z, cravado. As linhas
+    sinteticas dos testes nascem todas relativas a ela, e os testes que chamam
+    `pacotes_na_janela(..., agora=_agora())` continuavam coerentes — mas
+    `proximo()` NAO recebe `agora`: em producao ele usa o relogio do sistema,
+    que e o comportamento que o teste existe para conferir.
+
+    A partir de 20/08 as 18:00Z as linhas passaram a nascer com mais de 24h de
+    idade, saindo da janela real. O teto parecia furado quando o furado era o
+    relogio do teste. Isso nao apareceu por um ano de sorte: o teste do teto
+    escolhe `sorted(canais_do_repo())[0]`, que e o `agla-level`, e o agla-level
+    nunca tinha spec pendente — entao o teste PULAVA. A primeira spec nova do
+    canal, em 20/08, fez o teste rodar pela primeira vez e cair.
+
+    Duas falhas empilhadas: um relogio congelado e um skip que o escondia.
+    """
     import datetime as dt
-    return dt.datetime(2026, 8, 19, 18, 0, tzinfo=dt.timezone.utc)
+    return dt.datetime.now(dt.timezone.utc)
 
 
 def _ha(horas: float) -> str:
@@ -289,7 +306,11 @@ def test_teto_conta_o_que_ja_esta_no_banco_e_nao_so_o_disparo(monkeypatch):
     livre, _ = M.proximo(DADOS, n=50)
     disponiveis = [e for e in livre if e["canal"] == canal]
     if not disponiveis:
-        pytest.skip(f"{canal} nao tem spec pendente aprovada no corpus")
+        pytest.skip(
+            f"{canal} nao tem spec pendente aprovada no corpus — este teste "
+            f"pulou por meses por esse motivo e escondeu um relogio congelado "
+            f"em _agora(). Se ele estiver pulando de novo, confira se o canal "
+            f"escolhido (o primeiro em ordem alfabetica) ficou sem specs.")
 
     # o canal ja registrou o teto inteiro nas ultimas 24h, em outro disparo
     cheio = DADOS + [{"canal": canal, "pacote": f"{canal}-j{i}",
