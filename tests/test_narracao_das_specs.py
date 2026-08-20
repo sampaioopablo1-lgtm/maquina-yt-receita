@@ -122,9 +122,7 @@ PARADAS = {
     "sx-educacao-002":        ("portao", "short 43,6 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "labtreinamento-002":     ("portao", "short 42,7 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "seviye-seviye-002":      ("portao", "short 42,5 s contra teto de 41,8 (MARGEM_SHORT 7%); titulo ja no ar sob outro pacote"),
-    "resep-naik-level-004":   ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "agla-level-004":         ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    "resep-naik-level-002":   ("portao", "short 42,1 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "kolejny-poziom-003":     ("portao", "short 42,0 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     # As tres abaixo entraram em 20/08/2026 pelo portao NOVO de ortografia, e
     # as tres ja estao no ar. Elas tem narracao sem os acentos que as OUTRAS

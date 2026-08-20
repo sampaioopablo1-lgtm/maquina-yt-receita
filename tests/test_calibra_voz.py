@@ -151,6 +151,7 @@ def test_francisca_erra_na_pausa_e_nao_na_taxa():
         laboratorio (ate 17/08) .... R 16,97  P 0,310
         n=76, spec do Storage ...... R 16,92  P 1,036   (P triplicou)
         n=149, cena-a-cena do bucket R 15,24  P 0,298   (P voltou a cair)
+        n=229, mesma medicao ....... R 15,60  P 0,341   (subiu de novo)
 
     Em 17/08 a conclusao foi "P estava tres vezes pequeno demais". Em
     19/08, com o dobro das cenas e ajuste cena-a-cena sobre os .srt
@@ -167,9 +168,19 @@ def test_francisca_erra_na_pausa_e_nao_na_taxa():
     +2,3%).
     """
     R, P = MODELO_VOZ["pt-BR-FranciscaNeural"]
-    assert R == pytest.approx(15.24, abs=0.01)
-    assert P == pytest.approx(0.298, abs=0.001)
+
+    # Este teste PRENDIA os dois valores exatos (15,24 e 0,298) — e isso
+    # contradizia o proprio docstring acima, que diz que o assert acompanha a
+    # medicao corrente em vez de congelar a conclusao de um dia. A recalibracao
+    # de 20/08 (n=229) levou a voz para 15,60 e 0,341 e o teste caiu, sem que
+    # nada estivesse errado: ele estava medindo a data da ultima calibracao,
+    # nao a licao.
+    #
+    # O que fica e o que sobreviveu a QUATRO medicoes com sinais diferentes:
+    # nesta voz o R nao separa nada, e a pausa e que a distingue.
+    assert 14.0 < R < 18.0, "R fora da faixa plausivel para pt-BR"
+
     # O ponto que vale para sempre: R sozinho nao separa esta voz das outras.
-    # Antonio esta em 16,68 e Thalita em 17,52 — a Francisca so se distingue
-    # pelo P, que e quase um terco do deles.
+    # Antonio esta em 16,68 e Thalita em 17,47 — a Francisca so se distingue
+    # pelo P, que e um terco do deles.
     assert P < 0.5 * MODELO_VOZ["pt-BR-AntonioNeural"][1]

@@ -93,17 +93,17 @@ MARCA = "ENSAIO-NAO-PUBLICAR"
 MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
     # Todas medidas cena-a-cena nos .srt publicados, 19/08/2026.
     "el-GR-NestorasNeural":            (20.61, 1.273),   # n=519
-    "en-GB-RyanNeural":                (18.92, 1.162),   # n=121
-    "en-US-AndrewNeural":              (16.00, 0.119),   # n=79
+    "en-GB-RyanNeural":                (18.88, 1.148),   # n=197
+    "en-US-AndrewNeural":              (17.12, 0.272),   # n=157
     "es-MX-DaliaNeural":               (17.48, 1.242),   # n=91
     "hi-IN-MadhurNeural":              (11.92, 1.194),   # n=140
     "id-ID-ArdiNeural":                (18.96, 1.124),   # n=540
-    "id-ID-GadisNeural":               (14.12, 1.318),   # n=75
+    "id-ID-GadisNeural":               (14.26, 1.293),   # n=157
     "pl-PL-MarekNeural":               (20.07, 1.419),   # n=409
     "pt-BR-AntonioNeural":             (16.68, 1.040),   # n=214
-    "pt-BR-FranciscaNeural":           (15.24, 0.298),   # n=149
+    "pt-BR-FranciscaNeural":           (15.60, 0.341),   # n=229
     "pt-BR-ThalitaMultilingualNeural": (17.47, 0.737),   # n=171
-    "tr-TR-AhmetNeural":               (15.35, 1.337),   # n=73
+    "tr-TR-AhmetNeural":               (15.25, 1.316),   # n=145
 }
 
 # O ajuste do Nestoras foi refeito EM PAR com o conserto do FIM_DE_FRASE, como
