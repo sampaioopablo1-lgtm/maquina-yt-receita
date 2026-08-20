@@ -745,7 +745,18 @@ def main():
         vid = subir(acc, longo, meta_video(cp["titulo"], desc, cp.get("tags", []), idioma))
         saida["longo"] = vid
         print("LONGO:", vid)
-        print("  thumbnail:", thumbnail(acc, vid, os.path.join(d, "thumbnail.png")))
+        # Mesma historia da legenda, um degrau abaixo. O 403 de thumbnail nao e
+        # defeito do codigo — e canal sem verificacao por telefone — mas ate
+        # 20/08/2026 ele so era IMPRESSO, e o efeito e permanente: todo longo
+        # daquele canal sobe com um quadro qualquer do video no lugar da capa
+        # desenhada, o que corta clique. Vira ::warning:: e nao ::error:: porque
+        # o video em si esta certo e a correcao e do lado do Pablo, nao daqui.
+        r_thumb = thumbnail(acc, vid, os.path.join(d, "thumbnail.png"))
+        print("  thumbnail:", r_thumb)
+        if r_thumb != "ok":
+            print(f"::warning title=Longo com thumbnail automatica::{vid} subiu "
+                  f"sem a capa desenhada ({r_thumb}). O PNG existe e esta no "
+                  f"Storage; o que falta e permissao no canal.")
         # A legenda do LONGO nao e cosmetica e nao e opcional: alimenta a busca,
         # habilita a traducao automatica e sustenta retencao no mudo. Em canal
         # de idioma nao-ingles isso e metade do alcance (aprendizado 93).

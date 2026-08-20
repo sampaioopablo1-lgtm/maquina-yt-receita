@@ -488,6 +488,15 @@ Escolhi `epomeno-epipedo-005` para um pacote novo sem olhar quais existiam. O -0
 
 `aplicado_em:` fabrica/grava_spec.py
 
+### Todo longo do `agla-level` sobe com thumbnail automática, e ninguém sabia
+Terceiro caso do mesmo formato em duas horas. `thumbnails/set` devolve 403 "canal sem verificação por telefone"; o código já tratava o caso com mensagem própria e um comentário dizendo que não é defeito do código — verdade que não resolve nada, porque a mensagem só era **impressa**. O efeito é permanente: o longo sobe com um quadro qualquer do vídeo no lugar da capa, e capa é o que decide clique. Agora emite `::warning::` — não `::error::`, porque o vídeo está certo e a correção é do lado do Pablo.
+
+> **vídeo**: `n01kuj6iiE8` · **canais conferidos**: 1 de 12 — a cobertura da frota é desconhecida · **ação pendente**: youtube.com/verify nos doze · **data**: 2026-08-20
+
+**Resultado que só vira texto no log não existe.** Três vezes no mesmo dia: spec sobrescrita, legenda 403, thumbnail 403.
+
+`aplicado_em:` fabrica/publicar.py
+
 ### Longo subiu SEM LEGENDA e o passo de publicação ficou verde
 Mesmo defeito estrutural, mesmo dia: `captions.insert` devolveu 403 e o job ficou verde, porque o resultado de `legenda()` era só **impresso** — nunca virava código de saída nem ia para o banco. Legenda em canal não-inglês não é cosmético (aprendizado 93). Agora emite `::error::` e sai com código 4 **depois** de publicar e registrar: o vídeo já está no ar, então derrubar não perde nada — só acende a luz.
 
