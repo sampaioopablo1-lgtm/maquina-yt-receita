@@ -224,6 +224,44 @@ def _densidade_diacritica(cenas, tabela: str) -> float | None:
     return sum(1 for ch in txt if ch in tabela) / letras
 
 
+# Quantas specs precisam acentuar para que a mediana delas vire referencia. Com
+# duas, uma convencao pessoal de um canal so viraria lei para a lingua inteira.
+MINIMO_REFERENCIA_IDIOMA = 3
+
+
+def _referencia_do_idioma(base: str, tabela: str, caminho: str) -> float:
+    """Quanto acentua quem escreve esta lingua DIREITO, nos outros canais.
+
+    So entram as specs acima do piso: a pergunta e "qual e a densidade de quem
+    acentua", e uma spec em ASCII nao responde essa pergunta — ela e o caso que
+    o portao existe para pegar. Deixar as zeradas na conta seria permitir que o
+    defeito rebaixasse a barra que deveria acusa-lo.
+    """
+    import glob
+    import statistics
+
+    eu = os.path.basename(caminho)
+    boas = []
+    for outro in sorted(glob.glob(os.path.join(RAIZ, "fabrica/specs", "*.json"))):
+        if os.path.basename(outro) == eu:
+            continue
+        try:
+            o = json.load(open(outro, encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        idi = (o.get("idioma") or "").lower()
+        outro_base = ("pt" if idi.startswith("pt") else
+                      "es" if idi.startswith("es") else idi)
+        if outro_base != base:
+            continue
+        d = _densidade_diacritica(o.get("longo") or [], tabela)
+        if d is not None and d >= PISO_REFERENCIA:
+            boas.append(d)
+    if len(boas) < MINIMO_REFERENCIA_IDIOMA:
+        return 0.0
+    return statistics.median(boas)
+
+
 def _gate_ortografia(caminho, sp):
     """A narracao usa os acentos que as OUTRAS specs deste canal usam?
 
@@ -276,19 +314,34 @@ def _gate_ortografia(caminho, sp):
         if d is not None:
             vizinhas.append(d)
 
-    if not vizinhas:
-        return []
-    referencia = statistics.median(vizinhas)
+    referencia = statistics.median(vizinhas) if vizinhas else 0.0
     if referencia < PISO_REFERENCIA:
-        return []          # o canal nao acentua; nao ha o que comparar
+        # O canal nao serve de referencia. Ate 20/08/2026 o portao parava aqui,
+        # e esse era o buraco: um canal ERRADO POR INTEIRO tem referencia zero
+        # e nunca acusa nada. O sx-educacao tem duas specs, as duas com 0,00%
+        # de acento em portugues, e as duas ja no ar — o portao ficou calado
+        # justamente onde havia mais o que dizer.
+        #
+        # A saida e trocar de populacao, nao de regra: pergunta-se quanto
+        # acentua quem escreve ESTA LINGUA direito, olhando as specs dos OUTROS
+        # canais do mesmo idioma. E so as que acentuam entram na conta — incluir
+        # as zeradas seria deixar o defeito rebaixar a propria referencia. Em
+        # pt a mediana das nove specs sai 1,85% (abaixo do piso, portao mudo de
+        # novo); a mediana das que acentuam sai 4,10%, que e a resposta certa.
+        referencia = _referencia_do_idioma(base, tabela, caminho)
+    if referencia < PISO_REFERENCIA:
+        return []          # nem o canal nem o idioma dao referencia
 
     # Metade da referencia e folga larga de proposito: texto varia, e o que
     # este portao procura e o caso de ASCII puro, nao a flutuacao normal.
     if minha < referencia / 2:
-        return [f"acentuacao fora do padrao do canal: {minha:.1%} das letras "
-                f"contra {referencia:.1%} nas outras specs de {slug}. Em "
-                f"{base} isso muda a pronuncia do TTS, e nenhum outro portao "
-                f"enxerga — o texto continua parecendo a lingua certa"]
+        de_onde = (f"nas outras specs de {slug}" if vizinhas
+                   and statistics.median(vizinhas) >= PISO_REFERENCIA
+                   else f"nas specs de {base} que acentuam")
+        return [f"acentuacao fora do padrao: {minha:.1%} das letras contra "
+                f"{referencia:.1%} {de_onde}. Em {base} isso muda a pronuncia "
+                f"do TTS, e nenhum outro portao enxerga — o texto continua "
+                f"parecendo a lingua certa"]
     return []
 
 

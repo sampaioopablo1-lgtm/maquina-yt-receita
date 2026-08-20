@@ -568,3 +568,56 @@ def test_cruzar_por_titulo_pega_render_ja_publicado(monkeypatch):
     r = dict((n, ja) for n, _t, ja in A.ja_publicado_pelo_titulo(copys, "u", "k"))
     assert r["2026-08-11-kolejny-poziom-002-copy.md"] is True     # duplicata
     assert r["2026-08-05-next-level-money-003-copy.md"] is False  # inedito
+
+
+# --- ortografia: a referencia por IDIOMA -----------------------------------
+
+def test_canal_errado_por_inteiro_ainda_e_pego(tmp_path, monkeypatch):
+    """O buraco que a referencia por canal tinha, e que custou dois videos.
+
+    O portao comparava a spec so com as OUTRAS DO MESMO CANAL. Num canal cujas
+    specs estao TODAS em ASCII — o sx-educacao tinha duas, as duas com 0,00% de
+    acento em portugues — a referencia do canal e zero e o portao se cala
+    justamente onde havia mais o que dizer. A referencia passa a vir das specs
+    de pt de OUTROS canais que acentuam.
+    """
+    import prontidao as P
+
+    cenas = [{"nar": "Nao e possivel manter a decisao sem calculo proprio."}] * 5
+    sp = {"idioma": "pt-BR", "slug": "canal-inexistente", "longo": cenas}
+    faltas = P._gate_ortografia("fabrica/specs/canal-inexistente-001.json", sp)
+    assert faltas, "spec pt em ASCII puro passou sem nenhuma spec-irma do canal"
+    assert "que acentuam" in faltas[0]
+
+
+def test_a_referencia_do_idioma_ignora_quem_nao_acentua():
+    """Incluir as specs zeradas na conta deixaria o defeito rebaixar a barra
+    que existe para acusa-lo: em pt a mediana de TODAS e 1,85%, abaixo do piso,
+    e o portao voltaria a ficar mudo. A mediana de quem acentua e ~4%."""
+    import prontidao as P
+
+    r = P._referencia_do_idioma("pt", P.DIACRITICOS["pt"], "nenhuma.json")
+    assert r >= P.PISO_REFERENCIA, f"referencia de pt caiu para {r:.3f}"
+    assert r > 0.03, f"referencia de pt em {r:.3f} — as zeradas entraram na conta?"
+
+
+def test_idioma_com_poucas_specs_boas_nao_vira_lei():
+    """Com uma ou duas specs, a convencao de um canal so viraria regra para a
+    lingua inteira. Abaixo do minimo a referencia e zero e o portao se cala."""
+    import prontidao as P
+
+    assert P.MINIMO_REFERENCIA_IDIOMA >= 3
+    r = P._referencia_do_idioma("xx", "áé", "nenhuma.json")
+    assert r == 0.0
+
+
+def test_spec_acentuada_passa_mesmo_em_canal_que_nao_acentua():
+    """O caso da sx-educacao-003: escrever portugues correto num canal cujas
+    specs anteriores estao em ASCII nao pode reprovar. O portao procura quem
+    fica ABAIXO da referencia, nunca quem fica acima."""
+    import json
+    import prontidao as P
+
+    sp = json.load(open(RAIZ / "fabrica/specs/sx-educacao-003.json",
+                        encoding="utf-8"))
+    assert not P._gate_ortografia("fabrica/specs/sx-educacao-003.json", sp)

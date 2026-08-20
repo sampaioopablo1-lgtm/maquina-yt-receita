@@ -111,10 +111,10 @@ PARADAS = {
     # PORTAO e nao contra o banco: spec que sai da matriz sem registro e
     # exatamente o defeito que este teste existe para pegar. Se alguma for
     # reaproveitada, o corte e de uma ou duas frases no short.
-    "labtreinamento-003":     ("portao", "short 45,4 s previstos contra teto de 43,1; ja no ar"),
+    "labtreinamento-003":     ("portao", "short 45,4 s previstos contra teto de 43,1 E narracao sem acento portugues; ja no ar"),
     "seviye-seviye-003":      ("portao", "short 45,4 s previstos contra teto de 43,1; ja no ar"),
-    "sx-educacao-002":        ("portao", "short 45,6 s previstos contra teto de 43,1; ja no ar"),
-    "labtreinamento-002":     ("portao", "short 44,7 s previstos contra teto de 43,1; ja no ar"),
+    "sx-educacao-002":        ("portao", "short 45,6 s previstos contra teto de 43,1 E narracao sem acento portugues; ja no ar"),
+    "labtreinamento-002":     ("portao", "short 44,7 s previstos contra teto de 43,1 E narracao sem acento portugues; ja no ar"),
     "seviye-seviye-002":      ("portao", "short 44,5 s previstos contra teto de 43,1; titulo ja no ar sob outro pacote"),
     "agla-level-004":         ("portao", "short 44,3 s previstos contra teto de 43,1; ja no ar"),
     # As duas abaixo entraram com a correcao de vies de 20/08/2026, e as duas
@@ -122,6 +122,13 @@ PARADAS = {
     # depois. A kolejny-poziom-002 nem sequer tem linha propria em `videos`:
     # o conteudo dela e a "Emerytura z ZUS 34,4%", que esta publicada NOVE
     # vezes no canal sob slugs diferentes. Reaproveita-la seria a decima.
+    # sx-educacao-001 entrou em 20/08/2026 quando o portao de ortografia ganhou
+    # referencia POR IDIOMA. Ate entao ele comparava a spec so com as outras do
+    # MESMO canal, e as duas do sx-educacao tem 0,00% de acento: um canal errado
+    # por inteiro tinha referencia zero e o portao ficava mudo exatamente onde
+    # havia mais o que dizer. Ela esta no ar — em SEIS copias, todas do mesmo
+    # video, que sao parte das 45 duplicatas ainda pendentes de decisao.
+    "sx-educacao-001":        ("portao", "narracao sem acento portugues (0,0% contra 4,0% das specs pt que acentuam); ja no ar em seis copias"),
     "kolejny-poziom-002":     ("portao", "short 43,2 s previstos contra teto de 43,1; conteudo ja no ar (nove copias da Emerytura z ZUS)"),
     "resep-naik-level-002":   ("portao", "short 43,5 s previstos contra teto de 43,1; ja no ar (le6IBDH7u6M)"),
     # (kolejny-poziom-003 tambem estoura o teto de short — 43,9 s — mas o
