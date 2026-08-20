@@ -1,0 +1,492 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-010",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14202E",
+  "c1": "#1B7F79",
+  "c2": "#E4913C",
+  "bg": "#F1F6F5"
+ },
+ "thumb": {
+  "l1": "Kelas dihapus",
+  "l2": "iuran tetap"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Kelas 1, 2, 3 dihapus",
+   "sub": "dan iuranmu tidak berubah",
+   "nar": "Kelas satu, dua dan tiga BPJS Kesehatan sedang dihapus. Dan yang kamu bayar bulan ini tidak berubah sama sekali. Dua-duanya benar.",
+   "cap": "Yang berubah dan yang tidak"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa dua-duanya benar",
+   "preco": "tarif KRIS belum ada",
+   "nar": "Alasannya sederhana dan hampir tidak ada yang menyebutnya: tarif untuk sistem baru belum ditetapkan pemerintah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi kamu bayar apa",
+   "preco": "tarif lama",
+   "nar": "Selama angka itu belum keluar, yang berlaku tetap tarif lama. Bukan kelonggaran, bukan penundaan — cuma belum ada angka pengganti.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dasar hukumnya",
+   "preco": "Perpres lima sembilan",
+   "nar": "Aturan yang menghapus kelas adalah Peraturan Presiden nomor lima puluh sembilan tahun dua ribu dua puluh empat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Namanya",
+   "preco": "KRIS",
+   "nar": "Sistem penggantinya bernama K R I S: Kelas Rawat Inap Standar. Satu standar kamar untuk semua peserta, tanpa pembedaan kelas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Satu hal yang TIDAK saya lakukan",
+   "sub": "menebak tarif",
+   "nar": "Sebelum lanjut: saya tidak akan menebak berapa tarif barunya, dan tidak akan bilang naik atau tetap. Angkanya belum ada. Titik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang saya lakukan",
+   "preco": "yang sudah pasti",
+   "nar": "Yang saya bawa cuma yang sudah tertulis: tanggalnya, tarif yang berlaku sekarang, dan tiga hal yang banyak orang kira berubah padahal tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Isinya",
+   "itens": [
+    "Tanggal yang benar",
+    "Tarif yang berlaku sekarang",
+    "Tiga salah kaprah",
+    "Yang perlu kamu lakukan",
+    "Cara membaca berita soal ini"
+   ],
+   "nar": "Lima bagian: tanggal yang benar, tarif yang berlaku sekarang, tiga salah kaprah yang beredar, apa yang perlu kamu lakukan, dan cara membaca berita soal ini tanpa ketipu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mulai dari tanggal",
+   "preco": "yang paling sering keliru",
+   "nar": "Mulai dari tanggal, karena di situ kekeliruannya paling sering.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua Agustus",
+   "sub": "batas tarif lama",
+   "nar": "Tanggal yang perlu kamu pegang adalah dua Agustus tahun ini. Sampai hari itu, iuran masih dihitung dengan tarif Peraturan Presiden nomor enam puluh tiga.",
+   "cap": "Tanggal yang benar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Setelah itu",
+   "preco": "peralihan, bukan sakelar",
+   "nar": "Setelah tanggal itu dimulai peralihan ke KRIS. Peralihan, bukan sakelar yang ditekan dalam semalam — dan perbedaan itu yang bikin dua orang bisa sama-sama benar waktu satu bilang sudah berlaku dan satu bilang belum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Berapa lama",
+   "preco": "sekitar dua tahun",
+   "nar": "Penerapannya bertahap, direncanakan sekitar dua tahun. Rumah sakit perlu menyesuaikan ruangan, dan itu tidak selesai dalam sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya buat kamu",
+   "preco": "tidak ada yang perlu diurus",
+   "nar": "Buat peserta, artinya tidak ada formulir, tidak ada pendaftaran ulang, dan tidak ada tombol yang harus kamu tekan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dua garis waktu",
+   "itens": [
+    "Aturan terbit",
+    "Selesai diterapkan"
+   ],
+   "alturas": [
+    100,
+    22
+   ],
+   "nar": "Jarak antara aturan terbit dan penerapan penuh itulah yang bikin banyak orang mengira kebijakan ini batal. Tidak batal — cuma pelan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa terasa membingungkan",
+   "preco": "berita datang dua kali",
+   "nar": "Beritanya juga muncul dua kali: sekali waktu aturannya terbit, sekali lagi waktu tanggal peralihan tiba. Judul yang sama, dua tahun berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara memastikan sendiri",
+   "preco": "cek nomor Perpres",
+   "nar": "Cara paling cepat memastikan sebuah berita soal ini: lihat nomor Perpres yang disebut. Kalau tidak menyebut nomor, perlakukan sebagai kabar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak punya tanggal",
+   "preco": "tarif KRIS",
+   "nar": "Dan satu hal yang memang belum punya tanggal: besaran iuran KRIS. Belum ditetapkan, jadi belum ada yang bisa dikutip.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang angkanya",
+   "preco": "yang berlaku hari ini",
+   "nar": "Sekarang angka yang benar-benar berlaku hari ini:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Seratus lima puluh ribu",
+   "sub": "kelas satu",
+   "nar": "Kelas satu: seratus lima puluh ribu rupiah per orang per bulan.",
+   "cap": "Tarif yang berlaku sekarang"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kelas dua",
+   "preco": "seratus ribu",
+   "nar": "Kelas dua: seratus ribu rupiah per orang per bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kelas tiga",
+   "preco": "tiga puluh lima ribu",
+   "nar": "Kelas tiga: tiga puluh lima ribu rupiah per orang per bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sejak kapan segini",
+   "preco": "sepanjang tahun ini",
+   "nar": "Ketiga angka itu bertahan sepanjang dua ribu dua puluh enam. Tidak naik di Februari, tidak naik di Juli, tidak naik di Agustus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Yang dibayar per bulan",
+   "itens": [
+    "Kelas 1",
+    "Kelas 2",
+    "Kelas 3"
+   ],
+   "alturas": [
+    100,
+    67,
+    23
+   ],
+   "nar": "Perbandingannya begini: kelas tiga kurang dari seperempat kelas satu. Selisih itulah yang selama ini menentukan kamar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau satu keluarga",
+   "preco": "kalikan jumlah orang",
+   "nar": "Iuran dihitung per orang, bukan per keluarga. Ambil contoh keluarga empat orang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di kelas satu",
+   "preco": "enam ratus ribu",
+   "nar": "Di kelas satu, keluarga itu membayar enam ratus ribu rupiah sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di kelas tiga",
+   "preco": "seratus empat puluh ribu",
+   "nar": "Keluarga yang sama di kelas tiga membayar seratus empat puluh ribu. Jarak antara dua angka itu yang selama ini menentukan kamar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Peserta PBI",
+   "preco": "dibayar negara",
+   "nar": "Peserta yang masuk kategori penerima bantuan iuran tidak membayar sendiri: iurannya ditanggung negara. Kelompok ini tidak terpengaruh perubahan tarif apa pun, dan itu penting disebut karena sebagian besar kepanikan soal kenaikan beredar justru di kelompok yang tidak membayar iuran sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pekerja formal",
+   "preco": "potongan gaji",
+   "nar": "Buat pekerja formal, iuran dipotong dari gaji dengan persentase, dibagi antara kamu dan pemberi kerja — bukan angka tetap di atas. Jadi kalau kamu karyawan, angka yang kamu bayar bergerak mengikuti gaji, bukan mengikuti kelas. Ini juga sebabnya banyak karyawan tidak pernah tahu berapa iurannya: potongannya tidak pernah muncul sebagai tagihan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang salah kaprahnya",
+   "preco": "tiga yang sering",
+   "nar": "Dengan angka-angka itu di tangan, sekarang tiga salah kaprah yang paling sering saya temui:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Salah kaprah pertama",
+   "sub": "denda telat bayar",
+   "nar": "Pertama: banyak yang mengira denda keterlambatan baru dihapus tahun ini.",
+   "cap": "Tiga salah kaprah"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang benar",
+   "preco": "sejak dua ribu enam belas",
+   "nar": "Yang benar: tidak ada denda hanya karena telat bayar, dan itu berlaku sejak satu Juli dua ribu enam belas. Sepuluh tahun lalu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa keliru",
+   "preco": "satu digit",
+   "nar": "Kekeliruannya cuma satu digit di angka tahun, dan digit itu mengubah kabar lama jadi berita baru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi ada denda lain",
+   "preco": "empat puluh lima hari",
+   "nar": "Tapi ada denda yang memang ada, dan ini yang perlu kamu tahu: kalau kamu rawat inap dalam empat puluh lima hari setelah kepesertaan aktif kembali, denda bisa dikenakan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya penting",
+   "preco": "telat bayar vs rawat inap",
+   "nar": "Jadi bedanya begini: telat bayar sendiri tidak didenda. Yang didenda adalah memakai rawat inap terlalu cepat setelah status kembali aktif.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Salah kaprah kedua",
+   "sub": "kartu harus diganti",
+   "nar": "Kedua: bahwa kartu lama tidak berlaku dan harus diganti.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang benar",
+   "preco": "tidak ada penggantian",
+   "nar": "Tidak ada program penggantian kartu untuk peralihan ini. Kalau ada yang menghubungi kamu menawarkan pengurusan kartu baru dengan biaya, itu bukan dari BPJS.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Salah kaprah ketiga",
+   "sub": "semua jadi kelas tiga",
+   "nar": "Ketiga, dan ini yang paling banyak beredar: bahwa semua peserta otomatis turun ke kelas tiga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang benar",
+   "preco": "standar tunggal",
+   "nar": "KRIS bukan menurunkan semua orang ke kelas terbawah. KRIS menetapkan satu standar kamar rawat inap yang sama untuk semua peserta — bukan kelas tiga untuk semua orang, tapi satu standar yang berlaku untuk semua orang. Kedengarannya mirip, artinya jauh berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya nyata",
+   "preco": "standar naik untuk sebagian",
+   "nar": "Bedanya nyata: untuk sebagian peserta standar kamarnya justru naik, karena standar tunggal itu ditetapkan dengan kriteria minimum yang harus dipenuhi rumah sakit.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Empat hal",
+   "sub": "yang benar-benar berguna",
+   "nar": "Empat hal yang berguna dilakukan, dan semuanya gratis.",
+   "cap": "Yang perlu kamu lakukan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "cek status kepesertaan",
+   "nar": "Pertama: cek status kepesertaanmu di aplikasi Mobile JKN. Yang menentukan layanan bukan kelas, tapi status aktif atau tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa itu dulu",
+   "preco": "status mati diam-diam",
+   "nar": "Status bisa jadi tidak aktif tanpa kamu sadari — misalnya setelah berhenti kerja, waktu iuran berpindah dari perusahaan ke kamu sendiri. Peralihan itu tidak mengirim pemberitahuan ke mana pun, dan biasanya orang baru tahu di loket rumah sakit, pada hari yang paling buruk untuk mengetahuinya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "cek tunggakan",
+   "nar": "Kedua: cek apakah ada tunggakan. Tidak ada denda atas tunggakan itu sendiri, tapi status baru aktif lagi setelah dilunasi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "preco": "ingat empat puluh lima hari",
+   "nar": "Ketiga: kalau kamu baru saja mengaktifkan kembali, catat tanggalnya. Empat puluh lima hari sejak itu adalah jendela yang perlu kamu tahu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Keempat",
+   "preco": "abaikan kabar tanpa nomor",
+   "nar": "Keempat: setiap kabar soal tarif baru, cari nomor peraturannya. Sampai ada Perpres yang menetapkan iuran KRIS, tidak ada angka resmi untuk dikutip.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang saya tidak tahu",
+   "sub": "dan tidak akan karang",
+   "nar": "Dan satu hal yang jujur saya tidak tahu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kapan tarifnya keluar",
+   "preco": "tidak ada tanggal",
+   "nar": "Kapan besaran iuran KRIS ditetapkan? Tidak ada tanggal yang diumumkan. Siapa pun yang memberi kamu tanggal pasti sedang menebak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau berubah",
+   "preco": "kamu akan tahu dari boleh",
+   "nar": "Kalau nanti berubah, kamu akan tahu dari tagihanmu sendiri sebelum tahu dari judul berita mana pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cara membaca berita soal ini",
+   "sub": "tiga pertanyaan",
+   "nar": "Sebelum penutup, tiga pertanyaan yang bisa kamu pakai untuk berita apa pun soal BPJS — bukan cuma yang ini.",
+   "cap": "Cara membaca berita soal ini"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertanyaan pertama",
+   "preco": "nomor peraturannya mana",
+   "nar": "Pertama: peraturan mana yang disebut, lengkap dengan nomor dan tahun? Berita yang benar hampir selalu menyebutkannya, karena itu sumbernya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau tidak ada nomor",
+   "preco": "perlakukan sebagai kabar",
+   "nar": "Kalau tidak ada nomor, itu belum tentu salah — tapi belum bisa kamu pakai untuk mengambil keputusan uang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertanyaan kedua",
+   "preco": "tahunnya kapan",
+   "nar": "Kedua: periksa tahun di setiap angka. Salah kaprah soal denda tadi hidup sepuluh tahun cuma karena satu digit tahun yang meleset.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertanyaan ketiga",
+   "preco": "sudah berlaku atau baru terbit",
+   "nar": "Ketiga: aturannya sudah berlaku, atau baru terbit? Untuk kebijakan bertahap seperti KRIS, dua hal itu bisa berjarak dua tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Jarak yang bikin bingung",
+   "itens": [
+    "Terbit",
+    "Berlaku penuh"
+   ],
+   "alturas": [
+    100,
+    20
+   ],
+   "nar": "Jarak itulah yang bikin judul yang sama muncul dua kali dan terasa seperti dua kebijakan berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini berguna",
+   "preco": "berlaku untuk apa saja",
+   "nar": "Tiga pertanyaan itu bukan cuma untuk BPJS. Pajak, subsidi, aturan pinjol — polanya sama, dan yang menyesatkan hampir selalu sama juga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu kebiasaan",
+   "preco": "cek sebelum meneruskan",
+   "nar": "Dan satu kebiasaan kecil: sebelum meneruskan pesan berantai soal tarif, cari nomor peraturannya sendiri. Butuh dua menit.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "angka dulu, opini nanti",
+   "nar": "Buka Mobile JKN hari ini dan cek satu hal: status kepesertaanmu aktif atau tidak. Itu saja. Kalau video ini menghemat waktumu, tinggalkan subscribe.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Kelas 1, 2, 3 dihapus",
+   "sub": "iuranmu tidak berubah",
+   "nar": "Kelas BPJS dihapus, dan yang kamu bayar tidak berubah. Dua-duanya benar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Alasannya",
+   "preco": "tarif KRIS belum ada",
+   "nar": "Tarif sistem baru belum ditetapkan pemerintah. Selama belum ada angka, yang berlaku tarif lama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang berlaku",
+   "preco": "150rb / 100rb / 35rb",
+   "nar": "Kelas satu seratus lima puluh ribu, kelas dua seratus ribu, kelas tiga tiga puluh lima ribu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan turun kelas",
+   "preco": "satu standar untuk semua",
+   "nar": "KRIS bukan menurunkan semua ke kelas tiga. Satu standar kamar untuk semua peserta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang bisa didenda",
+   "preco": "rawat inap 45 hari",
+   "nar": "Telat bayar tidak didenda. Yang didenda: rawat inap dalam empat puluh lima hari setelah aktif kembali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "cek hari ini",
+   "nar": "Buka Mobile JKN dan cek status kepesertaanmu.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# KRIS BPJS Kesehatan: kelas dihapus, iuran tidak berubah\n\n## TITULO\nBPJS Kesehatan 2026: Kelas Dihapus Tapi Iuranmu Tidak Berubah — Ini Sebabnya\n\n## DESCRICAO\nKelas 1, 2, dan 3 BPJS Kesehatan sedang dihapus. Dan yang kamu bayar bulan ini tidak berubah sama sekali. Dua-duanya benar — dan alasannya hampir tidak pernah disebut di judul berita: besaran iuran untuk sistem baru belum ditetapkan pemerintah. Selama angka pengganti belum ada, yang berlaku tetap tarif lama.\n\nDASAR HUKUM DAN TANGGAL\n\nAturan yang menghapus sistem kelas adalah Peraturan Presiden Nomor 59 Tahun 2024. Sistem penggantinya bernama KRIS — Kelas Rawat Inap Standar — yang menetapkan satu standar kamar rawat inap untuk semua peserta. Sampai 2 Agustus 2026, iuran dihitung dengan tarif Perpres Nomor 63 Tahun 2022. Setelah itu dimulai peralihan, yang direncanakan bertahap selama sekitar dua tahun. Buat peserta tidak ada formulir, tidak ada pendaftaran ulang, dan tidak ada tombol yang harus ditekan.\n\nTARIF YANG BERLAKU SEKARANG\n\nKelas 1: Rp150.000 per orang per bulan. Kelas 2: Rp100.000. Kelas 3: Rp35.000. Ketiganya bertahan sepanjang 2026 — tidak naik di Februari, tidak naik di Juli, tidak naik di Agustus. Iuran dihitung per orang, bukan per keluarga: keluarga empat orang di kelas 1 membayar Rp600.000 sebulan. Peserta PBI tidak membayar sendiri, iurannya ditanggung negara. Pekerja formal membayar lewat potongan gaji dengan persentase yang dibagi dengan pemberi kerja, bukan angka tetap di atas.\n\nTIGA SALAH KAPRAH YANG BEREDAR\n\nPertama: banyak yang mengira denda keterlambatan baru dihapus tahun ini. Yang benar — tidak ada denda hanya karena telat bayar, dan itu berlaku sejak 1 Juli 2016. Sepuluh tahun lalu. Kekeliruannya satu digit di angka tahun. Tapi ada denda yang memang ada: rawat inap dalam 45 hari setelah kepesertaan aktif kembali.\n\nKedua: bahwa kartu lama harus diganti. Tidak ada program penggantian kartu untuk peralihan ini. Kalau ada yang menawarkan pengurusan kartu baru dengan biaya, itu bukan dari BPJS.\n\nKetiga, yang paling banyak beredar: bahwa semua peserta otomatis turun ke kelas 3. KRIS bukan menurunkan semua orang ke kelas terbawah — KRIS menetapkan satu standar yang sama, dengan kriteria minimum yang harus dipenuhi rumah sakit. Untuk sebagian peserta, standar kamarnya justru naik.\n\nYANG PERLU KAMU LAKUKAN\n\nCek status kepesertaan di Mobile JKN (yang menentukan layanan bukan kelas, tapi status aktif). Cek tunggakan. Kalau baru mengaktifkan kembali, catat tanggalnya karena 45 hari sejak itu adalah jendela yang perlu kamu tahu. Dan untuk setiap kabar soal tarif baru, cari nomor peraturannya.\n\nYANG TIDAK ADA DI VIDEO INI\n\nSaya tidak menebak berapa tarif KRIS, dan tidak bilang naik atau tetap — angkanya belum ada. Saya juga tidak memberi tanggal kapan besaran itu ditetapkan, karena tidak ada tanggal yang diumumkan. Siapa pun yang memberi tanggal pasti sedang menebak.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nPertanyaan buat kalian, dan jawabannya lebih beragam dari yang kelihatan: kelas berapa kalian sekarang, dan apakah tagihan bulan ini berbeda dari bulan lalu? Saya kumpulkan jawabannya untuk materi berikutnya — yang saya cari khususnya: ada tidak yang tagihannya sudah berubah, karena kalau ada, itu informasi yang belum masuk berita mana pun.\n\n## HASHTAGS\n#BPJSKesehatan #KRIS #SetiapLevel\n\n## TAGS\nbpjs kesehatan, kris bpjs, iuran bpjs 2026, kelas bpjs dihapus, perpres 59 2024, mobile jkn, bpjs kesehatan 2026, kelas rawat inap standar, denda bpjs, tunggakan bpjs, jkn, keuangan pribadi, asuransi kesehatan, bpjs terbaru, iuran kesehatan\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Bahasa Indonesia (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao > 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nDasar hukum KRIS: Perpres No. 59 Tahun 2024. Tarif sampai 2 Agustus 2026: Perpres No. 63 Tahun 2022. Iuran 2026 (Kelas 1 Rp150.000, Kelas 2 Rp100.000, Kelas 3 Rp35.000) dan ketentuan denda dikonfirmasi lewat dua pencarian terpisah dengan sumber independen yang saling cocok. Besaran iuran KRIS BELUM ditetapkan pemerintah pada tanggal video ini dibuat — video ini tidak memperkirakan angkanya maupun tanggal penetapannya. Ketentuan \"tidak ada denda karena telat bayar\" berlaku sejak 1 Juli 2016, bukan 2026: klaim yang menyebut 2026 keliru satu digit dan beredar luas. Denda yang tetap berlaku adalah untuk rawat inap dalam 45 hari setelah kepesertaan aktif kembali. Peserta PBI, pekerja formal, dan peserta mandiri punya skema pembayaran berbeda — angka di atas adalah untuk peserta mandiri. Materi ini edukasi keuangan pribadi, bukan nasihat asuransi, dan bukan pengganti informasi resmi dari BPJS Kesehatan.\n"
+}
