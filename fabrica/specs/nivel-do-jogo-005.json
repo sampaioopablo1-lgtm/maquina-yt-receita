@@ -1,0 +1,507 @@
+{
+  "slug": "nivel-do-jogo",
+  "pacote": "nivel-do-jogo-005",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-AntonioNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#F2F2F7",
+    "c1": "#FF4D6D",
+    "c2": "#4CC9F0",
+    "bg": "#0F1020"
+  },
+  "thumb": {
+    "l1": "R$25 ou R$55",
+    "l2": "pelo mesmo jogo"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Vinte e cinco",
+      "sub": "ou cinquenta e cinco",
+      "nar": "Um jogo de dez dólares na Steam pode custar vinte e cinco reais para você. Ou cinquenta e cinco. O mesmo jogo, no mesmo dia, na mesma loja.",
+      "cap": "O preço nunca foi o dólar"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E a diferença",
+      "sub": "não é promoção",
+      "nar": "E a diferença entre os dois não é promoção, não é imposto e não é o dólar ter mexido. É uma escolha.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Quem escolhe",
+      "preco": "quem publica o jogo",
+      "nar": "Quem escolhe é o estúdio que publica o jogo. Desde vinte e oito de março deste ano, ele decide isso entre três contas diferentes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A gente sempre achou",
+      "sub": "que era conversão",
+      "nar": "A gente sempre tratou preço de jogo no Brasil como conversão de dólar. Pega o valor lá fora, multiplica pelo câmbio, pronto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nunca foi só isso",
+      "sub": "e agora está escrito",
+      "nar": "Nunca foi só isso. A diferença é que agora está escrito, com nome e com tabela, e dá para saber qual conta usaram no jogo que você quer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que tem aqui",
+      "itens": [
+        "As três contas, uma por uma",
+        "Por que o mesmo jogo varia o dobro",
+        "Como descobrir qual usaram"
+      ],
+      "nar": "Três coisas. As três contas, uma por uma. Por que elas afastam tanto o preço final. E como descobrir qual delas usaram.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Antes de começar",
+      "preco": "nada muda sozinho",
+      "nar": "Uma coisa importante antes de começar, porque muita gente entendeu errado. Nenhum preço muda automaticamente. Só muda se o estúdio mexer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Então isto não é",
+      "sub": "um vídeo de pânico",
+      "nar": "Então isto não é um vídeo dizendo que tudo vai encarecer amanhã. É um vídeo sobre como o número que você paga é montado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E vale para tudo",
+      "sub": "que você comprar",
+      "nar": "E vale para qualquer jogo que você for comprar daqui para a frente, não só para o lançamento da semana.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Vamos às contas",
+      "sub": "começando pela mais simples",
+      "nar": "Vamos às contas. Começando pela mais simples, que também é a mais cara.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Câmbio simples",
+      "sub": "a conta óbvia",
+      "nar": "A primeira conta é a que todo mundo imagina. Pega o preço em dólar e converte pela cotação do dia. Nada mais entra.",
+      "cap": "Conta um: só o câmbio"
+    },
+    {
+      "layout": "item",
+      "kicker": "Dez dólares viram",
+      "preco": "cinquenta e cinco reais",
+      "nar": "Num jogo de dez dólares, essa conta chega a cinquenta e cinco reais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E é a mais cara",
+      "sub": "das três",
+      "nar": "É a mais cara das três, e por um motivo que não tem nada de conspiração.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O dólar não sabe",
+      "preco": "quanto você ganha",
+      "nar": "O câmbio mede quanto vale a moeda. Ele não mede quanto custa viver aqui, nem quanto o brasileiro médio consegue gastar com lazer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Para o estúdio",
+      "sub": "é a conta mais fácil",
+      "nar": "Para quem publica, é a conta mais simples de manter. Um preço em dólar, uma tabela, e o mundo inteiro resolvido.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Para você",
+      "sub": "é a conta menos favorável",
+      "nar": "Para quem compra num país de moeda fraca, é a menos favorável das três. Sempre.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E repare",
+      "preco": "isso não é novo",
+      "nar": "E repare numa coisa. Essa conta sempre existiu. O que mudou foi ela virar uma opção declarada, ao lado de outras duas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que ficou visível",
+      "sub": "é a escolha",
+      "nar": "O que ficou visível não foi o preço. Foi a escolha por trás dele.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Guarde o cinquenta e cinco",
+      "sub": "é o teto",
+      "nar": "Guarde esse cinquenta e cinco. Ele é o teto do nosso exemplo, e as outras duas contas descem a partir dele.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Agora a oposta",
+      "sub": "a conta mais barata",
+      "nar": "Agora a conta oposta, que é a que mais favorece quem compra daqui.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Poder de compra",
+      "sub": "quanto pesa no seu bolso",
+      "nar": "A segunda conta não pergunta quanto vale o real. Pergunta quanto o comprador daquele país consegue gastar.",
+      "cap": "Conta dois: poder de compra"
+    },
+    {
+      "layout": "item",
+      "kicker": "O mesmo jogo",
+      "preco": "vinte e cinco reais",
+      "nar": "No exemplo de dez dólares, essa conta chega a vinte e cinco reais. Menos da metade da anterior.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A ideia",
+      "sub": "é preço proporcional",
+      "nar": "A ideia por trás dela é que o jogo custe uma fatia parecida da renda em cada lugar, e não o mesmo número absoluto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Não é caridade",
+      "sub": "é estratégia",
+      "nar": "E não é caridade. É estratégia de volume: um preço que cabe vende mais cópias, e pirateia menos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A troca",
+      "preco": "menos por cópia",
+      "nar": "A troca é clara. O estúdio ganha menos por cópia vendida aqui, apostando que vende bem mais cópias.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Por isso",
+      "sub": "nem todo jogo usa",
+      "nar": "Por isso nem todo jogo usa essa conta. Ela funciona melhor em jogo com público grande, e pior em jogo de nicho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se o seu jogo",
+      "sub": "custa vinte e cinco",
+      "nar": "Então se um jogo internacional está custando por volta de vinte e cinco reais aqui, provavelmente foi essa a conta escolhida.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E isso é informação",
+      "preco": "sobre o estúdio",
+      "nar": "E isso diz algo sobre quem publicou. Diz que ele olhou o mercado brasileiro e decidiu disputar preço.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Falta uma conta",
+      "sub": "e é a do meio",
+      "nar": "Falta a terceira, que é a do meio, e é também a que mais se parece com o que a Steam já fazia antes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "A terceira",
+      "sub": "mistura tudo",
+      "nar": "A terceira mistura as duas anteriores com uma coisa a mais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Multivariável",
+      "sub": "três coisas juntas",
+      "nar": "A terceira conta junta câmbio, poder de compra, e uma terceira informação que ninguém esperava numa tabela de preço de jogo.",
+      "cap": "Conta três: a multivariável"
+    },
+    {
+      "layout": "item",
+      "kicker": "A terceira informação",
+      "preco": "quanto custa se divertir",
+      "nar": "Quanto custa entretenimento na sua região. Cinema, streaming, esses preços entram na conta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A lógica",
+      "sub": "o jogo compete com o resto",
+      "nar": "A lógica é que o jogo não compete só com outros jogos. Ele compete com tudo aquilo em que você gastaria a mesma noite.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "No exemplo",
+      "preco": "trinta e oito reais",
+      "nar": "No jogo de dez dólares, essa conta dá trinta e oito reais. Fica entre as outras duas, como era de esperar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E ela é a mais próxima",
+      "sub": "do que já existia",
+      "nar": "Essa é a conta mais próxima do que a Steam vinha usando antes da mudança. Então é o cenário de menor ruptura.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O preço anterior",
+      "preco": "trinta e três reais",
+      "nar": "Para comparação: antes da mudança, esse mesmo jogo saía por trinta e três reais. A multivariável fica cinco reais acima disso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ou seja",
+      "sub": "quase o mesmo lugar",
+      "nar": "Ou seja, quem escolher a multivariável entrega um preço quase igual ao que você já pagava. Sem susto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Agora junte as três",
+      "sub": "e olhe o intervalo",
+      "nar": "Agora junte as três num só lugar, porque é o intervalo que conta a história, não cada número sozinho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "O mesmo jogo de US$10",
+      "itens": [
+        "Poder",
+        "Antes",
+        "Multi",
+        "Câmbio"
+      ],
+      "alturas": [
+        0.45,
+        0.6,
+        0.69,
+        1.0
+      ],
+      "nar": "Vinte e cinco. Trinta e três. Trinta e oito. Cinquenta e cinco. Quatro preços, um produto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Do menor ao maior",
+      "sub": "é mais que o dobro",
+      "nar": "Do menor ao maior é mais que o dobro. E é isso que muda como você compra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Não tem etiqueta",
+      "sub": "dizendo qual conta é",
+      "nar": "A Steam não põe uma etiqueta na página dizendo qual conta o estúdio escolheu. Mas dá para deduzir, e leva um minuto.",
+      "cap": "Como descobrir qual usaram"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Você precisa de",
+      "itens": [
+        "O preço em dólar",
+        "O preço em reais",
+        "A cotação do dia"
+      ],
+      "nar": "Você precisa de três coisas. O preço em dólar, o preço em reais, e a cotação do dólar de hoje.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Divida",
+      "preco": "reais pelo preço em dólar",
+      "nar": "Divida o preço em reais pelo preço em dólar. O resultado é a taxa que aquele estúdio está usando na prática.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Compare com a cotação",
+      "sub": "e a resposta aparece",
+      "nar": "Compare esse número com a cotação real do dia. Se bater quase igual, é câmbio simples.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se for bem menor",
+      "sub": "é poder de compra",
+      "nar": "Se for bem menor que a cotação, é poder de compra. E se ficar no meio do caminho, é a multivariável.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que isso serve",
+      "preco": "para esperar ou não",
+      "nar": "E para que serve saber? Para decidir se vale esperar promoção. Jogo com preço por poder de compra já está perto do piso dele.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jogo em câmbio simples",
+      "sub": "tem mais gordura",
+      "nar": "Jogo em câmbio simples tem muito mais gordura para cair numa promoção. A distância até o preço mínimo é maior.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "É a mesma lógica",
+      "sub": "de comparar preço em qualquer loja",
+      "nar": "É a mesma lógica de qualquer compra: saber de onde veio o número diz se ele ainda tem para onde descer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E funciona",
+      "preco": "em qualquer jogo",
+      "nar": "E isso funciona para qualquer jogo da loja, não só para lançamento. A conta é sempre a mesma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Antes de encerrar",
+      "sub": "o que isso não significa",
+      "nar": "Antes de encerrar, o que este vídeo não está dizendo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Primeiro",
+      "sub": "nada subiu automaticamente",
+      "nar": "Primeiro, e é o mais importante: nada subiu automaticamente. A Valve foi explícita nisso. Preço só muda se o estúdio mexer.",
+      "cap": "O que este vídeo não está dizendo"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Segundo",
+      "sub": "não é vilão escolher o câmbio",
+      "nar": "Segundo, escolher a conta do câmbio não faz de ninguém vilão. Para estúdio pequeno, manter uma tabela por país custa trabalho que ele não tem.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Terceiro",
+      "preco": "dez dólares não é AAA",
+      "nar": "Terceiro, o exemplo de dez dólares é um exemplo. Não é o preço de um jogo grande, e não dá para multiplicar direto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A proporção viaja",
+      "sub": "o valor não",
+      "nar": "O que viaja entre faixas de preço é a proporção entre as contas, não o valor em reais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Quarto",
+      "preco": "isso é só a Steam",
+      "nar": "Quarto, isso vale para a Steam. Loja de console tem regra própria, e o preço lá pode não seguir nada disso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E quinto",
+      "sub": "eu não sei o futuro",
+      "nar": "E quinto: eu não sei quantos estúdios vão trocar de conta, nem em que direção. Ninguém sabe, e quem afirmar está chutando.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que fica",
+      "itens": [
+        "Preço é escolha, não câmbio",
+        "Divida reais por dólar",
+        "Poder de compra já está no piso"
+      ],
+      "nar": "Três coisas para levar. Preço é escolha, não conversão. Divida reais por dólar para descobrir qual conta usaram. E preço por poder de compra já está perto do piso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Uma pergunta",
+      "sub": "para os comentários",
+      "nar": "Uma pergunta que eu quero mesmo: faça essa conta no jogo que está na sua lista de desejos e escreve o resultado aqui embaixo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "No próximo",
+      "sub": "as lojas de console",
+      "nar": "No próximo vídeo eu faço a mesma conta nas lojas de console, onde a regra é outra e o preço costuma ser mais teimoso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Até lá",
+      "sub": "divide e confere",
+      "nar": "Até lá: divide, compara com a cotação, e você já sabe mais que a página do jogo te contou.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Vinte e cinco",
+      "sub": "ou cinquenta e cinco",
+      "nar": "O mesmo jogo de dez dólares pode custar vinte e cinco reais ou cinquenta e cinco.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Não é promoção",
+      "sub": "nem imposto",
+      "nar": "Não é promoção, não é imposto, e não é o dólar ter mexido.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "É escolha",
+      "sub": "de quem publica",
+      "nar": "Desde março o estúdio escolhe entre três contas: câmbio, poder de compra, ou as duas misturadas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Para descobrir",
+      "sub": "divide",
+      "nar": "Para saber qual usaram, divida o preço em reais pelo preço em dólar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Deu perto do dólar",
+      "sub": "tem promoção pela frente",
+      "nar": "Se der perto da cotação, é câmbio simples — e esse tem muita gordura para cair em promoção.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "As três contas",
+      "sub": "no vídeo",
+      "nar": "As três contas, com os números, estão no vídeo do canal.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# As três contas que decidem o preço de um jogo no Brasil\n\n## TITULO\nSteam Mudou Como Seu Jogo é Precificado: R$25 ou R$55 pelo Mesmo US$10\n\n## DESCRICAO\nEm 28 de março de 2026 a Valve atualizou as tabelas de conversão das 35 moedas da Steam e lançou um conjunto de ferramentas de precificação regional. A mudança é menos visível que um aumento de preço e mexe em algo mais profundo: quem decide quanto um jogo custa no Brasil, e com base em quê.\n\nA partir dela, quem publica escolhe entre três modelos de conversão.\n\nCâmbio simples — pega o preço em dólar e converte pela cotação. Nada mais entra. É o modelo mais simples de manter e o menos favorável para quem compra em moeda fraca, porque o câmbio mede quanto vale o real, não quanto custa viver aqui. Num jogo de US$10, chega a R$55.\n\nPoder de compra — pergunta quanto o comprador daquele país consegue gastar, e busca um preço que represente uma fatia parecida da renda em cada lugar. No mesmo jogo, R$25. Não é caridade: é aposta em volume, ganhando menos por cópia para vender mais cópias.\n\nMultivariável — mistura câmbio, poder de compra e o preço de outras formas de entretenimento na região, porque um jogo compete com o cinema e com o streaming pela mesma noite. Dá R$38, e é o modelo mais próximo do que a Steam já usava antes.\n\nPara comparação, o mesmo jogo saía por R$33 antes da mudança. Do menor ao maior modelo, o intervalo é de mais que o dobro para um produto idêntico.\n\nE o vídeo mostra como descobrir qual conta usaram em qualquer jogo, sem etiqueta nenhuma na página: divida o preço em reais pelo preço em dólar e compare com a cotação do dia. Se bater quase igual, é câmbio simples. Se ficar bem abaixo, é poder de compra. No meio, multivariável. Isso serve para uma decisão prática — jogo precificado por poder de compra já está perto do piso, e jogo em câmbio simples tem bem mais gordura para cair em promoção.\n\nO que este vídeo NÃO diz: que os preços subiram. A Valve foi explícita — nenhum preço muda automaticamente, só muda se o desenvolvedor mexer. Também não trata o exemplo de US$10 como preço de jogo grande (o que viaja entre faixas é a proporção entre os modelos, não o valor), não julga quem escolhe o câmbio simples, e vale para a Steam — loja de console tem regra própria.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nFaz a conta no jogo que está na sua lista de desejos e escreve aqui: preço em reais dividido pelo preço em dólar, e como isso ficou em relação à cotação de hoje. Quero montar uma lista de quais jogos estão em qual modelo — é o tipo de coisa que nenhuma página da loja mostra e que só dá para saber juntando muita gente.\n\n## HASHTAGS\n#Steam #PreçoDeJogos #NívelDoJogo\n\n## TAGS\nsteam, preço de jogos, precificação regional, valve, jogos no brasil, dólar, poder de compra, promoção steam, games, economia dos games, comprar jogos, preço em reais, mercado de games, jogos baratos, steam brasil\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Português (pt-BR) | Categoria: Educação (27)\n- Não feito para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Brasil | Licença: Licença padrão do YouTube\n- Anúncios no meio: ligados (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nA atualização das tabelas de conversão das 35 moedas da Steam e o lançamento das ferramentas de precificação regional foram anunciados pela Valve em 28 de março de 2026. Os três modelos de conversão (câmbio simples, poder de compra e multivariável) e os valores usados como exemplo para um jogo de US$10 — R$33 antes da mudança, R$55 no câmbio simples, R$38 no multivariável e R$25 no poder de compra — foram reportados com os mesmos números por Mix Vale, GameVicio, Adrenaline, GameCentral, VZone, Guia do ED e Blast. Consultado em 20 de agosto de 2026. A Valve declarou que nenhum preço é alterado automaticamente: a mudança só ocorre se o desenvolvedor atualizar os valores do próprio jogo. Este vídeo não afirma que os preços aumentaram, não estima quantos estúdios vão trocar de modelo nem em que direção, não trata o exemplo de US$10 como preço de um título AAA, e trata apenas da Steam — lojas de console operam com regras próprias.\n"
+}
