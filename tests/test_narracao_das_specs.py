@@ -126,6 +126,22 @@ PARADAS = {
     "agla-level-004":         ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "resep-naik-level-002":   ("portao", "short 42,1 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "kolejny-poziom-003":     ("portao", "short 42,0 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    # As tres abaixo entraram em 20/08/2026 pelo portao NOVO de ortografia, e
+    # as tres ja estao no ar. Elas tem narracao sem os acentos que as OUTRAS
+    # specs do proprio canal usam — turco e polones sem acento continuam
+    # parecendo turco e polones, entao passaram no portao de idioma, no de
+    # glifos (ASCII sempre tem fonte) e chegaram ao TTS.
+    #
+    # O defeito foi descoberto quando EU o cometi na seviye-seviye-004: 72
+    # cenas em ASCII num canal cujas outras specs acentuam 12,7% das letras.
+    # Corrigi antes de publicar; estas tres nao deu tempo.
+    #
+    # Nao ha o que consertar nelas — video no ar nao se reescreve — e o
+    # orquestrador ja as descarta por terem youtube_id. Ficam listadas porque
+    # spec que sai da matriz sem registro e o defeito que este teste pega.
+    "kolejny-poziom-003":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
+    "kolejny-poziom-004":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
+    "seja-mais-magra-004":    ("portao", "narracao sem acento portugues (0,0% contra 4,0% do canal); ja no ar"),
     "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),

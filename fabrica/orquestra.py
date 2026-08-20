@@ -324,6 +324,11 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
                # entraria na matriz do frota.yml e so seria barrada no passo de
                # portoes, depois do checkout — ou nao seria barrada.
                lambda: P._gate_fatos(sp),
+               # `ortografia` le as specs irmas do canal e compara densidade de
+               # acento — milissegundos, e pega o defeito que so aparece no
+               # AUDIO. Sem ele aqui, uma spec em ASCII entraria na matriz e
+               # seria barrada so no passo de portoes, depois do checkout.
+               lambda: P._gate_ortografia(caminho, sp),
                lambda: P._gate_duracao(sp)):
         faltas += fn()
     return faltas

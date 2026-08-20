@@ -202,6 +202,96 @@ def _gate_glifos(sp):
             f"como tofu: {amostra}"]
 
 
+# Caracteres que a lingua EXIGE e que o ASCII nao tem. Grego, hindi e as demais
+# escritas nao latinas ficam de fora porque o portao de idioma ja as pega: la a
+# falta de acento nao existe, o alfabeto inteiro seria outro.
+DIACRITICOS = {
+    "tr": "çğıöşüÇĞİÖŞÜâî",
+    "pl": "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ",
+    "pt": "áàâãéêíóôõúüçÁÀÂÃÉÊÍÓÔÕÚÇ",
+    "es": "áéíóúñüÁÉÍÓÚÑ",
+}
+
+# Abaixo disso o canal nao usa acento o bastante para servir de referencia.
+PISO_REFERENCIA = 0.02
+
+
+def _densidade_diacritica(cenas, tabela: str) -> float | None:
+    txt = "".join((c or {}).get("nar") or "" for c in cenas)
+    letras = sum(1 for ch in txt if ch.isalpha())
+    if not letras:
+        return None
+    return sum(1 for ch in txt if ch in tabela) / letras
+
+
+def _gate_ortografia(caminho, sp):
+    """A narracao usa os acentos que as OUTRAS specs deste canal usam?
+
+    Nenhum dos sete portoes olhava para isto, e o defeito e mudo: turco sem
+    acento continua parecendo turco, passa no portao de idioma, passa no de
+    glifos (ASCII sempre tem fonte), e chega ao TTS — que pronuncia outra coisa.
+    "acacagim" nao e "acacagim", e "sozlesme" nao e "sozlesme".
+
+    Medido em 20/08/2026 sobre o corpus, densidade de acento por letra:
+
+        tr  seviye-seviye-002/003    0,1270 e 0,1271     consistente
+        pl  kolejny-poziom-006       0,0677
+        pl  kolejny-poziom-003/004   0,0000              <- foram ao ar assim
+        pt  varias                   0,0000              <- convencao mista
+
+    Por isso o portao NAO afirma que toda lingua precisa de acento: ele afirma
+    que uma spec nao pode divergir do PROPRIO CANAL. Onde as specs anteriores
+    acentuam, a nova tem de acentuar; onde o canal nunca acentuou, nao ha
+    referencia e o portao se cala. Assim ele pega a divergencia real sem
+    inventar uma regra de ortografia que o corpus nao sustenta.
+
+    Descoberto escrevendo a seviye-seviye-004: eu escrevi as 72 cenas em ASCII
+    num canal cujas outras duas specs acentuam 12,7% das letras, e nada acusou.
+    """
+    import glob
+    import statistics
+
+    idi = (sp.get("idioma") or "").lower()
+    base = ("pt" if idi.startswith("pt") else
+            "es" if idi.startswith("es") else idi)
+    tabela = DIACRITICOS.get(base)
+    if not tabela:
+        return []
+
+    minha = _densidade_diacritica(sp.get("longo") or [], tabela)
+    if minha is None:
+        return []
+
+    slug = sp.get("slug") or ""
+    eu = os.path.basename(caminho)
+    vizinhas = []
+    for outro in sorted(glob.glob(os.path.join(RAIZ, "fabrica/specs", f"{slug}-*.json"))):
+        if os.path.basename(outro) == eu:
+            continue
+        try:
+            o = json.load(open(outro, encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        d = _densidade_diacritica(o.get("longo") or [], tabela)
+        if d is not None:
+            vizinhas.append(d)
+
+    if not vizinhas:
+        return []
+    referencia = statistics.median(vizinhas)
+    if referencia < PISO_REFERENCIA:
+        return []          # o canal nao acentua; nao ha o que comparar
+
+    # Metade da referencia e folga larga de proposito: texto varia, e o que
+    # este portao procura e o caso de ASCII puro, nao a flutuacao normal.
+    if minha < referencia / 2:
+        return [f"acentuacao fora do padrao do canal: {minha:.1%} das letras "
+                f"contra {referencia:.1%} nas outras specs de {slug}. Em "
+                f"{base} isso muda a pronuncia do TTS, e nenhum outro portao "
+                f"enxerga — o texto continua parecendo a lingua certa"]
+    return []
+
+
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
 SHORT_MIN_S, SHORT_MAX_S = 30, 45
@@ -342,6 +432,7 @@ PORTOES = (
     ("narracao", lambda c, s: _gate_narracao(c)),
     ("idioma", lambda c, s: _gate_idioma(s)),
     ("glifos", lambda c, s: _gate_glifos(s)),
+    ("ortografia", lambda c, s: _gate_ortografia(c, s)),
     ("duracao", lambda c, s: _gate_duracao(s)),
     ("layout", lambda c, s: _gate_layout(s)),
 )

@@ -1,0 +1,604 @@
+{
+  "slug": "seviye-seviye",
+  "pacote": "seviye-seviye-004",
+  "idioma": "tr",
+  "voz": "tr-TR-AhmetNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1C2B33",
+    "c1": "#C0392B",
+    "c2": "#F4B942",
+    "bg": "#FAF6F0"
+  },
+  "thumb": {
+    "l1": "%1,78",
+    "l2": "Ocak zammının ilk ayı"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Üç Ağustos",
+      "sub": "ilk rakam girdi",
+      "nar": "Ocak ayındaki emekli zammının ilk rakamı çoktan belli oldu. Üç Ağustos günü açıklandı, ve neredeyse kimse bunu zam olarak okumadı.",
+      "cap": "Zam Aralık'ta hesaplanmıyor"
+    },
+    {
+      "layout": "item",
+      "kicker": "Temmuz TÜFE",
+      "preco": "yüzde bir virgül yetmiş sekiz",
+      "nar": "Türkiye İstatistik Kurumu, temmuz ayında tüketici fiyat endeksinin aylık yüzde bir virgül yetmiş sekiz arttığını açıkladı. Bu sayı haber olarak geçti, ve unutuldu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Oysa o sayı",
+      "sub": "cebe girdi bile",
+      "nar": "Oysa o sayı bir yere girdi. Ocak ayında emekli maaşına yapılacak zammın hesabına girdi, ve orada duruyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yaygın inanış",
+      "sub": "zam Aralık'ta belli olur",
+      "nar": "Yaygın inanış şudur: zam Aralık ayında belli olur. Doğru değil. Aralık'ta sadece son rakam eklenir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Zam belli olmaz",
+      "preco": "inşa edilir",
+      "nar": "Zam bir günde belli olmaz. Altı ay boyunca, ayda bir kez, parça parça inşa edilir. Ve ilk parça yerine oturdu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Fark neresi",
+      "sub": "seyretmek ile beklemek",
+      "nar": "Aradaki fark şu. Aralık'ta bakan kişi hazır bir rakam alır. Ağustos'tan beri izleyen kişi o rakamın nasıl oluştuğunu görür.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Üç şey",
+      "itens": [
+        "Altı aylık cep nasıl işler",
+        "Birikimli neden toplama değil",
+        "Kendi takibinizi nasıl yaparsınız"
+      ],
+      "nar": "Üç şey göreceksiniz. Altı aylık cebin nasıl işlediği. Birikimli hesabın neden toplama olmadığı. Ve kendi takibinizi nasıl kuracağınız.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Söylemeyeceğim şey",
+      "sub": "Ocak rakamı",
+      "nar": "Şimdiden söyleyeyim: Ocak ayındaki oranın kaç olacağını söylemeyeceğim. Kimse bilemez, çünkü beş ay daha var.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Söyleyeceğim şey",
+      "preco": "mekanizma",
+      "nar": "Söyleyeceğim şey mekanizma. Mekanizmayı bilen kişi her ay kendi hesabını günceller, ve haberin söylemesini beklemez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bir sınır daha",
+      "sub": "bu memuru kapsamaz",
+      "nar": "Bir sınır daha baştan. Burada anlatılan kural SSK ve Bağ-Kur emeklisi içindir. Memur maaşının kuralı başkadır, ve sonda ona da değineceğim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Önce kural",
+      "sub": "yasada ne yazıyor",
+      "nar": "Önce kuralın kendisine bakalım. Yasada ne yazıyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yılda iki kez",
+      "preco": "Ocak ve Temmuz",
+      "nar": "SSK ve Bağ-Kur emeklisi yılda iki kez zam alır. Ocak ayında bir kez, Temmuz ayında bir kez.",
+      "cap": "Altı aylık cep nasıl işler"
+    },
+    {
+      "layout": "item",
+      "kicker": "Ölçüt",
+      "preco": "gerçekleşen enflasyon",
+      "nar": "Ölçüt tahmin değil, gerçekleşen enflasyondur. Yani geçmiş altı ayda fiyatlar gerçekte ne kadar artmışsa, zam o kadar olur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ocak zammının penceresi",
+      "sub": "Temmuz'dan Aralık'a",
+      "nar": "Ocak ayındaki zammın penceresi Temmuz'da açılır, ve Aralık'ta kapanır. Altı ay, altı rakam.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "Pencere",
+      "itens": [
+        "Tem",
+        "Ağu",
+        "Eyl",
+        "Eki",
+        "Kas",
+        "Ara"
+      ],
+      "alturas": [
+        1.0,
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "nar": "Şu anda bu pencerenin sadece ilk ayı dolu. Temmuz girdi. Kalan beş ay hâlâ boş, ve her biri ayın üçünde açıklanacak.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Temmuz zammı ise",
+      "sub": "başka pencereden geldi",
+      "nar": "Bu arada Temmuz'da alınan zam bu pencereden gelmedi. O, Ocak'tan Haziran'a kadarki pencerenin sonucuydu. Pencereler birbirini takip eder.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Açıklama günü",
+      "preco": "her ayın üçü",
+      "nar": "Rakam her ayın üçünde gelir. Takvimi bilmek işin yarısı: o gün çıkan sayı, sizin cebinize giren sayıdır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Neden önemli",
+      "sub": "çünkü geri alınmaz",
+      "nar": "Ve bu neden önemli? Çünkü o sayı geri alınmaz. Yüksek bir ay pencereye girdiğinde, sonraki aylar düşük gelse bile o giriş orada kalır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tersi de doğru",
+      "sub": "düşük ay da kalır",
+      "nar": "Tersi de doğru. Düşük bir ay girdiğinde, sonraki ayların yüksek gelmesi onu silmez. Sadece üstüne eklenir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yani zam",
+      "preco": "birikimin toplamı",
+      "nar": "Yani zam, altı ayın birikiminin sonucudur. Tek bir ayın değil. Bu, haberde en çok atlanan nokta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bir ay kötü geldi",
+      "sub": "panik yok",
+      "nar": "Bir ay kötü geldiğinde paniğe gerek yok, ve bir ay iyi geldiğinde de kutlama erken. Altı ay uzun bir yol.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Şimdi hesabın kendisi",
+      "sub": "ve neden toplama değil",
+      "nar": "Şimdi hesabın kendisine gelelim. Ve burası çoğu insanın yanlış yaptığı yer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "En sık hata",
+      "sub": "yüzdeleri toplamak",
+      "nar": "Altı ayın yüzdesini alt alta yazıp toplamak. En sık yapılan hata bu, ve sonucu her zaman olduğundan küçük çıkarır.",
+      "cap": "Birikimli toplama değil, çarpmadır"
+    },
+    {
+      "layout": "item",
+      "kicker": "Neden",
+      "preco": "her ay öncekinin üstüne biner",
+      "nar": "Sebebi basit. İkinci ayın zammı, birinci aydan sonraki fiyatın üzerine biner. Yani zaten artmış bir sayının üzerine.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Küçük bir örnek",
+      "sub": "iki ay üzerinden",
+      "nar": "Küçük bir örnekle bakalım. İlk ay yüzde iki, ikinci ay yine yüzde iki olsun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Toplama derse",
+      "preco": "yüzde dört",
+      "nar": "Toplama yapan kişi yüzde dört der. Yakın, ama eksik.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Gerçek",
+      "preco": "yüzde dört virgül sıfır dört",
+      "nar": "Gerçeği yüzde dört virgül sıfır dört. Fark küçük görünüyor, değil mi?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Altı ayda",
+      "sub": "küçük fark büyür",
+      "nar": "İki ayda küçük. Altı ayda o küçük fark büyür, ve maaşın üzerinde gerçek bir para hâline gelir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Doğru yöntem",
+      "itens": [
+        "Her ayı yüzde değil kat olarak yaz",
+        "Katları birbiriyle çarp",
+        "Sonucu yeniden yüzdeye çevir"
+      ],
+      "nar": "Doğru yöntem şu. Her ayı kat olarak yazın. Katları birbiriyle çarpın. Ve sonucu tekrar yüzdeye çevirin.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kat ne demek",
+      "preco": "yüzde iki ise bir virgül sıfır iki",
+      "nar": "Kat demek şudur: yüzde iki artış, bir virgül sıfır iki ile çarpmak demektir. Yüzde bir virgül yetmiş sekiz ise, bir virgül sıfır bir yedi sekiz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Telefonun hesap makinesi",
+      "sub": "yeter",
+      "nar": "Bunun için tabloya gerek yok. Telefonun hesap makinesi yeter. Altı çarpma, sonunda bir çıkarma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Peki tahminler",
+      "sub": "onlar nereye giriyor",
+      "nar": "Peki şu anda dolaşan tahminler? Onlar bu hesabın neresine giriyor?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kısa cevap",
+      "sub": "hiçbir yerine",
+      "nar": "Kısa cevap: hiçbir yerine. Tahmin cebe girmez. Cebe sadece açıklanan rakam girer.",
+      "cap": "Tahmin ile gerçekleşen arasındaki fark"
+    },
+    {
+      "layout": "item",
+      "kicker": "Örnek",
+      "preco": "Ağustos için yüzde iki virgül iki",
+      "nar": "Örneğin Akbank Ekonomik Araştırmalar, Ağustos ayı için yaklaşık yüzde iki virgül iki tahmin etti. Bu bir tahmindir, ve tahmin olduğu söylenmiştir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tahminin işi",
+      "sub": "hazırlık",
+      "nar": "Tahminin bir işi var, ve değerlidir: hazırlık. Ne bekleyeceğinizi kabaca gösterir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tahminin işi değil",
+      "sub": "hesap",
+      "nar": "Ama tahminin işi hesap yapmak değil. Hesabı açıklanan rakam yapar, ve o ayın üçünde gelir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "İkisini karıştırmak",
+      "preco": "iki kez üzülmek",
+      "nar": "İkisini karıştıran kişi iki kez üzülür. Önce tahmine göre plan yapar, sonra gerçek rakam farklı çıkınca plan bozulur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kim tahmin yayınlar",
+      "sub": "ve neden",
+      "nar": "Tahmin yayınlayan kurumların işi bu. Banka araştırma birimleri, ekonomistler, gazeteler. Onlar yanılıyorsa kötü niyetli değiller — iş böyle.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Üç soru",
+      "itens": [
+        "Kim söylüyor",
+        "Tahmin mi, açıklanan mı",
+        "Hangi aya ait"
+      ],
+      "nar": "Bir sayı gördüğünüzde üç soru sorun. Kim söylüyor. Tahmin mi, açıklanan mı. Ve hangi aya ait.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Üçüncüsü",
+      "preco": "en çok atlanan",
+      "nar": "Üçüncüsü en çok atlanan. Çünkü haber başlıklarında ay adı çoğu zaman yok, ve okuyan kişi kendi ayını varsayar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu videodaki tek kesin sayı",
+      "sub": "Temmuz",
+      "nar": "Şimdiye kadarki tek kesin sayı Temmuz'a ait: yüzde bir virgül yetmiş sekiz, üç Ağustos'ta açıklandı. Gerisi henüz yok.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Şimdi pratik kısım",
+      "sub": "kendi tablonuz",
+      "nar": "Şimdi pratik kısım. Kendi takibinizi nasıl kurarsınız.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Altı satır",
+      "sub": "defter de olur",
+      "nar": "İhtiyacınız olan şey altı satır. Bir defter kâğıdı, telefonun not uygulaması, ya da bir tablo. Biçimi önemli değil; aynı yerde durması önemli.",
+      "cap": "Kendi takibinizi nasıl kurarsınız"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dört sütun",
+      "itens": [
+        "Ay",
+        "Açıklanma tarihi",
+        "Aylık yüzde",
+        "Birikimli kat"
+      ],
+      "nar": "Dört sütun yeter. Ay. Açıklanma tarihi. O ayın aylık yüzdesi. Ve o ana kadarki birikimli kat.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "İlk satır hazır",
+      "preco": "Temmuz",
+      "nar": "İlk satırı şimdi yazabilirsiniz. Temmuz, üç Ağustos, yüzde bir virgül yetmiş sekiz. Birikimli kat da aynı: bir virgül sıfır bir yedi sekiz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sonraki beş satır",
+      "sub": "ay adı ve tarih",
+      "nar": "Sonraki beş satıra sadece ay adını ve açıklanma gününü yazın. Rakam hanesi boş kalsın. O boşluk, işin nerede olduğunu her bakışta gösterir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Her ayın üçünde",
+      "preco": "iki dakika",
+      "nar": "Her ayın üçünde iki dakikanız yeter. Açıklanan aylık yüzdeyi yazın, kat olarak çevirin, ve bir önceki birikimli kat ile çarpın.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Aralık'ta ne olur",
+      "sub": "hesap zaten bitmiş olur",
+      "nar": "Aralık ayının rakamı geldiğinde hesabınız zaten bitmiş olur. Son çarpmayı yapar, yüzdeye çevirir, ve sonucu görürsünüz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kaç gün önce",
+      "preco": "haberden önce",
+      "nar": "Bu, haber sitelerinin yazmasından günler önce olur. Çünkü onlar da aynı açıklamayı bekliyor, ve aynı aritmetiği yapıyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Buradaki kazanç",
+      "sub": "sürpriz olmaması",
+      "nar": "Buradaki kazanç para değil, zaman. Ocak ayında kimse size sürpriz yapamaz, çünkü sayıyı siz zaten biliyorsunuz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ve bir kazanç daha",
+      "sub": "plan yapabilmek",
+      "nar": "Bir kazanç daha var. Kasım ayında birikimin nerede olduğunu bilen kişi, Ocak ayına göre plan yapabilir. Aralık'ta öğrenen kişi yapamaz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Şimdi sınırlar",
+      "sub": "bu hesap neyi söylemez",
+      "nar": "Şimdi bu hesabın sınırlarını konuşalım. Neyi söylemediği, söylediği kadar önemli.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Birinci sınır",
+      "sub": "refah payı",
+      "nar": "Birinci sınır, ve en önemlisi. Bu hesap sadece enflasyon kısmını verir. Bunun üzerine bazen refah payı denen ek bir artış konur.",
+      "cap": "Bu hesap neyi söylemez"
+    },
+    {
+      "layout": "item",
+      "kicker": "Refah payı",
+      "preco": "aritmetik değil karar",
+      "nar": "Refah payı aritmetikten çıkmaz. Siyasi bir karardır, bütçe görüşmeleriyle belirlenir, ve olup olmayacağı önceden bilinmez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yani sizin sayınız",
+      "sub": "taban",
+      "nar": "Yani sizin hesabınız bir taban verir. Gerçekleşen zam o tabana eşit olabilir, ya da üzerinde. Altında olmaz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "İkinci sınır",
+      "sub": "taban aylık ayrı konu",
+      "nar": "İkinci sınır. En düşük emekli aylığı için ayrıca bir taban belirlenebilir, ve o taban yüzdeyle değil, doğrudan rakamla konuşulur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Üçüncü sınır",
+      "preco": "memur başka kural",
+      "nar": "Üçüncü sınır. Memur maaşı bu kurala tabi değil. Orada toplu sözleşme zammı ile enflasyon farkı birlikte işler — başka bir hesap.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dördüncü sınır",
+      "sub": "ben rakam vermiyorum",
+      "nar": "Dördüncüsü benim sınırım. Ocak oranının kaç olacağını söylemiyorum, çünkü beş ayın rakamı henüz yok.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sayı veren video",
+      "sub": "neyi yapıyor",
+      "nar": "Şimdi Ocak oranını kesin sayıyla veren bir video görürseniz, o video beş ayı tahmin etmiş demektir. Tahmin olabilir; ama tahmin olduğunu söylemeli.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kaynaklar",
+      "preco": "TÜİK ve resmî açıklama",
+      "nar": "Buradaki tek gerçekleşen rakam Türkiye İstatistik Kurumu verisidir. Kalanı kural ve aritmetik. Açıklamalar her ayın üçünde kurumun sitesinde.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ve son bir şey",
+      "sub": "bu tavsiye değil",
+      "nar": "Ve son bir şey. Bu bir yatırım ya da malî tavsiye değil. Kendi durumunuz için resmî kaynağı, ve gerekirse uzmanı esas alın.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Toparlayalım",
+      "sub": "elinizde ne kalıyor",
+      "nar": "Toparlayalım. Elinizde ne kalıyor?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bugün",
+      "sub": "bir satır",
+      "nar": "Bugün elinizde tek bir satır var. Temmuz, yüzde bir virgül yetmiş sekiz. Küçük görünüyor, ama altı ayın ilki.",
+      "cap": "Aralık'ta elinizde ne olacak"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Eylül'de",
+      "sub": "iki satır",
+      "nar": "Eylül başında ikinci satırınız olacak. Ekim'de üçüncü. Ve her seferinde iki dakika.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Aralık'ta",
+      "preco": "tamamlanmış bir hesap",
+      "nar": "Aralık ayının ilk günlerinde elinizde tamamlanmış bir hesap olacak. Kimseden duymadan, kendi defterinizden.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Üç şey",
+      "itens": [
+        "Yüzdeleri toplamayın, çarpın",
+        "Tahmin ile açıklananı ayırın",
+        "Her ayın üçünde iki dakika"
+      ],
+      "nar": "Üç şey aklınızda kalsın. Yüzdeleri toplamayın, çarpın. Tahmin ile açıklanan rakamı birbirine karıştırmayın. Ve her ayın üçünde iki dakika ayırın.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Neden bu iş değerli",
+      "sub": "çünkü bekleyen çok",
+      "nar": "Bu neden değerli? Çünkü bu ülkede milyonlarca insan aynı sayıyı bekliyor, ve çok azı onun nasıl oluştuğunu biliyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bilmek",
+      "sub": "kontrol değil ama",
+      "nar": "Bilmek rakamı değiştirmez. Ama bekleyişi değiştirir, ve plan yapmayı mümkün kılar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bir isteğim var",
+      "preco": "yorumlara",
+      "nar": "Bir isteğim var. Kendi tablonuzu kurduysanız, Eylül rakamı geldiğinde birikimli katınızı yoruma yazın. Toplu görelim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bir sonraki video",
+      "sub": "memur tarafı",
+      "nar": "Bir sonraki videoda memur tarafını açacağım. Toplu sözleşme zammı ile enflasyon farkının birlikte nasıl işlediğini adım adım.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Çünkü orada",
+      "sub": "kural gerçekten farklı",
+      "nar": "Çünkü orada kural gerçekten farklı, ve iki tarafı aynı sanan çok kişi var.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Görüşmek üzere",
+      "sub": "her ayın üçünde",
+      "nar": "Görüşmek üzere. Ve her ayın üçünde, iki dakika.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Ocak zammı",
+      "sub": "ilk rakam belli oldu",
+      "nar": "Ocak zammının ilk rakamı belli oldu bile.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Üç Ağustos",
+      "sub": "yüzde bir virgül yetmiş sekiz",
+      "nar": "Üç Ağustos'ta açıklandı: temmuz enflasyonu yüzde bir virgül yetmiş sekiz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Altı ayın ilki",
+      "sub": "beş ay daha var",
+      "nar": "Bu, altı ayın ilki. Aralık'a kadar beş rakam daha girecek.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dikkat",
+      "sub": "yüzdeler toplanmaz",
+      "nar": "Ve yüzdeler toplanmaz. Çarpılır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Her ayın üçünde",
+      "sub": "iki dakika",
+      "nar": "Her ayın üçünde iki dakika, ve Ocak'ta kimse size sürpriz yapamaz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tam hesap",
+      "sub": "kanalda",
+      "nar": "Tam hesabı kanaldaki videoda adım adım gösteriyorum.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Ocak zammının altı aylık cebi: mekanizma ve kendi takibiniz\n\n## TITULO\nEmekli Zammı Aralık'ta Değil Temmuz'da Başladı: %1,78'in Anlamı\n\n## DESCRICAO\nTürkiye İstatistik Kurumu, 3 Ağustos 2026'da açıkladığı verilerde temmuz ayı tüketici fiyat endeksinin aylık %1,78 arttığını bildirdi. Bu sayı haber olarak geçti ve büyük ölçüde unutuldu — oysa Ocak 2027'de SSK ve Bağ-Kur emeklilerine yapılacak zammın hesabına giren ilk rakam tam olarak budur.\n\nYaygın inanış zammın Aralık'ta belli olduğudur. Aralık'ta belli olan sadece son rakamdır. Zam altı ay boyunca, ayda bir kez, parça parça inşa edilir.\n\nBu videoda mekanizmanın kendisi var:\n\nAltı aylık cep — SSK ve Bağ-Kur emeklisi yılda iki kez, Ocak ve Temmuz aylarında zam alır, ve ölçüt tahmin değil gerçekleşen enflasyondur. Ocak zammının penceresi Temmuz'da açılır, Aralık'ta kapanır. Şu anda pencerenin sadece ilk ayı dolu. Her ayın rakamı ayın üçünde açıklanır, ve pencereye giren bir sayı geri alınmaz: yüksek bir ay girdiğinde sonraki düşük aylar onu silmez, sadece üstüne eklenir.\n\nBirikimli hesap toplama değil çarpmadır — en sık yapılan hata altı ayın yüzdesini alt alta yazıp toplamaktır, ve bu sonucu her zaman olduğundan küçük çıkarır. İkinci ayın zammı zaten artmış bir fiyatın üzerine biner. Doğru yöntem her ayı kat olarak yazmak, katları birbiriyle çarpmak, ve sonucu yeniden yüzdeye çevirmektir. Telefonun hesap makinesi yeterlidir: altı çarpma, sonunda bir çıkarma.\n\nTahmin ile açıklanan arasındaki fark — şu anda dolaşan tahminler hesaba girmez; cebe sadece açıklanan rakam girer. Bir sayı gördüğünüzde üç soru: kim söylüyor, tahmin mi açıklanan mı, ve hangi aya ait. Üçüncüsü en çok atlanandır, çünkü haber başlıklarında ay adı çoğu zaman yoktur.\n\nKendi takibiniz — dört sütun ve altı satır yeter: ay, açıklanma tarihi, aylık yüzde, birikimli kat. İlk satırı bugün yazabilirsiniz. Her ayın üçünde iki dakika, ve Aralık'ın ilk günlerinde hesabınız haber sitelerinden önce tamamlanmış olur.\n\nVe sınırlar — bu hesap sadece enflasyon kısmını verir; refah payı aritmetikten çıkmaz, siyasi bir karardır. En düşük emekli aylığı için ayrıca taban belirlenebilir. Memur maaşı bu kurala tabi değildir. Ocak oranının kaç olacağı bu videoda söylenmiyor, çünkü beş ayın rakamı henüz yok.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nBir isteğim var: kendi tablonuzu kurduysanız, Eylül rakamı açıklandığında birikimli katınızı buraya yazın — toplu görelim. Ve merak ettiğim bir şey: Ocak zammını daha önce kendiniz mi hesaplıyordunuz, yoksa haberden mi öğreniyordunuz?\n\n## HASHTAGS\n#EmekliZammı #TÜİK #SeviyeSeviye\n\n## TAGS\nemekli zammı, ssk emekli, bağ-kur, tüik enflasyon, tüfe, ocak zammı, enflasyon farkı, emekli maaşı, birikimli enflasyon, refah payı, memur maaşı, asgari ücret, ekonomi, maaş hesabı, enflasyon hesaplama\n\n## CONFIGURACAO DE STUDIO\n- Dil: Türkçe (tr) | Kategori: Eğitim (27)\n- Çocuklar için yapılmadı\n- Değiştirilmiş veya sentetik içerik beyanı: EVET (ses yapay zekâ ile üretildi)\n- Konum: Türkiye | Lisans: Standart YouTube Lisansı\n- Video ortası reklamlar: açık (sekiz dakika üzeri)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nTemmuz 2026 tüketici fiyat endeksi verisi (aylık %1,78) Türkiye İstatistik Kurumu'nun 3 Ağustos 2026 tarihli açıklamasına dayanır; aynı rakam NTV, Yeni Şafak ve Kariyer.net tarafından da aynı şekilde aktarılmıştır. SSK ve Bağ-Kur emeklilerinin yılda iki kez, Ocak ve Temmuz aylarında, önceki altı ayın gerçekleşen enflasyonu kadar zam alması yasal kuraldır. Ağustos ayı için anılan yaklaşık %2,2'lik rakam Akbank Ekonomik Araştırmalar'a ait bir TAHMİNDİR ve videoda tahmin olarak belirtilmiştir — hesaba girmez. 20 Ağustos 2026'da derlenmiştir. Yıllık enflasyon oranı bu videoda KULLANILMAMIŞTIR: iki kaynakta birbiriyle tutarsız biçimde geçtiği için dışarıda bırakıldı. Bu video Ocak 2027 zam oranını tahmin etmez, maaş tutarı vaat etmez, refah payı öngörmez ve memur maaşı kuralını kapsamaz. Yatırım veya malî tavsiye değildir; kendi durumunuz için resmî kaynağı esas alın.\n"
+}
