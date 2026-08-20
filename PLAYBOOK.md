@@ -625,6 +625,12 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
 
 - **`GOOGLEDRIVE_UPLOAD_FROM_URL` ignora o parent.** Tudo cai na raiz `0AL8gANwo3v7jUk9PVA`.
   O `MOVE_FILE` não é opcional — sem ele o pacote fica órfão.
+- **Os dois campos dele são `source_url` e `name`.** Não `file_url`, não `file_name`. A nota
+  antiga só corrigia metade (`name` em vez de `file_name`) e por isso o erro voltou em
+  20/08/2026: `Following fields are missing: {'source_url'}`. Uma ida e volta perdida por
+  uma nota incompleta — quando corrigir um nome de campo, confira os outros da mesma chamada.
+- A URL do Storage precisa do segmento **`/object/public/`**; sem ele o Drive recebe 400 porque
+  a leitura vai autenticada e o Composio não manda header.
 - Caminho no Storage: `AAAA-MM-DD-<slug>-<seq>-<artefato>`. Sem o `<seq>` dá **409** quando o
   mesmo canal entrega dois pacotes no mesmo dia.
 - **Não mande `x-upsert: true`** — a policy anon é INSERT-only e upsert responde 403.
