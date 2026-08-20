@@ -246,6 +246,33 @@ short de 47,6 s, fora do teto de 45, porque o dimensionamento só olhava o longo
 frio é o short que entrega — 19,32 v/d contra 0,15 dos longos no `setiap-level`. O alvo do
 short passa a ser o **meio** da faixa útil (37 s), nunca o teto.
 
+### O gargalo mudou de lugar: agora é a PESQUISA
+
+Primeiro disparo real, run 32349960529: **31 segundos, verde, zero spec escrita.**
+Duas causas empilhadas, e ambas só apareceram porque fui ler o log de um job verde:
+
+1. `ANTHROPIC_API_KEY` não existia nos segredos do repositório.
+2. O canal escolhido não tinha pauta em banco.
+
+Daí três regras que agora estão em código: a chave morre no início do job com `::error::`
+e não dentro do laço; **carência existindo e nada escrito vira `::warning::`** com o motivo
+por canal; e `carencia` devolve **código 3** quando há carência e nenhum canal com pauta,
+para o workflow não ler lista vazia como "fila cheia".
+
+E o achado maior. Com a escrita automatizada, **o que segura a frota passou a ser o banco
+de pautas.** Medido em 20/08:
+
+| canais com pauta em banco | canais em zero |
+|---|---|
+| resep-naik-level 12 · sx-educacao 12 · agla-level 4 · labtreinamento 4 · seja-mais-magra 4 | cocina-por-niveles · epomeno-epipedo · game-money-lab · kolejny-poziom · next-level-money · nivel-do-jogo · setiap-level · seviye-seviye |
+
+São ~24 pacotes de estoque de pauta antes de secar — e a fila por carência entrega
+justamente os canais em zero, porque **o mais carente costuma ser o que a pesquisa não
+visita há mais tempo**. Por isso `carencia` filtra canal sem pauta e avisa quais são.
+
+Quem enche o banco é o **PASSO 0 da rotina horária**, que continua manual. Automatizar a
+pesquisa é o próximo degrau e depende de acesso à YouTube Data API a partir do runner.
+
 ### O custo é novo nesta máquina
 
 Até aqui um pacote custava CPU de runner. Agora custa dólar de API, e a conta escala com a

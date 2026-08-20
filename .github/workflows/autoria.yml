@@ -85,6 +85,20 @@ jobs:
       - name: Fontes
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core
 
+      # A chave morre AQUI, e nao la dentro do laco. No primeiro disparo real
+      # (run 32349960529, 20/08/2026) o segredo nao existia no repositorio, o
+      # `autor.py` falhou por canal, o `|| true` do laco engoliu o codigo de
+      # saida, e o job terminou VERDE em 31 segundos sem escrever nada. Um cron
+      # nesse estado esvazia a frota por uma semana sem nunca acender uma luz.
+      - name: Conferir a chave da API
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+            echo "::error::ANTHROPIC_API_KEY nao esta nos segredos do repositorio. A escrita automatica nao roda sem ela: Settings > Secrets and variables > Actions > New repository secret."
+            exit 1
+          fi
+
       - name: Escrever
         id: escrever
         env:
@@ -95,17 +109,37 @@ jobs:
           CANAL: ${{ inputs.canal }}
           PAUTA: ${{ inputs.pauta }}
         run: |
-          set -uo pipefail
+          # `set +e` de PROPOSITO, e nao por descuido: o shell padrao do runner
+          # e `bash -e`, e com ele um canal que falha aborta o passo inteiro e
+          # os outros doze nem sao tentados. Aqui cada canal e tentado e o
+          # codigo de saida vira MOTIVO, nao fim de execucao. O que decide o
+          # resultado do passo e a contagem no fim, nao o ultimo comando.
+          set +e -uo pipefail
 
           if [ -n "$CANAL" ]; then
             FILA="$CANAL 1"
           else
             FILA=$(python3 fabrica/autor.py carencia)
+            CARENCIA=$?
+            if [ "$CARENCIA" = "3" ]; then
+              # Ha canal precisando de spec e NENHUM com pauta em banco. Nao e
+              # fila cheia, e o estado oposto: a frota vai secar, e quem age e
+              # a pesquisa da rotina horaria, nao este workflow.
+              echo "::warning::Ha canais com carencia de spec e nenhum com pauta em banco. A frota vai secar. Quem enche o banco de pautas e o PASSO 0 da rotina horaria (YOUTUBE_SEARCH + confirmacao em fonte institucional), gravando em videos com status='ideia'."
+              echo "escritas=0" >> "$GITHUB_OUTPUT"
+              echo "carentes=0" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$CARENCIA" != "0" ]; then
+              echo "::error::nao consegui ler a carencia do banco — sem isso o disparo escolheria canal no escuro"
+              exit 1
+            fi
           fi
 
           if [ -z "$FILA" ]; then
             echo "::notice::Nenhum canal com carencia de spec — a fila esta cheia."
             echo "escritas=0" >> "$GITHUB_OUTPUT"
+            echo "carentes=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -114,23 +148,41 @@ jobs:
           echo
 
           ESCRITAS=0
+          CARENTES=0
+          MOTIVOS=""
           # Um canal por vez, na ordem da carencia, ate fechar a cota do
           # disparo. Escrever DOIS pacotes seguidos para o mesmo canal e
           # possivel, mas nao aqui: o segundo nao veria o primeiro no acervo
           # de similaridade, porque a similaridade le o que ja foi ao ar.
           while read -r SLUG FALTAM; do
             [ -z "${SLUG:-}" ] && continue
-            [ "$ESCRITAS" -ge "$N" ] && break
+            CARENTES=$((CARENTES+1))
+            [ "$ESCRITAS" -ge "$N" ] && continue
             echo "::group::$SLUG (faltam $FALTAM)"
             if [ -n "$PAUTA" ]; then
-              python3 fabrica/autor.py escrever "$SLUG" --pauta "$PAUTA" && ESCRITAS=$((ESCRITAS+1)) || true
+              python3 fabrica/autor.py escrever "$SLUG" --pauta "$PAUTA" > saida.txt 2>&1
             else
-              python3 fabrica/autor.py escrever "$SLUG" && ESCRITAS=$((ESCRITAS+1)) || true
+              python3 fabrica/autor.py escrever "$SLUG" > saida.txt 2>&1
             fi
+            CODIGO=$?
+            cat saida.txt
             echo "::endgroup::"
+            if [ "$CODIGO" = "0" ]; then
+              ESCRITAS=$((ESCRITAS+1))
+            else
+              MOTIVOS="$MOTIVOS%0A- $SLUG: $(tail -n 1 saida.txt)"
+            fi
           done <<< "$FILA"
 
           echo "escritas=$ESCRITAS" >> "$GITHUB_OUTPUT"
+          echo "carentes=$CARENTES" >> "$GITHUB_OUTPUT"
+
+          # Carencia existindo e nada escrito NAO e "nada a fazer": e a frota
+          # secando. A diferenca entre um notice e um warning aqui e a
+          # diferenca entre alguem descobrir hoje ou na semana que vem.
+          if [ "$ESCRITAS" = "0" ]; then
+            echo "::warning::$CARENTES canal(is) com carencia de spec e NENHUMA escrita neste disparo:$MOTIVOS"
+          fi
 
       # Reprovada NAO e apagada: ela fica como `.json.reprovado` ao lado, e vai
       # para o commit junto. Apagar em silencio esconderia quanto o gerador
@@ -154,7 +206,11 @@ jobs:
             sleep $((2 ** t))
           done
 
+      # `pauta esgotada` e o motivo mais provavel e o mais facil de ler
+      # errado: a rotina horaria e quem pesquisa pauta e grava em `videos`
+      # como `status='ideia'`. Se ela parou, o gerador nao tem o que escrever
+      # — e o sintoma aparece aqui, nao la.
       - name: Nada escrito
-        if: ${{ steps.escrever.outputs.escritas == '0' }}
+        if: ${{ steps.escrever.outputs.escritas == '0' && steps.escrever.outputs.carentes != '0' }}
         run: |
-          echo "::notice::Nenhuma spec nova neste disparo. O log acima diz por que — pauta esgotada, portao reprovando, ou fato sem fonte."
+          echo "::notice::Nenhuma spec nova, e ha canal com carencia. O motivo por canal esta no aviso acima. Se for 'nenhuma pauta disponivel', o banco de pautas secou: quem o enche e a pesquisa da rotina horaria (PASSO 0), nao este workflow."

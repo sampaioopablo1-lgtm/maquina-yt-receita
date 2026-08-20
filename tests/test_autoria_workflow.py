@@ -141,3 +141,65 @@ def test_spec_de_maquina_sem_veredito_nao_entra_na_matriz(tmp_path, monkeypatch)
         assert any("veredito de fatos" in f for f in faltas), faltas
     finally:
         alvo.unlink()
+
+
+# ------------------------------------------- o que o primeiro disparo ensinou
+
+def test_a_chave_da_api_e_conferida_antes_do_laco():
+    """Run 32349960529, 20/08/2026: o segredo nao existia, o `autor.py` falhou
+    por canal, o `|| true` engoliu o codigo de saida e o job terminou VERDE em
+    31 segundos sem escrever nada. Um cron nesse estado esvazia a frota por uma
+    semana sem acender luz nenhuma."""
+    passos = DOC["jobs"]["escrever"]["steps"]
+    nomes = [p.get("name") for p in passos]
+    i_chave = nomes.index("Conferir a chave da API")
+    i_escrever = nomes.index("Escrever")
+    assert i_chave < i_escrever
+    assert "exit 1" in passos[i_chave]["run"]
+
+
+def test_o_laco_desliga_o_e_de_proposito_e_diz_por_que():
+    """O shell padrao do runner e `bash -e`: sem `set +e`, um canal que falha
+    aborta o passo e os outros doze nem sao tentados."""
+    passo = next(p for p in DOC["jobs"]["escrever"]["steps"]
+                 if p.get("id") == "escrever")
+    assert "set +e" in passo["run"]
+    assert "CODIGO=$?" in passo["run"]
+
+
+def test_carencia_sem_escrita_vira_aviso_e_nao_recado_discreto():
+    """A diferenca entre um notice e um warning aqui e a diferenca entre
+    alguem descobrir hoje ou na semana que vem."""
+    passo = next(p for p in DOC["jobs"]["escrever"]["steps"]
+                 if p.get("id") == "escrever")
+    assert "::warning::" in passo["run"]
+    assert "carentes=" in passo["run"]
+
+
+def test_pauta_esgotada_nao_e_lida_como_fila_cheia():
+    """Codigo 3 do `carencia`: ha canal precisando de spec e nenhum com pauta.
+    Sem um codigo proprio o workflow leria lista vazia como "nada a fazer"."""
+    passo = next(p for p in DOC["jobs"]["escrever"]["steps"]
+                 if p.get("id") == "escrever")
+    assert '"$CARENCIA" = "3"' in passo["run"]
+    assert "fila esta cheia" not in passo["run"].split('"$CARENCIA" = "3"')[1][:600]
+
+
+def test_o_recado_final_so_aparece_quando_ha_carencia():
+    passo = next(p for p in DOC["jobs"]["escrever"]["steps"]
+                 if p.get("name") == "Nada escrito")
+    assert "carentes != '0'" in passo["if"]
+
+
+def test_carencia_devolve_tambem_quantas_pautas_ha():
+    """Carencia sem pauta nao e trabalho disponivel, e um canal esperando
+    pesquisa. Ordenar so por carencia entrega justamente o canal que nao tem
+    como produzir — o canal mais carente costuma ser o que a pesquisa nao
+    visita ha mais tempo."""
+    import inspect
+
+    import autor
+
+    fonte = inspect.getsource(autor.carencia)
+    assert "pautas_disponiveis" in fonte
+    assert "(s, f, p)" in fonte

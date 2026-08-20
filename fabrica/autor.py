@@ -523,6 +523,10 @@ def carencia(sb_url: str, sb_key: str, alvo: int = 0) -> list[tuple[str, int]]:
     zero spec pendente e exatamente o canal que a frota nao tem o que renderizar
     amanha, e era o estado de oito dos treze em 20/08/2026.
 
+    Devolve (slug, quantas faltam, quantas pautas ha em banco). O terceiro
+    campo existe porque carencia sem pauta nao e trabalho disponivel — e um
+    canal esperando pesquisa.
+
     O alvo padrao e o teto diario do orquestrador, porque e o que a frota
     consegue consumir num dia. Encher a fila acima disso nao produz um video a
     mais: produz spec envelhecendo no repositorio com uma pauta que era atual
@@ -547,11 +551,25 @@ def carencia(sb_url: str, sb_key: str, alvo: int = 0) -> list[tuple[str, int]]:
         if slug not in com_destino or slug not in com_token:
             continue
         faltam = alvo - len(d["specs_pendentes"])
-        if faltam > 0:
-            saida.append((slug, faltam, len(d["specs_pendentes"])))
+        if faltam <= 0:
+            continue
+        # Canal sem pauta em banco NAO entra na fila. Nao e detalhe: no
+        # primeiro disparo real (run 32349960529, 20/08/2026) a fila devolveu
+        # `seviye-seviye`, que tem carencia de spec e ZERO linha
+        # `status='ideia'`, e o disparo terminou sem escrever nada. Ordenar so
+        # por carencia entrega, com frequencia, exatamente o canal que nao tem
+        # como produzir — porque o canal mais carente costuma ser justamente o
+        # que a pesquisa nao visita ha mais tempo.
+        #
+        # Quem enche o banco de pautas e a pesquisa da rotina horaria (PASSO
+        # 0), nao este arquivo. Filtrar aqui nao esconde o problema: o canal
+        # sem pauta sai listado como tal em `carencia --mostrar-tudo`, e o
+        # workflow avisa quando a fila inteira fica vazia por esse motivo.
+        pautas = len(pautas_disponiveis(slug, sb_url, sb_key))
+        saida.append((slug, faltam, len(d["specs_pendentes"]), pautas))
     # Mais carente primeiro; empate desfeito por quem tem menos spec pendente.
     saida.sort(key=lambda x: (-x[1], x[2], x[0]))
-    return [(s, f) for s, f, _ in saida]
+    return [(s, f, p) for s, f, _, p in saida]
 
 
 # --------------------------------------------------------------------- CLI
@@ -567,6 +585,8 @@ def main() -> int:
     ap.add_argument("--alvo", type=int, default=0,
                     help="specs pendentes desejadas por canal (padrao: o teto "
                          "diario do orquestra)")
+    ap.add_argument("--mostrar-tudo", dest="mostrar_tudo", action="store_true",
+                    help="listar tambem os canais sem pauta em banco")
     ap.add_argument("--seco", action="store_true",
                     help="escreve e mede, mas nao chama o portao de fatos nem grava")
     a = ap.parse_args()
@@ -575,8 +595,23 @@ def main() -> int:
     sb_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
 
     if a.comando == "carencia":
-        for slug, faltam in carencia(sb_url, sb_key, alvo=a.alvo):
-            print(f"{slug} {faltam}")
+        fila = carencia(sb_url, sb_key, alvo=a.alvo)
+        sem_pauta = [(s, f) for s, f, p in fila if p == 0]
+        if sem_pauta and not a.mostrar_tudo:
+            print(f"::warning::{len(sem_pauta)} canal(is) com carencia de spec e "
+                  f"ZERO pauta em banco — a pesquisa da rotina (PASSO 0) precisa "
+                  f"visita-los: {', '.join(s for s, _ in sem_pauta)}", file=sys.stderr)
+        produtiveis = 0
+        for slug, faltam, pautas in fila:
+            if pautas or a.mostrar_tudo:
+                print(f"{slug} {faltam}")
+                produtiveis += 1
+        # Codigo 3 = ha carencia, mas nenhum canal tem pauta para escrever.
+        # Isso NAO e "fila cheia", e o estado oposto: a frota vai secar e quem
+        # precisa agir e a pesquisa, nao o gerador. Sem um codigo proprio o
+        # workflow leria lista vazia como "nada a fazer" e terminaria verde.
+        if fila and not produtiveis:
+            return 3
         return 0
 
     if not a.slug:
