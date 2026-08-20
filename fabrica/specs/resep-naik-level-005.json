@@ -1,0 +1,679 @@
+{
+  "slug": "resep-naik-level",
+  "pacote": "resep-naik-level-005",
+  "idioma": "id",
+  "voz": "id-ID-GadisNeural",
+  "trilha": "Deliberate_Thought",
+  "paleta": {
+    "ink": "#3A1008",
+    "c1": "#C1440E",
+    "c2": "#E8B84B",
+    "bg": "#FDF6EC"
+  },
+  "thumb": {
+    "l1": "Rp15.545 atau Rp50.000",
+    "l2": "harga beras yang mana?"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Lima belas ribu",
+      "sub": "kata angka resmi",
+      "nar": "Bulan ini ada satu angka yang beredar di mana-mana. Harga beras rata-rata nasional: lima belas ribu lima ratus empat puluh lima rupiah per kilo.",
+      "cap": "Angka yang tidak cocok"
+    },
+    {
+      "layout": "item",
+      "kicker": "Naik berapa",
+      "preco": "nol koma satu enam persen",
+      "nar": "Dibanding bulan Juli, itu naik nol koma satu enam persen. Kecil sekali. Hampir tidak terasa kalau dibaca di layar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tapi",
+      "sub": "belanja Anda bilang lain",
+      "nar": "Lalu Anda pulang dari pasar. Uangnya habis lebih cepat dari minggu lalu. Dan angka tadi tidak menjelaskan apa pun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Pertanyaannya",
+      "sub": "siapa yang salah",
+      "nar": "Jadi siapa yang salah di sini? Badan statistik, atau perasaan Anda?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jawabannya",
+      "sub": "tidak keduanya",
+      "nar": "Tidak keduanya. Dua-duanya benar. Yang salah adalah cara angka itu dipakai.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang dijawab angka itu",
+      "preco": "pertanyaan negara",
+      "nar": "Angka rata-rata nasional menjawab pertanyaan tentang negara. Bukan pertanyaan tentang dapur Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dua pertanyaan berbeda",
+      "sub": "satu angka saja",
+      "nar": "Itu dua pertanyaan yang berbeda. Dan selama ini kita pakai satu angka untuk menjawab keduanya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Yang akan kita bongkar",
+      "itens": [
+        "Kenapa rata-rata menyesatkan",
+        "Jarak harga antar daerah",
+        "Cara bikin acuan sendiri"
+      ],
+      "nar": "Di video ini kita bongkar tiga hal. Kenapa rata-rata menyesatkan. Berapa jauh jarak harga antar daerah. Dan cara membuat acuan Anda sendiri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang tidak dijanjikan",
+      "sub": "ramalan harga",
+      "nar": "Yang tidak dijanjikan: video ini tidak meramal harga. Tidak ada yang bisa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Sumbernya",
+      "preco": "badan statistik",
+      "nar": "Semua angka di sini dari Badan Pusat Statistik, minggu pertama Agustus dua ribu dua puluh enam. Saya sebutkan sumbernya setiap kali.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kenapa itu penting",
+      "sub": "supaya bisa dicek",
+      "nar": "Kenapa itu penting? Supaya Anda bisa cek sendiri, dan tidak perlu percaya pada saya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Mulai",
+      "sub": "dari yang paling sering salah dibaca",
+      "nar": "Kita mulai dari bagian yang paling sering salah dibaca. Kata rata-rata.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tujuh bulan",
+      "sub": "bukan satu bulan",
+      "nar": "Naik nol koma satu enam persen terdengar seperti tidak ada apa-apa. Sampai Anda lihat berapa lama itu sudah terjadi.",
+      "cap": "Tujuh bulan, bukan satu minggu"
+    },
+    {
+      "layout": "item",
+      "kicker": "Berapa lama",
+      "preco": "Januari sampai Juli",
+      "nar": "Harga beras naik tujuh bulan berturut-turut. Dari Januari sampai Juli tahun ini. Setiap bulan naik sedikit.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Masalahnya",
+      "sub": "sedikit itu menumpuk",
+      "nar": "Dan di sinilah letak masalahnya. Sedikit itu menumpuk.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bayangkan",
+      "sub": "satu tangga",
+      "nar": "Bayangkan satu tangga. Setiap anak tangga rendah. Tidak ada yang terasa berat saat dinaiki.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tapi setelah tujuh",
+      "sub": "Anda sudah di lantai lain",
+      "nar": "Tapi setelah tujuh anak tangga, Anda sudah berada di lantai yang lain. Padahal tidak ada satu langkah pun yang terasa besar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Itu yang terjadi",
+      "preco": "pada uang belanja",
+      "nar": "Itu persis yang terjadi pada uang belanja Anda. Tidak ada bulan yang terasa mencekik. Tapi tahun ini terasa jauh lebih berat dari tahun lalu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kenapa terlewat",
+      "sub": "karena kita baca bulanan",
+      "nar": "Kenapa ini terlewat? Karena berita menyajikan angka bulanan, dan kita membacanya juga bulanan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ubah kacamatanya",
+      "sub": "baca per tujuh bulan",
+      "nar": "Coba ubah kacamatanya. Jangan tanya berapa naiknya bulan ini. Tanya berapa naiknya sejak Januari.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dua pertanyaan",
+      "itens": [
+        "Naik berapa bulan ini",
+        "Naik berapa sejak Januari"
+      ],
+      "nar": "Dua pertanyaan, dua jawaban yang sangat berbeda. Yang pertama menenangkan. Yang kedua menjelaskan dompet Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kabar baiknya",
+      "preco": "kenaikan melambat",
+      "nar": "Ada kabar baiknya juga, dan itu nyata. Menurut Badan Pusat Statistik, kenaikan mulai melambat di awal Agustus.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Melambat",
+      "sub": "bukan turun",
+      "nar": "Tapi melambat bukan berarti turun. Tangga berhenti naik secepat sebelumnya. Anda tetap berdiri di lantai yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Sekarang",
+      "sub": "bagian yang jarang dibaca",
+      "nar": "Sekarang bagian dari data bulan ini yang paling jarang dibaca. Jarak antar daerah.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Angka yang sama",
+      "sub": "dua dunia berbeda",
+      "nar": "Rata-rata nasional beras minggu itu: lima belas ribu lima ratus empat puluh lima rupiah. Sekarang lihat ujung-ujungnya.",
+      "cap": "Jarak yang empat kali lipat"
+    },
+    {
+      "layout": "barras",
+      "kicker": "Sebaran harga beras",
+      "itens": [
+        "Termurah",
+        "Rata-rata",
+        "Termahal"
+      ],
+      "alturas": [
+        0.25,
+        0.31,
+        1.0
+      ],
+      "nar": "Harga terendah yang tercatat: dua belas ribu lima ratus rupiah per kilo. Harga tertinggi: lima puluh ribu rupiah per kilo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Selisihnya",
+      "preco": "empat kali lipat",
+      "nar": "Itu selisih empat kali lipat. Beras yang sama, negara yang sama, minggu yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Di mana yang termahal",
+      "sub": "daerah paling jauh",
+      "nar": "Yang tertinggi tercatat di daerah seperti Pegunungan Bintang, Intan Jaya, dan Nabire. Ongkos angkut ke sana jauh lebih mahal.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Artinya",
+      "sub": "rata-rata itu titik kosong",
+      "nar": "Artinya rata-rata itu adalah titik yang hampir tidak ditempati siapa pun. Sangat sedikit orang yang benar-benar membayar harga rata-rata.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bukan cuma antar pulau",
+      "sub": "antar pasar juga",
+      "nar": "Dan ini bukan cuma soal antar pulau. Di kota yang sama, dua pasar bisa beda harga. Anda mungkin sudah tahu itu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bukti dari data",
+      "preco": "seratus enam daerah",
+      "nar": "Data minggu itu mencatat kenaikan indeks harga beras di seratus enam kabupaten dan kota.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Minggu sebelumnya",
+      "preco": "seratus lima puluh lima",
+      "nar": "Minggu terakhir Juli angkanya seratus lima puluh lima. Jadi jumlah daerah yang masih naik memang berkurang.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sementara itu",
+      "sub": "dua puluh satu provinsi turun",
+      "nar": "Sementara itu indeks harga turun di dua puluh satu provinsi. Naik dan turun terjadi bersamaan, di negara yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Rata-rata menutupi itu",
+      "sub": "semuanya jadi satu angka",
+      "nar": "Rata-rata menutupi semua itu. Naik, turun, jauh, dekat, semuanya diperas jadi satu angka.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bukan berarti salah",
+      "preco": "angka itu perlu",
+      "nar": "Bukan berarti angka itu salah atau tidak berguna. Pemerintah butuh satu angka untuk melihat seluruh negeri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Tapi Anda",
+      "sub": "belanja di satu pasar",
+      "nar": "Tapi Anda tidak belanja di seluruh negeri. Anda belanja di satu pasar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jadi",
+      "sub": "bikin acuan sendiri",
+      "nar": "Jadi solusinya sederhana, dan tidak butuh aplikasi apa pun. Anda bikin harga acuan Anda sendiri.",
+      "cap": "Harga acuan Anda sendiri"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Alatnya",
+      "sub": "buku tulis juga bisa",
+      "nar": "Alatnya bebas. Buku tulis, catatan di ponsel, atau satu lembar di kulkas. Yang penting bentuknya tetap.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Empat kolom",
+      "itens": [
+        "Nama barang",
+        "Satuan",
+        "Harga",
+        "Tanggal dan tempat"
+      ],
+      "nar": "Empat kolom saja. Nama barang. Satuan. Harga. Lalu tanggal dan tempat belinya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kolom satuan",
+      "preco": "yang paling sering dilewat",
+      "nar": "Kolom satuan itu yang paling sering dilewat, dan justru yang paling menentukan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kenapa",
+      "sub": "biar bisa dibandingkan",
+      "nar": "Kenapa? Karena tanpa satuan, dua harga tidak bisa dibandingkan sama sekali.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Contohnya",
+      "preco": "bungkus versus kilo",
+      "nar": "Beras satu bungkus harganya sekian. Beras satu kilo harganya sekian. Kalau bungkusnya tidak ditimbang, dua angka itu tidak bicara.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Aturannya",
+      "sub": "selalu ke satuan standar",
+      "nar": "Aturannya: selalu ubah ke satuan standar. Per kilo, per liter, per butir. Sekali saja, waktu mencatat.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Berapa barang",
+      "itens": [
+        "Delapan sampai sepuluh",
+        "Yang dibeli tiap minggu",
+        "Bukan yang sesekali"
+      ],
+      "nar": "Berapa barang yang perlu dicatat? Delapan sampai sepuluh. Pilih yang Anda beli hampir tiap minggu, bukan yang sesekali.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kenapa dibatasi",
+      "sub": "biar bertahan",
+      "nar": "Kenapa dibatasi? Karena daftar yang terlalu panjang akan berhenti diisi dalam dua minggu. Ini soal bertahan, bukan soal lengkap.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Tanggal itu wajib",
+      "preco": "harga tanpa tanggal tidak berarti",
+      "nar": "Dan tanggal itu wajib. Harga tanpa tanggal tidak berarti apa-apa bulan depan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Setelah empat minggu",
+      "sub": "Anda punya sesuatu",
+      "nar": "Setelah empat minggu Anda punya sesuatu yang tidak dimiliki berita mana pun. Harga rata-rata dapur Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Dengan itu",
+      "sub": "kita bisa berhitung",
+      "nar": "Dan dengan angka itu, kita akhirnya bisa berhitung.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Urutannya",
+      "sub": "sering terbalik",
+      "nar": "Kebanyakan orang menentukan uang belanja dulu, lalu memaksa menunya masuk. Urutan itu terbalik.",
+      "cap": "Anggaran mingguan dari harga Anda"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Urutan yang benar",
+      "sub": "pemakaian dulu",
+      "nar": "Urutan yang benar dimulai dari pemakaian. Berapa yang benar-benar habis di rumah Anda dalam seminggu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Contoh beras",
+      "preco": "ditimbang, bukan ditebak",
+      "nar": "Ambil beras. Jangan ditebak. Timbang sekali, atau catat berapa lama satu karung bertahan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Lalu kalikan",
+      "sub": "dengan harga Anda",
+      "nar": "Lalu kalikan pemakaian itu dengan harga dari catatan Anda sendiri. Bukan harga di berita.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tiga langkah",
+      "itens": [
+        "Pemakaian seminggu",
+        "Kali harga Anda",
+        "Itu anggaran"
+      ],
+      "nar": "Tiga langkah. Pemakaian seminggu. Dikali harga Anda. Hasilnya anggaran mingguan yang nyata.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bedanya besar",
+      "sub": "angka ini milik Anda",
+      "nar": "Bedanya besar. Angka ini tidak dipinjam dari siapa pun. Dia keluar dari dapur Anda sendiri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kalau hasilnya lebih besar",
+      "preco": "dari uang yang ada",
+      "nar": "Sering kali hasilnya lebih besar dari uang yang tersedia. Itu bukan kegagalan. Itu informasi.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sekarang Anda tahu",
+      "sub": "selisihnya di mana",
+      "nar": "Sekarang Anda tahu selisihnya berapa, dan di barang yang mana. Sebelumnya yang Anda tahu cuma uangnya kurang.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tiga cara menutup selisih",
+      "itens": [
+        "Kurangi jumlah",
+        "Ganti barang",
+        "Pindah tempat beli"
+      ],
+      "nar": "Ada tiga cara menutup selisih. Kurangi jumlahnya. Ganti barangnya. Atau pindah tempat belinya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang ketiga",
+      "sub": "paling jarang dicoba",
+      "nar": "Yang ketiga paling jarang dicoba, padahal datanya sudah bilang jarak antar tempat itu besar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Catat hasilnya",
+      "preco": "biar tahu mana yang jalan",
+      "nar": "Dan catat mana yang Anda pilih. Bulan depan Anda perlu tahu cara mana yang benar-benar jalan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Sekarang",
+      "sub": "kapan harus berubah",
+      "nar": "Terakhir dari bagian hitungan: kapan Anda harus mengubah rencana.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Masalah kedua",
+      "sub": "kapan bereaksi",
+      "nar": "Ada masalah kedua yang jarang dibahas. Bukan berapa harganya, tapi kapan Anda harus bereaksi.",
+      "cap": "Titik picu, bukan panik"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dua kesalahan",
+      "sub": "sama mahalnya",
+      "nar": "Ada dua kesalahan di sini, dan keduanya sama mahalnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kesalahan pertama",
+      "preco": "bereaksi ke setiap berita",
+      "nar": "Yang pertama: berganti menu setiap kali ada berita harga naik. Belanja jadi kacau, dan hemat tidak pernah datang.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kesalahan kedua",
+      "preco": "tidak bereaksi sama sekali",
+      "nar": "Yang kedua: tidak bereaksi sama sekali sampai uangnya habis di hari kedua puluh lima.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jalan tengahnya",
+      "sub": "aturan yang ditulis",
+      "nar": "Jalan tengahnya bukan perasaan. Jalan tengahnya adalah satu aturan yang Anda tulis sebelum harganya naik.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Bentuk aturannya",
+      "itens": [
+        "Barang apa",
+        "Naik berapa persen",
+        "Lalu apa"
+      ],
+      "nar": "Bentuknya sederhana. Barang apa. Naik berapa persen dari acuan Anda. Lalu tindakannya apa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Contohnya",
+      "preco": "satu kalimat saja",
+      "nar": "Contoh satu kalimat. Kalau telur naik lebih dari sepersepuluh dari acuan saya, minggu itu saya tukar dengan tahu dan tempe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kenapa ditulis dulu",
+      "sub": "supaya bukan panik",
+      "nar": "Kenapa harus ditulis lebih dulu? Karena keputusan yang diambil saat panik hampir selalu lebih mahal.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Berapa aturan",
+      "sub": "dua atau tiga cukup",
+      "nar": "Berapa aturan yang perlu? Dua atau tiga saja. Untuk barang yang paling besar porsinya di belanja Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Batasnya milik Anda",
+      "preco": "bukan dari norma mana pun",
+      "nar": "Dan angka batasnya Anda yang tentukan. Tidak ada lembaga mana pun yang menetapkan berapa persen itu terlalu banyak untuk dapur Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Terakhir",
+      "sub": "batas video ini",
+      "nar": "Sebelum ditutup, satu bagian yang jarang ada di video seperti ini. Batasnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Batas pertama",
+      "sub": "ini bukan ramalan",
+      "nar": "Batas pertama, dan yang paling penting. Tidak ada di video ini yang meramal harga bulan depan.",
+      "cap": "Yang tidak dijanjikan video ini"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang bisa dilakukan",
+      "sub": "mengukur yang sudah terjadi",
+      "nar": "Yang bisa Anda lakukan hanya mengukur apa yang sudah terjadi, dengan lebih teliti dari sebelumnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Batas kedua",
+      "preco": "angka nasional tetap berguna",
+      "nar": "Batas kedua. Angka rata-rata nasional tidak salah dan tidak percuma. Dia menjawab pertanyaan tentang negara, dan itu memang perlu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang keliru",
+      "sub": "memakainya untuk dapur",
+      "nar": "Yang keliru cuma satu: memakai angka itu untuk memutuskan belanja satu keluarga.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Batas ketiga",
+      "preco": "ini tidak menjanjikan hemat",
+      "nar": "Batas ketiga. Mencatat harga tidak otomatis membuat belanja lebih murah. Dia membuat belanja lebih terbaca.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kadang hasilnya",
+      "sub": "belanja naik",
+      "nar": "Kadang hasilnya justru sebaliknya. Anda sadar selama ini kurang membeli sesuatu yang memang dibutuhkan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Itu tetap kemajuan",
+      "sub": "keputusan jadi sadar",
+      "nar": "Itu tetap kemajuan. Keputusannya jadi Anda yang ambil, bukan harga yang ambil untuk Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Yang dibawa pulang",
+      "itens": [
+        "Catat delapan barang",
+        "Pakai satuan standar",
+        "Tulis satu aturan"
+      ],
+      "nar": "Tiga hal untuk dibawa pulang. Catat delapan barang. Pakai satuan standar. Tulis satu aturan sebelum harga naik.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Mulai kapan",
+      "preco": "belanja berikutnya",
+      "nar": "Mulainya kapan? Belanja berikutnya. Bukan bulan depan, dan bukan setelah beli buku baru.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Empat minggu lagi",
+      "sub": "Anda punya acuan",
+      "nar": "Empat minggu lagi Anda sudah punya acuan sendiri. Dan berita harga tidak lagi jadi satu-satunya angka yang Anda punya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Video berikutnya",
+      "sub": "belanja mingguan versus bulanan",
+      "nar": "Di video berikutnya kita pakai catatan itu untuk satu pertanyaan yang sering salah dijawab. Belanja mingguan atau bulanan, mana yang benar-benar hemat?",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Dua belas ribu",
+      "sub": "harga terendah",
+      "nar": "Beras termurah dua belas ribu lima ratus rupiah per kilo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Lima puluh ribu",
+      "sub": "harga tertinggi",
+      "nar": "Termahal lima puluh ribu. Minggu yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Rata-rata",
+      "sub": "lima belas ribu",
+      "nar": "Rata-ratanya lima belas ribu. Hampir tak ada yang bayar segitu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Artinya",
+      "sub": "bukan harga Anda",
+      "nar": "Angka itu soal negara. Bukan soal dapur Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang dipakai",
+      "sub": "catatan sendiri",
+      "nar": "Catat delapan barang: nama, satuan, harga, tanggal.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Empat minggu",
+      "sub": "acuan Anda jadi",
+      "nar": "Empat minggu lagi acuannya milik Anda. Hitungannya di video lengkap.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Harga acuan dapur sendiri: kenapa rata-rata nasional tidak cukup\n\n## TITULO\nBeras Rp15.545 Kata BPS, di Pasar Bisa Rp50 Ribu: Cara Hitung Uang Dapur Mingguan Anda Sendiri\n\n## DESCRICAO\nBadan Pusat Statistik mencatat harga beras rata-rata nasional semua kualitas pada minggu pertama Agustus 2026 sebesar Rp15.545 per kilogram, naik 0,16 persen dibanding Juli 2026. Angka itu terdengar kecil. Tapi banyak pembaca berita merasa uang belanjanya justru habis lebih cepat.\n\nDua-duanya benar. Yang keliru adalah cara angka rata-rata dipakai.\n\nPada minggu yang sama, BPS mencatat harga beras terendah Rp12.500 per kilogram dan tertinggi Rp50.000 per kilogram — daerah dengan harga tertinggi antara lain Pegunungan Bintang, Intan Jaya, dan Nabire, yang ongkos angkutnya jauh lebih mahal. Itu selisih empat kali lipat untuk komoditas yang sama, di negara yang sama, di minggu yang sama. Rata-rata nasional adalah titik yang hampir tidak ditempati siapa pun.\n\nKenaikan kecil bulanan juga menyembunyikan hal lain: harga beras naik tujuh bulan berturut-turut, dari Januari sampai Juli 2026. Setiap bulan naik sedikit, dan sedikit itu menumpuk. Kabar baiknya, kenaikan mulai melambat — kenaikan indeks harga beras tercatat di 106 kabupaten/kota pada minggu pertama Agustus, turun dari 155 kabupaten/kota di minggu terakhir Juli, dan indeks harga turun di 21 provinsi. Melambat bukan berarti turun.\n\nVideo ini tidak meramal harga, dan tidak menjanjikan penghematan dalam rupiah. Isinya satu sistem yang bisa dipakai siapa saja tanpa aplikasi:\n\nHarga acuan sendiri — empat kolom saja: nama barang, satuan, harga, tanggal dan tempat beli. Kolom satuan adalah yang paling sering dilewat dan justru paling menentukan, karena tanpa satuan standar dua harga tidak bisa dibandingkan. Delapan sampai sepuluh barang yang Anda beli hampir tiap minggu sudah cukup; daftar yang terlalu panjang berhenti diisi dalam dua minggu.\n\nAnggaran mingguan — urutannya dimulai dari pemakaian nyata di rumah Anda, dikali harga dari catatan Anda sendiri, bukan harga di berita. Kalau hasilnya lebih besar dari uang yang tersedia, itu bukan kegagalan melainkan informasi: sekarang Anda tahu selisihnya berapa dan di barang yang mana.\n\nTitik picu — satu aturan yang ditulis sebelum harga naik, bukan saat panik. Barang apa, naik berapa persen dari acuan Anda, lalu tindakannya apa. Dua atau tiga aturan sudah cukup, dan angka batasnya Anda yang tentukan.\n\nDan bagian yang jarang ada: batas dari semua ini. Angka rata-rata nasional tidak salah — dia menjawab pertanyaan tentang negara. Mencatat harga tidak otomatis membuat belanja lebih murah; dia membuat belanja lebih terbaca.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nDua pertanyaan, karena jawabannya pasti beda jauh antar daerah: berapa harga beras per kilo di pasar Anda minggu ini, dan di kota mana? Saya sedang mengumpulkan jawabannya untuk video berikutnya, tentang belanja mingguan versus bulanan.\n\n## HASHTAGS\n#UangDapur #HargaBeras #ResepNaikLevel\n\n## TAGS\nharga beras, uang dapur, anggaran belanja, belanja mingguan, hemat belanja, harga pangan, bps, inflasi pangan, ibu rumah tangga, atur keuangan, dapur hemat, harga sembako, catatan belanja, biaya dapur, keuangan keluarga\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Bahasa Indonesia (id) | Categoria: Educacao (27)\n- Tidak dibuat untuk anak-anak\n- Pengungkapan konten yang diubah atau sintetis: YA (suara dihasilkan AI)\n- Lokasi: Indonesia | Lisensi: Lisensi standar YouTube\n- Iklan di tengah: aktif (durasi di atas delapan menit)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nSeluruh angka harga berasal dari Badan Pusat Statistik (BPS) untuk minggu pertama Agustus 2026, sebagaimana dilaporkan CNN Indonesia dan CNBC Indonesia pada 10 Agustus 2026: harga beras rata-rata nasional Rp15.545 per kilogram (naik 0,16 persen dibanding Juli), rentang Rp12.500 sampai Rp50.000 per kilogram, dan minyak goreng Rp20.221 per liter (turun 0,04 persen). Jumlah kabupaten/kota dengan kenaikan indeks perkembangan harga beras (106, turun dari 155) dan penurunan indeks di 21 provinsi juga bersumber dari BPS untuk periode yang sama. Kenaikan harga beras tujuh bulan berturut-turut (Januari sampai Juli 2026) dilaporkan berdasarkan data BPS. Diakses pada 20 Agustus 2026. Angka bisa berubah setelah rilis berikutnya — periksa kembali di bps.go.id dan di Pusat Informasi Harga Pangan Strategis Bank Indonesia. Contoh batas persentase pada bagian titik picu adalah contoh, bukan ketentuan dari lembaga mana pun. Video ini bersifat edukatif tentang pencatatan harga dan penyusunan anggaran rumah tangga, bukan nasihat keuangan atau gizi.\n"
+}
