@@ -68,6 +68,31 @@ consentimento nos doze canais, e essa é decisão do dono.
 `fabrica/aprendizado.py` é quem lê isso e monta o bloco que entra no prompt do
 `autor.py`. O `diario.yml` imprime o painel a cada ciclo.
 
+### A hora de publicar deixou de ser sobra de escalonamento
+
+Até 20/08/2026 **nada** decidia a hora: o pacote subia quando o render
+terminava, e o render começava quando o ciclo de 30 min calhava de pegar a spec.
+O custo foi medido, em hora UTC de publicação dos shorts:
+
+| canal | UTC | hora local |
+|---|---|---|
+| `seviye-seviye` (Istambul) | 00, 01, 06 | **03h, 04h**, 09h |
+| `kolejny-poziom` (Varsóvia) | 00, 01 | **02h, 03h** |
+| `epomeno-epipedo` (Atenas) | 03, 04, 05 | 06h, 07h, 08h |
+
+O `seviye-seviye` é o dono do **melhor short da frota** — mediana de 81,5 v/d — e
+dois terços das publicações dele caíram na madrugada de Istambul.
+
+`fabrica/janela.py` corrige, e afirma só o que não precisa de medição: **entre
+01h e 08h local o canal cai para o fim da fila**. É *preferência, nunca portão* —
+se não houver mais nada pronto ele dispara igual, porque frota parada não rende.
+A fila anda de meia em meia hora, então todo canal alcança a própria janela
+dentro do mesmo dia.
+
+Qual é a *melhor* hora dentro do dia continua sem resposta, e está registrado
+como experimento aberto — a amostra atual mistura hora, tema e formato, então
+ranquear horas agora seria inventar.
+
 ---
 
 ## 1. O gargalo, declarado

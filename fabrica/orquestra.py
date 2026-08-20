@@ -352,8 +352,26 @@ def proximo(videos: list[dict], n: int,
     # pacote em 19/08 com a trava de tres "funcionando".
     por_canal_hoje: dict[str, int] = dict(pacotes_na_janela(videos))
 
+    # HORA LOCAL primeiro, depois distancia da meta.
+    #
+    # Ate 20/08/2026 nada decidia a hora de publicacao: o pacote subia quando o
+    # render terminava, e o render comecava quando o ciclo de trinta minutos
+    # calhava de pegar a spec. A hora era sobra de escalonamento de runner.
+    #
+    # O custo disso foi medido: o seviye-seviye, dono do melhor short da frota
+    # (mediana de 81,5 views/dia), publicou dois tercos dos seus as 03h e 04h de
+    # Istambul. Um short depende do engajamento da primeira hora para o feed
+    # distribuir, e a primeira hora na madrugada compete com ninguem acordado.
+    #
+    # E PREFERENCIA e nao portao: canal na faixa morta cai para o fim da fila,
+    # nao sai dela. Se nao houver mais nada pronto ele dispara igual — frota
+    # parada nao rende nada, e a fila anda de meia em meia hora, entao todo
+    # canal alcanca a propria janela dentro do mesmo dia.
+    import janela as J
+
     ordem = sorted(est["canais"].items(),
-                   key=lambda kv: (-kv[1]["faltam"], kv[0]))
+                   key=lambda kv: (0 if J.na_janela(kv[0]) else 1,
+                                   -kv[1]["faltam"], kv[0]))
     for canal, info in ordem:
         for nome in info["specs_pendentes"]:
             if len(escolhidas) >= n:

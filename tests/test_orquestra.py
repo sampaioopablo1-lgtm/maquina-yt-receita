@@ -72,11 +72,46 @@ def test_linha_sem_titulo_nao_some_da_contagem():
 
 def test_canal_mais_longe_da_meta_vem_primeiro():
     """A meta e POR CANAL: o primeiro video de um canal em zero vale mais que
-    o decimo de um canal com nove."""
+    o decimo de um canal com nove.
+
+    Em 20/08/2026 esta regra deixou de ser a PRIMEIRA chave de ordenacao. A
+    hora local do publico passou na frente dela — um short publicado as 3h da
+    manha perde distribuicao qualquer que seja a carencia do canal, e a fila
+    anda de meia em meia hora, entao o canal preterido alcanca a propria
+    janela no mesmo dia (fabrica/janela.py).
+
+    A regra da meta continua valendo INTEIRA, so que dentro de cada grupo de
+    janela. E isso que este teste passou a medir: ela nao foi enfraquecida,
+    foi aninhada.
+    """
+    import janela as J
+
     escolhidas, _ = M.proximo(DADOS, n=50)
     est = M.estado(DADOS)
-    faltas = [est["canais"][e["canal"]]["faltam"] for e in escolhidas]
-    assert faltas == sorted(faltas, reverse=True), faltas
+
+    por_grupo: dict[bool, list[int]] = {}
+    for e in escolhidas:
+        grupo = J.na_janela(e["canal"])
+        por_grupo.setdefault(grupo, []).append(est["canais"][e["canal"]]["faltam"])
+
+    for grupo, faltas in por_grupo.items():
+        assert faltas == sorted(faltas, reverse=True), (grupo, faltas)
+
+
+def test_a_janela_e_a_chave_de_fora_e_a_meta_a_de_dentro(monkeypatch):
+    """Ordem explicita, para a troca de 20/08 nao se desfazer por acidente:
+    canal acordado e mais PERTO da meta vem antes de canal dormindo e mais
+    LONGE dela."""
+    import janela as J
+
+    est = {"canais": {"dormindo_longe": {"faltam": 10},
+                      "acordado_perto": {"faltam": 1}}}
+    monkeypatch.setattr(J, "na_janela",
+                        lambda slug, agora=None: slug.startswith("acordado"))
+    ordem = sorted(est["canais"].items(),
+                   key=lambda kv: (0 if J.na_janela(kv[0]) else 1,
+                                   -kv[1]["faltam"], kv[0]))
+    assert [k for k, _ in ordem] == ["acordado_perto", "dormindo_longe"]
 
 
 def test_teto_de_tres_por_dia_por_canal():
