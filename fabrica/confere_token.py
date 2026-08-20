@@ -11,6 +11,26 @@ proprio marco de 7 dias, um a um, sem aviso.
 Falhar aqui custa 30 segundos e deixa a mensagem certa no log; falhar no
 passo de publicacao custa o render inteiro e um pacote parado.
 
+Desde 20/08/2026 ele confere mais que "o token vive". O epomeno-epipedo-008 foi
+publicado e a legenda do longo levou 403 "permissions not sufficient", porque a
+concessao real do Google nao tinha `youtube.force-ssl` — enquanto
+`config.yt_token_epomeno-epipedo.scopes` a LISTAVA. Esse campo guarda o que foi
+PEDIDO no fluxo de autorizacao, nao o que foi CONCEDIDO, e eu o li como prova de
+permissao numa auditoria dos treze canais. Nao e prova.
+
+A prova existe e e de graca: a resposta do refresh traz o campo `scope`, que e a
+lista EFETIVA. Este arquivo le esse campo e exige force-ssl — sem ela o longo
+sobe sem legenda, que nao e cosmetico em canal de idioma nao-ingles
+(aprendizado 93).
+
+O campo `scopes` do banco continua como esta, DE PROPOSITO. Eu cheguei a
+escrever aqui um passo que o corrigia com a resposta do Google, e o desfiz antes
+de rodar: `config.valor` e uma coluna jsonb unica, um PATCH nela substitui o
+objeto INTEIRO, e dentro desse objeto mora o `refresh_token`. Consertar um campo
+descritivo nao vale o risco de apagar a credencial dos treze canais. A saida
+certa e nao confiar no campo — e e o que este arquivo faz agora, perguntando ao
+Google toda vez em vez de ler o registro.
+
 Uso: python3 fabrica/confere_token.py <canal>
 Ambiente: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY (ou SB/KEY).
 """
@@ -42,6 +62,15 @@ def token_do_canal(canal, sb, sk):
     return linhas[0]["valor"]
 
 
+ESCOPOS_NECESSARIOS = {
+    # captions.insert do longo. Sem ela o video sobe, e sobe MUDO para a busca.
+    "https://www.googleapis.com/auth/youtube.force-ssl": (
+        "enviar a faixa de legenda do longo"),
+    # videos.insert.
+    "https://www.googleapis.com/auth/youtube.upload": ("publicar o video"),
+}
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit("uso: python3 fabrica/confere_token.py <canal>")
@@ -58,7 +87,8 @@ def main():
     req = urllib.request.Request(tok["token_uri"], data=dados, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            json.load(r)["access_token"]
+            resposta = json.load(r)
+        resposta["access_token"]
     except urllib.error.HTTPError as e:
         corpo = e.read().decode("utf-8", "replace")[:300]
         sys.exit(
@@ -69,7 +99,31 @@ def main():
             f"proposito — renderizar sem rota de publicacao gasta 20 minutos "
             f"para produzir um pacote parado (aprendizado 304)."
         )
-    print(f"token de {canal}: vivo")
+    # `scope` vem da resposta do proprio Google: e o que foi CONCEDIDO. Se o
+    # campo faltar (algumas respostas de refresh o omitem), nao da para concluir
+    # nada — e dizer "nao deu para conferir" e melhor que inventar aprovacao.
+    bruto = resposta.get("scope")
+    if not bruto:
+        print(f"token de {canal}: vivo (a resposta do refresh nao trouxe "
+              f"`scope`; os escopos efetivos ficam por conferir)")
+        return 0
+
+    concedidos = set(bruto.split())
+    faltando = [d for e, d in ESCOPOS_NECESSARIOS.items() if e not in concedidos]
+    if faltando:
+        sys.exit(
+            f"ESCOPO FALTANDO ({canal}): a concessao do Google nao permite "
+            f"{', '.join(faltando)}.\n"
+            f"Concedidos: {' '.join(sorted(concedidos)) or '(nenhum)'}\n"
+            f"O token VIVE — o que falta e permissao, e reautorizar e a unica "
+            f"saida. O Pablo precisa refazer a autorizacao DESTE canal marcando "
+            f"todas as caixas do consentimento.\n"
+            f"O render foi abortado de proposito: publicar um longo que nao "
+            f"pode levar legenda e publicar mudo para a busca (aprendizado 93), "
+            f"e publicacao nao se desfaz."
+        )
+    print(f"token de {canal}: vivo, com os {len(ESCOPOS_NECESSARIOS)} escopos "
+          f"necessarios concedidos")
     return 0
 
 
