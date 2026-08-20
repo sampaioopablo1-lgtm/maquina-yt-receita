@@ -343,42 +343,31 @@ def _gate_capitulos(sp):
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
 SHORT_MIN_S, SHORT_MAX_S = 30, 45
-# Erro do modelo de voz em SHORT, medido short a short conforme eles vao ao ar.
-# A calibracao so ve cena de LONGO — short queima a legenda e nunca exporta
-# `.srt` — entao a constante (R, P) nunca viu uma cena de short.
+# Residuo do modelo de voz em SHORT, DEPOIS de corrigido o vies.
 #
-#   next-level-money-005  en-US-Andrew    35,1 -> 33,8   -3,7%
-#   seviye-seviye-004     tr-TR-Ahmet     35,9 -> 34,7   -3,3%
-#   setiap-level-009      id-ID-Ardi      32,3 -> 32,5   +0,6%
-#   agla-level-004        hi-IN-Madhur    42,3 -> 43,6   +3,1%
-#   resep-naik-level-005  id-ID-Gadis     37,8 -> 40,3   +6,6%
-#   seja-mais-magra-004   pt-BR-Francisca 35,8 -> 38,2   +6,7%
-#   game-money-lab-004    en-GB-Ryan      34,8 -> 37,2   +6,9%
-#   labtreinamento-003    pt-BR-Thalita   44,3 -> 47,6   +7,4%   <- foi ao ar fora
-#   nivel-do-jogo-005     pt-BR-Antonio   34,7 -> 37,5   +8,1%
+# Esta constante tem uma historia que vale mais que o numero. Ela mudou quatro
+# vezes em dois dias — 3%, 5%, 7%, 7,5% — e as quatro pelo mesmo motivo: um
+# short novo ia ao ar, eu media UM erro, ele estourava a margem, eu subia a
+# margem para cobrir o pior caso ate ali. Isso nunca converge, porque o MAXIMO
+# de uma amostra cresce com n. Era perseguicao, nao regra.
 #
-# n=9, mediana +6,6%, faixa de -3,7% a +8,1%. NAO ha vies garantido: duas das
-# nove vieram negativas. Ha dispersao, e tratar dispersao como vies leva a
-# corrigir na direcao errada quando o sinal inverte.
+# O que encerrou a perseguicao nao foi estatistica melhor: foi descobrir que o
+# dado ja estava no banco. A esteira grava `videos.duracao_s` com ffprobe do
+# arquivo montado — a duracao REAL de todo short publicado esta la desde o
+# primeiro dia. Eu media de um em um o que dava para medir de uma vez (a mesma
+# classe do aprendizado 378: contar arquivo em vez de contar trabalho).
 #
-# UM PROBLEMA DE METODO, declarado porque ele e meu:
+# Com as 30 medidas validas de uma vez, o diagnostico muda: 28 das 30 erram
+# para CIMA, mediana +4,7%. Nao e dispersao em torno do certo, e VIES — e eu
+# tinha declarado o contrario de manha, com nove medidas e tres delas mal
+# pareadas. Margem de seguranca nao conserta vies: ela esconde, e cobra o preco
+# de reprovar roteiro bom. Quem conserta e `ensaio.VIES_SHORT`, aplicado a
+# PREVISAO. A margem fica so com o que sobra depois dele.
 #
-# Esta constante mudou TRES vezes em 20/08 — 3%, 5%, 7% — e cada mudanca foi
-# "cobrir o pior caso observado". Isso nao e uma regra, e uma perseguicao: o
-# MAXIMO de uma amostra cresce com n, entao a margem sobe para sempre e nunca
-# converge. A nona medida ultrapassou os 7% que a oitava tinha justificado, e
-# ultrapassaria os 7,5% de hoje na proxima virada de sorte.
-#
-# O que segura a decisao e o CUSTO, nao o maximo: das dez specs que 7,5%
-# reprova, todas ja estao no ar ou sao de canal sem YouTube — custo real zero
-# (aprendizado 378). Com custo zero a escolha conservadora e de graca, e por
-# isso ela vale HOJE.
-#
-# CONDICAO DE PARADA, para a perseguicao acabar: a partir de n=20, trocar
-# "cobrir o maximo" por "cobrir o percentil 95". Com vinte medidas o maximo
-# deixa de ser ruido e o percentil passa a ser estimavel — e o custo de estourar
-# o teto e nosso, nao do YouTube, que aceita Shorts de ate tres minutos.
-MARGEM_SHORT = 0.075
+# Percentil 95 do residuo, nao o maximo: com n=30 o percentil e estimavel e o
+# maximo continua sendo ruido. Os dois numeros saem de `calibra_short.py` e
+# `test_calibra_short` cobra que eles batam com `medidas_short.tsv`.
+MARGEM_SHORT = 0.043
 
 
 def _gate_duracao(sp):
@@ -399,7 +388,7 @@ def _gate_duracao(sp):
     O short e o que mais importa aqui: em canal frio e ele que entrega, e a
     rotina exige 30 a 45 s. Abaixo de 30 nao e "curtinho", e fora do formato.
     """
-    from ensaio import MODELO_VOZ, duracao_estimada
+    from ensaio import MODELO_VOZ, duracao_estimada, duracao_estimada_short
 
     voz = sp.get("voz", "")
     if voz not in MODELO_VOZ:
@@ -416,28 +405,28 @@ def _gate_duracao(sp):
                           f"em canal escalonado, e o escalonamento vai no config")
     short = sp.get("short") or []
     if short:
-        ds = duracao_estimada(short, voz)
-        # MARGEM_SHORT existe porque o modelo de voz e ajustado SO em longo: a
-        # calibracao le os `legendas.srt` do bucket, e short nao exporta srt —
-        # ele queima a legenda. A constante nunca viu cena de short.
+        ds = duracao_estimada_short(short, voz)
+        # `duracao_estimada_short` ja aplica `ensaio.VIES_SHORT`, o vies
+        # medido do modelo em short. `ds` aqui e previsao CORRIGIDA — o que
+        # sobra e o residuo, e e so ele que MARGEM_SHORT precisa cobrir.
         #
-        # Medido em 20/08/2026 nos tres shorts publicados no dia, ja com as
-        # constantes refeitas: +3,0%, +0,7% e +6,8%. Sempre para BAIXO. O
-        # labtreinamento-003 foi ao ar com 47,6 s tendo previsto 44,3 — fora do
-        # teto que este portao existe para segurar.
+        # A conta e sobre a PREVISAO, nao sobre o teto: o erro vale
+        # `ds x (1 + margem)`, entao o limite e `SHORT_MAX_S / (1 + margem)`.
+        # A versao anterior escrevia `SHORT_MAX_S x (1 - margem)`, que e outra
+        # coisa — mais apertada, e apertada por acidente e nao por decisao.
         #
-        # A margem vale so no TETO. No piso ela nao ajuda: subestimar ali
-        # significa que o short real e MAIS longo que o previsto, o que afasta
-        # do piso em vez de aproximar.
-        teto = SHORT_MAX_S * (1 - MARGEM_SHORT)
+        # A margem vale so no TETO. No piso o vies ja foi corrigido, e o que
+        # sobra e simetrico: nao ha lado seguro para escolher.
+        teto = SHORT_MAX_S / (1 + MARGEM_SHORT)
         if ds < SHORT_MIN_S:
             faltas.append(f"short com {ds:.0f} s — abaixo dos {SHORT_MIN_S} s "
                           f"que a rotina pede")
         elif ds > teto:
-            faltas.append(f"short com {ds:.0f} s previstos — acima de {teto:.0f} s. "
-                          f"O teto da rotina e {SHORT_MAX_S} s e o modelo erra ate "
-                          f"{MARGEM_SHORT:.0%} para baixo em short, entao "
-                          f"{teto:.0f} previstos ja e o limite seguro")
+            faltas.append(f"short com {ds:.1f} s previstos (ja corrigidos do "
+                          f"vies) — acima de {teto:.1f} s. O teto da rotina e "
+                          f"{SHORT_MAX_S} s e o residuo do modelo chega a "
+                          f"{MARGEM_SHORT:.1%}, entao {teto:.1f} previstos ja e "
+                          f"o limite seguro")
     return faltas
 
 

@@ -57,13 +57,38 @@ para empatar em **views por minuto de runner**. E `liberado` exige piso
 absoluto de 1 v/d — sem isso a razão aprovava o longo de um canal onde o short
 também estava morto.
 
-**Só `views` entra na conta, e isso é limitação declarada.** `metricas` tem
-colunas de CTR, impressões, retenção, inscritos e receita, e as cinco são
-default: nenhum dos treze `refresh_token` carrega o escopo
-`yt-analytics.readonly` (conferido em `config.yt_token_*`, 20/08/2026). Decidir
-com elas repetiria o defeito que o `models.py` já registrou em 13/08 — *"o
-painel inteiro parecia dado e era default"*. Ligar retenção e CTR custa um novo
-consentimento nos doze canais, e essa é decisão do dono.
+**`views` decide; `retenção` entra quando existe, e quase nunca existe.**
+
+Esta seção afirmou o contrário e a afirmação era falsa — fica registrada porque
+ela mudou decisões. Eu escrevia aqui que nenhum `refresh_token` carregava
+`yt-analytics.readonly` e que retenção/CTR só voltariam com um novo
+consentimento nos doze canais. A prova era `config.yt_token_*.scopes`, que
+registra o que foi **pedido**, não o que foi concedido. O banco desmente: a
+coleta diária escreve 629 linhas e a query de Analytics **responde** — sem
+escopo ela daria 403 e o vídeo não teria linha nenhuma. Doze vídeos têm
+retenção real, e ela **muda** entre coletas.
+
+Retenção aparece em 12 de 629 porque 617 quase não são assistidos. Não há
+decisão do dono pendente: há audiência faltando.
+
+O que isso muda na prática — retenção separa dois problemas que views sozinho
+confunde:
+
+| leitura | diagnóstico |
+|---|---|
+| views baixo, retenção **alta** | distribuição: título e thumb não fazem clicar, o roteiro está bom |
+| views baixo, retenção **baixa** | roteiro: quem entrou, saiu |
+| retenção **acima de 100%** | o vídeo foi reassistido — o sinal mais forte que existe em short |
+
+Já dá para ler algo: o `setiap-level` mede 0,11 v/d no longo **com 28,3% de
+retenção** — problema de distribuição, não de roteiro. O `nivel-do-jogo` mede
+0,15 v/d com **2,2%** — problema de roteiro. Os dois pareciam idênticos por
+views.
+
+Retenção viaja sempre com `ret_n`, quantos vídeos a sustentam: mediana sobre um
+vídeo não pode se ler igual a mediana sobre trinta. Continuam fora `ctr` e
+`impressões` (as linhas existem mas vêm zeradas), `inscritos_ganhos` e
+`receita` (canal nenhum está no YPP).
 
 `fabrica/aprendizado.py` é quem lê isso e monta o bloco que entra no prompt do
 `autor.py`. O `diario.yml` imprime o painel a cada ciclo.
@@ -309,6 +334,43 @@ E **o laço mede o short junto com o longo**. Em 20/08 o `labtreinamento-003` fo
 short de 47,6 s, fora do teto de 45, porque o dimensionamento só olhava o longo. Em canal
 frio é o short que entrega — 19,32 v/d contra 0,15 dos longos no `setiap-level`. O alvo do
 short passa a ser o **meio** da faixa útil (37 s), nunca o teto.
+
+#### Em short, o modelo de voz tem viés — e viés não se trata com margem
+
+O `(R, P)` de cada voz é ajustado **só em cena de longo**: a calibração lê os `legendas.srt`
+do bucket, e short queima a legenda em vez de exportar `.srt`. Aplicado a short, o modelo
+erra — e erra sempre no mesmo sentido.
+
+Eu compensei isso à mão por duas semanas: a cada short publicado, media *um* erro e subia
+`MARGEM_SHORT` para cobrir o pior caso até ali — 3%, 5%, 7%, 7,5%, quatro valores em dois
+dias. Isso nunca converge, porque o máximo de uma amostra cresce com `n`.
+
+O que encerrou a questão não foi estatística melhor, foi **olhar onde o dado já estava**: a
+esteira grava `videos.duracao_s` com o ffprobe do arquivo montado, ou seja, a duração real
+de todo short publicado está no banco desde o primeiro dia. Trinta medidas de uma vez, em
+vez de nove ao longo de duas semanas.
+
+Com a amostra inteira o diagnóstico muda: **28 das 30 erram para cima, mediana +4,7%**. É
+viés, não dispersão. Margem de segurança não conserta viés — ela esconde, e cobra o preço
+de reprovar roteiro bom. Quem conserta é a previsão:
+
+| constante | valor | o que é |
+|---|---|---|
+| `ensaio.VIES_SHORT` | 1,047 | mediana do erro; multiplica a previsão de short |
+| `prontidao.MARGEM_SHORT` | 0,043 | percentil 95 do **resíduo**, depois do viés |
+
+Regras que ficam:
+
+1. **Toda previsão de short passa por `duracao_estimada_short`.** A crua é para longo.
+2. **O teto é sobre a previsão**: `45 / (1 + margem)` = 43,1 s, nunca `45 × (1 − margem)`.
+   As duas dão "um número menor que 45" e respondem a perguntas diferentes.
+3. **Medida só calibra quando o texto de hoje é o texto que foi lido.** Se
+   `git log -1 --format=%cs` do `.json` for posterior a `publicado_em`, a medida entra em
+   `medidas_short.tsv` mas fica fora da conta. Foi assim que três shorts que eu **estiquei**
+   depois do render apareciam como erro de −20%.
+4. **Percentil 95, não máximo.** Com `n ≥ 20` o percentil é estimável; o máximo continua
+   sendo ruído. Quem reescrever a constante roda `python3 fabrica/calibra_short.py` — o
+   `test_calibra_short` cobra que os três (TSV, viés, margem) concordem.
 
 ### O gargalo mudou de lugar: agora é a PESQUISA
 
@@ -715,9 +777,12 @@ em si.
 ### O que não dá para medir hoje
 
 `/analytics/<perfil>?platforms=youtube` da Upload-Post volta **tudo zerado** — o escopo
-OAuth concedido não inclui YouTube Analytics. Sem impressão, CTR e retenção, a view
-`painel_pilares` não classifica gargalo nenhum, e todo diagnóstico se apoia só em views
-públicas. Isso só se resolve com escopo próprio, o que depende da auditoria.
+OAuth *dela* não inclui YouTube Analytics.
+
+Isso vale para a Upload-Post e **não** para os tokens próprios: em 20/08/2026 medi que a
+coleta própria (`diagnostico.yml` → `coletar_metricas`) recebe retenção de verdade. O que
+falta ali é audiência, não permissão — ver a seção do laço de aprendizado. Impressões e
+CTR continuam zeradas nos dois caminhos.
 
 ---
 

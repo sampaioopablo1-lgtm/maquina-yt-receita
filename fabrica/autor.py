@@ -284,6 +284,17 @@ def medir(cenas: list[dict], voz: str) -> float:
     return duracao_estimada(cenas, voz)
 
 
+def medir_short(cenas: list[dict], voz: str) -> float:
+    """A previsao corrigida do vies que o modelo tem em short.
+
+    Dimensionar short com a previsao crua produz roteiro curto demais de forma
+    sistematica: 28 dos 30 shorts publicados sairam mais longos que o previsto.
+    """
+    from ensaio import duracao_estimada_short
+
+    return duracao_estimada_short(cenas, voz)
+
+
 def chars(cenas: list[dict]) -> int:
     return sum(len((c or {}).get("nar") or "") for c in cenas)
 
@@ -439,15 +450,21 @@ nele. Leia os comentarios: eles dizem qual formato entrega e qual morreu.
 def orcamento_curto(voz: str, slug: str = "") -> tuple[int, int]:
     """Faixa de caracteres do short, dos 30 aos 45 s da rotina.
 
-    Com a margem de 3% do `prontidao.MARGEM_SHORT` descontada do teto: o modelo
-    de voz e ajustado so em cena de longo — short queima a legenda e nunca
-    exporta `.srt` — e mede curto em short, sempre para baixo.
+    Os alvos em SEGUNDOS sao divididos por `VIES_SHORT` antes de virar
+    caracteres. `orcamento_de_texto` fala a lingua do modelo cru, e o modelo cru
+    mede short 4,7% curto: pedir a ele texto para 43 s entrega 45. Corrigir aqui
+    e o mesmo que corrigir na conferencia — os dois lados falam do mesmo video.
+
+    O teto ja desconta o residuo de `prontidao.MARGEM_SHORT`, e mais 2 s de
+    folga de escrita, porque o modelo de linguagem nao acerta o alvo na mosca.
     """
+    from ensaio import VIES_SHORT
     from prontidao import MARGEM_SHORT, SHORT_MAX_S, SHORT_MIN_S
 
     fc = densidade(slug, "short") if slug else FRASES_POR_CENA
-    piso = orcamento_de_texto(voz, SHORT_MIN_S + 3, 6, fc)
-    teto = orcamento_de_texto(voz, SHORT_MAX_S * (1 - MARGEM_SHORT) - 2, 6, fc)
+    piso = orcamento_de_texto(voz, (SHORT_MIN_S + 3) / VIES_SHORT, 6, fc)
+    teto = orcamento_de_texto(
+        voz, (SHORT_MAX_S / (1 + MARGEM_SHORT) - 2) / VIES_SHORT, 6, fc)
     return piso, teto
 
 
@@ -540,15 +557,20 @@ def _fora_da_faixa(sp: dict, voz: str) -> list[str]:
                                       f"{ALVO_S/60:.1f} min", delta))
 
     if sp.get("short"):
-        teto = SHORT_MAX_S * (1 - MARGEM_SHORT)
+        teto = SHORT_MAX_S / (1 + MARGEM_SHORT)
         alvo = (SHORT_MIN_S + teto) / 2
-        ds = medir(sp["short"], voz)
-        # A faixa util e menor que 30-45: o modelo de voz nunca viu cena de
-        # short — a calibracao le `.srt`, e short queima a legenda — e mede
-        # curto, ate 7% para baixo. Mirar no meio da faixa util, e nao no teto,
-        # e o que sobra de folga para esse erro.
+        ds = medir_short(sp["short"], voz)
+        # `ds` ja vem corrigido do vies, entao a faixa util aqui e a faixa
+        # REAL, e nao uma faixa encolhida para compensar erro do modelo. O que
+        # sobra e mirar no meio dela: o modelo de linguagem nao acerta o alvo
+        # na mosca, e o meio e o unico ponto que tolera errar para os dois
+        # lados.
+        #
+        # O delta em caracteres divide por VIES_SHORT porque R e a taxa do
+        # modelo CRU: sem isso o pedido de correcao vem 4,7% grande.
         if not (SHORT_MIN_S + 2 <= ds <= teto - 2):
-            delta = int((alvo - ds) * R)
+            from ensaio import VIES_SHORT
+            delta = int((alvo - ds) / VIES_SHORT * R)
             pedidos.append(_como_corrigir("short", f"{ds:.0f} s",
                                           f"{alvo:.0f} s", delta))
     return pedidos
@@ -749,7 +771,7 @@ def main() -> int:
         print(json.dumps({"pacote": sp["pacote"], "pauta": pauta,
                           "cenas": len(sp["longo"]),
                           "longo_s": round(medir(sp["longo"], ctx["voz"]), 1),
-                          "short_s": round(medir(sp["short"], ctx["voz"]), 1)},
+                          "short_s": round(medir_short(sp["short"], ctx["voz"]), 1)},
                          ensure_ascii=False, indent=2))
         return 0
 
@@ -782,7 +804,7 @@ def main() -> int:
 
     print(f"{sp['pacote']}: {len(sp['longo'])} cenas, "
           f"{medir(sp['longo'], ctx['voz'])/60:.1f} min longo, "
-          f"{medir(sp['short'], ctx['voz']):.0f} s short — pronto em "
+          f"{medir_short(sp['short'], ctx['voz']):.0f} s short — pronto em "
           f"fabrica/specs/{os.path.basename(destino)}")
     # O custo sai impresso em TODA geracao, e nao num relatorio a parte. Esta e
     # a primeira coisa da maquina que gasta dinheiro por pacote, e a meta de 65

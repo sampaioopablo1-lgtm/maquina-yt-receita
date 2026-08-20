@@ -300,16 +300,34 @@ def coletar_metricas(cfg: Config, video_id: str, dias: int = 28) -> Metricas:
         .execute()
     )
 
-    linhas = resp.get("rows") or [[0, 0, 0, 0, 0]]
-    v, _min_assistidos, dur_media, pct_media, inscritos = linhas[0]
-
-    m = Metricas(
-        youtube_id=video_id,
-        views=int(v),
-        duracao_media_s=float(dur_media),
-        retencao_media_pct=float(pct_media),
-        inscritos_ganhos=int(inscritos),
-    )
+    # SEM linha nao e linha de zeros. O Analytics devolve `rows` vazio quando
+    # nao ha nada a reportar no periodo, e a versao anterior disto substituia
+    # isso por [[0,0,0,0,0]] e gravava os zeros como se fossem medida. E a
+    # mesma acusacao que o docstring de `Metricas` proibe em letras maiusculas:
+    # `retencao_media_pct = 0` nao quer dizer "nao medimos", quer dizer
+    # "ninguem assiste nada".
+    #
+    # O estrago nao e teorico: 1.773 das 1.932 linhas de `metricas` carregam
+    # retencao e duracao media exatamente zero, e foi por causa delas que
+    # `v_ultima_metrica` precisou ser reescrita duas vezes para achar "a ultima
+    # linha COM SINAL". Remendo na view; a origem e aqui.
+    #
+    # `views` continua com zero legitimo quando a linha EXISTE — ali zero e
+    # contagem, nao ausencia.
+    linhas = resp.get("rows")
+    if linhas:
+        v, _min_assistidos, dur_media, pct_media, inscritos = linhas[0]
+        m = Metricas(
+            youtube_id=video_id,
+            views=int(v),
+            duracao_media_s=float(dur_media),
+            retencao_media_pct=float(pct_media),
+            inscritos_ganhos=int(inscritos),
+        )
+    else:
+        log.info("Analytics sem linha para %s no periodo — gravando ausencia, "
+                 "nao zero", video_id)
+        m = Metricas(youtube_id=video_id)
 
     # Receita: so responde com o escopo monetario E canal no YPP. Enquanto o
     # canal nao monetiza, isto e 403 esperado — nao e falha de coleta.

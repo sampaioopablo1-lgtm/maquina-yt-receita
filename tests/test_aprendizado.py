@@ -57,6 +57,7 @@ def test_canal_frio_nao_manda_trocar_de_formato():
 def test_a_memoria_carrega_o_veredito_em_maiuscula(monkeypatch):
     monkeypatch.setattr(A, "licoes", lambda u, k, s="": [_licao(veredito_longo="suspenso")])
     monkeypatch.setattr(A, "melhores", lambda u, k, s, n=5: [])
+    monkeypatch.setattr(A, "desempenho", lambda u, k, s="": [])
     txt = A.memoria("u", "k", "teste")
     assert "VEREDITO: SUSPENSO" in txt
     assert A.ACAO["suspenso"][:30] in txt
@@ -69,6 +70,7 @@ def test_a_memoria_traz_os_titulos_que_performaram(monkeypatch):
     monkeypatch.setattr(A, "melhores", lambda u, k, s, n=5: [
         {"titulo": "Asgari ucret", "formato": "shorts", "vd": 224.0},
         {"titulo": "Maas hesabi", "formato": "longo", "vd": 4.6}])
+    monkeypatch.setattr(A, "desempenho", lambda u, k, s="": [])
     txt = A.memoria("u", "k", "teste")
     assert "Asgari ucret" in txt and "224.0" in txt
 
@@ -145,3 +147,58 @@ def test_idade_minima_e_a_mesma_regra_da_rotina():
     """48h — a regra existe porque o contador do YouTube atualiza em lote
     (aprendizado 360)."""
     assert A.IDADE_MINIMA_H == 48
+
+
+# ----------------------------------------------------------- a retencao
+
+def _desemp(**kw):
+    base = {"canal": "teste", "formato": "shorts", "n": 9, "vd_mediana": 46.88,
+            "ret_n": 2, "ret_mediana_pct": 35.5, "ret_dur_mediana_s": 13}
+    base.update(kw)
+    return base
+
+
+def test_retencao_entra_na_memoria_com_o_n_ao_lado(monkeypatch):
+    """Numero sem n vira certeza falsa no prompt: uma mediana calculada sobre
+    UM video le-se igual a uma calculada sobre trinta. Doze dos 629 videos
+    coletados tem retencao — e indicio, e tem de chegar ao gerador como tal."""
+    monkeypatch.setattr(A, "licoes", lambda u, k, s="": [_licao()])
+    monkeypatch.setattr(A, "melhores", lambda u, k, s, n=5: [])
+    monkeypatch.setattr(A, "desempenho", lambda u, k, s="": [_desemp()])
+    txt = A.memoria("u", "k", "teste")
+    assert "35.5%" in txt
+    assert "2 medido(s)" in txt
+    assert "indicio" in txt
+
+
+def test_sem_retencao_medida_a_memoria_nao_inventa_secao(monkeypatch):
+    monkeypatch.setattr(A, "licoes", lambda u, k, s="": [_licao()])
+    monkeypatch.setattr(A, "melhores", lambda u, k, s, n=5: [])
+    monkeypatch.setattr(A, "desempenho", lambda u, k, s="": [_desemp(ret_n=0)])
+    txt = A.memoria("u", "k", "teste")
+    assert "COMO LER A RETENCAO" not in txt
+    assert "VEREDITO" in txt
+
+
+def test_desempenho_fora_do_ar_nao_derruba_a_memoria(monkeypatch):
+    """O veredito e o que muda o roteiro; a retencao e ornamento. Perder o
+    bloco inteiro porque a consulta secundaria caiu seria trocar um pelo
+    outro."""
+    def explode(*a, **k):
+        raise RuntimeError("banco fora")
+
+    monkeypatch.setattr(A, "licoes", lambda u, k, s="": [_licao()])
+    monkeypatch.setattr(A, "melhores", lambda u, k, s, n=5: [])
+    monkeypatch.setattr(A, "desempenho", explode)
+    assert "VEREDITO: LIBERADO" in A.memoria("u", "k", "teste")
+
+
+def test_a_memoria_explica_como_ler_a_retencao(monkeypatch):
+    """Retencao alta com views baixo e distribuicao; retencao baixa com views
+    baixo e roteiro. O gerador nao deduz isso sozinho — e escrito."""
+    monkeypatch.setattr(A, "licoes", lambda u, k, s="": [_licao()])
+    monkeypatch.setattr(A, "melhores", lambda u, k, s, n=5: [])
+    monkeypatch.setattr(A, "desempenho", lambda u, k, s="": [_desemp()])
+    txt = A.memoria("u", "k", "teste")
+    assert "distribuicao" in txt and "roteiro" in txt
+    assert "100%" in txt

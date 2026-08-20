@@ -1,0 +1,47 @@
+# Duracao REAL do short renderizado, em segundos, contra a spec que o gerou.
+# Coletado de videos.duracao_s no Supabase (o ffprobe da esteira grava ali).
+#
+# spec_alterada_em vem de `git log -1 --format=%cs` no .json. Quando ela e
+# POSTERIOR a publicado_em, a medida NAO calibra: o arquivo de hoje nao e o
+# texto que foi lido. Foi assim que tres shorts esticados em 13/08 apareciam
+# como erro de -20%, que nao era erro nenhum — era outro roteiro.
+#
+# slug	voz	real_s	publicado_em	spec_alterada_em
+agla-level-003	hi-IN-MadhurNeural	38	2026-08-13	2026-08-13
+agla-level-004	hi-IN-MadhurNeural	43.6	2026-08-19	2026-08-18
+epomeno-epipedo-002	el-GR-NestorasNeural	31.8	2026-08-11	2026-08-13
+epomeno-epipedo-003	el-GR-NestorasNeural	38.3	2026-08-11	2026-08-18
+epomeno-epipedo-004	el-GR-NestorasNeural	33.5	2026-08-19	2026-08-19
+epomeno-epipedo-005	el-GR-NestorasNeural	36.7	2026-08-19	2026-08-19
+epomeno-epipedo-006	el-GR-NestorasNeural	37.2	2026-08-19	2026-08-19
+epomeno-epipedo-007	el-GR-NestorasNeural	34.8	2026-08-19	2026-08-19
+game-money-lab-002	en-GB-RyanNeural	41	2026-08-13	2026-08-13
+game-money-lab-003	en-GB-RyanNeural	40.6	2026-08-18	2026-08-18
+game-money-lab-004	en-GB-RyanNeural	37.2	2026-08-20	2026-08-20
+kolejny-poziom-004	pl-PL-MarekNeural	38.1	2026-08-17	2026-08-17
+kolejny-poziom-005	pl-PL-MarekNeural	36.5	2026-08-19	2026-08-19
+kolejny-poziom-006	pl-PL-MarekNeural	36.6	2026-08-19	2026-08-19
+kolejny-poziom-008	pl-PL-MarekNeural	35.3	2026-08-19	2026-08-19
+labtreinamento-002	pt-BR-ThalitaMultilingualNeural	44.1	2026-08-18	2026-08-18
+labtreinamento-003	pt-BR-ThalitaMultilingualNeural	47.6	2026-08-20	2026-08-20
+next-level-money-004	en-US-AndrewNeural	34.0	2026-08-18	2026-08-18
+next-level-money-005	en-US-AndrewNeural	33.8	2026-08-20	2026-08-20
+nivel-do-jogo-003	pt-BR-AntonioNeural	41.2	2026-08-17	2026-08-17
+nivel-do-jogo-004	pt-BR-AntonioNeural	42.0	2026-08-18	2026-08-18
+nivel-do-jogo-005	pt-BR-AntonioNeural	37.5	2026-08-20	2026-08-20
+resep-naik-level-002	id-ID-GadisNeural	42	2026-08-05	2026-08-13
+resep-naik-level-004	id-ID-GadisNeural	45.7	2026-08-18	2026-08-18
+resep-naik-level-005	id-ID-GadisNeural	40.3	2026-08-20	2026-08-20
+seja-mais-magra-002	pt-BR-FranciscaNeural	36	2026-08-17	2026-08-17
+seja-mais-magra-003	pt-BR-FranciscaNeural	41.4	2026-08-18	2026-08-18
+seja-mais-magra-004	pt-BR-FranciscaNeural	38.2	2026-08-20	2026-08-20
+setiap-level-003	id-ID-ArdiNeural	33.4	2026-08-05	2026-08-13
+setiap-level-004	id-ID-ArdiNeural	41.4	2026-08-05	2026-08-13
+setiap-level-005	id-ID-ArdiNeural	29.9	2026-08-05	2026-08-13
+setiap-level-007	id-ID-ArdiNeural	38.3	2026-08-17	2026-08-17
+setiap-level-008	id-ID-ArdiNeural	36.6	2026-08-19	2026-08-19
+setiap-level-009	id-ID-ArdiNeural	32.5	2026-08-20	2026-08-19
+seviye-seviye-003	tr-TR-AhmetNeural	45.0	2026-08-18	2026-08-20
+seviye-seviye-004	tr-TR-AhmetNeural	34.7	2026-08-20	2026-08-20
+sx-educacao-001	pt-BR-AntonioNeural	42	2026-08-13	2026-08-13
+sx-educacao-002	pt-BR-AntonioNeural	45.9	2026-08-18	2026-08-20

@@ -164,6 +164,30 @@ def duracao_estimada(cenas, voz: str) -> float:
             + GAP_CENA_S * max(len(cenas) - 1, 0))
 
 
+# O (R, P) de cada voz e ajustado SO em cena de longo: a calibracao le os
+# `legendas.srt` do bucket, e short queima a legenda em vez de exportar srt.
+# Aplicado a short, o modelo erra — e erra sempre no mesmo sentido.
+#
+# Medido em 20/08/2026 sobre os 30 shorts publicados cuja spec nao mudou depois
+# do render: 28 dos 30 saem MAIS LONGOS que o previsto, mediana +4,7%. Isso e
+# vies, nao ruido, e vies nao se resolve com margem de seguranca — margem so
+# esconde o erro e cobra o preco de reprovar roteiro bom. Corrige-se a
+# previsao; a margem fica com o residuo, que e +4,3% no percentil 95.
+#
+# O numero sai de `calibra_short.py`, e o teste test_calibra_short cobra que
+# ele continue batendo com `medidas_short.tsv`. Nao edite a mao.
+VIES_SHORT = 1.047
+
+
+def duracao_estimada_short(cenas, voz: str) -> float:
+    """Como duracao_estimada, mas corrigida do vies medido em short.
+
+    Use esta em TODO lugar que dimensiona ou confere short. `duracao_estimada`
+    crua e para longo, que e onde o modelo foi ajustado.
+    """
+    return duracao_estimada(cenas, voz) * VIES_SHORT
+
+
 def _ffmpeg(args: list[str]) -> None:
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *args], check=True)
 

@@ -453,6 +453,48 @@ O resep-naik-level-002 foi renderizado antes de a fabrica exportar legendas.srt,
 
 ## Processo
 
+### Cano com `tail` engole o codigo de saida do pytest — verde falso
+`pytest -q 2>&1 | tail -6` sai com **código 0 mesmo com testes vermelhos**: o código de saída de um pipeline é o do último comando, e `tail` sempre sai 0. Uma rodada com 2 falhas foi anunciada como "exit code 0" e quase virou push. Rode a suíte sem cano, ou com `set -o pipefail`, e leia a **linha de resumo** — nunca o código de saída do pipeline.
+
+> **comando**: `timeout 900 python3 -m pytest -q 2>&1 | tail -6` · **resultado_real**: 2 failed, 1315 passed · **codigo_relatado**: 0 · **mesma_familia**: aprendizado 370 (job verde que não escreveu nada) · **data**: 2026-08-20
+
+`aplicado_em:` rotina de verificação antes do push
+
+### Relatorio que nao veio virava linha de zeros — e zero em retencao e uma acusacao
+`coletar_metricas` fazia `resp.get("rows") or [[0,0,0,0,0]]`: quando o Analytics não tinha nada a reportar, os zeros de mentira entravam como medida. O docstring de `Metricas` proíbe isso em letras maiúsculas — e o código violava o próprio contrato. Ausência de linha grava ausência; zero só entra quando a linha existe e diz zero.
+
+> **linhas_poluidas**: 1.773 de 1.932 · **remendo_que_isso_causou**: `v_ultima_metrica` reescrita duas vezes para achar "a última linha COM SINAL", enquanto a origem seguia gravando · **views**: continua com zero legítimo, ali zero é contagem · **data**: 2026-08-20
+
+`aplicado_em:` src/maquina/stages/youtube.py coletar_metricas
+
+### Antes de medir uma por uma, procure a coluna onde a esteira ja gravou todas
+Passei duas semanas medindo o erro do modelo em short de UM em UM, a cada publicação, e subindo uma margem para cobrir o pior caso. A esteira grava `videos.duracao_s` com o ffprobe do arquivo montado: a duração REAL de TODOS os shorts publicados estava no banco desde o primeiro dia. Antes de instrumentar medição nova, procure a coluna que a esteira já preenche.
+
+> **medidas_a_mao_em_2_semanas**: 9 · **medidas_no_banco_o_tempo_todo**: 44 (30 válidas) · **coluna**: videos.duracao_s · **efeito**: MARGEM_SHORT parou de oscilar — tinha tido 4 valores em 2 dias · **mesma_classe**: aprendizados 378 e 386 · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/calibra_short.py
+
+### O modelo de voz tem VIES em short, nao dispersao — 28 de 30 erram para cima
+Com nove medidas concluí "há dispersão, não viés" e corrigi um aprendizado anterior nessa direção. Errado nas duas vezes. Com 30 medidas válidas: 28 erram para CIMA, mediana +4,7%. Viés não se trata com margem de segurança — margem esconde o erro e cobra o preço de reprovar roteiro bom. Corrige-se a PREVISÃO e deixa-se a margem só com o resíduo.
+
+> **n_antes**: 9 · **n_depois**: 30 · **positivos**: 28 · **mediana**: +4,7% · **residuo_p95**: +4,3% · **ensaio.VIES_SHORT**: 1,047 · **prontidao.MARGEM_SHORT**: 0,043 · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/ensaio.py VIES_SHORT
+
+### Medida so calibra quando o texto de hoje e o texto que foi lido
+Três shorts apareciam com erro de −20% e teriam puxado a mediana. Não havia erro: eu tinha ESTICADO esses roteiros depois do render. Regra mecânica e checável por git — se `git log -1 --format=%cs` do `.json` for posterior a `publicado_em`, a medida entra no arquivo mas fica fora da conta.
+
+> **descartadas**: 8 de 38 · **outliers_explicados**: setiap-level-005 (−21,7%), setiap-level-003 (−20,0%), epomeno-epipedo-002 (−13,7%) · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/medidas_short.tsv
+
+### Retencao e CTR ESTAO sendo coletadas — o que falta e audiencia, nao escopo
+Eu vinha afirmando que nenhum token carrega `yt-analytics.readonly` e que retenção/CTR eram incolhíveis sem reautorizar 12 canais. **Falso.** A coleta diária escreve 629 linhas e a query de Analytics RESPONDE — se faltasse escopo ela daria 403 e o vídeo não teria linha. Doze vídeos têm retenção real hoje, e ela MUDA entre coletas. `config.scopes` registra o que foi PEDIDO, não o que foi concedido: não serve de prova.
+
+> **linhas_hoje**: 629 · **com_retencao**: 12 · **com_views**: 340 · **exemplo**: kolejny-poziom-007-short — 292 views, retenção 33,0%, 12 s médios · **maior_sinal**: setiap-level-006-pinjol-short com 115,8% (reassistido) · **data**: 2026-08-20
+
+`aplicado_em:` src/maquina/stages/youtube.py coletar_metricas
+
 ### Cobrir o maximo da amostra nao converge — a folga so para quando a condicao de parada esta escrita
 Constante de folga calibrada como "cobrir o pior caso observado" sobe para sempre: o MÁXIMO de uma amostra cresce com n. Quem sobe uma folga por causa do máximo escreve junto, na mesma linha, a condição que encerra a subida. E o que autoriza subir hoje não é o máximo — é o CUSTO medido: se nenhuma spec produzível para, conservar é de graça.
 

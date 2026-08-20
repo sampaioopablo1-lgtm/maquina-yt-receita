@@ -83,3 +83,70 @@ def test_upload_pede_retry_no_chunk(upload):
     registro, video = upload
     youtube.publicar(video, Config.load())
     assert registro["num_retries"] >= 1
+
+
+# --- coleta: ausencia de linha nao e linha de zeros ------------------------
+
+
+class _Relatorios:
+    """Analytics falso. `linhas` None simula o periodo sem nada a reportar."""
+
+    def __init__(self, linhas):
+        self.linhas = linhas
+
+    def query(self, **kwargs):
+        pedido = kwargs.get("metrics", "")
+        if "estimatedRevenue" in pedido or "impressions" in pedido:
+            raise RuntimeError("sem escopo — e o caso normal fora do YPP")
+        resp = {} if self.linhas is None else {"rows": [self.linhas]}
+        return _Execucao(resp)
+
+
+class _Execucao:
+    def __init__(self, resp):
+        self.resp = resp
+
+    def execute(self):
+        return self.resp
+
+
+class _Analytics:
+    def __init__(self, linhas):
+        self.linhas = linhas
+
+    def reports(self):
+        return _Relatorios(self.linhas)
+
+
+def _coleta(monkeypatch, linhas):
+    monkeypatch.setattr(youtube, "_servico", lambda *a, **k: _Analytics(linhas))
+    return youtube.coletar_metricas(Config(), "VID123")
+
+
+def test_analytics_sem_linha_grava_ausencia_e_nao_zero(monkeypatch):
+    """O defeito que poluiu 1.773 das 1.932 linhas de `metricas`.
+
+    `rows` vazio quer dizer "nada a reportar", e a versao anterior substituia
+    isso por uma linha de zeros. Zero em retencao nao e ausencia de medida: e
+    a afirmacao de que ninguem assistiu — uma acusacao contra o roteiro, feita
+    por um relatorio que nunca existiu.
+    """
+    m = _coleta(monkeypatch, None)
+    assert m.retencao_media_pct is None
+    assert m.duracao_media_s is None
+    assert m.inscritos_ganhos is None
+
+
+def test_analytics_com_linha_de_zero_grava_o_zero(monkeypatch):
+    """O outro lado, que importa tanto quanto: quando o relatorio EXISTE e diz
+    zero, zero e medida e tem de ser gravado."""
+    m = _coleta(monkeypatch, [0, 0, 0.0, 0.0, 0])
+    assert m.views == 0
+    assert m.retencao_media_pct == 0.0
+    assert m.duracao_media_s == 0.0
+
+
+def test_analytics_com_numeros_preserva_os_numeros(monkeypatch):
+    m = _coleta(monkeypatch, [292, 58, 12.0, 33.0, 4])
+    assert (m.views, m.duracao_media_s, m.retencao_media_pct,
+            m.inscritos_ganhos) == (292, 12.0, 33.0, 4)

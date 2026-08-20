@@ -17,23 +17,33 @@ estava no banco.
 
 ## O que entra na conta, e o que nao entra
 
-So `views`. E isso e limitacao declarada, nao descuido.
+`views` decide. `retencao` entra quando existe, e quase nunca existe.
 
-`metricas` tem colunas de ctr, impressoes, retencao_media_pct,
-inscritos_ganhos e receita_estimada_usd. As cinco sao inuteis hoje: nenhum dos
-treze refresh_token carrega o escopo `yt-analytics.readonly` — conferido em
-`config.yt_token_*` em 20/08/2026, todos com apenas youtube, youtube.upload e
-youtube.force-ssl. O `coletar_metricas` chama a Analytics API, toma resposta
-vazia, e o default entra no lugar.
+Este paragrafo ja afirmou o contrario e a afirmacao era falsa, entao ela fica
+registrada: eu escrevi aqui que nenhum dos treze refresh_token carregava
+`yt-analytics.readonly` e que retencao e CTR eram portanto incolhiveis sem um
+novo consentimento nos doze canais. Baseei isso em `config.yt_token_*.scopes`,
+que registra o que foi PEDIDO e nao o que foi concedido. O banco desmente:
+a coleta diaria escreve 629 linhas e a query de Analytics RESPONDE — se
+faltasse escopo ela daria 403 e o video nao teria linha nenhuma. Doze videos
+tem retencao real hoje, e ela MUDA entre coletas.
 
-Decidir com coluna que ninguem mediu seria repetir exatamente o defeito que o
-`models.py` ja registrou em 13/08: "o painel inteiro parecia dado e era
-default". `views` vem da Data API, que os tokens alcancam, entao ele e medida
-de verdade — e e o unico numero deste arquivo.
+Retencao aparece em 12 de 629 porque 617 quase nao sao assistidos, nao porque
+falte permissao. Isso muda a conclusao inteira: nao ha decisao do dono
+pendente, ha audiencia faltando.
 
-Retencao e CTR sao o que diz POR QUE um video funcionou, e nao apenas QUE
-funcionou. Liga-los custa um novo consentimento nos doze canais, e essa e uma
-decisao do dono, nao minha. Enquanto ela nao vem, o laco fecha com views.
+Entao a regra e: `views` continua sendo quem decide, porque e o unico numero
+que existe para todos. `retencao` viaja junto com `ret_n`, quantos videos do
+grupo a tem — mediana sobre um video nao pode parecer mediana sobre trinta —
+e entra no prompt so quando ha pelo menos um. Ela e o que diz POR QUE um video
+funcionou, e nao apenas QUE funcionou: 0,11 v/d com 28% de retencao e um
+problema de distribuicao, 0,11 v/d com 3% e um problema de roteiro. Views
+sozinho nunca separou os dois.
+
+O que continua fora: `ctr` e `impressoes` (as linhas existem mas vem zeradas),
+`inscritos_ganhos` e `receita_estimada_usd` (canal nenhum esta no YPP).
+Decidir com coluna que ninguem mediu seria repetir o defeito que o `models.py`
+registrou em 13/08: "o painel inteiro parecia dado e era default".
 
 ## Por que isto muda producao e nao e so relatorio
 
@@ -168,7 +178,31 @@ def memoria(sb_url: str, sb_key: str, slug: str) -> str:
     if lc.get("longo_vd_mediana") is not None:
         linhas.append(f"  longo: mediana {lc['longo_vd_mediana']} v/d, em "
                       f"{lc['longos_medidos']} medidos")
+
+    # Retencao so aparece quando foi medida, e sempre acompanhada de quantos
+    # videos a sustentam. Numero sem n vira certeza falsa no prompt: uma
+    # mediana de um video unico le-se igual a uma de trinta.
+    # Retencao e o acessorio, o veredito e o principal. Se a consulta de
+    # desempenho cair, a memoria segue sem ela — perder o bloco inteiro porque
+    # uma query secundaria falhou seria trocar o essencial pelo ornamento.
+    try:
+        com_ret = [d for d in desempenho(sb_url, sb_key, slug) if d.get("ret_n")]
+    except Exception:
+        com_ret = []
+    for d in com_ret:
+        linhas.append(
+            f"  {d['formato']}: retencao mediana {d['ret_mediana_pct']}% "
+            f"({d['ret_dur_mediana_s']} s assistidos), em {d['ret_n']} "
+            f"medido(s) — poucos, trate como indicio e nao como lei")
     linhas += ["", f"VEREDITO: {v.upper()}. {ACAO.get(v, '')}", ""]
+    if com_ret:
+        linhas += ["COMO LER A RETENCAO: ela separa dois problemas que views "
+                   "sozinho confunde. Views baixo COM retencao alta e "
+                   "distribuicao — o titulo e a thumb nao fazem clicar, o "
+                   "roteiro esta bom. Views baixo COM retencao baixa e "
+                   "roteiro — quem entrou saiu. Acima de 100% o video foi "
+                   "reassistido, que e o sinal mais forte que existe em "
+                   "short.", ""]
 
     tops = melhores(sb_url, sb_key, slug, 5)
     if tops:

@@ -78,7 +78,7 @@ PARADAS = {
     "cocina-por-niveles-002": ("portao",
                                "canal nao existe no YouTube (motivo principal, "
                                "que portao nenhum enxerga); alem disso short de "
-                               "43,0 s contra teto de 41,8, e longo de 14,95 min "
+                               "45,1 s contra teto de 43,1, e longo de 14,95 min "
                                "contra teto de 15,00 — margem menor que o erro "
                                "do proprio modelo"),
     # kolejny-poziom-003 saiu daqui em 18/08/2026: 88 cenas viraram 79
@@ -89,41 +89,42 @@ PARADAS = {
     # cenas (15,33 -> 14,49 min) e devolvida a matriz.
     # resep-naik-level-003 saiu em 18/08/2026: encurtada de 86 para 76 cenas
     # (16,20 -> 14,32 min) e devolvida a matriz.
-    # As tres abaixo entraram juntas em 20/08/2026, pelo MESMO motivo e sem que
-    # nenhuma delas mudasse uma linha: a quarta medida de short
-    # (resep-naik-level-005, previsto 37,8 s e real 40,3 s, +6,6%) levou a
-    # mediana do erro para +4,8% e MARGEM_SHORT de 3% para 5%. O teto previsto
-    # caiu de 43,6 para 42,8 s e elas ficaram do lado de fora por dois decimos.
+    # O bloco abaixo entrou em 20/08/2026 pelo teto de SHORT, e nenhuma das
+    # specs mudou uma linha para isso. Elas entraram, sairam e voltaram quatro
+    # vezes no mesmo dia, porque `MARGEM_SHORT` subiu quatro vezes — 3%, 5%,
+    # 7%, 7,5% — cada vez para cobrir o pior erro recem-medido. Isso nunca
+    # converge: o maximo de uma amostra cresce com n.
     #
-    # Nenhuma perdeu nada com isso: as TRES ja estao no ar, publicadas antes da
-    # margem subir, e o orquestrador descarta pacote com youtube_id de qualquer
-    # forma. Elas entram aqui porque o inventario mede spec contra portao, nao
-    # contra o banco — e uma spec que sai da matriz sem registro e exatamente o
-    # defeito que este teste existe para pegar. Se um dia forem reaproveitadas,
-    # o corte e de uma frase no short.
+    # O que encerrou a oscilacao foi achar o dado que ja existia. A esteira
+    # grava `videos.duracao_s` com ffprobe do arquivo montado, entao a duracao
+    # REAL de todo short publicado estava no banco desde sempre — eu media de
+    # um em um o que dava para medir de uma vez. Com 30 medidas de uma vez o
+    # diagnostico mudou: nao era dispersao, era VIES, e vies se corrige na
+    # previsao (`ensaio.VIES_SHORT`), nao na margem.
     #
-    # Em 20/08/2026, mais tarde no mesmo dia, a QUINTA medida de short
-    # (seja-mais-magra-004: previsto 35,8 s, real 38,2 s, +6,7%) levou a
-    # MARGEM_SHORT de 5% para 7%, e o teto previsto de 42,8 para 41,8 s. Isso
-    # trouxe SEIS specs a mais para ca, nenhuma delas alterada em uma linha.
+    # O teto agora e 43,1 s de previsao JA CORRIGIDA. As specs abaixo passam
+    # dele, e o custo continua sendo zero: todas ja estao no ar, ou tem o
+    # titulo no ar sob outro pacote, ou sao de canal que nao existe no YouTube
+    # (aprendizado 378 — contar trabalho possivel, nao arquivo no diretorio).
     #
-    # O custo disso e zero e foi conferido no banco, nao suposto: das dez specs
-    # que 7% segura, OITO ja estao publicadas — e o orquestrador descarta
-    # pacote com youtube_id, entao elas nunca mais entram em matriz nenhuma.
-    # Das duas restantes, a do cocina nao tem canal no YouTube e a
-    # seviye-seviye-002 tem o titulo ja no ar sob outro pacote (aprendizado 378).
-    #
-    # Elas ficam listadas aqui, e nao apagadas, porque o inventario mede spec
-    # contra PORTAO e nao contra o banco: uma spec que sai da matriz sem
-    # registro e exatamente o defeito que este teste existe para pegar. Se
-    # alguma for reaproveitada um dia, o corte e de uma frase no short.
-    "labtreinamento-003":     ("portao", "short 43,4 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    "seviye-seviye-003":      ("portao", "short 43,4 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    "sx-educacao-002":        ("portao", "short 43,6 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    "labtreinamento-002":     ("portao", "short 42,7 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    "seviye-seviye-002":      ("portao", "short 42,5 s contra teto de 41,8 (MARGEM_SHORT 7%); titulo ja no ar sob outro pacote"),
-    "agla-level-004":         ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    # (kolejny-poziom-003 tambem estoura o teto de short — 42,0 s — mas o
+    # Elas ficam listadas, e nao apagadas, porque o inventario mede spec contra
+    # PORTAO e nao contra o banco: spec que sai da matriz sem registro e
+    # exatamente o defeito que este teste existe para pegar. Se alguma for
+    # reaproveitada, o corte e de uma ou duas frases no short.
+    "labtreinamento-003":     ("portao", "short 45,4 s previstos contra teto de 43,1; ja no ar"),
+    "seviye-seviye-003":      ("portao", "short 45,4 s previstos contra teto de 43,1; ja no ar"),
+    "sx-educacao-002":        ("portao", "short 45,6 s previstos contra teto de 43,1; ja no ar"),
+    "labtreinamento-002":     ("portao", "short 44,7 s previstos contra teto de 43,1; ja no ar"),
+    "seviye-seviye-002":      ("portao", "short 44,5 s previstos contra teto de 43,1; titulo ja no ar sob outro pacote"),
+    "agla-level-004":         ("portao", "short 44,3 s previstos contra teto de 43,1; ja no ar"),
+    # As duas abaixo entraram com a correcao de vies de 20/08/2026, e as duas
+    # ja estao no ar — conferido no banco antes de aceitar o teto novo, nao
+    # depois. A kolejny-poziom-002 nem sequer tem linha propria em `videos`:
+    # o conteudo dela e a "Emerytura z ZUS 34,4%", que esta publicada NOVE
+    # vezes no canal sob slugs diferentes. Reaproveita-la seria a decima.
+    "kolejny-poziom-002":     ("portao", "short 43,2 s previstos contra teto de 43,1; conteudo ja no ar (nove copias da Emerytura z ZUS)"),
+    "resep-naik-level-002":   ("portao", "short 43,5 s previstos contra teto de 43,1; ja no ar (le6IBDH7u6M)"),
+    # (kolejny-poziom-003 tambem estoura o teto de short — 43,9 s — mas o
     # motivo esta escrito junto com o do acento, mais abaixo. Ela chegou a ter
     # DUAS entradas aqui, e como isto e um dicionario a segunda apagava a
     # primeira em silencio: o inventario perdia um motivo registrado, que e
@@ -141,7 +142,7 @@ PARADAS = {
     # Nao ha o que consertar nelas — video no ar nao se reescreve — e o
     # orquestrador ja as descarta por terem youtube_id. Ficam listadas porque
     # spec que sai da matriz sem registro e o defeito que este teste pega.
-    "kolejny-poziom-003":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal) E short de 42,0 s contra o teto; ja no ar"),
+    "kolejny-poziom-003":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal) E short de 43,9 s contra teto de 43,1; ja no ar"),
     "kolejny-poziom-004":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
     "seja-mais-magra-004":    ("portao", "narracao sem acento portugues (0,0% contra 4,0% do canal); ja no ar"),
     # As seis abaixo entraram em 20/08/2026 pelo portao NOVO de capitulos, e as
@@ -172,8 +173,8 @@ PARADAS = {
     # sem registro e o defeito que este teste pega. Nada produzivel para aqui:
     # os dois videos ja estao no ar e o orquestrador descarta pacote com
     # youtube_id.
-    "resep-naik-level-004":   ("portao", "short 41,8 s previstos contra teto de 41,6 (MARGEM_SHORT 7,5%); ja no ar"),
-    "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
+    "resep-naik-level-004":   ("portao", "short 43,8 s previstos contra teto de 43,1; ja no ar"),
+    "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08; short 43,7 s tambem"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),
 }
