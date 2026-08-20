@@ -481,6 +481,20 @@ O portão de ortografia media a spec contra as OUTRAS DO MESMO CANAL. Num canal 
 
 `aplicado_em:` fabrica/prontidao.py _referencia_do_idioma
 
+### Marcar pauta como usada POR EIXO queima pauta que ninguem usou
+Rodei `update pautas_banco set usado_em=now() where eixo=...` e marquei 14 linhas de uma vez; só cinco tinham a ver com o pacote. Marque `usado_em` **por ID**, listando antes o que será marcado. E rótulo de eixo com dois assuntos colados por hífen é sinal de eixo mal cortado.
+
+> **eixo**: `ulgi-podatkowe-oc` — mistura alívio fiscal (PIT, IKZE, CIT) com seguro de veículo (OC) · **marcadas por engano**: 9 de 14 · **usadas de fato**: 664, 668, 673, 675, 676 · **revertidas**: as nove de imposto · **data**: 2026-08-20
+
+`aplicado_em:` pautas_banco.usado_em
+
+### A correcao de vies em short: duas medidas fora da amostra, +3,1% e +0,2%
+`VIES_SHORT` e `MARGEM_SHORT` foram calibrados sobre 30 shorts já publicados. As duas primeiras medidas *fora* dessa amostra ficaram bem dentro da margem. Com n=32 o recálculo devolve 1,048 e 0,042 contra os 1,047 e 0,043 em uso — um milésimo, dentro da tolerância de 0,005 dos testes. **As constantes não se mexem**, e é a regra do aprendizado 397 funcionando: a tolerância existe para uma medida nova não virar troca de constante.
+
+> **sx-educacao-003**: cru +8,0% → resíduo +3,1% · **kolejny-poziom-009**: cru +4,9% → resíduo **+0,2%** · **margem**: 4,3% · **longos**: +1,2% e +1,4% · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/medidas_short.tsv
+
 ### Antes de medir uma por uma, procure a coluna onde a esteira ja gravou todas
 Passei duas semanas medindo o erro do modelo em short de UM em UM, a cada publicação, e subindo uma margem para cobrir o pior caso. A esteira grava `videos.duracao_s` com o ffprobe do arquivo montado: a duração REAL de TODOS os shorts publicados estava no banco desde o primeiro dia. Antes de instrumentar medição nova, procure a coluna que a esteira já preenche.
 
