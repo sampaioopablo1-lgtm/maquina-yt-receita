@@ -205,17 +205,30 @@ def _gate_glifos(sp):
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
 SHORT_MIN_S, SHORT_MAX_S = 30, 45
-# Erro do modelo de voz em SHORT, medido em 20/08/2026 nos tres shorts do dia:
-# +3,0%, +0,7% e +6,8%, sempre subestimando. A calibracao so ve cena de longo,
-# porque short nao exporta .srt. Reveja quando houver medicao de short.
+# Erro do modelo de voz em SHORT, medido short a short conforme eles vao ao ar.
+# A calibracao so ve cena de LONGO, porque short queima a legenda e nunca
+# exporta `.srt` — a constante (R, P) nunca viu uma cena de short e e
+# extrapolada para elas. O erro e sempre no mesmo sentido: para baixo.
 #
-# O numero e a MEDIANA das tres, nao o pior. Com o pior (7%) o teto cai para
-# 41,8 s e reprova ONZE das 42 specs de producao — e as seis extras estao entre
-# 41,8 e 43,0, longe do teto de 45. Com 3% o teto fica em 43,6 e reprova as
-# CINCO que se amontoam em 44,3 a 45,0, que sao as que realmente arriscam
-# estourar. Entre 2% e 4% o conjunto reprovado e o mesmo: o corte cai num vao
-# da distribuicao, e nao no meio dela.
-MARGEM_SHORT = 0.03
+#   agla-level-004         hi-IN-Madhur    42,3 -> 43,6   +3,1%
+#   setiap-level-009       id-ID-Ardi      32,3 -> 32,5   +0,6%
+#   labtreinamento-003     pt-BR-Thalita   44,3 -> 47,6   +7,4%   <- foi ao ar fora
+#   resep-naik-level-005   id-ID-Gadis     37,8 -> 40,3   +6,6%
+#
+# Mediana das quatro: +4,8%. A margem era 3% e ficava ABAIXO do erro tipico —
+# um short no teto de 43,6 previstos cairia em 45,7 reais, fora do teto que
+# este portao existe para segurar. Com 5% o teto vai a 42,8 e o mesmo short
+# cai em 44,8.
+#
+# Por que 5% e nao 6,9%, que cobriria o PIOR caso: 6,9% reprova onze das 50
+# specs com short, contra cinco a 5%. E o teto de 45 e regra NOSSA, nao do
+# YouTube — Shorts aceita ate tres minutos desde 2024. Estourar por um segundo
+# custa formato, nao entrega. Entre 4,6% e 5,0% o conjunto reprovado e o mesmo,
+# entao 5% e a folga de graca.
+#
+# Reveja este numero a cada short novo medido. Quatro medidas ainda e pouco, e
+# a duas vozes (Thalita e Gadis) explicam sozinhas o topo da distribuicao.
+MARGEM_SHORT = 0.05
 
 
 def _gate_duracao(sp):

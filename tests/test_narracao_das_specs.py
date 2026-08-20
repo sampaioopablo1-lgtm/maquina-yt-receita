@@ -69,9 +69,18 @@ PARADAS = {
     # contra teto de 15,00 e margem de 3 s, menor que o erro tipico do proprio
     # modelo (0,75% de 897 s = 6,7 s). Passar no portao por menos que a barra
     # de erro nao e passar.
-    "cocina-por-niveles-002": ("sem portao",
-                               "canal nao existe no YouTube; e 14,95 min contra "
-                               "teto de 15,00 e margem menor que o erro do modelo"),
+    # Virou "portao" em 20/08/2026, sem que a spec mudasse uma linha: a quarta
+    # medida de short (resep-naik-level-005, +6,6%) levou MARGEM_SHORT de 3%
+    # para 5%, o teto previsto caiu de 43,6 para 42,8 s, e o short desta spec
+    # mede 43,0. O motivo PRINCIPAL de ela estar parada continua sendo outro e
+    # continua valendo — ver abaixo. O tipo mudou porque agora existe portao
+    # que a segura, e o teste cobra que os dois batam.
+    "cocina-por-niveles-002": ("portao",
+                               "canal nao existe no YouTube (motivo principal, "
+                               "que portao nenhum enxerga); alem disso short de "
+                               "43,0 s contra teto de 42,8, e longo de 14,95 min "
+                               "contra teto de 15,00 — margem menor que o erro "
+                               "do proprio modelo"),
     # kolejny-poziom-003 saiu daqui em 18/08/2026: 88 cenas viraram 79
     # (16,6 -> 13,0 min no Marek) e a copy-bilhete virou markdown completo.
     # Os limites de 2026 do roteiro foram reconferidos antes (28.260 /
@@ -80,6 +89,21 @@ PARADAS = {
     # cenas (15,33 -> 14,49 min) e devolvida a matriz.
     # resep-naik-level-003 saiu em 18/08/2026: encurtada de 86 para 76 cenas
     # (16,20 -> 14,32 min) e devolvida a matriz.
+    # As tres abaixo entraram juntas em 20/08/2026, pelo MESMO motivo e sem que
+    # nenhuma delas mudasse uma linha: a quarta medida de short
+    # (resep-naik-level-005, previsto 37,8 s e real 40,3 s, +6,6%) levou a
+    # mediana do erro para +4,8% e MARGEM_SHORT de 3% para 5%. O teto previsto
+    # caiu de 43,6 para 42,8 s e elas ficaram do lado de fora por dois decimos.
+    #
+    # Nenhuma perdeu nada com isso: as TRES ja estao no ar, publicadas antes da
+    # margem subir, e o orquestrador descarta pacote com youtube_id de qualquer
+    # forma. Elas entram aqui porque o inventario mede spec contra portao, nao
+    # contra o banco — e uma spec que sai da matriz sem registro e exatamente o
+    # defeito que este teste existe para pegar. Se um dia forem reaproveitadas,
+    # o corte e de uma frase no short.
+    "labtreinamento-003":     ("portao", "short 43,4 s contra teto de 42,8 (MARGEM_SHORT 5%); ja no ar"),
+    "seviye-seviye-003":      ("portao", "short 43,4 s contra teto de 42,8 (MARGEM_SHORT 5%); ja no ar"),
+    "sx-educacao-002":        ("portao", "short 43,6 s contra teto de 42,8 (MARGEM_SHORT 5%); ja no ar"),
     "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),
