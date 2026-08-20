@@ -481,6 +481,20 @@ O portão de ortografia media a spec contra as OUTRAS DO MESMO CANAL. Num canal 
 
 `aplicado_em:` fabrica/prontidao.py _referencia_do_idioma
 
+### Sobrescrevi a spec de um vídeo PUBLICADO e nenhum portão reclamou
+Escolhi `epomeno-epipedo-005` para um pacote novo sem olhar quais existiam. O -005 existia e **o vídeo estava no ar** (83 cenas). O build script reescreveu o `.json` em silêncio: os portões rodaram no conteúdo *novo* e passaram, porque eles conferem se a spec está **certa**, não se ela é a spec **certa**. O que pegou foi acidente — a extração das tags falhou.
+
+> **guarda**: `fabrica/grava_spec.py` — `proximo_livre(slug)` consulta o diretório, `grava()` recusa escrever por cima de `.json` cujo título é outro · **testes**: 6 · **restaurado**: sim, íntegro · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/grava_spec.py
+
+### Longo subiu SEM LEGENDA e o passo de publicação ficou verde
+Mesmo defeito estrutural, mesmo dia: `captions.insert` devolveu 403 e o job ficou verde, porque o resultado de `legenda()` era só **impresso** — nunca virava código de saída nem ia para o banco. Legenda em canal não-inglês não é cosmético (aprendizado 93). Agora emite `::error::` e sai com código 4 **depois** de publicar e registrar: o vídeo já está no ar, então derrubar não perde nada — só acende a luz.
+
+> **vídeo**: `uWs-k_Wrn_w` · **erro**: 403 permissions not sufficient · **armadilha**: `config.yt_token_*.scopes` guarda o que foi **pedido**, não o que foi **concedido** — não serve como prova de permissão · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/publicar.py
+
 ### Marcar pauta como usada POR EIXO queima pauta que ninguem usou
 Rodei `update pautas_banco set usado_em=now() where eixo=...` e marquei 14 linhas de uma vez; só cinco tinham a ver com o pacote. Marque `usado_em` **por ID**, listando antes o que será marcado. E rótulo de eixo com dois assuntos colados por hífen é sinal de eixo mal cortado.
 

@@ -737,6 +737,7 @@ def main():
 
     # 2) LONGO, ja apontando para o short.
     longo = os.path.join(d, "video.mp4")
+    r_leg = "sem arquivo"
     if os.path.exists(longo):
         desc = cp["descricao"]
         if saida.get("short"):
@@ -745,7 +746,21 @@ def main():
         saida["longo"] = vid
         print("LONGO:", vid)
         print("  thumbnail:", thumbnail(acc, vid, os.path.join(d, "thumbnail.png")))
-        print("  legenda  :", legenda(acc, vid, os.path.join(d, "legendas.srt"), idioma))
+        # A legenda do LONGO nao e cosmetica e nao e opcional: alimenta a busca,
+        # habilita a traducao automatica e sustenta retencao no mudo. Em canal
+        # de idioma nao-ingles isso e metade do alcance (aprendizado 93).
+        #
+        # Ate 20/08/2026 o resultado desta chamada era so IMPRESSO. O
+        # epomeno-epipedo-008 subiu com "legenda: 403 permissions ... not
+        # sufficient" e o job ficou VERDE — mesmo defeito do dia: o passo
+        # confere que o que ele fez esta certo, e nao reclama do que nao fez.
+        # Agora a falha vira ::error:: e derruba o codigo de saida no fim.
+        r_leg = legenda(acc, vid, os.path.join(d, "legendas.srt"), idioma)
+        print("  legenda  :", r_leg)
+        if not r_leg.startswith(("ok", "ja existia", "sem arquivo")):
+            print(f"::error title=Longo sem legenda::{vid} foi publicado sem "
+                  f"faixa de legenda ({r_leg}). O video ESTA no ar; o que "
+                  f"falta e a legenda, que pode ser enviada depois.")
         print("  playlist :", na_playlist(acc, args.playlist, vid))
 
         # O short sobe ANTES do longo existir, entao o CTA dele ("a conta
@@ -761,6 +776,13 @@ def main():
     registrar(saida, sp, cp, d, args.canal, sb_url, sb_key)
 
     print(json.dumps(saida))
+    # Sai diferente de zero DEPOIS de publicar e registrar. A ordem importa: o
+    # video ja esta no ar e o registro ja esta no banco, entao derrubar aqui nao
+    # perde nada — so acende a luz. Job verde com longo sem legenda e pior que
+    # job vermelho, porque ninguem vai olhar de novo.
+    if saida.get("longo") and not r_leg.startswith(
+            ("ok", "ja existia", "sem arquivo")):
+        raise SystemExit(4)
     return saida
 
 
