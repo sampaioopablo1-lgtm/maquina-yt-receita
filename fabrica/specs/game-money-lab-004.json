@@ -1,0 +1,621 @@
+{
+  "slug": "game-money-lab",
+  "pacote": "game-money-lab-004",
+  "idioma": "en",
+  "voz": "en-GB-RyanNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#131A26",
+    "c1": "#5B2A86",
+    "c2": "#3DDC97",
+    "bg": "#F2F0FA"
+  },
+  "thumb": {
+    "l1": "8,025 to 14,259",
+    "l2": "in six months"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Eight thousand",
+      "sub": "and twenty five",
+      "nar": "In January, the industry's main layoff tracker published a forecast for this year. Eight thousand and twenty five jobs. That was the number the whole industry planned around.",
+      "cap": "The number that moved"
+    },
+    {
+      "layout": "item",
+      "kicker": "Six months later",
+      "preco": "fourteen thousand two fifty nine",
+      "nar": "By the end of July the same tracker, run by the same person, using the same method, was forecasting fourteen thousand two hundred and fifty nine.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is a jump",
+      "sub": "of seventy-eight per cent",
+      "nar": "That is a jump of seventy-eight per cent. Not year over year. Within a single year, about a single year.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Almost nobody covered that",
+      "sub": "they covered the total",
+      "nar": "Almost nobody covered the revision. Everybody covered the total. Those are very different stories, and only one of them tells you where things are going.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The total",
+      "preco": "is a photograph",
+      "nar": "A total is a photograph. It tells you where the number stands on the day somebody wrote it down.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The revision",
+      "preco": "is a direction",
+      "nar": "A revision is a direction. It tells you which way the estimate has been moving, and how fast, and that survives the next headline.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So this is not a doom video",
+      "sub": "it is a method video",
+      "nar": "So this is not a video about how bad things are. It is a video about how to read a number that keeps changing.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Three things",
+      "itens": [
+        "How the tracker actually works",
+        "Where every revision has gone",
+        "What it does not predict"
+      ],
+      "nar": "Three things. How the tracker actually works. Where the revisions have gone so far. And, at the end, what none of this predicts.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "One thing up front",
+      "sub": "no forecast for you",
+      "nar": "One thing up front. I will not give you a final figure for this year. Nobody has one, and a quarter is still open.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "What I will give",
+      "preco": "the mechanism",
+      "nar": "What I will give you is the mechanism, so the next revision is something you can read instead of something that lands on you.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Start with the tracker",
+      "sub": "because it is not a census",
+      "nar": "Start with the tracker itself. Because it is not what most people assume it is.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It is not a census",
+      "sub": "it is a ledger",
+      "nar": "The tracker is not a census of the industry. Nobody has that. It is a ledger of publicly reported job losses, assembled from announcements, filings and confirmed reporting.",
+      "cap": "What the tracker counts"
+    },
+    {
+      "layout": "item",
+      "kicker": "Who runs it",
+      "preco": "Amir Satvat",
+      "nar": "It is maintained by Amir Satvat, a business development director at Tencent Games, and it is the number the trade press cites when it cites a number.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It has two columns",
+      "sub": "and they behave differently",
+      "nar": "It has two columns that behave completely differently, and mixing them is where most confusion starts.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Confirmed",
+      "preco": "nine thousand seven eighty one",
+      "nar": "Confirmed. As of late July, nine thousand seven hundred and eighty one people. These are counted, named events. This column only ever goes up.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Projected",
+      "preco": "fourteen thousand two fifty nine",
+      "nar": "Projected. Fourteen thousand two hundred and fifty nine by year end. This is the estimate, and this column moves in both directions in principle.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "In practice",
+      "sub": "it has gone one way",
+      "nar": "In practice, this year, it has gone one way. And the reason is structural, not editorial.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Between two updates",
+      "preco": "three hundred and seventeen",
+      "nar": "Between the two most recent updates the confirmed column added three hundred and seventeen people. Three per cent, in a matter of weeks.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Why that matters",
+      "sub": "confirmation lags the event",
+      "nar": "Here is why that matters. A layoff happens on a Tuesday. It gets confirmed when somebody reports it, which can be weeks later.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So the ledger",
+      "sub": "is always behind reality",
+      "nar": "So the confirmed column is always behind reality by however long confirmation takes. Not because it is sloppy. Because that is what confirming means.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Which means",
+      "preco": "the floor, not the total",
+      "nar": "Which means the confirmed number is a floor. The real figure on any given day is that number or higher, never lower.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Now the history",
+      "sub": "and the direction in it",
+      "nar": "Now let us look at what the last few years actually did.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Five years",
+      "sub": "and no straight line",
+      "nar": "Here are the confirmed totals, year by year, from the same tracker. And the shape is not the one most people carry in their head.",
+      "cap": "Where the revisions have gone"
+    },
+    {
+      "layout": "barras",
+      "kicker": "Confirmed by year",
+      "itens": [
+        "2022",
+        "2023",
+        "2024",
+        "2025",
+        "2026*"
+      ],
+      "alturas": [
+        0.54,
+        0.67,
+        1.0,
+        0.59,
+        0.63
+      ],
+      "nar": "Twenty twenty-two, eight thousand five hundred. Twenty twenty-three, ten thousand five hundred. Twenty twenty-four, fifteen thousand six hundred and thirty one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Then it fell",
+      "preco": "nine thousand one ninety seven",
+      "nar": "Then twenty twenty-five came in at nine thousand one hundred and ninety seven. A real drop, and a lot of people read that as the end of it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "This year",
+      "sub": "already past three of those four",
+      "nar": "This year has already passed twenty twenty-two, twenty twenty-three and twenty twenty-five on confirmed alone. With a quarter still to run.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The peak still stands",
+      "sub": "and that matters",
+      "nar": "The peak still stands. Twenty twenty-four was worse than what this year is projected to reach, and saying otherwise would be overselling it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "But the shape changed",
+      "preco": "recovery became a pause",
+      "nar": "But what changed is the shape. Last year looked like a recovery. This year makes it look more like a pause in the middle of something longer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the five-year total",
+      "sub": "is the number to sit with",
+      "nar": "And if you add the five years together, the projection lands near sixty thousand people. That is the number I would sit with, not any single year.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Because single years argue",
+      "sub": "and the sum does not",
+      "nar": "Single years can be argued about. One studio closing can move a year. The five-year sum is much harder to explain away.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A caution",
+      "preco": "these are not the same people",
+      "nar": "One caution before we go on. Sixty thousand job losses is not sixty thousand different people. Some are counted more than once across years.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nobody publishes that split",
+      "sub": "so I will not invent it",
+      "nar": "Nobody publishes how many. So I am not going to estimate it, and you should be sceptical of anybody who does.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Next",
+      "sub": "where these jobs actually were",
+      "nar": "Next, the part that changes who this is actually happening to.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ninety-five per cent",
+      "sub": "of it is two regions",
+      "nar": "This is the part that reframes the whole thing for me. North America and Europe account for ninety-five per cent of all games industry layoffs in this dataset. Not most of them. Almost all of them.",
+      "cap": "The geography nobody prices in"
+    },
+    {
+      "layout": "item",
+      "kicker": "United States",
+      "preco": "forty-eight per cent",
+      "nar": "The United States alone is forty-eight per cent of this year's total. Canada adds seventeen. Europe adds thirty.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which leaves",
+      "sub": "five per cent for everywhere else",
+      "nar": "Which leaves about five per cent for the entire rest of the world. Japan, Korea, China, India, Brazil, all of it, inside that five.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now hold on",
+      "sub": "because that cuts two ways",
+      "nar": "Now hold on before you draw the obvious conclusion, because this number cuts in two directions and only one of them gets said out loud.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The first reading",
+      "preco": "western studios are shrinking",
+      "nar": "The first reading is the popular one. Western studios are contracting, and development is moving to cheaper places. That reading is not wrong.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The second reading",
+      "preco": "the tracker sees in English",
+      "nar": "The second reading is about the ledger itself. It counts what is publicly reported, and public reporting of layoffs is far denser in English-language markets than anywhere else.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A studio that shrinks quietly",
+      "sub": "in a market with less trade press",
+      "nar": "A studio that shrinks quietly in a market with less trade press coverage may simply not enter this dataset at all. Not hidden. Just never written down.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So how much of ninety-five",
+      "sub": "is concentration, how much is visibility",
+      "nar": "So how much of that ninety-five per cent is real concentration, and how much is visibility? I do not know, and neither does anybody quoting it at you.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "What I can say",
+      "preco": "it is a ceiling for the west",
+      "nar": "What I can say is narrower. For western developers, this figure is not an overstatement. Whatever the rest of the world's true number is, it does not subtract from theirs.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is the honest version",
+      "sub": "and it is still bad news",
+      "nar": "That is the honest version of the geography claim. It is still bad news for the people in it, and it is a weaker claim than the headline makes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Now the direction",
+      "sub": "and why it keeps going up",
+      "nar": "Which brings us back to the revision, and why it has only moved one way.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A guess would be",
+      "sub": "the industry got worse",
+      "nar": "The intuitive explanation for a seventy-eight per cent upward revision is that things got much worse than expected between January and July. That may be part of it. It is not the whole thing.",
+      "cap": "Why the direction is not random"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Part of it is arithmetic",
+      "sub": "of how the forecast is built",
+      "nar": "Part of it is arithmetic, built into how any forecast of this kind works. And once you see it, the revisions stop feeling like shocks.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A January forecast",
+      "preco": "has almost no year in it",
+      "nar": "A forecast published in January is built on almost no data from the year it is forecasting. It leans on last year, and last year was the low one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So it starts low",
+      "sub": "by construction",
+      "nar": "So it starts low. Not pessimistically or optimistically. By construction.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Each month after",
+      "preco": "adds confirmed events",
+      "nar": "Every month after that adds real confirmed events, and confirmed events only ever add. There is no mechanism for a confirmed layoff to un-happen.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So the estimate",
+      "sub": "walks upward as the year fills in",
+      "nar": "So the estimate walks upward as the year fills in. It would do that even in a year that turned out completely normal.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which is why",
+      "sub": "the revision is not the alarm",
+      "nar": "Which is why the size of the revision, on its own, is not the alarm people read it as. Some upward drift is the method, not the message.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The real question",
+      "preco": "faster or slower than the drift",
+      "nar": "The real question is whether it is drifting faster than normal. And that you answer by comparing the same month across years, not by staring at one jump.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I am flagging this",
+      "sub": "as reasoning, not data",
+      "nar": "And I am flagging clearly: that mechanism is my reading of how the forecast is built. It is not a claim the tracker publishes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Why say that out loud",
+      "sub": "because it changes what you trust",
+      "nar": "I say it out loud because you should hold it more loosely than the counts. The counts are sourced. This is an explanation of them.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "So what survives",
+      "sub": "when you strip the framing",
+      "nar": "So what actually survives when you strip all the framing off?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It does not predict",
+      "sub": "the final figure",
+      "nar": "It does not predict where this year lands. A quarter is open, and one large closure can move the total by a thousand people in an afternoon.",
+      "cap": "What this does and does not predict"
+    },
+    {
+      "layout": "item",
+      "kicker": "It does not say",
+      "preco": "which studio is next",
+      "nar": "It does not tell you which studio is next. Nobody who tells you that knows, and the ones who claim to are selling something.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It does not measure",
+      "sub": "hiring",
+      "nar": "It does not measure hiring at all. This is a one-sided ledger. A year with high layoffs and high hiring looks identical here to one with neither.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "And it is a floor",
+      "preco": "not a total",
+      "nar": "And the confirmed column is a floor, not a total. What is not publicly reported is not in it, and there is no way to know how much that is.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So what does it support",
+      "sub": "two things, both narrow",
+      "nar": "So what does it actually support? Two things, and both are narrower than the headlines built on them.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "What survives",
+      "itens": [
+        "The direction of the revisions",
+        "The five-year floor",
+        "Where the reported losses are"
+      ],
+      "nar": "The direction the revisions have moved. The five-year floor of roughly sixty thousand reported losses. And that the reported ones are concentrated in two regions.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is enough",
+      "sub": "to make a decision with",
+      "nar": "That is enough to make a career decision with. It is not enough to make a prediction with, and the difference matters.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "If you work in this",
+      "preco": "the useful read",
+      "nar": "If you work in this industry, the useful read is not the total. It is that the estimate has moved up every time it has been touched this year.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And if you are outside it",
+      "sub": "the useful read is different",
+      "nar": "If you are outside it, the useful read is different again. This is what a sector looks like while it repricies labour, and the counting lags the event.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Neither of those",
+      "sub": "is a headline",
+      "nar": "Neither of those makes a headline. Both of them are more useful than one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Last part",
+      "sub": "what to watch instead",
+      "nar": "Last part. What I would actually watch from here.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Watch the revision",
+      "sub": "not the number",
+      "nar": "When the next update lands, do not read the total first. Read what the projection was before it, and what it is now.",
+      "cap": "What to watch instead of the total"
+    },
+    {
+      "layout": "item",
+      "kicker": "The gap",
+      "preco": "is the whole signal",
+      "nar": "The gap between those two is the signal. The total is just where the gap happens to have arrived.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Three numbers",
+      "itens": [
+        "The previous projection",
+        "The new projection",
+        "Confirmed, both times"
+      ],
+      "nar": "Three numbers, thirty seconds. The previous projection. The new one. And the confirmed column at both dates.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If the projection moves",
+      "sub": "and confirmed barely does",
+      "nar": "If the projection jumps and the confirmed column barely moves, the model changed its mind. That is worth attention.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If both move together",
+      "sub": "the year is filling in",
+      "nar": "If both move together, the year is simply filling in as expected. Less dramatic, and much more common.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "That distinction",
+      "preco": "is invisible in the headline",
+      "nar": "That distinction is completely invisible in any headline about the total, and it takes half a minute to check.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "One more habit",
+      "sub": "compare the same month",
+      "nar": "One more habit worth having. Compare the same month across years. July to July tells you something. July to January tells you almost nothing.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sources are in the description",
+      "sub": "check them",
+      "nar": "The tracker and the reporting are both linked below. Go and look, because this is a number you will see quoted badly all year.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Next video",
+      "preco": "the hiring side",
+      "nar": "In the next video I want to do the other half of this ledger. What the hiring side actually shows, and why it is much harder to count.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Because a one-sided ledger",
+      "sub": "answers half a question",
+      "nar": "Because a ledger with only one side answers half a question, and half a question is how you end up sure about the wrong thing.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "January",
+      "sub": "eight thousand and twenty five",
+      "nar": "In January the games layoff forecast for this year was eight thousand and twenty five.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "July",
+      "sub": "fourteen thousand two fifty nine",
+      "nar": "By July, same tracker, same method: fourteen thousand two hundred and fifty nine.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is",
+      "sub": "seventy-eight per cent",
+      "nar": "Seventy-eight per cent higher. Same year. Six months apart.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The story",
+      "sub": "is not the total",
+      "nar": "Everyone reported the total. Almost nobody reported the revision.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A total",
+      "sub": "a revision",
+      "nar": "A total is a photograph. A revision is a direction.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Full breakdown",
+      "sub": "on the channel",
+      "nar": "The full breakdown, and why it only moves one way, is on the channel.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# The revision, not the total: reading the 2026 games layoff tracker\n\n## TITULO\nGaming Layoffs 2026: The Forecast Was Revised Up 78% in Six Months\n\n## DESCRICAO\nIn January, the ASGC Games Industry Layoffs Tracker forecast 8,025 games industry job losses for 2026. By the end of July, the same tracker — same maintainer, same method — was projecting 14,259. That is a 78% upward revision inside a single year, about that same year.\n\nAlmost every outlet covered the total. Almost none covered the revision. A total is a photograph: it tells you where the number stood the day someone wrote it down. A revision is a direction, and a direction survives the next headline.\n\nWhat the tracker actually is: not a census of the industry, but a ledger of publicly reported job losses, maintained by Amir Satvat, a business development director at Tencent Games. It has two columns that behave very differently. Confirmed — 9,781 people as of late July, up 317 (+3%) from the previous update — counts named, reported events and only ever rises. Projected is the estimate for year end. Confirmation lags the event by however long reporting takes, which makes the confirmed column a floor, never a total.\n\nThe five-year picture, confirmed: 2022 around 8,500; 2023 around 10,500; 2024 the peak at 15,631; 2025 down to 9,197. This year has already passed 2022, 2023 and 2025 on confirmed alone, with a quarter still open — though 2024 remains the worst year on record, and saying otherwise oversells it. Across the five years the projection lands near 60,000 reported losses. That total is not 60,000 distinct people; nobody publishes how much overlap there is, so this video does not estimate it.\n\nGeography: North America and Europe account for 95% of the layoffs in this dataset — the US 48%, Canada 17%, Europe 30%. That figure cuts two ways, and the video takes both seriously. Western studios really are contracting; and the ledger counts what is publicly reported, and public reporting of layoffs is far denser in English-language markets. How much of the 95% is concentration and how much is visibility is not knowable from this data.\n\nOn why revisions keep moving up: a January forecast is built on almost no data from the year it forecasts, and every month afterwards adds confirmed events that can only add. Some upward drift is the method, not the message. That explanation is flagged in the video as reasoning, not as something the tracker publishes.\n\nAnd the limits: this predicts no final figure, names no studio, measures no hiring at all, and counts only what was reported.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nA question for anyone working in the industry: when the next tracker update lands, does your studio's situation show up in it at all — or is it the kind of quiet contraction that never gets publicly reported? I'm trying to get a sense of how much the ledger misses, and that is the one thing the data cannot tell me.\n\n## HASHTAGS\n#GameIndustry #Layoffs #GameMoneyLab\n\n## TAGS\ngame industry layoffs, games industry 2026, video game layoffs, amir satvat, layoffs tracker, game development, aaa games, studio closures, games business, game jobs, industry analysis, gaming economy, tech layoffs, games market, developer jobs\n\n## CONFIGURACAO DE STUDIO\n- Language: English (en-GB) | Category: Education (27)\n- Not made for kids\n- Altered or synthetic content disclosure: YES (AI-generated voice)\n- Location: United Kingdom | Licence: Standard YouTube Licence\n- Mid-roll ads: on (runtime over eight minutes)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nAll figures come from the ASGC Games Industry Layoffs Tracker, maintained by Amir Satvat (business development director at Tencent Games), as reported by GamesBeat on 30 July 2026 and corroborated by gamedev.net, ixbt.games and Outlook Respawn with identical numbers: 2026 forecast revised from 8,025 in January to 14,259 in July (+78%); confirmed losses 9,464 rising to 9,781 (+317, +3%); annual confirmed totals of roughly 8,500 (2022), 10,500 (2023), 15,631 (2024) and 9,197 (2025); and a regional split of 95% North America and Europe, with the US at 48%, Canada 17% and Europe 30%. Accessed 20 August 2026. The tracker counts publicly reported job losses and is therefore a floor, not a census. This video does not forecast the final 2026 figure, does not name or blame any company, does not estimate how many of the five-year total are distinct individuals, and does not measure hiring. The explanation offered for why forecasts drift upward is the presenter's reasoning about how such forecasts are constructed, and is identified as such in the video — it is not a claim published by the tracker.\n"
+}
