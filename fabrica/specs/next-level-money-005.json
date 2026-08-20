@@ -1,0 +1,630 @@
+{
+  "slug": "next-level-money",
+  "pacote": "next-level-money-005",
+  "idioma": "en",
+  "voz": "en-US-AndrewNeural",
+  "trilha": "Deliberate_Thought",
+  "paleta": {
+    "ink": "#1A1A1A",
+    "c1": "#E4572E",
+    "c2": "#F2B134",
+    "bg": "#F2ECDF"
+  },
+  "thumb": {
+    "l1": "12.8% delinquent?",
+    "l2": "the Fed said read it again"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Twelve point eight",
+      "sub": "per cent",
+      "nar": "On the eleventh of August, the New York Fed published its quarterly report on household debt. One figure in it travelled further than all the others. Twelve point eight per cent of credit card balances were ninety days or more without payment.",
+      "cap": "The number everyone quoted"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That got read",
+      "sub": "as a crisis",
+      "nar": "That got read as a crisis number, and you can see why. Nearly one dollar in eight, sitting unpaid for a quarter of a year.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "But the Fed's own researchers",
+      "preco": "said not to read it that way",
+      "nar": "Except the Fed's own researchers attached a caution to it. They said that figure does not show a broad deterioration in how people are paying their bills right now.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is unusual",
+      "sub": "and worth stopping on",
+      "nar": "That is an unusual thing for a statistical agency to do. Publish a number, and in the same breath tell you how not to read it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So either",
+      "sub": "they are downplaying it",
+      "nar": "So one of two things is happening. Either they are softening bad news.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Or the number",
+      "preco": "measures something else",
+      "nar": "Or the number is measuring something slightly different from what everyone assumed it measured. This video is about which one it is.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Spoiler",
+      "sub": "it is the second",
+      "nar": "It is the second one, and the mechanism is genuinely worth understanding, because it will distort this same statistic every quarter from now on.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Three parts",
+      "itens": [
+        "What charged off means",
+        "Why old debt stays visible",
+        "What the same report actually said"
+      ],
+      "nar": "Three parts. What it means when a debt is charged off. Why that debt keeps showing up long afterwards. And what the rest of that report said, which almost nobody quoted.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "One promise",
+      "sub": "this is not a debt is fine video",
+      "nar": "One promise before we start. This is not a video arguing that household debt is fine. It is not, and I will show you the numbers that say so.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "It is a video",
+      "preco": "about one statistic",
+      "nar": "It is a video about one statistic being widely misread, which is a different claim, and a much narrower one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Start with the accounting",
+      "sub": "because that is where it comes from",
+      "nar": "Start with the accounting, because that is where the whole distortion is born.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A bank does not wait",
+      "sub": "forever",
+      "nar": "When you stop paying a credit card, the bank does not wait indefinitely to find out how it ends. At a certain point it has to make a decision about its own books.",
+      "cap": "What charged off actually means"
+    },
+    {
+      "layout": "item",
+      "kicker": "Around one hundred",
+      "preco": "and eighty days",
+      "nar": "In the United States that point is generally around one hundred and eighty days past due for revolving credit. At that stage the balance is charged off.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Charged off",
+      "sub": "does not mean forgiven",
+      "nar": "And here is the first thing almost everyone gets wrong. Charged off does not mean forgiven, cancelled, or gone.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "It is an accounting move",
+      "preco": "on the bank's side",
+      "nar": "It is an accounting move on the bank's side. The bank stops carrying the balance as an asset it expects to collect, and books the loss.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "You still owe it",
+      "sub": "entirely",
+      "nar": "You still owe the money. Entirely. The debt can still be collected, sold to a collection agency, or pursued in court.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So one event",
+      "sub": "produces two different records",
+      "nar": "So a single event produces two very different records. The bank's books say the loss is taken. Your credit report says the debt is unpaid.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "And the report",
+      "preco": "is where the statistic comes from",
+      "nar": "And it is the credit report side that feeds this statistic. The New York Fed builds this data from a large sample of consumer credit records.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which means",
+      "sub": "the question becomes how long",
+      "nar": "Which means the entire question becomes: how long does a charged off debt keep appearing on a credit report after the charge off?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If it disappeared quickly",
+      "sub": "there would be no distortion",
+      "nar": "If it vanished quickly, there would be no distortion at all. The statistic would track current behaviour, quarter by quarter.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "It does not vanish quickly",
+      "preco": "and that is the whole story",
+      "nar": "It does not vanish quickly. And the Fed put a number on exactly how slowly, which is the piece that makes this readable.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "That number",
+      "sub": "is the next part",
+      "nar": "That number is the next part, and it is larger than most people would guess.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Eighty per cent",
+      "sub": "a full year later",
+      "nar": "According to the New York Fed's researchers, eighty per cent of charged off balances are still visible on credit reports a full year after being written off.",
+      "cap": "Eighty per cent, one year on"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sit with that",
+      "sub": "for a second",
+      "nar": "Sit with that for a second, because it does all the work in this episode.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A debt from last summer",
+      "preco": "is in this summer's number",
+      "nar": "A card balance that went bad last summer, and was charged off months ago, is very likely still inside the figure published this month.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It is not being counted twice",
+      "sub": "in the balance",
+      "nar": "It is not being double counted in the dollar balance. But it is being counted again in the share that is ninety days or more delinquent.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Because that share",
+      "sub": "is a stock, not a flow",
+      "nar": "Because that share is a stock, not a flow. It measures how much delinquent debt is sitting there, not how much became delinquent this quarter.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Two different questions",
+      "itens": [
+        "How many people fell behind recently",
+        "How much old bad debt is still listed"
+      ],
+      "nar": "Those are two different questions. How many people fell behind recently. And how much old bad debt is still sitting on the books.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The headline number",
+      "preco": "answers the second",
+      "nar": "The twelve point eight per cent figure answers the second question, and gets reported as if it answered the first.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the backlog",
+      "sub": "only clears slowly",
+      "nar": "And because the backlog clears slowly, that share can stay high, or even rise, in a quarter when fewer people are actually falling behind.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which is precisely",
+      "sub": "what the Fed was flagging",
+      "nar": "Which is precisely what the Fed's researchers were flagging. Not that the number is wrong. That it answers a different question than the one being asked.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The measure that answers",
+      "preco": "the first question",
+      "nar": "The measure that does answer the first question is the transition rate — how much debt moved into delinquency this quarter. And that one held steady.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Now the rest of the report",
+      "sub": "which nobody quoted",
+      "nar": "Now the rest of that report, which almost nobody put in a headline.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Total household debt",
+      "sub": "went down",
+      "nar": "Here is the sentence that led the New York Fed's own press release, and that I did not see in a single thumbnail. Total household debt decreased in the second quarter. It fell by thirteen billion dollars. That is about one tenth of one per cent, and it leaves the total at eighteen point eight trillion.",
+      "cap": "What the same report actually said"
+    },
+    {
+      "layout": "item",
+      "kicker": "Overall delinquency",
+      "preco": "four point seven per cent",
+      "nar": "Overall delinquency also moved the friendly way. As of the end of June, four point seven per cent of all outstanding household debt was in some stage of delinquency, down a tenth of a point from the quarter before. Small, but the sign matters as much as the size.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the transition rates",
+      "sub": "held steady",
+      "nar": "And the rate at which debt was newly moving into delinquency held steady. Not improving dramatically, not deteriorating. Flat. Which, after several years of headlines about a coming wave, is itself information.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Meanwhile cards",
+      "preco": "rose twenty one billion",
+      "nar": "Against all that, credit card balances did rise. Up twenty one billion dollars, to one point two six trillion. That part of the scary story is entirely true, and I am not going to soften it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So the report says",
+      "sub": "three things at once",
+      "nar": "So a single report said three things at once. Total debt down slightly. Delinquency down slightly. Card balances up. And a delinquency share that looks alarming for accounting reasons.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Guess which one",
+      "sub": "became the story",
+      "nar": "Guess which of those four became the story. The one that sounded worst, and the one the publishing agency specifically asked people to interpret carefully.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "That is not a conspiracy",
+      "preco": "it is selection",
+      "nar": "That is not a conspiracy, and I do not think anyone lied. It is selection. A number that sounds like a crisis travels further than one that sounds like a rounding error, and every outlet is choosing under the same pressure.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "But the effect",
+      "sub": "is a distorted picture",
+      "nar": "The effect, though, is a picture of American household finances that is meaningfully darker than the data that produced it. And that has costs, because people make decisions on it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "What actually moved",
+      "itens": [
+        "Total debt: down 0.1%",
+        "Delinquency: down 0.1 point",
+        "Card balances: up $21bn"
+      ],
+      "nar": "So here is the quarter in three lines. Total debt down a tenth of a per cent. Delinquency down a tenth of a point. Card balances up twenty one billion.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "None of those",
+      "sub": "is dramatic",
+      "nar": "None of those is dramatic in either direction. Which is, I think, the real finding of this report, and the reason it produced no memorable headline.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Now the harder part",
+      "sub": "holding both truths",
+      "nar": "Now the harder part, and the reason I am being careful here.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The correction",
+      "sub": "is not the opposite claim",
+      "nar": "There is a trap in videos like this one, and I want to walk into it deliberately rather than pretend it is not there. When you correct an alarming number, it is very easy to slide into arguing the opposite. That would be just as wrong, and more comfortable to watch.",
+      "cap": "Both things are true"
+    },
+    {
+      "layout": "item",
+      "kicker": "One point two six trillion",
+      "preco": "is real money",
+      "nar": "One point two six trillion dollars in revolving credit card debt is real, it is at a record level in nominal terms, and it is carried at interest rates that have stayed high. None of that is an accounting artefact.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Four point seven per cent",
+      "sub": "is millions of households",
+      "nar": "Four point seven per cent of eighteen point eight trillion dollars in some stage of delinquency is not a small number of households. It is a very large number of households, and the fact that it ticked down a tenth of a point does not change their situation this month.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So what exactly",
+      "sub": "did we correct",
+      "nar": "So what did we actually correct? Something narrow, and worth stating precisely, because precision is the entire point of the exercise.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "We corrected",
+      "preco": "one statistic's meaning",
+      "nar": "We corrected the meaning of one statistic. Twelve point eight per cent does not mean that nearly one in eight card dollars just went bad. It means that share of balances is currently carrying a delinquency flag, including old debt already written off.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "What we did not correct",
+      "sub": "the level of debt",
+      "nar": "What we did not correct is the level of debt, the cost of carrying it, or whether any individual household is in trouble. Those questions are untouched by anything in this video.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Both readings fail",
+      "sub": "in opposite directions",
+      "nar": "Read only the twelve point eight, and you conclude a collapse is underway. Read only the corrections, and you conclude everything is fine. Both of those are wrong, and the second one is the more expensive mistake to make with your own money.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The accurate summary",
+      "preco": "is boring",
+      "nar": "The accurate summary is boring, and boring is usually what accurate sounds like. Debt is high, expensive, and roughly stable. Nothing broke this quarter, and nothing got fixed either.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Boring does not trend",
+      "sub": "and that is the problem",
+      "nar": "Boring does not trend. Which is why you will keep seeing the alarming version of this number, quarter after quarter, and why knowing the mechanism is worth the twelve minutes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Because the mechanism",
+      "sub": "does not expire",
+      "nar": "The mechanism does not expire. The backlog will still be there next quarter, and the quarter after, distorting the same statistic in the same direction.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "So let us make it usable",
+      "sub": "for the next release",
+      "nar": "So let us make this usable. Here is how I would read the next one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It is quarterly",
+      "sub": "and the calendar is public",
+      "nar": "This report comes out once a quarter, and the New York Fed announces the release date in advance. That alone puts you ahead of most commentary, because you can read the source on the morning it lands instead of reading what somebody made of it a day later.",
+      "cap": "How to read the next release"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Four numbers",
+      "itens": [
+        "Total household debt",
+        "Overall delinquency share",
+        "Transition into delinquency",
+        "Card balance change"
+      ],
+      "nar": "Four numbers, and they take about two minutes. Total household debt and which way it moved. The overall delinquency share. The transition rate into delinquency. And the change in card balances.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The transition rate",
+      "preco": "is the one to weight",
+      "nar": "If you only have time for one, take the transition rate. It measures what moved into delinquency during the quarter, so it responds to what is happening now rather than to what happened a year ago and is still listed.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The ninety day share",
+      "sub": "is the one to discount",
+      "nar": "And the ninety day or more share is the one to hold most loosely, because you now know it carries a backlog that clears slowly and drags the level upward independently of current behaviour.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is not a trick",
+      "sub": "the Fed publishes both",
+      "nar": "This is not some clever trick. The Fed publishes both, clearly, in the same document. The distortion happens entirely downstream, in which one gets picked up.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Compare quarters",
+      "preco": "not headlines",
+      "nar": "Compare the same measure across quarters rather than comparing this quarter's headline to last quarter's headline. Headlines are written by different people making different choices about which line to lead with.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And watch the direction",
+      "sub": "more than the level",
+      "nar": "Watch the direction more than the level. A level tells you where things stand and needs enormous context to interpret. A direction tells you what changed, and needs almost none.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If you take one habit",
+      "sub": "take that one",
+      "nar": "If you take a single habit from this video, take that one. It generalises far beyond credit card statistics, and it costs you nothing to apply.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The report is free",
+      "preco": "and it is the source",
+      "nar": "The report is free, published openly, and it is the source that every article you have read this month is built on. Everything downstream is somebody's summary of it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I will link it",
+      "sub": "below",
+      "nar": "It is linked below, along with the specific release these figures come from, so you can check every number I have said against the original.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Last section",
+      "sub": "the limits of all this",
+      "nar": "Last section, and it is the one I would want if I were watching.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It does not tell you",
+      "sub": "about your own debt",
+      "nar": "None of this tells you anything about your own situation. These are national aggregates built from a sample of credit records, and an aggregate that improves by a tenth of a point can sit on top of a household whose position got dramatically worse this quarter.",
+      "cap": "What this does not tell you"
+    },
+    {
+      "layout": "item",
+      "kicker": "It is not a forecast",
+      "preco": "of anything",
+      "nar": "It is also not a forecast. The report describes a quarter that has already finished. Anyone using it to tell you what happens in the next six months is adding their own model on top, and should say so.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The eighty per cent figure",
+      "sub": "is about visibility",
+      "nar": "The eighty per cent figure describes how long charged off balances stay visible on credit reports. It does not tell you how much of that debt is still being actively collected, or how much is realistically recoverable.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "And it is a sample",
+      "preco": "not a census",
+      "nar": "And the underlying panel is a large sample of credit records, not a census of every American. It is the best series available for this question, which is a different claim from being complete.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "What I have not claimed",
+      "sub": "matters as much",
+      "nar": "Let me be explicit about what I have not claimed, because in a video that corrects an alarming number, silence gets read as agreement.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Not claimed",
+      "itens": [
+        "That debt is at a safe level",
+        "That delinquency is falling meaningfully",
+        "That anyone is exaggerating on purpose"
+      ],
+      "nar": "I have not claimed that debt is at a safe level. I have not claimed delinquency is meaningfully falling. And I have not claimed anybody is exaggerating deliberately.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "What I have claimed",
+      "sub": "is one thing",
+      "nar": "I have claimed one thing. That a specific statistic is being read as a measure of current behaviour when it is substantially a measure of accumulated history, and that the institution publishing it said so first.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "If that is right",
+      "preco": "the habit follows",
+      "nar": "If that is right, then the habit follows automatically. Read the transition rate. Discount the stock. Check the direction. Two minutes, once a quarter.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And if I am wrong",
+      "sub": "tell me with the number",
+      "nar": "And if you think I have this wrong, the report is linked and the figures are in it. Tell me which number I have misread, and I will correct it on the channel rather than quietly.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Next video",
+      "sub": "the collections side",
+      "nar": "In the next video I want to follow the debt after the charge off. Who buys it, for how much on the dollar, and what that price implies about how much of it anyone expects to collect.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Because that price",
+      "preco": "is an honest estimate",
+      "nar": "Because the price a collector pays for a portfolio is the most honest estimate anyone makes of what that debt is really worth. Nobody is posturing when their own money is on the line.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "See you there",
+      "sub": "and read the source",
+      "nar": "See you there. And whatever else you take from this, read the source before the summary.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "The Fed published",
+      "sub": "and then warned",
+      "nar": "The New York Fed published a number this month, and then warned people not to read it the way everyone read it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Twelve point eight",
+      "sub": "per cent of card balances",
+      "nar": "Twelve point eight per cent of credit card balances, ninety days or more without payment.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sounds like",
+      "sub": "a collapse",
+      "nar": "That sounds like a collapse in how people are paying. It mostly is not.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Charged off",
+      "sub": "is not gone",
+      "nar": "When a bank writes a debt off, it stays on your credit report. Eighty per cent of it is still there a year later.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So the share",
+      "sub": "carries old debt",
+      "nar": "So that share is a backlog, not this quarter's behaviour. The Fed said so itself.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which number",
+      "sub": "to read instead",
+      "nar": "Which number you should read instead is on the channel.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# The delinquency share is a backlog, not this quarter's behaviour\n\n## TITULO\nDelinquency Hit 12.8%: Why the Fed Told Everyone Not to Read It That Way\n\n## DESCRICAO\nOn 11 August 2026 the Federal Reserve Bank of New York published its Household Debt and Credit Report for the second quarter. One figure travelled further than the rest: 12.8% of credit card balances were ninety days or more without payment. It was widely reported as evidence that American households are collapsing under card debt.\n\nThe Fed's own researchers attached a caution to that figure. They said it reflects a backlog of old charged-off debts still sitting on credit reports, rather than a broad deterioration in how consumers are currently repaying — noting that 80% of charged-off balances remain visible on credit reports a full year after being written off.\n\nThis video is about why that happens, and what to read instead.\n\nWhen a revolving credit balance goes unpaid — generally around 180 days past due in the US — the bank charges it off. That is an accounting decision on the lender's side: it stops carrying the balance as an asset it expects to collect. It does not mean the debt is forgiven, cancelled or gone. You still owe it, it can still be collected or sold, and critically, it stays on your credit report. Because this statistic is built from consumer credit records, charged-off debt from previous quarters keeps counting inside the \"90+ days delinquent\" share long after the event that produced it.\n\nThat makes the figure a stock, not a flow. It measures how much delinquent debt is currently sitting there, not how much became delinquent this quarter. The measure that answers the second question is the transition rate into delinquency — and that one held steady.\n\nWhat else the same report said, and almost nobody quoted: total household debt decreased by $13 billion (‑0.1%) to $18.8 trillion; overall delinquency stood at 4.7% of outstanding balances, down 0.1 percentage points from the prior quarter; and credit card balances rose by $21 billion to $1.26 trillion.\n\nThis video does not argue that household debt is fine. $1.26 trillion in revolving debt at high interest rates is real, and 4.7% of $18.8 trillion in some stage of delinquency is a very large number of households. The correction here is narrow and specific: one statistic is being read as current behaviour when it is substantially accumulated history. Both readings — collapse, and everything-is-fine — are wrong, and the second is the more expensive mistake to make with your own money.\n\nEnds with a two-minute routine for reading the next quarterly release, and an explicit list of what this analysis does not tell you.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nA genuine question for anyone who works in collections, underwriting or credit reporting: is the 80% one-year visibility figure consistent with what you see day to day, or does it vary a lot by lender and by how quickly portfolios get sold on? That is the one part of this I could not check against anything except the Fed's own note.\n\n## HASHTAGS\n#CreditCardDebt #FederalReserve #NextLevelMoney\n\n## TAGS\ncredit card debt, new york fed, household debt report, delinquency rate, charged off debt, credit report, consumer credit, personal finance, us economy, debt statistics, charge off, collections, credit score, economic data, financial literacy\n\n## CONFIGURACAO DE STUDIO\n- Language: English (en-US) | Category: Education (27)\n- Not made for kids\n- Altered or synthetic content disclosure: YES (AI-generated voice)\n- Location: United States | Licence: Standard YouTube Licence\n- Mid-roll ads: on (runtime over eight minutes)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nAll figures are from the Federal Reserve Bank of New York's Household Debt and Credit Report for Q2 2026, released 11 August 2026, and its accompanying press release: total household debt down $13 billion (‑0.1%) to $18.8 trillion; credit card balances up $21 billion to $1.26 trillion; 4.7% of outstanding debt in some stage of delinquency as of the end of June, down 0.1 percentage points; and 12.8% of card balances 90 or more days without payment. The caution that this last figure reflects a backlog of charged-off debts rather than broad current deterioration, and the finding that 80% of charged-off balances remain visible on credit reports one year after write-off, are the New York Fed researchers' own, published alongside the data. Accessed 20 August 2026. The 180-day charge-off convention is the standard US practice for revolving credit and is stated as such, not as a figure from this report. The underlying data is the New York Fed Consumer Credit Panel, a large sample of anonymised credit records — not a census. This video makes no forecast, describes no individual household, and is not financial advice.\n"
+}
