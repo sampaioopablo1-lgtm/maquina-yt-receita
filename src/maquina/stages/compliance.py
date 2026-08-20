@@ -32,7 +32,24 @@ class Resultado:
 
 
 def _normalizar(texto: str) -> str:
-    return re.sub(r"[^a-z0-9\s]", "", texto.lower())
+    """Minusculas, sem pontuacao — mas SEM apagar o alfabeto.
+
+    A versao anterior era `[^a-z0-9\\s]`, que e a faixa ASCII e mais nada. Em
+    portugues ela custava os acentos e seguia funcionando; em grego e em hindi
+    ela apagava toda letra da frase e sobravam so os ESPACOS. Duas fileiras de
+    espaco sao muito parecidas entre si — dois titulos gregos sem nada em comum
+    mediam 0,857, e mediam 1,0 sempre que tinham a mesma contagem de palavras.
+    Ou seja: no `epomeno-epipedo` e no `agla-level` a barreira que existe para
+    impedir republicacao reprovava tudo, e o que ela comparava era o espacamento.
+
+    Nao chegou a custar video porque a publicacao migrou para `fabrica/` antes
+    de esta barreira rodar nesses dois canais. Achado em 20/08/2026, ao ligar a
+    escrita automatica de roteiro, que se apoia nesta mesma regra de 0,65.
+
+    `\\w` com `re.UNICODE` (o padrao em Python 3) mantem letra de qualquer
+    escrita e descarta pontuacao, que e o que a funcao sempre quis dizer.
+    """
+    return re.sub(r"[^\w\s]", "", texto.lower())
 
 
 def similaridade(a: str, b: str) -> float:

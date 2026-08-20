@@ -317,6 +317,13 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
     for fn in (lambda: P._gate_identidade(caminho, sp),
                lambda: P._gate_copy(sp),
                lambda: P._gate_narracao(caminho),
+               # `fatos` custa microssegundos: ele so confere se o veredito
+               # existe, se aprovou, e se a impressao da narracao ainda bate. A
+               # verificacao cara ja aconteceu quando a spec nasceu. Sem ele
+               # aqui, uma spec escrita por maquina e sem numero conferido
+               # entraria na matriz do frota.yml e so seria barrada no passo de
+               # portoes, depois do checkout — ou nao seria barrada.
+               lambda: P._gate_fatos(sp),
                lambda: P._gate_duracao(sp)):
         faltas += fn()
     return faltas

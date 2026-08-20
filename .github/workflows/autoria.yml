@@ -1,0 +1,160 @@
+name: Autoria — escrever as specs que faltam
+
+# O ciclo da maquina tinha tres pernas e faltava a primeira:
+#
+#   escrever pauta -> renderizar (frota.yml) -> publicar (frota.yml)
+#         ^^^^^^                                  disparado pelo diario.yml
+#
+# A escrita era a unica etapa humana, uma spec por disparo da rotina horaria.
+# No melhor dia isso da 24 pacotes para treze canais, e a meta e 5 por canal —
+# 65. Em 20/08/2026, com o teto ja em 5, OITO dos treze canais tinham ZERO spec
+# pendente: o teto nunca foi o que segurava a frota, era a escrita.
+#
+# Este workflow escreve. O `diario.yml` pega o que ele commitou no ciclo
+# seguinte, sem nenhuma ligacao direta entre os dois — a spec no repositorio e
+# a interface, como ja era para as specs escritas a mao.
+#
+# ## O que ele NAO faz
+#
+# Nao publica nada e nao renderiza nada. Ele so escreve `.json` em
+# `fabrica/specs/` e commita. Toda trava que ja existia continua no caminho:
+# os sete portoes do `prontidao.py`, o teto por canal do `orquestra.py`, a
+# trava de titulo do `publicar.py`.
+#
+# E nao libera roteiro sem numero conferido. `autor.py` chama o `fatos.py`
+# antes de gravar, e spec reprovada vira `.json.reprovado`, que a frota nao le.
+# Essa e a condicao inteira sob a qual escrita automatica e aceitavel nestes
+# canais: `labtreinamento` fala de norma com prazo, `sx-educacao` e
+# `next-level-money` de dinheiro, `seja-mais-magra` de saude.
+#
+# ## O custo, que e novo nesta maquina
+#
+# Ate aqui um pacote custava CPU de runner. Agora custa dolar de API, e a conta
+# escala com a meta. Por isso `pacotes` tem default BAIXO e o job imprime o
+# gasto de cada geracao: os primeiros dias servem para MEDIR o custo por
+# pacote, e so depois se decide o ritmo. Subir esse numero antes de ter a
+# medida seria escolher o ritmo no escuro.
+
+on:
+  schedule:
+    # De duas em duas horas. O ritmo real quem define e `pacotes`, nao o cron:
+    # com o default de 1, isto sao 12 specs por dia, o suficiente para a frota
+    # nao secar enquanto o custo por pacote esta sendo medido.
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      pacotes:
+        description: "Quantas specs escrever neste disparo"
+        type: string
+        default: "1"
+      canal:
+        description: "Forcar um canal (vazio = o mais carente da fila)"
+        type: string
+        default: ""
+      pauta:
+        description: "Forcar uma pauta (so faz sentido com um canal)"
+        type: string
+        default: ""
+
+# Duas autorias ao mesmo tempo escreveriam o MESMO numero de pacote para o
+# mesmo canal — `proximo_numero` le o diretorio, e o diretorio so muda depois
+# do commit. Fila de um, sem cancelar: a segunda espera e escreve com o
+# diretorio ja atualizado.
+concurrency:
+  group: autoria
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  escrever:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # `fabrica/` e stdlib pura de proposito — nem o autor nem o portao de
+      # fatos instalam nada. O `fonts-noto-core` entra porque o portao de
+      # glifos reprova caractere sem fonte NESTA maquina, e sem Devanagari o
+      # agla-level seria reprovado por defeito do ambiente.
+      - name: Fontes
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core
+
+      - name: Escrever
+        id: escrever
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          N: ${{ inputs.pacotes || '1' }}
+          CANAL: ${{ inputs.canal }}
+          PAUTA: ${{ inputs.pauta }}
+        run: |
+          set -uo pipefail
+
+          if [ -n "$CANAL" ]; then
+            FILA="$CANAL 1"
+          else
+            FILA=$(python3 fabrica/autor.py carencia)
+          fi
+
+          if [ -z "$FILA" ]; then
+            echo "::notice::Nenhum canal com carencia de spec — a fila esta cheia."
+            echo "escritas=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "carencia por canal:"
+          echo "$FILA"
+          echo
+
+          ESCRITAS=0
+          # Um canal por vez, na ordem da carencia, ate fechar a cota do
+          # disparo. Escrever DOIS pacotes seguidos para o mesmo canal e
+          # possivel, mas nao aqui: o segundo nao veria o primeiro no acervo
+          # de similaridade, porque a similaridade le o que ja foi ao ar.
+          while read -r SLUG FALTAM; do
+            [ -z "${SLUG:-}" ] && continue
+            [ "$ESCRITAS" -ge "$N" ] && break
+            echo "::group::$SLUG (faltam $FALTAM)"
+            if [ -n "$PAUTA" ]; then
+              python3 fabrica/autor.py escrever "$SLUG" --pauta "$PAUTA" && ESCRITAS=$((ESCRITAS+1)) || true
+            else
+              python3 fabrica/autor.py escrever "$SLUG" && ESCRITAS=$((ESCRITAS+1)) || true
+            fi
+            echo "::endgroup::"
+          done <<< "$FILA"
+
+          echo "escritas=$ESCRITAS" >> "$GITHUB_OUTPUT"
+
+      # Reprovada NAO e apagada: ela fica como `.json.reprovado` ao lado, e vai
+      # para o commit junto. Apagar em silencio esconderia quanto o gerador
+      # erra, que e exatamente o numero que decide se isto continua ligado.
+      - name: Commitar as specs novas
+        if: ${{ steps.escrever.outputs.escritas != '0' }}
+        run: |
+          set -euo pipefail
+          git config user.name  "maquina-autoria"
+          git config user.email "sampaioopablo@gmail.com"
+          git add fabrica/specs/
+          if git diff --cached --quiet; then
+            echo "::warning::o passo disse ter escrito, mas nada mudou no diretorio"
+            exit 0
+          fi
+          NOVAS=$(git diff --cached --name-only | sed 's#.*/##' | tr '\n' ' ')
+          git commit -m "autoria: $NOVAS"
+          for t in 1 2 3 4; do
+            git push origin "HEAD:${GITHUB_REF_NAME}" && break
+            echo "push falhou, tentativa $t"
+            sleep $((2 ** t))
+          done
+
+      - name: Nada escrito
+        if: ${{ steps.escrever.outputs.escritas == '0' }}
+        run: |
+          echo "::notice::Nenhuma spec nova neste disparo. O log acima diz por que — pauta esgotada, portao reprovando, ou fato sem fonte."

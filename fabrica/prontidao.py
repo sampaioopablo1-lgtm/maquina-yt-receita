@@ -291,8 +291,37 @@ def _gate_idioma(sp):
     return idioma.analisa(sp)
 
 
+def _gate_fatos(sp):
+    """Numero conferido contra fonte — mas so em spec escrita pela MAQUINA.
+
+    O corte por `autoria` nao e concessao, e a fronteira exata do problema.
+    Enquanto todo roteiro saia escrito a mao pela rotina horaria, as "duas
+    fontes que batem" eram cumpridas na PESQUISA, antes de a spec existir, e
+    ficavam registradas no cabecalho do `.build.py` — o labtreinamento-003 cita
+    committee.iso.org e quatro certificadoras em doze linhas de docstring. Um
+    portao que exigisse veredito dessas specs estaria pedindo que a maquina
+    reconferisse trabalho ja conferido, e o preco seria alto: nenhuma das 50
+    specs do diretorio tem `fatos`, entao ligar isto para todas travaria a
+    frota inteira no proximo ciclo de trinta minutos.
+
+    O que muda com o gerador e QUEM garante. Texto escrito por modelo afirma
+    com a mesma fluencia sendo verdade ou nao, e nenhum dos outros sete portoes
+    olha para o mundo. Entao a regra e: quem se declara `autoria: maquina`
+    passa pelo `fatos.py`; quem nao se declara continua respondendo pela
+    pesquisa que ja fez.
+
+    Spec de maquina sem o campo nao existe: o `autor.py` grava os dois juntos.
+    """
+    if sp.get("autoria") != "maquina":
+        return []
+    import fatos
+
+    return fatos.conferir(sp)
+
+
 PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
+    ("fatos", lambda c, s: _gate_fatos(s)),
     ("copy", lambda c, s: _gate_copy(s)),
     ("narracao", lambda c, s: _gate_narracao(c)),
     ("idioma", lambda c, s: _gate_idioma(s)),

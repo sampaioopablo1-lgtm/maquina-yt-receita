@@ -176,6 +176,86 @@ nichos, uma assinatura.
 
 ---
 
+## 2d. A escrita deixou de ser humana — e o portão que isso obrigou a construir
+
+**Ligado em 2026-08-20.** Até aqui o ciclo tinha três pernas e a primeira era manual:
+
+```
+escrever pauta  ->  renderizar (frota.yml)  ->  publicar (frota.yml)
+   ^ a mão                        disparado pelo diario.yml a cada 30 min
+```
+
+Uma spec por disparo da rotina horária dá, no melhor dia, **24 pacotes para treze
+canais**. A meta é 5 por canal por dia — **65**. E o teto nunca foi o que segurava a
+frota: em 20/08, com `MAX_POR_DIA_POR_CANAL` já em 5, **oito dos treze canais tinham ZERO
+spec pendente**. O gargalo era a escrita.
+
+`fabrica/autor.py` escreve. `.github/workflows/autoria.yml` roda de duas em duas horas,
+commita a spec em `fabrica/specs/`, e o `diario.yml` a pega no ciclo seguinte — sem
+ligação direta entre os dois. **A spec no repositório continua sendo a interface**, como
+já era para as escritas à mão.
+
+### O portão de fatos é a condição, não um extra
+
+Enquanto cada roteiro saía escrito a mão, a regra das **duas fontes que batem** era
+cumprida na *pesquisa*, antes de a spec existir, e ficava registrada no cabeçalho do
+`.build.py`. Um gerador quebra exatamente esse acordo: ele escreve *"quarenta e dois por
+cento"* com a mesma fluência sendo verdade ou não, e **nenhum dos sete portões olha para
+o mundo** — eles medem ritmo, língua, borda e duração.
+
+E o custo do erro não é simétrico entre os canais. `labtreinamento` fala de norma
+regulatória com prazo, `sx-educacao` e `next-level-money` de dinheiro, `seja-mais-magra`
+de saúde. Número errado ali **não é vídeo ruim, é dano**.
+
+Então `fabrica/fatos.py`, e a divisão de trabalho que ele faz:
+
+| etapa | quando | custo | o que faz |
+|---|---|---|---|
+| `verificar` | uma vez, quando a spec nasce | modelo + busca na web, minutos, dólares | classifica cada afirmação em `confirmado` / `refutado` / `sem_fonte` / `retorica` |
+| `conferir` | a cada ciclo de 30 min, em toda spec | microssegundos, offline | veredito existe? aprovou? a narração ainda é a mesma? |
+
+A terceira pergunta é a que dá força às outras duas: o veredito guarda o **sha256 da
+narração inteira**. Trocar uma palavra muda a impressão e **anula a aprovação**. Não há
+como aprovar um roteiro e renderizar outro.
+
+Regras que saem disso:
+
+- Spec com `autoria: "maquina"` **não renderiza** sem veredito aprovado. O portão está em
+  `prontidao.PORTOES` e em `orquestra._falhas_baratas`, que é o que monta a matriz da frota.
+- Spec escrita à mão **não precisa** de veredito. O corte por `autoria` é a fronteira
+  exata do problema: quem responde por ela é a pesquisa que já foi feita.
+- Reprovada vira `.json.reprovado` e **não é apagada**. Apagar em silêncio esconderia
+  quanto o gerador erra — que é o número que decide se isto continua ligado.
+- `sem_fonte` reprova igual a `refutado`. Dúvida não vira aprovação.
+
+### O tamanho se pede em caracteres, não em cenas
+
+A duração não está no número de cenas: `duração = chars/R + frases×P`. Duas consequências
+que custaram vídeo antes de virarem código:
+
+1. **Corrigir em caracteres.** Pedir *"acrescente cinco cenas"* devolve cinco cenas de
+   tamanho arbitrário e a medida seguinte erra de novo.
+2. **A densidade é do canal.** O termo `P` é por frase, e cada canal escreve com uma
+   densidade própria e estável — `setiap-level` 1,98 frases/cena, `seviye-seviye` 2,71.
+   Prever com a mediana do corpus erra 3,9%; com a mediana do próprio canal, **1,4%**.
+   Como a tolerância do laço é 7,4%, isso é a diferença entre o primeiro rascunho já
+   nascer dentro e gastar mais uma chamada de modelo.
+
+E **o laço mede o short junto com o longo**. Em 20/08 o `labtreinamento-003` foi ao ar com
+short de 47,6 s, fora do teto de 45, porque o dimensionamento só olhava o longo. Em canal
+frio é o short que entrega — 19,32 v/d contra 0,15 dos longos no `setiap-level`. O alvo do
+short passa a ser o **meio** da faixa útil (37 s), nunca o teto.
+
+### O custo é novo nesta máquina
+
+Até aqui um pacote custava CPU de runner. Agora custa dólar de API, e a conta escala com a
+meta. Por isso o `autoria.yml` nasce com `pacotes: 1` por disparo e **toda geração imprime
+o gasto** (`fabrica/modelo.py` conta tokens e dólares por chamada). Os primeiros dias
+servem para **medir o custo por pacote**; o ritmo se decide depois. Subir o número antes
+de ter a medida é escolher no escuro.
+
+---
+
 ## 2b. A camada falada — o defeito que a máquina não enxergava
 
 `python3 fabrica/narracao.py <spec.json>` roda **antes do TTS** (é a etapa 0 do
