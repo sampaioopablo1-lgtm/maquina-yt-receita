@@ -354,7 +354,31 @@ que o nicho mede como morta.
 
 Entao, sempre: leia a memoria do nicho, identifique a ASSINATURA dos titulos
 que performam, e reescreva a pauta nessa assinatura. Se a memoria nao deixar
-clara qual e a assinatura, diga isso na resposta em vez de inventar uma."""
+clara qual e a assinatura, diga isso na resposta em vez de inventar uma.
+
+## Numero que vem DENTRO da pauta nao e fonte
+
+A pauta foi escrita por geracao de ideias, nao por medicao. Se ela traz uma
+cifra fechada no titulo, trate essa cifra como NAO VERIFICADA ate encontrar
+fonte. Medido em 20/08/2026: duas pautas do canal de saude traziam "R$ 27.000
+em 5 Anos" e "R$ 18.000 em Shakes e Termogenicos", e nao existe pesquisa
+medindo nenhum dos dois.
+
+O caminho certo quando o total nao tem fonte e trocar a AFIRMACAO por um
+METODO: em vez de dizer quanto custa, ensinar a conta e deixar o espectador
+pôr o proprio numero. Isso e mais util, e verdadeiro.
+
+## Em canal de saude, procure o fato REGULATORIO primeiro
+
+Antes de qualquer afirmacao sobre o que funciona ou nao funciona no corpo,
+procure o que a agencia reguladora PERMITE alegar, o que ela proibiu e o que
+ela fiscaliza. Isso e conferivel, e datado, e nao depende de voce arbitrar
+evidencia clinica em doze minutos.
+
+Exemplo do que isso muda: "suplementos inuteis" e alegacao de eficacia,
+insustentavel. "A Anvisa tem 189 alegacoes permitidas em rotulagem e emagrecer
+nao e uma delas" e o texto da norma. O segundo e um gancho mais forte E expoe
+menos."""
 
 
 def _pedido(ctx: dict, pauta: str, cenas: int, orcamento: int) -> str:

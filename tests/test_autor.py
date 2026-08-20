@@ -281,3 +281,20 @@ def test_a_memoria_do_nicho_chega_inteira_ao_pedido():
     pedido = autor._pedido(ctx, "uma pauta qualquer", 80, 8000)
     assert ctx["memoria"] in pedido
     assert "views/dia" in pedido or "v/d" in pedido.lower() or "MEMORIA" in pedido
+
+
+def test_o_gerador_desconfia_de_cifra_que_vem_na_pauta():
+    """Duas pautas do canal de saude traziam "R$ 27.000 em 5 Anos" e "R$ 18.000
+    em Shakes", e nenhuma tem fonte — a pauta foi escrita por geracao de
+    ideias, nao por medicao. Quem tratasse isso como dado publicaria numero
+    inventado num canal de saude (aprendizado 376)."""
+    assert "NAO VERIFICADA" in autor.SISTEMA
+    assert "METODO" in autor.SISTEMA
+
+
+def test_o_gerador_procura_o_fato_regulatorio_em_saude():
+    """"Suplementos inuteis" e alegacao de eficacia, insustentavel em doze
+    minutos. "189 alegacoes permitidas e emagrecer nao e uma delas" e o texto
+    da norma — gancho mais forte e exposicao menor (aprendizado 377)."""
+    assert "REGULATORIO" in autor.SISTEMA
+    assert "189" in autor.SISTEMA
