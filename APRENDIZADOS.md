@@ -453,6 +453,20 @@ O resep-naik-level-002 foi renderizado antes de a fabrica exportar legendas.srt,
 
 ## Processo
 
+### Cobrir o maximo da amostra nao converge — a folga so para quando a condicao de parada esta escrita
+Constante de folga calibrada como "cobrir o pior caso observado" sobe para sempre: o MÁXIMO de uma amostra cresce com n. Quem sobe uma folga por causa do máximo escreve junto, na mesma linha, a condição que encerra a subida. E o que autoriza subir hoje não é o máximo — é o CUSTO medido: se nenhuma spec produzível para, conservar é de graça.
+
+> **constante**: MARGEM_SHORT · **mudancas_no_mesmo_dia**: 3% → 5% → 7% → 7,5% · **medidas**: 9 · **mediana**: +6,6% · **faixa**: −3,7% a +8,1% · **pior**: nivel-do-jogo-005 (pt-BR-Antonio, 34,7 → 37,5 s) · **specs_reprovadas**: 10 · **specs_produziveis_reprovadas**: 0 · **condicao_de_parada**: a partir de n=20, percentil 95 no lugar do máximo · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/prontidao.py MARGEM_SHORT
+
+### Duas entradas para a mesma spec no inventario apagam um motivo em silencio
+`PARADAS` é um dicionário: spec listada duas vezes perde a primeira razão sem aviso — exatamente o defeito que o inventário existe para impedir. Uma spec, uma linha; quando ela para por dois motivos, os dois entram na MESMA string.
+
+> **spec**: kolejny-poziom-003 · **motivo_apagado**: short 42,0 s contra o teto · **motivo_que_prevalecia**: narração sem acento polonês · **data**: 2026-08-20
+
+`aplicado_em:` tests/test_narracao_das_specs.py
+
 ### A pilha de PRs de continuidade so se resolve com merge, nao com mais cherry-pick
 Quando uma sessao de continuidade encontra N PRs abertas pedindo decisao explicita de merge havia mais de uma sessao, a acao correta e mergear uma delas (a mais atualizada contra a trunk, apos rodar os testes) e fechar as redundantes como superadas — nao abrir uma PR N+1 com o mesmo diff. Sessoes futuras: antes de recriar um fix, primeiro tente merge_pull_request contra a PR mais recente e testada.
 

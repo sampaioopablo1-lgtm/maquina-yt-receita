@@ -123,7 +123,11 @@ PARADAS = {
     "labtreinamento-002":     ("portao", "short 42,7 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
     "seviye-seviye-002":      ("portao", "short 42,5 s contra teto de 41,8 (MARGEM_SHORT 7%); titulo ja no ar sob outro pacote"),
     "agla-level-004":         ("portao", "short 42,3 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
-    "kolejny-poziom-003":     ("portao", "short 42,0 s contra teto de 41,8 (MARGEM_SHORT 7%); ja no ar"),
+    # (kolejny-poziom-003 tambem estoura o teto de short — 42,0 s — mas o
+    # motivo esta escrito junto com o do acento, mais abaixo. Ela chegou a ter
+    # DUAS entradas aqui, e como isto e um dicionario a segunda apagava a
+    # primeira em silencio: o inventario perdia um motivo registrado, que e
+    # exatamente o defeito que ele existe para impedir. Uma spec, uma linha.)
     # As tres abaixo entraram em 20/08/2026 pelo portao NOVO de ortografia, e
     # as tres ja estao no ar. Elas tem narracao sem os acentos que as OUTRAS
     # specs do proprio canal usam — turco e polones sem acento continuam
@@ -137,7 +141,7 @@ PARADAS = {
     # Nao ha o que consertar nelas — video no ar nao se reescreve — e o
     # orquestrador ja as descarta por terem youtube_id. Ficam listadas porque
     # spec que sai da matriz sem registro e o defeito que este teste pega.
-    "kolejny-poziom-003":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
+    "kolejny-poziom-003":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal) E short de 42,0 s contra o teto; ja no ar"),
     "kolejny-poziom-004":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
     "seja-mais-magra-004":    ("portao", "narracao sem acento portugues (0,0% contra 4,0% do canal); ja no ar"),
     # As seis abaixo entraram em 20/08/2026 pelo portao NOVO de capitulos, e as
@@ -155,6 +159,20 @@ PARADAS = {
     "setiap-level-005":       ("portao", "7 capitulos desenhados, 6 produzidos; ja no ar"),
     "setiap-level-007":       ("portao", "8 capitulos desenhados, 7 produzidos; ja no ar"),
     "seviye-seviye-004":      ("portao", "7 capitulos desenhados, 6 produzidos; ja no ar"),
+    # resep-naik-level-004 e a spec que mais entrou e saiu deste inventario, e
+    # o vaivem e sobre o teto, nunca sobre ela: nao mudou uma linha desde
+    # 18/08/2026, quando foi ao ar (w2XxXYku3wo e TZCrcXzOdQU).
+    #
+    #   entrou  — teto 43,6 s (MARGEM_SHORT 3%), previsao 41,8
+    #   saiu    — recalibracao da Gadis (14,26 chars/s) baixou a previsao
+    #   voltou  — teto 41,6 s (MARGEM_SHORT 7,5%), previsao 41,8
+    #
+    # Sao dois decimos de segundo. Ela volta porque o inventario mede spec
+    # contra portao e nao contra o meu bom senso — e uma spec que sai da matriz
+    # sem registro e o defeito que este teste pega. Nada produzivel para aqui:
+    # os dois videos ja estao no ar e o orquestrador descarta pacote com
+    # youtube_id.
+    "resep-naik-level-004":   ("portao", "short 41,8 s previstos contra teto de 41,6 (MARGEM_SHORT 7,5%); ja no ar"),
     "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),

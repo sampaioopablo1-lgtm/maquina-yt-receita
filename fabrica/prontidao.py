@@ -344,32 +344,41 @@ PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
 SHORT_MIN_S, SHORT_MAX_S = 30, 45
 # Erro do modelo de voz em SHORT, medido short a short conforme eles vao ao ar.
-# A calibracao so ve cena de LONGO, porque short queima a legenda e nunca
-# exporta `.srt` — a constante (R, P) nunca viu uma cena de short e e
-# extrapolada para elas. O erro e sempre no mesmo sentido: para baixo.
+# A calibracao so ve cena de LONGO — short queima a legenda e nunca exporta
+# `.srt` — entao a constante (R, P) nunca viu uma cena de short.
 #
-#   setiap-level-009       id-ID-Ardi      32,3 -> 32,5   +0,6%
-#   agla-level-004         hi-IN-Madhur    42,3 -> 43,6   +3,1%
-#   resep-naik-level-005   id-ID-Gadis     37,8 -> 40,3   +6,6%
-#   seja-mais-magra-004    pt-BR-Francisca 35,8 -> 38,2   +6,7%
-#   labtreinamento-003     pt-BR-Thalita   44,3 -> 47,6   +7,4%   <- foi ao ar fora
+#   next-level-money-005  en-US-Andrew    35,1 -> 33,8   -3,7%
+#   seviye-seviye-004     tr-TR-Ahmet     35,9 -> 34,7   -3,3%
+#   setiap-level-009      id-ID-Ardi      32,3 -> 32,5   +0,6%
+#   agla-level-004        hi-IN-Madhur    42,3 -> 43,6   +3,1%
+#   resep-naik-level-005  id-ID-Gadis     37,8 -> 40,3   +6,6%
+#   seja-mais-magra-004   pt-BR-Francisca 35,8 -> 38,2   +6,7%
+#   game-money-lab-004    en-GB-Ryan      34,8 -> 37,2   +6,9%
+#   labtreinamento-003    pt-BR-Thalita   44,3 -> 47,6   +7,4%   <- foi ao ar fora
+#   nivel-do-jogo-005     pt-BR-Antonio   34,7 -> 37,5   +8,1%
 #
-# Mediana das cinco: +6,6%. Pior: +7,4%. A margem cobre o PIOR, e nao a
-# mediana, e a razao e o custo — que eu tinha calculado errado duas vezes.
+# n=9, mediana +6,6%, faixa de -3,7% a +8,1%. NAO ha vies garantido: duas das
+# nove vieram negativas. Ha dispersao, e tratar dispersao como vies leva a
+# corrigir na direcao errada quando o sinal inverte.
 #
-# Em 20/08 recusei 7% duas vezes por "reprovar onze specs". Errado: eu contava
-# ARQUIVO no diretorio, nao trabalho possivel. Das dez specs que 7% reprova,
-# OITO ja estao publicadas (o orquestrador descarta pacote com youtube_id), uma
-# e de canal que nao existe no YouTube e a ultima tem o titulo ja no ar. O
-# custo real de subir a margem para 7% e ZERO spec produzivel.
+# UM PROBLEMA DE METODO, declarado porque ele e meu:
 #
-# Quando o custo e zero, a escolha certa nao e a mediana, e o pior caso.
+# Esta constante mudou TRES vezes em 20/08 — 3%, 5%, 7% — e cada mudanca foi
+# "cobrir o pior caso observado". Isso nao e uma regra, e uma perseguicao: o
+# MAXIMO de uma amostra cresce com n, entao a margem sobe para sempre e nunca
+# converge. A nona medida ultrapassou os 7% que a oitava tinha justificado, e
+# ultrapassaria os 7,5% de hoje na proxima virada de sorte.
 #
-# A distribuicao e bimodal e provavelmente POR VOZ, nao por lingua: id-ID-Ardi
-# erra +0,6% e id-ID-Gadis +6,6%, mesma lingua. Com uma medida por voz nao da
-# para ajustar por voz ainda. Reveja quando houver a segunda medida de alguma
-# delas — ai a margem unica pode virar tabela.
-MARGEM_SHORT = 0.07
+# O que segura a decisao e o CUSTO, nao o maximo: das dez specs que 7,5%
+# reprova, todas ja estao no ar ou sao de canal sem YouTube — custo real zero
+# (aprendizado 378). Com custo zero a escolha conservadora e de graca, e por
+# isso ela vale HOJE.
+#
+# CONDICAO DE PARADA, para a perseguicao acabar: a partir de n=20, trocar
+# "cobrir o maximo" por "cobrir o percentil 95". Com vinte medidas o maximo
+# deixa de ser ruido e o percentil passa a ser estimavel — e o custo de estourar
+# o teto e nosso, nao do YouTube, que aceita Shorts de ate tres minutos.
+MARGEM_SHORT = 0.075
 
 
 def _gate_duracao(sp):
