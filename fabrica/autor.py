@@ -338,7 +338,23 @@ Markdown com estas secoes, nesta ordem, com estes nomes exatos:
 ## NOTA SOBRE FONTES  de onde veio cada numero, e o que o video NAO afirma
 
 O titulo modela a ESTRUTURA do que performa no nicho, nunca o assunto de outro
-video. A descricao e para quem vai ler, nao para o algoritmo."""
+video. A descricao e para quem vai ler, nao para o algoritmo.
+
+## A pauta e o assunto; a estrutura vem do outlier
+
+A PAUTA que voce recebe diz sobre O QUE falar. Ela NAO diz como o titulo deve
+ser montado — e quase nunca vem na forma certa, porque foi pesquisada por
+assunto.
+
+Medido em 20/08/2026 no resep-naik-level: todo outlier do nicho tinha CIFRA
+mais PERIODO no titulo (de 278 a 6.057 views/dia), e as doze pautas que o canal
+tinha em banco eram todas do tipo "por que X esta errado", sem cifra e sem
+periodo. Escrever o titulo na forma da pauta seria escrever exatamente na forma
+que o nicho mede como morta.
+
+Entao, sempre: leia a memoria do nicho, identifique a ASSINATURA dos titulos
+que performam, e reescreva a pauta nessa assinatura. Se a memoria nao deixar
+clara qual e a assinatura, diga isso na resposta em vez de inventar uma."""
 
 
 def _pedido(ctx: dict, pauta: str, cenas: int, orcamento: int) -> str:

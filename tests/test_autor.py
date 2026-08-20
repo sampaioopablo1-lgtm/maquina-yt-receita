@@ -258,3 +258,26 @@ def test_o_numero_do_pacote_nao_colide_com_o_que_ja_existe():
         slug = yaml.stem
         n = autor.proximo_numero(slug)
         assert not (SPECS / f"{slug}-{n:03d}.json").exists(), slug
+
+
+def test_o_gerador_sabe_que_a_pauta_nao_e_o_titulo():
+    """A pauta do banco diz sobre O QUE falar, nunca como montar o titulo.
+
+    Medido em 20/08/2026 no resep-naik-level: todo outlier do nicho tinha cifra
+    mais periodo no titulo (278 a 6.057 v/d) e as doze pautas em banco eram
+    todas "por que X esta errado", sem cifra e sem periodo — pesquisadas por
+    assunto. Escrever o titulo na forma da pauta e escrever na forma que o
+    nicho mede como morta (aprendizado 372).
+    """
+    assert "ASSINATURA" in autor.SISTEMA
+    assert "pesquisada por" in autor.SISTEMA
+
+
+def test_a_memoria_do_nicho_chega_inteira_ao_pedido():
+    """Os comentarios do yaml sao a medicao do nicho — views/dia por formato, o
+    que ja morreu. Valem mais para escrever do que qualquer campo estruturado,
+    e sem eles o gerador nao tem como achar a assinatura."""
+    ctx = autor.contexto("resep-naik-level")
+    pedido = autor._pedido(ctx, "uma pauta qualquer", 80, 8000)
+    assert ctx["memoria"] in pedido
+    assert "views/dia" in pedido or "v/d" in pedido.lower() or "MEMORIA" in pedido
