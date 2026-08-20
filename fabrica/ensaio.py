@@ -92,17 +92,17 @@ MARCA = "ENSAIO-NAO-PUBLICAR"
 # supunha, e o modelo antigo alongava o roteiro em 7%.
 MODELO_VOZ = {                       # voz: (R chars/s de fala, P s por frase)
     # Todas medidas cena-a-cena nos .srt publicados, 19/08/2026.
-    "el-GR-NestorasNeural":            (20.40, 1.257),   # n=429
+    "el-GR-NestorasNeural":            (20.61, 1.273),   # n=519
     "en-GB-RyanNeural":                (18.92, 1.162),   # n=121
     "en-US-AndrewNeural":              (16.00, 0.119),   # n=79
     "es-MX-DaliaNeural":               (17.48, 1.242),   # n=91
     "hi-IN-MadhurNeural":              (11.92, 1.194),   # n=140
-    "id-ID-ArdiNeural":                (18.86, 1.115),   # n=450
+    "id-ID-ArdiNeural":                (18.96, 1.124),   # n=540
     "id-ID-GadisNeural":               (14.12, 1.318),   # n=75
     "pl-PL-MarekNeural":               (20.07, 1.419),   # n=409
     "pt-BR-AntonioNeural":             (16.68, 1.040),   # n=214
     "pt-BR-FranciscaNeural":           (15.24, 0.298),   # n=149
-    "pt-BR-ThalitaMultilingualNeural": (17.52, 0.702),   # n=87
+    "pt-BR-ThalitaMultilingualNeural": (17.47, 0.737),   # n=171
     "tr-TR-AhmetNeural":               (15.35, 1.337),   # n=73
 }
 

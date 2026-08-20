@@ -205,6 +205,17 @@ def _gate_glifos(sp):
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
 SHORT_MIN_S, SHORT_MAX_S = 30, 45
+# Erro do modelo de voz em SHORT, medido em 20/08/2026 nos tres shorts do dia:
+# +3,0%, +0,7% e +6,8%, sempre subestimando. A calibracao so ve cena de longo,
+# porque short nao exporta .srt. Reveja quando houver medicao de short.
+#
+# O numero e a MEDIANA das tres, nao o pior. Com o pior (7%) o teto cai para
+# 41,8 s e reprova ONZE das 42 specs de producao — e as seis extras estao entre
+# 41,8 e 43,0, longe do teto de 45. Com 3% o teto fica em 43,6 e reprova as
+# CINCO que se amontoam em 44,3 a 45,0, que sao as que realmente arriscam
+# estourar. Entre 2% e 4% o conjunto reprovado e o mesmo: o corte cai num vao
+# da distribuicao, e nao no meio dela.
+MARGEM_SHORT = 0.03
 
 
 def _gate_duracao(sp):
@@ -243,9 +254,27 @@ def _gate_duracao(sp):
     short = sp.get("short") or []
     if short:
         ds = duracao_estimada(short, voz)
-        if not SHORT_MIN_S <= ds <= SHORT_MAX_S:
-            faltas.append(f"short com {ds:.0f} s — fora dos {SHORT_MIN_S}-"
-                          f"{SHORT_MAX_S} s que a rotina pede")
+        # MARGEM_SHORT existe porque o modelo de voz e ajustado SO em longo: a
+        # calibracao le os `legendas.srt` do bucket, e short nao exporta srt —
+        # ele queima a legenda. A constante nunca viu cena de short.
+        #
+        # Medido em 20/08/2026 nos tres shorts publicados no dia, ja com as
+        # constantes refeitas: +3,0%, +0,7% e +6,8%. Sempre para BAIXO. O
+        # labtreinamento-003 foi ao ar com 47,6 s tendo previsto 44,3 — fora do
+        # teto que este portao existe para segurar.
+        #
+        # A margem vale so no TETO. No piso ela nao ajuda: subestimar ali
+        # significa que o short real e MAIS longo que o previsto, o que afasta
+        # do piso em vez de aproximar.
+        teto = SHORT_MAX_S * (1 - MARGEM_SHORT)
+        if ds < SHORT_MIN_S:
+            faltas.append(f"short com {ds:.0f} s — abaixo dos {SHORT_MIN_S} s "
+                          f"que a rotina pede")
+        elif ds > teto:
+            faltas.append(f"short com {ds:.0f} s previstos — acima de {teto:.0f} s. "
+                          f"O teto da rotina e {SHORT_MAX_S} s e o modelo erra ate "
+                          f"{MARGEM_SHORT:.0%} para baixo em short, entao "
+                          f"{teto:.0f} previstos ja e o limite seguro")
     return faltas
 
 

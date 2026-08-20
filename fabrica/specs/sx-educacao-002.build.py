@@ -346,11 +346,11 @@ SHORT = [
     {"layout": "item", "kicker": "O numero que falta",
      "preco": "teto CLT: 18.981,20",
      "nar": "No mesmo CAGED, cientista de dados tem teto de dezoito mil "
-            "novecentos e oitenta e um reais. Oito mil a mais que o edital.",
+            "novecentos e oitenta e um reais: oito mil a mais que o edital.",
      "sem_cap": True},
     {"layout": "item", "kicker": "E as vagas", "preco": "212 de 1.823",
      "nar": "E das mil oitocentas e vinte e tres vagas do edital, duzentas "
-            "e doze sao imediatas. O resto e cadastro de reserva.",
+            "e doze sao imediatas. O resto, cadastro de reserva.",
      "sem_cap": True},
     {"layout": "cta", "kicker": "SX Educacao", "sub": "a conta completa",
      "nar": "A planilha de seis linhas que responde pelo seu caso esta no "

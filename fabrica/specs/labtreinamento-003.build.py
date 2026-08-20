@@ -397,8 +397,8 @@ S("Cinco colunas", "eixo, situacao, evidencia, nota, dono",
   "Cinco colunas resolvem: eixo, situacao atual, evidencia, nota de zero a "
   "cinco e responsavel com nome.")
 S("O corte", "lacuna vezes peso",
-  "Lacuna vezes peso da a prioridade. De vinte linhas saem umas cinco altas. "
-  "Esse e o tamanho real do seu projeto.")
+  "Lacuna vezes peso da a prioridade: de vinte linhas saem umas cinco altas. "
+  "Esse e o tamanho real do projeto.")
 S("O video completo", "as quatro abas, coluna por coluna",
   "No video completo eu monto as quatro abas inteiras, com as formulas. Link "
   "aqui em cima.")

@@ -315,7 +315,7 @@ C("Seviye Seviye", "sayıyı say, habere değil",
 
 SHORT = [
     {"layout": "titulo", "kicker": "23.552 TL", "sub": "yeni taban aylık",
-     "nar": "Zam geldi. En düşük emekli aylığı yirmi üç bin beş yüz elli iki "
+     "nar": "Zam geldi: en düşük emekli aylığı yirmi üç bin beş yüz elli iki "
             "lira oldu. Şimdi ikinci sayıya bak.", "sem_cap": True},
     {"layout": "item", "kicker": "Açlık sınırı", "preco": "36.940 TL",
      "nar": "Ailenin sadece mutfak masrafı: otuz yedi bin lira. Taban, bunun "
