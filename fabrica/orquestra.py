@@ -329,6 +329,10 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
                # AUDIO. Sem ele aqui, uma spec em ASCII entraria na matriz e
                # seria barrada so no passo de portoes, depois do checkout.
                lambda: P._gate_ortografia(caminho, sp),
+               # `capitulos` simula copy_md com os tempos do modelo de voz —
+               # aritmetica pura, sem I/O. Pega o capitulo que a spec desenha e
+               # o render descarta, que so apareceria na descricao publicada.
+               lambda: P._gate_capitulos(sp),
                lambda: P._gate_duracao(sp)):
         faltas += fn()
     return faltas

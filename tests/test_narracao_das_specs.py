@@ -142,6 +142,21 @@ PARADAS = {
     "kolejny-poziom-003":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
     "kolejny-poziom-004":     ("portao", "narracao sem acento polones (0,0% contra 6,9% do canal); ja no ar"),
     "seja-mais-magra-004":    ("portao", "narracao sem acento portugues (0,0% contra 4,0% do canal); ja no ar"),
+    # As seis abaixo entraram em 20/08/2026 pelo portao NOVO de capitulos, e as
+    # seis ja estao no ar. Elas desenham um capitulo que abre em layout `item`,
+    # e `copy_md.capitulos` so trata `titulo` e `broll` como abertura de secao —
+    # entao o capitulo some da descricao e ninguem ve. E a mesma classe do
+    # aprendizado 311, que era sobre `broll`.
+    #
+    # Video no ar nao se reescreve, e o orquestrador ja as descarta por terem
+    # youtube_id. Ficam listadas porque spec que sai da matriz sem registro e o
+    # defeito que este teste existe para pegar.
+    "epomeno-epipedo-002":    ("portao", "8 capitulos desenhados, 6 produzidos; ja no ar"),
+    "next-level-money-003":   ("portao", "8 capitulos desenhados, 6 produzidos; ja no ar"),
+    "seja-mais-magra-002":    ("portao", "8 capitulos desenhados, 7 produzidos; ja no ar"),
+    "setiap-level-005":       ("portao", "7 capitulos desenhados, 6 produzidos; ja no ar"),
+    "setiap-level-007":       ("portao", "8 capitulos desenhados, 7 produzidos; ja no ar"),
+    "seviye-seviye-004":      ("portao", "7 capitulos desenhados, 6 produzidos; ja no ar"),
     "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),

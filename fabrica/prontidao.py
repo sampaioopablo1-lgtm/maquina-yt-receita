@@ -292,6 +292,54 @@ def _gate_ortografia(caminho, sp):
     return []
 
 
+def _gate_capitulos(sp):
+    """Capitulo que a spec desenha e o render nao produz some calado.
+
+    `copy_md.capitulos` so trata como abertura de secao uma cena de layout
+    `titulo` ou `broll` — a heuristica existe porque `cap` e usado SOLTO no
+    acervo antigo (a cocina-por-niveles-002 tem 69 cenas com `cap`) e honrar
+    todos viraria capitulo a cada minuto. Isso ja custou um pacote antes, com
+    `broll`, e virou o aprendizado 311.
+
+    O caso novo e o oposto: nas specs escritas com os ajudantes T/I/L/B/C o
+    `cap` aparece UMA VEZ por capitulo, e e marcador de autor. Quando um deles
+    abre com layout `item`, o render descarta e ninguem ve — a seviye-seviye-004
+    desenhou 7 capitulos e publicou 6.
+
+    Por isso o portao so opina quando o `cap` esta sendo usado como marcador:
+    entre 6 e 8 ocorrencias, que e a faixa que a rotina pede. Fora dela ele se
+    cala, porque ali quem manda e a heuristica de layout e mexer nisso quebraria
+    o acervo.
+
+    Os tempos sao estimados pelo modelo de voz, e nao pelos clipes: o portao
+    roda ANTES do render. A estimativa erra ~2% no longo, e o que se compara e
+    a CONTAGEM de capitulos, que nao muda por dois por cento.
+    """
+    import copy_md
+    from ensaio import GAP_CENA_S, MODELO_VOZ, duracao_cena
+
+    longo = sp.get("longo") or []
+    voz = sp.get("voz", "")
+    desenhados = sum(1 for c in longo if (c or {}).get("cap"))
+    if not (6 <= desenhados <= 8) or voz not in MODELO_VOZ:
+        return []
+
+    tempos = [duracao_cena((c or {}).get("nar") or "", voz) + GAP_CENA_S
+              for c in longo]
+    try:
+        produzidos = len(copy_md.capitulos(sp, tempos))
+    except (KeyError, IndexError) as e:
+        return [f"nao consegui simular os capitulos: {e}"]
+
+    if produzidos == desenhados:
+        return []
+    perdidos = [c.get("cap") for c in longo
+                if c.get("cap") and c.get("layout") not in ("titulo", "broll")]
+    detalhe = f" — abre(m) em layout que o render ignora: {perdidos}" if perdidos else ""
+    return [f"{desenhados} capitulos desenhados e {produzidos} produzidos{detalhe}. "
+            f"Abertura de capitulo tem de ser layout `titulo` ou `broll`"]
+
+
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
 SHORT_MIN_S, SHORT_MAX_S = 30, 45
@@ -433,6 +481,7 @@ PORTOES = (
     ("idioma", lambda c, s: _gate_idioma(s)),
     ("glifos", lambda c, s: _gate_glifos(s)),
     ("ortografia", lambda c, s: _gate_ortografia(c, s)),
+    ("capitulos", lambda c, s: _gate_capitulos(s)),
     ("duracao", lambda c, s: _gate_duracao(s)),
     ("layout", lambda c, s: _gate_layout(s)),
 )
