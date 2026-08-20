@@ -32,6 +32,45 @@ Outras diferenças em relação à versão antiga:
 | — | md5 da fábrica conferido contra o repositório |
 | — | proibido concluir desempenho com menos de 48h |
 
+## Mudança de 20/08/2026 — piso de 10 publicados por canal, sorteio na fila
+
+A fila ordenava por `ultimo_pacote_em` (rodízio por antiguidade). Isso distribui
+parelho, mas **não fecha lacuna**: em 20/08 havia canal com 26 publicados e canal
+com 4, e o rodízio tratava os dois igual.
+
+Passa a valer um piso: **enquanto um canal tiver menos de 10 vídeos publicados,
+ele tem prioridade**. Dentro do grupo prioritário o canal é **sorteado**, não
+escolhido por antiguidade. Quando todos passarem de 10, o sorteio vale para
+todos.
+
+Estado medido em 20/08 (publicados / faltam para 10):
+
+| canal | publicados | faltam |
+|---|---:|---:|
+| cocina-por-niveles | 0 | 10 — **sem canal no YouTube, bloqueado** |
+| agla-level | 4 | 6 |
+| game-money-lab | 4 | 6 |
+| labtreinamento | 4 | 6 |
+| seja-mais-magra | 6 | 4 |
+| resep-naik-level | 8 | 2 |
+| os outros 7 | 12 a 26 | 0 |
+
+Déficit total 34, dos quais 24 alcançáveis. Os 10 de `cocina-por-niveles`
+dependem de o Pablo criar o canal no YouTube.
+
+Outras correções desta data:
+
+- **A nota "plano grátis: 10 uploads/mês" estava desatualizada.** Agosto fechou
+  146 publicações, com dias de 11 a 21. O limite não é o que estava escrito;
+  confira o consumo real em `/uploadposts/history` antes de assumir teto.
+- **CTR e retenção nunca foram coletados.** Em 1.723 linhas de `metricas`:
+  `ctr` preenchido em 0, `impressoes` em 0, `retencao_media_pct` em 59 (3,4%).
+  A causa é o próprio PASSO 5, que coleta por `videos.list part=statistics` — a
+  Data API não devolve impressão, CTR nem retenção. Esses números só saem da
+  **YouTube Analytics API** (`reports.query`, escopo `yt-analytics.readonly`).
+  Sem eles o PASSO 4 aprende no escuro: não dá para dizer que gancho segurou
+  audiência olhando só views.
+
 ---
 
 Rotina horária da máquina de vídeos. UM PACOTE POR VEZ, do início ao fim.
@@ -46,7 +85,21 @@ DURAÇÃO DO LONGO — 12 a 15 minutos (70-90 cenas), 6-8 capítulos de 10-14 ce
 MEÇA A TAXA DA VOZ antes de dimensionar o roteiro — elas variam de 9,85 a 20,02 chars/s. Gere um mp3 de teste com números por extenso e divida chars por duração. Assumir o padrão errado já produziu 9:25 onde eu queria 13:00.
 ESCALONAMENTO: canal com retenção acima de 40% ou views/vídeo acima da mediana do nicho sobe para 25-30 min; registre em config.
 
-FILA: 1) `select * from v_maquina_pendencias limit 1` — só mostra erro com artefato recuperável; retome pelo manifesto e entregue o que existe. 2) senão `select * from v_maquina_fila order by ultimo_pacote_em asc nulls first limit 1` (máx 3 pacotes/dia/canal).
+FILA: 1) `select * from v_maquina_pendencias limit 1` — só mostra erro com artefato recuperável; retome pelo manifesto e entregue o que existe. 2) senão sorteie o canal com PISO DE 10 PUBLICADOS: canal abaixo de 10 vem primeiro, e dentro do grupo o desempate é aleatório. Respeita `pode_produzir` (máx 3 pacotes/24h/canal e canal existente no YouTube).
+
+    select f.slug, f.nome, f.idioma, f.nicho, f.voz, f.estilo, f.duracao_alvo_s,
+           coalesce(p.publicados, 0)                   as publicados,
+           greatest(0, 10 - coalesce(p.publicados, 0)) as falta_para_meta
+      from v_maquina_fila f
+      left join (select canal, count(*) as publicados
+                   from videos
+                  where status = 'publicado' and youtube_id is not null
+                  group by canal) p on p.canal = f.slug
+     where f.pode_produzir
+     order by (coalesce(p.publicados, 0) < 10) desc, random()
+     limit 1;
+
+Canal sem `youtube_channel_id` nunca entra (o `pode_produzir` já barra): entregue no Drive e diga ao Pablo qual canal falta criar.
 
 PASSO 0 — DEMANDA: consulte `v_maquina_formatos` e `pautas_banco` ANTES de pesquisar. Depois, via Composio YOUTUBE_SEARCH_YOU_TUBE + YOUTUBE_GET_VIDEO_DETAILS_BATCH, colete vídeos de 90 dias do nicho/idioma, calcule VIEWS/DIA, mediana, e isole outliers (≥3x). Grave TUDO em pautas_banco, inclusive os mortos. Confirme números com WebSearch no idioma e em fonte institucional — duas fontes que batam. Pauta = (formato que performa) × (dor real datada) × (eixo não usado). O título modela a ESTRUTURA do outlier, nunca o assunto; keyword nos 5 primeiros termos. Similaridade ≤0,65 vs vídeos anteriores do MESMO canal.
 
@@ -76,7 +129,7 @@ PASSO 2B — PUBLIQUE. Isto não é mais condicional: a rota está validada, com
 - Se a API devolver mensagem específica, esgote essa causa antes de inventar hipótese estrutural — `error_code` e `failure_stage` da Upload-Post são genéricos e não contradizem a mensagem.
 - Se o canal não existir no YouTube, entregue no Drive e diga ao Pablo qual canal falta criar.
 - NUNCA publique pela Composio `YOUTUBE_UPLOAD_VIDEO`.
-- Plano grátis: 10 uploads/mês, 1 perfil. Confira o consumo em `/uploadposts/history` antes de gastar.
+- Confira o consumo real em `/uploadposts/history` antes de gastar. Não assuma teto pela documentação antiga: a nota de "10 uploads/mês" não bate com agosto, que fechou 146 publicações.
 
 PASSO 3 — REGISTRO: insert em videos (fonte_pauta, duração real, youtube_id, drive_*, supabase_url, cenas, capítulos) + update canais set ultimo_pacote_em=now(), pacotes=pacotes+1. Uma linha por formato (longo e short separados). Falha → videos.erro com CAUSA e AÇÃO, preservando clipes prontos. Registre views em `metricas`.
 
@@ -84,7 +137,10 @@ PASSO 4 — APRENDA. Ao fim de todo disparo grave: o que quebrou → `aprendizad
 NÃO conclua desempenho com menos de 48h de vida. Compare views/dia entre vídeos de idade parecida.
 
 PASSO 5 — ANALISE E TENDÊNCIAS (1x por dia, no primeiro disparo após 06:00 UTC):
-- RESULTADOS: colete views/likes/comments de TODOS os vídeos publicados via videos.list (part=statistics, lotes de 50) e grave snapshot em `metricas`. Compare views/dia entre vídeos de idade parecida do MESMO canal; ganhador/perdedor vira linha em `pautas_banco` (veredito) e, com 48h+ de dados, `aprendizados`.
+- RESULTADOS: colete de TODOS os vídeos publicados e grave snapshot em `metricas`. São DUAS fontes, não uma:
+  a) `videos.list part=statistics` (lotes de 50) → views, likes, comments.
+  b) **YouTube Analytics API `reports.query`** → `impressions`, `impressionClickThroughRate`, `averageViewPercentage`, `averageViewDuration`. Preencha `impressoes`, `ctr`, `retencao_media_pct` e `duracao_media_s`. Exige escopo `yt-analytics.readonly` na autorização do canal; se o escopo faltar, registre em `aprendizados` como bloqueio e avise o Pablo — não deixe a coluna zerada em silêncio.
+  Coletar só (a) é o que zerou CTR e retenção em toda a base: sem esses dois não há como saber que gancho segurou audiência, e o PASSO 4 vira palpite. Compare views/dia entre vídeos de idade parecida do MESMO canal; ganhador/perdedor vira linha em `pautas_banco` (veredito) e, com 48h+ de dados, `aprendizados`.
 - OTIMIZE O PRÓXIMO: o que o ganhador fez (estrutura de título, gancho, duração, eixo) entra na spec seguinte do canal; o que o perdedor fez não se repete sem mudança. Registre a decisão em `experimentos` quando for aposta.
 - MERCADO/TENDÊNCIAS (rotativo, 1 canal por dia): WebSearch de tendências do nicho no idioma (dores novas datadas, mudanças de lei, datas sazonais próximas) + 1 busca YouTube de outliers da SEMANA (não 90 dias) para capturar ondas cedo. Grave em `pautas_banco` com observacao='tendencia-semanal'.
 - PADRÕES DE EXCELÊNCIA (validados 2026-08-11): pattern interrupt nos primeiros 5s (+23% retenção vs abertura estática); loop de retenção a cada 15-30s (pergunta aberta/promessa); estrutura problema→conflito→resolução; CTR e watch time mandam — rosto não. Marcação de IA NÃO reduz alcance nem monetização (política oficial); o risco real é a política de "conteúdo inautêntico" (jul/2025): produção em massa templated sem voz editorial. Antídoto: pesquisa própria com números datados, voz editorial consistente por canal, variedade de formatos. Tração típica: 30-50 uploads; YPP ~12 meses em nicho de retenção alta.
