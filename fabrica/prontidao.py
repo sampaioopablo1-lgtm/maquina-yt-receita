@@ -210,25 +210,28 @@ SHORT_MIN_S, SHORT_MAX_S = 30, 45
 # exporta `.srt` — a constante (R, P) nunca viu uma cena de short e e
 # extrapolada para elas. O erro e sempre no mesmo sentido: para baixo.
 #
-#   agla-level-004         hi-IN-Madhur    42,3 -> 43,6   +3,1%
 #   setiap-level-009       id-ID-Ardi      32,3 -> 32,5   +0,6%
-#   labtreinamento-003     pt-BR-Thalita   44,3 -> 47,6   +7,4%   <- foi ao ar fora
+#   agla-level-004         hi-IN-Madhur    42,3 -> 43,6   +3,1%
 #   resep-naik-level-005   id-ID-Gadis     37,8 -> 40,3   +6,6%
+#   seja-mais-magra-004    pt-BR-Francisca 35,8 -> 38,2   +6,7%
+#   labtreinamento-003     pt-BR-Thalita   44,3 -> 47,6   +7,4%   <- foi ao ar fora
 #
-# Mediana das quatro: +4,8%. A margem era 3% e ficava ABAIXO do erro tipico —
-# um short no teto de 43,6 previstos cairia em 45,7 reais, fora do teto que
-# este portao existe para segurar. Com 5% o teto vai a 42,8 e o mesmo short
-# cai em 44,8.
+# Mediana das cinco: +6,6%. Pior: +7,4%. A margem cobre o PIOR, e nao a
+# mediana, e a razao e o custo — que eu tinha calculado errado duas vezes.
 #
-# Por que 5% e nao 6,9%, que cobriria o PIOR caso: 6,9% reprova onze das 50
-# specs com short, contra cinco a 5%. E o teto de 45 e regra NOSSA, nao do
-# YouTube — Shorts aceita ate tres minutos desde 2024. Estourar por um segundo
-# custa formato, nao entrega. Entre 4,6% e 5,0% o conjunto reprovado e o mesmo,
-# entao 5% e a folga de graca.
+# Em 20/08 recusei 7% duas vezes por "reprovar onze specs". Errado: eu contava
+# ARQUIVO no diretorio, nao trabalho possivel. Das dez specs que 7% reprova,
+# OITO ja estao publicadas (o orquestrador descarta pacote com youtube_id), uma
+# e de canal que nao existe no YouTube e a ultima tem o titulo ja no ar. O
+# custo real de subir a margem para 7% e ZERO spec produzivel.
 #
-# Reveja este numero a cada short novo medido. Quatro medidas ainda e pouco, e
-# a duas vozes (Thalita e Gadis) explicam sozinhas o topo da distribuicao.
-MARGEM_SHORT = 0.05
+# Quando o custo e zero, a escolha certa nao e a mediana, e o pior caso.
+#
+# A distribuicao e bimodal e provavelmente POR VOZ, nao por lingua: id-ID-Ardi
+# erra +0,6% e id-ID-Gadis +6,6%, mesma lingua. Com uma medida por voz nao da
+# para ajustar por voz ainda. Reveja quando houver a segunda medida de alguma
+# delas — ai a margem unica pode virar tabela.
+MARGEM_SHORT = 0.07
 
 
 def _gate_duracao(sp):
