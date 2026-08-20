@@ -32,9 +32,30 @@ buraco da máquina até 20/08/2026. `v_maquina_formatos` mede os *concorrentes* 
 duas discordam, **vale a própria**: o nicho descreve um público, o canal
 descreve o seu.
 
-`v_maquina_fila` já ordena por *canal com YouTube configurado primeiro*, depois por
-`ultimo_pacote_em` mais antigo. `v_maquina_formatos` é a memória da pesquisa: mostra a
-mediana de views/dia por família de formato, acumulada ao longo das semanas.
+`v_maquina_fila` ordena por *canal com YouTube configurado primeiro*, depois **token
+vivo**, depois `ultimo_pacote_em` mais antigo. `v_maquina_formatos` é a memória da
+pesquisa: mostra a mediana de views/dia por família de formato, acumulada ao longo das
+semanas.
+
+O critério de token entrou em 20/08/2026 e custou um roteiro para aparecer. A fila
+entregou o `sx-educacao` como próximo da vez; escrevi 78 cenas, sete capítulos e a copy
+inteira, e só então o portão do render descobriu o `refresh_token` morto. **O portão
+funcionou** — abortou em 90 s em vez de gastar 20 min renderizando um pacote sem rota de
+publicação. O que faltava era antes: a fila lê `canais` e `videos`, e saúde de token não
+mora em nenhum dos dois.
+
+A auditoria (`scripts/auditar_escopos.py`) já existia e já sabia responder. Faltava ela
+rodar sozinha e **gravar**: agora escreve `token_vivo` e `token_testado_em` em
+`config.yt_token_<slug>`, junto da coleta diária das 05:00 UTC, e a fila lê dali.
+
+Duas coisas que a fila deliberadamente **não** faz, e que é fácil inverter por engano:
+
+- **token morto não zera `pode_produzir`.** O pacote ainda pode ser renderizado e
+  entregue no Drive esperando a reautorização — foi o que fizemos com o
+  `sx-educacao-003`. Zerar transformaria *"espere o Pablo"* em *"nunca mais produza"*.
+- **ausência de medida não é morte.** Canal nunca auditado entra como vivo; tratar
+  desconhecido como morto pararia a frota no dia em que a auditoria falhasse, e o
+  `confere_token.py` continua sendo a rede de baixo.
 
 ### `v_maquina_licoes` — o laço que faltava
 
