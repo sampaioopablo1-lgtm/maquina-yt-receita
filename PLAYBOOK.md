@@ -617,6 +617,18 @@ estoura o teto de 50 MB do Storage.
 
 ---
 
+### Número de pacote se consulta, não se supõe
+
+`python3 fabrica/grava_spec.py <slug>` diz quais números estão ocupados e qual é o próximo
+livre. Todo build script novo grava por `grava_spec.grava(SPEC)`, que **recusa** escrever por
+cima de um `.json` cujo título é outro.
+
+Isto existe porque em 20/08/2026 escolhi `epomeno-epipedo-005` por suposição. O -005 existia,
+estava commitado e **o vídeo já estava no ar**. O build script reescreveu o `.json` inteiro e
+nenhum portão reclamou — os portões conferem se a spec está *certa*, não se ela é a spec
+*certa*. O que pegou o erro foi acidente: a extração das tags falhou e a copy que apareceu era
+de outro vídeo.
+
 ## 4. Entrega
 
 ```
