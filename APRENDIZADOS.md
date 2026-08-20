@@ -488,6 +488,27 @@ Escolhi `epomeno-epipedo-005` para um pacote novo sem olhar quais existiam. O -0
 
 `aplicado_em:` fabrica/grava_spec.py
 
+### A regra das duas fontes pagou: a segunda derrubou a primeira por um dígito
+Pesquisando o KRIS do BPJS, a primeira busca afirmou "denda keterlambatan dihapus sejak **1 Juli 2026**". A segunda derrubou: a regra vale desde **1 Juli 2016** — dez anos antes. Um dígito transformava regra velha em novidade de agosto, e teria virado manchete do vídeo.
+
+> **por que só outra fonte pega**: erro de dígito passa por todos os portões de coerência — o texto fica plausível, a gramática certa, o número redondo. Nenhum portão interno discorda; só outra fonte discorda. · **multa que de fato existe**: internação em até 45 dias após reativar · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/specs/setiap-level-010.build.py
+
+### Número grande em linha suja do banco não é sinal, é ruído com casas decimais
+O topo do eixo `dana-pendidikan` marcava 29.393,0 e 13.371,8 v/d — e as linhas eram C-drama e vídeo de "AI" classificados no eixo por engano. Ordenar por `views_dia` e pegar o topo levaria a pauta para um eixo que não existe.
+
+> **regra**: antes de escolher eixo pelo topo, **ler os títulos das linhas que produzem esse topo**. Se não pertencem ao nicho, o eixo está contaminado e a mediana dele não significa nada. · **eixo escolhido no lugar**: `bpjs-kesehatan-kris`, topo legítimo 5.012,3 v/d · **data**: 2026-08-20
+
+`aplicado_em:` pautas_banco
+
+### Verificação por telefone é POR CANAL — e agora há prova dos dois lados
+Dois pacotes seguidos, respostas opostas no mesmo passo: `agla-level-005` levou 403 "canal sem verificação"; `setiap-level-010` devolveu "thumbnail: ok". Isso mata a hipótese de defeito no código, no PNG ou na conta — é configuração daquele canal.
+
+> **conhecido**: 2 de 12 (um de cada lado) · **desconhecidos**: 10 · **custo por canal não verificado**: a capa desenhada em todo longo · **data**: 2026-08-20
+
+`aplicado_em:` fabrica/publicar.py
+
 ### Todo longo do `agla-level` sobe com thumbnail automática, e ninguém sabia
 Terceiro caso do mesmo formato em duas horas. `thumbnails/set` devolve 403 "canal sem verificação por telefone"; o código já tratava o caso com mensagem própria e um comentário dizendo que não é defeito do código — verdade que não resolve nada, porque a mensagem só era **impressa**. O efeito é permanente: o longo sobe com um quadro qualquer do vídeo no lugar da capa, e capa é o que decide clique. Agora emite `::warning::` — não `::error::`, porque o vídeo está certo e a correção é do lado do Pablo.
 
