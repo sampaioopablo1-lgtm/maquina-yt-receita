@@ -75,6 +75,14 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+          # O que o PROPRIO acervo ja provou. Antes de 20/08/2026 este numero
+          # nao aparecia em lugar nenhum: a maquina media o nicho, publicava, e
+          # nunca lia o proprio resultado. `|| true` porque o painel e informe,
+          # e um banco lento nao pode segurar o disparo da frota.
+          echo "" | tee -a informe.txt
+          python3 fabrica/aprendizado.py painel 2>&1 | tee -a informe.txt || \
+            echo "::warning::painel de aprendizado indisponivel neste ciclo"
+
           # Vigia dos tokens: roda ANTES da matriz e nunca derruba o ciclo
           # (|| true). Em 19/08/2026 nove dos doze tokens morreram na
           # madrugada e a maquina so descobriu no meio de um render de 20

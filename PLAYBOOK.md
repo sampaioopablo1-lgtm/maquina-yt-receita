@@ -22,12 +22,51 @@ Rode antes de escolher o canal. Substituem meia dúzia de `select` espalhados.
 select * from v_maquina_regras where severidade in ('critico','alto');  -- o que não repetir
 select * from v_maquina_fila limit 3;                                   -- quem é o próximo
 select * from v_maquina_estoque;                                        -- onde estamos
-select * from v_maquina_formatos where canal = '<slug>';                -- o que performa nele
+select * from v_maquina_formatos where canal = '<slug>';                -- o que performa NO NICHO
+select * from v_maquina_licoes  where canal = '<slug>';                 -- o que performou NESTE CANAL
 ```
+
+**A quarta e a quinta consulta não são a mesma pergunta**, e confundi-las foi o
+buraco da máquina até 20/08/2026. `v_maquina_formatos` mede os *concorrentes* —
+é a memória da pesquisa. `v_maquina_licoes` mede o *próprio acervo*. Onde as
+duas discordam, **vale a própria**: o nicho descreve um público, o canal
+descreve o seu.
 
 `v_maquina_fila` já ordena por *canal com YouTube configurado primeiro*, depois por
 `ultimo_pacote_em` mais antigo. `v_maquina_formatos` é a memória da pesquisa: mostra a
 mediana de views/dia por família de formato, acumulada ao longo das semanas.
+
+### `v_maquina_licoes` — o laço que faltava
+
+Durante duas semanas a máquina publicou 152 vídeos e **nunca leu o próprio
+resultado**. Havia 1.932 linhas em `metricas` e nenhuma linha do caminho de
+decisão as consultava. A pergunta era barata e ninguém a fazia.
+
+A view devolve um **veredito por canal**, e ele decide produção — não descreve:
+
+| veredito | o que significa | o que muda no roteiro |
+|---|---|---|
+| `suspenso` | o short entrega, o longo não paga o render | longo no **piso** de 8 min; o melhor material vai no short |
+| `canal frio` | **nenhum** dos dois pegou, e nunca houve pico | o problema é gancho/nicho, não formato — arrisque eixo novo |
+| `liberado` | o longo se paga | faixa inteira de 12 a 15 min |
+| `sem dado` | menos de 3 vídeos com 48h+ no formato | siga a memória do nicho |
+
+O corte de `suspenso` sai da razão de custo: um longo custa ~20× o render de um
+short (80 cenas contra 6), então ele precisa entregar ao menos 1/20 do short
+para empatar em **views por minuto de runner**. E `liberado` exige piso
+absoluto de 1 v/d — sem isso a razão aprovava o longo de um canal onde o short
+também estava morto.
+
+**Só `views` entra na conta, e isso é limitação declarada.** `metricas` tem
+colunas de CTR, impressões, retenção, inscritos e receita, e as cinco são
+default: nenhum dos treze `refresh_token` carrega o escopo
+`yt-analytics.readonly` (conferido em `config.yt_token_*`, 20/08/2026). Decidir
+com elas repetiria o defeito que o `models.py` já registrou em 13/08 — *"o
+painel inteiro parecia dado e era default"*. Ligar retenção e CTR custa um novo
+consentimento nos doze canais, e essa é decisão do dono.
+
+`fabrica/aprendizado.py` é quem lê isso e monta o bloco que entra no prompt do
+`autor.py`. O `diario.yml` imprime o painel a cada ciclo.
 
 ---
 

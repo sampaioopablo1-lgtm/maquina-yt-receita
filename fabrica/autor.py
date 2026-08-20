@@ -117,6 +117,25 @@ def contexto(slug: str, sb_url: str = "", sb_key: str = "") -> dict:
     ctx.update(_da_ultima_spec(slug))
     if sb_url and sb_key:
         ctx["titulos_publicados"] = titulos_publicados(slug, sb_url, sb_key)
+        # A memoria do PROPRIO canal. Ate 20/08/2026 o gerador so via a memoria
+        # do NICHO — o que os concorrentes fazem — e nunca o que os videos
+        # deste canal ja tinham provado. Duas semanas publicando sem consultar
+        # o proprio resultado.
+        import aprendizado as A
+
+        try:
+            ctx["memoria_propria"] = A.memoria(sb_url, sb_key, slug)
+        except Exception as e:
+            # Nao derruba a geracao, mas TAMBEM nao segue calado. O gerador
+            # precisa saber que esta escrevendo sem a memoria propria, senao
+            # ele decide como se ela dissesse "nada a relatar" — e a diferenca
+            # entre "nao ha licao" e "nao consegui ler a licao" e enorme.
+            ctx["memoria_propria"] = (
+                f"MEMORIA DO PROPRIO CANAL: INDISPONIVEL ({e}). Voce esta "
+                f"escrevendo sem saber o que este canal ja provou. Seja "
+                f"conservador: siga a memoria do nicho e nao invente eixo novo.")
+            print(f"aviso: memoria propria indisponivel para {slug}: {e}",
+                  file=sys.stderr)
     return ctx
 
 
@@ -356,6 +375,19 @@ Entao, sempre: leia a memoria do nicho, identifique a ASSINATURA dos titulos
 que performam, e reescreva a pauta nessa assinatura. Se a memoria nao deixar
 clara qual e a assinatura, diga isso na resposta em vez de inventar uma.
 
+## Quando as duas memorias discordam, a PROPRIA vence
+
+Voce recebe duas memorias. A do NICHO diz o que funciona no assunto, medido nos
+concorrentes. A do PROPRIO CANAL diz o que funcionou NESTE canal, medido nos
+videos que ele publicou.
+
+Onde as duas concordam, siga sem pensar. Onde discordam, siga a propria: o
+nicho descreve um publico, o proprio canal descreve O SEU publico, e e para ele
+que o video vai.
+
+O bloco da memoria propria traz um VEREDITO. Ele nao e sugestao — ele diz onde
+por o seu melhor material, e em que tamanho escrever o longo. Cumpra-o.
+
 ## Numero que vem DENTRO da pauta nao e fonte
 
 A pauta foi escrita por geracao de ideias, nao por medicao. Se ela traz uma
@@ -400,7 +432,8 @@ JA PUBLICADO NESTE CANAL (nao repita o angulo, e nao chegue perto do titulo):
 MEMORIA DO NICHO — o arquivo de configuracao do canal, com o que ja foi medido
 nele. Leia os comentarios: eles dizem qual formato entrega e qual morreu.
 
-{ctx['memoria']}"""
+{ctx['memoria']}
+{ctx.get('memoria_propria') or ''}"""
 
 
 def orcamento_curto(voz: str, slug: str = "") -> tuple[int, int]:
