@@ -488,6 +488,22 @@ Escolhi `epomeno-epipedo-005` para um pacote novo sem olhar quais existiam. O -0
 
 `aplicado_em:` fabrica/grava_spec.py
 
+### A margem que eu me recusei a mexer oscilou por cima E por baixo do valor em uso
+`MARGEM_SHORT` está em **0,043** e recusei três pedidos de mudança em quatro horas. O recálculo devolveu, em sequência: **0,047** (n=38), **0,048** (n=39) e **0,042** (n=40) — o percentil 95 atravessou o valor em uso nos **dois sentidos**.
+
+> Se eu tivesse "seguido o dado" a cada hora: três alterações de constante de portão, cada uma exigindo a suíte inteira (aprendizado 379) e a revisão do inventário `PARADAS`, para terminar praticamente onde comecei. É a prova empírica da condição de parada do aprendizado 397 — com n pequeno o percentil de cauda é instável, e persegui-lo é trabalho puro. · **data**: 2026-08-21
+
+`aplicado_em:` fabrica/prontidao.py MARGEM_SHORT
+
+### O aviso automático achou 4 canais sem verificação; minha auditoria manual achou 0
+Placar do método, depois de um dia: **4 canais** descobertos pelo `::warning::` de thumbnail (agla-level, resep-naik-level, seviye-seviye, game-money-lab) contra **zero** pela auditoria que fiz à mão. E quatro confirmados **verificados** pela ausência do aviso (epomeno-epipedo, setiap-level, labtreinamento, seja-mais-magra).
+
+> **custo do defeito**: metade da frota conhecida publica todo longo com quadro automático no lugar da capa desenhada · **restam 5** sem resposta, cada um responde no próximo disparo · **data**: 2026-08-21
+
+**Aviso barato em passo automático descobre mais que auditoria cara feita uma vez.**
+
+`aplicado_em:` fabrica/publicar.py
+
 ### Não é viés de short: a taxa da Francisca no modelo de voz está alta
 Por horas tratei o erro em short como fenômeno **de short** e cheguei a abrir a hipótese de tabela de viés por voz. O diagnóstico certo apareceu ao comparar os **longos**: a Francisca erra **+4,3%** no longo, mais que o dobro de qualquer outra voz — as outras sete ficam entre −1,3% e +2,4%. E os quatro shorts dela dão +7,6%, +7,8%, +8,4% e +13,0% de erro cru: **todos** acima do viés global de +4,8%, nenhum abaixo. Uma causa explica os dois sintomas: o `R` dela é alto demais, o modelo acha que ela lê mais rápido do que lê.
 
