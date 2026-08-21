@@ -488,6 +488,20 @@ Escolhi `epomeno-epipedo-005` para um pacote novo sem olhar quais existiam. O -0
 
 `aplicado_em:` fabrica/grava_spec.py
 
+### Não é viés de short: a taxa da Francisca no modelo de voz está alta
+Por horas tratei o erro em short como fenômeno **de short** e cheguei a abrir a hipótese de tabela de viés por voz. O diagnóstico certo apareceu ao comparar os **longos**: a Francisca erra **+4,3%** no longo, mais que o dobro de qualquer outra voz — as outras sete ficam entre −1,3% e +2,4%. E os quatro shorts dela dão +7,6%, +7,8%, +8,4% e +13,0% de erro cru: **todos** acima do viés global de +4,8%, nenhum abaixo. Uma causa explica os dois sintomas: o `R` dela é alto demais, o modelo acha que ela lê mais rápido do que lê.
+
+> **decisão**: NÃO subir `MARGEM_SHORT`, embora o recálculo com n=38 devolva 0,047 contra 0,043 em uso. Esse 0,047 está sendo puxado por **uma** voz mal calibrada, e subir a margem global apertaria o teto das outras sete para esconder um defeito de calibração. O conserto é recalibrar o `R` a partir dos `.srt` medidos — e não à mão, a partir de uma medida (aprendizado 397). · **R atual** 15,60 · **R implicado** ≈14,96 · **data**: 2026-08-21
+
+`aplicado_em:` fabrica/ensaio.py MODELO_VOZ (pendente de recalibração)
+
+### O banco de pautas está contaminado em três canais, e sempre no topo
+Terceira vez no mesmo dia: o outlier de maior `views_dia` de um eixo não pertence ao eixo. C-drama em `dana-pendidikan` (29.393 v/d), "drama AI" no resep-naik-level (6.057), vídeos de abdominal em `canetas-emagrecedoras` (40.113, com 33 linhas no eixo).
+
+> **o padrão não é aleatório**: a coleta classifica por proximidade de tema, e conteúdo viral de fora do nicho entra por cima **justamente porque tem views altas**. Quanto maior o número, maior a chance de a linha ser lixo. · **regra**: ler os títulos que produzem o topo antes de escolher o eixo · **data**: 2026-08-21
+
+`aplicado_em:` pautas_banco
+
 ### A regra das duas fontes pagou: a segunda derrubou a primeira por um dígito
 Pesquisando o KRIS do BPJS, a primeira busca afirmou "denda keterlambatan dihapus sejak **1 Juli 2026**". A segunda derrubou: a regra vale desde **1 Juli 2016** — dez anos antes. Um dígito transformava regra velha em novidade de agosto, e teria virado manchete do vídeo.
 
