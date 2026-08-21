@@ -1,0 +1,498 @@
+{
+ "slug": "seja-mais-magra",
+ "pacote": "seja-mais-magra-005",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-FranciscaNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#241C2B",
+  "c1": "#8E5AA8",
+  "c2": "#3FA08C",
+  "bg": "#F7F3FA"
+ },
+ "thumb": {
+  "l1": "Genérica",
+  "l2": "aprovada"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Dezessete de agosto",
+   "sub": "a Anvisa registrou duas",
+   "nar": "No dia dezessete de agosto, a Anvisa registrou duas canetas de semaglutida. Uma delas é a primeira genérica do Brasil.",
+   "cap": "O que a Anvisa registrou, e quando"
+  },
+  {
+   "layout": "item",
+   "kicker": "A genérica",
+   "preco": "da EMS",
+   "nar": "A genérica é da EMS. É o primeiro genérico de semaglutida em caneta registrado no país.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A outra",
+   "preco": "similar, da Germed",
+   "nar": "A outra é um medicamento similar, da Germed, que será vendido com o nome Semaclique.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Em quantas versões",
+   "preco": "quatro apresentações",
+   "nar": "O similar foi aprovado em quatro apresentações diferentes, todas na mesma concentração.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que é 'similar'",
+   "preco": "categoria própria",
+   "nar": "E vale separar já: similar é uma categoria regulatória própria, com regras próprias. Não é sinônimo de genérico, embora as duas palavras apareçam juntas na mesma notícia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que a distinção importa",
+   "preco": "as regras de preço diferem",
+   "nar": "A distinção importa porque as regras que valem para cada categoria são diferentes, inclusive as de preço. Tratar as duas como a mesma coisa leva a conclusão errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que eu NÃO vou dizer",
+   "sub": "porque ainda não se sabe",
+   "nar": "Antes de explicar o que isso significa, a parte que quase nunca aparece nos vídeos sobre isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Preço",
+   "preco": "não foi divulgado",
+   "nar": "Eu não vou dizer quanto vai custar. O preço não foi divulgado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Data na farmácia",
+   "preco": "também não",
+   "nar": "E não vou dizer quando chega à farmácia, porque essa data também não foi divulgada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso importa",
+   "preco": "número sem fonte engana",
+   "nar": "Isso importa porque circula número por aí. Se eu repetir um valor que a própria fonte marca como não confirmado, você planeja em cima dele — e o erro passa a ser meu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que eu vou dizer",
+   "preco": "só o que foi decidido",
+   "nar": "Então aqui só entra o que um órgão decidiu, com data. O resto fica marcado como não sabido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que insisto nisso",
+   "preco": "já errei aqui",
+   "nar": "Insisto porque esse tipo de assunto é onde mais aparece número solto: uma cifra dita com segurança soa igual a uma cifra checada, e as duas viram decisão de dinheiro na cabeça de quem ouve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma coisa a mais",
+   "preco": "não é conselho médico",
+   "nar": "E uma coisa que vale para o vídeo inteiro: isto não é conselho médico. Não tem dose, não tem indicação, e não tem se vale a pena para você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso é incomum",
+   "sub": "biológico não tem genérico",
+   "nar": "Agora o detalhe técnico que explica por que essa aprovação chamou atenção.",
+   "cap": "Por que um genérico aqui é incomum"
+  },
+  {
+   "layout": "item",
+   "kicker": "O de referência",
+   "preco": "é um biológico",
+   "nar": "A semaglutida do medicamento de referência é um medicamento biológico. Biológico é produzido a partir de organismos vivos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra dos biológicos",
+   "preco": "não existe genérico",
+   "nar": "E para medicamento biológico não existe a figura do genérico nos mesmos moldes dos remédios sintéticos. A cópia exata não é possível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então como",
+   "preco": "versão sintética",
+   "nar": "O caminho que a EMS tomou foi outro: desenvolver uma versão sintética do princípio ativo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E é isso que abre a porta",
+   "preco": "sintético admite genérico",
+   "nar": "Sendo sintético, o produto entra na categoria que admite genérico. Foi essa diferença que tornou o registro possível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Qual é a referência",
+   "preco": "o Ozivy",
+   "nar": "E há um detalhe que confunde muita gente: a referência desse genérico é o Ozivy, que é fabricado pela própria EMS.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Duas rotas diferentes",
+   "itens": [
+    "Biológico",
+    "Sintético"
+   ],
+   "alturas": [
+    100,
+    100
+   ],
+   "nar": "São duas rotas de fabricação diferentes para chegar à mesma substância, e a rota escolhida é o que define a categoria regulatória.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que isso não quer dizer",
+   "preco": "não é 'igualzinho'",
+   "nar": "Isso não quer dizer que a experiência seja idêntica em tudo. Quer dizer que o produto passou pelas exigências da categoria em que foi registrado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem decide o resto",
+   "preco": "seu médico",
+   "nar": "Se um serve para você, ou se troca por outro, é conversa com quem te acompanha. Não é decisão que se toma por vídeo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma pergunta útil para levar",
+   "preco": "por que essa e não outra",
+   "nar": "Se você for conversar sobre isso, uma pergunta costuma render mais que qualquer lista da internet: por que essa opção e não outra, no meu caso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que essa pergunta",
+   "preco": "puxa o raciocínio",
+   "nar": "Ela funciona porque pede o raciocínio, e não só o nome do produto. E o raciocínio é o que você leva para a próxima consulta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que muda no mercado",
+   "sub": "concorrência",
+   "nar": "O efeito prático dessa aprovação é um só, e é sobre concorrência.",
+   "cap": "O que muda, e o que depende da CMED"
+  },
+  {
+   "layout": "item",
+   "kicker": "Antes",
+   "preco": "poucas opções registradas",
+   "nar": "Até aqui o mercado de canetas de semaglutida tinha poucas opções registradas no Brasil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora",
+   "preco": "mais fabricantes",
+   "nar": "Com um genérico e um similar registrados, passa a haver mais fabricantes autorizados a vender.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra geral do genérico",
+   "preco": "pelo menos trinta e cinco por cento",
+   "nar": "E existe uma regra geral no Brasil: medicamento genérico precisa custar pelo menos trinta e cinco por cento menos que o seu medicamento de referência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas atenção",
+   "preco": "regra é sobre a referência",
+   "nar": "Repare no que a regra diz: ela é uma porcentagem sobre o preço do medicamento de referência, não sobre o preço que você paga hoje em qualquer caneta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E falta um passo",
+   "preco": "aprovação na CMED",
+   "nar": "Falta ainda a aprovação de preço na Câmara de Regulação do Mercado de Medicamentos. Enquanto isso não sai, não existe preço oficial.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que a CMED faz",
+   "preco": "define o teto",
+   "nar": "Essa câmara define o preço máximo que pode ser cobrado. É um teto, e não uma tabela do que a farmácia vai efetivamente cobrar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então haverá duas coisas",
+   "preco": "teto e preço de prateleira",
+   "nar": "Ou seja, quando o preço sair, você terá dois números para olhar: o teto oficial e o que aparece na prateleira. Eles não costumam ser iguais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso eu não estimo",
+   "preco": "duas incógnitas",
+   "nar": "É por isso que eu não faço a conta no ar. Ela teria duas incógnitas, e o resultado pareceria preciso sem ser.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que dá para acompanhar",
+   "sub": "sem depender de ninguém",
+   "nar": "O que dá para fazer é acompanhar, e isso não depende de nenhum vídeo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde sai o preço",
+   "preco": "lista da CMED",
+   "nar": "Os preços máximos de medicamentos são publicados em lista oficial. Quando sair, o valor estará lá antes de estar em qualquer manchete.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que perguntar na farmácia",
+   "preco": "duas perguntas",
+   "nar": "E na farmácia, duas perguntas resolvem: já chegou, e qual é o preço registrado. Não a promoção — o preço registrado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Como checar isso sozinha",
+   "sub": "sem depender de mim",
+   "nar": "Antes de fechar, o método — porque ele vale para a próxima notícia também, não só para esta.",
+   "cap": "Como checar uma notícia dessas"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro",
+   "preco": "procure o nome do órgão",
+   "nar": "Primeiro: a notícia diz qual órgão decidiu? Anvisa, CMED, Ministério. Se não nomeia ninguém, é comentário, não decisão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segundo",
+   "preco": "procure a data",
+   "nar": "Segundo: tem data? Decisão regulatória sempre tem. Notícia sem data costuma ser reaproveitamento de fato antigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Terceiro",
+   "preco": "separe decidido de esperado",
+   "nar": "Terceiro, e é o que mais confunde: separe o que foi decidido do que é esperado. Registro aprovado é decisão; preço provável é expectativa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um teste rápido",
+   "preco": "procure o verbo",
+   "nar": "Um jeito rápido de separar os dois é olhar o verbo. Registrou, aprovou e publicou são fatos. Deve, pode e estima são previsões.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Duas frases parecidas",
+   "itens": [
+    "Aprovou o registro",
+    "Deve custar X"
+   ],
+   "alturas": [
+    100,
+    40
+   ],
+   "nar": "As duas aparecem na mesma reportagem e com a mesma fonte, e só a primeira é verificável hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quarto",
+   "preco": "veja se a ressalva foi apagada",
+   "nar": "E quarto: veja se a ressalva sobreviveu. Quando o texto original diz sem confirmação e a versão que chegou até você não diz, alguém apagou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso vale sempre",
+   "preco": "o padrão se repete",
+   "nar": "Esse padrão se repete em todo assunto de saúde com dinheiro envolvido. Aprender a separar decisão de expectativa vale mais que decorar qualquer número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Concorrência não é preço",
+   "sub": "uma ressalva honesta",
+   "nar": "E uma ressalva antes de fechar, porque ela costuma ser pulada.",
+   "cap": "Concorrência não vira preço sozinha"
+  },
+  {
+   "layout": "item",
+   "kicker": "Mais fabricantes ajuda",
+   "preco": "mas não garante",
+   "nar": "Mais fabricantes autorizados tende a pressionar preço para baixo. Tende — não garante, e não em prazo definido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que também conta",
+   "preco": "produção e distribuição",
+   "nar": "Entre o registro e a prateleira ainda existem produção, distribuição e decisão comercial de cada empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso o prazo é incerto",
+   "preco": "registro não é chegada",
+   "nar": "Registro é autorização para vender, não é chegada ao mercado. As duas datas podem estar meses distantes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que observar",
+   "preco": "quando aparecer, compare",
+   "nar": "Então o que dá para observar é simples: quando as opções aparecerem, compare os preços registrados entre elas, e não a promoção da semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que não a promoção",
+   "preco": "ela some",
+   "nar": "A promoção some na semana seguinte e o preço registrado fica. Comparar pela promoção é comparar duas fotos tiradas em dias diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde isso costuma pesar",
+   "preco": "tratamento é contínuo",
+   "nar": "E aqui isso pesa mais que em outras compras, porque não é uma caixa só: é um gasto que se repete mês após mês enquanto durar o tratamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma conta que dá para fazer",
+   "preco": "multiplique por doze",
+   "nar": "Então quando o preço sair, faça uma conta única: multiplique por doze. Uma diferença pequena por mês vira outra coisa no ano, para cima ou para baixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três coisas para guardar",
+   "sub": "e uma para ignorar",
+   "nar": "Fechando: três coisas para guardar e uma para ignorar.",
+   "cap": "Três para guardar, uma para ignorar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Guardar um",
+   "preco": "a data",
+   "nar": "Primeira: dezessete de agosto de dois mil e vinte e seis, registro na Anvisa. É a data que dá para checar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Guardar dois",
+   "preco": "genérico e similar são coisas distintas",
+   "nar": "Segunda: foram dois registros de categorias diferentes. Genérico da EMS, similar da Germed. Não é a mesma figura regulatória.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Guardar três",
+   "preco": "preço ainda não existe",
+   "nar": "Terceira: o preço ainda não existe oficialmente, porque depende da CMED.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o que ignorar",
+   "sub": "qualquer valor circulando",
+   "nar": "E o que ignorar, com bastante firmeza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ignorar",
+   "preco": "número sem CMED",
+   "nar": "Qualquer valor em reais que circular antes da publicação oficial. Pode até acertar por sorte, e mesmo assim não é informação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como reconhecer",
+   "preco": "fonte que se marca",
+   "nar": "O jeito de reconhecer: fonte séria escreve que o número não está confirmado. Quem apaga essa ressalva está vendendo certeza que não tem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma última",
+   "preco": "cuidado com o 'natural'",
+   "nar": "E cuidado redobrado agora: sempre que um assunto desses vira notícia, aparece produto prometendo o mesmo efeito sem receita. Já falei disso aqui, e a Anvisa já proibiu vários.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra e Saudável",
+   "sub": "o que foi decidido, com data",
+   "nar": "Se você acompanha esse assunto, guarde a data e espere a lista oficial de preços. E converse com quem te acompanha antes de qualquer troca. Se este vídeo te poupou de um número inventado, se inscreva.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Semaglutida genérica",
+   "sub": "aprovada em 17 de agosto",
+   "nar": "A Anvisa registrou a primeira caneta genérica de semaglutida do Brasil, no dia dezessete de agosto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Foram dois",
+   "preco": "genérico e similar",
+   "nar": "Foram dois registros: um genérico, da EMS, e um similar da Germed, que se chamará Semaclique.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que é incomum",
+   "preco": "biológico não tem genérico",
+   "nar": "O de referência é biológico, e biológico não admite genérico. A EMS fez uma versão sintética, e é isso que abriu a porta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O preço",
+   "preco": "ainda não existe",
+   "nar": "O preço não foi divulgado e depende da CMED. Ignore qualquer valor que circular antes da lista oficial.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra e Saudável",
+   "sub": "não é conselho médico",
+   "nar": "E converse com quem te acompanha antes de qualquer troca.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Semaglutida genérica aprovada pela Anvisa: o que foi decidido e o que ainda não se sabe\n\n## TITULO\nSemaglutida Genérica Aprovada: o Que a Anvisa Registrou e o Que Ainda Não Tem Preço\n\n## DESCRICAO\nEm 17 de agosto de 2026 a Anvisa registrou duas canetas de semaglutida — e uma delas é a primeira genérica do Brasil. Este vídeo cobre o que foi decidido, com data, e diz em voz alta o que ainda NÃO se sabe.\n\nO QUE FOI REGISTRADO\n\nO genérico é da EMS: o primeiro genérico de semaglutida em caneta registrado no país. O outro registro é de um medicamento SIMILAR, da Germed, que será comercializado como Semaclique, aprovado em quatro apresentações na concentração de 1,34 mg/mL. Genérico e similar são figuras regulatórias distintas — não são a mesma coisa.\n\nPOR QUE UM GENÉRICO AQUI É INCOMUM\n\nA semaglutida do medicamento de referência é um medicamento BIOLÓGICO, produzido a partir de organismos vivos. Para biológicos não existe a figura do genérico nos mesmos moldes dos remédios sintéticos. O caminho que a EMS tomou foi outro: desenvolver uma versão SINTÉTICA do princípio ativo — e é essa diferença de rota de fabricação que torna o registro como genérico possível. A referência desse genérico é o Ozivy, fabricado pela própria EMS.\n\nIsso NÃO quer dizer que a experiência seja idêntica em tudo. Quer dizer que o produto cumpriu as exigências da categoria em que foi registrado.\n\nO QUE ESTE VÍDEO NÃO AFIRMA, E POR QUÊ\n\nNão digo quanto vai custar: o preço não foi divulgado. Não digo quando chega à farmácia: essa data também não foi divulgada. Circulam valores em reais por aí, e as próprias fontes que os publicam marcam como \"ainda sem confirmação\" — repetir um número assim faria você planejar em cima dele, e o erro passaria a ser meu.\n\nExiste uma regra geral no Brasil: genérico precisa custar pelo menos 35% menos que seu medicamento de REFERÊNCIA. Repare no que a regra diz — é uma porcentagem sobre o preço da referência, não sobre o que você paga hoje em qualquer caneta. E falta ainda a aprovação de preço na CMED (Câmara de Regulação do Mercado de Medicamentos). Enquanto isso não sai, não existe preço oficial, e uma conta feita no ar teria duas incógnitas.\n\nCOMO ACOMPANHAR SEM DEPENDER DE VÍDEO NENHUM\n\nOs preços máximos de medicamentos são publicados em lista oficial — quando sair, o valor estará lá antes de qualquer manchete. E na farmácia, duas perguntas resolvem: já chegou, e qual é o preço REGISTRADO (não a promoção).\n\nTRÊS PARA GUARDAR, UMA PARA IGNORAR\n\nGuarde: a data (17/08/2026, registro na Anvisa); que foram dois registros de categorias diferentes; e que o preço ainda não existe oficialmente. Ignore: qualquer valor em reais que circule antes da publicação oficial. Fonte séria escreve que o número não está confirmado — quem apaga essa ressalva está vendendo certeza que não tem.\n\nE um cuidado extra: sempre que um assunto desses vira notícia, aparece produto prometendo o mesmo efeito sem receita. A Anvisa já proibiu vários, e há um vídeo sobre isso aqui no canal.\n\nESTE VÍDEO NÃO É CONSELHO MÉDICO. Não traz dose, não traz indicação e não diz se algo vale a pena para você. Se um medicamento serve, ou se cabe trocar por outro, é conversa com o profissional que te acompanha.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nUma pergunta, e ela vale mais que qualquer palpite meu: quando o preço oficial sair na lista da CMED, você quer que eu faça um vídeo comparando as opções registradas? E se você já viu algum valor circulando por aí, cole aqui o link de onde viu — quero mostrar como se checa se um número está confirmado ou não.\n\n## HASHTAGS\n#Semaglutida #Anvisa #SejaMaisMagra\n\n## TAGS\nsemaglutida, semaglutida generica, anvisa, caneta emagrecedora, ems, germed, semaclique, ozivy, generico, medicamento similar, cmed, glp1, obesidade, diabetes, preco de medicamento\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nRegistro na Anvisa em 17/08/2026 do primeiro generico de semaglutida em caneta (EMS) e de um similar (Germed, nome comercial Semaclique, quatro apresentacoes a 1,34 mg/mL); semaglutida sintetica como via que viabiliza o registro como generico, sendo o de referencia um biologico; Ozivy como referencia, fabricado pela propria EMS. Conferido em DUAS passagens de busca com veiculos independentes que coincidem: Correio Braziliense, Poder360, Olhar Digital, Forbes Brasil, O Povo e o Conselho Federal de Farmacia (institucional). PRECO E DATA DE CHEGADA AS FARMACIAS NAO FORAM DIVULGADOS e este video NAO os estima: valores em reais que circularam na imprensa vinham marcados pelas proprias fontes como nao confirmados. A regra de 35% e citada como regra geral de generico no Brasil, incidente sobre o preco do medicamento de REFERENCIA, e sua aplicacao depende de aprovacao na CMED. Este material e informativo sobre uma decisao regulatoria: nao contem dose, indicacao, recomendacao de uso ou comparacao de eficacia, e nao substitui consulta com profissional de saude.\n"
+}
