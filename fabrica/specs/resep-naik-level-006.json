@@ -1,0 +1,505 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-006",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#2A1E16",
+  "c1": "#C4622D",
+  "c2": "#3E8E6F",
+  "bg": "#FBF4EC"
+ },
+ "thumb": {
+  "l1": "Rp15.700",
+  "l2": "batal naik"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Batal naik",
+   "sub": "tapi ini cuma setengah kabar",
+   "nar": "Kenaikan harga MinyaKita dibatalkan. Kedengarannya kabar baik, dan sebenarnya itu cuma setengah kabarnya.",
+   "cap": "Batal naik, dan kenapa cuma setengah kabar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka resminya",
+   "preco": "lima belas ribu tujuh ratus",
+   "nar": "Harga eceran tertinggi MinyaKita tetap lima belas ribu tujuh ratus rupiah per liter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Siapa yang mengumumkan",
+   "preco": "Menteri Perdagangan",
+   "nar": "Pembatalan itu diumumkan langsung oleh Menteri Perdagangan pada bulan Juni tahun ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sudah berapa lama",
+   "preco": "sejak Agustus dua ribu dua puluh empat",
+   "nar": "Dan angka itu sendiri tidak berubah sejak Agustus dua ribu dua puluh empat. Sudah dua tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa jadi batal",
+   "preco": "syaratnya belum terpenuhi",
+   "nar": "Rencana kenaikan itu mensyaratkan harga minyak sawit mentah stabil dulu. Syarat itu dinilai belum terpenuhi, jadi rencananya ditahan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang dipilih pemerintah",
+   "preco": "distribusi, bukan harga",
+   "nar": "Sebagai gantinya pemerintah memilih membenahi distribusi lewat Bulog dan ID Food, supaya MinyaKita lebih gampang ditemukan di pasar rakyat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang setengah yang hilang",
+   "sub": "harga di pasarmu",
+   "nar": "Sekarang bagian yang hampir tidak pernah masuk judul berita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang menentukan belanjamu",
+   "preco": "bukan angka resmi",
+   "nar": "Yang menentukan uang dapurmu bukan angka resmi itu. Yang menentukan adalah harga yang benar-benar kamu bayar di pasar, minggu ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan itu saya tidak tahu",
+   "preco": "tidak ada sumbernya",
+   "nar": "Berapa harganya di pasarmu, saya tidak tahu. Tidak ada sumber untuk harga jalanan tiap daerah, dan mengarang angka rata-rata di sini justru lebih buruk daripada diam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa lebih buruk",
+   "preco": "kamu akan pakai angka saya",
+   "nar": "Lebih buruk karena kamu akan memakai angka saya, bukan angka pasarmu sendiri. Padahal yang menentukan belanjamu cuma yang kedua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang saya bawa",
+   "sub": "cara mengukur jaraknya",
+   "nar": "Jadi yang saya bawa bukan harganya, tapi cara mengukur jarak antara angka resmi dan yang kamu bayar.",
+   "cap": "Cara mengukur jarak itu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitungannya satu pengurangan",
+   "preco": "harga kamu dikurangi HET",
+   "nar": "Hitungannya cuma satu pengurangan. Harga yang kamu bayar, dikurangi lima belas ribu tujuh ratus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau hasilnya nol",
+   "preco": "kamu dapat harga resmi",
+   "nar": "Kalau hasilnya nol, kamu memang dapat harga resmi. Sekalian pastikan yang kamu beli itu MinyaKita, dengan melihat labelnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau di atas nol",
+   "preco": "kalikan pemakaian sebulan",
+   "nar": "Kalau hasilnya di atas nol, kalikan dengan berapa liter yang rumahmu pakai dalam sebulan. Ini hitungan yang hampir tidak ada yang melakukan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contohnya begini",
+   "preco": "empat liter sebulan",
+   "nar": "Contoh. Rumah yang memakai empat liter sebulan, dan membayar dua ribu lebih mahal di tiap liter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sebulan",
+   "preco": "delapan ribu",
+   "nar": "Selisihnya delapan ribu rupiah sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Setahun",
+   "preco": "sembilan puluh enam ribu",
+   "nar": "Setahun jadi sembilan puluh enam ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa angka ini penting",
+   "preco": "hilang tanpa terasa",
+   "nar": "Angka segitu tidak membuat siapa pun bangkrut. Justru itu masalahnya: dia hilang tanpa terasa, karena tidak pernah muncul sebagai satu pengeluaran.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dua angka yang beda",
+   "itens": [
+    "HET resmi",
+    "Harga di pasarmu"
+   ],
+   "alturas": [
+    100,
+    100
+   ],
+   "nar": "Saya sengaja menggambar dua batang ini sama tinggi. Punyamu belum tentu sama, dan mencari tahu selisihnya itulah tugas dari video ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa harganya bisa beda",
+   "preco": "ongkos, perantara, stok",
+   "nar": "Penyebab selisihnya sudah diketahui: ongkos angkut, jumlah perantara, dan ketersediaan stok di daerahmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang paling besar pengaruhnya",
+   "preco": "jarak dan stok",
+   "nar": "Dari ketiganya, yang paling terasa biasanya jarak dari gudang dan stok yang ada minggu itu. Dua-duanya berubah tiap bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya harga bergerak",
+   "preco": "bukan garis lurus",
+   "nar": "Artinya harga di pasarmu bukan garis lurus. Dia naik turun, dan cuma catatan yang bisa memperlihatkan arahnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga hal",
+   "sub": "yang bisa kamu lakukan minggu ini",
+   "nar": "Tiga hal untuk dikerjakan minggu ini. Ketiganya gratis dan tidak sampai sepuluh menit.",
+   "cap": "Tiga hal untuk minggu ini"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "catat harga dan tanggalnya",
+   "nar": "Pertama, catat harga yang kamu bayar, lengkap dengan tanggalnya. Satu baris di buku atau di catatan ponsel sudah cukup.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa harus pakai tanggal",
+   "preco": "supaya bisa dibandingkan",
+   "nar": "Tanggalnya penting, karena harga tanpa tanggal tidak bisa dibandingkan dengan apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hasilnya tiga bulan lagi",
+   "preco": "datamu sendiri",
+   "nar": "Dengan tanggal, dalam tiga bulan kamu punya datamu sendiri. Bukan data nasional, tapi data pasarmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "bandingkan dua tempat",
+   "nar": "Kedua, cek harga di dua tempat pada minggu yang sama. Pasar tradisional dan warung dekat rumah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang sering muncul",
+   "preco": "selisih antar-tempat lebih besar",
+   "nar": "Sering kali selisih antara dua tempat itu lebih besar daripada selisih terhadap harga resmi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya apa",
+   "preco": "keputusan pindah tempat",
+   "nar": "Kalau memang begitu di daerahmu, keputusan yang menghemat bukan menawar, tapi pindah tempat belanja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "preco": "pastikan labelnya MinyaKita",
+   "nar": "Ketiga, pastikan yang kamu beli memang MinyaKita. Harga resmi tadi berlaku untuk merek itu, bukan untuk minyak goreng secara umum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa ini sering keliru",
+   "preco": "membandingkan dua barang beda",
+   "nar": "Membandingkan harga minyak merek lain dengan harga resmi MinyaKita berarti membandingkan dua barang yang berbeda, dan kesimpulannya jadi salah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau di pasarmu tidak ada",
+   "preco": "itu juga informasi",
+   "nar": "Dan kalau MinyaKita memang tidak ada di pasarmu minggu ini, catat itu juga. Barang yang tidak ada adalah informasi, bukan kegagalan mencatat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa itu berguna",
+   "preco": "distribusi sedang dibenahi",
+   "nar": "Berguna karena justru distribusi yang sedang dibenahi. Catatan tentang kapan barangnya ada dan kapan tidak menunjukkan apakah perbaikannya sampai ke daerahmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa distribusi",
+   "sub": "dan bukan harga",
+   "nar": "Satu bagian lagi yang membantu memahami kenapa keputusannya seperti itu.",
+   "cap": "Kenapa yang dibenahi distribusi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Menaikkan harga resmi",
+   "preco": "tidak menambah barang",
+   "nar": "Menaikkan angka resmi tidak menambah satu liter pun minyak di pasar. Yang berubah cuma batas atasnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau barangnya sedikit",
+   "preco": "harga tetap di atas",
+   "nar": "Kalau barangnya memang sedikit di suatu daerah, harga di sana tetap di atas batas, berapa pun batasnya ditetapkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu Bulog",
+   "preco": "menambah jalur masuk",
+   "nar": "Karena itu pilihannya jatuh ke Bulog dan ID Food: menambah jalur masuk barang ke pasar rakyat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Apa artinya buat kamu",
+   "preco": "ketersediaan bisa berubah",
+   "nar": "Buat kamu artinya satu hal praktis: ketersediaan di pasarmu bisa berubah dalam beberapa bulan ke depan, ke arah yang lebih baik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara memantaunya",
+   "preco": "catatan tadi",
+   "nar": "Dan cara memantau perubahan itu adalah catatan yang tadi saya minta. Tanpa catatan, perbaikan atau perburukan sama-sama tidak terasa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Satu kesalahan yang mahal",
+   "sub": "menimbun waktu harga turun",
+   "nar": "Ada satu kebiasaan yang kelihatan hemat dan sering tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kesalahannya",
+   "preco": "beli banyak sekaligus",
+   "nar": "Waktu harga turun sedikit, godaannya adalah membeli banyak sekaligus untuk stok berbulan-bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa berisiko",
+   "preco": "minyak punya umur",
+   "nar": "Masalahnya minyak goreng punya umur simpan, dan cara menyimpannya di rumah menentukan apakah umur itu tercapai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturan sederhananya",
+   "preco": "stok sebulan, bukan setahun",
+   "nar": "Aturan yang aman: stok secukupnya untuk sebulan. Selisih beberapa ribu rupiah tidak sebanding dengan satu liter yang terbuang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang benar-benar menghemat",
+   "preco": "tempat belanja, bukan borongan",
+   "nar": "Yang benar-benar menghemat bukan borongan, tapi memilih tempat belanja dengan selisih paling kecil. Dan itu kembali ke catatanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau harganya nanti naik",
+   "sub": "apa yang berubah",
+   "nar": "Sekarang bagian yang berguna disiapkan dari sekarang: apa yang berubah kalau suatu hari angka resmi itu memang naik.",
+   "cap": "Kalau nanti benar-benar naik"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang naik dulu",
+   "preco": "batas atasnya",
+   "nar": "Yang naik lebih dulu adalah batas atasnya, bukan otomatis harga di pasarmu. Dua hal yang berbeda, walau namanya mirip.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di daerah yang stoknya cukup",
+   "preco": "harga bisa tidak berubah",
+   "nar": "Di daerah yang stoknya cukup, harga bisa saja tidak bergerak, karena harganya memang sudah di bawah batas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di daerah yang stoknya seret",
+   "preco": "harga sudah di atas",
+   "nar": "Di daerah yang stoknya seret, harganya sering sudah di atas batas — jadi batas baru cuma mengejar kenyataan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara tahu kamu di mana",
+   "preco": "catatanmu menjawab",
+   "nar": "Dan cara mengetahui kamu ada di kelompok yang mana bukan menebak: catatan tiga bulan yang tadi saya minta sudah menjawab.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dua kemungkinan",
+   "itens": [
+    "Harga di bawah batas",
+    "Harga di atas batas"
+   ],
+   "alturas": [
+    62,
+    100
+   ],
+   "nar": "Dua kemungkinan yang sangat berbeda, dan cuma catatan sendiri yang bisa memberi tahu kamu ada di sebelah mana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau kamu di kelompok pertama",
+   "preco": "kenaikan belum tentu terasa",
+   "nar": "Kalau catatanmu menunjukkan harga di bawah batas, kenaikan batas belum tentu langsung terasa di belanjamu. Ada ruang di antara keduanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau kamu di kelompok kedua",
+   "preco": "sudah terasa sejak lama",
+   "nar": "Kalau catatanmu menunjukkan harga di atas batas, kamu sebenarnya sudah membayar kenaikan itu sejak lama, tanpa ada pengumuman apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan itu yang paling sering",
+   "preco": "di daerah yang jauh",
+   "nar": "Dan kelompok kedua ini paling sering muncul di daerah yang jauh dari gudang, yang justru paling jarang dibicarakan di berita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Makanya catatan itu penting",
+   "preco": "berita tidak bicara tentangmu",
+   "nar": "Karena itu catatan pribadi lebih berguna daripada berita nasional: berita bicara tentang rata-rata, dan rata-rata bukan dapurmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Satu hal untuk diingat",
+   "sub": "kalau cuma satu",
+   "nar": "Kalau dari semua ini kamu cuma mau mengingat satu hal.",
+   "cap": "Satu hal untuk diingat"
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan angka resminya",
+   "preco": "tapi selisihmu",
+   "nar": "Yang perlu diingat bukan angka lima belas ribu tujuh ratus itu. Itu gampang dicari kapan saja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak ada di mana pun",
+   "preco": "selisih di pasarmu",
+   "nar": "Yang tidak ada di berita mana pun adalah selisih di pasarmu. Itu cuma kamu yang bisa mengukur, dan hasilnya cuma berguna buat kamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Butuh berapa lama",
+   "preco": "sepuluh detik seminggu",
+   "nar": "Mencatatnya butuh sepuluh detik seminggu. Setelah tiga bulan, kamu punya sesuatu yang tidak dimiliki siapa pun tentang dapurmu sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua hal yang tidak saya janjikan",
+   "sub": "supaya jelas",
+   "nar": "Terakhir, dua hal yang tidak akan saya janjikan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "bahwa harga tidak akan naik",
+   "nar": "Saya tidak bilang harganya tidak akan naik. Pembatalan terjadi sekarang, dan alasannya kondisi pasar yang bisa berubah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "tanggal keputusan berikutnya",
+   "nar": "Dan saya tidak memberi tanggal kapan keputusan berikutnya diambil, karena memang tidak ada tanggal yang diumumkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "angka dulu, resep nanti",
+   "nar": "Catat hari ini berapa kamu membayar per liter, lengkap dengan tanggalnya. Itu saja. Kalau video ini menghemat uangmu, tinggalkan langganan.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "MinyaKita batal naik",
+   "sub": "HET tetap Rp15.700",
+   "nar": "Kenaikan harga MinyaKita dibatalkan. Batas atasnya tetap lima belas ribu tujuh ratus rupiah per liter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sejak kapan",
+   "preco": "Agustus 2024",
+   "nar": "Angka itu tidak berubah sejak Agustus dua ribu dua puluh empat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa batal",
+   "preco": "syarat CPO",
+   "nar": "Kenaikannya mensyaratkan harga minyak sawit mentah stabil, dan syarat itu belum terpenuhi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang menentukan",
+   "preco": "harga di pasarmu",
+   "nar": "Tapi yang menentukan uang dapurmu bukan batas atasnya. Yang menentukan adalah harga di pasarmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "catat hari ini",
+   "nar": "Catat hari ini berapa kamu bayar per liter, lengkap dengan tanggalnya.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# MinyaKita: alta cancelada, teto Rp15.700 — e o preço que você paga\n\n## TITULO\nMinyak Goreng 2026: HET Rp15.700 Batal Naik, Tapi Cek Harga Aslimu Dulu\n\n## DESCRICAO\nKenaikan harga MinyaKita dibatalkan. Kedengarannya kabar baik — dan cuma setengahnya, karena yang menentukan belanja dapurmu bukan angka resmi, tapi harga yang benar-benar kamu bayar di pasar.\n\nANGKA RESMINYA, DENGAN SUMBER\n\nHarga Eceran Tertinggi (HET) MinyaKita tetap Rp15.700 per liter. Pembatalan kenaikan diumumkan Menteri Perdagangan pada Juni 2026. Angka Rp15.700 itu sendiri tidak berubah sejak Agustus 2024. Alasan pembatalan: rencana kenaikan mensyaratkan stabilitas harga CPO (crude palm oil), dan syarat itu dinilai belum terpenuhi. Sebagai gantinya, pemerintah memilih memperkuat DISTRIBUSI — lewat Perum Bulog dan ID FOOD, terutama ke pasar-pasar rakyat — bukan menaikkan harga. Tata niaga MinyaKita diatur dalam Kepmendag Nomor 2396 Tahun 2025 tentang Domestic Price Obligation.\n\nYANG TIDAK ADA DI VIDEO INI, DAN KENAPA\n\nSaya TIDAK menyebut berapa harga MinyaKita di pasar. Saya tidak punya sumber untuk harga jalanan tiap daerah, dan mengarang angka \"rata-rata\" di sini justru lebih buruk daripada diam: kamu akan memakai angka saya, bukan angka pasarmu sendiri. Yang saya bawa bukan harganya — tapi cara mengukur JARAK antara HET dan yang kamu bayar.\n\nCARA MENGUKUR JARAK ITU\n\nKurangkan: harga yang kamu bayar dikurangi Rp15.700. Kalau nol, kamu dapat harga resmi (dan pastikan itu memang MinyaKita, lihat labelnya). Kalau di atas, kalikan dengan jumlah liter yang rumahmu pakai sebulan. Contoh hitungannya: rumah yang memakai 4 liter sebulan dan membayar Rp2.000 lebih mahal per liter mengeluarkan Rp8.000 lebih banyak sebulan — Rp96.000 setahun. Tidak membuat bangkrut siapa pun, dan justru itu jenis angka yang hilang tanpa terasa.\n\nKenapa harganya bisa beda dari HET? Ongkos angkut, jumlah perantara, dan ketersediaan di daerahmu. Itu juga sebabnya pemerintah memilih membenahi distribusi lebih dulu.\n\nTIGA HAL UNTUK MINGGU INI (semuanya gratis)\n\n1) Catat harga yang kamu bayar, LENGKAP DENGAN TANGGAL. Harga tanpa tanggal tidak bisa dibandingkan dengan apa pun; dengan tanggal, dalam tiga bulan kamu punya datamu sendiri.\n2) Bandingkan dua tempat di minggu yang sama — pasar tradisional dan warung dekat rumah. Sering kali selisih antar-keduanya lebih besar daripada selisih terhadap HET, dan itu mengubah keputusan mau belanja di mana.\n3) Pastikan yang kamu beli memang MinyaKita. HET itu berlaku untuk merek tersebut, bukan untuk minyak goreng secara umum — membandingkan harga minyak lain dengan HET MinyaKita berarti membandingkan dua barang berbeda.\n\nDUA HAL YANG TIDAK SAYA JANJIKAN\n\nSaya tidak bilang harga tidak akan naik: pembatalan terjadi sekarang, dan alasannya adalah kondisi pasar yang bisa berubah. Saya juga tidak memberi tanggal kapan keputusan berikutnya diambil, karena tidak ada tanggal yang diumumkan.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nSatu pertanyaan, dan jawabannya yang paling saya butuhkan: berapa harga MinyaKita di pasarmu minggu ini, dan kamu di kota mana? Saya kumpulkan angkanya untuk materi berikutnya — karena justru inilah data yang tidak ada di berita mana pun, dan cuma kalian yang punya.\n\n## HASHTAGS\n#MinyaKita #UangDapur #ResepNaikLevel\n\n## TAGS\nminyakita, minyak goreng, het minyakita, harga minyak goreng 2026, uang dapur, belanja bulanan, hemat belanja, ibu rumah tangga, kemendag, bulog, id food, harga pangan, dapur hemat, keuangan keluarga, pasar tradisional\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Bahasa Indonesia (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: desativados (duracao abaixo de 8 minutos e meio)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nHET MinyaKita de Rp15.700/litro, cancelamento do aumento anunciado pelo Ministro do Comercio em junho de 2026, valor inalterado desde agosto de 2024, condicao nao atendida (estabilidade do preco do CPO) e reforco de distribuicao via Perum Bulog e ID FOOD: conferidos em DUAS passagens de busca com veiculos independentes que coincidem — CNN Indonesia, CNBC Indonesia, Bisnis, Tribunnews, ANTARA (agencia estatal) e sawitindonesia. A primeira passagem trouxe manchetes CONTRADITORIAS (umas afirmando que o aumento sairia em duas semanas, outras que fora cancelado); a segunda resolveu a favor do cancelamento, e o registro dessa contradicao fica aqui de proposito. Este video NAO afirma preco de mercado em nenhuma regiao: nao ha fonte para isso e um numero medio inventado substituiria a medicao da propria espectadora. Nao ha previsao sobre aumento futuro nem data. O HET vale para a marca MinyaKita, nao para oleo de cozinha em geral. Material educativo de orcamento domestico.\n"
+}
