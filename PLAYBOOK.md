@@ -635,6 +635,14 @@ de outro vídeo.
 sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIVE_MOVE_FILE
 ```
 
+- **Para saber se um passo emitiu aviso ou erro, leia as ANOTAÇÕES do job**, não o log:
+  `GET /repos/<owner>/<repo>/check-runs/<job_id>/annotations`. Elas trazem exatamente os
+  `::error::` e `::warning::` que a fábrica emite, sem o ruído de instalação e cleanup.
+  Em 21/08/2026 gastei três chamadas paginando um log sem achar as linhas de thumbnail e
+  legenda, e terminei dizendo ao Pablo que não consegui verificar; **uma** chamada nas
+  anotações respondeu na hora. O log serve para NÚMERO (duração medida cena a cena); a
+  anotação serve para VEREDITO.
+
 - **`GOOGLEDRIVE_UPLOAD_FROM_URL` ignora o parent.** Tudo cai na raiz `0AL8gANwo3v7jUk9PVA`.
   O `MOVE_FILE` não é opcional — sem ele o pacote fica órfão.
 - **Os dois campos dele são `source_url` e `name`.** Não `file_url`, não `file_name`. A nota
