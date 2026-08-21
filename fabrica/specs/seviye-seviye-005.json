@@ -1,0 +1,656 @@
+{
+ "slug": "seviye-seviye",
+ "pacote": "seviye-seviye-005",
+ "idioma": "tr",
+ "voz": "tr-TR-AhmetNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1A2430",
+  "c1": "#C0392B",
+  "c2": "#2E86A8",
+  "bg": "#F5F2EE"
+ },
+ "thumb": {
+  "l1": "%31,90",
+  "l2": "kira tavanı"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Yüzde otuz bir doksan",
+   "sub": "ağustos kira tavanı",
+   "nar": "Ağustos ayında kira artışının üst sınırı yüzde otuz bir virgül doksan. Aynı açıklamada bir sayı daha var, ve o daha büyük.",
+   "cap": "İki sayı, aynı açıklama"
+  },
+  {
+   "layout": "item",
+   "kicker": "Nereden geliyor",
+   "preco": "TÜİK verisi",
+   "nar": "Her iki sayı da Türkiye İstatistik Kurumu'nun temmuz enflasyon açıklamasından geliyor. Üç ağustosta yayımlandı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hangi hesap",
+   "preco": "on iki aylık ortalama",
+   "nar": "Kira tavanı yıllık enflasyondan değil, on iki aylık ortalamadan çıkıyor. Bu ayrım önemli, birazdan nedenini göreceğiz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci sayı",
+   "preco": "konut giderleri",
+   "nar": "İkinci sayı şu: konut, su, elektrik ve gaz grubu bir yılda yüzde kırk virgül otuz iki arttı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Aradaki fark",
+   "itens": [
+    "Kira tavanı",
+    "Konut gideri"
+   ],
+   "alturas": [
+    79,
+    100
+   ],
+   "nar": "Kira tavanı otuz bir doksan, konut gideri kırk virgül otuz iki. Arada sekiz puandan fazla var.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu kimin suçu değil",
+   "preco": "endeksleme farkı",
+   "nar": "Bu birinin kötü niyeti değil. Ortalamaya endeksli bir tavan ile güncel fiyat arasındaki fark bu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiracı ne hissediyor",
+   "preco": "kira ağır geliyor",
+   "nar": "Kiracı tarafında his şu: kira zaten ağır, ve üstüne otuz bir küsur zam geliyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ev sahibi ne hissediyor",
+   "preco": "giderim daha hızlı arttı",
+   "nar": "Ev sahibi tarafında his şu: binaya dair giderim kırk küsur arttı, ve ben otuz bir küsurla sınırlıyım.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkisi de doğru",
+   "preco": "aynı tabloda",
+   "nar": "İkisi de doğru, ve ikisi de aynı tablodan çıkıyor. Bu videonun amacı birinin tarafını tutmak değil, tabloyu göstermek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Neyi anlatacağım",
+   "sub": "üç şey",
+   "nar": "Sırayla üç şeye bakacağız, ve hiçbiri tahmin değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "İçerik",
+   "itens": [
+    "Sayı nereden çıkıyor",
+    "Tavan bir üst sınır, zorunluluk değil",
+    "Kendi hesabını nasıl yaparsın"
+   ],
+   "nar": "Sayının nereden çıktığı, tavanın aslında ne olduğu, ve kendi hesabını nasıl yapacağın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neyi anlatmayacağım",
+   "preco": "hukuki tavsiye yok",
+   "nar": "Anlatmayacağım şey de net: hukuki tavsiye vermiyorum. Ev sahibi tavanın üstünde bir şey isterse, o konu avukatın konusu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve tahmin yok",
+   "preco": "sonraki aylar",
+   "nar": "Sonraki ayların tavanını da söylemeyeceğim, çünkü o henüz var olmayan verilere bağlı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Başlayalım",
+   "preco": "sayının kaynağı",
+   "nar": "Sayının kaynağından başlayalım:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dört farklı sayı",
+   "sub": "aynı açıklamada",
+   "nar": "TÜİK'in temmuz açıklamasında dört farklı enflasyon sayısı var, ve karıştırılmaları çok kolay.",
+   "cap": "Aynı açıklamadaki dört sayı"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birincisi",
+   "preco": "aylık",
+   "nar": "Aylık değişim: yüzde bir virgül yetmiş sekiz. Yani haziran ile temmuz arasındaki fark.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkincisi",
+   "preco": "yıllık",
+   "nar": "Yıllık değişim: yüzde otuz bir virgül yetmiş beş. Geçen yılın temmuzuna göre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncüsü",
+   "preco": "on iki aylık ortalama",
+   "nar": "On iki aylık ortalamalara göre değişim: yüzde otuz bir virgül doksan. Kira tavanı bu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dördüncüsü",
+   "preco": "aralığa göre",
+   "nar": "Ve aralık ayına göre değişim: yüzde on dokuz virgül seksen altı. Yılın başından bugüne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "İkisi çok yakın",
+   "itens": [
+    "Yıllık 31,75",
+    "Ortalama 31,90"
+   ],
+   "alturas": [
+    99,
+    100
+   ],
+   "nar": "Dikkat: yıllık ve ortalama neredeyse aynı çıktı bu ay. Aralarında sadece on beş yüzde birlik var, ve bu bir rastlantı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden rastlantı",
+   "preco": "her ay böyle değil",
+   "nar": "Her ay böyle olmuyor. Enflasyon hızlı düşerken ortalama yıllıktan yüksek kalır, hızlı yükselirken tersi olur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu yüzden karışıyor",
+   "preco": "iki sayı yakın olunca",
+   "nar": "İki sayı yakın olduğunda insanlar birini diğerinin yerine kullanıyor ve sonuç tutuyor. Sonraki ay tutmuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Doğru olan hangisi",
+   "preco": "ortalama",
+   "nar": "Konut kirası için doğru olan her zaman on iki aylık ortalama. Yıllık sayı başka işler için.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir uyarı daha",
+   "preco": "internetteki hesaplayıcılar",
+   "nar": "İnternetteki bazı hesaplayıcılar bu ay için bir virgül doksan yazıyor. O otuz bir virgül doksanın kırpılmış hâli, ve yanlış.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nasıl kontrol edersin",
+   "preco": "kaynağa bak",
+   "nar": "Kontrolü basit: sayının yanında TÜİK ve tarih yazıyor mu. Yazmıyorsa kullanma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tavan bir üst sınır",
+   "sub": "zorunluluk değil",
+   "nar": "Şimdi en çok işine yarayacak kısım, ve en az söyleneni.",
+   "cap": "Tavan bir üst sınır, zorunluluk değil"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yasal anlamı",
+   "preco": "en fazla bu kadar",
+   "nar": "Otuz bir virgül doksan bir üst sınır. Ev sahibi bunun üstüne çıkamaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama alt sınır yok",
+   "preco": "daha az uygulanabilir",
+   "nar": "Alt sınır diye bir şey yok. Ev sahibi isterse daha düşük bir oran uygulayabilir, ve bu tamamen yasaldır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu neyi değiştirir",
+   "preco": "sorunun kendisini",
+   "nar": "Bu, konuşmanın sorusunu değiştirir. Soru artık ne kadar zam gelecek değil, sen ne teklif edeceksin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden bu işe yarar",
+   "preco": "boş kalma maliyeti",
+   "nar": "Çünkü ev sahibi için de bir hesap var: kiracı çıkarsa ev boş kalır, komisyon ve tadilat masrafı çıkar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yani iki taraf da",
+   "preco": "kayıptan kaçınıyor",
+   "nar": "İki taraf da aynı şeyden kaçınıyor: gereksiz maliyetten. Bu ortak zemin sayılabilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bir şeyi netleştireyim",
+   "sub": "bu bir garanti değil",
+   "nar": "Burada bir şeyi net söyleyeyim, çünkü kolayca abartılabilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Garanti yok",
+   "preco": "sonuç değişir",
+   "nar": "Daha düşük bir oran istemek sonucu garanti etmez. Ev sahibinin durumu, bölgen ve piyasa hepsi etkiler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Garanti olan tek şey",
+   "preco": "sormamak",
+   "nar": "Garanti olan tek şey şu: hiç konuşmazsan, tavan otomatik olarak uygulanır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve tekrar",
+   "preco": "hukuki tavsiye değil",
+   "nar": "Ve tekrar ediyorum: bu hukuki tavsiye değil. Sözleşmen ve durumun özeldir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Konuşmaya nasıl başlanır",
+   "preco": "sayıyla, şikâyetle değil",
+   "nar": "Konuşmaya başlamanın işe yarayan yolu şikâyet değil, sayı. Kaç yıldır oturuyorsun, ödemelerin düzenli mi, ev için neler yaptın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bunlar niye sayılır",
+   "preco": "ev sahibinin riski",
+   "nar": "Bunlar ev sahibi için risk göstergesi. Düzenli ödeyen ve uzun süredir oturan bir kiracı, boş kalma riskini azaltır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir de zamanlama",
+   "preco": "erken konuş",
+   "nar": "Zamanlama da işin parçası. Yenilenme tarihinden haftalar önce konuşmak, o hafta konuşmaktan farklı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sonuç ne olursa olsun",
+   "preco": "yazılı olsun",
+   "nar": "Ve sonuç ne olursa olsun, anlaşılan rakamın yazılı olmasını iste. Bu kiracıyı da ev sahibini de korur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kendi hesabın",
+   "sub": "üç adım",
+   "nar": "Üç adımda kendi sayını çıkar. Hepsi bir kâğıtta biter.",
+   "cap": "Kendi hesabını nasıl yaparsın"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci adım",
+   "preco": "mevcut kiran",
+   "nar": "Birinci adım: şu anda ödediğin aylık kira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci adım",
+   "preco": "tavanla çarp",
+   "nar": "İkinci adım: bunu bir virgül üç bir dokuz ile çarp. Sonuç, ağustosta yasal olarak çıkabileceği en yüksek rakam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü adım",
+   "preco": "farkı yaz",
+   "nar": "Üçüncü adım: yeni rakamdan eskisini çıkar. Aradaki fark, aylık bütçenden gidecek olan tutar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sonra bir çarpma daha",
+   "preco": "on iki ile",
+   "nar": "Sonra bunu on iki ile çarp. Yıllık etki bu, ve genelde beklenenden büyük çıkıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu sayıyı ne yapacaksın",
+   "preco": "karşılaştırma",
+   "nar": "Bu sayıyı gelirinin artışıyla karşılaştır. İkisi aynı hızda artmıyorsa, aradaki farkı başka bir kalemden bulman gerekecek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karşılaştırmanın kolay yolu",
+   "preco": "iki yüzde",
+   "nar": "Kolay yolu şu: kiran yüzde kaç arttı, gelirin yüzde kaç arttı. İki sayıyı yan yana yaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiranın payı",
+   "preco": "gelirin içindeki oran",
+   "nar": "Bir de şunu hesapla: kira, aylık gelirinin yüzde kaçını alıyor. Zamdan önce ve zamdan sonra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden bu oran",
+   "preco": "asıl değişen bu",
+   "nar": "Çünkü asıl değişen bu orandır. Kira arttı demek yeterli değil; bütçenin ne kadarını yediği değişti mi, asıl soru bu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Elinde ne kalıyor",
+   "preco": "üç sayı",
+   "nar": "Sonunda elinde üç sayı olacak: aylık fark, yıllık fark, ve kiranın gelir içindeki yeni payı. Üçü birlikte karar verdiriyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bir hatırlatma",
+   "sub": "sözleşme yıl dönümü",
+   "nar": "Ve sık atlanan bir ayrıntı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tavan aya göre",
+   "preco": "senin ayına bak",
+   "nar": "Kira artışı sözleşmenin yıl dönümünde yapılır. Yani seni ilgilendiren tavan, senin ayının tavanıdır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ağustos senin ayın değilse",
+   "preco": "bu sayı senin sayın değil",
+   "nar": "Sözleşmen ağustosta yenilenmiyorsa, buradaki sayı senin sayın değil — ama hesap yöntemi aynı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Her ay değişiyor",
+   "preco": "TÜİK her ay açıklıyor",
+   "nar": "TÜİK bu veriyi her ay açıklıyor, ve tavan her ay değişiyor. Kendi ayının sayısına bakman gerekir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "En pahalı okuma hatası",
+   "sub": "yıllıkla ortalamayı karıştırmak",
+   "nar": "Şimdi bu konuda yapılan en pahalı hatayı görelim, çünkü parayla ölçülüyor.",
+   "cap": "En pahalı okuma hatası"
+  },
+  {
+   "layout": "item",
+   "kicker": "Hata şu",
+   "preco": "yanlış sayıyı kullanmak",
+   "nar": "Hata, kira için yıllık enflasyonu kullanmak. Bu ay ikisi çok yakın olduğu için sonuç neredeyse tutuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama her ay değil",
+   "preco": "fark açıldığında",
+   "nar": "Enflasyonun hızlı düştüğü dönemde ortalama yıllığın epey üstünde kalır. O zaman yanlış sayı yüzlerce lira fark eder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kim kaybeder",
+   "preco": "duruma göre değişir",
+   "nar": "Ve kimin kaybettiği duruma bağlı: yanlış sayı bazen kiracının aleyhine çıkar, bazen ev sahibinin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Doğrusu tek",
+   "preco": "on iki aylık ortalama",
+   "nar": "Doğru olan tek sayı var ve değişmiyor: on iki aylık ortalama. Adı da açıklamada aynen böyle geçiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci hata",
+   "preco": "eski ayın tavanını kullanmak",
+   "nar": "İkinci sık hata: geçen ayın tavanıyla hesap yapmak. Tavan her ay değişiyor, ve sözleşmenin ayı hangisiyse o geçerli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü hata",
+   "preco": "yuvarlamak",
+   "nar": "Üçüncüsü: yuvarlamak. Otuz iki demek küçük bir fark gibi duruyor, ama on iki ayla çarpılınca büyüyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Yuvarlamanın bedeli",
+   "itens": [
+    "31,90 ile",
+    "32 ile"
+   ],
+   "alturas": [
+    100,
+    100
+   ],
+   "nar": "İki batık neredeyse aynı görünüyor, ve yıl sonunda aradaki fark bir akşam yemeği kadar. Küçük ama gereksiz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dördüncü hata",
+   "preco": "sözlü anlaşmaya güvenmek",
+   "nar": "Ve dördüncüsü: rakamı yazılı hâle getirmemek. Anlaşılan oran ne olursa olsun, yazılı olması iki tarafın da işine yarar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Neden konut gideri daha hızlı",
+   "sub": "ortalamanın gecikmesi",
+   "nar": "Baştaki iki sayıya dönelim, çünkü aradaki fark tesadüf değil.",
+   "cap": "Neden konut gideri daha hızlı arttı"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ortalama geriden gelir",
+   "preco": "on iki ayın izi",
+   "nar": "On iki aylık ortalama, adı üstünde, son on iki ayın izini taşır. İçinde geçen sonbaharın verileri de var.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Güncel fiyat öyle değil",
+   "preco": "bugünü gösterir",
+   "nar": "Konut giderlerinin yıllık artışı ise bugünü gösterir: elektrik, su ve doğalgaz faturası bu ayki fiyatla geliyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "İki farklı zaman",
+   "itens": [
+    "Ortalama (geçmiş 12 ay)",
+    "Yıllık (bugün)"
+   ],
+   "alturas": [
+    79,
+    100
+   ],
+   "nar": "Yani biri geçmiş on iki ayın ortalaması, diğeri bugünün fotoğrafı. Farklı zamanları ölçüyorlar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiracı için ne demek",
+   "preco": "kira daha yavaş artıyor",
+   "nar": "Kiracı açısından bu, kiranın diğer konut giderlerinden daha yavaş artması demek — en azından bu ay.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ev sahibi için ne demek",
+   "preco": "gideri daha hızlı artıyor",
+   "nar": "Ev sahibi açısından tersi: binaya dair giderleri kiradan hızlı artıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkisi de doğru",
+   "preco": "aynı anda",
+   "nar": "İki cümle de aynı anda doğru, ve bu yüzden bu konuda iki taraf da haklı hissediyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Diğer gruplar",
+   "preco": "gıda ve ulaşım",
+   "nar": "Karşılaştırma için: gıda yüzde otuz yedi virgül elli üç, ulaşım yüzde otuz virgül seksen üç arttı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sıralama önemli",
+   "preco": "konut en hızlısı",
+   "nar": "Yani üç büyük harcama grubu içinde en hızlı artan konut oldu. Gıdanın üstünde.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ortalama zamanla ne yapar",
+   "sub": "iki yönde de gecikir",
+   "nar": "Son bir bölüm, ve o gelecek aylarda işine yarayacak olan.",
+   "cap": "Ortalama zamanla ne yapar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Enflasyon düşerken",
+   "preco": "tavan yüksek kalır",
+   "nar": "Enflasyon düşmeye başladığında, on iki aylık ortalama bir süre yüksek kalır. İçinde hâlâ eski aylar var.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiracı için",
+   "preco": "geç gelen rahatlama",
+   "nar": "Kiracı açısından bu, rahatlamanın gecikmesi demek: fiyatlar yavaşlıyor ama kira tavanı hâlâ eski hızı taşıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Enflasyon yükselirken",
+   "preco": "tavan düşük kalır",
+   "nar": "Tersi durumda da tersi olur: enflasyon hızlanırken tavan geride kalır, ve bu sefer ev sahibi geriden gelir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Gecikme iki yönlü",
+   "itens": [
+    "Düşüşte",
+    "Yükselişte"
+   ],
+   "alturas": [
+    100,
+    100
+   ],
+   "nar": "Yani sistem kimseyi kayırmıyor. Sadece geç kalıyor, ve kime yaradığı hangi dönemde olduğuna bağlı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bunu bilmek ne sağlar",
+   "preco": "beklentiyi ayarlar",
+   "nar": "Bunu bilmek bir şeyi sağlar: gelecek ayın tavanının bugünkü habere değil, son on iki ayın birikimine bağlı olduğunu bilirsin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve tahmin yine yok",
+   "preco": "veriler henüz yok",
+   "nar": "Ama yine tahmin yok. Gelecek ayın sayısı, henüz açıklanmamış verilerle hesaplanacak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yapılabilecek tek şey",
+   "preco": "her ay bakmak",
+   "nar": "Yapılabilecek tek şey her ay yeni açıklamaya bakmak. Ayın üçünde yayımlanıyor, ve tavan orada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "sayı önce, yorum sonra",
+   "nar": "Bugün tek bir şey yap: kiranı bir virgül üç bir dokuz ile çarp ve farkı yaz. Sözleşme ayını da not et. Video işine yaradıysa abone ol.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Kira tavanı: %31,90",
+   "sub": "ağustos 2026",
+   "nar": "Ağustosta kira artışının üst sınırı yüzde otuz bir virgül doksan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nereden",
+   "preco": "TÜİK, 12 aylık ortalama",
+   "nar": "TÜİK'in temmuz verisinden, on iki aylık ortalamaya göre. Yıllık enflasyondan değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aynı açıklamada",
+   "preco": "konut %40,32",
+   "nar": "Aynı açıklamada konut, su, elektrik ve gaz grubu yüzde kırk virgül otuz iki arttı. Sekiz puan daha fazla.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tavan üst sınırdır",
+   "preco": "daha azı yasaldır",
+   "nar": "Ve tavan bir üst sınır: ev sahibi daha düşük uygulayabilir. Soru ne kadar zam gelecek değil, sen ne teklif edeceksin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "kendi hesabın",
+   "nar": "Kiranı bir virgül üç bir dokuz ile çarp ve farkı yaz.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Ağustos 2026 kira artışı: tavan %31,90, konut gideri %40,32\n\n## TITULO\nKira Artışı Ağustos 2026: Tavan Yüzde 31,90 — Ama Konut Gideri Yüzde 40,32 Arttı\n\n## DESCRICAO\nAğustos ayında kira artışının üst sınırı yüzde 31,90. Aynı TÜİK açıklamasında bir sayı daha var, ve o daha büyük: konut, su, elektrik ve gaz grubu bir yılda yüzde 40,32 arttı. Aradaki sekiz puandan fazla fark, sözleşmenin iki tarafını da aynı anda sıkıştırıyor — ve kimsenin kötü niyeti değil, ortalamaya endeksli bir tavan ile güncel fiyat arasındaki farktan ibaret.\n\nSAYILAR VE KAYNAK\n\nTÜİK, temmuz 2026 enflasyon verilerini 3 Ağustos 2026'da yayımladı. Aynı açıklamada dört farklı enflasyon sayısı var ve karıştırılmaları çok kolay: aylık değişim %1,78; yıllık (geçen yılın aynı ayına göre) %31,75; on iki aylık ortalamalara göre %31,90; aralık ayına göre %19,86. KONUT KİRASI İÇİN GEÇERLİ OLAN HER ZAMAN ON İKİ AYLIK ORTALAMADIR — yani %31,90.\n\nBu ay yıllık (%31,75) ve ortalama (%31,90) neredeyse aynı çıktı; aralarında sadece 0,15 puan var. Bu bir rastlantı: enflasyon hızlı düşerken ortalama yıllıktan yüksek kalır, hızlı yükselirken tersi olur. İki sayı yakın olduğunda insanlar birini diğerinin yerine kullanıyor ve sonuç tutuyor — sonraki ay tutmuyor.\n\nBİR UYARI: internetteki bazı hesaplayıcılar bu ay için \"1,90\" yazıyor. O, 31,90'ın kırpılmış hâli ve yanlış. Kontrolü basit — sayının yanında TÜİK ve tarih yazıyor mu?\n\nTAVAN BİR ÜST SINIRDIR, ZORUNLULUK DEĞİL\n\nVideonun en az söylenen kısmı bu. %31,90 bir üst sınırdır: ev sahibi bunun üstüne çıkamaz, ama isterse daha düşük bir oran uygulayabilir ve bu tamamen yasaldır. Bu, konuşmanın sorusunu değiştirir: soru artık \"ne kadar zam gelecek\" değil, \"sen ne teklif edeceksin\". Ev sahibi için de bir hesap var — kiracı çıkarsa ev boş kalır, komisyon ve tadilat masrafı çıkar. Daha düşük bir oran istemek sonucu GARANTİ ETMEZ; garanti olan tek şey, hiç konuşmazsan tavanın otomatik uygulanmasıdır.\n\nKENDİ HESABIN (üç adım)\n\n1) Şu anda ödediğin aylık kira. 2) Bunu 1,3190 ile çarp — sonuç, ağustosta yasal olarak çıkabilecek en yüksek rakam. 3) Yeni rakamdan eskisini çıkar; aradaki fark aylık bütçenden gidecek tutar. Sonra 12 ile çarp: yıllık etki genelde beklenenden büyük çıkıyor. Bu sayıyı gelirinin artışıyla karşılaştır.\n\nSIK ATLANAN AYRINTI: kira artışı sözleşmenin YIL DÖNÜMÜNDE yapılır. Sözleşmen ağustosta yenilenmiyorsa bu videodaki sayı senin sayın değil — ama hesap yöntemi aynı. TÜİK bu veriyi her ay açıklıyor ve tavan her ay değişiyor.\n\nNEDEN KONUT GİDERİ DAHA HIZLI ARTTI\n\nOn iki aylık ortalama, son on iki ayın izini taşır — içinde geçen sonbaharın verileri de var. Konut giderlerinin yıllık artışı ise bugünü gösterir: elektrik, su ve doğalgaz faturası bu ayki fiyatla geliyor. Biri geçmiş on iki ayın ortalaması, diğeri bugünün fotoğrafı; farklı zamanları ölçüyorlar. Karşılaştırma için diğer büyük gruplar: gıda ve alkolsüz içecekler %37,53, ulaştırma %30,83. Üç büyük harcama grubu içinde en hızlı artan konut oldu — gıdanın da üstünde.\n\nBU VİDEODA OLMAYANLAR: hukuki tavsiye yok. Ev sahibi tavanın üstünde bir şey isterse o konu avukatın konusudur. Sonraki ayların tavanı da yok — henüz var olmayan verilere bağlı.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nİki soru, ve cevapları haberlerde olmayan tek veri: sözleşmenin yenilenme ayı hangisi, ve bu yıl sana teklif edilen oran tavanın altında mı kaldı? Yorumlarda toplamak istiyorum — özellikle merak ettiğim, tavandan düşük oran uygulanan gerçek örnekler var mı.\n\n## HASHTAGS\n#KiraArtışı #TÜİK #SeviyeSeviye\n\n## TAGS\nkira artis orani, kira zammi 2026, agustos kira artisi, tufe, tuik, enflasyon temmuz 2026, kira hesaplama, konut kirasi, ev sahibi kiraci, kira sozlesmesi, 12 aylik ortalama, konut giderleri, elektrik dogalgaz zam, kisisel finans, butce\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Turkce (tr) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Turquia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nTodos os percentuais vem do comunicado do TUIK sobre o TUFE de julho de 2026, divulgado em 3 de agosto de 2026: variacao mensal +1,78%, anual +31,75%, media movel de doze meses +31,90% (o teto do aluguel), e contra dezembro +19,86%. Variacao anual por grupo: konut/agua/eletricidade/gas +40,32%, alimentos +37,53%, transporte +30,83%. Conferido em DUAS passagens de busca: a primeira devolveu tres valores CONTRADITORIOS para o teto (1,90 / 31,90 / 2,82) e a segunda resolveu com os dados do proprio instituto — o \"1,90\" e truncamento de \"31,90\" e o \"2,82\" nao corresponde a nada. Essa contradicao esta registrada de proposito. O teto do aluguel e um MAXIMO legal, nao um valor obrigatorio, e incide na data de aniversario do contrato, nao no mes em que o video foi publicado. Este material e educativo sobre orcamento domestico: NAO e aconselhamento juridico, nao trata de disputa contratual e nao preve os tetos dos proximos meses.\n"
+}
