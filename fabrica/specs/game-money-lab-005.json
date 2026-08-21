@@ -1,0 +1,643 @@
+{
+ "slug": "game-money-lab",
+ "pacote": "game-money-lab-005",
+ "idioma": "en",
+ "voz": "en-GB-RyanNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#12161F",
+  "c1": "#2F7FD1",
+  "c2": "#D9A13B",
+  "bg": "#F3F5F8"
+ },
+ "thumb": {
+  "l1": "1,294,188",
+  "l2": "no law"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "One point two nine million",
+   "sub": "and the answer was no",
+   "nar": "One million two hundred ninety four thousand one hundred eighty eight verified signatures. The answer was no.",
+   "cap": "The number, and the answer"
+  },
+  {
+   "layout": "item",
+   "kicker": "What was asked",
+   "preco": "keep games playable",
+   "nar": "The ask was narrow. Stop publishers from making purchased games permanently unplayable once they switch the servers off.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Who answered",
+   "preco": "the European Commission",
+   "nar": "The answer came from the European Commission, on the sixteenth of June this year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why they had to answer",
+   "preco": "the one million threshold",
+   "nar": "They had to answer. A European citizens' initiative that clears one million verified signatures obliges Brussels to respond formally.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it cleared it",
+   "preco": "by nearly three hundred thousand",
+   "nar": "This one cleared the threshold by nearly three hundred thousand.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The wording matters",
+   "preco": "at this stage",
+   "nar": "The reply says the Commission cannot propose a legal obligation, and it adds three words that most coverage dropped: at this stage.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why those words matter",
+   "preco": "it is not a permanent no",
+   "nar": "Those three words are the difference between a door closed and a door closed for now. They do not promise anything, but they do not foreclose anything either.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What it is not",
+   "preco": "not a vote",
+   "nar": "One clarification, because the framing gets this wrong constantly: this was not a vote and nobody was outvoted. A citizens' initiative obliges a formal reply, not a particular answer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What this video is",
+   "sub": "the balance sheet, not the politics",
+   "nar": "Now, what this channel is for.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Not whether it was fair",
+   "preco": "not the argument",
+   "nar": "I am not going to argue whether that decision was fair. That argument is everywhere and it does not need me.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The question here",
+   "preco": "what changes on the books",
+   "nar": "The question here is narrower and it is the one nobody asks: what actually changes on a publisher's books when the requirement is voluntary instead of legal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "What is coming",
+   "itens": [
+    "What was actually decided",
+    "Why a code is not a law, in accounting terms",
+    "What the code would cover",
+    "What happens next"
+   ],
+   "nar": "What was decided, why a code and a law land in different columns, what the code would cover, and what happens next.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One promise",
+   "preco": "no guessing",
+   "nar": "And one promise: no guessing. The code of conduct does not exist yet, so I will not tell you what is in it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Start with the decision",
+   "preco": "word for word",
+   "nar": "Start with what was actually decided:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cannot propose",
+   "sub": "the two stated reasons",
+   "nar": "The Commission gave two reasons for not proposing a legal obligation, and both are worth understanding because both are about cost.",
+   "cap": "What was actually decided"
+  },
+  {
+   "layout": "item",
+   "kicker": "Reason one",
+   "preco": "intellectual property",
+   "nar": "The first is intellectual property and copyright. A rule forcing a publisher to keep something running touches what the rightsholder owns and controls.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Reason two",
+   "preco": "disproportionate burden",
+   "nar": "The second is proportionality. The Commission judged the burden of such a rule to be disproportionate to the problem it solves.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What proportionality means here",
+   "preco": "cost against benefit",
+   "nar": "Proportionality in this context is a cost test. The cost of compliance is weighed against the harm being prevented.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Who carries that cost",
+   "preco": "every publisher, not the big ones",
+   "nar": "And here is the part that decides these arguments: a server-keeping obligation is cheap for a company running hundreds of titles and expensive for one running two.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Same rule, different weight",
+   "itens": [
+    "Large publisher",
+    "Small studio"
+   ],
+   "alturas": [
+    22,
+    100
+   ],
+   "nar": "The same obligation is a rounding error for one and a structural cost for the other. Regulators weigh that, and it usually decides the outcome.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What they offered instead",
+   "preco": "a code of conduct",
+   "nar": "What the Commission offered instead is a code of conduct, to be drawn up with the industry and with consumer representatives.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And a deadline",
+   "preco": "before the end of this year",
+   "nar": "With a deadline attached: the exchange starts before the end of this year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Plus one more thing",
+   "preco": "an awareness campaign",
+   "nar": "Plus an awareness campaign about consumer rights that already exist. That part is easy to dismiss and I will come back to it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now the accounting",
+   "preco": "the actual difference",
+   "nar": "Now the part this channel exists for:",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Two different columns",
+   "sub": "liability against reputation",
+   "nar": "A legal obligation and a voluntary code do not sit in the same place on a balance sheet. That is the whole difference.",
+   "cap": "Why a code is not a law, in accounting terms"
+  },
+  {
+   "layout": "item",
+   "kicker": "A legal obligation",
+   "preco": "becomes a provision",
+   "nar": "A legal obligation to keep something running is a future cost you can be forced to pay. Accounting treats that as a provision — money set aside against a liability.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What a provision does",
+   "preco": "it reduces reported profit",
+   "nar": "Setting aside a provision reduces reported profit in the period you set it aside, before a single dollar is spent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it is visible",
+   "preco": "auditors see it",
+   "nar": "It is also visible. Auditors test it, and it appears in the accounts every year until it is settled.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "There is a second effect",
+   "preco": "it changes decisions upstream",
+   "nar": "There is a second effect that matters more than the accounting entry. A provisionable duty changes what gets greenlit in the first place.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "How",
+   "preco": "the shutdown cost moves forward",
+   "nar": "If ending a game carries a known future cost, that cost belongs in the business case at the start — not at the end, when the decision is already made.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That is the real lever",
+   "preco": "not the money, the timing",
+   "nar": "That is the real lever people miss. The point of a legal duty is rarely the money itself. It is that the money appears early enough to change the decision.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A voluntary code",
+   "preco": "no provision required",
+   "nar": "A voluntary code creates no such liability. There is nothing enforceable to provision against, so nothing hits the balance sheet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Where each one lands",
+   "itens": [
+    "Legal duty: provision",
+    "Code: no entry"
+   ],
+   "alturas": [
+    100,
+    12
+   ],
+   "nar": "One changes the numbers. The other changes the press release.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Does that mean the code is nothing",
+   "preco": "no, and here is why",
+   "nar": "Does that make the code worthless? No, and I want to be careful here.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Codes do bite",
+   "preco": "through other channels",
+   "nar": "Codes bite through other channels: platform requirements, retailer terms, and consumer-protection cases that cite the code as the accepted standard.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That last one matters",
+   "preco": "the standard becomes evidence",
+   "nar": "That last route is the strongest. Once an industry agrees a standard, falling below it becomes evidence in a dispute — even without a specific law.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So the honest summary",
+   "preco": "weaker, not empty",
+   "nar": "So the honest summary is: weaker than a law, not the same as nothing. And which one it ends up closer to depends on what gets written.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One more difference",
+   "preco": "who it binds",
+   "nar": "And one difference that decides a lot: a law binds everyone in the market. A code binds whoever signs it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which creates a gap",
+   "preco": "the ones who do not sign",
+   "nar": "Which means the publishers most likely to shut a game down without warning are also the ones least likely to sign. Voluntary standards tend to be adopted by those who already comply.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Is that fatal",
+   "preco": "not necessarily",
+   "nar": "That is not necessarily fatal — platform terms can make a code effectively mandatory for anyone selling through a major store. But that is the platform enforcing it, not the regulator.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What the code would cover",
+   "sub": "two named things",
+   "nar": "The reply names two things the code would aim at. Both are cheap to implement, and that is not an accident.",
+   "cap": "What the code would cover"
+  },
+  {
+   "layout": "item",
+   "kicker": "First",
+   "preco": "transparent labelling",
+   "nar": "The first is transparent labelling: telling buyers, at the point of sale, that a game may be discontinued.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why that is cheap",
+   "preco": "it is a string of text",
+   "nar": "That costs almost nothing to implement. It is a line of text on a store page.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But there is a catch",
+   "preco": "who writes the wording",
+   "nar": "The catch is the wording. A label saying this game requires an online connection tells you almost nothing. A label saying support may end and the game will then be unplayable tells you everything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Same cost, different value",
+   "preco": "one sentence apart",
+   "nar": "Both cost the same to implement. That is why the drafting matters more than the existence of the label.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But cheap is not useless",
+   "preco": "it moves the decision",
+   "nar": "Cheap does not mean useless. A disclosure at the point of sale moves the decision to before the purchase, which is where it belongs.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second",
+   "preco": "heritage institutions",
+   "nar": "The second is possible partnerships between publishers and cultural heritage institutions — museums, archives, libraries.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What that solves",
+   "preco": "preservation, not access",
+   "nar": "Be precise about what that solves. It is about preserving the work for the record. It is not about keeping your copy running.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Those are different problems",
+   "preco": "and get conflated",
+   "nar": "Those two get conflated constantly. Preservation is a heritage question. Continued access is a consumer question. The reply answers the first more than the second.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The awareness campaign",
+   "sub": "the part everyone dismissed",
+   "nar": "Now back to the piece I said I would return to.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Existing rights",
+   "preco": "already on the books",
+   "nar": "The Commission also committed to raising awareness of consumer rights that already exist in EU law.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why that is not filler",
+   "preco": "unused rights",
+   "nar": "It sounds like filler. It is not entirely. An unused right and a nonexistent right produce the same outcome, and only one of them is fixable without new legislation.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The catch",
+   "preco": "enforcement is individual",
+   "nar": "The catch is that enforcing an existing right usually falls to the individual buyer, one complaint at a time. That is slow, and most people never start.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the amounts are small",
+   "preco": "which is the point",
+   "nar": "The amounts also work against it. A single game purchase is small enough that pursuing it costs more time than it returns, which is exactly why collective mechanisms exist elsewhere.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Worth knowing anyway",
+   "preco": "the right exists",
+   "nar": "Still worth knowing the right exists. A refusal is much harder to sustain against a buyer who cites the specific rule than against one who is simply annoyed.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why servers get switched off",
+   "sub": "the cost that never appears in the ask",
+   "nar": "Before the next steps, the piece the petition side rarely puts a number against — and this channel should.",
+   "cap": "Why servers get switched off at all"
+  },
+  {
+   "layout": "item",
+   "kicker": "The naive view",
+   "preco": "servers are cheap now",
+   "nar": "The common argument is that hosting is cheap now, and for raw compute that is broadly true.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But hosting is not the cost",
+   "preco": "it is the smallest part",
+   "nar": "Hosting is usually the smallest line. The expensive parts are the ones that need people.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "First",
+   "preco": "security and patching",
+   "nar": "First, security. A live service holding accounts and payment data has to be patched for as long as it is up, and that requires engineers who understand that codebase.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second",
+   "preco": "platform certification",
+   "nar": "Second, platform requirements change. Console and store operators update their rules, and a game that stays online has to keep being recertified.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Third",
+   "preco": "licences expire",
+   "nar": "Third, and this is the one that surprises people: licensed content. Music, likenesses, sports rosters and branded items are licensed for a term, and terms end.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That last one is structural",
+   "preco": "you cannot just keep serving it",
+   "nar": "That last one cannot be solved by goodwill. Once a music licence lapses, continuing to serve that track is not generosity — it is infringement.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Where the money goes",
+   "itens": [
+    "Hosting",
+    "People and licences"
+   ],
+   "alturas": [
+    16,
+    100
+   ],
+   "nar": "So the honest picture is that keeping a game alive is mostly a staffing and rights problem, not a server problem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why this matters here",
+   "preco": "it explains the reply",
+   "nar": "This is why the Commission's proportionality reasoning is not just a brush-off. The cost being weighed is real, and it is recurring.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But it cuts both ways",
+   "preco": "the offline question",
+   "nar": "It cuts both ways though. Most of those costs apply to keeping a game ONLINE. They do not obviously apply to leaving behind a version that runs without the company.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And that is the actual ask",
+   "preco": "not perpetual servers",
+   "nar": "And that is closer to what the initiative asked for: not perpetual servers, but not deliberately breaking what people bought.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which is why the code matters",
+   "preco": "that distinction can be written down",
+   "nar": "Which is exactly the distinction a code of conduct could write down — and the reason it is worth watching who drafts it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What happens next",
+   "sub": "two tracks",
+   "nar": "Two things run in parallel from here, and they move at very different speeds.",
+   "cap": "What happens next"
+  },
+  {
+   "layout": "item",
+   "kicker": "Track one",
+   "preco": "the code itself",
+   "nar": "Track one is the code. The exchange with industry and consumer groups is meant to start before the end of this year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What to watch there",
+   "preco": "who is at the table",
+   "nar": "The thing to watch is not the announcement. It is who sits at the table, because a code written mostly by one side reads like that side.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Track two",
+   "preco": "the Digital Fairness Act",
+   "nar": "Track two is legislative. The campaign has said its next target is folding these ideas into the Digital Fairness Act.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why that route",
+   "preco": "different vehicle, same goal",
+   "nar": "That is a different vehicle for the same goal — and it does not need the Commission to have agreed with them in June.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Two speeds",
+   "itens": [
+    "Code of conduct",
+    "Legislation"
+   ],
+   "alturas": [
+    100,
+    30
+   ],
+   "nar": "A code can exist within a year. Legislation moves in years, and the difference in speed is itself a reason regulators reach for codes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What I will not predict",
+   "preco": "either outcome",
+   "nar": "I am not going to predict either one. The code has not been drafted and the Act has not been finalised.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What to actually watch",
+   "sub": "three checkable things",
+   "nar": "So here is what to actually watch, and all three are checkable rather than arguable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One",
+   "preco": "does the exchange start on time",
+   "nar": "One: does the exchange actually begin before the end of this year. That is a date, and dates either happen or do not.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Two",
+   "preco": "does labelling appear at point of sale",
+   "nar": "Two: does discontinuation labelling start showing up on store pages. You will see that before any document is published.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Three",
+   "preco": "does anyone cite the code",
+   "nar": "Three: does the code get cited in a consumer dispute. That is the moment a voluntary standard starts behaving like a rule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "the numbers, not the noise",
+   "nar": "If you buy games in the EU, the useful thing today is small: check whether the store page says anything about discontinuation. If this was worth your time, subscribe.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "1,294,188 signatures",
+   "sub": "the EU said no",
+   "nar": "One point two nine million verified signatures asked the EU to stop publishers killing games. The answer was no.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The reason",
+   "preco": "IP and proportionality",
+   "nar": "The Commission said it cannot propose a legal obligation, citing intellectual property and disproportionate burden.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What they offered",
+   "preco": "a voluntary code",
+   "nar": "Instead: a code of conduct, drawn up with industry, starting before the end of this year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why that matters",
+   "preco": "no provision, no entry",
+   "nar": "A legal duty becomes a provision on the balance sheet. A voluntary code creates no liability, so nothing hits the books.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "weaker, not empty",
+   "nar": "Codes still bite through disputes, once they become the accepted standard.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# 1,294,188 signatures, and the EU chose a code of conduct\n\n## TITULO\n1,294,188 Signatures: Why the EU Chose a Code of Conduct Over a Law\n\n## DESCRICAO\n1,294,188 verified signatures asked the European Commission to stop publishers making purchased games permanently unplayable. On 16 June 2026 the Commission formally replied: it cannot, at this stage, propose a legal obligation to keep games playable after they stop being provided commercially.\n\nThis video is not about whether that was fair — that argument is everywhere and doesn't need me. It's about the question nobody asks: what actually changes on a publisher's books when a requirement is voluntary instead of legal.\n\nWHAT WAS DECIDED\n\nA European citizens' initiative that clears 1,000,000 verified signatures obliges Brussels to respond formally. This one cleared it by nearly 300,000. The reply gave two reasons for declining a legal obligation: intellectual property and copyright constraints, and proportionality — the burden being disproportionate to the problem. Proportionality is a cost test, and it usually decides these outcomes: a server-keeping obligation is a rounding error for a company running hundreds of titles and a structural cost for one running two.\n\nWHY A CODE IS NOT A LAW, IN ACCOUNTING TERMS\n\nA legal obligation to keep something running is a future cost you can be forced to pay — accounting treats that as a PROVISION, money set aside against a liability. Setting aside a provision reduces reported profit in the period, before a single dollar is spent, and auditors test it every year until it's settled.\n\nA voluntary code creates no such liability. There is nothing enforceable to provision against, so nothing hits the balance sheet. One changes the numbers; the other changes the press release.\n\nDoes that make the code worthless? No — and I'm careful here. Codes bite through other channels: platform requirements, retailer terms, and consumer-protection cases that cite the code as the accepted standard. That last route is the strongest: once an industry agrees a standard, falling below it becomes evidence in a dispute even without a specific law. Honest summary — weaker than a law, not the same as nothing.\n\nWHAT THE CODE WOULD COVER\n\nTwo named things, both cheap to implement, which is not an accident. First, transparent labelling: telling buyers at the point of sale that a game may be discontinued — a line of text on a store page, and cheap doesn't mean useless, because it moves the decision to before the purchase. Second, possible partnerships with cultural heritage institutions. Be precise about that one: it's about preserving the work for the record, not about keeping your copy running. Preservation is a heritage question; continued access is a consumer question, and the reply answers the first more than the second.\n\nThe Commission also committed to an awareness campaign about consumer rights that ALREADY exist. It sounds like filler and isn't entirely: an unused right and a nonexistent right produce the same outcome, and only one is fixable without new legislation. The catch is that enforcing an existing right usually falls to the individual buyer, one complaint at a time.\n\nWHAT HAPPENS NEXT — AND THREE CHECKABLE THINGS\n\nTwo tracks run in parallel. The code: the exchange with industry and consumer groups is meant to start before the end of 2026 — watch who sits at the table, because a code written mostly by one side reads like that side. And legislation: the campaign has said its next target is folding these ideas into the Digital Fairness Act, a different vehicle for the same goal.\n\nI predict neither. Instead, three things you can check rather than argue about: (1) does the exchange actually begin before the end of this year; (2) does discontinuation labelling start appearing on store pages; (3) does the code get cited in a consumer dispute — that's the moment a voluntary standard starts behaving like a rule.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nA question I genuinely want answered by people who buy in the EU: have you seen ANY store page that already tells you a game may be discontinued? Screenshot it if you have. That labelling is the first of the three checkable things in this video, and it will show up on storefronts long before any document is published.\n\n## HASHTAGS\n#StopKillingGames #GameIndustry #GameMoneyLab\n\n## TAGS\nstop killing games, european commission, game preservation, video game industry, digital fairness act, citizens initiative, game economics, publishers, code of conduct, consumer rights, eu regulation, live service games, server shutdown, gaming business, game industry analysis\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Ingles (en) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nResposta da Comissao Europeia a iniciativa de cidadaos \"Stop Destroying Videogames\", de 16 de junho de 2026 (documento C(2026) 4110 final): 1.294.188 assinaturas verificadas contra o limiar de 1.000.000 que obriga resposta formal; a Comissao afirma que \"nesta etapa\" nao pode propor obrigacao legal de manter jogos jogaveis apos o fim da oferta comercial, citando propriedade intelectual/direitos autorais e onus desproporcional; em vez disso, compromete-se a iniciar ate o fim de 2026 um dialogo com a industria e representantes de consumidores para redigir codigo de conduta sobre o fim de vida dos jogos, com rotulagem transparente de possivel descontinuacao e possiveis parcerias com instituicoes de patrimonio cultural, alem de campanha sobre direitos ja existentes. Conferido em duas passagens de busca com veiculos independentes coincidentes; a fonte primaria e a pagina de resposta no citizens-initiative.europa.eu, portal oficial da UE. O video NAO avalia se a decisao foi correta, NAO preve o conteudo do codigo (que ainda nao foi redigido) e NAO afirma o que constara do Digital Fairness Act. A explicacao contabil sobre provisao e principio geral de reconhecimento de passivo, nao analise das demonstracoes de nenhuma empresa especifica.\n"
+}
