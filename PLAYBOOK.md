@@ -643,6 +643,15 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
   anotações respondeu na hora. O log serve para NÚMERO (duração medida cena a cena); a
   anotação serve para VEREDITO.
 
+- **`frota.yml` recebe ARRAY JSON no input `pacotes`**, não o nome do pacote:
+  `[{"canal":"next-level-money","pacote":"next-level-money-006","idioma":"en"}]`.
+  Mandar a string solta faz o `jq -c '{include:.}'` produzir um escalar, a matriz sai
+  vazia e o run falha em segundos — **com o job `preparar` marcado como `success`**.
+  Esse par é a assinatura a reconhecer: *um único job, verde, run vermelho, zero
+  anotações*. Isso é matriz vazia, não erro de render, e não adianta procurar no log
+  do render porque render nenhum chegou a existir. Aconteceu em 24/08/2026 (run
+  32745494822); o redisparo no formato certo é o 32745698913.
+
 - **`GOOGLEDRIVE_UPLOAD_FROM_URL` ignora o parent.** Tudo cai na raiz `0AL8gANwo3v7jUk9PVA`.
   O `MOVE_FILE` não é opcional — sem ele o pacote fica órfão.
 - **Os dois campos dele são `source_url` e `name`.** Não `file_url`, não `file_name`. A nota

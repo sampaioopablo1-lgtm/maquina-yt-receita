@@ -205,6 +205,13 @@ Nunca abrir pauta com colapso/catastrofe/erros-que-voce-comete sem numero datado
 
 `aplicado_em:` rotina PASSO 0
 
+### Cifra de taxa bancaria envelhece: os US$35 de overdraft deixaram de ser padrao em 2025
+Nunca citar valor unico de overdraft/NSF sem checar o ano. Eu tinha escrito "the same thirty five dollar overdraft" numa cena, de memoria. Fui conferir antes de fechar a spec: a regra do CFPB que limitava a taxa foi finalizada em 2024 e DERRUBADA no Congresso em 2025 sem nunca entrar em vigor, e os bancos grandes reagiram cortando para poucos dolares ou zerando, enquanto bancos menores e cooperativas mantem valores legados. Ou seja, nao ha padrao corrente. A cena foi reescrita sem cifra fixa e o fato virou cena propria — porque "quanto custa depende de qual banco voce usa" e argumento mais forte do que qualquer numero unico. Vale para todo numero que o roteiro herda de memoria em vez de fonte datada.
+
+> **cifra**: US$35 · **status**: media historica, nao padrao · **regra_cfpb**: finalizada 2024, derrubada 2025, nunca vigorou · **bancos_grandes_2026**: 5-10 USD ou zero · **pego_por**: checagem antes de fechar
+
+`aplicado_em:` fabrica/specs/next-level-money-006.build.py
+
 ---
 
 ## Roteiro
@@ -236,6 +243,13 @@ Nada de "inacreditavel", "voce nao vai acreditar", "neste video vamos", "voce sa
 > **fonte**: skill roteiro-deep-time (canal Cakto, video bIIACr4z7F4, 22630 views) · **idiomas**: 8 · **nenhuma_ocorrencia_nos_7_pacotes_atuais**: True
 
 `aplicado_em:` fabrica/narracao.py HYPE/SLOP/VAGO
+
+### Densidade historica do canal e chute, nao orcamento — meca o arquivo pronto
+Ao dimensionar um roteiro, NAO orce caracteres pela densidade de frases/cena do pacote anterior do mesmo canal. Escreva, gere o JSON e MECA com `ensaio.duracao_estimada` antes de renderizar. Assumi 2,67 frases/cena (a densidade do pacote 005 do mesmo canal) e o arquivo pronto mediu 2,04: frases mais longas e em menor numero, orcamento de caracteres sobrando, previsto caindo para 704 s (11:43) contra alvo de 780 — dez por cento abaixo, raspando o piso de 12 min da faixa. A conta que teria pego isso custa uma linha. E quando faltar duracao, a correcao e acrescentar CENAS COM FATO QUE FALTAVA, nunca engordar as existentes: as seis cenas novas trouxeram o formato do produto, o motivo da taxa ser maior, por que a loja nao recusa, a variacao da taxa por banco, o recorte de genero do SHED e a regra derrubada no Congresso. Ficou 85 cenas, 776,9 s previstos, ~806 s reais.
+
+> **densidade_assumida**: 2,67 frases/cena · **medida**: 2,04 · **previsto_1a_passada**: 704,0 s · **alvo**: 780 s · **erro**: -9,7% · **cenas**: 79 → 85 · **previsto_final**: 776,9 s
+
+`aplicado_em:` fabrica/specs/next-level-money-006.build.py
 
 ---
 
@@ -757,6 +771,13 @@ Ao ler lista de arquivo em bash, garantir a quebra final ou usar mapfile. Foram 
 > **causa**: read retorna falso na ultima linha sem newline e o corpo do laco nao roda · **sintoma**: contagem 21 quando o arquivo tinha 22 tags · **correcao**: gravar o arquivo com newline final, ou usar mapfile -t
 
 `aplicado_em:` rotina PASSO 2
+
+### frota.yml: input `pacotes` e ARRAY JSON — job verde com run vermelho e a assinatura de matriz vazia
+O input `pacotes` do frota.yml exige `[{"canal":...,"pacote":...,"idioma":...}]`. Passei o nome do pacote como string solta; o `jq -c '{include:.}'` produziu um escalar, a matriz saiu vazia e o run falhou em segundos COM O JOB `preparar` MARCADO COMO SUCCESS. Esse par e o que precisa ser reconhecido de imediato: um unico job, verde, run vermelho, zero anotacoes. Isso e matriz vazia, nao erro de render — e nao adianta procurar no log do render, porque render nenhum chegou a existir. A descricao do proprio input trazia o formato certo e eu nao li.
+
+> **run_falho**: 32745494822 · **job**: 97489915669 (success) · **run**: failure · **jobs_no_run**: 1 · **anotacoes**: 0 · **run_correto**: 32745698913
+
+`aplicado_em:` PLAYBOOK.md
 
 ---
 
