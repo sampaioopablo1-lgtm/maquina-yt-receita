@@ -258,6 +258,13 @@ O MODELO_VOZ do `en-US-AndrewNeural` (R=17,12 chars/s, P=0,272 s/frase, n=157) p
 
 `aplicado_em:` nenhuma alteracao — so registro
 
+### Vies e por VOZ, nao pela fabrica: Antonio confirmou, Andrew nao
+Duas medicoes no mesmo dia, mesma fabrica, vozes diferentes. `pt-BR-AntonioNeural` previu 530,1 s e entregou 528,7 — erro de -0,26% contra vies registrado de -0,4%: confirmou. `en-US-AndrewNeural` previu 776,9 e entregou 781,0 — erro de +0,53% contra vies registrado de +3,8%: NAO confirmou. Como as duas passaram pelo mesmo render no mesmo dia, o desvio nao pode vir de algo comum a fabrica: e por voz, e o do Andrew e que parece superestimado desde a ultima recalibracao. Nao mexi em constante nenhuma — duas medicoes ainda sao duas, e mexer em constante por amostra pequena foi exatamente o que produziu a oscilacao da margem do short.
+
+> **antonio**: 530,1 → 528,7 (-0,26% vs -0,4% registrado) · **andrew**: 776,9 → 781,0 (+0,53% vs +3,8% registrado) · **acao**: nenhuma
+
+`aplicado_em:` nenhuma alteracao — so registro
+
 ---
 
 ## Produção
@@ -476,6 +483,13 @@ O resep-naik-level-002 foi renderizado antes de a fabrica exportar legendas.srt,
 > **srt**: inexistente · **http**: 400 · **pacote**: resep-naik-level-002 · **consequencia**: YouTube gera legenda automatica em indonesio, mas sem o arquivo proprio
 
 `aplicado_em:` PLAYBOOK.md
+
+### QUINTO canal sem verificacao — e os cinco vieram do aviso automatico, zero da auditoria manual
+O `nivel-do-jogo` entrou na lista de canais cujo `thumbnails/set` devolve 403 por falta de verificacao por telefone. Sao cinco: agla-level, resep-naik-level, seviye-seviye, game-money-lab e nivel-do-jogo. TODOS os cinco foram achados pelo `::warning::` instalado em 20/08 no publicar.py. A auditoria manual que fiz antes disso achou ZERO. Tres linhas de codigo acharam cinco defeitos que dez leituras de log nao acharam, e isso e a regra inteira: resultado que so vira texto no log nao existe. Neste pacote a legenda NAO gerou aviso, entao foi enviada — o 403 e so da capa, o PNG esta no Storage e no Drive, e pode ser aplicado depois sem republicar.
+
+> **canal**: nivel-do-jogo · **video**: hMLyjkZRwO4 · **total afetado**: 5 · **pelo aviso**: 5 · **por auditoria manual**: 0
+
+`aplicado_em:` videos.erro do longo
 
 ---
 
