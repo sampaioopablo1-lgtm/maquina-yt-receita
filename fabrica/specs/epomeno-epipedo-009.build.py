@@ -150,6 +150,25 @@ casos, e foi exatamente o erro que me fez anunciar 13:16 num video de 13:28.
   gratuitos e um beat proprio, entao virou capitulo. Seis agora, todos entre
   78 e 99 s.
 
+DEPOIS DO RENDER — medido, nao previsto
+
+  longo real ............. 523,8 s = 8:44   (previsto cru: 522,9 s)
+  short real ............. 41,2 s           (previsto com vies: 38,4 s)
+
+  O longo errou 0,9 s em 524 — mais 0,17%. E a QUARTA voz seguida a confirmar
+  o aprendizado 454: Antonio -0,26%, Andrew +0,53%, Marek +0,07%, Nestoras
+  +0,17%. O modelo cru de dois termos nunca passou de 0,53% em longo. Desta vez
+  anunciei o numero cru e ele estava certo.
+
+  O SHORT e outra historia, e aponta para um defeito. O VIES_SHORT e um numero
+  so — 1,047 — para todas as vozes. Nos dois shorts medidos hoje ele errou cerca
+  de sete por cento para os DOIS lados: com Marek o short saiu mais curto que o
+  previsto corrigido (39,3 contra 41,9), com Nestoras saiu mais longo (41,2
+  contra 38,4). Se o padrao se repetir, o vies de short precisa ser por voz,
+  como ja e o par (R, P) do longo. Duas amostras nao mexem numa constante
+  ajustada sobre trinta shorts: fica como aprendizado 461, `observado` e
+  `candidato`.
+
 CAPITULOS abrem sempre em layout `titulo` (aprendizado 388), e cada um precisa
 passar de MIN_CAP 60 s, senao o `copy_md.capitulos` o descarta em silencio.
 """
