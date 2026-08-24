@@ -269,6 +269,34 @@ Produzir sem esta etapa está proibido.
 5. Sem dado suficiente para (2), diga isso em uma linha e trate o canal como frio. Não
    pule a etapa em silêncio.
 
+> ### ⚠️ A coleta de métricas esteve CEGA de 13 a 24/08/2026
+>
+> O PASSO 0A depende de `metricas`, e ela vinha medindo **19 de 186 vídeos** — todos
+> publicados em 11 ou 12 de agosto, nenhum posterior. Doze canais cegos, com o job
+> `diagnostico.yml` **verde todos os dias**, porque o critério dele é "pelo menos um
+> canal coletou". Eram dois defeitos empilhados:
+>
+> 1. **`puxar` filtrava `roteiro not null`.** A rota própria (`fabrica/publicar.py`),
+>    padrão desde 13/08, grava `youtube_id` e título mas **não** grava roteiro. Como o
+>    `diagnosticar` lê do SQLite e o SQLite só recebe o que o `puxar` traz, nada
+>    publicado pela rota nova era medido. → 19 para 50.
+> 2. **O limite de 50 do `listar` era GLOBAL, não por canal.** O `sincronizar` traz a
+>    frota inteira para dentro do SQLite de cada canal, então cada um media só os 4–6
+>    vídeos seus que cabiam na janela dos 50 mais recentes — e tentava medir ~44 de
+>    outros canais, que falham por permissão gastando cota. → 50 para **158**.
+>
+> **Como isso foi encontrado:** medindo o resultado do primeiro conserto em vez de
+> aceitar o job verde. A coleta parou em 50 exatos — redondo demais para ser
+> coincidência. Os medidos ocupavam as posições globais 1 a 49 por data e o primeiro
+> cego era a posição 51.
+>
+> Sobram 28: 13 do `sx-educacao` (token morto) e **15 do acervo inicial cuja causa não
+> foi identificada** — eles existem no YouTube e têm todos os campos. Registrado como
+> pendência com número (aprendizado 464), não como causa suposta.
+>
+> **Regra que fica:** quando a produção ou a leitura cair de ritmo, conte quantas linhas
+> a coleta produziu. Job verde não é evidência de coleta completa.
+
 **O que essa etapa já pegou, na primeira vez que rodou** (`kolejny-poziom`, 24/08):
 o canal parecia o melhor da frota, veredito `liberado`, 4.029 views. Medido por formato,
 ~3.100 dessas views são cinco cópias de um único short, os longos têm mediana ~1,4 v/d e
