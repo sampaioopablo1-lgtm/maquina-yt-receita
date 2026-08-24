@@ -333,10 +333,30 @@ canais**. A meta é 5 por canal por dia — **65**. E o teto nunca foi o que seg
 frota: em 20/08, com `MAX_POR_DIA_POR_CANAL` já em 5, **oito dos treze canais tinham ZERO
 spec pendente**. O gargalo era a escrita.
 
-`fabrica/autor.py` escreve. `.github/workflows/autoria.yml` roda de duas em duas horas,
-commita a spec em `fabrica/specs/`, e o `diario.yml` a pega no ciclo seguinte — sem
-ligação direta entre os dois. **A spec no repositório continua sendo a interface**, como
-já era para as escritas à mão.
+> ### ⚠️ DESLIGADO EM 24/08/2026 — o processo não usa LLM
+>
+> Decisão do dono: *"Eu não tenho ANTHROPIC_API_KEY, que não precise no processo."*
+> O `autoria.yml` **perdeu o cron** e a ausência de chave deixou de ser erro: ele encerra
+> verde com aviso. O `workflow_dispatch` fica, para o dia em que houver credencial.
+>
+> **Nada quebra com isso**, e é importante entender por quê: o caminho inteiro de
+> publicação é livre de LLM. Os dez portões do `prontidao.py` rodam em **stdlib pura**, e
+> o portão de `fatos` — o único que chamaria um modelo — só exige veredito de spec que se
+> declara `autoria: "maquina"`. **Spec escrita à mão responde pela pesquisa que já fez**,
+> registrada no docstring do `.build.py`.
+>
+> Quem escreve, portanto, é a **rotina horária**, à mão. Foi assim que saíram
+> `next-level-money-006`, `nivel-do-jogo-006` e `kolejny-poziom-010` — os três com os dez
+> portões limpos e publicados no mesmo dia.
+>
+> O que estava acontecendo antes: **54 falhas em 55 execuções desde 20/08**, todas no
+> mesmo passo, duas vezes por hora. Um workflow que só falha não é um recurso desligado,
+> é um alarme quebrado — treina quem olha o Actions a ignorar vermelho.
+
+`fabrica/autor.py` escreve **quando há credencial**. Nesse caso o `autoria.yml` commita a
+spec em `fabrica/specs/` e o `diario.yml` a pega no ciclo seguinte — sem ligação direta
+entre os dois. **A spec no repositório continua sendo a interface**, como já era para as
+escritas à mão, e é por isso que desligar a autoria não muda nada a jusante.
 
 ### O portão de fatos é a condição, não um extra
 
@@ -688,10 +708,16 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
 - **Workflow que falha no primeiro passo é invisível para o banco.** Não deixa linha em
   `videos`, nem em `aprendizados`, nem no estoque — só no histórico do Actions, que
   nenhuma das consultas de abertura lê. Em 24/08/2026 descobri por acidente que o
-  `autoria.yml` estava falhando em **30 de 30 execuções desde 22/08**, por falta do
-  segredo `ANTHROPIC_API_KEY`: a escrita automática estava morta havia dias e a única
-  pista era o placar de pacotes/dia, que ninguém liga a essa causa. **Sempre que a
-  produção cair de ritmo, olhe o histórico do Actions antes de procurar causa no banco.**
+  `autoria.yml` estava falhando em **30 de 30 execuções desde 22/08** (54 de 55 na conta
+  final), por falta do segredo `ANTHROPIC_API_KEY`: a escrita automática estava morta
+  havia dias e a única pista era o placar de pacotes/dia, que ninguém liga a essa causa.
+  **Sempre que a produção cair de ritmo, olhe o histórico do Actions antes de procurar
+  causa no banco.**
+
+  *Desfecho (24/08):* a resposta certa não era arrumar a chave, era remover a dependência
+  — o dono decidiu que o processo não usa LLM, e o cron da autoria foi desligado. O
+  aprendizado 444 está `invalidado` com esse motivo. A lição sobre **olhar o Actions**
+  continua valendo inteira; o que mudou foi o conserto, não o diagnóstico.
 
 - **Não dispare a frota à mão depois de commitar a spec.** Commitar em `fabrica/specs/`
   **já é o gatilho**: o workflow *Ciclo* varre o repositório e dispara a frota sozinho em

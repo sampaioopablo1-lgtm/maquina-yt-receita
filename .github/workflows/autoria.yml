@@ -35,12 +35,27 @@ name: Autoria — escrever as specs que faltam
 # pacote, e so depois se decide o ritmo. Subir esse numero antes de ter a
 # medida seria escolher o ritmo no escuro.
 
+# CRON DESLIGADO EM 24/08/2026, POR DECISAO DO DONO.
+#
+# "Eu nao tenho ANTHROPIC_API_KEY, que nao precise no processo." A escrita
+# automatica era a UNICA etapa da maquina que exigia credencial de LLM, e ela
+# nunca teve uma: 54 falhas em 55 execucoes desde 20/08, todas no mesmo passo,
+# duas vezes por hora enchendo o historico de vermelho. Um workflow que so
+# falha nao e um recurso desligado, e um alarme quebrado — ele treina quem
+# olha o Actions a ignorar vermelho, e o proximo vermelho de verdade passa
+# despercebido.
+#
+# O processo NAO precisa disto. Quem escreve as specs e a rotina horaria, a
+# mao, e o caminho inteiro de publicacao e livre de LLM: os dez portoes do
+# `prontidao.py` rodam em stdlib pura, e o portao de `fatos` — o unico que
+# chamaria um modelo — so exige veredito de spec que se declara
+# `autoria: maquina`. Spec escrita a mao responde pela pesquisa que ja fez,
+# com as duas fontes registradas no docstring do `.build.py`.
+#
+# O `workflow_dispatch` fica de proposito: se algum dia houver credencial de
+# LLM, isto volta a rodar sem precisar reescrever nada. Sem credencial, ele
+# agora encerra VERDE com um aviso, em vez de vermelho.
 on:
-  schedule:
-    # De duas em duas horas. O ritmo real quem define e `pacotes`, nao o cron:
-    # com o default de 1, isto sao 12 specs por dia, o suficiente para a frota
-    # nao secar enquanto o custo por pacote esta sendo medido.
-    - cron: "17 */2 * * *"
   workflow_dispatch:
     inputs:
       pacotes:
@@ -85,22 +100,31 @@ jobs:
       - name: Fontes
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core
 
-      # A chave morre AQUI, e nao la dentro do laco. No primeiro disparo real
-      # (run 32349960529, 20/08/2026) o segredo nao existia no repositorio, o
-      # `autor.py` falhou por canal, o `|| true` do laco engoliu o codigo de
-      # saida, e o job terminou VERDE em 31 segundos sem escrever nada. Um cron
-      # nesse estado esvazia a frota por uma semana sem nunca acender uma luz.
+      # A chave morre AQUI, e nao la dentro do laco: sem esta conferencia o
+      # `autor.py` falha por canal, o `|| true` do laco engole o codigo de
+      # saida, e o job termina VERDE sem escrever nada (foi o que aconteceu no
+      # run 32349960529). O que mudou em 24/08 e o VEREDITO, nao a conferencia:
+      # ausencia de chave deixou de ser erro e passou a ser "desligado".
+      #
+      # A distincao importa. Erro e algo que deveria funcionar e nao funciona;
+      # aqui a decisao do dono e nao ter credencial de LLM no processo. Marcar
+      # isso de vermelho duas vezes por hora nao informava nada e escondia o
+      # resto — 54 de 55 runs vermelhos.
       - name: Conferir a chave da API
+        id: chave
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
-            echo "::error::ANTHROPIC_API_KEY nao esta nos segredos do repositorio. A escrita automatica nao roda sem ela: Settings > Secrets and variables > Actions > New repository secret."
-            exit 1
+            echo "::notice::Escrita automatica DESLIGADA: nao ha credencial de LLM no repositorio, por decisao do dono (24/08/2026). Quem escreve as specs e a rotina horaria, a mao — o caminho de publicacao nao usa LLM em nenhum passo. Este workflow so volta a fazer algo se um segredo de LLM for adicionado."
+            echo "tem=nao" >> "$GITHUB_OUTPUT"
+          else
+            echo "tem=sim" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Escrever
         id: escrever
+        if: ${{ steps.chave.outputs.tem == 'sim' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -188,7 +212,7 @@ jobs:
       # para o commit junto. Apagar em silencio esconderia quanto o gerador
       # erra, que e exatamente o numero que decide se isto continua ligado.
       - name: Commitar as specs novas
-        if: ${{ steps.escrever.outputs.escritas != '0' }}
+        if: ${{ steps.chave.outputs.tem == 'sim' && steps.escrever.outputs.escritas != '0' }}
         run: |
           set -euo pipefail
           git config user.name  "maquina-autoria"
@@ -211,6 +235,6 @@ jobs:
       # como `status='ideia'`. Se ela parou, o gerador nao tem o que escrever
       # — e o sintoma aparece aqui, nao la.
       - name: Nada escrito
-        if: ${{ steps.escrever.outputs.escritas == '0' && steps.escrever.outputs.carentes != '0' }}
+        if: ${{ steps.chave.outputs.tem == 'sim' && steps.escrever.outputs.escritas == '0' && steps.escrever.outputs.carentes != '0' }}
         run: |
           echo "::notice::Nenhuma spec nova, e ha canal com carencia. O motivo por canal esta no aviso acima. Se for 'nenhuma pauta disponivel', o banco de pautas secou: quem o enche e a pesquisa da rotina horaria (PASSO 0), nao este workflow."

@@ -95,11 +95,28 @@ def test_o_push_retenta():
     assert re.search(r"for t in .*; do\s*\n\s*git push", EXECUTAVEL)
 
 
-def test_o_cron_existe_e_nao_e_de_minuto_em_minuto():
-    m = re.search(r'cron: "([^"]+)"', EXECUTAVEL)
-    assert m
-    minuto, hora = m.group(1).split()[:2]
-    assert minuto != "*" and hora != "*", "autoria a cada minuto gastaria a conta"
+def test_a_autoria_nao_tem_cron_e_so_roda_a_mao():
+    """24/08/2026, decisao do dono: o processo nao usa credencial de LLM.
+
+    A autoria era a UNICA etapa que exigia uma, e nunca teve — 54 falhas em 55
+    execucoes desde 20/08, sempre no mesmo passo, duas vezes por hora. Workflow
+    que so falha nao e recurso desligado, e alarme quebrado: treina quem olha o
+    Actions a ignorar vermelho, e o proximo vermelho de verdade passa batido.
+
+    O `workflow_dispatch` continua, de proposito — se um dia houver credencial,
+    isto volta sem reescrever nada. Se o cron VOLTAR, o veredito de "sem chave"
+    tem de voltar a ser vermelho junto (ver o teste da chave, abaixo): verde sem
+    cron e "desligado"; verde com cron e o defeito do aprendizado 370.
+    """
+    assert re.search(r'cron: "([^"]+)"', EXECUTAVEL) is None, (
+        "voltou cron na autoria: se foi de proposito, o passo da chave precisa "
+        "voltar a derrubar o run quando o segredo faltar")
+    # `on:` vira o booleano True no YAML 1.1 que o PyYAML fala — a chave do
+    # dicionario e True, nao a string "on". Por isso a busca cobre os dois.
+    gatilhos = DOC.get("on", DOC.get(True, {}))
+    assert "workflow_dispatch" in gatilhos, (
+        "sem cron E sem workflow_dispatch a autoria ficaria inalcancavel")
+    assert "schedule" not in gatilhos
 
 
 # ------------------------------------------------------- o portao nao se pula
@@ -145,17 +162,34 @@ def test_spec_de_maquina_sem_veredito_nao_entra_na_matriz(tmp_path, monkeypatch)
 
 # ------------------------------------------- o que o primeiro disparo ensinou
 
-def test_a_chave_da_api_e_conferida_antes_do_laco():
-    """Run 32349960529, 20/08/2026: o segredo nao existia, o `autor.py` falhou
-    por canal, o `|| true` engoliu o codigo de saida e o job terminou VERDE em
-    31 segundos sem escrever nada. Um cron nesse estado esvazia a frota por uma
-    semana sem acender luz nenhuma."""
+def test_a_chave_e_conferida_antes_do_laco_e_governa_os_passos():
+    """A conferencia continua vindo antes do laco, pelo motivo original: sem
+    ela o `autor.py` falha por canal, o `|| true` engole o codigo de saida e o
+    job termina verde sem escrever nada (run 32349960529, 20/08/2026).
+
+    O que mudou em 24/08 e o VEREDITO, nao a conferencia. Sem cron, ausencia de
+    chave e "desligado", nao erro. Mas entao os passos seguintes PRECISAM ser
+    guardados por ela: com o `Escrever` pulado, `outputs.escritas` vem VAZIO, e
+    `'' != '0'` e verdadeiro — sem a guarda, o passo de commit rodaria num job
+    que nao escreveu nada.
+    """
     passos = DOC["jobs"]["escrever"]["steps"]
     nomes = [p.get("name") for p in passos]
     i_chave = nomes.index("Conferir a chave da API")
     i_escrever = nomes.index("Escrever")
     assert i_chave < i_escrever
-    assert "exit 1" in passos[i_chave]["run"]
+
+    chave = passos[i_chave]
+    assert chave.get("id") == "chave", "os outros passos dependem deste id"
+    assert "::notice::" in chave["run"], "sem cron, falta de chave e aviso"
+    assert "exit 1" not in chave["run"], (
+        "sem cron, falta de credencial nao e erro — e a decisao do dono")
+
+    # Todo passo depois da conferencia tem de exigir a chave, senao roda a seco.
+    for passo in passos[i_chave + 1:]:
+        cond = str(passo.get("if", ""))
+        assert "steps.chave.outputs.tem == 'sim'" in cond, (
+            f"passo {passo.get('name')!r} roda mesmo sem credencial")
 
 
 def test_o_laco_desliga_o_e_de_proposito_e_diz_por_que():
