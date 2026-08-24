@@ -1,0 +1,694 @@
+{
+  "slug": "next-level-money",
+  "pacote": "next-level-money-006",
+  "idioma": "en",
+  "voz": "en-US-AndrewNeural",
+  "trilha": "Deliberate_Thought",
+  "paleta": {
+    "ink": "#1A1A1A",
+    "c1": "#E4572E",
+    "c2": "#F2B134",
+    "bg": "#F2ECDF"
+  },
+  "thumb": {
+    "l1": "0% interest?",
+    "l2": "someone pays it"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Sixteen per cent",
+      "sub": "of American adults",
+      "nar": "Sixteen per cent of American adults used a buy now, pay later loan in the past year. That is the Federal Reserve's own household survey, published in May. One adult in six.",
+      "cap": "Two numbers that do not fit"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the second number",
+      "sub": "from a different Fed",
+      "nar": "Here is a second number, from a different part of the same system. The Richmond Fed puts the entire buy now, pay later market at about seventy billion dollars a year.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Seventy billion",
+      "preco": "sounds enormous",
+      "nar": "Seventy billion dollars sounds enormous, and on its own it is. But the brief puts it next to something, and next to that something it is small.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "As a share of card spending",
+      "preco": "one point one per cent",
+      "nar": "Measured against total credit card spending, the whole buy now, pay later market is one point one per cent. Barely one dollar in every hundred that moves through a card.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So hold both",
+      "sub": "at the same time",
+      "nar": "So hold both of those at once. One adult in six is using this product. And the product moves almost no money.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Those do not",
+      "sub": "usually go together",
+      "nar": "Those two things do not usually go together. Products with that much reach normally carry serious volume behind them.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "What that gap means",
+      "itens": [
+        "Small purchases",
+        "Repeated often",
+        "By people with no slack"
+      ],
+      "nar": "A gap like that has only one shape. Small amounts, bought often, by people who need the amount split.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which is the first clue",
+      "sub": "about what this is for",
+      "nar": "Which is already the first clue about what this product is actually for, and it is not what the advertising suggests.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The advertising says",
+      "preco": "zero per cent",
+      "nar": "The advertising says zero per cent interest. Four payments, no fee, nothing added. And for the shopper standing at the checkout, that is true.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The standard shape",
+      "preco": "four payments, six weeks",
+      "nar": "The standard product is four payments across about six weeks. A quarter at the till, then three more every fortnight, taken automatically. No interest quoted anywhere in it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The word doing the work",
+      "sub": "is 'for the shopper'",
+      "nar": "The words doing all the work in that sentence are 'for the shopper'. Zero for the shopper is not the same as zero for the transaction.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "This video",
+      "preco": "follows the cost",
+      "nar": "So this video does one thing. It follows the cost. If the shopper is not paying it, someone is, and it is worth knowing who.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The provider",
+      "sub": "still gets paid",
+      "nar": "Start with the obvious question. The company lending you the money is a business. It has funding costs, credit losses and staff. Somebody pays for that.",
+      "cap": "Who pays the provider"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Not the borrower",
+      "sub": "in the standard product",
+      "nar": "In the standard four payment product, it is not the borrower. There is no interest charge in the advertised deal, and that part is genuine.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "It is the merchant",
+      "preco": "who pays the fee",
+      "nar": "It is the merchant. The shop that sold you the thing pays a fee to the provider on every buy now, pay later sale, and keeps the rest.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is not exotic",
+      "sub": "cards work that way too",
+      "nar": "That arrangement is not exotic. Card networks work the same way. The shop pays a slice of every card sale and has done for decades.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The card fee",
+      "preco": "two to three per cent",
+      "nar": "For credit cards, that slice usually lands between two and three per cent of the sale. It is a known, budgeted cost of accepting cards.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Why the gap exists",
+      "sub": "speed and risk",
+      "nar": "That gap exists for a reason worth stating plainly. The provider approves in seconds, on a light check, and eats the loss if you never pay. Someone is quoted a price for that risk, and it is the shop.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "Merchant fee",
+      "itens": [
+        "Card",
+        "Buy now pay later"
+      ],
+      "alturas": [
+        30,
+        80
+      ],
+      "nar": "For buy now, pay later, the Richmond Fed brief puts it at five to eight per cent. That is the whole story in one comparison.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Read that again",
+      "sub": "it is two to three times",
+      "nar": "Read that again, because it is the hinge of everything that follows. The merchant fee on this product runs at roughly two to three times the card fee.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "On a hundred dollar basket",
+      "preco": "five to eight dollars",
+      "nar": "On a shopping basket of one hundred dollars, that is five to eight dollars leaving the shop, against two to three on a card.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The shop agreed to it",
+      "sub": "which is worth explaining",
+      "nar": "And the shop agreed to this. Nobody forced it. Which raises the obvious question of why a retailer would volunteer to pay double.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "The pitch to retailers",
+      "itens": [
+        "Bigger baskets",
+        "Fewer abandoned carts",
+        "Younger customers"
+      ],
+      "nar": "The pitch is straightforward. Shoppers offered instalments buy more, abandon fewer carts, and skew younger. The provider sells conversion.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "So the fee",
+      "preco": "is bought deliberately",
+      "nar": "So the fee is not a trap sprung on the retailer. It is a cost bought deliberately, in exchange for selling more. Which matters for what happens next.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the harder question",
+      "sub": "where does the fee go",
+      "nar": "Here is the harder question, and the one almost nobody asks. The shop is paying five to eight per cent. Where does that money come from?",
+      "cap": "Where the merchant fee lands"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Only two places",
+      "sub": "and they are not equal",
+      "nar": "There are only two places it can come from. The shop's margin, or the shop's prices. Those are not the same thing at all.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "If it comes from margin",
+      "preco": "the shop absorbs it",
+      "nar": "If it comes out of margin, the shop absorbs it and the customer never sees it. Profit falls, prices hold, and the cost stops there.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "If it comes from prices",
+      "preco": "everyone pays it",
+      "nar": "If it comes out of prices, the picture changes completely, because a shop does not print two price tags.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "There is one shelf price",
+      "sub": "for everybody",
+      "nar": "There is one price on the shelf. The person paying cash sees the same number as the person splitting it into four.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So a price rise",
+      "sub": "cannot be targeted",
+      "nar": "So if the price moves to cover that fee, it moves for everyone. It cannot be aimed only at the customers who caused it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And refusing it",
+      "sub": "is not simple either",
+      "nar": "A shop could of course refuse the whole arrangement. But if the shop across the street offers instalments and this one does not, some shoppers simply walk. That is what makes the fee hard to decline.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Who ends up paying",
+      "itens": [
+        "The instalment buyer",
+        "The card buyer",
+        "The cash buyer"
+      ],
+      "nar": "Which means the instalment buyer, the card buyer and the cash buyer all pay the same covering amount, and only one of them used the service.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I have to be careful",
+      "sub": "right here",
+      "nar": "Now I have to be careful, because this is exactly the point where an argument like this usually overreaches.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "What is measured",
+      "preco": "is the fee",
+      "nar": "What the research measures is the fee the merchant pays. Five to eight per cent. That number is sourced and I will put the brief in the description.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "What is not measured",
+      "preco": "is the pass through",
+      "nar": "What is not measured, in anything I could find, is how much of that fee reaches the shelf price. That share is economic inference, not a figure I can hand you.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So take it as",
+      "sub": "direction, not size",
+      "nar": "So take this chapter as a direction, not a size. The cost moves toward prices. How far it travels, nobody has cleanly measured.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the part",
+      "sub": "that is measured",
+      "nar": "Which brings us to the part that is measured, precisely, by the Federal Reserve, and that almost never appears in coverage of this product.",
+      "cap": "The bill at your bank"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The instalments",
+      "sub": "come out automatically",
+      "nar": "The four payments are collected automatically, from a debit card or a bank account, on a schedule the shopper agreed to at checkout.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Automatic is the feature",
+      "sub": "and the risk",
+      "nar": "Automatic collection is the feature. It is also the risk, because the payment arrives whether or not the money is there that day.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Eleven per cent of users",
+      "preco": "hit an overdraft",
+      "nar": "In the Fed's survey, eleven per cent of buy now, pay later users had one of these payments trigger an overdraft or an insufficient funds fee at their own bank.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Read what that is",
+      "sub": "carefully",
+      "nar": "Look carefully at what that is. The provider charged no interest. It kept its promise exactly. And the customer paid a fee anyway.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The fee just moved",
+      "preco": "to a different company",
+      "nar": "The fee simply moved to a different company. It is charged by the bank, not the lender, so it never appears in any comparison of the product.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the size of it",
+      "sub": "depends on your bank",
+      "nar": "How much that fee costs is not even fixed. Several large banks now charge a few dollars, or nothing. Smaller banks and credit unions can still charge legacy amounts many times higher.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "One user in nine",
+      "sub": "is not a rounding error",
+      "nar": "Roughly one user in nine. That is not a rare accident at the edge of the product. It is a regular outcome of how the product collects.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And it lands",
+      "sub": "unevenly",
+      "nar": "And it does not land evenly. An overdraft fee is only possible if the account was near empty, so it falls hardest on exactly the people who chose instalments because money was tight.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "The full picture",
+      "itens": [
+        "No interest to the lender",
+        "A fee to the bank",
+        "A higher shelf price for all"
+      ],
+      "nar": "Put the three together and the zero per cent product has produced a bank fee for some customers and, plausibly, a higher shelf price for everyone.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "None of that",
+      "preco": "is fraud",
+      "nar": "And none of that is fraud, or a hidden clause, or a scandal. Every part of it is disclosed somewhere. It is just spread across three companies, so no single statement shows it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which is why",
+      "sub": "the number stayed hidden",
+      "nar": "Which is precisely why it took a Federal Reserve household survey to find it. No lender was ever going to report it, because no lender charged it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Back to the puzzle",
+      "sub": "from the opening",
+      "nar": "Now we can go back to the puzzle from the opening, because it stopped being a puzzle somewhere in the last few minutes.",
+      "cap": "High reach and low volume"
+    },
+    {
+      "layout": "item",
+      "kicker": "Sixteen per cent of adults",
+      "preco": "one point one per cent of card spending",
+      "nar": "Sixteen per cent of adults use it. It carries one point one per cent of card spending. Those numbers only fit if the individual purchases are small.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Small and repeated",
+      "sub": "is the shape",
+      "nar": "Small, and repeated. Not one large purchase split for convenience, but many modest ones split because the timing of the money is wrong.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A private survey",
+      "preco": "points the same way",
+      "nar": "A private survey by LendingTree, and I flag it as private rather than official, found twenty nine per cent of users had used instalments to buy groceries.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nothing here rests",
+      "sub": "on that figure",
+      "nar": "Nothing in this argument rests on that figure, and I am not going to lean on it. But it points the same direction the Fed's own numbers already pointed.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Groceries are the test",
+      "sub": "of what a product is for",
+      "nar": "Groceries are a useful test, because nobody finances food for convenience. You finance food when the money arrives after the hunger does.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That reframes it",
+      "sub": "completely",
+      "nar": "That reframes the product completely. It is not primarily a way to afford something bigger. It is a way to move a small amount a few weeks earlier.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Which explains",
+      "itens": [
+        "The reach",
+        "The tiny volume",
+        "The overdrafts"
+      ],
+      "nar": "Which explains all three findings at once. Wide reach, tiny volume, and a bank fee for one user in nine.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The Fed noted",
+      "preco": "who uses it",
+      "nar": "The Fed's survey noted the same thing from the other side. Use is higher among younger adults, adults without a degree, and people with fewer financial resources.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Nearly one in five women",
+      "preco": "used it last year",
+      "nar": "Nearly one woman in five used the product in the year measured. Women have come out higher than men in every edition of this survey that has asked the question.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is not a moral claim",
+      "sub": "it is a description",
+      "nar": "That is not a judgement about anyone. It is a description of who a cash flow product finds, and it is exactly who you would expect it to find.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And it is why",
+      "sub": "the fee matters more here",
+      "nar": "It is also why the fee matters more here than it would elsewhere. A bank fee is a much larger share of a small budget than of a large one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Same fee",
+      "preco": "different weight",
+      "nar": "The same flat charge is a rounding error on one income and a genuine problem on another. The fee does not scale with the account. The pain does.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the limits",
+      "sub": "of everything I just said",
+      "nar": "Before the useful part, the limits. This is a channel about money, and a confident story with soft foundations is worse than no story.",
+      "cap": "What this cannot tell you"
+    },
+    {
+      "layout": "item",
+      "kicker": "The Fed survey",
+      "preco": "is self reported",
+      "nar": "The household survey is self reported. People are answering questions about their own borrowing from memory, and memory about debt runs optimistic.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It is also a snapshot",
+      "sub": "of last October",
+      "nar": "It was also fielded across two weeks of October last year. It describes that moment, not this one, and the product is moving fast.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The merchant fee range",
+      "preco": "is an estimate",
+      "nar": "The five to eight per cent range is a research estimate, from work cited in the Richmond brief. It is not a published rate card, and real terms vary by retailer and by size.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The pass through",
+      "sub": "I have already flagged",
+      "nar": "The step from merchant fee to shelf price I already flagged, and I will flag it again, because it is the weakest link in the chain.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "What is missing entirely",
+      "preco": "is a credit picture",
+      "nar": "And something is missing entirely. Most of this lending still does not appear in ordinary credit reporting, so nobody can see how many loans one person holds at once.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That gap has a name",
+      "sub": "stacking",
+      "nar": "That gap has a name. Loan stacking. Four providers, four sets of instalments, and no single record showing all of them together.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the other fee",
+      "sub": "is not settled in law",
+      "nar": "The overdraft side is not settled either. A rule capping those fees at large banks was finalised, then overturned in Congress before it ever took effect. Which is why the amount depends on your bank and not on the law.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which means",
+      "sub": "nobody knows the total",
+      "nar": "Which means no institution, including the ones I have quoted all video, can tell you the true total exposure of an individual household to this product.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "So what is solid",
+      "itens": [
+        "Sixteen per cent of adults",
+        "Eleven per cent overdrafted",
+        "Five to eight per cent merchant fee"
+      ],
+      "nar": "So keep the three solid numbers. Sixteen per cent reach, eleven per cent hitting a bank fee, and a merchant fee of five to eight per cent.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "And what is inference",
+      "preco": "the shelf price",
+      "nar": "And hold the shelf price argument as inference. Strong inference, in my view, but not the same kind of thing as the other three.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Keeping those apart",
+      "sub": "is most of the skill",
+      "nar": "Keeping those two categories apart is most of the skill in reading financial data, and it is the part that almost never survives a headline.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So what do you do",
+      "sub": "with all of this",
+      "nar": "So what do you actually do with this, whether you use these loans or never touch them.",
+      "cap": "What to do with it"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If you use it",
+      "sub": "one thing matters most",
+      "nar": "If you use instalments, one thing matters more than every comparison of providers, and it is not the interest rate, because there is not one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "It is the date",
+      "preco": "the payment lands",
+      "nar": "It is the date each payment lands, set against the date your money arrives. That gap is the entire risk of the product.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Because the failure",
+      "sub": "is timing, not affordability",
+      "nar": "The eleven per cent figure is not a story about people who could not afford the purchase. It is about people whose payment landed on the wrong day.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Two minutes, before you split",
+      "itens": [
+        "Write the four dates down",
+        "Check each against payday",
+        "Count what is already scheduled"
+      ],
+      "nar": "Which makes the fix boring and effective. Write the four dates down, check each against payday, and count what is already scheduled to come out.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "That third one",
+      "preco": "is the stacking check",
+      "nar": "The third one is your own stacking check, and you are the only person who can run it, because no credit file collects it for you.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If you never use it",
+      "sub": "you are still in the story",
+      "nar": "And if you never touch these loans, you are still in the story, because of the shelf price. You just cannot see your part of it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is not a reason",
+      "sub": "to be angry at anyone",
+      "nar": "That is not a reason to be angry at the shopper who splits a grocery bill. It is a reason to be precise about what the word free is doing.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Free at the till",
+      "preco": "is not free in the system",
+      "nar": "Free at the till is a real fact about the till. It is not a fact about the system, and those two get quietly merged in almost every advert you will see for this.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The Fed did not",
+      "sub": "merge them",
+      "nar": "The Federal Reserve did not merge them. It asked the boring question about overdrafts, and that is why we have a number at all.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Next time",
+      "sub": "we follow the merchant",
+      "nar": "Next time on this channel we take the other end of this: what happens to a small retailer that accepts a fee of five to eight per cent because the shop next door already does.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "If this was useful",
+      "sub": "subscribe for the next one",
+      "nar": "If following the money through three companies was useful, subscribe, and tell me in the comments which of the three numbers surprised you most.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Zero per cent",
+      "sub": "for who exactly",
+      "nar": "Buy now, pay later charges you zero per cent interest. That part is true. It is also not the whole sentence.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The shop pays",
+      "sub": "five to eight per cent",
+      "nar": "The shop pays the provider five to eight per cent. On a card it would pay two to three.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "One shelf price",
+      "sub": "for everybody",
+      "nar": "And a shop only prints one price. So the cash customer covers part of it too.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Then the Fed",
+      "sub": "asked about banks",
+      "nar": "Then the Federal Reserve asked users about their own bank accounts.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Eleven per cent",
+      "sub": "hit an overdraft",
+      "nar": "Eleven per cent had an instalment trigger an overdraft fee. Zero interest, and a fee anyway.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Where the rest",
+      "sub": "of it goes",
+      "nar": "Where the rest of that money goes is on the channel.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Zero per cent for the shopper is not zero for the transaction\n\n## TITULO\nBuy Now Pay Later Reached 16% of Adults: Who Actually Pays for Zero Interest\n\n## DESCRICAO\nIn May 2026 the Federal Reserve published its Survey of Household Economics and Decisionmaking for 2025. Buy now, pay later use rose one percentage point to 16% of all American adults — roughly one adult in six. In February 2026 the Federal Reserve Bank of Richmond published an economic brief putting the entire buy now, pay later market at around $70 billion a year, or about 1.1% of total credit card spending.\n\nThose two figures look like they contradict each other. One in six adults, and barely one dollar in a hundred. They only fit if the individual purchases are small and repeated — which turns out to be the most important fact about this product.\n\nThis video follows the cost. The advertised zero per cent is genuine for the shopper: in the standard four-payment product there is no interest charge. But the provider still gets paid, and it is paid by the merchant. The Richmond brief puts that merchant fee at 5–8% of the sale, against 2–3% for a credit card — roughly two to three times as much.\n\nA shop does not print two price tags. Whatever share of that fee reaches the shelf price is paid by every customer, including the ones paying cash. That step is economic inference rather than a measured figure, and the video says so explicitly rather than quietly borrowing the authority of the sourced numbers.\n\nThe measured part comes from the Fed's survey: 11% of buy now, pay later users had a payment trigger an overdraft or non-sufficient funds fee at their own bank in the prior year. The lender charged no interest and kept its promise exactly; the fee simply appeared at a different company, which is why it shows up in no product comparison anywhere.\n\nThe video also states what the data cannot tell you. The survey is self-reported and was fielded over two weeks in October 2025. The 5–8% range is a research estimate, not a published rate card. And most of this lending still does not appear in ordinary credit reporting, so no institution can see how many instalment loans a single household is carrying at once.\n\nEnds with a two-minute routine to run before splitting any payment, and an explicit separation of what is measured from what is inferred.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nThe honest gap in this one: I could not find any study measuring how much of the 5–8% merchant fee actually reaches shelf prices, as opposed to being absorbed in margin. If you work in retail pricing and have seen this modelled either way, I would genuinely like to know — it is the one link in the chain I had to argue rather than source.\n\n## HASHTAGS\n#BuyNowPayLater #FederalReserve #NextLevelMoney\n\n## TAGS\nbuy now pay later, bnpl, federal reserve, shed survey, merchant fees, overdraft fees, consumer credit, personal finance, us economy, klarna, afterpay, retail pricing, interchange fees, financial literacy, household debt\n\n## CONFIGURACAO DE STUDIO\n- Language: English (en-US) | Category: Education (27)\n- Not made for kids\n- Altered or synthetic content disclosure: YES (AI-generated voice)\n- Location: United States | Licence: Standard YouTube Licence\n- Mid-roll ads: on (runtime over eight minutes)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nTwo institutional sources, measuring different things, accessed 24 August 2026. (1) Board of Governors of the Federal Reserve System, Report on the Economic Well-Being of U.S. Households in 2025, published 13 May 2026, from the Survey of Household Economics and Decisionmaking: buy now, pay later use rose one percentage point to 16% of adults; 11% of BNPL users had a payment trigger an overdraft or NSF fee from their bank in the prior year. The survey was fielded 17–28 October 2025 with a nationally representative sample of nearly 13,000 respondents, and is self-reported. (2) Federal Reserve Bank of Richmond, Economic Brief 26-05, \"Buy Now, Pay Later: Recent Developments and Implications\", February 2026: merchant fees of 5–8% for BNPL against 2–3% for credit cards, a range the brief attributes to Di Maggio, Katz and Williams (2022); BNPL transaction value of roughly $70 billion in 2025, about 1.1% of total credit card spending. The 29% grocery figure is from a LendingTree survey conducted by QuestionPro and is identified in the video as private research, not official statistics; no part of the argument depends on it. The claim that merchant fees reach shelf prices is stated in the video as economic inference and not as a measured result. This video makes no forecast, describes no individual household, and is not financial advice.\n"
+}
