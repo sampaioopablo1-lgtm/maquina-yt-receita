@@ -251,6 +251,13 @@ Ao dimensionar um roteiro, NAO orce caracteres pela densidade de frases/cena do 
 
 `aplicado_em:` fabrica/specs/next-level-money-006.build.py
 
+### O vies de +3,8% do Andrew nao se confirmou: erro real foi +0,5% em 85 cenas
+O MODELO_VOZ do `en-US-AndrewNeural` (R=17,12 chars/s, P=0,272 s/frase, n=157) previu 776,9 s e o render entregou 781,0 s — erro de +0,5%, nao os +3,8% registrados como vies do longo dessa voz. O short seguiu a mesma direcao: 34,2 previstos contra 33,7 reais, -1,5%. UMA medicao nao derruba um vies levantado sobre muitas, entao nao mexi em nada: fica o registro de que ele pode estar superestimado depois da ultima recalibracao. Juntar mais pacotes antes de tocar na constante — foi exatamente mexer por amostra unica que produziu a oscilacao da margem do short.
+
+> **previsto**: 776,9 s · **real**: 781,0 s · **erro**: +0,5% · **vies_registrado**: +3,8% · **cenas**: 85 · **short**: 34,2 → 33,7 · **acao**: nenhuma
+
+`aplicado_em:` nenhuma alteracao — so registro
+
 ---
 
 ## Produção
@@ -416,6 +423,13 @@ Mandar arquivo grande pro sandbox em gzip+base64 fatiado, com md5 por pedaco. Co
 > **caso**: chunk m004 a 2300 bytes com md5 divergente · **correcao**: reenvio em pedacos de 700 bytes · **limite_observado**: 1400 a 2300 bytes
 
 `aplicado_em:` rotina PASSO 1
+
+### frota.yml nao sobe copy.md ao Storage — a entrega no Drive sai com quatro dos cinco
+O passo Entregar no Storage sobe `video.mp4`, `short.mp4`, `thumbnail.png` e `legendas.srt`, mas nao `copy.md`. Testei `copy.md` e `copy.txt`: os dois devolvem `NoSuchKey`. O copy nao se perde — vive no campo `copy` da spec versionada e vai para a descricao do video na publicacao, entao os capitulos cronometrados estao no YouTube. Falta so a copia no Drive. E NAO gerar um copy.md substituto: os tempos de capitulo so existem depois do render, e um arquivo com tempos estimados divergiria do publicado, que e pior que a ausencia.
+
+> **no_storage**: video, short, thumbnail, legendas · **ausente**: copy.md · **testados**: copy.md, copy.txt → 404 NoSuchKey
+
+`aplicado_em:` videos.erro do longo
 
 ---
 
@@ -776,6 +790,13 @@ Ao ler lista de arquivo em bash, garantir a quebra final ou usar mapfile. Foram 
 O input `pacotes` do frota.yml exige `[{"canal":...,"pacote":...,"idioma":...}]`. Passei o nome do pacote como string solta; o `jq -c '{include:.}'` produziu um escalar, a matriz saiu vazia e o run falhou em segundos COM O JOB `preparar` MARCADO COMO SUCCESS. Esse par e o que precisa ser reconhecido de imediato: um unico job, verde, run vermelho, zero anotacoes. Isso e matriz vazia, nao erro de render — e nao adianta procurar no log do render, porque render nenhum chegou a existir. A descricao do proprio input trazia o formato certo e eu nao li.
 
 > **run_falho**: 32745494822 · **job**: 97489915669 (success) · **run**: failure · **jobs_no_run**: 1 · **anotacoes**: 0 · **run_correto**: 32745698913
+
+`aplicado_em:` PLAYBOOK.md
+
+### Nao disparar a frota a mao depois de commitar a spec — o Ciclo ja faz isso
+Commitar spec nova em `fabrica/specs/` JA e o gatilho: o workflow Ciclo varre o repositorio e dispara a frota sozinho em minutos. Commitei a spec do 006 por volta das 15:30, o Ciclo disparou as 15:32:45 (run 32745508094), a frota publicou as 15:33:08 (run 32745547061, success) — e o meu disparo manual das 15:34:37 chegou ao gate de nome com o video ja no ar. Quem impediu o duplicado foi `publicar.py --so-conferir-nome`, que roda ANTES do render: recusou em 90 s em vez de gastar 17 min e publicar o mesmo video duas vezes. Numa frota que ja carrega 45 duplicados, esse gate e a diferenca entre 45 e 46. Depois de commitar spec: acompanhe, nao dispare.
+
+> **push**: ~15:30 · **ciclo**: 15:32:45 · **frota_que_publicou**: 15:33:08 success · **meu_disparo**: 15:34:37 failure · **travou_em**: --so-conferir-nome · **evitou**: 17 min + 1 republicacao
 
 `aplicado_em:` PLAYBOOK.md
 

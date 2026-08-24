@@ -652,6 +652,21 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
   do render porque render nenhum chegou a existir. Aconteceu em 24/08/2026 (run
   32745494822); o redisparo no formato certo é o 32745698913.
 
+- **Não dispare a frota à mão depois de commitar a spec.** Commitar em `fabrica/specs/`
+  **já é o gatilho**: o workflow *Ciclo* varre o repositório e dispara a frota sozinho em
+  minutos. Em 24/08/2026 eu commitei a spec, o Ciclo disparou às 15:32:45 (run 32745508094),
+  a frota publicou às 15:33:08 (run 32745547061) — e o meu disparo manual das 15:34:37
+  chegou ao gate de nome quando o vídeo já estava no ar. Quem impediu o duplicado foi
+  `publicar.py --so-conferir-nome`, que roda **antes** do render e custou 90 s em vez de
+  17 min. Depois de commitar spec: **acompanhe, não dispare**.
+
+- **O `frota.yml` não sobe `copy.md` ao Storage.** Ele entrega `video.mp4`, `short.mp4`,
+  `thumbnail.png` e `legendas.srt` — `copy.md` e `copy.txt` dão `NoSuchKey`. O copy não se
+  perde (vive no campo `copy` da spec versionada e vai para a descrição na publicação), mas
+  a cópia no Drive fica faltando. Não gere um `copy.md` substituto com capítulos estimados:
+  os tempos só existem depois do render, e um arquivo divergente do publicado é pior que a
+  ausência.
+
 - **`GOOGLEDRIVE_UPLOAD_FROM_URL` ignora o parent.** Tudo cai na raiz `0AL8gANwo3v7jUk9PVA`.
   O `MOVE_FILE` não é opcional — sem ele o pacote fica órfão.
 - **Os dois campos dele são `source_url` e `name`.** Não `file_url`, não `file_name`. A nota
