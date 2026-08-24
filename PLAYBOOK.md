@@ -652,6 +652,14 @@ sandbox curl → Supabase Storage → GOOGLEDRIVE_UPLOAD_FROM_URL → GOOGLEDRIV
   do render porque render nenhum chegou a existir. Aconteceu em 24/08/2026 (run
   32745494822); o redisparo no formato certo é o 32745698913.
 
+- **Workflow que falha no primeiro passo é invisível para o banco.** Não deixa linha em
+  `videos`, nem em `aprendizados`, nem no estoque — só no histórico do Actions, que
+  nenhuma das consultas de abertura lê. Em 24/08/2026 descobri por acidente que o
+  `autoria.yml` estava falhando em **30 de 30 execuções desde 22/08**, por falta do
+  segredo `ANTHROPIC_API_KEY`: a escrita automática estava morta havia dias e a única
+  pista era o placar de pacotes/dia, que ninguém liga a essa causa. **Sempre que a
+  produção cair de ritmo, olhe o histórico do Actions antes de procurar causa no banco.**
+
 - **Não dispare a frota à mão depois de commitar a spec.** Commitar em `fabrica/specs/`
   **já é o gatilho**: o workflow *Ciclo* varre o repositório e dispara a frota sozinho em
   minutos. Em 24/08/2026 eu commitei a spec, o Ciclo disparou às 15:32:45 (run 32745508094),

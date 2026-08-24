@@ -800,6 +800,15 @@ Commitar spec nova em `fabrica/specs/` JA e o gatilho: o workflow Ciclo varre o 
 
 `aplicado_em:` PLAYBOOK.md
 
+### A escrita automatica esta MORTA ha dias: ANTHROPIC_API_KEY nao esta nos segredos
+O `autoria.yml` — o workflow que escreve as specs sozinho, registrado no acervo como a mudanca que tirou a escrita do gargalo humano — falha em 100% das execucoes. Trinta listadas, trinta falhas, zero sucessos, desde pelo menos 22/08 06:59 UTC. A anotacao do job da o veredito em uma linha: "ANTHROPIC_API_KEY nao esta nos segredos do repositorio". Consequencia real: toda spec da frota voltou a ser escrita a mao, um pacote por disparo, e a afirmacao registrada de que o gargalo tinha passado da escrita para o banco de pautas deixou de valer no dia 22 sem que nada apontasse isso.
+
+E o motivo de ninguem perceber e a licao que fica: WORKFLOW QUE FALHA NO PRIMEIRO PASSO NAO DEIXA RASTRO EM LUGAR NENHUM — nem em `videos`, nem em `aprendizados`, nem no estoque. So no historico do Actions, que consulta nenhuma da rotina le. Foi acidente ter visto: tres falhas do mesmo dia apareceram juntas numa listagem aberta por outro motivo. Sempre que o placar de pacotes/dia cair, olhe o historico do Actions ANTES de procurar causa no banco.
+
+> **workflow**: autoria.yml · **execucoes**: 30 · **success**: 0 · **failure**: 30 · **desde**: 2026-08-22T06:59Z · **passo**: Conferir a chave da API · **acao**: Settings > Secrets and variables > Actions > ANTHROPIC_API_KEY
+
+`aplicado_em:` pendente — depende de segredo do repositorio
+
 ---
 
 ## Invalidado
