@@ -95,7 +95,20 @@ jobs:
 
           echo ""
           echo "=== Coleta concluida: $OK canais, $FALHOU falhas ==="
-          # Um canal com token revogado nao pode derrubar a coleta da frota.
+          # Um canal com token revogado nao pode derrubar a coleta da frota,
+          # entao o job so falha quando NINGUEM coletou. Mas "nao falhar" nao
+          # pode ser a mesma coisa que "esta tudo bem": em 24/08/2026 esta
+          # coleta vinha VERDE ha onze dias medindo 19 de 186 videos, porque a
+          # consulta do `puxar` descartava tudo que a rota propria publica
+          # (corrigido em sincronizacao.py). Ninguem olhou, porque verde nao
+          # pede que se olhe.
+          #
+          # Agora qualquer falha vira aviso visivel no resumo do run, mesmo com
+          # o job verde. Aprendizado 370: job que nao produz o que devia nao
+          # pode passar despercebido.
+          if [ "$FALHOU" -gt 0 ]; then
+            echo "::warning::$FALHOU canal(is) falharam na coleta e $OK coletaram. Metrica velha trava o PASSO 0A da rotina: sem views nao ha como ler o canal antes de produzir."
+          fi
           [ "$OK" -eq 0 ] && exit 1 || exit 0
 
       - name: Gravar metricas no Supabase

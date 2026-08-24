@@ -213,10 +213,36 @@ def puxar(store: Store) -> list[str]:
     """Traz videos que so existem no Supabase (ex.: roteiro da Edge Function).
 
     Nunca sobrescreve um slug ja presente local. Devolve os slugs criados.
+
+    O FILTRO NAO PODE SER SO `roteiro`, e isso custou caro. Ate 24/08/2026 esta
+    consulta pedia `roteiro=not.is.null`, o que fazia sentido quando `roteiro`
+    era o sinal de "linha completa que veio de fora". Deixou de fazer em 13/08,
+    quando a rota propria de publicacao (`fabrica/publicar.py`) virou o caminho
+    padrao: ela grava `youtube_id`, `titulo` e `publicado_em`, e NAO grava
+    `roteiro`.
+
+    O efeito medido em 24/08: de 186 videos publicados, 145 nunca entravam no
+    SQLite, e como `maquina diagnosticar` le do SQLite, nunca eram medidos. A
+    tabela `metricas` vinha coletando 19 videos por dia desde 21/08 — todos
+    publicados em 11 ou 12 de agosto, nenhum posterior. Doze canais cegos, e o
+    job de coleta VERDE todos os dias, porque o criterio dele e "pelo menos um
+    canal coletou".
+
+    Isso e a mesma familia do defeito que o `_resgatar` conserta logo abaixo, e
+    o comentario de la ja avisava: descartar linha no puxar cega as barreiras
+    anti-spam. Consertaram o caso "roteiro e lixo" e ficou de fora o caso
+    "roteiro e NULL", que so apareceu quando a rota de publicacao mudou.
+
+    Agora a consulta traz o que tem roteiro OU o que ja esta no ar. Video
+    publicado precisa ser medido, tenha roteiro ou nao — views existem
+    independentemente de a linha guardar o texto.
     """
     conhecidos = {v.slug for v in store.listar(limite=10_000)}
     with _cliente() as cli:
-        r = cli.get("/videos", params={"select": "*", "roteiro": "not.is.null"})
+        r = cli.get("/videos", params={
+            "select": "*",
+            "or": "(roteiro.not.is.null,youtube_id.not.is.null)",
+        })
     if r.status_code >= 400:
         raise ErroSincronizacao(f"videos {r.status_code}: {r.text[:300]}")
 
@@ -230,7 +256,13 @@ def puxar(store: Store) -> list[str]:
                     "slug": linha["slug"],
                     "formato": linha["formato"],
                     "status": linha["status"],
-                    "roteiro": linha["roteiro"],
+                    # `roteiro` e opcional no modelo, entao NULL passaria — mas
+                    # passaria como None, e ai `empurrar` nao acha titulo e as
+                    # barreiras por titulo ficam cegas para a linha. Reconstroi
+                    # o minimo pelo mesmo motivo e do mesmo jeito que o
+                    # `_resgatar`: o titulo e a data sao o que as barreiras
+                    # precisam, as cenas nao.
+                    "roteiro": linha["roteiro"] or _roteiro_minimo(linha),
                     # Sem isto o teto por canal ficava cego num runner novo: a
                     # linha voltava do Supabase com canal preenchido e era
                     # gravada no SQLite sem ele.
@@ -251,6 +283,18 @@ def puxar(store: Store) -> list[str]:
         store.salvar(video)
         novos.append(video.slug)
     return novos
+
+
+def _roteiro_minimo(linha: dict) -> dict | None:
+    """Roteiro so com titulo, para linha publicada que nao guardou o texto.
+
+    Devolve None quando nao ha titulo — ai nao ha o que reconstruir, e deixar
+    o model_validate falhar manda a linha para o `_resgatar`, que decide.
+    """
+    titulo = (linha.get("titulo") or "").strip()
+    if not titulo:
+        return None
+    return {"titulo": titulo, "gancho": "", "cenas": []}
 
 
 def _resgatar(linha: dict, erro: Exception) -> Video | None:

@@ -54,6 +54,7 @@ class _Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        RECEBIDO.append({"path": self.path, "metodo": "GET"})
         corpo = json.dumps(REMOTO).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
@@ -332,3 +333,66 @@ def test_empurrar_ignora_canal_de_video_nao_publicado(servidor, tmp_path):
     store.salvar(_video("rascunho", canal="nivel-do-jogo"))  # sem publicado_em
     empurrar(store)
     assert [r for r in RECEBIDO if r["path"].startswith("/rest/v1/canais")] == []
+
+
+def test_puxar_traz_video_publicado_sem_roteiro(servidor, tmp_path):
+    """O defeito que cegou a frota por onze dias, medido em 24/08/2026.
+
+    Ate aqui a consulta pedia `roteiro=not.is.null`. Isso fazia sentido quando
+    `roteiro` marcava "linha completa vinda de fora", e deixou de fazer em
+    13/08, quando `fabrica/publicar.py` virou o caminho padrao de publicacao:
+    ele grava youtube_id, titulo e publicado_em, e nao grava roteiro.
+
+    Resultado medido: de 186 videos publicados, 145 nunca entravam no SQLite —
+    e como `maquina diagnosticar` le do SQLite, nunca eram medidos. A tabela
+    `metricas` coletava 19 videos por dia desde 21/08, TODOS publicados em 11
+    ou 12 de agosto. Doze canais cegos, com o job de coleta verde todo dia.
+
+    Video que esta no ar precisa ser medido, tenha roteiro ou nao.
+    """
+    store = Store(tmp_path / "t.db")
+    REMOTO.append(
+        {
+            "slug": "epomeno-epipedo-009",
+            "status": "publicado",
+            "formato": "longo",
+            "titulo": "Plasmatika Eti 2026",
+            "canal": "epomeno-epipedo",
+            "youtube_id": "jAWKppvjAG8",
+            "duracao_s": 523.8,
+            "roteiro": None,
+            "criado_em": datetime.now(timezone.utc).isoformat(),
+            "publicado_em": datetime.now(timezone.utc).isoformat(),
+        }
+    )
+
+    assert puxar(store) == ["epomeno-epipedo-009"]
+    salvo = store.obter("epomeno-epipedo-009")
+    assert salvo.status is Status.PUBLICADO
+    assert salvo.youtube_id == "jAWKppvjAG8"
+    # O titulo tem de sobreviver, senao as barreiras por titulo ficam cegas
+    # para a linha — mesmo motivo do `_resgatar`.
+    assert salvo.roteiro.titulo == "Plasmatika Eti 2026"
+    assert salvo.roteiro.cenas == []
+    assert salvo.canal == "epomeno-epipedo"
+    assert "Plasmatika Eti 2026" in store.titulos_publicados()
+
+
+def test_puxar_pede_roteiro_OU_ja_publicado(servidor, tmp_path):
+    """Trava o filtro da consulta, nao so o efeito dela.
+
+    Sem isto, alguem pode restaurar `roteiro=not.is.null` e os testes de
+    comportamento continuariam passando com o servidor falso, que devolve
+    REMOTO inteiro ignorando os parametros.
+    """
+    store = Store(tmp_path / "t.db")
+    puxar(store)
+    gets = [r["path"] for r in RECEBIDO if r.get("metodo") == "GET"]
+    assert gets, "o puxar nao consultou /videos"
+    consulta = gets[0]
+    assert "youtube_id.not.is.null" in consulta, consulta
+    assert "roteiro.not.is.null" in consulta, consulta
+    assert "roteiro=not.is.null" not in consulta, (
+        "voltou o filtro que so trazia linha com roteiro — isso cega a coleta "
+        "de tudo que a rota propria publica"
+    )
