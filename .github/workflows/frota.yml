@@ -292,6 +292,7 @@ jobs:
             --canal "${{ matrix.canal }}" --so-conferir-nome
 
       - name: Renderizar
+        id: render
         # SB/KEY entram para o broll.py buscar config.pexels_api_key — a chave
         # do Pexels mora no banco, nao no git nem nos secrets. Sem eles a
         # etapa 1.5 so cai no fallback; o render nunca depende de broll.
@@ -349,11 +350,20 @@ jobs:
           fi
           echo "falhas=$FALHAS" >> "$GITHUB_OUTPUT"
 
-      # `always()` de proposito: o passo acima pode ter falhado, e ainda assim
-      # este tem de rodar. Sem isso o GitHub pula qualquer passo depois de uma
-      # falha, que foi exatamente o que aconteceu no run 32786650100.
+      # `always()` de proposito, MAS amarrado ao RENDER e nao ao Storage.
+      #
+      # A primeira versao desta condicao era so `always() && inputs.publicar`, e
+      # ela estava errada — eu mesmo a escrevi e o run 32788965239 mostrou por
+      # que em minutos. Naquele run o portao de token falhou, o render foi
+      # PULADO, e mesmo assim o publicar.py rodou: sem arquivo nenhum em disco,
+      # ele so produziu um traceback confuso que escondia a causa real.
+      #
+      # O que eu queria era "publicar mesmo se o Storage falhar". O que escrevi
+      # foi "publicar aconteca o que acontecer". A condicao certa depende do
+      # render ter tido sucesso: sem clipe nao ha o que publicar, e um erro
+      # tardio e mais caro de ler do que um passo pulado.
       - name: Publicar no YouTube
-        if: ${{ always() && inputs.publicar }}
+        if: ${{ always() && inputs.publicar && steps.render.outcome == 'success' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
