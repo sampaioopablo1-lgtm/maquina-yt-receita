@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -359,7 +360,18 @@ def diagnosticar(slug: str = typer.Argument("", help="vazio = todos os publicado
     """Aponta qual dos 3 pilares e o gargalo de cada video."""
     cfg = _cfg()
     p = Pipeline(cfg)
-    videos = [p.store.obter(slug)] if slug else p.store.listar(Status.PUBLICADO)
+    if slug:
+        videos = [p.store.obter(slug)]
+    else:
+        # NAO e `listar(Status.PUBLICADO)`. Aquele limita a 50 e ordena por
+        # data sobre a FROTA INTEIRA, porque o `sincronizar` traz todos os
+        # canais para dentro do SQLite de cada um. Em 24/08/2026 isso fazia
+        # cada canal medir so os 4 a 6 videos seus que cabiam na janela global
+        # dos 50 mais recentes, e tentar medir 44 de outros canais, que falham
+        # por permissao e gastam cota.
+        canal = os.getenv("MAQ_CANAL", "")
+        videos = (p.store.publicados_do_canal(canal) if canal
+                  else p.store.listar(Status.PUBLICADO, limite=1000))
 
     for v in filter(None, videos):
         if not v.youtube_id:

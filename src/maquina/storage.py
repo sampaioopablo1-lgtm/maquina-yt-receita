@@ -129,6 +129,41 @@ class Store:
                 continue  # linha antiga ou corrompida nao pode travar publicacao
         return n
 
+    def publicados_do_canal(self, canal: str, limite: int = 1000) -> list[Video]:
+        """Publicados SO deste canal, para a coleta de metricas.
+
+        Existe pelo mesmo motivo que `publicados_hoje_canal`: o `sincronizar`
+        traz a frota inteira para dentro do SQLite de cada canal. O
+        `diagnosticar` usava `listar(Status.PUBLICADO)`, cujo limite padrao e
+        50 e cuja ordem e `criado_em DESC` — sobre a frota TODA.
+
+        Medido em 24/08/2026, depois de consertar o filtro do `puxar`: a coleta
+        subiu de 19 para 50 videos e parou ali. Os medidos ocupavam as posicoes
+        globais 1 a 49 por data; o primeiro cego era a posicao 51. O corte era
+        exatamente o limite de 50, e cada canal media so os 4 a 6 videos SEUS
+        que cabiam nessa janela global — os outros 44 eram de outros canais, e
+        falhavam por permissao gastando cota do YouTube a toa.
+
+        Filtra pelo payload, como `publicados_hoje_canal`, porque `canal` nao
+        tem coluna propria nesta tabela.
+        """
+        with self._conn() as c:
+            rows = c.execute(
+                "SELECT payload FROM videos WHERE status=? ORDER BY criado_em DESC",
+                (Status.PUBLICADO.value,),
+            ).fetchall()
+        fora: list[Video] = []
+        for r in rows:
+            try:
+                v = Video.model_validate_json(r["payload"])
+            except Exception:
+                continue  # linha antiga nao pode travar a coleta dos outros
+            if v.canal == canal:
+                fora.append(v)
+                if len(fora) >= limite:
+                    break
+        return fora
+
     def roteiros_recentes(self, limite: int = 20) -> list[tuple[str, str]]:
         """(titulo, texto do roteiro) dos ultimos videos — base da checagem de similaridade."""
         with self._conn() as c:

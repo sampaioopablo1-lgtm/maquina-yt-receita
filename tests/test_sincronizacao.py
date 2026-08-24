@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 import os
 import threading
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 import pytest
@@ -396,3 +396,52 @@ def test_puxar_pede_roteiro_OU_ja_publicado(servidor, tmp_path):
         "voltou o filtro que so trazia linha com roteiro — isso cega a coleta "
         "de tudo que a rota propria publica"
     )
+
+
+def test_publicados_do_canal_nao_sofre_o_teto_global(tmp_path):
+    """O segundo defeito que cegava a coleta, medido em 24/08/2026.
+
+    Depois de consertar o filtro do `puxar`, a coleta subiu de 19 para 50
+    videos e parou ali. O motivo: `diagnosticar` usava
+    `store.listar(Status.PUBLICADO)`, cujo limite padrao e 50 e cuja ordem e
+    `criado_em DESC` sobre a FROTA INTEIRA — porque o `sincronizar` traz todos
+    os canais para dentro do SQLite de cada um.
+
+    A medida foi exata: os medidos ocupavam as posicoes globais 1 a 49 por
+    data, e o primeiro cego era a posicao 51. Cada canal media so os 4 a 6
+    videos SEUS que cabiam nessa janela, e tentava medir ~44 de outros canais,
+    que falham por permissao gastando cota do YouTube.
+    """
+    store = Store(tmp_path / "t.db")
+    base = datetime.now(timezone.utc)
+    # 60 videos de OUTRO canal, todos mais recentes, para encher a janela de 50.
+    for i in range(60):
+        store.salvar(
+            _video(
+                f"outro-{i:03d}",
+                canal="outro-canal",
+                status=Status.PUBLICADO,
+                youtube_id=f"yt-outro-{i:03d}",
+                criado_em=base - timedelta(minutes=i),
+            )
+        )
+    # e 3 do canal que nos interessa, mais antigos — fora dos 50 mais recentes.
+    for i in range(3):
+        store.salvar(
+            _video(
+                f"meu-{i}",
+                canal="meu-canal",
+                status=Status.PUBLICADO,
+                youtube_id=f"yt-meu-{i}",
+                criado_em=base - timedelta(days=10, minutes=i),
+            )
+        )
+
+    # O caminho antigo nao acha nenhum: os 50 mais recentes sao todos do outro.
+    antigos = [v for v in store.listar(Status.PUBLICADO) if v.canal == "meu-canal"]
+    assert antigos == [], "o teste nao reproduz o defeito"
+
+    # O caminho novo acha os tres.
+    meus = store.publicados_do_canal("meu-canal")
+    assert {v.slug for v in meus} == {"meu-0", "meu-1", "meu-2"}
+    assert all(v.canal == "meu-canal" for v in meus)
