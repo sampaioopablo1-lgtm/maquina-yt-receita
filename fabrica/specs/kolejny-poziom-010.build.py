@@ -215,6 +215,23 @@ ORCAMENTO (medido no arquivo pronto, nunca antes — aprendizado 436).
      cena que faltava — que essas kwotas sao MENSAIS e no ano viram quase seis
      mil zlotys na primeira faixa e quase dezoito mil na terceira.
 
+DEPOIS DO RENDER — o que realmente saiu (medido, nao previsto)
+
+  longo real ............. 808,8 s = 13:28   (previsto cru: 808,2 s)
+  short real ............. 39,3 s            (previsto: 41,9 s)
+
+  O modelo CRU errou 0,6 s em 808 — 0,07%. Eu, no entanto, anunciei 13:16,
+  porque apliquei por cima o "vies registrado" do Marek, de -1,5%. Esse ajuste
+  nao melhorou nada: piorou em 12,8 s.
+
+  E a terceira medicao seguida a dizer a mesma coisa. Antonio previu 530,1 e
+  saiu 528,7; Andrew previu 776,9 e saiu 781,0; Marek previu 808,2 e saiu
+  808,8. O modelo de dois termos erra no maximo 0,53% em longo, e o vies por
+  voz, aplicado por cima, PIORA a previsao em dois dos tres casos. Virou o
+  aprendizado 454: em longo, use `duracao_estimada` crua e pare de corrigir.
+  O VIES_SHORT continua valendo — aquele foi medido em short, e o short saiu
+  6,2% abaixo do previsto, o que e outra conversa.
+
 CAPITULOS abrem sempre em layout `titulo` (aprendizado 388).
 
 ACENTUACAO: o portao de ortografia me pegou no pacote anterior por escrever
