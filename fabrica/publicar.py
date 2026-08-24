@@ -374,6 +374,29 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
     pacote = sp.get("pacote") or sp["slug"]
     hoje = time.strftime("%Y-%m-%d", time.gmtime())
     base = f"{sb_url}/storage/v1/object/public/videos-maquina/{hoje}-{pacote}"
+
+    def _existe(url: str) -> bool:
+        """A URL do Storage e montada por CONVENCAO DE NOME, nao por resposta.
+
+        Isso valia enquanto a entrega no Storage era pre-requisito da
+        publicacao. Deixou de valer em 24/08/2026, quando o bucket estourou a
+        cota do plano (HTTP 402) e o passo de entrega passou a poder falhar sem
+        derrubar a publicacao — que e o certo, porque subir no YouTube nao
+        depende do Storage.
+
+        Sem esta conferencia, o registro gravaria uma URL que aponta para nada,
+        e o aprendizado "presenca de artefato se prova por supabase_url, nao
+        por nome de arquivo" viraria mentira: a coluna diria que o arquivo esta
+        la justamente quando ele nao esta. Melhor NULL honesto que link morto.
+        """
+        try:
+            req = urllib.request.Request(url, method="HEAD")
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return 200 <= r.status < 300
+        except Exception as e:
+            print(f"storage ausente para {url.rsplit('/', 1)[-1]}: {e}")
+            return False
+
     linhas = []
     if saida.get("longo"):
         linhas.append({
@@ -382,7 +405,7 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
             "duracao_s": longo_s, "duracao_short_s": curto_s,
             "cenas": len(sp.get("longo") or []),
             "capitulos": len(re.findall(r"^\d{1,3}:\d{2}\b", cp["descricao"], re.M)),
-            "supabase_url": f"{base}-video.mp4",
+            "supabase_url": (u if _existe(u := f"{base}-video.mp4") else None),
         })
     if saida.get("short"):
         linhas.append({
@@ -391,7 +414,7 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
             "youtube_id": saida["short"],
             "duracao_s": curto_s, "duracao_short_s": curto_s,
             "cenas": len(sp.get("short") or []), "capitulos": 0,
-            "supabase_url": f"{base}-short.mp4",
+            "supabase_url": (u if _existe(u := f"{base}-short.mp4") else None),
         })
     for l in linhas:
         l.update({"canal": canal, "pacote": pacote,

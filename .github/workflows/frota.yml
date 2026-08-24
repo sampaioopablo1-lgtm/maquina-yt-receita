@@ -300,26 +300,60 @@ jobs:
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python3 fabrica/etapas.py spec.json
 
+      # A ENTREGA NO STORAGE NAO PODE DERRUBAR A PUBLICACAO.
+      #
+      # Ate 24/08/2026 este passo usava `set -e` + `curl --fail`, entao qualquer
+      # erro matava o job — e o passo seguinte, que publica no YouTube, era
+      # PULADO. Naquele dia o bucket estourou a cota do plano e passou a
+      # devolver HTTP 402: o video renderizava, gastava treze minutos de runner,
+      # e nao ia ao ar. O pior desfecho possivel, porque nada se aproveitava.
+      #
+      # Subir no YouTube nao depende do Storage: o `publicar.py` le os arquivos
+      # do disco do runner, que ja estao prontos aqui. O Storage e ponte para o
+      # Drive, e ponte quebrada nao justifica jogar fora a carga.
+      #
+      # Entao o passo passa a tolerar falha e a GRITAR, em vez de matar. O 402
+      # ganha mensagem propria porque a acao dele e outra: nao adianta
+      # retentar, alguem precisa liberar espaco ou subir o plano.
       - name: Entregar no Storage
+        id: storage
+        continue-on-error: true
         env:
           SB: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
           D="/tmp/f/${{ matrix.pacote }}"
           HOJE=$(date -u +%F)
+          FALHAS=0
+          COTA=0
           for par in video.mp4:video/mp4 short.mp4:video/mp4 thumbnail.png:image/png legendas.srt:text/plain; do
             arq="${par%%:*}"; mime="${par##*:}"
             [ -f "$D/$arq" ] || continue
-            curl -sS --fail -X POST \
+            CODIGO=$(curl -sS -o /dev/null -w '%{http_code}' -X POST \
               "$SB/storage/v1/object/videos-maquina/$HOJE-${{ matrix.pacote }}-$arq" \
               -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
-              -H "Content-Type: $mime" --data-binary @"$D/$arq" --max-time 300 >/dev/null
-            echo "entregue: $arq"
+              -H "Content-Type: $mime" --data-binary @"$D/$arq" --max-time 300)
+            if [ "$CODIGO" -ge 200 ] && [ "$CODIGO" -lt 300 ]; then
+              echo "entregue: $arq"
+            else
+              echo "::warning::falha ao entregar $arq no Storage — HTTP $CODIGO"
+              FALHAS=$((FALHAS+1))
+              [ "$CODIGO" = "402" ] && COTA=1
+            fi
           done
+          if [ "$COTA" = "1" ]; then
+            echo "::error::Storage devolveu HTTP 402 (Payment Required): a COTA do bucket videos-maquina acabou. Retentar nao resolve — e preciso liberar espaco ou subir o plano. A publicacao segue mesmo assim, e o registro grava supabase_url NULO para o que nao subiu."
+          elif [ "$FALHAS" -gt 0 ]; then
+            echo "::error::$FALHAS arquivo(s) nao subiram no Storage. A publicacao segue; o Drive e que fica sem fonte."
+          fi
+          echo "falhas=$FALHAS" >> "$GITHUB_OUTPUT"
 
+      # `always()` de proposito: o passo acima pode ter falhado, e ainda assim
+      # este tem de rodar. Sem isso o GitHub pula qualquer passo depois de uma
+      # falha, que foi exatamente o que aconteceu no run 32786650100.
       - name: Publicar no YouTube
-        if: ${{ inputs.publicar }}
+        if: ${{ always() && inputs.publicar }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
