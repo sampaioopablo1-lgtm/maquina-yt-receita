@@ -439,23 +439,41 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
     return linhas
 
 
-def atualizar_descricao(acc, video_id, nova):
+def atualizar_descricao(acc, video_id, nova, idioma):
     """videos.update exige o snippet INTEIRO — mandar so a descricao apaga
-    titulo, tags e categoria. Por isso le antes."""
+    titulo, tags e categoria. Por isso le antes.
+
+    O `idioma` nao e enfeite: reler-e-reenviar PRESERVA o que estiver la, e o
+    que estiver la pode estar errado. Em 24/08/2026 uma correcao de descricao
+    feita pelo wrapper YOUTUBE_UPDATE_VIDEO do Composio trocou o
+    defaultAudioLanguage do kolejny-poziom-010 de `pl` para `en-US` sem pedir
+    nada: aquele wrapper so aceita title/description/tags/category/privacy e
+    preenche o resto por conta propria. Um video polones marcado como ingles
+    entra na recomendacao errada e vira candidato a dublagem automatica.
+
+    Por isso o reparo REAFIRMA o idioma em vez de herdar: o caminho de
+    publicacao ja grava os dois campos a partir de `idioma`, e o caminho de
+    reparo passa a garantir o mesmo invariante. Vale o mesmo aprendizado do
+    default "en": nao existe idioma seguro por omissao.
+    """
     atual = json.load(_req(f"{API}/videos?part=snippet&id={video_id}",
                            headers={"Authorization": "Bearer " + acc}))
     itens = atual.get("items") or []
     if not itens:
         return f"{video_id} nao existe ou nao e deste canal"
     snip = itens[0]["snippet"]
-    if snip.get("description") == nova:
+    torto = (snip.get("defaultLanguage") != idioma
+             or snip.get("defaultAudioLanguage") != idioma)
+    if snip.get("description") == nova and not torto:
         return "ja estava certa"
     snip["description"] = nova
+    snip["defaultLanguage"] = idioma
+    snip["defaultAudioLanguage"] = idioma
     _req(f"{API}/videos?part=snippet",
          data=json.dumps({"id": video_id, "snippet": snip}).encode(), method="PUT",
          headers={"Authorization": "Bearer " + acc,
                   "Content-Type": "application/json; charset=UTF-8"})
-    return "ok"
+    return "ok (idioma reafirmado)" if torto else "ok"
 
 
 def _sem_placeholder(texto, esperado_em):
@@ -567,7 +585,7 @@ def meta_video(titulo, descricao, tags, idioma, publico=True):
     }
 
 
-def reparar(args, sp, d, sb_url, sb_key):
+def reparar(args, sp, d, sb_url, sb_key, idioma):
     """Conserta a descricao de um pacote ja publicado, sem re-renderizar.
 
     Existe porque em 13/08/2026 o seviye-seviye-002 subiu com "{CAPITULOS}"
@@ -601,13 +619,13 @@ def reparar(args, sp, d, sb_url, sb_key):
         desc = cp["descricao"]
         if alvos.get("short"):
             desc += f"\n\nVersao curta: https://youtube.com/shorts/{alvos['short']}"
-        saida["longo"] = atualizar_descricao(acc, alvos["longo"], desc)
+        saida["longo"] = atualizar_descricao(acc, alvos["longo"], desc, idioma)
         print("LONGO:", alvos["longo"], "->", saida["longo"])
     if alvos.get("short"):
         curta = cp["descricao"].split("\n\n")[0]
         if alvos.get("longo"):
             curta += f"\n\nhttps://youtu.be/{alvos['longo']}"
-        saida["short"] = atualizar_descricao(acc, alvos["short"], curta)
+        saida["short"] = atualizar_descricao(acc, alvos["short"], curta, idioma)
         print("SHORT:", alvos["short"], "->", saida["short"])
 
     print(json.dumps(saida))
@@ -660,7 +678,7 @@ def main():
         )
 
     if args.reparar:
-        return reparar(args, sp, d, sb_url, sb_key)
+        return reparar(args, sp, d, sb_url, sb_key, idioma)
 
     # Conferencia ANTECIPADA do nome do pacote.
     #
