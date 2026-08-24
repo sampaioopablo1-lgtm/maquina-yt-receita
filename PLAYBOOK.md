@@ -794,6 +794,12 @@ do limite anti-spam de 2 longos/dia/canal.
 > O contexto que torna isso mais do que uma preferência: das ~4.029 views de
 > `kolejny-poziom`, ~3.100 são **cinco cópias do mesmo short** publicadas em cinco dias
 > seguidos pelo cron. O ritmo antigo não produzia mais alcance, produzia mais duplicata.
+>
+> **O teto mora em dois lugares, e os dois foram mudados** — `fabrica/orquestra.py`
+> (`MAX_POR_DIA_POR_CANAL = 1`) e `v_maquina_fila.pode_produzir` (`pacotes_24h < 1`).
+> Deixar a regra só no prompt faria ela valer apenas quando alguém produz à mão: quem
+> despacha sozinho a cada 15 min é o `proximo`, pelo `diario.yml`, e o teto dele era 5.
+> Regra para automação desacompanhada tem de **bloquear** (aprendizado 452).
 
 O que separa a linha 1 da linha 2 é orçamento de minutos do Actions, não código. O repo é
 **privado**: 2.000 min/mês grátis, e um pacote custa ~25 min num runner de 2 vCPU. Para

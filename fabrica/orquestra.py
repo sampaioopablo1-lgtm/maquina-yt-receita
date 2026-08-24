@@ -41,14 +41,21 @@ SPECS = os.path.join(RAIZ, "fabrica", "specs")
 sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 
 META_POR_CANAL = 10       # longos publicados por canal
-MAX_POR_DIA_POR_CANAL = 5  # PACOTES/dia/canal — 5 longos + 5 shorts = 10 videos
-# Subiu de 3 para 5 em 20/08/2026, a pedido do dono. O numero conta PACOTE,
-# nao video: cada pacote e um longo mais um short.
+MAX_POR_DIA_POR_CANAL = 1  # PACOTES/dia/canal — 1 longo + 1 short por dia
+# 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, as duas vezes a pedido do dono.
+# O numero conta PACOTE, nao video: cada pacote e um longo mais um short.
 #
-# Este teto nao e o que limita a producao hoje. Em 20/08 oito dos treze
-# canais tinham ZERO spec pendente, entao a frota publicava dois pacotes e
-# parava — por falta do que publicar, nao por trava. Subir o teto so muda
-# alguma coisa depois que houver spec para preencher a vaga.
+# A decisao de 24/08 foi "apenas 1 video longo por canal por dia, todos os
+# dias", e ela precisa morar AQUI, nao so no prompt da rotina. A rotina e lida
+# por quem produz a mao; o `proximo` e quem despacha sozinho a cada 15 min pelo
+# diario.yml. Enquanto o teto do codigo era 5, a regra do dono valia so quando
+# alguem estava olhando — e ja existe aprendizado registrado dizendo que regra
+# para automacao desacompanhada tem de BLOQUEAR, porque alerta so serve quando
+# alguem le.
+#
+# O que motivou a queda: das ~4.029 views do kolejny-poziom, ~3.100 sao CINCO
+# COPIAS do mesmo short publicadas em cinco dias seguidos. O teto alto nao
+# estava produzindo mais alcance, estava produzindo mais duplicata.
 
 
 # --------------------------------------------------------------------- estado
