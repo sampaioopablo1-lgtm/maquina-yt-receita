@@ -163,6 +163,20 @@ A ultima cena antes de um capitulo novo termina em pergunta, dois-pontos ou reti
 
 ## Pauta
 
+### Um canal inteiro pode ser um short so — meca por FORMATO antes de acreditar no total
+`kolejny-poziom` parecia o melhor canal da frota com 4.029 views. Cerca de 3.100 delas sao **cinco copias do mesmo short**, publicadas em cinco dias seguidos pelo cron. O gancho que vende ali e um so: perda pessoal datada, expressa como porcentagem do dinheiro do proprio espectador. Titulo neutro morre em qualquer formato.
+
+> **shorts_zus_v/d**: 128,00 · 73,75 · 63,20 · 58,57 · 31,60 (7-10 dias) · **segundo short distinto**: 22,60 · **titulos neutros**: "Trzy liczby, ktore ustawiaja twoje finanse" 0,00 · "OC najtansze od dwoch lat" 0,00 · **fator**: 5,7x
+
+`aplicado_em:` PLAYBOOK.md secao 2.0 · aprendizado 448
+
+### Os longos de kolejny-poziom nao pagam, e o veredito do canal escondia isso
+Mediana ~1,4 views/dia, melhor longo da historia 6,17 v/d, cinco longos zerados. O melhor longo tem 37 views em 6 dias; o melhor short tem 1.152 em 9. O canal e classificado `liberado` por volume de views do canal inteiro — volume que vem de short duplicado.
+
+> **longos 5-6d**: 6,17 · 2,83 · 1,40 · 0,60 · 0,00 · **longos 12-13d**: 1,46 · 0,00 · 0,00 · 0,00
+
+`aplicado_em:` rotina PASSO 0A · aprendizado 449
+
 ### O formato morto costuma ser o que o proprio canal ja publicou
 Antes de escolher a pauta, medir o formato do video anterior DO PROPRIO CANAL contra o grupo de pares. Em 5 de 5 canais medidos ele era o formato morto.
 
@@ -215,6 +229,13 @@ Nunca citar valor unico de overdraft/NSF sem checar o ano. Eu tinha escrito "the
 ---
 
 ## Roteiro
+
+### Quando o dado nao fala, a decisao correta e NAO agir
+Em `kolejny-poziom` os longos rendem mal, e a conclusao facil seria encurta-los ao piso de 8 min. Mas duracao nao explica nada naquele canal: o melhor longo tem 777,3 s e um dos zerados tem 781,1 s, sem qualquer monotonia entre os nove. Encurtar seria palpite vestido de dado. Ler o canal antes de produzir serve tambem para segurar a mao.
+
+> **duracao_s -> v/d**: 686,6→0,00 · 732,8→1,40 · 756,4→0,60 · 759→1,46 · 772,7→0,00 · 777,3→**6,17** · 781,1→0,00 · 803,3→0,00 · 838,7→2,83
+
+`aplicado_em:` PLAYBOOK.md secao 2.0 · aprendizado 451
 
 ### O vencedor fala COM o espectador; os meus descrevem um objeto
 Titulo do vencedor: "Tres habitos pequenos que estao secretamente drenando o SEU salario" — segunda pessoa, problema sentido, ameaca implicita. Os meus: "Lista exata para sete dias", "Quatro pilares: a ordem que decide", "Cem mil por dia: oito anos ou dezesseis?". Descrevem um artefato ou fazem uma pergunta analitica. A diferenca nao e qualidade de escrita, e para quem a frase e dirigida. Pelo menos o gancho e o titulo do short precisam voltar para a segunda pessoa e para uma dor que o espectador reconhece em si.
@@ -494,6 +515,13 @@ O `nivel-do-jogo` entrou na lista de canais cujo `thumbnails/set` devolve 403 po
 ---
 
 ## Processo
+
+### Veredito de canal precisa ser calculado por FORMATO, nao por canal
+`v_maquina_licoes` soma views do canal inteiro. Com short duplicado inflando o total, o canal recebe veredito `liberado` e a rotina passa a produzir longo de 12-15 min num canal onde o longo tem mediana de 1,4 v/d. O short esta liberado; o longo esta suspenso. Sao vereditos diferentes e hoje saem como um so.
+
+> **canal**: kolejny-poziom · **veredito**: liberado · **views_canal**: 4.029 · **views de um unico short duplicado**: ~3.100 · **mediana v/d do longo**: 1,4 · **status**: candidato — mexer na view e decisao do Pablo
+
+`aplicado_em:` aprendizado 450 (candidato)
 
 ### Cano com `tail` engole o codigo de saida do pytest — verde falso
 `pytest -q 2>&1 | tail -6` sai com **código 0 mesmo com testes vermelhos**: o código de saída de um pipeline é o do último comando, e `tail` sempre sai 0. Uma rodada com 2 falhas foi anunciada como "exit code 0" e quase virou push. Rode a suíte sem cano, ou com `set -o pipefail`, e leia a **linha de resumo** — nunca o código de saída do pipeline.
