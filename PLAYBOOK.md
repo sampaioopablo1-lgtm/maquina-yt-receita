@@ -248,6 +248,39 @@ cota, mesma exigência. Detalhes e a tabela comparativa em `docs/16-cota-de-uplo
 
 ## 2. Pauta — a parte que decide o resultado
 
+### 2.0 — Leia o canal antes de produzir (obrigatório desde 24/08)
+
+**Pedido do Pablo, 24/08: antes de qualquer produção, verificar os dados do canal — o
+que deu certo — e ajustar a partir disso.** Vem antes da pesquisa de pauta, não depois.
+Produzir sem esta etapa está proibido.
+
+1. `select * from v_maquina_licoes where canal='<canal>'` — pegue o veredito e obedeça:
+   `liberado` = 12-15 min cheios · `suspenso` = longo no piso de 8 min e o melhor
+   material no short · `canal frio` = arrisque eixo novo · `sem dado` = trate como frio.
+2. Puxe os vídeos **já publicados deste canal** (`videos` com `youtube_id` não nulo) e
+   junte as views de `metricas` por `youtube_id`. Calcule **views/dia**. Compare só entre
+   vídeos de idade parecida, e nunca conclua nada com menos de 48h de vida.
+3. Escreva **três frases explícitas** antes de abrir a pesquisa: o que deu certo (formato,
+   faixa de duração, forma do título, eixo), o que não deu, e **o que muda neste pacote
+   por causa disso**. Vão no docstring da spec e viram linha em `aprendizados`.
+4. O pacote novo **copia o que mediu melhor neste canal** e para de repetir o que mediu
+   pior. Se o melhor e o pior diferem em algo mensurável, essa diferença manda na decisão
+   — acima do gosto.
+5. Sem dado suficiente para (2), diga isso em uma linha e trate o canal como frio. Não
+   pule a etapa em silêncio.
+
+**O que essa etapa já pegou, na primeira vez que rodou** (`kolejny-poziom`, 24/08):
+o canal parecia o melhor da frota, veredito `liberado`, 4.029 views. Medido por formato,
+~3.100 dessas views são cinco cópias de um único short, os longos têm mediana ~1,4 v/d e
+cinco estão zerados. O veredito estava lendo o canal inteiro e promovendo o formato
+errado (aprendizados 448-450).
+
+**E o que ela impediu**: a conclusão fácil seria encurtar o longo. Mas duração não explica
+nada nesse canal — o melhor longo tem 777,3 s e um dos zerados tem 781,1 s. A etapa serve
+para agir por dado, o que inclui **não agir** quando o dado não fala (aprendizado 451).
+
+### 2.1 — A ordem da pesquisa
+
 A ordem importa. Quem inverte produz vídeo bonito que ninguém assiste.
 
 1. **Consulte o acervo antes de pesquisar.** `v_maquina_formatos` já pode responder.
@@ -750,7 +783,17 @@ da cota:
 | teto da cota | 50 | 100 | 100% |
 
 O teto de 100 **não é alcançável hoje** e nem é o alvo certo: 4 pacotes/dia/canal passa
-do limite anti-spam de 2 longos/dia/canal. O alvo é 2 pacotes/dia/canal.
+do limite anti-spam de 2 longos/dia/canal.
+
+> **Ritmo, decidido pelo Pablo em 24/08: UM vídeo longo por canal por dia, todos os dias.**
+> Substitui o alvo anterior de 2-3 pacotes/dia/canal, e não é teto ocioso — é meta: todo
+> canal ativo deve receber o seu longo do dia. Dois pacotes no mesmo canal no mesmo dia
+> estão proibidos, mesmo que sobre tempo na rodada. Na fila, pule qualquer canal cujo
+> `ultimo_pacote_em` seja de hoje.
+>
+> O contexto que torna isso mais do que uma preferência: das ~4.029 views de
+> `kolejny-poziom`, ~3.100 são **cinco cópias do mesmo short** publicadas em cinco dias
+> seguidos pelo cron. O ritmo antigo não produzia mais alcance, produzia mais duplicata.
 
 O que separa a linha 1 da linha 2 é orçamento de minutos do Actions, não código. O repo é
 **privado**: 2.000 min/mês grátis, e um pacote custa ~25 min num runner de 2 vCPU. Para

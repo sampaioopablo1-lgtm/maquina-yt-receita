@@ -1,0 +1,697 @@
+{
+  "slug": "kolejny-poziom",
+  "pacote": "kolejny-poziom-010",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#14213D",
+    "c1": "#FCA311",
+    "c2": "#E5E5E5",
+    "bg": "#F7F5F0"
+  },
+  "thumb": {
+    "l1": "jeden złoty",
+    "l2": "3986 zł kary"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Jeden złoty",
+      "sub": "prawie cztery tysiące",
+      "nar": "Jest w polskim systemie podatkowym punkt, w którym zafakturowanie jednego złotego więcej kosztuje przedsiębiorcę prawie cztery tysiące złotych. Nie przenośnia, tylko arytmetyka, i zaraz ją pokażę.",
+      "cap": "Jeden złoty, prawie cztery tysiące"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To nie jest luka",
+      "sub": "to jest konstrukcja",
+      "nar": "Zaznaczam od razu: to nie jest luka w przepisach ani nic nielegalnego. To jest sposób, w jaki przepis został zbudowany, i jest jawny od początku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Rzecz dotyczy",
+      "preco": "składki zdrowotnej na ryczałcie",
+      "nar": "Chodzi o składkę zdrowotną na ryczałcie od przychodów ewidencjonowanych, czyli o formę, którą wybiera bardzo wielu jednoosobowych przedsiębiorców.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Powód jest prosty",
+      "sub": "składka nie rośnie płynnie",
+      "nar": "Powód całego zjawiska jest jeden: na ryczałcie składka zdrowotna nie rośnie razem z przychodem. Ona stoi w miejscu, a potem skacze.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Trzy progi w 2026",
+      "itens": [
+        "do 60 000 zł",
+        "od 60 000 do 300 000 zł",
+        "powyżej 300 000 zł"
+      ],
+      "nar": "W dwa tysiące dwudziestym szóstym roku progi są trzy, i wyznacza je przychód roczny. Pierwszy sięga sześćdziesięciu tysięcy złotych.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Drugi i trzeci",
+      "sub": "trzysta tysięcy jest drugą granicą",
+      "nar": "Drugi ciągnie się od sześćdziesięciu tysięcy do trzystu tysięcy. Trzeci zaczyna się powyżej trzystu tysięcy i nie ma już górnego końca.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Skąd te kwoty",
+      "preco": "9 228,64 zł podstawy",
+      "nar": "Zanim podam stawki, powiem skąd one się biorą, bo to zmienia sposób patrzenia na nie. Wszystkie trzy są procentem jednej liczby ogłaszanej przez Główny Urząd Statystyczny.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Obwieszczenie GUS",
+      "preco": "22 stycznia 2026",
+      "nar": "Tą liczbą jest przeciętne miesięczne wynagrodzenie w sektorze przedsiębiorstw w czwartym kwartale poprzedniego roku. Dla dwa tysiące dwudziestego szóstego wyniosło dziewięć tysięcy dwieście dwadzieścia osiem złotych i sześćdziesiąt cztery grosze.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Podstawa progu",
+      "itens": [
+        "I próg — 60% przeciętnego",
+        "II próg — 100%",
+        "III próg — 180%"
+      ],
+      "nar": "Pierwszy próg liczy się od sześćdziesięciu procent tej kwoty, drugi od stu procent, trzeci od stu osiemdziesięciu. A sama składka to dziewięć procent tak ustalonej podstawy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To znaczy jedno",
+      "sub": "nikt nie wybiera tych kwot co roku",
+      "nar": "Warto to zapamiętać, bo wynika z tego coś nieoczywistego. Tych kwot nikt nie ustala osobno co roku. One same jadą w górę razem ze statystyką płac, niezależnie od tego, jak idzie twojej firmie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Skoro znasz podstawę",
+      "sub": "oto trzy kwoty",
+      "nar": "Skoro wiesz już, od czego się to liczy, mogę podać trzy konkretne kwoty. To jest cała tabela na ten rok, i warto ją znać na pamięć.",
+      "cap": "Trzy kwoty na 2026"
+    },
+    {
+      "layout": "item",
+      "kicker": "Pierwszy próg",
+      "preco": "czterysta dziewięćdziesiąt osiem złotych",
+      "nar": "W pierwszym progu składka wynosi czterysta dziewięćdziesiąt osiem złotych trzydzieści pięć groszy miesięcznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I to bez znaczenia",
+      "sub": "czy zarobiłeś dziesięć tysięcy, czy pięćdziesiąt dziewięć",
+      "nar": "Tyle samo płaci ten, kto zafakturował dziesięć tysięcy w skali roku, i ten, kto zafakturował pięćdziesiąt dziewięć. Próg nie zna niczego pomiędzy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Drugi próg",
+      "preco": "osiemset trzydzieści złotych",
+      "nar": "W drugim progu jest to osiemset trzydzieści złotych pięćdziesiąt osiem groszy miesięcznie, i znowu tyle samo dla całej szerokości progu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Trzeci próg",
+      "preco": "tysiąc czterysta dziewięćdziesiąt pięć złotych",
+      "nar": "W trzecim progu tysiąc czterysta dziewięćdziesiąt pięć złotych cztery grosze miesięcznie, i tu już bez górnej granicy przychodu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To są kwoty miesięczne",
+      "sub": "policz je na rok",
+      "nar": "Pamiętaj tylko, że to są kwoty miesięczne, więc na rok wyglądają zupełnie inaczej. W pierwszym progu wychodzi z tego blisko sześć tysięcy złotych rocznie. W trzecim prawie osiemnaście tysięcy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zauważ, co to znaczy",
+      "sub": "wewnątrz progu nic się nie dzieje",
+      "nar": "Zwróć uwagę, co z tego wynika. Wewnątrz progu możesz zwiększyć przychód wielokrotnie i składka nie drgnie ani o złotówkę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ale na granicy",
+      "sub": "dzieje się wszystko naraz",
+      "nar": "Ale na samej granicy dzieje się wszystko naraz, i to jest miejsce, w którym ten film się zaczyna.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Druga część",
+      "sub": "reguła, którą łatwo przeoczyć",
+      "nar": "Sam skok między progami to jeszcze nie byłby dramat. Dramat robi druga zasada, którą bardzo łatwo przeoczyć przy pierwszym czytaniu przepisu.",
+      "cap": "Pułapka retroaktywna"
+    },
+    {
+      "layout": "item",
+      "kicker": "Jeśli przekroczysz próg",
+      "preco": "w trakcie roku",
+      "nar": "Jeśli twój przychód przekroczy próg w trakcie roku, składka za miesiące wcześniejsze nie zostaje taka, jaka była.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ona jest przeliczana",
+      "sub": "według progu z całego roku",
+      "nar": "Ona zostaje przeliczona według progu, w którym wylądował twój przychód roczny. Wstecz, za wszystkie dwanaście miesięcy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "I to nie w grudniu",
+      "preco": "tylko w rozliczeniu rocznym",
+      "nar": "Powiem od razu, kiedy to się dzieje, bo tu wielu daje się zaskoczyć. Różnicy nie dopłacasz w grudniu. Wychodzi ona dopiero w rocznym rozliczeniu składki zdrowotnej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Termin",
+      "preco": "dwudziesty maja następnego roku",
+      "nar": "To rozliczenie składasz w deklaracji za kwiecień, z terminem do dwudziestego maja następnego roku. Wtedy też płacisz to, czego zabrakło.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zwróć uwagę na odstęp",
+      "sub": "faktura w grudniu, rachunek w maju",
+      "nar": "Zwróć uwagę, co to oznacza w praktyce. Fakturę wystawiasz w grudniu, a rachunek za nią przychodzi pięć miesięcy później, kiedy tamtych pieniędzy dawno już nie ma na koncie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Czyli nie płacisz więcej",
+      "sub": "od momentu przekroczenia",
+      "nar": "Czyli nie jest tak, że od momentu przekroczenia płacisz więcej. Jest tak, że płacisz więcej za cały rok, łącznie z miesiącami, w których przychód był jeszcze niski.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "I dlatego",
+      "preco": "grudzień decyduje o styczniu",
+      "nar": "I właśnie dlatego to, co zafakturujesz w grudniu, decyduje o tym, ile kosztował cię styczeń. W normalnym rozumieniu czasu to nie ma prawa działać, a jednak działa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Policzmy pierwszy próg",
+      "sub": "sześćdziesiąt tysięcy",
+      "nar": "Policzmy więc pierwszy próg. Załóżmy, że przez jedenaście miesięcy twój przychód idzie w stronę pięćdziesięciu dziewięciu tysięcy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Płacisz przez cały rok",
+      "preco": "czterysta dziewięćdziesiąt osiem złotych",
+      "nar": "Płacisz czterysta dziewięćdziesiąt osiem złotych trzydzieści pięć groszy miesięcznie i wszystko się zgadza.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I w grudniu",
+      "sub": "wystawiasz jedną fakturę",
+      "nar": "I w grudniu wystawiasz jedną fakturę, która przenosi cię o jeden złoty za próg sześćdziesięciu tysięcy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "Rok wcześniej i po",
+      "itens": [
+        "498,35",
+        "830,58"
+      ],
+      "alturas": [
+        33,
+        55
+      ],
+      "nar": "Od tej chwili cały rok liczy się po osiemset trzydzieści złotych pięćdziesiąt osiem groszy. Różnica to trzysta trzydzieści dwa złote dwadzieścia trzy grosze na każdym z dwunastu miesięcy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Razem",
+      "preco": "trzy tysiące dziewięćset osiemdziesiąt sześć złotych",
+      "nar": "Razem trzy tysiące dziewięćset osiemdziesiąt sześć złotych siedemdziesiąt sześć groszy. Za jednego złotego przychodu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A teraz drugi próg",
+      "sub": "i on jest gorszy",
+      "nar": "A teraz zróbmy dokładnie to samo na drugiej granicy, bo tam ta sama mechanika daje liczbę dwa razy większą.",
+      "cap": "Drugi próg jest gorszy"
+    },
+    {
+      "layout": "item",
+      "kicker": "Granica",
+      "preco": "trzysta tysięcy złotych",
+      "nar": "Granica to trzysta tysięcy złotych rocznego przychodu, i powyżej niej składka wynosi tysiąc czterysta dziewięćdziesiąt pięć złotych cztery grosze miesięcznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Różnica na miesiąc",
+      "sub": "sześćset sześćdziesiąt cztery złote",
+      "nar": "Różnica wobec drugiego progu to sześćset sześćdziesiąt cztery złote czterdzieści sześć groszy miesięcznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Razy dwanaście",
+      "preco": "siedem tysięcy dziewięćset siedemdziesiąt trzy złote",
+      "nar": "Pomnóż to przez dwanaście miesięcy. Wychodzi siedem tysięcy dziewięćset siedemdziesiąt trzy złote i pięćdziesiąt dwa grosze.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Czyli dwa razy tyle",
+      "sub": "co na pierwszej granicy",
+      "nar": "To jest dokładnie dwa razy więcej niż na pierwszej granicy, i z tego samego powodu: druga podstawa jest o tyle wyższa od pierwszej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Znowu za jednego złotego",
+      "sub": "przychodu ponad próg",
+      "nar": "Znowu za jednego złotego przychodu ponad próg, jeśli ten złoty pojawi się pod koniec roku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nazwijmy to wprost",
+      "sub": "to jest przepaść, nie schodek",
+      "nar": "Nazwijmy więc rzecz po imieniu. To nie jest schodek w skali. To są dwie przepaście na drodze, która wygląda na płaską.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co z tego wynika",
+      "itens": [
+        "Przychód rośnie płynnie",
+        "Składka skacze",
+        "Wynik netto potrafi spaść"
+      ],
+      "nar": "Wniosek jest niewygodny: przychód rośnie płynnie, składka skacze, a to znaczy, że twój wynik na rękę potrafi spaść przy rosnącym przychodzie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To jest rzadkie",
+      "sub": "i dlatego zaskakuje",
+      "nar": "W podatkach to rzadkie. Zwykle więcej przychodu oznacza więcej podatku, ale nigdy więcej niż zarobiłeś. Tutaj przez chwilę oznacza mniej pieniędzy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Szerokość tej strefy",
+      "preco": "kilka tysięcy złotych",
+      "nar": "Strefa, w której to się dzieje, ma szerokość kilku tysięcy złotych przychodu tuż nad progiem. Wąska, ale bardzo konkretna.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I nikt cię o niej",
+      "sub": "nie uprzedzi",
+      "nar": "I nikt cię o niej nie uprzedzi w momencie wystawiania faktury, bo faktura nie wie, ile wynosi twój przychód roczny.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zanim policzysz swój próg",
+      "sub": "sprawdź, co się do niego liczy",
+      "nar": "Zanim jednak policzysz, gdzie jesteś, musisz wiedzieć jedną rzecz: do progu nie liczy się dokładnie ten przychód, o którym myślisz.",
+      "cap": "Co naprawdę liczy się do progu"
+    },
+    {
+      "layout": "item",
+      "kicker": "Podstawą jest przychód",
+      "preco": "pomniejszony o składki społeczne",
+      "nar": "Podstawą jest przychód pomniejszony o zapłacone składki na ubezpieczenia społeczne, jeśli nie zaliczyłeś ich wcześniej do kosztów.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To brzmi jak drobiazg",
+      "sub": "a jest dźwignią",
+      "nar": "Brzmi jak techniczny drobiazg, a jest jedyną dźwignią, jaką masz przy samej granicy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bo to znaczy",
+      "sub": "że zapłacone składki obniżają podstawę",
+      "nar": "Znaczy bowiem, że składki, które faktycznie zapłacisz w danym roku, obniżają liczbę porównywaną z progiem.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Druga rzecz",
+      "preco": "pięćdziesiąt procent składki zdrowotnej",
+      "nar": "Druga rzecz, osobna: na ryczałcie odliczasz od przychodu połowę zapłaconej składki zdrowotnej. Nie od podatku, tylko od przychodu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To dwie różne dźwignie",
+      "sub": "i łatwo je pomylić",
+      "nar": "To dwa różne mechanizmy i łatwo je pomylić, więc mówię wyraźnie: jeden dotyczy progu, drugi dotyczy podstawy opodatkowania.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Trzecia rzecz",
+      "sub": "moment zapłaty",
+      "nar": "Trzecia rzecz jest najbardziej praktyczna: liczy się moment faktycznej zapłaty składki, a nie moment jej naliczenia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co możesz kontrolować",
+      "itens": [
+        "Kiedy płacisz składki",
+        "Kiedy wystawiasz fakturę",
+        "Kiedy klient ją opłaca"
+      ],
+      "nar": "Masz więc trzy rzeczy pod kontrolą: kiedy płacisz składki, kiedy wystawiasz fakturę, i w pewnym stopniu kiedy klient ją opłaca.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I to wystarczy",
+      "sub": "przy samej granicy",
+      "nar": "I przy samej granicy to zwykle wystarczy, żeby nie wpaść w przepaść, o której mówiliśmy przed chwilą.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Podkreślam",
+      "preco": "to jest legalne planowanie",
+      "nar": "Podkreślam mocno: mówimy o terminach płatności i fakturowania, czyli o rzeczach jawnych i legalnych. Nie o ukrywaniu przychodu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Piąta część",
+      "sub": "a co z innymi formami",
+      "nar": "Skoro ryczałt zachowuje się w ten sposób, naturalne pytanie brzmi: czy na skali albo na liniowym jest lepiej. Odpowiedź jest: inaczej.",
+      "cap": "A co przy innych formach"
+    },
+    {
+      "layout": "item",
+      "kicker": "Na skali podatkowej",
+      "preco": "składka jest procentem dochodu",
+      "nar": "Na skali podatkowej składka zdrowotna to procent dochodu, więc rośnie płynnie razem z nim. Nie ma progów i nie ma przepaści.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Minimum na skali",
+      "preco": "dziewięć procent płacy minimalnej",
+      "nar": "Jest za to dolna granica: dziewięć procent minimalnego wynagrodzenia, a minimalne wynosi w tym roku cztery tysiące osiemset sześć złotych.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Co daje",
+      "preco": "czterysta trzydzieści dwa złote miesięcznie",
+      "nar": "Z tego wychodzi czterysta trzydzieści dwa złote i pięćdziesiąt cztery grosze miesięcznie, i poniżej tej kwoty nie zejdziesz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Czyli w słabym miesiącu",
+      "sub": "i tak zapłacisz",
+      "nar": "Czyli nawet w miesiącu bez dochodu zapłacisz to minimum. To jest cena płynności, o której mało kto mówi, mówiąc że skala jest bezpieczniejsza.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I jest druga cena",
+      "sub": "o której mówi się jeszcze rzadziej",
+      "nar": "Ale przy skali jest jeszcze druga rzecz, o której mówi się najrzadziej, a która potrafi zaważyć na całym porównaniu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Na skali",
+      "preco": "składki nie odliczysz nigdzie",
+      "nar": "Skala podatkowa jest jedyną formą, w której składki zdrowotnej nie odliczysz w żaden sposób. Ani od dochodu, ani od podatku, ani w kosztach.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porównaj z ryczałtem",
+      "sub": "połowa składki wraca",
+      "nar": "Na ryczałcie połowa zapłaconej składki pomniejsza przychód, na liniowym odliczysz ją do limitu, a na skali nie wraca nic. To znaczy, że płynność skali kosztuje więcej, niż wynika z samej stawki.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Na liniowym",
+      "preco": "limit odliczenia czternaście tysięcy sto",
+      "nar": "Na podatku liniowym istnieje osobny limit: w dwa tysiące dwudziestym szóstym roku odliczysz składkę zdrowotną najwyżej do czternastu tysięcy stu złotych rocznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Powyżej tego limitu",
+      "sub": "składka przestaje się odliczać",
+      "nar": "Powyżej tego limitu składka dalej rośnie, ale przestaje pomniejszać podstawę. To też jest rodzaj progu, tylko łagodniejszy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Wniosek nie jest taki",
+      "sub": "że ryczałt jest zły",
+      "nar": "Wniosek z tego nie jest taki, że ryczałt jest zły. Przy stabilnym przychodzie w środku progu ryczałt bywa najtańszą formą, jaka istnieje.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Wniosek jest inny",
+      "preco": "porównanie zmienia się przy granicy",
+      "nar": "Wniosek jest węższy i ważniejszy: porównanie form opodatkowania zmienia wynik w pobliżu progu, a właśnie tam prawie nikt go nie powtarza.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bo formę wybiera się w styczniu",
+      "sub": "a próg mija się w listopadzie",
+      "nar": "Bo formę opodatkowania wybiera się na początku roku, a próg mija się gdzieś w okolicach listopada, kiedy decyzja jest już nieodwracalna.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I to jest",
+      "sub": "prawdziwy problem",
+      "nar": "I to jest prawdziwy problem tej konstrukcji: decyzja i skutek są od siebie oddalone o jedenaście miesięcy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Szósta część",
+      "sub": "granice tego, co powiedziałem",
+      "nar": "Zanim przejdziemy do tego, co z tym zrobić, muszę wyraźnie powiedzieć, czego te liczby nie obejmują. Inaczej byłyby groźniejsze niż pomocne.",
+      "cap": "Czego te liczby nie mówią"
+    },
+    {
+      "layout": "item",
+      "kicker": "Po pierwsze",
+      "preco": "to nie jest cała składka ZUS",
+      "nar": "Po pierwsze, mówiłem wyłącznie o składce zdrowotnej. Składki społeczne to osobna, duża pozycja i rządzą się własnymi zasadami.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Po drugie",
+      "preco": "stawka ryczałtu zależy od branży",
+      "nar": "Po drugie, sama stawka ryczałtu zależy od rodzaju działalności i waha się bardzo mocno. Dwie firmy o tym samym przychodzie zapłacą różny podatek.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Po trzecie",
+      "sub": "ulgi zmieniają obraz",
+      "nar": "Po trzecie, ulgi i odliczenia potrafią przesunąć całą kalkulację, a ja tu policzyłem czysty przypadek bez żadnych ulg.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Po czwarte",
+      "preco": "progi są roczne, nie miesięczne",
+      "nar": "Po czwarte, progi liczą się od przychodu rocznego. Jeden dobry miesiąc nie przenosi cię do wyższego progu, jeśli rok zamknie się niżej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I najważniejsze",
+      "sub": "to nie zastępuje księgowego",
+      "nar": "I najważniejsze: to nie zastępuje rozmowy z księgowym. Pomyłka o jeden próg kosztuje więcej niż jakiekolwiek honorarium za tę rozmowę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mówię to serio",
+      "sub": "nie z ostrożności",
+      "nar": "Mówię to nie z ostrożności prawnej, tylko dlatego, że policzyliśmy przed chwilą, ile kosztuje pomyłka. Prawie cztery tysiące na pierwszym progu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co jest pewne",
+      "itens": [
+        "Trzy progi i ich kwoty",
+        "Przeliczenie wstecz",
+        "Podstawa po składkach społecznych"
+      ],
+      "nar": "Pewne jest to: trzy progi i ich kwoty, przeliczenie wstecz przy przekroczeniu, i podstawa liczona po zapłaconych składkach społecznych.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Reszta",
+      "sub": "zależy od twojej firmy",
+      "nar": "Cała reszta zależy od tego, czym się zajmujesz i jak wygląda twój rok. I to jest dokładnie ta część, której nie zrobię za ciebie w filmie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Siódma część",
+      "sub": "co z tym zrobić",
+      "nar": "Przejdźmy więc do tego, co możesz zrobić, i zacznijmy od tego, kiedy to trzeba zrobić, bo termin jest tu ważniejszy niż sama czynność.",
+      "cap": "Co zrobić przed grudniem"
+    },
+    {
+      "layout": "item",
+      "kicker": "Termin",
+      "preco": "wcześniej niż myślisz",
+      "nar": "Sprawdzenie ma sens najpóźniej w okolicach października i listopada, kiedy wiesz już mniej więcej, gdzie rok się zamknie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "W grudniu",
+      "sub": "zostają tylko dwie dźwignie",
+      "nar": "W grudniu zostają ci już tylko dwie dźwignie: data wystawienia faktury i data zapłaty składek. Wcześniej masz ich więcej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Trzy kroki",
+      "itens": [
+        "Policz przychód po składkach",
+        "Sprawdź odległość od progu",
+        "Zaplanuj grudzień"
+      ],
+      "nar": "Trzy kroki. Policz przychód pomniejszony o zapłacone składki społeczne. Sprawdź, jak daleko jesteś od progu. I dopiero wtedy zaplanuj grudzień.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Jeśli jesteś tuż pod progiem",
+      "preco": "to jest strefa decyzji",
+      "nar": "Jeśli okaże się, że jesteś kilka tysięcy pod progiem, to jest właśnie ta strefa, w której warto policzyć, zanim wystawisz kolejną fakturę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Czasem odpowiedź brzmi",
+      "sub": "wystaw w styczniu",
+      "nar": "Czasem odpowiedź brzmi po prostu: wystaw tę fakturę w styczniu. Ten sam przychód, inny rok podatkowy, próg nietknięty.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A czasem odpowiedź brzmi",
+      "sub": "przekrocz zdecydowanie",
+      "nar": "A czasem odpowiedź jest odwrotna: jeśli i tak przekroczysz próg, to lepiej przekroczyć go wyraźnie, bo koszt skoku jest stały, a przychód już nie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "To jest sedno",
+      "preco": "koszt skoku jest stały",
+      "nar": "To jest sedno całej sprawy. Koszt przekroczenia progu jest stały i wynosi prawie cztery tysiące. Im więcej zarobisz ponad próg, tym mniej boli.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Najgorsze miejsce",
+      "sub": "to tuż nad progiem",
+      "nar": "Najgorsze miejsce na świecie to jeden złoty ponad progiem. Najlepsze to albo wyraźnie pod nim, albo wyraźnie nad nim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "W następnym odcinku",
+      "sub": "składki społeczne",
+      "nar": "W następnym odcinku wezmę drugą część tej samej opłaty, czyli składki społeczne, i sprawdzę, ile naprawdę kupujesz za to, co co miesiąc płacisz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Jeśli to było przydatne",
+      "sub": "zostaw subskrypcję",
+      "nar": "Jeśli ta kalkulacja była przydatna, zostaw subskrypcję, a w komentarzu napisz, czy trafiłeś kiedyś w ten próg i ile cię to kosztowało.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Jeden złoty",
+      "sub": "prawie cztery tysiące",
+      "nar": "Jest punkt, w którym zafakturowanie jednego złotego więcej kosztuje cię prawie cztery tysiące złotych.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ryczałt",
+      "sub": "składka nie rośnie płynnie",
+      "nar": "Na ryczałcie składka zdrowotna nie rośnie razem z przychodem. Stoi w miejscu, a potem skacze.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Próg",
+      "sub": "sześćdziesiąt tysięcy",
+      "nar": "Przy sześćdziesięciu tysiącach przychodu skacze z czterystu dziewięćdziesięciu ośmiu złotych na osiemset trzydzieści.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I liczy się wstecz",
+      "sub": "za cały rok",
+      "nar": "A po przekroczeniu progu przeliczasz cały rok wstecz, nie tylko miesiące od przekroczenia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Razem",
+      "sub": "trzy tysiące dziewięćset",
+      "nar": "Razem trzy tysiące dziewięćset osiemdziesiąt sześć złotych. Za jednego złotego przychodu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Co z tym zrobić",
+      "sub": "sprawdź w listopadzie",
+      "nar": "Co z tym zrobić i kiedy sprawdzić, tłumaczę na kanale.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Składka na ryczałcie nie rośnie płynnie — ona stoi, a potem skacze\n\n## TITULO\nRyczałt 2026: Jeden Złoty Ponad Progiem Kosztuje Prawie 4000 zł\n\n## DESCRICAO\nW polskim systemie istnieje punkt, w którym zafakturowanie jednego złotego więcej kosztuje przedsiębiorcę prawie cztery tysiące złotych rocznie. To nie jest luka w przepisach ani nic nielegalnego — to sposób, w jaki przepis został zbudowany, jawny od początku. Rzecz dotyczy składki zdrowotnej na ryczałcie od przychodów ewidencjonowanych.\n\nPowód jest jeden: na ryczałcie składka zdrowotna nie rośnie razem z przychodem. W 2026 roku obowiązują trzy progi liczone od rocznego przychodu — do 60 000 zł składka wynosi 498,35 zł miesięcznie, między 60 000 a 300 000 zł jest to 830,58 zł, a powyżej 300 000 zł — 1 495,04 zł. Wewnątrz progu można zwiększyć przychód wielokrotnie i składka nie drgnie. Na granicy dzieje się wszystko naraz.\n\nDramat robi druga zasada, łatwa do przeoczenia: jeśli przychód przekroczy próg w trakcie roku, składka za wcześniejsze miesiące zostaje przeliczona według stawki właściwej dla ostatniego miesiąca roku. Wstecz, za wszystkie miesiące. To, co zafakturujesz w grudniu, decyduje o tym, ile kosztował cię styczeń.\n\nPoliczmy pierwszy próg. Różnica między 498,35 zł a 830,58 zł to 332,23 zł miesięcznie. Razy dwanaście miesięcy — 3 986,76 zł. Za jednego złotego przychodu. Na drugiej granicy ta sama mechanika daje 664,46 zł miesięcznie, czyli 7 973,52 zł rocznie.\n\nFilm pokazuje też, co naprawdę liczy się do progu: podstawą jest przychód pomniejszony o zapłacone składki na ubezpieczenia społeczne, a liczy się moment faktycznej zapłaty, nie naliczenia. To jedyna legalna dźwignia przy samej granicy — mowa o terminach fakturowania i płatności, nie o ukrywaniu przychodu. Osobno omówione jest odliczenie 50% zapłaconej składki zdrowotnej od przychodu.\n\nDla porównania: na skali podatkowej składka to procent dochodu i rośnie płynnie, ale istnieje minimum — 9% minimalnego wynagrodzenia, czyli przy płacy 4 806 zł daje 432,54 zł miesięcznie nawet w miesiącu bez dochodu. Na podatku liniowym limit odliczenia składki w 2026 roku wynosi 14 100 zł rocznie.\n\nWniosek nie brzmi „ryczałt jest zły\". Przy stabilnym przychodzie w środku progu ryczałt bywa najtańszą formą, jaka istnieje. Wniosek jest węższy: porównanie form opodatkowania zmienia wynik w pobliżu progu — a formę wybiera się w styczniu, gdy próg mija się w listopadzie, kiedy decyzja jest już nieodwracalna.\n\nNa końcu konkretna procedura na październik i listopad oraz wyraźna lista tego, czego ten materiał nie obejmuje.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nPytanie do księgowych i do tych, którzy w ten próg kiedyś trafili: jak często w praktyce udaje się zaplanować grudzień tak, żeby zostać pod progiem, a jak często klient płaci wtedy, kiedy chce, i cała kalkulacja bierze w łeb? To jedyna część tego materiału, której nie da się policzyć — zależy od tego, kto komu wystawia fakturę.\n\n## HASHTAGS\n#Ryczałt #SkładkaZdrowotna #KolejnyPoziom\n\n## TAGS\nryczalt 2026, skladka zdrowotna, jdg, dzialalnosc gospodarcza, progi przychodu, zus przedsiebiorcy, podatek liniowy, skala podatkowa, ksiegowosc, finanse firmy, optymalizacja podatkowa, przychod roczny, rozliczenie roczne, jednoosobowa dzialalnosc, podatki w polsce\n\n## CONFIGURACAO DE STUDIO\n- Język: polski (pl-PL) | Kategoria: Edukacja (27)\n- Nie jest treścią dla dzieci\n- Ujawnienie treści zmienionej lub syntetycznej: TAK (głos generowany przez AI)\n- Lokalizacja: Polska | Licencja: standardowa licencja YouTube\n- Reklamy mid-roll: włączone (czas powyżej ośmiu minut)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nStan na 24 sierpnia 2026. Wysokości składki zdrowotnej na ryczałcie w 2026 roku — 498,35 zł do 60 000 zł przychodu, 830,58 zł między 60 000 a 300 000 zł oraz 1 495,04 zł powyżej 300 000 zł — potwierdzone w niezależnych źródłach branżowych zgodnych co do kwot. Podstawą wyliczenia jest przeciętne wynagrodzenie w sektorze przedsiębiorstw za IV kwartał roku poprzedniego, wraz z wypłatami z zysku, które wyniosło 9 228,64 zł. Zasada przeliczenia wstecz przy przekroczeniu progu w trakcie roku — składka za miesiące wcześniejsze według stawki właściwej dla ostatniego miesiąca roku — jest regułą rozliczenia rocznego, nie interpretacją autora. Do progu przyjmuje się przychód pomniejszony o zapłacone składki na ubezpieczenia społeczne; na ryczałcie odliczeniu od przychodu podlega 50% zapłaconej składki zdrowotnej. Minimalna składka na skali podatkowej to 9% minimalnego wynagrodzenia, które w 2026 roku wynosi 4 806 zł, co daje 432,54 zł. Limit odliczenia składki na podatku liniowym w 2026 roku to 14 100 zł. Wyliczenia 3 986,76 zł i 7 973,52 zł to prosta arytmetyka z powyższych kwot pomnożonych przez dwanaście miesięcy, przedstawiona w filmie krok po kroku. Materiał nie obejmuje składek społecznych, nie uwzględnia stawek ryczałtu zależnych od branży ani żadnych ulg, i nie stanowi porady podatkowej — decyzję o formie opodatkowania należy skonsultować z księgowym.\n"
+}
