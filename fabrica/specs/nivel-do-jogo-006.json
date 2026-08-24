@@ -1,0 +1,495 @@
+{
+  "slug": "nivel-do-jogo",
+  "pacote": "nivel-do-jogo-006",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-AntonioNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1B4332",
+    "c1": "#D64570",
+    "c2": "#F2B134",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "vendeu menos",
+    "l2": "lucrou 35% mais"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Vendeu menos",
+      "sub": "lucrou mais",
+      "nar": "A Square Enix fechou o ano fiscal vendendo menos. E lucrando muito mais. As duas coisas, no mesmo relatório, assinadas pela própria empresa.",
+      "cap": "Duas linhas do mesmo relatório"
+    },
+    {
+      "layout": "item",
+      "kicker": "Vendas líquidas",
+      "preco": "queda de oito vírgula três por cento",
+      "nar": "As vendas líquidas caíram oito vírgula três por cento. Duzentos e noventa e sete bilhões de ienes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "No mesmo ano",
+      "itens": [
+        "Vendas",
+        "Lucro"
+      ],
+      "alturas": [
+        -25,
+        70
+      ],
+      "nar": "O lucro operacional subiu trinta e quatro vírgula nove por cento. Quase cinquenta e cinco bilhões de ienes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Uma linha desce",
+      "sub": "a outra sobe forte",
+      "nar": "Uma linha desceu. A outra subiu três vezes mais forte do que a primeira desceu. No mesmo período, na mesma empresa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E no trimestre seguinte",
+      "sub": "acelerou",
+      "nar": "E no trimestre seguinte acelerou. O lucro operacional subiu oitenta e oito vírgula seis por cento contra o mesmo trimestre do ano anterior.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Só o setor de games",
+      "preco": "mais noventa e um vírgula oito por cento",
+      "nar": "Só o setor de jogos digitais subiu noventa e um vírgula oito por cento. Quase dobrou.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A explicação curta",
+      "sub": "e verdadeira",
+      "nar": "A explicação curta que circulou e simples: eles demitiram. E ela não está errada. Está incompleta, e a parte que falta e a interessante.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porque a conta",
+      "sub": "não fecha so com folha",
+      "nar": "Porque cortar folha economiza o valor da folha. Aqui o lucro subiu bem mais do que qualquer folha cortada explicaria sozinha.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tres perguntas",
+      "itens": [
+        "De onde vem a diferença",
+        "Por que a receita não caiu junto",
+        "Quando a conta chega"
+      ],
+      "nar": "Então são três perguntas. De onde vem a diferença, por que a receita não caiu junto com o time, e quando essa conta chega.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A resposta das três",
+      "sub": "e a mesma",
+      "nar": "A resposta das três e a mesma coisa, e ela não está na indústria de games. Está na contabilidade.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Aviso",
+      "preco": "nada aqui e irregular",
+      "nar": "Um aviso antes: nada do que eu vou descrever e irregular. E a norma contábil, aplicada como manda o manual. O problema não e a regra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A primeira peça",
+      "sub": "salário que virou ativo",
+      "nar": "A primeira peça e a que quase ninguém fora do setor conhece. O salário de quem faz um jogo que ainda não saiu não entra como despesa.",
+      "cap": "O salário que não e despesa"
+    },
+    {
+      "layout": "item",
+      "kicker": "Ele vira",
+      "preco": "custo capitalizado",
+      "nar": "Ele vira custo de desenvolvimento capitalizado. Ou seja: vira um bem no balanço da empresa, do lado dos ativos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A lógica e defensável",
+      "sub": "e vale dizer",
+      "nar": "E a lógica disso e defensável. A empresa está construindo uma coisa que vai gerar receita depois, entao o gasto e investimento, não consumo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Igual a uma fábrica",
+      "sub": "que ainda está em obra",
+      "nar": "E o mesmo tratamento de uma fábrica em construção. Ninguem lanca o tijolo como prejuízo do mês.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A despesa aparece",
+      "preco": "quando o jogo sai",
+      "nar": "A despesa so aparece quando o jogo sai, amortizada contra a receita que ele gera. Ai sim entra no resultado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Agora inverta",
+      "sub": "e olhe o corte",
+      "nar": "Agora inverta e olhe o que acontece quando a empresa cancela o projeto e fecha o estúdio.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O ativo",
+      "preco": "e baixado de uma vez",
+      "nar": "Aquele ativo acumulado não vale mais nada, e e baixado. Isso da um prejuízo grande, feio, e concentrado num trimestre so.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mas so num",
+      "sub": "trimestre so",
+      "nar": "Num trimestre so. Depois disso, some do resultado para sempre.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E a economia",
+      "sub": "essa fica",
+      "nar": "E a folha que deixou de existir? Essa fica. Ela reaparece em cada trimestre seguinte, sem escândalo nenhum, como custo que simplesmente não está la.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "Dor e ganho",
+      "itens": [
+        "Baixa: uma vez",
+        "Folha: todo trimestre"
+      ],
+      "alturas": [
+        70,
+        22
+      ],
+      "nar": "Uma dor de uma vez contra um ganho que se repete. Essa e a assimetria que faz o número do ano seguinte parecer outra empresa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E por isso",
+      "preco": "o lucro sobe mais que a folha",
+      "nar": "E e por isso que o lucro sobe mais do que a folha cortada. Não e so o salário que sai. E o projeto inteiro que para de pesar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Segunda peça",
+      "sub": "o dinheiro de hoje e velho",
+      "nar": "Segunda peça, e ela responde a pergunta que mais incomoda: se a empresa cortou tanta gente, por que a receita não desabou junto?",
+      "cap": "Por que a receita não cai junto"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porque a receita de hoje",
+      "sub": "não vem do trabalho de hoje",
+      "nar": "Porque a receita que entra hoje não vem do trabalho que está sendo feito hoje.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Vem de jogo",
+      "preco": "lançado ha anos",
+      "nar": "Vem de jogo que ja está na prateleira, de catálogo antigo, de assinatura, de conteúdo de um título lançado ha três, cinco, dez anos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quem foi demitido",
+      "sub": "estava construindo o futuro",
+      "nar": "Quem foi demitido não estava operando essa receita. Estava construindo a receita de daqui a alguns anos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O ciclo de um jogo grande",
+      "preco": "três a cinco anos",
+      "nar": "Um jogo grande leva de três a cinco anos entre começar e sair. Esse e o prazo em que o corte de hoje aparece na receita.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Então no curto prazo",
+      "sub": "so o custo se move",
+      "nar": "Então no curto prazo o corte mexe so num lado da conta. O custo cai na hora. A receita não se mexe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O resultado",
+      "sub": "e um lucro sem contraparte",
+      "nar": "O resultado e um lucro que sobe sem nada puxando para baixo. E ele e verdadeiro. So não e permanente.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que o trimestre mostra",
+      "itens": [
+        "O custo que saiu",
+        "A receita que ficou",
+        "Nada do que foi cancelado"
+      ],
+      "nar": "O trimestre mostra o custo que saiu e a receita que ficou. Não tem uma linha para o jogo que agora nunca vai existir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E não existe essa linha",
+      "sub": "em lugar nenhum",
+      "nar": "E não existe essa linha em lugar nenhum do relatório, porque contabilidade registra o que aconteceu, não o que deixou de acontecer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Isso não e falha",
+      "preco": "e limite",
+      "nar": "Isso não e falha do relatório. E o limite dele. Quem le e que precisa saber que esse limite existe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E a indústria inteira",
+      "sub": "está fazendo o mesmo",
+      "nar": "E o ponto seguinte e o que tira isso do caso isolado: a indústria inteira está fazendo a mesma coisa ao mesmo tempo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Terceira peça",
+      "sub": "o tamanho disso",
+      "nar": "Terceira peça: o tamanho. Porque uma empresa cortando e uma decisão. A indústria inteira cortando junto e outra coisa.",
+      "cap": "O tamanho do corte"
+    },
+    {
+      "layout": "item",
+      "kicker": "Projecao para dois mil e vinte e seis",
+      "preco": "quatorze mil duzentos e cinquenta e nove",
+      "nar": "O rastreador mais acompanhado do setor projeta quatorze mil duzentos e cinquenta e nove postos perdidos em dois mil e vinte e seis.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E essa projecao",
+      "sub": "subiu no meio do ano",
+      "nar": "E essa projecao não começou assim. Em janeiro ela era oito mil e vinte e cinco. Subiu setenta e oito por cento no meio do caminho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Ja confirmadas",
+      "preco": "nove mil setecentas e oitenta e uma",
+      "nar": "Confirmadas ate meados do ano: nove mil setecentas e oitenta e uma. Uma média de quarenta e quatro postos por dia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quarenta e quatro",
+      "sub": "por dia",
+      "nar": "Quarenta e quatro pessoas por dia, todo dia, incluindo os dias em que nenhuma notícia sobre isso foi publicada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "barras",
+      "kicker": "Por ano",
+      "itens": [
+        "2024",
+        "2025",
+        "2026 proj."
+      ],
+      "alturas": [
+        78,
+        46,
+        71
+      ],
+      "nar": "Para comparar: dois mil e vinte e quatro fechou perto de quinze mil seiscentos e trinta e um. Dois mil e vinte e cinco caiu para nove mil cento e noventa e sete. E dois mil e vinte e seis voltou a subir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Então não e recuperação",
+      "sub": "e um ciclo",
+      "nar": "Então não houve recuperação. Houve um ano mais calmo entre dois anos pesados.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E aqui um limite",
+      "preco": "do próprio número",
+      "nar": "E aqui vale um limite do número: rastreador de demissão depende de anúncio público. Corte pequeno, sem comunicado, não entra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que significa",
+      "sub": "que o real e maior",
+      "nar": "O que significa que o número real e maior do que esse, e não menor. Nenhum rastreador desses e censo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mesmo assim",
+      "sub": "a direção e clara",
+      "nar": "Mesmo com essa margem, a direção e clara, e ela bate com o que os balanços estao mostrando do outro lado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Custo cortado agora",
+      "preco": "produto que não nasce depois",
+      "nar": "Milhares de pessoas saindo agora, em empresas que reportam lucro recorde agora, para produtos que não vao nascer depois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Então quando",
+      "sub": "a conta chega",
+      "nar": "Então vamos a última pergunta, que e a única que importa para quem joga: quando essa conta chega, e como ela vai parecer.",
+      "cap": "Quando a conta chega"
+    },
+    {
+      "layout": "item",
+      "kicker": "Ela chega",
+      "preco": "em três a cinco anos",
+      "nar": "Ela chega no prazo do ciclo. Tres a cinco anos, que e o tempo entre começar um jogo e ele existir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E vai parecer",
+      "sub": "outra coisa",
+      "nar": "E quando chegar, não vai parecer o que e. Vai parecer falta de ideia, ou público que mudou, ou série que se esgotou.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que você vai ver",
+      "itens": [
+        "Menos lancamentos grandes",
+        "Mais remaster e sequência",
+        "Mais catálogo antigo"
+      ],
+      "nar": "Na prática: menos lançamento grande e novo, mais remaster, mais sequência segura, mais catálogo antigo reaproveitado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cada um desses",
+      "sub": "tem explicação própria",
+      "nar": "E cada uma dessas coisas vai ter uma explicação própria e razoável na época. Nenhuma delas vai citar um trimestre de dois mil e vinte e seis.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Esse e o ponto",
+      "sub": "do vídeo inteiro",
+      "nar": "Esse e o ponto do vídeo inteiro. Não e que alguém mentiu. E que a causa e o efeito ficam longe demais um do outro para serem vistos juntos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O relatório",
+      "preco": "está correto",
+      "nar": "O relatório está correto. O lucro e real. A demissão e real. A ligação entre eles e real. So que ela leva anos para aparecer no único lugar onde você olharia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que fazer com isso",
+      "sub": "se você joga",
+      "nar": "E o que fazer com isso, se você so joga? Uma coisa, e ela e barata.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Quando ler lucro recorde",
+      "itens": [
+        "Veja a receita tambem",
+        "Veja o que foi cancelado",
+        "Veja o pipeline anunciado"
+      ],
+      "nar": "Quando ler que uma empresa de jogos teve lucro recorde, olhe a receita na mesma manchete. E procure o que foi cancelado no mesmo ano.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se a receita caiu",
+      "sub": "você ja sabe a historia",
+      "nar": "Se a receita caiu e o lucro subiu, você ja sabe qual dos dois lados da conta se moveu, e ja sabe quando o outro se move.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "No próximo vídeo",
+      "sub": "o outro lado",
+      "nar": "No próximo vídeo eu pego o outro lado disso: o que acontece com o preço do jogo quando o estúdio que ia fazer o concorrente dele fecha.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Se isso foi útil",
+      "sub": "assina o canal",
+      "nar": "Se seguir o dinheiro por três anos de contabilidade foi útil, assina o canal, e me conta nos comentários qual jogo cancelado você ainda sente falta.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Vendeu oito por cento menos",
+      "sub": "e lucrou trinta e cinco por cento mais",
+      "nar": "A Square Enix vendeu oito por cento menos no ano e lucrou trinta e cinco por cento mais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mesmo relatório",
+      "sub": "assinado por ela",
+      "nar": "As duas linhas estão no mesmo relatório, assinado pela própria empresa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Demitiram",
+      "sub": "mas não é só isso",
+      "nar": "Demitiram. Mas folha cortada não explica um lucro subindo três vezes mais rápido do que a venda caiu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Salário de jogo não lançado",
+      "sub": "não é despesa, é ativo",
+      "nar": "Salário de quem faz jogo que ainda não saiu não é despesa, é ativo no balanço.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Fecha o estúdio",
+      "sub": "a dor é uma vez só",
+      "nar": "Fechou o estúdio, esse ativo cai de uma vez. A folha economizada fica para sempre.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A conta chega",
+      "sub": "em três a cinco anos",
+      "nar": "A conta chega em três a cinco anos, com outro nome. Explico no canal.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Vender menos e lucrar mais so fecha por custo — e o custo tem dois relogios\n\n## TITULO\nDemissões nos Games: Como a Square Enix Vendeu 8% Menos e Lucrou 35% Mais\n\n## DESCRICAO\nNo relatório do ano fiscal encerrado em 31 de março de 2026, a Square Enix reportou vendas líquidas de 297.661 milhões de ienes — queda de 8,3% — e lucro operacional de 54.736 milhões de ienes, alta de 34,9%. No trimestre seguinte o lucro operacional subiu 88,6% na comparação anual, com o segmento de jogos digitais avançando 91,8%. Os dois números estão no mesmo documento, publicado pela própria companhia.\n\nA explicação que circulou foi \"eles demitiram\". Ela não está errada, está incompleta — e a parte que falta é a que este vídeo persegue: cortar folha economiza o valor da folha, mas aqui o lucro subiu bem mais do que qualquer folha cortada explicaria sozinha.\n\nA diferença está na contabilidade, e ela é a norma, não um truque. O salário de quem desenvolve um jogo ainda não lançado não entra como despesa: vira custo de desenvolvimento capitalizado, um ativo no balanço, pelo mesmo princípio que trata uma fábrica em construção como investimento e não como prejuízo do mês. Quando o projeto é cancelado e o estúdio fecha, esse ativo é baixado de uma vez — uma dor grande, feia e concentrada em um único trimestre. Já a folha que deixou de existir reaparece em todos os trimestres seguintes, como custo que simplesmente não está mais lá. Uma dor única contra um ganho recorrente.\n\nO segundo mecanismo responde por que a receita não cai junto: a receita de hoje não vem do trabalho de hoje. Vem de jogo já lançado, catálogo, assinatura e conteúdo de títulos antigos. Quem foi demitido estava construindo a receita de três a cinco anos à frente — o ciclo de um jogo grande. No curto prazo o corte move só um lado da conta.\n\nDo lado da indústria, o rastreador mais acompanhado do setor projeta 14.259 postos perdidos em 2026, contra uma estimativa inicial de 8.025 em janeiro — alta de 78% no meio do ano. Até meados do ano eram 9.781 confirmadas, média de 44 postos por dia. Para comparação: 2024 fechou perto de 15.631 e 2025 caiu para 9.197. O vídeo declara o limite desse dado: rastreador depende de anúncio público, então o número real é maior, não menor — nenhum deles é censo.\n\nTermina com o que isso significa para quem joga, e com uma rotina de duas linhas para ler a próxima manchete de \"lucro recorde\".\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nUma pergunta honesta para quem trabalha ou trabalhou com contabilidade em estúdio: qual é a fatia típica do custo de desenvolvimento que fica capitalizada até o lançamento? Achei a regra descrita em todo lugar e o percentual em lugar nenhum — é a única parte disto que eu não consegui sustentar com número.\n\n## HASHTAGS\n#IndustriaDosGames #SquareEnix #NivelDoJogo\n\n## TAGS\ndemissoes games, square enix, industria dos games, lucro operacional, custo capitalizado, economia dos games, layoffs, balanco financeiro, mercado de jogos, desenvolvimento de jogos, contabilidade, resultados financeiros, xbox, estudios fechados, ciclo de producao\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Português (pt-BR) | Categoria: Educação (27)\n- Não é conteúdo para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Brasil | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ligado (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nConsultado em 24 de agosto de 2026. (1) Fonte institucional: Square Enix Holdings Co., Ltd., resultado do exercício encerrado em 31/03/2026, publicado pela própria companhia — vendas líquidas de 297.661 milhões de ienes (‑8,3%) e lucro operacional de 54.736 milhões de ienes (+34,9%); no primeiro trimestre do exercício seguinte, lucro operacional +88,6% na comparação anual e segmento Digital Entertainment +91,8%. (2) Demissões: rastreador do setor (ASGC / Amir Satvat), divulgado pelo GamesBeat — projeção de 14.259 postos para 2026 contra 8.025 estimados em janeiro, 9.781 confirmadas até meados do ano, média de 44 por dia, com 2024 em torno de 15.631 e 2025 em 9.197. Este segundo dado depende de anúncio público e não é censo: subestima por construção, e o vídeo afirma isso explicitamente. O tratamento de custo de desenvolvimento capitalizado descrito aqui é a norma contábil do setor, não uma prática particular desta empresa, e nada neste vídeo sugere irregularidade. A empresa atribui o resultado também a eficiência e mix de produto; o vídeo não afirma que o lucro veio apenas das demissões, apenas descreve a direção do efeito e o descasamento de prazos entre a decisão e a consequência. Não há previsão nem recomendação de investimento.\n"
+}
