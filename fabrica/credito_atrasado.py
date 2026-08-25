@@ -19,26 +19,36 @@ mp3 faltar no bucket para o canal receber outra faixa, calado. Depois desse
 commit quem manda e `canais.trilha`, e a MESMA funcao decide o audio e o
 credito — entao para esses videos `canais.trilha` e prova, nao palpite.
 
-Por isso o padrao e `--desde 2026-08-13T19:23:31Z` e o script RECUSA rodar sem
-corte. Os videos anteriores existem e continuam sem credito; o que falta neles
-nao e execucao, e saber qual faixa esta no audio. Isso se descobre ouvindo, e
-nao consultando o banco.
+O corte NAO e uma opcao deste script: ele entra na consulta que monta o arquivo
+de `--trabalho`, filtrando `videos.publicado_em >= CORTE_TRILHA_CONFIAVEL`. Os
+videos anteriores existem e continuam sem credito; o que falta neles nao e
+execucao, e saber qual faixa esta no audio. Isso se descobre ouvindo, e nao
+consultando o banco.
 
-QUOTA, e aqui esta a parte que engana. `videos.update` custa 50 unidades,
-`videos.list` custa 1, e subir um video custa 1.600. O teto de 10.000 e POR
-PROJETO do Google Cloud, nao por canal — e conferido em 25/08/2026, os treze
-canais usam o MESMO projeto (777159180424). Entao os treze dividem um unico
-teto diario, e a frota inteira (132 updates = 6.600) somada a uma publicacao
-(~3.800 entre os dois formatos, thumbnail, legenda e playlist) passa dos
-10.000. Um pedaco por ciclo, com `--limite`, e o que cabe: terminar hoje nao
-vale parar a esteira, porque quota estourada derruba a publicacao do dia
-inteiro e o credito atrasado pode esperar mais um ciclo.
+DOIS LIMITES DIFERENTES, e confundi-los custou um dia. `videos.update` custa 50
+unidades, `videos.list` custa 1, e subir um video custa 1.600, tudo contra um
+teto DIARIO por projeto do Google Cloud — e os treze canais usam o mesmo
+projeto (777159180424), entao dividem um teto so. Esse e o primeiro limite, e
+`--limite` existe para ele: um pedaco por ciclo, reservando antes a publicacao
+do dia.
+
+O segundo limite e de TAXA, por janela curta, e nao tem nada a ver com o
+volume do dia. Em 25/08/2026 eu disparei cerca de noventa escritas em rajada e
+tomei 403 "exceeded your quota" na metade do lote. Concluí que era o teto
+diario e parei o trabalho ate a virada — e cinquenta minutos depois a mesma
+chamada respondeu 200. Era taxa.
+
+A mensagem dos dois e IDENTICA; quem separa e o `reason`. Dai `--pausa` entre
+gravacoes, `--esperas` para recuar e tentar de novo quando for taxa, e parada
+imediata do lote quando for cota diaria — porque nesse caso insistir so gasta
+tentativa. `motivo_403` faz essa separacao e `test_credito_atrasado` a prende.
 """
 
 import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -120,9 +130,44 @@ def consertar(acc: str, youtube_id: str, faixa: str, seco: bool = False) -> str:
              headers={"Authorization": "Bearer " + acc,
                       "Content-Type": "application/json; charset=UTF-8"})
     except urllib.error.HTTPError as e:
-        corpo = e.read()[:200].decode("utf-8", "replace")
-        return f"erro ao gravar: HTTP {e.code} {corpo}"
+        corpo = e.read()[:400].decode("utf-8", "replace")
+        return f"{PREFIXO_ERRO[motivo_403(e.code, corpo)]}: HTTP {e.code} {corpo[:160]}"
     return "creditado"
+
+
+# Os dois 403 da API do YouTube parecem iguais no texto e pedem coisas
+# opostas. Medido em 25/08/2026: rodei cerca de noventa escritas em rajada,
+# tomei 403 "exceeded your quota", concluí que era o teto DIARIO e parei o
+# trabalho ate a virada — e cinquenta minutos depois a mesma chamada
+# funcionou. Nao era o teto do dia, era o limite de TAXA por janela curta.
+#
+# A diferenca importa porque a acao e oposta: taxa pede PAUSA e retomada em
+# minutos; cota diaria pede parar ate a virada. Confundir as duas custa um dia
+# inteiro de trabalho que estava disponivel.
+#
+# `reason` e o campo que separa, e nao a mensagem: rateLimitExceeded e
+# userRateLimitExceeded sao taxa; quotaExceeded e dia.
+MOTIVO_TAXA = "taxa"
+MOTIVO_DIA = "dia"
+MOTIVO_OUTRO = "outro"
+PREFIXO_ERRO = {MOTIVO_TAXA: "erro de taxa", MOTIVO_DIA: "erro de cota diaria",
+                MOTIVO_OUTRO: "erro ao gravar"}
+
+
+def motivo_403(codigo, corpo):
+    """Separa limite de TAXA de cota DIARIA pelo `reason`, nao pela mensagem."""
+    if codigo != 403:
+        return MOTIVO_OUTRO
+    try:
+        erros = json.loads(corpo).get("error", {}).get("errors") or []
+        razoes = {e.get("reason", "") for e in erros}
+    except (ValueError, AttributeError):
+        razoes = set()
+    if razoes & {"rateLimitExceeded", "userRateLimitExceeded"}:
+        return MOTIVO_TAXA
+    if "quotaExceeded" in razoes:
+        return MOTIVO_DIA
+    return MOTIVO_OUTRO
 
 
 def main() -> int:
@@ -137,22 +182,51 @@ def main() -> int:
                    help="le e diz o que faria, sem gravar nada")
     p.add_argument("--saida", default="",
                    help="grava o relatorio linha a linha neste arquivo")
+    p.add_argument("--pausa", type=float, default=1.5,
+                   help="segundos entre GRAVACOES. Existe porque rajada toma "
+                        "403 de TAXA: em 25/08 cerca de noventa escritas "
+                        "seguidas derrubaram o lote pela metade")
+    p.add_argument("--esperas", type=int, default=3,
+                   help="quantas vezes recuar e tentar de novo quando o 403 "
+                        "for de taxa (espera 30s, 60s, 120s)")
     args = p.parse_args()
 
     trabalho = json.load(open(args.trabalho, encoding="utf-8"))
-    linhas, mudados = [], 0
+    linhas, mudados, parar = [], 0, False
     for lote in trabalho:
+        if parar:
+            break
         canal, acc, faixa = lote["canal"], lote["token"], lote["faixa"]
         if not acc:
             linhas.append(f"{canal}\t—\tsem token (reautorize o canal)")
             continue
         for vid in lote["videos"]:
+            if parar:
+                linhas.append(f"{canal}\t{vid}\tadiado (cota diaria acabou)")
+                continue
             if mudados >= args.limite:
                 linhas.append(f"{canal}\t{vid}\tadiado (limite {args.limite})")
                 continue
+
             r = consertar(acc, vid, faixa, seco=args.seco)
+
+            # Limite de TAXA e transitorio: recua e tenta de novo. Cota DIARIA
+            # nao adianta insistir — para o lote inteiro e deixa dito no
+            # relatorio o que ficou para a virada.
+            espera, tentativa = 30, 0
+            while r.startswith(PREFIXO_ERRO[MOTIVO_TAXA]) and tentativa < args.esperas:
+                tentativa += 1
+                print(f"{canal}\t{vid}\ttaxa — esperando {espera}s "
+                      f"({tentativa}/{args.esperas})", flush=True)
+                time.sleep(espera)
+                espera *= 2
+                r = consertar(acc, vid, faixa, seco=args.seco)
+            if r.startswith(PREFIXO_ERRO[MOTIVO_DIA]):
+                parar = True
+
             if r == "creditado":
                 mudados += 1
+                time.sleep(args.pausa)
             linhas.append(f"{canal}\t{vid}\t{r}")
             print(linhas[-1], flush=True)
 

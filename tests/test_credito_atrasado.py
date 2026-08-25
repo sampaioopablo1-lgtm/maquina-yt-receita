@@ -134,3 +134,69 @@ def test_video_sumido_nao_estoura(monkeypatch):
 def test_o_corte_aponta_para_o_commit_que_tornou_canais_trilha_confiavel():
     """Antes de 8544196 a faixa saia de um hash: o banco nao prova o audio."""
     assert C.CORTE_TRILHA_CONFIAVEL == "2026-08-13T19:23:31Z"
+
+
+# --------------------------------- taxa e cota diaria sao 403 diferentes
+
+def test_os_dois_403_tem_a_mesma_mensagem_e_reason_diferente():
+    """Medido em 25/08/2026, e foi o que me fez perder um dia disponivel.
+
+    Rodei ~90 escritas em rajada, tomei 403 "exceeded your quota", conclui que
+    era o teto DIARIO e parei o trabalho ate a virada. Cinquenta minutos depois
+    a mesma chamada respondeu 200: era limite de TAXA, nao cota do dia.
+
+    A mensagem nao separa os dois — e literalmente a mesma string. Quem separa
+    e o `reason`. E a acao e oposta: taxa pede pausa de segundos; cota diaria
+    pede parar ate a virada.
+    """
+    mesma = "exceeded your quota"
+    taxa = json.dumps({"error": {"code": 403, "message": mesma,
+                                 "errors": [{"reason": "rateLimitExceeded"}]}})
+    dia = json.dumps({"error": {"code": 403, "message": mesma,
+                                "errors": [{"reason": "quotaExceeded"}]}})
+    assert mesma in taxa and mesma in dia, "a mensagem nao distingue os dois"
+    assert C.motivo_403(403, taxa) == C.MOTIVO_TAXA
+    assert C.motivo_403(403, dia) == C.MOTIVO_DIA
+
+
+def test_o_outro_403_nao_vira_taxa_nem_dia():
+    """403 de permissao nao pode acionar espera nem parar o lote."""
+    corpo = json.dumps({"error": {"code": 403, "message": "forbidden",
+                                  "errors": [{"reason": "forbidden"}]}})
+    assert C.motivo_403(403, corpo) == C.MOTIVO_OUTRO
+
+
+def test_corpo_ilegivel_nao_estoura():
+    """A API tambem devolve HTML em alguns erros de borda."""
+    assert C.motivo_403(403, "<html>bad gateway</html>") == C.MOTIVO_OUTRO
+    assert C.motivo_403(403, "") == C.MOTIVO_OUTRO
+
+
+def test_codigo_diferente_de_403_nao_e_taxa_nem_dia():
+    corpo = json.dumps({"error": {"errors": [{"reason": "quotaExceeded"}]}})
+    assert C.motivo_403(500, corpo) == C.MOTIVO_OUTRO
+
+
+def test_a_gravacao_devolve_o_prefixo_do_motivo(monkeypatch):
+    """O laco do main decide pelo PREFIXO, entao ele tem de vir certo daqui."""
+    import urllib.error
+
+    corpo = json.dumps({"error": {"code": 403, "message": "exceeded your quota",
+                                  "errors": [{"reason": "rateLimitExceeded"}]}})
+
+    class _Erro(urllib.error.HTTPError):
+        def __init__(self):
+            self.code, self._corpo = 403, corpo.encode()
+
+        def read(self):
+            return self._corpo
+
+    def _req(url, data=None, method=None, headers=None):
+        if method == "PUT":
+            raise _Erro()
+        return _Corpo(json.dumps({"items": [{"snippet": _snippet()}]}))
+
+    monkeypatch.setattr(C, "_req", _req)
+    r = C.consertar("tok", "abc", "Wholesome")
+    assert r.startswith(C.PREFIXO_ERRO[C.MOTIVO_TAXA])
+    assert not r.startswith(C.PREFIXO_ERRO[C.MOTIVO_DIA])
