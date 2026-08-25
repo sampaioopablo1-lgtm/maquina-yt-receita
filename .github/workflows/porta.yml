@@ -1,0 +1,76 @@
+name: Porta — a API do Supabase esta aberta?
+
+# O teste de um minuto para a pergunta que vai se repetir todo dia ate a
+# restricao cair: "da para voltar a produzir?".
+#
+# Em 25/08/2026 a organizacao entrou em restricao de Fair Use e o gateway do
+# Supabase passou a devolver 402 em TUDO — PostgREST e Storage. Sem isso aqui,
+# descobrir se destravou custava disparar a frota inteira e ler um traceback
+# de treze minutos depois. Custa quinze segundos e diz o codigo de cada porta.
+#
+# NAO falha quando esta fechado. Porta fechada e o estado ESPERADO enquanto a
+# restricao dura; marcar de vermelho todo dia transformaria o unico sinal util
+# em ruido. Ele so pinta de vermelho quando o codigo e inesperado — nem 2xx
+# nem 402 — porque ai a causa e outra e vale interromper alguem.
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      aberta:
+        description: "sim quando as duas portas responderam 2xx"
+        value: ${{ jobs.conferir.outputs.aberta }}
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      aberta: ${{ steps.bate.outputs.aberta }}
+    steps:
+      - name: Bater nas duas portas
+        id: bate
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -uo pipefail
+          SB="${SB%/}"
+          ABERTA=sim
+          INESPERADO=0
+
+          bater() {
+            local nome="$1" metodo="$2" url="$3" corpo="${4:-}"
+            local codigo
+            if [ -n "$corpo" ]; then
+              codigo=$(curl -sS -o /dev/null -w '%{http_code}' -X "$metodo" "$url" \
+                -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+                -H "Content-Type: application/json" --data "$corpo" --max-time 60)
+            else
+              codigo=$(curl -sS -o /dev/null -w '%{http_code}' -X "$metodo" "$url" \
+                -H "Authorization: Bearer $KEY" -H "apikey: $KEY" --max-time 60)
+            fi
+            echo "$nome: HTTP $codigo"
+            case "$codigo" in
+              2*) : ;;
+              402) ABERTA=nao ;;
+              # 000 e o curl sem resposta — rede, DNS ou timeout. Nao e a cota,
+              # e confundir os dois ja custou um diagnostico inteiro aqui.
+              000) ABERTA=nao; INESPERADO=1;
+                   echo "::warning::$nome nao respondeu (rede/DNS/timeout), nao e a cota" ;;
+              *)   ABERTA=nao; INESPERADO=1;
+                   echo "::warning::$nome devolveu $codigo — causa diferente da restricao" ;;
+            esac
+          }
+
+          bater "PostgREST (ler config)" GET "$SB/rest/v1/config?select=chave&limit=1"
+          bater "Storage (listar bucket)" POST "$SB/storage/v1/object/list/videos-maquina" \
+                '{"prefix":"","limit":1}'
+
+          echo "aberta=$ABERTA" >> "$GITHUB_OUTPUT"
+          if [ "$ABERTA" = "sim" ]; then
+            echo "::notice::PORTA ABERTA — a maquina pode voltar a produzir."
+          elif [ "$INESPERADO" = "0" ]; then
+            echo "::notice::PORTA FECHADA (402) — restricao de Fair Use ainda de pe. Apagar arquivo nao levanta: a cota em GB-Hrs do ciclo ja foi consumida. Cai na virada do ciclo de cobranca, ou na hora subindo para o Pro."
+          fi
+          [ "$INESPERADO" = "0" ]

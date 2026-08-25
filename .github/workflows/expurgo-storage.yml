@@ -24,6 +24,20 @@ name: Expurgo — o Storage e passagem, nao arquivo
 # maquina tem. O `videos.supabase_url` continua valendo como INDICE: e dele
 # que o calibrar-vozes deriva o nome do .srt trocando o sufixo.
 #
+# O QUE ESTE WORKFLOW **NAO** RESOLVE, e eu descobri tarde demais.
+#
+# Apagar arquivo NAO levanta o 402. A restricao de Fair Use e da ORGANIZACAO e
+# o consumo do Storage e cobrado em GB-Hrs: os 3,7 GB ja consumiram a cota de
+# 744 GB-Hrs do ciclo, e a documentacao e explicita — "Pausing or deleting a
+# project stops new usage from accumulating, but does not remove usage that
+# already occurred during the current billing cycle". A restricao so cai na
+# virada do ciclo de cobranca, ou na hora se a org subir para o Pro.
+#
+# Entao o valor deste workflow e o CICLO SEGUINTE, nao este. Segurando 0,65 GB
+# em vez de 3,7 GB, a queima cai de ~2.750 GB-Hrs/mes (3,7x acima do teto) para
+# ~480 GB-Hrs/mes (dentro do teto). Sem ele, a maquina destrava na virada e
+# reestoura em uma semana. Foi por isso que ele continua valendo a pena.
+#
 # POR QUE PELA API E NAO POR SQL: tentei apagar `storage.objects` por SQL
 # primeiro. O proprio Supabase barra, com o gatilho `protect_objects_delete`:
 # "Direct deletion from storage tables is not allowed. Use the Storage API
@@ -96,10 +110,17 @@ jobs:
                       # libera a cota. Se isso acontecer, o no e circular e
                       # precisa de acao humana no painel — dizer isso e mais
                       # util que um traceback.
-                      print("::error::Storage devolveu 402 tambem no expurgo: "
-                            "a cota trava ate o DELETE que a liberaria. "
-                            "Nesse caso so o painel do Supabase resolve "
-                            "(apagar pelo Storage Explorer ou subir o plano).")
+                      # Sai NEUTRO, nao vermelho. Este job roda dentro do
+                      # Ciclo a cada 30 min: falhar aqui pintaria de vermelho
+                      # todo ciclo enquanto a restricao durar, e um vermelho
+                      # que fica aceso o mes inteiro deixa de ser sinal.
+                      print("::warning::Storage em 402: a organizacao esta sob "
+                            "restricao de Fair Use. Apagar arquivo NAO levanta "
+                            "a restricao — o consumo em GB-Hrs do ciclo ja "
+                            "aconteceu e so zera na virada do ciclo de "
+                            "cobranca, ou na hora se subir para o Pro. O "
+                            "expurgo volta a valer sozinho quando destravar.")
+                      sys.exit(0)
                   else:
                       print(f"::error::{metodo} {caminho} devolveu "
                             f"HTTP {e.code}: {e.read()[:300].decode('utf-8', 'replace')}")
