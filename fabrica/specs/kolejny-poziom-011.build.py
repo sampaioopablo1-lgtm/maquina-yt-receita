@@ -480,7 +480,7 @@ COPY = """# Próg podatkowy: 120 000 zł i propozycja trzech stawek
 Próg Podatkowy 120 000 zł: Gdzie Jesteś na Skali i Co Zmienia Propozycja na 2027
 
 ## DESCRICAO
-Jest jedna liczba, która dzieli twoją roczną pensję na dwie części opodatkowane zupełnie inaczej: 120 000 zł podstawy opodatkowania. Poniżej płacisz 12%, powyżej 32% — ale wyłącznie od nadwyżki, nigdy od całości. W tym filmie podaję tę liczbę od razu, w pierwszych trzech minutach, razem z metodą, która pozwala ci sprawdzić, po której stronie progu jesteś. Reszta to przykłady i uczciwe zastrzeżenia.
+Jest jedna liczba, która dzieli twoją roczną pensję na dwie części opodatkowane zupełnie inaczej: 120 000 zł podstawy opodatkowania. Poniżej płacisz 12%, powyżej 32% — ale wyłącznie od nadwyżki, nigdy od całości. Podaję tę liczbę od razu, razem z metodą, która pozwala sprawdzić, po której stronie progu jesteś. Reszta to przykłady i zastrzeżenia.
 
 OBOWIĄZUJĄCA SKALA (źródło: rządowy portal informacyjny)
 
@@ -494,15 +494,15 @@ Konkret: przy średniej pensji 9 233 zł miesięcznie roczny przychód to 110 79
 
 PROPOZYCJA ZMIAN OD 2027 (źródło: Kancelaria Prezesa Rady Ministrów)
 
-Propozycja zakłada trzy progi zamiast dwóch: I próg podniesiony do 130 000 zł ze stawką 12%; nowa, pośrednia stawka 24% dla dochodów powyżej 130 000 zł do 150 000 zł; stawka 32% dopiero powyżej 150 000 zł. Według rządu skorzystałoby ponad 3,5 mln podatników rozliczających się według skali, przede wszystkim pracowników, a osoby zyskujące najwięcej mogłyby zaoszczędzić w skali roku nawet 3 600 zł. Odsetek osób płacących 32% miałby spaść do 7,2% zamiast przewidywanych 14%.
+Propozycja zakłada trzy progi zamiast dwóch: I próg podniesiony do 130 000 zł ze stawką 12%; nowa stawka 24% od 130 000 zł do 150 000 zł; stawka 32% dopiero powyżej 150 000 zł. Według rządu skorzystałoby ponad 3,5 mln podatników, przede wszystkim pracowników, a zyskujący najwięcej zaoszczędziliby rocznie nawet 3 600 zł. Odsetek płacących 32% spadłby do 7,2% zamiast przewidywanych 14%.
 
 TO JEST PROPOZYCJA, NIE USTAWA. Mówię to w filmie i powtarzam tutaj: opisane zmiany to zapowiedź i projekt, nie obowiązujące prawo. Liczby na 2026 rok są prawem; liczby na 2027 rok są propozycją.
 
-DLACZEGO ODSETEK ROSŁ: progi stały w miejscu, a pensje nominalnie rosły — coraz więcej osób wpadało do wyższej stawki bez żadnej zmiany w ustawie. Skala historii: drugi próg wynosił 85 528 zł od 2009 r. aż do końca 2021 r., czyli trzynaście lat bez ruchu, i dopiero potem został podniesiony do 120 000 zł. To była jedyna zmiana tego progu w kilkunastu latach. Podniesienie progu jest odwróceniem tego mechanizmu, a nie prezentem.
+DLACZEGO ODSETEK ROSŁ: progi stały w miejscu, a pensje nominalnie rosły, więc coraz więcej osób wpadało do wyższej stawki bez żadnej zmiany w ustawie. Drugi próg wynosił 85 528 zł od 2009 r. do końca 2021 r. — trzynaście lat bez ruchu — i dopiero potem podniesiono go do 120 000 zł. Podniesienie progu jest odwróceniem tego mechanizmu, a nie prezentem.
 
 DWOJE LUDZI, JEDEN PRÓG (wspólne rozliczenie z małżonkiem)
 
-Przy wspólnym rozliczeniu podatek ustala się w podwójnej wysokości podatku obliczonego od połowy łącznych dochodów małżonków. W praktyce dla pary próg zachowuje się tak, jakby był dwa razy wyższy: jeśli łączna podstawa nie przekracza 240 000 zł, całość mieści się w pierwszej stawce. Efekt jest największy, gdy dochody małżonków bardzo się różnią; gdy oboje są nisko i zarabiają podobnie, wynik bywa taki sam jak przy rozliczeniu osobnym. Warunek: małżeństwo i wspólność majątkowa przez cały rok podatkowy, z wyłączeniami dla niektórych form opodatkowania. To jedyna rzecz z tego materiału, która potrafi przenieść cię na drugą stronę progu bez żadnej zmiany pensji.
+Przy wspólnym rozliczeniu podatek ustala się w podwójnej wysokości podatku obliczonego od połowy łącznych dochodów małżonków. W praktyce dla pary próg działa tak, jakby był dwa razy wyższy: przy łącznej podstawie do 240 000 zł całość mieści się w pierwszej stawce. Efekt jest największy, gdy dochody bardzo się różnią. Warunek: małżeństwo i wspólność majątkowa przez cały rok podatkowy, z wyłączeniami dla niektórych form opodatkowania. To jedyna rzecz z tego materiału, która przenosi cię na drugą stronę progu bez zmiany pensji.
 
 300 ZŁ MIESIĘCZNIE I OŚWIADCZENIE PIT-2
 
@@ -510,7 +510,7 @@ Kwota zmniejszająca podatek to 3 600 zł rocznie, a 1/12 z tego to 300 zł mies
 
 DRUGI MECHANIZM WIDOCZNY NA PASKU: płatnik liczy zaliczkę stawką 12% w miesiącach, w których dochód od początku roku nie przekracza 120 000 zł, a stawką 32% od miesiąca, w którym ten limit zostaje przekroczony. Dlatego jesienna wypłata bywa niższa od wiosennej przy tej samej umowie. To nie pomyłka kadr — to ta sama skala, widziana miesiąc po miesiącu.
 
-CZEGO TEN RACHUNEK NIE OBEJMUJE: jeśli podstawa nie przekracza kwoty wolnej, podatek wychodzi 0 zł, bo kwota zmniejszająca zjada go w całości. Ten rachunek dotyczy wyłącznie podatku dochodowego — składka zdrowotna jest osobną pozycją i nie wchodzi do tego wzoru, chociaż na wypłacie widać obie naraz. Materiał dotyczy skali podatkowej: kto rozlicza się liniowo albo ryczałtem, ma inne zasady i tego progu u siebie nie zobaczy. Poza tym skala podatkowa daje prawo do kilkunastu ulg i odliczeń (ulga na dziecko, ulga dla rodzin 4+, odliczenie składek społecznych, wpłaty na IKZE i inne). Każda z nich zmienia podstawę albo sam podatek, więc realny wynik bywa inny niż z gołego wzoru. Potraktuj tę pracę domową jako punkt startu, nie jako rozliczenie — do rozliczenia jest księgowa albo doradca podatkowy. To nie jest porada podatkowa ani prawna.
+CZEGO TEN RACHUNEK NIE OBEJMUJE: przy podstawie do kwoty wolnej podatek wychodzi 0 zł. Rachunek dotyczy wyłącznie podatku dochodowego — składka zdrowotna to osobna pozycja i nie wchodzi do wzoru. Dotyczy też wyłącznie skali: kto rozlicza się liniowo albo ryczałtem, tego progu u siebie nie zobaczy. Poza tym skala daje prawo do kilkunastu ulg i odliczeń (ulga na dziecko, ulga dla rodzin 4+, odliczenie składek społecznych, wpłaty na IKZE i inne). Każda z nich zmienia podstawę albo sam podatek, więc realny wynik bywa inny niż z gołego wzoru. Potraktuj tę pracę domową jako punkt startu, nie jako rozliczenie — do rozliczenia jest księgowa albo doradca podatkowy. To nie jest porada podatkowa ani prawna.
 
 ## CAPITULOS
 {CAPITULOS}
