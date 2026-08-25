@@ -215,11 +215,32 @@ jobs:
           # Um fantasma na lista fazia o hash dividir por quatro quando so tres
           # chegam — e o hash so importa como ultimo recurso, porque desde
           # 14/08 toda spec declara `trilha` e ela vence.
-          for faixa in Wholesome Inspired Deliberate_Thought; do
-            curl -sS -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
+          # DUAS FONTES PARA A TRILHA, e a segunda existe por causa de
+          # 25/08/2026: o bucket entrou em restricao de Fair Use e passou a
+          # devolver 402 em tudo. O render nao depende do Supabase para nada
+          # mais — so a trilha dependia, e ela parava a producao inteira.
+          #
+          # A segunda fonte e a ORIGINAL: as tres faixas sao CC-BY do Kevin
+          # MacLeod e ficam publicas no incompetech.com. Baixar de la nao e
+          # contorno, e ir na origem — e mantem o credito do copy.md exato,
+          # porque e literalmente o mesmo arquivo.
+          baixa() {
+            local faixa="$1" alvo="/tmp/trilhas/$1.mp3"
+            curl -sS --max-time 120 -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
               "$SB/storage/v1/object/videos-maquina/trilhas/$faixa.mp3" \
-              -o "/tmp/trilhas/$faixa.mp3" || true
-            [ -s "/tmp/trilhas/$faixa.mp3" ] || rm -f "/tmp/trilhas/$faixa.mp3"
+              -o "$alvo" || true
+            [ -s "$alvo" ] && [ "$(head -c 4 "$alvo")" != "{\"st" ] && return 0
+            rm -f "$alvo"
+            # O nome no incompetech usa espaco onde o nosso usa sublinhado.
+            local nome="${faixa//_/%20}"
+            curl -sSL --max-time 120 \
+              "https://incompetech.com/music/royalty-free/mp3-royaltyfree/$nome.mp3" \
+              -o "$alvo" || true
+            [ -s "$alvo" ] || { rm -f "$alvo"; return 1; }
+            echo "trilha $faixa: veio do incompetech (Storage fora do ar)"
+          }
+          for faixa in Wholesome Inspired Deliberate_Thought; do
+            baixa "$faixa" || echo "::warning::trilha $faixa nao veio de nenhuma das duas fontes"
           done
           N=$(ls /tmp/trilhas/*.mp3 2>/dev/null | wc -l)
           echo "trilhas: $N faixas"
