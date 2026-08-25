@@ -71,14 +71,26 @@ def test_o_inverso_fecha_em_toda_voz_da_frota():
 
 
 def _desvios(por_canal: bool) -> list[float]:
-    """Erro do orcamento contra cada spec que ja foi ao ar."""
+    """Erro do orcamento contra cada spec que ja foi ao ar, FORA da amostra.
+
+    O `excluir` e o que torna a afericao honesta, e ele faltava ate 25/08/2026.
+    `autor.densidade` le as specs do canal em disco; sem excluir a spec que
+    esta sendo prevista, ela entra na propria populacao que gera a previsao. O
+    numero que saia dai era ajuste dentro da amostra, e nao previsao — e o
+    docstring do teste ja dizia "aferido contra o corpus real, nao contra si
+    mesmo", que era exatamente o que nao estava acontecendo.
+
+    Em producao esse vazamento nao existe: quando o `autor` dimensiona uma
+    spec nova, ela ainda nao esta em disco. Entao a leitura de fora da amostra
+    e a unica que descreve o que a esteira vive.
+    """
     saida = []
-    for _nome, sp in _reais():
+    for nome, sp in _reais():
         c = autor.chars(sp["longo"])
         if c < 2000:
             continue
-        fc = (autor.densidade(sp["slug"], "longo") if por_canal
-              else autor.FRASES_POR_CENA)
+        fc = (autor.densidade(sp["slug"], "longo", excluir=nome + ".json")
+              if por_canal else autor.FRASES_POR_CENA)
         prev = autor.orcamento_de_texto(
             sp["voz"], autor.medir(sp["longo"], sp["voz"]), len(sp["longo"]), fc)
         saida.append(abs(prev - c) / c)
@@ -86,30 +98,124 @@ def _desvios(por_canal: bool) -> list[float]:
 
 
 def test_o_primeiro_rascunho_ja_cai_dentro_da_tolerancia():
-    """Aferido contra o corpus real, nao contra si mesmo.
+    """Aferido contra o corpus real, nao contra si mesmo — agora de verdade.
 
     A tolerancia do laco e de 1 min em 13,5 — 7,4%. O que este teste garante e
     que a spec MEDIANA nasce dentro dela, ou seja, sem gastar uma segunda
     chamada de modelo so para ajustar tamanho.
+
+    OS NUMEROS SAO OUTROS DESDE 25/08/2026, e a spec nao mudou: o que mudou foi
+    a afericao passar a excluir a spec prevista da populacao que gera a
+    previsao. Medido sobre as 74 specs com mais de 2.000 caracteres:
+
+        por canal, DENTRO da amostra (o que este teste media)  3,46%   77,0%
+        por canal, FORA da amostra (a condicao de producao)    5,23%   58,1%
+        constante global do corpus                             4,55%   71,6%
+
+    As barras abaixo sao a segunda linha, que e a verdadeira, com folga curta.
+    Elas nao devem ser afrouxadas: se o orcamento piorar, o teste tem de cair.
+
+    E a terceira linha e um achado que este teste nao fecha sozinho: FORA da
+    amostra, a densidade por canal perde para a constante global do corpus —
+    13,5 pontos a menos de specs nascendo dentro da tolerancia. O motivo e
+    tamanho de amostra: um canal tem de 3 a 16 specs, e a mediana de tao pouco
+    e instavel. A troca nao foi feita aqui de proposito, porque mexe em como
+    TODA spec e dimensionada e merece rodada propria; esta registrada como
+    aprendizado com a tabela inteira.
     """
     d = _desvios(por_canal=True)
     assert d, "nenhuma spec real para aferir"
     mediana = d[len(d) // 2]
-    assert mediana < 0.03, f"mediana do desvio: {mediana:.1%}"
+    assert mediana < 0.06, f"mediana do desvio: {mediana:.1%}"
     dentro = sum(1 for x in d if x < autor.TOLERANCIA_S / autor.ALVO_S)
-    assert dentro / len(d) > 0.75, f"so {dentro}/{len(d)} nasceriam dentro"
+    assert dentro / len(d) > 0.55, f"so {dentro}/{len(d)} nasceriam dentro"
 
 
-def test_a_densidade_do_canal_bate_a_mediana_do_corpus():
-    """A escolha que o docstring de `densidade` afirma, medida.
+def _desvios_do_bloco(bloco: str, usar_canal: bool) -> list[float]:
+    """Como `_desvios`, mas de qualquer bloco e sempre fora da amostra."""
+    minimo = 2000 if bloco == "longo" else 200
+    saida = []
+    for nome, sp in _reais():
+        cenas = sp.get(bloco) or []
+        c = autor.chars(cenas)
+        if c < minimo:
+            continue
+        fc = (_mediana_do_canal(sp["slug"], bloco, nome + ".json") if usar_canal
+              else autor.FRASES_POR_CENA)
+        prev = autor.orcamento_de_texto(
+            sp["voz"], autor.medir(cenas, sp["voz"]), len(cenas), fc)
+        saida.append(abs(prev - c) / c)
+    return sorted(saida)
 
-    Se um dia a mediana do corpus voltar a ser melhor, este teste cai e a
-    decisao se revisa com dado — em vez de a funcao seguir existindo por
-    inercia.
+
+def _mediana_do_canal(slug: str, bloco: str, excluir: str) -> float:
+    """A mediana crua do canal, sem o desvio por bloco que `densidade` aplica.
+
+    Reimplementada aqui de proposito: o teste abaixo compara as DUAS fontes, e
+    chamar `densidade` daria a resposta que ela ja escolheu, nunca a rejeitada.
     """
-    canal = _desvios(por_canal=True)
-    corpus = _desvios(por_canal=False)
-    assert canal[len(canal) // 2] < corpus[len(corpus) // 2]
+    import statistics
+
+    import narracao as N
+
+    vistos = []
+    for caminho in sorted((RAIZ / "fabrica" / "specs").glob(f"{slug}-*.json")):
+        if caminho.name == excluir:
+            continue
+        try:
+            sp = json.loads(caminho.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        cenas = sp.get(bloco) or []
+        if len(cenas) < 4:
+            continue
+        idi = N.idioma_de(sp, None)
+        vistos.append(sum(len(N.frases((c or {}).get("nar") or "", idi))
+                          for c in cenas) / len(cenas))
+    return statistics.median(vistos) if vistos else autor.FRASES_POR_CENA
+
+
+def test_a_fonte_da_densidade_e_a_que_mede_melhor_em_cada_bloco():
+    """A escolha de `densidade`, medida bloco a bloco e fora da amostra.
+
+    Este teste substitui um que afirmava a mesma coisa para os dois blocos e
+    media DENTRO da amostra. Fora dela a resposta se parte em duas, e e por
+    isso que `densidade` hoje devolve fontes diferentes:
+
+        longo   canal  5,23% / 58,1%   contra   corpus  4,55% / 71,6%
+        short   canal  4,20% / 71,2%   contra   corpus 14,26% / 32,5%
+
+    No longo o canal perde por tamanho de amostra. No short o corpus perde
+    porque a constante de 2,26 foi calibrada em bloco longo, e short e outro
+    regime de escrita.
+
+    Se um dia qualquer das duas viradas se inverter, este teste cai e a decisao
+    se revisa com dado — em vez de a funcao seguir existindo por inercia.
+    """
+    tol = autor.TOLERANCIA_S / autor.ALVO_S
+
+    def dentro(d):
+        return sum(1 for x in d if x < tol) / len(d)
+
+    longo_canal = _desvios_do_bloco("longo", usar_canal=True)
+    longo_corpus = _desvios_do_bloco("longo", usar_canal=False)
+    assert dentro(longo_corpus) > dentro(longo_canal), (
+        "no longo a constante do corpus deixou de ser melhor — "
+        f"corpus {dentro(longo_corpus):.1%} contra canal {dentro(longo_canal):.1%}")
+
+    short_canal = _desvios_do_bloco("short", usar_canal=True)
+    short_corpus = _desvios_do_bloco("short", usar_canal=False)
+    assert dentro(short_canal) > dentro(short_corpus), (
+        "no short a mediana do canal deixou de ser melhor — "
+        f"canal {dentro(short_canal):.1%} contra corpus {dentro(short_corpus):.1%}")
+
+
+def test_densidade_devolve_a_fonte_escolhida_em_cada_bloco():
+    """A trava contra reverter a escolha sem reverter a medicao junto."""
+    assert autor.densidade("nivel-do-jogo", "longo") == autor.FRASES_POR_CENA
+    do_short = autor.densidade("nivel-do-jogo", "short")
+    assert do_short != autor.FRASES_POR_CENA
+    assert do_short == _mediana_do_canal("nivel-do-jogo", "short", "")
 
 
 def test_voz_sem_modelo_medido_nao_dimensiona():

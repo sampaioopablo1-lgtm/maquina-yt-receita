@@ -220,22 +220,41 @@ def inedita(titulo: str, publicados: list[str]) -> tuple[bool, float, str]:
 FRASES_POR_CENA = 2.26
 
 
-def densidade(slug: str, bloco: str = "longo") -> float:
-    """Frases por cena do PROPRIO canal, medida nas specs que ele ja tem.
+def densidade(slug: str, bloco: str = "longo", excluir: str = "") -> float:
+    """Frases por cena para dimensionar um bloco — do canal no short, do corpus
+    no longo.
 
-    A mediana do corpus serve de piso, mas cada canal escreve com uma densidade
-    propria e estavel: o `setiap-level` fica em 1,98 e o `seviye-seviye` em
-    2,71 — 37% de diferenca, e o termo P do modelo de voz cobra por frase.
+    A RESPOSTA DEPENDE DO BLOCO, e ate 25/08/2026 esta funcao dava a mesma para
+    os dois. Medido FORA DA AMOSTRA sobre o corpus inteiro (isto e: excluindo a
+    spec prevista da populacao que gera a previsao), com a tolerancia do laco em
+    7,4%:
 
-    O ganho e medido, nao suposto. Sobre as 43 specs com mais de 2.000
-    caracteres, prever o orcamento com a mediana do corpus erra 3,9% na
-    mediana; com a mediana do canal, 1,4%. Como a tolerancia do laco e de 1 min
-    em 13,5 (7,4%), a diferenca e entre o primeiro rascunho ja cair dentro e
-    gastar mais uma chamada de modelo para chegar la.
+        bloco   fonte da densidade      erro mediano   nascem dentro
+        longo   mediana do canal            5,23%          58,1%
+        longo   constante do corpus         4,55%          71,6%   <- melhor
+        short   mediana do canal            4,20%          71,2%   <- melhor
+        short   constante do corpus        14,26%          32,5%
 
-    O pior caso nao melhora (17,2%, epomeno-epipedo-002, que tem 1,61 frases
-    por cena contra 2,31 do canal). Isso e esperado e nao e problema: o laco
-    existe justamente para os casos que o orcamento nao acerta de saida.
+    No LONGO a mediana do canal PERDE, e perde por tamanho de amostra: um canal
+    tem de tres a dezesseis specs, e a mediana de tao pouco balanca mais do que
+    a diferenca de estilo que ela tenta capturar. A constante do corpus le
+    setenta e quatro.
+
+    No SHORT ela ganha, e ganha por larga margem — porque a constante do corpus
+    (2,26) foi calibrada em LONGO. Short e outro regime: cinco ou seis cenas de
+    uma frase seca cada. Aplicar ali um numero medido em bloco de setenta cenas
+    erra 14,26%, que e tres vezes o erro da alternativa.
+
+    O DOCSTRING ANTERIOR AFIRMAVA O CONTRARIO para o longo ("com a mediana do
+    corpus erra 3,9%; com a mediana do canal, 1,4%"). Aquele numero era ajuste
+    DENTRO da amostra: `densidade` le as specs do canal em disco, e a spec
+    prevista estava entre elas. Dentro da amostra o canal de fato parece melhor
+    (3,46% contra 4,55%); fora, inverte. Em producao a spec nova ainda nao
+    existe em disco, entao a leitura de fora e a unica que descreve a esteira.
+
+    `excluir` recebe o nome de arquivo de uma spec que nao deve entrar na conta.
+    Em producao fica vazio; ele existe para quem afere, e a falta dele foi o que
+    escondeu tudo isto.
     """
     import glob
     import statistics
@@ -245,6 +264,8 @@ def densidade(slug: str, bloco: str = "longo") -> float:
     vistos = []
     for caminho in sorted(glob.glob(os.path.join(RAIZ, "fabrica", "specs",
                                                  f"{slug}-*.json"))):
+        if excluir and os.path.basename(caminho) == excluir:
+            continue
         try:
             sp = json.load(open(caminho, encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
@@ -255,6 +276,13 @@ def densidade(slug: str, bloco: str = "longo") -> float:
         idi = N.idioma_de(sp, None)
         frases = sum(len(N.frases((c or {}).get("nar") or "", idi)) for c in cenas)
         vistos.append(frases / len(cenas))
+    if bloco != "short":
+        # Ver a tabela do docstring: no longo a mediana do canal e uma amostra
+        # pequena demais para bater a constante do corpus. Ela continua sendo
+        # calculada acima porque quem afere precisa dos dois numeros, e porque
+        # o dia em que um canal tiver specs suficientes para virar o jogo, a
+        # comparacao tem de estar a mao — nao reescrita do zero.
+        return FRASES_POR_CENA
     return statistics.median(vistos) if vistos else FRASES_POR_CENA
 
 
