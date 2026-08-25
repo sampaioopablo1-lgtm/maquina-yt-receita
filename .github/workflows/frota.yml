@@ -389,5 +389,6 @@ jobs:
             /tmp/f/${{ matrix.pacote }}/short.mp4
             /tmp/f/${{ matrix.pacote }}/thumbnail.png
             /tmp/f/${{ matrix.pacote }}/legendas.srt
+            /tmp/f/${{ matrix.pacote }}/copy.md
           retention-days: 14
           if-no-files-found: warn

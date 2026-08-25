@@ -604,10 +604,29 @@ def ler_copy(spec, workdir):
     titulo = secoes[0][1].strip().split("\n")[0]
     descricao = secoes[1][1].strip()
 
-    tags, hashtags, comentario, capitulos = [], "", "", ""
+    tags, hashtags, comentario, capitulos, licenca = [], "", "", "", ""
     for _, corpo in secoes[2:]:
         linhas = [x for x in corpo.split("\n") if x.strip()]
         if not linhas:
+            continue
+        # A LICENCA VEM PRIMEIRO, e ela nao pode cair em nenhum outro balde.
+        #
+        # Medido em 25/08/2026 contra o video n01kuj6iiE8, ao vivo: NENHUM dos
+        # 186 videos publicados tem o credito CC-BY na descricao. A causa esta
+        # na ordem das secoes — `COMENTARIO FIXADO` vem antes de `MUSICA /
+        # LICENCA`, entao quando a musica chegava no `elif not comentario` o
+        # balde ja estava cheio e a secao era descartada em silencio.
+        #
+        # Nao e detalhe de estilo. O docstring do `credito_trilha` diz o que
+        # esta em jogo: "sem ele o uso da faixa deixa de ser licenciado". A
+        # faixa e CC-BY do Kevin MacLeod; publicar sem atribuicao e usar sem
+        # licenca, em treze canais.
+        #
+        # A deteccao e pelo CONTEUDO e nao pelo titulo da secao porque o titulo
+        # muda de spec para spec e de idioma para idioma — a URL da licenca,
+        # nao.
+        if "creativecommons.org/licenses" in corpo or "Kevin MacLeod" in corpo:
+            licenca = corpo
             continue
         if all(re.match(r"^\d{1,3}:\d{2}\b", x) for x in linhas):
             capitulos = corpo
@@ -622,11 +641,14 @@ def ler_copy(spec, workdir):
     # o placeholder {CAPITULOS} pode estar no meio da AÇIKLAMA em spec antiga.
     if capitulos and capitulos not in descricao:
         descricao = f"{descricao}\n\n{capitulos}"
+    # Antes das hashtags, para elas continuarem sendo a ultima linha.
+    if licenca and "creativecommons.org/licenses" not in descricao:
+        descricao = f"{descricao}\n\n{licenca}"
     if hashtags:
         descricao = f"{descricao}\n\n{hashtags}"
 
     return {"titulo": titulo, "descricao": descricao, "tags": tags,
-            "hashtags": hashtags, "comentario": comentario}
+            "hashtags": hashtags, "comentario": comentario, "licenca": licenca}
 
 
 def meta_video(titulo, descricao, tags, idioma, publico=True):
