@@ -229,7 +229,16 @@ jobs:
             curl -sS --max-time 120 -H "Authorization: Bearer $KEY" -H "apikey: $KEY" \
               "$SB/storage/v1/object/videos-maquina/trilhas/$faixa.mp3" \
               -o "$alvo" || true
-            [ -s "$alvo" ] && [ "$(head -c 4 "$alvo")" != "{\"st" ] && return 0
+            # O TESTE E DECODIFICAR, nao olhar os primeiros bytes.
+            #
+            # A primeira versao disto conferia se o arquivo comecava com o
+            # inicio do JSON de erro do Supabase. Nao pegou: o run 32822376769
+            # baixou tres arquivos, imprimiu "trilhas: 3 faixas", renderizou
+            # 88 clipes por onze minutos e so entao a etapa 6 descobriu que
+            # nenhuma tocava. Adivinhar o formato do erro alheio e sempre
+            # frageil; perguntar ao ffprobe se aquilo e audio nao e.
+            ffprobe -v error -show_entries format=duration -of csv=p=0 \
+              "$alvo" 2>/dev/null | grep -qE '^[0-9]+' && return 0
             rm -f "$alvo"
             # O nome no incompetech usa espaco onde o nosso usa sublinhado.
             local nome="${faixa//_/%20}"
