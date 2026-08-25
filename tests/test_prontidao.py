@@ -314,15 +314,42 @@ def test_voz_sem_modelo_reprova_em_vez_de_supor():
 )
 def test_short_de_producao_cabe_na_faixa_de_shorts(spec):
     """O short e o formato que ENTREGA: mede-se 25 a 96x o longo do mesmo
-    pacote. Um short de 29 s nao e curtinho, e fora do formato — e essa conta
-    mudou quando o modelo passou a contar pausa por frase."""
-    from ensaio import MODELO_VOZ, duracao_estimada
+    pacote. Um short de 29 s nao e curtinho, e fora do formato.
+
+    A CONTA E A DO PORTAO, e ate 25/08/2026 nao era. Este teste chamava a
+    `duracao_estimada` crua enquanto o `_gate_duracao` chamava a
+    `duracao_estimada_short` — duas respostas para a mesma pergunta, com
+    `ensaio.VIES_SHORT` (1,047) de diferenca. O proprio `ensaio` ja dizia qual
+    das duas vale: "use esta em TODO lugar que dimensiona ou confere short;
+    `duracao_estimada` crua e para longo, que e onde o modelo foi ajustado".
+
+    O vies nao e palpite: 28 dos 30 shorts publicados saem mais longos que o
+    previsto, mediana +4,7%. Uma spec de 29,8 s crus renderiza perto de 31,2 s
+    reais — dentro da faixa. Medir aqui sem a correcao reprova roteiro bom, que
+    e o custo que o `MARGEM_SHORT` foi reduzido justamente para evitar.
+
+    A divergencia ficou dois meses invisivel porque nenhuma spec caiu na fresta
+    de 1,4 s entre as duas contas. A `epomeno-epipedo-011` caiu, com 29,76 s
+    crus: reprovada aqui, aprovada no portao que a esteira usa de verdade.
+    """
+    from ensaio import MODELO_VOZ, duracao_estimada_short
+
+    from test_narracao_das_specs import PARADAS
 
     sp = json.loads(spec.read_text(encoding="utf-8"))
     if sp.get("voz") not in MODELO_VOZ:
         pytest.skip("voz sem modelo medido")
-    d = duracao_estimada(sp["short"], sp["voz"])
-    assert prontidao.SHORT_MIN_S <= d <= prontidao.SHORT_MAX_S, f"{d:.0f} s"
+    if spec.stem in PARADAS:
+        # As doze specs que estouram o teto corrigido ja estao registradas no
+        # inventario PARADAS, com o numero corrigido escrito em cada linha, e
+        # todas ja estao no ar. Reprova-las aqui tambem nao acrescenta sinal:
+        # e a mesma spec, o mesmo motivo, e nada a produzir. O inventario e
+        # importado em vez de copiado para que a lista continue tendo um dono
+        # so — uma spec que volte a passar sai de la e volta a ser cobrada aqui.
+        pytest.skip(f"parada registrada: {PARADAS[spec.stem][1]}")
+    d = duracao_estimada_short(sp["short"], sp["voz"])
+    teto = prontidao.SHORT_MAX_S / (1 + prontidao.MARGEM_SHORT)
+    assert prontidao.SHORT_MIN_S <= d <= teto, f"{d:.1f} s"
 
 
 # --------------------------------------------------------------------------

@@ -279,9 +279,19 @@ def _densidade_diacritica(cenas, tabela: str) -> float | None:
     return sum(1 for ch in txt if ch in tabela) / letras
 
 
+def _letras(cenas) -> int:
+    return sum(1 for c in cenas
+               for ch in ((c or {}).get("nar") or "") if ch.isalpha())
+
+
 # Quantas specs precisam acentuar para que a mediana delas vire referencia. Com
 # duas, uma convencao pessoal de um canal so viraria lei para a lingua inteira.
 MINIMO_REFERENCIA_IDIOMA = 3
+
+# Abaixo disto a densidade e ruido: uma frase curta em portugues pode nao ter
+# acento nenhum sem que nada esteja errado. Um short desta frota tem 30 a 43
+# segundos de fala, que sao ~400 a 700 letras — folga grande sobre o piso.
+MINIMO_LETRAS_MEDIDAS = 150
 
 
 def _referencia_do_idioma(base: str, tabela: str, caminho: str) -> float:
@@ -340,6 +350,17 @@ def _gate_ortografia(caminho, sp):
 
     Descoberto escrevendo a seviye-seviye-004: eu escrevi as 72 cenas em ASCII
     num canal cujas outras duas specs acentuam 12,7% das letras, e nada acusou.
+
+    E O SHORT? Ate 25/08/2026 este portao lia so `sp["longo"]`, e por isso
+    deixou passar metade do defeito que existe para pegar. Medido escrevendo a
+    seja-mais-magra-006: escrevi as duas partes em ASCII, o portao acusou, eu
+    consertei o longo — e o portao SE CALOU com o short ainda inteiro sem
+    acento. So peguei relendo o texto na mao.
+
+    Somar os dois blocos numa densidade so nao serve: o longo tem ~7.900
+    caracteres e o short ~500, entao um short 100% em ASCII move a media menos
+    de 4% e cabe folgado dentro da folga de metade. Cada bloco tem de ser
+    medido por si — e e o short que recebe distribuicao.
     """
     import glob
     import statistics
@@ -351,8 +372,10 @@ def _gate_ortografia(caminho, sp):
     if not tabela:
         return []
 
-    minha = _densidade_diacritica(sp.get("longo") or [], tabela)
-    if minha is None:
+    blocos = [("longo", sp.get("longo") or []), ("short", sp.get("short") or [])]
+    blocos = [(nome, _densidade_diacritica(cenas, tabela), _letras(cenas))
+              for nome, cenas in blocos]
+    if all(d is None for _, d, _ in blocos):
         return []
 
     slug = sp.get("slug") or ""
@@ -387,17 +410,23 @@ def _gate_ortografia(caminho, sp):
     if referencia < PISO_REFERENCIA:
         return []          # nem o canal nem o idioma dao referencia
 
+    de_onde = (f"nas outras specs de {slug}" if vizinhas
+               and statistics.median(vizinhas) >= PISO_REFERENCIA
+               else f"nas specs de {base} que acentuam")
+
     # Metade da referencia e folga larga de proposito: texto varia, e o que
     # este portao procura e o caso de ASCII puro, nao a flutuacao normal.
-    if minha < referencia / 2:
-        de_onde = (f"nas outras specs de {slug}" if vizinhas
-                   and statistics.median(vizinhas) >= PISO_REFERENCIA
-                   else f"nas specs de {base} que acentuam")
-        return [f"acentuacao fora do padrao: {minha:.1%} das letras contra "
-                f"{referencia:.1%} {de_onde}. Em {base} isso muda a pronuncia "
-                f"do TTS, e nenhum outro portao enxerga — o texto continua "
-                f"parecendo a lingua certa"]
-    return []
+    notas = []
+    for nome, minha, letras in blocos:
+        if minha is None or letras < MINIMO_LETRAS_MEDIDAS:
+            continue
+        if minha < referencia / 2:
+            notas.append(
+                f"acentuacao fora do padrao no {nome}: {minha:.1%} das letras "
+                f"contra {referencia:.1%} {de_onde}. Em {base} isso muda a "
+                f"pronuncia do TTS, e nenhum outro portao enxerga — o texto "
+                f"continua parecendo a lingua certa")
+    return notas
 
 
 def _gate_capitulos(sp):

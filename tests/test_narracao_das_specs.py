@@ -184,6 +184,15 @@ PARADAS = {
     "setiap-level-003":       ("portao", "26,0 min — desescalonado por medicao em 17/08; short 43,7 s tambem"),
     "setiap-level-004":       ("portao", "28,1 min — desescalonado por medicao em 17/08"),
     "setiap-level-006":       ("portao", "copy ainda em bilhete"),
+    # Entrou em 25/08/2026, quando o portao de ortografia passou a medir o
+    # SHORT alem do longo. Ate entao ele lia so `sp["longo"]`, e esta spec e a
+    # prova de que isso deixava passar metade do defeito: o longo dela acentua
+    # normalmente e o short nao. Nenhum outro portao ve, e o short e o unico
+    # formato desta frota que recebe distribuicao.
+    #
+    # Ja esta no ar desde 20/08 (yrWVyqQtw00 e OKsJgwEsYFs), conferido no banco
+    # antes de aceitar a entrada. Video no ar nao se reescreve.
+    "labtreinamento-004":     ("portao", "narracao do SHORT sem acento portugues (1,6% contra 4,3% das specs pt que acentuam); ja no ar"),
 }
 
 
