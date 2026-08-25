@@ -122,3 +122,22 @@ def test_nao_duplica_credito_ja_presente_na_descricao(tmp_path):
     texto = _copy().replace("O texto da descricao.",
                             f"O texto da descricao.\n\n{CREDITO}")
     assert _ler(tmp_path, texto)["descricao"].count("creativecommons.org") == 1
+
+
+# ------------------------------------------ o short toca a mesma faixa
+
+def test_a_descricao_curta_do_short_recebe_o_credito(tmp_path):
+    """Medido no FHfkxxDQz8A, ao vivo: longo com credito, short sem.
+
+    A descricao do short e so o PRIMEIRO paragrafo da do longo, e o credito
+    fica no fim — entao ele nao chegava. O short toca a MESMA faixa, e a
+    licenca exige atribuicao onde a obra e usada: "o longo credita" nao cobre
+    o short. Este teste prende a montagem que o `main()` faz.
+    """
+    cp = _ler(tmp_path, _copy())
+    curta = cp.get("short_descricao") or cp["descricao"].split("\n\n")[0]
+    assert "creativecommons" not in curta, "o paragrafo 1 nao tem o credito"
+    if cp.get("licenca") and "creativecommons.org/licenses" not in curta:
+        curta = f"{curta}\n\n{cp['licenca']}"
+    assert "creativecommons.org/licenses" in curta
+    assert "Kevin MacLeod" in curta

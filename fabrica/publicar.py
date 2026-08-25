@@ -871,9 +871,21 @@ def main():
     #    Medido: com 6 a 8 dias de vida o short entrega 130x o longo.
     curto = os.path.join(d, "short.mp4")
     if os.path.exists(curto):
+        # A descricao do short e so o PRIMEIRO paragrafo da do longo — e por
+        # isso o credito CC-BY, que fica no fim, nao chegava nele.
+        #
+        # Medido em 25/08/2026 no FHfkxxDQz8A, ao vivo: longo com credito,
+        # short sem. E o short toca a MESMA faixa. A licenca exige atribuicao
+        # onde a obra e usada, entao "o longo credita" nao cobre o short.
+        # Mesmo defeito do `ler_copy`, um degrau abaixo, e achado do mesmo
+        # jeito: perguntando ao video publicado em vez de ao codigo.
+        desc_curta = (cp.get("short_descricao")
+                      or cp["descricao"].split("\n\n")[0])
+        if cp.get("licenca") and "creativecommons.org/licenses" not in desc_curta:
+            desc_curta = f"{desc_curta}\n\n{cp['licenca']}"
         sid = subir(acc, curto, meta_video(
             cp.get("short_titulo") or cp["titulo"],
-            cp.get("short_descricao") or cp["descricao"].split("\n\n")[0],
+            desc_curta,
             (cp.get("short_tags") or cp.get("tags") or [])[:8], idioma))
         saida["short"] = sid
         print("SHORT:", sid, "| playlist:", na_playlist(acc, args.playlist, sid))
