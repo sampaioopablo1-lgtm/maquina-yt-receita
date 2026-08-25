@@ -66,6 +66,10 @@ jobs:
           bater "PostgREST (ler config)" GET "$SB/rest/v1/config?select=chave&limit=1"
           bater "Storage (listar bucket)" POST "$SB/storage/v1/object/list/videos-maquina" \
                 '{"prefix":"","limit":1}'
+          # A ponte tem coluna propria porque ela e a ROTA DE FUGA: se o
+          # PostgREST cair e ela ficar de pe, a maquina publica assim mesmo.
+          # Foi para responder exatamente esta pergunta que ela foi escrita.
+          bater "Ponte (functions/v1)" POST "$SB/functions/v1/ponte" '{"acao":"saude"}'
 
           echo "aberta=$ABERTA" >> "$GITHUB_OUTPUT"
           if [ "$ABERTA" = "sim" ]; then
