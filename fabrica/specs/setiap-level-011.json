@@ -1,0 +1,586 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-011",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14202E",
+  "c1": "#1B7F79",
+  "c2": "#E4913C",
+  "bg": "#F1F6F5"
+ },
+ "thumb": {
+  "l1": "Tarif efektifmu",
+  "l2": "cek slip gaji"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Slip gajimu",
+   "sub": "punya satu angka tetap",
+   "nar": "Di slip gajimu ada satu angka yang dipotong setiap bulan, dan besarnya hampir tidak pernah berubah dari Januari sampai November.",
+   "cap": "Angka tetap di slip gajimu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu Desember",
+   "preco": "angkanya melompat",
+   "nar": "Lalu datang Desember dan angka itu melompat. Banyak orang mengira kantor salah hitung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan salah hitung",
+   "preco": "itu memang aturannya",
+   "nar": "Bukan salah hitung. Itu memang cara kerja pemotongan pajak penghasilan sejak sistemnya diubah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Namanya TER",
+   "preco": "tarif efektif rata-rata",
+   "nar": "Sistemnya bernama tarif efektif rata-rata, disingkat TER, dan diatur lewat peraturan menteri keuangan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang berubah",
+   "preco": "rumusnya, bukan tarifnya",
+   "nar": "Yang berubah bukan besar pajaknya. Yang berubah adalah cara menghitung potongan bulanan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang dipotong itu",
+   "preco": "cicilan, bukan tagihan",
+   "nar": "Satu hal yang perlu jelas dulu: potongan bulanan itu bukan tagihan pajakmu. Itu cicilan di muka atas pajak setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Makanya ada Desember",
+   "preco": "bulan penutup",
+   "nar": "Karena itu ada bulan penutup. Kalau cicilannya kurang, kekurangannya ditagih sekaligus di akhir tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sistem ini baru",
+   "preco": "slip lama beda",
+   "nar": "Sistem TER dipakai sejak dua ribu dua puluh empat, jadi slip lama dan slip sekarang memang berbeda polanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hari ini",
+   "preco": "kamu bisa hitung sendiri",
+   "nar": "Hari ini kamu akan bisa menghitung sendiri berapa yang keluar tiap bulan, dan berapa yang keluar di Desember.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah satu",
+   "sub": "cari statusmu",
+   "nar": "Langkah pertama, dan ini yang menentukan segalanya: cari status PTKP-mu.",
+   "cap": "Cari kategori TER kamu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Apa itu PTKP",
+   "preco": "penghasilan tidak kena pajak",
+   "nar": "PTKP adalah penghasilan tidak kena pajak, dan besarnya tergantung status kawin dan jumlah tanggungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kode TK dan K",
+   "preco": "lajang atau kawin",
+   "nar": "Kodenya sederhana. Huruf TK berarti tidak kawin, huruf K berarti kawin, dan angka di belakangnya adalah jumlah tanggungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kategori A",
+   "preco": "TK nol, TK satu, K nol",
+   "nar": "Kalau statusmu TK nol, TK satu, atau K nol, kamu masuk kategori A. Di sana PTKP-nya lima puluh empat juta atau lima puluh empat koma delapan juta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kategori B",
+   "preco": "empat status di tengah",
+   "nar": "Kategori B menampung empat status di tengah. Dua di antaranya berstatus tidak kawin dengan tanggungan, dua lagi berstatus kawin. PTKP-nya berkisar dari enam puluh tiga juta sampai enam puluh tujuh koma lima juta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kategori C",
+   "preco": "K tiga",
+   "nar": "Dan status K tiga masuk kategori C, dengan PTKP tujuh puluh dua juta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Arti angka PTKP",
+   "preco": "bagian yang tidak dipajaki",
+   "nar": "Angka PTKP itu bukan hiasan. Dia adalah bagian penghasilan setahun yang tidak dikenai pajak sama sekali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contohnya",
+   "preco": "lima puluh empat juta bebas",
+   "nar": "Untuk status TK nol, lima puluh empat juta pertama dalam setahun tidak dipajaki. Pajak baru mulai dihitung di atas itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Statusmu ada di slip",
+   "preco": "atau tanya HR",
+   "nar": "Status ini biasanya tercetak di slip gajimu. Kalau tidak ada, itu satu pertanyaan singkat ke bagian HR.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah dua",
+   "sub": "satu perkalian",
+   "nar": "Langkah kedua, dan hanya ini yang perlu kamu lakukan setiap bulan.",
+   "cap": "Kalikan brutomu dengan tarifnya"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ambil brutomu",
+   "preco": "bukan yang diterima",
+   "nar": "Ambil penghasilan bruto sebulan, bukan yang kamu terima di rekening. Bruto adalah sebelum semua potongan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cari barismu",
+   "preco": "di tabel kategorimu",
+   "nar": "Cari baris penghasilan itu di tabel kategorimu. Setiap kategori punya puluhan lapisan, dan setiap lapisan punya satu tarif.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contoh dari fiskus",
+   "preco": "dua persen",
+   "nar": "Contoh yang dipakai sendiri oleh direktorat pajak: bruto antara sembilan koma enam lima juta dan sepuluh koma nol lima juta kena tarif dua persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu kalikan",
+   "preco": "itu potonganmu",
+   "nar": "Kalikan brutomu dengan tarif itu. Hasilnya adalah potongan pajak bulananmu, dan itu berlaku dari Januari sampai November.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sepuluh juta",
+   "preco": "dua ratus ribu",
+   "nar": "Untuk gaji sepuluh juta, dua persen berarti dua ratus ribu rupiah keluar setiap bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bruto termasuk apa",
+   "preco": "gaji pokok dan tunjangan",
+   "nar": "Bruto bukan cuma gaji pokok. Dia mencakup tunjangan tetap dan komponen lain yang kamu terima bulan itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bedanya dengan Pasal 17",
+   "preco": "tarifnya kena seluruh bruto",
+   "nar": "Perhatikan satu hal: tarif efektif dikalikan ke seluruh bruto, bukan ke sebagian. Itu yang membuat perkaliannya sesederhana ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu seluruh metodenya",
+   "preco": "sisanya penjelasan",
+   "nar": "Itu seluruh metodenya. Sisa video ini adalah alasannya, contoh lengkapnya, dan hal-hal yang tidak masuk hitungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa Desember",
+   "sub": "beda sendiri",
+   "nar": "Sekarang bagian yang membuat orang bingung setiap akhir tahun.",
+   "cap": "Kenapa Desember dihitung ulang"
+  },
+  {
+   "layout": "item",
+   "kicker": "TER itu perkiraan",
+   "preco": "bukan hitungan final",
+   "nar": "TER adalah perkiraan yang rapi. Dia membagi beban pajak setahun ke dalam sebelas bulan, tanpa menghitung ulang apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Desember memakai Pasal 17",
+   "preco": "tarif berlapis",
+   "nar": "Di Desember pemberi kerja berhenti memakai TER dan memakai tarif berlapis Pasal 17, yaitu tarif yang sesungguhnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lapisan pertama",
+   "preco": "lima persen",
+   "nar": "Lapisan pertama adalah lima persen untuk penghasilan kena pajak sampai enam puluh juta setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lapisan berikutnya",
+   "preco": "lima belas persen",
+   "nar": "Di atas enam puluh juta sampai dua ratus lima puluh juta tarifnya lima belas persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu naik lagi",
+   "preco": "dua puluh lima persen",
+   "nar": "Di atas dua ratus lima puluh juta sampai lima ratus juta tarifnya dua puluh lima persen, dan terus naik dari sana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan atas bruto",
+   "preco": "atas penghasilan kena pajak",
+   "nar": "Satu koreksi penting: tarif berlapis itu tidak dikenakan ke bruto. Dia dikenakan ke penghasilan kena pajak, yaitu setelah pengurang dan PTKP.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan hanya kelebihannya",
+   "preco": "bukan seluruhnya",
+   "nar": "Dan kalau penghasilan kena pajakmu melewati satu lapisan, tarif yang lebih tinggi hanya mengenai kelebihannya, bukan seluruh penghasilan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi naik gaji",
+   "preco": "tetap menguntungkan",
+   "nar": "Jadi naik gaji tidak pernah membuat uang yang kamu bawa pulang jadi lebih kecil. Yang naik hanya pajak atas bagian tambahannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Selisihnya di Desember",
+   "preco": "itu saja",
+   "nar": "Pajak setahun dihitung dengan tarif itu, lalu dikurangi semua yang sudah dipotong Januari sampai November. Sisanya keluar di Desember.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Contoh lengkap",
+   "sub": "gaji sepuluh juta",
+   "nar": "Mari kita jalankan satu contoh sampai selesai, dengan angka bulat.",
+   "cap": "Contoh lengkap: gaji sepuluh juta"
+  },
+  {
+   "layout": "item",
+   "kicker": "Profilnya",
+   "preco": "TK nol, sepuluh juta",
+   "nar": "Karyawan tetap dengan status TK nol dan penghasilan bruto sepuluh juta sebulan. Berarti kategori A.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Januari sampai November",
+   "preco": "dua ratus ribu",
+   "nar": "Tarifnya dua persen, jadi potongannya dua ratus ribu sebulan. Sebelas bulan berarti dua juta dua ratus ribu sudah masuk kas negara.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bruto setahun",
+   "preco": "seratus dua puluh juta",
+   "nar": "Sekarang hitungan Desember. Bruto setahun adalah seratus dua puluh juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Biaya jabatan",
+   "preco": "enam juta",
+   "nar": "Dari situ dikurangi biaya jabatan, yaitu lima persen dari bruto dengan batas enam juta setahun. Di contoh ini pas menyentuh batasnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Penghasilan neto",
+   "preco": "seratus empat belas juta",
+   "nar": "Penghasilan neto setahun menjadi seratus empat belas juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dikurangi PTKP",
+   "preco": "enam puluh juta",
+   "nar": "Dikurangi PTKP lima puluh empat juta, penghasilan kena pajaknya adalah enam puluh juta rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pajak setahun",
+   "preco": "tiga juta",
+   "nar": "Enam puluh juta pas berada di lapisan pertama, jadi pajaknya lima persen, yaitu tiga juta rupiah setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang sudah dipotong",
+   "preco": "dua juta dua ratus ribu",
+   "nar": "Yang sudah dipotong sepanjang tahun adalah dua juta dua ratus ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Potongan bulanan",
+   "itens": [
+    "Jan-Nov",
+    "Desember"
+   ],
+   "alturas": [
+    25,
+    100
+   ],
+   "nar": "Selisihnya, yang keluar di Desember, adalah delapan ratus ribu rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Empat kali lipat",
+   "preco": "dan itu benar",
+   "nar": "Empat kali potongan bulan biasa, dalam satu bulan. Bukan kesalahan, dan bukan pajak baru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa selisihnya ada",
+   "preco": "TER membulatkan",
+   "nar": "Selisih itu muncul karena TER membulatkan sepanjang tahun, dan Desember yang membereskan pembulatannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang tidak masuk",
+   "sub": "dan bisa mengubah hasilnya",
+   "nar": "Sekarang jujur soal apa yang contoh tadi tidak masukkan.",
+   "cap": "Yang contoh ini tidak masukkan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Iuran pensiun",
+   "preco": "mengurangi neto",
+   "nar": "Iuran pensiun atau jaminan hari tua yang kamu bayar sendiri mengurangi penghasilan neto, jadi pajak setahunmu jadi lebih kecil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "THR dan bonus",
+   "preco": "menambah bruto",
+   "nar": "THR dan bonus menambah bruto di bulan diterimanya, dan itu menaikkan potongan di bulan tersebut.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pindah kerja",
+   "preco": "hitungannya terpisah",
+   "nar": "Kalau kamu pindah kerja di tengah tahun, tiap pemberi kerja menghitung bagiannya sendiri, dan penyesuaiannya terjadi di SPT tahunanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bisa juga sebaliknya",
+   "preco": "Desember lebih ringan",
+   "nar": "Selisihnya tidak selalu menambah. Kalau TER memotong lebih banyak dari pajak setahunmu, potongan Desember justru jadi lebih kecil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bruto yang naik turun",
+   "preco": "tarifnya ikut pindah",
+   "nar": "Kalau brutomu berubah tiap bulan karena lembur, kamu bisa pindah lapisan, dan tarif efektifmu ikut berubah bulan itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu",
+   "preco": "hitung ulang tiap bulan",
+   "nar": "Karena itu, hitung ulang pembagian tadi setiap kali brutomu berubah. Satu pembagian, lima detik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau statusmu berubah",
+   "preco": "menikah atau punya anak",
+   "nar": "Kalau kamu menikah atau bertambah tanggungan, kategorimu bisa pindah, dan tarif efektifmu ikut berubah. Laporkan perubahan itu ke HR.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi ini titik awal",
+   "preco": "bukan hitungan final",
+   "nar": "Jadi perlakukan angka ini sebagai titik awal untuk memahami slip gajimu, bukan sebagai hitungan pajak final.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dari mana angkanya",
+   "sub": "dua sumber resmi",
+   "nar": "Dari mana semua angka ini, karena itu pertanyaan yang selalu pantas.",
+   "cap": "Dari mana angkanya"
+  },
+  {
+   "layout": "item",
+   "kicker": "Sumber pertama",
+   "preco": "direktorat jenderal pajak",
+   "nar": "Kategori TER, batas PTKP tiap kategori, dan aturan bahwa Desember memakai tarif berlapis berasal dari situs direktorat jenderal pajak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sumber kedua",
+   "preco": "JDIH Kementerian Keuangan",
+   "nar": "Peraturan yang mendasarinya tersedia di basis hukum kementerian keuangan, termasuk aturan biaya jabatan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak saya pakai",
+   "preco": "kalkulator daring",
+   "nar": "Saya tidak memakai kalkulator daring atau situs tips mana pun. Angka yang tidak ada di sumber resmi tidak masuk video ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara mengeceknya sendiri",
+   "preco": "dua kata kunci",
+   "nar": "Kamu bisa mengeceknya tanpa perantara. Dua kata kunci cukup: peraturan menteri keuangan seratus enam puluh delapan, dan lampiran tarif efektif.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Di lampiran itu",
+   "preco": "tabel lengkapnya",
+   "nar": "Di lampiran peraturan itulah seluruh lapisan tarif ketiga kategori tercetak, baris demi baris.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ini bukan usulan",
+   "preco": "sudah berlaku",
+   "nar": "Satu penegasan: yang saya jelaskan di sini bukan rencana atau usulan. Ini aturan yang sudah berlaku dan sudah ada di slip gajimu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa itu penting",
+   "preco": "ini soal pajak",
+   "nar": "Untuk urusan pajak, salah angka bukan sekadar keliru: yang menanggung akibatnya adalah orang yang mempraktikkannya. Lebih baik mengatakan lebih sedikit dan yakin akan yang sedikit itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Malam ini",
+   "sub": "tiga hal",
+   "nar": "Tiga hal yang bisa kamu lakukan malam ini, semuanya di satu halaman.",
+   "cap": "Yang kamu lakukan malam ini"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "buka slip gajimu",
+   "nar": "Buka slip gaji bulan lalu dan cari dua angka: penghasilan bruto, dan potongan pajak penghasilan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "bagi yang satu dengan yang lain",
+   "nar": "Bagi potongan itu dengan brutonya. Hasilnya dalam persen adalah tarif efektif yang sedang dipakai untukmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ketiga",
+   "itens": [
+    "Status PTKP saya",
+    "Tarif efektif saya",
+    "Berapa potongan Desember saya"
+   ],
+   "nar": "Lalu tulis tiga baris: status PTKP saya, tarif efektif saya, dan perkiraan potongan Desember saya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris ketiga itu",
+   "preco": "yang paling berguna",
+   "nar": "Baris ketiga yang paling berguna, karena Desember adalah bulan yang paling sering tidak sesuai dugaan orang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Simpan angkanya",
+   "preco": "bandingkan Desember nanti",
+   "nar": "Simpan catatan itu sampai Desember. Waktu slip Desember keluar, kamu punya pembanding, bukan cuma rasa kaget.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ringkasnya",
+   "preco": "TER lalu Pasal 17",
+   "nar": "Ringkasnya: Januari sampai November potonganmu adalah tarif efektif dikali bruto, dan Desember adalah pajak setahun dikurangi semua yang sudah dipotong.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "hitung punyamu",
+   "nar": "Lakukan satu hal hari ini: hitung tarif efektifmu sendiri dan tulis angkanya. Di sini kita ambil satu angka dari hidupmu dan mengubahnya jadi tindakan yang kamu kerjakan sendiri. Kalau itu yang kamu cari, berlanggananlah.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Potongan Desember",
+   "sub": "empat kali bulan biasa",
+   "nar": "Potongan pajak di slip gajimu bulan Desember bisa empat kali lipat bulan biasa. Ini cara tahu punyamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Buka slip gajimu",
+   "preco": "ambil dua angka",
+   "nar": "Ambil penghasilan bruto sebulan dan potongan pajaknya, lalu bagi yang kedua dengan yang pertama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu tarifmu",
+   "preco": "berlaku Jan sampai Nov",
+   "nar": "Hasilnya adalah tarif efektifmu, dan itu yang dipakai dari Januari sampai November.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Desember lain",
+   "preco": "pajak setahun dikurangi",
+   "nar": "Desember dihitung ulang: pajak setahun dikurangi semua yang sudah dipotong. Sisanya keluar sekaligus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Setiap Level",
+   "sub": "tulis angkamu",
+   "nar": "Hitung tarif efektifmu malam ini dan tulis angkanya. Di sini setiap angka jadi tindakan yang kamu kerjakan sendiri.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# PPh 21 TER: tarif efektifmu dan kenapa Desember beda\n\n## TITULO\nPPh 21 TER: Cara Hitung Tarif Efektifmu Sendiri dan Kenapa Desember Beda\n\n## DESCRICAO\nDi slip gajimu ada satu angka yang dipotong setiap bulan dan hampir tidak pernah berubah dari Januari sampai November — lalu di Desember angka itu melompat. Itu bukan kesalahan hitung kantor. Video ini menunjukkan cara menghitung sendiri tarif efektifmu, memakai dua angka yang sudah ada di slip gajimu, dan cara memperkirakan potongan Desember sebelum bulannya tiba.\n\nCARA CEPAT MENGETAHUI TARIFMU (dua angka, satu pembagian)\n\nBuka slip gaji bulan lalu. Ambil penghasilan bruto sebulan, lalu ambil potongan PPh 21. Bagi potongan dengan bruto. Hasilnya dalam persen adalah tarif efektif yang sedang dipakai untukmu dari Januari sampai November.\n\nSISTEM TER (sumber: Direktorat Jenderal Pajak)\n\nTER Bulanan punya tiga kategori yang ditentukan oleh status PTKP. Kategori A untuk status TK/0 dan TK/1 (PTKP Rp54.000.000) serta K/0 (Rp54.800.000), dengan 44 lapisan tarif. Kategori B untuk TK/2 dan TK/3 (Rp63.000.000) serta K/1 dan K/2 (Rp67.500.000), dengan 40 lapisan. Kategori C untuk K/3 (Rp72.000.000), dengan 41 lapisan. Tarif tertinggi di ketiga kategori adalah 34%. Contoh lapisan yang dipakai DJP sendiri: penghasilan bruto Rp9.650.001 sampai Rp10.050.000 dikenakan tarif efektif 2%.\n\nYang berubah bukan besarnya pajak, melainkan rumus pemotongan bulanannya. TER bukan jenis pajak baru.\n\nKENAPA DESEMBER DIHITUNG ULANG\n\nMasa pajak Januari sampai November memakai TER. Desember memakai tarif berlapis Pasal 17: 5% sampai Rp60.000.000 penghasilan kena pajak; 15% di atas Rp60.000.000 sampai Rp250.000.000; 25% di atas Rp250.000.000 sampai Rp500.000.000; 30% di atas Rp500.000.000 sampai Rp5.000.000.000; dan 35% di atasnya. Pajak setahun dihitung dengan tarif itu, lalu dikurangi seluruh potongan Januari sampai November. Selisihnya keluar di Desember.\n\nCONTOH LENGKAP: GAJI BRUTO Rp10.000.000, STATUS TK/0\n\nJanuari sampai November: tarif 2%, potongan Rp200.000 per bulan, total Rp2.200.000. Desember: bruto setahun Rp120.000.000; dikurangi biaya jabatan 5% dengan batas Rp6.000.000 setahun, jadi Rp6.000.000; penghasilan neto Rp114.000.000; dikurangi PTKP TK/0 Rp54.000.000, penghasilan kena pajak Rp60.000.000; pajak setahun 5% = Rp3.000.000; dikurangi Rp2.200.000 yang sudah dipotong, potongan Desember menjadi Rp800.000 — empat kali potongan bulan biasa.\n\nYANG TIDAK MASUK HITUNGAN INI: iuran pensiun atau JHT yang kamu bayar sendiri (mengurangi neto, jadi pajak setahun lebih kecil), THR dan bonus (menambah bruto di bulan diterimanya), dan perpindahan kerja di tengah tahun (tiap pemberi kerja menghitung bagiannya sendiri, penyesuaian terjadi di SPT Tahunan). Perlakukan angka di video ini sebagai titik awal untuk memahami slip gajimu, bukan sebagai perhitungan pajak final. Ini bukan nasihat perpajakan.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nBagi potongan PPh 21 di slip gajimu dengan penghasilan brutomu, lalu tulis satu angka di komentar: tarif efektifmu dalam persen. Bukan gajimu — cukup persennya. Saya penasaran berapa banyak dari kamu yang ada di bawah 3%, karena itu kelompok yang paling kaget waktu Desember datang.\n\n## HASHTAGS\n#PPh21 #PajakGaji #SetiapLevel\n\n## TAGS\npph 21, ter pph 21, tarif efektif rata rata, pajak gaji, potongan pajak desember, ptkp, tk/0, biaya jabatan, pasal 17, slip gaji, pajak penghasilan karyawan, hitung pajak gaji, spt tahunan, pmk 168, keuangan pribadi\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Indonesio (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nOs numeros vem de DUAS fontes institucionais que se confirmam. (1) DIRETORIA GERAL DE IMPOSTOS (pajak.go.id), o proprio fisco indonesio: o TER Bulanan tem tres categorias definidas pelo status de PTKP — A para TK/0 e TK/1 (PTKP 54.000.000) e K/0 (54.800.000), com 44 faixas; B para TK/2 e TK/3 (63.000.000) e K/1 e K/2 (67.500.000), com 40 faixas; C para K/3 (72.000.000), com 41 faixas; teto de 34% nas tres. Janeiro a novembro usam TER e DEZEMBRO usa a tarifa do Pasal 17. A faixa de exemplo (bruto de 9.650.001 a 10.050.000 com tarifa efetiva de 2%) e citada pelo proprio DJP. As faixas do Pasal 17 (UU HPP) — 5% ate 60 juta, 15% ate 250 juta, 25% ate 500 juta, 30% ate 5 miliar, 35% acima — tambem saem do DJP. (2) JDIH KEMENKEU (jdih.kemenkeu.go.id), a base de legislacao do Ministerio das Financas, que hospeda a PMK 168 Tahun 2023, norma que institui o TER, e a PMK 250/PMK.03/2008, que fixa o biaya jabatan em 5% do bruto com teto de 500.000 por mes ou 6.000.000 por ano. A CONTA DE DEZEMBRO FOI DERIVADA, nao copiada: 120.000.000 de bruto menos 6.000.000 de biaya jabatan da 114.000.000 de neto; menos 54.000.000 de PTKP da 60.000.000 de PKP; 5% disso da 3.000.000 de imposto anual; menos os 2.200.000 ja retidos em onze meses restam 800.000 em dezembro, quatro vezes o mes comum. NAO foi usado nenhum calculador ou portal de dicas. O video diz em voz alta que o exemplo nao inclui iuran pensiun/JHT do empregado, THR, bonus nem troca de emprego no meio do ano, e que nao e aconselhamento fiscal.\n"
+}
