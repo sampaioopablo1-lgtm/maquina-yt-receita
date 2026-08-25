@@ -1,0 +1,479 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-007",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#1F2430",
+  "c1": "#C2410C",
+  "c2": "#0E7490",
+  "bg": "#FAF5EF"
+ },
+ "thumb": {
+  "l1": "HET beda",
+  "l2": "tiap daerah"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Harga tabung melon",
+   "sub": "tidak ada harga nasional",
+   "nar": "Berapa kamu bayar terakhir kali beli tabung gas tiga kilogram? Simpan angka itu, karena sebentar lagi kita bandingkan.",
+   "cap": "Tidak ada harga nasional"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang banyak orang kira",
+   "preco": "harganya sama di mana-mana",
+   "nar": "Banyak orang mengira harga tabung melon itu satu angka yang sama di seluruh Indonesia. Bukan begitu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang sebenarnya",
+   "preco": "ditetapkan per daerah",
+   "nar": "Harga eceran tertinggi, atau HET, ditetapkan lewat peraturan gubernur atau peraturan bupati di daerah masing-masing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artinya",
+   "preco": "daerahmu punya angkanya sendiri",
+   "nar": "Artinya daerahmu punya angka sendiri, dan angka itu resmi, tertulis, dan bisa kamu cari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contoh nyata",
+   "preco": "dua daerah, dua angka",
+   "nar": "Contohnya, di DKI Jakarta HET di tingkat pangkalan ditetapkan enam belas ribu rupiah. Di Jawa Tengah dan Jawa Timur angkanya delapan belas ribu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan angkanya bisa berubah",
+   "preco": "kalau peraturannya diubah",
+   "nar": "Angka itu juga bisa berubah, karena peraturan daerah bisa direvisi. Jadi yang berlaku hari ini adalah yang tertulis pada peraturan paling baru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi pertanyaannya",
+   "preco": "bukan mahal atau murah",
+   "nar": "Jadi pertanyaan yang benar bukan mahal atau murah. Pertanyaannya adalah: berapa HET di tempat kamu tinggal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cara mencarinya",
+   "sub": "tiga tempat",
+   "nar": "Sekarang cara menemukan angka daerahmu, dan ada tiga tempat.",
+   "cap": "Cara mencari HET daerahmu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "papan harga di pangkalan",
+   "nar": "Yang paling cepat: pangkalan resmi wajib memasang papan harga. Angka di papan itu adalah HET yang berlaku di sana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "situs pemerintah daerah",
+   "nar": "Kedua, cari di situs pemerintah provinsi atau kabupaten. Peraturan yang menetapkan HET diumumkan di sana, lengkap dengan nomornya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "preco": "dinas terkait",
+   "nar": "Ketiga, dinas perindustrian dan perdagangan daerah biasanya menerbitkan pengumuman setiap kali angkanya berubah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang kamu cari",
+   "preco": "satu angka dan satu nomor",
+   "nar": "Yang kamu cari cuma dua hal: berapa rupiah, dan nomor peraturan yang menetapkannya. Nomor itu yang membedakan informasi dari kabar burung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa nomornya penting",
+   "preco": "biar bisa dicek orang lain",
+   "nar": "Nomor peraturan penting karena dengan nomor itu siapa pun bisa memeriksa sendiri. Tanpa nomor, angka cuma cerita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Catat di tempat yang tetap",
+   "preco": "supaya tidak lupa",
+   "nar": "Catat di catatan ponsel. Angka ini jarang berubah, jadi sekali dicatat, berlaku lama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hitung selisihnya",
+   "sub": "satu pengurangan",
+   "nar": "Sekarang bagian yang jadi uang, dan cuma satu pengurangan.",
+   "cap": "Hitung selisihmu sendiri"
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah satu",
+   "preco": "harga yang kamu bayar",
+   "nar": "Ambil angka yang tadi kamu simpan: berapa kamu benar-benar bayar per tabung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah dua",
+   "preco": "kurangi HET daerahmu",
+   "nar": "Kurangi dengan HET daerahmu. Hasilnya adalah selisih per tabung, dan itulah yang kamu bayar di atas harga resmi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah tiga",
+   "preco": "kalikan pemakaian sebulan",
+   "nar": "Kalikan selisih itu dengan jumlah tabung yang kamu habiskan sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contoh angkanya",
+   "preco": "tujuh ribu per tabung",
+   "nar": "Misalnya HET di daerahmu delapan belas ribu dan kamu bayar dua puluh lima ribu. Selisihnya tujuh ribu rupiah per tabung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau tiga tabung sebulan",
+   "preco": "dua puluh satu ribu",
+   "nar": "Kalau sebulan habis tiga tabung, itu dua puluh satu ribu rupiah per bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Setahun",
+   "itens": [
+    "Sebulan",
+    "Setahun"
+   ],
+   "alturas": [
+    8,
+    100
+   ],
+   "nar": "Setahun angkanya jadi dua ratus lima puluh dua ribu rupiah. Untuk satu barang yang harganya sudah ditetapkan pemerintah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu seluruh metodenya",
+   "preco": "sisanya penjelasan",
+   "nar": "Itu seluruh metodenya. Sisa video ini menjelaskan kenapa selisihnya ada, dan apa yang bisa kamu lakukan soal itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa ada selisih",
+   "sub": "rantainya",
+   "nar": "Kenapa selisih itu muncul sama sekali? Karena rantai penyalurannya berlapis.",
+   "cap": "Kenapa selisihnya muncul"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pangkalan",
+   "preco": "titik resmi terakhir",
+   "nar": "Pangkalan adalah titik resmi terakhir dalam rantai. HET yang ditetapkan peraturan daerah berlaku di titik itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pengecer",
+   "preco": "di luar rantai resmi",
+   "nar": "Warung atau pengecer yang membeli dari pangkalan lalu menjual lagi berada di luar titik itu, dan menambahkan marginnya sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu",
+   "preco": "harga naik menjauh dari pangkalan",
+   "nar": "Karena itu harga cenderung naik semakin jauh kamu membeli dari pangkalan. Bukan karena ada yang salah, tapi karena ada lapisan tambahan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang bisa kamu pilih",
+   "preco": "beli langsung di pangkalan",
+   "nar": "Yang ada di tangan kamu adalah memilih membeli langsung di pangkalan, kalau jaraknya masuk akal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan berarti pengecer salah",
+   "preco": "mereka juga punya biaya",
+   "nar": "Ini bukan berarti pengecer berbuat salah. Mereka menanggung ongkos angkut dan waktu, dan bagi banyak orang kedekatan itu memang ada nilainya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitung ongkosnya juga",
+   "preco": "jujur soal jarak",
+   "nar": "Dan hitung juga ongkos perjalanannya. Kalau selisihnya tujuh ribu tapi ongkos bolak-balik sepuluh ribu, pangkalan bukan pilihan yang lebih murah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Siapa yang berhak",
+   "sub": "empat kelompok",
+   "nar": "Sekarang bagian yang sering disalahpahami: siapa sebenarnya yang berhak atas tabung bersubsidi ini.",
+   "cap": "Siapa yang berhak memakainya"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Kelompok sasaran",
+   "itens": [
+    "Rumah tangga, untuk memasak",
+    "Usaha mikro, untuk memasak",
+    "Nelayan sasaran",
+    "Petani sasaran"
+   ],
+   "nar": "Sasarannya empat kelompok: rumah tangga untuk memasak, usaha mikro untuk memasak, nelayan sasaran, dan petani sasaran.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dasarnya",
+   "preco": "dua peraturan presiden",
+   "nar": "Dasarnya adalah dua peraturan presiden. Yang pertama bernomor seratus empat, dari tahun dua ribu tujuh. Yang kedua bernomor tiga puluh delapan, dari tahun dua ribu sembilan belas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Perhatikan katanya",
+   "preco": "untuk memasak",
+   "nar": "Perhatikan dua kata yang berulang di sana: untuk memasak. Itu batas yang membedakan pemakaian yang disasar dari yang tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau kamu punya warung",
+   "preco": "kamu termasuk",
+   "nar": "Kalau kamu punya warung kecil dan memasak untuk dijual, kamu masuk kategori usaha mikro. Itu bukan penyalahgunaan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau kamu ragu",
+   "preco": "tanya di pangkalan",
+   "nar": "Kalau kamu ragu masuk kelompok yang mana, itu pertanyaan satu kalimat di pangkalan resmi. Mereka yang mendata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang membedakan",
+   "preco": "bukan besar kecilnya dapur",
+   "nar": "Yang membedakan bukan besar kecil dapurnya, melainkan kelompok yang disebut peraturan itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa harus daftar",
+   "sub": "sejak awal 2024",
+   "nar": "Dan ini yang mengubah cara membeli, banyak orang belum tahu detailnya.",
+   "cap": "Kenapa harus mendaftar"
+  },
+  {
+   "layout": "item",
+   "kicker": "Aturannya",
+   "preco": "hanya pengguna terdata",
+   "nar": "Sejak satu Januari dua ribu dua puluh empat, pembelian tabung tiga kilogram hanya bisa dilakukan oleh pengguna yang sudah terdata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara mendaftar",
+   "preco": "KTP dan KK",
+   "nar": "Cara mendaftarnya sederhana: tunjukkan KTP dan kartu keluarga di penyalur atau pangkalan resmi. Tidak ada biaya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk usaha mikro",
+   "preco": "ada satu tambahan",
+   "nar": "Untuk pengguna usaha mikro ada satu syarat tambahan, yaitu foto diri di tempat usaha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cek statusmu",
+   "preco": "cukup bawa KTP",
+   "nar": "Kalau kamu tidak yakin sudah terdata atau belum, cukup bawa KTP ke pangkalan resmi dan minta dicek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Batas per transaksi",
+   "preco": "satu KTP satu tabung",
+   "nar": "Ada juga batas pembelian: satu tabung per transaksi, dengan prinsip satu KTP satu tabung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau tabungmu habis malam hari",
+   "preco": "pangkalan bisa tutup",
+   "nar": "Satu hal praktis: pangkalan punya jam buka. Kalau gasmu sering habis malam hari, punya tabung cadangan lebih murah daripada membeli darurat di luar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tujuannya",
+   "preco": "subsidi tepat sasaran",
+   "nar": "Tujuan aturan ini adalah memastikan subsidinya sampai ke kelompok yang memang disasar, bukan menyulitkan pembeli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dari mana angkanya",
+   "sub": "dua sumber resmi",
+   "nar": "Dari mana semua ini, karena itu pertanyaan yang pantas ditanyakan setiap kali.",
+   "cap": "Dari mana angkanya"
+  },
+  {
+   "layout": "item",
+   "kicker": "Sumber pertama",
+   "preco": "Kementerian ESDM",
+   "nar": "Aturan pendaftaran, syarat KTP dan kartu keluarga, kelompok sasaran, dan batas satu tabung per transaksi berasal dari Kementerian Energi dan Sumber Daya Mineral melalui Direktorat Jenderal Migas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sumber kedua",
+   "preco": "peraturan daerah",
+   "nar": "Angka HET berasal dari peraturan daerah masing-masing, yang diumumkan di situs hukum provinsi dan kabupaten.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kenapa dua sumber",
+   "preco": "dua hal yang berbeda",
+   "nar": "Dua sumber karena dua hal yang berbeda: siapa boleh membeli diatur pusat, berapa harganya diatur daerah. Mencampur keduanya bikin salah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara mengeceknya sendiri",
+   "preco": "dua kata kunci",
+   "nar": "Kamu bisa memeriksanya tanpa perantara. Cari pendaftaran pengguna LPG tiga kilogram di situs Kementerian ESDM, dan HET LPG di situs pemerintah daerahmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak saya pakai",
+   "preco": "kabar dari grup",
+   "nar": "Saya tidak memakai kabar dari grup pesan atau portal berita tanpa nomor peraturan. Angka tanpa dasar resmi tidak masuk video ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Minggu ini",
+   "sub": "tiga hal",
+   "nar": "Tiga hal yang bisa kamu lakukan minggu ini, semuanya gratis.",
+   "cap": "Yang kamu lakukan minggu ini"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "cari HET daerahmu",
+   "nar": "Cari HET di daerahmu, lewat papan harga pangkalan atau situs pemerintah daerah, dan catat nomor peraturannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "hitung selisihmu",
+   "nar": "Hitung selisih antara yang kamu bayar dan angka itu, lalu kalikan dengan pemakaian sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ketiga",
+   "itens": [
+    "HET di daerah saya",
+    "Harga yang saya bayar",
+    "Selisih saya setahun"
+   ],
+   "nar": "Dan tulis tiga baris: HET di daerah saya, harga yang saya bayar, dan selisih saya setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baris ketiga",
+   "preco": "yang bikin bergerak",
+   "nar": "Baris ketiga yang bikin orang bergerak, karena selisih per tabung terasa kecil dan selisih setahun tidak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau kamu belum terdata",
+   "preco": "itu satu kunjungan",
+   "nar": "Dan kalau ternyata kamu belum terdata, itu satu kali ke pangkalan dengan KTP dan kartu keluarga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ringkasnya",
+   "preco": "cari, kurangi, kalikan",
+   "nar": "Ringkasnya: cari HET daerahmu, kurangi dari yang kamu bayar, kalikan dengan pemakaian bulanan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "hitung punyamu",
+   "nar": "Lakukan satu hal hari ini: cari HET daerahmu dan tulis selisihmu setahun. Di sini kita ambil satu angka dari dapurmu dan mengubahnya jadi hitungan yang kamu kerjakan sendiri. Kalau itu yang kamu cari, berlangganan.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Tabung melon",
+   "sub": "tidak ada harga nasional",
+   "nar": "Berapa kamu bayar tabung gas tiga kilogram terakhir kali? Tidak ada harga nasional untuk itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "HET per daerah",
+   "preco": "Pergub atau Perbup",
+   "nar": "Harga eceran tertinggi ditetapkan per daerah, lewat peraturan gubernur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kurangi",
+   "preco": "yang kamu bayar",
+   "nar": "Kurangi HET daerahmu dari yang kamu bayar. Itu selisihmu per tabung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalikan sebulan",
+   "preco": "lalu kali dua belas",
+   "nar": "Selisih tujuh ribu dengan tiga tabung sebulan jadi dua ratus lima puluh dua ribu setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Resep Naik Level",
+   "sub": "tulis selisihmu",
+   "nar": "Cari HET daerahmu dan tulis selisihmu setahun.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# LPG 3 kg: tidak ada harga nasional, dan cara menghitung selisihmu\n\n## TITULO\nLPG 3 Kg: Tidak Ada Harga Nasional — Cara Cari HET Daerahmu dan Hitung Selisihmu\n\n## DESCRICAO\nBerapa kamu bayar terakhir kali beli tabung gas tiga kilogram? Simpan angka itu. Banyak orang mengira harga tabung melon adalah satu angka yang sama di seluruh Indonesia — bukan begitu. Harga eceran tertinggi (HET) ditetapkan lewat peraturan gubernur atau peraturan bupati di daerah masing-masing, jadi daerahmu punya angkanya sendiri, resmi dan tertulis. Video ini menunjukkan cara menemukan angka itu dan mengubahnya jadi satu pengurangan yang bisa kamu kerjakan hari ini.\n\nHET DITETAPKAN PER DAERAH (sumber: peraturan daerah, diumumkan di situs hukum provinsi dan kabupaten)\n\nContoh nyata dari dua daerah yang berbeda: di DKI Jakarta HET di tingkat pangkalan ditetapkan Rp16.000. Di Jawa Tengah ditetapkan Rp18.000 melalui keputusan gubernur, dan Jawa Timur juga menerapkan Rp18.000. Angka-angka ini adalah contoh daerah tertentu, bukan harga nasional — daerahmu punya peraturannya sendiri.\n\nCARA MENCARI HET DAERAHMU (tiga tempat)\n\n1) Papan harga di pangkalan resmi — pangkalan wajib memasangnya. 2) Situs pemerintah provinsi atau kabupaten, tempat peraturan yang menetapkan HET diumumkan lengkap dengan nomornya. 3) Dinas perindustrian dan perdagangan daerah, yang menerbitkan pengumuman setiap kali angkanya berubah. Yang kamu cari cuma dua hal: berapa rupiah, dan nomor peraturannya.\n\nHITUNG SELISIHMU (satu pengurangan)\n\nHarga yang kamu bayar − HET daerahmu = selisih per tabung. Kalikan dengan jumlah tabung sebulan, lalu kalikan dua belas. Contoh: HET Rp18.000 dan kamu bayar Rp25.000 berarti selisih Rp7.000 per tabung; dengan tiga tabung sebulan itu Rp21.000 per bulan dan Rp252.000 setahun. (Angka Rp25.000 adalah contoh — yang jadi patokan adalah harga yang KAMU bayar.)\n\nKENAPA SELISIHNYA MUNCUL: pangkalan adalah titik resmi terakhir dalam rantai penyaluran, dan HET berlaku di titik itu. Warung atau pengecer yang membeli dari pangkalan lalu menjual lagi berada di luar titik itu dan menambahkan marginnya sendiri. Kalau jaraknya masuk akal, membeli langsung di pangkalan menghilangkan lapisan itu — tapi hitung juga ongkos perjalanannya, karena selisih Rp7.000 tidak menutup ongkos bolak-balik Rp10.000.\n\nSIAPA YANG BERHAK (sumber: Kementerian ESDM / Ditjen Migas)\n\nSasaran pengguna LPG tabung 3 kg adalah rumah tangga untuk memasak, usaha mikro untuk memasak, nelayan sasaran, dan petani sasaran, sesuai Peraturan Presiden Nomor 104 Tahun 2007 dan Peraturan Presiden Nomor 38 Tahun 2019.\n\nWAJIB TERDATA SEJAK 1 JANUARI 2024: pembelian tabung 3 kg hanya dapat dilakukan oleh pengguna yang sudah terdata. Mendaftarnya cukup menunjukkan KTP dan Kartu Keluarga di penyalur atau pangkalan resmi, tanpa biaya; pengguna usaha mikro perlu tambahan foto diri di tempat usaha. Kalau tidak yakin sudah terdata, bawa KTP ke pangkalan resmi dan minta dicek. Pembelian dibatasi satu tabung per transaksi, dengan prinsip satu KTP satu tabung.\n\nVideo ini tidak menyebut HET daerah lain di luar yang dikutip, tidak menuduh pedagang mana pun, dan tidak menjanjikan bahwa stok pangkalan selalu tersedia.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nCari HET di daerahmu, kurangi dari harga yang kamu bayar, lalu tulis satu angka di komentar: selisihmu setahun. Tidak perlu sebut nama warung atau daerahnya kalau tidak mau — cukup angkanya. Saya penasaran berapa banyak yang selisih setahunnya lebih besar dari harga satu tabung penuh.\n\n## HASHTAGS\n#LPG3Kg #HargaGas #ResepNaikLevel\n\n## TAGS\nlpg 3 kg, tabung melon, het lpg, harga gas melon, pangkalan lpg, subsidi lpg, ktp lpg, daftar lpg 3 kg, usaha mikro, perpres 104 2007, ditjen migas, harga eceran tertinggi, hemat dapur, biaya dapur, ekonomi rumah tangga\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Indonesio (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nOs numeros vem de DUAS fontes institucionais que tratam de coisas DIFERENTES e por isso nao se sobrepoem. (1) KEMENTERIAN ESDM / DITJEN MIGAS (esdm.go.id e migas.esdm.go.id), com corroboracao do Setkab: desde 1 de janeiro de 2024 a compra do tubo de 3 kg so pode ser feita por usuario ja cadastrado; o cadastro e feito apresentando KTP e Kartu Keluarga no penyalur ou pangkalan oficial, sem custo, com foto no local de trabalho exigida a mais para usuario de usaha mikro; os grupos com direito sao rumah tangga para cozinhar, usaha mikro para cozinhar, nelayan sasaran e petani sasaran, conforme a Perpres 104/2007 e a Perpres 38/2019; e a compra e limitada a um tubo por transacao, no principio \"satu KTP satu tabung\". (2) PERATURAN DAERAH, publicadas nos sites de JDIH e dos governos provinciais e municipais: o HET NAO e nacional — ele e fixado por Peraturan Gubernur ou Peraturan Bupati e DIFERE por regiao. Os exemplos citados sao DKI Jakarta com Rp 16.000 no nivel do pangkalan, Jawa Tengah com Rp 18.000 por decisao do governador, e Jawa Timur tambem com Rp 18.000. O VIDEO NAO AFIRMA UM PRECO NACIONAL, porque nao existe: ele ensina a achar o proprio e diz em voz alta que os valores citados sao de regioes especificas. NA CONTA DO EXEMPLO, o unico numero que vem de fonte e o HET; os Rp 25.000 pagos sao hipotese explicitamente marcada como tal, porque o valor que vale e o que o proprio espectador pagou. NAO foi usada nenhuma mensagem de grupo nem portal sem numero de norma.\n"
+}
