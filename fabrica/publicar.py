@@ -165,6 +165,21 @@ def ja_no_ar_pelo_titulo(titulo, sb_url, sb_key):
             if (l.get("titulo") or "").strip().casefold() == alvo]
 
 
+def _iguais_no_estado(estado, titulo):
+    """A trava por TITULO, lendo do arquivo em vez do PostgREST.
+
+    A comparacao e caracter por caracter a mesma de `ja_no_ar_pelo_titulo` —
+    de proposito. Duas travas com o mesmo nome e criterios diferentes seriam
+    pior que uma so: a que roda quando a rede cai e justamente a que ninguem
+    testa, e ela precisa recusar exatamente o que a outra recusaria.
+    """
+    alvo = (titulo or "").strip().casefold()
+    if not alvo:
+        return []
+    return [l for l in (estado.get("titulos_no_ar") or [])
+            if (l.get("titulo") or "").strip().casefold() == alvo]
+
+
 def access_token(tok):
     data = urllib.parse.urlencode({
         "client_id": tok["client_id"], "client_secret": tok["client_secret"],
@@ -354,7 +369,7 @@ def _duracao(d, sp):
     return longo, curto
 
 
-def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
+def registrar(saida, sp, cp, d, canal, sb_url, sb_key, registro_json=None):
     """Escreve em `videos` o que acabou de subir.
 
     Este passo NAO EXISTIA, e a ausencia dele nao dava erro nenhum: o
@@ -374,6 +389,10 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
     pacote = sp.get("pacote") or sp["slug"]
     hoje = time.strftime("%Y-%m-%d", time.gmtime())
     base = f"{sb_url}/storage/v1/object/public/videos-maquina/{hoje}-{pacote}"
+    # No modo ponte nao existe Storage alcancavel: o gateway devolve 402 em
+    # tudo. Conferir presenca custaria dois HTTP mortos e o resultado ja se
+    # sabe. NULL honesto, como manda o aprendizado da propria `_existe`.
+    sem_rede = registro_json is not None
 
     def _existe(url: str) -> bool:
         """A URL do Storage e montada por CONVENCAO DE NOME, nao por resposta.
@@ -405,7 +424,8 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
             "duracao_s": longo_s, "duracao_short_s": curto_s,
             "cenas": len(sp.get("longo") or []),
             "capitulos": len(re.findall(r"^\d{1,3}:\d{2}\b", cp["descricao"], re.M)),
-            "supabase_url": (u if _existe(u := f"{base}-video.mp4") else None),
+            "supabase_url": (None if sem_rede
+                             else (u if _existe(u := f"{base}-video.mp4") else None)),
         })
     if saida.get("short"):
         linhas.append({
@@ -414,7 +434,8 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
             "youtube_id": saida["short"],
             "duracao_s": curto_s, "duracao_short_s": curto_s,
             "cenas": len(sp.get("short") or []), "capitulos": 0,
-            "supabase_url": (u if _existe(u := f"{base}-short.mp4") else None),
+            "supabase_url": (None if sem_rede
+                             else (u if _existe(u := f"{base}-short.mp4") else None)),
         })
     for l in linhas:
         l.update({"canal": canal, "pacote": pacote,
@@ -422,6 +443,19 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key):
                   "publicado_em": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())})
     if not linhas:
         return []
+    if registro_json is not None:
+        # O registro vira ARQUIVO em vez de INSERT. Quem publicou nao consegue
+        # alcancar o banco, mas o que ele sabe nao pode se perder por isso: o
+        # arquivo sobe como artefato e o registro entra depois, pela unica rota
+        # que continua aberta. Publicar sem registrar deixa as travas
+        # anti-duplicata cegas para o que a propria frota acabou de subir, e
+        # esse defeito ja custou um pacote republicado.
+        with open(registro_json, "w", encoding="utf-8") as f:
+            json.dump({"canal": canal, "pacote": pacote, "linhas": linhas},
+                      f, ensure_ascii=False, indent=2)
+        print(f"  registro : {len(linhas)} linha(s) em {registro_json} "
+              f"(modo ponte — o banco recebe depois)")
+        return linhas
     try:
         try:
             _req(f"{sb_url}/rest/v1/videos",
@@ -636,7 +670,8 @@ def reparar(args, sp, d, sb_url, sb_key, idioma):
     copy_md.escrever_copy(sp, tempos, d)
     cp = ler_copy(sp, d)
 
-    acc = access_token(token_do_canal(args.canal, sb_url, sb_key))
+    acc = (args.access_token
+           or access_token(token_do_canal(args.canal, sb_url, sb_key)))
     saida = {}
     if alvos.get("longo"):
         desc = cp["descricao"]
@@ -670,14 +705,55 @@ def main():
     p.add_argument("--repetir", action="store_true",
                    help="publica mesmo que o pacote ja tenha youtube_id em videos. "
                         "So para republicacao deliberada — o padrao e recusar.")
+    # ---- MODO PONTE: publicar quando a API do Supabase esta fora do ar.
+    #
+    # Em 25/08/2026 a organizacao entrou em restricao de Fair Use e o gateway
+    # passou a devolver 402 em TUDO — PostgREST, Storage e ate Edge Functions
+    # (medido, run 32805083587). O runner nao consegue mais ler o token do
+    # canal nem gravar o registro, e a frota inteira parou com treze canais
+    # prontos e um pacote ja renderizado esperando.
+    #
+    # A saida nao e afrouxar as travas, e MUDAR A FONTE delas. Mesma ideia que
+    # o `orquestra.py --dados` ja usa desde 13/08: os dados chegam por arquivo
+    # em vez de por rede, e a conferencia roda igual. As duas travas
+    # anti-duplicata continuam obrigatorias — o que muda e quem entrega o
+    # estado do banco para elas.
+    p.add_argument("--access-token", default="",
+                   help="token de acesso ja refrescado (1h), no lugar de ler "
+                        "config.yt_token_<canal>. Serve quando o PostgREST "
+                        "esta fora do ar.")
+    p.add_argument("--estado-json", default="",
+                   help='estado do banco por arquivo: {"ja_publicado": '
+                        '{"longo":"id"}, "titulos_no_ar": [{"titulo":..., '
+                        '"formato":..., "youtube_id":..., "pacote":...}]}. As '
+                        "travas rodam identicas, so mudam de fonte.")
+    p.add_argument("--registro-json", default="",
+                   help="grava o registro NESTE arquivo em vez de inserir em "
+                        "videos. O insert entra depois, pela rota que estiver "
+                        "aberta.")
     p.add_argument("--so-conferir-nome", action="store_true",
                    help="roda SO a trava por nome de pacote e sai. Serve para "
                         "rodar ANTES do render, que e onde a colisao custa "
                         "barato.")
     args = p.parse_args()
 
-    sb_url = os.environ["SUPABASE_URL"].rstrip("/")
-    sb_key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+    # No modo ponte o ambiente pode nem ter as variaveis: elas so serviriam
+    # para tomar 402. Fora dele continuam obrigatorias, porque publicar sem
+    # banco por descuido e exatamente o que as travas existem para impedir.
+    ponte = bool(args.estado_json or args.access_token or args.registro_json)
+    sb_url = (os.environ.get("SUPABASE_URL") or "").rstrip("/")
+    sb_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or ""
+    if not ponte and not (sb_url and sb_key):
+        raise SystemExit(
+            "AMBIENTE: faltam SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY. Se a "
+            "API do Supabase esta fora do ar, use o modo ponte "
+            "(--estado-json, --access-token, --registro-json).")
+    if ponte and not (args.estado_json and args.access_token):
+        raise SystemExit(
+            "MODO PONTE incompleto: --access-token e --estado-json andam "
+            "juntos. Sem o estado, as duas travas anti-duplicata ficariam "
+            "cegas — e foi assim que o mesmo pacote foi ao ar duas vezes.")
+    estado = json.load(open(args.estado_json)) if args.estado_json else None
     sp = json.load(open(args.spec))
     # `caminhos.dir_trabalho` e nao a string a mao: este literal ignorava
     # FABRICA_WORKDIR, entao render em disco real + publicar caiam em raizes
@@ -718,7 +794,8 @@ def main():
     # So a trava por PACOTE cabe aqui. A trava por TITULO precisa do copy.md,
     # que so existe depois do render — essa continua no lugar dela.
     if args.so_conferir_nome:
-        vivos = ja_publicado(sp.get("pacote") or sp["slug"], sb_url, sb_key)
+        vivos = (estado.get("ja_publicado") or {} if estado is not None
+                 else ja_publicado(sp.get("pacote") or sp["slug"], sb_url, sb_key))
         if vivos and not args.repetir:
             onde = ", ".join(f"{f}={i}" for f, i in sorted(vivos.items()))
             raise SystemExit(
@@ -736,7 +813,8 @@ def main():
     # sabe — entao pergunta-se ao banco, aqui, antes de subir o primeiro byte.
     pacote = sp.get("pacote") or sp["slug"]
     if not args.repetir:
-        vivos = ja_publicado(pacote, sb_url, sb_key)
+        vivos = (estado.get("ja_publicado") or {} if estado is not None
+                 else ja_publicado(pacote, sb_url, sb_key))
         if vivos:
             onde = ", ".join(f"{f}={i}" for f, i in sorted(vivos.items()))
             raise SystemExit(
@@ -751,7 +829,8 @@ def main():
     # So da para conferir aqui embaixo porque o titulo sai do copy.md, que so
     # existe depois do render.
     if not args.repetir:
-        iguais = ja_no_ar_pelo_titulo(cp.get("titulo"), sb_url, sb_key)
+        iguais = (_iguais_no_estado(estado, cp.get("titulo")) if estado is not None
+                  else ja_no_ar_pelo_titulo(cp.get("titulo"), sb_url, sb_key))
         if iguais:
             onde = ", ".join(f"{l['formato']}={l['youtube_id']} (pacote {l['pacote']})"
                              for l in iguais)
@@ -762,7 +841,8 @@ def main():
                 f"--repetir."
             )
 
-    acc = access_token(token_do_canal(args.canal, sb_url, sb_key))
+    acc = (args.access_token
+           or access_token(token_do_canal(args.canal, sb_url, sb_key)))
     saida = {}
 
     # 1) SHORT primeiro — e ele que recebe distribuicao em canal frio.
@@ -825,7 +905,8 @@ def main():
     # Publicar sem registrar deixa as duas travas la de cima cegas para o que a
     # propria frota acabou de subir. Por isso o registro fica aqui, no mesmo
     # processo que publicou, e nao numa etapa separada que alguem pode esquecer.
-    registrar(saida, sp, cp, d, args.canal, sb_url, sb_key)
+    registrar(saida, sp, cp, d, args.canal, sb_url, sb_key,
+              registro_json=args.registro_json or None)
 
     print(json.dumps(saida))
     # Sai diferente de zero DEPOIS de publicar e registrar. A ordem importa: o

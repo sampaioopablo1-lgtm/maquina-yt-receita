@@ -1,0 +1,157 @@
+name: Retomar — publicar pacote ja renderizado, sem a API do Supabase
+
+# POR QUE ISTO EXISTE (25/08/2026).
+#
+# A organizacao entrou em restricao de Fair Use e o gateway do Supabase passou
+# a devolver 402 em TUDO — PostgREST, Storage e Edge Functions, as tres
+# medidas no run 32805083587. Apagar arquivo nao levanta: o consumo em GB-Hrs
+# do ciclo ja aconteceu. A restricao so cai na virada do ciclo de cobranca.
+#
+# O estrago seria treze canais parados por ate onze dias, com pacote ja
+# renderizado apodrecendo dentro de um artefato que expira. O agla-level-006
+# estava exatamente assim: 74 cenas, 12:31, render pago e nunca publicado,
+# artefato vencendo em 07/09.
+#
+# Mas publicar no YouTube nunca dependeu do Supabase. Ele entrava so para duas
+# coisas: dar o token OAuth do canal e receber o registro. As duas tem rota
+# alternativa enquanto o gateway estiver fechado:
+#
+#   token    -> refrescado por fora e entregue aqui, com UMA HORA de vida. O
+#               refresh_token, que nao expira, nunca sai do banco.
+#   registro -> sai em arquivo, sobe como artefato, e entra no banco depois
+#               pela unica rota que continua aberta (o Management API).
+#
+# O que este workflow NAO faz e afrouxar as travas anti-duplicata. Elas rodam
+# identicas; o que muda e a fonte do estado, que chega em `estado_b64` em vez
+# de vir do PostgREST. Publicar duplicata para "destravar mais rapido" seria
+# trocar um problema de onze dias por um que fica no canal para sempre.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pacote:
+        description: "Nome do pacote (ex.: agla-level-006)"
+        type: string
+        required: true
+      canal:
+        description: "Slug do canal (ex.: agla-level)"
+        type: string
+        required: true
+      idioma:
+        description: "Idioma do canal (hi, pl, el, pt-BR...)"
+        type: string
+        required: true
+      run_id:
+        description: "Run que guarda o artefato do render"
+        type: string
+        required: true
+      access_token:
+        description: "Token de acesso do YouTube, ja refrescado (vive 1 hora)"
+        type: string
+        required: true
+      estado_b64:
+        description: "Estado do banco para as travas, JSON em base64"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  actions: read          # para baixar o artefato do run antigo
+
+jobs:
+  retomar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Esconder o token do log
+        env:
+          TOK: ${{ inputs.access_token }}
+        run: |
+          echo "::add-mask::$TOK"
+          echo "token recebido: $(printf %s "$TOK" | wc -c) chars"
+
+      - name: Baixar o pacote renderizado
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          D="/tmp/f/${{ inputs.pacote }}"
+          mkdir -p "$D"
+          # O artefato e procurado pelo NOME, nao por id: o id muda a cada
+          # render e o nome (`pacote-<pacote>`) e o mesmo que o frota.yml
+          # sempre gravou. Errar de artefato aqui publicaria o video de outro
+          # canal com o copy deste.
+          ID=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ inputs.run_id }}/artifacts" \
+            | python3 -c "
+          import json,sys
+          alvo = 'pacote-${{ inputs.pacote }}'
+          for a in json.load(sys.stdin)['artifacts']:
+              if a['name'] == alvo and not a['expired']:
+                  print(a['id']); break
+          else:
+              sys.exit('sem artefato vivo chamado ' + alvo)
+          ")
+          echo "artefato: $ID"
+          curl -sS -L -o /tmp/pac.zip -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/$ID/zip"
+          unzip -o /tmp/pac.zip -d "$D"
+          ls -la "$D"
+
+      - name: Conferir spec e arquivos
+        run: |
+          set -euo pipefail
+          test -f "fabrica/specs/${{ inputs.pacote }}.json" \
+            || { echo "::error::spec fabrica/specs/${{ inputs.pacote }}.json nao existe"; exit 1; }
+          D="/tmp/f/${{ inputs.pacote }}"
+          # Sem clipe nao ha o que publicar, e o modo de falha ruim e o
+          # publicar.py rodando com o diretorio vazio e cuspindo um traceback
+          # que esconde a causa — foi assim que o run 32788965239 confundiu
+          # todo mundo.
+          test -s "$D/video.mp4" -o -s "$D/short.mp4" \
+            || { echo "::error::nenhum clipe em $D"; exit 1; }
+
+      - name: Publicar pela ponte
+        env:
+          TOK: ${{ inputs.access_token }}
+          EST: ${{ inputs.estado_b64 }}
+        run: |
+          set -uo pipefail
+          echo "::add-mask::$TOK"
+          printf %s "$EST" | base64 -d > /tmp/estado.json
+          python3 -c "import json;d=json.load(open('/tmp/estado.json'));print('estado: ja_publicado=%s | titulos_no_ar=%d' % (d.get('ja_publicado'), len(d.get('titulos_no_ar') or [])))"
+          python3 fabrica/publicar.py "fabrica/specs/${{ inputs.pacote }}.json" \
+            --canal "${{ inputs.canal }}" \
+            --idioma "${{ inputs.idioma }}" \
+            --access-token "$TOK" \
+            --estado-json /tmp/estado.json \
+            --registro-json /tmp/registro.json
+          echo "saida do publicar.py: $?"
+
+      - name: Mostrar o registro para entrar no banco
+        if: always()
+        run: |
+          # Impresso de proposito. O registro nao tem segredo nenhum — sao
+          # youtube_id, titulo e duracao — e imprimir e o que permite que ele
+          # entre no banco pela rota que sobrou, sem esperar o gateway voltar.
+          # Publicar sem registrar cega as travas anti-duplicata, e esse
+          # defeito ja republicou pacote antes.
+          if [ -f /tmp/registro.json ]; then
+            echo "=== REGISTRO ==="; cat /tmp/registro.json; echo "=== FIM ==="
+          else
+            echo "::warning::nao houve registro — nada foi publicado"
+          fi
+
+      - name: Guardar o registro
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-${{ inputs.pacote }}
+          path: /tmp/registro.json
+          retention-days: 30
+          if-no-files-found: warn
