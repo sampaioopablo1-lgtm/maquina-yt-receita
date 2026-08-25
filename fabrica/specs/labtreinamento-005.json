@@ -1,0 +1,539 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-005",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16222F",
+  "c1": "#0F6E8C",
+  "c2": "#E0A02E",
+  "bg": "#F1F5F7"
+ },
+ "thumb": {
+  "l1": "FAP 2027",
+  "l2": "0,5 a 2,0"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Um multiplicador",
+   "sub": "na folha da sua empresa",
+   "nar": "Existe um multiplicador aplicado sobre uma contribuição da folha da sua empresa, e ele muda todo ano sem que ninguém avise.",
+   "cap": "O multiplicador que ninguém mostra"
+  },
+  {
+   "layout": "item",
+   "kicker": "O nome dele",
+   "preco": "Fator Acidentário de Prevenção",
+   "nar": "O nome completo é Fator Acidentário de Prevenção, e quase todo mundo do setor conhece pela sigla FAP. Se você trabalha com segurança do trabalho, provavelmente já ouviu falar sem nunca ter aberto o número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A faixa",
+   "preco": "de zero vírgula cinco a dois",
+   "nar": "Ele vai de zero vírgula cinco a dois vírgula zero. É um número por estabelecimento, calculado pela Previdência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que ele faz",
+   "preco": "multiplica o seu RAT",
+   "nar": "Esse número multiplica a alíquota do seguro de acidente do trabalho que a sua empresa já paga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "a mesma folha, contas diferentes",
+   "nar": "Duas empresas com a mesma folha e a mesma atividade podem recolher valores bem diferentes. A diferença é o histórico de acidentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "É por estabelecimento",
+   "preco": "não por empresa",
+   "nar": "Um detalhe que muda a conta de quem tem mais de uma unidade: o índice é atribuído por estabelecimento, e não à empresa como um todo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "cada unidade tem o seu",
+   "nar": "Duas filiais da mesma empresa podem receber índices diferentes, porque cada uma carrega o próprio histórico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E ele já está pronto",
+   "preco": "calculado sobre o seu passado",
+   "nar": "O cálculo do próximo ano já está sendo feito, sobre o que aconteceu na sua empresa. Ele não espera você olhar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde ver o seu",
+   "sub": "e a partir de quando",
+   "nar": "Primeira coisa prática: onde você vê o número da sua própria empresa.",
+   "cap": "Onde consultar o seu FAP"
+  },
+  {
+   "layout": "item",
+   "kicker": "O sistema",
+   "preco": "FAPWeb",
+   "nar": "A consulta é feita no sistema da Previdência chamado FAPWeb, e o mesmo índice também aparece pela Receita Federal. Não é serviço pago e não precisa de intermediário.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O acesso",
+   "preco": "senha gov ponto br",
+   "nar": "O acesso é por senha do portal do governo, e é restrito ao próprio estabelecimento. Ninguém consulta o FAP de terceiros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A data",
+   "preco": "trinta de setembro",
+   "nar": "O FAP com vigência para dois mil e vinte e sete fica disponível para consulta em trinta de setembro de dois mil e vinte e seis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que aparece lá",
+   "preco": "o índice e a memória de cálculo",
+   "nar": "Na consulta aparece o índice atribuído ao estabelecimento e os dados usados no cálculo. É essa memória que sustenta qualquer questionamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A memória de cálculo",
+   "preco": "é o que sustenta contestação",
+   "nar": "Vale insistir nessa parte. Sem olhar a memória de cálculo, uma contestação vira opinião, e opinião não muda índice.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem não consulta",
+   "preco": "descobre no recolhimento",
+   "nar": "Quem não consulta acaba descobrindo o índice pelo valor recolhido em janeiro, quando o prazo de contestação já fechou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Anote dois números",
+   "preco": "o FAP e a data",
+   "nar": "Anote o índice e o dia em que você consultou. Os dois vão importar em novembro, e eu explico por quê mais adiante.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Transforme em reais",
+   "sub": "duas multiplicações",
+   "nar": "Segunda coisa prática, e é aqui que o número vira dinheiro.",
+   "cap": "Como transformar o FAP em reais"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ache o seu RAT",
+   "preco": "pelo CNAE",
+   "nar": "Antes do FAP, ache a sua alíquota RAT. Ela vem da atividade da empresa, pelo CNAE.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "São três valores",
+   "preco": "um, dois ou três por cento",
+   "nar": "São três possibilidades, e elas seguem o grau de risco da atividade. Risco mínimo paga um por cento. Risco médio paga dois por cento. E risco grave paga três por cento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sobre o quê",
+   "preco": "a remuneração total do mês",
+   "nar": "Essa alíquota incide sobre a remuneração total paga no mês aos empregados e aos trabalhadores avulsos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira multiplicação",
+   "preco": "RAT vezes FAP",
+   "nar": "Agora multiplique: RAT vezes FAP. O resultado é a sua alíquota efetiva, que é a que realmente sai da folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda multiplicação",
+   "preco": "pela sua folha",
+   "nar": "Multiplique a alíquota efetiva pela sua folha mensal. Esse é o valor que o histórico de acidentes custa por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O nome do resultado",
+   "preco": "RAT ajustado",
+   "nar": "Muita gente chama esse resultado de RAT ajustado. É o mesmo número: a alíquota depois do multiplicador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cuidado com a ordem",
+   "preco": "primeiro multiplica, depois aplica",
+   "nar": "A ordem importa na hora de conferir: primeiro se multiplica a alíquota pelo fator, e só então se aplica sobre a folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pronto",
+   "preco": "o método acabou",
+   "nar": "Esse é o método inteiro. O resto do vídeo é o exemplo em reais, o calendário, e o que a contestação alcança.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em reais",
+   "sub": "uma folha de cem mil",
+   "nar": "Vamos pôr números redondos, porque em porcentagem ninguém sente.",
+   "cap": "O exemplo em reais"
+  },
+  {
+   "layout": "item",
+   "kicker": "A empresa do exemplo",
+   "preco": "risco médio",
+   "nar": "Uma empresa com folha mensal de cem mil reais e atividade de risco médio, ou seja, RAT de dois por cento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Com FAP um",
+   "preco": "dois mil por mês",
+   "nar": "Se o FAP dela for um vírgula zero, a alíquota efetiva continua em dois por cento, e o recolhimento fica em dois mil reais por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Com FAP mínimo",
+   "preco": "mil por mês",
+   "nar": "Se o FAP for zero vírgula cinco, a alíquota cai para um por cento, e o valor cai para mil reais por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Com FAP máximo",
+   "preco": "quatro mil por mês",
+   "nar": "E se o FAP for dois vírgula zero, a alíquota sobe para quatro por cento, e o valor vai a quatro mil reais por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Mesma folha, mesmo CNAE",
+   "itens": [
+    "FAP 0,5",
+    "FAP 1,0",
+    "FAP 2,0"
+   ],
+   "alturas": [
+    25,
+    50,
+    100
+   ],
+   "nar": "Mesma folha, mesma atividade, mesmo mês. A diferença entre o piso e o teto é de três mil reais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "No ano",
+   "preco": "trinta e seis mil",
+   "nar": "Ao longo de um ano isso são trinta e seis mil reais de diferença, decididos pelo histórico de acidentes e por mais nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se o risco for grave",
+   "preco": "a diferença abre mais",
+   "nar": "Numa empresa de risco grave, com RAT de três por cento, a mesma folha vai de mil e quinhentos reais no piso a seis mil no teto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nesse caso",
+   "preco": "quatro mil e quinhentos por mês",
+   "nar": "A diferença mensal passa de quatro mil e quinhentos reais, e o ano fecha acima de cinquenta mil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso importa",
+   "preco": "segurança vira linha de custo",
+   "nar": "É por isso que este número interessa a quem cuida de segurança: ele é a linha que liga prevenção a custo de folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O calendário",
+   "sub": "duas datas",
+   "nar": "Agora as duas datas, e elas são diferentes uma da outra.",
+   "cap": "As duas datas do calendário"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira data",
+   "preco": "trinta de setembro",
+   "nar": "Em trinta de setembro abre a consulta. É quando você descobre o índice que vai valer no ano seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda data",
+   "preco": "primeiro a trinta de novembro",
+   "nar": "De primeiro a trinta de novembro corre o prazo de contestação. São trinta dias, e só nesse período.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Entre uma e outra",
+   "preco": "um mês para conferir",
+   "nar": "Entre as duas datas você tem cerca de um mês para conferir a memória de cálculo antes de decidir se contesta. Esse intervalo existe de propósito, e é o único momento confortável do calendário inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer em outubro",
+   "preco": "conferir, não esperar",
+   "nar": "Outubro é o mês de trabalho: conferir os dados do cálculo, comparar com os próprios registros de acidente e afastamento, e decidir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O prazo não reabre",
+   "preco": "trinta dias e acabou",
+   "nar": "E é bom saber que esse prazo não reabre. Passou trinta de novembro, o índice segue valendo pelo ano inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como se contesta",
+   "preco": "só por meio eletrônico",
+   "nar": "A contestação é feita exclusivamente por meio eletrônico, em formulário disponível no próprio FAPWeb.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem julga",
+   "preco": "o CRPS",
+   "nar": "Quem analisa é o Conselho de Recursos da Previdência Social, conforme a lei de dois mil e dezenove que definiu esse rito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O detalhe caro",
+   "sub": "contestar não suspende",
+   "nar": "E agora o detalhe que costuma pegar as empresas de surpresa.",
+   "cap": "Contestar não suspende a cobrança"
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem efeito suspensivo",
+   "preco": "o índice vale enquanto isso",
+   "nar": "A contestação não tem efeito suspensivo. O FAP divulgado continua sendo aplicado enquanto o pedido é analisado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "você paga e discute",
+   "nar": "Na prática, você recolhe pelo índice divulgado e discute em paralelo. Contestar não é uma pausa no pagamento, e essa é a parte que costuma aparecer tarde demais nas reuniões de orçamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que isso muda",
+   "preco": "planeje o caixa",
+   "nar": "Isso muda o planejamento: se o seu índice subiu, o custo maior começa junto com o ano, independente da contestação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E se der certo",
+   "preco": "o acerto vem depois",
+   "nar": "Se a contestação for acolhida, o ajuste acontece depois. Mas o fluxo de caixa do começo do ano já terá acontecido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "No caixa",
+   "preco": "provisione pelo índice divulgado",
+   "nar": "Para o financeiro isso tem nome: a provisão do ano se faz pelo índice divulgado, não pelo índice que você espera conseguir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Contestar continua valendo",
+   "preco": "só não é pausa",
+   "nar": "Nada disso quer dizer que não vale contestar. Quer dizer que contestar e planejar o caixa são duas coisas separadas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso a conta",
+   "preco": "vem antes da discussão",
+   "nar": "Por isso a conta que fizemos importa: ela te diz o tamanho do impacto antes de você decidir se vale contestar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De onde vêm",
+   "sub": "duas fontes oficiais",
+   "nar": "De onde saíram estes números, porque essa pergunta cabe sempre.",
+   "cap": "De onde vêm os números"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira fonte",
+   "preco": "Ministério da Previdência Social",
+   "nar": "A faixa do multiplicador, as datas de consulta e de contestação, o rito no conselho e a ausência de efeito suspensivo vêm do Ministério da Previdência Social.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda fonte",
+   "preco": "Receita Federal",
+   "nar": "As alíquotas RAT de um, dois e três por cento e a base de incidência sobre a remuneração do mês vêm da página do FAP na Receita Federal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "São dois órgãos",
+   "preco": "e isso não é detalhe",
+   "nar": "Repare que são dois órgãos diferentes: o multiplicador e o calendário estão na Previdência, e a alíquota base está na Receita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso cito os dois",
+   "preco": "cada um no que é dele",
+   "nar": "Por isso eu cito os dois, cada um na parte que é dele. Misturar as fontes é como um número acaba atribuído a quem nunca o publicou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como conferir sozinho",
+   "preco": "duas buscas",
+   "nar": "Você confere sem intermediário com duas buscas: fator acidentário de prevenção no site da Previdência, e FAP no site da Receita Federal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que eu não uso",
+   "preco": "portal de dicas",
+   "nar": "Não usei calculadora de internet nem portal de dicas. Número que não está em fonte oficial não entra aqui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que insisto",
+   "preco": "aqui o erro é caro",
+   "nar": "Em matéria de recolhimento, errar não é curiosidade: quem paga a conta é quem seguiu a informação. Prefiro dizer menos e ter conferido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Esta semana",
+   "sub": "três coisas",
+   "nar": "Três coisas que dá para fazer esta semana, antes mesmo de a consulta abrir.",
+   "cap": "O que fazer esta semana"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira",
+   "preco": "confirme o seu RAT",
+   "nar": "Confirme a alíquota RAT da sua empresa pelo CNAE. Um, dois ou três por cento, e anote qual é.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda",
+   "preco": "pegue a folha do mês",
+   "nar": "Pegue a remuneração total do último mês. Esse é o número que você vai multiplicar quando o índice sair.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Terceira",
+   "itens": [
+    "Meu RAT é",
+    "Minha folha do mês é",
+    "Se o FAP vier em dois, eu pago"
+   ],
+   "nar": "E deixe três linhas escritas: meu RAT, minha folha do mês, e quanto eu pagaria se o índice viesse no teto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A terceira linha",
+   "preco": "é o pior caso",
+   "nar": "A terceira linha é o pior caso calculado com antecedência. Em trinta de setembro você só compara com o número real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Guarde junto",
+   "preco": "o print da memória de cálculo",
+   "nar": "Quando a consulta abrir, guarde também a memória de cálculo em arquivo. Ela é o ponto de partida de qualquer discussão em novembro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Resumindo",
+   "preco": "duas multiplicações e duas datas",
+   "nar": "Resumindo: alíquota efetiva é RAT vezes FAP, o custo do mês é isso vezes a folha, a consulta abre em trinta de setembro e a contestação fecha em trinta de novembro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "faça a sua conta",
+   "nar": "Faça hoje uma coisa só: calcule quanto a sua empresa pagaria com o índice no teto, e guarde o número. Aqui a gente pega um número da sua rotina técnica e transforma em uma conta que você mesmo faz. Se é isso que você procura, se inscreve.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Um multiplicador",
+   "sub": "de 0,5 a 2,0",
+   "nar": "A sua empresa tem um multiplicador entre zero vírgula cinco e dois vírgula zero que ninguém te mostrou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pegue o seu RAT",
+   "preco": "1, 2 ou 3 por cento",
+   "nar": "Pegue a sua alíquota RAT pelo CNAE: um, dois ou três por cento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiplique pelo FAP",
+   "preco": "sua alíquota real",
+   "nar": "Multiplique pelo FAP do seu estabelecimento. O resultado é a alíquota que realmente sai da sua folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Numa folha de cem mil",
+   "preco": "três mil de diferença",
+   "nar": "Com RAT de dois por cento, a diferença entre o piso e o teto é de três mil reais por mês na mesma folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "consulta em 30/09",
+   "nar": "A consulta abre em trinta de setembro. Calcule o seu pior caso antes disso e guarde o número.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# FAP 2027: consulta em 30 de setembro e o multiplicador de 0,5 a 2,0\n\n## TITULO\nFAP 2027: Consulta Abre em 30 de Setembro e o Multiplicador Vai de 0,5 a 2,0\n\n## DESCRICAO\nExiste um multiplicador aplicado sobre uma contribuição da folha da sua empresa que muda todo ano e quase nunca é olhado a tempo: o FAP, Fator Acidentário de Prevenção. Ele vai de 0,5000 a 2,0000, é calculado por estabelecimento e multiplica a alíquota do seguro de acidente do trabalho. Duas empresas com a mesma folha e a mesma atividade podem recolher valores muito diferentes — a diferença é o histórico de acidentes. Este vídeo mostra onde consultar o índice da sua própria empresa, como transformá-lo em reais com duas multiplicações, e quais são as duas datas do calendário.\n\nONDE CONSULTAR (fonte: Ministério da Previdência Social)\n\nA consulta é feita no sistema FAPWeb e também está disponível pela Receita Federal. O acesso é por senha gov.br e é restrito ao próprio estabelecimento. O FAP com vigência para 2027 fica disponível para consulta em 30 de setembro de 2026. Na consulta aparecem o índice atribuído e os dados usados no cálculo — é essa memória de cálculo que sustenta qualquer questionamento.\n\nAS DUAS MULTIPLICAÇÕES\n\n1) Ache a sua alíquota RAT pelo CNAE: 1% para risco mínimo, 2% para risco médio, 3% para risco grave, incidindo sobre a remuneração total paga no mês aos empregados e trabalhadores avulsos (fonte: Receita Federal). 2) Alíquota efetiva = RAT × FAP. 3) Custo do mês = alíquota efetiva × folha mensal.\n\nO EXEMPLO EM REAIS\n\nEmpresa com folha mensal de R$100.000 e RAT de 2%. Com FAP 1,0 a alíquota efetiva é 2% e o recolhimento é R$2.000/mês. Com FAP 0,5 a alíquota cai para 1% e o valor cai para R$1.000/mês. Com FAP 2,0 a alíquota sobe para 4% e o valor vai a R$4.000/mês. Mesma folha, mesma atividade, mesmo mês: R$3.000 de diferença mensal, R$36.000 por ano, decididos pelo histórico de acidentes.\n\nO CALENDÁRIO E O DETALHE QUE PEGA AS EMPRESAS\n\nA consulta abre em 30 de setembro de 2026. A contestação corre de 1º a 30 de novembro, exclusivamente por meio eletrônico, em formulário disponível no FAPWeb, e é analisada pelo Conselho de Recursos da Previdência Social (CRPS), conforme a Lei nº 13.846, de 18 de junho de 2019. E o ponto que costuma surpreender: a contestação NÃO tem efeito suspensivo. O FAP divulgado continua sendo aplicado enquanto o pedido é analisado — na prática, a empresa recolhe pelo índice divulgado e discute em paralelo. Se o índice subiu, o custo maior começa junto com o ano.\n\nO QUE ESTE VÍDEO NÃO FAZ: não informa o FAP de nenhuma empresa (o acesso é restrito ao estabelecimento), não promete resultado de contestação, e não substitui contador nem assessoria jurídica.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nFaça a conta do pior caso antes de 30 de setembro e escreva um número aqui: quanto a sua empresa pagaria por mês se o FAP viesse em 2,0. Não precisa dizer a folha nem o nome da empresa — só o valor. Quero ver quantos aqui têm um impacto de cinco dígitos por ano escondido num índice que ninguém abriu ainda.\n\n## HASHTAGS\n#FAP #SegurancaDoTrabalho #LabTreinamento\n\n## TAGS\nfap 2027, fator acidentario de prevencao, fapweb, rat, seguro acidente do trabalho, aliquota rat, contestacao fap, crps, folha de pagamento, cnae, seguranca do trabalho, sesmt, custo de acidente, previdencia social, gestao de sst\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nOs numeros vem de DUAS fontes institucionais independentes que se confirmam. (1) MINISTERIO DA PREVIDENCIA SOCIAL (gov.br/previdencia, com espelho no gov.br/inss): o FAP e um multiplicador de 0,5000 a 2,0000 sobre a aliquota RAT, calculado por estabelecimento; o FAP com vigencia para 2027 fica disponivel para consulta em 30 de setembro de 2026; a contestacao corre de 1 a 30 de novembro, exclusivamente por meio eletronico em formulario do FAPWeb, e e analisada pelo Conselho de Recursos da Previdencia Social (CRPS) conforme a Lei 13.846, de 18 de junho de 2019; a contestacao NAO tem efeito suspensivo, de modo que o indice divulgado se aplica durante a analise; o acesso e restrito ao estabelecimento, por senha gov.br. (2) RECEITA FEDERAL (pagina do FAP em receita.economia.gov.br, com legislacao, perguntas frequentes e dados da empresa): a aliquota RAT e de 1% para risco minimo, 2% para risco medio e 3% para risco grave, incidente sobre a remuneracao total paga no mes aos segurados empregados e trabalhadores avulsos. O EXEMPLO EM REAIS FOI DERIVADO dessas duas fontes, nao copiado: folha de 100.000 reais com RAT de 2% da 2.000 reais/mes com FAP 1,0; 1.000 reais/mes com FAP 0,5; e 4.000 reais/mes com FAP 2,0 — 3.000 reais de diferenca mensal e 36.000 por ano entre o piso e o teto, na mesma folha e no mesmo CNAE. NAO foi usada nenhuma calculadora de internet nem portal de dicas. O video diz em voz alta que nao informa o FAP de nenhuma empresa, que nao promete resultado de contestacao e que nao substitui contador nem assessoria juridica.\n"
+}
