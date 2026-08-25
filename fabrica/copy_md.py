@@ -149,10 +149,30 @@ def escrever_copy(sp, tempos, d, valida_trilha=None):
     13/08/2026: o seviye-seviye-002 subiu para o YouTube com "{CAPITULOS}"
     literal na descricao, porque o publicar.py caiu no texto da spec.
     """
+    credito = credito_trilha(sp["slug"], valida_trilha, sp.get("trilha"))
+    # "—" e o que `credito_trilha` devolve quando NAO ACHOU mp3 nenhum. Escrever
+    # isso no copy.md nao deixa rastro: `ler_copy` procura a licenca pelo
+    # conteudo, nao acha nada, e o video sobe sem atribuicao — em silencio, que
+    # e exatamente o modo de falha do aprendizado de 25/08 (186 videos no ar sem
+    # credito).
+    #
+    # Aconteceu de novo no mesmo dia, um degrau adiante: regerei o copy.md da
+    # kolejny-poziom-011 numa maquina que tinha a spec mas NAO tinha as trilhas,
+    # e o longo SP7Vz8qHdRY subiu sem credito. O copy.md do render, feito onde
+    # os mp3 existem, trazia o credito certo — eu o sobrescrevi.
+    #
+    # Se a spec DECLARA trilha, a faixa tem de estar la. Sem ela nao ha copy que
+    # valha: o uso da musica deixa de ser licenciado.
+    if sp.get("trilha") and credito == "—":
+        raise RuntimeError(
+            f"{sp['slug']}: a spec declara a trilha {sp['trilha']!r} e nenhum "
+            f"mp3 valido esta em {TRILHA_DIR}. Gravar o copy.md assim poria o "
+            f"video no ar SEM o credito CC-BY, sem falhar em lugar nenhum — "
+            f"baixe as trilhas antes de escrever a copy."
+        )
     copy = (sp.get("copy") or "") \
         .replace("{CAPITULOS}", "\n".join(capitulos(sp, tempos))) \
-        .replace("{TRILHA}", credito_trilha(sp["slug"], valida_trilha,
-                                            sp.get("trilha")))
+        .replace("{TRILHA}", credito)
     with open(f"{d}/copy.md", "w", encoding="utf-8") as f:
         f.write(copy)
     return copy

@@ -71,6 +71,41 @@ def _gate_identidade(caminho, sp):
     return faltas
 
 
+# Teto do `snippet.description` no YouTube. Acima disso o videos.insert
+# devolve 400 e o upload nem comeca.
+def _capitulos_plausiveis(sp) -> str:
+    """O bloco de capitulos com o TAMANHO que o render vai produzir.
+
+    Prefere a simulacao real (mesma de `_gate_capitulos`); se a voz nao tiver
+    modelo medido, cai numa linha por `cap`, que erra o horario mas acerta a
+    largura — e largura e o que este portao mede.
+    """
+    longo = sp.get("longo") or []
+    nomes = [c["cap"] for c in longo if (c or {}).get("cap")] or ["abertura"]
+    try:
+        import copy_md
+        from ensaio import GAP_CENA_S, MODELO_VOZ, duracao_cena
+
+        voz = sp.get("voz", "")
+        if voz in MODELO_VOZ:
+            tempos = [duracao_cena((c or {}).get("nar") or "", voz) + GAP_CENA_S
+                      for c in longo]
+            reais = copy_md.capitulos(sp, tempos)
+            if reais:
+                return "\n".join(reais)
+    except Exception:
+        pass
+    return "\n".join(f"{i}:00 {nome}" for i, nome in enumerate(nomes))
+
+
+MAX_DESCRICAO = 5000
+# O publicar.py acrescenta "\n\nVersao curta: https://youtube.com/shorts/<11>"
+# na descricao do LONGO, depois de ler_copy. Sao 51 chars que o portao nao veria
+# se olhasse so o que a spec escreve — e um roteiro a 4.990 passaria aqui para
+# tomar 400 na API.
+RESERVA_LINK_SHORT = 60
+
+
 def _gate_copy(sp):
     """Le a copy da spec como o publicar.py leria, sem exigir o render."""
     import publicar as P
@@ -82,9 +117,19 @@ def _gate_copy(sp):
     # ler_copy prefere o copy.md do workdir; aqui forcamos a spec passando um
     # diretorio que nao tem copy.md, e trocamos os placeholders por conteudo
     # plausivel para o _sem_placeholder nao reprovar o que o render preencheria.
+    #
+    # {CAPITULOS} ganha os capitulos SIMULADOS, e nao um "0:00 abertura" de
+    # treze chars. Com dez capitulos o bloco real passa de 300, e a diferenca
+    # e a conta inteira quando o que se mede e distancia para um teto: em
+    # 25/08/2026 a kolejny-poziom-011 passou neste portao com folga e tomou 400
+    # da API com 5.369 chars. Quando a voz nao tem modelo medido nao da para
+    # simular tempo, entao vale uma linha por `cap` com largura tipica.
     falso = dict(sp)
-    falso["copy"] = bruto.replace("{CAPITULOS}", "0:00 abertura").replace(
-        "{TRILHA}", "Music: Cipher2 by Kevin MacLeod"
+    falso["copy"] = bruto.replace("{CAPITULOS}", _capitulos_plausiveis(sp)).replace(
+        "{TRILHA}",
+        "Music: Cipher2 by Kevin MacLeod (incompetech.com) — Licensed under "
+        "Creative Commons: By Attribution 4.0\n"
+        "http://creativecommons.org/licenses/by/4.0/"
     )
     try:
         cp = P.ler_copy(falso, os.path.join(RAIZ, "nao-existe"))
@@ -97,6 +142,16 @@ def _gate_copy(sp):
     palavras = len(cp["descricao"].split())
     if palavras < MIN_PALAVRAS_DESCRICAO:
         faltas.append(f"descricao com {palavras} palavras (minimo {MIN_PALAVRAS_DESCRICAO})")
+    # O teto, que faltava. So havia PISO aqui, e o teto quem cobrava era a API
+    # — depois do render, depois do upload do short, com o pacote ja meio no ar.
+    cabe = MAX_DESCRICAO - RESERVA_LINK_SHORT
+    if len(cp["descricao"]) > cabe:
+        faltas.append(
+            f"descricao com {len(cp['descricao'])} chars — o YouTube recusa "
+            f"acima de {MAX_DESCRICAO} e o publicar.py ainda soma o link do "
+            f"short, entao o limite util e {cabe}. Corte "
+            f"{len(cp['descricao']) - cabe} chars"
+        )
     if not cp["tags"]:
         faltas.append("sem tags")
     else:
