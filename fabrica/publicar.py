@@ -290,28 +290,55 @@ def _parece_lista_de_tags(corpo):
     )
 
 
-def apontar_para_longo(acc, short_id, longo_id):
+def apontar_para_longo(acc, short_id, longo_id, base=None):
     """Reescreve a descricao do short com o link do longo.
 
     videos.update exige o snippet INTEIRO — mandar so a descricao apaga titulo,
     tags e categoria. Por isso le primeiro.
+
+    E LER NAO BASTA, que foi o defeito medido em 25/08/2026. Perguntei a API
+    pelos shorts da frota e quatro de seis voltaram com `tags: None`, enquanto
+    TODOS os longos mantinham as quinze. A assimetria entrega a causa: o longo
+    nunca passa por aqui, o short sempre. A leitura logo apos o upload as vezes
+    devolve o snippet SEM `tags` — o video ainda esta sendo indexado — e o
+    write-back seguinte grava esse snippet incompleto por cima, apagando o que
+    o proprio upload tinha acabado de mandar.
+
+    Nao da para "tentar de novo ate vir com tags": nao existe diferenca visivel
+    entre "ainda nao indexou" e "nunca teve". Por isso o remedio nao e reler, e
+    NAO DEPENDER da leitura para o que ja se sabe: `base` e o mesmo snippet que
+    subiu no upload, e ele repoe qualquer campo que a leitura tenha perdido. A
+    leitura fica so para o que ela e a unica a saber — se o link ja esta la.
+
+    Tag apagada nao aparece no video, nao falha nada, e custa a busca do unico
+    formato desta frota que recebe distribuicao.
     """
+    base = (base or {}).get("snippet") or base or {}
     try:
         atual = json.load(_req(
             f"{API}/videos?part=snippet&id={short_id}",
             headers={"Authorization": "Bearer " + acc}))
-        snip = atual["items"][0]["snippet"]
+        snip = dict(atual["items"][0]["snippet"])
         link = f"https://youtu.be/{longo_id}"
         if link in (snip.get("description") or ""):
             return "ja apontava"
-        snip["description"] = ((snip.get("description") or "").strip()
+        # O que a leitura perdeu, o snippet do upload repoe. Campo a campo, e
+        # so quando falta: se a leitura trouxe, ela e mais recente.
+        repostos = []
+        for campo in ("tags", "title", "categoryId",
+                      "defaultLanguage", "defaultAudioLanguage"):
+            if not snip.get(campo) and base.get(campo):
+                snip[campo] = base[campo]
+                repostos.append(campo)
+        snip["description"] = ((snip.get("description")
+                                or base.get("description") or "").strip()
                                + f"\n\n{link}").strip()
         _req(f"{API}/videos?part=snippet",
              data=json.dumps({"id": short_id, "snippet": snip}).encode(),
              method="PUT",
              headers={"Authorization": "Bearer " + acc,
                       "Content-Type": "application/json; charset=UTF-8"})
-        return "ok"
+        return "ok" + (f" (repos {', '.join(repostos)})" if repostos else "")
     except Exception as e:  # nunca derruba a publicacao: os videos ja subiram
         return f"falhou: {str(e)[:120]}"
 
@@ -883,10 +910,13 @@ def main():
                       or cp["descricao"].split("\n\n")[0])
         if cp.get("licenca") and "creativecommons.org/licenses" not in desc_curta:
             desc_curta = f"{desc_curta}\n\n{cp['licenca']}"
-        sid = subir(acc, curto, meta_video(
+        # O meta fica guardado: ele e o que repoe as tags se a leitura de
+        # `apontar_para_longo` voltar sem elas (medido em 25/08/2026).
+        meta_short = meta_video(
             cp.get("short_titulo") or cp["titulo"],
             desc_curta,
-            (cp.get("short_tags") or cp.get("tags") or [])[:8], idioma))
+            (cp.get("short_tags") or cp.get("tags") or [])[:8], idioma)
+        sid = subir(acc, curto, meta_short)
         saida["short"] = sid
         print("SHORT:", sid, "| playlist:", na_playlist(acc, args.playlist, sid))
 
@@ -934,7 +964,8 @@ def main():
         # passo o short manda o publico procurar sozinho — e a razao de existir
         # do short e justamente levar ao longo.
         if saida.get("short"):
-            print("  short->longo:", apontar_para_longo(acc, saida["short"], vid))
+            print("  short->longo:",
+                  apontar_para_longo(acc, saida["short"], vid, base=meta_short))
 
     # Publicar sem registrar deixa as duas travas la de cima cegas para o que a
     # propria frota acabou de subir. Por isso o registro fica aqui, no mesmo
