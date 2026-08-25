@@ -1,0 +1,530 @@
+{
+ "slug": "game-money-lab",
+ "pacote": "game-money-lab-006",
+ "idioma": "en",
+ "voz": "en-GB-RyanNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#181C2A",
+  "c1": "#7C3AED",
+  "c2": "#22D3EE",
+  "bg": "#F4F4F8"
+ },
+ "thumb": {
+  "l1": "What one coin",
+  "l2": "costs you"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "A camada no meio",
+   "sub": "voce nao paga em dinheiro",
+   "nar": "When you buy something inside a game, you almost never pay in money. You pay in coins, gems, or points that you bought earlier with money.",
+   "cap": "The layer between you and the price"
+  },
+  {
+   "layout": "item",
+   "kicker": "Why that matters",
+   "preco": "the price stops being a price",
+   "nar": "That extra layer does something specific: it stops the number on the item from being a price you can compare with anything else in your life.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A concrete symptom",
+   "preco": "you cannot say it out loud",
+   "nar": "Here is the test. Think of the last thing you bought inside a game, and try to say what it cost in your own currency. Most people cannot.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That is not you",
+   "preco": "the design does that",
+   "nar": "That is not carelessness on your part. The currency layer is doing exactly what it was built to do.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And regulators noticed",
+   "preco": "not a fringe complaint",
+   "nar": "This is not a fringe complaint either. European consumer authorities published a common position on it, and I will come back to that.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It is not a new trick",
+   "preco": "arcades did it first",
+   "nar": "The idea is old, by the way. Arcades ran on tokens for the same reason, and nobody pretended otherwise.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What changed",
+   "preco": "the rate is now invisible",
+   "nar": "What changed is the rate. At the arcade the exchange was printed on the machine. In a store with a dozen bundle sizes, it is not printed anywhere.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What you get here",
+   "preco": "two divisions",
+   "nar": "But first, the useful part: two divisions that turn coins back into money, using only numbers you already have.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step one",
+   "sub": "what one coin costs you",
+   "nar": "First step, and you can do it from your purchase history right now.",
+   "cap": "Step one: what one coin costs"
+  },
+  {
+   "layout": "item",
+   "kicker": "Take your last pack",
+   "preco": "two numbers",
+   "nar": "Open the last currency pack you bought. Write down two numbers: what you paid, and how many coins you received.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Divide",
+   "preco": "money by coins",
+   "nar": "Divide the money by the coins. That gives you what a single coin cost you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Worked example",
+   "preco": "and it is only an example",
+   "nar": "An example with round numbers, and it is only an example. Say you paid ten and received one thousand coins. Then a single coin cost you one cent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Keep that number",
+   "preco": "it unlocks everything else",
+   "nar": "Keep that number somewhere. It is the exchange rate between the game and your bank account, and nothing in the store will show it to you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It changes per pack",
+   "preco": "bigger packs, different rate",
+   "nar": "And check it per pack, because larger packs usually carry a different rate. The coin is not worth the same in every bundle.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Where to find it",
+   "preco": "your receipts",
+   "nar": "If you cannot remember the pack, the platform keeps a purchase history. Both numbers are in there, on the same line.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do it for the pack you buy most",
+   "preco": "not the biggest one",
+   "nar": "And do it for the pack you actually buy most often, not the largest one on the page. The largest is rarely the one people pick.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That alone",
+   "preco": "already changes shopping",
+   "nar": "That single number already changes how the store looks, before you buy anything else.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step two",
+   "sub": "price the thing you wanted",
+   "nar": "Second step, and this is the one that surprises people.",
+   "cap": "Step two: price what you wanted"
+  },
+  {
+   "layout": "item",
+   "kicker": "Take the item",
+   "preco": "its price in coins",
+   "nar": "Take the item you actually wanted and look at its price in coins.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiply",
+   "preco": "coins times coin cost",
+   "nar": "Multiply that by what one coin cost you. The result is the real price of the item, in money.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Same example",
+   "preco": "eight hundred coins",
+   "nar": "In the same example, an item at eight hundred coins costs you eight units of your currency. Not eight hundred of anything, which is roughly how the number feels while you are looking at it in the store.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do it before you buy",
+   "preco": "not after",
+   "nar": "The order matters here. Do this before the purchase, because afterwards the coins are already gone and the number stops being a decision.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It works on bundles too",
+   "preco": "split the coin price",
+   "nar": "It works on bundles as well. Take the total coin price, convert it, and then judge the bundle against what you would pay outside.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now compare",
+   "preco": "to something outside the game",
+   "nar": "Now compare that to something outside the game that costs the same. That comparison is the one the coin layer was preventing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That is the method",
+   "preco": "two divisions and a multiplication",
+   "nar": "That is the whole method: divide to get the coin cost, multiply to get the item cost. Everything after this is why it works the way it does.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The leftover",
+   "sub": "and why it is always there",
+   "nar": "Now the part people notice but rarely name: the coins left over.",
+   "cap": "Why there is always a leftover"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pack sizes and item prices",
+   "preco": "they do not line up",
+   "nar": "Currency packs are sold in one set of sizes, and items are priced in another. The two sets rarely line up.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The result",
+   "preco": "you end just short",
+   "nar": "So you routinely end up just short of the next item, holding coins that cannot become anything on their own.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What that does",
+   "preco": "it pulls the next purchase",
+   "nar": "Those stranded coins do work for the store. They make the next pack feel smaller than it is, because you are only topping up.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Run your own numbers",
+   "preco": "count the leftover",
+   "nar": "So add a third step to your own check: after you buy, count how many coins are stranded, and price them with your coin cost.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That number is real",
+   "preco": "you paid for it",
+   "nar": "That amount is money you have already paid and not yet received anything for. It belongs in your calculation.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "An easy check",
+   "preco": "does any pack match any item",
+   "nar": "Here is a quick way to see it. Look at the pack sizes and the item prices side by side, and ask whether any pack lands exactly on any item.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Usually none does",
+   "preco": "and that is the point",
+   "nar": "Usually none of them does. That is not a coincidence you have to prove; it is something you can observe in about ten seconds.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Not an accusation",
+   "preco": "just arithmetic",
+   "nar": "None of this says anyone broke a rule. It says the arithmetic is worth doing, and the store will not do it for you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What Europe decided",
+   "sub": "March of last year",
+   "nar": "Here is where the regulators come in, and what they actually said.",
+   "cap": "What Europe decided"
+  },
+  {
+   "layout": "item",
+   "kicker": "The document",
+   "preco": "Key Principles",
+   "nar": "In March of two thousand and twenty five, the European consumer protection network adopted a set of Key Principles on in game virtual currencies.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Who led it",
+   "preco": "two national authorities",
+   "nar": "They were prepared under the lead of the Dutch consumer authority and the Norwegian consumer authority, and coordinated by the European Commission.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What a virtual currency is",
+   "preco": "their definition",
+   "nar": "Their definition is precise: a digital representation of value, bought with real money, then used to pay for digital content or services inside a game.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The core requirement",
+   "preco": "price in real money",
+   "nar": "And the core requirement is the one you have been doing by hand: consumers should be able to understand the true cost, with the price indicated in real world money.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Two more",
+   "preco": "no hiding, no forcing",
+   "nar": "Two more principles matter here: traders should not hide the cost of in game content, and should not oblige consumers to buy virtual currency at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why this document exists",
+   "preco": "the layer was the problem",
+   "nar": "Notice what the document is aimed at. Not the existence of virtual money, but the fact that the layer made the real price hard to see.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Status",
+   "preco": "principles, then monitoring",
+   "nar": "These are principles for the industry to adapt to, with the network monitoring progress and enforcement possible if harmful practices continue.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One case",
+   "sub": "how it looks in practice",
+   "nar": "And there is a public case that shows what those words mean in a real game.",
+   "cap": "How it looks in a real case"
+  },
+  {
+   "layout": "item",
+   "kicker": "The action",
+   "preco": "a coordinated request",
+   "nar": "The same network, led by the Swedish and Norwegian authorities, opened a coordinated action about a game aimed at children.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "First point",
+   "preco": "urging children to buy",
+   "nar": "One of the points raised was that players were being urged to make purchases, which is not allowed when the game appeals to children.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second point",
+   "preco": "countdown timers",
+   "nar": "Another was countdown timers used to push players into deciding quickly.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Third point",
+   "preco": "prices not in real money",
+   "nar": "And the third is the one from your own arithmetic: prices of items not presented in real world currency.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What happens next",
+   "preco": "respond, or enforcement",
+   "nar": "The company was given time to respond and to propose remedies. If that is not enough, national authorities can act individually.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why a game for children",
+   "preco": "the bar is higher there",
+   "nar": "The case involves a game aimed at children, and that matters legally: practices that are merely aggressive elsewhere are simply not allowed when the audience is children.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The pattern is general",
+   "preco": "even if the case is one",
+   "nar": "But the third point applies to every store, not just that one. Showing a price only in coins is the same mechanic wherever it appears.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why I mention it",
+   "preco": "it names the mechanic",
+   "nar": "I mention this because it names the mechanic in an official document, instead of leaving it as a feeling players have.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Where this comes from",
+   "sub": "two sources",
+   "nar": "Where all of this comes from, because that question is always fair.",
+   "cap": "Where this comes from"
+  },
+  {
+   "layout": "item",
+   "kicker": "First source",
+   "preco": "the European Commission",
+   "nar": "The principles, their date, the definition, and the enforcement action all come from the European Commission, in its own published material.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second source",
+   "preco": "the Dutch authority",
+   "nar": "The Dutch consumer authority, which co led the work, published its own statement saying the use of in game virtual currencies must become clearer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What I did not do",
+   "preco": "no prices claimed",
+   "nar": "What I did not do is claim the price of any specific game, pack or item. My example uses round numbers, and I said so out loud while using them, because a made up number quoted confidently is still a made up number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Where you can read it",
+   "preco": "both are public",
+   "nar": "Both are public documents. The principles and the action are on the Commission site, and the statement is on the Dutch authority site.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Check me on it",
+   "preco": "that is the point of citing",
+   "nar": "Check them if you want. Citing a source only means something when the source can be opened by the person listening.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why that line matters",
+   "preco": "your numbers are the real ones",
+   "nar": "That line matters because the numbers that count here are yours, not mine. Mine only show the shape of the calculation.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Before your next purchase",
+   "sub": "three lines",
+   "nar": "Three lines to write before the next time you buy currency in a game.",
+   "cap": "Before your next purchase"
+  },
+  {
+   "layout": "item",
+   "kicker": "First",
+   "preco": "your coin cost",
+   "nar": "What one coin costs you, from your last pack: money divided by coins.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Second",
+   "preco": "the real price of the item",
+   "nar": "The real price of the item you want: its coin price multiplied by that number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Third",
+   "itens": [
+    "What one coin costs me",
+    "What the item really costs",
+    "What my stranded coins are worth"
+   ],
+   "nar": "And what your stranded coins are worth, using the same rate.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Why the third",
+   "preco": "it is the invisible one",
+   "nar": "The third line is the one nobody writes, and it is usually the one that changes the decision.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Then decide",
+   "preco": "with the number visible",
+   "nar": "Then decide normally. The point is not to stop buying. The point is to decide with the number visible.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One habit",
+   "preco": "check the rate per pack",
+   "nar": "And one habit worth keeping: when a store changes its bundle sizes, redo the first division. The rate moves when the sizes move.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Recap",
+   "preco": "divide, multiply, count",
+   "nar": "So: divide to find your coin cost, multiply to price the item, and count what is stranded.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "run it on your last purchase",
+   "nar": "Do it once, on the last purchase you already made. Here we take one number from your own account and turn it into a calculation you run yourself. If that is what you are here for, subscribe.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "You do not pay in money",
+   "sub": "you pay in coins",
+   "nar": "Inside a game you never pay in money. You pay in coins you bought earlier, and that hides the price.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Open your last pack",
+   "preco": "two numbers",
+   "nar": "Open the last currency pack you bought. What you paid, and how many coins you got.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Divide",
+   "preco": "money by coins",
+   "nar": "Divide one by the other. That is what a single coin costs you, and no store will show it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Then multiply",
+   "preco": "by the item price",
+   "nar": "Multiply that by the item price in coins. Now you know what it really costs.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Game Money Lab",
+   "sub": "run it once",
+   "nar": "Run it on a purchase you already made.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# In-game currency: the two divisions that turn coins back into money\n\n## TITULO\nIn-Game Currency: Two Divisions That Show What You Actually Paid\n\n## DESCRICAO\nWhen you buy something inside a game, you almost never pay in money. You pay in coins, gems or points that you bought earlier with money — and that extra layer does something specific: it stops the number on the item from being a price you can compare with anything else in your life. Here is the test: think of the last thing you bought inside a game and try to say what it cost in your own currency. Most people cannot. That is not carelessness on your part; the currency layer is doing what it was built to do. This video shows two divisions that turn coins back into money, using only numbers already in your purchase history.\n\nTHE METHOD (two steps, plus one nobody does)\n\n1) Open the last currency pack you bought and write down two numbers: what you paid, and how many coins you received. Divide the money by the coins — that is what a single coin cost you. Check it per pack, because larger bundles usually carry a different rate. 2) Take the item you actually wanted, look at its price in coins, and multiply by that number. The result is its real price, in money. 3) The step nobody takes: after buying, count how many coins are stranded — too few to become anything — and price them at the same rate. That is money already paid for which you have received nothing yet.\n\nWorked example, with round numbers and nothing more: pay 10 and receive 1,000 coins, and one coin cost you 1 cent; an item at 800 coins then costs you 8. Not 800 of anything.\n\nWHY THE LEFTOVER IS ALWAYS THERE: currency packs are sold in one set of sizes and items are priced in another, and the two rarely line up. So you routinely end up just short of the next item. Those stranded coins make the next pack feel smaller than it is, because you are only topping up.\n\nWHAT EUROPE DECIDED (source: European Commission)\n\nIn March 2025 the EU Consumer Protection Cooperation (CPC) Network adopted Key Principles on In-Game Virtual Currencies, prepared under the lead of the Netherlands Authority for Consumers and Markets (ACM) and the Norwegian Consumer Authority, coordinated by the European Commission. Their definition is precise: virtual currencies are digital representations of value purchased with real-world money and then used to pay for in-game digital content or services. The core requirement is the one you have just been doing by hand — consumers should be able to understand the true cost, with the price indicated in real-world money, because price information is material information. Two further principles: traders should not hide the cost of in-game content, and should not oblige consumers to purchase virtual currency. The network monitors progress and may consider enforcement if harmful practices continue.\n\nA PUBLIC CASE: the same network, led by the Swedish and Norwegian authorities, opened a coordinated action concerning a game aimed at children. The points raised included players being urged to make purchases (not allowed when the game appeals to children), countdown timers pressuring quick decisions, and item prices not presented in real-world currency. The company was given time to respond and propose remedies; if that is insufficient, national authorities can act individually.\n\nThis video does not claim the price of any specific game or currency pack — the worked example uses round numbers and says so. It does not say virtual currencies are illegal (they are not), and it is not legal advice.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nRun the first division on a purchase you already made and post one number: what a single coin cost you. Not the game, not the pack — just the rate. I want to see how far apart the rates are across different games and bundle sizes, because that spread is the whole point.\n\n## HASHTAGS\n#GameMoneyLab #InGameCurrency #GamingEconomics\n\n## TAGS\nin-game currency, virtual currency, microtransactions, game economics, cpc network, european commission, consumer protection, real money price, currency packs, gaming costs, premium currency, acm netherlands, key principles, game store, spending calculator\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Ingles (en) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Reino Unido | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nAs afirmacoes vem de DUAS fontes institucionais independentes que se confirmam. (1) COMISSAO EUROPEIA (commission.europa.eu e o presscorner): os Key Principles on In-Game Virtual Currencies foram adotados pela rede de Cooperacao para a Protecao do Consumidor (CPC) em MARCO DE 2025, preparados sob lideranca da Autoridade dos Paises Baixos para Consumidores e Mercados (ACM) e da autoridade do consumidor da Noruega, com coordenacao da Comissao; a definicao adotada e \"representacoes digitais de valor compradas com dinheiro do mundo real e depois usadas para pagar por conteudo ou servico digital dentro do jogo\"; as exigencias centrais sao preco claro e transparente com informacao pre-contratual, o preco indicado em dinheiro do mundo real porque informacao de preco e informacao material, a proibicao de praticas que obscurecam o custo, e a proibicao de obrigar o consumidor a comprar moeda virtual; a rede monitora o progresso e pode considerar medidas de fiscalizacao. Em junho de 2025 a Comissao reuniu as partes interessadas para discutir a aplicacao desses principios. A ACAO DE FISCALIZACAO citada e publica (IP/25/831): a rede CPC, liderada pela agencia sueca e pela norueguesa, acionou a Star Stable Entertainment AB por praticas num jogo dirigido a criancas, entre elas exortar criancas a comprar (nao permitido), relogios de contagem regressiva pressionando decisoes rapidas, e precos de itens NAO apresentados em moeda do mundo real; a empresa recebeu prazo para responder e propor compromissos. (2) ACM (acm.nl), co-lider dos principios, em publicacao propria: o uso de moedas virtuais dentro de jogos precisa ficar mais claro para proteger o consumidor. O EXEMPLO NUMERICO DO VIDEO E DECLARADAMENTE EXEMPLO, com numeros redondos, e o roteiro diz isso em voz alta enquanto o usa: nenhum preco de jogo, pacote ou item foi afirmado como fato, porque os numeros que valem aqui sao os do proprio espectador. O video nao afirma que moeda virtual e ilegal, nao acusa empresa alguma alem da que consta na acao publica da propria Comissao, e nao e aconselhamento juridico.\n"
+}
