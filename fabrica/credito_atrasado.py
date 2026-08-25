@@ -24,11 +24,15 @@ corte. Os videos anteriores existem e continuam sem credito; o que falta neles
 nao e execucao, e saber qual faixa esta no audio. Isso se descobre ouvindo, e
 nao consultando o banco.
 
-QUOTA. `videos.update` custa 50 unidades e `videos.list` custa 1; subir um
-video custa 1.600. A frota inteira cabe em ~7.400 unidades, o que sozinho nao
-estoura o teto diario de 10.000 por projeto — mas some com uma publicacao e
-estoura. Dai `--limite`: a rotina roda um pedaco por ciclo, e o que sobrar
-espera o proximo. Terminar hoje nao vale parar a esteira.
+QUOTA, e aqui esta a parte que engana. `videos.update` custa 50 unidades,
+`videos.list` custa 1, e subir um video custa 1.600. O teto de 10.000 e POR
+PROJETO do Google Cloud, nao por canal — e conferido em 25/08/2026, os treze
+canais usam o MESMO projeto (777159180424). Entao os treze dividem um unico
+teto diario, e a frota inteira (132 updates = 6.600) somada a uma publicacao
+(~3.800 entre os dois formatos, thumbnail, legenda e playlist) passa dos
+10.000. Um pedaco por ciclo, com `--limite`, e o que cabe: terminar hoje nao
+vale parar a esteira, porque quota estourada derruba a publicacao do dia
+inteiro e o credito atrasado pode esperar mais um ciclo.
 """
 
 import argparse
