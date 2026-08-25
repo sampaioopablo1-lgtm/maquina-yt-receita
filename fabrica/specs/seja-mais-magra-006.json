@@ -1,0 +1,495 @@
+{
+ "slug": "seja-mais-magra",
+ "pacote": "seja-mais-magra-006",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-FranciscaNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#22303C",
+  "c1": "#2E8B7A",
+  "c2": "#D98324",
+  "bg": "#F6F3EE"
+ },
+ "thumb": {
+  "l1": "Por 100 g",
+  "l2": "nao por porcao"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Dois produtos na mão",
+   "sub": "e uma comparação errada",
+   "nar": "Você está no mercado com dois produtos parecidos na mão, vira os dois e compara a tabela nutricional. Essa comparação quase sempre sai errada, e não é culpa sua.",
+   "cap": "Por que a comparação sai errada"
+  },
+  {
+   "layout": "item",
+   "kicker": "O motivo",
+   "preco": "a porção não é padronizada",
+   "nar": "O motivo é simples: a coluna da porção usa a porção que cada fabricante escolheu. Duas embalagens parecidas costumam declarar porções de tamanhos bem diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O efeito",
+   "preco": "o menor parece melhor",
+   "nar": "Quando as porções são diferentes, o produto que declarou a porção menor aparece com números menores. Ele não é melhor: ele foi medido num pedaço menor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E ninguém está mentindo",
+   "preco": "os dois estão corretos",
+   "nar": "Repare que ninguém mentiu na embalagem. Os dois rótulos estão corretos dentro da regra, e mesmo assim a comparação entre eles não vale.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A boa notícia",
+   "preco": "existe coluna para isso",
+   "nar": "A boa notícia é que existe uma coluna obrigatória que resolve exatamente isso, e muita gente passa a vida sem reparar nela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Desde quando",
+   "preco": "nove de outubro",
+   "nar": "As regras novas de rotulagem entraram em vigor em nove de outubro de dois mil e vinte e dois, por uma resolução e uma instrução normativa da Anvisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que vem agora",
+   "preco": "duas colunas e um número",
+   "nar": "Nos próximos minutos você vai saber onde olhar: duas colunas da tabela e um número que quase ninguém lê.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A coluna que compara",
+   "sub": "por cem gramas",
+   "nar": "Primeira coisa, e é a que resolve o problema lá do mercado.",
+   "cap": "A coluna por cem gramas"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que ficou obrigatório",
+   "preco": "por cem gramas ou cem mililitros",
+   "nar": "A tabela passou a ser obrigada a declarar o valor energético e os nutrientes por cem gramas, ou por cem mililitros quando o produto for líquido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Para que ela existe",
+   "preco": "a própria Anvisa diz",
+   "nar": "E a Anvisa diz para que essa coluna serve, com essas palavras: para ajudar na comparação de produtos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "é a única coluna comparável",
+   "nar": "Ou seja, ela existe justamente porque a coluna da porção não serve para comparar. Ela põe os dois produtos na mesma base de medida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como usar",
+   "preco": "mesma linha, mesma base",
+   "nar": "Na prática: escolha o nutriente que te interessa, ache a linha dele nos dois produtos, e leia só a coluna por cem gramas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um cuidado",
+   "preco": "sólido e líquido não se misturam",
+   "nar": "Um cuidado só: sólido se compara por cem gramas e bebida por cem mililitros. Comparar um com o outro não faz sentido, porque as bases são diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se o produto não tiver",
+   "preco": "é sinal de rótulo antigo",
+   "nar": "Se você achar um produto sem essa coluna, provavelmente é embalagem antiga ainda em circulação. A regra vale para o que foi rotulado depois dela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde ela costuma estar",
+   "preco": "ao lado da porção",
+   "nar": "Na maioria dos rótulos ela fica ao lado da coluna da porção, e é fácil confundir as duas se você estiver com pressa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O número esquecido",
+   "sub": "porções por embalagem",
+   "nar": "Segunda coisa, e é a que muda o tamanho do que você realmente come.",
+   "cap": "Porções por embalagem"
+  },
+  {
+   "layout": "item",
+   "kicker": "Também virou obrigatório",
+   "preco": "quantas porções tem ali",
+   "nar": "A mesma regra tornou obrigatório declarar quantas porções tem a embalagem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que isso importa",
+   "preco": "você raramente come uma porção",
+   "nar": "Isso importa porque quase ninguém come exatamente uma porção. As pessoas comem o pacote, ou metade dele, e a tabela continua falando de uma porção só.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta",
+   "preco": "porções vezes o que você come",
+   "nar": "Então a conta é direta: veja quantas porções tem na embalagem e multiplique os números da coluna da porção pelo tanto que você realmente come.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Exemplo do mecanismo",
+   "preco": "o pacote inteiro",
+   "nar": "Se a embalagem declara quatro porções e você come o pacote inteiro, todos os números daquela coluna valem quatro vezes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é pegadinha",
+   "preco": "é escala",
+   "nar": "Isso não é pegadinha do fabricante. É só escala: a tabela informa uma unidade, e quem decide quantas unidades vai comer é você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E vale para o contrário também",
+   "preco": "quem come menos que uma porção",
+   "nar": "Vale para o outro lado também. Se você come menos do que a porção declarada, os números da coluna valem menos, e a conta é a mesma multiplicação, só que para baixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso já é o método",
+   "preco": "duas colunas e um número",
+   "nar": "E isso já é o método inteiro: compare por cem gramas, depois dimensione pelo número de porções. O resto do vídeo é o que está em volta disso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comparando de verdade",
+   "sub": "o mesmo erro, desfeito",
+   "nar": "Vamos refazer a cena do mercado, agora na ordem certa.",
+   "cap": "Refazendo a comparação"
+  },
+  {
+   "layout": "item",
+   "kicker": "O erro típico",
+   "preco": "comparar porção com porção",
+   "nar": "O erro típico é olhar a coluna da porção dos dois produtos e concluir que o de números menores é o mais leve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer no lugar",
+   "preco": "ignore a porção primeiro",
+   "nar": "O certo é ignorar a coluna da porção no primeiro momento. Ela responde outra pergunta, e não a de comparar dois produtos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo a passo",
+   "preco": "linha, coluna, leitura",
+   "nar": "Ache a linha do nutriente, vá até a coluna por cem gramas, e leia os dois números lado a lado. Nada além disso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Só depois",
+   "preco": "volte para a porção",
+   "nar": "Só depois de decidir qual produto você prefere, volte para a coluna da porção e para o número de porções, para saber quanto você vai consumir de fato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A ordem importa",
+   "preco": "comparar, depois dimensionar",
+   "nar": "A ordem é essa e ela importa: primeiro comparar na mesma base, depois dimensionar para o seu consumo. Invertida, a tabela engana sem mentir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Duas embalagens do mesmo produto",
+   "preco": "o truque aparece",
+   "nar": "O caso em que isso fica mais visível é o de dois tamanhos do mesmo produto. Se as porções declaradas forem diferentes, até o mesmo alimento parece dois alimentos distintos na tabela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Funciona no mercado mesmo",
+   "preco": "leva dez segundos",
+   "nar": "E isso não é trabalho de casa. Com o produto na mão leva uns dez segundos, depois que você sabe qual coluna está procurando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A lupa da frente",
+   "sub": "o que ela diz",
+   "nar": "Agora a parte da frente da embalagem, que mudou junto com a tabela.",
+   "cap": "A lupa e o que ela diz"
+  },
+  {
+   "layout": "item",
+   "kicker": "O símbolo",
+   "preco": "uma lupa com ALTO EM",
+   "nar": "A rotulagem frontal é uma lupa acompanhada da expressão alto em, impressa na parte superior da face da frente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que ali em cima",
+   "preco": "é onde o olho bate",
+   "nar": "A posição não é por acaso: é a área que o olho alcança primeiro quando a pessoa pega o produto na prateleira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Três nutrientes",
+   "preco": "e só três",
+   "nar": "Ela cobre três nutrientes: açúcares adicionados, gorduras saturadas e sódio.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que só três",
+   "preco": "para não diluir a atenção",
+   "nar": "A própria Anvisa explica a escolha: uma lista exaustiva diluiria a atenção, então ficaram os de evidência mais robusta de dano por excesso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que a lupa não é",
+   "preco": "não é proibição",
+   "nar": "A lupa não proíbe nada e não diz que o produto é ruim. Ela avisa que a quantidade daquele nutriente ficou acima de um limite definido em norma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que não cito o limite",
+   "preco": "não fechou em duas fontes",
+   "nar": "E eu não vou dizer aqui qual é esse limite. Ele existe num anexo da instrução normativa, mas eu não consegui confirmar todos os valores em duas fontes oficiais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra da casa",
+   "preco": "número conferido ou nada",
+   "nar": "Número que não bate em duas fontes oficiais não entra em vídeo, mesmo quando eu tenho quase certeza. Principalmente aqui, que é assunto de saúde.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Açúcar total e adicionado",
+   "sub": "duas linhas diferentes",
+   "nar": "Uma mudança discreta da regra nova, e talvez a mais útil de todas.",
+   "cap": "Açúcar total e açúcar adicionado"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que mudou",
+   "preco": "duas linhas onde havia uma",
+   "nar": "A tabela passou a declarar açúcares totais e também açúcares adicionados, em linhas separadas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que separar",
+   "preco": "nem todo açúcar foi posto ali",
+   "nar": "A separação importa porque parte do açúcar de um alimento pode ser dele mesmo, como a fruta do suco, e parte pode ter sido acrescentada durante o processo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde isso aparece",
+   "preco": "produtos parecidos, linhas diferentes",
+   "nar": "Dois produtos podem ter açúcar total parecido e açúcar adicionado bem diferente. Sem a segunda linha, essa diferença ficava invisível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer com isso",
+   "preco": "leia as duas",
+   "nar": "Então leia as duas linhas, e não só a de cima. E compare pela coluna por cem gramas, como a gente viu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Vale para bebida também",
+   "preco": "principalmente para bebida",
+   "nar": "Isso vale muito para bebidas, onde a diferença entre o açúcar próprio da fruta e o que foi acrescentado costuma ser grande.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cuidado com a leitura",
+   "preco": "adicionado está dentro do total",
+   "nar": "E cuidado com uma leitura comum: o açúcar adicionado já está contado dentro do total. As duas linhas não se somam, uma é parte da outra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que a segunda linha responde",
+   "preco": "quanto foi posto no processo",
+   "nar": "A pergunta que a segunda linha responde é essa: do açúcar que está aqui, quanto foi colocado durante a fabricação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De onde vem",
+   "sub": "e o que eu descartei",
+   "nar": "De onde saiu tudo isso, e o que eu deixei de fora de propósito.",
+   "cap": "De onde vem e o que descartei"
+  },
+  {
+   "layout": "item",
+   "kicker": "A fonte",
+   "preco": "Anvisa",
+   "nar": "Tudo o que eu afirmei aqui vem da Anvisa: a página de rotulagem nutricional e os comunicados sobre a entrada em vigor da regra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "As normas",
+   "preco": "resolução e instrução normativa",
+   "nar": "As normas são uma resolução de diretoria colegiada e uma instrução normativa, as duas de dois mil e vinte, com o texto disponível em repositórios públicos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que eu descartei",
+   "preco": "os limites da lupa",
+   "nar": "O que eu descartei foram os limites numéricos que disparam a lupa. Ficaram de fora por não fecharem em duas fontes oficiais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como eu percebi",
+   "preco": "as fontes discordavam",
+   "nar": "E não foi escrúpulo abstrato: uma das passagens dizia por porção onde outra dizia por cem gramas. Quando as fontes discordam assim, o número ainda não está pronto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tem revisão em andamento",
+   "preco": "consulta pública",
+   "nar": "Vale saber também que existe uma proposta de revisão dessa regulamentação em consulta pública. Proposta não é regra, e eu só volto ao assunto quando virar norma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que insisto nisso",
+   "preco": "é assunto de saúde",
+   "nar": "Insisto porque aqui é assunto de saúde, e número errado em saúde não é curiosidade. Prefiro dizer menos e ter conferido o pouco que eu disse.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na próxima compra",
+   "sub": "três gestos",
+   "nar": "Três gestos para a próxima vez que você estiver com a embalagem na mão.",
+   "cap": "Na próxima compra"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro",
+   "preco": "ache a coluna por cem gramas",
+   "nar": "Ache a coluna por cem gramas, ou por cem mililitros se for bebida. Ela está lá, por obrigação, em todo produto embalado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segundo",
+   "preco": "compare só por ela",
+   "nar": "Compare os dois produtos só por essa coluna, na linha do nutriente que te interessa. Ignore a porção nessa hora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Terceiro",
+   "itens": [
+    "Quantas porções tem a embalagem",
+    "Quanto eu como de verdade",
+    "Então quanto isso vale para mim"
+   ],
+   "nar": "Depois olhe quantas porções tem a embalagem, pense em quanto você come de verdade, e multiplique.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O gesto que sobra",
+   "preco": "olhar a frente",
+   "nar": "E de passagem, olhe a parte de cima da frente. Se tiver lupa, você já sabe o que ela está dizendo e o que ela não está.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma vez basta",
+   "preco": "depois vira automático",
+   "nar": "Faça isso uma vez com calma. Depois que você localiza a coluna certa uma vez, o olho passa a achar sozinho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Resumindo",
+   "preco": "comparar, depois dimensionar",
+   "nar": "Resumindo: compare por cem gramas, dimensione pelo número de porções, e leia as duas linhas de açúcar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra e Saudável",
+   "sub": "faça no próximo rótulo",
+   "nar": "Faça isso uma vez, no próximo produto que você pegar. Aqui a gente pega um número que já está na sua mão e transforma numa conta que você mesma faz. Se é isso que você procura, se inscreve.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dois produtos",
+   "sub": "a comparação sai errada",
+   "nar": "Quando você compara a tabela de dois produtos, quase sempre sai errado. E não é culpa sua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O motivo",
+   "preco": "as porções são diferentes",
+   "nar": "Cada fabricante escolhe o tamanho da porção. Quem declara a porção menor aparece com números menores.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Use a outra coluna",
+   "preco": "por cem gramas",
+   "nar": "Compare pela coluna por cem gramas. Ela é obrigatória desde dois mil e vinte e dois, e existe exatamente para comparar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Depois",
+   "preco": "porções por embalagem",
+   "nar": "Só então olhe quantas porções tem o pacote, e multiplique pelo que você come de verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seja Mais Magra",
+   "sub": "no próximo rótulo",
+   "nar": "Faça isso no próximo produto que você pegar na mão.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Tabela nutricional: a coluna que compara e o numero que dimensiona\n\n## TITULO\nTabela Nutricional: a Coluna Certa para Comparar Dois Produtos (e o Número que Todo Mundo Pula)\n\n## DESCRICAO\nVocê está no mercado com dois produtos parecidos na mão, vira os dois e compara a tabela nutricional. Essa comparação quase sempre sai errada — e não é culpa sua. A coluna da porção usa a porção que cada fabricante escolheu, e duas embalagens parecidas costumam declarar porções de tamanhos diferentes. Quando as porções são diferentes, o produto que declarou a porção menor aparece com números menores: ele não é melhor, ele foi medido em pedaço menor. Este vídeo mostra as duas colunas e o número que resolvem isso, usando só o que já está impresso na embalagem que você tem na mão.\n\nO QUE MUDOU EM 2022 (fonte: Anvisa)\n\nA RDC 429/2020 e a IN 75/2020 entraram em vigor em 9 de outubro de 2022. Com elas passou a ser obrigatório: declarar o valor energético e os nutrientes por 100 g (ou por 100 ml, em líquidos); declarar o número de porções por embalagem; e declarar açúcares totais E açúcares adicionados em linhas separadas. A tabela também passou a admitir apenas letras pretas em fundo branco.\n\nA COLUNA POR 100 g EXISTE PARA COMPARAR — e a própria Anvisa diz isso com essas palavras: a declaração por 100 g ou 100 ml serve \"para ajudar na comparação de produtos\". É a única coluna que põe dois produtos na mesma base. Cuidado apenas para não misturar: sólido se compara por 100 g, bebida por 100 ml.\n\nO NÚMERO QUE QUASE NINGUÉM LÊ: porções por embalagem. Quase ninguém come exatamente uma porção — as pessoas comem o pacote, ou metade dele. Se a embalagem declara 4 porções e você come o pacote inteiro, todos os números da coluna da porção valem 4 vezes.\n\nA ORDEM IMPORTA: primeiro comparar na mesma base (por 100 g), depois dimensionar para o seu consumo (porções × o quanto você come). Invertida, a tabela engana sem mentir.\n\nA LUPA DA FRENTE: a rotulagem frontal é uma lupa com a expressão \"ALTO EM\", impressa na parte superior da face frontal, e cobre três nutrientes — açúcares adicionados, gorduras saturadas e sódio. A Anvisa explica a escolha de apenas três: uma lista exaustiva diluiria a atenção, então ficaram os de evidência mais robusta de dano por excesso. A lupa não proíbe nada e não diz que o produto é ruim; ela avisa que a quantidade daquele nutriente ficou acima de um limite definido em norma.\n\nAÇÚCAR TOTAL E AÇÚCAR ADICIONADO são linhas diferentes, e essa é talvez a mudança mais útil: parte do açúcar pode ser do próprio alimento e parte pode ter sido acrescentada no processo. Dois produtos podem ter açúcar total parecido e adicionado bem diferente — sem a segunda linha, isso ficava invisível.\n\nEste vídeo não recomenda nem desaconselha alimento nenhum, não fala de dose de medicamento, e não substitui nutricionista nem médico.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nPega o produto embalado mais próximo de você agora e responde uma coisa só: quantas porções diz que tem a embalagem? Não precisa dizer a marca. Quero ver quantas de vocês descobrem que o pacote que costumam comer inteiro declara três ou quatro porções — porque é aí que a conta muda de tamanho.\n\n## HASHTAGS\n#RotulagemNutricional #LerRotulo #SejaMaisMagra\n\n## TAGS\ntabela nutricional, rotulo de alimentos, rotulagem nutricional, por 100g, porcoes por embalagem, acucar adicionado, acucares totais, lupa alto em, rotulagem frontal, anvisa, rdc 429, in 75, comparar produtos, leitura de rotulo, alimentacao baseada em evidencia\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nAs afirmacoes vem da ANVISA por duas rotas independentes que se confirmam: (1) o portal gov.br/anvisa, na pagina de rotulagem nutricional e nos comunicados sobre a entrada em vigor; e (2) o TEXTO das normas hospedado fora do portal — a RDC 429/2020 no bvsms.saude.gov.br e no repositorio antigo da Anvisa, e a IN 75/2020 espelhada por vigilancias sanitarias estaduais e municipais. O que esta confirmado nas duas rotas: a entrada em vigor em 9 de outubro de 2022; a obrigatoriedade de declarar valor energetico e nutrientes por 100 g ou 100 ml, com a finalidade declarada pela propria Anvisa de \"ajudar na comparacao de produtos\"; a obrigatoriedade do numero de porcoes por embalagem; a declaracao separada de acucares totais e adicionados; a tabela em letra preta sobre fundo branco; e a rotulagem frontal em lupa com \"ALTO EM\" para acucares adicionados, gorduras saturadas e sodio, na parte superior da face frontal, com a justificativa de tres nutrientes para nao diluir a atencao. O QUE FOI DESCARTADO, e o video diz isso em voz alta: os LIMITES NUMERICOS que disparam a lupa. Eles moram no Anexo XV da IN 75/2020, e nao consegui confirmar todos em duas fontes oficiais — a busca devolveu o valor de acucar para solido e para bebida, mas nao fechou o de sodio nem o de gordura saturada, e uma passagem dizia \"por porcao\" onde outra dizia \"por 100 g\". Numero que nao bate em duas fontes oficiais nao entra, ainda mais em assunto de saude. Por isso o roteiro foi construido para NAO depender desses limites: a conta que ele ensina usa apenas os numeros impressos no proprio rotulo. Ha ainda uma proposta de revisao dessa regulamentacao em consulta publica; proposta nao e regra, e o video diz isso e nao trata a revisao como certa.\n"
+}
