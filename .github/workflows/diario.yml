@@ -181,3 +181,22 @@ jobs:
         if: ${{ steps.informe.outputs.quantos == '0' }}
         run: |
           echo "::notice::Nenhum pacote pronto. O informe acima diz o motivo de cada descarte."
+
+  # O expurgo mora AQUI e nao num cron proprio de proposito: um agendamento a
+  # mais e uma coisa a mais que pode estar desligada sem ninguem notar. Preso
+  # ao ciclo, ele roda toda vez que a maquina pensa — e se o ciclo parar, a
+  # frota ja parou junto, entao nao ha caso em que o bucket cresce sozinho.
+  #
+  # `dias: 2` e a folga para a copia no Drive acontecer. A copia e feita na
+  # rotina horaria a partir da URL publica do bucket; dois dias cobrem
+  # sobradamente uma rotina que roda de hora em hora, e cobrem tambem o fim de
+  # semana em que ninguem olha.
+  #
+  # `needs` NAO entra: varrer o bucket nao depende de haver pacote pronto, e
+  # amarrar os dois faria a limpeza parar justamente quando a fila esvazia.
+  limpeza:
+    uses: ./.github/workflows/expurgo-storage.yml
+    secrets: inherit
+    with:
+      dias: 2
+      executar: true

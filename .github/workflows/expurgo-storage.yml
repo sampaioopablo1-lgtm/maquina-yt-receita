@@ -1,0 +1,177 @@
+name: Expurgo — o Storage e passagem, nao arquivo
+
+# POR QUE ISTO EXISTE, com o numero que o motivou (25/08/2026):
+#
+# O bucket `videos-maquina` chegou a 3,724 GB num plano de 1 GB. O Supabase
+# passou a devolver HTTP 402 em TUDO — nao so no upload: o `confere_token.py`
+# tomou 402 lendo `config`, o `publicar.py` tomou 402 lendo `/videos`. A
+# maquina inteira parou por causa de arquivo que ninguem mais ia ler.
+#
+# A medicao de onde estava o peso: dos 554 objetos, ZERO eram a unica copia de
+# alguma coisa. Todo mp4 ou (a) ja estava no YouTube, ou (b) ja estava no
+# Drive, ou (c) nao tinha uma linha sequer em `videos` apontando para ele —
+# lixo de re-render (o `cocina-por-niveles-002` foi renderizado seis dias
+# seguidos porque o canal nao existe no YouTube e nada apagava a sobra).
+#
+# A conclusao muda o papel do bucket. O Storage nunca foi arquivo: ele e a
+# PONTE que da URL publica para a copia no Drive acontecer. Depois que o video
+# esta no YouTube e o mestre esta no Drive, o objeto no bucket e peso morto que
+# um dia derruba a frota inteira. Entao ele passa a ser varrido.
+#
+# O QUE FICA, sempre: os `.srt`. Sao 1,5 MB no total e sao a materia-prima do
+# `calibrar-vozes.yml`, que le o tempo REAL de cada cena para calibrar R e P
+# por voz. Apagar o .srt custaria a unica medicao honesta de duracao que a
+# maquina tem. O `videos.supabase_url` continua valendo como INDICE: e dele
+# que o calibrar-vozes deriva o nome do .srt trocando o sufixo.
+#
+# POR QUE PELA API E NAO POR SQL: tentei apagar `storage.objects` por SQL
+# primeiro. O proprio Supabase barra, com o gatilho `protect_objects_delete`:
+# "Direct deletion from storage tables is not allowed. Use the Storage API
+# instead. This prevents accidental data loss from orphaned objects." Existe
+# escape (`set storage.allow_delete_query`), e usa-lo seria o pior desfecho
+# possivel: a linha some, a conta do bucket cai NO PAPEL, e o arquivo continua
+# ocupando espaco no S3 para sempre. Um estado escondido a mais e exatamente o
+# defeito que este repositorio ja pagou caro varias vezes.
+
+on:
+  workflow_call:
+    inputs:
+      dias:
+        description: "So apaga objeto com mais de N dias (0 = tudo)"
+        type: number
+        default: 2
+      executar:
+        description: "false = so lista o que apagaria"
+        type: boolean
+        default: false
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: "So apaga objeto com mais de N dias (0 = tudo)"
+        type: string
+        default: "2"
+      executar:
+        description: "Apagar de verdade (desmarcado = so lista)"
+        type: boolean
+        default: false
+
+jobs:
+  varrer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Varrer o bucket
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DIAS: ${{ inputs.dias }}
+          EXECUTAR: ${{ inputs.executar }}
+        run: |
+          set -uo pipefail
+          python3 - <<'PY' | tee /tmp/expurgo.txt
+          import datetime as dt, json, os, sys, urllib.error, urllib.request
+
+          SB = os.environ["SB"].rstrip("/")
+          KEY = os.environ["KEY"]
+          BUCKET = "videos-maquina"
+          # O que NUNCA sai do bucket. O .srt e o corpus do calibrar-vozes.yml.
+          FICAM = (".srt",)
+          dias = float(str(os.environ.get("DIAS") or "2").strip() or 2)
+          executar = str(os.environ.get("EXECUTAR", "")).lower() == "true"
+          corte = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=dias)
+
+          H = {"Authorization": f"Bearer {KEY}", "apikey": KEY,
+               "Content-Type": "application/json"}
+
+          def chama(metodo, caminho, corpo):
+              req = urllib.request.Request(
+                  f"{SB}{caminho}", method=metodo, headers=H,
+                  data=json.dumps(corpo).encode())
+              try:
+                  with urllib.request.urlopen(req, timeout=120) as r:
+                      return json.load(r)
+              except urllib.error.HTTPError as e:
+                  if e.code == 402:
+                      # A cota trava a API inteira, inclusive o DELETE que
+                      # libera a cota. Se isso acontecer, o no e circular e
+                      # precisa de acao humana no painel — dizer isso e mais
+                      # util que um traceback.
+                      print("::error::Storage devolveu 402 tambem no expurgo: "
+                            "a cota trava ate o DELETE que a liberaria. "
+                            "Nesse caso so o painel do Supabase resolve "
+                            "(apagar pelo Storage Explorer ou subir o plano).")
+                  else:
+                      print(f"::error::{metodo} {caminho} devolveu "
+                            f"HTTP {e.code}: {e.read()[:300].decode('utf-8', 'replace')}")
+                  sys.exit(1)
+
+          def lista(prefixo=""):
+              """Todo objeto sob o prefixo, descendo nas pastas.
+
+              A API pagina de 100 em 100 e devolve pasta como entrada de `id`
+              nulo. Sem descer, `game-money-lab-002/video.mp4` ficaria para
+              sempre — foi assim que 27 MB escaparam da primeira medicao que
+              eu fiz por nome de arquivo.
+              """
+              fora, off = [], 0
+              while True:
+                  lote = chama("POST", f"/storage/v1/object/list/{BUCKET}", {
+                      "prefix": prefixo, "limit": 100, "offset": off,
+                      "sortBy": {"column": "name", "order": "asc"}})
+                  if not lote:
+                      break
+                  for it in lote:
+                      nome = f"{prefixo}{it['name']}"
+                      if it.get("id") is None:
+                          fora += lista(f"{nome}/")
+                      else:
+                          fora.append((nome, it))
+                  if len(lote) < 100:
+                      break
+                  off += len(lote)
+              return fora
+
+          def instante(it):
+              t = it.get("created_at") or it.get("updated_at") or ""
+              try:
+                  return dt.datetime.fromisoformat(t.replace("Z", "+00:00"))
+              except ValueError:
+                  return None
+
+          todos = lista()
+          alvos, fica_ext, fica_novo, bytes_alvo, bytes_fica = [], 0, 0, 0, 0
+          for nome, it in todos:
+              tam = int((it.get("metadata") or {}).get("size") or 0)
+              if nome.endswith(FICAM):
+                  fica_ext += 1; bytes_fica += tam; continue
+              q = instante(it)
+              if dias > 0 and q is not None and q > corte:
+                  fica_novo += 1; bytes_fica += tam; continue
+              alvos.append(nome); bytes_alvo += tam
+
+          gb = lambda b: f"{b/1024/1024/1024:.3f} GB"
+          print(f"bucket: {len(todos)} objetos, {gb(bytes_alvo + bytes_fica)}")
+          print(f"ficam:  {fica_ext} por extensao ({'/'.join(FICAM)}), "
+                f"{fica_novo} com menos de {dias:g} dia(s) — {gb(bytes_fica)}")
+          print(f"alvo:   {len(alvos)} objetos, {gb(bytes_alvo)}")
+
+          if not alvos:
+              print("nada a apagar."); sys.exit(0)
+          if not executar:
+              print("ENSAIO: nada foi apagado. Rode com executar=true.")
+              for n in alvos[:20]:
+                  print(f"  apagaria {n}")
+              if len(alvos) > 20:
+                  print(f"  ... e mais {len(alvos) - 20}")
+              sys.exit(0)
+
+          apagados = 0
+          for i in range(0, len(alvos), 100):
+              lote = alvos[i:i + 100]
+              chama("DELETE", f"/storage/v1/object/{BUCKET}", {"prefixes": lote})
+              apagados += len(lote)
+              print(f"apagados {apagados}/{len(alvos)}")
+          print(f"LIBERADO: {gb(bytes_alvo)} em {apagados} objetos.")
+          PY
+          { echo '### Expurgo do bucket'; echo '```';
+            cat /tmp/expurgo.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
