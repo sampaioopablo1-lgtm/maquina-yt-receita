@@ -200,3 +200,32 @@ def test_a_gravacao_devolve_o_prefixo_do_motivo(monkeypatch):
     r = C.consertar("tok", "abc", "Wholesome")
     assert r.startswith(C.PREFIXO_ERRO[C.MOTIVO_TAXA])
     assert not r.startswith(C.PREFIXO_ERRO[C.MOTIVO_DIA])
+
+
+def test_leitura_com_cota_estourada_tambem_e_classificada(monkeypatch):
+    """Sem isto, um lote de 149 videos imprime 134 linhas de erro em vez de parar.
+
+    Medido em 25/08/2026 as 20h25: a leitura voltou 403 com reason
+    `quotaExceeded`, e o script seguiu tentando video a video. O laco do `main`
+    para quando o resultado comeca com o prefixo de cota diaria, entao a
+    LEITURA precisa devolver esse prefixo tambem — nao so a gravacao.
+    """
+    import urllib.error
+
+    corpo = json.dumps({"error": {"code": 403, "message": "exceeded your quota",
+                                  "errors": [{"reason": "quotaExceeded"}]}})
+
+    class _Erro(urllib.error.HTTPError):
+        def __init__(self):
+            self.code, self._corpo = 403, corpo.encode()
+
+        def read(self):
+            return self._corpo
+
+    def _req(url, data=None, method=None, headers=None):
+        raise _Erro()
+
+    monkeypatch.setattr(C, "_req", _req)
+    r = C.consertar("tok", "abc", "Wholesome")
+    assert r.startswith(C.PREFIXO_ERRO[C.MOTIVO_DIA]), r
+    assert "ao ler" in r

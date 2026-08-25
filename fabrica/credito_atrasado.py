@@ -103,7 +103,12 @@ def consertar(acc: str, youtube_id: str, faixa: str, seco: bool = False) -> str:
         r = json.load(_req(f"{API}/videos?part=snippet&id={youtube_id}",
                            headers={"Authorization": "Bearer " + acc}))
     except urllib.error.HTTPError as e:
-        return f"erro ao ler: HTTP {e.code} {e.read()[:120].decode('utf-8', 'replace')}"
+        # A LEITURA tambem carrega `reason`, e classifica-la importa: com a
+        # cota do dia esgotada, um lote de 149 videos imprimiu 134 linhas de
+        # "erro ao ler" seguidas em vez de parar na primeira. Ruido que esconde
+        # o unico fato que interessa — acabou o dia, volte depois da virada.
+        corpo = e.read()[:400].decode("utf-8", "replace")
+        return f"{PREFIXO_ERRO[motivo_403(e.code, corpo)]} ao ler: HTTP {e.code} {corpo[:120]}"
     itens = r.get("items") or []
     if not itens:
         # Video apagado, privado ou de outro canal. Nao e falha do script.
@@ -147,6 +152,12 @@ def consertar(acc: str, youtube_id: str, faixa: str, seco: bool = False) -> str:
 #
 # `reason` e o campo que separa, e nao a mensagem: rateLimitExceeded e
 # userRateLimitExceeded sao taxa; quotaExceeded e dia.
+#
+# E NAO CLASSIFIQUE POR TENTATIVA. Na mesma noite eu vi uma leitura solta
+# responder 200 as 20h11 e conclui que a cota do dia tinha voltado; as 20h25 o
+# `reason` dizia quotaExceeded, sem ambiguidade. Perto do limite a
+# contabilidade tem folga e deixa passar chamada avulsa — uma chamada que
+# funciona nao prova que a cota voltou. So o `reason` prova.
 MOTIVO_TAXA = "taxa"
 MOTIVO_DIA = "dia"
 MOTIVO_OUTRO = "outro"
