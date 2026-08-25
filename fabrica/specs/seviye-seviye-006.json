@@ -1,0 +1,711 @@
+{
+ "slug": "seviye-seviye",
+ "pacote": "seviye-seviye-006",
+ "idioma": "tr",
+ "voz": "tr-TR-AhmetNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1A2430",
+  "c1": "#C0392B",
+  "c2": "#2E86A8",
+  "bg": "#F5F2EE"
+ },
+ "thumb": {
+  "l1": "%16,82",
+  "l2": "yoksa %39,70"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Yüzde otuz bir yetmiş beş",
+   "sub": "temmuz enflasyonu",
+   "nar": "Temmuz enflasyonu yüzde otuz bir virgül yetmiş beş açıklandı. Bu sayı senin için doğru olmayabilir, ve nedeni tahmin değil.",
+   "cap": "Tek enflasyon yok"
+  },
+  {
+   "layout": "item",
+   "kicker": "Aynı açıklamada",
+   "preco": "iki ayrı sayı",
+   "nar": "Çünkü aynı açıklamanın içinde iki ayrı enflasyon var, ve aralarında yirmi iki puandan fazla mesafe bulunuyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Birincisi",
+   "preco": "mal: %16,82",
+   "nar": "Birincisi mallar. Temel mallar grubu bir yılda yüzde on altı virgül seksen iki arttı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkincisi",
+   "preco": "hizmet: %39,70",
+   "nar": "İkincisi hizmetler. Hizmet grubu aynı dönemde yüzde otuz dokuz virgül yetmiş arttı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Aradaki mesafe",
+   "itens": [
+    "Mal",
+    "Hizmet"
+   ],
+   "alturas": [
+    42,
+    100
+   ],
+   "nar": "On altı virgül seksen iki ve otuz dokuz virgül yetmiş. Arada yirmi iki virgül seksen sekiz puan var. İkisi de aynı ayın verisi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Peki otuz bir yetmiş beş",
+   "preco": "ağırlıklı ortalama",
+   "nar": "Manşetteki otuz bir virgül yetmiş beş, bu ikisinin ve diğer grupların ağırlıklı ortalaması. Bir ortalama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sorun ortalamada değil",
+   "preco": "sepette",
+   "nar": "Sorun ortalamanın yanlış olması değil. Sorun şu: o ortalama, belirli bir harcama sepetine göre hesaplanıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve o sepet",
+   "preco": "senin sepetin mi",
+   "nar": "Ve o sepet senin sepetin değilse, manşet sayısı senin enflasyonun değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu video ne yapacak",
+   "preco": "sayıyı ikiye ayıracak",
+   "nar": "O tek sayıyı şimdi parçalarına ayıracağız, ve sonunda kendi oranını kendin hesaplayacaksın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sırayla",
+   "itens": [
+    "Sayılar nereden geliyor",
+    "Aynı ay, ters yönler",
+    "Kim hangi enflasyonu yaşıyor",
+    "Zamlar neden geride kalıyor",
+    "Kendi oranını hesapla"
+   ],
+   "nar": "Beş başlık var, ve hiçbiri tahmin içermiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neyi yapmayacağım",
+   "preco": "tahmin yok",
+   "nar": "Önümüzdeki ayların enflasyonunu tahmin etmeyeceğim. O, henüz var olmayan veriye bağlı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kaynak",
+   "sub": "iki resmî kurum",
+   "nar": "Buradaki her yüzde iki resmî kaynaktan geliyor, ve ikisi birbirini doğruluyor.",
+   "cap": "Sayılar nereden geliyor"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci kaynak",
+   "preco": "Strateji ve Bütçe",
+   "nar": "Birincisi Cumhurbaşkanlığı Strateji ve Bütçe Başkanlığı'nın enflasyon sayfası. Yedi ağustosta güncellenmiş.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci kaynak",
+   "preco": "Merkez Bankası",
+   "nar": "İkincisi Türkiye Cumhuriyet Merkez Bankası'nın tüketici fiyatları tablosu, temmuz iki bin yirmi altı satırı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkisi de aynı",
+   "preco": "%1,78 ve %31,75",
+   "nar": "İkisi de aynı iki sayıyı veriyor: aylık artış yüzde bir virgül yetmiş sekiz, yıllık artış yüzde otuz bir virgül yetmiş beş.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir uyarı",
+   "preco": "üçüncü sayıya dikkat",
+   "nar": "Aramada bir de üçüncü sayı çıktı: yüzde otuz üç virgül beş. O sayı iki resmî kaynağın hiçbiriyle uyuşmuyor, ve bu yüzden kullanılmadı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kural basit",
+   "preco": "iki kaynak tutmalı",
+   "nar": "Kural şu: bir sayı iki bağımsız resmî kaynakta aynı çıkmıyorsa, o sayıyla hesap yapılmaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yıllık düştü",
+   "preco": "0,35 puan",
+   "nar": "Yıllık enflasyon bir önceki aya göre sıfır virgül otuz beş puan düştü. Yani genel eğilim aşağı yönlü.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama nasıl düştü",
+   "preco": "her yerde değil",
+   "nar": "Ama düşüş her grupta aynı değil, ve videonun tamamı bu cümlenin üzerine kurulu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çekirdek nedir",
+   "preco": "C endeksi",
+   "nar": "Bir kavram lazım: çekirdek enflasyon. Resmî adı C endeksi. Enerji, gıda, içecek, tütün ve altını dışarıda bırakır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden dışarıda",
+   "preco": "oynak kalemler",
+   "nar": "Dışarıda bırakır çünkü bu kalemler hava, hasat ve kur yüzünden çok oynak. Geriye eğilim kalsın diye çıkarılırlar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çekirdek kaç",
+   "preco": "yıllık %29,91",
+   "nar": "Çekirdek enflasyon yıllık yüzde yirmi dokuz virgül doksan bir. On iki aylık ortalaması ise yüzde otuz virgül altmış dokuz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İşte kritik nokta",
+   "preco": "çekirdeğin içi",
+   "nar": "Ve kritik nokta şu: çekirdeğin kendisi de ikiye ayrılıyor. Temel mallar ve hizmetler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu ayrım resmî",
+   "preco": "kurumun kendi ayrımı",
+   "nar": "Bu ayrımı ben icat etmiyorum. Kurumun kendi yayınında, kendi başlıklarıyla duruyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir şey daha",
+   "preco": "manşet de tek değil",
+   "nar": "Ve burada ikinci bir sürpriz var: aslında manşet sayı da tek değil. Aynı açıklamada dört farklı enflasyon oranı yayımlanıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci versiyon",
+   "preco": "aylık %1,78",
+   "nar": "Birincisi aylık değişim: bir önceki aya göre yüzde bir virgül yetmiş sekiz. En kısa pencere bu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci versiyon",
+   "preco": "yıllık %31,75",
+   "nar": "İkincisi yıllık değişim: geçen yılın aynı ayına göre yüzde otuz bir virgül yetmiş beş. Haberlerde en çok bu geçiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü versiyon",
+   "preco": "12 aylık ortalama %31,90",
+   "nar": "Üçüncüsü on iki aylık ortalamalara göre değişim: yüzde otuz bir virgül doksan. Kira tavanında kullanılan sayı budur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dördüncü versiyon",
+   "preco": "aralığa göre %19,86",
+   "nar": "Dördüncüsü aralık ayına göre değişim: yüzde on dokuz virgül seksen altı. Yani yıl başından bugüne olan artış.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dört sayı, tek ay",
+   "itens": [
+    "Aralığa göre",
+    "Yıllık",
+    "12 aylık ort."
+   ],
+   "alturas": [
+    63,
+    100,
+    100
+   ],
+   "nar": "On dokuz virgül seksen altı, otuz bir virgül yetmiş beş, otuz bir virgül doksan. Üçü de doğru, üçü de farklı soruyu yanıtlıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden karışıyor",
+   "preco": "yakın çıkınca",
+   "nar": "Bu ay yıllık ile on iki aylık ortalama neredeyse aynı çıktı, aralarında sadece sıfır virgül on beş puan var. Yakın olunca insanlar birini diğerinin yerine kullanıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sonraki ay tutmaz",
+   "preco": "makas açılır",
+   "nar": "Enflasyon hızlı düşerken ortalama yıllığın üstünde kalır. Yani bu ay tutan karışıklık, sonraki ay tutmaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Temmuz ayında",
+   "sub": "iki yön",
+   "nar": "Şimdi tek bir aya bakalım: temmuz. Aynı ay içinde iki grup ters yönlere gitti.",
+   "cap": "Aynı ay, ters yönler"
+  },
+  {
+   "layout": "item",
+   "kicker": "Mallar",
+   "preco": "aylık -%0,38",
+   "nar": "Temel mallar grubu fiyatları temmuzda yüzde sıfır virgül otuz sekiz azaldı. Arttı değil, azaldı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hizmetler",
+   "preco": "aylık +%3,18",
+   "nar": "Aynı ay içinde hizmet grubu fiyatları yüzde üç virgül on sekiz yükseldi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Temmuz, tek ay",
+   "itens": [
+    "Mal",
+    "Hizmet"
+   ],
+   "alturas": [
+    12,
+    100
+   ],
+   "nar": "Bir tarafta eksi sıfır virgül otuz sekiz, diğer tarafta artı üç virgül on sekiz. Aynı ülke, aynı ay, aynı açıklama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Manşet ne dedi",
+   "preco": "+%1,78",
+   "nar": "Ve manşet o ay için bir virgül yetmiş sekiz dedi. İki uç arasındaki bir nokta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir örnek",
+   "preco": "sağlık: +%10,74",
+   "nar": "Tek bir grup örneği: sağlık grubu fiyatları temmuzda yüzde on virgül yetmiş dört arttı. Bir ayda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Katkısı",
+   "preco": "0,32 puan",
+   "nar": "Sağlığın o aydaki enflasyona katkısı sıfır virgül otuz iki puan oldu. Sepetteki ağırlığı küçük olduğu için katkı küçük görünüyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama sen",
+   "preco": "ağırlık senin ağırlığın",
+   "nar": "Ama ilaç ve muayene senin bütçende küçük bir kalem değilse, o yüzde on virgül yetmiş dört senin ayında büyük bir kalem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ulaştırma",
+   "preco": "aylık +%2,59",
+   "nar": "Ulaştırma temmuzda yüzde iki virgül elli dokuz arttı ve ayın en belirleyici grubu oldu. Katkısı sıfır virgül kırk dört puan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gıda",
+   "preco": "aylık +%1,61",
+   "nar": "Gıda ve alkolsüz içecekler yüzde bir virgül altmış bir arttı, katkısı sıfır virgül kırk puan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Toplayınca",
+   "preco": "manşet çıkıyor",
+   "nar": "Bu katkılar toplandığında manşetteki bir virgül yetmiş sekiz çıkıyor. Hesap şeffaf; tartışma hesapta değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tartışma nerede",
+   "preco": "ağırlıklarda",
+   "nar": "Tartışma ağırlıklarda. Yani hangi kalemin toplam harcamanın yüzde kaçını oluşturduğunda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yıllık katkı, birinci",
+   "preco": "gıda: 8,94 puan",
+   "nar": "Yıllık tarafta en büyük katkı gıdadan geliyor. Tek başına sekiz virgül doksan dört puan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci ve üçüncü",
+   "preco": "ulaştırma ve konut",
+   "nar": "Ardından ulaştırma geliyor, beş virgül yirmi iki puanla. Konut ise beş virgül yirmi bir puanla hemen arkasında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aynı ülke",
+   "sub": "farklı enflasyon",
+   "nar": "Şimdi asıl soru: aynı ülkede yaşayan iki kişi neden farklı enflasyon hissediyor.",
+   "cap": "Kim hangi enflasyonu yaşıyor"
+  },
+  {
+   "layout": "item",
+   "kicker": "Cevap tek kelime",
+   "preco": "sepet",
+   "nar": "Cevap tek kelime: sepet. Yani parayı neye harcadığın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci kişi",
+   "preco": "hizmet ağırlıklı",
+   "nar": "Birinci kişiyi düşün. Kirada oturuyor, işe her gün gidiyor, çocuğu özel kursa gidiyor, ayda birkaç kez dışarıda yiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onun sepeti",
+   "preco": "hizmete yakın",
+   "nar": "Bu kişinin harcamasının büyük kısmı hizmet. Yaşadığı enflasyon otuz dokuz virgül yetmişe yakın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci kişi",
+   "preco": "mal ağırlıklı",
+   "nar": "İkinci kişi kendi evinde oturuyor, işe yürüyerek gidiyor, alışverişini marketten yapıyor, dışarıda yemek nadir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onun sepeti",
+   "preco": "mala yakın",
+   "nar": "Bu kişinin sepeti mal ağırlıklı. Yaşadığı enflasyon on altı virgül seksen ikiye yakın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "İki komşu",
+   "itens": [
+    "Mal sepeti",
+    "Manşet",
+    "Hizmet sepeti"
+   ],
+   "alturas": [
+    42,
+    80,
+    100
+   ],
+   "nar": "İkisi de aynı şehirde, aynı ayda. Biri on yedi civarında, biri kırk civarında, manşet ise ikisinin arasında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kimse yalan söylemiyor",
+   "preco": "ikisi de doğru",
+   "nar": "Burada kimse yalan söylemiyor. İkisi de doğru, çünkü ikisi de farklı sepetlerin ortalaması.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden hizmet daha hızlı",
+   "preco": "içinde emek var",
+   "nar": "Hizmet neden daha hızlı artıyor? Çünkü hizmetin maliyetinin büyük kısmı emek, ve emek ücreti geriye dönük olarak zamlanıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mal tarafında",
+   "preco": "kur ve stok",
+   "nar": "Mal tarafında ise kur, stok ve ithalat fiyatı belirleyici. Bunlar daha hızlı düşebiliyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir kanıt daha",
+   "preco": "Yİ-ÜFE %27,83",
+   "nar": "Bunun bir kanıtı daha var: üretici fiyatları yıllık yüzde yirmi yedi virgül seksen üç, yani tüketici enflasyonunun altında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ne anlama geliyor",
+   "preco": "mal baskısı azalıyor",
+   "nar": "Üretici tarafındaki baskı azalırken hizmet tarafındaki baskı sürüyor. Makas bu yüzden açık kalıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Konut örneği",
+   "preco": "yıllık %40,32",
+   "nar": "Konut, su, elektrik ve gaz grubu yıllık yüzde kırk virgül otuz iki arttı. Bu kanalda bunu daha önce ayrı bir videoda işlemiştik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zamlar",
+   "sub": "manşete bağlı",
+   "nar": "Şimdi bu farkın neden sadece bir merak konusu olmadığına gelelim.",
+   "cap": "Zamlar neden geride kalıyor"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kural",
+   "preco": "endeksleme manşete",
+   "nar": "Türkiye'de endeksli artışların tamamı manşet sayıya bağlı. Yani ortalamaya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Emekli maaşı",
+   "preco": "manşete endeksli",
+   "nar": "Emekli maaşı artışı manşete bağlı. Asgari ücret pazarlığı manşete bakıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kira tavanı",
+   "preco": "12 aylık ortalama",
+   "nar": "Kira artışının üst sınırı on iki aylık ortalamaya bağlı; bu ay yüzde otuz bir virgül doksan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve konut gideri",
+   "preco": "%40,32",
+   "nar": "Ama konut giderinin kendisi yüzde kırk virgül otuz iki arttı. Sekiz puandan fazla açık.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu bir örnekti",
+   "preco": "genel kural bu",
+   "nar": "O video tek bir kalemin hikâyesiydi. Bu video, o hikâyenin arkasındaki genel kural.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kural şu",
+   "preco": "ortalamayla ödenir",
+   "nar": "Kural şu: gelirin ortalamayla artıyor, ama harcaman kendi sepetinle artıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sepetin hizmetliyse",
+   "preco": "her yıl geriye",
+   "nar": "Sepetin hizmet ağırlıklıysa, ortalamayla yapılan her zam seni bir miktar geriye götürür. Küçük görünür, birikir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sayıyla",
+   "preco": "yaklaşık sekiz puan",
+   "nar": "Bu ayki verilerle konuşursak: hizmet sepetiyle yaşayan biri için manşet ile gerçek arasındaki fark yaklaşık sekiz puan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir yıl sonra",
+   "preco": "fark büyüyor",
+   "nar": "Sekiz puanlık fark bir yıl sonra küçük değildir, ve iki yıl üst üste gelirse hiç değildir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ters durum",
+   "preco": "mal sepeti kazanır",
+   "nar": "Tersi de doğru: mal ağırlıklı sepetle yaşayan biri, ortalamayla yapılan zamda görece kazançlı çıkar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu politika değil",
+   "preco": "aritmetik",
+   "nar": "Bu bir politika tartışması değil. Ortalamayla endeksleme ile bireysel sepet arasındaki aritmetik fark.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu yüzden",
+   "preco": "kendi oranın lazım",
+   "nar": "Ve tam bu yüzden manşeti beklemek yerine kendi oranını bilmen işine yarar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kendi oranın",
+   "sub": "üç adım",
+   "nar": "Şimdi kendi enflasyonunu hesaplayalım. Üç adım, ve hepsi bir kâğıtla yapılır.",
+   "cap": "Kendi oranını hesapla"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci adım",
+   "preco": "iki kutu",
+   "nar": "Birinci adım: geçen ayki harcamanı iki kutuya böl. Mal kutusu ve hizmet kutusu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mal kutusu",
+   "preco": "market, giyim, eşya",
+   "nar": "Mal kutusuna market alışverişi, giyim, ev eşyası ve benzeri fiziksel ürünler girer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hizmet kutusu",
+   "preco": "kira, ulaşım, sağlık",
+   "nar": "Hizmet kutusuna kira, ulaşım, sağlık, eğitim, dışarıda yemek, tamir ve abonelikler girer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci adım",
+   "preco": "oranı bul",
+   "nar": "İkinci adım: hizmet kutusunun toplam harcamana oranını bul. Diyelim yüzde altmış.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü adım",
+   "preco": "ağırlıklı ortalama",
+   "nar": "Üçüncü adım: hizmet oranını otuz dokuz virgül yetmiş ile, kalan oranı on altı virgül seksen iki ile çarp ve topla.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Örnek hesap",
+   "preco": "%60 hizmet",
+   "nar": "Örnek: yüzde altmış hizmet, yüzde kırk mal. Sonuç yaklaşık yüzde otuz virgül altı. Manşetin biraz altında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci örnek",
+   "preco": "%80 hizmet",
+   "nar": "İkinci örnek: yüzde seksen hizmet, yüzde yirmi mal. Sonuç yaklaşık yüzde otuz beş virgül dört. Manşetin belirgin üstünde.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü örnek",
+   "preco": "%30 hizmet",
+   "nar": "Üçüncü örnek: yüzde otuz hizmet, yüzde yetmiş mal. Sonuç yaklaşık yüzde yirmi üç virgül altı. Manşetin çok altında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aynı ülke",
+   "preco": "üç farklı sonuç",
+   "nar": "Aynı ay, aynı resmî veri, üç farklı insan, üç farklı sonuç. Hiçbiri yanlış değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu sayı ne işe yarar",
+   "preco": "zam pazarlığında",
+   "nar": "Bu sayı iki yerde işe yarar. Birincisi: aldığın zammı değerlendirirken manşetle değil kendi oranınla karşılaştır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkincisi",
+   "preco": "hangi kalem",
+   "nar": "İkincisi: hangi kutunun daha hızlı arttığını bildiğinde, bütçede nereye bakacağını da bilirsin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir uyarı",
+   "preco": "bu kaba bir hesap",
+   "nar": "Bu kaba bir hesap. Kurumun sepetinde yüzlerce alt kalem ve farklı ağırlıklar var. Ama yönü doğru gösterir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neyi tahmin etmiyoruz",
+   "preco": "gelecek ay yok",
+   "nar": "Ve tekrar: burada gelecek ayın enflasyonu yok. O veri henüz açıklanmadı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Veri ne zaman",
+   "preco": "her ayın başında",
+   "nar": "Yeni veri her ayın başında yayımlanıyor. Temmuz verisi üç ağustosta çıkmıştı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "her ay, senin sepetinle",
+   "nar": "Bugün tek bir şey yap: geçen ayki harcamanı mal ve hizmet diye ikiye böl ve oranı yaz. Bu kanalda her ay, veri açıklandığı gün, hesabı senin sepetine göre yeniden yapıyoruz. Kendi oranını takip etmek istiyorsan abone ol.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Tek enflasyon yok",
+   "sub": "temmuz 2026",
+   "nar": "Enflasyon yüzde otuz bir virgül yetmiş beş dendi. O sayı senin için doğru olmayabilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mallar",
+   "preco": "yıllık %16,82",
+   "nar": "Aynı açıklamada mallar yıllık yüzde on altı virgül seksen iki arttı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hizmetler",
+   "preco": "yıllık %39,70",
+   "nar": "Hizmetler ise yüzde otuz dokuz virgül yetmiş. Arada yirmi iki puandan fazla var.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sen hangisisin",
+   "preco": "sepetine bakar",
+   "nar": "Kira ve ulaşım ağırlıklıysan kırka yakınsın, market ağırlıklıysan on yediye.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Her ayın üçünde",
+   "sub": "senin sepetinle",
+   "nar": "Veri her ayın üçünde çıkıyor. O gün hesabı senin sepetine göre yeniden yapıyoruz.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Tek enflasyon yok: mal %16,82, hizmet %39,70\n\n## TITULO\nTek Enflasyon Yok: Mal Yüzde 16,82, Hizmet Yüzde 39,70 — Seninki Hangisi?\n\n## DESCRICAO\nTemmuz 2026 enflasyonu manşetlerde yüzde 31,75 olarak geçti. Ama aynı açıklamanın içinde iki ayrı enflasyon var: temel mallar grubu bir yılda yüzde 16,82 arttı, hizmet grubu ise yüzde 39,70. Aradaki mesafe 22,88 puan. Manşetteki 31,75 bu ikisinin ve diğer grupların ağırlıklı ortalaması — yani belirli bir harcama sepetine göre hesaplanan bir ortalama. O sepet sizin sepetiniz değilse, manşet sayısı sizin enflasyonunuz değil.\n\nSAYILAR VE KAYNAK\n\nBu videodaki her yüzde iki resmî kaynakta aynı çıkıyor: Cumhurbaşkanlığı Strateji ve Bütçe Başkanlığı'nın enflasyon sayfası (7 Ağustos 2026'da güncellendi) ve TCMB'nin tüketici fiyatları tablosu (07-2026 satırı). İkisi de temmuz için aylık %1,78 ve yıllık %31,75 veriyor. Yıllık enflasyon bir önceki aya göre 0,35 puan geriledi.\n\nBİR UYARI: aramada üçüncü bir sayı da çıkıyor, yüzde 33,5. Bu sayı iki resmî kaynağın hiçbiriyle uyuşmuyor ve bu videoda kullanılmadı. Kural basit — bir sayı iki bağımsız resmî kaynakta aynı çıkmıyorsa, o sayıyla hesap yapılmaz.\n\nAYNI AY, TERS YÖNLER\n\nEn çarpıcı kısım tek bir ayda görünüyor. Temmuzda temel mallar grubu fiyatları yüzde 0,38 AZALDI; aynı ay hizmet grubu fiyatları yüzde 3,18 YÜKSELDİ. Manşet ise o ay için 1,78 dedi — iki ucun arasında bir nokta. Tek bir grup örneği: sağlık grubu fiyatları temmuzda yüzde 10,74 arttı, enflasyona katkısı 0,32 puan oldu. Katkının küçük görünmesinin sebebi sepetteki ağırlığın küçük olması; sizin bütçenizde ilaç ve muayene küçük bir kalem değilse, o 10,74 sizin ayınızda büyük bir kalemdir.\n\nAyın diğer belirleyicileri: ulaştırma %2,59 (katkı 0,44 puan), gıda ve alkolsüz içecekler %1,61 (katkı 0,40 puan). Yıllık tarafta en büyük üç katkı: gıda 8,94 puan, ulaştırma 5,22 puan, konut 5,21 puan. Çekirdek enflasyon (C endeksi — enerji, gıda, içecek, tütün ve altın hariç) yıllık %29,91, on iki aylık ortalaması %30,69. Üretici fiyatları (Yİ-ÜFE) yıllık %27,83, yani tüketici enflasyonunun altında: mal tarafındaki baskı azalırken hizmet tarafındaki baskı sürüyor.\n\nZAMLAR NEDEN GERİDE KALIYOR\n\nEndeksli artışların tamamı manşet sayıya bağlı. Emekli maaşı artışı, asgari ücret pazarlığı, kira tavanı — hepsi ortalamaya bakıyor. Kira tavanı bu ay on iki aylık ortalamayla %31,90 iken konut, su, elektrik ve gaz grubunun yıllık artışı %40,32; bu kanalda o farkı ayrı bir videoda işlemiştik. Bu video o hikâyenin arkasındaki genel kural: geliriniz ortalamayla artıyor, harcamanız kendi sepetinizle artıyor. Sepetiniz hizmet ağırlıklıysa ortalamayla yapılan her zam sizi bir miktar geriye götürür — küçük görünür, birikir. Tersi de doğru: mal ağırlıklı sepetle yaşayan biri aynı zamda görece kazançlı çıkar. Bu bir politika tartışması değil, ortalamayla endeksleme ile bireysel sepet arasındaki aritmetik fark.\n\nKENDİ ORANINIZ (üç adım)\n\n1) Geçen ayki harcamanızı iki kutuya bölün: MAL (market, giyim, ev eşyası) ve HİZMET (kira, ulaşım, sağlık, eğitim, dışarıda yemek, tamir, abonelikler). 2) Hizmet kutusunun toplam harcamanıza oranını bulun. 3) Hizmet oranını 39,70 ile, kalan oranı 16,82 ile çarpıp toplayın.\n\nÜç örnek: %60 hizmet + %40 mal ≈ %30,6 (manşetin biraz altında). %80 hizmet + %20 mal ≈ %35,4 (manşetin belirgin üstünde). %30 hizmet + %70 mal ≈ %23,6 (manşetin çok altında). Aynı ay, aynı resmî veri, üç farklı sonuç — hiçbiri yanlış değil.\n\nBu kaba bir hesaptır: kurumun sepetinde yüzlerce alt kalem ve farklı ağırlıklar var. Ama yönü doğru gösterir, ve aldığınız zammı manşetle değil kendi oranınızla karşılaştırmanızı sağlar.\n\nBU VİDEODA OLMAYANLAR: önümüzdeki ayların enflasyon tahmini yok — o, henüz açıklanmamış veriye bağlı. Yatırım tavsiyesi yok. Ve kurumun hesabının yanlış olduğu iddiası yok: hesap ilan edilmiş bir ağırlıklı ortalamadır, video tam olarak o ortalamanın nasıl oluştuğunu gösteriyor.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nÜç adımı uygulayıp kendi oranınızı bulduysanız yorumlara yazın: hizmet oranınız yüzde kaç çıktı ve sonuç manşetin altında mı üstünde mi kaldı? Özellikle merak ettiğim, yüzde 80'in üzerinde hizmet ağırlığı olan bütçeler — kira ve ulaşımın birlikte baskın olduğu durumlar.\n\n## HASHTAGS\n#Enflasyon #TÜİK #SeviyeSeviye\n\n## TAGS\nenflasyon temmuz 2026, tufe, tuik enflasyon, hizmet enflasyonu, mal enflasyonu, cekirdek enflasyon, c endeksi, kendi enflasyonun, kisisel enflasyon hesaplama, emekli zammi, asgari ucret, kira tavani, butce, kisisel finans, merkez bankasi\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Turkce (tr) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Turquia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nTodos os percentuais vem dos dados de julho de 2026 e foram conferidos em DUAS fontes institucionais que batem entre si: a pagina de inflacao da Cumhurbaskanligi Strateji ve Butce Baskanligi (atualizada em 07/08/2026) e a tabela de precos ao consumidor do TCMB (linha 07-2026). Ambas: TUFE mensal +1,78%, anual +31,75% (queda de 0,35 ponto). Do detalhamento: temel mallar (bens) anual +16,82% e hizmet (servicos) anual +39,70%, distancia de 22,88 pontos; no mes de julho os bens caIram 0,38% enquanto os servicos subiram 3,18%; saude +10,74% no mes com katki de 0,32 ponto; ulastirma +2,59% (0,44 ponto) e gida +1,61% (0,40 ponto); contribuicao anual gida 8,94, ulastirma 5,22, konut 5,21 pontos; nucleo (C endeksi) anual 29,91% e media de doze meses 30,69%; Yi-UFE anual 27,83%. Os valores de konut +40,32% e teto de aluguel 31,90% vem do mesmo instituto e ja haviam sido conferidos para o pacote seviye-seviye-005. UM NUMERO FOI DESCARTADO DE PROPOSITO: um agregador privado indicava 33,5% de inflacao anual, valor que nao bate com nenhuma das duas fontes institucionais e por isso nao aparece no video. Os tres exemplos de calculo (30,6%, 35,4% e 23,6%) sao medias ponderadas simples entre 16,82% e 39,70%, apresentadas explicitamente como conta aproximada. Este material e educativo sobre orcamento domestico: nao e aconselhamento de investimento, nao preve a inflacao dos meses seguintes e nao afirma que o calculo oficial esteja errado.\n"
+}
