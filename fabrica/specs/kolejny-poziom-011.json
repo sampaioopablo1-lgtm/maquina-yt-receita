@@ -1,0 +1,614 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-011",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#FCA311",
+  "c2": "#E5E5E5",
+  "bg": "#F7F5F0"
+ },
+ "thumb": {
+  "l1": "120 000 zł",
+  "l2": "gdzie jesteś"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Jedna liczba",
+   "sub": "dzieli twoją pensję na dwie części",
+   "nar": "Jest jedna liczba, która dzieli twoją roczną pensję na dwie części opodatkowane zupełnie inaczej. Dziś podam ci ją od razu.",
+   "cap": "Liczba, która dzieli pensję"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta liczba",
+   "preco": "sto dwadzieścia tysięcy",
+   "nar": "To sto dwadzieścia tysięcy złotych rocznie. Poniżej płacisz dwanaście procent. Powyżej, od nadwyżki, trzydzieści dwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie od całości",
+   "preco": "tylko od nadwyżki",
+   "nar": "I to jest pierwsze nieporozumienie: wyższa stawka nie dotyczy całej pensji. Dotyczy wyłącznie tego, co jest ponad próg.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd bierze się strach",
+   "preco": "z nieporozumienia",
+   "nar": "Wiele osób słyszy o progu i wyobraża sobie, że po jego przekroczeniu cała pensja jest opodatkowana wyżej. Tak to nie działa, i za chwilę zobaczysz na liczbach, o ile mniej to boli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kwota wolna",
+   "preco": "trzydzieści tysięcy",
+   "nar": "Do tego kwota wolna od podatku wynosi trzydzieści tysięcy złotych, i stąd bierze się kwota zmniejszająca podatek: trzy tysiące sześćset.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwa wzory",
+   "preco": "i to są wszystkie",
+   "nar": "Poniżej progu podatek to dwanaście procent podstawy minus trzy tysiące sześćset złotych. Powyżej progu to dziesięć tysięcy osiemset złotych plus trzydzieści dwa procent od nadwyżki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To są całe zasady",
+   "preco": "reszta to szczegóły",
+   "nar": "To są całe zasady skali. Wszystko inne to już tylko szczegóły i przykłady.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Gdzie jesteś",
+   "sub": "jedno mnożenie",
+   "nar": "Teraz najważniejsze: jak sprawdzić, po której stronie progu jesteś.",
+   "cap": "Gdzie jesteś na skali"
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok pierwszy",
+   "preco": "brutto razy dwanaście",
+   "nar": "Weź swoją miesięczną pensję brutto i pomnóż przez dwanaście. To twój roczny przychód.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok drugi",
+   "preco": "odejmij składki",
+   "nar": "Odejmij od tego zapłacone składki na ubezpieczenie społeczne: emerytalną, rentową i chorobową. Znajdziesz je na pasku wypłaty albo w rocznym zestawieniu od pracodawcy. Zostaje podstawa opodatkowania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok trzeci",
+   "preco": "porównaj ze stem dwudziestoma",
+   "nar": "Porównaj tę podstawę ze stem dwudziestoma tysiącami. Jeśli jest niżej, cała twoja pensja jest w pierwszej stawce.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Średnia krajowa",
+   "preco": "9233 złote",
+   "nar": "Konkret: przy średniej pensji dziewięć tysięcy dwieście trzydzieści trzy złote miesięcznie wychodzi sto dziesięć tysięcy siedemset dziewięćdziesiąt sześć złotych rocznie. Czyli poniżej progu, ale niewiele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ile brakuje",
+   "itens": [
+    "Średnia roczna",
+    "Próg"
+   ],
+   "alturas": [
+    92,
+    100
+   ],
+   "nar": "Od średniej pensji do progu brakuje mniej niż dziesięć tysięcy złotych rocznie. To jedna podwyżka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego to nie jest",
+   "preco": "temat dla bogatych",
+   "nar": "Dlatego to nie jest temat dla bogatych. To temat dla osoby, która właśnie dostała podwyżkę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co się zmienia",
+   "sub": "propozycja na 2027",
+   "nar": "I tu dochodzimy do powodu, dla którego robię ten film teraz.",
+   "cap": "Propozycja zmian od 2027"
+  },
+  {
+   "layout": "item",
+   "kicker": "Rząd zapowiedział",
+   "preco": "trzy progi",
+   "nar": "Kancelaria Prezesa Rady Ministrów przedstawiła propozycję zmiany skali podatkowej. Zamiast dwóch stawek mają być trzy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy próg",
+   "preco": "sto trzydzieści tysięcy",
+   "nar": "Pierwszy próg ma zostać podniesiony do stu trzydziestu tysięcy złotych, wciąż ze stawką dwanaście procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nowa stawka",
+   "preco": "dwadzieścia cztery procent",
+   "nar": "Powyżej stu trzydziestu tysięcy, aż do stu pięćdziesięciu, ma pojawić się nowa, pośrednia stawka: dwadzieścia cztery procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzydzieści dwa",
+   "preco": "dopiero powyżej 150",
+   "nar": "A trzydzieści dwa procent ma dotyczyć dopiero dochodów powyżej stu pięćdziesięciu tysięcy złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Od kiedy",
+   "preco": "nie w tym roku",
+   "nar": "Zmiana miałaby wejść w życie dopiero od kolejnego roku podatkowego, a nie w rozliczeniu, które składasz teraz. Twój najbliższy PIT liczy się według obecnej skali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To jest propozycja",
+   "preco": "nie jest ustawą",
+   "nar": "I mówię to wyraźnie: to jest projekt i zapowiedź. Nie jest to jeszcze obowiązujące prawo, i tak trzeba to traktować.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kogo dotyczy",
+   "preco": "trzy i pół miliona",
+   "nar": "Według rządu skorzystałoby na tym ponad trzy i pół miliona podatników, przede wszystkim pracowników. Ci, którzy zyskają najwięcej, zaoszczędziliby rocznie nawet trzy tysiące sześćset złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego coraz więcej",
+   "sub": "próg, który stał w miejscu",
+   "nar": "Zostawmy na chwilę propozycję i zobaczmy, co działo się do tej pory. To wyjaśnia, skąd ta zmiana w ogóle się wzięła.",
+   "cap": "Dlaczego coraz więcej osób płaci 32%"
+  },
+  {
+   "layout": "item",
+   "kicker": "Stary próg",
+   "preco": "85 528 złotych",
+   "nar": "Przez lata drugi próg wynosił osiemdziesiąt pięć tysięcy pięćset dwadzieścia osiem złotych. Ta sama liczba, rok po roku, od dwa tysiące dziewiątego aż do końca dwa tysiące dwudziestego pierwszego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedyna zmiana",
+   "preco": "dopiero potem",
+   "nar": "Dopiero potem podniesiono go do stu dwudziestu tysięcy złotych. To była jedyna zmiana tego progu w kilkunastu latach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pensje nie stały",
+   "preco": "próg tak",
+   "nar": "W tym samym czasie pensje nominalnie rosły, a próg się nie ruszał. Nazywa się to pełzaniem progów, i skutek jest mechaniczny: coraz więcej osób wpada do wyższej stawki, choć w ustawie nikt niczego nie zmienił.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prognoza bez zmian",
+   "preco": "czternaście procent",
+   "nar": "Bez nowych parametrów odsetek podatników płacących trzydzieści dwa procent miał urosnąć do czternastu procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "barras",
+   "kicker": "Odsetek w drugiej stawce",
+   "itens": [
+    "Bez zmian",
+    "Po zmianie"
+   ],
+   "alturas": [
+    100,
+    51
+   ],
+   "nar": "Po zmianie parametrów miałby wynieść siedem i dwie dziesiąte procent. To mniej więcej połowa tej grupy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego to nie prezent",
+   "preco": "to korekta",
+   "nar": "Dlatego podniesienie progu nie jest prezentem. Jest odwróceniem mechanizmu, który działał kilkanaście lat i nikogo o zdanie nie pytał.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Policzmy",
+   "sub": "trzy podstawy",
+   "nar": "Policzmy to teraz na trzech konkretnych podstawach, w złotówkach, a nie w procentach.",
+   "cap": "Trzy przykłady w złotówkach"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza podstawa",
+   "preco": "sto tysięcy",
+   "nar": "Podstawa sto tysięcy złotych. Dwanaście procent z tej kwoty daje dwanaście tysięcy złotych. Odejmujemy kwotę zmniejszającą podatek i zostaje osiem tysięcy czterysta złotych, dziś i po zmianie tyle samo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga podstawa",
+   "preco": "sto trzydzieści pięć tysięcy",
+   "nar": "Podstawa sto trzydzieści pięć tysięcy złotych. Nadwyżka ponad dzisiejszy próg to piętnaście tysięcy, więc podatek wynosi dziesięć tysięcy osiemset plus trzydzieści dwa procent od tej nadwyżki. Razem piętnaście tysięcy sześćset złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta sama podstawa po zmianie",
+   "preco": "trzynaście tysięcy dwieście",
+   "nar": "Po zmianie pierwszy próg sięga stu trzydziestu tysięcy, więc do tej kwoty liczymy dwanaście procent. Reszta wpada w stawkę dwadzieścia cztery procent. Wychodzi trzynaście tysięcy dwieście złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Różnica",
+   "preco": "dwa tysiące czterysta",
+   "nar": "Różnica na tej jednej podstawie to dwa tysiące czterysta złotych rocznie. To realna kwota, a nie punkt procentowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia podstawa",
+   "preco": "sto sześćdziesiąt tysięcy",
+   "nar": "Podstawa sto sześćdziesiąt tysięcy złotych. Dziś podatek wynosi dwadzieścia trzy tysiące sześćset złotych, a po zmianie dwadzieścia tysięcy. Różnica to trzy tysiące sześćset.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I tu jest sufit",
+   "preco": "wyżej już nie rośnie",
+   "nar": "Na tym różnica się zatrzymuje. Powyżej stu pięćdziesięciu tysięcy obie skale mają tę samą stawkę, więc oszczędność przestaje rosnąć.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To zgadza się ze źródłem",
+   "preco": "ta sama liczba",
+   "nar": "Rząd podaje oszczędność do trzech tysięcy sześciuset złotych rocznie. Ta sama liczba wychodzi z samego rachunku, i właśnie dlatego jej ufam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada",
+   "preco": "zawsze od nadwyżki",
+   "nar": "W każdym z tych przypadków wyższa stawka dotyczy tylko nadwyżki ponad próg, nigdy całej pensji. Dlatego nie ma sensu odmawiać podwyżki ze strachu przed progiem: po jego przekroczeniu zawsze zostaje ci więcej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwoje ludzi",
+   "sub": "jeden rachunek",
+   "nar": "Jest jeszcze jedna rzecz, która potrafi zmienić to, po której stronie progu jesteś. I nie ma z nią nic wspólnego wysokość twojej pensji.",
+   "cap": "Dwoje ludzi, jeden próg"
+  },
+  {
+   "layout": "item",
+   "kicker": "Wspólne rozliczenie",
+   "preco": "z małżonkiem",
+   "nar": "Chodzi o wspólne rozliczenie z małżonkiem. To prawo, a nie obowiązek, i wniosek składa się w zeznaniu rocznym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak liczy się podatek",
+   "preco": "od połowy, razy dwa",
+   "nar": "Podatek ustala się wtedy w podwójnej wysokości podatku obliczonego od połowy łącznych dochodów obojga małżonków.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co to daje",
+   "preco": "próg działa jak podwójny",
+   "nar": "W praktyce dla pary próg zachowuje się tak, jakby był dwa razy wyższy niż dla jednej osoby.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Konkret",
+   "preco": "dwieście czterdzieści tysięcy",
+   "nar": "Jeśli łączna podstawa pary nie przekracza dwustu czterdziestu tysięcy złotych, całość mieści się w pierwszej stawce.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiedy to działa",
+   "preco": "gdy dochody się różnią",
+   "nar": "Efekt jest największy wtedy, gdy jedno z małżonków zarabia dużo, a drugie mało albo wcale. Jeśli oboje są nisko i zarabiają podobnie, wynik bywa taki sam jak przy rozliczeniu osobnym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Warunki",
+   "preco": "cały rok i wspólność",
+   "nar": "Trzeba pozostawać w małżeństwie i we wspólności majątkowej przez cały rok podatkowy. Są też wyłączenia dla niektórych form opodatkowania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego o tym mówię",
+   "preco": "bo przenosi przez próg",
+   "nar": "Mówię o tym, bo to jedyna rzecz z tego filmu, która potrafi przenieść cię na drugą stronę progu bez żadnej zmiany pensji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzysta złotych",
+   "sub": "co miesiąc",
+   "nar": "Teraz coś, co dotyczy twojej wypłaty co miesiąc, a nie raz w roku.",
+   "cap": "Trzysta złotych miesięcznie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd ta kwota",
+   "preco": "jedna dwunasta",
+   "nar": "Kwota zmniejszająca podatek wynosi trzy tysiące sześćset złotych rocznie. Jedna dwunasta z tego to trzysta złotych, i tę część stosuje płatnik przy obliczaniu miesięcznej zaliczki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale nie sam z siebie",
+   "preco": "trzeba oświadczenia",
+   "nar": "Nie robi tego jednak z automatu. Musisz złożyć oświadczenie na formularzu PIT dwa, a bez niego zaliczka jest liczona bez pomniejszenia i wypłata na rękę jest niższa przez cały rok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czy pieniądze przepadają",
+   "preco": "nie przepadają",
+   "nar": "Pieniądze nie znikają. Wracają w zwrocie po rozliczeniu rocznym, tylko rok później i bez odsetek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Można podzielić",
+   "preco": "między płatników",
+   "nar": "Przy kilku źródłach tę część można podzielić: po sto pięćdziesiąt złotych u dwóch płatników albo po sto u trzech. Łącznie w miesiącu i tak nie zejdzie poniżej trzystu złotych pomniejszenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi mechanizm",
+   "preco": "od miesiąca przekroczenia",
+   "nar": "Jest jeszcze druga rzecz, którą widać na pasku. Płatnik liczy zaliczkę stawką dwanaście procent dopóki twój dochód od początku roku mieści się pod progiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A potem",
+   "preco": "wyższa stawka od razu",
+   "nar": "Od miesiąca, w którym próg zostaje przekroczony, zaliczka idzie już wyższą stawką. Dlatego jesienna wypłata potrafi być niższa od wiosennej przy tej samej umowie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie jest błąd kadr",
+   "preco": "to jest skala",
+   "nar": "To nie pomyłka w kadrach i nie kara za dobry rok. To ta sama skala, tylko widziana miesiąc po miesiącu, a nie raz na dwanaście miesięcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tym zrobić",
+   "preco": "sprawdź w tym tygodniu",
+   "nar": "Rzecz do sprawdzenia od razu: czy twój pracodawca ma od ciebie to oświadczenie, i w którym miesiącu przekraczasz próg.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego tu nie ma",
+   "sub": "ulgi i odliczenia",
+   "nar": "Teraz uczciwie o tym, czego ta prosta wersja nie obejmuje.",
+   "cap": "Czego ten rachunek nie obejmuje"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kto nie płaci nic",
+   "preco": "kwota wolna",
+   "nar": "Najpierw dół skali: jeśli podstawa nie przekracza kwoty wolnej, podatek wychodzi zero, bo kwota zmniejszająca zjada go w całości.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ulgi",
+   "preco": "jest ich kilkanaście",
+   "nar": "Dalej ulgi. Skala daje prawo do kilkunastu ulg i odliczeń: ulga na dziecko, ulga dla rodzin cztery plus, odliczenie składek i wiele innych. Każda zmienia podstawę albo sam podatek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "IKZE",
+   "preco": "też odliczasz",
+   "nar": "Odliczyć można też wpłaty na Indywidualne Konto Zabezpieczenia Emerytalnego. Robiliśmy o tym osobny film.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Składka zdrowotna",
+   "preco": "to osobna pozycja",
+   "nar": "Drugie zastrzeżenie: ten rachunek dotyczy wyłącznie podatku dochodowego. Składka zdrowotna jest osobną pozycją i nie wchodzi do tego wzoru, chociaż na twojej wypłacie widzisz obie naraz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie każdy jest na skali",
+   "preco": "liniowy i ryczałt",
+   "nar": "Ten film dotyczy skali podatkowej. Kto rozlicza się liniowo albo ryczałtem, ma inne zasady i tego progu u siebie nie zobaczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego traktuj to",
+   "preco": "jako punkt startu",
+   "nar": "Potraktuj tę pracę domową jako punkt startu, a nie jako rozliczenie. Do rozliczenia jest księgowa albo doradca podatkowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Skąd te liczby",
+   "sub": "trzy źródła",
+   "nar": "Skąd wziąłem te liczby, bo to jest pytanie, które powinno paść zawsze.",
+   "cap": "Skąd pochodzą liczby"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsze źródło",
+   "preco": "portal rządowy",
+   "nar": "Obowiązująca skala pochodzi z rządowego portalu informacyjnego dla przedsiębiorców. Tam stoi tabela, kwota zmniejszająca podatek i zasada wyższej stawki od miesiąca przekroczenia progu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugie źródło",
+   "preco": "Kancelaria Premiera",
+   "nar": "Propozycja zmian pochodzi ze strony Kancelarii Prezesa Rady Ministrów, z opisu proponowanego pakietu podatkowego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecie źródło",
+   "preco": "Ministerstwo Finansów",
+   "nar": "Zasady wspólnego rozliczenia i oświadczenia PIT dwa pochodzą z serwisu podatkowego Ministerstwa Finansów.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak to sprawdzić samemu",
+   "preco": "dwa hasła",
+   "nar": "Możesz to sprawdzić bez mojego pośrednictwa. Wystarczą dwa hasła: skala podatkowa na portalu dla przedsiębiorców, i pakiet podatkowy na stronie Kancelarii Premiera.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prawo i projekt",
+   "preco": "to nie to samo",
+   "nar": "I jedna rzecz, o którą warto pytać przy każdym materiale o podatkach: czy to jest obowiązujące prawo, czy dopiero projekt. To rozróżnienie zmienia wszystko, a znika w nagłówkach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego nie użyłem",
+   "preco": "kalkulatorów z sieci",
+   "nar": "Nie użyłem żadnego kalkulatora ani portalu z poradami. Jeśli liczba nie stoi w źródle urzędowym, nie wchodzi do tego filmu. Przy podatku pomyłka nie jest ciekawostką.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co zrobić dziś",
+   "sub": "cztery rzeczy i podsumowanie",
+   "nar": "Cztery rzeczy, które możesz zrobić dziś wieczorem, każda na jednej kartce.",
+   "cap": "Co zrobić dziś wieczorem"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "policz swoją podstawę",
+   "nar": "Policz swoją roczną podstawę: miesięczne brutto razy dwanaście, minus zapłacone składki społeczne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "zapisz odległość od progu",
+   "nar": "Zapisz, ile złotych dzieli cię od stu dwudziestu tysięcy. To liczba, która mówi, czy próg w ogóle cię dotyczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "sprawdź oświadczenie",
+   "nar": "Sprawdź, czy twój pracodawca ma od ciebie oświadczenie PIT dwa. To pytanie na jedno zdanie do działu kadr.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Czwarta",
+   "itens": [
+    "Ile jestem od progu dziś",
+    "Ile byłbym po zmianie",
+    "Ile z podwyżki zostaje mi w kieszeni"
+   ],
+   "nar": "I zapisz trzy zdania: gdzie jestem dziś, gdzie byłbym po zmianie, i ile z kolejnej podwyżki naprawdę zostaje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Po co to ostatnie",
+   "preco": "bo podwyżka to decyzja",
+   "nar": "To ostatnie zdanie jest najważniejsze, bo podwyżka albo dodatkowe zlecenie to decyzja, a decyzję podejmuje się na liczbach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Podsumowanie",
+   "preco": "dwa zdania",
+   "nar": "Dziś próg to sto dwadzieścia tysięcy rocznej podstawy, a wyższa stawka dotyczy wyłącznie nadwyżki. Propozycja trzech progów to projekt, a nie prawo, i wracamy do tematu, kiedy będzie ustawa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "policz swoją odległość",
+   "nar": "Zrób dziś jedną rzecz: policz, ile złotych dzieli cię od progu, i zapisz tę liczbę. Tutaj bierzemy jedną liczbę z twojego życia i zamieniamy ją w działanie, które robisz sam. Jeśli tego szukasz, zasubskrybuj.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Sto dwadzieścia tysięcy",
+   "sub": "próg, którego nie widać",
+   "nar": "Sto dwadzieścia tysięcy złotych rocznie. To liczba, która dzieli twoją pensję na dwie części.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Poniżej",
+   "preco": "dwanaście procent",
+   "nar": "Poniżej płacisz dwanaście procent minus trzy tysiące sześćset.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Powyżej",
+   "preco": "trzydzieści dwa",
+   "nar": "Powyżej trzydzieści dwa procent, ale tylko od nadwyżki, nigdy od całości.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Policz teraz",
+   "preco": "brutto razy 12",
+   "nar": "Pomnóż brutto przez dwanaście, odejmij składki i porównaj ze stem dwudziestoma tysiącami.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "twoja odległość",
+   "nar": "Zapisz, ile złotych dzieli cię od progu. Tu każda liczba staje się działaniem, które robisz sam.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Próg podatkowy: 120 000 zł i propozycja trzech stawek\n\n## TITULO\nPróg Podatkowy 120 000 zł: Gdzie Jesteś na Skali i Co Zmienia Propozycja na 2027\n\n## DESCRICAO\nJest jedna liczba, która dzieli twoją roczną pensję na dwie części opodatkowane zupełnie inaczej: 120 000 zł podstawy opodatkowania. Poniżej płacisz 12%, powyżej 32% — ale wyłącznie od nadwyżki, nigdy od całości. W tym filmie podaję tę liczbę od razu, w pierwszych trzech minutach, razem z metodą, która pozwala ci sprawdzić, po której stronie progu jesteś. Reszta to przykłady i uczciwe zastrzeżenia.\n\nOBOWIĄZUJĄCA SKALA (źródło: rządowy portal informacyjny)\n\nKwota wolna od podatku wynosi 30 000 zł, i stąd bierze się kwota zmniejszająca podatek: 30 000 × 12% = 3 600 zł. Do 120 000 zł podstawy podatek wynosi 12% minus 3 600 zł. Powyżej 120 000 zł: 10 800 zł + 32% nadwyżki ponad 120 000 zł.\n\nJAK SPRAWDZIĆ, GDZIE JESTEŚ (trzy kroki)\n\n1) Miesięczne brutto × 12 = roczny przychód. 2) Odejmij zapłacone składki na ubezpieczenie społeczne — zostaje podstawa opodatkowania. 3) Porównaj podstawę ze 120 000 zł.\n\nKonkret: przy średniej pensji 9 233 zł miesięcznie roczny przychód to 110 796 zł — poniżej progu, ale niewiele. Od średniej krajowej do progu brakuje mniej niż 10 000 zł rocznie, czyli mniej więcej jedna podwyżka. Dlatego to nie jest temat dla bogatych; to temat dla osoby, która właśnie dostała podwyżkę.\n\nPROPOZYCJA ZMIAN OD 2027 (źródło: Kancelaria Prezesa Rady Ministrów)\n\nPropozycja zakłada trzy progi zamiast dwóch: I próg podniesiony do 130 000 zł ze stawką 12%; nowa, pośrednia stawka 24% dla dochodów powyżej 130 000 zł do 150 000 zł; stawka 32% dopiero powyżej 150 000 zł. Według rządu skorzystałoby ponad 3,5 mln podatników rozliczających się według skali, przede wszystkim pracowników, a osoby zyskujące najwięcej mogłyby zaoszczędzić w skali roku nawet 3 600 zł. Odsetek osób płacących 32% miałby spaść do 7,2% zamiast przewidywanych 14%.\n\nTO JEST PROPOZYCJA, NIE USTAWA. Mówię to w filmie i powtarzam tutaj: opisane zmiany to zapowiedź i projekt, nie obowiązujące prawo. Liczby na 2026 rok są prawem; liczby na 2027 rok są propozycją.\n\nDLACZEGO ODSETEK ROSŁ: progi stały w miejscu, a pensje nominalnie rosły — coraz więcej osób wpadało do wyższej stawki bez żadnej zmiany w ustawie. Skala historii: drugi próg wynosił 85 528 zł od 2009 r. aż do końca 2021 r., czyli trzynaście lat bez ruchu, i dopiero potem został podniesiony do 120 000 zł. To była jedyna zmiana tego progu w kilkunastu latach. Podniesienie progu jest odwróceniem tego mechanizmu, a nie prezentem.\n\nDWOJE LUDZI, JEDEN PRÓG (wspólne rozliczenie z małżonkiem)\n\nPrzy wspólnym rozliczeniu podatek ustala się w podwójnej wysokości podatku obliczonego od połowy łącznych dochodów małżonków. W praktyce dla pary próg zachowuje się tak, jakby był dwa razy wyższy: jeśli łączna podstawa nie przekracza 240 000 zł, całość mieści się w pierwszej stawce. Efekt jest największy, gdy dochody małżonków bardzo się różnią; gdy oboje są nisko i zarabiają podobnie, wynik bywa taki sam jak przy rozliczeniu osobnym. Warunek: małżeństwo i wspólność majątkowa przez cały rok podatkowy, z wyłączeniami dla niektórych form opodatkowania. To jedyna rzecz z tego materiału, która potrafi przenieść cię na drugą stronę progu bez żadnej zmiany pensji.\n\n300 ZŁ MIESIĘCZNIE I OŚWIADCZENIE PIT-2\n\nKwota zmniejszająca podatek to 3 600 zł rocznie, a 1/12 z tego to 300 zł miesięcznie. Tę część stosuje płatnik przy obliczaniu zaliczki — ale nie z automatu: trzeba złożyć oświadczenie PIT-2. Bez niego zaliczka jest liczona bez pomniejszenia, a wypłata na rękę jest niższa przez cały rok (pieniądze wracają dopiero w zwrocie po rozliczeniu rocznym). Przy kilku źródłach 300 zł można podzielić: po 150 zł u dwóch płatników albo po 100 zł u trzech, ale łącznie w miesiącu nigdy więcej niż 300 zł.\n\nDRUGI MECHANIZM WIDOCZNY NA PASKU: płatnik liczy zaliczkę stawką 12% w miesiącach, w których dochód od początku roku nie przekracza 120 000 zł, a stawką 32% od miesiąca, w którym ten limit zostaje przekroczony. Dlatego jesienna wypłata bywa niższa od wiosennej przy tej samej umowie. To nie pomyłka kadr — to ta sama skala, widziana miesiąc po miesiącu.\n\nCZEGO TEN RACHUNEK NIE OBEJMUJE: jeśli podstawa nie przekracza kwoty wolnej, podatek wychodzi 0 zł, bo kwota zmniejszająca zjada go w całości. Ten rachunek dotyczy wyłącznie podatku dochodowego — składka zdrowotna jest osobną pozycją i nie wchodzi do tego wzoru, chociaż na wypłacie widać obie naraz. Materiał dotyczy skali podatkowej: kto rozlicza się liniowo albo ryczałtem, ma inne zasady i tego progu u siebie nie zobaczy. Poza tym skala podatkowa daje prawo do kilkunastu ulg i odliczeń (ulga na dziecko, ulga dla rodzin 4+, odliczenie składek społecznych, wpłaty na IKZE i inne). Każda z nich zmienia podstawę albo sam podatek, więc realny wynik bywa inny niż z gołego wzoru. Potraktuj tę pracę domową jako punkt startu, nie jako rozliczenie — do rozliczenia jest księgowa albo doradca podatkowy. To nie jest porada podatkowa ani prawna.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nPolicz swoją roczną podstawę i napisz w komentarzu jedną liczbę: ile złotych dzieli cię od 120 000 zł. Nie pensję — samą odległość. Najbardziej interesuje mnie, ilu z was jest w zasięgu jednej podwyżki od progu, bo to jest dokładnie ta grupa, o której nikt nie mówi.\n\n## HASHTAGS\n#PodatkiPL #PrógPodatkowy #KolejnyPoziom\n\n## TAGS\nprog podatkowy, skala podatkowa, pit 2026, 120000 zl, kwota wolna od podatku, kwota zmniejszajaca podatek, 32 procent podatku, druga stawka pit, podatek dochodowy, reforma podatkowa 2027, stawka 24 procent, srednia krajowa, podwyzka a podatek, finanse osobiste, rozliczenie roczne\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Polones (pl) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Polonia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nOs numeros vem de TRES fontes institucionais que se confirmam. (1) A ESCALA EM VIGOR, do portal oficial do governo polones para empreendedores: kwota wolna 30.000 zl, kwota zmniejszajaca podatek 3.600 zl (30.000 x 12%), ate 120.000 zl o imposto e 12% menos 3.600 zl, e acima de 120.000 zl e 10.800 zl mais 32% do excedente. (2) A PROPOSTA PARA 2027, da pagina da Kancelaria Prezesa Rady Ministrow: primeiro degrau elevado a 130.000 zl com 12%, nova faixa intermediaria de 24% entre 130.000 e 150.000 zl, e 32% apenas acima de 150.000 zl; mais de 3,5 milhoes de contribuintes beneficiados, sobretudo empregados; economia anual de ate 3.600 zl para quem mais ganha; e queda da fatia que paga 32% de 14% para 7,2%. (3) A MECANICA DA SKALA, do serviço de impostos do Ministerio das Financas (podatki.gov.pl e gov.pl/web/finanse) e do mesmo portal biznes.gov.pl: no rozliczenie wspolne o imposto e o DOBRO do imposto calculado sobre METADE da renda somada do casal, o que faz o prog do casal se comportar como 240.000 zl; a kwota zmniejszajaca chega ao contracheque como 300 zl por mes (1/12 de 3.600), aplicados pelo platnik SO se o oswiadczenie PIT-2 tiver sido entregue, divisiveis em 150+150 ou 100x3 e nunca somando mais de 300 no mes; e o platnik usa 12% enquanto a renda acumulada do ano fica sob o prog, passando a 32% A PARTIR DO MES em que ele e ultrapassado. O HISTORICO DO PROG — 85.528 zl de 2009 ate o fim de 2021 e 120.000 zl a partir de 2022 — vem das paginas do Ministerio das Financas sobre as aliquotas de anos anteriores. O TETO DE 3.600 zl FOI DERIVADO, nao copiado: a 150.000 zl a escala atual cobra 20.400 zl e a proposta cobra 16.800 zl, diferenca de 3.600 zl exatos, e acima de 150.000 as duas correm na mesma aliquota, entao a diferenca congela ali. Duas rotas independentes no mesmo numero. A DISTINCAO E DITA NO PROPRIO VIDEO: a escala de 2026 e lei, a de 2027 e proposta e projeto, e nao foi tratada como certa. A ancora dos 9.233 zl mensais (110.796 zl anuais) vem da media salarial que este mesmo canal ja publicou. NAO foi usado nenhum calculador ou portal de dicas: numero que nao esta em fonte oficial nao entrou. O video nao cobre ulgas e odliczenia, que mudam o resultado caso a caso, e nao e aconselhamento fiscal ou juridico.\n"
+}

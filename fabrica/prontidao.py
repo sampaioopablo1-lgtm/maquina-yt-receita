@@ -360,9 +360,28 @@ def _gate_capitulos(sp):
     desenhou 7 capitulos e publicou 6.
 
     Por isso o portao so opina quando o `cap` esta sendo usado como marcador:
-    entre 6 e 8 ocorrencias, que e a faixa que a rotina pede. Fora dela ele se
-    cala, porque ali quem manda e a heuristica de layout e mexer nisso quebraria
-    o acervo.
+    entre 6 e 12 ocorrencias. Fora dela ele se cala, porque ali quem manda e a
+    heuristica de layout e mexer nisso quebraria o acervo.
+
+    O TETO ERA 8, e 8 era o teto da faixa que a rotina pedia ATE 25/08/2026. A
+    rotina mudou por medida — o longo de melhor retencao do kolejny-poziom tem
+    NOVE capitulos, o de pior tem sete — e passou a pedir MAIS capitulos. No
+    mesmo dia a kolejny-poziom-011 desenhou DEZ e produziria CINCO, e o portao
+    ficou calado justamente porque dez estava acima do teto. Ou seja: ele se
+    calava exatamente na faixa que a rotina agora considera boa.
+
+    E a causa dos cinco perdidos nao foi layout, foi TEMPO: `copy_md.capitulos`
+    so abre capitulo `MIN_CAP` segundos depois do anterior, e capitulo de 57 s
+    some calado. Mais capitulos no mesmo video encurta cada um, entao a faixa
+    nova e justamente onde este modo de falha aparece.
+
+    Doze e o teto novo porque a heuristica antiga tem de continuar mandando no
+    acervo solto: a cocina-por-niveles-002 usa `cap` em 69 cenas. Conferido em
+    25/08/2026 contra as 50+ specs do diretorio: as unicas entre 9 e 12 sao as
+    seis specs de CANAL (game-money-lab, kolejny-poziom, next-level-money,
+    nivel-do-jogo, resep-naik-level, seviye-seviye), e as seis ja sao
+    descartadas hoje pelo portao de `copy` — descricao abaixo de 200 palavras e
+    sem hashtags. Ligar o portao nelas nao tira nada da frota.
 
     Os tempos sao estimados pelo modelo de voz, e nao pelos clipes: o portao
     roda ANTES do render. A estimativa erra ~2% no longo, e o que se compara e
@@ -374,7 +393,7 @@ def _gate_capitulos(sp):
     longo = sp.get("longo") or []
     voz = sp.get("voz", "")
     desenhados = sum(1 for c in longo if (c or {}).get("cap"))
-    if not (6 <= desenhados <= 8) or voz not in MODELO_VOZ:
+    if not (6 <= desenhados <= 12) or voz not in MODELO_VOZ:
         return []
 
     tempos = [duracao_cena((c or {}).get("nar") or "", voz) + GAP_CENA_S
@@ -388,9 +407,28 @@ def _gate_capitulos(sp):
         return []
     perdidos = [c.get("cap") for c in longo
                 if c.get("cap") and c.get("layout") not in ("titulo", "broll")]
-    detalhe = f" — abre(m) em layout que o render ignora: {perdidos}" if perdidos else ""
-    return [f"{desenhados} capitulos desenhados e {produzidos} produzidos{detalhe}. "
-            f"Abertura de capitulo tem de ser layout `titulo` ou `broll`"]
+    if perdidos:
+        return [f"{desenhados} capitulos desenhados e {produzidos} produzidos — "
+                f"abre(m) em layout que o render ignora: {perdidos}. "
+                f"Abertura de capitulo tem de ser layout `titulo` ou `broll`"]
+
+    # Sobrou a outra causa, e ela precisa ser DITA: com as aberturas todas em
+    # `titulo`, o que derruba capitulo e a distancia ate o anterior. Dizer
+    # "tem de ser titulo" aqui manda o autor conferir o que ja esta certo — foi
+    # o que quase aconteceu com a kolejny-poziom-011, dez desenhados e cinco
+    # produzidos, todas as dez aberturas em `titulo`.
+    curtos, t, ultimo = [], 0.0, None
+    for i, c in enumerate(longo):
+        if c.get("cap"):
+            if ultimo is not None and t - ultimo[1] < copy_md.MIN_CAP:
+                curtos.append(f"{ultimo[0]!r} dura {t - ultimo[1]:.0f}s")
+            ultimo = (c["cap"], t)
+        t += tempos[i]
+    detalhe = f": {'; '.join(curtos)}" if curtos else ""
+    return [f"{desenhados} capitulos desenhados e {produzidos} produzidos. As "
+            f"aberturas estao no layout certo, entao o que derruba e a "
+            f"DISTANCIA: `copy_md` so abre capitulo {copy_md.MIN_CAP:.0f}s "
+            f"depois do anterior{detalhe}"]
 
 
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
