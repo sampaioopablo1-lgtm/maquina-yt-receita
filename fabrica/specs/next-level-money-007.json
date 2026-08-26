@@ -1,0 +1,488 @@
+{
+  "slug": "next-level-money",
+  "pacote": "next-level-money-007",
+  "idioma": "en",
+  "voz": "en-US-AndrewNeural",
+  "trilha": "Deliberate_Thought",
+  "paleta": {
+    "ink": "#1A1A1A",
+    "c1": "#E4572E",
+    "c2": "#F2B134",
+    "bg": "#F2ECDF"
+  },
+  "thumb": {
+    "l1": "One balance",
+    "l2": "two kinds of money"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "One balance",
+      "sub": "two kinds of money",
+      "nar": "Your retirement account shows you one balance. Inside that balance there are two different kinds of money, and only one of them is unconditionally yours today.",
+      "cap": "One balance, two kinds of money"
+    },
+    {
+      "layout": "item",
+      "kicker": "The first kind",
+      "preco": "what you put in",
+      "nar": "The first kind is what you put in yourself, taken out of your own pay before you ever saw it, plus whatever that money has earned since.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The second kind",
+      "preco": "what your employer added",
+      "nar": "The second kind is what your employer added on top, the matching contribution, plus what that has earned.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "They look identical",
+      "sub": "on the statement",
+      "nar": "On the statement they look identical. They are added together, they are invested together, and the app shows you one number.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "They are not identical",
+      "sub": "in law",
+      "nar": "In law they are not identical at all, and the difference has a date attached to it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And nobody is hiding it",
+      "sub": "it is simply not shown",
+      "nar": "Nobody is hiding this from you, either. It is disclosed in a document, and the app that shows you the balance was never built to show you the split.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Say the limit first",
+      "sub": "this is the United States",
+      "nar": "One limit before anything else. This describes retirement plans in the United States. If you are elsewhere, the rules where you are will be different.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "What you get by the end",
+      "preco": "two numbers from your own paperwork",
+      "nar": "By the end you will have two numbers, both taken from your own plan documents rather than from anything I say.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And I do not know your plan",
+      "sub": "which is the point",
+      "nar": "I do not know your plan, and that is exactly the point. Every number that matters here is written in a document you are entitled to have.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Start with the good news",
+      "sub": "your own money is yours",
+      "nar": "Start with the good news, because it is genuinely good. The money you contribute yourself is one hundred per cent yours from the first day.",
+      "cap": "Your own contributions are always yours"
+    },
+    {
+      "layout": "item",
+      "kicker": "No waiting period",
+      "preco": "on your own deferrals",
+      "nar": "There is no waiting period on it. There is no schedule, no cliff, and no condition attached to it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the earnings too",
+      "sub": "not just the deposits",
+      "nar": "The earnings on that money are yours on the same terms. Not only what you put in, but what it grew into.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "However the job ends",
+      "preco": "quit, laid off, or retire",
+      "nar": "That holds however the job ends. Whether you resign, are laid off, or retire, your own contributions are untouched by any of it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So if you left today",
+      "sub": "that part travels with you",
+      "nar": "So if you walked out of that job today, that part of the balance travels with you. It is not at risk in any version of this.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That is the part people worry about",
+      "sub": "and it is the safe part",
+      "nar": "That is usually the part people worry about, and it is the one part that was never in question.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It survives a bad exit",
+      "sub": "and a bad quarter",
+      "nar": "It survives a bad exit, a bad quarter, and a company that changes its mind about the plan. It was never conditional to begin with.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The worry belongs elsewhere",
+      "preco": "on the employer's side",
+      "nar": "The worry belongs on the other side of the balance, on the money your employer put in.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Because that side",
+      "sub": "can have a schedule",
+      "nar": "Because that side can carry a schedule, and a schedule is a way of saying not yet.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which brings the word",
+      "sub": "that decides the rest",
+      "nar": "Which brings us to the one word that decides everything else, and it is a word most people have read without stopping on it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The word is vesting",
+      "sub": "and it means owning",
+      "nar": "The word is vesting. It is a dry word for a simple idea: when does this money stop being conditional and become irrevocably yours.",
+      "cap": "Vesting: the word that decides the rest"
+    },
+    {
+      "layout": "item",
+      "kicker": "Employer contributions",
+      "preco": "may be subject to a schedule",
+      "nar": "Employer contributions can be subject to a vesting schedule. Your right to them becomes non forfeitable only after a period of time.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Or they may not",
+      "sub": "some plans vest immediately",
+      "nar": "Or they may not be. Some plans vest employer money immediately, and that is a real difference between two jobs that pay the same salary.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Two kinds of plan",
+      "preco": "where it is always immediate",
+      "nar": "There are plan types where the required employer contributions are one hundred per cent vested at all times, and safe harbor and SIMPLE plans are the ones named in the rules.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So which one are you in",
+      "sub": "is a real question",
+      "nar": "So which one are you in is not a rhetorical question. It has an answer, and the answer is written down somewhere you can reach.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Notice what this is not",
+      "sub": "it is not a penalty",
+      "nar": "Notice what this is not. It is not a penalty and it is not a trick. It is a condition that was disclosed, and almost nobody read it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "The forfeitable part",
+      "preco": "is only the employer side",
+      "nar": "And remember the boundary: only the employer side can be forfeited. Your own contributions never enter this conversation.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the practical question",
+      "sub": "where is it written",
+      "nar": "So the practical question is simply where this is written, and who has to give it to you.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "The document has a name",
+      "sub": "and they owe it to you",
+      "nar": "The document has a name. It is called the Summary Plan Description, and the plan administrator is obliged to provide it to participants free of charge.",
+      "cap": "The document they owe you, free"
+    },
+    {
+      "layout": "item",
+      "kicker": "Free of charge",
+      "preco": "is the part to remember",
+      "nar": "Free of charge is the part worth remembering, because asking for it is not a favour you are requesting.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "What it has to tell you",
+      "itens": [
+        "when you can join the plan",
+        "how service and benefits are counted",
+        "when benefits become vested"
+      ],
+      "nar": "It tells participants when they can begin to take part, how service and benefits are calculated, and when benefits become vested.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "That third line",
+      "sub": "is the one you came for",
+      "nar": "That third line is the one you came for. It is the schedule, in your own plan, in writing.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And it is a summary on purpose",
+      "sub": "written to be read",
+      "nar": "It is called a summary because it is meant to be read by people who do not do this for a living. That is the entire design of the document.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "It also covers",
+      "sub": "how benefits are paid and claimed",
+      "nar": "It also covers when and in what form benefits are paid, and how to file a claim, which matters later and matters less today.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "One more thing it will show",
+      "preco": "the contribution formula",
+      "nar": "It will also describe how the employer contribution is worked out, which is the other number you need.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And one honest caveat",
+      "sub": "the future is not promised",
+      "nar": "One honest caveat while we are here. In a defined contribution plan the employer may change future contributions, and depending on the plan terms may stop them.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "So this is about",
+      "sub": "what is already there",
+      "nar": "So this calculation is about the money already sitting in the account, not about a promise stretching into next decade.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the arithmetic",
+      "sub": "two numbers, one afternoon",
+      "nar": "Now the arithmetic. Two numbers, and both come out of that one document in an afternoon.",
+      "cap": "Two numbers from your own paperwork"
+    },
+    {
+      "layout": "item",
+      "kicker": "Step one",
+      "preco": "find the contribution formula",
+      "nar": "Step one: find the formula. How much does the employer add, and up to what share of your pay does it keep adding.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Step two",
+      "preco": "compare it with what you put in",
+      "nar": "Step two: compare that threshold with what you are actually contributing right now, which is on your pay statement.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "If you are below the threshold",
+      "sub": "that gap has a price",
+      "nar": "If you are contributing below the point where the employer stops matching, the difference between those two is money that was available and was not taken.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Write that number down",
+      "sub": "as a yearly figure",
+      "nar": "Write it down as a yearly figure, not a monthly one. Yearly is the scale at which it stops feeling small.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A note on that threshold",
+      "preco": "it is a share of pay",
+      "nar": "One note on that threshold. It is usually a share of your pay, so a raise moves it, and a contribution you set two years ago may no longer reach it.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Step three",
+      "preco": "find the vesting schedule",
+      "nar": "Step three: find the vesting schedule, and find where you are on it today, counted in your own service.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Step four",
+      "preco": "multiply what is not yours yet",
+      "nar": "Step four: work out how much of the employer money is not yet non forfeitable. That is the second number.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Those two",
+      "sub": "answer two different questions",
+      "nar": "Those two numbers answer two different questions. The first is about how much you contribute. The second is about when you leave.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Now the limits",
+      "sub": "and I would rather say them",
+      "nar": "Now the limits of all of this, and I would rather say them than let you find them the hard way.",
+      "cap": "Where the arithmetic stops"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "No dollar limit here",
+      "sub": "because it changes every year",
+      "nar": "I have not given you the annual contribution limit in dollars. It changes every year, and a number recorded today would make this video wrong by January.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "No year counts either",
+      "preco": "because they depend on the plan",
+      "nar": "I have not given you the maximum vesting periods in years either. They depend on the kind of contribution and on the plan, and your schedule is the one that governs you.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And no formula",
+      "sub": "presented as standard",
+      "nar": "And I have not described any matching formula as if it were standard. There is no standard one. There is the one in your plan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I also left rollovers alone",
+      "sub": "on purpose",
+      "nar": "I have left rollovers alone entirely as well. Moving an account elsewhere has its own rules, and mixing them in would make both harder to follow.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "This is not advice",
+      "sub": "about your job",
+      "nar": "None of this is advice about whether to stay in a job or leave one. That decision has a dozen inputs and this is one of them.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Nor is it tax advice",
+      "preco": "or a recommendation",
+      "nar": "It is not tax advice or an investment recommendation, and it is not about your particular plan, which I have not read.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "What it is",
+      "sub": "is the right question",
+      "nar": "What it is, is the right question asked with your own documents open instead of from memory.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Which leaves the date",
+      "sub": "and dates cost money",
+      "nar": "Which leaves one thing, and it is the reason this is worth an afternoon rather than a shrug.",
+      "cap": "The date that has a price"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A schedule is a calendar",
+      "sub": "not a mood",
+      "nar": "A vesting schedule is a calendar. It does not care how well the last quarter went or how the conversation with your manager felt.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "So before you hand in notice",
+      "preco": "look at where you are on it",
+      "nar": "So before anyone hands in notice, the schedule is worth one look. Where you are on it, and how far the next step is.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sometimes the answer is nothing",
+      "sub": "and that is a fine answer",
+      "nar": "Sometimes the answer is that nothing is at stake, because the plan vests immediately. That is a completely fine answer, and now it is a known one.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sometimes it is a few weeks",
+      "sub": "and that is worth knowing",
+      "nar": "And sometimes the answer is that a few weeks separate you from a number large enough to be worth a conversation about a start date.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Either way",
+      "preco": "you decide with the number",
+      "nar": "Either way you make the decision holding the number, which is the only version of this that respects your time.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "And the first number",
+      "sub": "you can fix this month",
+      "nar": "The first number, the one about how much you contribute, is not even about leaving. It is something you can change this month.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Ask for the document today",
+      "sub": "and say what you found",
+      "nar": "Ask your plan administrator for the Summary Plan Description today, and put in the comments whether your employer money vests immediately or on a schedule. Subscribe if you want the version of this where the numbers are yours instead of the country's.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Your retirement balance",
+      "sub": "is two kinds of money",
+      "nar": "Your retirement balance is one number made of two kinds of money, and only one of them is unconditionally yours today.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "What you put in",
+      "sub": "is yours from day one",
+      "nar": "What you contribute yourself is one hundred per cent yours from the first day, earnings included.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "What your employer added",
+      "sub": "can be on a schedule",
+      "nar": "What your employer added can be subject to a vesting schedule, which means not yours yet.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ask for the Summary Plan Description",
+      "sub": "they must give it free",
+      "nar": "Ask your plan administrator for the Summary Plan Description. They have to provide it free of charge, and it says when benefits vest.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Two numbers",
+      "sub": "from your own plan",
+      "nar": "The two numbers to pull out of it, and what each one decides, are in the full video below.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# The statement adds them up. The law does not.\n\n## TITULO\nOne Balance, Two Kinds of Money: What Vesting Decides in Your 401(k)\n\n## DESCRICAO\nYour retirement account shows you a single balance, and inside it there are two different kinds of money. The first is what you contributed yourself, taken out of your own pay, plus everything it has earned since. The second is what your employer added on top. On the statement they look identical — added together, invested together, one number in the app. In law they are not identical at all, and the difference has a date attached to it.\n\nThe good news is genuinely good, and it is the part people worry about for no reason: your own contributions, and the earnings on them, are one hundred per cent yours from the first day. There is no waiting period, no schedule, and no condition. If you left the job today, that part of the balance travels with you.\n\nThe employer side is where the word vesting lives. Employer contributions can be subject to a vesting schedule, which means your right to them becomes non forfeitable only after a period of time — or they may vest immediately, which is a real difference between two jobs paying the same salary. There are plan types where required employer contributions are one hundred per cent vested at all times, and safe harbor and SIMPLE plans are the ones the rules name. Which one you are in is not a rhetorical question. It has an answer, and the answer is written down.\n\nIt is written in the Summary Plan Description, and the plan administrator is obliged to provide it to participants free of charge. It tells you when you can join, how service and benefits are calculated, and when benefits become vested — that third line is the one you came for. It also describes how the employer contribution is worked out, which is the other number you need.\n\nFrom those two facts the video builds a calculation in four steps, all of it on your own paperwork: find the matching formula and the pay threshold where it stops, compare it with what you are actually contributing, write the gap down as a yearly figure, then find the vesting schedule and work out how much of the employer money is not yet non forfeitable. Those two numbers answer two different questions — how much you contribute, and when you leave. One of them you can change this month.\n\nThere is a chapter on the limits, because they matter: no dollar contribution limit is quoted here, no vesting periods in years, and no matching formula presented as standard — those belong to your plan and to the current year, not to a video.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nDo one thing and report back: ask your plan administrator for the Summary Plan Description — they have to give it to you free — and tell me whether your employer contributions vest immediately or on a schedule. I would like to see how that splits, because in the conversations I have had almost nobody knows which of the two they are in, and the ones who guessed guessed wrong about as often as they guessed right.\n\n## HASHTAGS\n#Retirement #401k #NextLevelMoney\n\n## TAGS\n401k vesting, employer match vesting schedule, summary plan description, elective deferrals vested, erisa participant rights, safe harbor 401k, simple 401k, retirement plan documents, employer matching contributions, non forfeitable benefits, leaving a job 401k, retirement plan basics, personal finance us, next level money, plan administrator\n\n## CONFIGURACAO DE STUDIO\n- Language: English (en-US) | Category: Education (27)\n- Not made for kids\n- Altered or synthetic content disclosure: YES (AI-generated voice)\n- Location: United States | Licence: Standard YouTube Licence\n- Mid-roll ads: on (runtime over eight minutes)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nConsultado em 26 de agosto de 2026. As afirmacoes vem de DUAS rotas institucionais independentes que se confirmam. (1) IRS (irs.gov): as paginas \"Retirement topics - Vesting\", \"401(k) plan overview\" e o Issue Snapshot \"Vesting schedules for matching contributions\". (2) DEPARTMENT OF LABOR / EBSA (dol.gov): a publicacao \"What You Should Know About Your Retirement Plan\" e o \"FAQs about Retirement Plans and ERISA\". As afirmacoes centrais sao quatro: o que o proprio participante contribui, mais o rendimento disso, e cem por cento adquirido desde o primeiro dia; a contrapartida do empregador pode estar sujeita a um cronograma de aquisicao, tornando-se irrevogavel so depois de um periodo; em planos safe harbor com a contrapartida basica e em SIMPLE 401(k) as contribuicoes obrigatorias do empregador sao cem por cento adquiridas sempre; e o administrador do plano e obrigado a fornecer a Summary Plan Description de graca, documento que informa quando os beneficios se tornam adquiridos.\n\nAVISO SOBRE OS NUMEROS — o que foi descartado e por que. (a) O LIMITE anual de contribuicao em dolares nao aparece: ele e reajustado todo ano, e um numero gravado hoje deixaria este video errado em janeiro; o plano do espectador e a pagina corrente do IRS tem o valor que vale para ele. (b) Os PRAZOS maximos de aquisicao em anos, na forma cliff ou graduada, nao aparecem: dependem do tipo de contribuicao e do desenho do plano, eu nao os confirmei nas duas rotas, e o unico cronograma que governa o espectador e o do plano dele. (c) Nenhuma formula de contrapartida e apresentada como padrao, porque nao existe padrao — existe a do plano. (d) Nao ha aqui recomendacao sobre sair ou permanecer num emprego, nem aconselhamento fiscal ou de investimento, nem analise do plano especifico de ninguem. Um plano de contribuicao definida tambem permite ao empregador alterar a contribuicao futura e, conforme os termos, interrompe-la — por isso a conta deste video e sobre o dinheiro que ja esta na conta, e nao sobre promessa futura. Isto descreve regras dos Estados Unidos; fora dali as regras sao outras.\n"
+}
