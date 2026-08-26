@@ -180,6 +180,23 @@ def _iguais_no_estado(estado, titulo):
             if (l.get("titulo") or "").strip().casefold() == alvo]
 
 
+def onde_esta_no_ar(iguais) -> str:
+    """Descreve onde o titulo ja esta, com o que o estado tiver.
+
+    `.get`, e nao `l['formato']`, porque no modo ponte o estado atravessa
+    TRANSCRITO A MAO e a trava so precisa do `titulo` — em 26/08/2026 os
+    outros tres campos foram cortados de proposito, para reduzir pela metade
+    o que eu copio no disparo. Com indexacao dura, a trava disparando
+    levantaria KeyError: ela ainda barraria o upload, mas trocaria a frase
+    que explica o que aconteceu por um traceback. A trava que so roda quando
+    algo ja deu errado e justamente a que precisa falar claro.
+    """
+    return ", ".join(
+        f"{l.get('formato') or 'formato?'}={l.get('youtube_id') or 'id?'} "
+        f"(pacote {l.get('pacote') or 'desconhecido'})"
+        for l in iguais)
+
+
 def access_token(tok):
     data = urllib.parse.urlencode({
         "client_id": tok["client_id"], "client_secret": tok["client_secret"],
@@ -881,8 +898,7 @@ def main():
         iguais = (_iguais_no_estado(estado, cp.get("titulo")) if estado is not None
                   else ja_no_ar_pelo_titulo(cp.get("titulo"), sb_url, sb_key))
         if iguais:
-            onde = ", ".join(f"{l['formato']}={l['youtube_id']} (pacote {l['pacote']})"
-                             for l in iguais)
+            onde = onde_esta_no_ar(iguais)
             raise SystemExit(
                 f"titulo JA ESTA no ar: {cp.get('titulo')!r} -> {onde}. O pacote "
                 f"{pacote} nao consta publicado porque o banco guarda o nome da "

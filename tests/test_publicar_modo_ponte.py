@@ -176,3 +176,33 @@ def test_a_trava_por_pacote_barra_pelo_estado_em_arquivo(monkeypatch, tmp_path):
                   "--access-token", "ya29.x", "--estado-json", str(estado)],
                  monkeypatch)
     assert "JA ESTA no ar" in msg and "jaEstaNoAr" in msg
+
+
+def test_a_mensagem_da_trava_sobrevive_ao_estado_reduzido():
+    """O estado da ponte so precisa do TITULO, e a frase tem de sobreviver.
+
+    Medido em 26/08/2026. O estado atravessa transcrito a mao — 23 mil chars
+    de base64 na primeira tentativa — e cortar os campos que a trava nao le
+    reduz pela metade o que eu copio no disparo. `_iguais_no_estado` de fato
+    so olha `titulo`. Mas a mensagem de recusa indexava `l['formato']` duro:
+    com o estado enxuto, a trava DISPARANDO levantaria KeyError. Ela ainda
+    barraria o upload, e trocaria a frase que explica o que aconteceu por um
+    traceback — que e exatamente o defeito que este repositorio ja pagou uma
+    vez, no run 32788965239.
+    """
+    onde = P.onde_esta_no_ar([{"titulo": "EPFO 3.0: ATM se 50%, UPI se 75%"}])
+    assert "formato?" in onde and "id?" in onde and "desconhecido" in onde
+
+
+def test_a_mensagem_da_trava_continua_completa_com_o_estado_cheio():
+    """Com os quatro campos, a frase tem de continuar a de sempre."""
+    onde = P.onde_esta_no_ar([{"titulo": "x", "formato": "longo",
+                               "youtube_id": "abc123", "pacote": "outro-007"}])
+    assert onde == "longo=abc123 (pacote outro-007)"
+
+
+def test_a_mensagem_junta_os_dois_formatos():
+    onde = P.onde_esta_no_ar([
+        {"formato": "longo", "youtube_id": "a1", "pacote": "p"},
+        {"formato": "shorts", "youtube_id": "b2", "pacote": "p"}])
+    assert onde == "longo=a1 (pacote p), shorts=b2 (pacote p)"
