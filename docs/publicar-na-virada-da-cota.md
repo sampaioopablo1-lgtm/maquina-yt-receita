@@ -23,7 +23,7 @@ Cuidado com uma leitura falsa: no `frota.yml` o passo **Entregar no Storage** é
 emite `::error::`. Ver o passo verde não é evidência de que o Storage voltou.
 Quem responde isso é o `porta.yml`, e só ele.
 
-## Os sete pacotes prontos
+## Os oito pacotes prontos
 
 | pacote | canal | idioma | artefato | expira |
 |---|---|---|---|---|
@@ -34,8 +34,9 @@ Quem responde isso é o `porta.yml`, e só ele.
 | `setiap-level-012` | setiap-level | id | `pacote-setiap-level-012` (id 9591675645) | 09/09/2026 |
 | `labtreinamento-006` | labtreinamento | pt-BR | `pacote-labtreinamento-006` (id 9603074798) | 09/09/2026 |
 | `agla-level-007` | agla-level | hi | `pacote-agla-level-007` (id 9605246991) | 09/09/2026 |
+| `game-money-lab-007` | game-money-lab | en | `pacote-game-money-lab-007` (id 9605909861) | 09/09/2026 |
 
-Os sete foram renderizados com `publicar: false` e passaram nos dez portões.
+Os oito foram renderizados com `publicar: false` e passaram nos dez portões.
 `ja_publicado` estava vazio para os cinco primeiros entre 23h16 de 25/08 e
 01h40 de 26/08 — **mas isso é um instantâneo, não uma autorização**: regenere o
 estado no momento de publicar, como manda o passo 3, e regenere para os sete,
@@ -53,9 +54,15 @@ conversão da frota, 0,525% inscrito/view), e por último os dois canais de
 zero inscrito: labtreinamento e agla-level.
 Se a cota acabar no meio, os primeiros são os que mais rendem.
 
-Sete pacotes custam **26.257** de cota (3.751 cada), contra o teto observado de
-52.514. Cabem os sete numa janela, com folga para os outros cinco que faltam
-para os doze do dia.
+Oito pacotes custam **30.008** de cota (3.751 cada), contra o teto observado
+de 52.514. Cabem os oito numa janela, com folga para os tres que ainda faltam
+escrever.
+
+**E o teto de hoje sao ONZE canais, nao doze.** Faltam pacote para
+next-level-money, seja-mais-magra e resep-naik-level — esses eu escrevo. O
+decimo segundo so existe se o `sx-educacao` for reautorizado ou se o
+`cocina-por-niveles` for criado no Studio; as specs dos dois (`sx-educacao-003`
+e `cocina-por-niveles-003`) ja estao escritas e paradas por isso.
 
 **Tempo de render medido nesta noite**, útil para dimensionar qualquer render
 adicional na janela da manhã — não há tendência de piora, a variação é normal:
@@ -65,6 +72,7 @@ adicional na janela da manhã — não há tendência de piora, a variação é 
     seviye-seviye-007     76 cenas  ~12,0 min  ~9,5 s/cena
     labtreinamento-006    62 cenas   11,0 min  10,6 s/cena
     agla-level-007        53 cenas    7,6 min   8,6 s/cena
+    game-money-lab-007    60 cenas    9,2 min   9,2 s/cena
 
 Com um pacote por disparo o relógio de parede É o tempo do pacote; o `frota.yml`
 não tem `max-parallel`, então N pacotes num disparo custam o do mais lento, não
