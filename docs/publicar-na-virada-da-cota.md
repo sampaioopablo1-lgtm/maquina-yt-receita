@@ -29,9 +29,17 @@ Quem responde isso é o `porta.yml`, e só ele.
 |---|---|---|---|---|
 | `epomeno-epipedo-011` | epomeno-epipedo | el | `pacote-epomeno-epipedo-011` (id 9583286132) | 08/09/2026 |
 | `nivel-do-jogo-007` | nivel-do-jogo | pt-BR | `pacote-nivel-do-jogo-007` (id 9585036472) | 08/09/2026 |
+| `kolejny-poziom-012` | kolejny-poziom | pl | `pacote-kolejny-poziom-012` | 09/09/2026 |
 
-Os dois foram renderizados com `publicar: false`, passaram nos dez portões, e
-`ja_publicado` estava vazio para ambos às 23h16.
+Os três foram renderizados com `publicar: false` e passaram nos dez portões.
+`ja_publicado` estava vazio para os dois primeiros às 23h16 de 25/08 e para o
+terceiro à 01h40 de 26/08 — **mas isso é um instantâneo, não uma autorização**:
+regenere o estado no momento de publicar, como manda o passo 3.
+
+**Ordem sugerida**, do canal com mais sinal para o com menos: epomeno-epipedo
+(8 inscritos, 43,0 h), kolejny-poziom (5 inscritos, 30,7 h), nivel-do-jogo
+(2 inscritos, 1,95 h — mas a MAIOR conversão da frota, 0,525% inscrito/view).
+Se a cota acabar no meio, os dois primeiros são os que mais rendem.
 
 ## A ordem
 
