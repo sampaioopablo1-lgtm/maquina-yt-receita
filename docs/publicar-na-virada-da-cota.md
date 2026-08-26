@@ -52,6 +52,23 @@ adicional na janela da manhã — não há tendência de piora, a variação é 
     kolejny-poziom-012    80 cenas   12,7 min   9,5 s/cena
     seviye-seviye-007     76 cenas  ~12,0 min  ~9,5 s/cena
 
+## O que já foi ensaiado, e o que não
+
+Ensaiado sem gastar cota, em 26/08 entre 23h e 03h:
+
+| passo | estado | como |
+|---|---|---|
+| refresh do token por `pg_net` | **funciona** | epomeno-epipedo e nivel-do-jogo, HTTP 200, `expires_in` 3599 |
+| `publicar.ler_copy` nos cinco pacotes | **funciona** | copy.md simulado com os placeholders substituídos; títulos de 65 a 81 c, descrições de 2.177 a 2.387 c, 15 tags, comentário fixado e as 3 hashtags como última linha em todos |
+| crédito CC-BY na descrição | **presente nos cinco** | verificado pela URL da licença, que é o que `publicar.py` procura |
+| trava `_sem_placeholder` | **presente** | recusa publicar se `{CAPITULOS}`, `{TRILHA}` ou `PLACEHOLDER` sobreviverem |
+| estado anti-duplicata | procedimento escrito | regenerar na hora, passo 3 |
+
+**Não ensaiado, e é onde o risco restante mora:** baixar o artefato pela URL
+assinada dentro do sandbox, e o upload em si. Nenhum dos dois dá para testar
+sem a cota e sem o sandbox. Se algo quebrar de manhã, comece a investigar por
+aí — o resto desta lista já respondeu.
+
 ## A ordem
 
 1. **Confira a porta antes de qualquer coisa.** Dispare `porta.yml`. Se ela
