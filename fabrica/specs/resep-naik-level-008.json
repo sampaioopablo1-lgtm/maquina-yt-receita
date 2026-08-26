@@ -1,0 +1,478 @@
+{
+  "slug": "resep-naik-level",
+  "pacote": "resep-naik-level-008",
+  "idioma": "id",
+  "voz": "id-ID-GadisNeural",
+  "trilha": "Deliberate_Thought",
+  "paleta": {
+    "ink": "#1F2430",
+    "c1": "#C2410C",
+    "c2": "#0E7490",
+    "bg": "#FAF5EF"
+  },
+  "thumb": {
+    "l1": "Empat, satu, lima",
+    "l2": "per orang per hari"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Dapur Anda punya angka",
+      "sub": "yang belum pernah dihitung",
+      "nar": "Dapur Anda punya satu angka yang hampir tidak pernah dihitung siapa pun.",
+      "cap": "Tiga bahan, satu takaran"
+    },
+    {
+      "layout": "item",
+      "kicker": "Bukan harga",
+      "preco": "kali ini bukan harga",
+      "nar": "Kali ini bukan harga. Harga sudah kita bahas berkali-kali di kanal ini.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kali ini yang dihitung",
+      "sub": "adalah pemakaian",
+      "nar": "Yang dihitung sekarang adalah pemakaian rumah Anda sendiri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Tiga bahan saja",
+      "itens": [
+        "gula",
+        "garam",
+        "minyak"
+      ],
+      "nar": "Tiga bahan saja: gula, garam, dan minyak goreng.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ketiganya punya batas",
+      "sub": "yang sudah diterbitkan",
+      "nar": "Ketiganya punya batas harian yang sudah diterbitkan, per orang, per hari.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Dan batasnya dalam sendok",
+      "preco": "bukan cuma dalam gram",
+      "nar": "Dan yang membuat ini bisa dikerjakan: batasnya juga ditulis dalam sendok, bukan cuma dalam gram.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan ketiganya dibeli dengan uang",
+      "sub": "uang dapur Anda",
+      "nar": "Dan ketiganya dibeli dengan uang dapur Anda sendiri, setiap bulan, tanpa pernah dijumlahkan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Punya sendok berarti punya timbangan",
+      "sub": "itu intinya",
+      "nar": "Artinya siapa pun yang punya sendok makan sudah punya alat ukurnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ini bukan nasihat medis",
+      "sub": "dan bukan diet",
+      "nar": "Satu hal dulu: ini bukan nasihat medis dan bukan program diet. Ini angka resmi, dan cara menghitungnya di rumah Anda.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dari mana angkanya",
+      "sub": "dua lembaga, angka yang sama",
+      "nar": "Sebelum menghitung, dari mana angkanya. Dua lembaga yang berbeda, dan keduanya menyebut angka yang sama.",
+      "cap": "Dari mana angkanya"
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang pertama",
+      "preco": "Kementerian Kesehatan",
+      "nar": "Yang pertama Kementerian Kesehatan, lewat Permenkes tahun dua ribu tiga belas dan halaman-halaman promosi kesehatannya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang kedua",
+      "preco": "BPOM",
+      "nar": "Yang kedua BPOM, di halaman tentang batas maksimal konsumsi gula, garam, dan lemak.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dua lembaga berbeda",
+      "sub": "satu angka yang sama",
+      "nar": "Dua lembaga berbeda menerbitkan angka yang sama. Itu syarat sebuah angka boleh masuk ke video di kanal ini.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Gula",
+      "preco": "lima puluh gram sehari",
+      "nar": "Gula: lima puluh gram per orang per hari. Setara empat sendok makan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Garam",
+      "preco": "dua ribu miligram natrium",
+      "nar": "Garam: dua ribu miligram natrium per orang per hari. Setara satu sendok teh.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Lemak",
+      "preco": "enam puluh tujuh gram",
+      "nar": "Lemak: enam puluh tujuh gram per orang per hari. Setara lima sendok makan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Empat, satu, lima",
+      "sub": "itu saja yang perlu diingat",
+      "nar": "Empat sendok makan, satu sendok teh, lima sendok makan. Itu saja yang perlu diingat dari seluruh video ini.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sekarang hitungannya",
+      "sub": "tiga langkah",
+      "nar": "Sekarang hitungannya. Tiga langkah, dan semuanya di dapur Anda sendiri.",
+      "cap": "Hitungan sebulan Anda"
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah satu",
+      "preco": "catat yang habis sebulan",
+      "nar": "Langkah satu: catat berapa banyak gula, garam, dan minyak yang habis di rumah Anda selama sebulan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kemasannya sudah menulis beratnya",
+      "sub": "jadi tinggal dijumlahkan",
+      "nar": "Kemasannya sudah menulis beratnya. Jadi tinggal menjumlahkan yang dibeli dan dipakai.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah dua",
+      "preco": "bagi jumlah orang",
+      "nar": "Langkah dua: bagi angka itu dengan jumlah orang yang makan di rumah.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah tiga",
+      "preco": "bagi tiga puluh hari",
+      "nar": "Langkah tiga: bagi lagi dengan tiga puluh hari. Sekarang angkanya per orang per hari.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan baru sekarang",
+      "sub": "dibandingkan",
+      "nar": "Dan baru sekarang angka itu boleh dibandingkan dengan batas tadi.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Contoh yang bulat",
+      "sub": "supaya mekanismenya terlihat",
+      "nar": "Contoh dengan angka bulat, supaya mekanismenya terlihat.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tiga kilo gula, empat orang",
+      "sub": "sebulan",
+      "nar": "Misalnya tiga kilogram gula habis sebulan di rumah berisi empat orang.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Hasilnya",
+      "sub": "dua puluh lima gram sehari",
+      "nar": "Dibagi empat orang, lalu dibagi tiga puluh hari, hasilnya sekitar dua puluh lima gram per orang per hari. Setengah dari batas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau kemasan tidak membantu",
+      "sub": "pakai sendok",
+      "nar": "Kalau di rumah Anda gula dan minyak dibeli curah, kemasan tidak membantu. Di situ sendok mengambil alih.",
+      "cap": "Sendok sudah cukup"
+    },
+    {
+      "layout": "item",
+      "kicker": "Cara sendok",
+      "preco": "hitung yang masuk masakan",
+      "nar": "Caranya: selama seminggu, hitung sendok yang benar-benar masuk ke masakan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Satu minggu cukup",
+      "sub": "tidak perlu sebulan",
+      "nar": "Satu minggu sudah cukup untuk cara ini, karena yang dihitung kejadian harian, bukan belanja.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Lalu bagi",
+      "preco": "orang dan hari",
+      "nar": "Lalu dibagi jumlah orang dan jumlah hari, persis seperti tadi.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dua cara, satu jawaban",
+      "sub": "dan itu bagus",
+      "nar": "Jadi ada dua cara masuk: lewat kemasan sebulan, atau lewat sendok seminggu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau hasilnya mirip",
+      "sub": "berarti catatan Anda rapi",
+      "nar": "Kalau keduanya memberi angka yang mirip, catatan Anda rapi. Kalau jauh berbeda, biasanya ada yang lupa dicatat.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Catat saat memasak",
+      "sub": "bukan malam harinya",
+      "nar": "Catat sewaktu memasak, bukan malam harinya sambil mengingat-ingat. Ingatan selalu meleset ke arah yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang paling sering lupa",
+      "preco": "gorengan dan minuman manis",
+      "nar": "Yang paling sering lupa dicatat: minyak untuk gorengan, dan gula di dalam minuman.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Minuman manis itu gula juga",
+      "sub": "walaupun bukan dari toples",
+      "nar": "Gula di dalam minuman tetap gula, walaupun tidak diambil dari toples di dapur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sekarang bagian jujur",
+      "sub": "angka minyak itu lantai",
+      "nar": "Sekarang bagian yang harus jujur, dan ini penting supaya hitungan tadi tidak dipakai salah.",
+      "cap": "Angka minyak itu lantai, bukan atap"
+    },
+    {
+      "layout": "item",
+      "kicker": "Batas enam puluh tujuh gram",
+      "preco": "adalah lemak total",
+      "nar": "Batas enam puluh tujuh gram itu untuk lemak total sehari. Bukan hanya minyak goreng.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Lemak juga ada di dalam bahan",
+      "sub": "bukan cuma di wajan",
+      "nar": "Lemak juga ada di dalam daging, telur, santan, keju, dan makanan kemasan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jadi kalau Anda mengukur minyak",
+      "sub": "Anda mengukur sebagian",
+      "nar": "Jadi kalau Anda hanya mengukur minyak goreng, Anda sedang mengukur sebagian saja.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Artinya",
+      "preco": "angkanya lantai, bukan atap",
+      "nar": "Artinya angka yang Anda dapat adalah lantai, bukan atap. Konsumsi sebenarnya ada di atasnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan itu tetap berguna",
+      "sub": "justru karena jujur",
+      "nar": "Dan itu tetap berguna. Kalau minyak saja sudah mendekati batas, sisanya sudah pasti melewati.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Untuk gula dan garam",
+      "sub": "ceritanya mirip",
+      "nar": "Untuk gula dan garam ceritanya mirip: yang dari dapur terhitung, yang dari makanan kemasan tidak.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Itu sebabnya label ada",
+      "sub": "dan itu video lain",
+      "nar": "Di situlah label kemasan masuk, dan itu hitungan lain untuk hari lain.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Di mana hitungan ini berhenti",
+      "sub": "dan berhentinya jelas",
+      "nar": "Di mana hitungan ini berhenti, karena berhentinya cukup jelas.",
+      "cap": "Di mana hitungan ini berhenti"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ini angka rujukan penduduk",
+      "sub": "bukan resep perorangan",
+      "nar": "Angka tadi adalah rujukan untuk penduduk secara umum. Kebutuhan tiap orang berbeda menurut usia, aktivitas, dan kondisi kesehatan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Tidak ada harga di sini",
+      "preco": "sengaja",
+      "nar": "Tidak ada satu pun harga di video ini, dan itu disengaja. Harga berbeda tiap daerah dan tiap minggu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nota belanja Anda lebih akurat",
+      "sub": "daripada rata-rata mana pun",
+      "nar": "Nota belanja Anda sendiri lebih akurat daripada rata-rata mana pun yang bisa saya sebutkan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Dan bukan soal masakan daerah",
+      "preco": "tidak ada masakan yang dilarang",
+      "nar": "Tidak ada masakan yang dilarang di sini, dan tidak ada resep yang dihakimi. Yang diukur takaran, bukan menu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ini juga bukan diagnosis",
+      "sub": "dan bukan dosis",
+      "nar": "Ini juga bukan diagnosis, bukan dosis, dan bukan anjuran pengobatan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kalau ada kondisi kesehatan",
+      "preco": "bicarakan dengan tenaga kesehatan",
+      "nar": "Kalau ada kondisi kesehatan, kehamilan, atau pengobatan yang sedang berjalan, bicarakan dengan tenaga kesehatan sebelum mengubah apa pun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang video ini berikan",
+      "sub": "adalah satu angka rumah Anda",
+      "nar": "Yang video ini berikan hanya satu hal: satu angka milik rumah Anda, yang bisa dibandingkan dengan angka resmi.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tiga puluh hari",
+      "sub": "dan satu catatan",
+      "nar": "Jadi tugas bulan ini kecil saja.",
+      "cap": "Tiga puluh hari, satu catatan"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Catat tiga baris",
+      "itens": [
+        "gula yang habis",
+        "garam yang habis",
+        "minyak yang habis"
+      ],
+      "nar": "Catat tiga baris: gula yang habis, garam yang habis, minyak yang habis.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Di akhir bulan",
+      "preco": "bagi orang, lalu bagi hari",
+      "nar": "Di akhir bulan, bagi jumlah orang, lalu bagi jumlah hari.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bandingkan dengan empat, satu, lima",
+      "sub": "dalam sendok",
+      "nar": "Bandingkan hasilnya dengan empat sendok makan, satu sendok teh, dan lima sendok makan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Simpan catatannya",
+      "sub": "supaya bulan depan ada pembanding",
+      "nar": "Simpan catatan itu. Bulan depan Anda punya pembanding, dan membandingkan rumah Anda dengan rumah Anda sendiri jauh lebih berguna.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Satu bulan belum pola",
+      "sub": "tiga bulan sudah",
+      "nar": "Satu bulan belum menunjukkan pola. Tiga bulan sudah, dan pola itulah yang bisa diubah.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Dan kalau angkanya tinggi",
+      "preco": "itu informasi, bukan vonis",
+      "nar": "Kalau angkanya keluar tinggi, itu informasi, bukan vonis. Yang tidak diukur memang tidak bisa diperbaiki.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Mulai catat hari ini",
+      "sub": "dan tulis hasilnya",
+      "nar": "Mulai catat hari ini, dan tulis di kolom komentar berapa hasil rumah Anda untuk salah satu dari tiga bahan itu. Kalau hitungan dengan sumber resmi seperti ini berguna, silakan berlangganan — di sini angkanya selalu dari dua lembaga, dan kalau keduanya berbeda saya bilang.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Batasnya ditulis dalam sendok",
+      "sub": "bukan cuma dalam gram",
+      "nar": "Batas harian gula, garam, dan minyak ditulis juga dalam sendok. Jadi siapa pun bisa mengukurnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Empat, satu, lima",
+      "sub": "per orang per hari",
+      "nar": "Empat sendok makan gula, satu sendok teh garam, lima sendok makan minyak. Per orang, per hari.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Hitungnya begini",
+      "sub": "sebulan, orang, hari",
+      "nar": "Catat yang habis sebulan, bagi jumlah orang, lalu bagi tiga puluh hari.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Baru sesudah itu",
+      "sub": "angkanya bisa dibandingkan",
+      "nar": "Baru sesudah itu angka rumah Anda bisa dibandingkan dengan batasnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Satu angka menipu",
+      "sub": "dan itu yang minyak",
+      "nar": "Ada satu dari tiga angka itu yang menipu, dan penjelasannya ada di video lengkap di bawah.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Tiga bahan, satu takaran, dan hitungannya ada di dapur Anda\n\n## TITULO\nGula, Garam, Minyak: Empat Sendok, Satu Sendok Teh, Lima Sendok — Hitung Rumah Anda\n\n## DESCRICAO\nDapur Anda punya satu angka yang hampir tidak pernah dihitung siapa pun, dan kali ini angka itu bukan harga. Yang dihitung di sini adalah pemakaian rumah Anda sendiri, untuk tiga bahan saja: gula, garam, dan minyak goreng. Ketiganya punya batas harian yang sudah diterbitkan, per orang per hari — dan yang membuat hitungan ini bisa dikerjakan siapa pun adalah bahwa batasnya juga ditulis dalam sendok, bukan hanya dalam gram. Siapa punya sendok makan sudah punya alat ukurnya.\n\nAngkanya berasal dari dua lembaga yang berbeda dan keduanya menyebut hal yang sama: Kementerian Kesehatan, lewat Permenkes tahun 2013 dan halaman promosi kesehatannya, dan BPOM, di halaman tentang batas maksimal konsumsi gula, garam, dan lemak. Gula: 50 gram per orang per hari, setara empat sendok makan. Garam: 2.000 miligram natrium per orang per hari, setara satu sendok teh. Lemak: 67 gram per orang per hari, setara lima sendok makan. Empat, satu, lima — itu saja yang perlu diingat.\n\nHitungannya tiga langkah dan semuanya di rumah: catat berapa banyak gula, garam, dan minyak yang habis selama sebulan, bagi dengan jumlah orang yang makan di rumah, lalu bagi lagi dengan 30 hari. Baru sesudah itu angkanya boleh dibandingkan dengan batas tadi. Ada juga jalur kedua untuk rumah yang membeli curah: menghitung sendok yang benar-benar masuk ke masakan selama seminggu. Kalau kedua jalur memberi angka yang mirip, catatan Anda rapi; kalau jauh berbeda, biasanya ada yang lupa dicatat — paling sering minyak gorengan dan gula di dalam minuman.\n\nSatu bab dipakai khusus untuk bagian yang harus jujur: batas 67 gram itu untuk lemak total sehari, bukan hanya minyak goreng. Lemak juga ada di dalam daging, telur, santan, keju, dan makanan kemasan. Jadi kalau Anda hanya mengukur minyak, angka yang Anda dapat adalah lantai, bukan atap — konsumsi sebenarnya ada di atasnya. Itu tetap berguna, justru karena jujur: kalau minyak saja sudah mendekati batas, sisanya sudah pasti melewati.\n\nTidak ada satu pun harga di video ini, dan itu disengaja. Video ini juga bukan nasihat medis, bukan diagnosis, bukan dosis, dan bukan program diet.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nCoba satu bahan saja dulu, yang paling gampang dicatat di rumah Anda, lalu tulis hasilnya di sini: berapa gram per orang per hari yang keluar, dan bahan mana yang Anda pilih. Saya ingin tahu bahan mana yang paling sering meleset dari perkiraan orang — dugaan saya minyak, karena minyak gorengan hampir tidak pernah masuk hitungan siapa pun, tapi itu dugaan saya dan saya lebih percaya angka dari dapur yang benar-benar dicatat.\n\n## HASHTAGS\n#UangDapur #GulaGaramLemak #ResepNaikLevel\n\n## TAGS\nbatas konsumsi gula garam lemak, gula 50 gram per hari, garam 1 sendok teh, minyak 5 sendok makan, permenkes 30 2013, bpom gula garam lemak, hitung konsumsi rumah tangga, uang dapur, masak hemat, konsumsi gula harian, natrium 2000 mg, lemak total harian, dapur keluarga indonesia, catatan belanja bulanan, gizi keluarga\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Indonesio (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nConsultado em 26 de agosto de 2026. Os tres limites foram conferidos em DUAS rotas institucionais independentes que se confirmam. (1) KEMENTERIAN KESEHATAN (kemkes.go.id): a Permenkes numero 30 de 2013 e as paginas da Direcao de Promocao da Saude e da Ditjen P2P/P2PTM sobre a recomendacao diaria de acucar, sal e gordura. (2) BPOM (pom.go.id): as paginas \"Batas Maksimal Konsumsi Gula, Garam, Dan Lemak\" e \"Batasi Konsumsi Gula, Garam dan Lemakmu\". As duas publicam os mesmos valores, e nas mesmas duas unidades: acucar 50 g por pessoa por dia, equivalente a 4 colheres de sopa; sal 2.000 mg de sodio por pessoa por dia, equivalente a 1 colher de cha; gordura 67 g por pessoa por dia, equivalente a 5 colheres de sopa.\n\nAVISO SOBRE OS NUMEROS — o que foi descartado e por que. (a) Nenhum PRECO de acucar, sal ou oleo entra neste video. Alem de variar por regiao e por semana, preco regulado ja foi o eixo dos tres videos anteriores deste canal e a superficie dele se esgotou; a nota do mercado do proprio espectador descreve a casa dele melhor do que qualquer media. (b) O limite de 67 g e de GORDURA TOTAL do dia e nao apenas do oleo de cozinha — medir so o oleo entrega um PISO do consumo, jamais o total, e o video dedica um capitulo inteiro a esse ponto justamente para a conta nao ser usada errado. O mesmo vale para acucar e sal: o que vem do armario e contado, o que vem de alimento embalado nao. (c) Nao ha aqui nenhuma afirmacao de risco de doenca para uma pessoa especifica, nem dieta, dose, diagnostico ou prescricao. As necessidades individuais variam com idade, atividade e condicao de saude, e os valores citados sao referencias populacionais. Este e material educativo e nao substitui consulta com profissional de saude; quem tem condicao de saude, gravidez ou tratamento em curso decide qualquer mudanca com quem acompanha o caso.\n"
+}
