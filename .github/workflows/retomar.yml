@@ -46,9 +46,10 @@ on:
         type: string
         required: true
       access_token:
-        description: "Token de acesso do YouTube, ja refrescado (vive 1 hora)"
+        description: "SO em repositorio privado. Vazio = o runner refresca sozinho pelo segredo YT_OAUTH_JSON, que e a rota segura."
         type: string
-        required: true
+        required: false
+        default: ""
       estado_b64:
         description: "Estado do banco para as travas, JSON em base64"
         type: string
@@ -79,12 +80,55 @@ jobs:
       # Para publicar por esta rota, uma das duas: tornar o repositorio
       # privado, ou trocar o input por um segredo com o refresh_token do canal
       # e refrescar DENTRO do runner — ai nada sensivel atravessa input.
-      - name: Recusar se o repositorio for publico
+      - name: Recusar token por input em repositorio publico
+        env:
+          TOK_IN: ${{ inputs.access_token }}
         run: |
-          if [ "${{ github.event.repository.private }}" != "true" ]; then
-            echo "::error::REPOSITORIO PUBLICO. O access_token chegaria por input, e input de workflow_dispatch fica visivel na pagina do run para qualquer pessoa. Token com escopo de upload e exclusao, uma hora de vida. Torne o repositorio privado, ou troque o input por um segredo com o refresh_token e refresque dentro do runner."
+          if [ -n "$TOK_IN" ] && [ "${{ github.event.repository.private }}" != "true" ]; then
+            echo "::error::REPOSITORIO PUBLICO e access_token veio por INPUT. Input de workflow_dispatch fica visivel na pagina do run para qualquer pessoa, e este token sobe E APAGA video. Deixe o input VAZIO: o runner refresca sozinho pelo segredo YT_OAUTH_JSON."
             exit 1
           fi
+
+      # A rota segura, e a que deve ser usada sempre que possivel: o token
+      # NASCE aqui dentro. O segredo guarda client_id, client_secret e
+      # refresh_token por canal, e nada disso atravessa input nem aparece em
+      # log — o GitHub mascara valor de segredo automaticamente, e o
+      # `::add-mask::` cobre o access_token derivado.
+      #
+      # Formato do segredo YT_OAUTH_JSON:
+      #   {"<canal>": {"client_id":"...","client_secret":"...",
+      #                "refresh_token":"...","token_uri":"https://oauth2.googleapis.com/token"}}
+      - name: Refrescar o token dentro do runner
+        id: tok
+        if: ${{ inputs.access_token == '' }}
+        env:
+          OAUTH: ${{ secrets.YT_OAUTH_JSON }}
+          CANAL: ${{ inputs.canal }}
+        run: |
+          set -euo pipefail
+          if [ -z "${OAUTH:-}" ]; then
+            echo "::error::sem access_token por input e sem o segredo YT_OAUTH_JSON. Cadastre o segredo (rota segura) ou, em repositorio PRIVADO, passe o token por input."
+            exit 1
+          fi
+          ACC=$(printf %s "$OAUTH" | python3 -c "
+          import json, sys, urllib.request
+          cfg = json.load(sys.stdin)['$CANAL']
+          corpo = json.dumps({'client_id': cfg['client_id'],
+                              'client_secret': cfg['client_secret'],
+                              'refresh_token': cfg['refresh_token'],
+                              'grant_type': 'refresh_token'}).encode()
+          req = urllib.request.Request(
+              cfg.get('token_uri', 'https://oauth2.googleapis.com/token'),
+              data=corpo, headers={'Content-Type': 'application/json'})
+          r = json.load(urllib.request.urlopen(req, timeout=60))
+          escopo = r.get('scope', '')
+          if 'youtube.force-ssl' not in escopo:
+              sys.exit('concessao sem youtube.force-ssl: o longo subiria sem legenda')
+          print(r['access_token'])
+          ")
+          echo "::add-mask::\$ACC"
+          echo "acc=\$ACC" >> "\$GITHUB_OUTPUT"
+          echo "token refrescado no runner: \$(printf %s "\$ACC" | wc -c) chars"
 
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -93,10 +137,10 @@ jobs:
 
       - name: Esconder o token do log
         env:
-          TOK: ${{ inputs.access_token }}
+          TOK: ${{ inputs.access_token || steps.tok.outputs.acc }}
         run: |
           echo "::add-mask::$TOK"
-          echo "token recebido: $(printf %s "$TOK" | wc -c) chars"
+          echo "token em uso: $(printf %s "$TOK" | wc -c) chars"
 
       - name: Baixar o pacote renderizado
         env:
@@ -141,7 +185,7 @@ jobs:
 
       - name: Publicar pela ponte
         env:
-          TOK: ${{ inputs.access_token }}
+          TOK: ${{ inputs.access_token || steps.tok.outputs.acc }}
           EST: ${{ inputs.estado_b64 }}
         run: |
           set -uo pipefail
