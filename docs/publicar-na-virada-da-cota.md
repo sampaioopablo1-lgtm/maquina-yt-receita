@@ -104,6 +104,31 @@ No máximo **um longo por canal por dia** (`orquestra.MAX_POR_DIA_POR_CANAL`).
 O epomeno-epipedo publicou o `-010` às 09h37 de 25/08, então o `-011` só pode
 ir ao ar em 26/08 — que é justamente quando a cota vira.
 
+## Quanto cabe na janela — e o que eu NÃO sei
+
+Eu comecei a raciocinar em 26/08 que o teto diário seria 10.000 unidades e que
+isso limitaria a frota a duas publicações por dia. **O dado refutou.** Pacotes
+por dia, contados em `videos`:
+
+    20/08   14 pacotes   14 longos + 14 shorts   11 canais
+    17/08   11 pacotes
+    18/08   10 pacotes
+    25/08    9 pacotes
+
+Vinte e oito uploads num dia, a 1.600 unidades cada, são 44.800 — muito acima
+de 10.000. Logo o teto **deste** projeto é bem maior que o padrão, e o número
+exato eu não sei: não alcanço o console do Google Cloud daqui.
+
+O que eu sei é o que foi medido: em 25/08 a cota estourou por volta das 20h20,
+depois de 9 pacotes (~28.800 unidades em upload) somados a cerca de noventa
+`videos.update` do crédito CC-BY (~4.500). Ou seja, o teto está em algum ponto
+acima de ~34.000 e abaixo do que gastaríamos seguindo em frente.
+
+Consequência prática para a manhã: **publique os dois pacotes primeiro**
+(~7.700 unidades) e só depois gaste no crédito CC-BY, que é o trabalho
+descartável se a cota acabar no meio. Não parta do princípio de que só cabem
+dois pacotes — cabe mais — mas também não confie num teto que ninguém leu.
+
 ## O que fica para depois da publicação, na mesma janela
 
 Cerca de 66 vídeos ainda esperam o crédito CC-BY atrasado. Rode
