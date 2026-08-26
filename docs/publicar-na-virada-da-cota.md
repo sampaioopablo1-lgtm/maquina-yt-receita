@@ -23,7 +23,7 @@ Cuidado com uma leitura falsa: no `frota.yml` o passo **Entregar no Storage** é
 emite `::error::`. Ver o passo verde não é evidência de que o Storage voltou.
 Quem responde isso é o `porta.yml`, e só ele.
 
-## Os dez pacotes prontos
+## Os onze pacotes prontos
 
 | pacote | canal | idioma | artefato | expira |
 |---|---|---|---|---|
@@ -37,8 +37,9 @@ Quem responde isso é o `porta.yml`, e só ele.
 | `game-money-lab-007` | game-money-lab | en | `pacote-game-money-lab-007` (id 9605909861) | 09/09/2026 |
 | `next-level-money-007` | next-level-money | en | `pacote-next-level-money-007` (id 9606569666) | 09/09/2026 |
 | `seja-mais-magra-007` | seja-mais-magra | pt-BR | `pacote-seja-mais-magra-007` (id 9606940200) | 09/09/2026 |
+| `resep-naik-level-008` | resep-naik-level | id | `pacote-resep-naik-level-008` (id 9607339543) | 09/09/2026 |
 
-Os dez foram renderizados com `publicar: false` e passaram nos dez portões.
+Os onze foram renderizados com `publicar: false` e passaram nos dez portões.
 `ja_publicado` estava vazio para os cinco primeiros entre 23h16 de 25/08 e
 01h40 de 26/08 — **mas isso é um instantâneo, não uma autorização**: regenere o
 estado no momento de publicar, como manda o passo 3, e regenere para os sete,
@@ -56,15 +57,20 @@ conversão da frota, 0,525% inscrito/view), e por último os dois canais de
 zero inscrito: labtreinamento e agla-level.
 Se a cota acabar no meio, os primeiros são os que mais rendem.
 
-Oito pacotes custam **30.008** de cota (3.751 cada), contra o teto observado
-de 52.514. Cabem os oito numa janela, com folga para os tres que ainda faltam
-escrever.
+Onze pacotes custam **41.261** de cota (3.751 cada), contra o teto observado
+de 52.514. Cabem os onze numa janela so, com folga.
 
-**E o teto de hoje sao ONZE canais, nao doze.** Faltam pacote para
-next-level-money, seja-mais-magra e resep-naik-level — esses eu escrevo. O
-decimo segundo so existe se o `sx-educacao` for reautorizado ou se o
-`cocina-por-niveles` for criado no Studio; as specs dos dois (`sx-educacao-003`
-e `cocina-por-niveles-003`) ja estao escritas e paradas por isso.
+**E onze e o teto de hoje, nao doze.** Os onze canais que podem receber pacote
+ja tem o seu. O decimo segundo so existe se o `sx-educacao` for reautorizado
+(`token_vivo` = false na fila) ou se o `cocina-por-niveles` for criado no
+Studio (`no_youtube` = false); as specs dos dois — `sx-educacao-003` e
+`cocina-por-niveles-003` — ja estao escritas e paradas exatamente por isso.
+
+**Ordem de publicacao para os seis novos**, seguindo a mesma regra de sinal:
+labtreinamento e agla-level primeiro entre os frios (agla tem as duas maiores
+retencoes de short da frota), depois game-money-lab (171 views), depois
+resep-naik-level (172 views mas 10,34 views/dia no topo, a melhor distribuicao
+entre os frios), depois next-level-money (88) e seja-mais-magra (55).
 
 **Tempo de render medido nesta noite**, útil para dimensionar qualquer render
 adicional na janela da manhã — não há tendência de piora, a variação é normal:
@@ -77,6 +83,7 @@ adicional na janela da manhã — não há tendência de piora, a variação é 
     game-money-lab-007    60 cenas    9,2 min   9,2 s/cena
     next-level-money-007  61 cenas   13,0 min  12,8 s/cena
     seja-mais-magra-007   57 cenas    9,8 min  10,3 s/cena
+    resep-naik-level-008  59 cenas   15,7 min  16,0 s/cena
 
 Com um pacote por disparo o relógio de parede É o tempo do pacote; o `frota.yml`
 não tem `max-parallel`, então N pacotes num disparo custam o do mais lento, não
