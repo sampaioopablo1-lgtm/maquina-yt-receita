@@ -30,6 +30,7 @@ Quem responde isso é o `porta.yml`, e só ele.
 | `epomeno-epipedo-011` | epomeno-epipedo | el | `pacote-epomeno-epipedo-011` (id 9583286132) | 08/09/2026 |
 | `nivel-do-jogo-007` | nivel-do-jogo | pt-BR | `pacote-nivel-do-jogo-007` (id 9585036472) | 08/09/2026 |
 | `kolejny-poziom-012` | kolejny-poziom | pl | `pacote-kolejny-poziom-012` (id 9589333786) | 09/09/2026 |
+| `seviye-seviye-007` | seviye-seviye | tr | `pacote-seviye-seviye-007` (id 9590467009) | 09/09/2026 |
 
 Os três foram renderizados com `publicar: false` e passaram nos dez portões.
 `ja_publicado` estava vazio para os dois primeiros às 23h16 de 25/08 e para o
@@ -37,9 +38,17 @@ terceiro à 01h40 de 26/08 — **mas isso é um instantâneo, não uma autoriza�
 regenere o estado no momento de publicar, como manda o passo 3.
 
 **Ordem sugerida**, do canal com mais sinal para o com menos: epomeno-epipedo
-(8 inscritos, 43,0 h), kolejny-poziom (5 inscritos, 30,7 h), nivel-do-jogo
+(8 inscritos, 43,0 h), kolejny-poziom (5 inscritos, 30,7 h), seviye-seviye
+(3 inscritos, 20,1 h — e a melhor distribuição da frota), nivel-do-jogo
 (2 inscritos, 1,95 h — mas a MAIOR conversão da frota, 0,525% inscrito/view).
-Se a cota acabar no meio, os dois primeiros são os que mais rendem.
+Se a cota acabar no meio, os primeiros são os que mais rendem.
+
+**Tempo de render medido nesta noite**, útil para dimensionar qualquer render
+adicional na janela da manhã — não há tendência de piora, a variação é normal:
+
+    epomeno-epipedo-011   75 cenas    7,1 min   5,7 s/cena
+    kolejny-poziom-012    80 cenas   12,7 min   9,5 s/cena
+    seviye-seviye-007     76 cenas  ~12,0 min  ~9,5 s/cena
 
 ## A ordem
 
