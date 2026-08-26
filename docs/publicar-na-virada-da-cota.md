@@ -23,7 +23,7 @@ Cuidado com uma leitura falsa: no `frota.yml` o passo **Entregar no Storage** é
 emite `::error::`. Ver o passo verde não é evidência de que o Storage voltou.
 Quem responde isso é o `porta.yml`, e só ele.
 
-## Os dois pacotes prontos
+## Os sete pacotes prontos
 
 | pacote | canal | idioma | artefato | expira |
 |---|---|---|---|---|
@@ -32,18 +32,30 @@ Quem responde isso é o `porta.yml`, e só ele.
 | `kolejny-poziom-012` | kolejny-poziom | pl | `pacote-kolejny-poziom-012` (id 9589333786) | 09/09/2026 |
 | `seviye-seviye-007` | seviye-seviye | tr | `pacote-seviye-seviye-007` (id 9590467009) | 09/09/2026 |
 | `setiap-level-012` | setiap-level | id | `pacote-setiap-level-012` (id 9591675645) | 09/09/2026 |
+| `labtreinamento-006` | labtreinamento | pt-BR | `pacote-labtreinamento-006` (id 9603074798) | 09/09/2026 |
+| `agla-level-007` | agla-level | hi | `pacote-agla-level-007` (id 9605246991) | 09/09/2026 |
 
-Os três foram renderizados com `publicar: false` e passaram nos dez portões.
-`ja_publicado` estava vazio para os dois primeiros às 23h16 de 25/08 e para o
-terceiro à 01h40 de 26/08 — **mas isso é um instantâneo, não uma autorização**:
-regenere o estado no momento de publicar, como manda o passo 3.
+Os sete foram renderizados com `publicar: false` e passaram nos dez portões.
+`ja_publicado` estava vazio para os cinco primeiros entre 23h16 de 25/08 e
+01h40 de 26/08 — **mas isso é um instantâneo, não uma autorização**: regenere o
+estado no momento de publicar, como manda o passo 3, e regenere para os sete,
+não só para os dois que não foram consultados.
+
+**O `agla-level` ainda não passou pelo `youtube.com/verify`.** A miniatura é
+`thumbnails.set`, e canal não verificado não a aceita: se o passo falhar, o
+vídeo continua no ar sem capa própria, e isso não é motivo para republicar.
 
 **Ordem sugerida**, do canal com mais sinal para o com menos: epomeno-epipedo
 (8 inscritos, 43,0 h), kolejny-poziom (5 inscritos, 30,7 h), seviye-seviye
 (3 inscritos, 20,1 h — e a melhor distribuição da frota), setiap-level
 (2 inscritos, 4,4 h), nivel-do-jogo (2 inscritos, 1,95 h — mas a MAIOR
-conversão da frota, 0,525% inscrito/view).
+conversão da frota, 0,525% inscrito/view), e por último os dois canais de
+zero inscrito: labtreinamento e agla-level.
 Se a cota acabar no meio, os primeiros são os que mais rendem.
+
+Sete pacotes custam **26.257** de cota (3.751 cada), contra o teto observado de
+52.514. Cabem os sete numa janela, com folga para os outros cinco que faltam
+para os doze do dia.
 
 **Tempo de render medido nesta noite**, útil para dimensionar qualquer render
 adicional na janela da manhã — não há tendência de piora, a variação é normal:
@@ -51,6 +63,12 @@ adicional na janela da manhã — não há tendência de piora, a variação é 
     epomeno-epipedo-011   75 cenas    7,1 min   5,7 s/cena
     kolejny-poziom-012    80 cenas   12,7 min   9,5 s/cena
     seviye-seviye-007     76 cenas  ~12,0 min  ~9,5 s/cena
+    labtreinamento-006    62 cenas   11,0 min  10,6 s/cena
+    agla-level-007        53 cenas    7,6 min   8,6 s/cena
+
+Com um pacote por disparo o relógio de parede É o tempo do pacote; o `frota.yml`
+não tem `max-parallel`, então N pacotes num disparo custam o do mais lento, não
+a soma. Foi assim que cinco renders couberam numa madrugada.
 
 ## O que já foi ensaiado, e o que não
 
