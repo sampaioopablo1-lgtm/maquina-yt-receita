@@ -136,3 +136,77 @@ def test_sem_referencia_nao_inventa_regra(monkeypatch):
     sem_vizinha = _spec(_cenas(SEM_ACENTO, 60), _cenas(SEM_ACENTO, 4))
     sem_vizinha["slug"] = "canal-que-nao-existe"
     assert PR._gate_ortografia("/nao/existe.json", sem_vizinha) == []
+
+
+# ------------------------------- a referencia do canal so conta quem acentua
+
+# Um short em que uma cena de tres acentua. Densidade a um terco da
+# referencia: acima da metade da mediana rebaixada e abaixo da metade da
+# referencia de quem acentua — a faixa exata em que as duas leituras
+# discordam.
+MEIO_ACENTO = _cenas(COM_ACENTO, 1) + _cenas(SEM_ACENTO, 2)
+
+
+def _canal_falso(tmp_path, monkeypatch, densidades):
+    """Monta um canal de mentira no disco e aponta o portao para ele.
+
+    Cada valor de `densidades` vira uma spec irma com aquela acentuacao no
+    LONGO — que e o bloco de onde a referencia do canal sai.
+    """
+    specs = tmp_path / "fabrica" / "specs"
+    specs.mkdir(parents=True)
+    for i, acentua in enumerate(densidades):
+        texto = COM_ACENTO if acentua else SEM_ACENTO
+        (specs / f"canal-de-teste-{i:03d}.json").write_text(
+            json.dumps({"slug": "canal-de-teste", "idioma": "pt-BR",
+                        "longo": _cenas(texto, 60), "short": _cenas(texto, 4)}),
+            encoding="utf-8")
+    monkeypatch.setattr(PR, "RAIZ", str(tmp_path))
+    return str(specs / "canal-de-teste-999.json")
+
+
+def test_uma_vizinha_zerada_nao_rebaixa_a_referencia_do_canal(tmp_path, monkeypatch):
+    """O defeito de 26/08/2026: escrever uma spec CERTA afrouxou o portao.
+
+    A labtreinamento tinha tres vizinhas — duas da fase ASCII a 0,00% e uma a
+    4,57%. Mediana 0,00%, abaixo do piso, entao o portao caia na referencia do
+    idioma (4,10%) e acusava o short da 004 a 1,57%. Escrevi a 006, tambem
+    acentuada, e a mediana de quatro virou a media do meio: (0,00 + 4,49) / 2 =
+    2,25%. Acima do piso, entao o portao passou a usar o CANAL, cujo limite e
+    metade disso — 1,12% — e o mesmo short passou a ser aprovado.
+
+    A regra ja estava escrita para a populacao do idioma e faltava aqui: uma
+    vizinha com o defeito nao e referencia de nada.
+    """
+    _referencia(monkeypatch, valor=0.041)
+    caminho = _canal_falso(tmp_path, monkeypatch, [False, True])
+    sp = _spec(_cenas(COM_ACENTO, 60), MEIO_ACENTO)
+
+    minha = PR._densidade_diacritica(sp["short"], PR.DIACRITICOS["pt"])
+    acentuada = PR._densidade_diacritica(_cenas(COM_ACENTO, 60),
+                                         PR.DIACRITICOS["pt"])
+    # O short cai justamente na faixa que separa as duas leituras: passa pela
+    # mediana rebaixada e reprova pela referencia de quem acentua.
+    assert acentuada / 4 < minha < acentuada / 2
+
+    sp["slug"] = "canal-de-teste"
+    notas = PR._gate_ortografia(caminho, sp)
+    assert notas and "short" in notas[0], notas
+    assert "que acentuam" in notas[0], notas
+
+
+def test_canal_inteiro_zerado_ainda_cai_na_referencia_do_idioma(tmp_path, monkeypatch):
+    """Filtrar as zeradas nao pode deixar o portao sem populacao nenhuma.
+
+    Com todas as vizinhas em ASCII nao sobra ninguem na mediana do canal, e o
+    caminho certo continua sendo o do idioma — que e como o sx-educacao, com
+    duas specs zeradas, deixou de ser um ponto cego em 20/08/2026.
+    """
+    _referencia(monkeypatch, valor=0.041)
+    caminho = _canal_falso(tmp_path, monkeypatch, [False, False])
+    sp = _spec(_cenas(SEM_ACENTO, 60), _cenas(SEM_ACENTO, 4))
+    sp["slug"] = "canal-de-teste"
+
+    notas = PR._gate_ortografia(caminho, sp)
+    assert len(notas) == 2, notas
+    assert all("nas specs de pt que acentuam" in n for n in notas), notas

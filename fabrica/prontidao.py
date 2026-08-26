@@ -392,7 +392,18 @@ def _gate_ortografia(caminho, sp):
         if d is not None:
             vizinhas.append(d)
 
-    referencia = statistics.median(vizinhas) if vizinhas else 0.0
+    # So as vizinhas que ACENTUAM entram na mediana do canal. A regra ja estava
+    # escrita logo abaixo, para a populacao do idioma — "incluir as zeradas
+    # seria deixar o defeito rebaixar a propria referencia" — mas nao valia
+    # aqui, e o buraco apareceu em 26/08/2026: a labtreinamento tem duas specs
+    # da fase ASCII (002 e 003, 0,00%) e tres que acentuam. Com tres vizinhas a
+    # mediana dava 0,00%, o portao caia na referencia do idioma (4,10%) e
+    # acusava o short da 004 a 1,57%. Bastou a 006 nascer para a mediana virar
+    # 2,25% — a media aritmetica de um zero com um acerto — passar do piso e
+    # baixar o limite para 1,12%: o mesmo defeito, agora aprovado, e por ter
+    # escrito uma spec CERTA. Referencia se tira de quem escreve direito.
+    acentuam = [d for d in vizinhas if d >= PISO_REFERENCIA]
+    referencia = statistics.median(acentuam) if acentuam else 0.0
     if referencia < PISO_REFERENCIA:
         # O canal nao serve de referencia. Ate 20/08/2026 o portao parava aqui,
         # e esse era o buraco: um canal ERRADO POR INTEIRO tem referencia zero
@@ -410,8 +421,8 @@ def _gate_ortografia(caminho, sp):
     if referencia < PISO_REFERENCIA:
         return []          # nem o canal nem o idioma dao referencia
 
-    de_onde = (f"nas outras specs de {slug}" if vizinhas
-               and statistics.median(vizinhas) >= PISO_REFERENCIA
+    de_onde = (f"nas outras specs de {slug} que acentuam" if acentuam
+               and statistics.median(acentuam) >= PISO_REFERENCIA
                else f"nas specs de {base} que acentuam")
 
     # Metade da referencia e folga larga de proposito: texto varia, e o que
