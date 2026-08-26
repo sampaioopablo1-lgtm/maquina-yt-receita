@@ -1,0 +1,536 @@
+{
+  "slug": "setiap-level",
+  "pacote": "setiap-level-012",
+  "idioma": "id",
+  "voz": "id-ID-ArdiNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#14453D",
+    "c1": "#D1495B",
+    "c2": "#EDAE49",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "20% atau 10%",
+    "l2": "uang yang sama"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Uang yang sama",
+      "sub": "dua tempat berbeda",
+      "nar": "Uang yang sama, ditaruh di dua tempat berbeda, pulang ke kamu dengan jumlah yang berbeda. Bukan karena bunganya. Karena pajaknya.",
+      "cap": "Satu uang, dua tempat"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan bedanya",
+      "sub": "bukan angka kecil",
+      "nar": "Dan bedanya bukan angka kecil yang bisa diabaikan. Ini selisih yang terlihat setiap kali bunga masuk ke rekeningmu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Yang kamu pilih",
+      "preco": "bukan bunganya",
+      "nar": "Yang kamu pilih di sini bukan besar bunganya. Yang kamu pilih adalah aturan pajak mana yang berlaku untuk uangmu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ini keputusanmu",
+      "sub": "bukan sesuatu yang terjadi padamu",
+      "nar": "Ini keputusan yang kamu ambil sendiri. Bukan sesuatu yang terjadi padamu tanpa kamu minta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kebanyakan orang",
+      "sub": "membandingkan yang salah",
+      "nar": "Kebanyakan orang membandingkan dua angka yang dipajang, lalu memilih yang lebih besar. Padahal dua angka itu belum dipotong apa apa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang dipajang",
+      "sub": "belum tentu yang kamu terima",
+      "nar": "Yang dipajang adalah bruto. Yang masuk ke rekeningmu adalah bersih. Jarak antara keduanya diatur oleh aturan yang tidak ditulis di brosur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan jaraknya",
+      "sub": "tidak sama di kedua tempat",
+      "nar": "Dan inilah kuncinya: jarak itu tidak sama di kedua tempat. Satu tempat memotong lebih banyak dari yang lain, selalu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Di akhir video",
+      "preco": "kamu bisa hitung sendiri",
+      "nar": "Di akhir video kamu bisa menghitung sendiri, dengan angka di rekeningmu. Bukan dengan contoh saya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Angkanya dulu",
+      "sub": "karena semuanya berdiri di atasnya",
+      "nar": "Kita mulai dari angkanya, karena seluruh keputusan berdiri di atas dua angka ini saja.",
+      "cap": "Pajaknya memang beda"
+    },
+    {
+      "layout": "item",
+      "kicker": "Bunga deposito",
+      "preco": "pajak final dua puluh persen",
+      "nar": "Bunga deposito dan tabungan dikenakan pajak penghasilan final sebesar dua puluh persen dari jumlah bruto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kupon SBN ritel",
+      "preco": "pajak final sepuluh persen",
+      "nar": "Kupon surat berharga negara ritel dikenakan pajak final sebesar sepuluh persen dari nilai kuponnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dua puluh dan sepuluh",
+      "sub": "untuk uang yang sama",
+      "nar": "Dua puluh persen di satu sisi, sepuluh persen di sisi lain, untuk uang yang sama dan orang yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tarif ini turun",
+      "sub": "sejak dua ribu dua puluh dua",
+      "nar": "Tarif sepuluh persen itu bukan hal baru. Sebelumnya lebih tinggi, lalu diturunkan lewat peraturan pemerintah, dan berlaku sejak dua ribu dua puluh dua.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Selisihnya sepuluh poin",
+      "sub": "dari bunga, bukan dari pokok",
+      "nar": "Selisihnya sepuluh poin persen, dan itu dihitung dari bunganya, bukan dari pokok simpananmu. Jadi jangan bandingkan dengan nominal tabunganmu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Artinya sederhana",
+      "preco": "ambil seratus ribu bunga",
+      "nar": "Artinya sederhana. Ambil seratus ribu rupiah bunga. Di deposito, yang dipotong adalah dua puluh ribu. Di kupon, separuhnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Final artinya",
+      "sub": "selesai di situ",
+      "nar": "Kata final di sini punya arti teknis: pajaknya sudah selesai, tidak dihitung ulang saat kamu melapor pajak tahunan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sekarang hitung",
+      "sub": "dengan angkamu",
+      "nar": "Sekarang bagian yang membuat video ini berguna: hitung dengan angkamu sendiri, bukan dengan angka bulat yang saya karang.",
+      "cap": "Hitung dengan angkamu"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dua angka dari rekeningmu",
+      "itens": [
+        "Nominal yang mau kamu simpan",
+        "Bunga per tahun yang ditawarkan"
+      ],
+      "nar": "Ambil dua angka: nominal yang mau kamu simpan, dan bunga per tahun yang ditawarkan padamu hari ini.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah satu",
+      "preco": "kalikan untuk dapat bruto",
+      "nar": "Kalikan keduanya. Hasilnya adalah bunga bruto setahun, dan ini adalah angka yang dipajang di brosur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah dua",
+      "preco": "kali nol koma delapan",
+      "nar": "Untuk deposito, kalikan bruto tadi dengan nol koma delapan. Itu yang benar benar sampai ke kamu setelah pajak dua puluh persen.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Langkah tiga",
+      "preco": "kali nol koma sembilan",
+      "nar": "Untuk kupon SBN, kalikan dengan nol koma sembilan. Pajaknya sepuluh persen, jadi yang tersisa lebih banyak.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bandingkan dua hasil itu",
+      "sub": "bukan dua brosurnya",
+      "nar": "Bandingkan dua hasil akhir itu. Jangan pernah membandingkan dua brosur, karena brosur menulis bruto dan dompetmu menerima bersih.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ulangi untuk jangka panjang",
+      "sub": "kalikan jumlah tahunnya",
+      "nar": "Kalau uangnya akan disimpan beberapa tahun, kalikan selisih tadi dengan jumlah tahunnya. Angka kecil per tahun berubah wujud di situ.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Itu bukan trik",
+      "sub": "itu cuma perkalian",
+      "nar": "Ini bukan trik hitung dan bukan janji. Cuma perkalian yang jarang orang lakukan karena brosur tidak memintanya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Selisihnya",
+      "sub": "mungkin mengejutkanmu",
+      "nar": "Selisih antara keduanya sering lebih besar dari yang orang kira, terutama kalau nominalmu besar atau jangka waktunya panjang.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kenapa jarang",
+      "sub": "ada yang membahas ini",
+      "nar": "Pertanyaan yang wajar: kalau bedanya sejelas itu, kenapa jarang dibahas?",
+      "cap": "Kenapa jarang dibahas"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Karena brosur",
+      "sub": "menulis angka bruto",
+      "nar": "Sebagian besar karena semua brosur menulis angka bruto. Pajak dipotong belakangan, dan yang dipotong tidak muncul di iklan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan karena kebiasaan",
+      "sub": "deposito lebih dikenal",
+      "nar": "Sebagian lagi karena kebiasaan. Deposito sudah dikenal puluhan tahun, dan kebiasaan jarang diperiksa ulang dengan kalkulator.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Padahal pemeriksaannya",
+      "preco": "dua menit",
+      "nar": "Padahal pemeriksaannya hanya butuh dua menit dan dua perkalian, seperti yang barusan kita lakukan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Perhatikan juga",
+      "sub": "biaya lain di luar pajak",
+      "nar": "Perhatikan juga biaya di luar pajak: biaya administrasi, biaya penutupan lebih awal, atau minimum saldo. Itu semua memotong hasil bersihmu juga.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Masukkan ke hitungan yang sama",
+      "sub": "supaya adil",
+      "nar": "Masukkan biaya biaya itu ke dalam hitungan yang sama, supaya kamu membandingkan dua hasil akhir dan bukan dua janji.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cara memeriksanya",
+      "sub": "baca dokumen, bukan iklan",
+      "nar": "Cara memeriksanya selalu sama: baca lembar ketentuan, bukan materi promosinya. Biaya selalu ada di dokumen, hampir tidak pernah di iklan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau tidak ketemu",
+      "sub": "tanyakan langsung",
+      "nar": "Kalau kamu tidak menemukannya, tanyakan langsung sebelum menandatangani. Pertanyaan itu gratis, dan jawabannya mengubah hitunganmu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ini pola yang berulang",
+      "sub": "di banyak keputusan uang",
+      "nar": "Ini pola yang berulang di banyak keputusan uang: yang diiklankan adalah bruto, yang kamu terima adalah bersih, dan jarak antara keduanya adalah aturan yang tidak diiklankan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tapi ada harganya",
+      "sub": "dan harus jujur",
+      "nar": "Tapi tidak ada yang gratis. Kalau satu sisi lebih menguntungkan, ada sesuatu yang kamu lepaskan, dan saya harus jujur soal itu.",
+      "cap": "Apa yang kamu lepaskan"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Deposito",
+      "sub": "jangkanya kamu yang atur",
+      "nar": "Deposito jangka waktunya kamu yang atur, sering hanya beberapa bulan, dan kamu tahu persis kapan uangnya kembali.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "SBN ritel",
+      "sub": "punya jangka waktu sendiri",
+      "nar": "SBN ritel punya jangka waktu yang sudah ditentukan, biasanya beberapa tahun, dan aturan pencairan lebih awal berbeda tiap seri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Jadi pertanyaannya",
+      "preco": "kapan uang ini kamu butuhkan",
+      "nar": "Jadi pertanyaan sebenarnya bukan mana yang lebih tinggi. Pertanyaannya: kapan uang ini kamu butuhkan kembali?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau butuh cepat",
+      "sub": "selisih pajak tidak menolong",
+      "nar": "Kalau uangnya mungkin kamu butuhkan dalam waktu dekat, selisih pajak tidak menolong. Yang menolong adalah bisa mengambilnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ada jalan tengah juga",
+      "sub": "tidak harus semua",
+      "nar": "Ada jalan tengah yang sering dilupakan: kamu tidak harus memindahkan semuanya. Sebagian tetap likuid, sebagian ditempatkan jangka panjang.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Pembagiannya",
+      "sub": "mengikuti kebutuhanmu",
+      "nar": "Pembagiannya mengikuti kapan kamu butuh, bukan mengikuti mana yang bunganya lebih tinggi. Kebutuhan lebih dulu, imbal hasil sesudahnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau tidak butuh cepat",
+      "sub": "selisihnya bekerja untukmu",
+      "nar": "Kalau memang tidak kamu butuhkan dalam waktu dekat, selisih pajak itu bekerja untukmu setiap kali kupon dibayarkan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bagian paling jujur",
+      "sub": "yang tidak saya sebutkan",
+      "nar": "Sekarang bagian paling jujur dari video ini: ada dua angka yang sengaja tidak saya sebutkan, dan saya jelaskan alasannya.",
+      "cap": "Yang tidak saya sebutkan"
+    },
+    {
+      "layout": "item",
+      "kicker": "Pertama",
+      "preco": "kupon seri yang sedang ditawarkan",
+      "nar": "Pertama, besar kupon seri yang sedang ditawarkan. Angka itu berubah tiap penerbitan, dan menyebutkannya membuat video ini basi dalam hitungan minggu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kedua",
+      "preco": "bunga deposito di bankmu",
+      "nar": "Kedua, bunga deposito yang berlaku. Itu berbeda antar bank dan antar jangka waktu, dan yang berlaku untukmu ada di penawaran bankmu sendiri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang saya berikan",
+      "sub": "tidak berubah",
+      "nar": "Yang saya berikan justru bagian yang tidak berubah: aturan pajaknya, dan cara membandingkan. Itu tetap berlaku tahun depan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jadwal resminya",
+      "sub": "ada di kalender penerbitan",
+      "nar": "Jadwal penawaran seri berikutnya diumumkan di kalender penerbitan resmi, dan di situ juga tercantum kuponnya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Saya sebut ini",
+      "sub": "karena ini ukuran kepercayaan",
+      "nar": "Saya sebutkan bagian ini karena ukuran layak tidaknya sebuah video bukan apa yang disebut, tapi apa yang sengaja tidak disebut.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Angka yang ditebak",
+      "sub": "membuat kamu salah putusan",
+      "nar": "Angka yang ditebak bisa membuatmu salah mengambil keputusan, dan yang menanggung akibatnya kamu, bukan saya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau ada yang menjanjikan",
+      "sub": "angka pasti, curigai",
+      "nar": "Dan kalau ada yang menjanjikan angka pasti untuk masa depan, curigai. Tidak ada lembaga yang menjamin imbal hasil ke depan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Untuk siapa masuk akal",
+      "sub": "dan untuk siapa tidak",
+      "nar": "Saya tidak akan bilang semua orang harus pindah. Saya berikan kerangkanya, dan kamu yang mencocokkan.",
+      "cap": "Untuk siapa masuk akal"
+    },
+    {
+      "layout": "lista",
+      "kicker": "SBN lebih masuk akal kalau",
+      "itens": [
+        "Uangnya memang untuk jangka panjang",
+        "Kamu sudah punya dana darurat terpisah",
+        "Kamu tidak berencana memakainya tahun ini"
+      ],
+      "nar": "SBN lebih masuk akal kalau uangnya memang untuk jangka panjang, dana daruratmu sudah terpisah, dan kamu tidak berencana memakainya tahun ini.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Deposito lebih masuk akal kalau",
+      "itens": [
+        "Uangnya bisa dipakai sewaktu waktu",
+        "Jangkanya pendek dan pasti",
+        "Kamu belum punya dana darurat"
+      ],
+      "nar": "Deposito lebih masuk akal kalau uangnya bisa kamu pakai sewaktu waktu, jangkanya pendek dan pasti, atau dana daruratmu belum terbentuk.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Urutannya tetap sama",
+      "sub": "dana darurat lebih dulu",
+      "nar": "Dan urutannya tidak berubah: dana darurat lebih dulu, baru yang jangka panjang. Ini bukan selera, ini urutan yang melindungi kamu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalau kamu di tengah",
+      "sub": "hitungan yang menjawab",
+      "nar": "Kalau kamu tidak persis masuk salah satu daftar, kerangka tidak akan menjawab. Yang menjawab adalah hitungan dengan angkamu sendiri.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dan hitungan itu",
+      "sub": "sudah kamu punya sekarang",
+      "nar": "Dan hitungan itu sudah kamu punya sekarang, dari bab sebelumnya. Dua perkalian, dua menit, angka rekeningmu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kalau masih ada utang mahal",
+      "preco": "itu yang pertama",
+      "nar": "Kalau masih ada utang berbunga tinggi, itu yang pertama diselesaikan. Bunganya biasanya lebih besar dari selisih pajak mana pun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Minggu ini",
+      "sub": "tiga langkah",
+      "nar": "Tiga langkah untuk minggu ini, dan semuanya pakai angkamu sendiri.",
+      "cap": "Tiga langkah minggu ini"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Langkah satu dan dua",
+      "itens": [
+        "Cek bunga deposito yang ditawarkan padamu",
+        "Kalikan dengan nol koma delapan"
+      ],
+      "nar": "Cek bunga deposito yang ditawarkan padamu sekarang, lalu kalikan hasilnya dengan nol koma delapan untuk melihat yang bersih.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Langkah tiga",
+      "itens": [
+        "Buka kalender penerbitan SBN ritel",
+        "Kalikan kuponnya dengan nol koma sembilan"
+      ],
+      "nar": "Lalu buka kalender penerbitan resmi, lihat kupon seri berikutnya, dan kalikan dengan nol koma sembilan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bandingkan dua angka itu",
+      "sub": "dan catat tanggalnya",
+      "nar": "Bandingkan dua angka bersih itu, catat hasilnya beserta tanggalnya, dan kamu punya dasar keputusan yang bukan perasaan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Simpan catatannya",
+      "sub": "beserta tanggal",
+      "nar": "Simpan catatan itu beserta tanggalnya di satu tempat. Enam bulan lagi angkanya berubah, dan kamu akan senang punya pembanding.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tanpa catatan",
+      "sub": "kamu mengulang dari nol",
+      "nar": "Tanpa catatan, setiap kali kamu harus mengulang dari nol dan mengandalkan ingatan. Ingatan buruk dalam urusan angka.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yang penting bukan hasilnya",
+      "sub": "tapi kamu punya caranya",
+      "nar": "Yang penting bukan mana yang menang hari ini. Yang penting kamu punya cara menghitungnya sendiri, kapan pun angkanya berubah.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Hitung malam ini",
+      "sub": "dan tulis hasilnya",
+      "nar": "Hitung malam ini dan tulis hasilnya di komentar. Kalau hitungan seperti ini berguna buat kamu, subscribe — di sini setiap angka berubah jadi langkah yang kamu kerjakan sendiri.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Uang yang sama",
+      "sub": "dua tempat",
+      "nar": "Uang yang sama, ditaruh di dua tempat, pulang ke kamu dengan jumlah berbeda. Bukan karena bunganya.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tapi karena",
+      "sub": "pajaknya",
+      "nar": "Tapi karena pajaknya. Dan ini yang kamu pilih sendiri, bukan yang terjadi padamu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bunga deposito",
+      "sub": "dua puluh persen",
+      "nar": "Bunga deposito kena pajak final dua puluh persen dari bruto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kupon SBN ritel",
+      "sub": "sepuluh persen",
+      "nar": "Kupon surat berharga negara ritel kena sepuluh persen. Uang yang sama, orang yang sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Hitungnya",
+      "sub": "kali nol koma delapan",
+      "nar": "Bunga brutomu kali nol koma delapan untuk deposito. Kali nol koma sembilan untuk kupon.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Lalu apa yang kamu lepas",
+      "sub": "itu di video lengkap",
+      "nar": "Apa yang kamu lepaskan sebagai gantinya, dan untuk siapa ini masuk akal, ada di video lengkap di tautan bawah.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Uang yang sama, aturan pajak berbeda — dan selisihnya masuk ke dompetmu\n\n## TITULO\nDeposito atau SBN Ritel? Pajak 20% Lawan 10% untuk Uang yang Sama\n\n## DESCRICAO\nUang yang sama, ditaruh di dua tempat berbeda, pulang ke kamu dengan jumlah yang berbeda — dan penyebabnya bukan besar bunganya, melainkan aturan pajaknya. Yang kamu pilih di sini sebenarnya bukan angka di brosur, tapi aturan pajak mana yang berlaku untuk uangmu. Ini keputusan yang kamu ambil sendiri, bukan sesuatu yang terjadi padamu tanpa kamu minta.\n\nDua angka yang menjadi dasar seluruh keputusan: bunga deposito dan tabungan dikenakan Pajak Penghasilan final sebesar 20% dari jumlah bruto, sedangkan kupon Surat Berharga Negara ritel dikenakan pajak final sebesar 10% dari nilai kupon. Tarif 10% untuk SBN itu bukan hal baru — sebelumnya lebih tinggi, lalu diturunkan lewat Peraturan Pemerintah Nomor 91 Tahun 2021 dan berlaku sejak 2022. Kata \"final\" di sini punya arti teknis: pajaknya selesai di situ dan tidak dihitung ulang saat pelaporan pajak tahunan.\n\nBagian utama video adalah perhitungan yang kamu lakukan dengan angka rekeningmu sendiri, bukan dengan contoh bulat. Ambil nominal yang mau kamu simpan dan bunga per tahun yang ditawarkan padamu; kalikan keduanya untuk mendapat bunga bruto setahun — inilah angka yang dipajang di brosur. Untuk deposito, kalikan bruto itu dengan 0,8. Untuk kupon SBN, kalikan dengan 0,9. Bandingkan dua hasil akhir tersebut, jangan pernah dua brosurnya, karena brosur menulis bruto sementara dompetmu menerima bersih.\n\nVideo juga jujur tentang harganya. Deposito jangka waktunya kamu yang atur dan kamu tahu persis kapan uangnya kembali; SBN ritel punya jangka waktu yang sudah ditentukan dan aturan pencairan lebih awal yang berbeda tiap seri. Maka pertanyaan sebenarnya bukan mana yang lebih tinggi, melainkan kapan uang itu kamu butuhkan kembali.\n\nAda satu bab khusus untuk dua angka yang sengaja tidak disebutkan: besar kupon seri yang sedang ditawarkan, dan bunga deposito yang berlaku di bankmu. Keduanya berubah, dan menyebutkannya akan membuat video ini basi dalam hitungan minggu. Yang diberikan justru bagian yang tidak berubah — aturan pajaknya dan cara membandingkannya.\n\nPenutupnya adalah kerangka untuk siapa masing masing pilihan masuk akal, dengan urutan yang tidak berubah: utang berbunga tinggi lebih dulu, lalu dana darurat, baru penempatan jangka panjang.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nCoba hitung malam ini dan tulis hasilnya di sini: nominal yang kamu pertimbangkan, bunga yang ditawarkan bankmu, dan berapa selisih bersihnya setelah dikali 0,8 dan 0,9. Saya penasaran seberapa besar selisih itu di angka nyata orang, karena di contoh mana pun ia selalu terlihat kecil sampai dikalikan nominal sungguhan.\n\n## HASHTAGS\n#SBNRitel #Deposito #SetiapLevel\n\n## TAGS\nsbn ritel, deposito, pajak bunga deposito, pajak kupon sbn, pph final, investasi pemula, dana darurat, surat berharga negara, bunga bersih, keuangan pribadi, menabung atau investasi, pajak penghasilan final, perbandingan investasi, tabungan 2026, setiap level\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Bahasa Indonesia (id) | Categoria: Educação (27)\n- Não é conteúdo para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Indonésia | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ligado (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nDiperiksa pada 26 Agustus 2026. Dua angka inti video ini dikonfirmasi di dua sumber institusional yang berbeda: (1) Direktorat Jenderal Pajak (pajak.go.id) — halaman \"Berinvestasi Melalui SBN\" dan halaman PPh Pasal 4 ayat (2); (2) Kementerian Keuangan — DJPPR (djppr.kemenkeu.go.id), materi DJPb, dan Media Keuangan Kemenkeu. Keduanya menyatakan hal yang sama: bunga deposito dan tabungan dikenakan PPh final 20% dari bruto, sedangkan kupon SBN ritel dikenakan PPh final 10%, dengan dasar hukum Peraturan Pemerintah Nomor 91 Tahun 2021 yang berlaku sejak 2022.\n\nYANG TIDAK ADA DI VIDEO INI DAN ALASANNYA. (a) Besar kupon seri SBN ritel yang sedang atau akan ditawarkan tidak disebutkan: angka itu berubah pada setiap penerbitan, dan menyebut angka hari ini akan menyesatkan penonton yang menonton beberapa minggu kemudian. Jadwal dan kupon seri berikutnya diumumkan pada kalender penerbitan resmi. (b) Bunga deposito tidak disebutkan: berbeda antar bank dan antar jangka waktu, sehingga yang berlaku adalah penawaran di bank penonton sendiri. (c) Tidak ada proyeksi imbal hasil ke depan — tidak ada lembaga yang menjaminnya, dan video menyatakan ini secara eksplisit. (d) Aturan pencairan lebih awal berbeda tiap seri dan tidak dikuantifikasi di sini. Video ini bukan rekomendasi investasi maupun nasihat keuangan pribadi; ia menjelaskan aturan pajak yang berlaku dan cara menghitung sendiri.\n"
+}
