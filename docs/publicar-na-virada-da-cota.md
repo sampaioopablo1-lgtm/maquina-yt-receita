@@ -23,7 +23,7 @@ Cuidado com uma leitura falsa: no `frota.yml` o passo **Entregar no Storage** é
 emite `::error::`. Ver o passo verde não é evidência de que o Storage voltou.
 Quem responde isso é o `porta.yml`, e só ele.
 
-## Os oito pacotes prontos
+## Os dez pacotes prontos
 
 | pacote | canal | idioma | artefato | expira |
 |---|---|---|---|---|
@@ -35,8 +35,10 @@ Quem responde isso é o `porta.yml`, e só ele.
 | `labtreinamento-006` | labtreinamento | pt-BR | `pacote-labtreinamento-006` (id 9603074798) | 09/09/2026 |
 | `agla-level-007` | agla-level | hi | `pacote-agla-level-007` (id 9605246991) | 09/09/2026 |
 | `game-money-lab-007` | game-money-lab | en | `pacote-game-money-lab-007` (id 9605909861) | 09/09/2026 |
+| `next-level-money-007` | next-level-money | en | `pacote-next-level-money-007` (id 9606569666) | 09/09/2026 |
+| `seja-mais-magra-007` | seja-mais-magra | pt-BR | `pacote-seja-mais-magra-007` (id 9606940200) | 09/09/2026 |
 
-Os oito foram renderizados com `publicar: false` e passaram nos dez portões.
+Os dez foram renderizados com `publicar: false` e passaram nos dez portões.
 `ja_publicado` estava vazio para os cinco primeiros entre 23h16 de 25/08 e
 01h40 de 26/08 — **mas isso é um instantâneo, não uma autorização**: regenere o
 estado no momento de publicar, como manda o passo 3, e regenere para os sete,
@@ -73,6 +75,8 @@ adicional na janela da manhã — não há tendência de piora, a variação é 
     labtreinamento-006    62 cenas   11,0 min  10,6 s/cena
     agla-level-007        53 cenas    7,6 min   8,6 s/cena
     game-money-lab-007    60 cenas    9,2 min   9,2 s/cena
+    next-level-money-007  61 cenas   13,0 min  12,8 s/cena
+    seja-mais-magra-007   57 cenas    9,8 min  10,3 s/cena
 
 Com um pacote por disparo o relógio de parede É o tempo do pacote; o `frota.yml`
 não tem `max-parallel`, então N pacotes num disparo custam o do mais lento, não
