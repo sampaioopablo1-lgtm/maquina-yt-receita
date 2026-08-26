@@ -8,7 +8,7 @@ abaixo foi conferido nesta noite, e o que **não** foi conferido está dito.
 
 | coisa | estado | como foi conferido |
 |---|---|---|
-| cota diária do YouTube | **estourada** | 403 com `reason: quotaExceeded` às 20h25 de 25/08 |
+| cota diária do YouTube | **estourada** | 403 com `reason: quotaExceeded` às 20h25 de 25/08, e de novo à 01h35 de 26/08 |
 | virada da cota | ~07:00 UTC | meia-noite no Pacífico, que é como o Google conta |
 | PostgREST / Storage / Edge | **402 nos três** | `porta.yml`, run 32909973867, 23h15 de 25/08 |
 | refresh de token por `pg_net` | **funciona** | epomeno-epipedo e nivel-do-jogo, HTTP 200, `expires_in` 3599, 23h16 de 25/08 |
@@ -29,7 +29,7 @@ Quem responde isso é o `porta.yml`, e só ele.
 |---|---|---|---|---|
 | `epomeno-epipedo-011` | epomeno-epipedo | el | `pacote-epomeno-epipedo-011` (id 9583286132) | 08/09/2026 |
 | `nivel-do-jogo-007` | nivel-do-jogo | pt-BR | `pacote-nivel-do-jogo-007` (id 9585036472) | 08/09/2026 |
-| `kolejny-poziom-012` | kolejny-poziom | pl | `pacote-kolejny-poziom-012` | 09/09/2026 |
+| `kolejny-poziom-012` | kolejny-poziom | pl | `pacote-kolejny-poziom-012` (id 9589333786) | 09/09/2026 |
 
 Os três foram renderizados com `publicar: false` e passaram nos dez portões.
 `ja_publicado` estava vazio para os dois primeiros às 23h16 de 25/08 e para o
