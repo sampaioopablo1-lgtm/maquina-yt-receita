@@ -63,6 +63,29 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      # ESTA TRAVA VEM ANTES DE TUDO, E O MOTIVO E O REPOSITORIO SER PUBLICO.
+      #
+      # `access_token` chega por INPUT de workflow_dispatch, e input fica
+      # gravado na pagina do run. Em repositorio publico essa pagina e visivel
+      # para qualquer pessoa: seria um token com escopo `youtube.force-ssl`
+      # (sobe E APAGA video), vivo por uma hora, publicado junto com o nome do
+      # canal. O `::add-mask::` do passo seguinte esconde o token do LOG, e nao
+      # do registro de inputs — sao coisas diferentes, e eu quase confundi as
+      # duas em 26/08/2026 com cinco pacotes esperando e a cota recem-aberta.
+      #
+      # A pressa e exatamente a circunstancia em que este erro acontece, entao
+      # a recusa mora aqui e nao no julgamento de quem dispara.
+      #
+      # Para publicar por esta rota, uma das duas: tornar o repositorio
+      # privado, ou trocar o input por um segredo com o refresh_token do canal
+      # e refrescar DENTRO do runner — ai nada sensivel atravessa input.
+      - name: Recusar se o repositorio for publico
+        run: |
+          if [ "${{ github.event.repository.private }}" != "true" ]; then
+            echo "::error::REPOSITORIO PUBLICO. O access_token chegaria por input, e input de workflow_dispatch fica visivel na pagina do run para qualquer pessoa. Token com escopo de upload e exclusao, uma hora de vida. Torne o repositorio privado, ou troque o input por um segredo com o refresh_token e refresque dentro do runner."
+            exit 1
+          fi
+
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
