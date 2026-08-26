@@ -13,6 +13,27 @@ abaixo foi conferido nesta noite, e o que **não** foi conferido está dito.
 | PostgREST / Storage / Edge | **402 nos três** | `porta.yml`, run 32909973867, 23h15 de 25/08 |
 | refresh de token por `pg_net` | **funciona** | epomeno-epipedo e nivel-do-jogo, HTTP 200, `expires_in` 3599, 23h16 de 25/08 |
 | `execute_sql` (Management API) | **funciona** | usado a noite toda para ler `videos` e gravar `aprendizados` |
+| `YT_OAUTH_JSON` | **NAO existe** | seis disparos do `retomar.yml` em 26/08 (10h17, 13h20, 16h16, 19h12, 22h12, 23h00), todos parando no passo `Refrescar o token dentro do runner` |
+| PostgREST / Storage / Edge, de novo | **402 nos três** | `porta.yml`, run 32973325051, 13h17 de 26/08 — a restrição não caiu em 24h |
+| Data API do YouTube por Composio | **funciona** | 202 vídeos e 12 canais remedidos em 26/08 21h, sem OAuth próprio e sem Supabase |
+
+**O estado da frota em 26/08, 21h — medido, não herdado do informe anterior:**
+
+| | |
+|---|---|
+| inscritos nos nove canais que a máquina criou | **27** (eram 20 em 25/08) |
+| epomeno-epipedo | **13** (eram 8) — o maior salto, e sem publicar nada novo |
+| agla-level | **1** — o primeiro inscrito do canal |
+| shorts | 97 vídeos, 15.930 views, média 164, topo 1.614 |
+| longos | 105 vídeos, 1.082 views, média 10,3, topo 148 |
+| razão short/longo | **14,7×** em views totais |
+
+Duas armadilhas medidas junto, para não serem redescobertas: `subscriberCount`
+do canal **não** é o `inscritos_ganhos` da rotina — o primeiro inclui tudo que o
+canal já tinha, e somar os dois canais com histórico anterior (labtreinamento
+com 63, sx-educação com 1) inventaria um crescimento que não houve. E view de
+YouTube **cai**: treze vídeos perderam de 1 a 9 views entre 24 e 26/08, o que é
+expurgo de view inválida e não erro de coleta.
 
 Porta fechada nos três ⇒ **modo ponte**. O caminho normal (`frota.yml` com
 `publicar: true`) não serve: ele chama `confere_token.py` e a trava de nome de
