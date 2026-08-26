@@ -1,0 +1,639 @@
+{
+  "slug": "kolejny-poziom",
+  "pacote": "kolejny-poziom-012",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#E4572E",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "cena spadła",
+    "l2": "rachunek rośnie"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Twój rachunek",
+      "sub": "ma dwie połowy",
+      "nar": "Twój rachunek za prąd składa się z dwóch osobnych części. W wiadomościach mówią prawie wyłącznie o jednej z nich, i to nie zawsze o tej większej.",
+      "cap": "Rachunek ma dwie połowy"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dwie części",
+      "itens": [
+        "Sprzedaż energii — to, co zużyłeś",
+        "Dystrybucja — to, że w ogóle dojechała",
+        "Do tego podatki i opłaty stałe"
+      ],
+      "nar": "Pierwsza to sprzedaż samej energii. Druga to dystrybucja, czyli opłata za to, że ta energia w ogóle dojechała do twojego gniazdka.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Obie zatwierdza",
+      "sub": "ten sam urząd",
+      "nar": "Obie zatwierdza ten sam urząd — Prezes Urzędu Regulacji Energetyki. I obie mają własną taryfę, ustalaną osobno.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dlatego nagłówek",
+      "sub": "nie mówi ci wszystkiego",
+      "nar": "Dlatego nagłówek o tym, że prąd tanieje, może być prawdziwy, a twój rachunek i tak urośnie. To nie jest sprzeczność. To są dwie różne liczby.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zacznijmy od pytania",
+      "sub": "na które mało kto umie odpowiedzieć",
+      "nar": "Zanim przejdziemy dalej, zadaj sobie pytanie: ile dokładnie płacisz za jedną kilowatogodzinę? Nie za miesiąc, tylko za jednostkę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Prawie nikt nie wie",
+      "sub": "i to nie jest niczyja wina",
+      "nar": "Prawie nikt nie zna tej liczby, i to nie jest lenistwo. Faktura jej wprost nie podaje, bo składa się z pozycji, które trzeba dopiero zsumować.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Czego się tu nauczysz",
+      "preco": "policzyć własną cenę za megawatogodzinę",
+      "nar": "Pod koniec będziesz umiał wyliczyć własną cenę za megawatogodzinę z faktury, którą już masz w domu. Nie z mojej średniej — ze swojej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zacznijmy od liczby",
+      "sub": "którą właśnie zatwierdzono",
+      "nar": "Zacznijmy od konkretu, bo bez niego reszta to opowieść. Prezes URE zatwierdził taryfy na sprzedaż i dystrybucję energii elektrycznej na dwa tysiące dwudziesty szósty rok.",
+      "cap": "Ile zatwierdzono na 2026"
+    },
+    {
+      "layout": "item",
+      "kicker": "Średnia cena sprzedaży",
+      "preco": "czterysta dziewięćdziesiąt pięć złotych",
+      "nar": "Średnia zatwierdzona cena sprzedaży energii to czterysta dziewięćdziesiąt pięć złotych i szesnaście groszy za megawatogodzinę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I to jest mniej",
+      "sub": "niż rok wcześniej",
+      "nar": "I ta liczba jest niższa niż w roku poprzednim. To nie jest podwyżka ceny samej energii — to obniżka.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A mimo to rachunek",
+      "preco": "rośnie o około trzy procent",
+      "nar": "A mimo to przeciętny rachunek rośnie. Dla gospodarstwa zużywającego jeden i osiem dziesiątych megawatogodziny wzrost wynosi około trzech procent miesięcznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ta jedna sprzeczność",
+      "sub": "jest całym tematem",
+      "nar": "Cena energii spada, a rachunek rośnie. Ta pozorna sprzeczność jest właśnie całym tematem tego filmu, i wyjaśnia ją druga połowa rachunku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zwróć uwagę na słowo",
+      "sub": "średnia",
+      "nar": "Zwróć uwagę na jedno słowo: średnia. To jest średnia po zatwierdzonych taryfach, a nie cena, którą zobaczysz na swojej fakturze.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Twoja może być inna",
+      "sub": "w obie strony",
+      "nar": "Twoja może być inna, i to w obie strony. Za chwilę pokażę, od czego to zależy i jak sprawdzić, po której stronie tej średniej jesteś.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Trzy procent",
+      "sub": "to nie jest dużo",
+      "nar": "Trzy procent to mniej więcej tyle, ile wynosi ogólny wzrost cen. Czyli prąd nie drożeje szybciej niż reszta twojego życia. To dobra wiadomość.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Druga połowa",
+      "sub": "ta cichsza",
+      "nar": "Przejdźmy do drugiej połowy, tej cichszej. Dystrybucja to nie jest opłata za prąd. To opłata za sieć, którą on płynie.",
+      "cap": "Dystrybucja, ta cichsza połowa"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Za co dokładnie",
+      "itens": [
+        "Za utrzymanie linii i stacji",
+        "Za straty energii po drodze",
+        "Za moc, którą masz zamówioną"
+      ],
+      "nar": "Płacisz za utrzymanie linii i stacji, za energię, która ginie po drodze, oraz za moc, którą masz przypisaną do przyłącza.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ta opłata",
+      "sub": "nie zależy od tego, ile zużyjesz",
+      "nar": "I tu jest sedno: spora część tej opłaty nie zależy od tego, ile prądu zużyjesz. Zapłacisz ją nawet wtedy, gdy wyjedziesz na miesiąc.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlatego oszczędzanie",
+      "preco": "działa tylko na połowę rachunku",
+      "nar": "Dlatego gaszenie światła obniża tylko jedną połowę twojego rachunku. Druga stoi w miejscu, niezależnie od twoich starań.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Pomyśl o tym",
+      "sub": "jak o dostawie",
+      "nar": "Najprościej myśleć o tym jak o zakupach z dostawą. Osobno płacisz za towar, osobno za to, że ktoś go przywiózł pod drzwi.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Towar potaniał",
+      "sub": "kurier niekoniecznie",
+      "nar": "Towar w tym roku potaniał. Czy kurier też — to zupełnie osobna umowa, z osobnym cennikiem, zatwierdzanym w osobnej decyzji.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Twoja taryfa dystrybucyjna",
+      "sub": "zależy od regionu",
+      "nar": "Twoja taryfa dystrybucyjna zależy od operatora, który obsługuje twój region. Nie ma jednej wspólnej dla kraju, więc nie podam ci tu jednej liczby, bo byłaby nieprawdziwa dla większości słuchających.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Podam coś lepszego",
+      "sub": "sposób na własną",
+      "nar": "Podam ci coś praktyczniejszego niż średnia: sposób, żebyś odczytał swoją własną. Zajmie ci to jedną kartkę i dwie minuty.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Weź fakturę",
+      "sub": "i jeden długopis",
+      "nar": "Weź ostatnią fakturę za prąd. Papierową albo z aplikacji, obojętnie. Potrzebujesz z niej dokładnie trzech liczb.",
+      "cap": "Jak policzyć swoją cenę"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Trzy liczby",
+      "itens": [
+        "Kwota do zapłaty, razem z podatkiem",
+        "Zużycie w kilowatogodzinach",
+        "Liczba dni okresu rozliczeniowego"
+      ],
+      "nar": "Kwota do zapłaty razem z podatkiem. Zużycie w kilowatogodzinach. I liczba dni, których dotyczy ten rachunek.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Pierwsze działanie",
+      "preco": "kwota podzielona przez zużycie",
+      "nar": "Podziel kwotę przez zużycie. Wynik to twoja rzeczywista cena za jedną kilowatogodzinę, ze wszystkim w środku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Drugie działanie",
+      "preco": "razy tysiąc",
+      "nar": "Pomnóż wynik przez tysiąc. Teraz masz swoją cenę za megawatogodzinę — tę samą jednostkę, w której podaje się taryfy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porównaj",
+      "sub": "z zatwierdzoną ceną sprzedaży",
+      "nar": "Porównaj to z zatwierdzoną ceną sprzedaży. Twoja liczba będzie wyraźnie wyższa, i to jest normalne — bo zawiera też dystrybucję, opłaty stałe i podatek.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Różnica między nimi",
+      "sub": "to twoja druga połowa",
+      "nar": "Ta różnica to właśnie twoja druga połowa rachunku, wyrażona w złotówkach. Pierwszy raz widzisz ją jako konkretną liczbę, a nie jako pojęcie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Uwaga na okres",
+      "sub": "faktury bywają dwumiesięczne",
+      "nar": "Uwaga na jedną pułapkę: część faktur obejmuje dwa miesiące, a część zawiera prognozę zamiast odczytu. Sprawdź, którą trzymasz w ręku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Licz zawsze z odczytu",
+      "preco": "nie z prognozy",
+      "nar": "Licz zawsze z faktury rozliczeniowej, opartej na rzeczywistym odczycie. Prognoza pokaże ci cenę wymyśloną, a nie zapłaconą.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zrób to raz",
+      "sub": "i wracaj do tej liczby",
+      "nar": "Zrób to raz, zapisz wynik z datą, i wracaj do tej liczby przy każdej kolejnej fakturze. To jedyny sposób, żeby zauważyć zmianę wcześniej niż po roku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Taryfa to nie to samo",
+      "sub": "co oferta",
+      "nar": "Teraz rzecz, która myli najwięcej osób. Zatwierdzona taryfa i oferta twojego sprzedawcy to dwie różne rzeczy.",
+      "cap": "Taryfa to nie oferta"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Taryfa",
+      "sub": "jest zatwierdzana z urzędu",
+      "nar": "Taryfa jest zatwierdzana przez regulatora i obowiązuje tych, którzy nie podpisali nic innego. To jest ustawienie domyślne.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Oferta",
+      "sub": "jest umową, którą podpisałeś",
+      "nar": "Oferta to umowa, którą podpisałeś sam — często na dwa albo trzy lata, często z ceną gwarantowaną, czasem przez telefon.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "I dlatego",
+      "preco": "możesz płacić więcej mimo obniżki",
+      "nar": "I dlatego możesz płacić więcej, mimo że zatwierdzona cena spadła. Twoja umowa po prostu nie jest do niej przypięta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sprawdź na fakturze",
+      "sub": "nazwę swojej taryfy",
+      "nar": "Na fakturze jest nazwa twojej taryfy albo produktu. Jeśli widzisz nazwę handlową zamiast symbolu taryfy, jesteś na ofercie, nie na taryfie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sprawdź też datę",
+      "sub": "końca umowy",
+      "nar": "Poszukaj na fakturze albo w umowie daty jej zakończenia. To jest jedyny moment, w którym możesz odejść bez kosztów.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Zapisz tę datę",
+      "preco": "w kalendarzu, z wyprzedzeniem",
+      "nar": "Zapisz ją w kalendarzu z miesięcznym wyprzedzeniem. Umowy, które nikt nie pilnuje, przedłużają się same, i zwykle nie na twoją korzyść.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To nie znaczy",
+      "sub": "że oferta jest zła",
+      "nar": "To nie znaczy, że oferta jest zła. Znaczy tylko, że obniżka z nagłówka ciebie nie dotyczy, i że warto o tym wiedzieć przed końcem umowy.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Teraz uczciwie",
+      "sub": "czego wam nie powiem",
+      "nar": "Teraz część, którą większość materiałów pomija. Powiem wam, czego NIE wiem, bo to zmienia sposób, w jaki powinniście korzystać z tego filmu.",
+      "cap": "Czego tu nie powiem"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Był mechanizm",
+      "sub": "mrożenia ceny",
+      "nar": "Przez ostatnie lata działał mechanizm mrożenia ceny energii dla gospodarstw domowych, na poziomie pięciuset złotych za megawatogodzinę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Czy działa w 2026",
+      "preco": "tego nie potwierdziłem",
+      "nar": "Czy on obowiązuje w tym roku i do kiedy — tego nie potwierdziłem w źródle instytucjonalnym. Znalazłem stronę opisującą rok poprzedni, i to nie jest to samo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mogłem zgadnąć",
+      "sub": "i nie zgadłem",
+      "nar": "Mogłem wyciągnąć wniosek z tego, że zatwierdzona cena jest niższa niż próg mrożenia. Ale wniosek to nie jest źródło, a wy zasługujecie na różnicę między jednym a drugim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mówię o tym głośno",
+      "sub": "bo to zmienia użycie",
+      "nar": "Mówię o tym wprost, bo to zmienia sposób, w jaki powinieneś użyć tego filmu. Metoda liczenia z faktury działa niezależnie od tego, czy jakiś mechanizm nadal obowiązuje.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Liczba z nagłówka",
+      "sub": "starzeje się szybciej niż metoda",
+      "nar": "Liczba z nagłówka starzeje się w kilka miesięcy. Sposób odczytania własnego rachunku nie starzeje się wcale.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dlatego cały ten film",
+      "sub": "prowadzi do twojej faktury",
+      "nar": "I właśnie dlatego cały ten film prowadzi cię do twojej własnej faktury. Dokument, który masz w domu, wie o twoim rachunku więcej niż każdy nagłówek, łącznie z moim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jedna liczba",
+      "sub": "na którą masz wpływ",
+      "nar": "Z całego rachunku jest dokładnie jedna liczba, na którą masz realny wpływ. Nie jest to cena i nie jest to taryfa. To zużycie.",
+      "cap": "Zużycie, jedyna dźwignia"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ceny ustala regulator",
+      "sub": "umowę podpisałeś kiedyś",
+      "nar": "Cenę ustala regulator. Umowę podpisałeś kiedyś tam. Dystrybucja zależy od regionu. Zostaje ci zużycie, i tylko ono.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Zacznij od licznika",
+      "preco": "dwa odczyty, tydzień odstępu",
+      "nar": "Zacznij prosto: spisz stan licznika dzisiaj i za tydzień. Różnica podzielona przez siedem to twoje realne zużycie dobowe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Teraz masz punkt odniesienia",
+      "sub": "swój, nie cudzy",
+      "nar": "Teraz masz punkt odniesienia. Każda zmiana w domu — nowe urządzenie, inne nawyki, inna pora grzania wody — jest mierzalna wobec tej liczby.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bez tego",
+      "sub": "oszczędzasz na wyczucie",
+      "nar": "Bez tego oszczędzasz na wyczucie, a rachunek przychodzi raz na dwa miesiące i nie mówi ci, co konkretnie zadziałało.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Największe pozycje",
+      "sub": "zwykle grzeją albo chłodzą",
+      "nar": "W większości mieszkań największe pozycje to urządzenia, które grzeją albo chłodzą. Nie te, które świecą.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zacznij pomiar od nich",
+      "sub": "a nie od żarówek",
+      "nar": "Więc jeśli masz zmierzyć wpływ jednej zmiany, zacznij od nich. Efekt będzie widoczny w tygodniowym odczycie, a nie po roku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "I pamiętaj o proporcji",
+      "preco": "połowa rachunku nie drgnie",
+      "nar": "I pamiętaj o proporcji z wcześniejszego rozdziału: nawet duża oszczędność zużycia rusza tylko jedną połowę rachunku.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Zmiana sprzedawcy",
+      "sub": "kiedy naprawdę się opłaca",
+      "nar": "Skoro oferta bywa droższa od taryfy, to czy zmieniać sprzedawcę? Odpowiedź brzmi: tylko po policzeniu, i tylko na jednej podstawie.",
+      "cap": "Kiedy zmiana ma sens"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porównuj cenę końcową",
+      "sub": "nie hasło reklamowe",
+      "nar": "Porównuj wyłącznie cenę końcową za kilowatogodzinę, tę policzoną wcześniej z faktury. Nigdy hasła w reklamie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Sprawdź też trzy rzeczy",
+      "itens": [
+        "Czy jest opłata handlowa co miesiąc",
+        "Na ile lat wiąże cię umowa",
+        "Ile kosztuje wcześniejsze zerwanie"
+      ],
+      "nar": "Sprawdź, czy dochodzi stała opłata handlowa co miesiąc, na ile lat wiąże cię umowa, i ile kosztuje wcześniejsze zerwanie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bardzo częsty błąd",
+      "preco": "niższa cena, wyższy rachunek",
+      "nar": "Bardzo częsty błąd wygląda tak: cena za kilowatogodzinę niższa, opłata handlowa doliczona, i rachunek wychodzi wyższy niż był.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Policz w złotówkach",
+      "sub": "na cały rok",
+      "nar": "Zamień różnicę cen na złotówki w skali roku. Grosze przy kilowatogodzinie wyglądają nieistotnie, dopóki nie pomnożysz ich przez roczne zużycie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dopiero wtedy widać",
+      "sub": "czy to warte podpisu",
+      "nar": "Dopiero ta kwota mówi, czy warto podpisywać kolejną wieloletnią umowę. Czasem wychodzi tyle, co jedna kolacja na mieście.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Sprawdź jeszcze jedno",
+      "preco": "czy cena jest gwarantowana",
+      "nar": "Sprawdź też, czy cena jest gwarantowana na cały okres, czy tylko na pierwszy rok. To jest najczęstsza różnica między ofertą, która się opłaca, a taką, która wygląda, że się opłaca.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dystrybucja się nie zmienia",
+      "sub": "cokolwiek podpiszesz",
+      "nar": "I jeszcze jedno: zmieniając sprzedawcę nie zmieniasz operatora sieci. Druga połowa rachunku zostaje dokładnie taka sama.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Plan na ten tydzień",
+      "sub": "cztery kroki",
+      "nar": "Zbierzmy to w plan na ten tydzień. Cztery kroki, wszystkie krótkie, i wszystkie na twoich liczbach.",
+      "cap": "Plan na ten tydzień"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Krok pierwszy i drugi",
+      "itens": [
+        "Policz swoją cenę końcową z faktury",
+        "Sprawdź, czy jesteś na taryfie czy na ofercie"
+      ],
+      "nar": "Pierwszy: policz swoją cenę końcową z ostatniej faktury. Drugi: sprawdź na niej, czy jesteś na taryfie, czy na ofercie handlowej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Krok trzeci i czwarty",
+      "itens": [
+        "Spisz licznik dziś i za tydzień",
+        "Zapisz obie liczby razem z datą"
+      ],
+      "nar": "Trzeci: spisz stan licznika dziś i za tydzień. Czwarty: zapisz obie liczby razem z datą, w jednym miejscu, do którego wrócisz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Wszystko na jednej kartce",
+      "sub": "albo w jednej notatce",
+      "nar": "Trzymaj to w jednym miejscu: kartka na lodówce albo jedna notatka w telefonie. Cztery liczby i cztery daty, nic więcej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To zajmie",
+      "sub": "kwadrans w sumie",
+      "nar": "Cały ten plan zajmuje razem najwyżej kwadrans. To mało jak na jedyny stały rachunek, którego wysokości większość ludzi nie zna.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nie musisz nic zmieniać",
+      "sub": "żeby to zrobić",
+      "nar": "Zwróć uwagę, że żaden z tych kroków nie wymaga, żebyś cokolwiek zmieniał, podpisywał ani anulował. Wszystkie cztery to samo mierzenie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Decyzja przychodzi później",
+      "sub": "i z liczbą w ręku",
+      "nar": "Decyzja przychodzi dopiero potem, i przychodzi z liczbą w ręku zamiast z przeczuciem. To jest cała zmiana, którą ten film ma zrobić.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Za dwa miesiące",
+      "sub": "będziesz mieć porównanie",
+      "nar": "Przy następnej fakturze powtórzysz pierwszy krok i po raz pierwszy zobaczysz kierunek zmiany, zamiast zgadywać z nagłówków.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To jest cała różnica",
+      "sub": "między wiedzą a wrażeniem",
+      "nar": "To jest cała różnica między wiedzą o swoim rachunku a wrażeniem, że chyba drożeje.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Na koniec",
+      "sub": "jedno zdanie do zapamiętania",
+      "nar": "Na koniec jedno zdanie, które warto zapamiętać nawet jeśli zapomnisz wszystkich liczb z tego filmu.",
+      "cap": "Jedno zdanie na koniec"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cena energii spadła",
+      "sub": "rachunek i tak może rosnąć",
+      "nar": "Zatwierdzona cena energii spadła, a rachunek i tak może rosnąć, bo składa się z dwóch części, i tylko o jednej mówią głośno.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Średnia krajowa",
+      "sub": "nie płaci twojego rachunku",
+      "nar": "Średnia krajowa jest ciekawa, ale to nie ona przychodzi do ciebie co dwa miesiące. Twoją fakturę płacisz ty, i ona ma własne liczby.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A dwie połowy",
+      "sub": "trzeba oglądać osobno",
+      "nar": "I ostatnia rzecz: te dwie połowy trzeba oglądać osobno. Zsumowane w jedną kwotę ukrywają dokładnie to, co chciałbyś zobaczyć.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Sprawdzaj u siebie",
+      "preco": "nie w nagłówku",
+      "nar": "Więc sprawdzaj u siebie, nie w nagłówku. Twoja faktura jest jedynym źródłem, które dotyczy dokładnie ciebie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jeżeli zapamiętasz jedno",
+      "sub": "niech to będzie działanie",
+      "nar": "A jeżeli masz zapamiętać dokładnie jedną rzecz, niech to nie będzie czterysta dziewięćdziesiąt pięć złotych. Niech to będzie dzielenie kwoty przez zużycie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bo liczba się zmieni",
+      "sub": "a działanie zostanie",
+      "nar": "Bo tamta liczba zmieni się za rok. To działanie będzie działać dalej, przy każdej fakturze i przy każdej taryfie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Policz to dzisiaj",
+      "sub": "i napisz, ile ci wyszło",
+      "nar": "Policz swoją cenę końcową dzisiaj i napisz w komentarzu, ile ci wyszło. Jeśli takie liczenie ci się przydaje, zostaw subskrypcję — tu każda liczba zamienia się w działanie, które robisz sam.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Cena prądu spadła",
+      "sub": "a rachunek rośnie",
+      "nar": "Zatwierdzona cena prądu na ten rok spadła. A twój rachunek i tak rośnie. To nie pomyłka.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bo rachunek",
+      "sub": "ma dwie połowy",
+      "nar": "Bo rachunek ma dwie połowy: sprzedaż energii i dystrybucję. Nagłówki mówią tylko o pierwszej.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Druga połowa",
+      "sub": "nie zależy od zużycia",
+      "nar": "Druga nie zależy od tego, ile zużyjesz. Zapłacisz ją nawet wyjeżdżając na miesiąc.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Twoja własna cena",
+      "sub": "kwota podzielona przez zużycie",
+      "nar": "Weź fakturę. Podziel kwotę do zapłaty przez zużycie w kilowatogodzinach. To twoja prawdziwa cena.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Reszta liczb",
+      "sub": "w pełnym filmie",
+      "nar": "Co z tą liczbą zrobić, i jak sprawdzić, czy jesteś na taryfie czy na ofercie, pokazuję w pełnym filmie pod linkiem niżej.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Cena energii spadła i rachunek urósł — bo to są dwie różne liczby\n\n## TITULO\nPrąd Stanieje w 2026, a Rachunek Urośnie: Policz Swoją Cenę z Własnej Faktury\n\n## DESCRICAO\nPrezes Urzędu Regulacji Energetyki zatwierdził taryfy na sprzedaż i dystrybucję energii elektrycznej na 2026 rok. Średnia zatwierdzona cena sprzedaży energii wynosi 495,16 zł/MWh i jest niższa niż rok wcześniej. Mimo to przeciętny rachunek rośnie: dla gospodarstwa domowego zużywającego 1,8 MWh wzrost wynosi około 3% miesięcznie, czyli mniej więcej tyle, co ogólny wzrost cen.\n\nCena spada, a rachunek rośnie — i to nie jest sprzeczność. Rachunek za prąd składa się z dwóch osobnych części, zatwierdzanych osobno przez ten sam urząd: sprzedaży samej energii oraz dystrybucji, czyli opłaty za to, że energia dojechała do gniazdka. Nagłówki mówią prawie wyłącznie o pierwszej.\n\nDruga połowa ma własność, która zmienia sposób oszczędzania: spora jej część nie zależy od zużycia. Zapłacisz ją nawet wtedy, gdy wyjedziesz na miesiąc. Dlatego gaszenie światła obniża tylko jedną połowę rachunku, a druga stoi w miejscu niezależnie od starań.\n\nFilm prowadzi do rachunku widza, nie do średniej krajowej. Z faktury, którą masz w domu, potrzebujesz trzech liczb: kwoty do zapłaty z podatkiem, zużycia w kilowatogodzinach i liczby dni okresu rozliczeniowego. Kwota podzielona przez zużycie daje rzeczywistą cenę za kilowatogodzinę ze wszystkim w środku; razy tysiąc — cenę za megawatogodzinę, czyli tę samą jednostkę, w której podaje się taryfy. Różnica wobec zatwierdzonej ceny sprzedaży to twoja druga połowa rachunku, wyrażona w złotówkach.\n\nOsobny rozdział wyjaśnia różnicę między taryfą a ofertą: taryfa jest zatwierdzana przez regulatora i obowiązuje tych, którzy nie podpisali nic innego; oferta to umowa podpisana samodzielnie, często na kilka lat i z ceną gwarantowaną. Dlatego obniżka z nagłówka może ciebie nie dotyczyć — a na fakturze widać, po której stronie jesteś.\n\nNa koniec: plan na tydzień w czterech krokach, oraz warunki, przy których zmiana sprzedawcy naprawdę się opłaca — z ostrzeżeniem o stałej opłacie handlowej, która potrafi podnieść rachunek mimo niższej ceny za kilowatogodzinę.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nPolicz swoją cenę końcową z ostatniej faktury i napisz tu, ile ci wyszło — razem z regionem, bo taryfa dystrybucyjna zależy od operatora. Ciekawi mnie, jak duży jest naprawdę rozrzut między regionami, bo to jedyna część tej układanki, której nie da się podać jedną liczbą dla całego kraju.\n\n## HASHTAGS\n#RachunekZaPrąd #EnergiaElektryczna #KolejnyPoziom\n\n## TAGS\nrachunek za prad, cena energii 2026, taryfa ure, dystrybucja energii, jak obliczyc cene pradu, zmiana sprzedawcy energii, oplata handlowa, licznik energii, oszczedzanie pradu, taryfa g11, faktura za prad, urzad regulacji energetyki, koszty energii w domu, finanse osobiste, kolejny poziom\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Polski (pl) | Categoria: Educação (27)\n- Não é conteúdo para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Polônia | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ligado (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nSprawdzone 26 sierpnia 2026 r. Liczby w tym filmie pochodzą z dwóch niezależnych źródeł instytucjonalnych: (1) Urząd Regulacji Energetyki — komunikat o zatwierdzeniu taryf na sprzedaż i dystrybucję energii elektrycznej na 2026 r. oraz BIP URE z taryfami opublikowanymi w 2026 r.: średnia zatwierdzona cena sprzedaży 495,16 zł/MWh, niższa niż rok wcześniej, przy wzroście przeciętnego rachunku o około 3% miesięcznie dla gospodarstwa zużywającego 1,8 MWh; (2) Ministerstwo Energii na gov.pl oraz rządowa strona priorytetu dotyczącego stabilizacji cen energii elektrycznej dla gospodarstw domowych.\n\nCZEGO W TYM FILMIE NIE MA I DLACZEGO. (a) Nie twierdzę, czy mechanizm mrożenia ceny na poziomie 500 zł/MWh obowiązuje w 2026 r. ani do kiedy. Znalazłem stronę URE opisującą rok 2025, a to nie jest to samo. Z faktu, że zatwierdzona cena jest niższa od progu mrożenia, można wyciągnąć wniosek — ale wniosek nie jest źródłem, i film mówi to wprost zamiast zgadywać. Właśnie ta luka jest powodem, dla którego cały materiał prowadzi do odczytania własnej faktury, a nie do zaufania nagłówkowi. (b) Nie podaję jednej stawki dystrybucyjnej: zależy ona od operatora obsługującego dany region, więc średnia krajowa nie opisywałaby rachunku żadnego konkretnego widza. Zamiast niej film podaje sposób wyliczenia własnej stawki z faktury. (c) Nazwy i warunki ofert handlowych zmieniają się w trakcie roku — film opisuje różnicę między taryfą a ofertą, nie ocenia konkretnych produktów. Nie ma tu porady inwestycyjnej ani rekomendacji wyboru sprzedawcy.\n"
+}
