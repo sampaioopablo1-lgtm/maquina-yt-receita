@@ -69,6 +69,62 @@ assinada dentro do sandbox, e o upload em si. Nenhum dos dois dá para testar
 sem a cota e sem o sandbox. Se algo quebrar de manhã, comece a investigar por
 aí — o resto desta lista já respondeu.
 
+## A ROTA SEGURA, e ela precisa de UMA ação sua (26/08, 08h)
+
+A cota do YouTube voltou às 07h. O Supabase continua 402. O `retomar.yml` é a
+rota certa — ele baixa o artefato com o `GITHUB_TOKEN` do próprio runner e
+publica sem o Supabase — mas ele recebia o `access_token` por **input de
+workflow**, e este repositório é **público**: input fica visível na página do
+run, e esse token *sobe e apaga* vídeo.
+
+Isso agora está resolvido no código. O `access_token` virou **opcional**:
+deixando-o vazio, o runner refresca o token sozinho a partir de um segredo.
+Nada sensível atravessa input.
+
+**A ação, uma só: cadastrar o segredo `YT_OAUTH_JSON`** em
+Settings → Secrets and variables → Actions. O conteúdo sai do próprio banco:
+
+```sql
+select jsonb_object_agg(
+         replace(chave, 'yt_token_', ''),
+         jsonb_build_object(
+           'client_id',     valor::jsonb->>'client_id',
+           'client_secret', valor::jsonb->>'client_secret',
+           'refresh_token', valor::jsonb->>'refresh_token',
+           'token_uri',     coalesce(valor::jsonb->>'token_uri',
+                                     'https://oauth2.googleapis.com/token')))
+from config
+where chave like 'yt_token_%'
+  and (valor::jsonb->>'refresh_token') is not null;
+```
+
+São **12 canais com credencial**, todos no mesmo projeto do Google Cloud
+(`777159180424` — que é também por que a cota diária é compartilhada entre eles).
+
+Rode essa consulta **você**, no painel do Supabase, e cole o resultado no
+segredo. Eu não trago o resultado real para o chat nem para o repositório: são
+refresh tokens que não expiram, de doze canais.
+
+Feito isso, cada pacote publica com:
+
+```
+workflow: retomar.yml
+  pacote: epomeno-epipedo-011
+  canal: epomeno-epipedo
+  idioma: el
+  run_id: <o run do render>
+  access_token: (VAZIO — deixe assim)
+  estado_b64: <o estado do passo 3, em base64>
+```
+
+De brinde, o refresh dentro do runner confere o campo `scope` da resposta do
+Google e recusa se faltar `youtube.force-ssl`. Esse é o campo **efetivo** da
+concessão, e foi exatamente o que faltou no `epomeno-epipedo-008`: o longo subiu
+sem legenda porque `config.scopes` lista o que foi *pedido*, não o *concedido*.
+
+A alternativa continua valendo se você preferir: **tornar o repositório
+privado**, e aí o token por input volta a ser aceito.
+
 ## A ordem
 
 1. **Confira a porta antes de qualquer coisa.** Dispare `porta.yml`. Se ela
