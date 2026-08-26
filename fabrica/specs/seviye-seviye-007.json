@@ -1,0 +1,610 @@
+{
+  "slug": "seviye-seviye",
+  "pacote": "seviye-seviye-007",
+  "idioma": "tr",
+  "voz": "tr-TR-AhmetNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1D3557",
+    "c1": "#E63946",
+    "c2": "#F4A261",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "iki ayın var",
+    "l2": "yüzde 30"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Bir kararın var",
+      "sub": "ve süresi işliyor",
+      "nar": "Şu anda senin adına işleyen bir süre var. Sonunda bir karar çıkacak, ve farkında olmasan bile o kararı sen vermiş sayılacaksın.",
+      "cap": "Süresi işleyen bir karar"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Çoğu konu",
+      "sub": "sana yapılan bir şeydir",
+      "nar": "Bu kanalda çoğu zaman sana yapılan şeyleri konuşuyoruz. Asgari ücret şu kadar oldu, tavan şu kadar belirlendi, zam şu tarihte başladı.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu sefer değil",
+      "sub": "bu sefer sen seçiyorsun",
+      "nar": "Bu sefer farklı. Burada seçen sensin, ve seçmemek de bir seçim, çünkü süre dolduğunda karar kendiliğinden verilmiş oluyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Konu",
+      "preco": "otomatik katılım",
+      "nar": "Konu, işyerin üzerinden otomatik olarak dahil edildiğin emeklilik planı. Kısaca otomatik katılım.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Karar vermemek de",
+      "sub": "karar vermektir",
+      "nar": "Bu cümleyi bir daha söyleyeceğim çünkü videonun tamamı ona dayanıyor: karar vermemek de karar vermektir, ve süre dolduğunda seçim yapılmış olur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yüzde otuz mu",
+      "sub": "yoksa nakit mi",
+      "nar": "Kararın özü şu dengede: devletin eklediği kesin tutar ile, o paranın bir süre elinin altında olmaması arasında seçim yapıyorsun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sonunda ne bileceksin",
+      "sub": "kendi hesabını",
+      "nar": "Videonun sonunda kendi durumun için hesabı yapabiliyor olacaksın. Benim ortalamamla değil, senin maaşın ve senin ihtiyacınla.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Önce rakam",
+      "sub": "çünkü karar ona bağlı",
+      "nar": "Önce rakamla başlayalım, çünkü kararın tamamı bu rakamın etrafında dönüyor. Devlet bu sisteme bir katkı ödüyor.",
+      "cap": "Devlet ne veriyor"
+    },
+    {
+      "layout": "item",
+      "kicker": "Devlet katkısı",
+      "preco": "yüzde otuz",
+      "nar": "Ödediğin katkı payının yüzde otuzu kadar bir tutar, devlet katkısı olarak senin hesabına ekleniyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu oran",
+      "sub": "yüzde yirmi beşten yükseldi",
+      "nar": "Bu oran daha önce yüzde yirmi beşti. Kanunda yapılan değişiklikle yüzde otuza çıkarıldı.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Pratikte",
+      "preco": "her yüz liraya otuz lira",
+      "nar": "Pratikte şu demek: sisteme yatırdığın her yüz lira için, hesabına otuz lira daha ekleniyor. Senin cebinden çıkmadan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu bir getiri değil",
+      "sub": "bir eklemedir",
+      "nar": "Dikkat et, bu bir yatırım getirisi değil. Piyasa ne yaparsa yapsın, bu ekleme yapılıyor. İkisini karıştırmamak kararın en önemli parçası.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Karıştırırsan",
+      "sub": "yanlış soruyu sorarsın",
+      "nar": "Bu ikisini karıştıran kişi yanlış soruyu sorar. Fon ne kadar kazandırır diye sorar, oysa asıl soru paranın bağlanması sorusudur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kesin olan",
+      "preco": "ekleme; belirsiz olan, getiri",
+      "nar": "Kesin olan ekleme, belirsiz olan getiri. Karar kesin olan tarafta verilir, çünkü belirsiz olanı kimse önceden bilemez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Getiri ayrı bir konu",
+      "sub": "ve garantisi yok",
+      "nar": "Fonun kazandırıp kazandırmayacağı bambaşka bir konudur ve hiçbir kurum onu garanti etmez. Burada sadece kesin olan kısmı konuşuyorum.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Şimdi süre",
+      "sub": "iki ay",
+      "nar": "Şimdi kararın süresine gelelim. Plana dahil edildiğin sana bildirildikten sonra iki ayın var.",
+      "cap": "İki aylık cayma hakkı"
+    },
+    {
+      "layout": "item",
+      "kicker": "Bu süre içinde",
+      "preco": "cayabilirsin",
+      "nar": "Bu iki ay içinde sözleşmeden cayabilirsin. Yani sistemden çıkabilirsin, gerekçe göstermek zorunda kalmadan.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Ödediklerin",
+      "preco": "on iş günü içinde geri gelir",
+      "nar": "Caydığında ödediğin katkı payları, varsa yatırım gelirleriyle birlikte, on iş günü içinde sana iade edilir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Yani ilk iki ay",
+      "sub": "risksiz bir deneme değil",
+      "nar": "Burada bir yanlış anlama var, düzeltelim. İki ay risksiz deneme süresi gibi duruyor ama tam olarak öyle değil.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Çünkü caymak",
+      "sub": "devlet katkısını da götürür",
+      "nar": "Çünkü cayarsan devlet katkısı da gitmiş olur. Sana geri gelen, senin ödediğindir. Otuz liralık ekleme o hesapta kalmaz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bir de tarih meselesi",
+      "sub": "bildirim tarihi",
+      "nar": "Bir ayrıntı daha var ve kritik: iki ay, sisteme girdiğin günden değil, durumun sana BİLDİRİLDİĞİ tarihten itibaren sayılıyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu iki tarih",
+      "sub": "aynı olmayabilir",
+      "nar": "Bu iki tarih aynı olmayabilir, ve aradaki fark senin elinde ne kadar süre kaldığını değiştirir. İlerleyen bölümde nereden bakacağını göstereceğim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Karar bu yüzden",
+      "sub": "iki taraflı",
+      "nar": "Kararın tartısı böyle kuruluyor: kesin bir ekleme karşısında, paranın bağlanacağı süre.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Hesabı yapalım",
+      "sub": "senin rakamlarınla",
+      "nar": "Şimdi hesabı yapalım, ve bunu maaş bordronla birlikte yapmanı öneririm. İki rakam yeterli.",
+      "cap": "Hesabı kendin yap"
+    },
+    {
+      "layout": "lista",
+      "kicker": "İki rakam",
+      "itens": [
+        "Aylık kesilen katkı payı",
+        "Kaç ay sistemde kalmayı düşünüyorsun"
+      ],
+      "nar": "Birincisi, bordroda otomatik katılım için aylık kesilen tutar. İkincisi, kaç ay sistemde kalmayı düşündüğün.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Birinci işlem",
+      "preco": "aylık tutarı ay sayısıyla çarp",
+      "nar": "Aylık tutarı ay sayısıyla çarp. Bu, senin toplam ödeyeceğin para.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "İkinci işlem",
+      "preco": "sonucu nokta üç ile çarp",
+      "nar": "Sonucu nokta üç ile çarp. Çıkan sayı, devletin aynı süre boyunca senin hesabına eklediği tutar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "İşte karşılaştırman gereken",
+      "sub": "bu iki sayı",
+      "nar": "Karşılaştırman gereken tam olarak bu iki sayı. Biri senin verdiğin, öbürü karşılığında eklenen.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bir örnekle netleşsin",
+      "sub": "rakamları sen koy",
+      "nar": "Örnekle netleşsin, ve rakamları sen koyacaksın. Diyelim aylık kesinti belli bir tutar ve on iki ay düşünüyorsun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Toplamı bul",
+      "sub": "sonra nokta üç ile çarp",
+      "nar": "Toplamı bulursun, nokta üç ile çarparsın, ve karşına iki sayı çıkar. Bu ikisi arasındaki fark, kararın somut hâlidir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Şimdi üçüncü soruyu sor",
+      "sub": "kendine",
+      "nar": "Ve şimdi kendine üçüncü soruyu sor: o parayı o süre boyunca elimde tutmasam ne olur? Cevap kişiye göre değişir, ve karar orada verilir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Karşılığında",
+      "sub": "ne veriyorsun",
+      "nar": "Bir şey alıyorsan bir şey veriyorsundur. Burada verdiğin şey para değil, paranın zamanı.",
+      "cap": "Karşılığında ne veriyorsun"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu para",
+      "sub": "emeklilik için ayrılmıştır",
+      "nar": "Sisteme giren para emeklilik için ayrılmış sayılır. Yani acil bir durumda hemen ulaşabileceğin bir hesapta durmaz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Erken çıkarsan",
+      "preco": "koşullar değişir",
+      "nar": "İki aylık süreden sonra çıkmak isterseniz, devlet katkısına ne kadar hak kazanacağınız sistemde kaldığınız süreye bağlıdır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu yüzden",
+      "sub": "soru kârlılık sorusu değil",
+      "nar": "Bu yüzden asıl soru şu değil: kârlı mı? Asıl soru şu: bu tutarı bu süre boyunca kenara koyabilir miyim?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cevap evet ise",
+      "sub": "yüzde otuz güçlü bir eklemedir",
+      "nar": "Cevabın evetse, yüzde otuzluk ekleme çok güçlüdür. Piyasada risksiz olarak bu oranı veren bir ürün yoktur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Likidite",
+      "sub": "bir lüks değildir",
+      "nar": "Likidite bir lüks değil, bir güvenlik payıdır. Hesabında ulaşılabilir para olması, beklenmedik bir masrafta borçlanmanı engeller.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Borçlanmanın maliyeti",
+      "preco": "eklemeden büyük olabilir",
+      "nar": "Ve o borçlanmanın maliyeti, yüzde otuzluk eklemeden büyük olabilir. O yüzden sıralama önemlidir, birazdan ona geliyorum.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cevap hayır ise",
+      "sub": "kimse seni suçlayamaz",
+      "nar": "Cevabın hayırsa, bu bir hata değil. Ay sonunu zor getiren biri için likidite, uzun vadeli bir eklemeden daha değerlidir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kimin için mantıklı",
+      "sub": "kimin için değil",
+      "nar": "Genelleme yapmayacağım ama bir çerçeve vereyim. İki uçta durum oldukça net, ortada ise hesap gerekiyor.",
+      "cap": "Kimin için mantıklı"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Sistemde kalmak öne çıkar",
+      "itens": [
+        "Maaşın düzenli ve öngörülebilirse",
+        "Bu tutar bütçeni zorlamıyorsa",
+        "Kısa vadede büyük harcaman yoksa"
+      ],
+      "nar": "Maaşın düzenliyse, kesilen tutar bütçeni zorlamıyorsa ve yakın vadede büyük bir harcaman yoksa, sistemde kalmak öne çıkıyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Caymak öne çıkar",
+      "itens": [
+        "Kredi kartı borcun devrediyorsa",
+        "Geliri düzensiz çalışıyorsan",
+        "Acil durum birikimin hiç yoksa"
+      ],
+      "nar": "Devreden kredi kartı borcun varsa, gelirin düzensizse ya da hiç acil durum birikimin yoksa, caymak öne çıkıyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sıralama önemli",
+      "sub": "önce borç, sonra yastık",
+      "nar": "Sıralama şöyle: önce yüksek faizli borç, sonra acil durum birikimi, sonra uzun vadeli emeklilik. Bu sıra kişisel tercih değil, matematiktir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ortadaysan",
+      "sub": "hesap seni kurtarır",
+      "nar": "İki uçtan hiçbirine tam uymuyorsan, genelleme sana yardımcı olmaz. Kendi rakamınla yaptığın hesap yardımcı olur.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ve bu hesap",
+      "sub": "iki dakika sürüyor",
+      "nar": "İyi haber şu: o hesap iki dakika sürüyor, ve bunun için bordrondan başka hiçbir belgeye ihtiyacın yok.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Çünkü kart faizi",
+      "preco": "yüzde otuzdan büyüktür",
+      "nar": "Çünkü devreden kart borcunun yıllık maliyeti, yüzde otuzluk eklemeden büyük olabilir. O zaman önce onu kapatmak daha çok kazandırır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Şimdi dürüst kısım",
+      "sub": "söylemediğim rakam",
+      "nar": "Şimdi videonun en dürüst kısmı. Size vermeyeceğim bir rakam var, ve nedenini açıkça söyleyeceğim.",
+      "cap": "Söylemediğim rakam"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Girişte bir defalık",
+      "sub": "ilave katkı var",
+      "nar": "Sistemde kalmaya devam edenlere, girişte bir defaya mahsus ilave bir devlet katkısı ödeniyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "İki resmi kaynak",
+      "preco": "iki farklı tutar",
+      "nar": "Ama iki resmi kaynağa baktığımda iki farklı tutar gördüm. Biri beş yüz lira diyor, diğerinde bin lira geçiyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu durumda kural açık",
+      "sub": "rakam videoya girmez",
+      "nar": "Böyle bir durumda kuralım net: iki resmi kaynak aynı sayıyı vermiyorsa, o sayı bu videoya girmez. Tahmin etmek size hizmet etmez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "İyi haber şu",
+      "sub": "karar ona bağlı değil",
+      "nar": "İyi haber şu ki kararınız zaten o rakama bağlı değil. Karar, yüzde otuz ile likidite arasındaki dengede veriliyor, ve o kısım kesin.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Neden bunu anlatıyorum",
+      "sub": "çünkü ölçüsü var",
+      "nar": "Bunu anlatıyorum çünkü bir videonun güvenilirliğinin ölçüsü, söylediklerinden çok söylemediklerinde saklıdır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tahmin edilen rakam",
+      "sub": "yanlış karara götürür",
+      "nar": "Tahmin edilerek verilen bir rakam sizi yanlış bir karara götürebilir, ve o kararın bedelini ben değil siz ödersiniz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kendi tutarını",
+      "sub": "sözleşmenden gör",
+      "nar": "Kendi durumundaki tutarı sözleşmenden ve şirketinin bilgilendirmesinden görebilirsin. Orası size özel, ve orada tahmin yok.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kendi durumunu",
+      "sub": "kendin gör",
+      "nar": "Bütün bu videonun en önemli adımı bu: kendi durumunu başkasından değil, kendi kaydından öğren.",
+      "cap": "Kendi durumunu gör"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Üç yere bak",
+      "itens": [
+        "Maaş bordrondaki kesinti satırı",
+        "Şirketin gönderdiği bilgilendirme",
+        "Devlet katkısı sorgulama ekranı"
+      ],
+      "nar": "Maaş bordrondaki kesinti satırına bak. Şirketinin sana gönderdiği bilgilendirmeye bak. Ve devlet katkısı sorgulama ekranına bak.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Bildirim tarihi",
+      "preco": "sürenin başladığı gün",
+      "nar": "Bilgilendirmedeki tarih önemli, çünkü iki aylık süre o tarihten itibaren işlemeye başlıyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tarihi bulamıyorsan",
+      "sub": "insan kaynaklarına sor",
+      "nar": "Tarihi bulamıyorsan işyerinde insan kaynaklarına sor. Bu bilgiyi vermek zorundalar, ve tek soruyla öğrenirsin.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sorgulama ekranı",
+      "sub": "devlet katkısını gösterir",
+      "nar": "Devlet katkısı sorgulama ekranı, adına ne kadar katkı yatırıldığını ve limit bilgilerini gösterir. Orada gördüğün rakam sana özeldir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu üç kaynak",
+      "sub": "birbirini doğrular",
+      "nar": "Bu üç kaynağı birlikte okursan, kimseye sormadan kendi durumunu tam olarak görürsün. Birbirlerini doğrularlar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tarihi bilmeden",
+      "sub": "karar veremezsin",
+      "nar": "Tarihi bilmeden karar veremezsin, çünkü sürenin ne kadarının kaldığını bilmiyorsun demektir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "İki yolun sonu",
+      "sub": "nasıl görünüyor",
+      "nar": "İki yolun sonunu da net bırakayım, çünkü belirsizlik karar vermeyi zorlaştırır.",
+      "cap": "İki yolun sonu"
+    },
+    {
+      "layout": "item",
+      "kicker": "Cayarsan",
+      "preco": "ödediklerin geri gelir",
+      "nar": "Cayarsan, ödediğin katkı payları varsa gelirleriyle birlikte on iş günü içinde iade edilir, ve o dönem için devlet katkısı hesabında kalmaz.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Kalırsan",
+      "preco": "her ödemeye yüzde otuz eklenir",
+      "nar": "Kalırsan, her ödemene yüzde otuz eklenmeye devam eder ve birikim uzun vadede senin adına çalışır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Karar geri dönülmez değil",
+      "sub": "ama süre geri gelmez",
+      "nar": "Karar sonsuza kadar bağlayıcı değil. Ama iki aylık süre bir kez geçer, ve geçtikten sonra çıkış koşulları farklıdır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kalmak da",
+      "sub": "geri dönülmez değil",
+      "nar": "Kalmayı seçersen de kapı kapanmıyor. İlerleyen dönemde çıkabilirsin, sadece koşullar iki aylık dönemdekinden farklı oluyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Fark şu",
+      "preco": "hak kazanma süreye bağlanır",
+      "nar": "Fark şu: devlet katkısına ne kadar hak kazanacağın, sistemde kaldığın süreye bağlı hâle gelir. Kapı kapanmaz, koşul değişir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu yüzden",
+      "sub": "acele değil ama erteleme de değil",
+      "nar": "Bu yüzden acele etmene gerek yok, ama ertelemek de bir seçim. Süre dolarsa, sistemde kalmayı seçmiş olursun.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bu hafta",
+      "sub": "üç adım",
+      "nar": "Bu haftaya üç adım bırakıyorum, ve hiçbiri on dakikadan uzun sürmüyor.",
+      "cap": "Bu hafta üç adım"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Birinci ve ikinci",
+      "itens": [
+        "Bordrondaki kesinti tutarını bul",
+        "Bilgilendirme tarihini öğren"
+      ],
+      "nar": "Birinci adım: bordrondaki kesinti tutarını bul. İkinci adım: bilgilendirme tarihini öğren, gerekirse insan kaynaklarına sorarak.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Üçüncü",
+      "itens": [
+        "Toplamı hesapla ve nokta üç ile çarp",
+        "Sonra kendine likidite sorusunu sor"
+      ],
+      "nar": "Üçüncü adım: toplamı hesapla, nokta üç ile çarp, ve kendine şu soruyu sor: bu parayı bu süre boyunca kenara koyabilir miyim?",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cevabı sen bileceksin",
+      "sub": "ben değil",
+      "nar": "Cevabı sen bileceksin, ben değil. Benim işim rakamı ve süreyi doğru vermekti; kararı veren sensin.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Bir de not",
+      "sub": "kararını yazılı tut",
+      "nar": "Bir küçük not: kararını ve tarihini bir yere yaz. Altı ay sonra neden öyle karar verdiğini hatırlamak, o kararı gözden geçirmeyi kolaylaştırır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Çünkü koşullar değişir",
+      "sub": "sen de değişirsin",
+      "nar": "Çünkü koşullar değişir, geliriniz değişir, önceliğiniz değişir. Yazılı bir gerekçe, gelecekteki kararınızın başlangıç noktasıdır.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ve en önemlisi",
+      "sub": "kararı sen ver, süre değil",
+      "nar": "En önemlisi şu: kararı sen ver, süre senin yerine vermesin. Aradaki fark, bu videonun tamamı.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Hesabı bugün yap",
+      "sub": "ve sonucu yaz",
+      "nar": "Hesabı bugün yap ve sonucunu yorumlara yaz. Bu tür hesaplar işine yarıyorsa abone ol, burada her rakam kendi başına yapacağın bir işe dönüşüyor.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "İki ayın var",
+      "sub": "ve süre işliyor",
+      "nar": "İşyerin üzerinden bir emeklilik planına dahil edildiysen, iki ayın var. Süre şu anda işliyor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Seçen sensin",
+      "sub": "bu sefer",
+      "nar": "Seçen sensin. Ve seçmemek de bir seçim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Devlet katkısı",
+      "sub": "yüzde otuz",
+      "nar": "Yatırdığın her yüz liraya, devlet otuz lira ekliyor. Bu bir getiri değil, kesin bir ekleme.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Hesap",
+      "sub": "nokta üç ile çarp",
+      "nar": "Bordrondaki aylık kesintiyi ay sayısıyla çarp, sonra nokta üç ile çarp. Karşılığında eklenen bu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Peki caymak",
+      "sub": "kimin için mantıklı",
+      "nar": "Caymak kimin için mantıklı, ve süre ne zaman başlıyor? Tam videoda, aşağıdaki bağlantıda.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# Otomatik katılımda karar senin, ama süre işliyor\n\n## TITULO\nOtomatik Katılımda İki Ayın Var: Yüzde 30 Devlet Katkısı ve Cayma Hesabı\n\n## DESCRICAO\nİşyerin üzerinden otomatik olarak bir emeklilik planına dahil edildiysen, elinde bir karar var ve o kararın süresi şu anda işliyor. Bu kanalda genellikle sana yapılan şeyleri konuşuyoruz: asgari ücret ne oldu, tavan ne belirlendi, zam ne zaman başladı. Bu video farklı, çünkü burada seçen sensin — ve seçmemek de bir seçim, çünkü süre dolduğunda karar kendiliğinden verilmiş oluyor.\n\nKararın etrafında döndüğü rakam şu: ödediğin katkı payının yüzde 30'u kadar bir tutar, devlet katkısı olarak hesabına ekleniyor. Bu oran daha önce yüzde 25'ti ve kanun değişikliğiyle yüzde 30'a çıkarıldı. Pratikte sisteme yatırdığın her 100 lira için hesabına 30 lira daha ekleniyor. Video bu noktada önemli bir ayrımı yapıyor: bu bir yatırım getirisi değil, kesin bir eklemedir. Fonun kazandırıp kazandırmayacağı ayrı bir konudur ve hiçbir kurum onu garanti etmez.\n\nSürenin tarafı ise şöyle: plana dahil edildiğin sana bildirildikten sonra iki ay içinde sözleşmeden cayabilirsin. Caydığında ödediğin katkı payları, varsa yatırım gelirleriyle birlikte on iş günü içinde iade edilir. Ama bu iki ay \"risksiz deneme süresi\" değil — cayarsan devlet katkısı da o hesapta kalmaz.\n\nHesap iki rakamla yapılıyor ve bordronla birlikte iki dakika sürüyor: aylık kesilen katkı payını sistemde kalmayı düşündüğün ay sayısıyla çarp, sonucu 0,3 ile çarp. Karşılaştırman gereken tam olarak bu iki sayıdır — senin verdiğin ve karşılığında eklenen. Üçüncü soru ise kişiye göre değişir: o parayı o süre boyunca kenara koyabilir misin?\n\nVideo bir çerçeve de veriyor: maaşı düzenli, bütçesi zorlanmayan ve yakın vadede büyük harcaması olmayan için sistemde kalmak öne çıkıyor; devreden kredi kartı borcu, düzensiz geliri veya hiç acil durum birikimi olmayan için caymak öne çıkıyor. Sıralama kişisel tercih değil matematiktir: önce yüksek faizli borç, sonra acil durum birikimi, sonra uzun vadeli emeklilik.\n\nSon bölümde bu haftaya üç adım var: bordrondaki kesinti tutarını bul, bilgilendirme tarihini öğren, ve hesabı kendi rakamlarınla yap.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nHesabı yaptıysan sonucu buraya yaz: aylık kesinti ne kadar, kaç ay için düşünüyorsun, ve 0,3 ile çarpınca ne çıktı. Özellikle merak ettiğim şey, bildirim tarihini bordrodan bulabilen ile insan kaynaklarına sormak zorunda kalanların oranı — çünkü tarihi bilmeden karar veremiyorsun.\n\n## HASHTAGS\n#OtomatikKatılım #DevletKatkısı #SeviyeSeviye\n\n## TAGS\notomatik katilim, bes devlet katkisi, cayma hakki, bireysel emeklilik, yuzde 30 devlet katkisi, oks nedir, emeklilik plani, maas bordrosu kesinti, bes hesaplama, calisan haklari, kidem ve emeklilik, tasarruf, acil durum birikimi, kisisel finans, seviye seviye\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Türkçe (tr) | Categoria: Educação (27)\n- Não é conteúdo para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Turquia | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ligado (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\n26 Ağustos 2026'da kontrol edildi. Bu videodaki iki temel bilgi, birbirinden bağımsız iki kurumsal kaynakta doğrulanmıştır: (1) Emeklilik Gözetim Merkezi (egm.org.tr) — \"Devlet Katkısı\", \"OKS nedir\" ve \"OKS-BES Karşılaştırması\" sayfaları; (2) mevzuat metni — 4632 sayılı Bireysel Emeklilik Tasarruf ve Yatırım Sistemi Kanunu (mevzuat.gov.tr), otomatik katılım kanun metni (TBMM arşivi) ve SEDDK'nın sistemdeki yeni avantajlara ilişkin duyurusu. Doğrulanan iki bilgi şunlardır: devlet katkısı oranının yüzde 25'ten yüzde 30'a çıkarılmış olması, ve plana dahil edildiğinin bildirilmesinden itibaren iki ay içinde cayma hakkının bulunması, cayma hâlinde ödenen katkı paylarının varsa yatırım gelirleriyle birlikte on iş günü içinde iade edilmesi.\n\nBU VİDEODA OLMAYANLAR VE NEDENİ. (a) Girişte bir defaya mahsus ödenen ilave devlet katkısının TUTARI verilmemiştir: baktığım iki resmi kaynak aynı sayıyı vermiyor — birinde beş yüz lira, diğerinde bin lira geçiyor. İki resmi kaynak aynı sayıyı vermiyorsa o sayı videoya girmez; kendi sözleşmenizdeki tutarı şirketinizin bilgilendirmesinden görebilirsiniz. Kararın bu rakama bağlı olmaması, bu boşluğun videoyu zayıflatmamasının nedenidir. (b) Hiçbir fon getirisi tahmini yapılmamıştır: getiri seçilen fona ve vadeye bağlıdır ve hiçbir kurum garanti etmez. Video yalnızca kesin olan kısmı — yüzde 30'luk eklemeyi — likidite ile karşılaştırır. (c) İki aylık süreden sonraki çıkışlarda devlet katkısına hak kazanma koşulları sistemde kalınan süreye bağlıdır ve video bu koşulları sayısallaştırmaz. Burada yatırım tavsiyesi veya kişiye özel finansal danışmanlık yoktur.\n"
+}
