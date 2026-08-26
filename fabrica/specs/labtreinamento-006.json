@@ -1,0 +1,504 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-006",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F3A5F",
+    "c1": "#C1462E",
+    "c2": "#E9B44C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "11% ou 20%",
+    "l2": "confira sua guia"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "Você já escolheu",
+      "sub": "mesmo sem perceber",
+      "nar": "Se você emite nota como autônomo, já fez uma escolha que decide como você vai se aposentar. E é bem provável que ninguém tenha te explicado ela.",
+      "cap": "A escolha que você já fez"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ela está na sua guia",
+      "sub": "no código dela",
+      "nar": "A escolha está na guia que você paga todo mês. No código dela, mais precisamente, e é uma diferença de dois dígitos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "As duas opções",
+      "itens": [
+        "Vinte por cento sobre o que você declarar",
+        "Onze por cento, só sobre o salário mínimo"
+      ],
+      "nar": "São duas. Vinte por cento sobre o valor que você declarar, ou onze por cento, e nesse caso só sobre o salário mínimo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A de onze parece melhor",
+      "sub": "e é mais barata mesmo",
+      "nar": "A de onze por cento parece melhor, e é mesmo mais barata todo mês. É por isso que ela é escolhida com tanta frequência.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mas ela cobra o preço",
+      "sub": "em outro lugar",
+      "nar": "Só que ela cobra o preço em outro lugar, e num lugar que você só vai visitar daqui a muitos anos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que você vai aprender",
+      "preco": "quanto custa consertar",
+      "nar": "Neste vídeo você vai saber calcular quanto custa consertar essa escolha, se ela foi a errada para o seu caso. Com o valor da sua guia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E não é opinião minha",
+      "sub": "é regra publicada",
+      "nar": "E nada disso é opinião. É regra publicada pelo próprio Instituto Nacional do Seguro Social, e eu digo no fim onde conferir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Vale uma ressalva",
+      "sub": "eu não sei o seu caso",
+      "nar": "Uma ressalva honesta antes: eu não sei a sua idade nem quanto tempo você já contribuiu. A conta é sua, e o vídeo te dá o método.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que a reduzida tira",
+      "sub": "e é grande",
+      "nar": "Vamos ao que a alíquota reduzida tira de você. É uma coisa só, mas é grande, e ela não aparece em lugar nenhum na hora de pagar.",
+      "cap": "O que a reduzida tira"
+    },
+    {
+      "layout": "item",
+      "kicker": "Quem paga onze por cento",
+      "preco": "não tem tempo de contribuição",
+      "nar": "Quem contribui pela alíquota reduzida não tem direito à aposentadoria por tempo de contribuição. Só por idade.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Leia de novo",
+      "sub": "só por idade",
+      "nar": "Vale ler de novo devagar: só por idade. O tempo que você pagou continua existindo, mas não conta para aquela porta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E a diferença entre as duas",
+      "sub": "são anos da sua vida",
+      "nar": "A diferença entre as duas portas costuma ser de anos. Anos em que você poderia já estar recebendo e vai estar trabalhando.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ninguém te avisa",
+      "sub": "porque a guia não avisa",
+      "nar": "E ninguém te avisa disso, porque a guia não avisa. Ela só cobra o valor menor, todo mês, e o valor menor parece uma boa notícia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A boa notícia real",
+      "preco": "dá para consertar",
+      "nar": "A boa notícia de verdade é outra: dá para consertar. Existe um caminho oficial, e ele tem nome, prazo e preço.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E repare no detalhe",
+      "sub": "o dinheiro não some",
+      "nar": "Repare num detalhe que confunde muita gente: o dinheiro que você pagou não some, e o benefício por idade continua garantido. O que some é a outra porta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Por isso não é golpe",
+      "sub": "é uma troca mal explicada",
+      "nar": "Por isso não chame de golpe. É uma troca legítima, oferecida por lei, e mal explicada no momento em que a pessoa escolhe.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O nome dele",
+      "sub": "complementação",
+      "nar": "O nome dele é complementação. É disso que trata o resto deste vídeo, e é por aí que a sua conta começa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Como se conserta",
+      "sub": "e quanto custa",
+      "nar": "O conserto é simples de descrever e não é barato: você paga a diferença entre o que pagou e o que deveria ter pago.",
+      "cap": "Como se conserta"
+    },
+    {
+      "layout": "item",
+      "kicker": "A diferença",
+      "preco": "nove por cento",
+      "nar": "Como a reduzida é onze e a cheia é vinte, a diferença é de nove por cento sobre o salário mínimo que serviu de base naquele mês.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E mais",
+      "preco": "juros de mora",
+      "nar": "E sobre esse valor incidem juros de mora, porque é pagamento atrasado. Quanto mais antigo o mês, mais o juro pesa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Essa é a parte",
+      "sub": "que muda tudo",
+      "nar": "E essa é a parte que muda a conta inteira. Nove por cento de um mês do ano passado é uma coisa. De um mês de dez anos atrás é outra bem diferente.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Por isso o tempo",
+      "sub": "trabalha contra você",
+      "nar": "Por isso o tempo aqui trabalha contra você. Cada mês que passa encarece o conserto dos meses que já passaram.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Onde se faz",
+      "preco": "no Meu INSS",
+      "nar": "O acerto se faz pelo Meu INSS, e é lá que o cálculo com juros aparece certo, mês a mês, para o seu caso específico.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Você pode consertar em partes",
+      "sub": "não precisa ser tudo",
+      "nar": "E não precisa ser tudo de uma vez. Dá para complementar alguns meses, os que fizerem diferença para o seu caso, e deixar os outros como estão.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Isso muda a conta",
+      "sub": "de impossível para escolhível",
+      "nar": "Isso costuma mudar a conversa de impossível para escolhível, porque você passa a comprar exatamente o tempo de que precisa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Não vou dar taxa de juro",
+      "sub": "e vou dizer por quê",
+      "nar": "Eu não vou dar aqui a taxa de juros. Ela muda conforme o período, e um número fixo daria uma conta errada para quase todo mundo que assiste.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Agora a sua conta",
+      "sub": "com a sua guia na mão",
+      "nar": "Agora a conta, e você faz com a sua guia na mão. Não precisa de planilha nem de contador para o primeiro número.",
+      "cap": "A conta com a sua guia"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Três coisas da guia",
+      "itens": [
+        "O valor que você paga por mês",
+        "O código de pagamento",
+        "Desde quando você paga assim"
+      ],
+      "nar": "Pegue três coisas: o valor que você paga por mês, o código de pagamento, e desde quando você paga assim.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O código diz qual você é",
+      "sub": "e é o mais importante",
+      "nar": "O código é o mais importante dos três, porque é ele que diz se você está na alíquota cheia ou na reduzida. Confira antes de tudo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Primeiro passo",
+      "preco": "seu valor dividido por onze",
+      "nar": "Se você está na reduzida, divida o valor que paga por onze. Isso te dá quanto vale um ponto percentual na sua base.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Segundo passo",
+      "preco": "multiplique por nove",
+      "nar": "Multiplique esse resultado por nove. Esse é o valor que falta em CADA mês, antes dos juros.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Terceiro passo",
+      "preco": "multiplique pelos meses",
+      "nar": "Multiplique pelo número de meses que você já pagou assim. Agora você tem a ordem de grandeza do conserto, sem os juros.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Os juros vêm por cima",
+      "sub": "e só o Meu INSS calcula",
+      "nar": "Os juros vêm por cima disso, e só o sistema calcula certo. Mas você já sabe se está falando de centenas ou de dezenas de milhares.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Guarde esse número",
+      "sub": "ele é o seu ponto de partida",
+      "nar": "Guarde esse número em algum lugar. Ele é o seu ponto de partida, e é ele que você vai comparar com o que o sistema devolver.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E é isso que decide",
+      "sub": "se vale a pena",
+      "nar": "E é exatamente esse número que decide se vale a pena consertar, adiar, ou simplesmente mudar de alíquota daqui para frente.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quando não vale",
+      "sub": "e isso quase não se fala",
+      "nar": "Agora a parte que quase nenhum vídeo faz: quando NÃO vale a pena consertar. Porque existem casos assim, e vários.",
+      "cap": "Quando não vale consertar"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se você já está perto da idade",
+      "sub": "a outra porta chega antes",
+      "nar": "Se você já está perto da idade da aposentadoria por idade, a porta que você já tem pode chegar antes da que você compraria.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se o conserto custa demais",
+      "sub": "compare com o que ele compra",
+      "nar": "Se o conserto sai muito caro, compare esse valor com o que ele compra: quantos meses de antecipação, e de que valor de benefício.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A pergunta certa",
+      "preco": "quantos meses eu antecipo",
+      "nar": "A pergunta certa não é quanto custa. É quantos meses eu antecipo, e quanto eu recebo a mais por mês depois disso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sem esses dois números",
+      "sub": "não dá para decidir",
+      "nar": "Sem esses dois números, ninguém consegue decidir, e quem te disser que sempre vale a pena não fez a conta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E tem o meio-termo",
+      "sub": "que muita gente ignora",
+      "nar": "E existe um meio-termo que muita gente ignora: não consertar o passado, mas mudar de alíquota daqui para frente.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Esse caminho serve bem",
+      "sub": "para quem tem tempo pela frente",
+      "nar": "Esse meio-termo costuma servir bem para quem ainda tem muitos anos de trabalho pela frente, porque o tempo novo vale igual e não tem juro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E serve mal",
+      "sub": "para quem está no fim",
+      "nar": "E serve mal para quem está perto do fim da carreira, porque não sobra tempo suficiente para o novo contar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Assim",
+      "preco": "o passado fica como está",
+      "nar": "Nesse caminho o passado fica como está, e o tempo novo já entra contando para as duas portas. Custa mais por mês e nada de uma vez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Esta semana",
+      "sub": "três passos curtos",
+      "nar": "Três passos para esta semana, todos com os seus números e nenhum com os meus.",
+      "cap": "Três passos esta semana"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Primeiro e segundo",
+      "itens": [
+        "Abra a sua guia e ache o código",
+        "Some quantos meses você pagou assim"
+      ],
+      "nar": "Primeiro: abra a guia e ache o código de pagamento. Segundo: some quantos meses você já pagou dessa forma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "lista",
+      "kicker": "Terceiro",
+      "itens": [
+        "Entre no Meu INSS",
+        "Peça a simulação da complementação"
+      ],
+      "nar": "Terceiro: entre no Meu INSS e peça a simulação da complementação. É lá que o número com juros aparece certo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Anote o resultado",
+      "sub": "com a data",
+      "nar": "Anote o resultado com a data do dia. Daqui a seis meses esse número vai estar maior, e você vai querer saber quanto maior.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se der um valor alto",
+      "sub": "não decida no susto",
+      "nar": "E se o número vier alto, não decida no susto. Leve as duas perguntas do capítulo anterior antes de assinar qualquer coisa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Antes disso, um cuidado",
+      "sub": "com quem te procura",
+      "nar": "Um cuidado antes: assunto de aposentadoria atrai quem vende solução pronta. Desconfie de quem te dá um número sem olhar a sua guia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ninguém calcula isso",
+      "sub": "sem os seus dados",
+      "nar": "Ninguém consegue calcular isso sem os seus dados, e quem afirmar que consegue está vendendo, não calculando.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O Meu INSS é de graça",
+      "sub": "e é a fonte",
+      "nar": "A simulação no Meu INSS é gratuita e vem da fonte. Comece por ela, e só depois procure ajuda se o número pedir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma conversa vale",
+      "preco": "com quem calcula isso",
+      "nar": "Vale conversar com quem calcula isso profissionalmente. O que este vídeo te dá é a pergunta certa para levar, e a ordem de grandeza.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Uma frase para levar",
+      "sub": "se esquecer o resto",
+      "nar": "Se você esquecer todos os números deste vídeo, leve uma frase só.",
+      "cap": "Uma frase para levar"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A alíquota menor",
+      "sub": "não é desconto",
+      "nar": "A alíquota menor não é um desconto. É uma troca: você paga menos agora e abre mão de uma porta depois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Trocas não são erradas",
+      "sub": "erradas são as não escolhidas",
+      "nar": "Trocas não são erradas por si. Erradas são as que a gente faz sem saber que está fazendo, e essa é feita assim todo mês, no Brasil inteiro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E vale para quem começa agora",
+      "sub": "principalmente",
+      "nar": "Se você está começando a emitir nota agora, isso vale ainda mais para você. A escolha do primeiro código é a mais barata de acertar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Acertar no começo",
+      "sub": "custa zero",
+      "nar": "Acertar no começo custa zero. Consertar dez anos depois custa nove por cento de cada mês, com juros de cada mês.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "É a mesma decisão",
+      "sub": "com preços muito diferentes",
+      "nar": "É literalmente a mesma decisão, tomada em dois momentos, com preços completamente diferentes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Então confira o código",
+      "preco": "hoje",
+      "nar": "Então confira o código da sua guia hoje. Dois minutos, e você sai sabendo em qual das duas portas você está.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dois minutos hoje",
+      "sub": "contra anos depois",
+      "nar": "Dois minutos hoje decidem uma coisa que você só vai sentir daqui a muitos anos. Poucas decisões têm essa proporção, e essa está na sua gaveta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Faça a conta e me diga",
+      "sub": "em qual você estava",
+      "nar": "Faça a conta e escreve nos comentários em qual das duas você descobriu que estava. Se esse tipo de conta te serve, se inscreve — aqui cada regra vira uma conta que você faz sozinho.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Se você emite nota",
+      "sub": "como autônomo",
+      "nar": "Se você emite nota como autônomo, já fez uma escolha que decide como vai se aposentar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Está na sua guia",
+      "sub": "no código dela",
+      "nar": "Ela está no código da guia que você paga todo mês. Onze por cento, ou vinte.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A de onze é mais barata",
+      "sub": "e tira uma porta",
+      "nar": "A de onze é mais barata. E quem paga ela não tem aposentadoria por tempo de contribuição. Só por idade.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dá para consertar",
+      "sub": "pagando a diferença",
+      "nar": "Dá para consertar pagando nove por cento de diferença em cada mês, mais juros.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Quanto isso dá no seu caso",
+      "sub": "e quando não vale",
+      "nar": "Quanto isso dá com a sua guia, e quando NÃO vale a pena consertar, está no vídeo completo aqui embaixo.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# A alíquota menor não é desconto: é uma troca, e ela é feita sem escolha\n\n## TITULO\nINSS do Autônomo: 11% ou 20%? A Escolha na Sua Guia Que Decide a Aposentadoria\n\n## DESCRICAO\nSe você emite nota como autônomo, já fez uma escolha que decide como vai se aposentar — e é provável que ninguém tenha explicado ela. A escolha está no código da guia que você paga todo mês, e são duas opções: 20% sobre o valor que você declarar, ou 11%, e nesse caso somente sobre o salário mínimo.\n\nA alíquota de 11% é mais barata todo mês, e é por isso que ela é escolhida com tanta frequência. Mas ela cobra o preço em outro lugar: quem contribui pela alíquota reduzida não tem direito à aposentadoria por tempo de contribuição — apenas por idade. O tempo pago continua existindo, mas não conta para aquela porta, e a diferença entre as duas costuma ser de anos.\n\nDá para consertar, e o caminho é oficial: chama-se complementação. Como a reduzida é 11% e a cheia é 20%, a diferença é de 9% sobre o salário mínimo que serviu de base naquele mês, acrescida de juros de mora — porque é pagamento atrasado. O acerto é feito pelo Meu INSS, e é lá que o cálculo mês a mês aparece correto para o seu caso.\n\nO vídeo monta a conta com a guia do espectador, sem planilha e sem contador para o primeiro número: pegue o valor que você paga por mês, divida por 11 para saber quanto vale um ponto percentual na sua base, multiplique por 9 para achar o que falta em cada mês, e multiplique pelo número de meses que você já paga assim. Isso dá a ordem de grandeza do conserto antes dos juros — o suficiente para saber se a conversa é de centenas ou de dezenas de milhares.\n\nHá um capítulo inteiro para o que quase não se fala: quando NÃO vale a pena consertar. Se você já está perto da idade, a porta que você já tem pode chegar antes da que compraria. E a pergunta certa nunca é quanto custa, e sim quantos meses eu antecipo e quanto recebo a mais por mês depois disso. Existe ainda o meio-termo que muita gente ignora: não consertar o passado e mudar de alíquota daqui para frente.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nConfere o código da sua guia e escreve aqui em qual das duas você descobriu que estava — e, se fizer a simulação no Meu INSS, quanto deu a ordem de grandeza. Tenho curiosidade em ver quanta gente está na reduzida sem saber que está, porque nas conversas que tive esse número parece alto demais para ser acidente individual.\n\n## HASHTAGS\n#INSS #Autonomo #LabTreinamento\n\n## TAGS\ninss autonomo, contribuinte individual, aliquota 11 ou 20, complementacao inss, aposentadoria por tempo de contribuicao, meu inss, guia da previdencia, carne leao, pro labore, contribuicao previdenciaria, aposentadoria por idade, planejamento previdenciario, profissional tecnico, carreira tecnica, lab treinamento\n\n## CONFIGURACAO DE STUDIO\n- Idioma: Português (pt-BR) | Categoria: Educação (27)\n- Não é conteúdo para crianças\n- Divulgação de conteúdo alterado ou sintético: SIM (voz gerada por IA)\n- Local: Brasil | Licença: Licença padrão do YouTube\n- Anúncios mid-roll: ligado (duração acima de oito minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nConsultado em 26 de agosto de 2026. As regras deste vídeo foram conferidas em rotas institucionais independentes: (1) INSS, em gov.br/inss — páginas \"Contribuição dos segurados facultativo e contribuinte individual\", \"Plano simplificado\" e \"Regularização de Contribuição Previdenciária\"; (2) Receita Federal, em gov.br/receitafederal — \"Contribuições previdenciárias (pessoas físicas)\"; e o acerto previsto no art. 29 da Emenda Constitucional nº 103, de 12 de novembro de 2019, no acervo do Planalto. As três afirmações centrais são: o contribuinte individual sem vínculo com empresa contribui a 20% sobre o salário de contribuição ou a 11% incidentes somente sobre o salário mínimo; quem opta pela alíquota reduzida não tem direito à aposentadoria por tempo de contribuição, apenas por idade; e para contar aquele tempo é necessário complementar a contribuição com 9% sobre o salário mínimo usado de base, acrescidos de juros de mora, pelo Meu INSS.\n\nAVISO SOBRE OS NÚMEROS — o que foi descartado e por quê. (a) O VALOR do salário mínimo não é citado: as alíquotas incidem sobre ele, mas o valor de 2026 não foi confirmado em duas rotas oficiais, e o espectador não precisa dele — tem o valor da própria guia, que descreve o caso dele melhor que qualquer média. (b) A TAXA de juros de mora da complementação não é citada: ela varia conforme o período do débito, e um número fixo produziria uma conta errada para quase todos. O vídeo direciona à simulação no Meu INSS, que é onde o cálculo é feito com a taxa correta mês a mês. (c) Não há projeção de valor de benefício futuro: isso depende de todo o histórico contributivo da pessoa. Este vídeo não é consultoria previdenciária nem recomendação individual; ele descreve regras publicadas e ensina a ordem de grandeza, e recomenda expressamente conversar com quem calcula isso profissionalmente antes de decidir.\n"
+}
