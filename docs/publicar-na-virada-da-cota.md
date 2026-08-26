@@ -193,15 +193,52 @@ privado**, e aí o token por input volta a ser aceito.
    trava anti-duplicata rodando contra estado velho é exatamente como a mesma
    coisa vai ao ar duas vezes. Uma consulta, no momento de publicar:
 
+   A consulta abaixo já sai em base64 numa linha só, pronta para o input, e
+   **já declara o tamanho da lista** — leia o parágrafo seguinte antes de usar.
+
    ```sql
-   select jsonb_build_object(
-     'ja_publicado', coalesce((select jsonb_object_agg(formato, youtube_id)
-        from videos where pacote = '<pacote>' and youtube_id is not null), '{}'::jsonb),
-     'titulos_no_ar', coalesce((select jsonb_agg(jsonb_build_object(
-          'titulo', titulo, 'formato', formato,
-          'youtube_id', youtube_id, 'pacote', pacote))
-        from videos where canal = '<canal>' and youtube_id is not null), '[]'::jsonb));
+   select replace(encode(convert_to(jsonb_build_object(
+       'gerado_em', now(),
+       'ja_publicado', coalesce((
+         select jsonb_object_agg(formato, youtube_id) from videos
+         where youtube_id is not null and pacote = '<pacote>'
+       ), '{}'::jsonb),
+       'titulos_no_ar_n', (
+         select count(distinct lower(btrim(titulo))) from videos
+         where youtube_id is not null and titulo is not null
+       ),
+       'titulos_no_ar', coalesce((
+         select jsonb_agg(jsonb_build_object('titulo', titulo, 'formato', formato,
+                                             'youtube_id', youtube_id, 'pacote', pacote))
+         from (
+           select distinct on (lower(btrim(titulo))) titulo, formato, youtube_id, pacote
+           from videos where youtube_id is not null and titulo is not null
+           order by lower(btrim(titulo)), slug
+         ) u
+       ), '[]'::jsonb)
+     )::text, 'UTF8'), 'base64'), E'\n', '') as estado_b64;
    ```
+
+   Três detalhes que custaram para aparecer. **(a)** A lista é do CORPUS
+   INTEIRO, não do canal: `ja_no_ar_pelo_titulo` consulta `videos` sem filtro de
+   canal, e a trava do modo ponte tem de recusar exatamente o que a outra
+   recusaria. A versão anterior desta consulta filtrava por um `canal` que nem
+   existe como coluna. **(b)** A deduplicação por título é segura porque o
+   critério é igualdade exata: manter uma linha por título distinto não muda a
+   resposta da trava, e corta o base64 pela metade. **(c)** O
+   `titulos_no_ar_n` não é enfeite.
+
+   **A TRANSCRIÇÃO É O PONTO FRACO, e ela já falhou.** Em 26/08/2026 eu montei
+   este estado com 23 mil caracteres de base64 e, ao colar no disparo, cortei a
+   lista no décimo terceiro título e ainda corrompi um deles. Aquele run morreu
+   antes, na falta do segredo, então nada foi publicado — mas com o segredo no
+   lugar a trava de título teria rodado contra um corpus pela metade, e **trava
+   cega tem a mesma cara de trava que passou**. O runner não tem como buscar o
+   estado sozinho: é justamente o PostgREST que está em 402, que é o motivo
+   desta rota existir. Então a transcrição fica, e o que entra é a conferência:
+   o `retomar.yml` recusa o disparo se o número de títulos que chegou não bate
+   com o `titulos_no_ar_n` que o próprio estado declara. Truncar deixou de ser
+   silencioso.
 
    Se `ja_publicado` vier com qualquer formato preenchido, **pare**: o pacote já
    está no ar e o resto seria duplicata.

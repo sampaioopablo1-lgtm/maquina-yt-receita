@@ -51,7 +51,7 @@ on:
         required: false
         default: ""
       estado_b64:
-        description: "Estado do banco para as travas, JSON em base64"
+        description: "Estado do banco para as travas, JSON em base64. Precisa trazer `titulos_no_ar_n` com o tamanho da lista — o runner confere e recusa lista truncada."
         type: string
         required: true
 
@@ -183,15 +183,50 @@ jobs:
           test -s "$D/video.mp4" -o -s "$D/short.mp4" \
             || { echo "::error::nenhum clipe em $D"; exit 1; }
 
+      # O ESTADO CHEGA TRANSCRITO A MAO, E FOI ASSIM QUE ELE QUEBROU.
+      #
+      # Em 26/08/2026 eu montei o `estado_b64` da epomeno-epipedo-011 com a
+      # lista inteira de titulos no ar, 23 mil caracteres de base64, e ao
+      # colar no disparo cortei a lista no decimo terceiro titulo e ainda
+      # corrompi um deles. O run morreu antes, na falta do segredo, entao
+      # nada foi publicado — mas se o segredo existisse a trava de titulo
+      # teria rodado contra um corpus pela metade, e uma trava cega tem
+      # exatamente a mesma cara de uma trava que passou.
+      #
+      # Nao da para o runner buscar o estado sozinho: e justamente o
+      # PostgREST que esta em 402, que e o motivo desta rota existir. Entao a
+      # transcricao fica, e o que entra e a CONFERENCIA dela: o estado passa
+      # a declarar quantos titulos deveria ter, e o runner recusa se o que
+      # chegou nao bate. Truncar deixa de ser silencioso.
+      - name: Conferir o estado antes de publicar
+        env:
+          EST: ${{ inputs.estado_b64 }}
+        run: |
+          set -euo pipefail
+          printf %s "$EST" | base64 -d > /tmp/estado.json
+          python3 - <<'FIM'
+          import json, sys
+          d = json.load(open('/tmp/estado.json'))
+          titulos = d.get('titulos_no_ar') or []
+          n = d.get('titulos_no_ar_n')
+          if n is None:
+              sys.exit('estado sem `titulos_no_ar_n`: sem ele nao da para '
+                       'saber se a lista chegou inteira, e foi truncando esta '
+                       'lista que o defeito de 26/08/2026 aconteceu.')
+          if len(titulos) != n:
+              sys.exit(f'estado TRUNCADO: chegaram {len(titulos)} titulos e o '
+                       f'proprio estado declara {n}. A trava por titulo '
+                       f'rodaria contra um corpus incompleto.')
+          print(f'estado: ja_publicado={d.get("ja_publicado")} | '
+                f'titulos_no_ar={len(titulos)} (declarados {n}, conferem)')
+          FIM
+
       - name: Publicar pela ponte
         env:
           TOK: ${{ inputs.access_token || steps.tok.outputs.acc }}
-          EST: ${{ inputs.estado_b64 }}
         run: |
           set -uo pipefail
           echo "::add-mask::$TOK"
-          printf %s "$EST" | base64 -d > /tmp/estado.json
-          python3 -c "import json;d=json.load(open('/tmp/estado.json'));print('estado: ja_publicado=%s | titulos_no_ar=%d' % (d.get('ja_publicado'), len(d.get('titulos_no_ar') or [])))"
           python3 fabrica/publicar.py "fabrica/specs/${{ inputs.pacote }}.json" \
             --canal "${{ inputs.canal }}" \
             --idioma "${{ inputs.idioma }}" \
