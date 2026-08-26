@@ -1,0 +1,460 @@
+{
+  "slug": "seja-mais-magra",
+  "pacote": "seja-mais-magra-007",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-FranciscaNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#22303C",
+    "c1": "#2E8B7A",
+    "c2": "#D98324",
+    "bg": "#F6F3EE"
+  },
+  "thumb": {
+    "l1": "Um minuto intenso",
+    "l2": "vale dois"
+  },
+  "longo": [
+    {
+      "layout": "titulo",
+      "kicker": "São duas faixas",
+      "sub": "e quase ninguém sabe da segunda",
+      "nar": "A recomendação oficial de atividade física para adultos não é um número. São duas faixas, e a maioria das pessoas só ouviu falar de uma.",
+      "cap": "São duas faixas, não uma"
+    },
+    {
+      "layout": "item",
+      "kicker": "A que todo mundo conhece",
+      "preco": "cento e cinquenta a trezentos",
+      "nar": "A conhecida é a moderada: de cento e cinquenta a trezentos minutos por semana.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A que quase ninguém cita",
+      "preco": "setenta e cinco a cento e cinquenta",
+      "nar": "A outra é a intensa: de setenta e cinco a cento e cinquenta minutos por semana. Metade do tempo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E as duas são equivalentes",
+      "sub": "e aí mora a conta",
+      "nar": "As duas faixas são apresentadas como equivalentes. E é exatamente aí que mora a conta que este vídeo ensina.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porque se são equivalentes",
+      "sub": "um minuto intenso vale dois",
+      "nar": "Porque se metade do tempo entrega o mesmo, então um minuto intenso vale dois minutos moderados. Simples assim, e quase ninguém soma desse jeito.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que você vai saber fazer",
+      "sub": "somar a sua própria semana",
+      "nar": "Ao fim você vai conseguir somar a sua semana em uma unidade só e comparar com a faixa. A sua semana, não a média de ninguém.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E antes de tudo",
+      "sub": "isto não substitui consulta",
+      "nar": "Antes de tudo, o de sempre: isto não substitui consulta médica, e quem tem qualquer condição de saúde decide isso com quem acompanha o caso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Não há promessa de peso",
+      "sub": "há uma conta para fazer",
+      "nar": "E não há aqui promessa de perda de peso nenhuma. O que existe é o que as instituições recomendam, e a conta que sai disso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "De onde vem o número",
+      "sub": "duas instituições, o mesmo número",
+      "nar": "Antes da conta, de onde vem o número. Duas instituições independentes, e elas dizem a mesma coisa.",
+      "cap": "De onde vem o número"
+    },
+    {
+      "layout": "item",
+      "kicker": "A primeira",
+      "preco": "a Organização Mundial da Saúde",
+      "nar": "A primeira é a Organização Mundial da Saúde, nas diretrizes de atividade física e comportamento sedentário publicadas em dois mil e vinte.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A segunda",
+      "preco": "o Ministério da Saúde",
+      "nar": "A segunda é o Ministério da Saúde, no Guia de Atividade Física para a População Brasileira, de dois mil e vinte e um.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O guia brasileiro",
+      "sub": "não é tradução",
+      "nar": "O guia brasileiro não é tradução. Foi feito com a Universidade Federal de Pelotas e com a Organização Pan-Americana da Saúde, com dezenas de pesquisadores.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E ainda assim",
+      "sub": "as faixas são as mesmas",
+      "nar": "E mesmo assim as duas faixas são as mesmas, e os dois dias de fortalecimento também. Quando duas rotas independentes batem, o número entra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quando não batem",
+      "sub": "ele não entra",
+      "nar": "E quando elas não batem, o número não entra. Tem um caso desses neste vídeo, e ele vai ter um capítulo só para ele.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Por que isso importa aqui",
+      "preco": "é assunto de saúde",
+      "nar": "Isso importa mais aqui do que em qualquer outro assunto, porque em saúde um número errado não é só um número errado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Então a regra é simples",
+      "sub": "duas rotas ou nada",
+      "nar": "A regra deste canal é simples: duas rotas oficiais que batam, ou o número fica de fora e eu digo que ficou.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Agora a conta",
+      "sub": "três passos e uma unidade só",
+      "nar": "Agora a conta. São três passos, e o truque é converter tudo para uma unidade só antes de somar.",
+      "cap": "A conta da sua semana"
+    },
+    {
+      "layout": "item",
+      "kicker": "Passo um",
+      "preco": "anote a semana em duas colunas",
+      "nar": "Passo um: escreva a semana passada em duas colunas. Minutos de atividade moderada de um lado, minutos de atividade intensa do outro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Vale tudo que é movimento",
+      "sub": "trabalho, deslocamento, casa",
+      "nar": "E vale tudo que é movimento, não só academia. Trabalho, deslocamento a pé ou de bicicleta, tarefas de casa, lazer.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Passo dois",
+      "preco": "multiplique a coluna intensa por dois",
+      "nar": "Passo dois: multiplique a coluna intensa por dois. Agora ela está na mesma unidade da outra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Passo três",
+      "preco": "some as duas colunas",
+      "nar": "Passo três: some as duas colunas. O resultado é a sua semana inteira escrita em minutos moderados.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E aí compare",
+      "sub": "com a faixa conhecida",
+      "nar": "E aí é só comparar esse total com a faixa de cento e cinquenta a trezentos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Um exemplo redondo",
+      "sub": "só para ver a mecânica",
+      "nar": "Um exemplo com números redondos, só para ver a mecânica funcionando.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Noventa moderados",
+      "sub": "e trinta intensos",
+      "nar": "Digamos noventa minutos moderados na semana, mais trinta minutos intensos. Somando cru dá cento e vinte, e parece que faltou pouco.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mas a conta certa",
+      "sub": "dá cento e cinquenta",
+      "nar": "A conta certa dobra os trinta: noventa mais sessenta dá cento e cinquenta. A mesma semana, e agora ela está dentro da faixa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E há uma segunda exigência",
+      "sub": "que não é feita de minutos",
+      "nar": "E há uma segunda exigência, que não é feita de minutos e por isso escapa de quase toda conversa sobre o assunto.",
+      "cap": "Os dois dias que não são minutos"
+    },
+    {
+      "layout": "item",
+      "kicker": "Fortalecimento muscular",
+      "preco": "em pelo menos dois dias",
+      "nar": "As duas rotas pedem atividades de fortalecimento muscular em pelo menos dois dias por semana.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Dias, não minutos",
+      "sub": "a unidade aqui é outra",
+      "nar": "Repare na unidade: o texto fala em dias, não em minutos. São duas contas diferentes, e elas não se substituem.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Então não troque uma pela outra",
+      "sub": "é o erro mais comum",
+      "nar": "E o erro mais comum é trocar uma pela outra. Somar minutos de caminhada e achar que a parte de fortalecimento está resolvida.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E o contrário também",
+      "sub": "só força não fecha a outra",
+      "nar": "O contrário vale igual. Dois dias de força não preenchem a faixa de minutos, porque são coisas diferentes sendo pedidas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Então a folha tem três campos",
+      "preco": "duas colunas e um contador",
+      "nar": "Então a sua folha tem três campos: as duas colunas de minutos, e um contador de dias de fortalecimento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Três campos",
+      "sub": "e a semana fica descrita",
+      "nar": "Três campos e a semana inteira fica descrita. E aí dá para ver qual dos três está mais longe, que é a única informação acionável disso tudo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Porque a pergunta útil",
+      "sub": "não é se você faz o suficiente",
+      "nar": "Porque a pergunta útil nunca foi se você faz o suficiente. É qual dos três campos está mais vazio nesta semana.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Agora o número que ficou fora",
+      "sub": "e por que ficou",
+      "nar": "Agora o capítulo prometido: o número que eu tinha para dar e não dei.",
+      "cap": "O número que ficou de fora"
+    },
+    {
+      "layout": "item",
+      "kicker": "A regra dos dez minutos",
+      "preco": "você já ouviu falar dela",
+      "nar": "Você provavelmente já ouviu que só contam blocos de pelo menos dez minutos. Que caminhar cinco minutos não serviria de nada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Eu fui conferir",
+      "sub": "e as fontes divergem",
+      "nar": "Fui conferir para poder dizer isso com segurança, e as próprias páginas da Organização Mundial da Saúde divergem entre si.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Páginas antigas dizem uma coisa",
+      "sub": "a diretriz nova comunica outra",
+      "nar": "Páginas mais antigas ainda trazem o bloco mínimo de dez minutos, que vem da recomendação de dois mil e dez. A diretriz de dois mil e vinte é comunicada de outro jeito: cada movimento conta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Duas rotas que não batem",
+      "sub": "então não entra",
+      "nar": "Duas rotas que não batem no mesmo número. Pela regra deste canal, então, ele não entra no vídeo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E o que fazer com isso",
+      "preco": "anote os dois totais",
+      "nar": "O que dá para fazer sem escolher um lado: anote a semana com e sem os blocos curtos. Se os dois totais caem na faixa, a dúvida não muda a sua decisão.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E se só um cai",
+      "sub": "a diferença é sua para investigar",
+      "nar": "E se só um deles cai, você sabe exatamente onde a dúvida mora, o que já é melhor do que repetir uma regra que talvez não valha mais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Isto é o oposto de opinião",
+      "sub": "é uma divergência declarada",
+      "nar": "Isto não é opinião contra opinião. É uma divergência entre documentos declarada em voz alta, que é o que se faz quando as fontes discordam.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Onde a conta para",
+      "sub": "e ela para em vários lugares",
+      "nar": "Onde esta conta para, porque ela para em vários lugares e prefiro dizer quais.",
+      "cap": "Onde a conta para"
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ela não mede intensidade",
+      "sub": "isso é sensação, não cronômetro",
+      "nar": "Ela não resolve o que é moderado e o que é intenso para você. Isso depende do seu condicionamento, e nenhum cronômetro decide sozinho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Não há calorias aqui",
+      "preco": "de propósito",
+      "nar": "Não há nenhum número de calorias gastas neste material, de propósito. Isso varia demais entre pessoas para virar uma conta genérica.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E não há promessa de peso",
+      "sub": "nem em quilos nem em prazo",
+      "nar": "E não há promessa de peso nenhuma, nem em quilos nem em prazo. As recomendações são de saúde, e não uma tabela de emagrecimento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Nem dose, nem prescrição",
+      "preco": "esse nunca foi o assunto",
+      "nar": "Não há dose, prescrição nem indicação aqui. Este canal aponta o que a instituição publicou e ensina você a conferir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E se há qualquer condição",
+      "sub": "a conversa é com quem acompanha",
+      "nar": "E se existe qualquer condição de saúde, gravidez, lesão ou tratamento em curso, a conversa é com quem acompanha o seu caso, antes de mudar qualquer coisa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Também não vale de um dia",
+      "sub": "a unidade é a semana",
+      "nar": "E repare que a unidade de tudo isto é a semana, não o dia. Um dia parado não estraga nada, e um dia heroico também não resolve.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que isto entrega",
+      "sub": "é a sua semana em um número",
+      "nar": "O que isto entrega é a sua própria semana convertida em um número comparável. Nada além disso, e já é bastante.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Sete dias",
+      "sub": "e uma folha de papel",
+      "nar": "Então o combinado desta semana é pequeno de propósito.",
+      "cap": "Sete dias e uma folha"
+    },
+    {
+      "layout": "lista",
+      "kicker": "Os três campos",
+      "itens": [
+        "minutos moderados",
+        "minutos intensos, que você vai dobrar",
+        "dias de fortalecimento"
+      ],
+      "nar": "Uma folha com três campos: minutos moderados, minutos intensos, e dias de fortalecimento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Anote no dia",
+      "sub": "não no domingo de memória",
+      "nar": "Anote no próprio dia, e não no domingo tentando lembrar. Memória de semana inteira erra sempre para o mesmo lado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "No sétimo dia",
+      "preco": "dobre, some, compare",
+      "nar": "No sétimo dia dobre a coluna intensa, some as duas, e compare com a faixa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E guarde a folha",
+      "sub": "ela é o seu ponto de partida",
+      "nar": "Guarde essa folha. Ela vira o ponto de partida da próxima, e comparar duas semanas suas vale mais que comparar a sua com a de qualquer outra pessoa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Uma semana não decide nada",
+      "sub": "quatro já dizem alguma coisa",
+      "nar": "Uma semana sozinha não decide nada. Quatro já mostram um padrão, e padrão é o que dá para mudar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E se o número vier baixo",
+      "sub": "isso é informação, não veredito",
+      "nar": "E se o número vier baixo, isso é informação e não um veredito sobre você. Até porque as duas rotas dizem a mesma coisa sobre começar: qualquer quantidade é melhor que nenhuma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "Faça a folha hoje",
+      "sub": "e conte quanto deu",
+      "nar": "Comece a folha hoje e escreva nos comentários quanto deu a sua semana depois de dobrar a coluna intensa. Se conta feita com fonte oficial é o que você procura, se inscreva — aqui o número sempre vem de duas rotas, e quando elas discordam eu digo.",
+      "sem_cap": true
+    }
+  ],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "A recomendação não é um número",
+      "sub": "sao duas faixas",
+      "nar": "A recomendação oficial de atividade física não é um número. São duas faixas, e a segunda quase ninguém cita.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Cento e cinquenta a trezentos",
+      "sub": "ou setenta e cinco a cento e cinquenta",
+      "nar": "Cento e cinquenta a trezentos minutos moderados por semana, ou setenta e cinco a cento e cinquenta intensos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se são equivalentes",
+      "sub": "um minuto intenso vale dois",
+      "nar": "Como as duas são equivalentes, um minuto intenso vale dois moderados. E aí está a conta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Duas colunas",
+      "sub": "dobre a intensa e some",
+      "nar": "Escreva a sua semana em duas colunas, dobre a coluna intensa, some, e compare com a faixa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "E tem um terceiro campo",
+      "sub": "que não é feito de minutos",
+      "nar": "Tem ainda um terceiro campo, que não é feito de minutos, e ele está no vídeo completo aqui embaixo.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# São duas faixas equivalentes, e a equivalência é uma conta que quase ninguém faz\n\n## TITULO\nAtividade Física: as Duas Faixas Oficiais, e Por Que um Minuto Intenso Vale Dois\n\n## DESCRICAO\nA recomendação oficial de atividade física para adultos não é um número — são duas faixas, e a maioria das pessoas só ouviu falar de uma delas. A conhecida é a moderada: de 150 a 300 minutos por semana. A outra é a intensa: de 75 a 150 minutos por semana, metade do tempo. E as duas são apresentadas como equivalentes.\n\nÉ exatamente aí que mora a conta deste vídeo. Se metade do tempo entrega o mesmo, então um minuto de atividade intensa vale dois minutos de atividade moderada — e quem mistura os dois tipos na mesma semana, que é a maioria das pessoas, está somando errado. Um exemplo com números redondos: 90 minutos moderados mais 30 intensos somam 120 na conta crua, e parece que faltou. Dobrando os 30, a soma é 150, e a mesma semana passa a estar dentro da faixa.\n\nO método são três passos, todos na sua própria semana e sem comprar nada: escreva os dias em duas colunas, minutos moderados de um lado e minutos intensos do outro, contando tudo que é movimento — trabalho, deslocamento a pé ou de bicicleta, tarefas de casa, lazer, não só academia. Multiplique a coluna intensa por dois. Some e compare com a faixa.\n\nHá uma segunda exigência que escapa de quase toda conversa sobre o assunto, porque ela não é feita de minutos: atividades de fortalecimento muscular em pelo menos dois dias por semana. Repare na unidade — dias, não minutos. São duas contas diferentes e elas não se substituem: somar caminhada não resolve a parte de fortalecimento, e dois dias de força não preenchem a faixa de minutos.\n\nUm capítulo inteiro é sobre um número que eu tinha para dar e não dei: a regra do bloco mínimo de dez minutos. Fui conferir e as próprias páginas da OMS divergem entre si — páginas mais antigas ainda trazem o bloco mínimo, que vem da recomendação de 2010, enquanto a diretriz de 2020 é comunicada como \"cada movimento conta\". Duas rotas que não batem, então o número não entra, e o vídeo conta o desacordo em vez de escolher um lado.\n\nEste vídeo não substitui consulta médica, não promete perda de peso em quilos nem em prazo, e não traz dose, prescrição ou indicação.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nFaz a folha de sete dias e escreve aqui quanto deu a tua semana depois de dobrar a coluna intensa — e, principalmente, qual dos três campos ficou mais vazio: os minutos moderados, os intensos, ou os dois dias de fortalecimento. Meu palpite é que o terceiro campo é o que mais falta e o que menos aparece nas conversas sobre o assunto, mas isso é palpite meu e eu queria ver o que sai de gente que fez a conta de verdade.\n\n## HASHTAGS\n#AtividadeFisica #SaudeComEvidencia #SejaMaisMagra\n\n## TAGS\natividade fisica recomendacao, 150 minutos por semana, guia de atividade fisica, ministerio da saude atividade fisica, oms atividade fisica, atividade moderada e intensa, fortalecimento muscular dois dias, quanto exercicio por semana, saude com evidencia, guia atividade fisica brasil, como calcular minutos de exercicio, sedentarismo, saude publica brasil, exercicio e saude, checar fonte oficial\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## NOTA SOBRE FONTES\nConsultado em 26 de agosto de 2026. As duas faixas e os dois dias foram conferidos em DUAS rotas institucionais independentes que se confirmam. (1) ORGANIZAÇÃO MUNDIAL DA SAÚDE (who.int): as \"WHO guidelines on physical activity and sedentary behaviour\", de 2020, e o comunicado \"Every move counts towards better health\". (2) MINISTÉRIO DA SAÚDE (gov.br/saude): o \"Guia de Atividade Física para a População Brasileira\", de 2021, produzido com a Universidade Federal de Pelotas e a Organização Pan-Americana da Saúde. As duas dizem o mesmo: para adultos, de 150 a 300 minutos semanais de atividade física moderada, ou de 75 a 150 minutos de atividade intensa, ou combinação equivalente; e atividades de fortalecimento muscular em pelo menos dois dias por semana.\n\nAVISO SOBRE OS NÚMEROS — o que foi descartado e por quê. (a) O BLOCO MÍNIMO DE DEZ MINUTOS não entra, e este é o descarte principal desta edição: as próprias páginas da OMS divergem entre si. Páginas regionais mais antigas ainda trazem \"bouts of at least 10 minutes\", herança da recomendação de 2010, enquanto a diretriz de 2020 é comunicada sob a mensagem de que cada movimento conta. Como as duas rotas não batem no mesmo número, ele fica de fora, e o vídeo dedica um capítulo a explicar a divergência em vez de escolher um lado. (b) Não há nenhum número de CALORIAS gastas: varia demais entre pessoas para virar conta genérica. (c) Não há promessa de perda de peso, em quilos ou em prazo: as recomendações citadas são de saúde, não uma tabela de emagrecimento. (d) Não há dose, prescrição nem indicação de qualquer natureza. Este é conteúdo educativo e não substitui consulta médica; quem tem condição de saúde, gravidez, lesão ou tratamento em curso decide qualquer mudança com o profissional que acompanha o caso.\n"
+}
