@@ -121,30 +121,37 @@ No máximo **um longo por canal por dia** (`orquestra.MAX_POR_DIA_POR_CANAL`).
 O epomeno-epipedo publicou o `-010` às 09h37 de 25/08, então o `-011` só pode
 ir ao ar em 26/08 — que é justamente quando a cota vira.
 
-## Quanto cabe na janela — e o que eu NÃO sei
+## Quanto cabe na janela — o custo por pacote, e o que eu NÃO sei
 
-Eu comecei a raciocinar em 26/08 que o teto diário seria 10.000 unidades e que
-isso limitaria a frota a duas publicações por dia. **O dado refutou.** Pacotes
-por dia, contados em `videos`:
+Custo em unidades, somando as chamadas que o `publicar.py` faz de verdade
+(tabela oficial da API v3):
 
-    20/08   14 pacotes   14 longos + 14 shorts   11 canais
-    17/08   11 pacotes
-    18/08   10 pacotes
-    25/08    9 pacotes
+    longo    videos.insert 1600 + thumbnails.set 50 + captions.insert 400
+             + playlistItems.insert 50                            = 2.100
+    short    videos.insert 1600 + thumbnails.set 50
+             + playlistItems.insert 50                            = 1.700
+    apontar  videos.list 1 + videos.update 50                     =    51
+    ------------------------------------------------------------------------
+    PACOTE                                                        = 3.851
 
-Vinte e oito uploads num dia, a 1.600 unidades cada, são 44.800 — muito acima
-de 10.000. Logo o teto **deste** projeto é bem maior que o padrão, e o número
-exato eu não sei: não alcanço o console do Google Cloud daqui.
+    5 pacotes                                                     = 19.255
+    crédito CC-BY, 66 vídeos (list + update)                      =  3.366
+    TOTAL da manhã                                                = 22.621
 
-O que eu sei é o que foi medido: em 25/08 a cota estourou por volta das 20h20,
-depois de 9 pacotes (~28.800 unidades em upload) somados a cerca de noventa
-`videos.update` do crédito CC-BY (~4.500). Ou seja, o teto está em algum ponto
-acima de ~34.000 e abaixo do que gastaríamos seguindo em frente.
+**O teto do projeto eu não sei** — não alcanço o console do Google Cloud daqui.
+O que sei é o que a própria frota já fez: em **20/08 saíram 14 pacotes num só
+dia**, o que a esta conta dá cerca de **54 mil unidades**, todas bem-sucedidas.
+Então 22.621 cabe com folga larga.
 
-Consequência prática para a manhã: **publique os dois pacotes primeiro**
-(~7.700 unidades) e só depois gaste no crédito CC-BY, que é o trabalho
-descartável se a cota acabar no meio. Não parta do princípio de que só cabem
-dois pacotes — cabe mais — mas também não confie num teto que ninguém leu.
+Há uma tensão que fica registrada em vez de escondida: em 25/08 a cota estourou
+por volta das 20h20 depois de 9 pacotes (~34.700) somados a cerca de noventa
+`videos.update` do crédito CC-BY (~4.600), o que dá ~39.000 — abaixo dos ~54.000
+de 20/08. As duas medições não fecham entre si, e eu não sei qual variável
+explica a diferença. Por isso a regra de ordem abaixo vale de qualquer jeito.
+
+**Ordem, e ela é a decisão que essa incerteza governa:** publique os cinco
+pacotes ANTES do crédito CC-BY. O crédito é o trabalho descartável se a cota
+acabar no meio; um pacote publicado pela metade não é.
 
 ## O que fica para depois da publicação, na mesma janela
 
