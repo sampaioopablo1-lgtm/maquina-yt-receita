@@ -19,11 +19,11 @@ name: URL assinada de um artefato — a ponte quando falta o segredo
 #
 # O QUE ELE IMPRIME, E POR QUE PODE SER IMPRESSO.
 #
-# A URL e assinada e curta — vale cerca de um minuto — e nao carrega credencial
-# nenhuma do GitHub: quem a pegar depois do prazo nao tem nada. E o que ela
-# entrega e o proprio pacote, que sao cinco arquivos e nenhum deles e segredo:
-# video.mp4, short.mp4, thumbnail.png, legendas.srt e copy.md. Todos os cinco
-# vao a publico no YouTube minutos depois, de proposito.
+# A URL e assinada e curta — o `se=` dela deu dez minutos — e nao carrega
+# credencial nenhuma do GitHub: quem a pegar depois do prazo nao tem nada. E o
+# que ela entrega e o proprio pacote, que sao cinco arquivos e nenhum deles e
+# segredo: video.mp4, short.mp4, thumbnail.png, legendas.srt e copy.md. Todos
+# os cinco vao a publico no YouTube minutos depois, de proposito.
 #
 # O que este workflow NAO pode virar: uma rota para imprimir qualquer outra
 # coisa. O `GITHUB_TOKEN` daqui e read-only por `permissions` e so serve para
@@ -32,8 +32,8 @@ name: URL assinada de um artefato — a ponte quando falta o segredo
 on:
   workflow_dispatch:
     inputs:
-      artefato:
-        description: "ID do artefato (ex.: 9583286132)"
+      artefatos:
+        description: "IDs separados por virgula (ex.: 9583286132,9585036472)"
         type: string
         required: true
 
@@ -46,40 +46,42 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Resolver a URL assinada
+      - name: Resolver as URLs assinadas
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ART: ${{ inputs.artefato }}
+          ARTS: ${{ inputs.artefatos }}
         run: |
           set -euo pipefail
-          API="https://api.github.com/repos/$GITHUB_REPOSITORY/actions/artifacts/$ART"
+          echo "=== URLS ASSINADAS ==="
+          # Um `for` simples e nao um `xargs`: sao poucos artefatos, e quando um
+          # falha o que interessa e saber QUAL, nao abortar o lote inteiro.
+          for ART in $(printf %s "$ARTS" | tr ',' ' '); do
+            API="https://api.github.com/repos/$GITHUB_REPOSITORY/actions/artifacts/$ART"
 
-          # Primeiro os metadados, para nao entregar uma URL de artefato vencido
-          # e ficar depurando download em vez de validade.
-          export META=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
-                             -H "Accept: application/vnd.github+json" "$API")
-          python3 - <<'FIM'
+            # Os metadados primeiro, para recusar vencido com o nome de quem
+            # venceu em vez de entregar uma URL que da erro no download.
+            export META=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+                               -H "Accept: application/vnd.github+json" "$API")
+            NOME=$(ART="$ART" python3 - <<'FIM'
           import json, os, sys
           d = json.loads(os.environ['META'])
           if d.get('message'):
-              sys.exit(f"artefato {os.environ['ART']} nao encontrado: {d['message']}")
+              print(f"ERRO:nao-encontrado:{d['message']}"); sys.exit(0)
           if d.get('expired'):
-              sys.exit(f"artefato {d['name']} VENCEU em {d['expires_at']} — "
-                       "o render se perdeu e precisa ser refeito")
-          print(f"artefato: {d['name']}")
-          print(f"tamanho:  {d['size_in_bytes']} bytes")
-          print(f"vence em: {d['expires_at']}")
+              print(f"ERRO:VENCIDO-em-{d['expires_at']}:{d['name']}"); sys.exit(0)
+          print(d['name'])
           FIM
+          )
+            case "$NOME" in
+              ERRO:*) echo "$ART	$NOME	-"; continue ;;
+            esac
 
-          # `curl` nao segue redirecionamento por padrao, entao %{redirect_url}
-          # devolve o Location sem baixar os megabytes aqui dentro.
-          URL=$(curl -sS -o /dev/null -w '%{redirect_url}' \
-                     -H "Authorization: Bearer $GH_TOKEN" \
-                     -H "Accept: application/vnd.github+json" "$API/zip")
-          if [ -z "$URL" ]; then
-            echo "::error::o GitHub nao devolveu Location — artefato vencido ou sem permissao"
-            exit 1
-          fi
-          echo "=== URL ASSINADA (vale ~1 minuto) ==="
-          echo "$URL"
+            # `curl` nao segue redirecionamento por padrao, entao %{redirect_url}
+            # devolve o Location sem baixar os megabytes aqui dentro.
+            URL=$(curl -sS -o /dev/null -w '%{redirect_url}' \
+                       -H "Authorization: Bearer $GH_TOKEN" \
+                       -H "Accept: application/vnd.github+json" "$API/zip")
+            [ -n "$URL" ] || URL="ERRO:sem-Location"
+            echo "$ART	$NOME	$URL"
+          done
           echo "=== FIM ==="
