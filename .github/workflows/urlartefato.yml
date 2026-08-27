@@ -1,0 +1,85 @@
+name: URL assinada de um artefato — a ponte quando falta o segredo
+
+# POR QUE ISTO EXISTE (27/08/2026).
+#
+# O `retomar.yml` faz tudo o que a publicacao precisa, menos uma coisa: ele
+# depende do segredo YT_OAUTH_JSON para nascer o token dentro do runner, e esse
+# segredo so o dono pode cadastrar. Sete sondagens em dois dias morreram no
+# mesmo passo, com onze pacotes renderizados parados e o artefato mais velho
+# vencendo em 08/09.
+#
+# Mas publicar nunca precisou ser feito de dentro do runner. A rota ponte que
+# a rotina descreve — e que ja publicou dois pacotes — faz o upload de FORA,
+# com o access_token de uma hora refrescado por `pg_net` dentro do banco. O que
+# falta nessa rota e so o pacote: ele mora num artefato do GitHub, e baixar
+# artefato pede credencial que nao existe fora do runner.
+#
+# Este workflow resolve exatamente esse pedaco e mais nada: pergunta ao GitHub
+# a URL assinada do Azure e imprime. Nao baixa, nao publica, nao toca em token.
+#
+# O QUE ELE IMPRIME, E POR QUE PODE SER IMPRESSO.
+#
+# A URL e assinada e curta — vale cerca de um minuto — e nao carrega credencial
+# nenhuma do GitHub: quem a pegar depois do prazo nao tem nada. E o que ela
+# entrega e o proprio pacote, que sao cinco arquivos e nenhum deles e segredo:
+# video.mp4, short.mp4, thumbnail.png, legendas.srt e copy.md. Todos os cinco
+# vao a publico no YouTube minutos depois, de proposito.
+#
+# O que este workflow NAO pode virar: uma rota para imprimir qualquer outra
+# coisa. O `GITHUB_TOKEN` daqui e read-only por `permissions` e so serve para
+# resolver o redirecionamento.
+
+on:
+  workflow_dispatch:
+    inputs:
+      artefato:
+        description: "ID do artefato (ex.: 9583286132)"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  url:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Resolver a URL assinada
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ART: ${{ inputs.artefato }}
+        run: |
+          set -euo pipefail
+          API="https://api.github.com/repos/$GITHUB_REPOSITORY/actions/artifacts/$ART"
+
+          # Primeiro os metadados, para nao entregar uma URL de artefato vencido
+          # e ficar depurando download em vez de validade.
+          export META=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+                             -H "Accept: application/vnd.github+json" "$API")
+          python3 - <<'FIM'
+          import json, os, sys
+          d = json.loads(os.environ['META'])
+          if d.get('message'):
+              sys.exit(f"artefato {os.environ['ART']} nao encontrado: {d['message']}")
+          if d.get('expired'):
+              sys.exit(f"artefato {d['name']} VENCEU em {d['expires_at']} — "
+                       "o render se perdeu e precisa ser refeito")
+          print(f"artefato: {d['name']}")
+          print(f"tamanho:  {d['size_in_bytes']} bytes")
+          print(f"vence em: {d['expires_at']}")
+          FIM
+
+          # `curl` nao segue redirecionamento por padrao, entao %{redirect_url}
+          # devolve o Location sem baixar os megabytes aqui dentro.
+          URL=$(curl -sS -o /dev/null -w '%{redirect_url}' \
+                     -H "Authorization: Bearer $GH_TOKEN" \
+                     -H "Accept: application/vnd.github+json" "$API/zip")
+          if [ -z "$URL" ]; then
+            echo "::error::o GitHub nao devolveu Location — artefato vencido ou sem permissao"
+            exit 1
+          fi
+          echo "=== URL ASSINADA (vale ~1 minuto) ==="
+          echo "$URL"
+          echo "=== FIM ==="
