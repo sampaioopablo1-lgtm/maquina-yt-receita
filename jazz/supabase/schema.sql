@@ -120,17 +120,55 @@ select count(distinct pacote) as pacotes,
     round(avg(duracao_s) filter (where formato = 'longo')) as duracao_media_s
 from videos;
 
+-- SINCRONIZADA COM A PRODUCAO EM 28/08/2026. A versao que estava aqui era de
+-- antes de `pode_produzir`, `token_vivo` e `token_testado_em` existirem, e
+-- contava `pacotes_24h` sem excluir erro/cancelado — ou seja, o arquivo dizia
+-- uma coisa e o banco fazia outra. Deriva de view e a reclamacao repetida das
+-- PRs #66, #67 e #69; capturada agora com `pg_get_viewdef`.
+--
+-- `pode_produzir` EXIGE TOKEN VIVO desde 28/08/2026 (aprendizado 524). Antes
+-- media so capacidade — canal existe, cabe na janela de 24h — e ignorava se a
+-- entrega era possivel. Um canal com refresh_token revogado aparecia
+-- produzivel, e como a fila ordena por `ultimo_pacote_em` ele ia para a FRENTE,
+-- justamente por estar parado ha mais tempo pelo token morto. A rodada
+-- escreveria a spec, gastaria o render e so descobriria no upload.
+--
+-- O teto de 1 pacote por canal por dia e JANELA MOVEL de 24h sobre
+-- `videos.criado_em`, nao dia de calendario: quem publicou as 12h35 so
+-- destrava as 12h35 do dia seguinte, e nao a meia-noite.
 create or replace view v_maquina_fila
     with (security_invoker = true) as
-select slug, nome, idioma, nicho, voz, estilo,
-    (youtube_channel_id is not null) as no_youtube,
-    pacotes, ultimo_pacote_em, trilha, fonte, duracao_alvo_s,
-    nicho_mediana_vd, nicho_medido_em,
-    (select count(*) from videos v where v.canal = c.slug and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
-    (select count(distinct v.pacote) from videos v where v.canal = c.slug) as pacotes_registrados
+select c.slug, c.nome, c.idioma, c.nicho, c.voz, c.estilo,
+    (c.youtube_channel_id is not null) as no_youtube,
+    (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+       from videos v
+      where v.canal = c.slug
+        and v.status <> all (array['erro', 'cancelado']))::integer as pacotes,
+    c.ultimo_pacote_em, c.trilha, c.fonte, c.duracao_alvo_s,
+    c.nicho_mediana_vd, c.nicho_medido_em,
+    (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+       from videos v
+      where v.canal = c.slug
+        and v.status <> all (array['erro', 'cancelado'])
+        and v.criado_em > now() - interval '24:00:00') as pacotes_24h,
+    (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+       from videos v
+      where v.canal = c.slug) as pacotes_registrados,
+    c.youtube_channel_id is not null
+      and coalesce((t.valor ->> 'token_vivo') <> 'false', true)
+      and (select count(distinct coalesce(v.pacote, regexp_replace(v.slug, '-short$', '')))
+             from videos v
+            where v.canal = c.slug
+              and v.status <> all (array['erro', 'cancelado'])
+              and v.criado_em > now() - interval '24:00:00') < 1 as pode_produzir,
+    coalesce((t.valor ->> 'token_vivo') <> 'false', true) as token_vivo,
+    (t.valor ->> 'token_testado_em')::timestamptz as token_testado_em
 from canais c
-where ativo
-order by (youtube_channel_id is null), ultimo_pacote_em nulls first;
+    left join config t on t.chave = ('yt_token_' || c.slug)
+where c.ativo
+order by (c.youtube_channel_id is null),
+         (coalesce((t.valor ->> 'token_vivo') <> 'false', true) is false),
+         c.ultimo_pacote_em nulls first;
 
 create or replace view v_maquina_formatos
     with (security_invoker = true) as
