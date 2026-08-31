@@ -79,6 +79,15 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
    tamanho em `titulos_no_ar_n` e quem o recebe recusa lista truncada. Truncar
    deixou de ser silencioso.
 
+   **E desde 31/08 a conferência é por md5, não por contagem.** Peça ao banco a
+   lista e o resumo na mesma consulta —
+   `md5(string_agg(titulo, chr(10) order by titulo))` — e refaça o md5 na
+   sandbox sobre a lista **na ordem em que ela veio** (não reordene: a colação
+   do Postgres não é a do Python). Contagem só pega truncamento; o md5 pega
+   também um caractere trocado no meio, que é o modo de falha real de
+   transcrever cento e doze títulos em grego, polonês, turco e híndi.
+   (Aprendizado 530.)
+
 6. **Publique um por vez, e não deixe um derrubar os outros.** `conduz.py` roda
    a fila inteira; um pacote que falha vai para `falhas` e a fila continua. Dez
    canais parados por causa de um seria trocar um problema por dez. Rode com
@@ -89,6 +98,13 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
    aberto: um `insert` em `videos` e um `update` em `canais.ultimo_pacote_em`.
    A `duracao_s` do longo sai do `ffprobe`, porque o registro do modo ponte
    não a traz.
+
+   **Confira o corpus numa consulta SEPARADA, depois do insert.** Lida junto
+   com o `insert`, a contagem volta com o valor de ANTES — num CTE que escreve,
+   o resto da instrução enxerga o snapshot anterior. Em 31/08 isso devolveu 112
+   contra 113 da sandbox e pareceu divergência; em consulta própria, 113 e 113.
+   O perigo real é o inverso do susto: uma rodada que duplicou não mostraria o
+   crescimento que faltou. (Aprendizado 531.)
 
 8. **Confira no vídeo publicado, os dois formatos.** Uma chamada à Data API
    com os vinte e dois IDs: `privacyStatus`, `defaultLanguage`,
