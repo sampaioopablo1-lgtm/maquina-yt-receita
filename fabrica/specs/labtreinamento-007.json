@@ -1,0 +1,453 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-007",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Por hora",
+  "l2": "ou projeto"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Você mandou um preço",
+   "sub": "e nunca conferiu depois",
+   "nar": "Você mandou um preço para o último trabalho que fez. Fechou, entregou, recebeu. E provavelmente nunca voltou para conferir o que aquele preço pagou de verdade pela sua hora.",
+   "cap": "O preço que você mandou"
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é sobre cobrar caro",
+   "preco": "é sobre saber",
+   "nar": "Isso não é uma conversa sobre cobrar caro. É sobre saber quanto você recebeu por hora, o que é uma pergunta diferente e bem mais útil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E é escolha sua",
+   "preco": "com prazo",
+   "nar": "E é uma escolha que volta com prazo: o próximo orçamento que você vai mandar. Não é semana que vem em tese, é o próximo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Os dois números",
+   "preco": "já existem",
+   "nar": "Os dois números de que você precisa já existem, e os dois são seus. Um está no que você recebeu. O outro está no tempo que você gastou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um deles é fácil",
+   "preco": "o outro incomoda",
+   "nar": "O primeiro é fácil de achar. O segundo é o que quase ninguém junta, e é justamente ele que muda a resposta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que vem agora",
+   "preco": "uma divisão",
+   "nar": "Em alguns minutos você faz essa conta sozinho. É uma divisão, com números que você já tem, sem planilha nova e sem esperar o mês fechar. E ela responde uma pergunta só, mas responde de verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Os dois lados",
+   "sub": "o que entrou e o que saiu de você",
+   "nar": "A conta tem dois lados, e o erro mais comum é olhar só para o primeiro.",
+   "cap": "Os dois lados da conta"
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado um",
+   "preco": "o valor recebido",
+   "nar": "O primeiro lado é o valor que entrou pelo trabalho. Líquido, depois do que você paga de imposto e de taxa da plataforma, se houver. Use o que sobrou na sua conta, não o que estava escrito no orçamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado dois",
+   "preco": "as horas de verdade",
+   "nar": "O segundo lado são as horas. E aqui a palavra que importa é: todas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não só a execução",
+   "preco": "tudo que o trabalho puxou",
+   "nar": "Não só o tempo sentado fazendo a entrega. Todo o tempo que aquele trabalho puxou, do primeiro contato até o último ajuste.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "As reuniões",
+   "preco": "contam",
+   "nar": "As reuniões contam. As trocas de mensagem que interromperam outra coisa contam. O deslocamento conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "As revisões",
+   "preco": "principalmente elas",
+   "nar": "As revisões contam, principalmente as que vieram depois de você achar que tinha acabado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E a proposta",
+   "preco": "mesmo não paga",
+   "nar": "E o tempo que você gastou montando a proposta conta também, porque ele só existiu por causa desse trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora dá pra dividir",
+   "preco": "os dois seus",
+   "nar": "Com esses dois lados na mão, a conta deixa de ser opinião sobre preço e vira aritmética sobre o seu tempo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "uma divisão",
+   "nar": "Então a conta. Uma divisão, e uma comparação.",
+   "cap": "A conta: uma divisão"
+  },
+  {
+   "layout": "item",
+   "kicker": "Divida",
+   "preco": "recebido pelas horas",
+   "nar": "Divida o valor líquido que você recebeu pelo total de horas que o trabalho consumiu. O resultado é a sua hora real naquele projeto. Não é a hora que você planejou, não é a que está na sua proposta: é a que aconteceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora compare",
+   "preco": "com a que você diz",
+   "nar": "Agora compare com o valor de hora que você diz que cobra, ou que você imaginava estar recebendo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se a real for maior",
+   "preco": "o preço estava bom",
+   "nar": "Se a hora real for maior, aquele preço estava bom para você, e vale saber por quê antes de mudar qualquer coisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se for menor",
+   "preco": "essa é a diferença",
+   "nar": "Se for menor, a diferença entre as duas é exatamente o que aquele projeto te custou sem aparecer no preço. E multiplicada pelas horas, ela vira o valor que ficou de fora do orçamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E isso responde",
+   "preco": "a pergunta do título",
+   "nar": "E é isso que decide se, para você, cobrar por projeto está funcionando ou está escondendo horas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta acabou aqui",
+   "preco": "o resto é o porquê",
+   "nar": "A conta acabou aqui, e você já pode fazer a sua. O resto do vídeo é onde achar as horas, o que a conta não pega e quando ela engana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde achar as horas",
+   "sub": "sem ter anotado",
+   "nar": "O problema prático é que quase ninguém anotou as horas. Dá para reconstruir, e com boa precisão.",
+   "cap": "Onde achar as horas"
+  },
+  {
+   "layout": "item",
+   "kicker": "A agenda",
+   "preco": "as reuniões estão lá",
+   "nar": "Comece pela agenda: as reuniões daquele período estão marcadas, com duração. E some também os quinze minutos antes de cada uma, que você gastou se preparando, e os quinze depois, que você levou para voltar ao que estava fazendo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O histórico de mensagens",
+   "preco": "tem hora",
+   "nar": "Depois o histórico de mensagens ou de e-mail. As trocas têm data e hora, e elas desenham o período em que o trabalho ocupou espaço na sua cabeça.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Os arquivos",
+   "preco": "guardam a data",
+   "nar": "Os arquivos que você entregou guardam a data de criação e a de modificação. Cada versão nova é uma revisão que aconteceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Some por dia",
+   "preco": "não por tarefa",
+   "nar": "Some por dia, e não por tarefa: é mais fácil lembrar que uma terça inteira foi embora naquilo do que reconstruir cada bloco.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Erre para menos",
+   "preco": "e ainda assim",
+   "nar": "E na dúvida, erre para menos. Se a conta já incomoda com uma estimativa conservadora, ela incomoda de verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do próximo em diante",
+   "preco": "anote",
+   "nar": "Do próximo trabalho em diante, anote enquanto acontece. Uma linha por dia basta, e ela transforma essa conta em coisa de dois minutos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que a conta não pega",
+   "sub": "e é justo dizer",
+   "nar": "Tem coisas que essa conta não captura, e é mais honesto dizer do que fingir que ela decide tudo.",
+   "cap": "O que a conta não pega"
+  },
+  {
+   "layout": "item",
+   "kicker": "O aprendizado",
+   "preco": "vale, e não entra",
+   "nar": "A primeira: o que você aprendeu ali. Um trabalho que pagou mal e te deixou sabendo fazer uma coisa nova não foi só prejuízo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas cuidado",
+   "preco": "isso não se repete",
+   "nar": "Cuidado com essa, porém: aprendizado acontece uma vez. Se o mesmo tipo de trabalho já se repetiu três vezes, o argumento acabou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O portfólio",
+   "preco": "e o cliente que apresenta",
+   "nar": "A segunda: portfólio e apresentação. Um trabalho que abre porta tem valor que não está no preço dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Também tem prazo",
+   "preco": "portas fecham",
+   "nar": "Mas essa também vence. Se a porta não abriu em alguns meses, ela não vai abrir por causa daquele projeto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O terceiro",
+   "preco": "a paz",
+   "nar": "A terceira não tem número: um cliente que não gera retrabalho vale mais por hora do que a conta mostra, e um que gera vale menos. E essa é a única das três que não vence com o tempo — ela se repete em todo projeto que você fizer com a mesma pessoa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Junte isso",
+   "preco": "depois da divisão",
+   "nar": "Junte tudo isso DEPOIS de fazer a divisão, nunca antes. Se vier antes, vira desculpa para não olhar o número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso que engana",
+   "sub": "o projeto grande",
+   "nar": "Agora o caso que engana quase todo mundo, e ele merece um capítulo.",
+   "cap": "O caso que engana"
+  },
+  {
+   "layout": "item",
+   "kicker": "O projeto grande",
+   "preco": "parece o melhor",
+   "nar": "O trabalho de maior valor costuma parecer o melhor do ano, porque o número que entrou foi o maior.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas ele também",
+   "preco": "consumiu mais",
+   "nar": "Só que ele também foi o que mais consumiu tempo, e muitas vezes o que mais gerou revisão e reunião.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Faça a divisão nele",
+   "preco": "e no menor",
+   "nar": "Faça a divisão nos dois: no maior trabalho do ano e no menor. Não é raro a ordem se inverter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se inverteu",
+   "preco": "não é sobre tamanho",
+   "nar": "Se inverteu, o que você descobriu não é que projeto grande é ruim. É que o preço dele foi feito olhando o tamanho, e não as horas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o contrário existe",
+   "preco": "o pequeno que sangra",
+   "nar": "O contrário também aparece: o trabalho pequeno, de preço simbólico, que consumiu um mês em pedaços. Esse é o que costuma doer mais, porque ele nunca ocupou um dia inteiro e por isso nunca pareceu grande o bastante para você reclamar dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "As duas formas servem",
+   "preco": "depende do seu número",
+   "nar": "Cobrar por hora e cobrar por projeto são as duas legítimas, e nenhuma é a certa em geral. A certa é a que o seu número apontar. O que não vale é mandar preço por hábito e nunca ter conferido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De um projeto",
+   "sub": "para o ano",
+   "nar": "Agora o passo que muda a percepção do tamanho.",
+   "cap": "De um projeto para o ano"
+  },
+  {
+   "layout": "item",
+   "kicker": "Um projeto",
+   "preco": "parece pouco",
+   "nar": "A diferença em um projeto costuma parecer pequena, seja ela a favor ou contra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Faça em três",
+   "preco": "os últimos três",
+   "nar": "Faça a mesma divisão nos três últimos trabalhos que você entregou. Três já mostram se é padrão ou se foi um caso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se os três apontam igual",
+   "preco": "é o seu preço",
+   "nar": "Se os três apontam para o mesmo lado, isso não é azar: é o jeito como você monta preço, e ele se repete no próximo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiplique",
+   "preco": "pelos trabalhos do ano",
+   "nar": "Multiplique a diferença média pelo número de trabalhos que você entrega num ano. É o mesmo comportamento, acumulado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare com algo",
+   "preco": "que você conhece",
+   "nar": "Para sentir o tamanho, compare com algo que você conhece. Com o valor de um projeto inteiro, por exemplo. Se a diferença acumulada no ano equivale a um projeto que você entregou de graça, isso diz uma coisa. Se equivale a uma tarde de trabalho, diz outra bem diferente, e você pode parar de se preocupar com isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O bom disso",
+   "preco": "o próximo orçamento",
+   "nar": "O lado bom é que a decisão volta no próximo orçamento, e volta inteira. Um projeto mal precificado não obriga o seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que fazer hoje",
+   "sub": "três passos",
+   "nar": "Fechamos com o que dá pra fazer hoje, em três passos.",
+   "cap": "O que fazer hoje"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Três passos",
+   "itens": [
+    "Pegue o último projeto",
+    "Some todas as horas",
+    "Divida o líquido"
+   ],
+   "nar": "Primeiro: pegue o último trabalho que você entregou e recebeu. Segundo: some todas as horas que ele consumiu, inclusive proposta, reunião e revisão. Terceiro: divida o valor líquido pelas horas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare",
+   "preco": "com o que você diz cobrar",
+   "nar": "Compare o resultado com o valor de hora que você diz cobrar. A diferença entre os dois é a conta inteira, e ela cabe numa linha do seu caderno.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se doer",
+   "preco": "não mude o preço ainda",
+   "nar": "Se o número doer, resista a mudar o preço na hora. Faça nos três últimos primeiro, para saber se é padrão ou se foi um projeto específico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E depois",
+   "preco": "mude uma coisa só",
+   "nar": "E quando mudar, mude uma coisa só: ou o preço, ou o que está incluído. Mudar as duas ao mesmo tempo tira de você a chance de saber qual funcionou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Escreva o seu número",
+   "sub": "nos comentários",
+   "nar": "Se você fizer a conta, escreve aqui embaixo só uma coisa: se a sua hora real ficou acima ou abaixo da que você diz cobrar, e por quanto. Sem nome de cliente e sem valor de projeto. Quero ver o quanto isso se espalha.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Seu último projeto",
+   "sub": "quanto pagou por hora?",
+   "nar": "O último trabalho que você entregou: quanto ele pagou pela sua hora de verdade?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pegue o líquido",
+   "sub": "o que sobrou",
+   "nar": "Pegue o valor que sobrou depois de imposto e taxa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Some as horas",
+   "sub": "todas elas",
+   "nar": "Some todas as horas: execução, reuniões, deslocamento, revisões e o tempo que você gastou montando a proposta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divida",
+   "sub": "essa é sua hora real",
+   "nar": "Divida um pelo outro. Esse é o valor real da sua hora naquele projeto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Compare",
+   "sub": "com a que você diz",
+   "nar": "Compare com a hora que você diz que cobra. A diferença entre as duas é o que aquele projeto te custou sem aparecer no preço. A conta é essa, e ela já está pronta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Quando ela engana",
+   "sub": "está no vídeo completo",
+   "nar": "Quando essa conta engana, e onde achar as horas que você não anotou, está no vídeo completo aqui embaixo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# A hora real do seu último projeto, calculada com os seus dois números\n\n## TITULO\nPor Hora ou por Projeto? A Conta no Seu Último Orçamento Que Decide o Próximo\n\n## DESCRICAO\nVocê mandou um preço para o último trabalho que fez. Fechou, entregou, recebeu — e provavelmente nunca voltou para conferir o que aquele preço pagou de verdade pela sua hora. Este vídeo não é sobre cobrar caro. É sobre saber quanto você recebeu por hora, que é uma pergunta diferente e bem mais útil, e é uma escolha que volta com prazo: o próximo orçamento que você vai mandar.\n\nNenhum número deste vídeo é meu. Não há valor de hora, não há piso de categoria, não há tabela de honorários e não há nenhuma profissão usada como referência de preço. Os dois números da conta são seus, e os dois já existem: o valor líquido que entrou pelo trabalho e as horas que ele consumiu.\n\nA conta é uma divisão. Pegue o valor que sobrou depois de imposto e de taxa de plataforma, some TODAS as horas que o trabalho puxou — execução, reuniões, trocas de mensagem que interromperam outra coisa, deslocamento, revisões, e o tempo que você gastou montando a proposta — e divida um pelo outro. O resultado é a sua hora real naquele projeto. Compare com o valor de hora que você diz que cobra: a diferença entre os dois é exatamente o que aquele projeto te custou sem aparecer no preço.\n\nHá um capítulo sobre onde achar as horas que você não anotou: a agenda guarda as reuniões com duração, o histórico de mensagens guarda data e hora das trocas, e os arquivos entregues guardam a data de cada versão — cada versão nova é uma revisão que aconteceu. Some por dia, não por tarefa, e na dúvida erre para menos.\n\nHá um capítulo sobre o que a conta NÃO pega, porque é mais honesto dizer: o que você aprendeu ali, o portfólio e a porta que o trabalho abre, e a paz de um cliente que não gera retrabalho. Os dois primeiros vencem — aprendizado acontece uma vez, e porta que não abriu em alguns meses não vai abrir. E todos eles entram DEPOIS da divisão, nunca antes.\n\nE há o caso que engana: o projeto de maior valor costuma parecer o melhor do ano porque o número que entrou foi o maior, mas foi também o que mais consumiu tempo e gerou revisão. Faça a divisão no maior e no menor trabalho do ano — não é raro a ordem se inverter.\n\nO fechamento são três passos para hoje, com o número que já está no seu histórico.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nFaz essa conta com o teu último projeto e escreve aqui só uma coisa: se a tua hora real ficou acima ou abaixo da que tu diz cobrar, e por quanto. Sem nome de cliente e sem valor de projeto, só a diferença. Quero ver o quanto isso se espalha entre quem trabalha na mesma área.\n\n## HASHTAGS\n#Autônomo #Freelancer #LabTreinamento\n\n## TAGS\nvalor da hora, cobrar por hora ou por projeto, precificacao freelancer, quanto cobrar, orcamento de projeto, hora tecnica, autonomo, freelancer, precificar servico, calcular valor hora, controle de horas, retrabalho, revisao de projeto, carreira tecnica, gestao do tempo\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita valor de hora, nao cita piso de categoria, nao cita tabela de honorarios, nao cita nenhuma profissao como referencia de preco e nao compara areas entre si. Os dois numeros da conta sao do proprio espectador: o valor liquido que ele recebeu esta no extrato ou na nota dele, e as horas saem da agenda, do historico de mensagens e da data dos arquivos que ele mesmo entregou. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da area dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer valor de referencia de hora ou de projeto. Esses valores mudam por area, por regiao, por senioridade e por data, e citar um so deles tornaria a conta errada para a maioria de quem assiste. O video tambem nao diz que cobrar por hora e melhor que cobrar por projeto — as duas respostas sao legitimas e dependem do numero de cada um —, nao promete aumento de preco e nao e aconselhamento financeiro nem juridico.\n"
+}
