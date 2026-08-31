@@ -54,13 +54,26 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
 1. **Confira a porta.** `porta.yml`. Aberta ⇒ esqueça este arquivo, é
    `frota.yml` com `publicar: true`.
 
+1b. **Se você acabou de renderizar, confira que o render EXISTIU.** O input
+   `pacotes` do `frota.yml` é um JSON de **objetos**:
+   `[{"canal":"nivel-do-jogo","pacote":"nivel-do-jogo-008","idioma":"pt-BR"}]`.
+   Um escalar (`nivel-do-jogo-008`) quebra o `jq` que monta a matriz, e o
+   sintoma engana: o run marca `failure` mas a API lista **um** job, `preparar`,
+   em `success` — porque o que falhou foi a matriz vazia derrubando o job
+   seguinte. Depois de despachar, confira que o job `produzir` **existe**; não
+   basta o run estar `in_progress`. (Aprendizado 536.)
+
 2. **Resolva as URLs.** Dispare `urlartefato.yml` com os IDs dos artefatos
    separados por vírgula. Leia o log. Dez minutos de validade dão folga para
    baixar todos.
 
-3. **Baixe na sandbox.** Um `curl` + `unzip` por pacote, em paralelo. Os dez
-   levaram menos de 45 segundos. Clone o repositório na sandbox (é público) —
-   é dele que saem `publicar.py` e as specs.
+3. **Baixe na sandbox, em `$RAIZ/f/<pacote>/`.** Um `curl` + `unzip` por
+   pacote, em paralelo. Os dez levaram menos de 45 segundos. Clone o
+   repositório na sandbox (é público) — é dele que saem `publicar.py` e as
+   specs. O caminho **não** é `$RAIZ/<pacote>/`: o `conduz.py` procura em
+   `$RAIZ/f/<pacote>/` e, se não achar o `copy.md` lá, reclama de placeholder
+   não preenchido (`{CAPITULOS}`, `{TRILHA}`) — a mensagem culpa o render, mas
+   o que faltou foi o diretório.
 
 4. **Refresque os tokens, todos numa consulta.** `net.http_post` para o
    `token_uri` de cada `config.yt_token_<canal>`; a resposta chega em
@@ -137,7 +150,7 @@ juntos assim que a peça do artefato fosse resolvida.
 ## O que ficou pendente, e é do Pablo
 
 `youtube.com/verify` em **agla-level**, **game-money-lab**, **resep-naik-level**
-e — desde 31/08 — **seviye-seviye**. Os longos sobem com capa automática: o
+e — desde 31/08 — **seviye-seviye** e **nivel-do-jogo**. Os longos sobem com capa automática: o
 `403` diz `canal sem verificacao por telefone`. O PNG desenhado existe e está no
 pacote; falta permissão no canal. Quando verificar, dá para corrigir a capa sem
 republicar nada.
@@ -148,6 +161,12 @@ que expira: confira o resultado do passo da thumbnail em toda publicação e
 registre o `403` em `videos.erro` do longo. Do lado do espectador a falha é
 silenciosa — o vídeo sobe, fica público, processa, e só a capa some.
 (Aprendizado 533.)
+
+No mesmo 31/08 o **nivel-do-jogo** caiu no mesmo `403`, também depois de já ter
+aceitado capa antes. Dois canais perdendo a verificação na mesma sessão tira
+isso da categoria "incidente" e põe na de "estado que vence". E o preço é maior
+do que parece: os dois canais estão em `canal frio`, e capa automática apaga
+justamente a alavanca de CTR de quem mais precisa dela. (Aprendizado 535.)
 
 ## Os vinte e dois no ar
 
