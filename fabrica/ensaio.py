@@ -16,6 +16,21 @@ O que este ensaio NAO cobre, e e bom dizer: a voz em si, a pronuncia de numero
 por extenso, e o desvio entre a duracao estimada e a real. Ele cobre o que
 quebra o pipeline, nao o que estraga o audio.
 
+O DESVIO DA ESTIMATIVA, MEDIDO EM 31/08/2026 — e ele nao e simetrico ao longo
+do video. A estimativa chega CURTA, e chega mais curta no comeco do que no
+fim:
+
+    nivel-do-jogo-008 (pt-BR-AntonioNeural)   total 542,6s -> 557,6s   +2,8%
+                                          resposta 198,9s ->  213s     +7,1%
+    setiap-level-013  (id-ID-ArdiNeural)      total 537,6s -> 548,6s   +2,0%
+                                          resposta 195,7s ->  206s     +5,3%
+
+CONSEQUENCIA PRATICA: a regra dos duzentos segundos da alavanca B nao pode ser
+conferida com folga zero. Os dois pacotes acima passaram na conta da estimativa
+e fecharam a resposta FORA dos duzentos segundos no video publicado. Dimensione
+a resposta para fechar ate ~185s NA ESTIMATIVA, e confira o tempo REAL no
+copy.md renderizado antes de publicar. (Aprendizado 537.)
+
 SEGURANCA: o ensaio roda numa raiz propria (/tmp/ensaio por padrao, nunca
 /tmp/f) e deixa um arquivo ENSAIO-NAO-PUBLICAR ao lado dos artefatos. Video
 mudo publicado seria pior que video nenhum, e a unica coisa que separa um do

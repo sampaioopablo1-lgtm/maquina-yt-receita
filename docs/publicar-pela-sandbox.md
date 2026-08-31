@@ -80,6 +80,20 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
    `net._http_response` pelo `id`. Confira `status_code = 200` antes de seguir.
    **Nunca** passe esse token por input de workflow.
 
+4b. **A sandbox e efemera — o corpus e o clone somem entre rodadas.** Em
+   31/08 a sandbox foi trocada (`j3i1` -> `75l8`) no meio da sessao: o clone
+   em `/home/user/maq` e o `/home/user/pub/corpus.json` sumiram, enquanto o
+   pacote baixado momentos antes sobreviveu. Para refazer o estado numa
+   consulta so:
+
+       select jsonb_build_object('titulos', jsonb_agg(titulo order by titulo collate "C"))
+       from (select distinct titulo from videos
+             where titulo is not null and status = 'publicado') t;
+
+   Escreva o JSON na sandbox e **confira pelo md5 em ordem de byte** contra o
+   banco antes de publicar. Corpus reconstruido sem essa conferencia nao
+   publica. (Aprendizado 538.)
+
 5. **Gere o estado anti-duplicata, e mantenha-o crescendo.** Cada pacote recebe
    o corpus com tudo que subiu antes dele, **inclusive o que subiu nesta mesma
    rodada** — foi para isso que a trava existe. O corpus pode ser mantido na
