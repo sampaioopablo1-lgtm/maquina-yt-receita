@@ -94,6 +94,12 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
    banco antes de publicar. Corpus reconstruido sem essa conferencia nao
    publica. (Aprendizado 538.)
 
+   E antes de rodar o `conduz.py`, **atualize o clone**: ele pode ser mais
+   velho que a spec que voce acabou de empurrar, e o `publicar.py` morre com
+   `FileNotFoundError: fabrica/specs/<pacote>.json` — erro que parece render
+   perdido e nao e. `git fetch --depth 1 origin <branch> && git reset --hard
+   FETCH_HEAD` resolve.
+
 5. **Gere o estado anti-duplicata, e mantenha-o crescendo.** Cada pacote recebe
    o corpus com tudo que subiu antes dele, **inclusive o que subiu nesta mesma
    rodada** — foi para isso que a trava existe. O corpus pode ser mantido na
