@@ -1,0 +1,607 @@
+{
+ "slug": "seviye-seviye",
+ "pacote": "seviye-seviye-008",
+ "idioma": "tr",
+ "voz": "tr-TR-AhmetNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1D3557",
+  "c1": "#E63946",
+  "c2": "#F4A261",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Asgari",
+  "l2": "ne olurdu"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Ekstrende iki rakam",
+   "sub": "ve sen birini seçiyorsun",
+   "nar": "Kredi kartı ekstrenin üstünde iki rakam yan yana durur. Her ay ikisinden birini seçiyorsun, ve bu seçimin bir fiyatı var.",
+   "cap": "Ekstrende iki rakam var"
+  },
+  {
+   "layout": "item",
+   "kicker": "Biri toplam",
+   "preco": "diğeri en az",
+   "nar": "Biri o dönem harcadığının tamamı. Diğeri, o ay ödemen gereken en düşük tutar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Seçim senin",
+   "preco": "ve her ay tekrar ediyor",
+   "nar": "Hangisini ödeyeceğine sen karar veriyorsun. Ve bu karar bir kere değil, her ay yeniden veriliyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Peki farkı ne",
+   "preco": "kimse yazmıyor",
+   "nar": "Peki bu iki seçenek arasındaki fark kaç lira? Ekstrende yazmıyor. Faiz oranını belki biliyorsun, ama oran soyut: asıl mesele o oranın senin borcunda kaç lira ettiği.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hesaba giren her sayı",
+   "preco": "senin ekstrende yazıyor",
+   "nar": "Hesaba girecek sayıların hepsi senin ekstrende yazılı. Benim tek bir rakamım bile işin içine girmiyor, çünkü bu senin borcun, senin oranın ve senin bu ay vereceğin karar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Az sonra",
+   "preco": "bir çıkarma, bir çarpma",
+   "nar": "Birkaç dakika içinde bunu kendin hesaplayacaksın: bir çıkarma ve bir çarpma, elindeki ekstreyle.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "İki rakam ne demek",
+   "sub": "önce bunu netleştirelim",
+   "nar": "Önce iki rakamın ne anlama geldiğini netleştirelim, çünkü hesap bunun üstüne kuruluyor.",
+   "cap": "İki rakam ne demek"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dönem borcu",
+   "preco": "o ayın tamamı",
+   "nar": "Dönem borcu, o ekstre döneminde biriken harcamalarının toplamı. Tamamını kapatırsan o dönem için faiz konusu kalmaz, ve ekstre kapanmış olur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Asgari tutar",
+   "preco": "ödemen gereken en az",
+   "nar": "Asgari tutar ise o ay ödemen gereken en düşük miktar. Ekstrenin üstünde, dönem borcunun hemen yanında ayrıca yazar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Asgariyi ödersen",
+   "preco": "kalan kısım devreder",
+   "nar": "Asgariyi ödersen kartın kapanmaz, ama ödemediğin kısım kaybolmaz: bir sonraki döneme devreder ve devreden kısma faiz işler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İşte seçim burada",
+   "preco": "ödemediğin kısım",
+   "nar": "Yani seçim aslında şu: dönem borcunun ne kadarını bu ay ödemeyeceksin. Faizin üzerine bineceği tutar tam olarak o.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve arada bir eşik var",
+   "preco": "asgarinin altı",
+   "nar": "Bir de eşik var: asgarinin altına düşmek başka bir duruma geçmek demek, ve ona ayrı bir bölüm ayıracağım. Şimdilik asgariyi ya da üstünü ödediğini varsayalım.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hesap",
+   "sub": "bir çıkarma, bir çarpma",
+   "nar": "Şimdi hesap. Bir çıkarma ve bir çarpma, ve üç sayıya ihtiyacın var.",
+   "cap": "Hesap: çıkarma ve çarpma"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci sayı",
+   "preco": "dönem borcu",
+   "nar": "Birinci sayı: dönem borcun. Ekstrenin üstünde, toplam olarak yazıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci sayı",
+   "preco": "ödemeyi düşündüğün tutar",
+   "nar": "İkinci sayı: bu ay gerçekten ödeyeceğin tutar. Asgari olabilir, arada bir rakam olabilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çıkar",
+   "preco": "kalan bu",
+   "nar": "İkinciyi birinciden çıkar. Elinde kalan, faizin üzerine bineceği tutar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü sayı",
+   "preco": "aylık faiz oranı",
+   "nar": "Üçüncü sayı: kartının aylık faiz oranı. Yüzde olarak yazılıdır; hesap için onu yüze bölüp ondalık hâline getir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çarp",
+   "preco": "ve sonuç lira",
+   "nar": "Kalan tutarı bu oranla çarp. Çıkan sonuç lira cinsinden ve o tek bir ayın maliyeti. Hesabın tamamı bu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden işe yarıyor",
+   "preco": "tek değişken",
+   "nar": "İşe yarıyor çünkü tek bir şeyi değiştiriyorsun: bu ay ne kadar ödediğini. Borç da oran da aynı kalıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Şimdi dene",
+   "preco": "farklı bir tutarla",
+   "nar": "İkinci sayıyı değiştirip tekrar yap: aradaki fark senin kazancın. Gerisi, bu sayıları nerede bulacağın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Üç sayı nerede",
+   "sub": "hepsi tek kâğıtta",
+   "nar": "Üç sayının üçü de aynı belgede. Hiçbirini tahmin etmene gerek yok.",
+   "cap": "Üç sayı ekstrede nerede"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dönem borcu",
+   "preco": "en üstte, kutu içinde",
+   "nar": "Dönem borcu genelde ekstrenin en üstünde, ayrı bir kutunun içinde ve büyük puntoyla yazılır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Asgari tutar",
+   "preco": "hemen yanında",
+   "nar": "Asgari tutar çoğunlukla hemen onun yanında ya da altında durur. İkisi birlikte gösterilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Son ödeme tarihi",
+   "preco": "aynı kutuda",
+   "nar": "Son ödeme tarihi de aynı bölümde olur. Hesabı yapmadan önce ona da bak, çünkü karar o tarihe kadar geçerli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Faiz oranı",
+   "preco": "alt bölümde",
+   "nar": "Faiz oranı genelde alt bölümde, sözleşme bilgileri arasındadır. Alışveriş için ayrı, nakit çekim için ayrı bir oran görebilirsin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hangisini alacaksın",
+   "preco": "alışveriş oranını",
+   "nar": "Normal harcamalar için alışveriş oranını al. Nakit çekim oranı farklıdır ve genelde daha yüksektir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aylık mı yıllık mı",
+   "preco": "buna dikkat",
+   "nar": "Oranın aylık mı yıllık mı olduğuna dikkat et. İkisi de yazılı olabilir, ve hesapta aylık olan kullanılır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bulamazsan",
+   "preco": "sözleşmende var",
+   "nar": "Ekstrede bulamazsan sözleşmende yazılıdır. Orada da bulamazsan bankana yazılı olarak sor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yazılı iste",
+   "preco": "telefonda değil",
+   "nar": "Yazılı olarak iste. İki kez okuyabileceğin bir rakama ihtiyacın var, telefonda duyduğun bir sayıya değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve aynı ekstreden",
+   "preco": "üçü birden",
+   "nar": "Üç sayıyı da aynı ekstreden al. Farklı aylardan karıştırırsan hesap anlamını kaybeder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Asgarinin altı",
+   "sub": "burası ayrı bir dünya",
+   "nar": "Şimdi eşiğin altı. Asgari tutarın altında ödeme yapmak, farklı bir duruma geçmek demek.",
+   "cap": "Asgarinin altına düşersen"
+  },
+  {
+   "layout": "item",
+   "kicker": "İki farklı faiz",
+   "preco": "aynı anda",
+   "nar": "Bu durumda tek bir faiz değil, iki farklı faiz devreye girer. Ve ikisi aynı anda işler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ödenmeyen asgari kısmı",
+   "preco": "gecikme faizi",
+   "nar": "Asgarinin ödemediğin kısmına gecikme faizi uygulanır. Bu, normal işleyen faizden farklı bir kalemdir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalan borç",
+   "preco": "akdi faiz",
+   "nar": "Borcun asgariyi aşan kısmına ise akdi faiz, yani sözleşmedeki normal faiz uygulanır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yani iki kalem",
+   "preco": "tek ayda",
+   "nar": "Yani tek bir ayda iki ayrı kalem birden birikir. Bu, videodaki basit hesabın kapsamadığı bir durum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nasıl hesaplarsın",
+   "preco": "iki parçaya böl",
+   "nar": "Hesaplamak istersen borcu iki parçaya böl: asgarinin eksik kalan kısmı, ve asgariyi aşan kısım. Her birini kendi oranıyla çarp.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İki oran da yazılı",
+   "preco": "ekstrede ya da sözleşmede",
+   "nar": "Her iki oran da ekstrende ya da sözleşmende yazılıdır. Gecikme oranı ayrı bir satırda görünür.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu yüzden eşik önemli",
+   "preco": "sadece rakam değil",
+   "nar": "Bu yüzden asgari tutar sadece bir rakam değil, bir eşik. Üstünde kalmakla altına düşmek aynı şey değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve etkisi sadece faiz değil",
+   "preco": "kayıtlara da geçer",
+   "nar": "Etkisi de sadece faizle sınırlı kalmayabilir. Gecikme, kredi geçmişine ilişkin kayıtlara da yansıyabilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bunu da sor",
+   "preco": "bankana yazılı olarak",
+   "nar": "Bunun senin durumunda ne anlama geldiğini bankana yazılı olarak sor. Her kartın koşulları aynı değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Borç neden büyür",
+   "sub": "asıl mekanizma burada",
+   "nar": "Şimdi asıl mekanizma: ödemediğin kısım neden ay ay büyür.",
+   "cap": "Borç neden ay ay büyür"
+  },
+  {
+   "layout": "item",
+   "kicker": "Faiz kalan üstüne",
+   "preco": "her dönem",
+   "nar": "Faiz her dönem, o dönemin sonunda kalan borcun üstüne işler. Ödemediğin tutar bir sonraki ayın başlangıç noktası olur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yani başlangıç büyür",
+   "preco": "her ay",
+   "nar": "Böylece her ay biraz daha büyük bir tutarın üstünden hesaplanır. Rakam sabit kalmaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir de yeni harcama",
+   "preco": "üstüne biner",
+   "nar": "Bir de o ay yaptığın yeni harcamalar var. Onlar da aynı borcun üstüne eklenir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İşte kritik nokta",
+   "preco": "asgari borcu bitirmez",
+   "nar": "Kritik nokta şu: asgari ödemek borcu bitirmeye yönelik bir plan değildir. Kartı açık tutmaya yönelik bir eşiktir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkisi farklı şey",
+   "preco": "ve karıştırılıyor",
+   "nar": "Bu ikisi sık karıştırılır. Asgariyi düzenli ödeyen biri, borcunu düzenli azalttığını sanabilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kendi ekstrenden gör",
+   "preco": "üç ayı yan yana koy",
+   "nar": "Bunu kendi üstünde görebilirsin: son üç ekstreni yan yana koy ve dönem borçlarını karşılaştır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Artıyor mu azalıyor mu",
+   "preco": "cevap orada",
+   "nar": "Artıyor mu, azalıyor mu, yoksa yerinde mi sayıyor? Cevap oradadır ve bana inanmana gerek kalmaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bu bir yargı değil",
+   "preco": "bir tespit",
+   "nar": "Bu bir suçlama değil. Bazen asgari ödemek tek seçenektir. Ama tek seçenek olması, maliyetinin görünmez olmasını gerektirmiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hesabın kapsamadıkları",
+   "sub": "ve bunlar önemli",
+   "nar": "Şimdi bu basit hesabın neyi kapsamadığı. Bunu atlarsak hesap yanıltıcı olur.",
+   "cap": "Hesabın kapsamadıkları"
+  },
+  {
+   "layout": "item",
+   "kicker": "Nakit avans",
+   "preco": "ayrı oran, ayrı gün",
+   "nar": "Birincisi nakit avans. Farklı bir oranla ve genelde çekildiği günden itibaren işler. Aynı kefeye koyma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Taksitli harcamalar",
+   "preco": "ayrı satır",
+   "nar": "İkincisi taksitli harcamalar. Onlar kendi planlarıyla ilerler ve ekstrede ayrı gösterilir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kart ücreti",
+   "preco": "faizle ilgisi yok",
+   "nar": "Üçüncüsü yıllık kart ücreti ve benzeri kesintiler. Bunlar faizden bağımsız kalemlerdir, ayrıca ekle.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yeni harcamalar",
+   "preco": "hesabı bozar",
+   "nar": "Dördüncüsü, hesabı yaptıktan sonra yaptığın yeni harcamalar. Onlar sonucu değiştirir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu yüzden",
+   "preco": "tek ay için düşün",
+   "nar": "Bu yüzden hesabı tek bir ay için, o ayın rakamlarıyla düşün. Bir yıllık kehanet değil, o ayın fiyatı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Oran da değişebilir",
+   "preco": "duyuruyla",
+   "nar": "Beşincisi, faiz oranları zaman içinde değişebilir. Elindeki sonuç bugünün koşullarının fotoğrafıdır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama karşılaştırma için",
+   "preco": "yeterli",
+   "nar": "Karşılaştırma için bu yeterli, çünkü iki seçenek de aynı varsayımın altında duruyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sonuç",
+   "preco": "büyüklük mertebesi",
+   "nar": "Yani bu hesap sana kesin kuruşu değil, büyüklük mertebesini verir. Kararın başlangıcıdır, ispatı değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bu yeter",
+   "preco": "tahmin etmeyi bırakmaya",
+   "nar": "Büyüklük mertebesi de fazlasıyla yeter — çünkü asıl sorun rakamın kendisi değil, hiç bakılmamış olması.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bir aydan bir yıla",
+   "sub": "ölçek burada görünür",
+   "nar": "Ve şimdi çoğu insanın fikrini değiştiren adım.",
+   "cap": "Bir aydan bir yıla"
+  },
+  {
+   "layout": "item",
+   "kicker": "Tek ay",
+   "preco": "küçük görünür",
+   "nar": "Tek bir ayın maliyeti genelde küçük görünür. Üzerinde durulmayacak kadar küçük.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "On iki ile çarp",
+   "preco": "ve tekrar bak",
+   "nar": "Onu on iki ile çarp ve tekrar bak. Aynı davranışın bir yıllık hâli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ama dikkat",
+   "preco": "bu alt sınır",
+   "nar": "Ama dikkat: bu bir alt sınırdır. Borç büyüyorsa gerçek rakam bundan yüksek çıkar, çünkü her ay daha büyük bir tutar üstünden işler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir şeye kıyasla",
+   "preco": "somutlaşsın",
+   "nar": "Çıkan rakamı bildiğin bir şeyle karşılaştır. Kiranla, mesela. Ya da aylık market harcamanla.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Neden bu işe yarıyor",
+   "preco": "soyutluk kalkıyor",
+   "nar": "İşe yarar çünkü karşılıksız bir lira rakamı soyuttur; karşılığı olan bir rakam karara dönüşür.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve karar tekrarlanıyor",
+   "preco": "her ay",
+   "nar": "Bir de şu var: bu karar her ay yeniden veriliyor. Yani sonuç da her ay yeniden birikiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İyi tarafı",
+   "preco": "değiştirmesi de aylık",
+   "nar": "İyi tarafı da bu. Aylık verilen bir karar, aylık olarak değiştirilebilir. Bir sonraki ekstre yeni bir fırsat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bir de sıra var",
+   "preco": "hangi borcu önce",
+   "nar": "Birden fazla kartın varsa hesabı her biri için ayrı yap. Aynı lirayı en yüksek oranlı olana koymak, en büyük borca koymaktan farklı sonuç verir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Küçük fark bile",
+   "preco": "hesaba giriyor",
+   "nar": "Asgarinin biraz üstünde ödenen her lira, çarpımdaki kalan tutarı doğrudan küçültür. Hepsi ya hep ya hiç değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bugün ne yapıyorsun",
+   "sub": "üç adım",
+   "nar": "Bugün yapabileceğin şeyle bitiriyoruz, üç adımda.",
+   "cap": "Bugün ne yapıyorsun"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Üç adım",
+   "itens": [
+    "Ekstreyi aç",
+    "Üç sayıyı bul",
+    "Çıkar ve çarp"
+   ],
+   "nar": "Birinci: son ekstreni aç. İkinci: üç sayıyı bul. Üçüncü: çıkar ve çarp.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci adım",
+   "preco": "elinde zaten var",
+   "nar": "Birinci adım için yeni bir şeye gerek yok. Ekstre zaten elinde, telefonunda ya da kâğıt olarak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci adım",
+   "preco": "dönem borcu, ödeyeceğin, oran",
+   "nar": "İkinci adımda üç sayıyı işaretle: dönem borcu, ödemeyi düşündüğün tutar, ve aylık faiz oranı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü adım",
+   "preco": "iki işlem",
+   "nar": "Üçüncü adım telefonundaki hesap makinesi. Bir çıkarma, bir çarpma, iki dakika.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sonucu yaz",
+   "preco": "tarihiyle birlikte",
+   "nar": "Sonucu tarihiyle birlikte bir yere yaz. Altı ay sonra karar verirken hangi koşulların geçerli olduğunu bilmek isteyeceksin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve tekrar et",
+   "preco": "her ekstrede",
+   "nar": "Sonra her ekstrede tekrarla. Rakamlar değişir, işlem değişmez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Son olarak",
+   "preco": "bu bir tavsiye değil",
+   "nar": "Son olarak açıkça söyleyeyim: buradaki hiçbir şey finansal tavsiye ya da banka önerisi değil. Bu bir hesaplama yöntemi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "bu akşam hesapla",
+   "nar": "Buraya kadar geldiysen bu hesabı bu akşam kendi ekstrenle yap. Ve bulduğun farkı yorumlara yaz.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ekstrende iki rakam",
+   "sub": "birini sen seçiyorsun",
+   "nar": "Kredi kartı ekstrende iki rakam var, ve hangisini ödeyeceğine sen karar veriyorsun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çıkar",
+   "preco": "dönem borcu eksi ödediğin",
+   "nar": "Dönem borcundan bu ay ödeyeceğin tutarı çıkar. Kalan, faizin üzerine bineceği tutar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çarp",
+   "preco": "aylık faiz oranıyla",
+   "nar": "Kalanı, ekstrende yazan aylık faiz oranıyla çarp. Oranı yüze bölmeyi unutma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Çıkan sonuç",
+   "preco": "o ayın fiyatı",
+   "nar": "Çıkan rakam lira cinsinden, ve seçiminin o aya olan maliyeti. On iki ile çarparsan yıllık hâli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Seviye Seviye",
+   "sub": "üç sayı nerede",
+   "nar": "Üç sayıyı ekstrede nerede bulacağın ve bu hesabın neyi kapsamadığı, aşağıdaki uzun videoda.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Asgari ödemenin gerçek fiyatı, kendi ekstrenden\n\n## TITULO\nAsgari Ödeme Yapsan Ne Olurdu? Ekstrendeki Üç Sayıyla Kendin Hesapla\n\n## DESCRICAO\nKredi kartı ekstrenin üstünde iki rakam yan yana durur: dönem borcu ve asgari tutar. Her ay ikisinden birini seçiyorsun ve bu seçimin bir fiyatı var — ama o fiyat ekstrende yazmıyor. Faiz oranını belki biliyorsun; oran soyuttur. Asıl mesele o oranın senin borcunda kaç lira ettiği. Bu videodaki her sayı senin: benim tek bir rakamım hesaba girmiyor.\n\nHESAP (bir çıkarma, bir çarpma)\n\nBirinci sayı dönem borcun. İkinci sayı bu ay gerçekten ödeyeceğin tutar. İkinciyi birinciden çıkar — elinde kalan, faizin üzerine bineceği tutardır. Üçüncü sayı kartının aylık faiz oranı; yüze bölüp ondalık hâline getir ve kalan tutarla çarp. Çıkan sonuç lira cinsinden ve o tek bir ayın maliyetidir. İşe yarar çünkü tek bir şeyi değiştiriyorsun: bu ay ne kadar ödediğini. İkinci sayıyı değiştirip tekrar yaparsan, aradaki fark senin kazancındır. On iki ile çarparsan yıllık hâlini görürsün — ama bu bir ALT SINIRDIR, çünkü borç büyüyorsa her ay daha büyük bir tutar üstünden işler.\n\nÜÇ SAYI NEREDE: dönem borcu ve asgari tutar genelde ekstrenin üstünde, aynı kutuda; son ödeme tarihi de oradadır. Faiz oranı alt bölümde, sözleşme bilgileri arasında — alışveriş için ayrı, nakit çekim için ayrı bir oran görebilirsin; normal harcamalar için alışveriş oranını al ve oranın aylık mı yıllık mı olduğuna dikkat et. Bulamazsan sözleşmende yazılıdır; orada da yoksa bankandan yazılı olarak iste. Üçünü de aynı ekstreden al.\n\nASGARİNİN ALTINA DÜŞERSEN durum değişir: asgarinin ödenmeyen kısmına gecikme faizi, borcun asgariyi aşan kısmına akdi faiz uygulanır — tek ayda iki ayrı kalem. Bu, videodaki basit hesabın kapsamadığı bir durumdur.\n\nHESABIN KAPSAMADIKLARI: nakit avans (farklı oran, genelde çekildiği günden itibaren), taksitli harcamalar (kendi planıyla, ekstrede ayrı satır), yıllık kart ücreti gibi faizden bağımsız kalemler, hesaptan sonra yapılan yeni harcamalar, ve oranların zamanla değişebilmesi. Sonuç kesin kuruş değil, büyüklük mertebesidir.\n\nBuradaki hiçbir şey finansal tavsiye ya da banka önerisi değildir. Bu bir hesaplama yöntemidir. Bazen asgari ödemek tek seçenektir — ama tek seçenek olması, maliyetinin görünmez olmasını gerektirmez.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nBu hesabı kendi ekstrenle yap ve buraya tek bir sayı yaz: sadece tek ayın farkı, lira olarak. Banka adı yok, borç tutarı yok, oran yok — sadece fark. Benzer borçlarda bu farkların birbirinden ne kadar açıldığını görmek istiyorum.\n\n## HASHTAGS\n#KrediKartı #AsgariÖdeme #SeviyeSeviye\n\n## TAGS\nkredi karti asgari odeme, ekstre nasil okunur, donem borcu, asgari tutar, akdi faiz, gecikme faizi, kredi karti faizi hesaplama, son odeme tarihi, nakit avans, taksitli harcama, kart borcu nasil kapatilir, kisisel finans, butce yonetimi, borc yonetimi, hesap ozeti\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Turco (tr) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Turquia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum VALOR de taxa e nenhum numero meu. Os tres numeros da conta sao do proprio espectador: o donem borcu e o asgari tutar do extrato dele, o valor que ele decide pagar, e a taxa mensal do contrato dele. O QUE FOI CONFIRMADO, em DUAS ROTAS INSTITUCIONAIS INDEPENDENTES, e o MECANISMO — nao um valor. (1) mevzuat.gov.tr, Banka Kartlari ve Kredi Kartlari Kanunu numero 5464 e o Yonetmelik correspondente: pagando o valor minimo ou acima dele aplica-se AKDI FAIZ sobre o saldo restante; pagando ABAIXO do minimo aplica-se GECIKME FAIZI sobre a parte nao paga do minimo e akdi faiz sobre o restante; e o mesmo texto trata do \"hesap ozetinde yer alan asgari odeme tutari\", isto e, o extrato carrega o valor minimo. (2) BDDK (bddk.org.tr) publica, por instituicao emissora, o akdi faiz orani de compra e de saque, comissoes, tarifa anual e exemplos de calculo de juros; o TCMB (tcmb.gov.tr) publica em separado os tetos de juros de cartao. O QUE FOI DESCARTADO, de proposito: qualquer VALOR de taxa, inclusive o teto do TCMB. Esse teto muda por comunicado e envelheceria dentro do video, e nao e ele que decide a conta — quem decide e a taxa do contrato do espectador, impressa no extrato dele. Por isso nao ha numero meu na conta e nao ha numero meu que possa envelhecer. O video tambem nao afirma que pagar o minimo e errado, nao recomenda banco nem cartao, nao promete economia e nao e aconselhamento financeiro.\n"
+}
