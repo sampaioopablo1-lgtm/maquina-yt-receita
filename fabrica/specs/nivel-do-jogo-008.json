@@ -1,0 +1,502 @@
+{
+ "slug": "nivel-do-jogo",
+ "pacote": "nivel-do-jogo-008",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-AntonioNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1B4332",
+  "c1": "#D64570",
+  "c2": "#F2B134",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Assinar",
+  "l2": "ou comprar"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Você paga todo mês",
+   "sub": "e nunca conferiu",
+   "nar": "Tem uma cobrança que entra na sua fatura todo mês, ou uma vez por ano, e que você renova sem pensar. A assinatura de jogos.",
+   "cap": "Você renova sem conferir"
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é imposto",
+   "preco": "é escolha",
+   "nar": "Isso não é uma conta de luz. Ninguém te obriga. Você escolhe renovar, e escolhe de novo na renovação seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A promessa",
+   "preco": "sai mais barato",
+   "nar": "A promessa é sempre a mesma: sai mais barato do que comprar. E na maioria das vezes ela até é verdadeira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas na maioria não é você",
+   "preco": "é a média",
+   "nar": "Só que essa frase vale para quem joga muita coisa do catálogo. A pergunta que interessa é se ela vale para você, com o que você jogou de verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E isso ninguém calcula",
+   "preco": "nem o serviço",
+   "nar": "Ninguém faz essa conta por você. O serviço não tem interesse em fazer, e você não tem os dois números do lado do outro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Os números existem",
+   "preco": "e são seus",
+   "nar": "Mas os dois números existem, e os dois são seus. Um está no seu extrato. O outro está no seu histórico de jogos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que vem agora",
+   "preco": "uma soma e uma subtração",
+   "nar": "Em alguns minutos você faz essa conta sozinho: uma soma e uma subtração, com o que já está gravado na sua conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Os dois lados",
+   "sub": "o que saiu e o que valeu",
+   "nar": "A conta tem dois lados, e o erro mais comum é olhar só para um deles.",
+   "cap": "Os dois lados da conta"
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado um",
+   "preco": "o que saiu do bolso",
+   "nar": "O primeiro lado é simples: quanto saiu do seu bolso em assinatura nos últimos doze meses.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cuidado aqui",
+   "preco": "some tudo",
+   "nar": "Some tudo, inclusive os meses em que você quase não abriu o console. Você pagou por eles do mesmo jeito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado dois",
+   "preco": "o que você jogou",
+   "nar": "O segundo lado é o que você realmente jogou. Não o que estava no catálogo, não o que você adicionou na lista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A diferença importa",
+   "preco": "jogado, não disponível",
+   "nar": "Catálogo enorme não é valor recebido. O que entra na conta é só o que você abriu e jogou de fato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E vale por preço",
+   "preco": "não por quantidade",
+   "nar": "E cada um desses jogos entra pelo preço dele, não pela contagem. Dez jogos baratos não valem o mesmo que dois caros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Qual preço",
+   "preco": "o que você pagaria",
+   "nar": "O preço que conta é o que você pagaria por ele hoje, na loja, se tivesse que comprar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora dá pra comparar",
+   "preco": "os dois em reais",
+   "nar": "Com os dois lados em reais, a comparação deixa de ser opinião e vira aritmética. E aritmética não depende de quem está falando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "uma soma e uma subtração",
+   "nar": "Então a conta. Uma soma, uma subtração, e você precisa de duas listas.",
+   "cap": "A conta: soma e subtração"
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeira lista",
+   "preco": "os jogos que você jogou",
+   "nar": "Primeira lista: os jogos do catálogo que você abriu nos últimos doze meses. Seu histórico de jogos mostra isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Anote o preço",
+   "preco": "de cada um",
+   "nar": "Ao lado de cada um, anote o preço dele hoje na loja. É o que você teria gasto comprando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Some",
+   "preco": "esse é o valor recebido",
+   "nar": "Some essa coluna. O resultado é quanto de jogo você efetivamente consumiu, em reais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Segunda conta",
+   "preco": "o que você pagou",
+   "nar": "Agora o outro lado: some tudo o que você pagou de assinatura nos mesmos doze meses.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Subtraia",
+   "preco": "e o sinal responde",
+   "nar": "Subtraia o que você pagou do valor que você somou. O sinal do resultado responde a pergunta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Positivo",
+   "preco": "a assinatura te devolveu",
+   "nar": "Se sobrou positivo, a assinatura te devolveu mais do que custou, e essa é a diferença em reais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Negativo",
+   "preco": "você pagou a mais",
+   "nar": "Se ficou negativo, você pagou mais do que consumiu, e o número é exatamente quanto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que funciona",
+   "preco": "os dois lados são seus",
+   "nar": "Funciona porque os dois lados são seus, e do mesmo período. Não entra média, não entra catálogo, não entra promessa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pronto",
+   "preco": "o resto é onde achar",
+   "nar": "Essa é a conta inteira. O que vem agora é onde achar cada número e o que essa conta não pega.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde achar",
+   "sub": "tudo já está gravado",
+   "nar": "Os dois números já existem gravados. Nenhum deles você precisa estimar.",
+   "cap": "Onde achar os números"
+  },
+  {
+   "layout": "item",
+   "kicker": "O que você pagou",
+   "preco": "no histórico de compras",
+   "nar": "O que você pagou está no histórico de compras da sua conta, ou na fatura do cartão, mês a mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cuidado com a renovação",
+   "preco": "o preço pode ter mudado",
+   "nar": "Olhe o valor de cada cobrança, não o preço anunciado hoje. Renovação e promoção de entrada costumam ser valores diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que você jogou",
+   "preco": "no histórico de jogos",
+   "nar": "O que você jogou está no seu histórico de atividade. A maioria das plataformas guarda isso e ainda mostra o tempo de cada jogo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se tiver o tempo",
+   "preco": "use como filtro",
+   "nar": "Se aparecer o tempo jogado, use como filtro: um jogo que você abriu por vinte minutos e largou não é valor recebido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O preço de cada um",
+   "preco": "na própria loja",
+   "nar": "O preço de cada jogo você pega na própria loja, hoje. Não precisa lembrar quanto custava no lançamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se estiver em promoção",
+   "preco": "use o preço cheio",
+   "nar": "Se estiver em promoção, use o preço cheio. Promoção é sorte de data, e não é isso que você está medindo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tudo no mesmo dia",
+   "preco": "os dois lados",
+   "nar": "Levante os dois lados no mesmo dia. Preço de hoje contra fatura de hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que a conta não pega",
+   "sub": "e é importante",
+   "nar": "Agora o que essa conta não cobre, porque sem isso ela fica torta.",
+   "cap": "O que a conta não pega"
+  },
+  {
+   "layout": "item",
+   "kicker": "Multijogador",
+   "preco": "às vezes vem junto",
+   "nar": "Primeiro: em alguns serviços o online faz parte do mesmo pacote. Se você só joga online, isso é valor recebido mesmo sem catálogo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como resolver",
+   "preco": "some à parte",
+   "nar": "Se for o seu caso, some esse valor à parte, do lado do que você recebeu. Ele não é catálogo, mas é uso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jogos que somem",
+   "preco": "o acesso é temporário",
+   "nar": "Segundo: jogo de catálogo pode sair. Você jogou, mas não é seu. Comprar dá posse, assinar dá acesso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso não muda a conta",
+   "preco": "muda o que ela significa",
+   "nar": "Isso não muda o cálculo, muda a leitura dele. Se para você importa manter, o mesmo número pesa diferente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Descontos e pacotes",
+   "preco": "verifique",
+   "nar": "Terceiro: se você pagou anual ou pegou pacote com desconto, use o valor real cobrado, não a soma dos meses cheios.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O ano que vem",
+   "preco": "não é este",
+   "nar": "Quarto: essa é a conta do ano que passou. O próximo depende do que você vai jogar, e isso ninguém sabe hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então serve pra quê",
+   "preco": "pra decidir a renovação",
+   "nar": "E é justamente por isso que ela serve: o ano que passou é a melhor estimativa que existe do seu próprio comportamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso que engana",
+   "sub": "o catálogo grande",
+   "nar": "Tem um caso que engana quase todo mundo, e vale um capítulo.",
+   "cap": "O caso que engana"
+  },
+  {
+   "layout": "item",
+   "kicker": "A sensação",
+   "preco": "tenho centenas de jogos",
+   "nar": "A sensação de ter centenas de jogos disponíveis é real, e ela é o produto principal do serviço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas o número",
+   "preco": "conta só o que abriu",
+   "nar": "Só que a conta não paga sensação. Ela conta o que você abriu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O teste",
+   "preco": "quantos você jogou de verdade",
+   "nar": "Faça o teste: olhe sua lista e conte quantos você realmente jogou no ano. Costuma ser um número menor do que a lembrança. E vale contar só os que você passou mais de uma noite jogando, porque abrir um jogo por vinte minutos e desistir não é o mesmo que ter jogado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se der poucos",
+   "preco": "não é derrota",
+   "nar": "Se der poucos, isso não significa que você errou. Significa que o valor que você recebe é de outro tipo, e o número mostra o tamanho dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E aí a decisão fica clara",
+   "preco": "renovar ou comprar",
+   "nar": "Com o número na mão a decisão fica simples: renovar, ou pegar essa mesma quantia e comprar os poucos jogos que você joga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "As duas respostas valem",
+   "preco": "depende do seu número",
+   "nar": "As duas respostas são legítimas, e nenhuma delas é a certa em geral. A resposta certa é a que o seu número apontar. O que não vale é renovar por inércia e nunca ter olhado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De um ano para vários",
+   "sub": "aqui a escala aparece",
+   "nar": "E agora o passo que muda a percepção do tamanho.",
+   "cap": "De um ano para vários"
+  },
+  {
+   "layout": "item",
+   "kicker": "Um ano",
+   "preco": "parece pouco",
+   "nar": "A diferença de um ano costuma parecer pequena, seja ela positiva ou negativa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiplique",
+   "preco": "pelos anos que você já assina",
+   "nar": "Multiplique pelos anos que você já assina. É o mesmo comportamento, acumulado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E olhe pra frente",
+   "preco": "renovação é decisão anual",
+   "nar": "Depois olhe para frente: a renovação é uma decisão que se repete, e o resultado se repete com ela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E cuidado com um detalhe",
+   "preco": "o preço sobe",
+   "nar": "E tem um detalhe que passa batido: o valor da renovação costuma subir de um ano para o outro. Se você multiplicar usando o preço antigo, subestima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare com algo",
+   "preco": "que você conhece",
+   "nar": "Para sentir o tamanho, compare com algo que você conhece. Com o preço de um jogo novo, por exemplo. Se o acumulado de vários anos equivale a três ou quatro jogos que você teria comprado e guardado, isso diz uma coisa. Se equivale a vinte jogos que você nunca teria comprado, diz outra bem diferente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O bom da conta anual",
+   "preco": "dá pra mudar",
+   "nar": "O lado bom é que essa decisão volta todo ano, e volta inteira. Uma conta ruim de um ano não obriga o ano seguinte, e uma conta boa também não garante que o próximo será igual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que fazer hoje",
+   "sub": "três passos",
+   "nar": "Fechamos com o que dá pra fazer hoje, em três passos.",
+   "cap": "O que fazer hoje"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Três passos",
+   "itens": [
+    "Liste o que jogou",
+    "Some os preços",
+    "Subtraia o que pagou"
+   ],
+   "nar": "Primeiro: liste os jogos do catálogo que você jogou no ano. Segundo: some os preços deles. Terceiro: subtraia o que você pagou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O primeiro passo",
+   "preco": "é o mais revelador",
+   "nar": "O primeiro passo já é o mais revelador, porque quase sempre a lista é menor do que a memória.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O terceiro",
+   "preco": "leva dois minutos",
+   "nar": "O terceiro é uma subtração no celular. A conta inteira leva menos tempo do que uma partida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Anote com a data",
+   "preco": "você vai querer depois",
+   "nar": "Anote o resultado com a data. Na próxima renovação você vai querer comparar com o ano anterior.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E refaça no ano que vem",
+   "preco": "mesma conta",
+   "nar": "E refaça no ano que vem. Os números mudam, a operação não.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma coisa importante",
+   "preco": "isso não é conselho",
+   "nar": "Deixando claro: nada aqui é recomendação de serviço nem conselho financeiro. É um jeito de calcular.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Nível do Jogo",
+   "sub": "faça a conta hoje",
+   "nar": "Se você chegou até aqui, faça essa conta hoje com a sua própria conta. E escreve nos comentários só a diferença que deu.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Sua assinatura de jogos",
+   "sub": "vale pra você?",
+   "nar": "A assinatura de jogos sai mais barata na média. A pergunta é se sai pra você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Liste",
+   "preco": "o que você jogou no ano",
+   "nar": "Abra seu histórico e liste os jogos do catálogo que você realmente jogou nos últimos doze meses.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Some",
+   "preco": "o preço de cada um",
+   "nar": "Ao lado de cada um, o preço dele hoje na loja. Some a coluna: isso é o que você recebeu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Subtraia",
+   "preco": "o que você pagou",
+   "nar": "Subtraia o que você pagou de assinatura no mesmo período. O sinal do resultado responde tudo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Nível do Jogo",
+   "sub": "onde achar os números",
+   "nar": "Onde achar cada número e o que essa conta não pega, no vídeo completo aqui embaixo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Assinatura de jogos: a conta com os SEUS jogos\n\n## TITULO\nSe Você Tivesse Comprado em Vez de Assinar, Quanto Teria Gastado no Ano?\n\n## DESCRICAO\nTem uma cobrança que entra na sua fatura todo mês, ou uma vez por ano, e que você renova sem pensar. A promessa é sempre a mesma: sai mais barato do que comprar — e na maioria das vezes ela até é verdadeira. Só que essa frase vale para quem joga muita coisa do catálogo. A pergunta que interessa é se ela vale para VOCÊ, com o que você jogou de verdade. Ninguém faz essa conta por você: o serviço não tem interesse, e você nunca teve os dois números lado a lado. Mas os dois existem, e os dois são seus.\n\nA CONTA (uma soma e uma subtração)\n\nListe os jogos do catálogo que você abriu nos últimos doze meses — seu histórico de atividade mostra isso. Ao lado de cada um, anote o preço dele HOJE na loja: é o que você teria gasto comprando. Some essa coluna; o resultado é quanto de jogo você efetivamente consumiu, em reais. Agora some tudo o que você pagou de assinatura nos MESMOS doze meses, inclusive os meses em que quase não abriu o console — você pagou por eles do mesmo jeito. Subtraia o que pagou do valor que somou. Positivo: a assinatura te devolveu mais do que custou. Negativo: você pagou a mais, e o número é exatamente quanto. Funciona porque os dois lados são seus e do mesmo período — não entra média, não entra catálogo, não entra promessa.\n\nONDE ACHAR: o que você pagou está no histórico de compras da conta ou na fatura do cartão (use o valor de cada cobrança, não o preço anunciado hoje — renovação e promoção de entrada são valores diferentes). O que você jogou está no histórico de atividade, e se aparecer o tempo jogado, use como filtro: vinte minutos e largou não é valor recebido. O preço de cada jogo, na própria loja; se estiver em promoção, use o preço cheio, porque promoção é sorte de data.\n\nO QUE A CONTA NÃO PEGA: o online multijogador, quando vem no mesmo pacote (some à parte, do lado do que você recebeu); o fato de que jogo de catálogo pode sair — comprar dá posse, assinar dá acesso, e isso não muda o cálculo mas muda a leitura dele; pacotes anuais com desconto (use o valor real cobrado); e o ano que vem, que depende do que você vai jogar. É a conta do ano que passou — e é justamente por isso que serve, porque o ano que passou é a melhor estimativa que existe do seu próprio comportamento.\n\nNada aqui é recomendação de serviço nem conselho financeiro. É um jeito de calcular.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nFaz essa conta com a tua própria assinatura e escreve aqui só um número: a diferença em reais, com o sinal. Sem nome de serviço, sem lista de jogos, só a diferença. Quero ver o quanto esses números se espalham entre quem assina a mesma coisa.\n\n## HASHTAGS\n#Games #FinançasPessoais #NívelDoJogo\n\n## TAGS\nassinatura de jogos, vale a pena assinar, catalogo de jogos, historico de jogos, quanto gasto com games, comprar ou assinar, renovacao de assinatura, orcamento gamer, preco de jogos, biblioteca de jogos, custo por jogo, financas pessoais, gastos com games, assinatura anual, decisao de renovacao\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de assinatura, nao cita preco de jogo, nao cita catalogo, nao cita nome de servico e nao compara servicos entre si. Todos os numeros da conta sao do proprio espectador: o que ele pagou sai do historico de compras ou da fatura do cartao dele, e o preco dos jogos sai da loja no dia em que ele abrir — e sao os jogos que ELE jogou, tirados do historico de atividade dele. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa de qual servico ele assina. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer preco de mensalidade ou de jogo. Esses valores mudam por regiao, por promocao e por data de renovacao, e citar um so deles tornaria a conta errada para a maioria de quem assiste. O video tambem nao diz que assinatura e boa ou ruim — as duas respostas sao legitimas e dependem do numero de cada um —, nao recomenda servico, nao promete economia e nao e aconselhamento financeiro.\n"
+}
