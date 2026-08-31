@@ -1,0 +1,474 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-013",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A4B",
+  "c1": "#E76F51",
+  "c2": "#F4A259",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Tunai atau",
+  "l2": "cicilan nol"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Satu tombol",
+   "sub": "yang kamu klik cepat",
+   "nar": "Ada satu tombol yang kamu klik hampir tanpa berpikir. Tombol yang membagi harga jadi beberapa bulan.",
+   "cap": "Tombol yang diklik cepat"
+  },
+  {
+   "layout": "item",
+   "kicker": "Namanya menenangkan",
+   "preco": "nol persen",
+   "nar": "Namanya menenangkan. Nol persen. Dan kata nol itu bekerja: begitu kamu membacanya, kamu berhenti memeriksa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Padahal itu pilihan",
+   "preco": "bukan keharusan",
+   "nar": "Padahal itu pilihan, bukan keharusan. Tidak ada yang memaksamu. Kamu yang memilih, dan kamu memilih lagi di belanja berikutnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan pilihannya punya batas waktu",
+   "preco": "sekarang, di layar",
+   "nar": "Pilihan ini juga punya batas waktu yang jelas. Bukan minggu depan: sekarang, di layar, sebelum kamu menekan bayar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang jarang dilakukan",
+   "preco": "membandingkan",
+   "nar": "Yang jarang dilakukan orang cuma satu hal: membandingkan dua angka yang sudah ada di layar yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua angka itu",
+   "preco": "milikmu",
+   "nar": "Dua angka itu bukan milik saya dan bukan milik aplikasinya. Dua duanya milikmu, dan dua duanya sudah tertulis di depan matamu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang akan kamu dapat",
+   "preco": "satu pengurangan",
+   "nar": "Dalam beberapa menit kamu bisa melakukan perhitungan ini sendiri. Satu pengurangan, dan satu pembagian kalau kamu mau melihatnya lebih jelas. Tanpa aplikasi tambahan dan tanpa istilah keuangan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua angka",
+   "sub": "di layar yang sama",
+   "nar": "Perhitungannya punya dua sisi, dan kesalahan paling umum adalah cuma melihat satu.",
+   "cap": "Dua angka di layar yang sama"
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka pertama",
+   "preco": "harga tunai",
+   "nar": "Angka pertama adalah harga kalau kamu bayar sekaligus hari ini. Harga tunai. Biasanya dia yang paling terlihat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka kedua",
+   "preco": "bukan besar cicilan",
+   "nar": "Angka kedua bukan besar cicilan per bulan. Cicilan per bulan memang dirancang supaya terasa ringan, dan itu tugasnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Angka kedua",
+   "preco": "totalnya",
+   "nar": "Angka kedua adalah cicilan per bulan dikali jumlah bulannya. Totalnya. Itu yang benar benar keluar dari rekeningmu sampai selesai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu tambahkan",
+   "preco": "yang menempel",
+   "nar": "Lalu tambahkan apa saja yang menempel pada cicilan itu dan tidak menempel pada pembayaran tunai. Biaya yang besarnya sama di dua jalur tidak mengubah perbandingan; yang penting hanya yang berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang dua duanya",
+   "preco": "dalam satuan yang sama",
+   "nar": "Sekarang dua angka itu ada dalam satuan yang sama: rupiah, sampai lunas. Bukan rupiah per bulan lawan rupiah sekaligus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan perbandingan berhenti jadi selera",
+   "preco": "jadi aritmetika",
+   "nar": "Begitu satuannya sama, perbandingannya berhenti jadi selera dan berubah jadi aritmetika. Dan aritmetika tidak tergantung siapa yang bicara.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hitungnya",
+   "sub": "kurangkan, lalu bagi",
+   "nar": "Jadi begini perhitungannya. Satu pengurangan, dan satu pembagian kalau kamu mau angkanya lebih terasa.",
+   "cap": "Hitungnya: kurangkan lalu bagi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah satu",
+   "preco": "total semua cicilan",
+   "nar": "Langkah pertama: cicilan per bulan dikali jumlah bulan. Catat hasilnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah dua",
+   "preco": "tambahkan biayanya",
+   "nar": "Langkah kedua: tambahkan biaya yang cuma muncul di jalur cicilan. Catat lagi hasilnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah tiga",
+   "preco": "kurangi harga tunai",
+   "nar": "Langkah ketiga: kurangi angka itu dengan harga tunai. Yang tersisa adalah harga dari membagi pembayaran.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau hasilnya nol",
+   "preco": "benar benar nol",
+   "nar": "Kalau hasilnya nol, cicilannya memang benar benar nol persen, dan membagi pembayaran tidak menagih apa apa darimu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau hasilnya positif",
+   "preco": "itu harganya",
+   "nar": "Kalau hasilnya positif, itulah harga yang kamu bayar untuk menunda. Bukan bunga, bukan istilah teknis. Selisih, dalam rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pembagiannya",
+   "preco": "per bulan menunda",
+   "nar": "Dan kalau mau lebih terasa: bagi selisih itu dengan jumlah bulannya. Itu harga menunda, per bulan. Angka per bulan biasanya lebih mudah dibandingkan dengan hal hal lain yang kamu bayar tiap bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu jawabannya",
+   "preco": "dan sudah selesai",
+   "nar": "Itu jawabannya, dan perhitungannya selesai di sini. Sisa video ini soal di mana angkanya bersembunyi dan kapan hasilnya menipu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Di mana angkanya",
+   "sub": "bersembunyi",
+   "nar": "Sekarang bagian yang bikin banyak orang salah hitung: di mana angka angka itu bersembunyi.",
+   "cap": "Di mana angkanya bersembunyi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Harga tunai",
+   "preco": "kadang berubah",
+   "nar": "Harga tunai kadang berubah begitu kamu memilih cicilan. Periksa dia di dua keadaan, bukan cuma satu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Biaya layanan",
+   "preco": "per transaksi",
+   "nar": "Ada biaya layanan yang muncul sekali per transaksi. Dia kecil di layar dan utuh di rekening.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Biaya bulanan",
+   "preco": "ikut tiap bulan",
+   "nar": "Ada juga biaya yang ikut tiap bulan bersama cicilannya. Yang ini dikali jumlah bulan, sama seperti cicilannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ongkos kirim",
+   "preco": "kadang beda",
+   "nar": "Ongkos kirim kadang berbeda antara dua jalur pembayaran. Kalau berbeda, selisihnya masuk hitungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Promo yang hilang",
+   "preco": "juga selisih",
+   "nar": "Dan kalau ada potongan yang hanya berlaku untuk pembayaran tunai, kehilangan potongan itu juga bagian dari harga menunda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Semua itu satu tempat",
+   "preco": "sisi cicilan",
+   "nar": "Semua yang cuma ada di jalur cicilan masuk ke satu tempat: sisi cicilan. Jangan sebar mereka, nanti hilang satu satu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau ragu",
+   "preco": "catat dua kali",
+   "nar": "Kalau ragu, lakukan hal paling sederhana: catat total yang harus dibayar di dua jalur, di layar yang sama, sebelum menekan bayar. Layar terakhir sebelum pembayaran biasanya menampilkan angka yang paling lengkap, dan di situlah tempat terbaik untuk mencatatnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang tidak masuk",
+   "sub": "hitungan ini",
+   "nar": "Ada hal hal yang perhitungan ini memang tidak tangkap, dan lebih jujur menyebutnya daripada berpura pura.",
+   "cap": "Yang tidak masuk hitungan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Arus kasmu",
+   "preco": "punya nilai",
+   "nar": "Yang pertama: arus kas. Menahan uang di rekening bulan ini punya nilai nyata, terutama kalau dana daruratmu tipis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kadang menunda",
+   "preco": "memang layak",
+   "nar": "Artinya membayar selisih untuk tidak mengosongkan rekening bisa masuk akal. Perhitungan ini tidak melarang itu — dia cuma memberi tahu harganya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang kedua",
+   "preco": "uang yang menganggur",
+   "nar": "Yang kedua: uang yang tidak jadi kamu keluarkan hari ini mungkin bekerja di tempat lain. Kalau memang bekerja, itu poin untuk cicilan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tapi jujur di sini",
+   "preco": "apakah benar bekerja",
+   "nar": "Tapi jujurlah di bagian ini. Kalau uang itu cuma mengendap di rekening harian, dia tidak bekerja, dan poin itu gugur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang ketiga",
+   "preco": "kebiasaan",
+   "nar": "Yang ketiga tidak berbentuk angka: membagi pembayaran membuat belanja terasa lebih ringan, dan yang terasa ringan cenderung lebih sering.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu tidak masuk rumus",
+   "preco": "tapi masuk rekening",
+   "nar": "Itu tidak masuk rumus mana pun, tapi dia masuk ke rekeningmu di akhir bulan. Perhatikan sendiri, dan lihat apakah polanya ada. Cara paling jujur memeriksanya adalah menghitung berapa kali kamu memakai fasilitas itu tahun lalu, bukan menebak seberapa sering rasanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kasus yang menipu",
+   "sub": "nol yang bukan nol",
+   "nar": "Sekarang kasus yang menipu hampir semua orang, dan dia layak satu bab sendiri.",
+   "cap": "Kasus yang menipu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kadang nolnya benar",
+   "preco": "dan selisihnya nol",
+   "nar": "Kadang nolnya memang benar. Kamu hitung, selisihnya nol, dan membagi pembayaran tidak menagih apa apa. Itu ada, dan itu bagus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kadang harganya",
+   "preco": "sudah dinaikkan",
+   "nar": "Kadang yang terjadi lain: harga tunainya sendiri sudah dinaikkan supaya cicilannya bisa disebut nol persen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cara memeriksanya",
+   "preco": "harga di tempat lain",
+   "nar": "Cara memeriksanya sederhana: lihat harga barang yang sama di tempat lain yang tidak menawarkan cicilan itu. Satu tempat pembanding sudah cukup, asalkan barangnya benar benar sama dan bukan versi yang berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau harganya sama",
+   "preco": "nolnya benar",
+   "nar": "Kalau harganya kurang lebih sama, nolnya benar. Kalau di tempat lain jauh lebih murah, selisih itu sudah kamu bayar di muka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan itu tidak muncul",
+   "preco": "di rumus tadi",
+   "nar": "Dan selisih jenis ini tidak muncul di rumus tadi, karena rumusnya memakai harga tunai yang sedang ditawarkan padamu, bukan harga wajarnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua duanya sah",
+   "preco": "tergantung angkamu",
+   "nar": "Dua duanya jawaban yang sah, dan tidak ada yang benar secara umum. Yang benar adalah yang ditunjuk angkamu. Yang tidak sah cuma satu: mengklik tanpa pernah melihat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dari satu belanja",
+   "sub": "ke satu tahun",
+   "nar": "Sekarang langkah yang mengubah cara kamu merasakan ukurannya.",
+   "cap": "Dari satu belanja ke satu tahun"
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu belanja",
+   "preco": "terasa kecil",
+   "nar": "Selisih pada satu belanja biasanya terasa kecil. Memang kecil, dan itu sebabnya dia lolos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalikan",
+   "preco": "dengan yang tahun lalu",
+   "nar": "Kalikan dengan jumlah belanja yang kamu cicil tahun lalu. Perilaku yang sama, dijumlahkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu lihat ke depan",
+   "preco": "keputusannya berulang",
+   "nar": "Lalu lihat ke depan: keputusan ini berulang, dan hasilnya berulang bersamanya, dengan tanda yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan dengan sesuatu",
+   "preco": "yang kamu kenal",
+   "nar": "Supaya ukurannya terasa, bandingkan dengan sesuatu yang kamu kenal. Kalau setahun selisihnya setara satu belanja bulanan penuh, itu satu cerita. Kalau setara satu kopi, itu cerita yang sangat berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan hasilnya bisa nol",
+   "preco": "itu juga jawaban",
+   "nar": "Bisa juga hasilnya nol setahun penuh, dan itu jawaban yang sepenuhnya baik. Artinya kamu memakai fasilitas yang memang gratis, dan tidak ada yang perlu kamu ubah. Perhitungan yang berakhir di nol tetap berguna, karena sekarang kamu tahu, dan tidak lagi menebak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bagusnya",
+   "preco": "keputusannya kembali",
+   "nar": "Bagusnya, keputusan ini kembali setiap kali kamu belanja, dan kembali utuh. Satu tahun yang buruk tidak mengikat tahun berikutnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang bisa kamu lakukan",
+   "sub": "hari ini",
+   "nar": "Kita tutup dengan yang bisa kamu lakukan hari ini, dalam tiga langkah.",
+   "cap": "Yang bisa kamu lakukan hari ini"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga langkah",
+   "itens": [
+    "Total semua cicilan",
+    "Tambah biayanya",
+    "Kurangi harga tunai"
+   ],
+   "nar": "Pertama: cicilan per bulan dikali jumlah bulan. Kedua: tambahkan biaya yang cuma ada di jalur cicilan. Ketiga: kurangi dengan harga tunai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lakukan sekali",
+   "preco": "pada belanja terakhirmu",
+   "nar": "Lakukan sekali saja pada belanja terakhir yang kamu cicil. Angkanya masih ada di riwayat transaksimu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau nol",
+   "preco": "kamu sudah tahu",
+   "nar": "Kalau hasilnya nol, kamu sudah tahu dan tidak perlu ragu lagi di lain waktu pada tempat yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau positif",
+   "preco": "sekarang ada harganya",
+   "nar": "Kalau positif, sekarang keputusanmu punya harga yang terlihat. Kamu masih boleh membayarnya — bedanya, kamu tahu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan simpan angkanya",
+   "preco": "untuk lain kali",
+   "nar": "Simpan angka itu di kepala untuk lain kali. Di tempat yang sama, dengan jangka waktu yang sama, hasilnya biasanya berulang, dan kamu tidak perlu menghitung ulang dari nol setiap belanja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tulis angkamu",
+   "sub": "di kolom komentar",
+   "nar": "Kalau kamu menghitung, tulis satu angka saja di kolom komentar: selisihnya, dengan tandanya. Saya ingin tahu seberapa jauh angka itu menyebar.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Cicilan nol persen",
+   "sub": "benar benar nol?",
+   "nar": "Cicilan nol persen. Kata nol itu bekerja: begitu kamu membacanya, kamu berhenti memeriksa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua angka",
+   "sub": "ada di layarmu",
+   "nar": "Padahal dua angka yang kamu butuhkan ada di layar yang sama, sebelum kamu menekan bayar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka pertama",
+   "sub": "harga tunai",
+   "nar": "Angka pertama: harga kalau kamu bayar sekaligus hari ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka kedua",
+   "sub": "cicilan kali bulan",
+   "nar": "Angka kedua: cicilan per bulan dikali jumlah bulan, ditambah biaya yang cuma ada di jalur cicilan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kurangkan",
+   "sub": "itu jawabannya",
+   "nar": "Kurangi yang kedua dengan yang pertama. Kalau nol, nolnya benar. Kalau positif, itu harga menunda, dalam rupiah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kapan hasilnya menipu",
+   "sub": "ada di video lengkap",
+   "nar": "Kapan hasil nol pun masih menipu, ada di video lengkap di tautan bawah.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Cicilan nol persen: harga dari membagi pembayaran, dihitung dengan angkamu sendiri\n\n## TITULO\nBayar Tunai atau Cicilan 0%? Hitung Selisihnya Sebelum Kamu Klik Bayar\n\n## DESCRICAO\nAda satu tombol yang hampir semua orang klik tanpa berpikir: tombol yang membagi harga jadi beberapa bulan. Namanya menenangkan — nol persen — dan kata nol itu bekerja, karena begitu kamu membacanya kamu berhenti memeriksa. Padahal ini pilihan, bukan keharusan, dan pilihannya punya batas waktu yang sangat jelas: sekarang, di layar, sebelum kamu menekan bayar.\n\nVideo ini tidak menyebut satu pun angka milik saya. Tidak ada tarif, tidak ada biaya administrasi, tidak ada nama aplikasi maupun bank. Dua angka yang dipakai dua duanya milikmu, dan dua duanya sudah ada di layar yang sama pada saat kamu belanja.\n\nPerhitungannya: cicilan per bulan dikali jumlah bulan, lalu tambahkan biaya apa pun yang hanya muncul di jalur cicilan dan tidak muncul di pembayaran tunai, lalu kurangi dengan harga tunai. Kalau hasilnya nol, cicilannya memang benar benar nol persen. Kalau hasilnya positif, itulah harga yang kamu bayar untuk menunda — bukan bunga, bukan istilah teknis, cuma selisih dalam rupiah. Bagi selisih itu dengan jumlah bulannya kalau kamu ingin merasakannya per bulan.\n\nAda satu bab tentang di mana angka angka itu bersembunyi: harga tunai yang kadang berubah begitu kamu memilih cicilan, biaya layanan sekali per transaksi, biaya yang ikut tiap bulan, ongkos kirim yang berbeda antar jalur pembayaran, dan potongan yang hilang kalau kamu tidak membayar tunai.\n\nAda juga bab tentang apa yang perhitungan ini TIDAK tangkap, karena lebih jujur menyebutnya: nilai arus kas ketika dana daruratmu tipis, uang yang mungkin bekerja di tempat lain kalau memang benar benar bekerja, dan kenyataan bahwa belanja yang terasa ringan cenderung lebih sering — yang tidak masuk rumus mana pun tapi masuk ke rekeningmu di akhir bulan.\n\nDan ada bab untuk kasus yang menipu: kadang nolnya memang benar, kadang harga tunainya sendiri sudah dinaikkan supaya cicilannya bisa disebut nol persen. Cara memeriksanya ada di dalam video, dan selisih jenis itu memang tidak muncul di rumus tadi.\n\nPenutupnya adalah tiga langkah yang bisa kamu lakukan hari ini pada belanja terakhir yang kamu cicil, memakai angka yang masih ada di riwayat transaksimu.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nCoba hitung pada belanja terakhir yang kamu cicil, lalu tulis satu angka saja di sini: selisihnya, dengan tandanya. Tanpa nama toko, tanpa nama aplikasi, cukup selisihnya. Saya ingin melihat seberapa jauh angka itu menyebar di antara orang yang memakai fasilitas yang sama.\n\n## HASHTAGS\n#KeuanganPribadi #Cicilan #SetiapLevel\n\n## TAGS\ncicilan nol persen, bayar tunai atau cicilan, paylater, hitung cicilan, biaya cicilan, harga tunai, keuangan pribadi, atur keuangan, belanja online, biaya tersembunyi, cicilan kartu kredit, bunga cicilan, dompet digital, keputusan belanja, hitung sendiri\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Bahasa Indonesia (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita taxa de administracao, nao cita juro, nao cita regra de orgao regulador, nao cita nome de aplicativo nem de banco e nao compara servicos entre si. Os dois numeros da conta sao do proprio espectador e os dois aparecem na mesma tela no momento da compra: o preco a vista e o total das parcelas mais o que so existe no caminho parcelado. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa de qual aplicativo ele usa. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer percentual de taxa ou de juro. Esses valores mudam por loja, por promocao e por data, e citar um so deles tornaria a conta errada para a maioria de quem assiste. O video tambem nao diz que parcelar e bom ou ruim — as duas respostas sao legitimas e dependem do numero de cada um —, nao recomenda nem condena nenhum servico, nao promete economia e nao e aconselhamento financeiro.\n"
+}
