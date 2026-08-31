@@ -88,6 +88,13 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
    transcrever cento e doze títulos em grego, polonês, turco e híndi.
    (Aprendizado 530.)
 
+   **Com o md5 em ORDEM DE BYTES o corpus deixa de precisar ser repassado.**
+   Peça `order by titulo collate "C"` no Postgres e ordene por
+   `x.encode('utf-8')` no Python — aí os dois md5 são comparáveis. O corpus
+   fica na sandbox, o `conduz.py` o faz crescer a cada publicação, e a rodada
+   seguinte só confere. Em 31/08 ele já estava em 113 antes de eu tocar nele, e
+   bateu de primeira: zero título transcrito.
+
 6. **Publique um por vez, e não deixe um derrubar os outros.** `conduz.py` roda
    a fila inteira; um pacote que falha vai para `falhas` e a fila continua. Dez
    canais parados por causa de um seria trocar um problema por dez. Rode com
@@ -129,11 +136,18 @@ juntos assim que a peça do artefato fosse resolvida.
 
 ## O que ficou pendente, e é do Pablo
 
-`youtube.com/verify` em **agla-level**, **game-money-lab** e
-**resep-naik-level**. Os três longos subiram com capa automática: o `403` diz
-`canal sem verificacao por telefone`. O PNG desenhado existe e está no pacote —
-falta permissão no canal. Quando verificar, dá para corrigir a capa dos três
-sem republicar nada.
+`youtube.com/verify` em **agla-level**, **game-money-lab**, **resep-naik-level**
+e — desde 31/08 — **seviye-seviye**. Os longos sobem com capa automática: o
+`403` diz `canal sem verificacao por telefone`. O PNG desenhado existe e está no
+pacote; falta permissão no canal. Quando verificar, dá para corrigir a capa sem
+republicar nada.
+
+**E essa lista não é fixa.** O seviye-seviye ACEITOU a capa em 27/08 e a recusou
+em 31/08 — ele perdeu a verificação no meio do caminho. Trate isso como estado
+que expira: confira o resultado do passo da thumbnail em toda publicação e
+registre o `403` em `videos.erro` do longo. Do lado do espectador a falha é
+silenciosa — o vídeo sobe, fica público, processa, e só a capa some.
+(Aprendizado 533.)
 
 ## Os vinte e dois no ar
 
