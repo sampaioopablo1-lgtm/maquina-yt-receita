@@ -41,6 +41,14 @@ Ela pode ser impressa num repositório público porque:
 
 O que ela **não** pode virar: uma rota para imprimir qualquer outra coisa.
 
+## Medir é outra rota, e não passa por aqui
+
+Este arquivo é sobre **publicar**, que precisa do arquivo e por isso precisa da
+sandbox. **Medir não precisa de arquivo**, e desde 31/08/2026 é feito inteiro de
+dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
+`docs/medir-pelo-banco.md`, junto com os dois números que os tokens atuais
+**não** conseguem medir.
+
 ## A ordem, para repetir
 
 1. **Confira a porta.** `porta.yml`. Aberta ⇒ esqueça este arquivo, é
@@ -86,6 +94,14 @@ O que ela **não** pode virar: uma rota para imprimir qualquer outra coisa.
    com os vinte e dois IDs: `privacyStatus`, `defaultLanguage`,
    `defaultAudioLanguage`, e o crédito CC-BY na descrição. Foi assim que os
    dois defeitos de licença apareceram — e desta vez os vinte e dois passaram.
+
+   **E se o SHORT voltar sem tags, releia antes de acusar defeito.** O mesmo
+   atraso de indexação que causou o bug de 25/08 atinge também esta leitura,
+   que acontece minutos depois do mesmo `PUT`. Em 31/08 o `qKjRsDUO8Zc` voltou
+   com zero tags aos quatro minutos e com as oito aos seis. O longo não passa
+   pelo `apontar_para_longo` e por isso volta completo de primeira — a
+   assimetria entre os formatos na primeira leitura é esperada.
+   (Aprendizado 529.)
 
 ## O teto que eu quase respeitei demais
 
