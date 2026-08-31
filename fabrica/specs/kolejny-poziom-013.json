@@ -1,0 +1,691 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-013",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#E4572E",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Okres",
+  "l2": "ma cenę"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "W twojej umowie",
+   "sub": "jest jedna liczba, którą wybrałeś",
+   "nar": "W umowie kredytu jest liczba, którą wybrałeś sam, i prawdopodobnie poświęciłeś jej najmniej uwagi ze wszystkich. To okres spłaty.",
+   "cap": "Liczba, którą wybrałeś sam"
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie narzuca jej nikt",
+   "preco": "to twoja decyzja",
+   "nar": "Tej liczby nie narzuca ci ustawa ani rynek. To decyzja, którą podejmujesz przy podpisie, i którą czasem można zmienić później.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na czym się skupiłeś",
+   "preco": "na racie",
+   "nar": "Przy podpisie prawie każdy patrzy na jedno: na wysokość raty. Rata musi się zmieścić w budżecie i to zamyka temat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego nie widać",
+   "preco": "sumy wszystkich rat",
+   "nar": "Czego się nie widzi, to sumy wszystkich rat. Ona nie jest wypisana obok raty i nikt jej przy tobie nie mnoży.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A różnica jest tam",
+   "preco": "nie w racie",
+   "nar": "A cała różnica między krótszym a dłuższym kredytem siedzi właśnie w tej sumie, nie w racie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sąsiad obok",
+   "preco": "ten sam kredyt, inny okres",
+   "nar": "Sąsiad z takim samym mieszkaniem i takim samym kredytem, ale z innym okresem, zapłaci w sumie zupełnie inną kwotę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pytanie tego filmu",
+   "preco": "ile dokładnie",
+   "nar": "Pytanie brzmi więc: ile dokładnie, w złotych, kosztuje cię twój okres. Nie w procentach i nie ogólnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego się zaraz nauczysz",
+   "preco": "dwa mnożenia",
+   "nar": "Za chwilę policzysz to sam, dwoma mnożeniami i jednym odejmowaniem, na papierach, które już masz w domu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co robi okres",
+   "sub": "dwie rzeczy naraz",
+   "nar": "Najpierw co okres w ogóle robi, bo robi dwie rzeczy jednocześnie i one idą w przeciwne strony.",
+   "cap": "Co okres robi z ratą"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza rzecz",
+   "preco": "dłuższy okres, niższa rata",
+   "nar": "Pierwsza: im dłuższy okres, tym niższa rata. Ta sama kwota rozkłada się na więcej miesięcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga rzecz",
+   "preco": "dłuższy okres, więcej rat",
+   "nar": "Druga: im dłuższy okres, tym więcej rat zapłacisz. I każda z nich zawiera odsetki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Te dwie idą w kontrze",
+   "preco": "i tu robi się ciekawie",
+   "nar": "Te dwa efekty działają przeciwko sobie, i to właśnie dlatego nie da się odpowiedzieć na oko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego nie na oko",
+   "preco": "bo rata nie spada proporcjonalnie",
+   "nar": "Nie da się na oko, bo rata nie spada proporcjonalnie do wydłużenia okresu. Spada zawsze wolniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co to znaczy",
+   "preco": "wydłużenie kosztuje",
+   "nar": "To znaczy, że wydłużenie okresu obniża ratę o mniej, niż podnosi liczbę rat. Suma rośnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale nie zawsze tak samo",
+   "preco": "zależy od twojego kredytu",
+   "nar": "O ile rośnie, zależy od twojej kwoty, twojego oprocentowania i twoich dwóch okresów. Dlatego to musi być twój rachunek, nie mój.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krótszy nie jest darmowy",
+   "preco": "on podnosi ratę",
+   "nar": "I uwaga w drugą stronę: krótszy okres nie jest darmowy. On podnosi ratę, czasem tak, że przestaje się mieścić.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc to nie jest rada",
+   "preco": "to jest miara",
+   "nar": "Dlatego to nie jest rada, żeby brać krócej. To jest sposób, żeby zobaczyć cenę obu opcji, zanim wybierzesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rachunek",
+   "sub": "dwa mnożenia i jedno odejmowanie",
+   "nar": "Teraz rachunek. Dwa mnożenia i jedno odejmowanie, i potrzebujesz do niego czterech liczb.",
+   "cap": "Rachunek: dwa mnożenia"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza para",
+   "preco": "rata i liczba miesięcy",
+   "nar": "Pierwsza para: rata przy pierwszym okresie i liczba miesięcy tego okresu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mnożysz",
+   "preco": "rata razy miesiące",
+   "nar": "Pomnóż jedno przez drugie. Wynik to suma wszystkiego, co oddasz przy tym okresie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga para",
+   "preco": "rata i miesiące drugiego okresu",
+   "nar": "Druga para: rata przy drugim okresie i liczba miesięcy tego drugiego okresu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mnożysz znowu",
+   "preco": "ta sama operacja",
+   "nar": "Ta sama operacja. Rata razy miesiące. Druga suma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Odejmujesz",
+   "preco": "i to jest twoja liczba",
+   "nar": "Odejmij mniejszą sumę od większej. To, co zostaje, jest w złotych i jest ceną różnicy między tymi dwoma okresami — nie szacunkiem, nie procentem, tylko kwotą, którą albo zapłacisz, albo nie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to działa",
+   "preco": "kwota kredytu się nie zmienia",
+   "nar": "Działa, bo kwota kredytu jest w obu przypadkach ta sama. Zmieniasz tylko okres, więc różnica pokazuje wyłącznie jego koszt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile miesięcy",
+   "preco": "lata razy dwanaście",
+   "nar": "Liczbę miesięcy dostajesz mnożąc lata przez dwanaście. To jedyna liczba, którą wyliczasz sam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I to cały rachunek",
+   "preco": "reszta to gdzie szukać",
+   "nar": "To jest cały rachunek. Wszystko, co dalej, to gdzie znaleźć te cztery liczby i czego ten rachunek nie obejmuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Skąd te cztery liczby",
+   "sub": "z papierów, które masz",
+   "nar": "Cztery liczby, i żadnej nie musisz szacować. Wszystkie są w dokumentach.",
+   "cap": "Skąd wziąć cztery liczby"
+  },
+  {
+   "layout": "item",
+   "kicker": "Rata, którą płacisz",
+   "preco": "z harmonogramu",
+   "nar": "Ratę, którą płacisz dzisiaj, masz w harmonogramie spłat. To ten sam dokument, w którym widzisz kolejne terminy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Okres, który masz",
+   "preco": "z umowy",
+   "nar": "Okres, na który wziąłeś kredyt, jest w umowie. Zwykle podany w latach albo w liczbie rat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rata przy innym okresie",
+   "preco": "to bank ma policzyć",
+   "nar": "Raty przy innym okresie nie licz sam. Poproś bank o symulację dla tego drugiego okresu — to on ma kalkulator i to on ją policzy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Poproś o pisemną",
+   "preco": "nie o rozmowę",
+   "nar": "I poproś o wersję pisemną, nie o liczbę podaną przez telefon. Do rachunku potrzebujesz czegoś, co możesz przeczytać dwa razy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli jeszcze bierzesz kredyt",
+   "preco": "poproś o dwie symulacje",
+   "nar": "Jeśli jeszcze nie podpisałeś, to jest najprostszy moment: poproś o dwie symulacje, na dwa różne okresy, i porównaj je tym rachunkiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ten sam dzień",
+   "preco": "obie liczby",
+   "nar": "Weź obie raty z tego samego dnia. Rata z dzisiaj kontra rata sprzed roku to nie jest porównanie, tylko błąd.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Te same warunki",
+   "preco": "poza okresem",
+   "nar": "I pilnuj, żeby wszystko poza okresem było takie samo: ta sama kwota, ta sama marża, ten sam rodzaj oprocentowania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo inaczej",
+   "preco": "mierzysz coś innego",
+   "nar": "Jeśli zmieni się coś jeszcze, twoja różnica przestaje być ceną okresu, a staje się mieszanką kilku rzeczy naraz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli bank zwleka",
+   "preco": "masz prawo pytać",
+   "nar": "Jeśli bank zwleka z symulacją, pytaj dalej. To jest liczba, na podstawie której masz podjąć decyzję na kilkanaście albo kilkadziesiąt lat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A jeśli dostaniesz tabelę",
+   "preco": "szukaj dwóch kolumn",
+   "nar": "Czasem dostaniesz całą tabelę wariantów. Wtedy szukaj tylko dwóch kolumn: raty i liczby rat. Reszta ci w tym rachunku nie jest potrzebna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To jedyna zasada",
+   "preco": "jedna zmienna",
+   "nar": "Cała rzetelność tego rachunku sprowadza się do jednej zasady: zmieniasz jedną rzecz na raz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego rata spada wolniej",
+   "sub": "warto to zobaczyć",
+   "nar": "Warto zrozumieć, dlaczego rata spada wolniej, niż rośnie okres. To wyjaśnia cały wynik.",
+   "cap": "Dlaczego rata spada wolniej"
+  },
+  {
+   "layout": "item",
+   "kicker": "Rata ma dwie części",
+   "preco": "kapitał i odsetki",
+   "nar": "Każda rata składa się z dwóch części: kawałka pożyczonej kwoty i odsetek od tego, co jeszcze zostało do oddania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na początku",
+   "preco": "przeważają odsetki",
+   "nar": "Na początku kredytu przeważają odsetki, bo zostało do oddania najwięcej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pod koniec",
+   "preco": "przeważa kapitał",
+   "nar": "Pod koniec jest odwrotnie: prawie cała rata to już spłata kwoty, bo odsetek prawie nie ma od czego liczyć.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co robi dłuższy okres",
+   "preco": "przedłuża początek",
+   "nar": "Dłuższy okres wydłuża tę pierwszą fazę. Dłużej jesteś w części, w której płacisz głównie odsetki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego",
+   "preco": "rata spada mniej niż byś oczekiwał",
+   "nar": "Dlatego wydłużenie o kilka lat nie obniża raty tak, jak podpowiada intuicja. Odsetki nie znikają, tylko się rozciągają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A liczba rat",
+   "preco": "rośnie wprost",
+   "nar": "A liczba rat rośnie wprost proporcjonalnie. Więcej miesięcy to po prostu więcej rat, jeden do jednego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stąd wynik",
+   "preco": "suma rośnie",
+   "nar": "Stąd suma zawsze rośnie przy wydłużeniu. Pytanie brzmi wyłącznie o ile, i właśnie to liczysz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź to na sobie",
+   "preco": "w swoim harmonogramie",
+   "nar": "Możesz to zobaczyć u siebie w minutę: otwórz harmonogram i porównaj, jaka część pierwszej raty to odsetki, a jaka część ostatniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta różnica",
+   "preco": "to cały mechanizm",
+   "nar": "Ta różnica między pierwszą a ostatnią ratą jest całym mechanizmem, o którym mówimy. Nie musisz mi wierzyć na słowo, masz to na papierze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I dlatego liczysz sam",
+   "preco": "nikt nie policzy tego za ciebie",
+   "nar": "I dlatego to musi być twoja liczba. Przy twojej kwocie i twoim oprocentowaniu wyjdzie inaczej niż u kogokolwiek innego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego ten rachunek nie łapie",
+   "sub": "to jest ważne",
+   "nar": "Teraz część, bez której ten rachunek robi się niebezpieczny: czego on nie obejmuje.",
+   "cap": "Czego rachunek nie łapie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Oprocentowanie zmienne",
+   "preco": "rata się zmieni",
+   "nar": "Po pierwsze: przy oprocentowaniu zmiennym rata nie zostanie taka sama przez cały okres. Twoje mnożenie zakłada, że zostanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tym zrobić",
+   "preco": "to jest zdjęcie, nie prognoza",
+   "nar": "Traktuj więc wynik jako zdjęcie dzisiejszych warunków, a nie prognozę. To porównanie dwóch okresów przy dzisiejszej stawce.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I to wystarcza",
+   "preco": "bo obie strony są tak samo obarczone",
+   "nar": "I do porównania to wystarcza, bo obie strony rachunku są obciążone tym samym założeniem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ubezpieczenia",
+   "preco": "bywają doliczane obok",
+   "nar": "Po drugie: ubezpieczenia i inne opłaty bywają doliczane obok raty. Sprawdź, czy twoja rata je zawiera, czy nie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź to raz",
+   "preco": "w harmonogramie",
+   "nar": "Sprawdź to raz w harmonogramie i użyj tej samej wersji po obu stronach — albo obie z ubezpieczeniem, albo obie bez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prowizja i koszty na starcie",
+   "preco": "są jednorazowe",
+   "nar": "Po trzecie: prowizja i koszty początkowe są jednorazowe. Nie zależą od okresu, więc w tej różnicy się skracają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nadpłata zmienia wszystko",
+   "preco": "i nie jest w rachunku",
+   "nar": "Po czwarte, i to największe: jeśli zamierzasz nadpłacać, faktyczny okres będzie inny niż ten z umowy. Rachunek tego nie widzi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wcześniejsza spłata",
+   "preco": "sprawdź warunki",
+   "nar": "Sprawdź też, na jakich warunkach możesz spłacić wcześniej. To bywa zapisane osobno i potrafi zmienić opłacalność całego wyboru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zmiana okresu w trakcie",
+   "preco": "to nowa umowa albo aneks",
+   "nar": "Po piąte: zmiana okresu w trakcie spłaty zwykle wymaga aneksu albo nowej umowy, a to bywa osobnym kosztem. Zapytaj o niego, zanim policzysz zysk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wniosek",
+   "preco": "to rząd wielkości",
+   "nar": "Ten rachunek daje ci rząd wielkości, a nie ostateczną kwotę. To początek decyzji, nie jej dowód.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale rząd wielkości wystarcza",
+   "preco": "żeby przestać zgadywać",
+   "nar": "I rząd wielkości w zupełności wystarcza, żeby przestać wybierać okres na wyczucie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzecia opcja",
+   "sub": "której nikt nie liczy",
+   "nar": "Jest jeszcze trzecia opcja, o której prawie nikt nie myśli przy podpisie.",
+   "cap": "Trzecia opcja: nadpłata"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dłuższy okres i nadpłata",
+   "preco": "razem",
+   "nar": "Możesz wziąć dłuższy okres, a potem nadpłacać. Wtedy niższa rata jest twoim marginesem bezpieczeństwa, a nie kosztem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co to daje",
+   "preco": "elastyczność",
+   "nar": "Dostajesz elastyczność: w gorszym miesiącu płacisz niską ratę, w lepszym nadpłacasz i skracasz kredyt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego to wymaga",
+   "preco": "konsekwencji",
+   "nar": "Wymaga to jednak konsekwencji przez lata. Jeśli nadpłata się nie wydarzy, zostaje sam dłuższy okres i jego koszt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak to policzyć",
+   "preco": "tym samym rachunkiem",
+   "nar": "Policzysz to tym samym rachunkiem: potraktuj okres, do którego realnie skrócisz kredyt, jako drugi okres w mnożeniu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I porównaj trzy",
+   "preco": "nie dwie",
+   "nar": "Wtedy masz trzy liczby zamiast dwóch: krótki okres, długi okres, i długi okres z nadpłatą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uwaga na warunki",
+   "preco": "nadpłata bywa ograniczona",
+   "nar": "Zanim na tym oprzesz decyzję, sprawdź w umowie, czy nadpłata jest możliwa bez ograniczeń i bez dodatkowych kosztów.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I co skraca",
+   "preco": "okres czy ratę",
+   "nar": "Sprawdź też, co dokładnie skraca twoja nadpłata: okres kredytu czy wysokość raty. To dwie różne rzeczy i wybiera się je świadomie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo tylko jedno",
+   "preco": "zmniejsza sumę mocno",
+   "nar": "Skracanie okresu zabiera więcej odsetek niż obniżanie raty. Jeśli celujesz w sumę, to jest kierunek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I policz obie wersje",
+   "preco": "zanim zdecydujesz",
+   "nar": "Zanim wybierzesz, policz obie wersje nadpłaty tym samym rachunkiem. To ta sama operacja, tylko z innym drugim okresem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale to twoja decyzja",
+   "preco": "nie moja",
+   "nar": "Który wariant wybierzesz, zależy od tego, czy bardziej potrzebujesz bezpieczeństwa w miesiącu, czy niższej sumy na końcu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Od miesiąca do całego kredytu",
+   "sub": "tu widać skalę",
+   "nar": "I teraz liczba, która najczęściej zmienia zdanie.",
+   "cap": "Od raty do całości"
+  },
+  {
+   "layout": "item",
+   "kicker": "Różnica w racie",
+   "preco": "wygląda mało",
+   "nar": "Różnica w samej racie między dwoma okresami wygląda niepozornie. To zwykle kwota, o której się nie myśli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Różnica w sumie",
+   "preco": "wygląda inaczej",
+   "nar": "Ta sama decyzja w sumie rat wygląda zupełnie inaczej, i to jest dokładnie ta liczba, którą przed chwilą policzyłeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porównaj ją z czymś",
+   "preco": "co znasz",
+   "nar": "Żeby ją poczuć, porównaj ją z czymś, co znasz. Z rocznym dochodem, z ceną samochodu, z wkładem własnym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to działa",
+   "preco": "bo skala staje się realna",
+   "nar": "Działa to dlatego, że liczba w złotych bez odniesienia jest abstrakcją, a z odniesieniem staje się decyzją.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I to się nie powtarza",
+   "preco": "wybierasz raz",
+   "nar": "Pamiętaj też, że okres wybierasz raz, na wiele lat. To nie jest decyzja, którą poprawiasz co miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego licz przed",
+   "preco": "nie po",
+   "nar": "Dlatego rachunek robi się przed podpisem, a nie po pierwszym roku spłaty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A jeśli już spłacasz",
+   "preco": "wciąż warto",
+   "nar": "A jeśli już spłacasz, i tak warto go zrobić: pokaże ci, ile realnie daje skrócenie okresu, gdybyś je rozważał.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I zrób to raz w roku",
+   "preco": "warunki się zmieniają",
+   "nar": "Warto powtórzyć ten rachunek raz w roku. Twoja rata, twój pozostały okres i warunki na rynku nie stoją w miejscu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To ta sama liczba",
+   "preco": "z drugiej strony",
+   "nar": "To dokładnie ta sama liczba, tylko oglądana z drugiej strony umowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co robisz dzisiaj",
+   "sub": "trzy kroki",
+   "nar": "Kończymy tym, co możesz zrobić dzisiaj, w trzech krokach.",
+   "cap": "Co robisz dzisiaj"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy kroki",
+   "itens": [
+    "Znajdź swoją ratę",
+    "Poproś o drugą symulację",
+    "Pomnóż i odejmij"
+   ],
+   "nar": "Pierwszy: znajdź swoją ratę i swój okres. Drugi: poproś bank o symulację dla innego okresu. Trzeci: pomnóż obie i odejmij.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy krok",
+   "preco": "harmonogram i umowa",
+   "nar": "Pierwszy krok to dwa dokumenty, które już masz: harmonogram spłat i umowa. Nic nie musisz nigdzie zakładać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi krok",
+   "preco": "jedno pytanie do banku",
+   "nar": "Drugi krok to jedno pytanie do banku, zadane na piśmie. O symulację dla innego okresu, przy tej samej kwocie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci krok",
+   "preco": "kartka i kalkulator",
+   "nar": "Trzeci krok to kartka i kalkulator w telefonie. Dwa mnożenia, jedno odejmowanie, dwie minuty. Nie potrzebujesz do tego żadnej aplikacji ani żadnego porównywarki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapisz wynik z datą",
+   "preco": "będziesz go potrzebował",
+   "nar": "Zapisz wynik razem z datą. Za pół roku będziesz chciał wiedzieć, jakie warunki obowiązywały, kiedy decydowałeś, a pamięć tego nie odtworzy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego to nie jest",
+   "preco": "to nie jest porada",
+   "nar": "I na koniec jasno: nic z tego nie jest poradą finansową ani rekomendacją banku. To metoda liczenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "policz to dzisiaj",
+   "nar": "Jeśli dotarłeś tutaj, zrób ten rachunek dzisiaj, na swojej własnej umowie. I napisz w komentarzu samą różnicę, którą ci wyszła.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Twój okres kredytu",
+   "sub": "ma cenę w złotych",
+   "nar": "Okres twojego kredytu ma cenę, i nikt ci jej nie wypisuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cztery liczby",
+   "preco": "dwie raty, dwa okresy",
+   "nar": "Potrzebujesz czterech liczb: twojej raty i twojego okresu, oraz raty i okresu przy innym terminie spłaty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwa mnożenia",
+   "preco": "rata razy miesiące",
+   "nar": "Pomnóż każdą ratę przez liczbę miesięcy. Lata razy dwanaście daje miesiące.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Odejmij",
+   "preco": "to jest ta cena",
+   "nar": "Odejmij jedną sumę od drugiej. To, co zostaje, jest w złotych i jest ceną twojego okresu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "skąd wziąć te liczby",
+   "nar": "Gdzie znaleźć każdą z czterech liczb i czego ten rachunek nie obejmuje — w pełnym filmie pod spodem.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Ile kosztuje okres twojego kredytu\n\n## TITULO\nKrótszy czy Dłuższy Kredyt? Dwa Mnożenia z Twojej Umowy Pokazują Różnicę w Złotych\n\n## DESCRICAO\nW umowie kredytu jest liczba, którą wybrałeś sam i której poświęciłeś najmniej uwagi: okres spłaty. Nie narzuca jej ustawa ani rynek — to twoja decyzja, podejmowana przy podpisie i czasem możliwa do zmiany później. Przy podpisie prawie każdy patrzy tylko na wysokość raty, bo rata musi zmieścić się w budżecie. Czego się nie widzi, to sumy wszystkich rat — a cała różnica między krótszym a dłuższym kredytem siedzi właśnie tam.\n\nDLACZEGO NIE DA SIĘ NA OKO\n\nOkres robi dwie rzeczy naraz i idą one w przeciwne strony: dłuższy okres obniża ratę, ale zwiększa liczbę rat. Rata nie spada proporcjonalnie do wydłużenia okresu — spada wolniej, bo dłuższy okres przedłuża fazę, w której płacisz głównie odsetki. Liczba rat rośnie natomiast wprost, jeden do jednego. Dlatego suma zawsze rośnie przy wydłużeniu; pytanie brzmi wyłącznie o ile, i to zależy od twojej kwoty, twojego oprocentowania i twoich dwóch okresów.\n\nRACHUNEK (dwa mnożenia i jedno odejmowanie)\n\nWeź ratę przy pierwszym okresie i liczbę miesięcy tego okresu — pomnóż. Weź ratę przy drugim okresie i liczbę miesięcy drugiego okresu — pomnóż. Odejmij mniejszą sumę od większej. Wynik jest w złotych i jest ceną różnicy między tymi dwoma okresami. Działa, bo kwota kredytu jest w obu przypadkach ta sama — zmieniasz tylko okres. Liczbę miesięcy dostajesz mnożąc lata przez dwanaście.\n\nSKĄD CZTERY LICZBY: ratę, którą płacisz, masz w harmonogramie spłat; okres — w umowie. Raty przy innym okresie nie licz sam: poproś bank o symulację, najlepiej pisemną. Obie raty z tego samego dnia, wszystko poza okresem identyczne — ta sama kwota, ta sama marża, ten sam rodzaj oprocentowania. Jedna zmienna na raz.\n\nCZEGO RACHUNEK NIE ŁAPIE: przy oprocentowaniu zmiennym rata nie zostanie taka sama (traktuj wynik jak zdjęcie dzisiejszych warunków — do porównania wystarcza, bo obie strony są obciążone tym samym założeniem); ubezpieczenia doliczane obok raty (użyj tej samej wersji po obu stronach); prowizja i koszty początkowe (jednorazowe, więc w różnicy się skracają); i nadpłata, która zmienia faktyczny okres — sprawdź w umowie, czy jest możliwa bez ograniczeń i czy skraca okres, czy ratę.\n\nNic z tego nie jest poradą finansową ani rekomendacją banku. To metoda liczenia.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nZrób ten rachunek na własnej umowie i napisz tu jedną liczbę: samą różnicę w złotych. Bez banku, bez kwoty kredytu, bez oprocentowania — tylko różnica. Ciekawi mnie, jak bardzo te różnice rozjadą się między sobą przy podobnych kredytach.\n\n## HASHTAGS\n#Kredyt #FinanseOsobiste #KolejnyPoziom\n\n## TAGS\nokres kredytu, kredyt hipoteczny, rata kredytu, harmonogram splat, suma rat, nadplata kredytu, skrocenie okresu, symulacja kredytu, oprocentowanie zmienne, calkowity koszt kredytu, wczesniejsza splata, wybor okresu, finanse osobiste, budzet domowy, kalkulator kredytowy\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Polones (pl) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Polonia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita lei, taxa, RRSO, prazo maximo de credito nem nome de banco. Todos os numeros da conta sao do proprio espectador: as duas parcelas saem da simulacao que o banco lhe entrega ou do harmonograma que ele ja tem, e a contagem de meses sai de anos vezes doze. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer. O QUE FOI DESCARTADO, e o descarte e a razao de este video existir nesta forma: a pauta foi bancada em 27/08/2026 com o par de prazos VINTE E CINCO e TRINTA E CINCO anos, vindo da Rekomendacja S da KNF. Esse par NAO entrou, porque as duas pecas que o sustentam (a recomendacao de 2011 e a novelizacao de junho de 2023) sao da MESMA instituicao, e a regra desta maquina pede duas instituicoes que batam. A busca restrita a nbp.pl, gov.pl, uokik.gov.pl e bfg.pl nao devolveu confirmacao de outra instituicao — e devolveu uma ARMADILHA que fica registrada aqui: o numero TRINTA E CINCO aparece no gov.pl, mas significa LIMITE DE IDADE do programa `kredyt mieszkaniowy #naStart`, nao prazo maximo de credito. Dois numeros iguais, significados diferentes. O titulo original da pauta carregava esse par e foi trocado por um sem numero nenhum: numero descartado no titulo e numero descartado entrando no video pela porta dos fundos. A conta funciona sem ele, porque os dois prazos comparados sao os do contrato do espectador.\n"
+}
