@@ -26,7 +26,7 @@
    "layout": "item",
    "kicker": "Não é sobre cobrar caro",
    "preco": "é sobre saber",
-   "nar": "Isso não é uma conversa sobre cobrar caro. É sobre saber quanto você recebeu por hora, o que é uma pergunta diferente e bem mais útil.",
+   "nar": "Isso não é uma conversa sobre cobrar caro. É sobre saber quanto você recebeu por hora, o que é uma pergunta diferente e bem mais útil. Dá para responder ela sem decidir nada, e é melhor assim.",
    "sem_cap": true
   },
   {
@@ -89,7 +89,7 @@
    "layout": "item",
    "kicker": "As reuniões",
    "preco": "contam",
-   "nar": "As reuniões contam. As trocas de mensagem que interromperam outra coisa contam. O deslocamento conta.",
+   "nar": "As reuniões contam. As trocas de mensagem que interromperam outra coisa contam, e contam com o tempo que você levou para voltar ao que estava fazendo. O deslocamento conta.",
    "sem_cap": true
   },
   {
@@ -131,7 +131,7 @@
    "layout": "item",
    "kicker": "Agora compare",
    "preco": "com a que você diz",
-   "nar": "Agora compare com o valor de hora que você diz que cobra, ou que você imaginava estar recebendo.",
+   "nar": "Agora compare com o valor de hora que você diz que cobra, ou que você imaginava estar recebendo. Se nunca pensou nisso, use o que acharia justo receber por uma hora sua.",
    "sem_cap": true
   },
   {
@@ -236,7 +236,7 @@
    "layout": "item",
    "kicker": "O portfólio",
    "preco": "e o cliente que apresenta",
-   "nar": "A segunda: portfólio e apresentação. Um trabalho que abre porta tem valor que não está no preço dele.",
+   "nar": "A segunda: portfólio e apresentação. Um trabalho que abre porta tem valor que não está no preço dele, e às vezes vale mais do que o projeto inteiro.",
    "sem_cap": true
   },
   {
@@ -271,7 +271,7 @@
    "layout": "item",
    "kicker": "O projeto grande",
    "preco": "parece o melhor",
-   "nar": "O trabalho de maior valor costuma parecer o melhor do ano, porque o número que entrou foi o maior.",
+   "nar": "O trabalho de maior valor costuma parecer o melhor do ano, porque o número que entrou foi o maior, e porque é dele que você lembra quando alguém pergunta como foi o ano.",
    "sem_cap": true
   },
   {
@@ -320,7 +320,7 @@
    "layout": "item",
    "kicker": "Um projeto",
    "preco": "parece pouco",
-   "nar": "A diferença em um projeto costuma parecer pequena, seja ela a favor ou contra.",
+   "nar": "A diferença em um projeto costuma parecer pequena, seja ela a favor ou contra. É pequena mesmo, e é por isso que ela passa batida todas as vezes.",
    "sem_cap": true
   },
   {
@@ -387,7 +387,7 @@
    "layout": "item",
    "kicker": "Se doer",
    "preco": "não mude o preço ainda",
-   "nar": "Se o número doer, resista a mudar o preço na hora. Faça nos três últimos primeiro, para saber se é padrão ou se foi um projeto específico.",
+   "nar": "Se o número doer, resista a mudar o preço na hora. Faça nos três últimos primeiro, para saber se é padrão ou se foi um projeto específico. Um número ruim sozinho não é padrão, é um caso.",
    "sem_cap": true
   },
   {

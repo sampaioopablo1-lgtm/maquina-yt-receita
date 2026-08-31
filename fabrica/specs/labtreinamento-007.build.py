@@ -123,7 +123,8 @@ T("Você mandou um preço", "e nunca conferiu depois",
   cap="O preço que você mandou")
 I("Não é sobre cobrar caro", "é sobre saber",
   "Isso não é uma conversa sobre cobrar caro. É sobre saber quanto você "
-  "recebeu por hora, o que é uma pergunta diferente e bem mais útil.")
+  "recebeu por hora, o que é uma pergunta diferente e bem mais útil. Dá para "
+  "responder ela sem decidir nada, e é melhor assim.")
 I("E é escolha sua", "com prazo",
   "E é uma escolha que volta com prazo: o próximo orçamento que você vai "
   "mandar. Não é semana que vem em tese, é o próximo.")
@@ -153,7 +154,8 @@ I("Não só a execução", "tudo que o trabalho puxou",
   "puxou, do primeiro contato até o último ajuste.")
 I("As reuniões", "contam",
   "As reuniões contam. As trocas de mensagem que interromperam outra coisa "
-  "contam. O deslocamento conta.")
+  "contam, e contam com o tempo que você levou para voltar ao que estava "
+  "fazendo. O deslocamento conta.")
 I("As revisões", "principalmente elas",
   "As revisões contam, principalmente as que vieram depois de você achar que "
   "tinha acabado.")
@@ -175,7 +177,8 @@ I("Divida", "recebido pelas horas",
   "você planejou, não é a que está na sua proposta: é a que aconteceu.")
 I("Agora compare", "com a que você diz",
   "Agora compare com o valor de hora que você diz que cobra, ou que você "
-  "imaginava estar recebendo.")
+  "imaginava estar recebendo. Se nunca pensou nisso, use o que acharia justo "
+  "receber por uma hora sua.")
 I("Se a real for maior", "o preço estava bom",
   "Se a hora real for maior, aquele preço estava bom para você, e vale saber "
   "por quê antes de mudar qualquer coisa.")
@@ -231,7 +234,7 @@ I("Mas cuidado", "isso não se repete",
   "trabalho já se repetiu três vezes, o argumento acabou.")
 I("O portfólio", "e o cliente que apresenta",
   "A segunda: portfólio e apresentação. Um trabalho que abre porta tem valor "
-  "que não está no preço dele.")
+  "que não está no preço dele, e às vezes vale mais do que o projeto inteiro.")
 I("Também tem prazo", "portas fecham",
   "Mas essa também vence. Se a porta não abriu em alguns meses, ela não vai "
   "abrir por causa daquele projeto.")
@@ -250,7 +253,8 @@ T("O caso que engana", "o projeto grande",
   cap="O caso que engana")
 I("O projeto grande", "parece o melhor",
   "O trabalho de maior valor costuma parecer o melhor do ano, porque o número "
-  "que entrou foi o maior.")
+  "que entrou foi o maior, e porque é dele que você lembra quando alguém "
+  "pergunta como foi o ano.")
 I("Mas ele também", "consumiu mais",
   "Só que ele também foi o que mais consumiu tempo, e muitas vezes o que mais "
   "gerou revisão e reunião.")
@@ -276,7 +280,7 @@ T("De um projeto", "para o ano",
   cap="De um projeto para o ano")
 I("Um projeto", "parece pouco",
   "A diferença em um projeto costuma parecer pequena, seja ela a favor ou "
-  "contra.")
+  "contra. É pequena mesmo, e é por isso que ela passa batida todas as vezes.")
 I("Faça em três", "os últimos três",
   "Faça a mesma divisão nos três últimos trabalhos que você entregou. Três já "
   "mostram se é padrão ou se foi um caso.")
@@ -310,7 +314,8 @@ I("Compare", "com o que você diz cobrar",
   "entre os dois é a conta inteira, e ela cabe numa linha do seu caderno.")
 I("Se doer", "não mude o preço ainda",
   "Se o número doer, resista a mudar o preço na hora. Faça nos três últimos "
-  "primeiro, para saber se é padrão ou se foi um projeto específico.")
+  "primeiro, para saber se é padrão ou se foi um projeto específico. Um "
+  "número ruim sozinho não é padrão, é um caso.")
 I("E depois", "mude uma coisa só",
   "E quando mudar, mude uma coisa só: ou o preço, ou o que está incluído. "
   "Mudar as duas ao mesmo tempo tira de você a chance de saber qual funcionou.")

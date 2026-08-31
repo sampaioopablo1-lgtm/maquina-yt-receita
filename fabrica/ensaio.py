@@ -16,20 +16,28 @@ O que este ensaio NAO cobre, e e bom dizer: a voz em si, a pronuncia de numero
 por extenso, e o desvio entre a duracao estimada e a real. Ele cobre o que
 quebra o pipeline, nao o que estraga o audio.
 
-O DESVIO DA ESTIMATIVA, MEDIDO EM 31/08/2026 — e ele nao e simetrico ao longo
-do video. A estimativa chega CURTA, e chega mais curta no comeco do que no
-fim:
+O DESVIO DA ESTIMATIVA, MEDIDO EM 31/08/2026 — e ele NAO tem sinal fixo. Duas
+vozes correram longo e uma correu curto, no mesmo dia, com a mesma formula:
 
     nivel-do-jogo-008 (pt-BR-AntonioNeural)   total 542,6s -> 557,6s   +2,8%
                                           resposta 198,9s ->  213s     +7,1%
     setiap-level-013  (id-ID-ArdiNeural)      total 537,6s -> 548,6s   +2,0%
                                           resposta 195,7s ->  206s     +5,3%
+    labtreinamento-007 (pt-BR-Thalita...)     total 504,7s -> 495,0s   -1,9%
+                                          8 capitulos desenhados, 7 produzidos
 
-CONSEQUENCIA PRATICA: a regra dos duzentos segundos da alavanca B nao pode ser
-conferida com folga zero. Os dois pacotes acima passaram na conta da estimativa
-e fecharam a resposta FORA dos duzentos segundos no video publicado. Dimensione
-a resposta para fechar ate ~185s NA ESTIMATIVA, e confira o tempo REAL no
-copy.md renderizado antes de publicar. (Aprendizado 537.)
+Os dois erros custam coisas diferentes, e por isso a folga tem de existir nos
+DOIS sentidos:
+
+  * corre LONGO  -> a resposta sai dos duzentos segundos. Os dois primeiros
+    pacotes passaram no portao e fecharam a resposta em 213s e 206s.
+  * corre CURTO  -> um capitulo cai. No labtreinamento-007 o capitulo 1 foi
+    estimado em 60,4s, rodou abaixo de 60s, e `copy_md` engoliu a abertura do
+    capitulo 2: oito desenhados, sete no video.
+
+CONSEQUENCIA PRATICA: desenhe cada capitulo com ~64s NA ESTIMATIVA, nunca 60,
+e feche a resposta ate ~192s. Depois CONFIRA os dois no copy.md renderizado,
+que traz o tempo real, antes de publicar. (Aprendizado 537.)
 
 SEGURANCA: o ensaio roda numa raiz propria (/tmp/ensaio por padrao, nunca
 /tmp/f) e deixa um arquivo ENSAIO-NAO-PUBLICAR ao lado dos artefatos. Video
