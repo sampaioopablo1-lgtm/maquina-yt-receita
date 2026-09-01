@@ -49,6 +49,33 @@ dentro do Postgres com `pg_net` — o `access_token` nem atravessa. Está em
 `docs/medir-pelo-banco.md`, junto com os dois números que os tokens atuais
 **não** conseguem medir.
 
+## A trava anti-duplicata nao limpa o passado
+
+Ela compara titulos **distintos** no corpus, e por isso impede o proximo
+duplicado sem enxergar os que ja subiram. Em 01/09/2026, uma varredura achou
+**55 videos duplicados no ar em seis canais** — 44 a remover:
+
+    next-level-money   Dutch East India Company     6 longos + 5 shorts
+    kolejny-poziom     Emerytura z ZUS 34,4%        6 longos + 5 shorts
+    nivel-do-jogo      Lei Felca nos Games          5 longos + 5 shorts
+    sx-educacao        Excel / licencas Power BI    5 longos + 5 shorts
+    seviye-seviye      Asgari ucret 28.075 TL       5 longos + 4 shorts
+    resep-naik-level   5 Strategi Ibu               4 longos
+
+O estrago e concreto: no kolejny-poziom os cinco shorts duplicados somam 3.101
+views — quase setenta por cento de tudo o que o canal tem — e sao o MESMO
+video. Os seis longos duplicados somam 145. O canal tem cinco inscritos.
+
+Rode isto de tempos em tempos e trate o resultado como defeito de entrega:
+
+    select canal, titulo, formato, count(*)
+    from videos where status = 'publicado' and titulo is not null
+    group by 1, 2, 3 having count(*) > 1 order by 4 desc;
+
+Apagar video publicado nao e reversivel e nao esta no mandato da rotina:
+levante a lista, registre em `aprendizados`, e deixe a remocao com o Pablo.
+(Aprendizado 544.)
+
 ## A ordem, para repetir
 
 1. **Confira a porta.** `porta.yml`. Aberta ⇒ esqueça este arquivo, é
