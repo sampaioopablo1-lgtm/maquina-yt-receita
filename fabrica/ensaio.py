@@ -338,3 +338,21 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+# A REGRA DOS ~64s AGORA TEM PORTAO, e a prova de que ela precisava de um.
+#
+# O texto acima manda desenhar cada capitulo com ~64s NA ESTIMATIVA desde
+# 31/08/2026. Era so texto. Em 01/09/2026 eu mesmo o desrespeitei no
+# setiap-level-014 — quatro capitulos entre 60,8s e 64,1s estimados — o
+# `prontidao.avalia` passou LIMPO, e o render entregou SETE capitulos de oito.
+#
+# O capitulo 4 tinha 60,8s estimados contra o `MIN_CAP` de 60s do `copy_md`.
+# Folga de 0,8s, que e 1,3%. O desvio do modelo de voz e maior que isso e nao
+# tem sinal fixo: +2,0% na id-ID-ArdiNeural deste pacote, +4,9% no pior caso
+# medido. Quando ele joga para baixo, o capitulo cruza os 60s e some calado.
+#
+# O portao antigo comparava a CONTAGEM simulada e nada mais; o docstring dele
+# afirmava que a contagem "nao muda por dois por cento". Muda, quando a folga e
+# menor que o desvio. `prontidao.MARGEM_CAP` agora exige 1,07 x MIN_CAP = 64,2s
+# na estimativa, e recusa o pacote antes do render em vez de depois.

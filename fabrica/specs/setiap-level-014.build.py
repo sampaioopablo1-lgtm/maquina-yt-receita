@@ -115,7 +115,9 @@ C2 = [
     {"layout": "item", "kicker": "Termasuk yang ini", "preco": "sering terlewat",
      "sem_cap": True,
      "nar": "Jangan lewatkan biaya transfer antarbank, biaya tarik tunai di "
-            "mesin bank lain, dan biaya cek saldo di mesin bank lain."},
+            "mesin bank lain, dan biaya cek saldo di mesin bank lain. Tiga "
+            "baris itu yang paling sering dianggap bagian dari transaksinya, "
+            "padahal terpisah."},
     {"layout": "item", "kicker": "Langkah 2", "preco": "bagi dua belas",
      "sem_cap": True,
      "nar": "Langkah dua: bagi total itu dengan dua belas. Itulah harga bulanan "
@@ -154,7 +156,8 @@ C3 = [
     {"layout": "item", "kicker": "Saldo kecil", "preco": "persentase besar",
      "sem_cap": True,
      "nar": "Kalau saldomu kecil, potongan yang sama persis berubah jadi "
-            "persentase yang besar. Angkanya sama, bebannya tidak."},
+            "persentase yang besar. Angka rupiahnya sama, bebannya sama sekali "
+            "tidak, dan itu tidak kelihatan kalau kamu cuma melihat rupiahnya."},
     {"layout": "item", "kicker": "Jadi", "preco": "yang saldonya kecil bayar lebih mahal",
      "sem_cap": True,
      "nar": "Jadi dalam hitungan persen, yang saldonya paling kecil justru "
@@ -182,7 +185,8 @@ C4 = [
     {"layout": "item", "kicker": "Cari di aplikasi", "preco": "bunga tabungan",
      "sem_cap": True,
      "nar": "Bunga tabunganmu ada di aplikasi yang sama, biasanya di bagian "
-            "informasi produk atau di suku bunga."},
+            "informasi produk atau di suku bunga. Kalau tidak ketemu di "
+            "aplikasi, ada di halaman produk bankmu."},
     {"layout": "item", "kicker": "Dua angka", "preco": "berhadapan",
      "sem_cap": True,
      "nar": "Sekarang kamu punya dua angka yang berhadapan: berapa persen "
@@ -194,8 +198,9 @@ C4 = [
             "menabung."},
     {"layout": "item", "kicker": "Itu bukan tuduhan", "preco": "itu aritmetika",
      "sem_cap": True,
-     "nar": "Itu bukan tuduhan ke bank mana pun. Itu aritmetika dari dua angka "
-            "yang keduanya ada di aplikasimu."},
+     "nar": "Itu bukan tuduhan ke bank mana pun, dan bukan berarti bankmu "
+            "melakukan sesuatu yang salah. Itu aritmetika dari dua angka yang "
+            "keduanya ada di aplikasimu."},
     {"layout": "item", "kicker": "Dan pajak", "preco": "masih di sisi bunga",
      "sem_cap": True,
      "nar": "Dan ingat, bunga yang kamu terima masih dipotong pajak, sedangkan "
@@ -308,7 +313,8 @@ C7 = [
     {"layout": "item", "kicker": "Sering kali", "preco": "cukup benahi yang ada",
      "sem_cap": True,
      "nar": "Sering kali tiga langkah di bagian sebelumnya sudah menghapus "
-            "sebagian besar biayanya tanpa pindah ke mana pun."},
+            "sebagian besar biayanya tanpa kamu pindah ke mana pun, dan tanpa "
+            "kamu mengurus apa pun di luar aplikasimu sendiri."},
     {"layout": "item", "kicker": "Satu rekening lagi", "preco": "kadang lebih mahal",
      "sem_cap": True,
      "nar": "Dan hati-hati dengan jalan tengah yang kelihatan aman: membuka "

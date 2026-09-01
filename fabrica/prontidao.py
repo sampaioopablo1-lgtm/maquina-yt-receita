@@ -440,6 +440,28 @@ def _gate_ortografia(caminho, sp):
     return notas
 
 
+# Margem sobre o `MIN_CAP` do `copy_md`, exigida na ESTIMATIVA.
+#
+# 1,07 sai do maior desvio ja medido do modelo de voz — +4,9% na
+# pt-BR-FranciscaNeural — arredondado para cima. Com MIN_CAP=60 isso da 64,2 s,
+# que e a regra que o `ensaio.py` ja mandava em texto e que nada obrigava.
+MARGEM_CAP = 1.07
+
+
+def _capitulos_sem_margem(longo, tempos, min_cap):
+    """Capitulos que abrem cedo demais para sobreviver ao desvio da voz."""
+    fora, t, ultimo = [], 0.0, None
+    for i, c in enumerate(longo):
+        if c.get("cap"):
+            if ultimo is not None:
+                dt = t - ultimo[1]
+                if min_cap <= dt < min_cap * MARGEM_CAP:
+                    fora.append(f"{ultimo[0]!r} dura {dt:.1f}s")
+            ultimo = (c["cap"], t)
+        t += tempos[i]
+    return fora
+
+
 def _gate_capitulos(sp):
     """Capitulo que a spec desenha e o render nao produz some calado.
 
@@ -479,8 +501,24 @@ def _gate_capitulos(sp):
     sem hashtags. Ligar o portao nelas nao tira nada da frota.
 
     Os tempos sao estimados pelo modelo de voz, e nao pelos clipes: o portao
-    roda ANTES do render. A estimativa erra ~2% no longo, e o que se compara e
-    a CONTAGEM de capitulos, que nao muda por dois por cento.
+    roda ANTES do render.
+
+    E AQUI ESTAVA ESCRITO QUE A CONTAGEM "nao muda por dois por cento". O dado
+    derrubou isso em 01/09/2026, no setiap-level-014: oito capitulos
+    desenhados, o portao passou LIMPO, e o render entregou SETE.
+
+    A causa e aritmetica simples que o texto antigo nao fez. O capitulo 4 tinha
+    60,8 s ESTIMADOS contra um `MIN_CAP` de 60 s — folga de 0,8 s, que e 1,3%.
+    O desvio do modelo de voz e maior que isso: mediu +2,0% na id-ID-ArdiNeural
+    e chega a +4,9% na pt-BR-FranciscaNeural, e ele NAO tem sinal fixo (a
+    hi-IN-MadhurNeural sai em -0,2%). Quando o desvio joga para baixo, o
+    capitulo cruza os 60 s e `copy_md` o engole calado — o capitulo seguinte
+    desaparece da descricao e o portao ja tinha dito que estava tudo bem.
+
+    Por isso o portao passou a exigir MARGEM_CAP, e nao `MIN_CAP` cru. Isso
+    APERTA o portao, nao afrouxa: o que era 60 s vira 64,2 s, que e exatamente
+    o "desenhe cada capitulo com ~64s NA ESTIMATIVA, nunca 60" que o docstring
+    do `ensaio.py` ja mandava desde 31/08 sem nada obrigar.
     """
     import copy_md
     from ensaio import GAP_CENA_S, MODELO_VOZ, duracao_cena
@@ -498,8 +536,17 @@ def _gate_capitulos(sp):
     except (KeyError, IndexError) as e:
         return [f"nao consegui simular os capitulos: {e}"]
 
-    if produzidos == desenhados:
+    curtos_na_margem = _capitulos_sem_margem(longo, tempos, copy_md.MIN_CAP)
+    if produzidos == desenhados and not curtos_na_margem:
         return []
+    if produzidos == desenhados:
+        return [f"{desenhados} capitulos e {produzidos} produzidos NA "
+                f"ESTIMATIVA, mas sem margem para o desvio da voz: "
+                f"{'; '.join(curtos_na_margem)}. O piso do `copy_md` e "
+                f"{copy_md.MIN_CAP:.0f}s e o modelo de voz erra ate 4,9% nos "
+                f"dois sentidos — capitulo que passa raspando na estimativa "
+                f"some no render (setiap-level-014, 01/09/2026). Estique o "
+                f"texto ate {copy_md.MIN_CAP * MARGEM_CAP:.0f}s estimados"]
     perdidos = [c.get("cap") for c in longo
                 if c.get("cap") and c.get("layout") not in ("titulo", "broll")]
     if perdidos:
