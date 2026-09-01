@@ -1,0 +1,509 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-014",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A4B",
+  "c1": "#E76F51",
+  "c2": "#F4A259",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Berapa persen",
+  "l2": "dipotong bank?"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Uangmu diam di bank",
+   "sub": "tapi tidak diam-diam saja",
+   "cap": "Biaya yang tidak pernah kamu setujui",
+   "nar": "Uangmu di bank tidak hanya diam. Setiap bulan ada angka kecil yang keluar dari saldomu, dan kamu tidak pernah menekan tombol apa pun untuk itu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan transaksimu",
+   "preco": "tapi tetap keluar",
+   "sem_cap": true,
+   "nar": "Itu bukan belanjamu dan bukan transfermu. Itu biaya, dan dia keluar sendiri."
+  },
+  {
+   "layout": "item",
+   "kicker": "Namanya beda-beda",
+   "preco": "biaya, adm, admin",
+   "sem_cap": true,
+   "nar": "Di mutasi rekening namanya bermacam-macam: biaya administrasi, biaya kartu, biaya di bawah saldo minimum, biaya tarik tunai di mesin bank lain."
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu per satu kecil",
+   "preco": "itu sebabnya lolos",
+   "sem_cap": true,
+   "nar": "Satu per satu angkanya kecil, dan justru karena kecil dia lolos dari perhatianmu setiap bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Setahun",
+   "preco": "jadi angka lain",
+   "sem_cap": true,
+   "nar": "Tapi dikali dua belas bulan, dia berhenti menjadi angka kecil."
+  },
+  {
+   "layout": "item",
+   "kicker": "Aku tidak akan tebak angkanya",
+   "preco": "kamu yang punya",
+   "sem_cap": true,
+   "nar": "Aku tidak akan menebak berapa punyamu, dan aku tidak akan menyebut tarif bank mana pun di video ini. Angkanya ada di rekeningmu sendiri."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang hemat pun kena",
+   "preco": "ini bukan soal disiplin",
+   "sem_cap": true,
+   "nar": "Dan ini bukan soal boros atau hemat. Orang yang paling disiplin mencatat pengeluaran pun jarang mencatat baris ini, karena dia tidak pernah muncul sebagai keputusan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tiga langkah",
+   "preco": "dan satu persentase",
+   "sem_cap": true,
+   "nar": "Tiga langkah, dan di akhirnya kamu dapat satu persentase yang biasanya bikin kaget. Kita mulai sekarang."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Buka mutasi rekening",
+   "sub": "dua belas bulan",
+   "cap": "Tiga langkah di mutasimu",
+   "nar": "Buka aplikasi bankmu dan cari mutasi rekening. Ambil dua belas bulan terakhir, bukan satu bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah 1",
+   "preco": "jumlahkan semua 'biaya'",
+   "sem_cap": true,
+   "nar": "Langkah satu: cari setiap baris yang memuat kata biaya, adm, atau admin, dan jumlahkan semuanya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Termasuk yang ini",
+   "preco": "sering terlewat",
+   "sem_cap": true,
+   "nar": "Jangan lewatkan biaya transfer antarbank, biaya tarik tunai di mesin bank lain, dan biaya cek saldo di mesin bank lain."
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah 2",
+   "preco": "bagi dua belas",
+   "sem_cap": true,
+   "nar": "Langkah dua: bagi total itu dengan dua belas. Itulah harga bulanan rekeningmu, yang tidak pernah tertulis di mana pun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah 3",
+   "preco": "bagi dengan saldo rata-rata",
+   "sem_cap": true,
+   "nar": "Langkah tiga, dan ini yang menentukan: bagi total setahun itu dengan saldo rata-ratamu, lalu kalikan seratus."
+  },
+  {
+   "layout": "item",
+   "kicker": "Hasilnya",
+   "preco": "persen per tahun",
+   "sem_cap": true,
+   "nar": "Hasilnya adalah persentase per tahun yang kamu bayar hanya untuk menyimpan uangmu sendiri. Itu hitungannya, dan sudah selesai."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau aplikasimu bisa",
+   "preco": "unduh mutasinya",
+   "sem_cap": true,
+   "nar": "Kalau aplikasimu bisa mengunduh mutasi sebagai berkas, unduh saja dan cari kata biaya. Itu memotong pekerjaan tadi jadi beberapa detik."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sisanya",
+   "preco": "arti dari angka itu",
+   "sem_cap": true,
+   "nar": "Sisa video ini adalah arti dari angka itu, dan apa yang bisa kamu lakukan setelah melihatnya."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa persentase",
+   "sub": "bukan rupiah",
+   "cap": "Kenapa yang penting persentase, bukan rupiah",
+   "nar": "Kenapa aku minta persentase, dan bukan cukup jumlah rupiahnya?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Biaya itu tetap",
+   "preco": "saldomu tidak",
+   "sem_cap": true,
+   "nar": "Karena biaya administrasi biasanya angka tetap. Bank memotong jumlah yang sama, entah saldomu besar atau kecil."
+  },
+  {
+   "layout": "item",
+   "kicker": "Saldo besar",
+   "preco": "persentase kecil",
+   "sem_cap": true,
+   "nar": "Kalau saldomu besar, potongan tetap itu jadi persentase yang hampir tidak terasa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Saldo kecil",
+   "preco": "persentase besar",
+   "sem_cap": true,
+   "nar": "Kalau saldomu kecil, potongan yang sama persis berubah jadi persentase yang besar. Angkanya sama, bebannya tidak."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi",
+   "preco": "yang saldonya kecil bayar lebih mahal",
+   "sem_cap": true,
+   "nar": "Jadi dalam hitungan persen, yang saldonya paling kecil justru membayar paling mahal untuk layanan yang sama."
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu sebabnya",
+   "preco": "rupiah menipu",
+   "sem_cap": true,
+   "nar": "Itu sebabnya melihat rupiahnya saja menipu. Sepuluh ribu sebulan terdengar murah sampai kamu tahu itu berapa persen dari saldomu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Contoh cara berpikirnya",
+   "preco": "bukan angkamu",
+   "sem_cap": true,
+   "nar": "Cara berpikirnya begini, dan angkanya cuma contoh: potongan tetap yang sama menjadi dua persen setahun bagi yang saldonya sepuluh juta, dan dua puluh persen bagi yang saldonya satu juta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan sekarang",
+   "preco": "bandingkan",
+   "sem_cap": true,
+   "nar": "Dan begitu kamu punya persennya, kamu bisa membandingkannya dengan sesuatu yang selama ini kamu kejar."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bandingkan dengan bunga",
+   "sub": "yang kamu terima",
+   "cap": "Bandingkan dengan bunga yang kamu terima",
+   "nar": "Sekarang bandingkan persentase tadi dengan bunga yang bank bayar ke kamu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Cari di aplikasi",
+   "preco": "bunga tabungan",
+   "sem_cap": true,
+   "nar": "Bunga tabunganmu ada di aplikasi yang sama, biasanya di bagian informasi produk atau di suku bunga."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua angka",
+   "preco": "berhadapan",
+   "sem_cap": true,
+   "nar": "Sekarang kamu punya dua angka yang berhadapan: berapa persen yang kamu bayar, dan berapa persen yang kamu terima."
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk banyak orang",
+   "preco": "yang dibayar lebih besar",
+   "sem_cap": true,
+   "nar": "Untuk rekening dengan saldo kecil, yang dibayar sering lebih besar daripada yang diterima. Artinya rekening itu bukan tempat menabung."
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu bukan tuduhan",
+   "preco": "itu aritmetika",
+   "sem_cap": true,
+   "nar": "Itu bukan tuduhan ke bank mana pun. Itu aritmetika dari dua angka yang keduanya ada di aplikasimu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan pajak",
+   "preco": "masih di sisi bunga",
+   "sem_cap": true,
+   "nar": "Dan ingat, bunga yang kamu terima masih dipotong pajak, sedangkan biaya yang kamu bayar tidak dipotong apa pun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau hasilnya kecil",
+   "preco": "itu juga jawaban",
+   "sem_cap": true,
+   "nar": "Kalau ternyata persenmu kecil dan bunganya lebih besar, itu juga jawaban yang berguna: berarti rekeningmu memang sudah cocok dengan saldomu dan kamu tidak perlu mengubah apa pun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Selisihnya",
+   "preco": "makin lebar",
+   "sem_cap": true,
+   "nar": "Jadi selisih yang kamu lihat tadi sebenarnya sedikit lebih lebar daripada yang tertulis."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa ini luput",
+   "sub": "dari semua orang",
+   "cap": "Kenapa potongan ini luput bertahun-tahun",
+   "nar": "Kenapa hal sesederhana ini bisa luput bertahun-tahun dari orang yang sebenarnya hemat?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Alasan satu",
+   "preco": "tidak ada tagihan",
+   "sem_cap": true,
+   "nar": "Alasan pertama: tidak ada tagihan. Listrik dan air mengirim tagihan setiap bulan, dan angkanya kamu lihat."
+  },
+  {
+   "layout": "item",
+   "kicker": "Biaya bank",
+   "preco": "langsung dipotong",
+   "sem_cap": true,
+   "nar": "Biaya bank tidak menagih. Dia langsung memotong dari saldo, dan yang kamu lihat cuma saldo yang sudah berkurang."
+  },
+  {
+   "layout": "item",
+   "kicker": "Alasan dua",
+   "preco": "kamu tidak memilihnya",
+   "sem_cap": true,
+   "nar": "Alasan kedua: kamu tidak memilih pengeluaran ini. Semua pengeluaran lain kamu putuskan; yang ini datang sendiri."
+  },
+  {
+   "layout": "item",
+   "kicker": "Otak kita",
+   "preco": "menghitung keputusan",
+   "sem_cap": true,
+   "nar": "Dan kita cenderung hanya menghitung apa yang kita putuskan. Yang datang sendiri tidak masuk hitungan bulanan siapa pun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Alasan tiga",
+   "preco": "nilainya kecil",
+   "sem_cap": true,
+   "nar": "Alasan ketiga, yang paling sederhana: nilainya kecil, dan hal kecil yang berulang selalu lebih besar daripada terasanya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sama seperti langganan",
+   "preco": "yang lupa dibatalkan",
+   "sem_cap": true,
+   "nar": "Polanya sama persis dengan langganan aplikasi yang lupa kamu batalkan. Bedanya, langganan masih mengirim surel; potongan bank tidak mengirim apa-apa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Karena itu",
+   "preco": "hitung setahun, bukan sebulan",
+   "sem_cap": true,
+   "nar": "Karena itu langkah pertama tadi memakai dua belas bulan. Satu bulan tidak akan pernah membuatmu bertindak."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sudah lihat angkanya",
+   "sub": "lalu apa",
+   "cap": "Empat hal yang bisa kamu lakukan",
+   "nar": "Kamu sudah punya angkanya. Sekarang empat hal yang bisa kamu lakukan, dari yang paling gampang."
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu",
+   "preco": "cek saldo minimum",
+   "sem_cap": true,
+   "nar": "Pertama, cek apakah ada baris biaya di bawah saldo minimum. Kalau ada, itu biaya yang hilang hanya dengan menjaga saldo di atas batas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua",
+   "preco": "berhenti tarik di mesin lain",
+   "sem_cap": true,
+   "nar": "Kedua, lihat berapa kali kamu tarik tunai atau cek saldo di mesin bank lain. Itu biaya yang hilang hanya dengan berpindah mesin."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tiga",
+   "preco": "rekening yang menganggur",
+   "sem_cap": true,
+   "nar": "Ketiga, dan ini yang paling sering: rekening lama yang tidak kamu pakai lagi tapi tetap dipotong biaya administrasi setiap bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Rekening menganggur",
+   "preco": "bayar tanpa dipakai",
+   "sem_cap": true,
+   "nar": "Rekening yang tidak dipakai tetap membayar. Menutupnya secara resmi menghentikan potongan itu; membiarkannya tidak."
+  },
+  {
+   "layout": "item",
+   "kicker": "Empat",
+   "preco": "bandingkan jenis rekening",
+   "sem_cap": true,
+   "nar": "Keempat, tanyakan ke bankmu sendiri apakah ada jenis rekening dengan biaya administrasi lebih rendah untuk profil sepertimu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sebelum menutup",
+   "preco": "pindahkan yang menempel",
+   "sem_cap": true,
+   "nar": "Sebelum menutup rekening lama, pastikan tidak ada autodebet atau tagihan yang masih menempel di sana, supaya tidak ada yang gagal bayar setelahnya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Aku tidak menyebut bank",
+   "preco": "sengaja",
+   "sem_cap": true,
+   "nar": "Aku sengaja tidak menyebut bank mana pun, karena tarif berubah dan aku hanya mau kamu memakai angka yang bisa kamu lihat sendiri hari ini."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sebelum pindah bank",
+   "sub": "hitung dulu",
+   "cap": "Sebelum pindah, hitung dulu",
+   "nar": "Godaan setelah melihat angkanya adalah langsung pindah bank. Tunggu sebentar."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pindah juga ada biayanya",
+   "preco": "bukan cuma uang",
+   "sem_cap": true,
+   "nar": "Pindah bank juga ada ongkosnya, dan tidak semuanya berupa uang."
+  },
+  {
+   "layout": "item",
+   "kicker": "Gaji",
+   "preco": "masuk ke rekening mana",
+   "sem_cap": true,
+   "nar": "Cek dulu ke mana gajimu masuk. Kalau kantormu hanya transfer ke bank tertentu, kamu akan menambah satu transfer setiap bulan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Autodebet",
+   "preco": "cicilan, listrik, langganan",
+   "sem_cap": true,
+   "nar": "Cek juga autodebet yang menempel di rekening itu: cicilan, tagihan, langganan. Semuanya harus dipindahkan satu per satu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitung yang jujur",
+   "preco": "selisih setahun",
+   "sem_cap": true,
+   "nar": "Hitungan yang jujur adalah selisih biaya setahun dikurangi ongkos pindah setahun. Kalau selisihnya kecil, tidak perlu pindah."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sering kali",
+   "preco": "cukup benahi yang ada",
+   "sem_cap": true,
+   "nar": "Sering kali tiga langkah di bagian sebelumnya sudah menghapus sebagian besar biayanya tanpa pindah ke mana pun."
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu rekening lagi",
+   "preco": "kadang lebih mahal",
+   "sem_cap": true,
+   "nar": "Dan hati-hati dengan jalan tengah yang kelihatan aman: membuka rekening baru tanpa menutup yang lama berarti kamu membayar dua biaya administrasi, bukan satu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan kalau memang pindah",
+   "preco": "jangan tinggalkan yang lama",
+   "sem_cap": true,
+   "nar": "Dan kalau kamu memang pindah, tutup yang lama secara resmi. Meninggalkannya terbuka berarti membayar dua rekening."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang, di aplikasimu",
+   "sub": "tiga langkah",
+   "cap": "Tiga langkah, sekarang",
+   "nar": "Sebelum video ini selesai, buka aplikasimu dan lakukan tiga langkahnya."
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah 1",
+   "preco": "jumlahkan 12 bulan",
+   "sem_cap": true,
+   "nar": "Satu: di mutasi dua belas bulan, jumlahkan setiap baris yang memuat kata biaya atau adm."
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah 2",
+   "preco": "bagi 12",
+   "sem_cap": true,
+   "nar": "Dua: bagi dengan dua belas, dan kamu tahu harga bulanan rekeningmu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Langkah 3 — persentasenya",
+   "sem_cap": true,
+   "itens": [
+    "total setahun ÷ saldo rata-rata × 100",
+    "bandingkan dengan bunga tabunganmu",
+    "kalau yang dibayar lebih besar, benahi"
+   ],
+   "nar": "Tiga: bagi total setahun dengan saldo rata-ratamu, kali seratus, lalu bandingkan dengan bunga yang kamu terima."
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang paling cepat",
+   "preco": "rekening menganggur",
+   "sem_cap": true,
+   "nar": "Kalau kamu hanya sempat satu hal, cari rekening lama yang tidak kamu pakai. Itu biasanya potongan terbesar yang paling mudah dihentikan."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tidak ada tarif bank di video ini",
+   "preco": "alasannya di deskripsi",
+   "sem_cap": true,
+   "nar": "Sengaja tidak ada satu pun tarif bank di video ini, dan aku tulis alasannya di deskripsi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ulangi setahun lagi",
+   "preco": "tarif berubah",
+   "sem_cap": true,
+   "nar": "Dan catat di kalendermu untuk mengulang hitungan ini tahun depan. Tarif berubah tanpa pengumuman, dan mutasimu adalah satu-satunya tempat perubahan itu terlihat."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Berapa persen punyamu?",
+   "sub": "tulis di komentar",
+   "sem_cap": true,
+   "nar": "Tulis di komentar berapa persen yang keluar. Di kanal ini setiap video berakhir dengan hitungan yang kamu kerjakan di uangmu sendiri; kalau berguna, subscribe."
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Bank memotong tiap bulan",
+   "sub": "tanpa kamu tekan apa pun",
+   "sem_cap": true,
+   "nar": "Setiap bulan bank memotong biaya dari saldomu, dan kamu tidak menekan apa pun."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Buka mutasi 12 bulan",
+   "sub": "jumlahkan yang tertulis 'biaya'",
+   "sem_cap": true,
+   "nar": "Buka mutasi dua belas bulan dan jumlahkan setiap baris yang tertulis biaya atau adm."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagi saldo rata-ratamu",
+   "sub": "kali 100",
+   "sem_cap": true,
+   "nar": "Bagi totalnya dengan saldo rata-ratamu, kali seratus. Itu persen yang kamu bayar per tahun."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bandingkan dengan bunganya",
+   "sub": "sering lebih besar",
+   "sem_cap": true,
+   "nar": "Bandingkan dengan bunga tabunganmu. Saldo kecil sering membayar lebih besar daripada yang diterima."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tiap video satu hitungan",
+   "sub": "subscribe",
+   "sem_cap": true,
+   "nar": "Di sini tiap video satu hitungan di uangmu sendiri. Subscribe."
+  }
+ ],
+ "copy": "# Biaya bank: berapa persen setahun yang kamu bayar untuk menyimpan uangmu\n\n## JUDUL\nBerapa Persen Setahun Kamu Bayar ke Bank? Hitung dari Mutasimu Sendiri\n\n## JUDUL SHORT\nBerapa persen dipotong bankmu?\n\n## DESKRIPSI\nSetiap bulan ada angka kecil yang keluar dari saldomu tanpa kamu menekan tombol apa pun. Bukan belanjamu, bukan transfermu — biaya. Di mutasi rekening namanya bermacam-macam: biaya administrasi, biaya kartu, biaya di bawah saldo minimum, biaya tarik tunai di mesin bank lain. Satu per satu kecil, dan justru karena kecil dia lolos dari perhatianmu setiap bulan.\n\nVideo ini tidak menyebut tarif bank mana pun. Angka yang menentukan ada di rekeningmu sendiri, dan hitungannya tiga langkah.\n\nLangkah satu: buka mutasi rekening dua belas bulan terakhir — bukan satu bulan — dan jumlahkan setiap baris yang memuat kata biaya, adm, atau admin. Jangan lewatkan biaya transfer antarbank, tarik tunai di mesin bank lain, dan cek saldo di mesin bank lain.\n\nLangkah dua: bagi total itu dengan dua belas. Itu harga bulanan rekeningmu, yang tidak pernah tertulis di mana pun.\n\nLangkah tiga, dan ini yang menentukan: bagi total setahun dengan saldo rata-ratamu, lalu kalikan seratus. Hasilnya adalah persentase per tahun yang kamu bayar hanya untuk menyimpan uangmu sendiri.\n\nKenapa persentase dan bukan rupiah? Karena biaya administrasi biasanya angka tetap: bank memotong jumlah yang sama entah saldomu besar atau kecil. Dalam hitungan persen, yang saldonya paling kecil justru membayar paling mahal untuk layanan yang sama.\n\nLalu bandingkan persentase itu dengan bunga tabungan yang bank bayar ke kamu — angkanya ada di aplikasi yang sama. Untuk rekening bersaldo kecil, yang dibayar sering lebih besar daripada yang diterima. Itu bukan tuduhan ke bank mana pun; itu aritmetika dari dua angka yang keduanya ada di aplikasimu. Dan ingat: bunga yang kamu terima masih dipotong pajak, sedangkan biaya yang kamu bayar tidak.\n\nDi video juga ada empat hal yang bisa kamu lakukan setelah melihat angkanya, termasuk yang paling sering terlewat — rekening lama yang sudah tidak dipakai tapi tetap dipotong biaya setiap bulan — dan hitungan jujur sebelum memutuskan pindah bank.\n\n## BAB\n{CAPITULOS}\n\n## KOMENTAR DISEMATKAN\nTiga langkah, kerjakan sekarang: (1) mutasi 12 bulan → jumlahkan semua baris \"biaya\"/\"adm\". (2) bagi 12 → harga bulanan rekeningmu. (3) total setahun ÷ saldo rata-rata × 100 → persen per tahun yang kamu bayar. Bandingkan dengan bunga tabunganmu. Berapa persen punyamu?\n\n## TAGAR\n#BiayaAdmin #KeuanganPribadi #SetiapLevel\n\n## TAG\nbiaya admin bank, biaya administrasi bulanan, mutasi rekening, cara hitung biaya bank, biaya tarik tunai bank lain, saldo minimum rekening, rekening tidak terpakai, bunga tabungan, keuangan pribadi, mengatur keuangan, hemat biaya bank, tutup rekening lama, biaya transfer antarbank, literasi keuangan, cek mutasi rekening\n\n## PENGATURAN STUDIO\nKategori: Edukasi. Bahasa: Indonesia. Bukan untuk anak-anak. Mengandung media sintetis.\n\n## MUSIK / LISENSI\n{TRILHA}\n\n## CATATAN TENTANG ANGKA\nVideo ini sengaja TIDAK memuat satu pun tarif bank — tidak ada tabel biaya administrasi, tidak ada nominal biaya transfer, tidak ada nama bank.\n\nAlasannya jujur dan ini keputusanku: saat menyiapkan video ini aku mencoba memastikan batas tarif transfer BI-FAST langsung di situs Bank Indonesia dan situsnya tidak merespons. Pencarian hanya mengembalikan artikel berita, bukan sumber resmi. Aturannya di kanal ini jelas: angka yang tidak bisa dipastikan di sumber resmi tidak masuk ke video. Jadi angka itu tidak masuk.\n\nKonsekuensinya bukan kelemahan: satu-satunya angka yang menentukan di video ini adalah angka yang kamu baca sendiri di mutasi rekeningmu — total baris \"biaya\", saldo rata-ratamu, dan bunga tabungan yang tertulis di aplikasimu. Ketiganya tidak perlu sumber pihak ketiga karena ketiganya milikmu.\n\nYang video ini TIDAK klaim: bahwa bank tertentu mahal atau murah, bahwa bank digital selalu lebih murah, dan bahwa pindah bank selalu menguntungkan. Justru ada satu bagian yang menghitung ongkos pindah sebelum memutuskan. Tarif berubah dan berbeda antar produk di bank yang sama — karena itu yang kupakai adalah mutasimu, bukan tabel siapa pun.\n"
+}
