@@ -29,6 +29,8 @@ vozes correram longo e uma correu curto, no mesmo dia, com a mesma formula:
                                           resposta 192,3s ->  196s     +1,9%
     resep-naik-level-009 (id-ID-GadisNeural)  total 543,2s -> 552,4s   +1,7%
                                           resposta 194,5s ->  204s     +4,9%
+    next-level-money-008 (en-US-AndrewNeural) total 554,7s -> 557,7s   +0,5%
+                                          resposta 194,7s ->  204s     +4,8%
 
 Os dois erros custam coisas diferentes, e por isso a folga tem de existir nos
 DOIS sentidos:
@@ -39,9 +41,17 @@ DOIS sentidos:
     estimado em 60,4s, rodou abaixo de 60s, e `copy_md` engoliu a abertura do
     capitulo 2: oito desenhados, sete no video.
 
+O ERRO NO PONTO DOS 200s E MAIOR QUE O ERRO NO TOTAL, e sempre. Nas seis
+vozes medidas o total fica entre menos dois e mais tres por cento, mas a
+posicao da resposta erra ate mais sete. A razao provavel: a resposta cai no
+primeiro terco, e o termo por frase do modelo pesa mais onde as cenas sao mais
+curtas. Nao corrija o modelo por isso — ele acerta o total; corrija a MARGEM.
+
 CONSEQUENCIA PRATICA: desenhe cada capitulo com ~64s NA ESTIMATIVA, nunca 60,
-e feche a resposta ate ~192s. Depois CONFIRA os dois no copy.md renderizado,
-que traz o tempo real, antes de publicar. (Aprendizado 537.)
+e feche a resposta ate **~185s** — nao 192. Com 192 na estimativa, duas vozes
+seguidas (Gadis e Andrew) fecharam aos 204s no video publicado, as duas fora da
+regra dos duzentos segundos. Depois CONFIRA os dois no copy.md renderizado, que
+traz o tempo real, antes de publicar. (Aprendizado 537.)
 
 SEGURANCA: o ensaio roda numa raiz propria (/tmp/ensaio por padrao, nunca
 /tmp/f) e deixa um arquivo ENSAIO-NAO-PUBLICAR ao lado dos artefatos. Video
