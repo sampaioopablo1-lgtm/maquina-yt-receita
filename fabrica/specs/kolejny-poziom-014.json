@@ -1,0 +1,649 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-014",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Ile płacisz",
+  "l2": "za nic"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Płacisz co miesiąc",
+   "sub": "za coś, czego nie zużywasz",
+   "nar": "Co miesiąc płacisz rachunek za telefon. I bardzo prawdopodobne, że część tej kwoty idzie za gigabajty, których nigdy nie tkniesz.",
+   "cap": "Rachunek, którego nie sprawdzasz"
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie jest atak na operatorów",
+   "preco": "to jest twój rachunek",
+   "nar": "To nie jest wideo o tym, że operatorzy oszukują. To wideo o tym, ile kosztuje twój własny pakiet — a to zupełnie inne pytanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I ma termin",
+   "preco": "koniec umowy",
+   "nar": "Ma też termin, który znasz: koniec umowy albo miesiąc, w którym możesz ją zmienić. Wtedy ta liczba się przydaje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwie liczby",
+   "preco": "obie już masz",
+   "nar": "Potrzebujesz dwóch liczb i obie już masz. Jedna jest na rachunku, druga w telefonie, w ustawieniach transmisji danych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nikt tego nie liczy",
+   "preco": "operator też nie",
+   "nar": "Nikt tego za ciebie nie policzy. Operator pokazuje wielkość pakietu, bo to sprzedaje. Nie pokazuje ceny gigabajta, którego nie użyłeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nic nie trzeba instalować",
+   "preco": "wszystko już jest",
+   "nar": "Nie musisz niczego instalować ani zaczynać notować. Telefon liczy to od miesięcy, a rachunek masz w skrzynce.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co dalej",
+   "preco": "jedno dzielenie",
+   "nar": "Za chwilę policzysz to sam. Jedno dzielenie i jedno odejmowanie, na liczbach, które już istnieją.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie strony",
+   "sub": "pakiet i zużycie",
+   "nar": "Rachunek ma dwie strony i najczęstszy błąd to patrzeć tylko na pierwszą.",
+   "cap": "Pakiet i rzeczywiste zużycie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Strona pierwsza",
+   "preco": "co płacisz miesięcznie",
+   "nar": "Pierwsza strona to kwota, którą płacisz miesięcznie. Ta z rachunku, nie ta z reklamy sprzed dwóch lat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź, co jest w środku",
+   "preco": "nie tylko dane",
+   "nar": "Sprawdź, co obejmuje: rozmowy, SMS-y i dane. Jeśli rozmowy i tak są bez limitu, cena dotyczy głównie danych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Strona druga",
+   "preco": "ile naprawdę zużyłeś",
+   "nar": "Druga strona to zużycie. W telefonie jest ekran, który pokazuje transmisję danych za ostatni okres rozliczeniowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Weź trzy miesiące",
+   "preco": "nie jeden",
+   "nar": "Weź trzy ostatnie miesiące, nie jeden. Jeden miesiąc prawie zawsze miał coś nietypowego — wyjazd, remont, chorobę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I policz średnią",
+   "preco": "z tych trzech",
+   "nar": "Policz z nich średnią. To twoje normalne zużycie, a nie twoje wyobrażenie o nim — a różnica między jednym a drugim bywa spora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie licz z pamięci",
+   "preco": "ekran to pokazuje",
+   "nar": "Nie licz z pamięci. Prawie wszyscy zaniżają swoje zużycie, bo pamiętają miesiące, w których coś ściągali, a nie te zwykłe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Teraz są porównywalne",
+   "preco": "złote i gigabajty",
+   "nar": "Z ceną po jednej stronie i gigabajtami po drugiej, to przestaje być wrażenie, a staje się arytmetyką.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rachunek",
+   "sub": "jedno dzielenie",
+   "nar": "Więc liczymy. Jedno dzielenie, potem jedno odejmowanie.",
+   "cap": "Rachunek: jedno dzielenie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok pierwszy",
+   "preco": "cena przez pakiet",
+   "nar": "Krok pierwszy: podziel miesięczną kwotę przez wielkość pakietu. To cena gigabajta, którą płacisz na papierze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok drugi",
+   "preco": "cena przez zużycie",
+   "nar": "Krok drugi: podziel tę samą kwotę przez swoje średnie zużycie. To cena gigabajta, którego naprawdę używasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok trzeci",
+   "preco": "porównaj dwie liczby",
+   "nar": "Krok trzeci: porównaj obie. Jeśli druga jest znacznie wyższa, płacisz za pojemność, której nie ruszasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I jeszcze jedno",
+   "preco": "ile zostaje niewykorzystane",
+   "nar": "Możesz to zobaczyć jeszcze prościej: odejmij zużycie od pakietu. To gigabajty, które co miesiąc przepadają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pomnóż to",
+   "preco": "przez cenę z kroku pierwszego",
+   "nar": "Pomnóż je przez cenę z kroku pierwszego. Tyle złotych miesięcznie płacisz za nic — i to jest odpowiedź.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapisz obie liczby",
+   "preco": "obok siebie",
+   "nar": "Zapisz obie ceny gigabajta obok siebie, zanim je porównasz. Sam widok dwóch liczb obok siebie zmienia to, co rozumiesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rachunek się skończył",
+   "preco": "reszta to dlaczego",
+   "nar": "Rachunek się tu kończy i możesz zrobić swój. Reszta wideo to gdzie te liczby leżą, czego nie obejmują i kiedy mylą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Gdzie leżą liczby",
+   "sub": "w telefonie i na rachunku",
+   "nar": "Teraz część praktyczna: gdzie dokładnie te dwie liczby są.",
+   "cap": "Gdzie leżą te liczby"
+  },
+  {
+   "layout": "item",
+   "kicker": "Rachunek",
+   "preco": "w aplikacji operatora",
+   "nar": "Rachunek jest w aplikacji operatora albo w mailu. Weź kwotę faktycznie pobraną, nie cennikową.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uwaga na promocje",
+   "preco": "które się kończą",
+   "nar": "Uważaj na promocje czasowe. Jeśli twoja rata za chwilę rośnie, licz tą wyższą — to ona będzie obowiązywać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zużycie",
+   "preco": "w ustawieniach telefonu",
+   "nar": "Zużycie znajdziesz w ustawieniach telefonu, w sekcji transmisji danych. Warto ustawić tam początek okresu rozliczeniowego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Albo w aplikacji operatora",
+   "preco": "też to pokazuje",
+   "nar": "Aplikacja operatora zwykle też to pokazuje, i często z historią kilku miesięcy — to wygodniejsze niż liczenie z telefonu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wi-Fi się nie liczy",
+   "preco": "to nie ten pakiet",
+   "nar": "Pamiętaj, że dane przez Wi-Fi to nie ten pakiet. Liczy się tylko transmisja komórkowa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwa numery w domu",
+   "preco": "licz osobno",
+   "nar": "Jeśli macie w domu kilka numerów na jednej umowie, policz każdy osobno. Zwykle jeden numer zużywa prawie wszystko, a reszta prawie nic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Okres rozliczeniowy",
+   "preco": "rzadko zaczyna się pierwszego",
+   "nar": "Zwróć uwagę na okres rozliczeniowy. Rzadko zaczyna się pierwszego dnia miesiąca, a licznik w telefonie domyślnie liczy właśnie od pierwszego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli daty się nie zgadzają",
+   "preco": "licz z aplikacji operatora",
+   "nar": "Jeśli daty się rozjeżdżają, weź zużycie z aplikacji operatora, bo ona liczy dokładnie w twoim okresie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stary telefon",
+   "preco": "kasuje historię",
+   "nar": "Po zmianie telefonu historia zwykle znika. Wtedy zacznij od dzisiaj i wróć do tego za trzy miesiące — to nadal jest ta sama liczba, tylko później.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "W razie wątpliwości",
+   "preco": "zaniż zużycie",
+   "nar": "A w razie wątpliwości zaniż zużycie. Jeśli liczba nadal boli przy ostrożnym liczeniu, to boli naprawdę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego rachunek nie obejmuje",
+   "sub": "i warto to powiedzieć",
+   "nar": "Są rzeczy, których ten rachunek nie łapie, i uczciwiej je nazwać niż przemilczeć.",
+   "cap": "Czego ten rachunek nie obejmuje"
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapas na wszelki wypadek",
+   "preco": "ma wartość",
+   "nar": "Pierwsza: zapas. Świadomość, że nie skończą ci się dane w podróży, ma wartość, nawet jeśli nie wychodzi z portfela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale zapas ma cenę",
+   "preco": "i teraz ją znasz",
+   "nar": "Ten rachunek nie mówi, że zapas jest zły. Mówi, ile on kosztuje — żebyś wybierał świadomie, a nie z przyzwyczajenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga rzecz",
+   "preco": "miesiąc nietypowy",
+   "nar": "Druga: miesiąc nietypowy. Wakacje albo praca zdalna potrafią podwoić zużycie, a to nie jest twoja norma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego trzy miesiące",
+   "preco": "a nie jeden",
+   "nar": "Dlatego bierzemy trzy miesiące. Jeśli jeden odstaje mocno, zapisz go osobno i zobacz, jak często takie miesiące wracają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia rzecz",
+   "preco": "to, co jest w pakiecie oprócz danych",
+   "nar": "Trzecia: w cenie bywa coś więcej niż dane. Sprzęt na raty, usługa dodatkowa, roaming poza Unią.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli tak",
+   "preco": "wydziel to",
+   "nar": "Jeśli tak jest u ciebie, wydziel te pozycje z kwoty, zanim podzielisz. Inaczej policzysz cenę danych, która nie jest ceną danych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czwarta rzecz",
+   "preco": "rodzina na jednej umowie",
+   "nar": "Czwarta: umowa rodzinna. Wtedy pytanie nie brzmi, czy pakiet jest za duży, tylko czy jest za duży u tej jednej osoby, która go nie rusza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Piąta",
+   "preco": "zasięg tam, gdzie mieszkasz",
+   "nar": "Piąta nie jest liczbą: jakość zasięgu tam, gdzie faktycznie jesteś. Tańszy pakiet u operatora, który u ciebie nie działa, nie jest tańszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tego rachunek nie widzi",
+   "preco": "a ty widzisz",
+   "nar": "Tego żaden rachunek nie pokaże, a ty wiesz to z codziennego używania. Dołóż to do decyzji, ale dopiero po policzeniu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kiedy liczba myli",
+   "sub": "pakiet, który ledwo wystarcza",
+   "nar": "Teraz przypadek, który myli prawie wszystkich.",
+   "cap": "Kiedy ta liczba myli"
+  },
+  {
+   "layout": "item",
+   "kicker": "Zużywasz prawie cały pakiet",
+   "preco": "wygląda idealnie",
+   "nar": "Jeśli zużywasz prawie cały pakiet, wygląda to na idealne dopasowanie. I często jest.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale sprawdź jedno",
+   "preco": "czy oszczędzasz dane",
+   "nar": "Sprawdź jednak jedno: czy pod koniec okresu nie oszczędzasz świadomie. Jeśli tak, pakiet nie jest dopasowany — ty się do niego dopasowujesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To też ma cenę",
+   "preco": "tylko nie w złotych",
+   "nar": "To również ma cenę, tylko nie w złotych. Płacisz ją niewygodą, a ona nie pojawia się na żadnym rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Odwrotny przypadek",
+   "preco": "pakiet ledwo ruszony",
+   "nar": "Odwrotny przypadek to pakiet ruszony w jednej trzeciej. Tam liczba z kroku trzeciego bywa większa niż cała reszta rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest jeszcze trzeci przypadek",
+   "preco": "pakiet bez limitu",
+   "nar": "Jest jeszcze trzeci przypadek: pakiet bez limitu. Tam dzielenie przez wielkość pakietu nie ma sensu, bo pakietu nie ma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wtedy licz tylko drugą liczbę",
+   "preco": "cena przez zużycie",
+   "nar": "Wtedy zostaje druga liczba: kwota podzielona przez to, ile naprawdę zużywasz. I to jest jedyna cena gigabajta, jaką płacisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porównaj ją",
+   "preco": "z ofertą z limitem",
+   "nar": "Porównaj ją z ceną gigabajta w ofercie z limitem, która pokryłaby twoje zużycie. Bez limitu bywa tańsze, bywa dużo droższe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I jeszcze jedna rzecz o bez limitu",
+   "preco": "wolniej po progu",
+   "nar": "Wiele ofert bez limitu zwalnia po jakimś progu. Wtedy masz pakiet, tylko nazwany inaczej, i warto sprawdzić, gdzie ten próg leży.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź go w umowie",
+   "preco": "nie w reklamie",
+   "nar": "Ten próg jest w umowie, nie w reklamie. Jeśli go znajdziesz, użyj go jako wielkości pakietu w kroku pierwszym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Obie odpowiedzi są dobre",
+   "preco": "twoja liczba decyduje",
+   "nar": "Duży pakiet i mały pakiet są jednakowo uzasadnione i żaden nie jest lepszy z zasady. Lepszy jest ten, na który wskazuje twoja liczba. Złe jest tylko przedłużanie umowy bez spojrzenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Od miesiąca",
+   "sub": "do umowy",
+   "nar": "Teraz krok, który pokazuje skalę.",
+   "cap": "Od miesiąca do całej umowy"
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeden miesiąc",
+   "preco": "wygląda na drobiazg",
+   "nar": "Jeden miesiąc wygląda na drobiazg, jakakolwiek by nie była ta liczba. I dlatego przechodzi bez zatrzymania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pomnóż przez dwanaście",
+   "preco": "i przez lata umowy",
+   "nar": "Pomnóż przez dwanaście, a potem przez liczbę lat, przez które masz tę samą umowę. To samo zachowanie, zsumowane.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potem spójrz do przodu",
+   "preco": "umowa wraca",
+   "nar": "Potem spójrz w przód, bo umowa wraca w konkretnym miesiącu, i ta sama liczba wraca razem z nią.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porównaj z czymś znanym",
+   "preco": "żeby poczuć rozmiar",
+   "nar": "Żeby poczuć rozmiar, porównaj z czymś, co znasz: z jednym rachunkiem za prąd, albo z miesiącem innego abonamentu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Może wyjść mało",
+   "preco": "to też odpowiedź",
+   "nar": "Może wyjść niewiele i nic nie trzeba zmieniać. To pełna odpowiedź, i teraz jest policzona zamiast wyobrażona.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I policz jeszcze jedno",
+   "preco": "ile lat płacisz to samo",
+   "nar": "Policz jeszcze jedną rzecz: ile lat masz ten sam pakiet. Jeśli więcej niż trzy, to prawie na pewno pakiet z innej epoki twojego telefonu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zużycie rośnie z czasem",
+   "preco": "pakiet zwykle nie",
+   "nar": "Zużycie zwykle rośnie z latami, a pakiet zostaje ten sam. To znaczy, że ta liczba mogła być kiedyś duża, a dziś być mała — albo odwrotnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego licz teraz",
+   "preco": "nie pamiętaj",
+   "nar": "Dlatego licz na dzisiejszych trzech miesiącach, a nie na tym, co pamiętasz z momentu podpisywania umowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I sprawdź drugą stronę",
+   "preco": "czy pakiet się nie zmienił",
+   "nar": "Sprawdź też, czy sam pakiet nie zmieniał się po drodze. Operatorzy czasem powiększają go bez zmiany ceny, i wtedy twoja stara liczba jest nieaktualna w drugą stronę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dobra strona",
+   "preco": "decyzja wraca",
+   "nar": "Dobra strona jest taka, że ta decyzja wraca przy każdym przedłużeniu, cała. Jeden zły rok nie zobowiązuje następnego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co z tą liczbą zrobić",
+   "sub": "zanim zadzwonisz",
+   "nar": "Zanim cokolwiek zmienisz, dwie rzeczy warto wiedzieć.",
+   "cap": "Co zrobić z tą liczbą"
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie zaczynaj od zmiany operatora",
+   "preco": "zacznij od swojego",
+   "nar": "Nie zaczynaj od zmiany operatora. Zacznij od własnego: mniejszy pakiet u tego samego zwykle jest najprostszą zmianą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Miej liczbę przy sobie",
+   "preco": "gdy dzwonisz",
+   "nar": "Gdy dzwonisz, miej tę liczbę przy sobie. Rozmowa o twoim zużyciu wygląda inaczej niż rozmowa o ofertach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zmieniaj jedno",
+   "preco": "nie wszystko naraz",
+   "nar": "I zmieniaj jedną rzecz naraz: albo pakiet, albo operatora. Obie zmiany jednocześnie oznaczają, że nie dowiesz się, która zadziałała.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapytaj o jedno",
+   "preco": "co dostaniesz przy mniejszym pakiecie",
+   "nar": "W rozmowie zapytaj konkretnie: ile kosztuje ten sam abonament z mniejszym pakietem. To pytanie z liczbą, a nie prośba o obniżkę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I zapytaj o drugie",
+   "preco": "co się zmienia poza pakietem",
+   "nar": "I zapytaj, co jeszcze zmienia się przy tej opcji: zasięg, roaming, priorytet w sieci. Czasem różnica jest tylko w cenie, czasem nie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie musisz decydować od razu",
+   "preco": "masz datę",
+   "nar": "Nie musisz decydować w trakcie rozmowy. Masz zapisaną datę końca umowy i masz swoją liczbę — to wystarcza, żeby wrócić do tego spokojnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A jeśli zostajesz",
+   "preco": "to też jest decyzja",
+   "nar": "A jeśli po tym wszystkim zostajesz przy swoim pakiecie, to również jest decyzja, tylko teraz podjęta z liczbą zamiast z przyzwyczajenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź po trzech miesiącach",
+   "preco": "raz",
+   "nar": "Sprawdź ponownie po trzech miesiącach, jeden raz. Wcześniej to jeszcze nie dane, tylko szum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co zrobić dzisiaj",
+   "sub": "trzy kroki",
+   "nar": "Kończymy tym, co można zrobić dzisiaj, w trzech krokach.",
+   "cap": "Co zrobić dzisiaj"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy kroki",
+   "itens": [
+    "Weź kwotę z rachunku",
+    "Sprawdź zużycie z trzech miesięcy",
+    "Podziel i odejmij"
+   ],
+   "nar": "Pierwszy: weź kwotę faktycznie pobraną z rachunku. Drugi: sprawdź zużycie danych z trzech ostatnich miesięcy i policz średnią. Trzeci: podziel kwotę przez pakiet, potem przez zużycie, i porównaj.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapisz też datę",
+   "preco": "końca umowy",
+   "nar": "Zapisz obok datę końca umowy. Ta jedna linijka zamienia ciekawą liczbę w liczbę użyteczną.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nic dziś nie zmieniaj",
+   "preco": "wystarczy wiedzieć",
+   "nar": "Dziś nie musisz nic zmieniać. Sama świadomość tej liczby to cały krok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zrób to raz",
+   "preco": "nie rób z tego rutyny",
+   "nar": "Zrób to raz. To nie jest tabelka do prowadzenia co miesiąc, tylko jedna liczba, którą się poznaje i zapamiętuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna kartka wystarczy",
+   "preco": "cztery linijki",
+   "nar": "Cztery linijki na kartce wystarczą: kwota, pakiet, zużycie i data końca umowy. Ostatnia linijka jest tą, która sprawia, że reszta się przydaje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zrób to też dla drugiego numeru",
+   "preco": "jeśli jest",
+   "nar": "Jeśli w domu jest drugi numer na tej samej umowie, zrób to samo dla niego. Bardzo często cała różnica siedzi w jednym z nich.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I zostaw to na tym",
+   "preco": "dziś nic więcej",
+   "nar": "I na tym dziś poprzestań. Reszta zdarzy się sama, w miesiącu, w którym umowa wróci.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Napisz swoją liczbę",
+   "sub": "w komentarzu",
+   "nar": "Jeśli policzysz, napisz pod spodem jedną rzecz: ile złotych miesięcznie płacisz za niewykorzystane gigabajty. Bez nazwy operatora, bez kwoty rachunku. Ciekawi mnie, jak bardzo te liczby się różnią.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Twój rachunek za telefon",
+   "sub": "ile idzie w nic?",
+   "nar": "Ile z twojego rachunku za telefon idzie za gigabajty, których nie zużywasz? Dwie liczby, obie już masz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza",
+   "sub": "kwota przez pakiet",
+   "nar": "Pierwsza: miesięczną kwotę podziel przez wielkość pakietu. To cena gigabajta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Druga",
+   "sub": "pakiet minus zużycie",
+   "nar": "Druga: od pakietu odejmij swoje średnie zużycie z trzech miesięcy. To gigabajty, które przepadają.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pomnóż",
+   "sub": "to twoja odpowiedź",
+   "nar": "Pomnóż jedno przez drugie. Tyle złotych miesięcznie płacisz za nic. Razy dwanaście — i masz rok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Jeśli się przydało",
+   "sub": "subskrybuj — jedno liczenie tygodniowo",
+   "nar": "Jeśli się przydało, subskrybuj. Jedno takie liczenie tygodniowo, na twoich własnych liczbach.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Ile złotych miesięcznie płacisz za gigabajty, których nie zużywasz\n\n## TITULO\nIle Płacisz za Dane, Których Nie Zużywasz? Policz z Własnego Rachunku\n\n## DESCRICAO\nCo miesiąc płacisz rachunek za telefon, i bardzo prawdopodobne, że część tej kwoty idzie za gigabajty, których nigdy nie tkniesz. To nie jest wideo o tym, że operatorzy oszukują — to wideo o tym, ile kosztuje twój własny pakiet, a to zupełnie inne pytanie. Ma też termin, który znasz: koniec umowy albo miesiąc, w którym możesz ją zmienić.\n\nNie ma tu ani jednej mojej liczby. Żadnej ceny planu, żadnego operatora, żadnej średniej zużycia. Obie liczby są twoje i obie już istnieją: jedna na rachunku, druga w ustawieniach transmisji danych w telefonie.\n\nRachunek to jedno dzielenie i jedno odejmowanie. Podziel miesięczną kwotę przez wielkość pakietu — to cena gigabajta na papierze. Potem podziel tę samą kwotę przez swoje średnie zużycie z trzech ostatnich miesięcy — to cena gigabajta, którego naprawdę używasz. Jeśli druga liczba jest znacznie wyższa, płacisz za pojemność, której nie ruszasz. Można to zobaczyć jeszcze prościej: odejmij zużycie od pakietu i pomnóż przez cenę gigabajta. Tyle złotych miesięcznie płacisz za nic.\n\nBierzemy trzy miesiące, nie jeden, bo jeden prawie zawsze miał coś nietypowego.\n\nJeden rozdział pokazuje, gdzie te liczby leżą: kwota faktycznie pobrana w aplikacji operatora (uwaga na promocje, które się kończą), zużycie w ustawieniach telefonu albo w aplikacji operatora z historią kilku miesięcy. Dane przez Wi-Fi się nie liczą. Jeśli na jednej umowie jest kilka numerów, policz każdy osobno.\n\nJeden rozdział mówi, czego ten rachunek nie obejmuje: zapas na wszelki wypadek, który ma wartość, choć nie wychodzi z portfela; miesiąc nietypowy; i to, co bywa w cenie oprócz danych — sprzęt na raty, usługa dodatkowa, roaming poza Unią, które trzeba wydzielić przed dzieleniem.\n\nI jeden rozdział o przypadku, który myli: jeśli zużywasz prawie cały pakiet, wygląda to na idealne dopasowanie — ale sprawdź, czy pod koniec okresu nie oszczędzasz świadomie. Wtedy to nie pakiet jest dopasowany do ciebie, tylko ty do niego, a ta cena nie pojawia się na żadnym rachunku.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nPolicz i napisz pod spodem jedną rzecz: ile złotych miesięcznie płacisz za niewykorzystane gigabajty. Bez nazwy operatora, bez kwoty rachunku, sama liczba. Ciekawi mnie, jak bardzo te liczby różnią się między ludźmi z podobnym telefonem.\n\n## HASHTAGS\n#FinanseOsobiste #Abonament #KolejnyPoziom\n\n## TAGS\nrachunek za telefon, abonament komorkowy, ile place za internet w telefonie, transmisja danych, zuzycie danych, pakiet gigabajtow, koniec umowy, zmiana abonamentu, finanse osobiste, domowy budzet, oszczedzanie na abonamencie, cena gigabajta, operator komorkowy, policz sam, staly wydatek\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Polones (pl) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Polonia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de plano, nao cita operadora, nao cita media de consumo de ninguem, nao cita tamanho tipico de pacote e nao compara ofertas entre si. As duas unicas fontes sao o rachunek do proprio espectador e a tela de transmissao de dados do aparelho dele. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da operadora ou do plano dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer preco de abonamento ou tamanho de pacote. Esses valores mudam por operadora, por promocao e por mes, e citar um so deles tornaria a conta errada para a maioria de quem assiste. O video tambem nao recomenda operadora nem plano, nao diz que pacote grande e ruim — as duas respostas dependem do numero de cada um —, nao promete economia e nao e aconselhamento financeiro.\n"
+}
