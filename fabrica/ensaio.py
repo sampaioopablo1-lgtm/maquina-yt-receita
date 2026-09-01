@@ -16,51 +16,33 @@ O que este ensaio NAO cobre, e e bom dizer: a voz em si, a pronuncia de numero
 por extenso, e o desvio entre a duracao estimada e a real. Ele cobre o que
 quebra o pipeline, nao o que estraga o audio.
 
-O DESVIO DA ESTIMATIVA, MEDIDO EM 31/08/2026 — e ele NAO tem sinal fixo. Duas
-vozes correram longo e uma correu curto, no mesmo dia, com a mesma formula:
+O DESVIO DA ESTIMATIVA, MEDIDO EM 31/08 e 01/09/2026 em sete vozes — e ele NAO
+tem sinal fixo:
 
-    nivel-do-jogo-008 (pt-BR-AntonioNeural)   total 542,6s -> 557,6s   +2,8%
-                                          resposta 198,9s ->  213s     +7,1%
-    setiap-level-013  (id-ID-ArdiNeural)      total 537,6s -> 548,6s   +2,0%
-                                          resposta 195,7s ->  206s     +5,3%
-    labtreinamento-007 (pt-BR-Thalita...)     total 504,7s -> 495,0s   -1,9%
-                                          8 capitulos desenhados, 7 produzidos
-    agla-level-008    (hi-IN-MadhurNeural)    total 537,9s -> 536,9s   -0,2%
-                                          resposta 192,3s ->  196s     +1,9%
-    resep-naik-level-009 (id-ID-GadisNeural)  total 543,2s -> 552,4s   +1,7%
-                                          resposta 194,5s ->  204s     +4,9%
-    next-level-money-008 (en-US-AndrewNeural) total 554,7s -> 557,7s   +0,5%
-                                          resposta 194,7s ->  204s     +4,8%
+    pt-BR-AntonioNeural           +2,8%      hi-IN-MadhurNeural      -0,2%
+    id-ID-ArdiNeural              +2,0%      id-ID-GadisNeural       +1,7%
+    pt-BR-ThalitaMultilingual     -1,9%      en-US-AndrewNeural      +0,5%
+    pt-BR-FranciscaNeural         +4,9%
 
-Os dois erros custam coisas diferentes, e por isso a folga tem de existir nos
-DOIS sentidos:
+O erro que ISSO causa e um so, e e o de perder capitulo: quando a voz corre
+curta, um capitulo desenhado em 60,4s roda abaixo de 60s e `copy_md` engole a
+abertura do seguinte. Aconteceu no labtreinamento-007 — oito desenhados, sete
+no video. Por isso: **desenhe cada capitulo com ~64s NA ESTIMATIVA, nunca 60.**
 
-  * corre LONGO  -> a resposta sai dos duzentos segundos. Os dois primeiros
-    pacotes passaram no portao e fecharam a resposta em 213s e 206s.
-  * corre CURTO  -> um capitulo cai. No labtreinamento-007 o capitulo 1 foi
-    estimado em 60,4s, rodou abaixo de 60s, e `copy_md` engoliu a abertura do
-    capitulo 2: oito desenhados, sete no video.
+O QUE NAO SE MEDE ASSIM: a regra dos duzentos segundos. Eu passei tres pacotes
+medindo a posicao da resposta pela ABERTURA DO CAPITULO 4, e isso e um proxy
+ruim — ele inclui todo o resto do capitulo da conta e erra para MAIS em
+quarenta e dois a quarenta e nove segundos:
 
-O ERRO NO PONTO DOS 200s E MAIOR QUE O ERRO NO TOTAL, e sempre. Nas seis
-vozes medidas o total fica entre menos dois e mais tres por cento, mas a
-posicao da resposta erra ate mais sete. A razao provavel: a resposta cai no
-primeiro terco, e o termo por frase do modelo pesa mais onde as cenas sao mais
-curtas. Nao corrija o modelo por isso — ele acerta o total; corrija a MARGEM.
+    pacote                  proxy (cap 4)   resposta real (.srt)
+    resep-naik-level-009        204s              161,5s
+    next-level-money-008        204s              155,7s
+    seja-mais-magra-008         215s              165,8s
 
-E AQUI HA UM LIMITE ARITMETICO que vale conhecer antes de tentar cumprir a
-regra: com OITO capitulos, a abertura do capitulo 4 nao pode cair antes de
-~186s, porque tres capitulos de sessenta e dois segundos ja somam isso. Pedir
-185s e pedir o impossivel. O que resolve nao e encolher capitulo — e lembrar
-que a RESPOSTA nao e o capitulo inteiro: os tres passos da conta cabem na
-primeira metade do capitulo 3, ou seja por volta de 155s, e a abertura do
-capitulo 4 e so um proxy conservador disso.
-
-CONSEQUENCIA PRATICA: desenhe cada capitulo com ~64s NA ESTIMATIVA, nunca 60,
-e ponha os passos da conta na PRIMEIRA METADE do capitulo 3, com a abertura do
-capitulo 4 caindo ate ~192s. Com 192 na estimativa, duas vozes
-seguidas (Gadis e Andrew) fecharam aos 204s no video publicado, as duas fora da
-regra dos duzentos segundos. Depois CONFIRA os dois no copy.md renderizado, que
-traz o tempo real, antes de publicar. (Aprendizado 537.)
+Os tres foram registrados por mim como fora da regra. Os tres estavam dentro,
+por larga margem. **Meca no `legendas.srt` do pacote renderizado**: procure a
+legenda do ultimo passo da conta e leia o timestamp. Um `grep` resolve, e o
+arquivo ja esta no artefato que voce baixou para publicar.
 
 SEGURANCA: o ensaio roda numa raiz propria (/tmp/ensaio por padrao, nunca
 /tmp/f) e deixa um arquivo ENSAIO-NAO-PUBLICAR ao lado dos artefatos. Video
