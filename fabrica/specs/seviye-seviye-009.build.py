@@ -5,38 +5,56 @@ ALAVANCA ATACADA: **A — conversao short -> inscrito**, com a forma da pauta
 escolhida pelo que o PROPRIO canal ja mostrou, e o short carregando o
 experimento 26.
 
-NUMERO DE PARTIDA, medido em 01/09/2026 video a video (22 registros):
+NUMERO DE PARTIDA — E ELE FOI CORRIGIDO DEPOIS QUE ESTE ARQUIVO NASCEU.
 
-    seviye-seviye ..... 3 inscritos, 4.195 views
-                        short: mediana 5,57 views/dia, topo 34,34
-                        longo: mediana 22,69 views/dia
+A primeira versao deste cabecalho dizia que o melhor longo limpo do canal era
+"Tek Enflasyon Yok" com 42,04 views/dia e que o short dele tinha feito 8,52.
+**Era o contrario, e o erro era meu.** Ao ler `videos.list` em lote eu casei a
+resposta com a minha lista de ids POR POSICAO; a API devolve os items na ordem
+dela, entao cada numero foi parar na linha de outro video. As views dos SHORTS
+estavam gravadas nas linhas dos LONGOS. Isso e o aprendizado 549 e vale para
+tudo que li nesta rodada, nao so para este canal.
+
+Relido em 01/09/2026 19:10Z, mapeando por `item->>'id'`:
+
+    seviye-seviye ..... 3 inscritos, 5.113 views
+                        short: mediana 28,60 views/dia, topo 59,75
+                        longo: mediana 3,89 views/dia, topo 6,82
                         veredito: `liberado` (12-15 min)
-                        NOVE DUPLICATAS no ar do mesmo titulo
+                        DEZ DUPLICATAS no ar do mesmo titulo
 
-E ISTO PRECISA SER DITO ANTES DE QUALQUER LEITURA: das 4.195 views do canal,
-2.419 vem de DEZ copias do mesmo video sobre o asgari ucret — cinco longos e
-quatro shorts do titulo "Asgari ucret aclik sinirinin altinda", mais um. Sao
-quarenta e quatro por cento do canal em UM assunto duplicado (aprendizado 545).
-Ler a mediana do canal sem tirar isso e ler o proprio erro de publicacao como
-se fosse audiencia.
+O canal inteiro vive nos shorts. TODOS os dez shorts batem TODOS os dez longos:
+os shorts vao de 15 a 60 views/dia, os longos de 0 a 6,8. Nao ha um unico longo
+acima do pior short em atividade.
 
-O QUE SOBRA QUANDO SE TIRA A DUPLICATA — e e o achado desta rodada:
+O veredito continua `liberado` depois da correcao — 3,89 passa do minimo de 1,0
+e passa do sexto (28,60/20 = 1,43) — entao o dimensionamento de 12min40s deste
+pacote se manteve. Registro que isso foi SORTE: eu ja tinha renderizado quando
+descobri o embaralhamento.
 
-    "Tek Enflasyon Yok" ......... longo 42,04 views/dia | short 8,52
-    "Kira Artisi Agustos 2026" .. longo 23,31 views/dia | short 35,95
+E A DUPLICATA: 1.827 das 5.113 views do canal — trinta e seis por cento — vem
+das dez copias do mesmo video sobre o asgari ucret (cinco longos, cinco shorts).
+A remocao esta com o Pablo; apagar video publicado nao e reversivel e nao esta
+no meu mandato.
 
-O melhor longo LIMPO do canal (42,04/dia) veio do short mais fraco dos dois
-(8,52/dia). O maior short do canal (35,95/dia) produziu um longo pior. E a
-quinta replicacao do aprendizado 543, agora em turco: alcance de short nao
-prediz alcance de longo.
+O QUE O CANAL MOSTRA, com o numero certo:
 
-O QUE OS DOIS TEM EM COMUM, e e a forma que esta pauta copia: os dois pedem
-que o espectador olhe UM PAPEL QUE ELE JA TEM — a cesta dele contra a media da
-inflacao, o contrato de aluguel dele contra o teto. Nao e "o que o governo
-anunciou". E "o que o SEU papel diz".
+    maior short  59,75/dia (Emekli Zammi) ....... longo dele: 5,23
+    2o short     53,74/dia (Tek Enflasyon) ...... longo dele: 2,01
+    3o short     48,03/dia (Asgari Odeme) ....... longo dele: 0,94  <- o pior
+    7o short     27,87/dia (Otomatik Katilim) ... longo dele: 6,82  <- o melhor
 
-Os dois longos com ZERO view do canal sao os dois que falam do numero de
-OUTRA pessoa: o aumento do aposentado e o extrato de quem paga o minimo.
+O maior short do canal nao produziu o melhor longo; o terceiro maior produziu o
+PIOR. O melhor longo veio do setimo short. E a quinta replicacao do aprendizado
+543, e a primeira feita com dado ja corrigido.
+
+O QUE OS DOIS MELHORES LONGOS TEM EM COMUM, e e a forma que esta pauta copia:
+"Otomatik Katilim" e "Emekli Zammi" pedem que o espectador olhe UMA DATA E UM
+NUMERO QUE SAO DELE — os dois meses que ele tem para desistir, o mes em que o
+aumento comecou. O pior longo do canal, "Asgari Odeme", fala do extrato de
+quem paga o minimo: e a conta de outra pessoa.
+
+Aqui o papel e o holerite dele.
 
 O QUE MUDO POR CAUSA DISSO:
 1. **A PAUTA** e o holerite do proprio espectador. A conta que ele faz e:

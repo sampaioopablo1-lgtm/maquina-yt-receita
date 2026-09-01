@@ -278,3 +278,48 @@ integers` antes de renderizar qualquer coisa.
 Ordenacao: `collate "C"` no Postgres corresponde a `sorted(t, key=lambda x:
 x.encode('utf-8'))` no Python. Nenhum outro par de ordenacoes bate, porque os
 titulos tem grego, devanagari, turco e polones misturados.
+
+## Leitura em lote: case por `id`, NUNCA por posicao
+
+`videos.list?id=a,b,c` NAO devolve os items na ordem em que voce pediu, e OMITE
+em silencio os ids que nao pode devolver. Casar a resposta com a sua lista por
+posicao — `zip(ids, items)`, ou `items[i]` — embaralha tudo a partir da primeira
+divergencia, e o resultado nao parece quebrado: sao numeros plausiveis, todos
+na linha errada.
+
+Foi o que eu fiz. Medido em 01/09/2026: 230 quedas de views em 3.594 pares
+consecutivos de `metricas`, 86 videos, entre 11/08 e 01/09 — e views nao caem.
+No seviye-seviye os 22 valores relidos eram o MESMO multiconjunto dos gravados,
+so que em outras linhas: permutacao, nao perda. As views dos shorts estavam nas
+linhas dos longos, e por isso o canal parecia ter longos de 22 views/dia quando
+os longos dele fazem 3,89 (aprendizado 549).
+
+O jeito certo, em SQL, é deixar o proprio item dizer quem ele é:
+
+    insert into metricas (youtube_id, coletado_em, views)
+    select i->>'id', now(), (i->'statistics'->>'viewCount')::int
+    from net._http_response r,
+         jsonb_array_elements(r.content::jsonb->'items') i
+    where r.id = <req> and r.status_code = 200;
+
+E a trava que pega isso depois, porque **views nunca caem**:
+
+    with s as (select youtube_id, coletado_em, views,
+                      lag(views) over (partition by youtube_id
+                                       order by coletado_em) as ant
+               from metricas)
+    select count(*) filter (where views < ant) as quedas,
+           count(distinct youtube_id) filter (where views < ant) as ids
+    from s;
+
+Qualquer numero acima de zero aqui e leitura contaminada. Rode isso ANTES de
+tirar qualquer licao de `v_maquina_licoes` — o veredito que dimensiona o video
+sai dessa mesma tabela.
+
+Cuidado com uma armadilha vizinha: `metricas.views` tambem recebe linhas do
+`coletar_metricas` do `src/maquina/stages/youtube.py`, que le o **YouTube
+Analytics numa janela movel de 28 dias** — ali um numero menor que o anterior e
+legitimo, porque o video saiu da janela. As duas origens escrevem na mesma
+coluna com semanticas diferentes. As linhas do Analytics vem com
+`duracao_media_s` e `retencao_media_pct` preenchidos; as do `videos.list` vem
+com esses campos zerados. E assim que se separa uma da outra.
