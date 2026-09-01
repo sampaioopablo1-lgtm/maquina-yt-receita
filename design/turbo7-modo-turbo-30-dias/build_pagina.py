@@ -1,0 +1,479 @@
+#!/usr/bin/env python3
+"""Monta a página web de apresentação do flyer (Artifact autocontido).
+
+Fontes e imagem entram como data URI: a página não faz nenhuma requisição
+externa, o que é exigência do ambiente onde ela é publicada.
+"""
+
+import base64
+import io
+from pathlib import Path
+
+from PIL import Image
+
+from build import (BONUS_METAS, BONUS_PREMIO, CADENCIA, CALL, CALL_WA,
+                   GESTAO_LEAD, GESTAO_TEXTO, INCLUSOS, METRICAS, MSG,
+                   TOTAL_CONTATOS)
+from build_funil import ETAPAS, FRONTEIRA, LARGURA_BASE, LARGURA_TOPO, MKT
+
+RAIZ = Path(__file__).parent
+LARGURA_WEB = 1600  # o flyer nasce com 2400px; 1600 basta para leitura em tela
+
+CANAIS = {
+    MSG: ("Mensagem de WhatsApp", "msg"),
+    CALL_WA: ("Ligação pelo WhatsApp", "callwa"),
+    CALL: ("Ligação convencional", "call"),
+}
+
+
+def fonte(nome: str) -> str:
+    dados = base64.b64encode((RAIZ / "fonts" / nome).read_bytes()).decode()
+    return f"data:font/ttf;base64,{dados}"
+
+
+def flyer_web() -> str:
+    # WebP em vez de PNG: a peça é chapada, mas o data URI embutido é o que pesa
+    # na página inteira — em PNG ele sozinho passa de 3 MB, em WebP fica em ~300 KB
+    # sem perda visível na tela. O PNG original segue intacto como arquivo de download.
+    with Image.open(RAIZ / "flyer-turbo7-modo-turbo-30-dias.png") as im:
+        altura = round(im.height * LARGURA_WEB / im.width)
+        menor = im.resize((LARGURA_WEB, altura), Image.LANCZOS)
+        buf = io.BytesIO()
+        menor.save(buf, "WEBP", quality=90, method=6)
+    return "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def toques() -> str:
+    linhas = []
+    for i, (dia, canais) in enumerate(CADENCIA, 1):
+        marcas = "".join(
+            f'<span class="canal {CANAIS[c][1]}">{CANAIS[c][0]}</span>' for c in canais
+        )
+        pico = " pico" if len(canais) > 1 else ""
+        linhas.append(
+            f'<li class="toque{pico}">'
+            f'<span class="toque-n">{i:02d}</span>'
+            f'<span class="toque-dia">Dia {dia}</span>'
+            f'<span class="canais">{marcas}</span></li>'
+        )
+    return "\n".join(linhas)
+
+
+CONTEXTO = (
+    "É a dúvida mais comum de quem contrata: até onde vai o trabalho do marketing e "
+    "onde começa o de vendas. O funil é um só, mas o dono muda no meio do caminho — e "
+    "é justamente no ponto da troca que o lead costuma ficar parado. O mapa abaixo "
+    "mostra cada etapa, a meta que a define e quem responde por ela."
+)
+
+
+def funil() -> str:
+    """O mesmo mapa da peça impressa, em HTML — legível no celular e selecionável."""
+    passo = (LARGURA_TOPO - LARGURA_BASE) / (len(ETAPAS) - 1)
+    corte = sum(1 for d, *_ in ETAPAS if d == MKT)
+    partes = []
+    for i, (dono, nome, desc, meta, resp) in enumerate(ETAPAS):
+        if i == corte:
+            partes.append(
+                f'<li class="troca">'
+                f'<span class="troca-tag">{FRONTEIRA["titulo"]}</span>'
+                f'<p>{FRONTEIRA["texto"]}</p>'
+                f'<p class="troca-dono">{FRONTEIRA["dono"]}</p></li>'
+            )
+        larg = LARGURA_TOPO - passo * i
+        partes.append(
+            f'<li class="fase {dono}" style="--w:{larg:.2f}%">'
+            f'<span class="fase-n">{i + 1:02d}</span>'
+            f'<h3>{nome}</h3>'
+            f'<p class="fase-d">{desc}</p>'
+            f'<dl class="fase-dados">'
+            f'<div><dt>Meta</dt><dd>{meta}</dd></div>'
+            f'<div><dt>Responsável</dt><dd>{resp}</dd></div>'
+            f'</dl></li>'
+        )
+    return "\n".join(partes)
+
+
+def bonus() -> str:
+    alvos = '<span class="op">+</span>'.join(
+        f'<div class="alvo"><b>{v}</b><span>{k.replace("<br>", " ")}</span></div>'
+        for v, k in BONUS_METAS
+    )
+    pv, pk = BONUS_PREMIO
+    return (f'{alvos}<span class="op seta">&#8594;</span>'
+            f'<div class="premio"><b>{pv}</b>'
+            f'<span>{pk.replace("<br>", " ")}</span></div>')
+
+
+def metricas() -> str:
+    return "\n".join(
+        f'<div class="met"><span class="met-k">{eixo}</span>'
+        f'<span class="met-v">{oque}</span></div>'
+        for eixo, oque in METRICAS
+    )
+
+
+def escopo() -> str:
+    return "\n".join(
+        f'<div class="escopo-item"><h3>{titulo}</h3><p>{desc}</p></div>'
+        for _, titulo, desc in INCLUSOS
+    )
+
+
+# O sistema visual é um só: tokens, tipografia e componentes ficam aqui e
+# servem tanto a apresentacao.html quanto a proposta.html. Duas páginas com
+# duas paletas seria o mesmo erro que a peça inteira existe para evitar.
+CSS_BASE = """:root{
+  --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
+  --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
+  --chip:rgba(78,15,163,.08);
+  --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
+  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#120320; --surface:#1C0733; --ink:#F2ECF8; --muted:#B3A2C6;
+    --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
+    --chip:rgba(124,240,30,.11);
+    --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
+    --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#120320; --surface:#1C0733; --ink:#F2ECF8; --muted:#B3A2C6;
+  --line:rgba(255,255,255,.14); --accent:#7CF01E; --accent-ink:#0E0318;
+  --chip:rgba(124,240,30,.11);
+  --msg:#7CF01E; --callwa:#7CF01E; --call:#D6DAE2;
+  --mkt:#A78BFA; --vnd:#7CF01E; --vnd-tint:rgba(124,240,30,.10);
+}
+:root[data-theme="light"]{
+  --ground:#F4F2F7; --surface:#FFFFFF; --ink:#1B0A2E; --muted:#6B5B7D;
+  --line:rgba(27,10,46,.14); --accent:#4E0FA3; --accent-ink:#FFFFFF;
+  --chip:rgba(78,15,163,.08);
+  --msg:#3D8B0B; --callwa:#3D8B0B; --call:#6B5B7D;
+  --mkt:#6D28D9; --vnd:#3D8B0B; --vnd-tint:rgba(61,139,11,.09);
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:'Outfit',system-ui,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;}
+
+.wrap{max-width:1080px;margin:0 auto;padding:56px 28px 96px;
+  display:flex;flex-direction:column;gap:64px;}
+
+.eyebrow{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);}
+
+/* topo */
+.topo{display:flex;flex-direction:column;gap:22px;}
+.marca{display:flex;align-items:baseline;gap:14px;}
+.marca .nome{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:40px;
+  line-height:.8;letter-spacing:.01em;}
+.marca .nome em{font-style:normal;color:var(--accent);}
+h1{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:clamp(46px,8vw,84px);
+  line-height:.94;letter-spacing:-.01em;margin:0;text-transform:uppercase;text-wrap:balance;}
+h1 em{font-style:normal;color:var(--accent);}
+.lide{max-width:60ch;color:var(--muted);font-size:19px;margin:0;}
+
+/* prancha do flyer */
+figure{margin:0;display:flex;flex-direction:column;gap:14px;}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);
+  box-shadow:0 22px 60px rgba(12,3,24,.28);}
+figcaption{font-family:'GeistMono',monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);}
+
+/* seções */
+section{display:flex;flex-direction:column;gap:24px;}
+h2{font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;letter-spacing:.10em;
+  text-transform:uppercase;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line);}
+
+/* funil — a fronteira é o assunto */
+.contexto{max-width:66ch;color:var(--muted);margin:0;}
+.funil{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.fase{border:1px solid var(--line);border-left-width:4px;background:var(--surface);
+  padding:18px 22px 20px;position:relative;
+  display:grid;grid-template-columns:1fr;gap:10px;}
+.fase.mkt{border-left-color:var(--mkt);}
+.fase.vnd{border-left-color:var(--vnd);}
+.fase-n{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
+  color:var(--muted);}
+.fase.mkt .fase-n{color:var(--mkt);}
+.fase.vnd .fase-n{color:var(--vnd);}
+.fase h3{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
+  line-height:.92;text-transform:uppercase;margin:0;}
+.fase-d{margin:0;font-size:15px;color:var(--muted);max-width:56ch;}
+.fase-dados{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));
+  gap:14px;padding-top:12px;border-top:1px solid var(--line);}
+.fase-dados div{display:flex;flex-direction:column;gap:3px;}
+.fase-dados dt{font-family:'GeistMono',monospace;font-size:9.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}
+.fase-dados dd{margin:0;font-family:'OutfitB',sans-serif;font-weight:700;font-size:15px;}
+
+.troca{border:1px solid var(--vnd);border-left-width:4px;background:var(--vnd-tint);
+  padding:18px 22px 20px;margin:6px 0;}
+.troca-tag{display:inline-block;background:var(--vnd);color:var(--ground);
+  font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;padding:5px 11px 6px;margin-bottom:11px;}
+.troca p{margin:0;max-width:64ch;}
+.troca p b{font-family:'OutfitB',sans-serif;font-weight:700;color:var(--vnd);}
+.troca-dono{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--vnd);margin-top:10px !important;}
+
+/* o afunilamento só faz sentido quando há largura para ele */
+@media (min-width:820px){
+  .fase{width:var(--w);margin:0 auto;}
+}
+
+/* cadência — sequência real, por isso numerada */
+.toques{list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(min(158px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.toque{background:var(--surface);padding:16px 16px 18px;
+  display:flex;flex-direction:column;gap:3px;}
+.toque-n{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--muted);}
+.toque-dia{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:30px;
+  line-height:.9;font-variant-numeric:tabular-nums;}
+.toque.pico{box-shadow:inset 3px 0 0 var(--accent);}
+.canais{display:flex;flex-direction:column;gap:5px;margin-top:3px;}
+.canal{font-size:13px;line-height:1.3;color:var(--muted);padding-left:15px;position:relative;}
+.canal::before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
+  border-radius:50%;}
+.canal.msg::before{background:var(--msg);}
+.canal.callwa::before{background:transparent;border:2px solid var(--callwa);}
+.canal.call::before{background:transparent;border:2px solid var(--call);}
+
+/* escopo */
+.escopo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.escopo-item{background:var(--surface);padding:22px 24px 24px;
+  display:flex;flex-direction:column;gap:7px;}
+.escopo-item h3{font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;
+  line-height:1.3;margin:0;text-transform:uppercase;letter-spacing:.02em;}
+.escopo-item p{margin:0;font-size:15px;color:var(--muted);}
+
+/* gestão */
+.gestao{border:1px solid var(--line);border-left:3px solid var(--accent);
+  background:var(--surface);padding:26px 28px 28px;
+  display:flex;flex-direction:column;gap:14px;}
+.gestao-lead{font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:clamp(30px,4.4vw,44px);line-height:.98;text-transform:uppercase;
+  color:var(--accent);margin:0;text-wrap:balance;}
+.gestao p{margin:0;max-width:68ch;}
+.gestao p b{font-family:'OutfitB',sans-serif;font-weight:700;}
+.metricas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:4px;}
+.met{background:var(--ground);padding:15px 18px 17px;
+  display:flex;flex-direction:column;gap:5px;}
+.met-k{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--accent);}
+.met-v{font-size:15px;line-height:1.3;}
+
+/* bônus */
+.bonus{border:1px solid var(--accent);display:flex;flex-direction:column;gap:0;}
+.bonus-tag{background:var(--accent);color:var(--accent-ink);
+  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;padding:9px 18px;}
+.bonus-eq{display:flex;flex-wrap:wrap;align-items:stretch;background:var(--surface);}
+.alvo{padding:20px 24px 22px;display:flex;flex-direction:column;gap:4px;}
+.alvo b,.premio b{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:52px;
+  line-height:.86;font-variant-numeric:tabular-nums;}
+.alvo span,.premio span{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;line-height:1.7;}
+.alvo span{color:var(--muted);}
+.op{display:flex;align-items:center;padding:0 6px;color:var(--accent);
+  font-family:'BigShoulders',sans-serif;font-weight:700;font-size:32px;}
+.op.seta{flex:1;justify-content:center;min-width:60px;}
+.premio{margin-left:auto;background:var(--accent);color:var(--accent-ink);
+  padding:20px 26px 22px;display:flex;flex-direction:column;gap:4px;}
+
+/* oferta */
+.oferta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);}
+.preco{background:var(--surface);padding:26px 26px 28px;
+  display:flex;flex-direction:column;gap:6px;}
+.preco .rot{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}
+.preco .val{font-family:'BigShoulders',sans-serif;font-weight:700;font-size:56px;
+  line-height:.88;font-variant-numeric:tabular-nums;}
+.preco.gratis .val{color:var(--accent);}
+.preco .nota{font-size:14.5px;color:var(--muted);}
+
+.cta{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+  background:var(--accent);color:var(--accent-ink);text-decoration:none;
+  padding:17px 26px;font-family:'BigShoulders',sans-serif;font-weight:700;
+  font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:.01em;
+  transition:transform .16s ease,filter .16s ease;}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.06);}
+.cta:focus-visible{outline:3px solid var(--accent);outline-offset:4px;}
+.cta span{font-family:'GeistMono',monospace;font-size:13px;letter-spacing:.10em;}
+@media (prefers-reduced-motion:reduce){.cta{transition:none;}.cta:hover{transform:none;}}
+
+/* ficha */
+.ficha{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:22px;}
+.ficha div{display:flex;flex-direction:column;gap:4px;}
+.ficha dt{font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--muted);}
+.ficha dd{margin:0;font-size:15.5px;}
+
+.ressalva{border-left:3px solid var(--accent);padding:2px 0 2px 18px;
+  color:var(--muted);font-size:15px;max-width:70ch;}
+
+footer{border-top:1px solid var(--line);padding-top:22px;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:baseline;
+  font-family:'GeistMono',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+footer a:hover{border-bottom-color:var(--accent);}
+.atalho{display:inline-flex;align-items:baseline;gap:10px;color:var(--ink);
+  text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px;
+  align-self:flex-start;font-family:'OutfitB',sans-serif;font-weight:700;font-size:16px;}
+.atalho span{font-family:'GeistMono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);}
+"""
+
+
+PAGINA = """<title>Modo Turbo 30 Dias — Turbo 7</title>
+<style>
+@font-face{{font-family:'BigShoulders';src:url('{big}') format('truetype');font-weight:700;font-display:block;}}
+@font-face{{font-family:'Outfit';src:url('{outfit}') format('truetype');font-weight:400;font-display:block;}}
+@font-face{{font-family:'OutfitB';src:url('{outfit_b}') format('truetype');font-weight:700;font-display:block;}}
+@font-face{{font-family:'GeistMono';src:url('{mono}') format('truetype');font-weight:400;font-display:block;}}
+
+{css}
+</style>
+
+<div class="wrap">
+
+  <header class="topo">
+    <div class="marca">
+      <span class="nome">TURBO<em>7</em></span>
+      <span class="eyebrow">Marketing de Planejados</span>
+    </div>
+    <h1>Programa Modo Turbo<br><em>30 dias</em></h1>
+    <p class="lide">Cadência comercial de 12 toques ao longo de 30 dias — com 2 a 3 canais
+      cruzados nos dias de pico —, playbook de vendas, CRM implantado e reuniões semanais
+      de performance conduzidas por um diretor dedicado. Esta é a peça de divulgação do
+      programa.</p>
+  </header>
+
+  <section>
+    <h2>Onde termina o marketing, onde começa vendas</h2>
+    <p class="contexto">{contexto}</p>
+    <ol class="funil">
+{funil}
+    </ol>
+  </section>
+
+  <figure>
+    <img src="{flyer}" width="1600" height="2880"
+         alt="Flyer do Programa Modo Turbo 30 Dias, com o mapa de cadência 12 por 30,
+              o escopo do programa e a oferta de 30 dias gratuitos.">
+    <figcaption>Flyer — 2400 × 4320 px · também disponível em PDF para impressão</figcaption>
+  </figure>
+
+  <section>
+    <h2>A cadência 12 × 30</h2>
+    <p class="lide" style="font-size:16px">12 toques em 30 dias, somando
+      {total} contatos: nos dias de pico, 2 a 3 canais se cruzam no mesmo dia.</p>
+    <ol class="toques">
+{toques}
+    </ol>
+  </section>
+
+  <section>
+    <h2>O que está incluso</h2>
+    <div class="escopo">
+{escopo}
+    </div>
+  </section>
+
+  <section>
+    <h2>Acompanhamento de performance</h2>
+    <div class="gestao">
+      <p class="gestao-lead">{lead}</p>
+      <p>{texto}</p>
+      <div class="metricas">
+{metricas}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Bônus por performance diária</h2>
+    <div class="bonus">
+      <span class="bonus-tag">A cereja do bolo</span>
+      <div class="bonus-eq">
+{bonus}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Investimento</h2>
+    <div class="oferta">
+      <div class="preco">
+        <span class="rot">Valor do programa</span>
+        <span class="val">R$ 20.000</span>
+        <span class="nota">Implementação completa, playbook, CRM e gestão comercial.</span>
+      </div>
+      <div class="preco gratis">
+        <span class="rot">Você começa pagando</span>
+        <span class="val">R$ 0</span>
+        <span class="nota">Nos primeiros 30 dias. Condição exclusiva para novos clientes.</span>
+      </div>
+    </div>
+    <a class="cta" href="https://www.turbo7.com.br" target="_blank" rel="noopener">
+      Reserve sua vaga <span>WWW.TURBO7.COM.BR</span></a>
+    <a class="atalho" href="proposta.html">Ver a proposta comercial
+      <span>Valores, parcelamento e as 3 fases</span></a>
+  </section>
+
+  <section>
+    <h2>Ficha técnica</h2>
+    <dl class="ficha">
+      <div><dt>Formato</dt><dd>Vertical 1:1,8</dd></div>
+      <div><dt>Imagem</dt><dd>PNG 2400 × 4320 px</dd></div>
+      <div><dt>Impressão</dt><dd>PDF, 1 página, 12,5 × 22,5 in</dd></div>
+      <div><dt>Tipografia</dt><dd>Big Shoulders, Outfit, Geist Mono</dd></div>
+    </dl>
+    <p class="ressalva">As estatísticas da peça — “+80% das conversões vêm da 4ª tentativa
+      em diante” e “5 novos leads por dia” — são alegações da campanha, não números
+      medidos. Vale conferir a fonte antes de veicular.</p>
+  </section>
+
+  <footer>
+    <span>Turbo 7 · Programa Modo Turbo</span>
+    <a href="https://www.turbo7.com.br" target="_blank" rel="noopener">turbo7.com.br</a>
+  </footer>
+
+</div>
+"""
+
+
+def montar() -> str:
+    """O fragmento da página, sem <html>/<head> — é assim que o Artifact a espera."""
+    return PAGINA.format(
+        css=CSS_BASE,
+        big=fonte("BigShoulders-Bold.ttf"),
+        outfit=fonte("Outfit-Regular.ttf"),
+        outfit_b=fonte("Outfit-Bold.ttf"),
+        mono=fonte("GeistMono-Regular.ttf"),
+        flyer=flyer_web(),
+        toques=toques(),
+        metricas=metricas(),
+        bonus=bonus(),
+        funil=funil(),
+        contexto=CONTEXTO,
+        total=TOTAL_CONTATOS,
+        lead=GESTAO_LEAD,
+        texto=GESTAO_TEXTO,
+        escopo=escopo(),
+    )
+
+
+if __name__ == "__main__":
+    destino = RAIZ / "apresentacao.html"
+    destino.write_text(montar(), encoding="utf-8")
+    print(f"{destino.name}  ({destino.stat().st_size // 1024} KB)")
