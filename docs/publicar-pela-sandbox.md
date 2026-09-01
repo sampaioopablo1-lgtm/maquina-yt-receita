@@ -323,3 +323,49 @@ legitimo, porque o video saiu da janela. As duas origens escrevem na mesma
 coluna com semanticas diferentes. As linhas do Analytics vem com
 `duracao_media_s` e `retencao_media_pct` preenchidos; as do `videos.list` vem
 com esses campos zerados. E assim que se separa uma da outra.
+
+## Antes de escolher o canal da rodada, leia o CANAL — nao a soma de `metricas`
+
+`select sum(views) from metricas` responde "quanto alcance os videos DA MAQUINA
+tiveram". Nao responde "qual canal esta mais perto do portao". Dois canais da
+frota tem conteudo anterior a maquina, e por isso a leitura interna os
+escondia:
+
+    canal            videos no canal   videos da maquina   inscritos
+    labtreinamento         50                12               65
+    sx-educacao            25                13                1
+    epomeno-epipedo        27                27               14
+
+Medido em 01/09/2026 por `channels.list?part=statistics`, mapeado por
+`item->>'id'`: **o canal com mais inscritos da frota e o labtreinamento, com 65
+— quatro vezes e meia o epomeno-epipedo**, que a rotina trata como o melhor.
+A frota tem 98 inscritos, nao os 20 do baseline de 25/08.
+
+E a ressalva que impede comemorar: das 8.333 views do labtreinamento, so 1.244
+estao nos videos que a maquina publicou. A maior parte do alcance — e
+provavelmente dos 65 inscritos — ja estava la. O sx-educacao e o caso extremo:
+12.063 views de canal, 89 medidas nos nossos videos, UM inscrito, e o token
+morto desde 20/08.
+
+Entao a pergunta de concentracao nao e "qual canal tem mais views" nem "qual
+tem mais inscritos". E **em qual canal o video da maquina move o inscrito** — e
+para responder isso com precisao falta o escopo `yt-analytics.readonly`, que da
+inscrito POR VIDEO. Sem ele so se enxerga o delta do canal inteiro, que e o que
+o experimento 26 declarou como fraqueza quando foi aberto.
+
+A consulta:
+
+    with ids as (select string_agg(youtube_channel_id, ',') as lista
+                 from canais where ativo and youtube_channel_id is not null),
+     tok as (select content::jsonb->>'access_token' as at
+             from net._http_response where id = <req do refresh>)
+    select net.http_get(
+      url := 'https://www.googleapis.com/youtube/v3/channels'
+             || '?part=statistics,snippet&id=' || ids.lista,
+      headers := jsonb_build_object('Authorization','Bearer '||tok.at,
+                                    'Accept','application/json'),
+      timeout_milliseconds := 25000) from ids, tok;
+
+Um detalhe que economiza doze refreshes: `videos.list` e `channels.list` com
+`part=statistics` leem dado PUBLICO. **Um token de qualquer canal da frota le
+os treze.** So `mine=true` e as escritas exigem o token do dono.
