@@ -1,0 +1,453 @@
+{
+ "slug": "nivel-do-jogo",
+ "pacote": "nivel-do-jogo-009",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-AntonioNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1B4332",
+  "c1": "#D64570",
+  "c2": "#7FB069",
+  "bg": "#EFF6F1"
+ },
+ "thumb": {
+  "l1": "Dois prazos",
+  "l2": "não um"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Você comprou",
+   "sub": "e se arrependeu",
+   "cap": "O prazo já está correndo",
+   "nar": "Você comprou um jogo. Abriu, jogou um pouco, e não era aquilo. A pergunta agora não é se dá pra devolver. É quanto tempo ainda te resta."
+  },
+  {
+   "layout": "item",
+   "kicker": "O prazo não começa quando você decide",
+   "preco": "começa na compra",
+   "sem_cap": true,
+   "nar": "E ele não começa a contar quando você desiste. Começa no dia da compra, e já está correndo enquanto você assiste isso."
+  },
+  {
+   "layout": "item",
+   "kicker": "Não existe UM prazo",
+   "preco": "existem dois",
+   "sem_cap": true,
+   "nar": "A parte que quase ninguém sabe é que não existe um prazo. Existem dois, e eles não são iguais."
+  },
+  {
+   "layout": "item",
+   "kicker": "Um é política",
+   "preco": "o outro é lei",
+   "sem_cap": true,
+   "nar": "Um é a política da loja, que ela escreve e pode mudar. O outro é lei brasileira, que a loja não escreve."
+  },
+  {
+   "layout": "item",
+   "kicker": "Os dois têm condições diferentes",
+   "preco": "e prazos diferentes",
+   "sem_cap": true,
+   "nar": "Os dois têm prazos diferentes e exigem coisas diferentes de você. Um deles conta suas horas jogadas. O outro não."
+  },
+  {
+   "layout": "item",
+   "kicker": "Você não escolhe um",
+   "preco": "você descobre qual te alcança",
+   "sem_cap": true,
+   "nar": "Então a pergunta certa não é qual é melhor. É qual dos dois ainda alcança a sua compra hoje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dois números",
+   "preco": "você já tem os dois",
+   "sem_cap": true,
+   "nar": "Pra responder isso você precisa de dois números, e os dois já estão na sua conta. Vou pegar eles agora."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Abra sua conta",
+   "sub": "os dois números",
+   "cap": "Os dois números que decidem",
+   "nar": "Abra a Steam, vá em ajuda e depois em compras recentes. Tudo o que você precisa está nessa tela."
+  },
+  {
+   "layout": "item",
+   "kicker": "Número 1",
+   "preco": "a data da compra",
+   "sem_cap": true,
+   "nar": "O primeiro número é a data da compra. Conte quantos dias fazem desde ela até hoje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Número 2",
+   "preco": "as horas jogadas",
+   "sem_cap": true,
+   "nar": "O segundo é o tempo jogado, que aparece na sua biblioteca, embaixo do nome do jogo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Porta A — política da Steam",
+   "preco": "14 dias E menos de 2 horas",
+   "sem_cap": true,
+   "nar": "Primeira porta, a política da loja: quatorze dias desde a compra e menos de duas horas jogadas. As duas condições ao mesmo tempo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Porta B — a lei",
+   "preco": "7 dias, sem contar horas",
+   "sem_cap": true,
+   "nar": "Segunda porta, a lei: sete dias. E aqui as horas jogadas não entram na conta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Faça agora",
+   "preco": "duas comparações",
+   "sem_cap": true,
+   "nar": "Então são duas comparações. Seus dias são menos de quatorze e suas horas menos de duas? Porta A aberta. Seus dias são menos de sete? Porta B aberta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pronto",
+   "preco": "a conta acabou",
+   "sem_cap": true,
+   "nar": "Essa é a conta inteira, e ela já acabou. O resto do vídeo é o que cada porta significa e o que fazer quando as duas discordam."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A porta A",
+   "sub": "o que a Steam escreve",
+   "cap": "A porta da loja: as duas condições juntas",
+   "nar": "Vamos à primeira porta. A página oficial de reembolsos da Steam, em português, é bem direta sobre ela."
+  },
+  {
+   "layout": "item",
+   "kicker": "O texto oficial",
+   "preco": "duas semanas, duas horas",
+   "sem_cap": true,
+   "nar": "Ela diz, com essas palavras, que a oferta de reembolso se aplica a jogos e softwares comprados na loja nas primeiras duas semanas após a data da compra e com menos de duas horas de uso."
+  },
+  {
+   "layout": "item",
+   "kicker": "E é E, não OU",
+   "preco": "as duas ao mesmo tempo",
+   "sem_cap": true,
+   "nar": "Repare que são as duas juntas, e não uma ou outra. Cinco dias com três horas jogadas já fecha essa porta, mesmo você estando bem dentro do prazo de duas semanas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Por qualquer motivo",
+   "preco": "isso é generoso",
+   "sem_cap": true,
+   "nar": "Dentro dessas duas condições a política é generosa: a própria página diz que serve por qualquer motivo, inclusive não ter gostado."
+  },
+  {
+   "layout": "item",
+   "kicker": "E fora delas",
+   "preco": "ainda é analisado",
+   "sem_cap": true,
+   "nar": "E ela acrescenta que, mesmo fora das regras, o pedido é analisado. Ou seja, pedir custa nada."
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde se pede",
+   "preco": "help.steampowered.com",
+   "sem_cap": true,
+   "nar": "O pedido é feito no help ponto steampowered ponto com, achando a compra na lista e escolhendo o motivo. Não precisa falar com ninguém e não tem telefone no meio."
+  },
+  {
+   "layout": "item",
+   "kicker": "Quanto demora",
+   "preco": "até uma semana após aprovado",
+   "sem_cap": true,
+   "nar": "A página também diz o prazo do dinheiro: até uma semana depois da data em que o reembolso foi aprovado."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A porta B",
+   "sub": "o que a lei diz",
+   "cap": "A porta da lei: sete dias, sem condição de uso",
+   "nar": "Agora a segunda porta, e ela não é da Steam. É do Código de Defesa do Consumidor."
+  },
+  {
+   "layout": "item",
+   "kicker": "Artigo 49",
+   "preco": "prazo de 7 dias",
+   "sem_cap": true,
+   "nar": "O artigo quarenta e nove diz que o consumidor pode desistir do contrato no prazo de sete dias, contado da assinatura ou do recebimento do produto."
+  },
+  {
+   "layout": "item",
+   "kicker": "A condição",
+   "preco": "fora do estabelecimento",
+   "sem_cap": true,
+   "nar": "A condição é que a contratação tenha acontecido fora do estabelecimento comercial. Compra pela internet é exatamente esse caso."
+  },
+  {
+   "layout": "item",
+   "kicker": "O que NÃO está lá",
+   "preco": "nenhuma hora jogada",
+   "sem_cap": true,
+   "nar": "E agora o ponto: leia o artigo inteiro e não existe uma palavra sobre tempo de uso. A lei não conta suas horas."
+  },
+  {
+   "layout": "item",
+   "kicker": "O parágrafo único",
+   "preco": "devolução de imediato",
+   "sem_cap": true,
+   "nar": "O parágrafo único vai além: os valores pagos serão devolvidos de imediato, monetariamente atualizados."
+  },
+  {
+   "layout": "item",
+   "kicker": "Prazo mais curto",
+   "preco": "condição mais frouxa",
+   "sem_cap": true,
+   "nar": "Então repare na troca. A lei te dá menos tempo, sete contra quatorze, mas não te cobra as horas."
+  },
+  {
+   "layout": "item",
+   "kicker": "É por isso que são duas portas",
+   "preco": "e não uma melhor",
+   "sem_cap": true,
+   "nar": "É por isso que eu chamei de duas portas e não de uma regra melhor que a outra. Elas pegam situações diferentes."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o que a Steam diz",
+   "sub": "sobre a lei",
+   "cap": "A própria Steam reconhece a segunda porta",
+   "nar": "Aqui vem a parte que costuma surpreender. Essa segunda porta não é uma interpretação minha."
+  },
+  {
+   "layout": "item",
+   "kicker": "Na mesma página",
+   "preco": "uma frase curta",
+   "sem_cap": true,
+   "nar": "Na mesma página de reembolsos, uma frase curta diz que consumidores em certas jurisdições podem ter direitos adicionais a um reembolso."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jurisdição",
+   "preco": "é o país onde você compra",
+   "sem_cap": true,
+   "nar": "Jurisdição, aqui, é o país onde você está. E o Brasil é um desses países, por causa do artigo quarenta e nove."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "a política não substitui a lei",
+   "sem_cap": true,
+   "nar": "Ou seja, a política da loja não substitui a lei do seu país. Ela convive com ela."
+  },
+  {
+   "layout": "item",
+   "kicker": "O que eu NÃO estou dizendo",
+   "preco": "que você ganha sempre",
+   "sem_cap": true,
+   "nar": "O que eu não estou dizendo é que você ganha sempre. Não estou afirmando que a Steam é obrigada a devolver no dia dez com dez horas jogadas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso é caso a caso",
+   "preco": "e eu não tenho fonte",
+   "sem_cap": true,
+   "nar": "Isso depende de decisão caso a caso e eu não tenho fonte oficial pra afirmar. Prefiro dizer o que cada porta exige."
+  },
+  {
+   "layout": "item",
+   "kicker": "O que dá pra afirmar",
+   "preco": "os dois prazos",
+   "sem_cap": true,
+   "nar": "O que dá pra afirmar é o texto dos dois: quatorze dias e duas horas na política, sete dias sem contar horas na lei."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O dinheiro volta",
+   "sub": "mas para onde?",
+   "cap": "Para onde o dinheiro volta",
+   "nar": "Aprovado o reembolso, falta a pergunta que quase ninguém faz antes: para onde esse dinheiro volta?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Steam",
+   "preco": "carteira ou pagamento original",
+   "sem_cap": true,
+   "nar": "A página da Steam diz que você recebe na sua Carteira Steam ou diretamente na forma de pagamento original."
+  },
+  {
+   "layout": "item",
+   "kicker": "A diferença é enorme",
+   "preco": "carteira não sai da Steam",
+   "sem_cap": true,
+   "nar": "E a diferença entre as duas é enorme. Dinheiro na Carteira só serve pra comprar na Steam de novo. Ele não volta pro seu banco."
+  },
+  {
+   "layout": "item",
+   "kicker": "Peça o original",
+   "preco": "quando puder escolher",
+   "sem_cap": true,
+   "nar": "Então, quando o formulário te deixar escolher, peça na forma de pagamento original. Só aceite a Carteira se for a única opção."
+  },
+  {
+   "layout": "item",
+   "kicker": "E a lei",
+   "preco": "diz o que fazer no cartão",
+   "sem_cap": true,
+   "nar": "Do lado da lei existe uma regra específica pro cartão, e ela está no decreto que regula o comércio eletrônico."
+  },
+  {
+   "layout": "item",
+   "kicker": "Decreto de 2013",
+   "preco": "artigo 5º, parágrafo 3º",
+   "sem_cap": true,
+   "nar": "O artigo quinto diz que o fornecedor comunica imediatamente a administradora do cartão para que a transação não seja lançada na fatura, ou seja estornada se já tiver sido."
+  },
+  {
+   "layout": "item",
+   "kicker": "Confira na fatura",
+   "preco": "é lá que se prova",
+   "sem_cap": true,
+   "nar": "Então a conferência final não é no e-mail de confirmação. É na sua fatura, no mês seguinte."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quando nenhuma porta abre",
+   "sub": "e o que ainda dá",
+   "cap": "Quando as duas portas estão fechadas",
+   "nar": "Falta o caso ruim: você passou dos quatorze dias, ou passou das duas horas e também dos sete dias."
+  },
+  {
+   "layout": "item",
+   "kicker": "Peça mesmo assim",
+   "preco": "custa zero",
+   "sem_cap": true,
+   "nar": "Primeiro, peça mesmo assim. A própria página diz que o pedido fora da regra ainda é analisado, e um pedido negado não te tira nada."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jogo com defeito",
+   "preco": "é outro caminho",
+   "sem_cap": true,
+   "nar": "Segundo, se o problema é o jogo não funcionar, isso não é arrependimento. É produto com defeito, e o caminho é outro."
+  },
+  {
+   "layout": "item",
+   "kicker": "Se a loja negar",
+   "preco": "consumidor.gov.br e Procon",
+   "sem_cap": true,
+   "nar": "Terceiro, se você acha que estava dentro da lei e foi negado, existe o consumidor ponto gov ponto br e existe o Procon do seu estado."
+  },
+  {
+   "layout": "item",
+   "kicker": "Guarde os dois números",
+   "preco": "data e horas",
+   "sem_cap": true,
+   "nar": "E pra qualquer um desses caminhos, guarde os mesmos dois números do começo: a data da compra e as horas jogadas. É com eles que você prova."
+  },
+  {
+   "layout": "item",
+   "kicker": "Print da tela",
+   "preco": "vale mais que memória",
+   "sem_cap": true,
+   "nar": "Tire um print da tela de compras recentes hoje. Daqui a um mês essa tela pode estar diferente e a sua memória não vale como prova."
+  },
+  {
+   "layout": "item",
+   "kicker": "E o mais importante",
+   "preco": "não deixe o prazo passar",
+   "sem_cap": true,
+   "nar": "Mas nada disso substitui a coisa mais simples: não deixar o prazo passar enquanto você decide."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora, na sua conta",
+   "sub": "três passos",
+   "cap": "Três passos na sua conta",
+   "nar": "Antes de sair, faça os três passos na sua própria conta. Leva menos tempo do que o resto deste vídeo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo 1",
+   "preco": "quantos dias desde a compra",
+   "sem_cap": true,
+   "nar": "Passo um: em compras recentes, veja a data e conte os dias até hoje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo 2",
+   "preco": "quantas horas jogadas",
+   "sem_cap": true,
+   "nar": "Passo dois: na biblioteca, embaixo do nome do jogo, veja o tempo jogado. É o mesmo número que a loja usa pra decidir."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Passo 3 — as duas comparações",
+   "sem_cap": true,
+   "itens": [
+    "menos de 14 dias E menos de 2 horas → porta da loja",
+    "menos de 7 dias, qualquer hora → porta da lei",
+    "nenhuma das duas → peça assim mesmo"
+   ],
+   "nar": "Passo três: as duas comparações, e a resposta sai sozinha."
+  },
+  {
+   "layout": "item",
+   "kicker": "Se alguma abriu",
+   "preco": "peça hoje, não amanhã",
+   "sem_cap": true,
+   "nar": "Se alguma das duas abriu, peça hoje. Os dois prazos são curtos e os dois contam desde a compra, não desde a sua decisão."
+  },
+  {
+   "layout": "item",
+   "kicker": "As fontes",
+   "preco": "estão na descrição",
+   "sem_cap": true,
+   "nar": "Os dois textos que eu li, o do código de defesa do consumidor e o do decreto do comércio eletrônico, estão na descrição, junto com a página oficial de reembolsos da Steam. Escrevi lá também o que este vídeo não afirma."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Qual porta abriu pra você?",
+   "sub": "escreve nos comentários",
+   "sem_cap": true,
+   "nar": "Escreve nos comentários qual das duas portas abriu pra você. Neste canal todo vídeo termina numa conta que você faz no seu próprio dinheiro; se serviu, se inscreve."
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Comprou e se arrependeu?",
+   "sub": "não existe um prazo, existem dois",
+   "sem_cap": true,
+   "nar": "Comprou o jogo e se arrependeu? Não existe um prazo pra devolver. Existem dois."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Porta 1 — a loja",
+   "sub": "14 dias E menos de 2h",
+   "sem_cap": true,
+   "nar": "A política da Steam: quatorze dias e menos de duas horas jogadas. As duas juntas."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Porta 2 — a lei",
+   "sub": "7 dias, sem contar horas",
+   "sem_cap": true,
+   "nar": "O código de defesa do consumidor: sete dias. E aqui as horas jogadas não entram na conta."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Abra compras recentes",
+   "sub": "data e horas jogadas",
+   "sem_cap": true,
+   "nar": "Pegue a data da compra e o tempo jogado. Compare com os dois prazos e você já sabe."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Toda semana uma conta dessas",
+   "sub": "se inscreve",
+   "sem_cap": true,
+   "nar": "Aqui todo vídeo termina numa conta que você faz no seu próprio dinheiro. Se serviu, se inscreve."
+  }
+ ],
+ "copy": "# Reembolso de jogo: os dois prazos que correm ao mesmo tempo\n\n## TITULO\nReembolso de Jogo: São Dois Prazos, Não Um — Descubra Qual Ainda Vale pra Você\n\n## TITULO SHORT\nReembolso de jogo: são dois prazos\n\n## DESCRICAO\nVocê comprou um jogo, abriu, e não era aquilo. A pergunta não é se dá pra devolver — é quanto tempo ainda te resta. E a parte que quase ninguém sabe é que não existe UM prazo. Existem dois, eles correm ao mesmo tempo, e exigem coisas diferentes de você.\n\nA primeira porta é a política da loja. A página oficial de reembolsos da Steam, em português, diz que o reembolso se aplica a jogos comprados nas primeiras duas semanas e com menos de duas horas de uso. São as duas condições juntas: cinco dias com três horas jogadas já fecha essa porta, mesmo dentro do prazo.\n\nA segunda porta é lei brasileira. O artigo 49 do Código de Defesa do Consumidor dá sete dias para desistir do contrato quando a contratação acontece fora do estabelecimento comercial — que é o caso de qualquer compra pela internet. E o texto do artigo não menciona tempo de uso em lugar nenhum: a lei não conta suas horas jogadas. O parágrafo único ainda diz que os valores pagos serão devolvidos de imediato, monetariamente atualizados.\n\nA troca entre as duas é essa: a lei te dá menos tempo, sete contra quatorze, mas não te cobra as horas. Por isso a pergunta certa não é qual é melhor, é qual das duas ainda alcança a sua compra hoje.\n\nNo vídeo você faz a conta com dois números que já estão na sua conta: a data da compra, em compras recentes, e o tempo jogado, na biblioteca. Duas comparações e a resposta sai.\n\nTambém está lá: por que a própria página da Steam reconhece que consumidores de certas jurisdições têm direitos adicionais; a diferença entre receber na Carteira Steam e na forma de pagamento original, que é a diferença entre o dinheiro voltar pro seu banco ou ficar preso na loja; o que o Decreto 7.962/2013 manda o fornecedor fazer no seu cartão; e o que ainda dá pra fazer quando as duas portas já fecharam.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nAs duas comparações, pra fazer agora: (1) menos de 14 dias E menos de 2 horas jogadas → porta da loja aberta. (2) menos de 7 dias, não importa quantas horas → porta da lei aberta. (3) nenhuma das duas → peça assim mesmo, a própria Steam diz que analisa fora da regra. Qual abriu pra você?\n\n## HASHTAGS\n#Reembolso #Steam #NivelDoJogo\n\n## TAGS\nreembolso steam, como pedir reembolso steam, prazo reembolso jogo, direito de arrependimento, artigo 49 cdc, codigo de defesa do consumidor, devolver jogo steam, 2 horas steam, carteira steam, estorno cartao compra online, decreto 7962, consumidor jogos, comprei e me arrependi, reembolso jogo digital, direitos do gamer\n\n## CONFIGURACOES DO STUDIO\nCategoria: Educação. Idioma: Português do Brasil. Não é para crianças. Contém mídia sintética.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nPrazo de 7 dias, a condição de \"fora do estabelecimento comercial\" e a devolução \"de imediato, monetariamente atualizados\": Lei 8.078/1990 (Código de Defesa do Consumidor), artigo 49 e parágrafo único, lido direto em planalto.gov.br.\n\nO que o fornecedor deve fazer no cartão: Decreto 7.962/2013, artigo 5º, parágrafo 3º, também lido em planalto.gov.br.\n\nRESSALVA DE FONTE, e ela é minha: são dois atos normativos diferentes, mas o publicador oficial é o mesmo (Planalto). A página explicativa do gov.br/mj sobre direito de arrependimento devolveu 404 quando tentei abrir. Então o texto da lei está conferido na fonte primária, mas não em duas instituições distintas.\n\nOs 14 dias e as 2 horas: página oficial de reembolsos da Steam em português (store.steampowered.com/steam_refunds). Isso é POLÍTICA DA EMPRESA, não lei — ela escreve e pode mudar. A mesma página diz que \"consumidores em certas jurisdições podem ter direitos adicionais a um reembolso\", e é essa a frase que reconhece a segunda porta.\n\nO QUE ESTE VÍDEO NÃO AFIRMA: que a Steam é obrigada a devolver seu dinheiro no décimo dia com dez horas jogadas. Isso depende de decisão caso a caso e eu não tenho fonte oficial para afirmar. O vídeo diz o que cada porta EXIGE, e para onde reclamar quando as duas divergem — consumidor.gov.br e o Procon do seu estado.\n"
+}
