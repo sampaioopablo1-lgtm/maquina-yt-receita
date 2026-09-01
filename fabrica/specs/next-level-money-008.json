@@ -1,0 +1,551 @@
+{
+ "slug": "next-level-money",
+ "pacote": "next-level-money-008",
+ "idioma": "en",
+ "voz": "en-US-AndrewNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#2A6F97",
+  "c2": "#E9C46A",
+  "bg": "#F2ECDF"
+ },
+ "thumb": {
+  "l1": "Rewards",
+  "l2": "or fee"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "A card that pays you",
+   "sub": "and charges you",
+   "nar": "You have a card that pays you back. It also charges you to hold it. And almost nobody has ever put those two numbers side by side.",
+   "cap": "A card that pays and charges"
+  },
+  {
+   "layout": "item",
+   "kicker": "This is not about the card",
+   "preco": "it is about your year",
+   "nar": "This is not a video about which card is better. It is about what YOUR card did for you last year, which is a different question and a far more useful one.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it has a deadline",
+   "preco": "the fee posts on a date",
+   "nar": "It also has a deadline. The fee posts on a specific date, and you decide before that date, every year, whether to keep paying it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Both numbers exist",
+   "preco": "and both are yours",
+   "nar": "The good news is that both numbers already exist, and both are yours. One is what came back to you. The other is what you paid to hold the card.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One is easy",
+   "preco": "the other is scattered",
+   "nar": "One of them is easy to find. The other is scattered across twelve months, which is the only reason this is not obvious already.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nobody does it for you",
+   "preco": "not the issuer",
+   "nar": "Nobody runs this for you. The issuer has no reason to, and you have never had the two numbers in front of you at the same time.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It takes one sitting",
+   "preco": "not a system",
+   "nar": "This is not a budgeting system. It is one sitting, with statements you already have.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What is coming",
+   "preco": "one subtraction",
+   "nar": "In a few minutes you will run this yourself. It is one subtraction, with numbers already printed on your own statements.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The two sides",
+   "sub": "what came back, what went out",
+   "nar": "The calculation has two sides, and the common mistake is looking at only the first.",
+   "cap": "The two sides of it"
+  },
+  {
+   "layout": "item",
+   "kicker": "Side one",
+   "preco": "what the card returned",
+   "nar": "Side one is everything the card returned to you over twelve months. Cash back, statement credits, points you actually redeemed.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Points you did not use",
+   "preco": "do not count",
+   "nar": "Points sitting unredeemed do not count. They are not money until you spend them, and plenty of them expire that way.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Value them the boring way",
+   "preco": "what you would have paid",
+   "nar": "And when you do redeem points, value them at what you would otherwise have paid in cash. Not at the number the program shows you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Side two",
+   "preco": "what holding it cost",
+   "nar": "Side two is what holding the card cost you: the annual fee, and any fee you paid because of this card and not another.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Same twelve months",
+   "preco": "on both sides",
+   "nar": "Use the same twelve months on both sides. Mixing a full year of rewards with one month of fees proves whatever you already believed.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sign-up bonuses",
+   "preco": "separate them out",
+   "nar": "If a sign-up bonus landed in that window, keep it separate for now. It is real money, but it happens once and it distorts the picture.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And referral credits",
+   "preco": "same treatment",
+   "nar": "Referral credits get the same treatment. Anything that will not repeat next year goes in its own line.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now they are comparable",
+   "preco": "money against money",
+   "nar": "With both sides in the same unit and the same window, this stops being an opinion about cards and becomes arithmetic about your year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The math",
+   "sub": "one subtraction",
+   "nar": "So here is the math. One subtraction, and one optional division.",
+   "cap": "The math: one subtraction"
+  },
+  {
+   "layout": "item",
+   "kicker": "Step one",
+   "preco": "add what came back",
+   "nar": "Step one: add up everything the card returned to you across those twelve months. Write it down.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Step two",
+   "preco": "add what you paid",
+   "nar": "Step two: add the annual fee and any fee that exists only because you hold this card. Write that down too.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Step three",
+   "preco": "subtract",
+   "nar": "Step three: subtract the second from the first. What is left is what the card actually paid you last year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If it is positive",
+   "preco": "that is your number",
+   "nar": "If the result is positive, that is real money the card handed you, and now you know the size of it instead of guessing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If it is negative",
+   "preco": "that is the price",
+   "nar": "If it is negative, that is what the card cost you to carry. Not a rate, not a percentage. A number, in your currency.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The optional part",
+   "preco": "divide by twelve",
+   "nar": "If you want it in monthly terms, divide by twelve. That makes it easier to compare with the other things you pay every month.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do it on paper",
+   "preco": "four lines",
+   "nar": "Four lines on paper is enough: rewards, fees, the difference, and the date the fee posts. That last line is what makes it actionable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The math ends here",
+   "preco": "the rest is why",
+   "nar": "The math ends here and you can run yours now. The rest of this video is where the numbers hide, what the subtraction misses, and when it lies.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Where the numbers hide",
+   "sub": "on your own statements",
+   "nar": "Now the part that makes people get this wrong: where those numbers are actually kept.",
+   "cap": "Where the numbers hide"
+  },
+  {
+   "layout": "item",
+   "kicker": "The year-end summary",
+   "preco": "start there",
+   "nar": "Most card issuers produce a year-end summary. Start there, because it collects twelve months in one place.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But check it",
+   "preco": "summaries can be partial",
+   "nar": "Then check it against your statements, because those summaries sometimes count only one category and quietly leave others out.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Statement credits",
+   "preco": "look like discounts",
+   "nar": "Watch for statement credits. They arrive looking like a discount on a purchase, so they are easy to miss on the rewards side.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The fee",
+   "preco": "may not say fee",
+   "nar": "The fee may not be labelled the way you expect, and on some cards it arrives split or waived for the first year only.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Foreign transaction charges",
+   "preco": "belong here",
+   "nar": "Charges that exist because of this card and not another belong on the cost side too. If another card in your wallet would not have charged it, it counts.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Twelve statements",
+   "preco": "beats memory",
+   "nar": "If the summary looks thin, open the twelve statements themselves. It takes twenty minutes and it removes all the guessing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Note the date",
+   "preco": "while you are there",
+   "nar": "While you are in there, note the date the annual fee posted. That is your deadline for next year, and it is the one thing people never write down.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If in doubt",
+   "preco": "undercount the rewards",
+   "nar": "When you are unsure, undercount the rewards side. If the answer still looks good under a stingy count, it really is good.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What it misses",
+   "sub": "and it is fair to say",
+   "nar": "There are things this subtraction does not capture, and it is more honest to name them than to pretend it settles everything.",
+   "cap": "What the subtraction misses"
+  },
+  {
+   "layout": "item",
+   "kicker": "Protections",
+   "preco": "worth something, rarely used",
+   "nar": "The first: purchase and travel protections. They are worth something, and most people never use them.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Value them as insurance",
+   "preco": "not as a feature list",
+   "nar": "Value them the way you would value insurance: by what you would have paid for the same cover, not by how long the feature list is.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second",
+   "preco": "what it made you spend",
+   "nar": "The second cuts the other way. If chasing rewards made you spend more than you otherwise would, that difference belongs on the cost side.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That one is uncomfortable",
+   "preco": "and it is real",
+   "nar": "That number is uncomfortable and rarely written down, but it is the one that turns a good-looking result into a bad year.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The third",
+   "preco": "interest",
+   "nar": "The third is simple. If you ever carried a balance on this card, interest goes on the cost side, and it usually dwarfs everything else here.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The fourth",
+   "preco": "time you spend on it",
+   "nar": "There is a fourth, smaller one: the time spent tracking categories and chasing redemptions. If that is hours a month, it belongs somewhere.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "None of these are excuses",
+   "preco": "they come after",
+   "nar": "All of these belong AFTER the subtraction, never before it. Raised first, they become reasons not to look at the number at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Then rewards stop mattering",
+   "preco": "the balance decides",
+   "nar": "In that case the rewards question is not the important one. The balance is, and no reward rate outruns it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "When it lies",
+   "sub": "the first year",
+   "nar": "Now the case that fools almost everyone.",
+   "cap": "When the number lies"
+  },
+  {
+   "layout": "item",
+   "kicker": "A first year",
+   "preco": "is not a normal year",
+   "nar": "A first year is not a normal year. Sign-up bonuses and waived fees make the result look better than the card will ever look again.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "So run year two",
+   "preco": "if you have one",
+   "nar": "If you have held the card longer than a year, run the calculation on a year with no bonus in it. That is the honest one.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And an unusual year",
+   "preco": "cuts both ways",
+   "nar": "An unusual year cuts the other way too. A year with one large purchase, or one you spent mostly at home, is not the year ahead either.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Two years is enough",
+   "preco": "to see the pattern",
+   "nar": "Two ordinary years are enough to tell whether you are looking at a pattern or at one strange twelve months.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Downgrades exist",
+   "preco": "not only cancel or keep",
+   "nar": "And the choice is rarely just keep or cancel. Most issuers have a version of the same card with no fee, and moving to it is a third option.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "That option keeps the age",
+   "preco": "which matters to some",
+   "nar": "That option also tends to preserve how long the account has been open, which some people care about for reasons outside this calculation.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ask before deciding",
+   "preco": "the fee window",
+   "nar": "There is usually a window after the fee posts in which the decision can still be reversed. Worth knowing before you need it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Both answers are valid",
+   "preco": "your number decides",
+   "nar": "Keeping the card and dropping it are both defensible, and neither is right in general. The right one is whatever your number points to. The only wrong move is renewing by default and never looking.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "From one year",
+   "sub": "to several",
+   "nar": "Now the step that makes the size of this feel real.",
+   "cap": "From one year to several"
+  },
+  {
+   "layout": "item",
+   "kicker": "One year",
+   "preco": "looks small",
+   "nar": "The difference in a single year usually looks small, in either direction. It is small, and that is exactly why it survives unexamined.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiply",
+   "preco": "by the years you have held it",
+   "nar": "Multiply it by the number of years you have held the card. Same behaviour, added up.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Then look forward",
+   "preco": "the fee repeats",
+   "nar": "Then look forward, because the fee repeats on a schedule and so does the result, with the same sign.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare it",
+   "preco": "with something you know",
+   "nar": "To feel the size, compare it with something familiar. If several years add up to a flight you would have taken anyway, that says one thing. If they add up to a coffee, that says something very different.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A small answer",
+   "preco": "is still an answer",
+   "nar": "It is entirely possible the number comes out near zero, and nothing needs to change. That is a complete answer, and now it is measured rather than assumed.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do it per card",
+   "preco": "not per wallet",
+   "nar": "Run this per card, not across your whole wallet. Two cards can pull in opposite directions, and averaging them hides both.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The pattern shows fast",
+   "preco": "two cards is enough",
+   "nar": "Two cards run side by side is usually enough to see which one is carrying the other.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The good part",
+   "preco": "it comes back every year",
+   "nar": "The good part is that this decision returns every year, and returns whole. One bad year does not commit the next one.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What to do today",
+   "sub": "three steps",
+   "nar": "We will close with what you can do today, in three steps.",
+   "cap": "What to do today"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Three steps",
+   "itens": [
+    "Add what came back",
+    "Add what you paid",
+    "Subtract"
+   ],
+   "nar": "First: add everything the card returned to you over twelve months. Second: add the annual fee and any fee that exists only because of this card. Third: subtract the second from the first.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Do it once",
+   "preco": "on last year",
+   "nar": "Do it once, on last year, using the year-end summary as your starting point. It is one sitting.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If it is positive",
+   "preco": "you are done",
+   "nar": "If it comes out positive, you are done, and you can stop wondering about it every time the fee posts.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "If it is negative",
+   "preco": "you now know the price",
+   "nar": "If it comes out negative, the decision now has a visible price. You are still allowed to pay it — the difference is that you know.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Change one thing",
+   "preco": "not everything",
+   "nar": "And if you do change something, change one thing: the card, or how you redeem. Changing both at once means you will never know which one worked.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Put the date somewhere",
+   "preco": "you will see it",
+   "nar": "And put the fee date somewhere you will actually see it, a month ahead. That single line is what turns this from a one-off into a decision.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Post your number",
+   "sub": "in the comments",
+   "nar": "If you run it, post one thing below: the result, with its sign. No card name, no balance, just the number. I want to see how far these spread between people holding the same kind of card.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Your rewards card",
+   "sub": "did it pay you?",
+   "nar": "Your rewards card pays you back and charges you to hold it. Which one won last year? Run it now.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Number one",
+   "sub": "what came back",
+   "nar": "Number one: everything the card returned over twelve months. Cash back, statement credits, points you actually redeemed.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Number two",
+   "sub": "what you paid",
+   "nar": "Number two: the annual fee, plus any fee that exists only because you hold this card.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Subtract",
+   "sub": "that is your answer",
+   "nar": "Subtract the second from the first. Positive means the card paid you. Negative is what it cost you to carry. That is the whole calculation.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "If that was useful",
+   "sub": "subscribe — one a week",
+   "nar": "If that was useful, subscribe. One money calculation a week, run on your own numbers.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# What your rewards card actually paid you last year, from your own statements\n\n## TITULO\nRewards or Fee? What Your Card Actually Paid You Last Year\n\n## DESCRICAO\nYou have a card that pays you back. It also charges you to hold it. And almost nobody has ever put those two numbers side by side. This is not a video about which card is better — it is about what YOUR card did for you last year, which is a different question and a far more useful one. It also has a deadline: the fee posts on a specific date, and you decide before that date, every year, whether to keep paying it.\n\nThere is not a single number of mine in this video. No reward percentage, no fee amount, no interest rate, no bank, card, or programme named. Both numbers in the calculation are yours, and both are already printed on your own statements.\n\nThe math is one subtraction. Add up everything the card returned to you across twelve months — cash back, statement credits, and points you actually redeemed, valued at what you would otherwise have paid in cash rather than at the number the programme shows you. Points sitting unredeemed do not count; they are not money until you spend them. Then add the annual fee and any fee that exists only because you hold this card. Subtract the second from the first. What is left is what the card actually paid you last year. Divide by twelve if you want it in monthly terms.\n\nOne chapter covers where those numbers hide: the year-end summary is the place to start, but check it against your statements, because those summaries sometimes count one category and quietly leave others out. Statement credits arrive looking like a discount on a purchase, so they are easy to miss. And fees are not always labelled the way you expect.\n\nOne chapter covers what the subtraction misses, because naming it is more honest than pretending it settles everything: purchase and travel protections, which are worth something and are rarely used — value them as insurance, by what the same cover would cost; the spending the rewards themselves encouraged, which belongs on the cost side and is the number that turns a good-looking result into a bad year; and interest, which goes on the cost side if you ever carried a balance, and usually dwarfs everything else here.\n\nAnd one chapter covers when the number lies. A first year is not a normal year: sign-up bonuses and waived fees make it look better than the card will ever look again. If you have held it longer, run a year with no bonus in it. Two ordinary years tell you whether you are seeing a pattern or one strange twelve months.\n\nThe close is three steps you can run today, from the summary you already have.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nRun it on last year and post one thing below: the result, with its sign. No card name, no balance, no spending — just the number. I want to see how far these spread between people holding the same kind of card.\n\n## HASHTAGS\n#PersonalFinance #CreditCards #NextLevelMoney\n\n## TAGS\nrewards card worth it, annual fee worth it, cash back math, credit card rewards, is my card worth the fee, year end summary, statement credits, redeem points value, personal finance, money calculation, card annual fee, rewards vs fee, budgeting, financial literacy, run the numbers\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Ingles (en) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Estados Unidos | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita percentual de recompensa, nao cita valor de anuidade, nao cita taxa de juro, nao cita nome de banco, de cartao nem de programa de pontos, e nao compara produtos entre si. Os dois numeros da conta sao do proprio espectador e os dois estao no extrato dele: o que o cartao devolveu em doze meses e o que ele pagou para manter o cartao no mesmo periodo. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa do pais, do emissor ou do produto dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer percentual de cashback, valor de anuidade ou taxa. Esses valores mudam por emissor, por produto e por data, e citar um so deles tornaria a conta errada para a maioria de quem assiste. O video tambem nao recomenda cartao nenhum, nao diz que anuidade e boa ou ruim — as duas respostas sao legitimas e dependem do numero de cada um —, nao fala de score de credito, nao promete economia e nao e aconselhamento financeiro.\n"
+}
