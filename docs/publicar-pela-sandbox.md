@@ -236,3 +236,41 @@ Os onze shorts são o teste pré-registrado de
 com **zero views** nos onze. Agora eles têm exposição, e o teste vale. Rode
 `fabrica/conversao.py` com aqueles grupos quando houver views — e sem tocar nos
 rótulos, que é o que os torna cegos.
+
+## O corpus vive no repositorio agora — mas o md5 continua obrigatorio
+
+A sandbox recicla sozinha. Toda vez que ela reciclava, o `corpus.json` que a
+trava anti-duplicata le sumia junto, e eu reemitia os 120+ titulos por heredoc
+(que ainda por cima estoura o limite do MCP e precisa ser partido em tres).
+
+Por isso o corpus agora esta versionado em `fabrica/corpus_publicados.json`.
+Depois do `git fetch` na sandbox:
+
+    cp $MAQ/fabrica/corpus_publicados.json $RAIZ/corpus.json
+
+**Isso e uma copia de conveniencia, nao a fonte da verdade.** A fonte e a
+tabela `videos`. O arquivo no repositorio fica velho no instante em que alguem
+publica sem dar commit no corpus — e um corpus velho nao FALHA, ele so deixa de
+enxergar os titulos novos, que e exatamente a cegueira que a trava existe para
+evitar. Entao, antes de usar:
+
+    -- no Postgres
+    with t as (select distinct titulo from videos
+               where titulo is not null and status = 'publicado')
+    select count(*) as n,
+           md5(string_agg(titulo, chr(10) order by titulo collate "C")) as soma
+    from t;
+
+    # na sandbox / no runner
+    python3 -c "
+    import json,hashlib
+    t=json.load(open('corpus.json'))
+    print(len(t), hashlib.md5(chr(10).join(sorted(t,key=lambda x:x.encode('utf-8'))).encode('utf-8')).hexdigest())"
+
+Os dois numeros tem de bater. Se nao baterem, o arquivo esta atrasado: puxe os
+titulos do banco, regrave o arquivo, e **de commit nele** — senao a proxima
+rodada paga o mesmo custo.
+
+Ordenacao: `collate "C"` no Postgres corresponde a `sorted(t, key=lambda x:
+x.encode('utf-8'))` no Python. Nenhum outro par de ordenacoes bate, porque os
+titulos tem grego, devanagari, turco e polones misturados.
