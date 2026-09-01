@@ -47,8 +47,17 @@ posicao da resposta erra ate mais sete. A razao provavel: a resposta cai no
 primeiro terco, e o termo por frase do modelo pesa mais onde as cenas sao mais
 curtas. Nao corrija o modelo por isso — ele acerta o total; corrija a MARGEM.
 
+E AQUI HA UM LIMITE ARITMETICO que vale conhecer antes de tentar cumprir a
+regra: com OITO capitulos, a abertura do capitulo 4 nao pode cair antes de
+~186s, porque tres capitulos de sessenta e dois segundos ja somam isso. Pedir
+185s e pedir o impossivel. O que resolve nao e encolher capitulo — e lembrar
+que a RESPOSTA nao e o capitulo inteiro: os tres passos da conta cabem na
+primeira metade do capitulo 3, ou seja por volta de 155s, e a abertura do
+capitulo 4 e so um proxy conservador disso.
+
 CONSEQUENCIA PRATICA: desenhe cada capitulo com ~64s NA ESTIMATIVA, nunca 60,
-e feche a resposta ate **~185s** — nao 192. Com 192 na estimativa, duas vozes
+e ponha os passos da conta na PRIMEIRA METADE do capitulo 3, com a abertura do
+capitulo 4 caindo ate ~192s. Com 192 na estimativa, duas vozes
 seguidas (Gadis e Andrew) fecharam aos 204s no video publicado, as duas fora da
 regra dos duzentos segundos. Depois CONFIRA os dois no copy.md renderizado, que
 traz o tempo real, antes de publicar. (Aprendizado 537.)

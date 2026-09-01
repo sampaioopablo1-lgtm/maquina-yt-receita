@@ -1,0 +1,572 @@
+{
+ "slug": "seja-mais-magra",
+ "pacote": "seja-mais-magra-008",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-FranciscaNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#22303C",
+  "c1": "#3E7C8A",
+  "c2": "#E0A458",
+  "bg": "#F6F3EE"
+ },
+ "thumb": {
+  "l1": "Semana ou",
+  "l2": "fim de semana"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Seu celular já contou",
+   "sub": "e você nunca olhou assim",
+   "nar": "O seu celular vem contando quanto você se move há meses. E provavelmente você nunca olhou esses números do jeito que muda alguma coisa.",
+   "cap": "O que o celular já contou"
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é sobre meta",
+   "preco": "é sobre o seu padrão",
+   "nar": "Isso não é sobre bater meta nenhuma. É sobre enxergar o seu padrão, que é uma pergunta diferente e bem mais útil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E tem prazo",
+   "preco": "o próximo fim de semana",
+   "nar": "E tem prazo curto: o próximo fim de semana chega em poucos dias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Os dois números existem",
+   "preco": "e são seus",
+   "nar": "Os dois números de que você precisa já existem, e os dois são seus. Não vêm de tabela nenhuma, nem da minha nem de ninguém.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nada para instalar",
+   "preco": "nada para começar",
+   "nar": "Você não precisa instalar nada, comprar nada nem começar nada. O histórico já está gravado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ninguém faz por você",
+   "preco": "nem o aplicativo",
+   "nar": "E ninguém faz essa conta por você. O aplicativo mostra o dia de hoje, porque é isso que prende. O padrão de quatro semanas ele não mostra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é planilha",
+   "preco": "é uma vez só",
+   "nar": "Isso também não vira rotina nova. É uma sentada, com o que já está gravado, e depois você segue a sua vida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E serve pra decidir",
+   "preco": "não pra cobrar",
+   "nar": "O resultado serve pra decidir onde mexer. Não serve pra te cobrar nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que vem agora",
+   "preco": "uma subtração",
+   "nar": "Em alguns minutos você faz essa conta sozinha. Duas médias e uma subtração.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Os dois lados",
+   "sub": "os dias úteis e o resto",
+   "nar": "A conta tem dois lados, e quase ninguém separa os dois.",
+   "cap": "Os dois lados da semana"
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado um",
+   "preco": "segunda a sexta",
+   "nar": "O primeiro lado é a média dos seus dias de semana. Segunda a sexta, e só eles.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado dois",
+   "preco": "sábado e domingo",
+   "nar": "O segundo lado é a média do sábado e do domingo. Separados do resto, sempre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Use quatro semanas",
+   "preco": "não uma",
+   "nar": "Use as últimas quatro semanas. Uma semana isolada quase sempre teve alguma coisa fora do normal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passos ou minutos",
+   "preco": "escolha um",
+   "nar": "Pode ser passos ou minutos ativos, desde que seja o mesmo nos dois lados.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não misture as unidades",
+   "preco": "esse é o erro comum",
+   "nar": "Misturar passos de um lado com minutos do outro inventa uma diferença que não existe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que separar",
+   "preco": "os dois dias são outra vida",
+   "nar": "Sábado e domingo costumam ter outra rotina e outro horário. Somar tudo junto apaga isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "São lados de tamanho diferente",
+   "preco": "por isso média",
+   "nar": "Os dois lados não têm o mesmo tamanho. Um tem os dias de trabalho, o outro tem só o fim de semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então não some",
+   "preco": "tire média",
+   "nar": "Por isso não some os dois lados. Tire a média de cada um. Média com média é a única comparação justa aqui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Feriado no meio",
+   "preco": "conte como fim de semana",
+   "nar": "Feriado no meio da semana vai para o lado do fim de semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora dá pra comparar",
+   "preco": "média com média",
+   "nar": "Com os dois lados na mesma unidade, isso deixa de ser impressão e vira aritmética sobre a sua própria semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "uma subtração",
+   "nar": "Então a conta. Duas médias, uma subtração.",
+   "cap": "A conta: uma subtração"
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo um",
+   "preco": "média de segunda a sexta",
+   "nar": "Passo um: some os cinco dias úteis de cada semana e divida por cinco. Faça isso nas quatro semanas e tire a média.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo dois",
+   "preco": "média do fim de semana",
+   "nar": "Passo dois: some sábado e domingo e divida por dois. Também nas quatro semanas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Passo três",
+   "preco": "subtraia",
+   "nar": "Passo três: subtraia a segunda média da primeira. O que sobrar é o seu vão de fim de semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se der positivo",
+   "preco": "você cai no fim de semana",
+   "nar": "Se der positivo, você se move menos no fim de semana do que nos dias úteis. E agora você sabe de quanto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se der negativo",
+   "preco": "é o contrário",
+   "nar": "Se der negativo, é o contrário: o fim de semana é onde você se move mais, e a semana é que está parada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Escreva os dois",
+   "preco": "lado a lado",
+   "nar": "Escreva os dois números lado a lado num papel. Ver os dois juntos já muda o que você entende, antes mesmo da subtração.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E anote o sinal",
+   "preco": "ele é metade da resposta",
+   "nar": "E anote o sinal junto com o número. O sinal é metade da resposta, e é a metade que as pessoas esquecem de olhar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta acabou aqui",
+   "preco": "o resto é o porquê",
+   "nar": "A conta acabou aqui e você já pode fazer a sua. O resto do vídeo é onde achar os números e o que essa conta não pega.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde achar",
+   "sub": "no próprio aparelho",
+   "nar": "Agora onde esses números estão, porque quase ninguém abre essa tela.",
+   "cap": "Onde achar os números"
+  },
+  {
+   "layout": "item",
+   "kicker": "O histórico",
+   "preco": "costuma ter meses",
+   "nar": "O aplicativo de saúde do próprio celular guarda o histórico, e costuma guardar meses, não dias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Procure a visão semanal",
+   "preco": "não a do dia",
+   "nar": "Procure a visão por semana, e não a do dia. É ela que dá o número por dia sem você somar nada à mão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Anote sete números",
+   "preco": "por semana",
+   "nar": "Anote os sete números de cada semana. São vinte e oito ao todo, e cabem num papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se faltar um dia",
+   "preco": "pule a semana",
+   "nar": "Se em alguma semana faltar dado — celular no carregador, dia sem sair com ele —, pule a semana inteira em vez de inventar o dia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E se for relógio",
+   "preco": "vale igual",
+   "nar": "Se você usa relógio ou pulseira, vale igual. O que não vale é comparar uma semana medida pelo relógio com outra medida pelo celular.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quatro semanas seguidas",
+   "preco": "sem escolher",
+   "nar": "Use quatro semanas seguidas, e não as quatro que você gostou mais. Escolher semana é o jeito mais fácil de provar o que você já achava.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se você trocou de aparelho",
+   "preco": "recomece a contagem",
+   "nar": "E se você trocou de celular no meio, conte só as semanas do aparelho atual. Aparelhos diferentes contam diferente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na dúvida",
+   "preco": "erre para menos",
+   "nar": "E na dúvida, erre para menos no lado do fim de semana. Se o vão aparecer mesmo com uma conta conservadora, ele existe mesmo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que a conta não pega",
+   "sub": "e é justo dizer",
+   "nar": "Tem coisas que essa conta não captura, e é mais honesto dizer do que fingir que ela decide tudo.",
+   "cap": "O que a conta não pega"
+  },
+  {
+   "layout": "item",
+   "kicker": "A intensidade",
+   "preco": "não aparece",
+   "nar": "A primeira: intensidade. Um passeio lento e uma subida forte contam parecido em passos, e não são a mesma coisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso os minutos ativos",
+   "preco": "ajudam",
+   "nar": "Por isso, se o seu aparelho tiver minutos ativos além de passos, faça a conta com os dois. Onde eles discordam, tem informação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A segunda",
+   "preco": "o que não é passo",
+   "nar": "A segunda: o que não é passo. Bicicleta, natação e musculação quase não aparecem na contagem, e mesmo assim aconteceram.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se o seu treino é assim",
+   "preco": "conte à parte",
+   "nar": "Se o seu movimento principal é desse tipo, anote esses dias à parte, senão a conta vai dizer que você parou quando você não parou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A terceira",
+   "preco": "o descanso é legítimo",
+   "nar": "A terceira não é um erro de medida: descansar é legítimo. Um vão pequeno no fim de semana pode ser exatamente o que o seu corpo precisava.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A quarta",
+   "preco": "semana difícil acontece",
+   "nar": "E tem a quarta: uma semana de doença, de viagem ou de trabalho pesado muda tudo, e ela não avisa no número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta não julga",
+   "preco": "ela mostra o tamanho",
+   "nar": "Essa conta não diz que você deveria estar fazendo mais. Ela mostra o tamanho de uma diferença que você não estava vendo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso que engana",
+   "sub": "a semana de trabalho",
+   "nar": "Agora o caso que engana quase todo mundo, e ele merece um capítulo.",
+   "cap": "O caso que engana"
+  },
+  {
+   "layout": "item",
+   "kicker": "Muita gente descobre",
+   "preco": "que anda por obrigação",
+   "nar": "Muita gente faz essa conta e descobre uma coisa incômoda: quase todo o movimento da semana vem do deslocamento, não de escolha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se isso é você",
+   "preco": "o vão é frágil",
+   "nar": "Se isso é o seu caso, o seu número de dias úteis é frágil. Ele depende do trajeto, e não de um hábito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Teste fácil",
+   "preco": "um feriado no meio",
+   "nar": "Tem um teste simples: olhe um feriado que caiu no meio da semana. Se aquele dia se parece com sábado, a resposta apareceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E quem trabalha de casa",
+   "preco": "vê o contrário",
+   "nar": "Quem trabalha de casa costuma ver o contrário: a semana é o lado parado, e o fim de semana é quando o corpo sai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tem um terceiro caso",
+   "preco": "o fim de semana cheio",
+   "nar": "E tem um terceiro caso: quem tem o fim de semana ocupado com casa, criança e obrigação. Aí o número do sábado pode ser alto sem nada disso ter sido exercício.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A contagem não distingue",
+   "preco": "e você distingue",
+   "nar": "A contagem não sabe a diferença entre andar por prazer e andar carregando sacola. Você sabe, e essa leitura é sua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso o número não decide sozinho",
+   "preco": "ele abre a pergunta",
+   "nar": "Por isso o número não decide nada sozinho. Ele abre a pergunta certa, que é: esse movimento está vindo de onde?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nenhum dos dois é erro",
+   "preco": "são padrões diferentes",
+   "nar": "Nenhum dos dois é errado. São padrões diferentes, e cada um pede uma coisa diferente. O que não vale é achar que sabe qual é o seu sem ter olhado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De um fim de semana",
+   "sub": "para o ano",
+   "nar": "Agora o passo que faz o tamanho aparecer.",
+   "cap": "De um fim de semana para o ano"
+  },
+  {
+   "layout": "item",
+   "kicker": "Um sábado",
+   "preco": "parece pouco",
+   "nar": "A diferença de um sábado parece pequena. É pequena mesmo, e é por isso que ela passa despercebida toda semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Multiplique",
+   "preco": "por dois dias",
+   "nar": "Multiplique o vão pelos dois dias do fim de semana. Depois pelas cinquenta e duas semanas do ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora ele tem tamanho",
+   "preco": "e sinal",
+   "nar": "Agora aquele número pequeno tem tamanho, e tem sinal. E o sinal é o que diz onde está a alavanca da sua semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare com algo",
+   "preco": "que você conhece",
+   "nar": "Para sentir o tamanho, compare com alguma coisa que você conhece: quantos dias inteiros de movimento aquilo dá no ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E pode dar quase zero",
+   "preco": "isso também é resposta",
+   "nar": "Pode dar quase zero, e a sua semana ser parelha. Essa é uma resposta completa, e agora ela é medida em vez de suposta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E olhe o sinal antes do tamanho",
+   "preco": "ele diz onde mexer",
+   "nar": "Antes do tamanho, olhe o sinal. Ele diz de que lado da semana está a alavanca, e é isso que muda o que você faria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se o vão é positivo",
+   "preco": "o sábado é o alvo",
+   "nar": "Vão positivo quer dizer que o fim de semana é o lado parado. Então é lá que uma mudança pequena rende mais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se é negativo",
+   "preco": "a semana é o alvo",
+   "nar": "Vão negativo quer dizer o contrário: os dias úteis é que estão parados, e aí o alvo é o meio da semana, não o sábado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O bom disso",
+   "preco": "o fim de semana volta",
+   "nar": "O lado bom é que o fim de semana volta em poucos dias, e volta inteiro. Um mês ruim não obriga o seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que fazer hoje",
+   "sub": "três passos",
+   "nar": "Fechamos com o que dá pra fazer hoje, em três passos.",
+   "cap": "O que fazer hoje"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Três passos",
+   "itens": [
+    "Abra o histórico",
+    "Separe úteis e fim de semana",
+    "Subtraia as médias"
+   ],
+   "nar": "Primeiro: abra o histórico do seu celular nas últimas quatro semanas. Segundo: separe os dias úteis do fim de semana. Terceiro: subtraia uma média da outra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Faça uma vez",
+   "preco": "não vire rotina",
+   "nar": "Faça uma vez só. Isso não é para virar planilha semanal, é para você saber onde está o seu vão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se o vão for grande",
+   "preco": "mexa em um dia",
+   "nar": "Se o vão for grande, mexa em um dia só, o que for mais fácil. Mudar o fim de semana inteiro de uma vez raramente dura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E refaça em um mês",
+   "preco": "só uma vez",
+   "nar": "Refaça a conta daqui a um mês, uma vez, para ver se o número andou. Não antes: quatro semanas é o mínimo para não ler ruído.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um aviso",
+   "preco": "se houver orientação médica",
+   "nar": "E um aviso que precisa estar aqui: se você tem alguma condição de saúde ou orientação médica sobre atividade física, ela vale mais do que qualquer conta deste vídeo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E guarde o número",
+   "preco": "pra comparar depois",
+   "nar": "Guarde o número num lugar que você reencontre. Sem ele, daqui a um mês você vai comparar com a lembrança, e a lembrança sempre perde.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Escreva o seu número",
+   "sub": "nos comentários",
+   "nar": "Se você fizer a conta, escreve aqui embaixo só uma coisa: o vão, com o sinal. Sem peso, sem meta, sem nome de aplicativo. Quero ver o quanto isso varia entre quem tem rotina parecida.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Seu celular já contou",
+   "sub": "faça essa conta agora",
+   "nar": "O seu celular já contou quanto você se move há meses. Faz essa conta agora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Número um",
+   "sub": "média de segunda a sexta",
+   "nar": "Número um: a média dos seus dias úteis nas últimas quatro semanas. Passos ou minutos ativos, escolha um.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Número dois",
+   "sub": "média do fim de semana",
+   "nar": "Número dois: a média de sábado e domingo, nas mesmas quatro semanas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Subtraia",
+   "sub": "esse é o seu vão",
+   "nar": "Subtraia o segundo do primeiro. Positivo: você cai no fim de semana. Negativo: a semana é que está parada. A conta é essa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Se serviu",
+   "sub": "se inscreve — uma conta por semana",
+   "nar": "Se essa conta serviu, se inscreve. Uma conta por semana, feita com os seus próprios números.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# O vão entre a sua semana e o seu fim de semana, com o histórico que já está no seu celular\n\n## TITULO\nSemana ou Fim de Semana? A Conta que o Seu Celular Já Fez por Você\n\n## DESCRICAO\nO seu celular vem contando quanto você se move há meses, e provavelmente você nunca olhou esses números do jeito que muda alguma coisa. Este vídeo não é sobre bater meta nenhuma — é sobre enxergar o seu padrão, que é uma pergunta diferente e bem mais útil. E tem prazo curto: o próximo fim de semana chega em poucos dias.\n\nNão há um único número meu neste vídeo. Não há meta de passos, não há minutos recomendados, não há caloria, não há peso, e não há nome de aplicativo ou de aparelho. Os dois números da conta saem do histórico que já está gravado no seu celular. Você não precisa instalar nada, comprar nada nem começar nada.\n\nA conta são duas médias e uma subtração. Some os cinco dias úteis de cada semana e divida por cinco; some sábado e domingo e divida por dois. Faça isso nas últimas quatro semanas — não na última, porque uma semana isolada quase sempre teve alguma coisa fora do normal. Depois subtraia a segunda média da primeira. Se der positivo, você se move menos no fim de semana, e agora você sabe de quanto. Se der negativo, é o contrário: o fim de semana é onde você se move mais e a semana é que está parada.\n\nPode ser passos ou minutos ativos, desde que seja o mesmo nos dois lados. Misturar as duas unidades inventa uma diferença que não existe, e é o erro mais comum aqui.\n\nUm capítulo mostra onde achar os números — a visão por semana do aplicativo de saúde, e o que fazer quando falta um dia (pular a semana inteira em vez de inventar o dia). Outro capítulo diz o que a conta NÃO pega, porque é mais honesto do que fingir: a intensidade não aparece na contagem de passos; bicicleta, natação e musculação quase não aparecem e mesmo assim aconteceram; e descansar é legítimo — um vão pequeno pode ser exatamente o que o seu corpo precisava. Esta conta não diz que você deveria estar fazendo mais. Ela mostra o tamanho de uma diferença que você não estava vendo.\n\nE há o caso que engana: muita gente descobre que quase todo o movimento da semana vem do deslocamento, não de escolha — e nesse caso o número dos dias úteis é frágil, porque depende do trajeto e não de um hábito. O teste é olhar um feriado que caiu no meio da semana.\n\nAVISO: este vídeo não prescreve exercício, não diz quanto ninguém deve se mexer, não promete emagrecimento e não é aconselhamento médico. Se você tem alguma condição de saúde ou orientação médica sobre atividade física, ela vale mais do que qualquer conta daqui.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nFaz essa conta com o teu histórico e escreve aqui só uma coisa: o vão, com o sinal. Sem peso, sem meta, sem nome de aplicativo, só o número. Quero ver o quanto isso varia entre quem tem rotina parecida.\n\n## HASHTAGS\n#Saúde #AtividadeFísica #SejaMaisMagra\n\n## TAGS\ncontagem de passos, minutos ativos, aplicativo de saude, historico do celular, media de passos, fim de semana sedentario, rotina de movimento, atividade fisica no dia a dia, quantos passos eu dou, monitorar movimento, habito de caminhar, saude e rotina, medir atividade, passos por dia, calcular sozinho\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita meta de passos, nao cita minutos recomendados, nao cita caloria, nao cita peso, nao cita indice e nao cita nome de aplicativo nem de aparelho. Os dois numeros da conta saem do historico do proprio espectador, no celular ou no relogio dele. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da idade, do peso ou da condicao dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer meta ou faixa recomendada. Elas variam por idade e por condicao de saude, e citar uma so delas transformaria uma conta descritiva numa prescricao — que e exatamente o que este video nao e. O video tambem nao prescreve exercicio, nao diz quanto ninguem deve se mexer, nao promete emagrecimento, nao fala de dieta e nao e aconselhamento medico; ha aviso explicito no roteiro de que orientacao medica individual vale mais do que qualquer conta daqui.\n"
+}
