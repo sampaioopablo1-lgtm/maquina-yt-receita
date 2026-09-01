@@ -1,0 +1,439 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-009",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#20303A",
+  "c1": "#B7410E",
+  "c2": "#3E7C59",
+  "bg": "#FAF5EF"
+ },
+ "thumb": {
+  "l1": "Masak atau",
+  "l2": "beli jadi"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Setiap hari Anda memilih",
+   "sub": "tanpa menghitung",
+   "nar": "Hampir setiap hari Anda memilih antara memasak sendiri dan membeli yang sudah jadi. Dan hampir selalu pilihan itu diambil tanpa satu pun angka.",
+   "cap": "Pilihan yang diambil tanpa angka"
+  },
+  {
+   "layout": "item",
+   "kicker": "Bukan soal hemat",
+   "preco": "soal tahu",
+   "nar": "Ini bukan ajakan berhemat. Ini soal tahu berapa selisihnya — pertanyaan lain, dan jauh lebih berguna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan batas waktunya jelas",
+   "preco": "makan malam nanti",
+   "nar": "Batas waktunya juga jelas: makan malam nanti, atau belanja besok pagi. Jadi angkanya berguna hari ini, bukan suatu saat nanti.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang sering dikira",
+   "preco": "masak selalu lebih murah",
+   "nar": "Banyak orang menganggap memasak sendiri pasti lebih murah. Kadang benar, kadang tidak, dan yang menentukan bukan pendapat siapa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dua angka",
+   "preco": "sudah ada di rumah Anda",
+   "nar": "Dua angka yang dibutuhkan sudah ada di rumah Anda: struk belanja terakhir, dan harga yang biasa Anda bayar untuk lauk itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang akan Anda dapat",
+   "preco": "satu pembagian",
+   "nar": "Sebentar lagi Anda bisa menghitungnya sendiri. Satu pembagian, dan satu perbandingan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua sisi",
+   "sub": "bahan dan porsi",
+   "nar": "Hitungan ini punya dua sisi, dan kesalahan paling umum adalah membandingkan yang tidak sebanding.",
+   "cap": "Dua sisi: bahan dan porsi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Sisi pertama",
+   "preco": "harga beli jadi",
+   "nar": "Sisi pertama gampang: harga satu porsi yang biasa Anda beli sudah jadi. Catat apa adanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sisi kedua",
+   "preco": "belanja untuk lauk yang sama",
+   "nar": "Sisi kedua: total belanja bahan untuk membuat lauk yang sama di rumah. Semua bahan, bukan hanya yang utama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Termasuk yang sedikit",
+   "preco": "bumbu dan minyak",
+   "nar": "Termasuk bumbu dan minyak. Yang sedikit itu tetap dibeli dengan uang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu hitung porsinya",
+   "preco": "jujur",
+   "nar": "Lalu hitung berapa porsi yang benar-benar jadi dari belanja itu. Jujur saja, sesuai yang biasa Anda sajikan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ini yang sering keliru",
+   "preco": "porsi rumah beda",
+   "nar": "Di sinilah banyak orang keliru: porsi di rumah biasanya lebih besar daripada porsi yang dibeli.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sekarang sebanding",
+   "preco": "per porsi lawan per porsi",
+   "nar": "Setelah porsinya dihitung, kedua sisi jadi sebanding: satu porsi lawan satu porsi. Sekarang ini bukan pendapat lagi, ini hitungan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hitungnya",
+   "sub": "bagi lalu bandingkan",
+   "nar": "Jadi hitungannya. Satu pembagian, lalu satu perbandingan.",
+   "cap": "Hitungnya: bagi lalu bandingkan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah satu",
+   "preco": "total bahan",
+   "nar": "Langkah pertama: jumlahkan semua bahan yang dibeli untuk lauk itu. Catat totalnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah dua",
+   "preco": "bagi jumlah porsi",
+   "nar": "Langkah kedua: bagi total itu dengan jumlah porsi yang jadi. Hasilnya adalah harga satu porsi buatan rumah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah tiga",
+   "preco": "bandingkan",
+   "nar": "Langkah ketiga: bandingkan angka itu dengan harga satu porsi yang biasa Anda beli. Selisihnya, dalam rupiah, adalah jawabannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau masak lebih murah",
+   "preco": "itu selisihnya",
+   "nar": "Kalau buatan rumah lebih murah, itulah yang Anda simpan tiap kali memasak lauk itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau lebih mahal",
+   "preco": "itu juga jawaban",
+   "nar": "Kalau ternyata lebih mahal, itu jawaban yang sama sahnya. Artinya untuk lauk ini, membeli jadi memang masuk akal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitungan selesai",
+   "preco": "sisanya penjelasan",
+   "nar": "Hitungannya selesai di sini dan Anda sudah bisa melakukannya. Sisa video ini soal di mana angkanya bersembunyi dan kapan hasilnya menipu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Di mana angkanya",
+   "sub": "bersembunyi",
+   "nar": "Sekarang bagian yang membuat banyak orang salah hitung: di mana angkanya bersembunyi.",
+   "cap": "Di mana angkanya bersembunyi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Gas",
+   "preco": "dipakai, tidak dihitung",
+   "nar": "Gas terpakai setiap kali memasak, tapi hampir tidak pernah masuk hitungan. Perkirakan saja, dan masukkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Minyak yang tersisa",
+   "preco": "jangan dihitung penuh",
+   "nar": "Minyak yang masih tersisa di botol jangan dihitung penuh. Yang masuk hitungan hanya bagian yang terpakai untuk lauk itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bumbu yang sudah ada",
+   "preco": "tetap ada harganya",
+   "nar": "Bumbu yang sudah ada di dapur terasa gratis, padahal dulu dibeli. Kalau sulit dipisah, perkirakan bagian kecilnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang terbuang",
+   "preco": "juga masuk",
+   "nar": "Bahan yang layu atau tidak sempat dimasak juga masuk, karena uangnya sudah keluar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalau bingung",
+   "preco": "cukup satu lauk",
+   "nar": "Kalau semua ini terasa rumit, lakukan untuk satu lauk saja, yang paling sering Anda beli. Satu lauk sudah cukup untuk tahu polanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan perkiraan boleh",
+   "preco": "asal ke bawah",
+   "nar": "Perkiraan boleh dipakai, asal condong ke bawah untuk sisi rumah. Kalau dengan perkiraan hemat pun hasilnya sudah jelas, hasilnya memang jelas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang tidak masuk",
+   "sub": "hitungan ini",
+   "nar": "Ada hal-hal yang hitungan ini tidak tangkap, dan lebih jujur menyebutnya.",
+   "cap": "Yang tidak masuk hitungan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Waktu Anda",
+   "preco": "punya nilai",
+   "nar": "Yang pertama: waktu. Memasak memakan waktu, dan waktu Anda punya nilai, walaupun tidak keluar dari dompet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Termasuk yang sesudahnya",
+   "preco": "cuci dan beres-beres",
+   "nar": "Termasuk yang sesudahnya: mencuci dan membereskan. Itu bagian dari memasak, bukan tambahan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "tenaga di hari sibuk",
+   "nar": "Yang kedua: tenaga. Di hari yang sudah panjang, membeli jadi bisa masuk akal walaupun lebih mahal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitungan ini tidak melarang",
+   "preco": "hanya memberi harganya",
+   "nar": "Hitungan ini tidak melarang apa pun. Ia hanya memberi tahu berapa harga dari kemudahan itu, supaya Anda memilih dengan sadar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "preco": "porsi lebih dan besok",
+   "nar": "Yang ketiga: masak sekali sering menghasilkan porsi lebih untuk besok. Itu menurunkan harga per porsi, dan sering terlupakan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Keempat",
+   "preco": "selera dan kebiasaan",
+   "nar": "Dan yang terakhir tidak berbentuk angka: ada lauk yang di rumah tidak pernah sama rasanya. Itu alasan yang sah, asal Anda tahu harganya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kasus yang menipu",
+   "sub": "yang dimasak banyak",
+   "nar": "Sekarang kasus yang menipu hampir semua orang.",
+   "cap": "Kasus yang menipu"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada lauk",
+   "preco": "yang murah karena banyak",
+   "nar": "Ada lauk yang dijual murah justru karena dimasak dalam jumlah besar. Di rumah, jumlah kecil tidak bisa menandinginya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Itu bukan kekalahan",
+   "preco": "itu skala",
+   "nar": "Itu bukan berarti Anda gagal berhemat. Itu skala, dan skala memang bekerja seperti itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ada juga sebaliknya",
+   "preco": "yang mahal karena rumit",
+   "nar": "Sebaliknya, ada lauk yang dijual mahal karena rumit atau lama, padahal bahannya sederhana. Di situ selisihnya paling besar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Maka jangan digeneralkan",
+   "preco": "hitung per lauk",
+   "nar": "Karena itu jangan menyimpulkan untuk semua masakan sekaligus. Hitung per lauk, dan Anda akan menemukan dua kelompok yang berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang murah dibeli",
+   "preco": "biarkan dibeli",
+   "nar": "Lauk yang memang murah dibeli, biarkan dibeli. Tidak ada yang perlu dibuktikan di situ.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Keduanya sah",
+   "preco": "angka Anda yang menentukan",
+   "nar": "Memasak dan membeli dua-duanya sah, dan tidak ada yang benar secara umum. Yang benar adalah yang ditunjuk angka Anda. Yang tidak sah hanya memilih terus-menerus tanpa pernah melihat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dari satu porsi",
+   "sub": "ke sebulan",
+   "nar": "Sekarang langkah yang membuat ukurannya terasa.",
+   "cap": "Dari satu porsi ke sebulan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu porsi",
+   "preco": "terasa kecil",
+   "nar": "Selisih pada satu porsi biasanya terasa kecil. Memang kecil, dan itu sebabnya ia lolos setiap kali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kalikan",
+   "preco": "berapa kali sebulan",
+   "nar": "Kalikan dengan berapa kali dalam sebulan Anda membeli lauk itu. Perilaku yang sama, dijumlahkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu jumlah orang",
+   "preco": "di rumah",
+   "nar": "Lalu kalikan dengan jumlah orang yang makan. Angkanya berubah cepat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan",
+   "preco": "dengan yang Anda kenal",
+   "nar": "Untuk merasakan ukurannya, bandingkan dengan sesuatu yang Anda kenal: belanja mingguan, atau tagihan bulanan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan bisa juga kecil",
+   "preco": "itu pun jawaban",
+   "nar": "Bisa juga hasilnya kecil dan tidak ada yang perlu diubah. Itu pun jawaban penuh, dan sekarang ia hitungan, bukan dugaan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bagusnya",
+   "preco": "pilihannya kembali besok",
+   "nar": "Bagusnya, pilihan ini kembali besok, dan kembali utuh. Satu bulan yang mahal tidak mengikat bulan berikutnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang bisa dilakukan",
+   "sub": "hari ini",
+   "nar": "Kita tutup dengan yang bisa dilakukan hari ini, dalam tiga langkah.",
+   "cap": "Yang bisa dilakukan hari ini"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tiga langkah",
+   "itens": [
+    "Pilih satu lauk",
+    "Jumlahkan bahannya",
+    "Bagi jumlah porsinya"
+   ],
+   "nar": "Pertama: pilih satu lauk yang paling sering Anda beli jadi. Kedua: jumlahkan semua bahan untuk membuatnya di rumah. Ketiga: bagi dengan jumlah porsi yang jadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bandingkan sekali",
+   "preco": "lalu simpan angkanya",
+   "nar": "Bandingkan sekali dengan harga belinya, lalu simpan angka itu. Untuk lauk yang sama, hasilnya biasanya berulang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jangan ubah semuanya",
+   "preco": "satu lauk dulu",
+   "nar": "Jangan mengubah seluruh menu sekaligus. Satu lauk dulu, yang selisihnya paling besar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan kalau selisihnya kecil",
+   "preco": "Anda sudah tahu",
+   "nar": "Dan kalau selisihnya kecil, Anda sudah tahu, dan tidak perlu ragu lagi setiap kali memilih.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tulis angka Anda",
+   "sub": "di kolom komentar",
+   "nar": "Kalau Anda menghitung, tulis satu angka saja di kolom komentar: selisih per porsi, dengan tandanya. Tanpa nama tempat, cukup selisihnya.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Masak atau beli jadi",
+   "sub": "berapa selisihnya?",
+   "nar": "Masak sendiri atau beli jadi? Hitung selisihnya sekarang, dengan struk belanja Anda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pilih satu lauk",
+   "sub": "yang sering Anda beli",
+   "nar": "Pilih satu lauk yang sering Anda beli jadi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jumlahkan bahannya",
+   "sub": "semua, termasuk bumbu",
+   "nar": "Jumlahkan semua bahannya, termasuk bumbu dan minyak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagi jumlah porsi",
+   "sub": "lalu bandingkan",
+   "nar": "Bagi dengan jumlah porsi yang jadi. Itu harga satu porsi buatan rumah. Bandingkan dengan harga belinya: selisihnya adalah jawaban Anda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kalau hitungan ini berguna",
+   "sub": "subscribe, yang berikutnya di sini",
+   "nar": "Kalau hitungan ini berguna, subscribe. Tiap minggu satu hitungan dapur seperti ini.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Harga satu porsi buatan rumah, dihitung dari struk belanja Anda sendiri\n\n## TITULO\nMasak Sendiri atau Beli Jadi? Hitung Harga Per Porsi dari Belanjaan Anda Sendiri\n\n## DESCRICAO\nHampir setiap hari Anda memilih antara memasak sendiri dan membeli yang sudah jadi, dan hampir selalu pilihan itu diambil tanpa satu pun angka. Video ini bukan ajakan berhemat. Ini soal tahu berapa selisihnya, yang merupakan pertanyaan lain dan jauh lebih berguna — dan batas waktunya jelas: makan malam nanti, atau belanja besok pagi.\n\nTidak ada satu pun angka milik saya di video ini. Tidak ada harga bahan, tidak ada HET, tidak ada indeks, tidak ada nama pasar, aplikasi, atau rumah makan. Dua angka yang dipakai sudah ada di rumah Anda: struk belanja terakhir, dan harga yang biasa Anda bayar untuk lauk itu.\n\nHitungannya satu pembagian. Jumlahkan semua bahan yang dibeli untuk lauk itu — termasuk bumbu, minyak, dan yang dipakai sedikit-sedikit, karena yang sedikit itu tetap dibeli dengan uang. Lalu bagi dengan jumlah porsi yang benar-benar jadi, jujur sesuai yang biasa Anda sajikan. Hasilnya adalah harga satu porsi buatan rumah. Bandingkan dengan harga satu porsi yang biasa Anda beli, dan selisihnya dalam rupiah adalah jawabannya.\n\nBagian yang paling sering keliru adalah porsi: porsi di rumah biasanya lebih besar daripada porsi yang dibeli, dan kalau tidak dihitung, perbandingannya berat sebelah.\n\nAda satu bab tentang di mana angkanya bersembunyi: gas yang terpakai tapi tidak pernah dihitung, minyak yang masih tersisa di botol dan tidak boleh dihitung penuh, bumbu yang sudah ada di dapur dan terasa gratis padahal dulu dibeli, serta bahan yang layu dan tidak sempat dimasak.\n\nAda bab tentang apa yang hitungan ini TIDAK tangkap, karena lebih jujur menyebutnya: waktu Anda dan pekerjaan sesudahnya, tenaga di hari yang sudah panjang, porsi lebih untuk besok yang justru menurunkan harga per porsi, dan lauk yang di rumah tidak pernah sama rasanya. Hitungan ini tidak melarang apa pun — ia hanya memberi tahu harga dari kemudahan itu.\n\nDan ada kasus yang menipu: lauk yang dijual murah justru karena dimasak dalam jumlah besar, yang di rumah tidak bisa ditandingi dalam jumlah kecil. Itu skala, bukan kegagalan berhemat. Karena itu hitung per lauk, jangan menyimpulkan untuk seluruh menu sekaligus.\n\nPenutupnya tiga langkah untuk hari ini, dengan angka yang sudah ada di dapur Anda.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nCoba hitung untuk satu lauk yang paling sering Anda beli jadi, lalu tulis satu angka saja di sini: selisih per porsi, dengan tandanya. Tanpa nama tempat, tanpa harga belanja, cukup selisihnya. Saya ingin tahu seberapa jauh angka itu berbeda antar rumah.\n\n## HASHTAGS\n#UangDapur #MasakSendiri #ResepNaikLevel\n\n## TAGS\nmasak sendiri atau beli jadi, harga per porsi, hitung uang dapur, biaya masak di rumah, belanja dapur hemat, menghitung porsi, biaya bahan masakan, uang belanja bulanan, masak hemat, beli lauk matang, biaya gas masak, sisa bahan, atur keuangan rumah tangga, dapur hemat, hitung sendiri\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Bahasa Indonesia (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de ingrediente, nao cita HET, nao cita indice de inflacao, nao cita nome de mercado, de aplicativo nem de rumah makan, e nao compara estabelecimentos entre si. Os dois numeros da conta sao do proprio espectador: o total dos ingredientes esta na nota da compra dele, e o preco do prato pronto e o que ele mesmo paga. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da regiao dele — o que importa aqui, porque preco de alimento no pais varia muito por provincia e por semana. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: qualquer preco de ingrediente ou de porcao. Citar um so deles tornaria a conta errada para a maioria de quem assiste, e o video precisa exatamente do contrario. O video tambem nao diz que cozinhar e sempre mais barato — as duas respostas sao legitimas e dependem do numero de cada casa —, nao condena comprar pronto, nao recomenda estabelecimento nenhum e nao e aconselhamento financeiro nem nutricional.\n"
+}
