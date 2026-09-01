@@ -25,6 +25,10 @@ vozes correram longo e uma correu curto, no mesmo dia, com a mesma formula:
                                           resposta 195,7s ->  206s     +5,3%
     labtreinamento-007 (pt-BR-Thalita...)     total 504,7s -> 495,0s   -1,9%
                                           8 capitulos desenhados, 7 produzidos
+    agla-level-008    (hi-IN-MadhurNeural)    total 537,9s -> 536,9s   -0,2%
+                                          resposta 192,3s ->  196s     +1,9%
+    resep-naik-level-009 (id-ID-GadisNeural)  total 543,2s -> 552,4s   +1,7%
+                                          resposta 194,5s ->  204s     +4,9%
 
 Os dois erros custam coisas diferentes, e por isso a folga tem de existir nos
 DOIS sentidos:
