@@ -264,12 +264,16 @@ evitar. Entao, antes de usar:
     # na sandbox / no runner
     python3 -c "
     import json,hashlib
-    t=json.load(open('corpus.json'))
+    t=json.load(open('corpus.json'))['titulos']
     print(len(t), hashlib.md5(chr(10).join(sorted(t,key=lambda x:x.encode('utf-8'))).encode('utf-8')).hexdigest())"
 
 Os dois numeros tem de bater. Se nao baterem, o arquivo esta atrasado: puxe os
 titulos do banco, regrave o arquivo, e **de commit nele** — senao a proxima
 rodada paga o mesmo custo.
+
+O arquivo tem o formato que o `conduz.py` le: `{"titulos": [...]}`, nao uma
+lista solta. Uma lista solta morre com `TypeError: list indices must be
+integers` antes de renderizar qualquer coisa.
 
 Ordenacao: `collate "C"` no Postgres corresponde a `sorted(t, key=lambda x:
 x.encode('utf-8'))` no Python. Nenhum outro par de ordenacoes bate, porque os
