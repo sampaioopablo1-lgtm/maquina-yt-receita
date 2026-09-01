@@ -645,6 +645,41 @@ def ler_copy(spec, workdir):
             f"workdir do render, nao da spec."
         )
 
+    # O TITULO DO SHORT sai da fila ANTES de qualquer posicao ser lida.
+    #
+    # O `short_titulo` era codigo morto: `publicar.py` o consulta em dois
+    # lugares (`cp.get("short_titulo") or cp["titulo"]`), mas `ler_copy` nunca
+    # o produzia — a chave so existia quando `spec["copy"]` era dict, e a copy
+    # e markdown em TODAS as specs do repositorio. Resultado medido no
+    # kolejny-poziom-014 (01/09/2026): o short lCXwLaqUHJI subiu com os 68
+    # caracteres do titulo do longo, "Ile Płacisz za Dane, Których Nie
+    # Zużywasz? Policz z Własnego Rachunku", num formato onde o feed vertical
+    # corta o titulo antes da metade.
+    #
+    # A deteccao e pelo CABECALHO, nao pelo conteudo, e essa e a excecao no
+    # arquivo: um titulo de short e uma linha de prosa, indistinguivel de um
+    # comentario fixado curto pelo formato. Pelo cabecalho da para separar
+    # porque "SHORT" nao e traduzido em nenhuma das oito linguas — o proprio
+    # `#Shorts` das hashtags mostra isso.
+    #
+    # E sai da lista antes de `secoes[0]`/`secoes[1]` serem lidas: se ficasse,
+    # uma spec que pusesse o titulo do short em segundo lugar publicaria essa
+    # linha como DESCRICAO do longo.
+    short_titulo = ""
+    restantes = []
+    for cab, corpo in secoes:
+        if re.search(r"\bSHORTS?\b", cab, re.I) and corpo.strip():
+            if not short_titulo:
+                short_titulo = corpo.strip().split("\n")[0]
+            continue
+        restantes.append((cab, corpo))
+    secoes = restantes
+    if len(secoes) < 2:
+        raise SystemExit(
+            "copy sem titulo e descricao depois de tirar a secao do short — "
+            "confira os cabecalhos em " + (md or "na spec")
+        )
+
     titulo = secoes[0][1].strip().split("\n")[0]
     descricao = secoes[1][1].strip()
 
@@ -691,7 +726,8 @@ def ler_copy(spec, workdir):
     if hashtags:
         descricao = f"{descricao}\n\n{hashtags}"
 
-    return {"titulo": titulo, "descricao": descricao, "tags": tags,
+    return {"titulo": titulo, "short_titulo": short_titulo,
+            "descricao": descricao, "tags": tags,
             "hashtags": hashtags, "comentario": comentario, "licenca": licenca}
 
 

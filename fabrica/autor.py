@@ -386,6 +386,7 @@ Markdown com estas secoes, nesta ordem, com estes nomes exatos:
 
 # <titulo interno>
 ## TITULO        uma linha, ate 100 caracteres
+## TITULO SHORT  uma linha, ate 45 caracteres — o titulo do short
 ## DESCRICAO     no MINIMO 200 palavras, em paragrafos
 ## CAPITULOS     escreva exatamente: {CAPITULOS}
 ## COMENTARIO FIXADO
@@ -397,6 +398,13 @@ Markdown com estas secoes, nesta ordem, com estes nomes exatos:
 
 O titulo modela a ESTRUTURA do que performa no nicho, nunca o assunto de outro
 video. A descricao e para quem vai ler, nao para o algoritmo.
+
+O TITULO SHORT nao e o titulo do longo encurtado, e o titulo de OUTRO video. O
+feed vertical corta perto de 45 caracteres, e quem chega ali nao veio procurar
+o assunto — o titulo tem de ser o resultado ja dito, o mesmo que a primeira
+cena do short entrega. Sem esta secao o short herda os 60-70 caracteres do
+longo e o leitor ve metade de uma pergunta. (Ate 01/09/2026 era o que
+acontecia em TODOS os shorts: `ler_copy` nunca produzia `short_titulo`.)
 
 ## A pauta e o assunto; a estrutura vem do outlier
 
