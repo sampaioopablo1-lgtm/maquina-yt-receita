@@ -51,6 +51,24 @@ def _fabrica():
 fab = _fabrica()
 
 
+@pytest.fixture(autouse=True)
+def _trilhas_presentes(tmp_path_factory, monkeypatch):
+    """As tres faixas do portfolio, presentes como na esteira.
+
+    Desde 25/08/2026 `escrever_copy` RECUSA gravar o copy.md quando a spec
+    declara trilha e o mp3 nao esta em TRILHA_DIR (test_copy_sem_trilha_recusa):
+    era assim que o credito CC-BY sumia calado. Na esteira o frota.yml baixa as
+    faixas antes; aqui ninguem baixava, e os 221 casos que passam pelo
+    `escrever_copy` morriam no runner com "nenhum mp3 valido esta em
+    /tmp/trilhas" (run 33815263984). Sem `valida`, a faixa e listada pelo
+    nome, entao arquivo vazio basta — o mesmo que test_prontidao ja faz.
+    """
+    d = tmp_path_factory.mktemp("trilhas")
+    for f in fab.TRILHAS_VALIDAS:
+        (d / f"{f}.mp3").write_bytes(b"")
+    monkeypatch.setattr(fab, "TRILHA_DIR", str(d))
+
+
 def _copy_renderizado(spec, destino, dur_cena=15.0):
     """Escreve o copy.md como o render escreveria, com capitulos cronometrados."""
     fab.escrever_copy(spec, [dur_cena] * len(spec["longo"]), str(destino))
