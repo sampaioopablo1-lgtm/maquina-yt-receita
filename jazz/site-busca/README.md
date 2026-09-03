@@ -19,7 +19,20 @@ Publicada por `netlify.toml` na raiz (`publish = "jazz/site-busca"`), com
 
 ## Deploy
 
-Projeto Netlify `jazz-busca-imoveis-demo` (time `imobjazz`), site id
+Dois caminhos configurados. Escolher **um** — manter os dois publicando a mesma
+pasta só multiplica URL sem ganhar nada.
+
+### Vercel (integração Git — recomendado)
+
+Não precisa de token nem de secret: a Vercel puxa do GitHub sozinha. No painel,
+importar o repositório com **Root Directory = `jazz/site-busca`** e framework
+"Other". O `vercel.json` desta pasta já carrega os headers e a CSP.
+
+Cada PR ganha URL de preview automática; o push na branch de produção publica.
+
+### Netlify (via Actions)
+
+Projeto `jazz-busca-imoveis-demo` (time `imobjazz`), site id
 `2cd91fbd-dcc8-4c47-ba14-6ce9f35eccf2` →
 https://jazz-busca-imoveis-demo.netlify.app
 
