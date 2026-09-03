@@ -1,0 +1,73 @@
+# ROTINA — melhoria contínua do Jazz Conecta (a cada 4 horas)
+
+Cópia versionada do prompt da rotina `trig_012VQrqFsYzW3r8hPgA2xei4`
+(*"Jazz Conecta — melhoria contínua do sistema (a cada 4h)"*, cron `53 */4 * * *` UTC,
+disparo ligado à sessão persistente que a criou).
+
+O trigger é a fonte que executa; este arquivo existe para que a rotina tenha
+histórico em git. **Quando um mudar, mude o outro no mesmo commit.**
+
+Pedido do Pablo (03/09/2026): rotina de melhoria contínua, a cada 4 horas, do
+sistema/site https://jazz-conecta-imoveis.netlify.app/ — construção, mudanças,
+correção de bugs e acompanhamento dos logs de pesquisas recentes.
+
+## O que foi verificado antes de escrever a rotina (03/09/2026)
+
+| Fonte | Achado |
+|---|---|
+| Netlify (time `imobjazz`) | sites: jazz-conecta-oportunidades, jazz-busca-imoveis-demo, jazz-tour-virtual (+ cópia cd). **`jazz-conecta-imoveis` não está neste time** |
+| Lovable (28 projetos) | nenhum com esse nome; o app do Jazz é `jazz-lead-conecta` (657a4099-…) |
+| Cloudflare Workers | `jazz-lead-conecta`, `jazz-feed-vrsync`; nada com esse nome |
+| Repositórios | `jazz-lead-conecta` (fonte do sistema), `maquina-yt-receita` (pasta `jazz/`), `proximo-cliente` (não relacionado) — nenhum cita o domínio |
+| Egress do ambiente | netlify.app, supabase.co, workers.dev e lovable.app bloqueados (curl → 000). Só MCP alcança |
+| Supabase `cscczluzpblzhvojxanp` | **todas as Edge Functions em HTTP 402** (cota estourada), inclusive `buscar-imoveis`; `busca_feedback` vazia; último erro em `app_logs` 14/08 |
+| Rotinas existentes | 5 rotinas Jazz anteriores; 3 auto-desativadas por perda de acesso ao repo. Nenhuma cobre este escopo |
+
+Conclusão: a rotina trabalha pelo código-fonte real (`jazz-lead-conecta`) e
+pelos logs do Supabase, e trata o domínio Netlify como superfície pública a
+conferir quando o conector permitir.
+
+## Pendência humana
+
+A criação via MCP não grava conectores no trigger. Se a primeira rodada
+reportar "sem conector Supabase", anexar Supabase (e Netlify) à rotina na tela
+de Rotinas do claude.ai — sem isso o passo 1 (logs) não roda.
+
+---
+
+Rodada de MELHORIA CONTÍNUA do sistema Jazz Conecta (site público https://jazz-conecta-imoveis.netlify.app/). Pedido do Pablo em 03/09/2026: a cada 4 horas, construção, mudanças, correção de bugs e acompanhamento dos logs de pesquisas recentes. Esta instrução é autônoma e completa: o contexto anterior desta sessão pode ter sido resumido, então não dependa dele.
+
+COMECE invocando e seguindo a skill `jazz-conecta-master-ai` (fonte de verdade do produto, dos papéis e do formato de resposta). Não peça confirmação: o Pablo não está na sessão. Trabalhe até entregar, ou encerre em silêncio se não houver nada seguro a fazer.
+
+ONDE O SISTEMA VIVE (verificado em 03/09/2026):
+- Código-fonte: repositório GitHub `sampaioopablo1-lgtm/jazz-lead-conecta`, branch principal `main`. Clone em /home/user/jazz-lead-conecta (se já existir, `git fetch origin main && git checkout main && git pull`; se não, `add_repo` + `git clone --depth 1`, timeout generoso, um clone por vez). Leia `AI_HANDOFF.md` ANTES de mexer e registre sua rodada no topo do `## Log` DEPOIS (regra obrigatória do repositório). Este repositório é o ÚNICO alvo de código; nunca tocar em `maquina-yt-receita` (máquina de vídeos do YouTube — projeto separado, ordem do Pablo), exceto para manter `jazz/ROTINA-MELHORIA-CONTINUA.md` (cópia versionada deste prompt) em sincronia quando este prompt mudar.
+- Superfícies públicas: página de busca `src/pages/BuscaImoveisPage.tsx` + `src/routes/busca-imoveis.tsx` (busca semântica em `src/lib/busca-semantica.functions.ts`, feedback em `busca_feedback`); Edge Function `supabase/functions/buscar-imoveis` (Apify, deploy pelo workflow `deploy-busca-imoveis.yml`); LP autônoma `lp-oportunidades/` (Netlify `jazz-conecta-oportunidades`, GeckoAPI). App principal roda no Cloudflare Worker `jazz-lead-conecta` (https://jazz-lead-conecta.pablo-jazzimob.workers.dev) e no Lovable (project_id 657a4099-ae1a-4391-9fad-357cd7a9041a).
+- O site https://jazz-conecta-imoveis.netlify.app/ NÃO aparece no time Netlify `imobjazz` (sites conhecidos: jazz-conecta-oportunidades, jazz-busca-imoveis-demo, jazz-tour-virtual) nem em Lovable/Cloudflare. O egress deste ambiente BLOQUEIA netlify.app, supabase.co, workers.dev e lovable.app (curl/WebFetch devolvem 000/403) — só as ferramentas MCP (Supabase, Netlify, Lovable, Cloudflare, GitHub) alcançam esses serviços. Não gaste rodada tentando curl; se um dia o Netlify MCP listar o site, use `get-project`/`get-forms-for-project`/deploys dele como fonte primária.
+- Banco: Supabase `cscczluzpblzhvojxanp` (o antigo `wgspmezevbjsswctefck` NÃO é mais o banco). SELECT à vontade via `mcp__Supabase__execute_sql`; INSERT/UPDATE/DDL em produção JAMAIS sem ordem explícita do Pablo (migration versionada em PR é o caminho).
+- Se as ferramentas MCP do Supabase não estiverem disponíveis na rodada, registre isso no handoff como pendência humana ("rotina sem conector Supabase — anexar na tela de Rotinas do claude.ai") e faça só o que dá com GitHub + código (passos 2 a 6).
+
+ESTADO CONHECIDO EM 03/09/2026 (confira antes de agir, pode ter mudado):
+- CRÍTICO: todas as Edge Functions do projeto (buscar-imoveis, smart-feed-nativo, captacao-prospectar, geocode-enderecos, medir-fotos, visita) respondem HTTP 402 — cota do Supabase estourada (egress/storage). Os PRs #18 (compactar banco e cortar egress) e #19 (feed dos portais pelo Cloudflare) atacam isso. Enquanto o 402 durar, qualquer busca no site que dependa da Edge Function falha para o usuário final.
+- PRs draft abertos: #4, #5, #13, #16, #18, #19. Falha do Netlify deploy-preview é PRÉ-EXISTENTE (package-lock fora de sync na main) — não consertar nem recomentar.
+- `app_logs`: último erro 14/08 (`removeChild` em /admin?tab=equipe e ?tab=historico, e React #418 de hidratação) — bug latente de UI ainda sem fix conhecido. `busca_feedback`: 0 linhas. `vigia_site_runs` monitora https://jazz-lead-conecta.lovable.app/solicitar de hora em hora. `dev_agent_monitor` (pg_cron horário) cria `dev_agent_tasks` a partir de `app_logs`.
+
+CADA RODADA, NESTA ORDEM:
+1) LOGS DE PESQUISAS RECENTES (obrigatório, é a parte "acompanhamento" do pedido): (a) `mcp__Supabase__query_logs` últimas 4-24h: `source='function_edge_logs'` filtrando `buscar-imoveis` (volume, status por código, latência, erros); `edge_logs` com status >= 400 nas rotas de busca/RPC; `postgres_logs` com erro. (b) SQL: `busca_feedback` novas linhas (consulta, util, nenhum_bom, cobertura_pct); `app_logs` desde a última rodada agrupado por assinatura; `vigia_site_runs` com ok=false; `cron.job_run_details` com status='failed' nas últimas 24h; `dev_agent_tasks` pending/failed/aguardando_aprovacao; `consultas_portais_log` recentes com total_retornado=0 ou erro. (c) `mcp__Supabase__get_advisors` security e performance quando houver DDL nova ou 1x/dia. Resuma em números: buscas, taxa de erro, consultas sem resultado, termos/filtros mais pedidos — isso alimenta o backlog (o que o usuário procura e não acha é a melhoria mais valiosa).
+2) PRs DESTA ROTINA (os que ela mesma abriu): mergeabilidade, CI no head atual, threads de review. Conflito → merge da base para dentro da branch (nunca rebase, nunca force-push). Responder review humano. Não mexer nos PRs de outras rotinas/pessoas além de ler.
+3) UM INCREMENTO por rodada — construção, mudança ou correção de bug — pequeno, entregável e validado. Prioridade: (i) bug que aparece nos logs do passo 1 e afeta usuário; (ii) melhoria que os logs de busca pedem (consulta sem resultado, filtro ausente, mensagem de erro sem ação, tempo de resposta); (iii) item do backlog abaixo. Bug de código → teste de regressão escrito ANTES do fix (vitest). Nada seguro que caiba na rodada → só refinar o backlog no handoff e encerrar em silêncio.
+4) VALIDAÇÃO antes de qualquer push (regras aprendidas, obrigatórias): `npm ci`; `npx tsc --noEmit` (baseline da main tem 2 erros conhecidos — router.tsx cacheTime e vrsync.xml.ts; ZERO erro novo é o critério); `npm run build`; `node scripts/check-server-import-leaks.mjs` se existir e grep no dist/client garantindo que nenhum módulo `.server.ts` vaza para o navegador; `npx vitest run` se houver testes. DEPOIS de todo build, SEMPRE: `git checkout -- src/routeTree.gen.ts src/routes/api/public/feed/vrsync.xml.ts` e `rm -rf dist .output .tanstack .nitro` — o codegen reescreve a rota do feed e isso NUNCA pode ser commitado (quebra o XML dos portais). Para `lp-oportunidades`: `node teste-buscar.mjs`.
+5) ENTREGA: branch `claude/melhoria-continua-<assunto>` (nunca commitar na main), commits claros em pt-BR, `git push -u origin`, PR DRAFT (não duplicar PR já aberto para o mesmo assunto; assunto já coberto por PR existente → comentar lá em vez de abrir outro). Nunca incluir identificador de modelo em commit, PR, código ou doc.
+6) REGISTRO: entrada no topo do `## Log` do `AI_HANDOFF.md` (data/hora, objetivo, arquivos/rotas/tabelas, PR, validações, pendências, riscos) + `docs/ai-change-log.md` quando houver mudança de código. Números dos logs de busca da rodada entram no handoff (compare com a rodada anterior).
+7) COMUNICAÇÃO: mensagem ao Pablo (resposta final desta rodada) só quando entregar incremento relevante, detectar incidente (site fora do ar, 402/5xx em massa, cron falhando em série) ou precisar de decisão. Rodada sem novidade = silêncio (sem comentário em PR, sem mensagem).
+
+BACKLOG INICIAL (reordene conforme os logs ensinarem; estado de 03/09):
+a. Resiliência da busca pública ao 402 do Supabase: fallback e mensagem clara ao usuário quando `buscar-imoveis` falhar (hoje a Edge Function devolve 502/402 e o site fica mudo); considerar servir a busca pelo Worker/Cloudflare como o feed no PR #19.
+b. Registrar toda pesquisa da busca pública (termo, filtros, cidade, resultados_count, latência, origem) em tabela própria aditiva (migration em PR) — sem isso "logs de pesquisas recentes" depende só dos logs efêmeros do Supabase (retenção curta).
+c. Bug `removeChild`/React #418 em /admin (tabs equipe e histórico) — reproduzir, teste, fix.
+d. `SOLIC_STATUS` em `src/lib/jazz/constants.ts` desatualizada frente aos status reais do banco ("Trabalhando na busca do imóvel", "Em Atendimento", "Atendida", "Cancelada", "Aguardando Aprovação Pablo").
+e. Código morto: `calcScore`/`precoImovel` em `src/lib/matching.server.ts`.
+f. UX da busca: 3 cliques ou menos até o primeiro resultado; mobile first; estado vazio com sugestão de ampliar filtro.
+
+APROVAÇÃO PERMANENTE DO PABLO cobre: código em branches claude/*, PRs draft, atualizar PRs desta rotina, SELECT e leitura de logs no banco, leitura de Netlify/Lovable/Cloudflare. NÃO cobre: merge na main, escrita/DDL direta no banco de produção, alterar o link público do XML dos portais, reformatação em massa, mexer em package-lock.json/bun.lock, deploy de Edge Function ou Worker, criar/alterar/apagar rotinas (NUNCA criar novos triggers), gastar créditos Lovable/Apify/Gecko.
+
+RESPOSTA FINAL (quando houver o que dizer): formato obrigatório da skill, começando por "Logs de busca (últimas Xh)" com os números, depois o incremento entregue (PR + link), pendências humanas e o backlog reordenado.
