@@ -6,7 +6,15 @@ name: CI
 # sem PR; quem tem PR aberto é coberto pelo `pull_request`.
 on:
   push:
-    branches: [main, master]
+    # `main`/`master` estao aqui por convencao, mas o tronco REAL deste
+    # repositorio e a branch de trabalho abaixo — e ela nao abre PR, entao nao
+    # era coberta por nenhum dos dois gatilhos. O preco disso foi medido: a
+    # suite quebrou em 26/08 (023c1d5) e ninguem soube ate 07/09, porque o
+    # ultimo CI da base e o run 487, de 18/08. Doze dias.
+    #
+    # Quando o tronco mudar de nome, esta lista muda junto. Uma branch de
+    # tronco fora daqui volta a ficar cega.
+    branches: [main, master, claude/youtube-publication-next-steps-v7o4el]
   pull_request:
   workflow_dispatch:
 
@@ -38,6 +46,35 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk
 
       - run: pip install -e ".[dev,fabrica]"
+
+      # As tres faixas CC-BY que o `fabrica/copy_md.py` exige para escrever o
+      # credito. Desde 26/08 (023c1d5) ele RECUSA gravar copy quando nao acha
+      # mp3 valido em /tmp/trilhas — de proposito, porque copy sem credito
+      # poria o video no ar violando a licenca sem falhar em lugar nenhum. A
+      # suite herdou a exigencia; o ci.yml nunca criou o diretorio. Resultado:
+      # 221 testes vermelhos em todo run desde entao.
+      #
+      # A fonte e o incompetech, que e a ORIGINAL (CC-BY Kevin MacLeod) — o
+      # `frota.yml` a usa como segunda fonte desde 25/08, quando o bucket do
+      # Supabase entrou em restricao de Fair Use e passou a devolver 402. Aqui
+      # ela e a UNICA fonte de proposito: dispensa secret, e por isso funciona
+      # em `pull_request`, inclusive de fork.
+      - name: Baixar trilhas (a suite exige)
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/trilhas
+          for faixa in Wholesome Inspired Deliberate_Thought; do
+            curl -sSL --max-time 120 --retry 2 \
+              "https://incompetech.com/music/royalty-free/mp3-royaltyfree/${faixa//_/%20}.mp3" \
+              -o "/tmp/trilhas/$faixa.mp3"
+            # O teste e DECODIFICAR, nao olhar os primeiros bytes: e assim que o
+            # frota.yml pega pagina de erro salva com nome de mp3. Sem isto, um
+            # 404 em html viraria "trilha baixada" e a falha reapareceria la na
+            # frente, longe da causa.
+            ffprobe -v error -show_entries format=duration -of csv=p=0 \
+              "/tmp/trilhas/$faixa.mp3" | grep -qE '^[0-9]+'
+          done
+          echo "trilhas: $(ls /tmp/trilhas/*.mp3 | wc -l) faixas"
 
       # Providers stub: a suite roda inteira sem nenhuma chave de API.
       - name: Testes
