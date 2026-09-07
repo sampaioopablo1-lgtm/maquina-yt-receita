@@ -102,21 +102,88 @@ LEGENDA_FONTE = "Montserrat-Black"
 # nome do default da variavel ("Montserrat Thin") e a legenda sai fina, com o
 # arquivo certo no disco. Passa no terminal, nao passa no feed.
 LEGENDA_FAMILIA = "Montserrat Black"
-# 100, e nao 64. O 64 foi chute; este numero saiu de medir os tres Reels no ar.
-# A extensao vertical de uma linha de legenda deles, normalizada para um quadro
-# de 1920, da 151px (r1), 201px (r2) e 197px (r3) — duas linhas na maioria dos
-# quadros, ou seja ~85-100px por linha. A minha primeira versao media 61px: a
-# legenda saia com pouco mais da metade do tamanho da referencia.
-LEGENDA_CORPO = 100
+# 170. Os dois numeros anteriores (64 e 100) foram medidos errado: eu media a
+# EXTENSAO DA BANDA de texto e chamava de tamanho da letra. Banda inclui varias
+# linhas, entao o numero saia grande e o corpo derivado dele saia pequeno.
+#
+# A medida certa e a altura da CAIXA ALTA, por componentes conexos sobre a
+# mascara de branco+laranja. Nos tres Reels no ar, normalizada para 1080 de
+# largura (mediana por peca):
+#
+#     r_indic   118px      r_whats   80px      r_aluguel   51px
+#
+# e no meu Reel reprovado: 30px. Um terco do menor deles.
+#
+# A razao caixa-alta/corpo medida na propria peca reprovada e 30/64 = 0,47
+# (nao os ~0,70 da metrica da fonte: a entrega passa por reencode do Instagram
+# a 720 de largura e o contorno come parte). Mirando a mediana das tres
+# referencias, 80px, o corpo e 80/0,47 = 170.
+#
+# Este numero NAO e para ser confiado. `opc/conferir.py` remede a caixa alta no
+# mp4 pronto e recusa fora de 45-150px — foi exatamente por nao medir a saida
+# que 64 e 100 passaram.
+LEGENDA_CORPO = 170
 LEGENDA_COR = BRANCO       # as palavras do grupo
 LEGENDA_COR_ATIVA = LARANJA  # a palavra sendo dita agora
 LEGENDA_CONTORNO = 6       # grosso: o Reel e reentregue comprimido, contorno fino some
 LEGENDA_SOMBRA = 2
 LEGENDA_PALAVRAS_POR_GRUPO = 3
-# Onde termina a legenda, em fracao da altura. Medido no r1 (o mais limpo dos
-# tres): a banda de texto com contorno vai ate 0.849. Os 0.74 da primeira
-# versao deixavam a legenda alta demais, encostando no queixo.
-LEGENDA_Y = 0.85
+# Onde termina a legenda, em fracao da altura. As linhas de base medidas nas
+# tres referencias caem em 0,755-0,981 — legenda colada no rodape, que e onde
+# ela nao briga com o rosto. O Reel reprovado tem as dela em 0,645-0,735: acima
+# da faixa inteira da referencia, no meio do peito de quem fala.
+LEGENDA_Y = 0.96
+
+# ---------------------------------------------------------------------------
+# MONTAGEM — o ritmo, que e o que separa um Reel de um cartaz com narracao.
+#
+# Este bloco existe porque a peca reprovada tinha cor certa, fonte certa,
+# duracao certa e MESMO ASSIM foi reprovada duas vezes. O que faltava nao
+# estava em nenhuma constante: o quadro nunca mudava. Medido, quadro a quadro,
+# a cada 2 segundos:
+#
+#   | medida                    | r_indic | r_whats | r_aluguel | reprovado |
+#   |---------------------------|---------|---------|-----------|-----------|
+#   | cortes de cena            | 8/28,6s | 8/34,5s | 4/42,4s   | 2/33,1s   |
+#   | um corte a cada           | 3,6s    | 4,3s    | 10,6s     | 16,5s     |
+#   | fracao navy (min -> max)  | 3%->38% | 1%->37% | 17%->92%  | 35%->36%  |
+#   | trechos sem rosto (b-roll)| 1 (~6s) | 0       | 2 (~6s)   | nenhum    |
+#
+# A coluna do reprovado e uma linha reta: 35-36% de navy do primeiro ao ultimo
+# quadro, blocos navy sempre em 0,00-0,09 e 0,91-1,00, legenda sempre na mesma
+# faixa. Trinta e tres segundos de um unico layout congelado.
+#
+# Dai as tres regras abaixo. Elas nao sao gosto: sao a media das referencias.
+# ---------------------------------------------------------------------------
+BLOCO_MIN_S = 4.0    # nenhum plano dura menos: pisca e cansa
+BLOCO_MAX_S = 6.5    # nenhum plano dura mais: e onde o reprovado morreu
+BROLL_MIN_S = 4.0    # o corte de apoio precisa respirar para nao virar flash
+BROLL_FATIA = 0.22   # ~1/5 da peca sem rosto, como em r_indic e r_aluguel
+CARTELA_FINAL_S = 2.0  # r_aluguel fecha em 92% de navy; a peca precisa de ponto final
+# Piso de ritmo: 5, e nao 10. O 10 foi o meu primeiro chute e ele REPROVAVA o
+# r_aluguel — que e a referencia de ouro, o Reel que o proprio COMO_PUBLICAR.txt
+# manda publicar. Ele da 5,7 cortes/min. Quando a regua reprova a peca que
+# funciona, o defeito esta na regua. O 5 ainda pega o reprovado, que deu 3,6.
+CORTES_MIN_POR_MIN = 5
+
+# O b-roll escurece para a legenda continuar legivel por cima dele. Medido no
+# r_aluguel: o trecho sem rosto tem media de luminancia 18% menor que o trecho
+# com a pessoa.
+BROLL_ESCURECER = 0.82
+
+# ---------------------------------------------------------------------------
+# AUDIO — a narracao e o produto. Um Reel mudo nao e um Reel com defeito, e um
+# arquivo errado.
+#
+# Isto virou constante porque uma entrega saiu sem som e nada no caminho
+# reclamou: o `-map 0:a?` do ffmpeg tem uma interrogacao, que quer dizer "se
+# existir". Quando a faixa se perde num passo intermediario, o `?` engole o
+# problema e o render termina com codigo 0. A faixa medida nas tres referencias
+# e no proprio reprovado e -17,1 a -16,7 dB de media; a janela abaixo e essa
+# com folga dos dois lados.
+# ---------------------------------------------------------------------------
+AUDIO_MEAN_DB_MIN = -30.0
+AUDIO_MEAN_DB_MAX = -8.0
 
 # ---------------------------------------------------------------------------
 # ENQUADRAMENTO — onde o rosto tem de cair.
@@ -192,6 +259,12 @@ def chave() -> dict:
                     "contorno": LEGENDA_CONTORNO, "sombra": LEGENDA_SOMBRA,
                     "palavras_por_grupo": LEGENDA_PALAVRAS_POR_GRUPO,
                     "y": LEGENDA_Y},
+        "montagem": {"bloco_min_s": BLOCO_MIN_S, "bloco_max_s": BLOCO_MAX_S,
+                     "broll_min_s": BROLL_MIN_S, "broll_fatia": BROLL_FATIA,
+                     "cartela_final_s": CARTELA_FINAL_S,
+                     "cortes_min_por_min": CORTES_MIN_POR_MIN,
+                     "broll_escurecer": BROLL_ESCURECER},
+        "audio": {"mean_db_min": AUDIO_MEAN_DB_MIN, "mean_db_max": AUDIO_MEAN_DB_MAX},
         "copy": {"cta": CTA, "hashtags": HASHTAGS, "blocos": BLOCOS_LEGENDA,
                  "proibido": LEGENDA_PROIBIDA},
         "publicacao": {"janela": JANELA, "max_reels_dia": MAX_REELS_DIA,
