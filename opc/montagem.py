@@ -284,9 +284,26 @@ def montar(bruto: str, saida: str, de: float, ate: float, cards: list[dict],
     dur = ate - de
     escaleta = plano(dur, len(cards), len(brolls))
 
+    # A DISSOLVENCIA, e por que ela mudou a forma de montar.
+    #
+    # Medido quadro a quadro: o r_aluguel tem tres transicoes GRADUAIS, de 46,
+    # 22 e 24 quadros (1,5s / 0,7s / 0,8s), e um unico corte seco em 42s. O
+    # r_whats tem onze graduais. A peca anterior da maquina tinha zero: so
+    # corte seco. Essa e a diferenca que sobrou depois que cor, tipografia,
+    # ritmo e audio ja batiam.
+    #
+    # Para dissolver, dois planos precisam existir ao mesmo tempo. Entao cada
+    # plano passa a ser renderizado com `sobra` segundos A MAIS de material, e
+    # o `xfade` consome exatamente essa sobra. Sem isso a peca encurtaria
+    # `sobra` a cada emenda e a legenda — que e queimada por plano — sairia
+    # adiantando um pouco mais a cada transicao, desencontrando da narracao.
+    sobra = k["montagem"]["dissolvencia_s"] if len(escaleta) > 1 else 0.0
+
     texto_ass = open(legenda, encoding="utf-8").read() if legenda else None
     pedacos = []
     for i, b in enumerate(escaleta):
+        ultimo = i == len(escaleta) - 1
+        extra = 0.0 if ultimo else sobra
         alvo = os.path.join(trabalho, f"p{i:02d}.mp4")
         leg_i = None
         if texto_ass:
@@ -295,21 +312,47 @@ def montar(bruto: str, saida: str, de: float, ate: float, cards: list[dict],
             # comeca a contar do zero.
             leg_i = os.path.join(trabalho, f"leg{i:02d}.ass")
             with open(leg_i, "w", encoding="utf-8") as fh:
-                fh.write(legenda_mod.recortar(texto_ass, b["de"], b["ate"]))
-        cmd = comando_plano(b, bruto, brolls, cards, janela_fonte, alvo, de, leg_i)
+                fh.write(legenda_mod.recortar(texto_ass, b["de"], b["ate"] + extra))
+        estendido = dict(b, ate=b["ate"] + extra)
+        cmd = comando_plano(estendido, bruto, brolls, cards, janela_fonte, alvo, de, leg_i)
         r = subprocess.run(cmd, capture_output=True, text=True)
         if r.returncode:
             raise RuntimeError(f"plano {i} ({b['tipo']}) falhou:\n{r.stderr[-1500:]}")
         pedacos.append(alvo)
         b["arquivo"] = alvo
 
-    lista = os.path.join(trabalho, "planos.txt")
-    with open(lista, "w", encoding="utf-8") as fh:
-        for p in pedacos:
-            fh.write(f"file '{os.path.abspath(p)}'\n")
     mudo = os.path.join(trabalho, "mudo.mp4")
-    subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", lista,
-                    "-c", "copy", mudo], check=True, capture_output=True)
+    if sobra > 0 and len(pedacos) > 1:
+        # `xfade` encadeado, e nao o demuxer `concat`. O `concat` so emenda topo
+        # a topo; para dois planos se dissolverem eles precisam coexistir.
+        #
+        # O deslocamento de cada emenda e o proprio inicio do plano na escaleta.
+        # Como cada plano (menos o ultimo) foi renderizado com `sobra` a mais, a
+        # peca final volta a ter exatamente a duracao pedida — o `xfade` come a
+        # sobra. Errar isso encurtaria a peca a cada emenda e a legenda iria
+        # adiantando, o defeito mais dificil de ver e o mais facil de introduzir.
+        entradas, grafo, rotulo = [], [], "0:v"
+        for p_ in pedacos:
+            entradas += ["-i", p_]
+        for i in range(1, len(pedacos)):
+            prox = f"x{i}"
+            grafo.append(f"[{rotulo}][{i}:v]xfade=transition=fade:"
+                         f"duration={sobra}:offset={escaleta[i]['de']:.3f}[{prox}]")
+            rotulo = prox
+        cmd = (["ffmpeg", "-y"] + entradas +
+               ["-filter_complex", ";".join(grafo), "-map", f"[{rotulo}]", "-an",
+                "-c:v", "libx264", "-preset", PRESET, "-crf", "18",
+                "-pix_fmt", "yuv420p", "-threads", "1", mudo])
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode:
+            raise RuntimeError(f"dissolvencias falharam:\n{r.stderr[-1500:]}")
+    else:
+        lista = os.path.join(trabalho, "planos.txt")
+        with open(lista, "w", encoding="utf-8") as fh:
+            for p_ in pedacos:
+                fh.write(f"file '{os.path.abspath(p_)}'\n")
+        subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", lista,
+                        "-c", "copy", mudo], check=True, capture_output=True)
 
     # A narracao, inteira, do bruto. `-vn` de proposito: e a unica coisa que se
     # quer daqui, e pedir video junto so gastaria tempo.

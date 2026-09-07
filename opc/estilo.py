@@ -184,6 +184,23 @@ VARIACAO_NAVY_MIN = 0.10
 # r_aluguel: o trecho sem rosto tem media de luminancia 18% menor que o trecho
 # com a pessoa.
 BROLL_ESCURECER = 0.82
+DISSOLVENCIA_S = 0.5
+
+# A DISSOLVENCIA entre planos, em segundos.
+#
+# Este numero e a ultima diferenca que sobrou depois que cor, tipografia,
+# ritmo, enquadramento e volume ja batiam com as referencias — e o usuario
+# continuou dizendo que o Drift estava a frente. Medido quadro a quadro pela
+# diferenca entre quadros consecutivos:
+#
+#   r_aluguel ... 3 transicoes GRADUAIS de 46, 22 e 24 quadros (1,5s/0,7s/0,8s)
+#   r_whats ..... 11 graduais, a maioria de 4 a 7 quadros
+#   r_indic ..... 3 graduais de 4 a 5 quadros
+#   a minha ..... ZERO. So corte seco.
+#
+# 0,5s fica entre a mediana do r_whats/r_indic (curtas) e as longas do
+# r_aluguel. Corte seco continua existindo — o `xfade` de meio segundo nao
+# apaga o corte, so tira a batida dura que denuncia emenda de ffmpeg.
 
 # ---------------------------------------------------------------------------
 # AUDIO — a narracao e o produto. Um Reel mudo nao e um Reel com defeito, e um
@@ -290,7 +307,8 @@ def chave() -> dict:
                      "cartela_final_s": CARTELA_FINAL_S,
                      "cortes_min": CORTES_MIN,
                      "variacao_navy_min": VARIACAO_NAVY_MIN,
-                     "broll_escurecer": BROLL_ESCURECER},
+                     "broll_escurecer": BROLL_ESCURECER,
+                     "dissolvencia_s": DISSOLVENCIA_S},
         "audio": {"mean_db_min": AUDIO_MEAN_DB_MIN, "mean_db_max": AUDIO_MEAN_DB_MAX,
                   "lufs_alvo": AUDIO_LUFS_ALVO, "pico_dbtp": AUDIO_PICO_DBTP},
         "copy": {"cta": CTA, "hashtags": HASHTAGS, "blocos": BLOCOS_LEGENDA,
