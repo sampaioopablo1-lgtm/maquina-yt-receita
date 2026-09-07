@@ -72,3 +72,29 @@ Os dois `.txt` do pacote sobem direto pelo conector do Drive (`textContent`).
 A biblioteca de vídeo da Meta. A conta certa é **O Próximo Cliente**
 (`1695865631502778`), mas a Meta ainda não liberou `ads_creative_upload_media`
 para ela. Detalhes e caminho manual em `opc.config.meta_biblioteca`.
+
+## Onde a entrega vai parar (Drive)
+
+Nada fica solto na raiz de "OPC — entregas". A convenção também está gravada em
+`opc.config` na chave `pastas_entrega`, com os IDs de cada pasta.
+
+    OPC — entregas/
+      01 — Topo de Funil/
+        Vídeos/    Reels que terminam em "me segue"  (OPC04–OPC11)
+        Imagens/   artes TF 1080x1350 + copy .txt
+      02 — Fundo de Funil/
+        Vídeos/    Reels que terminam em "preenche a aplicação" (OPC12+)
+        Imagens/   artes BF 1080x1350 com barra de CTA + copy .txt
+      99 — Arquivo (versões substituídas)/
+
+**É o CTA que decide a pasta, não o assunto.** Um vídeo sobre agência pode ser
+topo ou fundo dependendo de como termina.
+
+Nomes: `OPCnn_assunto.mp4`, `OPCnn_capa.jpg`, `OPCnn — legenda do post.txt`,
+`TFnn_assunto.jpg` / `BFnn_assunto.jpg`, `TFnn — copy.txt` / `BFnn — copy.txt`.
+
+Peça refeita não se apaga: a versão antiga vai para `99 — Arquivo`.
+
+**Armadilha:** `GOOGLEDRIVE_UPLOAD_FROM_URL` ignora o `parent_id` e joga o
+arquivo na raiz do Drive. Depois de subir, sempre `GOOGLEDRIVE_MOVE_FILE` com
+`add_parents` = pasta e `remove_parents` = `0AL8gANwo3v7jUk9PVA`.
