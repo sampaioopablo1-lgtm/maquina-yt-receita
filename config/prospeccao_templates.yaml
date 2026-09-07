@@ -1,0 +1,37 @@
+# Templates da cadencia. Placeholders: {nome_curto} {cargo} {empresa} {link_agenda}
+#
+# A ordem/dia_offset/canal de cada etapa fica em config/prospeccao.yaml
+# (secao `sequencia`) — este arquivo so guarda o TEXTO de cada template.
+
+convite: |
+  Oi {nome_curto}, vi que voce e {cargo} na {empresa} e queria me conectar.
+  Trabalho ajudando times como o seu a {proposta_valor}. Bora trocar uma ideia?
+
+intro: |
+  Assunto: {empresa} + {proposta_valor_curta}
+
+  Oi {nome_curto}, tudo bem?
+
+  Vi seu trabalho na {empresa} como {cargo} e imaginei que isso pudesse fazer
+  sentido pra voce: {proposta_valor}.
+
+  Faz sentido uma conversa rapida de 20 min essa semana?
+
+follow_up_1: |
+  Oi {nome_curto}, so voltando aqui — ainda faz sentido pra voce batermos um
+  papo sobre {proposta_valor_curta}? Se nao for prioridade agora, sem problema,
+  so me avisa.
+
+follow_up_2: |
+  Assunto: Re: {empresa} + {proposta_valor_curta}
+
+  {nome_curto}, sei que a caixa de entrada e cheia — deixo aqui um resumo rapido
+  do que eu tinha em mente: {proposta_valor}.
+
+  Topa 20 min essa semana ou a que vem?
+
+breakup: |
+  Assunto: Fechando por aqui
+
+  Oi {nome_curto}, imagino que nao seja o momento certo — vou parar de insistir
+  por aqui. Se mudar de ideia, e so responder este e-mail que a gente retoma.
