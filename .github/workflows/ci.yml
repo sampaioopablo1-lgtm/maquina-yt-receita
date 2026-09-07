@@ -38,12 +38,26 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - run: ffmpeg -version | head -1
+      # `ffmpeg` esta nesta lista porque o runner NAO o traz — e eu levei dois
+      # runs para descobrir, por culpa da linha que estava aqui antes:
+      #
+      #     - run: ffmpeg -version | head -1
+      #
+      # Ela nao podia falhar. Num pipeline o codigo de saida e o do ULTIMO
+      # comando, e o `head` sai 0 mesmo quando o `ffmpeg` nem existe: o
+      # "command not found" vai para o stderr e o passo fica verde. Eu li esse
+      # verde como prova de que o ffmpeg estava instalado, troquei o `ffprobe`
+      # do passo seguinte por `ffmpeg`, e o run 532 respondeu
+      # "ffmpeg: command not found".
+      #
+      # `fonts-noto-*`: tests/test_prontidao.py importa fabrica/layout.py
+      # (cairosvg) e confere a fonte Devanagari da spec agla-level-003 — sem
+      # isso o "Testes" abaixo quebra em 27 casos.
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk
 
-      # tests/test_prontidao.py importa fabrica/layout.py (cairosvg) e confere
-      # a fonte Devanagari da spec agla-level-003 — sem isso o "Testes" abaixo
-      # quebra em 27 casos. Mesmo pacote que o frota.yml ja instala pro render.
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk
+      # DEPOIS da instalacao, e sem cano. Assim este passo volta a poder
+      # reprovar — que e a unica coisa que faz um passo de conferencia valer.
+      - run: ffmpeg -version
 
       - run: pip install -e ".[dev,fabrica]"
 
