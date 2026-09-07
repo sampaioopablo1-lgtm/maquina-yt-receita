@@ -199,6 +199,18 @@ BROLL_ESCURECER = 0.82
 AUDIO_MEAN_DB_MIN = -30.0
 AUDIO_MEAN_DB_MAX = -8.0
 
+# O alvo de volume, em LUFS. Nao e chute nem convencao copiada: os tres Reels
+# no ar medem -14,1 / -14,3 / -14,1 LUFS integrados. Tres pecas diferentes
+# batendo no mesmo decimo e a normalizacao do proprio Instagram, que mira -14.
+#
+# Isto existe porque a primeira peca da maquina saiu a -17,2 LUFS. Ela passava
+# na regra de "tem audio" e passava na de nivel, e mesmo assim tocaria tres
+# decibeis mais baixo que os vizinhos no feed — a pessoa aumenta o volume ou
+# rola. Entregar mais baixo que o normalizador da plataforma nao ganha nada:
+# ele nao AUMENTA o que chega baixo, so abaixa o que chega alto.
+AUDIO_LUFS_ALVO = -14.0
+AUDIO_PICO_DBTP = -1.0
+
 # ---------------------------------------------------------------------------
 # ENQUADRAMENTO — onde o rosto tem de cair.
 #
@@ -279,7 +291,8 @@ def chave() -> dict:
                      "cortes_min": CORTES_MIN,
                      "variacao_navy_min": VARIACAO_NAVY_MIN,
                      "broll_escurecer": BROLL_ESCURECER},
-        "audio": {"mean_db_min": AUDIO_MEAN_DB_MIN, "mean_db_max": AUDIO_MEAN_DB_MAX},
+        "audio": {"mean_db_min": AUDIO_MEAN_DB_MIN, "mean_db_max": AUDIO_MEAN_DB_MAX,
+                  "lufs_alvo": AUDIO_LUFS_ALVO, "pico_dbtp": AUDIO_PICO_DBTP},
         "copy": {"cta": CTA, "hashtags": HASHTAGS, "blocos": BLOCOS_LEGENDA,
                  "proibido": LEGENDA_PROIBIDA},
         "publicacao": {"janela": JANELA, "max_reels_dia": MAX_REELS_DIA,

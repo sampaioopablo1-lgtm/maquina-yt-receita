@@ -174,10 +174,18 @@ def conferir(video: str) -> dict:
     caixas = [q["caixa_alta"] for q in qs if q["caixa_alta"]]
     bandas = [q["legenda_y"] for q in qs if q["legenda_y"]]
     sem_rosto = sum(1 for q in qs if q["rosto"] is None)
-    # So o rosto GRANDE conta como enquadramento do locutor. Sem o filtro de
-    # altura, o rosto pequeno e distante que aparece no b-roll era lido como
-    # "cabeca no lugar errado" e reprovava o r_indic, que esta no ar e correto.
-    com_rosto = [q["rosto"]["topo"] for q in qs if q["rosto"] and q["rosto"]["alt"] >= 0.15]
+    # Dois filtros, e os dois existem porque a regra reprovou peca boa.
+    #
+    # `alt >= 0.15`: so o rosto GRANDE e o locutor. Sem isso, o rosto pequeno e
+    # distante do b-roll era lido como "cabeca no lugar errado" e reprovava o
+    # r_indic, que esta no ar e correto.
+    #
+    # `navy >= 0.15`: a regra pergunta se a cabeca ficou POR BAIXO DO PAINEL, e
+    # so faz sentido onde ha painel. Num plano de tela cheia nao ha nada em cima
+    # da cabeca, entao rosto alto ali e enquadramento do celular, nao defeito —
+    # e a peca nova cai exatamente nesse caso (rosto em 0,20 sem painel algum).
+    com_rosto = [q["rosto"]["topo"] for q in qs
+                 if q["rosto"] and q["rosto"]["alt"] >= 0.15 and q["navy"] >= 0.15]
 
     caixa_med = float(np.median(caixas)) if caixas else 0.0
     banda_lo = min(b[0] for b in bandas) if bandas else 0.0
@@ -206,8 +214,15 @@ def conferir(video: str) -> dict:
         # pelo painel navy que entra e sai. Corte de apoio do Pexels e uma
         # decisao nossa, pedida explicitamente. Ela reprova a entrega, mas NAO
         # entra na conta de "bate com a referencia".
+        # O piso e UM, e nao dois. O dois era meu, e reprovava tanto o r_indic
+        # (que tem exatamente um quadro amostrado sem rosto e esta no ar) quanto
+        # a peca nova, que tem um bloco de apoio legitimo de quase 5s: com
+        # amostra a cada 2s, um bloco de 4,7s cai em um ou dois quadros
+        # dependendo de onde a amostra bate. A regra so responde "existe corte
+        # de apoio?"; QUANTO de apoio quem decide e a escaleta, pela fatia
+        # medida em `estilo.BROLL_FATIA`.
         ("b-roll do Pexels (escolha da casa, nao regra medida)",
-         sem_rosto >= 2,
+         sem_rosto >= 1,
          f"{sem_rosto} quadros sem rosto — sem corte de apoio"),
         ("legenda: tamanho da caixa alta",
          CAIXA_ALTA_MIN <= caixa_med <= CAIXA_ALTA_MAX,
@@ -221,9 +236,9 @@ def conferir(video: str) -> dict:
          sum(q["laranja_px"] for q in qs) > 2000,
          "quase nenhum pixel laranja — a palavra corrente nao esta destacada"),
         ("enquadramento: o rosto nao entra na faixa",
-         bool(com_rosto) and min(com_rosto) >= 0.28,
-         f"topo do rosto em {min(com_rosto) if com_rosto else 0:.3f} — "
-         f"cabeca por baixo do card"),
+         (not com_rosto) or min(com_rosto) >= 0.28,
+         f"topo do rosto em {min(com_rosto) if com_rosto else 0:.3f} nos planos "
+         f"com painel — cabeca por baixo do card"),
         ("duracao na faixa da marca",
          k["formato"]["dur_min_s"] <= dur <= DUR_MAX_CONFERIDA_S,
          f"{dur:.1f}s fora de {k['formato']['dur_min_s']}-{DUR_MAX_CONFERIDA_S:.0f}s"),

@@ -62,6 +62,19 @@ import render  # noqa: E402  (reaproveita resolver_fonte/_escapar/_cor)
 # reentrega tudo em 720x1280 a menos de 1 Mbps de qualquer jeito.
 PRESET = os.environ.get("OPC_PRESET", "ultrafast")
 
+# O diretorio de trabalho NAO pode cair em /tmp, e isso nao e preferencia.
+#
+# No sandbox onde este pipeline roda, /tmp e um tmpfs — ou seja, MEMORIA. Os
+# planos intermediarios de 1080x1920 tinham enchido /tmp com 303 MB numa
+# maquina de 985 MB, e foi isso que derrubou tudo por OOM: o modelo de
+# transcricao morria com codigo 137, o render caia no meio, e cada vez eu
+# culpava o passo que estava rodando. Limpar /tmp devolveu a memoria disponivel
+# de 213 MB para 486 MB — mais que o dobro — sem trocar uma linha de codigo.
+#
+# Um arquivo intermediario que mora na RAM concorre com o processo que o esta
+# escrevendo. O padrao aqui e disco.
+TRABALHO_PADRAO = os.environ.get("OPC_TRABALHO", os.path.expanduser("~/opc_planos"))
+
 
 def _dur(caminho: str) -> float:
     return float(subprocess.run(
@@ -162,6 +175,19 @@ def _texto_card(card: dict, entrada: str, saida: str) -> list[str]:
     return partes
 
 
+def _deslocamento(pedido: int, alto_recorte: int) -> str:
+    """Onde comeca o recorte, preso dentro do que a fonte tem.
+
+    Devolve uma EXPRESSAO do ffmpeg, e nao um numero, porque o limite depende
+    da altura da fonte depois do `scale` — que este codigo nao conhece.
+
+    Sem isso, um bruto que ja e 9:16 quebra: o plano de tela cheia pede um
+    recorte de 1920 de altura com deslocamento 15 sobre uma fonte de 1920, e o
+    `crop` sai da imagem. O gravado no celular cai exatamente nesse caso.
+    """
+    return f"min({max(0, pedido)}\\,max(0\\,ih-{alto_recorte}))"
+
+
 def _queimar(gr: list[str] | str, legenda: str | None) -> tuple[list[str], str]:
     """Pendura a legenda no fim do grafo do plano e devolve o rotulo final.
 
@@ -231,7 +257,7 @@ def comando_plano(b: dict, bruto: str, brolls: list[str], cards: list[dict],
     if b["tipo"] == "pessoa_card":
         alto = f["altura"] - g["video_topo"]
         gr = [(f"[0:v]scale={f['largura']}:-2,"
-               f"crop={f['largura']}:{alto}:0:{max(0, janela_fonte)},"
+               f"crop={f['largura']}:{alto}:0:{_deslocamento(janela_fonte, alto)},"
                f"pad={f['largura']}:{f['altura']}:0:{g['video_topo']}:color={navy}[b0]")]
         gr += _texto_card(cards[b["card"]] if cards else {}, "b0", "out")
     else:
@@ -239,7 +265,7 @@ def comando_plano(b: dict, bruto: str, brolls: list[str], cards: list[dict],
         # a cabeca nao encostar no topo quando o card sai.
         gr = [(f"[0:v]scale={f['largura']}:-2,"
                f"crop={f['largura']}:{f['altura']}:0:"
-               f"{max(0, janela_fonte - g['video_topo'] // 2)}[out]")]
+               f"{_deslocamento(janela_fonte - g['video_topo'] // 2, f['altura'])}[out]")]
     gr, rot = _queimar(gr, legenda)
     return ["ffmpeg", "-y", "-ss", f"{offset + b['de']:.3f}", "-t", f"{d:.3f}",
             "-i", bruto, "-filter_complex", ";".join(gr), "-map", f"[{rot}]", "-an",
@@ -301,11 +327,34 @@ def montar(bruto: str, saida: str, de: float, ate: float, cards: list[dict],
     # ffmpeg TEM de falhar aqui e nao entregar um mp4 mudo em silencio. Era a
     # interrogacao do `-map 0:a?` que deixava passar.
     #
-    # O video sai por COPIA: a legenda ja foi queimada plano a plano, entao
-    # aqui nao ha reencode nenhum — e o que tirou este passe do OOM killer.
-    cmd = ["ffmpeg", "-y", "-i", mudo, "-i", narr, "-map", "0:v", "-map", "1:a",
-           "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-shortest",
-           "-movflags", "+faststart", saida]
+    # O volume, para o alvo medido nos Reels no ar: os tres batem em -14,1 a
+    # -14,3 LUFS. A primeira peca da maquina saiu a -17,2 e tocaria tres
+    # decibeis abaixo dos vizinhos no feed — e o normalizador da plataforma nao
+    # conserta isso, porque ele abaixa o que chega alto e nao levanta o que
+    # chega baixo.
+    #
+    # SOZINHO, num passe so de audio. Junto com a re-codificacao do video, o
+    # `loudnorm` levou SIGKILL do OOM killer: ele guarda a faixa em memoria
+    # para medir antes de aplicar, e isso mais o x264 sobre 1080x1920 nao cabe.
+    # Separado, cada metade sobra.
+    a = k["audio"]
+    narr_n = os.path.join(trabalho, "narr_norm.m4a")
+    r = subprocess.run(
+        ["ffmpeg", "-y", "-i", narr,
+         "-af", f"loudnorm=I={a['lufs_alvo']}:TP={a['pico_dbtp']}:LRA=11",
+         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", narr_n],
+        capture_output=True, text=True)
+    if r.returncode:
+        raise RuntimeError(f"normalizacao do audio falhou:\n{r.stderr[-1200:]}")
+
+    # O video e re-codificado, e nao copiado. Copiar era o plano, mas os planos
+    # saem em `ultrafast` (que existe por memoria, ver PRESET) e isso da
+    # 23 Mbit/s — 95 MB para 33 segundos. Aqui nao ha libass para compor, entao
+    # sobra folga para um preset decente: 95 MB caem para 37.
+    cmd = ["ffmpeg", "-y", "-i", mudo, "-i", narr_n, "-map", "0:v", "-map", "1:a",
+           "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+           "-pix_fmt", "yuv420p", "-threads", "1",
+           "-c:a", "copy", "-shortest", "-movflags", "+faststart", saida]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode:
         raise RuntimeError(f"passe final falhou:\n{r.stderr[-1500:]}")
@@ -323,7 +372,10 @@ def main() -> None:
     ap.add_argument("--janela", type=int, default=0,
                     help="linha da fonte onde comeca a janela (opc/enquadrar.py calcula)")
     ap.add_argument("--broll", nargs="*", default=[], help="clipes de apoio (Pexels)")
-    ap.add_argument("--trabalho", default="/tmp/opc_planos")
+    ap.add_argument("--trabalho", default=TRABALHO_PADRAO,
+                    help="onde ficam os planos intermediarios. NAO use /tmp: "
+                         "onde ele e tmpfs, os arquivos ocupam a mesma memoria "
+                         "que o render precisa (ver comentario em TRABALHO_PADRAO)")
     a = ap.parse_args()
 
     cards = json.load(open(a.cards, encoding="utf-8")) if a.cards else []
