@@ -297,13 +297,32 @@ def montar(bruto: str, saida: str, de: float, ate: float, cards: list[dict],
     # o `xfade` consome exatamente essa sobra. Sem isso a peca encurtaria
     # `sobra` a cada emenda e a legenda — que e queimada por plano — sairia
     # adiantando um pouco mais a cada transicao, desencontrando da narracao.
-    sobra = k["montagem"]["dissolvencia_s"] if len(escaleta) > 1 else 0.0
+    # QUAIS emendas dissolvem — nao todas, e essa foi a licao da v7.
+    #
+    # Dissolver em todas as sete emendas deu uma peca com ZERO cortes secos, e
+    # a regua reprovou com razao: as referencias tem os DOIS. Medido pelos picos
+    # de diferenca entre quadros: r_aluguel 13 batidas duras E 3 dissolvencias,
+    # r_whats 10 e 11, r_indic 3 e 3. Nenhuma delas e so uma coisa.
+    #
+    # A regra e editorial, e nao estatistica: dissolve quando muda O ASSUNTO da
+    # tela — entrar ou sair do b-roll, e fechar na cartela. Corta seco entre
+    # dois planos da mesma pessoa, que e onde o corte da energia. Na escaleta de
+    # 32,8s isso da 3 dissolvencias e 3 cortes, quase o mesmo que o r_aluguel.
+    dissolve_s = k["montagem"]["dissolvencia_s"]
+
+    def dissolve_depois(i: int) -> bool:
+        """A emenda entre o plano i e o i+1 e dissolvencia?"""
+        if i + 1 >= len(escaleta) or dissolve_s <= 0:
+            return False
+        a, b_ = escaleta[i]["tipo"], escaleta[i + 1]["tipo"]
+        return "broll" in (a, b_) or b_ == "cartela"
+
+    sobra = dissolve_s
 
     texto_ass = open(legenda, encoding="utf-8").read() if legenda else None
     pedacos = []
     for i, b in enumerate(escaleta):
-        ultimo = i == len(escaleta) - 1
-        extra = 0.0 if ultimo else sobra
+        extra = sobra if dissolve_depois(i) else 0.0
         alvo = os.path.join(trabalho, f"p{i:02d}.mp4")
         leg_i = None
         if texto_ass:
@@ -323,29 +342,44 @@ def montar(bruto: str, saida: str, de: float, ate: float, cards: list[dict],
 
     mudo = os.path.join(trabalho, "mudo.mp4")
     if sobra > 0 and len(pedacos) > 1:
-        # `xfade` encadeado, e nao o demuxer `concat`. O `concat` so emenda topo
-        # a topo; para dois planos se dissolverem eles precisam coexistir.
+        # UMA dissolvencia por vez, e nao as seis de uma vez num grafo so.
         #
-        # O deslocamento de cada emenda e o proprio inicio do plano na escaleta.
-        # Como cada plano (menos o ultimo) foi renderizado com `sobra` a mais, a
-        # peca final volta a ter exatamente a duracao pedida — o `xfade` come a
-        # sobra. Errar isso encurtaria a peca a cada emenda e a legenda iria
-        # adiantando, o defeito mais dificil de ver e o mais facil de introduzir.
-        entradas, grafo, rotulo = [], [], "0:v"
-        for p_ in pedacos:
-            entradas += ["-i", p_]
+        # A primeira versao encadeava todos os `xfade` num `filter_complex`
+        # unico com os sete planos como entradas. Levou SIGKILL do OOM killer no
+        # decimo quadro: nao sao os sete decodificadores que pesam (a fila de
+        # pacotes de cada entrada e pequena), sao os SEIS filtros `xfade` da
+        # cadeia, cada um segurando quadros intermediarios de 1080x1920.
+        #
+        # Aos pares, existe um `xfade` vivo de cada vez. O custo e reencodar o
+        # acumulado a cada emenda, e por isso o intermediario vai a CRF 14: seis
+        # geracoes a CRF 18 apareceriam na entrega, a CRF 14 nao. O passe final
+        # devolve tudo a CRF 20 uma vez so.
+        acc = pedacos[0]
         for i in range(1, len(pedacos)):
-            prox = f"x{i}"
-            grafo.append(f"[{rotulo}][{i}:v]xfade=transition=fade:"
-                         f"duration={sobra}:offset={escaleta[i]['de']:.3f}[{prox}]")
-            rotulo = prox
-        cmd = (["ffmpeg", "-y"] + entradas +
-               ["-filter_complex", ";".join(grafo), "-map", f"[{rotulo}]", "-an",
-                "-c:v", "libx264", "-preset", PRESET, "-crf", "18",
-                "-pix_fmt", "yuv420p", "-threads", "1", mudo])
-        r = subprocess.run(cmd, capture_output=True, text=True)
-        if r.returncode:
-            raise RuntimeError(f"dissolvencias falharam:\n{r.stderr[-1500:]}")
+            alvo = os.path.join(trabalho, f"emenda{i:02d}.mp4")
+            if dissolve_depois(i - 1):
+                grafo = (f"[0:v][1:v]xfade=transition=fade:duration={sobra}:"
+                         f"offset={escaleta[i]['de']:.3f}[out]")
+                cmd = ["ffmpeg", "-y", "-i", acc, "-i", pedacos[i],
+                       "-filter_complex", grafo, "-map", "[out]", "-an",
+                       "-c:v", "libx264", "-preset", PRESET, "-crf", "14",
+                       "-pix_fmt", "yuv420p", "-threads", "1", alvo]
+            else:
+                # Corte seco: emenda topo a topo, sem reencodar nada.
+                par = os.path.join(trabalho, f"par{i:02d}.txt")
+                with open(par, "w", encoding="utf-8") as fh:
+                    fh.write(f"file '{os.path.abspath(acc)}'\n"
+                             f"file '{os.path.abspath(pedacos[i])}'\n")
+                cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", par,
+                       "-c", "copy", alvo]
+            r = subprocess.run(cmd, capture_output=True, text=True)
+            if r.returncode:
+                raise RuntimeError(f"emenda {i} falhou:\n{r.stderr[-1200:]}")
+            # O acumulado anterior nao serve mais e ocupa dezenas de MB.
+            if acc != pedacos[0]:
+                os.remove(acc)
+            acc = alvo
+        os.replace(acc, mudo)
     else:
         lista = os.path.join(trabalho, "planos.txt")
         with open(lista, "w", encoding="utf-8") as fh:
