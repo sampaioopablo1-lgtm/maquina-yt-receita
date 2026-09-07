@@ -36,6 +36,17 @@ for k, (p, (i0, ta, tb, d)) in enumerate(zip(PLANOS, bl)):
         run([FF, "-y", "-loglevel", "error", "-f", "concat", "-safe", "0",
              "-i", lst, "-c", "copy", out])
     else:
+        # ARMADILHA que ja custou um video: se o b-roll for mais curto do que o
+        # trecho de fala, o ffmpeg NAO da erro -- ele entrega um clipe curto, e o
+        # video final sai truncado sem aviso. Confira antes de cortar.
+        r = subprocess.run([FF, "-i", fonte], capture_output=True, text=True)
+        import re as _re
+        m = _re.search(r"Duration: (\d+):(\d+):([\d.]+)", r.stderr)
+        disp = (int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
+                - (entrada - extra)) if m else 0
+        if disp < d + extra - 0.02:
+            raise SystemExit("%s tem so %.2f s a partir de %.2f, e o bloco pede %.2f s"
+                             % (fonte, disp, entrada - extra, d + extra))
         run([FF, "-y", "-loglevel", "error", "-ss", "%.3f" % (entrada - extra),
              "-i", fonte, "-t", "%.3f" % (d + extra), "-an", "-vf", VF,
              "-c:v", "libx264", "-crf", "16", "-preset", "medium", out])
