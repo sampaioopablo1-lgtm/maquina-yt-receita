@@ -102,16 +102,40 @@ LEGENDA_FONTE = "Montserrat-Black"
 # nome do default da variavel ("Montserrat Thin") e a legenda sai fina, com o
 # arquivo certo no disco. Passa no terminal, nao passa no feed.
 LEGENDA_FAMILIA = "Montserrat Black"
-LEGENDA_CORPO = 64
+# 100, e nao 64. O 64 foi chute; este numero saiu de medir os tres Reels no ar.
+# A extensao vertical de uma linha de legenda deles, normalizada para um quadro
+# de 1920, da 151px (r1), 201px (r2) e 197px (r3) — duas linhas na maioria dos
+# quadros, ou seja ~85-100px por linha. A minha primeira versao media 61px: a
+# legenda saia com pouco mais da metade do tamanho da referencia.
+LEGENDA_CORPO = 100
 LEGENDA_COR = BRANCO       # as palavras do grupo
 LEGENDA_COR_ATIVA = LARANJA  # a palavra sendo dita agora
 LEGENDA_CONTORNO = 6       # grosso: o Reel e reentregue comprimido, contorno fino some
 LEGENDA_SOMBRA = 2
 LEGENDA_PALAVRAS_POR_GRUPO = 3
-# Altura da legenda, em fracao da altura do quadro. 0.74 fica acima da faixa de
-# interface do Instagram (perfil, legenda, botoes) e abaixo do rosto no
-# enquadramento de talking head.
-LEGENDA_Y = 0.74
+# Onde termina a legenda, em fracao da altura. Medido no r1 (o mais limpo dos
+# tres): a banda de texto com contorno vai ate 0.849. Os 0.74 da primeira
+# versao deixavam a legenda alta demais, encostando no queixo.
+LEGENDA_Y = 0.85
+
+# ---------------------------------------------------------------------------
+# ENQUADRAMENTO — onde o rosto tem de cair.
+#
+# Isto existe porque a primeira entrega saiu com a cabeca cortada e nenhuma
+# verificacao pegou. A faixa navy comeca em y=0 e vai ate `video_topo`; se o
+# rosto do bruto comecar acima disso, a faixa passa por cima dele. No bruto do
+# celular o rosto comeca em 0.201 da altura e a faixa vai ate 0.344 — cobria os
+# 274px de cima da cabeca.
+#
+# O alvo saiu do r1, o mais apertado dos tres Reels no ar: rosto comecando em
+# 0.364 da altura, logo abaixo da faixa. Os outros dois sao mais folgados
+# (0.475 e 0.512); usar o mais apertado mantem o rosto o maior possivel sem
+# encostar na faixa.
+#
+# A medida que pega o defeito e o detector de rosto: no v3 ele achou rosto em
+# 1 de 12 quadros; no bruto, em 12 de 12. Cor, duracao e OCR do card passavam.
+# ---------------------------------------------------------------------------
+ROSTO_TOPO_ALVO = 0.365
 
 # ---------------------------------------------------------------------------
 # COPY — a estrutura de legenda dos posts atuais, em cinco blocos.
@@ -158,6 +182,7 @@ def chave() -> dict:
         "formato": {"largura": LARGURA, "altura": ALTURA, "fps": FPS,
                     "dur_min_s": DUR_MIN_S, "dur_max_s": DUR_MAX_S},
         "geometria": {"video_largura": VIDEO_LARGURA, "video_topo": VIDEO_TOPO,
+                      "rosto_topo_alvo": ROSTO_TOPO_ALVO,
                       "y_setup": Y_SETUP, "y_apoio": Y_APOIO, "y_chave": Y_CHAVE,
                       "y_punch": Y_PUNCH, "y_regua": Y_REGUA,
                       "regua_largura": REGUA_LARGURA, "regua_altura": REGUA_ALTURA},

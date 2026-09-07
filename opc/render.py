@@ -128,7 +128,8 @@ def e_retrato(bruto: str) -> bool:
     return altura >= largura
 
 
-def filtro_cards(cards: list[dict], legenda: str | None = None, retrato: bool = False) -> str:
+def filtro_cards(cards: list[dict], legenda: str | None = None, retrato: bool = False,
+                 janela_fonte: int = 0) -> str:
     """O grafo inteiro: fundo, os cards em sequencia e a legenda queimada.
 
     Cada card e um dicionario com setup/apoio/chave/punch e, opcionalmente, `de`
@@ -139,16 +140,27 @@ def filtro_cards(cards: list[dict], legenda: str | None = None, retrato: bool = 
 
     * bruto DEITADO — o video e reduzido e encaixado, e o `pad` cria a faixa
       navy ao redor dele;
-    * bruto EM PE — nao ha o que encaixar (um 9:16 nao cabe dentro de outro), o
-      video ocupa o quadro e a faixa navy e desenhada POR CIMA do topo.
+    * bruto EM PE — nao ha o que encaixar (um 9:16 nao cabe dentro de outro).
+      Recorta-se da fonte a janela que vai aparecer abaixo da faixa, e o `pad`
+      de cima E a faixa. Onde essa janela comeca (`janela_fonte`) sai de
+      `opc/enquadrar.py`, que mede o rosto: cobrir a cabeca com a faixa foi o
+      defeito que estragou a entrega anterior.
     """
     k = estilo.chave()
     p, t, f, g = k["paleta"], k["tipografia"], k["formato"], k["geometria"]
     if retrato:
+        # Bruto ja vertical: recorta da fonte EXATAMENTE a janela que aparece
+        # abaixo da faixa, e o `pad` de cima vira a propria faixa navy. `janela`
+        # e a linha da fonte onde essa janela comeca — e `opc/enquadrar.py` que
+        # a calcula, a partir de onde o rosto esta.
+        #
+        # A versao que aumentava o quadro para depois cortar (pad para 2234px)
+        # foi morta pelo OOM killer duas vezes: o sandbox tem 1 GB. Esta faz
+        # uma alocacao so, do tamanho do quadro final.
+        alto = f["altura"] - g["video_topo"]
         partes = [
-            (f"[0:v]scale={f['largura']}:{f['altura']}:force_original_aspect_ratio=increase,"
-             f"crop={f['largura']}:{f['altura']},"
-             f"drawbox=x=0:y=0:w=iw:h={g['video_topo']}:color={_cor(p['navy'])}:t=fill[v0]")
+            (f"[0:v]scale={f['largura']}:-2,crop={f['largura']}:{alto}:0:{max(0, janela_fonte)},"
+             f"pad={f['largura']}:{f['altura']}:0:{g['video_topo']}:color={_cor(p['navy'])}[v0]")
         ]
     else:
         partes = [
@@ -193,7 +205,8 @@ def filtro_cards(cards: list[dict], legenda: str | None = None, retrato: bool = 
 
 def comando(bruto: str, saida: str, setup: str = "", apoio: str = "", chave: str = "",
             punch: str = "", de: float | None = None, ate: float | None = None,
-            cards: list[dict] | None = None, legenda: str | None = None) -> list[str]:
+            cards: list[dict] | None = None, legenda: str | None = None,
+            janela_fonte: int = 0) -> list[str]:
     """O argv do ffmpeg. Separado de quem executa para poder ser inspecionado e testado."""
     k = estilo.chave()
     if cards is None:
@@ -205,7 +218,7 @@ def comando(bruto: str, saida: str, setup: str = "", apoio: str = "", chave: str
         cmd += ["-to", str(ate)]
     cmd += [
         "-i", bruto,
-        "-filter_complex", filtro_cards(cards, legenda, e_retrato(bruto)),
+        "-filter_complex", filtro_cards(cards, legenda, e_retrato(bruto), janela_fonte),
         "-map", "[out]", "-map", "0:a?",
         "-r", str(k["formato"]["fps"]),
         "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
@@ -234,6 +247,8 @@ def main() -> None:
     ap.add_argument("saida")
     ap.add_argument("--cards", help="JSON com a sequencia de cards [{de, ate, setup, ...}]")
     ap.add_argument("--legenda", help="arquivo .ass a queimar (opc/legenda.py gera)")
+    ap.add_argument("--janela", type=int, default=0,
+                    help="linha da fonte onde comeca a janela visivel (opc/enquadrar.py calcula)")
     ap.add_argument("--setup", default="")
     ap.add_argument("--apoio", default="")
     ap.add_argument("--chave", default="")
@@ -252,7 +267,8 @@ def main() -> None:
         conferir_largura(c.get("setup", ""), c.get("apoio", ""),
                          c.get("chave", ""), c.get("punch", ""))
 
-    cmd = comando(a.bruto, a.saida, de=a.de, ate=a.ate, cards=cards, legenda=a.legenda)
+    cmd = comando(a.bruto, a.saida, de=a.de, ate=a.ate, cards=cards,
+                  legenda=a.legenda, janela_fonte=a.janela)
     subprocess.run(cmd, check=True)
     print(f"{a.saida}: {conferir_duracao(a.saida):.1f}s, {len(cards)} card(s)"
           + (", com legenda queimada" if a.legenda else ""))

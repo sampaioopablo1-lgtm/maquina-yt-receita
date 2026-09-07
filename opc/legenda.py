@@ -79,7 +79,11 @@ def cabecalho() -> str:
         "ScriptType: v4.00+",
         f"PlayResX: {f['largura']}",
         f"PlayResY: {f['altura']}",
-        "WrapStyle: 2",
+        # 0, nao 2. O WrapStyle 2 desliga a quebra automatica: com corpo 64 as
+        # linhas cabiam por sorte, e com 100 um grupo de tres palavras longas
+        # sairia pelas bordas sem nada reclamar. O 0 quebra sozinho e ainda
+        # deixa a linha de cima mais larga, que e a forma da referencia.
+        "WrapStyle: 0",
         "ScaledBorderAndShadow: yes",
         "",
         "[V4+ Styles]",
