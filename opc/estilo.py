@@ -248,9 +248,45 @@ AUDIO_PICO_DBTP = -1.0
 ROSTO_TOPO_ALVO = 0.365
 
 # ---------------------------------------------------------------------------
-# COPY — a estrutura de legenda dos posts atuais, em cinco blocos.
+# COPY — a estrutura de legenda, e para QUEM ela fala.
+#
+# Este bloco mudou de dono em 07/09/2026. Ate aqui a copy falava com comercio
+# de bairro: "a partir de R$ 6 por dia", "R$ 5 mil de aluguel", e uma lista de
+# cinco profissoes sem nada em comum ("contador, clinica, cosmetico, pedreiro,
+# corretor") que veio da gravacao bruta. Servia para juntar seguidor e nao para
+# encher turma.
+#
+# A esteira decidida e esta, e toda legenda serve a ela:
+#
+#     auditoria gratuita  ->  turma de R$ 5 mil  ->  Clube de R$ 1 mil/mes
+#            (isca)          (candidatura R$ 500)      (continuidade)
+#
+# Quem le a legenda tem de terminar sabendo pedir a auditoria. Nao "seguir",
+# nao "salvar": PEDIR A AUDITORIA. Seguidor que nao faz auditoria nao entra na
+# turma, e turma e o que paga.
 # ---------------------------------------------------------------------------
-CTA = "Siga @oproximocliente que eu te ajudo a encontrar o seu."
+ESTEIRA = [
+    ("auditoria", 0, "gratuita — mede leads sem resposta na conta da pessoa"),
+    ("turma", 5000, "implantacao de 30 dias, 10 vagas, candidatura de R$ 500"),
+    ("clube", 1000, "por mes: encontro, revisao da conta, ferramenta inclusa"),
+]
+
+# O CTA e um pedido de AUDITORIA por comentario, e nao um pedido de seguir.
+#
+# Comentario, e nao "link na bio", por dois motivos: o comentario levanta a mao
+# de forma publica (prova social para quem le depois) e abre a DM sem tirar a
+# pessoa do app. "Link na bio" e da geracao proibida, logo abaixo.
+CTA = "Comente AUDITORIA que eu meco quantos leads o seu WhatsApp deixou sem resposta."
+
+# Os tres numeros da auditoria. Ficam aqui porque sao a arma de venda e nao
+# podem ser redigitados errado numa legenda: sao de terceiro, sao citaveis, e
+# perdem forca se sairem arredondados de cabeca.
+AUDITORIA_NUMEROS = {
+    "leads_sem_resposta_pct": 47,      # dos leads no Brasil nunca sao atendidos
+    "primeiro_contato_medio": "5h08",  # tempo medio do mercado ate o 1o contato
+    "conversao_1min_pct": 35,          # respondido em 1 min -> visita
+    "conversao_5min_pct": 15,          # respondido depois de 5 min -> visita
+}
 
 HASHTAGS = [
     "#trafegopago", "#metaads", "#anuncios", "#pequenosnegocios",
@@ -262,13 +298,24 @@ BLOCOS_LEGENDA = [
     "A virada, comecando com 'Mas'.",
     "Explicacao em 2-3 frases, tom direto, com travessao.",
     "Consequencia dura, sem suavizar.",
-    "CTA fixo + bloco de hashtags.",
+    "CTA da auditoria + bloco de hashtags.",
 ]
 
 # O perfil tem DUAS geracoes de legenda. A antiga (posts de 06/09 03h) usa emoji
 # e "Clique no link da bio". Ela nao e um estilo alternativo — foi substituida.
 # Fica registrada aqui para que ninguem a reintroduza achando que e variacao.
-LEGENDA_PROIBIDA = ["emoji no corpo", "Clique no link da bio", "Clique no video"]
+#
+# As tres ultimas entraram em 07/09 junto com a esteira: nao sao feias, sao
+# ENDERECADAS A OUTRA PESSOA. Quem fatura o bastante para pagar R$ 5 mil le
+# "a partir de R$ 6 por dia" e entende, corretamente, que aquilo nao e para ele.
+LEGENDA_PROIBIDA = [
+    "emoji no corpo",
+    "Clique no link da bio",
+    "Clique no video",
+    "a partir de R$ 6 por dia",
+    "lista de profissoes soltas (contador, clinica, cosmetico, pedreiro...)",
+    "pedir seguidor em vez de pedir a auditoria",
+]
 
 # ---------------------------------------------------------------------------
 # PUBLICACAO
@@ -312,7 +359,8 @@ def chave() -> dict:
         "audio": {"mean_db_min": AUDIO_MEAN_DB_MIN, "mean_db_max": AUDIO_MEAN_DB_MAX,
                   "lufs_alvo": AUDIO_LUFS_ALVO, "pico_dbtp": AUDIO_PICO_DBTP},
         "copy": {"cta": CTA, "hashtags": HASHTAGS, "blocos": BLOCOS_LEGENDA,
-                 "proibido": LEGENDA_PROIBIDA},
+                 "proibido": LEGENDA_PROIBIDA, "esteira": ESTEIRA,
+                 "auditoria": AUDITORIA_NUMEROS},
         "publicacao": {"janela": JANELA, "max_reels_dia": MAX_REELS_DIA,
                        "volume_audio_em_alta": VOLUME_AUDIO_EM_ALTA},
     }
@@ -361,6 +409,19 @@ def guia() -> str:
         f"- Duracao: {f['dur_min_s']}-{f['dur_max_s']}s (medida nos Reels no ar)",
         f"- Video encaixado: {g['video_largura']}px de largura, topo em y={g['video_topo']}",
         "- O video NUNCA e full-bleed: o encaixe e o que cria a faixa navy do texto",
+        "",
+        "## A esteira — para onde toda legenda empurra",
+        "",
+        "| Degrau | Preco | O que e |",
+        "|---|---|---|",
+    ] + [f"| {nome} | " + ("gratuita" if v == 0 else f"R$ {v:,}".replace(",", ".")) +
+         f" | {oq} |" for nome, v, oq in c["esteira"]] + [
+        "",
+        f"Os tres numeros da auditoria: {c['auditoria']['leads_sem_resposta_pct']}% dos "
+        f"leads nunca sao atendidos; o primeiro contato leva "
+        f"{c['auditoria']['primeiro_contato_medio']} em media; respondido em 1 minuto "
+        f"converte {c['auditoria']['conversao_1min_pct']}% em visita, depois de 5 "
+        f"minutos cai para {c['auditoria']['conversao_5min_pct']}%.",
         "",
         "## Legenda — cinco blocos",
         "",
