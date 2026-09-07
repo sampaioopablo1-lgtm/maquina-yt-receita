@@ -71,8 +71,14 @@ jobs:
             # frota.yml pega pagina de erro salva com nome de mp3. Sem isto, um
             # 404 em html viraria "trilha baixada" e a falha reapareceria la na
             # frente, longe da causa.
-            ffprobe -v error -show_entries format=duration -of csv=p=0 \
-              "/tmp/trilhas/$faixa.mp3" | grep -qE '^[0-9]+'
+            #
+            # Com `ffmpeg`, e nao com `ffprobe`: o runner tem o primeiro e NAO
+            # tem o segundo. A primeira versao deste passo morreu exatamente
+            # assim ("ffprobe: command not found"), depois de baixar as tres
+            # faixas. Decodificar 3 segundos prova o mesmo e usa o binario que
+            # existe — conferido nos tres casos que importam: mp3 real passa,
+            # html salvo como .mp3 falha, arquivo vazio falha.
+            ffmpeg -v error -i "/tmp/trilhas/$faixa.mp3" -t 3 -f null -
           done
           echo "trilhas: $(ls /tmp/trilhas/*.mp3 | wc -l) faixas"
 
