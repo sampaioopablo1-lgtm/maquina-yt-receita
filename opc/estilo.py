@@ -83,6 +83,37 @@ REGUA_LARGURA = 200
 REGUA_ALTURA = 8
 
 # ---------------------------------------------------------------------------
+# LEGENDA QUEIMADA — o que faltava, e o motivo da primeira entrega ser reprovada.
+#
+# Os Reels da marca trocam de card ao longo do video (medido: cards distintos em
+# t=0,5s / 9s / 13s / 21s / 25s / 30s / 34s) e levam legenda acompanhando a fala.
+# Um card congelado por meio minuto tem a cor certa e o ritmo errado.
+#
+# O padrao que performa em Reels NAO e o karaoke classico do ASS (tag \k, que
+# varre a linha inteira e serve para musica). E um grupo curto de palavras na
+# tela com a palavra corrente destacada — por isso aqui e um evento por palavra,
+# redesenhando o grupo, e nao \k.
+# ---------------------------------------------------------------------------
+LEGENDA_FONTE = "Montserrat-Black"
+# O nome da FAMILIA, que e diferente do nome do arquivo — e essa diferenca ja
+# custou um render. O `drawtext` carrega o .ttf direto e acerta o peso; o libass
+# (que queima a legenda) casa por NOME DE FAMILIA no fontconfig. Sem
+# `--update-name-table` no instancer, as duas instancias de Montserrat herdam o
+# nome do default da variavel ("Montserrat Thin") e a legenda sai fina, com o
+# arquivo certo no disco. Passa no terminal, nao passa no feed.
+LEGENDA_FAMILIA = "Montserrat Black"
+LEGENDA_CORPO = 64
+LEGENDA_COR = BRANCO       # as palavras do grupo
+LEGENDA_COR_ATIVA = LARANJA  # a palavra sendo dita agora
+LEGENDA_CONTORNO = 6       # grosso: o Reel e reentregue comprimido, contorno fino some
+LEGENDA_SOMBRA = 2
+LEGENDA_PALAVRAS_POR_GRUPO = 3
+# Altura da legenda, em fracao da altura do quadro. 0.74 fica acima da faixa de
+# interface do Instagram (perfil, legenda, botoes) e abaixo do rosto no
+# enquadramento de talking head.
+LEGENDA_Y = 0.74
+
+# ---------------------------------------------------------------------------
 # COPY — a estrutura de legenda dos posts atuais, em cinco blocos.
 # ---------------------------------------------------------------------------
 CTA = "Siga @oproximocliente que eu te ajudo a encontrar o seu."
@@ -130,6 +161,12 @@ def chave() -> dict:
                       "y_setup": Y_SETUP, "y_apoio": Y_APOIO, "y_chave": Y_CHAVE,
                       "y_punch": Y_PUNCH, "y_regua": Y_REGUA,
                       "regua_largura": REGUA_LARGURA, "regua_altura": REGUA_ALTURA},
+        "legenda": {"fonte": LEGENDA_FONTE, "familia": LEGENDA_FAMILIA,
+                    "corpo": LEGENDA_CORPO,
+                    "cor": LEGENDA_COR, "cor_ativa": LEGENDA_COR_ATIVA,
+                    "contorno": LEGENDA_CONTORNO, "sombra": LEGENDA_SOMBRA,
+                    "palavras_por_grupo": LEGENDA_PALAVRAS_POR_GRUPO,
+                    "y": LEGENDA_Y},
         "copy": {"cta": CTA, "hashtags": HASHTAGS, "blocos": BLOCOS_LEGENDA,
                  "proibido": LEGENDA_PROIBIDA},
         "publicacao": {"janela": JANELA, "max_reels_dia": MAX_REELS_DIA,

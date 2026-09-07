@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import json
 import os
 import subprocess
 import sys
@@ -85,10 +86,15 @@ def conferir_largura(setup: str, apoio: str, chave: str, punch: str) -> None:
                 f"encurte o texto ou ela sai cortada no card. ({texto!r})")
 
 
-def _linha(fonte: str, texto: str, cor: str, corpo: int, y: int, entrada: str, saida: str) -> str:
+def _linha(fonte: str, texto: str, cor: str, corpo: int, y: int, entrada: str, saida: str,
+           janela: tuple[float, float] | None = None) -> str:
+    """Uma linha do card. Com `janela`, ela so existe naquele intervalo — e assim
+    que o card troca ao longo do video, que e o que separa a peca da referencia
+    de um cartaz congelado."""
+    ativa = f":enable='between(t,{janela[0]},{janela[1]})'" if janela else ""
     return (
         f"[{entrada}]drawtext=fontfile='{resolver_fonte(fonte)}':text='{_escapar(texto)}':"
-        f"fontcolor={_cor(cor)}:fontsize={corpo}:x=(w-text_w)/2:y={y}[{saida}]"
+        f"fontcolor={_cor(cor)}:fontsize={corpo}:x=(w-text_w)/2:y={y}{ativa}[{saida}]"
     )
 
 
@@ -102,26 +108,96 @@ def filtro(setup: str, apoio: str, chave: str, punch: str) -> str:
     processo levar SIGKILL. O `pad` nao tem esse modo de falha porque nao existe
     segunda entrada — e ainda economiza uma composicao por quadro.
     """
+    return filtro_cards([{"setup": setup, "apoio": apoio, "chave": chave, "punch": punch}])
+
+
+def e_retrato(bruto: str) -> bool:
+    """A orientacao REAL do bruto, com a rotacao dos metadados ja aplicada.
+
+    Gravacao de celular chega 1920x1080 com `rotation=90` — deitada no arquivo e
+    em pe na tela. O ffprobe do stream, depois do corte, ja devolve 1080x1920.
+    Ignorar isso foi o defeito que estragou a primeira entrega: o `pad` foi
+    escrito para encaixar video deitado, recebeu um 9:16, nao coube, e o texto do
+    card foi parar em cima do rosto em vez de sobre a faixa navy.
+    """
+    saida = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+         "-show_entries", "stream=width,height", "-of", "csv=p=0", bruto],
+        capture_output=True, text=True, check=True).stdout.strip()
+    largura, altura = (int(x) for x in saida.split(",")[:2])
+    return altura >= largura
+
+
+def filtro_cards(cards: list[dict], legenda: str | None = None, retrato: bool = False) -> str:
+    """O grafo inteiro: fundo, os cards em sequencia e a legenda queimada.
+
+    Cada card e um dicionario com setup/apoio/chave/punch e, opcionalmente, `de`
+    e `ate` em segundos. Sem `de`/`ate` o card vale o video inteiro — que e o
+    caso de um card so, e foi exatamente o que deu errado na primeira versao.
+
+    Sao dois layouts, e qual usar depende da orientacao do bruto:
+
+    * bruto DEITADO — o video e reduzido e encaixado, e o `pad` cria a faixa
+      navy ao redor dele;
+    * bruto EM PE — nao ha o que encaixar (um 9:16 nao cabe dentro de outro), o
+      video ocupa o quadro e a faixa navy e desenhada POR CIMA do topo.
+    """
     k = estilo.chave()
     p, t, f, g = k["paleta"], k["tipografia"], k["formato"], k["geometria"]
-    partes = [
-        (f"[0:v]scale={g['video_largura']}:-2,"
-         f"pad={f['largura']}:{f['altura']}:(ow-iw)/2:{g['video_topo']}:"
-         f"color={_cor(p['navy'])}[base]"),
-        _linha(t["setup"]["fonte"], setup, t["setup"]["cor"], t["setup"]["corpo"], g["y_setup"], "base", "l1"),
-        _linha(t["apoio"]["fonte"], apoio, t["apoio"]["cor"], t["apoio"]["corpo"], g["y_apoio"], "l1", "l2"),
-        _linha(t["chave"]["fonte"], chave, t["chave"]["cor"], t["chave"]["corpo"], g["y_chave"], "l2", "l3"),
-        _linha(t["punch"]["fonte"], punch, t["punch"]["cor"], t["punch"]["corpo"], g["y_punch"], "l3", "l4"),
-        (f"[l4]drawbox=x=(iw-{g['regua_largura']})/2:y={g['y_regua']}:"
-         f"w={g['regua_largura']}:h={g['regua_altura']}:color={p['laranja']}:t=fill[out]"),
-    ]
+    if retrato:
+        partes = [
+            (f"[0:v]scale={f['largura']}:{f['altura']}:force_original_aspect_ratio=increase,"
+             f"crop={f['largura']}:{f['altura']},"
+             f"drawbox=x=0:y=0:w=iw:h={g['video_topo']}:color={_cor(p['navy'])}:t=fill[v0]")
+        ]
+    else:
+        partes = [
+            (f"[0:v]scale={g['video_largura']}:-2,"
+             f"pad={f['largura']}:{f['altura']}:(ow-iw)/2:{g['video_topo']}:"
+             f"color={_cor(p['navy'])}[v0]")
+        ]
+    rotulo = "v0"
+    for i, card in enumerate(cards):
+        janela = None
+        if card.get("de") is not None and card.get("ate") is not None:
+            janela = (card["de"], card["ate"])
+        ativa = f":enable='between(t,{janela[0]},{janela[1]})'" if janela else ""
+        for nivel, y in [("setup", g["y_setup"]), ("apoio", g["y_apoio"]),
+                         ("chave", g["y_chave"]), ("punch", g["y_punch"])]:
+            texto = card.get(nivel)
+            if not texto:
+                continue
+            d = t[nivel]
+            proximo = f"c{i}{nivel}"
+            partes.append(_linha(d["fonte"], texto, d["cor"], d["corpo"], y,
+                                 rotulo, proximo, janela))
+            rotulo = proximo
+        if card.get("punch"):
+            proximo = f"c{i}regua"
+            partes.append(
+                f"[{rotulo}]drawbox=x=(iw-{g['regua_largura']})/2:y={g['y_regua']}:"
+                f"w={g['regua_largura']}:h={g['regua_altura']}:color={_cor(p['laranja'])}:"
+                f"t=fill{ativa}[{proximo}]")
+            rotulo = proximo
+
+    if legenda:
+        # `fontsdir` e obrigatorio: o libass casa a fonte por NOME DE FAMILIA no
+        # fontconfig, e as fontes da marca vivem em opc/fontes/, fora dele.
+        caminho = legenda.replace("\\", "/").replace(":", r"\:")
+        dir_fontes = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fontes")
+        partes.append(f"[{rotulo}]subtitles='{caminho}':fontsdir='{dir_fontes}'[out]")
+    else:
+        partes.append(f"[{rotulo}]null[out]")
     return ";".join(partes)
 
 
-def comando(bruto: str, saida: str, setup: str, apoio: str, chave: str, punch: str,
-            de: float | None = None, ate: float | None = None) -> list[str]:
+def comando(bruto: str, saida: str, setup: str = "", apoio: str = "", chave: str = "",
+            punch: str = "", de: float | None = None, ate: float | None = None,
+            cards: list[dict] | None = None, legenda: str | None = None) -> list[str]:
     """O argv do ffmpeg. Separado de quem executa para poder ser inspecionado e testado."""
     k = estilo.chave()
+    if cards is None:
+        cards = [{"setup": setup, "apoio": apoio, "chave": chave, "punch": punch}]
     cmd = ["ffmpeg", "-y"]
     if de is not None:
         cmd += ["-ss", str(de)]
@@ -129,7 +205,7 @@ def comando(bruto: str, saida: str, setup: str, apoio: str, chave: str, punch: s
         cmd += ["-to", str(ate)]
     cmd += [
         "-i", bruto,
-        "-filter_complex", filtro(setup, apoio, chave, punch),
+        "-filter_complex", filtro_cards(cards, legenda, e_retrato(bruto)),
         "-map", "[out]", "-map", "0:a?",
         "-r", str(k["formato"]["fps"]),
         "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
@@ -153,20 +229,33 @@ def conferir_duracao(saida: str) -> float:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Renderiza o card da marca sobre um bruto")
+    ap = argparse.ArgumentParser(description="Renderiza os cards da marca sobre um bruto")
     ap.add_argument("bruto")
     ap.add_argument("saida")
-    ap.add_argument("--setup", required=True)
-    ap.add_argument("--apoio", required=True)
-    ap.add_argument("--chave", required=True)
-    ap.add_argument("--punch", required=True)
+    ap.add_argument("--cards", help="JSON com a sequencia de cards [{de, ate, setup, ...}]")
+    ap.add_argument("--legenda", help="arquivo .ass a queimar (opc/legenda.py gera)")
+    ap.add_argument("--setup", default="")
+    ap.add_argument("--apoio", default="")
+    ap.add_argument("--chave", default="")
+    ap.add_argument("--punch", default="")
     ap.add_argument("--de", type=float)
     ap.add_argument("--ate", type=float)
     a = ap.parse_args()
-    conferir_largura(a.setup, a.apoio, a.chave, a.punch)
-    cmd = comando(a.bruto, a.saida, a.setup, a.apoio, a.chave, a.punch, a.de, a.ate)
+
+    if a.cards:
+        with open(a.cards, encoding="utf-8") as fh:
+            cards = json.load(fh)
+    else:
+        cards = [{"setup": a.setup, "apoio": a.apoio, "chave": a.chave, "punch": a.punch}]
+
+    for c in cards:
+        conferir_largura(c.get("setup", ""), c.get("apoio", ""),
+                         c.get("chave", ""), c.get("punch", ""))
+
+    cmd = comando(a.bruto, a.saida, de=a.de, ate=a.ate, cards=cards, legenda=a.legenda)
     subprocess.run(cmd, check=True)
-    print(f"{a.saida}: {conferir_duracao(a.saida):.1f}s")
+    print(f"{a.saida}: {conferir_duracao(a.saida):.1f}s, {len(cards)} card(s)"
+          + (", com legenda queimada" if a.legenda else ""))
 
 
 if __name__ == "__main__":

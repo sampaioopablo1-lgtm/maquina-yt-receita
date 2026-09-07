@@ -22,9 +22,17 @@ GF="https://raw.githubusercontent.com/google/fonts/main/ofl"
 curl -fsSL -o _montserrat-var.ttf   "$GF/montserrat/Montserrat%5Bwght%5D.ttf"
 curl -fsSL -o _playfair-italic.ttf  "$GF/playfairdisplay/PlayfairDisplay-Italic%5Bwght%5D.ttf"
 
-python3 -m fontTools.varLib.instancer _montserrat-var.ttf  wght=900 -o Montserrat-Black.ttf
-python3 -m fontTools.varLib.instancer _montserrat-var.ttf  wght=700 -o Montserrat-Bold.ttf
-python3 -m fontTools.varLib.instancer _playfair-italic.ttf wght=700 -o PlayfairDisplay-BoldItalic.ttf
+# `--update-name-table` NAO e opcional. Sem ele a instancia herda o nome do
+# default da fonte variavel ("Montserrat Thin"), e ai o drawtext acerta (carrega
+# o arquivo) enquanto o libass erra (casa por nome de familia no fontconfig): a
+# legenda queimada sai fina com o arquivo certo no disco.
+python3 -m fontTools.varLib.instancer _montserrat-var.ttf  wght=900 --update-name-table -o Montserrat-Black.ttf
+python3 -m fontTools.varLib.instancer _montserrat-var.ttf  wght=700 --update-name-table -o Montserrat-Bold.ttf
+python3 -m fontTools.varLib.instancer _playfair-italic.ttf wght=700 --update-name-table -o PlayfairDisplay-BoldItalic.ttf
+
+# Confere o nome de familia resultante contra o que `opc/estilo.py` declara.
+fc-query -f '%{family}\n' Montserrat-Black.ttf | grep -q "Montserrat Black" \
+  || { echo "ERRO: Montserrat-Black.ttf nao expoe a familia 'Montserrat Black'"; exit 1; }
 
 rm -f _montserrat-var.ttf _playfair-italic.ttf
 ls -la ./*.ttf

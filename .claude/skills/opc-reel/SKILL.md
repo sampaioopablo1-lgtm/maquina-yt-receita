@@ -58,24 +58,48 @@ com marcador de fim:
 
 Corte fora o CTA de anuncio ("clica nesse video") quando o post for organico.
 
-### 4. Aplicar o card
+### 4. Gerar a legenda queimada
+Sem ela a peca fica parada e perde para a referencia — foi o motivo da primeira
+reprovacao. Transcreva com `word_timestamps=True`, **revise os erros de ASR** (o
+modelo `base` troca palavras; o `small` estoura a memoria do sandbox) e gere:
+
+    python3 opc/legenda.py palavras.json legenda.ass
+
+Legenda com palavra errada e pior que sem legenda. Corrija so onde a fala e
+inequivoca; nao "melhore" o que a pessoa disse.
+
+### 5. Aplicar os cards
 
     bash opc/fontes.sh                      # instancia os pesos exatos da marca
     python3 opc/render.py CORTADO.mp4 SAIDA.mp4 \
-      --setup "SETUP EM CAIXA ALTA" --apoio "LINHA DE APOIO" \
-      --chave "palavrachave" --punch "O SOCO"
+      --cards cards.json --legenda legenda.ass
 
-O `render.py` levanta se a fonte da marca faltar. Isso e proposital: card com
-fonte parecida passa no terminal e nao passa no feed.
+`cards.json` e uma SEQUENCIA, com `de`/`ate` em segundos — os Reels da marca
+trocam de card ao longo do video e revelam o punchline laranja depois do setup.
+Um card so para o video inteiro e o erro que ja foi cometido.
 
-### 5. Escrever a legenda em cinco blocos
+Tres guardas existem de proposito e nao devem ser contornadas:
+
+* **fonte faltando levanta** — card com fonte parecida passa no terminal e nao
+  passa no feed;
+* **linha larga demais levanta** antes do render — ela sairia cortada nas bordas
+  e isso so apareceria no mp4 pronto (o limite util e 960px de 1080);
+* **a orientacao do bruto decide o layout** — video de celular vem `1920x1080`
+  com `rotation=90`, ou seja ja e 9:16 na tela. Encaixar 9:16 dentro de 9:16 nao
+  cabe, e foi assim que o texto do card foi parar em cima do rosto.
+
+Depois de renderizar, confira **em que linha a faixa navy termina** e compare
+com `geometria.video_topo` da chave. Duracao, cor e OCR do card passam mesmo
+quando o texto esta escrito sobre a imagem — essa medida e a unica que pega.
+
+### 6. Escrever a legenda do post em cinco blocos
 1. Frase-choque com numero concreto · 2. A virada, com "Mas" · 3. Explicacao em
 2-3 frases com travessao · 4. Consequencia dura · 5. CTA fixo + hashtags.
 
 CTA e hashtags saem de `estilo.chave()["copy"]`. **Sem emoji e sem "link na
 bio"** — essa e a geracao antiga de legenda, ja substituida no perfil.
 
-### 6. Publicar
+### 7. Publicar
 Instagram sao dois passos (o primeiro so cria o container):
 
     INSTAGRAM_POST_IG_USER_MEDIA          -> creation_id
@@ -86,7 +110,7 @@ Facebook publica direto em `FACEBOOK_CREATE_VIDEO_POST`. A pagina certa e
 paginas de clientes e postar na errada e estrago em negocio alheio. Confira
 sempre pelo id, nunca pelo nome parecido.
 
-### 7. Registrar antes de comemorar
+### 8. Registrar antes de comemorar
 `opc_posts` no Supabase, com os ids do Instagram e do Facebook, o bruto de
 origem e o corte usado. Publicar sem registrar cega a trava anti-duplicata — e
 esse defeito ja republicou pacote no projeto de YouTube deste mesmo repositorio.
@@ -104,6 +128,11 @@ distribuicao.
 
 - Publicar de uma sessao em nuvem com `curl` direto na CDN: o egress e bloqueado.
   Todo download e upload de midia passa pelo sandbox do Composio.
+- Contar com o helper `composio_workbench` (`upload_local_file`): o kernel do
+  sandbox recicla e ele some no meio da sessao. Para levar arquivo do sandbox
+  para o Drive ou para a publicacao, hospede em URL temporaria e use
+  `GOOGLEDRIVE_UPLOAD_FROM_URL` / o campo `video_url` do Instagram — funciona
+  sempre e ainda serve para os dois destinos de uma vez.
 - Escrever cor ou fonte fora de `opc/estilo.py`.
 - Tratar `Material base/` como cheia: ela esta vazia. Cobertura vem de Pexels
   (conectado no Composio) ou do Canva, e so como cobertura — o principal e sempre

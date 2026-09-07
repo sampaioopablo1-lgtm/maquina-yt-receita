@@ -26,6 +26,26 @@ a identidade inteira. Um card congelado por meio minuto e exatamente o que faz a
 peca parecer amadora ao lado da referencia — e nenhuma das metricas que eu tinha
 (cor certa, fonte certa, duracao na faixa) pega isso.
 
+### E havia um segundo defeito, pior e invisivel nos numeros
+
+Investigando para consertar o primeiro, apareceu outro que estava na peca
+publicada: **o texto do card estava por cima do rosto, nao sobre a faixa navy.**
+
+A gravacao do celular chega `1920x1080` com `rotation=90` no metadado — deitada
+no arquivo, em pe na tela. Depois do corte o ffprobe ja devolve `1080x1920`. O
+`pad` do render foi escrito para encaixar video DEITADO dentro do quadro; ao
+receber um 9:16 ele nao teve onde encaixar, o video ocupou de `y=178` a `y=1741`
+e as quatro linhas do card, desenhadas em `y=170..618`, cairam sobre a imagem.
+
+Nenhuma verificacao pegava isso: a duracao estava certa, as cores estavam
+certas, o OCR lia as linhas do card normalmente — ele so nao sabe dizer *sobre o
+que* elas estavam escritas. O que pegou foi medir em que linha a faixa navy
+deixa de dominar o quadro, e comparar com o valor que a chave de estilo declara.
+
+Agora `render.py` decide o layout pela orientacao real do bruto: deitado, o
+video e encaixado e o `pad` faz a faixa; em pe, o video ocupa o quadro e a faixa
+navy e desenhada por cima do topo.
+
 Por isso o item 1 desta lista nao e cosmetico. Ele e o conserto.
 
 ## 1. Legenda karaoke queimada em ASS — impacto altissimo, esforco baixo
