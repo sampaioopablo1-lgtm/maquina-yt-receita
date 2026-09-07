@@ -122,6 +122,40 @@ def gerar(palavras: list[dict]) -> str:
     return cabecalho() + "\n" + "\n".join(eventos(palavras)) + "\n"
 
 
+def _seg(t: str) -> float:
+    """`H:MM:SS.cc` -> segundos."""
+    h, m, s = t.split(":")
+    return int(h) * 3600 + int(m) * 60 + float(s)
+
+
+def recortar(ass: str, de: float, ate: float) -> str:
+    """A mesma legenda, deslocada para uma janela que comeca em zero.
+
+    Existe porque a legenda passou a ser queimada PLANO A PLANO, e nao sobre o
+    video montado. O motivo e memoria: queimar sobre a peca inteira levou
+    SIGKILL do OOM killer num sandbox de 1 GB (`total-vm:1133724kB`), enquanto
+    cada plano de 5s cabe com folga. De quebra, cada quadro passa por um encode
+    so em vez de dois — o texto sai mais limpo.
+
+    Cada plano recebe um .ass proprio: os eventos que caem na janela, com os
+    tempos recuados para o inicio dela. Sem o recuo, o evento de t=12s nao
+    apareceria num plano que comeca a contar do zero.
+    """
+    cab, saida = [], []
+    for linha in ass.splitlines():
+        if not linha.startswith("Dialogue:"):
+            cab.append(linha)
+            continue
+        campos = linha.split(",", 9)
+        ini, fim = _seg(campos[1]), _seg(campos[2])
+        if fim <= de or ini >= ate:
+            continue
+        campos[1] = _tempo(max(0.0, ini - de))
+        campos[2] = _tempo(min(ate, fim) - de)
+        saida.append(",".join(campos))
+    return "\n".join(cab + saida) + "\n"
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Gera a legenda ASS da marca")
     ap.add_argument("transcricao", help="JSON com [{inicio, fim, palavra}, ...]")

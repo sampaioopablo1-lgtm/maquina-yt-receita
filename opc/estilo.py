@@ -160,11 +160,25 @@ BLOCO_MAX_S = 6.5    # nenhum plano dura mais: e onde o reprovado morreu
 BROLL_MIN_S = 4.0    # o corte de apoio precisa respirar para nao virar flash
 BROLL_FATIA = 0.22   # ~1/5 da peca sem rosto, como em r_indic e r_aluguel
 CARTELA_FINAL_S = 2.0  # r_aluguel fecha em 92% de navy; a peca precisa de ponto final
-# Piso de ritmo: 5, e nao 10. O 10 foi o meu primeiro chute e ele REPROVAVA o
-# r_aluguel — que e a referencia de ouro, o Reel que o proprio COMO_PUBLICAR.txt
-# manda publicar. Ele da 5,7 cortes/min. Quando a regua reprova a peca que
-# funciona, o defeito esta na regua. O 5 ainda pega o reprovado, que deu 3,6.
-CORTES_MIN_POR_MIN = 5
+# Piso de ritmo: UM corte na peca inteira, e nao um piso por minuto.
+#
+# Este numero passou por tres versoes e as duas primeiras estavam erradas pelo
+# mesmo motivo — eu contava linhas de `showinfo` no log do ffmpeg, e o filtro
+# imprime VARIAS linhas por quadro detectado. A contagem saia inflada em graus
+# diferentes para cada arquivo, o que e pior do que sair inflada por igual:
+# comparava numeros que nao eram comparaveis. Contando `pts_time:`, que e um
+# por quadro detectado, os numeros reais sao:
+#
+#     r_aluguel 1,4/min    r_whats 5,2/min    r_indic 6,3/min    reprovado 0,0
+#
+# O r_aluguel muda MUITO de quadro (navy de 17% a 92%) com um corte seco so:
+# ele usa dissolvencia, que o detector de cena nao conta. Entao contagem de
+# corte nao e a medida do ritmo desta marca — e por isso que o piso aqui e so
+# "existe pelo menos um corte", para pegar o caso extremo do reprovado, que tem
+# ZERO. Quem mede ritmo de verdade e a variacao da fracao de navy, logo abaixo:
+# 1 ponto percentual no reprovado contra 20-75 nas tres referencias.
+CORTES_MIN = 1
+VARIACAO_NAVY_MIN = 0.10
 
 # O b-roll escurece para a legenda continuar legivel por cima dele. Medido no
 # r_aluguel: o trecho sem rosto tem media de luminancia 18% menor que o trecho
@@ -262,7 +276,8 @@ def chave() -> dict:
         "montagem": {"bloco_min_s": BLOCO_MIN_S, "bloco_max_s": BLOCO_MAX_S,
                      "broll_min_s": BROLL_MIN_S, "broll_fatia": BROLL_FATIA,
                      "cartela_final_s": CARTELA_FINAL_S,
-                     "cortes_min_por_min": CORTES_MIN_POR_MIN,
+                     "cortes_min": CORTES_MIN,
+                     "variacao_navy_min": VARIACAO_NAVY_MIN,
                      "broll_escurecer": BROLL_ESCURECER},
         "audio": {"mean_db_min": AUDIO_MEAN_DB_MIN, "mean_db_max": AUDIO_MEAN_DB_MAX},
         "copy": {"cta": CTA, "hashtags": HASHTAGS, "blocos": BLOCOS_LEGENDA,

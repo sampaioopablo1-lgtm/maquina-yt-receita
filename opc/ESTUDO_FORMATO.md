@@ -25,8 +25,8 @@ As tres primeiras foram feitas no Drift e funcionam. A quarta e a minha.
 
 | medida | r_aluguel | r_whats | r_indic | **reprovado** |
 |---|---|---|---|---|
-| cortes de cena | 4 | 8 | 8 | **2** |
-| um corte a cada | 10,6s | 4,3s | 3,6s | **16,5s** |
+| cortes secos | 1 | 3 | 3 | **0** |
+| cortes por minuto | 1,4 | 5,2 | 6,3 | **0,0** |
 | fracao navy (min→max) | 17%→92% | 1%→37% | 3%→38% | **35%→36%** |
 | quadros sem rosto (b-roll) | 7 | 0 | 1 | **0** |
 | caixa alta da legenda | 63px | 91px | 111px | **32px** |
@@ -66,7 +66,7 @@ no ar e funcionando:
 
 | regra | o que ela reprovava | o defeito era |
 |---|---|---|
-| piso de 10 cortes/min | o r_aluguel (5,7/min) | piso alto demais; virou 5 |
+| piso de 10 cortes/min | o r_aluguel | a propria contagem estava inflada (ver abaixo) |
 | faixa da legenda | as quatro pecas, todas em "0,600" | eu media a borda do meu proprio recorte |
 | rosto acima de 0,28 | o r_indic (rosto a 0,091) | era o rosto pequeno do b-roll, nao o locutor |
 | duracao ate 42s | o r_aluguel (42,4s) | teto brigando com o reencode do Instagram |
@@ -74,6 +74,28 @@ no ar e funcionando:
 Quando a regua reprova a peca que funciona, o defeito esta na regua. Depois da
 correcao, as tres referencias passam e o reprovado falha em cinco regras — que
 e o unico resultado que torna a regua util.
+
+## A regua que estava errada em silencio
+
+Uma quinta regua so apareceu depois, e vale registrar porque e o tipo de erro
+que nao se anuncia. Eu contava cortes procurando a palavra `showinfo` no log do
+ffmpeg — e o filtro imprime VARIAS linhas por quadro detectado. A contagem saia
+inflada em graus diferentes para cada arquivo, entao eu comparava numeros que
+nao eram comparaveis. Contando `pts_time:`, que sai um por quadro:
+
+| | r_aluguel | r_whats | r_indic | reprovado |
+|---|---|---|---|---|
+| contagem inflada (errada) | 4 | 8 | 8 | 2 |
+| **cortes secos (real)** | **1** | **3** | **3** | **0** |
+
+Isso mudou a leitura, e para melhor. O r_aluguel muda muito de quadro (navy de
+17% a 92%) com **um** corte seco: ele usa dissolvencia, que o detector de cena
+nao conta. Logo, contagem de corte nao e a medida do ritmo desta marca. Quem
+mede e a variacao da fracao de navy — 1 ponto percentual no reprovado contra 35
+a 75 nas referencias. A regra de corte ficou so como piso extremo ("existe pelo
+menos um"), que e exatamente o que o reprovado nao tinha.
+
+## Os dois vereditos
 
 `conferir()` devolve dois vereditos separados de proposito: `aprovado` inclui as
 escolhas da casa (b-roll do Pexels), e `conforme_referencia` so o que foi medido

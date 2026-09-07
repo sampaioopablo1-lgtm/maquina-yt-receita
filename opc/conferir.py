@@ -76,12 +76,20 @@ def audio(video: str) -> dict:
 
 
 def cortes(video: str, limiar: float = 0.30) -> int:
-    """Quantas trocas de plano. E a medida que separa Reel de cartaz narrado."""
+    """Quantos cortes secos.
+
+    Conta `pts_time:`, que sai UMA vez por quadro detectado. A primeira versao
+    contava a palavra `showinfo`, e o filtro imprime varias linhas por quadro —
+    entao a contagem saia inflada em graus DIFERENTES para cada arquivo. Isso e
+    pior do que inflar por igual: eu estava comparando numeros que nao eram
+    comparaveis, e concluindo coisas erradas sobre as referencias por causa
+    disso.
+    """
     saida = subprocess.run(
         ["ffmpeg", "-hide_banner", "-i", video,
          "-vf", f"select='gt(scene,{limiar})',showinfo", "-f", "null", "-"],
         capture_output=True, text=True).stderr
-    return saida.count("showinfo")
+    return len(re.findall(r"pts_time:[0-9.]+", saida))
 
 
 def quadros(video: str, passo: float = 2.0) -> list[dict]:
@@ -181,14 +189,18 @@ def conferir(video: str) -> dict:
         ("audio: nivel de narracao",
          aud["mean_db"] is not None and a["mean_db_min"] <= aud["mean_db"] <= a["mean_db_max"],
          f"media {aud['mean_db']} dB fora de {a['mean_db_min']}..{a['mean_db_max']}"),
-        ("ritmo: cortes por minuto",
-         n_cortes / (dur / 60) >= m["cortes_min_por_min"],
-         f"{n_cortes} cortes em {dur:.1f}s = {n_cortes/(dur/60):.1f}/min, "
-         f"piso {m['cortes_min_por_min']}/min (o reprovado deu 3,6/min)"),
+        # Regra fraca de proposito: o r_aluguel tem UM corte seco em 42s e e
+        # referencia legitima — ele troca de quadro por dissolvencia, que o
+        # detector nao conta. So pega o caso extremo do reprovado, que tem zero.
+        ("ritmo: existe corte",
+         n_cortes >= m["cortes_min"],
+         f"{n_cortes} cortes em {dur:.1f}s (o reprovado teve zero)"),
+        # Esta e a regra FORTE. Referencias: 20pp (r_aluguel 17->92... na
+        # verdade 75pp), 36pp e 35pp. Reprovado: 1pp.
         ("ritmo: o quadro muda",
-         (max(navys) - min(navys)) > 0.10,
+         (max(navys) - min(navys)) > m["variacao_navy_min"],
          f"navy varia so {(max(navys)-min(navys))*100:.0f}pp — layout congelado "
-         f"(o reprovado variou 1pp)"),
+         f"(o reprovado variou 1pp; as referencias, 35 a 75)"),
         # ESCOLHA DA CASA, e nao regra medida — a distincao importa. O r_whats
         # nao tem um unico quadro sem rosto e e referencia legitima: ele varia
         # pelo painel navy que entra e sai. Corte de apoio do Pexels e uma
