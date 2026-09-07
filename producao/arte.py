@@ -14,6 +14,13 @@ BRANCO = (255, 255, 255)
 LARG_MAX = 960
 LIMITE_TEXTO = 0.20 * W * H
 
+# A mensagem central da mentoria, em destaque nas dez artes de topo (pedido do
+# Pablo em 07/09/2026). Ela e a MESMA string do arte2.py e do arte_bofu.py: se
+# mudar, muda nos tres -- promessa que varia de arte para arte nao vira memoria
+# de ninguem. "aprenda", nao "receba": e o que separa mentoria de agencia.
+PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia para o seu WhatsApp",
+            "sem agência e sem investir alto"]
+
 
 def fonte(path, corpo, peso):
     f = ImageFont.truetype(path, corpo)
@@ -24,11 +31,11 @@ def fonte(path, corpo, peso):
     return f
 
 
-def cabe(draw, txt, path, peso, corpo):
-    """Reduz o corpo ate a linha caber em LARG_MAX."""
+def cabe(draw, txt, path, peso, corpo, larg=LARG_MAX):
+    """Reduz o corpo ate a linha caber na largura pedida."""
     while corpo > 20:
         f = fonte(path, corpo, peso)
-        if draw.textlength(txt, font=f) <= LARG_MAX:
+        if draw.textlength(txt, font=f) <= larg:
             return f
         corpo -= 2
     return fonte(path, corpo, peso)
@@ -86,10 +93,10 @@ def desenhar(p, saida):
     d = ImageDraw.Draw(im)
 
     blocos = [
-        (880,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 58,  BRANCO),
-        (942,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 132, CREME),
-        (1160, p["linha_apoio"],   "fontes/Montserrat.ttf",      600, 34,  APOIO),
-        (1258, "@oproximocliente", "fontes/Montserrat.ttf",      700, 30,  LARANJA),
+        (840,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 58,  BRANCO),
+        (902,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 132, CREME),
+        (1080, p["linha_apoio"],   "fontes/Montserrat.ttf",      600, 32,  APOIO),
+        (1254, "@oproximocliente", "fontes/Montserrat.ttf",      700, 28,  LARANJA),
     ]
     caixas = []
     for y_topo, txt, path, peso, corpo, cor in blocos:
@@ -100,8 +107,24 @@ def desenhar(p, saida):
         d.text((x, y_topo - t), txt, font=f, fill=cor)
         caixas.append((y_topo, y_topo + (b - t), (r - l) * (b - t)))
 
-    # filete laranja 140x6 centralizado em y=1122
-    d.rectangle(((W - 140) // 2, 1122, (W + 140) // 2, 1128), fill=LARANJA)
+    # A faixa da promessa toma o lugar do filete: o filete so separava, a faixa
+    # separa E diz o que eu faco. Fundo cheio porque texto pequeno sobre pele
+    # nao le.
+    # A promessa NAO vai em barra solida aqui. No fundo de funil a barra laranja
+    # significa "clique"; no topo nao ha o que clicar, e barra no pe faz a peca
+    # PARECER anuncio -- que e justamente o que encarece o alcance numa campanha
+    # de reconhecimento. O post de dor funciona porque nao parece anuncio.
+    # Entao: filete fino em cima, texto creme embaixo. Presente e legivel, sem
+    # imitar o CTA da outra campanha.
+    d.rectangle(((W - 120) // 2, 1136, (W + 120) // 2, 1140), fill=LARANJA)
+    yy = 1158
+    for i, t in enumerate(PROMESSA):
+        f = cabe(d, t, "fontes/Montserrat.ttf", 600 if i == 0 else 800, 30, 900)
+        l0, t0, r0, b0 = d.textbbox((0, 0), t, font=f)
+        x0 = (W - (r0 - l0)) / 2 - l0
+        d.text((x0 + 2, yy - t0 + 2), t, font=f, fill=(0, 0, 0))
+        d.text((x0, yy - t0), t, font=f, fill=CREME if i == 0 else LARANJA)
+        yy += (b0 - t0) + 9
 
     # conferencias que a receita exige
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]

@@ -104,14 +104,44 @@ def scrim(im, cor, y0=700):
     return im
 
 
-def etiqueta(d, txt):
-    """Tarja de turma no alto. E ela que diz 'isto e uma oferta', nao um post."""
+# A promessa, fixa nas dez artes. Sem ela so a BF04 dizia o que a pessoa vai
+# aprender: as outras nove ("vagas limitadas", "3 perguntas", "a maquina fica
+# com voce") assumem que quem le ja sabe o que e a mentoria. Num anuncio frio
+# ninguem sabe — a etiqueta diz TURMA DE SETEMBRO e o leitor pergunta "de que".
+# "aprenda", nao "receba": e mentoria, nao agencia -- e essa palavra que separa
+# as duas coisas. "online" saiu para a linha caber em corpo maior; no contexto
+# de um anuncio no Instagram ninguem le "anuncio" como outdoor.
+# A frase central da mentoria, nas duas linhas em que ela cabe legivel. A
+# segunda nao e enfeite: "sem agencia e sem investir alto" e o que separa esta
+# oferta de uma agencia, e sem ela a promessa descreve o que uma agencia
+# tambem entrega.
+PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia para o seu WhatsApp",
+            "sem agência e sem investir alto"]
+
+
+def etiqueta(d, txt, sub=PROMESSA):
+    """Tarja de turma no alto, com a promessa logo abaixo.
+
+    E a tarja que diz 'isto e uma oferta, nao um post'; e a linha de baixo que
+    diz de que oferta se trata. Uma sem a outra nao fecha.
+    """
     f = fonte(SANS, 26, 700)
     l, t, r, b = d.textbbox((0, 0), txt, font=f)
     lw, lh = (r - l) + 56, (b - t) + 30
     x0, y0 = (W - lw) / 2, 62
     d.rounded_rectangle((x0, y0, x0 + lw, y0 + lh), radius=lh / 2, fill=LARANJA)
     d.text((x0 + 28 - l, y0 + 15 - t), txt, font=f, fill=GRAFITE)
+    y = y0 + lh + 18
+    for i, linha in enumerate(sub or []):
+        # a segunda linha vem em branco cheio, nao em APOIO: e a parte que o
+        # leitor precisa levar embora
+        peso, corpo, cor = (600, 30, APOIO) if i == 0 else (800, 32, BRANCO)
+        fs = cabe(d, linha, SANS, peso, corpo, 930)
+        ls, ts, rs, bs = d.textbbox((0, 0), linha, font=fs)
+        xs = (W - (rs - ls)) / 2 - ls
+        d.text((xs + 2, y - ts + 2), linha, font=fs, fill=(0, 0, 0))
+        d.text((xs, y - ts), linha, font=fs, fill=cor)
+        y += (bs - ts) + 8
 
 
 def botao(d, principal, apoio):
@@ -166,8 +196,13 @@ def desenhar(p, saida):
         y0, y1, _, _ = centrar(d, p["linha_apoio"], f, y, APOIO, sombra=False)
         caixas.append((y0, y1))
 
-    botao(d, p.get("cta", "PREENCHER APLICAÇÃO"),
-          p.get("cta_apoio", "3 perguntas · turma de setembro · vagas limitadas"))
+    # "RESPONDER AS 3 PERGUNTAS", nao "PREENCHER APLICACAO". Num formulario
+    # instantaneo o inimigo e a fricção PERCEBIDA, nao a falta de vontade:
+    # "aplicacao" soa trabalhoso, "3 perguntas" diz o tamanho real do pedido.
+    # O botao de verdade fica ABAIXO do criativo, escolhido na campanha
+    # (recomendado: "Candidatar-se") -- esta barra so o espelha.
+    botao(d, p.get("cta", "RESPONDER AS 3 PERGUNTAS"),
+          p.get("cta_apoio", "leva menos de um minuto · turma de setembro · vagas limitadas"))
 
     folga = min(1128 - caixas[-1][1], 999)
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]

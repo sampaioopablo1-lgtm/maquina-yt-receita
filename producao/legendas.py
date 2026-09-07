@@ -16,6 +16,41 @@ LIGACAO = set("a o e de da do das dos que em no na nos nas um uma uns umas para 
 
 TROCA = {"lhe": "", "WhatsApp.": "whatsapp", "Instagram,": "instagram"}
 
+# Erros que o reconhecimento comete SEMPRE, em qualquer take. Ao contrario do
+# MANUAL abaixo, estes NAO sao por video -- ficam ligados para todo mundo.
+#
+# "o proximo cliente" sai "OU proximo cliente" em cinco dos treze takes. E o
+# nome do canal: legenda queimada com a marca escrita errada e o pior erro que
+# esta esteira pode cometer, e nao da para depender de alguem reparar a tempo.
+# "em uma hora" vira "em minha hora" pelo mesmo motivo -- fala rapida.
+#
+# A correcao e por SEQUENCIA, nao por palavra solta: trocar todo "ou" por "o"
+# quebraria as frases em que ele realmente diz "ou".
+# Levantei todas as variantes nos treze takes: "ou proximo cliente" em cinco,
+# "ao proximo cliente" em um, "mentoria proximo cliente" em um. Sao TRES
+# palavras de propriedade: "ao proximo" e portugues legitimo fora deste
+# contexto ("vamos ao proximo passo"), entao a regra so dispara com "cliente"
+# na sequencia.
+SEQUENCIAS = [
+    (["ou", "próximo", "cliente"], ["o", "próximo", "cliente"]),
+    (["ao", "próximo", "cliente"], ["o", "próximo", "cliente"]),
+    (["em", "minha", "hora"], ["em", "uma", "hora"]),
+]
+
+
+def corrige(pal):
+    for erro, certo in SEQUENCIAS:
+        i = 0
+        while i <= len(pal) - len(erro):
+            if [p["t"] for p in pal[i:i + len(erro)]] == erro:
+                for j, t in enumerate(certo):
+                    pal[i + j]["t"] = t
+                i += len(erro)
+            else:
+                i += 1
+    return pal
+
+
 # Onde a transcricao automatica erra, a palavra vai na mao com o tempo da FONTE.
 # ATENCAO: isto e POR VIDEO. Esvazie os dois ao trocar de take.
 MANUAL = {}
@@ -37,11 +72,18 @@ def carrega():
             t = TROCA.get(w["t"], w["t"]).strip(" ,.").lower()
             if not t or (i, t) in FORA:
                 continue
-            saida.append({"t": t,
-                          "ini": round(ini[i] + (w["s"] - a), 2),
-                          "fim": round(ini[i] + (min(w["e"], b) - a), 2),
-                          "seg": i})
-    return saida
+            novo = {"t": t,
+                    "ini": round(ini[i] + (w["s"] - a), 2),
+                    "fim": round(ini[i] + (min(w["e"], b) - a), 2),
+                    "seg": i}
+            # enclise: "-lo", "-la", "-se" colam na palavra anterior em vez de
+            # virar um bloco sozinho ("destrava" + "-lo" leem como texto quebrado)
+            if t.startswith("-") and saida and saida[-1]["seg"] == i:
+                saida[-1]["t"] += t
+                saida[-1]["fim"] = novo["fim"]
+                continue
+            saida.append(novo)
+    return corrige(saida)
 
 
 def agrupa(pal):
