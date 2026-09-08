@@ -19,3 +19,16 @@
 **08/09 14h30 — auditoria de ponta a ponta.** Corrigido: (a) agente de engajadores só aceitava clínica/contabilidade/arquitetura — dono de restaurante, pet shop ou imobiliária que comentasse seria descartado; recriado com alvo amplo; (b) esse agente não excluía agência, gestor de tráfego, SaaS nem recrutador — concorrente entraria na fila; exclusão adicionada; (c) texto do ICP ainda dizia "prioridade odonto e estética RJ"; atualizado. Verificado OK: os 7 posts agendados têm mídia anexada; agenda livre das 17h30 todo dia; Meta topo 965 impressões e 198 thruplays a R$0,05, fundo 72 impressões, CPM R$78, 0 leads. Novo agente de engajadores: jx71bpfjygzyknehqkb006129d8e1khg.
 **Rotinas trocadas de sessão para permanentes:** 7h35 (post no ar), a cada 2h (agendar reuniões), 21h33 (otimização diária), sexta 18h (revisão semanal). As antigas, que morriam com a sessão, foram removidas.
 **Projeção registrada:** 7 dias 0 a 2 reuniões; 15 dias 3 a 6; 30 dias 10 a 18. Aferir na revisão de sexta.
+
+**08/09 14h40 — auditoria do Meta: os dois braços do Y estão desalinhados.**
+Conjunto de leads (120247320350580766, R$25/dia, geo estado do RJ, 25-65) tem 12 públicos em união:
+construção RJ CNAE 41/42/43 ×2 (70-80k) · contabilidade ×3 (14-17k) · consultoria BR (24-28k) ·
+SaaS BR (6-7k) · instituição de ensino BR ×2, duplicada (13-16k) · quente (VV, PG 365, ENG INST).
+Problemas: (1) SaaS está EXCLUÍDO no ICP do LinkedIn e ativo no Meta — paga-se para falar com quem o outro braço descarta;
+(2) 12 públicos num conjunto só, sem relatório por lista = impossível saber de qual lista veio o lead;
+(3) listas nacionais (BR) espremidas pelo geo RJ → interseção pequena → CPM R$78 e só R$5,65 de R$25 gastos hoje;
+(4) três versões da oferta no ar: anúncio (mentoria/turma), formulário ("90 dias"), LinkedIn (30 dias, 4 encontros);
+(5) topo INT I DONOS exclui o estado de São Paulo, enquanto o agente do LinkedIn busca RJ **e** SP;
+(6) topo está com Advantage+ (expansion_all e advantage_audience=1): a segmentação por interesse é mais rótulo que filtro — aceitável para objetivo de vídeo.
+**Decisão: NÃO mexer na segmentação hoje.** O conjunto passou +24h em zero e só destravou hoje de manhã; editar pausa e reinicia aprendizado — trocaria um dia de entrega por ~1,5% de pureza de público. Também não separar por lista com R$25/dia (daria ~R$8 por conjunto, abaixo do mínimo para sair do aprendizado).
+**Plano:** agora alinhar mensagem (anúncio + formulário + post); amanhã incluir SP no topo se o Pablo autorizar; aos 10 leads tirar SaaS e ensino e separar construção x contabilidade, com orçamento do fundo indo de R$25 para R$60-75/dia — decisão pendente do Pablo.
