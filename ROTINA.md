@@ -8,16 +8,17 @@ histórico em git. **Quando um mudar, mude o outro no mesmo commit.**
 
 ---
 
-## Mudança de 08/09/2026 — ritmo de 1 a 3 pacotes/dia/canal, e o MP4 sai do Supabase
+## Mudança de 08/09/2026 — ritmo de 1 a 3 pacotes/dia/canal, e o Storage vira ponte
 
 Quatro fatos medidos em 08/09/2026 motivaram esta versão:
 
 | fato | número | consequência |
 |---|---|---|
 | a rotina estava **desligada** | `enabled=false`, último pacote 01/09 | a frota parou 7 dias; religar é parte da mudança |
-| Supabase Storage quase cheio | **622 MB de 1 GB**, e 620 MB são 46 MP4 | MP4 vai para o Drive; Supabase fica com metadado e artefato leve |
+| Supabase Storage quase cheio | **622 MB de 1 GB**, e 620 MB são 46 MP4 | o MP4 é apagado do bucket assim que o Drive confirma, no mesmo pacote |
 | Pexels construído e não usado | **2 de 83 specs** têm `broll_q` | b-roll deixa de ser experimento e vira obrigatório |
 | duplicatas no ar | 11 no `kolejny-poziom`, 10 no `nivel-do-jogo` | a guarda anti-duplicata passa a **bloquear**, não avisar |
+| `expurgo-storage.yml` sem cron | só `workflow_call`/`dispatch` | passa a ser chamado ao fim de todo disparo |
 
 **Sobre o ritmo.** Em 24/08 o teto foi baixado de 5 para 1 pacote/dia/canal, e o
 motivo registrado no PLAYBOOK não era cadência: era duplicata — ~3.100 das ~4.029
@@ -33,7 +34,7 @@ Diferenças em relação à versão de 05/08/2026:
 
 | antes | agora |
 |---|---|
-| MP4 no Supabase Storage, depois Drive | **MP4 direto no Drive**; Supabase só srt/thumb/linhas |
+| MP4 ficava no bucket depois da cópia | **apagado do bucket no mesmo pacote**, assim que o `drive_id` volta |
 | b-roll do Pexels = experimento 10, opcional | **obrigatório**: ≥40% das cenas do longo, ≥2 no short |
 | 1 pacote/dia/canal (teto de 24/08) | **1 a 3/dia/canal**, condicionado à guarda anti-duplicata |
 | um canal por disparo | **lote por disparo**, até acabar a quota de LLM do dia |
@@ -145,17 +146,41 @@ Sandbox Composio; fábrica em `fabrica/`; `pip install edge-tts cairosvg` se rec
 
 ## PASSO 2 — ENTREGA
 
-**O MP4 NÃO VAI MAIS PARA O SUPABASE STORAGE.** Em 08/09/2026 o bucket estava com
-622 MB de 1 GB do plano free, e 620 MB eram 46 arquivos MP4 (~13,5 MB cada). Os outros
-137 arquivos somavam 2,7 MB. Continuar como estava dava ~28 vídeos até a parede.
+**O STORAGE É PONTE, NÃO ARQUIVO — e a ponte se desmonta no mesmo disparo.**
 
-Divisão nova:
+O MP4 continua subindo para o bucket, porque `GOOGLEDRIVE_UPLOAD_FROM_URL` precisa de
+uma URL pública e é o bucket que a fornece. O que muda é que ele **não fica lá**.
 
-| artefato | onde | por quê |
+Em 08/09/2026 o bucket estava com 622 MB de 1 GB, e 620 MB eram 46 MP4 (~13,5 MB cada);
+os outros 137 arquivos somavam 2,7 MB. O `expurgo-storage.yml` existe desde 25/08 para
+varrer exatamente isso, mas ele só tem `workflow_call` e `workflow_dispatch` — **sem
+cron**. Ninguém o chamava, e por isso o peso voltou.
+
+E o custo não é só o teto de 1 GB: o Fair Use do Supabase cobra em **GB-Hrs**, e apagar
+não devolve o que já queimou no ciclo. Cada hora que o MP4 fica no bucket é cota gasta.
+Segurar 0,65 GB em vez de 3,7 GB é o que separa ~480 GB-Hrs/mês (dentro do teto) de
+~2.750 (3,7× acima). Por isso o expurgo não é faxina periódica: é parte do pacote.
+
+Ordem obrigatória, por artefato de vídeo:
+
+1. sobe o MP4 para o bucket (a ponte);
+2. `GOOGLEDRIVE_UPLOAD_FROM_URL` a partir da URL pública;
+3. confirma o `drive_id` na resposta;
+4. **apaga o MP4 do bucket pela Storage API**, no mesmo pacote — nunca por SQL: o
+   gatilho `protect_objects_delete` barra, e o escape faria a linha sumir com o arquivo
+   continuando a ocupar S3 para sempre.
+
+Só apague depois do passo 3 confirmado. Sem `drive_id`, o MP4 fica e vira pendência.
+
+| artefato | destino final | por quê |
 |---|---|---|
 | MP4 (longo e short) | **Google Drive** | 15 GB free ≈ 1.100 vídeos |
-| legendas.srt, thumbnail, copy.md | Supabase Storage | 2,7 MB em 137 arquivos, cabe folgado |
+| legendas.srt | Supabase Storage, **permanente** | 1,5 MB no total, e é a matéria-prima do `calibrar-vozes.yml`, que lê o tempo real de cena |
+| thumbnail, copy.md | Supabase Storage | ~1 MB, cabe folgado |
 | linhas (`videos`, `metricas`, …) | Supabase Postgres | 21 MB de 500 MB, sem pressão |
+
+`videos.supabase_url` continua valendo como ÍNDICE mesmo depois do MP4 apagado — é dele
+que o `calibrar-vozes` deriva o nome do `.srt` trocando o sufixo. Não anule a coluna.
 
 Para os artefatos leves, do sandbox:
 
@@ -166,18 +191,22 @@ Para os artefatos leves, do sandbox:
 
 Não mande `x-upsert`. Não use `upload_local_file` do workbench.
 
-Para o MP4, direto ao Drive: GOOGLEDRIVE_UPLOAD_FROM_URL (campo obrigatório é `name`,
-não `file_name`) + GOOGLEDRIVE_MOVE_FILE — o `parent_id` é ignorado no upload e tudo cai
-na raiz `0AL8gANwo3v7jUk9PVA`. Grave o id do Drive em `videos.drive_*` e deixe
-`videos.supabase_url` nulo para o MP4; a coluna passa a valer só para artefato leve.
+Para o MP4: GOOGLEDRIVE_UPLOAD_FROM_URL (campo obrigatório é `name`, não `file_name`)
++ GOOGLEDRIVE_MOVE_FILE — o `parent_id` é ignorado no upload e tudo cai na raiz
+`0AL8gANwo3v7jUk9PVA`. Grave o id do Drive em `videos.drive_*` e só então apague o MP4
+do bucket, como manda a ordem acima.
 
 **Antes de subir qualquer coisa**, cheque o consumo:
 
     select pg_size_pretty(sum((metadata->>'size')::bigint)) from storage.objects;
 
-Acima de **800 MB**, pare de subir e abra uma pendência para limpeza: apague do bucket
-os MP4 de pacotes que já têm `youtube_id` e `drive_id` — eles estão publicados e
-espelhados, e a cópia no Supabase é a única redundante.
+Acima de **800 MB**, não abra pacote novo: rode primeiro o `expurgo-storage.yml` com
+`executar=true` e `dias=0` e confirme a queda. Ele já sabe o que preservar (`.srt`) e o
+que varrer (MP4 com `youtube_id` ou `drive_id`, e órfão sem linha em `videos`).
+
+**AO FIM DE TODO DISPARO**, chame o `expurgo-storage.yml` com `dias=0`, `executar=true`.
+Foi a ausência dessa chamada — o workflow não tem cron — que deixou 620 MB voltarem ao
+bucket depois da varredura de 25/08.
 
 ## PASSO 2B — PUBLIQUE
 
