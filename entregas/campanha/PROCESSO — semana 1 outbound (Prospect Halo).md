@@ -59,6 +59,12 @@
 - **Sempre propor dois horários no mesmo dia: 17h30 ou 18h30.** Se nenhum servir: 19h30 ou 20h30. Limite: 21h30. Nunca antes das 17h30.
 - Autopilot do Prospect Halo segue a mesma regra; o convite da agenda vai depois do horário confirmado.
 
+## Referência de processo e conteúdo: Thiago Reis (Growth Machine)
+- Régua: ICP estreito · cadência com toques mistos · qualificar antes da reunião · métrica por etapa · revisão semanal.
+- Tom dos posts: processo, não motivação; número real, não adjetivo; frase curta; "máquina" como palavra central; voz de quem opera.
+- Ângulos: o erro do dono · o processo que resolve · o dado que prova · para quem é. Sem "dica de ouro".
+- Não usar o perfil dele como fonte de engajadores nos agentes de clínica (público dele é vendedor/fundador B2B, fora do ICP).
+
 ## Regras que não mudam
 - Nunca vender na primeira mensagem. Nunca link antes de resposta.
 - Agente não muda alvo sem o Pablo aprovar. Nada é apagado sem `confirm`.
