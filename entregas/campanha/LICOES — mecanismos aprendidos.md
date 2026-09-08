@@ -33,8 +33,18 @@
 | `GOOGLEDRIVE_LIST_FILES` ignora `query`; usa `folderId` | Listar sempre por pasta | 07/09 |
 | HTML enviado com mime `application/vnd.google-apps.document` vira Google Doc | Caminho para documento legível no celular | 07/09 |
 
+## Instagram (verificado na conta do Pablo em 08/09)
+| Mecanismo | Consequência prática | Descoberto |
+|---|---|---|
+| A API do Instagram **recusa iniciar conversa nova**: `INSTAGRAM_SEND_TEXT_MESSAGE` só funciona em thread existente | O primeiro toque é SEMPRE manual do Pablo. Não existe automação legítima de DM frio, em ferramenta nenhuma | 08/09 |
+| Depois que a pessoa responde, a janela de 24h abre e o envio é liberado (erro 403 subcode 2534022 quando fora da janela — não repetir) | Toques 2 e 3 podem ser automáticos, e é oficial | 08/09 |
+| Comentário no post que dispara DM **abre a janela oficialmente**; curtida não abre; seguir não abre; resposta de story abre | O CTA "Comenta AGENDA" é o único mecanismo de aquisição em escala que a Meta autoriza | 08/09 |
+| Pela API oficial: até **200 DMs por hora** para quem agiu primeiro. Ferramenta de navegador que "simula comportamento humano": 15% a 30% de suspensão ao ano contra menos de 0,5% da oficial | O caminho seguro é 400x maior que o arriscado. Simular comportamento humano é a descrição do que a Meta caça, não um selo de segurança | 08/09 |
+| DM de desconhecido cai em "Solicitações", que quase ninguém abre. **Resposta a story cai na caixa principal** | Se tem story no ar, responder o story sempre vence o direct novo | 08/09 |
+
 ## Regras de conduta que saíram dessas lições
 1. Quando um número não tem explicação, procurar o **mecanismo**, não o botão. O que some em silêncio (adiado, descartado, não entregue) importa mais que o que aparece no relatório.
 2. Achou um defeito num lugar, procurar o mesmo defeito em **todos os lugares análogos** antes de encerrar.
 3. Antes de mexer em algo que acabou de melhorar, calcular o que se perde reiniciando o aprendizado.
 4. Registrar o mecanismo aqui na hora. Redescobrir custa dias.
+5. **A linha que separa o seguro do arriscado não é "automatizar ou não", é "quem falou primeiro".** Iniciar conversa fria em volume derruba conta em qualquer plataforma. Responder quem te procurou é ilimitado e oficial. Toda máquina deve ser desenhada para o lead dar o primeiro passo.
