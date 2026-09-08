@@ -114,13 +114,23 @@ Regras que os dados sustentam:
 
 ## 5. Sequência pronta — odontologia, RJ (voz do Pablo)
 
+**Abertura padrão — testada pelo Pablo, funcionou:**
+> **[Clínica / Nome do fundador], precisa de mais clientes?**
+
+Vai como assunto do e-mail 1, como nota do convite e como primeira linha da mensagem 1. É uma pergunta fechada de interesse (o CTA que o Gong mediu como o melhor) colocada antes de tudo, sem pitch. A força está no nome certo: genérica, vira spam.
+
+Variantes para A/B (uma por vez, 5 dias cada; a padrão é o controle):
+- **[Nome], a agenda de amanhã já está cheia?** — clínicas, dor no concreto
+- **[Empresa], ainda depende de indicação?** — contadores, engenharia
+- **[Nome], quantos clientes novos entraram essa semana?** — provocativa; 20% do volume
+
 **Convite (D1, ≤ 300 caracteres)**
-> Dr(a). [Nome], vi que a [Clínica] está em [bairro]. Trabalho com donos de clínica no Rio que querem parar de depender de indicação para encher a agenda. Bora conectar?
+> [Clínica], precisa de mais clientes? Dr(a). [Nome], vi que a [Clínica] está em [bairro]. Trabalho com donos de clínica no Rio que querem parar de depender de indicação para encher a agenda. Bora conectar?
 
 **Mensagem 1 (D3) — a pergunta**
 > Obrigado por aceitar, [Nome]. Curiosidade de quem vive isso: hoje a agenda da clínica enche mais por indicação de paciente antigo, ou vocês têm algum canal ativo trazendo gente nova?
 
-**E-mail 1 (D5) — a dor** · assunto: *agenda de amanhã*
+**E-mail 1 (D5) — a dor** · assunto: *[Clínica], precisa de mais clientes?*
 > [Nome], uma coisa que vejo em quase toda clínica do Rio: a agenda de amanhã depende de alguém lembrar de você hoje.
 > Funciona — até o mês em que não lembram.
 > Ajudo donos de clínica a ter paciente novo chegando pelo WhatsApp todo dia, sem agência no meio.
