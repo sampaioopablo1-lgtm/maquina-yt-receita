@@ -855,6 +855,25 @@ do limite anti-spam de 2 longos/dia/canal.
 > despacha sozinho a cada 15 min é o `proximo`, pelo `diario.yml`, e o teto dele era 5.
 > Regra para automação desacompanhada tem de **bloquear** (aprendizado 452).
 
+> **REVISTO EM 08/09/2026 — o teto volta a 3 pacotes/dia/canal, a pedido do Pablo.**
+> A decisão de 24/08 acima continua válida no *diagnóstico* e foi revista no *remédio*.
+>
+> O que ela combateu não era cadência, era **duplicata** — e o teto de 1 foi o remédio
+> disponível na época porque a guarda de similaridade avisava em vez de bloquear. Escassez
+> de vagas é um remédio indireto: ela reduz a duplicata reduzindo a produção inteira, e
+> cobra o preço nos canais que não estavam duplicando nada.
+>
+> O remédio direto é a guarda, e ela agora bloqueia na origem (ROTINA.md, seção FILA):
+> similaridade ≤ 0,65 contra os últimos 30 do mesmo canal, trigrama de título contra o que
+> já está no ar, e eixo diferente do último pacote. Com isso no lugar, o teto passa a 3 em
+> `fabrica/orquestra.py` (`MAX_POR_DIA_POR_CANAL = 3`) e em `v_maquina_fila.pode_produzir`
+> (`pacotes_24h < 3`), pela migração `20260908_fila_teto_3_pacotes_por_dia_por_canal.sql`.
+>
+> **A condição não é conselho:** se a guarda não puder ser verificada num disparo — view
+> fora do ar, banco inacessível — aquele disparo volta a valer 1 por canal e registra a
+> degradação em `aprendizados`. As 21 duplicatas que estavam no ar em 08/09 (11 no
+> `kolejny-poziom`, 10 no `nivel-do-jogo`) são o que acontece com cadência sem guarda.
+
 O que separa a linha 1 da linha 2 é orçamento de minutos do Actions, não código. O repo é
 **privado**: 2.000 min/mês grátis, e um pacote custa ~25 min num runner de 2 vCPU. Para
 24 pacotes/dia são ~18.000 min/mês (~US$ 128/mês). **Repo público zera isso** — minutos
