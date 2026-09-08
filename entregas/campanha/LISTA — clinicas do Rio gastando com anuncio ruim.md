@@ -156,6 +156,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - energia solar + Rio ✔ (**124 anúncios, o nicho mais rico**)
 - academia + musculação + Botafogo ✔ (zero resultado)
 - arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
+- odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
+- harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 
 **Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -204,3 +206,21 @@ Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia 
 **Leitura do nicho:** arquitetura + Copacabana rende quase nada — 6 anúncios de uma única empresa. Junta-se a contabilidade, advocacia e fisioterapia na lista de nichos que não anunciam no Rio. Para arquitetura, o caminho é Instagram e indicação, não a Biblioteca.
 
 **Academia + Botafogo: zero anúncios ativos.** Combinação queimada, não repetir.
+
+---
+
+## Achados de 08/09, 20h10 — harmonização + Botafogo / odontologia + Méier
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Vênus Belle** (Trilha B — sem nome de dono) | "Vênus Belle \| Fale conosco \| Fale conosco \| Fale conosco \| Fale conosco" — a mesma chamada **quatro vezes** no mesmo título | `589688710904829` | 02/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1571355244374897) |
+
+**Abertura pronta:**
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio de vocês na Biblioteca do Facebook e o título dele repete "Fale conosco" quatro vezes seguidas. Isso normalmente é campo preenchido errado na hora de subir, e quem vê não entende o que está sendo oferecido. Quem cuida dos anúncios aí?
+
+**Descartados nesta varredura (anúncio está correto, não abordar):**
+- *Prime Dente* (Méier) — título "Implante Dentário", certo. Único anúncio de odonto no Méier.
+- *Clinic Cursos* e *Espaço Facial* (Botafogo) — vendem curso e franquia, não é o ICP.
+
+**Leitura:** Méier e Botafogo têm pouquíssimo anúncio ativo nesses nichos. O volume do Rio está concentrado em Barra, Tijuca e Niterói — vale voltar as varreduras para lá e para nichos novos, em vez de continuar abrindo bairros pequenos.
