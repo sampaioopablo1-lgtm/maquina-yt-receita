@@ -16,23 +16,58 @@
 | 9 | **Oral Unic Tijuca** | 16 anúncios, todos com "Clique Aqui e Fale Conosco!" |
 | 10 | **Nascimento Odontologia** | 12 anúncios idênticos criados no mesmo segundo |
 
-**Mensagem para os casos 5, 6 (erro técnico visível):**
-> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio de vocês no Facebook e o título está saindo errado, aparece código no lugar do texto. Quem vê não entende e vocês pagam do mesmo jeito. Quem cuida das campanhas aí?
+### A regra que vale para todas as mensagens
 
-**Mensagem para os casos 3, 4 e 7 (sem chamada / título repetido):**
-> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi os anúncios de vocês rodando e nenhum tem título de chamada. Quem vê não sabe o que fazer depois. Isso costuma jogar fora metade do investimento. Quem cuida disso aí?
+**A prova vem na primeira linha. A apresentação vem na segunda.**
 
-**Mensagem para o caso 8 (anúncio velho no ar):**
-> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi que o anúncio de vocês está no ar desde o ano passado, com a mesma oferta de "só hoje". Quem vê várias vezes para de acreditar. Vocês trocam o criativo de quanto em quanto tempo?
+O que decide se ele abre é a prévia da notificação — cerca de 50 caracteres. Se ela disser
+"Oi, aqui é o Pablo, do Rio", ele lê "vendedor" e não abre. Se disser "seu anúncio está sem
+título desde março", ele abre, porque é sobre o negócio dele e soa como problema.
 
-**Mensagem para os casos 1, 2, 9 e 10 (Fale Conosco / anúncios repetidos):**
-> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi 16 anúncios de vocês no ar, todos com "Fale Conosco". Isso enche o WhatsApp de curioso e não de cliente. Vocês sentem isso na prática?
+A apresentação não some — desce uma linha. Sem ela a mensagem parece golpe.
 
 ---
 
-*Extraída da Biblioteca de Anúncios do Meta em 08/09/2026, 15h50. Dados públicos. Todos com anúncio ATIVO neste momento.*
+**Casos 1, 2, 9 e 10 — chamada repetida / muitos anúncios iguais:**
 
-**Por que esta lista vale mais que lista de CNPJ:** cada nome aqui prova três coisas ao mesmo tempo — tem dinheiro (está pagando agora), tem a dor (o anúncio é ruim e dá para mostrar), e você sabe quem é. Nenhuma outra lista faz isso.
+> Seu anúncio repete "Converse conosco" sete vezes seguidas — e está assim desde junho de 2024.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente e não vim vender nada. Vi na Biblioteca de Anúncios do
+> Facebook, que é pública. Dois anos pagando por um anúncio que ninguém abriu para conferir.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+**Casos 3, 4 e 7 — sem título ou título repetido:**
+
+> Quatro dos seus seis anúncios estão sem título nenhum.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. O título é o campo que o Facebook usa para decidir
+> a quem mostrar — vazio, o alcance encarece e o mesmo dinheiro compra menos gente.
+>
+> Quem monta os anúncios aí?
+
+**Casos 5 e 6 — erro técnico visível:**
+
+> O título do seu anúncio está saindo como código: aparece {{product.name}} no lugar do texto.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Está assim desde julho e vocês pagam do mesmo jeito.
+>
+> Quem cuida das campanhas aí?
+
+**Caso 8 — anúncio velho no ar:**
+
+> Sua promoção de "apenas hoje" está no ar desde setembro do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Quem vê a mesma urgência por um ano para de acreditar
+> nela — e aí ela para de funcionar até quando for verdade.
+>
+> Vocês trocam o criativo de quanto em quanto tempo?
+
+---
+
+*Versão anterior destas mensagens abria com "Oi, aqui é o Pablo, do Rio. Não sou cliente" e
+enterrava a prova na terceira frase. Corrigido em 08/09: a prévia da notificação é a única
+linha garantida, e ela estava sendo gasta com apresentação.*
 
 ---
 

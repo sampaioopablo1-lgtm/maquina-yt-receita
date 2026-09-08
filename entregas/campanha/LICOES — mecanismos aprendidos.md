@@ -48,3 +48,19 @@
 3. Antes de mexer em algo que acabou de melhorar, calcular o que se perde reiniciando o aprendizado.
 4. Registrar o mecanismo aqui na hora. Redescobrir custa dias.
 5. **A linha que separa o seguro do arriscado não é "automatizar ou não", é "quem falou primeiro".** Iniciar conversa fria em volume derruba conta em qualquer plataforma. Responder quem te procurou é ilimitado e oficial. Toda máquina deve ser desenhada para o lead dar o primeiro passo.
+
+## A prévia da notificação é a única linha garantida
+
+Direct, e-mail e WhatsApp têm a mesma mecânica: a pessoa decide abrir lendo cerca de
+50 caracteres na notificação. Tudo depois disso só existe se ela abrir.
+
+Gastar essa linha com "Oi, aqui é o Pablo, do Rio. Não sou cliente" é entregar a única
+chance para uma frase que identifica você como vendedor. A prova — o defeito concreto do
+anúncio dele, com data — tem que ocupar esse lugar.
+
+**Regra:** prova na primeira linha, apresentação na segunda. A apresentação não some,
+porque sem ela a mensagem parece golpe; mas ela nunca vem antes.
+
+Vale igual para o assunto do e-mail frio, que é a mesma linha com outro nome.
+
+Corrigido em 08/09/2026, depois de escrever dez mensagens todas com o erro.
