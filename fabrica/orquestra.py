@@ -41,8 +41,22 @@ SPECS = os.path.join(RAIZ, "fabrica", "specs")
 sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 
 META_POR_CANAL = 10       # longos publicados por canal
-MAX_POR_DIA_POR_CANAL = 1  # PACOTES/dia/canal — 1 longo + 1 short por dia
-# 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, as duas vezes a pedido do dono.
+MAX_POR_DIA_POR_CANAL = 3  # PACOTES/dia/canal — cada pacote e 1 longo + 1 short
+# 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, 1 -> 3 em 08/09/2026, as tres
+# vezes a pedido do dono.
+#
+# SOBRE A VOLTA PARA 3 (08/09/2026). O motivo da queda para 1 nao era cadencia,
+# era DUPLICATA: o teto baixo era o unico remedio disponivel porque a guarda de
+# similaridade avisava em vez de bloquear. O remedio certo e a guarda, e ela
+# agora bloqueia na origem (ROTINA.md, secao FILA: similaridade <= 0,65,
+# trigrama de titulo, eixo diferente do ultimo pacote).
+#
+# ENTAO ESTE NUMERO TEM UMA CONDICAO, e ela nao e conselho: se a guarda
+# anti-duplicata nao puder ser verificada em um disparo — view fora do ar,
+# banco inacessivel — aquele disparo volta a valer 1 por canal e registra a
+# degradacao em `aprendizados`. Cadencia sem guarda foi exatamente o que pos
+# as 21 duplicatas que estavam no ar em 08/09/2026 (11 no kolejny-poziom, 10
+# no nivel-do-jogo).
 # O numero conta PACOTE, nao video: cada pacote e um longo mais um short.
 #
 # A decisao de 24/08 foi "apenas 1 video longo por canal por dia, todos os
