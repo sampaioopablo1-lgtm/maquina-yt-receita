@@ -5,27 +5,27 @@
 
 | # | Empresa | O erro, em uma linha |
 |---|---|---|
-| 1 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
-| 2 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
-| 3 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
-| 4 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
-| 5 | **Oral Unic Tijuca** | 16 anúncios, todos com "Clique Aqui e Fale Conosco!" |
-| 6 | **Nascimento Odontologia** | 12 anúncios idênticos criados no mesmo segundo |
-| 7 | **mvmateusmarques** (veterinário) | título quebrado: o nome do perfil seguido de barras vazias |
-| 8 | **Lídervet e Diagnóstico** | anúncio sem título |
-| 9 | **Ferdinand Odontologia** | títulos vazios desde março |
-| 10 | **Marcenaria Real92** | "Converse conosco" desde agosto de 2025 |
+| 1 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
+| 2 | **Flip Dog Care** (Niterói) | um anúncio com "api.whatsapp.com" cru no título, outro com "Converse conosco" cinco vezes, desde jan/2025 |
+| 3 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
+| 4 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
+| 5 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
+| 6 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
+| 7 | **Oral Unic Tijuca** | 16 anúncios, todos com "Clique Aqui e Fale Conosco!" |
+| 8 | **Nascimento Odontologia** | 12 anúncios idênticos criados no mesmo segundo |
+| 9 | **mvmateusmarques** (veterinário) | título quebrado: o nome do perfil seguido de barras vazias |
+| 10 | **Lídervet e Diagnóstico** | anúncio sem título |
 
-**Mensagem para os casos 1, 2 e 7 (erro técnico visível):**
+**Mensagem para os casos 2, 3, 4 e 9 (erro técnico visível):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio de vocês no Facebook e o título está saindo errado, aparece código no lugar do texto. Quem vê não entende e vocês pagam do mesmo jeito. Quem cuida das campanhas aí?
 
-**Mensagem para os casos 3, 8 e 9 (sem chamada):**
+**Mensagem para os casos 5 e 10 (sem chamada):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi os anúncios de vocês rodando e nenhum tem título de chamada. Quem vê não sabe o que fazer depois. Isso costuma jogar fora metade do investimento. Quem cuida disso aí?
 
-**Mensagem para os casos 4 e 10 (anúncio velho no ar):**
+**Mensagem para o caso 6 (anúncio velho no ar):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi que o anúncio de vocês está no ar desde o ano passado, com a mesma oferta de "só hoje". Quem vê várias vezes para de acreditar. Vocês trocam o criativo de quanto em quanto tempo?
 
-**Mensagem para os casos 5 e 6 (Fale Conosco / anúncios repetidos):**
+**Mensagem para os casos 1, 7 e 8 (Fale Conosco / anúncios repetidos):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi 16 anúncios de vocês no ar, todos com "Fale Conosco". Isso enche o WhatsApp de curioso e não de cliente. Vocês sentem isso na prática?
 
 ---
@@ -158,6 +158,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
 - odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
+- veterinária + Niterói ✔ (**10 resultados, 3 aproveitáveis — melhor taxa até agora**)
 
 **Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -224,3 +225,31 @@ Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia 
 - *Clinic Cursos* e *Espaço Facial* (Botafogo) — vendem curso e franquia, não é o ICP.
 
 **Leitura:** Méier e Botafogo têm pouquíssimo anúncio ativo nesses nichos. O volume do Rio está concentrado em Barra, Tijuca e Niterói — vale voltar as varreduras para lá e para nichos novos, em vez de continuar abrindo bairros pequenos.
+
+---
+
+## Achados de 08/09, 21h15 — veterinária + Niterói (o melhor lote até agora)
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Bicho D+ Veterinária e Pet Shop** | "Clínica Veterinária Bicho D+ em Niterói/RJ. \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco" — **sete repetições** | `1255112617929642` | **01/06/2024 — 2 anos e 3 meses** | [anúncio](https://www.facebook.com/ads/library/?id=989751759165957) |
+| **Flip Dog Care** | um anúncio com o título **`api.whatsapp.com`** (URL crua) e outro com "Converse conosco" cinco vezes | `417931334744365` | 15/01/2025 — 20 meses | [anúncio](https://www.facebook.com/ads/library/?id=1288493340098133) |
+| **lerveticarai** | "lerveticarai \|   \|   \|   \|   \|  " — **cinco campos totalmente vazios**; outros 3 anúncios com "instagram.com" no título | `1010139942171723` | 12/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1678031390184088) |
+
+**O caso Bicho D+ é o mais forte da lista inteira.** Dois anos e três meses pagando por um
+título que repete "Converse conosco" sete vezes. Não é erro de gosto, é campo preenchido
+errado que ninguém nunca abriu para conferir. Abertura:
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio da Bicho D+ na Biblioteca do
+> Facebook e o título dele repete "Converse conosco" sete vezes seguidas. Está assim
+> **desde junho de 2024** — dois anos pagando por um anúncio que ninguém abriu para conferir.
+> Quem cuida das campanhas de vocês hoje?
+
+**Descartados (motivo registrado):**
+- *Anhanguera Educacional* e *faculdadeancliveparj* — vendem curso de veterinária, não são o ICP.
+- *Veterinária Natalia Razal* (Trilha A, dono no nome) — título "Veterinária domiciliar", **correto**. Não abordar por defeito de anúncio; se um dia entrar, é por outro gancho.
+
+**Leitura:** veterinária em Niterói rendeu 3 empresas aproveitáveis em 10 anúncios — a melhor
+taxa de todas as combinações varridas. E os dois melhores casos são os mais **antigos**: quanto
+mais tempo o anúncio ruim está no ar, mais forte fica a abertura, porque o desperdício é
+mensurável em anos.
