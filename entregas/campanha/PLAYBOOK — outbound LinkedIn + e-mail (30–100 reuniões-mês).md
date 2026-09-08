@@ -280,3 +280,13 @@ Filtro final: sem jargão, sem sigla, sem promessa vaga.
 **Rotina diária de 15 min:** 5 publicar/aprovar post · 5 responder comentários e DMs · 5 aprovar rascunhos presos. Automatizar o repetitivo (prospecção, follow-up, triagem); manter humano o decisivo (diagnóstico, fechamento).
 
 **Descartado de propósito:** Sales Navigator (Prospect Halo verifica após a busca; conta gratuita basta) e automações de terceiros (LinkedHelper, Dux-Soup).
+
+### 11.1 Acréscimos do mapa "Nexus Mind" (PDF do Lucas Assumpção, 08/09)
+- **Regras do gancho:** número real ou nada; MAIÚSCULA só no dado principal; sem vírgula antes do enter. Enquanto não houver prova aprovada, usar gancho "dor + promessa", "contra-intuitivo" ou "erro caro"; o gancho "eu fiz + número" fica proibido.
+- **Transição:** "De forma simples:" seguido de 3 a 5 bullets curtos, ação por ação (em vez de parágrafo).
+- **Filtro final:** zero adjetivo vazio ("incrível", "poderoso"). Cada frase: específica ou genérica? Genérica é o que a IA de todo mundo escreve.
+- **CTA:** uma palavra só, uma ação só. Nunca "comenta, curte e segue". Repost pedido com ♻ na linha do CTA. PS com credibilidade.
+- **Semana de posts:** seg isca · qua bastidores do sistema · qui prova social (ou "para quem é" enquanto não houver prova) · sex isca forte. **Sexta é sagrada:** ler o número de cada etapa; travou em volume (em cima) ou em conversão (embaixo)?
+- **Primeiros 45 minutos após publicar:** responder comentários reativa o post no feed. É o único trabalho manual que vale o tempo do Pablo (Prospect Halo não comenta).
+- **Curioso:** recebe o material, agradece e some; fica na base e entra no próximo post. Não gasta tempo humano. **Comprador:** conta a dor; espelhar a dor e oferecer o diagnóstico com link direto da agenda.
+- **Pendência que o mapa expõe:** "agenda com link direto, nunca 'me chama quando quiser'". Ainda sem link de agendamento (Google Agenda "horários de agendamento" ou Calendly). Até lá, dois horários do mesmo dia.
