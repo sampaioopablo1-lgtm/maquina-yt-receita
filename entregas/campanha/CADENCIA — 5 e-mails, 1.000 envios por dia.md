@@ -15,16 +15,36 @@
 **Custo/mês:** SmartReach R$ 127 · 40 caixas R$ 212 · 14 domínios R$ 74 · Econodata R$ 350
 = **R$ 763**
 
+**Aquecimento das caixas novas: 4 a 6 semanas** (não 3-4, como eu tinha escrito). Vale para a
+fase de 40 caixas. Não vale para as 5 contas Gmail existentes do Pablo, que já têm histórico
+real e dispensam aquecimento.
+
 ## Regras da cadência
 
 1. **Toque 1 abre a conversa. Toques 2 a 5 são respostas na mesma thread.** Responder na
    própria thread entrega melhor que abrir assunto novo, e a pessoa vê o histórico.
-2. **Nenhum e-mail passa de 90 palavras.** Cold e-mail longo não é lido, é rolado.
+2. **Tamanho por cargo, não teto único.** Quanto mais alto na hierarquia, mais curto:
+   - **Dono / sócio** (o nosso caso na Trilha A): **3 a 4 frases.** Ele decide sozinho e lê no celular.
+   - **Gerente / responsável de marketing:** 5 a 7 frases, pode carregar número.
+   - Teto absoluto, para qualquer um: 150 palavras. Cold e-mail longo não é lido, é rolado.
 3. **Zero link nos toques 1 e 2.** Link em e-mail de remetente desconhecido é o gatilho
    mais comum de filtro. O link entra no toque 3, quando já houve uma abertura.
 4. **Uma pergunta por e-mail, sempre no fim.** Duas perguntas viram nenhuma.
 5. **Nada de "espero que esteja bem".** Abre com o fato sobre a empresa dele.
 6. **Parou de responder depois do toque 5? Sai da lista por 90 dias.** Insistir queima domínio.
+
+## Os números que derrubam a operação
+
+Estes não são metas, são linhas de corte. Passou, para tudo e investiga antes de mandar mais um:
+
+| Indicador | Limite | Por quê |
+|---|---|---|
+| **Bounce** | **abaixo de 2%** | é o sinal nº 1 de lista suja; acima disso o Gmail rebaixa o remetente |
+| **Reclamação de spam** | **abaixo de 0,1%** | 0,3% é onde o Google passa a **rejeitar** no SMTP — 0,1% é a margem de operação |
+| Taxa de resposta | acima de 3% | abaixo disso a mensagem está errada, não o volume |
+
+Corrigido em 08/09: eu tinha registrado 3-5% de bounce e 0,3% de spam como aceitáveis.
+Estava frouxo nos dois. 0,3% não é meta, é a linha da rejeição.
 
 ## Calendário
 
