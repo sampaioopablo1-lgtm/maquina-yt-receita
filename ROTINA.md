@@ -19,6 +19,8 @@ Quatro fatos medidos em 08/09/2026 motivaram esta versão:
 | Pexels construído e não usado | **2 de 83 specs** têm `broll_q` | b-roll deixa de ser experimento e vira obrigatório |
 | duplicatas no ar | 11 no `kolejny-poziom`, 10 no `nivel-do-jogo` | a guarda anti-duplicata passa a **bloquear**, não avisar |
 | `expurgo-storage.yml` sem cron | só `workflow_call`/`dispatch` | passa a ser chamado ao fim de todo disparo |
+| `ci.yml` nunca criou `/tmp/trilhas` | **221 testes vermelhos** em todo run desde 26/08 | conserto portado de `claude/opc-pablo-reel-ryxld4` |
+| o ritmo real nunca passou de ~6,8 pacotes/dia | pico de 95 publicações na semana de 17/08 | 3/dia/canal é **guarda contra duplicata**, não meta de volume |
 
 **Sobre o ritmo.** Em 24/08 o teto foi baixado de 5 para 1 pacote/dia/canal, e o
 motivo registrado no PLAYBOOK não era cadência: era duplicata — ~3.100 das ~4.029
@@ -37,7 +39,7 @@ Diferenças em relação à versão de 05/08/2026:
 | MP4 ficava no bucket depois da cópia | **apagado do bucket no mesmo pacote**, assim que o `drive_id` volta |
 | b-roll do Pexels = experimento 10, opcional | **obrigatório**: ≥40% das cenas do longo, ≥2 no short |
 | 1 pacote/dia/canal (teto de 24/08) | **1 a 3/dia/canal**, condicionado à guarda anti-duplicata |
-| um canal por disparo | **lote por disparo**, até acabar a quota de LLM do dia |
+| um canal por disparo | **um pacote por disparo**, com o canal escolhido pela fila — a frota rotaciona pelas 24 janelas do dia em vez de despachar em lote |
 | short 30-45 s | **short 26-38 s** — os dois maiores da frota têm 26 s e 30 s |
 | similaridade ≤0,65 avisava | similaridade ≤0,65 **bloqueia**, e título quase-igual também |
 
@@ -55,16 +57,18 @@ como a máquina opera hoje; a tabela `aprendizados` é a fonte da verdade. Confi
 desatualizada e produziu o pacote errado sem levantar erro.
 
 REGRA MESTRA: um pacote por vez, do início ao fim, com entrega incremental. Só comece o
-próximo pacote se o anterior estiver 100% entregue E PUBLICADO. O disparo pode fechar
-mais de um pacote — o que muda é quantos, não a disciplina de fechar um antes de abrir
-outro.
+próximo pacote se o anterior estiver 100% entregue E PUBLICADO. Normalmente o disparo
+fecha UM pacote e para — é o disparo horário que dá volume, não o lote.
 
 ## Teto do disparo
 
 Feche pacotes enquanto **todas** estas condições valerem. Ao primeiro "não", pare,
 registre o motivo em `videos.erro` e responda com o que entregou:
 
-1. `config.pacotes_por_disparo` não esgotado (padrão 3);
+1. `config.pacotes_por_disparo` não esgotado (padrão **1**). O disparo é horário: com
+   24 disparos/dia, 1 por disparo já dá um teto de 24 pacotes/dia na frota — acima do
+   pico jamais alcançado (~6,8/dia na semana de 17/08, quando o gargalo era CPU de
+   render). Subir este número não produz mais vídeo, produz mais job morrendo no meio;
 2. cota de LLM do dia com folga — cheque o contador que `maquina auto` imprime por
    provedor antes de abrir o próximo pacote;
 3. o canal da vez tem menos de 3 pacotes nas últimas 24 h;
@@ -232,18 +236,31 @@ Composio. A proibição da Composio continua valendo.
   criar.
 - NUNCA publique pela Composio `YOUTUBE_UPLOAD_VIDEO`.
 
-**TETO DE PUBLICAÇÃO — confira antes de gastar.** O plano grátis da Upload-Post dá
-**10 uploads/mês em 1 perfil**. Rode `/uploadposts/history` no primeiro disparo do dia,
-guarde o consumido em `config.uploads_mes` e pare de publicar quando faltarem 2 do teto.
-Pacote produzido e não publicado **não se perde**: entregue no Drive, registre em
-`videos` com `erro='cota de publicacao do mes esgotada'` e ele entra na fila do mês
-seguinte. Produzir sem publicar é desperdício de CPU; publicar sem cota é job que morre
-no fim, depois do render — que é o pior lugar para falhar.
+**TETO DE PUBLICAÇÃO — meça, não presuma.** Rode `/uploadposts/history` no primeiro
+disparo do dia, grave o consumido e o teto do plano em `config.uploads_mes` e pare de
+publicar quando faltarem 2 do teto.
 
-> O teto de 10/mês é o que hoje separa a rotina do alvo de 1 a 3 pacotes/dia/canal.
-> Com 13 canais, o alvo pede ~390 a ~1.170 publicações/mês. Enquanto a cota não subir,
-> a rotina produz no ritmo novo e publica no ritmo da cota, priorizando o canal com
-> melhor mediana de views/dia no short. Isso é degradação declarada, não falha.
+**Não hardcode o número aqui.** A versão anterior desta rotina dizia "o plano grátis dá
+10 uploads/mês" e concluía que o alvo era inalcançável. O banco desmente: a frota
+publicou **95 vídeos na semana de 17/08**, 64 na anterior, 48 e 32 nas seguintes. Um
+teto de 10/mês não sobrevive a 95 numa semana — ou o plano não é o grátis, ou o grátis
+não é isso. Qualquer que seja a resposta, ela sai do endpoint e não de memória.
+
+Pacote produzido e não publicado **não se perde**: entregue no Drive, registre em
+`videos` com `erro='cota de publicacao esgotada'` e ele entra na fila seguinte. Produzir
+sem publicar é desperdício de CPU; publicar sem cota é job que morre depois do render —
+o pior lugar para falhar.
+
+> **O que o dado diz sobre o alvo de 1 a 3 pacotes/dia/canal.** O pico sustentado
+> medido é a semana de 17/08: 95 publicações, ~13,6/dia, ~6,8 pacotes/dia na frota
+> inteira. Com 13 canais isso é ~0,5 pacote/dia/canal — abaixo do piso do alvo, e o
+> gargalo ali foi CPU de render, não cota de publicação.
+>
+> Então o teto de 3/dia/canal é **guarda, não meta**: ele existe para impedir a
+> duplicata, não para prometer 39 pacotes/dia. O ritmo real de cada dia sai dos cinco
+> tetos do disparo, medidos na hora. Quando a cota apertar, priorize o canal com melhor
+> mediana de views/dia no short — publicar 6 no canal que entrega vale mais que 13
+> espalhados por canais frios.
 
 ## PASSO 3 — REGISTRO
 
@@ -298,4 +315,4 @@ NUNCA criar novos triggers.
 
 Resposta final: canal → título → duração real → fonte da pauta (views/dia) → cenas com
 b-roll / cenas em fallback → link do YouTube → links do Drive → "storage: X MB/1 GB" →
-"uploads do mês: X/10" → "estoque: X/50".
+"uploads do mês: X/<teto lido do endpoint>" → "estoque: X/50".
