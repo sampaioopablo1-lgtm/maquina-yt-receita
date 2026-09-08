@@ -7,7 +7,7 @@
 ## O que está rodando
 | Agente | Alvo | Estado | Modo |
 |---|---|---|---|
-| Quem precisa de leads (donos e líderes comerciais BR) | fundador, sócio, CEO, diretor/gerente/líder comercial, vendedor · empresa pequena de serviço · Brasil, prioridade RJ e SP | ativo | autônomo + autopilot nas respostas |
+| Donos de serviço RJ+SP (precisam de clientes) | dono, sócio, fundador, CEO de serviço com 2 a 15 pessoas; líder comercial só em empresa pequena; vendedor fora; exclui agência, tráfego, SaaS, consultoria, recrutador · Rio e São Paulo (Brasil na semana 3 se aceite > 30%) | ativo | autônomo + autopilot nas respostas |
 | Engajadores dos posts (donos de serviço BR) | quem comenta/interage nos posts do Pablo; alvo amplo, sem descoberta fria | ativo | autônomo + autopilot; mensagem 1 entrega o carrossel, mensagem 2 uma pergunta, mensagem 3 dois horários |
 
 - Canal: só LinkedIn na semana 1. E-mail entra na semana 2, depois de 7 dias do Gmail saudável.
