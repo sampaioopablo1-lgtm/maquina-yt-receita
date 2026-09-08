@@ -136,3 +136,43 @@ uma vaga. A nova entrega **10 de 10**, com o `ex_carteira` no topo.
 - O limite de 4 anúncios por telefone é palpite calibrado, não medido. Vale
   rodar `fn_captacao_classificar(3)` e `(5)` na base real e comparar.
 - Custo de crédito da GeckoAPI não muda: nada aqui coleta mais.
+
+---
+
+## As duas portas de saída (correção de 10/09)
+
+Existem **dois** caminhos que entregam prospect, e eles selecionam diferente:
+
+| | `fn_captacao_sugerir` | `fn_captacao_processar_fila` |
+|---|---|---|
+| o que é | a fila do captador, sob demanda | as **10 sugestões por solicitação** |
+| dispara | chamada manual / rotina | gatilho de solicitação nova + cron 6 min |
+| seleciona por | score | perfil + proximidade da faixa de preço do cliente |
+
+As melhorias de 09/09 e 10/09 foram todas para a primeira. A segunda monta a
+própria consulta e só olhava `perfil` — herdou a régua de classificação, mas
+**não herdou nenhum dos bloqueios**.
+
+Na prática, no fluxo que de fato entrega as 10 ao corretor:
+
+- quem pediu para **não ser procurado** continuava sendo sugerido;
+- imóvel que a própria Jazz já anuncia continuava sendo sugerido;
+- anúncio que já saiu do portal continuava sendo sugerido.
+
+O primeiro é o que importa: uma lista de não perturbe que vale em uma porta e
+não na outra não é uma lista de não perturbe.
+
+Demonstrado no teste, e vale registrar como quase passou batido: com faixa de
+preço larga (400–800k) os bloqueados caíam para 11º por proximidade de preço e
+o vazamento não aparecia. Só com faixa estreita em torno do preço deles
+(640–700k) o `Dario Fontes`, que está no não perturbe, apareceu em primeiro na
+lista do corretor.
+
+Correção em `20260910_captacao_fila_solicitacao_respeita_radar.sql`: um filtro
+`coalesce(p.score, 1) > 0` e o score como desempate. O `coalesce` deixa passar
+quem ainda não foi pontuado, então antes da primeira execução de
+`fn_captacao_score` o comportamento é idêntico ao de hoje.
+
+A ordenação por proximidade da faixa do cliente **continua dominante** depois
+do perfil: aqui não é lista fria, é casamento com uma solicitação real, e
+orçamento é o que faz a sugestão servir.
