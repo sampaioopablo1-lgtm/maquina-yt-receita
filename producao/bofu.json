@@ -1,0 +1,120 @@
+[
+  {
+    "slug": "BF01_60k_ou_5k",
+    "modo": "tipo",
+    "fundo": "vinho",
+    "etiqueta": "TURMA DE SETEMBRO",
+    "y": 580,
+    "riscado": "R$ 60 MIL NA AGÊNCIA",
+    "linha_sans": "ou R$ 5 mil",
+    "linha_cursiva": "investidos em você",
+    "corpo_sans": 66,
+    "corpo_cursiva": 124,
+    "linha_apoio": "você fica com o que aprendeu",
+    "corpo_riscado": 72
+  },
+  {
+    "slug": "BF02_vagas_limitadas",
+    "modo": "tipo",
+    "fundo": "grafite",
+    "etiqueta": "O PRÓXIMO CLIENTE",
+    "y": 610,
+    "linha_sans": "as vagas desta turma",
+    "linha_cursiva": "são limitadas",
+    "corpo_cursiva": 138,
+    "linha_apoio": "mentoria em grupo, com acompanhamento"
+  },
+  {
+    "slug": "BF03_turma_de_setembro",
+    "modo": "foto",
+    "foto": "fotos/pablo_estudio.jpg",
+    "fundo": "escuro",
+    "alto": 0.3,
+    "etiqueta": "INSCRIÇÕES ABERTAS",
+    "linha_sans": "nova turma de",
+    "linha_cursiva": "setembro",
+    "corpo_cursiva": 150,
+    "linha_apoio": "encontros online toda semana"
+  },
+  {
+    "slug": "BF04_clientes_todos_os_dias",
+    "modo": "foto",
+    "foto": "fotos/pablo_IMG_2325.jpg",
+    "fundo": "petroleo",
+    "etiqueta": "TURMA DE SETEMBRO",
+    "linha_sans": "clientes novos",
+    "linha_cursiva": "todos os dias",
+    "corpo_cursiva": 140,
+    "linha_apoio": "sem depender de indicação"
+  },
+  {
+    "slug": "BF05_nao_precisa_ser_gestor",
+    "modo": "foto",
+    "foto": "fotos/pablo_IMG_2324.jpg",
+    "fundo": "roxo",
+    "etiqueta": "TURMA DE SETEMBRO",
+    "linha_sans": "você não precisa ser",
+    "linha_cursiva": "gestor de tráfego",
+    "corpo_cursiva": 116,
+    "linha_apoio": "para divulgar o seu negócio na internet"
+  },
+  {
+    "slug": "BF06_nao_e_agencia",
+    "modo": "foto",
+    "foto": "fotos/pablo_708c2641-IMG_2328.jpg",
+    "fundo": "vinho",
+    "etiqueta": "O PRÓXIMO CLIENTE",
+    "linha_sans": "não é agência",
+    "linha_cursiva": "é você aprendendo",
+    "corpo_cursiva": 118,
+    "linha_apoio": "eu ensino. não anuncio por você."
+  },
+  {
+    "slug": "BF07_uma_hora_por_semana",
+    "modo": "foto",
+    "foto": "fotos/pablo_0b3cd240-IMG_2330.jpg",
+    "fundo": "terra",
+    "etiqueta": "TURMA DE SETEMBRO",
+    "linha_sans": "uma hora por semana",
+    "linha_cursiva": "e o anúncio roda",
+    "corpo_sans": 62,
+    "corpo_cursiva": 116,
+    "linha_apoio": "o resto do tempo você atende quem chegou"
+  },
+  {
+    "slug": "BF08_para_quem_e",
+    "modo": "foto",
+    "foto": "fotos/pablo_estudio.jpg",
+    "fundo": "escuro",
+    "alto": 0.3,
+    "etiqueta": "ANTES DE SE INSCREVER",
+    "linha_sans": "é para quem já tem",
+    "linha_cursiva": "negócio rodando",
+    "corpo_cursiva": 120,
+    "linha_apoio": "contador, dentista, clínica, loja — tanto faz"
+  },
+  {
+    "slug": "BF09_tres_perguntas",
+    "modo": "tipo",
+    "fundo": "petroleo",
+    "etiqueta": "COMO ENTRAR",
+    "y": 610,
+    "linha_sans": "a aplicação inteira tem",
+    "linha_cursiva": "3 perguntas",
+    "corpo_sans": 62,
+    "corpo_cursiva": 150,
+    "linha_apoio": "responde, conversa, e aí você decide"
+  },
+  {
+    "slug": "BF10_maquina_fica_com_voce",
+    "modo": "foto",
+    "foto": "fotos/pablo_IMG_2325.jpg",
+    "fundo": "grafite",
+    "alto": 0.4,
+    "etiqueta": "TURMA DE SETEMBRO",
+    "linha_sans": "no fim, a máquina",
+    "linha_cursiva": "fica com você",
+    "corpo_cursiva": 130,
+    "linha_apoio": "campanha, público e criativo: seus"
+  }
+]

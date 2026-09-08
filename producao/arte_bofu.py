@@ -20,6 +20,7 @@ python3 arte_bofu.py bofu.json
 """
 import json, os, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+from tipografia import paragrafo, PISO_APOIO, PISO_PROMESSA, PISO_CTA
 
 W, H = 1080, 1350
 LARANJA = (255, 122, 26)
@@ -46,13 +47,20 @@ SANS = "fontes/Montserrat.ttf"
 ITAL = "fontes/Playfair-Italic.ttf"
 
 
-def cabe(d, txt, path, peso, corpo, larg=LARG_MAX):
-    while corpo > 18:
+def cabe(d, txt, path, peso, corpo, larg=LARG_MAX, piso=34):
+    """Encolhe ate caber -- mas nunca abaixo do piso.
+
+    Antes o piso era 18 px, o que na pratica e "sem piso": a linha sumia e a
+    peca passava no portao mesmo assim. Agora, se o texto nao couber no piso,
+    ele volta NO PISO e o portao la embaixo reprova. Corrigir e reescrever o
+    texto mais curto, nao diminuir a letra.
+    """
+    while corpo > piso:
         f = fonte(path, corpo, peso)
         if d.textlength(txt, font=f) <= larg:
             return f
         corpo -= 2
-    return fonte(path, corpo, peso)
+    return fonte(path, piso, peso)
 
 
 def centrar(d, txt, f, y, cor, sombra=True):
@@ -73,6 +81,26 @@ def cobrir(foto, alto=0.35):
     im = im.crop((x0, y0, x0 + W, y0 + H))
     im = ImageEnhance.Color(im).enhance(1.18)
     return ImageEnhance.Contrast(im).enhance(1.10)
+
+
+def chapeu(im, cor, ate=360):
+    """Escurece o TOPO do quadro.
+
+    Necessario desde que a promessa passou a ocupar tres linhas grandes no alto
+    (08/09/2026): antes ela era uma tira fina de 26 px e cabia em qualquer
+    fundo; agora atravessa o rosto. Sem isto o texto branco encosta na pele e
+    perde contorno, que e o mesmo defeito de legibilidade -- so que na outra
+    ponta do quadro.
+    """
+    px = im.load()
+    for y in range(ate):
+        t = 1 - (y / ate)
+        t = t * t * (3 - 2 * t) * 0.88
+        for x in range(W):
+            r, g, b = px[x, y]
+            px[x, y] = (round(r + (cor[0] - r) * t), round(g + (cor[1] - g) * t),
+                        round(b + (cor[2] - b) * t))
+    return im
 
 
 def degrade(im, cor, y_ini=560):
@@ -124,6 +152,10 @@ def etiqueta(d, txt, sub=PROMESSA):
 
     E a tarja que diz 'isto e uma oferta, nao um post'; e a linha de baixo que
     diz de que oferta se trata. Uma sem a outra nao fecha.
+
+    A promessa vai em corpo FIXO (42/46) e quebra em quantas linhas precisar.
+    Ate 08/09/2026 ela era encolhida para caber numa linha so e saia a 26 px --
+    a frase central da mentoria era a menor letra da peca. Ver tipografia.py.
     """
     f = fonte(SANS, 34, 700)
     l, t, r, b = d.textbbox((0, 0), txt, font=f)
@@ -131,25 +163,19 @@ def etiqueta(d, txt, sub=PROMESSA):
     x0, y0 = (W - lw) / 2, 52
     d.rounded_rectangle((x0, y0, x0 + lw, y0 + lh), radius=lh / 2, fill=LARANJA)
     d.text((x0 + 28 - l, y0 + 15 - t), txt, font=f, fill=GRAFITE)
-    area = lw * lh
-    y = y0 + lh + 22
-    for i, linha in enumerate(sub or []):
-        # a segunda linha vem em branco cheio, nao em APOIO: e a parte que o
-        # leitor precisa levar embora
-        peso, corpo, cor = (600, 40, APOIO) if i == 0 else (800, 46, BRANCO)
-        fs = cabe(d, linha, SANS, peso, corpo, 980)
-        ls, ts, rs, bs = d.textbbox((0, 0), linha, font=fs)
-        xs = (W - (rs - ls)) / 2 - ls
-        d.text((xs + 2, y - ts + 2), linha, font=fs, fill=(0, 0, 0))
-        d.text((xs, y - ts), linha, font=fs, fill=cor)
-        area += (rs - ls) * (bs - ts)
-        y += (bs - ts) + 10
-    return area
+    if not sub:
+        return lw * lh, y0 + lh
+    # a segunda sentenca vem em branco cheio e mais forte: e a parte que
+    # separa esta oferta de uma agencia, e a que o leitor precisa levar embora
+    sent = [(sub[0], fonte(SANS, PISO_PROMESSA, 600), APOIO),
+            (sub[1], fonte(SANS, PISO_PROMESSA + 4, 800), BRANCO)]
+    fim, area = paragrafo(d, sent, y0 + lh + 24, 980, W)
+    return lw * lh + area, fim
 
 
 def botao(d, principal, apoio):
     """Barra de CTA. Solida, cor cheia, texto escuro: tem que parecer clicavel."""
-    f = fonte(SANS, 52, 800)
+    f = fonte(SANS, PISO_CTA + 4, 800)
     l, t, r, b = d.textbbox((0, 0), principal, font=f)
     bw, bh = W - 96, 132
     x0, y0 = 48, 1150
@@ -162,7 +188,7 @@ def botao(d, principal, apoio):
     # so rouba espaco de quem precisa ser lido.
 
 
-def desenhar(p, saida):
+def desenhar(p, saida, devolver=False):
     cor = FUNDOS[p.get("fundo", "grafite")]
     if p.get("modo") == "tipo":
         im = Image.new("RGB", (W, H), cor)
@@ -175,10 +201,10 @@ def desenhar(p, saida):
         im = Image.blend(im, halo.filter(ImageFilter.GaussianBlur(150)), 0.55)
         d = ImageDraw.Draw(im)
     else:
-        im = scrim(degrade(cobrir(p["foto"], p.get("alto", 0.32)), cor), cor)
+        im = scrim(degrade(chapeu(cobrir(p["foto"], p.get("alto", 0.32)), cor), cor), cor)
         d = ImageDraw.Draw(im)
 
-    tinta = etiqueta(d, p.get("etiqueta", "MENTORIA O PRÓXIMO CLIENTE"))
+    tinta, fim_topo = etiqueta(d, p.get("etiqueta", "MENTORIA O PRÓXIMO CLIENTE"))
 
     y = p.get("y", 830)
     caixas = []
@@ -197,9 +223,12 @@ def desenhar(p, saida):
     caixas.append((y0, y1, lg)); y = y1 + 34
 
     if p.get("linha_apoio"):
-        f = cabe(d, p["linha_apoio"], SANS, 650, 40)
-        y0, y1, lg, _ = centrar(d, p["linha_apoio"], f, y, APOIO, sombra=False)
-        caixas.append((y0, y1, lg))
+        # 40 px fixos, quebrando em duas linhas se precisar. Encolhendo, o
+        # apoio da BF02 saia a 30 px -- menor que o piso de leitura no feed.
+        fim, area_ap = paragrafo(d, [(p["linha_apoio"], fonte(SANS, 40, 650), APOIO)],
+                                 y, 950, W, entre=6)
+        caixas.append((y, fim, 0))
+        tinta += area_ap
 
     # "RESPONDER AS 3 PERGUNTAS", nao "PREENCHER APLICACAO". Num formulario
     # instantaneo o inimigo e a fricção PERCEBIDA, nao a falta de vontade:
@@ -214,9 +243,11 @@ def desenhar(p, saida):
     # primeira versao, que empilhava oito blocos e encolhia todos para caber.
     # A conta soma a caixa de cada bloco, a etiqueta e a barra de CTA.
     area = (sum((b - a) * lg for a, b, lg in caixas) + tinta) / (W * H)
-    folga = min(1150 - caixas[-1][1], 999)
+    folga = min(1150 - caixas[-1][1], caixas[0][0] - fim_topo, 999)
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
     ok = folga >= 0 and all(g >= 0 for g in gaps) and 0.18 <= area <= 0.30
+    if devolver:
+        return ok, area, folga
     im.save(saida, quality=94)
     print("%-34s texto %4.1f%%  folga %4d  gaps %s  %s" %
           (os.path.basename(saida), area * 100, folga, [round(g) for g in gaps],
@@ -224,9 +255,33 @@ def desenhar(p, saida):
     return ok
 
 
+def ajustar(p):
+    """Acha o maior corpo de cursiva que ainda respeita o teto de 30% e o pe.
+
+    Antes eu escolhia esses numeros a mao no bofu.json, e eles ficavam errados
+    a cada mudanca de texto -- foi assim que a promessa maior estourou dez
+    pecas de uma vez. Quem cede espaco e a cursiva: ela e enfeite, a promessa
+    e a mensagem. O sans acompanha, para a hierarquia nao inverter.
+    """
+    base_c = p.get("corpo_cursiva", 132)
+    base_s = p.get("corpo_sans", 70)
+    for passo in range(0, 22):
+        q = dict(p, corpo_cursiva=base_c - passo * 6,
+                 corpo_sans=max(52, base_s - passo * 2))
+        ok, area, folga = desenhar(q, None, devolver=True)
+        if ok:
+            return q, passo
+    return p, None
+
+
 if __name__ == "__main__":
     os.makedirs("bofu", exist_ok=True)
     todos = True
     for p in json.load(open(sys.argv[1])):
-        todos &= desenhar(p, "bofu/%s.jpg" % p["slug"])
+        q, passo = ajustar(p)
+        if passo is None:
+            print("%-34s NAO FECHA -- encurte o texto" % p["slug"])
+            todos = False
+            continue
+        todos &= desenhar(q, "bofu/%s.jpg" % q["slug"])
     print("todas OK" if todos else "ALGUMA PRECISA DE AJUSTE")

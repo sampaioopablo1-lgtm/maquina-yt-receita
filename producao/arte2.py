@@ -9,12 +9,14 @@ assinatura em @oproximocliente.
 """
 import json, sys, os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+from tipografia import paragrafo, PISO_PROMESSA
 
 W, H = 1080, 1350
 LARANJA = (255, 122, 26)
 CREME = (255, 246, 224)
 BRANCO = (255, 255, 255)
 APOIO = (255, 214, 176)
+SANS_PATH = "fontes/Montserrat.ttf"
 LARG_MAX = 960
 
 # A mensagem central da mentoria, em destaque nas dez artes de topo (pedido do
@@ -107,18 +109,34 @@ def scrim(im, cor):
     return im, brilho_faixa(im)
 
 
+def chapeu(im, cor, ate=200):
+    """Escurece a facha de cima, onde agora fica a assinatura."""
+    px = im.load()
+    for y in range(ate):
+        t = 1 - (y / ate)
+        t = t * t * (3 - 2 * t) * 0.80
+        for x in range(W):
+            r, g, b = px[x, y]
+            px[x, y] = (round(r + (cor[0] - r) * t), round(g + (cor[1] - g) * t),
+                        round(b + (cor[2] - b) * t))
+    return im
+
+
 def desenhar(p, saida):
     cor = FUNDOS[p.get("fundo", "grafite")]
-    im = degrade(vivo(cobrir(p["foto"])), cor)
+    im = chapeu(degrade(vivo(cobrir(p["foto"])), cor), cor)
     im, brilho = scrim(im, cor)
     d = ImageDraw.Draw(im)
 
     blocos = [
-        (766,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 86,  BRANCO),
-        (862,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 176, LARANJA),
-        (1064, p["linha_apoio"],   "fontes/Montserrat.ttf",      650, 52,  APOIO),
-        (1262, "@oproximocliente", "fontes/Montserrat.ttf",      700, 34,  CREME),
+        (62,   "@oproximocliente", SANS_PATH,                    700, 34,  CREME),
+        (716,  p["linha_sans"],    SANS_PATH,                    800, 86,  BRANCO),
+        (812,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 176, LARANJA),
+        (1016, p["linha_apoio"],   SANS_PATH,                    650, 52,  APOIO),
     ]
+    # A assinatura subiu para o alto do quadro. Ela ocupava a ultima linha,
+    # e o pe agora e da promessa -- que precisa de tres linhas grandes, nao
+    # de uma tira de 26 px. Marca em cima, mensagem embaixo.
     caixas = []
     for y_topo, txt, path, peso, corpo, c in blocos:
         f = cabe(d, txt, path, peso, corpo)
@@ -137,21 +155,28 @@ def desenhar(p, saida):
     # de reconhecimento. O post de dor funciona porque nao parece anuncio.
     # Entao: filete fino em cima, texto creme embaixo. Presente e legivel, sem
     # imitar o CTA da outra campanha.
-    d.rectangle(((W - 120) // 2, 1132, (W + 120) // 2, 1136), fill=LARANJA)
-    yy = 1152
-    tinta = 0          # a promessa do pe conta na area: e texto na imagem
-    for i, t in enumerate(PROMESSA):
-        f = cabe(d, t, "fontes/Montserrat.ttf", 600 if i == 0 else 800, 36, 970)
-        l0, t0, r0, b0 = d.textbbox((0, 0), t, font=f)
-        x0 = (W - (r0 - l0)) / 2 - l0
-        d.text((x0 + 2, yy - t0 + 2), t, font=f, fill=(0, 0, 0))
-        tinta += (r0 - l0) * (b0 - t0)
-        d.text((x0, yy - t0), t, font=f, fill=APOIO if i == 0 else CREME)
-        yy += (b0 - t0) + 9
+
+    # ------------------------------------------------------------------
+    # A PROMESSA, em corpo FIXO de 42/46 px, quebrando em quantas linhas
+    # precisar. Ate 08/09/2026 ela era encolhida ate caber numa linha so e
+    # saia a 26 PX -- a mensagem central da mentoria era a menor letra do
+    # quadro. O portao de 18-30% nao pegava isso, porque area total nao mede
+    # legibilidade: uma cursiva de 176 px esconde qualquer letra miuda.
+    # Regra nova, em tipografia.py: largura e negociavel, corpo nao e.
+    #
+    # A promessa NAO vai em barra solida. No fundo de funil a barra laranja
+    # significa "clique"; no topo nao ha o que clicar, e barra no pe faz a peca
+    # PARECER anuncio -- que e o que encarece o alcance numa campanha de
+    # reconhecimento. Filete fino em cima, texto embaixo.
+    d.rectangle(((W - 120) // 2, 1088, (W + 120) // 2, 1092), fill=LARANJA)
+    sent = [(PROMESSA[0], fonte(SANS_PATH, PISO_PROMESSA, 600), APOIO),
+            (PROMESSA[1], fonte(SANS_PATH, PISO_PROMESSA + 4, 800), CREME)]
+    fim_pe, tinta = paragrafo(d, sent, 1108, 970, W)
 
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
     area = (sum(c[2] for c in caixas) + tinta) / (W * H)
-    ok = all(g >= 0 for g in gaps) and 0.18 <= area <= 0.30
+    folga = 1088 - caixas[-1][1]
+    ok = all(g >= 0 for g in gaps) and folga >= 0 and 0.18 <= area <= 0.30
     im.save(saida, quality=94)
     print("%-34s brilho %5.1f  gaps %s  texto %4.1f%%  %s" %
           (os.path.basename(saida), brilho, [round(g) for g in gaps], area * 100,
