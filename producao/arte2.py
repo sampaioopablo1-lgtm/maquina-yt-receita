@@ -24,7 +24,7 @@ LARG_MAX = 960
 # promessa entra numa faixa propria abaixo do apoio, e nao no lugar da frase de
 # efeito -- quem para no post para pela dor, e so depois descobre o que eu faco.
 # "aprenda", nao "receba": e o que separa mentoria de agencia.
-PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia para o seu WhatsApp",
+PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia no seu WhatsApp",
             "sem agência e sem investir alto"]
 
 # pes do degrade: cada arte escolhe um, para a serie nao ficar monocorde
@@ -114,10 +114,10 @@ def desenhar(p, saida):
     d = ImageDraw.Draw(im)
 
     blocos = [
-        (838,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 58,  BRANCO),
-        (900,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 136, LARANJA),
-        (1080, p["linha_apoio"],   "fontes/Montserrat.ttf",      600, 32,  APOIO),
-        (1254, "@oproximocliente", "fontes/Montserrat.ttf",      700, 28,  CREME),
+        (766,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 86,  BRANCO),
+        (862,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 176, LARANJA),
+        (1064, p["linha_apoio"],   "fontes/Montserrat.ttf",      650, 52,  APOIO),
+        (1262, "@oproximocliente", "fontes/Montserrat.ttf",      700, 34,  CREME),
     ]
     caixas = []
     for y_topo, txt, path, peso, corpo, c in blocos:
@@ -137,19 +137,21 @@ def desenhar(p, saida):
     # de reconhecimento. O post de dor funciona porque nao parece anuncio.
     # Entao: filete fino em cima, texto creme embaixo. Presente e legivel, sem
     # imitar o CTA da outra campanha.
-    d.rectangle(((W - 120) // 2, 1136, (W + 120) // 2, 1140), fill=LARANJA)
-    yy = 1158
+    d.rectangle(((W - 120) // 2, 1132, (W + 120) // 2, 1136), fill=LARANJA)
+    yy = 1152
+    tinta = 0          # a promessa do pe conta na area: e texto na imagem
     for i, t in enumerate(PROMESSA):
-        f = cabe(d, t, "fontes/Montserrat.ttf", 600 if i == 0 else 800, 30, 900)
+        f = cabe(d, t, "fontes/Montserrat.ttf", 600 if i == 0 else 800, 36, 970)
         l0, t0, r0, b0 = d.textbbox((0, 0), t, font=f)
         x0 = (W - (r0 - l0)) / 2 - l0
         d.text((x0 + 2, yy - t0 + 2), t, font=f, fill=(0, 0, 0))
+        tinta += (r0 - l0) * (b0 - t0)
         d.text((x0, yy - t0), t, font=f, fill=APOIO if i == 0 else CREME)
         yy += (b0 - t0) + 9
 
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
-    area = sum(c[2] for c in caixas) / (W * H)
-    ok = all(g >= 0 for g in gaps) and area <= 0.20
+    area = (sum(c[2] for c in caixas) + tinta) / (W * H)
+    ok = all(g >= 0 for g in gaps) and 0.18 <= area <= 0.30
     im.save(saida, quality=94)
     print("%-34s brilho %5.1f  gaps %s  texto %4.1f%%  %s" %
           (os.path.basename(saida), brilho, [round(g) for g in gaps], area * 100,

@@ -18,7 +18,7 @@ LIMITE_TEXTO = 0.20 * W * H
 # Pablo em 07/09/2026). Ela e a MESMA string do arte2.py e do arte_bofu.py: se
 # mudar, muda nos tres -- promessa que varia de arte para arte nao vira memoria
 # de ninguem. "aprenda", nao "receba": e o que separa mentoria de agencia.
-PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia para o seu WhatsApp",
+PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia no seu WhatsApp",
             "sem agência e sem investir alto"]
 
 
@@ -93,13 +93,19 @@ def desenhar(p, saida):
     d = ImageDraw.Draw(im)
 
     blocos = [
-        (840,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 58,  BRANCO),
-        (902,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 132, CREME),
-        (1080, p["linha_apoio"],   "fontes/Montserrat.ttf",      600, 32,  APOIO),
-        (1254, "@oproximocliente", "fontes/Montserrat.ttf",      700, 28,  LARANJA),
+        (766,  p["linha_sans"],    "fontes/Montserrat.ttf",      800, 86,  BRANCO),
+        (862,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 176, CREME),
+        (1064, p["linha_apoio"],   "fontes/Montserrat.ttf",      650, 52,  APOIO),
+        (1262, "@oproximocliente", "fontes/Montserrat.ttf",      700, 34,  LARANJA),
     ]
     caixas = []
     for y_topo, txt, path, peso, corpo, cor in blocos:
+        # frase curta ("e sumiu") nao enche a linha e derruba a densidade da
+        # peca inteira. corpo_cursiva/corpo_sans no json compensam caso a caso.
+        if txt == p.get("linha_cursiva"):
+            corpo = p.get("corpo_cursiva", corpo)
+        elif txt == p.get("linha_sans"):
+            corpo = p.get("corpo_sans", corpo)
         f = cabe(d, txt, path, peso, corpo)
         l, t, r, b = d.textbbox((0, 0), txt, font=f)
         x = (W - (r - l)) / 2 - l
@@ -116,20 +122,22 @@ def desenhar(p, saida):
     # de reconhecimento. O post de dor funciona porque nao parece anuncio.
     # Entao: filete fino em cima, texto creme embaixo. Presente e legivel, sem
     # imitar o CTA da outra campanha.
-    d.rectangle(((W - 120) // 2, 1136, (W + 120) // 2, 1140), fill=LARANJA)
-    yy = 1158
+    d.rectangle(((W - 120) // 2, 1132, (W + 120) // 2, 1136), fill=LARANJA)
+    yy = 1152
+    tinta = 0          # a promessa do pe conta na area: e texto na imagem
     for i, t in enumerate(PROMESSA):
-        f = cabe(d, t, "fontes/Montserrat.ttf", 600 if i == 0 else 800, 30, 900)
+        f = cabe(d, t, "fontes/Montserrat.ttf", 600 if i == 0 else 800, 36, 970)
         l0, t0, r0, b0 = d.textbbox((0, 0), t, font=f)
         x0 = (W - (r0 - l0)) / 2 - l0
         d.text((x0 + 2, yy - t0 + 2), t, font=f, fill=(0, 0, 0))
+        tinta += (r0 - l0) * (b0 - t0)
         d.text((x0, yy - t0), t, font=f, fill=CREME if i == 0 else LARANJA)
         yy += (b0 - t0) + 9
 
     # conferencias que a receita exige
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
-    area = sum(c[2] for c in caixas) / (W * H)
-    ok = all(g >= 0 for g in gaps) and area <= 0.20
+    area = (sum(c[2] for c in caixas) + tinta) / (W * H)
+    ok = all(g >= 0 for g in gaps) and 0.18 <= area <= 0.30
     im.save(saida, quality=94)
     print("%-28s brilho %5.1f  gaps %s  texto %4.1f%%  %s" %
           (os.path.basename(saida), brilho, [round(g) for g in gaps], area * 100,

@@ -115,7 +115,7 @@ def scrim(im, cor, y0=700):
 # segunda nao e enfeite: "sem agencia e sem investir alto" e o que separa esta
 # oferta de uma agencia, e sem ela a promessa descreve o que uma agencia
 # tambem entrega.
-PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia para o seu WhatsApp",
+PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia no seu WhatsApp",
             "sem agência e sem investir alto"]
 
 
@@ -125,36 +125,41 @@ def etiqueta(d, txt, sub=PROMESSA):
     E a tarja que diz 'isto e uma oferta, nao um post'; e a linha de baixo que
     diz de que oferta se trata. Uma sem a outra nao fecha.
     """
-    f = fonte(SANS, 26, 700)
+    f = fonte(SANS, 34, 700)
     l, t, r, b = d.textbbox((0, 0), txt, font=f)
-    lw, lh = (r - l) + 56, (b - t) + 30
-    x0, y0 = (W - lw) / 2, 62
+    lw, lh = (r - l) + 64, (b - t) + 34
+    x0, y0 = (W - lw) / 2, 52
     d.rounded_rectangle((x0, y0, x0 + lw, y0 + lh), radius=lh / 2, fill=LARANJA)
     d.text((x0 + 28 - l, y0 + 15 - t), txt, font=f, fill=GRAFITE)
-    y = y0 + lh + 18
+    area = lw * lh
+    y = y0 + lh + 22
     for i, linha in enumerate(sub or []):
         # a segunda linha vem em branco cheio, nao em APOIO: e a parte que o
         # leitor precisa levar embora
-        peso, corpo, cor = (600, 30, APOIO) if i == 0 else (800, 32, BRANCO)
-        fs = cabe(d, linha, SANS, peso, corpo, 930)
+        peso, corpo, cor = (600, 40, APOIO) if i == 0 else (800, 46, BRANCO)
+        fs = cabe(d, linha, SANS, peso, corpo, 980)
         ls, ts, rs, bs = d.textbbox((0, 0), linha, font=fs)
         xs = (W - (rs - ls)) / 2 - ls
         d.text((xs + 2, y - ts + 2), linha, font=fs, fill=(0, 0, 0))
         d.text((xs, y - ts), linha, font=fs, fill=cor)
-        y += (bs - ts) + 8
+        area += (rs - ls) * (bs - ts)
+        y += (bs - ts) + 10
+    return area
 
 
 def botao(d, principal, apoio):
     """Barra de CTA. Solida, cor cheia, texto escuro: tem que parecer clicavel."""
-    f = fonte(SANS, 40, 800)
+    f = fonte(SANS, 52, 800)
     l, t, r, b = d.textbbox((0, 0), principal, font=f)
-    bw, bh = W - 150, 108
-    x0, y0 = 75, 1128
+    bw, bh = W - 96, 132
+    x0, y0 = 48, 1150
     d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), radius=16, fill=LARANJA)
     d.text(((W - (r - l)) / 2 - l, y0 + (bh - (b - t)) / 2 - t), principal, font=f, fill=GRAFITE)
-    fa = fonte(SANS, 24, 600)
-    la, ta, ra, ba = d.textbbox((0, 0), apoio, font=fa)
-    d.text(((W - (ra - la)) / 2 - la, 1258 - ta), apoio, font=fa, fill=APOIO)
+    return bw * bh
+    # A linha de 24px embaixo do botao SAIU. Era o menor texto da peca e o mais
+    # redundante: "turma de setembro" ja esta na etiqueta e "3 perguntas" ja
+    # esta dentro do botao. Texto pequeno demais para ler no feed nao informa,
+    # so rouba espaco de quem precisa ser lido.
 
 
 def desenhar(p, saida):
@@ -173,43 +178,49 @@ def desenhar(p, saida):
         im = scrim(degrade(cobrir(p["foto"], p.get("alto", 0.32)), cor), cor)
         d = ImageDraw.Draw(im)
 
-    etiqueta(d, p.get("etiqueta", "MENTORIA O PRÓXIMO CLIENTE"))
+    tinta = etiqueta(d, p.get("etiqueta", "MENTORIA O PRÓXIMO CLIENTE"))
 
     y = p.get("y", 830)
     caixas = []
     if p.get("riscado"):
-        f = cabe(d, p["riscado"], SANS, 800, 88)
+        f = cabe(d, p["riscado"], SANS, 800, p.get("corpo_riscado", 96))
         y0, y1, larg, x = centrar(d, p["riscado"], f, y, (196, 196, 206))
         d.line((x - 6, (y0 + y1) / 2, x + larg + 6, (y0 + y1) / 2), fill=(214, 60, 50), width=9)
-        caixas.append((y0, y1)); y = y1 + 22
+        caixas.append((y0, y1, larg)); y = y1 + 22
 
-    f = cabe(d, p["linha_sans"], SANS, 800, p.get("corpo_sans", 58))
-    y0, y1, _, _ = centrar(d, p["linha_sans"], f, y, BRANCO)
-    caixas.append((y0, y1)); y = y1 + p.get("gap", 14)
+    f = cabe(d, p["linha_sans"], SANS, 800, p.get("corpo_sans", 70))
+    y0, y1, lg, _ = centrar(d, p["linha_sans"], f, y, BRANCO)
+    caixas.append((y0, y1, lg)); y = y1 + p.get("gap", 14)
 
     f = cabe(d, p["linha_cursiva"], ITAL, 700, p.get("corpo_cursiva", 132))
-    y0, y1, _, _ = centrar(d, p["linha_cursiva"], f, y, LARANJA)
-    caixas.append((y0, y1)); y = y1 + 34
+    y0, y1, lg, _ = centrar(d, p["linha_cursiva"], f, y, LARANJA)
+    caixas.append((y0, y1, lg)); y = y1 + 34
 
     if p.get("linha_apoio"):
-        f = cabe(d, p["linha_apoio"], SANS, 600, 32)
-        y0, y1, _, _ = centrar(d, p["linha_apoio"], f, y, APOIO, sombra=False)
-        caixas.append((y0, y1))
+        f = cabe(d, p["linha_apoio"], SANS, 650, 40)
+        y0, y1, lg, _ = centrar(d, p["linha_apoio"], f, y, APOIO, sombra=False)
+        caixas.append((y0, y1, lg))
 
     # "RESPONDER AS 3 PERGUNTAS", nao "PREENCHER APLICACAO". Num formulario
     # instantaneo o inimigo e a fricção PERCEBIDA, nao a falta de vontade:
     # "aplicacao" soa trabalhoso, "3 perguntas" diz o tamanho real do pedido.
     # O botao de verdade fica ABAIXO do criativo, escolhido na campanha
     # (recomendado: "Candidatar-se") -- esta barra so o espelha.
-    botao(d, p.get("cta", "RESPONDER AS 3 PERGUNTAS"),
+    tinta += botao(d, p.get("cta", "RESPONDER AS 3 PERGUNTAS"),
           p.get("cta_apoio", "leva menos de um minuto · turma de setembro · vagas limitadas"))
 
-    folga = min(1128 - caixas[-1][1], 999)
+    # AREA DE TEXTO: o pedido do Pablo em 08/09/2026 e "ate 30%". Abaixo de 18%
+    # a peca fica com letra pequena demais para o feed -- foi o defeito da
+    # primeira versao, que empilhava oito blocos e encolhia todos para caber.
+    # A conta soma a caixa de cada bloco, a etiqueta e a barra de CTA.
+    area = (sum((b - a) * lg for a, b, lg in caixas) + tinta) / (W * H)
+    folga = min(1150 - caixas[-1][1], 999)
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
-    ok = folga >= 0 and all(g >= 0 for g in gaps)
+    ok = folga >= 0 and all(g >= 0 for g in gaps) and 0.18 <= area <= 0.30
     im.save(saida, quality=94)
-    print("%-32s folga p/ botao %4d  gaps %s  %s" %
-          (os.path.basename(saida), folga, [round(g) for g in gaps], "OK" if ok else "REFAZER"))
+    print("%-34s texto %4.1f%%  folga %4d  gaps %s  %s" %
+          (os.path.basename(saida), area * 100, folga, [round(g) for g in gaps],
+           "OK" if ok else "REFAZER"))
     return ok
 
 
