@@ -16,12 +16,17 @@ SANS_PATH = "fontes/Montserrat.ttf"
 LARG_MAX = 960
 LIMITE_TEXTO = 0.20 * W * H
 
-# A mensagem central da mentoria, em destaque nas dez artes de topo (pedido do
-# Pablo em 07/09/2026). Ela e a MESMA string do arte2.py e do arte_bofu.py: se
-# mudar, muda nos tres -- promessa que varia de arte para arte nao vira memoria
-# de ninguem. "aprenda", nao "receba": e o que separa mentoria de agencia.
-PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia no seu WhatsApp",
-            "sem agência e sem investir alto"]
+# A PROMESSA SAIU DAS ARTES em 08/09/2026. Ver o comentario longo em
+# arte_bofu.py: colar a frase identica nas vinte pecas fazia cada quadro
+# carregar quatro mensagens, e no feed a pessoa da um segundo.
+#
+# No topo de funil a razao e ainda mais forte. Esta e uma campanha de
+# RECONHECIMENTO: a peca entrega um pensamento sobre a dor e assina. Ela nao
+# vende, e nao deve parecer que vende -- peca que parece anuncio encarece o
+# alcance. Explicar a oferta aqui e vender cedo demais, para quem ainda nem
+# admitiu o problema. Quem para no post para pela dor; o que eu faco ele
+# descobre na legenda, e depois na Campanha 2.
+PROMESSA = None
 
 
 def fonte(path, corpo, peso):
@@ -103,19 +108,15 @@ def chapeu(im, cor, ate=200):
 
 
 def desenhar(p, saida):
-    im = chapeu(degrade(cobrir(p["foto"])), FUNDO)
+    im = degrade(cobrir(p["foto"]))
     im, brilho = scrim(im)
     d = ImageDraw.Draw(im)
 
     blocos = [
-        (62,   "@oproximocliente", SANS_PATH,                    700, 34,  LARANJA),
-        (716,  p["linha_sans"],    SANS_PATH,                    800, 86,  BRANCO),
-        (812,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 176, CREME),
-        (1016, p["linha_apoio"],   SANS_PATH,                    650, 52,  APOIO),
+        (766,  p["linha_sans"],    SANS_PATH,                    800, 86,  BRANCO),
+        (862,  p["linha_cursiva"], "fontes/Playfair-Italic.ttf", 700, 176, CREME),
+        (1064, p["linha_apoio"],   SANS_PATH,                    650, 52,  APOIO),
     ]
-    # A assinatura subiu para o alto do quadro. Ela ocupava a ultima linha,
-    # e o pe agora e da promessa -- que precisa de tres linhas grandes, nao
-    # de uma tira de 26 px. Marca em cima, mensagem embaixo.
     caixas = []
     for y_topo, txt, path, peso, corpo, cor in blocos:
         # frase curta ("e sumiu") nao enche a linha e derruba a densidade da
@@ -141,27 +142,22 @@ def desenhar(p, saida):
     # Entao: filete fino em cima, texto creme embaixo. Presente e legivel, sem
     # imitar o CTA da outra campanha.
 
-    # ------------------------------------------------------------------
-    # A PROMESSA, em corpo FIXO de 42/46 px, quebrando em quantas linhas
-    # precisar. Ate 08/09/2026 ela era encolhida ate caber numa linha so e
-    # saia a 26 PX -- a mensagem central da mentoria era a menor letra do
-    # quadro. O portao de 18-30% nao pegava isso, porque area total nao mede
-    # legibilidade: uma cursiva de 176 px esconde qualquer letra miuda.
-    # Regra nova, em tipografia.py: largura e negociavel, corpo nao e.
-    #
-    # A promessa NAO vai em barra solida. No fundo de funil a barra laranja
-    # significa "clique"; no topo nao ha o que clicar, e barra no pe faz a peca
-    # PARECER anuncio -- que e o que encarece o alcance numa campanha de
-    # reconhecimento. Filete fino em cima, texto embaixo.
-    d.rectangle(((W - 120) // 2, 1088, (W + 120) // 2, 1092), fill=LARANJA)
-    sent = [(PROMESSA[0], fonte(SANS_PATH, PISO_PROMESSA, 600), CREME),
-            (PROMESSA[1], fonte(SANS_PATH, PISO_PROMESSA + 4, 800), LARANJA)]
-    fim_pe, tinta = paragrafo(d, sent, 1108, 970, W)
+
+    # Filete e assinatura, e nada mais. O pe do topo de funil e sobrio de
+    # proposito: no fundo a barra laranja significa "clique"; aqui nao ha o que
+    # clicar.
+    d.rectangle(((W - 120) // 2, 1180, (W + 120) // 2, 1184), fill=LARANJA)
+    f = fonte(SANS_PATH, 36, 700)
+    l, t, r, b = d.textbbox((0, 0), "@oproximocliente", font=f)
+    x = (W - (r - l)) / 2 - l
+    d.text((x + 2, 1212 - t + 2), "@oproximocliente", font=f, fill=(0, 0, 0))
+    d.text((x, 1212 - t), "@oproximocliente", font=f, fill=LARANJA)
+    tinta = (r - l) * (b - t)
 
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
     area = (sum(c[2] for c in caixas) + tinta) / (W * H)
-    folga = 1088 - caixas[-1][1]
-    ok = all(g >= 0 for g in gaps) and folga >= 0 and 0.18 <= area <= 0.30
+    folga = 1180 - caixas[-1][1]
+    ok = all(g >= 0 for g in gaps) and folga >= 0 and 0.11 <= area <= 0.22
     im.save(saida, quality=94)
     print("%-28s brilho %5.1f  gaps %s  texto %4.1f%%  %s" %
           (os.path.basename(saida), brilho, [round(g) for g in gaps], area * 100,

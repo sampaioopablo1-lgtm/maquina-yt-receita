@@ -143,19 +143,31 @@ def scrim(im, cor, y0=700):
 # segunda nao e enfeite: "sem agencia e sem investir alto" e o que separa esta
 # oferta de uma agencia, e sem ela a promessa descreve o que uma agencia
 # tambem entrega.
-PROMESSA = ["aprenda a criar anúncios que trazem cliente todo dia no seu WhatsApp",
-            "sem agência e sem investir alto"]
+# A PROMESSA SAIU DAS ARTES em 08/09/2026, e a decisao merece explicacao
+# porque reverte um pedido anterior do Pablo (07/09: "precisa estar claro em
+# destaque nas imagens").
+#
+# O pedido nasceu de um defeito real: nove das dez pecas nao diziam o que a
+# mentoria ensina. Mas colar a frase identica nas dez foi o remendo errado.
+# Cada peca passou a carregar CINCO mensagens -- etiqueta, promessa em tres
+# linhas, manchete, apoio e barra -- e no feed a pessoa da um segundo. Cinco
+# mensagens em um segundo e nenhuma mensagem. Pior: a promessa e a manchete
+# competiam, porque falavam de assuntos diferentes no mesmo quadro.
+#
+# A correcao certa e a manchete CARREGAR a frase. Cada peca prova uma clausula
+# (anuncios -> cliente todo dia no WhatsApp -> sem agencia -> sem investir
+# alto) e o conjunto entrega a frase inteira. A frase continua completa na
+# legenda de todo post. Isto tambem cansa menos o publico de retargeting: dez
+# variacoes de um tema duram mais que dez repeticoes de um bloco identico.
+PROMESSA = None
 
 
-def etiqueta(d, txt, sub=PROMESSA):
-    """Tarja de turma no alto, com a promessa logo abaixo.
+def etiqueta(d, txt):
+    """Tarja de turma no alto. Uma linha, e so.
 
-    E a tarja que diz 'isto e uma oferta, nao um post'; e a linha de baixo que
-    diz de que oferta se trata. Uma sem a outra nao fecha.
-
-    A promessa vai em corpo FIXO (42/46) e quebra em quantas linhas precisar.
-    Ate 08/09/2026 ela era encolhida para caber numa linha so e saia a 26 px --
-    a frase central da mentoria era a menor letra da peca. Ver tipografia.py.
+    Ela diz 'isto e uma oferta com data', que e o unico trabalho dela. Quem diz
+    de que oferta se trata e a manchete, la embaixo -- ver o comentario da
+    PROMESSA acima.
     """
     f = fonte(SANS, 34, 700)
     l, t, r, b = d.textbbox((0, 0), txt, font=f)
@@ -163,14 +175,7 @@ def etiqueta(d, txt, sub=PROMESSA):
     x0, y0 = (W - lw) / 2, 52
     d.rounded_rectangle((x0, y0, x0 + lw, y0 + lh), radius=lh / 2, fill=LARANJA)
     d.text((x0 + 28 - l, y0 + 15 - t), txt, font=f, fill=GRAFITE)
-    if not sub:
-        return lw * lh, y0 + lh
-    # a segunda sentenca vem em branco cheio e mais forte: e a parte que
-    # separa esta oferta de uma agencia, e a que o leitor precisa levar embora
-    sent = [(sub[0], fonte(SANS, PISO_PROMESSA, 600), APOIO),
-            (sub[1], fonte(SANS, PISO_PROMESSA + 4, 800), BRANCO)]
-    fim, area = paragrafo(d, sent, y0 + lh + 24, 980, W)
-    return lw * lh + area, fim
+    return lw * lh, y0 + lh
 
 
 def botao(d, principal, apoio):
@@ -205,8 +210,11 @@ def desenhar(p, saida, devolver=False):
         d = ImageDraw.Draw(im)
 
     tinta, fim_topo = etiqueta(d, p.get("etiqueta", "MENTORIA O PRÓXIMO CLIENTE"))
+    # sem a promessa no alto, o bloco central sobe: o quadro tem 700 px de
+    # respiro entre a tarja e a manchete, e respiro e o que faz a manchete ser
+    # lida antes de tudo. Nas pecas com foto esse espaco e o retrato.
 
-    y = p.get("y", 830)
+    y = p.get("y", 790 if p.get("modo") == "tipo" else 830)
     caixas = []
     if p.get("riscado"):
         f = cabe(d, p["riscado"], SANS, 800, p.get("corpo_riscado", 96))
@@ -245,7 +253,7 @@ def desenhar(p, saida, devolver=False):
     area = (sum((b - a) * lg for a, b, lg in caixas) + tinta) / (W * H)
     folga = min(1150 - caixas[-1][1], caixas[0][0] - fim_topo, 999)
     gaps = [caixas[i + 1][0] - caixas[i][1] for i in range(len(caixas) - 1)]
-    ok = folga >= 0 and all(g >= 0 for g in gaps) and 0.18 <= area <= 0.30
+    ok = folga >= 0 and all(g >= 0 for g in gaps) and 0.13 <= area <= 0.25
     if devolver:
         return ok, area, folga
     im.save(saida, quality=94)
