@@ -153,8 +153,36 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - clínica veterinária + Rio ✔
 - móveis planejados + Rio ✔
 - advogado + Rio ✔ (fraco, 1)
+- energia solar + Rio ✔ (**124 anúncios, o nicho mais rico**)
 
-**Ainda por varrer:** academia, energia solar, arquitetura, salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
+**Ainda por varrer:** academia, arquitetura, salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
 ## Leitura que já dá para tirar
-Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **odontologia, estética, móveis planejados e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
+Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia solar (124 anúncios ativos), odontologia, estética, móveis planejados e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
+
+---
+
+## Achados de 08/09, 16h25 — energia solar (124 anúncios ativos, o nicho mais rico até agora)
+
+**Por que solar é o melhor nicho para a mentoria:** ticket alto, dono opera o negócio, venda inteira pelo WhatsApp, e queimam muito dinheiro em anúncio ruim.
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Energia Solar — SunVolts** | o título do anúncio é literalmente **"⭐⭐⭐⭐⭐"**, sem uma palavra | `406808232515769` | [anúncio](https://www.facebook.com/ads/library/?id=1429163679064429) |
+| **Eu Sollar Energy** | "Kit solar com entrega em até 48h" repetido 4 vezes dentro do mesmo título, em 3 anúncios | `1133220793215273` | [anúncio](https://www.facebook.com/ads/library/?id=1060719110050064) |
+| **PeG soluções Energéticas** | título é o nome da empresa seguido de "Orçamento" três vezes | `1044915618714036` | [anúncio](https://www.facebook.com/ads/library/?id=1046124078225855) |
+| **Fênix Energia Fotovoltaica** | 5 anúncios idênticos, mesmo título | `103241548531349` | [anúncio](https://www.facebook.com/ads/library/?id=1094216669722006) |
+| **Haja Energia Solar** | 4 anúncios idênticos, **com exatamente o mesmo título da Fênix** | `421576177716751` | [anúncio](https://www.facebook.com/ads/library/?id=2187946035100995) |
+| **JBR Soluções em Energia Solar** | "Quero economizar mais 👉🏻" em 4 anúncios, um deles com a frase repetida 3 vezes | `102433715749168` | [anúncio](https://www.facebook.com/ads/library/?id=975483085556644) |
+| Rio suner | "ENTRE EM CONTATO! ➡️" | `109594208009432` | — |
+| Wes energiasolar | "ENTRE EM CONTATO" | `777793935427863` | — |
+
+### A observação de ouro deste lote
+**Fênix e Haja usam o título idêntico:** "Instale Placas Solares, e chega de pagar caro na conta de luz!". Duas empresas diferentes, mesma frase, palavra por palavra. Ou é a mesma agência, ou é template copiado. Abertura:
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Reparei que o título do anúncio de vocês é exatamente igual, palavra por palavra, ao de outra empresa de solar aqui do Rio. Vocês usam agência? Porque no leilão vocês estão competindo com a mesma frase.
+
+### Quem está acertando em solar (referência)
+- **DEV Solar** — "💸 Sua conta de luz passa de R$ 500 todo mês? Instale Energia Solar e reduza em até 95%" (qualifica por valor de conta no próprio título)
+- **Triotec** — testa faixas de conta: "até R$ 350? / chega a R$ 470? / até R$ 675?" (segmentação por criativo dinâmico, bem feita)
+- **MWX Energia Solar** — "Faça o sol pagar sua conta de luz!"
