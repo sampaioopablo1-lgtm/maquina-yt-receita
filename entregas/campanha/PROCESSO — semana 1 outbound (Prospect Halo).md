@@ -7,8 +7,8 @@
 ## O que está rodando
 | Agente | Alvo | Estado | Modo |
 |---|---|---|---|
-| Clínicas odontológicas RJ | donos, sócios, diretores clínicos, dentistas com consultório próprio · Rio + Niterói | ativo | review_first + autopilot nas respostas |
-| Clínicas de estética RJ | donas, sócias, biomédicas estetas, dermatologistas com clínica própria · Rio + Niterói | ativo | review_first + autopilot nas respostas |
+| Clínicas odontológicas RJ | donos, sócios, diretores clínicos, dentistas com consultório próprio · Rio + Niterói | ativo | autônomo + autopilot nas respostas |
+| Engajadores dos posts (donos de serviço BR) | quem comenta/interage nos posts do Pablo; alvo amplo, sem descoberta fria | ativo | autônomo + autopilot; mensagem 1 entrega o carrossel, mensagem 2 uma pergunta, mensagem 3 dois horários |
 
 - Canal: só LinkedIn na semana 1. E-mail entra na semana 2, depois de 7 dias do Gmail saudável.
 - Janela: seg a sex, 8h às 18h, horário de São Paulo.

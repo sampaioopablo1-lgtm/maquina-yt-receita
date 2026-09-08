@@ -7,3 +7,5 @@
 **Regra de agenda:** dois horários no mesmo dia, 17h30 ou 18h30, limite 21h30.
 **Hipóteses para amanhã:** (1) primeiro post gera comentários AGENDA → medir engajador→lead; (2) descoberta do LinkedIn começa a popular; (3) fundo do Meta entrega de forma consistente após 24h.
 **Pontos à frente:** perfil do LinkedIn ainda sem título/Sobre novos (aumenta aceite); playbook do painel ainda não colado (afeta qualidade das respostas do autopilot).
+
+**Correção 08/09 13h50:** quem comenta os posts caía no agente de odontologia e seria rejeitado se não fosse dentista. Agente de estética (0 leads) apagado; criado "Engajadores dos posts" com alvo amplo (dono de serviço, Brasil), sem descoberta fria, autônomo. Comentários de alta intenção agora vão para ele. Agentes passaram a autônomos; autopilot de conteúdo ligado (ter/qui) e 7 posts agendados seg/qua/sex até 23/09.
