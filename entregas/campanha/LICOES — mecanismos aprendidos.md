@@ -8,6 +8,8 @@
 | Muitos filtros somados (títulos × setores × locais × exclusões) → o LinkedIn descarta em silêncio o que não reconhece e busca em todo lugar | Alvo enxuto rende mais: 6 títulos e 5 setores levaram a revisão de 1 para 10 perfis por passada | 08/09 |
 | A API **não edita alvo** de agente existente (`update_agent` com titles/industries/locations retorna erro) | Mudar alvo = apagar e recriar. Definir bem antes de acumular leads. | 08/09 |
 | Não existe importação de lista: leads só nascem da descoberta no LinkedIn | Cadência por lista de CNPJ roda fora da ferramenta | 08/09 |
+| **Existe uma cota diária protegida de "verificação de perfil" (hydration), separada de convites e de créditos de prospect.** Quando ela acaba: `progressStatus: waiting_for_profile_capacity`, `waitingReason: LinkedIn profile verification capacity is currently exhausted`, e `nextRetryAt` diz a hora do reset | É o gargalo invisível nº 1. A busca acha os candidatos, mas eles ficam parados em `remainingCandidates` sem serem processados. Nada aparece como erro nem como pausa de segurança. **Sempre ler `progressStatus` e `waitingReason` antes de culpar a segmentação.** | 08/09 |
+| Recriar agente reprocessa perfis e **queima a cota de verificação do dia** | Cada recriação custa capacidade real, não só a fila. Máximo uma recriação por dia. | 08/09 |
 | `find_leads` não devolve e-mail; enriquecimento gasta 1 de 50 créditos/mês | E-mail é complemento para lead quente, nunca volume | 08/09 |
 | Página de empresa publica conteúdo, mas não prospecta nem manda mensagem | Prospecção sempre pelo perfil pessoal | 08/09 |
 | Autopilot de conteúdo gera o post ~20h antes de publicar | Dá para revisar e corrigir na véspera | 08/09 |
