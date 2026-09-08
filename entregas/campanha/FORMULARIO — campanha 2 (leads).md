@@ -52,7 +52,7 @@ onde a desistência já custa o que a pessoa investiu nas duas primeiras.
 > difícil: precisa ser convencido de que anúncio funciona antes de comprar a mentoria.
 
 ### P3 — intenção *(resposta curta, aberta)*
-**Em uma frase: o que precisa mudar no seu negócio nos próximos 90 dias?**
+**Em uma frase: o que precisa mudar no seu negócio nos próximos 30 dias?**
 
 > A única pergunta aberta, e a que mais separa. Digitar no celular dá trabalho, e é
 > exatamente esse o filtro: quem escreve uma frase quer resolver alguma coisa.

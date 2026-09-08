@@ -1,6 +1,9 @@
 # Processo — semana 1 de outbound (Prospect Halo)
 *Criado em 08/09/2026. Objetivo: primeiras reuniões na agenda em 7 dias.*
 
+## A oferta (atualizada 08/09)
+**Programa de 30 dias, 4 encontros.** O dono cria e implementa uma máquina de geração de leads no WhatsApp: leads qualificados, educados e interessados no serviço, todos os dias, não curiosos. Sem agência, sem depender de indicação. A máquina fica com o dono.
+
 ## O que está rodando
 | Agente | Alvo | Estado | Modo |
 |---|---|---|---|
@@ -24,7 +27,7 @@
 - Pablo filtra as conexões por dono de negócio local (clínica, estética, contabilidade, arquitetura) e manda a lista; Claude escreve as 40 mensagens.
 - Script (3 toques, 2 dias entre eles):
   1. "[Nome], tudo bem? [Clínica] precisa de mais clientes esse mês?"
-  2. "Pergunto porque estou abrindo 5 vagas de uma mentoria de 90 dias em que o dono aprende a rodar o próprio anúncio e encher a agenda pelo WhatsApp, sem agência. Faz sentido para você?"
+  2. "Pergunto porque estou abrindo 5 vagas de um programa de 30 dias, 4 encontros, em que a gente monta e coloca pra rodar uma máquina que traz lead qualificado no seu WhatsApp todo dia. Gente interessada no seu serviço, não curioso. Faz sentido para você?"
   3. "Te mostro em 20 minutos como funciona na prática, sem compromisso. Hoje 17h30 ou 18h30?"
 - Regra: uma pergunta por mensagem, link de agenda só depois de um "sim".
 
