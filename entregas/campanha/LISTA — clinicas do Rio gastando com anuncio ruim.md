@@ -154,8 +154,10 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - móveis planejados + Rio ✔
 - advogado + Rio ✔ (fraco, 1)
 - energia solar + Rio ✔ (**124 anúncios, o nicho mais rico**)
+- academia + musculação + Botafogo ✔ (zero resultado)
+- arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
 
-**Ainda por varrer:** academia, arquitetura, salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
+**Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
 ## Leitura que já dá para tirar
 Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia solar (124 anúncios ativos), odontologia, estética, móveis planejados e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
@@ -186,3 +188,19 @@ Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia 
 - **DEV Solar** — "💸 Sua conta de luz passa de R$ 500 todo mês? Instale Energia Solar e reduza em até 95%" (qualifica por valor de conta no próprio título)
 - **Triotec** — testa faixas de conta: "até R$ 350? / chega a R$ 470? / até R$ 675?" (segmentação por criativo dinâmico, bem feita)
 - **MWX Energia Solar** — "Faça o sol pagar sua conta de luz!"
+
+---
+
+## Achados de 08/09, 19h45 — arquitetura + Copacabana (nicho fraco: 6 anúncios, 1 empresa)
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Rafael Ramos Arquitetura e Interiores** — *Trilha A, dono no nome* | "Fale conosco \| Fale conosco \| Fale conosco" — a mesma chamada repetida 3 vezes no título. E **4 dos 6 anúncios estão sem título nenhum**, um deles com o título literalmente vazio: "Rafael Ramos Arquitetura e Interiores \|   \|  " | `828059224001697` | 23/06/2026 (2 meses e meio) | [anúncio](https://www.facebook.com/ads/library/?id=1594193535550255) |
+
+**Abertura pronta (Trilha A — o nome do dono está na página, então é ele quem lê):**
+
+> Rafael, aqui é o Pablo, do Rio. Não sou cliente e não vim vender nada agora. Vi os anúncios da sua arquitetura na Biblioteca do Facebook e reparei em duas coisas: em um deles o título é "Fale conosco" três vezes seguidas, e em quatro dos seis o título está vazio. Isso não é detalhe de estética — o título vazio é o que o Facebook usa para decidir para quem mostrar. Rodando desde junho assim. Você cuida disso sozinho ou tem agência?
+
+**Leitura do nicho:** arquitetura + Copacabana rende quase nada — 6 anúncios de uma única empresa. Junta-se a contabilidade, advocacia e fisioterapia na lista de nichos que não anunciam no Rio. Para arquitetura, o caminho é Instagram e indicação, não a Biblioteca.
+
+**Academia + Botafogo: zero anúncios ativos.** Combinação queimada, não repetir.
