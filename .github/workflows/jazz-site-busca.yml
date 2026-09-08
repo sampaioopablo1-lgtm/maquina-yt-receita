@@ -1,0 +1,82 @@
+name: "Jazz — Deploy da demo de busca"
+
+# Publica jazz/site-busca/ no Netlify (projeto jazz-busca-imoveis-demo, time
+# imobjazz).
+#
+# POR QUE VIA ACTIONS E NÃO DA MÁQUINA DE QUEM DESENVOLVE
+#
+# O deploy sai daqui porque o ambiente das sessões de desenvolvimento bloqueia
+# api.netlify.com na política de egresso — o upload do CLI morre em 403 antes
+# de falar com o Netlify. O runner do Actions tem saída livre, então o único
+# lugar de onde o deploy funciona de forma repetível é este.
+#
+# SEGREDO NECESSÁRIO
+#
+# `NETLIFY_AUTH_TOKEN` — Personal access token do Netlify
+# (app.netlify.com → User settings → Applications → New access token).
+# É um segredo da JAZZ; não reaproveitar nada dos secrets da máquina YT.
+# Sem ele o job para com mensagem explícita, em vez de falhar obscuro.
+
+on:
+  push:
+    branches: [main, master]
+    paths: ["jazz/site-busca/**", "netlify.toml", ".github/workflows/jazz-site-busca.yml"]
+  workflow_dispatch:
+    inputs:
+      producao:
+        description: "Publicar como produção (senão, sai como deploy de preview)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: jazz-site-busca
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Conferir o segredo antes de tentar o deploy
+        env:
+          TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN não está configurado no repositório." \
+                 "Crie o token em app.netlify.com → User settings → Applications" \
+                 "e adicione em Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+
+      # A página é um arquivo só, sem build. Confere o que importa antes de
+      # subir: o HTML existe e não está vazio.
+      - name: Conferir o pacote
+        run: |
+          test -s jazz/site-busca/index.html
+          grep -q "rpc_buscar_imoveis" jazz/site-busca/index.html
+          echo "index.html: $(wc -c < jazz/site-busca/index.html) bytes"
+
+      - name: Deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 2cd91fbd-dcc8-4c47-ba14-6ce9f35eccf2
+        run: |
+          PROD=""
+          if [ "${{ github.event_name }}" = "push" ] || [ "${{ inputs.producao }}" = "true" ]; then
+            PROD="--prod"
+          fi
+          npx -y netlify-cli@latest deploy \
+            --dir jazz/site-busca \
+            --site "$NETLIFY_SITE_ID" \
+            --message "${{ github.sha }}" \
+            $PROD | tee deploy.log
+
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo "### Demo de busca"
+            grep -Eo 'https://[a-z0-9.-]*netlify\.app[^ ]*' deploy.log | sort -u | sed 's/^/- /'
+          } >> "$GITHUB_STEP_SUMMARY"

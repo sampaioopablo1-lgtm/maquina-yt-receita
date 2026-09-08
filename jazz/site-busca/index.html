@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo da busca de imoveis por frase unica do Jazz Conecta.">
+<title>Barra Única Jazz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F4; --surface:#FFFFFF; --surface-2:#EDF0EE;
+  --ink:#141917; --ink-2:#3D4744; --muted:#67726E;
+  --line:#D9DFDB; --line-2:#C4CDC8;
+  --accent:#0F6B5A; --accent-soft:#E2EFEB; --accent-ink:#0B4E42;
+  --alert:#8C5A12; --alert-soft:#F6EBD8;
+  --plate-a:#0F6B5A; --plate-b:#7FA9A0;
+  --shadow:0 1px 2px rgba(20,25,23,.06), 0 6px 18px -12px rgba(20,25,23,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101413; --surface:#181D1B; --surface-2:#1F2523;
+    --ink:#EDF1EF; --ink-2:#C6CFCB; --muted:#8D9995;
+    --line:#2A3230; --line-2:#3A4341;
+    --accent:#4FBFA5; --accent-soft:#16302B; --accent-ink:#8FD9C8;
+    --alert:#E0AE64; --alert-soft:#33260F;
+    --plate-a:#2C7365; --plate-b:#0E1614;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 22px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101413; --surface:#181D1B; --surface-2:#1F2523;
+  --ink:#EDF1EF; --ink-2:#C6CFCB; --muted:#8D9995;
+  --line:#2A3230; --line-2:#3A4341;
+  --accent:#4FBFA5; --accent-soft:#16302B; --accent-ink:#8FD9C8;
+  --alert:#E0AE64; --alert-soft:#33260F;
+  --plate-a:#2C7365; --plate-b:#0E1614;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 22px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.face-display{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.015em;text-wrap:balance}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.num{font-variant-numeric:tabular-nums}
+a{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---- topo ---- */
+header{border-bottom:1px solid var(--line);background:var(--surface)}
+.bar{display:flex;align-items:baseline;gap:14px;padding:18px 0;flex-wrap:wrap}
+.brand{font-family:Archivo;font-weight:700;font-size:1.05rem}
+.brand span{color:var(--accent)}
+.brand-sub{color:var(--muted);font-size:.82rem}
+.demo-tag{
+  margin-left:auto;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--alert);background:var(--alert-soft);border:1px solid var(--alert);
+  border-radius:2px;padding:3px 9px;font-weight:600;
+}
+
+/* ---- busca ---- */
+.search-zone{padding:36px 0 26px;border-bottom:1px solid var(--line)}
+.lede{font-size:1.6rem;font-weight:600;max-width:22ch;margin:0 0 6px}
+.lede em{font-style:normal;color:var(--accent)}
+.lede-sub{color:var(--muted);max-width:62ch;margin:0 0 22px;font-size:.95rem}
+
+.searchbox{position:relative;display:flex;align-items:center;gap:10px;
+  background:var(--surface);border:1.5px solid var(--line-2);border-radius:999px;
+  padding:6px 6px 6px 18px;box-shadow:var(--shadow);transition:border-color .15s}
+.searchbox:focus-within{border-color:var(--accent)}
+.searchbox svg{flex:none;color:var(--muted)}
+#q{flex:1;min-width:0;border:0;background:none;color:var(--ink);
+  font:inherit;font-size:1.05rem;padding:10px 0}
+#q::placeholder{color:var(--muted)}
+#q:focus{outline:none}
+.go{flex:none;border:0;border-radius:999px;background:var(--accent);color:#fff;
+  font-family:Archivo;font-weight:600;font-size:.92rem;padding:11px 22px;cursor:pointer}
+:root[data-theme="dark"] .go,
+:root:not([data-theme="light"]) .go{color:#08201B}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .go{color:#fff}}
+.go:hover{background:var(--accent-ink)}
+
+.tries{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.tries b{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.try{border:1px dashed var(--line-2);background:none;color:var(--ink-2);
+  border-radius:999px;padding:5px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.try:hover{border-style:solid;border-color:var(--accent);color:var(--accent-ink)}
+
+/* ---- leitura da frase ---- */
+.readout{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:16px 0 0}
+.readout .lbl{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;margin-right:2px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--accent-soft);
+  color:var(--accent-ink);border:1px solid transparent;border-radius:4px;
+  padding:4px 6px 4px 10px;font-size:.88rem;font-weight:600}
+.chip .k{font-weight:400;color:var(--accent-ink);opacity:.72;font-size:.8rem}
+.chip button{border:0;background:none;color:inherit;cursor:pointer;font-size:1rem;
+  line-height:1;padding:0 3px;opacity:.6}
+.chip button:hover{opacity:1}
+.chip.free{background:var(--surface-2);color:var(--ink-2);border-color:var(--line)}
+.readout .none{color:var(--muted);font-size:.9rem;font-style:italic}
+
+/* ---- corpo ---- */
+.body-grid{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:32px;padding:26px 0 60px;align-items:start}
+@media (max-width:900px){.body-grid{grid-template-columns:minmax(0,1fr)}}
+
+.result-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.count{font-family:Archivo;font-weight:600;font-size:1.15rem}
+.sortwrap{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--muted)}
+select{font:inherit;font-size:.86rem;padding:6px 8px;border-radius:4px;
+  border:1px solid var(--line-2);background:var(--surface);color:var(--ink)}
+
+.widened{display:flex;gap:12px;align-items:flex-start;background:var(--alert-soft);
+  border-left:3px solid var(--alert);padding:12px 14px;margin-bottom:16px;font-size:.9rem;color:var(--ink-2)}
+.widened strong{color:var(--alert)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;
+  overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plate{aspect-ratio:16/10;background:var(--surface-2);position:relative;display:block;border-bottom:1px solid var(--line)}
+.plate svg{position:absolute;inset:0;width:100%;height:100%}
+.plate .code{position:absolute;left:8px;bottom:8px;background:rgba(10,20,17,.72);color:#EAF2EF;
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;padding:2px 6px;border-radius:2px;letter-spacing:.03em}
+.plate .fin{position:absolute;right:8px;top:8px;background:var(--surface);color:var(--ink-2);
+  font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  padding:3px 7px;border-radius:2px;border:1px solid var(--line)}
+.card-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.price{font-family:Archivo;font-weight:700;font-size:1.16rem;font-variant-numeric:tabular-nums}
+.price small{font-family:"Source Sans 3";font-weight:400;font-size:.78rem;color:var(--muted)}
+.where{font-size:.94rem;font-weight:600;line-height:1.3}
+.where span{display:block;font-weight:400;font-size:.85rem;color:var(--muted)}
+.specs{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:auto;padding-top:8px;
+  border-top:1px dotted var(--line-2);font-size:.85rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.specs span{white-space:nowrap}
+.specs b{font-weight:600}
+.taxes{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.empty{border:1px dashed var(--line-2);border-radius:6px;padding:34px 20px;text-align:center;color:var(--muted)}
+
+/* ---- painel ---- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.panel h2{margin:0;padding:12px 14px;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);font-weight:600}
+.panel .inner{padding:14px}
+pre{margin:0;font-family:"IBM Plex Mono",monospace;font-size:.76rem;line-height:1.6;
+  color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere}
+.panel p{font-size:.86rem;color:var(--muted);margin:12px 0 0}
+.panel-note{margin-top:18px;font-size:.86rem;color:var(--muted);line-height:1.6}
+.panel-note b{color:var(--ink-2);font-weight:600}
+.rpc{margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--accent-ink);
+  background:var(--accent-soft);padding:8px 10px;border-radius:4px;overflow-x:auto;white-space:pre}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);font-size:.85rem}
+</style>
+</head><body>
+<header>
+  <div class="wrap bar">
+    <span class="brand">Jazz <span>Conecta</span></span>
+    <span class="brand-sub">São José dos Campos e região</span>
+    <span class="demo-tag">Demo — 14 fichas de exemplo</span>
+  </div>
+</header>
+
+<main>
+  <section class="search-zone">
+    <div class="wrap">
+      <h1 class="lede">Diga em uma frase <em>o que você procura.</em></h1>
+      <p class="lede-sub">Sem combo de tipo, sem combo de bairro, sem slider de preço. A mesma barra
+        entende tipo, quartos, bairro, orçamento e o que sobrar da frase.</p>
+
+      <form class="searchbox" id="form" role="search">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/>
+        </svg>
+        <input id="q" type="search" autocomplete="off" aria-label="Buscar imóveis"
+          value="apartamento 3 quartos até 700 mil"
+          placeholder="apartamento 3 quartos no Jardim Aquarius até 700 mil">
+        <button class="go" type="submit">Buscar</button>
+      </form>
+
+      <div class="tries">
+        <b>Experimente</b>
+        <button class="try" type="button">casa com piscina no Urbanova</button>
+        <button class="try" type="button">apto para alugar mobiliado no centro</button>
+        <button class="try" type="button">terreno acima de 250 m2 no aquarius</button>
+        <button class="try" type="button">cobertura 3 suítes até 1,4 milhão</button>
+        <button class="try" type="button">AP1002</button>
+        <button class="try" type="button">mansão com heliponto</button>
+      </div>
+
+      <div class="readout" id="readout"></div>
+    </div>
+  </section>
+
+  <div class="wrap body-grid">
+    <div>
+      <div class="result-head">
+        <span class="count" id="count">—</span>
+        <label class="sortwrap">Ordenar
+          <select id="sort">
+            <option value="relevancia">Relevância</option>
+            <option value="preco_asc">Menor preço</option>
+            <option value="preco_desc">Maior preço</option>
+            <option value="recentes">Mais recentes</option>
+          </select>
+        </label>
+      </div>
+      <div id="widened"></div>
+      <div class="cards" id="cards"></div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h2>O que o banco entendeu</h2>
+        <div class="inner">
+          <pre id="json">{}</pre>
+          <p>Este JSON é o retorno de <span class="mono">fn_interpretar_busca()</span> — é dele que
+            saem os chips acima.</p>
+        </div>
+      </div>
+      <div class="panel-note">
+        <p><b>Por que os chips importam.</b> Eles devolvem ao visitante o controle que o combo dava,
+          sem cobrar o clique adiantado — e respondem “por que este imóvel apareceu?”. Clique no
+          <span class="mono">✕</span> de qualquer um para soltar aquele filtro.</p>
+        <p><b>Contagem é piso, não igualdade.</b> “3 quartos” traz 3 e 4 dormitórios: ninguém recusa
+          um quarto extra dentro do orçamento.</p>
+        <p><b>Número sem escala é milhar.</b> “apartamento de 700” significa 700 mil.</p>
+        <div class="rpc">select rpc_buscar_imoveis(
+  q       =&gt; $1,
+  limite  =&gt; 24,
+  pagina  =&gt; 1,
+  ordenar =&gt; 'relevancia'
+);</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="wrap">
+  Demo do parser que roda no Supabase da Jazz. As 14 fichas e as fotos são exemplo —
+  as ilustrações são geradas em SVG, não são imóveis reais. Em produção a busca lê
+  <span class="mono">vista_imoveis_log</span>, só ficha ativa, só coluna de vitrine.
+</footer>
+
+<script>
+/* ---------------------------------------------------------------- acervo */
+const ACERVO = [
+  {codigo:"AP1001",categoria:"Apartamento",finalidade:"Venda",bairro:"Jardim Aquarius",cidade:"São José dos Campos",endereco:"Av. Salmão, 100",empreendimento:"Edifício Coral",valor_venda:690000,area_util:88,dormitorios:3,suites:1,banheiros:2,vagas:2,condominio:780,iptu:210,desc:"Piscina, churrasqueira e portaria 24h. Andar alto, sol da manhã.",dias:2},
+  {codigo:"AP1002",categoria:"Cobertura",finalidade:"Venda",bairro:"Jardim Aquarius",cidade:"São José dos Campos",endereco:"R. Andorinha, 20",empreendimento:"Torre Aquarius",valor_venda:1250000,area_util:140,dormitorios:3,suites:3,banheiros:4,vagas:3,condominio:1450,iptu:520,desc:"Duplex com vista livre, academia e piscina aquecida no condomínio.",dias:5},
+  {codigo:"CA1003",categoria:"Casa",finalidade:"Venda",bairro:"Urbanova",cidade:"São José dos Campos",endereco:"R. das Flores, 5",valor_venda:980000,area_util:210,area_total:360,dormitorios:4,suites:2,banheiros:3,vagas:4,iptu:410,desc:"Casa térrea com quintal amplo, piscina e edícula.",dias:9},
+  {codigo:"AP1004",categoria:"Apartamento",finalidade:"Locação",bairro:"Centro",cidade:"São José dos Campos",endereco:"R. XV de Novembro, 30",valor_locacao:2200,area_util:60,dormitorios:2,suites:0,banheiros:1,vagas:1,condominio:520,iptu:90,desc:"Mobiliado, a duas quadras do comércio e do terminal.",dias:1},
+  {codigo:"TE1005",categoria:"Terreno",finalidade:"Venda",bairro:"Jardim Aquarius",cidade:"São José dos Campos",endereco:"R. Peixe, 8",valor_venda:450000,area_total:300,desc:"Terreno plano em condomínio fechado, pronto para construir.",dias:14},
+  {codigo:"AP1006",categoria:"Apartamento",finalidade:"Venda",bairro:"Vila Adyana",cidade:"São José dos Campos",endereco:"R. Ida Fabiano, 12",valor_venda:520000,area_util:72,dormitorios:2,suites:1,banheiros:2,vagas:1,condominio:610,iptu:180,desc:"Reformado, condomínio pequeno e barato, perto do Vale Sul.",dias:3},
+  {codigo:"CA1007",categoria:"Casa",finalidade:"Locação",bairro:"Jardim Esplanada",cidade:"São José dos Campos",endereco:"R. Engenheiro Prudente, 44",valor_locacao:4800,area_util:180,area_total:250,dormitorios:3,suites:1,banheiros:3,vagas:2,iptu:300,desc:"Casa em rua arborizada, quintal com churrasqueira.",dias:7},
+  {codigo:"AP1008",categoria:"Apartamento",finalidade:"Venda",bairro:"Bosque dos Eucaliptos",cidade:"São José dos Campos",endereco:"Av. Andrômeda, 900",valor_venda:395000,area_util:64,dormitorios:3,suites:0,banheiros:2,vagas:1,condominio:430,iptu:120,desc:"Três dormitórios com sacada, próximo à Dutra e ao shopping.",dias:11},
+  {codigo:"SL1009",categoria:"Sala",finalidade:"Locação",bairro:"Jardim Aquarius",cidade:"São José dos Campos",endereco:"Av. Cassiano Ricardo, 601",empreendimento:"Aquarius Corporate",valor_locacao:3500,area_util:52,banheiros:1,vagas:2,condominio:890,iptu:240,desc:"Sala comercial com ar central, duas vagas e recepção compartilhada.",dias:6},
+  {codigo:"CA1010",categoria:"Casa",finalidade:"Venda",bairro:"Urbanova",cidade:"São José dos Campos",endereco:"R. Peteca, 77",valor_venda:1680000,area_util:320,area_total:500,dormitorios:4,suites:4,banheiros:5,vagas:6,iptu:820,desc:"Sobrado alto padrão com piscina aquecida, cinema e heliponto vizinho.",dias:20},
+  {codigo:"AP1011",categoria:"Kitnet",finalidade:"Locação",bairro:"Centro",cidade:"São José dos Campos",endereco:"R. Sete de Setembro, 15",valor_locacao:1250,area_util:28,dormitorios:1,banheiros:1,condominio:310,iptu:60,desc:"Studio mobiliado, contas inclusas, ideal para quem estuda no centro.",dias:4},
+  {codigo:"AP1012",categoria:"Apartamento",finalidade:"Venda",bairro:"Jardim Satélite",cidade:"São José dos Campos",endereco:"Av. Andrômeda, 145",valor_venda:610000,area_util:95,dormitorios:3,suites:1,banheiros:2,vagas:2,condominio:690,iptu:230,desc:"Planta ampla, dois banheiros e lazer completo com quadra.",dias:8},
+  {codigo:"GA1013",categoria:"Galpão",finalidade:"Locação",bairro:"Vila Ema",cidade:"São José dos Campos",endereco:"R. Jaguari, 210",valor_locacao:12000,area_util:600,area_total:800,banheiros:2,vagas:8,iptu:1100,desc:"Galpão com pé-direito de 8 m, doca e escritório interno.",dias:16},
+  {codigo:"CA1014",categoria:"Casa",finalidade:"Venda",bairro:"Altos da Vila Paiva",cidade:"São José dos Campos",endereco:"R. Chico Mendes, 60",valor_venda:735000,area_util:150,area_total:200,dormitorios:3,suites:1,banheiros:2,vagas:2,iptu:290,desc:"Sobrado novo em condomínio com piscina e salão de festas.",dias:13},
+];
+
+/* ------------------------------------------------------ o parser, em JS */
+/* Mesmas regras da fn_interpretar_busca() no Postgres. */
+const norm = t => (t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const LUGARES = (()=>{
+  const b=new Map(), c=new Map();
+  for(const i of ACERVO){ b.set(i.bairro,(b.get(i.bairro)||0)+1); c.set(i.cidade,(c.get(i.cidade)||0)+1); }
+  const mk=(m,campo)=>[...m].map(([valor,fichas])=>({campo,valor,norma:norm(valor),fichas}));
+  return [...mk(b,"bairro"),...mk(c,"cidade")];
+})();
+
+function valorBR(num, escala){
+  let v;
+  if(num.includes(",")) v = parseFloat(num.replace(/\./g,"").replace(",","."));
+  else if(/^\d+\.\d{1,2}$/.test(num)) v = parseFloat(num);
+  else v = parseFloat(num.replace(/\./g,""));
+  if(!isFinite(v)) return null;
+  const s = (escala||"").toLowerCase();
+  if(s==="mil"||s==="k") v*=1000;
+  else if(["milhao","milhoes","mi","m"].includes(s)) v*=1e6;
+  else if(s==="" && v<10000) v*=1000;   // "de 700" é 700 mil
+  return v;
+}
+
+const CATS = [
+  [/\b(apartamentos?|aptos?|apto)\b/,"Apartamento"],
+  [/\b(sobrados?)\b/,"Sobrado"],
+  [/\b(coberturas?)\b/,"Cobertura"],
+  [/\b(kitnets?|kitchenettes?|studios?)\b/,"Kitnet"],
+  [/\b(casas?|residencias?)\b/,"Casa"],
+  [/\b(terrenos?|lotes?)\b/,"Terreno"],
+  [/\b(chacaras?|sitios?)\b/,"Chácara"],
+  [/\b(salas?|conjuntos?|escritorios?)\b/,"Sala"],
+  [/\b(galpoes?|galpao)\b/,"Galpão"],
+  [/\b(lojas?|pontos? comerciais?)\b/,"Loja"],
+  [/\b(predios?|edificios?)\b/,"Prédio"],
+];
+const CAT_STRIP = /\b(apartamentos?|aptos?|apto|sobrados?|coberturas?|kitnets?|kitchenettes?|studios?|casas?|residencias?|terrenos?|lotes?|chacaras?|sitios?|salas?|conjuntos?|escritorios?|galpoes?|galpao|lojas?|pontos? comerciais?|predios?|edificios?)\b/g;
+const ESC = "(mil|milhao|milhoes|mi|k|m)?";
+
+function interpretar(q){
+  let t = norm(q).replace(/[^a-z0-9,.\s]/g," ").replace(/\s+/g," ").trim();
+  if(!t) return {texto_livre:null};
+  let resto = t, r = {}, m;
+
+  if(/\b(aluguel|alugar|alugo|locacao)\b/.test(resto)){
+    r.finalidade="locacao"; resto=resto.replace(/\b(aluguel|alugar|alugo|locacao)\b/g," ");
+  } else if(/\b(venda|comprar|compra|vender)\b/.test(resto)){
+    r.finalidade="venda"; resto=resto.replace(/\b(venda|comprar|compra|vender)\b/g," ");
+  }
+
+  // área antes de preço: em "acima de 250 m2" o número é metragem
+  if((m = resto.match(/\b(\d+)\s*(?:m2|m|metros(?: quadrados)?)\b/))){
+    r.area_min = +m[1];
+    resto = resto.replace(/\b\d+\s*(?:m2|m|metros(?: quadrados)?)\b/," ");
+  }
+  const teto = new RegExp("\\b(?:ate|abaixo de|no maximo|maximo|max|menos de)\\s+(?:r\\$\\s*)?([\\d.,]+)\\s*"+ESC+"\\b");
+  if((m = resto.match(teto))){ r.preco_max = valorBR(m[1],m[2]); resto = resto.replace(teto," "); }
+  const piso = new RegExp("\\b(?:acima de|a partir de|no minimo|minimo|min|mais de)\\s+(?:r\\$\\s*)?([\\d.,]+)\\s*"+ESC+"\\b");
+  if((m = resto.match(piso))){ r.preco_min = valorBR(m[1],m[2]); resto = resto.replace(piso," "); }
+  const faixa = new RegExp("\\bentre\\s+(?:r\\$\\s*)?([\\d.,]+)\\s*"+ESC+"\\s+e\\s+(?:r\\$\\s*)?([\\d.,]+)\\s*"+ESC+"\\b");
+  if((m = resto.match(faixa))){
+    r.preco_min = valorBR(m[1], m[2]||m[4]);   // escala do 2º vale pros dois
+    r.preco_max = valorBR(m[3], m[4]);
+    resto = resto.replace(faixa," ");
+  }
+
+  const conta = (re, key) => {
+    const mm = resto.match(re);
+    if(mm){ r[key] = +mm[1]; resto = resto.replace(new RegExp(re.source.replace("(\\d+)","\\d+"),"g")," "); }
+  };
+  conta(/\b(\d+)\s*(?:quartos?|dormitorios?|dorms?|qtos?|qts?)\b/,"dormitorios");
+  conta(/\b(\d+)\s*(?:suites?)\b/,"suites");
+  conta(/\b(\d+)\s*(?:vagas?|garagens?)\b/,"vagas");
+  conta(/\b(\d+)\s*(?:banheiros?|wcs?)\b/,"banheiros");
+
+  for(const [re,val] of CATS){ if(re.test(resto)){ r.categoria=val; resto=resto.replace(CAT_STRIP," "); break; } }
+
+  for(const campo of ["bairro","cidade"]){
+    const hit = LUGARES.filter(l => l.campo===campo && l.norma.length>=4 && resto.includes(l.norma))
+                       .sort((a,b)=> b.norma.length-a.norma.length || b.fichas-a.fichas)[0];
+    if(hit){ r[campo]=hit.valor; resto = resto.replace(hit.norma," "); }
+  }
+
+  const cod = t.match(/\b([a-z]{0,3}\d{4,})\b/);
+  if(cod && Object.keys(r).length===0){ r.codigo = cod[1].toUpperCase(); resto = ""; }
+
+  resto = resto.replace(/\b(de|do|da|dos|das|no|na|nos|nas|em|com|para|pra|e|o|a|os|as|um|uma|imovel|imoveis|acima|abaixo|ate|maximo|max|minimo|min|entre|partir|mais|menos|m2|m|metros|quadrados|r)\b/g," ")
+               .replace(/\s+/g," ").trim();
+  r.texto_livre = resto || null;
+  return r;
+}
+
+/* --------------------------------------------------------------- a busca */
+const preco = i => i.valor_venda || i.valor_locacao || null;
+const blob  = i => norm([i.empreendimento,i.bairro,i.cidade,i.categoria,i.endereco,i.desc].filter(Boolean).join(" "));
+
+function buscar(f, ordenar){
+  const termos = f.texto_livre ? f.texto_livre.split(" ").filter(w=>w.length>2) : [];
+  const casa = (i, comTexto) => {
+    if(f.codigo && i.codigo !== f.codigo) return false;
+    if(f.finalidade && norm(i.finalidade) !== norm(f.finalidade)) return false;
+    if(f.categoria && norm(i.categoria) !== norm(f.categoria)) return false;
+    if(f.bairro && i.bairro !== f.bairro) return false;
+    if(f.cidade && i.cidade !== f.cidade) return false;
+    for(const k of ["dormitorios","suites","vagas","banheiros"])
+      if(f[k] != null && !((i[k]||0) >= f[k])) return false;
+    if(f.area_min != null && !((i.area_util||i.area_total||0) >= f.area_min)) return false;
+    const p = preco(i);
+    if(f.preco_min != null && !(p != null && p >= f.preco_min)) return false;
+    if(f.preco_max != null && !(p != null && p <= f.preco_max)) return false;
+    if(comTexto && termos.length){ const b = blob(i); if(!termos.every(w => b.includes(w))) return false; }
+    return true;
+  };
+
+  let itens = ACERVO.filter(i => casa(i,true)), ampliada = false;
+  if(!itens.length && termos.length){ ampliada = true; itens = ACERVO.filter(i => casa(i,false)); }
+
+  const rank = i => termos.length ? termos.filter(w => blob(i).includes(w)).length : 0;
+  itens = itens.slice().sort((a,b)=>{
+    if(ordenar==="preco_asc")  return (preco(a)??Infinity)-(preco(b)??Infinity);
+    if(ordenar==="preco_desc") return (preco(b)??-1)-(preco(a)??-1);
+    if(ordenar==="recentes")   return a.dias-b.dias;
+    return rank(b)-rank(a) || a.dias-b.dias;
+  });
+  return {itens, ampliada, termos};
+}
+
+/* ------------------------------------------------------------ a fachada */
+const brl = n => n==null ? "—" : n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+const ROTULO = {finalidade:"Finalidade",categoria:"Tipo",bairro:"Bairro",cidade:"Cidade",
+  dormitorios:"Quartos",suites:"Suítes",vagas:"Vagas",banheiros:"Banheiros",
+  area_min:"Área mín.",preco_min:"A partir de",preco_max:"Até",codigo:"Código",texto_livre:"Texto"};
+const valorChip = (k,v) =>
+  k==="preco_max"||k==="preco_min" ? brl(v) :
+  k==="area_min" ? v+" m²" :
+  ["dormitorios","suites","vagas","banheiros"].includes(k) ? v+"+" :
+  k==="finalidade" ? (v==="locacao"?"Locação":"Venda") : v;
+
+/* Ilustrações: SVG gerado, uma silhueta por tipo. Não são fotos. */
+function plate(i){
+  const seed = [...i.codigo].reduce((a,c)=>a+c.charCodeAt(0),0);
+  const sky = 8 + (seed % 14);
+  const casa = `<rect x="18" y="42" width="58" height="38" rx="1.5" fill="var(--plate-a)" opacity=".92"/>
+     <path d="M12 43 47 20l35 23z" fill="var(--plate-a)"/>
+     <rect x="30" y="56" width="13" height="12" fill="var(--surface)" opacity=".85"/>
+     <rect x="52" y="56" width="13" height="24" fill="var(--surface)" opacity=".55"/>`;
+  const predio = `<rect x="22" y="16" width="30" height="64" fill="var(--plate-a)" opacity=".92"/>
+     <rect x="56" y="30" width="24" height="50" fill="var(--plate-a)" opacity=".7"/>
+     ${[0,1,2,3,4].map(r=>[0,1,2].map(c=>
+       `<rect x="${26+c*9}" y="${22+r*11}" width="6" height="7" fill="var(--surface)" opacity="${.35+((seed+r+c)%3)*.22}"/>`).join("")).join("")}
+     ${[0,1,2,3].map(r=>`<rect x="${60}" y="${36+r*11}" width="16" height="6" fill="var(--surface)" opacity=".3"/>`).join("")}`;
+  const terreno = `<path d="M8 66 50 46l44 20-44 20z" fill="var(--plate-a)" opacity=".85"/>
+     <path d="M8 66 50 46l44 20" fill="none" stroke="var(--surface)" stroke-opacity=".5" stroke-dasharray="4 3"/>
+     <path d="M50 46V26" stroke="var(--plate-a)" stroke-width="2"/><circle cx="50" cy="24" r="4" fill="var(--plate-a)"/>`;
+  const galpao = `<path d="M10 44h80v36H10z" fill="var(--plate-a)" opacity=".9"/>
+     <path d="M6 44 50 24l44 20z" fill="var(--plate-a)"/>
+     <rect x="34" y="54" width="32" height="26" fill="var(--surface)" opacity=".6"/>
+     <path d="M34 60h32M34 68h32" stroke="var(--plate-a)" stroke-opacity=".5"/>`;
+  const sala = `<rect x="20" y="20" width="60" height="60" fill="var(--plate-a)" opacity=".9"/>
+     ${[0,1,2].map(r=>[0,1,2].map(c=>
+       `<rect x="${26+c*19}" y="${26+r*19}" width="13" height="13" fill="var(--surface)" opacity="${.3+((seed+r*c)%3)*.2}"/>`).join("")).join("")}`;
+  const arte = {Casa:casa,Sobrado:casa,Apartamento:predio,Cobertura:predio,Kitnet:predio,
+    Prédio:predio,Terreno:terreno,Chácara:terreno,Galpão:galpao,Loja:galpao,Sala:sala}[i.categoria] || predio;
+  return `<svg viewBox="0 0 100 88" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <rect width="100" height="88" fill="var(--plate-b)" opacity=".22"/>
+      <circle cx="${sky+68}" cy="16" r="7" fill="var(--plate-a)" opacity=".2"/>
+      ${arte}</svg>`;
+}
+
+function cardHTML(i){
+  const alugar = i.finalidade === "Locação";
+  const especs = [
+    i.area_util  && `<span><b>${i.area_util}</b> m²</span>`,
+    i.dormitorios && `<span><b>${i.dormitorios}</b> ${i.dormitorios>1?"quartos":"quarto"}</span>`,
+    i.suites     && `<span><b>${i.suites}</b> ${i.suites>1?"suítes":"suíte"}</span>`,
+    i.vagas      && `<span><b>${i.vagas}</b> ${i.vagas>1?"vagas":"vaga"}</span>`,
+  ].filter(Boolean);
+  const taxas = [i.condominio && `cond. ${brl(i.condominio)}`, i.iptu && `IPTU ${brl(i.iptu)}/mês`].filter(Boolean);
+  return `<article class="card">
+    <div class="plate">${plate(i)}
+      <span class="fin">${i.finalidade}</span><span class="code">${i.codigo}</span></div>
+    <div class="card-body">
+      <div class="price">${brl(preco(i))}${alugar?'<small> /mês</small>':''}</div>
+      <div class="where">${i.empreendimento || i.categoria}
+        <span>${i.bairro} · ${i.endereco}</span></div>
+      ${taxas.length?`<div class="taxes">${taxas.join(" · ")}</div>`:""}
+      <div class="specs">${especs.join("")||`<span><b>${i.area_total||"—"}</b> m² de terreno</span>`}</div>
+    </div></article>`;
+}
+
+const el = id => document.getElementById(id);
+
+function render(){
+  const q = el("q").value.trim() || el("q").placeholder;
+  const f = interpretar(q);
+  const {itens, ampliada, termos} = buscar(f, el("sort").value);
+
+  // chips
+  const chips = Object.entries(f).filter(([k,v]) => v!=null && k!=="consulta")
+    .map(([k,v]) => `<span class="chip${k==="texto_livre"?" free":""}">
+        <span class="k">${ROTULO[k]||k}</span> ${valorChip(k,v)}
+        <button type="button" data-drop="${k}" aria-label="Remover filtro ${ROTULO[k]||k}">✕</button></span>`);
+  el("readout").innerHTML = `<span class="lbl">Entendemos</span>` +
+    (chips.length ? chips.join("") : `<span class="none">nada específico — mostrando o acervo inteiro</span>`);
+
+  el("count").textContent = itens.length === 1 ? "1 imóvel" : `${itens.length} imóveis`;
+  el("widened").innerHTML = ampliada
+    ? `<div class="widened"><strong>Busca ampliada.</strong>
+         <span>Nenhuma ficha casou com <em>“${termos.join(" ")}”</em>. Soltamos esse pedaço da frase e
+         mantivemos o resto dos filtros — o que está abaixo é o mais próximo que temos.</span></div>`
+    : "";
+  el("cards").innerHTML = itens.length ? itens.map(cardHTML).join("")
+    : `<div class="empty">Nenhum imóvel com esses filtros. Solte um chip acima para ampliar.</div>`;
+  el("json").textContent = JSON.stringify({...f, consulta:q}, null, 2);
+
+  el("readout").querySelectorAll("[data-drop]").forEach(b => b.onclick = () => {
+    const k = b.dataset.drop;
+    // Soltar um chip reescreve a frase: a barra continua sendo a fonte da verdade.
+    const dentro = interpretar(el("q").value.trim() || el("q").placeholder);
+    delete dentro[k];
+    const frase = [
+      dentro.finalidade === "locacao" ? "para alugar" : dentro.finalidade === "venda" ? "para comprar" : "",
+      dentro.categoria || "", dentro.dormitorios ? dentro.dormitorios+" quartos" : "",
+      dentro.suites ? dentro.suites+" suites" : "", dentro.vagas ? dentro.vagas+" vagas" : "",
+      dentro.banheiros ? dentro.banheiros+" banheiros" : "",
+      dentro.area_min ? dentro.area_min+" m2" : "",
+      dentro.bairro || "", dentro.cidade === "São José dos Campos" && !dentro.bairro ? dentro.cidade : "",
+      dentro.preco_min ? "acima de "+dentro.preco_min : "",
+      dentro.preco_max ? "ate "+dentro.preco_max : "",
+      dentro.codigo || "", dentro.texto_livre || "",
+    ].filter(Boolean).join(" ");
+    el("q").value = frase;
+    render();
+  });
+}
+
+el("form").addEventListener("submit", e => { e.preventDefault(); render(); });
+el("q").addEventListener("input", render);
+el("sort").addEventListener("change", render);
+document.querySelectorAll(".try").forEach(b => b.onclick = () => {
+  el("q").value = b.textContent.trim(); el("q").focus(); render();
+});
+render();
+</script>
+</body></html>
