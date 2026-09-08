@@ -110,3 +110,88 @@ As duas pistas terminam no mesmo funil da Clint.
 - Limites diários e bloqueio de ação: [instantdm](https://instantdm.com/blog/instagram-dm-limits-rules-2026-the-ultimate-account-safety-guide), [flowgent](https://flowgent.ai/blog/instagram-dm-limits-how-many-messages-you-can-send-daily)
 - Comentário para DM, parceiro oficial: [Manychat](https://get.manychat.com/use-case/comment-to-dm)
 - Bibliotecas não oficiais: [instagrapi](https://github.com/subzeroid/instagrapi), [okgram](https://github.com/NiceDayZc/okgram)
+
+---
+
+# Parte 2 — existe ferramenta que simula comportamento humano com segurança?
+
+*Pesquisa complementar, 08/09/2026, 16h25.*
+
+## Os números que encerram a discussão
+
+| Tipo de ferramenta | Taxa de suspensão por ano |
+|---|---|
+| Aprovada pela Meta, usa a API oficial (login por OAuth) | **abaixo de 0,5%** |
+| Automação de navegador que **simula comportamento humano** | **15% a 30%** |
+
+Trinta a sessenta vezes mais risco. E o dado é anual: rodando o ano inteiro, uma em cada quatro contas cai.
+
+**O paradoxo:** "simula comportamento humano" não é o selo de segurança, é a descrição exata do que a Meta caça. Ferramenta oficial não simula nada — ela usa a API. E a API simplesmente recusa DM frio.
+
+O que dispara punição, segundo a documentação: robô de navegador, raspagem, ferramenta que pede sua senha, e **DM frio para quem não interagiu**.
+
+## O que a ferramenta oficial pode fazer (e é muito)
+
+Pela API aprovada, dentro da janela de 24 horas aberta por comentário, resposta de story ou DM da pessoa: **até 200 DMs por hora.**
+
+Compare:
+
+| Caminho | Volume | Risco |
+|---|---|---|
+| DM frio "humanizado" | 10 a 20 por dia | 15% a 30% ao ano |
+| DM oficial para quem agiu primeiro | **200 por hora** | abaixo de 0,5% |
+
+Não é uma escolha entre segurança e volume. O caminho seguro é **quatrocentas vezes maior**. O gargalo nunca foi a ferramenta, é fazer a pessoa agir primeiro.
+
+---
+
+## O "Prospect Halo do Instagram" existe. É Meta Ads com objetivo de Mensagens.
+
+Você quer: automatizado, em escala, sem bloqueio, atingindo exatamente as clínicas que escolheu, com o agente conversando. Isso existe e você já sabe operar.
+
+**Campanha com objetivo Mensagens, destino Instagram Direct ou WhatsApp, para um público personalizado montado com os telefones das clínicas.**
+
+```
+Lista de telefones (Maps + Biblioteca)
+        ↓
+Público personalizado no Meta        ← correspondência de 40% a 70%
+        ↓
+Campanha "Mensagens" · R$ 20/dia · criativo com a dor específica
+        ↓
+O DONO CLICA E MANDA A MENSAGEM     ← ele inicia, janela abre sozinha
+        ↓
+Agente da Clint qualifica e agenda
+```
+
+**Por que isso é exatamente o que você pediu:**
+- Roda o dia inteiro, sem você mandar nada. Não é 5 de manhã, 5 à tarde, 5 à noite: é o dia todo
+- Chega em quem você escolheu, com nome e sobrenome
+- **Quem inicia é ele**, então a janela abre legitimamente e o agente conversa sem limite
+- Risco de bloqueio: zero. É publicidade paga, não automação
+- É a sua habilidade, não uma ferramenta nova para aprender
+
+**Ordem de grandeza:** lista de 300 telefones, 40% a 70% de correspondência dá 120 a 210 pessoas alcançáveis. Público pequeno significa frequência alta: o dono te vê 3 a 5 vezes por semana. Com R$ 20 por dia, a expectativa é de 15 a 40 conversas iniciadas por mês, todas inbound. Se 30% virarem reunião, são 5 a 12 reuniões por mês só desse canal.
+
+---
+
+## A máquina completa, com as três pistas
+
+| Pista | Como funciona | Volume | Risco | Automatizada |
+|---|---|---|---|---|
+| **1. Anúncio de mensagem para lista** | ele clica e escreve | escala com orçamento | zero | sim |
+| **2. Conteúdo com palavra-chave** | ele comenta, DM automática | escala com alcance | zero | sim |
+| **3. Direct manual dirigido** | você, com a observação do anúncio dele | 15 por dia | baixo | não |
+
+As três terminam na mesma esteira: agente qualifica, propõe 17h30 ou 18h30, evento na agenda.
+
+**Pista 3 é a única manual, e é de propósito.** É a de maior conversão por contato, porque a observação é específica. 15 por dia, divididos como você quiser entre manhã, tarde e noite.
+
+---
+
+## Verdade sobre o prazo
+
+Reunião **todo dia** significa mais de 20 por mês. Isso é número de mês 2 ou 3, não de meados de setembro.
+
+O que é realista até 15/09: a máquina montada e rodando, com as primeiras 3 a 6 reuniões. Reunião diária vira meta de outubro, se as três pistas estiverem calibradas.
+
+Quem promete agenda cheia em uma semana está vendendo ferramenta.
