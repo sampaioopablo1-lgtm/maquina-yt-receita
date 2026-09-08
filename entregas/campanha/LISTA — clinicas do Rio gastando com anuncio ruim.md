@@ -196,6 +196,9 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - veterinária + Niterói ✔ (**10 resultados, 3 aproveitáveis — melhor taxa até agora**)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
+- academia + crossfit + Barra ✔ (zero)
+- advocacia + trabalhista + Barra ✔ (zero)
+- odontologia + implante + Madureira ✔ (1 resultado, aproveitável)
 
 **Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -319,3 +322,26 @@ era ruim. Lição registrada: bairro no termo de busca muda a ordem de grandeza 
 
 **Quem está acertando (referência, não abordar):**
 - *Clínica Fisio Saúde Total* — "Fisioterapia na Tijuca | Atendemos convênios". Diz o serviço, o bairro e remove a objeção de preço em sete palavras.
+
+---
+
+## Achados de 08/09, 23h10 — três combinações, uma empresa
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Cia. do Dente** (Madureira) | anúncio **sem título nenhum** — único anúncio de odontologia ativo no bairro | `286088274591845` | 01/07/2026 — 2 meses | [anúncio](https://www.facebook.com/ads/library/?id=4207217466080508) |
+
+**Zeradas nesta rodada, não repetir:**
+- academia + musculação + crossfit + Barra da Tijuca → **0 anúncios**
+- advocacia + trabalhista + Barra da Tijuca → **0 anúncios**
+
+**Leitura acumulada dos bairros.** Depois de varrer oito combinações com bairro no termo, o
+mapa fica claro: **o anúncio ativo no Rio se concentra em Tijuca, Niterói e Barra**, e nos
+nichos de saúde e estética. Bairro de periferia com nicho específico devolve zero ou um.
+
+Madureira e Campo Grande estão praticamente vazios na Biblioteca — não porque não haja
+empresa, mas porque essas empresas não anunciam no Meta. Para elas o caminho é o Maps ou o
+Instagram, não a Biblioteca.
+
+**Consequência prática:** parar de abrir bairro novo e voltar a varrer **nicho novo dentro
+de Tijuca, Niterói e Barra**, que é onde o dinheiro está.
