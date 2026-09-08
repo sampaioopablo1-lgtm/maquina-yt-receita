@@ -25,7 +25,7 @@
 - Script (3 toques, 2 dias entre eles):
   1. "[Nome], tudo bem? [Clínica] precisa de mais clientes esse mês?"
   2. "Pergunto porque estou abrindo 5 vagas de uma mentoria de 90 dias em que o dono aprende a rodar o próprio anúncio e encher a agenda pelo WhatsApp, sem agência. Faz sentido para você?"
-  3. "Te mostro em 20 minutos como funciona na prática, sem compromisso. Amanhã 10h ou 16h?"
+  3. "Te mostro em 20 minutos como funciona na prática, sem compromisso. Hoje 17h30 ou 18h30?"
 - Regra: uma pergunta por mensagem, link de agenda só depois de um "sim".
 
 ### 3. Leads do Meta (formulário) — velocidade é tudo
@@ -49,6 +49,12 @@
 | Aceite | ≥ 25% | < 15% → trocar perfil-alvo |
 | Resposta (de aceitos) | ≥ 10% | < 5% → trocar abertura |
 | Reuniões | 2 a 4 (rede + Meta + agente) | 0 no dia 5 → revisar oferta |
+
+## Agenda (regra fixa, 08/09)
+- Agenda do Google conectada; Claude lê disponibilidade antes de escrever e cria o evento (com e-mail do lead e Meet) quando o horário é confirmado.
+- Blocos invioláveis: academia, almoço, família, imobiliária. Livre das **17h30 em diante**, todos os dias.
+- **Sempre propor dois horários no mesmo dia: 17h30 ou 18h30.** Se nenhum servir: 19h30 ou 20h30. Limite: 21h30. Nunca antes das 17h30.
+- Autopilot do Prospect Halo segue a mesma regra; o convite da agenda vai depois do horário confirmado.
 
 ## Regras que não mudam
 - Nunca vender na primeira mensagem. Nunca link antes de resposta.
