@@ -65,6 +65,16 @@
 - Ângulos: o erro do dono · o processo que resolve · o dado que prova · para quem é. Sem "dica de ouro".
 - Não usar o perfil dele como fonte de engajadores nos agentes de clínica (público dele é vendedor/fundador B2B, fora do ICP).
 
+## Rotinas automáticas (permanentes, criadas em 08/09)
+Sobrevivem a queda de sessão e reinício de container. Nenhuma depende de o Pablo lembrar.
+
+| Quando | O quê |
+|---|---|
+| Todo dia, 7h35 | Confere se o post das 7h30 subiu; avisa o Pablo para responder comentários nos primeiros 45 min; checa se quem comentou virou lead |
+| A cada 2h, 10h às 18h, seg a sáb | Lê conversas; horário aceito vira evento na agenda com Meet; lembrete 1h30 antes; revisa o rascunho do autopilot do dia seguinte |
+| Todo dia, 21h33 | Funil inteiro (Prospect Halo + Meta + agenda), ajustes pelas regras, diário no repositório, 1 a 3 pontos cegos |
+| Sexta, 18h | Revisão da semana: travou em volume ou em conversão? De onde veio cada reunião? Compara com a projeção de 08/09 |
+
 ## Regras que não mudam
 - Nunca vender na primeira mensagem. Nunca link antes de resposta.
 - Agente não muda alvo sem o Pablo aprovar. Nada é apagado sem `confirm`.
