@@ -7,25 +7,25 @@
 |---|---|---|
 | 1 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 2 | **Flip Dog Care** (Niterói) | um anúncio com "api.whatsapp.com" cru no título, outro com "Converse conosco" cinco vezes, desde jan/2025 |
-| 3 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
-| 4 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
-| 5 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
-| 6 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
-| 7 | **Oral Unic Tijuca** | 16 anúncios, todos com "Clique Aqui e Fale Conosco!" |
-| 8 | **Nascimento Odontologia** | 12 anúncios idênticos criados no mesmo segundo |
-| 9 | **mvmateusmarques** (veterinário) | título quebrado: o nome do perfil seguido de barras vazias |
-| 10 | **Lídervet e Diagnóstico** | anúncio sem título |
+| 3 | **Núcleo Angela Beatriz Varella** (Tijuca) | "Venha conhecer o Núcleo" **quatro vezes** no título, e outros 2 anúncios sem título nenhum |
+| 4 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
+| 5 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
+| 6 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
+| 7 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
+| 8 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
+| 9 | **Oral Unic Tijuca** | 16 anúncios, todos com "Clique Aqui e Fale Conosco!" |
+| 10 | **Nascimento Odontologia** | 12 anúncios idênticos criados no mesmo segundo |
 
-**Mensagem para os casos 2, 3, 4 e 9 (erro técnico visível):**
+**Mensagem para os casos 5, 6 (erro técnico visível):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio de vocês no Facebook e o título está saindo errado, aparece código no lugar do texto. Quem vê não entende e vocês pagam do mesmo jeito. Quem cuida das campanhas aí?
 
-**Mensagem para os casos 5 e 10 (sem chamada):**
+**Mensagem para os casos 3, 4 e 7 (sem chamada / título repetido):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi os anúncios de vocês rodando e nenhum tem título de chamada. Quem vê não sabe o que fazer depois. Isso costuma jogar fora metade do investimento. Quem cuida disso aí?
 
-**Mensagem para o caso 6 (anúncio velho no ar):**
+**Mensagem para o caso 8 (anúncio velho no ar):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi que o anúncio de vocês está no ar desde o ano passado, com a mesma oferta de "só hoje". Quem vê várias vezes para de acreditar. Vocês trocam o criativo de quanto em quanto tempo?
 
-**Mensagem para os casos 1, 7 e 8 (Fale Conosco / anúncios repetidos):**
+**Mensagem para os casos 1, 2, 9 e 10 (Fale Conosco / anúncios repetidos):**
 > Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi 16 anúncios de vocês no ar, todos com "Fale Conosco". Isso enche o WhatsApp de curioso e não de cliente. Vocês sentem isso na prática?
 
 ---
@@ -159,6 +159,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 - veterinária + Niterói ✔ (**10 resultados, 3 aproveitáveis — melhor taxa até agora**)
+- móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
+- fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 
 **Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -253,3 +255,32 @@ errado que ninguém nunca abriu para conferir. Abertura:
 taxa de todas as combinações varridas. E os dois melhores casos são os mais **antigos**: quanto
 mais tempo o anúncio ruim está no ar, mais forte fica a abertura, porque o desperdício é
 mensurável em anos.
+
+---
+
+## Achados de 08/09, 22h15 — fisioterapia e pilates + Tijuca (26 anúncios)
+
+**Correção de uma varredura anterior:** eu tinha registrado "fisioterapia + pilates + Rio" como
+nicho fraco, com 3 resultados. Estava errado — o termo estava largo demais. Buscando **por bairro**,
+a Tijuca sozinha devolve **26 anúncios ativos**. Fisioterapia não é nicho fraco; a minha busca é que
+era ruim. Lição registrada: bairro no termo de busca muda a ordem de grandeza do resultado.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Núcleo Angela Beatriz Varella de Fisioterapia** — *Trilha A* | "Venha conhecer o Núcleo \| Venha conhecer o Núcleo \| Venha conhecer o Núcleo \| Venha conhecer o Núcleo" — 4 repetições; **outros 2 anúncios sem título nenhum** | `105253774677022` | 31/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2116132649331973) |
+| **Núcleo Saúde Novo Leblon** | 5 anúncios, **4 deles sem título**, no ar desde **junho de 2025** — 15 meses | `174772386011095` | 06/06/2025 | [anúncio](https://www.facebook.com/ads/library/?id=744432214582554) |
+| **Corpory Pilates & Cia.** | **9 anúncios ativos com o título idêntico**, quatro deles criados no mesmo segundo | `142389662633298` | 29/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2046353746241373) |
+| **Espaço Vida Barra** | "Aproveite nossa **promoção de Agosto**!" — ainda no ar em setembro | `415841588288319` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1029734440092383) |
+| **Espaço Saúde em Foco - Pilates** | título é só "Converse conosco" | `300054226709200` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1327494199466913) |
+
+**O caso Corpory é diferente dos outros e vale abordagem própria.** O título deles é *bom* —
+"Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta." O defeito é
+**quantidade**: nove anúncios ativos com a mesma frase, competindo entre si no leilão. Abertura:
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Diferente do que eu costumo ver, o texto do
+> anúncio de vocês é bom. O problema é outro: vocês têm **nove anúncios ativos com o mesmo
+> título**, quatro criados no mesmo segundo. Eles disputam o mesmo leilão entre si, e isso
+> costuma subir o custo sem trazer mais paciente. Foi proposital ou veio da configuração?
+
+**Quem está acertando (referência, não abordar):**
+- *Clínica Fisio Saúde Total* — "Fisioterapia na Tijuca | Atendemos convênios". Diz o serviço, o bairro e remove a objeção de preço em sete palavras.
