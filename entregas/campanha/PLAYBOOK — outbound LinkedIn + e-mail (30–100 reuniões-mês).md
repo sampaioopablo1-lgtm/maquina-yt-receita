@@ -249,3 +249,34 @@ Leia toda sexta, nesta ordem (Apollo): entrega → resposta → resposta positiv
 **Brasil** · [Meetime – metas SDR](https://meetime.com.br/blog/prospeccao/metas-para-sdrs/) · [Meetime – métricas](https://meetime.com.br/blog/sales-engagement/metricas-de-prospreccao/) · [Meetime – cadência](https://meetime.com.br/blog/prospeccao/cadencia-de-prospeccao/) · [Meetime – etapas](https://meetime.com.br/blog/labs/etapas-da-prospeccao/) · [Meetime – atrasos](https://meetime.com.br/blog/labs/prospeccao-atrasada/) · [Meetime – LinkedIn](https://meetime.com.br/blog/podcast/papel-linkedin-na-prospeccao/) · [Reev – Outbound no Brasil](https://reev.co/outbound-no-brasil/) · [Reev – cadência](https://reev.co/fluxo-de-cadencia-outbound/) · [Reev – LinkedIn](https://reev.co/flipchart-friday-como-prospectar-no-linkedin/) · [Reev – case Diferencial TI](https://reev.co/case-de-sucesso-reev-diferencial-ti/) · [Exact – cadência](https://exactsales.com.br/fluxo-de-cadencia/) · [Exact – qual converte](https://www.exactsales.com.br/academia-exact-blog/qual-fluxo-de-cadncia-de-vendas-converte-mais) · [Ramper – cadência](https://ramper.com.br/blog/cadencia-prospeccao-venda/) · [Ramper – e-mail](https://ramper.com.br/blog/email-de-prospeccao/) · [Speedio](https://speedio.com.br/blog/prospeccao-linkedin-como-extrair-decisores-b2b-de-alto-nivel-sem-bloqueios/) · [Growth Machine](https://blog.growthmachine.com.br/como-gerar-reunioes-no-linkedin/) · [Digitale](https://digitale.com.br/blog/prospeccao-b2b-linkedin-roteiro-scripts/) · [Karpa](https://karpadigital.com.br/prospeccao-b2b-no-linkedin/) · [Winning Sales](https://winningsales.com.br/blog/prospeccao-outbound/)
 
 **Nota de método:** os sites dos players estavam bloqueados para leitura direta nesta sessão; os números vêm dos trechos indexados e de fontes secundárias. Antes de citar um número externamente, abra o link.
+
+## 11. Funil de conteúdo → comentário → DM → diagnóstico (Growth Machine + mapa do Lucas, 08/09/2026)
+Fontes: blog.growthmachine.com.br/como-gerar-reunioes-no-linkedin (Thiago Reis, 5 pilares e desafio de 21 dias) e post "Como eu fiz mais de 30 reuniões comerciais por semana saindo do LinkedIn" (mapa em quadro branco).
+
+**Funil e função de cada etapa:** POST filtra quem tem a dor → COMENTÁRIO abre a porta da DM → DM entrega e conversa → QUALIFICAÇÃO separa curioso de comprador → DIAGNÓSTICO é onde a venda acontece → VENDA. Regra 1: like é vaidade, reunião é caixa.
+
+**Esqueleto do post que gera comentário** (frases de até 12 palavras):
+1. Gancho, 1 linha: fato + número · dor + promessa · contra-intuitivo · erro caro.
+2. Empatia: a cena do dono ("seu WhatsApp enche de curioso e a agenda continua vazia").
+3. Transição: o que você fez / o processo.
+4. Resultado + prova: só o que for real; nome em MAIÚSCULAS quando houver autorização.
+5. Dores eliminadas: 3 frases curtas ("Sem agência. Sem lead esquecido. Sem indicação como plano.").
+6. O entregável: lista de 6 a 8 itens do que a pessoa recebe.
+7. CTA + reposta + PS: "Comenta AGENDA que te mando na DM." Nunca link no post (alcance cai até 5x).
+Filtro final: sem jargão, sem sigla, sem promessa vaga.
+
+**Palavra-chave por segmento:** AGENDA (clínicas) · CLIENTE (serviço local em geral) · PROPOSTA (contador, arquiteto).
+
+**DM em 4 passos:** 1) entrega o material sem fricção (carrossel "Máquina de leads em 30 dias"); 2) qualifica com UMA pergunta ("hoje a agenda enche por indicação ou por anúncio?"); 3) conecta a dor ao diagnóstico; 4) agenda com dois horários no mesmo dia (17h30 / 18h30). Curioso pega o material e some; comprador responde a pergunta.
+
+**Matemática de trás para frente (conta madura):** 600 conversas/semana → 240 respostas (40%) → 90 qualificados → 30 reuniões (1 em 3). Conta do Pablo, semana 2: 60 → 24 → 9 → 3 reuniões/semana.
+
+**Cadência de 7 toques (Growth Machine) para quem aceitou e não respondeu:** convite personalizado → boas-vindas com pergunta (24h) → entrega de valor D3–D5 → comentário em post dele → menção em post seu → check-in 2 a 3 semanas → convite para 20 min com dois horários. Aceite 25–35% no toque 7 porque já é morno.
+
+**Regras de segurança:** máximo 100 convites/semana; aceite < 30% = spam, parar e revisar; nunca automatizar comentário; responder todo comentário em até 10 min após publicar; mínimo 3 posts/semana.
+
+**A/B de convite:** com nota personalizada (GM mede 40–50% de aceite) contra sem nota. Semana 1 com nota, semana 2 sem; o número decide.
+
+**Rotina diária de 15 min:** 5 publicar/aprovar post · 5 responder comentários e DMs · 5 aprovar rascunhos presos. Automatizar o repetitivo (prospecção, follow-up, triagem); manter humano o decisivo (diagnóstico, fechamento).
+
+**Descartado de propósito:** Sales Navigator (Prospect Halo verifica após a busca; conta gratuita basta) e automações de terceiros (LinkedHelper, Dux-Soup).
