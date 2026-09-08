@@ -55,3 +55,41 @@ Teste decisivo: rodei `find_leads` (busca avulsa, sem agente) com o ICP atual. R
 **O que realmente gastou essa cota:** minhas 5 recriações de agente. Cada uma reprocessa perfis do zero.
 **Correções:** (1) lição gravada em LICOES com o nome exato dos campos; (2) rotina diária passa a ler `progressStatus` e `waitingReason` ANTES de culpar segmentação — era exatamente o "vazamento silencioso" que a rotina deveria pegar; (3) regra de no máximo 1 recriação por dia, já em vigor.
 **Previsão:** a cota reseta às 21h01 de hoje. A qualificação dos 20 candidatos retoma sozinha durante a noite. Os convites só saem na janela de envio (8h às 18h), então amanhã de manhã deve haver fila de leads pronta.
+
+## 08/09/2026 — decisão: braço de e-mail frio, planejado a 0,4%
+
+**Orçamento real esclarecido:** R$ 3.000 é o teto **mensal** de tráfego, não a reserva total.
+Isso muda a pergunta de "tirar ou não do Meta" para "como distribuir".
+
+**Alocação decidida:**
+
+| Onde | Valor/mês | Papel |
+|---|---|---|
+| Meta topo | R$ 1.650 | encher o público de retargeting |
+| Meta fundo | R$ 1.100 | os leads do mês |
+| E-mail frio | R$ 233 | aquecer no mês 1, colher a partir do mês 2 |
+
+Pablo ofereceu R$ 500 para o e-mail. **Recusei R$ 267** — o braço custa R$ 233 e não
+faz sentido reservar dinheiro que não vai ser usado. O saldo volta para o Meta.
+
+**Métrica de planejamento: 0,4% de e-mail enviado → reunião.** Decisão do Pablo, e é a
+escolha conservadora. Ele trouxe a taxa real que praticava na V4 Company — 60% de abertura,
+10-15% de resposta, 10% delas positivas, ou seja **1%**, duas vezes e meia melhor. Eu tinha
+proposto planejar com 0,7%, no meio do caminho. Ele preferiu 0,4%. Planejar embaixo e
+descobrir que é melhor é o erro barato; o contrário não é.
+
+**Projeção travada:** mês 1, 44 reuniões (36 Meta + 8 e-mail em rampa). Mês 2 em diante,
+68 reuniões (36 + 32). Custo médio por reunião cai de R$ 68 para R$ 44.
+
+**Por que o e-mail não produz no mês 1:** aquecimento de 3 a 4 semanas é obrigatório desde
+as regras de remetente em massa do Google e Yahoo (2024-2025) — SPF, DKIM, DMARC alinhado e
+spam abaixo de 0,3%, senão o e-mail é rejeitado no SMTP, não vai nem para a caixa de spam.
+Na época da V4 isso não existia; por isso a experiência dele não se transporta direto.
+
+**A vantagem que ele tem e não tinha lá:** na V4 o título do e-mail supunha a dor. Aqui a
+Biblioteca de Anúncios prova a dor — "seu anúncio está com o título vazio desde junho" é
+fato verificável sobre a empresa, com link. E é fonte gratuita.
+
+**Pendente da decisão dele:** pausar o conjunto de fundo por 3 dias. Ele está a R$ 79 de CPM
+com zero clique em 127 impressões, porque só existem 1.434 pessoas na piscina de retargeting.
+Não mexo em verba sem ordem.
