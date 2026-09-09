@@ -233,6 +233,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
 - fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
 - odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
+- harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -998,3 +999,28 @@ Abertura para o Dr. Ribamar (a mesma estrutura do Dr. Daniel, prova na primeira 
 > pública, e a data aparece lá. Sem esse campo o Facebook mostra para quem sobra.
 >
 > Quem cuida das campanhas do consultório hoje?
+
+---
+
+## Achados de 09/09, 13h15 — harmonização e estética na Barra: nicho poluído por curso
+
+25 anúncios, e a maior parte **não é clínica**: são cursos para profissionais (`HOF Na Pratica`,
+`nesa cursos`, `Prime Doctor Club`, `Dr. GustavoMartins`) e uma rede gaúcha (`Huff Life`) que
+anuncia no Rio. Sobram quatro reais:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Revera Clinic — Estética e Emagrecimento** | 2 anúncios, **"Converse conosco"** nos dois | `1218655984668272` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1409267641136191) |
+| **Clínica doutora da estética Barra** | **"Converse conosco"** — o campo padrão do botão | `1172311762634449` | 22/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2503937473365534) |
+| **Huff Life — Barra da Tijuca** | 2 anúncios **sem título nenhum**, no ar desde **20/01/2026** — quase 8 meses | `946448845214327` | 20/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2620023151703795) |
+| **Dra Priscila Ribeiro Clínica** — *Trilha A* | anúncio sem título | `101215499580409` | 24/09/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1476761290196823) |
+| **enfa_miriansilva** — *Trilha A* | "Agende sua avaliação" repetido **três vezes** no mesmo título | `102612922618437` | 02/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1109464114741765) |
+
+**Quem está acertando (referência):** *Royal Face — Barra da Tijuca*, "Agende a sua avaliação
+grátis" — verbo, objeto e a objeção de preço resolvida em cinco palavras.
+
+**Leitura do nicho:** harmonização na Barra é o primeiro nicho onde o concorrente do Pablo aparece
+— quatro páginas vendendo **curso de harmonização para profissional de saúde**, com anúncio bem
+escrito. Quem vende para dentista e biomédico já entendeu que precisa de título. Isso reforça a
+regra: quanto mais o nicho depende de venda direta, melhor o anúncio; clínica que vive de
+indicação escreve mal.
