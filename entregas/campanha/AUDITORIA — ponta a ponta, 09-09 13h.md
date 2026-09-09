@@ -115,3 +115,51 @@ criado por ele entrega — nem o criativo dinâmico do conjunto semelhante.
 2. **65+ continua liderando cliques?** Se sim, revisar os interesses do topo.
 3. **Frequência do fundo (1,29).** Já é a mais alta da conta com apenas 313 pessoas alcançadas —
    confirma público pequeno demais.
+
+---
+
+## Ajuste fino das 13h30 — idade 30 a 50 em toda a conta
+
+Decisão do Pablo: **65+ não é o público**, o alvo é 30 a 50. Os cliques de 65+ eram cliques que
+nunca virariam cliente — CTR bonito, valor zero. Aplicado nos quatro conjuntos.
+
+| Conjunto | Antes | Agora |
+|---|---|---|
+| `LEADS I LISTA CNPJ + QUENTE` | 25-65 | **30-50** |
+| `INT I DONOS` (topo) | 25-65 com sugestão 30-50 | **30-50 travado** |
+| `LEADS I INTERESSE` | 25-65 com sugestão 30-50 | **30-50 travado** |
+| `LEADS I SEMELHANTE CNAE RJ` | 25-65 | **30-50** |
+
+### Por que "travado" e não "sugerido"
+
+Três conjuntos tinham `advantage_audience: 1` — a expansão automática do Meta. Com ela ligada, a
+faixa etária vira **sugestão**, não limite: foi assim que 792 impressões foram parar em mulheres
+de 65+ num conjunto que dizia mirar 30-50. Desliguei a expansão nos quatro. Agora a idade é regra.
+
+### Dois defeitos que apareceram ao ler a configuração de perto
+
+**1. `LEADS I INTERESSE` estava só em Stories e Reels — sem feed nenhum.** Justamente o conjunto
+de captação de lead, e justamente nos posicionamentos que a auditoria mostrou serem os piores para
+lead (CPM de R$ 130 a R$ 152, zero clique). Corrigido: agora é Facebook Feed, Facebook Reels,
+Instagram Feed e Instagram Reels.
+
+**2. Magé não estava excluída no conjunto de fundo.** A exclusão existia no topo e no `INTERESSE`,
+mas o `LISTA CNPJ + QUENTE` estava sem. Aplicada.
+
+### Efeito colateral que precisa ser sabido
+
+Toda edição de segmentação **força o conjunto a pausar** e **reinicia o aprendizado do Meta**.
+Religuei os três na sequência. A conta volta ao zero de aprendizado hoje — os números dos
+próximos dois dias vão oscilar, e isso é esperado, não é sinal de problema.
+
+**Regra que fica:** agrupar mudanças de segmentação numa só janela. Cada edição avulsa custa um
+reinício.
+
+### Estado final
+
+| Conjunto | Status | Anúncio |
+|---|---|---|
+| `INT I DONOS` | ativo | DINAMICO - VÍDEOS, ativo |
+| `LEADS I LISTA CNPJ + QUENTE` | ativo | VR1, ativo |
+| `LEADS I INTERESSE` | ativo | VR1 — INTERESSE, ativo (com erro de app) |
+| `LEADS I SEMELHANTE CNAE RJ` | pausado | nenhum — esperando o criativo |
