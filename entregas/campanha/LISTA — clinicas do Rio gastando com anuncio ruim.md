@@ -224,6 +224,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + corretor + Botafogo ✔ (6 resultados, 2 novos aproveitáveis — inclui o caso `{{product.name}}`)
 - imobiliária + corretor + Campo Grande ✔ (3 resultados, 1 aproveitável)
 - imobiliária + apartamento + Madureira ✔ (5 resultados, 3 aproveitáveis, 2 Trilha A — inclui o caso `api.whatsapp.com`)
+- harmonização facial + estética + Méier ✔ (zero)
+- odontologia + implante + Niterói ✔ (**46 resultados, 11 aproveitáveis, 4 Trilha A** — segundo maior lote)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -754,3 +756,46 @@ colando o link de WhatsApp no campo errado. Abertura:
 
 **Madureira:** 5 anúncios, 3 aproveitáveis, **2 deles Trilha A**. Bairro fino mas com aproveitamento alto,
 igual ao Méier.
+
+---
+
+## Achados de 09/09, 10h10 — odontologia em Niterói (46 anúncios, o segundo maior lote)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Estética Dental** | **dois anúncios** com o título `api.whatsapp.com` — o endereço do link no lugar da chamada, desde junho/2026 | `429715380420674` | [anúncio](https://www.facebook.com/ads/library/?id=1409786027836361) |
+| **Oral Sin - Niterói** | "📅 AGENDE SUA AVALIAÇÃO" **três vezes** no mesmo título, em **dois anúncios** | `546342759626595` | [anúncio](https://www.facebook.com/ads/library/?id=990724660436000) |
+| **Dr. Eric Daldegan** (*Trilha A*) | ">>>> CLIQUE AGORA NO BOTÃO E FALE CONOSCO 📞" — quatro sinais de maior, caixa alta e nenhuma palavra sobre o tratamento | `949455194924112` | [anúncio](https://www.facebook.com/ads/library/?id=2048338202488270) |
+| **My Planning Center** | nome da página + **sete campos vazios** | `119396324597448` | [anúncio](https://www.facebook.com/ads/library/?id=1499222508560074) |
+| **Dr. Francisco Villela** (*Trilha A*) | sem título | `622978961080203` | [anúncio](https://www.facebook.com/ads/library/?id=2139905630263717) |
+| **Dr. Marcelo Braga — MB Odontologia** (*Trilha A*) | sem título, desde **abril de 2026** | `1406509999563401` | [anúncio](https://www.facebook.com/ads/library/?id=1271190704588310) |
+| **Dr. Bruno Chies** (*Trilha A*) | "➡️ QUERO SABER MAIS" — é o texto do botão, não uma chamada | `109526547345608` | [anúncio](https://www.facebook.com/ads/library/?id=1371710094923419) |
+| **Inovar Odontologia Especializada** | 2 anúncios, os dois **sem título** | `112105558567793` | [anúncio](https://www.facebook.com/ads/library/?id=2726395607818300) |
+| **Clínica Novadent** | sem título | `1568648976554815` | [anúncio](https://www.facebook.com/ads/library/?id=2020100531960812) |
+| **Segalote Odontologia** | o título é "Saiba mais" | `1049872011766056` | [anúncio](https://www.facebook.com/ads/library/?id=1551273293415407) |
+| **Odonto Uai Niterói** | o título é "Odonto Niterói" — o próprio nome | `305910773318377` | [anúncio](https://www.facebook.com/ads/library/?id=4083431875126083) |
+
+### Os dois contraexemplos deste lote são os melhores do arquivo inteiro
+
+**Nitz Odontologia** (`110843421252840`) escreve chamadas que falam do problema da pessoa, não
+do serviço:
+
+> "Quando foi a última vez que você mordeu um pão sem medo?"
+> "Se você precisa de adesivo pra prender a prótese, esse vídeo é pra você."
+> "Você já reparou que o rosto vai mudando quando faltam dentes?"
+
+**Nord Odontologia** (`390757374110778`) usa a chamada para tirar o medo do preço:
+
+> "Orçamento só depois do exame"
+> "Implante planejado, em Niterói"
+
+São os dois exemplos para citar em qualquer abordagem de odontologia em Niterói: mesma cidade,
+mesmo nicho, mesma verba, resultado oposto. *(A Nitz também repete "Seu sorriso merece um cuidado
+completo!" em quatro anúncios — nem ela acerta em todos.)*
+
+**`api.whatsapp.com` é agora o quarto caso** (Flip Dog Care, Paulo Fernandes, e os dois da Estética
+Dental). Deixou de ser curiosidade e virou **padrão**: quem monta o anúncio pelo celular cola o
+link do WhatsApp no campo do título. Vale uma varredura própria por esse termo.
+
+**Niterói + odontologia: 46 anúncios, 11 aproveitáveis, 4 deles Trilha A.** Junto com imobiliária
+na Tijuca, é o lote mais rico catalogado.
