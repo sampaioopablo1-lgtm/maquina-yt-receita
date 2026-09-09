@@ -9,12 +9,12 @@
 | 2 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 3 | **Flip Dog Care** (Niterói) | um anúncio com "api.whatsapp.com" cru no título, outro com "Converse conosco" cinco vezes, desde jan/2025 |
 | 4 | **Núcleo Angela Beatriz Varella** (Tijuca) | "Venha conhecer o Núcleo" **quatro vezes** no título, e outros 2 anúncios sem título nenhum |
-| 5 | **Luciana Martins** (Tijuca, *Trilha A*) | o título é o nome dela seguido de **sete campos vazios** |
-| 6 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
-| 7 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
-| 8 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
-| 9 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
-| 10 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
+| 5 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
+| 6 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
+| 7 | **Luciana Martins** (Tijuca, *Trilha A*) | o título é o nome dela seguido de **sete campos vazios** |
+| 8 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
+| 9 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
+| 10 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
 
 ### A regra que vale para todas as mensagens
 
@@ -195,6 +195,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 - veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
 - imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
+- imobiliária + apartamento à venda + Niterói ✔ (11 resultados, **5 aproveitáveis**)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
@@ -428,3 +429,34 @@ muda — o gancho é o anúncio quebrado, não a vaga.
 
 **Conclusão do nicho:** imobiliária vira prioridade sobre saúde. Mais volume, mais defeito, mais
 dono acessível, e ticket que justifica investir em marketing.
+
+---
+
+## Achados de 09/09, 02h10 — imobiliárias em Niterói: o defeito é epidêmico no nicho
+
+Segunda varredura de imobiliária, agora em Niterói. **11 anúncios, 5 empresas aproveitáveis.**
+Confirma o padrão: no ramo imobiliário do Rio, título vazio é regra, não exceção.
+
+| Empresa | Defeito | Página | No ar desde | Trilha |
+|---|---|---|---|---|
+| **Julianazogbi.imoveis** | "Julianazogbi.imoveis \|   \|   …" — **dezoito campos vazios**. Recorde da lista | `1199844849869800` | 08/09/2026 | **A** |
+| **Carloscarlos6268** | **6 anúncios ativos, todos sem título**, desde **fevereiro de 2026** — 7 meses pagando | `811705948688029` | 12/02/2026 | B |
+| **Fabio Figueiredo4.0 Jorplan** | 2 anúncios, cada um com 10 campos vazios; o "4.0" no nome da página parece resto de template | `1244482262085895` | 06/09/2026 | **A** |
+| **invest.predial** | "Predial Invest Administradora De Imóveis Ltda" **dez vezes** — a razão social inteira, repetida | `559458157255367` | 02/09/2026 | B |
+| **Pamela Franco Imobiliária** | anúncio sem título | `102458189330090` | 04/09/2026 | **A** |
+
+**Julianazogbi assume o recorde de absurdo:** dezoito campos vazios num título só. Passa os
+dez da Alfaiataria e os sete da Bicho D+.
+
+**Carloscarlos6268 é o de melhor argumento:** seis anúncios, nenhum com título, **desde
+fevereiro**. Sete meses de verba num anúncio que o Facebook não sabe para quem mostrar.
+
+### O que este lote ensina sobre o nicho
+
+Duas varreduras de imobiliária, 41 anúncios, **15 empresas aproveitáveis**. Nenhum outro nicho
+chegou perto. E o defeito é quase sempre o mesmo — **campo de título vazio ou repetido** —, o
+que sugere causa comum: essas empresas sobem anúncio pelo botão de impulsionar ou por uma
+ferramenta de portal imobiliário que não preenche o campo.
+
+Isso é ótimo para a abordagem: **uma explicação serve para todos.** Não é erro de gosto de cada
+um, é uma falha de processo que o mercado inteiro repete — e que dá para corrigir em minutos.
