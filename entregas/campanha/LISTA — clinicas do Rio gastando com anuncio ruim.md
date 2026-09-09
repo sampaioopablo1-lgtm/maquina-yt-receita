@@ -232,6 +232,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - móveis planejados + marcenaria + Tijuca ✔ (21 resultados, 6 aproveitáveis, 1 Trilha A — inclui a "oferta desta semana" de quatro meses)
 - advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
 - fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
+- odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -970,3 +971,30 @@ Quatro anúncios sem título há quinze meses, no bairro mais caro da cidade par
 
 Para a **Corpory**, a prova é outra e igualmente simples: dez anúncios idênticos competem entre
 si no mesmo leilão — o Facebook cobra dez vezes para aprender uma coisa só.
+
+---
+
+## Achados de 09/09, 12h10 — odontologia em Copacabana: a busca puxou a Zona Oeste, mas rendeu três donos
+
+O termo "implante Copacabana" devolveu 22 anúncios, e **15 são da Odontovic** — anunciando
+Campo Grande e Madureira com título certo em todos ("Implantes dentários em Campo Grande",
+"Agende sua avaliação"). É referência, não alvo. O que sobrou é pequeno, mas todo Trilha A:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Jose Ribamar — Odontologia** — *Trilha A* | **2 anúncios sem título nenhum**, o mais antigo desde **07/05/2025** — dezesseis meses | `508550439274583` | 07/05/2025 | [anúncio](https://www.facebook.com/ads/library/?id=644983671707529) |
+| **Dra. Gisele Nunes — Lipo de Papada** — *Trilha A* | anúncio sem título desde 27/05/2026 | `829278363604384` | 27/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2220209618751945) |
+| **Dr. João Carvalho — Reabilitação Oral** — *Trilha A* | anúncio sem título, subiu ontem | `369739679776051` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1824623012041002) |
+
+**Quem está acertando (referência, não abordar):** *Odontovic* — quinze anúncios, cada um com
+o bairro no título. É o exemplo para mostrar ao Dr. Ribamar no toque 3.
+
+Abertura para o Dr. Ribamar (a mesma estrutura do Dr. Daniel, prova na primeira linha):
+
+> Dr. Ribamar, seus dois anúncios estão no ar sem título — o campo da chamada está vazio nos
+> dois, e o mais antigo começou em maio do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou paciente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública, e a data aparece lá. Sem esse campo o Facebook mostra para quem sobra.
+>
+> Quem cuida das campanhas do consultório hoje?
