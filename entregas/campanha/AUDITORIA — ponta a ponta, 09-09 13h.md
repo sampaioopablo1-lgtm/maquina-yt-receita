@@ -163,3 +163,62 @@ reinício.
 | `LEADS I LISTA CNPJ + QUENTE` | ativo | VR1, ativo |
 | `LEADS I INTERESSE` | ativo | VR1 — INTERESSE, ativo (com erro de app) |
 | `LEADS I SEMELHANTE CNAE RJ` | pausado | nenhum — esperando o criativo |
+
+---
+
+## Por que dois conjuntos mostram "Erros de anúncio" — 14h05
+
+### O mecanismo, em uma frase
+
+**Todo anúncio carrega a assinatura do app que o criou.** O `VR1`, que roda normalmente, foi
+criado pelo Pablo dentro do Gerenciador — logo, assinado pelo app da própria Meta. Os dois
+anúncios que criei hoje foram assinados pelo **OPC Automação**, e esse app está em modo de
+desenvolvimento. A Meta bloqueia a entrega de qualquer anúncio assinado por app em desenvolvimento.
+
+| Anúncio | Quem criou | Assinatura | Entrega |
+|---|---|---|---|
+| `VR1` | Pablo, no Gerenciador | app da Meta | **sim** |
+| `DINAMICO - VÍDEOS` | Pablo, no Gerenciador | app da Meta | **sim** |
+| `VR1 — INTERESSE` | eu, via API | OPC Automação | **não** |
+| `DINAMICO — SEMELHANTE CNAE RJ` | eu, via API | OPC Automação | **não** |
+
+### Por que a mensagem de erro engana
+
+A Meta mostra **duas mensagens diferentes para a mesma causa**, alternando entre elas:
+
+1. *"O post do criativo foi criado por um app em modo de desenvolvimento"* — a verdadeira.
+2. *"Termos de Geração de Leads não aceitos"* — falsa. Conferido na fonte:
+   `leadgen_tos_accepted: true`. A página aceitou. Clicar de novo na página de termos não muda nada.
+
+### Por que não existe contorno
+
+Confirmei que o portfólio tem **um único app** (`owned_apps` → só OPC Automação). Não há um
+segundo app em modo ativo cujo token eu pudesse usar. E o conector nativo do Claude, que usa o app
+da Meta, recusa criar anúncio de lead porque não consegue **ler** o campo dos termos — falta a
+permissão `pages_manage_ads` nele. Os dois caminhos disponíveis batem em paredes opostas:
+
+| Caminho | Assinatura | Barreira |
+|---|---|---|
+| Meu token (usuário do sistema) | OPC Automação | app em desenvolvimento |
+| Conector nativo | app da Meta | não lê os termos |
+
+### O ajuste, e é de um clique
+
+developers.facebook.com → **OPC Automação** → chave **"Em desenvolvimento" → "Modo ativo"**.
+
+No momento em que virar, os dois anúncios que já estão lá começam a entregar sozinhos — não
+precisa recriar nada.
+
+### O padrão que fica combinado
+
+Assim que o app estiver ativo, **todos os anúncios da conta passam a ser criados por mim, pelo
+mesmo caminho e com a mesma configuração**: criativo dinâmico de fundo de funil (5 vídeos, 5
+imagens, 5 títulos, 5 textos), formulário `2412763482587375`, melhorias do Meta ligadas. Inclusive
+os dois antigos, que hoje usam criativo montado à mão no Gerenciador — vou refazê-los no mesmo
+molde para a conta ficar uniforme e comparável.
+
+### Alternativa para hoje, se não quiser mexer no app
+
+Gerenciador → `VR1` → **Duplicar** → escolher `LEADS I SEMELHANTE CNAE RJ I FASE 1` e
+`LEADS I INTERESSE I FASE 1` → Publicar. Sai assinado pelo app da Meta e entrega na hora. Depois
+apago os meus dois. É contorno, não solução: todo anúncio futuro precisaria passar pela sua mão.
