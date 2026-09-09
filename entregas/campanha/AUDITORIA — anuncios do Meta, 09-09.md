@@ -47,7 +47,40 @@ CPM** — vinte e três vezes o Facebook Feed do topo. O Facebook Stories, R$204
 Stories é formato de tela cheia e passagem rápida: funciona para marca com criativo vertical
 nativo, não para um vídeo de posicionamento reaproveitado. Nesta conta, é o buraco no balde.
 
-### Achado 3 — O público do conjunto de fundo é pequeno demais, e por um motivo específico.
+### Achado 3 — ERRADO, corrigido às 12h. O público não é pequeno.
+
+**O que eu escrevi primeiro está abaixo, e a correção vem logo depois.** Mantenho o texto original
+à vista porque o erro é instrutivo: eu inferi o tamanho do público a partir do alcance, e alcance
+é função do gasto, não do tamanho.
+
+Consultando os públicos personalizados da conta diretamente:
+
+| Lista | Tamanho no Meta |
+|---|---|
+| Cópia de Editado — CNAE 41 42 43 RJ 100K | **41.000 a 48.200** |
+| Editado — CNAE 41 42 43 RJ 100K | **29.500 a 34.700** |
+| Cópia de Leads empresaqui CONSULTORIA BR | 24.100 a 28.400 |
+| Contabilidade BR 25K 2 | 8.700 a 10.200 |
+| Leads empresaqui Instituição de ensino BR | 7.400 a 8.700 |
+| Contabilidade RJ | 3.300 a 3.900 |
+
+A maior lista **já é do Rio** e tem mais de 40 mil pessoas. As 231 do relato original eram o
+alcance de R$21 gastos, não o tamanho do público.
+
+**Isso derruba a explicação que eu dei para o CPM de R$73.** A causa é outra — otimização para
+geração de lead com histórico quase nulo, ou o formato de publicação promovida, que engaja pouco
+e por isso encarece o leilão. Fica em aberto, e é o que a próxima semana de entrega deve mostrar.
+
+**E os públicos semelhantes já existem.** Onze deles, criados em 07/09 a partir destas mesmas
+listas — todos `INACTIVE`, nunca usados. Não há o que construir: há o que ligar.
+
+---
+
+#### Texto original do achado 3, mantido para registro
+
+*(Contém o erro corrigido acima.)*
+
+O conjunto de fundo é pequeno demais, e por um motivo específico.
 
 Ele carrega **doze públicos personalizados** — listas de CNPJ, contabilidade, SaaS, instituição de
 ensino — que somam mais de 100 mil contatos no papel. Mas a segmentação geográfica exclui **todos
