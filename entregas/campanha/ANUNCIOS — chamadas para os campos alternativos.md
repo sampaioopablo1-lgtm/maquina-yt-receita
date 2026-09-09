@@ -26,8 +26,21 @@ Varrendo a Biblioteca de Anúncios do Rio esta semana, encontrei o mesmo erro em
 campos vazios, a mesma frase colada dez vezes, o nome da página, uma URL crua, ou `{{product.name}}`.
 Todos desperdiçam o mesmo recurso.
 
-**O criativo da campanha de leads desta conta está nomeado `{{product.name}}`** — o mesmo defeito.
-Antes de escalar verba, é isto que precisa ser corrigido.
+**Correção de 09/09, 12h — a minha leitura anterior estava errada.** Eu tinha escrito que o
+criativo de leads estava com `{{product.name}}` no título. Pedindo os campos `title`, `body` e
+`link_url` à API, os três voltam **vazios**: os dois criativos da conta são do tipo `SHARE`,
+isto é, **publicações promovidas**. Nesse formato o texto exibido vem do post da página, e o
+criativo não tem campos próprios de título.
+
+O `{{product.name}}` é o **nome interno do criativo** na biblioteca, provavelmente gerado pela
+ferramenta que montou o anúncio. Não é o que o público vê e não explica o CTR baixo.
+
+O que a Biblioteca de Anúncios mostra como título público é **"O Próximo Cliente"** — o nome da
+página, que é o defeito nº 2 desta lista. Real, mas de outra natureza: para mudá-lo é preciso um
+anúncio com criativo próprio, não a edição de um campo.
+
+**As chamadas abaixo continuam valendo** — elas são o que escrever quando o anúncio for montado
+com criativo próprio, em vez de promover um post.
 
 ## As chamadas, prontas para colar
 
