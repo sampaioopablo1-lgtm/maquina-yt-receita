@@ -228,6 +228,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - odontologia + implante + Niterói ✔ (**46 resultados, 11 aproveitáveis, 4 Trilha A** — segundo maior lote)
 - academia + musculação + Tijuca ✔ (23 resultados, 9 aproveitáveis, 4 Trilha A — abre o sub-nicho personal trainer)
 - veterinária + pet + Copacabana/Botafogo ✔ (1 resultado, e era imobiliária)
+- móveis planejados + marcenaria + Tijuca ✔ (21 resultados, 6 aproveitáveis, 1 Trilha A — inclui a "oferta desta semana" de quatro meses)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -842,3 +843,48 @@ anunciando, **todos sem título**, todos com o dono no nome. O do leopontes est�
 **novembro de 2025**.
 
 **Zerada, não repetir:** veterinária + Copacabana/Botafogo → 1 resultado, e era imobiliária.
+
+---
+
+## Achados de 09/09, 12h10 — móveis planejados na Tijuca (21)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Du'Art — Marcenaria Criativa** | 3 anúncios com **"Oferta somente esta semana ✨"** — no ar desde **maio de 2026**. A semana dura quatro meses | `2045820048837163` | [anúncio](https://www.facebook.com/ads/library/?id=935414489583729) |
+| **FC Marcenaria** | **seis anúncios** com "Faça seu orçamento pelo Whats app" — e "WhatsApp" escrito separado e errado | `1089140307623990` | [anúncio](https://www.facebook.com/ads/library/?id=2135748573983639) |
+| **Three Ambientes Planejados** | 4 anúncios, **todos sem título** | `101041681654597` | [anúncio](https://www.facebook.com/ads/library/?id=896462576836171) |
+| **Epipla Marcenaria** | 2 anúncios com "Fale conosco" | `976165705588432` | [anúncio](https://www.facebook.com/ads/library/?id=1615688016154772) |
+| **queyton** (*Trilha A*) | 2 anúncios sem título, desde **outubro de 2025** — onze meses | `100109099268038` | [anúncio](https://www.facebook.com/ads/library/?id=1317288053526309) |
+| **Modelarte Planejados** | sem título, desde **outubro de 2025** | `385290834671674` | [anúncio](https://www.facebook.com/ads/library/?id=1523727568645527) |
+| *Casa Prime Decor* | já catalogada — o nome do Instagram colado oito vezes | `716576384870772` | — |
+
+### O achado da rodada: a semana que dura quatro meses
+
+A **Du'Art** anuncia **"Oferta somente esta semana"** desde **maio**. Qualquer pessoa que tenha
+visto o anúncio duas vezes sabe que a urgência é falsa — e urgência falsa não só não funciona,
+como ensina o público a não acreditar na próxima.
+
+É um defeito diferente de todos os outros da lista: não é campo vazio nem frase repetida. É uma
+**promessa que a própria data desmente**. E a prova é pública, na Biblioteca, com a data de início
+à vista.
+
+> Vocês estão anunciando "Oferta somente esta semana" desde maio — quatro meses.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é pública,
+> e a data de início aparece lá. Quem já viu o anúncio antes entende que a semana não acaba, e a
+> urgência para de funcionar — inclusive na próxima vez que vocês tiverem uma oferta de verdade.
+>
+> Quem cuida das campanhas de vocês?
+
+**"WhatsApp" escrito errado seis vezes** (FC Marcenaria) é o segundo caso deste tipo: erro de
+digitação que ninguém revisou, multiplicado por todos os anúncios do lote.
+
+### O contraexemplo: RACCA HOME
+
+> "Móveis Planejados — Barra da Tijuca, Recreio dos Bandeirantes"
+> "Marcenaria Personalizada — Barra da Tijuca, Recreio"
+
+**Serviço mais bairro.** Duas informações, nenhuma palavra desperdiçada. Quem procura marcenaria
+na Barra sabe em um segundo que o anúncio é para ele — e o Facebook sabe a quem mostrar.
+
+**Móveis planejados + Tijuca: 21 resultados, 6 aproveitáveis, 1 Trilha A.**
