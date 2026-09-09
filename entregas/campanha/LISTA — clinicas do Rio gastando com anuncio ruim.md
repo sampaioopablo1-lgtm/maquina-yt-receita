@@ -199,6 +199,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - veterinária + pet + Tijuca ✔ (15 resultados, 1 empresa dominante com 8 anúncios)
 - móveis planejados + marcenaria + Barra ✔ (15 resultados, 4 aproveitáveis)
 - harmonização + estética avançada + Niterói ✔ (6 resultados, 1 aproveitável — nicho escreve bem)
+- energia solar + Barra/Recreio ✔ (zero)
+- odontologia + implante + Barra ✔ (5 resultados, 2 aproveitáveis)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
@@ -595,3 +597,23 @@ e não usa**:
 É melhor por três motivos: **não acusa**, **ensina algo verdadeiro e útil na hora**, e **mostra
 um exemplo concreto de concorrente fazendo certo** — que é exatamente o toque 3 da cadência,
 antecipado para o toque 1.
+
+---
+
+## Achados de 09/09, 06h15 — odontologia na Barra (lote fino) e solar na Barra (zero)
+
+| Empresa | Defeito | Página | Desde |
+|---|---|---|---|
+| **SX Odonto** | o título é uma **nota de avaliação**: "5.0 ⭐527 - Clientes Satisfeitos". Não diz o que a clínica faz nem oferece nada — e o "527" está grudado na estrela | `724982247368775` | 08/09/2026 |
+| **Moreira Etchatz Odontologia** | 3 anúncios, todos com o mesmo "Agende a sua avaliação" — o campo de teste anulado | `298425250253903` | 28/06/2026 |
+| *BB Oral Clinic* | título com **duas perguntas retóricas** e 96 caracteres: "Você sabia que cada sorriso tem uma história? E cada pessoa merece ser cuidada de forma única?" | `469005133631773` | 28/08/2026 |
+
+**SX Odonto é o mesmo caso da SunVolts** (⭐⭐⭐⭐⭐ como título): a nota de avaliação ocupa o
+lugar da chamada. É prova social, que é bom — mas prova social **sozinha** não diz a quem o
+anúncio interessa, e o Facebook não tem palavra nenhuma para segmentar.
+
+**Zerada, não repetir:** energia solar + Barra/Recreio → **0 anúncios**.
+
+**Nota sobre a Barra:** três varreduras no bairro (odontologia 5, móveis 15, academia 0, solar 0)
+mostram que a Barra rende bem menos que Tijuca e Niterói. Ajuste de prioridade: **Tijuca e
+Niterói primeiro**, Barra só em nicho que já provou volume lá (móveis planejados).
