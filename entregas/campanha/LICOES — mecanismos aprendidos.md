@@ -187,3 +187,28 @@ escuro do anúncio nasce por um app em desenvolvimento, e a Meta reporta ora um 
 Regra: quando um anúncio de lead acusar termos não aceitos, **primeiro conferir
 `leadgen_tos_accepted`**. Se vier `true`, o problema é o app, não os termos — e nenhum clique na
 página de termos vai resolver.
+
+## O carimbo do app só existe em criativo dinâmico (09/09, 16h45)
+
+Descoberta que destravou a conta inteira. Comparando dois anúncios com **o mesmo criativo, a mesma
+publicação, a mesma página e o mesmo formulário**, um entregava e o outro não. A diferença era o
+formato do conjunto:
+
+| Conjunto | Formato | Anúncio criado por mim | Entrega |
+|---|---|---|---|
+| dinâmico (`is_dynamic_creative: true`) | Meta **gera uma publicação nova** por anúncio | carimbo do app OPC Automação | **não** |
+| comum | o anúncio **aponta para a publicação que já existe** | sem carimbo | **sim** |
+
+Mecanismo: o erro *"Ads creative post was created by an app in development mode"* fala do **post**,
+não do anúncio. Em conjunto de criativo dinâmico, cada anúncio nasce com um post escuro novo, criado
+por quem chamou a API. Em conjunto comum reaproveitando criativo existente, nenhum post novo nasce —
+e não há o que carimbar.
+
+**Regra prática enquanto o app estiver em desenvolvimento:** criar conjuntos **sem** criativo
+dinâmico e montar a variação com **um anúncio por criativo**. Dez anúncios com dez criativos dão o
+mesmo teste que o criativo dinâmico daria, com a vantagem de o relatório mostrar o desempenho de
+cada peça separado — que o dinâmico esconde.
+
+Consequência secundária: conjunto dinâmico aceita **um único anúncio** e **anúncio dinâmico não pode
+ser apagado** (só junto com o conjunto). Foi esse par de regras que travou os quatro conjuntos
+anteriores. Conjunto comum não tem nenhuma das duas limitações.
