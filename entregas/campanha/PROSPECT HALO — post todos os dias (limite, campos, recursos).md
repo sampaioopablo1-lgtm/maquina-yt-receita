@@ -203,6 +203,22 @@ O que vai ser feito no minuto em que a chave existir (checklist executável, cam
 Depois de gravar: exportar a configuração lida para `PROSPECT HALO — configuracao atual.md` (uma linha por campo,
 com valor e data), para que a próxima revisão compare contra algo.
 
+## 7. Executado em 09/09 às 14h30 (Brasília), com a chave gravada em `config.prospect_halo_key`
+
+**Medido na API, e corrige a seção 1:** `create_content_post` (rascunho) **não** gasta crédito; `schedule_content_post` **gasta 1** por post agendado, de qualquer origem (manual ou Autopilot). Os 35 são posts agendados ou publicados no ciclo, não posts gerados.
+
+| Ação | Resultado |
+|---|---|
+| Autopilot | 7 dias, 07:30 America/Sao_Paulo, Portuguese, formatos text + image + carousel (Multi-image removido), 6 temas sem os prefixos "Terça =" e "Quinta =" |
+| Destino de engajadores | trocado de `jx74mn…` (agente Engajadores, descoberta desligada, **não aceito** como destino pela API) para `jx7a630…` (Donos de negócio RJ+SP), o único destino válido; os dois agentes têm o mesmo autopilot de conversa |
+| 6 posts manuais (11, 14, 16, 18, 21, 23/09) | movidos de 07:30 para **12:30**, para não colidir com o Autopilot |
+| 7 posts novos (10, 12, 13, 15, 17, 19, 20/09) | criados e agendados às 12:30, texto puro, na voz do Pablo |
+| Créditos | 9 usados → **16 usados, 19 restantes** |
+
+**Calendário resultante:** 10/09 a 23/09 com post todo dia às 07:30 (Autopilot) e um segundo post às 12:30 em 13 dos 14 dias (só 22/09 fica com um). Com 19 créditos, o Autopilot diário vai até **29/09**; de 30/09 a 07/10 o ciclo fica sem crédito, salvo se Pablo desagendar posts de 12:30 (cada um devolve 1 crédito) ou o ciclo renovar antes.
+
+Estado da conta no momento: 20 leads (a maioria com opportunityScore 47, cinco com nome "LinkedIn Member"), 6 convites enviados em 09/09, 0 aceitos, 0 mensagens, 0 respostas; 1 post publicado e medido, 0 reações.
+
 ## Fontes
 - prospecthalo.ai (planos, FAQ "What happens when I hit my monthly limit", "Does it write the LinkedIn posts too") — lido em 09/09/2026
 - help.prospecthalo.ai: *Understand plans and usage limits* · *Create and publish LinkedIn content with Autopilot* · *Connect LinkedIn and email accounts* · *Getting started* · *Create your first outreach agent* · *Why is my agent waiting for LinkedIn* · *Connect ProspectHalo to Claude with MCP*
