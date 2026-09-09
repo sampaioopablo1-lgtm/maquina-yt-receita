@@ -155,3 +155,18 @@ Cadeia até aqui: Supabase (cota) → Netlify (crédito pausado, site "Private")
 Ao repassar para `mcp.facebook.com/ads`, a Meta devolveu **403 "Admin system user tokens are not permitted on the Ads MCP server. Please use an Employee system user token."** O usuário do sistema "Integracao" é administrador. O servidor MCP oficial só aceita token de usuário do sistema com função **Funcionário**.
 
 Regra: para o MCP da Meta, criar usuário do sistema *Funcionário*, atribuir conta de anúncios, página e app, e gerar o token nele. O de administrador continua servindo para a Graph API direta.
+
+## O token de Funcionário destravou a criação de anúncios (09/09, 12h50)
+
+Com o token do usuário do sistema **Funcionário** (`Integracaomcp`), `mcp.facebook.com/ads`
+respondeu `initialize` 200 e listou **97 ferramentas** — inclusive `ads_create_ad`,
+`ads_create_ad_set` e `ads_create_creative`. Pelo mesmo caminho foi criado o anúncio
+`VR1 — INTERESSE` (`120247352877730766`), pausado, no conjunto que estava vazio havia duas
+semanas. O erro de Termos de Geração de Leads **não era dos termos**: era da conexão sem
+`pages_manage_ads`.
+
+Mecanismo em uma linha: **o servidor MCP da Meta recusa token de administrador e aceita o de
+funcionário** — e o token de funcionário carrega as permissões que o conector nativo não pede.
+
+Limite que restou: chamadas maiores pelo sandbox são barradas pela permissão da sessão, não pela
+Meta. Criar um anúncio simples passa; montar conjunto com segmentação longa, não.

@@ -1,8 +1,13 @@
 # Conjunto novo — semelhante de CNAE RJ, fundo de funil
 
-*09/09/2026. Especificação pronta. Não pôde ser criada via API: o Meta recusa criação de lead ads
-por esta conexão porque ela não consegue ler a aceitação dos Termos de Geração de Leads (falta a
-permissão `pages_manage_ads`). Precisa ser montado no Gerenciador de Anúncios.*
+*09/09/2026. Especificação pronta.*
+
+**Atualização das 12h50.** A trava caiu: com o token do usuário do sistema **Funcionário**
+(`Integracaomcp`, id 122103179367468347), o servidor MCP oficial da Meta aceita criação — o
+anúncio `VR1 — INTERESSE` (id `120247352877730766`) foi criado pausado no conjunto
+`LEADS I INTERESSE I FASE 1` por esse caminho. O conjunto abaixo ainda não foi criado porque a
+chamada esbarrou na permissão da sessão, não na Meta. Ou o Pablo libera a permissão, ou monta no
+Gerenciador seguindo esta especificação — que continua válida linha a linha.
 
 ## Onde criar
 
