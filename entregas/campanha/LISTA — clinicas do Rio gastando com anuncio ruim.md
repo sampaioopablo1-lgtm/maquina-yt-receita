@@ -213,6 +213,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + corretor + Botafogo ✔ (6 resultados, 2 novos aproveitáveis — inclui o caso `{{product.name}}`)
 - imobiliária + corretor + Campo Grande ✔ (3 resultados, 1 aproveitável)
 - imobiliária + apartamento + Madureira ✔ (5 resultados, 3 aproveitáveis, 2 Trilha A — inclui o caso `api.whatsapp.com`)
+- veterinária + Méier ✔ (8 resultados, **uma única empresa — CVP, já catalogada**; zero novo)
 - harmonização facial + estética + Méier ✔ (zero)
 - odontologia + implante + Niterói ✔ (**46 resultados, 11 aproveitáveis, 4 Trilha A** — segundo maior lote)
 - academia + musculação + Tijuca ✔ (23 resultados, 9 aproveitáveis, 4 Trilha A — abre o sub-nicho personal trainer)
@@ -995,3 +996,20 @@ foram todos abertos, e os bairros populares não têm anunciante de serviço no 
 
 **Consequência:** a partir daqui o valor não está em varrer mais, está em **abordar os 40 que já
 estão catalogados**. Varredura vira manutenção semanal, não tarefa de hora em hora.
+
+---
+
+## Achados de 09/09, 20h15 — veterinária no Méier: bairro novo, empresa velha
+
+Oito anúncios ativos, **todos da mesma página**: CVP — Clínica Veterinária 24 horas
+(`115599403204573`), que já está no arquivo. Nenhuma empresa nova.
+
+Vale registrar o tamanho do defeito, porque ela é hoje o caso mais gritante da lista inteira:
+"Converse conosco" **quatro vezes** num título, "Fale conosco" **duas vezes** em outro, um
+título que é o nome da página seguido de **quatro campos vazios**, e três anúncios **sem título
+nenhum** — o mais antigo no ar desde **julho de 2025**, catorze meses. Oito anúncios pagos, e o
+único que tem chamada escrita ("Clínica Veterinária 24h no Méier") é justamente o mais recente.
+
+**Leitura:** o Méier não tem mercado de veterinária no Meta — tem *um* anunciante. Confirma o que
+a rodada anterior já dizia: o mapa fechou. **Esta foi a última varredura de hora em hora.** A
+partir daqui a varredura passa a ser semanal e o trabalho é abordar os ~40 já catalogados.
