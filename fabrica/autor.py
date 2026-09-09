@@ -221,29 +221,35 @@ FRASES_POR_CENA = 2.26
 
 
 def densidade(slug: str, bloco: str = "longo", excluir: str = "") -> float:
-    """Frases por cena para dimensionar um bloco — do canal no short, do corpus
-    no longo.
+    """Frases por cena para dimensionar um bloco — a mediana do CANAL, nos dois.
 
-    A RESPOSTA DEPENDE DO BLOCO, e ate 25/08/2026 esta funcao dava a mesma para
-    os dois. Medido FORA DA AMOSTRA sobre o corpus inteiro (isto e: excluindo a
-    spec prevista da populacao que gera a previsao), com a tolerancia do laco em
-    7,4%:
+    A resposta ja dependeu do bloco. Ate 25/08/2026 esta funcao dava a mesma
+    para os dois; de 25/08 a 08/09 deu corpus no longo e canal no short; desde
+    08/09/2026 da canal nos dois, e o que mudou nao foi a opiniao, foi a
+    amostra. Medido FORA DA AMOSTRA (isto e: excluindo a spec prevista da
+    populacao que gera a previsao), com a tolerancia do laco em 7,4%:
 
-        bloco   fonte da densidade      erro mediano   nascem dentro
-        longo   mediana do canal            5,23%          58,1%
-        longo   constante do corpus         4,55%          71,6%   <- melhor
-        short   mediana do canal            4,20%          71,2%   <- melhor
-        short   constante do corpus        14,26%          32,5%
+        bloco   fonte da densidade      nascem dentro   medido em
+        longo   mediana do canal           58,1%         25/08, corpus menor
+        longo   constante do corpus        71,6%         25/08  <- ganhava
+        longo   mediana do canal        72,7% (72/99)    08/09  <- ganha
+        longo   constante do corpus     66,7% (66/99)    08/09
+        short   mediana do canal        70,5% (74/105)   08/09  <- ganha
+        short   constante do corpus     34,3% (36/105)   08/09
 
-    No LONGO a mediana do canal PERDE, e perde por tamanho de amostra: um canal
-    tem de tres a dezesseis specs, e a mediana de tao pouco balanca mais do que
-    a diferenca de estilo que ela tenta capturar. A constante do corpus le
-    setenta e quatro.
+    O LONGO virou. A excecao existia porque a mediana do canal perdia por
+    tamanho de amostra — "um canal tem de tres a dezesseis specs, e a mediana
+    de tao pouco balanca mais do que a diferenca de estilo que ela tenta
+    capturar". Com noventa e nove specs medidas ela deixa de balancar: passa a
+    ganhar por seis pontos, e a razao pela qual perdia deixou de existir.
 
-    No SHORT ela ganha, e ganha por larga margem — porque a constante do corpus
-    (2,26) foi calibrada em LONGO. Short e outro regime: cinco ou seis cenas de
-    uma frase seca cada. Aplicar ali um numero medido em bloco de setenta cenas
-    erra 14,26%, que e tres vezes o erro da alternativa.
+    O SHORT nunca esteve em duvida, e a margem so cresceu — porque a constante
+    do corpus (2,26) foi calibrada em LONGO. Short e outro regime: cinco ou
+    seis cenas de uma frase seca cada. Aplicar ali um numero medido em bloco de
+    setenta cenas erra o dobro.
+
+    Canal sem amostra (specs de menos, ou canal novo) continua caindo na
+    constante do corpus — o fallback no fim da funcao.
 
     O DOCSTRING ANTERIOR AFIRMAVA O CONTRARIO para o longo ("com a mediana do
     corpus erra 3,9%; com a mediana do canal, 1,4%"). Aquele numero era ajuste
@@ -276,13 +282,18 @@ def densidade(slug: str, bloco: str = "longo", excluir: str = "") -> float:
         idi = N.idioma_de(sp, None)
         frases = sum(len(N.frases((c or {}).get("nar") or "", idi)) for c in cenas)
         vistos.append(frases / len(cenas))
-    if bloco != "short":
-        # Ver a tabela do docstring: no longo a mediana do canal e uma amostra
-        # pequena demais para bater a constante do corpus. Ela continua sendo
-        # calculada acima porque quem afere precisa dos dois numeros, e porque
-        # o dia em que um canal tiver specs suficientes para virar o jogo, a
-        # comparacao tem de estar a mao — nao reescrita do zero.
-        return FRASES_POR_CENA
+    # O dia previsto na versao anterior desta funcao chegou em 08/09/2026.
+    # Ela devolvia FRASES_POR_CENA no longo com este comentario: "a mediana do
+    # canal e uma amostra pequena demais para bater a constante do corpus (...)
+    # o dia em que um canal tiver specs suficientes para virar o jogo, a
+    # comparacao tem de estar a mao — nao reescrita do zero". A frota cresceu,
+    # o jogo virou, e a comparacao estava a mao: e o
+    # test_a_fonte_da_densidade_e_a_que_mede_melhor_em_cada_bloco que mediu.
+    #
+    # Fica UM caminho para os dois blocos. O fallback abaixo ja cobre o caso que
+    # motivou a excecao: canal sem spec suficiente (menos de quatro cenas em
+    # todas, ou canal novo) cai na constante do corpus sozinho, sem precisar de
+    # um ramo por bloco.
     return statistics.median(vistos) if vistos else FRASES_POR_CENA
 
 
