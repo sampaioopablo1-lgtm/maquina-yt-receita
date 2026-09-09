@@ -5,16 +5,17 @@
 
 | # | Empresa | O erro, em uma linha |
 |---|---|---|
-| 1 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
-| 2 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
-| 3 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
-| 4 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
-| 5 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
-| 6 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
-| 7 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
-| 8 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
-| 9 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
-| 10 | **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
+| 1 | **Dr. Daniel Pinheiro — Odonto Barra** (*Trilha A*) | **21 anúncios ativos, todos sem título nenhum**, o mais antigo desde **março de 2025** — dezoito meses |
+| 2 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
+| 3 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
+| 4 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
+| 5 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
+| 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
+| 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
+| 8 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
+| 9 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
+| 10 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
+| — | *(sai de hoje)* **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
 | — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
 *Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
@@ -229,6 +230,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - academia + musculação + Tijuca ✔ (23 resultados, 9 aproveitáveis, 4 Trilha A — abre o sub-nicho personal trainer)
 - veterinária + pet + Copacabana/Botafogo ✔ (1 resultado, e era imobiliária)
 - móveis planejados + marcenaria + Tijuca ✔ (21 resultados, 6 aproveitáveis, 1 Trilha A — inclui a "oferta desta semana" de quatro meses)
+- advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -888,3 +890,47 @@ digitação que ninguém revisou, multiplicado por todos os anúncios do lote.
 na Barra sabe em um segundo que o anúncio é para ele — e o Facebook sabe a quem mostrar.
 
 **Móveis planejados + Tijuca: 21 resultados, 6 aproveitáveis, 1 Trilha A.**
+
+---
+
+## Achados de 09/09, 13h10 — advocacia na Tijuca (25), e o caso do Dr. Daniel fica muito maior
+
+A busca por advocacia devolveu pouca advocacia — mas trouxe de volta um nome que já está na
+nossa lista, com uma dimensão que a gente não conhecia.
+
+### Dr. Daniel Pinheiro — Odonto Barra: 21 anúncios, todos sem título, desde março de 2025
+
+Página `157469857458079`. Ele já estava marcado como **Trilha A** (o dono no nome). O que mudou é
+o tamanho da prova: são **vinte e um anúncios ativos**, e **nenhum deles tem título**. O mais
+antigo começou a rodar em **13 de março de 2025** — dezoito meses.
+
+| O que sabíamos | O que sabemos agora |
+|---|---|
+| "um anúncio sem chamada" | **21 anúncios, todos sem chamada** |
+| sem data | **desde março de 2025** |
+
+Isso deixa de ser um deslize e vira o modo como a operação inteira dele funciona. E torna a
+abordagem muito mais fácil, porque não depende de interpretação:
+
+> Dr. Daniel, seus 21 anúncios estão no ar sem título nenhum — o campo da chamada está vazio em
+> todos, e o mais antigo começou em março do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou paciente e não vim vender nada. Vi na Biblioteca de Anúncios do
+> Facebook, que é pública, e a data de início aparece lá. Sem esse campo o Facebook não tem
+> palavra nenhuma para decidir a quem mostrar o anúncio — ele mostra para quem sobra.
+>
+> Quem cuida das campanhas do consultório hoje?
+
+**Ele passa a ser o primeiro da lista.** Vinte e um anúncios sem título por dezoito meses é a
+maior evidência de dinheiro parado que catalogamos, e ele é Trilha A — conversa direta com o dono.
+
+### Os outros do lote
+
+| Empresa | Defeito | Página |
+|---|---|---|
+| **cmw_advogados** | 2 anúncios sem título, desde maio/2026 | `100881269519103` |
+| **Hexabull Design** | nome da página + **"Fale conosco" seis vezes** | `892893547235282` |
+| *compro.ouro* | sem título — fora do perfil, não abordar | `1159585447229455` |
+
+**Advocacia na Tijuca é nicho fraco de novo:** 25 resultados, mas 21 são de um dentista e um é de
+compra de ouro. Advogado no Rio não anuncia — confirma o que já tínhamos visto.
