@@ -12,9 +12,9 @@
 | 5 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
 | 6 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 | 7 | **Luciana Martins** (Tijuca, *Trilha A*) | o título é o nome dela seguido de **sete campos vazios** |
-| 8 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
-| 9 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
-| 10 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
+| 8 | **CVP — Veterinária 24h** (Tijuca) | **8 anúncios desde julho de 2025**: três sem título, um com "Converse conosco" ×4, um com 4 campos vazios — **e um escrito certo** |
+| 9 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
+| 10 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
 
 ### A regra que vale para todas as mensagens
 
@@ -196,6 +196,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
 - imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
 - imobiliária + apartamento à venda + Niterói ✔ (11 resultados, **5 aproveitáveis**)
+- veterinária + pet + Tijuca ✔ (15 resultados, 1 empresa dominante com 8 anúncios)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
@@ -460,3 +461,49 @@ ferramenta de portal imobiliário que não preenche o campo.
 
 Isso é ótimo para a abordagem: **uma explicação serve para todos.** Não é erro de gosto de cada
 um, é uma falha de processo que o mercado inteiro repete — e que dá para corrigir em minutos.
+
+---
+
+## Achados de 09/09, 03h15 — veterinária na Tijuca: o caso que ensina a melhor abordagem
+
+15 anúncios. Uma empresa domina o lote, e o caso dela é o mais instrutivo da lista inteira.
+
+### CVP — Clínica Veterinária 24 horas · página `115599403204573`
+
+**Oito anúncios ativos, de julho de 2025 até maio de 2026.** Catálogo completo de defeitos:
+
+| Anúncio | Título | Desde |
+|---|---|---|
+| [1](https://www.facebook.com/ads/library/?id=24156582717304603) | **(vazio)** | 11/07/2025 — 14 meses |
+| [2](https://www.facebook.com/ads/library/?id=1506891823651194) | "CVP … \| **Converse conosco** ×4" | 19/08/2025 |
+| [3](https://www.facebook.com/ads/library/?id=758921773504183) | "CVP … \|   \|   \|   \|  " — 4 campos vazios | 19/08/2025 |
+| [4](https://www.facebook.com/ads/library/?id=1481149689791449) | "CVP … \| **Fale conosco** ×2" | 09/09/2025 |
+| [5](https://www.facebook.com/ads/library/?id=1696518768162335) | **(vazio)** | 19/05/2026 |
+| … | mais dois sem título | |
+| **[7](https://www.facebook.com/ads/library/?id=797459419418863)** | **"Clínica Veterinária Popular na Tijuca"** — **certo** | 07/08/2025 |
+
+**O sétimo muda tudo.** Eles sabem escrever um bom título: serviço, posicionamento e bairro em
+cinco palavras. Escreveram uma vez, em agosto de 2025 — e os outros sete continuam vazios ou
+repetindo "Converse conosco" desde então.
+
+Isso permite a melhor abordagem que apareceu até agora, porque **não é corretiva, é elogiosa**:
+
+> Um dos anúncios de vocês está escrito certo: "Clínica Veterinária Popular na Tijuca" — diz o
+> serviço, o posicionamento e o bairro em cinco palavras.
+>
+> Os outros sete estão vazios ou repetindo "Converse conosco". O mais antigo assim é de julho de 2025.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente, vi na Biblioteca de Anúncios do Facebook. Quem cuida
+> das campanhas de vocês hoje?
+
+Ninguém se defende de um elogio. E a pergunta que fica na cabeça dele não é "esse cara está me
+criticando", é **"por que só um está certo?"** — que é exatamente a conversa que interessa.
+
+**Padrão novo para procurar em todos os outros:** empresa que tem **um anúncio bom no meio de
+vários quebrados**. É o prospect mais fácil de abordar e o mais fácil de ajudar, porque a
+correção é replicar o que ele mesmo já fez.
+
+**Quem está acertando (referência):** *Clínica Veterinária Xatô | Barra* e *Vet Pituka | Tijuca* —
+os dois usam nome + bairro, simples e correto.
+
+**Descartado:** *Esfera Condominial BNI Freguesia* — evento de networking, não é o ICP.
