@@ -19,7 +19,7 @@
 | — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
 *Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
-Care, Núcleo Angela Beatriz Varella, Luciana Martins, Casa Prime Decor, Núcleo Saúde Novo Leblon.*
+Care, Núcleo Angela Beatriz Varella, Luciana Martins, Núcleo Saúde Novo Leblon.*
 
 **Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em sete bairros seguidos
 (Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3, Madureira 3/5) — é onde vale concentrar a abordagem.
@@ -168,15 +168,6 @@ linha garantida, e ela estava sendo gasta com apresentação.*
 | **mvmateusmarques** | título é o nome do perfil seguido de barras vazias | `609513955575345` | [anúncio](https://www.facebook.com/ads/library/?id=2067162104209854) |
 | **Lídervet e Diagnóstico** | título vazio | `167005513159683` | [anúncio](https://www.facebook.com/ads/library/?id=893504100499958) |
 | Veterinária Popular.Cão.br | 3 anúncios repetindo "Agende sua consulta com preços populares" | `1175974635593409` | — |
-
-### Móveis planejados e marcenaria
-| Empresa | Defeito | Página | Ver |
-|---|---|---|---|
-| **RJ INOX Cozinhas industriais** | um anúncio com título "api.whatsapp.com", outro com "Fale conosco" nove vezes, outro vazio | `193486100512300` | [anúncio](https://www.facebook.com/ads/library/?id=1015628371432748) |
-| **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" rodando desde setembro de 2025 | `783898898138583` | [anúncio](https://www.facebook.com/ads/library/?id=24974361502156656) |
-| **Marcenaria Real92** | "Converse conosco" desde agosto de 2025 | `731620300037649` | [anúncio](https://www.facebook.com/ads/library/?id=2569082953441458) |
-| MF Plan móveis planejados | "Oferta por tempo limitado", genérico | `1856812617872932` | — |
-
 ### Fisioterapia e academia (nicho fraco no Rio, poucos anunciam)
 | Empresa | Defeito | Página |
 |---|---|---|
@@ -198,7 +189,6 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - contabilidade + abrir empresa + Rio ✔ (nicho fraco, 5 resultados)
 - fisioterapia + pilates + Rio ✔ (fraco, 3)
 - clínica veterinária + Rio ✔
-- móveis planejados + Rio ✔
 - advogado + Rio ✔ (fraco, 1)
 - energia solar + Rio ✔ (**124 anúncios, o nicho mais rico**)
 - academia + musculação + Botafogo ✔ (zero resultado)
@@ -209,11 +199,9 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
 - imobiliária + apartamento à venda + Niterói ✔ (11 resultados, **5 aproveitáveis**)
 - veterinária + pet + Tijuca ✔ (15 resultados, 1 empresa dominante com 8 anúncios)
-- móveis planejados + marcenaria + Barra ✔ (15 resultados, 4 aproveitáveis)
 - harmonização + estética avançada + Niterói ✔ (6 resultados, 1 aproveitável — nicho escreve bem)
 - energia solar + Barra/Recreio ✔ (zero)
 - odontologia + implante + Barra ✔ (5 resultados, 2 aproveitáveis)
-- móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
 - advocacia + trabalhista + Barra ✔ (zero)
@@ -229,17 +217,17 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - odontologia + implante + Niterói ✔ (**46 resultados, 11 aproveitáveis, 4 Trilha A** — segundo maior lote)
 - academia + musculação + Tijuca ✔ (23 resultados, 9 aproveitáveis, 4 Trilha A — abre o sub-nicho personal trainer)
 - veterinária + pet + Copacabana/Botafogo ✔ (1 resultado, e era imobiliária)
-- móveis planejados + marcenaria + Tijuca ✔ (21 resultados, 6 aproveitáveis, 1 Trilha A — inclui a "oferta desta semana" de quatro meses)
 - advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
 - fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
 - odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
-- móveis planejados + marcenaria + Niterói ✔ (14 resultados, 4 empresas, **todas as 4 aproveitáveis** — melhor taxa por empresa até agora)
+
+**Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
 ## Leitura que já dá para tirar
-Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia solar (124 anúncios ativos), odontologia, estética, móveis planejados e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
+Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia solar (124 anúncios ativos), odontologia, estética e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
 
 ---
 
@@ -540,40 +528,6 @@ os dois usam nome + bairro, simples e correto.
 
 **Descartado:** *Esfera Condominial BNI Freguesia* — evento de networking, não é o ICP.
 
----
-
-## Achados de 09/09, 04h15 — móveis planejados na Barra
-
-15 anúncios, 4 empresas aproveitáveis.
-
-| Empresa | Defeito | Página | Desde |
-|---|---|---|---|
-| **Casa Prime Decor** | o título é **o nome da página do Instagram, colado 8 vezes**: "Casa Prime Decor (@casaprime.decor) • Instagram photos and videos" | `716576384870772` | 12/08/2026 |
-| **Du'Art Marcenaria** | 3 anúncios com "**Oferta somente esta semana** ✨" — no ar há **quase um mês** | `2045820048837163` | 12/08/2026 |
-| **Modelarte Planejados** | anúncio **sem título**, no ar desde **outubro de 2025** — 11 meses | `385290834671674` | 09/10/2025 |
-| **Epipla Marcenaria** | 2 anúncios, os dois só com "Fale conosco" | `976165705588432` | 21/05/2026 |
-| *FC Marcenaria* | 6 anúncios idênticos, "Faça seu orçamento pelo **Whats app**" (grafia errada) | `1089140307623990` | 02/09/2026 |
-
-**Casa Prime Decor é o defeito mais autoexplicativo da lista inteira.** Não é texto ruim, é o
-título da aba do navegador do Instagram deles, copiado e colado oito vezes. Quem fez isso
-copiou a página aberta em vez de escrever a chamada. Abertura:
-
-> O título do anúncio de vocês é o nome da página do Instagram — "Casa Prime Decor
-> (@casaprime.decor) • Instagram photos and videos" — repetido oito vezes.
->
-> Aqui é o Pablo, do Rio. Não sou cliente. Parece que alguém colou o endereço da página em vez
-> de escrever a chamada. Está assim desde agosto.
->
-> Quem monta os anúncios de vocês?
-
-**Du'Art tem o segundo melhor argumento:** "somente esta semana" há um mês. Urgência falsa que
-o público já viu quatro vezes para de funcionar — e depois não funciona nem quando é verdade.
-
-**Quem está acertando (referência):** *RACCA HOME* — "Móveis Planejados - Barra da Tijuca,
-Recreio dos Bandeirantes". Serviço e bairros no título, sem enfeite.
-
----
-
 ## Achados de 09/09, 05h15 — estética em Niterói: nicho quase limpo, e a descoberta que explica tudo
 
 Só 6 anúncios, e **quase todos bem escritos**. Uma aproveitável:
@@ -642,9 +596,9 @@ anúncio interessa, e o Facebook não tem palavra nenhuma para segmentar.
 
 **Zerada, não repetir:** energia solar + Barra/Recreio → **0 anúncios**.
 
-**Nota sobre a Barra:** três varreduras no bairro (odontologia 5, móveis 15, academia 0, solar 0)
+**Nota sobre a Barra:** as varreduras no bairro (odontologia 5, academia 0, solar 0)
 mostram que a Barra rende bem menos que Tijuca e Niterói. Ajuste de prioridade: **Tijuca e
-Niterói primeiro**, Barra só em nicho que já provou volume lá (móveis planejados).
+Niterói primeiro**, Barra só em nicho que já provou volume lá.
 
 ---
 
@@ -850,53 +804,6 @@ anunciando, **todos sem título**, todos com o dono no nome. O do leopontes est�
 
 **Zerada, não repetir:** veterinária + Copacabana/Botafogo → 1 resultado, e era imobiliária.
 
----
-
-## Achados de 09/09, 12h10 — móveis planejados na Tijuca (21)
-
-| Empresa | Defeito | Página | Ver |
-|---|---|---|---|
-| **Du'Art — Marcenaria Criativa** | 3 anúncios com **"Oferta somente esta semana ✨"** — no ar desde **maio de 2026**. A semana dura quatro meses | `2045820048837163` | [anúncio](https://www.facebook.com/ads/library/?id=935414489583729) |
-| **FC Marcenaria** | **seis anúncios** com "Faça seu orçamento pelo Whats app" — e "WhatsApp" escrito separado e errado | `1089140307623990` | [anúncio](https://www.facebook.com/ads/library/?id=2135748573983639) |
-| **Three Ambientes Planejados** | 4 anúncios, **todos sem título** | `101041681654597` | [anúncio](https://www.facebook.com/ads/library/?id=896462576836171) |
-| **Epipla Marcenaria** | 2 anúncios com "Fale conosco" | `976165705588432` | [anúncio](https://www.facebook.com/ads/library/?id=1615688016154772) |
-| **queyton** (*Trilha A*) | 2 anúncios sem título, desde **outubro de 2025** — onze meses | `100109099268038` | [anúncio](https://www.facebook.com/ads/library/?id=1317288053526309) |
-| **Modelarte Planejados** | sem título, desde **outubro de 2025** | `385290834671674` | [anúncio](https://www.facebook.com/ads/library/?id=1523727568645527) |
-| *Casa Prime Decor* | já catalogada — o nome do Instagram colado oito vezes | `716576384870772` | — |
-
-### O achado da rodada: a semana que dura quatro meses
-
-A **Du'Art** anuncia **"Oferta somente esta semana"** desde **maio**. Qualquer pessoa que tenha
-visto o anúncio duas vezes sabe que a urgência é falsa — e urgência falsa não só não funciona,
-como ensina o público a não acreditar na próxima.
-
-É um defeito diferente de todos os outros da lista: não é campo vazio nem frase repetida. É uma
-**promessa que a própria data desmente**. E a prova é pública, na Biblioteca, com a data de início
-à vista.
-
-> Vocês estão anunciando "Oferta somente esta semana" desde maio — quatro meses.
->
-> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é pública,
-> e a data de início aparece lá. Quem já viu o anúncio antes entende que a semana não acaba, e a
-> urgência para de funcionar — inclusive na próxima vez que vocês tiverem uma oferta de verdade.
->
-> Quem cuida das campanhas de vocês?
-
-**"WhatsApp" escrito errado seis vezes** (FC Marcenaria) é o segundo caso deste tipo: erro de
-digitação que ninguém revisou, multiplicado por todos os anúncios do lote.
-
-### O contraexemplo: RACCA HOME
-
-> "Móveis Planejados — Barra da Tijuca, Recreio dos Bandeirantes"
-> "Marcenaria Personalizada — Barra da Tijuca, Recreio"
-
-**Serviço mais bairro.** Duas informações, nenhuma palavra desperdiçada. Quem procura marcenaria
-na Barra sabe em um segundo que o anúncio é para ele — e o Facebook sabe a quem mostrar.
-
-**Móveis planejados + Tijuca: 21 resultados, 6 aproveitáveis, 1 Trilha A.**
-
----
-
 ## Achados de 09/09, 13h10 — advocacia na Tijuca (25), e o caso do Dr. Daniel fica muito maior
 
 A busca por advocacia devolveu pouca advocacia — mas trouxe de volta um nome que já está na
@@ -1025,34 +932,3 @@ grátis" — verbo, objeto e a objeção de preço resolvida em cinco palavras.
 escrito. Quem vende para dentista e biomédico já entendeu que precisa de título. Isso reforça a
 regra: quanto mais o nicho depende de venda direta, melhor o anúncio; clínica que vive de
 indicação escreve mal.
-
----
-
-## Achados de 09/09, 14h15 — móveis planejados em Niterói: quatro empresas, quatro defeitos
-
-Nicho pequeno (14 anúncios) mas **denso**: quatro empresas anunciando, e todas as quatro com
-defeito. Nenhuma varredura anterior teve 100% de aproveitamento.
-
-| Empresa | Defeito | Página | No ar desde | Ver |
-|---|---|---|---|---|
-| **Samora Móveis Planejados** | **5 anúncios, todos sem título**, o mais antigo desde **02/08/2026** | `1587313721281700` | 02/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1044650278252349) |
-| **Ellegance Móveis Planejados** | 2 anúncios sem título, no ar desde **05/01/2026** — oito meses | `250177365785688` | 05/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2505377443192092) |
-| **Live Ambientes** | 2 anúncios com **"Converse conosco"** — campo padrão | `110360378514897` | 08/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1175924682281875) |
-| **FC Marcenaria** | 4 anúncios idênticos, todos "Faça seu orçamento pelo **Whats app**" — com o erro de grafia | `1089140307623990` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2135748573983639) |
-
-**O caso mais fácil de abrir é a FC Marcenaria**, porque o defeito é visível para qualquer pessoa:
-
-> Os quatro anúncios da FC estão com "Faça seu orçamento pelo Whats app" — separado, como se
-> fossem duas palavras. É o tipo de detalhe que ninguém revisa depois que sobe.
->
-> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é
-> pública. E tem outra: os quatro anúncios são iguais, então eles competem entre si no mesmo
-> leilão — o Facebook cobra quatro vezes para aprender uma coisa só.
->
-> Quem cuida das campanhas de vocês hoje?
-
-E para a **Samora**, cinco anúncios sem título é a mesma prova do Dr. Daniel, em escala menor.
-
-**Leitura:** móveis planejados confirma o padrão de Tijuca e Barra — nicho que vende por
-orçamento no WhatsApp, anuncia constante, e escreve mal. Niterói é o terceiro bairro seguido com
-taxa alta nesse nicho.
