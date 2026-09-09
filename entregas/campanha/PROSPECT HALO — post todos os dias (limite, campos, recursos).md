@@ -262,6 +262,68 @@ Ela lê oito endpoints e escreve veredito sobre: cota de posts contra os dias qu
 
 **A fragilidade que resta, dita agora e não depois:** se a sessão `session_01NZzPYwnqYJG23RaXKGYYY4` for arquivada, a rotina passa a acordar uma sessão morta. Se isso acontecer, recriar a rotina pela interface de Routines do claude.ai, que permite anexar conectores a uma rotina de sessão nova.
 
+## 10. A separação em dois agentes, e a série de métricas (09/09, 17h30)
+
+Esta seção **reverte a conclusão da seção 9.1**. Lá está escrito que o segundo slot fica vazio de propósito. Ele não ficou. O motivo da reversão não é volume, e a seção 9.1 continua certa nisso: convite é limite de conta, `Shared per connected account across all agents`, e nenhum segundo agente cria convite nenhum.
+
+O motivo é outro, e só apareceu relendo a regra do `add_engager_to_outreach`: **o engajador só entra se passar na qualificação do agente**. Com um agente só, quem comentava no post era filtrado pelos mesmos critérios da prospecção fria — cargo, setor, RJ+SP. Alguém que comenta "AGENDA" e mora em Belo Horizonte era recusado. Isso é perda pura: a pessoa levantou a mão e o filtro de frio a derrubava.
+
+### 10.1 O que ficou de pé
+
+| Agente | Papel | Configuração |
+|---|---|---|
+| `jx7a630sdfd5cqnk6j1b5t8yyn8e1v8w` "Donos de negócio RJ+SP" | prospecção fria | critérios estreitos mantidos, `discoveryDailyCap: 8` |
+| `jx769gh1pkpscexk83h99kxrdx8e2bq2` "Engajadores do conteúdo" | recebe quem engaja nos posts | Brasil inteiro, sem setor, `engagementDiscoveryEnabled: true`, `discoveryDailyCap: 1` |
+
+O Autopilot de conteúdo aponta `engagerDestinationCampaignId` para o segundo. As vagas de agente do plano Pro agora estão em 2 de 2.
+
+### 10.2 Três coisas que a API impôs e uma que ela escondeu
+
+**`create_agent` recusa setor e contexto de empresa vazios** ("At least one target industry or company context term is required"). Como setor vazio era justamente o ponto, o campo `keywords` recebeu termos largos de serviço no lugar da lista fechada de setores. O efeito é o pretendido, mas não é "sem filtro nenhum".
+
+**`update_agent` não aceita `channels`.** Conferido no `openapi.json`, campo por campo: canal é decidido no `create_agent` e ponto. Ligar o e-mail no agente 1 exigiria recriá-lo, jogando fora os 20 leads da fila e queimando cota de hidratação. É ação de painel.
+
+**O `engagementDiscoveryEnabled: true` foi ignorado em silêncio no `create_agent`.** A chamada devolveu `ok: true` e o agente nasceu com `false` — sem erro, sem aviso. Só apareceu porque o estado foi relido depois de criar. Corrigido com `update_agent`. Fica a regra: **nesta API, `ok: true` não é prova de que o campo pegou; releia.**
+
+### 10.3 O freio que quase estrangulou o envio
+
+O `discoveryDailyCap` do agente 1 foi primeiro para **3**, para ele não comer os 6 convites antes do agente 2. A conta desfaz isso: 3 + 1 = 4 leads novos por dia para 6 convites por dia, saldo de −2/dia, e a fila de 14 zeraria em **7 dias úteis** — depois disso o envio cairia de 6 para 4/dia, limitado pela descoberta. Antes do freio a descoberta rodava a ~15/dia e sobrava.
+
+O freio protegia o agente 2 de uma disputa que não existe: 1 post publicado, 0 comentários, 0 engajadores. Corrigido para **8**, acima da taxa de envio. Quando houver engajador de verdade, revisitar.
+
+### 10.4 A tabela de tendência, e por que metade dela é hipótese
+
+Medido em 09/09: 22 prospects descobertos em ~36h, 20 qualificados contra 7 rejeitados (**74% de aprovação**), 6 convites enviados entre 09h02 e 11h19 — a cota do dia inteiro queima em **2h17**. Aceites, respostas e conversas: **zero**, porque os convites saíram hoje.
+
+| Cenário | Convites 20d | Convites 30d | Reuniões 20d | Reuniões 30d |
+|---|---|---|---|---|
+| A. cap 3+1 (fila seca no dia 7) | 70 | 102 | ~1 | ~1 |
+| B. cap 8, 6 convites/dia cheios | 84 | 132 | ~1 | ~2 |
+| C. B + convites 6→25 na tela Accounts | ~350 | ~550 | ~4 | ~7 |
+
+A linha de convites é aritmética dos limites reais. As reuniões usam 30% de aceite, 20% de resposta sobre aceite e 20% de reunião sobre resposta — **faixa de referência, não número desta conta**. Enquanto o aceite não for medido, essa metade da tabela é palpite explícito.
+
+A leitura que importa: de A para B é uma reunião. De B para C são cinco. Nenhuma configuração de agente muda a ordem de grandeza — só o número de convites por dia, que mora na tela Accounts, fora do alcance da API.
+
+### 10.5 `prospect_halo_metricas`: a série que faltava
+
+Taxa de aceite, de resposta e de reunião não são legíveis num instante — só existem como série. Sem série, toda correção de configuração vira palpite, que é exatamente o que a tabela acima é hoje.
+
+Tabela criada no Supabase (`vevocauwtarctfwngrch`), uma linha por dia, PK `dia`, RLS ligada e **sem policy de propósito**: só a rotina escreve, com service role. Colunas para o funil (fila, convites, aceites, respostas, conversas), para a descoberta (descobertos 24h, qualificados, rejeitados), para os limites da conta, para o conteúdo e para as cotas, mais um `bruto` jsonb para quando faltar coluna. Primeira linha gravada com o estado de 09/09.
+
+**A rotina mudou de dono.** A `trig_01CVM9QpiX5Rwe7Niks1BYCf` da seção 9.3 estava ligada à sessão do OPC e o serviço **não permite editar o prompt de uma rotina que entrega em sessão alheia**. Ela foi desligada e substituída pela `trig_01LFTwS1fLvmfWUo3DKypWq8`, mesmo horário (19h de Brasília, cron `0 22 * * *`), ligada a `session_01VbV6VHZ3b9oGi1J68e83B9`. O prompt novo mantém todas as regras da antiga (aquecimento só com aceite ≥ 30% por 3 dias, nunca por tempo decorrido; ciclo de cobrança do dia 08 ao 07; "Safety pause" resolve sozinho; leads "LinkedIn Member" acima de 20%) e acrescenta a gravação da linha diária e o gatilho novo: fila abaixo de 6 significa descoberta sem acompanhar o envio.
+
+A fragilidade da seção 9.3 continua valendo, agora apontando para a outra sessão: se `session_01VbV6VHZ3b9oGi1J68e83B9` for arquivada, a rotina acorda uma sessão morta. O serviço avisou de novo que a rotina não guarda conectores — ela depende dos conectores da sessão a que está ligada.
+
+### 10.6 O que continua fora do alcance da API
+
+Duas coisas, ambas de painel, e são as duas que mais valem:
+
+1. **Convites de 6 para 25/30**, tela Accounts. É a única alavanca que muda a ordem de grandeza das reuniões.
+2. **Agente 1 para Multichannel**, para usar os 50 créditos de e-mail parados.
+
+Sobre o e-mail, uma correção do que esta sessão afirmou antes: ele foi chamado de "a maior alavanca não explorada" e não é. O limite diário de 30 é da caixa, mas o teto real é o **enriquecimento de e-mail, 50 por mês, 1 crédito por lead** — porque a ferramenta não devolve e-mail junto com o lead do LinkedIn. Contra ~130 convites/mês no LinkedIn, o e-mail é **menor**, não maior. Ele soma e não gasta convite; só não é o primeiro da fila.
+
 ## Fontes
 - prospecthalo.ai (planos, FAQ "What happens when I hit my monthly limit", "Does it write the LinkedIn posts too") — lido em 09/09/2026
 - help.prospecthalo.ai: *Understand plans and usage limits* · *Create and publish LinkedIn content with Autopilot* · *Connect LinkedIn and email accounts* · *Getting started* · *Create your first outreach agent* · *Why is my agent waiting for LinkedIn* · *Connect ProspectHalo to Claude with MCP*
