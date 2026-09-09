@@ -132,3 +132,67 @@ que queimou a cota. Aguardo a tentativa das 00:37Z e o fim dos 20 antes de decid
 Se fechar em zero qualificados, a conclusão será a mais útil do dia: **o LinkedIn não é o
 canal para dono de clínica no Rio**, e o esforço deve ir todo para Instagram, WhatsApp e
 e-mail — onde a Biblioteca de Anúncios já entrega lista qualificada sem depender de perfil.
+
+## 09/09/2026, 00h35 — rotina diária: o primeiro lead do Prospect Halo, e por que ele não vale
+
+### Prospect Halo
+
+**Apareceu 1 lead qualificado.** O primeiro desde que a máquina subiu. E ele é o achado do dia,
+mas não pelo motivo bom:
+
+| Campo | Valor |
+|---|---|
+| Nome | **"LinkedIn Member"** |
+| Empresa | **"brasil"** |
+| Local | **Campos dos Goytacazes**, RJ — 280 km da cidade do Rio |
+| `qualification` | **qualified** |
+| `lane` | high_intent |
+| `opportunityScore` | **68** |
+| `intentScore` | 20 |
+
+**O vazamento silencioso desta rodada:** o qualificador deu nota 68 e marcou como *high_intent*
+um perfil cujo **nome ele não conseguiu ler** e cuja empresa saiu como a string "brasil".
+
+Isso não é um lead ruim que passou. É o mecanismo de qualificação **pontuando ruído**. Quando o
+LinkedIn não devolve o perfil — porque está fora da rede, privado ou a cota de verificação
+barrou —, os campos voltam vazios ou com lixo, e o qualificador semântico pontua **assim mesmo**,
+em cima de nada.
+
+Consequência: a nota não distingue perfil bom de perfil ilegível. Um score alto pode significar
+"encaixa muito bem" ou "não consegui ler e chutei".
+
+**Segunda inconsistência, no mesmo lugar:** `get_stats` reporta `leads: 0` para o agente
+`jx7a630sdfd5cqnk6j1b5t8yyn8e1v8w`, com `countsRefreshing: false`, enquanto `list_leads`
+devolve esse lead **atribuído a esse mesmo agente**. E a busca segue com `qualifiedCount: 0`.
+Três fontes, três respostas. O painel não é confiável como fonte única — sempre cruzar com
+`list_leads`.
+
+**Busca `jh7ev606axhj41p1r2nt752r618e0tqz`:** ainda 7 de 20 processados, 6 rejeitados, 1 adiado,
+0 qualificados. `progressStatus: retrying`, próxima tentativa 00:37:59Z. Não avançou desde 00h25.
+
+**Conteúdo:** `measurementStatus: "no_posts"`, zero publicados, zero engajamento. O agente de
+engajadores segue sem atividade — coerente, ele só recebe quem comenta.
+
+### Meta (ontem)
+
+| | Topo | Fundo |
+|---|---|---|
+| Impressões | 232 | sem dados |
+| Gasto | R$ 2,28 | — |
+| CPM | R$ 9,83 | — |
+| Frequência | **1,009** | — |
+| Alcance | 230 | — |
+| ThruPlay | 34 | — |
+| Leads | 0 | 0 |
+
+**Frequência de 1,009** significa que quase ninguém viu o anúncio duas vezes. O público está
+longe da saturação — não há fadiga de criativo, há falta de volume. A regra de renovar criativo
+acima de frequência 3 não se aplica nem de longe.
+
+### Hipótese aberta
+
+Se o qualificador pontua perfil ilegível, então **os 6 rejeitados podem ter sido rejeitados pelo
+mesmo motivo** — não por não encaixarem, mas por não terem sido lidos. Isso mudaria a leitura de
+ontem: o problema não seria "dono de clínica não usa LinkedIn", e sim "a verificação de perfil
+não está resolvendo os perfis". Conferir quando os 20 terminarem, comparando quantos rejeitados
+têm nome resolvido.
