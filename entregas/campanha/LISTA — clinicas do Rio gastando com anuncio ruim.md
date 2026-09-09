@@ -5,16 +5,26 @@
 
 | # | Empresa | O erro, em uma linha |
 |---|---|---|
-| 1 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
-| 2 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
-| 3 | **Flip Dog Care** (Niterói) | um anúncio com "api.whatsapp.com" cru no título, outro com "Converse conosco" cinco vezes, desde jan/2025 |
-| 4 | **Núcleo Angela Beatriz Varella** (Tijuca) | "Venha conhecer o Núcleo" **quatro vezes** no título, e outros 2 anúncios sem título nenhum |
-| 5 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
-| 6 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
-| 7 | **Luciana Martins** (Tijuca, *Trilha A*) | o título é o nome dela seguido de **sete campos vazios** |
-| 8 | **CVP — Veterinária 24h** (Tijuca) | **8 anúncios desde julho de 2025**: três sem título, um com "Converse conosco" ×4, um com 4 campos vazios — **e um escrito certo** |
-| 9 | **Casa Prime Decor** (Barra) | o título é **o nome da página do Instagram dela, colado oito vezes**: "Casa Prime Decor (@casaprime.decor) • Instagram photos and videos" |
-| 10 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
+| 1 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
+| 2 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
+| 3 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
+| 4 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
+| 5 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
+| 6 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
+| 7 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
+| 8 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
+| 9 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
+| 10 | **CVP — Veterinária 24h** (Tijuca) | **8 anúncios desde julho de 2025**: três sem título, um com "Converse conosco" ×4 — **e um escrito certo** |
+
+*Saíram da lista de hoje (continuam no arquivo, seções abaixo): Flip Dog Care, Núcleo Angela
+Beatriz Varella, Luciana Martins, Casa Prime Decor, Núcleo Saúde Novo Leblon.*
+
+**Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em três bairros seguidos
+(Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3) — é onde vale concentrar a abordagem.
+
+**Exemplo de concorrente fazendo certo, para citar em Copacabana:** *Copa Azul Imobiliária
+Digital*, mesmo bairro, quinze anúncios com cada campo de título escrito com metragem, preço
+e rua.
 
 ### A regra que vale para todas as mensagens
 
@@ -207,8 +217,11 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - advocacia + trabalhista + Barra ✔ (zero)
 - odontologia + implante + Madureira ✔ (1 resultado, aproveitável)
 - energia solar + Niterói ✔ (8 resultados, mas devolveu **imobiliárias** — 3 aproveitáveis)
+- imobiliária + apartamento à venda + Copacabana ✔ (**28 resultados, 9 aproveitáveis** — segundo melhor bairro do nicho)
+- imobiliária + corretor + Méier ✔ (3 resultados, **os 3 aproveitáveis e os 3 Trilha A**)
+- salão de beleza + barbearia + Tijuca ✔ (zero)
 
-**Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
+**Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
 ## Leitura que já dá para tirar
 Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia solar (124 anúncios ativos), odontologia, estética, móveis planejados e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
@@ -617,3 +630,59 @@ anúncio interessa, e o Facebook não tem palavra nenhuma para segmentar.
 **Nota sobre a Barra:** três varreduras no bairro (odontologia 5, móveis 15, academia 0, solar 0)
 mostram que a Barra rende bem menos que Tijuca e Niterói. Ajuste de prioridade: **Tijuca e
 Niterói primeiro**, Barra só em nicho que já provou volume lá (móveis planejados).
+
+---
+
+## Achados de 09/09, 07h10 — imobiliária em Copacabana (28 anúncios) e no Méier (3)
+
+### Copacabana — o bairro mais rico depois da Tijuca neste nicho
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Leardi 213** | **"Converse conosco" oito vezes** no mesmo título — o caso mais limpo do lote | `102999765990005` | [anúncio](https://www.facebook.com/ads/library/?id=1067310575792394) |
+| **Lucrum Imobiliária** | título = nome da página + **dez campos vazios** — *e a mesma empresa tem outro anúncio escrito certo*, com 6 imóveis, preço e bairro em cada campo | `257904157663752` | [errado](https://www.facebook.com/ads/library/?id=4101778700119932) · [certo](https://www.facebook.com/ads/library/?id=1319563400157152) |
+| **BBotler Consultoria Imobiliária** | nome da página + **cinco campos em branco** | `1063948040142092` | [anúncio](https://www.facebook.com/ads/library/?id=1815818682932402) |
+| **Tânia Angarano Imóveis** (*Trilha A*) | 2 anúncios, **os dois sem título nenhum**, desde maio/2026 | `111045283973122` | [anúncio](https://www.facebook.com/ads/library/?id=2464002677338506) |
+| **Grace Lucas corretora** (*Trilha A*) | sem título, no ar desde **abril de 2026** — 5 meses | `391985074302962` | [anúncio](https://www.facebook.com/ads/library/?id=1996472854236293) |
+| **Nova Inova Imóveis** | 2 anúncios criados no mesmo dia, os dois sem título | `783742998152564` | [anúncio](https://www.facebook.com/ads/library/?id=1606765697625705) |
+| **A Fonte Imobiliária** | sem título | `117132131257606` | [anúncio](https://www.facebook.com/ads/library/?id=1638554411326068) |
+| **RLBimoveis.com** | sem título | `1466163353657560` | [anúncio](https://www.facebook.com/ads/library/?id=2254700801976008) |
+| **Elas no Rio Imóveis** | sem título, desde **fevereiro de 2026** | `1156217140907344` | [anúncio](https://www.facebook.com/ads/library/?id=1722956525383650) |
+| *Imóveis da Caixa em Bauru* | nome da página + 10 vazios — **mas é de Bauru, fora do Rio**. Não abordar | `2355780974680248` | — |
+
+**A Copa Azul Imobiliária Digital é o contraexemplo do bairro.** Quinze anúncios, todos escritos
+certo: cada campo é uma chamada diferente ("Endereço do Alto Padrão no Posto 5 | Amplo Living em
+3 Ambientes | Fluidez e Inteligência no Espaço | ..."), com metragem, preço e rua. É o exemplo
+concreto para citar na abordagem de todos os outros nove — mesmo bairro, mesmo nicho, mesma
+plataforma.
+
+### A Lucrum é o melhor caso de abordagem que apareceu até agora
+
+Ela tem **os dois anúncios ao mesmo tempo**: um com dez campos vazios e outro com seis imóveis
+descritos com preço e bairro. Não dá para dizer que ela não sabe — ela já fez certo uma vez.
+O que aconteceu é que alguém publicou um anúncio novo e não preencheu. Isso muda a mensagem:
+
+> Vocês têm um anúncio rodando com dez campos de título em branco — e outro, do mesmo perfil,
+> com os seis imóveis descritos, preço e bairro em cada campo.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios, que é pública. O
+> segundo está certo; o primeiro está pagando o mesmo dinheiro sem dizer nada ao Facebook.
+>
+> Quem publica os anúncios de vocês?
+
+**Não acusa de incompetência — mostra uma inconsistência entre dois anúncios da própria pessoa.**
+É o argumento mais difícil de descartar, porque a prova é o trabalho dela mesma.
+
+### Méier — nicho existe, volume não (3 anúncios)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Paulo Eduardo Corretor** (*Trilha A*) | sem título, no ar desde **maio de 2026** | `1186808151184012` | [anúncio](https://www.facebook.com/ads/library/?id=1071775201952730) |
+| **Roberto Corretor de Imóveis** (*Trilha A*) | o título é **o próprio nome da página** | `1100224619835170` | [anúncio](https://www.facebook.com/ads/library/?id=1567145608751397) |
+| **Thiago Pinheiro** (*Trilha A*) | "2 quartos 1 banheiro – Apartamento \|" — descreve o imóvel mas **não diz o bairro nem o preço**, e o segundo campo ficou vazio | `108132085109507` | [anúncio](https://www.facebook.com/ads/library/?id=854308967264295) |
+
+Os três são corretores autônomos com o nome na página: **Trilha A, os três**. Volume baixo, mas
+taxa de aproveitamento de 100% e conversa direta com o dono.
+
+**Zerada, não repetir:** salão de beleza e barbearia + Tijuca → **0 anúncios**. Salão no Rio
+anuncia no Instagram orgânico, não em tráfego pago.
