@@ -93,3 +93,42 @@ fato verificável sobre a empresa, com link. E é fonte gratuita.
 **Pendente da decisão dele:** pausar o conjunto de fundo por 3 dias. Ele está a R$ 79 de CPM
 com zero clique em 127 impressões, porque só existem 1.434 pessoas na piscina de retargeting.
 Não mexo em verba sem ordem.
+
+## 09/09/2026, 00h25 — a cota resetou, e apareceu o problema real
+
+`progressStatus` saiu de **`waiting_for_profile_capacity`** para **`retrying`**. A cota de
+verificação de perfil do LinkedIn voltou às 00:01Z, como previsto. **A pausa de segurança
+acabou** — não era limite de plano nem de conta gratuita.
+
+Mas o número que importa é outro:
+
+| | |
+|---|---|
+| Candidatos | 20 |
+| Processados | **7** |
+| **Rejeitados** | **6** |
+| Adiados | 1 |
+| **Qualificados** | **0** |
+| Restantes | 13 |
+| Próxima tentativa | 00:37:59Z |
+
+**Seis de sete rejeitados, zero qualificados.** Na busca "dono de clínica odontológica Rio
+de Janeiro".
+
+É cedo para concluir com 7 de 20, mas a direção é ruim. Se os 13 restantes seguirem o mesmo
+padrão, o agente termina a busca com zero leads — e aí o problema nunca foi a cota, foi o
+critério ou a própria disponibilidade desse perfil no LinkedIn.
+
+Hipóteses, na ordem em que eu testaria:
+1. **Dono de clínica odontológica no Rio não mantém LinkedIn.** Esse público vive no
+   Instagram. O LinkedIn seria o canal errado para este ICP específico — não para todos.
+2. Os critérios semânticos estão exigindo prova que o perfil não carrega (o mesmo mecanismo
+   que já me mordeu com o critério obrigatório, registrado em LICOES).
+3. A busca está trazendo dentista empregado em vez de dono.
+
+**Não vou recriar o agente hoje** — a regra de uma recriação por dia já foi usada, e foi ela
+que queimou a cota. Aguardo a tentativa das 00:37Z e o fim dos 20 antes de decidir.
+
+Se fechar em zero qualificados, a conclusão será a mais útil do dia: **o LinkedIn não é o
+canal para dono de clínica no Rio**, e o esforço deve ir todo para Instagram, WhatsApp e
+e-mail — onde a Biblioteca de Anúncios já entrega lista qualificada sem depender de perfil.
