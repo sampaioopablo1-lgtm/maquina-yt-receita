@@ -231,7 +231,36 @@ Estado da conta no momento: 20 leads (a maioria com opportunityScore 47, cinco c
 
 Alvo atual do agente principal, lido da API: setores Medical Practices, Accounting, Construction, Real Estate, Wellness and Fitness Services; locais Rio de Janeiro e Sao Paulo; sem tamanho de empresa (conta sem Sales Navigator); open-to-work excluido.
 
-Pendente de decisao do Pablo: o que colocar no slot livre (proposta: segundo agente com o mesmo ICP e setores diferentes, por exemplo Legal Services, Architecture and Planning, Veterinary, Dentists, ou um agente `qualification_only` para exportar lista).
+## 9. A máquina, deixada rodando em 09/09 às 14h55 (Brasília)
+
+### 9.1 O segundo agente foi DESCARTADO, e a recomendação anterior estava errada
+
+A seção 8 propunha usar o slot livre para um segundo agente de descoberta. **Não faça.** `prospecthalo_list_linkedin_accounts` devolve, para a única conta de LinkedIn conectada:
+
+```
+activeDiscoveryAgents: 1
+discoveryCapacityWarning: "This LinkedIn account is already used by 1 active agent,
+                           so each agent may find fewer leads."
+remainingAccountSlots: 0
+```
+
+A descoberta é **compartilhada por conta de LinkedIn**, e os convites também: `linkedinSendingLimits` mostra 6 convites/dia (configurado 20) e 150/semana, "Shared per connected account across all agents". Um segundo agente **divide** a mesma descoberta e **não** acrescenta um convite sequer. O gargalo é o limite de envio da conta, não a oferta de leads: já há 20 leads na fila e só 6 convites saem por dia.
+
+Portanto o slot fica vazio de propósito. Ele só passa a valer a pena com uma segunda conta de LinkedIn conectada, e `remainingAccountSlots: 0` diz que o plano Pro não permite outra.
+
+### 9.2 Sinais de mudança ligados
+
+`changeSignals.recentJobChange` estava `false`. Ligado: quem acabou de virar dono ou sócio é exatamente o momento em que a dor de gerar demanda aparece. `recentLinkedinActivity` já estava ligado. Funding continua desligado, não faz sentido para empresa de serviço de 2 a 15 pessoas. `researchProspects` já estava ligado (recurso do plano Pro).
+
+### 9.3 A rotina diária: `trig_01CVM9QpiX5Rwe7Niks1BYCf`
+
+"OPC — Prospect Halo: saúde da conta e cota de posts (19h)", cron `0 22 * * *` (19h de Brasília), **ligada à sessão `session_01NZzPYwnqYJG23RaXKGYYY4`**, o mesmo mecanismo das outras quatro rotinas do OPC.
+
+Ela lê oito endpoints e escreve veredito sobre: cota de posts contra os dias que faltam no ciclo; aquecimento de convites (só recomenda subir com aceite ≥ 30% por 3 dias, nunca por tempo decorrido); saúde da conta; proporção de leads "LinkedIn Member"; existência de post agendado para amanhã; respostas novas. É **só leitura**: criar, apagar, pausar agente, publicar post ou responder lead exigem o Pablo na hora.
+
+**Por que ligada a uma sessão e não em sessão nova:** medido em 09/09, deste ambiente `curl` para `app.prospecthalo.ai` e para `supabase.co` devolve código 000, ambos bloqueados pelo proxy de egresso. Uma rotina em sessão nova nasce **sem conectores** (o próprio serviço avisa isso na criação) e falharia todo dia em silêncio, que é o modo de falha que este projeto já catalogou duas vezes. Ligada à sessão do OPC, ela usa os conectores que aquela sessão tem: Supabase para a chave, workbench do Composio para alcançar a API.
+
+**A fragilidade que resta, dita agora e não depois:** se a sessão `session_01NZzPYwnqYJG23RaXKGYYY4` for arquivada, a rotina passa a acordar uma sessão morta. Se isso acontecer, recriar a rotina pela interface de Routines do claude.ai, que permite anexar conectores a uma rotina de sessão nova.
 
 ## Fontes
 - prospecthalo.ai (planos, FAQ "What happens when I hit my monthly limit", "Does it write the LinkedIn posts too") — lido em 09/09/2026
