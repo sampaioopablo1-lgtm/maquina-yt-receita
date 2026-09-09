@@ -212,3 +212,33 @@ cada peça separado — que o dinâmico esconde.
 Consequência secundária: conjunto dinâmico aceita **um único anúncio** e **anúncio dinâmico não pode
 ser apagado** (só junto com o conjunto). Foi esse par de regras que travou os quatro conjuntos
 anteriores. Conjunto comum não tem nenhuma das duas limitações.
+
+## O primeiro lead ficou no silêncio: WhatsApp Oficial exige template (09/09, 23h)
+
+O lead André entrou às 22h01 pelo anúncio VR1. A automação "Pré-venda Meta Ads - Qualificação
+Automática" disparou pelo gatilho DEAL_CREATED e chamou o agente. E nada saiu.
+
+`get_chat_messages` no chat dele: **vazio**. `get_contact_history`: **vazio**.
+
+**Mecanismo:** o canal é WhatsApp Business Oficial (API da Meta). Uma empresa **não pode abrir
+conversa com mensagem livre** — só com um template HSM aprovado. `list_message_templates` na
+conta devolvia **lista vazia**. O agente tinha o que dizer e não tinha por onde.
+
+**Segundo defeito, no mesmo lugar:** os outros 24 gatilhos da automação são todos
+`CHAT_WHATSAPP_OFFICIAL_MESSAGE_RECEIVE_CHANNEL` com palavra-chave (*oi*, *preço*, *quero*...).
+Ou seja, a máquina inteira só acorda **se o lead falar primeiro**. Quem preenche formulário não
+fala primeiro: ele espera.
+
+**Correção:** criado o template `opc_abertura_lead_formulario` (id Meta `1067522472684876`,
+MARKETING, pt_BR), com três botões de resposta rápida. O botão não é enfeite — o toque dele
+**abre a janela de 24 horas**, e só a partir daí a IA conversa livre.
+
+**Armadilha da criação:** a Meta recusa template cujo texto **começa ou termina com variável**
+(erro 100, subcódigo 2388299). `{{1}}, você acabou de...` é rejeitado; `Oi {{1}}, você acabou
+de...` passa.
+
+**Limite do MCP do Clint:** as ferramentas expõem automações, templates, funil e conversas —
+**não o texto de instrução do agente IA**. O prompt tem que ser colado na mão, no painel.
+
+**Regra que fica:** antes de culpar o texto de um agente, conferir se **alguma mensagem chegou a
+existir**. Chat vazio não é IA ruim, é canal bloqueado.
