@@ -175,6 +175,34 @@ Mecânica que importa para a rotina:
 6. Manter: **1 recriação de agente por dia no máximo**; exclusões como *Preferred*; ler
    `progressStatus`/`waitingReason` antes de culpar o alvo.
 
+## 6. Revisão pedida em 09/09 ("revise as configurações, marque os 7 dias") — estado
+
+**Não executada por falta de acesso.** O MCP do Prospect Halo (`https://app.prospecthalo.ai/api/agent/v1/mcp`)
+responde `401` sem chave ou OAuth; a chave `ph_live` da sessão OPC não sobreviveu ao reinício do sandbox e a
+sessão OPC (`GERAÇÃO DE DEMANDA OPC`) não está alcançável para mensagem. Tentado em 09/09 14h30.
+
+O que vai ser feito no minuto em que a chave existir (checklist executável, campo a campo):
+
+| Onde | Campo | Valor a gravar |
+|---|---|---|
+| Content → Autopilot | Selected days | seg, ter, qua, qui, sex, **sáb, dom** |
+| Content → Autopilot | Time | 07:30 America/Sao_Paulo (sáb/dom 09:00 se o campo permitir por dia) |
+| Content → Autopilot | Themes | agenda vazia · dependência de indicação · agência sem resultado · WhatsApp sem resposta · follow-up que para |
+| Content → Autopilot | Tone | processo, não motivação; número real; frase curta; segunda pessoa; "máquina" como palavra central |
+| Content → Autopilot | Language | pt-BR |
+| Content → Autopilot | Preferred formats | Text · Single image · PDF carousel (sem Multi-image) |
+| Content → Autopilot | Voice sample | o post da seção 3 de `MODELO — post LinkedIn na voz do Pablo` |
+| Content → Autopilot | Route engagers to outreach | ligado → agente `jx74mn5nqehy7rcvnh6025vx8d8e1xc9` |
+| Content → Posts | Publishing as | perfil pessoal do Pablo |
+| Content → Posts | Agendados | conferir que os 7 de seg/qua/sex (até 23/09) continuam com mídia; não desagendar |
+| Billing & usage | Posts usados / 35 | ler e anotar no diário; projetar `usados ÷ dias × 30` |
+| Accounts | LinkedIn status | deve estar Healthy; se Safety pause, não reconectar |
+| Agents (2) | sem mudança | 1 recriação/dia no máximo; não mexer |
+| Settings → AI agents and MCP | chave | gerar e gravar em `PROSPECT_HALO_KEY` (GitHub) + `config.prospect_halo_key` (Supabase) |
+
+Depois de gravar: exportar a configuração lida para `PROSPECT HALO — configuracao atual.md` (uma linha por campo,
+com valor e data), para que a próxima revisão compare contra algo.
+
 ## Fontes
 - prospecthalo.ai (planos, FAQ "What happens when I hit my monthly limit", "Does it write the LinkedIn posts too") — lido em 09/09/2026
 - help.prospecthalo.ai: *Understand plans and usage limits* · *Create and publish LinkedIn content with Autopilot* · *Connect LinkedIn and email accounts* · *Getting started* · *Create your first outreach agent* · *Why is my agent waiting for LinkedIn* · *Connect ProspectHalo to Claude with MCP*
