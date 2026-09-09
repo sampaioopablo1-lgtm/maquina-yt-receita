@@ -170,3 +170,20 @@ funcionário** — e o token de funcionário carrega as permissões que o conect
 
 Limite que restou: chamadas maiores pelo sandbox são barradas pela permissão da sessão, não pela
 Meta. Criar um anúncio simples passa; montar conjunto com segmentação longa, não.
+
+## O erro de "Termos de Geração de Leads" era o app, não os termos (09/09, 14h20)
+
+Com o token de Funcionário dá para **ler** o campo que o conector nativo não enxerga:
+
+```
+GET /1117439194786453?fields=leadgen_tos_accepted  →  {"leadgen_tos_accepted": true}
+```
+
+A página **aceitou** os termos. Ainda assim, os dois anúncios criados hoje pelo app OPC Automação
+ficam `WITH_ISSUES` com a mensagem de termos não aceitos — e o mesmo anúncio já apareceu antes com
+a mensagem de "app em modo de desenvolvimento". São **duas mensagens para a mesma causa**: o post
+escuro do anúncio nasce por um app em desenvolvimento, e a Meta reporta ora um texto, ora outro.
+
+Regra: quando um anúncio de lead acusar termos não aceitos, **primeiro conferir
+`leadgen_tos_accepted`**. Se vier `true`, o problema é o app, não os termos — e nenhum clique na
+página de termos vai resolver.
