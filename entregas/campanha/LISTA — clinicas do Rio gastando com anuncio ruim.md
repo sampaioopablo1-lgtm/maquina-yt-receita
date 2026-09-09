@@ -226,6 +226,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + apartamento + Madureira ✔ (5 resultados, 3 aproveitáveis, 2 Trilha A — inclui o caso `api.whatsapp.com`)
 - harmonização facial + estética + Méier ✔ (zero)
 - odontologia + implante + Niterói ✔ (**46 resultados, 11 aproveitáveis, 4 Trilha A** — segundo maior lote)
+- academia + musculação + Tijuca ✔ (23 resultados, 9 aproveitáveis, 4 Trilha A — abre o sub-nicho personal trainer)
+- veterinária + pet + Copacabana/Botafogo ✔ (1 resultado, e era imobiliária)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -799,3 +801,44 @@ link do WhatsApp no campo do título. Vale uma varredura própria por esse termo
 
 **Niterói + odontologia: 46 anúncios, 11 aproveitáveis, 4 deles Trilha A.** Junto com imobiliária
 na Tijuca, é o lote mais rico catalogado.
+
+---
+
+## Achados de 09/09, 11h10 — academia na Tijuca (23) e veterinária em Copacabana/Botafogo (1)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Academia Workout Tijuca** | **três anúncios** com o título `api.whatsapp.com` — o mais recente é de **hoje** | `295514937138805` | [anúncio](https://www.facebook.com/ads/library/?id=1242800484664450) |
+| **Ultra Academia Tijuca** | 2 anúncios com "Converse conosco" e 1 sem título nenhum | `1219307594595488` | [anúncio](https://www.facebook.com/ads/library/?id=941859738929160) |
+| **Academia Physical** | o título é "Matricule-se! 👉" — o texto do botão no lugar da chamada | `424442594249301` | [anúncio](https://www.facebook.com/ads/library/?id=1018615397470438) |
+| **Academia Shidokan** | sem título, desde **abril de 2026** | `646262532166179` | [anúncio](https://www.facebook.com/ads/library/?id=941267915432223) |
+| **Botoclinic Tijuca** | sem título | `630467393479720` | [anúncio](https://www.facebook.com/ads/library/?id=1796229024680175) |
+| **Dr. Bruno Garrett Bento** (*Trilha A*) | sem título | `1182456194958287` | [anúncio](https://www.facebook.com/ads/library/?id=1505995594619158) |
+| **leopontes_personal** (*Trilha A*) | sem título, no ar desde **novembro de 2025** — dez meses | `920114724508108` | [anúncio](https://www.facebook.com/ads/library/?id=4134609460119693) |
+| **will.jad** (*Trilha A*) | sem título | `100660851527321` | [anúncio](https://www.facebook.com/ads/library/?id=1020841954330762) |
+| **musahmovimento** (*Trilha A*) | sem título | `1356572130861878` | [anúncio](https://www.facebook.com/ads/library/?id=1505237654699323) |
+| *Body Coach Club* | "A melhor academia da Tijuca está mais perto do que você imagina! 💪🔥" — superlativo sem prova, mas **não é campo vazio**; caso fraco | `122018874138387` | — |
+
+### O contraexemplo do lote: Body Line Academias
+
+> **"Funcional e Musculação Para 3ª Idade"**
+
+Seis anúncios, quatro com esse título. Ele diz **exatamente para quem o anúncio é** — e é isso
+que o Facebook usa para segmentar. Uma academia que anuncia "musculação" disputa com todas as
+outras; uma que anuncia "para 3ª idade" fala com quem procura isso e some do leilão do resto.
+
+*(Os outros dois anúncios da Body Line estão sem título — nem ela acerta em todos.)*
+
+### `api.whatsapp.com` chegou ao quinto anunciante, e o mais recente é de hoje
+
+Flip Dog Care, Paulo Fernandes, Estética Dental (×2) e agora **Academia Workout Tijuca (×3)**.
+O anúncio de hoje, publicado hoje, tem o endereço do link no lugar da chamada. Já não é lote
+antigo: é erro que continua acontecendo agora, o que sustenta a abordagem "reparei hoje".
+
+### Personal trainer é um sub-nicho novo e todo Trilha A
+
+leopontes_personal, will.jad, musahmovimento e Dr. Bruno Garrett Bento: quatro perfis pessoais
+anunciando, **todos sem título**, todos com o dono no nome. O do leopontes está assim desde
+**novembro de 2025**.
+
+**Zerada, não repetir:** veterinária + Copacabana/Botafogo → 1 resultado, e era imobiliária.
