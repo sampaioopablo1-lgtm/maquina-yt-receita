@@ -198,6 +198,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + apartamento à venda + Niterói ✔ (11 resultados, **5 aproveitáveis**)
 - veterinária + pet + Tijuca ✔ (15 resultados, 1 empresa dominante com 8 anúncios)
 - móveis planejados + marcenaria + Barra ✔ (15 resultados, 4 aproveitáveis)
+- harmonização + estética avançada + Niterói ✔ (6 resultados, 1 aproveitável — nicho escreve bem)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
@@ -540,3 +541,57 @@ o público já viu quatro vezes para de funcionar — e depois não funciona nem
 
 **Quem está acertando (referência):** *RACCA HOME* — "Móveis Planejados - Barra da Tijuca,
 Recreio dos Bandeirantes". Serviço e bairros no título, sem enfeite.
+
+---
+
+## Achados de 09/09, 05h15 — estética em Niterói: nicho quase limpo, e a descoberta que explica tudo
+
+Só 6 anúncios, e **quase todos bem escritos**. Uma aproveitável:
+
+| Empresa | Defeito | Página | Trilha |
+|---|---|---|---|
+| **Dra Luciana Maudonet** | anúncio **sem título** | `124631214056856` | **A** |
+
+### A descoberta: para que servem aqueles campos separados por barra
+
+O anúncio da **MCP Esteticaediagnostico** finalmente explicou o mecanismo por trás de todos os
+defeitos que eu venho catalogando:
+
+> "MCP Esteticaediagnostico **|** Preenchimento Labial **|** Lábio Aparente **|** Uma boca modelada **|** Com Segurança"
+
+**Cada campo tem uma chamada diferente.** Não é repetição — são quatro títulos distintos, e o
+Facebook testa qual funciona melhor com cada pessoa.
+
+**É para isso que aqueles campos existem.** O anunciante escreve várias chamadas; a plataforma
+descobre a melhor. É um recurso bom.
+
+E é exatamente aí que está o defeito de todos os outros:
+
+| O que a empresa fez | O que acontece |
+|---|---|
+| Deixou os campos **vazios** | o Facebook não tem o que testar, e não sabe a quem mostrar |
+| Colou **a mesma frase** em todos | o teste existe mas compara a frase com ela mesma — resultado nenhum |
+| Colou **o nome da página** ou uma URL | o campo é preenchido com lixo, e o teste testa lixo |
+
+"Converse conosco" sete vezes na Bicho D+, "ALPHAVILLE | BARRA DA TIJUCA" nove vezes na
+Alfaiataria, dezoito campos vazios na Julianazogbi — **é tudo o mesmo erro, no mesmo lugar.**
+
+### Isso muda a mensagem, para melhor
+
+Deixa de ser "seu anúncio está errado" e vira **explicação de um recurso que ele está pagando
+e não usa**:
+
+> Reparei que o anúncio de vocês repete "Converse conosco" sete vezes seguidas no título.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Aqueles campos servem para você escrever **chamadas
+> diferentes** — o Facebook testa qual funciona melhor com cada pessoa e usa a vencedora.
+> Repetindo a mesma frase, o teste compara ela com ela mesma e você perde o recurso.
+>
+> Uma clínica aqui de Niterói usa assim: "Preenchimento Labial | Lábio Aparente | Uma boca
+> modelada | Com Segurança". Quatro chamadas, quatro chances.
+>
+> Quem cuida das campanhas de vocês?
+
+É melhor por três motivos: **não acusa**, **ensina algo verdadeiro e útil na hora**, e **mostra
+um exemplo concreto de concorrente fazendo certo** — que é exatamente o toque 3 da cadência,
+antecipado para o toque 1.

@@ -86,3 +86,24 @@ Disparo, cadência, rotação, estado, validação, CRM, agenda: **prateleira.**
 
 Registrado em 08/09/2026, depois de o Pablo dizer "estamos tentando inventar roda" — e ele
 estar certo.
+
+## Os campos separados por barra no título são chamadas alternativas, não repetição
+
+Descoberto em 09/09/2026, varrendo estética em Niterói. O anúncio da MCP Esteticaediagnostico
+usa assim: "MCP Esteticaediagnostico | Preenchimento Labial | Lábio Aparente | Uma boca
+modelada | Com Segurança".
+
+**Cada campo é uma chamada diferente.** O Facebook testa qual funciona melhor com cada pessoa
+e serve a vencedora. É um recurso bom, e é justamente ele que quase ninguém usa direito.
+
+Todos os defeitos que eu venho catalogando são o mesmo erro nesse mesmo lugar:
+
+| O que fizeram | Efeito |
+|---|---|
+| campos vazios | não há o que testar; o alcance encarece |
+| mesma frase repetida | o teste compara a frase com ela mesma |
+| nome da página ou URL colada | o teste roda em cima de lixo |
+
+**Consequência para a abordagem:** parar de dizer "seu anúncio está errado" e passar a explicar
+o recurso que ele paga e não usa, com um exemplo real de concorrente usando certo. Não acusa,
+ensina algo verdadeiro na hora, e traz a prova social do toque 3 para o toque 1.
