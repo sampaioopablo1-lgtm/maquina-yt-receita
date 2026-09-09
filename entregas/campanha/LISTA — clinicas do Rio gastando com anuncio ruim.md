@@ -234,6 +234,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
 - odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
+- móveis planejados + marcenaria + Niterói ✔ (14 resultados, 4 empresas, **todas as 4 aproveitáveis** — melhor taxa por empresa até agora)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -1024,3 +1025,34 @@ grátis" — verbo, objeto e a objeção de preço resolvida em cinco palavras.
 escrito. Quem vende para dentista e biomédico já entendeu que precisa de título. Isso reforça a
 regra: quanto mais o nicho depende de venda direta, melhor o anúncio; clínica que vive de
 indicação escreve mal.
+
+---
+
+## Achados de 09/09, 14h15 — móveis planejados em Niterói: quatro empresas, quatro defeitos
+
+Nicho pequeno (14 anúncios) mas **denso**: quatro empresas anunciando, e todas as quatro com
+defeito. Nenhuma varredura anterior teve 100% de aproveitamento.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Samora Móveis Planejados** | **5 anúncios, todos sem título**, o mais antigo desde **02/08/2026** | `1587313721281700` | 02/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1044650278252349) |
+| **Ellegance Móveis Planejados** | 2 anúncios sem título, no ar desde **05/01/2026** — oito meses | `250177365785688` | 05/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2505377443192092) |
+| **Live Ambientes** | 2 anúncios com **"Converse conosco"** — campo padrão | `110360378514897` | 08/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1175924682281875) |
+| **FC Marcenaria** | 4 anúncios idênticos, todos "Faça seu orçamento pelo **Whats app**" — com o erro de grafia | `1089140307623990` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2135748573983639) |
+
+**O caso mais fácil de abrir é a FC Marcenaria**, porque o defeito é visível para qualquer pessoa:
+
+> Os quatro anúncios da FC estão com "Faça seu orçamento pelo Whats app" — separado, como se
+> fossem duas palavras. É o tipo de detalhe que ninguém revisa depois que sobe.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública. E tem outra: os quatro anúncios são iguais, então eles competem entre si no mesmo
+> leilão — o Facebook cobra quatro vezes para aprender uma coisa só.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+E para a **Samora**, cinco anúncios sem título é a mesma prova do Dr. Daniel, em escala menor.
+
+**Leitura:** móveis planejados confirma o padrão de Tijuca e Barra — nicho que vende por
+orçamento no WhatsApp, anuncia constante, e escreve mal. Niterói é o terceiro bairro seguido com
+taxa alta nesse nicho.
