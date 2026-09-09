@@ -324,6 +324,77 @@ Duas coisas, ambas de painel, e são as duas que mais valem:
 
 Sobre o e-mail, uma correção do que esta sessão afirmou antes: ele foi chamado de "a maior alavanca não explorada" e não é. O limite diário de 30 é da caixa, mas o teto real é o **enriquecimento de e-mail, 50 por mês, 1 crédito por lead** — porque a ferramenta não devolve e-mail junto com o lead do LinkedIn. Contra ~130 convites/mês no LinkedIn, o e-mail é **menor**, não maior. Ele soma e não gasta convite; só não é o primeiro da fila.
 
+## 11. O experimento de cadência, e quatro coisas que a medição corrigiu (09/09, 19h30)
+
+### 11.1 O que o Pablo decidiu
+
+Três fases, uma por vez, avaliadas no fechamento do ciclo em 07/10. A pergunta é qual cadência o algoritmo do LinkedIn premia.
+
+| Fase | Período | Cadência |
+|---|---|---|
+| 1 | 10 a 16/09 | todos os dias, 1 post às 07h30 |
+| 2 | 17 a 30/09 | 3x por semana (ter, qui, sáb) |
+| 3 | 01 a 07/10 | 2x por dia, dia sim dia não (07h30 e 18h) |
+
+A fase corrente é gravada no `bruto` de cada linha de `prospect_halo_metricas`, para a série permitir comparar depois. A rotina das 19h conduz as trocas de fase e confere o calendário todo dia.
+
+**A ressalva metodológica, dita agora e não no fim:** com 11 impressões e 5 pessoas alcançadas no único post publicado, é improvável que qualquer das três fases produza diferença acima do ruído. O experimento mede cadência; o gargalo é tamanho de rede. O desfecho mais provável em 07/10 é "diferença pequena demais para concluir", e a rotina está instruída a dizer isso em vez de fabricar um vencedor.
+
+### 11.2 A fase 1 nasceria contaminada
+
+O calendário tinha 13 posts às 12h30, de 10 a 23/09, e o Autopilot em 7 dias acrescenta um às 07h30 **todo dia**. Da 11/09 em diante a conta rodaria **2 posts por dia** — exatamente o padrão que a fase 3 existe para testar, rodando por acidente durante a fase 1.
+
+Os 13 voltaram para rascunho. Sobrou 1 post agendado (10/09, 07h30), que é a fase 1 como ela foi desenhada.
+
+### 11.3 O crédito pertence ao post, não ao agendamento
+
+Isto contradiz o que a seção 7 registrava ("desagendar devolve 1 crédito") e o que a rotina anterior mandava recomendar. Medido nas duas direções, no mesmo minuto:
+
+| Ação | Créditos antes | Depois |
+|---|---|---|
+| Desagendar 13 posts | 19 | **19** |
+| Reagendar 1 rascunho | 19 | **19** |
+
+Desagendar **não devolve**. Reagendar **não cobra de novo**. O crédito gruda no post na primeira vez que ele é agendado e fica lá. A consequência prática é boa: os 13 rascunhos estão **pagos** e podem ser usados em qualquer fase sem custo — são eles que vão cobrir o segundo post diário da fase 3.
+
+A consequência ruim é que a saída "desagendar post extra para devolver crédito", que estava na rotina e neste documento desde 08/09, **nunca funcionou**. Quem seguisse aquilo esperando recuperar cota ficaria sem post no fim do ciclo sem entender por quê.
+
+### 11.4 "LinkedIn Member" não é perfil quebrado
+
+A regra herdada mandava tratar leads com nome "LinkedIn Member" acima de 20% como falha de hidratação, com nota de intenção não confiável. Em 09/09 eram 5 de 20 (25%) e a regra disparou. Fui ver os cinco:
+
+| Nome exibido | Cargo | Empresa | Cidade |
+|---|---|---|---|
+| LinkedIn Member | Proprietário | STUDIO FEMMI | Ubatuba, SP |
+| LinkedIn Member | Proprietário da empresa | Clinica Medvale | Barra Mansa, RJ |
+| LinkedIn Member | Proprietário(a) | brasil | — |
+
+E as URLs são de gente real: `/in/milena-camargo-…`, `/in/isabel-silva-…`. **"LinkedIn Member" é configuração de privacidade** — é o que o LinkedIn mostra quando o perfil esconde o nome de quem está fora da rede. Cargo, empresa, cidade e URL estão todos lá. Clinica Medvale em Barra Mansa é exatamente o ICP. Excluí-los seria jogar fora lead bom, e a regra antiga levaria a isso.
+
+### 11.5 O achado que importa mais que os três acima
+
+Olhando os 20 leads campo por campo:
+
+| Campo | Estado |
+|---|---|
+| `opportunityScore` | **47 em 11 dos 20** |
+| `intentScore` | **0 em 16 dos 20** |
+| `industry` | vazio em **todos os 20** |
+| `about` | vazio em quase todos |
+| `connectionsCount` | 29, 38, 39 em vários |
+
+Isso não é qualificação, é valor padrão. As justificativas dizem literalmente *"o título indica que o prospect é proprietário"*. Sem `about`, sem `industry` e sem sinais, a IA só tem o cargo para trabalhar — e é por isso que 74% passam no filtro: não há dado suficiente para reprovar ninguém.
+
+Vários leads têm menos de 40 conexões, ou seja, contas de LinkedIn pouco usadas. Um dono que quase não usa a rede é justamente quem tem menor chance de aceitar convite e de responder.
+
+**Se o aceite vier abaixo de 20%, a causa provável é esta, não o texto do convite.** A rotina está instruída a apontar para cá antes de mandar reescrever abertura.
+
+Mitigação aplicada, que é o que a API permite: o `preferredCriteria` do agente frio passou a pedir perfil ativo de verdade — empresa identificável, atividade recente na rede, informação além do cargo — e a despriorizar perfil com pouquíssimas conexões. É preferência, não eliminação.
+
+### 11.6 Não existe filtro de foto
+
+Procurado no `openapi.json` inteiro: `photo`, `avatar`, `picture` aparecem **zero vezes**. O modelo de lead não tem esse campo, e a IA de qualificação só recebe texto. Filtrar por foto de perfil, por número de conexões ou por "perfil ativo" como campo estruturado **não é possível nesta ferramenta** — nem na criação do agente nem na edição. O que dá é orientar por critério semântico, como em 11.5, e medir o aceite.
+
 ## Fontes
 - prospecthalo.ai (planos, FAQ "What happens when I hit my monthly limit", "Does it write the LinkedIn posts too") — lido em 09/09/2026
 - help.prospecthalo.ai: *Understand plans and usage limits* · *Create and publish LinkedIn content with Autopilot* · *Connect LinkedIn and email accounts* · *Getting started* · *Create your first outreach agent* · *Why is my agent waiting for LinkedIn* · *Connect ProspectHalo to Claude with MCP*
