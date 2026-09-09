@@ -5,22 +5,22 @@
 
 | # | Empresa | O erro, em uma linha |
 |---|---|---|
-| 1 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
-| 2 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
-| 3 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
-| 4 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
-| 5 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
-| 6 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
-| 7 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
-| 8 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
-| 9 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
-| 10 | **CVP — Veterinária 24h** (Tijuca) | **8 anúncios desde julho de 2025**: três sem título, um com "Converse conosco" ×4 — **e um escrito certo** |
+| 1 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
+| 2 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
+| 3 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
+| 4 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
+| 5 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
+| 6 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
+| 7 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
+| 8 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
+| 9 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
+| 10 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
-*Saíram da lista de hoje (continuam no arquivo, seções abaixo): Flip Dog Care, Núcleo Angela
-Beatriz Varella, Luciana Martins, Casa Prime Decor, Núcleo Saúde Novo Leblon.*
+*Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
+Care, Núcleo Angela Beatriz Varella, Luciana Martins, Casa Prime Decor, Núcleo Saúde Novo Leblon.*
 
-**Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em três bairros seguidos
-(Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3) — é onde vale concentrar a abordagem.
+**Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em seis bairros seguidos
+(Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3) — é onde vale concentrar a abordagem.
 
 **Exemplo de concorrente fazendo certo, para citar em Copacabana:** *Copa Azul Imobiliária
 Digital*, mesmo bairro, quinze anúncios com cada campo de título escrito com metragem, preço
@@ -220,6 +220,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + apartamento à venda + Copacabana ✔ (**28 resultados, 9 aproveitáveis** — segundo melhor bairro do nicho)
 - imobiliária + corretor + Méier ✔ (3 resultados, **os 3 aproveitáveis e os 3 Trilha A**)
 - salão de beleza + barbearia + Tijuca ✔ (zero)
+- imobiliária + corretor + Botafogo ✔ (6 resultados, 2 novos aproveitáveis — inclui o caso `{{product.name}}`)
+- imobiliária + corretor + Campo Grande ✔ (3 resultados, 1 aproveitável)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -686,3 +688,36 @@ taxa de aproveitamento de 100% e conversa direta com o dono.
 
 **Zerada, não repetir:** salão de beleza e barbearia + Tijuca → **0 anúncios**. Salão no Rio
 anuncia no Instagram orgânico, não em tráfego pago.
+
+---
+
+## Achados de 09/09, 08h10 — imobiliária em Botafogo (6) e Campo Grande (3)
+
+### O melhor defeito que apareceu até hoje: Aliança Viva
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Aliança Viva** | o título dos **três anúncios** é literalmente `{{product.name}}` — o código do catálogo **não foi substituído pelo nome do imóvel**. No ar desde **novembro de 2025**: dez meses | `679115075280146` | [anúncio](https://www.facebook.com/ads/library/?id=813904178147720) |
+| **paulofernandes_corretor** (*Trilha A*) | sem título, desde maio/2026 | `104975455816495` | [anúncio](https://www.facebook.com/ads/library/?id=1055308350830358) |
+| **Mob Rio Imobiliária** (Campo Grande) | título é só "Converse conosco" | `103216268041788` | [anúncio](https://www.facebook.com/ads/library/?id=2074637513145614) |
+| *Escolha seu LAR* | "Marque sua entrevista" — anúncio de **vaga de emprego**, não de imóvel. Não abordar | `108545295090104` | — |
+| *Pé na Areia* | "O Vivere Home Resort redefine o conceito de morar bem" — **escrito certo**, contraexemplo | `453385538544027` | — |
+
+**Por que a Aliança Viva é o caso mais forte da lista inteira.** Todos os outros defeitos são
+julgamento — "esse título está fraco", "essa frase se repete". Esse não: `{{product.name}}` é um
+**marcador de código que apareceu no lugar do nome do imóvel**. Não tem como discordar, não tem
+como dizer que era proposital, e qualquer pessoa entende olhando. É a prova mais limpa possível
+de que ninguém abriu a campanha para conferir — por dez meses.
+
+> Os três anúncios de vocês estão com `{{product.name}}` no título, no lugar do nome do imóvel —
+> assim mesmo, com as chavinhas. Está no ar desde novembro.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente e não vim vender nada. Vi na Biblioteca de Anúncios do
+> Facebook, que é pública. É o código do catálogo que não foi trocado pelo dado do imóvel.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+**Botafogo e Campo Grande são bairros finos neste nicho** (6 e 3 anúncios), mas Botafogo devolveu
+o melhor achado de todos. Volume baixo não é sinônimo de lote ruim.
+
+**Repetidos, já catalogados:** Alfaiataria Imobiliária e RLBimoveis.com voltaram nas duas buscas.
