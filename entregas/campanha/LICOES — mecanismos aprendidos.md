@@ -64,3 +64,25 @@ porque sem ela a mensagem parece golpe; mas ela nunca vem antes.
 Vale igual para o assunto do e-mail frio, que é a mesma linha com outro nome.
 
 Corrigido em 08/09/2026, depois de escrever dez mensagens todas com o erro.
+
+## Construir só o que ninguém vende
+
+Em um único dia eu propus construir: um sequenciador de e-mail, uma máquina de estado de
+cadência, uma camada de rotação de números de WhatsApp, um detector de resposta por IMAP e
+um validador de e-mail. Todos existem prontos, entre R$ 127 e R$ 500 por mês.
+
+Cada proposta isolada tinha justificativa de custo. Juntas, revelam um reflexo: escolher
+construir em vez de comprar. E construir não é de graça — código próprio é frágil, depende
+de eu estar rodando, e o pior caso é mandar o toque 4 para quem já respondeu.
+
+**A regra:** construir só o que ninguém vende. Aqui isso é uma coisa só — **achar empresas
+do Rio com anúncio visivelmente quebrado, com a prova e a data.** Nenhuma ferramenta do
+mercado abre a Biblioteca de Anúncios e lê o título; elas personalizam por cargo, setor ou
+sinal de contratação. Esse é o diferencial inteiro.
+
+Disparo, cadência, rotação, estado, validação, CRM, agenda: **prateleira.** Comprar.
+
+**A divisão certa:** eu sou a camada de pesquisa e redação. A ferramenta é a camada de envio.
+
+Registrado em 08/09/2026, depois de o Pablo dizer "estamos tentando inventar roda" — e ele
+estar certo.
