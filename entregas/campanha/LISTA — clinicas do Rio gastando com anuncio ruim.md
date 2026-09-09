@@ -221,6 +221,9 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
 - odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
 - imobiliária + corretor + Barra ✔ (**só 3 resultados** — o nicho não anuncia na Barra; 1 aproveitável, já catalogado)
+- veterinária + pet + Madureira/Campo Grande ✔ (**zero resultados**)
+- academia + musculação + Copacabana/Botafogo ✔ (**zero resultados**)
+- arquitetura + design de interiores + Tijuca ✔ (7 resultados, 2 aproveitáveis — 1 Trilha A)
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
@@ -965,3 +968,30 @@ parceria com construtora, indicação de porteiro. Quem anuncia lá é a constru
 
 Oito bairros varridos, o mapa está completo. **Parar de abrir bairro em imobiliária** — a partir
 daqui, ou é nicho novo, ou é abordar os 33 que já estão catalogados.
+
+---
+
+## Achados de 09/09, 16h15 — três varreduras, duas vazias
+
+**Veterinária em Madureira e Campo Grande: zero.** **Academia em Copacabana e Botafogo: zero.**
+Confirma o padrão: nicho de bairro popular não anuncia no Meta, e academia só anuncia na Tijuca.
+
+**Arquitetura na Tijuca: 7 resultados**, e a maioria nem é arquitetura — são imobiliárias e um
+lançamento da Barra. Dois aproveitáveis:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Hiago Santos Arquitetura** — *Trilha A* | anúncio **sem título nenhum** | `1216159181584232` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2195659484334612) |
+| **Vintage Imobiliária** | 2 anúncios com **"Converse conosco"** — o campo padrão | `339594765901660` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1468779885079335) |
+| *Junior Dal Mora Imóveis* | sem título — imobiliária, já é nicho mapeado | `103445278205130` | 08/09/2026 | — |
+
+**Quem está acertando (referência):** *Green Park Barra* — "O novo ícone residencial da Barra da
+Tijuca". É lançamento com verba de construtora, não é alvo, mas serve de exemplo de título.
+
+### Leitura desta rodada
+
+Três varreduras, duas vazias. **O mapa do Rio está chegando ao fim** — os nichos que anunciam já
+foram todos abertos, e os bairros populares não têm anunciante de serviço no Meta.
+
+**Consequência:** a partir daqui o valor não está em varrer mais, está em **abordar os 40 que já
+estão catalogados**. Varredura vira manutenção semanal, não tarefa de hora em hora.
