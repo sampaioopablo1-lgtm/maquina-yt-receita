@@ -5,16 +5,16 @@
 
 | # | Empresa | O erro, em uma linha |
 |---|---|---|
-| 1 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
-| 2 | **Flip Dog Care** (Niterói) | um anúncio com "api.whatsapp.com" cru no título, outro com "Converse conosco" cinco vezes, desde jan/2025 |
-| 3 | **Núcleo Angela Beatriz Varella** (Tijuca) | "Venha conhecer o Núcleo" **quatro vezes** no título, e outros 2 anúncios sem título nenhum |
-| 4 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
-| 5 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
-| 6 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
-| 7 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
-| 8 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
-| 9 | **Oral Unic Tijuca** | 16 anúncios, todos com "Clique Aqui e Fale Conosco!" |
-| 10 | **Nascimento Odontologia** | 12 anúncios idênticos criados no mesmo segundo |
+| 1 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
+| 2 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
+| 3 | **Flip Dog Care** (Niterói) | um anúncio com "api.whatsapp.com" cru no título, outro com "Converse conosco" cinco vezes, desde jan/2025 |
+| 4 | **Núcleo Angela Beatriz Varella** (Tijuca) | "Venha conhecer o Núcleo" **quatro vezes** no título, e outros 2 anúncios sem título nenhum |
+| 5 | **Luciana Martins** (Tijuca, *Trilha A*) | o título é o nome dela seguido de **sete campos vazios** |
+| 6 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
+| 7 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
+| 8 | **RJ INOX Cozinhas** | um anúncio com o título "api.whatsapp.com" e outro com "Fale conosco" repetido nove vezes |
+| 9 | **Dr. Daniel Pinheiro — Odonto Barra** | 10 anúncios sem nenhum título de chamada, há 6 meses |
+| 10 | **Garb Móveis Planejados** | "Orçamento Grátis Apenas Hoje ⏰" no ar desde setembro de 2025 |
 
 ### A regra que vale para todas as mensagens
 
@@ -193,7 +193,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
 - odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
-- veterinária + Niterói ✔ (**10 resultados, 3 aproveitáveis — melhor taxa até agora**)
+- veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
+- imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
@@ -372,3 +373,58 @@ mais fácil de provar e o mais barato de corrigir.
 - *Evosolar — Usinas Fotovoltaicas*: "☀️ Energia Solar em Niterói por parcelas de R$ 257? Sim, é real!" — bairro, preço e objeção respondidos no título. É o modelo do que eu mostro no toque 3.
 
 **Nicho novo para varrer daqui pra frente:** imobiliária e corretor, nos três bairros que concentram.
+
+---
+
+## Achados de 09/09, 01h10 — imobiliárias na Tijuca e Barra: 30 anúncios, o nicho mais rico até agora
+
+Confirmando o acidente da rodada anterior: **imobiliária é o melhor nicho do Rio para este
+método.** 30 anúncios ativos, e a maioria com defeito grosseiro.
+
+### O novo primeiro lugar da lista
+
+**Alfaiataria Imobiliária** — página `100626021948017` — três anúncios, três defeitos diferentes,
+todos absurdos:
+
+| Anúncio | Título |
+|---|---|
+| [1](https://www.facebook.com/ads/library/?id=2915161268831676) | "Alfaiataria Imobiliária \| **ALPHAVILLE \| BARRA DA TIJUCA** ×9" — a mesma dupla nove vezes |
+| [2](https://www.facebook.com/ads/library/?id=5442966129261018) | "Alt Anúncios \| **Chat with us** ×10" — **em inglês**, e o nome da página saiu como "Alt Anúncios" |
+| [3](https://www.facebook.com/ads/library/?id=894822760022214) | "Alfaiataria Imobiliária \| **Fale conosco** ×10" |
+
+No ar desde 17/08 e 28/08. O segundo é o mais revelador: **"Chat with us" em inglês** numa
+imobiliária da Barra significa que ninguém trocou o texto padrão da ferramenta. Abertura:
+
+> Um dos anúncios da Alfaiataria está com o botão escrito em inglês — "Chat with us", repetido
+> dez vezes. Outro repete "ALPHAVILLE | BARRA DA TIJUCA" nove vezes seguidas.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública. Isso costuma ser campo padrão que ninguém trocou na hora de subir.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+### Os outros aproveitáveis
+
+| Empresa | Defeito | Página | Trilha |
+|---|---|---|---|
+| **Luciana Martins** | "Luciana Martins \|   \|   \|   \|   \|   \|   \|  " — 7 campos vazios | `369908146209899` | **A** |
+| **heitorosilvaa** | 3 anúncios, todos sem título | `1038103609392698` | B |
+| **Imóveis Corretora Gabriela Souza** | "Converse conosco" ×4 | `113398690442869` | **A** |
+| **Giselle Soares** | título é "instagram.com" | `128474343684112` | **A** |
+| **Fabio Vandré Imóveis** | anúncio sem título | `101993021307871` | **A** |
+| **Thiago Sampaio Imóveis** | anúncio sem título | `1091016734102743` | **A** |
+| **Vagner Carvalho Imóveis** | 3 anúncios idênticos, "COMISSÃO DOBRADA" | `102625572779947` | **A** |
+| **Re/max Sweet Home Tijuca** | "Você decide o tamanho do seu sucesso" ×3 | `104545662616081` | B |
+| **Imobiliária Remax Sky** | sem título | `101540486114539` | B |
+| **Lopes Rio** | sem título | `223439840855674` | B |
+
+**Seis dos dez são Trilha A** — corretor anuncia com o próprio nome. É a maior concentração de
+dono acessível que apareceu em qualquer nicho.
+
+**Observação sobre metade dos anúncios do nicho:** muitos são de **recrutamento** de corretor
+("Torne-se corretor RE/MAX", "VAGA VENDEDOR", "Alto potencial de ganhos"). Não descartar: quem
+recruta corretor também precisa gerar cliente, tem verba e está anunciando mal. Mas a abordagem
+muda — o gancho é o anúncio quebrado, não a vaga.
+
+**Conclusão do nicho:** imobiliária vira prioridade sobre saúde. Mais volume, mais defeito, mais
+dono acessível, e ticket que justifica investir em marketing.
