@@ -231,6 +231,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - veterinária + pet + Copacabana/Botafogo ✔ (1 resultado, e era imobiliária)
 - móveis planejados + marcenaria + Tijuca ✔ (21 resultados, 6 aproveitáveis, 1 Trilha A — inclui a "oferta desta semana" de quatro meses)
 - advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
+- fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -934,3 +935,38 @@ maior evidência de dinheiro parado que catalogamos, e ele é Trilha A — conve
 
 **Advocacia na Tijuca é nicho fraco de novo:** 25 resultados, mas 21 são de um dentista e um é de
 compra de ouro. Advogado no Rio não anuncia — confirma o que já tínhamos visto.
+
+---
+
+## Achados de 09/09, 11h20 — fisioterapia e pilates na Barra: 21 anúncios, 4 aproveitáveis
+
+Confirma a leitura da Tijuca: fisioterapia e pilates **anunciam** quando o bairro é o certo. Na
+Barra, 21 anúncios ativos de 8 páginas.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Núcleo Saúde Novo Leblon** | **5 anúncios, 4 sem título nenhum** — o mais antigo desde **06/06/2025**, quinze meses | `174772386011095` | 06/06/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1497994158251028) |
+| **Lavitá Barra da Tijuca** (+ página "Lavita") | 3 anúncios em duas páginas, **todos sem título**; o mais antigo desde 28/04/2026 | `246700075197222` / `1645850118961291` | 28/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1734123697868695) |
+| **Corpory Pilates & Cia.** | **10 anúncios iguais**, o mesmo título "Chega de adiar o cuidado com o seu corpo…" repetido em nove, e um sem título | `142389662633298` | 30/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1780975673235431) |
+| **ricardomoreirapilates** — *Trilha A* | anúncio sem título, subiu ontem | `112132074821292` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1431233052229936) |
+| *Espaço Vida Barra* | "Aproveite nossa promoção de **Agosto**!" ainda no ar em 9 de setembro | `415841588288319` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1029734440092383) |
+
+**Quem está acertando (referência, não abordar):** *Dr. Bruno Garrett* — "Agendar Consulta
+Particular": verbo, objeto e o filtro de preço no título.
+
+### O melhor caso do lote: Núcleo Saúde Novo Leblon
+
+Já estava no arquivo com um anúncio; agora são **quatro sem título**, o que muda o peso da prova.
+Quatro anúncios sem título há quinze meses, no bairro mais caro da cidade para anunciar. Abertura:
+
+> Quatro dos cinco anúncios do Núcleo Saúde estão no ar sem título — o campo da chamada está
+> vazio, e o mais antigo começou em junho do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou paciente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública, e a data de início aparece lá. Sem esse campo o Facebook mostra o anúncio para quem
+> sobra, não para quem procura fisioterapia no Leblon.
+>
+> Quem cuida das campanhas da clínica hoje?
+
+Para a **Corpory**, a prova é outra e igualmente simples: dez anúncios idênticos competem entre
+si no mesmo leilão — o Facebook cobra dez vezes para aprender uma coisa só.
