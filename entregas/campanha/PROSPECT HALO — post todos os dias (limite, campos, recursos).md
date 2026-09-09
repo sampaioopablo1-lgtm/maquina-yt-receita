@@ -219,6 +219,20 @@ com valor e data), para que a próxima revisão compare contra algo.
 
 Estado da conta no momento: 20 leads (a maioria com opportunityScore 47, cinco com nome "LinkedIn Member"), 6 convites enviados em 09/09, 0 aceitos, 0 mensagens, 0 respostas; 1 post publicado e medido, 0 reações.
 
+## 8. Melhorias executadas em 09/09 as 14h45 (Brasilia), aprovadas pelo Pablo
+
+| # | Acao | Resultado na API |
+|---|---|---|
+| 1 | Agente "Engajadores dos posts" (descoberta desligada, 0 leads, nao aceito como destino) apagado | `status: deleting`; agentes 1 de 2, slot livre |
+| 2 | Agente "Donos de negocio RJ+SP": regra preferida ("dono ou socio que vende pelo WhatsApp e depende de indicacao, sem agencia nem gestor de trafego"), 7 palavras-chave de sinal, 2 grupos de contratacao (time comercial; recepcao e atendimento) | gravado em `targeting.preferredCriteria`, `signalKeywords`, `hiringSignalConfig`; `targetingNotices: []` |
+| 3 | CTA padronizado: os 7 posts de 12h30 passaram de "Comenta N" para "Comenta AGENDA"; os 6 manuais ja usavam AGENDA | 7 `update_content_post` ok |
+| 4 | Tom do Autopilot reduzido a: Founder que opera; gancho de uma linha sem numero inventado; frases de ate 12 palavras; um CTA (Comenta AGENDA); sem link, hashtag ou travessao | gravado |
+| 5 | Publicador de conteudo fixado explicitamente no perfil pessoal (estava "nao escolhido") | `publisherName: Pablo Sampaio` |
+
+Alvo atual do agente principal, lido da API: setores Medical Practices, Accounting, Construction, Real Estate, Wellness and Fitness Services; locais Rio de Janeiro e Sao Paulo; sem tamanho de empresa (conta sem Sales Navigator); open-to-work excluido.
+
+Pendente de decisao do Pablo: o que colocar no slot livre (proposta: segundo agente com o mesmo ICP e setores diferentes, por exemplo Legal Services, Architecture and Planning, Veterinary, Dentists, ou um agente `qualification_only` para exportar lista).
+
 ## Fontes
 - prospecthalo.ai (planos, FAQ "What happens when I hit my monthly limit", "Does it write the LinkedIn posts too") — lido em 09/09/2026
 - help.prospecthalo.ai: *Understand plans and usage limits* · *Create and publish LinkedIn content with Autopilot* · *Connect LinkedIn and email accounts* · *Getting started* · *Create your first outreach agent* · *Why is my agent waiting for LinkedIn* · *Connect ProspectHalo to Claude with MCP*
