@@ -125,3 +125,17 @@ arquivo que o Pablo reponha quando pedir.
 **Efeito prático nesta rodada:** não consegui verificar se houve post às 7h30, nem os comentários,
 nem se os engajadores entraram no agente. Não afirmo que não houve post — afirmo que não pude
 olhar.
+
+## O Supabase estava bloqueado por cota o tempo todo (09/09, 11h10)
+
+Quatro tentativas de conectar o servidor MCP próprio falharam com "Não foi possível registrar no serviço de login". Eu atribuí a falha ao protocolo (OAuth na raiz do domínio) e reescrevi o servidor oito vezes. A causa real apareceu quando testei a URL de fora: **HTTP 402 — "Service for this project is restricted: exceed_egress_quota, exceed_storage_size_quota"**. A restrição é da organização inteira (os dois projetos ativos respondem igual). A função nunca chegou a rodar; nenhuma versão teria funcionado.
+
+Mecanismo: o gateway do Supabase bloqueia antes da função quando a organização passa da cota gratuita (5 GB de saída, 1 GB de armazenamento). O bucket `videos-maquina` tem 622 MB em 181 vídeos; a saída foi consumida pelos downloads desses vídeos.
+
+Regra: **antes de depurar protocolo, bater na URL com `curl` de fora e ler o código HTTP.** Um 402 ou 403 na porta encerra a investigação em um minuto.
+
+## A Meta tem servidor MCP oficial que aceita app próprio (09/09, 11h10)
+
+`https://mcp.facebook.com/ads` — servidor hospedado pela Meta, aberto a qualquer app desde 16/07/2026. Duas formas de entrar: OAuth pelo Login do Facebook para Empresas usando o **ID do app próprio como client_id**, ou `Authorization: Bearer <token de usuário do sistema>`. Escopos fixos do OAuth: `ads_management ads_read catalog_management business_management pages_show_list instagram_basic ads_mcp_management` — **sem `pages_manage_ads`**, que é o que o anúncio de lead precisa para ler os termos da página. O caminho com token de sistema carrega o que o token tiver.
+
+Também existe painel de **regras** em Configurações do Business Suite → Integrações → "Servidor MCP de anúncios": permite bloquear criação de campanha, edição de orçamento, teto de orçamento. O servidor aplica essas regras. Sempre conferir esse painel quando uma escrita for negada sem erro claro.
