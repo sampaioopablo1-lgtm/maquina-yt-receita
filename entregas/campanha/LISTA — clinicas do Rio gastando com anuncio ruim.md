@@ -199,6 +199,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - academia + crossfit + Barra ✔ (zero)
 - advocacia + trabalhista + Barra ✔ (zero)
 - odontologia + implante + Madureira ✔ (1 resultado, aproveitável)
+- energia solar + Niterói ✔ (8 resultados, mas devolveu **imobiliárias** — 3 aproveitáveis)
 
 **Ainda por varrer:** salão e barbearia, escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -345,3 +346,29 @@ Instagram, não a Biblioteca.
 
 **Consequência prática:** parar de abrir bairro novo e voltar a varrer **nicho novo dentro
 de Tijuca, Niterói e Barra**, que é onde o dinheiro está.
+
+---
+
+## Achados de 09/09, 00h15 — imobiliárias em Niterói (nicho novo, achado por acidente)
+
+Busquei "energia solar Niterói" e a Biblioteca devolveu **imobiliárias** — o termo "solar"
+casou com nome de imóvel. O acidente rendeu mais que a busca pretendida.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Luis Imóveis** | **4 anúncios ativos, todos sem título nenhum** — o mais recente subiu ontem | `1606680692690344` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1758628865164703) |
+| **Katia Castro Imóveis** — *Trilha A* | 2 anúncios, ambos sem título | `924956747377696` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=890630563872749) |
+| **AGF Imóveis** | anúncio sem título | `104002578976940` | 28/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1622248665922127) |
+
+**Imobiliária entra na lista de nichos.** Não estava nas nove combinações da rotina e rendeu
+3 aproveitáveis de 8 resultados — taxa parecida com veterinária em Niterói, que era a melhor
+até agora. Corretor de imóveis também é ICP: decide sozinho, vende pelo WhatsApp, e vive de
+gerar contato.
+
+E o padrão é o mesmo dos outros nichos fracos em anúncio: **título vazio**, que é o defeito
+mais fácil de provar e o mais barato de corrigir.
+
+**Quem está acertando (referência, não abordar):**
+- *Evosolar — Usinas Fotovoltaicas*: "☀️ Energia Solar em Niterói por parcelas de R$ 257? Sim, é real!" — bairro, preço e objeção respondidos no título. É o modelo do que eu mostro no toque 3.
+
+**Nicho novo para varrer daqui pra frente:** imobiliária e corretor, nos três bairros que concentram.
