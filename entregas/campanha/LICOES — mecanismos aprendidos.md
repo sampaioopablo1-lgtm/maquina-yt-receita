@@ -107,3 +107,21 @@ Todos os defeitos que eu venho catalogando são o mesmo erro nesse mesmo lugar:
 **Consequência para a abordagem:** parar de dizer "seu anúncio está errado" e passar a explicar
 o recurso que ele paga e não usa, com um exemplo real de concorrente usando certo. Não acusa,
 ensina algo verdadeiro na hora, e traz a prova social do toque 3 para o toque 1.
+
+## O sandbox reinicia e leva a sessão do Prospect Halo junto (09/09, 10h36)
+
+A rotina de checagem de post depende de chamar o Prospect Halo pelo workbench do Composio, que é
+um sandbox remoto. Nesta rodada o sandbox tinha reiniciado: nenhum arquivo de sessão, nenhuma
+variável de ambiente, nada. Refazer o `initialize` exige a chave `ph_live`, que não fica guardada
+em lugar nenhum do repositório nem do ambiente desta sessão — ela vinha do contexto da conversa,
+e o contexto foi compactado.
+
+**A lição não é sobre o Prospect Halo, é sobre onde credencial mora.** Qualquer processo que só
+funciona enquanto uma chave estiver viva na conversa para de funcionar no primeiro reinício, sem
+aviso e sem erro visível — a rotina simplesmente não consegue mais olhar. Credencial de rotina
+precisa estar num lugar que sobreviva ao reinício: variável de ambiente do ambiente remoto, ou um
+arquivo que o Pablo reponha quando pedir.
+
+**Efeito prático nesta rodada:** não consegui verificar se houve post às 7h30, nem os comentários,
+nem se os engajadores entraram no agente. Não afirmo que não houve post — afirmo que não pude
+olhar.
