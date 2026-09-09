@@ -220,6 +220,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
 - fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
 - odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
+- imobiliária + corretor + Barra ✔ (**só 3 resultados** — o nicho não anuncia na Barra; 1 aproveitável, já catalogado)
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
@@ -932,3 +933,35 @@ grátis" — verbo, objeto e a objeção de preço resolvida em cinco palavras.
 escrito. Quem vende para dentista e biomédico já entendeu que precisa de título. Isso reforça a
 regra: quanto mais o nicho depende de venda direta, melhor o anúncio; clínica que vive de
 indicação escreve mal.
+
+---
+
+## Achados de 09/09, 15h15 — imobiliária na Barra: o nicho campeão não anuncia lá
+
+Três anúncios no total. Depois de sete bairros com dez, vinte, trinta resultados, a Barra devolve
+**três** — e nenhum novo aproveitável:
+
+| Empresa | Situação |
+|---|---|
+| **Luciana Martins** | nome da página + **sete campos vazios** — já catalogada em Copacabana |
+| *Equipe Luiz Cardozo* | anúncio de **vaga de emprego** para corretor, título bem escrito. Não é alvo |
+| *Malvino Gomes Corretor* | "OPORTUNIDADE UNICA NA ABM" — sem acento, mas é título de verdade |
+
+**O que isso ensina:** imobiliária na Barra vende por outro caminho — plantão de lançamento,
+parceria com construtora, indicação de porteiro. Quem anuncia lá é a construtora, não o corretor.
+
+**Fecha o mapa do melhor nicho.** Imobiliária e corretor, por bairro:
+
+| Bairro | Resultados | Aproveitáveis |
+|---|---|---|
+| Copacabana | 28 | 9 |
+| Tijuca | 30 | 10 |
+| Niterói | 11 | 5 |
+| Madureira | 5 | 3 |
+| Botafogo | 6 | 2 |
+| Méier | 3 | 3 |
+| Campo Grande | 3 | 1 |
+| **Barra** | **3** | **0 novos** |
+
+Oito bairros varridos, o mapa está completo. **Parar de abrir bairro em imobiliária** — a partir
+daqui, ou é nicho novo, ou é abordar os 33 que já estão catalogados.
