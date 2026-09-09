@@ -53,7 +53,25 @@ jobs:
       # `fonts-noto-*`: tests/test_prontidao.py importa fabrica/layout.py
       # (cairosvg) e confere a fonte Devanagari da spec agla-level-003 — sem
       # isso o "Testes" abaixo quebra em 27 casos.
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk
+      - name: Instalar ffmpeg e fontes
+        run: |
+          set -euo pipefail
+          # O runner traz repositorios de terceiros pre-configurados que este
+          # projeto nao usa, e um deles pode derrubar o `apt-get update`
+          # inteiro: em 09/09/2026 o do Google Chrome respondeu "Hash Sum
+          # mismatch" e o passo saiu com codigo 100 ANTES de qualquer teste,
+          # duas execucoes seguidas (run 34384001310, com re-run). Nada aqui
+          # instala Chrome, entao a lista sai antes do update — um mirror de
+          # terceiro nao decide se a nossa suite roda.
+          #
+          # O `|| true` nao e decoracao: `grep -l` sai 1 quando NAO acha nada,
+          # e sob `pipefail` isso derrubaria o passo justamente no dia em que
+          # o repositorio problematico deixar de existir. Testado nos dois
+          # casos, com lista presente e ausente.
+          { sudo grep -rl "dl\.google\.com" /etc/apt/sources.list.d/ 2>/dev/null || true; } \
+            | sudo xargs -r rm -f
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk
 
       # DEPOIS da instalacao, e sem cano. Assim este passo volta a poder
       # reprovar — que e a unica coisa que faz um passo de conferencia valer.
