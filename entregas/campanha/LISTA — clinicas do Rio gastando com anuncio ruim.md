@@ -13,8 +13,8 @@
 | 6 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 | 7 | **Luciana Martins** (Tijuca, *Trilha A*) | o título é o nome dela seguido de **sete campos vazios** |
 | 8 | **CVP — Veterinária 24h** (Tijuca) | **8 anúncios desde julho de 2025**: três sem título, um com "Converse conosco" ×4, um com 4 campos vazios — **e um escrito certo** |
-| 9 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
-| 10 | **Pet Care Animália** | o título do anúncio está aparecendo como `{{product.name}}` — código cru, no ar para o público |
+| 9 | **Casa Prime Decor** (Barra) | o título é **o nome da página do Instagram dela, colado oito vezes**: "Casa Prime Decor (@casaprime.decor) • Instagram photos and videos" |
+| 10 | **Núcleo Saúde Novo Leblon** | 5 anúncios, 4 **sem título**, rodando assim desde **junho de 2025** |
 
 ### A regra que vale para todas as mensagens
 
@@ -197,6 +197,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
 - imobiliária + apartamento à venda + Niterói ✔ (11 resultados, **5 aproveitáveis**)
 - veterinária + pet + Tijuca ✔ (15 resultados, 1 empresa dominante com 8 anúncios)
+- móveis planejados + marcenaria + Barra ✔ (15 resultados, 4 aproveitáveis)
 - móveis planejados + Campo Grande ✔ (1 resultado, e era anúncio de vaga)
 - fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
 - academia + crossfit + Barra ✔ (zero)
@@ -507,3 +508,35 @@ correção é replicar o que ele mesmo já fez.
 os dois usam nome + bairro, simples e correto.
 
 **Descartado:** *Esfera Condominial BNI Freguesia* — evento de networking, não é o ICP.
+
+---
+
+## Achados de 09/09, 04h15 — móveis planejados na Barra
+
+15 anúncios, 4 empresas aproveitáveis.
+
+| Empresa | Defeito | Página | Desde |
+|---|---|---|---|
+| **Casa Prime Decor** | o título é **o nome da página do Instagram, colado 8 vezes**: "Casa Prime Decor (@casaprime.decor) • Instagram photos and videos" | `716576384870772` | 12/08/2026 |
+| **Du'Art Marcenaria** | 3 anúncios com "**Oferta somente esta semana** ✨" — no ar há **quase um mês** | `2045820048837163` | 12/08/2026 |
+| **Modelarte Planejados** | anúncio **sem título**, no ar desde **outubro de 2025** — 11 meses | `385290834671674` | 09/10/2025 |
+| **Epipla Marcenaria** | 2 anúncios, os dois só com "Fale conosco" | `976165705588432` | 21/05/2026 |
+| *FC Marcenaria* | 6 anúncios idênticos, "Faça seu orçamento pelo **Whats app**" (grafia errada) | `1089140307623990` | 02/09/2026 |
+
+**Casa Prime Decor é o defeito mais autoexplicativo da lista inteira.** Não é texto ruim, é o
+título da aba do navegador do Instagram deles, copiado e colado oito vezes. Quem fez isso
+copiou a página aberta em vez de escrever a chamada. Abertura:
+
+> O título do anúncio de vocês é o nome da página do Instagram — "Casa Prime Decor
+> (@casaprime.decor) • Instagram photos and videos" — repetido oito vezes.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Parece que alguém colou o endereço da página em vez
+> de escrever a chamada. Está assim desde agosto.
+>
+> Quem monta os anúncios de vocês?
+
+**Du'Art tem o segundo melhor argumento:** "somente esta semana" há um mês. Urgência falsa que
+o público já viu quatro vezes para de funcionar — e depois não funciona nem quando é verdade.
+
+**Quem está acertando (referência):** *RACCA HOME* — "Móveis Planejados - Barra da Tijuca,
+Recreio dos Bandeirantes". Serviço e bairros no título, sem enfeite.
