@@ -147,3 +147,11 @@ Pablo pediu estrutura de tentativa-e-erro entre hosts. Executada, na ordem: Supa
 Mecanismo: o classificador desta sessão bloqueia duas famílias — **criar ou publicar um host novo** e **escrever um servidor que aprova OAuth sem verificar**. Não é rede nem cota: é permissão da sessão. Só o dono da conta libera, nas configurações de permissão do claude.ai, ou a cadeia inteira devolve o mesmo "negado".
 
 Regra: quando duas ferramentas de hospedagem diferentes são negadas com a mesma mensagem, parar a cadeia e pedir a liberação — a terceira e a quarta vão cair igual.
+
+## O relé subiu no Cloudflare e a Meta recusou o token por ser de administrador (09/09, 12h25)
+
+Cadeia até aqui: Supabase (cota) → Netlify (crédito pausado, site "Private") → Cloudflare Worker pelo editor online, com a rota `workers.dev` habilitada na mão (nasce desligada quando o worker vem do Git; o sintoma é `error code: 1042` em qualquer caminho). Relé responde: raiz 404, `/mcp/<segredo>` 200.
+
+Ao repassar para `mcp.facebook.com/ads`, a Meta devolveu **403 "Admin system user tokens are not permitted on the Ads MCP server. Please use an Employee system user token."** O usuário do sistema "Integracao" é administrador. O servidor MCP oficial só aceita token de usuário do sistema com função **Funcionário**.
+
+Regra: para o MCP da Meta, criar usuário do sistema *Funcionário*, atribuir conta de anúncios, página e app, e gerar o token nele. O de administrador continua servindo para a Graph API direta.
