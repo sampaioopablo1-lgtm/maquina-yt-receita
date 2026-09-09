@@ -14,13 +14,14 @@
 | 7 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
 | 8 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
 | 9 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
-| 10 | **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
+| 10 | **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
+| — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
 *Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
 Care, Núcleo Angela Beatriz Varella, Luciana Martins, Casa Prime Decor, Núcleo Saúde Novo Leblon.*
 
-**Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em seis bairros seguidos
-(Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3) — é onde vale concentrar a abordagem.
+**Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em sete bairros seguidos
+(Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3, Madureira 3/5) — é onde vale concentrar a abordagem.
 
 **Exemplo de concorrente fazendo certo, para citar em Copacabana:** *Copa Azul Imobiliária
 Digital*, mesmo bairro, quinze anúncios com cada campo de título escrito com metragem, preço
@@ -222,6 +223,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - salão de beleza + barbearia + Tijuca ✔ (zero)
 - imobiliária + corretor + Botafogo ✔ (6 resultados, 2 novos aproveitáveis — inclui o caso `{{product.name}}`)
 - imobiliária + corretor + Campo Grande ✔ (3 resultados, 1 aproveitável)
+- imobiliária + apartamento + Madureira ✔ (5 resultados, 3 aproveitáveis, 2 Trilha A — inclui o caso `api.whatsapp.com`)
 
 **Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
 
@@ -721,3 +723,34 @@ de que ninguém abriu a campanha para conferir — por dez meses.
 o melhor achado de todos. Volume baixo não é sinônimo de lote ruim.
 
 **Repetidos, já catalogados:** Alfaiataria Imobiliária e RLBimoveis.com voltaram nas duas buscas.
+
+---
+
+## Achados de 09/09, 09h10 — imobiliária em Madureira (5)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Paulo Fernandes** (*Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — a URL crua do link colada no campo da chamada. No ar desde junho/2026 | `1182156948322558` | [anúncio](https://www.facebook.com/ads/library/?id=1597923598671412) |
+| **Miguel Arthur** (*Trilha A*) | "2 quartos 2 banheiros Casa \|" — descreve o imóvel mas **não diz bairro nem preço**, e o segundo campo ficou vazio | `803804566148957` | [anúncio](https://www.facebook.com/ads/library/?id=1668041521992097) |
+| **Casa Forte Negócios Imobiliários** | sem título, desde **abril de 2026** | `168591979868989` | [anúncio](https://www.facebook.com/ads/library/?id=983954294255679) |
+
+**A Lucrum apareceu de novo — e piora o caso dela.** Um terceiro anúncio, este também escrito
+certo, com seis salas e apartamentos descritos com bairro, cômodos e proximidade de metrô e BRT.
+Agora são **dois anúncios corretos contra um com dez campos vazios**. O argumento fica ainda mais
+difícil de contestar: não é falta de saber, é um anúncio que ninguém revisou.
+
+**O caso `api.whatsapp.com` é irmão do `{{product.name}}`.** Os dois são a mesma falha — um dado
+técnico apareceu onde deveria estar texto para pessoa. Já tinha aparecido na Flip Dog Care
+(Niterói); é o terceiro caso, o que sugere ser um erro comum de quem monta o anúncio pelo celular
+colando o link de WhatsApp no campo errado. Abertura:
+
+> O título do anúncio de vocês está aparecendo como "api.whatsapp.com" — o endereço do link, no
+> lugar da chamada.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública. O link está certo; o que colaram no campo do título foi o endereço dele.
+>
+> Quem monta os anúncios de vocês?
+
+**Madureira:** 5 anúncios, 3 aproveitáveis, **2 deles Trilha A**. Bairro fino mas com aproveitamento alto,
+igual ao Méier.
