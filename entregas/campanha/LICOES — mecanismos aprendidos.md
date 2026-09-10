@@ -391,3 +391,21 @@ comparação entre conjuntos não queria dizer nada.
 
 **Nenhuma lista foi alterada** — elas são só referenciadas como exclusão, que é
 o que o Pablo pediu quando disse "só não mudo público as listas".
+
+## Bloqueio: token da Clint expirou (10/09/2026, 19h08)
+
+O conector da Clint voltou `MCP server "Clint" requires re-authorization (token
+expired)`. Enquanto isso durar eu fico cego para o CRM: não vejo lead novo, não
+vejo conversa, não movo negócio de etapa. A Meta continua funcionando, então
+ainda vejo gasto, clique e conversa iniciada — mas não vejo QUEM chegou.
+
+Consequência prática: a rotina horária perde a parte que mais importa. Um lead
+pode entrar e ficar sem aviso.
+
+Conserto: só o Pablo pode reautorizar, nas configurações de conectores do
+claude.ai. Não dá para fazer isso daqui — esta sessão não roda o fluxo de
+autorização.
+
+Regra: quando um conector cai, avisar UMA vez e seguir com o que resta
+funcionando, dizendo exatamente o que deixou de ser visível. Não repetir o
+aviso a cada rodada, e não fingir que a vigilância continua completa.
