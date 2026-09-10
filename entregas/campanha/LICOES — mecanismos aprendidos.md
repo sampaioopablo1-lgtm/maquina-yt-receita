@@ -343,3 +343,51 @@ edito; agente eu só aponto.
 Mesma família do erro do CAPI: confundi ter a peça no fluxo com poder mexer
 nela. Antes de prometer ajuste, conferir se existe verbo de escrita para
 aquele objeto — não basta o objeto aparecer em alguma listagem.
+
+## Público de interesse tem vazamento embutido: "Renda" e "Freelancer" (10/09/2026)
+
+A Jessica chegou pela campanha de WhatsApp, foi qualificada pela IA e marcou
+reunião — mas é afiliada de Mercado Livre/Shopee, nunca fechou um cliente e
+não tem negócio. Não é o público da mentoria.
+
+Fui ler a segmentação e o vazamento estava escrito lá. Entre os 12 interesses,
+cinco descrevem quem procura como GANHAR dinheiro, não quem já toca um negócio:
+
+- Renda (negócios e finanças) — 6003719384062  ← o pior, ímã de renda extra
+- Empresa em casa — 6003605501620
+- Teletrabalho — 6003343813828
+- Freelancer (carreiras) — 6003374632277  (e o cargo Freelancer, 111926488822704)
+- Trabalho autônomo (carreiras) — 6003214937861
+
+E no segundo bloco, dois comportamentos com o mesmo defeito:
+- **New Page Admins** (6041891177783) — quem acabou de criar uma página é,
+  por definição, quem está começando. É a Jessica.
+- **Facebook Payments users 30d** (6004948896972) — sinal de quem COMPRA no
+  Facebook, não de quem tem empresa.
+
+Ficaram os sinais de propriedade: comportamento Small business owners, cargos
+Dono/Proprietário/Comerciante/Sócio, empregadores Empresário/Proprietário, e o
+segundo bloco reduzido a Facebook Page admins + Business page admins.
+
+**A regra:** num público de interesse para vender a dono de negócio, todo termo
+que fala de *ganhar renda* traz quem não tem negócio. Termo que fala de *ser
+dono* traz quem tem. Ler a lista de interesses procurando essa diferença vale
+mais do que qualquer ajuste de lance.
+
+## Três conjuntos disputando a mesma pessoa é dinheiro brigando consigo
+
+Os três conjuntos da WPP I CONVERSA I FS1 (semelhante, personalizado, interesse)
+podiam alcançar a MESMA pessoa: quem está na lista de CNPJ também cai no
+semelhante daquela lista e também tem interesse em "Pequena empresa".
+
+Conserto: excluir as 9 listas próprias e os 3 públicos de engajamento
+(VV, ENG INST, PG 365) dos conjuntos de semelhante e de interesse. Agora os três
+são disjuntos — o personalizado fica com o público quente, o semelhante com o
+parecido, o interesse só com quem é frio de verdade.
+
+Além de parar a disputa interna, isso torna o número de cada conjunto legível:
+antes, um lead que aparecesse no interesse podia ser alguém da lista, e a
+comparação entre conjuntos não queria dizer nada.
+
+**Nenhuma lista foi alterada** — elas são só referenciadas como exclusão, que é
+o que o Pablo pediu quando disse "só não mudo público as listas".
