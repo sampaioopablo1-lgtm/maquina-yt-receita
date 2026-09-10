@@ -431,3 +431,28 @@ lugar que ninguém pediu. Buscar a chave, aplicar, e reler o targeting para ver
 o nome que a Meta devolve.
 
 Cidades excluídas hoje em toda a conta: Magé (258769) e Itaboraí (255567).
+
+## O campo `exclusions` é aceito e descartado em silêncio (10/09/2026)
+
+Tentei excluir o comportamento "Nova empresa ativa (< 6 meses)" (6273108079183)
+do conjunto LEADS I INTERESSE I FASE 3, mandando `exclusions` dentro de
+`targeting`. A resposta veio `success: true` e o eco de `updated_fields` trouxe
+o bloco `exclusions` inteirinho, com o nome do comportamento e tudo.
+
+Reli a segmentação: **não estava lá.** Tentei de novo, dessa vez com o campo
+`name` junto do id. Mesmo resultado — eco perfeito, gravação nenhuma.
+
+Duas tentativas, duas confirmações. O `exclusions` de comportamento passa pelo
+MCP e some antes de chegar ao objeto.
+
+**A regra, de novo e mais forte:** o eco de `updated_fields` NÃO é prova de
+gravação. Ele repete o que eu mandei, não o que a Meta guardou. A única prova é
+reler a entidade. Foi assim que eu peguei a chave de Itaboraí (deu certo) e é
+assim que eu peguei este (deu errado).
+
+Se eu tivesse confiado no `success: true`, teria dito ao Pablo que o filtro
+anti-iniciante estava no ar, e ele estaria comprando lead de gente começando
+achando que não estava. Mentira difícil de descobrir depois.
+
+Contorno: a exclusão de comportamento precisa ser feita na interface do
+Gerenciador, em "Excluir pessoas que correspondam a pelo menos um destes".
