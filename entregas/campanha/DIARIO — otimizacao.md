@@ -260,3 +260,28 @@ vez, não repito.
 O único lead veio da **lista de CNPJ**, não de interesse nem de semelhante. Se o segundo e o
 terceiro lead vierem da mesma origem, a conclusão prática é migrar verba para lista e
 semelhante-de-lista, e tratar interesse como teste barato. Com um lead só, é indício, não prova.
+
+## 10/09/2026, 10h09 — o formulário ficou barato, o WhatsApp não saiu do lugar
+
+Quatro leads em pouco mais de doze horas, todos do formulário instantâneo:
+André (ontem 19h01), Genilson (06h03), Carolfigueiredo (09h00) e Zenilson
+Fonseca (09h16). Os três de hoje custaram, somados, menos de quinze reais.
+
+Números do dia por conjunto:
+
+| conjunto | impressões | CTR | CPM | gasto | leads | CPL |
+|---|---|---|---|---|---|---|
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | 317 | 3,15% | R$34,32 | R$10,88 | 2 | R$5,44 |
+| LEADS I INTERESSE I FASE 3 | 65 | 7,69% | R$55,08 | R$3,58 | 1 | R$3,58 |
+| INT I DONOS (topo) | 120 | 0,00% | R$21,75 | R$2,61 | — | 42 thruplays |
+
+CPL de R$5,44 e R$3,58 contra a projeção de R$30 a R$40 que serviu de base para
+o funil de setembro. Cedo demais para acreditar no número — três leads não fazem
+média —, mas o que ele diz é que o gargalo não é o preço do lead. É o tempo entre
+o lead chegar e alguém falar com ele, que hoje é a mão do Pablo, porque o template
+do WhatsApp Oficial ainda está em análise.
+
+A campanha WPP I CONVERSA I FS1 continua em **zero impressão** nos três conjuntos,
+mais de cinco horas depois de ativada. As 15 imagens que entraram hoje estão em
+PENDING_REVIEW, o que explica as imagens — não explica os vídeos, que estão ACTIVE
+desde 08h16. Hipótese que sobra: o vínculo do número Comercial com a página.
