@@ -96,3 +96,89 @@ Ressalva honesta: os tamanhos acima são globais, não do Rio. Dentro de RJ,
 30-50 anos, cada um encolhe muito. Empilhar as três condições pode deixar o
 público pequeno demais para R$30/dia entregar — o risco real dessa mudança
 não é errar o alvo, é não ter volume.
+
+---
+
+# Parte 2 — A Meta TEM públicos B2B. E eles não servem para o Pablo.
+
+Estudo em 10/09/2026, varrendo a classe `industries` da API (40 opções) e
+comparando com o que o mercado escreve.
+
+## O que encontrei: firmografia de verdade
+
+A Meta tem segmentos B2B explícitos que quase ninguém usa. **Faturamento da
+empresa** — não renda pessoal, faturamento do negócio:
+
+| segmento | id | tamanho GLOBAL |
+|---|---|---|
+| Receita da empresa: abaixo de US$ 1 mi | 6377169088983 | 3,3 M |
+| Receita da empresa: US$ 1 mi a 10 mi | 6377168992983 | 1,8 M |
+| Receita da empresa: acima de US$ 10 mi | 6377408081983 | 1,19 M |
+| Tamanho: 1 a 10 funcionários | 6377169550583 | 2,8 M |
+| Tamanho: 11 a 100 funcionários | 6377134779583 | 1,5 M |
+| Tamanho: 101 a 500 | 6377169297783 | 776 k |
+| Tamanho: mais de 500 | 6377408290383 | 612 k |
+| Empresas criadas antes de 2000 | 6377134922183 | 1,3 M |
+| Empresas criadas 2000–2009 | 6377408028783 | 1,3 M |
+| Empresas criadas 2010–hoje | 6377168689383 | 2,5 M |
+| **Tomadores de decisões empresariais** | 6262428231783 | **41.974** |
+| Interesses e cargos dos tomadores de decisões | 6262428209783 | 41.975 |
+| Tomadores de decisões de TI | 6262428248783 | 13.754 |
+
+E funcionários por porte de empresa B2B:
+- Grandes (500+): 6075565069783 — 220 M
+- Pequenas (10 a 200): 6080792282783 — 99,4 M
+- Médias (200 a 500): 6080792228383 — 37,7 M
+
+Mais 25 funções profissionais (Gestão 17,6 M, Vendas 14,2 M, Negócios e
+finanças 7,9 M, Serviços jurídicos 1,0 M, Serviços de saúde 10,6 M...).
+
+## Por que isso não resolve o problema do Pablo
+
+**Os números da tabela são MUNDIAIS.** "Tomadores de decisões empresariais"
+tem 42 mil pessoas no planeta inteiro. Filtrado para Rio de Janeiro, 30 a 50
+anos, sobra um punhado — não entrega nem com orçamento grande, quanto mais
+com R$30/dia.
+
+Faturamento de US$ 1 a 10 milhões: 1,8 milhão no mundo. O Rio é uma fração
+minúscula disso. Empilhar esse segmento com localização e idade produz um
+público que a Meta não consegue entregar.
+
+**O segmento existe, está documentado, e é inútil nesta escala.** Isso
+contradiz muito conteúdo de guru que vende "segmentação B2B secreta do
+Facebook" — a segmentação existe mesmo, o problema é o tamanho.
+
+## O que o mercado diz (e onde concordo)
+
+O consenso de 2026 entre quem opera:
+
+1. **Público amplo tende a bater empilhamento de interesse.** Com Advantage+
+   como padrão, o que você adiciona vira sugestão, não cerca. A exceção que
+   os próprios artigos citam é justamente nicho B2B apertado — onde sair do
+   interesse queima verba.
+2. **Criativo filtra melhor que segmentação.** A mensagem decide quem para o
+   dedo. "É para quem já fatura e quer previsibilidade" filtra mais do que
+   qualquer combinação de interesse.
+3. **Formulário instantâneo com pergunta de qualificação** custa bem menos
+   por lead que landing page, e a pergunta é onde o filtro real acontece.
+
+Onde eu discordo do consenso: "amplo + criativo" pressupõe volume de conversão
+para o algoritmo aprender. Com 6 leads em um dia, não há aprendizado nenhum. Na
+escala do Pablo, a segmentação ainda importa — só não do jeito que se vende.
+
+## Veredito
+
+**Não existe hack de renda. Existem quatro alavancas reais, em ordem de força:**
+
+1. **Lista própria de CNPJ** — a única firmografia confiável. Receita Federal
+   abre CNAE, porte e capital social por município. Semelhante disso vence
+   qualquer interesse.
+2. **Exclusão de iniciante** — "Novos administradores de página" e "Nova
+   empresa ativa < 6 meses". Tira a Jessica sem tirar o Julio.
+3. **A pergunta do formulário / da IA** — filtro que acontece depois do clique,
+   e o único que enxerga faturamento de verdade.
+4. **Criativo que desqualifica** — dizer no anúncio para quem NÃO é.
+
+Os segmentos firmográficos da Meta ficam de fora não por serem ruins, mas por
+serem pequenos demais para o Rio com R$30/dia. Se um dia a verba subir e a
+operação for nacional, eles voltam para a mesa.
