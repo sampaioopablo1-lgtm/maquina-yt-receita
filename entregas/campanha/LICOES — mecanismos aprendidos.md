@@ -409,3 +409,25 @@ autorização.
 Regra: quando um conector cai, avisar UMA vez e seguir com o que resta
 funcionando, dizendo exatamente o que deixou de ser visível. Não repetir o
 aviso a cada rodada, e não fingir que a vigilância continua completa.
+
+## Como achar a chave de uma cidade para excluir (10/09/2026)
+
+O Pablo pediu para excluir Itaboraí de todas as campanhas. A exclusão de cidade
+na Meta só aceita `cities: [{key}]` — nome não serve — e o MCP do Facebook não
+tem busca de localidade: `ads_get_field_context` devolve `geo_locations` como
+campo desconhecido, e busca na web não acha chave nenhuma.
+
+O caminho que funciona é o Composio, toolkit metaads:
+
+    METAADS_LIST_TARGETING_SEARCH
+    { "type": "adgeolocation", "q": "Itaborai", "location_types": ["city"] }
+
+Devolveu key 255567, região Rio de Janeiro (454). Confirmei depois lendo o
+targeting de volta: a Meta ecoou `"name": "Itaboraí"`.
+
+**A regra:** nunca chutar chave de localidade. Uma chave errada exclui a cidade
+errada em silêncio — a API aceita, nada dá erro, e o dinheiro passa a evitar um
+lugar que ninguém pediu. Buscar a chave, aplicar, e reler o targeting para ver
+o nome que a Meta devolve.
+
+Cidades excluídas hoje em toda a conta: Magé (258769) e Itaboraí (255567).
