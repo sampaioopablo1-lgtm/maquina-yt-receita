@@ -277,3 +277,26 @@ De 30 specs longos para 10.
 
 **6. `ads_activate_entity` devolve INTERNAL error aleatoriamente.** É retryable de verdade:
 as quatro que falharam passaram na segunda tentativa. Não é bloqueio, é instabilidade.
+
+## Ter ferramenta de evento não é conseguir enviar evento (10/09/2026)
+
+Eu disse que ia "ativar" o enriquecimento de dados para a Meta e depois tive que
+voltar atrás: escrevi o script e o README, mas não enviei nada. A ferramenta de
+pixel do conector cria regra de pixel de site — o Pablo não tem site. O envio de
+evento offline (CAPI) exige token de usuário de sistema, que eu não tenho.
+
+Regra: antes de dizer "ativei", conferir se existe credencial para o disparo.
+Ferramenta disponível ≠ ação executada. E quando eu já tiver dito errado, o
+conserto é dizer a frase inteira: "não ativei, porque não consigo sem o token."
+
+## Anúncio de imagem Clique-para-WhatsApp: link_data, não video_data
+
+Mesma estrutura do vídeo, trocando o bloco:
+
+    {"object_story_spec":{"page_id":"...","link_data":{"image_hash":"...",
+     "link":"https://api.whatsapp.com/send","message":"...","name":"...",
+     "call_to_action":{"type":"WHATSAPP_MESSAGE",
+       "value":{"app_destination":"WHATSAPP","link":"https://api.whatsapp.com/send"}}}}}
+
+O `name` do link_data é o texto do botão, não o nome do anúncio. Criativo inline
+funciona; creative_id avulso continua dando "Invalid Creative For Objective".
