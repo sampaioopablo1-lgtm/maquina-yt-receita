@@ -242,3 +242,38 @@ de...` passa.
 
 **Regra que fica:** antes de culpar o texto de um agente, conferir se **alguma mensagem chegou a
 existir**. Chat vazio não é IA ruim, é canal bloqueado.
+
+## Como criar anúncio Clique-para-WhatsApp pela API (10/09, 08h30)
+
+Criada a campanha `WPP I CONVERSA I FS1` (`120247368224510766`), CBO R$ 30/dia, 3 conjuntos,
+10 anúncios cada. Três mecanismos que custaram tentativa e erro:
+
+**1. O bloqueio do app em modo de desenvolvimento NÃO se aplica aqui.** `ads_create_creative`
+com vídeo funcionou de primeira. Confirma em definitivo o que já estava escrito: o carimbo do
+app só existe em criativo dinâmico. A conta pode criar criativo novo à vontade.
+
+**2. Criativo de vídeo exige miniatura.** `ads_create_creative` com `video_id` e sem
+`image_hash` devolve *"At least one of image_hash or image_url must be provided"*. A miniatura
+não é opcional para vídeo.
+
+**3. O criativo do WhatsApp precisa do destino DENTRO do call_to_action.** Criar o criativo
+solto com `call_to_action_type: "WHATSAPP_MESSAGE"` e depois usar `creative_id` no anúncio
+falha com *"Invalid Creative For Objective"* (subcódigo 1487891). O que funciona é passar o
+criativo inline no `ads_create_ad`:
+
+```
+{"object_story_spec":{"page_id":"...","video_data":{"video_id":"...","image_hash":"...",
+ "message":"...","title":"...",
+ "call_to_action":{"type":"WHATSAPP_MESSAGE",
+   "value":{"app_destination":"WHATSAPP","link":"https://api.whatsapp.com/send"}}}}}
+```
+
+**4. Truque para não repetir o spec 30 vezes:** cada `ads_create_ad` inline gera um
+`creative_id` próprio. Criar os 10 anúncios do primeiro conjunto inline, ler os `creative_id`
+com `ads_get_ad_entities` (campo `creative`), e usar esses ids nos outros dois conjuntos.
+De 30 specs longos para 10.
+
+**5. `source_ad_id` não duplica fora do modo rascunho** — devolve *"creative is required"*.
+
+**6. `ads_activate_entity` devolve INTERNAL error aleatoriamente.** É retryable de verdade:
+as quatro que falharam passaram na segunda tentativa. Não é bloqueio, é instabilidade.
