@@ -196,3 +196,67 @@ mesmo motivo** — não por não encaixarem, mas por não terem sido lidos. Isso
 ontem: o problema não seria "dono de clínica não usa LinkedIn", e sim "a verificação de perfil
 não está resolvendo os perfis". Conferir quando os 20 terminarem, comparando quantos rejeitados
 têm nome resolvido.
+
+---
+
+# 09→10/09/2026, 21h33 — o primeiro lead, e o que o dado por anúncio revelou
+
+## O número que muda o dia
+
+**Chegou o primeiro lead da conta**: André, 22h01, pelo anúncio **VR1**, conjunto
+`LEADS I LISTA CNPJ + QUENTE I FASE 1`. Custo acumulado do anúncio até o lead: **R$ 35,72**.
+Está dentro da faixa de mercado para lead B2B (R$ 25 a R$ 80).
+
+Isso corrige uma leitura minha de ontem: eu vinha marcando esse conjunto como candidato ao corte
+por causa do CPM de R$ 80. **Eu estava olhando o preço da impressão em vez do preço do lead.**
+Público pequeno e quente custa caro por impressão *e* converte. O CPM alto era a conta certa da
+pergunta errada.
+
+## Meta Ads
+
+| Conjunto | Ontem (imp / CTR / CPM / gasto) | Hoje até 21h | Leitura |
+|---|---|---|---|
+| **INT I DONOS** (topo) | 2.004 / 0,85% / R$ 9,64 / R$ 19,32 | 581 / 0,34% / R$ 11,27 | frequência **1,011** — zero fadiga |
+| **LISTA CNPJ FASE 1** (fundo) | 277 / 0,36% / R$ 75,02 / R$ 20,78 | 178 / 1,69% / R$ 83,93 | **1 lead hoje** |
+| **INTERESSE FASE 3** | não existia | 107 / 0,93% / R$ 68,13 | entregando |
+| **SEMELHANTE FASE 3** | não existia | 13 / 7,69% / **R$ 33,69** | CPM **metade** dos outros |
+
+**Frequência do topo: 1,011.** Quase ninguém viu o vídeo duas vezes. Não há fadiga de criativo —
+há falta de volume. A regra de renovar criativo acima de frequência 3 está muito longe de valer.
+
+## O que o dado por anúncio mostrou — e antes era invisível
+
+Sair do criativo dinâmico deu de brinde o relatório por peça. Primeira leitura, com ressalva de
+amostra minúscula:
+
+| Anúncio | Conjunto | Imp | Cliques | CTR |
+|---|---|---|---|---|
+| V01 — R$5 mil uma vez | INTERESSE | 4 | 1 | 25,0% |
+| V02 — No fim a máquina fica com você | SEMELHANTE | 12 | 1 | 8,3% |
+| V09 — Cliente todo dia (vídeo B) | INTERESSE | 17 | 1 | 5,9% |
+| V06 — Turma de setembro (vídeo B) | INTERESSE | 35 | 0 | 0,0% |
+| V07 — R$5 mil uma vez (vídeo C) | INTERESSE | 24 | 0 | 0,0% |
+
+**Não vou tocar em nada disso.** Um clique em quatro impressões não é 25% de CTR, é sorte. A
+regra de corte exige 500 impressões, e o mais rodado tem 35. Registro só para ter a linha de
+base — e porque a peça que mais gastou (V06, R$ 2,06) é justamente a que não teve clique.
+
+## Caça a vazamento silencioso
+
+**Achado: dos 22 anúncios ativos, 8 têm exatamente zero impressão.** Não é erro — é o CBO
+concentrando verba nos que ele já acha melhores, com base em pouquíssimo dado. O risco real é
+que ele congele a escolha antes de testar todas as peças, e a gente nunca saiba se a peça 8 era
+a boa.
+
+Não há botão para forçar distribuição sem trocar CBO por ABO, e trocar reinicia o aprendizado de
+tudo. **Decisão: deixar rodar mais 48h.** Se em 11/09 ainda houver peça com zero impressão, aí a
+conversa é sobre separar em conjunto próprio — e isso mexe em orçamento, então é decisão do Pablo.
+
+**Prospect Halo continua cego** — sem a chave `ph_live` no sandbox. Já registrado, já avisado uma
+vez, não repito.
+
+## Hipótese aberta
+
+O único lead veio da **lista de CNPJ**, não de interesse nem de semelhante. Se o segundo e o
+terceiro lead vierem da mesma origem, a conclusão prática é migrar verba para lista e
+semelhante-de-lista, e tratar interesse como teste barato. Com um lead só, é indício, não prova.
