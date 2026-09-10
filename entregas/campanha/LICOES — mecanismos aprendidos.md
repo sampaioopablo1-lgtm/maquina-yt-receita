@@ -300,3 +300,34 @@ Mesma estrutura do vídeo, trocando o bloco:
 
 O `name` do link_data é o texto do botão, não o nome do anúncio. Criativo inline
 funciona; creative_id avulso continua dando "Invalid Creative For Objective".
+
+## O gatilho por palavra-chave era um funil dentro do funil (10/09/2026)
+
+O Pablo notou que a IA não abriu conversa com o lead novo do formulário. Fui
+olhar e achei DOIS bloqueios empilhados, não um:
+
+**1. O gatilho de mensagem exigia uma palavra da lista.** A automação
+"Pré-venda Meta Ads" tinha 24 gatilhos, cada um casando uma palavra: oi, olá,
+bom dia, preço, valor, mentoria, cliente, e por aí. Quem escrevesse "Sim",
+"Pode me explicar?", "👍" ou mandasse um áudio não disparava nada — a mensagem
+chegava e o agente nunca era chamado. No chat do Zenilson a mensagem do lead
+chegou às 12h16:07 com conteúdo vazio (tipo não suportado), e conteúdo vazio
+não contém palavra nenhuma.
+
+Conserto: a Clint só aceita UMA condição por gatilho, sem grupo AND/OR, e não
+aceita valor vazio. Mas aceita `not-contains`. Então um gatilho de
+`not-contains` com um valor improvável (`zzqxwjkvnp`) casa QUALQUER mensagem.
+Os 24 gatilhos viraram 3: pega-tudo no Comercial, pega-tudo no número de teste,
+e o DEAL_CREATED que já existia. Publicado como versão 5.
+
+**2. O DEAL_CREATED dispara, mas o agente não tem como falar.** Esse gatilho
+funcionava desde sempre — o problema é que ele abre o fluxo FORA da janela de
+24h, e fora dela a Meta só entrega template aprovado. `list_message_templates`
+continua devolvendo lista vazia: o `opc_abertura_lead_formulario` segue em
+análise. Enquanto isso o agente roda, tenta escrever e o envio morre.
+
+A regra que fica: **um gatilho que depende do texto do lead é um funil dentro
+do funil.** Cada palavra que não está na lista é um lead perdido em silêncio,
+e silêncio não aparece em relatório nenhum. Gatilho de canal deve ser
+pega-tudo, e a filtragem, se precisar, é trabalho do agente — que ao menos
+deixa rastro do que decidiu.
