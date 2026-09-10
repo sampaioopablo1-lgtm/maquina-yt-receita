@@ -285,3 +285,30 @@ A campanha WPP I CONVERSA I FS1 continua em **zero impressão** nos três conjun
 mais de cinco horas depois de ativada. As 15 imagens que entraram hoje estão em
 PENDING_REVIEW, o que explica as imagens — não explica os vídeos, que estão ACTIVE
 desde 08h16. Hipótese que sobra: o vínculo do número Comercial com a página.
+
+## 10/09/2026, 12h15 — a máquina inteira rodou sozinha pela primeira vez
+
+Julio Cesar Ctheadoro (21 99276-7239) clicou no anúncio de WhatsApp às 11h22 e
+escreveu "Olá! Posso ter mais informações sobre isso?". A IA respondeu em **12
+segundos** e conduziu a qualificação até o fim: descobriu que ele fecha poucos
+clientes, que "depende do clima", que vive de indicação boca a boca e que
+precisa de cliente "pra ontem". O negócio subiu sozinho para Qualificação.
+
+Anúncio → conversa → IA → etapa do funil, sem ninguém tocar. É a primeira vez.
+E prova o desenho do Clique-para-WhatsApp: o lead fala primeiro, a janela de
+24h abre, e a IA responde em texto livre sem depender de template.
+
+**Três defeitos apareceram na mesma conversa:**
+
+1. **Áudio mata o agente.** Julio mandou dois áudios (15h06, 15h07). A IA não
+   transcreve — respondeu "vou chamar o Pablo" nas duas e o lead ficou parado.
+2. **Horário fora da regra.** A IA ofereceu "hoje às 19h ou amanhã às 19h". A
+   regra do Pablo é 17h30 ou 18h30, teto 21h30.
+3. **Pergunta repetida.** Às 14h23:04 e 14h23:22 a IA fez a mesma pergunta duas
+   vezes. Quando o lead manda duas mensagens em segundos, o agente responde as
+   duas em paralelo e se atropela.
+
+Os três são configuração do agente, na tela de agentes da Clint. **Não consigo
+editar isso pelas ferramentas que tenho** — o MCP da Clint lê agentes
+(list_ai_agents) e monta automações, mas não escreve o prompt do agente. É mão
+do Pablo, ou meu, pela interface.

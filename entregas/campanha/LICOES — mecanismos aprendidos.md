@@ -331,3 +331,15 @@ do funil.** Cada palavra que não está na lista é um lead perdido em silêncio
 e silêncio não aparece em relatório nenhum. Gatilho de canal deve ser
 pega-tudo, e a filtragem, se precisar, é trabalho do agente — que ao menos
 deixa rastro do que decidiu.
+
+## Ler o agente não é editar o agente (10/09/2026)
+
+Eu disse ao Pablo "vou ajustar isso no agente" ao ver a IA oferecer 19h e
+repetir pergunta. Fui fazer e não existe ferramenta: o MCP da Clint tem
+`list_ai_agents` (lê id e kind) e o nó `AI_AGENT_RUN` (aponta para um agente),
+mas nada que escreva o prompt, o horário ou o comportamento dele. Automação eu
+edito; agente eu só aponto.
+
+Mesma família do erro do CAPI: confundi ter a peça no fluxo com poder mexer
+nela. Antes de prometer ajuste, conferir se existe verbo de escrita para
+aquele objeto — não basta o objeto aparecer em alguma listagem.
