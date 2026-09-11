@@ -238,6 +238,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - academia + musculação + Copacabana/Botafogo ✔ (**zero resultados**)
 - arquitetura + design de interiores + Tijuca ✔ (7 resultados, 2 aproveitáveis — 1 Trilha A)
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
+- odontologia + implante + Tijuca ✔ (**66 resultados** — maior lote do nicho; 6 aproveitáveis, 1 Trilha A. Metade do resultado é Barra da Tijuca, não Tijuca: o termo "Tijuca" puxa os dois bairros e isso precisa ser filtrado na leitura)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -1025,3 +1026,40 @@ nenhum** — o mais antigo no ar desde **julho de 2025**, catorze meses. Oito an
 **Leitura:** o Méier não tem mercado de veterinária no Meta — tem *um* anunciante. Confirma o que
 a rodada anterior já dizia: o mapa fechou. **Esta foi a última varredura de hora em hora.** A
 partir daqui a varredura passa a ser semanal e o trabalho é abordar os ~40 já catalogados.
+
+---
+
+## Achados de 11/09, 15h20 — odontologia + implante + Tijuca (66 anúncios)
+
+O maior lote que o nicho já devolveu. **Metade não serve:** o termo "Tijuca" puxa
+também a Barra da Tijuca, que é outro bairro e outro público. Lição para as
+próximas varreduras: em "Tijuca" é preciso separar os dois na leitura, não no termo.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Doutor Sorriso - Tijuca RJ** | **11 anúncios ativos e os 11 com o mesmo título: "Converse conosco"**. Junta os dois defeitos — título que não diz nada e quantidade disputando o próprio leilão | `992383317291785` | 11/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1022051644007713) |
+| **Dr. Rhuan Salgado** — *Trilha A* | título **"Chat with us"**, em inglês, num anúncio para paciente do Rio. É o texto padrão do botão que ninguém trocou | `101285671966616` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3347323702136540) |
+| **Clínica Odontológica Oral Unic Tijuca** | "Clique Aqui e Fale Conosco!" — e o nome da página tem **"Tiijuca"**, com dois ii | `105347062291972` | 12/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1399492002105769) |
+| **Bel Sorriso Tijuca - RJ** | anúncio **sem título nenhum** | `102607924547785` | 25/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1798187101174114) |
+| **Clínica Moretti & Carraro Implantes** | anúncio **sem título nenhum** | `661586927030361` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2326256011241930) |
+| **SX Odonto** | título é **"5.0 ⭐527 - Clientes Satisfeitos"** — estrela e número no lugar da frase; não diz serviço nem bairro | `724982247368775` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1385593973164082) |
+
+**O caso Doutor Sorriso é o melhor desta rodada** e a abertura escreve sozinha:
+
+> Oi, aqui é o Pablo, do Rio. Não sou paciente. Vi que vocês têm **onze anúncios
+> ativos agora**, e os onze com o mesmo título: "Converse conosco". Dois problemas
+> aí: o título não diz o que vocês fazem nem que é na Tijuca, e onze anúncios
+> iguais disputam o mesmo leilão entre si — costuma subir o custo sem trazer mais
+> paciente. Isso veio da configuração ou foi proposital?
+
+**Dr. Rhuan Salgado (Trilha A, abordagem direta):**
+
+> Dr. Rhuan, aqui é o Pablo, do Rio. Não sou paciente, e não vim vender nada agora.
+> O seu anúncio está no ar com o título **"Chat with us"**, em inglês — é o texto
+> padrão do botão, que costuma passar batido na hora de publicar. Quem vê no
+> feed não entende que é consultório no Rio. Quer que eu te mostre onde troca?
+
+**Quem está acertando (referência, não abordar):** *BB Oral Clinic* — "Implante
+Dentário na Barra da Tijuca/RJ: Recupere o Prazer de Sorrir e Mastigar". Serviço,
+bairro e benefício numa linha só. (Mas eles também rodam onze cópias de um
+anúncio com pergunta longa — acertaram num, erraram no outro.)
