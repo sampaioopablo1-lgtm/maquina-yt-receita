@@ -154,30 +154,75 @@ PECAS = [
     # de ler o titulo que o Pexels devolveu: as genericas traziam vendedor de
     # rua em Manila e advogado asiatico. Campanha e no Rio — o rosto precisa
     # ser do publico. O teste mede formato, nao assunto; quem confere e quem le.
+    # FN03, FN04, FN06 e FN07 tinham busca generica demais e o Pexels devolveu
+    # exatamente as mesmas quatro fotos ja usadas em TF09, BF01, BF02 e BF05.
+    # Foto repetida entre duas pecas no ar e a campanha se cancelando: o feed
+    # mostra as duas para a mesma pessoa e a segunda nao existe. Nenhum teste
+    # pega isso — a conferencia e contar pexels_id repetido em creditos.json.
     ("FN01_e_quando_parar", "topo", "brazilian man mustache portrait worried",
      "AGÊNCIA DE ANÚNCIOS", "E quando a indicação parar?",
      "Fazemos anúncios que trazem cliente novo todo dia no seu WhatsApp.", "Veja como funciona"),
     ("FN02_pare_comece", "topo", "latin man holding laptop thinking",
      "AGÊNCIA DE ANÚNCIOS", "Pare de esperar indicação. Comece a anunciar.",
      "Cliente novo todo dia, sem depender de quem lembra de você.", "Veja como funciona"),
-    ("FN03_nao_e_gasto", "topo", "financial charts screen analytics",
+    ("FN03_nao_e_gasto", "topo", "business owner reviewing results tablet",
      "AGÊNCIA DE ANÚNCIOS", "Anúncio não é gasto. É cliente entrando.",
      "A gente faz os anúncios na internet. Você atende no WhatsApp.", "Veja como funciona"),
-    ("FN04_quero_cliente", "topo", "happy business owner smartphone notification",
+    ("FN04_quero_cliente", "topo", "businesswoman smiling at phone office",
      "AGÊNCIA DE ANÚNCIOS", "Quero cliente novo todo dia",
      "Fazemos seus anúncios na internet. Você só atende quem chega.", "Veja como funciona"),
     ("FN05_quem_lembra", "topo", "latin man suit sitting beside table",
      "AGÊNCIA DE ANÚNCIOS", "Seu faturamento depende de quem lembra de você",
      "Com anúncio no ar, cliente novo chega todo dia no seu WhatsApp.", "Veja como funciona"),
-    ("FN06_dois_por_mes", "topo", "calendar desk anxiety",
+    ("FN06_dois_por_mes", "topo", "monthly planner notebook desk",
      "AGÊNCIA DE ANÚNCIOS", "Indicação traz dois por mês. Anúncio traz todo dia.",
      "Fazemos anúncios na internet para o seu WhatsApp não parar.", "Veja como funciona"),
-    ("FN07_so_toca_quando", "topo", "smartphone many messages notification",
+    ("FN07_so_toca_quando", "topo", "phone screen chat conversation close up",
      "AGÊNCIA DE ANÚNCIOS", "Seu WhatsApp só toca quando alguém indica",
      "Nossos anúncios fazem ele tocar todo dia, com cliente novo.", "Veja como funciona"),
     ("FN08_ja_fatura", "fundo", "man brown apron arms crossed shop",
      "PARA QUEM JÁ VENDE", "Você já fatura. Falta parar de depender de indicação.",
      "Anúncios na internet trazendo cliente novo todo dia no WhatsApp.", "Agende 20 minutos"),
+
+    # --- PC: a pergunta do Pablo, em dez portas ---------------------------
+    #
+    # A copy que ele escreveu: "Voce precisa anunciar o seu negocio para ter
+    # novos clientes? Clique aqui que te ajudamos a conquistar o proximo
+    # cliente." A segunda frase e o nome da agencia dito como promessa — o
+    # proximo cliente. Isso nao se joga fora: fecha as dez.
+    #
+    # A pergunta e o gancho porque o leitor responde dentro da cabeca antes
+    # de decidir se le o resto, e quem responde "sim" ja entrou.
+    ("PC01_precisa_anunciar", "topo", "brazilian shop owner behind counter",
+     "AGÊNCIA DE ANÚNCIOS", "Você precisa anunciar para ter cliente novo?",
+     "A gente faz o anúncio. Você conquista o próximo cliente.", "Clique aqui"),
+    ("PC02_um_anuncio_de_distancia", "topo", "latin woman small business phone",
+     "AGÊNCIA DE ANÚNCIOS", "Seu próximo cliente está a um anúncio de distância",
+     "Fazemos anúncios na internet que caem no seu WhatsApp.", "Clique aqui"),
+    ("PC03_ninguem_ve", "topo", "empty store interior daylight",
+     "AGÊNCIA DE ANÚNCIOS", "Seu negócio é bom. O problema é que ninguém vê.",
+     "Anúncio na internet é como quem precisa de você te encontra.", "Clique aqui"),
+    ("PC04_nao_e_visto", "topo", "brazilian man working workshop",
+     "AGÊNCIA DE ANÚNCIOS", "Quem não é visto não é contratado",
+     "Fazemos seu negócio aparecer para quem já quer comprar.", "Clique aqui"),
+    ("PC05_ja_quer_comprar", "topo", "person searching phone street",
+     "AGÊNCIA DE ANÚNCIOS", "Anunciar é aparecer para quem já quer comprar",
+     "A gente coloca você na frente dessa pessoa. Todo dia.", "Clique aqui"),
+    ("PC06_ha_quanto_tempo", "topo", "calendar wall office simple",
+     "AGÊNCIA DE ANÚNCIOS", "Há quanto tempo você não anuncia seu negócio?",
+     "Enquanto isso, o concorrente anuncia e leva o seu cliente.", "Clique aqui"),
+    ("PC07_esperar_ou_chegar", "topo", "shop owner waiting counter empty",
+     "AGÊNCIA DE ANÚNCIOS", "Sem anúncio você espera. Com anúncio eles chegam.",
+     "Fazemos os anúncios. Você só atende quem aparece.", "Clique aqui"),
+    ("PC08_te_ajudamos", "topo", "two people meeting handshake office",
+     "AGÊNCIA DE ANÚNCIOS", "Te ajudamos a conquistar o próximo cliente",
+     "Anúncios na internet trazendo gente nova para o seu WhatsApp.", "Clique aqui"),
+    ("PC09_clique_e_conquiste", "fundo", "happy salon owner welcoming client",
+     "PARA QUEM QUER COMEÇAR", "Clique e conquiste o próximo cliente",
+     "20 minutos para entender seu negócio e montar o anúncio.", "Agende 20 minutos"),
+    ("PC10_no_ar_esta_semana", "fundo", "laptop workspace planning desk",
+     "PARA QUEM QUER COMEÇAR", "Seu anúncio pode estar no ar esta semana",
+     "A gente escreve, publica e acompanha. Você atende no WhatsApp.", "Agende 20 minutos"),
 ]
 
 
