@@ -1062,3 +1062,38 @@ publicar, e aí o Pablo só aperta publicar. Vale testar na hora.
    "Dez peças para o Gerenciador".
 3. **Esperar o rascunho ou o Modo ativo.** A única que não custa trabalho
    nenhum, e a única cuja data não depende de nós.
+
+## O que o guia do Vini Ensina corrigiu aqui — e o que ele não resolve
+
+O Pablo mandou aprender com `viniensina.com.br/como-usar-claude-criar-anuncios-meta-ads`.
+Lido inteiro. Três coisas mudam o nosso trabalho e uma precisa ser dita com
+clareza.
+
+**1. Título comprido demais. Medido, não achado.** O guia manda até 27
+caracteres. As 10 peças AG têm **média de 39**, e quatro passam de 40 — AG02
+(41), AG09 (42), AG05 (46), AG03 (47). O dado que fecha o argumento não é o guia,
+é a nossa própria conta: o **V10, que gera lead a R$1,71, tem 32 caracteres**.
+Ou seja, a peça que funciona é mais curta que sete das dez que eu escrevi.
+Encurtar AG02, AG03, AG05 e AG09 antes de publicar.
+
+**2. Eu estava testando duas variáveis de uma vez.** O guia descreve o ciclo de
+escala: achar o vencedor, e então criar variações **mudando UM elemento por vez**
+— só o gancho, só o título, só a prova, só o CTA. As peças AG mudam **arte E
+copy** em relação ao V10 ao mesmo tempo. Se uma delas ganhar, não vamos saber se
+foi a foto ou a frase. Isso não invalida as dez (elas são um lote novo, não um
+teste do V10), mas a **próxima rodada** tem que isolar: mesma arte do V10 com
+título novo, ou mesma copy do V10 com arte nova.
+
+**3. Briefing fixo em vez de pedido solto.** Até aqui cada lote nascia de um
+pedido de uma linha e o contexto era remontado na hora. O template do guia virou
+`BRIEFING — O Próximo Cliente (colar antes de pedir copy).md`, preenchido com o
+que já foi **medido** nesta conta, não com suposição — incluindo a segmentação
+real do conjunto que converte e o botão `SIGN_UP` do V10.
+
+**O que o guia NÃO resolve — e é importante não confundir.** A seção de MCP dele
+trata de **leitura**: comparar CPA, achar conjunto sem conversão, gerar resumo
+semanal. Os conectores que ele cita (Adzviser, PorterMetrics) são de relatório.
+A própria tabela dele diz "melhor para: análise recorrente com dados ao vivo".
+Ele não cria anúncio, não cria criativo e **não menciona formulário instantâneo
+em nenhum momento**. Portanto ele não contradiz nada do que medimos: continua
+valendo que criar criativo de lead exige app em Modo ativo ou o Gerenciador.
