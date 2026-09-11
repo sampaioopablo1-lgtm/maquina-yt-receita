@@ -573,3 +573,49 @@ deixa de importar.
 **Suspeita a conferir:** o b-roll dos vídeos lê a mesma chave pelo mesmo
 caminho e cai em fallback silencioso por desenho. Pode estar rendendo vídeo sem
 footage desde 09/09 sem nunca ter acusado.
+
+---
+
+## O anúncio chamado "vídeo E" era uma imagem — e era o único que dava lead
+
+11/09/2026. O Pablo mandou desativar o V10 e todos os anúncios de vídeo. Antes de
+pausar, fui ver o criativo por dentro. **V01 a V09 são `object_type: VIDEO`. O V10
+é `object_type: SHARE`, com `image_hash`** — é uma imagem estática, apesar do nome
+"Cliente todo dia (vídeo E)".
+
+O V10 é o único dos dez que gerou lead: 4 hoje, a R$2,24, com CTR de 3,1% a 3,5%
+contra os nove vídeos que não entregaram nada. **A imagem já tinha ganhado dos nove
+vídeos, e ninguém sabia porque o nome dizia vídeo.**
+
+Duas lições, e a segunda é a que importa:
+
+1. Nome de anúncio não é dado. `object_type` é. Um nome errado sobrevive a todas
+   as rodadas de análise porque ninguém desconfia de um rótulo.
+2. **Se eu tivesse obedecido "pause todos os vídeos" pela lista de nomes, teria
+   pausado o V10 junto** — e desligado a única coisa da conta que produz lead,
+   deixando os dois conjuntos de formulário com zero anúncio. A conferência de um
+   campo custou uma chamada; o erro teria custado o funil inteiro.
+
+A imagem do V10 é a `BF02_whatsapp_cheio` (hash `7c124f9d162408dc638dddc8c58d01c9`).
+
+### E o upload de imagem está bloqueado nesta conta
+
+`ads_creative_upload_media` e `ads_creative_upload_image` devolvem *"This tool is
+new and is being gradually rolled out across ad accounts"* para a conta
+1695865631502778. Consequência prática: **as 44 peças novas não entram no Meta por
+aqui.** Só dá para montar criativo com imagem que já esteja na biblioteca da conta —
+e o que está lá são as 20 artes antigas, da fase de mentoria.
+
+### E não há ferramenta para formulário instantâneo
+
+Criar anúncio em conjunto `LEAD_GENERATION` com `destination_type: ON_AD` exige
+`lead_gen_form_id` no criativo. Nenhuma ferramenta do MCP lista, cria ou expõe esse
+id, e `ads_create_creative` não tem o parâmetro. Tentativas que falharam, as duas
+com `Missing Lead Form (3390001)`:
+
+- `ads_create_ad` com `creative_id` de criativo novo;
+- `ads_create_ad` com `source_ad_id` do V10 **mais** `creative_id` — duplicar não
+  arrasta o formulário quando o criativo é sobrescrito.
+
+Enquanto esse id não vier do Pablo, criativo novo de formulário fica pronto na
+conta mas não vira anúncio.
