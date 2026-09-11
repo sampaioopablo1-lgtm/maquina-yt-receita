@@ -187,3 +187,85 @@ próprio workflow baixa), compor com o `modelo_v10.py`, subir no Drive e criar o
 anúncio por `image_url`. Não executei porque é caminho longo e não testado ponta a
 ponta — vale fazer com tempo, não no fim da noite, e o Pablo precisa ver a arte antes
 de ela substituir o único anúncio que dá lead.
+
+---
+
+# Adendo 2 (12/09, 00h) — a peça pedida já existia; e uma chave vazou
+
+## O pedido
+
+O Pablo apontou qual anúncio ele queria replicado, pelo texto da arte:
+*"Acordar com o whatsapp Cheio de Clientes todo dia sem depender de indicação"*.
+
+## A descoberta que economizou a rodada inteira
+
+Antes de tentar gerar arte nova, fui conferir o que já existia. **A peça pedida já
+estava pronta e no ar: a AG01.** Ela é a arte do V10 com exatamente a troca que o
+Pablo pediu:
+
+| | V10 (com foto do Pablo) | AG01 (já no ar) |
+|---|---|---|
+| linha sans | acordar com o WhatsApp | acordar com o WhatsApp |
+| linha cursiva | cheio de cliente | cheio de cliente |
+| botão na arte | QUERO ISSO NO MEU NEGÓCIO | QUERO ISSO NO MEU NEGÓCIO |
+| **etiqueta** | **MENTORIA O PRÓXIMO CLIENTE** | **AGÊNCIA O PRÓXIMO CLIENTE** |
+| **foto** | **pablo_IMG_2325.jpg** | **foto de banco, não é o Pablo** |
+
+Confirmei que as artes são mesmo distintas comparando os hashes de imagem no Meta:
+o V10 serve `788952054_...` e a AG01 serve `803267693_...`. São arquivos diferentes.
+
+**Consequência:** os três bloqueios de geração de arte documentados no adendo 1
+(Pexels negado, `fontes/` e `fotos/` ausentes, `PEXELS_API_KEY` não cadastrada) eram
+reais mas **irrelevantes para este pedido**. Não era preciso gerar nada. A lição é
+velha e voltou a se pagar: conferir o que já existe antes de construir.
+
+Única diferença remanescente para o original: a linha de apoio. O V10 diz *"todo dia,
+sem depender de indicação"* e a AG01 diz *"a gente faz o anúncio, você só atende"*.
+O tema "sem depender de indicação" existe na AG02, que também está ativa no conjunto
+de interesse. Não achei que valesse uma arte nova só por essa linha — mas fica
+registrado como o delta, caso o Pablo queira a frase literal.
+
+## O que foi executado
+
+1. **Clonada a AG01 para o conjunto CNAE RJ**, onde ela não existia. Anúncio
+   `120247396147800766` em `120247356496360766`, reusando o criativo
+   `2374168726451823` por `creative_id` — o que também carregou o formulário de
+   lead junto, sem esbarrar no `Missing Lead Form (3390001)` que travou a rodada
+   anterior. `ads_get_errors`: `[]`. Criado pausado, verificado, depois ativado.
+2. **Pausados os dois anúncios V10 com a foto do Pablo**: `120247356537060766` e
+   `120247356513990766`.
+
+Ordem deliberada: a substituta subiu e foi verificada **antes** de a original cair,
+para nenhum conjunto ficar descoberto em nenhum momento.
+
+## Risco assumido, dito na cara
+
+O V10 era **o único anúncio da conta com histórico de lead comprovado** (12 leads,
+custo caindo de R$23 para R$2,55 em quatro dias). A AG01 tem a mesma arte e a mesma
+promessa, mas número próprio ainda não tem. É esperado que o custo por lead oscile
+por dois ou três dias enquanto o Meta reaprende. Gatilho de alarme já combinado com o
+Pablo: **custo por lead acima de R$8,00 por dois dias seguidos** = avisar.
+
+## Incidente de segurança — chave da Clint exposta
+
+O Pablo colou no chat uma chave viva de produção da Clint (prefixo `clint_live_`).
+A chave **não foi usada, não foi gravada em arquivo nenhum e não está neste
+repositório** — e não está reproduzida aqui de propósito.
+
+Orientação dada: **revogar e gerar outra no painel da Clint**, e não reenviar a nova
+pelo chat.
+
+Vale registrar que a chave também **não resolveria nada**: o próprio Pablo havia
+escrito, na mensagem anterior, que o MCP da Clint usa OAuth pelo navegador e que não
+existe chave de API. Ele estava certo. A chave foi exposta sem ter utilidade aqui.
+
+## Por que a Clint continua desconectada
+
+Verificado nesta sessão: o CLI `claude` existe, mas **não há nenhum servidor MCP em
+arquivo de configuração** (`/root/.claude.json` tem a lista vazia). Os conectores
+desta sessão vêm da conta claude.ai, não de um `.mcp.json` local. E o passo de
+`Authenticate` abre navegador, que esta sessão remota não tem.
+
+Caminho correto, do lado do Pablo: claude.ai → Configurações → Conectores → adicionar
+conector personalizado → URL `https://mcp.clint.digital`, tipo HTTP → Conectar e
+fazer o login. Aí vale para todas as sessões.
