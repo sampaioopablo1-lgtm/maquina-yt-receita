@@ -112,7 +112,11 @@
 3. **120247353022060766** (Semelhante CNAE RJ)
 4. **120247335600450766** (Interesse geral)
 
-**Total**: 4 ad sets × 10 imagens = **40 imagens** para produzir via Pixels
+**Produção**: 10 imagens únicas, replicadas nos 4 conjuntos = **40 anúncios**.
+Não são 40 imagens. O criativo é o mesmo, o que muda é o público — assim dá para comparar
+a mesma imagem entre conjuntos e a produção cai para 1/4.
+
+Buscas e critérios de escolha: `SOURCING — 10 imagens Pexels.md`
 
 ---
 
@@ -121,7 +125,7 @@
 - [x] Remover vídeos da estratégia
 - [x] Definir 10 padrões high-converting (V4 Company reference)
 - [x] Atualizar framework de criativos
-- [ ] Sourcing de 40 imagens via Pixels (prioritário: 1-3)
+- [ ] Baixar 10 imagens no Pexels (prioritário: 1-3)
 - [ ] Upload no Meta Ads Manager
 - [ ] Criar variações de headlines para cada imagem
 - [ ] Ativar rotação nos 4 ad sets
