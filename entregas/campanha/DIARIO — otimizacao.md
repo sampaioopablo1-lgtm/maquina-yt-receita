@@ -312,3 +312,63 @@ Os três são configuração do agente, na tela de agentes da Clint. **Não cons
 editar isso pelas ferramentas que tenho** — o MCP da Clint lê agentes
 (list_ai_agents) e monta automações, mas não escreve o prompt do agente. É mão
 do Pablo, ou meu, pela interface.
+
+## Revisão de sexta — 11/09/2026, 21h
+
+**Versão enxuta por pedido do Pablo (crédito acabando).** Prospect Halo e Clint
+ficaram de fora: a chave `ph_live` se perdeu no reinício do sandbox e o Clint
+está em `needs_reconnect`. Então os números abaixo são **só do Meta**, e a
+pergunta sobre reuniões fica sem resposta medida — não vou inventar.
+
+### Os números
+
+`last_7d` no Meta **não inclui hoje**. Isso separa a semana em duas fotos, e a
+diferença é a notícia da semana.
+
+| | 7 dias anteriores | Hoje |
+|---|---|---|
+| Gasto | R$113,09 | R$12,79 |
+| Leads | 6 | **6** |
+| Custo por lead | **R$18,85** | **R$2,13** |
+
+Por conjunto, nos 7 dias anteriores:
+
+| Conjunto | Gasto | Leads | Custo/lead |
+|---|---|---|---|
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | R$18,95 | 4 | R$4,74 |
+| LEADS I INTERESSE I FASE 3 | R$17,51 | 1 | R$17,51 |
+| LEADS I LISTA CNPJ + QUENTE I FASE 1 | R$35,73 | 1 | **R$35,73** |
+| INT I DONOS (topo, vídeo) | R$40,90 | 741 thruplays | R$0,06 |
+
+### A leitura
+
+**O funil destravou em VOLUME hoje, e o motivo tem nome: o V10.** Em um único
+dia ele entregou o mesmo número de leads que a semana inteira anterior, a **um
+nono do custo**. Não é ruído de amostra pequena a ponto de ignorar: é 9× na
+mesma conta, no mesmo público, no mesmo dia em que o criativo mudou.
+
+**Onde o dinheiro está sendo mal gasto:** `LISTA CNPJ + QUENTE I FASE 1` levou
+**R$35,73 — o maior gasto da semana** — e trouxe 1 lead. É o conjunto mais caro
+e o menos produtivo. Candidato óbvio a pausa, mas **gerou lead dentro de 48h**,
+então a trava 2 da REGRA — corte de anúncio em 48 horas impede pausar agora.
+Reavaliar na segunda.
+
+**O topo está barato e saudável:** R$0,06 por ThruPlay, 741 na semana. Não mexer.
+
+**Sobre a projeção de 08/09** (7 dias: 0 a 2 reuniões): **não consigo medir**.
+Sem Clint e sem Prospect Halo eu não vejo reunião marcada. O que dá para afirmar
+é a etapa anterior: 12 leads no total, 6 deles hoje.
+
+### O que mudei nesta semana
+
+Nada de orçamento, nada de pausa. As mudanças foram de criativo: as 10 peças AG
+entraram nos dois conjuntos de fundo, **pausadas**, cópia do criativo do V10 com
+arte e copy novas (ver `LOG — 10 pecas no formulario via Windsor 11-09.md`).
+
+### Plano da semana que vem
+
+1. O Pablo ativa **2 desafiantes por conjunto** — 3 anúncios no total por
+   conjunto, contando o V10 como controle.
+2. Segunda: reavaliar `LISTA CNPJ + QUENTE I FASE 1` com a janela de 48h vencida.
+3. Reconectar Clint e regenerar a chave do Prospect Halo — sem isso a revisão de
+   sexta continua cega da metade do funil, que é justamente a parte de reunião.
