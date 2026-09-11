@@ -33,7 +33,7 @@ def peca(**troca):
         "image_hash": "abc123",
         "headline": "Manchete",
         "message": "Corpo do anuncio.",
-        "cta": "Candidatar-se",
+        "cta": "APPLY_NOW",
     }
     base.update(troca)
     return base
@@ -135,3 +135,26 @@ def test_nao_liga_se_o_conjunto_ficar_com_menos_de_dois_ativos():
         assert A.pode_ativar("999", "tok", entrando=2) is True
     finally:
         A._chamar = original
+
+
+def test_cta_com_rotulo_em_vez_de_tipo_reprova():
+    # "Candidatar-se" e o rotulo que aparece no botao; o tipo da API e
+    # APPLY_NOW. Na primeira versao o campo era exigido e nunca usado, entao o
+    # spec podia dizer uma coisa e o anuncio sair com outra.
+    assert A.conferir_spec([peca(cta="Candidatar-se")])
+
+
+def test_o_cta_do_spec_chega_no_criativo():
+    enviado = {}
+
+    def falso(caminho, token, dados=None, metodo=None):
+        enviado.update(dados)
+        return {"id": "1"}
+
+    A._chamar, original = falso, A._chamar
+    try:
+        A.criar_criativo("123", peca(cta="APPLY_NOW"), "tok")
+    finally:
+        A._chamar = original
+    spec = json.loads(enviado["object_story_spec"])
+    assert spec["link_data"]["call_to_action"]["type"] == "APPLY_NOW"

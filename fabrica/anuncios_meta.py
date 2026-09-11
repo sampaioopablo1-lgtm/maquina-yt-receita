@@ -10,7 +10,7 @@ de lead nesta conta. Medido em 11/09/2026, com o `lead_gen_form_id` correto:
     If the Page has already accepted, this request cannot be completed over
     MCP; use Ads Manager.
 
-A pagina JA aceitou os termos (`leagen_tos_accepted: true`, medido em 09/09). O
+A pagina JA aceitou os termos (`leadgen_tos_accepted: true`, medido em 09/09). O
 que falta e a conexao poder LER essa aceitacao. Um token de usuario do sistema
 com `pages_manage_ads` le, e a documentacao da Meta trata esse token como o
 caminho de automacao: ele nao depende de ninguem estar logado e nao expira.
@@ -85,6 +85,11 @@ def conferir_spec(spec):
     """
     problemas = []
     vistos = set()
+    # Tipos que fazem sentido num anuncio de formulario instantaneo. APPLY_NOW
+    # e "Candidatar-se", que e o que FORMULARIO — campanha 2 decidiu: "Saiba
+    # mais" convida a passear, "Candidatar-se" avisa que existe um criterio.
+    CTAS = ("APPLY_NOW", "SIGN_UP", "LEARN_MORE", "GET_QUOTE", "SUBSCRIBE",
+            "DOWNLOAD", "GET_OFFER", "BOOK_NOW", "CONTACT_US")
     for i, p in enumerate(spec):
         onde = p.get("slug") or f"peca {i}"
         for campo in ("slug", "conjunto", "form_id", "headline", "message", "cta"):
@@ -95,6 +100,9 @@ def conferir_spec(spec):
         for campo in PROIBIDOS:
             if campo in p:
                 problemas.append(f"{onde}: `{campo}` nao passa por aqui — orcamento e do Pablo")
+        if p.get("cta") and p["cta"] not in CTAS:
+            problemas.append(f"{onde}: `cta` precisa ser um tipo da Meta "
+                             f"({', '.join(CTAS)}), nao um rotulo")
         chave = (p.get("slug"), p.get("conjunto"))
         if chave in vistos:
             problemas.append(f"{onde}: repetido no mesmo conjunto")
@@ -125,7 +133,12 @@ def criar_criativo(conta, peca, token):
         "name": peca["headline"],
         "message": peca["message"],
         "call_to_action": {
-            "type": peca.get("cta_tipo", "SIGN_UP"),
+            # O `cta` do spec E o tipo da API, nao um rotulo solto. Na primeira
+            # versao ele era exigido e nao era usado: o botao saia sempre
+            # "Cadastre-se" enquanto o spec dizia outra coisa, e ninguem
+            # perceberia sem abrir o anuncio. Campo que nao faz nada e pior
+            # que campo que falta.
+            "type": peca["cta"],
             "value": {"lead_gen_form_id": str(peca["form_id"])},
         },
     }
