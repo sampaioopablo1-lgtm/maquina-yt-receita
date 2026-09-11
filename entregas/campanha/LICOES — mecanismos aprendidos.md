@@ -990,7 +990,7 @@ aberta sempre assina com o app do Pablo, que está em Development. Por isso os
 únicos caminhos que funcionam são os que assinam com um app de terceiro já Live
 (Supermetrics) ou o próprio app do Pablo virando Live.
 
-## O `leadgen_tos_accepted` é FALSE — e eu vinha dizendo o contrário
+## O `leadgen_tos_accepted` do conector é sempre FALSE — e não quer dizer nada
 
 Medido em 11/09/2026, `ads_get_ad_account_pages` na conta 1695865631502778:
 
@@ -998,26 +998,25 @@ Medido em 11/09/2026, `ads_get_ad_account_pages` na conta 1695865631502778:
 page_id: 1117439194786453  —  O Próximo Cliente  —  leadgen_tos_accepted: false
 ```
 
-Desde 09/09 eu vinha repetindo, em documento e em conversa, que "a Página já
-aceitou os termos e o que falta é a conexão poder LER essa aceitação". A
-mensagem do erro `1892181` oferece as duas hipóteses — *ou* a Página não aceitou
-*ou* a conexão não consegue ler — e eu escolhi a segunda e parei de checar. A
-ferramenta que devolve o campo direto estava disponível o tempo todo.
+Li isso como "a Página não aceitou" e mandei o Pablo aceitar. Ele mandou a tela
+da própria Meta: **"O Próximo Cliente" com o visto verde**, aceito. Tentei criar
+o anúncio de novo e voltou o mesmo `1892181`.
 
-O custo desse erro foi grande: mandou a investigação inteira para o lado do
-token de usuário do sistema, do modo do app, do Composio e do Supermetrics —
-tudo consequência de uma premissa que nunca foi conferida.
+Conclusão medida, agora dos dois lados: **o campo que o conector devolve não é a
+verdade da Página — é o que o conector consegue ler**, e ele não consegue. A
+própria mensagem de erro diz a frase inteira: *"reading it requires the
+pages_manage_ads permission on the Page, which the Ads MCP connection does not
+currently request. If the Page has already accepted, this request cannot be
+completed over MCP; use Ads Manager."*
 
-**A ação certa é de 30 segundos e não passa por painel de desenvolvedor:** abrir
-<https://www.facebook.com/legal/leadgen/tos> logado como administrador da Página
-"O Próximo Cliente" e aceitar os Termos de Geração de Leads.
+Ou seja: **o conector do claude.ai está permanentemente fora** para anúncio de
+formulário nesta conta. Não é estado, é desenho. Não retestar.
 
-Depois disso, reconferir com `ads_get_ad_account_pages`. Se o campo virar `true`,
-o conector cria o criativo de formulário direto — sem token, sem app em Modo
-ativo, sem app de terceiro. Se continuar `false` com a aceitação feita, aí sim a
-hipótese de permissão de leitura se sustenta, e o caminho volta a ser o
-`DESTRAVAR — os 4 campos que liberam o botao.md`.
+Isso fecha o mapa. Com os termos aceitos e confirmados, o único bloqueio que
+resta no caminho do token de usuário do sistema é o **modo do app** — nada mais.
+O conserto está em `DESTRAVAR — os 4 campos que liberam o botao.md`.
 
-**Lição de método:** quando o erro oferece duas causas, medir as duas antes de
-escolher uma. A que eu escolhi era a que exigia mais trabalho — e isso deveria
-ter sido o sinal.
+**Lição de método, a de verdade:** eu li um campo booleano como fato do mundo
+quando ele era fato da conexão. Quando uma ferramenta devolve "false" para algo
+que ela mesma avisa que não consegue ler, "false" significa "não sei".
+
