@@ -1,12 +1,12 @@
-name: Imagens dos anuncios — baixar do Pexels
+name: Criativos dos anuncios — gerar do Pexels
 
-# Existe porque a sessao do agente NAO alcanca o Pexels: a politica de egresso
-# nega CONNECT para pexels.com (403 no gateway, medido em 11/09/2026). O runner
-# alcanca, e a chave ja mora no Supabase que o broll.py le desde agosto — entao
-# o download acontece aqui e volta commitado no repo.
+# Existe porque a sessao do agente NAO alcanca o Pexels: o gateway de egresso
+# nega CONNECT para pexels.com (403, medido em 11/09/2026). O runner alcanca, e
+# a chave ja mora no Supabase que o broll.py le desde agosto — entao a geracao
+# acontece aqui e as pecas voltam commitadas.
 #
-# So workflow_dispatch: nao ha o que agendar. Roda quando a lista de pecas em
-# fabrica/imagens_anuncio.py muda.
+# So workflow_dispatch: roda quando a lista PECAS em
+# fabrica/criativos_anuncio.py muda, nao em horario.
 
 on:
   workflow_dispatch:
@@ -15,30 +15,48 @@ permissions:
   contents: write
 
 jobs:
-  baixar:
+  gerar:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Baixar as imagens
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar Pillow
+        run: pip install --quiet Pillow
+
+      # Sem isto a tipografia cai no DejaVu, que funciona mas nao tem o peso
+      # de uma peca paga. O Montserrat e o que a categoria usa.
+      - name: Baixar Montserrat
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/fontes
+          base=https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf
+          curl -sSLf -o /tmp/fontes/Montserrat-Bold.ttf "$base/Montserrat-Bold.ttf"
+          curl -sSLf -o /tmp/fontes/Montserrat-Regular.ttf "$base/Montserrat-Regular.ttf"
+
+      - name: Gerar as 20 pecas
         env:
           SB: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
           set -euo pipefail
-          python3 fabrica/imagens_anuncio.py | tee -a "$GITHUB_STEP_SUMMARY"
+          python3 fabrica/criativos_anuncio.py | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Commitar o que baixou
+      - name: Commitar o que foi gerado
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add entregas/campanha/imagens
-          # Sem mudanca nao ha commit: rodar de novo com as mesmas fotos e
-          # inofensivo em vez de gerar commit vazio a cada disparo.
+          # Rodar de novo com as mesmas fotos nao gera commit vazio.
           if git diff --cached --quiet; then
             echo "nada novo para commitar"
             exit 0
           fi
-          git commit -m "Imagens dos anuncios baixadas do Pexels (run ${GITHUB_RUN_ID})"
+          git commit -m "Criativos gerados do Pexels (run ${GITHUB_RUN_ID})"
           git push
