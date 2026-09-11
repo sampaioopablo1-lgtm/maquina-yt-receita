@@ -1,0 +1,96 @@
+name: Anuncios do Meta — publicar do spec
+
+# Existe porque o conector Ads MCP do claude.ai NAO cria anuncio de formulario
+# nesta conta. Medido em 11/09/2026, com o lead_gen_form_id correto:
+#
+#   Terms of Service Not Accepted (1892181) — reading it requires the
+#   pages_manage_ads permission on the Page, which the Ads MCP connection does
+#   not currently request.
+#
+# A pagina ja aceitou os termos desde 09/09. O que falta e a conexao poder LER
+# essa aceitacao. Um token de usuario do sistema com `pages_manage_ads` le — e a
+# documentacao da Meta trata esse token como o caminho de automacao, porque ele
+# nao depende de ninguem estar logado e nao expira.
+#
+# Resultado: um passo humano, UMA vez (gerar o token e guardar como segredo).
+# Depois disso, mexer no spec e dar push publica os anuncios sozinho.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ativar:
+        description: "Ligar os anuncios depois de criar (senao nascem pausados)"
+        type: boolean
+        default: false
+  # O dispatch pela API exige o arquivo no branch padrao, e este vive no branch
+  # de trabalho — a chamada volta 404. O gatilho de push resolve.
+  push:
+    branches: [claude/opc-pablo-reel-ryxld4]
+    paths:
+      - "entregas/campanha/ANUNCIOS — spec dos conjuntos.json"
+      - fabrica/anuncios_meta.py
+      - .github/workflows/anuncios-meta.yml
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Sem chave nao ha o que publicar, e isso NAO e falha de codigo: o job sai
+      # verde com um aviso. Vermelho cronico por um motivo ja conhecido e como
+      # se perde a atencao no vermelho que importa — licao do imagens-anuncio.yml.
+      - name: Ver se ha token
+        id: token
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+        run: |
+          set -uo pipefail
+          if [ -n "${META_ACCESS_TOKEN:-}" ]; then
+            echo "tem=sim" >> "$GITHUB_OUTPUT"
+          else
+            echo "tem=nao" >> "$GITHUB_OUTPUT"
+            {
+              echo "## Anuncios nao publicados: falta \`META_ACCESS_TOKEN\`"
+              echo ""
+              echo "O spec esta pronto e conferido, mas nao ha token para falar"
+              echo "com a Meta. Conserto, **uma vez so**:"
+              echo ""
+              echo "1. business.facebook.com -> Configuracoes do negocio ->"
+              echo "   Usuarios -> **Usuarios do sistema** -> Adicionar."
+              echo "2. Dar a ele acesso a conta de anuncios \`1695865631502778\`"
+              echo "   e a Pagina \`1117439194786453\`."
+              echo "3. **Gerar novo token** com: \`ads_management\`, \`ads_read\`,"
+              echo "   \`business_management\`, \`pages_manage_ads\`,"
+              echo "   \`pages_read_engagement\`, \`pages_show_list\`."
+              echo "4. Guardar em Settings -> Secrets -> Actions como"
+              echo "   \`META_ACCESS_TOKEN\`."
+              echo ""
+              echo "Depois disso este job publica sozinho a cada push no spec."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      # O portao do spec roda mesmo sem token: erro de JSON e de campo faltando
+      # aparece aqui, nao no meio de uma rodada com a conta aberta.
+      - name: Conferir o spec
+        run: python3 -m pytest tests/test_anuncios_meta.py -q
+
+      - name: Publicar
+        if: steps.token.outputs.tem == 'sim'
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_AD_ACCOUNT_ID: "1695865631502778"
+        run: |
+          set -euo pipefail
+          extra=""
+          if [ "${{ inputs.ativar }}" = "true" ]; then extra="--ativar"; fi
+          python3 fabrica/anuncios_meta.py \
+            "entregas/campanha/ANUNCIOS — spec dos conjuntos.json" $extra \
+            | tee -a "$GITHUB_STEP_SUMMARY"

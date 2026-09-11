@@ -703,3 +703,59 @@ erro diz para usar o Gerenciador. Registrado para nao gastar mais rodadas.
 O que da para fazer por aqui continua valendo: criar o criativo com a imagem
 (via `image_url`), pausar, renomear, ler numero. O passo final de anexar
 criativo a anuncio de lead e manual.
+
+---
+
+## O caminho automatico existe, e nao passa por conector nenhum
+
+11/09/2026. O Pablo pediu um caminho que rode sem ele. Pesquisei o repositorio,
+a conta e a documentacao da Meta. O resumo do que foi achado:
+
+**O que ja existia e nunca foi ligado.** `infra/cf-relay/` e `infra/meta-ads-mcp/`
+sao um rele escrito para injetar um token de usuario do sistema no servidor MCP
+oficial da Meta. Conferido na conta Cloudflare: **o worker `opc-meta-ads-relay`
+nao existe** — so `jazz-feed-vrsync`, `jazz-lead-conecta` e `throbbing-field-73e2`.
+O plano foi escrito e parou ali.
+
+**Por que o rele nem e o caminho mais curto.** O rele serve para o claude.ai
+falar com a Meta por um conector. Mas para PUBLICAR anuncio nao e preciso
+conector nenhum: basta chamar a Graph API com o token. Um workflow do Actions faz
+isso sem conector, sem OAuth e sem ninguem logado.
+
+**O que a documentacao da Meta confirma.** Token de usuario do sistema e o
+caminho de automacao: nao depende de pessoa logada, nao expira enquanto for
+mantido, e carrega `pages_manage_ads` — a permissao exata que falta na conexao
+MCP. ([Lead Ads](https://developers.facebook.com/documentation/ads-commerce/marketing-api/guides/lead-ads),
+[Meta Ads API 2026](https://admanage.ai/blog/meta-ads-api))
+
+**O que foi construido hoje.**
+
+| Arquivo | Papel |
+|---|---|
+| `fabrica/anuncios_meta.py` | fala direto com a Graph API: cria criativo com `lead_gen_form_id` dentro de `call_to_action.value`, cria o anuncio, e so liga se o conjunto ficar com 2+ entregando |
+| `entregas/campanha/ANUNCIOS — spec dos conjuntos.json` | qual peca vai para qual conjunto, com a copy. E o unico arquivo que muda entre rodadas |
+| `.github/workflows/anuncios-meta.yml` | roda a cada push no spec; sem token sai **verde** com o passo a passo no resumo |
+| `tests/test_anuncios_meta.py` | 21 testes: campo faltando, peca repetida, e **orcamento nunca passa** |
+
+**O piso honesto: um passo humano, uma vez.** Gerar o token exige uma pessoa no
+Business Manager — a Meta nao deixa isso ser automatizado, e nem deveria. Depois
+que ele estiver em `META_ACCESS_TOKEN`, nenhuma rodada precisa do Pablo:
+editar o spec e dar push publica.
+
+### Travas que o programa carrega
+
+Nao sao comentario, sao codigo que reprova:
+
+- **Orcamento nunca passa.** `daily_budget`, `lifetime_budget`, `bid_amount`,
+  `spend_cap` e afins reprovam o spec inteiro antes da primeira chamada.
+- **Nasce pausado.** Ligar e `--ativar`, uma decisao separada.
+- **Nunca deixa conjunto com menos de 2 anuncios entregando** (trava 3 da regra
+  de corte). Se ligar quebraria isso, cria pausado e diz por que.
+- **Idempotente.** Rodar duas vezes com o mesmo spec nao duplica: confere os
+  nomes que ja existem no conjunto.
+
+### E o que continua sem solucao por aqui
+
+`ads_creative_delete` tambem responde *"gradually rolled out"* nesta conta, entao
+os criativos de prova ficaram na conta nomeados `ZZ TEMP — ... (apagar)`. Sao
+quatro, sem anuncio ligado, sem custo. Apagar e manual no Gerenciador.
