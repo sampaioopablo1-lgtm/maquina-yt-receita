@@ -209,6 +209,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - energia solar + Campo Grande ✔ (**combinação queimada**: 341 resultados e nenhum do Rio — o termo puxa Campo Grande/MS e o interior de SP. Bairro com nome repetido em outro estado precisa de "RJ" no termo)
 - arquitetura + design de interiores + Barra ✔ (10 resultados, 3 aproveitáveis, 2 Trilha A)
 - fisioterapia + pilates + Niterói ✔ (8 resultados, 3 aproveitáveis, 1 Trilha A — inclui o `{{product.name}}` mais antigo já visto, de dezembro/2025)
+- odontologia + implante + Botafogo ✔ (**só 4 resultados** — bairro fraco para o nicho; 2 aproveitáveis, nenhum Trilha A)
 - harmonizacao facial + Tijuca ✔ (**168 resultados**, quase todos Barra da Tijuca; 6 aproveitaveis, 5 Trilha A — nicho mais rico ate agora em dono-no-nome)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 - veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
@@ -1198,3 +1199,28 @@ anúncio cujo título literalmente mostra código:
 **Descartados nesta rodada:** *Centro Fisio* ("Especialista on-line" — é oferta
 on-line, não local) e *AME Constelações* (título `api.whatsapp.com`, defeito
 bom, mas o nicho é terapia/constelação, fora da lista).
+
+## Achados de 11/09, 20h — odontologia em Botafogo
+
+Quatro anúncios ativos no bairro inteiro. Comparado com Tijuca (66) e Méier
+(103), **Botafogo não é bairro de odontologia** — vale parar de abrir esse nicho
+aqui. Ainda assim dois servem, e um deles está errando há nove meses.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **IRio Odontologia Botafogo** | o título é **"🔴 ATENÇÃO BOTAFOGO" repetido duas vezes** num anúncio, e sozinho no outro — grito, não motivo | `101116868406390` | **04/12/2025** — nove meses | [anúncio](https://www.facebook.com/ads/library/?id=2048926162404040) |
+| **CliniDoctor Botafogo** | "Inscreva-se agora e garanta sua vaga!" — instrução no lugar da razão, e "vaga" não diz de quê | `460095757179072` | 18/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2932348537118736) |
+
+**IRio (a abordagem da rodada):**
+
+> Boa tarde. Aqui é o Pablo, do Rio — não sou paciente. Vi o anúncio de vocês na
+> Biblioteca do Facebook: o título está saindo com "ATENÇÃO BOTAFOGO" escrito
+> duas vezes seguidas, e é a única coisa que a frase diz. Quem vê no feed não
+> descobre o que é implante, avaliação, preço. Está assim desde dezembro. Quer
+> que eu te mostre o que costuma funcionar no lugar?
+
+**Quem está acertando (referência, não abordar):** *Preven Odontologia* —
+"Dentes fixos". Duas palavras e você já sabe o que é.
+
+**Leitura de bairro:** odontologia rende em Tijuca, Méier, Niterói e Copacabana.
+Em Botafogo e Madureira, quase nada. Parar de cruzar odontologia com esses dois.
