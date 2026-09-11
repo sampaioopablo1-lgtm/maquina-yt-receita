@@ -9,6 +9,26 @@ Assim dá para comparar a mesma imagem em públicos diferentes.
 
 ---
 
+## Caminho automático (preferir este)
+
+O download não precisa ser manual. A chave do Pexels já mora no Supabase
+(`config.pexels_api_key`) desde que o b-roll foi montado em agosto, e o runner do
+GitHub Actions alcança a API — a sessão do agente não, a política de egresso nega.
+
+**Rodar**: aba Actions → "Imagens dos anuncios — baixar do Pexels" → Run workflow
+
+Ele baixa as 11 fotos (as 10 peças, com a 6 contando duas: loja vazia e loja cheia),
+salva em `entregas/campanha/imagens/` e commita junto o `creditos.json` com autor e
+link de cada uma. Rodar de novo não gera commit vazio.
+
+**Ressalva**: em repo privado isso consome a cota de minutos do Actions, que já
+esteve zerada (ver comentário no `diario.yml`). Se o run não disparar, é cota — e aí
+vale a lista manual abaixo, que leva ~15 min.
+
+Ajustar termos de busca: `fabrica/imagens_anuncio.py`, lista `PECAS`.
+
+---
+
 ## Critérios de seleção (vale para todas)
 
 - Pessoas brasileiras ou latinas quando houver pessoa na foto — público é PME brasileira

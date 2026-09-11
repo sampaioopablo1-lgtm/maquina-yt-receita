@@ -1,0 +1,44 @@
+name: Imagens dos anuncios — baixar do Pexels
+
+# Existe porque a sessao do agente NAO alcanca o Pexels: a politica de egresso
+# nega CONNECT para pexels.com (403 no gateway, medido em 11/09/2026). O runner
+# alcanca, e a chave ja mora no Supabase que o broll.py le desde agosto — entao
+# o download acontece aqui e volta commitado no repo.
+#
+# So workflow_dispatch: nao ha o que agendar. Roda quando a lista de pecas em
+# fabrica/imagens_anuncio.py muda.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  baixar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Baixar as imagens
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          python3 fabrica/imagens_anuncio.py | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commitar o que baixou
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add entregas/campanha/imagens
+          # Sem mudanca nao ha commit: rodar de novo com as mesmas fotos e
+          # inofensivo em vez de gerar commit vazio a cada disparo.
+          if git diff --cached --quiet; then
+            echo "nada novo para commitar"
+            exit 0
+          fi
+          git commit -m "Imagens dos anuncios baixadas do Pexels (run ${GITHUB_RUN_ID})"
+          git push
