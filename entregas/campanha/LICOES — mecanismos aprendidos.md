@@ -839,3 +839,47 @@ imagem. Suspeita testada e enterrada.
 **O que sobra enquanto o app nao vai ao ar:** o Gerenciador de Anuncios e, ele
 proprio, um "app ao vivo com todas as permissoes". Por isso o caminho manual
 funciona — e por isso os dez criativos `v2` ficaram prontos na conta.
+
+---
+
+## Trocar o criativo de um anuncio E permitido — eu tinha dito o contrario
+
+11/09/2026, 17h20. O Pablo pediu "nao precisa criar anuncio, somente mudar os
+criativos". Eu tinha respondido antes que **criativo e imutavel**, e isso estava
+**errado pela metade**.
+
+O que e imutavel e o **objeto criativo** — nao da para editar a imagem, o texto
+ou o botao de um criativo que ja existe. Mas o **ponteiro do anuncio para o
+criativo** e um campo comum, e trocar ele e operacao normal da API.
+
+A confusao veio da mensagem da ferramenta do conector, que respondeu:
+
+> *"Ad creatives are immutable and cannot be edited in place. To change media,
+> primary text, headline, or call to action, create a new creative ... then
+> create a new ad"*
+
+Isso e a validacao da **ferramenta**, nao da Meta. Ela junta as duas coisas numa
+frase e empurra para "crie outro anuncio", que e mais do que a Meta exige. Eu
+repeti a frase da ferramenta como se fosse regra da plataforma.
+
+**Medido, direto na Graph API com o token do sistema:**
+
+```
+POST /120247356513990766  creative={"creative_id":"2302151283936733"}
+-> [3390001] Formulário de lead ausente
+```
+
+A Meta **aceitou a operacao** e reprovou pelo conteudo: o criativo novo nao tem
+formulario. Se tivesse, a troca teria passado. O anuncio ficou intacto — conferido
+depois: mesmo criativo, ainda ACTIVE.
+
+**Licao:** mensagem de erro de ferramenta nao e documentacao da plataforma.
+Quando uma ferramenta diz "isso e impossivel", vale medir contra a API crua antes
+de repassar o impedimento adiante — sobretudo quando a frase junta duas coisas
+diferentes ("o criativo e imutavel" + "crie um anuncio novo").
+
+**O que isso muda na pratica:** nada no bloqueio, tudo no caminho. Quando o app
+sair do modo de desenvolvimento, nao sera preciso criar dez anuncios novos —
+da para **trocar o criativo dos anuncios que ja existem**, preservando o
+historico e o aprendizado do conjunto. E o caminho mais barato, e era o que o
+Pablo estava pedindo.
