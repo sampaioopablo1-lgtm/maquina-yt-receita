@@ -193,6 +193,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- energia solar + Tijuca ✔ (**40 resultados, mas o termo puxa Barra da Tijuca e devolve imobiliária** — só 2 páginas solares de verdade; 8 aproveitáveis novos, 2 Trilha A)
 - odontologia + Rio de Janeiro ✔
 - implante dentário + Tijuca ✔
 - harmonização facial + Rio ✔
@@ -1224,3 +1225,46 @@ aqui. Ainda assim dois servem, e um deles está errando há nove meses.
 
 **Leitura de bairro:** odontologia rende em Tijuca, Méier, Niterói e Copacabana.
 Em Botafogo e Madureira, quase nada. Parar de cruzar odontologia com esses dois.
+
+## Achados de 11/09, 23h — "energia solar + Tijuca" (o termo enganou, o lote prestou)
+
+**Lição do termo:** "Tijuca" sozinho puxa **Barra da Tijuca**, e "energia solar +
+Barra" já tinha dado zero. Resultado: 40 anúncios, e a esmagadora maioria é
+**imobiliária da Barra**, não solar. Só duas páginas solares apareceram. Mesmo
+assim o lote rendeu oito nomes novos — nenhum deles estava neste arquivo.
+
+Fica a regra, igual à de Campo Grande: **bairro com nome ambíguo precisa do nicho
+mandando no termo**, não o contrário.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Impact Houses** | título é **"Conversa connosco" repetido dez vezes** — e é português de Portugal, não do Brasil, anunciando em BRL | `330676320130971` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1044790391764555) |
+| **Griffe House Imobiliária** | **"Fale conosco" nove vezes** — o clássico: instrução no lugar do motivo | `102107268717812` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2263125171197874) |
+| **Levis Imóveis RJ** | quinze títulos e **todos em branco** — só o nome da página aparece | `103849868529828` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1586734356166130) |
+| **MR3 Imóveis** | onze títulos, **todos em branco** | `1197527426769629` | 20/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1360835142368451) |
+| **RRT Energia Solar** | cinco títulos, **quatro em branco** — sobra o nome da empresa, que não é oferta | `934663006402330` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2481816288996410) |
+| **Overload Solar** | título é literalmente **"Energia Solar"** nos três anúncios — nomeia a categoria, não dá razão nenhuma | `852277307960977` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28024433183832451) |
+| **Carolina Fernandes - Imóveis** — **Trilha A** | cinco anúncios, **os cinco sem título** | `1311127872074118` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3196814837177168) |
+| **Tuane Corretora Rj** — **Trilha A** | anúncio **sem título** | `1112536775284153` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1393683812732348) |
+
+**Impact Houses (a abordagem da rodada — é o defeito mais gritante já visto):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou cliente. Vi o anúncio de vocês na
+> Biblioteca do Facebook e ele está saindo com **"Conversa connosco" escrito dez
+> vezes seguidas** no título. Fora que "connosco" é português de Portugal, e
+> vocês estão cobrando em real, anunciando aqui. Quem vê no feed não descobre o
+> que é. Quer que eu te mostre o que costuma entrar no lugar?
+
+**Carolina Fernandes (Trilha A, direto no Instagram dela):**
+
+> Oi Carolina, aqui é o Pablo, do Rio. Não sou comprador — trabalho com anúncio.
+> Teus cinco anúncios estão no ar **sem título nenhum**: aparece a foto e o nome
+> da página, e mais nada. É o campo que faz a pessoa parar. Te mostro?
+
+**Quem está acertando (referência, não abordar):** *Sulfilm Design* — "O teste que
+prova: sua casa pode esfriar sem gastar mais luz". Promessa concreta e curiosidade
+no mesmo título, sem gritar.
+
+**Nota de tempo:** ao contrário das rodadas anteriores, **nenhum destes está errando
+há meses** — o mais antigo é de 05/08. São erros novos, o que quer dizer que
+provavelmente ainda não olharam. Boa hora para falar.
