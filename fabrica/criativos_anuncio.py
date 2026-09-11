@@ -26,7 +26,7 @@ import ssl
 import urllib.parse
 import urllib.request
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 import caminhos
 from broll import chave
@@ -44,59 +44,61 @@ MARCA = "O PRÓXIMO CLIENTE"
 
 # id, funil, busca no Pexels, sobrancelha, chamada, apoio, botao
 PECAS = [
-    # ---------------- TOPO: abre pela dor, mas ja diz o que fazemos ---------
-    # Publico frio nao leva oferta na cara, mas precisa entender o servico em
-    # dois segundos, senao a peca vira frase de efeito sem dono.
-    ("TF01_indicacao", "topo", "brazilian small business owner thinking",
-     "AGÊNCIA DE ANÚNCIOS", "Sua agenda depende de indicação?",
-     "Fazemos anúncios online que trazem cliente novo todo dia.", "Veja como funciona"),
-    ("TF02_falta_cliente_novo", "topo", "empty restaurant interior tables",
-     "AGÊNCIA DE ANÚNCIOS", "Faz quanto tempo que não entra um rosto novo?",
-     "Colocamos seu negócio na frente de quem está procurando hoje.", "Veja como funciona"),
-    ("TF03_whatsapp_parado", "topo", "person looking at phone bored office",
-     "AGÊNCIA DE ANÚNCIOS", "Seu WhatsApp parado o dia inteiro",
-     "Nossos anúncios trazem cliente todo dia. Ele volta a tocar.", "Veja como funciona"),
-    ("TF04_perguntou_o_preco", "topo", "hand typing message smartphone",
-     "AGÊNCIA DE ANÚNCIOS", "Perguntou o preço e sumiu",
-     "Anúncio bem feito traz quem já chega decidido a comprar.", "Veja como funciona"),
-    ("TF05_seguidor_nao_e_cliente", "topo", "social media phone scrolling",
-     "AGÊNCIA DE ANÚNCIOS", "Seguidor não paga boleto",
-     "Fazemos anúncios que trazem cliente, não curtida.", "Veja como funciona"),
-    ("TF06_tirar_do_proprio_bolso", "topo", "stressed man paperwork desk night",
-     "AGÊNCIA DE ANÚNCIOS", "Tirando do próprio bolso de novo?",
-     "Cliente entrando todo dia começa com anúncio no ar.", "Veja como funciona"),
-    ("TF07_funcionario_ganha_mais", "topo", "business owner late night work",
-     "AGÊNCIA DE ANÚNCIOS", "Seu funcionário ganha mais que você",
-     "Fazemos os anúncios que enchem a sua agenda.", "Veja como funciona"),
-    ("TF08_sem_ferias", "topo", "empty beach chair vacation",
-     "AGÊNCIA DE ANÚNCIOS", "Quantos anos sem tirar férias?",
-     "Negócio com cliente entrando todo dia não depende só de você.", "Veja como funciona"),
-    ("TF09_medo_do_dia_20", "topo", "calendar desk anxiety",
-     "AGÊNCIA DE ANÚNCIOS", "O dia em que a conta aperta",
-     "Nossos anúncios trazem cliente todo dia, não só no aperto.", "Veja como funciona"),
-    ("TF10_concorrente_menor", "topo", "smartphone screen social media feed",
-     "AGÊNCIA DE ANÚNCIOS", "Menor que você, e aparece mais",
-     "Ele anuncia. A gente faz o seu, e melhor.", "Veja como funciona"),
+    # ---------------- TOPO: uma dor so, dita de dez jeitos ------------------
+    # Antes o topo passeava por ferias, dia 20, funcionario e seguidor. Dores
+    # diferentes diluem: quem ve tres pecas da campanha nao monta uma promessa
+    # na cabeca. Agora todas batem no mesmo lugar — falta de cliente novo — e
+    # todas fecham com a mesma saida: cliente todo dia pelo WhatsApp.
+    ("TF01_entrou_hoje", "topo", "brazilian small business owner thinking",
+     "AGÊNCIA DE ANÚNCIOS", "Entrou algum cliente novo hoje?",
+     "Fazemos anúncios que trazem cliente todo dia no seu WhatsApp.", "Veja como funciona"),
+    ("TF02_whatsapp_nao_toca", "topo", "person looking at phone bored office",
+     "AGÊNCIA DE ANÚNCIOS", "Seu WhatsApp não toca há quanto tempo?",
+     "Nossos anúncios colocam cliente novo falando com você todo dia.", "Veja como funciona"),
+    ("TF03_mes_nao_fecha", "topo", "stressed man paperwork desk night",
+     "AGÊNCIA DE ANÚNCIOS", "Sem cliente novo, o mês não fecha",
+     "Fazemos anúncios online que trazem gente nova todo dia.", "Veja como funciona"),
+    ("TF04_indicacao", "topo", "two people talking cafe casual",
+     "AGÊNCIA DE ANÚNCIOS", "Só entra cliente quando indicam?",
+     "Com anúncio no ar, cliente novo chega todo dia no seu WhatsApp.", "Veja como funciona"),
+    ("TF05_movimento_caiu", "topo", "empty restaurant interior tables",
+     "AGÊNCIA DE ANÚNCIOS", "O movimento caiu e ninguém te avisou",
+     "Fazemos anúncios que trazem cliente novo todo dia.", "Veja como funciona"),
+    ("TF06_semana_sem_orcamento", "topo", "empty office desk quiet",
+     "AGÊNCIA DE ANÚNCIOS", "Uma semana inteira sem um orçamento novo",
+     "Nossos anúncios enchem seu WhatsApp de quem quer comprar.", "Veja como funciona"),
+    ("TF07_seguidor_nao_compra", "topo", "social media phone scrolling",
+     "AGÊNCIA DE ANÚNCIOS", "Seguidor não vira cliente sozinho",
+     "Fazemos anúncios que trazem cliente todo dia no seu WhatsApp.", "Veja como funciona"),
+    ("TF08_concorrente_recebe", "topo", "smartphone screen social media feed",
+     "AGÊNCIA DE ANÚNCIOS", "O cliente que era seu está falando com ele",
+     "Ele anuncia. A gente coloca o seu anúncio na frente também.", "Veja como funciona"),
+    ("TF09_quantos_essa_semana", "topo", "calendar desk anxiety",
+     "AGÊNCIA DE ANÚNCIOS", "Quantos clientes novos você teve essa semana?",
+     "Com anúncio no ar, essa conta muda todo dia.", "Veja como funciona"),
+    ("TF10_esperar_nao_e_plano", "topo", "bored shop owner leaning counter",
+     "AGÊNCIA DE ANÚNCIOS", "Esperar cliente aparecer não é plano",
+     "Fazemos anúncios que trazem cliente novo todo dia.", "Veja como funciona"),
 
-    # ---------------- FUNDO: servico e beneficio na chamada -----------------
-    ("BF01_fazemos_seus_anuncios", "fundo", "happy business owner smartphone notification",
+    # ---------------- FUNDO: a mesma promessa, agora com a oferta -----------
+    ("BF01_clientes_todo_dia", "fundo", "smartphone many messages notification",
+     "O QUE VOCÊ GANHA", "Clientes novos no seu WhatsApp, todo dia",
+     "É isso que anúncio online bem feito entrega. A gente cuida de tudo.", "Agende 20 minutos"),
+    ("BF02_fazemos_voce_atende", "fundo", "happy business owner smartphone notification",
      "O QUE FAZEMOS", "Fazemos seus anúncios. Você atende os clientes.",
-     "Todo dia gente nova chamando no seu WhatsApp.", "Agende 20 minutos"),
-    ("BF02_clientes_todo_dia", "fundo", "smartphone many messages notification",
-     "O BENEFÍCIO", "Clientes novos no seu WhatsApp, todo dia",
-     "É o que anúncio online bem feito entrega. A gente cuida de tudo.", "Agende 20 minutos"),
-    ("BF03_nos_cuidamos", "fundo", "marketing team working laptops office",
-     "COMO FUNCIONA", "Você não precisa entender de anúncio",
-     "Nosso time cria, publica e acompanha. Você só atende quem chega.", "Agende 20 minutos"),
-    ("BF04_anuncio_no_ar", "fundo", "woman typing laptop modern office",
-     "VELOCIDADE", "Seu anúncio no ar esta semana",
-     "Sem projeto de três meses. Começa, traz cliente, ajusta.", "Agende 20 minutos"),
+     "Todo dia gente nova chamando para comprar.", "Agende 20 minutos"),
+    ("BF03_tocando_de_manha", "fundo", "hands holding smartphone morning",
+     "O RESULTADO", "Seu WhatsApp tocando desde cedo",
+     "Anúncio no ar para quem procura hoje o que você vende.", "Agende 20 minutos"),
+    ("BF04_de_parado_a_cheio", "fundo", "busy shop customers counter",
+     "A MUDANÇA", "De WhatsApp parado a agenda cheia",
+     "Fazemos os anúncios. Você só atende quem chega.", "Agende 20 minutos"),
     ("BF05_quanto_custa_cada_cliente", "fundo", "financial charts screen analytics",
      "TRANSPARÊNCIA", "Você vai saber quanto custa cada cliente",
      "Relatório com número. Sem adjetivo, sem enrolação.", "Agende 20 minutos"),
     ("BF06_para_quem_e", "fundo", "confident business owner boutique shop",
      "PARA QUEM É", "Para quem já vende e quer vender mais",
-     "Fazemos os anúncios. Você cuida de atender a demanda.", "Agende 20 minutos"),
+     "Trazemos cliente novo todo dia. Você cuida de atender.", "Agende 20 minutos"),
     ("BF07_nao_e_renda_extra", "fundo", "professional office meeting serious",
      "NÃO É PARA TODO MUNDO", "Não é renda extra. É empresa.",
      "Anúncios para quem já tem cliente, equipe e conta para pagar.", "Agende 20 minutos"),
@@ -107,7 +109,7 @@ PECAS = [
      "QUEM ATENDE", "Fale com quem faz anúncio todo dia",
      "Não é robô nem estagiário. É o time que vai tocar sua conta.", "Agende 20 minutos"),
     ("BF10_comecar_esta_semana", "fundo", "calendar schedule planning desk",
-     "AGENDA", "Ainda dá para começar esta semana",
+     "COMEÇO", "Comece esta semana a receber clientes",
      "Escolhe o horário. Em 20 minutos você entende como funciona.", "Agende 20 minutos"),
 ]
 
@@ -208,6 +210,20 @@ def tratar(img):
     return Image.blend(img, Image.new("RGB", img.size, (14, 16, 26)), 0.10)
 
 
+def vinheta(img):
+    """Escurece os cantos de leve.
+
+    A foto passa a ter centro, e o olho para de escorregar para fora da arte.
+    Raio generoso e 34% de forca de proposito: vinheta que se percebe vira
+    efeito de filtro de rede social, que e o oposto de profissional.
+    """
+    m = Image.new("L", (L // 6, A // 6), 0)
+    ImageDraw.Draw(m).ellipse([-L // 24, -A // 24, L // 6 + L // 24, A // 6 + A // 24],
+                              fill=255)
+    m = m.filter(ImageFilter.GaussianBlur(L // 40)).resize((L, A), Image.LANCZOS)
+    return Image.composite(img, Image.blend(img, Image.new("RGB", img.size, INK), 0.34), m)
+
+
 def escurecer(img):
     """Gradiente do rodape para cima, para o texto ter contraste.
 
@@ -229,7 +245,7 @@ def compor(foto, peca):
     sem ela o texto flutua sobre a foto e a peca parece legenda, nao anuncio.
     """
     _id, _funil, _q, sobrancelha, chamada, apoio, botao = peca
-    img = escurecer(tratar(cobrir(foto)))
+    img = escurecer(vinheta(tratar(cobrir(foto))))
     d = ImageDraw.Draw(img)
     REGUA = 6
     RECUO = MARGEM + REGUA + 26
@@ -254,11 +270,23 @@ def compor(foto, peca):
     d.rectangle([MARGEM, y, MARGEM + REGUA,
                  y + 46 + alt_cham + 26 + alt_apoio], fill=ACENTO)
 
+    # Moldura fina a 22% de branco: da borda a peca no feed, onde o fundo do
+    # aplicativo e claro e a arte sem contorno "vaza" para a interface. Em
+    # RGB nao ha alfa no traco, entao ela e desenhada numa camada e composta.
+    camada = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(camada).rectangle(
+        [28, 28, L - 29, A - 29], outline=(255, 255, 255, 56), width=2)
+    img = Image.alpha_composite(img.convert("RGBA"), camada).convert("RGB")
+    d = ImageDraw.Draw(img)
+
     d.text((MARGEM, MARGEM), " ".join(MARCA), font=f_marca, fill=(255, 255, 255, 180))
     d.text((RECUO, y), " ".join(sobrancelha), font=f_sobr, fill=ACENTO)
     y += 46
 
     for ln in linhas:
+        # Sombra de 3px antes do texto: sobre foto clara ou ocupada a chamada
+        # branca perde a borda e some. A sombra segura sem escurecer a arte.
+        d.text((RECUO + 3, y + 3), ln, font=f_cham, fill=(0, 0, 0))
         d.text((RECUO, y), ln, font=f_cham, fill=BRANCO)
         y += passo_cham
     y += 26
