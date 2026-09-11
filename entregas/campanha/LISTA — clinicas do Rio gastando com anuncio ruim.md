@@ -239,6 +239,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - arquitetura + design de interiores + Tijuca ✔ (7 resultados, 2 aproveitáveis — 1 Trilha A)
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
 - odontologia + implante + Tijuca ✔ (**66 resultados** — maior lote do nicho; 6 aproveitáveis, 1 Trilha A. Metade do resultado é Barra da Tijuca, não Tijuca: o termo "Tijuca" puxa os dois bairros e isso precisa ser filtrado na leitura)
+- odontologia + implante + Méier ✔ (**103 resultados, mas 29 dos 30 primeiros sao de UMA clinica** — Inovier, com o mesmo titulo repetido; 2 aproveitaveis)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -1063,3 +1064,32 @@ próximas varreduras: em "Tijuca" é preciso separar os dois na leitura, não no
 Dentário na Barra da Tijuca/RJ: Recupere o Prazer de Sorrir e Mastigar". Serviço,
 bairro e benefício numa linha só. (Mas eles também rodam onze cópias de um
 anúncio com pergunta longa — acertaram num, erraram no outro.)
+
+---
+
+## Achados de 11/09, 16h15 — odontologia + implante + Méier (103 anúncios)
+
+O caso mais extremo de repetição que a varredura já encontrou.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Inovier Odontologia Avançada** | **29 dos 30 primeiros resultados são dela**, todos com o título idêntico: "IMPLANTES COM CONDIÇÕES FACILITADAS!". Vinte e nove anúncios criados no mesmo segundo, disputando o mesmo leilão entre si | `1645759772381085` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1989874638392843) |
+| **Clínica Odontológica Prime Dente** | título é só o nome do serviço, "Implante Dentário" — não diz bairro, preço, prazo nem diferencial | `1741709459390027` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1528326089064139) |
+
+**Por que a Inovier é a melhor abordagem da semana.** Não é um erro de texto, é
+um erro de estrutura, e custa dinheiro todo dia. Vinte e nove cópias do mesmo
+anúncio competem entre si no leilão: o Meta cobra mais caro para entregar cada
+uma, e o desempenho fica picado em vinte e nove pedaços pequenos demais para
+qualquer um deles sair da fase de aprendizado. É exatamente o mecanismo que já
+está registrado em LICOES sobre dez anúncios num conjunto — aqui, vinte e nove.
+
+> Oi, aqui é o Pablo, do Rio. Não sou paciente, e não vim vender nada agora.
+> Vocês têm **vinte e nove anúncios ativos agora, todos com o mesmo título** —
+> "IMPLANTES COM CONDIÇÕES FACILITADAS!" — e criados no mesmo segundo. Eles
+> disputam o mesmo leilão entre si: o custo sobe e nenhum junta dado suficiente
+> para o Meta aprender quem converte. Normalmente isso vem da configuração, não
+> de escolha. Quer que eu te mostre onde se ajusta?
+
+**Nota de método:** "103 resultados" parecia o maior lote do nicho até eu ler os
+nomes. Volume na Biblioteca não é volume de anunciantes — uma clínica sozinha
+pode encher a página inteira. Contar páginas distintas, não anúncios.
