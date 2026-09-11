@@ -208,6 +208,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
 - energia solar + Campo Grande ✔ (**combinação queimada**: 341 resultados e nenhum do Rio — o termo puxa Campo Grande/MS e o interior de SP. Bairro com nome repetido em outro estado precisa de "RJ" no termo)
 - arquitetura + design de interiores + Barra ✔ (10 resultados, 3 aproveitáveis, 2 Trilha A)
+- fisioterapia + pilates + Niterói ✔ (8 resultados, 3 aproveitáveis, 1 Trilha A — inclui o `{{product.name}}` mais antigo já visto, de dezembro/2025)
 - harmonizacao facial + Tijuca ✔ (**168 resultados**, quase todos Barra da Tijuca; 6 aproveitaveis, 5 Trilha A — nicho mais rico ate agora em dono-no-nome)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 - veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
@@ -1166,3 +1167,34 @@ voltou 341 anúncios e nenhum do Rio: o termo puxou Campo Grande/MS e o interior
 de São Paulo. Bairro cujo nome existe em outro estado — Campo Grande é o caso —
 precisa de "RJ" colado no termo, senão a rodada inteira se perde. Anotado na
 lista de combinações para não repetir o erro.
+
+## Achados de 11/09, 19h — fisioterapia e pilates em Niterói
+
+Oito anúncios ativos, e o nicho confirma o que a varredura da Tijuca já tinha
+mostrado: quem faz pilates anuncia pouco e anuncia mal. O melhor caso aqui é o
+**mais antigo que já apareceu em qualquer rodada**.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **RPG Pilates Yoga Niterói Icaraí** | dois anúncios com o título **`{{product.name}}`**, com as chavinhas — o código do catálogo nunca virou nome; um terceiro **sem título** | `258719205065053` | **22/12/2025** — quase 9 meses | [anúncio](https://www.facebook.com/ads/library/?id=863195149802140) |
+| **ricardomoreirapilates** — *Trilha A* | anúncio **sem título nenhum** | `112132074821292` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1431233052229936) |
+| **Espaço Fisio Clarear** | anúncio **sem título**, no ar há dois meses | `104751761533982` | 13/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=37100006512979408) |
+
+**RPG Pilates é o melhor caso da rodada, e de longe.** Nove meses pagando por um
+anúncio cujo título literalmente mostra código:
+
+> Boa tarde. Aqui é o Pablo, do Rio — não sou aluno. Vi os anúncios de vocês na
+> Biblioteca do Facebook e dois estão com o título aparecendo como
+> `{{product.name}}`, com as chavinhas — é o código do catálogo que nunca foi
+> trocado pelo nome da aula. Está assim desde dezembro. Quem vê no feed acha que
+> o anúncio quebrou. Quer que eu te mostre onde arrumar?
+
+**Ricardo Moreira (Trilha A, uma linha):**
+
+> Ricardo, o seu anúncio de pilates está no ar sem título — o espaço da frase
+> está vazio. Dois minutos pra arrumar e muda quanta gente para pra ler. Quer
+> que eu te mande onde?
+
+**Descartados nesta rodada:** *Centro Fisio* ("Especialista on-line" — é oferta
+on-line, não local) e *AME Constelações* (título `api.whatsapp.com`, defeito
+bom, mas o nicho é terapia/constelação, fora da lista).
