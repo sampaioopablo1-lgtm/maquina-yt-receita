@@ -79,3 +79,36 @@ hora, sem precisar saber o que é tráfego pago.
 Uma foto foi descartada no caminho: "rio de janeiro city buildings" devolveu
 **cidade costeira genérica**, que podia ser qualquer lugar do mundo — e peça de
 bairro que não mostra o bairro perde a única coisa que ela tem. Virou Ipanema.
+
+---
+
+## Conjunto FN — as peças finais, na dor que o Pablo escreveu
+
+Oito peças escritas sobre as três frases dele, sem tradução: *falta de cliente
+novo todo dia no WhatsApp*, *vive de indicação para vender*, *quer anunciar na
+internet para gerar mais cliente*.
+
+A pesquisa começou pela V4 Company, como pedido, e o resultado honesto é que
+**a V4 quase não anuncia captação na Biblioteca** — três anúncios ativos, todos
+do funil "5 Dias de Treinamento". A inteligência útil veio de buscar a dor, não
+a marca: *"A indicação vai acabar. E agora?"* (Acelera Contab), *"Pare de
+esperar clientes. Comece a prospectar."*, *"Tráfego pago não é custo, é
+previsibilidade."* (Igm Agência, 5 anúncios), o qualificador de faturamento da
+Tiger Digital e o *"QUERO MAIS CLIENTES"* da DOMA. São essas estruturas que
+FN01–FN08 usam.
+
+| Peça | Chamada | Foto |
+|---|---|---|
+| FN01 | E quando a indicação parar? | [retrato de homem de bigode](https://www.pexels.com/photo/portrait-of-a-man-with-a-mustache-16319673/) — Meyra |
+| FN02 | Pare de esperar indicação. Comece a anunciar. | [homem com notebook, pensando](https://www.pexels.com/photo/man-holding-laptop-and-thinking-12902939/) — Mizuno K |
+| FN03 | Anúncio não é gasto. É cliente entrando. | [dados na tela](https://www.pexels.com/photo/close-up-photo-of-data-in-a-monitor-10628030/) — Vito Goričan |
+| FN04 | Quero cliente novo todo dia | [trabalhando e atendendo o telefone](https://www.pexels.com/photo/woman-working-on-laptop-on-window-sill-and-talking-on-phone-10375889/) — RDNE Stock project |
+| FN05 | Seu faturamento depende de quem lembra de você | [homem de terno sentado à mesa](https://www.pexels.com/photo/man-in-black-suit-jacket-sitting-beside-table-4691199/) — cottonbro studio |
+| FN06 | Indicação traz dois por mês. Anúncio traz todo dia. | [calendário de mesa](https://www.pexels.com/photo/close-up-of-march-page-on-desk-calendar-29509484/) — Matheus Bertelli |
+| FN07 | Seu WhatsApp só toca quando alguém indica | [mãos segurando celular](https://www.pexels.com/photo/hands-holding-smartphone-16841808/) — Viralyft |
+| FN08 | Você já fatura. Falta parar de depender de indicação. | [homem de avental, braços cruzados](https://www.pexels.com/photo/man-in-brown-apron-with-his-arms-crossed-8422729/) — Kampus Production |
+
+Quatro fotos foram trocadas depois de **ler o título que o Pexels devolveu**:
+as buscas genéricas trouxeram vendedor de rua em Manila (FN01) e advogado
+asiático (FN02). A campanha é no Rio — o rosto precisa ser do público. O teste
+automatizado mede formato, não assunto; quem confere isso é quem lê.

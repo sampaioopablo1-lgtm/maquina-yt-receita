@@ -138,6 +138,46 @@ PECAS = [
     ("RJ06_zona_norte", "topo", "maracana rio de janeiro",
      "ZONA NORTE", "Seu concorrente do bairro está anunciando. Você não.",
      "A gente coloca o seu anúncio na frente de quem mora aqui.", "Veja como funciona"),
+    # ---------------- FINAIS: a dor que o Pablo nomeou, nas estruturas -------
+    # que a Biblioteca mostrou funcionando (11/09/2026). A V4 quase nao
+    # anuncia captacao — tem 3 anuncios, todos do funil de treinamento. Quem
+    # anuncia esta dor sao agencias menores, e delas saiu o padrao:
+    #
+    #   "A indicacao vai acabar. E agora?"          — a dor como perda que vem
+    #   "Pare de esperar clientes. Comece a prospectar." — par de contraste
+    #   "Trafego pago nao e custo, e previsibilidade."   — vira a objecao
+    #   "QUERO MAIS CLIENTES"                        — titulo em primeira pessoa
+    #
+    # Tres dores, uma so promessa: cliente novo todo dia no WhatsApp, sem
+    # depender de quem lembra de voce.
+    # As quatro buscas abaixo (FN01, FN02, FN05, FN08) foram corrigidas depois
+    # de ler o titulo que o Pexels devolveu: as genericas traziam vendedor de
+    # rua em Manila e advogado asiatico. Campanha e no Rio — o rosto precisa
+    # ser do publico. O teste mede formato, nao assunto; quem confere e quem le.
+    ("FN01_e_quando_parar", "topo", "brazilian man mustache portrait worried",
+     "AGÊNCIA DE ANÚNCIOS", "E quando a indicação parar?",
+     "Fazemos anúncios que trazem cliente novo todo dia no seu WhatsApp.", "Veja como funciona"),
+    ("FN02_pare_comece", "topo", "latin man holding laptop thinking",
+     "AGÊNCIA DE ANÚNCIOS", "Pare de esperar indicação. Comece a anunciar.",
+     "Cliente novo todo dia, sem depender de quem lembra de você.", "Veja como funciona"),
+    ("FN03_nao_e_gasto", "topo", "financial charts screen analytics",
+     "AGÊNCIA DE ANÚNCIOS", "Anúncio não é gasto. É cliente entrando.",
+     "A gente faz os anúncios na internet. Você atende no WhatsApp.", "Veja como funciona"),
+    ("FN04_quero_cliente", "topo", "happy business owner smartphone notification",
+     "AGÊNCIA DE ANÚNCIOS", "Quero cliente novo todo dia",
+     "Fazemos seus anúncios na internet. Você só atende quem chega.", "Veja como funciona"),
+    ("FN05_quem_lembra", "topo", "latin man suit sitting beside table",
+     "AGÊNCIA DE ANÚNCIOS", "Seu faturamento depende de quem lembra de você",
+     "Com anúncio no ar, cliente novo chega todo dia no seu WhatsApp.", "Veja como funciona"),
+    ("FN06_dois_por_mes", "topo", "calendar desk anxiety",
+     "AGÊNCIA DE ANÚNCIOS", "Indicação traz dois por mês. Anúncio traz todo dia.",
+     "Fazemos anúncios na internet para o seu WhatsApp não parar.", "Veja como funciona"),
+    ("FN07_so_toca_quando", "topo", "smartphone many messages notification",
+     "AGÊNCIA DE ANÚNCIOS", "Seu WhatsApp só toca quando alguém indica",
+     "Nossos anúncios fazem ele tocar todo dia, com cliente novo.", "Veja como funciona"),
+    ("FN08_ja_fatura", "fundo", "man brown apron arms crossed shop",
+     "PARA QUEM JÁ VENDE", "Você já fatura. Falta parar de depender de indicação.",
+     "Anúncios na internet trazendo cliente novo todo dia no WhatsApp.", "Agende 20 minutos"),
 ]
 
 
