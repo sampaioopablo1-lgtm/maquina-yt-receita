@@ -133,21 +133,33 @@ linha garantida, e ela estava sendo gasta com apresentação.*
 ## Como chegar na pessoa
 1. Abra o anúncio pelo link acima. O botão dele leva ao WhatsApp ou ao Direct da clínica — é a linha mais direta que existe.
 2. Se preferir LinkedIn: busque o nome da clínica e ache o dono ou o diretor clínico.
-3. **Seja você mesmo desde a primeira linha.** Nada de se passar por paciente. Abre dizendo quem é.
+3. **Nada de se passar por paciente** — mas a apresentação vem na segunda linha, não na primeira. A primeira é da prova.
 
 ## As três aberturas, por tipo de defeito
 
+*Reescritas em 11/09. As versões antigas abriam com "Oi, aqui é o Pablo, não sou paciente" — gastavam a
+prévia da notificação com a linha que identifica vendedor. A regra de 08/09 (prova primeiro) estava
+escrita em LICOES e nunca tinha chegado até aqui.*
+
 **Anúncio sem chamada (Daniel Pinheiro, Ferdinand, OdontoBelle, Tati Dias):**
-> Oi, aqui é o Pablo, não sou paciente. Vi os anúncios de vocês rodando no Facebook. Reparei que eles estão sem título de chamada — quem vê não sabe o que fazer depois. Isso costuma jogar fora metade do investimento. Quem cuida disso aí?
+> Seus anúncios estão no ar sem título de chamada — o campo está vazio.
+> Aqui é o Pablo, não sou paciente. Quem vê o anúncio não sabe o que fazer depois, e isso costuma jogar fora metade do investimento. Quem cuida disso aí?
 
 **"Fale Conosco" (Oral Unic, Viva Implantes, Caroline Carneiro):**
-> Oi, aqui é o Pablo, não sou paciente. Vi 16 anúncios de vocês no ar, todos com "Fale Conosco". Isso enche o WhatsApp de curioso e não de paciente. Vocês sentem isso na prática?
+> Seus 16 anúncios estão todos com o mesmo título: "Fale Conosco".
+> Aqui é o Pablo, não sou paciente. Esse é o texto padrão do Facebook — ele enche o WhatsApp de curioso e não de paciente. Vocês sentem isso na prática?
 
 **Muitos anúncios iguais (Nascimento, Clínica Central):**
-> Oi, aqui é o Pablo, não sou paciente. Vi 12 anúncios de vocês idênticos no ar, criados no mesmo dia. Normalmente isso é configuração, e faz o custo subir sem trazer mais paciente. Quem monta as campanhas aí?
+> Vocês têm 12 anúncios idênticos no ar, todos criados no mesmo dia.
+> Aqui é o Pablo, não sou paciente. Isso quase sempre é configuração, e faz o custo subir sem trazer mais paciente. Quem monta as campanhas aí?
 
 **A segunda mensagem, depois que responder:**
-> Eu ensino dono de clínica a rodar o próprio anúncio e encher a agenda pelo WhatsApp. Programa de 30 dias, 4 encontros, 2 horas por semana. Te mostro em 20 minutos o que eu faria no seu caso, sem compromisso. Hoje 17h30 ou 18h30?
+> A gente cuida do anúncio para você — eu tenho um time que faz isso todo dia, não é curso nem mentoria. Te mostro em 20 minutos o que faríamos no seu caso, sem compromisso: https://calendly.com/oproximocliente/diagnostico
+
+*A segunda mensagem mudou em 11/09 junto com o posicionamento: era mentoria ("eu ensino dono de clínica
+a rodar o próprio anúncio, 4 encontros, 30 dias"), virou serviço de agência com reunião no Calendly.
+Vender programa de 30 dias para quem acabou de ouvir que o anúncio dele está quebrado pede trabalho
+dele justo na hora em que ele quer o contrário.*
 
 ---
 

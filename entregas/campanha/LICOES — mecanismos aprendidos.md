@@ -490,3 +490,25 @@ vencedor sem avisar é o jeito mais caro de obedecer.
 
 Segunda regra, menor: lista de ad set em documento apodrece em dias. Conferir os
 ids na conta antes de planejar em cima deles.
+
+## Regra escrita não é regra aplicada (11/09/2026, 13h15)
+
+Em 08/09 eu registrei aqui: prova na primeira linha, apresentação na segunda —
+"corrigido, depois de escrever dez mensagens todas com o erro". Hoje fui ler o
+arquivo que o Pablo realmente copia e cola, e as três aberturas abriam assim:
+
+> Oi, aqui é o Pablo, não sou paciente. Vi os anúncios de vocês...
+
+A correção existia em LICOES e nunca tinha atravessado até a LISTA. Três dias de
+abordagem saíram com o erro que eu dava por resolvido — e o registro da correção
+foi justamente o que me impediu de ver, porque eu já tinha lido "corrigido".
+
+Junto com isso, a segunda mensagem ainda vendia mentoria (30 dias, 4 encontros)
+enquanto a campanha inteira virou agência hoje de manhã. Quem recebe "seu anúncio
+está quebrado" e ouve em seguida "faça um curso de 30 dias" recebe mais trabalho
+justo quando quer menos.
+
+**A regra:** ao registrar uma correção aqui, abrir na mesma hora o arquivo onde
+aquilo é usado e aplicar. LICOES é memória, não entrega. E quando o
+posicionamento muda, varrer todo texto de abordagem — a copy do anúncio é a
+parte visível, a mensagem de direct é a que ninguém lembra de trocar.
