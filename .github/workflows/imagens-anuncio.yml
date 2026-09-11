@@ -49,7 +49,39 @@ jobs:
           curl -sSLf -o /tmp/fontes/Montserrat-Bold.ttf "$base/Montserrat-Bold.ttf"
           curl -sSLf -o /tmp/fontes/Montserrat-Regular.ttf "$base/Montserrat-Regular.ttf"
 
+      # Sem chave nao ha o que gerar, e isso NAO e falha de codigo: o job sai
+      # verde com um aviso. Antes desta trava o workflow pintava o PR de
+      # vermelho a cada push, por um motivo ja conhecido e documentado — e
+      # vermelho cronico e como se perde a atencao no vermelho que importa.
+      - name: Ver se ha chave do Pexels
+        id: chave
+        env:
+          SB: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          set -uo pipefail
+          motivo=$(python3 -c "
+          import sys; sys.path.insert(0, 'fabrica')
+          from broll import chave, ORIGEM_DA_CHAVE
+          print('ok' if chave() else ORIGEM_DA_CHAVE)
+          ")
+          if [ "$motivo" = "ok" ]; then
+            echo "tem=sim" >> "$GITHUB_OUTPUT"
+          else
+            echo "tem=nao" >> "$GITHUB_OUTPUT"
+            {
+              echo "## Pecas nao geradas: sem chave do Pexels"
+              echo ""
+              echo "\`$motivo\`"
+              echo ""
+              echo "Conserto: cadastrar \`PEXELS_API_KEY\` em Settings -> Secrets"
+              echo "-> Actions. O gerador le essa variavel antes de tentar o banco."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Gerar as 20 pecas
+        if: steps.chave.outputs.tem == 'sim'
         env:
           SB: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -59,6 +91,7 @@ jobs:
           python3 fabrica/criativos_anuncio.py | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commitar o que foi gerado
+        if: steps.chave.outputs.tem == 'sim'
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
