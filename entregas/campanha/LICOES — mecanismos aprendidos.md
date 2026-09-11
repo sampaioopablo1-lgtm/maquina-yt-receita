@@ -989,3 +989,35 @@ que você registra**. O bloqueio não está na ferramenta, está em quem assina 
 aberta sempre assina com o app do Pablo, que está em Development. Por isso os
 únicos caminhos que funcionam são os que assinam com um app de terceiro já Live
 (Supermetrics) ou o próprio app do Pablo virando Live.
+
+## O `leadgen_tos_accepted` é FALSE — e eu vinha dizendo o contrário
+
+Medido em 11/09/2026, `ads_get_ad_account_pages` na conta 1695865631502778:
+
+```
+page_id: 1117439194786453  —  O Próximo Cliente  —  leadgen_tos_accepted: false
+```
+
+Desde 09/09 eu vinha repetindo, em documento e em conversa, que "a Página já
+aceitou os termos e o que falta é a conexão poder LER essa aceitação". A
+mensagem do erro `1892181` oferece as duas hipóteses — *ou* a Página não aceitou
+*ou* a conexão não consegue ler — e eu escolhi a segunda e parei de checar. A
+ferramenta que devolve o campo direto estava disponível o tempo todo.
+
+O custo desse erro foi grande: mandou a investigação inteira para o lado do
+token de usuário do sistema, do modo do app, do Composio e do Supermetrics —
+tudo consequência de uma premissa que nunca foi conferida.
+
+**A ação certa é de 30 segundos e não passa por painel de desenvolvedor:** abrir
+<https://www.facebook.com/legal/leadgen/tos> logado como administrador da Página
+"O Próximo Cliente" e aceitar os Termos de Geração de Leads.
+
+Depois disso, reconferir com `ads_get_ad_account_pages`. Se o campo virar `true`,
+o conector cria o criativo de formulário direto — sem token, sem app em Modo
+ativo, sem app de terceiro. Se continuar `false` com a aceitação feita, aí sim a
+hipótese de permissão de leitura se sustenta, e o caminho volta a ser o
+`DESTRAVAR — os 4 campos que liberam o botao.md`.
+
+**Lição de método:** quando o erro oferece duas causas, medir as duas antes de
+escolher uma. A que eu escolhi era a que exigia mais trabalho — e isso deveria
+ter sido o sinal.
