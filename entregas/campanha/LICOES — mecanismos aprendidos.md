@@ -663,3 +663,43 @@ ser `LEARN_MORE`. Refiz o criativo, e ai bateu no bloqueio do criativo dinamico.
 
 **Estado:** os dez criativos AG estao na conta, com imagem ja hospedada no Meta,
 prontos para serem anexados. Falta so o id do formulario instantaneo.
+
+---
+
+## O id do formulario estava no repositorio o tempo todo
+
+11/09/2026. Eu disse ao Pablo tres vezes que nao conseguia criar anuncio de
+formulario porque faltava o `lead_gen_form_id` e nenhuma ferramenta o expunha.
+Ele respondeu: *"ja passei o ID, em alguma sessao"*. Estava certo. Um `grep` no
+proprio repositorio achou em dez segundos:
+
+> `AUDITORIA — ponta a ponta, 09-09 13h.md`, linha 216: formulario **`2412763482587375`**
+
+**Licao:** antes de declarar que falta um dado, procurar o dado onde ele
+costuma morar — o repositorio guarda tudo o que ja foi apurado nesta conta.
+"Nenhuma ferramenta expoe" nao e o mesmo que "o dado nao existe". Custou tres
+respostas de bloqueio ao Pablo; o grep custou uma chamada.
+
+### E o muro que apareceu atras
+
+Com o id certo, `Missing Lead Form` sumiu e veio outro erro:
+
+```
+Terms of Service Not Accepted (1892181)
+... reading it requires the pages_manage_ads permission on the Page, which the
+Ads MCP connection does not currently request ...
+If the Page has already accepted, this request cannot be completed over MCP;
+use Ads Manager.
+```
+
+E o mesmo mecanismo ja registrado acima em "primeiro conferir
+`leadgen_tos_accepted`": a pagina **aceitou** os termos (medido em 09/09,
+`true`). O que falta e permissao da conexao para **ler** essa aceitacao.
+
+**Conclusao operacional: anuncio de formulario instantaneo nao se cria por aqui,
+nesta conexao.** Nao adianta procurar outro parametro — a propria mensagem de
+erro diz para usar o Gerenciador. Registrado para nao gastar mais rodadas.
+
+O que da para fazer por aqui continua valendo: criar o criativo com a imagem
+(via `image_url`), pausar, renomear, ler numero. O passo final de anexar
+criativo a anuncio de lead e manual.
