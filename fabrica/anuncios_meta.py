@@ -128,10 +128,19 @@ def criar_criativo(conta, peca, token):
     primeiro nivel, e e por isso que ferramenta que so aceita `image_hash` e
     `call_to_action_type` nunca consegue montar anuncio de lead.
     """
+    # Medido dentro do V10 em 11/09 — o unico criativo desta conta que gera
+    # lead. Tres detalhes que eu estava errando por invencao propria:
+    #   link: "http://fb.me/" PURO, sem o id do formulario colado atras;
+    #   use_flexible_image_aspect_ratio, que deixa a Meta recortar por
+    #     posicionamento em vez de espremer a peca;
+    #   instagram_user_id, sem o qual a peca nao entrega no Instagram.
+    # Replicar o vencedor no que nao e a variavel em teste e o que torna a
+    # comparacao honesta: o que muda entre V10 e as AG e a arte e a copy.
     link_data = {
-        "link": f"https://fb.me/{peca['form_id']}",
+        "link": "http://fb.me/",
         "name": peca["headline"],
         "message": peca["message"],
+        "use_flexible_image_aspect_ratio": True,
         "call_to_action": {
             # O `cta` do spec E o tipo da API, nao um rotulo solto. Na primeira
             # versao ele era exigido e nao era usado: o botao saia sempre

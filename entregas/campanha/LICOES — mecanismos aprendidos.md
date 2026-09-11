@@ -883,3 +883,35 @@ sair do modo de desenvolvimento, nao sera preciso criar dez anuncios novos —
 da para **trocar o criativo dos anuncios que ja existem**, preservando o
 historico e o aprendizado do conjunto. E o caminho mais barato, e era o que o
 Pablo estava pedindo.
+
+---
+
+## O que eu estava inventando, e o V10 corrigiu
+
+11/09/2026, 17h30. Antes de desistir do modo de desenvolvimento, li o
+`object_story_spec` do V10 por dentro — o unico criativo desta conta que gera
+lead. Tres campos meus estavam errados **por invencao propria**, nao por falta
+de informacao:
+
+| Campo | Eu escrevia | O V10 usa |
+|---|---|---|
+| `link` | `https://fb.me/2412763482587375` | **`http://fb.me/`** puro, sem o id atras |
+| `use_flexible_image_aspect_ratio` | ausente | **`true`** — a Meta recorta por posicionamento em vez de espremer |
+| `instagram_user_id` | ausente | **`17841480745368398`** — sem ele a peca nao entrega no Instagram |
+| `call_to_action.type` | `APPLY_NOW` | **`SIGN_UP`** |
+
+Nenhum deles teria dado erro. Teriam dado **peca pior, silenciosamente**: sem
+Instagram, espremida, e com um botao diferente do que converte.
+
+**Sobre o botao.** O documento do formulario decidiu "Candidatar-se"
+(`APPLY_NOW`) com um bom argumento: avisa que existe criterio. Mas o V10 usa
+`SIGN_UP` e e o que traz lead a R$2,11. Mantive `SIGN_UP` nas dez por um motivo
+de metodo, nao de gosto: as AG vao disputar **contra** o V10, e se o botao
+mudar junto com a arte e a copy, o resultado nao diz qual das tres coisas
+funcionou. Replicar o vencedor em tudo que nao e a variavel em teste e o que
+torna a comparacao honesta. Trocar o botao depois e um teste proprio.
+
+**E a confirmacao final do bloqueio:** com a estrutura replicada EXATAMENTE —
+mesmo link, mesmo CTA, mesmo instagram, so a imagem diferente — a Meta devolveu
+o mesmo `1885183`. Nao ha campo, ordem ou formato que contorne. O app e a unica
+variavel.

@@ -158,3 +158,37 @@ def test_o_cta_do_spec_chega_no_criativo():
         A._chamar = original
     spec = json.loads(enviado["object_story_spec"])
     assert spec["link_data"]["call_to_action"]["type"] == "APPLY_NOW"
+
+
+def test_criativo_replica_o_que_faz_o_V10_funcionar():
+    """Tres campos medidos dentro do V10, o unico criativo que gera lead.
+
+    Eu inventava `https://fb.me/<form_id>` no link; o V10 usa `http://fb.me/`
+    puro. Tambem faltavam `use_flexible_image_aspect_ratio` (sem ele a Meta
+    espreme a peca em vez de recortar por posicionamento) e o instagram_user_id
+    (sem ele nao entrega no Instagram). Replicar o vencedor no que NAO e a
+    variavel em teste e o que deixa a comparacao honesta.
+    """
+    enviado = {}
+
+    def falso(caminho, token, dados=None, metodo=None):
+        enviado.update(dados)
+        return {"id": "1"}
+
+    A._chamar, original = falso, A._chamar
+    try:
+        A.criar_criativo("123", peca(instagram_id="17841480745368398"), "tok")
+    finally:
+        A._chamar = original
+    oss = json.loads(enviado["object_story_spec"])
+    ld = oss["link_data"]
+    assert ld["link"] == "http://fb.me/"
+    assert ld["use_flexible_image_aspect_ratio"] is True
+    assert oss["instagram_user_id"] == "17841480745368398"
+
+
+def test_spec_entregue_entrega_no_instagram():
+    # Peca sem instagram_id nao aparece no Instagram, e ninguem descobre isso
+    # olhando o gerenciador — descobre olhando a entrega uma semana depois.
+    for p in json.load(open(SPEC, encoding="utf-8")):
+        assert p.get("instagram_id"), p["slug"]
