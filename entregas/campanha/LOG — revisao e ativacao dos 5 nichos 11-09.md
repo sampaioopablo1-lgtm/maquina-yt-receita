@@ -94,3 +94,96 @@ Puxei o tamanho de público de cada sinal. Dois achados honestos:
 **15 anúncios nichados ativos** (VET03 em análise, normal) + **6 nos conjuntos que já
 convertem**. `ads_get_errors` voltou `[]` nos cinco conjuntos. Orçamento **não foi tocado**:
 segue CBO R$ 30/dia.
+
+---
+
+# Adendo (11/09, 23h50) — a copy do V10 vendia a mentoria
+
+Pedido do Pablo: *"Ajuste a copy, apenas remova o detalhe da mentoria"*.
+
+## O que estava no ar
+
+Auditei a copy dos 21 anúncios ativos. **Só os dois V10 tinham o problema** — e ele
+era maior que a etiqueta da imagem. O corpo do texto era este:
+
+> Você não precisa de uma agência. Precisa saber como.
+>
+> Anunciar não é um serviço que se compra todo mês — é uma habilidade que se aprende
+> uma vez. A diferença entre as duas coisas é quem manda no seu crescimento.
+>
+> Encontros online toda semana, do zero ao anúncio no ar, feito na sua própria conta
+> e com o seu próprio negócio. Você não precisa ser gestor de tráfego; precisa saber
+> decidir.
+>
+> 3 perguntas e a gente conversa.
+
+Três problemas, em ordem de gravidade:
+
+1. **"Você não precisa de uma agência"** — o anúncio argumentava contra o que o Pablo
+   vende hoje. Ele é agência.
+2. **"não é um serviço que se compra todo mês"** — argumentava contra o modelo de
+   receita recorrente da agência.
+3. **"Encontros online toda semana"** — é o formato da mentoria, produto descontinuado.
+
+Isso importa além da estética: **os 12 leads que entraram até agora responderam a uma
+oferta de mentoria**, não de agência. Quando o Clint voltar e a taxa de lead → reunião
+for medida, esse descasamento é a primeira hipótese a testar para lead que não avança.
+
+## O que os outros 19 tinham
+
+Limpos. Os 15 nichados e os 4 AG já falam como agência ("A gente escreve, publica e
+acompanha"). Conferido um a um, não por amostragem.
+
+## A copy nova
+
+Mantive a forma do vencedor — mesmo gancho de negação, mesmo ritmo, mesmo fechamento
+literal ("3 perguntas e a gente conversa") — e troquei só o produto:
+
+> Você não precisa virar gestor de tráfego. Precisa de cliente.
+>
+> Anunciar bem não é sorte, é método — e o método é o nosso trabalho. A gente escreve
+> o anúncio, publica, acompanha e ajusta toda semana.
+>
+> Você não mexe em nada. Só atende quem chega no seu WhatsApp.
+>
+> Para quem já tem negócio e já fatura. 3 perguntas e a gente conversa.
+
+Título (`Cliente todo dia no seu WhatsApp`) e botão (`SIGN_UP`) **não foram tocados** —
+são parte do que converte e não tinham nada de mentoria.
+
+## Como foi aplicado
+
+`update_ad_creative` com **`degrees_of_freedom_spec: {}`** junto. Sem isso a Meta
+devolve `3858504` ("o criativo não deve incluir aprimoramentos padrão"), porque a
+cópia arrasta o spec descontinuado do V10 — pedra já documentada no LOG das 10 peças
+AG e que voltou a aparecer aqui exatamente igual.
+
+| Anúncio | Conjunto | Criativo novo |
+|---|---|---|
+| `120247356537060766` | LEADS I INTERESSE I FASE 3 | `1405900931679081` |
+| `120247356513990766` | LEADS I SEMELHANTE CNAE RJ I FASE 3 | `1655425389259510` |
+
+`ads_get_errors` nos dois: `[]`. Copy relida no criativo novo: confere.
+
+## O que NÃO foi resolvido
+
+**A imagem continua sendo a foto do Pablo, com a pílula "MENTORIA O PRÓXIMO CLIENTE"
+escrita nela.** A copy virou agência; a arte ainda diz mentoria. O anúncio está
+incoerente consigo mesmo até a arte ser trocada.
+
+Trocar a arte esbarra em três bloqueios simultâneos, todos medidos hoje:
+
+1. **Pexels e Google Fonts negados pelo gateway de egresso** desta sessão
+   (`connect_rejected`), então não dá para baixar foto nem tipografia aqui.
+2. **`fontes/` e `fotos/` não existem no repositório** — o `modelo_v10.py` depende
+   das duas, e quem as provê é o runner do Actions, não o repo.
+3. **O workflow `imagens-anuncio.yml` que faria isso no runner exige
+   `PEXELS_API_KEY`**, secret que não está cadastrado — é por isso que
+   `entregas/campanha/imagens/` só tem `creditos.md` e o ícone.
+
+Caminho que contorna os três, para a próxima sessão: gerar a foto pelo **Higgsfield**
+(que responde), baixar o Montserrat do **GitHub raw** (que responde, é de onde o
+próprio workflow baixa), compor com o `modelo_v10.py`, subir no Drive e criar o
+anúncio por `image_url`. Não executei porque é caminho longo e não testado ponta a
+ponta — vale fazer com tempo, não no fim da noite, e o Pablo precisa ver a arte antes
+de ela substituir o único anúncio que dá lead.
