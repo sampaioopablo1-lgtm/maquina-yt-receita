@@ -79,8 +79,12 @@ jobs:
 
       # O portao do spec roda mesmo sem token: erro de JSON e de campo faltando
       # aparece aqui, nao no meio de uma rodada com a conta aberta.
+      # O runner vem sem pytest — o `ci.yml` instala o dele, este precisa do seu.
       - name: Conferir o spec
-        run: python3 -m pytest tests/test_anuncios_meta.py -q
+        run: |
+          set -euo pipefail
+          pip install --quiet pytest
+          python3 -m pytest tests/test_anuncios_meta.py -q
 
       - name: Publicar
         if: steps.token.outputs.tem == 'sim'
