@@ -26,16 +26,16 @@ por peça, trocado toda semana, incha o repositório sem ganho nenhum.
 
 | Peça | Autor | Foto |
 |---|---|---|
-| BF01 cliente todo dia | RDNE Stock project | [trabalhando e ao telefone](https://www.pexels.com/photo/woman-working-on-laptop-on-window-sill-and-talking-on-phone-10375889/) |
-| BF02 WhatsApp cheio | Viralyft | [mãos segurando celular](https://www.pexels.com/photo/hands-holding-smartphone-16841808/) |
+| BF01 fazemos seus anúncios | RDNE Stock project | [trabalhando e ao telefone](https://www.pexels.com/photo/woman-working-on-laptop-on-window-sill-and-talking-on-phone-10375889/) |
+| BF02 clientes todo dia | Viralyft | [mãos segurando celular](https://www.pexels.com/photo/hands-holding-smartphone-16841808/) |
 | BF03 nós cuidamos | Darlene Alderson | [reunião de equipe](https://www.pexels.com/photo/people-having-a-meeting-at-work-7971176/) |
 | BF04 anúncio no ar | Vinícius Cezário | [mulher no laptop](https://www.pexels.com/photo/anonymous-female-using-laptop-at-table-in-work-room-7147697/) |
 | BF05 quanto custa cada cliente | Vito Goričan | [dados no monitor](https://www.pexels.com/photo/close-up-photo-of-data-in-a-monitor-10628030/) |
 | BF06 para quem é | Zain Ali | [dono sorrindo na loja](https://www.pexels.com/photo/charming-artisan-shop-exterior-with-smiling-owner-38209393/) |
 | BF07 não é renda extra | Alena Darmel | [três pessoas em reunião](https://www.pexels.com/photo/three-people-inside-the-conference-room-8134019/) |
-| BF08 três perguntas | Edmond Dantès | [conversa de negócios](https://www.pexels.com/photo/people-on-a-business-meeting-in-cafeteria-4347017/) |
+| BF08 sai sabendo | Edmond Dantès | [conversa de negócios](https://www.pexels.com/photo/people-on-a-business-meeting-in-cafeteria-4347017/) |
 | BF09 especialistas | Mizuno K | [equipe no escritório](https://www.pexels.com/photo/employees-cooperating-in-office-12903168/) |
-| BF10 agenda esta semana | Matheus Bertelli | [calendário minimalista](https://www.pexels.com/photo/minimalist-desk-calendar-display-in-july-29509509/) |
+| BF10 começar esta semana | Matheus Bertelli | [calendário minimalista](https://www.pexels.com/photo/minimalist-desk-calendar-display-in-july-29509509/) |
 
 ## As quatro que foram refeitas
 
@@ -48,3 +48,20 @@ pagar. Termos de busca trocados e as quatro regeradas.
 
 **A lição:** o teste automático mede formato, margem e contraste — não mede se a
 foto fala do assunto. Ler o título da foto devolvida pega o que o teste não pega.
+
+
+## Reescrita das copies (11/09, 14h40)
+
+O Pablo apontou que as peças falavam da dor mas não diziam **o que a agência
+faz**. Quem via "Seguidor não paga boleto" não descobria que existia alguém
+oferecendo anúncios do outro lado — a peça virava frase de efeito sem dono.
+
+As 20 foram reescritas para que serviço e benefício apareçam em todas:
+
+- **Topo** mantém a dor na chamada, mas a sobrancelha passou a dizer
+  `AGÊNCIA DE ANÚNCIOS` e a linha de apoio nomeia o serviço e o resultado
+  ("Fazemos anúncios online que trazem cliente novo todo dia").
+- **Fundo** leva serviço e benefício para a própria chamada
+  ("Fazemos seus anúncios. Você atende os clientes.").
+
+Quatro peças mudaram de nome junto com o ângulo: BF01, BF02, BF08 e BF10.
