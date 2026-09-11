@@ -759,3 +759,49 @@ Nao sao comentario, sao codigo que reprova:
 `ads_creative_delete` tambem responde *"gradually rolled out"* nesta conta, entao
 os criativos de prova ficaram na conta nomeados `ZZ TEMP — ... (apagar)`. Sao
 quatro, sem anuncio ligado, sem custo. Apagar e manual no Gerenciador.
+
+---
+
+## A causa raiz apareceu inteira: o app OPC Automacao esta em modo de desenvolvimento
+
+11/09/2026, 16h50. Com o token de usuario do sistema na mao — `SYSTEM_USER`, sem
+data de expiracao, com `pages_manage_ads` e `leads_retrieval` — o `Terms of
+Service Not Accepted` sumiu. Apareceu o erro de baixo, e ele e o verdadeiro:
+
+```
+[1885183] Invalid parameter
+error_user_title: O post do criativo dos anuncios foi criada por um app que
+                  esta em modo de desenvolvimento
+error_user_msg:   ... Ele deve estar em modo publico para criar este anuncio.
+```
+
+E o mesmo mecanismo que ja estava registrado neste arquivo em 09/09 — *"o post
+escuro do anuncio nasce por um app em desenvolvimento, e a Meta reporta ora um
+texto, ora outro"*. A diferenca e que agora a mensagem veio explicita, sem
+disfarce de "termos nao aceitos".
+
+**A cadeia inteira, do comeco ao fim:**
+
+| Camada | Estado |
+|---|---|
+| Pagina aceitou os termos de lead | ✅ `leadgen_tos_accepted: true` desde 09/09 |
+| Formulario instantaneo | ✅ `2412763482587375` |
+| Token | ✅ usuario do sistema, nao expira, com `pages_manage_ads` |
+| Conta e Pagina no token | ✅ |
+| **App OPC Automacao em modo publico** | ❌ **esta em Desenvolvimento** |
+
+Tudo o mais ja estava certo. **Um interruptor segura a campanha inteira.**
+
+Conserto, uma vez: developers.facebook.com -> app `2159128187972575` -> o
+seletor **App Mode** no topo do painel, de *Desenvolvimento* para *Ao vivo*.
+
+**Licao de diagnostico.** Passei a sessao inteira tratando tres erros diferentes
+como tres problemas — `Missing Lead Form`, `Terms of Service Not Accepted`,
+`Invalid parameter`. Eram camadas do MESMO caminho, e cada conserto revelava a
+proxima. O erro de cima nunca diz quantos ha embaixo. Quando um bloqueio cai e
+outro aparece no mesmo ponto, isso nao e azar: e a pilha sendo descascada, e vale
+perguntar de saida quantas camadas ela tem.
+
+**E a licao cara:** o modo de desenvolvimento ja estava escrito aqui em 09/09,
+dois dias antes. Se eu tivesse lido o proprio arquivo de licoes antes de comecar
+a tentar caminhos, teria chegado aqui em uma chamada em vez de uma tarde.
