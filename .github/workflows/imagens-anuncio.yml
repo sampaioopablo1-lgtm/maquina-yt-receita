@@ -40,14 +40,20 @@ jobs:
 
       # Sem isto a tipografia cai no DejaVu, que funciona mas nao tem o peso
       # de uma peca paga. O Montserrat e o que a categoria usa.
+      # O destino vem de fabrica/caminhos.py, nao escrito a mao: o repositorio
+      # tem portao contra literal de workdir (test_caminhos.py), e com razao.
       - name: Baixar Montserrat
         continue-on-error: true
         run: |
           set -euo pipefail
-          mkdir -p /tmp/fontes
+          destino=$(python3 -c "
+          import sys; sys.path.insert(0, 'fabrica')
+          import criativos_anuncio as c; print(c.dir_fontes())
+          ")
+          mkdir -p "$destino"
           base=https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf
-          curl -sSLf -o /tmp/fontes/Montserrat-Bold.ttf "$base/Montserrat-Bold.ttf"
-          curl -sSLf -o /tmp/fontes/Montserrat-Regular.ttf "$base/Montserrat-Regular.ttf"
+          curl -sSLf -o "$destino/Montserrat-Bold.ttf" "$base/Montserrat-Bold.ttf"
+          curl -sSLf -o "$destino/Montserrat-Regular.ttf" "$base/Montserrat-Regular.ttf"
 
       # Sem chave nao ha o que gerar, e isso NAO e falha de codigo: o job sai
       # verde com um aviso. Antes desta trava o workflow pintava o PR de

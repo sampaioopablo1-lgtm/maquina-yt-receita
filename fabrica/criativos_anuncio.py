@@ -28,6 +28,7 @@ import urllib.request
 
 from PIL import Image, ImageDraw, ImageFont
 
+import caminhos
 from broll import chave
 
 API = "https://api.pexels.com/v1/search"
@@ -109,6 +110,16 @@ PECAS = [
 ]
 
 
+def dir_fontes():
+    """Onde o Montserrat e baixado, sob a raiz de trabalho.
+
+    Nao escrever o caminho a mao e regra da casa, cercada por
+    test_caminhos.py: literal de workdir copiado pela metade ja fez o render
+    terminar num lugar e a publicacao procurar em outro.
+    """
+    return os.path.join(caminhos.raiz(), "fontes")
+
+
 def caminho_fonte(negrito=True):
     """O primeiro arquivo de fonte que existe nesta maquina, ou None.
 
@@ -122,7 +133,7 @@ def caminho_fonte(negrito=True):
     sufixo_m = "Bold" if negrito else "Regular"
     sufixo_d = "-Bold" if negrito else ""
     for caminho in (
-        f"/tmp/fontes/Montserrat-{sufixo_m}.ttf",
+        os.path.join(dir_fontes(), f"Montserrat-{sufixo_m}.ttf"),
         f"/usr/share/fonts/truetype/dejavu/DejaVuSans{sufixo_d}.ttf",
         f"/usr/share/fonts/truetype/liberation/LiberationSans{sufixo_d or '-Regular'}.ttf",
         f"/usr/share/fonts/truetype/freefont/FreeSans{sufixo_d}.ttf",
@@ -137,7 +148,7 @@ def fonte(tamanho, negrito=True):
     if caminho is None:
         raise RuntimeError(
             "nenhuma fonte TrueType encontrada — instale fonts-dejavu-core ou "
-            "baixe o Montserrat em /tmp/fontes")
+            f"baixe o Montserrat em {dir_fontes()}")
     return ImageFont.truetype(caminho, tamanho)
 
 
