@@ -1020,3 +1020,45 @@ O conserto está em `DESTRAVAR — os 4 campos que liberam o botao.md`.
 quando ele era fato da conexão. Quando uma ferramenta devolve "false" para algo
 que ela mesma avisa que não consegue ler, "false" significa "não sei".
 
+
+## A última porta da API é o rascunho — e ela pode abrir sozinha
+
+Medido em 11/09/2026. O `ads_create_ad` aceita `source_ad_id` para **duplicar**
+um anúncio existente. Se a duplicação funcionasse, ela copiaria o criativo do
+V10 **com o formulário dentro** — seria a primeira vez que um anúncio de lead
+sairia por API nesta conta. Testei:
+
+```
+creative is required. To duplicate an existing ad, pass source_ad_id
+(the ad to copy) -- in draft mode its creative is copied automatically.
+```
+
+Duplicar só funciona **em modo rascunho**. E o modo rascunho desta conta ainda
+não foi liberado: `ads_get_ad_entities(object_state="draft")` responde *"This
+tool is new and is being gradually rolled out across ad accounts."*
+
+Isso é diferente de tudo que veio antes. Não é permissão, não é modo de app, não
+é plano pago — é **lançamento gradual**, e portanto **pode virar sozinho, sem o
+Pablo fazer nada**.
+
+**Checar a cada rodada horária:** chamar
+`ads_get_ad_entities(ad_account_id="1695865631502778", level="ad",
+object_state="draft")`. No dia em que parar de responder "rolling out", publicar
+as 10 peças AG duplicando o V10 e trocando… não: a duplicação copia a arte do
+V10 junto, então ela sozinha não resolve a arte. O que ela destrava é o
+**rascunho**: com rascunho ligado, dá para montar o anúncio de lead por API sem
+publicar, e aí o Pablo só aperta publicar. Vale testar na hora.
+
+## As três manhas para as 10 peças no formulário
+
+1. **Um anúncio só, criativo dinâmico.** Um conjunto novo com otimização de
+   criativo dinâmico aceita até 10 imagens e vários títulos num único anúncio,
+   com o formulário anexado. O Pablo monta **um** anúncio no Gerenciador em vez
+   de dez, e a Meta testa as combinações. As 10 artes **já estão na biblioteca
+   de imagens da conta** — não precisa subir nada. Custo: um conjunto novo, e
+   conjunto novo pede orçamento, que é decisão do Pablo.
+2. **Dez anúncios duplicando o V10 no Gerenciador.** Zero decisão de orçamento,
+   mais trabalho manual. A lista pronta para copiar e colar está no artefato
+   "Dez peças para o Gerenciador".
+3. **Esperar o rascunho ou o Modo ativo.** A única que não custa trabalho
+   nenhum, e a única cuja data não depende de nós.
