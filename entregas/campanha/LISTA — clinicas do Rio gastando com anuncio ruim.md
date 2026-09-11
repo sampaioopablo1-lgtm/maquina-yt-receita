@@ -206,6 +206,8 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - academia + musculação + Botafogo ✔ (zero resultado)
 - arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
 - odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
+- energia solar + Campo Grande ✔ (**combinação queimada**: 341 resultados e nenhum do Rio — o termo puxa Campo Grande/MS e o interior de SP. Bairro com nome repetido em outro estado precisa de "RJ" no termo)
+- arquitetura + design de interiores + Barra ✔ (10 resultados, 3 aproveitáveis, 2 Trilha A)
 - harmonizacao facial + Tijuca ✔ (**168 resultados**, quase todos Barra da Tijuca; 6 aproveitaveis, 5 Trilha A — nicho mais rico ate agora em dono-no-nome)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 - veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
@@ -1132,3 +1134,35 @@ Facebook puxou sozinho do Instagram, colado três vezes:
 **Quem está acertando (referência, não abordar):**
 - *Dra. Sânia Avilla* — "Harmonização Facial - Barra da Tijuca". Serviço e bairro em cinco palavras.
 - *Dr. Júnior Pires* — "Seu rosto comunica antes de você falar." Gancho de desejo, não de instrução.
+
+## Achados de 11/09, 18h — arquitetura + design de interiores na Barra
+
+Dez anúncios ativos, e o nicho quase não aparece sozinho: metade do que volta é
+**imobiliária** vendendo lançamento com "arquitetura" no texto. Mesmo assim a
+rodada rendeu três, e um deles é o defeito mais fácil de provar que já vi.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **O Único Imóvel** | o título é **"📲 Agende sua visita" repetido sete vezes**, com um campo vazio no meio — dois anúncios assim | `113164668499127` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1059204456841685) |
+| **Hiago Santos Arquitetura** — *Trilha A* | anúncio **sem título nenhum** | `1216159181584232` | 02/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2195659484334612) |
+| **Junior Dal Mora Imóveis** — *Trilha A* | anúncio **sem título nenhum** | `103445278205130` | 06/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1831270611200333) |
+
+**O Único Imóvel (a melhor abordagem da rodada):**
+
+> Boa tarde. Aqui é o Pablo, do Rio — não sou comprador. Vi os anúncios de
+> vocês na Biblioteca do Facebook e o título está saindo com "Agende sua visita"
+> repetido sete vezes, e um dos campos em branco. Isso acontece quando os
+> títulos alternativos ficam todos iguais, e quem vê no feed acha que travou.
+> Quer que eu te mostre onde arrumar?
+
+**Hiago (Trilha A, uma linha só):**
+
+> Hiago, o seu anúncio está no ar sem título nenhum — o espaço da frase está
+> vazio. É rápido de arrumar e muda quanta gente para pra ler. Quer que eu te
+> mande onde?
+
+**O que esta rodada ensina sobre a varredura.** "energia solar + Campo Grande"
+voltou 341 anúncios e nenhum do Rio: o termo puxou Campo Grande/MS e o interior
+de São Paulo. Bairro cujo nome existe em outro estado — Campo Grande é o caso —
+precisa de "RJ" colado no termo, senão a rodada inteira se perde. Anotado na
+lista de combinações para não repetir o erro.
