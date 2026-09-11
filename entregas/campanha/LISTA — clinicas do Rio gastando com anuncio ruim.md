@@ -206,6 +206,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 - academia + musculação + Botafogo ✔ (zero resultado)
 - arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
 - odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
+- harmonizacao facial + Tijuca ✔ (**168 resultados**, quase todos Barra da Tijuca; 6 aproveitaveis, 5 Trilha A — nicho mais rico ate agora em dono-no-nome)
 - harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
 - veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
 - imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
@@ -1093,3 +1094,41 @@ está registrado em LICOES sobre dez anúncios num conjunto — aqui, vinte e no
 **Nota de método:** "103 resultados" parecia o maior lote do nicho até eu ler os
 nomes. Volume na Biblioteca não é volume de anunciantes — uma clínica sozinha
 pode encher a página inteira. Contar páginas distintas, não anúncios.
+
+---
+
+## Achados de 11/09, 17h15 — harmonização facial + Tijuca (168 anúncios)
+
+O nicho mais rico em **Trilha A** encontrado até agora: cinco dos seis
+aproveitáveis têm o nome do dono na página, então a abordagem é direta no
+Instagram dele. Vale a mesma ressalva do Méier: "Tijuca" puxa a Barra da Tijuca,
+e aqui quase tudo é Barra.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Clínica Drª Fabiana Silveira** — *Trilha A* | **três anúncios sem título nenhum**, e um quarto cujo título é o texto inteiro do Instagram **repetido três vezes** — "Cirurgias estéticas da face (@dra.fabisilveira) • Instagram photos and videos \| ... \| ..." | `240451609671598` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1549196029825886) |
+| **Dra giuliana Lemos** — *Trilha A* | o título do anúncio é literalmente **"instagram.com"** — a URL crua no lugar da frase | `1161984110328623` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2005868943441796) |
+| **dra.karinaduarte** — *Trilha A* | três anúncios, os três com o título **"Converse conosco"** | `100497541405254` | 05/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2155366402062896) |
+| **Dra. Mah Amum** — *Trilha A* | título **"Agendar Agora ➡️"** — instrução, não motivo | `769348832938816` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1075589762113573) |
+| **Espaço Facial Shopping Downtown** | três anúncios, os três com **"AGENDE AQUI"** | `194913153711529` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1057338450435470) |
+| **Bruno Marano Estética Avançada** — *Trilha A* | **cinco anúncios idênticos**, todos "Harmonização Facial pagando apenas o material na Barra da Tijuca RJ" — e a oferta entrega o preço antes de criar o desejo | `409729075550792` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1739035217212663) |
+
+**O melhor caso da rodada é a Drª Fabiana Silveira**, e o defeito é do tipo que
+constrange quando apontado com cuidado — o título do anúncio é o texto que o
+Facebook puxou sozinho do Instagram, colado três vezes:
+
+> Dra. Fabiana, aqui é o Pablo, do Rio. Não sou paciente. Vi os seus anúncios
+> na Biblioteca e um deles está com o título quebrado: em vez de uma frase, ele
+> repete três vezes o texto que o Facebook puxou do seu Instagram. Outros três
+> estão **sem título nenhum**. Isso costuma acontecer quando o anúncio é
+> impulsionado direto do post, e ninguém vê depois. Quer que eu te mostre?
+
+**Dra. Giuliana (Trilha A, uma linha só):**
+
+> Dra. Giuliana, o título do seu anúncio está aparecendo como "instagram.com".
+> É o endereço no lugar da frase. Quem vê no feed não entende o que é. Leva
+> dois minutos para trocar — quer que eu te mande onde?
+
+**Quem está acertando (referência, não abordar):**
+- *Dra. Sânia Avilla* — "Harmonização Facial - Barra da Tijuca". Serviço e bairro em cinco palavras.
+- *Dr. Júnior Pires* — "Seu rosto comunica antes de você falar." Gancho de desejo, não de instrução.
