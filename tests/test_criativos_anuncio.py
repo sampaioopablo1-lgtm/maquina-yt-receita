@@ -103,4 +103,4 @@ def test_topo_nao_oferece_reuniao_e_fundo_oferece():
 def test_ids_sao_unicos():
     ids = [p[0] for p in C.PECAS]
     assert len(ids) == len(set(ids))
-    assert len(ids) == 20
+    assert len(ids) == 26

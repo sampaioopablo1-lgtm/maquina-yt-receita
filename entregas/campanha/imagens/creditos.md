@@ -55,3 +55,27 @@ formato, margem e contraste, não mede se a foto fala do assunto.
   que fala de quem já tem equipe e conta para pagar → dono sorrindo na loja
 - "esperar cliente não é plano" veio **foto de moda** → florista ao telefone na
   própria loja
+
+## Rio de Janeiro — o bairro no nome do leitor
+
+Seis peças para divulgação local. A varredura da Biblioteca mostrou que quem
+converte **nomeia o leitor** ("Feito para provedor com 10 anos", "Receba Leads
+de 3 a 29 Vidas"); no anúncio de bairro, dizer o bairro é a forma mais barata
+de fazer isso. A sobrancelha já era o lugar do leitor, então ela vira o bairro.
+
+O gancho é sempre o mesmo, e é verdadeiro: **o anúncio aparece só para quem
+está perto**. A Meta segmenta por raio, e o dono de bairro entende isso na
+hora, sem precisar saber o que é tráfego pago.
+
+| Peça | Bairro | Foto |
+|---|---|---|
+| RJ01 | Copacabana | [orla do Rio vista de cima](https://www.pexels.com/photo/scenic-aerial-view-of-rio-de-janeiro-coastline-36900642/) |
+| RJ02 | Ipanema | [dia na praia de Ipanema](https://www.pexels.com/photo/relaxing-day-at-ipanema-beach-rio-de-janeiro-28494277/) |
+| RJ03 | Tijuca | [comércio de rua, carrinho](https://www.pexels.com/photo/a-man-crossing-a-street-pushing-a-trolley-9895953/) |
+| RJ04 | Niterói | [ponte sobre a cidade](https://www.pexels.com/photo/a-bridge-over-a-city-with-cars-driving-on-it-28174485/) |
+| RJ05 | Botafogo | [favela e Pão de Açúcar](https://www.pexels.com/photo/scenic-view-of-rio-de-janeiro-favela-and-sugarloaf-34722154/) |
+| RJ06 | Zona Norte | [Maracanã](https://www.pexels.com/photo/panoramic-view-of-maracana-stadium-28649105/) |
+
+Uma foto foi descartada no caminho: "rio de janeiro city buildings" devolveu
+**cidade costeira genérica**, que podia ser qualquer lugar do mundo — e peça de
+bairro que não mostra o bairro perde a única coisa que ela tem. Virou Ipanema.

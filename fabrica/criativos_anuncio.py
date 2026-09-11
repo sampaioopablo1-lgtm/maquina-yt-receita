@@ -111,6 +111,33 @@ PECAS = [
     ("BF10_comecar_esta_semana", "fundo", "calendar schedule planning desk",
      "COMEÇO", "Comece esta semana a receber clientes",
      "Escolhe o horário. Em 20 minutos você entende como funciona.", "Agende 20 minutos"),
+    # ---------------- RIO: o mesmo recado, com o bairro no nome -------------
+    # A varredura da Biblioteca mostrou que quem converte nomeia o leitor
+    # ("Feito para provedor com 10 anos", "Receba Leads de 3 a 29 Vidas"). No
+    # anuncio local, nomear o bairro e a forma mais barata de fazer isso — e
+    # a sobrancelha ja era o lugar do leitor, entao ela vira o bairro.
+    #
+    # O gancho e sempre o mesmo: o anuncio aparece so para quem esta perto.
+    # Isso e verdade (a Meta segmenta por raio) e e o que o dono de bairro
+    # entende na hora, sem precisar saber o que e trafego pago.
+    ("RJ01_copacabana", "topo", "copacabana beach rio de janeiro",
+     "COPACABANA", "Quem mora aqui ainda não sabe que você existe",
+     "Fazemos anúncios que aparecem só para quem está perto do seu negócio.", "Veja como funciona"),
+    ("RJ02_ipanema", "topo", "ipanema beach rio de janeiro",
+     "IPANEMA", "Tem cliente a três quadras procurando o que você vende",
+     "Nossos anúncios colocam seu WhatsApp na frente de quem está no seu bairro.", "Veja como funciona"),
+    ("RJ03_tijuca", "topo", "rio de janeiro street neighborhood",
+     "TIJUCA", "Anuncie para quem passa na sua porta",
+     "Anúncio no ar só para o seu bairro. Cliente novo todo dia no WhatsApp.", "Veja como funciona"),
+    ("RJ04_niteroi", "topo", "niteroi rio de janeiro",
+     "NITERÓI", "Seu cliente está aqui, não do outro lado da ponte",
+     "Fazemos anúncios que só aparecem para quem mora perto de você.", "Veja como funciona"),
+    ("RJ05_botafogo", "topo", "sugarloaf botafogo rio",
+     "BOTAFOGO", "O bairro tem cliente. Ele só não te achou ainda.",
+     "Nossos anúncios trazem cliente novo todo dia pelo WhatsApp.", "Veja como funciona"),
+    ("RJ06_zona_norte", "topo", "maracana rio de janeiro",
+     "ZONA NORTE", "Seu concorrente do bairro está anunciando. Você não.",
+     "A gente coloca o seu anúncio na frente de quem mora aqui.", "Veja como funciona"),
 ]
 
 
