@@ -960,3 +960,32 @@ travada por verificacao de negocio.
 provedor. A frase estava certa para aquele provedor e errada como conclusao
 geral — faltava perguntar quem mais na mesa tem app proprio ao vivo. Insistir
 custou quatro chamadas e revelou uma porta que eu nao tinha visto.
+
+## Três becos sem saída, fechados por medição em 11/09 (não retestar)
+
+Vim procurar ferramenta aberta ou caminho não testado. Achei três, e os três
+fecharam. Registro aqui para ninguém gastar sessão redescobrindo.
+
+**1. "Só trocar o criativo do anúncio" não existe na API da Meta.** Eu tinha
+esperança de editar as peças `v2` que já estão na conta, só colando o
+`lead_gen_form_id` nelas. A documentação do `ads_creative_update` é explícita
+sobre o que dá para mudar num criativo existente: `name`, `status`, `adlabels`.
+Mídia, texto, link e call-to-action são imutáveis — "create a new creative
+instead". Não é limitação da ferramenta; é a API. O que É editável, e isso segue
+valendo, é o **ponteiro do anúncio para o criativo**: trocar qual criativo um
+anúncio usa é permitido. O que não dá é editar o criativo por dentro.
+
+**2. A segunda conexão do Composio cai no mesmo app.** A teoria era que, criando
+uma conexão nova do `metaads`, o token viria do app do **Composio** (que é Live)
+em vez do "OPC Automação" (Development). Criei a conexão: ela nasceu
+`account_type: PRIVATE`, igual à primeira — o Composio reusa a *auth config* do
+Pablo, isto é, o app dele. Mesmo token, mesmo `1885183`. Apaguei a conexão de
+teste.
+
+**3. Ferramenta aberta não resolve, e o motivo é estrutural.** n8n, o SDK
+`facebook-business`, script próprio: todos falam com a Graph API usando **um app
+que você registra**. O bloqueio não está na ferramenta, está em quem assina o
+"dark post" do criativo de lead — e quem assina é o app do token. Ferramenta
+aberta sempre assina com o app do Pablo, que está em Development. Por isso os
+únicos caminhos que funcionam são os que assinam com um app de terceiro já Live
+(Supermetrics) ou o próprio app do Pablo virando Live.
