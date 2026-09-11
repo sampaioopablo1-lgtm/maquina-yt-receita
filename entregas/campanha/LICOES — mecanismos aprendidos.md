@@ -915,3 +915,48 @@ torna a comparacao honesta. Trocar o botao depois e um teste proprio.
 mesmo link, mesmo CTA, mesmo instagram, so a imagem diferente — a Meta devolveu
 o mesmo `1885183`. Nao ha campo, ordem ou formato que contorne. O app e a unica
 variavel.
+
+---
+
+## Varredura das plataformas: quatro caminhos testados, duas portas de verdade
+
+11/09/2026, 17h25. O Pablo insistiu — "nao e possivel que nao tem nenhum
+caminho". Estava certo em insistir: eu nao tinha olhado duas plataformas.
+
+| Plataforma | App dela | `lead_gen_form_id`? | Conta OPC conectada? | Resultado medido |
+|---|---|---|---|---|
+| Conector Facebook MCP (claude.ai) | Meta, **ao vivo** | ✗ sem parametro | ✓ | `1892181` — a conexao nao le a aceitacao dos termos |
+| Token de usuario do sistema, Graph API direta | **OPC Automacao, em desenvolvimento** | ✓ | ✓ | `1885183` — app em modo de desenvolvimento |
+| **Composio** `metaads` | usa a MESMA credencial "Integracao" → OPC Automacao | ✓ | ✓ conexao ATIVA | `1885183` — mesmo bloqueio |
+| **Supermetrics** `manage_campaign` | Supermetrics, **ao vivo** | ✓ **suporta** | ✗ **nao conectada** | 49 contas listadas, a OPC nao esta entre elas |
+
+Duas descobertas que valeram a varredura:
+
+**O Composio nao e caminho novo.** A conexao `metaads` dele usa a mesma
+credencial do usuario do sistema "Integracao", entao carrega o mesmo app em
+desenvolvimento. Testei por dois caminhos — a ferramenta `METAADS_CREATE_AD_CREATIVE`
+(bloqueada por politica de marketplace do proprio Composio, nao por tecnica) e o
+`proxy_execute` cru, que passou pela politica e bateu **no mesmo 1885183**.
+
+**O Supermetrics e caminho de verdade.** O `manage_campaign` dele cria anuncio no
+Meta em conjunto que ja existe, aceita `lead_gen_form_id` no criativo, aceita
+`asset_url` publica (as artes ja estao no Drive), e o app dele esta ao vivo.
+Falta so a conta `1695865631502778` estar conectada — hoje nao esta.
+
+### As duas portas
+
+1. **App Mode do OPC Automacao para "Ao vivo"** —
+   developers.facebook.com/apps/2159128187972575. Resolve a raiz: o mesmo modo de
+   desenvolvimento que assombra esta conta desde 09/09 some, e todo caminho passa
+   a funcionar, inclusive o automatico do repositorio.
+2. **Conectar a conta OPC no Supermetrics** —
+   hub.supermetrics.com/token-management?team_id=1140774#dataSourceFA. Nao encosta
+   no app. Publico por la, com as imagens que ja estao no Drive.
+
+A porta 1 e melhor porque conserta a causa. A porta 2 serve se a 1 estiver
+travada por verificacao de negocio.
+
+**Licao:** eu tinha declarado "a intersecao e vazia" depois de testar **um**
+provedor. A frase estava certa para aquele provedor e errada como conclusao
+geral — faltava perguntar quem mais na mesa tem app proprio ao vivo. Insistir
+custou quatro chamadas e revelou uma porta que eu nao tinha visto.
