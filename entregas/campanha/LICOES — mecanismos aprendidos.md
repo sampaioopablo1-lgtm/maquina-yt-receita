@@ -512,3 +512,34 @@ justo quando quer menos.
 aquilo é usado e aplicar. LICOES é memória, não entrega. E quando o
 posicionamento muda, varrer todo texto de abordagem — a copy do anúncio é a
 parte visível, a mensagem de direct é a que ninguém lembra de trocar.
+
+## Dez anúncios num conjunto viram um anúncio e nove zumbis (11/09/2026, 14h15)
+
+O Pablo mandou print reclamando que os conjuntos não tinham criativo novo. Fui
+ler o que os dez anúncios de cada conjunto FASE 3 entregaram desde 09/09:
+
+| Conjunto | V10 (vencedor) | Os outros NOVE somados |
+|---|---|---|
+| LEADS I INTERESSE I FASE 3 | 303 impressões, 1 lead | **121 impressões**, 0 lead |
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | 571 impressões, 4 leads | **13 impressões**, 0 lead |
+
+No semelhante, oito dos dez anúncios ficaram em **zero impressão** — dois dias
+no ar, existindo no painel e nunca entregues.
+
+**O mecanismo:** o Meta dá uma amostra minúscula a cada anúncio, escolhe cedo e
+despeja o resto do orçamento no que ganhou. Com R$30/dia num conjunto, a
+amostra por anúncio é de dezenas de impressões — ruído. Ele não escolheu o
+melhor criativo; escolheu o que teve sorte nas primeiras dezenas.
+
+**Consequência direta para a troca de criativo:** subir peça nova num conjunto
+que já tem vencedor estabelecido é quase garantir que ela não rode. O V10 tem
+dois dias de histórico de entrega; um criativo novo entra competindo com isso e
+perde o leilão interno antes de ter dado 100 impressões.
+
+**A regra:** criativo novo que precisa ser testado vai em **conjunto novo**, não
+ao lado de um vencedor. E o número de anúncios por conjunto tem que caber no
+orçamento: com R$30/dia, três ou quatro anúncios recebem amostra que significa
+alguma coisa; dez não.
+
+Isto revisa o plano de hoje: as 20 peças novas não entram nos FASE 3 atuais.
+Entram em conjunto novo, em lotes de três ou quatro.
