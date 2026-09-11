@@ -1,123 +1,131 @@
-# Criativos — 10 por Conjunto (5 Imagens + 5 Vídeos)
+# Criativos — 10 Imagens por Conjunto
 
-**Objetivo**: Cada ad set terá 10 criativos distintos para rotação e teste. Variação de mensagem, estilo e formato para maximizar relevância.
-
----
-
-## Estrutura Padrão
-
-### **IMAGENS (5)**
-
-**1. Crescimento/Resultado**
-- Celular + WhatsApp com mensagens + gráfico verde
-- Headline: "Precisa de novos clientes pelo whatsapp?"
-- Foco: Resultado tangível, números visíveis
-
-**2. Analytics/Dados**
-- Dashboard com métricas (leads, CPL, impressões)
-- Headline: "Saiba exatamente quanto você gasta por cliente"
-- Foco: Transparência, controle, dados
-
-**3. Expertise/Consultoria**
-- Dois profissionais em conversa/reunião
-- Headline: "Especialistas que já fizeram isso 100+ vezes"
-- Foco: Confiança, experiência
-
-**4. Depoimento/Social Proof**
-- Foto de cliente real (ou ator) + texto "Meu melhor investimento foi em anúncios"
-- Headline: "Veja o que nossos clientes dizem"
-- Foco: Validação social, prova de conceito
-
-**5. Oferta/Urgência**
-- CTA destacado, relógio/calendário, visual de promoção
-- Headline: "Agende uma conversa em 20 minutos"
-- Foco: Chamada para ação, escassez
+**Objetivo**: Cada ad set terá 10 imagens distintas otimizadas para conversão. Foco em padrões de alta performance baseado em análise de anúncios de referência (V4 Company). Sourcing via Pixels.
 
 ---
 
-### **VÍDEOS (5)**
+## 10 Padrões de Imagens High-Converting
 
-**1. Case / Transformação (30-60s)**
-- Antes/depois de um negócio com anúncios
-- Som: Música inspiradora + voice-over português
-- Hook: "De 0 a 8 clientes por mês em 90 dias"
+### **1. Crescimento/Resultado**
+- Celular + WhatsApp com mensagens de clientes + gráfico verde crescente
+- Foco: Números visíveis (+150%, +8 clientes/mês), mockup realista
+- Copy: "Precisa de novos clientes pelo whatsapp?"
+- Fonte: Pixels (business, growth, mobile)
 
-**2. Tutorial Rápido (15-30s)**
-- "5 erros que você está cometendo em anúncios"
-- Formato: Texto em tela + B-roll de dashboards
-- CTA: "Marque uma consulta para não cometer mais"
+### **2. Dashboard/Analytics (Premium)**
+- Computador/tablet exibindo dashboard com métricas claras
+- Foco: CPL, leads, CTR em interface tech-forward
+- Copy: "Saiba exatamente quanto você gasta por cliente"
+- Fonte: Pixels (analytics, data, dashboard)
 
-**3. Educacional / Valor (30s)**
-- "Por que você precisa de anúncios (e não apenas redes sociais)"
-- Formato: Animated explainer ou apresentação de slides
-- Tom: Amigável, conversacional
+### **3. Dois Profissionais em Consultoria**
+- Consultores em conversa/reunião (ambiente moderno, iluminação natural)
+- Foco: Confiança, expertise, relacionamento humano
+- Copy: "Especialistas que já fizeram isso 100+ vezes"
+- Fonte: Pixels (business consultation, professionals, meeting)
 
-**4. Depoimento em Vídeo (20-45s)**
-- Cliente falando (gravado ou simulado)
-- Texto: Desafio inicial, resultado após trabalhar com agência
-- Foco: Confiança, identificação
+### **4. Depoimento/Social Proof**
+- Cliente real ou ator + texto destacado "Meu melhor investimento foi em anúncios"
+- Foco: Identificação do público-alvo
+- Copy: "Veja o que nossos clientes dizem"
+- Fonte: Pixels (testimonial, happy customer, success story)
 
-**5. Urgência/Promo (15-20s)**
-- "Apenas 3 slots disponíveis este mês"
-- Visual: Calendário, relógio, botão de clique
-- Som: Upbeat, motivador
-- CTA: Link para calendário
+### **5. Urgência/Scarcity (Calendário)**
+- Calendário visual + "3 slots disponíveis" ou relógio destacado
+- Foco: FOMO, escassez de tempo/slots
+- Copy: "Agende uma conversa em 20 minutos"
+- Fonte: Pixels (calendar, urgent, time)
+
+### **6. Antes/Depois (Transformação Negócio)**
+- Split screen: negócio com poucos clientes → negócio com crescimento
+- Foco: Transformação clara, aspiracional
+- Copy: "De 0 a 8 clientes em 90 dias"
+- Fonte: Pixels (before after, business growth, transformation)
+
+### **7. Problema/Solução (Pain Point)**
+- Empresário frustrado vs. empresário confiante com anúncios
+- Foco: Identificação do problema, alívio emocional
+- Copy: "Você tá fazendo anúncios errado. Nós corrigimos."
+- Fonte: Pixels (frustrated businessman, problem solving)
+
+### **8. Product Shot (Serviço em Destaque)**
+- Imagem premium de reunião/consultoria em HD (close-up profissional)
+- Foco: Qualidade visual alta, credibilidade
+- Copy: "Consultoria especializada em WhatsApp Ads"
+- Fonte: Pixels (professional service, premium, workspace)
+
+### **9. Authority/Números (Resultado Prova)**
+- Infográfico limpo com 3-4 números-chave (2000+ clientes, 10+ anos, R$50M+ em anúncios gerenciados)
+- Foco: Autoridade, scale, track record
+- Copy: "2000+ negócios crescendo com nossos anúncios"
+- Fonte: Pixels (business numbers, stats, infographic) + design
+
+### **10. CTA Direto/Visual Motora**
+- Imagem com botão/ícone de calendário muito destacado ou mão apontando
+- Foco: Ação clara, high-contrast
+- Copy: "Clique aqui → Marque sua reunião"
+- Fonte: Pixels (CTA button, arrow, action indicator)
 
 ---
 
 ## Especificações Técnicas
 
-| Formato | Tamanho | Duração | Frame Rate | Bitrate |
-|---------|---------|---------|-----------|---------|
-| **Imagem** | 1200x628px | - | - | JPG/PNG |
-| **Vídeo (Feed)** | 1080x1920px | 15-60s | 30fps | 6-10 Mbps |
-| **Vídeo (Reels)** | 1080x1920px | 15-90s | 30fps | 8-12 Mbps |
+| Formato | Tamanho | Proporção | Tipo |
+|---------|---------|-----------|------|
+| **Imagem (Feed)** | 1200x628px | 1.91:1 | JPG/PNG |
+| **Imagem (Stories)** | 1080x1920px | 9:16 | JPG/PNG |
+
+**Fonte Principal**: Pixels (stock photography + design elements)
 
 ---
 
 ## Rotação de Criativos
 
-- **Semana 1-2**: Todos 10 ativos
-- **Semana 3**: Desabilitar os 3 piores (CPL ou CTR)
-- **Semana 4**: Substituir pelos 3 melhores novos
-- **Contínuo**: A/B teste por elemento (headline, imagem, vídeo)
+- **Semana 1-2**: Todos 10 ativos (monitorar performance)
+- **Semana 3**: Desabilitar os 3 piores (CPL ou CTR baixo)
+- **Semana 4+**: Manter 7 top performers, substituir 3 piores por novas variações
+- **Contínuo**: A/B teste de headlines sobre mesma imagem
 
 ---
 
-## Prioridade de Criação
+## Prioridade de Sourcing/Produção
 
-| Criativo | Prioridade | Prazo |
-|----------|-----------|-------|
-| Imagem 1 (Crescimento) | 🔴 Alta | Hoje |
-| Imagem 2 (Analytics) | 🔴 Alta | Hoje |
-| Imagem 3 (Expertise) | 🟠 Média | Amanhã |
-| Imagem 4 (Depoimento) | 🟠 Média | Amanhã |
-| Imagem 5 (Oferta) | 🟠 Média | Amanhã |
-| Vídeo 1 (Case) | 🔴 Alta | Amanhã |
-| Vídeo 2 (Tutorial) | 🟠 Média | Dia 3 |
-| Vídeo 3 (Educacional) | 🟡 Baixa | Dia 3 |
-| Vídeo 4 (Depoimento) | 🟠 Média | Dia 4 |
-| Vídeo 5 (Urgência) | 🟠 Média | Dia 4 |
+| Imagem | Padrão | Prioridade | Prazo |
+|--------|--------|-----------|-------|
+| 1 | Crescimento | 🔴 Alta | Hoje |
+| 2 | Analytics | 🔴 Alta | Hoje |
+| 3 | Consultoria | 🟠 Média | Hoje |
+| 4 | Social Proof | 🟠 Média | Amanhã |
+| 5 | Urgência | 🟠 Média | Amanhã |
+| 6 | Antes/Depois | 🟠 Média | Amanhã |
+| 7 | Pain Point | 🟠 Média | Amanhã |
+| 8 | Premium Service | 🟡 Baixa | Dia 3 |
+| 9 | Authority/Numbers | 🟡 Baixa | Dia 3 |
+| 10 | CTA Direto | 🟡 Baixa | Dia 3 |
 
 ---
 
-## Ad Sets Ativos (aplicar estrutura 10 criativos)
+## Ad Sets Ativos (aplicar estrutura 10 imagens)
 
 1. **120247320350580766** (Fundo — CNAE RJ)
 2. **120247318695790766** (Topo — Interesse)
 3. **120247353022060766** (Semelhante CNAE RJ)
 4. **120247335600450766** (Interesse geral)
 
-**Total**: 4 ad sets × 10 criativos = **40 assets** para produzir
+**Total**: 4 ad sets × 10 imagens = **40 imagens** para produzir via Pixels
 
 ---
 
-## Status
+## Status & Próximas Ações
 
-- [ ] Desativar campanha WhatsApp atual
-- [ ] Gerar 5 imagens
-- [ ] Produzir 5 vídeos
-- [ ] Upload no Meta
-- [ ] Ativar rotação
-- [ ] Monitorar performance por criativo
+- [x] Remover vídeos da estratégia
+- [x] Definir 10 padrões high-converting (V4 Company reference)
+- [x] Atualizar framework de criativos
+- [ ] Sourcing de 40 imagens via Pixels (prioritário: 1-3)
+- [ ] Upload no Meta Ads Manager
+- [ ] Criar variações de headlines para cada imagem
+- [ ] Ativar rotação nos 4 ad sets
+- [ ] Monitorar CPL/CTR por imagem em Semana 1-2
+- [ ] Disable 3 piores em Semana 3
+- [ ] Substituir por novas variações em Semana 4
 

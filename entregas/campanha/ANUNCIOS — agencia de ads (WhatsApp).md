@@ -34,22 +34,24 @@
 
 ---
 
-## Specs de Criação
+## Specs de Criação (Atualizado)
 
-- **Formato**: Link único → página de contato/calendário (reunião 20 min, Meet)
-- **Destino**: Google Agenda (Composio googlecalendar)
-- **Público**: Ad sets já definidos (semelhante CNAE RJ, interesse em Meta Ads, etc.)
-- **Budget**: R$30-40/dia por anúncio (total R$90-120/dia)
-- **Objetivo**: Conversão (Schedule)
+- **Formato**: 10 imagens por ad set (40 total)
+- **Sourcing**: Pixels (stock + design)
+- **Destino**: Calendly (reunião com especialistas)
+- **Público**: Ad sets já definidos (4 conjuntos, 120M+ de audiência total)
+- **Budget**: R$40-50/dia por ad set (R$160-200/dia total)
+- **Objetivo**: LINK_CLICKS → Calendly booking
 
 ---
 
 ## Implementação
 
-1. ✓ Descrever imagens
-2. → Gerar/upload imagens
-3. → Criar creatives via Meta API
-4. → Criar ads em ad sets existentes
-5. → Monitorar CPL e CTR
+1. ✓ Definir 10 padrões high-converting
+2. → Sourcing de 40 imagens via Pixels
+3. → Upload no Meta Ads Manager
+4. → Criar headline variations (3-4 por imagem)
+5. → Ativar rotação
+6. → Monitorar CPL/CTR por imagem
 
-**Status**: Aguardando geração de imagens.
+**Status**: Pronto para sourcing de imagens.
