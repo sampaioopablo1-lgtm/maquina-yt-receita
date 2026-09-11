@@ -10,6 +10,17 @@ name: Criativos dos anuncios — gerar do Pexels
 
 on:
   workflow_dispatch:
+  # O dispatch pela API exige o arquivo no branch padrao, e este vive no branch
+  # de trabalho — a chamada volta 404. O gatilho de push resolve: mexeu na
+  # lista de pecas ou no gerador, as artes saem sozinhas.
+  #
+  # O filtro de caminho tambem evita laco: o commit do bot toca so
+  # entregas/campanha/imagens, que nao esta na lista abaixo.
+  push:
+    branches: [claude/opc-pablo-reel-ryxld4]
+    paths:
+      - fabrica/criativos_anuncio.py
+      - .github/workflows/imagens-anuncio.yml
 
 permissions:
   contents: write
