@@ -619,3 +619,47 @@ com `Missing Lead Form (3390001)`:
 
 Enquanto esse id não vier do Pablo, criativo novo de formulário fica pronto na
 conta mas não vira anúncio.
+
+---
+
+## O upload bloqueado tinha porta dos fundos: `image_url`
+
+11/09/2026. `ads_creative_upload_media` e `ads_creative_upload_image` recusam a
+conta 1695865631502778 com *"this tool is being gradually rolled out"*. Eu tinha
+concluido que as pecas novas nao entravam no Meta por aqui. **Estava errado.**
+
+`ads_create_creative` aceita `image_url` no lugar de `image_hash`: o Meta baixa a
+imagem sozinho e gera o hash. Nao passa pela ferramenta de upload, entao nao passa
+pelo bloqueio. As dez pecas AG entraram assim.
+
+A URL precisa servir os **bytes** da imagem. O link normal do Drive
+(`drive.google.com/uc?export=download&id=...`) nao serve: devolve pagina HTML.
+O que funciona, com o arquivo publico (`anyone`/`reader`):
+
+    https://lh3.googleusercontent.com/d/<file_id>
+
+Uma das dez falhou na primeira tentativa com *"Image Wasn't Downloaded"* e passou
+na segunda, sem mudar nada — a permissao leva alguns segundos para propagar.
+Vale repetir uma vez antes de concluir que nao funciona.
+
+**Licao de metodo:** "a ferramenta X esta bloqueada" nao e o mesmo que "a
+capacidade esta bloqueada". Antes de devolver um bloqueio para o Pablo, procurar
+o mesmo efeito por outro parametro. Eu devolvi esse bloqueio duas vezes antes de
+achar a porta que estava na descricao da propria ferramenta.
+
+### O que continua fechado, e por que
+
+| Conjunto | Por que nao aceita anuncio novo |
+|---|---|
+| LEADS I INTERESSE I FASE 3 | `Missing Lead Form (3390001)` — exige `lead_gen_form_id`, que nenhuma ferramenta expoe |
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | idem |
+| LEADS I LISTA CNPJ + QUENTE I FASE 1 | idem (mesma campanha) |
+| INT I DONOS | `Cannot Create Or Update Ads In Dynamic Creative Ad Set (1885274)` — criativo dinamico nao aceita anuncio comum |
+| WPP I CONVERSA I FS1 | campanha pausada por decisao do Pablo |
+
+Tambem apanhei de `Creative and Objective Mismatch (1815159)`: criativo com CTA
+`SIGN_UP` nao entra em campanha de reconhecimento. Para o REC I FS1 o CTA precisa
+ser `LEARN_MORE`. Refiz o criativo, e ai bateu no bloqueio do criativo dinamico.
+
+**Estado:** os dez criativos AG estao na conta, com imagem ja hospedada no Meta,
+prontos para serem anexados. Falta so o id do formulario instantaneo.
