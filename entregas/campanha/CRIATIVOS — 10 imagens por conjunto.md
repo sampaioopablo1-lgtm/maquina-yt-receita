@@ -1,6 +1,19 @@
 # Criativos — 10 Imagens por Conjunto
 
-**Objetivo**: Cada ad set terá 10 imagens distintas otimizadas para conversão. Foco em padrões de alta performance baseado em análise de anúncios de referência (V4 Company). Sourcing via Pixels.
+**Objetivo**: Cada ad set terá 10 imagens distintas otimizadas para conversão. Foco em padrões de alta performance baseado em análise de anúncios de referência (V4 Company). Sourcing via Pexels.
+
+> ## ⚠️ NÃO desligar o vídeo V10 antes de decidir com o Pablo
+>
+> Apurado na conta em 11/09, 12h10 — depois que este plano foi escrito:
+>
+> | Anúncio | Conjunto | Gasto hoje | CTR | Leads |
+> |---|---|---|---|---|
+> | **V10 — Cliente todo dia (vídeo E)** | LEADS I INTERESSE I FASE 3 | R$6,67 | **3,17%** | **2** |
+> | **V10 — Cliente todo dia (vídeo E)** | LEADS I SEMELHANTE CNAE RJ I FASE 3 | R$1,13 | **3,70%** | **1** |
+>
+> São 3 leads hoje a **R$2,60**, com CTR seis a sete vezes acima do corte de 0,5%
+> que este mesmo documento define. As 10 imagens entram **ao lado** do V10, para
+> disputar com ele — não no lugar dele. Quem sai é quem perder no número.
 
 ---
 
@@ -105,12 +118,23 @@
 
 ---
 
-## Ad Sets Ativos (aplicar estrutura 10 imagens)
+## Ad Sets — estado real, conferido na conta em 11/09 12h10
 
-1. **120247320350580766** (Fundo — CNAE RJ)
-2. **120247318695790766** (Topo — Interesse)
-3. **120247353022060766** (Semelhante CNAE RJ)
-4. **120247335600450766** (Interesse geral)
+A lista de 4 que estava aqui veio copiada de documento antigo. Dois estão pausados
+e renomeados, e os que produzem lead não apareciam. O que existe hoje:
+
+| Conjunto | Estado | Hoje |
+|---|---|---|
+| **LEADS I INTERESSE I FASE 3** | ativo, com lead | R$6,67 · CTR 3,17% · **2 leads** |
+| **LEADS I SEMELHANTE CNAE RJ I FASE 3** | ativo, com lead | R$1,13 · CTR 3,70% · **1 lead** |
+| INT I DONOS (`120247318695790766`) | ativo, criativo dinâmico | R$4,55 · CTR 0,00% · 0 lead |
+| LEADS I LISTA CNPJ + QUENTE I FASE 1 (`120247320350580766`) | ativo, sem entrega | R$0 · 0 impressão |
+| `120247353022060766` e `120247335600450766` | **pausados**, renomeados `ZZ INATIVO` | — |
+
+As imagens entram nos dois FASE 3, que é onde há lead e onde a comparação
+significa alguma coisa. INT I DONOS é criativo dinâmico: por LICOES, ele esconde
+o desempenho de cada peça e carimba post de app em desenvolvimento — não serve
+para teste de criativo.
 
 **Produção**: 10 imagens únicas, replicadas nos 4 conjuntos = **40 anúncios**.
 Não são 40 imagens. O criativo é o mesmo, o que muda é o público — assim dá para comparar

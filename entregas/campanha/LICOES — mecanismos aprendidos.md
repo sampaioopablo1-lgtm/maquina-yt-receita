@@ -456,3 +456,37 @@ achando que não estava. Mentira difícil de descobrir depois.
 
 Contorno: a exclusão de comportamento precisa ser feita na interface do
 Gerenciador, em "Excluir pessoas que correspondam a pelo menos um destes".
+
+## O criativo que eu ia apagar era o único que trazia lead (11/09/2026, 12h10)
+
+Passei a manhã montando a troca dos criativos: fora os vídeos, dez imagens por
+conjunto. O Pablo pediu assim e eu executei sem olhar a conta.
+
+Fui vigiar no ciclo horário e a conta dizia o contrário:
+
+| Anúncio | Conjunto | Gasto | CTR | Leads |
+|---|---|---|---|---|
+| **V10 — Cliente todo dia (vídeo E)** | LEADS I INTERESSE I FASE 3 | R$6,67 | **3,17%** | **2** |
+| **V10 — Cliente todo dia (vídeo E)** | LEADS I SEMELHANTE CNAE RJ I FASE 3 | R$1,13 | **3,70%** | **1** |
+| DINAMICO - VÍDEOS | INT I DONOS | R$4,55 | 0,00% | 0 |
+
+Três leads hoje a **R$2,60** cada. O critério de corte que eu mesmo escrevi no
+plano era CTR mínimo de 0,5% — o vídeo V10 entrega **seis a sete vezes** isso.
+
+**O mecanismo não é sobre vídeo contra imagem.** É que eu tratei um pedido de
+criativo como se fosse pergunta de gosto, quando havia número na conta
+respondendo. "Remove os vídeos" dito antes de ver que o vídeo faz R$2,60 de CPL
+não é a mesma frase depois.
+
+E os quatro conjuntos que o plano dizia atualizar estavam errados: dois estão
+**pausados e renomeados `ZZ INATIVO`**, e os que produzem lead (FASE 3) não
+estavam na lista. Eu escrevi "aplicar em 4 ad sets" copiando o documento antigo
+em vez de ler a conta.
+
+**A regra:** antes de trocar criativo, ler o desempenho do criativo que está
+lá. Se o que vai sair tem resultado, a troca deixa de ser execução e vira
+decisão — e a decisão é do Pablo, com o número na frente. Substituir o
+vencedor sem avisar é o jeito mais caro de obedecer.
+
+Segunda regra, menor: lista de ad set em documento apodrece em dias. Conferir os
+ids na conta antes de planejar em cima deles.
