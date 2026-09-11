@@ -805,3 +805,37 @@ perguntar de saida quantas camadas ela tem.
 **E a licao cara:** o modo de desenvolvimento ja estava escrito aqui em 09/09,
 dois dias antes. Se eu tivesse lido o proprio arquivo de licoes antes de comecar
 a tentar caminhos, teria chegado aqui em uma chamada em vez de uma tarde.
+
+---
+
+## Combinar os caminhos nao resolve: a intersecao e vazia (testado, nao deduzido)
+
+11/09/2026, 17h. O Pablo sugeriu combinar os caminhos. A ideia e boa e eu testei
+as quatro combinacoes possiveis, em vez de responder de cabeca. Para criar
+anuncio de formulario sao precisas **tres** coisas ao mesmo tempo:
+
+1. o `lead_gen_form_id` dentro do criativo;
+2. `pages_manage_ads`, para a conexao LER a aceitacao dos termos;
+3. o app que cria o post do criativo em **modo publico**.
+
+| Combinação testada | 1 form | 2 permissão | 3 app ao vivo | O que a Meta respondeu |
+|---|---|---|---|---|
+| Conector cria criativo e anuncio | ✗ | ✗ | ✓ | `Missing Lead Form (3390001)` |
+| Conector com `object_story_spec` em linha, com o form | ✓ | ✗ | ✓ | `Terms of Service Not Accepted (1892181)` |
+| Token do sistema cria criativo (`picture` por URL) | ✓ | ✓ | ✗ | `app em modo de desenvolvimento (1885183)` |
+| Token do sistema cria criativo (`image_hash` da conta) | ✓ | ✓ | ✗ | idem — a imagem nao muda quem cria o post |
+| Token do sistema + criativo feito pelo conector | ✗ | ✓ | ✓ | `Formulário de lead ausente (3390001)` |
+
+**Cada linha tem exatamente uma coluna vazia, e nunca a mesma.** O conector tem o
+app ao vivo mas nao tem a permissao nem parametro de formulario; o token tem
+formulario e permissao mas o app dele esta em desenvolvimento. Nao ha terceira
+porta: **so o interruptor do app junta as tres**.
+
+A tentativa com `image_hash` foi a que valeu mais a pena: eu suspeitava que usar
+imagem ja hospedada na conta evitaria criar um post novo. Nao evita — o post
+escuro nasce de qualquer jeito, e quem o cria e o app do token, nao a origem da
+imagem. Suspeita testada e enterrada.
+
+**O que sobra enquanto o app nao vai ao ar:** o Gerenciador de Anuncios e, ele
+proprio, um "app ao vivo com todas as permissoes". Por isso o caminho manual
+funciona — e por isso os dez criativos `v2` ficaram prontos na conta.
