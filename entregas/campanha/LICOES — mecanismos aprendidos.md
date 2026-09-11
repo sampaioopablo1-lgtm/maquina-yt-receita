@@ -543,3 +543,33 @@ alguma coisa; dez não.
 
 Isto revisa o plano de hoje: as 20 peças novas não entram nos FASE 3 atuais.
 Entram em conjunto novo, em lotes de três ou quatro.
+
+## Guardar a chave em lugar durável não basta: o lugar tem que atender (11/09, 14h15)
+
+Em 09/09 eu escrevi aqui que credencial de rotina precisa morar em lugar que
+sobreviva ao reinício — e a chave do Pexels mora: `config.pexels_api_key` no
+Supabase, que o `broll.py` lê desde agosto.
+
+Hoje montei o gerador das 20 peças, disparei no runner do GitHub (que tem os
+secrets do Supabase) e a resposta foi:
+
+```
+AUSENTE: erro ao ler config.pexels_api_key — HTTPError: HTTP Error 402
+```
+
+**402 Payment Required.** É o mesmo bloqueio de cota da organização registrado
+em 09/09 (`exceed_egress_quota`, `exceed_storage_size_quota`), que continua de
+pé dois dias depois. A chave está guardada, íntegra, e inalcançável.
+
+**A regra fica mais forte:** um segredo atrás de um serviço com cota tem a
+disponibilidade do serviço, não a dele. O Supabase virou ponto único de falha
+para tudo que depende de chave.
+
+**Conserto certo:** chave de rotina vai para secret do próprio GitHub, que não
+tem cota e não depende de terceiro. O workflow já lê `PEXELS_API_KEY` do
+ambiente antes de tentar o banco — basta cadastrar e o caminho do Supabase
+deixa de importar.
+
+**Suspeita a conferir:** o b-roll dos vídeos lê a mesma chave pelo mesmo
+caminho e cai em fallback silencioso por desenho. Pode estar rendendo vídeo sem
+footage desde 09/09 sem nunca ter acusado.
