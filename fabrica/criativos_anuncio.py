@@ -26,7 +26,7 @@ import ssl
 import urllib.parse
 import urllib.request
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
 import caminhos
 from broll import chave
@@ -39,6 +39,8 @@ MARGEM = 72
 INK = (11, 11, 12)
 BRANCO = (255, 255, 255)
 ACENTO = (245, 179, 1)     # ambar: a categoria e toda verde WhatsApp
+CINZA = (214, 214, 218)
+MARCA = "O PRÓXIMO CLIENTE"
 
 # id, funil, busca no Pexels, sobrancelha, chamada, apoio, botao
 PECAS = [
@@ -193,57 +195,85 @@ def cobrir(foto):
     return nova.crop((esq, topo, esq + L, topo + A))
 
 
-def escurecer(img):
-    """Gradiente preto de baixo para cima, para o texto ter contraste.
+def tratar(img):
+    """Mesmo tratamento de cor em todas as pecas.
 
-    Sem isto o texto branco cai sobre ceu claro em metade das fotos e some.
-    O gradiente comeca em 42% da altura: acima disso a foto fica limpa.
+    Sem isto, vinte fotos de banco continuam parecendo vinte fotos de banco:
+    cada uma com sua temperatura e saturacao. Dessaturar, ganhar contraste e
+    puxar a sombra para o mesmo azul-tinta faz o conjunto ler como uma
+    campanha so — e e o que separa anuncio de agencia de anuncio de amador.
+    """
+    img = ImageEnhance.Color(img).enhance(0.72)
+    img = ImageEnhance.Contrast(img).enhance(1.10)
+    return Image.blend(img, Image.new("RGB", img.size, (14, 16, 26)), 0.10)
+
+
+def escurecer(img):
+    """Gradiente do rodape para cima, para o texto ter contraste.
+
+    Curva em potencia 1.6: a transicao fica mais longa e some antes de virar
+    faixa preta reta, que e o que denuncia arte feita as pressas.
     """
     veu = Image.new("L", (1, A), 0)
     for y in range(A):
-        t = (y - A * 0.42) / (A * 0.58)
-        veu.putpixel((0, y), 0 if t < 0 else int(235 * min(1.0, t) ** 1.25))
+        t = (y - A * 0.30) / (A * 0.70)
+        veu.putpixel((0, y), 0 if t < 0 else int(242 * min(1.0, t) ** 1.6))
     sombra = Image.new("RGB", (L, A), INK)
     return Image.composite(sombra, img, veu.resize((L, A)))
 
 
 def compor(foto, peca):
-    """A peca pronta: foto recortada, escurecida e com a tipografia por cima."""
-    _id, _funil, _q, sobrancelha, chamada, apoio, botao = peca
-    img = escurecer(cobrir(foto))
-    d = ImageDraw.Draw(img)
-    util = L - 2 * MARGEM
+    """A peca pronta: foto tratada, escurecida e com a tipografia por cima.
 
-    f_cham, linhas = ajustar(chamada, util, d, 92, 52, 3)
-    f_sobr = fonte(28)
-    f_apoio = fonte(32, negrito=False)
-    f_bot = fonte(30)
+    A regua ambar a esquerda do bloco de texto existe para ancorar a leitura:
+    sem ela o texto flutua sobre a foto e a peca parece legenda, nao anuncio.
+    """
+    _id, _funil, _q, sobrancelha, chamada, apoio, botao = peca
+    img = escurecer(tratar(cobrir(foto)))
+    d = ImageDraw.Draw(img)
+    REGUA = 6
+    RECUO = MARGEM + REGUA + 26
+    util = L - RECUO - MARGEM
+
+    f_cham, linhas = ajustar(chamada, util, d, 88, 50, 3)
+    f_marca, f_sobr = fonte(24), fonte(26)
+    f_apoio, f_bot = fonte(31, negrito=False), fonte(29)
 
     linhas_apoio = quebrar(apoio, f_apoio, util, d)
-    alt_cham = sum(f_cham.size + 14 for _ in linhas)
-    alt_apoio = sum(f_apoio.size + 10 for _ in linhas_apoio)
-    alt_botao = f_bot.size + 38
+    # Entrelinha de 1.06: chamada de anuncio e bloco, nao paragrafo.
+    passo_cham = int(f_cham.size * 1.06)
+    alt_cham = passo_cham * len(linhas)
+    alt_apoio = sum(int(f_apoio.size * 1.32) for _ in linhas_apoio)
+    alt_botao = f_bot.size + 40
 
-    y = A - MARGEM - alt_botao - 34 - alt_apoio - 22 - alt_cham
+    topo_sobr = A - MARGEM - alt_botao - 40 - alt_apoio - 26 - alt_cham - 46
+    y = topo_sobr
 
-    # Sobrancelha: quem e o leitor. A pesquisa diz que nomear o negocio do
-    # leitor e o que separa quem converte de quem escreve "Converse conosco".
-    d.text((MARGEM, y - 46), " ".join(sobrancelha), font=f_sobr, fill=ACENTO)
+    # A regua cobre da sobrancelha ao fim do apoio, nao o botao: o botao e
+    # outro objeto, e amarelo sobre amarelo empastela.
+    d.rectangle([MARGEM, y, MARGEM + REGUA,
+                 y + 46 + alt_cham + 26 + alt_apoio], fill=ACENTO)
+
+    d.text((MARGEM, MARGEM), " ".join(MARCA), font=f_marca, fill=(255, 255, 255, 180))
+    d.text((RECUO, y), " ".join(sobrancelha), font=f_sobr, fill=ACENTO)
+    y += 46
 
     for ln in linhas:
-        d.text((MARGEM, y), ln, font=f_cham, fill=BRANCO)
-        y += f_cham.size + 14
-    y += 22
+        d.text((RECUO, y), ln, font=f_cham, fill=BRANCO)
+        y += passo_cham
+    y += 26
 
     for ln in linhas_apoio:
-        d.text((MARGEM, y), ln, font=f_apoio, fill=(225, 225, 228))
-        y += f_apoio.size + 10
-    y += 34
+        d.text((RECUO, y), ln, font=f_apoio, fill=CINZA)
+        y += int(f_apoio.size * 1.32)
+    y += 40
 
-    larg_bot = int(d.textlength(botao, font=f_bot)) + 56
-    d.rounded_rectangle([MARGEM, y, MARGEM + larg_bot, y + alt_botao],
+    rotulo = f"{botao}  →"
+    larg_bot = int(d.textlength(rotulo, font=f_bot)) + 60
+    d.rounded_rectangle([RECUO, y, RECUO + larg_bot, y + alt_botao],
                         radius=alt_botao // 2, fill=ACENTO)
-    d.text((MARGEM + 28, y + 19 - f_bot.size // 2), botao, font=f_bot, fill=INK)
+    d.text((RECUO + 30, y + alt_botao // 2 - int(f_bot.size * 0.68)),
+           rotulo, font=f_bot, fill=INK)
     return img
 
 
