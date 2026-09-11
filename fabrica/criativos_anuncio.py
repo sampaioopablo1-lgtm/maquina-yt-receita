@@ -107,19 +107,36 @@ PECAS = [
 ]
 
 
-def fonte(tamanho, negrito=True):
-    """Montserrat quando existir, DejaVu quando nao.
+def caminho_fonte(negrito=True):
+    """O primeiro arquivo de fonte que existe nesta maquina, ou None.
 
-    O download do Google Fonts roda so onde ha rede (runner/sandbox); em teste
-    local o DejaVu segura a geometria, que e o que os testes medem.
+    Montserrat primeiro (o peso que a categoria usa, baixado pelo workflow);
+    DejaVu e Liberation depois, porque uma das duas costuma vir instalada.
+    Devolver None em vez de cair no bitmap padrao e proposital: `ajustar` mede
+    largura de texto para escolher o corpo da fonte, e a metrica do bitmap nao
+    corresponde a nenhuma arte real — a peca sairia com a chamada no tamanho
+    errado sem nada acusar.
     """
+    sufixo_m = "Bold" if negrito else "Regular"
+    sufixo_d = "-Bold" if negrito else ""
     for caminho in (
-        f"/tmp/fontes/Montserrat-{'Bold' if negrito else 'Regular'}.ttf",
-        f"/usr/share/fonts/truetype/dejavu/DejaVuSans{'-Bold' if negrito else ''}.ttf",
+        f"/tmp/fontes/Montserrat-{sufixo_m}.ttf",
+        f"/usr/share/fonts/truetype/dejavu/DejaVuSans{sufixo_d}.ttf",
+        f"/usr/share/fonts/truetype/liberation/LiberationSans{sufixo_d or '-Regular'}.ttf",
+        f"/usr/share/fonts/truetype/freefont/FreeSans{sufixo_d}.ttf",
     ):
         if os.path.exists(caminho):
-            return ImageFont.truetype(caminho, tamanho)
-    return ImageFont.load_default(tamanho)
+            return caminho
+    return None
+
+
+def fonte(tamanho, negrito=True):
+    caminho = caminho_fonte(negrito)
+    if caminho is None:
+        raise RuntimeError(
+            "nenhuma fonte TrueType encontrada — instale fonts-dejavu-core ou "
+            "baixe o Montserrat em /tmp/fontes")
+    return ImageFont.truetype(caminho, tamanho)
 
 
 def quebrar(texto, fnt, largura, desenho):

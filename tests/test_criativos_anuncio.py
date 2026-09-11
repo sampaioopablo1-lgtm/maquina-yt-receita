@@ -17,7 +17,15 @@ RAIZ = Path(__file__).resolve().parents[1]
 sys.modules.setdefault("edge_tts", types.ModuleType("edge_tts"))
 sys.path.insert(0, str(RAIZ / "fabrica"))
 
+import pytest  # noqa: E402
+
 import criativos_anuncio as C  # noqa: E402
+
+# Sem fonte TrueType instalada nao ha o que medir: `ajustar` escolhe o corpo da
+# fonte pela largura do texto, e sem arquivo de fonte a medida nao existe.
+# Pular e honesto; passar seria mentira, e falhar acusaria a maquina, nao a peca.
+sem_fonte = pytest.mark.skipif(
+    C.caminho_fonte() is None, reason="maquina sem fonte TrueType")
 
 
 def foto(larg=1600, alt=2000, claro=True):
@@ -25,6 +33,7 @@ def foto(larg=1600, alt=2000, claro=True):
     return img
 
 
+@sem_fonte
 def test_toda_peca_sai_no_formato_do_feed():
     for peca in C.PECAS:
         assert C.compor(foto(), peca).size == (C.L, C.A), peca[0]
@@ -39,6 +48,7 @@ def test_foto_menor_que_a_arte_ainda_preenche():
     assert C.cobrir(foto(400, 300)).size == (C.L, C.A)
 
 
+@sem_fonte
 def test_texto_nunca_passa_da_margem():
     d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
     util = C.L - 2 * C.MARGEM
@@ -48,6 +58,7 @@ def test_texto_nunca_passa_da_margem():
             assert d.textlength(ln, font=fnt) <= util, f"{peca[0]}: {ln!r}"
 
 
+@sem_fonte
 def test_chamada_cabe_em_tres_linhas_sem_encolher_demais():
     # Abaixo de 52px a chamada some no celular; acima de 3 linhas vira parede.
     d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
