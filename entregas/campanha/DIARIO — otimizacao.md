@@ -372,3 +372,84 @@ arte e copy novas (ver `LOG — 10 pecas no formulario via Windsor 11-09.md`).
 2. Segunda: reavaliar `LISTA CNPJ + QUENTE I FASE 1` com a janela de 48h vencida.
 3. Reconectar Clint e regenerar a chave do Prospect Halo — sem isso a revisão de
    sexta continua cega da metade do funil, que é justamente a parte de reunião.
+
+---
+
+## 12/09/2026, 00h33 — rodada diária
+
+### Números por etapa
+
+**Meta (campanha de formulário):**
+
+| Dia | Gasto | Cliques | Leads | Custo/lead |
+|---|---|---|---|---|
+| 10/09 | R$ 28,41 | 33 | 5 | R$ 5,68 |
+| **11/09** | **R$ 15,92** | **23** | **7** | **R$ 2,27** |
+
+Melhor dia da conta. Por conjunto em 11/09: INTERESSE R$ 13,41 / 6 leads (R$ 2,24);
+CNAE R$ 2,51 / 1 lead (R$ 2,51).
+
+Topo (INT I DONOS): R$ 5,45, 241 impressões, frequência **1,01**, zero lead — é campanha
+de reconhecimento, comportamento esperado.
+
+**Alarmes da rotina:** nenhum disparou. Fundo entregando (não zerou), frequência do topo
+1,01 (teto é 3), custo por lead R$ 2,27 (teto é R$ 60).
+
+### O que mudou na conta hoje
+
+Registrado em detalhe no `LOG — revisao e ativacao dos 5 nichos 11-09.md`: correção da
+segmentação dos 5 nichos, remoção da copy de mentoria dos V10, replicação da peça
+vencedora nos 6 conjuntos, e pausa dos 18 anúncios de vídeo. A conta saiu de 48 para 30
+anúncios ativos.
+
+### Etapas que NÃO deu para medir
+
+- **Clint:** conector não autorizado. Sem ele não há lead → primeiro contato →
+  qualificação → reunião. Avisado ao Pablo; não repetir tentativa até ele autorizar.
+- **Prospect Halo:** chave `ph_live` não mora em lugar nenhum alcançável (já registrado
+  na LICOES em 09/09). Sem ela, zero visibilidade de descoberta, convite, aceite e
+  resposta. Não repetir tentativa até haver chave nova.
+
+Ou seja: a caça a vazamento silencioso, que é a parte mais importante da rotina, está
+**impossível de fazer** hoje. Não por falta de método — por falta de acesso aos dois
+sistemas onde o vazamento aconteceria.
+
+### Agenda dos próximos 2 dias (Google Calendar, conectado e lido)
+
+12/09: Ir ao mercado 07h · Imobiliária 09h · Almoço 12h · Manutenção da casa 13h30
+13/09: Cozinha pra semana 06h · Igreja 09h · Almoço 12h · Comunhão/família 13h30
+
+**Todos pessoais e recorrentes. Zero reunião de diagnóstico agendada.**
+
+### Os 3 pontos que o Pablo ainda não está enxergando
+
+**1. Treze leads entraram e não há uma única reunião na agenda.**
+Este é o achado da rodada, e é maior que qualquer ajuste de anúncio. O topo do funil
+está funcionando bem (R$ 2,27 por lead é ótimo); o que vem depois é invisível e,
+pela agenda, aparentemente parado. Pode ser que o Pablo esteja atendendo por WhatsApp
+sem marcar no calendário — mas se for isso, não existe registro de nada, e a próxima
+reunião depende só da memória dele. Enquanto o Clint não voltar, **o gargalo do negócio
+não é o anúncio, é o que acontece depois do lead**.
+
+**2. O CBO desligou o conjunto que era campeão, e ninguém pediu isso.**
+O CNAE RJ caiu de R$ 18,37 (10/09) para R$ 2,51 (11/09) enquanto o INTERESSE subiu para
+R$ 13,41. O Meta escolheu sozinho, e por ora acertou — o INTERESSE está mais barato
+(R$ 2,24 contra R$ 2,51). Mas o CNAE era o campeão dois dias atrás e está sendo
+sufocado por falta de verba, não por desempenho ruim. Com R$ 30/dia divididos em sete
+conjuntos, isso vai continuar acontecendo: o CBO sempre vai estrangular alguém.
+
+**3. Os treze leads na mão responderam a uma oferta de mentoria, não de agência.**
+A copy do V10 dizia "você não precisa de uma agência" e "encontros online toda semana".
+Corrigi hoje, mas quem já entrou veio pelo texto antigo. **Quando o Pablo ligar para
+esses leads, é esperado que apareça gente perguntando sobre aula semanal e estranhando
+a proposta de serviço mensal.** Não é lead ruim — é lead que ouviu outra coisa. Vale
+abrir a conversa reposicionando antes de apresentar o preço.
+
+### Hipóteses abertas
+
+- O custo por lead vai subir nos próximos 2–3 dias por causa das mudanças de hoje
+  (segmentação nova nos 5 nichos, 6 peças novas, 18 vídeos pausados). Gatilho de alarme:
+  acima de R$ 8,00 por dois dias seguidos.
+- Os 5 conjuntos de nicho ainda não gastaram nada. Se continuarem em R$ 0 depois de
+  48h com anúncio ativo e segmentação corrigida, a causa é o CBO estrangulando, e a
+  decisão vira do Pablo: subir a verba ou separar os nichos em campanha própria.
