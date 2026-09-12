@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- veterinária + Copacabana ✔ (**só 6 resultados** — bairro rico em imobiliária, harmonização e odonto, mas fraco em veterinária; 3 aproveitáveis, nenhum Trilha A)
 - odontologia + implante + Copacabana ✔ (18 resultados, 6 aproveitáveis novos, 1 Trilha A — inclui o anúncio mais antigo já achado, de **julho de 2025**)
 - harmonização facial + Copacabana ✔ (**36 resultados, 11 aproveitáveis e TODOS novos** — melhor rendimento por varredura até agora; 6 Trilha A)
 - imobiliária + corretor + Barra da Tijuca ✔ (23 resultados, **só 2 aproveitáveis novos** — bairro já raspado pelas buscas de "Tijuca"; e o termo "corretor" puxa anúncio de RECRUTAMENTO, não de captação)
@@ -1426,3 +1427,34 @@ forte que apontar o "FALE CONOSCO".
 
 **Quem está acertando (referência, não abordar):** *Odontovic* — "Implantes dentários em
 Madureira". Diz o serviço e o bairro no título, que é exatamente o que falta nos outros.
+
+## Achados de 12/09, 03h — "clínica veterinária + Copacabana" (varredura magra, um caso forte)
+
+Apenas **6 resultados**. Vale a anotação: Copacabana rendeu muito em imobiliária (9 de 28),
+harmonização (11 de 36) e odontologia (6 de 18), mas **quase nada em veterinária**.
+Riqueza de bairro é por nicho, não por bairro — não dá para assumir que um bairro bom é
+bom em tudo.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Clínica Veterinária S.O.S Castração** | dois anúncios, dois defeitos: um **sem título nenhum desde 02/12/2025** — mais de nove meses — e outro com o título **`api.whatsapp.com`** | `398118780373800` | 02/12/2025 | [sem título](https://www.facebook.com/ads/library/?id=857280800019256) · [api.whatsapp](https://www.facebook.com/ads/library/?id=1730008354785773) |
+| **AnimaLeme** | três anúncios, todos com o título **"Clínica Veterinária Animaleme"** — o nome da empresa, que não é motivo para clicar | `912169338864770` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1720166439040779) |
+
+**Abordagem para a S.O.S Castração (é o melhor gancho: dois erros e nove meses):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Vi os anúncios de vocês na Biblioteca
+> do Facebook e os dois estão com problema no título: **um está sem título nenhum desde
+> dezembro do ano passado** — mais de nove meses — e o outro está com **`api.whatsapp.com`**
+> no lugar da chamada, que é o endereço do link. Nos dois casos quem vê no feed não lê
+> nenhum motivo para clicar. São dois campos. Quer que eu te mostre o que entra neles?
+
+**Abordagem para a AnimaLeme:**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Os três anúncios de vocês estão com o
+> mesmo título: "Clínica Veterinária Animaleme". É o nome da clínica, e quem está rolando o
+> feed já vê o nome logo acima — o campo está repetindo em vez de dar um motivo. Quer ver o
+> que costuma entrar ali?
+
+**Quem está acertando (referência, não abordar):** *Clínica Veterinária Santa Mônica* —
+"Mais cuidado para o seu pet, com muito mais economia." Promete benefício, não repete o
+nome.
