@@ -12,14 +12,15 @@
 | 5 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
 | 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
-| 8 | **Tânia Angarano Imóveis** (Copacabana, *Trilha A*) | 2 anúncios, **os dois sem título** |
-| 9 | **Julianazogbi.imoveis** (Niterói, *Trilha A*) | o título é o nome dela seguido de **dezoito campos vazios** — o recorde |
-| 10 | **Paulo Eduardo Corretor** (Méier, *Trilha A*) | sem título, desde maio de 2026 |
+| 8 | **Dr. Thiago Vieira Moraes** (Copacabana, *Trilha A*) | o título do anúncio é o **título bruto da página do Instagram**, terminando em **"• Instagram photos and videos"** — ninguém trocou pelo texto da oferta |
+| 9 | **Espaço Facial Leme** (Leme/Copacabana) | **"AGENDE AQUI" em nove anúncios**, todos iguais, o mais antigo desde **13/08** |
+| 10 | **Dra. Letícia Martins** e **Elizene Souza** (Copacabana, *Trilha A*) | as duas com o título **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
 | — | *(sai de hoje)* **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
 | — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
 *Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
-Care, Núcleo Angela Beatriz Varella, Luciana Martins, Núcleo Saúde Novo Leblon.*
+Care, Núcleo Angela Beatriz Varella, Luciana Martins, Núcleo Saúde Novo Leblon, Tânia Angarano
+Imóveis, Julianazogbi.imoveis, Paulo Eduardo Corretor.*
 
 **Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em sete bairros seguidos
 (Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3, Madureira 3/5) — é onde vale concentrar a abordagem.
@@ -193,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- harmonização facial + Copacabana ✔ (**36 resultados, 11 aproveitáveis e TODOS novos** — melhor rendimento por varredura até agora; 6 Trilha A)
 - imobiliária + corretor + Barra da Tijuca ✔ (23 resultados, **só 2 aproveitáveis novos** — bairro já raspado pelas buscas de "Tijuca"; e o termo "corretor" puxa anúncio de RECRUTAMENTO, não de captação)
 - energia solar + Tijuca ✔ (**40 resultados, mas o termo puxa Barra da Tijuca e devolve imobiliária** — só 2 páginas solares de verdade; 8 aproveitáveis novos, 2 Trilha A)
 - odontologia + Rio de Janeiro ✔
@@ -1320,3 +1322,58 @@ Nenhum dos dois é Trilha A: são nomes de empresa, não de pessoa.
 **Descartados de propósito:** *Realler Imóveis* ("Imobiliária de Alto Padrão | Realler
 Imóveis" — título correto, não há o que apontar) e *Cazzu Imobiliária* (anúncio de
 recrutamento).
+
+## Achados de 12/09, 01h — "harmonização facial + Copacabana" (a melhor varredura até agora)
+
+36 resultados e **onze aproveitáveis, todos inéditos** — nenhum estava no arquivo. Seis
+são Trilha A. Até aqui o melhor rendimento por varredura tinha sido imobiliária na
+Tijuca (10 de 30); esta bate.
+
+Confirma duas coisas já suspeitadas: **harmonização é o nicho mais rico em dono-no-nome**,
+e **Copacabana é bairro caro onde muita gente anuncia mal**.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Thiago Vieira Moraes** — **Trilha A** | o título é o **título bruto da página do Instagram**: "Thiago Moraes l Harmonização Facial Copacabana (@drthiagovieiramoraes) **• Instagram photos and videos**" | `100101935741941` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=968329256306472) |
+| **Dra. Letícia Martins** — **Trilha A** | título é **`api.whatsapp.com`** | `100892562529558` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1640819290714352) |
+| **Elizene Souza - Harmonizacao Facial** — **Trilha A** | título é **`api.whatsapp.com`** (e o nome da página está sem cedilha e sem til) | `415669234963144` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28096733123318820) |
+| **Espaço Facial Leme** | **"AGENDE AQUI" em nove anúncios ativos**, todos idênticos | `559374157255408` | 13/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1771732490696664) |
+| **Bernadete Araújo Estética** — **Trilha A** | "Agende seu horário!" em dois anúncios — instrução no lugar do motivo | `451496818562789` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1402696845376990) |
+| **mah_le16** | três anúncios com "agende sua avaliação", **dois em minúscula e um em maiúscula** — nem o padrão interno bate | `101540041944176` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1339610791323897) |
+| **Maison Harmony** | "Converse conosco" | `902830449589093` | 27/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=27314224994917856) |
+| **AAD Dermatologia** | **sem título** | `105795477933445` | 31/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1201441265488969) |
+| **Andreia Perlingeiro Instituto Multidisciplinar** — **Trilha A** | nome da página seguido de **dois campos vazios** | `446437406128400` | 26/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1363585375129809) |
+| **Dra. Raphaela Aguiar - Estética Avançada** — **Trilha A** | **sete anúncios idênticos**, todos "Harmonização Facial - Copacabana". O título em si está correto; o defeito é rodar sete cópias iguais em vez de sete ângulos | `657280187468738` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4360047767567807) |
+
+**A abordagem do Dr. Thiago (é a mais fácil de provar que já apareceu):**
+
+> Boa noite, Dr. Thiago. Aqui é o Pablo, do Rio — não sou paciente. Vi seu anúncio na
+> Biblioteca do Facebook e o título dele está saindo assim: **"Thiago Moraes l
+> Harmonização Facial Copacabana (@drthiagovieiramoraes) • Instagram photos and
+> videos"**. Esse é o título automático da página do Instagram — alguém colou o link e
+> o campo nunca foi trocado pelo texto da oferta. Quem vê no feed lê "Instagram photos
+> and videos" no lugar do motivo para clicar. Quer que eu te mostre o que costuma
+> entrar ali?
+
+**A abordagem da Dra. Letícia e da Elizene (mesmo defeito, serve para as duas):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio no Facebook está com
+> o título **`api.whatsapp.com`**: é o endereço do link que ficou no lugar da chamada.
+> Quem vê no feed lê um endereço de site em vez de um motivo. É troca de um campo. Te
+> mostro?
+
+**A abordagem da Dra. Raphaela (é diferente — o dela não está errado, está desperdiçado):**
+
+> Boa noite, Dra. Raphaela. Aqui é o Pablo, do Rio — não sou paciente. Vi que a senhora
+> tem sete anúncios rodando e os sete têm o mesmo título. Não está errado, mas é sete
+> vezes o mesmo teste: o Facebook não tem como aprender qual funciona melhor porque não
+> há diferença entre eles. Sete ângulos diferentes custam o mesmo e ensinam sete vezes
+> mais. Quer ver como eu faria?
+
+**Quem está acertando (referência para citar no bairro, não abordar):** *Dra. Amanda
+Mariano* — "Últimos 2 Horários Ultraformer 🔥" (escassez + nome do aparelho) e *AP -
+Harmonização Facial e Corporal* — "Poucos horários disponíveis". As duas dão um motivo
+para clicar agora, não uma instrução.
+
+**Descartado de propósito:** *Cinthia Ramos Estrategista Digital* — anúncio sem título,
+mas ela vende marketing digital. É concorrente, não cliente.
