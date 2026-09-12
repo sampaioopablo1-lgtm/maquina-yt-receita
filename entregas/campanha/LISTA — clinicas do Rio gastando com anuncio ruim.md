@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- imobiliária + "apartamento à venda" + Méier ✔ (**só 11 resultados** — a regra do termo multiplica onde há volume, mas não cria volume: Méier é raso de verdade. 5 aproveitáveis novos, 3 Trilha A)
 - imobiliária + "apartamento à venda" + Botafogo ✔ (**72 resultados contra 6 do termo "corretor"** — regra confirmada pela 3ª vez; 20 aproveitáveis, todos novos, 9 Trilha A)
 - harmonização facial + Méier ✔ (13 resultados mas **só 2 anunciantes** — 1 novo: a Botocenter, com **estrelas no lugar do título**)
 - imobiliária + "apartamento à venda" + Tijuca ✔ (**233 resultados — a maior de todas; 15 aproveitáveis e TODOS novos**, 6 Trilha A. Confirma que "apartamento à venda" rende ~10x mais que "corretor")
@@ -1607,3 +1608,41 @@ mesma marca** — depois da Sorrio e do robertodpcarvalho.
 Casa 3* — "Oportunidade de Compra em Botafogo: 125m², Pé-Direito Alto, 2 por Andar e 1
 Vaga". Os dois dizem metragem, característica e preço. É o contraste exato com os nove
 que estão sem título nenhum, no mesmo bairro.
+
+## Achados de 12/09, 07h — "apartamento à venda + Méier" (e um limite da regra do termo)
+
+Méier com **"corretor"** tinha dado 3 resultados. Com **"apartamento à venda"**, deu **11**.
+Melhorou, mas está longe dos 233 da Tijuca e dos 72 de Botafogo com o mesmo termo.
+
+**Refinamento da regra:** trocar o termo de "o que o prospecto é" para "o que o cliente
+procura" **multiplica o que existe, mas não cria o que não existe**. Méier simplesmente tem
+poucos anunciantes de imóvel. Bairro raso continua raso — a diferença é que agora eu sei
+que é o bairro, e não o termo, e não preciso voltar nele.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Marcio Feitosa - Corretor de Imóveis** — **Trilha A** | "Converse conosco" **dez vezes**, e no ar desde **21/08/2025** — **quase treze meses**. É o segundo anúncio mais antigo do arquivo, atrás só da Oral 360 | `701599569695076` | 21/08/2025 | [anúncio](https://www.facebook.com/ads/library/?id=4018602198402640) |
+| **Aline Gomes - Corretora de Imóveis** — **Trilha A** | "Converse conosco" **nove vezes**, precedido de um único "Agende agora sua visita!" — dá para ver que alguém preencheu o primeiro campo e desistiu | `943579125507449` | 09/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2721245624915276) |
+| **Lins Imóveis** | dois anúncios, os dois "Converse conosco", desde **16/01/2026** — oito meses | `802521579614966` | 16/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=929771726392304) |
+| **Homestead Imobiliária** | "Converse conosco" três vezes | `100652992549310` | 10/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1060150953624963) |
+| **Ricardo Simões Corretor Avaliador Judicial** — **Trilha A** | **sem título** | `349426395242948` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1532039654914502) |
+
+**Abordagem para o Marcio Feitosa (o tempo é o argumento):**
+
+> Bom dia, Marcio. Aqui é o Pablo, do Rio — não sou comprador. Seu anúncio está no ar
+> **desde agosto do ano passado**, com "Converse conosco" repetido dez vezes no título.
+> Treze meses pagando para mostrar dez vezes a mesma instrução, sem dizer em nenhuma delas
+> qual imóvel, qual bairro ou qual preço. Não é o seu trabalho que está errado — é um campo
+> que ninguém voltou para preencher. Quer que eu te mostre o que entra ali?
+
+**Abordagem para a Aline Gomes (o detalhe do primeiro campo é o gancho):**
+
+> Bom dia, Aline. Aqui é o Pablo, do Rio — não sou comprador. Reparei no seu anúncio que o
+> **primeiro título está preenchido** ("Agende agora sua visita!") e os **nove seguintes são
+> todos "Converse conosco"**. Parece que começaram a preencher e pararam. Cada um daqueles
+> nove era um espaço para metragem, bairro ou preço de um imóvel diferente. Te mostro o que
+> costuma entrar neles?
+
+**Quem está acertando (referência para citar no Méier):** *Imobiliária MBAdm* —
+"Oportunidade no Méier" e *Gestolano Lopes* — "More no seu próprio Apartamento". Nenhum dos
+dois é brilhante, mas os dois dizem alguma coisa; é o contraste mínimo que já basta.
