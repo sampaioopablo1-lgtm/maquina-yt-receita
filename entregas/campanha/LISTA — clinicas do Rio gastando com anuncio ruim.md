@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- fisioterapia + "pilates" + Barra ✔ (72 resultados, 9 aproveitáveis novos, 4 Trilha A — confirma a densidade de defeito do nicho; inclui 3 imobiliárias que vieram de carona)
 - fisioterapia + "pilates" + Copacabana ✔ (20 resultados e **12 aproveitáveis, todos novos** — nicho onde quase ninguém preenche título; 4 Trilha A; inclui anúncio de **18 meses**)
 - odontologia + implante + Niterói ✔ (47 resultados, 6 aproveitáveis novos, 2 Trilha A — metade do bairro já estava catalogada por varreduras anteriores)
 - imobiliária + "apartamento à venda" + Méier ✔ (**só 11 resultados** — a regra do termo multiplica onde há volume, mas não cria volume: Méier é raso de verdade. 5 aproveitáveis novos, 3 Trilha A)
@@ -1751,3 +1752,40 @@ impulsionando, não anunciando.**
 **Quem está acertando (referência, e é o único do lote):** *Instituto Vital Fit* — "MELHORE
 SUAS DORES". Não é brilhante, mas fala do problema do aluno e não do nome do estúdio — no
 meio de dezesseis títulos vazios, isso já o coloca na frente de todo mundo no bairro.
+
+## Achados de 12/09, 10h — "pilates + Barra da Tijuca"
+
+72 resultados, **9 aproveitáveis novos**. Confirma o que Copacabana já tinha mostrado:
+**pilates e fisioterapia é o nicho com maior densidade de título vazio ou instrução**.
+Lavitá, ricardomoreirapilates e Corpory já estavam catalogados de varreduras anteriores.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Harmonize Pilates** | **"Converse conosco" em nove anúncios ativos**, todos idênticos — é o maior número de anúncios iguais com instrução pura já visto | `567563023427348` | 31/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1775448396929714) |
+| **Espaço Essencial** | "Fale conosco" **seis vezes** no mesmo título | `1474744136129755` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1832475444860074) |
+| **Pilates With Thaíza** — **Trilha A** | dois anúncios, **os dois sem título** | `1697093783930399` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1618973516549095) |
+| **Débora Macedo Studio de Pilates** — **Trilha A** | **sem título** | `332482880246142` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2576388512883591) |
+| **Dra. Daniela Sallaberry** — **Trilha A** | **sem título** | `101284194797876` | 02/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=959420700507555) |
+| **TerapyAtiva Pilates & Saúde** | **sem título** | `279895528706942` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1986879882026281) |
+| **Fabio Pereira Imobiliária** | título é **"📲 Toque em Saiba mais"** — instrução sobre onde clicar, não motivo para clicar | `697447753460171` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1050204744455184) |
+| **Dobler's Assessoria Imobiliária** | **sem título** | `111449371687131` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1397627235057030) |
+| **Bons Negócios Imóveis RJ** | "37 ESPAÇOS DE LAZER NA BARRA DA TIJUCA" — número grande sem dizer de que empreendimento, em caixa alta | `1000390076777168` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1771235547423558) |
+
+**Nota de método:** as três últimas são imobiliárias que vieram **de carona** numa busca de
+pilates. A Biblioteca de Anúncios casa o termo com o **texto do corpo**, não só com o
+assunto — e imóvel na Barra costuma citar "pilates" na lista de lazer do condomínio.
+Aproveitei porque imobiliária é o melhor nicho da lista, mas fica o registro: **resultado
+fora do nicho buscado é comum e vale conferir em vez de descartar**.
+
+**Abordagem para a Harmonize Pilates (o número é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca de Anúncios do Facebook
+> que vocês têm **nove anúncios rodando ao mesmo tempo, e os nove têm o mesmo título:
+> "Converse conosco"**. São nove espaços pagos dizendo a mesma instrução, e nenhum deles diz
+> se é pilates para dor nas costas, para pós-operatório, para gestante ou para idoso. Quer
+> que eu te mostre o que costuma entrar ali?
+
+**Quem está acertando (referência forte, e do mesmo bairro):** *Corpory Pilates & Cia.* —
+"Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta." e *Tecfit
+Brasil* — "Potencialize o que você já faz. Agora no Rio." Os dois falam com quem está
+adiando ou já treina — não com "quem quiser conversar".
