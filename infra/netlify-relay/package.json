@@ -1,0 +1,8 @@
+{
+  "name": "opc-meta-ads-relay",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/functions": "^3.0.0"
+  }
+}
