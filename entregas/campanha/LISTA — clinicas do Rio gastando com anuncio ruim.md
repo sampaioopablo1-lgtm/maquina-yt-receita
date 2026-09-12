@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- harmonização facial + Méier ✔ (13 resultados mas **só 2 anunciantes** — 1 novo: a Botocenter, com **estrelas no lugar do título**)
 - imobiliária + "apartamento à venda" + Tijuca ✔ (**233 resultados — a maior de todas; 15 aproveitáveis e TODOS novos**, 6 Trilha A. Confirma que "apartamento à venda" rende ~10x mais que "corretor")
 - veterinária + Copacabana ✔ (**só 6 resultados** — bairro rico em imobiliária, harmonização e odonto, mas fraco em veterinária; 3 aproveitáveis, nenhum Trilha A)
 - odontologia + implante + Copacabana ✔ (18 resultados, 6 aproveitáveis novos, 1 Trilha A — inclui o anúncio mais antigo já achado, de **julho de 2025**)
@@ -1520,3 +1521,26 @@ varredura:** conferir se o mesmo nome aparece com `page_id` diferente.
 R$ 1.780.000" e *Podium Imóveis RJ* — "London Green 4 Suítes 157m²". Os dois dizem
 empreendimento, metragem e preço no título. É o contraste exato com os nove que estão
 sem título nenhum.
+
+## Achados de 12/09, 05h — "harmonização facial + Méier" (13 anúncios, só 2 anunciantes)
+
+O Méier é bairro raso neste nicho: 13 resultados, mas de **apenas duas páginas**. Uma
+delas, a *Nascimento Odontologia*, já está catalogada na seção 3 (segue com onze anúncios
+idênticos, todos "Agende uma avaliação"). Sobrou uma nova — e é do tipo mais fácil de
+vender.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Botocenter Méier** | o título dos dois anúncios é literalmente **"⭐⭐⭐⭐⭐"** — cinco estrelas e mais nada escrito | `105113189115168` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1631760715058527) |
+
+**Por que este é fácil de vender:** estrela no título não diz serviço, não diz preço, não
+diz bairro e não diz para quem serve. Além disso o Facebook trata sequência de emoji como
+texto de baixa qualidade, então o anúncio tende a entregar pior por si só. E é uma troca de
+um campo — a pessoa vê o problema em dois segundos.
+
+**Abordagem:**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou paciente. Vi o anúncio de vocês na Biblioteca
+> do Facebook e o título dele está saindo como **cinco estrelas e mais nada**: "⭐⭐⭐⭐⭐".
+> Quem está rolando o feed não lê nem o procedimento, nem o bairro, nem o preço — só as
+> estrelinhas. É um campo só para trocar. Quer que eu te mostre o que costuma entrar ali?

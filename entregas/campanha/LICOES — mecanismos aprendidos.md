@@ -1097,3 +1097,34 @@ A própria tabela dele diz "melhor para: análise recorrente com dados ao vivo".
 Ele não cria anúncio, não cria criativo e **não menciona formulário instantâneo
 em nenhum momento**. Portanto ele não contradiz nada do que medimos: continua
 valendo que criar criativo de lead exige app em Modo ativo ou o Gerenciador.
+
+## O Windsor atrasa o dia corrente; o MCP do Meta não (12/09, 05h)
+
+Na rodada das 05h o `get_data` do Windsor devolvia **apenas linhas de 11/09**, duas horas
+depois de o dia 12/09 já ter virado no fuso da conta. A leitura fácil seria "a conta parou
+de entregar" — e ela estaria errada.
+
+Conferindo pelo `ads_get_ad_entities` do MCP do Meta com `date_preset: today`, os números
+de 12/09 existiam:
+
+    LEADS I INTERESSE I FASE 3          R$ 0,12   7 impressões
+    LEADS I SEMELHANTE CNAE RJ I FASE 3 R$ 0,02   1 impressão
+    os 5 conjuntos de nicho             R$ 0,00   0 impressões
+
+**Mecanismo:** o Windsor consolida por dia e demora a abrir o dia corrente. Para
+"hoje", ele não serve — devolve silêncio, que é indistinguível de zero entrega.
+
+**Regra:** conferência de dia corrente é sempre pelo `ads_get_ad_entities` com
+`date_preset: today`. O Windsor vale para dia fechado e para série histórica, onde é mais
+confortável de ler. Nunca concluir "a conta parou" a partir da ausência de linha no
+Windsor.
+
+### E o dado que a checagem certa revelou
+
+Com a leitura correta, ficou visível que **os cinco conjuntos de nicho estão em R$ 0,00 e
+zero impressão** enquanto os dois antigos já receberam verba. É a primeira madrugada em que
+eles estão simultaneamente ativos, com anúncio ativo dentro e com a segmentação corrigida —
+ou seja, hoje é o primeiro teste limpo da hipótese de que **o CBO está estrangulando os
+conjuntos novos**. Duas horas de dia ainda não fecham o caso; o veredito é no fechamento
+de 12/09. Se fecharem o dia em zero, a causa não é configuração e a decisão passa a ser do
+Pablo: subir a verba ou separar os nichos em campanha própria.
