@@ -13,14 +13,14 @@
 | 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
 | 8 | **Dr. Thiago Vieira Moraes** (Copacabana, *Trilha A*) | o título do anúncio é o **título bruto da página do Instagram**, terminando em **"• Instagram photos and videos"** — ninguém trocou pelo texto da oferta |
-| 9 | **Machado de Souza Consultoria Imobiliária** (Tijuca) | o título é o nome da página seguido de **dezoito campos vazios** — empata o recorde do arquivo |
-| 10 | **robertodpcarvalho** (Tijuca, *Trilha A*) | tem **duas páginas diferentes** anunciando ao mesmo tempo, **as duas sem título** — competem entre si no leilão e encarecem as duas |
+| 9 | **Fisioterapia & Pilates SODRÉ** (Copacabana) | três anúncios **sem título nenhum**, o mais antigo no ar desde **21/03/2025** — dezoito meses, empata o recorde de tempo do arquivo |
+| 10 | **Cláudia S. Ioschpe** (Copacabana, *Trilha A*) | o título é o nome dela seguido de **treze campos vazios** |
 | — | *(sai de hoje)* **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
 | — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
 *Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
 Care, Núcleo Angela Beatriz Varella, Luciana Martins, Núcleo Saúde Novo Leblon, Tânia Angarano
-Imóveis, Julianazogbi.imoveis, Paulo Eduardo Corretor.*
+Imóveis, Julianazogbi.imoveis, Paulo Eduardo Corretor, Machado de Souza, robertodpcarvalho.*
 
 **Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em sete bairros seguidos
 (Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3, Madureira 3/5) — é onde vale concentrar a abordagem.
@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- fisioterapia + "pilates" + Copacabana ✔ (20 resultados e **12 aproveitáveis, todos novos** — nicho onde quase ninguém preenche título; 4 Trilha A; inclui anúncio de **18 meses**)
 - odontologia + implante + Niterói ✔ (47 resultados, 6 aproveitáveis novos, 2 Trilha A — metade do bairro já estava catalogada por varreduras anteriores)
 - imobiliária + "apartamento à venda" + Méier ✔ (**só 11 resultados** — a regra do termo multiplica onde há volume, mas não cria volume: Méier é raso de verdade. 5 aproveitáveis novos, 3 Trilha A)
 - imobiliária + "apartamento à venda" + Botafogo ✔ (**72 resultados contra 6 do termo "corretor"** — regra confirmada pela 3ª vez; 20 aproveitáveis, todos novos, 9 Trilha A)
@@ -1706,3 +1707,47 @@ caro.
 é exatamente a diferença entre "a gente faz seus anúncios" e "você abre o WhatsApp e não tem
 ninguém novo pedindo orçamento" — que é a linha que está nos anúncios de nicho que subimos
 ontem.
+
+## Achados de 12/09, 09h — "pilates + Copacabana" (o nicho onde quase ninguém preenche o título)
+
+20 resultados e **12 aproveitáveis, todos inéditos**. É a maior proporção de defeito por
+resultado de todas as varreduras: **de vinte anúncios, dezesseis estão sem título ou com o
+nome da página seguido de campos vazios**. Só um anunciante escreveu alguma coisa.
+
+Hipótese do porquê: fisioterapia e pilates são negócios pequenos, tocados pelo próprio
+profissional, que impulsiona o post pelo celular. O botão "Impulsionar" não pede título —
+ele só aparece quando se monta o anúncio pelo Gerenciador. **O nicho inteiro está
+impulsionando, não anunciando.**
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Fisioterapia & Pilates SODRÉ** | **três anúncios sem título**, o mais antigo desde **21/03/2025** — dezoito meses | `193167314564498` | 21/03/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1361323754879477) |
+| **Cláudia S. Ioschpe** — **Trilha A** | nome dela + **treze campos vazios**, em dois anúncios | `149733411754775` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1577700137185730) |
+| **Espaço Physio RJ** | dois anúncios **sem título** e um terceiro com o nome + **cinco vazios** | `1044441875423733` | 23/06/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1043570244776060) |
+| **DDC Clinic Fisioterapia** | **três anúncios, os três sem título** | `1084232018105389` | 21/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1085721230866192) |
+| **Terapeuta Ocupacional Fernanda Azevedo** — **Trilha A** | título é **`instagram.com`** | `943227802398266` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1045734291414509) |
+| **Lavland Santana** — **Trilha A** | nome + **cinco campos vazios** | `1326592423860877` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2103823713554732) |
+| **dralolapilates** — **Trilha A** | **sem título** | `495823870288504` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2535679253607955) |
+| **Rlstudio** | dois anúncios, **os dois sem título** | `342397135632772` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2257821915002265) |
+| **Balance Gym** | **sem título** | `273152313502821` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3192048034324678) |
+| **Estúdio Qualivida** | **sem título** | `334619783257207` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1351566870296741) |
+| **Comprimob** | **sem título**, desde 23/04/2026 | `110354887026016` | 23/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1496685615386530) |
+
+**Abordagem para a SODRÉ (o tempo é o argumento, e é o mais forte da lista):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca de Anúncios do Facebook
+> que vocês têm três anúncios no ar **sem título nenhum**, e um deles está rodando **desde
+> março do ano passado** — dezoito meses. Aparece a foto e o nome do estúdio, e mais nada
+> escrito. É o campo que faz a pessoa parar de rolar e entender o que vocês oferecem. Quer
+> que eu te mostre o que costuma entrar ali?
+
+**Abordagem que serve para o nicho inteiro (é o mesmo defeito em onze deles):**
+
+> Bom dia, [nome]. Aqui é o Pablo, do Rio — não sou aluno. Seu anúncio no Facebook está
+> **sem título**. Isso costuma acontecer quando o anúncio é feito pelo botão "Impulsionar"
+> do celular, que não pede esse campo. Pelo Gerenciador dá para escrever ali o motivo — tipo
+> "dor nas costas há meses?" — e é justamente esse campo que faz a pessoa parar. Te mostro?
+
+**Quem está acertando (referência, e é o único do lote):** *Instituto Vital Fit* — "MELHORE
+SUAS DORES". Não é brilhante, mas fala do problema do aluno e não do nome do estúdio — no
+meio de dezesseis títulos vazios, isso já o coloca na frente de todo mundo no bairro.
