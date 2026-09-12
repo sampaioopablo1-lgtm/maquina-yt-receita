@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- odontologia + implante + Niterói ✔ (47 resultados, 6 aproveitáveis novos, 2 Trilha A — metade do bairro já estava catalogada por varreduras anteriores)
 - imobiliária + "apartamento à venda" + Méier ✔ (**só 11 resultados** — a regra do termo multiplica onde há volume, mas não cria volume: Méier é raso de verdade. 5 aproveitáveis novos, 3 Trilha A)
 - imobiliária + "apartamento à venda" + Botafogo ✔ (**72 resultados contra 6 do termo "corretor"** — regra confirmada pela 3ª vez; 20 aproveitáveis, todos novos, 9 Trilha A)
 - harmonização facial + Méier ✔ (13 resultados mas **só 2 anunciantes** — 1 novo: a Botocenter, com **estrelas no lugar do título**)
@@ -1646,3 +1647,62 @@ que é o bairro, e não o termo, e não preciso voltar nele.
 **Quem está acertando (referência para citar no Méier):** *Imobiliária MBAdm* —
 "Oportunidade no Méier" e *Gestolano Lopes* — "More no seu próprio Apartamento". Nenhum dos
 dois é brilhante, mas os dois dizem alguma coisa; é o contraste mínimo que já basta.
+
+## Achados de 12/09, 08h — "implante dentário + Niterói"
+
+47 resultados. Metade das páginas já estava no arquivo (Estética Dental, Inovar, Oral Sin,
+Segalote, Dr. Bruno Chies, Nord, Nitz) — sinal de que Niterói em odontologia já foi bem
+raspado. Sobraram **6 novos**, e um deles traz um defeito inédito nesta lista.
+
+### Defeito novo: a frase inteira repetida seis vezes
+
+A **Clínica Ortoim** roda um anúncio cujo título é esta frase, **repetida seis vezes
+seguidas**:
+
+> "Você sonha em ter um sorriso saudável e radiante? Nossa clínica oferece os melhores
+> serviços de tratamento dentário"
+
+Os casos anteriores repetiam duas ou três palavras ("Fale conosco", "Converse conosco").
+Este repete **uma frase de treze palavras**, seis vezes. O efeito é pior: além de não dizer
+nada específico, ocupa todo o espaço e o leitor vê o mesmo texto emendado em si mesmo.
+
+**Mecanismo, para não confundir com descuido:** são os seis campos de título do anúncio de
+catálogo, todos preenchidos com o mesmo texto. Quem montou preencheu o primeiro e copiou
+para os outros cinco, em vez de escrever seis ângulos diferentes. É o mesmo erro estrutural
+dos "dez campos vazios" — só que preenchido com cópia em vez de vazio.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Clínica Ortoim** | a **mesma frase de treze palavras repetida seis vezes** no título | `1205718982938367` | 15/06/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1312460037170248) |
+| **Dra Joana Moreno** — **Trilha A** | "AGENDE SUA AVALIAÇÃO" em **três anúncios**, todos iguais, desde 27/07 | `1538737576432702` | 27/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1575628363938004) |
+| **Ortozara Niterói** | "Avaliação Grátis!" em **três anúncios** — e "grátis" sem dizer do quê nem para quem | `104522402225108` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1061908939766858) |
+| **Studio do Sorriso** | **sem título** | `636154083213176` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1814397546597113) |
+| **Feliz Dente Niterói** | "Converse conosco👉🏼" — instrução, com emoji no lugar do motivo | `177684778754392` | 15/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1625862578746938) |
+| **Odontoclinic** | o título é **"📍Niterói - RJ"** — só o endereço, sem serviço nem oferta | `258368544027900` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1402316821858472) |
+
+**Abordagem para a Ortoim (mostrar a repetição é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou paciente. Vi o anúncio de vocês na Biblioteca do
+> Facebook e o título dele tem **a mesma frase repetida seis vezes seguidas**: "Você sonha em
+> ter um sorriso saudável e radiante? Nossa clínica oferece os melhores serviços de tratamento
+> dentário". Aqueles seis campos eram para seis ângulos diferentes — implante, prótese,
+> clareamento, preço, horário. Quem montou preencheu um e copiou nos outros cinco. Quer que
+> eu te mostre o que costuma entrar neles?
+
+### Quem está acertando em Niterói — e aqui vale estudar, não só citar
+
+Este bairro tem os **dois melhores títulos que já apareceram em qualquer varredura**:
+
+- **Nitz Odontologia:** *"Quando foi a última vez que você mordeu um pão sem medo?"* e
+  *"Se você precisa de adesivo pra prender a prótese, esse vídeo é pra você."*
+- **Nord Odontologia:** *"Orçamento só depois do exame"* e *"Implante planejado, em Niterói"*
+
+Os quatro fazem a mesma coisa: **falam do problema vivido**, não do serviço vendido. "Morder
+um pão sem medo" e "adesivo pra prender a prótese" são cenas que o paciente reconhece.
+"Orçamento só depois do exame" ataca a desconfiança de quem já foi empurrado para um plano
+caro.
+
+**Isto vale como modelo para a copy do próprio Pablo**, não só como referência para citar:
+é exatamente a diferença entre "a gente faz seus anúncios" e "você abre o WhatsApp e não tem
+ninguém novo pedindo orçamento" — que é a linha que está nos anúncios de nicho que subimos
+ontem.
