@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- imobiliária + "apartamento à venda" + Campo Grande **RJ** ✔ (10 resultados — o sufixo "RJ" resolveu a contaminação de Mato Grosso do Sul; 5 aproveitáveis novos, 1 Trilha A, inclui **erro de digitação no título** e anúncio de 13 meses)
 - veterinária + Barra ✔ (31 resultados mas **um único anunciante ocupa 20 deles** — a Petmalia, com "Entre em contato" nos vinte; 3 aproveitáveis novos, 2 Trilha A)
 - fisioterapia + "pilates" + Barra ✔ (72 resultados, 9 aproveitáveis novos, 4 Trilha A — confirma a densidade de defeito do nicho; inclui 3 imobiliárias que vieram de carona)
 - fisioterapia + "pilates" + Copacabana ✔ (20 resultados e **12 aproveitáveis, todos novos** — nicho onde quase ninguém preenche título; 4 Trilha A; inclui anúncio de **18 meses**)
@@ -1834,3 +1835,49 @@ direto, porque são concorrentes de rua.
 
 **Descartados de propósito:** *Estácio Barra - Tom Jobim* e *Biofao* — vieram de carona
 (faculdade de veterinária e evento acadêmico), não são clínicas.
+
+## Achados de 12/09, 13h — "apartamento à venda + Campo Grande RJ" (as duas lições juntas)
+
+Esta varredura testou as duas regras de termo ao mesmo tempo, e as duas funcionaram:
+
+1. **"apartamento à venda" em vez de "corretor"** — a regra do termo de cliente
+2. **"RJ" no fim** — a correção para bairro com nome repetido em outro estado
+
+Em 11/09, "energia solar + Campo Grande" tinha devolvido **341 resultados e nenhum do Rio**,
+todos de Campo Grande/MS e do interior de SP. Agora, com "RJ": **10 resultados, todos do
+Rio**. A contaminação sumiu. Campo Grande RJ é bairro raso de verdade, mas agora eu sei que
+é o bairro, não a busca.
+
+### Defeito novo: erro de digitação no título, em três anúncios
+
+A **Primoris** roda três anúncios com este título:
+
+> **"ENTRE EM NOSSO GRUOPO NO WHATSP"**
+
+Dois erros de digitação numa frase de cinco palavras — "GRUOPO" em vez de "grupo" e "WHATSP"
+em vez de "WhatsApp" — em caixa alta, no ar desde **14/08**. É a primeira vez que aparece
+erro de ortografia na lista, e é o tipo de coisa que a pessoa conserta na hora que enxerga.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Primoris** | **"ENTRE EM NOSSO GRUOPO NO WHATSP"** — dois erros de digitação, em três anúncios | `1115151141687827` | 14/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2563675907402413) |
+| **grajaucapital** | o arroba + **dez campos vazios**, e no ar desde **02/08/2025** — treze meses | `424810384056503` | 02/08/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1239532377971183) |
+| **Apartamento a venda em Campo grande RJ** | o título é **o próprio nome da página seguido de nove campos vazios**; o segundo anúncio está **totalmente sem título**. O nome da página é literalmente a frase de busca — alguém montou a página como anúncio | `1344553605404710` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3109259839263845) |
+| **jonathancorretor.imoveis** — **Trilha A** | **sem título** | `1142171925647802` | 30/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1405251184872208) |
+| **Terrenos & Imóveis RJ** | "🚩 Apartamento à Venda" — diz o produto e nada mais: nem bairro, nem metragem, nem preço | `105468811025702` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1423079669886484) |
+
+**Abordagem para a Primoris (é a mais constrangedora de mostrar, então tem que ser gentil):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. Vi os anúncios de vocês na Biblioteca
+> do Facebook e passei para avisar de uma coisa que provavelmente ninguém percebeu: o título
+> dos três está saindo **"ENTRE EM NOSSO GRUOPO NO WHATSP"** — "gruopo" e "whatsp". Está no
+> ar assim desde agosto. Não é o fim do mundo, mas passa desleixo justo no campo que a pessoa
+> lê antes de decidir clicar. Já que é para mexer nele, dá para trocar por algo que diga o
+> imóvel. Quer ver o que eu colocaria?
+
+**Abordagem para a grajaucapital (o tempo é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. Seu anúncio está no ar **desde agosto
+> do ano passado**, treze meses, com o seu arroba no título seguido de **dez campos vazios**.
+> Cada um daqueles dez era espaço para um imóvel com bairro, metragem e preço. Quer que eu te
+> mostre o que entra ali?
