@@ -319,3 +319,71 @@ Isso derruba a projeção de 35–45 leads, não sobe.
 **Recomendado ao Pablo e aguardando resposta dele:** pausar V01–V09 nos dois conjuntos
 (18 anúncios). Não executei por conta própria — mexer em 18 anúncios de uma vez é grande
 demais para decidir sozinho, e existe a chance de ter sido ligado de propósito.
+
+---
+
+# Adendo 4 (12/09, 00h20) — pausados os 18 vídeos, e a armadilha do nome evitada
+
+Pedido do Pablo: *"pause todos os videos e com minha imagem"*.
+
+## Por que não pausei pela lista de nomes
+
+Esta conta já pregou exatamente essa peça em 11/09: o **V10 se chamava "Cliente todo
+dia (vídeo E)" e era uma imagem** (`object_type: SHARE`). Obedecer "pause todos os
+vídeos" pelo nome teria desligado o único anúncio que dava lead. A lição está em
+`LICOES — mecanismos aprendidos.md`: *nome de anúncio não é dado, `object_type` é*.
+
+Então conferi campo por campo antes de tocar em qualquer coisa.
+
+## Verificação 1 — os 18 "V" são vídeo mesmo
+
+Puxei `object_type` e `video_id` dos 18 criativos com nome V01–V09 nos dois conjuntos.
+**Todos voltaram `object_type: VIDEO`, todos com `video_id` preenchido.** Desta vez o
+nome batia com a realidade — mas isso foi verificado, não presumido.
+
+## Verificação 2 — nenhum outro anúncio ativo tem a foto do Pablo
+
+Sete peças do `producao/bofu.json` usam foto dele: BF02, BF03, BF04, BF05, BF06, BF09
+e BF10. Puxei `object_type` e `image_hash` dos 29 anúncios ativos que não são vídeo.
+
+Resultado: os 29 são `SHARE` e usam **dez artes distintas**, nenhuma delas com hash
+igual ao da BF02 (`7c124f9d162408dc638dddc8c58d01c9`) ou da BF10
+(`427922c4a1857b295d7e738563dbdd2e`), os dois hashes de peça com a foto dele que o
+repositório documenta.
+
+**Onde a verificação por hash bateu no limite:** `ads_get_ad_images` devolve o nome de
+todas as dez como `untitled_105` — a Meta não guarda nome útil para imagem enviada por
+URL. E o repositório só documenta 4 hashes dos 20, faltando justamente BF03, BF04,
+BF05, BF06 e BF09. Então o hash sozinho não fecha o caso.
+
+O que fecha: as dez artes em uso são as das peças AG, e o
+`PECAS — modelo do V10.json` tem **10 peças, todas com `busca_pexels` e nenhuma com
+`foto: fotos/pablo...`** — conferido por script, não a olho. Os anúncios de nicho
+reusam essas mesmas dez artes (IMOB01 e AG02 compartilham `ad4f8921...`, ODO01 e AG04
+compartilham `7c9ff3b2...`), então herdam a mesma origem de banco.
+
+Os dois anúncios com a foto dele já tinham sido pausados no adendo 2.
+
+## O que foi pausado
+
+18 anúncios, nove em cada conjunto de formulário: V01, V02, V03, V04, V05, V06, V07,
+V08 e V09 em `LEADS I INTERESSE I FASE 3` e em `LEADS I SEMELHANTE CNAE RJ I FASE 3`.
+
+Justificativa de dado, não de gosto: **em 7 dias os nove vídeos entregaram zero lead**.
+Todo lead da conta veio de imagem.
+
+## Estado final: de 48 para 30 anúncios ativos
+
+| Conjunto | Ativos |
+|---|---|
+| LEADS I INTERESSE I FASE 3 | 5 (AG01–AG05) |
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | 6 (AG01 CNAE, AG06–AG10) |
+| NICHO IMOBILIARIA | 4 |
+| NICHO VETERINARIA | 4 |
+| NICHO ODONTOLOGIA | 4 |
+| NICHO ESTETICA | 4 |
+| NICHO ENERGIA SOLAR | 4 |
+
+Nenhum conjunto ficou abaixo de dois anúncios ativos — a regra foi respeitada em todos.
+A verba de R$ 30/dia agora se divide entre 30 anúncios em vez de 48, e nenhum deles é
+vídeo. Nenhum tem a foto do Pablo. Nenhum diz mentoria.
