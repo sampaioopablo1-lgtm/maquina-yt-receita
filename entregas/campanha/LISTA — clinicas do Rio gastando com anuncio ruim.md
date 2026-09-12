@@ -13,8 +13,8 @@
 | 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
 | 8 | **Dr. Thiago Vieira Moraes** (Copacabana, *Trilha A*) | o título do anúncio é o **título bruto da página do Instagram**, terminando em **"• Instagram photos and videos"** — ninguém trocou pelo texto da oferta |
-| 9 | **Espaço Facial Leme** (Leme/Copacabana) | **"AGENDE AQUI" em nove anúncios**, todos iguais, o mais antigo desde **13/08** |
-| 10 | **Dra. Letícia Martins** e **Elizene Souza** (Copacabana, *Trilha A*) | as duas com o título **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
+| 9 | **Machado de Souza Consultoria Imobiliária** (Tijuca) | o título é o nome da página seguido de **dezoito campos vazios** — empata o recorde do arquivo |
+| 10 | **robertodpcarvalho** (Tijuca, *Trilha A*) | tem **duas páginas diferentes** anunciando ao mesmo tempo, **as duas sem título** — competem entre si no leilão e encarecem as duas |
 | — | *(sai de hoje)* **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
 | — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- imobiliária + "apartamento à venda" + Tijuca ✔ (**233 resultados — a maior de todas; 15 aproveitáveis e TODOS novos**, 6 Trilha A. Confirma que "apartamento à venda" rende ~10x mais que "corretor")
 - veterinária + Copacabana ✔ (**só 6 resultados** — bairro rico em imobiliária, harmonização e odonto, mas fraco em veterinária; 3 aproveitáveis, nenhum Trilha A)
 - odontologia + implante + Copacabana ✔ (18 resultados, 6 aproveitáveis novos, 1 Trilha A — inclui o anúncio mais antigo já achado, de **julho de 2025**)
 - harmonização facial + Copacabana ✔ (**36 resultados, 11 aproveitáveis e TODOS novos** — melhor rendimento por varredura até agora; 6 Trilha A)
@@ -1458,3 +1459,64 @@ bom em tudo.
 **Quem está acertando (referência, não abordar):** *Clínica Veterinária Santa Mônica* —
 "Mais cuidado para o seu pet, com muito mais economia." Promete benefício, não repete o
 nome.
+
+## Achados de 12/09, 04h — "apartamento à venda + Tijuca" (233 resultados, a maior varredura)
+
+**A lição de ontem se pagou na primeira tentativa.** A varredura de "imobiliária +
+corretor + Barra" tinha dado 23 resultados e ensinado que "corretor" puxa anúncio de
+recrutamento. Trocando para **"apartamento à venda"**, no mesmo nicho: **233 resultados**,
+dez vezes mais, e **15 aproveitáveis, todos inéditos** — seis com o dono no nome.
+
+Fica a regra consolidada: **para captação, o termo é o que o CLIENTE procura ("apartamento
+à venda"), não o que o PROSPECTO é ("corretor")**. Vale para todo nicho: o paciente procura
+"implante", não "dentista".
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Machado de Souza Consultoria Imobiliária** | nome da página + **dezoito campos vazios** — empata o recorde do arquivo | `119037485315543` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2020172451949891) |
+| **robertodpcarvalho** — **Trilha A** | **duas páginas diferentes** (`101441885982960` e `106037502214511`) anunciando ao mesmo tempo, **as duas sem título** | duas | 09/09/2026 | [pág. 1](https://www.facebook.com/ads/library/?id=956648816709832) · [pág. 2](https://www.facebook.com/ads/library/?id=1550116679773259) |
+| **Marco Castro Imóveis** | **"Converse conosco" em cinco anúncios**, todos iguais | `285752845482373` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1613876267070806) |
+| **Ricardo Martins Investimentos** | nome da página + **dez campos vazios** | `483231911729698` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1389483512654158) |
+| **Gilberto Cupolillo Imóveis** — **Trilha A** | título é **`api.whatsapp.com`** | `657892467415314` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2055457845110116) |
+| **andersonvianareis** — **Trilha A** | o título é **o arroba dele** seguido de "Oportunidade, Saiba mais!" **repetido duas vezes** | `108071234915846` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1005512575829497) |
+| **Ana Hajjar Imob** — **Trilha A** | **sem título** | `954111221113576` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4048142075493724) |
+| **Rodrigo Moraes Imóveis** — **Trilha A** | dois anúncios, **os dois sem título** | `1172931749233023` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1446737534027354) |
+| **Fabiano Collares Imóveis** — **Trilha A** | **sem título** | `112877735079740` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1338950928052576) |
+| **Atobá Imóveis** | dois anúncios, **os dois sem título** | `667291566461931` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28284059061246639) |
+| **Top Band imóveis** | **sem título** | `1645918765734055` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1010414065344737) |
+| **jlpimoveisrj** | **sem título** | `106098761052562` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4377058819105021) |
+| **Delnik Administradora e Corretora** | **sem título** | `682483758485926` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2221658915073738) |
+| **Conectta Imóveis** | "Converse conosco" | `111211148603936` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2285964888612237) |
+| **Brasil Brokers Tijuca** | "Saiba Mais" — instrução genérica, e é franquia de rede grande | `109883898332137` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1577760824100550) |
+
+### O defeito das duas páginas apareceu de novo — agora tem nome
+
+O `robertodpcarvalho` roda **duas páginas separadas** anunciando o mesmo serviço ao mesmo
+tempo, as duas sem título. É o segundo caso em duas varreduras — o primeiro foi a **Sorrio**
+(odontologia, Copacabana), com `Clínica Sorrio` e `Sorrio`.
+
+É um defeito de estrutura que o dono nunca enxerga, porque cada página parece certa
+isolada. Efeito: as duas disputam o mesmo público no leilão, uma encarece a outra, e o
+aprendizado do Facebook é dividido pela metade. **Passa a ser um item da checagem de toda
+varredura:** conferir se o mesmo nome aparece com `page_id` diferente.
+
+**Abordagem para o Roberto (Trilha A, e o gancho é a estrutura, não o texto):**
+
+> Bom dia, Roberto. Aqui é o Pablo, do Rio — não sou comprador. Reparei na Biblioteca de
+> Anúncios que você tem **duas páginas diferentes anunciando ao mesmo tempo**, e as duas
+> estão com o anúncio **sem título nenhum**. São dois problemas de uma vez: as páginas
+> disputam o mesmo público no leilão e encarecem uma à outra, e nenhuma das duas diz por
+> que alguém deveria clicar. Quer que eu te mostre como juntar isso?
+
+**Abordagem para a Machado de Souza (o número faz o trabalho):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. O anúncio de vocês está no ar com o
+> nome da imobiliária e **dezoito campos de título vazios** em seguida. Não é exagero meu,
+> está na Biblioteca de Anúncios do próprio Facebook. Cada um desses campos era um espaço
+> para dizer metragem, bairro ou preço. Quer que eu te mostre o que costuma entrar neles?
+
+**Quem está acertando (referência para citar na Tijuca):** *Griffe House Imobiliária* —
+"Blue Vision | 4 Quartos (3 Suítes) | 1 Escritório | Varanda Ampla | Clube de Praia |
+R$ 1.780.000" e *Podium Imóveis RJ* — "London Green 4 Suítes 157m²". Os dois dizem
+empreendimento, metragem e preço no título. É o contraste exato com os nove que estão
+sem título nenhum.
