@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- odontologia + implante + Copacabana ✔ (18 resultados, 6 aproveitáveis novos, 1 Trilha A — inclui o anúncio mais antigo já achado, de **julho de 2025**)
 - harmonização facial + Copacabana ✔ (**36 resultados, 11 aproveitáveis e TODOS novos** — melhor rendimento por varredura até agora; 6 Trilha A)
 - imobiliária + corretor + Barra da Tijuca ✔ (23 resultados, **só 2 aproveitáveis novos** — bairro já raspado pelas buscas de "Tijuca"; e o termo "corretor" puxa anúncio de RECRUTAMENTO, não de captação)
 - energia solar + Tijuca ✔ (**40 resultados, mas o termo puxa Barra da Tijuca e devolve imobiliária** — só 2 páginas solares de verdade; 8 aproveitáveis novos, 2 Trilha A)
@@ -1377,3 +1378,51 @@ para clicar agora, não uma instrução.
 
 **Descartado de propósito:** *Cinthia Ramos Estrategista Digital* — anúncio sem título,
 mas ela vende marketing digital. É concorrente, não cliente.
+
+## Achados de 12/09, 02h — "implante dentário + Copacabana"
+
+18 resultados, **6 aproveitáveis novos**. Rendimento médio, mas com dois casos que valem
+pelo tamanho do erro.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Oral 360 RJ** | "A Melhor Clínica para o Seu Sorriso" — superlativo sem prova, e **no ar desde 23/07/2025**. É o anúncio mais antigo já encontrado nesta lista: **quase 14 meses** repetindo a mesma frase | `310010632193537` | 23/07/2025 | [anúncio](https://www.facebook.com/ads/library/?id=610418658399134) |
+| **Clínica Sorrio** | **"FALE CONOSCO➡️" em quatro anúncios**, todos iguais | `108923355275304` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1413028374109539) |
+| **Sorrio** (página separada) | **seis anúncios idênticos**, todos "IMPLANTES COM CONDIÇÕES FACILITADAS!" | `233953546797659` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2091515141734575) |
+| **Smart Dental Clinic** | "AGENDE AGORA >>>" em dois anúncios — instrução, e as setas não substituem o motivo | `109235022214304` | 10/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1523331529100413) |
+| **drraffaelsouza** — **Trilha A** | o título é **"Drraffaelsouza"** — o arroba dele com a primeira letra maiúscula, colado no lugar da chamada | `100124415197413` | 11/06/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1918403645525767) |
+| **A sorrir Odontologia** | título é **"PRÓTESE FLEX"** — nome do produto, sem dizer para quem serve nem por quê | `322817671131310` | 15/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1425398436093704) |
+
+**O caso Sorrio — duas páginas, a mesma marca, anunciando em paralelo.**
+`Clínica Sorrio` (`108923355275304`) e `Sorrio` (`233953546797659`) são páginas diferentes
+rodando anúncios ao mesmo tempo para o mesmo serviço. Isso divide o aprendizado do
+Facebook em dois e faz as duas competirem entre si no leilão — sobe o custo das duas.
+É defeito de estrutura, não de texto, e é o tipo de coisa que o dono não enxerga porque
+cada página parece certa isolada. **Vale como gancho de abordagem próprio**, e é mais
+forte que apontar o "FALE CONOSCO".
+
+**Abordagem para a Sorrio (usar o defeito de estrutura, não o de texto):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou paciente. Reparei na Biblioteca de Anúncios
+> que vocês têm **duas páginas diferentes anunciando implante ao mesmo tempo**: a Clínica
+> Sorrio e a Sorrio. Elas estão disputando o mesmo público no leilão do Facebook, o que
+> encarece as duas e divide o aprendizado pela metade. Fora isso, os quatro anúncios de
+> uma delas têm o mesmo título "FALE CONOSCO". Quer que eu te mostre como juntar isso?
+
+**Abordagem para a Oral 360 (o gancho é o tempo):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou paciente. Vi na Biblioteca do Facebook que
+> o anúncio de vocês está no ar **desde julho do ano passado** com o título "A Melhor
+> Clínica para o Seu Sorriso". Catorze meses é muito tempo com a mesma frase, e
+> "a melhor" é o que todo concorrente também escreve — quem vê não tem como diferenciar.
+> Quer que eu te mostre o que costuma entrar no lugar?
+
+**Abordagem para o Dr. Raffael (Trilha A, direto no Instagram dele):**
+
+> Boa noite, Dr. Raffael. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio no
+> Facebook está com o título **"Drraffaelsouza"**: é o seu arroba que ficou no campo da
+> chamada. Quem vê no feed lê o seu usuário em vez de um motivo para clicar. É troca de
+> um campo só. Te mostro?
+
+**Quem está acertando (referência, não abordar):** *Odontovic* — "Implantes dentários em
+Madureira". Diz o serviço e o bairro no título, que é exatamente o que falta nos outros.
