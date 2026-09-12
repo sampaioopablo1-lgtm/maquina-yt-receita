@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- imobiliária + "apartamento à venda" + Botafogo ✔ (**72 resultados contra 6 do termo "corretor"** — regra confirmada pela 3ª vez; 20 aproveitáveis, todos novos, 9 Trilha A)
 - harmonização facial + Méier ✔ (13 resultados mas **só 2 anunciantes** — 1 novo: a Botocenter, com **estrelas no lugar do título**)
 - imobiliária + "apartamento à venda" + Tijuca ✔ (**233 resultados — a maior de todas; 15 aproveitáveis e TODOS novos**, 6 Trilha A. Confirma que "apartamento à venda" rende ~10x mais que "corretor")
 - veterinária + Copacabana ✔ (**só 6 resultados** — bairro rico em imobiliária, harmonização e odonto, mas fraco em veterinária; 3 aproveitáveis, nenhum Trilha A)
@@ -1544,3 +1545,65 @@ um campo — a pessoa vê o problema em dois segundos.
 > do Facebook e o título dele está saindo como **cinco estrelas e mais nada**: "⭐⭐⭐⭐⭐".
 > Quem está rolando o feed não lê nem o procedimento, nem o bairro, nem o preço — só as
 > estrelinhas. É um campo só para trocar. Quer que eu te mostre o que costuma entrar ali?
+
+## Achados de 12/09, 06h — "apartamento à venda + Botafogo" (72 resultados, 20 novos)
+
+Terceira confirmação da regra do termo: Botafogo com **"corretor"** deu 6 resultados;
+com **"apartamento à venda"**, **72**. Vinte aproveitáveis, todos inéditos, nove com o
+dono no nome.
+
+### O caso da Brasil Brokers — o catálogo inteiro despejado no título
+
+O título de um único anúncio contém **seis imóveis completos**, com código, metragem,
+descrição inteira e preço, tudo concatenado num campo só. Começa em "Casa de Condomínio à
+venda com 177,00m² e 5 quartos em Engenheiro Leal... R$350,000 | Casa em Botafogo - 300m²...
+R$2,800,000 | Apartamento à venda com 276,00m² em Copacabana... R$6,000,000 | ..." e segue.
+
+É um feed de catálogo jogado cru no campo da chamada. No feed o leitor vê um paredão de
+texto truncado. **É o defeito mais visualmente chocante que já apareceu nesta lista** — a
+pessoa não precisa de explicação, ela olha e entende.
+
+E tem um agravante: a **Brasil Brokers Tijuca** (`109883898332137`), catalogada ontem, é
+página diferente desta (`354245788004916`). **Terceiro caso do defeito de duas páginas da
+mesma marca** — depois da Sorrio e do robertodpcarvalho.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Brasil Brokers** | **seis imóveis inteiros com preço concatenados dentro do título** | `354245788004916` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1059711283634204) |
+| **Ariane Gomes Imóveis** — **A** | "Converse conosco" **dez vezes**, em dois anúncios | `673699585821695` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=2179127179349687) |
+| **Rio Couto Imóveis** | "Fale conosco" **dez vezes**; e um segundo anúncio **sem título** | `114514347055243` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=2082991382306679) |
+| **Bielle Imóveis** | "SAIBA MAIS" **dez vezes** | `329356906935615` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1092969740339716) |
+| **Mariana Alves** — **A** | "Fale conosco" **nove vezes** | `764605636728170` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=2042974629671219) |
+| **Corcovado Real Estate** | "Fale conosco" **sete vezes** | `589004660973313` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1810834920361177) |
+| **giuseppecirillo.corretor** — **A** | título é **`instagram.com`** | `114447028252250` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1527361892756727) |
+| **matheussena.rio** — **A** | o arroba dele + **dez campos vazios**; e mais dois anúncios **sem título** | `116767508019351` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1882657179373113) |
+| **vistapro.rio** — **A** | o arroba + **oito campos vazios** | `100128026331442` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1653617386336829) |
+| **douglasnunesimoveis** — **A** | **sem título** | `672109482654744` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=2147179529482898) |
+| **consultor.wander** — **A** | **sem título** | `110184671709220` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=28654480867490313) |
+| **jessicafarias.gerentedevendas** — **A** | **sem título** | `113936504956004` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1967461363951703) |
+| **morabilidade** | **sem título** | `102543282421918` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1068326678932425) |
+| **Orla Rio Imobiliária** | **sem título** | `428394817034055` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1721565578955820) |
+| **Kiko Imóveis** | **sem título** | `100327588713273` | 09/09 | [anúncio](https://www.facebook.com/ads/library/?id=1369719918209141) |
+| **Othon Rangel** — **A** | "📲 Entre em contato e agende uma visita!" — instrução pura, sem dizer qual imóvel | `644100792125691` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1761290781675582) |
+
+**Abordagem para a Brasil Brokers (o próprio anúncio é a prova):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. Vi o anúncio de vocês na Biblioteca
+> do Facebook e o **título dele tem seis imóveis inteiros dentro**, com descrição completa e
+> preço, um colado no outro: Engenheiro Leal, Botafogo, Tauá, Copacabana, Anil. Parece que o
+> catálogo foi despejado direto no campo da chamada. No feed isso vira um paredão de texto
+> cortado e ninguém lê. Tem mais: vocês têm **duas páginas anunciando ao mesmo tempo** — esta
+> e a Brasil Brokers Tijuca — o que faz uma competir com a outra no leilão. Quer que eu te
+> mostre como arrumar as duas coisas?
+
+**Abordagem para os nove de Trilha A com título vazio ou arroba (serve para todos):**
+
+> Bom dia, [nome]. Aqui é o Pablo, do Rio — não sou comprador. Seu anúncio no Facebook está
+> **sem título** (ou com o seu arroba no lugar dele). É o campo que faz a pessoa parar de
+> rolar e entender o que você está oferecendo. É uma troca de um campo. Te mostro?
+
+**Quem está acertando (referência forte para citar em Botafogo):** *Luís Cruz Imob* —
+"65 m² • 2 quartos • 1 vaga • andar alto • R$ 850 mil. Agende sua visita." e *Imobiliária
+Casa 3* — "Oportunidade de Compra em Botafogo: 125m², Pé-Direito Alto, 2 por Andar e 1
+Vaga". Os dois dizem metragem, característica e preço. É o contraste exato com os nove
+que estão sem título nenhum, no mesmo bairro.
