@@ -9,7 +9,7 @@
 | 2 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
 | 3 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
 | 4 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
-| 5 | **Alfaiataria Imobiliária** (Barra) | "ALPHAVILLE \| BARRA DA TIJUCA" **nove vezes** num título; outro com **"Chat with us" dez vezes, em inglês**; um terceiro com "Fale conosco" dez vezes |
+| 5 | **Petmalia — Hospital Veterinário** (Barra) | **vinte anúncios ativos e os vinte com o mesmo título: "Entre em contato"** — a maior concentração de anúncio idêntico já encontrada, desde 15/07 |
 | 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
 | 8 | **Dr. Thiago Vieira Moraes** (Copacabana, *Trilha A*) | o título do anúncio é o **título bruto da página do Instagram**, terminando em **"• Instagram photos and videos"** — ninguém trocou pelo texto da oferta |
@@ -194,6 +194,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- veterinária + Barra ✔ (31 resultados mas **um único anunciante ocupa 20 deles** — a Petmalia, com "Entre em contato" nos vinte; 3 aproveitáveis novos, 2 Trilha A)
 - fisioterapia + "pilates" + Barra ✔ (72 resultados, 9 aproveitáveis novos, 4 Trilha A — confirma a densidade de defeito do nicho; inclui 3 imobiliárias que vieram de carona)
 - fisioterapia + "pilates" + Copacabana ✔ (20 resultados e **12 aproveitáveis, todos novos** — nicho onde quase ninguém preenche título; 4 Trilha A; inclui anúncio de **18 meses**)
 - odontologia + implante + Niterói ✔ (47 resultados, 6 aproveitáveis novos, 2 Trilha A — metade do bairro já estava catalogada por varreduras anteriores)
@@ -1789,3 +1790,47 @@ fora do nicho buscado é comum e vale conferir em vez de descartar**.
 "Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta." e *Tecfit
 Brasil* — "Potencialize o que você já faz. Agora no Rio." Os dois falam com quem está
 adiando ou já treina — não com "quem quiser conversar".
+
+## Achados de 12/09, 11h — "veterinário + Barra da Tijuca" (um anunciante ocupa o bairro)
+
+31 resultados, mas o número engana: **vinte deles são da mesma página**, a Petmalia. Sobram
+3 aproveitáveis novos.
+
+### O recorde de repetição: vinte anúncios, um título
+
+A **Petmalia — Hospital Veterinário** tem **vinte anúncios ativos ao mesmo tempo, e os vinte
+têm exatamente o mesmo título: "Entre em contato"**. Os mais antigos estão no ar desde
+**15/07/2026**.
+
+Para comparação, os maiores casos anteriores eram a Harmonize Pilates com nove e o Dr. Daniel
+Pinheiro com vinte e um — mas o do Dr. Daniel eram títulos **vazios**, não preenchidos com a
+mesma instrução. A Petmalia é o maior caso de **repetição deliberada**.
+
+**Por que isso é pior que parecer:** vinte anúncios idênticos não são vinte testes, são um
+teste repetido vinte vezes. O Facebook não tem como aprender qual funciona melhor, porque não
+há diferença entre eles — e ainda divide a verba e o aprendizado por vinte. É a mesma estrutura
+do caso da Dra. Raphaela (sete anúncios iguais, Copacabana), só que quase três vezes maior.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Petmalia — Hospital Veterinário** | **vinte anúncios ativos, os vinte com "Entre em contato"** | `101495181581938` | 15/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1614487943593080) |
+| **flaviaclare** — **Trilha A** | o arroba dela + **cinco campos vazios** | `105235465067568` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3452566114926871) |
+| **Leonardo Machado Ortopedia Veterinária** — **Trilha A** | dois anúncios, **os dois sem título** | `702233186312986` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2252727262180879) |
+
+**Abordagem para a Petmalia (o número faz tudo):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Vi na Biblioteca de Anúncios do Facebook
+> que vocês têm **vinte anúncios rodando ao mesmo tempo, e os vinte têm o mesmo título:
+> "Entre em contato"**. Não é exagero meu, está lá para qualquer um conferir. O problema é que
+> vinte anúncios iguais não são vinte testes — são o mesmo teste vinte vezes, e o Facebook não
+> consegue aprender qual funciona porque não há diferença entre eles. Vinte ângulos diferentes
+> custariam o mesmo: emergência 24h, castração, vacina, odontologia, exame de imagem. Quer que
+> eu te mostre como eu dividiria?
+
+**Quem está acertando (referência do mesmo bairro, e é do mesmo nicho):** *DOK — Hospital
+Veterinário* — **"Odontologia Veterinária | Barra da Tijuca"**. Diz a especialidade e o bairro
+em cinco palavras. É exatamente o que falta nos vinte da Petmalia — e serve de contraste
+direto, porque são concorrentes de rua.
+
+**Descartados de propósito:** *Estácio Barra - Tom Jobim* e *Biofao* — vieram de carona
+(faculdade de veterinária e evento acadêmico), não são clínicas.
