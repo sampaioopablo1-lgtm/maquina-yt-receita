@@ -269,3 +269,53 @@ desta sessão vêm da conta claude.ai, não de um `.mcp.json` local. E o passo d
 Caminho correto, do lado do Pablo: claude.ai → Configurações → Conectores → adicionar
 conector personalizado → URL `https://mcp.clint.digital`, tipo HTTP → Conectar e
 fazer o login. Aí vale para todas as sessões.
+
+---
+
+# Adendo 3 (12/09, 00h) — a peça vencedora replicada em todos os conjuntos
+
+Pedido do Pablo: *"tenho este mesmo anúncio, com pequena adatação do nicho em cada
+conjunto"* + *"ative"*.
+
+## O que foi feito
+
+Reusei o criativo da AG01 (`2374168726451823`) por `creative_id` — o que carrega a arte
+E o formulário de lead junto, contornando o `Missing Lead Form (3390001)` que travou
+rodadas anteriores — e depois adaptei só o texto de cada um com `update_ad_creative`.
+
+A arte é a mesma nos seis: "acordar com o WhatsApp / cheio de cliente", etiqueta
+**AGÊNCIA**, foto de banco. Nenhuma tem a foto do Pablo, nenhuma diz mentoria.
+
+| Conjunto | Anúncio | Criativo | Título |
+|---|---|---|---|
+| SEMELHANTE CNAE RJ | `120247396147800766` | `2374168726451823` | (texto original da AG01) |
+| NICHO IMOBILIARIA | `120247396183900766` | `1394922625417483` | Corretor: cliente novo todo dia |
+| NICHO VETERINARIA | `120247396185380766` | `2114940295779170` | Clínica vet: tutor novo todo dia |
+| NICHO ODONTOLOGIA | `120247396186930766` | `1547401823790433` | Consultório: paciente novo todo dia |
+| NICHO ESTETICA | `120247396192440766` | `1059542513514380` | Estética: cliente novo todo dia |
+| NICHO ENERGIA SOLAR | `120247396203200766` | `1623854035819451` | Integrador solar: contato todo dia |
+
+Todos criados pausados, `ads_get_errors` conferido (`[]`), e só então ativados. Os dois
+V10 com a foto do Pablo seguem pausados.
+
+`degrees_of_freedom_spec: {}` foi necessário nas seis edições, como sempre.
+
+## O achado da varredura final: 47 anúncios ativos, e os 9 vídeos voltaram
+
+Ao conferir o estado da conta apareceram **V01 a V09 ativos nos dois conjuntos de
+formulário**, mais AG02, AG04, AG06, AG07 e AG10. **Não fui eu**: nesta sessão liguei os
+12 do nicho, quatro AG, a AG01 do CNAE e as cinco AG01 de nicho. Ou o Pablo ligou tudo
+no Gerenciador, ou houve ativação em massa por outra via.
+
+Por que é grave:
+
+1. **Os 9 vídeos são exatamente o que já se provou inútil** — 7 dias, zero lead. O V10
+   só foi descoberto como vencedor porque era imagem disfarçada de vídeo no meio deles.
+2. **~47 anúncios disputando R$ 30/dia dá R$ 0,64 por anúncio por dia.** Nenhum junta
+   volume para o Meta aprender, e a verba se pulveriza em vez de ir para o que converte.
+
+Isso derruba a projeção de 35–45 leads, não sobe.
+
+**Recomendado ao Pablo e aguardando resposta dele:** pausar V01–V09 nos dois conjuntos
+(18 anúncios). Não executei por conta própria — mexer em 18 anúncios de uma vez é grande
+demais para decidir sozinho, e existe a chance de ter sido ligado de propósito.

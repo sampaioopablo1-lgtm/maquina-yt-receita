@@ -193,6 +193,7 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 ---
 
 ## Combinações já varridas (não repetir)
+- imobiliária + corretor + Barra da Tijuca ✔ (23 resultados, **só 2 aproveitáveis novos** — bairro já raspado pelas buscas de "Tijuca"; e o termo "corretor" puxa anúncio de RECRUTAMENTO, não de captação)
 - energia solar + Tijuca ✔ (**40 resultados, mas o termo puxa Barra da Tijuca e devolve imobiliária** — só 2 páginas solares de verdade; 8 aproveitáveis novos, 2 Trilha A)
 - odontologia + Rio de Janeiro ✔
 - implante dentário + Tijuca ✔
@@ -1268,3 +1269,54 @@ no mesmo título, sem gritar.
 **Nota de tempo:** ao contrário das rodadas anteriores, **nenhum destes está errando
 há meses** — o mais antigo é de 05/08. São erros novos, o que quer dizer que
 provavelmente ainda não olharam. Boa hora para falar.
+
+## Achados de 12/09, 00h — "imobiliária + corretor + Barra da Tijuca" (rendimento baixo, mas duas lições)
+
+Fui na Barra porque imobiliária é o nicho mais rico e era o único bairro dele ainda
+não varrido. **23 resultados e só 2 nomes novos.** Vale mais pelo que ensinou.
+
+### Lição 1: "corretor" puxa anúncio de recrutamento, não de captação
+
+Nove dos 23 resultados são imobiliária **contratando corretor**, não buscando cliente:
+
+> "Seja corretor na maior imobiliária do mundo!" · "VAGA VENDEDOR" · "COMISSÃO DOBRADA"
+> · "Alto potencial de ganhos como corretor" · "OPORTUNIDADE PARA CORRETORES DE IMÓVEIS!"
+> · "CADASTRE-SE AGORA E DESCUBRA COMO ENTRAR PARA O TIME!"
+
+Esses são o prospecto errado por dois motivos: quem recruta não tem a dor de "falta
+cliente chegando", e anúncio de vaga entra na categoria especial de emprego da Meta,
+com regras próprias. **Para captação, o termo bom é "apartamento à venda", não
+"corretor"** — e de fato as varreduras com "apartamento à venda" (Niterói, Copacabana,
+Madureira) renderam muito mais.
+
+### Lição 2: a Barra já tinha sido raspada sem eu saber
+
+Quase todo nome que apareceu já estava catalogado — Alfaiataria, Luciana Martins,
+Gabriela Souza, Giselle Soares, Lopes Rio, Malvino Gomes. Motivo: as varreduras de
+**"Tijuca"** puxam Barra da Tijuca, coisa que eu já tinha anotado em 11/09 e que agora
+se confirma pelo lado inverso — o bairro veio junto de carona e eu não tinha percebido
+que ele estava coberto.
+
+**Regra que sai daqui:** antes de varrer um bairro, conferir se ele não foi coberto de
+carona por um termo ambíguo já usado. Barra, Tijuca e Campo Grande são os três casos
+conhecidos.
+
+### Os 2 aproveitáveis novos
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Consultoria Imobiliária** | dois anúncios, **os dois sem título** — e o nome da página termina em espaço, então no feed sai "Consultoria Imobiliária " solto | `1067122113144874` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1082673880958114) |
+| **LP Consultoria Imobiliária** | **sem título** | `962618623767489` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28000444299625030) |
+
+Nenhum dos dois é Trilha A: são nomes de empresa, não de pessoa.
+
+**Abordagem (serve para os dois, é o mesmo defeito):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou cliente. Vi o anúncio de vocês na
+> Biblioteca do Facebook e ele está no ar **sem título nenhum**: aparece a foto do
+> imóvel e o nome da página, e mais nada escrito. É o campo que faz a pessoa parar de
+> rolar. Quer que eu te mostre o que costuma entrar ali?
+
+**Descartados de propósito:** *Realler Imóveis* ("Imobiliária de Alto Padrão | Realler
+Imóveis" — título correto, não há o que apontar) e *Cazzu Imobiliária* (anúncio de
+recrutamento).
