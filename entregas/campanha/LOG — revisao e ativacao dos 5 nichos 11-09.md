@@ -387,3 +387,70 @@ Todo lead da conta veio de imagem.
 Nenhum conjunto ficou abaixo de dois anúncios ativos — a regra foi respeitada em todos.
 A verba de R$ 30/dia agora se divide entre 30 anúncios em vez de 48, e nenhum deles é
 vídeo. Nenhum tem a foto do Pablo. Nenhum diz mentoria.
+
+---
+
+# Adendo 5 (12/09, 11h) — limpeza de erros e o formulário que ainda diz "mentoria"
+
+Pedido do Pablo: *"faça as correções e melhorias necessárias. mudanças se precisar"*.
+
+## O que estava errado e foi corrigido
+
+### 1. A campanha de topo tinha o conjunto ativo e o anúncio de dentro pausado
+
+`REC I FS1` (R$ 10/dia) estava ATIVA, com o conjunto `INT I DONOS` ativo, e **o único
+anúncio dentro dele — "DINAMICO - VÍDEOS" — pausado**. É o mesmo defeito que consertei nos
+cinco conjuntos de nicho ontem: conjunto ligado que não tem o que entregar.
+
+O anúncio é de vídeo, então já devia estar pausado pela ordem do Pablo de 12/09 ("pause
+todos os videos e com minha imagem") — e estava. Faltava fechar a ponta: **campanha pausada**.
+Não move orçamento de lugar nenhum (cada campanha tem o seu) e é reversível em um clique.
+
+### 2. Quatro anúncios travados com erro poluíam toda checagem de monitoramento
+
+`ads_get_errors` na conta inteira devolvia quatro erros, todos em conjuntos já renomeados
+como `ZZ INATIVO`:
+
+| Anúncio | Erro |
+|---|---|
+| `120247356298300766` | Terms of Service Not Accepted — a Página não aceitou os Termos de Geração de Leads |
+| `120247353451310766` | idem |
+| `120247352877730766` | idem |
+| `120247356296740766` | **Ads creative post was created by an app that is in development mode** — é o app OPC Automação, hipótese que a rotina manda checar primeiro |
+
+Os conjuntos estavam pausados, então **não gastavam nada**. Mas os anúncios seguiam com
+status `WITH_ISSUES` e apareciam em toda varredura de erro.
+
+**Por que isso importava de verdade:** a rotina horária checa erro de entrega toda rodada.
+Com quatro erros crônicos no resultado, um erro NOVO e real passaria despercebido no meio
+deles. Vermelho permanente é como se perde a atenção no vermelho que importa — a mesma
+lição que já está registrada sobre o CI.
+
+**Os quatro foram pausados.** `ads_get_errors` na conta agora devolve `[]`.
+
+**Observação sobre o erro de Termos de Serviço:** ele é antigo e não bloqueia nada hoje —
+os conjuntos FASE 3 rodam anúncio de formulário e já produziram 13 leads, o que só é
+possível com os Termos aceitos. Era resíduo de antes do aceite.
+
+## O que NÃO deu para corrigir — e é o mais importante
+
+**O formulário que o lead preenche ainda promete "90 dias".**
+
+Está registrado no `DIARIO — otimizacao.md`: *"três versões da oferta no ar: anúncio
+(mentoria/turma), formulário ('90 dias'), LinkedIn (30 dias, 4 encontros)"*. E o
+`BRIEFING` diz, em letra dele: **"não falar '90 dias'"**.
+
+Ontem a copy dos anúncios foi corrigida de mentoria para agência. **O formulário não foi** —
+e ele é a última superfície onde a mentoria sobrevive. Pior: é a superfície que o lead lê
+no momento exato em que decide entregar o contato.
+
+**Não existe ferramenta de formulário instantâneo em nenhum MCP desta sessão.** Já estava
+documentado em 11/09 ("Nenhuma ferramenta do MCP lista, cria ou expõe esse id") e foi
+reconfirmado agora com busca. O conserto é manual, no Gerenciador de Anúncios do Pablo.
+
+## O que é decisão do Pablo, não minha
+
+**Sete conjuntos dividindo R$ 30/dia.** Com 30 anúncios ativos, dá cerca de R$ 1 por anúncio
+por dia. Nenhum junta volume suficiente para o Meta aprender depressa. As duas saídas —
+subir a verba ou separar os nichos em campanha própria — são mexer em orçamento, que é
+decisão dele por combinação explícita. Segue esperando.
