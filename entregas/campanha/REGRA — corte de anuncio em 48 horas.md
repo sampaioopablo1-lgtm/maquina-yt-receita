@@ -1,6 +1,7 @@
 # Regra de corte e religamento — janela de 48 horas
 
 *Criada em 09/09/2026. Vale para qualquer campanha da conta 1695865631502778.*
+*Coluna "onde a conta está" atualizada em 12/09/2026 — os números de 09/09 ficaram obsoletos.*
 
 ## Por que 48 horas e não 24, nem 7 dias
 
@@ -17,9 +18,9 @@ Por isso toda regra abaixo exige **tempo E volume**.
 
 | Métrica | Mercado | Piso aceitável | Onde a conta está hoje |
 |---|---|---|---|
-| CTR (link) | 0,90% a 1,60% | **0,50%** | 0,41% a 0,74% — **abaixo** |
-| CPM | R$ 15 a R$ 35 | **R$ 60** | R$ 12 (topo) e R$ 90 (fundo) — o fundo está **muito acima** |
-| Custo por lead B2B | R$ 25 a R$ 80 | **R$ 150** | sem lead ainda |
+| CTR (link) | 0,90% a 1,60% | **0,50%** | **2,95% e 3,64%** — acima do mercado (medido 12/09) |
+| CPM | R$ 15 a R$ 35 | **R$ 60** | **R$ 29,32 e R$ 29,62** — dentro da faixa (medido 12/09) |
+| Custo por lead B2B | R$ 25 a R$ 80 | **R$ 150** | **R$ 4,39 e R$ 4,82** — muito abaixo do mercado (medido 12/09) |
 
 ## As regras de corte
 
@@ -73,5 +74,42 @@ que entrou no lugar. Sem isso a regra vira faxina cega.
 
 ## Histórico de cortes
 
-*(vazio — a regra passa a valer a partir de 11/09/2026, quando os conjuntos FASE 3 completam
-48 horas)*
+### 12/09/2026, 12h — primeira rodada. **Zero cortes.**
+
+Medidos os 30 anúncios ativos e os 7 conjuntos ativos, `last_7d`.
+
+**Nível anúncio — nenhum entrou na análise.** Os 30 foram criados em 11/09 entre 17h31 e
+20h58; na hora da rodada tinham entre **12 e 15 horas de vida**. O PASSO 1 manda descartar
+tudo abaixo de 48h, e a trava 6 proíbe cortar antes disso "mesmo que o número esteja
+horrível". Vários estão com zero impressão, o que sem o corte de tempo pareceria caso de
+A3 — e seria erro, porque anúncio de 12 horas ainda não teve chance.
+
+**Nível conjunto — dois elegíveis, nenhum bateu.**
+
+| Conjunto | Idade | Impressões | Alcance | Lead | Veredito |
+|---|---|---|---|---|---|
+| LEADS I INTERESSE I FASE 3 | ~64h | 1.151 | 953 | 7 | **C1 não bate** (exige ≥2.000 impressões e 0 lead) · **C2 não bate** (exige ≥72h e alcance <500) |
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | ~64h | 741 | 624 | 5 | idem |
+
+Os 5 conjuntos de nicho têm ~14 horas — fora da janela.
+
+**Nenhuma trava impediu corte algum.** As regras simplesmente não dispararam: a conta é nova
+demais para ter anúncio maduro e ruim.
+
+### O que a medição revelou, e é a notícia da rodada
+
+Os números da tabela de referência lá em cima, medidos em 09/09, ficaram **obsoletos**:
+
+| | 09/09 | 12/09 |
+|---|---|---|
+| CTR | 0,41% a 0,74% (abaixo do mercado) | **2,95% e 3,64%** (acima do mercado) |
+| CPM | R$ 90 no fundo (muito acima) | **R$ 29,32 e R$ 29,62** (dentro da faixa) |
+| Custo por lead | sem lead | **R$ 4,39 e R$ 4,82** (mercado é R$ 25 a R$ 80) |
+
+O CTR multiplicou por cerca de cinco e o CPM caiu pela metade. O custo por lead está
+**cinco vezes abaixo do piso de mercado**. A tabela foi atualizada no topo do arquivo para
+que a próxima rodada não compare com número velho.
+
+**Ressalva honesta:** isso é de 09 a 11/09, ou seja, **antes** das mudanças da madrugada de
+12/09 (segmentação dos nichos corrigida, copy de mentoria removida, 18 vídeos pausados, 6
+peças novas). O efeito dessas mudanças só aparece no fechamento de 12/09.
