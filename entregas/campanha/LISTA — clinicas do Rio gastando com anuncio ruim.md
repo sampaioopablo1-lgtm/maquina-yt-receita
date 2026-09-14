@@ -272,7 +272,62 @@ com "corretor". Termo de profissão puxa recrutamento; termo de serviço puxa ca
 > com uma frase só?
 
 
+## Varredura — advocacia + "advogado Niterói" (14/09/2026, 17h15)
+
+32 resultados, e **a maior concentração de Trilha A do arquivo inteiro**: nove advogados
+anunciando com o próprio nome na página. Advocacia é o nicho onde o dono É a marca — e isso
+faz de Niterói o melhor bairro achado até hoje para abordagem direta no Instagram do dono.
+
+**Trilha A — abordagem direta do Pablo, no Instagram de cada um**
+
+| # | Advogado | Defeito | No ar desde |
+|---|---|---|---|
+| 1 | **Paulo Ribeiro** | título vazio | 13/09/2026 — anúncio novo, gastando agora |
+| 2 | **drarosemagalhaes** | título vazio | 13/09/2026 |
+| 3 | **elton_dasp** | título vazio | 10/09/2026 |
+| 4 | **Ojosinaldoalmeida** | título vazio | 09/09/2026 |
+| 5 | **Guilherme Delaroli** | título vazio | 07/09/2026 |
+| 6 | **Marcio Santos** | título vazio | 19/08/2026 |
+| 7 | **Adv. Felipe Morgan** | título é **`api.whatsapp.com`** — o endereço do link no lugar da chamada | 01/09/2026 |
+| 8 | **raimundoalvesjunior.advogado** | título é **`api.whatsapp.com`** | 18/06/2026 — 3 meses |
+| 9 | **cohnepaixaoadvs** | título vazio, no ar desde **setembro de 2025** — quase um ano | 25/09/2025 |
+
+Links: [Paulo Ribeiro](https://www.facebook.com/ads/library/?id=1469716831650766) ·
+[drarosemagalhaes](https://www.facebook.com/ads/library/?id=1564924629001215) ·
+[Felipe Morgan](https://www.facebook.com/ads/library/?id=1621537249491420) ·
+[raimundoalvesjunior](https://www.facebook.com/ads/library/?id=1521304243072325) ·
+[cohnepaixaoadvs](https://www.facebook.com/ads/library/?id=1129011332032719)
+
+**Já catalogados, apareceram de novo:** teixeiramendes.advogados (6 anúncios com "instagram.com"
+no título — a busca de Copacabana já pegou) e Carloscarlos6268 (6 anúncios sem título).
+
+**Quem está acertando, para citar:** *Carneiro Advocacia — Direito de Trânsito e da Saúde* usa
+**"CLIQUE AQUI para conversarmos"**. Não é brilhante, mas é uma frase escrita por gente, com verbo
+e instrução — serve de contraste imediato contra o campo vazio dos nove acima.
+
+**O que esta varredura ensina, e muda a prioridade do nicho:** advocacia parecia nicho fraco por
+causa das duas primeiras varreduras com termo largo. Com bairro no termo, ele virou **o nicho com
+mais Trilha A por resultado de toda a lista** — 9 em 32. E Trilha A é a abordagem que mais
+converte, porque vai direto no dono, sem passar por recepção ou social media.
+
+**Abertura pronta — advogado com título vazio (serve para 7 dos 9)**
+> Dr., vi seu anúncio na Biblioteca do Meta e o campo de título está em branco. É a frase que
+> aparece em negrito no feed, e é ela que o Meta usa para decidir a quem mostrar — vazia, o
+> alcance encarece e o mesmo dinheiro alcança menos gente. Quer que eu te mostre em 2 minutos
+> como ficaria com uma frase no lugar?
+
+**Abertura pronta — Felipe Morgan e Raimundo Alves Jr. (`api.whatsapp.com` no título)**
+> Dr., o título do seu anúncio está saindo como "api.whatsapp.com" — é o endereço do link, que
+> vazou para o lugar da chamada. Quem passa no feed lê isso e segue. No seu caso está assim
+> desde junho. Posso te mostrar o que entraria no lugar?
+
+**Abertura pronta — cohnepaixaoadvs (quase um ano no ar)**
+> Oi! O anúncio de vocês está no ar desde setembro do ano passado com o campo de título vazio.
+> É quase um ano pagando por um anúncio que ninguém abriu para conferir. Te mostro em 2 minutos?
+
+
 ## Combinações já varridas (não repetir)
+- advocacia + "advogado Niterói" ✔ (**32 resultados e 9 Trilha A — a maior concentração de dono-no-nome do arquivo**; 7 com título vazio, 2 com "api.whatsapp.com", um deles no ar desde setembro/2025. Confirma pela 2ª vez que advocacia só aparece com bairro no termo, e promove o nicho de "fraco" a prioritário para Trilha A)
 - academia + musculação + Niterói ✔ (**27 resultados, 17 com título vazio** — inclui a Fábrica Premium Região Oceânica com 8 anúncios em branco e a Lifetime com 5 meses assim; 1 Trilha A. **Achado:** a rede Fábrica tem uma página por unidade, cada uma anuncia sozinha e todas erram igual — alvo legítimo, diferente de rede com marketing central. Confirma também que "academia" puxa vaga de emprego, como "corretor")
 - advocacia + "advogado Copacabana" ✔ (**13 resultados, 5 escritórios, os 5 com defeito de título** — 6 anúncios com o título "instagram.com", 1 com a frase repetida 8x, 3 com título vazio; 1 Trilha A; inclui anúncio de 8 meses)
 - imobiliária + "apartamento à venda" + Campo Grande **RJ** ✔ (10 resultados — o sufixo "RJ" resolveu a contaminação de Mato Grosso do Sul; 5 aproveitáveis novos, 1 Trilha A, inclui **erro de digitação no título** e anúncio de 13 meses)
