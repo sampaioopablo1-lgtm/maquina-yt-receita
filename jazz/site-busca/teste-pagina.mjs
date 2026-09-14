@@ -12,10 +12,13 @@ const nCards = await p.locator('.card').count();
 ok('cards renderizam na carga ('+nCards+')', nCards > 0);
 
 // busca
-await p.fill('#q','apartamento 3 quartos em Boa Viagem ate 800 mil');
+await p.fill('#q','apartamento 3 quartos no Jardim Aquarius ate 800 mil');
 await p.press('#q','Enter'); await p.waitForTimeout(300);
 const n2 = await p.locator('.card').count();
-ok('busca por frase retorna resultados ('+n2+')', n2 > 0);
+const ampliada = await p.locator('.widened').count();
+const codigos = await p.locator('.plate .code').allInnerTexts();
+ok('busca por frase filtra de verdade ('+codigos.join(',')+')',
+   n2 > 0 && n2 < 14 && ampliada === 0 && codigos.includes('AP1001'));
 
 // URL compartilhavel
 const url = p.url();
@@ -46,9 +49,9 @@ ok('favorito sobrevive ao reload', marcado === 1);
 // round-trip do link
 const p2 = await (await b.newContext()).newPage();
 p2.on('pageerror', e => erros.push('p2: '+String(e)));
-await p2.goto(F + '?q=' + encodeURIComponent('casa em Casa Forte'));
+await p2.goto(F + '?q=' + encodeURIComponent('casa no Urbanova'));
 await p2.waitForTimeout(400);
-ok('link ?q= reabre a mesma busca', (await p2.inputValue('#q')) === 'casa em Casa Forte' && (await p2.locator('.card').count()) > 0);
+ok('link ?q= reabre a mesma busca', (await p2.inputValue('#q')) === 'casa no Urbanova' && (await p2.locator('.card').count()) > 0);
 
 ok('zero erros de JS', erros.length === 0);
 if (erros.length) console.log(erros.join('\n'));
