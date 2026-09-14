@@ -341,3 +341,46 @@ empresa e Clint. A fase 0 não é degrau perdido: os leads e as conversas ficam 
 - Mobile Time (01/07/2026), Pontaltech, Maxbot, Zenvia — cobrança de respostas e isenção do agente
 - Jornal Opção, Diário do Nordeste, Chatsac, sac.digital, Portal IN — lista de transmissão comercial
 - SocialHub, Pixelscan, Shadowphone, GeeLark, Multilogin, AppBrain/Play Store — a família "simula o celular"
+
+---
+
+# Pesquisa: ferramentas prontas no Brasil que fazem prospecção automática por WhatsApp (14/09/2026, noite)
+
+Pergunta do Pablo: "talvez já existe ferramenta que já faz este processo de prospecção auto com whatsapp, aqui no brasil".
+
+## Existem. O que importa é COMO cada uma manda a primeira mensagem.
+
+| Ferramenta | Preço | Primeira mensagem sai por | IA depois da resposta | Observação |
+|---|---|---|---|---|
+| **BuscaLead** | R$ 99,90 a 149/mês | **API oficial** (template com variáveis) ou QR | sim, 50 conversas/dia, tom e objetivo configuráveis, agenda e move no CRM | a única que recomenda a oficial e ainda assim entrega o SDR; base de 69M CNPJs; API própria |
+| **LeadCNPJ** | Start R$ 137,90 · Scale R$ 579,90 · Scale AI R$ 989,90 | **QR Code** — o próprio site avisa "canal não oficial, com confirmação de ciência do risco de banimento" | sim (Scale AI) | agente de atendimento inbound roda na oficial; o SDR frio, não |
+| **SDR Agent** | não publica | **QR Code** | sim, 4 canais, Google Agenda, CRM | prospecta Instagram e e-mail também |
+| **ProspectAI (autowhats)** | não publica | Evolution API (QR) "sem custo de mensagem" | sim | "sem custo" = não oficial |
+| **Toolzz, ConvertLab, Prospct.AI, CadenceFlow** | sob consulta | não dizem | sim | landing pages de agente; o canal de envio não aparece |
+
+Duas leituras de fora do mercado que valem: **Leadster** ("SDR com IA no WhatsApp funciona? dados reais,
+custos") e o blog do **Clint** ("5 agentes de IA para WhatsApp: quanto custam"), que é o CRM do Pablo.
+
+## O que a tabela diz
+
+1. **Ninguém escapou da física.** Ferramenta pronta não muda o que a Meta cobra nem o que ela pune.
+   Quem manda a primeira mensagem "sem custo" está no QR Code — e o LeadCNPJ, o mais transparente,
+   te faz assinar que sabe do risco. Quem usa a oficial paga template.
+2. **A única que fecha o desenho inteiro na oficial é a BuscaLead**, e por R$ 99,90 a 149/mês.
+   Template com nome e empresa, IA assume na resposta, agenda, CRM. É a nossa "faixa paga" pronta.
+3. **O que nenhuma tem:** a prova específica por empresa tirada da Biblioteca de Anúncios, a cadência
+   de e-mail grátis que puxa o lead pro `wa.me`, e a lista comercial do app com 250 grátis/mês.
+
+## Recomendação
+
+Se o Pablo quer apertar um botão esta semana: **BuscaLead na API oficial**, com o template
+escrito por mim e a base que eu limpar. Custo: R$ 149 + R$ 0,30 por template. Prova o funil.
+
+Se quer o funil que ninguém vende: o desenho da `ARQUITETURA — modo lista`, que usa as três
+coisas que a tabela não tem. Os dois não se excluem — a BuscaLead pode ser a fase 0.
+
+## Fontes
+
+BuscaLead, LeadCNPJ (agentes e planos), SDR Agent, ProspectAI/autowhats, Toolzz, ConvertLab,
+Prospct.AI, CadenceFlow, Leadster (dados reais), Clint (custo de agentes), DAS Tecnologia
+(Business AI no Brasil + bloqueio de não oficiais).
