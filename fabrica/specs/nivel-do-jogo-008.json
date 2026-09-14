@@ -117,7 +117,7 @@
    "layout": "item",
    "kicker": "Agora dá pra comparar",
    "preco": "os dois em reais",
-   "nar": "Com os dois lados em reais, a comparação deixa de ser opinião e vira aritmética. E aritmética não depende de quem está falando.",
+   "nar": "Com os dois lados em reais, a comparação deixa de ser opinião e vira aritmética. E aritmética não depende de quem está falando. Os mesmos dois lados, toda vez que você repetir a conta.",
    "sem_cap": true
   },
   {
@@ -457,7 +457,7 @@
    "layout": "cta",
    "kicker": "Nível do Jogo",
    "sub": "faça a conta hoje",
-   "nar": "Se você chegou até aqui, faça essa conta hoje com a sua própria conta. E escreve nos comentários só a diferença que deu.",
+   "nar": "Se você chegou até aqui, faça essa conta hoje com a sua própria conta. E escreve nos comentários só a diferença que deu. Só o número, sem nome de serviço.",
    "sem_cap": true
   }
  ],
