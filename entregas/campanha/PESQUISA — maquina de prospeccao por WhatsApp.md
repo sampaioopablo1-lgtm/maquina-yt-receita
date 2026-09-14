@@ -171,3 +171,74 @@ em base perdida e migração, contra R$ 1.188/ano da via oficial.
 - Data Stone — riscos de comprar lista de WhatsApp
 - Golber Dória — fim do WhatsApp gratuito para atendimento
 - Leadjet — guia honesto de WhatsApp marketing B2B
+
+---
+
+# Pesquisa: disparo por conta própria, controlado e 100% gratuito (14/09/2026, noite)
+
+Pergunta do Pablo: "mandando por conta própria, investigue no youtube, artigos, linkedin, encontre
+meio de disparo por conta própria de forma controlada para ficar 100% gratuito o processo com o Claude".
+
+## O mecanismo que fecha a conta em zero
+
+A coexistência tem uma propriedade que ninguém vende porque não dá dinheiro a ninguém:
+
+**Mensagem enviada pelo app WhatsApp Business no celular é grátis** — não passa pela tabela da
+API. E ela é **espelhada para o webhook** (evento `smb_message_echoes`), então o sistema sabe
+que o contato foi tocado. Quando o lead responde, a resposta entra pelo webhook como conversa
+iniciada pelo cliente → janela de atendimento → **grátis**. A IA assume dali em diante.
+
+Confirmado em três fontes independentes (docs da 360dialog, YCloud, Marcus Barboza):
+- "Messages sent via the WhatsApp Business app are sent to the phone number's webhook URL, via an smb_message_echoes event."
+- "Mensagens enviadas pelo app não são cobradas pela Cloud API."
+- "As mensagens enviadas pela sua equipe no WhatsApp Business App continuam gratuitas, mesmo com um número conectado à API."
+
+## O desenho
+
+```
+Claude prepara (n8n, de madrugada)
+  → página do dia com 30 botões, cada um = link wa.me com mensagem pronta e personalizada
+Pablo toca (app, de manhã, ~5 min)
+  → toca no botão, abre o WhatsApp Business já com o texto, toca em enviar. 30 vezes.
+Webhook recebe o eco
+  → n8n marca o contato como "tocado em dd/mm" na planilha
+Lead responde
+  → webhook inbound → n8n → Claude qualifica, contorna, agenda
+  → grátis (janela de atendimento)
+```
+
+Nenhum modelo aprovado. Nenhum disparador. Nenhuma detecção de robô, porque o envio é humano
+de verdade, pelo app de verdade. Nenhum custo de Meta.
+
+## A conta do mês
+
+| | |
+|---|---|
+| Primeiros contatos | 30/dia × 22 dias = **660/mês** |
+| Custo de envio | **R$ 0** (app) |
+| Respostas a ~20% | ~130 conversas |
+| Mensagens da IA a ~5 por conversa | ~650/mês |
+| Custo dessas até 30/09 | R$ 0 (ilimitado) |
+| Custo dessas de 01/10 em diante | R$ 0 (cabe na cota de 1.000/mês do número) |
+| Servidor n8n | R$ 0 self-hosted, ou R$ 30-50 em VPS |
+| API do Claude | ~R$ 5-20/mês nesse volume |
+
+Os 2.000 contatos levam **~3 meses** a 30/dia. É o ritmo que o próprio Pablo pediu.
+
+## O que fica de trabalho manual e por quê
+
+Os 30 toques. ~5 minutos. É o único pedaço que não é automatizado, e é de propósito: é ele que
+mantém o envio dentro da regra da Meta e fora do disparo por robô. Automatizar o toque
+(Web, Playwright, biblioteca QR) devolve o número à fila de bloqueio — e viola a trava desta
+operação: envio na conta do Pablo é sempre dele.
+
+## Vídeos e artigos consultados
+
+- YouTube: "N8N + Claude: Automação Completa com WhatsApp e IA em Minutos" — mostra o nó nativo
+- YouTube: "N8N + WhatsApp GRÁTIS: Crie seu Agente de IA sem gastar NADA" — usa WAHA (QR, não oficial; serve só de referência de fluxo)
+- YouTube: "N8N + WhatsApp: Responda Mensagens utilizando um Agente de IA"
+- Hashtag Treinamentos — Claude + n8n + MCP para WhatsApp
+- SocialHub — gerador de link wa.me com mensagem pré-preenchida e UTM
+- 360dialog — coexistence webhooks (`smb_message_echoes`)
+- YCloud, X-Apps, Marcus Barboza — coexistência em português
+- SleekFlow, EvoTalks, ChatLabs, HelenaCRM, Moovyi — o que muda em 01/10/2026
