@@ -14,7 +14,8 @@
 | 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
 | 8 | **Dr. Thiago Vieira Moraes** (Copacabana, *Trilha A*) | o título do anúncio é o **título bruto da página do Instagram**, terminando em **"• Instagram photos and videos"** — ninguém trocou pelo texto da oferta |
 | 9 | **Fisioterapia & Pilates SODRÉ** (Copacabana) | três anúncios **sem título nenhum**, o mais antigo no ar desde **21/03/2025** — dezoito meses, empata o recorde de tempo do arquivo |
-| 10 | **Cláudia S. Ioschpe** (Copacabana, *Trilha A*) | o título é o nome dela seguido de **treze campos vazios** |
+| 10 | **Juliana Murta — Advogada** (Botafogo, *Trilha A*) | anúncio **sem título nenhum**, no ar desde 08/09/2026 — e advocacia é o nicho onde o dono é a marca, então a abordagem cai direto no Instagram dela |
+| — | *(sai de hoje)* **Cláudia S. Ioschpe** (Copacabana, *Trilha A*) | o título é o nome dela seguido de **treze campos vazios** |
 | — | *(sai de hoje)* **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
 | — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
 
@@ -327,6 +328,7 @@ converte, porque vai direto no dono, sem passar por recepção ou social media.
 
 
 ## Combinações já varridas (não repetir)
+- advocacia + "advogado Botafogo" ✔ (**7 resultados, mas 6 são da teixeiramendes**, já catalogada em Copacabana — a mesma banca aparece nos três bairros da Zona Sul com os mesmos 6 anúncios. **1 novo Trilha A: Juliana Murta — Advogada**, título vazio, desde 08/09/2026. Botafogo é raso para o nicho, ao contrário de Niterói (9 Trilha A) e Copacabana (5 bancas))
 - energia solar + Méier ✔ (**zero resultados** — nenhum anúncio ativo. Solar rende no Rio como um todo (124) e na Tijuca (40), mas não no Méier: é nicho de bairro rico e de casa própria com telhado, não de subúrbio de prédio. Não insistir em solar nos bairros densos)
 - arquitetura + design de interiores + Niterói ✔ (**5 resultados, ZERO aproveitável** — e nenhum é arquiteto: dois de madeireira, um de marmoraria, um de imobiliária e um do nicho excluído pelo Pablo, que não foi registrado. O termo "design de interiores" puxa a CADEIA DE FORNECEDORES do arquiteto, não o arquiteto. Combinação queimada, não repetir em outros bairros com este termo)
 - advocacia + "advogado Niterói" ✔ (**32 resultados e 9 Trilha A — a maior concentração de dono-no-nome do arquivo**; 7 com título vazio, 2 com "api.whatsapp.com", um deles no ar desde setembro/2025. Confirma pela 2ª vez que advocacia só aparece com bairro no termo, e promove o nicho de "fraco" a prioritário para Trilha A)
