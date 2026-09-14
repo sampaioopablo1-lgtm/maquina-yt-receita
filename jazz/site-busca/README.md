@@ -46,3 +46,18 @@ Falta um passo manual, uma vez: o segredo `NETLIFY_AUTH_TOKEN` no repositório
 (Settings → Secrets and variables → Actions), com um Personal access token
 criado em app.netlify.com → User settings → Applications. Sem ele o job para
 no primeiro passo com mensagem explícita.
+
+## Teste de regressão da página
+
+`teste-pagina.mjs` abre `index.html` num Chromium headless e checa as 11 coisas que
+não podem quebrar: os cards renderizam, a frase filtra, o `?q=` entra e sai da URL,
+o card abre a ficha, o Esc fecha, o refino reescreve a barra, o favorito persiste
+no `localStorage` e sobrevive ao reload, e o console fica sem erro de JS.
+
+```bash
+npm i -D playwright && npx playwright install chromium
+node jazz/site-busca/teste-pagina.mjs   # sai 0 se tudo passar
+```
+
+Rode antes de publicar. Os erros de certificado do Google Fonts são ignorados de
+propósito: em ambiente sem saída para a internet eles aparecem e não são bug da página.

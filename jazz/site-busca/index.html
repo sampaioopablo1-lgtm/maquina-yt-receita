@@ -1,8 +1,3 @@
-<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
-<meta name="description" content="Demo da busca de imoveis por frase unica do Jazz Conecta.">
 <title>Barra Única Jazz</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -155,8 +150,60 @@ pre{margin:0;font-family:"IBM Plex Mono",monospace;font-size:.76rem;line-height:
 .rpc{margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--accent-ink);
   background:var(--accent-soft);padding:8px 10px;border-radius:4px;overflow-x:auto;white-space:pre}
 footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);font-size:.85rem}
+
+/* ---- refino sem redigitar ---- */
+.refino{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;
+  padding-top:14px;border-top:1px dotted var(--line-2)}
+.refino b{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.refino select{font-size:.85rem}
+
+/* ---- ações sobre os resultados ---- */
+.acoes{display:flex;gap:8px;align-items:center;margin-left:auto}
+.btn-ghost{border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+  border-radius:4px;padding:6px 11px;font:inherit;font-size:.84rem;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-ink)}
+.btn-ghost[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+
+/* ---- favoritar ---- */
+.fav{position:absolute;right:8px;bottom:8px;width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  cursor:pointer;display:grid;place-items:center;padding:0;line-height:1}
+.fav:hover{border-color:var(--accent);color:var(--accent)}
+.fav[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .fav[aria-pressed="true"],
+:root:not([data-theme="light"]) .fav[aria-pressed="true"]{color:#08201B}
+.card{position:relative}
+.card .card-body{cursor:pointer}
+
+/* ---- ficha do imóvel ---- */
+dialog{border:0;padding:0;background:transparent;max-width:560px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(10,20,17,.55)}
+.ficha{background:var(--surface);color:var(--ink);border:1px solid var(--line);
+  border-radius:8px;overflow:hidden;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.ficha .plate{aspect-ratio:16/9}
+.ficha-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.ficha h3{margin:0;font-size:1.25rem}
+.ficha .price{font-size:1.5rem}
+.ficha dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:.9rem}
+.ficha dt{color:var(--muted)}
+.ficha dd{margin:0;font-variant-numeric:tabular-nums}
+.ficha .desc{font-size:.92rem;color:var(--ink-2);line-height:1.6}
+.ficha-acoes{display:flex;gap:8px;flex-wrap:wrap;padding-top:4px}
+.btn-zap{border:0;border-radius:6px;background:var(--accent);color:#fff;font-family:Archivo;
+  font-weight:600;font-size:.92rem;padding:11px 18px;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px}
+:root[data-theme="dark"] .btn-zap,
+:root:not([data-theme="light"]) .btn-zap{color:#08201B}
+.btn-zap:hover{background:var(--accent-ink)}
+.fechar{position:absolute;top:10px;left:10px;width:30px;height:30px;border-radius:50%;
+  border:0;background:rgba(10,20,17,.6);color:#fff;cursor:pointer;font-size:1.1rem;line-height:1}
+.ficha{position:relative}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9;
+  background:var(--ink);color:var(--ground);padding:10px 18px;border-radius:999px;
+  font-size:.88rem;box-shadow:var(--shadow)}
 </style>
-</head><body>
+
 <header>
   <div class="wrap bar">
     <span class="brand">Jazz <span>Conecta</span></span>
@@ -193,6 +240,34 @@ footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);f
       </div>
 
       <div class="readout" id="readout"></div>
+
+      <div class="refino">
+        <b>Refinar</b>
+        <label>Preço até
+          <select id="rf-preco">
+            <option value="">qualquer</option>
+            <option value="300000">R$ 300 mil</option>
+            <option value="500000">R$ 500 mil</option>
+            <option value="700000">R$ 700 mil</option>
+            <option value="1000000">R$ 1 milhão</option>
+            <option value="1500000">R$ 1,5 milhão</option>
+          </select>
+        </label>
+        <label>Quartos
+          <select id="rf-quartos">
+            <option value="">qualquer</option>
+            <option value="1">1+</option><option value="2">2+</option>
+            <option value="3">3+</option><option value="4">4+</option>
+          </select>
+        </label>
+        <label>Finalidade
+          <select id="rf-fin">
+            <option value="">qualquer</option>
+            <option value="comprar">venda</option>
+            <option value="alugar">locação</option>
+          </select>
+        </label>
+      </div>
     </div>
   </section>
 
@@ -200,6 +275,11 @@ footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);f
     <div>
       <div class="result-head">
         <span class="count" id="count">—</span>
+        <span class="acoes">
+          <button class="btn-ghost" id="so-favoritos" type="button" aria-pressed="false">
+            ★ <span id="n-fav">0</span> salvos</button>
+          <button class="btn-ghost" id="compartilhar" type="button">Copiar link da busca</button>
+        </span>
         <label class="sortwrap">Ordenar
           <select id="sort">
             <option value="relevancia">Relevância</option>
@@ -239,6 +319,8 @@ footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);f
     </aside>
   </div>
 </main>
+
+<dialog id="ficha"></dialog>
 
 <footer class="wrap">
   Demo do parser que roda no Supabase da Jazz. As 14 fichas e as fotos são exemplo —
@@ -443,10 +525,13 @@ function cardHTML(i){
     i.vagas      && `<span><b>${i.vagas}</b> ${i.vagas>1?"vagas":"vaga"}</span>`,
   ].filter(Boolean);
   const taxas = [i.condominio && `cond. ${brl(i.condominio)}`, i.iptu && `IPTU ${brl(i.iptu)}/mês`].filter(Boolean);
-  return `<article class="card">
+  return `<article class="card" data-codigo="${i.codigo}">
     <div class="plate">${plate(i)}
-      <span class="fin">${i.finalidade}</span><span class="code">${i.codigo}</span></div>
-    <div class="card-body">
+      <span class="fin">${i.finalidade}</span><span class="code">${i.codigo}</span>
+      <button class="fav" type="button" data-fav="${i.codigo}"
+              aria-pressed="${favoritos.has(i.codigo)}"
+              aria-label="Salvar ${i.codigo}">★</button></div>
+    <div class="card-body" role="button" tabindex="0" aria-label="Abrir ficha de ${i.codigo}">
       <div class="price">${brl(preco(i))}${alugar?'<small> /mês</small>':''}</div>
       <div class="where">${i.empreendimento || i.categoria}
         <span>${i.bairro} · ${i.endereco}</span></div>
@@ -457,10 +542,95 @@ function cardHTML(i){
 
 const el = id => document.getElementById(id);
 
+/* ------------------------------------------------- favoritos (por navegador) */
+// localStorage pode lançar (aba anônima, cookies bloqueados): nunca deixar isso
+// derrubar a página — favorito é conveniência, busca é a função.
+const favoritos = new Set((() => {
+  try { return JSON.parse(localStorage.getItem('jazz-favoritos') || '[]'); }
+  catch { return []; }
+})());
+function salvarFavoritos(){
+  try { localStorage.setItem('jazz-favoritos', JSON.stringify([...favoritos])); } catch {}
+  el('n-fav').textContent = favoritos.size;
+}
+
+/* ----------------------------------------------------- a busca vira endereço */
+// O corretor manda a busca pronta no WhatsApp do cliente. Sem isso, a única
+// forma de compartilhar um resultado é print de tela.
+function sincronizarURL(q){
+  try {
+    const u = new URL(location.href);
+    if (q) u.searchParams.set('q', q); else u.searchParams.delete('q');
+    history.replaceState(null, '', u);
+  } catch {}
+}
+function buscaInicial(){
+  try {
+    const q = new URL(location.href).searchParams.get('q');
+    if (q) return q;
+  } catch {}
+  return null;
+}
+
+function aviso(texto){
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = texto; t.setAttribute('role','status');
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2600);
+}
+
+/* --------------------------------------------------------- ficha do imóvel */
+function abrirFicha(codigo){
+  const i = ACERVO.find(x => x.codigo === codigo);
+  if (!i) return;
+  const alugar = i.finalidade === 'Locação';
+  const linhas = [
+    ['Código', i.codigo], ['Tipo', i.categoria], ['Bairro', i.bairro],
+    ['Endereço', i.endereco],
+    i.area_util  && ['Área útil', i.area_util + ' m²'],
+    i.area_total && ['Terreno', i.area_total + ' m²'],
+    i.dormitorios && ['Dormitórios', i.dormitorios],
+    i.suites && ['Suítes', i.suites],
+    i.banheiros && ['Banheiros', i.banheiros],
+    i.vagas && ['Vagas', i.vagas],
+    i.condominio && ['Condomínio', brl(i.condominio)],
+    i.iptu && ['IPTU', brl(i.iptu) + '/mês'],
+  ].filter(Boolean);
+
+  // Sem número: o WhatsApp abre e a pessoa escolhe o contato. Não invento
+  // telefone de corretor, e telefone errado numa demo vira ligação pra estranho.
+  const texto = encodeURIComponent(
+    `Olá! Tenho interesse no imóvel ${i.codigo} — ${i.categoria} no ${i.bairro}, ` +
+    `${brl(preco(i))}${alugar ? '/mês' : ''}. Podemos conversar?`);
+
+  el('ficha').innerHTML = `<div class="ficha">
+      <button class="fechar" type="button" aria-label="Fechar">✕</button>
+      <div class="plate">${plate(i)}<span class="fin">${i.finalidade}</span></div>
+      <div class="ficha-body">
+        <div class="price">${brl(preco(i))}${alugar ? '<small> /mês</small>' : ''}</div>
+        <h3>${i.empreendimento || i.categoria + ' no ' + i.bairro}</h3>
+        <p class="desc">${i.desc}</p>
+        <dl>${linhas.map(([k,v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
+        <div class="ficha-acoes">
+          <a class="btn-zap" target="_blank" rel="noopener"
+             href="https://wa.me/?text=${texto}">Falar no WhatsApp</a>
+          <button class="btn-ghost" type="button" data-copiar="${i.codigo}">Copiar dados</button>
+          <button class="btn-ghost" type="button" data-fav="${i.codigo}"
+                  aria-pressed="${favoritos.has(i.codigo)}">★ Salvar</button>
+        </div>
+      </div></div>`;
+  el('ficha').showModal();
+}
+
+let soFavoritos = false;
+
 function render(){
   const q = el("q").value.trim() || el("q").placeholder;
   const f = interpretar(q);
-  const {itens, ampliada, termos} = buscar(f, el("sort").value);
+  let {itens, ampliada, termos} = buscar(f, el("sort").value);
+  sincronizarURL(el("q").value.trim());
+
+  if (soFavoritos) itens = itens.filter(i => favoritos.has(i.codigo));
 
   // chips
   const chips = Object.entries(f).filter(([k,v]) => v!=null && k!=="consulta")
@@ -470,14 +640,24 @@ function render(){
   el("readout").innerHTML = `<span class="lbl">Entendemos</span>` +
     (chips.length ? chips.join("") : `<span class="none">nada específico — mostrando o acervo inteiro</span>`);
 
-  el("count").textContent = itens.length === 1 ? "1 imóvel" : `${itens.length} imóveis`;
+  el("count").textContent = (itens.length === 1 ? "1 imóvel" : `${itens.length} imóveis`)
+    + (soFavoritos ? " salvos" : "");
   el("widened").innerHTML = ampliada
     ? `<div class="widened"><strong>Busca ampliada.</strong>
          <span>Nenhuma ficha casou com <em>“${termos.join(" ")}”</em>. Soltamos esse pedaço da frase e
          mantivemos o resto dos filtros — o que está abaixo é o mais próximo que temos.</span></div>`
     : "";
   el("cards").innerHTML = itens.length ? itens.map(cardHTML).join("")
-    : `<div class="empty">Nenhum imóvel com esses filtros. Solte um chip acima para ampliar.</div>`;
+    : `<div class="empty">${soFavoritos
+         ? "Você ainda não salvou nenhum imóvel desta busca. Clique no ★ de um card."
+         : "Nenhum imóvel com esses filtros. Solte um chip acima para ampliar."}</div>`;
+
+  // Os controles de refino refletem o que a frase já disse.
+  el("rf-quartos").value = f.dormitorios || "";
+  el("rf-fin").value = f.finalidade === "locacao" ? "alugar"
+                     : f.finalidade === "venda" ? "comprar" : "";
+  el("rf-preco").value = [300000,500000,700000,1000000,1500000].includes(f.preco_max)
+                       ? String(f.preco_max) : "";
   el("json").textContent = JSON.stringify({...f, consulta:q}, null, 2);
 
   el("readout").querySelectorAll("[data-drop]").forEach(b => b.onclick = () => {
@@ -501,12 +681,85 @@ function render(){
   });
 }
 
+/* Refino e chips escrevem na MESMA frase: a barra continua sendo a fonte da
+   verdade, e o que o usuário vê na barra é exatamente o que foi buscado. */
+function frasePara(d){
+  return [
+    d.finalidade === "locacao" ? "para alugar" : d.finalidade === "venda" ? "para comprar" : "",
+    d.categoria || "", d.dormitorios ? d.dormitorios + " quartos" : "",
+    d.suites ? d.suites + " suites" : "", d.vagas ? d.vagas + " vagas" : "",
+    d.banheiros ? d.banheiros + " banheiros" : "", d.area_min ? d.area_min + " m2" : "",
+    d.bairro || "", d.preco_min ? "acima de " + d.preco_min : "",
+    d.preco_max ? "ate " + d.preco_max : "", d.codigo || "", d.texto_livre || "",
+  ].filter(Boolean).join(" ");
+}
+function aplicarRefino(campo, valor){
+  const d = interpretar(el("q").value.trim() || el("q").placeholder);
+  if (campo === "preco")   d.preco_max  = valor ? +valor : undefined;
+  if (campo === "quartos") d.dormitorios = valor ? +valor : undefined;
+  if (campo === "fin")     d.finalidade = valor === "alugar" ? "locacao"
+                                        : valor === "comprar" ? "venda" : undefined;
+  el("q").value = frasePara(d);
+  render();
+}
+el("rf-preco").onchange   = e => aplicarRefino("preco", e.target.value);
+el("rf-quartos").onchange = e => aplicarRefino("quartos", e.target.value);
+el("rf-fin").onchange     = e => aplicarRefino("fin", e.target.value);
+
+el("compartilhar").onclick = async () => {
+  sincronizarURL(el("q").value.trim());
+  try { await navigator.clipboard.writeText(location.href); aviso("Link da busca copiado"); }
+  catch { aviso("Copie da barra de endereço: " + location.href); }
+};
+
+el("so-favoritos").onclick = e => {
+  soFavoritos = !soFavoritos;
+  e.currentTarget.setAttribute("aria-pressed", String(soFavoritos));
+  render();
+};
+
+// Um handler só, delegado: os cards são recriados a cada busca.
+document.addEventListener("click", e => {
+  const f = e.target.closest("[data-fav]");
+  if (f) {
+    e.stopPropagation();
+    const c = f.dataset.fav;
+    favoritos.has(c) ? favoritos.delete(c) : favoritos.add(c);
+    salvarFavoritos();
+    document.querySelectorAll(`[data-fav="${c}"]`)
+      .forEach(b => b.setAttribute("aria-pressed", String(favoritos.has(c))));
+    if (soFavoritos) render();
+    return;
+  }
+  const cp = e.target.closest("[data-copiar]");
+  if (cp) {
+    const i = ACERVO.find(x => x.codigo === cp.dataset.copiar);
+    const t = `${i.codigo} — ${i.categoria} no ${i.bairro}\n${i.endereco}\n${brl(preco(i))}`
+            + `${i.area_util ? "\n" + i.area_util + " m²" : ""}`
+            + `${i.dormitorios ? " · " + i.dormitorios + " quartos" : ""}`;
+    navigator.clipboard.writeText(t).then(() => aviso("Dados copiados")).catch(() => {});
+    return;
+  }
+  if (e.target.closest(".fechar")) { el("ficha").close(); return; }
+  const corpo = e.target.closest(".card-body");
+  if (corpo) abrirFicha(corpo.closest(".card").dataset.codigo);
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    const corpo = e.target.closest?.(".card-body");
+    if (corpo) { e.preventDefault(); abrirFicha(corpo.closest(".card").dataset.codigo); }
+  }
+});
+el("ficha").addEventListener("click", e => { if (e.target === el("ficha")) el("ficha").close(); });
+
 el("form").addEventListener("submit", e => { e.preventDefault(); render(); });
 el("q").addEventListener("input", render);
 el("sort").addEventListener("change", render);
 document.querySelectorAll(".try").forEach(b => b.onclick = () => {
   el("q").value = b.textContent.trim(); el("q").focus(); render();
 });
+const qInicial = buscaInicial();
+if (qInicial !== null) el("q").value = qInicial;
+salvarFavoritos();
 render();
 </script>
-</body></html>
