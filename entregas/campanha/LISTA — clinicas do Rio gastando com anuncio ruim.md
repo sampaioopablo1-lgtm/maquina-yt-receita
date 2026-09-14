@@ -327,6 +327,7 @@ converte, porque vai direto no dono, sem passar por recepção ou social media.
 
 
 ## Combinações já varridas (não repetir)
+- energia solar + Méier ✔ (**zero resultados** — nenhum anúncio ativo. Solar rende no Rio como um todo (124) e na Tijuca (40), mas não no Méier: é nicho de bairro rico e de casa própria com telhado, não de subúrbio de prédio. Não insistir em solar nos bairros densos)
 - arquitetura + design de interiores + Niterói ✔ (**5 resultados, ZERO aproveitável** — e nenhum é arquiteto: dois de madeireira, um de marmoraria, um de imobiliária e um do nicho excluído pelo Pablo, que não foi registrado. O termo "design de interiores" puxa a CADEIA DE FORNECEDORES do arquiteto, não o arquiteto. Combinação queimada, não repetir em outros bairros com este termo)
 - advocacia + "advogado Niterói" ✔ (**32 resultados e 9 Trilha A — a maior concentração de dono-no-nome do arquivo**; 7 com título vazio, 2 com "api.whatsapp.com", um deles no ar desde setembro/2025. Confirma pela 2ª vez que advocacia só aparece com bairro no termo, e promove o nicho de "fraco" a prioritário para Trilha A)
 - academia + musculação + Niterói ✔ (**27 resultados, 17 com título vazio** — inclui a Fábrica Premium Região Oceânica com 8 anúncios em branco e a Lifetime com 5 meses assim; 1 Trilha A. **Achado:** a rede Fábrica tem uma página por unidade, cada uma anuncia sozinha e todas erram igual — alvo legítimo, diferente de rede com marketing central. Confirma também que "academia" puxa vaga de emprego, como "corretor")
