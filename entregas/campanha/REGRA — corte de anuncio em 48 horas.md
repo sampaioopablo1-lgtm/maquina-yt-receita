@@ -1,7 +1,7 @@
 # Regra de corte e religamento — janela de 48 horas
 
 *Criada em 09/09/2026. Vale para qualquer campanha da conta 1695865631502778.*
-*Coluna "onde a conta está" atualizada em 12/09/2026 — os números de 09/09 ficaram obsoletos.*
+*Coluna "onde a conta está" atualizada em 14/09/2026 — medida nos 2 conjuntos ativos.*
 
 ## Por que 48 horas e não 24, nem 7 dias
 
@@ -18,9 +18,9 @@ Por isso toda regra abaixo exige **tempo E volume**.
 
 | Métrica | Mercado | Piso aceitável | Onde a conta está hoje |
 |---|---|---|---|
-| CTR (link) | 0,90% a 1,60% | **0,50%** | **2,95% e 3,64%** — acima do mercado (medido 12/09) |
-| CPM | R$ 15 a R$ 35 | **R$ 60** | **R$ 29,32 e R$ 29,62** — dentro da faixa (medido 12/09) |
-| Custo por lead B2B | R$ 25 a R$ 80 | **R$ 150** | **R$ 4,39 e R$ 4,82** — muito abaixo do mercado (medido 12/09) |
+| CTR (link) | 0,90% a 1,60% | **0,50%** | **2,30% e 2,88%** — acima do mercado (medido 14/09) |
+| CPM | R$ 15 a R$ 35 | **R$ 60** | **R$ 27,96 e R$ 28,77** — dentro da faixa (medido 14/09) |
+| Custo por lead B2B | R$ 25 a R$ 80 | **R$ 150** | **R$ 7,19 e R$ 5,49** — muito abaixo do mercado, mas subindo (medido 14/09) |
 
 ## As regras de corte
 
@@ -113,3 +113,43 @@ que a próxima rodada não compare com número velho.
 **Ressalva honesta:** isso é de 09 a 11/09, ou seja, **antes** das mudanças da madrugada de
 12/09 (segmentação dos nichos corrigida, copy de mentoria removida, 18 vídeos pausados, 6
 peças novas). O efeito dessas mudanças só aparece no fechamento de 12/09.
+
+### 14/09/2026, 12h11 — segunda rodada. **Zero cortes.**
+
+Esta era a rodada que ia julgar os 5 conjuntos de nicho pelo dado, porque eles passaram
+das 48 horas. Não julgou, e o motivo não é a regra: **os 5 já estavam pausados** quando a
+rodada rodou. A conta foi enxugada antes, na noite de 12/09, e o log de atividade mostra
+quem fez: **o próprio Pablo**, pelo Power Editor, às 21h16 e 21h17 de 12/09 — pausou
+`INT I DONOS`, `WPP I INTERESSE DONOS DE EMPRESA`, `WPP I PERSONALIZADO LISTAS + ENGAJAMENTO`
+e `WPP I SEMELHANTE CNAE RJ`.
+
+Sobraram **2 conjuntos ativos**, os dois na campanha de lead, e é neles que está o dinheiro.
+
+**Nível conjunto — os 2 elegíveis, nenhum bateu.**
+
+| Conjunto | Idade | Impressões | Alcance | Lead | CPL | CTR | CPM | Veredito |
+|---|---|---|---|---|---|---|---|---|
+| LEADS I INTERESSE I FASE 3 | ~115h | 3.341 | 2.375 | **13** | **R$ 7,19** | 2,30% | R$ 27,96 | **C1 não bate** (tem lead) · **C2 não bate** (alcance 2.375) · C3 não bate |
+| LEADS I PERSONALIZADO CNAE RJ I FASE 3 | ~115h | 1.145 | 876 | **6** | **R$ 5,49** | 2,88% | R$ 28,77 | idem |
+
+**Nível anúncio — nenhum entrou na análise, de novo.** Os 10 anúncios ativos (V11 a V15,
+cinco em cada conjunto) foram criados em 12/09 entre 20h21 e 21h14. Na hora da rodada tinham
+**39 a 40 horas**. Falta pouco, mas falta: a trava 6 proíbe cortar antes das 48h. Eles ficam
+julgáveis a partir da noite de **14/09**.
+
+**19 leads no total, a R$ 7,19 e R$ 5,49.** O piso de mercado é R$ 25. O conjunto que aponta
+para as listas personalizadas é o mais barato dos dois — foi a mudança certa.
+
+**Alerta de vigilância:** o CPL do `INTERESSE` está em **R$ 7,19**, contra R$ 4,39 medido em
+12/09. Subiu, e o teto combinado com o Pablo é **R$ 8,00**. Ainda está abaixo, mas encostou.
+Se fechar um dia acima de R$ 8,00, avisar; dois dias seguidos acima, reverter as mudanças
+da madrugada de 12/09.
+
+**Fora das regras de corte, mas achado da rodada:** a conta entrou em **"In grace period"**
+às 6h20 de 13/09 por falta de saldo e só voltou a **"Active"** às 12h54, depois de um PIX de
+R$ 200. Foram cerca de **6 horas e meia** de conta em pendência de pagamento. Já está
+resolvido e nenhuma ação é necessária — fica registrado porque explica qualquer buraco de
+entrega na manhã de 13/09.
+
+**Erros de entrega: `[]`.** A limpeza de 12/09 segurou — a conta continua sem erro crônico,
+então o próximo erro de verdade vai aparecer sozinho.
