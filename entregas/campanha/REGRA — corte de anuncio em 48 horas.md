@@ -2,6 +2,8 @@
 
 *Criada em 09/09/2026. Vale para qualquer campanha da conta 1695865631502778.*
 *Coluna "onde a conta está" atualizada em 14/09/2026 — medida nos 2 conjuntos ativos.*
+*Em 14/09/2026 o Pablo trocou o corte direto de anúncio por uma **escada de 4 tentativas** —
+ver a seção "A escada de tentativas". Pausar anúncio virou o último degrau, não o primeiro.*
 
 ## Por que 48 horas e não 24, nem 7 dias
 
@@ -31,10 +33,14 @@ ao mesmo tempo.
 
 | # | Condição | Ação |
 |---|---|---|
-| A1 | ≥ 48h no ar **e** ≥ 1.000 impressões **e** 0 lead **e** CTR < 0,50% | pausar |
-| A2 | ≥ 48h no ar **e** ≥ 500 impressões **e** CTR < 0,30% | pausar — está morto, não precisa esperar mais |
-| A3 | ≥ 48h no ar **e** ≥ 500 impressões **e** 0 clique | pausar |
-| A4 | já existe lead no conjunto **e** o custo por lead deste anúncio é > 3× o do melhor anúncio (o melhor com no mínimo 3 leads) | pausar |
+| A1 | ≥ 48h no ar **e** ≥ 1.000 impressões **e** 0 lead **e** CTR < 0,50% | **entra na escada** |
+| A2 | ≥ 48h no ar **e** ≥ 500 impressões **e** CTR < 0,30% | **entra na escada** |
+| A3 | ≥ 48h no ar **e** ≥ 500 impressões **e** 0 clique | **entra na escada** |
+| A4 | já existe lead no conjunto **e** o custo por lead deste anúncio é > 3× o do melhor anúncio (o melhor com no mínimo 3 leads) | **entra na escada** |
+
+**Bater uma regra A não pausa mais nada.** Desde 14/09/2026, por decisão do Pablo, bater A1–A4
+apenas **abre a escada de tentativas** descrita na seção seguinte. O anúncio só é pausado no fim
+dela, e só se nenhuma tentativa tiver melhorado.
 
 ### Nível conjunto
 
@@ -43,6 +49,96 @@ ao mesmo tempo.
 | C1 | ≥ 48h no ar **e** ≥ 2.000 impressões **e** 0 lead **e** CPM > R$ 60 | pausar o conjunto |
 | C2 | ≥ 72h no ar **e** alcance total < 500 pessoas | pausar — público pequeno demais para leiloar |
 | C3 | todos os anúncios do conjunto foram pausados pelas regras acima | pausar o conjunto |
+
+## A escada de tentativas — o que vem antes de pausar
+
+*Decidida pelo Pablo em 14/09/2026. Substitui o corte direto no nível anúncio.*
+
+Anúncio ruim não é necessariamente anúncio morto: quase sempre é **uma peça errada** num conjunto
+que funciona. Pausar direto joga fora o criativo inteiro sem saber qual peça era o problema. A
+escada troca **uma variável por vez** e mede cada uma antes de condenar o anúncio.
+
+### As rodadas
+
+Quatro rodadas, **uma variável por rodada, nunca duas**. Trocar duas de uma vez e ver melhora não
+ensina qual delas melhorou — e aí a próxima peça herda o erro.
+
+| Rodada | O que muda | O que NÃO muda |
+|---|---|---|
+| 1 | **Título** (a chamada) | imagem, texto, botão, público |
+| 2 | **Descrição** (o texto principal) | imagem, título vencedor da R1, botão, público |
+| 3 | **Botão** (a chamada para ação) | imagem, título e texto vencedores, público |
+| 4 | **Imagem / criativo** | título, texto e botão vencedores, público |
+
+Cada rodada **parte do vencedor da anterior**, não do original. Se a R1 melhorou, a R2 roda em
+cima do título novo. Se a R1 não melhorou, a R2 roda em cima do título original — o perdedor é
+descartado, não acumulado.
+
+### Quanto tempo e quanto volume
+
+**Mínimo de 2 dias por rodada** — é a decisão do Pablo, e bate com a janela de aprendizado do Meta.
+
+Mas tempo sozinho não basta, pela mesma razão que a regra de 48h já exige volume: **uma rodada só
+recebe veredito com no mínimo 300 impressões.** Abaixo disso a diferença entre duas variações é
+ruído, não resultado.
+
+Com a conta de hoje — R$ 30/dia divididos entre 2 conjuntos e ~10 anúncios — cada anúncio recebe
+cerca de **R$ 1 por dia**, ou perto de 40 impressões diárias. Nesse ritmo, 2 dias entregam ~80
+impressões: **bem abaixo do piso.** Então, na prática:
+
+- a rodada **estica** além dos 2 dias até juntar as 300 impressões;
+- se passar de **7 dias** sem chegar lá, a rodada é declarada **inconclusiva por falta de entrega**
+  e isso vira aviso ao Pablo — o problema não é o criativo, é que o anúncio não está recebendo
+  verba suficiente para ser testado. Escada travada por fome de entrega não é escada.
+
+### O que conta como "melhorou"
+
+Compara-se **a mesma métrica que abriu a escada**, contra a rodada anterior:
+
+| Entrou por | Métrica que decide | Melhorou se |
+|---|---|---|
+| A1, A2 | CTR | CTR sobe **pelo menos 20%** em relação à rodada anterior |
+| A3 | cliques | passa a existir clique |
+| A4 | custo por lead | CPL cai **pelo menos 20%** |
+
+Os 20% existem para não comemorar oscilação. Melhora de 3% com 300 impressões é empate.
+
+### O fim da escada
+
+- **Alguma rodada melhorou** → o anúncio sai da escada e volta a ser anúncio normal, com a versão
+  vencedora no ar. Se voltar a bater regra A no futuro, entra numa escada nova.
+- **As quatro rodadas terminaram e nenhuma melhorou** → **aí sim pausar**, com o prefixo
+  `ZZ CORTADO 48H — `, e registrar no histórico as quatro tentativas e o número de cada uma.
+- **A escada é registrada mesmo quando dá certo.** Saber qual variável destravou o anúncio vale
+  para todos os próximos — é a única forma de a escada ensinar alguma coisa em vez de só adiar
+  decisão.
+
+### Travas próprias da escada
+
+1. **Uma variável por rodada.** Sem exceção. Duas mudanças juntas invalidam a rodada.
+2. **Nunca mexer em orçamento para "dar chance" ao teste.** Se falta entrega, avisar o Pablo —
+   a decisão de verba é dele.
+3. **Nunca trocar o público no meio da escada.** Público é outra variável, e mudá-lo joga fora
+   toda a comparação anterior.
+4. **Editar criativo de anúncio ativo reinicia o aprendizado dele.** Isso é do Meta, não da regra.
+   Por isso cada rodada **duplica o anúncio com a mudança** e pausa a versão anterior, em vez de
+   editar por cima: assim a versão antiga fica guardada com o número dela, e dá para comparar.
+   O nome ganha sufixo `— R1 titulo`, `— R2 descricao`, `— R3 botao`, `— R4 imagem`.
+5. **A trava dos 2 anúncios ativos por conjunto continua valendo.** Duplicar-e-pausar mantém a
+   contagem, mas se o conjunto estiver no limite, a rodada espera.
+6. **Gasto acumulado da escada vira aviso.** Se o anúncio passar de **R$ 30 gastos** dentro da
+   escada sem nenhum lead, avisar o Pablo — oito dias de teste num anúncio sem retorno é uma
+   escolha que ele precisa poder revisar.
+
+### O custo honesto desta regra
+
+Quatro rodadas de 2 dias são **8 dias no mínimo** antes de qualquer pausa — e, com a entrega atual,
+provavelmente bem mais, porque as rodadas vão esticar para alcançar o piso de impressões. Durante
+esse tempo um anúncio ruim continua gastando.
+
+É uma troca deliberada: **gasta-se mais tempo para não jogar fora criativo que só precisava de
+um título melhor.** Vale a pena quando o criativo é caro de produzir, que é o caso aqui. Fica
+registrado para que a escolha seja lembrada como escolha, não sofrida como lentidão.
 
 ## As travas — o que a regra NUNCA faz
 
@@ -56,6 +152,30 @@ ao mesmo tempo.
    pode voltar.
 6. **Nunca corta antes das 48h**, mesmo que o número esteja horrível. Único caso de corte
    imediato: erro de entrega que impede o anúncio de rodar (aí é conserto, não corte).
+7. **Nunca pausa anúncio que ainda não terminou a escada.** Desde 14/09/2026, pausar anúncio é o
+   último degrau, nunca o primeiro. Conjunto continua podendo ser pausado direto pelas regras C.
+
+## Escadas em andamento
+
+**Esta tabela é a memória da escada.** Cada rodada de corte roda numa sessão nova, sem lembrar da
+anterior — então o estado de cada anúncio em teste tem que estar escrito aqui, ou a escada
+recomeça do zero toda vez e nunca chega ao quarto degrau.
+
+**Toda rodada de corte começa lendo esta tabela** e continua de onde parou, antes de procurar
+anúncio novo para abrir escada.
+
+| Anúncio (ID) | Conjunto | Entrou por | Rodada atual | Variável desta rodada | Começou em | Impressões da rodada | Métrica base | Métrica atual | Situação |
+|---|---|---|---|---|---|---|---|---|---|
+| *(nenhuma escada aberta até agora)* | | | | | | | | | |
+
+**Como preencher:**
+- **Métrica base** = o valor que o anúncio tinha quando entrou na escada (ou o da rodada anterior,
+  se já avançou). É contra ele que a rodada é julgada.
+- **Situação** = `rodando` (ainda juntando impressões), `melhorou` (bateu os 20%, sai da escada),
+  `sem melhora` (fechou a rodada abaixo do piso de melhora, vai para a próxima), ou
+  `inconclusiva — sem entrega` (passou de 7 dias sem 300 impressões; virou aviso ao Pablo).
+- Quando a escada fecha — por melhora ou por pausa no quarto degrau — a linha **sai desta tabela**
+  e vira parágrafo no "Histórico de cortes", com as quatro tentativas e os números de cada uma.
 
 ## Religar
 
