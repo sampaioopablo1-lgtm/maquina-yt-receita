@@ -1128,3 +1128,33 @@ ou seja, hoje é o primeiro teste limpo da hipótese de que **o CBO está estran
 conjuntos novos**. Duas horas de dia ainda não fecham o caso; o veredito é no fechamento
 de 12/09. Se fecharem o dia em zero, a causa não é configuração e a decisão passa a ser do
 Pablo: subir a verba ou separar os nichos em campanha própria.
+
+## 14/09/2026 — O Prospect Halo devolve `[]` quando a chave está errada, não um erro
+
+**O mecanismo:** as ferramentas `prospecthalo_*` chamadas pelo workbench com a chave literal
+`ph_live` respondem **lista vazia** através do parser normal — `list_conversations`,
+`list_held_drafts`, `get_stats`, `list_content_posts` e `list_content_engagement`, todas `[]`.
+
+Lendo a resposta JSON-RPC crua, o que está lá é outra coisa:
+
+```
+{"jsonrpc":"2.0","id":7,"error":{"code":-32001,"message":"Unauthorized: invalid or missing API key."}}
+```
+
+O `initialize` **funciona e devolve sessão** mesmo com a chave inválida — o servidor só recusa
+na hora de executar ferramenta. Então a conexão parece saudável e os dados parecem vazios.
+
+**Por que isso é grave:** "nenhuma conversa nova" e "nenhum rascunho preso" são exatamente o
+resultado que a rotina espera num dia parado, e a instrução manda **encerrar em silêncio**.
+Ou seja: a falha de autenticação se disfarça de dia tranquilo, e some sem nunca virar alarme.
+Não dá para saber quantas rodadas anteriores encerraram em silêncio por este motivo em vez de
+por ausência real de atividade.
+
+**A regra que fica:** `ph_live` é **placeholder**, não a chave. Antes de concluir qualquer
+coisa a partir de resultado vazio do Prospect Halo, ler a resposta crua de `tools/call` e
+conferir se há `error.code -32001`. Lista vazia só é lista vazia se a chamada tiver
+respondido `result`.
+
+**Vale para qualquer MCP:** resultado vazio nunca é prova de ausência enquanto a chamada não
+for confirmada como bem-sucedida. Um parser que lê só `result.content` engole o campo `error`
+inteiro e transforma falha em silêncio.
