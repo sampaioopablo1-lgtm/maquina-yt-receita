@@ -176,3 +176,82 @@ quem ainda não foi pontuado, então antes da primeira execução de
 A ordenação por proximidade da faixa do cliente **continua dominante** depois
 do perfil: aqui não é lista fria, é casamento com uma solicitação real, e
 orçamento é o que faz a sugestão servir.
+
+## PF/PJ e logo do anunciante (14/09/2026)
+
+Diagnóstico com o print da busca real: as dez opções vieram marcadas
+"Imobiliária" e **estavam certas** — "SANT ANA INVESTIMENTOS" casa em `invest`
+no regex de nome. O classificador não errou. O que falta é **oferta de
+particular**: sem dez donos na fila, a busca completa o número com carteira.
+
+Então o ganho não está em apertar contra imobiliária, está em parar de perder
+o dono de verdade.
+
+### Sinal 1 — PF/PJ, que já chegava e ninguém lia
+
+O extrator grava `dados.advertiser_type` do Chaves na Mão desde 13/08, com o
+comentário "guardado pra um futuro ajuste do classificador". Ficou um mês
+gravado e ignorado. É o sinal mais direto da coleta: o portal declarando
+pessoa física ou jurídica, sem inferência por nome.
+
+O lado que mais rende é o **PF**, porque a régua de nome exige duas palavras
+para dizer "particular" — quem anuncia como "Marcelo" ficava `indefinido` e
+não entrava na fila. Com PF declarado e telefone em um anúncio só, é dono.
+
+O resgate fica **depois** da contagem de telefone de propósito: corretor
+autônomo é pessoa física de verdade, e o que o denuncia é o mesmo número em
+catorze anúncios, não o cadastro.
+
+### Sinal 2 — logo do anunciante
+
+Observação do usuário: "as imagens, com logo, normalmente são de
+imobiliárias". Está certo, e não é preciso analisar pixel: quem tem logo tem
+**cadastro de logo** no portal, e o objeto `advertiser` já é guardado inteiro.
+Pessoa física não sobe logotipo.
+
+A varredura é por *nome de chave* contendo "logo", não por chave fixa: o campo
+aparece como `logoUrl`, `logo` e `logotipo` conforme o portal, e fixar um nome
+faria o sinal sumir calado numa renomeação.
+
+### A trava do sinal de logo
+
+Se o portal passar a devolver logo (ou avatar padrão) para **todo** anunciante,
+a regra deixa de separar nada e marca a base inteira como empresa — zerando a
+oferta de particular, que é o problema que isto veio resolver. Falharia para o
+lado pior, e calada.
+
+Por isso o sinal só vale enquanto for minoria: acima de 60% da base ele se
+desliga sozinho, e o retorno do classificador diz `logo_em_uso: false`. Medido
+no teste: com 90% de logo, a trava desliga e os 10 particulares sobrevivem;
+com o teto solto em 1.0, 9 viram empresa.
+
+### Antes de confiar no sinal 2, meça
+
+```sql
+select * from public.fn_captacao_diagnostico_anunciante();
+```
+
+Devolve, por fonte, quantos prospects têm PF, PJ e logo, e **quais chaves de
+logo** aparecem de fato. Se vier tudo zero, o campo não está sendo entregue e o
+sinal é inerte — não quebra nada, mas também não ajuda, e é melhor saber por
+medida do que por suposição.
+
+### Armadilha de deploy
+
+A migração dropa `fn_captacao_classificar()` **e** `fn_captacao_classificar(int)`.
+A assinatura nova tem dois parâmetros com default; deixar a de um argumento viva
+faz `fn_captacao_classificar(4)` — a chamada do pg_cron e de
+`fn_captacao_preparar` — virar ambígua (`function ... is not unique`) e a
+captação para. Foi o teste que pegou isso, não a leitura.
+
+### Verificação
+
+`jazz/scripts/teste_captacao_pf_pj_logo.sql` — 12 asserções em PostgreSQL 16:
+o resgate do PF de uma palavra, PJ com nome inocente, logo pegando quem o nome
+não pegava, grafia alternativa da chave, logo vazio não contando, PF com
+carteira seguindo empresa, e os seis casos que já funcionavam sem mudar de
+classe (Nelson Barbosa particular, SANT ANA empresa, Ltda empresa, CRECI
+empresa, Newcore indefinido, telefone falso descartar).
+
+`jazz/scripts/teste_captacao_trava_logo.sql` — a trava nos dois sentidos, e a
+migração aplicada duas vezes para provar idempotência.
