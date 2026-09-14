@@ -5,7 +5,8 @@
 
 | # | Empresa | O erro, em uma linha |
 |---|---|---|
-| 1 | **Dr. Daniel Pinheiro — Odonto Barra** (*Trilha A*) | **21 anúncios ativos, todos sem título nenhum**, o mais antigo desde **março de 2025** — dezoito meses |
+| 1 | **Marcio Alcides Adv** (Campo Grande RJ) | anúncio no ar desde **11/11/2024** — **quase dois anos** — com o título **`instagram.com`**. É o mais antigo do arquivo e a prova mais concreta de dinheiro saindo sem ninguém olhar |
+| 2 | **Dr. Daniel Pinheiro — Odonto Barra** (*Trilha A*) | **21 anúncios ativos, todos sem título nenhum**, o mais antigo desde **março de 2025** — dezoito meses |
 | 2 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
 | 3 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
 | 4 | **teixeiramendes.advogados** (Copacabana) | **6 anúncios ativos e o título de cinco é `instagram.com`** — o endereço do link vazou para a manchete; o sexto diz `api.whatsapp.com`. Desde 01/05/2026 |
@@ -409,7 +410,49 @@ Esse contraste dentro do mesmo nicho e da mesma varredura é material de abordag
 ao Cerqueira o anúncio do Thales e perguntar qual dos dois ele clicaria.
 
 
+## Varredura — advocacia + "advogado Campo Grande RJ" (14/09/2026, 23h10)
+
+**A regra do sufixo "RJ" funcionou de novo.** 7 resultados, todos advogados de verdade, **nenhuma
+contaminação** de Campo Grande/MS ou do interior de SP — que foi o que estragou a varredura de
+energia solar no mesmo bairro. Confirmação pela segunda vez: bairro com nome repetido em outro
+estado **sempre** leva "RJ" no termo.
+
+Bairro raso em quantidade, mas **os 5 escritórios erram, e um deles bate o recorde de idade do
+arquivo.**
+
+| # | Escritório | Defeito | No ar desde |
+|---|---|---|---|
+| 1 | **Marcio Alcides Adv** | 2 anúncios: um com o título **`instagram.com`**, outro **sem título**. No ar desde **11/11/2024** — **quase dois anos** | 11/11/2024 |
+| 2 | **carlos_henrique_advocacia** · *Trilha A* | título vazio, no ar desde **outubro de 2025** — quase um ano | 28/10/2025 |
+| 3 | **Firma de Advogados Alderito Assis** | título é o nome do escritório seguido de **quatorze campos vazios** — o maior número de campos em branco já catalogado | 21/08/2026 |
+| 4 | **Rafaelle Souza — Escritório de Advocacia** · *Trilha A* | nome do escritório + **seis campos vazios** | 04/08/2026 |
+| 5 | **Rivera, Ouverney & Frez Advogados Associados** | título vazio | 20/05/2026 |
+
+Links: [Marcio Alcides](https://www.facebook.com/ads/library/?id=532693889660452) ·
+[carlos_henrique](https://www.facebook.com/ads/library/?id=1151684123600082) ·
+[Alderito Assis](https://www.facebook.com/ads/library/?id=885121687789375) ·
+[Rafaelle Souza](https://www.facebook.com/ads/library/?id=1564079628536457) ·
+[Rivera Ouverney](https://www.facebook.com/ads/library/?id=1616530086111972)
+
+**O caso Marcio Alcides é o melhor argumento de vendas do arquivo inteiro.** Quase dois anos de
+anúncio no ar com o título `instagram.com`. Ninguém abriu para conferir em 22 meses. É a prova
+mais concreta possível de que existe dinheiro saindo sem ninguém olhar.
+
+**Abertura pronta — Marcio Alcides**
+> Dr., seu anúncio está no ar desde **novembro de 2024** — quase dois anos — e o título dele é
+> "instagram.com". É o endereço do link, não uma frase. Quem passa no feed lê isso e segue.
+> Aqui é o Pablo, do Rio, não sou cliente: vi na Biblioteca de Anúncios do Facebook, que é
+> pública. Dois anos pagando por um anúncio que ninguém abriu para conferir. Quem cuida das
+> campanhas aí hoje?
+
+**Abertura pronta — Alderito Assis (14 campos vazios)**
+> Oi! O título do anúncio de vocês é o nome do escritório seguido de **quatorze campos em
+> branco**. O Meta preenche esses campos sozinho com o que sobrar. É o texto que mais decide
+> clique, e está vazio quatorze vezes. Posso te mostrar em 2 minutos o que entraria no lugar?
+
+
 ## Combinações já varridas (não repetir)
+- advocacia + "advogado Campo Grande **RJ**" ✔ (**7 resultados, 5 escritórios, os 5 erram**, 2 Trilha A. **Regra do sufixo "RJ" confirmada pela 2ª vez** — zero contaminação de MS/SP. Inclui o **anúncio mais antigo do arquivo: Marcio Alcides, no ar desde 11/11/2024 com o título "instagram.com" — quase 2 anos** — e o recorde de campos vazios: 14, da Alderito Assis)
 - advocacia + "advogado Madureira" ✔ (**75 resultados e quase nenhum do bairro** — "Madureira" é sobrenome comum de advogado. **4º modo de falha de termo: bairro que também é sobrenome**, precisa de reforço geográfico. 3 aproveitáveis, 1 concorrente identificado (vende marketing jurídico — NÃO abordar) e 2 referências boas de título com gancho de dor)
 - advocacia + "advogado Méier" ✔ (**8 resultados, 3 anunciantes, 2 Trilha A** — um deles no ar há quase 6 meses com título vazio, outro há mais de 6 com CTA genérico. **Caso novo de defeito: título DUPLICADO** — a Meier Advogados escreveu um bom título ("Acidente no Trabalho?") e ele sai repetido em 4 dos 6 anúncios. Primeiro caso do arquivo em que o anunciante acertou a copy e errou só o preenchimento)
 - advocacia + "advogado Botafogo" ✔ (**7 resultados, mas 6 são da teixeiramendes**, já catalogada em Copacabana — a mesma banca aparece nos três bairros da Zona Sul com os mesmos 6 anúncios. **1 novo Trilha A: Juliana Murta — Advogada**, título vazio, desde 08/09/2026. Botafogo é raso para o nicho, ao contrário de Niterói (9 Trilha A) e Copacabana (5 bancas))
