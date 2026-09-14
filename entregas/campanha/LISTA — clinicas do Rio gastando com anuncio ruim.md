@@ -226,7 +226,54 @@ imobiliária (233 resultados na Tijuca), aqui não dá para escolher: dá para a
 > sozinho com o que sobrar. É o texto que mais decide clique, e está em branco. Te mostro?
 
 
+## Varredura — academia + musculação + Niterói (14/09/2026, 16h15)
+
+27 resultados. O nicho anuncia, mas **quase ninguém escreve título**: de 27 anúncios, **17 estão
+com o campo vazio**. E há um padrão novo que não tinha aparecido em nenhum outro nicho — a
+**rede Fábrica**, com uma página por unidade, todas anunciando sozinhas e todas errando igual.
+
+| # | Empresa | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| 1 | **Fábrica Premium Região Oceânica** | **8 anúncios ativos e os oito com título vazio** — a maior concentração de título em branco já encontrada | 30/06/2026 | [ver](https://www.facebook.com/ads/library/?id=1599206601560917) |
+| 2 | **Exercit Esportes** | 3 anúncios: um com o nome da loja **repetido seis vezes** no título ("Exercit Esportes \| Exercit Esportes \|" ×6), os outros dois com título vazio | 18/08 a 08/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1077600837986483) |
+| 3 | **Lifetime Academia** | 2 anúncios, título vazio nos dois, no ar desde **abril** — 5 meses | 07/04/2026 | [ver](https://www.facebook.com/ads/library/?id=2687285521646205) |
+| 4 | **Fábrica Premium Niterói** | título é **"Fale Conosco"**, o texto padrão do Meta | 27/08/2026 | [ver](https://www.facebook.com/ads/library/?id=4586046825011078) |
+| 5 | **Fábrica CT Barreto Niterói** · **Fábrica Ct Niteroi** | título vazio nas duas unidades | 07/08 e 01/09/2026 | [ver](https://www.facebook.com/ads/library/?id=28449632377965219) |
+| 6 | **Jimmy Sereno** (*Trilha A*) | título vazio, anúncio novo | 12/09/2026 | [ver](https://www.facebook.com/ads/library/?id=2223509608218107) |
+
+**Quem está acertando, e serve de referência na abordagem:** *Academia Tio Sam Barreto* tem
+dois anúncios com **"Clique para liberar uma aula gratuita"** — oferta concreta, no ar desde
+junho. (O terceiro anúncio dela é "Converse conosco", genérico. Vale citar como "a própria
+academia já provou que sabe fazer: veja o anúncio da aula gratuita contra o 'Converse conosco'".)
+
+**Achado de mecanismo — a rede com página por unidade.** Cinco páginas diferentes da rede
+Fábrica apareceram nesta varredura (Premium Região Oceânica, Premium Niterói, CT Barreto, CT
+Niterói e Fábrica CT Niterói), cada uma anunciando por conta própria e **todas com o mesmo
+defeito**. Isso é diferente de rede com marketing central, tipo o Espaço Facial, que está na
+lista de "não abordar": aqui **cada unidade toca o próprio anúncio**, e erra sozinha. É um
+alvo legítimo, e um só acerto de abordagem pode render várias unidades.
+
+**Confirmação da regra do termo:** "academia" puxa **anúncio de vaga de emprego** — a *A.R
+Academia* está anunciando vaga de estagiário de musculação. É o mesmo comportamento já visto
+com "corretor". Termo de profissão puxa recrutamento; termo de serviço puxa captação.
+
+**Fora do nicho, vieram de carona:** Agateimoveisprime (imobiliária), InForce Equipamentos
+(fornecedor), bsk_studiobsk, maria_comasoutras e o Grupo Caminha (lar para idosos, anúncio de
+**janeiro de 2023** — o mais antigo já encontrado no arquivo, três anos e meio no ar).
+
+**Abertura pronta — Fábrica Premium Região Oceânica**
+> Oi! Vocês estão com oito anúncios no ar e os oito estão com o campo de título vazio. O título
+> é o que o Meta usa para decidir a quem mostrar o anúncio — em branco, o alcance encarece e o
+> mesmo dinheiro compra menos gente. Estão assim desde junho. Posso te mostrar em 2 minutos?
+
+**Abertura pronta — Exercit Esportes**
+> Oi! O título de um dos seus anúncios está com o nome da loja repetido seis vezes seguidas, e
+> os outros dois estão em branco. No feed sai cortado no meio. Quer que eu te mostre como fica
+> com uma frase só?
+
+
 ## Combinações já varridas (não repetir)
+- academia + musculação + Niterói ✔ (**27 resultados, 17 com título vazio** — inclui a Fábrica Premium Região Oceânica com 8 anúncios em branco e a Lifetime com 5 meses assim; 1 Trilha A. **Achado:** a rede Fábrica tem uma página por unidade, cada uma anuncia sozinha e todas erram igual — alvo legítimo, diferente de rede com marketing central. Confirma também que "academia" puxa vaga de emprego, como "corretor")
 - advocacia + "advogado Copacabana" ✔ (**13 resultados, 5 escritórios, os 5 com defeito de título** — 6 anúncios com o título "instagram.com", 1 com a frase repetida 8x, 3 com título vazio; 1 Trilha A; inclui anúncio de 8 meses)
 - imobiliária + "apartamento à venda" + Campo Grande **RJ** ✔ (10 resultados — o sufixo "RJ" resolveu a contaminação de Mato Grosso do Sul; 5 aproveitáveis novos, 1 Trilha A, inclui **erro de digitação no título** e anúncio de 13 meses)
 - veterinária + Barra ✔ (31 resultados mas **um único anunciante ocupa 20 deles** — a Petmalia, com "Entre em contato" nos vinte; 3 aproveitáveis novos, 2 Trilha A)
