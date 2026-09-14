@@ -1158,3 +1158,23 @@ respondido `result`.
 **Vale para qualquer MCP:** resultado vazio nunca é prova de ausência enquanto a chamada não
 for confirmada como bem-sucedida. Um parser que lê só `result.content` engole o campo `error`
 inteiro e transforma falha em silêncio.
+
+
+## 14/09/2026 — Base de conhecimento da máquina de WhatsApp
+
+O Pablo enviou a documentação da **uazapi** e um prompt pronto de agente Flask + Gemini.
+Ficaram em **`base-conhecimento/`**, com um `README.md` que é obrigatório ler antes dos outros
+dois arquivos.
+
+**Por que o README importa:** a uazapi é API **não oficial** (QR Code, mesma família do Baileys).
+Desde janeiro de 2026 a Meta derruba esse tipo de conexão em até 48h, e a detecção é **pelo
+método de conexão, não pelo volume** — então aquecer chip e limitar envio não protege. Quem ler
+só a documentação vai construir a coisa errada com confiança.
+
+O código do agente em si (buffer com debounce, memória por usuário, resposta fatiada, presença
+"digitando") **é bom e não depende da uazapi** — troca-se a camada de envio pela Cloud API oficial
+e o resto fica igual.
+
+**O caminho oficial e barato está documentado lá:** Click-to-WhatsApp abre janela de **72h com
+todas as mensagens gratuitas**, e ela sobreviveu à mudança de preço de 01/10/2026. A campanha
+`WPP I CONVERSA I FS1` já é isso, e está pausada desde 12/09.
