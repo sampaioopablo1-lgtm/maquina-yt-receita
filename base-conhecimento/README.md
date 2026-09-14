@@ -9,6 +9,8 @@
 | Arquivo | O que é |
 |---|---|
 | `uazapi — llms.txt` | Documentação completa da uazapi para LLMs: endpoints de instância, envio, mídia, grupos, contatos, campanhas, webhooks, chatbot. Enviada pelo Pablo. |
+| `ARQUITETURA — maquina de prospeccao.md` | O desenho base: três portas de entrada, um núcleo de conversa, a IA só depois do primeiro "oi". |
+| `ARQUITETURA — modo lista, 100% automatico.md` | Variante em que o Pablo só sobe o CSV: faixa grátis por e-mail + faixa paga por modelo aprovado (R$ 0,30), com auto-stop. |
 | `PROMPT — agente WhatsApp (uazapi + Flask + Gemini).md` | Prompt pronto para construir o MVP: Flask + Gemini 2.5 Flash, buffer com debounce, resposta dividida em várias mensagens, "digitando" entre elas. Enviado pelo Pablo. |
 | `../entregas/campanha/PESQUISA — maquina de prospeccao por WhatsApp.md` | A pesquisa que dá o contexto: o que é legal, o que é banível, e quanto custa cada caminho. |
 
