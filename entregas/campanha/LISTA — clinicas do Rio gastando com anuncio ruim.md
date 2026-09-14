@@ -8,7 +8,7 @@
 | 1 | **Dr. Daniel Pinheiro — Odonto Barra** (*Trilha A*) | **21 anúncios ativos, todos sem título nenhum**, o mais antigo desde **março de 2025** — dezoito meses |
 | 2 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
 | 3 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
-| 4 | **Leardi 213** (Copacabana) | "Converse conosco" **oito vezes** no mesmo título |
+| 4 | **teixeiramendes.advogados** (Copacabana) | **6 anúncios ativos e o título de cinco é `instagram.com`** — o endereço do link vazou para a manchete; o sexto diz `api.whatsapp.com`. Desde 01/05/2026 |
 | 5 | **Petmalia — Hospital Veterinário** (Barra) | **vinte anúncios ativos e os vinte com o mesmo título: "Entre em contato"** — a maior concentração de anúncio idêntico já encontrada, desde 15/07 |
 | 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
 | 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
@@ -193,7 +193,41 @@ Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meri
 
 ---
 
+## Varredura — advocacia + "advogado Copacabana" (14/09/2026, 12h30)
+
+13 resultados ativos. Nicho raso em quantidade, mas **denso em defeito**: dos 13, só 3 são de
+fora do nicho (um psicanalista, uma compra de ouro e uma comunidade de condomínio, todos
+pegos pelo corpo do texto). Os 10 restantes são de **5 escritórios**, e **todos os 5 têm
+defeito de título**.
+
+| # | Escritório | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| 1 | **teixeiramendes.advogados** | **6 anúncios ativos e o título de cinco deles é literalmente `instagram.com`** — o domínio do link vazou para a manchete. O sexto diz `api.whatsapp.com`. Ninguém escreveu título nenhum. | 01/05/2026 (o mais antigo) a 16/08/2026 | [ver](https://www.facebook.com/ads/library/?id=3524303447726351) |
+| 2 | **megadvogados_adv** — *Rodrigo Gonçalves* · **Trilha A** | O título é a mesma frase **repetida oito vezes**: "Advogado Copacabana e Barra da Tijuca Rodrigo Gonçalves \| MEGADVOGADOS" ×8. Quem vê no feed lê um paredão de texto cortado. | 20/04/2026 (~5 meses) | [ver](https://www.facebook.com/ads/library/?id=1305963944810990) |
+| 3 | **Silvério Vieira Advogados** | 2 anúncios, **título vazio nos dois** | 25/07/2026 e 07/08/2026 | [ver](https://www.facebook.com/ads/library/?id=1804081330962635) |
+| 4 | **CEDOC — Consumidor orientado** | Título vazio, e é o **anúncio mais antigo da varredura: 08/01/2026, oito meses no ar** sem manchete | 08/01/2026 | [ver](https://www.facebook.com/ads/library/?id=1568855047650173) |
+
+**O que esta varredura ensina:** advocacia em Copacabana tem pouco anunciante, mas o
+defeito é quase universal — 5 escritórios, 5 com o título errado ou vazio. Ao contrário de
+imobiliária (233 resultados na Tijuca), aqui não dá para escolher: dá para abordar todos.
+
+**Abertura pronta — teixeiramendes.advogados**
+> Oi! Vi que vocês estão com seis anúncios no ar em Copacabana. Só que o título que aparece
+> em cinco deles é "instagram.com" — o endereço do link, não uma frase. Quem passa no feed lê
+> isso e segue. Posso te mostrar em 2 minutos o que entraria no lugar?
+
+**Abertura pronta — Rodrigo Gonçalves (MEGADVOGADOS) · Trilha A, Instagram dele**
+> Rodrigo, vi seu anúncio de Copacabana na Biblioteca do Meta. O título está repetido oito
+> vezes seguidas — provavelmente foi o sistema que duplicou, e no feed sai cortado no meio.
+> Está assim desde abril. Quer que eu te mostre como fica com uma frase só?
+
+**Abertura pronta — Silvério Vieira / CEDOC (título vazio)**
+> Oi! Seu anúncio está no ar há meses (o da CEDOC desde janeiro), mas o campo de título está vazio — o Meta preenche
+> sozinho com o que sobrar. É o texto que mais decide clique, e está em branco. Te mostro?
+
+
 ## Combinações já varridas (não repetir)
+- advocacia + "advogado Copacabana" ✔ (**13 resultados, 5 escritórios, os 5 com defeito de título** — 6 anúncios com o título "instagram.com", 1 com a frase repetida 8x, 3 com título vazio; 1 Trilha A; inclui anúncio de 8 meses)
 - imobiliária + "apartamento à venda" + Campo Grande **RJ** ✔ (10 resultados — o sufixo "RJ" resolveu a contaminação de Mato Grosso do Sul; 5 aproveitáveis novos, 1 Trilha A, inclui **erro de digitação no título** e anúncio de 13 meses)
 - veterinária + Barra ✔ (31 resultados mas **um único anunciante ocupa 20 deles** — a Petmalia, com "Entre em contato" nos vinte; 3 aproveitáveis novos, 2 Trilha A)
 - fisioterapia + "pilates" + Barra ✔ (72 resultados, 9 aproveitáveis novos, 4 Trilha A — confirma a densidade de defeito do nicho; inclui 3 imobiliárias que vieram de carona)
