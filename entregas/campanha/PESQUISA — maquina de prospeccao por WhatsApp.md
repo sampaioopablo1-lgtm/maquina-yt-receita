@@ -242,3 +242,102 @@ operação: envio na conta do Pablo é sempre dele.
 - 360dialog — coexistence webhooks (`smb_message_echoes`)
 - YCloud, X-Apps, Marcus Barboza — coexistência em português
 - SleekFlow, EvoTalks, ChatLabs, HelenaCRM, Moovyi — o que muda em 01/10/2026
+
+---
+
+# Pesquisa: "app que simula o celular" e outras descobertas tipo coexistência (14/09/2026, noite)
+
+Pergunta do Pablo: "pesquise forma como descoberta pela coexistência, até mesmo app que simula
+ser instalado no celular, pesquise possibilidades".
+
+## Parte 1 — o que existe na família "simula o celular", e por que nada entra
+
+| Família | Como funciona | Estado em 2026 |
+|---|---|---|
+| Emuladores de protocolo (Baileys, WPPConnect, Venom, whatsmeow, Evolution QR, uazapi) | fingem ser um "aparelho conectado" via QR | detecção pelo método de conexão, queda em até 48h |
+| Emulador Android no PC (BlueStacks, Genymotion) + app real + automação visual | roda o app de verdade num Android falso | Meta detecta emulador e automação visual; ban em escala |
+| Fazendas de celular na nuvem (GeeLark, DuoPlus, Multilogin) | Androids virtuais com "impressão digital" falsa e proxy | vendidas como anti-detecção — o próprio mercado admite ban rate subindo |
+| Auto-senders por acessibilidade no celular real (Bulk Sender, Auto Sender, WB Sender) | um app toca no WhatsApp por você | avaliações cheias de "conta restrita por spam" |
+| Clientes modificados (GB WhatsApp, WhatsApp Plus) | app pirata com envio em massa | banimento explícito desde 2023 |
+
+Todas as cinco existem para parecer humano sem ser. Nenhuma entra nesta operação — e nem por
+convicção só: é o método que a Meta persegue, não o volume.
+
+## Parte 2 — as duas descobertas de verdade, do tipo coexistência
+
+Dentro do próprio app WhatsApp Business, oficial, sem servidor, sem API, sem template.
+
+### A. Lista de transmissão comercial (no app, desde outubro/2025)
+
+É diferente da lista de transmissão clássica (que só entrega a quem salvou seu número).
+A **comercial entrega a quem não salvou**. Meta cobra, mas dá cota grátis:
+
+| | |
+|---|---|
+| Cota grátis | **250 mensagens a cada 30 dias, nos primeiros 6 meses** |
+| Depois da cota | R$ 0,33 por mensagem **entregue** |
+| Não entregou em 5 dias | estorna |
+| Limite por lista | 256 contatos |
+| Personalização | não tem variável de nome — a mensagem é igual pra todos |
+| Automação | não tem — é você criando a lista e enviando no app |
+
+**Conta pros 2.000:** 6 meses × 250 = 1.500 grátis. Os 500 restantes × R$ 0,33 = **R$ 165 no total.**
+Contra R$ 600 pelo modelo aprovado na API.
+
+O que se perde: a mensagem com a prova específica de cada empresa (que responde 15-25% contra
+1-5% da genérica). Dá para atenuar segmentando: uma lista por nicho, com a dor daquele nicho.
+
+Aberto, não achei confirmação: se a transmissão comercial continua disponível quando o número
+está em coexistência com a Cloud API. Testar antes de contar com as duas juntas.
+
+### B. Meta Business Agent (global desde 03/06/2026)
+
+A própria Meta pôs um agente de IA dentro do app. Fica em **Ferramentas → Seu agente de IA**.
+
+| | |
+|---|---|
+| Faz | responde, qualifica lead, **agenda no Google Agenda** (conecta direto), passa pro humano |
+| Modos | "Sugestões" (você aprova cada resposta) ou "Participa" (responde sozinho) |
+| Custo | US$ 2 por milhão de tokens ≈ **R$ 0,20 a 0,30 por conversa** (cobrando desde 01/08) |
+| Bônus | resposta dele **não paga** a tarifa de atendimento que começa em 01/10 |
+| Infra | nenhuma — está no celular |
+
+Limites, ditos por quem já usou: a Meta controla o modelo e as regras, o agente aprende do
+perfil, catálogo e histórico mas **não recebe um prompt seu**; não conecta com CRM (Clint fica de
+fora); não tem API; não dispara. É um bom atendente de porta de entrada, não é o Claude no n8n.
+
+## Parte 3 — a máquina que roda inteira dentro do celular
+
+```
+lista comercial (250 grátis/mês) ──▶ lead responde ──▶ Meta Business Agent
+                                                          qualifica + agenda no Google Agenda
+                                                          ──▶ Pablo atende a reunião
+```
+
+| | |
+|---|---|
+| Servidor | nenhum |
+| API | nenhuma |
+| Risco de bloqueio por robô | nenhum — é a Meta fazendo tudo |
+| Custo 6 meses | tokens (~R$ 30/mês a 130 conversas) + R$ 165 uma vez |
+| Trabalho manual | criar a lista e apertar enviar, uma vez por lote |
+
+Fica de fora: prova específica por empresa, Clint, o prompt sob meu controle, medição fina.
+
+## O que muda na recomendação
+
+Antes desta pesquisa, a primeira mensagem automática mais barata era o modelo aprovado
+(R$ 0,30, R$ 600 nos 2.000). Agora é a lista comercial do app (R$ 165, 1.500 grátis).
+
+E antes, o cérebro precisava de n8n + servidor. Agora tem uma versão zero-infra que já agenda.
+
+Ordem que eu proporia: **fase 0 = tudo no celular** (liga hoje, sem construir nada, prova o funil
+com a lista real); **fase 1 = n8n + Claude** quando ele quiser controle do roteiro, prova por
+empresa e Clint. A fase 0 não é degrau perdido: os leads e as conversas ficam no número.
+
+## Fontes
+
+- TechCrunch, about.fb.com, WABetaInfo, Exame, Digisac, Wati, Enterprise DNA, Intelli, useinvent — Meta Business Agent
+- Mobile Time (01/07/2026), Pontaltech, Maxbot, Zenvia — cobrança de respostas e isenção do agente
+- Jornal Opção, Diário do Nordeste, Chatsac, sac.digital, Portal IN — lista de transmissão comercial
+- SocialHub, Pixelscan, Shadowphone, GeeLark, Multilogin, AppBrain/Play Store — a família "simula o celular"
