@@ -327,7 +327,52 @@ converte, porque vai direto no dono, sem passar por recepção ou social media.
 > É quase um ano pagando por um anúncio que ninguém abriu para conferir. Te mostro em 2 minutos?
 
 
+## Varredura — advocacia + "advogado Méier" (14/09/2026, 21h10)
+
+8 resultados, de 3 anunciantes. E um caso que vale mais como **aula do que como alvo**.
+
+**Meier Advogados — 6 anúncios, e o defeito é só metade do que parece**
+
+Os seis dizem **"Acidente no Trabalho?"**. Isso é um **bom título**: é pergunta, é dor concreta,
+fala com quem tem o problema. Está muito acima do "Fale Conosco" que a gente vê no resto do
+arquivo. Só que:
+
+1. **Em quatro dos seis o título aparece duplicado** — "Acidente no Trabalho? \| Acidente no
+   Trabalho?" — o campo foi preenchido duas vezes e sai repetido no feed;
+2. os seis foram criados **no mesmo segundo** (19/08/2026), o que é assinatura de criativo
+   dinâmico mal configurado ou de conjuntos disputando o mesmo público.
+
+**Por que isso importa para a abordagem:** aqui não dá para dizer "seu anúncio está sem título".
+Ele escreveu um título bom. O argumento é outro, e é mais forte: *"você acertou a frase e o
+sistema está repetindo ela duas vezes"*. Elogio verdadeiro antes da correção — e o cara sabe que
+é verdade, porque a frase é dele.
+
+[ver](https://www.facebook.com/ads/library/?id=1299048422166889)
+
+**Os outros dois, Trilha A**
+
+| Advogado | Defeito | No ar desde |
+|---|---|---|
+| **advogado.carlosjunior** | título vazio | **27/03/2026** — quase 6 meses |
+| **Dra. Fatima Matos Advogada** | "Converse com um advogado especialista!" — CTA genérico, sem dor nem especialidade | **28/02/2026** — mais de 6 meses |
+
+Links: [carlosjunior](https://www.facebook.com/ads/library/?id=1265634535508780) ·
+[Dra. Fatima Matos](https://www.facebook.com/ads/library/?id=1256614422462894)
+
+**Abertura pronta — Meier Advogados (título duplicado)**
+> Oi! Vi os anúncios de vocês sobre acidente de trabalho. A pergunta que vocês usaram é boa — é
+> exatamente a dor de quem procura. Só que em quatro dos seis ela está saindo **duplicada**:
+> "Acidente no Trabalho? | Acidente no Trabalho?". É o campo preenchido duas vezes, e no feed
+> fica com cara de erro justo no texto que era o ponto forte. Posso te mostrar em 2 minutos?
+
+**Abertura pronta — Dra. Fatima Matos**
+> Dra., seu anúncio está no ar desde fevereiro com o título "Converse com um advogado
+> especialista". Especialista em quê? É a pergunta que quem tem o problema faz — e o anúncio não
+> responde. Quem sabe a área, procura pela área. Quer que eu te mostre como ficaria?
+
+
 ## Combinações já varridas (não repetir)
+- advocacia + "advogado Méier" ✔ (**8 resultados, 3 anunciantes, 2 Trilha A** — um deles no ar há quase 6 meses com título vazio, outro há mais de 6 com CTA genérico. **Caso novo de defeito: título DUPLICADO** — a Meier Advogados escreveu um bom título ("Acidente no Trabalho?") e ele sai repetido em 4 dos 6 anúncios. Primeiro caso do arquivo em que o anunciante acertou a copy e errou só o preenchimento)
 - advocacia + "advogado Botafogo" ✔ (**7 resultados, mas 6 são da teixeiramendes**, já catalogada em Copacabana — a mesma banca aparece nos três bairros da Zona Sul com os mesmos 6 anúncios. **1 novo Trilha A: Juliana Murta — Advogada**, título vazio, desde 08/09/2026. Botafogo é raso para o nicho, ao contrário de Niterói (9 Trilha A) e Copacabana (5 bancas))
 - energia solar + Méier ✔ (**zero resultados** — nenhum anúncio ativo. Solar rende no Rio como um todo (124) e na Tijuca (40), mas não no Méier: é nicho de bairro rico e de casa própria com telhado, não de subúrbio de prédio. Não insistir em solar nos bairros densos)
 - arquitetura + design de interiores + Niterói ✔ (**5 resultados, ZERO aproveitável** — e nenhum é arquiteto: dois de madeireira, um de marmoraria, um de imobiliária e um do nicho excluído pelo Pablo, que não foi registrado. O termo "design de interiores" puxa a CADEIA DE FORNECEDORES do arquiteto, não o arquiteto. Combinação queimada, não repetir em outros bairros com este termo)
