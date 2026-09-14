@@ -96,7 +96,7 @@
    "layout": "item",
    "kicker": "Ve arada bir eşik var",
    "preco": "asgarinin altı",
-   "nar": "Bir de eşik var: asgarinin altına düşmek başka bir duruma geçmek demek, ve ona ayrı bir bölüm ayıracağım. Şimdilik asgariyi ya da üstünü ödediğini varsayalım. Bu varsayım bölüm boyunca geçerli.",
+   "nar": "Bir de eşik var: asgarinin altına düşmek başka bir duruma geçmek demek, ve ona ayrı bir bölüm ayıracağım. Şimdilik asgariyi ya da üstünü ödediğini varsayalım, bölüm boyunca.",
    "sem_cap": true
   },
   {

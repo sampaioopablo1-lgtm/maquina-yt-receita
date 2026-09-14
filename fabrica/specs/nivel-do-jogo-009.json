@@ -111,7 +111,7 @@
    "kicker": "Pronto",
    "preco": "a conta acabou",
    "sem_cap": true,
-   "nar": "Essa é a conta inteira, e ela já acabou. O resto do vídeo é o que cada porta significa e o que fazer quando as duas discordam. Se quiser, pare aqui e confira os seus dois números."
+   "nar": "Essa é a conta inteira, e ela já acabou. O resto do vídeo é o que cada porta significa e o que fazer quando as duas discordam, com os prazos de cada uma."
   },
   {
    "layout": "titulo",
@@ -209,7 +209,7 @@
    "kicker": "É por isso que são duas portas",
    "preco": "e não uma melhor",
    "sem_cap": true,
-   "nar": "É por isso que eu chamei de duas portas e não de uma regra melhor que a outra. Elas pegam situações diferentes. Uma olha as horas jogadas, a outra olha só o calendário."
+   "nar": "É por isso que eu chamei de duas portas e não de uma regra melhor que a outra. Elas pegam situações diferentes, uma olhando as horas jogadas e a outra olhando só o calendário."
   },
   {
    "layout": "titulo",
@@ -258,7 +258,7 @@
    "kicker": "O que dá pra afirmar",
    "preco": "os dois prazos",
    "sem_cap": true,
-   "nar": "O que dá pra afirmar é o texto dos dois: quatorze dias e duas horas na política, sete dias sem contar horas na lei. O texto é o que vale quando a memória diverge."
+   "nar": "O que dá pra afirmar é o texto dos dois: quatorze dias e duas horas na política, sete dias sem contar horas na lei, que é o que vale quando a memória diverge."
   },
   {
    "layout": "titulo",
@@ -307,7 +307,7 @@
    "kicker": "Confira na fatura",
    "preco": "é lá que se prova",
    "sem_cap": true,
-   "nar": "Então a conferência final não é no e-mail de confirmação. É na sua fatura, no mês seguinte. É lá que o estorno aparece."
+   "nar": "Então a conferência final não é no e-mail de confirmação. É na sua fatura, no mês seguinte, que é onde o estorno aparece."
   },
   {
    "layout": "titulo",
@@ -356,7 +356,7 @@
    "kicker": "E o mais importante",
    "preco": "não deixe o prazo passar",
    "sem_cap": true,
-   "nar": "Mas nada disso substitui a coisa mais simples: não deixar o prazo passar enquanto você decide. O prazo não espera."
+   "nar": "Mas nada disso substitui a coisa mais simples: não deixar o prazo passar enquanto você decide, porque ele não espera."
   },
   {
    "layout": "titulo",
