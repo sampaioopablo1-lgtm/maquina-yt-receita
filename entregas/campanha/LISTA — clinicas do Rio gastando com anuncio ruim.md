@@ -371,7 +371,46 @@ Links: [carlosjunior](https://www.facebook.com/ads/library/?id=1265634535508780)
 > responde. Quem sabe a área, procura pela área. Quer que eu te mostre como ficaria?
 
 
+## Varredura — advocacia + "advogado Madureira" (14/09/2026, 22h10)
+
+**75 resultados e quase nenhum é do bairro.** "Madureira" é **sobrenome comum de advogado** —
+Marcondes Madureira, Leonardo Marcondes Madureira, Thales M. Madureira, Cerqueira e Madureira,
+Madureira Advogados & Consultores. A busca devolveu a lista telefônica do sobrenome, não o bairro.
+
+**Quarto modo de falha de termo catalogado.** Os anteriores eram: termo de profissão puxa vaga de
+emprego; termo largo esconde o nicho; termo de serviço adjacente puxa fornecedor. Este é novo:
+**bairro cujo nome também é sobrenome.** Madureira, Meier (o bairro e a banca "Meier Advogados"),
+e provavelmente outros. Quando o bairro é sobrenome, o termo precisa de reforço geográfico —
+"advogado Madureira Rio de Janeiro" — ou a varredura é lixo.
+
+**Ainda assim, três aproveitáveis** (localização a confirmar antes de abordar):
+
+| Escritório | Defeito | Desde |
+|---|---|---|
+| **Marcondes Madureira Advocacia** | ~10 anúncios cujo título é **só o nome do escritório** — não é chamada, é placa. Um deles repete "Advogado online \| Marcondes Madureira" **cinco vezes**; outro termina em campos vazios | 02/06/2026 |
+| **Cerqueira e Madureira Advocacia** | 4 anúncios, todos "Fale com um advogado especialista" — especialista em quê? | 04/09/2026 |
+| **Leonardo Marcondes Madureira** | vários sem título, e um com o título do Instagram repetido **sete vezes**, terminando em "• Instagram photos and videos" | 18/08/2026 |
+
+**⚠️ Ressalva sobre o Leonardo Marcondes Madureira:** ele se apresenta como *"Neuromarketing
+Jurídico"* e anuncia **"O método que transforma post em contrato"**. Ou seja, ele **vende marketing
+para advogados** — é concorrente do Pablo, não cliente. Não abordar como prospect. Fica registrado
+justamente para não ser abordado por engano numa próxima varredura.
+
+**Dois que estão acertando, e servem de referência boa para o nicho jurídico:**
+
+- **Thales M. Madureira** — *"Pagando 2 empréstimos e recebeu só 1?"* e *"Dívida infinita? A culpa
+  é do banco!"* (23/06/2026). São ganchos de dor com situação concreta. É o melhor par de títulos
+  de advocacia visto no arquivo.
+- **Madureira Advogados & Consultores** — *"Desbloqueio de Contas Digitais | Advogado Especialista"*
+  (17/08/2026). Serviço específico + qualificação. Mostra como "especialista" funciona **quando vem
+  acompanhado do quê**, ao contrário do "Fale com um advogado especialista" da Cerqueira.
+
+Esse contraste dentro do mesmo nicho e da mesma varredura é material de abordagem: dá para mostrar
+ao Cerqueira o anúncio do Thales e perguntar qual dos dois ele clicaria.
+
+
 ## Combinações já varridas (não repetir)
+- advocacia + "advogado Madureira" ✔ (**75 resultados e quase nenhum do bairro** — "Madureira" é sobrenome comum de advogado. **4º modo de falha de termo: bairro que também é sobrenome**, precisa de reforço geográfico. 3 aproveitáveis, 1 concorrente identificado (vende marketing jurídico — NÃO abordar) e 2 referências boas de título com gancho de dor)
 - advocacia + "advogado Méier" ✔ (**8 resultados, 3 anunciantes, 2 Trilha A** — um deles no ar há quase 6 meses com título vazio, outro há mais de 6 com CTA genérico. **Caso novo de defeito: título DUPLICADO** — a Meier Advogados escreveu um bom título ("Acidente no Trabalho?") e ele sai repetido em 4 dos 6 anúncios. Primeiro caso do arquivo em que o anunciante acertou a copy e errou só o preenchimento)
 - advocacia + "advogado Botafogo" ✔ (**7 resultados, mas 6 são da teixeiramendes**, já catalogada em Copacabana — a mesma banca aparece nos três bairros da Zona Sul com os mesmos 6 anúncios. **1 novo Trilha A: Juliana Murta — Advogada**, título vazio, desde 08/09/2026. Botafogo é raso para o nicho, ao contrário de Niterói (9 Trilha A) e Copacabana (5 bancas))
 - energia solar + Méier ✔ (**zero resultados** — nenhum anúncio ativo. Solar rende no Rio como um todo (124) e na Tijuca (40), mas não no Méier: é nicho de bairro rico e de casa própria com telhado, não de subúrbio de prédio. Não insistir em solar nos bairros densos)
