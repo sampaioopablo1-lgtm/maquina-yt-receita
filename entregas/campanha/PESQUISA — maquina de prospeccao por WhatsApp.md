@@ -384,3 +384,36 @@ coisas que a tabela não tem. Os dois não se excluem — a BuscaLead pode ser a
 BuscaLead, LeadCNPJ (agentes e planos), SDR Agent, ProspectAI/autowhats, Toolzz, ConvertLab,
 Prospct.AI, CadenceFlow, Leadster (dados reais), Clint (custo de agentes), DAS Tecnologia
 (Business AI no Brasil + bloqueio de não oficiais).
+
+---
+
+# A ferramenta que faz de ponta a ponta — é o Clint (14/09/2026, noite)
+
+Pergunta do Pablo: "ferramenta que realmente faz de ponta a ponta".
+
+Procurei fora e a resposta estava dentro: **o Clint, o CRM que o Pablo já usa**, faz o funil inteiro
+na API oficial.
+
+| Etapa | O Clint faz? | Como |
+|---|---|---|
+| Sobe a lista | sim | origem rastreada por lead |
+| Primeira mensagem automática | sim | disparo de WhatsApp marketing (template oficial), SMS ou voz — com agendamento por horário, segmentação por tag, fila e **controle de ritmo pra não saturar o número** |
+| IA assume na resposta | sim | agente SDR: conversa, descobre fit, qualifica ou descarta |
+| Agenda a reunião | sim | o lead vê a agenda real do vendedor e escolhe; Google Agenda e Outlook; **confirmação 24h antes** |
+| Devolve pro humano | sim | com briefing pronto e contexto da conversa |
+| Conexão | **API oficial**, WhatsApp e Instagram | |
+| Custo | **R$ 99/mês por agente**, dentro do plano que ele já paga | + template Meta R$ 0,30 |
+
+Contra as outras: BuscaLead (R$ 149) não confirma agenda nativa; SDR Agent e LeadCNPJ mandam
+o frio por QR. O Clint é o único que fecha tudo na oficial **e já está contratado**.
+
+## O que ainda não é do Clint
+
+A **prova por empresa** (Biblioteca de Anúncios) e a **cadência de e-mail grátis** com `wa.me`.
+Essas duas eu continuo fazendo daqui e entrego pro Clint: a lista já cruzada, com a variável
+`{{prova}}` pronta pro template. O Clint dispara e atende; eu abasteço e meço.
+
+## O que trava
+
+A mesma coisa de sempre, agora com mais peso: **o Clint segue sem autorização neste chat.**
+Sem ela não vejo os 20 leads, não configuro o agente, não subo a lista.
