@@ -39,6 +39,18 @@ jobs:
 
       - run: pip install -e ".[dev,fabrica]"
 
+      # O gate de copy_md.py exige mp3 valido em /tmp/trilhas: sem faixa, a
+      # suite quebra em 221 casos. As faixas reais nao entram em CI (e o
+      # frota.yml que as baixa pro render), e o ensaio ja tem o equivalente
+      # silencioso com os MESMOS nomes — por isso trilha_do_canal escolhe a
+      # mesma faixa que a producao escolheria. Depende do ffmpeg, ja checado
+      # acima.
+      - name: Trilhas de ensaio (silencio) em /tmp/trilhas
+        run: |
+          python -c "import sys; sys.path.insert(0, 'fabrica'); \
+                     from ensaio import trilhas_falsas; \
+                     print(trilhas_falsas('/tmp/trilhas'), 'faixas')"
+
       # Providers stub: a suite roda inteira sem nenhuma chave de API.
       - name: Testes
         env:
