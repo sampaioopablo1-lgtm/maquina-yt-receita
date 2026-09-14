@@ -110,7 +110,7 @@
    "layout": "item",
    "kicker": "Now the sides match",
    "preco": "money against hours",
-   "nar": "With money on one side and hours on the other, this stops being a feeling about a good deal and becomes arithmetic about your last one. The same two columns, every time you run it.",
+   "nar": "With money on one side and hours on the other, this stops being a feeling about a good deal and becomes arithmetic about your last one, every time you run it.",
    "sem_cap": true
   },
   {
@@ -334,7 +334,7 @@
    "layout": "item",
    "kicker": "Both outcomes are valid",
    "preco": "your number decides",
-   "nar": "Buying on sale and paying full price are both defensible, and neither is right in general. The right one is whatever your number points to. The only wrong move is buying on the percentage and never looking again. Looking again is the whole discipline.",
+   "nar": "Buying on sale and paying full price are both defensible, and neither is right in general. The right one is whatever your number points to. The only wrong move is buying on the percentage and never looking again, which is where the habit quietly costs you.",
    "sem_cap": true
   },
   {
