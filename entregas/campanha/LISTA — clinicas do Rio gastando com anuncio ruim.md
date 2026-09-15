@@ -2585,3 +2585,14 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Odonto Aliados** — título é "instagram.com" (link colado no título). Desde ago/26. https://www.facebook.com/ads/library/?id=1385434276867309
 - **Espaço Facial - Campo Grande - RJ** — anúncio de 09/09, título "✅ AGENDE AGORA!" genérico. Novo demais, observar.
 - Nicho harmonização Campo Grande: 4 nomes, 2 Trilha A.
+
+## Varredura 15/09 20h — odontologia Botafogo ("dentista Botafogo", 13 anúncios)
+- Combo varrido: odontologia × Botafogo.
+- **IRio Odontologia Botafogo** — 4 anúncios, o mais antigo desde dez/25 (9 meses), títulos "🔴 ATENÇÃO BOTAFOGO" e "🔴 Clique e agende" repetidos 2x cada. https://www.facebook.com/ads/library/?id=868477806138006
+- **Dra Cris Cunha** — dona no nome, Trilha A. 2 anúncios de set/26 sem título. https://www.facebook.com/ads/library/?id=814067495122483
+- **Odontopediatra em Botafogo - Dra Thais Aguiar Gomes** — dona no nome, Trilha A. Anúncio de 13/09, título genérico "Converse conosco". https://www.facebook.com/ads/library/?id=1398106905072745
+- **Dra Georgia Botafogo** — dona no nome, Trilha A. Desde abr/26 (5 meses), título "Fale Conosco". https://www.facebook.com/ads/library/?id=1337534981526411
+- **Prime Dente Unidade Botafogo** — franquia, anúncio sem título. https://www.facebook.com/ads/library/?id=1245472954406605
+- **Clinica Odontológica Santa Rosa de Lima** — desde ago/26, sem título. https://www.facebook.com/ads/library/?id=2094317364778194
+- Fora: Simplifica Doctor (curso), COA Nova Cruz RN (outro estado), Espaço Facial (franquia, já listada).
+- Nicho odontologia Botafogo: 6 nomes, 3 Trilha A.
