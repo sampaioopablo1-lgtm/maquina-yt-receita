@@ -475,7 +475,37 @@ e *Raphael Perachi Videomaker* (campos vazios, mas não é ótica nem do Rio —
 **Lição do nicho:** "ótica" + bairro puxa **distribuidor** antes de ótica de varejo, e "Copacabana"
 puxa nome de evento e de empresa de fora. Termo para a próxima: "óculos de grau" + bairro.
 
+## Achados de 14/09, 22h — "óculos de grau Tijuca" (ótica, 2ª tentativa com termo de produto)
+
+**11 resultados, 5 aproveitáveis, 1 Trilha A.** O termo de produto funcionou onde "ótica" puxou
+distribuidor — mas revelou o **5º modo de falha de termo: "Tijuca" puxa "Tijucas/SC"** (duas
+óticas de Santa Catarina vieram de carona). Reforçar com "RJ" ou "Rio" na próxima.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Oswaldo Frazão** — **Trilha A** | **3 anúncios sem título**, o mais novo de hoje | `587396684467882` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1612660190235051) |
+| **Oftalmo Città** | sem título há **3 meses e meio** | `236757996479241` | 29/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1532752995009640) |
+| **QualiÓtica Carioca** | título é o **nome da página do Instagram repetido 7 vezes** ("Instagram photos and videos") | `716867871491330` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1083985151022047) |
+| **Central dos Óculos** | sem título há 1 mês | `438264816042647` | 15/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1546003337207353) |
+| **Óticas SAADE** | sem título, subiu hoje | `106031825354397` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2158618138385501) |
+
+**Referência boa no mesmo termo:** *Dr. Igor Mota* — "Cirurgia Refrativa a Laser?" — pergunta,
+especialidade, cinco palavras. Contraste direto pro Dr. Oswaldo, que é o mesmo nicho.
+
+**Abordagem para o Dr. Oswaldo Frazão (Trilha A, Instagram dele):**
+
+> Boa noite, Dr. Oswaldo. Aqui é o Pablo, do Rio — não sou paciente. Vi que o senhor subiu
+> um anúncio hoje na Biblioteca do Facebook, e ele está saindo **sem título** — igual aos
+> dois anteriores, de quarta. É o campo que a pessoa lê antes de decidir clicar, e está em
+> branco nos três. Um colega seu, o Dr. Igor Mota, está rodando com "Cirurgia Refrativa a
+> Laser?" e é só isso que falta. Quer que eu te mande duas ou três opções?
+
+**Descartados de propósito:** *Instituto Visão Solidária — Tijucas SC* e *Mercadão dos Óculos —
+Tijucas/SC* (Santa Catarina). *Use Visio* tem título duplicado mas está no Itanhangá com CTA
+de exame — fraco demais pra abrir conversa.
+
 ## Combinações já varridas (não repetir)
+- ótica + "óculos de grau Tijuca" ✔ (**11 resultados, 5 aproveitáveis, 1 Trilha A** — Dr. Oswaldo Frazão com 3 sem título. **5º modo de falha de termo: "Tijuca" puxa "Tijucas/SC"** — reforçar com RJ. Termo de produto funcionou onde "ótica" puxou distribuidor)
 - ótica + Copacabana ✔ (**42 resultados, 27 de UM anunciante** — a Copacabana Eyewear, distribuidora, com 22 anúncios errados: 10 sem título subidos hoje, 6 "Fale conosco" ×10, 6 "api.whatsapp.com". 1 aproveitável, nenhum Trilha A. Termo puxa distribuidor e evento de SP; próxima: "óculos de grau" + bairro)
 - advocacia + "advogado Campo Grande **RJ**" ✔ (**7 resultados, 5 escritórios, os 5 erram**, 2 Trilha A. **Regra do sufixo "RJ" confirmada pela 2ª vez** — zero contaminação de MS/SP. Inclui o **anúncio mais antigo do arquivo: Marcio Alcides, no ar desde 11/11/2024 com o título "instagram.com" — quase 2 anos** — e o recorde de campos vazios: 14, da Alderito Assis)
 - advocacia + "advogado Madureira" ✔ (**75 resultados e quase nenhum do bairro** — "Madureira" é sobrenome comum de advogado. **4º modo de falha de termo: bairro que também é sobrenome**, precisa de reforço geográfico. 3 aproveitáveis, 1 concorrente identificado (vende marketing jurídico — NÃO abordar) e 2 referências boas de título com gancho de dor)
