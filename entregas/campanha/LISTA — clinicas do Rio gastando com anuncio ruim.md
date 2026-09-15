@@ -451,7 +451,32 @@ mais concreta possível de que existe dinheiro saindo sem ninguém olhar.
 > clique, e está vazio quatorze vezes. Posso te mostrar em 2 minutos o que entraria no lugar?
 
 
+## Achados de 14/09, 21h — "ótica Copacabana" (nicho novo: ótica)
+
+**42 resultados, mas um único anunciante ocupa 27 deles.** A *Copacabana Eyewear — Distribuidora
+de Óculos* não é ótica de rua, é **distribuidora** (vende para ótica) — e mesmo assim é alvo
+legítimo: anuncia sozinha, com volume, e erra de três jeitos ao mesmo tempo:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Copacabana Eyewear — Distribuidora de Óculos** | **10 anúncios novos com título vazio** (subiram hoje, 14/09) + **6 com "Fale conosco" repetido até 10 vezes** + **6 com "api.whatsapp.com" no título** — 22 anúncios errados de um lote de 27 | `101905786180247` | 09/07/2026 (os antigos) e 14/09/2026 (os novos) | [vazio](https://www.facebook.com/ads/library/?id=1632501632247023) · [Fale conosco ×10](https://www.facebook.com/ads/library/?id=4611746375816355) · [api.whatsapp.com](https://www.facebook.com/ads/library/?id=3157109284477947) |
+
+**Abordagem (o argumento é o lote de hoje — quem acabou de subir 10 anúncios está com a mão na campanha):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou cliente. Vi que vocês subiram **dez anúncios
+> hoje** na Biblioteca do Facebook, e os dez estão saindo **sem título**. Os de julho já tinham
+> o mesmo problema: seis com "Fale conosco" repetido dez vezes, seis com "api.whatsapp.com" no
+> lugar do título. São 22 anúncios pagando para mostrar um campo em branco. Como o lote é de
+> hoje, dá pra corrigir antes de gastar. Quer que eu te mande o que eu colocaria em cada um?
+
+**Descartados de propósito:** *Arrocha Araraquara* (show em SP, contaminação do termo "Copacabana")
+e *Raphael Perachi Videomaker* (campos vazios, mas não é ótica nem do Rio — ficou fora).
+
+**Lição do nicho:** "ótica" + bairro puxa **distribuidor** antes de ótica de varejo, e "Copacabana"
+puxa nome de evento e de empresa de fora. Termo para a próxima: "óculos de grau" + bairro.
+
 ## Combinações já varridas (não repetir)
+- ótica + Copacabana ✔ (**42 resultados, 27 de UM anunciante** — a Copacabana Eyewear, distribuidora, com 22 anúncios errados: 10 sem título subidos hoje, 6 "Fale conosco" ×10, 6 "api.whatsapp.com". 1 aproveitável, nenhum Trilha A. Termo puxa distribuidor e evento de SP; próxima: "óculos de grau" + bairro)
 - advocacia + "advogado Campo Grande **RJ**" ✔ (**7 resultados, 5 escritórios, os 5 erram**, 2 Trilha A. **Regra do sufixo "RJ" confirmada pela 2ª vez** — zero contaminação de MS/SP. Inclui o **anúncio mais antigo do arquivo: Marcio Alcides, no ar desde 11/11/2024 com o título "instagram.com" — quase 2 anos** — e o recorde de campos vazios: 14, da Alderito Assis)
 - advocacia + "advogado Madureira" ✔ (**75 resultados e quase nenhum do bairro** — "Madureira" é sobrenome comum de advogado. **4º modo de falha de termo: bairro que também é sobrenome**, precisa de reforço geográfico. 3 aproveitáveis, 1 concorrente identificado (vende marketing jurídico — NÃO abordar) e 2 referências boas de título com gancho de dor)
 - advocacia + "advogado Méier" ✔ (**8 resultados, 3 anunciantes, 2 Trilha A** — um deles no ar há quase 6 meses com título vazio, outro há mais de 6 com CTA genérico. **Caso novo de defeito: título DUPLICADO** — a Meier Advogados escreveu um bom título ("Acidente no Trabalho?") e ele sai repetido em 4 dos 6 anúncios. Primeiro caso do arquivo em que o anunciante acertou a copy e errou só o preenchimento)
