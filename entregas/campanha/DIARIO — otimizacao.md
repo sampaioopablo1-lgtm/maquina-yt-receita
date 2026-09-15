@@ -533,3 +533,22 @@ IA qualifica → reunião na agenda. Duas leituras:
    ausência de atividade. Corrige a leitura de 11/09 ("nenhuma reunião").
 2. Custo até aqui: 20 leads (R$ 238,79 no período) → 1 reunião confirmada visível = R$ 239 por
    reunião. Número inflado por eu não ver as outras — só o Clint mostra se houve mais.
+
+### Adendo 14/09, 23h20 — V11 a V14 replicados no conjunto AGENDA
+
+Pedido do Pablo. Método: Windsor `create_ad` com o criativo do `V15 — AGENDA` (`1460236355969045`,
+que carrega o formulário novo com o Calendly) + `update_ad_creative` trocando só a imagem pela
+de cada original (URL do thumbnail do Windsor) com `degrees_of_freedom_spec: {}`. Ativação pelo MCP.
+
+| Anúncio | ID | Criativo novo |
+|---|---|---|
+| V11 — AGENDA | `120247437460350766` | `2242059629912155` |
+| V12 — AGENDA | `120247437461450766` | `1639138014465996` |
+| V13 — AGENDA | `120247437470670766` | `3108350759556647` |
+| V14 — AGENDA | `120247437471650766` | `1623402192903742` |
+
+Texto e título são iguais nos cinco (é o que o V11–V15 já eram: mesma copy, imagem diferente).
+Conjunto AGENDA agora com 5 anúncios, igual ao INTERESSE — comparação limpa.
+
+**Mecanismo novo:** o `thumbnail_url` do Windsor (fbcdn, recorte 1024×1024) serve como
+`image_url` no `update_ad_creative`. Não precisou de Drive.
