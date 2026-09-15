@@ -625,6 +625,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - arquitetura + "projeto de arquitetura" + Barra ✔ (15/09 14h — **186 resultados, mas o termo puxa imobiliária**: 20 dos 25 primeiros são corretor e lançamento. 2 aproveitáveis de arquitetura, 1 Trilha A. Regra nova: em arquitetura, usar "arquiteta"/"escritório de arquitetura" em vez de "projeto")
 - energia solar + Campo Grande RJ ✔ (15/09 15h — **2 resultados**: SunVolts já catalogada e uma imobiliária de Minas. Solar não anuncia por bairro; a varredura de solar é estadual, já feita em 08/09)
 - academia + musculação + Niterói ✔ (15/09 16h — **52 resultados, 9 aproveitáveis, 4 Trilha A**. Niterói é o bairro mais rico do nicho; a rede Fábrica tem 3 páginas e todas erram)
+- odontologia + Madureira ✔ (15/09 17h — "implante dentário Madureira" deu **zero**; "dentista Madureira RJ" deu 8, 5 aproveitáveis, 3 Trilha A. Regra: em bairro raso, termo de PROFISSÃO funciona onde o de PROCEDIMENTO não acha nada)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2547,3 +2548,25 @@ Fora: A.R Academia (vaga de emprego), ITC Vertebral e Instituto Trata (clínica,
 > quatro unidades da Fábrica em Niterói anunciam separadas e cada uma com um erro diferente
 > no título: uma repete "Fale conosco", duas estão sem título e uma mostra "instagram.com".
 > Quem cuida do anúncio de vocês? Dá pra padronizar e gastar menos. Quer ver como?
+
+
+---
+
+## Achados de 15/09, 17h — odontologia + Madureira
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Cadu Crevelario • Madureira - RJ** — **Trilha A** | **sem título**, subiu hoje | `351863688011695` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1735352334210541) |
+| **Dr.Marcelo Duarte** — **Trilha A** | título é **o próprio nome**, sem oferta, há dois meses | `980307261838192` | 17/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1957824878260036) |
+| **Dentista Michelle & Equipe** — **Trilha A** | **sem título** | `1398513620467375` | 05/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2938106873206558) |
+| **Centro de Saúde Costa Lima** | **sem título** | `109523875102752` | 03/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=873263165602920) |
+| **Rede Odonto Madureira** | "Não deixe para depois" **duas vezes** no título | `508676572903620` | 13/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2402889143573174) |
+
+Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é odontologia, veio pelo bairro).
+
+**Abordagem para o Dr. Cadu (subiu hoje, dá pra corrigir antes de gastar):**
+
+> Oi, Dr. Cadu. Aqui é o Pablo, do Rio — não sou paciente. Vi que o senhor subiu um anúncio
+> hoje na Biblioteca do Facebook e ele está **sem título**. É o campo mais lido, e o único
+> onde cabe "Madureira" e o procedimento. Como acabou de entrar no ar, dá pra corrigir
+> antes de gastar. Quer que eu mande dois títulos prontos?
