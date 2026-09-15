@@ -3,3 +3,4 @@ requests>=2.32
 anthropic>=1.0
 python-dotenv>=1.0
 gunicorn>=22.0
+google-genai>=1.0

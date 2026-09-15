@@ -4,7 +4,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flask import Flask, request, abort
-import whatsapp, buffer, memory, llm
+import whatsapp, buffer, memory
+# Cérebro: Gemini (grátis) se houver GEMINI_API_KEY; senão Claude.
+if os.environ.get("GEMINI_API_KEY"):
+    import llm_gemini as llm
+else:
+    import llm
 
 app = Flask(__name__)
 VERIFY = os.environ["WA_VERIFY_TOKEN"]
