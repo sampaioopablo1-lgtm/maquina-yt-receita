@@ -621,6 +621,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - pet shop + banho e tosa + Niterói ✔ (15/09 10h — 5 resultados, 4 aproveitáveis, nenhum Trilha A. Anúncios muito antigos: um de 2024)
 - escola de idiomas + curso de inglês + Niterói ✔ (15/09 11h — 19 resultados, 4 aproveitáveis, 1 Trilha A. Niterói é o único bairro onde o nicho anuncia; Tijuca deu zero em 14/09)
 - fisioterapia + Méier ✔ (15/09 12h — 8 resultados, 4 aproveitáveis, 2 Trilha A. Nicho continua raso, mas o que anuncia erra)
+- veterinária + clínica veterinária + Barra ✔ (15/09 13h — 7 resultados, 3 aproveitáveis, 1 Trilha A. Nicho raso na Barra como nos outros bairros)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2472,3 +2473,23 @@ Fora: Dr. Dayan Siebra (influenciador nacional), Fisioterapia e Estética Méier
 > Oi, Alex. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio está no ar **desde abril
 > do ano passado sem título**. Dezessete meses pagando pra mostrar a foto sem dizer o que é
 > nem onde fica. É o campo mais lido do anúncio. Quer que eu mande dois títulos prontos?
+
+
+---
+
+## Achados de 15/09, 13h — veterinária + Barra da Tijuca
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Hug - Qualidade de Vida Animal** | **3 anúncios com o título igual ao nome** ("Hug Veterinária"), há **12 meses** | `401995120265385` | 03/09/2025 | [anúncio](https://www.facebook.com/ads/library/?id=627082823805658) |
+| **flaviaclare** — **Trilha A** (veterinária) | título é **o arroba seguido de cinco campos vazios** ("flaviaclare \| \| \| \| \|") | `105235465067568` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3452566114926871) |
+| **Clinica Veterinaria Xatô** | **sem título**, subiu dia 13 | `487910281359381` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1768821860974896) |
+
+Fora: Clincardio (curso), Esfera Condominial (evento, veio pelo termo).
+
+**Abordagem para a Flávia (o defeito é visual):**
+
+> Oi, Flávia. Aqui é o Pablo, do Rio — não sou cliente. Vi seu anúncio na Biblioteca do
+> Facebook e o título saiu como "flaviaclare" seguido de cinco espaços em branco. É o que
+> acontece quando o campo fica vazio na hora de subir. Quem vê não sabe o que você faz nem
+> onde. Quer que eu mande um título pronto pra trocar?
