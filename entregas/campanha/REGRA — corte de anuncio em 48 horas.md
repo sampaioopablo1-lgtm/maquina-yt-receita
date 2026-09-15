@@ -166,7 +166,7 @@ anúncio novo para abrir escada.
 
 | Anúncio (ID) | Conjunto | Entrou por | Rodada atual | Variável desta rodada | Começou em | Impressões da rodada | Métrica base | Métrica atual | Situação |
 |---|---|---|---|---|---|---|---|---|---|
-| *(nenhuma escada aberta até agora)* | | | | | | | | | |
+| *(nenhuma escada aberta — última medição 15/09 09h13: nenhum anúncio bateu A1–A4, nenhum conjunto bateu C1–C3)* | | | | | | | | | |
 
 **Como preencher:**
 - **Métrica base** = o valor que o anúncio tinha quando entrou na escada (ou o da rodada anterior,
@@ -273,3 +273,12 @@ entrega na manhã de 13/09.
 
 **Erros de entrega: `[]`.** A limpeza de 12/09 segurou — a conta continua sem erro crônico,
 então o próximo erro de verdade vai aparecer sozinho.
+
+
+### Medição de 15/09, 09h13 (últimos 7 dias, anúncios ativos com 48h+)
+- **V15** (120247409549130766): 1.979 impressões, CTR 1,52%, **6 leads a R$ 8,40** — melhor anúncio da conta, referência da regra A4.
+- **V11** (120247409468960766): 522 impressões, CTR 1,53%, 0 lead, R$ 13,52 — não bate A1 (menos de 1.000 impressões) nem A2/A3. Vigiar: se chegar a 1.000 sem lead e CTR cair abaixo de 0,50%, abre escada.
+- **V13** (120247409490290766): 99 impressões, 1 lead a R$ 3,20.
+- Demais V11–V15 duplicados: menos de 300 impressões cada, sem volume para julgar.
+- **AGENDA (5 anúncios, criados 14/09 22h)**: menos de 48h de vida, fora da análise. Observação: o conjunto mostra R$ 1,41 gastos hoje mas os anúncios ainda reportam 0 impressões — atraso de atribuição, conferir amanhã.
+- Nenhuma regra A ou C bateu. Nada aberto, nada pausado.
