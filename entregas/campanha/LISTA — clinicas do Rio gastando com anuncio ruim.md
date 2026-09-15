@@ -623,6 +623,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - fisioterapia + Méier ✔ (15/09 12h — 8 resultados, 4 aproveitáveis, 2 Trilha A. Nicho continua raso, mas o que anuncia erra)
 - veterinária + clínica veterinária + Barra ✔ (15/09 13h — 7 resultados, 3 aproveitáveis, 1 Trilha A. Nicho raso na Barra como nos outros bairros)
 - arquitetura + "projeto de arquitetura" + Barra ✔ (15/09 14h — **186 resultados, mas o termo puxa imobiliária**: 20 dos 25 primeiros são corretor e lançamento. 2 aproveitáveis de arquitetura, 1 Trilha A. Regra nova: em arquitetura, usar "arquiteta"/"escritório de arquitetura" em vez de "projeto")
+- energia solar + Campo Grande RJ ✔ (15/09 15h — **2 resultados**: SunVolts já catalogada e uma imobiliária de Minas. Solar não anuncia por bairro; a varredura de solar é estadual, já feita em 08/09)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
