@@ -617,6 +617,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Méier ✔ (15/09 06h — 7 resultados, 3 aproveitáveis, os 3 Trilha A. Todos com link no lugar do título. Bairro raso, mas rende dono-no-nome)
 - tatuagem + Barra da Tijuca ✔ (15/09 07h — 28 resultados, 6 novos aproveitáveis, 3 Trilha A; Giovana, Josi e rphbernardino já vieram na varredura de Tijuca. **Nicho tatuagem: 5 bairros varridos, 25 nomes, 15 Trilha A — falta só Campo Grande/Madureira**)
 - tatuagem + Campo Grande RJ ✔ (15/09 08h — 26 resultados, 6 aproveitáveis, 4 Trilha A. **Nicho tatuagem fechado nos 6 bairros: 31 nomes, 19 Trilha A.** Falta só Madureira, provavelmente raso)
+- tatuagem + Madureira ✔ (15/09 09h — **1 resultado**, título funcional. Bairro esgotado. **Nicho tatuagem concluído: 7 bairros, 31 nomes, 19 Trilha A**)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
