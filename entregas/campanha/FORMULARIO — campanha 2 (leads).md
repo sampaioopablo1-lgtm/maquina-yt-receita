@@ -132,21 +132,21 @@ mais Campanha 1, não mexer nas perguntas.
 
 ## 4. Versão simples — decidida pelo Pablo em 15/09/2026
 
-Mesmo contexto, linguagem de dono de negócio, sem termo técnico. A pergunta aberta
+Mesmo contexto, linguagem de dono de negócio, curta e direta (frases finais do Pablo). A pergunta aberta
 saiu; entrou a de investimento (o que o Pablo quer validar antes da reunião).
 
-1. **Quanto seu negócio fatura por mês, mais ou menos?**
+1. **Quanto entra por mês no seu negócio?**
    - Ainda não abri
    - Até R$ 10 mil
    - De R$ 10 a 30 mil
    - De R$ 30 a 100 mil
    - Mais de R$ 100 mil
-2. **Hoje, quem faz seus anúncios?**
+2. **Quem cuida dos seus anúncios hoje?**
    - Ninguém, não anuncio
    - Eu mesmo
    - Alguém que eu pago
    - Minha equipe
-3. **Quanto você está disposto a investir na divulgação e crescimento do seu negócio por mês?**
+3. **Quanto você toparia investir em anúncios por mês pra crescer?**
    - Nada por enquanto
    - Até R$ 500
    - De R$ 500 a R$ 1.500
