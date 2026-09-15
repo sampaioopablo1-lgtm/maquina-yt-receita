@@ -616,6 +616,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Copacabana ✔ (15/09 05h — 12 resultados, 4 aproveitáveis, 2 Trilha A. Bairro mais raso que Niterói e Tijuca no nicho; **nicho tatuagem fecha os três bairros da Zona Sul/Niterói, faltam Méier, Barra e Campo Grande**)
 - tatuagem + Méier ✔ (15/09 06h — 7 resultados, 3 aproveitáveis, os 3 Trilha A. Todos com link no lugar do título. Bairro raso, mas rende dono-no-nome)
 - tatuagem + Barra da Tijuca ✔ (15/09 07h — 28 resultados, 6 novos aproveitáveis, 3 Trilha A; Giovana, Josi e rphbernardino já vieram na varredura de Tijuca. **Nicho tatuagem: 5 bairros varridos, 25 nomes, 15 Trilha A — falta só Campo Grande/Madureira**)
+- tatuagem + Campo Grande RJ ✔ (15/09 08h — 26 resultados, 6 aproveitáveis, 4 Trilha A. **Nicho tatuagem fechado nos 6 bairros: 31 nomes, 19 Trilha A.** Falta só Madureira, provavelmente raso)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2381,3 +2382,27 @@ Fora: Curso De Tatuagem & Piercing (3 anúncios, curso), Corpo Bueno (estética,
 > estão no ar **desde janeiro sem título nenhum**. Oito meses pagando pra mostrar a foto
 > sem dizer o que é nem onde fica. É o campo mais lido do anúncio e está vazio. Quer que
 > eu mande dois títulos prontos pra testar?
+
+
+---
+
+## Achados de 15/09, 08h — tatuagem + Campo Grande RJ
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Thiago Santos** — **Trilha A** | **15 anúncios idênticos**, todos "Clique para solicitar seu orçamento", subidos no mesmo minuto. Quinze anúncios disputando entre si | `305974750243712` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1798672464497348) |
+| **tctattooarte** — **Trilha A** | **sem título há vinte meses** (desde janeiro de 2025) — o mais antigo de toda a lista | `104008182641473` | 18/01/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1786141522199748) |
+| **studiopatriciaariston** — **Trilha A** | "Converse conosco" **seis vezes** no título, em dois anúncios, há quatro meses | `990227547518081` | 18/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1708733893904387) |
+| **Leonardo Xavier** — **Trilha A** | **sem título** | `374335423318150` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1405417918156517) |
+| **Studio Zero** | **dois anúncios sem título**, subidos ontem | `416665981838572` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1548395307045129) |
+| **Studio Iracema Vieira** | título é **o nome da página**, sem oferta | `100308201702733` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1120762230303496) |
+
+Fora: Rubi Campo Grande (loja), giselevieira_estetica (estética geral). Thierry Tattoo e Thiago Santos têm CTA funcional; o problema do Thiago é a quantidade.
+
+**Abordagem para o Thiago (o número quinze é o argumento):**
+
+> Oi, Thiago. Aqui é o Pablo, do Rio — não sou cliente. Vi na Biblioteca do Facebook que
+> você subiu **quinze anúncios iguais** no mesmo dia, todos com "Clique para solicitar seu
+> orçamento". Eles estão competindo entre si no leilão e o Facebook não consegue aprender
+> qual funciona. Com dois ou três bem diferentes você gasta menos e recebe mais. Quer que
+> eu mostre como dividiria?
