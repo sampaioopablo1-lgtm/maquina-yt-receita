@@ -417,3 +417,24 @@ Essas duas eu continuo fazendo daqui e entrego pro Clint: a lista já cruzada, c
 
 A mesma coisa de sempre, agora com mais peso: **o Clint segue sem autorização neste chat.**
 Sem ela não vejo os 20 leads, não configuro o agente, não subo a lista.
+
+---
+
+# Redrive (redrive.com.br) — avaliada em 14/09/2026
+
+Pablo perguntou "como a Redrive?". Site bloqueado pra leitura direta; o que segue vem de busca.
+
+**O que ela vende:** disparo em massa por WhatsApp + extração de seguidores de perfis do Instagram
+convertidos em números de WhatsApp + "robôs" de envio + Maestro (assistente de IA no atendimento)
++ analisador de mensagem. Planos sob demonstração; API própria em todos os planos.
+
+**Como ela conecta:** QR Code. A prova está no próprio centro de ajuda dela — vídeos
+"Como aquecer números para WhatsApp" e "Como resolver banimentos de WhatsApp", e um post no blog
+"Como resolver banimentos sem prejudicar as vendas". Ferramenta na API oficial não precisa
+ensinar a aquecer chip nem a lidar com banimento.
+
+**Veredito:** é exatamente a família descartada — multi-chip, aquecimento, disparo frio por QR.
+Com dois agravantes: (1) raspar seguidores do Instagram viola os termos do Instagram e não tem
+base na LGPD; (2) o "resolver banimento" no material de ajuda diz o que o cliente vai viver.
+
+Não entra. A resposta de ponta a ponta continua sendo o Clint, na oficial.
