@@ -612,6 +612,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - harmonização facial + Botafogo ✔ (15/09 01h — 36 resultados, mas 13 são Clinic Cursos e 4 Espaço Facial, fora do ICP; Vênus Belle já catalogada. **2 novos: Dra. Victória Castelan (Trilha A) e Centro de Beleza Botafogo**)
 - óculos de grau + Copacabana ✔ (15/09 02h — **só 2 resultados**: Copacabana Eyewear, já catalogada, e Chilli Beans do Shopping Copacabana, franquia com título "instagram.com", fora do ICP. Ótica em Copacabana está esgotada)
 - tatuagem + Tijuca RJ ✔ (15/09 03h — **20 resultados, 6 aproveitáveis, 4 Trilha A**. Nicho novo e rico em dono-no-nome; título vazio é o defeito padrão. Puxa Barra da Tijuca junto)
+- tatuagem + Niterói ✔ (15/09 04h — **53 resultados, 6 aproveitáveis, 5 Trilha A**. Confirma o nicho: tatuador anuncia sozinho e erra no título. Elleva Salon e delicata são curso, fora)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2278,3 +2279,35 @@ Fora do ICP: Curso De Tatuagem & Piercing (vende curso). Guilherme - Tatuador, r
 > Instagram photos and videos", **três vezes seguidas**. É o que acontece quando cola o link
 > do perfil e não troca o texto. Está no ar desde ontem, dá pra corrigir antes de gastar
 > mais. Quer que eu te mande o título que eu colocaria?
+
+
+---
+
+## Achados de 15/09, 04h — tatuagem + Niterói (segunda varredura do nicho)
+
+Niterói rende mais que Tijuca no nicho: 53 anúncios ativos. Cinco dos seis aproveitáveis têm o dono no nome.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **lucastattoo667** — **Trilha A** | o título dos **três anúncios é "api.whatsapp.com"** — colou o link do WhatsApp e o Facebook usou o endereço como título | `108888615226851` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4299614300337217) |
+| **Zana Portugal** — **Trilha A** (micropigmentação) | **erro de digitação no título, em dois anúncios diferentes**: "Recurpere sua autoestima" e "Recuere sua autoestima". Errou duas vezes a mesma palavra | `104148925260711` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1162422026107571) |
+| **Sabrina Maia - Tattoer** — **Trilha A** | **três anúncios sem título** | `2199095003678192` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1044854701850239) |
+| **Wedison Barbosa Tatuagem Profissional** — **Trilha A** | dois anúncios idênticos, "Converse conosco", subidos ontem | `101867239468057` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1419432526992081) |
+| **keli.delicata.pmu** — **Trilha A** (micropigmentação) | **sem título** | `106871268594008` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1831961564460486) |
+| **Ripper Tattoo Studio** | dois anúncios idênticos, "Converse conosco" | `381875022463907` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1087072573969280) |
+
+Fora do ICP: Elleva Salon (8 anúncios, vende curso de laser), delicata.pmu.academy (curso). Jessica Almeida Clinic Beauty tem título vazio mas é estética geral, já coberta em outro nicho. Leo LEAD Tattoo tem título funcional.
+
+**Abordagem para o Lucas (o defeito é o mais fácil de mostrar do lote):**
+
+> Oi, Lucas. Aqui é o Pablo, do Rio — não sou cliente. Vi seus três anúncios na Biblioteca
+> do Facebook e o título deles está saindo **"api.whatsapp.com"**. É o que acontece quando
+> cola o link do zap no campo errado. Quem vê no feed não entende o que é. Está no ar desde
+> a semana passada. Quer que eu te mande o título certo pra trocar?
+
+**Abordagem para a Zana (o erro se repete, então não foi distração):**
+
+> Oi, Zana. Aqui é o Pablo, do Rio — não sou cliente. Reparei que dois dos seus anúncios
+> estão com o título "Recurpere sua autoestima" e "Recuere sua autoestima". A palavra é
+> "recupere". Como saiu errado nos dois, deve ter copiado de um pro outro. É rápido de
+> arrumar e faz diferença em quem clica. Quer ajuda com o texto inteiro?
