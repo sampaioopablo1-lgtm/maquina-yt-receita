@@ -193,6 +193,37 @@ PARADAS = {
     # Ja esta no ar desde 20/08 (yrWVyqQtw00 e OKsJgwEsYFs), conferido no banco
     # antes de aceitar a entrada. Video no ar nao se reescreve.
     "labtreinamento-004":     ("portao", "narracao do SHORT sem acento portugues (1,6% contra 4,3% das specs pt que acentuam); ja no ar"),
+    # As onze abaixo entraram de uma vez em 08/09/2026, e nenhuma delas mudou
+    # uma linha para isso. O que mudou foi o portao: depois do setiap-level-014
+    # (01/09) o `_falhas_baratas` passou a exigir MARGEM para o desvio da voz,
+    # e nao so capitulo acima do piso de 60 s. O modelo erra ate 4,9% nos dois
+    # sentidos, entao capitulo previsto em 61-64 s pode sair abaixo de 60 no
+    # render e sumir da lista — que e exatamente o que aconteceu la.
+    #
+    # Uma regra nova aplicada ao acervo reprova o acervo: e o esperado, e o
+    # lugar disso e aqui. As onze estao TODAS no ar, conferido no banco antes
+    # de aceitar a entrada — duas linhas com youtube_id (longo e short) para
+    # cada uma. Video no ar nao se reescreve, e o orquestrador ja as descarta
+    # por terem youtube_id, entao nada produzivel para por causa desta lista.
+    #
+    # O que a lista compra e o inverso de esconder: quando o proximo pacote de
+    # qualquer um destes canais for escrito, o portao vai cobrar a margem, e o
+    # motivo de cada antecessor esta escrito aqui.
+    "agla-level-008":         ("portao", "capitulo 'फ़र्क़ कहाँ जाता है' previsto em 63,7 s, sem margem para o desvio de 4,9% da voz; ja no ar"),
+    "epomeno-epipedo-008":    ("portao", "capitulo 'Η ημερομηνία: δύο Οκτωβρίου' previsto em 64,0 s, sem margem; ja no ar"),
+    "epomeno-epipedo-010":    ("portao", "capitulo 'Το τεκμήριο δεν ρωτάει τι έβγαλες' previsto em 63,9 s, sem margem; ja no ar"),
+    "game-money-lab-008":     ("portao", "dois capitulos previstos em 64,0 s e sem margem; ja no ar"),
+    "labtreinamento-005":     ("portao", "capitulo 'As duas datas do calendário' previsto em 63,7 s, sem margem; ja no ar"),
+    # Esta e do portao de ortografia, nao do de margem — o mesmo que pegou o
+    # labtreinamento-004 acima, e pela mesma razao: o short e o formato que
+    # recebe distribuicao nesta frota, e acento errado muda a pronuncia do TTS
+    # sem que nenhum outro portao veja.
+    "nivel-do-jogo-003":      ("portao", "narracao do SHORT sem acento portugues (1,9% contra 4,2% das specs pt do canal que acentuam); ja no ar"),
+    "nivel-do-jogo-008":      ("portao", "capitulo 'Os dois lados da conta' previsto em 63,6 s, sem margem; ja no ar"),
+    "nivel-do-jogo-009":      ("portao", "cinco capitulos entre 61,0 e 64,0 s previstos, sem margem; ja no ar"),
+    "resep-naik-level-009":   ("portao", "capitulo 'Dari satu porsi ke sebulan' previsto em 63,1 s, sem margem; ja no ar"),
+    "setiap-level-012":       ("portao", "capitulo 'Untuk siapa masuk akal' previsto em 61,7 s, sem margem; ja no ar"),
+    "seviye-seviye-008":      ("portao", "capitulo 'İki rakam ne demek' previsto em 63,4 s, sem margem; ja no ar"),
 }
 
 
