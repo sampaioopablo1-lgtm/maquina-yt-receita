@@ -2,8 +2,9 @@
 
 *Criada em 09/09/2026. Vale para qualquer campanha da conta 1695865631502778.*
 *Coluna "onde a conta está" atualizada em 14/09/2026 — medida nos 2 conjuntos ativos.*
-*Em 14/09/2026 o Pablo trocou o corte direto de anúncio por uma **escada de 4 tentativas** —
-ver a seção "A escada de tentativas". Pausar anúncio virou o último degrau, não o primeiro.*
+*Em 14/09/2026 o Pablo trocou o corte direto por uma escada de 4 tentativas. **Em 15/09/2026 ele
+trocou de novo: a escada saiu, entrou a REGRA V3 — anúncio que não performa em 48h ganha criativo
+novo (imagem/copy) com base nos dados. Ver a seção "REGRA V3".** A escada fica só como histórico.*
 
 ## Por que 48 horas e não 24, nem 7 dias
 
@@ -139,6 +140,58 @@ esse tempo um anúncio ruim continua gastando.
 É uma troca deliberada: **gasta-se mais tempo para não jogar fora criativo que só precisava de
 um título melhor.** Vale a pena quando o criativo é caro de produzir, que é o caso aqui. Fica
 registrado para que a escolha seja lembrada como escolha, não sofrida como lentidão.
+
+
+## REGRA V3 — troca de criativo em 48h (decisão do Pablo em 15/09/2026, 20h)
+
+*Substitui a escada de 4 rodadas de 14/09 no nível anúncio. Pablo: "no prazo de 48 horas o
+anúncio não performar, mudar o criativo, imagem, copy, com base nos dados, contexto, objetivo da
+agência".* Regras C1–C3 (conjunto) e as travas continuam iguais.
+
+### Quando um anúncio "não performou" (tempo E volume, como sempre)
+
+| # | Condição (≥ 48h no ar) | Leitura |
+|---|---|---|
+| T1 | ≥ 300 impressões **e** 0 lead | entrega sem converter |
+| T2 | gasto ≥ 2× o CPL do melhor anúncio do conjunto (melhor com ≥ 3 leads) **e** 0 lead | já custou dois leads e não trouxe nenhum |
+| T3 | ≥ 2 leads **e** CPL > 2× o do melhor anúncio | converte caro |
+| T4 | ≥ 300 impressões **e** CTR < 0,80% | ninguém clica |
+
+Menos de 300 impressões em 48h **não é veredito** — é falta de entrega. Anúncio assim não é
+trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso ao Pablo.
+
+### O que fazer (uma troca por anúncio, sem escada)
+
+1. **Ler o vencedor do conjunto** (mais leads, menor CPL): a imagem dele e a copy dele são a base.
+2. **Criar anúncio NOVO** no mesmo conjunto (nunca editar o antigo por cima):
+   - se o anúncio ruim tinha a **mesma copy** do vencedor → o problema é a imagem → novo = imagem
+     do vencedor + **copy nova** (ângulo diferente do BRIEFING: objeção "já impulsionei",
+     indicação, agenda vazia, "quem faz seus anúncios hoje");
+   - se tinha **imagem igual** e copy diferente → novo = copy do vencedor + **imagem nova**
+     (das 5 imagens já hospedadas no Meta, a que ainda não rodou nesse conjunto; se todas rodaram,
+     gerar imagem nova e avisar o Pablo);
+   - se era **tudo diferente** do vencedor → novo = imagem do vencedor + copy nova.
+3. **Como criar:** Windsor `create_ad` com `{"creative":{"creative_id":"<criativo do vencedor>"}}`
+   (carrega o formulário), depois Windsor `update_ad_creative` (headline, message,
+   `degrees_of_freedom_spec: {}`, e `image_url` quando for imagem). Se o criativo do vencedor for
+   SHARE sem `link_data` (erro "no editable media sub-spec"), apontar o anúncio pro criativo já
+   editado de outro conjunto com Windsor `update_ad` `{"creative":{"creative_id":...}}`. Ativar
+   pelo MCP `ads_activate_entity`. Nome: `V<n> — <o que mudou>`.
+4. **Pausar o antigo** só se ele bateu T1/T2/T4 (0 lead) e o conjunto continua com ≥ 2 ativos.
+   Renomear `ZZ TROCADO 48H — <nome>`. Anúncio T3 (converte caro) **fica no ar** até o novo ter
+   48h e 300 impressões; aí compara e pausa o pior.
+5. **Registrar** na tabela "Trocas feitas" abaixo: data, anúncio antigo, número que motivou,
+   anúncio novo, o que mudou. O anúncio novo só pode ser julgado depois de 48h + 300 impressões.
+6. **Copy sempre no BRIEFING:** agência que escreve, publica e acompanha; dono só atende; para quem
+   já fatura; sem "90 dias", sem preço, sem promessa em reais; formulário de 3 perguntas.
+
+### Trocas feitas
+
+| Data | Antigo (ID) | Conjunto | Motivo | Novo (ID) | O que mudou |
+|---|---|---|---|---|---|
+| 15/09 20h | V11 `120247409468960766` | INTERESSE | T1: 523 imp, 0 lead, R$13,54 em 72h (V15: 6 leads a R$8,41) | V16 `120247453147450766` | imagem do V15 + copy "Impulsionou e não deu em nada?" |
+| 15/09 20h | — (adicionado) | INTERESSE | teste de 2ª copy junto | V17 `120247453147890766` | imagem do V15 + copy "Pare de depender de indicação" |
+| 15/09 20h | — (adicionado) | CNAE RJ | conjunto com 0 lead em 7d, só copy antiga no ar | V16 `120247453176830766` | mesmo criativo do V16 INTERESSE |
 
 ## As travas — o que a regra NUNCA faz
 

@@ -1254,3 +1254,19 @@ não.** Citação em workflow não é prova de existência.
 
 ## 15/09 — ORDEM DO PABLO: NÃO ativar a campanha de WhatsApp
 - Campanha 120247444342350766 / conjunto 120247444367510766 / anúncios V15, V11, V12 ficam PAUSADOS. Nenhuma rotina liga isso. Só o Pablo, por escrito.
+
+## 15/09, 20h — Pablo liberou o Windsor de vez, e o criativo SHARE não se edita
+
+**AUTORIZAÇÃO DO PABLO (15/09, por escrito):** "Permitir sempre que o claude use execute action
+do windsor.ai nas campanhas da meta". Ou seja: create_ad, update_ad, update_ad_creative,
+pause/enable via Windsor não precisam mais de confirmação. As travas de orçamento continuam
+(set_*_budget nunca sem ele dizer sim).
+
+**Mecanismo:** `update_ad_creative` do Windsor só edita criativo que tem `link_data`. O criativo
+`2597866720713871` (V15 do CNAE) é SHARE puro → erro "no editable media sub-spec". Saída que
+funcionou: `update_ad` apontando o anúncio pro criativo já editado do outro conjunto
+(`1711349300613523`), porque o formulário `2412763482587375` é o mesmo nos dois conjuntos.
+
+**Decisão do Pablo (15/09):** a escada de 4 rodadas morreu. Regra nova = REGRA V3 no arquivo
+REGRA: 48h sem performar → anúncio novo com imagem/copy trocada com base no vencedor. Rotina
+`trig_019GPkkiL4VkohC3uCyoaBGK` atualizada.

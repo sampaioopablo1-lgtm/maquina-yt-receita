@@ -576,3 +576,15 @@ Reuniões de diagnóstico encontradas na agenda principal (todas com Meet, criad
 | 16/09 19h | Emiliano | carlosemilianocarlossilva@… | próxima |
 
 **6 pessoas distintas, 7 eventos.** Pablo contou 5 (provavelmente sem Decoratta, ou sem a remarcação da Jessica). Funil 7 dias refeito: 24 leads → 6 reuniões = **25% · ~R$ 27,50 por reunião**.
+
+### 15/09, 20h — REGRA V3 e primeira troca de criativo
+
+Pablo mudou a regra: sem escada, anúncio que não performa em 48h ganha criativo novo. Dado que
+motivou: os 5 anúncios têm a **mesma copy** e só a imagem muda; o Meta concentrou tudo no V15
+(1.980 imp, 6 leads, R$8,41) e o V11 do INTERESSE gastou R$13,54 em 523 impressões sem lead.
+Conclusão: imagem do V15 é a vencedora, e a copy nunca foi testada.
+
+Feito: V11 INTERESSE pausado (`ZZ TROCADO 48H — V11`). Entraram **V16** (copy "Impulsionou e não
+deu em nada? Não era pra dar.") e **V17** (copy "Pare de depender de indicação") no INTERESSE, e
+**V16** no CNAE RJ, os três com a imagem do V15. Julgamento a partir de 17/09 20h, com 300 imp.
+Formulário: o mesmo `2412763482587375` (a versão nova de 3 perguntas ainda é manual do Pablo).
