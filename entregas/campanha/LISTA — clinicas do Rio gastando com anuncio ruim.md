@@ -615,6 +615,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Niterói ✔ (15/09 04h — **53 resultados, 6 aproveitáveis, 5 Trilha A**. Confirma o nicho: tatuador anuncia sozinho e erra no título. Elleva Salon e delicata são curso, fora)
 - tatuagem + Copacabana ✔ (15/09 05h — 12 resultados, 4 aproveitáveis, 2 Trilha A. Bairro mais raso que Niterói e Tijuca no nicho; **nicho tatuagem fecha os três bairros da Zona Sul/Niterói, faltam Méier, Barra e Campo Grande**)
 - tatuagem + Méier ✔ (15/09 06h — 7 resultados, 3 aproveitáveis, os 3 Trilha A. Todos com link no lugar do título. Bairro raso, mas rende dono-no-nome)
+- tatuagem + Barra da Tijuca ✔ (15/09 07h — 28 resultados, 6 novos aproveitáveis, 3 Trilha A; Giovana, Josi e rphbernardino já vieram na varredura de Tijuca. **Nicho tatuagem: 5 bairros varridos, 25 nomes, 15 Trilha A — falta só Campo Grande/Madureira**)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2357,3 +2358,26 @@ Fora: babi.sobrancelhas (título bom), Alma de Cor Esmalteria (evento pontual).
 > com o título "instagram.com". Quatro meses pagando pra mostrar o nome de um site no lugar
 > do seu trabalho. É só trocar o texto do título, leva dois minutos. Quer que eu te mande
 > uma sugestão?
+
+
+---
+
+## Achados de 15/09, 07h — tatuagem + Barra da Tijuca
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Rabiska Tattoo Barra da Tijuca** | **6 anúncios ativos: 3 sem título e 3 "Converse conosco"**, há dois meses | `1217114964818594` | 15/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4334706030113149) |
+| **Base Tattoo Rio** | **dois anúncios sem título há oito meses** — o mais antigo do nicho | `157639171728861` | 22/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=834651329577783) |
+| **Estúdio de Tatuagem e Ateliê de Artes - Camila Sol Castello** — **Trilha A** | **sem título há seis meses** | `295403277295190` | 22/03/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2687800238268717) |
+| **Designer Nádia Lima** — **Trilha A** (micropigmentação) | **dois anúncios sem título há quatro meses** | `523680867716999` | 28/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1020673187171312) |
+| **maiatattoo.art** — **Trilha A** | **sem título** | `102231035203183` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=926045573420552) |
+| **Brazilian Ink Tattoo** | **sem título** | `346717395499079` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1592962352558404) |
+
+Fora: Curso De Tatuagem & Piercing (3 anúncios, curso), Corpo Bueno (estética, título bom), Instituto Karen Stephane (curso). Tatyana Santos, Letícia Sousa, Jade e rodbarreto têm título funcional.
+
+**Abordagem para a Base Tattoo (oito meses é o argumento):**
+
+> Oi, pessoal da Base. Aqui é o Pablo, do Rio — não sou cliente. Os dois anúncios de vocês
+> estão no ar **desde janeiro sem título nenhum**. Oito meses pagando pra mostrar a foto
+> sem dizer o que é nem onde fica. É o campo mais lido do anúncio e está vazio. Quer que
+> eu mande dois títulos prontos pra testar?
