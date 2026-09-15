@@ -438,3 +438,22 @@ Com dois agravantes: (1) raspar seguidores do Instagram viola os termos do Insta
 base na LGPD; (2) o "resolver banimento" no material de ajuda diz o que o cliente vai viver.
 
 Não entra. A resposta de ponta a ponta continua sendo o Clint, na oficial.
+
+---
+
+# Syncro (syncro.chat) — avaliada em 15/09/2026
+
+Pablo perguntou "ajudaria no processo?".
+
+**O que é:** CRM com WhatsApp, agente de IA com memória e base de conhecimento, pipeline,
+calendário integrado, sequências multicanal, lead scoring, formulários, construtor de chatbot.
+Conecta por **API oficial (templates HSM) ou QR Code** — os dois.
+
+**Preço:** em dólar. US$ 59,90/mês na entrada, US$ 179,90 no Scale. Em reais, ~R$ 330 a 1.000/mês.
+
+**Veredito:** é um concorrente do Clint. Faz a mesma coisa que o Clint já faz na oficial —
+disparo, IA, agenda, CRM — e custa 3 a 10 vezes mais que o agente do Clint (R$ 99).
+Trocar de CRM no meio do processo custa migração, histórico e curva de aprendizado, pra ganhar nada.
+
+**Onde ela entra:** só como plano B, se o agente de IA do Clint se mostrar fraco na prática.
+Aí a Syncro é candidata, pela IA com memória e base de conhecimento. Antes disso, não.
