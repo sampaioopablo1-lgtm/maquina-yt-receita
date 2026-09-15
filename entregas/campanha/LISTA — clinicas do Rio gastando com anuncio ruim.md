@@ -614,6 +614,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Tijuca RJ ✔ (15/09 03h — **20 resultados, 6 aproveitáveis, 4 Trilha A**. Nicho novo e rico em dono-no-nome; título vazio é o defeito padrão. Puxa Barra da Tijuca junto)
 - tatuagem + Niterói ✔ (15/09 04h — **53 resultados, 6 aproveitáveis, 5 Trilha A**. Confirma o nicho: tatuador anuncia sozinho e erra no título. Elleva Salon e delicata são curso, fora)
 - tatuagem + Copacabana ✔ (15/09 05h — 12 resultados, 4 aproveitáveis, 2 Trilha A. Bairro mais raso que Niterói e Tijuca no nicho; **nicho tatuagem fecha os três bairros da Zona Sul/Niterói, faltam Méier, Barra e Campo Grande**)
+- tatuagem + Méier ✔ (15/09 06h — 7 resultados, 3 aproveitáveis, os 3 Trilha A. Todos com link no lugar do título. Bairro raso, mas rende dono-no-nome)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2334,3 +2335,25 @@ Fora: Fabiane Almeida (anuncia em euro, não é do Rio), Adriana Caturani e Est�
 > repetido **dez vezes seguidas**. O outro, a mesma coisa com "realismo que impressiona".
 > Deve ter sido o campo de título que aceitou colar várias vezes. Seu trabalho é bom, o
 > anúncio não está mostrando isso. Quer ver como eu deixaria?
+
+
+---
+
+## Achados de 15/09, 06h — tatuagem + Méier
+
+Padrão do bairro: **os três colaram um link no campo de título.** Nenhum anúncio com título vazio, nenhum repetido — defeito diferente dos outros bairros.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **ink__maiconn** — **Trilha A** | título é **"instagram.com"**, no ar há **quatro meses** | `846449008549146` | 29/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=978440574917414) |
+| **rafaelazoth** — **Trilha A** | título é **"api.whatsapp.com"** | `111666681890778` | 31/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1051639657472677) |
+| **Bodypiercerstefany** — **Trilha A** (piercing) | título é **"instagram.com"** | `105412437682373` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2406846583179850) |
+
+Fora: babi.sobrancelhas (título bom), Alma de Cor Esmalteria (evento pontual).
+
+**Abordagem para o Maicon (quatro meses é o argumento):**
+
+> Oi, Maicon. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio está no ar **desde maio**
+> com o título "instagram.com". Quatro meses pagando pra mostrar o nome de um site no lugar
+> do seu trabalho. É só trocar o texto do título, leva dois minutos. Quer que eu te mande
+> uma sugestão?

@@ -552,3 +552,7 @@ Conjunto AGENDA agora com 5 anúncios, igual ao INTERESSE — comparação limpa
 
 **Mecanismo novo:** o `thumbnail_url` do Windsor (fbcdn, recorte 1024×1024) serve como
 `image_url` no `update_ad_creative`. Não precisou de Drive.
+
+### 15/09 — parcial 06h (rotina horária)
+- **1 lead** no LEADS I INTERESSE I FASE 3, custo R$ 2,46 (chegou entre 05h e 06h). AGENDA e CNAE sem lead até agora; gasto total do dia R$ 4,51.
+- Reuniões marcadas hoje: 0. Agenda segue só com Emiliano (16/09 19h).
