@@ -1218,3 +1218,18 @@ alcance é só **o formulário novo** (com o Calendly na tela de conclusão): es
 Depois que existir, o Pablo edita este anúncio e troca o formulário — ou eu copio o criativo de
 um anúncio que ele criar com o formulário novo. Regra que fica: **quando o MCP do Meta barrar por
 permissão, tentar o Windsor antes de devolver a tarefa pro Pablo.**
+
+## Os segredos do GitHub estão VAZIOS (15/09/2026, 23h05)
+
+Rodei o workflow `whatsapp-teste.yml` pra reaproveitar `ANTHROPIC_API_KEY` e `META_ACCESS_TOKEN`
+que os outros workflows já citam. O log mostra as duas variáveis **em branco** (`ANTHROPIC_API_KEY: `
+e `META_ACCESS_TOKEN: `). Ou seja: os workflows `anuncios-meta.yml`, `diario.yml` e os demais
+que dependem delas **nunca rodaram de verdade** — só saíram verdes com aviso, pelo desenho
+"sem chave não é falha". Ninguém percebeu porque verde é verde.
+
+Consequência: não existe token da Meta nem chave da Anthropic em lugar nenhum que eu alcance
+(nem no Cloudflare — o relé nunca foi publicado). O "aproveitar o que já existe" é o app, o usuário
+do sistema e a página; os segredos precisam ser criados pelo Pablo, uma vez, no GitHub.
+
+Regra que fica: **antes de dizer que um segredo existe, ler o log de um job que o imprime vazio ou
+não.** Citação em workflow não é prova de existência.
