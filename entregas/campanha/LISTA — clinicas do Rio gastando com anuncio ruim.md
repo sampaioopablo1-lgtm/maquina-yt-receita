@@ -618,6 +618,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Barra da Tijuca ✔ (15/09 07h — 28 resultados, 6 novos aproveitáveis, 3 Trilha A; Giovana, Josi e rphbernardino já vieram na varredura de Tijuca. **Nicho tatuagem: 5 bairros varridos, 25 nomes, 15 Trilha A — falta só Campo Grande/Madureira**)
 - tatuagem + Campo Grande RJ ✔ (15/09 08h — 26 resultados, 6 aproveitáveis, 4 Trilha A. **Nicho tatuagem fechado nos 6 bairros: 31 nomes, 19 Trilha A.** Falta só Madureira, provavelmente raso)
 - tatuagem + Madureira ✔ (15/09 09h — **1 resultado**, título funcional. Bairro esgotado. **Nicho tatuagem concluído: 7 bairros, 31 nomes, 19 Trilha A**)
+- pet shop + banho e tosa + Niterói ✔ (15/09 10h — 5 resultados, 4 aproveitáveis, nenhum Trilha A. Anúncios muito antigos: um de 2024)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2407,3 +2408,24 @@ Fora: Rubi Campo Grande (loja), giselevieira_estetica (estética geral). Thierry
 > orçamento". Eles estão competindo entre si no leilão e o Facebook não consegue aprender
 > qual funciona. Com dois ou três bem diferentes você gasta menos e recebe mais. Quer que
 > eu mostre como dividiria?
+
+
+---
+
+## Achados de 15/09, 10h — pet shop (banho e tosa) + Niterói
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Bicho D+ Veterinária e Pet Shop** | "Converse conosco" **sete vezes** no título, no ar há **27 meses** (desde junho de 2024) — o anúncio mais antigo de toda a lista | `1255112617929642` | 01/06/2024 | [anúncio](https://www.facebook.com/ads/library/?id=989751759165957) |
+| **Hachiko Pet House** | **sem título há 14 meses** | `334308013671240` | 22/07/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1163421955517403) |
+| **Pets de luxo** | título é **"api.whatsapp.com"** | `102870384994593` | 30/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2250857358995227) |
+| **Fino trato** | **sem título** | `169236819608435` | 13/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1572767520867150) |
+
+Fora: Spin Imóveis (imobiliária, veio pelo termo).
+
+**Abordagem para a Bicho D+ (dois anos é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. O anúncio de vocês está no ar **desde
+> junho de 2024**, mais de dois anos, com "Converse conosco" repetido sete vezes no título.
+> Dois anos pagando pra mostrar isso. Deve ter sido esquecido ligado. Quer que eu mostre o
+> que eu colocaria no lugar, ou pelo menos confira se ainda vale a pena estar no ar?
