@@ -619,6 +619,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Campo Grande RJ ✔ (15/09 08h — 26 resultados, 6 aproveitáveis, 4 Trilha A. **Nicho tatuagem fechado nos 6 bairros: 31 nomes, 19 Trilha A.** Falta só Madureira, provavelmente raso)
 - tatuagem + Madureira ✔ (15/09 09h — **1 resultado**, título funcional. Bairro esgotado. **Nicho tatuagem concluído: 7 bairros, 31 nomes, 19 Trilha A**)
 - pet shop + banho e tosa + Niterói ✔ (15/09 10h — 5 resultados, 4 aproveitáveis, nenhum Trilha A. Anúncios muito antigos: um de 2024)
+- escola de idiomas + curso de inglês + Niterói ✔ (15/09 11h — 19 resultados, 4 aproveitáveis, 1 Trilha A. Niterói é o único bairro onde o nicho anuncia; Tijuca deu zero em 14/09)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2429,3 +2430,24 @@ Fora: Spin Imóveis (imobiliária, veio pelo termo).
 > junho de 2024**, mais de dois anos, com "Converse conosco" repetido sete vezes no título.
 > Dois anos pagando pra mostrar isso. Deve ter sido esquecido ligado. Quer que eu mostre o
 > que eu colocaria no lugar, ou pelo menos confira se ainda vale a pena estar no ar?
+
+
+---
+
+## Achados de 15/09, 11h — escola de idiomas + Niterói
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **American Insight Niterói** | **6 anúncios idênticos** ("Inglês para crescer na carreira e no mundo") há **5 meses** | `875124359008598` | 24/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2759712821080839) |
+| **Gabriel Assunção** — **Trilha A** (professor) | **dois anúncios sem título** | `102432845286242` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1806963704080254) |
+| **Curso Yes! Barreto** | **sem título** | `368340969890495` | 20/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1436998458482510) |
+| **Associação Brasileira de Bolsas** | erro de digitação no título: **"SEJA BE-VINDA"** | `358758378502102` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1101860558944839) |
+
+Fora: Wizard, Wise Up, YES Itaipu, Uninter (redes com marketing central ou título bom). Matheus Calione e Teacher Fabrício têm título funcional.
+
+**Abordagem para a American Insight (cinco meses, seis iguais):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca do Facebook que vocês
+> estão com **seis anúncios idênticos no ar desde abril**, mesma frase, mesma imagem. Eles
+> competem entre si e o Facebook não aprende qual funciona. Com dois ou três diferentes
+> vocês gastam menos e matriculam mais. Quer ver como eu dividiria?
