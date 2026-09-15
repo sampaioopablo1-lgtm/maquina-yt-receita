@@ -556,3 +556,9 @@ Conjunto AGENDA agora com 5 anúncios, igual ao INTERESSE — comparação limpa
 ### 15/09 — parcial 06h (rotina horária)
 - **1 lead** no LEADS I INTERESSE I FASE 3, custo R$ 2,46 (chegou entre 05h e 06h). AGENDA e CNAE sem lead até agora; gasto total do dia R$ 4,51.
 - Reuniões marcadas hoje: 0. Agenda segue só com Emiliano (16/09 19h).
+
+### 15/09 — correção do Pablo (07h40): 5 reuniões marcadas no total
+- Pablo informou que **5 reuniões** foram marcadas até agora, não 1. Só o Emiliano (16/09 19h) está no Google Calendar; as outras 4 estão fora da agenda (origem a confirmar).
+- Funil 7 dias (09–15/09): ~R$ 165 gastos · 24 leads (~R$ 6,90) · 5 reuniões · **~21% lead→reunião · ~R$ 33 por reunião**.
+- Regra: enquanto as reuniões não caírem na agenda do Google, a contagem oficial é a do Pablo, não a da agenda.
+- Campanha WhatsApp (BR, IA agenda): campanha 120247444342350766 + conjunto 120247444367510766 (R$10/dia, pausados) + anúncios V15/V11/V12 criados pausados. V13/V14 não criados (Pablo interrompeu). Aguardando ok e conferência do tamanho do público (1–2 mi).
