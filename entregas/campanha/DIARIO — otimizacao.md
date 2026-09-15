@@ -453,3 +453,62 @@ abrir a conversa reposicionando antes de apresentar o preço.
 - Os 5 conjuntos de nicho ainda não gastaram nada. Se continuarem em R$ 0 depois de
   48h com anúncio ativo e segmentação corrigida, a causa é o CBO estrangulando, e a
   decisão vira do Pablo: subir a verba ou separar os nichos em campanha própria.
+
+---
+
+# 14/09/2026 — rodada das 21h33
+
+## Meta Ads (só os dois conjuntos ativos; os outros o Pablo pausou em 12/09)
+
+| Conjunto | Dia | Gasto | Impressões | Freq. | Cliques | Leads | Custo/lead |
+|---|---|---|---|---|---|---|---|
+| INTERESSE | 13/09 (fechado) | R$ 38,21 | 1.418 | 1,26 | 25 | **5** | **R$ 7,64** |
+| CNAE RJ | 13/09 (fechado) | R$ 3,58 | 164 | 1,13 | 3 | 0 | — |
+| INTERESSE | 14/09 (até 21h33) | R$ 27,27 | 1.078 | 1,20 | 15 | **1** | **R$ 27,27** |
+| CNAE RJ | 14/09 (até 21h33) | R$ 4,62 | 182 | 1,18 | 4 | 0 | — |
+
+**Alarme de custo por lead:** 13/09 fechou em R$ 7,64 — dentro do teto de R$ 8. **14/09 vai fechar
+acima** (R$ 27 com 1 lead, e são 21h33). É o **primeiro dia acima do teto**. A regra diz: dois dias
+seguidos = reverter as mudanças de 12/09. Amanhã (15/09) decide. Não mexi em nada — mexer em
+criativo é da escada.
+
+**CBO:** 86% da verba no INTERESSE (R$ 27 contra R$ 4,62). O CNAE está com ~R$ 4/dia há dois dias
+e zero lead — não é desempenho ruim, é falta de verba pra aprender. Separar orçamento continua
+decisão do Pablo.
+
+Frequência 1,2 — longe do teto de 3. Nenhum conjunto com 0 impressão. Nada de erro de entrega.
+
+## Prospect Halo — medição NÃO EXISTE hoje
+
+Chave `ph_live` é placeholder (mecanismo confirmado em 14/09). Não chamei. Nenhum número de
+descoberta, convite, aceite ou resposta foi registrado — **não é zero, é ausência de dado**.
+
+## Clint — ponto cego
+
+Sem autorização. Os 5 leads de 13/09 e o 1 de 14/09 entraram e eu não sei quem são nem em
+que etapa estão. Pablo mandou uma chave `clint_live_` pelo chat hoje; testei o caminho e a rede
+desta sessão bloqueia `api.clint.digital` — registrado em LICOES. A saída é reconectar o conector.
+
+## Agenda (Google Calendar, lido)
+
+15/09: Academia 06h · Trabalho Agência 07h30-17h30 · Jazz News + Treinamento 09h · Almoço 12h
+16/09: Academia 06h · Trabalho Agência 07h30-17h30 · Almoço 12h · **Reunião de diagnóstico com
+Emiliano, 19h-19h40**
+
+**Primeira reunião de diagnóstico que aparece na agenda desde o começo do diário.** Não sei se
+o Emiliano veio do formulário (Clint cego) — mas é a primeira prova de que o meio do funil
+existe.
+
+## Três pontos que o Pablo ainda não está enxergando
+
+1. **O dia de hoje vai fechar com custo por lead acima do teto pela primeira vez.** Um dia só não
+   diz nada — 13/09 foi o melhor dia da semana (5 leads a R$ 7,64). Mas se amanhã repetir, a
+   regra manda reverter 12/09, e isso conflita com a escada que começa amanhã às 09h18. Minha
+   leitura: **a escada prevalece** — reverter tudo de uma vez é justamente o que a escada existe
+   pra evitar. Se 15/09 fechar acima de R$ 8, eu aviso e trato como entrada na escada, não como
+   reversão. Se o Pablo discordar, é só dizer.
+2. **A reunião com o Emiliano é o único dado do meio do funil que eu tenho.** Vale o Pablo me
+   dizer depois de onde ele veio (formulário? indicação? Instagram?) — é a primeira vez que dá pra
+   ligar uma ponta na outra.
+3. **6 leads em 2 dias e nenhuma outra reunião marcada além do Emiliano.** Mesma conclusão de
+   11/09: o gargalo não é o anúncio, é o depois. E o depois só fica visível com o Clint ligado.
