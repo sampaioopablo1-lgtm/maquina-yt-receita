@@ -127,3 +127,33 @@ e é assim que ele foi desenhado. Se o custo por lead subir e o custo por reuni�
 cair, está funcionando. Se as duas coisas subirem, o problema não é o formulário:
 é o público de retargeting, que ainda está pequeno demais. Aí a resposta é rodar
 mais Campanha 1, não mexer nas perguntas.
+
+---
+
+## 4. Versão simples — decidida pelo Pablo em 15/09/2026
+
+Mesmo contexto, linguagem de dono de negócio, sem termo técnico. A pergunta aberta
+saiu; entrou a de investimento (o que o Pablo quer validar antes da reunião).
+
+1. **Quanto seu negócio fatura por mês, mais ou menos?**
+   - Ainda não abri
+   - Até R$ 10 mil
+   - De R$ 10 a 30 mil
+   - De R$ 30 a 100 mil
+   - Mais de R$ 100 mil
+2. **Hoje, quem faz seus anúncios?**
+   - Ninguém, não anuncio
+   - Eu mesmo
+   - Alguém que eu pago
+   - Minha equipe
+3. **Quanto você está disposto a investir na divulgação e crescimento do seu negócio por mês?**
+   - Nada por enquanto
+   - Até R$ 500
+   - De R$ 500 a R$ 1.500
+   - De R$ 1.500 a R$ 5.000
+   - Mais de R$ 5.000
+
+Corte prático: "Nada" e "Até R$ 500" não viram reunião, vão para a base de nutrição.
+A partir de R$ 500 agenda. Aplicar no Gerenciador é manual do Pablo (nenhum MCP edita
+formulário instantâneo). Trocar o formulário troca o id: anotar o novo id aqui e no
+`ANUNCIOS — spec dos conjuntos.json` quando for criado.
