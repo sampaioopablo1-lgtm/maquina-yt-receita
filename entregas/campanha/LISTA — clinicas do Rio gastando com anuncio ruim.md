@@ -620,6 +620,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - tatuagem + Madureira ✔ (15/09 09h — **1 resultado**, título funcional. Bairro esgotado. **Nicho tatuagem concluído: 7 bairros, 31 nomes, 19 Trilha A**)
 - pet shop + banho e tosa + Niterói ✔ (15/09 10h — 5 resultados, 4 aproveitáveis, nenhum Trilha A. Anúncios muito antigos: um de 2024)
 - escola de idiomas + curso de inglês + Niterói ✔ (15/09 11h — 19 resultados, 4 aproveitáveis, 1 Trilha A. Niterói é o único bairro onde o nicho anuncia; Tijuca deu zero em 14/09)
+- fisioterapia + Méier ✔ (15/09 12h — 8 resultados, 4 aproveitáveis, 2 Trilha A. Nicho continua raso, mas o que anuncia erra)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2451,3 +2452,23 @@ Fora: Wizard, Wise Up, YES Itaipu, Uninter (redes com marketing central ou títu
 > estão com **seis anúncios idênticos no ar desde abril**, mesma frase, mesma imagem. Eles
 > competem entre si e o Facebook não aprende qual funciona. Com dois ou três diferentes
 > vocês gastam menos e matriculam mais. Quer ver como eu dividiria?
+
+
+---
+
+## Achados de 15/09, 12h — fisioterapia + Méier
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Quiropraxia - Acupuntura - Alex Calderaro** — **Trilha A** | **sem título há 17 meses** (desde abril de 2025) | `2443997432292291` | 15/04/2025 | [anúncio](https://www.facebook.com/ads/library/?id=645960888285833) |
+| **fisio.noslensantana** — **Trilha A** | um dos dois anúncios **sem título** (o outro está bom) | `111408330592493` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=965658589914099) |
+| **Clínica de Fisioterapia e Acupuntura R M P na Taquara** | **sem título** | `1776024749316014` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1436763491635005) |
+| **Metamorfose Clínica de Reabilitação Infantil** | título é **"Instagram"** há cinco meses | `957073850826740` | 08/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1522622005955599) |
+
+Fora: Dr. Dayan Siebra (influenciador nacional), Fisioterapia e Estética Méier e Viver bem737 (título funcional).
+
+**Abordagem para o Alex (17 meses é o argumento):**
+
+> Oi, Alex. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio está no ar **desde abril
+> do ano passado sem título**. Dezessete meses pagando pra mostrar a foto sem dizer o que é
+> nem onde fica. É o campo mais lido do anúncio. Quer que eu mande dois títulos prontos?
