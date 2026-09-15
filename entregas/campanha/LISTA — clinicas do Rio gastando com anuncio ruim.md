@@ -622,6 +622,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - escola de idiomas + curso de inglês + Niterói ✔ (15/09 11h — 19 resultados, 4 aproveitáveis, 1 Trilha A. Niterói é o único bairro onde o nicho anuncia; Tijuca deu zero em 14/09)
 - fisioterapia + Méier ✔ (15/09 12h — 8 resultados, 4 aproveitáveis, 2 Trilha A. Nicho continua raso, mas o que anuncia erra)
 - veterinária + clínica veterinária + Barra ✔ (15/09 13h — 7 resultados, 3 aproveitáveis, 1 Trilha A. Nicho raso na Barra como nos outros bairros)
+- arquitetura + "projeto de arquitetura" + Barra ✔ (15/09 14h — **186 resultados, mas o termo puxa imobiliária**: 20 dos 25 primeiros são corretor e lançamento. 2 aproveitáveis de arquitetura, 1 Trilha A. Regra nova: em arquitetura, usar "arquiteta"/"escritório de arquitetura" em vez de "projeto")
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2493,3 +2494,23 @@ Fora: Clincardio (curso), Esfera Condominial (evento, veio pelo termo).
 > Facebook e o título saiu como "flaviaclare" seguido de cinco espaços em branco. É o que
 > acontece quando o campo fica vazio na hora de subir. Quem vê não sabe o que você faz nem
 > onde. Quer que eu mande um título pronto pra trocar?
+
+
+---
+
+## Achados de 15/09, 14h — arquitetura + Barra da Tijuca
+
+O termo "projeto de arquitetura" puxou o nicho imobiliário quase inteiro. Do que era arquitetura de verdade:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Lucio Nocito Arquitetura e Design de Interiores** — **Trilha A** | **sem título** | `323370017811740` | 12/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1585093416494052) |
+| **Sentineli & Sobral** | **sem título**, subiu hoje | `293421540812776` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1252822293650885) |
+
+Fora: tudo que é imobiliária (Ym Imóveis com 8 iguais, Alfaiataria com "Fale conosco" ×10, corretores) já é nicho coberto em outra varredura; Doutor Persiana (persianas, 2 sem título, fora da lista de nichos). Um resultado de móveis planejados apareceu e foi descartado sem registro, por decisão do Pablo.
+
+**Abordagem para o Lucio:**
+
+> Oi, Lucio. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio na Biblioteca do
+> Facebook está **sem título**. Pra arquitetura, que vende projeto pela imagem, o título é
+> onde entra o bairro e o tipo de obra. Quer que eu mande dois pra testar?
