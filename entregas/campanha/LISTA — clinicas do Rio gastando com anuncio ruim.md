@@ -613,6 +613,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - óculos de grau + Copacabana ✔ (15/09 02h — **só 2 resultados**: Copacabana Eyewear, já catalogada, e Chilli Beans do Shopping Copacabana, franquia com título "instagram.com", fora do ICP. Ótica em Copacabana está esgotada)
 - tatuagem + Tijuca RJ ✔ (15/09 03h — **20 resultados, 6 aproveitáveis, 4 Trilha A**. Nicho novo e rico em dono-no-nome; título vazio é o defeito padrão. Puxa Barra da Tijuca junto)
 - tatuagem + Niterói ✔ (15/09 04h — **53 resultados, 6 aproveitáveis, 5 Trilha A**. Confirma o nicho: tatuador anuncia sozinho e erra no título. Elleva Salon e delicata são curso, fora)
+- tatuagem + Copacabana ✔ (15/09 05h — 12 resultados, 4 aproveitáveis, 2 Trilha A. Bairro mais raso que Niterói e Tijuca no nicho; **nicho tatuagem fecha os três bairros da Zona Sul/Niterói, faltam Méier, Barra e Campo Grande**)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2311,3 +2312,25 @@ Fora do ICP: Elleva Salon (8 anúncios, vende curso de laser), delicata.pmu.acad
 > estão com o título "Recurpere sua autoestima" e "Recuere sua autoestima". A palavra é
 > "recupere". Como saiu errado nos dois, deve ter copiado de um pro outro. É rápido de
 > arrumar e faz diferença em quem clica. Quer ajuda com o texto inteiro?
+
+
+---
+
+## Achados de 15/09, 05h — tatuagem + Copacabana
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **danielarteink** — **Trilha A** | dois anúncios com **a mesma frase repetida DEZ vezes no título** ("13 ANOS DE EXPERIÊNCIA TRANSFORMANDO PELE EM ARTE" ×10 e "REALISMO QUE IMPRESSIONA" ×10). É o recorde de repetição da lista inteira | `109469031372151` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1987846078583138) |
+| **Rota da Tattoo** | **três anúncios sem título** há um mês | `817579691439733` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1443758160925959) |
+| **Arpô Tattoo** | título em inglês, **"Walk-ins welcome"**, para público do Rio, no ar há **sete meses** | `380689051802271` | 03/02/2026 | [anúncio](https://www.facebook.com/ads/library/?id=930910673076317) |
+| **Carol Alena** — **Trilha A** | **sem título**, subiu dia 13 | `100415471449286` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=27920996814266257) |
+
+Fora: Fabiane Almeida (anuncia em euro, não é do Rio), Adriana Caturani e Estética avançada (título funcional, estética geral).
+
+**Abordagem para o Daniel (o número dez é o argumento):**
+
+> Oi, Daniel. Aqui é o Pablo, do Rio — não sou cliente. Vi seus anúncios na Biblioteca do
+> Facebook e o título de um deles é "13 anos de experiência transformando pele em arte"
+> repetido **dez vezes seguidas**. O outro, a mesma coisa com "realismo que impressiona".
+> Deve ter sido o campo de título que aceitou colar várias vezes. Seu trabalho é bom, o
+> anúncio não está mostrando isso. Quer ver como eu deixaria?
