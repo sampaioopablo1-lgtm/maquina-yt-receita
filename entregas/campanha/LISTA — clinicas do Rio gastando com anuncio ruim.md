@@ -624,6 +624,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - veterinária + clínica veterinária + Barra ✔ (15/09 13h — 7 resultados, 3 aproveitáveis, 1 Trilha A. Nicho raso na Barra como nos outros bairros)
 - arquitetura + "projeto de arquitetura" + Barra ✔ (15/09 14h — **186 resultados, mas o termo puxa imobiliária**: 20 dos 25 primeiros são corretor e lançamento. 2 aproveitáveis de arquitetura, 1 Trilha A. Regra nova: em arquitetura, usar "arquiteta"/"escritório de arquitetura" em vez de "projeto")
 - energia solar + Campo Grande RJ ✔ (15/09 15h — **2 resultados**: SunVolts já catalogada e uma imobiliária de Minas. Solar não anuncia por bairro; a varredura de solar é estadual, já feita em 08/09)
+- academia + musculação + Niterói ✔ (15/09 16h — **52 resultados, 9 aproveitáveis, 4 Trilha A**. Niterói é o bairro mais rico do nicho; a rede Fábrica tem 3 páginas e todas erram)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2515,3 +2516,34 @@ Fora: tudo que é imobiliária (Ym Imóveis com 8 iguais, Alfaiataria com "Fale 
 > Oi, Lucio. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio na Biblioteca do
 > Facebook está **sem título**. Pra arquitetura, que vende projeto pela imagem, o título é
 > onde entra o bairro e o tipo de obra. Quer que eu mande dois pra testar?
+
+
+---
+
+## Achados de 15/09, 16h — academia + Niterói
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **leosousanutricao** — **Trilha A** (nutricionista) | título é o código **`{{product.name}}`**, com as chavinhas, há um mês | `1276694938860269` | 10/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2195501894633488) |
+| **Exercit Esportes** | nome da loja **seis vezes** no título de um anúncio, e o outro **sem título** | `130448062092951` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1077600837986483) |
+| **Fábrica Premium Niterói** | 3 anúncios "Fale conosco" idênticos; a irmã **Fábrica Premium Região Oceânica** e a **Fábrica CT Niterói** estão sem título; a **Fábrica CT Barreto** tem "instagram.com" no título. Quatro páginas da mesma rede, quatro defeitos | `928131783723869` | 27/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4586046825011078) |
+| **alexandrechristino_trainer** — **Trilha A** | **sem título**, subiu ontem | `111828893903048` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4647831222203074) |
+| **claudiogomes_massoterapeuta** — **Trilha A** | título é **"instagram.com"** | `1329845486875136` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2532051677285446) |
+| **Jimmy Sereno** — **Trilha A** (personal) | **sem título** | `102829081154262` | 12/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2223509608218107) |
+| **Studio In Prime** | **dois anúncios sem título** | `744824058708593` | 21/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1043747931773494) |
+
+Fora: A.R Academia (vaga de emprego), ITC Vertebral e Instituto Trata (clínica, título funcional), Nitfit e Tio Sam (título funcional).
+
+**Abordagem para o Leo (o código no título é o mais fácil de mostrar):**
+
+> Oi, Leo. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio na Biblioteca do Facebook
+> está com o título "{{product.name}}", com as chavinhas mesmo. É um código de catálogo
+> que nunca foi trocado pelo nome do serviço. Está assim há um mês. Dá pra corrigir em dois
+> minutos, quer que eu mande o texto?
+
+**Abordagem para a rede Fábrica (quatro páginas, quatro erros diferentes):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca do Facebook que as
+> quatro unidades da Fábrica em Niterói anunciam separadas e cada uma com um erro diferente
+> no título: uma repete "Fale conosco", duas estão sem título e uma mostra "instagram.com".
+> Quem cuida do anúncio de vocês? Dá pra padronizar e gastar menos. Quer ver como?
