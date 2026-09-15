@@ -512,3 +512,12 @@ existe.
    ligar uma ponta na outra.
 3. **6 leads em 2 dias e nenhuma outra reunião marcada além do Emiliano.** Mesma conclusão de
    11/09: o gargalo não é o anúncio, é o depois. E o depois só fica visível com o Clint ligado.
+
+### Adendo 14/09, 22h50 — conjunto AGENDA no ar
+
+Pablo duplicou o formulário com o Calendly na tela de conclusão e trocou no anúncio
+`V15 — AGENDA` (criativo novo `1460236355969045`). Liguei o conjunto `LEADS I INTERESSE I AGENDA`
+(`120247437338430766`, via Windsor) e o anúncio `120247437341690766` (via MCP, a pedido do Pablo:
+"use o MCP" pra ativar). Anúncio em análise (`IN_PROCESS`). Métrica do teste: **custo por reunião
+marcada no Calendly**, lida pela agenda. Entra na CBO — a verba se divide sozinha com o INTERESSE.
+Prazo do teste: 2 semanas, até 28/09.
