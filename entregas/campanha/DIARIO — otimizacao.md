@@ -607,3 +607,15 @@ Feito (Windsor + MCP, liberados por escrito):
 
 Pendente do Pablo: o roteiro do agente de WhatsApp (`maquina-whatsapp*/prompt.md`) e o BRIEFING
 ainda dizem "dono de negócio no Rio". Ajuste quando decidir se atende fora do RJ.
+
+### 15/09, 20h45 — todos os conjuntos passaram a Brasil inteiro (pedido do Pablo)
+
+"ajuste localização de todos os conjuntos para BR". Feito via Windsor `update_adset`:
+- `120247356527930766` → **LEADS I INTERESSE BR I FASE 3** (era RJ), Brasil, mesmo público.
+- `120247437338430766` → **LEADS I INTERESSE BR I AGENDA** (era RJ), Brasil, mesmo público.
+- `120247356496360766` → **LEADS I PERSONALIZADO CNAE BR I FASE 3** (era RJ), Brasil, mesmas 16
+  listas/semelhantes; saíram as exclusões de Itaboraí e Magé.
+- O conjunto criado às 20h30 (`120247453399730766`, Brasil sem RJ) ficou idêntico ao INTERESSE
+  → pausado e renomeado `ZZ DUPLICADO — …`. Os anúncios V15/V16/V17 já estão no INTERESSE.
+Atenção da rotina: trocar geolocalização reinicia o aprendizado dos conjuntos; os números de
+16/09 são de conjunto "novo". Orçamento: nenhum mexido.
