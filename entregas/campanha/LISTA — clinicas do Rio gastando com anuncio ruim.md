@@ -2570,3 +2570,10 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 > hoje na Biblioteca do Facebook e ele está **sem título**. É o campo mais lido, e o único
 > onde cabe "Madureira" e o procedimento. Como acabou de entrar no ar, dá pra corrigir
 > antes de gastar. Quer que eu mande dois títulos prontos?
+
+## Varredura 15/09 18h — advocacia Méier ("advogado Méier", 8 anúncios)
+- Combo varrido: advocacia × Méier.
+- **Meier Advogados** — 6 anúncios idênticos "Acidente no Trabalho?" rodando desde ago/26 (≈1 mês), sem variação de copy nem título. Trilha A (gasta, mas repete o mesmo criativo).
+- **advogado.carlosjunior** — 1 anúncio ativo desde mar/26 (≈6 meses), sem título. Trilha A.
+- **Dra. Fatima Matos Advogada** — 1 anúncio "Converse com um advogado especialista!" desde mar/26 (≈6 meses), genérico, sem nicho. Trilha A.
+- Nicho advocacia Méier: 3 nomes, 3 Trilha A.
