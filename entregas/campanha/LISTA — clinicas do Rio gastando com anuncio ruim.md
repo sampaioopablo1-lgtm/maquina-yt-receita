@@ -504,7 +504,33 @@ especialidade, cinco palavras. Contraste direto pro Dr. Oswaldo, que é o mesmo 
 Tijucas/SC* (Santa Catarina). *Use Visio* tem título duplicado mas está no Itanhangá com CTA
 de exame — fraco demais pra abrir conversa.
 
+## Achados de 15/09, 00h — "pet shop Copacabana" (nicho novo: pet shop)
+
+**10 resultados, 3 aproveitáveis, nenhum Trilha A.** Bairro rende pouco no nicho, mas os três que
+aparecem erram de jeitos diferentes — inclusive um defeito novo: **título comprido demais**.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **pet_shop_copacabana** | 2 anúncios: um **sem título**, outro com **"instagram.com"** no título | `1121481771038043` | 09/09/2026 | [sem título](https://www.facebook.com/ads/library/?id=1117806390903177) · [instagram.com](https://www.facebook.com/ads/library/?id=939128815922094) |
+| **Pet Shop Essencial — Casa de Rações** | 2 anúncios **sem título**, um há 2 meses | `106126027924810` | 09/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1612987213787333) |
+| **Apaixonados Copacabana** (veterinária + pet shop) | **4 anúncios com o mesmo título de 150 caracteres** — emoji, 5 serviços, horário e endereço, tudo no campo que o feed corta em 40 | `693008997223394` | 06/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1052866054340953) |
+
+**Abordagem para o Apaixonados Copacabana (o defeito é "quer dizer tudo" — a conversa é sobre escolher):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Vi os quatro anúncios de vocês na
+> Biblioteca do Facebook. O título tem 150 caracteres: emoji, consultas, vacinas, castração,
+> cirurgias, exames, horário e endereço. O feed mostra uns 40 e corta o resto — então quem
+> vê lê "🐾 Veterinária e Pet Shop | Consultas, Vac…" e para aí. Quatro anúncios são a chance
+> de quatro títulos curtos, um por serviço. Quer que eu te mande os quatro?
+
+**Descartados de propósito:** *Imóveis Leonardo Almeida* (imobiliária, Praia do Morro) e *avenidaieq*
+(igreja) — vieram de carona no termo "Copacabana".
+
+**Lição do nicho:** pet shop de bairro quase não anuncia; quem anuncia é a clínica veterinária que
+tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vários bairros).
+
 ## Combinações já varridas (não repetir)
+- pet shop + Copacabana ✔ (**10 resultados, 3 aproveitáveis, nenhum Trilha A** — inclui **defeito novo: título de 150 caracteres** no Apaixonados Copacabana, e o "instagram.com" de novo. Pet shop de bairro quase não anuncia; rende mais como "veterinária")
 - escola de idiomas + "Tijuca RJ" ✔ (**zero resultados** — nicho não anuncia com bairro; se voltar, tentar "curso de inglês" + Rio)
 - ótica + "óculos de grau Tijuca" ✔ (**11 resultados, 5 aproveitáveis, 1 Trilha A** — Dr. Oswaldo Frazão com 3 sem título. **5º modo de falha de termo: "Tijuca" puxa "Tijucas/SC"** — reforçar com RJ. Termo de produto funcionou onde "ótica" puxou distribuidor)
 - ótica + Copacabana ✔ (**42 resultados, 27 de UM anunciante** — a Copacabana Eyewear, distribuidora, com 22 anúncios errados: 10 sem título subidos hoje, 6 "Fale conosco" ×10, 6 "api.whatsapp.com". 1 aproveitável, nenhum Trilha A. Termo puxa distribuidor e evento de SP; próxima: "óculos de grau" + bairro)
