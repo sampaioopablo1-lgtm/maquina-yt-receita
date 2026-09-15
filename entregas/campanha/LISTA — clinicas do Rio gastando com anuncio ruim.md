@@ -611,6 +611,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - odontologia + implante + Méier ✔ (**103 resultados, mas 29 dos 30 primeiros sao de UMA clinica** — Inovier, com o mesmo titulo repetido; 2 aproveitaveis)
 - harmonização facial + Botafogo ✔ (15/09 01h — 36 resultados, mas 13 são Clinic Cursos e 4 Espaço Facial, fora do ICP; Vênus Belle já catalogada. **2 novos: Dra. Victória Castelan (Trilha A) e Centro de Beleza Botafogo**)
 - óculos de grau + Copacabana ✔ (15/09 02h — **só 2 resultados**: Copacabana Eyewear, já catalogada, e Chilli Beans do Shopping Copacabana, franquia com título "instagram.com", fora do ICP. Ótica em Copacabana está esgotada)
+- tatuagem + Tijuca RJ ✔ (15/09 03h — **20 resultados, 6 aproveitáveis, 4 Trilha A**. Nicho novo e rico em dono-no-nome; título vazio é o defeito padrão. Puxa Barra da Tijuca junto)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2251,3 +2252,29 @@ Fora do ICP neste lote: Clinic Cursos (13 anúncios, vende curso), Espaço Facia
 > que a senhora está com **cinco anúncios no ar, todos com o mesmo título "Harmonização Facial"**,
 > desde agosto. Eles estão competindo entre si no leilão e nenhum diz o que a pessoa ganha
 > nem onde fica. Dá pra deixar um só, com bairro e procedimento, e gastar menos. Quer ver como?
+
+
+---
+
+## Achados de 15/09, 03h — tatuagem + Tijuca RJ (nicho novo: estúdio de tatuagem)
+
+Primeira varredura do nicho. Tatuador é dono-operador, vende pelo Instagram e pelo WhatsApp, e anuncia sozinho — perfil parecido com harmonização, ticket menor. **Quatro dos seis têm o dono no nome.**
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Giovana Tattoo** — **Trilha A** (@giosousa_ink) | o título é **o nome da aba do Instagram repetido três vezes**: "Giovana Tattoo / Barra da Tijuca RJ (@giosousa_ink) • Instagram photos and videos" ×3. Colou o link e o Facebook puxou o título da página | `107607855419831` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2367663080437332) |
+| **Carlos MagnoTattoo** — **Trilha A** | **dois anúncios sem título**, um desde julho | `257047584793755` | 31/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2522130291568596) |
+| **Josi Bissaro tattoo** — **Trilha A** | **sem título** | `100223415654625` | 05/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1115151037516445) |
+| **rphbernardino** — **Trilha A** | **sem título** | `110513477401761` | 27/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1380643820928268) |
+| **Le Perrout Ink - Tattoo & Art Studio** | **6 anúncios idênticos**, todos "Converse conosco", disputando entre si | `236645640195566` | 13/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2575932256182669) |
+| **nanocapilar_rjtatianeleal** (nanopigmentação, Trilha A) | **dois anúncios sem título há quase cinco meses** | `1093356730524515` | 30/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=804798886037817) |
+
+Fora do ICP: Curso De Tatuagem & Piercing (vende curso). Guilherme - Tatuador, rodbarreto_tattoo, Dimelo Tattoo e sorrymae têm título funcional, não são caso.
+
+**Abordagem para a Giovana (o defeito é visual e ela vai entender na hora):**
+
+> Oi, Giovana. Aqui é o Pablo, do Rio — não sou cliente. Vi seu anúncio na Biblioteca do
+> Facebook e o título saiu assim: "Giovana Tattoo / Barra da Tijuca RJ (@giosousa_ink) •
+> Instagram photos and videos", **três vezes seguidas**. É o que acontece quando cola o link
+> do perfil e não troca o texto. Está no ar desde ontem, dá pra corrigir antes de gastar
+> mais. Quer que eu te mande o título que eu colocaria?
