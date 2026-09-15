@@ -1233,3 +1233,11 @@ do sistema e a página; os segredos precisam ser criados pelo Pablo, uma vez, no
 
 Regra que fica: **antes de dizer que um segredo existe, ler o log de um job que o imprime vazio ou
 não.** Citação em workflow não é prova de existência.
+
+## 15/09 — API pública do AgendouAI não é alcançável daqui (mesmo caso da Clint)
+
+- Pablo gerou chave da API do Agendou (`X-API-Key`, endpoint `https://api.agendou.io/api/public/v1/agendamentos`).
+- Teste único: o proxy desta sessão recusou a conexão com `api.agendou.io` (CONNECT 403, política de saída). Igual ao que aconteceu com `api.clint.digital`.
+- Regra: **domínio novo de ferramenta = testar uma vez antes de planejar integração.** Se der 403 no CONNECT, não insistir.
+- Consequência prática: a fonte de verdade das reuniões marcadas pela IA do Agendou é o **Google Calendar** (o Agendou grava lá). A vigilância horária já lê a agenda, então não precisa da API.
+- A chave não foi gravada em lugar nenhum. Recomendação: revogar e gerar outra só se for usar em outra ferramenta (n8n, Make etc.).
