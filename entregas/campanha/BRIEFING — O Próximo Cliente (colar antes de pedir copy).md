@@ -68,3 +68,6 @@ planejados e marcenaria.
 **4 passam de 40** — AG02 (41), AG09 (42), AG05 (46) e AG03 (47). Essas quatro
 correm risco de cortar no feed, e nenhuma delas foi encurtada antes de subir.
 Encurtar antes de publicar.
+
+**REGRA OBRIGATÓRIA (Pablo, 15/09/2026): NUNCA usar a foto do Pablo nos criativos.** Vale para
+imagem gerada, imagem de banco, thumbnail e vídeo. Nenhuma rotina cria criativo com o rosto dele.

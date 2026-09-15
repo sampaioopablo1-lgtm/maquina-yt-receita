@@ -1270,3 +1270,6 @@ funcionou: `update_ad` apontando o anúncio pro criativo já editado do outro co
 **Decisão do Pablo (15/09):** a escada de 4 rodadas morreu. Regra nova = REGRA V3 no arquivo
 REGRA: 48h sem performar → anúncio novo com imagem/copy trocada com base no vencedor. Rotina
 `trig_019GPkkiL4VkohC3uCyoaBGK` atualizada.
+
+**REGRA OBRIGATÓRIA (Pablo, 15/09, 20h55): não usar a foto do Pablo nos criativos.** Gravada no
+BRIEFING, na REGRA V3 e na rotina de 48h.

@@ -182,7 +182,9 @@ trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso 
    48h e 300 impressões; aí compara e pausa o pior.
 5. **Registrar** na tabela "Trocas feitas" abaixo: data, anúncio antigo, número que motivou,
    anúncio novo, o que mudou. O anúncio novo só pode ser julgado depois de 48h + 300 impressões.
-6. **Copy sempre no BRIEFING:** agência que escreve, publica e acompanha; dono só atende; para quem
+6. **NUNCA usar a foto do Pablo em criativo** (regra obrigatória, Pablo 15/09). Imagem nova = ilustração,
+   cena de negócio ou texto sobre fundo; rosto do Pablo, nunca.
+7. **Copy sempre no BRIEFING:** agência que escreve, publica e acompanha; dono só atende; para quem
    já fatura; sem "90 dias", sem preço, sem promessa em reais; formulário de 3 perguntas.
 
 ### Trocas feitas
