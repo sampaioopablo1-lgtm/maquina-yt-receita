@@ -562,3 +562,17 @@ Conjunto AGENDA agora com 5 anúncios, igual ao INTERESSE — comparação limpa
 - Funil 7 dias (09–15/09): ~R$ 165 gastos · 24 leads (~R$ 6,90) · 5 reuniões · **~21% lead→reunião · ~R$ 33 por reunião**.
 - Regra: enquanto as reuniões não caírem na agenda do Google, a contagem oficial é a do Pablo, não a da agenda.
 - Campanha WhatsApp (BR, IA agenda): campanha 120247444342350766 + conjunto 120247444367510766 (R$10/dia, pausados) + anúncios V15/V11/V12 criados pausados. V13/V14 não criados (Pablo interrompeu). Aguardando ok e conferência do tamanho do público (1–2 mi).
+
+### 15/09 — releitura completa da agenda do Google (setembro)
+Reuniões de diagnóstico encontradas na agenda principal (todas com Meet, criadas pelo Pablo):
+
+| Data | Lead | E-mail | Observação |
+|---|---|---|---|
+| 10/09 18h | Andre | andreoliveirabraga@… | realizada |
+| 11/09 18h → 14/09 18h40 | Jessica Santos (afiliada ML/Shopee) | jssica.jekakuda24@… | remarcada, conta 1 |
+| 12/09 18h20 | Cristiano | cristiano_batista30@… | realizada |
+| 14/09 18h | Neid | neid.alves.carvalho@… | realizada |
+| 14/09 19h20 | Decoratta | planejadosdecoratta@… | **móveis planejados — nicho excluído**, entrou pelo anúncio |
+| 16/09 19h | Emiliano | carlosemilianocarlossilva@… | próxima |
+
+**6 pessoas distintas, 7 eventos.** Pablo contou 5 (provavelmente sem Decoratta, ou sem a remarcação da Jessica). Funil 7 dias refeito: 24 leads → 6 reuniões = **25% · ~R$ 27,50 por reunião**.

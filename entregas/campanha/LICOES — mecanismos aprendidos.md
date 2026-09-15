@@ -1241,3 +1241,8 @@ não.** Citação em workflow não é prova de existência.
 - Regra: **domínio novo de ferramenta = testar uma vez antes de planejar integração.** Se der 403 no CONNECT, não insistir.
 - Consequência prática: a fonte de verdade das reuniões marcadas pela IA do Agendou é o **Google Calendar** (o Agendou grava lá). A vigilância horária já lê a agenda, então não precisa da API.
 - A chave não foi gravada em lugar nenhum. Recomendação: revogar e gerar outra só se for usar em outra ferramenta (n8n, Make etc.).
+
+## 15/09 — a vigilância horária só olhava 3 dias pra frente e perdeu 5 reuniões passadas
+- A rotina lia a agenda "próximos 3 dias". Reuniões marcadas para o mesmo dia ou já realizadas nunca entraram na contagem. O Pablo sabia de 5, eu reportava 1.
+- Regra nova: a contagem de reuniões do teste (até 28/09) lê a agenda **de 09/09 até hoje+3**, filtra título com "diagnóstico" (qualquer caixa), e conta pessoas distintas pelo e-mail do convidado, não eventos.
+- Todas as reuniões foram criadas pelo próprio Pablo na agenda, com Meet. Ou seja: o Calendly/Agendou ainda não marcou nenhuma sozinho; quem marca é ele depois de falar com o lead.
