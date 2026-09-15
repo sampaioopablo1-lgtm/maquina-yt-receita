@@ -1197,3 +1197,15 @@ Os dois caminhos que funcionam:
 
 Regra que fica: **antes de pedir credencial, testar se o destino é alcançável.** Pedir chave pra
 um host bloqueado só expõe a chave.
+
+## Conjunto de lead ads não nasce por aqui: o MCP não enxerga o aceite dos termos (15/09/2026)
+
+Tentei criar `LEADS I INTERESSE I AGENDA` (cópia do INTERESSE, LEAD_GENERATION, formulário)
+e a API devolveu `1815089 — Terms of Service Not Accepted`. Não é que a página não aceitou:
+o próprio erro diz que **a conexão do MCP não tem a permissão `pages_manage_ads`** pra ler o
+aceite, e que "se a página já aceitou, este pedido não pode ser completado via MCP; use o
+Gerenciador". Também não existe ferramenta pra criar/duplicar formulário instantâneo.
+
+Consequência: **qualquer conjunto novo de formulário, e qualquer formulário novo, é o Pablo
+que cria no Gerenciador.** Eu vigio, meço e ajusto depois de criado (pausar, ativar, texto).
+Registrar e não tentar de novo até a conexão ganhar a permissão.
