@@ -1178,3 +1178,22 @@ e o resto fica igual.
 **O caminho oficial e barato está documentado lá:** Click-to-WhatsApp abre janela de **72h com
 todas as mensagens gratuitas**, e ela sobreviveu à mudança de preço de 01/10/2026. A campanha
 `WPP I CONVERSA I FS1` já é isso, e está pausada desde 12/09.
+
+## A chave da Clint não adianta neste ambiente: a rede bloqueia `api.clint.digital` (15/09/2026)
+
+O Pablo mandou uma segunda chave `clint_live_` pelo chat. Antes de usar, testei o caminho:
+o proxy de saída desta sessão **recusa a conexão** com `api.clint.digital` (e com a
+documentação em `clint-api.readme.io` e `ajuda.clint.digital`) — `CONNECT tunnel failed, 403`,
+política da organização. Ou seja, mesmo com chave válida, nenhuma chamada sai daqui.
+
+A chave não foi gravada em arquivo nenhum e não está neste repositório.
+
+Os dois caminhos que funcionam:
+1. **Reconectar o conector Clint no claude.ai** (OAuth). Passa pelo claude.ai, não por este proxy.
+   É o caminho que já funcionava até 10/09.
+2. **Liberar `api.clint.digital` na política de rede do ambiente** (configuração do ambiente do
+   Claude Code na web) e pôr a chave em variável de ambiente `CLINT_API_KEY`. Aí a API REST
+   (contatos, negócios, grupos, origens, tags — plano Elite) fica acessível daqui.
+
+Regra que fica: **antes de pedir credencial, testar se o destino é alcançável.** Pedir chave pra
+um host bloqueado só expõe a chave.
