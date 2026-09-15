@@ -609,6 +609,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
 - odontologia + implante + Tijuca ✔ (**66 resultados** — maior lote do nicho; 6 aproveitáveis, 1 Trilha A. Metade do resultado é Barra da Tijuca, não Tijuca: o termo "Tijuca" puxa os dois bairros e isso precisa ser filtrado na leitura)
 - odontologia + implante + Méier ✔ (**103 resultados, mas 29 dos 30 primeiros sao de UMA clinica** — Inovier, com o mesmo titulo repetido; 2 aproveitaveis)
+- harmonização facial + Botafogo ✔ (15/09 01h — 36 resultados, mas 13 são Clinic Cursos e 4 Espaço Facial, fora do ICP; Vênus Belle já catalogada. **2 novos: Dra. Victória Castelan (Trilha A) e Centro de Beleza Botafogo**)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
@@ -2230,3 +2231,22 @@ erro de ortografia na lista, e é o tipo de coisa que a pessoa conserta na hora 
 > do ano passado**, treze meses, com o seu arroba no título seguido de **dez campos vazios**.
 > Cada um daqueles dez era espaço para um imóvel com bairro, metragem e preço. Quer que eu te
 > mostre o que entra ali?
+
+
+---
+
+## Achados de 15/09, 01h — harmonização facial + Botafogo (varredura da rotina)
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dra. Victória Castelan** — **Trilha A** | **5 anúncios ativos com o mesmo título, "Harmonização Facial"**, e nada mais: nem bairro, nem procedimento, nem chamada. Cinco anúncios disputando o mesmo leilão entre si | `109662460568189` | 15/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1373688794184307) |
+| **Centro de Beleza Botafogo** | o título é só **"📍Botafogo - RJ"** — o endereço no lugar da oferta, há **dois meses** | `143316065525021` | 16/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1307317748149356) |
+
+Fora do ICP neste lote: Clinic Cursos (13 anúncios, vende curso), Espaço Facial Botafogo (franquia, marketing central), Clínica Dra Gizele Cabral (título bom, não é caso).
+
+**Abordagem para a Dra. Victória (dono no nome, Instagram direto):**
+
+> Oi, Dra. Victória. Aqui é o Pablo, do Rio — não sou paciente. Vi na Biblioteca do Facebook
+> que a senhora está com **cinco anúncios no ar, todos com o mesmo título "Harmonização Facial"**,
+> desde agosto. Eles estão competindo entre si no leilão e nenhum diz o que a pessoa ganha
+> nem onde fica. Dá pra deixar um só, com bairro e procedimento, e gastar menos. Quer ver como?
