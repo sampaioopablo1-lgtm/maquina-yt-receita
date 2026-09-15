@@ -3,7 +3,7 @@ import os, hmac, hashlib, threading
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import Flask, request, abort
+from flask import Flask, request, abort, send_from_directory
 import whatsapp, buffer, memory
 # Cérebro: Gemini (grátis) se houver GEMINI_API_KEY; senão Claude.
 if os.environ.get("GEMINI_API_KEY"):
@@ -15,6 +15,11 @@ app = Flask(__name__)
 VERIFY = os.environ["WA_VERIFY_TOKEN"]
 APP_SECRET = os.environ.get("WA_APP_SECRET", "")
 OWNER = os.environ.get("OWNER_WHATSAPP", "")
+
+
+@app.get("/conectar")
+def conectar():
+    return send_from_directory("static", "conectar.html")
 
 
 @app.get("/webhook")
