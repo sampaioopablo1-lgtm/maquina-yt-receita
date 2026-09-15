@@ -588,3 +588,22 @@ Feito: V11 INTERESSE pausado (`ZZ TROCADO 48H — V11`). Entraram **V16** (copy 
 deu em nada? Não era pra dar.") e **V17** (copy "Pare de depender de indicação") no INTERESSE, e
 **V16** no CNAE RJ, os três com a imagem do V15. Julgamento a partir de 17/09 20h, com 300 imp.
 Formulário: o mesmo `2412763482587375` (a versão nova de 3 perguntas ainda é manual do Pablo).
+
+### 15/09, 20h30 — Brasil inteiro, sem "Rio" na copy (pedido do Pablo)
+
+Diagnóstico: o público de interesse do RJ cansou em 6 dias (CTR 3,5% → 1,3%, frequência 1,1 → 1,3,
+CPM parado em ~R$26). Pablo: "Extenda todo Brasil, ajuste a copy, removendo RJ."
+
+Feito (Windsor + MCP, liberados por escrito):
+- Conjunto novo **LEADS I INTERESSE BR (sem RJ) I FASE 3** (`120247453399730766`), na mesma
+  campanha CBO, Brasil menos o estado do RJ (para não brigar com o conjunto atual), 30–50, mesmos
+  interesses/comportamentos/cargos, feed + reels, mobile, ATIVO.
+- Anúncios: V15 BR `120247453400230766` (criativo vencedor), V16 BR `120247453400540766`
+  (copy "Impulsionou e não deu em nada?"), V17 BR `120247453400970766` (copy "Pare de depender de
+  indicação"). Os três ATIVOS.
+- Copy do V16 sem "Rio": "Para quem já tem negócio rodando e já fatura." Criativo novo
+  `1374776639041979`, aplicado no V16 do INTERESSE, do CNAE e do BR. V15 e V17 nunca citaram Rio.
+- Orçamento: nenhum mexido. A CBO reparte entre os 4 conjuntos.
+
+Pendente do Pablo: o roteiro do agente de WhatsApp (`maquina-whatsapp*/prompt.md`) e o BRIEFING
+ainda dizem "dono de negócio no Rio". Ajuste quando decidir se atende fora do RJ.
