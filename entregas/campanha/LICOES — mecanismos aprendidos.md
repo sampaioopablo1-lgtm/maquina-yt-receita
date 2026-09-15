@@ -1246,3 +1246,8 @@ não.** Citação em workflow não é prova de existência.
 - A rotina lia a agenda "próximos 3 dias". Reuniões marcadas para o mesmo dia ou já realizadas nunca entraram na contagem. O Pablo sabia de 5, eu reportava 1.
 - Regra nova: a contagem de reuniões do teste (até 28/09) lê a agenda **de 09/09 até hoje+3**, filtra título com "diagnóstico" (qualquer caixa), e conta pessoas distintas pelo e-mail do convidado, não eventos.
 - Todas as reuniões foram criadas pelo próprio Pablo na agenda, com Meet. Ou seja: o Calendly/Agendou ainda não marcou nenhuma sozinho; quem marca é ele depois de falar com o lead.
+
+## 15/09 — DECISÃO DO PABLO: AgendouAI descartado
+- Motivo: não tem integração nativa com o formulário de leads da Meta (a IA precisa iniciar a conversa a partir do preenchimento, sem clique).
+- Critério da ferramenta nova: Lead Ads nativo + IA inicia no WhatsApp + disparo pra base de 1.500 + até R$ 100/mês. Candidatas: Chatclipy, Umbler Talk (Pablo confirma com elas).
+- Não citar Agendou como solução. Respostas ao Pablo: curtas, sem perguntas investigativas.
