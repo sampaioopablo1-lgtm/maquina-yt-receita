@@ -161,27 +161,49 @@ def garantir(d, pref, i, c, dd, RW, RH, api_key=None):
     saida = f"{d}/{pref}{i:02d}_broll.mp4"
     if _valido(saida, dd):
         return True
-    api_key = api_key or chave()
+    # LINK JA RESOLVIDO NA SPEC: o caminho que faz o broll funcionar no runner.
+    #
+    # O modo de falha medido em 19/08/2026 nao e o download, e a BUSCA: sete de
+    # sete cenas do epomeno-epipedo-004 morreram em `TimeoutError` chamando
+    # api.pexels.com de dentro do runner do GitHub Actions, com a MESMA chave
+    # respondendo do sandbox em 68 ms. Isso e bloqueio de rede contra a faixa de
+    # IP do runner, e retry nao vence bloqueio — as tres tentativas do `buscar`
+    # so gastam 90s por cena antes de cair no fallback.
+    #
+    # Mas api.pexels.com e videos.pexels.com sao hosts DIFERENTES: o primeiro e
+    # a API (autenticada, com cota), o segundo e o CDN dos arquivos. Entao a
+    # busca sai do runner e vira trabalho de quem consegue falar com a API — o
+    # `prebusca_broll.py` grava `broll_url` e `broll_credito` na spec, e aqui o
+    # render so baixa do CDN.
+    #
+    # Sem `broll_url` nada muda: cai no caminho de sempre, que volta a valer
+    # sozinho no dia em que o runner destravar.
+    pronto = (c.get("broll_url") or "").strip()
     q = (c.get("broll_q") or "").strip()
-    if not api_key:
-        ULTIMO_MOTIVO = f"sem chave do Pexels ({ORIGEM_DA_CHAVE})"
-        return False
-    if not q:
-        ULTIMO_MOTIVO = "cena sem broll_q na spec"
-        return False
-    try:
-        url = f"{API}?{urllib.parse.urlencode({'query': q, 'per_page': 8, 'orientation': 'landscape'})}"
-        # O Pexels devolve 403 para o User-Agent padrao do urllib ("Python-
-        # urllib/3.x") — medido em 18/08/2026 no teste de fumaca: o curl com a
-        # MESMA chave passava e o urllib nao. Sem este header a busca falharia
-        # em todo render e o broll cairia no fallback em silencio, que e o
-        # jeito mais caro de descobrir.
-        achado = escolher(buscar(q, api_key), dd)
-        if not achado:
-            ULTIMO_MOTIVO = (f"nenhum candidato para '{q}' (paisagem, "
-                             f">= {dd + 1:.1f}s, >= 1280px)")
+    if pronto:
+        link = pronto
+        credito = c.get("broll_credito") or {"url": pronto}
+    else:
+        api_key = api_key or chave()
+        if not api_key:
+            ULTIMO_MOTIVO = f"sem chave do Pexels ({ORIGEM_DA_CHAVE})"
             return False
-        link, credito = achado
+        if not q:
+            ULTIMO_MOTIVO = "cena sem broll_q nem broll_url na spec"
+            return False
+    try:
+        if not pronto:
+            # O Pexels devolve 403 para o User-Agent padrao do urllib ("Python-
+            # urllib/3.x") — medido em 18/08/2026 no teste de fumaca: o curl com
+            # a MESMA chave passava e o urllib nao. Sem este header a busca
+            # falharia em todo render e o broll cairia no fallback em silencio,
+            # que e o jeito mais caro de descobrir.
+            achado = escolher(buscar(q, api_key), dd)
+            if not achado:
+                ULTIMO_MOTIVO = (f"nenhum candidato para '{q}' (paisagem, "
+                                 f">= {dd + 1:.1f}s, >= 1280px)")
+                return False
+            link, credito = achado
         bruto = f"{d}/{pref}{i:02d}_broll_bruto.mp4"
         req = urllib.request.Request(link, headers={"User-Agent": "curl/8"})
         with urllib.request.urlopen(req, timeout=120, context=_ctx()) as r, \
