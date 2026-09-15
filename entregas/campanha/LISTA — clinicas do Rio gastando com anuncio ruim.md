@@ -2577,3 +2577,11 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **advogado.carlosjunior** — 1 anúncio ativo desde mar/26 (≈6 meses), sem título. Trilha A.
 - **Dra. Fatima Matos Advogada** — 1 anúncio "Converse com um advogado especialista!" desde mar/26 (≈6 meses), genérico, sem nicho. Trilha A.
 - Nicho advocacia Méier: 3 nomes, 3 Trilha A.
+
+## Varredura 15/09 19h — harmonização Campo Grande RJ ("harmonização facial Campo Grande RJ", 4 anúncios)
+- Combo varrido: harmonização × Campo Grande.
+- **Ariel Barradas - Harmonização Facial** — dono no nome, Trilha A. Anúncio desde ago/26, título "Agendar Avaliação" repetido 4x (carrossel sem variação). https://www.facebook.com/ads/library/?id=27825580700426643
+- **enfa_miriansilva** — dona no nome, Trilha A. Desde ago/26, "Agende sua avaliação" repetido 3x, sem promessa. https://www.facebook.com/ads/library/?id=1109464114741765
+- **Odonto Aliados** — título é "instagram.com" (link colado no título). Desde ago/26. https://www.facebook.com/ads/library/?id=1385434276867309
+- **Espaço Facial - Campo Grande - RJ** — anúncio de 09/09, título "✅ AGENDE AGORA!" genérico. Novo demais, observar.
+- Nicho harmonização Campo Grande: 4 nomes, 2 Trilha A.
