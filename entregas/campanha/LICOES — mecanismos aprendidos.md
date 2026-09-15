@@ -1209,3 +1209,12 @@ Gerenciador". Também não existe ferramenta pra criar/duplicar formulário inst
 Consequência: **qualquer conjunto novo de formulário, e qualquer formulário novo, é o Pablo
 que cria no Gerenciador.** Eu vigio, meço e ajusto depois de criado (pausar, ativar, texto).
 Registrar e não tentar de novo até a conexão ganhar a permissão.
+
+**Adendo (15/09, 22h40):** o Pablo lembrou do Windsor — e é o mesmo caminho de 11/09. `create_adset`
+do Windsor criou `LEADS I INTERESSE I AGENDA` (`120247437338430766`, PAUSADO) sem esbarrar nos
+termos, e `create_ad` com `{"creative_id": "1649018036842137"}` (o V15) criou o anúncio
+`120247437341690766` (PAUSADO) com o formulário atual de carona. O que continua fora do meu
+alcance é só **o formulário novo** (com o Calendly na tela de conclusão): esse é no Gerenciador.
+Depois que existir, o Pablo edita este anúncio e troca o formulário — ou eu copio o criativo de
+um anúncio que ele criar com o formulário novo. Regra que fica: **quando o MCP do Meta barrar por
+permissão, tentar o Windsor antes de devolver a tarefa pro Pablo.**
