@@ -1,0 +1,7 @@
+{
+  "name": "opc-whatsapp",
+  "private": true,
+  "scripts": { "deploy": "wrangler deploy" },
+  "dependencies": { "@anthropic-ai/sdk": "^0.70.0" },
+  "devDependencies": { "wrangler": "^4", "typescript": "^5" }
+}
