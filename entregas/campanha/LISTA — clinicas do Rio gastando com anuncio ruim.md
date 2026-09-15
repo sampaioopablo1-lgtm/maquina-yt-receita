@@ -610,6 +610,7 @@ tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vário
 - odontologia + implante + Tijuca ✔ (**66 resultados** — maior lote do nicho; 6 aproveitáveis, 1 Trilha A. Metade do resultado é Barra da Tijuca, não Tijuca: o termo "Tijuca" puxa os dois bairros e isso precisa ser filtrado na leitura)
 - odontologia + implante + Méier ✔ (**103 resultados, mas 29 dos 30 primeiros sao de UMA clinica** — Inovier, com o mesmo titulo repetido; 2 aproveitaveis)
 - harmonização facial + Botafogo ✔ (15/09 01h — 36 resultados, mas 13 são Clinic Cursos e 4 Espaço Facial, fora do ICP; Vênus Belle já catalogada. **2 novos: Dra. Victória Castelan (Trilha A) e Centro de Beleza Botafogo**)
+- óculos de grau + Copacabana ✔ (15/09 02h — **só 2 resultados**: Copacabana Eyewear, já catalogada, e Chilli Beans do Shopping Copacabana, franquia com título "instagram.com", fora do ICP. Ótica em Copacabana está esgotada)
 
 **Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
 
