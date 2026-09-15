@@ -1251,3 +1251,6 @@ não.** Citação em workflow não é prova de existência.
 - Motivo: não tem integração nativa com o formulário de leads da Meta (a IA precisa iniciar a conversa a partir do preenchimento, sem clique).
 - Critério da ferramenta nova: Lead Ads nativo + IA inicia no WhatsApp + disparo pra base de 1.500 + até R$ 100/mês. Candidatas: Chatclipy, Umbler Talk (Pablo confirma com elas).
 - Não citar Agendou como solução. Respostas ao Pablo: curtas, sem perguntas investigativas.
+
+## 15/09 — ORDEM DO PABLO: NÃO ativar a campanha de WhatsApp
+- Campanha 120247444342350766 / conjunto 120247444367510766 / anúncios V15, V11, V12 ficam PAUSADOS. Nenhuma rotina liga isso. Só o Pablo, por escrito.
