@@ -505,6 +505,7 @@ Tijucas/SC* (Santa Catarina). *Use Visio* tem título duplicado mas está no Ita
 de exame — fraco demais pra abrir conversa.
 
 ## Combinações já varridas (não repetir)
+- escola de idiomas + "Tijuca RJ" ✔ (**zero resultados** — nicho não anuncia com bairro; se voltar, tentar "curso de inglês" + Rio)
 - ótica + "óculos de grau Tijuca" ✔ (**11 resultados, 5 aproveitáveis, 1 Trilha A** — Dr. Oswaldo Frazão com 3 sem título. **5º modo de falha de termo: "Tijuca" puxa "Tijucas/SC"** — reforçar com RJ. Termo de produto funcionou onde "ótica" puxou distribuidor)
 - ótica + Copacabana ✔ (**42 resultados, 27 de UM anunciante** — a Copacabana Eyewear, distribuidora, com 22 anúncios errados: 10 sem título subidos hoje, 6 "Fale conosco" ×10, 6 "api.whatsapp.com". 1 aproveitável, nenhum Trilha A. Termo puxa distribuidor e evento de SP; próxima: "óculos de grau" + bairro)
 - advocacia + "advogado Campo Grande **RJ**" ✔ (**7 resultados, 5 escritórios, os 5 erram**, 2 Trilha A. **Regra do sufixo "RJ" confirmada pela 2ª vez** — zero contaminação de MS/SP. Inclui o **anúncio mais antigo do arquivo: Marcio Alcides, no ar desde 11/11/2024 com o título "instagram.com" — quase 2 anos** — e o recorde de campos vazios: 14, da Alderito Assis)
