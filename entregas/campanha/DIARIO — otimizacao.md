@@ -521,3 +521,15 @@ Pablo duplicou o formulário com o Calendly na tela de conclusão e trocou no an
 "use o MCP" pra ativar). Anúncio em análise (`IN_PROCESS`). Métrica do teste: **custo por reunião
 marcada no Calendly**, lida pela agenda. Entra na CBO — a verba se divide sozinha com o INTERESSE.
 Prazo do teste: 2 semanas, até 28/09.
+
+### Adendo 14/09, 23h — o Emiliano veio da campanha e foi agendado pela IA
+
+Confirmado pelo Pablo: a reunião de 16/09 às 19h (Emiliano) veio do **anúncio de formulário** e
+foi **marcada pelo agente de IA do Clint** ("Pré-venda Meta Ads"), sem intervenção humana.
+
+É o **primeiro caso fechado de ponta a ponta** registrado neste diário: anúncio → formulário →
+IA qualifica → reunião na agenda. Duas leituras:
+1. O meio do funil **existe e funciona** — o que eu não via era falta de acesso ao Clint, não
+   ausência de atividade. Corrige a leitura de 11/09 ("nenhuma reunião").
+2. Custo até aqui: 20 leads (R$ 238,79 no período) → 1 reunião confirmada visível = R$ 239 por
+   reunião. Número inflado por eu não ver as outras — só o Clint mostra se houve mais.
