@@ -156,6 +156,16 @@ agência".* Regras C1–C3 (conjunto) e as travas continuam iguais.
 | T2 | gasto ≥ 2× o CPL do melhor anúncio do conjunto (melhor com ≥ 3 leads) **e** 0 lead | já custou dois leads e não trouxe nenhum |
 | T3 | ≥ 2 leads **e** CPL > 2× o do melhor anúncio | converte caro |
 | T4 | ≥ 300 impressões **e** CTR < 0,80% | ninguém clica |
+| T5 | ≥ 300 impressões **e** CPM > 2× o CPM médio do conjunto (ou > R$ 60) | leilão rejeita a peça: imagem/copy com baixa qualidade percebida |
+| T6 | frequência > 3 **e** 0 lead | mesma pessoa vendo 3+ vezes sem agir: peça cansou |
+| T7 | ≥ 20 cliques no link **e** 0 lead | clica e não preenche: promessa da peça não bate com o formulário |
+| T8 | CPC > 2× o CPC do vencedor **e** 0 lead | cada clique custa o dobro do melhor: peça fraca |
+
+**Métricas que a rodada lê sempre, por anúncio e por conjunto (últimos 7 dias e desde a última
+mudança de público):** impressões, alcance, frequência, cliques no link, CTR, CPC, CPM, gasto,
+leads, custo por lead, taxa clique→lead (leads ÷ cliques). Sem essas 11 colunas a rodada não julga.
+Diagnóstico pela combinação: CTR baixo + CPM alto = imagem; CTR ok + T7 = copy/promessa ou
+formulário; frequência alta = público saturado (aviso ao Pablo, não troca de criativo).
 
 Menos de 300 impressões em 48h **não é veredito** — é falta de entrega. Anúncio assim não é
 trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso ao Pablo.
