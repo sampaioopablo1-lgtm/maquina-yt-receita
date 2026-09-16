@@ -2641,3 +2641,12 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - Combo varrido: energia solar × Niterói. Termo puxou imobiliárias também (Luis Imóveis, dreamsimob, JGoulart, Victor Maisonnette) — fora.
 - **RBR Solar Niterói** — pelo menos 20 anúncios ativos, 13 deles criados no mesmo minuto (15/09) com o título "solicite seu orçamento!" idêntico; mais 4 com "Converse conosco" repetido 3x no carrossel. Gasto alto e criativo repetido em massa: candidato forte, mas empresa (não Trilha A). https://www.facebook.com/ads/library/?id=1464897782361879
 - Nicho energia solar Niterói: 1 nome, 0 Trilha A.
+
+## Varredura 16/09 03h — academia Méier ("academia Méier", 38 anúncios)
+- Combo varrido: academia × Méier. Fora: imobiliárias (Julyana Mendes, Meu Apê RJ), loja de esportes.
+- **Academia Xtreme Meier** — 11 anúncios desde ago/26, 8 com o mesmo título "Depois dos 50, movimento é qualidade de vida" e 3 "Converse conosco". Repetição em massa. https://www.facebook.com/ads/library/?id=1380653280938690
+- **Champs Fitness Méier** — 5 anúncios, 2 sem título, 3 "Voucher de R$ 360" (um com o título repetido 4x no carrossel), desde ago/26. https://www.facebook.com/ads/library/?id=3087470541461113
+- **Lifefit Méier** — 3 anúncios de set/26, "Comece hoje mesmo!" e "Converse conosco!" genéricos. https://www.facebook.com/ads/library/?id=1385399619740386
+- **Marius Sports** — título é só "⭐⭐⭐⭐⭐". https://www.facebook.com/ads/library/?id=27750127007931461
+- **Academia Top3 Méier** — 1 anúncio desde jul/26 (2 meses), título ok. Observar.
+- Nicho academia Méier: 5 nomes, 0 Trilha A.
