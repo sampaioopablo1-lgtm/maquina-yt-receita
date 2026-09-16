@@ -2653,3 +2653,6 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 
 ## Varredura 16/09 04h — arquitetura Botafogo ("arquiteta Botafogo", 1 anúncio) — ESGOTADO
 - Combo varrido: arquitetura × Botafogo. Só veio imobiliária (Alfaiataria Imobiliária, "Chat with us" repetido 10x; fora do nicho). Combo esgotado.
+
+## Varredura 16/09 05h — imobiliária Madureira ("apartamento à venda Madureira RJ", 1 anúncio) — ESGOTADO
+- Combo varrido: imobiliária × Madureira. Só a construtora Tenda (grande, fora do perfil). Combo esgotado.
