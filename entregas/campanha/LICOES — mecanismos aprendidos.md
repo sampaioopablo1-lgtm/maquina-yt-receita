@@ -1303,3 +1303,8 @@ Accepted" e o anúncio volta pra PAUSED/WITH_ISSUES sozinho.** É o mesmo bloque
 barra o `ads_create_ad`. Pelo Windsor `enable_ad` passa e o anúncio vai pra PENDING_REVIEW /
 IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable_ad`; MCP
 `ads_activate_entity` só para conjunto e para anúncio criado pelo Windsor na mesma sessão.**
+
+## 16/09 — Mesclar dois destinos no mesmo conjunto
+- Dois conjuntos com o mesmo público concorrem entre si no leilão. Melhor: um conjunto, anúncios com formulários diferentes (WhatsApp e Calendly).
+- Windsor `create_ad` com `{"creative":{"creative_id":...}}` reaproveita o criativo de outro conjunto (com o formulário dele). Depois `enable_ad` pelo Windsor. Anúncio novo nasce em PENDING_REVIEW por algumas horas.
+- Conjunto pausado via MCP `ads_update_entity` com `status: PAUSED` funciona direto (o "status_forced_to_paused" aqui é o desejado).

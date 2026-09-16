@@ -705,3 +705,16 @@ mudança de público das 21h40 e o primeiro do CNAE desde 12/09. Avisado ao Pabl
 Lead novo no **INTERESSE BR AGENDA**, R$2,51 gasto no conjunto hoje. É o primeiro lead desse
 conjunto desde que foi criado (14/09). Se ele marcar no Calendly, cai na agenda com Meet.
 Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
+
+## 16/09/2026 — ~09h — Conjunto AGENDA mesclado no INTERESSE (ordem do Pablo)
+- Motivo: dois conjuntos com o mesmo público concorriam no leilão. Pablo mandou juntar: um conjunto só, 5 anúncios pro formulário WhatsApp + 5 anúncios pro formulário Calendly.
+- Criados via Windsor no conjunto **LEADS I INTERESSE BR I FASE 3** (120247356527930766), usando os criativos do AGENDA:
+  - V15 — CALENDLY 120247461948570766
+  - V11 — CALENDLY 120247461951090766
+  - V12 — CALENDLY 120247461953310766
+  - V13 — CALENDLY 120247461955530766
+  - V14 — CALENDLY 120247461957190766
+- Ativados via Windsor enable_ad (MCP dá erro de ToS). Status na leitura: PENDING_REVIEW / IN_PROCESS (normal, revisão da Meta).
+- Conjunto AGENDA 120247437338430766 pausado e renomeado **ZZ MESCLADO NO INTERESSE — LEADS I INTERESSE BR I AGENDA**. Não reativar. Não apagar (tem lead de 16/09 07h).
+- INTERESSE agora tem 12 anúncios ativos: V11–V17 (WhatsApp) + 5 CALENDLY.
+- Conjuntos ativos: INTERESSE BR FASE 3 e PERSONALIZADO CNAE BR FASE 3.
