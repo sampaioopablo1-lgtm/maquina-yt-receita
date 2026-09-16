@@ -759,3 +759,11 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - E caixa 2 (OU): Pessoas que preferem produtos de valor alto no Brasil (6046096201583), Receita da empresa <US$1 mi / 1–10 mi / >10 mi (6377169088983 / 6377168992983 / 6377408081983), Tamanho da empresa 11–100 / 101–500 / 500+ (6377134779583 / 6377169297783 / 6377408290383), Sistema integrado de gestão empresarial (6003210541324).
 - Brasil menos Taubaté, 28–55, Advantage+ 0, exclusão do formulário 90d. Conjunto religado, leitura de volta ok.
 - **Tamanho medido pela API (delivery_estimate):** INTERESSE 3,2–3,8 milhões (meta do Pablo: ≥2 mi ✔). CNAE 0,94–1,1 milhão (não mexido por ordem do Pablo; abaixo de 2 mi porque é lista).
+
+## 16/09/2026 — 09h08 (rotina horária)
+- Agenda: sem reunião nova. Emiliano hoje 19h.
+- Meta hoje até 09h: INTERESSE 90 imp / R$3,98 / 0 lead (segmentação final desde 08h25); CNAE 83 imp / R$3,76 / 1 lead (V16, o de 01h).
+- Geo/público: os dois conjuntos corretos (BR, só Taubaté, INTERESSE com caixa 1 + caixa 2 aprovadas, Advantage+ 0).
+- Anúncios: V11–V14 do INTERESSE tinham caído de novo em WITH_ISSUES após a edição das 08h25; religados pelo Windsor às 09h05 (pedido do Pablo pela tela do Gerenciador). Agora 12/12 ACTIVE ou em revisão; CNAE 6/6 ACTIVE; ads_get_errors do conjunto = vazio.
+- Pablo viu no Gerenciador "Edições não publicadas" com 26 estados excluídos e Advantage+ ligado: é rascunho antigo, não o que está no ar. Orientado a clicar "Descartar rascunhos".
+- Varredura: fisioterapia × Barra (8 nomes, 3 Trilha A).

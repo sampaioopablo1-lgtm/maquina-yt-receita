@@ -2684,3 +2684,15 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Elizene Souza - Harmonizacao Facial** (página 415669234963144) — 1 anúncio com título "api.whatsapp.com" (link cru no título), desde 02/09. Defeito claro. Trilha A. https://www.facebook.com/ads/library/?id=28096733123318820
 - **AP - Harmonização Facial e Corporal** (página 1333034956554823) — 1 anúncio "Poucos horários disponíveis", desde 10/09. Trilha B.
 - Nicho harmonização Copacabana: 6 nomes, 4 Trilha A.
+
+## Varredura 16/09 09h — fisioterapia Barra da Tijuca ("fisioterapia Barra da Tijuca", 77 anúncios ativos)
+- Combo varrido: fisioterapia × Barra. Fora do nicho: Ibrafisio Cursos, Elo3 Cursos (curso), souquiro (quiropraxia/lote promocional), Lavitá (residencial sênior), Instituto Hoffdahn2 (título quebrado "|   |   |").
+- **Instituto Trata - Barra da Tijuca** (página 103952842572635) — 6 anúncios criados em 15/09, 4 com o mesmo título "Toque para Agendar sua Consulta" e 2 sem título. Defeito: título genérico repetido e peças sem título; rede/franquia (Trilha B). https://www.facebook.com/ads/library/?id=1259305247274292
+- **Clínica Ortobarra** (página 116441024392088) — 3 anúncios desde 05/09: um com título "instagram.com" (link cru), um "Fale Conosco no WhatsApp", um sem título. Defeito claro. Trilha B. https://www.facebook.com/ads/library/?id=1042278558420048
+- **Corpory Pilates & Cia.** (página 142389662633298) — 3 cópias iguais desde 03/09, título longo demais ("Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta."). Trilha B. https://www.facebook.com/ads/library/?id=1780975673235431
+- **Clínica Daniel Rosa** (página 103095201582744) — 1 anúncio "Converse conosco", desde 15/09. Trilha A (dono no nome). https://www.facebook.com/ads/library/?id=921889083919160
+- **dayanedias.fisioterapia** (página 112666207301741) — 1 anúncio sem título, desde 15/09. Trilha A. https://www.facebook.com/ads/library/?id=1154870580483316
+- **Rodrigo Salvitti** (página 964281120110122) — 1 anúncio sem título, 16/09. Trilha A. https://www.facebook.com/ads/library/?id=1574930684313564
+- **Clinica Multidisciplinar Despertare** (página 107011772013743) — título repetido "Fale conosco | Fale conosco | Fale conosco" (erro de montagem). Trilha B. https://www.facebook.com/ads/library/?id=1076939951717847
+- **Recive Dor Crônica** (página 258460720689661) — 1 anúncio sem título, 14/09. Trilha B.
+- Nicho fisioterapia Barra: 8 nomes, 3 Trilha A.
