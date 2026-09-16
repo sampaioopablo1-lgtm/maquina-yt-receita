@@ -2617,3 +2617,11 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **BluePet 24h** — 4 anúncios, carrossel com o mesmo título repetido 7x, desde ago/26. https://www.facebook.com/ads/library/?id=1080030124526543
 - Lição de termo: "veterinária <bairro>" puxa faculdade; usar "clínica veterinária <bairro>" ou "veterinário <bairro>".
 - Nicho veterinária Niterói: 4 nomes, 1 Trilha A.
+
+## Varredura 15/09 23h — ótica Barra ("óculos de grau Barra da Tijuca", 4 anúncios)
+- Combo varrido: ótica × Barra.
+- **QualiÓtica Carioca** — carrossel com o título "Instagram photos and videos" repetido 7x (título vazado da página do Instagram). Desde set/26. https://www.facebook.com/ads/library/?id=1083985151022047
+- **Use Visio Ótica** — "Agende aqui seu Exame de Vista no Itanhangá" repetido 2x, desde ago/26. https://www.facebook.com/ads/library/?id=2072206450171044
+- **Oftalmo Città** — anúncio sem título desde jun/26 (3 meses). https://www.facebook.com/ads/library/?id=1532752995009640
+- Fora: Dr. Igor Mota (cirurgia refrativa, nicho médico, anúncio novo e com título).
+- Nicho ótica Barra: 3 nomes, 0 Trilha A.
