@@ -688,3 +688,9 @@ reunião de diagnóstico até 18/09. Semana (desde 09/09): 6 pessoas. Gasto desd
 **Pendências do Pablo:** formulário novo de 3 perguntas (manual no Gerenciador, sem e-mail);
 roteiro do agente e BRIEFING ainda dizem "Rio"; escolha da ferramenta de WhatsApp (Umbler Talk
 ou Chatclipy) ou o agente próprio via Evolution/Gemini.
+
+### 15/09, 21h45 — CNAE V12–V15 tinham caído de novo (religados pelo MCP às 22h caíram por termos)
+
+Pablo perguntou "realmente tem 5 ativos?". CNAE tinha só 2 (V11, V16); V12–V15 PAUSED/WITH_ISSUES.
+Religados pelo Windsor `enable_ad` → IN_PROCESS. Regra reforçada em LICOES: anúncio de formulário
+só liga pelo Windsor. Contagem após: INTERESSE 7, CNAE 6, AGENDA 5.
