@@ -2758,3 +2758,20 @@ Combos varridos até aqui: + odontologia Copacabana.
 | Dr. Stanko Butkovski | 385587994644652 | anúncio sem título, no ar há 3 meses+ | 31/05/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1661594055127588 |
 
 Combos varridos até aqui: + harmonização Méier, odontologia Méier.
+
+## Varredura 16/09 19h10 — odontologia Botafogo
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra Cris Cunha | 747632785957718 | 2 anúncios sem título nenhum, subiram ontem | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=991900523308957 |
+| Odontopediatra em Botafogo — Dra Thais Aguiar Gomes | 101165332363974 | "Converse conosco", sem oferta, sem gancho | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1398106905072745 |
+| Dental Clinic Corcovado | 942388585620822 | 2 anúncios idênticos "Volte a sorrir com segurança", fala de produto e não do paciente | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=1715597019518474 |
+| Prime Dente Unidade Botafogo | 100847196341788 | anúncio sem título; nome da página com código interno de franquia | 09/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1245472954406605 |
+| Dra Jéssica Morais | 117877657949857 | "Lentes Dentais em Botafogo" repetido em 2 anúncios, um no ar desde 05/2026, só nome de procedimento | 11/05/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2290553045075597 |
+| Clinica Odontológica Santa Rosa de Lima | 309914146557707 | anúncio sem título | 06/09/2026 | B | https://www.facebook.com/ads/library/?id=2094317364778194 |
+| IRio Odontologia Botafogo | 101116868406390 | 2 anúncios "🔴 Clique e agende", emoji no lugar de argumento, no ar desde 08/2026 | 28/08/2026 | B | https://www.facebook.com/ads/library/?id=878334098486055 |
+| Dra Georgia Botafogo | 101298596068260 | "Fale Conosco", no ar desde 04/2026 sem trocar | 23/04/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1337534981526411 |
+
+Fora do alvo nessa busca: Simplifica Doctor (curso), COA Nova Cruz RN (outro estado), Espaço Facial (venda de franquia).
+
+Combos varridos até aqui: + odontologia Botafogo.

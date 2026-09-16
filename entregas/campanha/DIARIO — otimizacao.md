@@ -857,3 +857,9 @@ Lidos todos os 28 públicos da conta com delivery_status e tamanho. O conjunto C
 **Hipótese a confirmar:** o conjunto mede 0,9–1,1 mi, mas as listas somam ~129k contatos (e a Meta casa só parte). Logo a maior parte do alcance do conjunto "PERSONALIZADO CNAE" provavelmente vem do semelhante de 1%, não das listas do Pablo. Se for isso, o conjunto não está testando o que o nome diz.
 
 Não mexi: tirar os públicos mortos ou separar lista de semelhante muda a segmentação e reinicia o aprendizado — decisão do Pablo.
+
+## 16/09 19h10 — rodada horária
+- Agenda: sem evento novo. Seguem 6 pessoas distintas; Emiliano é hoje 19h.
+- Meta hoje: INTERESSE 326 imp / R$15,04 / 0 lead; CNAE 113 imp / R$4,85 / 1 lead (CPL R$4,85); HARMONIZAÇÃO ainda 0 impressão, 1h20 depois de ligar.
+- Varredura: odontologia Botafogo (8 páginas, 4 Trilha A).
+- Entregue ao Pablo o painel "Raio-X da Máquina" (artifact) com a fotografia do cenário.
