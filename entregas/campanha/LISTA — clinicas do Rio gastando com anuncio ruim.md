@@ -2636,3 +2636,8 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **ApaixonadosCopacabana** (veterinária + pet shop) — 4 anúncios idênticos desde jul/26, título gigante com endereço e horário. https://www.facebook.com/ads/library/?id=1052866054340953
 - Fora: imobiliária, igreja.
 - Nicho pet shop Copacabana: 3 nomes, 0 Trilha A.
+
+## Varredura 16/09 02h — energia solar Niterói ("energia solar Niterói", 97 anúncios, quase tudo uma empresa)
+- Combo varrido: energia solar × Niterói. Termo puxou imobiliárias também (Luis Imóveis, dreamsimob, JGoulart, Victor Maisonnette) — fora.
+- **RBR Solar Niterói** — pelo menos 20 anúncios ativos, 13 deles criados no mesmo minuto (15/09) com o título "solicite seu orçamento!" idêntico; mais 4 com "Converse conosco" repetido 3x no carrossel. Gasto alto e criativo repetido em massa: candidato forte, mas empresa (não Trilha A). https://www.facebook.com/ads/library/?id=1464897782361879
+- Nicho energia solar Niterói: 1 nome, 0 Trilha A.
