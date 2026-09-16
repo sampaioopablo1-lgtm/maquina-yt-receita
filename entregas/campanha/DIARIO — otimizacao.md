@@ -619,3 +619,20 @@ ainda dizem "dono de negócio no Rio". Ajuste quando decidir se atende fora do R
   → pausado e renomeado `ZZ DUPLICADO — …`. Os anúncios V15/V16/V17 já estão no INTERESSE.
 Atenção da rotina: trocar geolocalização reinicia o aprendizado dos conjuntos; os números de
 16/09 são de conjunto "novo". Orçamento: nenhum mexido.
+
+### 15/09, 21h10 — melhorias aplicadas nos 3 conjuntos (pedido do Pablo: "todas, menos idade")
+
+- **Exclusão de quem já enviou o formulário:** público de engajamento novo
+  `120247453698530766` ("Já enviou o formulário (90d) — excluir", formulário 2412763482587375,
+  90 dias), colocado em `excluded_custom_audiences` dos 3 conjuntos. Acaba com o anúncio
+  repetindo pra quem já virou lead.
+- **Posicionamentos:** de "feed + reels, só celular" para feed, reels, **stories, marketplace,
+  explore**, celular **e desktop**, nos 3 conjuntos. A arte é quadrada; stories mostra com borda.
+  Arte 9:16 sem foto do Pablo entra pela rotina de 48h quando houver dado.
+- **Idade:** 30–50 mantida (ordem do Pablo).
+- **Advantage+ público: NÃO aplicado.** A Meta recusou: com Advantage+ a idade mínima não pode
+  passar de 25 (erro 1870188). Como a ordem é manter 30–50, fica desligado. Se um dia quiser
+  testar Advantage+, é num conjunto separado com 25+.
+- **CNAE:** exclusão e posicionamentos aplicados; listas continuam estritas.
+- Otimização por "lead de qualidade" depende de CRM integrado: fica pra depois da ferramenta de
+  WhatsApp. Lógica condicional do formulário: manual do Pablo no Gerenciador.
