@@ -2709,3 +2709,12 @@ Termo "harmonização facial Tijuca RJ", 67 anúncios ativos. Muito anúncio de 
 | Espaço Facial Tijuca | 107941095463368 | "AGENDE JÁ" genérico, rede (dono não aparece) | 14/09 | https://www.facebook.com/ads/library/?id=1788444632160763 | B |
 Fábio Motta e Bruno Marano: mesma copy "pagando apenas o material na Barra" = anúncio de curso com modelo, não é clínica captando paciente. Não abordar.
 Combos varridos até aqui: + harmonização Tijuca.
+
+## Varredura 16/09 15h10 — odontologia × Tijuca (RJ)
+Termo "dentista Tijuca RJ", 90 anúncios ativos. Perio Diária = curso pra dentista (não abordar).
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra Ingrid Bittencourt | 245512042686621 | título quebrado ("Dra Ingrid Bittencourt \| \| \| \|"), post impulsionado sem oferta | 16/09 | https://www.facebook.com/ads/library/?id=1837365473947565 | A |
+| AllCenter Saúde | 292816667258920 | título só o nome da clínica, sem chamada nem formulário | 15/09 | https://www.facebook.com/ads/library/?id=2101548327401000 | B |
+| Clínica Viotto - Rio de Janeiro | 238492289345108 | 14 anúncios idênticos "Agende sua avaliação!" no ar há 6 dias (concorrem entre si, sem variação de copy) | 10/09 | https://www.facebook.com/ads/library/?id=1952735698737586 | B |
+Combos varridos até aqui: + odontologia Tijuca.

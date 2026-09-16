@@ -796,3 +796,10 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Criados e ligados no INTERESSE: **V18 — HARMONIZAÇÃO A** 120247468651420766 (creative 1624462635950751) e **V19 — HARMONIZAÇÃO B** 120247468665270766 (creative 28532232536396052). Ambos IN_PROCESS (revisão). Grupo WhatsApp agora com 9 anúncios; regra de 5 ativos preservada.
 - Critério do teste (48h + 300 imp): CPL nichado × genérico do mesmo grupo. Ganhou → replicar pra odontologia; perdeu → pausar.
 - Rotinas horária, diária e 48h atualizadas com V18/V19.
+
+## 16/09/2026 — 15h08 (rotina horária)
+- Agenda: sem reunião nova. Emiliano hoje 19h (Meet ezr-ache-nfv). 6 pessoas distintas.
+- Meta hoje: INTERESSE/CNAE sem lead novo além do V16 CNAE (01h). Anúncios F3 entregando aos poucos (2–7 imp cada). V18 ACTIVE, V19 PENDING_REVIEW. Nenhum WITH_ISSUES.
+- Geo/público: os dois conjuntos corretos.
+- Prospect Halo: não consultado (chave placeholder).
+- Varredura: odontologia × Tijuca (3 nomes, 1 Trilha A).
