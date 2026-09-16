@@ -2696,3 +2696,16 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Clinica Multidisciplinar Despertare** (página 107011772013743) — título repetido "Fale conosco | Fale conosco | Fale conosco" (erro de montagem). Trilha B. https://www.facebook.com/ads/library/?id=1076939951717847
 - **Recive Dor Crônica** (página 258460720689661) — 1 anúncio sem título, 14/09. Trilha B.
 - Nicho fisioterapia Barra: 8 nomes, 3 Trilha A.
+
+## Varredura 16/09 14h10 — harmonização facial × Tijuca (RJ)
+Termo "harmonização facial Tijuca RJ", 67 anúncios ativos. Muito anúncio de rede (Espaço Facial: Tijuca, Downtown, Millennium) com botão "AGENDE JÁ" genérico e anúncio-modelo "pagando apenas o material" (curso/treinamento, não clínica).
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra. Raphaella Martins | 554483664423299 | link direto pro WhatsApp, sem formulário nem filtro | 16/09 | https://www.facebook.com/ads/library/?id=1118734827768373 | A |
+| Dr. Felipe Farah | 276705448867654 | sem título, post impulsionado | 15/09 | https://www.facebook.com/ads/library/?id=1107244545062485 | A |
+| Dra Giuliana Lemos | 1161984110328623 | link pro Instagram (manda pro perfil, não capta) | 13/09 | https://www.facebook.com/ads/library/?id=1379925157643846 | A |
+| Dra Beatriz Leal | 111807668397806 | 3 anúncios iguais, título é só o endereço | 03/09 | https://www.facebook.com/ads/library/?id=1111279301554879 | A |
+| Dra. Victoria Coelho | 502575372929809 | sem título, post impulsionado | 02/09 | https://www.facebook.com/ads/library/?id=1517450360190002 | A |
+| Espaço Facial Tijuca | 107941095463368 | "AGENDE JÁ" genérico, rede (dono não aparece) | 14/09 | https://www.facebook.com/ads/library/?id=1788444632160763 | B |
+Fábio Motta e Bruno Marano: mesma copy "pagando apenas o material na Barra" = anúncio de curso com modelo, não é clínica captando paciente. Não abordar.
+Combos varridos até aqui: + harmonização Tijuca.

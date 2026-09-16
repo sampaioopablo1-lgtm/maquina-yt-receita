@@ -780,3 +780,10 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Contagem: INTERESSE 12 ativos (7 WhatsApp + 5 Calendly), CNAE 6 ativos. Relógio das 48h dos novos: 16/09 13h10.
 - Rotinas horária, diária e 48h atualizadas com os IDs novos; 48h agora lê 11 métricas e T1–T8.
 - Pendência pro Pablo: público de exclusão 120247453698530766 só cobre o formulário v1 — precisa incluir v2, v2-AGENDA, v3-AGENDA e v3-AGENDA-copy (criar/editar no Gerenciador).
+
+## 16/09/2026 — 14h08 (rotina horária)
+- Agenda: sem reunião nova (nenhum evento criado nas últimas 2h). Emiliano hoje 19h. 6 pessoas distintas no teste.
+- Meta hoje até 14h: INTERESSE 226 imp / R$10,41 / 0 lead; CNAE 93 imp / R$4,09 / 1 lead (V16, o de 01h). Os 13 anúncios novos com formulário certo já ACTIVE e começando a entregar (1–3 imp cada). Nenhum WITH_ISSUES.
+- Geo/público: os dois conjuntos corretos (BR, só Taubaté, caixas 1 e 2, Advantage+ 0).
+- Prospect Halo: não consultado (chave placeholder).
+- Varredura: harmonização × Tijuca (6 nomes, 5 Trilha A).
