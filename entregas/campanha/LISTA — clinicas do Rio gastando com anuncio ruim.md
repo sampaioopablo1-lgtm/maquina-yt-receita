@@ -2656,3 +2656,11 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 
 ## Varredura 16/09 05h — imobiliária Madureira ("apartamento à venda Madureira RJ", 1 anúncio) — ESGOTADO
 - Combo varrido: imobiliária × Madureira. Só a construtora Tenda (grande, fora do perfil). Combo esgotado.
+
+## Varredura 16/09 06h — tatuagem Botafogo ("estúdio de tatuagem Botafogo", 8 anúncios)
+- Combo varrido: tatuagem × Botafogo (8º bairro do nicho).
+- **João C. Mello Tattoo** — dono no nome, Trilha A. 5 anúncios desde jul/26 (2 meses), 4 sem título e 1 carrossel com títulos vazios. https://www.facebook.com/ads/library/?id=1593755368856070
+- **Táta Saraiva Tattoo** — dona no nome, Trilha A. Título "api.whatsapp.com", desde set/26. https://www.facebook.com/ads/library/?id=1768931324418881
+- **ANA JULIA Botafogo • Tattoo** — dona no nome, Trilha A. "Converse conosco" genérico, anúncio de 15/09. https://www.facebook.com/ads/library/?id=1469072431776915
+- **ancientt.ink** — título ok ("Agenda Aberta Rio de Janeiro"), anúncio de 16/09. Observar.
+- Nicho tatuagem Botafogo: 4 nomes, 3 Trilha A. Tatuagem agora com os 8 bairros varridos.
