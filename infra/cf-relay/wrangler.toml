@@ -1,0 +1,9 @@
+name = "opc-meta-ads-relay"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+[vars]
+META_MAX_DAILY_BUDGET_CENTS = "5000"
+
+# META_ACCESS_TOKEN e MCP_SHARED_SECRET sao segredos: entram pelo painel
+# (Worker -> Settings -> Variables and Secrets), nunca por este arquivo.
