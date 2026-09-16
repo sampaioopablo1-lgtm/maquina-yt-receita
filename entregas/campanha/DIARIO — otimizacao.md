@@ -651,3 +651,11 @@ Pablo viu no Gerenciador 26 estados excluídos. O Windsor não apagou a exclusã
 Corrigido pelo MCP (substitui o targeting inteiro) nos 3 conjuntos, que ficaram pausados por
 alguns segundos e foram religados. Agora sim: Brasil inteiro, sem exclusão de estado.
 Consequência: o "dia 1 do Brasil" é 15/09 21h40, não 20h45.
+
+### 15/09, 22h — mínimo de 5 anúncios ativos por conjunto (ordem do Pablo)
+
+Encontrei V12/V13/V14 do INTERESSE e V12–V15 do CNAE PAUSADOS com `WITH_ISSUES` (não fui eu;
+provável edição no Gerenciador ou efeito da mudança de posicionamento). Religados todos, e o V11
+do INTERESSE voltou (nome "V11" de novo): público mudou, histórico antigo não vale.
+Agora: INTERESSE 7 ativos (V11–V17), CNAE 6 (V11–V16), AGENDA 5 (V11–V15, 4 em análise).
+Regra nova: nunca menos de 5 ativos por conjunto.

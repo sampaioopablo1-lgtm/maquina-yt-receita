@@ -199,7 +199,7 @@ trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso 
 
 1. **Nunca mexe em orçamento.** Nem sobe, nem desce, nem tira teto. Isso é decisão do Pablo.
 2. **Nunca pausa nada que gerou lead nas últimas 48 horas**, por pior que esteja o CTR.
-3. **Nunca deixa um conjunto com menos de 2 anúncios ativos.** Se o corte esvaziaria o conjunto,
+3. **Nunca deixa um conjunto com menos de 5 anúncios ativos** (Pablo, 15/09 22h: "ao menos 5 por conjunto, mesmo que ainda não tenha performado" — público mudou, tudo recomeça). Se o corte esvaziaria o conjunto,
    pausa só os piores e mantém os 2 melhores rodando até haver substituto.
 4. **Nunca pausa o último conjunto ativo de uma campanha.** Campanha zerada não volta do zero de
    graça — perde o aprendizado inteiro.
