@@ -787,3 +787,12 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Geo/público: os dois conjuntos corretos (BR, só Taubaté, caixas 1 e 2, Advantage+ 0).
 - Prospect Halo: não consultado (chave placeholder).
 - Varredura: harmonização × Tijuca (6 nomes, 5 Trilha A).
+
+## 16/09/2026 — 14h50 — Teste nichado: harmonização / estética facial (ordem do Pablo)
+- Pablo escolheu harmonização como primeiro nicho; formulário WhatsApp (v3--AGENDA-copy); autonomia total; criativo e copy do nicho, no estilo do melhor anúncio.
+- Melhor anúncio (14 dias): V15 INTERESSE — 2.254 imp, 36 cliques, CTR 1,60%, 6 leads, CPL R$9,53. Arte: foto de fundo + "SEU NEGÓCIO PRECISA DE +CLIENTES?" + faixa verde WhatsApp "acordar com o WhatsApp cheio de cliente / todo dia, sem depender de indicação" + botão "QUERO ISSO NO MEU NEGÓCIO".
+- Higgsfield sem créditos → artes montadas no sandbox (PIL + Montserrat/Playfair) replicando o layout do V15 com foto de clínica/procedimento facial (Unsplash, sem foto do Pablo): A "SUA CLÍNICA PRECISA DE +PACIENTES?", B "HARMONIZAÇÃO COM AGENDA VAZIA?"; faixa "acordar com o WhatsApp cheio de paciente"; botão "QUERO ISSO NA MINHA CLÍNICA".
+- Hospedagem: Meta não baixou do tmpfiles; uguu.se (d.uguu.se) funcionou. Windsor create_ad com link_data.picture = URL cria a imagem na conta.
+- Criados e ligados no INTERESSE: **V18 — HARMONIZAÇÃO A** 120247468651420766 (creative 1624462635950751) e **V19 — HARMONIZAÇÃO B** 120247468665270766 (creative 28532232536396052). Ambos IN_PROCESS (revisão). Grupo WhatsApp agora com 9 anúncios; regra de 5 ativos preservada.
+- Critério do teste (48h + 300 imp): CPL nichado × genérico do mesmo grupo. Ganhou → replicar pra odontologia; perdeu → pausar.
+- Rotinas horária, diária e 48h atualizadas com V18/V19.
