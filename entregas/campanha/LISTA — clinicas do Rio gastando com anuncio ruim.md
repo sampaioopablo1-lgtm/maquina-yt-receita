@@ -2740,3 +2740,21 @@ Termo "dentista Copacabana", 33 ativos. Dr. Gabriel Lembo tem copy boa ("Natural
 | Dr. João Carvalho - Reabilitação Oral | 369739679776051 | sem título, post impulsionado | 08/09 | https://www.facebook.com/ads/library/?id=1824623012041002 | A |
 | dra.miriaandrade | 954797137720010 | título quebrado ("dra.miriaandrade \| \| \|"), no ar há 40 dias | 07/08 | https://www.facebook.com/ads/library/?id=992423723817676 | A |
 Combos varridos até aqui: + odontologia Copacabana.
+
+## Varredura 16/09 18h10 — odontologia + harmonização Méier
+("harmonização facial Méier RJ" só devolveu Nascimento Odontologia; "dentista Méier" rendeu a lista abaixo)
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Nascimento Odontologia | 371765596010542 | 11 anúncios iguais "Agende uma avaliação", sem gancho, sem oferta | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=4636420659919453 |
+| MEIER Dentista | 1289019517628747 | título genérico "AGENDAR AGORA!", sem diferencial | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2372431986869079 |
+| Gabriela Moura Dentista | 278477818690486 | carrossel repetindo "Converse conosco" 3x, sem promessa | 11/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1701183170949863 |
+| Archipéva Odontologia — Dra. Fernanda Archipéva | 334274203101187 | 2 anúncios "PRÓTESE FLEXIVEL" em caixa alta, produto sem gancho, um no ar desde 07/2026 | 16/07/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1403902291851260 |
+| OdontoCompany Méier | 869113366274437 | franquia; anúncio sem título e outro "Agende já sua consulta" | 28/08/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1550646109573709 |
+| Vamos Sorrir Méier | 213513398508568 | 2 anúncios sem título, no ar há 1 mês+ | 12/08/2026 | B (rede) | https://www.facebook.com/ads/library/?id=2592667207862109 |
+| DR Odontologia | 1435342266685032 | carrossel "Converse conosco" 6x, no ar desde 07/2026 | 04/07/2026 | B | https://www.facebook.com/ads/library/?id=1305297694925833 |
+| SorriaMed | 979637205389895 | anúncio sem título, no ar desde 08/2026 | 05/08/2026 | B | https://www.facebook.com/ads/library/?id=2680200249044424 |
+| Pedro Augusto Odontologia | 548669842695215 | "Dentista Referência No Méier RJ", só autoelogio, sem oferta, no ar desde 07/2026 | 06/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1031590486237078 |
+| Dr. Stanko Butkovski | 385587994644652 | anúncio sem título, no ar há 3 meses+ | 31/05/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1661594055127588 |
+
+Combos varridos até aqui: + harmonização Méier, odontologia Méier.

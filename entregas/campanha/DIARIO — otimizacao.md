@@ -825,3 +825,8 @@ Pablo pediu um conjunto por segmento, sem mexer nos atuais, pra teste A/B/C/D en
 - V18 e V19 pausados no INTERESSE (0 lead, criados hoje) pra o nicho rodar só no conjunto próprio. INTERESSE fica com 12 ativos.
 - Mecanismos: MCP não cria conjunto (erro de termos 1815089) → Windsor create_adset com account 1695865631502778. Cidade excluída com key string deu erro 1487756 (localizações em conflito) → key numérico + radius resolveu. Interesses de estética/harmonização/botox não existem mais na busca da Meta; o que sobrou foi cosmetologia + cargos.
 - Relógio de 48h do conjunto: 16/09 17h50. Julgar por CPL contra INTERESSE e CNAE. Ganhou → propor ODONTOLOGIA igual. Perdeu → pausar.
+
+## 16/09 18h10 — rodada horária
+- Agenda: sem evento novo (6 pessoas, última Emiliano hoje 19h).
+- Meta hoje: INTERESSE 301 imp / R$13,88 / 0 lead; CNAE 109 imp / R$4,62 / 1 lead; HARMONIZAÇÃO 0 imp (ligado 17h50, 5 anúncios ACTIVE). Targeting dos 3 conjuntos conferido, correto.
+- Varredura: odontologia Méier (10 páginas, 4 Trilha A). Harmonização Méier não rende na Biblioteca.
