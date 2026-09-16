@@ -2775,3 +2775,24 @@ Combos varridos até aqui: + harmonização Méier, odontologia Méier.
 Fora do alvo nessa busca: Simplifica Doctor (curso), COA Nova Cruz RN (outro estado), Espaço Facial (venda de franquia).
 
 Combos varridos até aqui: + odontologia Botafogo.
+
+## Varredura 16/09 20h10 — odontologia Niterói
+(116 anúncios ativos no termo, o bairro mais concorrido varrido até agora; abaixo os que têm dono no nome ou defeito claro)
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra Julienne Melo | 792933171083270 | anúncio sem título nenhum, subiu ontem | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1091564876691665 |
+| Rodrigo Rocha Odontologia Especializada | 209981512418469 | 3 anúncios no ar ao mesmo tempo, todos sem título | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1079346641395547 |
+| dra.larissaspier | 111515063989257 | perfil pessoal como página, anúncio sem título | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1052361690951628 |
+| Caroline Diniz | 2479684345392925 | 2 anúncios "Converse conosco", sem oferta | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1049539454632282 |
+| Lívia Ferreira Costa | 614997645680765 | título é "instagram.com", manda pro perfil em vez de conversa | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2218117915471216 |
+| Bruno Lessa | 389374397752319 | anúncio sem título | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1369293461607907 |
+| Inovar Odontologia Especializada Niterói | 112105558567793 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1067611019206488 |
+| Segalote Odontologia | 1049872011766056 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1602193601642510 |
+| Clínica Odonty | 334280660105218 | carrossel com 8 cartões de título vazio | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=2066077897607658 |
+| Clínica Dentária Terceira Dentição | 539487736238716 | anúncio sem título | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=1096364842867457 |
+
+Padrão do bairro: anúncio SEM TÍTULO é a regra em Niterói, não a exceção. Bom gancho de abordagem.
+Fora do alvo: Estética Dental, Consultório 10X (curso para dentista).
+
+Combos varridos até aqui: + odontologia Niterói.

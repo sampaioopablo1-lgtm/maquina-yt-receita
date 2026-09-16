@@ -881,3 +881,10 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - **PERMISSÃO total** para executar ajuste direto, sem confirmar etapa por etapa, mantidas as travas (orçamento, lead de 48h, mínimo 5 ativos, não apagar, nada automatizado em IG/WhatsApp/LinkedIn).
 - **GEO**: Brasil inteiro, ZERO exclusão de estado, só a cidade de Taubaté. Qualquer region que apareça é erro e se conserta na hora.
 - **CONSERTO DE GEO**: receita passo a passo validada hoje, incluindo o motivo do 1487756 e o detalhe de que entity_type é "ad_set" e de que o Windsor update_adset não resolve esse caso.
+
+## 16/09 20h10 — rodada horária (primeira com a rotina nova)
+- Segmentação dos 3 conjuntos conferida pelo updated_time: 19h51–19h53, que são os meus próprios consertos registrados acima. Nenhuma mexida externa depois disso. Geo correta: Brasil inteiro, zero estado, só Taubaté.
+- Os 23 anúncios voltaram a ACTIVE/ACTIVE — a revisão da Meta passou. Nenhum WITH_ISSUES.
+- Meta hoje: INTERESSE 327 imp / R$15,08 / 0 lead; CNAE 124 imp / R$5,28 / 1 lead; HARMONIZAÇÃO ainda 0 impressão (relógio de 48h do created_time 16/09 17h59 vence em 18/09 18h).
+- Agenda sem evento novo.
+- Varredura: odontologia Niterói, o bairro mais concorrido até agora (116 anúncios ativos no termo). 10 páginas registradas, 6 Trilha A. Padrão do bairro: anúncio sem título é a regra.
