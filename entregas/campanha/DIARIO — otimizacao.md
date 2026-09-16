@@ -733,3 +733,14 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 ## 16/09/2026 — ~11h20 — INTERESSE: sinais de "quem já anuncia" (ordem do Pablo)
 - Pablo: mirar quem já anunciou (maturidade maior). A Meta não tem comportamento "anunciante ativo". Usados os proxies que existem na conta, adicionados ao grupo 1 do INTERESSE (Advantage+ ligado = sugestão, não estreita): Facebook for Business (6003146343826), Publicidade online (6003526234370), Marketing de redes sociais (6003389760112), Agência de publicidade (6003702887891) e o comportamento Administradores do perfil comercial do Instagram (6297846662583).
 - Conjunto pausou ao editar e foi religado. Lista completa de opções conferidas está no arquivo PESQUISA de 16/09.
+
+## 16/09/2026 — ~11h55 — INTERESSE reconfigurado (segmentação nova aprovada pelo Pablo)
+- Pablo aprovou a sugestão da PESQUISA de 16/09 ("mesmo que ultrapasse 2 milhões não tem problema"). CNAE não mexido.
+- Conjunto LEADS I INTERESSE BR I FASE 3 (120247356527930766) agora: Brasil menos Taubaté (272181), 28–55, **Advantage+ DESLIGADO** (público original, filtros valem de verdade).
+  - Grupo 1 (qualquer um): Administradores de página comercial 6020530281783, Administradores do perfil comercial do Instagram 6297846662583, Proprietários de pequenas empresas 6002714898572.
+  - Refinar E (qualquer um): Publicidade online 6003526234370, Marketing de redes sociais 6003389760112, Facebook for Business 6003146343826, Sebrae 6003099842040.
+  - Exclusão: Já enviou o formulário (90d) 120247453698530766.
+  - Saíram: 7 interesses antigos (pequena empresa, empreendedorismo criativo, plano de negócios, PMEs, empreendedorismo, empresa individual, negócios), cargos/empregadores digitados, Administradores de lojas, "valor intermediário e alto".
+- Conjunto pausou ao editar, religado; leitura de volta confirma. 12 anúncios em IN_PROCESS (re-revisão pós-edição, normal).
+- Conferido: os 5 anúncios CALENDLY usam exatamente os mesmos criativos (IDs) do antigo conjunto AGENDA, portanto o mesmo formulário Calendly. Os 7 WhatsApp usam o formulário 2412763482587375.
+- Aprendizado do conjunto reinicia agora (16/09 ~12h). Contar 48h da REGRA V3 a partir daqui.
