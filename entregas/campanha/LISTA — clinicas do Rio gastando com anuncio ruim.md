@@ -2608,3 +2608,12 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Espaço Vida Barra** — "promoção de Agosto" ainda no ar em setembro. https://www.facebook.com/ads/library/?id=1029734440092383
 - Lição de termo: "fisioterapia <bairro>" puxa curso e quiropraxia; próxima vez usar "fisioterapeuta <bairro>".
 - Nicho fisioterapia Tijuca: 7 nomes, 4 Trilha A.
+
+## Varredura 15/09 22h — veterinária Niterói ("veterinária Niterói", 38 anúncios, metade é faculdade)
+- Combo varrido: veterinária × Niterói. Fora: Estácio, Anhanguera, faculdade (curso de veterinária).
+- **Veterinária Popular Niterói** — 2 anúncios, títulos "api.whatsapp.com" e "instagram.com" (link colado no título). https://www.facebook.com/ads/library/?id=1405288051055182
+- **Veterinária Natália Pereira** — dona no nome, Trilha A. 2 anúncios desde set/26, título "api.whatsapp.com". https://www.facebook.com/ads/library/?id=4252308868239655
+- **morada.veterinaria** — título "api.whatsapp.com". https://www.facebook.com/ads/library/?id=1644328720440707
+- **BluePet 24h** — 4 anúncios, carrossel com o mesmo título repetido 7x, desde ago/26. https://www.facebook.com/ads/library/?id=1080030124526543
+- Lição de termo: "veterinária <bairro>" puxa faculdade; usar "clínica veterinária <bairro>" ou "veterinário <bairro>".
+- Nicho veterinária Niterói: 4 nomes, 1 Trilha A.
