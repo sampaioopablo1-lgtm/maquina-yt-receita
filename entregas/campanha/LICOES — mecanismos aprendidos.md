@@ -1276,7 +1276,7 @@ BRIEFING, na REGRA V3 e na rotina de 48h.
 
 **Mecanismo (15/09, 21h10): Advantage+ público × idade.** `targeting_automation.advantage_audience: 1`
 com `age_min` > 25 é recusado pela Meta (code 100, subcode 1870188). Idade acima de 25 só entra
-como "sugestão". Como o Pablo mantém 30–50, Advantage+ fica fora dos conjuntos atuais.
+como "sugestão". E `age_max` < 65 dá subcode 1870189. Advantage+ = controle obrigatório 25–65. Pablo aceitou (15/09 21h20): INTERESSE e AGENDA ligados com 25–65; CNAE segue 30–50 sem Advantage+.
 Público de exclusão de leads: `ads_create_custom_audience` ENGAGEMENT com event_sources
 `lead` + `ig_lead_generation` (id do formulário) e evento `lead_generation_submitted` funcionou
 sem `owner_id`.

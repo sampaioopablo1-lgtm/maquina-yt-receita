@@ -636,3 +636,11 @@ Atenção da rotina: trocar geolocalização reinicia o aprendizado dos conjunto
 - **CNAE:** exclusão e posicionamentos aplicados; listas continuam estritas.
 - Otimização por "lead de qualidade" depende de CRM integrado: fica pra depois da ferramenta de
   WhatsApp. Lógica condicional do formulário: manual do Pablo no Gerenciador.
+
+### 15/09, 21h20 — Advantage+ público ligado (correção pedida pelo Pablo)
+
+A Meta só aceita Advantage+ com controle de idade 25–65+ (erros 1870188 e 1870189: mínimo não
+pode passar de 25, máximo não pode ficar abaixo de 65). Pablo mandou "faça a correção" →
+**INTERESSE BR** e **INTERESSE BR AGENDA** agora com Advantage+ ligado e idade 25–65. Interesses,
+cargos e comportamentos viraram sugestão; a Meta pode sair deles. **CNAE** continua estrito,
+30–50, sem Advantage+ (lista é lista). Exclusão de leads e posicionamentos ampliados valem nos 3.
