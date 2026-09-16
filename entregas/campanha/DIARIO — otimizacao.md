@@ -752,3 +752,10 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Geo/público: INTERESSE e CNAE corretos (BR, só Taubaté excluída).
 - Prospect Halo: não consultado (chave placeholder, -32001 conhecido).
 - Varredura: harmonização × Copacabana (6 nomes, 4 Trilha A).
+
+## 16/09/2026 — ~08h25 — INTERESSE: refino final aprovado pelo Pablo (4 itens) + tamanho medido
+- Pablo: camada de marketing atrai agência/gestor de tráfego, não dono. Refino trocado por sinais de porte, válidos pra qualquer setor. Pablo pediu 3–4 itens e acrescentou Dono/Proprietário na caixa 1.
+- Caixa 1 (OU): Administradores de página comercial, Administradores do perfil comercial do Instagram, Proprietários de pequenas empresas, cargos Dono (143595762334879) e Proprietário (110722838955052).
+- E caixa 2 (OU): Pessoas que preferem produtos de valor alto no Brasil (6046096201583), Receita da empresa <US$1 mi / 1–10 mi / >10 mi (6377169088983 / 6377168992983 / 6377408081983), Tamanho da empresa 11–100 / 101–500 / 500+ (6377134779583 / 6377169297783 / 6377408290383), Sistema integrado de gestão empresarial (6003210541324).
+- Brasil menos Taubaté, 28–55, Advantage+ 0, exclusão do formulário 90d. Conjunto religado, leitura de volta ok.
+- **Tamanho medido pela API (delivery_estimate):** INTERESSE 3,2–3,8 milhões (meta do Pablo: ≥2 mi ✔). CNAE 0,94–1,1 milhão (não mexido por ordem do Pablo; abaixo de 2 mi porque é lista).
