@@ -2596,3 +2596,15 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Clinica Odontológica Santa Rosa de Lima** — desde ago/26, sem título. https://www.facebook.com/ads/library/?id=2094317364778194
 - Fora: Simplifica Doctor (curso), COA Nova Cruz RN (outro estado), Espaço Facial (franquia, já listada).
 - Nicho odontologia Botafogo: 6 nomes, 3 Trilha A.
+
+## Varredura 15/09 21h — fisioterapia Tijuca ("fisioterapia Tijuca RJ", 41 anúncios, termo puxou muita coisa fora)
+- Combo varrido: fisioterapia × Tijuca. Termo largo: veio curso (Ibrafisio, Elo3), quiropraxia, residencial sênior. Aproveitável:
+- **Nunes Curativos** — 8 anúncios idênticos de set/26, título "Converse conosco" repetido até 8x no carrossel. https://www.facebook.com/ads/library/?id=1371944757974600
+- **Dr. Mauro Monteiro Osteopatia** — dono no nome, Trilha A. 2 anúncios desde ago/26, sem título. https://www.facebook.com/ads/library/?id=2119133688956685
+- **Rodrigo Salvitti** — dono no nome, Trilha A. 3 anúncios desde ago/26, todos sem título. https://www.facebook.com/ads/library/?id=1018698091030714
+- **Núcleo Angela Beatriz Varella de Fisioterapia** — dona no nome, Trilha A. Anúncio de set/26 sem título. https://www.facebook.com/ads/library/?id=2158480202213241
+- **Maicom Lima** — dono no nome, Trilha A. Título é o próprio nome. https://www.facebook.com/ads/library/?id=2557775764670138
+- **Clínica Ortobarra** — anúncio de set/26 sem título. https://www.facebook.com/ads/library/?id=4530476013875596
+- **Espaço Vida Barra** — "promoção de Agosto" ainda no ar em setembro. https://www.facebook.com/ads/library/?id=1029734440092383
+- Lição de termo: "fisioterapia <bairro>" puxa curso e quiropraxia; próxima vez usar "fisioterapeuta <bairro>".
+- Nicho fisioterapia Tijuca: 7 nomes, 4 Trilha A.
