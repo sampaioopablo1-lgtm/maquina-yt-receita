@@ -694,3 +694,8 @@ ou Chatclipy) ou o agente próprio via Evolution/Gemini.
 Pablo perguntou "realmente tem 5 ativos?". CNAE tinha só 2 (V11, V16); V12–V15 PAUSED/WITH_ISSUES.
 Religados pelo Windsor `enable_ad` → IN_PROCESS. Regra reforçada em LICOES: anúncio de formulário
 só liga pelo Windsor. Contagem após: INTERESSE 7, CNAE 6, AGENDA 5.
+
+### 16/09, 01h — primeiro lead do Brasil inteiro
+
+Lead novo no **CNAE BR** (listas), R$1,29 gasto no conjunto até 01h. Primeiro lead desde a
+mudança de público das 21h40 e o primeiro do CNAE desde 12/09. Avisado ao Pablo.

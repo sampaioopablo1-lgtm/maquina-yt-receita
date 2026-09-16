@@ -2628,3 +2628,11 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 
 ## Varredura 16/09 00h — escola de idiomas Tijuca ("escola de inglês Tijuca RJ", 1 anúncio) — ESGOTADO
 - Combo varrido: escola de idiomas × Tijuca. Só veio uma creche (fora do nicho). Combo esgotado; próxima tentativa com "curso de inglês <bairro>".
+
+## Varredura 16/09 01h — pet shop Copacabana ("pet shop Copacabana", 10 anúncios)
+- Combo varrido: pet shop × Copacabana.
+- **pet_shop_copacabana** — 2 anúncios de set/26: um sem título, outro com "instagram.com" no título. https://www.facebook.com/ads/library/?id=939128815922094
+- **Pet Shop Essencial (Casa de Rações / Aquarismo)** — 2 anúncios sem título, desde jul/26. https://www.facebook.com/ads/library/?id=1612987213787333
+- **ApaixonadosCopacabana** (veterinária + pet shop) — 4 anúncios idênticos desde jul/26, título gigante com endereço e horário. https://www.facebook.com/ads/library/?id=1052866054340953
+- Fora: imobiliária, igreja.
+- Nicho pet shop Copacabana: 3 nomes, 0 Trilha A.
