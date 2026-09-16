@@ -767,3 +767,6 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Anúncios: V11–V14 do INTERESSE tinham caído de novo em WITH_ISSUES após a edição das 08h25; religados pelo Windsor às 09h05 (pedido do Pablo pela tela do Gerenciador). Agora 12/12 ACTIVE ou em revisão; CNAE 6/6 ACTIVE; ads_get_errors do conjunto = vazio.
 - Pablo viu no Gerenciador "Edições não publicadas" com 26 estados excluídos e Advantage+ ligado: é rascunho antigo, não o que está no ar. Orientado a clicar "Descartar rascunhos".
 - Varredura: fisioterapia × Barra (8 nomes, 3 Trilha A).
+
+## 16/09/2026 — 09h15 (rotina REGRA V3, 48h)
+- Sem veredito: INTERESSE conta 48h a partir de 16/09 08h25 (segmentação final), CNAE a partir de 15/09 21h40. Nenhum anúncio com 48h no relógio novo. Nenhuma troca. Próxima avaliação real: 18/09 09h.
