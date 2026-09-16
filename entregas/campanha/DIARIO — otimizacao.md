@@ -770,3 +770,13 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 
 ## 16/09/2026 — 09h15 (rotina REGRA V3, 48h)
 - Sem veredito: INTERESSE conta 48h a partir de 16/09 08h25 (segmentação final), CNAE a partir de 15/09 21h40. Nenhum anúncio com 48h no relógio novo. Nenhuma troca. Próxima avaliação real: 18/09 09h.
+
+## 16/09/2026 — 13h10 — Troca de formulário em todos os anúncios (ordem do Pablo)
+- Ordem: anúncios WhatsApp → formulário "O PROXIMO CLIENTE FORMS v3--AGENDA-copy" (28266780626312413); anúncios Calendly → "O PROXIMO CLIENTE FORMS v3--AGENDA" (1625438192440294).
+- Formulário faz parte do criativo e criativo é imutável, então foram criados 13 anúncios novos (Windsor create_ad com object_story_spec e lead_gen_form_id), mesma imagem, mesma copy. Aprendizado fica no conjunto, não reinicia; perde só prova social do post.
+- INTERESSE: V11–F3 120247466750200766, V12–F3 120247465726570766, V13–F3 120247465753940766, V14–F3 120247465754960766 (WhatsApp; V15/V16/V17 já usavam o v3-copy e ficaram); CALENDLY V11 120247465801830766, V12 120247465803940766, V13 120247466288110766, V14 120247466290470766, V15 120247466291520766.
+- CNAE: V12–F3 120247466292910766, V13–F3 120247466295330766, V14–F3 120247466688830766, V15–F3 120247466690310766 (V11 e V16 já usavam o v3-copy).
+- Todos os 13 ligados e ACTIVE na leitura de volta. 13 antigos pausados e renomeados "ZZ FORM ANTIGO — …". Uma duplicata (V13 CALENDLY F3, 120247465804350766) ficou pausada como "ZZ DUPLICADO". O anúncio de teste 120247464281530766 tinha sido arquivado no Gerenciador (não dá pra religar arquivado) — recriado.
+- Contagem: INTERESSE 12 ativos (7 WhatsApp + 5 Calendly), CNAE 6 ativos. Relógio das 48h dos novos: 16/09 13h10.
+- Rotinas horária, diária e 48h atualizadas com os IDs novos; 48h agora lê 11 métricas e T1–T8.
+- Pendência pro Pablo: público de exclusão 120247453698530766 só cobre o formulário v1 — precisa incluir v2, v2-AGENDA, v3-AGENDA e v3-AGENDA-copy (criar/editar no Gerenciador).
