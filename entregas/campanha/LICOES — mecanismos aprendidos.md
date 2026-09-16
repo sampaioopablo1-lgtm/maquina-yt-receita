@@ -1297,3 +1297,9 @@ Regra que fica: para REMOVER algo do targeting (exclusão de geo, público, etc.
 religar logo depois; para ADICIONAR ou trocar valores, o Windsor serve. Depois de qualquer
 mudança de targeting, LER o conjunto de volta e conferir — a resposta "updated successfully" do
 Windsor mostra o que foi enviado, não o que ficou.
+
+**Mecanismo (15/09, 22h15): religar anúncio de formulário pelo MCP dá "Terms of Service Not
+Accepted" e o anúncio volta pra PAUSED/WITH_ISSUES sozinho.** É o mesmo bloqueio de termos que
+barra o `ads_create_ad`. Pelo Windsor `enable_ad` passa e o anúncio vai pra PENDING_REVIEW /
+IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable_ad`; MCP
+`ads_activate_entity` só para conjunto e para anúncio criado pelo Windsor na mesma sessão.**
