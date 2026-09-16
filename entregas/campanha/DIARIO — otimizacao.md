@@ -699,3 +699,9 @@ só liga pelo Windsor. Contagem após: INTERESSE 7, CNAE 6, AGENDA 5.
 
 Lead novo no **CNAE BR** (listas), R$1,29 gasto no conjunto até 01h. Primeiro lead desde a
 mudança de público das 21h40 e o primeiro do CNAE desde 12/09. Avisado ao Pablo.
+
+### 16/09, 07h — primeiro lead do conjunto AGENDA (Calendly)
+
+Lead novo no **INTERESSE BR AGENDA**, R$2,51 gasto no conjunto hoje. É o primeiro lead desse
+conjunto desde que foi criado (14/09). Se ele marcar no Calendly, cai na agenda com Meet.
+Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.

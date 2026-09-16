@@ -2664,3 +2664,13 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **ANA JULIA Botafogo • Tattoo** — dona no nome, Trilha A. "Converse conosco" genérico, anúncio de 15/09. https://www.facebook.com/ads/library/?id=1469072431776915
 - **ancientt.ink** — título ok ("Agenda Aberta Rio de Janeiro"), anúncio de 16/09. Observar.
 - Nicho tatuagem Botafogo: 4 nomes, 3 Trilha A. Tatuagem agora com os 8 bairros varridos.
+
+## Varredura 16/09 07h — odontologia Campo Grande ("dentista Campo Grande RJ", 30 anúncios)
+- Combo varrido: odontologia × Campo Grande.
+- **Sorrisos Odontologia Estética (Dra. Dani Racca)** — dona no nome, Trilha A. 16 anúncios desde jun/26 (3 meses), 14 com o título "Dra. Dani Racca" (só o nome, sem promessa) e 2 "Converse conosco". https://www.facebook.com/ads/library/?id=1062542630107689
+- **Oral Imagem** — 3 anúncios desde ago/26, 2 sem título e 1 carrossel com títulos vazios. https://www.facebook.com/ads/library/?id=1069649479339138
+- **Odonto mais saúde** — 3 anúncios idênticos de set/26, título é o nome da clínica. https://www.facebook.com/ads/library/?id=4569776863262378
+- **Click Odonto** — desde jun/26 (3 meses), "Converse com a nossa equipe" genérico. https://www.facebook.com/ads/library/?id=1675538100151008
+- **Clínica Dra Priscila Máximo** — dona no nome, Trilha A. Desde mai/26 (4 meses), título ok mas anúncio único e velho. https://www.facebook.com/ads/library/?id=2203481183730273
+- Fora: Dr. Hélio Nobre (cirurgia plástica).
+- Nicho odontologia Campo Grande: 5 nomes, 2 Trilha A.
