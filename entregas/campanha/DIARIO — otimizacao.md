@@ -644,3 +644,10 @@ pode passar de 25, máximo não pode ficar abaixo de 65). Pablo mandou "faça a 
 **INTERESSE BR** e **INTERESSE BR AGENDA** agora com Advantage+ ligado e idade 25–65. Interesses,
 cargos e comportamentos viraram sugestão; a Meta pode sair deles. **CNAE** continua estrito,
 30–50, sem Advantage+ (lista é lista). Exclusão de leads e posicionamentos ampliados valem nos 3.
+
+### 15/09, 21h40 — correção: os conjuntos NÃO estavam em Brasil inteiro
+
+Pablo viu no Gerenciador 26 estados excluídos. O Windsor não apagou a exclusão antiga (ver LICOES).
+Corrigido pelo MCP (substitui o targeting inteiro) nos 3 conjuntos, que ficaram pausados por
+alguns segundos e foram religados. Agora sim: Brasil inteiro, sem exclusão de estado.
+Consequência: o "dia 1 do Brasil" é 15/09 21h40, não 20h45.

@@ -1280,3 +1280,20 @@ como "sugestão". E `age_max` < 65 dá subcode 1870189. Advantage+ = controle ob
 Público de exclusão de leads: `ads_create_custom_audience` ENGAGEMENT com event_sources
 `lead` + `ig_lead_generation` (id do formulário) e evento `lead_generation_submitted` funcionou
 sem `owner_id`.
+
+## 15/09, 21h40 — Windsor `update_adset` NÃO apaga chave omitida; MCP apaga, mas PAUSA o conjunto
+
+Pablo viu no Gerenciador: "Brasil" + 26 estados em "localizações excluídas" = na prática só RJ.
+Causa: o `update_adset` do Windsor **faz merge** do targeting — chave que você não manda
+(`excluded_geo_locations`) fica como estava, e mandar `{"regions": []}` também não limpa.
+Ou seja, as três "mudanças para Brasil" das 20h45 e 21h10 **não valeram**: os conjuntos
+continuaram RJ até 21h40.
+
+O que limpa: `mcp__Facebook_MCP__ads_update_entity` com `fields {"targeting": {...}}` completo
+— ele substitui o targeting inteiro. **Efeito colateral: o MCP devolve `status_forced_to_paused:
+true` e o conjunto fica PAUSADO.** Religar em seguida com `ads_activate_entity`.
+
+Regra que fica: para REMOVER algo do targeting (exclusão de geo, público, etc.), usar o MCP e
+religar logo depois; para ADICIONAR ou trocar valores, o Windsor serve. Depois de qualquer
+mudança de targeting, LER o conjunto de volta e conferir — a resposta "updated successfully" do
+Windsor mostra o que foi enviado, não o que ficou.
