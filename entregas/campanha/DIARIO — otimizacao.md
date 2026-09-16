@@ -659,3 +659,32 @@ provável edição no Gerenciador ou efeito da mudança de posicionamento). Reli
 do INTERESSE voltou (nome "V11" de novo): público mudou, histórico antigo não vale.
 Agora: INTERESSE 7 ativos (V11–V17), CNAE 6 (V11–V16), AGENDA 5 (V11–V15, 4 em análise).
 Regra nova: nunca menos de 5 ativos por conjunto.
+
+## 15/09/2026, 21h33 — rotina diária (fechamento do dia)
+
+**Prospect Halo:** medição NÃO EXISTE (chave placeholder, error -32001). Nada registrado.
+
+**Meta, por conjunto (dia fechado 14/09 e 15/09 até 21h30):**
+
+| Conjunto | 14/09 | 15/09 |
+|---|---|---|
+| INTERESSE (RJ até 21h40, depois BR) | 1.173 imp, CTR 1,45%, R$30,05, 2 leads (R$15,03) | 481 imp, CTR 2,70%, R$11,23, 1 lead (R$11,23) |
+| CNAE | 201 imp, CTR 2,49%, R$4,89, 0 | 159 imp, CTR 2,52%, R$3,74, 0 |
+| AGENDA (Calendly) | 0 imp (em análise) | 157 imp, CTR 3,18%, R$4,66, 0 — **primeiro dia entregando** |
+
+Frequência 1,1–1,2 em todos. CPM R$23–30. CPL acima de R$8 pelo 2º dia seguido no INTERESSE
+(R$15,03 e R$11,23) → pela regra vira aviso ao Pablo; ação já tomada hoje (REGRA V3 + BR + copies).
+
+**Vazamento silencioso do dia:** 3 leads em 2 dias contra 7/dia na semana passada. Mecanismo
+confirmado: público RJ saturou (CTR caiu de 3,5% pra 1,3%, frequência subindo). Resposta: Brasil
+inteiro (de verdade só às 21h40), Advantage+ nos conjuntos de interesse, exclusão de quem já
+preencheu, stories/marketplace/desktop, V16/V17 com copy nova, mínimo 5 anúncios por conjunto.
+Tudo isso zera aprendizado: 16/09 é dia 1. Não julgar nada antes de 17/09 21h40.
+
+**Agenda:** amanhã 16/09 19h — diagnóstico com Emiliano (Meet, veio do anúncio). Nenhuma outra
+reunião de diagnóstico até 18/09. Semana (desde 09/09): 6 pessoas. Gasto desde 09/09 ≈ R$220 →
+~R$37 por reunião marcada.
+
+**Pendências do Pablo:** formulário novo de 3 perguntas (manual no Gerenciador, sem e-mail);
+roteiro do agente e BRIEFING ainda dizem "Rio"; escolha da ferramenta de WhatsApp (Umbler Talk
+ou Chatclipy) ou o agente próprio via Evolution/Gemini.
