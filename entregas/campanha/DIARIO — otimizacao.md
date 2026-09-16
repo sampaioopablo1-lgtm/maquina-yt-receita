@@ -817,3 +817,11 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Geo/público: corretos.
 - Prospect Halo: não consultado (chave placeholder).
 - Varredura: odontologia × Copacabana (7 nomes, 7 Trilha A — o combo mais rico até agora).
+
+## 16/09 17h50 — conjunto próprio de nicho (pedido do Pablo)
+Pablo pediu um conjunto por segmento, sem mexer nos atuais, pra teste A/B/C/D entre públicos.
+- Criado **LEADS I NICHO HARMONIZACAO BR I FASE 3** (120247470141000766) na campanha CBO: BR menos Taubaté, 28–55, Advantage+ off. Público = interesse "Mídia de cosmetologia" + cargos Esteticista/Cosmetóloga E admins de página (FB/comercial/IG). Exclui quem já enviou formulário. Tamanho 1,6–1,8 mi.
+- 5 anúncios ativos, formulário WhatsApp: HARM V18 (120247470144080766, reaproveita criativo V18), HARM V19 (120247470144600766, criativo V19), HARM V20 "indicação acabou" (120247470145570766, imagem A), HARM V21 "post impulsionado" (120247470146040766, imagem B), HARM V22 curta (120247470146950766, imagem A).
+- V18 e V19 pausados no INTERESSE (0 lead, criados hoje) pra o nicho rodar só no conjunto próprio. INTERESSE fica com 12 ativos.
+- Mecanismos: MCP não cria conjunto (erro de termos 1815089) → Windsor create_adset com account 1695865631502778. Cidade excluída com key string deu erro 1487756 (localizações em conflito) → key numérico + radius resolveu. Interesses de estética/harmonização/botox não existem mais na busca da Meta; o que sobrou foi cosmetologia + cargos.
+- Relógio de 48h do conjunto: 16/09 17h50. Julgar por CPL contra INTERESSE e CNAE. Ganhou → propor ODONTOLOGIA igual. Perdeu → pausar.
