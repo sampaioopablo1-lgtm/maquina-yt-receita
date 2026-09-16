@@ -729,3 +729,7 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Cidade inteira (chave Meta 272181), sem raio. Aplicado via MCP com targeting completo em INTERESSE BR FASE 3 e PERSONALIZADO CNAE BR FASE 3; conjuntos pausaram e foram religados (INTERESSE deu "locations conflict" na primeira tentativa, passou na segunda).
 - Estado final lido: geo = BR; excluded_geo_locations = só Taubaté. Essa exclusão é LEGÍTIMA — a checagem de geo das rotinas só deve alarmar se aparecer estado excluído ou outra cidade.
 - Como achar chave de cidade: Composio METAADS_LIST_TARGETING_SEARCH (type adgeolocation, location_types city).
+
+## 16/09/2026 — ~11h20 — INTERESSE: sinais de "quem já anuncia" (ordem do Pablo)
+- Pablo: mirar quem já anunciou (maturidade maior). A Meta não tem comportamento "anunciante ativo". Usados os proxies que existem na conta, adicionados ao grupo 1 do INTERESSE (Advantage+ ligado = sugestão, não estreita): Facebook for Business (6003146343826), Publicidade online (6003526234370), Marketing de redes sociais (6003389760112), Agência de publicidade (6003702887891) e o comportamento Administradores do perfil comercial do Instagram (6297846662583).
+- Conjunto pausou ao editar e foi religado. Lista completa de opções conferidas está no arquivo PESQUISA de 16/09.
