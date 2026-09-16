@@ -2674,3 +2674,13 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Clínica Dra Priscila Máximo** — dona no nome, Trilha A. Desde mai/26 (4 meses), título ok mas anúncio único e velho. https://www.facebook.com/ads/library/?id=2203481183730273
 - Fora: Dr. Hélio Nobre (cirurgia plástica).
 - Nicho odontologia Campo Grande: 5 nomes, 2 Trilha A.
+
+## Varredura 16/09 08h — harmonização Copacabana ("harmonização facial Copacabana", 45 anúncios ativos)
+- Combo varrido: harmonização × Copacabana. Termo bom: quase tudo dentro do nicho.
+- **Dra. Raphaela Aguiar - Estética Avançada** (página 657280187468738) — 8 anúncios ativos, todos com o MESMO título "Harmonização Facial - Copacabana"; 6 criados em 15/09 (rodada nova) + 2 desde 25/08. Defeito: título genérico repetido, sem promessa nem gancho; roda várias cópias iguais. Trilha A (nome da dona na página). https://www.facebook.com/ads/library/?id=3150808288447802
+- **drthiagovieiramoraes** (página 100101935741941) — 3 anúncios, todos apontando pro perfil do Instagram (título "Instagram photos and videos"); um no ar desde 03/09. Defeito: anúncio de perfil, sem destino de conversão. Trilha A. https://www.facebook.com/ads/library/?id=1779632749949968
+- **Espaço Facial Leme** (página 559374157255408) — 11 anúncios ativos, todos "AGENDE AQUI", desde 02/09 com novas cópias a cada 2–3 dias. Defeito: mesmo CTA repetido em 11 peças, sem ângulo. Trilha B (sem dono no nome). https://www.facebook.com/ads/library/?id=1445191317479123
+- **Bernadete Araújo Estética** (página 451496818562789) — 2 anúncios "Agende seu horário!", desde 30/08. Trilha A. https://www.facebook.com/ads/library/?id=1402696845376990
+- **Elizene Souza - Harmonizacao Facial** (página 415669234963144) — 1 anúncio com título "api.whatsapp.com" (link cru no título), desde 02/09. Defeito claro. Trilha A. https://www.facebook.com/ads/library/?id=28096733123318820
+- **AP - Harmonização Facial e Corporal** (página 1333034956554823) — 1 anúncio "Poucos horários disponíveis", desde 10/09. Trilha B.
+- Nicho harmonização Copacabana: 6 nomes, 4 Trilha A.

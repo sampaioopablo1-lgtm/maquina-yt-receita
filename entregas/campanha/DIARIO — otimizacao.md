@@ -744,3 +744,11 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Conjunto pausou ao editar, religado; leitura de volta confirma. 12 anúncios em IN_PROCESS (re-revisão pós-edição, normal).
 - Conferido: os 5 anúncios CALENDLY usam exatamente os mesmos criativos (IDs) do antigo conjunto AGENDA, portanto o mesmo formulário Calendly. Os 7 WhatsApp usam o formulário 2412763482587375.
 - Aprendizado do conjunto reinicia agora (16/09 ~12h). Contar 48h da REGRA V3 a partir daqui.
+
+## 16/09/2026 — 08h08 (rotina horária)
+- Agenda: sem reunião nova. Emiliano hoje 19h segue. 6 pessoas distintas no teste.
+- Meta hoje até 08h: INTERESSE 79 imp / R$3,60 / 0 lead (segmentação nova desde ~09h, aprendizado zerado); CNAE 80 imp / R$3,65 / 1 lead (V16, o de 01h já registrado).
+- 8 anúncios caíram em WITH_ISSUES ("Terms of Service Not Accepted") depois das edições de conjunto: INTERESSE V11–V14 e CNAE V12–V15. Religados pelo Windsor enable_ad; estão em PENDING_REVIEW/IN_PROCESS. Mecanismo: toda edição de targeting pelo MCP derruba os anúncios de formulário de novo — conferir na rodada seguinte.
+- Geo/público: INTERESSE e CNAE corretos (BR, só Taubaté excluída).
+- Prospect Halo: não consultado (chave placeholder, -32001 conhecido).
+- Varredura: harmonização × Copacabana (6 nomes, 4 Trilha A).
