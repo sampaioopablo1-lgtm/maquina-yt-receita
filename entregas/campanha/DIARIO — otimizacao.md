@@ -830,3 +830,12 @@ Pablo pediu um conjunto por segmento, sem mexer nos atuais, pra teste A/B/C/D en
 - Agenda: sem evento novo (6 pessoas, última Emiliano hoje 19h).
 - Meta hoje: INTERESSE 301 imp / R$13,88 / 0 lead; CNAE 109 imp / R$4,62 / 1 lead; HARMONIZAÇÃO 0 imp (ligado 17h50, 5 anúncios ACTIVE). Targeting dos 3 conjuntos conferido, correto.
 - Varredura: odontologia Méier (10 páginas, 4 Trilha A). Harmonização Méier não rende na Biblioteca.
+
+## 16/09 18h25 — checagem pedida pelo Pablo (geo + pontos soltos)
+- **Geo**: conferido nos 3 conjuntos. Nenhum estado excluído. Só a cidade de Taubaté/SP, como o Pablo mandou. Nada a corrigir.
+- **Anúncios**: 23 ativos, todos ACTIVE, nenhum com erro de entrega.
+- **CORRIGIDO — público de exclusão**: o público "Já enviou o formulário (90d) — excluir" (120247453698530766) só cobria o formulário antigo 2412763482587375. Os dois formulários em uso desde 16/09 13h10 (WhatsApp 28266780626312413 e Calendly 1625438192440294) estavam de fora, ou seja, quem já tinha preenchido continuava vendo anúncio e podia preencher de novo. Regra atualizada para os 3 formulários (lead + ig_lead_generation), descrição atualizada, lido de volta e confirmado.
+- Ressalva: o público está com delivery_status INACTIVE (código 441) porque tem menos de 1.000 pessoas. Só começa a filtrar de fato quando o volume subir; a regra já está certa.
+- **De onde vieram os 2 leads de hoje**: V16 — copy impulsionou (CNAE, R$2,60) e V11 — AGENDA (conjunto ZZ MESCLADO, pausado às 13h10). Nenhum dos 12 anúncios novos trocados às 13h10 converteu ainda — têm 5h de vida e pouca impressão.
+- **Ponto aberto (não mexi)**: o conjunto CNAE roda em Marketplace e Explore, o INTERESSE e o HARMONIZAÇÃO não. Isso deixa a comparação A/B/C torta. Igualar exige editar o CNAE, o que reinicia o aprendizado do único conjunto que deu lead hoje — decisão do Pablo.
+- **Vigiar**: HARMONIZAÇÃO com 0 impressão desde que ligou (17h50). Campanha é CBO, a Meta pode deixar o conjunto novo sem verba.
