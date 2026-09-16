@@ -803,3 +803,10 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Geo/público: os dois conjuntos corretos.
 - Prospect Halo: não consultado (chave placeholder).
 - Varredura: odontologia × Tijuca (3 nomes, 1 Trilha A).
+
+## 16/09/2026 — 16h08 (rotina horária)
+- Agenda: sem evento novo. Emiliano 19h.
+- Meta hoje: sem lead novo (segue 1, CNAE V16). Entrega lenta (INTERESSE ~R$11, CNAE ~R$4,40). V18/V19 ativos e aprovados, 0 imp ainda. Nenhum WITH_ISSUES.
+- Geo/público: corretos. Tamanho reconfirmado: INTERESSE 3,2–3,8 mi; CNAE 0,9–1,1 mi.
+- Prospect Halo: não consultado (chave placeholder).
+- Varredura: harmonização × Barra (3 nomes, 3 Trilha A).

@@ -2718,3 +2718,12 @@ Termo "dentista Tijuca RJ", 90 anúncios ativos. Perio Diária = curso pra denti
 | AllCenter Saúde | 292816667258920 | título só o nome da clínica, sem chamada nem formulário | 15/09 | https://www.facebook.com/ads/library/?id=2101548327401000 | B |
 | Clínica Viotto - Rio de Janeiro | 238492289345108 | 14 anúncios idênticos "Agende sua avaliação!" no ar há 6 dias (concorrem entre si, sem variação de copy) | 10/09 | https://www.facebook.com/ads/library/?id=1952735698737586 | B |
 Combos varridos até aqui: + odontologia Tijuca.
+
+## Varredura 16/09 16h10 — harmonização × Barra da Tijuca
+Termo "harmonização facial Barra da Tijuca", 158 ativos. HOF Na Prática, Instituto Elaine Granato, Espex = curso/paciente modelo (não abordar). drjuniorpires tem copy boa ("Seu rosto comunica antes de você falar") — não é alvo.
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra Juliana Marconi | 1349602758226839 | título quebrado ("Fale conosco \| Fale conosco \| …" 4×), 2 anúncios iguais | 16/09 | https://www.facebook.com/ads/library/?id=28590579560572446 | A |
+| Dra. Sânia Avilla | 147387110819552 | erro de português no título ("Haronização"), sem chamada | 13/09 | https://www.facebook.com/ads/library/?id=2436151166907859 | A |
+| Dra Carla Duarte - Harmonização facial | 673936059146797 | botão genérico "Converse conosco", 2 anúncios iguais | 15/09 | https://www.facebook.com/ads/library/?id=2305253270268319 | A |
+Combos varridos até aqui: + harmonização Barra.
