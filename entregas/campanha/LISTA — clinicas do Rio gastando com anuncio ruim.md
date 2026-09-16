@@ -2650,3 +2650,6 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Marius Sports** — título é só "⭐⭐⭐⭐⭐". https://www.facebook.com/ads/library/?id=27750127007931461
 - **Academia Top3 Méier** — 1 anúncio desde jul/26 (2 meses), título ok. Observar.
 - Nicho academia Méier: 5 nomes, 0 Trilha A.
+
+## Varredura 16/09 04h — arquitetura Botafogo ("arquiteta Botafogo", 1 anúncio) — ESGOTADO
+- Combo varrido: arquitetura × Botafogo. Só veio imobiliária (Alfaiataria Imobiliária, "Chat with us" repetido 10x; fora do nicho). Combo esgotado.
