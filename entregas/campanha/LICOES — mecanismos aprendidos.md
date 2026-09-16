@@ -1324,3 +1324,6 @@ IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable
 - Anúncio novo pode reaproveitar criativo existente: Windsor create_ad com `creative: {creative_id}`.
 
 - **Público de exclusão de formulário é preso ao ID do formulário**: trocar o formulário dos anúncios NÃO atualiza o público "já enviou". A regra guarda `event_sources` por id de formulário, então cada formulário novo precisa entrar na regra (tipos `lead` e `ig_lead_generation`). Corrigido em 16/09 via `ads_update_custom_audience` passando a regra completa com os 3 ids. Público com menos de 1.000 pessoas fica delivery_status INACTIVE / código 441 e ainda não filtra.
+
+- **Público dentro de conjunto pode estar morto sem avisar**: `delivery_status` INACTIVE significa que aquele público não entrega, mas ele continua listado no conjunto como se estivesse valendo. Ler sempre com `ads_get_ad_account_custom_audiences` (traz delivery_status e tamanho). Semelhante criado a partir de público com menos de 1.000 pessoas nasce INACTIVE e nunca funciona — não adianta esperar.
+- **Contagem 1000/1000** (lower_bound = upper_bound = 1000) não é "mil pessoas": é o marcador da Meta para público abaixo do limite mínimo.

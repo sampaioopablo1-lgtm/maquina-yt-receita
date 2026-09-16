@@ -839,3 +839,21 @@ Pablo pediu um conjunto por segmento, sem mexer nos atuais, pra teste A/B/C/D en
 - **De onde vieram os 2 leads de hoje**: V16 — copy impulsionou (CNAE, R$2,60) e V11 — AGENDA (conjunto ZZ MESCLADO, pausado às 13h10). Nenhum dos 12 anúncios novos trocados às 13h10 converteu ainda — têm 5h de vida e pouca impressão.
 - **Ponto aberto (não mexi)**: o conjunto CNAE roda em Marketplace e Explore, o INTERESSE e o HARMONIZAÇÃO não. Isso deixa a comparação A/B/C torta. Igualar exige editar o CNAE, o que reinicia o aprendizado do único conjunto que deu lead hoje — decisão do Pablo.
 - **Vigiar**: HARMONIZAÇÃO com 0 impressão desde que ligou (17h50). Campanha é CBO, a Meta pode deixar o conjunto novo sem verba.
+
+## 16/09 18h40 — auditoria dos públicos (suspeita do Pablo procede)
+Lidos todos os 28 públicos da conta com delivery_status e tamanho. O conjunto CNAE usa 16 deles. Situação real:
+
+**Mortos (delivery_status INACTIVE — não entregam nada, são peso morto dentro do conjunto):**
+- Semelhante (BR, 1%) - Cópia de Editado - CNAE 41 42 43 RJ 100K (120247320877690766)
+- Semelhante (BR, 1%) - Editado - CNAE 41 42 43 RJ 100K.csv (120247320877730766)
+- VV 15s — qualquer vídeo (Página + Instagram) 365d (120247321155870766)
+
+**Quase vazios (ACTIVE mas abaixo de 1.000 pessoas, contribuem quase zero):** VV (120247320335410766), ENG INST (120247320339680766), PG 365 (120247320341610766).
+
+**Listas que funcionam (ACTIVE, com tamanho real):** Cópia de Editado CNAE 41k, Editado CNAE 29,5k, Consultoria 24,1k, Contabilidade BR 25K 2 8,7k, Instituição de ensino 7,4k, Saas 6,4k, Instituição de ensino (DUPLICATA, mesmo nome, id 120247287489830766) 6,4k, Contabilidade RJ 3,3k, Contabilidade BR 25K 1 2,1k. Soma ~129k contatos.
+
+**Semelhante ativo:** só um, "Semelhante (1%) - Cópia de Editado CNAE" (120247406683060766, criado 12/09). Os 9 semelhantes criados em 07/09 estão todos INACTIVE — nasceram de públicos de engajamento com menos de 1.000 pessoas, que é o mínimo da Meta.
+
+**Hipótese a confirmar:** o conjunto mede 0,9–1,1 mi, mas as listas somam ~129k contatos (e a Meta casa só parte). Logo a maior parte do alcance do conjunto "PERSONALIZADO CNAE" provavelmente vem do semelhante de 1%, não das listas do Pablo. Se for isso, o conjunto não está testando o que o nome diz.
+
+Não mexi: tirar os públicos mortos ou separar lista de semelhante muda a segmentação e reinicia o aprendizado — decisão do Pablo.
