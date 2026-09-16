@@ -2625,3 +2625,6 @@ Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é 
 - **Oftalmo Città** — anúncio sem título desde jun/26 (3 meses). https://www.facebook.com/ads/library/?id=1532752995009640
 - Fora: Dr. Igor Mota (cirurgia refrativa, nicho médico, anúncio novo e com título).
 - Nicho ótica Barra: 3 nomes, 0 Trilha A.
+
+## Varredura 16/09 00h — escola de idiomas Tijuca ("escola de inglês Tijuca RJ", 1 anúncio) — ESGOTADO
+- Combo varrido: escola de idiomas × Tijuca. Só veio uma creche (fora do nicho). Combo esgotado; próxima tentativa com "curso de inglês <bairro>".
