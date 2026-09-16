@@ -94,3 +94,31 @@ NÃO existem mais (foram fundidos ou nunca existiram): Simples Nacional, MEI/Mic
 **D. Semente de lookalike**: quando tiver 100+ clientes/reuniões fechadas com e-mail, subir lista e criar semelhante 1% BR. Hoje ainda não tem volume.
 
 Fontes principais: jonloomer.com (b2b-targeting, meta-removal-of-detailed-targeting, advantage-audience-vs-original-audiences), facebook.com/business/help/458835214668072 e /440167386536513, leadsync.me/blog/b2b-facebook-ads, stackmatix.com/blog/facebook-ads-b2b-targeting, skylinesocial.com/target-business-owners-facebook-ads, involvedigital.com/insights/meta-ads-for-b2b-lead-generation-2026, socialmediaexaminer.com/b2b-facebook-and-instagram-ad-guide, pedrosobral.com.br (públicos no Meta Ads 2025), v4company.com (segmentação por cargo), felipevergara.co (segmentaciones B2B), thomashutter.com (B2B targeting DE), ruche-pollen.com (ciblage B2B FR), interestexplorer.io/facebook-hidden-interests, github.com/the-markup/facebook-removed-interests.
+
+---
+
+## 8. Estudo: "Usuários dos Pagamentos do Facebook" e outros sinais de poder de compra (16/09, tarde)
+
+Pedido do Pablo. Fontes: definições literais da API da Meta (lidas na própria conta 16/09 e em dumps públicos da API — Oxford mySocialWatcher, World Bank rsocialwatcher), Central de Ajuda da Meta, Jon Loomer (2014, 2022), AdEspresso (2017), Leadsync, blogs BR (pinkfire, apvenda, trilion).
+
+### O que a Meta diz (oficial, texto da API)
+- **Usuários dos Pagamentos do Facebook (90 dias)** — ID 6002764392172 — "Pessoas que usaram pagamentos do Facebook nos últimos 90 dias". Tamanho na conta hoje: **502 mil no mundo**.
+- **(30 dias)** — ID 6004948896972 — 209 mil no mundo.
+- Categoria: Comportamentos > Atividades digitais. Não existe artigo da Central de Ajuda detalhando. A variante "gasto acima da média" existiu de ~2014 a 2017 e sumiu sem comunicado.
+
+### O que conta como "pagamento do Facebook" (não confirmado pela Meta, inferência forte)
+É o Meta Pay do consumidor: compra em jogo, doação, ingresso, Marketplace/Shops com checkout, assinatura de fã, Estrelas, P2P no Messenger. **Pagamento de anúncio quase certamente NÃO conta**: (1) fica ao lado de "gamers" e "adotantes de tecnologia", sinal de consumidor; (2) 500 mil no mundo é 20x menor que a base de anunciantes ativos da Meta; (3) anúncios têm termos e faturamento separados.
+
+### Veredito pro Pablo
+- Público minúsculo (no Brasil, provavelmente dezenas de milhares). Advantage+ vai expandir de qualquer jeito; público original vai dar CPM alto e pouca entrega.
+- Mede "pagou R$5 num jogo", não renda nem negócio. Todos os especialistas consultados classificam como B2C.
+- **Não usar como base.** No máximo como sugestão dentro do Advantage+, sem expectativa.
+
+### Outros sinais de poder de compra que existem hoje (texto oficial da API)
+- **Compradores envolvidos** (6071631541183): "clicaram no botão Comprar agora na semana passada" — 1,1 bilhão. Intenção genérica, pouco seletivo.
+- **Pessoas que preferem produtos de valor alto no Brasil** (6046096201583): "alinhado ao grupo A+B" do Critério Brasil, predição da Meta — 18 mi.
+- **Pessoas no Brasil que preferem produtos de valor intermediário e alto** (6110813675983): "grupo A+B+C" — 46 mi. É o que está no INTERESSE hoje. Trocar pelo "valor alto" (A+B) é a forma mais direta de subir o nível de renda sem matar o público.
+- Viajantes internacionais frequentes, iPhone recente, Primeiros adeptos de tecnologia — proxies fracos.
+
+### Existe comportamento "anunciante do Facebook"?
+**Não, nunca existiu.** Em 388 comportamentos da API não há nada disso. O mais próximo, com texto oficial: Administradores de página comercial ("admin de uma Página comercial"), Proprietários de pequenas empresas ("se identificam como donos ou têm Página de pequena empresa"), Administradores do perfil comercial do Instagram, Administradores de lojas ("gerenciam uma loja no Facebook ou Instagram"), Nova empresa ativa (<6/12/24 meses), e "Desenvolvedores da Marketing API (90 dias)" (só programador). Quem já anuncia é alcançado por esses + a copy ("Impulsionou e não deu em nada?").
