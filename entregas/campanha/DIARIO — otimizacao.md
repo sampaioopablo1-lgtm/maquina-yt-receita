@@ -863,3 +863,21 @@ Não mexi: tirar os públicos mortos ou separar lista de semelhante muda a segme
 - Meta hoje: INTERESSE 326 imp / R$15,04 / 0 lead; CNAE 113 imp / R$4,85 / 1 lead (CPL R$4,85); HARMONIZAÇÃO ainda 0 impressão, 1h20 depois de ligar.
 - Varredura: odontologia Botafogo (8 páginas, 4 Trilha A).
 - Entregue ao Pablo o painel "Raio-X da Máquina" (artifact) com a fotografia do cenário.
+
+## 16/09 19h30–20h00 — INCIDENTE: segmentação corrompida de novo, e conserto
+Ao ler created_time/updated_time para ajustar as rotinas, achei 12 anúncios do INTERESSE em PAUSED/WITH_ISSUES, todos com updated_time 16/09 18h44. Investigando, a exclusão dos 26 estados tinha VOLTADO — desta vez no CNAE e no conjunto HARMONIZAÇÃO (o INTERESSE perdeu os anúncios pelo efeito colateral). Além da geo, os dois conjuntos tiveram posicionamentos trocados (só mobile, mais Marketplace/Explorar/notificação) e o HARMONIZAÇÃO teve a idade mudada de 28–55 para 30–50. Cara de rascunho antigo publicado no Gerenciador.
+
+Causa do erro 1487756 finalmente entendida: excluir a CIDADE de Taubaté enquanto o ESTADO de São Paulo também está excluído é conflito para a Meta. Era por isso que o enable_ad falhava.
+
+Conserto aplicado (com as aprovações do Pablo, sem parar para perguntar):
+1. INTERESSE 120247356527930766 — targeting completo reescrito por MCP ads_update_entity (entity_type "ad_set"), só Taubaté excluída com radius 10; reativado; 12 anúncios religados pelo Windsor enable_ad.
+2. CNAE 120247356496360766 — 26 estados removidos, Taubaté restaurada, idade 30–50, mobile+desktop, feed/story/reels, 13 públicos personalizados (tirando os 3 mortos que a auditoria achou); reativado.
+3. HARMONIZAÇÃO 120247470141000766 — 26 estados removidos, idade restaurada para 28–55, mobile+desktop, posicionamentos restaurados; reativado.
+Estado final conferido: 23 anúncios com status ACTIVE, nenhum WITH_ISSUES; os PENDING_REVIEW/IN_PROCESS são a revisão normal pós-edição.
+
+## 16/09 20h00 — rotinas ajustadas (pedido do Pablo)
+As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
+- **RELÓGIO DE 48H lido da Meta**: a idade sai de created_time de cada anúncio/conjunto, não de data digitada no prompt. Entidade com menos de 48h não é julgada nem alterada. updated_time passa a ser o detector de mexida por fora: se for mais recente que a última mudança do DIARIO, reler o targeting antes de interpretar número.
+- **PERMISSÃO total** para executar ajuste direto, sem confirmar etapa por etapa, mantidas as travas (orçamento, lead de 48h, mínimo 5 ativos, não apagar, nada automatizado em IG/WhatsApp/LinkedIn).
+- **GEO**: Brasil inteiro, ZERO exclusão de estado, só a cidade de Taubaté. Qualquer region que apareça é erro e se conserta na hora.
+- **CONSERTO DE GEO**: receita passo a passo validada hoje, incluindo o motivo do 1487756 e o detalhe de que entity_type é "ad_set" e de que o Windsor update_adset não resolve esse caso.

@@ -1327,3 +1327,8 @@ IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable
 
 - **Público dentro de conjunto pode estar morto sem avisar**: `delivery_status` INACTIVE significa que aquele público não entrega, mas ele continua listado no conjunto como se estivesse valendo. Ler sempre com `ads_get_ad_account_custom_audiences` (traz delivery_status e tamanho). Semelhante criado a partir de público com menos de 1.000 pessoas nasce INACTIVE e nunca funciona — não adianta esperar.
 - **Contagem 1000/1000** (lower_bound = upper_bound = 1000) não é "mil pessoas": é o marcador da Meta para público abaixo do limite mínimo.
+
+- **Erro 1487756 "localizações em conflito" tem causa concreta**: excluir a CIDADE de Taubaté enquanto o ESTADO de São Paulo também está em excluded_geo_locations.regions. Enquanto os dois coexistem, nem enable_ad nem update_adset passam. Tirar os estados resolve.
+- **Windsor update_adset não conserta geo quebrada** (devolve 1487756). O que funciona é MCP `ads_update_entity` com `entity_type: "ad_set"` (não "adset") e `fields: {"targeting": {...completo...}}`, depois `ads_activate_entity` com o mesmo entity_type, depois religar os anúncios pelo Windsor `enable_ad`.
+- **Rascunho publicado no Gerenciador não mexe só na geo**: em 16/09 18h44 ele trocou também os posicionamentos (deixou só mobile, acrescentou Marketplace/Explorar/notificação) e a faixa de idade de um conjunto. Conferir idade, device_platforms e posicionamentos junto com a geo em toda checagem.
+- **created_time é o relógio certo desta conta**, não updated_time: criativo é imutável, então toda troca gera anúncio novo e created_time é a data da modificação. updated_time muda a cada religada e serve só para detectar edição externa.
