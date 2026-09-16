@@ -718,3 +718,9 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Conjunto AGENDA 120247437338430766 pausado e renomeado **ZZ MESCLADO NO INTERESSE — LEADS I INTERESSE BR I AGENDA**. Não reativar. Não apagar (tem lead de 16/09 07h).
 - INTERESSE agora tem 12 anúncios ativos: V11–V17 (WhatsApp) + 5 CALENDLY.
 - Conjuntos ativos: INTERESSE BR FASE 3 e PERSONALIZADO CNAE BR FASE 3.
+
+## 16/09/2026 — ~10h50 — Exclusão de 26 estados VOLTOU no INTERESSE (corrigido)
+- Ao ler o conjunto INTERESSE BR FASE 3 pra responder o Pablo, o targeting estava de novo com `excluded_geo_locations` = 26 estados (só RJ entregando). Em 15/09 22h tinha sido conferido limpo.
+- Causa provável: alguma publicação de rascunho no Gerenciador (edição manual) que carregou o targeting antigo. Não dá pra confirmar pela API.
+- Correção: MCP ads_update_entity com targeting completo (sem exclusão) → conjunto pausado automaticamente → religado com ads_activate_entity. Leitura de volta: geo = BR, sem exclusão, Advantage+ ligado, 25–65. CNAE conferido: limpo.
+- Rotina horária passa a conferir `excluded_geo_locations` nos dois conjuntos ativos toda rodada.

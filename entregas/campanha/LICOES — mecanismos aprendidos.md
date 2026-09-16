@@ -1308,3 +1308,6 @@ IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable
 - Dois conjuntos com o mesmo público concorrem entre si no leilão. Melhor: um conjunto, anúncios com formulários diferentes (WhatsApp e Calendly).
 - Windsor `create_ad` com `{"creative":{"creative_id":...}}` reaproveita o criativo de outro conjunto (com o formulário dele). Depois `enable_ad` pelo Windsor. Anúncio novo nasce em PENDING_REVIEW por algumas horas.
 - Conjunto pausado via MCP `ads_update_entity` com `status: PAUSED` funciona direto (o "status_forced_to_paused" aqui é o desejado).
+
+## 16/09 — Targeting pode "voltar" sozinho
+- Exclusão de estados removida em 15/09 reapareceu no INTERESSE em 16/09. Hipótese: rascunho antigo publicado pelo Gerenciador. Regra: toda rotina que ler o conjunto confere `excluded_geo_locations`; se voltar, corrigir pelo MCP (targeting completo) e religar, e avisar o Pablo pra não publicar rascunho antigo no Gerenciador.
