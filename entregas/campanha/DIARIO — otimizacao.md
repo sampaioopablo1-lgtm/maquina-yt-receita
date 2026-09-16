@@ -810,3 +810,10 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Geo/público: corretos. Tamanho reconfirmado: INTERESSE 3,2–3,8 mi; CNAE 0,9–1,1 mi.
 - Prospect Halo: não consultado (chave placeholder).
 - Varredura: harmonização × Barra (3 nomes, 3 Trilha A).
+
+## 16/09/2026 — 17h08 (rotina horária)
+- Agenda: sem evento novo. Emiliano 19h.
+- Meta hoje até 17h: INTERESSE 280 imp / R$12,87 / 0 lead; CNAE 105 imp / R$4,46 / 1 lead. V11 CALENDLY F3 já com 27 imp. V18/V19 ativos, 0 imp. Nenhum WITH_ISSUES.
+- Geo/público: corretos.
+- Prospect Halo: não consultado (chave placeholder).
+- Varredura: odontologia × Copacabana (7 nomes, 7 Trilha A — o combo mais rico até agora).

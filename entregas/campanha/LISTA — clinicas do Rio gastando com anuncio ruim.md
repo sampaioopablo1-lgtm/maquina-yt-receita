@@ -2727,3 +2727,16 @@ Termo "harmonização facial Barra da Tijuca", 158 ativos. HOF Na Prática, Inst
 | Dra. Sânia Avilla | 147387110819552 | erro de português no título ("Haronização"), sem chamada | 13/09 | https://www.facebook.com/ads/library/?id=2436151166907859 | A |
 | Dra Carla Duarte - Harmonização facial | 673936059146797 | botão genérico "Converse conosco", 2 anúncios iguais | 15/09 | https://www.facebook.com/ads/library/?id=2305253270268319 | A |
 Combos varridos até aqui: + harmonização Barra.
+
+## Varredura 16/09 17h10 — odontologia × Copacabana
+Termo "dentista Copacabana", 33 ativos. Dr. Gabriel Lembo tem copy boa ("Naturalidade em cada detalhe") — não é alvo. Sorrio/Clínica Sorrio e Smart Dental são rede (Trilha B).
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra. Luana Martins | 105773321329139 | link direto pro WhatsApp, sem formulário nem filtro | 16/09 | https://www.facebook.com/ads/library/?id=1080784408021860 | A |
+| Dentista Alana Mourão | 105337892507837 | sem título, post impulsionado | 12/09 | https://www.facebook.com/ads/library/?id=1077499591336074 | A |
+| Dra. Vanessa Torres | 106236135750157 | título repetido 3× ("Pare de sofrer com sua prótese hoje \| \| …") | 12/09 | https://www.facebook.com/ads/library/?id=1691458646316639 | A |
+| Dra Fernanda Oliveira | 387982371062359 | botão genérico "Converse conosco" + "Agende sua avaliação", 2 anúncios | 10/09 | https://www.facebook.com/ads/library/?id=1595638308711933 | A |
+| Dr. Cristiano Castro - Instituto Crescer e Sorrir | 100196335896190 | 4 anúncios sem título, posts impulsionados | 04/09 | https://www.facebook.com/ads/library/?id=1773884200543895 | A |
+| Dr. João Carvalho - Reabilitação Oral | 369739679776051 | sem título, post impulsionado | 08/09 | https://www.facebook.com/ads/library/?id=1824623012041002 | A |
+| dra.miriaandrade | 954797137720010 | título quebrado ("dra.miriaandrade \| \| \|"), no ar há 40 dias | 07/08 | https://www.facebook.com/ads/library/?id=992423723817676 | A |
+Combos varridos até aqui: + odontologia Copacabana.
