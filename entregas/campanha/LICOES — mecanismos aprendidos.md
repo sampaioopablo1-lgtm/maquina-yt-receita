@@ -1311,3 +1311,4 @@ IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable
 
 ## 16/09 — Targeting pode "voltar" sozinho
 - Exclusão de estados removida em 15/09 reapareceu no INTERESSE em 16/09. Hipótese: rascunho antigo publicado pelo Gerenciador. Regra: toda rotina que ler o conjunto confere `excluded_geo_locations`; se voltar, corrigir pelo MCP (targeting completo) e religar, e avisar o Pablo pra não publicar rascunho antigo no Gerenciador.
+- 16/09: chave de cidade/interesse da Meta se busca pelo Composio `METAADS_LIST_TARGETING_SEARCH` (conta "opc"). Excluir cidade inteira = `excluded_geo_locations.cities [{key}]` sem radius. Ao religar conjunto logo após editar geo pode dar "Some locations conflict" (1487756) — repetir a ativação resolve.

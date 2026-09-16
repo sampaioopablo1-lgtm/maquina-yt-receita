@@ -724,3 +724,8 @@ Hoje: 2 leads (CNAE 01h + AGENDA 07h), R$9,14 gastos. Avisado ao Pablo.
 - Causa provável: alguma publicação de rascunho no Gerenciador (edição manual) que carregou o targeting antigo. Não dá pra confirmar pela API.
 - Correção: MCP ads_update_entity com targeting completo (sem exclusão) → conjunto pausado automaticamente → religado com ads_activate_entity. Leitura de volta: geo = BR, sem exclusão, Advantage+ ligado, 25–65. CNAE conferido: limpo.
 - Rotina horária passa a conferir `excluded_geo_locations` nos dois conjuntos ativos toda rodada.
+
+## 16/09/2026 — ~11h — Taubaté (SP) excluída dos dois conjuntos ativos (ordem do Pablo)
+- Cidade inteira (chave Meta 272181), sem raio. Aplicado via MCP com targeting completo em INTERESSE BR FASE 3 e PERSONALIZADO CNAE BR FASE 3; conjuntos pausaram e foram religados (INTERESSE deu "locations conflict" na primeira tentativa, passou na segunda).
+- Estado final lido: geo = BR; excluded_geo_locations = só Taubaté. Essa exclusão é LEGÍTIMA — a checagem de geo das rotinas só deve alarmar se aparecer estado excluído ou outra cidade.
+- Como achar chave de cidade: Composio METAADS_LIST_TARGETING_SEARCH (type adgeolocation, location_types city).
