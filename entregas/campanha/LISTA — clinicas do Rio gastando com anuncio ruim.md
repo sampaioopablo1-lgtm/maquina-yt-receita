@@ -2976,3 +2976,41 @@ Fora do alvo: Garimpando com PH (revenda de garimpo), Thaís Souza Entrelace Mad
 **Observação**: "avaliação gratuita" aparece de novo, agora em Madureira, do mesmo jeito que em Niterói. É o padrão do nicho de estética inteiro, não de um bairro.
 
 Combos varridos até aqui: + harmonização/estética Madureira. Com isso, harmonização e odontologia estão fechadas nos dois bairros prioritários (Niterói e Madureira).
+
+## Varredura 17/09 10h10 — imobiliária/corretor Copacabana
+"apartamento à venda Copacabana": **142 ativos estimados**, 50 lidos. Confirma com folga a regra do termo de produto — é o combo mais cheio de toda a lista até agora.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Futura Imobiliária | 108773068610304 | **carrossel com 20 cartões de título vazio** — só o nome da imobiliária aparece | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1985971995400137 |
+| Machado de Souza Consultoria Imobiliária | 119037485315543 | carrossel com 15 cartões vazios | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1573690717250916 |
+| copacabanaimobiliaria | 587815197758045 | carrossel com 15 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=921459667275759 |
+| Hausen Brokers | 621027844433113 | carrossel com 15 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2313081376132031 |
+| cg_imoveisdesignlifestyle | 111109293960073 | carrossel com 8 cartões vazios | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1270725035138047 |
+| Carioquinha | 122097050786017720 | carrossel com 5 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1598779748695518 |
+| Copa Azul Imobiliária Digital | 235783436475708 | **11 anúncios no ar ao mesmo tempo**, e o defeito é o oposto do comum: o título é a ficha técnica inteira do imóvel, com 10 a 12 campos separados por barra e emoji em cada um. Ninguém lê isso no feed | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1416764893738997 |
+| Meu Metro Quadrado Rio | 147106765809945 | 3 anúncios, todos com título "api.whatsapp.com" (URL crua) | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=28493508766927756 |
+| Lopes Select | 1371116259417033 | 3 anúncios idênticos, título "Clique em saiba mais e não perca essa oportunidade" — instrução sem oferta | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1873499936945402 |
+| Ronald Almeida Imóveis | 287913414402015 | um anúncio com título "api.whatsapp.com" e outro com "Apenas Venda R$1.700.000 -", terminando em hífen solto | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=3094535630739802 |
+| Brasil Brokers | 354245788004916 | **título com o catálogo inteiro colado** — seis imóveis, de Engenheiro Leal a Anil, num anúncio buscado por Copacabana. Feed de imóvel misturado sem curadoria | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=1059711283634204 |
+| Jussandra Lucca Corretora | 1212589108594378 | 2 anúncios sem título nenhum | 17/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1621490869761957 |
+| Victoria Magana Corretora de imóveis | 613902825148911 | 3 anúncios sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1065239276108729 |
+| Luanna Ranzan | 230265480915892 | 2 anúncios sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2202807177243896 |
+| Igor — Consultor de Negócios | 104769284786741 | 2 anúncios com título "Venda* Rua Bolívar/ Copacabana" — asterisco solto, parece letra miúda escondida | 12/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=28941110238881875 |
+| Michelle Machado Imóveis | 166280336569071 | anúncio sem título | 14/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1485444683019913 |
+| Yasmin Monteiro | 109546985567764 | anúncio sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2555418238291445 |
+| Felipe Corretor de Imóveis | 122942944238310 | anúncio sem título | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1025097157277440 |
+| lucasguimaraescorretor | 456265484227560 | anúncio sem título; perfil pessoal como página | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=28151420197813572 |
+| Eduardo Parga | 1253911441145227 | título é só o nome do corretor | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1404433254459913 |
+| Georgiana Guinle | 544861969043942 | anúncio sem título | 11/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1809230796769029 |
+| Top Class Imóveis | 109677408852283 | anúncio sem título | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1612954087063896 |
+| imoveisdorio.com.br | 534784556568702 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1399484844914252 |
+| DNA Imóveis \\ Miguel Lemos | 499668446554293 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1843529003684757 |
+| Elysium | 567460709789247 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1043745965148633 |
+| aveguicopacabana | 1119287421276467 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1386744413630631 |
+
+**Defeito novo catalogado, e é o contrário de todos os outros**: título longo demais. A Copa Azul escreve a ficha técnica inteira no título (10 a 12 campos com emoji), e a Brasil Brokers cola o catálogo de seis imóveis de bairros diferentes. Até hoje o defeito campeão era título vazio; aqui o excesso faz o mesmo estrago. Serve de argumento nos dois sentidos: **o título tem um trabalho só, que é fazer a pessoa parar**.
+
+**Observação de volume**: imobiliária em Copacabana tem mais anunciante ruim que qualquer nicho varrido até aqui, e 13 das 26 páginas são Trilha A. É o combo com melhor relação esforço/retorno da lista.
+
+Combos varridos até aqui: + imobiliária/corretor Copacabana.
