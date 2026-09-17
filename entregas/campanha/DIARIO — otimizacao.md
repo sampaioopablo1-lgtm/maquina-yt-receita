@@ -928,3 +928,10 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 ## 17/09 01h10 — rodada horária
 - Segmentação dos 3 conjuntos intacta (updated_time segue 16/09 19h51–19h53, meus consertos). Os 23 anúncios ACTIVE/ACTIVE, nenhum com erro.
 - Varredura: harmonização em Botafogo pelo termo do procedimento. 4 páginas registradas, 1 Trilha A. Mecanismo novo de busca anotado em LICOES.
+
+## 17/09 02h10 — rodada horária (correção de leitura de fuso)
+- **Correção do registro anterior**: o date_preset "today" da Meta segue o fuso da conta (BRT), então às 23h de 16/09 o dia ainda estava aberto. O fechamento real de 16/09 é: INTERESSE 561 imp / R$22,70 / 0 lead; CNAE 131 imp / R$5,44 / 1 lead; HARMONIZAÇÃO 5 imp / R$0,05 / 0 lead. Os números que registrei às 00h10 eram parciais.
+- Com o dia fechado de verdade, o INTERESSE fica com 561 impressões e nenhum lead. Continua sem veredito: os anúncios dele têm menos de 48h desde o created_time e a regra proíbe julgar. A rotina das 9h decide.
+- HARMONIZAÇÃO travou em 5 impressões desde que entregou pela primeira vez. Relógio de 48h vence 18/09 18h; se continuar assim, aviso o Pablo (é verba, decisão dele).
+- Segmentação dos 3 conjuntos intacta, updated_time inalterado.
+- Varredura: estética Tijuca pelo termo "botox", 63 anúncios ativos. 6 páginas registradas, 2 Trilha A. Defeito novo: botão de Messenger em clínica.

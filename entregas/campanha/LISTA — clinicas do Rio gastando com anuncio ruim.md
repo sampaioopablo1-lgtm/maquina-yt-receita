@@ -2828,3 +2828,19 @@ Fora do alvo: Clinic Cursos (8 anúncios, vende curso para dentista, não é cl�
 **Aprendizado de termo novo**: para estética, buscar pelo PROCEDIMENTO ("preenchimento labial", "botox") em vez de "harmonização facial" — o termo do procedimento rende 16 anúncios onde o termo guarda-chuva rendia 3. Mesma lógica de "óculos de grau" vs "ótica".
 
 Combos varridos até aqui: + harmonização Botafogo (via preenchimento labial).
+
+## Varredura 17/09 02h10 — estética Tijuca (termo "botox")
+63 anúncios ativos no termo — o procedimento confirma de novo que rende muito mais que o guarda-chuva. A rede "Espaço Facial" domina o bairro com 4 unidades anunciando ao mesmo tempo (Tijuca, Shopping Millennium, Shopping Downtown, Botafogo), todas com o mesmo criativo "AGENDE JÁ"/"AGENDE AQUI". São franquias, Trilha B.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Instituto Elaine Granato | 116522953587558 | carrossel com 3 cartões de título vazio, só o nome da página aparece | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=28339645685688088 |
+| Clinica Dra Leticia Moraes | 108056271910333 | "Conversar no Messenger" — manda pro Messenger, que quase ninguém usa, em vez do WhatsApp | 14/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=4485631325099003 |
+| Nobre Face | 1207674919098359 | 2 anúncios "Converse conosco", sem oferta | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1097675622945871 |
+| Espaço Facial Tijuca | 107941095463368 | 4 anúncios idênticos "AGENDE JÁ" | 15/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1788444632160763 |
+| Espaço Facial & Corporal Shopping Millennium | 108547335401590 | 4 anúncios idênticos, mesmo criativo da unidade Tijuca | 15/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1640663650764968 |
+| Espaço Facial Shopping Downtown | 194913153711529 | 3 anúncios idênticos "AGENDE AQUI" | 15/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1057918457048924 |
+
+**Defeito novo catalogado**: botão "Conversar no Messenger" em clínica. Gancho forte — praticamente ninguém abre Messenger no Brasil, o lead morre ali.
+
+Combos varridos até aqui: + estética Tijuca (via botox).

@@ -1335,3 +1335,5 @@ IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable
 
 - **Busca de estética na Biblioteca**: usar o nome do PROCEDIMENTO ("preenchimento labial", "botox") e não o guarda-chuva ("harmonização facial", "clínica de estética"). Em Botafogo o procedimento rendeu 16 anúncios ativos e o guarda-chuva rendia quase zero. É a mesma regra já conhecida de "óculos de grau" vs "ótica".
 - **Defeito de anúncio novo, bom gancho de abordagem**: título com URL crua aparecendo para o público ("instagram.com", "api.whatsapp.com"). Encontrado em Niterói e em Madureira.
+
+- **O "today" da Meta segue o fuso da conta (BRT), não UTC.** Rodada que roda depois das 21h UTC ainda está lendo o dia anterior em aberto. Para fechar um dia, usar Windsor com date_from/date_to explícitos, nunca o date_preset "today".
