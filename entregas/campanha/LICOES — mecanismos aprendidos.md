@@ -1365,3 +1365,40 @@ O que mudou na prática:
 
 O CRM segue sendo: leads do Meta (formulários), a agenda do Google, e o leads.jsonl do
 maquina-whatsapp quando estiver no ar.
+
+## 17/09 — O que sobrou de segmentação por NICHO na Meta (pesquisa completa)
+Pesquisa feita a pedido do Pablo, via Composio `METAADS_LIST_TARGETING_SEARCH` (conta opc).
+
+**Interesse (`type: adinterest`) NÃO serve para segmentar profissão.** Confirmado termo a termo:
+- "odontologia" → devolve **uma faculdade de odontologia em Mianmar**. Nada utilizável.
+- "advocacia" → **lista vazia**.
+- "veterinária" → "Medicina veterinária", 94–111 milhões. É dono de animal, não veterinário.
+- "energia solar" → "Energia solar", 124–146 milhões. É consumidor curioso, não empresa de solar.
+- "contabilidade" → 84–99 milhões. Idem.
+
+A regra: **interesse de tamanho gigante com nome de profissão é o público CONSUMIDOR daquele assunto**, nunca o profissional. Usar isso para nichar é queimar verba.
+
+**O que ainda funciona: a classe `industries`** (`type: adTargetingCategory`, `class: industries`). Ela tem gavetas ocupacionais reais, com descrição da Meta dizendo quem está dentro:
+
+| id | Setor | Tamanho | Exemplos que a Meta lista |
+|---|---|---|---|
+| 6008888972183 | Serviços jurídicos | 1,0–1,2 mi | advogado, conselheiro corporativo, sócio, paralegal |
+| 6012903127583 | Gastronomia e restaurantes | 4,3–5,1 mi | chef, cozinheiro, garçom, barista |
+| 6012903128783 | Construção e extração | 4,0–4,7 mi | pedreiro, eletricista, mecânico |
+| 6012903126783 | Arquitetura e engenharia | 6,6–7,2 mi | engenheiro, técnico, eletricista |
+| 6008888961983 | Serviços técnicos e de TI | 6,9–8,2 mi | técnico de TI, dev, consultor |
+| 6009003307783 | Negócios e finanças | 7,9–9,3 mi | contador, auditor, consultor financeiro, CFO |
+| 6012901802383 | Artes, entretenimento, esportes e mídia | 10,2–12,0 mi | fotógrafo, artista |
+| 6012903159383 | Serviços de saúde e médicos | 10,5–12,4 mi | médico, dentista, cardiologista |
+| 6012903140583 | Produção | 11,2–13,1 mi | — |
+| 6008888998983 | Educação e bibliotecas | 11,2–13,2 mi | professor, tutor, diretor |
+| 6014307192983 | Vendas | 14,2–16,6 mi | corretor de imóveis, consultor, vendedor |
+| 6009003311983 | Gestão | 17,5–20,6 mi | gerente, supervisor, diretor, presidente |
+| 6008888954983 | Serviços administrativos | 18,3–21,5 mi | secretária, gerente de escritório, agente imobiliário |
+
+**Serviços jurídicos é a gaveta mais apertada de todas** — 1 milhão contra 10 milhões da saúde. Para teste de nicho é a melhor candidata, porque público pequeno desperdiça menos.
+
+**Ressalvas que valem antes de montar conjunto:**
+- Os tamanhos acima são MUNDIAIS. Cruzado com Brasil + faixa de idade + admins de página, o público real cai muito e pode ficar pequeno demais para a Meta entregar. Medir com `METAADS_GET_OBJECT` + `delivery_estimate` depois de salvar o conjunto.
+- `class: work_positions` **não existe** na busca: a API devolve erro 1487709 "classe de categoria de direcionamento inválida". Os cargos que já estão nos conjuntos (Dono, Proprietário, Esteticista) vieram da busca do Gerenciador, não desta API.
+- A mesma classe `industries` também guarda os filtros de EMPRESA já usados no INTERESSE (receita, tamanho, ano de fundação) — é a mesma gaveta, papéis diferentes.

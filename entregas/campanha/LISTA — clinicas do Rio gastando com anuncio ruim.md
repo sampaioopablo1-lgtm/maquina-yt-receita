@@ -3092,3 +3092,22 @@ São da **Barra da Tijuca**, não da Tijuca (contaminação do termo): Henovah i
 **Observação que muda a prioridade da lista**: imobiliária é onde estão os anúncios mais velhos do Rio inteiro. Soraya Bittencourt está com a mesma peça no ar desde **outubro de 2025**, e jonathancorretor desde junho. O gancho de "seu anúncio não muda há meses" é mais forte aqui do que em qualquer nicho de clínica.
 
 Combos varridos até aqui: + imobiliária/corretor Tijuca (com a ressalva do termo).
+
+## Varredura 17/09 13h10 — advocacia previdenciária RJ
+"advogado previdenciário Rio de Janeiro": só **9 ativos**, e 3 são concorrentes nossos. Sobraram 6. Nicho MAGRO — bem diferente do trabalhista, que rendeu 19.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Quesada Advogados Associados | 309804669123797 | anúncio sem título nenhum, no ar desde **09/12/2025** — nove meses | 09/12/2025 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=850946760862889 |
+| guimaraesadvogados.cg | 955736424291972 | título é a URL crua "instagram.com", no ar desde **09/03/2026** — seis meses | 09/03/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1448965393618573 |
+| Rivera, Ouverney & Frez Advogados | 108548497620888 | anúncio sem título, desde 20/05/2026 | 20/05/2026 | **A** (sobrenomes) | https://www.facebook.com/ads/library/?id=1616530086111972 |
+| André Beschizza Advogados | 174595706008750 | título "Converse conosco", no ar desde 17/06/2026 | 17/06/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1144182114595402 |
+| Melhor Advogado | 596649130436082 | título recheado de palavra-chave por vírgula (já registrado na varredura trabalhista, mesma peça) | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1860423558280058 |
+
+**NÃO entra na lista — anúncio bom**: Adv Washington Teixeira, com o título *"Benefício negado ou cortado pelo INSS?"*. Fala do problema do cliente, não de si. É o melhor título de advogado que apareceu em qualquer varredura, e serve de referência do que funciona no nicho.
+
+Fora do alvo (vendem marketing para advogado, são concorrentes): Marlon Jönck — Marketing Jurídico, Nil Empresarial, arena.dodireito (congresso).
+
+**Achado que corrige a leitura do nicho**: advocacia no RJ é **magra em anunciante, mas velha em criativo**. Só 6 escritórios previdenciários anunciando, e metade com peça no ar há mais de seis meses. Ou seja: pouca gente para abordar, mas a que existe está visivelmente abandonada. É lista curta de alta conversão, não lista de volume.
+
+Combos varridos até aqui: + advocacia previdenciária RJ.
