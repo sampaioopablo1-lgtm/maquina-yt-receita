@@ -3111,3 +3111,19 @@ Fora do alvo (vendem marketing para advogado, são concorrentes): Marlon Jönck 
 **Achado que corrige a leitura do nicho**: advocacia no RJ é **magra em anunciante, mas velha em criativo**. Só 6 escritórios previdenciários anunciando, e metade com peça no ar há mais de seis meses. Ou seja: pouca gente para abordar, mas a que existe está visivelmente abandonada. É lista curta de alta conversão, não lista de volume.
 
 Combos varridos até aqui: + advocacia previdenciária RJ.
+
+## Varredura 17/09 14h10 — veterinária Copacabana
+"clínica veterinária Copacabana": só **7 ativos**. Nicho magro no bairro, mas trouxe o achado mais extremo de toda a lista.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Clínica Veterinária S.O.S Castração | 398118780373800 | **3 anúncios ativos, e o mais velho está no ar desde 22/11/2024 — quase dois anos com o mesmo criativo.** Dois deles sem título nenhum e um com a URL crua "api.whatsapp.com" | 22/11/2024 | B | https://www.facebook.com/ads/library/?id=1299131247900620 |
+| HV Unidade Copacabana | 689542937566848 | título é a URL crua "api.whatsapp.com" | 12/09/2026 | B (rede) | https://www.facebook.com/ads/library/?id=883134234731471 |
+| AnimaLeme | 912169338864770 | 2 anúncios idênticos, título é só o nome da clínica ("Clínica Veterinária Animaleme") | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=4569707033300791 |
+| Clínica Veterinária Santa Mônica | 1211364085389822 | **"Mais cuidado para o seu pet, com muito mais economia"** — vende por preço num serviço de saúde. Atrai quem escolhe pelo mais barato | 17/08/2026 | B | https://www.facebook.com/ads/library/?id=2880712582272390 |
+
+**Recorde da lista**: a S.O.S Castração bate a Soraya Bittencourt (imobiliária, outubro/2025). **Quase dois anos** com a mesma peça no ar — 22/11/2024. É o exemplo mais extremo de conta abandonada que encontrei.
+
+**Observação de nicho**: veterinária tem pouquíssimo anunciante em todos os bairros varridos (7 em Copacabana, 12 na Tijuca, e na Tijuca 9 deles eram da mesma página). E a Trilha A é quase inexistente — clínica veterinária costuma ter nome de marca, não do dono. Para o critério "falar direto com o dono", **veterinária é o pior nicho da lista até agora**.
+
+Combos varridos até aqui: + veterinária Copacabana.
