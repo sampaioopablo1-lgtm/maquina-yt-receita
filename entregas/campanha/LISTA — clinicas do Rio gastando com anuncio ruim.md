@@ -3145,3 +3145,27 @@ Fora do alvo: **Perio Diária** (página 1950766445014867) — são **20 anúnci
 **"Avaliação grátis/gratuita" agora apareceu em quatro nichos** (estética Niterói, estética Madureira, fisioterapia, odontologia Barra). É o clichê mais difundido do Rio inteiro, e por isso o argumento mais reaproveitável na abordagem.
 
 Combos varridos até aqui: + odontologia Barra da Tijuca.
+
+## Varredura 17/09 16h10 — arquitetura RJ
+"escritório de arquitetura Rio de Janeiro": 31 ativos, todos lidos. Confirma de novo a regra antiga — **o termo puxa imobiliária e incorporadora** (Tegra, Wave, Vizu, SOTER, Luis Imóveis, Aprova Fácil). Sobraram 8 escritórios de arquitetura de verdade.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| patriciaparreiras.interiores | 108188131074274 | **o título é `{{product.name}}` — a variável do sistema aparecendo crua para o público**, porque o campo nunca foi preenchido. No ar desde 27/05/2025, quase um ano e meio | 27/05/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1463485964618855 |
+| (Fran Vilaça ) | 778874741971432 | carrossel repetindo "(Fran Vilaça )" em 9 cartões — com o parêntese e o espaço extra do nome da página | 29/06/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1008042308703038 |
+| Muda • arquitetura possível | 970044212861365 | carrossel com 16 cartões de título vazio | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1697741588379631 |
+| Rafael Ramos Arquitetura e Interiores | 828059224001697 | 2 anúncios: um "Converse conosco" e outro sem título, o mais velho desde 23/06/2026 | 23/06/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1059348310138115 |
+| Ingrid Suan Arquitetura e Interiores | 113514721722581 | 2 anúncios sem título, o mais velho desde 31/08/2026 | 31/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1105547958642688 |
+| Dafne Sampaio Arquitetura | 597813703988854 | anúncio sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=901321679525459 |
+| Hiago Santos Arquitetura | 1216159181584232 | anúncio sem título | 03/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=28042757645415904 |
+| Ciça Rego Macedo | 137158456994015 | anúncio sem título, no ar desde 15/04/2026 — cinco meses | 15/04/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=921317780715778 |
+
+**Defeito novo catalogado, e é o mais gritante da lista inteira**: **variável de template não renderizada no título** — `{{product.name}}`. O anunciante subiu um catálogo, não preencheu o campo de nome, e há quase um ano e meio o público vê um código no lugar do produto. Prova irrefutável de que ninguém abre a conta.
+
+Também apareceu, do lado imobiliário: **Aprova Facil Imóveis Rio** com "O primeiro **porjeto** de alto padrão do Porto ⭐⭐⭐⭐⭐" — erro de digitação em "projeto", num anúncio que subiu hoje.
+
+**Ruído da Biblioteca, para registro**: o termo trouxe 4 páginas em dólar com o mesmo título de isca ("Você teve um ONS com um garoto de programa... ou bilionário?"), nomes de pessoa estrangeiros e criativo idêntico. É fazenda de anúncio de aplicativo de história, não tem relação com arquitetura. Vale saber que termo em português puxa esse tipo de lixo e que ele **não** entra na contagem de mercado.
+
+**Arquitetura tem a maior proporção de Trilha A de todos os nichos: 7 de 8.** Escritório de arquitetura quase sempre leva o nome do arquiteto. Para o critério "falar direto com o dono", é o melhor nicho medido até agora — melhor até que odontologia (11 de 20).
+
+Combos varridos até aqui: + arquitetura RJ (termo amplo, não por bairro).
