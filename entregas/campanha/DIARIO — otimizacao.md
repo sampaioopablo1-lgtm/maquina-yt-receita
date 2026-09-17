@@ -950,3 +950,34 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - Segmentação intacta nos três conjuntos. Madrugada parada, nada a corrigir.
 - Varredura: advocacia trabalhista. "Tijuca" isolada deu zero; ampliando para Rio de Janeiro rendeu 19 anúncios. 8 páginas registradas, 5 Trilha A — a maior proporção de Trilha A de todas as varreduras até agora, porque advogado costuma anunciar com o próprio nome.
 - Achado de nicho: advocacia tem a maior taxa de dono-no-nome. Se o teste de harmonização não vingar, advocacia é candidato natural ao próximo conjunto nichado.
+
+## 17/09 09h04 (BRT) — rodada REGRA V3: nenhuma troca
+Relógio lido da Meta. Só DOIS anúncios tinham 48h desde o created_time; todo o resto é da leva de
+15/09 19h31 em diante (37h) ou de 16/09, e por regra dura não é julgado nem alterado.
+
+**Julgáveis:**
+- **V15** (INTERESSE/WhatsApp, created 12/09 20h36): 2.293 imp, 36 cliques, CTR 1,57%, CPM R$ 25,62,
+  6 leads, **CPL R$ 9,79**. É o vencedor da conta e a referência dos limiares desta rodada.
+- **V11** (CNAE, created 12/09 21h01): 279 imp, 5 cliques, CTR 1,79%, CPM R$ 28,21, gasto R$ 7,87,
+  0 lead.
+
+**Veredito do V11 — não bateu nenhuma condição T1–T8:**
+| Condição | Limiar | V11 | Bate? |
+|---|---|---|---|
+| T1 | ≥300 imp e 0 lead | 279 imp | não (faltam 21 imp) |
+| T2 | gasto ≥2× CPL do vencedor (R$ 19,58) e 0 lead | R$ 7,87 | não |
+| T3 | ≥2 leads e CPL >2× | 0 lead | não |
+| T4 | ≥300 imp e CTR <0,80% | 279 imp, CTR 1,79% | não |
+| T5 | CPM >2× a média ou >R$ 60 com ≥300 imp | R$ 28,21 | não |
+| T6 | frequência >3 e 0 lead | 1,27 | não |
+| T7 | ≥20 cliques no link e 0 lead | 5 cliques | não |
+| T8 | CPC >2× o do vencedor (R$ 3,26) e 0 lead | R$ 1,57 | não |
+
+O V11 está a 21 impressões do primeiro veredito possível (T1) e o CTR dele é bom — o problema é
+falta de entrega, não criativo ruim. Fica no ar. **Relógio de 7 dias**: created 12/09, então se
+chegar a 19/09 ainda sem 300 impressões, isso vira aviso ao Pablo (verba é decisão dele).
+
+**Conjunto HARMONIZAÇÃO** (created 16/09 17h59, 15h de idade): 5 impressões no total, sem veredito
+possível. A CBO ainda não deu verba a ele. Prazo das 48h vence 18/09 ~18h — só ali vira aviso.
+
+Nenhum anúncio em WITH_ISSUES. Nenhuma condição C1–C3 de conjunto batida. Zero trocas nesta rodada.
