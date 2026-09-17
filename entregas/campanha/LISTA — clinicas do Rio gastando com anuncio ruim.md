@@ -3215,3 +3215,22 @@ Testei as duas correções que eu mesmo tinha proposto na rodada anterior:
 **Academia confirma o que veterinária já indicava**: é nicho de marca, não de dono. 1 Trilha A em 6, e a única é um massoterapeuta, não academia. Para o critério "falar direto com o dono", academia fica atrás de arquitetura (7 de 8) e odontologia (11 de 20).
 
 Combos varridos até aqui: + academia/musculação Copacabana (com o termo corrigido).
+
+## Varredura 17/09 19h10 — ótica Tijuca
+"óculos de grau Tijuca": 8 ativos, todos lidos. O termo de PRODUTO funcionou como esperado (o termo de loja, "ótica", puxava distribuidor), mas veio com a contaminação **Tijuca → Tijucas/SC** que já estava prevista nas regras de termo. Duas das 8 páginas são de Santa Catarina.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dr. Oswaldo Frazão | 587396684467882 | 2 anúncios sem título nenhum, criados no mesmo minuto | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=4081503938822813 |
+| Oftalmo Cittá | 236757996479241 | anúncio sem título, no ar desde **29/05/2026** — quase quatro meses | 29/05/2026 | B | https://www.facebook.com/ads/library/?id=1532752995009640 |
+| Óticas SAADE | 106031825354397 | anúncio sem título | 16/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1065074133053016 |
+| Central dos óculos | 438264816042647 | anúncio sem título, desde 15/08/2026 | 15/08/2026 | B | https://www.facebook.com/ads/library/?id=1546003337207353 |
+| Dr. Igor Mota | 1387715857756444 | título "Cirurgia Refrativa a Laser?" — pergunta o nome do procedimento, não o problema de quem enxerga mal | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1408520321413953 |
+
+**De Santa Catarina, não do Rio** — e uma delas com um erro que vale registrar: a **Rede de Óticas Mercadão dos Óculos - Tijucas/SC** está com o título **"ATENÇÃO MORADORES DE TIJUCA"**, em caixa alta e com o nome da própria cidade escrito errado (Tijucas, com S). É por isso que ela aparece em busca do Rio. Também apareceu o Instituto Visão Solidária - Tijucas SC, com "🚨 ECONOMIA NA SUA VISÃO" e emoji de sirene.
+
+**Confirmação da regra de termo**: "Tijuca" continua puxando "Tijucas/SC" mesmo em termo de produto. Só o "RJ" no termo não resolve (já testado na varredura de imobiliária) — o jeito é conferir o nome da página uma a uma, como foi feito aqui.
+
+**Ótica/oftalmologia é nicho pequeno e velho**: 8 anúncios no total, e o mais antigo está no ar há quase quatro meses sem título. 3 Trilha A em 5 — o médico costuma pôr o nome na página, a ótica não.
+
+Combos varridos até aqui: + ótica Tijuca.
