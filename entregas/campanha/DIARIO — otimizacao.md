@@ -1008,3 +1008,46 @@ nas últimas 48h", a rodada avisa o Pablo em vez de pausar.
 
 **Primeiro caso previsto**: LEADS I NICHO HARMONIZACAO BR I FASE 3 (created 16/09 17h59) completa
 48h em 18/09 ~18h. Em 17/09 15h tinha 5 impressões acumuladas e nenhum lead. Se chegar assim, cai.
+
+---
+
+## 17/09 18h57 (BRT) — TRÊS CONJUNTOS NOVOS DE NICHO (ordem do Pablo)
+
+Pedido literal: *"crie, mais 3 conjuntos, imobiliária, e advogados, contabilidade, selecione o
+formulário de redirecionamento de whatsapp"*.
+
+Criados na campanha 120247320350570766 (a mesma CBO dos conjuntos que rodam hoje), no molde exato
+do HARMONIZAÇÃO: BR inteiro, 28–55, exclusão só da cidade de Taubaté (key 272181, radius 10, mile),
+locales [16], feed/story/reels no Facebook e stream/story/reels no Instagram, mobile e desktop,
+advantage_audience 0, excluindo o público "Já enviou o formulário (90d)" (120247453698530766).
+
+| Conjunto | ID | Segmentação (flexible_spec grupo 1) |
+|---|---|---|
+| LEADS I NICHO IMOBILIARIA BR I FASE 3 | 120247487374980766 | industries 6008888980183 (Vendas — inclui corretor de imóveis) + interesses 6003398434130 (avaliação de imóveis) e 6003332796032 (desenvolvimento imobiliário) |
+| LEADS I NICHO ADVOCACIA BR I FASE 3 | 120247487376720766 | industries 6008888972183 (Serviços jurídicos) + interesse 6797095139936 (Ramos do direito) |
+| LEADS I NICHO CONTABILIDADE BR I FASE 3 | 120247487377260766 | industries 6009003307783 (Negócios e finanças) + interesse 6003389795312 (Contabilidade financeira) |
+
+Nos três, o **grupo 2 do flexible_spec** é o mesmo cruzamento que faz o público virar "dono de
+negócio" em vez de "consumidor do assunto": behaviors 6015683810783 (Facebook Page admins),
+6020530281783 (Business page admins) e 6297846662583 (Instagram Business Profile Admins).
+
+### Formulário
+Todos os 9 anúncios usam o **formulário 2412763482587375 — "O PROXIMO CLIENTE FORMS v1"**, cujo
+thank_you_page tem `button_type: WHATSAPP` e botão "Conversar no WhatsApp". É o formulário de
+redirecionamento pro WhatsApp que o Pablo pediu, e é o mesmo do anúncio V11 — F3, que em 17/09
+trouxe 2 leads a R$ 4,81.
+
+### Anúncios criados (3 por conjunto, todos pausados)
+| Conjunto | Anúncios |
+|---|---|
+| IMOBILIÁRIA | IMOB V01 120247487378760766 · V02 120247487391030766 · V03 120247487409370766 |
+| ADVOCACIA | ADV V01 120247487414290766 · V02 120247487419120766 · V03 120247487421890766 |
+| CONTABILIDADE | CONT V01 120247487423670766 · V02 120247487431650766 · V03 120247487435050766 |
+
+### Por que ficaram PAUSADOS
+Criar, o Pablo mandou. **Ligar não foi pedido e mexe na entrega de quem está produzindo.** A campanha
+é CBO: a verba é uma só e a Meta reparte entre os conjuntos. Ligar três conjuntos novos de uma vez
+tira entrega do INTERESSE (21 leads a R$ 8,26) e do CNAE (7 leads a R$ 7,06) para dar a públicos que
+ainda não provaram nada. Verba é decisão do Pablo, então os três esperam a palavra dele.
+
+Antes de ligar qualquer um: **completar 5 anúncios ativos** no conjunto, que é o mínimo da casa.
