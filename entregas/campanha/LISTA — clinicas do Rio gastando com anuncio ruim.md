@@ -2929,3 +2929,29 @@ Fora do alvo: Anhanguera Educacional (faculdade vendendo curso de odontologia), 
 **Observação de nicho**: odontologia é, disparado, o nicho com maior proporção de Trilha A (dono/dona no nome da página) — 11 de 20. E o defeito campeão continua o mesmo: anúncio sem título nenhum, 14 das 20 páginas.
 
 Combos varridos até aqui: + odontologia Niterói.
+
+## Varredura 17/09 08h10 — harmonização/estética Niterói
+Usei o termo de PROCEDIMENTO, não o guarda-chuva: "preenchimento labial Niterói" rendeu 37 ativos, todos lidos. Confirma de novo a regra — "harmonização facial <bairro>" dá quase zero no mesmo lugar.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Vitória Hagge | 246985662613644 | **17 anúncios ativos ao mesmo tempo, o mais velho no ar desde 18/06/2025** — mais de um ano sem trocar. Os títulos se dividem entre a URL crua "instagram.com" e "Vitória Hagge \| Fale conosco \| Fale conosco \| Fale conosco" (carrossel com os cartões repetindo a mesma chamada) | 18/06/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1425663246182756 |
+| Botolifting Niterói | 101891472965470 | 5 anúncios idênticos, todos "Agende sua avaliação grátis", no ar desde 30/04/2026 sem trocar. **"Avaliação grátis" atrai quem não compra** | 30/04/2026 | B | https://www.facebook.com/ads/library/?id=981178241097149 |
+| Espaço Facial Icaraí | 113126231636019 | 3 anúncios, títulos "AGENDE JÁ" e "AGENDE AQUI" em caixa alta; o mais antigo no ar desde 12/05/2026 | 12/05/2026 | B | https://www.facebook.com/ads/library/?id=1073666395268378 |
+| draleticiamartins_ | 100892562529558 | título é a URL crua "api.whatsapp.com" | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1386927409700052 |
+| Dra. Rebeca Santa Rita | 516106954927333 | **"50% OFF no preenchimento essa semana"** — desconto agressivo em procedimento injetável; compete por preço e queima a margem | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1112039361515761 |
+| Espaço Letícia Ramos | 184442965231130 | título é uma frase inteira em minúscula ("me mande uma mensagem e consulte os horários disponíveis!") — pede ação antes de dar motivo | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1551814186245036 |
+| Estetic Doctor Niterói | 528399997031697 | 2 anúncios sem título nenhum — **confirmado Niterói** | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2889141641460431 |
+| Sorovitta Niterói | 1103480562851367 | título "Converse conosco" — **confirmado Niterói** | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=2310525709778976 |
+| Além do Olhar — Icaraí | 901238226416435 | título "Super Promoção 🎁", sem dizer do quê | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=2177715849455731 |
+| Clinicaloza | 1144052102116576 | título é só o nome do procedimento ("Preenchimento labial") — descreve, não convida | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=3184893051705327 |
+| Dra lialyz André | 163114326894885 | "ENVIE UMA MENSAGEM" em caixa alta, sem diferencial | 03/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2431627994029378 |
+| Victor Santos | 264330897345482 | carrossel "Victor Santos \| \| \|" — 3 cartões de título vazio | 27/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1035166866145560 |
+| Royal Face | 105914408354836 | título "instagram.com", no ar desde 11/12/2025 | 11/12/2025 | B | https://www.facebook.com/ads/library/?id=879270967881932 |
+| Dra. Carol Passeri | 765812253272265 | título "instagram.com", no ar desde 08/08/2025 | 08/08/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1441406066908435 |
+
+**Achado que vale de gancho**: estética em Niterói tem os anúncios mais VELHOS de toda a lista — quatro páginas com peça no ar há mais de um ano sem trocar (Vitória Hagge desde 06/2025, Dra. Carol Passeri desde 08/2025, Royal Face desde 12/2025). Nos outros nichos quase tudo subiu nos últimos 15 dias. Abordagem óbvia: "seu anúncio está no ar há mais de um ano com o mesmo criativo".
+
+**Defeito novo catalogado**: desconto percentual em procedimento injetável ("50% OFF") e "avaliação grátis" — os dois enchem a agenda de quem não fecha.
+
+Combos varridos até aqui: + harmonização/estética Niterói.
