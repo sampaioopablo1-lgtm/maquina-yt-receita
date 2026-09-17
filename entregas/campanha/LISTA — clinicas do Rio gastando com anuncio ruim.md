@@ -3127,3 +3127,21 @@ Combos varridos até aqui: + advocacia previdenciária RJ.
 **Observação de nicho**: veterinária tem pouquíssimo anunciante em todos os bairros varridos (7 em Copacabana, 12 na Tijuca, e na Tijuca 9 deles eram da mesma página). E a Trilha A é quase inexistente — clínica veterinária costuma ter nome de marca, não do dono. Para o critério "falar direto com o dono", **veterinária é o pior nicho da lista até agora**.
 
 Combos varridos até aqui: + veterinária Copacabana.
+
+## Varredura 17/09 15h10 — odontologia Barra da Tijuca
+"dentista Barra da Tijuca": 123 ativos estimados, 35 lidos. **Leitura importante**: 31 dos 35 são de apenas DUAS páginas. O resultado parece grande e não é — é concentração, não mercado.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Clínica Viotto — Rio de Janeiro | 238492289345108 | **11 anúncios no ar ao mesmo tempo, todos com o título idêntico "Agende sua avaliação!"**, criados no mesmo segundo. É o mesmo anúncio onze vezes dividindo o orçamento | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1952735698737586 |
+| Dra Ingrid Bittencourt | 245512042686621 | carrossel com 7 cartões de título vazio | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1837365473947565 |
+| Dentista Michelle & Equipe | 1398513620467375 | anúncio sem título, subiu hoje | 17/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1578264824049817 |
+| Dr. Cristiano Castro — Instituto Crescer e Sorrir | 100196335896190 | anúncio sem título | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1746088373364612 |
+
+Fora do alvo: **Perio Diária** (página 1950766445014867) — são **20 anúncios ativos**, todos com o título "Se Inscrever", mas é curso de periodontia VENDIDO PARA dentista. Não é cliente nosso, é infoproduto mirando o mesmo público. Não entra na lista, mas vale saber que ele está comprando atenção do mesmo dentista que a gente quer abordar.
+
+**Observação de método, para não errar de novo**: o `estimated_total_count` da Biblioteca **não** é número de anunciantes. Aqui 123 viraram 4 páginas úteis, porque duas contas sozinhas ocupam 31 das 35 peças lidas. Regra que fica: **contar páginas distintas, nunca anúncios** — e desconfiar de combo "grande" antes de olhar de quem são as peças.
+
+**"Avaliação grátis/gratuita" agora apareceu em quatro nichos** (estética Niterói, estética Madureira, fisioterapia, odontologia Barra). É o clichê mais difundido do Rio inteiro, e por isso o argumento mais reaproveitável na abordagem.
+
+Combos varridos até aqui: + odontologia Barra da Tijuca.
