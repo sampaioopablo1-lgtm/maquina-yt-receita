@@ -3253,3 +3253,38 @@ Combos varridos até aqui: + ótica Tijuca.
 **Variação curiosa do mesmo defeito**: "Instagram" (só a palavra, na Rota Animal) e "instagram.com" (a URL, na Perto Pet) são o mesmo erro em dois formatos — o campo de título recebendo o destino do link em vez de uma frase.
 
 Combos varridos até aqui: + pet shop Tijuca.
+
+---
+
+## Imobiliária — Méier (varrido 17/09/2026, 19h)
+
+Termo: `apartamento à venda Méier`. 13 anúncios ativos, **12 páginas distintas** — quase nenhuma
+repetição, diferente da Barra. E o melhor número de Trilha A de todas as varreduras até agora:
+**9 das 12 páginas têm o nome do dono**, porque no Méier quem anuncia é o corretor autônomo, não
+a construtora.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Gestolano Lopes - Consultor Imobiliário | 674996082361477 | "More no seu próprio Apartamento" — frase genérica, sem bairro, sem preço, sem nada que identifique o imóvel | **15/08/2025** (13 meses) | A | [link](https://www.facebook.com/ads/library/?id=1424735235454110) |
+| Marcio Feitosa - Corretor de Imóveis | 701599569695076 | título é o nome da página seguido de "Converse conosco" repetido 10 vezes | **21/08/2025** (13 meses) | A | [link](https://www.facebook.com/ads/library/?id=4018602198402640) |
+| Lins Imóveis | 802521579614966 | dois anúncios idênticos, ambos só "Converse conosco" | 16/01/2026 | B | [link](https://www.facebook.com/ads/library/?id=929771726392304) |
+| Aline Gomes - Corretora de Imóveis | 943579125507449 | "Agende agora sua visita!" seguido de "Converse conosco" repetido 9 vezes | 08/04/2026 | A | [link](https://www.facebook.com/ads/library/?id=2721245624915276) |
+| Roberto Corretor de Imóveis | 1100224619835170 | título = só o nome da página. Nenhuma oferta | 23/04/2026 | A | [link](https://www.facebook.com/ads/library/?id=1567145608751397) |
+| Paulo Eduardo Corretor | 1186808151184012 | título vazio | 05/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1071775201952730) |
+| Homestead Imobiliária | 100652992549310 | "Converse conosco" três vezes | 08/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1060150953624963) |
+| Andre Luiz Dezao | 104604435111120 | título gerado pelo portal: "2 quartos 2 banheiros Apartamento" | 21/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1019357444428070) |
+| duduparga | 720183641185183 | título vazio | 13/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1812467643256350) |
+| Melissa Martins | 104555298116262 | "Venda seu imóvel com estratégia e agilidade" — anúncio de CAPTAÇÃO rodando em termo de COMPRA | 14/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1074417814995637) |
+| Ricardo Simões Corretor de Imóveis Avaliador Judicial | 349426395242948 | título do portal repetido **10 vezes** dentro de si mesmo, e o imóvel é em Engenho de Dentro, não no Méier | 15/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1102051798874016) |
+| Rede Imobiliaria | 842966852225006 | título vazio | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=38403427075968269) |
+
+**O que esta varredura ensinou.** O defeito dominante no Méier não é o mesmo de Copacabana. Lá o
+problema era título longo demais (ficha técnica inteira). Aqui é o oposto: **título vazio ou
+"Converse conosco"**. São 7 das 12 páginas gastando dinheiro em anúncio que não diz o que está
+vendendo. É o argumento de abordagem mais fácil que já apareceu na lista, porque o dono consegue
+ver o erro sozinho em dois segundos.
+
+**Os dois melhores alvos**: Gestolano Lopes e Marcio Feitosa, ambos com o MESMO anúncio no ar há
+13 meses. Ninguém olha essa conta há mais de um ano.
+
+Combos varridos até aqui: + imobiliária Méier.
