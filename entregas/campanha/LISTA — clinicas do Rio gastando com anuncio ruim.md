@@ -3234,3 +3234,22 @@ Combos varridos até aqui: + academia/musculação Copacabana (com o termo corri
 **Ótica/oftalmologia é nicho pequeno e velho**: 8 anúncios no total, e o mais antigo está no ar há quase quatro meses sem título. 3 Trilha A em 5 — o médico costuma pôr o nome na página, a ótica não.
 
 Combos varridos até aqui: + ótica Tijuca.
+
+## Varredura 17/09 20h10 — pet shop Tijuca
+"banho e tosa Tijuca" (termo de SERVIÇO, como manda a regra): só 5 ativos. Nicho magro no bairro, mas com dois anúncios bem velhos.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Rota Animal | 950622271470333 | título é só a palavra "Instagram", no ar desde **03/04/2026** — mais de cinco meses | 03/04/2026 | B | https://www.facebook.com/ads/library/?id=929765093374639 |
+| Lolo Pet Shop | 427674360429586 | anúncio sem título nenhum, no ar desde **11/04/2026** | 11/04/2026 | B | https://www.facebook.com/ads/library/?id=4297603047170347 |
+| Perto Pet Tijuca | 1298454070011830 | título é a URL crua "instagram.com" | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=1094014983212337 |
+| Tosa Pet Estética Animal | 370065412859446 | anúncio sem título, subiu hoje | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1066033416040814 |
+| laklastudiopet | 162847603584966 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2038533620191638 |
+
+**Zero Trilha A em 5.** Pet shop se comporta igual a veterinária e academia: nome de marca, não de dono. Consolida o agrupamento que a lista vem mostrando o dia inteiro:
+- **Nicho de dono** (vale abordar pensando em falar com quem decide): arquitetura 7/8, odontologia 11/20, estética 8/14, advocacia 5/8.
+- **Nicho de marca** (o dono não aparece, a abordagem tem que achar outro caminho): pet shop 0/5, academia 1/6, veterinária ~0/7.
+
+**Variação curiosa do mesmo defeito**: "Instagram" (só a palavra, na Rota Animal) e "instagram.com" (a URL, na Perto Pet) são o mesmo erro em dois formatos — o campo de título recebendo o destino do link em vez de uma frase.
+
+Combos varridos até aqui: + pet shop Tijuca.
