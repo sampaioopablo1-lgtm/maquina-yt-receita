@@ -2897,3 +2897,35 @@ Fora do alvo (são concorrentes nossos, vendem marketing para advogado): Facilit
 **Defeito novo catalogado**: título recheado de palavra-chave separada por vírgula. Gancho de abordagem muito forte.
 
 Combos varridos até aqui: + advocacia trabalhista RJ (Tijuca não rende isolada).
+
+## Varredura 17/09 07h10 — odontologia Niterói
+Termo "dentista Niterói": 118 anúncios ativos estimados, 50 lidos. Aviso de leitura: a Biblioteca não filtra por bairro, o termo puxa página de todo o Brasil — marquei abaixo quem está confirmado em Niterói/RJ pelo nome da página; o resto entra como "a confirmar" antes de abordar.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra. Elisa Thomé | 566740073179866 | **14 anúncios no ar ao mesmo tempo**, só 3 títulos diferentes repetidos em rodízio. O orçamento se divide entre catorze peças quase iguais | 09/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1476189381016396 |
+| Rodrigo Rocha Odontologia Especializada | 209981512418469 | 3 anúncios no ar, todos sem título nenhum | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1079346641395547 |
+| Bruno Lessa | 389374397752319 | 3 anúncios sem título | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1369293461607907 |
+| Dra Sara Martins — Endodontista | 482118088315803 | **título é a URL crua "api.whatsapp.com"** aparecendo para o público | 09/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=852794737919254 |
+| Lívia Ferreira Costa | 614997645680765 | título é a URL crua "instagram.com" | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2218117915471216 |
+| Caroline Diniz | 2479684345392925 | 2 anúncios, os dois com o título "Converse conosco" | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1049539454632282 |
+| Dr. Francisco Villela | 622978961080203 | 2 anúncios sem título, subiram no mesmo minuto | 09/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1082985594093847 |
+| Dra Julienne Melo | 792933171083270 | anúncio sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1091564876691665 |
+| dra.larissaspier | 111515063989257 | anúncio sem título; perfil pessoal como página | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1052361690951628 |
+| Dr. Adson Sousa | 598023373393389 | anúncio sem título | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2046222212543573 |
+| Dra Viviane Braga | 1299968243199548 | título é só o nome da dentista, no ar desde 03/09 sem trocar | 03/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1041552148756626 |
+| Inovar Odontologia Especializada Niterói | 112105558567793 | anúncio sem título — **confirmado Niterói** | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1067611019206488 |
+| Inco25 | 306802752758176 | 4 anúncios: um com título "fb.me" (URL crua) e três sem título | 02/09/2026 | B | https://www.facebook.com/ads/library/?id=1263878172531006 |
+| Clínica Odonty | 334280660105218 | **carrossel com o título "Clínica Odonty \| \| \| \| \| \| \| \|"** — 8 cartões vazios, só o primeiro preenchido | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2066077897607658 |
+| Segalote Odontologia | 1049872011766056 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1602193601642510 |
+| Estética Dental | 429715380420674 | 2 anúncios sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1555159922510918 |
+| Equilíbrio Dental Clínica Odontológica | 1401596253417558 | 2 anúncios sem título | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1432515632024799 |
+| Clínica Dentária Terceira Dentição | 539487736238716 | anúncio sem título | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=1096364842867457 |
+| Odontologia Benatti | 708480139015945 | anúncio sem título | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=2680757985679219 |
+| Instituto Odontológico Digital | 328697836991974 | anúncio sem título | 01/09/2026 | B | https://www.facebook.com/ads/library/?id=1098480386470311 |
+
+Fora do alvo: Anhanguera Educacional (faculdade vendendo curso de odontologia), Plano de Saúde Marcus Lacerda, Consultório 10X (concorrente — vende marketing para dentista).
+
+**Observação de nicho**: odontologia é, disparado, o nicho com maior proporção de Trilha A (dono/dona no nome da página) — 11 de 20. E o defeito campeão continua o mesmo: anúncio sem título nenhum, 14 das 20 páginas.
+
+Combos varridos até aqui: + odontologia Niterói.
