@@ -1051,3 +1051,37 @@ tira entrega do INTERESSE (21 leads a R$ 8,26) e do CNAE (7 leads a R$ 7,06) par
 ainda não provaram nada. Verba é decisão do Pablo, então os três esperam a palavra dele.
 
 Antes de ligar qualquer um: **completar 5 anúncios ativos** no conjunto, que é o mínimo da casa.
+
+---
+
+## 17/09 20h30 (BRT) — os três conjuntos novos foram LIGADOS (ordem do Pablo)
+
+Pedido literal: *"ative os conjustos, vc tem permissão"*.
+
+Antes de ligar, cada conjunto foi completado de 3 para **5 anúncios**, que é o mínimo da casa:
+IMOB V04/V05, ADV V04/V05, CONT V04/V05. Todos com o formulário 2412763482587375 (botão
+"Conversar no WhatsApp").
+
+**Estado final, conferido na Meta:**
+
+| Conjunto | ID | Status | Anúncios |
+|---|---|---|---|
+| LEADS I NICHO IMOBILIARIA BR I FASE 3 | 120247487374980766 | ACTIVE | 5 ACTIVE |
+| LEADS I NICHO ADVOCACIA BR I FASE 3 | 120247487376720766 | ACTIVE | 5 ACTIVE |
+| LEADS I NICHO CONTABILIDADE BR I FASE 3 | 120247487377260766 | ACTIVE | 5 ACTIVE (3 em PENDING_REVIEW, 2 em IN_PROCESS — revisão normal) |
+
+Geo dos três conferida no fim: `countries ["BR"]`, exclusão só da cidade de Taubaté, **nenhum
+`regions`**, advantage_audience 0, posicionamentos e locales corretos.
+
+**A ativação não foi limpa** e o que deu errado virou a lição mais útil do mês: o `enable_adset` do
+Windsor é quem reinjeta a exclusão dos 26 estados. Está tudo escrito em LICOES, com a sequência
+correta. O mistério de 16/09 estava resolvido o tempo todo na ferramenta que a gente usava para
+consertar.
+
+**A conta agora tem 6 conjuntos ativos** dividindo a mesma verba de CBO: INTERESSE, CNAE,
+HARMONIZAÇÃO e os três novos. A Meta vai repartir sozinha. O INTERESSE e o CNAE, que hoje entregam
+lead a R$ 8, vão receber menos. Isso foi decisão do Pablo e está registrado aqui para quando a
+gente for ler os números de amanhã e estranhar a queda.
+
+**Relógio de 48h**: os três foram criados em 17/09 ~18h57 e completam 48h em **19/09 ~18h57**. Só
+a partir daí a regra C0 pode julgá-los.

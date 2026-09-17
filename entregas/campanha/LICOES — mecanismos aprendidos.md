@@ -1402,3 +1402,53 @@ A regra: **interesse de tamanho gigante com nome de profissão é o público CON
 - Os tamanhos acima são MUNDIAIS. Cruzado com Brasil + faixa de idade + admins de página, o público real cai muito e pode ficar pequeno demais para a Meta entregar. Medir com `METAADS_GET_OBJECT` + `delivery_estimate` depois de salvar o conjunto.
 - `class: work_positions` **não existe** na busca: a API devolve erro 1487709 "classe de categoria de direcionamento inválida". Os cargos que já estão nos conjuntos (Dono, Proprietário, Esteticista) vieram da busca do Gerenciador, não desta API.
 - A mesma classe `industries` também guarda os filtros de EMPRESA já usados no INTERESSE (receita, tamanho, ano de fundação) — é a mesma gaveta, papéis diferentes.
+
+---
+
+## 17/09 20h30 — ACHAMOS A ORIGEM DA EXCLUSÃO DOS 26 ESTADOS: é o `enable_adset` do Windsor
+
+Durante a ativação dos três conjuntos novos (IMOBILIÁRIA, ADVOCACIA, CONTABILIDADE), o mistério de
+setembro se resolveu sozinho.
+
+**O que aconteceu, na ordem.** Os três conjuntos foram criados pelo Windsor `create_adset` com a
+geo correta: `geo_locations.countries ["BR"]` e `excluded_geo_locations` só com a cidade de Taubaté.
+Uma leitura logo depois da criação confirmou os três limpos, sem nenhum `regions`.
+
+Aí liguei IMOBILIÁRIA e ADVOCACIA com o Windsor `enable_adset`. Os dois responderam "enabled
+successfully". CONTABILIDADE, no mesmo comando, devolveu o erro 1487756 "localizações em conflito".
+
+Ao reler o targeting: **IMOBILIÁRIA e ADVOCACIA estavam com os 26 estados excluídos de volta.**
+CONTABILIDADE, que o Windsor recusou ligar, continuava limpo. Ativei CONTABILIDADE pelo MCP
+(`ads_activate_entity`, entity_type `ad_set`) e ele subiu limpo, sem `regions`.
+
+**A conclusão.** Não é rascunho antigo do Gerenciador, como a gente supunha desde 16/09. É o
+`enable_adset` do Windsor: ele reenvia um targeting armazenado que carrega a exclusão dos 26 estados
+e sobrescreve o que está na conta. Os dois episódios de 16/09, inclusive o das 18h44 que derrubou 12
+anúncios do INTERESSE, batem com esse padrão.
+
+### REGRA NOVA — nunca mais ligar conjunto pelo Windsor
+Para ligar conjunto nesta conta, usar SEMPRE `mcp__Facebook_MCP__ads_activate_entity` com
+entity_type `ad_set`. O Windsor `enable_adset` fica proibido. O Windsor continua bom para
+`create_adset`, `create_ad` e `enable_ad` — mas o `enable_ad` também devolve 1487756 quando o
+conjunto pai está com a geo suja, então na dúvida usar `ads_activate_entity` entity_type `ad`
+também para anúncio.
+
+### Segundo achado: `location_types` dentro de `excluded_geo_locations` também gera 1487756
+No ADVOCACIA, mesmo com a geo já limpa (BR + só Taubaté), a ativação continuava recusando. O que
+destravou foi remover o `location_types: ["home","recent"]` de DENTRO do `excluded_geo_locations`,
+mantendo-o só no `geo_locations`. Com a exclusão escrita como
+`{"cities":[{"key":"272181","radius":10,"distance_unit":"mile"}]}` e nada mais, ativou na hora.
+
+Curiosamente a Meta devolve o objeto COM `location_types` de volta na leitura seguinte, mesmo tendo
+sido gravado sem ele. Ou seja: o campo é aceito na leitura mas rejeitado na validação de ativação.
+Não vale a pena brigar — grave sem, ative, e ignore o que a leitura mostra depois.
+
+### A sequência que funciona, do começo ao fim
+1. `ads_update_entity` entity_type `ad_set`, targeting COMPLETO, `excluded_geo_locations` só com a
+   cidade e SEM `location_types`. A resposta vem com `status_forced_to_paused: true` — é esperado.
+2. `ads_activate_entity` entity_type `ad_set`.
+3. `ads_activate_entity` entity_type `ad`, um por um, para cada anúncio que caiu.
+4. Reler tudo e conferir.
+
+Toda edição de conjunto derruba os anúncios de formulário para PAUSED/WITH_ISSUES. Isso continua
+valendo e não é erro: é só religar no passo 3.
