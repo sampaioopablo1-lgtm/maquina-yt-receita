@@ -1353,3 +1353,15 @@ Detalhe que atrapalha o cruzamento: `ads_insights_performance_trend` do MCP não
 por conjunto e dia (só `ad_account_id` + `entity_ids` com análise própria), então não dá para
 conferir o gasto do dia por ali. O caminho que sobra é o já conhecido: Windsor com `date_from`/
 `date_to` explícitos **depois que o dia fecha** no fuso da conta (BRT).
+
+## 17/09 — DECISÃO DO PABLO: "Esquece Prospect Halo"
+Mesma regra que valeu para o Clint em 15/09. Não chamar o endpoint app.prospecthalo.ai, não
+testar a chave, não citar como pendência nem como bloqueio em relatório nenhum.
+
+O que mudou na prática:
+- A rotina horária perdeu o item de checagem do Prospect Halo.
+- A rotina "OPC — post no ar, responder comentários (7h35)" foi **desativada**: ela existia só
+  para chamar o Prospect Halo, então sem ele não tinha o que fazer.
+
+O CRM segue sendo: leads do Meta (formulários), a agenda do Google, e o leads.jsonl do
+maquina-whatsapp quando estiver no ar.
