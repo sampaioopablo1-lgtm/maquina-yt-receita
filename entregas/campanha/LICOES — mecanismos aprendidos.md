@@ -1337,3 +1337,19 @@ IN_PROCESS normalmente. Regra: **ligar anúncio de formulário = Windsor `enable
 - **Defeito de anúncio novo, bom gancho de abordagem**: título com URL crua aparecendo para o público ("instagram.com", "api.whatsapp.com"). Encontrado em Niterói e em Madureira.
 
 - **O "today" da Meta segue o fuso da conta (BRT), não UTC.** Rodada que roda depois das 21h UTC ainda está lendo o dia anterior em aberto. Para fechar um dia, usar Windsor com date_from/date_to explícitos, nunca o date_preset "today".
+
+## 17/09 — O Windsor congela o número do dia corrente por horas
+Nas rodadas de 07h, 08h, 09h, 10h e 11h (UTC) o `get_data` do Windsor com `date_from`/`date_to` =
+hoje devolveu **exatamente os mesmos valores** (INTERESSE R$ 2,41 / 62 impressões; CNAE R$ 0,03 /
+1 impressão), sem variar um centavo em cinco horas. As entidades estavam todas ACTIVE e sem erro
+de entrega, então não é parada de veiculação.
+
+**A regra que fica**: número de dia em aberto no Windsor não serve para dizer se a conta está
+entregando agora — ele atualiza em blocos, não continuamente. Para decidir qualquer coisa sobre
+entrega do dia corrente, ler pela Meta. Repetir a leitura de hora em hora e ver o mesmo número
+NÃO é evidência de campanha parada, e não deve virar aviso ao Pablo.
+
+Detalhe que atrapalha o cruzamento: `ads_insights_performance_trend` do MCP não aceita consulta
+por conjunto e dia (só `ad_account_id` + `entity_ids` com análise própria), então não dá para
+conferir o gasto do dia por ali. O caminho que sobra é o já conhecido: Windsor com `date_from`/
+`date_to` explícitos **depois que o dia fecha** no fuso da conta (BRT).
