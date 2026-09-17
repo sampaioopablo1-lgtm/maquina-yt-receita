@@ -3169,3 +3169,27 @@ Também apareceu, do lado imobiliário: **Aprova Facil Imóveis Rio** com "O pri
 **Arquitetura tem a maior proporção de Trilha A de todos os nichos: 7 de 8.** Escritório de arquitetura quase sempre leva o nome do arquiteto. Para o critério "falar direto com o dono", é o melhor nicho medido até agora — melhor até que odontologia (11 de 20).
 
 Combos varridos até aqui: + arquitetura RJ (termo amplo, não por bairro).
+
+## Varredura 17/09 17h10 — academia Copacabana: TERMO FALHOU
+"academia Copacabana": 170 ativos estimados, 35 lidos, e **nenhuma academia**. O termo trouxe imobiliária, estética, clínica, moto-táxi e cruzeiro. Registro como falha de termo, com a causa.
+
+**Por que falhou — mecanismo novo, e vale para toda varredura daqui pra frente**: em Copacabana o mercado imobiliário satura tanto o leilão que o nome do bairro sozinho já domina o resultado. Pior: a construtora **TARRAF** tem um empreendimento **chamado "Copacabana"** em São José do Rio Preto (SP), e 4 anúncios dela entraram numa busca do Rio — junto com a "Imobiliária São José", que anuncia "Em São José do Rio Preto". Ou seja: **nome de bairro também é nome de prédio**, e a Biblioteca não distingue.
+
+Regra que fica: para varrer academia, não usar o nome do bairro com a palavra "academia". Usar o serviço vendido ("musculação", "treino personalizado", "personal trainer <bairro>") ou o nome da rua.
+
+Das páginas que apareceram, entram na lista as que são do nicho de imobiliária/estética e ainda não estavam registradas:
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Designer da Beleza Copacabana | 1409710325951880 | **5 anúncios ativos, todos sem título nenhum** | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1745406566725816 |
+| Estética Rabella | 112771025151563 | 3 anúncios sem título, criados no mesmo minuto | 16/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=28207014408993486 |
+| Igor Sá | 209740102860942 | 3 anúncios idênticos, "GARANTA JÁ SEU STUDIO!" em caixa alta com exclamação | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1066687476158205 |
+| Coutinhos Corretoras | 107056721572611 | 3 anúncios com título "Solicite mais detalhes->", com a setinha de teclado no fim | 16/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1607617927403647 |
+| Lucas Corazon | 100198118465274 | 2 anúncios: um sem título e outro com a URL crua "api.whatsapp.com" | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1764812311101923 |
+| Clinica Coronato | 122102512982015369 | anúncio sem título, subiu hoje | 17/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1140189162028429 |
+
+Já registradas em varreduras anteriores, reapareceram aqui: Copa Azul, Lopes Select, Lalessa Imóveis.
+
+**Anúncio bom, não entra na lista**: Sawala Imobiliária, com "A 250m da praia: O novo padrão Posto 4 em Copacabana" — diz onde, diz o quê, dá referência que o carioca entende. Serve de contraexemplo do "Converse conosco".
+
+Combos varridos até aqui: + academia Copacabana (termo falhou, motivo registrado).
