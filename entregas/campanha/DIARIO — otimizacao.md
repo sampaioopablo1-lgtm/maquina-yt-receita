@@ -895,3 +895,32 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - Fechamento de 16/09: INTERESSE 464 imp / R$19,99 / 0 lead; CNAE 124 imp / R$5,28 / 1 lead; ZZ MESCLADO (pausado 13h10) 85 imp / R$2,99 / 1 lead; HARMONIZAÇÃO 5 imp / R$0,05 / 0 lead. Dia fechou com R$28,31 e 2 leads, CPL R$14,16 — acima da média de 8 dias (R$11,37), efeito do dia ter tido três mexidas de segmentação e o conjunto principal ficar ~1h fora do ar.
 - Hipótese aberta: INTERESSE gastou R$20 num dia inteiro com 464 impressões e nenhum lead, sendo que a média dele em 8 dias é R$9,52 por lead. Pode ser só o ruído do dia quebrado. A rotina das 9h julga com o relógio do created_time.
 - Varredura: Madureira (odontologia + estética), 6 páginas, 2 Trilha A. Bairro fraco na Biblioteca.
+
+## 17/09 00h35 — rotina diária do funil
+
+**Prospect Halo**: resposta crua lida. initialize responde normal, mas tools/call devolve `error -32001 "Unauthorized: invalid or missing API key"`. A medição NÃO aconteceu — não é funil parado, é credencial. Pablo já sabe, não repetir aviso.
+
+**Meta, fechamento de 16/09** (relógio: created_time de cada anúncio, conforme a regra nova)
+
+| Conjunto | Imp | Gasto | Cliques | Leads | CPL |
+|---|---|---|---|---|---|
+| INTERESSE | 464 | R$19,99 | 13 | 0 | — |
+| CNAE | 124 | R$5,28 | 2 | 1 | R$5,28 |
+| ZZ MESCLADO (pausado 13h10) | 85 | R$2,99 | 4 | 1 | R$2,99 |
+| HARMONIZAÇÃO | 5 | R$0,05 | 0 | 0 | — |
+| **Total** | **678** | **R$28,31** | **19** | **2** | **R$14,16** |
+
+**CAÇA A VAZAMENTO — três achados**
+
+1. **44% do gasto do INTERESSE ontem foi em anúncio que já estava sendo aposentado.** Os "ZZ FORM ANTIGO" rodaram até as 13h10 e consumiram R$8,84 dos R$19,99 do conjunto, com 180 impressões e zero lead. Os 12 anúncios novos ficaram com R$11,99 e 328 impressões. Ou seja, o "INTERESSE deu 0 lead ontem" é na verdade "os anúncios novos tiveram R$12 e meio dia de vida". Não é problema de criativo ainda; é falta de amostra. A rotina das 9h vai ver isso pelo created_time e não deve cortar nada.
+
+2. **V16 "copy impulsionou" é o melhor anúncio da conta hoje.** No CNAE fez 73 imp, R$2,65 e 1 lead — CPL R$2,65, o mais barato de todos. O mesmo criativo existe no INTERESSE (120247453147450766) mas só entregou 32 impressões ontem. Hipótese: a copy do "pare de impulsionar post" fala melhor com lista de empresa do que com público de interesse — ou simplesmente não teve entrega suficiente no INTERESSE pra comparar. Vale acompanhar sem mexer.
+
+3. **VAZAMENTO PRINCIPAL: lead entra, reunião não é marcada.** A agenda dos próximos 3 dias (17, 18 e 19/09) não tem NENHUMA reunião de diagnóstico. A última foi Emiliano, ontem 19h. Somos 25 leads em 8 dias e 6 pessoas distintas em reunião, e o estoque de reunião futura zerou. O gargalo deixou de ser o anúncio e passou a ser o que acontece depois do formulário. Os 5 anúncios do grupo CALENDLY, que existem justamente pra marcar reunião sozinhos, fizeram 159 impressões e 4 cliques ontem e não geraram nenhum agendamento.
+
+**Agenda 17–19/09**: nada de diagnóstico. Só compromissos pessoais e o bloco "Trabalho Agência".
+
+**Pontos que o Pablo não está enxergando**
+- O estoque de reunião zerou. Não tem diagnóstico marcado pra nenhum dos próximos 3 dias.
+- O caminho Calendly não está entregando: 5 anúncios rodando desde 13h10 de ontem, 4 cliques, zero agendamento.
+- O anúncio mais barato da conta (V16, CPL R$2,65) está mal distribuído: entrega bem no CNAE e quase nada no INTERESSE.
