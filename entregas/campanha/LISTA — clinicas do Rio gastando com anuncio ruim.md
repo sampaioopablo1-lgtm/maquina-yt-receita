@@ -3014,3 +3014,44 @@ Combos varridos até aqui: + harmonização/estética Madureira. Com isso, harmo
 **Observação de volume**: imobiliária em Copacabana tem mais anunciante ruim que qualquer nicho varrido até aqui, e 13 das 26 páginas são Trilha A. É o combo com melhor relação esforço/retorno da lista.
 
 Combos varridos até aqui: + imobiliária/corretor Copacabana.
+
+## Varredura 17/09 11h10 — imobiliária/corretor Botafogo
+"apartamento à venda Botafogo": 65 ativos, 40 lidos. Menos que Copacabana, mas com o mesmo perfil de defeito.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Nathy Imóveis | 172373145949182 | **4 anúncios no ar**, todos carrosséis repetindo "Fale conosco"/"Converse conosco" em 8 a 10 cartões seguidos. O mais velho desde 02/09 | 02/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2485072515238034 |
+| Imobiliária Casa 3 | 108962928578188 | 4 anúncios **idênticos**, mesmo título ("Oportunidade de Compra em Botafogo: 125m², Pé-Direito Alto, 2 por Andar e 1 Vaga"), criados no mesmo minuto. O orçamento se divide entre quatro cópias | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1519593483535802 |
+| Bielle Imóveis | 329356906935615 | carrossel com "SAIBA MAIS" repetido em 10 cartões | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=1092969740339716 |
+| Ariane Gomes Imóveis | 673699585821695 | 2 carrosséis, "Converse conosco" repetido 10 vezes em cada | 10/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2179127179349687 |
+| Rio Couto Imóveis | 114514347055243 | um carrossel com "Fale conosco" 10 vezes e outro anúncio sem título | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=2082991382306679 |
+| Souza & Martin — Assessoria e Investimentos | 1040482762489527 | 2 carrosséis com "Converse conosco" 9 vezes cada, no ar desde 29/08 | 29/08/2026 | B | https://www.facebook.com/ads/library/?id=1889236462045614 |
+| marcosmendes.corretordeimoveis | 103974518820181 | **carrossel com 17 cartões de título vazio**, no ar desde 30/08 | 30/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1376576464644843 |
+| cr_solucoesimobiliarias | 1255333410977116 | carrossel com 13 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1059022007052359 |
+| rafaelestrategistadna | 501092513089043 | carrossel com 11 cartões vazios | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1066761079540582 |
+| Lucrum Imobiliária | 257904157663752 | carrossel com 10 cartões vazios | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1733961994327914 |
+| douglasnunesimoveis | 672109482654744 | carrossel com 10 cartões vazios | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1734829220936208 |
+| HomeHub Jd.Laranjeiras | 101113539511376 | carrossel com 7 cartões vazios | 13/09/2026 | B | https://www.facebook.com/ads/library/?id=1758405185424552 |
+| Luís Cruz Imob | 273407653324183 | **"📍 BOTAFogo + URCA"** — o nome do bairro escrito errado, com maiúscula no meio. Detalhe pequeno que destrói a credibilidade de quem vende imóvel de R$ 850 mil | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1720934792355018 |
+| Imovelweb | 153532364685205 | carrossel misturando Recreio, Barra, Tijuca e Botafogo no mesmo anúncio, com um título cortado no meio ("riacho cortando a propriedade, lago e terr…") | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1618279769991728 |
+| Marcelo Desiderio | 106939734388348 | título gerado por sistema: "3 quartos 3 banheiros Apartamento" — ordem de palavra de robô | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1712026153233796 |
+| Luiz Eduardo Castanheira | 100205632546416 | mesmo título automático: "2 quartos 2 banheiros Apartamento" | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2878804775831391 |
+| Othon Rangel — Consultor Imobiliário | 644100792125691 | "📲 Entre em contato e agende uma visita!" — instrução sem imóvel | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=3082560548741707 |
+| morabilidade | 102543282421918 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=924429790342203 |
+| Marcelo Nascimento imóveis | 358649573994828 | anúncio sem título | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1557602712210136 |
+| jorgeluizimoveisrj | 113444717449844 | anúncio sem título | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1055900747311150 |
+| Orla Rio Imobiliária | 428394817034055 | anúncio sem título | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1721565578955820 |
+| BrenoFaria Corretor | 575916598932920 | anúncio sem título, no ar desde 01/09 | 01/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1567083981764382 |
+| Capitólio Imóveis | 1227882863733977 | anúncio sem título | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1417180837177806 |
+| RLBimoveis.com | 1466163353657560 | anúncio sem título | 05/09/2026 | B | https://www.facebook.com/ads/library/?id=2254700801976008 |
+| Kitnet Rio | 102341279171119 | 2 anúncios sem título | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1963978320939946 |
+
+A Brasil Brokers reaparece aqui com o mesmo anúncio-catálogo já registrado na varredura de Copacabana — não repito a linha.
+
+**Defeitos novos catalogados**:
+1. **Título gerado por sistema do portal** — "3 quartos 3 banheiros Apartamento", com o substantivo no fim. É o feed do portal jogado no anúncio sem ninguém escrever nada.
+2. **Erro de digitação no nome do bairro** ("BOTAFogo"). Em imóvel de alto valor, o detalhe pequeno é o que derruba a confiança.
+
+**Padrão consolidado nos dois bairros de imobiliária**: o carrossel com o mesmo CTA repetido em 8 a 10 cartões ("Fale conosco", "Converse conosco", "SAIBA MAIS") é tão comum quanto o cartão vazio. Os dois têm a mesma causa — ninguém preencheu o campo de título por cartão, e o sistema repete o CTA ou deixa em branco.
+
+Combos varridos até aqui: + imobiliária/corretor Botafogo.
