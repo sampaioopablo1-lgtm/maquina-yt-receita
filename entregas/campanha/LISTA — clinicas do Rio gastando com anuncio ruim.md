@@ -3055,3 +3055,40 @@ A Brasil Brokers reaparece aqui com o mesmo anúncio-catálogo já registrado na
 **Padrão consolidado nos dois bairros de imobiliária**: o carrossel com o mesmo CTA repetido em 8 a 10 cartões ("Fale conosco", "Converse conosco", "SAIBA MAIS") é tão comum quanto o cartão vazio. Os dois têm a mesma causa — ninguém preencheu o campo de título por cartão, e o sistema repete o CTA ou deixa em branco.
 
 Combos varridos até aqui: + imobiliária/corretor Botafogo.
+
+## Varredura 17/09 12h10 — imobiliária/corretor Tijuca
+"apartamento à venda Tijuca RJ": 46 ativos, 40 lidos. **Aviso de termo, novo**: pôr "RJ" não resolve o caso da Tijuca — o "RJ" não filtra nada porque a **Barra da Tijuca** também é RJ, e ela domina o resultado. Marquei abaixo quem é Barra e não Tijuca; para varrer Tijuca de verdade o caminho é o nome da rua ou "Tijuca" com bairro vizinho ("Maracanã", "Vila Isabel").
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| jonathancorretor.imoveis | 1142171925647802 | **6 anúncios ativos, todos sem título nenhum, o mais velho no ar desde 29/06/2026** — quase três meses com a mesma peça muda | 29/06/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1014584714806220 |
+| Consultora de Imóveis Soraya Bittencourt | 100343585620319 | título "Seu novo Apê", no ar desde **03/10/2025** — quase um ano sem trocar. O anúncio mais antigo de toda a lista | 03/10/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1051373353604116 |
+| O Único Imóvel | 113164668499127 | 3 carrosséis, cada um com "📲 Agende sua visita" repetido em 10 cartões | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1675479873962464 |
+| heitorosilvaa | 1038103609392698 | 4 anúncios sem título, o mais velho desde 15/08/2026 | 15/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=914307081319037 |
+| Marco Castro Imóveis | 285752845482373 | 3 anúncios, todos com título "Converse conosco", desde 08/09 | 08/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1613876267070806 |
+| Sthelena imóveis | 686558474539744 | 3 anúncios idênticos com título "A VENDA" em caixa alta e sem acento, no ar desde 21/07/2026 | 21/07/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2240974610013154 |
+| Blue Chip Imóveis | 494789804019987 | **título é uma nota de avaliação: "⭐⭐⭐⭐ (4,5 / 5)"** — nem diz o que está vendendo | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1071036855318751 |
+| New Home Imóveis | 1400370723550476 | carrossel com 10 cartões vazios, mais um anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1106520115249699 |
+| Essencia Rio Imoveis | 898627846671912 | carrossel com 7 cartões vazios | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=28102171689405901 |
+| Ilaine Imóveis | 337719036086623 | carrossel com 9 cartões vazios | 03/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1393096122240886 |
+| Gaúcho Imóveis RJ | 395343807004184 | **"Anuncie com um especialista"** — está captando IMÓVEL, não comprador, num termo de compra. Público errado | 14/07/2026 | B | https://www.facebook.com/ads/library/?id=873376212103621 |
+| Julio Castro Corretor | 372168299304326 | anúncio sem título | 17/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2287326132024518 |
+| O.corretormatheus.rj | 1090531254144670 | título "Converse conosco" | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1124233196931869 |
+| Felipe Arruda — Imóveis no Rio | 1243851598819629 | título "Converse conosco" | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1512046924096606 |
+| casaquarantta | 985971204590536 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1011174921937096 |
+| crisalecrim.remax | 550705081463255 | anúncio sem título | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=3399909306844162 |
+| Complan Imóveis | 114539294572044 | título "Marcar visita" | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1568605414269963 |
+| Marcusleandro_ | 111024928569188 | anúncio sem título, desde 29/08 | 29/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1764668841330475 |
+| pc_paulocarolinobroker | 110332501570271 | anúncio sem título, desde 27/08 | 27/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=3609383952571667 |
+| NM Imóveis Rio | 1261353313725517 | anúncio sem título, desde 17/08 | 17/08/2026 | B | https://www.facebook.com/ads/library/?id=938945605903899 |
+| Vitta Prime | 868609663012472 | anúncio sem título, desde 06/05/2026 | 06/05/2026 | B | https://www.facebook.com/ads/library/?id=1732705837734225 |
+
+São da **Barra da Tijuca**, não da Tijuca (contaminação do termo): Henovah imoveis (2 anúncios com título todo em caixa alta entre emojis de losango azul), Smart Credi, Imovelweb (já registrada em Botafogo).
+
+**Defeitos novos catalogados**:
+1. **Nota de avaliação no lugar do título** ("⭐⭐⭐⭐ (4,5 / 5)"). Prova social sem produto não vende nada.
+2. **Anúncio de captação rodando em termo de compra** — "Anuncie com um especialista" aparecendo para quem procura apartamento. O corretor está pagando para falar com a pessoa errada.
+
+**Observação que muda a prioridade da lista**: imobiliária é onde estão os anúncios mais velhos do Rio inteiro. Soraya Bittencourt está com a mesma peça no ar desde **outubro de 2025**, e jonathancorretor desde junho. O gancho de "seu anúncio não muda há meses" é mais forte aqui do que em qualquer nicho de clínica.
+
+Combos varridos até aqui: + imobiliária/corretor Tijuca (com a ressalva do termo).
