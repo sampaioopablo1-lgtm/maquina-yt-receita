@@ -945,3 +945,8 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - Segmentação intacta nos três conjuntos, updated_time inalterado. Madrugada sem entrega relevante, normal.
 - Varredura: veterinária Tijuca. Só 12 anúncios ativos, 9 deles da mesma clínica (Petmalia) com o mesmo título. Registrado.
 - Observação acumulada das varreduras: o defeito campeão é o mesmo em todos os nichos (título genérico ou ausente, várias peças idênticas). Isso permite uma abordagem única, sem precisar de argumento por nicho.
+
+## 17/09 05h10 — rodada horária
+- Segmentação intacta nos três conjuntos. Madrugada parada, nada a corrigir.
+- Varredura: advocacia trabalhista. "Tijuca" isolada deu zero; ampliando para Rio de Janeiro rendeu 19 anúncios. 8 páginas registradas, 5 Trilha A — a maior proporção de Trilha A de todas as varreduras até agora, porque advogado costuma anunciar com o próprio nome.
+- Achado de nicho: advocacia tem a maior taxa de dono-no-nome. Se o teste de harmonização não vingar, advocacia é candidato natural ao próximo conjunto nichado.

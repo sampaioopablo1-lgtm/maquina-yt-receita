@@ -2877,3 +2877,23 @@ Fora do alvo: Clincardio (vende curso para veterinário).
 **Padrão que se repete em todos os nichos varridos**: o erro campeão é o mesmo em odontologia, estética, fisioterapia e veterinária — anúncio sem título ou com título genérico ("Entre em contato", "Converse conosco", "AGENDE JÁ"), muitas peças iguais no ar ao mesmo tempo. Serve de argumento único na abordagem, independente do nicho.
 
 Combos varridos até aqui: + veterinária Tijuca.
+
+## Varredura 17/09 05h10 — advocacia trabalhista RJ
+"advocacia trabalhista Tijuca" deu ZERO. Ampliei para "advogado trabalhista Rio de Janeiro" e rendeu 19.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Lavyniaduarteadv | 1349368221583531 | 3 anúncios idênticos, título com emoji de balança e frase institucional ("seus direitos merecem análise clara e estratégica") — fala de si, não do problema do cliente | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=944710944777557 |
+| jptavares.advocacia | 1382226974964195 | carrossel com 9 cartões de título vazio | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1073304065301814 |
+| arruda.fl | 260541797137006 | carrossel com 11 cartões vazios, no ar desde 08/2026 | 20/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1067593632324057 |
+| FR - Advocacia (Felipe Ramos) | 234969333704144 | 2 carrosséis, um repetindo o mesmo título 6x e outro repetindo "Fale conosco" 6x | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1090099770330982 |
+| LF Cálculos Trabalhistas | 1278448602018267 | carrossel com 8 cartões de título vazio | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=1083323274665915 |
+| Melhor Advogado | 596649130436082 | **título é uma lista de palavra-chave** ("advogado maricá, direito alcantara, advogado rj, advogados online...") — truque de SEO antigo jogado no anúncio, péssima impressão | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=1860423558280058 |
+| Andre Albuquerque Advogados | 579928225213681 | "Converse conosco", no ar desde 07/2026 sem trocar | 12/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1037464065327636 |
+| DDC - Diego Douglas Consultoria | 1005286209332623 | anúncio sem título | 13/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1059703480008522 |
+
+Fora do alvo (são concorrentes nossos, vendem marketing para advogado): Facilita Jurídico, Nil Empresarial. Bottino Advocacia e Raphael Alves têm anúncio decente, com título específico — não entram na lista.
+
+**Defeito novo catalogado**: título recheado de palavra-chave separada por vírgula. Gancho de abordagem muito forte.
+
+Combos varridos até aqui: + advocacia trabalhista RJ (Tijuca não rende isolada).
