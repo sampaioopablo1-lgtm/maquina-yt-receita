@@ -3193,3 +3193,25 @@ Já registradas em varreduras anteriores, reapareceram aqui: Copa Azul, Lopes Se
 **Anúncio bom, não entra na lista**: Sawala Imobiliária, com "A 250m da praia: O novo padrão Posto 4 em Copacabana" — diz onde, diz o quê, dá referência que o carioca entende. Serve de contraexemplo do "Converse conosco".
 
 Combos varridos até aqui: + academia Copacabana (termo falhou, motivo registrado).
+
+## Varredura 17/09 18h10 — academia Copacabana, agora pelo termo certo
+Testei as duas correções que eu mesmo tinha proposto na rodada anterior:
+- **"personal trainer Copacabana" → 1 anúncio.** Específico demais, não serve.
+- **"musculação Copacabana" → 11 anúncios, e todos são academia de verdade.** É o termo certo, e é o mesmo que já tinha funcionado em Niterói ("academia + musculação").
+
+**A conclusão anterior estava incompleta e fica corrigida aqui**: o nicho de academia NÃO é fraco em Copacabana — quem falhou foi a palavra "academia" no bairro mais saturado de imobiliária do Rio. Em Niterói (27) e Méier (38) a mesma palavra funciona. Regra final: **em Copacabana, trocar "academia" por "musculação"**.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Bio Ritmo Oficial | 10150107269225594 | 4 anúncios: dois repetindo "Bio Ritmo Copacabana: Agende Já", mais "Quando tudo muda" e "Eleve seus treinos!" — os dois últimos não dizem o que é nem onde fica | 03/09/2026 | B (rede) | https://www.facebook.com/ads/library/?id=1084247044101780 |
+| l3fit_academia | 427898943750146 | 3 anúncios, todos sem título nenhum | 13/09/2026 | B | https://www.facebook.com/ads/library/?id=940287641909859 |
+| Instituto Biodelta | 283979911614559 | **o título é a mesma frase duas vezes**: "Metodologia Biodelta em Copacabana \| Metodologia Biodelta em Copacabana" | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=4535434783363336 |
+| Aksel Musculação Especializada | 164101620124349 | carrossel com "Fale conosco" repetido em 4 cartões | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=3233164976878152 |
+| lucianomassoterapeutarj | 103185691410191 | título é a URL crua "instagram.com" | 03/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1422716866389745 |
+| Universo Saude Expansiva | 102730592706548 | anúncio sem título | 02/09/2026 | B | https://www.facebook.com/ads/library/?id=2273423580104219 |
+
+**Defeito novo catalogado**: título duplicado dentro de si mesmo, a mesma frase repetida com barra no meio. Diferente do carrossel com cartões iguais — aqui é um anúncio só, com o campo preenchido duas vezes.
+
+**Academia confirma o que veterinária já indicava**: é nicho de marca, não de dono. 1 Trilha A em 6, e a única é um massoterapeuta, não academia. Para o critério "falar direto com o dono", academia fica atrás de arquitetura (7 de 8) e odontologia (11 de 20).
+
+Combos varridos até aqui: + academia/musculação Copacabana (com o termo corrigido).
