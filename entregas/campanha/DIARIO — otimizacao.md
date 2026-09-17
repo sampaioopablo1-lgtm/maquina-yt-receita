@@ -981,3 +981,30 @@ chegar a 19/09 ainda sem 300 impressões, isso vira aviso ao Pablo (verba é dec
 possível. A CBO ainda não deu verba a ele. Prazo das 48h vence 18/09 ~18h — só ali vira aviso.
 
 Nenhum anúncio em WITH_ISSUES. Nenhuma condição C1–C3 de conjunto batida. Zero trocas nesta rodada.
+
+## 17/09 — NOVA REGRA C0: conjunto sem lead em 48h é desativado
+Decisão do Pablo, em letra dele: *"a regra de desativar por falta de performance, crítica, também
+se aplica ao conjunto de anúncios. Se em 48 horas, o conjunto não gerou leads, precisa ser
+desativado."*
+
+O que mudou: até hoje o corte de conjunto dependia da C1, que exigia **três** condições juntas
+(≥2.000 impressões E zero lead E CPM acima de R$ 60). Na prática ela quase nunca disparava — nas
+medições de 14/09 e 15/09 registradas neste diário, os conjuntos elegíveis nunca bateram. Um
+conjunto podia queimar dias sem lead e continuar no ar por não ter volume suficiente para ser
+julgado.
+
+C0 tira as muletas: **48h desde o created_time do conjunto e zero lead, sai do ar.** C1, C2 e C3
+continuam para o que C0 não pega. A regra foi escrita em "REGRA — corte de anuncio em 48 horas.md",
+seção "C0 — a regra dura de conjunto", e a rotina diária passou a julgar conjunto no PASSO 0,
+antes de olhar anúncio.
+
+**Entrega zero conta como zero lead** — decisão registrada junto com a regra. Conjunto que a CBO
+não alimentou e ficou com 0 impressão em 48h é pausado igual, porque conjunto que o algoritmo
+escolheu não alimentar por dois dias só divide a atenção dele. Testar de novo aquele público = 
+conjunto novo com criativo novo.
+
+**As travas vencem C0.** Se o corte esbarrar em "último conjunto ativo da campanha" ou "gerou lead
+nas últimas 48h", a rodada avisa o Pablo em vez de pausar.
+
+**Primeiro caso previsto**: LEADS I NICHO HARMONIZACAO BR I FASE 3 (created 16/09 17h59) completa
+48h em 18/09 ~18h. Em 17/09 15h tinha 5 impressões acumuladas e nenhum lead. Se chegar assim, cai.

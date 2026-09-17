@@ -47,9 +47,46 @@ dela, e só se nenhuma tentativa tiver melhorado.
 
 | # | Condição | Ação |
 |---|---|---|
+| **C0** | **≥ 48h desde o created_time do conjunto e 0 lead** | **pausar o conjunto** |
 | C1 | ≥ 48h no ar **e** ≥ 2.000 impressões **e** 0 lead **e** CPM > R$ 60 | pausar o conjunto |
 | C2 | ≥ 72h no ar **e** alcance total < 500 pessoas | pausar — público pequeno demais para leiloar |
 | C3 | todos os anúncios do conjunto foram pausados pelas regras acima | pausar o conjunto |
+
+### C0 — a regra dura de conjunto (decisão do Pablo, 17/09/2026)
+
+*Palavra do Pablo: "a regra de desativar por falta de performance, crítica, também se aplica ao
+conjunto de anúncios. Se em 48 horas, o conjunto não gerou leads, precisa ser desativado."*
+
+**C0 vale acima de C1.** C1 exigia três coisas ao mesmo tempo (volume, zero lead e CPM alto) e por
+isso quase nunca disparava — um conjunto podia queimar dias sem lead e nunca bater a condição.
+C0 tira as muletas: **passou de 48 horas e não gerou lead, sai do ar.** C1, C2 e C3 continuam
+existindo para os casos que C0 não pega (conjunto que gerou lead mas está caro, público pequeno
+demais, conjunto esvaziado).
+
+**Como medir, sem margem para interpretação:**
+- O relógio é o `created_time` do CONJUNTO lido da Meta, nunca data escrita em prompt.
+- "Lead" é o mesmo `results` que já usamos no nível anúncio (`actions:leadgen.other`), somado em
+  todos os anúncios do conjunto, no período desde o created_time.
+- Conjunto com menos de 48h não é julgado. Conjunto com exatamente 48h ou mais e zero lead é
+  pausado na mesma rodada, sem pedir confirmação.
+- Pausar = `ads_update_entity`, entity_type `ad_set`, status PAUSED, e renomear com o prefixo
+  **"ZZ CORTADO 48H — "**. Não apagar nada. Os anúncios de dentro ficam como estão.
+- Registrar na tabela "Trocas feitas" e no DIARIO, com o created_time que serviu de relógio e a
+  contagem de leads que motivou o corte.
+
+**ENTREGA ZERO conta como zero lead.** Um conjunto que não recebeu verba da CBO e ficou com 0
+impressão em 48h é pausado igual. O raciocínio: numa campanha CBO a Meta distribui o orçamento
+sozinha, e conjunto que ela escolheu não alimentar durante dois dias inteiros não vai alimentar
+depois — ele só divide a atenção do algoritmo. Se o Pablo quiser testar aquele público de novo, o
+caminho é conjunto novo com criativo novo, não esperar mais.
+
+**O que C0 NÃO autoriza:** mexer em orçamento (segue proibido), pausar o último conjunto ativo de
+uma campanha (segue proibido), e pausar conjunto que gerou lead nas últimas 48h (segue proibido).
+Se C0 e uma trava se chocarem, **a trava vence** e a rodada avisa o Pablo em vez de pausar.
+
+**Primeiro caso previsto:** LEADS I NICHO HARMONIZACAO BR I FASE 3 (120247470141000766), created
+16/09 17h59, completa 48h em **18/09 por volta das 18h**. Até 17/09 14h tinha 5 impressões no total
+e nenhum lead. Se chegar lá assim, C0 dispara e ele sai do ar.
 
 ## A escada de tentativas — o que vem antes de pausar
 
@@ -146,7 +183,9 @@ registrado para que a escolha seja lembrada como escolha, não sofrida como lent
 
 *Substitui a escada de 4 rodadas de 14/09 no nível anúncio. Pablo: "no prazo de 48 horas o
 anúncio não performar, mudar o criativo, imagem, copy, com base nos dados, contexto, objetivo da
-agência".* Regras C1–C3 (conjunto) e as travas continuam iguais.
+agência".* As travas continuam iguais. **No nível conjunto, a partir de 17/09/2026 vale a C0 —
+48h sem lead, o conjunto é pausado — e ela tem prioridade sobre C1. Ver "C0 — a regra dura de
+conjunto".**
 
 ### Quando um anúncio "não performou" (tempo E volume, como sempre)
 
