@@ -924,3 +924,7 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - O estoque de reunião zerou. Não tem diagnóstico marcado pra nenhum dos próximos 3 dias.
 - O caminho Calendly não está entregando: 5 anúncios rodando desde 13h10 de ontem, 4 cliques, zero agendamento.
 - O anúncio mais barato da conta (V16, CPL R$2,65) está mal distribuído: entrega bem no CNAE e quase nada no INTERESSE.
+
+## 17/09 01h10 — rodada horária
+- Segmentação dos 3 conjuntos intacta (updated_time segue 16/09 19h51–19h53, meus consertos). Os 23 anúncios ACTIVE/ACTIVE, nenhum com erro.
+- Varredura: harmonização em Botafogo pelo termo do procedimento. 4 páginas registradas, 1 Trilha A. Mecanismo novo de busca anotado em LICOES.

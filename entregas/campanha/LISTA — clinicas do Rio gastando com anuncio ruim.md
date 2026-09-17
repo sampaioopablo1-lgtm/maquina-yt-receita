@@ -2812,3 +2812,19 @@ Madureira é bairro fraco na Biblioteca: "dentista Madureira Rio de Janeiro" dev
 Aprendizado de termo: "dentista Madureira Rio de Janeiro" rende quase nada (3 anúncios). O bairro tem pouca gente anunciando; vale mais varrer por Zona Oeste ampla que por Madureira isolada. Defeito novo catalogado: título com URL crua ("instagram.com", "api.whatsapp.com"), que é gancho forte de abordagem.
 
 Combos varridos até aqui: + odontologia Madureira, estética Madureira.
+
+## Varredura 17/09 01h10 — harmonização Botafogo (termo de PRODUTO)
+Testei "preenchimento labial Botafogo" em vez de "harmonização facial Botafogo". Funcionou: 16 anúncios ativos contra quase nada dos termos anteriores. Confirma a regra do termo de produto.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra. Flavia Cerqueira — Ortodontista | 111006918318698 | "Seleção para Preenchimento Labial" — ortodontista vendendo estética, promessa de "seleção" que soa a filtro falso | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=28058009940536991 |
+| Espaço Facial Botafogo | 108949315264427 | 4 anúncios idênticos "AGENDE AQUI", zero argumento, todos no ar juntos | 10/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1083463767763637 |
+| Maselli Clinic | 271984545987824 | "Realce sua beleza com naturalidade", frase genérica que qualquer clínica usa | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=2651895361928620 |
+| Clinicaloza | 1144052102116576 | título é só o nome do procedimento, "Preenchimento labial" | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=3184893051705327 |
+
+Fora do alvo: Clinic Cursos (8 anúncios, vende curso para dentista, não é clínica).
+
+**Aprendizado de termo novo**: para estética, buscar pelo PROCEDIMENTO ("preenchimento labial", "botox") em vez de "harmonização facial" — o termo do procedimento rende 16 anúncios onde o termo guarda-chuva rendia 3. Mesma lógica de "óculos de grau" vs "ótica".
+
+Combos varridos até aqui: + harmonização Botafogo (via preenchimento labial).
