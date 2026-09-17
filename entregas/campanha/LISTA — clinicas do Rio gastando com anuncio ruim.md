@@ -2796,3 +2796,19 @@ Padrão do bairro: anúncio SEM TÍTULO é a regra em Niterói, não a exceção
 Fora do alvo: Estética Dental, Consultório 10X (curso para dentista).
 
 Combos varridos até aqui: + odontologia Niterói.
+
+## Varredura 17/09 00h10 — Madureira (odontologia + estética)
+Madureira é bairro fraco na Biblioteca: "dentista Madureira Rio de Janeiro" devolveu só 3 anúncios. Ampliei com "clínica estética Madureira RJ", que puxou clínicas da Zona Oeste/Recreio.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dr. Marcelo Duarte | 980307261838192 | título é só o nome dele, sem oferta nem gancho | 15/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1957824878260036 |
+| Dentista Michelle & Equipe | 1398513620467375 | 6 anúncios no ar, cinco sem título nenhum e um com título "instagram.com" | 03/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1464039925537309 |
+| Inter Sorriso — Madureira | 718432768022994 | 2 anúncios "Atenção Madureira", grito sem oferta, no ar desde 07/2026 | 22/07/2026 | B | https://www.facebook.com/ads/library/?id=2204380773748516 |
+| Centro de Saúde Costa Lima | 109523875102752 | 5 anúncios, um com título "api.whatsapp.com" (link cru aparecendo como título) | 12/08/2026 | B | https://www.facebook.com/ads/library/?id=2148381352384050 |
+| Sorrisos Para Todos | 1189862540874176 | "Entre em Contato", sem argumento | 16/08/2026 | B | https://www.facebook.com/ads/library/?id=3990129431283281 |
+| ClinDerm | 658918477520136 | carrossel com 10 cartões de título vazio | 09/08/2026 | B | https://www.facebook.com/ads/library/?id=919008060701682 |
+
+Aprendizado de termo: "dentista Madureira Rio de Janeiro" rende quase nada (3 anúncios). O bairro tem pouca gente anunciando; vale mais varrer por Zona Oeste ampla que por Madureira isolada. Defeito novo catalogado: título com URL crua ("instagram.com", "api.whatsapp.com"), que é gancho forte de abordagem.
+
+Combos varridos até aqui: + odontologia Madureira, estética Madureira.

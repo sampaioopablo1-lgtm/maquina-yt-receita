@@ -888,3 +888,10 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - Meta hoje: INTERESSE 327 imp / R$15,08 / 0 lead; CNAE 124 imp / R$5,28 / 1 lead; HARMONIZAÇÃO ainda 0 impressão (relógio de 48h do created_time 16/09 17h59 vence em 18/09 18h).
 - Agenda sem evento novo.
 - Varredura: odontologia Niterói, o bairro mais concorrido até agora (116 anúncios ativos no termo). 10 páginas registradas, 6 Trilha A. Padrão do bairro: anúncio sem título é a regra.
+
+## 17/09 00h10 — rodada horária (virada do dia)
+- Segmentação dos 3 conjuntos conferida: updated_time continua 16/09 19h51–19h53, que são os meus consertos. Nenhuma mexida externa durante a noite. Geo correta nos três: Brasil inteiro, zero estado, só Taubaté com raio.
+- **O conjunto HARMONIZAÇÃO começou a entregar**: 5 impressões, R$0,05. Saiu do zero, a CBO deu verba pra ele.
+- Fechamento de 16/09: INTERESSE 464 imp / R$19,99 / 0 lead; CNAE 124 imp / R$5,28 / 1 lead; ZZ MESCLADO (pausado 13h10) 85 imp / R$2,99 / 1 lead; HARMONIZAÇÃO 5 imp / R$0,05 / 0 lead. Dia fechou com R$28,31 e 2 leads, CPL R$14,16 — acima da média de 8 dias (R$11,37), efeito do dia ter tido três mexidas de segmentação e o conjunto principal ficar ~1h fora do ar.
+- Hipótese aberta: INTERESSE gastou R$20 num dia inteiro com 464 impressões e nenhum lead, sendo que a média dele em 8 dias é R$9,52 por lead. Pode ser só o ruído do dia quebrado. A rotina das 9h julga com o relógio do created_time.
+- Varredura: Madureira (odontologia + estética), 6 páginas, 2 Trilha A. Bairro fraco na Biblioteca.
