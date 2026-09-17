@@ -2844,3 +2844,21 @@ Combos varridos até aqui: + harmonização Botafogo (via preenchimento labial).
 **Defeito novo catalogado**: botão "Conversar no Messenger" em clínica. Gancho forte — praticamente ninguém abre Messenger no Brasil, o lead morre ali.
 
 Combos varridos até aqui: + estética Tijuca (via botox).
+
+## Varredura 17/09 03h10 — fisioterapia Copacabana
+36 anúncios ativos no termo.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dr. Henrique Baumgarth | 737089326143774 | 3 anúncios no ar ao mesmo tempo, todos sem título nenhum, subiram ontem | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2343155519550746 |
+| victoriacandidofisio | 216554144872848 | carrossel com 6 cartões de título vazio; perfil pessoal como página | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1523619369804624 |
+| GMF Fisioterapia | 710041835527857 | 2 anúncios cujo título é só o nome da clínica | 13/09/2026 | B | https://www.facebook.com/ads/library/?id=3720761334753671 |
+| Instituto Vital Fit | 652886404834295 | "MELHORE SUAS DORES" em caixa alta, promessa vaga | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=28038835642477757 |
+| Estética Spa e Fisioterapia Bnarby | 338069859858244 | "Drenagem Linfática R$90" — compete por preço, atrai o pior cliente | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=2137503386844624 |
+| FVS Fisioterapia & Performance | 462295967255900 | 2 anúncios, um sem título e outro só com o nome da unidade ("FVS Leblon") | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1941916866482078 |
+| DDC Clinic Fisioterapia | 1084232018105389 | anúncio sem título | 05/09/2026 | B | https://www.facebook.com/ads/library/?id=1085721230866192 |
+| Habilistar | 100258393003933 | "AGENDE UMA AVALIAÇÃO", sem diferencial | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=2837533793365958 |
+
+Fora do alvo: Residencial RJZ (imóvel), Estácio Copacabana (faculdade, 2 carrosséis com 10 cartões "Fale conosco").
+
+Combos varridos até aqui: + fisioterapia Copacabana.

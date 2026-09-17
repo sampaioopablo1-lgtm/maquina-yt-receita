@@ -935,3 +935,8 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - HARMONIZAÇÃO travou em 5 impressões desde que entregou pela primeira vez. Relógio de 48h vence 18/09 18h; se continuar assim, aviso o Pablo (é verba, decisão dele).
 - Segmentação dos 3 conjuntos intacta, updated_time inalterado.
 - Varredura: estética Tijuca pelo termo "botox", 63 anúncios ativos. 6 páginas registradas, 2 Trilha A. Defeito novo: botão de Messenger em clínica.
+
+## 17/09 03h10 — rodada horária
+- Dia 17/09 começou zerado nos três conjuntos (0h07 BRT), normal.
+- Segmentação intacta, updated_time inalterado nos três. Nenhum anúncio caído.
+- Varredura: fisioterapia Copacabana, 36 anúncios ativos, 8 páginas registradas, 2 Trilha A.
