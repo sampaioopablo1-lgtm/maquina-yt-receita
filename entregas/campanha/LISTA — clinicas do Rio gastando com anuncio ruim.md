@@ -2955,3 +2955,24 @@ Usei o termo de PROCEDIMENTO, não o guarda-chuva: "preenchimento labial Niteró
 **Defeito novo catalogado**: desconto percentual em procedimento injetável ("50% OFF") e "avaliação grátis" — os dois enchem a agenda de quem não fecha.
 
 Combos varridos até aqui: + harmonização/estética Niterói.
+
+## Varredura 17/09 09h10 — harmonização/estética Madureira
+"preenchimento labial Madureira RJ" deu **ZERO**. Trocando o procedimento para "botox Madureira" rendeu 19 ativos, todos lidos. Regra que fica: em Madureira o procedimento que a Biblioteca indexa é botox, não preenchimento.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Bodyprime Madureira | 101464706075700 | **"🎄 Promoção de Natal: Botox + Preenchimento Labial!" rodando em setembro** — anúncio de Natal no ar desde 05/08/2026, fora de época. Ninguém olha a conta | 05/08/2026 | B | https://www.facebook.com/ads/library/?id=1507725244372023 |
+| Espaço Facial — Madureira | 103379859116154 | 5 anúncios ao mesmo tempo: dois com "Avaliação gratuita"/"AVALIAÇÃO GRATUITA" (o mesmo texto, um em caixa alta) e três sem título nenhum | 12/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=952980784125623 |
+| Dra Cinele Azevedo | 100345475413009 | 4 anúncios no ar, todos sem título nenhum | 12/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1094274496893458 |
+| Bm Diany | 1123584040846731 | 3 carrosséis, cada um repetindo "Converse conosco" nos três cartões; no ar desde 06/08/2026 | 06/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1040891385398630 |
+| Dra. Juliana Magalhaes — Biomédica Esteta | 1001374869729194 | título "Fale Conosco Pelo WhatsApp! >>>" — setinhas de banner antigo, passa impressão de anúncio duvidoso | 25/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2404497183690853 |
+| Clinic Day | 1166797139854316 | título é só o nome da clínica | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=2657523584693596 |
+| Rose Provenzano Studio Fashion | 1484228898467423 | 2 anúncios idênticos, título "📆 Agendar Agora" — emoji no lugar do argumento | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1971858390177967 |
+
+Fora do alvo: Garimpando com PH (revenda de garimpo), Thaís Souza Entrelace Madureira (salão de cabelo, não é o nicho).
+
+**Defeito novo catalogado, o mais forte até agora**: campanha sazonal esquecida no ar. Anúncio de Natal rodando em setembro prova sozinho que ninguém acompanha a conta — é o gancho de abordagem mais fácil de todos, não exige explicar marketing.
+
+**Observação**: "avaliação gratuita" aparece de novo, agora em Madureira, do mesmo jeito que em Niterói. É o padrão do nicho de estética inteiro, não de um bairro.
+
+Combos varridos até aqui: + harmonização/estética Madureira. Com isso, harmonização e odontologia estão fechadas nos dois bairros prioritários (Niterói e Madureira).
