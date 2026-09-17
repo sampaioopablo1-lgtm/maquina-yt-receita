@@ -940,3 +940,8 @@ As três rotinas (horária, diária 21h33 e 48h) foram reescritas com:
 - Dia 17/09 começou zerado nos três conjuntos (0h07 BRT), normal.
 - Segmentação intacta, updated_time inalterado nos três. Nenhum anúncio caído.
 - Varredura: fisioterapia Copacabana, 36 anúncios ativos, 8 páginas registradas, 2 Trilha A.
+
+## 17/09 04h10 — rodada horária
+- Segmentação intacta nos três conjuntos, updated_time inalterado. Madrugada sem entrega relevante, normal.
+- Varredura: veterinária Tijuca. Só 12 anúncios ativos, 9 deles da mesma clínica (Petmalia) com o mesmo título. Registrado.
+- Observação acumulada das varreduras: o defeito campeão é o mesmo em todos os nichos (título genérico ou ausente, várias peças idênticas). Isso permite uma abordagem única, sem precisar de argumento por nicho.

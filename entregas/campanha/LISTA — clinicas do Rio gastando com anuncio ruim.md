@@ -2862,3 +2862,18 @@ Combos varridos até aqui: + estética Tijuca (via botox).
 Fora do alvo: Residencial RJZ (imóvel), Estácio Copacabana (faculdade, 2 carrosséis com 10 cartões "Fale conosco").
 
 Combos varridos até aqui: + fisioterapia Copacabana.
+
+## Varredura 17/09 04h10 — veterinária Tijuca
+Só 12 anúncios ativos, e 9 deles são da mesma página.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Petmalia — Hospital Veterinário | 101495181581938 | **9 anúncios no ar ao mesmo tempo, todos com o mesmo título "Entre em contato"**. Caso clássico de quem impulsiona tudo sem estratégia; o orçamento se divide entre nove peças idênticas | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=4433600560223618 |
+| Oncopet | 349668468229270 | carrossel com 9 cartões de título vazio | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1743291093618603 |
+| Cellula Animal Clínica Veterinária | 229866610800625 | carrossel com 2 cartões vazios, só o nome da clínica aparece | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=3431989246974582 |
+
+Fora do alvo: Clincardio (vende curso para veterinário).
+
+**Padrão que se repete em todos os nichos varridos**: o erro campeão é o mesmo em odontologia, estética, fisioterapia e veterinária — anúncio sem título ou com título genérico ("Entre em contato", "Converse conosco", "AGENDE JÁ"), muitas peças iguais no ar ao mesmo tempo. Serve de argumento único na abordagem, independente do nicho.
+
+Combos varridos até aqui: + veterinária Tijuca.
