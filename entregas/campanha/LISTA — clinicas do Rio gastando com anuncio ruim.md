@@ -3648,3 +3648,53 @@ Em nenhum dos dois é preciso falar de CPM, de público ou de otimização. O er
 ## Como manter esta lista viva
 Toda varredura nova: se aparecer título com domínio (`.com`, `.br`, `fb.me`) ou com rótulo de botão,
 acrescentar aqui além da seção do nicho. É a lista que o Pablo vai usar primeiro.
+
+---
+
+## Fisioterapia — Tijuca (varrido 18/09/2026, 07h BRT)
+
+Termo: `fisioterapia Tijuca RJ`. 38 anúncios, **14 páginas distintas**, **5 Trilha A**. O sufixo
+"RJ" cumpriu o papel de novo: zero contaminação de Tijucas/SC.
+
+Concentração forte: **Nunes Curativos sozinha tem 9 anúncios** e o Instituto TRATA tem 5.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| **M&B Fisioterapia** | 491878520899614 | "Converse conosco" | **14/08/2024 — 25 meses** | B | [link](https://www.facebook.com/ads/library/?id=482135827863922) |
+| Núcleo Saúde Novo Leblon | 174772386011095 | **6 anúncios**: 4 com título vazio, 1 com "Consulte nossa agenda!" e 1 com o nome da página + um campo vazio + "Converse conosco" 6 vezes | **06/06/2025 — 15 meses** | B | [link](https://www.facebook.com/ads/library/?id=798694882553978) |
+| Unigama Matriz | 377429398797294 | nome da página + "Fale conosco" 2 vezes | 15/06/2026 | B | [link](https://www.facebook.com/ads/library/?id=1300113592276108) |
+| Instituto TRATA - Unidade Tijuca | 2165668653685205 | **5 anúncios, todos com título vazio** | 03/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=2987336934806714) |
+| Dr. Bruno Garrett | 1166755226529382 | "Agendar Consulta Particular" — funciona, mas é rótulo de botão, não promessa | 20/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1646714707456770) |
+| Cora Residencial Senior | 1121894897837722 | 2 anúncios, títulos vazios | 23/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=964966716549753) |
+| Rodrigo Salvitti | 964281120110122 | **3 anúncios, todos com título vazio** | 28/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1018698091030714) |
+| Espaço Vida Barra | 415841588288319 | **"Aproveite nossa promoção de Agosto!"** — ainda no ar em 18 de setembro | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1029734440092383) |
+| souquiro | 108866823958255 | "Converse conosco" | 02/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=2540046356463545) |
+| Dr. Mauro Monteiro Osteopatia | 1305429126182898 | **4 anúncios, todos com título vazio**, o mais antigo de 03/07 | 04/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1068726606119975) |
+| **Nunes Curativos** | 1593079370959383 | **9 anúncios**. Um deles tem o nome da página seguido de **"Converse conosco" 8 vezes**; outro 7 vezes; outro 6; os demais 1 vez | 07/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1613948350112727) |
+| Núcleo Angela Beatriz Varella de Fisioterapia | 105253774677022 | título vazio | 11/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=2158480202213241) |
+| Clínica Ortobarra | 116441024392088 | título vazio | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=4530476013875596) |
+| Drª Vitória Costa | 104752944739269 | título vazio | 16/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=2603812466707915) |
+
+*(Elo3 Cursos é contaminação — curso para fisioterapeuta, não clínica.)*
+
+### Dois achados
+
+**1. Promoção de agosto no ar em setembro.** Espaço Vida Barra está pagando, hoje, por um anúncio que
+diz "Aproveite nossa promoção de Agosto!". É o segundo caso do gênero no arquivo (o primeiro foi uma
+campanha de Natal rodando em setembro). Vale virar categoria própria: **anúncio fora de época**.
+Argumento de abordagem excelente, porque o dono não precisa entender de tráfego — ele só precisa
+olhar o calendário.
+
+**2. O recorde de repetição.** Nunes Curativos tem um anúncio cujo título é o nome da página seguido
+de "Converse conosco" **oito vezes seguidas**. E tem nove anúncios no ar ao mesmo tempo, todos
+variações do mesmo nada. É o maior desperdício por página de toda a lista.
+
+**O segundo mais antigo do arquivo**: M&B Fisioterapia, no ar desde 14/08/2024 — **25 meses**. Fica
+atrás só do Bicho D+ (27 meses), encontrado na rodada passada.
+
+**Trilha A do lote**: Drª Vitória Costa, Dr. Mauro Monteiro, Rodrigo Salvitti, Dr. Bruno Garrett e
+Núcleo Angela Beatriz Varella — **5 de 14**. Todos com título vazio, menos o Dr. Bruno. Fisioterapia
+tem proporção de dono parecida com odontologia, e ticket de recorrência (paciente volta 10 vezes),
+o que a torna melhor que tatuagem por valor.
+
+Combos varridos até aqui: + fisioterapia Tijuca (o sufixo "RJ" funcionou pela 3ª vez).
