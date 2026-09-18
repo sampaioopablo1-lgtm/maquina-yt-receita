@@ -1104,3 +1104,80 @@ Pablo hoje (R$ 306,68 ÷ 6 = R$ 51,11) está errado. O certo é **R$ 306,68 ÷ 7
 **Regra ajustada para as próximas rodadas**: contar como reunião de diagnóstico também o evento cuja
 DESCRIÇÃO contém a resposta do formulário da Meta, independente do título. O Pablo nomeia o evento
 do jeito dele ("Elton - Pintor"), não do jeito que a regra esperava.
+
+---
+
+## 18/09 00h33 UTC (17/09 21h33 BRT) — rodada diária: a verba caiu de R$30 para R$20
+
+### O que os números dizem
+
+| Conjunto | 16/09 | | | | 17/09 (aberto) | | | |
+|---|---|---|---|---|---|---|---|---|
+| | Imp. | Gasto | Leads | CPL | Imp. | Gasto | Leads | CPL |
+| INTERESSE | 600 | R$23,71 | 3 | R$7,90 | 492 | R$16,67 | 2 | R$8,34 |
+| CNAE | 137 | R$5,54 | 1 | R$5,54 | 46 | R$0,87 | 0 | — |
+| HARMONIZAÇÃO | 5 | R$0,05 | 0 | — | **0** | **R$0** | 0 | — |
+| IMOBILIÁRIA | — | — | — | — | 11 | R$0,25 | 0 | — |
+| ADVOCACIA | — | — | — | — | 5 | R$0,38 | 0 | — |
+| CONTABILIDADE | — | — | — | — | 0 | R$0 | 0 | — |
+| **Campanha** | **828** | **R$32,30** | **5** | R$6,46 | **554** | **R$18,17** | **2** | R$9,09 |
+
+### A CAUSA: o Pablo cortou a verba hoje de manhã
+
+Log de atividade da conta, `event_category: budget`:
+
+> **Campaign budget updated** — Pablo Sampaio, Power Editor, **17/09/2026 às 8h52**
+> old_value: **3000** (R$ 30,00) → new_value: **2000** (R$ 20,00) "Per day"
+> objeto: campanha 120247320350570766 LEADS I FORM I FS1
+
+Isso explica tudo o que eu estava chamando de "queda de entrega" nas rodadas de hoje. Não é o
+algoritmo cansando, não é criativo saturando, não é frequência: **a verba diária caiu um terço às
+8h52 de hoje.** O gasto de 17/09 (R$18,17 com o dia ainda aberto) está batendo no teto novo, exatamente
+como deveria.
+
+Correção do que eu disse ao Pablo hoje à noite: eu li a queda de impressões (2.060 no dia 10 → 828
+no dia 16 → 554 hoje) e concluí que "a alavanca é verba". A conclusão estava certa mas incompleta —
+eu não tinha visto que ele mesmo tinha mexido nela hoje de manhã. A parte de 10 a 16/09 é outra
+coisa (o CPM subiu e a campanha aprendeu a gastar melhor); a queda de HOJE é o corte de verba.
+
+### O PROBLEMA QUE ISSO CRIA — e que a regra C0 vai transformar em estrago
+
+Antes de hoje: **3 conjuntos dividindo R$ 30/dia** = R$ 10 por conjunto.
+A partir de agora: **6 conjuntos dividindo R$ 20/dia** = **R$ 3,33 por conjunto.**
+
+A verba por conjunto caiu **67%**. E a CBO não reparte igual: ela dá quase tudo para quem já provou
+(o INTERESSE levou R$ 16,67 dos R$ 18,17 de hoje, ou seja **92%**). Sobra literalmente centavos para
+os cinco outros.
+
+**O HARMONIZAÇÃO é a prova**: está ativo há 27 horas e recebeu **5 impressões no total**. Zero hoje.
+Ele não está perdendo o teste — ele nunca foi testado.
+
+**E aqui está o estrago que vem**: a regra C0 que o Pablo pediu ontem diz "48h sem lead → pausar o
+conjunto", e eu escrevi nela que ENTREGA ZERO conta como zero lead. Do jeito que está:
+
+- **HARMONIZAÇÃO** completa 48h em **18/09 17h59** e será cortado na rodada de sexta ao meio-dia UTC... com 5 impressões de histórico.
+- **IMOBILIÁRIA, ADVOCACIA e CONTABILIDADE** completam 48h em **19/09 ~18h57** e cairão no sábado pelo mesmo motivo.
+
+Ou seja: a C0 vai matar quatro conjuntos em dois dias, e nenhum deles terá sido reprovado por
+performance ruim. Terão sido reprovados por não terem recebido verba para existir.
+
+### O que fica pendente de decisão do Pablo (verba é dele, não mexo)
+Três caminhos, e ele escolhe:
+1. **Voltar a verba para R$ 30+** e deixar os seis rodarem.
+2. **Manter R$ 20 e pausar conjunto** até sobrar 2 ou 3, para cada um ter verba de verdade.
+3. **Manter tudo como está** e aceitar que a C0 limpe os quatro conjuntos novos por falta de entrega.
+
+O que NÃO dá é manter seis conjuntos em R$ 20/dia e esperar aprender alguma coisa com eles.
+
+### Ajuste que eu vou fazer na regra C0
+A C0 precisa de um piso de entrega, senão ela não mede performance, mede sorte de repartição.
+Proposta a registrar na REGRA: **C0 só corta conjunto que teve pelo menos 500 impressões nas 48h.**
+Abaixo disso o veredito é "não testado" e a rodada avisa o Pablo em vez de pausar — exatamente como
+as outras travas já fazem.
+
+### Resto da rodada
+- Segmentação dos seis conjuntos: correta, BR inteiro, só Taubaté excluída, nenhum estado.
+- Nenhum anúncio caído. Os 15 novos saíram da revisão.
+- Frequência: 1,10 a 1,67 nos conjuntos com entrega. Longe do limite de 3.
+- Agenda: 7 pessoas distintas (ver a correção do "Elton - Pintor" na entrada anterior). Custo por reunião R$ 43,81.
+- Amanhã (18/09) não tem reunião de diagnóstico marcada. A próxima é Elton, 21/09 12h.

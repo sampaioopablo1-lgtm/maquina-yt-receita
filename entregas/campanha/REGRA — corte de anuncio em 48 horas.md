@@ -86,7 +86,32 @@ Se C0 e uma trava se chocarem, **a trava vence** e a rodada avisa o Pablo em vez
 
 **Primeiro caso previsto:** LEADS I NICHO HARMONIZACAO BR I FASE 3 (120247470141000766), created
 16/09 17h59, completa 48h em **18/09 por volta das 18h**. Até 17/09 14h tinha 5 impressões no total
-e nenhum lead. Se chegar lá assim, C0 dispara e ele sai do ar.
+e nenhum lead.
+
+### TRAVA 7 — "não testado" não é o mesmo que "reprovado" (acrescentada 17/09/2026 21h33)
+
+**C0 não corta conjunto que teve menos de 500 impressões nas 48 horas.** Abaixo disso o veredito é
+**NÃO TESTADO**: a rodada não pausa, registra no DIARIO e avisa o Pablo em duas linhas.
+
+Por quê. Na noite de 17/09 o Pablo baixou a verba da campanha de R$ 30 para R$ 20 por dia (log da
+conta, 8h52, Power Editor), e no mesmo dia a conta passou de 3 para 6 conjuntos ativos. A verba por
+conjunto caiu de R$ 10 para R$ 3,33 — e a CBO não reparte igual: no dia 17 o INTERESSE levou R$ 16,67
+dos R$ 18,17 gastos, **92% de tudo**. Sobrou centavo para os outros cinco. O HARMONIZAÇÃO ficou 27
+horas no ar e recebeu **5 impressões**.
+
+Sem esta trava, a C0 mataria HARMONIZAÇÃO na sexta e IMOBILIÁRIA, ADVOCACIA e CONTABILIDADE no
+sábado — quatro conjuntos em dois dias, nenhum deles reprovado por performance. Teriam sido
+reprovados por não terem recebido verba para existir. Uma regra de corte que pune quem não recebeu
+entrega não mede desempenho, mede a repartição da CBO.
+
+O texto acima sobre "conjunto que a Meta escolheu não alimentar durante dois dias não vai alimentar
+depois" continua verdadeiro **quando a campanha tem verba folgada**. Ele deixa de valer quando a
+própria verba é o gargalo, e é exatamente esse o caso desde 17/09. Enquanto seis conjuntos
+dividirem R$ 20 por dia, entrega baixa é sintoma da conta, não do público.
+
+**500 impressões** é o mesmo piso que a C1 já usava para nível de anúncio (2.000) dividido pela
+realidade desta conta: com CPM de R$ 30, 500 impressões custam R$ 15 — mais de meio dia de verba da
+campanha inteira. Abaixo disso não há amostra para julgar nada.
 
 ## A escada de tentativas — o que vem antes de pausar
 
