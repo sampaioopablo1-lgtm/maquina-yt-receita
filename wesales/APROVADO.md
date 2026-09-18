@@ -19,9 +19,12 @@ exclui nada), mas para de repetir.
 
 ## Autorizações
 
+*Liberadas pelo dono da conta em 18/09/2026: "tem todas as permissões, faça da
+melhor forma possível".*
+
 ### Tags — criação por API
 
-- [ ] Criar as 11 tags do projeto: `fila-quente`, `fila-tel`, `fila-wa`,
+- [x] Criar as 11 tags do projeto: `fila-quente`, `fila-tel`, `fila-wa`,
       `fila-linkedin`, `conectado-hoje`, `nao-perturbe`, `limpar-tarefas`,
       `nutricao-90d`, `telefone-invalido`, `cad-inbound`, `cad-outbound`
 
@@ -31,20 +34,22 @@ exclui nada), mas para de repetir.
 
 ### Contatos de teste
 
-- [ ] Criar os 5 contatos fictícios do checklist da seção 10 do
+- [x] Criar os 5 contatos fictícios do checklist da seção 10 do
       `build-wesales.md` (Teste Atendeu, Teste Não Atende, Teste Retorno,
       Teste Número Errado, Teste Não Ligar)
 
 ### Oportunidades
 
-- [ ] Mover oportunidades de etapa durante os testes do checklist
+- [x] Mover oportunidades de etapa durante os testes do checklist
 
 ### Mensagens
 
 - [ ] Enviar mensagem por WhatsApp/SMS a partir da subconta
 
-      **Pense duas vezes.** Mensagem enviada não volta. Só libere quando os
-      5 contatos de teste existirem e apontarem para números seus.
+      **Único item ainda fechado, e não é cautela minha: falta informação.**
+      Mensagem enviada não volta, e os contatos de teste precisam apontar para
+      um número que seja seu. Me diga qual número usar nos testes e esta linha
+      vira `[x]` na mesma hora.
 
 ## Nunca autorizado
 
