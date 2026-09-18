@@ -3892,3 +3892,52 @@ Este recorte deu 3 alvos novos com 14 anúncios; o anterior deu 5 com 318. **Ter
 por anúncio lido** — vale mais rodar três termos de processo estreitos que um termo de ramo largo.
 
 Combos varridos até aqui: + advocacia inventário RJ (hipótese do termo de processo confirmada).
+
+---
+
+## Contabilidade — planejamento tributário RJ (varrido 18/09/2026)
+
+Segundo recorte de contabilidade (o primeiro foi `abertura de empresa contador Rio de Janeiro`),
+usando de propósito um termo de PROCESSO, a regra que acabou de se confirmar em advocacia.
+
+15 anúncios, **11 páginas distintas**, zero poluição política. O termo de processo funcionou de novo,
+num nicho diferente — a regra não é só de advocacia, é de **serviço profissional em geral**.
+
+Mas apareceu uma poluição nova: **faculdade**. FGV (2 anúncios de MBA e LL.M.) e Unilasalle-RJ
+vendem o CURSO de planejamento tributário, não o serviço. Registrado para não virar alvo.
+
+### Alvos
+
+**Zamani Contabilidade** — Trilha B — **entra na LISTA DE ATAQUE**.
+Título: `instagram.com`. No ar desde **29/07/2026** — quase dois meses. Contabilidade caindo no
+mesmo padrão de domínio no título.
+
+**Pedro Pamplona, Noé e Almeida Advogados** — Trilha A (três sobrenomes de sócios) — **LISTA DE ATAQUE**.
+Título: `instagram.com`, desde 16/09. Terceiro escritório de advocacia com esse defeito em um só dia.
+
+**FR - Advocacia** — Trilha A (Felipe Ramos) — 2 anúncios, os dois com o nome da página mais a
+frase repetida 6 vezes: um com `Diagnóstico Jurídico Empresarial — Felipe Ramos Advogados`, outro
+com `Fale conosco`. Desde 11/09. O primeiro é até uma boa oferta, estragada pela repetição.
+
+**ETCA Contabilidade** — Trilha B — título vazio, desde 16/09.
+
+**Soraia Plachi** — Trilha A — título vazio, desde **29/07/2026** (quase dois meses).
+
+**Strong Comex** — Trilha B — título vazio, no ar desde **13/02/2026**: sete meses. Junto com Dutel
+Advogados, é o par de casos mais antigos já catalogados aqui.
+
+**Robson Wailant** e **Plane Contabilidade** — títulos fracos mas sem defeito técnico
+(`Robson Wailant`, `Fale com um especialista.`). Prioridade baixa.
+
+**Reduza** — `Avaliação Gratuita: Evite Dívidas com o INSS da sua Obra` — referência positiva:
+promessa concreta, público nomeado, sem defeito. Serve de contraste na abordagem.
+
+### Leitura
+
+Três recortes seguidos com termo de processo (`inventário`, `planejamento tributário`) contra um com
+termo de ramo (`direito de família`): os de processo deram 29 anúncios com 17 páginas úteis; o de
+ramo deu 318 anúncios com 5. **A regra do termo de processo vale para todo serviço profissional**,
+e a nova poluição a vigiar é a faculdade que vende o curso do mesmo assunto.
+
+Combos varridos até aqui: + contabilidade planejamento tributário RJ (regra do termo de processo
+confirmada fora da advocacia).
