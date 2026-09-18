@@ -26,6 +26,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `biblioteca-mensagens.md` | R-04 — textos das mensagens automáticas, versionados por código; fonte única, `build-wesales.md` só referencia |
 | `script-de-ligacao.md` | R-06 — o que o SDR fala numa ligação: abertura, perguntas de diagnóstico na ordem da régua de qualificação, ponte para o agendamento e as 8 objeções mais comuns |
 | `GUIA-MONTAGEM.md` | Passo a passo, fase por fase, para quem vai clicar na tela e montar o que o `build-wesales.md` especifica — pipeline, campos, calendário, workflows, listas |
+| `CONFERENCIA-CAMPOS.md` | O que a tela tem contra o que o `campos-e-tags.md` pede, campo por campo, depois da Fase 2 montada — o que falta, o que divergiu de nome, de opção e de tipo |
 
 ## Estado do acesso (18/09/2026)
 
