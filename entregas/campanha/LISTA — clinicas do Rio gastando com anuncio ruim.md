@@ -3327,3 +3327,39 @@ diferente de bairro de classe média consolidada (Méier). Lá é corretor autô
 priorizar Méier, Tijuca, Botafogo e Copacabana.
 
 Combos varridos até aqui: + imobiliária Campo Grande RJ.
+
+---
+
+## Contabilidade — Rio de Janeiro (varrido 18/09/2026, 01h BRT)
+
+Termo: `abertura de empresa contador Rio de Janeiro`. Primeira varredura do nicho, feita agora que
+contabilidade virou conjunto que a gente anuncia. Só **8 anúncios ativos, 7 páginas distintas** —
+é o nicho mais vazio que já varremos, e isso é informação boa: quase ninguém do ramo está anunciando.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Salesy Serviços Digitais | 805590092636426 | "Serviços Contábeis e Digitais" — descrição de catálogo, não oferta | **09/02/2026** (7 meses) | B | [link](https://www.facebook.com/ads/library/?id=1216397800097535) |
+| Robson Wailant | 333487056515640 | título = só o nome da página | 21/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1010030495120972) |
+| Adiel Portes - Contabilidade | 1090839257452975 | **nenhum** — "Pagar contador sai mais barato do que pagar multa" é o único título decente de toda a varredura | 25/08/2026 | A | — |
+| afr_contabilidade | 227837610411206 | dois anúncios, os dois com título vazio | 03 e 07/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1044518128399139) |
+| Factormix Fomento Mercantil | 1122771530920932 | nome da página seguido de **8 campos vazios**; e nem é contabilidade, é fomento mercantil | 04/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=2039608293382790) |
+| contabilizando_na_pratica_ | 1323666427501060 | nome da página + 3 campos vazios; é curso para contador, não escritório | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1566588261878298) |
+| PRECISA CONTABILIDADE | 614746341728334 | título é **"api.whatsapp.com"** — o endereço técnico do link vazando para o lugar do título | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1780372306309384) |
+
+**O defeito novo do dia**: "api.whatsapp.com" como título. Acontece quando o anunciante cola o link
+do WhatsApp e não preenche o título — a Meta usa o domínio. É a versão mais crua de "ninguém
+revisou": o cliente vê literalmente um endereço de servidor onde deveria estar a promessa.
+
+**Munição de criativo para o nosso conjunto CONTABILIDADE.** Esta varredura vale mais como
+inteligência do que como lista fria, e ensina três coisas:
+1. **O nicho é um deserto.** 7 páginas anunciando contabilidade no Rio inteiro. Contra 12 só de
+   imobiliária no Méier. Concorrência de leilão baixíssima — é onde o CPM tende a ser mais barato.
+2. **O único anúncio bem escrito do lote é uma frase de dor com número implícito**: "Pagar contador
+   sai mais barato do que pagar multa". Vale testar essa lógica de comparação de custo na nossa copy.
+3. **Quem anuncia contabilidade anuncia para o DONO DA EMPRESA, não para o contador.** Confirma que
+   o nosso conjunto (que fala COM o contador) não disputa leilão com nenhum deles. Estamos sozinhos
+   naquele espaço.
+
+**Único alvo real de Trilha A**: Robson Wailant, com título vazio há dois meses.
+
+Combos varridos até aqui: + contabilidade Rio de Janeiro.
