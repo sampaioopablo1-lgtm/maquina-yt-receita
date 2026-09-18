@@ -133,3 +133,53 @@ Quando terminar esta fase, me avise — eu confirmo lendo o pipeline pelo
 conector (`opportunities_get-pipelines`) e ensino a Fase 2 (campos
 personalizados) em seguida, com a lista pronta para copiar direto de
 `campos-e-tags.md`.
+
+### Verificação em 18/09/2026, ~20h UTC — não risque o checkbox ainda
+
+Rotina horária releu o pipeline (`opportunities_get-pipelines`) depois de
+commitar este guia às 19:52 UTC. O `FUNIL DE VENDAS` **mudou** —
+`dateUpdated` marca 19:56 UTC, 4 minutos depois — mas não para as 7
+etapas da tabela acima. O que está na tela agora:
+
+| Posição | Etapa encontrada | Prob. encontrada | Cor encontrada |
+|---|---|---|---|
+| 0 | `NOVO LEAD` | 30% | `#2563EB` (igual ao azul pedido p/ `Novo lead`) |
+| 1 | `CONECTAR` | 40% | `#8B5CF6` |
+| 2 | `AGENDAR` | 50% | `#2DD4BF` |
+| 3 | `NEGOCIAR` | 60% | `#D97706` |
+| 4 | `FORMALIZAR` | 70% | `#059669` |
+
+Só 5 etapas, não 7, e a partir da posição 1 nenhum nome bate com a tabela
+deste guia (`Em cadência`, `Conectado`, `Retorno agendado`, `Reunião
+agendada`, `Nutrição`, `Descartado` — as duas últimas nem existem na
+tela). As probabilidades também não batem (30/40/50/60/70, progressão
+redonda de 10 em 10 — o mesmo cheiro de template automático que a
+`auditoria-resultado.md` já flagrou nas 14 etapas antigas, que também
+vieram de `originId` de snapshot). **Não é o bug de progressão original
+voltando**: é uma configuração nova, diferente da antiga e diferente da
+pedida aqui.
+
+**Confirmado por `opportunities_search-opportunity` (status `all`) na
+mesma checagem: 0 oportunidades no pipeline.** Nenhum dado de negócio foi
+perdido nessa troca, venha ela de onde vier.
+
+**Duas hipóteses, nenhuma confirmada — registrar qual é a certa quando
+souber, não escolher uma sem confirmação:**
+1. Início manual desta fase, com nomes/cores próprios em vez de copiar a
+   tabela — a posição 0 bate exatamente em nome (`Novo lead` → `NOVO
+   LEAD`) e em cor (`#2563EB`), o que é compatível com alguém tendo
+   começado a seguir o guia e depois preenchido o resto no estilo dele.
+2. Reaplicação de um snapshot/template da agência por fora deste projeto
+   (a mesma origem que criou as 14 etapas antigas) — compatível com a
+   progressão redonda de 10 em 10 e com o pipeline ter menos de um dia de
+   vida.
+
+**Por isso este item continua com o checkbox vazio, e a Fase 2 não deve
+começar assumindo que os nomes da Fase 1 já existem na tela** — todo
+gatilho `Opportunity Stage Changed` do `build-wesales.md` procura pelo
+nome exato `Em cadência`/`Reunião agendada`/etc., e nenhum desses existe
+hoje no pipeline. Antes de seguir: confirme com quem mexeu no pipeline se
+foi isto (hipótese 1, e falta terminar as 2 etapas que sobraram e
+corrigir os 4 nomes) ou se é outra coisa (hipótese 2, e a Fase 1 recomeça
+do zero). A rotina horária reconfere a cada execução futura e atualiza
+esta seção assim que o estado mudar de novo.

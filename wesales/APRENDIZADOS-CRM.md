@@ -2,6 +2,41 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O `FUNIL DE VENDAS` mudou de novo, e não para o desenho do projeto — 18/09/2026 ~20h UTC
+
+Rodada anterior fechou às 19:52 UTC com o `GUIA-MONTAGEM.md` recém-criado,
+ensinando a Fase 1 (editar as 14 etapas antigas para as 7 do projeto).
+Esta rodada reconferiu o pipeline (`opportunities_get-pipelines`) antes de
+pegar o próximo item do roadmap, como toda rodada faz — e desta vez o
+resultado **mudou**: `dateUpdated` do pipeline marca 19:56 UTC, 4 minutos
+depois daquele commit. Só que o que está lá agora não são as 7 etapas
+pedidas: são 5 etapas novas (`NOVO LEAD`, `CONECTAR`, `AGENDAR`,
+`NEGOCIAR`, `FORMALIZAR`, probabilidade redonda de 10 em 10: 30/40/50/60/
+70%), nenhuma batendo em nome com `Em cadência`/`Conectado`/`Retorno
+agendado`/`Reunião agendada`/`Nutrição`/`Descartado` a partir da posição
+1. Detalhe completo, tabela lado a lado e as duas hipóteses (início
+manual com estilo próprio vs. reaplicação de snapshot da agência):
+`GUIA-MONTAGEM.md`, seção "Verificação em 18/09/2026, ~20h UTC".
+
+**Verificado antes de reagir, não só assumido:** `opportunities_search-opportunity`
+(`query_status=all`) no pipeline confirmou **0 oportunidades** — nenhum
+dado de negócio foi perdido nessa troca, então não há urgência de conter
+dano, só de não seguir construindo (Fase 2 em diante) em cima de nomes de
+etapa que não existem na tela.
+
+**Regra prática, generalizável para qualquer rodada futura que dependa de
+nome exato de etapa de pipeline (todo gatilho `Opportunity Stage Changed`
+do projeto depende disso):** não confiar que uma verificação de uma
+rodada atrás continua valendo — o pipeline é a única peça deste projeto
+que muda por fora da rotina (edição manual na tela, ou possivelmente
+snapshot de agência) e sem aviso. Reconferir via `opportunities_get-pipelines`
+a cada rodada antes de assumir que os nomes de etapa batem com
+`build-wesales.md`, exatamente como já se fazia para campo/tag/contato —
+a diferença é que campo/tag só cresciam (nunca regrediam), e o pipeline
+acabou de mostrar que pode mudar de forma incompatível com o desenho.
+Nenhum item do roadmap foi fechado nesta rodada por causa disso: builder
+em cima de nome de etapa que não existe seria trabalho perdido na certa.
+
 ## "Não sai por API" tinha dois motivos diferentes — separados em 18/09/2026
 
 Até esta rodada, o documento inteiro tratava "campo personalizado", "pipeline",
