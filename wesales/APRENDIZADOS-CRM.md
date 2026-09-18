@@ -89,3 +89,18 @@ limitação do conector.
   Para "quantos entraram este mês", nem carimbo novo: `Data de criação` da
   oportunidade já é nativa e imutável (não muda com o avanço de etapa, pelo
   mesmo motivo que `Last Stage Change Date` muda).
+
+- **Pesquisado ao fechar o R-05 (teste A/B da abertura), 18/09/2026:** o GHL
+  tem ação nativa de workflow **Split**, que sorteia contatos entre até 5
+  caminhos por percentual configurável e **mantém o contato no mesmo
+  caminho** se ele passar pela mesma ação de novo (não sorteia de novo a
+  cada reentrada). É melhor que um If/Else alternando por paridade de
+  campo/ID para qualquer teste A/B futuro no projeto: alternância por ordem
+  correlaciona a variante com o horário/dia de entrada do lead (viés), e
+  sorteio aleatório não. **Detalhe que custa caro se ignorado:** o Split não
+  rejunta os caminhos sozinho — cada caminho precisa ser conectado
+  manualmente ao mesmo próximo nó se a intenção é convergir de volta ao
+  fluxo principal (como em `build-wesales.md`, seção 2.6.1, onde os dois
+  caminhos de M1 precisam apontar para o mesmo Wait → Contact Replied).
+  Regra prática, generalizável: qualquer item futuro do roadmap que precise
+  dividir tráfego por percentual (não por condição) usa Split, não If/Else.

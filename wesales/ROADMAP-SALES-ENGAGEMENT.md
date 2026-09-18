@@ -110,11 +110,27 @@ subconta segue com 0 campos e 0 contatos, reconfirmado nesta execução via
 `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`, só o `FUNIL DE VENDAS` pré-existente.
 
-### R-05 · Teste A/B da abertura
+### R-05 · Teste A/B da abertura — **FEITO em 18/09/2026**
 **Por quê:** a M1 decide se existe cadência. É o único texto que merece teste.
 **Como:** If/Else alternando duas versões da M1 e gravando qual em
 `Template usado`.
 **Pronto quando:** duas versões rodando e a comparação sai da lista inteligente.
+
+**Resumo:** o desenho trocou If/Else-por-alternância pela ação nativa
+**Split** do GHL (sorteio aleatório por percentual, com permanência do
+contato no caminho sorteado) — é como o Outreach.io faz A/B de step de
+sequência, e evita correlacionar a variante com a ordem de entrada do lead,
+que é o viés que um If/Else alternado introduziria. Nós especificados em
+`build-wesales.md` (seção 2.6.1); `M1-a` (controle, texto idêntico ao antigo
+`M1-v1`) e `M1-b` (gancho de dor do segmento, variando só o gancho de
+abertura) escritos em `biblioteca-mensagens.md`, que também marca `M1-v1`
+como substituído sem apagar a linha. Nenhum campo ou tag novo: reaproveita
+`Template usado` (C-23) e a lista `Resposta por Template` (8.13) do R-04 —
+por isso este item não depende de criação manual nem de `APROVADO.md`.
+Subconta reconfirmada nesta execução via `locations_get-custom-fields`/
+`contacts_get-contacts`/`opportunities_get-pipelines`: segue em 0 campos, 0
+contatos, só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a
+auditoria.
 
 ### R-06 · Script de ligação e playbook de objeções
 **Por quê:** o SDR liga 100 vezes por dia. Sem script, cada ligação é

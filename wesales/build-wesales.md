@@ -177,7 +177,8 @@ ativo), posicionados no fluxo conforme a tabela 2.5. Cada um precedido do
 mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
 condição extra `nao-perturbe` ausente, e seguido de um nó **Update Contact
 Field** `Template usado` = o código da mensagem (R-04 — sem esse carimbo não
-dá para saber depois qual abertura gerou a resposta).
+dá para saber depois qual abertura gerou a resposta). M1 é exceção: em vez de
+um envio único, testa duas versões em paralelo — nó a nó em 2.6.1.
 
 Textos, código e histórico de versão moram em `biblioteca-mensagens.md`, não
 aqui: texto duplicado em dois documentos diverge na primeira edição. Versão
@@ -185,12 +186,13 @@ vigente nesta rodada:
 
 | Mensagem | Código | Posição no fluxo | `Template usado` grava |
 |---|---|---|---|
-| M1 — abertura, D1 08:45 | `M1-v1` | Início do fluxo, junto da T1 | `M1-v1` |
+| M1 — abertura, D1 08:45 | `M1-a` / `M1-b` (teste A/B — 2.6.1) | Início do fluxo, junto da T1 | `M1-a` ou `M1-b`, conforme o caminho sorteado |
 | M2 — reforço, D10 13:30 | `M2-v1` | Após a T8 | `M2-v1` |
 | M3 — encerramento, D30 17:45 | `M3-v1` | Após a T12 | `M3-v1` |
 
-Depois de M1, adicione um nó **Wait → Contact Replied (tempo limite 2h)**. Se
-respondeu, o Stop on Response tira da cadência e o lead cai na seção 6.
+Depois de M1 (os dois caminhos do teste A/B convergem no mesmo nó — 2.6.1),
+adicione um nó **Wait → Contact Replied (tempo limite 2h)**. Se respondeu, o
+Stop on Response tira da cadência e o lead cai na seção 6.
 
 `[Agendar com o closer]`, citado no texto de M2-v1 e M3-v1 em
 `biblioteca-mensagens.md`, é o Trigger Link da seção 2.9, não texto literal —
@@ -201,6 +203,61 @@ um link ali compete com a pergunta em vez de reforçá-la.
 Depois de M3: Update `Resultado da tentativa` = vazio → Add Contact Tag
 `nutricao-90d` → mover oportunidade para `Nutrição` → fim do workflow. A
 mudança de etapa aciona o Mestre de saída, que limpa o resto.
+
+### 2.6.1 Teste A/B da abertura (M1) — R-05
+
+**Por quê:** M1 é a única mensagem que todo lead recebe antes de qualquer
+outro sinal existir sobre ele — decide se a cadência gera resposta ou não, e
+é a única mensagem que compensa testar (as outras já reagem a um resultado
+anterior, que muda o texto certo caso a caso).
+
+Pesquisado antes de desenhar: o A/B de step de sequência do Outreach.io
+sorteia **aleatoriamente** qual variante cada contato recebe e mantém o
+contato no mesmo caminho se ele reentrar no mesmo step — não alterna por
+ordem de chegada. O GHL tem a mesma peça pronta: a ação nativa **Split**,
+sorteio por percentual com a mesma regra de permanência (quem já foi
+sorteado para um caminho não é sorteado de novo se passar pelo Split outra
+vez). Usar isso em vez de um If/Else alternando por paridade de ID evita
+correlacionar a variante com a ordem/horário de entrada do lead — que é
+exatamente o viés que sorteio aleatório existe para evitar.
+
+**O que varia entre as versões:** só o gancho de abertura. Saudação, menção a
+`{{contact.segmento}}`, ausência de link e a pergunta de fechamento ("Posso
+te ligar hoje ou prefere por aqui?") são idênticos nas duas — regra de teste
+A/B de variar um elemento por vez, para a diferença de resposta poder ser
+atribuída a uma causa só. Textos completos em `biblioteca-mensagens.md`.
+
+| Nó | Ação | Configuração |
+|---|---|---|
+| M1.1 | **Portão** | Mesmo portão do nó 3 (seção 2.4), sem a checagem de `telefone-invalido`, com `nao-perturbe` ausente |
+| M1.2 | **Split — Teste A/B abertura** | Ação nativa Split, sorteio aleatório: Caminho A 50% · Caminho B 50% |
+| M1.3a (Caminho A) | Send WhatsApp (SMS fallback) | Texto `M1-a`, `biblioteca-mensagens.md` |
+| M1.4a (Caminho A) | Update Contact Field | `Template usado` = `M1-a` |
+| M1.3b (Caminho B) | Send WhatsApp (SMS fallback) | Texto `M1-b`, `biblioteca-mensagens.md` |
+| M1.4b (Caminho B) | Update Contact Field | `Template usado` = `M1-b` |
+
+Depois de M1.4a e M1.4b, **conecte os dois caminhos ao mesmo nó seguinte**
+(Wait → Contact Replied, 2h, citado em 2.6) — o Split do GHL não rejunta
+sozinho, as duas pontas precisam apontar manualmente para o mesmo destino.
+
+**Sobre o percentual:** 50/50 por padrão. Com ~10 leads/dia entrando e M1
+disparando uma vez por lead, cada variante recebe ~5/dia — juntar volume que
+signifique alguma coisa na lista `Resposta por Template` (seção 8.13) leva
+semanas, não dias. É o custo aceito de testar dentro do volume real da
+operação em vez de esperar um lote maior parado sem testar nada.
+
+**Quando declarar vencedor:** quando uma das linhas de `Resposta por
+Template` (8.13) acumular volume visivelmente maior que a outra por um
+período sustentado — o GHL não tem teste de significância nativo, então o
+critério é humano, não estatístico. Ao declarar, edite o percentual do Split
+para 100/0 (a variante perdedora para de receber tráfego, mas o histórico
+fica) e registre a decisão em `biblioteca-mensagens.md` (regra de
+versionamento: marcar a linha perdedora como encerrada, nunca apagar).
+
+**Pronto quando (do roadmap):** "duas versões rodando e a comparação sai da
+lista inteligente" — cumprido. M1-a e M1-b rodam ao mesmo tempo pelo Split, e
+`Resposta por Template` (8.13) já cruza `Sinal recebido` com `Template
+usado`, sem lista nova.
 
 ### 2.7 Entrada na qualificação por IA
 

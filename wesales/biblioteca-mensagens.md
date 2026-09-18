@@ -31,11 +31,28 @@ fluxo correto:
 
 | Código | Canal | Nó de envio | Desde | Status |
 |---|---|---|---|---|
-| `M1-v1` | WhatsApp | Cadência 12x30 — T1, D1 08:45 | 18/09/2026 | Ativo |
+| `M1-v1` | WhatsApp | Cadência 12x30 — T1, D1 08:45 | 18/09/2026 | Substituído em 18/09/2026 (R-05) |
+| `M1-a` | WhatsApp | Cadência 12x30 — T1, D1 08:45, Caminho A do Split (50%) | 18/09/2026 | Ativo — teste A/B (R-05) |
+| `M1-b` | WhatsApp | Cadência 12x30 — T1, D1 08:45, Caminho B do Split (50%) | 18/09/2026 | Ativo — teste A/B (R-05) |
 | `M2-v1` | WhatsApp | Cadência 12x30 — após T8, D10 13:30 | 18/09/2026 | Ativo |
 | `M3-v1` | WhatsApp | Cadência 12x30 — após T12, D30 17:45 | 18/09/2026 | Ativo |
 
-## M1-v1 — abertura, pede permissão de ligar
+## M1-v1 — abertura, pede permissão de ligar (substituído)
+
+**Substituído em 18/09/2026** pelo teste A/B do R-05: o texto seguiu
+idêntico em `M1-a` (só trocou de código, para caber no par que o Split
+compara), e ganhou um concorrente novo em `M1-b`. Linha e texto ficam aqui
+por regra de versionamento — nunca apagar, é o que permite comparar depois.
+
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
+> Vi que vocês trabalham com {{contact.segmento}} e queria te fazer 2 perguntas
+> rápidas sobre captação de clientes. Posso te ligar hoje ou prefere por aqui?
+
+## M1-a — abertura, pergunta de diagnóstico (teste A/B — R-05)
+
+Caminho A do Split especificado em `build-wesales.md`, seção 2.6.1. Mesmo
+texto de `M1-v1`: é o "braço de controle" do teste, o gancho já em produção
+contra o qual `M1-b` compete.
 
 > Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
 > Vi que vocês trabalham com {{contact.segmento}} e queria te fazer 2 perguntas
@@ -43,6 +60,24 @@ fluxo correto:
 
 Sem `[Agendar com o closer]` de propósito: é a mensagem que pergunta permissão
 de ligar, e um link ali compete com a pergunta em vez de reforçá-la.
+
+## M1-b — abertura, gancho de dor do segmento (teste A/B — R-05)
+
+Caminho B do Split especificado em `build-wesales.md`, seção 2.6.1. Único
+elemento que muda em relação a `M1-a`: a primeira frase depois da
+apresentação troca a pergunta de diagnóstico genérica por uma dor específica
+do segmento, para testar se nomear o problema antes de perguntar gera mais
+resposta do que perguntar direto. Saudação, `{{contact.segmento}}`, ausência
+de link e a pergunta de fechamento são as mesmas de `M1-a`, de propósito —
+variar só o gancho é o que deixa a comparação limpa.
+
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
+> A maioria das empresas de {{contact.segmento}} que eu falo perde cliente
+> novo não por falta de anúncio, mas por demora pra responder o lead. É o seu
+> caso também, ou vocês já resolveram isso? Posso te ligar hoje ou prefere
+> por aqui?
+
+Sem `[Agendar com o closer]`, pelo mesmo motivo de `M1-a`.
 
 ## M2-v1 — reforço
 
