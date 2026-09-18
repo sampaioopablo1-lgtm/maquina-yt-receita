@@ -143,6 +143,16 @@ Medido na lista real de ferramentas do conector (36 ferramentas):
 | Criar calendário/formulário | — | Não |
 | **Concluir tarefa** | — | **Não** |
 
+**Correção de 18/09/2026, rodada posterior a esta auditoria:** a coluna
+"Sai por API?" aqui mede **este conector** (36 ferramentas), não a API da
+HighLevel — na hora desta auditoria os dois pareciam a mesma coisa, mas não
+são. Pipeline, workflow e formulário são mesmo limitação da plataforma
+(confirmado lendo o OpenAPI oficial da HighLevel direto do GitHub). **Campo
+personalizado e calendário não são** — a API oficial tem endpoint de
+criação para os dois; só este conector não os implementa. Detalhe completo,
+fontes e o que fazer a respeito: `APRENDIZADOS-CRM.md` e `build-wesales.md`
+(seção 11).
+
 Duas consequências diretas:
 
 1. **Etapa 2 vira manual.** Os campos são criados na tela. A lista com tipo e

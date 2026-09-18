@@ -62,7 +62,7 @@ Regras:
 | Etapa | O que é | Estado |
 |---|---|---|
 | 1 | Auditoria somente leitura (pipelines, campos, tags, workflows, calendários, formulários) | **Entregue** — plano em `auditoria-etapa1.md`, resultado em `auditoria-resultado.md` |
-| 2 | Criar campos personalizados que faltam | **Só na tela** — campo personalizado não sai por API. Lista com tipo e opções em `campos-e-tags.md` |
+| 2 | Criar campos personalizados que faltam | **Só na tela, com este conector** — a API oficial da HighLevel tem endpoint de criação (`APRENDIZADOS-CRM.md`), o conector `GHL CRM` não o expõe. Lista com tipo e opções em `campos-e-tags.md` |
 | 3 | Criar as tags | **Entregue por API em 18/09/2026** — as tags do projeto (`campos-e-tags.md`) estão na subconta |
 | 4 | Especificação do que é manual (`build-wesales.md`) | **Entregue** |
 | 5 | Prompt da rotina horária de manutenção | **Entregue** (`rotina-limpar-tarefas.md`) |
@@ -111,6 +111,17 @@ Reentrada ligada duplica tentativas quando o lead volta para "Em cadência".
 
 ## Estado do acesso
 
-Não existe MCP LeadConnector nesta sessão. Caminho viável: toolkit
-**HighLevel via Composio**, que exige auth config próprio. Cobertura de
-leitura/escrita e o que sobra de manual: `auditoria-etapa1.md`.
+**Desatualizado — mantido por histórico.** Escrito antes da primeira
+conexão real; hoje o conector `GHL CRM` (MCP oficial da LeadConnector, 36
+ferramentas) está presente e é o que a rotina usa desde `auditoria-resultado.md`.
+Cobertura de leitura/escrita medida nele: `auditoria-resultado.md`.
+
+O caminho **HighLevel via Composio**, cogitado aqui na primeira rodada,
+segue não testado — nenhuma conta HighLevel está conectada por Composio
+nesta sessão (confirmado em 18/09/2026, `APRENDIZADOS-CRM.md`). Ele voltou
+a importar por outro motivo: a API oficial da HighLevel permite criar campo
+personalizado e calendário (o conector `GHL CRM` atual não implementa
+essas duas chamadas), e o toolkit Composio é a rota mais provável para
+fechar esse gap sem esperar a HighLevel mudar nada — mas conectar exige um
+fluxo de OAuth que só o dono da conta autoriza, então fica registrado como
+opção, não como ação já tomada.

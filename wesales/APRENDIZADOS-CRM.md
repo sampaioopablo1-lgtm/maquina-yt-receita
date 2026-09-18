@@ -2,6 +2,107 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Não sai por API" tinha dois motivos diferentes — separados em 18/09/2026
+
+Até esta rodada, o documento inteiro tratava "campo personalizado", "pipeline",
+"workflow" e "calendário/formulário" como o mesmo tipo de bloqueio: "não sai
+por API, só na tela". Pedido do dono ("estude a documentação oficial, blogs,
+comunidades") levou a checar isso a sério, e a resposta **não é uma coisa só**.
+
+**Método:** `highlevel.stoplight.io` e `marketplace.gohighlevel.com`
+continuam bloqueados pelo proxy de rede deste ambiente (mesma limitação já
+registrada para R-09/R-13). Em vez de desistir na busca, a verificação foi
+direto na fonte: `github.com/GoHighLevel/highlevel-api-docs`, o repositório
+público oficial que alimenta aqueles sites (README confirma: "source
+documentation for the GoHighLevel API V2"). Ler o JSON OpenAPI de cada
+recurso é leitura de spec, não snippet de busca — **confiança alta** nos
+pontos abaixo, marcados um a um.
+
+**Pipeline (criar) — confirmado NÃO EXISTE na API, é limitação da
+plataforma.** `apps/opportunities.json` e `apps/v3/opportunities-v3.json`
+só têm `GET /opportunities/pipelines`; `docs/oauth/Scopes.md` confirma que
+`opportunities.write` cobre criar/mover/excluir **oportunidade**, não
+pipeline. Existe uma issue aberta no próprio repo oficial pedindo isso
+(`github.com/GoHighLevel/highlevel-api-docs/issues/248`, "Create Pipelines
+and Stages API", sem resposta de implementação) — confirma que nem
+desenvolvedores terceiros conseguem. Achado curioso, não conclusivo: existe
+uma string de escopo `pipelines.create` dentro de `apps/v3/users-v3.json`
+(a API de permissões de usuário), órfã — nenhum endpoint documentado a usa.
+Pode ser um recurso interno ainda não exposto. **Não confie em criar
+pipeline por API até essa issue fechar.**
+
+**Workflow (criar/publicar) — confirmado NÃO EXISTE, é limitação da
+plataforma.** `apps/workflows.json` só tem `GET /workflows/`. Sem POST em
+nenhuma versão do spec. Existe workaround parcial (não é criar workflow):
+Custom Workflow Actions/Triggers via Marketplace deixam um app aparecer
+como passo dentro de um workflow que um humano monta na tela — não cria o
+workflow em si.
+
+**Formulário (criar) — confirmado NÃO EXISTE, é limitação da plataforma.**
+`apps/forms.json` só tem `GET /forms/` (listar), `GET /forms/submissions`
+(ler respostas) e `POST /forms/upload-custom-files` (upload de arquivo
+anexado a uma resposta, não cria estrutura de formulário).
+
+**Campo personalizado (criar) — EXISTE na API oficial. É este conector que
+não implementa, não a HighLevel.** `apps/locations.json` documenta
+`POST /locations/{locationId}/customFields`, escopo
+`locations/customFields.write`. Corpo obrigatório: `name` + `dataType`
+(TEXT, NUMERICAL, PHONE, RADIO, CHECKBOX etc.); opcional `model` (`contact`
+ou `opportunity` — um endpoint só, os dois tipos de campo deste projeto) e
+mais placeholder/position/opções de lista. Existe também GET/PUT/DELETE por
+ID e upload para campo de arquivo. **Toda a Etapa 2 deste projeto (os ~24
+campos de `campos-e-tags.md`) poderia sair por API — só não sai porque o
+conector `GHL CRM` conectado nesta sessão não tem essa ferramenta.**
+
+**Calendário (criar) — EXISTE na API oficial. Mesmo caso do campo.**
+`apps/calendars.json` documenta `POST /calendars/`, escopo
+`calendars.write`, corpo obrigatório `locationId`+`name`, e dezenas de
+campos opcionais (`slotDuration`, `openHours`, `availabilities`,
+`teamMembers`, `formId`, `eventType`, tipo de calendário, buffers,
+confirmação automática). Também há `POST /calendars/groups`,
+`POST /calendars/schedules`, `POST /calendars/resources/{resourceType}`.
+**O calendário `Reunião com closer` (seção 7.1 do `build-wesales.md`)
+poderia sair por API** — mesmo motivo do campo: o conector atual só expõe
+leitura de calendário (`calendars_get-appointment-notes`,
+`calendars_get-calendar-events`), não criação.
+
+**O que fazer com isso:** fechar o gap não depende de esperar a HighLevel
+lançar nada — depende de trocar/ampliar o conector. Duas rotas conhecidas,
+nenhuma delas testada ainda nesta subconta: (1) o toolkit HighLevel via
+**Composio**, citado desde a primeira rodada em `briefing-sdr.md` ("Estado
+do acesso") como caminho alternativo — este ambiente tem ferramentas
+`mcp__Composio__*` presentes, mas **nenhuma conta HighLevel conectada por
+Composio ainda** (a lista de apps já conectados via Composio, vista nesta
+rodada, não inclui HighLevel/GoHighLevel — só facebook, googlecalendar,
+googledrive, instagram, metaads, pexels, youtube); conectar exigiria um
+fluxo de OAuth que só o dono da conta pode autorizar (link clicável), então
+não é algo para a rotina fazer sozinha sem perguntar antes. (2) Pedir para
+quem administra o conector `GHL CRM` (fora desta rotina) adicionar as duas
+ferramentas que faltam. Enquanto nenhuma das duas acontecer, campo e
+calendário continuam manuais na prática, mesmo não sendo limitação da
+HighLevel.
+
+Fontes lidas direto (alta confiança), todas em 18/09/2026:
+- `github.com/GoHighLevel/highlevel-api-docs` (README)
+- `.../blob/main/apps/opportunities.json`, `.../apps/v3/opportunities-v3.json`
+- `.../blob/main/apps/locations.json`
+- `.../blob/main/apps/workflows.json`
+- `.../blob/main/apps/calendars.json`
+- `.../blob/main/apps/forms.json`
+- `.../blob/main/docs/oauth/Scopes.md`
+- `.../blob/main/apps/v3/users-v3.json`
+- `github.com/GoHighLevel/highlevel-api-docs/issues/248`
+
+Fontes só de busca (confiança média, corroboram sem serem prova primária):
+`marketplace.gohighlevel.com/docs/ghl/locations/create-custom-field/`,
+`.../custom-fields/custom-fields-v-2-api/`, `.../calendars/calendars/`,
+`.../forms/forms-api`, `ideas.gohighlevel.com/apis/p/api-to-create-workflows`,
+`ghldesk.com/gohighlevel-api/`. Uma URL vista em busca
+(`highlevel.stoplight.io/.../create-pipeline`, com exemplo de código de SDK
+não-oficial) **não foi verificada** — o spec oficial lido direto não tem
+esse endpoint, então trata-se como não confirmado até alguém abrir a página
+manualmente.
+
 ## Conector `GHL CRM` — confirmado nesta rodada (18/09/2026)
 
 As ferramentas `mcp__GHL-CRM__*` **estavam presentes** nesta sessão. Rodei

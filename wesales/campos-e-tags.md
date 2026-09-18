@@ -203,6 +203,10 @@ Ainda em aberto:
 
 Já respondido: a subconta é `1D53YTI9C7oIMBavcQxV` e a permissão de criar
 veio em 18/09/2026 ("tem todas as permissões") — é o que liberou a Etapa 3,
-já entregue. A Etapa 2 não depende mais de resposta e sim da tela: campo
-personalizado não sai por API, então a tabela acima é para copiar em
-Configurações → Campos personalizados.
+já entregue. A Etapa 2 não depende mais de resposta, e sim de ferramenta:
+campo personalizado **tem** endpoint de criação na API oficial da
+HighLevel (`POST /locations/{locationId}/customFields` — confirmado lendo
+o spec oficial em 18/09/2026, `APRENDIZADOS-CRM.md`), só o conector `GHL
+CRM` conectado nesta sessão não a implementa. Até isso mudar (outro
+conector, ou este ganhar a ferramenta), a tabela acima é para copiar em
+Configurações → Campos personalizados, na tela.

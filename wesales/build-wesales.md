@@ -2483,17 +2483,37 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 
 ## 11. O que o MCP não faz (resumo)
 
-| Item | MCP | Manual |
-|---|---|---|
-| Campos personalizados | Não | Cria na tela; lista com tipo e opções em `campos-e-tags.md` |
-| Tags | Cria | — |
-| Pipeline e etapas | Não | Seção 1 |
-| Workflows | Não | Seções 2, 2.9, 2.11, 2.15, 3 a 6, 5.1, 5.2 |
-| Calendário | Lê | Cria e configura: seção 7.1 |
-| Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
-| Listas inteligentes | Não | Seção 8 |
-| Métrica personalizada (dashboard) | Não | Cria na tela: seção 2.15 (R-11), seção 2.17 (R-15) |
-| Number Validation (ativação) | Não | Ativa na tela, Configurações → Telefone: seção 2.16 (R-13) |
-| Dashboard nativo | Não | Cria na tela: seção 2.17 (R-15) |
-| Conversation AI | Não | Seção 6 |
-| Concluir tarefa em massa | Sim | É a rotina da seção 5 do projeto |
+**Atualizado em 18/09/2026 — distinção que não existia até aqui.** Pesquisa
+direta na especificação OpenAPI oficial da HighLevel (repositório público
+`github.com/GoHighLevel/highlevel-api-docs`, lido arquivo por arquivo, não
+só busca) confirmou que "não sai por API" tinha dois motivos diferentes
+misturados numa frase só, e a tabela agora separa os dois:
+
+| Item | Este conector (`GHL CRM`) | API oficial da HighLevel | Manual |
+|---|---|---|---|
+| Campos personalizados | Não | **Sim** — `POST /locations/{locationId}/customFields`, escopo `locations/customFields.write`, `model: contact\|opportunity` decide o tipo | Cria na tela; lista com tipo e opções em `campos-e-tags.md` — **ou** via API, se o conector ganhar essa ferramenta (ver nota abaixo) |
+| Tags | Cria | Sim | — |
+| Pipeline e etapas | Não | **Não** (confirmado: só `GET /opportunities/pipelines` existe no spec; `opportunities.write` não cobre pipeline; issue aberta nº 248 no repo oficial pedindo exatamente isso, sem endpoint ainda) | Seção 1 — sem alternativa por API, de ninguém |
+| Workflows | Não | **Não** (só `GET /workflows/` existe; sem POST em nenhuma versão do spec) | Seções 2, 2.9, 2.11, 2.15, 3 a 6, 5.1, 5.2 — sem alternativa por API |
+| Calendário | Lê | **Sim** — `POST /calendars/`, escopo `calendars.write`, corpo com `locationId`+`name` obrigatórios e dezenas de campos opcionais (disponibilidade, buffers, confirmação automática) | Cria e configura: seção 7.1 — **ou** via API, se o conector ganhar essa ferramenta |
+| Formulário | Não (nem lê, neste toolkit) | **Não** (só leitura/submissions/upload de arquivo; sem endpoint de criação da estrutura) | Seção 7.2 — sem alternativa por API |
+| Listas inteligentes | Não | Não documentado como recurso de API pública | Seção 8 |
+| Métrica personalizada (dashboard) | Não | Não documentado como recurso de API pública | Cria na tela: seção 2.15 (R-11), seção 2.17 (R-15) |
+| Number Validation (ativação) | Não | Recurso de conta, não de API | Ativa na tela, Configurações → Telefone: seção 2.16 (R-13) |
+| Dashboard nativo | Não | Não documentado como recurso de API pública | Cria na tela: seção 2.17 (R-15) |
+| Conversation AI | Não | — | Seção 6 |
+| Concluir tarefa em massa | Sim | Sim | É a rotina da seção 5 do projeto |
+
+**O que isso muda na prática:** pipeline, workflow e formulário continuam
+100% manuais — não é limitação de ferramenta, é a própria HighLevel não
+expor esse endpoint para ninguém. Campo personalizado e calendário são
+diferentes: a plataforma permite criar os dois por API, só que o conector
+`GHL CRM` conectado nesta sessão (36 ferramentas, focado em contato/tag/
+oportunidade/conversa) não implementa essas duas chamadas. Fechar esse gap
+não depende de esperar a HighLevel lançar nada — depende de anexar um
+conector com cobertura maior (por exemplo, o toolkit HighLevel do Composio,
+citado como caminho alternativo desde `briefing-sdr.md`, "Estado do
+acesso") ou de pedir para quem administra este conector adicionar as duas
+ferramentas que faltam (`locations_create-custom-field`,
+`calendars_create-calendar`, nomeação hipotética). Detalhe completo,
+endpoint por endpoint, com todas as fontes: `APRENDIZADOS-CRM.md`.

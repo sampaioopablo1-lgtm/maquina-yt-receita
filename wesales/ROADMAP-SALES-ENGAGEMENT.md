@@ -18,6 +18,15 @@ de higiene de tarefas. Isso é o **motor**.
 O que falta abaixo é quase tudo **instrumentação e cadências vizinhas** — que
 é justamente onde Reev e Meetime ganham de um CRM configurado na mão.
 
+**Nota de 18/09/2026 sobre os "Resumo" abaixo:** vários itens fechados dizem
+"campo personalizado não sai por API" como se fosse limitação da HighLevel.
+Não é — é limitação só do conector `GHL CRM` conectado nesta sessão; a API
+oficial permite criar campo e calendário por API (não permite pipeline,
+workflow nem formulário, esses sim são limitação de plataforma). Detalhe,
+fontes e o que fazer a respeito: `APRENDIZADOS-CRM.md`. As frases originais
+abaixo ficam como estavam no dia em que cada item fechou — não foram
+reescritas uma a uma para não inflar o diff sem necessidade.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
