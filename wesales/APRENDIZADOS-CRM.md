@@ -25,6 +25,43 @@ Reconfirmado de novo ao fechar o R-11 (mesma rodada, mesma data): 0 campos,
 1 contato (o de estrutura), só o `FUNIL DE VENDAS` — nenhuma escrita nova
 neste item, ele não abre campo nem tag.
 
+**Segunda rodada de escrita, mesma data, pedido explícito do dono ao vivo
+em chat ("aplique todas os estudos... CRM fique mais completo possível"):**
+1. As 3 tags que ainda esperavam aprovação (T-12 `atraso-1a-tentativa`,
+   T-13 `reengajamento-ativo`, T-14 `pausado`) foram aprovadas na hora
+   (registrado em `APROVADO.md`) e criadas via `contacts_add-tags` no mesmo
+   contato de estrutura — a subconta tem as **14 tags do projeto**,
+   nenhuma faltando.
+2. Os 5 contatos fictícios do checklist (seção 10, `build-wesales.md`)
+   foram criados: `Teste Atendeu`, `Teste Não Atende`, `Teste Retorno`,
+   `Teste Número Errado`, `Teste Não Ligar` — sem telefone (falta o número
+   real do dono, ver `APROVADO.md` seção Mensagens) e sem tag/oportunidade
+   (pipeline `Pré-vendas` não existe ainda). Existem como registro,
+   prontos para ganhar telefone e entrar no pipeline quando a montagem
+   manual acontecer.
+3. **Não criado:** nenhuma oportunidade (pipeline não existe — bloqueio de
+   capacidade, não de aprovação) e nenhuma mensagem (falta o telefone real).
+
+Estado da subconta após esta rodada: 0 campos personalizados, 6 contatos
+(1 de estrutura + 5 fictícios), 14 tags aplicadas ao contato de estrutura,
+só o pipeline `FUNIL DE VENDAS` pré-existente.
+
+## `contacts_get-contacts` (lista) atrasa em relação à escrita — não confie nele logo após criar em lote
+
+Descoberto ao criar os 5 contatos fictícios em sequência, 18/09/2026: cada
+`contacts_create-contact` respondeu 201 com o contato completo, e
+`contacts_get-contact` por ID confirmou cada um individualmente logo em
+seguida — mas `contacts_get-contacts` (a lista, que a própria descrição da
+ferramenta já marca como **deprecated** em favor de "search contacts")
+continuou devolvendo só 1 contato (o mais antigo) por um tempo depois das 5
+criações nas duas chamadas seguintes. Não é perda de dado: é o índice de
+busca por trás da listagem ficando para trás da escrita (latência de
+indexação), não o registro em si. Regra prática, generalizável: depois de
+criar ou marcar vários contatos na mesma rodada, **verifique cada um pelo
+ID retornado na criação** (`contacts_get-contact`), não pela contagem da
+lista — a lista pode subcontar por um tempo mesmo com a escrita já
+confirmada.
+
 ## `contacts_create-contact` exige nome ou identificador — `name` sozinho não basta
 
 Descoberto ao criar o contato de estrutura das 11 tags, 18/09/2026: chamar

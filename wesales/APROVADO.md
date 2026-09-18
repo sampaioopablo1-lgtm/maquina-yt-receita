@@ -22,6 +22,10 @@ exclui nada), mas para de repetir.
 *Liberadas pelo dono da conta em 18/09/2026: "tem todas as permissões, faça da
 melhor forma possível".*
 
+*Segunda liberação, ao vivo em chat, 18/09/2026: "Aplique todas os estudos,
+prompts, definidos até aqui. CRM fique mais completo possível" — autoriza as
+três tags que ainda estavam com linha própria abaixo (T-12/13/14).*
+
 ### Tags — criação por API
 
 - [x] Criar as 11 tags do projeto: `fila-quente`, `fila-tel`, `fila-wa`,
@@ -43,42 +47,55 @@ melhor forma possível".*
       allowed") — precisou `firstName`/`lastName` separados; registrado em
       `APRENDIZADOS-CRM.md` para não redescobrir na próxima rodada.
 
-- [ ] Criar a 12ª tag, `atraso-1a-tentativa` — nasceu no R-02 (speed-to-lead)
+- [x] Criar a 12ª tag, `atraso-1a-tentativa` — nasceu no R-02 (speed-to-lead)
       desta rodada, especificada em `campos-e-tags.md` (T-12) e
       `build-wesales.md` (seção 2.11). Não está coberta pela linha acima, que
       lista as 11 originais por nome — por isso fica com linha própria em vez
-      de ganhar `[x]` automático.
+      de ganhar `[x]` automático. — **FEITO em 18/09/2026**
 
-- [ ] Criar a 13ª tag, `reengajamento-ativo` — nasceu no R-08
+- [x] Criar a 13ª tag, `reengajamento-ativo` — nasceu no R-08
       (reengajamento dos 90 dias) desta rodada, especificada em
       `campos-e-tags.md` (T-13) e `build-wesales.md` (seção 2.12). Mesmo
       motivo da linha acima: fora do lote das 11 originais, linha própria.
+      — **FEITO em 18/09/2026**
 
-- [ ] Criar a 14ª tag, `pausado` — nasceu no R-09 (regras de pausa) desta
+- [x] Criar a 14ª tag, `pausado` — nasceu no R-09 (regras de pausa) desta
       rodada, especificada em `campos-e-tags.md` (T-14) e `build-wesales.md`
       (seção 2.13). Mesmo motivo das duas linhas acima: fora do lote das 11
-      originais, linha própria.
+      originais, linha própria. — **FEITO em 18/09/2026**
+
+      **Executado (as três, mesma chamada):** `contacts_add-tags` no contato
+      de estrutura `ZZ TESTE ESTRUTURA` (`c5r3ZxiAd8T5adL1Bt6j`), que já
+      tinha as 11 originais — as 14 tags do projeto agora existem na
+      subconta. Lido de volta via `contacts_get-contacts` (que retornou as
+      14 na resposta da própria escrita) para confirmar.
 
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do
       `build-wesales.md` (Teste Atendeu, Teste Não Atende, Teste Retorno,
-      Teste Número Errado, Teste Não Ligar)
+      Teste Número Errado, Teste Não Ligar) — **FEITO em 18/09/2026**
 
-      **Ainda não executado, de propósito:** o checklist da seção 10 testa
-      o pipeline `Pré-vendas` e os workflows contra esses 5 contatos — nenhum
-      dos dois existe ainda na tela (só sai manual, não por API). Criar os 5
-      agora resultaria em contatos inertes, sem oportunidade para mover nem
-      workflow para disparar, e precisariam ser refeitos quando a montagem
-      manual acontecer. Assim que o pipeline e os workflows principais
-      estiverem publicados, esta linha executa na mesma rodada.
+      **Executado como registro, não como teste completo:** os 5 contatos
+      existem (`Lj96CIFYaGKPiC0opzbc`, `OIvOGQfdGg2Ndr5GtcAG`,
+      `vrwdERfR24ax6GylG6No`, `qkHSdIMPJTB2JK5ECGrY`, `2MXzDPjxGjuvvsxlp5V1`),
+      cada um com o cenário do checklist no campo `source`, sem telefone (nem
+      real nem inválido — ainda falta o número da linha "Mensagens" abaixo)
+      e sem tag nem oportunidade: o pipeline `Pré-vendas` e os workflows que
+      o checklist testa contra eles não existem ainda na tela (só saem
+      manual). Rodar o checklist de verdade (seção 10 do `build-wesales.md`)
+      exige voltar aqui depois da montagem manual — os 5 já estão prontos
+      para receber telefone e entrar no pipeline nesse momento, sem precisar
+      recriar contato.
 
 ### Oportunidades
 
 - [x] Mover oportunidades de etapa durante os testes do checklist
 
-      **Mesmo motivo da linha acima:** sem o pipeline `Pré-vendas` criado na
-      tela, não há etapa para mover oportunidade nenhuma.
+      **Continua bloqueado — não é falta de permissão, é falta de pipeline:**
+      sem o `Pré-vendas` criado na tela (não sai por API), não existe etapa
+      para mover oportunidade nenhuma. Esta linha executa assim que o
+      pipeline existir.
 
 ### Mensagens
 

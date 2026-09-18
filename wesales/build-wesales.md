@@ -861,10 +861,10 @@ para `Em cadência` afeta igualmente todo lead novo, não só o reativado.
 
 ### Nova tag — T-13
 
-`reengajamento-ativo`, especificada em `campos-e-tags.md`. Segue o mesmo
-caminho de `atraso-1a-tentativa` (T-12, R-02): não está no lote das 11
-tags já aprovadas por nome em `APROVADO.md`, então fica com linha própria,
-ainda `[ ]`, até o dono trocar por `[x]`.
+`reengajamento-ativo`, especificada em `campos-e-tags.md`. Seguiu o mesmo
+caminho de `atraso-1a-tentativa` (T-12, R-02): nasceu fora do lote das 11
+tags já aprovadas por nome em `APROVADO.md`, com linha própria — aprovada
+ao vivo em chat e **criada em 18/09/2026** via `contacts_add-tags`.
 
 **Pronto quando (do roadmap):** o lead de hoje volta à fila em dezembro,
 sozinho — a tarefa `[CADENCIA] TR1` nasce e o lead aparece nas listas
@@ -989,9 +989,10 @@ não esquecer quem está represado.
 ### Nova tag — T-14
 
 `pausado`, especificada em `campos-e-tags.md`. Mesmo caminho de
-`atraso-1a-tentativa` (T-12) e `reengajamento-ativo` (T-13): fora do lote
-das 11 tags já aprovadas por nome em `APROVADO.md`, linha própria, ainda
-`[ ]`.
+`atraso-1a-tentativa` (T-12) e `reengajamento-ativo` (T-13): nasceu fora do
+lote das 11 tags já aprovadas por nome em `APROVADO.md`, com linha própria
+— aprovada ao vivo em chat e **criada em 18/09/2026** via
+`contacts_add-tags`.
 
 **Pronto quando (do roadmap):** o Natal não gera 120 tarefas — os três
 workflows que tocam o lead ficam pausados pelo recurso nativo da conta

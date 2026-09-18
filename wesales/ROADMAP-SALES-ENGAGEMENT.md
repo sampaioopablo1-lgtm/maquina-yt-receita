@@ -52,10 +52,11 @@ par 5c/5d (só na T1) especificados em `build-wesales.md` (seção 2.4); como
 campo `TEXT` não aceita filtro relativo de data em lista inteligente, o "mais
 de 1h" saiu de um workflow-relógio, não de um filtro — `Alerta de
 Speed-to-lead` (seção 2.11) espera 1h e marca a tag `atraso-1a-tentativa`, que
-a lista `Atraso na 1ª Tentativa` (8.8) só lê. **Falta a criação
-manual dos 2 campos (campo personalizado não sai por API) e a aprovação da
-tag nova em `APROVADO.md`** — ela é a 12ª, fora do lote das 11 já autorizadas
-por nome; ficou com linha própria, ainda `[ ]`. Subconta reconfirmada nesta
+a lista `Atraso na 1ª Tentativa` (8.8) só lê. **Falta só a criação
+manual dos 2 campos** (campo personalizado não sai por API) — a tag nova,
+`atraso-1a-tentativa` (12ª, fora do lote das 11 autorizadas por nome),
+foi aprovada ao vivo em chat e **criada em 18/09/2026** via
+`contacts_add-tags`. Subconta reconfirmada nesta
 execução via `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`: segue em 0 campos, 0 contatos, só o
 `FUNIL DE VENDAS` pré-existente — nada mudou desde a auditoria.
@@ -218,8 +219,9 @@ que soma `cad-outbound` também remove `cad-inbound`, e é isso que o
 filtro dela exige presente. Mensagens `RE-1`/`RE-2` novas em
 `biblioteca-mensagens.md`. Zero campo novo — reaproveita `Tentativa nº`,
 `Entrada em`, `1ª tentativa em`, `Prioridade` e `Template usado`, todos já
-existentes; a única criação pendente é a tag T-13, ainda `[ ]` em
-`APROVADO.md`. Nova lacuna registrada dentro da seção 2.12:
+existentes; a tag T-13 foi aprovada ao vivo em chat e **criada em
+18/09/2026** via `contacts_add-tags`. Nova lacuna registrada dentro da
+seção 2.12:
 **L-07 — promoção automática de `Novo lead` → `Em cadência`**, descoberta
 ao notar que "devolver para `Novo lead`" (como o roadmap pedia
 literalmente) deixaria o lead reativado parado para sempre, porque essa
@@ -257,10 +259,10 @@ portão próprio (nó 2.5 da seção 2.4, nó 1.5 da seção 2.10) que espera em
 laço em vez de tirar o lead do workflow, porque pausa é diferente de saída;
 o Mestre de saída (seção 3) limpa a tag na saída real e o Alerta de
 Speed-to-lead (seção 2.11) para de soar falso alarme em quem está pausado
-de propósito. Lista `Pausados Individualmente` (8.15) nova. Falta só a
-criação manual da tag — campo/tag não sai por API — e a aprovação em
-`APROVADO.md` (T-14, ainda `[ ]`) mais a configuração da pausa nativa na
-tela, que só existe depois dos workflows publicados. Subconta reconfirmada
+de propósito. Lista `Pausados Individualmente` (8.15) nova. A tag T-14 foi
+aprovada ao vivo em chat e **criada em 18/09/2026** via `contacts_add-tags`
+— falta só a configuração da pausa nativa na tela, que só existe depois dos
+workflows publicados. Subconta reconfirmada
 nesta execução via `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
 pré-existente — nada mudou desde a auditoria.
