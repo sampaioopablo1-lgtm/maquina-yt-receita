@@ -1416,3 +1416,41 @@ acumuladas, CONTABILIDADE com ~13. O ADVOCACIA é a exceção — deu lead, ent�
 trava dos 48h.
 
 Pablo avisado.
+
+---
+
+## 18/09/2026 20h07 BRT — segundo lead do ADVOCACIA, e o dia fecha com três
+
+O **ADV V05 — curta** converteu pela segunda vez. Números do anúncio no dia:
+
+| | |
+|---|---|
+| Impressões | 284 |
+| Cliques | 9 |
+| Leads | **2** |
+| Custo por lead | **R$3,29** |
+
+**Total do dia: 3 leads** — dois do ADVOCACIA e um do INTERESSE (V17, 3 impressões).
+
+### O que dá para afirmar, e o que ainda não dá
+
+**Dá para afirmar** que o ADV V05 é o único anúncio do conjunto que a CBO está entregando: 284 das
+286 impressões do conjunto. Os outros quatro criativos somam 2 impressões no dia inteiro. Isso não é
+um teste A/B — é um anúncio só rodando, com quatro dormindo ao lado.
+
+**Ainda não dá para afirmar** que R$3,29 é o custo real desse público. Dois leads são dois leads.
+O que dá para dizer é que, em 284 impressões, esse criativo converteu duas vezes, enquanto o
+INTERESSE precisou de 5.756 impressões na semana para 20 — uma taxa parecida, mas com o ADVOCACIA
+custando menos por lead porque o CPM dele está mais barato.
+
+### O que isso muda no plano
+
+O conjunto de ADVOCACIA chega às 48h amanhã às 18h57 **com lead**, então está protegido do corte e
+não entra na fila do NÃO TESTADO. É o único dos quatro novos nessa situação.
+
+E reforça a tarefa já anotada para a semana: **escrever mais variações curtas em forma de pergunta
+para o ADVOCACIA**. O criativo que funciona é o mais curto, e a varredura de `recuperação judicial`
+hoje mostrou que os escritórios que mais gastam usam exatamente essa estrutura. Só não faço agora
+porque o conjunto ainda não completou 48h e a REGRA V3 não julga entidade nova.
+
+Pablo avisado.
