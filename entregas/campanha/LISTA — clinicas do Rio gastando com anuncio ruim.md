@@ -3698,3 +3698,46 @@ tem proporção de dono parecida com odontologia, e ticket de recorrência (paci
 o que a torna melhor que tatuagem por valor.
 
 Combos varridos até aqui: + fisioterapia Tijuca (o sufixo "RJ" funcionou pela 3ª vez).
+
+---
+
+## Odontologia — Méier (varrido 18/09/2026, 08h BRT)
+
+Termo: `dentista Méier`. 16 anúncios, **12 páginas distintas**, **5 Trilha A**. Confirma pela segunda
+vez que o Méier é o melhor bairro do arquivo: assim como em imobiliária, aqui também é gente com
+nome próprio na página, não só rede.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| DR Odontologia | 1435342266685032 | **2 anúncios**, ambos com o nome da página + **"Converse conosco" 6 vezes** | 02/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1305297694925833) |
+| Pedro Augusto Odontologia | 548669842695215 | "Dentista  Referência No Méier RJ" — **espaço duplo** depois de "Dentista", e é afirmação sobre si mesmo, não oferta | 06/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1031590486237078) |
+| Nascimento Odontologia | 371765596010542 | "Agende uma avaliação" — genérico | 27/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=2469003420265011) |
+| SorriaMed | 979637205389895 | título vazio | 04/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2680200249044424) |
+| dra.miriaandrade | 954797137720010 | nome da página + **5 campos vazios** | 10/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=992423723817676) |
+| Vamos Sorrir - Méier | 213513398508568 | 2 anúncios, títulos vazios | 31/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1097318869685781) |
+| Archipéva Odontologia (Dra. Fernanda Archipéva) | 334274203101187 | 2 anúncios com **"PRÓTESE FLEXIVEL"** — caixa alta, **sem acento em "flexível"**, e é o nome do produto, não um motivo | 09/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1403902291851260) |
+| Gabriela Moura Dentista | 278477818690486 | "Converse conosco" 3 vezes | 10/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1701183170949863) |
+| MEIER Dentista | 1289019517628747 | "AGENDAR AGORA!" em caixa alta; e o nome da página é a palavra-chave sem acento, sinal de página feita só para anúncio | 14/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=2372431986869079) |
+| sorria3d | 565928923280917 | nome da página + 3 campos vazios | 16/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1759728975080266) |
+| OdontoCompany - Méier | 869113366274437 | 2 anúncios, títulos vazios | 17/09/2026 | B (rede) | [link](https://www.facebook.com/ads/library/?id=1099864609254009) |
+| Biancalamosasant'Anna | 1530380530379255 | **nenhum** — "Esculpindo Sorrisos: naturalidade em cada detalhe" é o único título bem escrito do lote | 17/09/2026 | A | — |
+
+### O que este lote confirma
+
+**O Méier é o melhor bairro do arquivo, e agora em dois nichos.** Imobiliária deu 9 Trilha A em 12
+páginas; odontologia deu 5 em 12. Nenhum outro bairro chega perto nos dois ao mesmo tempo. A
+explicação provável é a mesma: classe média consolidada, negócio de dono, sem a saturação de
+agência que existe na Barra e em Copacabana.
+
+**Recomendação de foco**: se o Pablo quiser concentrar a prospecção em um lugar só, é o Méier.
+Rende Trilha A em nicho de ticket alto (dentista e corretor), que é a combinação que interessa.
+
+**Erro de português como gancho, terceira vez.** Já tivemos "portunidade" (escola de idiomas),
+"GRUOPO"/"WHATSP" (imobiliária Campo Grande) e agora **"FLEXIVEL"** sem acento, em caixa alta, em
+dois anúncios de uma dentista que põe o próprio CRO no nome da página. É do mesmo tipo do defeito do
+domínio: o dono vê o erro sozinho.
+
+**Melhores alvos**: DR Odontologia (dois anúncios com a frase repetida 6 vezes, no ar há 2 meses e
+meio) e **dra.miriaandrade** (Trilha A, 5 campos vazios no título).
+
+Combos varridos até aqui: + odontologia Méier.
