@@ -21,6 +21,9 @@ aprovadas em `APROVADO.md` — contato `ZZ TESTE ESTRUTURA`
 agora `contacts_get-contacts` retorna 1, não 0 — não é regressão, é a
 primeira escrita de verdade que a rotina fez na subconta. Campos
 personalizados e pipeline `Pré-vendas` seguem em zero (só saem manual).
+Reconfirmado de novo ao fechar o R-11 (mesma rodada, mesma data): 0 campos,
+1 contato (o de estrutura), só o `FUNIL DE VENDAS` — nenhuma escrita nova
+neste item, ele não abre campo nem tag.
 
 ## `contacts_create-contact` exige nome ou identificador — `name` sozinho não basta
 
@@ -272,3 +275,52 @@ limitação do conector.
   dentro do `Add Task` como alternativa: isso sorteia por tarefa em vez de
   por lead, o oposto do que o R-10 decidiu de propósito (ver "A decisão que
   separa isto de uma cópia de tela", seção 2.14).
+
+- **Pesquisado ao fechar o R-11 (alerta de capacidade), 18/09/2026 — o achado
+  mais importante para qualquer alerta de agregado futuro:** o motor de
+  workflow do GHL **não tem** nenhuma ação nem condição que leia "quantos
+  contatos passam por este filtro/lista agora" — todo nó de workflow executa
+  no escopo de **um** contato, o mesmo em contexto desde o gatilho. Confirmado
+  por ausência, não por documentação direta (os domínios de suporte da
+  HighLevel continuam bloqueados neste ambiente, mesma limitação já registrada
+  para R-09/R-10): a própria base de ideias pública da HighLevel tem o pedido
+  "trazer métricas do dashboard como custom value" em aberto, sem previsão —
+  se essa ponte não existe, também não existe um "If/Else" nativo comparando
+  a contagem de uma Smart List contra um número. **Regra prática,
+  generalizável para F-04 (teto de toques por semana) e F-05 (monitor de
+  saúde), que vão bater na mesma parede:** nenhum dos dois consegue nascer
+  como "workflow que conta e decide" — F-04 se resolve por contador por
+  **contato** (campo `Toques na semana`, incrementado e checado no escopo de
+  cada lead, sem agregado — esse sim é nativo e comum no projeto, ex.: `WA
+  não atendidas seguidas`); F-05 (que por definição precisa comparar
+  contagens entre contatos, ex. "quantos estão há mais de 24h em `fila-tel`")
+  não tem solução dentro de um único workflow — a saída é o mesmo padrão do
+  R-11: uma Smart List que já faz o filtro certo (o cálculo mora no filtro,
+  não num contador) mais um **Custom Metric** e/ou um aviso agendado, nunca
+  um workflow tentando comparar quantidades.
+
+  **Duas peças novas descobertas nesta busca, primeira vez que aparecem no
+  projeto:**
+  - **Gatilho de workflow `Scheduler`** — contactless (roda sem contato em
+    contexto, ao contrário de todo outro gatilho já usado no projeto),
+    dispara por relógio (diário/semanal/mensal/intervalo), respeita fuso e
+    pode pular fim de semana. **Não pode dividir o workflow com outro tipo de
+    gatilho** — é o único caso do projeto até agora em que uma nova
+    automação precisa nascer como workflow próprio por essa razão, e não por
+    `Allow Re-entry` (a razão que já apareceu no R-08). Ações compatíveis
+    citadas na documentação: webhook, integrações (Slack, Asana, Airtable,
+    Google Sheets), e-mail/SMS interno para a equipe, atualização de custom
+    value, criação de tarefa — nenhuma delas lê contagem de contato. Serve
+    para qualquer aviso ou rotina que precise rodar "todo dia às X", sem
+    depender de um contato específico entrar em algum lugar.
+  - **Custom Metrics (Reporting → Custom Metrics)** — fórmula combinando até
+    4 métricas com operadores matemáticos e constantes; uma das métricas
+    disponíveis é "Contagem de contatos com Tag" (aceita OR/AND entre tags,
+    igual ao filtro de Smart List). É o único lugar nativo onde dá para
+    transformar uma contagem em "contagem menos a meta", plantando o alarme
+    dentro do número em vez de deixar o gestor comparar contra a meta de
+    cabeça. **Atenção:** encontrado como disponível "a partir de planos
+    $497+" — não confirmado se a subconta/plano da WeSales inclui; qualquer
+    item que dependa disso precisa checar isso na tela antes de montar, e
+    tem que sobreviver sem o recurso se ele não existir (a Smart List sozinha
+    sempre existe, independente de plano).

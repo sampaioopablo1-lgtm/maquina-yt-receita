@@ -55,11 +55,13 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     nó 2.5 incluído, e exige que o gatilho do passo 11 já tenha o filtro
     `reengajamento-ativo` ausente (R-08) — monte-o com o filtro desde o
     início se ainda não montou, não depois
-16. Listas inteligentes (seção 8)
-17. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
-18. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
+16. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16)
+17. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
+    2.15) — depende da lista 8.16 do passo 16 já montada
+18. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+19. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
     todos: o recurso só lista workflows **publicados**, então precisa dos
-    passos 11, 12 e 15 já publicados para aparecerem no seletor
+    passos 11, 12, 15 e 17 já publicados para aparecerem no seletor
 
 ---
 
@@ -1132,6 +1134,104 @@ cada um só o que é dele.
 
 ---
 
+## 2.15 Monitor de Capacidade — R-11
+
+**Por quê (herdado da lacuna L-05 do briefing):** 10 leads/dia × 12
+tentativas dá ~120 tarefas/dia em regime, acima da meta de 100 do briefing —
+mesmo com a saída antecipada (quem conecta ou some antes da T12) derrubando
+isso para ~78-90/dia na prática, um dia de pico pode estourar sem que
+ninguém perceba até o SDR desistir da fila.
+
+Pesquisado antes de desenhar: o motor de workflow do GHL executa **por
+contato** — não existe ação nativa que leia "quantos contatos estão numa
+lista agora" e ramifique um `If/Else` em cima disso, e a própria base de
+ideias da HighLevel confirma isso por ausência: "trazer métricas do
+dashboard como custom value" ainda é pedido em aberto, não recurso
+existente. Isso descarta de saída a ideia óbvia — injetar a contagem viva
+numa mensagem de workflow — e explica por que Reev, Meetime, Outreach e
+Salesloft resolvem capacidade com dashboard olhado por alguém, não com
+alarme automático de limite. A diferença que dá para construir aqui, só
+com nativo, não é o alarme automático (a plataforma não expõe o dado para
+isso); é não depender de ninguém *lembrar* de abrir o dashboard, e não
+obrigar o gestor a fazer a conta contra a meta toda vez que olhar.
+
+### O desenho: três peças, cada uma cobrindo o limite da anterior
+
+1. **Lista inteligente `Fila do Dia — Total`** (seção 8.16) — a contagem
+   exata de tarefas abertas hoje, disponível em qualquer plano.
+2. **Métrica personalizada `Estouro da Fila`** — o mesmo número, já
+   comparado contra a meta de 100, para o gestor não fazer a conta de
+   cabeça (Reporting → Custom Metrics — **confirme que o plano da
+   subconta inclui métricas personalizadas antes de montar**; sem isso, a
+   lista 8.16 sozinha já cobre o essencial).
+3. **Workflow "Monitor de Capacidade"**, gatilho **Scheduler** (contactless,
+   nativo) — não conta nada; só lembra o gestor de olhar, duas vezes por
+   dia útil, para tirar a dependência de memória.
+
+### Métrica personalizada `Estouro da Fila`
+
+Reporting → Custom Metrics → Nova métrica → fórmula:
+
+`(Contagem de contatos com tag "fila-tel" OU "fila-wa") − 100`
+
+O "− 100" é de propósito, não decoração: em vez da contagem crua — que
+obriga o gestor a lembrar a meta do briefing toda vez que olha —, a métrica
+já devolve o excesso pronto: 0 ou negativo é dia normal, qualquer número
+positivo é "estourou por N tarefas hoje". Um concorrente olhando a tela
+por fora vê só "quantos contatos têm essa tag"; o alarme embutido na conta
+não aparece de fora. Adicionar ao Dashboard da subconta como widget de
+número único, visível na tela em que qualquer usuário loga.
+
+A contagem em si — "quantos contatos com `fila-tel` OU `fila-wa`" — é
+exatamente o total da lista 8.16: a métrica não lê nada que a lista já não
+mostre, só faz a subtração que a lista sozinha não faz.
+
+### Workflow "Monitor de Capacidade"
+
+#### Gatilho
+**Scheduler** — contactless: não amarra a nenhum evento de contato, e por
+isso não pode dividir o mesmo workflow com outro tipo de gatilho (limite
+nativo do recurso). Duas execuções por dia útil: **11:00** (o lote de T1 do
+dia já entrou nas filas — ver a tabela de horários da seção 2.5) e **15:00**
+(ainda sobra tempo de o gestor agir — remanejar SDR, segurar entrada de
+lead novo — antes do fim do expediente, 18:30).
+
+#### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Dias | Segunda a sexta | Fim de semana não tem SDR discando |
+| Fuso | O da subconta (`America/Sao_Paulo`) | Mesmo padrão do resto do projeto |
+| Allow Re-entry | Não se aplica | Gatilho contactless não usa este campo |
+
+#### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Aviso | Internal Notification | Para o gestor: "Confira `Estouro da Fila` no dashboard (ou a lista `Fila do Dia — Total`) — a meta é 100 tarefas/dia." Link direto para a lista 8.16 |
+
+Um nó só, de propósito: sem ação nativa para ler o valor da métrica ou o
+total da lista dentro do próprio workflow, um segundo nó de `If/Else` não
+teria condição nenhuma para checar — o alarme de verdade mora na métrica do
+dashboard (para onde o link do nó 1 aponta), não neste workflow.
+
+### Limite conhecido
+
+O aviso é **fixo em dois horários**, não condicionado à fila ter realmente
+estourado — porque a plataforma não expõe, dentro de um workflow, "quantos
+contatos passam neste filtro agora" (a mesma ausência que a pesquisa acima
+confirmou). A distância entre isso e "notificação só quando passar do
+limite" (o "Como" original do roadmap) é o gestor olhar a métrica duas
+vezes por dia em vez de ser avisado só no dia em que ela vira positiva —
+troca aceitável: o alarme fica embutido na conta (o "− 100" da métrica), e
+o hábito forçado do aviso substitui a detecção automática que a API não
+permite construir.
+
+**Pronto quando (do roadmap):** o gestor sabe da fila cheia antes do SDR
+desistir dela — cumprido pelo hábito de olhar 2x/dia mais o alarme
+embutido na métrica, não por detecção automática de limite (a plataforma
+não expõe o dado que isso exigiria).
+
+---
+
 ## 3. Workflow "Mestre de saída"
 
 O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
@@ -1754,6 +1854,19 @@ parado há mais tempo é o mesmo raciocínio da 8.8: quem está represado há
 mais tempo é quem mais precisa de alguém decidir "tira a pausa" ou "descarta
 de vez".
 
+### 8.16 `Fila do Dia — Total` — R-11
+| Item | Configuração |
+|---|---|
+| Filtros | tag `fila-tel` presente **OU** tag `fila-wa` presente **E** `nao-perturbe` ausente |
+| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · canal (`fila-tel` ou `fila-wa`) · `Prioridade` |
+| Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
+
+O total desta lista **é** o total de tarefas `[CADENCIA]` abertas hoje —
+não soma 8.2 com 8.3 na mão porque um contato nunca carrega as duas tags ao
+mesmo tempo (nó 6 do bloco padrão, seção 2.4, aplica uma por vez, e vale
+para todo bloco que o espelha: 2.10, 2.12). Alimenta a métrica `Estouro da
+Fila` e o aviso do Monitor de Capacidade (seção 2.15, R-11).
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -1870,6 +1983,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `Em cadência` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
 | 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e etapa `Nutrição` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa volta para `Em cadência`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, etapa volta para `Nutrição`, e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
 | 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `Em cadência` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
+| 29 | Monitor de Capacidade (R-11) | Com os 5 contatos de teste em `fila-tel`/`fila-wa` ao mesmo tempo, confira que a lista `Fila do Dia — Total` (8.16) soma os dois grupos sem duplicar ninguém; confirme se o plano da subconta expõe Custom Metrics e, se sim, que `Estouro da Fila` mostra `5 − 100` (negativo, dia normal); rode o Scheduler do "Monitor de Capacidade" manualmente (ou aguarde o horário) e confira que o Internal Notification chega ao gestor nos dois horários configurados | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -1883,9 +1997,10 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 | Campos personalizados | Não | Cria na tela; lista com tipo e opções em `campos-e-tags.md` |
 | Tags | Cria | — |
 | Pipeline e etapas | Não | Seção 1 |
-| Workflows | Não | Seções 2, 2.9, 2.11, 3 a 6, 5.1, 5.2 |
+| Workflows | Não | Seções 2, 2.9, 2.11, 2.15, 3 a 6, 5.1, 5.2 |
 | Calendário | Lê | Cria e configura: seção 7.1 |
 | Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
 | Listas inteligentes | Não | Seção 8 |
+| Métrica personalizada (dashboard) | Não | Cria na tela: seção 2.15 (R-11) |
 | Conversation AI | Não | Seção 6 |
 | Concluir tarefa em massa | Sim | É a rotina da seção 5 do projeto |

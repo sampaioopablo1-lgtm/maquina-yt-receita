@@ -305,12 +305,38 @@ via `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
 pré-existente — nada mudou desde a auditoria.
 
-### R-11 · Alerta de capacidade (lacuna L-05)
+### R-11 · Alerta de capacidade (lacuna L-05) — **FEITO em 18/09/2026**
 **Por quê:** 10 leads/dia × 12 tentativas dá ~120 tarefas/dia em regime, acima
 da meta de 100. A fila estoura silenciosamente.
 **Como:** lista inteligente de tarefas abertas do dia + notificação ao gestor
 acima do limite.
 **Pronto quando:** o gestor sabe da fila cheia antes do SDR desistir dela.
+
+**Resumo:** lista inteligente `Fila do Dia — Total` criada (`build-wesales.md`,
+seção 8.16, nova) somando `fila-tel` e `fila-wa` sem duplicar ninguém — vale
+como total de tarefas abertas hoje porque o bloco padrão de qualquer cadência
+do projeto (seção 2.4 e as que a espelham) nunca aplica as duas tags ao mesmo
+contato ao mesmo tempo. Pesquisado antes de desenhar e confirmado por
+ausência: o motor de workflow do GHL não expõe, dentro de um workflow,
+"quantos contatos passam por este filtro agora" — "métricas do dashboard como
+custom value" segue como pedido em aberto na base de ideias da HighLevel —,
+o que descarta um alerta condicionado de verdade ao limite ser cruzado.
+Solução de três peças em vez de uma (seção 2.15, novo, do `build-wesales.md`):
+a lista 8.16 para a contagem exata; uma métrica personalizada `Estouro da
+Fila` (Reporting → Custom Metrics, se o plano da subconta expuser) que já
+subtrai a meta de 100 para o gestor não fazer a conta de cabeça — um
+concorrente olhando a tela vê a contagem crua, não o alarme embutido; e um
+workflow contactless via gatilho nativo **Scheduler** (confirmado que roda
+sem contato em contexto e não coexiste com outro tipo de gatilho) avisando o
+gestor 2x por dia útil, em vez de um alerta condicional que a API não permite
+construir. Limite documentado na seção 2.15: o aviso é por horário fixo, não
+por limite cruzado de verdade — é a troca honesta que a plataforma impõe.
+Zero campo e zero tag novos: reaproveita `fila-tel`/`fila-wa`, já aprovadas.
+Checklist ganhou o item 29. Subconta reconfirmada nesta execução via
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 1 contato (o `ZZ TESTE ESTRUTURA`
+do R-anterior), só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a
+última checagem.
 
 ### R-12 · Handoff e no-show
 **Por quê:** reunião agendada que não acontece é o vazamento mais caro do
@@ -443,10 +469,12 @@ completo — a régua de reengajamento e todas as outras já respeitam feriado e
 pausa individual antes de a operação rodar volume de verdade. Com R-10
 fechado em 18/09/2026, o primeiro ponto que quebraria ao contratar o
 segundo SDR (dois ligando para o mesmo lead) já está resolvido antes de
-existir segundo SDR. **R-11 (alerta de capacidade)** é o próximo do bloco
-4: mede a fila que R-10 agora distribui, e a distribuição por si só não
-avisa quando ela estoura — os dois se complementam, não competem por
-prioridade.
+existir segundo SDR. Com R-11 fechado em 18/09/2026, o bloco 4 (operação com
+mais de um SDR) está completo — a fila que R-10 distribui agora também avisa
+quando estoura. **R-12 (handoff e no-show)** é o próximo, abrindo o bloco 5
+(qualidade e confiança): reunião agendada que não acontece é o vazamento mais
+caro do funil hoje sem tratamento nenhum, e não depende de volume nem de
+segundo SDR para valer a pena.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
