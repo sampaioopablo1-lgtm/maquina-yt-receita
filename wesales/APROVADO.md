@@ -27,10 +27,21 @@ melhor forma possível".*
 - [x] Criar as 11 tags do projeto: `fila-quente`, `fila-tel`, `fila-wa`,
       `fila-linkedin`, `conectado-hoje`, `nao-perturbe`, `limpar-tarefas`,
       `nutricao-90d`, `telefone-invalido`, `cad-inbound`, `cad-outbound`
+      — **FEITO em 18/09/2026**
 
       Como nasce: aplicando a um contato de teste chamado
       `ZZ TESTE ESTRUTURA` criado só para isso. O contato fica na subconta
       (a rotina nunca exclui) e pode ser arquivado por você depois.
+
+      **Executado:** contato `ZZ TESTE ESTRUTURA` criado
+      (`c5r3ZxiAd8T5adL1Bt6j`) com as 11 tags aplicadas em
+      `contacts_create-contact` (que aceita `tags` direto na criação — não
+      precisou de uma segunda chamada a `contacts_add-tags`). Lido de volta
+      via `contacts_get-contact` para confirmar: as 11 tags persistiram.
+      `contacts_create-contact` recusou o contato só com `name` (erro 422
+      "Contacts without email, phone, firstName and lastName are not
+      allowed") — precisou `firstName`/`lastName` separados; registrado em
+      `APRENDIZADOS-CRM.md` para não redescobrir na próxima rodada.
 
 - [ ] Criar a 12ª tag, `atraso-1a-tentativa` — nasceu no R-02 (speed-to-lead)
       desta rodada, especificada em `campos-e-tags.md` (T-12) e
@@ -54,9 +65,20 @@ melhor forma possível".*
       `build-wesales.md` (Teste Atendeu, Teste Não Atende, Teste Retorno,
       Teste Número Errado, Teste Não Ligar)
 
+      **Ainda não executado, de propósito:** o checklist da seção 10 testa
+      o pipeline `Pré-vendas` e os workflows contra esses 5 contatos — nenhum
+      dos dois existe ainda na tela (só sai manual, não por API). Criar os 5
+      agora resultaria em contatos inertes, sem oportunidade para mover nem
+      workflow para disparar, e precisariam ser refeitos quando a montagem
+      manual acontecer. Assim que o pipeline e os workflows principais
+      estiverem publicados, esta linha executa na mesma rodada.
+
 ### Oportunidades
 
 - [x] Mover oportunidades de etapa durante os testes do checklist
+
+      **Mesmo motivo da linha acima:** sem o pipeline `Pré-vendas` criado na
+      tela, não há etapa para mover oportunidade nenhuma.
 
 ### Mensagens
 

@@ -11,8 +11,33 @@ reconferir o estado antes de mexer no roadmap: 0 campos personalizados, 0
 contatos, 1 pipeline (`FUNIL DE VENDAS`, o que já existia, não o
 `Pré-vendas` do projeto). Bate exatamente com `auditoria-resultado.md` —
 nada mudou na subconta desde a auditoria. Reconfirmado de novo ao fechar o
-R-07 (mesma rodada, mesmo resultado), outra vez ao fechar o R-08 e outra vez
-ao fechar o R-09: estado inalterado nas quatro checagens.
+R-07 (mesma rodada, mesmo resultado), outra vez ao fechar o R-08, outra vez
+ao fechar o R-09 e outra vez ao fechar o R-10: estado inalterado nas cinco
+checagens.
+
+**Primeira mudança real na subconta, 18/09/2026:** executadas as 11 tags
+aprovadas em `APROVADO.md` — contato `ZZ TESTE ESTRUTURA`
+(`c5r3ZxiAd8T5adL1Bt6j`) criado com as 11 tags do projeto. A partir de
+agora `contacts_get-contacts` retorna 1, não 0 — não é regressão, é a
+primeira escrita de verdade que a rotina fez na subconta. Campos
+personalizados e pipeline `Pré-vendas` seguem em zero (só saem manual).
+
+## `contacts_create-contact` exige nome ou identificador — `name` sozinho não basta
+
+Descoberto ao criar o contato de estrutura das 11 tags, 18/09/2026: chamar
+`contacts_create-contact` só com `body_name` (sem `firstName`/`lastName`
+nem `email`/`phone`) devolve erro 422 — "Contacts without email, phone,
+firstName and lastName are not allowed". `body_name` sozinho não conta como
+identificador para essa regra, mesmo aparecendo depois no contato criado.
+Passar `body_firstName`/`body_lastName` (pode ser texto livre, não precisa
+ser um nome "de verdade" — usei `"ZZ TESTE"` e `"ESTRUTURA"`) resolve sem
+precisar de e-mail nem telefone fake. Regra prática, generalizável: todo
+contato de estrutura ou fictício criado por API neste projeto (a ordem
+sugerida das 5 fictícias da seção 10, qualquer outro que surgir) precisa de
+`firstName`+`lastName` (ou e-mail/telefone) no corpo da chamada — `name`
+como único campo de identificação falha sempre. `contacts_create-contact`
+aceita `tags` direto no corpo da criação — não precisa de uma segunda
+chamada a `contacts_add-tags` quando o contato já nasce com as tags certas.
 
 ## `Allow Re-entry` bloqueia por workflow, não por evento — mesmo via `Add to Workflow`
 
