@@ -4285,3 +4285,34 @@ imobiliária no bairro: profissional autônomo anunciando em nome próprio. O ba
 o mais promissor do arquivo para abordagem direta, em dois nichos diferentes.
 
 Combos varridos até aqui: + fisioterapia Niterói.
+
+---
+
+## Veterinária — Barra da Tijuca (varrido 18/09/2026) — combo fechado como improdutivo
+
+Dois termos de procedimento, os dois vazios:
+
+| Termo | Resultado |
+|---|---|
+| `veterinário 24 horas Barra da Tijuca` | 3 anúncios, **2 páginas** |
+| `castração cachorro Barra da Tijuca` | **1 anúncio**, 1 página |
+
+A única página de verdade nos dois termos é a mesma: **Petmalia - Hospital Veterinário**, com 3
+anúncios, todos titulados `Entre em contato` — rótulo de botão no lugar do título, o padrão já
+catalogado. Trilha B. É o único alvo do bairro no nicho, e sozinho não justifica uma varredura.
+
+**Clincardio** apareceu vendendo `Apenas 3 VAGAS para o nosso Curso de Cardiologia Clínica
+Veterinária` repetido 3 vezes: é curso para veterinário, não clínica. Mesma poluição de infoproduto
+que apareceu hoje de tarde em advocacia — **o padrão se repete em todo nicho técnico**.
+
+### A regra que fecha o assunto
+
+Veterinária foi varrida agora em quatro bairros: Tijuca, Copacabana, Niterói e Barra. O retrato é
+consistente — **poucas páginas, muitas delas grandes redes, e pouco erro de título aproveitável**.
+Comparado com imobiliária (33 páginas só em Niterói) e fisioterapia (11 em Niterói), veterinária é o
+nicho mais magro da lista.
+
+**Decisão de prospecção: veterinária sai da fila. Não varrer em bairro novo.** Se sobrar tempo de
+rodada, imobiliária e estética rendem mais por busca.
+
+Combos varridos até aqui: + veterinária Barra da Tijuca (nicho encerrado, não varrer em bairro novo).
