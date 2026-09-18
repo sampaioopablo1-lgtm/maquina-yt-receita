@@ -13,9 +13,9 @@ documento não detalha.
 
 ## Visão geral das fases
 
-- [ ] **Fase 1 — Pipeline "Pré-vendas"** (editar as 14 etapas do `FUNIL DE VENDAS` para as 7 novas) — abaixo, pronta para seguir agora
-- [ ] **Fase 2 — Campos personalizados** (~24 campos) — em andamento fora de ordem, ver verificação abaixo: faltam 2, 1 com tipo errado
-- [ ] **Fase 3 — Calendário do closer + formulário de qualificação**
+- [x] **Fase 1 — Pipeline** — concluída, mas com 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`), não as 7 originais — decisão do dono ao vivo, ver seção abaixo
+- [x] **Fase 2 — Campos personalizados** (42 campos) — concluída; os 2 que faltavam (`WA não atendidas seguidas`, `Permissão WhatsApp`) foram criados e o tipo errado (`Conexões telefone`) foi corrigido para Numérico, confirmado via `locations_get-custom-fields`
+- [ ] **Fase 3 — Calendário do closer + formulário de qualificação** — próxima
 - [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
 - [ ] **Fase 5 — Os ~14 workflows**, na ordem da seção "Ordem de montagem" do `build-wesales.md`
 - [ ] **Fase 6 — Listas inteligentes** (~18)
@@ -134,60 +134,62 @@ conector (`opportunities_get-pipelines`) e ensino a Fase 2 (campos
 personalizados) em seguida, com a lista pronta para copiar direto de
 `campos-e-tags.md`.
 
-### Verificação em 18/09/2026, ~20h UTC — não risque o checkbox ainda
+### Resolvido ao vivo em chat, 18/09/2026 ~21h-22h UTC — Fase 1 concluída, arquitetura mudou
 
-Rotina horária releu o pipeline (`opportunities_get-pipelines`) depois de
-commitar este guia às 19:52 UTC. O `FUNIL DE VENDAS` **mudou** —
-`dateUpdated` marca 19:56 UTC, 4 minutos depois — mas não para as 7
-etapas da tabela acima. O que está na tela agora:
+As "duas hipóteses" abaixo (histórico, não apague) ficaram respondidas: foi
+a **hipótese 1**, decisão do dono ao vivo em chat, não acidente nem
+snapshot de agência. Ele optou por **5 etapas**, não 7, recusando
+explicitamente a tabela original desta seção. Decisão final, confirmada
+por `opportunities_get-pipelines` nesta mesma conversa:
 
-| Posição | Etapa encontrada | Prob. encontrada | Cor encontrada |
+| Posição | Etapa (nome real na tela) | Prob. | Cor |
 |---|---|---|---|
-| 0 | `NOVO LEAD` | 30% | `#2563EB` (igual ao azul pedido p/ `Novo lead`) |
+| 0 | `NOVO LEAD` | 30% | `#2563EB` |
 | 1 | `CONECTAR` | 40% | `#8B5CF6` |
 | 2 | `AGENDAR` | 50% | `#2DD4BF` |
 | 3 | `NEGOCIAR` | 60% | `#D97706` |
 | 4 | `FORMALIZAR` | 70% | `#059669` |
 
-Só 5 etapas, não 7, e a partir da posição 1 nenhum nome bate com a tabela
-deste guia (`Em cadência`, `Conectado`, `Retorno agendado`, `Reunião
-agendada`, `Nutrição`, `Descartado` — as duas últimas nem existem na
-tela). As probabilidades também não batem (30/40/50/60/70, progressão
-redonda de 10 em 10 — o mesmo cheiro de template automático que a
-`auditoria-resultado.md` já flagrou nas 14 etapas antigas, que também
-vieram de `originId` de snapshot). **Não é o bug de progressão original
-voltando**: é uma configuração nova, diferente da antiga e diferente da
-pedida aqui.
+**Mapeamento acordado com o dono** (substitui a tabela de 7 etapas cravada
+acima — aquela tabela é histórico do plano abandonado, não apague, mas não
+siga por ela):
 
-**Confirmado por `opportunities_search-opportunity` (status `all`) na
-mesma checagem: 0 oportunidades no pipeline.** Nenhum dado de negócio foi
-perdido nessa troca, venha ela de onde vier.
+| Etapa real (5) | Papel no motor original (7) |
+|---|---|
+| `NOVO LEAD` | = `Novo lead` (sem mudança) |
+| `CONECTAR` | = `Em cadência` — é aqui que o portão de toda tentativa (nó 3, seção 2.4 do `build-wesales.md`) passa a checar |
+| `AGENDAR` | = `Conectado` — atendeu, qualificando/marcando reunião |
+| `NEGOCIAR` | = `Reunião agendada` **+** a negociação do closer (que no plano de 7 etapas ficava fora do pipeline) |
+| `FORMALIZAR` | Fechamento/contrato — não existia no plano de 7 etapas; equivale a "Ganho" |
 
-**Duas hipóteses, nenhuma confirmada — registrar qual é a certa quando
-souber, não escolher uma sem confirmação:**
-1. Início manual desta fase, com nomes/cores próprios em vez de copiar a
-   tabela — a posição 0 bate exatamente em nome (`Novo lead` → `NOVO
-   LEAD`) e em cor (`#2563EB`), o que é compatível com alguém tendo
-   começado a seguir o guia e depois preenchido o resto no estilo dele.
-2. Reaplicação de um snapshot/template da agência por fora deste projeto
-   (a mesma origem que criou as 14 etapas antigas) — compatível com a
-   progressão redonda de 10 em 10 e com o pipeline ter menos de um dia de
-   vida.
+**O que não tem etapa própria mais** (`Retorno agendado`, `Nutrição`,
+`Descartado`) — substituído por tag + campo nativo **status da
+oportunidade** (`open`/`won`/`lost`/`abandoned`, independente da etapa):
+- **Retorno agendado**: sem mudança de etapa nem tag nova — o lead sai do
+  workflow (nó 10, `Pediu retorno` já remove do workflow) e fica em
+  `CONECTAR` mesmo; a lista `Retornos` (8.4) filtra só por `Resultado da
+  tentativa = Pediu retorno`, sem precisar mais do OR com etapa.
+- **Nutrição**: fica na etapa em que estava, status vira `abandoned`,
+  tag `nutricao-90d` continua. Gatilho do Reengajamento 90 dias (seção
+  2.12) muda de "Opportunity Stage Changed → Nutrição" para **"Contact Tag
+  Added → `nutricao-90d`"** (gatilho nativo já usado em outro lugar do
+  projeto, sem depender de etapa que não existe mais).
+- **Descartado**: status vira `lost`, etapa fica como estava.
 
-**Por isso este item continua com o checkbox vazio, e a Fase 2 não deve
-começar assumindo que os nomes da Fase 1 já existem na tela** — todo
-gatilho `Opportunity Stage Changed` do `build-wesales.md` procura pelo
-nome exato `Em cadência`/`Reunião agendada`/etc., e nenhum desses existe
-hoje no pipeline. Antes de seguir: confirme com quem mexeu no pipeline se
-foi isto (hipótese 1, e falta terminar as 2 etapas que sobraram e
-corrigir os 4 nomes) ou se é outra coisa (hipótese 2, e a Fase 1 recomeça
-do zero). A rotina horária reconfere a cada execução futura e atualiza
-esta seção assim que o estado mudar de novo.
+**Isto reabre uma tarefa de documentação grande, ainda em andamento nesta
+mesma sessão:** todo o `build-wesales.md` foi escrito em cima das 7 etapas
+antigas (~150 menções a `Em cadência`/`Conectado`/`Retorno agendado`/
+`Reunião agendada`/`Nutrição`/`Descartado` em gatilhos, portões e ramos de
+saída). Reescrever isso nó a nó para o modelo de 5 etapas + tag/status é
+trabalho em progresso — **não assuma que o resto do `build-wesales.md` já
+reflete esta mudança só porque esta seção foi atualizada.** Enquanto a
+reescrita não terminar, qualquer gatilho que disser "Para a etapa: `Em
+cadência`" (ou similar) deve ser lido como "`CONECTAR`", pela tabela acima
+— e qualquer "mover oportunidade para `Nutrição`/`Descartado`" deve virar
+"status = abandoned/lost", como descrito acima.
 
-**Reconferido nesta execução (18/09/2026, ~21h UTC): sem mudança.**
-`opportunities_get-pipelines` devolve o mesmo `dateUpdated` de 19:56 UTC e
-as mesmas 5 etapas da tabela acima — ninguém mexeu no pipeline desde a
-última rodada. As duas hipóteses seguem em aberto.
+**Fase 1 dá-se por concluída** — o pipeline está no estado final decidido
+pelo dono, não pendente de correção.
 
 ---
 
@@ -262,13 +264,41 @@ selecionar a opção que existe de verdade no dropdown da tela, não digitar
 o texto do documento — registrado só para quem for revisar o texto não
 estranhar a diferença de caixa.
 
-### Como saber que terminou certo
+### Resolvido ao vivo em chat, 18/09/2026 ~22h UTC
 
-- [ ] C-03 e C-04 criados
-- [ ] C-11 recriado como `NUMERICAL` (confirmar antes se apagar é
-      necessário ou se a tela oferece outro caminho)
-- [ ] `locations_get-custom-fields` relido confirma cada uma das 24
-      linhas de `campos-e-tags.md` mais Q-02/Q-03, nome e tipo batendo
-      um a um — não só a contagem total
+- [x] C-03 e C-04 criados — confirmado por `locations_get-custom-fields`:
+      `WA não atendidas seguidas` (`NUMERICAL`) e `Permissão WhatsApp`
+      (`SINGLE_OPTIONS`: Sim, Não, Não solicitado) existem, nome e tipo
+      batendo com a especificação.
+- [x] C-11 corrigido — `Conexões telefone` relido, `dataType` agora
+      `NUMERICAL` (era `PHONE`). Quem estava montando editou o campo
+      direto na tela em vez de apagar/recriar — funcionou, o tipo mudou.
+      **Atualiza o achado anterior desta seção** ("não permite trocar o
+      `dataType` depois de criado"): valeu a pena tentar editar antes de
+      assumir que só apagando resolvia.
+- [x] 42 campos no total confirmados (`locations_get-custom-fields`,
+      `query_model=contact`) — todos os C-01 a C-24, Q-01 a Q-18 mais
+      `Segmento` (criado como `TEXT`, decisão registrada em
+      `campos-e-tags.md` por causa da resposta "diversos nichos" do dono)
+      e `Data de retorno` (`DATE`, sem o par `Hora do retorno` — pendência
+      menor, ver abaixo).
 
-Só depois disso marque `[x]` na Fase 2 na visão geral acima.
+**Fase 2 dá-se por concluída.**
+
+### Pendências que sobraram, baixa prioridade — não bloqueiam nada agora
+
+Vários campos `SINGLE_OPTIONS` saíram com rótulos de opção diferentes dos
+sugeridos em `campos-e-tags.md` (ex.: `Prazo` ficou "Pra ontem/Espera 30
+dias/Este ano/Sem prazo" em vez de "Agora/Até 30 dias/1-3 meses/Sem
+prazo"; `Tem time comercial`, `Investimento mensal em anúncios`,
+`Decisor` e `Qualificação` — renomeado de "Qualificação preenchida por",
+com opção `Automático` trocada por `Vendedor` — também mudaram). Nenhum
+precisa ser recriado: a régua de qualificação (`build-wesales.md`, seção
+9.1) é que precisa ser reescrita para usar os rótulos reais em vez dos
+sugeridos — tarefa de documentação ainda pendente, registrada aqui para
+não se perder. `Plataformas de anúncio` também saiu como `SINGLE_OPTIONS`
+em vez de `MULTIPLE_OPTIONS` sugerido — decisão de quem montou, aceitável
+(cliente só terá 1 plataforma principal registrada em vez de todas).
+`Hora do retorno` (a segunda metade de S-01) não foi criada — sem ela a
+lista `Retornos` ordena só por dia, não por horário exato; criar depois se
+o volume de retornos justificar.
