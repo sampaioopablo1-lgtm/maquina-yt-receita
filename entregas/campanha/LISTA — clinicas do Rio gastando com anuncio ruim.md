@@ -3999,3 +3999,49 @@ ticket é alto, o custo do anúncio mudo aqui é o mais caro do arquivo — e es
 argumento a usar na abordagem.
 
 Combos varridos até aqui: + imobiliária Barra da Tijuca.
+
+---
+
+# 🎯 LISTA DE ATAQUE — ATUALIZAÇÃO DE 18/09/2026, 11h
+
+As varreduras de hoje (estética Méier, advocacia em dois recortes, contabilidade e imobiliária na
+Barra) acrescentaram **nove alvos** ao padrão consolidado de manhã. A lista sai de 17 para **26
+anunciantes**. Abaixo só o que entrou hoje, ordenado do mais antigo no ar para o mais novo — quanto
+mais tempo o erro está no ar, mais forte o argumento.
+
+| # | Anunciante | Trilha | O que aparece no título | No ar desde | Nicho |
+|---|---|---|---|---|---|
+| 18 | **Strong Comex** | B | título **vazio** | 13/02/2026 (7 meses) | contabilidade/comex |
+| 19 | **Dutel Advogados** | B | `api.whatsapp.com` | 24/02/2026 (7 meses) | advocacia |
+| 20 | **Marcia Rianelli Advocacia** | A | nome da página + **9 campos vazios** | 21/10/2025 (11 meses) | advocacia |
+| 21 | **Zamani Contabilidade** | B | `instagram.com` | 29/07/2026 (2 meses) | contabilidade |
+| 22 | **Soraia Plachi** | A | título **vazio** | 29/07/2026 (2 meses) | contabilidade |
+| 23 | **Marcelo Nunes Broker** | A | `Conversa connosco` ×10 (**grafia portuguesa**) | 15/09/2026 | imobiliária |
+| 24 | **Startsmed** | B | `{{product.name}}` (variável não renderizada) | — | estética |
+| 25 | **Pedro Pamplona, Noé e Almeida Advogados** | A | `instagram.com` | 16/09/2026 | advocacia |
+| 26 | **New Home Imóveis** | B | nome da página + **20 campos vazios** | 18/09/2026 (hoje) | imobiliária |
+
+Entram também, no mesmo padrão mas com o rótulo do botão no lugar do domínio: **Clínica da dor**
+(`Enviar mensagem` ×3–4, estética Méier) e **Ivan Alexandre - Consultor Imobiliário**
+(`api.whatsapp.com`, Trilha A, desde 17/09).
+
+## Os três primeiros a abordar, e por quê
+
+1. **Marcia Rianelli Advocacia** (Trilha A) — **onze meses** no ar com nove campos vazios. É o
+   recordista absoluto de tempo do arquivo. Nome de dona na página, nicho que a gente anuncia.
+2. **New Home Imóveis** — **vinte campos vazios**, o recorde de gravidade, e começou hoje. Gasto
+   fresco: a chance de o dono estar olhando a conta nesta semana é a maior da lista.
+3. **Marcelo Nunes Broker** (Trilha A) — o `connosco` em português de Portugal. Argumento que não
+   precisa de nenhum conhecimento de tráfego: "isso aqui não foi você que escreveu".
+
+## Duas variações novas do defeito, para vigiar nas próximas varreduras
+
+- **Variável de template crua** — `{{product.name}}` (Startsmed). Mais visível ainda que o domínio.
+- **Português de Portugal** — `connosco`. Dois casos até aqui (Rockfeller em idiomas, Marcelo Nunes
+  em imobiliária). Denuncia template comprado ou agência que não localizou, e é sempre Trilha boa
+  porque o dono não reconhece o próprio texto.
+
+## O número que importa
+
+Dos 26 anunciantes, **11 são Trilha A** (nome do dono na página). E o tempo médio no ar dos nove
+casos novos com data conhecida passa de **três meses**. Ninguém está olhando essas contas.
