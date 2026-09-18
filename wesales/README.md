@@ -20,9 +20,9 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 
 ## Estado do acesso (18/09/2026)
 
-Não existe servidor MCP LeadConnector nesta sessão. O caminho viável é o
-toolkit **HighLevel via Composio**, que ainda precisa de um auth config
-próprio (a Composio não tem auth gerenciada para HighLevel). Detalhes e
+O caminho oficial é o app `lc-mcp - Anthropic` no marketplace do
+LeadConnector, instalado na subconta da operação. Servidores MCP carregam no
+início da sessão, então autorize e abra uma sessão nova. Detalhes e
 cobertura em `auditoria-etapa1.md`.
 
 **Nada foi criado, alterado ou excluído na subconta.** Todos os documentos

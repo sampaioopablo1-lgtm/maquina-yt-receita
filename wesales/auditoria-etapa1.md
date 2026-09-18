@@ -3,38 +3,49 @@
 Estado: **bloqueada por acesso**. O plano, as ferramentas e a tabela de
 resultado estão prontos; falta a conexão.
 
-## 1. Por que está bloqueada
+## 1. Estado do acesso
 
-Nenhum servidor **MCP LeadConnector** está disponível nesta sessão. Verifiquei
-de três formas: busca direta por `leadconnector`, busca por ferramentas de
-GoHighLevel (contatos, pipelines, campos, tags) e a lista de servidores MCP
-que a sessão carregou. Não há nada de LeadConnector nem de WeSales.
+Nenhum servidor **MCP LeadConnector** estava carregado na sessão em que este
+documento nasceu. O caminho oficial existe e é o certo: o app
+**`lc-mcp - Anthropic`** (publicado pela própria leadconnector, categoria CRM,
+gratuito) no marketplace do LeadConnector — o mesmo marketplace que a WeSales
+usa por baixo do white-label.
 
-O que existe é o toolkit **HighLevel via Composio** — a mesma API v2 do GHL,
-que é o que o white-label da WeSales roda por baixo. Ele está catalogado, mas
-sem conexão ativa, e a Composio **não tem auth gerenciada** para HighLevel:
+### O que você faz (uma vez)
 
-> Composio does not have managed auth for 'highlevel', so the user must set up
-> their own auth config before connecting.
+1. No `marketplace.leadconnectorhq.com`, instalar o app `lc-mcp - Anthropic` e,
+   na tela **Choose location**, escolher a subconta da operação de SDR.
+2. Antes de autorizar, conferir a aba **Permissions**. A operação precisa de:
+   contatos (ler e escrever), campos personalizados (ler e escrever), tags
+   (ler e escrever), oportunidades (ler), calendários (ler), formulários (ler).
+3. Me dizer **qual subconta** você autorizou.
 
-### O que você precisa fazer (uma vez)
+### Detalhe que economiza uma frustração
 
-1. Criar um app de marketplace no GHL/LeadConnector (Settings → My Apps, ou
-   `marketplace.gohighlevel.com` → criar app) com escopos de leitura e, para
-   as Etapas 2 e 3, de escrita:
-   `locations.readonly`, `locations/customFields.readonly`,
-   `locations/customFields.write`, `locations/tags.readonly`,
-   `locations/tags.write`, `opportunities.readonly`, `calendars.readonly`,
-   `contacts.readonly`, `contacts.write`, `forms.readonly`.
-2. Registrar o Client ID / Client Secret desse app como auth config do
-   HighLevel na Composio: [Set up highlevel](https://dashboard.composio.dev/~/org/connect/apps/highlevel?open=true)
-3. Me avisar. Eu disparo a conexão, você autoriza escolhendo a subconta, e eu
-   rodo a auditoria.
+Servidores MCP são carregados **no início da sessão**. Autorizar o app com uma
+sessão já aberta não faz as ferramentas aparecerem nela. Depois de autorizar,
+**abra uma sessão nova** e peça a auditoria — como tudo aqui está commitado, a
+sessão nova já começa com o projeto inteiro em mãos.
 
-**Alternativa sem integração:** me manda print ou export das 6 listas e eu
-preencho a auditoria na mão. O resultado é o mesmo para as Etapas 4 e 5.
+### Caminho alternativo (só se o oficial não servir)
+
+Toolkit **HighLevel via Composio**, que fala a mesma API v2. Exige auth config
+próprio (a Composio não tem auth gerenciada para HighLevel), o que significa
+criar um app de marketplace com Client ID/Secret e registrá-lo em
+[Set up highlevel](https://dashboard.composio.dev/~/org/connect/apps/highlevel?open=true).
+Mais trabalho, mesma API — use só se o `lc-mcp` não cobrir a subconta.
+
+**Sem integração nenhuma:** me manda print ou export das 6 listas e eu preencho
+a auditoria na mão. Para as Etapas 4 e 5 o resultado é idêntico.
 
 ## 2. Cobertura: o que o MCP lê e o que não lê
+
+A tabela abaixo mede o toolkit **HighLevel via Composio**, que é o que eu
+consegui inspecionar sem conexão. **Ela não descreve o `lc-mcp`**: o conjunto
+de ferramentas do app oficial eu só vejo quando ele estiver carregado numa
+sessão. Primeira coisa que faço ao conectar é refazer esta tabela com o que o
+`lc-mcp` realmente expõe — inclusive workflows e formulários, que podem muito
+bem estar cobertos lá.
 
 | # | Item da auditoria | Ferramenta | Cobertura |
 |---|---|---|---|
