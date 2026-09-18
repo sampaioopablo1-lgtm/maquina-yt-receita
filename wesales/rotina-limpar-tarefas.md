@@ -6,6 +6,13 @@ não depende desta conversa nem dos outros documentos.
 **Pré-requisitos:** conexão ativa com a subconta (ver `auditoria-etapa1.md`),
 pipeline da seção 1 do `build-wesales.md` montado, tag `limpar-tarefas` criada.
 
+**Risco a confirmar antes de agendar:** a documentação do MCP oficial publica
+`contacts_get-all-tasks` (ler tarefas), mas nenhuma ferramenta de **concluir**
+tarefa. Se ela não existir de fato, o PASSO 4 não executa e a rotina vira
+relatório: ela aponta as tarefas fora de lugar e você fecha na tela. O prompt
+abaixo já trata esse caso — veja "Se não houver ferramenta de concluir tarefa"
+no PASSO 4.
+
 ---
 
 ## O prompt
@@ -50,6 +57,11 @@ Liste as tarefas ABERTAS (não concluídas) do contato. Para cada uma:
   prefixo): marque a tarefa como CONCLUÍDA.
 A comparação é no início do título, sensível ao texto entre colchetes e
 insensível a maiúsculas. Tarefa já concluída é ignorada.
+
+Se não houver ferramenta de concluir tarefa nas suas ferramentas disponíveis:
+NÃO tente contornar por outro caminho e NÃO remova a tag. Liste no resumo, por
+contato, quais tarefas deveriam ser concluídas, e diga na primeira linha:
+"Modo relatório — sem ferramenta de conclusão; nenhuma tarefa foi alterada."
 
 PASSO 5 — Remover a tag
 Só depois de processar todas as tarefas do contato SEM ERRO, remova dele a tag

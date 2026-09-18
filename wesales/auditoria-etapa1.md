@@ -38,37 +38,96 @@ Mais trabalho, mesma API — use só se o `lc-mcp` não cobrir a subconta.
 **Sem integração nenhuma:** me manda print ou export das 6 listas e eu preencho
 a auditoria na mão. Para as Etapas 4 e 5 o resultado é idêntico.
 
-## 2. Cobertura: o que o MCP lê e o que não lê
+## 2. O que a documentação do MCP oficial diz
 
-A tabela abaixo mede o toolkit **HighLevel via Composio**, que é o que eu
-consegui inspecionar sem conexão. **Ela não descreve o `lc-mcp`**: o conjunto
-de ferramentas do app oficial eu só vejo quando ele estiver carregado numa
-sessão. Primeira coisa que faço ao conectar é refazer esta tabela com o que o
-`lc-mcp` realmente expõe — inclusive workflows e formulários, que podem muito
-bem estar cobertos lá.
+Estudado em 18/09/2026. O servidor é hospedado pela própria HighLevel em
+`https://services.leadconnectorhq.com/mcp/` e atende contatos, conversas,
+calendários, oportunidades, pagamentos, locations e campos personalizados.
 
-| # | Item da auditoria | Ferramenta | Cobertura |
-|---|---|---|---|
-| 1 | Pipelines e etapas | `HIGHLEVEL_GET_PIPELINES` | Total |
-| 2 | Campos personalizados de contato e oportunidade | `HIGHLEVEL_GET_CUSTOM_FIELDS` (`model=all`) e `HIGHLEVEL_GET_CUSTOM_FIELDS_BY_OBJECT_KEY` | Total |
-| 3 | Tags existentes | `HIGHLEVEL_LIST_TAGS` | Total |
-| 4 | **Workflows (nome e status)** | — | **Não exposta.** A API v2 tem `GET /workflows/`, mas o toolkit não publica essa ferramenta |
-| 5 | Calendários | `HIGHLEVEL_GET_CALENDARS` (`showDrafted=true`) | Total |
-| 6 | **Formulários** | — | **Não exposta.** A API v2 tem `GET /forms/`, mas o toolkit não publica essa ferramenta |
-| — | Subcontas disponíveis | `HIGHLEVEL_SEARCH_LOCATIONS`, `HIGHLEVEL_GET_LOCATION` | Total — é assim que eu te mostro as subcontas para você escolher |
+### Duas formas de autenticar
 
-Para os itens 4 e 6, o caminho é manual: **Automação → Workflows** e
-**Sites → Formulários**, com print ou a lista copiada. Se depois da conexão eu
-encontrar as ferramentas (o catálogo da Composio muda), eu te aviso e puxo.
-
-## 3. Escrita (Etapas 2 e 3) — cobertura
-
-| Operação | Ferramenta | Cobertura |
+| Forma | Como | Quando usar |
 |---|---|---|
-| Criar campo TEXT, NUMERICAL, DATE, URL | `HIGHLEVEL_LOCATIONS_CREATE_CUSTOM_FIELD` | Total |
-| Criar campo de **lista** (SINGLE_OPTIONS) e **múltipla** (MULTIPLE_OPTIONS) | `HIGHLEVEL_CREATE_CUSTOM_FIELD` | **Parcial** — a ferramenta antiga não aceita `options`; a nova aceita, mas exige `objectKey`/`fieldKey`/`parentId`. Se as opções não entrarem pela API, eu crio o campo e você completa as opções na tela. Eu te digo caso por caso |
-| Criar tag | `HIGHLEVEL_CREATE_TAG` | Total |
-| Criar pipeline/etapas, workflow, calendário, formulário, lista inteligente | — | **Não suportado pelo MCP.** É o conteúdo do `build-wesales.md` |
+| **App `lc-mcp - Anthropic`** | Instalar pelo marketplace e autorizar a subconta | É o caminho que estamos tomando. Sem token para copiar e colar |
+| **Private Integration Token** | Subconta → Settings → Private Integrations → Create New Integration, escolher os escopos, copiar o token | Plano B. O token **começa com `pit-`**; chave de API comum ou v1 **não funciona** e é a causa nº 1 de erro 401 |
+
+O PIT é por subconta (token + Location ID), então um token por cliente mantém
+os dados separados e permite revogar um sem derrubar os outros.
+
+### Ferramentas confirmadas na documentação
+
+Nomes reais, como o servidor os expõe:
+
+| Domínio | Ferramentas |
+|---|---|
+| Contatos | `contacts_get-contacts`, `contacts_get-contact`, `contacts_create-contact`, `contacts_update-contact`, `contacts_upsert-contact` |
+| Tags | `contacts_add-tags`, `contacts_remove-tags` |
+| Tarefas | `contacts_get-all-tasks` |
+| Conversas | `conversations_search-conversation`, `conversations_get-messages`, `conversations_send-a-new-message` |
+| Oportunidades | `opportunities_search-opportunity`, `opportunities_get-opportunity`, `opportunities_update-opportunity` |
+| Calendários | `calendars_get-calendar-events`, `calendars_get-appointment-notes` |
+| Subconta | `locations_get-location`, `locations_get-custom-fields` |
+
+### O que isso significa para o nosso plano
+
+Três consequências, e nenhuma delas é ruim se a gente souber antes:
+
+1. **`locations_get-custom-fields` é leitura.** Não há
+   `locations_create-custom-field` na lista publicada. Se confirmar,
+   **a Etapa 2 não sai pelo MCP oficial** — ou vai pela API (rota Composio da
+   seção 3) ou vira criação manual na tela, 26 campos.
+2. **Tag se cria aplicando.** Não há ferramenta de criar tag solta, mas
+   `contacts_add-tags` aplica uma tag a um contato e o GHL registra a tag na
+   subconta nesse momento. Dá para nascer as 11 tags assim, num contato de
+   teste. Funciona, mas é atalho — diga se prefere criar na tela.
+3. **A rotina da Etapa 5 tem o que ler, falta confirmar o que escrever.**
+   `contacts_get-all-tasks` lê as tarefas; concluir tarefa não aparece na
+   lista publicada. Se não existir, a rotina horária vira relatório (aponta o
+   que está fora de lugar) em vez de faxina automática.
+
+**Nenhum desses três pontos está fechado.** A lista acima é a que a
+documentação pública expõe e ela mesma se declara parcial. A primeira coisa
+que faço ao conectar é listar as ferramentas reais e refazer esta seção — aí
+sim com o que existe de verdade, não com o que está publicado.
+
+## 3. Cobertura da auditoria e das criações
+
+| # | Item | Pelo MCP oficial | Alternativa |
+|---|---|---|---|
+| 1 | Pipelines e etapas | Via `opportunities_search-opportunity` (traz pipeline e stage); pipeline vazio pode não aparecer | `HIGHLEVEL_GET_PIPELINES` (Composio) lista direto |
+| 2 | Campos personalizados | `locations_get-custom-fields` | — |
+| 3 | Tags existentes | Não há listagem de tags da subconta na lista publicada | `HIGHLEVEL_LIST_TAGS` (Composio) |
+| 4 | **Workflows** | Não aparece | Manual: Automação → Workflows |
+| 5 | Calendários | `calendars_get-calendar-events` traz eventos, não a configuração do calendário | `HIGHLEVEL_GET_CALENDARS` (Composio) traz a configuração |
+| 6 | **Formulários** | Não aparece | Manual: Sites → Formulários |
+| 7 | Criar campos (Etapa 2) | Provavelmente não | Composio (`HIGHLEVEL_LOCATIONS_CREATE_CUSTOM_FIELD`) ou manual |
+| 8 | Criar tags (Etapa 3) | Sim, aplicando a um contato de teste | Composio (`HIGHLEVEL_CREATE_TAG`) cria direto |
+| 9 | Pipeline, workflows, calendário, formulário, listas | Não | Manual — é o `build-wesales.md` |
+
+Ou seja: os dois caminhos se completam. O oficial é melhor para operar no dia
+a dia (ler contatos, mexer em oportunidade, mandar mensagem, ler tarefa); o da
+Composio cobre a configuração da subconta, que é o que as Etapas 1 a 3 pedem.
+Vale ter os dois.
+
+### A rota alternativa, se precisar dela
+
+Toolkit **HighLevel via Composio**, mesma API v2, com auth config próprio em
+[Set up highlevel](https://dashboard.composio.dev/~/org/connect/apps/highlevel?open=true).
+Ferramentas medidas por mim: `HIGHLEVEL_GET_PIPELINES`,
+`HIGHLEVEL_GET_CUSTOM_FIELDS`, `HIGHLEVEL_LIST_TAGS`, `HIGHLEVEL_CREATE_TAG`,
+`HIGHLEVEL_GET_CALENDARS`, `HIGHLEVEL_SEARCH_LOCATIONS`,
+`HIGHLEVEL_LOCATIONS_CREATE_CUSTOM_FIELD`.
+
+**Sem integração nenhuma:** me manda print ou export das 6 listas e eu preencho
+a auditoria na mão. Para as Etapas 4 e 5 o resultado é idêntico.
+
+### Fontes
+
+- [LeadConnector MCP Server — HighLevel API](https://marketplace.gohighlevel.com/docs/other/mcp/)
+- [Guide on How to Setup and Use the HighLevel MCP Server](https://help.gohighlevel.com/support/solutions/articles/155000005741-how-to-setup-and-use-the-highlevel-mcp-server)
+- [MCP Server: Connect AI Agents to Your Account — LeadConnector](https://help.leadconnectorhq.com/support/solutions/articles/155000008185-mcp-server-connect-ai-agents-to-your-account)
+- [HighLevel MCP Multi-Account Support for Claude](https://help.gohighlevel.com/support/solutions/articles/155000008360-highlevel-mcp-multi-account-support-for-claude)
+- [Private Integrations Token](https://marketplace.gohighlevel.com/docs/Authorization/PrivateIntegrationsToken/)
 
 ## 4. Tabela a preencher (Etapa 1)
 
