@@ -3521,3 +3521,47 @@ não serve aqui, e o discurso "seu anúncio está ruim" enfrenta gente que já t
 fria, rende pouco apesar do tamanho. **Mantém no fim da fila.**
 
 Combos varridos até aqui: + energia solar Rio de Janeiro.
+
+---
+
+## Veterinária — Niterói (varrido 18/09/2026, 05h BRT)
+
+Termo: `clínica veterinária Niterói`. Só 12 anúncios, **8 páginas distintas** — e duas delas são
+faculdade (Anhanguera e faculdadeancliveparj), contaminação de "veterinária" como CURSO. Sobram
+**6 páginas reais**.
+
+Nicho pequeno, mas é a varredura mais reveladora da madrugada pelo motivo abaixo.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| **Bicho D+ Veterinária e Pet Shop** | 1255112617929642 | "Clínica Veterinária Bicho D+ em Niterói/RJ." seguido de **"Converse conosco" repetido 7 vezes** | **01/06/2024 — 27 MESES** | B | [link](https://www.facebook.com/ads/library/?id=989751759165957) |
+| Flip Dog Care | 417931334744365 | nome da página + "Converse conosco" 5 vezes (jan/2025); e um segundo anúncio com título **"api.whatsapp.com"** (mai/2026) | 15/01/2025 | B | [link](https://www.facebook.com/ads/library/?id=584150911212037) |
+| Dra. Mabel Vaz Dermatologia Veterinária e Clínica Geral | 1741740266153530 | título **"instagram.com"** | 08/02/2025 | A | [link](https://www.facebook.com/ads/library/?id=556432990744569) |
+| Veterinária Natalia Razal | 537690169427360 | "Veterinária domiciliar" — descreve o serviço, mas não dá motivo nenhum para clicar | 02/03/2026 | A | [link](https://www.facebook.com/ads/library/?id=805703958546455) |
+| lerveticarai | 1010139942171723 | **4 anúncios: 3 com título "instagram.com"** e 1 com o nome da página + 5 campos vazios | 12/05/2026 | B | [link](https://www.facebook.com/ads/library/?id=759798210460466) |
+| Medvet.eugeniagranada | 347140411825394 | "Descubra como posso te ajudar!" — genérico, mas é o menos pior do lote | 16/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1807558910241484) |
+
+### Dois recordes quebrados nesta varredura
+
+**1. O anúncio mais velho de toda a lista.** Bicho D+ está com a mesma peça no ar desde
+**01/06/2024 — 27 meses**. O recorde anterior era a Clínica Veterinária S.O.S Castração, desde
+22/11/2024. Dois anos e três meses pagando pelo mesmo anúncio cujo título é "Converse conosco" sete
+vezes seguidas. É o exemplo mais extremo de conta abandonada que a lista tem.
+
+**2. O defeito do domínio no título explodiu.** Nesta única varredura de 12 anúncios apareceram
+**5 ocorrências**: 3 "instagram.com" na lerveticarai, 1 "instagram.com" na Dra. Mabel Vaz e 1
+"api.whatsapp.com" na Flip Dog Care. São **42% dos anúncios do nicho**.
+
+Somando tudo o que já foi varrido, o padrão tem agora **9 ocorrências em 5 nichos diferentes**:
+api.whatsapp.com (contabilidade, veterinária), instagram.com (tatuagem, veterinária ×4),
+sndflw.com (concursos), fb.me (intercâmbio) — mais as duas variações com rótulo de botão.
+
+**Conclusão prática que isso fecha**: o defeito não é de um ramo, é de um JEITO de anunciar —
+impulsionar pelo celular sem abrir o campo de título. Ele atravessa todos os nichos e é o critério
+de busca mais eficiente que a lista tem, porque identifica de uma vez alguém que (a) gasta dinheiro,
+(b) não tem quem cuide da conta e (c) consegue enxergar o próprio erro sem explicação nenhuma.
+
+**Sugestão ao Pablo**: a próxima leva de abordagem pode ser montada só por esse critério,
+atravessando os nichos, em vez de ir bairro por bairro. Já há 9 nomes prontos na lista.
+
+Combos varridos até aqui: + veterinária Niterói.
