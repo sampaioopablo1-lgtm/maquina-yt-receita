@@ -32,23 +32,21 @@ O que aprender vai para `APRENDIZADOS-CRM.md`, para a execução seguinte não
 refazer a mesma investigação. É o que evita a rotina descobrir a mesma coisa
 vinte e quatro vezes por dia.
 
-## Um passo que só você pode dar
+## Conector: resolvido
 
-A rotina foi criada (`WeSales — construção contínua do CRM`, de hora em hora,
-minuto :02), mas nasceu **sem o conector `GHL CRM` anexado**. A API de criação
-de rotinas desta organização não aceita anexar conector, e o aviso foi
-explícito: as sessões que ela disparar rodam sem ferramenta de CRM.
+A rotina nasceu sem o conector anexado — a API de criação desta organização não
+aceitava anexar. **Resolvido:** ela agora carrega `GHL-CRM`
+(`services.leadconnectorhq.com/mcp`), além de Cloudflare e Composio. As quatro
+frentes funcionam.
 
-Na prática isso corta as frentes A e B — ela consegue melhorar especificação e
-fechar lacunas, mas não lê nem escreve no CRM.
+## Um detalhe para conferir na primeira rodada
 
-**Como resolver:** claude.ai → **Agendados** → abrir
-`WeSales — construção contínua do CRM` → habilitar o conector **GHL CRM** para
-ela. Um clique, e as quatro frentes passam a funcionar.
-
-Enquanto isso não acontece, a rotina não quebra nem mente: o prompt manda
-registrar a ausência em `APRENDIZADOS-CRM.md` e seguir para uma frente que não
-dependa do CRM.
+A configuração de sessão da rotina declara como destino os branches
+`claude/keen-knuth` (neste repositório) e `claude/bold-cannon` (em
+`proximo-cliente`), que não são o branch do projeto. O prompt manda commitar em
+`claude/amazing-johnson-mclksg`, e é isso que deve prevalecer — mas se os
+commits da primeira execução não aparecerem no PR #93, é aqui que eles foram
+parar.
 
 ## Limites
 
