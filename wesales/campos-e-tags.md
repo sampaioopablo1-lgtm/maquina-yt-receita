@@ -25,7 +25,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-11 | Conexões telefone | NUMERICAL | — | Workflow (R-01) |
 | C-12 | Conexões WhatsApp | NUMERICAL | — | Workflow (R-01) |
 | C-13 | Sinal recebido | SINGLE_OPTIONS | Clique em link, Resposta de mensagem | Workflow (F-01) |
-| C-14 | Data do sinal | DATE | — | Workflow (F-01) |
+| C-14 | Data e hora do sinal | TEXT | `AAAA-MM-DD HH:MM` | Workflow (F-01) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -37,9 +37,11 @@ C-13 e C-14 alimentam a interceptação de sinal (`build-wesales.md`, seção 2.
 F-01 do roadmap): registram que tipo de sinal furou a fila e quando, para o
 SDR ver na nota do contato e para uma futura auditoria (bloco F-05) conseguir
 provar que o sinal foi atendido a tempo. **Atenção de tipo:** como o campo
-`Data do retorno` (S-01), `DATE` no GHL pode não gravar a hora — confirme na
-tela ao criar; se só guardar a data, `Data do sinal` ainda serve para saber
-"hoje/não hoje", só não para o "às 14h10" do `Pronto quando`.
+**Medido em 18/09/2026:** campo `DATE` do GHL guarda **só a data** — a hora é
+descartada até quando se envia ISO completo pela API, e não existe tipo
+DateTime para campo de contato. Por isso `Data e hora do sinal` (C-14) é
+`TEXT` no formato `AAAA-MM-DD HH:MM`, e `Data do retorno` (S-01) virou par:
+`DATE` para filtrar e vencer tarefa, `TEXT` para a hora combinada.
 
 ### Qualificação — BANT + diagnóstico (18)
 
@@ -75,7 +77,7 @@ Observações de tipo:
 
 | # | Nome | Tipo | Por que |
 |---|---|---|---|
-| S-01 | Data do retorno | DATE | Sem ele, a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento. É a lacuna L-01 |
+| S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) | Sem ele a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento (lacuna L-01). São dois campos porque `DATE` no GHL descarta a hora |
 
 ## Etapa 3 — Tags (11)
 

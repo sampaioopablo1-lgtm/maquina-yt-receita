@@ -41,8 +41,10 @@ campos na tela (a subconta segue com 0 campos e 0 contatos, confirmado por
 ### R-02 · Speed-to-lead
 **Por quê:** é a métrica nº 1 de inbound na literatura de vendas, e a que mais
 move conversão. Ninguém mede porque ninguém guarda o par de horários.
-**Como:** campo `Data de entrada` (preenchido na criação) e
-`Data da 1ª tentativa`. A diferença é a métrica.
+**Como:** carimbos `Entrada em` e `1ª tentativa em`, ambos **`TEXT` no formato
+`AAAA-MM-DD HH:MM`** — e não `DATE`. Medido em 18/09/2026: campo `DATE` do GHL
+descarta a hora, e speed-to-lead medido em minutos entre duas datas sem hora dá
+zero no mesmo dia. A diferença entre os dois carimbos é a métrica.
 **Pronto quando:** existe lista "leads com mais de 1h sem primeira tentativa".
 
 ### R-03 · Funil do SDR por período

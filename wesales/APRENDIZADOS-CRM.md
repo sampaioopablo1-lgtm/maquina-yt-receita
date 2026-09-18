@@ -38,7 +38,19 @@ limitação do conector.
   `Wait`), com filtro por canal (SMS, WhatsApp, e-mail) e por frase. Serve
   para reagir a uma resposta **sem** depender do fluxo em que ela chegou —
   é o que fecha a lacuna F-01 do roadmap sem inventar nada fora do GHL.
-- Não confirmei se um campo `DATE` do GHL grava hora além da data (o mesmo
-  dado que falta desde a lacuna L-01/S-01, `Data do retorno`). Documentado
-  como ponto de atenção em `campos-e-tags.md` (C-14) em vez de assumir —
-  quem criar o campo na tela confirma e atualiza esta nota.
+- **RESPONDIDO em 18/09/2026:** campo `DATE` do GHL guarda **só a data**. A
+  hora é descartada mesmo quando se envia um ISO completo pela API, e não
+  existe tipo DateTime para campo de contato — é pedido aberto na base de
+  ideias da HighLevel há tempo. Não adianta tentar por outro caminho de
+  escrita: o corte é no tipo do campo.
+
+  **Consequência, e ela é grande:** três itens dependiam disso sem saber.
+  `Data do sinal` (C-14) perde a hora do clique; `Data do retorno` (S-01)
+  perde a hora do retorno combinado; e o **R-02 (speed-to-lead) não fecha**
+  com dois campos `DATE`, porque a métrica é em minutos e a diferença entre
+  duas datas sem hora é zero no mesmo dia.
+
+  **Saída:** guardar carimbo de tempo em campo `TEXT`, no formato
+  `AAAA-MM-DD HH:MM`, e manter o `DATE` só quando a granularidade de dia
+  bastar (filtro de lista, vencimento de tarefa). Onde a hora importa, TEXT.
+  A ação premium `Date/Time Formatter` do workflow monta a string.
