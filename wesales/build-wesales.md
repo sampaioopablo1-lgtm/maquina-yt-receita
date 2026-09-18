@@ -26,14 +26,16 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 7. Workflow "Pós-agendamento" (seção 5)
 8. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
    no passo 1
-9. Workflow "Qualificação por IA no WhatsApp" (seção 6)
-10. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
+9. Workflow "Registro de Comparecimento" (seção 5.2) — usa o mesmo
+   calendário do passo 3, gatilho por status de agendamento
+10. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+11. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
     porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3
-11. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-12. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
+12. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+13. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra
-13. Listas inteligentes (seção 8)
-14. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+14. Listas inteligentes (seção 8)
+15. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
 
 ---
 
@@ -434,8 +436,9 @@ ruim (R-01, feito em 18/09/2026).
 | 4 | Add Contact Tag `conectado-hoje` |
 | 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 6 | Mover oportunidade → `Conectado` (dispara o Mestre de saída, que faz a limpeza) |
-| 7 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · SDR |
-| 8 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
+| 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
+| 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · SDR |
+| 9 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
 
 #### Ramo `Caixa postal` e ramo `Não atendeu` (idênticos)
 | # | Ação |
@@ -503,21 +506,22 @@ ficaria muda.
 | # | Ação | Configuração |
 |---|---|---|
 | 1 | Mover oportunidade → `Reunião agendada` | Aciona o Mestre de saída |
-| 2 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp` |
-| 3 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
-| 4 | Update Contact Field | `Prioridade` = 5 |
-| 5 | Add Note | Resumo da qualificação (modelo abaixo) |
-| 6 | Send WhatsApp | Confirmação imediata ao lead |
-| 7 | Wait até 24h antes | → Send WhatsApp lembrete |
-| 8 | Wait até 3h antes | → Send WhatsApp lembrete |
-| 9 | Wait até 30min antes | → Send WhatsApp lembrete curto |
-| 10 | Assign to User | Closer dono do horário |
-| 11 | Internal Notification | E-mail + SMS para o closer |
+| 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
+| 3 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp` |
+| 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
+| 5 | Update Contact Field | `Prioridade` = 5 |
+| 6 | Add Note | Resumo da qualificação (modelo abaixo) |
+| 7 | Send WhatsApp | Confirmação imediata ao lead |
+| 8 | Wait até 24h antes | → Send WhatsApp lembrete |
+| 9 | Wait até 3h antes | → Send WhatsApp lembrete |
+| 10 | Wait até 30min antes | → Send WhatsApp lembrete curto |
+| 11 | Assign to User | Closer dono do horário |
+| 12 | Internal Notification | E-mail + SMS para o closer |
 
-Nos nós 7–9 use Wait → "relativo ao início do compromisso" (Appointment Start
+Nos nós 8–10 use Wait → "relativo ao início do compromisso" (Appointment Start
 Date), não delay fixo: reagendamento move os lembretes junto.
 
-**Modelo da nota (nó 5)**
+**Modelo da nota (nó 6)**
 ```
 REUNIÃO AGENDADA · nota {{contact.nota_de_qualificacao}}/100
 Agendado por: {{user.name}} · Para: {{appointment.start_time}}
@@ -541,7 +545,7 @@ Preenchido por: {{contact.qualificacao_preenchida_por}}
 Histórico: {{contact.total_de_ligacoes}} ligações, {{contact.total_de_conexoes}} conexões, atendeu na T{{contact.tentativa_no}}
 ```
 
-**Mensagem de confirmação (nó 6)**
+**Mensagem de confirmação (nó 7)**
 > {{contact.first_name}}, reunião confirmada para
 > {{appointment.start_time}}. Vou te mandar o link aqui mesmo 30 min antes. Se
 > precisar remarcar, responde esta mensagem.
@@ -602,6 +606,45 @@ tratado como nutrição direto, sem olhar o motivo — é o mesmo critério do r
 **Pronto quando (herdado do F-03 no roadmap):** dá para dizer "nota ≥ 70
 acerta X%" sem planilha (lista 8.7), e o gestor sabe de uma nota mal calibrada
 no dia da reunião, não no fechamento do mês.
+
+---
+
+## 5.2 Workflow "Registro de Comparecimento" — R-03
+
+A seção 5 marca `Data agendado` no instante em que o SDR reserva o horário.
+Falta o terceiro marco do funil: a reunião **aconteceu**. Sem ele, "compareceu"
+vira algo que só existe na cabeça do closer, e o funil do roadmap (R-03:
+entraram / conectaram / agendaram / compareceram) perde a última perna.
+
+### Gatilho
+**Appointment Status** — Calendário: `Reunião com closer` · Status: `Showed`
+
+Workflow curto e separado do Pós-agendamento de propósito: são dois eventos
+do mesmo agendamento, em momentos diferentes (reservar vs. comparecer), e
+misturar os dois num workflow só faria o segundo gatilho reabrir todos os nós
+de lembrete da seção 5, que já rodaram.
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Reagendamento gera um novo `Showed` no futuro |
+| Janela de envio | Sem janela | É registro interno, não manda mensagem ao lead |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | If/Else | `Data compareceu` está vazio → segue (evita sobrescrever se o status oscilar) |
+| 2 | Update Contact Field | `Data compareceu` = `{{right_now}}` |
+| 3 | Add Note | `Compareceu à reunião · {{right_now}}` |
+
+Não mexo em etapa aqui: comparecer não move a oportunidade (quem decide o
+destino é o veredito do closer, seção 5.1). Este workflow só marca o carimbo
+que a seção 8 lê.
+
+**Pronto quando (compõe o R-03 no roadmap):** existe carimbo de "compareceu"
+tão confiável quanto os de "conectou" e "agendou" — os três lidos pelas
+listas 8.10 a 8.12.
 
 ---
 
@@ -835,13 +878,59 @@ espera sem `1ª tentativa em` preenchido — a lista não faz conta nenhuma, só
 lê a marca que o relógio já fez. É o "Pronto quando" do R-02: dá para apontar
 o lead que já passou de 1h sem SDR ligar, sem abrir planilha.
 
+### 8.9 `Funil — Entraram no Mês` — R-03
+| Item | Configuração |
+|---|---|
+| Filtros | Pipeline = `Pré-vendas` **E** `Data de criação` da oportunidade dentro do mês atual (filtro nativo "Este mês", sem campo novo) |
+| Colunas | Nome · Empresa · Etapa atual · `Data de criação` |
+| Ordenação | `Data de criação` desc |
+
+Se a sua versão do construtor de lista de contatos não expuser filtro por
+data de criação da **oportunidade** (só por data de criação do contato), use
+a Lista Inteligente de Oportunidades dentro do próprio pipeline `Pré-vendas`
+— ali o filtro `Data de criação` é nativo. Por que não um campo novo: data de
+criação da oportunidade não muda quando o lead avança de etapa, então não
+tem o defeito do `Last Stage Change Date` (que só reflete a etapa atual) —
+pesquisado antes de desenhar C-20/C-21/C-22 abaixo.
+
+### 8.10 `Funil — Conectaram no Mês` — R-03
+| Item | Configuração |
+|---|---|
+| Filtros | `Data conectado` dentro do mês atual (filtro relativo nativo de campo `DATE`) |
+| Colunas | Nome · Empresa · `Data conectado` · `Tentativa nº` |
+| Ordenação | `Data conectado` desc |
+
+### 8.11 `Funil — Agendaram no Mês` — R-03
+| Item | Configuração |
+|---|---|
+| Filtros | `Data agendado` dentro do mês atual |
+| Colunas | Nome · Empresa · `Data agendado` · `Nota de qualificação` |
+| Ordenação | `Data agendado` desc |
+
+### 8.12 `Funil — Compareceram no Mês` — R-03
+| Item | Configuração |
+|---|---|
+| Filtros | `Data compareceu` dentro do mês atual |
+| Colunas | Nome · Empresa · `Data compareceu` · `Reunião foi qualificada` |
+| Ordenação | `Data compareceu` desc |
+
+As quatro listas (8.9 a 8.12) respondem "a taxa de conexão do mês" sem
+contar na mão: cada uma mostra, no topo, o total de contatos que bateram
+naquele filtro — dividir o total de 8.10 pelo de 8.9 é a taxa de conexão do
+mês, sem abrir planilha nem somar linha por linha. É o "Pronto quando" do
+R-03. Cada campo `DATE` novo (C-20 a C-22) grava o marco na hora em que ele
+acontece pela primeira vez e não muda depois, então a oportunidade continua
+contando no mês em que **cruzou** aquele marco mesmo depois de avançar para
+a etapa seguinte — diferente de filtrar pela etapa atual, que subcontaria
+quem já foi para `Reunião agendada` ou saiu do pipeline.
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
 
 ### 9.1 `Nota de qualificação` (0 a 100)
 
-Montada com nós **Math Operation** em série no Pós-agendamento (seção 5, nó 3)
+Montada com nós **Math Operation** em série no Pós-agendamento (seção 5, nó 4)
 e na saída da IA (seção 6). Comece zerando o campo e some bloco a bloco.
 
 **Bloco A — Fit (30 pontos)**
@@ -946,6 +1035,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 22 | Rotina de manutenção | Rodar `rotina-limpar-tarefas.md`: tarefas fora do prefixo são **concluídas**, nunca excluídas, e a tag sai | |
 | 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
 | 24 | Loop do closer | No Teste Atendeu já em `Reunião agendada`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: etapa vira `Descartado`, `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
+| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `Conectado`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -956,10 +1046,10 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 
 | Item | MCP | Manual |
 |---|---|---|
-| Campos personalizados | Cria | Opções de lista podem precisar de ajuste na tela |
+| Campos personalizados | Não | Cria na tela; lista com tipo e opções em `campos-e-tags.md` |
 | Tags | Cria | — |
 | Pipeline e etapas | Não | Seção 1 |
-| Workflows | Não | Seções 2, 2.9, 2.11, 3 a 6, 5.1 |
+| Workflows | Não | Seções 2, 2.9, 2.11, 3 a 6, 5.1, 5.2 |
 | Calendário | Lê | Cria e configura: seção 7.1 |
 | Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
 | Listas inteligentes | Não | Seção 8 |

@@ -69,3 +69,23 @@ limitação do conector.
   a data — zero aritmética, funciona com campo `TEXT`. É o desenho do
   `Alerta de Speed-to-lead` (`build-wesales.md`, seção 2.11): o relógio mora
   no workflow, a lista só lê a marca.
+
+- **Pesquisado ao fechar o R-03 (funil por período), 18/09/2026:** o GHL tem
+  filtro nativo `Last Stage Change Date` em oportunidades, com opção relativa
+  "This Month" — parece resolver "quantos conectaram este mês" sem campo
+  novo. **Não usar para funil histórico:** ele só reflete a **etapa atual**.
+  Assim que a oportunidade avança (ex.: de `Conectado` para `Reunião
+  agendada`), o dado de quando ela passou pela etapa anterior desaparece do
+  filtro — o funil do mês subcontaria todo mundo que já avançou. Carimbo
+  próprio por marco (campo `DATE`, um por evento) não tem esse defeito: grava
+  uma vez e não muda com o avanço de etapa. Confirmado também: filtro
+  relativo "neste mês"/"in month" já existe nativamente para campo `DATE`
+  (não só para os campos padrão de data), então C-20/C-21/C-22 (`Data
+  conectado`/`Data agendado`/`Data compareceu`) não precisam do truque de
+  tag-alarme do R-02 — `DATE` filtra por mês direto, o truque de tag só era
+  necessário porque C-14/C-18/C-19 são `TEXT` (por precisarem da hora, que
+  `DATE` descarta). Regra prática: granularidade de **dia** e filtro
+  relativo → `DATE` direto; granularidade de **minuto** → `TEXT` + tag.
+  Para "quantos entraram este mês", nem carimbo novo: `Data de criação` da
+  oportunidade já é nativa e imutável (não muda com o avanço de etapa, pelo
+  mesmo motivo que `Last Stage Change Date` muda).

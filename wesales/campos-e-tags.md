@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (37 + 1 sugerido)
+## Etapa 2 — Campos personalizados (40 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -36,6 +36,9 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-17 | Data do veredito do closer | DATE | — | Workflow (F-03) |
 | C-18 | Entrada em | TEXT | `AAAA-MM-DD HH:MM` | Workflow (R-02) |
 | C-19 | 1ª tentativa em | TEXT | `AAAA-MM-DD HH:MM` | Workflow (R-02) |
+| C-20 | Data conectado | DATE | — | Workflow (R-03) |
+| C-21 | Data agendado | DATE | — | Workflow (R-03) |
+| C-22 | Data compareceu | DATE | — | Workflow (R-03) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -67,6 +70,22 @@ roadmap): `Entrada em` grava quando o lead entra em `Em cadência` (nó 0.6 da
 Cadência 12x30), `1ª tentativa em` grava quando a T1 dispara de verdade (nó
 5c, só na primeira tentativa). Mesmo motivo de C-14: `TEXT` porque a métrica
 é em minutos e `DATE` descarta a hora.
+
+C-20 a C-22 fecham o funil por marco (`build-wesales.md`, seções 4, 5 e 5.2,
+R-03 do roadmap): cada campo grava a data em que a oportunidade cruzou aquele
+marco pela primeira vez — `Data conectado` no Pós-ligação, `Data agendado` no
+Pós-agendamento, `Data compareceu` no comparecimento confirmado pelo
+calendário. Pesquisado antes de desenhar: o GHL tem filtro nativo `Last Stage
+Change Date`, mas ele só reflete a **etapa atual** — assim que o lead avança
+para a etapa seguinte, o dado de quando ele passou pela etapa anterior se
+perde, e o funil do mês subconta quem já avançou. Um carimbo próprio por
+marco sobrevive ao avanço. `DATE` basta aqui (diferente de C-14/C-18/C-19):
+a métrica é contagem por mês, não velocidade em minutos, e o filtro relativo
+"neste mês" já existe nativamente para campo `DATE`. O quarto marco do
+funil, "entraram", não ganha campo novo: usa o filtro nativo `Data de
+criação` da oportunidade, que não muda quando o lead avança — o mesmo
+problema do `Last Stage Change Date` não existe aqui porque criação é
+imutável.
 
 ### Qualificação — BANT + diagnóstico
 

@@ -60,12 +60,28 @@ execução via `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`: segue em 0 campos, 0 contatos, só o
 `FUNIL DE VENDAS` pré-existente — nada mudou desde a auditoria.
 
-### R-03 · Funil do SDR por período
+### R-03 · Funil do SDR por período — **FEITO em 18/09/2026**
 **Por quê:** entraram / conectaram / agendaram / compareceram é o funil que o
 gestor olha. Hoje só existe o estado atual, não o fluxo.
 **Como:** campos de data por marco (`Data conectado`, `Data agendado`,
 `Data compareceu`) + listas filtradas por período.
 **Pronto quando:** dá para dizer a taxa de conexão do mês sem contar na mão.
+
+**Resumo:** campos C-20 a C-22 especificados em `campos-e-tags.md`; nó novo
+no ramo `Atendeu` do Pós-ligação (seção 4) e no Pós-agendamento (seção 5)
+grava `Data conectado`/`Data agendado`; workflow novo `Registro de
+Comparecimento` (seção 5.2) grava `Data compareceu` a partir do status
+`Showed` do calendário. Pesquisado antes de desenhar: o filtro nativo do GHL
+`Last Stage Change Date` só reflete a etapa atual e subcontaria quem já
+avançou — carimbo próprio por marco não tem esse defeito. O quarto marco,
+"entraram" (lista 8.9), não ganhou campo novo: usa o `Data de criação`
+nativo da oportunidade, que também não muda com o avanço de etapa. As
+quatro listas (8.9 a 8.12) ficam em `build-wesales.md`, seção 8. Falta só a
+criação manual dos 3 campos na tela — campo personalizado não sai por API;
+subconta reconfirmada nesta execução via
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
+pré-existente.
 
 ---
 
