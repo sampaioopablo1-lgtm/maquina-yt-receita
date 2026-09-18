@@ -847,7 +847,9 @@ Configurações do formulário:
   preenche ouvindo o lead e não pode perder tempo navegando.
 
 O SDR abre esse link, preenche enquanto conversa, escolhe o horário e envia. O
-envio cria o agendamento e dispara a seção 5.
+envio cria o agendamento e dispara a seção 5. O que o SDR fala enquanto
+preenche — abertura, perguntas na ordem dos campos deste formulário, ponte
+para o agendamento e objeções — está em `script-de-ligacao.md` (R-06).
 
 ---
 

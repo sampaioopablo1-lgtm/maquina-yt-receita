@@ -132,12 +132,26 @@ Subconta reconfirmada nesta execução via `locations_get-custom-fields`/
 contatos, só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a
 auditoria.
 
-### R-06 · Script de ligação e playbook de objeções
+### R-06 · Script de ligação e playbook de objeções — **FEITO em 18/09/2026**
 **Por quê:** o SDR liga 100 vezes por dia. Sem script, cada ligação é
 improviso, e o que funciona não vira repertório do time.
 **Como:** documento com abertura, pergunta de diagnóstico, ponte para o
 agendamento e as 8 objeções mais comuns com respostas.
 **Pronto quando:** um SDR novo liga no segundo dia.
+
+**Resumo:** escrito em `script-de-ligacao.md`, novo — o par falado de
+`biblioteca-mensagens.md`. Pesquisado antes de escrever: em Reev, Meetime,
+Outreach e Salesloft o script da ligação e o formulário de qualificação são
+dois objetos separados, preenchido o segundo de memória depois de desligar.
+Aqui as perguntas de diagnóstico seguem a mesma ordem e agrupamento dos
+blocos de pontuação da seção 9.1 do `build-wesales.md` (Fit → Mídia → BANT),
+então o SDR preenche a régua enquanto fala, não depois. Cobre abertura,
+recado de caixa postal, 10 perguntas mapeadas aos campos `Q-04` a `Q-17`
+(`campos-e-tags.md`), ponte para o agendamento e as 8 objeções, e estende ao
+SDR humano a mesma regra de ouro que já valia só para o bot de WhatsApp
+(`build-wesales.md`, seção 6): nunca prometer preço, desconto ou garantia.
+Item de conteúdo puro — nenhum campo, tag ou nó de workflow novo; não
+depende do conector nem de `APROVADO.md`.
 
 ---
 
@@ -305,6 +319,10 @@ não consegue inflar o número desligando rápido.
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
 hora investida. Só então as cadências vizinhas e a operação com mais gente.
+
+Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. A ordem
+normal segue para o bloco 3: R-07 (cadência inbound) é o próximo item aberto
+que não depende de volume nem de ressalva do bloco 6.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
