@@ -1,0 +1,705 @@
+# build-wesales.md — o que só dá para montar na tela
+
+Especificação nó a nó do que o MCP **não** cria: pipeline, workflows,
+calendário, formulário e listas inteligentes. Campos e tags saem por API
+(Etapas 2 e 3), então aqui eles são pré-requisito, não tarefa.
+
+Convenções deste documento:
+- `Campo` = campo personalizado de contato criado na Etapa 2.
+- `tag` = tag criada na Etapa 3.
+- Prefixos de tarefa: `[CADENCIA]`, `[CONECTADO]`, `[RETORNO]`. A rotina de
+  manutenção depende deles; não invente um quarto prefixo sem atualizar
+  `rotina-limpar-tarefas.md`.
+- Fuso: o da subconta (confirme que é `America/Sao_Paulo`).
+
+## Ordem de montagem
+
+Monte nesta ordem, senão os nós não encontram o que referenciar.
+
+1. Campos e tags (Etapas 2 e 3, por API)
+2. Pipeline "Pré-vendas" (seção 1)
+3. Calendário do closer + formulário (seção 7)
+4. Workflow "Mestre de saída" (seção 3)
+5. Workflow "Pós-ligação" (seção 4)
+6. Workflow "Pós-agendamento" (seção 5)
+7. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+8. Workflow "Cadência 12x30" (seção 2) — por último, porque chama os outros
+9. Listas inteligentes (seção 8)
+10. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+
+---
+
+## 1. Pipeline "Pré-vendas"
+
+Oportunidades → Configurações → Pipelines → Adicionar pipeline.
+
+| Ordem | Etapa | Significado operacional | Prefixo de tarefa válido |
+|---|---|---|---|
+| 1 | Novo lead | Entrou, ainda não foi para a cadência | — |
+| 2 | Em cadência | Nas 12 tentativas | `[CADENCIA]` |
+| 3 | Conectado | Atendeu, conversa em andamento, sem reunião marcada | `[CONECTADO]` |
+| 4 | Retorno agendado | Pediu para ligar depois | `[RETORNO]` |
+| 5 | Reunião agendada | Agendou com o closer | — |
+| 6 | Nutrição | Sem fit agora, volta em 90 dias | — |
+| 7 | Descartado | Número errado, não ligar, sem fit definitivo | — |
+
+Configurações do pipeline:
+- Visibilidade: apenas SDR + closer + gestor.
+- "Nome da oportunidade" = nome do contato (padrão).
+- Deixe a etapa **Novo lead** como entrada de qualquer importação/formulário.
+
+Por que 7 etapas e não 5: "Em cadência" precisa ser uma etapa própria porque
+**é ela que o portão de cada tentativa consulta**. Se o lead sai dela, a
+cadência para sozinha. Esse é o mecanismo de segurança da máquina inteira.
+
+---
+
+## 2. Workflow "Cadência 12x30"
+
+### 2.1 Gatilho
+
+**Opportunity Stage Changed** (Etapa da oportunidade alterada)
+- Pipeline: `Pré-vendas`
+- Para a etapa: `Em cadência`
+
+Não use "Contact Tag Added" como gatilho: a tag é consequência da cadência,
+não causa dela. E não use "Contact Created", senão o lead entra antes de ter
+telefone validado.
+
+### 2.2 Configurações do workflow
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Janela de envio (Send Window) | 08:30 às 18:30 | Nada dispara de madrugada |
+| Dias | Segunda a sexta | Tentativa que cai no sábado escorrega para segunda |
+| Fuso | Da subconta | Não use fuso do contato: o SDR trabalha no fuso dele |
+| Stop on Response | **Ligado** | "Respondeu em qualquer canal -> sai da cadência" |
+| Allow Re-entry | **Desligado** (decisão D-06) | Com reentrada ligada, o lead que volta para "Em cadência" ganha tentativas duplicadas |
+| Contatos em múltiplos workflows | Permitido | O lead fica também no de IA |
+
+### 2.3 Nó 0 — inicialização (uma vez, antes da T1)
+
+| Nó | Ação | Configuração |
+|---|---|---|
+| 0.1 | Update Contact Field | `Tentativa nº` = 0 |
+| 0.2 | Update Contact Field | `WA não atendidas seguidas` = 0 |
+| 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
+| 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
+| 0.5 | Update Contact Field | `Prioridade` = 3 (padrão; a seção 9 recalcula) |
+
+### 2.4 O bloco padrão de uma tentativa (9 nós)
+
+Este é o molde. Repita 12 vezes trocando dia, horário, canal e número. `{n}` é
+o número da tentativa.
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | **Aguardar dia** | Wait → Time Delay | Dias corridos até o dia da tentativa (delta em relação à tentativa anterior — tabela 2.5) |
+| 2 | **Aguardar horário** | Wait → Until specific time | O horário da tabela 2.5. A janela do 2.2 empurra para o próximo dia útil se cair fora |
+| 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `Em cadência` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
+| 3b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Saída limpa. Sem isso, sobra tag e tarefa órfã |
+| 4 | **Seletor de canal** | If/Else (só em tentativa de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Ramo senão: vira telefone (decisão D-04 + regra das 2 seguidas) |
+| 5 | **Limpar resultado** | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
+| 6 | **Adicionar tag de fila** | Add Contact Tag | `fila-tel` (telefone) ou `fila-wa` (WhatsApp) |
+| 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: SDR (round-robin se houver mais de um) |
+| 8 | **Aguardar resultado** | Wait → Condition, com tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: até **18:30 do mesmo dia**. Se a sua versão não tiver Wait por condição, use Wait → Until 18:30 e um If/Else checando o campo — mesmo efeito |
+| 9 | **Remover tag de fila** | Remove Contact Tag | `fila-tel` e `fila-wa` (remova as duas, sempre — barato e evita tag presa) |
+| 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa |
+| 10b | Ramo do tempo limite | Update Contact Field | `Resultado da tentativa` = `Não atendeu` · Add Contact Tag `limpar-tarefas` (a tarefa do dia não foi feita; a rotina horária fecha) |
+
+Detalhe que costuma passar batido: o nó 5 **limpa** `Resultado da tentativa`
+antes de criar a tarefa. Sem isso, o nó 8 vê o resultado da tentativa anterior
+e passa direto.
+
+O contador `WA não atendidas seguidas` **não** é mexido aqui — quem soma e
+zera é o Pós-ligação (seção 4), que é o único lugar que sabe qual foi o canal
+e o resultado. Um contador com dois donos sempre diverge.
+
+### 2.5 As 12 tentativas
+
+Tentativa = ação do SDR (decisão D-01). As mensagens automáticas são nós de
+envio no meio do fluxo e não contam como tentativa.
+
+| T | Dia | Horário | Canal | Delta do Wait (nó 1) | Tag | Título da tarefa |
+|---|---|---|---|---|---|---|
+| M1 | D1 | 08:45 | Mensagem (automática) | — | — | — |
+| 1 | D1 | 10:30 | Telefone | 0 d | `fila-tel` | `[CADENCIA] T1 · Ligar (telefone)` |
+| 2 | D1 | 16:10 | Ligação WhatsApp | 0 d | `fila-wa` | `[CADENCIA] T2 · Ligar (WhatsApp)` |
+| 3 | D2 | 09:20 | Telefone | 1 d | `fila-tel` | `[CADENCIA] T3 · Ligar (telefone)` |
+| 4 | D2 | 17:20 | Ligação WhatsApp | 0 d | `fila-wa` | `[CADENCIA] T4 · Ligar (WhatsApp)` |
+| 5 | D4 | 11:00 | Ligação WhatsApp | 2 d | `fila-wa` | `[CADENCIA] T5 · Ligar (WhatsApp)` |
+| 6 | D7 | 09:00 | Telefone | 3 d | `fila-tel` | `[CADENCIA] T6 · Ligar (telefone)` |
+| 7 | D7 | 15:30 | Ligação WhatsApp | 0 d | `fila-wa` | `[CADENCIA] T7 · Ligar (WhatsApp)` |
+| 8 | D10 | 11:40 | Telefone | 3 d | `fila-tel` | `[CADENCIA] T8 · Ligar (telefone)` |
+| M2 | D10 | 13:30 | Mensagem (automática) | — | — | — |
+| 9 | D14 | 16:40 | Ligação WhatsApp | 4 d | `fila-wa` | `[CADENCIA] T9 · Ligar (WhatsApp)` |
+| 10 | D20 | 10:15 | Telefone | 6 d | `fila-tel` | `[CADENCIA] T10 · Ligar (telefone)` |
+| 11 | D30 | 09:40 | Telefone | 10 d | `fila-tel` | `[CADENCIA] T11 · Ligar (telefone)` |
+| 12 | D30 | 17:00 | Ligação WhatsApp | 0 d | `fila-wa` | `[CADENCIA] T12 · Ligar (WhatsApp)` |
+| M3 | D30 | 17:45 | Mensagem de encerramento | — | — | — |
+
+Confere com o briefing: D1 tel+msg+WA · D2 tel+WA · D4 WA · D7 tel+WA ·
+D10 tel+msg · D14 WA · D20 tel · D30 tel+WA+msg.
+
+Os dias são corridos e a janela de dias úteis empurra o que cai em fim de
+semana. Isso significa que "D30" na prática cai por volta do dia 41 do
+calendário. Se você quer 30 dias corridos exatos, desligue "dias úteis" para
+as mensagens e mantenha para as ligações.
+
+### 2.6 As 3 mensagens automáticas
+
+Nós de envio (Send WhatsApp; SMS como fallback se o provedor não estiver
+ativo), posicionados no fluxo conforme a tabela 2.5. Cada um precedido do
+mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
+condição extra `nao-perturbe` ausente.
+
+**M1 — D1 08:45, abertura com pedido de permissão**
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
+> Vi que vocês trabalham com {{contact.segmento}} e queria te fazer 2 perguntas
+> rápidas sobre captação de clientes. Posso te ligar hoje ou prefere por aqui?
+
+Depois de M1, adicione um nó **Wait → Contact Replied (tempo limite 2h)**. Se
+respondeu, o Stop on Response tira da cadência e o lead cai na seção 6.
+
+**M2 — D10 13:30, reforço**
+> {{contact.first_name}}, tentei falar com você algumas vezes e não quero ser
+> chato. Uma linha só: hoje vocês trazem cliente novo mais por indicação ou por
+> anúncio? Se for indicação, tenho um caso que talvez te interesse.
+
+**M3 — D30 17:45, encerramento**
+> {{contact.first_name}}, vou parar de te procurar por aqui. Se um dia quiser
+> falar sobre captação, me responde esta mensagem que eu retomo de onde paramos.
+> Sucesso!
+
+Depois de M3: Update `Resultado da tentativa` = vazio → Add Contact Tag
+`nutricao-90d` → mover oportunidade para `Nutrição` → fim do workflow. A
+mudança de etapa aciona o Mestre de saída, que limpa o resto.
+
+### 2.7 Entrada na qualificação por IA
+
+Logo após o nó 10 da **tentativa 4** (D2, fim do dia), insira:
+
+| Nó | Ação | Configuração |
+|---|---|---|
+| a | If/Else | `Tentativa nº` ≥ 2 **E** `Resultado da tentativa` ≠ `Atendeu` **E** `Permissão WhatsApp` ≠ `Não` |
+| b | Add to Workflow | `Qualificação por IA no WhatsApp` |
+
+O briefing diz "entra após 2 tentativas sem atendimento". Coloquei no fim do
+D2 (que é a T4) porque aí já houve 4 tentativas reais em 2 dias — o lead teve
+chance de atender antes de a IA entrar. Se preferir literalmente após a T2,
+mova o par de nós para o fim do bloco da T2.
+
+### 2.8 Alternativa que eu recomendo avaliar (Opção B)
+
+O bloco da 2.4 mantém o contato **parado dentro do workflow** esperando o
+resultado (nó 8). Funciona, é o que você pediu, e tem uma fragilidade: se o
+workflow for editado ou republicado, contatos parados em Wait podem ser
+reposicionados, e você perde tentativas no meio.
+
+A alternativa nativa é dividir: a Cadência só **agenda** (tag + tarefa) e
+segue para o próximo Wait sem esperar; quem reage ao resultado é o
+Pós-ligação, que também remove a tag. Fica mais robusto a edições e mais
+difícil de depurar. Sugiro: sobe na 2.4 (mais legível, mais fácil de testar),
+e se você começar a editar a cadência com volume em produção, migra para B.
+
+---
+
+## 3. Workflow "Mestre de saída"
+
+O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
+
+### Gatilho
+**Opportunity Stage Changed** — Pipeline `Pré-vendas`, qualquer etapa de
+destino.
+
+### Configurações
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | **Ligado** (precisa disparar em toda mudança de etapa) |
+| Janela de envio | Sem janela (é limpeza interna, não manda mensagem) |
+| Stop on Response | Desligado |
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | If/Else | Etapa de destino **é** `Em cadência` → **encerra aqui** (não limpa nada). Senão, segue |
+| 2 | Remove from Workflow | `Cadência 12x30` |
+| 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` |
+| 5 | Add Contact Tag | `limpar-tarefas` |
+| 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · tentativa {{contact.tentativa_no}} · resultado {{contact.resultado_da_tentativa}}` |
+
+O nó 1 existe porque o gatilho é "qualquer etapa": sem ele, mover o lead
+*para* a cadência acionaria a limpeza e mataria a cadência no nascimento.
+
+Não removo `conectado-hoje`, `nao-perturbe`, `telefone-invalido`,
+`nutricao-90d`, `cad-inbound` e `cad-outbound`: são estado do lead, não fila.
+
+---
+
+## 4. Workflow "Pós-ligação"
+
+Traduz a classificação do SDR em consequência. É o único lugar que mexe nos
+contadores.
+
+### Gatilho
+**Contact Changed** com filtro `Resultado da tentativa` foi alterado.
+(Se a sua versão não tiver filtro de campo alterado no gatilho: use
+**Contact Tag Added → `resultado-registrado`** e faça o SDR aplicar a tag; ou
+crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
+
+### Configurações
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | **Ligado** (um disparo por tentativa) |
+| Janela de envio | Sem janela |
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | If/Else | `Resultado da tentativa` está vazio → encerra (foi a limpeza do nó 5 da cadência que disparou, não o SDR) |
+| 2 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
+| 3 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
+
+#### Ramo `Atendeu`
+| # | Ação |
+|---|---|
+| 1 | Math: `Total de conexões` + 1 |
+| 2 | Update: `WA não atendidas seguidas` = 0 |
+| 3 | Add Contact Tag `conectado-hoje` |
+| 4 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 5 | Mover oportunidade → `Conectado` (dispara o Mestre de saída, que faz a limpeza) |
+| 6 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · SDR |
+| 7 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
+
+#### Ramo `Caixa postal` e ramo `Não atendeu` (idênticos)
+| # | Ação |
+|---|---|
+| 1 | If/Else: a tentativa foi de WhatsApp? (`fila-wa` presente **ou** a tarefa aberta tem `(WhatsApp)` no título) → Math: `WA não atendidas seguidas` + 1. Senão → Update: `WA não atendidas seguidas` = 0 |
+| 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 3 | Add Contact Tag `limpar-tarefas` |
+| 4 | **Nada de mudança de etapa** — o lead continua em cadência |
+
+O reset no ramo "senão" é o que faz a regra "2 seguidas vira telefone" se
+comportar como *seguidas* e não como *acumuladas no total*.
+
+#### Ramo `Número errado`
+| # | Ação |
+|---|---|
+| 1 | Add Contact Tag `telefone-invalido` |
+| 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 3 | If/Else: o contato tem e-mail ou Instagram? → mover para `Nutrição` + tag `nutricao-90d`. Senão → mover para `Descartado` |
+| 4 | Internal Notification para o gestor: `Telefone inválido: {{contact.name}} — revisar a fonte da lista` |
+
+Número errado não é culpa do lead: se há outro canal, ele vira nutrição em vez
+de lixo.
+
+#### Ramo `Pediu retorno`
+| # | Ação |
+|---|---|
+| 1 | Update: `Prioridade` = 5 |
+| 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 3 | Add Contact Tag `fila-quente` |
+| 4 | Mover oportunidade → `Retorno agendado` |
+| 5 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · SDR |
+
+Sem o campo `Data do retorno` (lacuna L-01) este ramo funciona, mas a tarefa
+vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje.
+
+#### Ramo `Não ligar`
+| # | Ação |
+|---|---|
+| 1 | Add Contact Tag `nao-perturbe` |
+| 2 | **Set Contact DND** = ligado (todos os canais) |
+| 3 | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` |
+| 4 | Remove from Workflow: `Cadência 12x30` e `Qualificação por IA no WhatsApp` |
+| 5 | Mover oportunidade → `Descartado` |
+| 6 | Add Note `Opt-out registrado em {{right_now}}` |
+
+O DND nativo é o que impede qualquer workflow futuro de mandar mensagem. Tag
+sozinha não segura: workflow novo que ninguém lembrou de filtrar volta a
+incomodar o lead. Este é o único nó deste documento que eu trataria como
+não-negociável.
+
+---
+
+## 5. Workflow "Pós-agendamento"
+
+### Gatilho
+**Appointment Status** — Calendário: `Reunião com closer` · Status:
+`Confirmed` (e `Booked`/`New`, se a sua versão listar separado).
+
+**Não use "Customer Booked Appointment"**: ele só dispara quando o próprio lead
+agenda pelo link. No nosso desenho é o SDR que agenda na tela junto com o
+lead, e esse gatilho não dispara em agendamento manual — a operação inteira
+ficaria muda.
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | Mover oportunidade → `Reunião agendada` | Aciona o Mestre de saída |
+| 2 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp` |
+| 3 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
+| 4 | Update Contact Field | `Prioridade` = 5 |
+| 5 | Add Note | Resumo da qualificação (modelo abaixo) |
+| 6 | Send WhatsApp | Confirmação imediata ao lead |
+| 7 | Wait até 24h antes | → Send WhatsApp lembrete |
+| 8 | Wait até 3h antes | → Send WhatsApp lembrete |
+| 9 | Wait até 30min antes | → Send WhatsApp lembrete curto |
+| 10 | Assign to User | Closer dono do horário |
+| 11 | Internal Notification | E-mail + SMS para o closer |
+
+Nos nós 7–9 use Wait → "relativo ao início do compromisso" (Appointment Start
+Date), não delay fixo: reagendamento move os lembretes junto.
+
+**Modelo da nota (nó 5)**
+```
+REUNIÃO AGENDADA · nota {{contact.nota_de_qualificacao}}/100
+Agendado por: {{user.name}} · Para: {{appointment.start_time}}
+
+Empresa: {{contact.company_name}} · Segmento: {{contact.segmento}}
+Site: {{contact.site}} · IG: {{contact.instagram}}
+
+BANT
+Budget: {{contact.budget}} · Decisor: {{contact.decisor}} · Prazo: {{contact.prazo}}
+
+Diagnóstico
+Clientes novos/mês: {{contact.clientes_novos_por_mes}}
+Anúncios: {{contact.investe_em_anuncios}} · Investimento: {{contact.investimento_mensal_em_anuncios}}
+Plataformas: {{contact.plataformas_de_anuncio}}
+Agência: {{contact.ja_teve_agencia}} — {{contact.experiencia_com_agencia}}
+Time: {{contact.tem_time_comercial}} · Atende leads: {{contact.quem_atende_os_leads}}
+CRM: {{contact.usa_crm}} · Canal principal: {{contact.canal_principal_de_venda}}
+
+Dor principal: {{contact.dor_principal}}
+Preenchido por: {{contact.qualificacao_preenchida_por}}
+Histórico: {{contact.total_de_ligacoes}} ligações, {{contact.total_de_conexoes}} conexões, atendeu na T{{contact.tentativa_no}}
+```
+
+**Mensagem de confirmação (nó 6)**
+> {{contact.first_name}}, reunião confirmada para
+> {{appointment.start_time}}. Vou te mandar o link aqui mesmo 30 min antes. Se
+> precisar remarcar, responde esta mensagem.
+
+---
+
+## 6. Workflow "Qualificação por IA no WhatsApp"
+
+### Entrada
+Só por `Add to Workflow` vindo da Cadência (seção 2.7). Sem gatilho próprio —
+assim você nunca tem IA conversando com lead que não passou pelo portão.
+
+### Configurações
+| Configuração | Valor |
+|---|---|
+| Janela de envio | 08:30–20:00, seg–sáb |
+| Stop on Response | **Desligado** (aqui a resposta é o objetivo, não a saída) |
+| Allow Re-entry | Desligado |
+
+### Estrutura
+Duas formas de montar. Recomendo a **A**.
+
+**A — Conversation AI (Bot nativo), modo perguntas + agendamento**
+
+Um nó `Conversation AI` com:
+- Canal: WhatsApp
+- Modo: Query + Appointment Booking
+- Calendário: `Reunião com closer`
+- Mapeamento de campos: cada pergunta grava no campo correspondente
+- Limite: **uma pergunta por mensagem**, máximo 8 perguntas na conversa
+- Ao fim (ou quando o lead demonstrar interesse): oferece o link do calendário
+- Nó seguinte: Update `Qualificação preenchida por` = `IA WhatsApp`
+
+Prompt do bot:
+```
+Você é assistente de pré-vendas da {{location.name}}. Fala português do Brasil,
+informal e curto — no máximo 2 linhas por mensagem, como uma pessoa digitando
+no WhatsApp. Nunca use bullet points, emoji em excesso ou texto de vendedor.
+
+REGRA DE OURO: uma pergunta por mensagem. Espere a resposta antes da próxima.
+Nunca faça duas perguntas juntas. Nunca repita uma pergunta já respondida.
+
+Ordem das perguntas (pule a que já estiver preenchida no contato):
+1. Permissão: "posso te ligar rapidinho ou prefere resolver por aqui?"
+   -> grava Permissão WhatsApp (Sim se autorizar ligação, Não se recusar)
+2. Quantos clientes novos vocês fecham por mês hoje?
+   -> Clientes novos por mês: Até 10 / 11-30 / 31-100 / 100+
+3. Vocês investem em anúncio hoje?
+   -> Investe em anúncios: Sim / Já investiu e parou / Nunca
+4. Se sim: quanto mais ou menos por mês? -> Investimento mensal em anúncios
+   E em quais plataformas? -> Plataformas de anúncio
+5. Já trabalhou com agência? Como foi?
+   -> Já teve agência + Experiência com agência
+6. Quem atende os leads que chegam hoje? -> Quem atende os leads
+7. Qual o maior problema hoje na captação? -> Dor principal
+8. Isso é algo para resolver agora ou está mais no radar? -> Prazo
+
+Se o lead responder algo que já mata a qualificação ("não tenho interesse",
+"não me manda mais mensagem"), pare imediatamente, agradeça em uma linha e
+não faça mais perguntas.
+
+Quando tiver respondido pelo menos as perguntas 2, 3 e 8, ou quando o lead
+demonstrar interesse, ofereça o agendamento: "quer que eu já reserve 30 min com
+um especialista nosso? Me diz um dia e horário que eu te mando a confirmação."
+
+Nunca prometa preço, desconto, prazo de resultado ou garantia. Nunca invente
+caso de cliente. Se o lead perguntar preço, diga que depende do diagnóstico e
+que é exatamente o assunto da reunião.
+```
+
+**B — Sem Conversation AI (só nós)**
+
+Corrente de 8 blocos: `Send WhatsApp (pergunta)` → `Wait → Contact Replied,
+tempo limite 24h` → `Update Contact Field` (com a resposta) → próxima. No
+tempo limite, pula para a pergunta seguinte ou encerra. Funciona sem
+Conversation AI contratado, mas não interpreta resposta livre — você acaba
+tendo que ler as conversas na mão.
+
+### Saída
+| # | Ação |
+|---|---|
+| 1 | Update `Qualificação preenchida por` = `IA WhatsApp` |
+| 2 | Math: recalcula `Nota de qualificação` (seção 9.1) |
+| 3 | If/Else: nota ≥ 45 → Add Contact Tag `fila-quente` + Update `Prioridade` = 5 + Internal Notification para o SDR: "lead qualificado pela IA, ligar hoje" |
+| 4 | If/Else: nota < 25 **e** `Budget` = `Não tem` → mover para `Nutrição` + tag `nutricao-90d` |
+
+---
+
+## 7. Calendário do closer + formulário de qualificação
+
+### 7.1 Calendário `Reunião com closer`
+
+Calendários → Novo → **Round Robin** (se houver mais de um closer) ou Simple.
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Duração | 45 min | Reunião de diagnóstico |
+| Intervalo entre slots | 15 min | Closer respira e anota |
+| Aviso mínimo | 2 horas | O SDR consegue agendar para o mesmo dia |
+| Máximo por dia | Conforme o closer | Evita dia impossível |
+| Disponibilidade | Seg–sex, horário comercial | |
+| Confirmação automática | Ligada | |
+| Fuso | Do contato | Aqui sim: o lead vê o horário dele |
+| **Sticky Contact** | **DESLIGADO** | Crítico. Ligado, o formulário pré-enche com o último contato daquele navegador — e o SDR, agendando um lead atrás do outro na mesma aba, sobrescreve os dados de um no cadastro do outro |
+| Permitir reagendamento pelo lead | Ligado | |
+| Adicionar convidados | Desligado | |
+
+Na aba Notificações: confirmação por e-mail para o lead e para o closer. Os
+lembretes de WhatsApp saem do workflow da seção 5, não daqui — assim você não
+tem dois sistemas mandando lembrete.
+
+### 7.2 Formulário `Qualificação SDR`
+
+Sites → Formulários → Novo. Anexe ao calendário em
+**Calendário → Formulários → Formulário personalizado**.
+
+| Ordem | Campo do formulário | Mapeado para | Obrigatório |
+|---|---|---|---|
+| 1 | Nome | `first_name` / `last_name` | Sim |
+| 2 | Telefone | `phone` | Sim |
+| 3 | E-mail | `email` | Sim |
+| 4 | Empresa | `company_name` | Sim |
+| 5 | Segmento | `Segmento` | Sim |
+| 6 | Site | `Site` | Não |
+| 7 | Instagram | `Instagram` | Não |
+| 8 | Clientes novos por mês | `Clientes novos por mês` | Sim |
+| 9 | Investe em anúncios | `Investe em anúncios` | Sim |
+| 10 | Investimento mensal | `Investimento mensal em anúncios` | Não |
+| 11 | Plataformas | `Plataformas de anúncio` | Não |
+| 12 | Já teve agência | `Já teve agência` | Sim |
+| 13 | Experiência com agência | `Experiência com agência` | Não |
+| 14 | Tem time comercial | `Tem time comercial` | Sim |
+| 15 | Quem atende os leads | `Quem atende os leads` | Sim |
+| 16 | Usa CRM | `Usa CRM` | Não |
+| 17 | Canal principal de venda | `Canal principal de venda` | Não |
+| 18 | Budget | `Budget` | Sim |
+| 19 | Decisor | `Decisor` | Sim |
+| 20 | Dor principal | `Dor principal` | Sim |
+| 21 | Prazo | `Prazo` | Sim |
+| 22 | Qualificação preenchida por | `Qualificação preenchida por` | Sim, valor padrão `SDR` |
+| 23 | Consentimento de contato | checkbox | Sim |
+
+Configurações do formulário:
+- **Sticky Contact: desligado** (repetindo porque é onde mais se erra).
+- "Atualizar campos vazios apenas": **desligado** — o SDR corrige informação
+  errada durante a ligação e precisa que sobrescreva.
+- Sem captcha (atrasa o SDR; o formulário não é público).
+- Layout de uma coluna, todos os campos na mesma tela, sem paginação: o SDR
+  preenche ouvindo o lead e não pode perder tempo navegando.
+
+O SDR abre esse link, preenche enquanto conversa, escolhe o horário e envia. O
+envio cria o agendamento e dispara a seção 5.
+
+---
+
+## 8. Listas inteligentes
+
+Contatos → Filtros → salvar como lista inteligente. Marque como favorita para
+aparecer na barra lateral do SDR.
+
+### 8.1 `Fila Quente`
+| Item | Configuração |
+|---|---|
+| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`Em cadência`, `Conectado`, `Retorno agendado`) |
+| Colunas | Nome · Empresa · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade |
+| Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
+
+### 8.2 `Fila Telefone Hoje`
+| Item | Configuração |
+|---|---|
+| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `Em cadência` |
+| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas |
+| Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
+
+Ordenar por tentativa crescente é de propósito: lead na T1 tem muito mais
+chance de atender do que o da T11. A fila devolve primeiro o que converte.
+
+### 8.3 `Fila WhatsApp Hoje`
+| Item | Configuração |
+|---|---|
+| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `Em cadência` |
+| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
+| Ordenação | `Prioridade` desc, depois `WA não atendidas seguidas` asc |
+
+### 8.4 `Retornos`
+| Item | Configuração |
+|---|---|
+| Filtros | etapa = `Retorno agendado` **OU** `Resultado da tentativa` = `Pediu retorno`; **E** `nao-perturbe` ausente |
+| Colunas | Nome · Empresa · Telefone · `Data do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
+| Ordenação | `Data do retorno` asc (sem o campo S-01: "Última atividade" asc — pior, mas funciona) |
+
+### 8.5 Sugerida por mim: `Sem resultado ontem`
+| Item | Configuração |
+|---|---|
+| Filtros | tag `limpar-tarefas` presente **E** tag `fila-tel`/`fila-wa` ausentes |
+| Para quê | É o buraco de gestão: tentativas que venceram sem o SDR classificar. Se esta lista cresce, a operação está mentindo nos números |
+
+---
+
+## 9. Nota de qualificação e Prioridade
+
+### 9.1 `Nota de qualificação` (0 a 100)
+
+Montada com nós **Math Operation** em série no Pós-agendamento (seção 5, nó 3)
+e na saída da IA (seção 6). Comece zerando o campo e some bloco a bloco.
+
+**Bloco A — Fit (30 pontos)**
+| Campo | Valor | Pontos |
+|---|---|---|
+| Clientes novos por mês | Até 10 / 11-30 / 31-100 / 100+ | 3 / 6 / 8 / 10 |
+| Tem time comercial | Só o dono / 1-2 pessoas / 3-5 / 6+ | 3 / 6 / 8 / 10 |
+| Quem atende os leads | Ninguém fixo / Dono / Vendedor / SDR | 10 / 7 / 5 / 3 |
+
+"Ninguém fixo" vale mais que "SDR" de propósito: é a dor mais fácil de
+resolver e a que mais precisa de nós.
+
+**Bloco B — Maturidade de mídia (25 pontos)**
+| Campo | Valor | Pontos |
+|---|---|---|
+| Investe em anúncios | Sim / Já investiu e parou / Nunca | 13 / 9 / 4 |
+| Investimento mensal | 15 mil+ / 5-15 mil / 1-5 mil / Até 1 mil | 12 / 10 / 6 / 2 |
+
+**Bloco C — BANT (45 pontos)**
+| Campo | Valor | Pontos |
+|---|---|---|
+| Budget | Tem / Precisa aprovar / Não tem | 15 / 9 / 0 |
+| Decisor | É o decisor / Influencia / Não decide | 15 / 8 / 2 |
+| Prazo | Agora / Até 30 dias / 1-3 meses / Sem prazo | 15 / 11 / 6 / 2 |
+
+Máximo: 30 + 25 + 45 = **100**.
+
+**Faixas**
+| Nota | Leitura | Consequência automática |
+|---|---|---|
+| 70–100 | A — agenda e avisa o closer sênior | `Prioridade` = 5, tag `fila-quente` |
+| 45–69 | B — agenda normal | `Prioridade` = 4 |
+| 25–44 | C — nutrição | `Prioridade` = 2, tag `nutricao-90d`, etapa `Nutrição` |
+| 0–24 | D — descarta | `Prioridade` = 1, etapa `Descartado` |
+
+**Corte independente da nota:** `Budget` = `Não tem` **e** `Prazo` = `Sem
+prazo` → nutrição, qualquer que seja a nota. Empresa grande sem dinheiro e sem
+pressa soma pontos de fit e engana a régua.
+
+### 9.2 `Prioridade` (1 a 5)
+
+Recalcule nestes 3 momentos: entrada na cadência (2.3), cada Pós-ligação
+(seção 4), saída da IA (seção 6). Primeira regra que casar, ganha.
+
+| Ordem | Condição | Prioridade |
+|---|---|---|
+| 1 | `Resultado da tentativa` = `Pediu retorno` **ou** etapa = `Retorno agendado` | 5 |
+| 2 | `Nota de qualificação` ≥ 70 | 5 |
+| 3 | Respondeu mensagem (tem conversa de entrada) **ou** `Permissão WhatsApp` = `Sim` | 4 |
+| 4 | `Nota de qualificação` entre 45 e 69 | 4 |
+| 5 | `Tentativa nº` ≤ 2 | 4 |
+| 6 | `Tentativa nº` entre 3 e 7 | 3 |
+| 7 | `Tentativa nº` ≥ 8 **e** `Total de conexões` = 0 | 2 |
+| 8 | tag `nutricao-90d` **ou** `telefone-invalido` presente | 1 |
+
+Regra 5 (lead novo com prioridade alta) é o que mantém a fila do SDR
+produtiva: a taxa de atendimento cai a cada tentativa, então lead fresco vale
+mais que lead velho de mesma nota.
+
+---
+
+## 10. Checklist de teste — 5 contatos fictícios
+
+Crie os 5 antes de publicar, com **seu próprio número** em 2 deles (para
+checar mensagem de verdade) e números inválidos nos outros. Rode com a janela
+de envio temporariamente aberta (00:00–23:59) e os Waits da cadência reduzidos
+para minutos; **volte os valores reais antes de publicar**.
+
+### Contatos
+| # | Nome | Cenário | Caminho esperado |
+|---|---|---|---|
+| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → `Conectado` → agenda → `Reunião agendada` |
+| 2 | Teste Não Atende | Nunca atende, vai até o fim | 12 tentativas → `Nutrição` + `nutricao-90d` |
+| 3 | Teste Retorno | Pede retorno na T3 | `Pediu retorno` → `Retorno agendado`, Prioridade 5 |
+| 4 | Teste Número Errado | Número errado na T1 | `telefone-invalido` → `Nutrição` ou `Descartado` |
+| 5 | Teste Não Ligar | Pede para não ligar na T2 | `nao-perturbe` + **DND ligado** → `Descartado`, nenhuma mensagem depois |
+
+### Verificações, uma por linha
+| # | O que testar | Como | Passou? |
+|---|---|---|---|
+| 1 | Entrada na cadência | Mover para `Em cadência` cria tag `fila-tel` e tarefa `[CADENCIA] T1` | |
+| 2 | Portão de etapa | Mover para `Conectado` no meio da espera: a tentativa seguinte **não** dispara | |
+| 3 | Portão `nao-perturbe` | Aplicar a tag na mão: próxima tentativa não dispara | |
+| 4 | Portão `telefone-invalido` | Aplicar a tag: tentativa de telefone não dispara, de WhatsApp sim | |
+| 5 | Limpeza do resultado | Na T2, `Resultado da tentativa` chega vazio (não herda o da T1) | |
+| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `Conectado`, tarefa `[CONECTADO]` criada, saiu da cadência | |
+| 7 | `Caixa postal` em WhatsApp | `WA não atendidas seguidas` vai a 1; repetir vai a 2 | |
+| 8 | Regra das 2 seguidas | Com o contador em 2, a próxima tentativa de WhatsApp sai como **telefone** | |
+| 9 | Reset do contador | Uma tentativa de telefone não atendida zera `WA não atendidas seguidas` | |
+| 10 | Sem permissão | Com `Permissão WhatsApp` = `Não`, toda tentativa de WhatsApp vira telefone | |
+| 11 | `Número errado` | `telefone-invalido` aplicada, etapa muda, gestor notificado | |
+| 12 | `Pediu retorno` | Prioridade 5, etapa `Retorno agendado`, tarefa `[RETORNO]` criada | |
+| 13 | `Não ligar` | Tag + **DND ligado**; mandar mensagem de teste pelo workflow: **não** deve sair | |
+| 14 | Tempo limite | Não classificar uma tentativa: às 18:30 vira `Não atendeu`, tag de fila removida, `limpar-tarefas` aplicada | |
+| 15 | Mestre de saída | Qualquer mudança de etapa: nenhuma tag `fila-*` sobra e o contato sai dos 2 workflows | |
+| 16 | Mestre de saída não se morde | Mover **para** `Em cadência` não aciona a limpeza | |
+| 17 | Agendamento manual | SDR agenda pelo link: o Pós-agendamento dispara (é o teste do gatilho `Appointment Status`) | |
+| 18 | Sticky Contact | Agendar 2 leads seguidos na mesma aba: o 2º **não** herda dados do 1º | |
+| 19 | Nota | Preencher a qualificação completa e conferir a nota na mão contra a seção 9.1 | |
+| 20 | Lembretes | Reagendar a reunião: os 3 lembretes se movem junto | |
+| 21 | Listas inteligentes | Cada uma das 4 listas mostra exatamente os contatos esperados | |
+| 22 | Rotina de manutenção | Rodar `rotina-limpar-tarefas.md`: tarefas fora do prefixo são **concluídas**, nunca excluídas, e a tag sai | |
+| 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
+
+Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
+exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
+
+---
+
+## 11. O que o MCP não faz (resumo)
+
+| Item | MCP | Manual |
+|---|---|---|
+| Campos personalizados | Cria | Opções de lista podem precisar de ajuste na tela |
+| Tags | Cria | — |
+| Pipeline e etapas | Não | Seção 1 |
+| Workflows (os 5) | Não | Seções 2 a 6 |
+| Calendário | Lê | Cria e configura: seção 7.1 |
+| Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
+| Listas inteligentes | Não | Seção 8 |
+| Conversation AI | Não | Seção 6 |
+| Concluir tarefa em massa | Sim | É a rotina da seção 5 do projeto |
