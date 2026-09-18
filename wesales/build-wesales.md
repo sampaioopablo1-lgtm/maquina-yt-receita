@@ -30,7 +30,8 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
    calendário do passo 3, gatilho por status de agendamento
 10. Workflow "Qualificação por IA no WhatsApp" (seção 6)
 11. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
-    porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3
+    porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3;
+    textos das mensagens em `biblioteca-mensagens.md`, não neste documento
 12. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
 13. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra
@@ -174,29 +175,25 @@ as mensagens e mantenha para as ligações.
 Nós de envio (Send WhatsApp; SMS como fallback se o provedor não estiver
 ativo), posicionados no fluxo conforme a tabela 2.5. Cada um precedido do
 mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
-condição extra `nao-perturbe` ausente.
+condição extra `nao-perturbe` ausente, e seguido de um nó **Update Contact
+Field** `Template usado` = o código da mensagem (R-04 — sem esse carimbo não
+dá para saber depois qual abertura gerou a resposta).
 
-**M1 — D1 08:45, abertura com pedido de permissão**
-> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
-> Vi que vocês trabalham com {{contact.segmento}} e queria te fazer 2 perguntas
-> rápidas sobre captação de clientes. Posso te ligar hoje ou prefere por aqui?
+Textos, código e histórico de versão moram em `biblioteca-mensagens.md`, não
+aqui: texto duplicado em dois documentos diverge na primeira edição. Versão
+vigente nesta rodada:
+
+| Mensagem | Código | Posição no fluxo | `Template usado` grava |
+|---|---|---|---|
+| M1 — abertura, D1 08:45 | `M1-v1` | Início do fluxo, junto da T1 | `M1-v1` |
+| M2 — reforço, D10 13:30 | `M2-v1` | Após a T8 | `M2-v1` |
+| M3 — encerramento, D30 17:45 | `M3-v1` | Após a T12 | `M3-v1` |
 
 Depois de M1, adicione um nó **Wait → Contact Replied (tempo limite 2h)**. Se
 respondeu, o Stop on Response tira da cadência e o lead cai na seção 6.
 
-**M2 — D10 13:30, reforço**
-> {{contact.first_name}}, tentei falar com você algumas vezes e não quero ser
-> chato. Uma linha só: hoje vocês trazem cliente novo mais por indicação ou por
-> anúncio? Se for indicação, tenho um caso que talvez te interesse. Se preferir
-> já reservar 30 min direto, sem esperar minha ligação: [Agendar com o closer]
-
-**M3 — D30 17:45, encerramento**
-> {{contact.first_name}}, vou parar de te procurar por aqui. Se um dia quiser
-> falar sobre captação, me responde esta mensagem que eu retomo de onde paramos.
-> Ou, se quiser adiantar, o link continua de pé: [Agendar com o closer]
-> Sucesso!
-
-`[Agendar com o closer]` é o Trigger Link da seção 2.9, não texto literal —
+`[Agendar com o closer]`, citado no texto de M2-v1 e M3-v1 em
+`biblioteca-mensagens.md`, é o Trigger Link da seção 2.9, não texto literal —
 insira pelo ícone `{}` da caixa de mensagem, em Custom Values → Trigger Links.
 M1 fica sem link de propósito: é a mensagem que pergunta permissão de ligar, e
 um link ali compete com a pergunta em vez de reforçá-la.
@@ -923,6 +920,21 @@ acontece pela primeira vez e não muda depois, então a oportunidade continua
 contando no mês em que **cruzou** aquele marco mesmo depois de avançar para
 a etapa seguinte — diferente de filtrar pela etapa atual, que subcontaria
 quem já foi para `Reunião agendada` ou saiu do pipeline.
+
+### 8.13 `Resposta por Template` — R-04
+| Item | Configuração |
+|---|---|
+| Filtros | `Sinal recebido` = `Resposta de mensagem` |
+| Colunas | Nome · `Template usado` · `Data e hora do sinal` · Etapa atual |
+| Ordenação | `Template usado` asc |
+
+Agrupar visualmente por `Template usado` responde "qual abertura teve mais
+resposta" (Pronto quando do R-04) sem campo de contagem novo: a
+interceptação de sinal do F-01 (seção 2.9.3) já grava toda resposta fora do
+fluxo via `Customer Replied`; esta lista só cruza esse registro com o código
+gravado pela seção 2.6. Detalhes de versionamento e o limite conhecido do
+campo `Sinal recebido` (sobrescrito por sinal mais recente) estão em
+`biblioteca-mensagens.md`.
 
 ---
 

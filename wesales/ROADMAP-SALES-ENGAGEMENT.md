@@ -87,12 +87,28 @@ pré-existente.
 
 ## Bloco 2 — Conteúdo que se mede
 
-### R-04 · Biblioteca de mensagens versionada
+### R-04 · Biblioteca de mensagens versionada — **FEITO em 18/09/2026**
 **Por quê:** em Reev/Meetime o template é objeto de primeira classe, com
 desempenho próprio. Aqui as mensagens estão soltas dentro do workflow.
 **Como:** campo `Template usado` preenchido junto com cada envio, e os textos
 num documento versionado com código (`M1-a`, `M1-b`, `M2-a`...).
 **Pronto quando:** dá para dizer qual abertura teve mais resposta.
+
+**Resumo:** campo C-23 (`TEXT`, não `SINGLE_OPTIONS` — evita reabrir o campo
+na tela a cada versão nova) especificado em `campos-e-tags.md`; nó de escrita
+em cada mensagem automática (M1/M2/M3) especificado em `build-wesales.md`
+(seção 2.6); textos movidos para `biblioteca-mensagens.md`, novo, único dono
+do conteúdo e da regra de versionamento (nunca editar em vigor, sempre nova
+linha com código novo); lista inteligente `Resposta por Template` criada
+(seção 8.13), cruzando o sinal de resposta já gravado pelo F-01 com o código
+do template — sem campo de contagem novo. Pesquisado antes de desenhar: os
+textos viviam só dentro do build, duplicá-los na biblioteca seria a mesma
+armadilha de número repetido que o projeto já corrigiu para contagem — por
+isso o build passou a referenciar a biblioteca em vez de repetir o texto.
+Falta só a criação manual do campo — campo personalizado não sai por API; a
+subconta segue com 0 campos e 0 contatos, reconfirmado nesta execução via
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`, só o `FUNIL DE VENDAS` pré-existente.
 
 ### R-05 · Teste A/B da abertura
 **Por quê:** a M1 decide se existe cadência. É o único texto que merece teste.

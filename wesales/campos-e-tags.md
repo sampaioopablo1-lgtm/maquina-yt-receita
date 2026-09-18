@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (40 + 1 sugerido)
+## Etapa 2 — Campos personalizados (41 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -39,6 +39,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-20 | Data conectado | DATE | — | Workflow (R-03) |
 | C-21 | Data agendado | DATE | — | Workflow (R-03) |
 | C-22 | Data compareceu | DATE | — | Workflow (R-03) |
+| C-23 | Template usado | TEXT | código do template, ex. `M1-v1` | Workflow (R-04) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -86,6 +87,17 @@ funil, "entraram", não ganha campo novo: usa o filtro nativo `Data de
 criação` da oportunidade, que não muda quando o lead avança — o mesmo
 problema do `Last Stage Change Date` não existe aqui porque criação é
 imutável.
+
+C-23 fecha a biblioteca de mensagens versionada (`build-wesales.md`, seção
+2.6, R-04 do roadmap): grava o código do template que acabou de sair (ex.:
+`M1-v1`) toda vez que M1, M2 ou M3 dispara. **`TEXT`, não `SINGLE_OPTIONS`,
+de propósito:** uma lista de opções fixa exige reabrir o campo na tela toda
+vez que nasce uma versão nova — e o R-05 (teste A/B da M1) já vai criar
+`M1-a`/`M1-b` na próxima rodada. `TEXT` deixa o workflow escrever qualquer
+código novo sem depender de edição manual do campo; o custo é não ter
+validação de valor digitado, que aqui é baixo porque só o workflow escreve
+neste campo, nunca o SDR. Textos e códigos completos, versionados, ficam em
+`biblioteca-mensagens.md`.
 
 ### Qualificação — BANT + diagnóstico
 
