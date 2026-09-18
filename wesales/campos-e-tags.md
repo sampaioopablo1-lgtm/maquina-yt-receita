@@ -6,9 +6,14 @@ da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 
 ## Etapa 2 — Campos personalizados (37 + 1 sugerido)
 
+> **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
+> de seção perderam o número de propósito: eram quatro lugares para errar cada
+> vez que um campo nasce, e já erraram. Quem quiser saber quantos tem numa
+> seção, conta as linhas da tabela — que é a verdade, não um resumo dela.
+
 Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 
-### Controle da cadência (17)
+### Controle da cadência
 
 | # | Nome | Tipo | Opções | Quem escreve |
 |---|---|---|---|---|
@@ -63,7 +68,7 @@ Cadência 12x30), `1ª tentativa em` grava quando a T1 dispara de verdade (nó
 5c, só na primeira tentativa). Mesmo motivo de C-14: `TEXT` porque a métrica
 é em minutos e `DATE` descarta a hora.
 
-### Qualificação — BANT + diagnóstico (18)
+### Qualificação — BANT + diagnóstico
 
 | # | Nome | Tipo | Opções |
 |---|---|---|---|
@@ -93,7 +98,7 @@ Observações de tipo:
 - **Q-09 e Q-16**: você pediu "texto". Usei LARGE_TEXT porque é resposta de
   entrevista e TEXT corta em uma linha. Diga se prefere TEXT.
 
-### Sugerido por mim (1) — não crio sem seu ok
+### Sugerido por mim — não crio sem seu ok
 
 | # | Nome | Tipo | Por que |
 |---|---|---|---|
@@ -118,7 +123,7 @@ Observações de tipo:
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
 
-### Sugerida por mim (1) — não crio sem seu ok
+### Sugerida por mim — não crio sem seu ok
 
 | # | Tag | Função na máquina |
 |---|---|---|
