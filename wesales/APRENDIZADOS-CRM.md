@@ -2,6 +2,71 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Migração das 5 etapas continuou: Seção 3 (Mestre de saída) precisava de um segundo gatilho, não só troca de nome — 18/09/2026
+
+A tarefa de migração aberta em `GUIA-MONTAGEM.md` ("Fase 1", checklist de
+seções) tratava a maioria das seções como troca de nome (`Em cadência` →
+`CONECTAR` etc.). Ao migrar de verdade a seção 3 (Mestre de saída) e a seção
+4 (Pós-ligação), apareceu um problema que troca de nome sozinha não resolve:
+no plano de 7 etapas, **toda** saída de cadência (conectou, número errado,
+não ligar, 12 tentativas esgotadas) era um movimento de etapa, e um gatilho
+só de `Opportunity Stage Changed` bastava para a limpeza rodar. Na tela
+real (5 etapas), só "conectou" continua sendo movimento de etapa
+(`CONECTAR` → `AGENDAR`) — os outros três viraram `status` da oportunidade
+(`abandoned`/`lost`) **sem sair de `CONECTAR`** (é a própria tradução já
+registrada na tabela 1.0 de `build-wesales.md`, seção 1.0). Um Mestre de
+saída só com `Opportunity Stage Changed` deixaria de limpar a fila para o
+caminho mais comum de saída (12 tentativas esgotadas nunca move etapa) —
+teria ficado tag `fila-tel`/`fila-wa` presa em quase todo lead que esgota a
+régua sem conectar, sem ninguém perceber até a fila entupir.
+
+**Pesquisado antes de corrigir, confiança alta (WebSearch, não bloqueado
+pelo proxy deste ambiente):**
+- **`Opportunity Status Changed` é gatilho nativo, separado de
+  `Opportunity Stage Changed`/`Pipeline Stage Changed`** — dispara quando o
+  `status` da oportunidade muda (`open`/`won`/`lost`/`abandoned`), com
+  filtro por status de destino. Fonte:
+  `help.gohighlevel.com/support/solutions/articles/155000003252-workflow-trigger-opportunity-status-changed`
+  (achado só por `WebSearch`, que roda fora do proxy bloqueado; o domínio
+  `help.gohighlevel.com` em si segue inacessível por `WebFetch` direto,
+  mesma limitação já registrada desde o R-09).
+- **Um workflow do GHL aceita mais de um gatilho, em OR** — "stack multiple
+  triggers on one workflow", confirmado por várias fontes de busca
+  convergentes (`growthable.io`, `howtohighlevel.com`, `tkturners.com`).
+  Isso é o que permite o Mestre de saída escutar `Opportunity Stage Changed`
+  **e** `Opportunity Status Changed` no mesmo workflow, sem duplicar a
+  lógica de limpeza em dois lugares — regra prática, generalizável para
+  qualquer item futuro que precise reagir a "duas formas diferentes de
+  chegar no mesmo estado final" (ao contrário de "dois relógios correndo em
+  paralelo", que aí sim pede dois workflows — achado já registrado no R-12).
+
+**A correção, resumida:** o portão (nó 1) do Mestre de saída trocou de
+"etapa de destino é `Em cadência` → encerra" para "etapa **é** `CONECTAR`
+**E** `status` **é** `open` → encerra". A condição composta cobre os dois
+gatilhos com uma regra só: verdadeira só quando o lead está de fato correndo
+a cadência ainda (entrando ou no meio dela), falsa em qualquer saída real —
+movimento de etapa ou mudança de status. Detalhe completo, com os casos
+percorridos um a um (entrada, 12 esgotadas, número errado, não ligar,
+atendeu, progressões seguintes): `build-wesales.md`, seção 3.
+
+**Progresso desta rodada no checklist de migração** (detalhe em
+`GUIA-MONTAGEM.md`, "Fase 1"): seção 3 (Mestre de saída) e seção 4
+(Pós-ligação) migradas por completo; dentro da seção 2, as subseções 2.1
+(gatilho), 2.3 (nó 0.0b) e 2.4 (nó 3) migradas, mais o fim da 2.6 (M3 → 12
+tentativas esgotadas); dentro da seção 8, as listas 8.1 a 8.4. Continuam
+usando o nome antigo (tradução pela tabela 1.0 até serem migradas): 2.10,
+2.11, 2.12 (a maior peça que falta — o gatilho dela hoje é `Opportunity
+Stage Changed → Nutrição`, que não existe mais como etapa, precisa virar
+`Contact Tag Added → nutricao-90d`), 2.13 a 2.17, seção 5 e 5.1–5.4, seção
+6, seção 8.5 em diante, seção 9, e o checklist de teste da seção 10.
+
+**Reconfirmado nesta rodada:** pipeline `FUNIL DE VENDAS` continua com as
+mesmas 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`,
+mesma probabilidade e cor, `dateUpdated` ainda 18/09/2026 19:56 UTC — sem
+mudança desde a última verificação) e os 42 campos personalizados batendo
+com `campos-e-tags.md`. Nenhuma escrita no CRM nesta rodada: o trabalho foi
+só migração de documento, sem campo/tag/contato novo exigido.
+
 ## Fase 2 (campos) começou fora de ordem, e 3 dos 24 campos não batem com a especificação — 18/09/2026 ~21h UTC
 
 Rodada anterior tinha reconfirmado "0 campos, 0 contatos" ao fechar o

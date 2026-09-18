@@ -189,15 +189,60 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
       etapa/estado-real (inclusive `Retorno agendado`/`Nutrição`/
       `Descartado` virando campo/status, não etapa), 1.1 (frameworks de
       mercado) e 1.2 (canvas operacional) reescritas para as 5 etapas.
-- [ ] **Seção 2 e subseções 2.1–2.17 (Cadência 12x30 e vizinhas)** —
-      maior bloco: todo gatilho `Opportunity Stage Changed` e toda saída
-      "mover para `Nutrição`/`Descartado`" (mais concentrado nas seções
-      2.4, 2.10, 2.12) precisa virar filtro em `CONECTAR` + `Update
-      Opportunity` (status), pela tabela 1.0
-- [ ] **Seção 3 (Mestre de saída)**
-- [ ] **Seção 4 (Pós-ligação)** — o ramo que hoje diz "mover para
-      `Nutrição`" nas 12 tentativas esgotadas é o mais citado por outras
-      seções (R-01, R-02, F-01), migrar com atenção a quem aponta para ele
+- [ ] **Seção 2 — subseções 2.1–2.17 (Cadência 12x30 e vizinhas)** —
+      maior bloco, quebrado abaixo por subseção (não é mais uma caixa só):
+  - [x] **2.1 (Gatilho)** — migrada em 18/09/2026: `Pré-vendas` →
+        `FUNIL DE VENDAS`, `Em cadência` → `CONECTAR`
+  - [ ] 2.2 (Configurações do workflow) — sem nome de etapa, não deveria
+        precisar de mudança; conferir na hora de montar
+  - [x] **2.3 nó 0.0b (portão sem telefone)** — migrado em 18/09/2026:
+        "mover para `Nutrição`/`Descartado`" virou `Update Opportunity
+        status = abandoned/lost`, sem sair de `CONECTAR`
+  - [x] **2.4 nó 3 (portão de cada tentativa)** — migrado em 18/09/2026:
+        `Em cadência` → `CONECTAR`
+  - [ ] 2.5 (tabela das 12 tentativas) — sem nome de etapa, não deveria
+        precisar de mudança; conferir na hora de montar
+  - [x] **2.6 fim (depois de M3, 12 tentativas esgotadas)** — migrado em
+        18/09/2026: "mover para `Nutrição`" virou `status = abandoned`,
+        permanece em `CONECTAR`
+  - [ ] 2.6.1, 2.7, 2.8, 2.9–2.9.4 (Split A/B, entrada na IA, interceptação
+        de sinal) — ainda não conferidas linha a linha nesta migração;
+        risco baixo (não parecem citar nome de etapa antigo nas leituras
+        feitas até aqui, mas não foi grep dedicado)
+  - [ ] 2.10 (Cadência Inbound) — gatilho e nó 0.0b espelham 2.1/2.3, ainda
+        não migrados; mesma troca `Pré-vendas`/`Em cadência` →
+        `FUNIL DE VENDAS`/`CONECTAR` e `Nutrição`/`Descartado` → status
+  - [ ] 2.11 (Alerta de Speed-to-lead) — cita `Em cadência` no portão
+  - [ ] 2.12 (Reengajamento 90 dias) — o mais grande dos que sobram:
+        gatilho hoje é `Opportunity Stage Changed → Nutrição`, que deixou
+        de existir (`Nutrição` não é mais etapa); precisa virar
+        `Contact Tag Added → nutricao-90d` (a tradução já está anotada na
+        tabela 1.0, linha `Nutrição`) — nó 5 ("Reentrada no funil") e o nó
+        final de TR4 esgotada também citam `Em cadência`/`Nutrição` como
+        movimento de etapa
+  - [ ] 2.13 (Regras de pausa) — conferir se cita etapa antiga
+  - [ ] 2.14 (Distribuição de leads), 2.15 (Monitor de Capacidade), 2.16
+        (Higiene de Número) — 2.16 nó 2 cita `Novo lead`/`Em cadência`/
+        `Retorno agendado` num If/Else de lista, precisa virar
+        `NOVO LEAD`/`CONECTAR` (sem `Retorno agendado`, que não é etapa)
+  - [ ] 2.17 (Dashboard do Gestor) — cita pipeline `Pré-vendas`
+- [x] **Seção 3 (Mestre de saída)** — migrada em 18/09/2026: mudança
+      estrutural, não só nome — ganhou um segundo gatilho
+      (`Opportunity Status Changed`, para `Lost`/`Abandoned`) porque, no
+      modelo novo, a maioria das saídas de cadência (12 tentativas
+      esgotadas, número errado, não ligar) não move mais etapa, só muda
+      `status`; o portão (nó 1) trocou de "etapa é `Em cadência`" para
+      "etapa é `CONECTAR` **e** `status` é `open`", que cobre os dois
+      gatilhos com uma condição só. Detalhe do raciocínio e dos casos
+      testados mentalmente: `build-wesales.md`, seção 3.
+- [x] **Seção 4 (Pós-ligação)** — migrada em 18/09/2026, junto com a
+      seção 3 (são acopladas: é o Pós-ligação que decide se a saída é
+      `status` ou movimento de etapa). Ramo `Atendeu` → `AGENDAR` (etapa,
+      sem mudança de lógica). Ramos `Número errado` e `Não ligar` →
+      `Update Opportunity status` (`abandoned`/`lost`), permanecem em
+      `CONECTAR`. Ramo `Pediu retorno` perdeu o nó de mudança de etapa —
+      `Retorno agendado` não existe mais, o lead fica em `CONECTAR` e a
+      lista `Retornos` (8.4) já filtra só pelo campo.
 - [ ] **Seção 5 e 5.1–5.4 (Pós-agendamento, Loop do closer, Comparecimento,
       No-show)** — inclui o achado já registrado na seção 1.2 desta
       migração: "descartar oportunidade" no no-show 2x (R-12) precisa virar
@@ -207,7 +252,21 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
 - [ ] **Seção 8 (Listas inteligentes)** — qualquer lista com filtro de
       etapa `Retorno agendado`/`Nutrição`/`Descartado` precisa trocar para
       filtro de campo/status
+  - [x] **8.1 `Fila Quente`, 8.2 `Fila Telefone Hoje`, 8.3 `Fila WhatsApp
+        Hoje`, 8.4 `Retornos`** — migradas em 18/09/2026 (`Em cadência` →
+        `CONECTAR`, `Conectado` → `AGENDAR`, `Retorno agendado` caiu do
+        filtro de 8.1 por já estar coberto por `CONECTAR`, e caiu de 8.4
+        por a lista já filtrar só pelo campo `Resultado da tentativa`)
+  - [ ] 8.5 em diante (`Sem resultado ontem`, 8.6–8.18) — ainda não
+        conferidas linha a linha nesta migração
 - [ ] **Seção 9 (Nota de qualificação e Prioridade)**
+
+**Não assuma que 2.1/2.3/2.4/2.6/3/4 cobrem tudo que toca `Em cadência`,
+`Nutrição` ou `Descartado`** — são só os pontos consertados nesta rodada.
+`grep -n "Em cadência\|Nutrição\|Descartado\|Pré-vendas\`" wesales/build-wesales.md`
+ainda retorna dezenas de linhas fora desses seis pontos (2.10, 2.11, 2.12,
+2.16, 2.17, seção 5.x, 8, 9, e o checklist de teste da seção 10) — todas se
+traduzem pela tabela 1.0 até serem migradas.
 
 **Não assuma que uma seção já reflete a mudança só porque outra foi
 migrada** — verifique o `[x]` desta lista antes de confiar em qualquer

@@ -279,11 +279,12 @@ fazem para as etapas de progresso.
 
 ## 2. Workflow "Cadência 12x30"
 
-### 2.1 Gatilho
+### 2.1 Gatilho — migrado para as 5 etapas reais em 18/09/2026
 
 **Opportunity Stage Changed** (Etapa da oportunidade alterada)
-- Pipeline: `Pré-vendas`
-- Para a etapa: `Em cadência`
+- Pipeline: `FUNIL DE VENDAS` (é o mesmo objeto que este documento chama de
+  `Pré-vendas` — seção 1)
+- Para a etapa: `CONECTAR`
 - Filtro adicional (R-07): tag `cad-inbound` **ausente**
 - Filtro adicional (R-08): tag `reengajamento-ativo` **ausente**
 
@@ -292,10 +293,11 @@ não causa dela. E não use "Contact Created", senão o lead entra antes de ter
 telefone validado.
 
 O filtro do R-08 existe por um caso que só aparece com o Reengajamento 90
-dias (seção 2.12) montado: um lead pode chegar a `Nutrição` sem nunca ter
+dias (seção 2.12, ainda escrita em cima do nome antigo `Nutrição` — tradução
+em 1.0) montado: um lead pode chegar a `status = abandoned` sem nunca ter
 entrado de verdade nesta cadência 12x30 — por exemplo, um lead inbound que
 recebeu `Número errado` ainda dentro da Cadência Inbound (seção 2.10, antes
-do handoff da TI5) e tinha e-mail cadastrado cai direto em `Nutrição` pelo
+do handoff da TI5) e tinha e-mail cadastrado cai direto em `abandoned` pelo
 ramo `Número errado` do Pós-ligação (seção 4), sem nunca ter passado pelas
 tentativas T1-T12 desta cadência. 90 dias depois, o Reengajamento reativa
 esse lead: `Allow Re-entry` desligado (D-06) não bloquearia a entrada dele
@@ -306,8 +308,8 @@ duplicando a régua que o Reengajamento já está rodando na TR{n} dele.
 história do contato.
 
 O filtro de tag é o que separa este workflow do "Cadência Inbound" (seção
-2.10, R-07 do roadmap): os dois escutam o mesmo evento — entrar em `Em
-cadência` — e cada um pega a fatia que é sua, sem If/Else nenhum decidindo
+2.10, R-07 do roadmap): os dois escutam o mesmo evento — entrar em
+`CONECTAR` — e cada um pega a fatia que é sua, sem If/Else nenhum decidindo
 isso dentro do fluxo. Pesquisado antes de desenhar: a documentação da
 HighLevel confirma que a ação **Add to Workflow** entra direto na sequência
 de ações de um workflow **sem reavaliar o filtro do gatilho** — é o mesmo
@@ -336,7 +338,7 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | Nó | Ação | Configuração |
 |---|---|---|
 | 0.0 | If/Else (R-13) | Campo nativo `Phone` **está vazio** → ramo 0.0b. Senão → segue para 0.1 |
-| 0.0b | Ramo sem telefone | Add Contact Tag `telefone-invalido` → If/Else: `Site` **ou** `Instagram` preenchido → Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d`. Senão → Mover oportunidade → `Descartado` → Internal Notification para o gestor: `Lead sem telefone: {{contact.name}} — revisar a fonte da lista antes de qualquer tentativa` → **Remove from Workflow: este** |
+| 0.0b | Ramo sem telefone | Add Contact Tag `telefone-invalido` → If/Else: `Site` **ou** `Instagram` preenchido → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Senão → Update Opportunity `status` = `lost` → Internal Notification para o gestor: `Lead sem telefone: {{contact.name}} — revisar a fonte da lista antes de qualquer tentativa` → **Remove from Workflow: este** |
 | 0.1 | Update Contact Field | `Tentativa nº` = 0 |
 | 0.2 | Update Contact Field | `WA não atendidas seguidas` = 0 |
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
@@ -362,7 +364,7 @@ de qualquer forma. Um portão dentro do nó 3 chegaria tarde: o lead ainda
 gastaria a T1 inteira (mensagem + telefone + WhatsApp do D1) antes de
 qualquer verificação rodar. O nó 0.0 resolve antes da primeira tentativa
 existir, reaproveitando a mesma tag (`telefone-invalido`, T-09) e o mesmo
-desenho de saída (e-mail/Instagram → `Nutrição`, senão → `Descartado`) que
+desenho de saída (e-mail/Instagram → `abandoned`, senão → `lost`) que
 o ramo `Número errado` da seção 4 já usa — zero tag e zero campo novos.
 
 ### 2.4 O bloco padrão de uma tentativa (9 nós)
@@ -376,7 +378,7 @@ o número da tentativa.
 | 2 | **Aguardar horário** | Wait → Until specific time | O horário da tabela 2.5. A janela do 2.2 empurra para o próximo dia útil se cair fora |
 | 2.5 | **Pausa individual (R-09)** | If/Else | tag `pausado` presente → ramo 2.5b. Senão → segue para o Portão (nó 3) |
 | 2.5b | Ramo da pausa individual | Wait → Time Delay 1 dia → **volta para o nó 2.5** | Não cria tag de fila, não cria tarefa, não avança `Tentativa nº`. Reconsulta a tag uma vez por dia até o SDR remover — a tentativa fica represada no mesmo lugar, não é descartada nem reagendada |
-| 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `Em cadência` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
+| 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 3b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Saída limpa. Sem isso, sobra tag e tarefa órfã |
 | 4 | **Seletor de canal** | If/Else (só em tentativa de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Ramo senão: vira telefone (decisão D-04 + regra das 2 seguidas) |
 | 5 | **Limpar resultado** | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
@@ -480,8 +482,11 @@ M1 fica sem link de propósito: é a mensagem que pergunta permissão de ligar, 
 um link ali compete com a pergunta em vez de reforçá-la.
 
 Depois de M3: Update `Resultado da tentativa` = vazio → Add Contact Tag
-`nutricao-90d` → mover oportunidade para `Nutrição` → fim do workflow. A
-mudança de etapa aciona o Mestre de saída, que limpa o resto.
+`nutricao-90d` → Update Opportunity `status` = `abandoned` (a oportunidade
+**permanece** em `CONECTAR` — 12 tentativas esgotadas não é mais um
+movimento de etapa, é status, ver tabela 1.0) → fim do workflow. A mudança
+de status aciona o Mestre de saída (seção 3, gatilho `Opportunity Status
+Changed`), que limpa o resto.
 
 ### 2.6.1 Teste A/B da abertura (M1) — R-05
 
@@ -1668,39 +1673,69 @@ do roadmap pediria.
 
 ---
 
-## 3. Workflow "Mestre de saída"
+## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
-O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
+O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
 
-### Gatilho
-**Opportunity Stage Changed** — Pipeline `Pré-vendas`, qualquer etapa de
-destino.
+**Mudança estrutural desta migração, não só troca de nome:** no plano de 7
+etapas, toda saída de cadência (conectou, número errado, não ligar, 12
+tentativas esgotadas) era um movimento de etapa — um `Opportunity Stage
+Changed` cobria os quatro casos. Na tela real, só o primeiro continua sendo
+movimento de etapa (`CONECTAR` → `AGENDAR`); os outros três viraram `status`
+da oportunidade (`abandoned`/`lost`) **sem sair de `CONECTAR`** (tabela 1.0).
+Um gatilho só de `Opportunity Stage Changed` deixaria de disparar para eles —
+a limpeza nunca aconteceria para o caminho mais comum de saída (12
+tentativas esgotadas). Por isso este workflow passa a ter **dois gatilhos**
+(GHL aceita mais de um gatilho no mesmo workflow, cada um em OR — pesquisado
+nesta migração), e o portão (nó 1) troca de "etapa de destino" por uma
+condição que cobre os dois:
+
+### Gatilhos
+1. **Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS`, qualquer
+   etapa de destino.
+2. **Opportunity Status Changed** — Pipeline `FUNIL DE VENDAS`, para o
+   status `Lost` **ou** `Abandoned` (não filtra `Won`/`Open`: nenhum dos
+   dois é saída de cadência que precise de limpeza — `Won` é `FORMALIZAR`,
+   já coberto pelo gatilho 1 como mudança de etapa).
 
 ### Configurações
 | Configuração | Valor |
 |---|---|
-| Allow Re-entry | **Ligado** (precisa disparar em toda mudança de etapa) |
+| Allow Re-entry | **Ligado** (precisa disparar em toda mudança de etapa ou de status) |
 | Janela de envio | Sem janela (é limpeza interna, não manda mensagem) |
 | Stop on Response | Desligado |
 
 ### Nós
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | If/Else | Etapa de destino **é** `Em cadência` → **encerra aqui** (não limpa nada). Senão, segue |
+| 1 | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
-| 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · tentativa {{contact.tentativa_no}} · resultado {{contact.resultado_da_tentativa}}` |
+| 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_no}} · resultado {{contact.resultado_da_tentativa}}` |
 
-O nó 1 existe porque o gatilho é "qualquer etapa": sem ele, mover o lead
-*para* a cadência acionaria a limpeza e mataria a cadência no nascimento.
+**Por que a condição do nó 1 é "CONECTAR E open", não só "CONECTAR":** as
+duas coisas precisam ser verdade ao mesmo tempo para o lead estar *de
+verdade* correndo a cadência ainda. Entrar em `CONECTAR` (`status` nasce
+`open`) bate as duas → encerra, correto (é chegada, não saída — sem isso,
+mover o lead *para* a cadência acionaria a limpeza e mataria a cadência no
+nascimento, o mesmo raciocínio do nó 1 original). 12 tentativas esgotadas,
+número errado, não ligar ou o portão de higiene do nó 0.0b mudam o `status`
+para `abandoned`/`lost` **sem sair de `CONECTAR`** — `status` deixa de ser
+`open`, a condição fica falsa, e a limpeza roda mesmo com a etapa igual.
+Atendeu move para `AGENDAR` — etapa deixa de ser `CONECTAR`, a condição já
+fica falsa por esse lado sozinho. Progressões seguintes (`AGENDAR` →
+`NEGOCIAR` → `FORMALIZAR`) também disparam o gatilho 1 e reexecutam a
+limpeza — redundante (as tags já não estão mais lá, as ações são
+idempotentes) mas inofensivo, e já era assim no desenho original com
+"qualquer etapa de destino".
 
 Não removo `conectado-hoje`, `nao-perturbe`, `telefone-invalido`,
 `nutricao-90d`, `cad-inbound` e `cad-outbound`: são estado do lead, não fila.
 `pausado` (R-09, seção 2.13) entra no nó 4 mesmo sendo estado individual, não
 fila — porque, diferente de `nao-perturbe`, ela só tem sentido **dentro** de
-`Em cadência` (represar uma tentativa que ainda vai acontecer). Uma vez que o
+`CONECTAR` (represar uma tentativa que ainda vai acontecer). Uma vez que o
 lead sai de cadência por um motivo real (conectou, número errado, não
 ligar), a pausa perdeu o objeto: não sobra tentativa nenhuma para represar, e
 manter a tag viva só confundiria uma reativação futura pelo Reengajamento
@@ -1708,14 +1743,14 @@ manter a tag viva só confundiria uma reativação futura pelo Reengajamento
 correndo régua nenhuma.
 `reengajamento-ativo` (R-08, seção 2.12) entrou na lista do nó 4 porque ela
 **é** fila, só que da régua de reengajamento em vez da 12x30 — o mesmo
-motivo de `fila-tel`/`fila-wa` estarem lá: nasce ao entrar em `Em cadência`
+motivo de `fila-tel`/`fila-wa` estarem lá: nasce ao entrar em `CONECTAR`
 pela reativação e não tem por que sobreviver a uma saída dela, qualquer que
 seja o resultado (conectou, número errado, não ligar ou esgotou as 4
 tentativas).
 
 ---
 
-## 4. Workflow "Pós-ligação"
+## 4. Workflow "Pós-ligação" — migrado para as 5 etapas reais em 18/09/2026
 
 Traduz a classificação do SDR em consequência. É o único lugar que mexe nos
 contadores.
@@ -1754,7 +1789,7 @@ ruim (R-01, feito em 18/09/2026).
 | 3 | Update: `WA não atendidas seguidas` = 0 |
 | 4 | Add Contact Tag `conectado-hoje` |
 | 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| 6 | Mover oportunidade → `Conectado` (dispara o Mestre de saída, que faz a limpeza) |
+| 6 | Mover oportunidade → `AGENDAR` (dispara o Mestre de saída pelo gatilho de etapa, que faz a limpeza) |
 | 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
 | 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 9 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
@@ -1775,11 +1810,14 @@ comportar como *seguidas* e não como *acumuladas no total*.
 |---|---|
 | 1 | Add Contact Tag `telefone-invalido` |
 | 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| 3 | If/Else: o contato tem e-mail ou Instagram? → mover para `Nutrição` + tag `nutricao-90d`. Senão → mover para `Descartado` |
+| 3 | If/Else: o contato tem e-mail ou Instagram? → Update Opportunity `status` = `abandoned` + tag `nutricao-90d`. Senão → Update Opportunity `status` = `lost` |
 | 4 | Internal Notification para o gestor: `Telefone inválido: {{contact.name}} — revisar a fonte da lista` |
 
 Número errado não é culpa do lead: se há outro canal, ele vira nutrição em vez
-de lixo.
+de lixo. A oportunidade **permanece** em `CONECTAR` nos dois casos (tabela
+1.0) — é o `status`, não a etapa, que muda; o gatilho `Opportunity Status
+Changed` do Mestre de saída (seção 3) dispara a limpeza mesmo sem movimento
+de etapa.
 
 #### Ramo `Pediu retorno`
 | # | Ação |
@@ -1787,11 +1825,16 @@ de lixo.
 | 1 | Update: `Prioridade` = 5 |
 | 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 3 | Add Contact Tag `fila-quente` |
-| 4 | Mover oportunidade → `Retorno agendado` |
-| 5 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
+| 4 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
 
 Sem o campo `Data do retorno` (lacuna L-01) este ramo funciona, mas a tarefa
-vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje.
+vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje. Não há
+mais nó de mudança de etapa aqui: `Retorno agendado` deixou de ser etapa
+própria (tabela 1.0) — o lead **fica em `CONECTAR`**, e a lista `Retornos`
+(8.4) filtra só pelo valor de `Resultado da tentativa`, sem OR de etapa. Por
+ficar em `CONECTAR` com `status` ainda `open`, este ramo **não** aciona o
+Mestre de saída — correto: pedir retorno não é sair de cadência, é continuar
+nela com prioridade alta.
 
 #### Ramo `Não ligar`
 | # | Ação |
@@ -1800,8 +1843,13 @@ vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje.
 | 2 | **Set Contact DND** = ligado (todos os canais) |
 | 3 | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` |
 | 4 | Remove from Workflow: `Cadência 12x30` e `Qualificação por IA no WhatsApp` |
-| 5 | Mover oportunidade → `Descartado` |
+| 5 | Update Opportunity `status` = `lost` |
 | 6 | Add Note `Opt-out registrado em {{right_now}}` |
+
+Etapa também fica em `CONECTAR` aqui — só o `status` muda. O nó 4 já tira o
+contato dos dois workflows na hora (não depende de esperar o Mestre de saída
+reagir ao `status`), então o opt-out é imediato mesmo se o gatilho de
+`Opportunity Status Changed` atrasar.
 
 O DND nativo é o que impede qualquer workflow futuro de mandar mensagem. Tag
 sozinha não segura: workflow novo que ninguém lembrou de filtrar volta a
@@ -2305,34 +2353,34 @@ para o agendamento e objeções — está em `script-de-ligacao.md` (R-06).
 Contatos → Filtros → salvar como lista inteligente. Marque como favorita para
 aparecer na barra lateral do SDR.
 
-### 8.1 `Fila Quente`
+### 8.1 `Fila Quente` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`Em cadência`, `Conectado`, `Retorno agendado`) |
+| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`CONECTAR`, `AGENDAR`) — `Retorno agendado` some da lista de etapas porque não é mais etapa própria (tabela 1.0): quem pediu retorno já está em `CONECTAR`, coberto |
 | Colunas | Nome · Empresa · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
-### 8.2 `Fila Telefone Hoje`
+### 8.2 `Fila Telefone Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `Em cadência` |
+| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `CONECTAR` |
 | Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
 Ordenar por tentativa crescente é de propósito: lead na T1 tem muito mais
 chance de atender do que o da T11. A fila devolve primeiro o que converte.
 
-### 8.3 `Fila WhatsApp Hoje`
+### 8.3 `Fila WhatsApp Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `Em cadência` |
+| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` |
 | Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
 | Ordenação | `Prioridade` desc, depois `WA não atendidas seguidas` asc |
 
-### 8.4 `Retornos`
+### 8.4 `Retornos` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | etapa = `Retorno agendado` **OU** `Resultado da tentativa` = `Pediu retorno`; **E** `nao-perturbe` ausente |
+| Filtros | `Resultado da tentativa` = `Pediu retorno` **E** `nao-perturbe` ausente |
 | Colunas | Nome · Empresa · Telefone · `Data do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
 | Ordenação | `Data do retorno` asc (sem o campo S-01: "Última atividade" asc — pior, mas funciona) |
 
