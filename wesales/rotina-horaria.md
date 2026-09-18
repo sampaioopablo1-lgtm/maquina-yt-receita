@@ -32,6 +32,24 @@ O que aprender vai para `APRENDIZADOS-CRM.md`, para a execução seguinte não
 refazer a mesma investigação. É o que evita a rotina descobrir a mesma coisa
 vinte e quatro vezes por dia.
 
+## Um passo que só você pode dar
+
+A rotina foi criada (`WeSales — construção contínua do CRM`, de hora em hora,
+minuto :02), mas nasceu **sem o conector `GHL CRM` anexado**. A API de criação
+de rotinas desta organização não aceita anexar conector, e o aviso foi
+explícito: as sessões que ela disparar rodam sem ferramenta de CRM.
+
+Na prática isso corta as frentes A e B — ela consegue melhorar especificação e
+fechar lacunas, mas não lê nem escreve no CRM.
+
+**Como resolver:** claude.ai → **Agendados** → abrir
+`WeSales — construção contínua do CRM` → habilitar o conector **GHL CRM** para
+ela. Um clique, e as quatro frentes passam a funcionar.
+
+Enquanto isso não acontece, a rotina não quebra nem mente: o prompt manda
+registrar a ausência em `APRENDIZADOS-CRM.md` e seguir para uma frente que não
+dependa do CRM.
+
 ## Limites
 
 - Só mexe em `wesales/`. O repositório também abriga a máquina de vídeo e a
