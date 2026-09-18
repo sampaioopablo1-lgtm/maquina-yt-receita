@@ -3461,3 +3461,63 @@ odontologia continuam melhores por valor; tatuagem ganha em quantidade de porta 
 (8 anúncios idênticos, e é Trilha A) e bellacavelinne (o "instagram.com", Trilha A, no ar há 3 dias).
 
 Combos varridos até aqui: + estúdio de tatuagem Rio de Janeiro.
+
+---
+
+## Energia solar — Rio de Janeiro (varrido 18/09/2026, 04h BRT)
+
+Termo: `instalação de energia solar Rio de Janeiro`. **129 anúncios** — o nicho mais saturado de
+toda a lista, por larga margem (tatuagem 53, imobiliária Méier 13, contabilidade 8). Cerca de
+**25 páginas distintas**, e quase todas Trilha B: energia solar é vendida por empresa com nome de
+empresa, não por dono com nome próprio.
+
+### A descoberta desta varredura: duas empresas diferentes com o MESMO título
+
+> **"Instale Placas Solares, e chega de pagar caro na conta de luz!"**
+
+Esse título, com a mesma vírgula fora do lugar antes do "e", está rodando ao mesmo tempo em:
+- **Fênix Energia Fotovoltaica** (page 103241548531349), desde 15/09
+- **Haja Energia Solar .** (page 421576177716751), em **4 anúncios**, desde 24/08
+
+Não é coincidência de redação. É o mesmo criativo vendido por uma agência ou comprado no mesmo
+pacote de template. **Isso é ouro para abordagem**: dá para mostrar ao dono, lado a lado, que o
+anúncio pelo qual ele paga é literalmente o mesmo do concorrente — incluindo o erro de pontuação.
+Vale procurar esse padrão de propósito nas próximas varreduras.
+
+(Detalhe que reforça: a página "Haja Energia Solar **.**" termina com um ponto final no nome, sinal
+de página criada às pressas.)
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Esummer Engenharia Elétrica | 116733118200281 | "Faça Seu Orçamento!" em 2 anúncios, mais 1 com título vazio | 28/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1387447563353464) |
+| Technicenergia | 108565795511310 | "Converse conosco" em 3 anúncios | 07/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1809082870085407) |
+| Bon Tech Engenharia Solar | 617241574801119 | título vazio | 05/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2071026170186921) |
+| Evosolar - Usinas Fotovoltaicas | 107128252207454 | "☀️ Energia solar em **Itaperuna**" — anúncio de outra cidade aparecendo no termo do Rio | 05/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=900567199774201) |
+| FULL POWER Energy | 111394752025043 | **6 anúncios** simultâneos, todos "Solicitar orçamento 👉" | 17/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1688041212684013) |
+| Haja Energia Solar . | 421576177716751 | título de template compartilhado com concorrente, em 4 anúncios | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2187946035100995) |
+| Renovas Energias Sustentáveis | 1117460434791468 | "Converse conosco" | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1578722017054563) |
+| OGES - EcoSoluções | 108021918959316 | "Seu telhado precisa de engenharia" — bom gancho, mas sem oferta nem próximo passo | 28/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1722453839020979) |
+| PeG soluções Energéticas | 1044915618714036 | nome da página + "Orçamento" repetido 3 vezes | 02/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1046124078225855) |
+| Combo Vendedor Solar | 1098032116732177 | "Converse conosco" em 2 anúncios | 07/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1587103269865185) |
+| Fênix Energia Fotovoltaica | 103241548531349 | o título de template compartilhado | 15/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1140124905006489) |
+| Fenattech Engenharia & Consultoria | 117027822316983 | 1 anúncio com título vazio (os outros 2 usam "Quero economizar!", que funciona) | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1818779439112888) |
+| Electy | 105758298869789 | nome da página + 4 campos vazios | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1455616293127905) |
+| Expo 6 Soluções Energéticas | 118732134650723 | "ENTRE EM CONTATO CONOSCO!➡️" — caixa alta e nenhuma oferta | 15/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1595685652256493) |
+| Rio suner | 109594208009432 | "ENTRE EM CONTATO! ➡️" — mesmo defeito, e o nome da página parece erro de digitação de "Rio Sunner" | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1787203998979803) |
+
+**Quem está fazendo certo** (útil como referência de copy, não como alvo): **Eng Full**, com "Energia
+Solar Não É Só Preço" e "Paga Mais de R$ 800 de Energia?" — as duas peças qualificam o lead antes
+do clique. E **VIA SOLAR**, com "Energia solar a partir de R$682,50", que é a única do lote que põe
+número no título.
+
+**Contaminação do termo**: entraram um jornal (Valor Econômico), uma empresa de aquecedor a gás
+(Aquecegás) e uma usina de Itaperuna. Termo de serviço em nicho saturado puxa qualquer coisa que
+fale de energia.
+
+### Veredito do nicho para o Pablo
+Energia solar é o **oposto** de contabilidade: 129 anúncios contra 8. Leilão caríssimo, quase
+nenhum dono identificável, e todo mundo já anuncia — ou seja, o discurso "você não está anunciando"
+não serve aqui, e o discurso "seu anúncio está ruim" enfrenta gente que já tem agência. Como lista
+fria, rende pouco apesar do tamanho. **Mantém no fim da fila.**
+
+Combos varridos até aqui: + energia solar Rio de Janeiro.
