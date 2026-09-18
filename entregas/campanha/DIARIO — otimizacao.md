@@ -1388,3 +1388,31 @@ Enquanto ele não decide, não mexo: orçamento é trava inegociável.
 - Escrever variações curtas em forma de pergunta para o conjunto de ADVOCACIA, seguindo o padrão
   que a varredura de hoje mostrou ser o que os escritórios que mais gastam usam.
 - Continuar a varredura em imobiliária e estética, que rendem mais por busca; veterinária está fora.
+
+---
+
+## 18/09/2026 18h07 BRT — HARMONIZAÇÃO cruzou as 48h com 5 impressões na vida inteira
+
+Relógio lido da Meta: `created_time` 16/09 17h59:07 BRT. Agora são 18/09 18h07 BRT — **48h08 de vida**.
+
+| | |
+|---|---|
+| Impressões desde a criação | **5** |
+| Impressões hoje | **0** |
+| Gasto total | **R$0,05** |
+| Leads | 0 |
+
+**Não pausei, e não vou pausar.** A TRAVA 7 cobre exatamente este caso: o piso é 500 impressões em
+48h, e o conjunto ficou em 5 — um centésimo do necessário para um veredito. O veredito correto é
+**NÃO TESTADO**, não "reprovado".
+
+Os cinco anúncios do conjunto seguem ACTIVE e a segmentação está limpa. Não há nada errado com ele;
+ele simplesmente não recebeu verba. Com seis conjuntos disputando R$20/dia, a CBO concentrou a
+entrega no INTERESSE, no CNAE e, hoje, no ADVOCACIA — que sozinho já levou 260 impressões no dia.
+
+A rodada V3 de amanhã vai registrar o veredito formal. Os três conjuntos de nicho de 17/09
+completam 48h amanhã às 18h57 e devem cair no mesmo lugar: IMOBILIÁRIA com ~98 impressões
+acumuladas, CONTABILIDADE com ~13. O ADVOCACIA é a exceção — deu lead, então está protegido pela
+trava dos 48h.
+
+Pablo avisado.
