@@ -4181,3 +4181,54 @@ repetida é a pergunta curta sobre a dor.
 
 Combos varridos até aqui: + advocacia recuperação judicial (usado como munição de criativo, não só
 como lista fria).
+
+---
+
+## Imobiliária — Madureira (varrido 18/09/2026) — RESULTADO NEGATIVO, e o negativo ensina
+
+Dois termos, os dois falharam, cada um por um motivo diferente:
+
+| Termo | Resultado | Por quê |
+|---|---|---|
+| `apartamento à venda Madureira Rio de Janeiro` | **1 anúncio** | o reforço geográfico estrangulou a busca |
+| `apartamento à venda Madureira` | 28 anúncios, mas **quase nenhum é do bairro** | o sobrenome contamina |
+
+### A armadilha dos dois lados
+
+A lição antiga do arquivo dizia: *"bairro que também é sobrenome (Madureira) precisa de reforço
+geográfico"*. **Está incompleta.** Em imobiliária, os dois caminhos quebram:
+
+- **Sem reforço**, a busca devolve São Paulo. Das 28, quinze são da **THURA Negócios Imobiliários**
+  anunciando `Reformado, mobiliado e pronto para morar na Vila Clementino` — Vila Clementino é
+  bairro de São Paulo. Somam-se Imofar **Caxias** e **Camila Madureira Almeida**, que é o sobrenome
+  puro.
+- **Com reforço**, sobra 1 anúncio. O termo fica específico demais para um bairro que praticamente
+  não tem anunciante de imóvel.
+
+**Regra corrigida: em Madureira, imobiliária não tem mercado de anúncio. Não varrer de novo.**
+O bairro segue válido para os nichos que já renderam ali (odontologia e estética, varridos em dias
+anteriores), mas para imóvel está fechado.
+
+### O único alvo real do bairro
+
+**Betel Negócios Imobiliários** — Trilha B — título
+`🏡 UM APARTAMENTO COMPLETO NO CORAÇÃO DO MADUREIRA!`. Sem defeito técnico: nomeia o bairro e o
+produto. É concorrência bem feita, não alvo.
+
+### Dois alvos de fora do bairro que a busca entregou de brinde
+
+**Seu Apartamento Tenda** — 3 anúncios com `Converse conosco` como título.
+**Artur Peruzzo. Corretor De Imóveis.** — Trilha A — `Converse conosco` repetido 3 vezes, no ar
+desde **agosto**. Entram no padrão de rótulo-de-botão-como-título.
+
+**Imofar Caxias** — Trilha B — nome da página + `Imobiliária Imofar. Aqui a gente te escuta.`
+repetido 7 vezes. É de Duque de Caxias, fora do escopo do Rio; registrado só para não reaparecer.
+
+### Leitura
+
+Esta rodada não produziu alvo, e é exatamente por isso que vale estar no arquivo: **evita que uma
+rodada futura gaste tempo com o mesmo combo.** Com Madureira fechado, imobiliária está varrido em
+todos os bairros prioritários — Méier, Campo Grande, Copacabana, Botafogo, Tijuca, Barra e Niterói —
+e a conclusão consolidada do nicho é que **Niterói lidera em Trilha A e a Barra em gravidade de erro**.
+
+Combos varridos até aqui: + imobiliária Madureira (fechado como improdutivo, não repetir).
