@@ -36,6 +36,8 @@ fluxo correto:
 | `M1-b` | WhatsApp | Cadência 12x30 — T1, D1 08:45, Caminho B do Split (50%) | 18/09/2026 | Ativo — teste A/B (R-05) |
 | `M2-v1` | WhatsApp | Cadência 12x30 — após T8, D10 13:30 | 18/09/2026 | Ativo |
 | `M3-v1` | WhatsApp | Cadência 12x30 — após T12, D30 17:45 | 18/09/2026 | Ativo |
+| `MI-0` | WhatsApp | Cadência Inbound — imediata, antes da TI1 (R-07) | 18/09/2026 | Ativo |
+| `MI-F` | WhatsApp | Cadência Inbound — handoff ao fim da TI5 (R-07) | 18/09/2026 | Ativo |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -96,6 +98,34 @@ Sem `[Agendar com o closer]`, pelo mesmo motivo de `M1-a`.
 `[Agendar com o closer]` é o Trigger Link da seção 2.9 do `build-wesales.md`,
 não texto literal — insira pelo ícone `{}` da caixa de mensagem, em Custom
 Values → Trigger Links.
+
+## MI-0 — confirmação imediata (Cadência Inbound — R-07)
+
+Especificada em `build-wesales.md`, seção 2.10. Dispara no instante em que
+o lead entra em `Em cadência` pela origem inbound, antes de qualquer
+tentativa de ligação. Objetivo: o lead saber que foi ouvido antes mesmo do
+telefone tocar — o equivalente, do lado do lead, ao que o Meetime documenta
+como notificar o SDR "independente de onde ele esteja".
+
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
+> Recebi seu contato agora e já vou te ligar em poucos minutos. Se preferir
+> me responder por aqui enquanto isso, também tá valendo.
+
+Sem `[Agendar com o closer]` de propósito: é a mesma lógica de `M1-a`/`M1-b`
+— a mensagem que promete uma ligação não deve competir com um link.
+
+## MI-F — handoff para a régua normal (Cadência Inbound — R-07)
+
+Especificada em `build-wesales.md`, seção 2.10, nó 1 do handoff. Dispara se
+as 5 tentativas rápidas (5 min a 3 dias) terminam sem conexão — o lead não
+sai da máquina, entra na Cadência 12x30 pela ação `Add to Workflow`.
+
+> {{contact.first_name}}, tentei falar com você algumas vezes nos últimos
+> dias sem sucesso. Vou continuar te procurando por mais tempo — se quiser
+> adiantar, o link continua de pé: [Agendar com o closer]
+
+`[Agendar com o closer]` é o Trigger Link da seção 2.9 do `build-wesales.md`,
+mesmo uso de `M2-v1`/`M3-v1`.
 
 ## Como isso responde o "Pronto quando" do R-04
 

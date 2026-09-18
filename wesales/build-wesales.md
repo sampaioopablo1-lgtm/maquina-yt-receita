@@ -31,12 +31,19 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 10. Workflow "Qualificação por IA no WhatsApp" (seção 6)
 11. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
     porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3;
-    textos das mensagens em `biblioteca-mensagens.md`, não neste documento
-12. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-13. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
-    monitoramento que a lista 8.8 filtra
-14. Listas inteligentes (seção 8)
-15. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+    textos das mensagens em `biblioteca-mensagens.md`, não neste documento.
+    Do passo 11 em diante o gatilho da seção 2.1 já leva o filtro novo do
+    R-07 (tag `cad-inbound` ausente) — monte-o com o filtro desde o início,
+    não depois
+12. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
+    handoff do fim da cadência inbound entra nela por Add to Workflow (seção
+    2.10, último nó); precisa da 12x30 já montada para apontar para algo
+13. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+14. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
+    monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
+    o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h)
+15. Listas inteligentes (seção 8)
+16. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
 
 ---
 
@@ -72,10 +79,23 @@ cadência para sozinha. Esse é o mecanismo de segurança da máquina inteira.
 **Opportunity Stage Changed** (Etapa da oportunidade alterada)
 - Pipeline: `Pré-vendas`
 - Para a etapa: `Em cadência`
+- Filtro adicional (R-07): tag `cad-inbound` **ausente**
 
 Não use "Contact Tag Added" como gatilho: a tag é consequência da cadência,
 não causa dela. E não use "Contact Created", senão o lead entra antes de ter
 telefone validado.
+
+O filtro de tag é o que separa este workflow do "Cadência Inbound" (seção
+2.10, R-07 do roadmap): os dois escutam o mesmo evento — entrar em `Em
+cadência` — e cada um pega a fatia que é sua, sem If/Else nenhum decidindo
+isso dentro do fluxo. Pesquisado antes de desenhar: a documentação da
+HighLevel confirma que a ação **Add to Workflow** entra direto na sequência
+de ações de um workflow **sem reavaliar o filtro do gatilho** — é o mesmo
+mecanismo que a seção 2.7 já usa para a Qualificação por IA. Isso é o que
+permite ao "Cadência Inbound" (seção 2.10) devolver um lead sem resposta
+para esta cadência normal ao fim das 5 tentativas rápidas, mesmo com a tag
+`cad-inbound` continuando presente para sempre (ela é o registro de origem
+do lead, não deve ser removida — ver seção 3, "Mestre de saída").
 
 ### 2.2 Configurações do workflow
 
@@ -369,6 +389,160 @@ no minuto do clique ou da resposta, dentro da janela de expediente.
 
 ---
 
+## 2.10 Workflow "Cadência Inbound" — R-07
+
+A Cadência 12x30 (seção 2) mede a régua em dias porque foi desenhada para
+outbound: o lead não pediu nada, então não há pressa que se perca ficando um
+dia sem notícia. Inbound é o oposto — o lead preencheu um formulário ou
+respondeu um anúncio, e cada minuto de espera é conversão que evapora.
+Pesquisado antes de desenhar: o benchmark do Meetime aponta 64% de taxa de
+ligação conectada quando o retorno sai em até 10 minutos, e recomenda SLA de
+até 5 minutos para lead inbound direto; a literatura de mercado (Velocify/
+InsideSales, citada em vários blogs de speed-to-lead) fala em conversão até
+21x maior respondendo nos primeiros 5 minutos contra responder depois de 30.
+Outreach e Salesloft, por desenho, são ferramentas de cadência **outbound**
+— nenhum dos dois tem uma régua nativa em minutos para lead entrante, o que
+sobra para relatório manual ou automação por fora. A tabela de degraus do
+roadmap (5 min, 30 min, 2h, 1 dia, 3 dias) já cobre exatamente a janela que
+a pesquisa aponta como a que decide a conversa: os três primeiros degraus
+cabem dentro da 1ª hora, que é onde o SLA se ganha ou se perde.
+
+Por que não é o mesmo workflow da Cadência 12x30 com um `If/Else` trocando
+os tempos de espera: os nós de espera de 2.4 são `Wait → Until specific
+time` (horário fixo do relógio), porque a régua em dias precisa cair sempre
+no mesmo horário do dia. A régua em minutos precisa do oposto — `Wait →
+Time Delay` relativo ao instante da entrada — e misturar os dois tipos de
+espera dentro do mesmo bloco padrão (2.4) tornaria o molde ilegível para as
+17 tentativas somadas. Dois workflows curtos, cada um com o tipo de espera
+que sua régua pede, são mais fáceis de auditar que um só com um `if` interno
+decidindo qual tipo de nó usar a cada passo.
+
+### Gatilho
+
+**Opportunity Stage Changed** — Pipeline `Pré-vendas` · Para a etapa:
+`Em cadência` · Filtro adicional: tag `cad-inbound` **presente**
+
+Espelha o gatilho da Cadência 12x30 (seção 2.1) com o filtro de tag
+invertido. Os dois disparam do mesmo evento; o filtro decide qual dos dois
+processa aquele lead — não há nó de portão fazendo essa escolha dentro do
+fluxo.
+
+### Configurações
+
+| Configuração | Valor | Por quê |
+|---|---|---|
+| Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta | A mesma da 12x30. Velocidade não é motivo para ligar de madrugada — é o mesmo limite que Meetime documenta como "tempo de resposta em horário comercial", não tempo de relógio corrido |
+| Allow Re-entry | Desligado | Mesmo motivo do D-06 na 12x30: reentrada duplicaria tentativa |
+| Stop on Response | Ligado | Respondeu em qualquer canal, sai — igual à 12x30 |
+
+**Limite conhecido:** um formulário preenchido às 19h de sexta só dispara a
+T1 na segunda às 08:30 — a janela de expediente vale mais que os "5 minutos"
+literais. Os 5/30/2h contam a partir do momento em que a janela está aberta,
+não a partir do clique. É o mesmo trade-off que Meetime e Reev aceitam ao
+medir "tempo de resposta em horário comercial": não existe operação de SDR
+ligando à 1h da manhã, e forçar isso queimaria o lead em vez de convertê-lo.
+
+### Nó 0 — inicialização (uma vez, ao entrar)
+
+Espelha 2.3, com duas diferenças (linhas 0.5 e 0.7, novas):
+
+| Nó | Ação | Configuração |
+|---|---|---|
+| 0.1 | Update Contact Field | `Tentativa nº` = 0 |
+| 0.2 | Update Contact Field | `WA não atendidas seguidas` = 0 |
+| 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
+| 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
+| 0.5 | Update Contact Field | `Prioridade` = 5 (não 3: todo lead inbound nasce no topo da fila — é a resposta rápida que a régua de degraus só cumpre se o SDR também priorizar certo) |
+| 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (mesmo campo do R-02 — a métrica de speed-to-lead nasceu para o outbound e serve de graça aqui, sem custo nenhum) |
+| 0.7 | Add Contact Tag | `fila-quente` (assim o lead aparece na lista `Fila Quente`, 8.1, sem lista nova) |
+
+### MI-0 — mensagem automática imediata
+
+Antes da T1, sem esperar nada: Send WhatsApp (SMS fallback), texto `MI-0`
+(`biblioteca-mensagens.md`) confirmando o recebimento e avisando que a
+ligação vem em minutos — o equivalente ao "notificar o SDR independente de
+onde ele esteja" que o Meetime documenta, só que do lado do lead: ele sabe
+que foi ouvido antes mesmo do telefone tocar. Seguido de Update `Template
+usado` = `MI-0`.
+
+### O bloco padrão de uma tentativa inbound (mirror de 2.4, com espera relativa)
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Aguardar | Wait → Time Delay | Delta da tabela abaixo, relativo ao fim do bloco anterior (não horário fixo) |
+| 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `Em cadência` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
+| 2b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Mesma saída limpa do nó 3b da 12x30 |
+| 3 | Seletor de canal | If/Else (só nas tentativas de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Senão → telefone |
+| 4 | Limpar resultado | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
+| 5 | Fila | Add Contact Tag | `fila-tel` ou `fila-wa` |
+| 6 | Tarefa | Add Task | Título: `[CADENCIA] TI{n} · Ligar (canal) — Inbound` · Vence: agora · Atribuir: SDR |
+| 7 | Aviso | Internal Notification | Para o SDR: `Lead inbound {{contact.name}} aguardando retorno — TI{n}.` Diferencial sobre o bloco padrão outbound (2.4): lá a fila espera ser vista; aqui o SDR é avisado na hora, o mesmo padrão do F-01 (seção 2.9) e do que o Meetime chama de notificação "independente de onde o SDR esteja" |
+| 8 | Aguardar resultado | Wait → Condition, tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: o delta até a tentativa seguinte da tabela abaixo — não 18:30 fixo, porque numa régua de minutos "esperar até o fim do dia" descaracterizaria a velocidade |
+| 9 | Remover tag de fila | Remove Contact Tag | `fila-tel` e `fila-wa` |
+| 10 | Condição por resultado | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (o Pós-ligação, seção 4, cuida do resto — é canal-agnóstico, já reaproveitado sem alteração) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → próxima tentativa (ou handoff, na TI5) |
+| 10b | Ramo do tempo limite | Update Contact Field | `Resultado da tentativa` = `Não atendeu` · Add Contact Tag `limpar-tarefas` |
+
+Só na T1 (aqui, TI1), repita o par 5c/5d da seção 2.4 (`1ª tentativa em` =
+`{{right_now}}` e limpeza preventiva de `atraso-1a-tentativa`) — mesmo
+campo do R-02, mesmo motivo: é a primeira tentativa de verdade do lead,
+independente de a cadência ser inbound ou outbound.
+
+### As 5 tentativas (degraus do roadmap)
+
+| TI | Delta desde a entrada | Delta do Wait (nó 1) | Canal | Tarefa |
+|---|---|---|---|---|
+| MI0 | imediato | — | Mensagem (automática) | — |
+| 1 | 5 min | 5 min | Telefone | `[CADENCIA] TI1 · Ligar (telefone) — Inbound` |
+| 2 | 30 min | 25 min (desde TI1) | Telefone | `[CADENCIA] TI2 · Ligar (telefone) — Inbound` |
+| 3 | 2h | 1h30 (desde TI2) | Ligação WhatsApp (seletor) | `[CADENCIA] TI3 · Ligar (WhatsApp) — Inbound` |
+| 4 | 1 dia | 22h (desde TI3) | Telefone + WhatsApp (seletor) | `[CADENCIA] TI4 · Ligar (canal) — Inbound` |
+| 5 | 3 dias | 2 dias (desde TI4) | Telefone | `[CADENCIA] TI5 · Ligar (telefone) — Inbound` |
+
+Canal majoritariamente telefone, de propósito: é o canal que o SDR controla
+sem depender de `Permissão WhatsApp` (que um lead recém-chegado quase nunca
+já respondeu) — o seletor de WhatsApp só entra nas tentativas 3 e 4, quando
+já houve tempo de a permissão ter sido concedida numa ligação anterior.
+
+**Limite conhecido, o mesmo do R-01:** `Tentativa nº` é o mesmo campo (C-01)
+usado pela 12x30, então a lista `Conexão por Tentativa` (8.6) passa a
+misturar "T1" de 5 minutos com "T1" de um dia — o número é o mesmo, o
+significado não. Não vale criar um segundo contador só para diferenciar:
+quem olhar a lista já sabe filtrar por `cad-inbound`/`cad-outbound` se
+precisar separar as duas réguas, e um contador espelhado é exatamente o tipo
+de campo com dois donos que este projeto evita (seção 2.4, nó do contador de
+WhatsApp).
+
+### Handoff ao fim da TI5 (sem resposta)
+
+Se a TI5 chega ao nó 10 pelo ramo "qualquer outro / tempo limite" (3 dias
+esgotados sem conexão), em vez de "próxima tentativa" (não há):
+
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | Send WhatsApp (SMS fallback) | Texto `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal |
+| 2 | Update Contact Field | `Template usado` = `MI-F` |
+| 3 | Add to Workflow | `Cadência 12x30` |
+| 4 | Remove from Workflow | Este (`Cadência Inbound`) |
+
+O nó 3 funciona apesar de o gatilho da 12x30 (seção 2.1) filtrar `cad-inbound`
+ausente: `Add to Workflow` entra direto na sequência de ações, sem reavaliar
+o gatilho de destino — documentado pela HighLevel e já usado sem alteração
+pela Qualificação por IA (seção 2.7). A tag `cad-inbound` continua no
+contato para sempre (é origem, não fila — ver seção 3): o lead vira
+"inbound que não respondeu rápido e caiu para a régua normal", não
+"outbound". A 12x30 zera `Tentativa nº` no seu próprio nó 0.1 ao ser
+entrado — a T1 da régua de 30 dias é uma tentativa nova, não uma
+continuação numerada da TI5. Pelo mesmo motivo, o nó 0.6 da 12x30 também
+regrava `Entrada em` = `{{right_now}}` no instante do handoff — é a mesma
+lógica de "rodada nova" da decisão D-06 (`briefing-sdr.md`), não um bug:
+o R-02 mede a partir da entrada na régua vigente, e a régua vigente mudou.
+
+**Pronto quando (do roadmap):** formulário preenchido dispara ligação em
+minutos — a tarefa `[CADENCIA] TI1` nasce e o SDR é avisado (nó 7) 5 minutos
+depois da entrada em `Em cadência`, dentro da janela de expediente.
+
+---
+
 ## 2.11 Alerta de Speed-to-lead — R-02
 
 Speed-to-lead é a métrica nº 1 de inbound na literatura de vendas (Reev,
@@ -400,7 +574,8 @@ juntos, um mede e cadencia, o outro só mede)
 ### Nós
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
-| 1 | Aguardar | Wait → Time Delay | 1 hora |
+| 0 | Bifurcação por origem (R-07) | If/Else | Tag `cad-inbound` presente → Wait 15 minutos (nó 1a). Senão → Wait 1 hora (nó 1b). Os dois caminhos convergem no nó 2 |
+| 1a/1b | Aguardar | Wait → Time Delay | 15 min (inbound) ou 1 hora (outbound), conforme o nó 0 |
 | 2 | Portão | If/Else | Etapa da oportunidade **é** `Em cadência` **E** `1ª tentativa em` está vazio → segue. Senão → **encerra** (T1 já rodou, ou o lead já saiu de cadência — não é atraso) |
 | 3 | Fila | Add Contact Tag | `atraso-1a-tentativa` |
 | 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está há mais de 1h em cadência sem a 1ª tentativa. Entrada: {{contact.entrada_em}}.` |
@@ -414,6 +589,15 @@ linhas.
 
 **Pronto quando (herdado do R-02 no roadmap):** existe lista "leads com mais
 de 1h sem primeira tentativa" — é a 8.8, filtrando `atraso-1a-tentativa`.
+
+**Por que o nó 0 (R-07):** 1 hora é o limite certo para outbound (ninguém
+prometeu nada ao lead) e um limite inútil para inbound, cuja própria régua
+(seção 2.10) já dispara a TI1 em 5 minutos — esperar 1h para alertar um
+atraso que devia estourar em 15 seria alarme tarde demais para o SLA que o
+Meetime documenta como "boa prática" (abaixo de 10 minutos). Em vez de um
+segundo workflow e uma segunda tag só para essa diferença, o mesmo alerta
+(mesma tag `atraso-1a-tentativa`, mesma lista 8.8) ganha um relógio mais
+curto quando a origem é inbound — zero campo novo, zero tag nova.
 
 ---
 
@@ -929,10 +1113,11 @@ lista mostra o padrão acumulado quando ele quiser olhar.
 | Colunas | Nome · Empresa · Telefone · `Entrada em` · `1ª tentativa em` (sempre vazio nesta lista) · Tarefas abertas |
 | Ordenação | Última atividade asc (quem está parado há mais tempo aparece primeiro) |
 
-A tag só existe porque o workflow da seção 2.11 a aplicou depois de 1h de
-espera sem `1ª tentativa em` preenchido — a lista não faz conta nenhuma, só
-lê a marca que o relógio já fez. É o "Pronto quando" do R-02: dá para apontar
-o lead que já passou de 1h sem SDR ligar, sem abrir planilha.
+A tag só existe porque o workflow da seção 2.11 a aplicou depois do tempo de
+espera daquele relógio (o prazo varia por origem — R-07 — e é a seção 2.11
+que guarda o valor certo) sem `1ª tentativa em` preenchido — a lista não faz
+conta nenhuma, só lê a marca que o relógio já fez. É o "Pronto quando" do
+R-02: dá para apontar o lead atrasado sem SDR ligar, sem abrir planilha.
 
 ### 8.9 `Funil — Entraram no Mês` — R-03
 | Item | Configuração |
@@ -1107,6 +1292,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
 | 24 | Loop do closer | No Teste Atendeu já em `Reunião agendada`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: etapa vira `Descartado`, `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
 | 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `Conectado`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
+| 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `Em cadência` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.

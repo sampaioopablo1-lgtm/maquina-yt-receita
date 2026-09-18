@@ -159,7 +159,7 @@ Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 
 | # | Tag | Função na máquina |
 |---|---|---|
-| T-12 | `atraso-1a-tentativa` | Alerta de speed-to-lead (R-02): aplicada pelo workflow da seção 2.11 do `build-wesales.md` quando o lead passa 1h em `Em cadência` sem a T1 disparar; filtra a lista 8.8 |
+| T-12 | `atraso-1a-tentativa` | Alerta de speed-to-lead (R-02/R-07): aplicada pelo workflow da seção 2.11 do `build-wesales.md` quando o lead passa o tempo daquele relógio (varia por origem, seção 2.11 tem o valor certo) em `Em cadência` sem a T1 disparar; filtra a lista 8.8 |
 
 T-12 não está na lista das 11 aprovadas em `APROVADO.md` — criação por API
 fica parada até você trocar `[ ]` por `[x]` numa linha própria para ela (o

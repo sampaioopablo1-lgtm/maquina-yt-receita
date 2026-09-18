@@ -157,11 +157,35 @@ depende do conector nem de `APROVADO.md`.
 
 ## Bloco 3 — Cadências vizinhas
 
-### R-07 · Cadência inbound (lacuna L-04)
+### R-07 · Cadência inbound (lacuna L-04) — **FEITO em 18/09/2026**
 **Por quê:** as tags `cad-inbound`/`cad-outbound` existem e só há cadência
 outbound. Inbound com cadência de 30 dias é lead perdido: a régua é em minutos.
 **Como:** cadência própria — tentativa em 5 min, 30 min, 2h, 1 dia, 3 dias.
 **Pronto quando:** formulário preenchido dispara ligação em minutos.
+
+**Resumo:** workflow novo `Cadência Inbound` especificado em
+`build-wesales.md`, seção 2.10 — mesmo gatilho da Cadência 12x30 (Opportunity
+Stage Changed → `Em cadência`), separado por um filtro de tag oposto nos dois
+gatilhos (`cad-inbound` presente/ausente, seção 2.1), sem If/Else de portão
+decidindo isso dentro do fluxo. Esperas por `Wait → Time Delay` relativo
+(não horário fixo, que não faz sentido numa régua de minutos); lead entra
+com `Prioridade` = 5 e tag `fila-quente` de saída, e uma mensagem automática
+imediata (`MI-0`, `biblioteca-mensagens.md`) confirma o recebimento antes da
+1ª ligação. Sem conexão ao fim da TI5, handoff por `Add to Workflow` para a
+Cadência 12x30 (mensagem `MI-F`) — pesquisado e confirmado que essa ação
+entra direto na sequência do workflow de destino sem reavaliar o filtro do
+gatilho, o mesmo mecanismo que a Qualificação por IA (seção 2.7) já usa. A
+tag `cad-inbound` nunca é removida: é origem do lead, não fila. O alerta de
+speed-to-lead (R-02, seção 2.11) ganhou um relógio mais curto (15 min em vez
+de 1h) quando a origem é inbound, reaproveitando a mesma tag
+`atraso-1a-tentativa` e a mesma lista 8.8 — zero campo e zero tag novos
+neste item. Pesquisado antes de desenhar: o benchmark do Meetime (64% de
+conexão respondendo em até 10 min, SLA recomendado de 5 min para inbound
+direto) e a estatística de conversão até 21x maior respondendo nos primeiros
+5 minutos validam os degraus do roadmap; Outreach e Salesloft são desenhados
+para outbound e não têm régua nativa em minutos para lead entrante — é a
+lacuna que este item fecha usando só workflow nativo do GHL. Zero criação
+no CRM (nenhum campo ou tag nova): não depende de `APROVADO.md`.
 
 ### R-08 · Reengajamento dos 90 dias
 **Por quê:** `nutricao-90d` marca a saída e nada traz de volta. Nutrição sem
@@ -320,9 +344,10 @@ Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes sã
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
 hora investida. Só então as cadências vizinhas e a operação com mais gente.
 
-Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. A ordem
-normal segue para o bloco 3: R-07 (cadência inbound) é o próximo item aberto
-que não depende de volume nem de ressalva do bloco 6.
+Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. Com R-07
+fechado na mesma data, o bloco 3 ganha seu primeiro item: R-08
+(reengajamento dos 90 dias) é o próximo aberto que não depende de volume nem
+de ressalva do bloco 6.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.

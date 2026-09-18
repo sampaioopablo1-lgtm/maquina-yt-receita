@@ -10,7 +10,44 @@ As ferramentas `mcp__GHL-CRM__*` **estavam presentes** nesta sessão. Rodei
 reconferir o estado antes de mexer no roadmap: 0 campos personalizados, 0
 contatos, 1 pipeline (`FUNIL DE VENDAS`, o que já existia, não o
 `Pré-vendas` do projeto). Bate exatamente com `auditoria-resultado.md` —
-nada mudou na subconta desde a auditoria.
+nada mudou na subconta desde a auditoria. Reconfirmado de novo ao fechar o
+R-07 (mesma rodada, mesmo resultado): estado inalterado.
+
+## `Add to Workflow` não reavalia o filtro do gatilho de destino
+
+Pesquisado ao fechar o R-07 (cadência inbound), 18/09/2026, porque o desenho
+inteiro do handoff (seção 2.10 do `build-wesales.md`) depende disso. A
+documentação oficial da HighLevel confirma: a ação **Add to Workflow**
+insere o contato direto na sequência de ações do workflow de destino, **sem
+reavaliar o filtro do gatilho** daquele workflow — o filtro só vale para a
+entrada automática pelo próprio gatilho. Isso é o que permite um workflow
+com filtro de tag "X ausente" (a Cadência 12x30, filtrando `cad-inbound`
+ausente) receber de volta, por `Add to Workflow`, um contato que **tem** a
+tag X — sem precisar remover a tag antes. É o mesmo mecanismo, sem essa
+observação registrada antes, que a Qualificação por IA (seção 2.7) já usava
+silenciosamente desde a primeira rodada.
+
+**Cuidado que a mesma busca trouxe e que não se aplica aqui, mas vale**
+**registrar para não confundir depois:** "Allow Re-entry" do workflow de
+destino segue valendo — `Add to Workflow` não ignora essa configuração, só
+o filtro do gatilho. Se o contato já tivesse passado por aquele workflow
+antes (não é o caso do handoff do R-07: é a primeira entrada dele na
+Cadência 12x30), `Allow Re-entry` desligado bloquearia a nova entrada.
+
+## Pesquisa de mercado que valeu a pena guardar (R-07)
+
+Meetime documenta que a taxa de ligação conectada bate 64% (o teto da
+métrica) quando o retorno ao lead inbound sai em até 10 minutos, e
+recomenda SLA de até 5 minutos para lead inbound direto — meta que a
+literatura de speed-to-lead (benchmarks citando Velocify/InsideSales) reforça
+com "conversão até 21x maior respondendo nos primeiros 5 minutos" contra
+responder depois de 30. Confirmado também: Outreach e Salesloft são
+desenhados para cadência **outbound** — nenhum dos dois tem, nativamente,
+uma régua em minutos para lead entrante. Isso valida os degraus do roadmap
+(5 min a 3 dias) como alinhados ao que a categoria trata como piso de
+excelência, não como número arbitrário — e mostra que fechar isso com
+workflow nativo do GHL, sem software de terceiro, é genuinamente competir na
+faixa que as duas plataformas de prateleira do enunciado deixam de fora.
 
 Se numa execução futura o conector **não** estiver na sessão, o problema
 provável é o mesmo já resolvido antes (ver `rotina-horaria.md`): a rotina
