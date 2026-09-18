@@ -3363,3 +3363,46 @@ inteligência do que como lista fria, e ensina três coisas:
 **Único alvo real de Trilha A**: Robson Wailant, com título vazio há dois meses.
 
 Combos varridos até aqui: + contabilidade Rio de Janeiro.
+
+---
+
+## Escola de idiomas — Rio de Janeiro (varrido 18/09/2026, 02h BRT)
+
+**Duas tentativas de termo.** `curso de inglês Tijuca Rio de Janeiro` devolveu **1 anúncio**, e nem
+era do nicho: era a Estácio da Barra da Tijuca. `aulas de inglês Rio de Janeiro` devolveu **59**.
+Lição de termo: em escola de idiomas o bairro não filtra nada, porque quase ninguém do ramo anuncia
+por bairro — o curso é online ou "no Rio".
+
+Dos 59 anúncios, a concentração é brutal: TravelMate Intercâmbio sozinha tem 9, Portal Concursos 7,
+Med Fluency 7, Rockfeller 4, eba.sankofa 4, Centro de Ensino Aline de Andrade 4. Sobram **13 páginas
+distintas**, e várias nem são escola de idioma (intercâmbio, faculdade EAD, concurso público).
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Centro de Ensino Aline de Andrade | 1169075449628877 | **"Não perca essa portunidade!"** — falta o "o" de oportunidade, em 4 anúncios simultâneos | **29/06/2026** (quase 3 meses) | A | [link](https://www.facebook.com/ads/library/?id=1308982291421410) |
+| TravelMate Intercâmbio | 231586210244036 | **`{{product.name}}`** — a variável do modelo aparecendo crua no título, em 5 anúncios; outros 4 com título vazio | 23/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1337222758573232) |
+| Legacy School Monteiro | 121292851071720 | "Matrículas 2027 abertas!" em 3 anúncios iguais — sem diferencial nenhum | 12/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1044241851799333) |
+| Rockfeller Rio de Janeiro | 106598678580504 | **"Conversa connosco"** — português de Portugal num anúncio do Rio. Criativo importado sem adaptar | 20/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1547606080356107) |
+| Pro Imóveis Rio | 105303848313856 | página de **imobiliária** anunciando "Fale inglês com mais naturalidade" — ou a conta foi invadida, ou alguém subiu o criativo na página errada | 20/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1071167958836401) |
+| northglobalenglish | 103914925517289 | título vazio | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2844042749298894) |
+| Portal Concursos | 257466290793447 | título **"sndflw.com"** em 4 anúncios — o domínio do encurtador de link vazando para o lugar do título; outros 3 com título vazio | 09/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1757588445286684) |
+| eba.sankofa | 117474501310052 | nome da página seguido de **12 campos vazios**, em 4 anúncios | 09/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=937296198875438) |
+| Unifcv - Polo Rio de Janeiro | 104427341534700 | título repetido 8 a 9 vezes, e ainda **escrito de dois jeitos diferentes** no mesmo anúncio ("Unifcv" e "Unicive") | 10/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1610663590691043) |
+| Daniel Medeiros | 107986182321124 | **nenhum** — "4 Aulas VIP individuais por R$ 259,00 mensais" é oferta clara com preço. O melhor do lote | 14/09/2026 | A | — |
+| Med Fluency Academy | 563669673504893 | "BOLSA DE INGLÊS EXCLUSIVAS PARA MÉDICOS EM RIO DE JANEIRO!" — caixa alta inteira, concordância errada ("bolsa... exclusivas") e "EM Rio de Janeiro" em vez de "NO". 7 anúncios com o mesmo erro | 16/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=28291965983804710) |
+
+**O padrão que se repete e já dá para chamar de regra.** Pela terceira varredura seguida aparece o
+mesmo defeito com roupa diferente: **o domínio do link ocupando o lugar do título**. Já vimos
+"api.whatsapp.com" (contabilidade), "fb.me" (TravelMate São Paulo) e agora "sndflw.com" (Portal
+Concursos). Sempre que o anunciante cola um link e não escreve o título, a Meta preenche com o
+endereço técnico. É o sinal mais barato de "ninguém revisou esta conta" que existe na Biblioteca —
+e o mais fácil de mostrar para um dono, porque ele não precisa entender de tráfego para ver que
+está errado.
+
+**Os dois melhores alvos de abordagem:**
+1. **Centro de Ensino Aline de Andrade** — erro de digitação no título há quase 3 meses, em 4
+   anúncios ao mesmo tempo, e tem nome de dona na página.
+2. **Rockfeller Rio de Janeiro** — "Conversa connosco". Uma franquia grande rodando criativo em
+   português de Portugal na praça do Rio.
+
+Combos varridos até aqui: + escola de idiomas Rio de Janeiro (termo por bairro não funciona neste nicho).
