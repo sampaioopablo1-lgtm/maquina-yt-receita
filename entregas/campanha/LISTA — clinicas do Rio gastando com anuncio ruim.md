@@ -3565,3 +3565,86 @@ de busca mais eficiente que a lista tem, porque identifica de uma vez alguém qu
 atravessando os nichos, em vez de ir bairro por bairro. Já há 9 nomes prontos na lista.
 
 Combos varridos até aqui: + veterinária Niterói.
+
+---
+
+# 🎯 LISTA DE ATAQUE — "O ENDEREÇO NO LUGAR DO TÍTULO"
+### Montada em 18/09/2026, 06h. Atravessa todos os nichos e todos os bairros.
+
+Esta seção não é uma varredura nova. É a **consolidação** de um defeito que apareceu em quase todas
+as varreduras do arquivo, de dias e nichos diferentes, e que só ficou visível como padrão quando
+reunido num lugar só.
+
+**Correção de um número que eu passei ao Pablo há uma hora.** Eu disse "9 ocorrências, 9 nomes
+prontos". Estava contando só as varreduras da madrugada. Relendo o arquivo inteiro, o defeito já
+estava catalogado desde os primeiros dias: são **17 anunciantes dentro do perfil**, não 9.
+
+## O que é o defeito
+
+O anunciante impulsiona pelo celular, cola o link e não escreve o título. A Meta preenche sozinha
+com o que tem à mão — o domínio do link, ou o rótulo do botão. O cliente vê no feed:
+
+> **instagram.com**
+> **api.whatsapp.com**
+> **sndflw.com** · **fb.me**
+> **👉 Enviar mensagem (WhatsApp)** · **Conversar no Messenger**
+
+## Por que este é o melhor critério de abordagem do arquivo
+
+1. **Identifica dinheiro saindo.** Só aparece em anúncio ativo, pago.
+2. **Identifica conta sem dono.** Ninguém que olha a conta deixa isso passar uma semana, muito menos
+   dois anos.
+3. **O dono entende sozinho.** É o único defeito da lista que não precisa de nenhuma explicação
+   sobre tráfego. Manda o print e pronto.
+4. **Não depende de nicho nem de bairro.** Funciona em advogado, pet shop, tatuador, ótica e
+   contador igual.
+
+## Os 17 alvos, do mais abandonado para o mais recente
+
+| # | Anunciante | Nicho / bairro | O que aparece | No ar desde | Trilha |
+|---|---|---|---|---|---|
+| 1 | **Marcio Alcides Adv** | advocacia, Campo Grande | `instagram.com` | **11/11/2024 — 22 meses** | A |
+| 2 | **Flip Dog Care** | veterinária, Niterói | `api.whatsapp.com` | 15/01/2025 — 20 meses | B |
+| 3 | **Dra. Mabel Vaz Dermatologia Veterinária** | veterinária, Niterói | `instagram.com` | 08/02/2025 | A |
+| 4 | **teixeiramendes.advogados** | advocacia, Copacabana | **5 anúncios** `instagram.com` + 1 `api.whatsapp.com` | 01/05/2026 | B |
+| 5 | **lerveticarai** | veterinária, Niterói | **3 anúncios** `instagram.com` | 12/05/2026 | B |
+| 6 | **raimundoalvesjunior.advogado** | advocacia, Niterói | `api.whatsapp.com` | 18/06/2026 | A |
+| 7 | **Paulo Fernandes** | imobiliária, Madureira | `api.whatsapp.com` | junho/2026 | A |
+| 8 | **Estética Dental** | odontologia | **2 anúncios** `api.whatsapp.com` | junho/2026 | B |
+| 9 | **Copacabana Eyewear** | ótica, Copacabana | **6 anúncios** `api.whatsapp.com` | 09/07/2026 | B |
+| 10 | **TravelMate São Paulo** | intercâmbio | `fb.me` | 15/09/2026 | B |
+| 11 | **Adv. Felipe Morgan** | advocacia | `api.whatsapp.com` | 01/09/2026 | A |
+| 12 | **pet_shop_copacabana** | pet shop, Copacabana | `instagram.com` | 09/09/2026 | B |
+| 13 | **Portal Concursos** | cursos | **4 anúncios** `sndflw.com` | 09/09/2026 | B |
+| 14 | **Giselle Soares** | (ver seção de origem) | `instagram.com` | — | A |
+| 15 | **bellacavelinne** | tatuagem | `instagram.com` | 15/09/2026 | A |
+| 16 | **PRECISA CONTABILIDADE** | contabilidade | `api.whatsapp.com` | 17/09/2026 | B |
+| 17 | **Arpô Tattoo** e **MelB.tattoo** | tatuagem | rótulo do botão no título | 03/02/2026 e 11/09/2026 | A |
+
+**Trilha A (dono no nome da página): 7 dos 17** — Marcio Alcides, Dra. Mabel Vaz, Raimundo Alves Jr.,
+Paulo Fernandes, Felipe Morgan, Giselle Soares, bellacavelinne, mais os dois tatuadores do item 17.
+
+## Ordem sugerida de abordagem
+
+1. **Marcio Alcides** — 22 meses. O argumento se conta sozinho.
+2. **Flip Dog Care** e **Dra. Mabel Vaz** — 20 meses e 19 meses.
+3. **Copacabana Eyewear** e **teixeiramendes** — volume alto de anúncios errados ao mesmo tempo
+   (6 e 6), então o desperdício é maior e mais fácil de mostrar em números.
+4. O resto, priorizando Trilha A.
+
+## A mensagem, pronta para os dois casos
+
+**Quando é `api.whatsapp.com` ou `instagram.com`:**
+> Dr. / Sr(a)., o título do seu anúncio está saindo como "api.whatsapp.com". Isso é o endereço do
+> link, não uma frase — a Meta preenche sozinha quando o campo do título fica vazio. Quem passa no
+> feed lê isso e segue direto. Segue o print. Se quiser, te mostro em dois minutos como arrumar.
+
+**Quando é o rótulo do botão ("Enviar mensagem (WhatsApp)"):**
+> O título do seu anúncio está repetindo o nome do botão. Sobra um espaço no feed que podia estar
+> dizendo o que você faz, e está dizendo "enviar mensagem". Segue o print.
+
+Em nenhum dos dois é preciso falar de CPM, de público ou de otimização. O erro é visível.
+
+## Como manter esta lista viva
+Toda varredura nova: se aparecer título com domínio (`.com`, `.br`, `fb.me`) ou com rótulo de botão,
+acrescentar aqui além da seção do nicho. É a lista que o Pablo vai usar primeiro.
