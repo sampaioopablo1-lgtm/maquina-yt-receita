@@ -4045,3 +4045,75 @@ Entram também, no mesmo padrão mas com o rótulo do botão no lugar do domíni
 
 Dos 26 anunciantes, **11 são Trilha A** (nome do dono na página). E o tempo médio no ar dos nove
 casos novos com data conhecida passa de **três meses**. Ninguém está olhando essas contas.
+
+---
+
+## Imobiliária — Niterói (varrido 18/09/2026)
+
+Termo `apartamento à venda Niterói`: 79 anúncios, **33 páginas distintas** na primeira leva.
+
+### 🏆 O RECORDE DE TRILHA A DO ARQUIVO
+
+**Cerca de 21 das 33 páginas são Trilha A** — nome de pessoa na página, não de marca. Bate o Méier,
+que tinha 9 de 12. O motivo é estrutural e vale registrar: **Niterói é mercado de corretor autônomo,
+não de imobiliária grande**. Cada corretor anuncia em nome próprio, com a própria conta e o próprio
+cartão. Quem decide é quem atende o telefone.
+
+**Conclusão de prospecção: Niterói passa a ser o bairro prioritário para imobiliária**, à frente do
+Méier. Mais nomes de dono, menos camada de marca entre a abordagem e a decisão.
+
+### Alvos com defeito de título
+
+**Essenza Negócios Imobiliários** — Trilha B — **entra na LISTA DE ATAQUE**.
+Título `api.whatsapp.com`, no ar desde hoje, 18/09.
+
+**Promoção de Imóveis** — Trilha B — nome da página + **15 campos vazios**, desde 14/09.
+Segundo maior número de campos em branco do arquivo, atrás só da New Home (20).
+
+**ricardo_vagno_imoveis** — Trilha A — o @ do Instagram + **10 campos vazios**, desde **26/08**
+(mais de três semanas).
+
+**invest.predial** — Trilha B — a **razão social completa** (`Predial Invest Administradora De
+Imóveis Ltda`) repetida dez vezes. Desde 02/09. Defeito novo na coleção: não é domínio nem rótulo de
+botão, é o nome jurídico do CNPJ, que ninguém procura no Google.
+
+**Eveline Andrade - Corretora de imóveis** — Trilha A — nome + `Saiba mais` + `Converse conosco`
+repetido nove vezes. 2 anúncios, desde 14/09.
+
+**Carlos Macedo - Corretor de imóveis** — Trilha A — nome + `Fale conosco` ×8, desde 16/09.
+
+**Antônio Quinto Corretor** — Trilha A — `Agende sua visita` ×4.
+
+**União Imóveis Niterói** (4 anúncios) e **nlimoveis_natalia.rj** (6 anúncios, Trilha A) — os dois
+com **título totalmente vazio** em toda a conta. São os dois maiores volumes de anúncio mudo do
+bairro.
+
+Mais treze páginas com título vazio em um ou dois anúncios: Flora Imóveis, carolsnogueirag,
+Corretor Gustavo Ferreira, thay.imoveis.niteroi, Márcio Vinícius Cremona, Fernanda Mello,
+Coluna Imóveis, Victor Maisonnette, andrecyriacoimoveis, dreamsimob, wetimoveis,
+Paulo Guerreiro Imóveis, felipeimovel, Joel Nobre, Victor Mafram, Jorge Henrique Imóveis,
+Alferr Imóveis, Gáudio Imóveis, wallace25gomes.
+
+### O caso curioso
+
+**Jonas Mattos - Corretor de Imóveis** — Trilha A — o título é **bom**
+(`Apartamento à venda em Santa Rosa por R$ 735 mil`: bairro, tipo e preço), mas vem repetido oito
+vezes depois do nome da página. Mesmo mecanismo mecânico dos outros, só que com conteúdo decente
+dentro. Prova que o defeito é do preenchimento, não da falta de ideia.
+
+### Referências positivas
+
+- **Evelyn Bevilaqua Corretora** — `R$ 520.000 - 2 Quartos no Miolo de Icaraí com Vaga.` Preço,
+  metragem, micro-região e vaga em uma linha. O melhor título de corretor autônomo do arquivo.
+- **PRIME Consultoria** — `2 quartos + suíte em Icaraí por R$ 655 mil`.
+- **Lar doce lar Cury** — `2 quartos em Niterói com entrada de R$ 10 mil` — vende pela entrada, não
+  pelo valor total. Copy inteligente para o público de primeira compra.
+- **Imóvel Icaraí** — `Apartamento em Icaraí — aceita proposta`.
+
+### Leitura
+
+Niterói junta as duas coisas que a prospecção precisa: **a maior proporção de Trilha A do arquivo**
+e uma quantidade alta de anúncio mudo pago. E, ao contrário da Barra, aqui quem erra é gente física
+com o próprio dinheiro — o que encurta a conversa.
+
+Combos varridos até aqui: + imobiliária Niterói (novo bairro prioritário do nicho).
