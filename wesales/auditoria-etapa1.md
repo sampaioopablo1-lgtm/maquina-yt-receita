@@ -47,26 +47,55 @@ e é a causa nº 1 de erro 401).
 **Sem integração nenhuma:** me manda print ou export das 6 listas e eu preencho
 a auditoria na mão. Para as Etapas 4 e 5 o resultado é idêntico.
 
-## 2. O que esperar das ferramentas
+## 2. Como o conector se parece por dentro
 
-Nomes já confirmados na documentação do servidor, no padrão `dominio_acao`:
+Confirmado pelas telas do próprio app. O conector **não** entrega 625
+ferramentas — entrega **6 ferramentas genéricas** que alcançam as 625
+operações. É desenho de meta-ferramenta:
 
-| Domínio | Ferramentas |
-|---|---|
-| Contatos | `contacts_get-contacts`, `contacts_get-contact`, `contacts_create-contact`, `contacts_update-contact`, `contacts_upsert-contact` |
-| Tags | `contacts_add-tags`, `contacts_remove-tags` |
-| Tarefas | `contacts_get-all-tasks` |
-| Conversas | `conversations_search-conversation`, `conversations_get-messages`, `conversations_send-a-new-message` |
-| Oportunidades | `opportunities_search-opportunity`, `opportunities_get-opportunity`, `opportunities_update-opportunity` |
-| Calendários | `calendars_get-calendar-events`, `calendars_get-appointment-notes` |
-| Subconta | `locations_get-location`, `locations_get-custom-fields` |
+| Tipo | Ferramenta | Permissão padrão |
+|---|---|---|
+| Leitura | `Search Operations` — acha a operação certa no catálogo | Sempre permitir |
+| Leitura | `Describe Operation` — mostra os parâmetros de uma operação | Sempre permitir |
+| Leitura | `Search Records` — busca registros | Sempre permitir |
+| Leitura | `Fetch Records` — puxa registros | Sempre permitir |
+| Leitura | `List Locations` — lista as subcontas autorizadas | Sempre permitir |
+| **Escrita** | `Execute Operation` — executa qualquer operação do catálogo | **Precisa de aprovação** |
 
-Essa lista é a que os guias públicos mostram e é **pequena perto das 625
-operações** que o endpoint anuncia. Ou seja: criar campo personalizado, ler
-formulário e ler workflow — que eu tinha dado como provavelmente ausentes —
-têm boa chance de estar cobertos. **Não vou chutar para nenhum dos lados.** A
-primeira coisa que faço ao conectar é listar as ferramentas reais e refazer
-esta seção e a tabela da seção 3 com o que existe de fato.
+A chamada real tem esta forma (visto na demonstração do app):
+
+```json
+{
+  "operationId": "search-contacts-advanced",
+  "locationId": "<id da subconta>",
+  "params": { "body": { "pageLimit": 5, "page": 1 } }
+}
+```
+
+### O que isso muda no plano
+
+Muda bastante, e para melhor:
+
+1. **A pergunta deixa de ser "existe ferramenta para X".** Passa a ser "X está
+   no catálogo de operações", e o catálogo é a API v2 inteira. Criar campo
+   personalizado, listar tags, ler formulário e ler workflow — que eu tinha
+   marcado como provavelmente ausentes — devem estar todos alcançáveis por
+   `Execute Operation`.
+2. **O `Search Operations` faz a descoberta.** Não preciso adivinhar nome de
+   ferramenta: procuro a operação no catálogo, leio os parâmetros com
+   `Describe Operation` e executo.
+3. **`Execute Operation` pede aprovação a cada uso.** Isso é bom e casa com a
+   regra do projeto: nada é criado ou alterado sem você confirmar. Espere ver
+   prompts de aprovação quando eu criar os 26 campos e as 11 tags — um por
+   operação.
+4. **`List Locations` resolve a escolha de subconta.** É por ela que eu te
+   mostro as subcontas autorizadas para você escolher, em vez de perguntar no
+   escuro.
+
+A tabela da seção 3 continua descrevendo o pior caso. Ela existe para o dia em
+que a conexão não vier; com o conector de pé, a expectativa é que quase tudo
+que está marcado como manual saia por `Execute Operation`. Só troco a tabela
+depois de rodar `Search Operations` de verdade.
 
 ## 3. Cobertura da auditoria e das criações
 
