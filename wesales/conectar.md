@@ -22,6 +22,21 @@ rodando dentro do contêiner, e aí a allowlist vale. Por isso o `.mcp.json` foi
 removido deste repositório — ele não tinha como funcionar aqui e ainda deixava
 um servidor quebrado em toda sessão.
 
+## Antes de criar: já existe um conector pela metade
+
+Verificado em 18/09/2026 no registro de conectores da conta: existe um conector
+**`GHL CRM`** com estado **`connect_incomplete`** — criado, nunca finalizado.
+`connected: false`, `enabledInChat: false`.
+
+Ou seja, pode não haver nada a criar: basta abrir claude.ai → Configurações →
+Conectores → **GHL CRM** e concluir a conexão. Se ele pedir URL e cabeçalhos,
+use os do caminho A abaixo.
+
+Na mesma varredura, outros conectores da conta estão em estado incompleto ou
+pedindo reconexão: Canva, Clint, Supabase, SUPABASEMETAADS, opsily,
+Reap Vídeo IA, Spendflo e Google Calendar. Vale uma passada, porque cada um
+deles é uma capacidade que a conta acha que tem e não tem.
+
 ## Caminho A — conector do claude.ai com cabeçalho estático
 
 O suporte a **bearer token em conector personalizado** saiu do papel: hoje o
