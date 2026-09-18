@@ -3741,3 +3741,58 @@ domínio: o dono vê o erro sozinho.
 meio) e **dra.miriaandrade** (Trilha A, 5 campos vazios no título).
 
 Combos varridos até aqui: + odontologia Méier.
+
+---
+
+## Estética / harmonização — Méier (varrido 18/09/2026)
+
+**A lição do termo confirmada pela TERCEIRA vez.** Dois termos, mesmo bairro, mesmo dia:
+
+| Termo | Resultado |
+|---|---|
+| `preenchimento labial Méier` | 12 anúncios, **2 páginas** |
+| `botox Méier` | **32 anúncios**, 7 páginas |
+
+Se a varredura tivesse parado no primeiro termo, o bairro inteiro teria sido classificado como vazio.
+**Regra: em estética, sempre rodar os dois termos antes de dar um bairro por varrido.**
+(Casos anteriores: em Madureira `preenchimento labial` deu zero e `botox` rendeu 19.)
+
+### Alvos
+
+**Botocenter Méier** — Trilha B — o caso de volume.
+~17 anúncios simultâneos, **todos com o título `⭐⭐⭐⭐⭐`**. Uma nota de avaliação no lugar onde
+deveria estar a promessa. Quem vê o anúncio não sabe o que está sendo vendido nem por quanto.
+Defeito: título sem oferta, repetido em toda a conta.
+Link: Biblioteca de Anúncios, busca `botox Méier`.
+
+**Clínica da dor** — Trilha B — **entra na LISTA DE ATAQUE**.
+2 anúncios com o título `Enviar mensagem` repetido 3 a 4 vezes. É o rótulo do botão ocupando o
+campo do título — mesmo mecanismo do `api.whatsapp.com`, `instagram.com` e `sndflw.com` já
+catalogados. O anunciante impulsionou pelo celular e nunca preencheu o título.
+
+**Startsmed** — Trilha B — **entra na LISTA DE ATAQUE** (defeito irmão).
+Título: `{{product.name}}`. Variável de template que nunca foi renderizada. É o erro mais visível
+da lista inteira: qualquer pessoa, sem nenhuma explicação, entende que está quebrado.
+
+**Espaço Facial Meier** — Trilha B — 6 anúncios em `botox`, 3 em `preenchimento labial`.
+Títulos: `✅ AGENDE AGORA!` e `AVALIAÇÃO GRATUITA`. Sem defeito técnico, só genérico.
+Prioridade baixa.
+
+**Botocenter Barra Shopping** — apareceu na busca mas é **outro bairro**. Não abordar por aqui.
+
+**Garimpando com PH** — título vazio, mas é contaminação da busca (não é do nicho). Descartado.
+
+### Referência positiva
+
+**Paula Almeida Clinic** — 5 anúncios, título `Botox com 50% OFF no Méier 💉`.
+Único da varredura com oferta real: procedimento + desconto + bairro em cinco palavras.
+Serve de contraste na abordagem dos outros — "o seu concorrente no Méier está anunciando assim".
+
+### Leitura
+
+Méier confirma pela terceira vez que é o melhor bairro do arquivo, mas aqui pelo motivo oposto ao
+de imobiliária e odontologia: a Trilha A é baixa (as páginas são marcas, não nomes de donos) e o
+que sobra é **qualidade de anúncio muito ruim em quem gasta muito** — Botocenter com 17 anúncios
+no ar e nenhum deles dizendo o que vende.
+
+Combos varridos até aqui: + estética Méier (os dois termos).
