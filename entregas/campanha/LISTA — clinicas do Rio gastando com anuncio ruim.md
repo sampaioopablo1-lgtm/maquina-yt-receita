@@ -4232,3 +4232,56 @@ todos os bairros prioritários — Méier, Campo Grande, Copacabana, Botafogo, T
 e a conclusão consolidada do nicho é que **Niterói lidera em Trilha A e a Barra em gravidade de erro**.
 
 Combos varridos até aqui: + imobiliária Madureira (fechado como improdutivo, não repetir).
+
+---
+
+## Fisioterapia — Niterói (varrido 18/09/2026)
+
+90 anúncios, mas apenas **~11 páginas distintas** — o nicho tem poucos anunciantes rodando muito
+volume cada. Confirma de novo a regra de contar páginas, não anúncios: quem olhasse só o número 90
+concluiria que Niterói é um mercado disputado de fisioterapia, e não é.
+
+### Alvos para a LISTA DE ATAQUE
+
+**Felipe Braga - Fisioterapeuta** — Trilha A — título `api.whatsapp.com`, desde 15/09.
+Nome completo na página, profissional autônomo: abordagem direta.
+
+**fisiodilaineazara** — Trilha A — título `instagram.com`, desde 15/09. O @ como nome de página.
+
+Os dois entram no padrão consolidado do domínio no título e sobem a lista para **28 anunciantes**.
+
+### Alvos com rótulo de botão no título
+
+**ITC Vertebral Niterói** — Trilha B — **3 anúncios**, todos com `Converse conosco`.
+**Fisio On Fisioterapia** — Trilha B — `Converse conosco`.
+
+**Somos Colo - Por Drª Nicolle Tavares** — Trilha A — nome da página + 5 campos vazios.
+
+Títulos completamente vazios: **_julianaandrade** (Trilha A), **Recive Dor Crônica**,
+**Espaço Apoio** (2 anúncios).
+
+### O caso que merece atenção — e é o contrário de um alvo
+
+**inovacaokickboxing** — 17 anúncios simultâneos, e **todos com título bom**:
+`A causa da dor ciática, não só o sintoma` · `Pilates não é molezinha` ·
+`Pilates e musculação não competem` · `Cuidar da articulação é cuidar da liberdade de se mover` ·
+`Recuperar a autonomia, um movimento de cada vez` · `Pilates é controle, consciência e movimento`.
+
+Seis headlines diferentes, todas com ideia própria, nenhuma genérica. **É o melhor conjunto de copy
+encontrado em qualquer varredura deste arquivo** — e vem de uma academia de kickboxing anunciando
+pilates, não de uma clínica. Não é alvo: é referência. Serve de prova de que dá para escrever 17
+anúncios sem repetir frase nem cair no "Converse conosco".
+
+### Contaminação do termo
+
+**Ajls soluções assistência técnica em equipamentos para saúde e estética** vende manutenção de
+aparelho para clínica, não fisioterapia. Fornecedor B2B, não alvo.
+
+### Leitura
+
+Niterói em fisioterapia tem poucos anunciantes, mas **a proporção de Trilha A se mantém alta** —
+_julianaandrade, fisiodilaineazara, Felipe Braga, Drª Nicolle Tavares. É o mesmo retrato da
+imobiliária no bairro: profissional autônomo anunciando em nome próprio. O bairro se confirma como
+o mais promissor do arquivo para abordagem direta, em dois nichos diferentes.
+
+Combos varridos até aqui: + fisioterapia Niterói.
