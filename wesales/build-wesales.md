@@ -2287,7 +2287,7 @@ Calendários → Novo → **Round Robin** (se houver mais de um closer) ou Simpl
 
 | Configuração | Valor | Por que |
 |---|---|---|
-| Duração | 45 min | Reunião de diagnóstico |
+| Duração | 1 hora | Reunião de diagnóstico — sugerido 45 min, dono preferiu manter 1h ao vivo em chat, 18/09/2026: não é referenciado por nenhuma condição de workflow, então a mudança é livre |
 | Intervalo entre slots | 15 min | Closer respira e anota |
 | Aviso mínimo | 2 horas | O SDR consegue agendar para o mesmo dia |
 | Máximo por dia | Conforme o closer | Evita dia impossível |
