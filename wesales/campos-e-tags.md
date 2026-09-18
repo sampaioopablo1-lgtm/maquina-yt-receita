@@ -136,7 +136,7 @@ Observações de tipo:
 |---|---|---|---|
 | S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) | Sem ele a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento (lacuna L-01). São dois campos porque `DATE` no GHL descarta a hora |
 
-## Etapa 3 — Tags (11 + 2 sugeridas)
+## Etapa 3 — Tags (11 + 3 sugeridas)
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -161,13 +161,14 @@ Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 |---|---|---|
 | T-12 | `atraso-1a-tentativa` | Alerta de speed-to-lead (R-02/R-07): aplicada pelo workflow da seção 2.11 do `build-wesales.md` quando o lead passa o tempo daquele relógio (varia por origem, seção 2.11 tem o valor certo) em `Em cadência` sem a T1 disparar; filtra a lista 8.8 |
 | T-13 | `reengajamento-ativo` | Reengajamento 90 dias (R-08): aplicada pelo workflow da seção 2.12 do `build-wesales.md` enquanto o lead reativado roda a régua TR1-TR4; blinda o gatilho da Cadência 12x30 (seção 2.1) contra entrada dupla e filtra a lista 8.14 |
+| T-14 | `pausado` | Regras de pausa (R-09): aplicada manualmente pelo SDR para represar as tentativas de **um** lead sem ser opt-out; checada no nó 2.5 (seção 2.4) e 1.5 (seção 2.10) do `build-wesales.md`, limpa pelo Mestre de saída (seção 3) e filtra a lista 8.15 |
 
-T-12 e T-13 não estão na lista das 11 aprovadas em `APROVADO.md` — criação
-por API fica parada até você trocar `[ ]` por `[x]` numa linha própria para
-cada uma (o formato do arquivo já reserva espaço para isso: uma linha por
-tag/lote, como as 11 originais). Tag criada sem aprovação explícita
-quebraria a regra 2 do briefing, mesmo sendo tecnicamente igual de simples
-que as outras 11.
+T-12, T-13 e T-14 não estão na lista das 11 aprovadas em `APROVADO.md` —
+criação por API fica parada até você trocar `[ ]` por `[x]` numa linha
+própria para cada uma (o formato do arquivo já reserva espaço para isso: uma
+linha por tag/lote, como as 11 originais). Tag criada sem aprovação
+explícita quebraria a regra 2 do briefing, mesmo sendo tecnicamente igual de
+simples que as outras 11.
 
 ## O que eu preciso de você para executar
 

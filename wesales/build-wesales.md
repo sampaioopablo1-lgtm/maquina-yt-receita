@@ -34,21 +34,27 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     textos das mensagens em `biblioteca-mensagens.md`, não neste documento.
     Do passo 11 em diante o gatilho da seção 2.1 já leva o filtro novo do
     R-07 (tag `cad-inbound` ausente) — monte-o com o filtro desde o início,
-    não depois
+    não depois. O bloco padrão de tentativa (seção 2.4) já leva o nó 2.5 de
+    pausa individual (R-09) desde a primeira montagem, não como retrofit
 12. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
-    2.10, último nó); precisa da 12x30 já montada para apontar para algo
+    2.10, último nó); precisa da 12x30 já montada para apontar para algo.
+    Também já leva o nó 1.5 de pausa individual (R-09) desde o início
 13. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
 14. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
-    o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h)
+    o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h);
+    do R-09 em diante o nó 2 já ignora quem está com a tag `pausado`
 15. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
-    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 11) nó a nó e
-    exige que o gatilho do passo 11 já tenha o filtro `reengajamento-ativo`
-    ausente (R-08) — monte-o com o filtro desde o início se ainda não
-    montou, não depois
+    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 11) nó a nó,
+    nó 2.5 incluído, e exige que o gatilho do passo 11 já tenha o filtro
+    `reengajamento-ativo` ausente (R-08) — monte-o com o filtro desde o
+    início se ainda não montou, não depois
 16. Listas inteligentes (seção 8)
 17. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+18. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
+    todos: o recurso só lista workflows **publicados**, então precisa dos
+    passos 11, 12 e 15 já publicados para aparecerem no seletor
 
 ---
 
@@ -151,6 +157,8 @@ o número da tentativa.
 |---|---|---|---|
 | 1 | **Aguardar dia** | Wait → Time Delay | Dias corridos até o dia da tentativa (delta em relação à tentativa anterior — tabela 2.5) |
 | 2 | **Aguardar horário** | Wait → Until specific time | O horário da tabela 2.5. A janela do 2.2 empurra para o próximo dia útil se cair fora |
+| 2.5 | **Pausa individual (R-09)** | If/Else | tag `pausado` presente → ramo 2.5b. Senão → segue para o Portão (nó 3) |
+| 2.5b | Ramo da pausa individual | Wait → Time Delay 1 dia → **volta para o nó 2.5** | Não cria tag de fila, não cria tarefa, não avança `Tentativa nº`. Reconsulta a tag uma vez por dia até o SDR remover — a tentativa fica represada no mesmo lugar, não é descartada nem reagendada |
 | 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `Em cadência` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 3b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Saída limpa. Sem isso, sobra tag e tarefa órfã |
 | 4 | **Seletor de canal** | If/Else (só em tentativa de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Ramo senão: vira telefone (decisão D-04 + regra das 2 seguidas) |
@@ -165,6 +173,17 @@ o número da tentativa.
 Detalhe que costuma passar batido: o nó 5 **limpa** `Resultado da tentativa`
 antes de criar a tarefa. Sem isso, o nó 8 vê o resultado da tentativa anterior
 e passa direto.
+
+**Por que a pausa individual (nó 2.5) é um portão separado do nó 3, e não mais
+uma condição dentro dele (R-09):** o ramo falso do nó 3 (3b) tira o contato do
+workflow — é saída, não pausa. Colar `pausado` ausente na mesma condição **E**
+do nó 3 faria um lead pausado perder a régua inteira (`Tentativa nº` zerado na
+prática, porque saindo do workflow ele só volta por uma rodada 2 manual,
+decisão D-06) em vez de retomar de onde parou quando o SDR remover a tag. O
+nó 2.5 resolve isso represando o contato num laço de 1 dia, sem tocar em fila,
+tarefa ou contador — a especificação inteira da seção 2.13 explica a régua de
+pausa completa, incluindo por que a pausa de calendário (feriado, férias do
+SDR) **não** usa esse mesmo mecanismo.
 
 **Só no bloco da tentativa 1 (T1)**, entre os nós 5 e 6, some mais dois (R-02
 — speed-to-lead):
@@ -500,6 +519,8 @@ usado` = `MI-0`.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Aguardar | Wait → Time Delay | Delta da tabela abaixo, relativo ao fim do bloco anterior (não horário fixo) |
+| 1.5 | Pausa individual (R-09) | If/Else | tag `pausado` presente → ramo 1.5b. Senão → segue para o Portão (nó 2) |
+| 1.5b | Ramo da pausa individual | Wait → Time Delay 30 min → **volta para o nó 1.5** | Mesmo mecanismo do nó 2.5 da 12x30 (seção 2.4), com relógio de 30 min em vez de 1 dia — a régua inbound é medida em minutos, e um retry diário aqui devolveria o lead numa velocidade que já não é mais inbound de verdade |
 | 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `Em cadência` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 2b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Mesma saída limpa do nó 3b da 12x30 |
 | 3 | Seletor de canal | If/Else (só nas tentativas de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Senão → telefone |
@@ -606,7 +627,7 @@ juntos, um mede e cadencia, o outro só mede)
 |---|---|---|---|
 | 0 | Bifurcação por origem (R-07) | If/Else | Tag `cad-inbound` presente → Wait 15 minutos (nó 1a). Senão → Wait 1 hora (nó 1b). Os dois caminhos convergem no nó 2 |
 | 1a/1b | Aguardar | Wait → Time Delay | 15 min (inbound) ou 1 hora (outbound), conforme o nó 0 |
-| 2 | Portão | If/Else | Etapa da oportunidade **é** `Em cadência` **E** `1ª tentativa em` está vazio → segue. Senão → **encerra** (T1 já rodou, ou o lead já saiu de cadência — não é atraso) |
+| 2 | Portão | If/Else | Etapa da oportunidade **é** `Em cadência` **E** `1ª tentativa em` está vazio **E** tag `pausado` **ausente** (R-09) → segue. Senão → **encerra** (T1 já rodou, o lead já saiu de cadência, ou está pausado de propósito — nenhum dos três é atraso) |
 | 3 | Fila | Add Contact Tag | `atraso-1a-tentativa` |
 | 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está há mais de 1h em cadência sem a 1ª tentativa. Entrada: {{contact.entrada_em}}.` |
 | 5 | Registro | Add Note | `Alerta speed-to-lead: sem 1ª tentativa 1h após a entrada · {{right_now}}` |
@@ -702,10 +723,11 @@ workflow só com `if` decidindo por dentro qual configuração vale.
 
 ### O bloco padrão de uma tentativa de reengajamento (TR1 a TR4)
 
-Idêntico ao bloco padrão da Cadência 12x30 (seção 2.4) — mesmas 10 linhas,
-incluindo os ramos 3b e 10b, mesmo tipo de espera (`Wait → Until specific
-time`, não relativo: reativação não tem urgência de minuto, é a mesma
-lógica da 12x30, não da Cadência Inbound). Três diferenças apenas:
+Idêntico ao bloco padrão da Cadência 12x30 (seção 2.4) — inclusive o nó 2.5
+de pausa individual (R-09) e os ramos 3b e 10b —, mesmo tipo de espera
+(`Wait → Until specific time`, não relativo: reativação não tem urgência de
+minuto, é a mesma lógica da 12x30, não da Cadência Inbound). Três diferenças
+apenas:
 
 1. `{n}` vira `TR{n}` no título da tarefa, que ganha o sufixo
    `— Reengajamento` (ex.: `[CADENCIA] TR1 · Ligar (telefone) —
@@ -839,6 +861,132 @@ datas.
 
 ---
 
+## 2.13 Regras de pausa — R-09
+
+`nao-perturbe` já resolve "este lead nunca mais" e a etapa `Em cadência`
+resolve "este lead está correndo a régua". Falta o meio-termo: "não toque em
+*ninguém* por alguns dias" (feriado, o SDR de férias) e "não toque *neste*
+lead por alguns dias" (ele pediu, sem ser opt-out). São dois problemas de
+tamanho diferente, e cada um usou a peça certa em vez de uma peça só fazendo
+as duas coisas mal.
+
+### Por que não é uma tag `pausado` aplicada a todo mundo antes do feriado
+
+Foi o desenho literal do roadmap: uma tag checada no portão, e um "calendário
+de feriados na janela do workflow". Pesquisado antes de montar: o GHL **não**
+tem calendário de feriados dentro da janela de envio (Send Window) de um
+workflow — é um Wait de dias-da-semana + hora, sem exceção de data (é pedido
+em aberto na base de ideias pública da HighLevel, "Automation - Time Window -
+turn off messaging during holidays", ainda não implementado). Reconstruir
+isso com tag exigiria um workflow-relógio aplicando `pausado` em toda a base
+ativa antes de cada feriado e removendo depois — um sistema novo, com
+superfície de bug (tag que não sai a tempo prende o SDR seguinte), para
+duplicar algo que o GHL **já** faz de graça pela tela.
+
+O GHL tem, fora da janela de envio, um recurso de conta separado:
+**Pausar Workflows em Datas Específicas** (Automação → Configurações →
+Global Workflow Settings → Pause Workflow). Pesquisado na documentação da
+HighLevel: você escolhe um intervalo de datas, marca quais workflows
+publicados pausam nele, e opcionalmente marca "Annually" para o mesmo
+intervalo se repetir todo ano — sem precisar reconfigurar em 2027. Limites:
+até 15 intervalos cadastrados, cada intervalo com no máximo 15 dias de
+diferença entre início e fim. O comportamento que importa aqui: contato que
+estava **parado num nó de espera** quando a pausa começa não passa direto —
+ele segue esperando até acabar o Wait normalmente, mas a **próxima ação de
+verdade** (criar tarefa, mandar mensagem) que ele encontrar enquanto a
+pausa está ativa fica represada até a pausa terminar, não só quem entra
+pelo gatilho durante a janela. É o efeito que o "Pronto quando" pede —
+nenhuma tarefa nova nasce durante o feriado — e cobre outbound, inbound e
+reengajamento com a mesma configuração, sem tocar em node nenhum dos três
+workflows. **Nível de confiança e como testar antes de confiar de vez:**
+`APRENDIZADOS-CRM.md` — a leitura veio só de busca, os domínios de suporte
+da HighLevel estão bloqueados para leitura direta neste ambiente.
+
+**Isso não é preguiça de não construir; é o mesmo raciocínio do R-05 (Split
+nativo em vez de If/Else alternado) e do R-02 (tag-alarme em vez de filtro
+de data):** entre reconstruir um mecanismo e usar o que a plataforma já
+oferece pronto, mais barato ganha quando os dois resolvem o mesmo problema —
+e aqui o nativo resolve **melhor**, porque segura ações em qualquer ponto do
+fluxo, não só na entrada.
+
+### Configuração (manual, na tela — não sai por API)
+
+Automação → Configurações → Global Workflow Settings → Pause Workflow →
+Adicionar intervalo.
+
+Workflows a marcar em todo intervalo: `Cadência 12x30`, `Cadência Inbound`,
+`Reengajamento 90 dias` — os três únicos que criam tarefa ou mandam
+mensagem para o lead. Não marque `Mestre de saída`, `Pós-ligação`,
+`Pós-agendamento`, `Registro de Comparecimento`, `Loop do closer` nem
+`Alerta de Speed-to-lead`: são registro/roteamento interno, não toque no
+lead, e pausá-los deixaria o funil de métricas (R-01/R-03) cego durante o
+feriado sem motivo — a métrica de quem conectou ou agendou continua valendo
+mesmo com a operação de discagem parada.
+
+Feriados nacionais fixos — marque `Annually`, uma vez, e nunca mais mexa:
+
+| Data | Feriado |
+|---|---|
+| 01/01 | Confraternização Universal |
+| 21/04 | Tiradentes |
+| 01/05 | Dia do Trabalho |
+| 07/09 | Independência |
+| 12/10 | Nossa Senhora Aparecida |
+| 02/11 | Finados |
+| 15/11 | Proclamação da República |
+| 25/12 | Natal |
+
+Feriados móveis — Carnaval (2 dias), Sexta-feira Santa e Corpus Christi —
+não têm data fixa (dependem da Páscoa), então `Annually` não serve: cadastre
+o intervalo do ano corrente à mão, uma vez por ano, quando o calendário
+sair. Férias do SDR: mesmo caminho, intervalo avulso (sem `Annually`), com
+as datas informadas por quem está de fato saindo — se passar de 15 dias,
+cadastre em blocos de até 15 (o limite é por intervalo, não por ano).
+
+**Limite conhecido:** Reev, Meetime, Outreach e Salesloft (os três últimos,
+por serem ferramentas de vendas puras) têm calendário de feriados integrado
+ao schedule da sequência, recalculado automaticamente ano a ano — o GHL não
+tem isso nativamente (é pedido aberto na base de ideias deles). O preço de
+usar o recurso de conta em vez de um relógio próprio é esse: feriado móvel
+exige uma revisão anual manual de 3 datas. Vale o preço: é 3 datas por ano
+contra um workflow inteiro de tag em massa para manter.
+
+### Pausa individual — a tag `pausado`
+
+Para o caso que o calendário não cobre: **um** lead pediu para não ser
+procurado esta semana (viagem, "me liga mês que vem"), sem isso ser opt-out
+— `nao-perturbe` seria overkill e ligaria o DND nativo, que é permanente por
+desenho (seção 4, ramo `Não ligar`). Tag nova, `pausado` (T-14,
+`campos-e-tags.md`), aplicada manualmente pelo SDR e removida manualmente
+quando o lead volta a valer a pena tentar.
+
+Checada num portão próprio, separado do portão principal (nó 2.5 da seção
+2.4 e nó 1.5 da seção 2.10, detalhados ali): represa a tentativa num laço de
+espera curta em vez de tirar o lead do workflow, porque pausa é "espera",
+não "saída" — a diferença que justifica não reaproveitar o nó 3/3b
+existente, que já significa saída definitiva. O Mestre de saída (seção 3,
+nó 4) limpa a tag se o lead sair de cadência por um motivo real enquanto
+pausado, e o Alerta de Speed-to-lead (seção 2.11, nó 2) ignora quem está
+pausado, para não soar alarme de atraso num lead parado de propósito.
+
+Nova lista inteligente `Pausados Individualmente` (seção 8.15) para o gestor
+não esquecer quem está represado.
+
+### Nova tag — T-14
+
+`pausado`, especificada em `campos-e-tags.md`. Mesmo caminho de
+`atraso-1a-tentativa` (T-12) e `reengajamento-ativo` (T-13): fora do lote
+das 11 tags já aprovadas por nome em `APROVADO.md`, linha própria, ainda
+`[ ]`.
+
+**Pronto quando (do roadmap):** o Natal não gera 120 tarefas — os três
+workflows que tocam o lead ficam pausados pelo recurso nativo da conta
+durante o intervalo cadastrado, represando qualquer tarefa/mensagem que
+tentaria disparar nesses dias; e um lead específico pode ser represado sem
+depender de calendário nenhum, via `pausado`, sem perder a posição na régua.
+
+---
+
 ## 3. Workflow "Mestre de saída"
 
 O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
@@ -860,7 +1008,7 @@ destino.
 | 1 | If/Else | Etapa de destino **é** `Em cadência` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · tentativa {{contact.tentativa_no}} · resultado {{contact.resultado_da_tentativa}}` |
 
@@ -869,6 +1017,14 @@ O nó 1 existe porque o gatilho é "qualquer etapa": sem ele, mover o lead
 
 Não removo `conectado-hoje`, `nao-perturbe`, `telefone-invalido`,
 `nutricao-90d`, `cad-inbound` e `cad-outbound`: são estado do lead, não fila.
+`pausado` (R-09, seção 2.13) entra no nó 4 mesmo sendo estado individual, não
+fila — porque, diferente de `nao-perturbe`, ela só tem sentido **dentro** de
+`Em cadência` (represar uma tentativa que ainda vai acontecer). Uma vez que o
+lead sai de cadência por um motivo real (conectou, número errado, não
+ligar), a pausa perdeu o objeto: não sobra tentativa nenhuma para represar, e
+manter a tag viva só confundiria uma reativação futura pelo Reengajamento
+90 dias (seção 2.12), que já teria um SDR pausando um lead que nem está mais
+correndo régua nenhuma.
 `reengajamento-ativo` (R-08, seção 2.12) entrou na lista do nó 4 porque ela
 **é** fila, só que da régua de reengajamento em vez da 12x30 — o mesmo
 motivo de `fila-tel`/`fila-wa` estarem lá: nasce ao entrar em `Em cadência`
@@ -1438,6 +1594,20 @@ que quer ver, à parte, quanto volume o reengajamento está gerando e como
 essa fatia responde — o mesmo raciocínio de `cad-inbound`/`cad-outbound`
 já valer para separar régua na lista 8.6, sem lista nova até agora ter
 sido necessária lá.
+
+### 8.15 `Pausados Individualmente` — R-09
+| Item | Configuração |
+|---|---|
+| Filtros | tag `pausado` presente |
+| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · Etapa atual · Última atividade |
+| Ordenação | Última atividade asc (quem está pausado há mais tempo aparece primeiro) |
+
+O laço da seção 2.13 (nó 2.5/1.5) represa a tentativa sozinho, sem tarefa
+nem tag de fila — sem esta lista, um lead pausado literalmente some da
+visão do gestor até o SDR lembrar de tirar a tag. Ordenar por quem está
+parado há mais tempo é o mesmo raciocínio da 8.8: quem está represado há
+mais tempo é quem mais precisa de alguém decidir "tira a pausa" ou "descarta
+de vez".
 
 ---
 

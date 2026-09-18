@@ -11,8 +11,8 @@ reconferir o estado antes de mexer no roadmap: 0 campos personalizados, 0
 contatos, 1 pipeline (`FUNIL DE VENDAS`, o que já existia, não o
 `Pré-vendas` do projeto). Bate exatamente com `auditoria-resultado.md` —
 nada mudou na subconta desde a auditoria. Reconfirmado de novo ao fechar o
-R-07 (mesma rodada, mesmo resultado) e outra vez ao fechar o R-08: estado
-inalterado nas três checagens.
+R-07 (mesma rodada, mesmo resultado), outra vez ao fechar o R-08 e outra vez
+ao fechar o R-09: estado inalterado nas quatro checagens.
 
 ## `Allow Re-entry` bloqueia por workflow, não por evento — mesmo via `Add to Workflow`
 
@@ -148,6 +148,52 @@ limitação do conector.
   Para "quantos entraram este mês", nem carimbo novo: `Data de criação` da
   oportunidade já é nativa e imutável (não muda com o avanço de etapa, pelo
   mesmo motivo que `Last Stage Change Date` muda).
+
+- **Pesquisado ao fechar o R-09 (regras de pausa), 18/09/2026:** a janela de
+  envio (Send Window) de um workflow do GHL **não** tem exceção de data —
+  é só dia-da-semana + horário, sem calendário de feriado embutido (é pedido
+  em aberto na base de ideias pública da HighLevel, "Automation - Time
+  Window - turn off messaging during holidays", sem previsão). Regra
+  prática: não tente simular feriado dentro da janela de envio de um nó de
+  espera.
+
+  **O que resolve isso de verdade:** um recurso de **conta**, separado de
+  qualquer workflow — Automação → Configurações → Global Workflow Settings
+  → **Pause Workflow** ("Pausar Workflows em Datas Específicas"). Você
+  escolhe um intervalo de datas e marca quais workflows **publicados**
+  pausam nele (só lista publicados — monte isso por último, depois de
+  publicar o que vai pausar). Confirmado: até 15 intervalos cadastrados,
+  cada um com no máximo 15 dias entre início e fim, e uma opção `Annually`
+  que repete o mesmo intervalo todo ano sem precisar recadastrar — perfeita
+  para feriado de data fixa (Natal, Tiradentes etc.), não serve para feriado
+  móvel (Carnaval, Páscoa), que precisa de recadastro manual anual.
+
+  **O detalhe que decide se isso presta para "não gerar tarefa no feriado":**
+  a documentação da HighLevel (achada via busca, não lida direto — ver nota
+  de acesso abaixo) descreve que a pausa não segura só quem entra pelo
+  gatilho durante o intervalo: um contato que já estava dentro do workflow,
+  parado num nó de espera, **segue esperando normalmente**, mas a próxima
+  ação de verdade (enviar e-mail é o exemplo citado; a mesma lógica deve
+  valer para criar tarefa e mandar WhatsApp, que são o mesmo tipo de "ação"
+  no motor de workflow) que ele encontrar enquanto a pausa está ativa fica
+  represada até o intervalo acabar — Wait e If/Else não seguram, só a ação
+  seguinte a eles. Isso é o que faria o recurso cobrir quem já está no meio
+  de uma cadência de 30 dias, não só quem entra novo; sem isso, pausar só a
+  entrada deixaria passar a maioria das ~120 tarefas/dia (a maior parte da
+  fila em regime está em tentativa 3+, não na T1). **Nível de confiança:**
+  alto, mas não é leitura direta do texto oficial — `help.gohighlevel.com`
+  e os demais domínios de suporte da HighLevel estão bloqueados pelo proxy
+  de rede deste ambiente (`WebFetch` retorna `EGRESS_BLOCKED` em todos os
+  espelhos testados: `help.gohighlevel.com`, `help.leadconnectorhq.com`,
+  `ideas.gohighlevel.com`, `actionera.freshdesk.com`, `consultevo.com`); só
+  `WebSearch` (que roda em infraestrutura própria, fora deste proxy) trouxe
+  o conteúdo, em resumo. Antes de confiar 100% nisso para uma operação de
+  volume real, vale testar na prática com um contato de teste parado numa
+  tentativa e uma pausa de calendário curta. Generalizável: para qualquer
+  necessidade futura de "não toque em ninguém por um período"
+  (calendário-wide), este recurso de conta é o caminho certo a pesquisar
+  primeiro — reserve tag customizada só para pausa **individual** (um lead
+  específico), que é o que o recurso de conta não cobre.
 
 - **Pesquisado ao fechar o R-05 (teste A/B da abertura), 18/09/2026:** o GHL
   tem ação nativa de workflow **Split**, que sorteia contatos entre até 5

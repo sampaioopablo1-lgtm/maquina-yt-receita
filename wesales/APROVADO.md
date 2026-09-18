@@ -43,6 +43,11 @@ melhor forma possível".*
       `campos-e-tags.md` (T-13) e `build-wesales.md` (seção 2.12). Mesmo
       motivo da linha acima: fora do lote das 11 originais, linha própria.
 
+- [ ] Criar a 14ª tag, `pausado` — nasceu no R-09 (regras de pausa) desta
+      rodada, especificada em `campos-e-tags.md` (T-14) e `build-wesales.md`
+      (seção 2.13). Mesmo motivo das duas linhas acima: fora do lote das 11
+      originais, linha própria.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

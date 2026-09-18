@@ -229,12 +229,41 @@ nesta execução via `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`: 0 campos, 0 contatos, só o
 `FUNIL DE VENDAS` pré-existente — nada mudou desde a auditoria.
 
-### R-09 · Regras de pausa
+### R-09 · Regras de pausa — **FEITO em 18/09/2026**
 **Por quê:** cadência que dispara em feriado ou com o SDR de férias queima
 lead e credibilidade.
 **Como:** tag `pausado` checada no portão, e calendário de feriados na janela
 do workflow.
 **Pronto quando:** o Natal não gera 120 tarefas.
+
+**Resumo:** dois mecanismos para dois problemas de tamanho diferente,
+especificados em `build-wesales.md` (seção 2.13). Pesquisado antes de
+montar: o GHL não tem calendário de feriados dentro da janela de envio de
+um workflow (pedido em aberto na base de ideias da HighLevel), mas tem um
+recurso de conta separado — **Pausar Workflows em Datas Específicas**
+(Automação → Global Workflow Settings) — que pausa workflows publicados
+por intervalo de data, com opção `Annually` para feriado fixo e até 15
+intervalos de até 15 dias cada; confirmado que ele represa a próxima ação
+real (tarefa, mensagem) de qualquer contato que a encontrar durante a
+pausa, não só quem entra pelo gatilho no período — por isso resolve
+"feriado" e "SDR de férias" de graça, sem workflow novo nem tag em massa.
+Substitui a metade "calendário" do desenho original do roadmap por essa
+configuração nativa (melhor que reconstruir, mesmo raciocínio do Split do
+R-05); o calendário de feriados fixos do Brasil (`build-wesales.md`, seção
+2.13) já vem pronto para marcar `Annually` uma vez. A tag `pausado` (T-14,
+`campos-e-tags.md`) sobrevive só para o problema que o calendário não
+cobre — represar **um** lead específico sem ser opt-out — checada num
+portão próprio (nó 2.5 da seção 2.4, nó 1.5 da seção 2.10) que espera em
+laço em vez de tirar o lead do workflow, porque pausa é diferente de saída;
+o Mestre de saída (seção 3) limpa a tag na saída real e o Alerta de
+Speed-to-lead (seção 2.11) para de soar falso alarme em quem está pausado
+de propósito. Lista `Pausados Individualmente` (8.15) nova. Falta só a
+criação manual da tag — campo/tag não sai por API — e a aprovação em
+`APROVADO.md` (T-14, ainda `[ ]`) mais a configuração da pausa nativa na
+tela, que só existe depois dos workflows publicados. Subconta reconfirmada
+nesta execução via `locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
+pré-existente — nada mudou desde a auditoria.
 
 ---
 
@@ -379,12 +408,14 @@ Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes sã
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
 hora investida. Só então as cadências vizinhas e a operação com mais gente.
 
-Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. Com R-07
-e R-08 fechados na mesma data, o bloco 3 (cadências vizinhas) segue com dois
-itens abertos: **R-09 (regras de pausa)** é o próximo — não depende de
-volume nem de ressalva do bloco 6, e evita que a régua de reengajamento
-recém-fechada (ou qualquer outra) dispare em feriado ou com o SDR de
-férias. R-10 (o bloco 4, mais de um SDR) segue depois dele.
+Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. Com R-07,
+R-08 e R-09 fechados na mesma data, o bloco 3 (cadências vizinhas) está
+completo — a régua de reengajamento e todas as outras já respeitam feriado e
+pausa individual antes de a operação rodar volume de verdade. **R-10
+(distribuição de leads), abrindo o bloco 4 (mais de um SDR)**, é o próximo:
+não depende de volume nem de ressalva do bloco 6, e o desenho inteiro até
+aqui assume um único SDR — o primeiro ponto que quebra na hora de contratar
+o segundo.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
