@@ -61,9 +61,9 @@ Regras:
 
 | Etapa | O que é | Estado |
 |---|---|---|
-| 1 | Auditoria somente leitura (pipelines, campos, tags, workflows, calendários, formulários) | **Bloqueada** — falta conexão. Plano pronto em `auditoria-etapa1.md` |
-| 2 | Criar campos personalizados que faltam | Lista pronta em `campos-e-tags.md`, aguarda auditoria + confirmação |
-| 3 | Criar as 11 tags | Lista pronta em `campos-e-tags.md`, aguarda auditoria + confirmação |
+| 1 | Auditoria somente leitura (pipelines, campos, tags, workflows, calendários, formulários) | **Entregue** — plano em `auditoria-etapa1.md`, resultado em `auditoria-resultado.md` |
+| 2 | Criar campos personalizados que faltam | **Só na tela** — campo personalizado não sai por API. Lista com tipo e opções em `campos-e-tags.md` |
+| 3 | Criar as tags | **Entregue por API em 18/09/2026** — as tags do projeto (`campos-e-tags.md`) estão na subconta |
 | 4 | Especificação do que é manual (`build-wesales.md`) | **Entregue** |
 | 5 | Prompt da rotina horária de manutenção | **Entregue** (`rotina-limpar-tarefas.md`) |
 

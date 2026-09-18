@@ -156,6 +156,6 @@ Duas consequências diretas:
 1. Você confirma na tela: tags, workflows, calendários e formulários (itens 3 a 6)
 2. Você confirma a lista de campos e tags (`campos-e-tags.md`), inclusive as
    opções do campo `Segmento`, que continuam faltando
-3. Eu crio as 11 tags por API
+3. ~~Eu crio as tags por API~~ — **feito em 18/09/2026** (`APROVADO.md`)
 4. Você cria os campos na tela (a lista cresce com o roadmap; conte em `campos-e-tags.md`)
 5. Você monta pipeline e workflows pelo `build-wesales.md`

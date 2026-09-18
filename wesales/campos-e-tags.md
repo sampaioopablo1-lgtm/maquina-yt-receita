@@ -175,11 +175,14 @@ posteriores às 11 originais, cada uma numa linha própria de aprovação.
 
 ## O que eu preciso de você para executar
 
-1. **Subconta**: qual (se houver mais de uma, eu listo e você escolhe).
-2. **L-02**: as opções do campo `Segmento`.
-3. **S-01**: crio `Data do retorno`? (recomendo sim)
-4. **Q-09/Q-16**: LARGE_TEXT ou TEXT?
-5. Confirmação de que posso criar o que a auditoria mostrar que não existe.
+Ainda em aberto:
 
-Com isso, Etapas 2 e 3 saem numa rodada, e eu te devolvo a tabela do que foi
-criado, do que foi reaproveitado e do que falhou.
+1. **L-02**: as opções do campo `Segmento`.
+2. **S-01**: entra `Data do retorno` na lista? (recomendo sim)
+3. **Q-09/Q-16**: LARGE_TEXT ou TEXT?
+
+Já respondido: a subconta é `1D53YTI9C7oIMBavcQxV` e a permissão de criar
+veio em 18/09/2026 ("tem todas as permissões") — é o que liberou a Etapa 3,
+já entregue. A Etapa 2 não depende mais de resposta e sim da tela: campo
+personalizado não sai por API, então a tabela acima é para copiar em
+Configurações → Campos personalizados.

@@ -67,8 +67,10 @@ três tags que ainda estavam com linha própria abaixo (T-12/13/14).*
       **Executado (as três, mesma chamada):** `contacts_add-tags` no contato
       de estrutura `ZZ TESTE ESTRUTURA` (`c5r3ZxiAd8T5adL1Bt6j`), que já
       tinha as 11 originais — as 14 tags do projeto agora existem na
-      subconta. Lido de volta via `contacts_get-contacts` (que retornou as
-      14 na resposta da própria escrita) para confirmar.
+      subconta. Conferido por `contacts_get-contact` no ID do contato de
+      estrutura (não pela listagem, que atrasa em relação à escrita — ver
+      `APRENDIZADOS-CRM.md`): as 14 tags estão lá, `dateUpdated`
+      18/09/2026 16:15 UTC.
 
 ### Contatos de teste
 
