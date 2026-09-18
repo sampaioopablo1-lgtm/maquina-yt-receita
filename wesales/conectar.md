@@ -111,6 +111,47 @@ Sessão do Claude Code na nuvem carrega servidor de `.mcp.json` **sem pedir
 confirmação** — é sessão não interativa. Então, com as duas variáveis
 definidas, a próxima sessão já nasce conectada.
 
+## ANTES DE TUDO: a rede do ambiente bloqueia o CRM
+
+Medido em 18/09/2026, de dentro do contêiner de uma sessão:
+
+```
+$ curl -I https://services.leadconnectorhq.com/
+curl: (56) CONNECT tunnel failed, response 403
+
+$ curl -I https://marketplace.gohighlevel.com/
+curl: (56) CONNECT tunnel failed, response 403
+```
+
+O proxy de saída do ambiente **Default** (`env_01XLCuqxSBLRaGuecJjSRtKC`)
+recusa os dois domínios do GoHighLevel. Isso não tem nada a ver com token,
+escopo ou OAuth: o contêiner simplesmente não alcança o servidor.
+
+**Consequência que economiza uma noite:** configurar `WESALES_PIT` e abrir uma
+sessão nova **não vai funcionar enquanto isso não mudar**. O servidor MCP mora
+em `services.leadconnectorhq.com`, o cliente MCP roda dentro deste contêiner, e
+ele bate no mesmo 403 que o `curl` bateu.
+
+### O que destrava
+
+Liberar `services.leadconnectorhq.com` na política de rede do ambiente — a
+mesma tela das configurações de ambiente onde a variável vai. Uma visita, duas
+mudanças:
+
+1. Política de rede: permitir `services.leadconnectorhq.com`
+   (e `marketplace.gohighlevel.com`, se for usar o caminho OAuth depois)
+2. Variável: `WESALES_PIT`
+
+As políticas disponíveis e como editá-las estão em
+[code.claude.com/docs/claude-code-on-the-web](https://code.claude.com/docs/en/claude-code-on-the-web).
+
+### Plano B: rodar da sua própria máquina
+
+Claude Code ou Claude Desktop instalados no seu computador não passam por esse
+proxy. Lá o mesmo `.mcp.json` deste repositório funciona direto, bastando a
+variável `WESALES_PIT` no ambiente local. Se mexer em política de rede for
+chato, esse é o caminho curto.
+
 ## Detalhes que evitam dor de cabeça
 
 - **Tem que ser o token `pit-`.** Chave de API comum ou de v1 não funciona e é
