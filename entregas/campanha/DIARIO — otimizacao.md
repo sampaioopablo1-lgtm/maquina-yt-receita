@@ -1085,3 +1085,22 @@ gente for ler os números de amanhã e estranhar a queda.
 
 **Relógio de 48h**: os três foram criados em 17/09 ~18h57 e completam 48h em **19/09 ~18h57**. Só
 a partir daí a regra C0 pode julgá-los.
+
+---
+
+## 18/09 00h (BRT: 17/09 21h) — correção no número de reuniões
+
+Lendo a agenda nesta rodada apareceu um evento que as rodadas anteriores não contavam:
+**"Elton - Pintor", 21/09 12h**, criado em 12/09. A descrição é a resposta do formulário da Meta
+("Preenchi seu formulário...", WhatsApp +5521966086038, "Quero aprender a gerar meus próprios leads
+para o WhatsApp", "Não invisto nada ainda", "Pra ontem").
+
+É uma reunião de diagnóstico vinda de lead da campanha, mas o título não tem "diagnóstico" nem
+"Calendly", então a regra de contagem da rotina passou reto por ela desde 12/09.
+
+**Correção**: são **7 pessoas distintas** desde 09/09, não 6. O custo por reunião que eu disse ao
+Pablo hoje (R$ 306,68 ÷ 6 = R$ 51,11) está errado. O certo é **R$ 306,68 ÷ 7 = R$ 43,81**.
+
+**Regra ajustada para as próximas rodadas**: contar como reunião de diagnóstico também o evento cuja
+DESCRIÇÃO contém a resposta do formulário da Meta, independente do título. O Pablo nomeia o evento
+do jeito dele ("Elton - Pintor"), não do jeito que a regra esperava.

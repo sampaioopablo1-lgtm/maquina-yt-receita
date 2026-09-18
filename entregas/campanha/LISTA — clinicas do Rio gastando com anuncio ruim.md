@@ -3288,3 +3288,42 @@ ver o erro sozinho em dois segundos.
 13 meses. Ninguém olha essa conta há mais de um ano.
 
 Combos varridos até aqui: + imobiliária Méier.
+
+---
+
+## Imobiliária — Campo Grande RJ (varrido 18/09/2026, 00h BRT)
+
+Termo: `apartamento à venda Campo Grande RJ`. 14 anúncios, mas **2 são de um curso de cultivo de
+cogumelos** e 1 é o Gestolano Lopes, já registrado na seção do Méier. Sobram **9 páginas reais**,
+2 delas Trilha A.
+
+Rendimento bem abaixo do Méier (12 páginas, 9 Trilha A). Em Campo Grande quem anuncia é
+construtora e página genérica de "venda de imóveis", não o corretor com nome próprio.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| grajaucapital | 424810384056503 | título é o nome da página seguido de **10 campos vazios** separados por barra | **02/08/2025** (13 meses) | B | [link](https://www.facebook.com/ads/library/?id=1239532377971183) |
+| Primoris | 1115151141687827 | **"ENTRE EM NOSSO GRUOPO NO WHATSP"** — dois erros de digitação em cinco palavras, e o mesmo título em 3 anúncios simultâneos | 14/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2563675907402413) |
+| Venda de Imóveis | 806738789200651 | "🏡 SAIA DO ALUGUEL E CONQUISTE SEU APÊ EM CAMPO GRANDE!" — caixa alta inteira, que a própria Meta penaliza | 17/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=27877973548491451) |
+| Afonso Lopes | 100868259318304 | título vazio | 27/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=28186706644328563) |
+| jonathancorretor.imoveis | 1142171925647802 | título vazio | 30/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1405251184872208) |
+| Terrenos & Imóveis RJ | 105468811025702 | "🚩 Apartamento à Venda" — e a bandeira vermelha como emoji de destaque é uma escolha infeliz | 09/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1423079669886484) |
+| Brasil Brokers | 354245788004916 | **o catálogo inteiro dentro do título**: 6 imóveis com descrição completa e preço, num campo que mostra ~40 caracteres. E nenhum deles é em Campo Grande — são Engenheiro Leal, Botafogo, Tauá, Copacabana e Anil | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1059711283634204) |
+| New Home Imóveis | 1400370723550476 | título vazio | 13/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1662298845453649) |
+| Apartamento a venda em Campo grande RJ | 1344553605404710 | "Apto pronto para morar!" — o nome da PÁGINA é a palavra-chave inteira, sinal de página feita só pra anúncio | 16/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1532296718584476) |
+
+**Melhor alvo**: Primoris. Três anúncios no ar ao mesmo tempo com "GRUOPO" e "WHATSP" no título.
+É o erro mais fácil de mostrar para um dono: ele lê, vê o erro sozinho e entende na hora que
+ninguém está olhando a conta dele.
+
+**Lição de termo nova**: pôr "RJ" no termo **reduz** a contaminação de outro estado, mas não elimina
+contaminação de outro ASSUNTO — aqui entraram dois anúncios de um curso de cultivo de cogumelos.
+A Meta casa o termo com o texto do anúncio, não só com o lugar. Continuar contando páginas reais na
+mão.
+
+**Lição de bairro nova**: bairro de periferia grande (Campo Grande) tem perfil de anunciante
+diferente de bairro de classe média consolidada (Méier). Lá é corretor autônomo com nome na página
+(9 de 12 Trilha A), aqui é construtora e página genérica (2 de 9). Para Trilha A em imobiliária,
+priorizar Méier, Tijuca, Botafogo e Copacabana.
+
+Combos varridos até aqui: + imobiliária Campo Grande RJ.
