@@ -20,10 +20,10 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 
 ## Estado do acesso (18/09/2026)
 
-O caminho oficial é o app `lc-mcp - Anthropic` no marketplace do
-LeadConnector, instalado na subconta da operação. Servidores MCP carregam no
-início da sessão, então autorize e abra uma sessão nova. Detalhes e
-cobertura em `auditoria-etapa1.md`.
+Conecte por claude.ai → Conectores → Adicionar conector personalizado, com a
+URL `https://services.leadconnectorhq.com/mcp/anthropic/v2` (OAuth, sem token).
+Servidores MCP carregam no início da sessão: autorize e abra sessão nova.
+Passo a passo e cobertura em `auditoria-etapa1.md`.
 
 **Nada foi criado, alterado ou excluído na subconta.** Todos os documentos
 aqui são especificação.
