@@ -3796,3 +3796,53 @@ que sobra é **qualidade de anúncio muito ruim em quem gasta muito** — Botoce
 no ar e nenhum deles dizendo o que vende.
 
 Combos varridos até aqui: + estética Méier (os dois termos).
+
+---
+
+## Advocacia — direito de família RJ (varrido 18/09/2026)
+
+Terceiro recorte de advocacia (depois de trabalhista e previdenciário). Dois termos:
+
+| Termo | Resultado |
+|---|---|
+| `divórcio consensual Rio de Janeiro` | 2 anúncios, 2 páginas — termo estreito demais |
+| `direito de família Rio de Janeiro` | 318 estimados, mas **quase tudo político** |
+
+### LIÇÃO DE TERMO NOVA — advocacia + "Rio de Janeiro" cai em campanha eleitoral
+
+`direito de família Rio de Janeiro` devolveu deputado, candidato, pastor e vereador em quase toda a
+primeira página: Marcelo Rizzi, Daniel Soranz, Chris Tonietto, Anielle Franco, Clarice Chacon,
+Guilherme Pimentel, Celso André, Bibo Nunes. A palavra "família" somada ao nome do estado é
+vocabulário de campanha, não de escritório.
+
+**Regra: em advocacia, termo de RAMO DO DIREITO + nome do estado puxa política.** O que funciona é
+o termo de PROCESSO (`ação trabalhista`, `aposentadoria INSS`) — os dois recortes anteriores
+renderam justamente por isso. Direito de família precisa de um termo de processo equivalente
+(`inventário`, `pensão alimentícia`, `guarda compartilhada`), a testar na próxima rodada.
+
+### Escritórios de verdade encontrados (5 páginas nas duas buscas)
+
+**Ferreira Pires Adv** — Trilha A (sobrenomes dos sócios) — **melhor alvo**.
+3 anúncios simultâneos, **todos com o título vazio**. No ar desde 16/09 — quem acabou de começar a
+gastar é quem mais escuta. Link: Biblioteca, busca `direito de família Rio de Janeiro`.
+
+**Marcia Rianelli Advocacia** — Trilha A — **o recorde de tempo do arquivo neste defeito**.
+Título: `Marcia Rianelli Advocacia | | | | | | | | |` — nome da página mais **nove campos vazios**.
+No ar desde **21/10/2025**: quase 11 meses pagando por um anúncio que não diz nada. É o caso mais
+antigo já catalogado aqui e o argumento se escreve sozinho.
+
+**alinefrassonadv** — Trilha A — título `alinefrassonadv | | | | | |`: o @ do Instagram no lugar do
+nome, mais seis campos vazios. No ar desde 16/09. Irmão direto do padrão "domínio no título".
+
+**Vanessa Adriano Adv** — Trilha A — título vazio, no ar desde **17/08/2026** (um mês).
+
+**Queiroz e Andrade Sociedade de Advogados** — Trilha B — `Fale com nossos Advogados Especialistas`.
+Sem defeito técnico, só genérico. Prioridade baixa.
+
+### Leitura
+
+Quatro das cinco páginas são Trilha A — a melhor proporção depois do Méier. Faz sentido: escritório
+de advocacia quase sempre leva o nome do dono. E o defeito é o mesmo de sempre, o campo de título em
+branco, com um caso de 11 meses no ar que serve de exemplo para qualquer abordagem do nicho.
+
+Combos varridos até aqui: + advocacia direito de família RJ (com a ressalva do termo político).
