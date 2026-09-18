@@ -40,6 +40,8 @@ fluxo correto:
 | `MI-F` | WhatsApp | Cadência Inbound — handoff ao fim da TI5 (R-07) | 18/09/2026 | Ativo |
 | `RE-1` | WhatsApp | Reengajamento 90 dias — imediata, antes da TR1 (R-08) | 18/09/2026 | Ativo |
 | `RE-2` | WhatsApp | Reengajamento 90 dias — handoff ao fim da TR4 (R-08) | 18/09/2026 | Ativo |
+| `NS-1` | WhatsApp | Recuperação de No-show — imediata, antes da NS1 (R-12) | 18/09/2026 | Ativo |
+| `NS-2` | WhatsApp | Recuperação de No-show — handoff ao fim da NS3 (R-12) | 18/09/2026 | Ativo |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -161,6 +163,37 @@ reengajamento dispara de novo dali a mais 90 dias, sozinho.
 
 `[Agendar com o closer]` é o Trigger Link da seção 2.9 do
 `build-wesales.md`, mesmo uso de `M2-v1`/`M3-v1`/`MI-F`.
+
+## NS-1 — sentimos sua falta (Recuperação de No-show — R-12)
+
+Especificada em `build-wesales.md`, seção 5.3, ramo Recuperação. Dispara no
+instante em que o closer marca a reunião como `No Show`, antes da tarefa
+`NS1` nascer para o SDR. Com link de propósito, diferente de `M1-a`/`M1-b`/
+`RE-1`/`MI-0`: aqui a mensagem inteira existe para gerar um reagendamento, e
+o link é o caminho mais rápido para isso — não compete com pergunta nenhuma,
+porque não há pergunta de diagnóstico aqui.
+
+> Oi {{contact.first_name}}, vi que não conseguimos nos falar no horário
+> combinado — imagino que bateu algum imprevisto! Sem problema nenhum, é só
+> escolher um novo horário aqui: [Agendar com o closer]. Se preferir, me
+> chama por aqui mesmo que eu te ajudo a remarcar.
+
+## NS-2 — handoff de volta para a nutrição (Recuperação de No-show — R-12)
+
+Especificada em `build-wesales.md`, seção 5.3, fim do ramo Recuperação.
+Dispara se as 3 tentativas de recuperação (NS1-NS3) terminam sem
+reagendamento — o lead não sai da máquina, volta para `Nutrição` e o
+Reengajamento 90 dias (seção 2.12, R-08) reativa sozinho dali a 90 dias.
+Mesmo padrão de `RE-2`/`MI-F`: reconhece a tentativa, deixa a porta aberta,
+inclui o link.
+
+> {{contact.first_name}}, tentei falar com você algumas vezes depois do
+> nosso horário perdido e não consegui. Vou parar de te procurar por agora,
+> mas se quiser remarcar quando for melhor, o link continua de pé:
+> [Agendar com o closer]
+
+`[Agendar com o closer]` é o Trigger Link da seção 2.9 do `build-wesales.md`,
+mesmo uso de `M2-v1`/`M3-v1`/`MI-F`/`RE-2`.
 
 ## Como isso responde o "Pronto quando" do R-04
 

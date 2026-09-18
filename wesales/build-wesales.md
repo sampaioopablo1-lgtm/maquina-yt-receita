@@ -28,40 +28,46 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
    no passo 1
 9. Workflow "Registro de Comparecimento" (seção 5.2) — usa o mesmo
    calendário do passo 3, gatilho por status de agendamento
-10. Workflow "Qualificação por IA no WhatsApp" (seção 6)
-11. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
+10. Workflows "Recuperação de No-show" e "SLA do Closer — No-show" (seção
+    5.3/5.4, R-12) — mesmo calendário e status `No Show`; o nó 3 do Pós-
+    agendamento (passo 7) precisa já remover destes dois workflows antes de
+    publicá-los, senão um reagendamento no meio de uma recuperação não limpa
+    nada
+11. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+12. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
     porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3;
     textos das mensagens em `biblioteca-mensagens.md`, não neste documento.
-    Do passo 11 em diante o gatilho da seção 2.1 já leva o filtro novo do
+    Do passo 12 em diante o gatilho da seção 2.1 já leva o filtro novo do
     R-07 (tag `cad-inbound` ausente) — monte-o com o filtro desde o início,
     não depois. O bloco padrão de tentativa (seção 2.4) já leva o nó 2.5 de
     pausa individual (R-09) desde a primeira montagem, não como retrofit.
     O nó 0 já leva o par 0.7/0.7b de distribuição de leads (R-10, seção
     2.14) desde o início — defina a lista de round robin no nó 0.7b mesmo
     com um único SDR hoje
-12. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
+13. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
     Também já leva o nó 1.5 de pausa individual (R-09) desde o início e o
     par 0.8/0.8b de distribuição de leads (R-10) apontando para a **mesma**
-    lista de round robin do nó 0.7b do passo 11
-13. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-14. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
+    lista de round robin do nó 0.7b do passo 12
+14. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+15. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
     o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h);
     do R-09 em diante o nó 2 já ignora quem está com a tag `pausado`
-15. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
-    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 11) nó a nó,
-    nó 2.5 incluído, e exige que o gatilho do passo 11 já tenha o filtro
+16. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
+    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 12) nó a nó,
+    nó 2.5 incluído, e exige que o gatilho do passo 12 já tenha o filtro
     `reengajamento-ativo` ausente (R-08) — monte-o com o filtro desde o
     início se ainda não montou, não depois
-16. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16)
-17. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
-    2.15) — depende da lista 8.16 do passo 16 já montada
-18. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
-19. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
+17. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16) e
+    `Recuperação de No-show` (8.17, R-12)
+18. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
+    2.15) — depende da lista 8.16 do passo 17 já montada
+19. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+20. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
     todos: o recurso só lista workflows **publicados**, então precisa dos
-    passos 11, 12, 15 e 17 já publicados para aparecerem no seletor
+    passos 12, 13, 16 e 18 já publicados para aparecerem no seletor
 
 ---
 
@@ -1391,7 +1397,7 @@ ficaria muda.
 |---|---|---|
 | 1 | Mover oportunidade → `Reunião agendada` | Aciona o Mestre de saída |
 | 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
-| 3 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp` |
+| 3 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp`, `Recuperação de No-show`, `SLA do Closer — No-show` (R-12 — este gatilho também dispara num **reagendamento** depois de um no-show; sem remover os dois workflows daqui, uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou. `Remove from Workflow` de um contato que não está no workflow não faz nada — chamar sempre é seguro) |
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
 | 5 | Update Contact Field | `Prioridade` = 5 |
 | 6 | Add Note | Resumo da qualificação (modelo abaixo) |
@@ -1520,7 +1526,8 @@ de lembrete da seção 5, que já rodaram.
 |---|---|---|
 | 1 | If/Else | `Data compareceu` está vazio → segue (evita sobrescrever se o status oscilar) |
 | 2 | Update Contact Field | `Data compareceu` = `{{right_now}}` |
-| 3 | Add Note | `Compareceu à reunião · {{right_now}}` |
+| 3 | Update Contact Field | `Nº de no-shows` = 0 (R-12 — comparecer de verdade reinicia a contagem; a regra de descarte automático da seção 5.3 é sobre no-show **consecutivo**, não sobre o histórico de vida do lead) |
+| 4 | Add Note | `Compareceu à reunião · {{right_now}}` |
 
 Não mexo em etapa aqui: comparecer não move a oportunidade (quem decide o
 destino é o veredito do closer, seção 5.1). Este workflow só marca o carimbo
@@ -1529,6 +1536,187 @@ que a seção 8 lê.
 **Pronto quando (compõe o R-03 no roadmap):** existe carimbo de "compareceu"
 tão confiável quanto os de "conectou" e "agendou" — os três lidos pelas
 listas 8.10 a 8.12.
+
+---
+
+## 5.3 Workflow "Recuperação de No-show" — R-12
+
+A seção 5 fecha o agendamento e a 5.2 confirma o comparecimento; nenhuma das
+duas trata o meio-termo, que é o vazamento mais caro do funil: reunião
+marcada, closer de agenda reservada, lead que simplesmente não aparece. Hoje
+isso morre em silêncio — a oportunidade fica parada em `Reunião agendada`
+para sempre, e ninguém tenta de novo.
+
+Pesquisado antes de desenhar: Outreach e Salesloft resolvem isso via
+integração com uma ferramenta de agendamento de terceiro (Chili Piper é o
+exemplo mais citado), que dispara a sequência de recuperação quando o status
+do compromisso muda — nenhum dos dois faz isso nativamente, sozinho. A
+literatura de operação de vendas recomenda uma mensagem automática de "sentimos
+sua falta" imediata, e escalar para contato pessoal de um closer/AE dentro de
+1 hora útil quando o lead vale a pena. O GHL tem o gatilho nativo
+`Appointment Status = No Show` desde a primeira versão testada neste projeto
+(mesma família do `Showed` da seção 5.2) — dá para replicar o miolo do que um
+Chili Piper faz, sem ferramenta de terceiro nenhuma.
+
+**A decisão que um concorrente não copia olhando a tela:** depois do 2º
+no-show seguido do mesmo lead, a oportunidade vai direto para `Descartado`,
+sem gerar nenhuma tarefa nova — regra de proteção da agenda do closer. Reev,
+Meetime, Outreach e Salesloft tratam no-show repetido como métrica de
+relatório ("taxa de no-show por rep"), nunca como gatilho de decisão
+automática. Aqui vira decisão porque o custo de ligar uma terceira vez para
+quem já furou duas reuniões marcadas é maior que o valor esperado do lead —
+e ninguém precisa lembrar de aplicar esse corte na mão.
+
+### Por que fica em `Reunião agendada`, não volta para `Em cadência`
+
+O Reengajamento 90 dias (seção 2.12, R-08) já pagou o preço de aprender que
+devolver um lead para `Em cadência` esbarra no `Allow Re-entry` desligado da
+Cadência 12x30 (D-06) — um contato que já passou por aquele workflow uma vez
+fica bloqueado de entrar de novo nele para sempre, gatilho ou `Add to
+Workflow`, e resolver isso exigiu tag de blindagem (`reengajamento-ativo`) e
+mudar a origem do lead. Este item não paga esse preço porque não tenta
+reentrar na 12x30 de jeito nenhum: a oportunidade nunca sai de `Reunião
+agendada`, o contador `Nº de no-shows` mora no contato (não numa etapa nova)
+e a régua de recuperação roda num workflow próprio, pequeno, do mesmo jeito
+que já separou a Cadência Inbound (2.10) e o Reengajamento (2.12) da 12x30.
+Resultado: **zero tag nova e zero etapa nova** para este item — só o contador
+`Nº de no-shows` (C-24, `campos-e-tags.md`).
+
+### Por que dois workflows, não um
+
+Mesmo raciocínio já registrado na seção 5.2 ("são dois eventos... em
+momentos diferentes... misturar os dois faria o segundo gatilho reabrir
+nós que já rodaram") — aqui os dois eventos são **simultâneos**, não
+sequenciais, e o motor de workflow do GHL não bifurca um nó em dois
+caminhos que continuam em paralelo (só via `If/Else`/`Split`, que escolhem
+**um** caminho, nunca os dois ao mesmo tempo). A régua de recuperação (este
+workflow) e o SLA do closer (seção 5.4) têm relógios diferentes e não podem
+disputar o mesmo fio de execução — a saída nativa, já usada pela seção
+5/5.1/5.2 para o mesmo problema, é dois workflows curtos escutando o mesmo
+gatilho.
+
+### Gatilho
+
+**Appointment Status** — Calendário: `Reunião com closer` · Status: `No Show`
+
+### Configurações
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Um reagendamento pode gerar um novo `No Show` no futuro — mesmo motivo da seção 5.2 |
+| Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta | A tarefa e a mensagem ao lead não devem nascer fora do expediente do SDR |
+| Stop on Response | **Ligado** | Respondeu em qualquer canal encerra a recuperação — o SDR assume dali, mesma regra da cadência principal |
+
+### Nós
+
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | Portão de sanidade | If/Else — etapa da oportunidade **é** `Reunião agendada` → segue. Senão → **encerra** (o compromisso já não reflete o estado atual do lead; evita reabrir um no-show velho de uma oportunidade que já foi resolvida por outro caminho) |
+| 2 | Contador | Math Operation — `Nº de no-shows` + 1 |
+| 3 | Portão de repetição | If/Else — `Nº de no-shows` ≥ 2 → **ramo Descarte** (abaixo). Senão → **ramo Recuperação** (abaixo) |
+
+#### Ramo Descarte (2º no-show seguido, ou mais)
+
+| # | Ação |
+|---|---|
+| 1 | Remove Contact Tag `fila-tel` (idempotente, mesmo se ausente) |
+| 2 | Add Contact Tag `limpar-tarefas` |
+| 3 | Mover oportunidade → `Descartado` (aciona o Mestre de saída, que faz o resto da limpeza) |
+| 4 | Add Note `Descartado após {{contact.n_de_no_shows}}º no-show seguido sem reagendar — regra de proteção de agenda do closer (R-12)` |
+| 5 | Internal Notification ao gestor `{{contact.name}} descartado automaticamente após {{contact.n_de_no_shows}}º no-show — nenhuma ação necessária, é a regra de proteção de agenda` |
+
+#### Ramo Recuperação (1º no-show)
+
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | Send WhatsApp (SMS fallback) | Texto `NS-1` (`biblioteca-mensagens.md`) |
+| 2 | Update Contact Field | `Template usado` = `NS-1` |
+| 3 | Add Contact Tag | `fila-tel` |
+| 4 | Add Task | `[CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
+| 5 | Aguardar | Wait → Until specific time · D1 10:00 |
+| 6 | Portão | If/Else — etapa ainda `Reunião agendada` **E** `nao-perturbe` ausente **E** `pausado` ausente → segue. Senão → **Remove from Workflow: este** |
+| 7 | Add Contact Tag | `fila-tel` |
+| 8 | Add Task | `[CADENCIA] NS2 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
+| 9 | Aguardar | Wait → Until specific time · D3 15:00 |
+| 10 | Portão | Mesmo do nó 6 |
+| 11 | Add Contact Tag | `fila-tel` |
+| 12 | Add Task | `[CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
+| 13 | Aguardar | Wait → Time Delay 1 dia (folga para o SDR classificar a NS3) |
+| 14 | Portão | If/Else — etapa ainda `Reunião agendada` → segue (ninguém reagendou nem descartou). Senão → **Remove from Workflow: este** |
+| 15 | Send WhatsApp (SMS fallback) | Texto `NS-2` |
+| 16 | Update Contact Field | `Template usado` = `NS-2` |
+| 17 | Update Contact Field | `Resultado da tentativa` = vazio |
+| 18 | Remove Contact Tag | `fila-tel` |
+| 19 | Add Contact Tag | `nutricao-90d` |
+| 20 | Mover oportunidade | → `Nutrição` (aciona o Mestre de saída **e**, 90 dias depois, o próprio Reengajamento 90 dias — seção 2.12 — reativa o lead sozinho, sem workflow novo para o caminho "desistiu") |
+
+Canal só telefone, de propósito: quem já demonstrou interesse suficiente
+para marcar reunião com o closer merece o canal de maior esforço direto, não
+a alternância WhatsApp/telefone da cadência fria — por isso este ramo não
+usa `WA não atendidas seguidas` nem verifica `Permissão WhatsApp`.
+
+Reaproveito o portão de pausa individual (R-09) e o de `nao-perturbe` nos
+nós 6/10, mesmo raciocínio da seção 2.4: um lead pausado ou que pediu para
+não ser mais procurado não deve receber NS2/NS3 só porque não-showou uma
+reunião.
+
+**Pronto quando (do roadmap):** um no-show gera a tarefa `[CADENCIA] NS1` no
+mesmo dia — nova tentativa, não silêncio.
+
+---
+
+## 5.4 Workflow "SLA do Closer — No-show" — R-12
+
+O ramo Recuperação da seção 5.3 cobre o lado do SDR. Falta o lado do closer:
+é quem tinha o horário reservado, quem mais rápido consegue julgar se vale a
+pena insistir, e hoje nada cobra dele um retorno. Reev e Meetime tratam isso
+como relatório mensal de "reuniões perdidas por closer" — o mesmo padrão que
+o Loop do closer (seção 5.1, F-03) já rejeitou para o veredito pós-reunião,
+por escolha deliberada de alertar no dia, não no relatório do mês. Este item
+aplica o mesmo princípio ao no-show: um SLA com prazo, e uma cobrança visível
+se ele estourar.
+
+### Gatilho
+
+Mesmo evento da seção 5.3 — **Appointment Status** — Calendário: `Reunião
+com closer` · Status: `No Show`
+
+### Configurações
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Mesmo motivo da seção 5.3 |
+| Janela de envio | Sem janela | É aviso interno ao closer e ao gestor, não mensagem ao lead |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | Portão | If/Else — etapa da oportunidade **é** `Reunião agendada` → segue. Senão → **encerra** |
+| 2 | Portão | If/Else — `Nº de no-shows` ≥ 2 → **encerra** (a seção 5.3 já decidiu descartar; cobrar retorno do closer aqui seria alertar para uma decisão que já foi tomada) |
+| 3 | Alerta imediato | Internal Notification ao closer `{{contact.name}} não compareceu à reunião de {{appointment.start_time}}. A recuperação automática (NS1) já dispara em instantes — se preferir reagendar você mesmo agora, é mais rápido para o lead e evita o SDR ligar à toa.` |
+| 4 | Aguardar | Wait → Time Delay 2h corridas |
+| 5 | Portão | If/Else — etapa da oportunidade ainda **é** `Reunião agendada` → segue (ninguém reagendou nem descartou nesse meio-tempo). Senão → **encerra** |
+| 6 | Escalonamento | Internal Notification ao gestor `Closer não deu retorno em 2h após o no-show de {{contact.name}} ({{appointment.start_time}}) — a recuperação automática (NS1) já está tentando reconectar, mas vale conferir com o closer.` |
+
+O nó 4 usa horas corridas, não úteis: como uma reunião só existe dentro da
+janela de atendimento do closer (é o próprio calendário que a limita), o
+gatilho `No Show` já nasce dentro do horário comercial — 2h corridas a
+partir daí raramente cruzam a virada do dia. Não vale o custo de um relógio
+de horário comercial para um caso de borda raro.
+
+Se o lead reagendar dentro dessas 2h, o nó 3 do Pós-agendamento (seção 5)
+já removeu este contato dos dois workflows do R-12 antes do nó 5 rodar — o
+`Remove from Workflow` cancela qualquer `Wait` pendente, então o nó 6 nunca
+dispara para quem já resolveu sozinho. Não preciso comparar "o valor de
+`Nº de no-shows` mudou desde o nó 1": a remoção do workflow já resolve isso
+sem campo auxiliar nenhum.
+
+**Pronto quando (do roadmap, metade "SLA do closer"):** o gestor sabe de um
+no-show sem retorno do closer em 2h, não no relatório do mês seguinte —
+mesmo padrão de alerta em tempo real que a seção 5.1 já validou para o
+veredito pós-reunião.
 
 ---
 
@@ -1868,6 +2056,24 @@ mesmo tempo (nó 6 do bloco padrão, seção 2.4, aplica uma por vez, e vale
 para todo bloco que o espelha: 2.10, 2.12). Alimenta a métrica `Estouro da
 Fila` e o aviso do Monitor de Capacidade (seção 2.15, R-11).
 
+Este total agora também inclui as tarefas `NS1`/`NS2`/`NS3` da Recuperação de
+No-show (seção 5.3, R-12) de graça: o filtro é só por tag, sem etapa — a
+tag `fila-tel` aplicada pela seção 5.3 conta aqui mesmo com a oportunidade
+em `Reunião agendada`, não em `Em cadência`.
+
+### 8.17 `Recuperação de No-show` — R-12
+| Item | Configuração |
+|---|---|
+| Filtros | `Nº de no-shows` ≥ 1 **E** etapa da oportunidade = `Reunião agendada` **E** `nao-perturbe` ausente |
+| Colunas | Nome · Empresa · Telefone · `Nº de no-shows` · `Template usado` · Última atividade · Tarefas abertas |
+| Ordenação | `Nº de no-shows` desc, depois Última atividade asc |
+
+Filtra por campo numérico direto, sem tag nova — mesmo raciocínio já usado
+na 8.6 (`Total de conexões` ≥ 1). Não aparece em 8.2/8.3 porque a etapa
+continua `Reunião agendada`, de propósito (seção 5.3, "por que fica em
+Reunião agendada"): esta lista é a única visão de quem está na régua NS1-NS3,
+igual a 8.14 já ser a única visão de quem está na régua TR1-TR4.
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -1985,6 +2191,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e etapa `Nutrição` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa volta para `Em cadência`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, etapa volta para `Nutrição`, e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
 | 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `Em cadência` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
 | 29 | Monitor de Capacidade (R-11) | Com os 5 contatos de teste em `fila-tel`/`fila-wa` ao mesmo tempo, confira que a lista `Fila do Dia — Total` (8.16) soma os dois grupos sem duplicar ninguém; confirme se o plano da subconta expõe Custom Metrics e, se sim, que `Estouro da Fila` mostra `5 − 100` (negativo, dia normal); rode o Scheduler do "Monitor de Capacidade" manualmente (ou aguarde o horário) e confira que o Internal Notification chega ao gestor nos dois horários configurados | |
+| 30 | Handoff e no-show (R-12) | No Teste Atendeu já em `Reunião agendada`, reduza os Waits das seções 5.3/5.4 para minutos e marque o agendamento como `No Show`: `Nº de no-shows` vai a 1, o closer recebe o alerta imediato (nó 3 da 5.4), `fila-tel` é aplicada e a tarefa `[CADENCIA] NS1` nasce; confirme NS2/NS3 nascendo nos horários reduzidos e, sem resposta a nenhuma, `Template usado` = `NS-2`, `nutricao-90d` aplicada e etapa de volta a `Nutrição`. Não deixe passar as 2h reduzidas do nó 4 da 5.4 sem reagendar: confirme o Internal Notification de escalonamento ao gestor (nó 6). Repita o `No Show` uma segunda vez no mesmo contato (rodada manual): `Nº de no-shows` chega a 2, a oportunidade vai direto para `Descartado`, sem tarefa nova e sem alerta de SLA ao closer (nó 2 da 5.4 encerra sozinho). Por fim, num terceiro contato, marque `No Show` e reagende pelo link do calendário antes do fim da régua: confirme que nenhuma tarefa `NS2`/`NS3` nasce depois do reagendamento (nó 3 do Pós-agendamento removeu os dois workflows do R-12) e que marcar `Showed` depois zera `Nº de no-shows` (nó 3 da seção 5.2) | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.

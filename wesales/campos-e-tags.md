@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (41 + 1 sugerido)
+## Etapa 2 — Campos personalizados (42 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -40,6 +40,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-21 | Data agendado | DATE | — | Workflow (R-03) |
 | C-22 | Data compareceu | DATE | — | Workflow (R-03) |
 | C-23 | Template usado | TEXT | código do template, ex. `M1-a` | Workflow (R-04) |
+| C-24 | Nº de no-shows | NUMERICAL | — | Workflow (R-12) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -99,6 +100,16 @@ novo sem depender de edição manual do campo; o custo é não ter validação d
 valor digitado, que aqui é baixo porque só o workflow escreve neste campo,
 nunca o SDR. Textos e códigos completos, versionados, ficam em
 `biblioteca-mensagens.md`.
+
+C-24 fecha o handoff de no-show (`build-wesales.md`, seções 5.3/5.4, R-12 do
+roadmap): conta quantos no-shows seguidos o lead acumulou desde o último
+comparecimento de verdade — a seção 5.2 zera este campo ao confirmar
+`Showed`, e a seção 5.3 o incrementa a cada `No Show`, descartando a
+oportunidade automaticamente a partir do 2º seguido (proteção de agenda do
+closer). **`NUMERICAL`, não uma tag:** a lista 8.17 (`build-wesales.md`)
+filtra direto pelo valor do campo, mesmo raciocínio já usado em C-06/C-07 —
+uma tag só valeria a pena se algum portão precisasse checar "presente/
+ausente" sem importar a contagem, o que não é o caso aqui.
 
 **R-10 (distribuição de leads) não abre campo novo.** O roadmap sugeria um
 campo `SDR responsável`; a especificação (`build-wesales.md`, seção 2.14)

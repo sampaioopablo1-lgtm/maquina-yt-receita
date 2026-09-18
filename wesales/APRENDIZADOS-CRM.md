@@ -44,7 +44,10 @@ em chat ("aplique todas os estudos... CRM fique mais completo possível"):**
 
 Estado da subconta após esta rodada: 0 campos personalizados, 6 contatos
 (1 de estrutura + 5 fictícios), 14 tags aplicadas ao contato de estrutura,
-só o pipeline `FUNIL DE VENDAS` pré-existente.
+só o pipeline `FUNIL DE VENDAS` pré-existente. Reconfirmado de novo ao
+fechar o R-12 (rodada seguinte, mesma data): estado idêntico — nenhuma
+escrita nova, porque este item só abriu um campo (`Nº de no-shows`, C-24) e
+nenhuma tag.
 
 ## `contacts_get-contacts` (lista) atrasa em relação à escrita — não confie nele logo após criar em lote
 
@@ -312,6 +315,51 @@ limitação do conector.
   dentro do `Add Task` como alternativa: isso sorteia por tarefa em vez de
   por lead, o oposto do que o R-10 decidiu de propósito (ver "A decisão que
   separa isto de uma cópia de tela", seção 2.14).
+
+- **Pesquisado ao fechar o R-12 (handoff e no-show), 18/09/2026:** o GHL tem
+  gatilho nativo `Appointment Status` com status `No Show`, mesma família do
+  `Showed` já usado no R-03 — confirmado por busca (`consultevo.com`,
+  `help.gohighlevel.com` segue bloqueado pelo proxy deste ambiente, mesma
+  limitação já registrada para R-09/R-10/R-11) e coerente com a estrutura do
+  calendário `Reunião com closer` já montada. Outreach e Salesloft resolvem
+  recuperação de no-show via integração com ferramenta de agendamento de
+  terceiro (Chili Piper é o exemplo mais citado) — nenhum dos dois tem
+  automação nativa de no-show sozinho, o mesmo padrão de "precisa de
+  parceiro externo" já visto no R-07 para inbound em minutos. A literatura
+  de operação de vendas (Zapier, AskElephant, blogs de RevOps) converge em
+  dois pontos: mensagem automática de "sentimos sua falta" imediata, e
+  escalar para contato pessoal de um closer/AE em até 1 hora útil quando o
+  lead vale a pena — nenhuma fonte encontrada trata **no-show repetido**
+  como gatilho de decisão automática (descarte), só como métrica de
+  relatório. É a lacuna que a regra "2º no-show seguido descarta sozinho"
+  do R-12 fecha, e é o tipo de coisa que só aparece lendo o workflow, não
+  olhando a tela.
+
+  **Reaproveitando a lição do R-08 sem repetir o preço dela:** o R-08
+  (reengajamento) só descobriu o problema do `Allow Re-entry` desligado da
+  Cadência 12x30 (D-06) depois de cogitar reentrar por ela — teve que
+  resolver com tag de blindagem e troca de origem. O R-12 aplicou a lição
+  **antes** de desenhar: em vez de devolver o lead no-show para `Em
+  cadência`, a régua de recuperação roda com a oportunidade parada em
+  `Reunião agendada` o tempo todo. Resultado: zero tag nova precisou nascer
+  para este item (usa só um campo `NUMERICAL` novo, `Nº de no-shows`) e zero
+  risco de bater no mesmo `Allow Re-entry`. Regra prática, generalizável:
+  antes de desenhar qualquer recuperação futura que aconteça **dentro** de
+  uma etapa que já tem um workflow com `Allow Re-entry` desligado, pergunte
+  primeiro se dá para resolver **sem sair daquela etapa** — nem toda
+  recuperação precisa voltar o lead para o começo do funil.
+
+  **Sobre rodar dois relógios ao mesmo tempo no mesmo gatilho:** o motor de
+  workflow do GHL não bifurca um nó em dois caminhos que continuam em
+  paralelo — `If/Else` e `Split` escolhem sempre **um só** caminho por
+  contato. Para o R-12 precisar de duas coisas simultâneas e independentes
+  (a régua de recuperação do SDR e o relógio de SLA do closer, cada uma com
+  seu próprio tempo de espera), a saída nativa é a mesma já usada pela
+  seção 5/5.1/5.2 deste projeto: dois workflows curtos escutando o mesmo
+  evento, não um workflow tentando fazer as duas coisas. Regra prática,
+  generalizável: **"preciso de dois relógios correndo ao mesmo tempo para o
+  mesmo contato" é sinal de dois workflows, nunca de um workflow com dois
+  ramos** — ramos de `If/Else` são exclusivos, não paralelos.
 
 - **Pesquisado ao fechar o R-11 (alerta de capacidade), 18/09/2026 — o achado
   mais importante para qualquer alerta de agregado futuro:** o motor de

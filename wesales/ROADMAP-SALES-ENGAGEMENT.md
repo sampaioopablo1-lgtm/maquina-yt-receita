@@ -340,12 +340,36 @@ Checklist ganhou o item 29. Subconta reconfirmada nesta execução via
 do R-anterior), só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a
 última checagem.
 
-### R-12 · Handoff e no-show
+### R-12 · Handoff e no-show — **FEITO em 18/09/2026**
 **Por quê:** reunião agendada que não acontece é o vazamento mais caro do
 funil, e hoje o desenho termina no agendamento.
 **Como:** gatilho de status `No-show` → volta para cadência com régua curta;
 SLA do closer para dar retorno.
 **Pronto quando:** no-show vira nova tentativa, não silêncio.
+
+**Resumo:** dois workflows novos especificados em `build-wesales.md` — seção
+5.3 (`Recuperação de No-show`) e seção 5.4 (`SLA do Closer — No-show`) —,
+ambos no gatilho nativo `Appointment Status = No Show`, a mesma família do
+`Showed` que já fecha o R-03. A régua curta (NS1-NS3, telefone, 4 dias)
+gera a tarefa `NS1` no mesmo dia do no-show, e a seção 5.4 cobra do closer
+um retorno em 2h com escalonamento ao gestor se ele não agir — a metade
+"SLA do closer" do "Como" do roadmap. Aprendendo com o preço que o
+Reengajamento 90 dias (R-08) pagou pelo `Allow Re-entry` desligado da
+Cadência 12x30 (D-06), este item não tenta voltar o lead para `Em
+cadência`: a oportunidade fica em `Reunião agendada`, o contador `Nº de
+no-shows` (C-24, `campos-e-tags.md`) mora no contato, e uma lista própria
+(8.17) mostra quem está na régua — **zero tag nova**. Diferencial sobre
+Reev/Meetime/Outreach/Salesloft, pesquisado antes de desenhar: as quatro
+tratam no-show repetido como métrica de relatório; aqui o 2º no-show
+seguido descarta a oportunidade sozinho (proteção de agenda do closer),
+decisão automática que nenhuma delas embute nativamente. Checklist ganhou o
+item 30. Falta só a criação manual do campo C-24 — campo personalizado não
+sai por API;
+subconta reconfirmada nesta execução via
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 6 contatos (o de estrutura + os 5
+fictícios do checklist), só o `FUNIL DE VENDAS` pré-existente — nada mudou
+desde a última rodada.
 
 ---
 
@@ -473,10 +497,12 @@ fechado em 18/09/2026, o primeiro ponto que quebraria ao contratar o
 segundo SDR (dois ligando para o mesmo lead) já está resolvido antes de
 existir segundo SDR. Com R-11 fechado em 18/09/2026, o bloco 4 (operação com
 mais de um SDR) está completo — a fila que R-10 distribui agora também avisa
-quando estoura. **R-12 (handoff e no-show)** é o próximo, abrindo o bloco 5
-(qualidade e confiança): reunião agendada que não acontece é o vazamento mais
-caro do funil hoje sem tratamento nenhum, e não depende de volume nem de
-segundo SDR para valer a pena.
+quando estoura. Com R-12 fechado em 18/09/2026, o bloco 5 (qualidade e
+confiança) começou a andar: reunião agendada que não acontece já tem tratamento,
+do vazamento ao SLA do closer. **R-13 (higiene de base)** é o próximo: base
+suja infla métrica e queima SDR desde o primeiro lead, e não depende de
+volume nem de segundo SDR para valer a pena — mesmo raciocínio que já valeu
+para R-12.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
