@@ -176,20 +176,49 @@ oportunidade** (`open`/`won`/`lost`/`abandoned`, independente da etapa):
   projeto, sem depender de etapa que não existe mais).
 - **Descartado**: status vira `lost`, etapa fica como estava.
 
-**Isto reabre uma tarefa de documentação grande, ainda em andamento nesta
-mesma sessão:** todo o `build-wesales.md` foi escrito em cima das 7 etapas
+**Isto abriu uma tarefa de documentação grande, em andamento entre
+rodadas:** todo o `build-wesales.md` foi escrito em cima das 7 etapas
 antigas (~150 menções a `Em cadência`/`Conectado`/`Retorno agendado`/
 `Reunião agendada`/`Nutrição`/`Descartado` em gatilhos, portões e ramos de
 saída). Reescrever isso nó a nó para o modelo de 5 etapas + tag/status é
-trabalho em progresso — **não assuma que o resto do `build-wesales.md` já
-reflete esta mudança só porque esta seção foi atualizada.** Enquanto a
-reescrita não terminar, qualquer gatilho que disser "Para a etapa: `Em
-cadência`" (ou similar) deve ser lido como "`CONECTAR`", pela tabela acima
-— e qualquer "mover oportunidade para `Nutrição`/`Descartado`" deve virar
-"status = abandoned/lost", como descrito acima.
+grande demais para uma rodada só — quebrada em pedaços fechados um de cada
+vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
 
-**Fase 1 dá-se por concluída** — o pipeline está no estado final decidido
-pelo dono, não pendente de correção.
+- [x] **Seção 1 (Pipeline)** — reescrita em 18/09/2026: tabela das 5
+      etapas reais, seção 1.0 nova com a tradução completa nome-antigo →
+      etapa/estado-real (inclusive `Retorno agendado`/`Nutrição`/
+      `Descartado` virando campo/status, não etapa), 1.1 (frameworks de
+      mercado) e 1.2 (canvas operacional) reescritas para as 5 etapas.
+- [ ] **Seção 2 e subseções 2.1–2.17 (Cadência 12x30 e vizinhas)** —
+      maior bloco: todo gatilho `Opportunity Stage Changed` e toda saída
+      "mover para `Nutrição`/`Descartado`" (mais concentrado nas seções
+      2.4, 2.10, 2.12) precisa virar filtro em `CONECTAR` + `Update
+      Opportunity` (status), pela tabela 1.0
+- [ ] **Seção 3 (Mestre de saída)**
+- [ ] **Seção 4 (Pós-ligação)** — o ramo que hoje diz "mover para
+      `Nutrição`" nas 12 tentativas esgotadas é o mais citado por outras
+      seções (R-01, R-02, F-01), migrar com atenção a quem aponta para ele
+- [ ] **Seção 5 e 5.1–5.4 (Pós-agendamento, Loop do closer, Comparecimento,
+      No-show)** — inclui o achado já registrado na seção 1.2 desta
+      migração: "descartar oportunidade" no no-show 2x (R-12) precisa virar
+      `status = lost` dentro de `NEGOCIAR`, não mover para uma etapa
+      `Descartado` que não existe mais
+- [ ] **Seção 6 (Qualificação por IA no WhatsApp)**
+- [ ] **Seção 8 (Listas inteligentes)** — qualquer lista com filtro de
+      etapa `Retorno agendado`/`Nutrição`/`Descartado` precisa trocar para
+      filtro de campo/status
+- [ ] **Seção 9 (Nota de qualificação e Prioridade)**
+
+**Não assuma que uma seção já reflete a mudança só porque outra foi
+migrada** — verifique o `[x]` desta lista antes de confiar em qualquer
+nome de etapa lido em `build-wesales.md`. Enquanto uma seção não estiver
+marcada, todo nome de etapa antigo nela se traduz pela tabela 1.0 de
+`build-wesales.md`.
+
+**Fase 1 (pipeline em si) dá-se por concluída** — o pipeline está no
+estado final decidido pelo dono, não pendente de correção. A tarefa que
+continua aberta é só a de **documentação** (a lista acima), não a de
+construção na tela.
 
 ---
 

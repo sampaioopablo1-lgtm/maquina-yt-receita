@@ -86,194 +86,194 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 
 ---
 
-## 1. Pipeline "Pré-vendas"
+## 1. Pipeline "Pré-vendas" (hoje o `FUNIL DE VENDAS`, 5 etapas reais)
 
-**Migração de arquitetura, 18/09/2026 — leia antes de montar.** O plano
-original (e a recomendação da auditoria) era criar um pipeline novo,
-separado do `FUNIL DE VENDAS` pré-existente. O dono decidiu diferente, ao
-vivo em chat: reaproveitar o `FUNIL DE VENDAS` (`0Fo2xbeayE4EP6yuSUtq`) já
-existente, **trocando as 14 etapas dele pelas 7 abaixo**, em vez de criar
-um segundo pipeline. Verificado antes de aceitar: 0 oportunidades reais
-nesse pipeline (`opportunities_search-opportunity`, todos os status), nada
-de negócio se perde na troca. Autorização e detalhe completo:
-`APROVADO.md`. As 14 etapas antigas (nomes, cor, probabilidade de ganho)
-continuam registradas em `auditoria-resultado.md` se algum dia fizer
-sentido reconstruir aquele pipeline separado.
+**Arquitetura real, decidida ao vivo em chat, 18/09/2026 — já construída,
+não pendente.** O plano original desta seção (e a recomendação da
+auditoria) era 7 etapas novas, criadas trocando as 14 antigas do `FUNIL DE
+VENDAS` (`0Fo2xbeayE4EP6yuSUtq`). O dono recusou essa tabela ao vivo e
+decidiu outra coisa: **5 etapas**, com nomes, probabilidade e cor
+próprios, confirmadas na tela por `opportunities_get-pipelines` e
+reconferidas sem mudança a cada rodada desde então. Autorização e decisão
+completa: `APROVADO.md`; detalhe da resolução: `GUIA-MONTAGEM.md`, "Fase
+1". **Esta seção documenta o que existe de verdade na tela, não mais um
+plano de construção** — não há "O que fazer na tela" aqui, porque já foi
+feito.
+
+| Ordem | Etapa (nome real) | Prob. de ganho | Cor |
+|---|---|---|---|
+| 0 | `NOVO LEAD` | 30% | `#2563EB` |
+| 1 | `CONECTAR` | 40% | `#8B5CF6` |
+| 2 | `AGENDAR` | 50% | `#2DD4BF` |
+| 3 | `NEGOCIAR` | 60% | `#D97706` |
+| 4 | `FORMALIZAR` | 70% | `#059669` |
 
 **Consequência para todo o resto deste documento:** onde qualquer seção
-disser "Pipeline: `Pré-vendas`" dentro de um gatilho de workflow (seções
-2.1, 2.10, 2.12, 3, listas do 8, dashboard do 2.17), configure o nó
-apontando para o pipeline **`FUNIL DE VENDAS`** — é o mesmo objeto, só de
-nome diferente na tela. `Pré-vendas` continua sendo como este documento
-**chama** o processo e as 7 etapas — não é mais o nome de um pipeline
-separado no GHL.
+ainda disser "Pipeline: `Pré-vendas`" dentro de um gatilho de workflow,
+configure o nó apontando para o pipeline **`FUNIL DE VENDAS`** — é o mesmo
+objeto, só de nome diferente na tela. `Pré-vendas` continua sendo como
+este documento **chama** o processo — não é mais o nome de um pipeline
+separado no GHL, e nunca chegou a ser (o dono preferiu 1 pipeline a 2,
+ver `APROVADO.md`).
 
-### O que fazer na tela
+### 1.0 Tradução: nome antigo (plano de 7) → etapa/estado real (5 + tag/status)
 
-Oportunidades → Configurações → Pipelines → abra **`FUNIL DE VENDAS`** →
-edite as etapas: renomeie/reordene as que aproveitar, apague as que
-sobram, adicione as que faltam, até a lista bater exatamente com a tabela
-abaixo, na mesma ordem.
+**Leia isto antes de qualquer seção 2 em diante.** As seções 2 a 9 deste
+documento ainda foram escritas em cima do plano de 7 etapas — reescrevê-las
+nó a nó é trabalho grande, em andamento (ver checklist em
+`GUIA-MONTAGEM.md`, "Fase 1"). Até cada seção ser migrada, todo nome de
+etapa antigo que aparecer nela se traduz por esta tabela:
 
-| Ordem | Etapa | Significado operacional | Prefixo de tarefa válido |
-|---|---|---|---|
-| 1 | Novo lead | Entrou, ainda não foi para a cadência | — |
-| 2 | Em cadência | Nas 12 tentativas | `[CADENCIA]` |
-| 3 | Conectado | Atendeu, conversa em andamento, sem reunião marcada | `[CONECTADO]` |
-| 4 | Retorno agendado | Pediu para ligar depois | `[RETORNO]` |
-| 5 | Reunião agendada | Agendou com o closer | — |
-| 6 | Nutrição | Sem fit agora, volta em 90 dias | — |
-| 7 | Descartado | Número errado, não ligar, sem fit definitivo | — |
+| Nome antigo (plano de 7) | Vira, na tela real | Como |
+|---|---|---|
+| `Novo lead` | `NOVO LEAD` | Mesma etapa, só o nome mudou |
+| `Em cadência` | `CONECTAR` | Mesma etapa — é aqui que o portão de toda tentativa (nó 3, seção 2.4) passa a checar |
+| `Conectado` | `AGENDAR` | Mesma etapa |
+| `Retorno agendado` | **continua em `CONECTAR`** | Deixou de ser etapa própria — "pediu retorno" não move a oportunidade, só grava `Resultado da tentativa = Pediu retorno`. Todo gatilho `Opportunity Stage Changed → Retorno agendado` vira **sem gatilho de etapa nenhum**: o lead nunca sai de `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo campo |
+| `Reunião agendada` | `NEGOCIAR` | Absorve também a negociação do closer (proposta, condições), que no plano de 7 ficava fora do pipeline — agora está dentro, porque o dono optou por 1 pipeline só |
+| `Nutrição` | **status da oportunidade = `abandoned`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Nutrição` vira **`Contact Tag Added → nutricao-90d`** (gatilho nativo já usado em outro lugar do projeto) — a tag continua sendo o sinal de quem está nutrição, o status só formaliza isso no campo nativo do GHL |
+| `Descartado` | **status da oportunidade = `lost`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Descartado` vira uma ação `Update Opportunity` mudando o `status`, não a etapa |
+| *(não existia)* | `FORMALIZAR` | Etapa nova, fechamento/contrato — equivale a `status = won`. Fora do escopo dos workflows de SDR deste documento (é o closer fechando), citada aqui só para a tabela ficar completa |
 
-Configurações do pipeline:
-- Visibilidade: apenas SDR + closer + gestor.
-- "Nome da oportunidade" = nome do contato (padrão).
-- Deixe a etapa **Novo lead** como entrada de qualquer importação/formulário.
-- Probabilidade de ganho por etapa: não repita a progressão linear
-  (6,67% em 6,67%) que o `FUNIL DE VENDAS` tinha antes — é o bug que a
-  auditoria encontrou de graça (`NÃO TEM INTERESSE` com 93% de chance de
-  ganho). Use uma curva que reflita a realidade — `Nutrição` mais baixa
-  que `Reunião agendada`, por exemplo, não mais alta.
+**Por que isso é simplificação, não perda:** `CONECTAR` continua etapa
+própria porque é o único estado que um portão de workflow *precisa*
+consultar antes de disparar uma tentativa — é o mecanismo de segurança da
+cadência inteira. `Retorno agendado`, `Nutrição` e `Descartado` nunca
+precisaram desse tipo de consulta por um workflow de tentativa; um campo
+(`Resultado da tentativa`) e o status nativo da oportunidade (que o GHL já
+oferece de graça, sem campo novo) bastam. Cinco etapas reais + dois
+atributos nativos (status, campo) cobrem o mesmo terreno que as 7 etapas
+do plano original cobriam, com menos peça para manter sincronizada.
 
-Por que 7 etapas e não 5: "Em cadência" precisa ser uma etapa própria porque
-**é ela que o portão de cada tentativa consulta**. Se o lead sai dela, a
-cadência para sozinha. Esse é o mecanismo de segurança da máquina inteira.
-
-### 1.1 Mapeamento com os frameworks de mercado — 18/09/2026
+### 1.1 Mapeamento com os frameworks de mercado — atualizado 18/09/2026
 
 Pedido do dono: ajustar o funil usando o que o mercado já documenta sobre
 Inside Sales (funil genérico de RD Station/Salesforce/Meetime — prospecção
 → qualificação → apresentação → fechamento) e o **Sales Model Canvas**
 (Thiago Reis / Growth Machine — 4 etapas macro, preenchidas por 7 blocos
-operacionais cada). As duas referências descrevem o ciclo **completo** de
-venda, até o contrato assinado. O nosso `Pré-vendas` **não é o ciclo
-completo** — o mapeamento abaixo para na etapa em que o SDR entrega para o
-closer; o resto do ciclo (demo de verdade, proposta, negociação, contrato)
-é conversa e gestão do closer, fora do escopo deste documento.
+operacionais cada).
 
-**Nota sobre o que mudou em 18/09/2026:** a auditoria original
-(`auditoria-resultado.md`) recomendava um pipeline **separado** do `FUNIL
-DE VENDAS`, justamente porque aquele já vinha com etapas de cotação,
-documentos e pagamento — misturar os dois faria o portão da cadência
-disparar em lead que já está em processo de venda. O dono decidiu
-diferente, ao vivo em chat (ver seção 1, "Migração de arquitetura"):
-reaproveitar o mesmo pipeline, trocando as 14 etapas pelas 7 daqui. Isso
-resolve o risco que a auditoria apontava (não sobra etapa de venda para o
-portão confundir, porque não sobra etapa de venda nenhuma), mas troca por
-outro: **a subconta fica sem pipeline para cotação/documentos/pagamento**
-até alguém recriar isso — como oportunidade real era zero, nada de negócio
-se perdeu, só o **template** de etapas (preservado em
-`auditoria-resultado.md` para reconstrução futura, se um dia fizer falta).
+**Mudança relevante desde a primeira versão desta tabela:** ali, "Proposta,
+Negociação, Ganho/Perdido" ficava marcado como fora deste pipeline,
+porque o plano original prometia um pipeline `Pré-vendas` que parava no
+agendamento. Isso mudou quando o dono decidiu reaproveitar o `FUNIL DE
+VENDAS` como pipeline único (`APROVADO.md`) — a negociação e o fechamento
+agora **vivem dentro** deste mesmo pipeline, nas etapas `NEGOCIAR` e
+`FORMALIZAR`.
 
-| Framework de mercado | Nossa etapa correspondente | Por que a granularidade difere |
+| Framework de mercado | Nossa etapa/estado correspondente | Por que a granularidade difere |
 |---|---|---|
-| Topo do funil — Prospecção / Não contatado | `Novo lead` | Igual — é o mesmo conceito |
-| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `Em cadência`, `Conectado`, `Retorno agendado` | O genérico trata como 1-2 fases; aqui são 3 **porque cada uma é um estado que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar" e "conectado, ainda sem reunião" e "combinou de ligar depois" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
-| Fundo do funil — Apresentação/Demonstração | `Reunião agendada` | É o ponto de handoff: o SDR agenda, o **closer** apresenta. A partir daqui a conversa de venda de verdade sai deste pipeline |
-| Fundo do funil — Proposta, Negociação, Ganho/Perdido | *(fora deste pipeline)* | Vive no `FUNIL DE VENDAS` já existente na subconta, administrado pelo closer — este documento não o toca (regra 4 do briefing) |
-| — (nenhum framework genérico tem isto) | `Nutrição` | É onde o Sales Model Canvas simplifica demais: o binário "Ganho ou Perdido" não tem espaço para "sem fit **agora**, mas com fit daqui a 90 dias". `Nutrição` é esse terceiro estado, com reativação automática (R-08) — nenhuma das fontes citadas pelo dono documenta isso como etapa própria, só como "relatório de nutrição vencida" manual |
-| Fundo do funil — Perdido | `Descartado` | Igual, mas sem "Ganho": ganho de verdade (contrato assinado) é evento do `FUNIL DE VENDAS`, não deste pipeline |
+| Topo do funil — Prospecção / Não contatado | `NOVO LEAD` | Igual — é o mesmo conceito |
+| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `AGENDAR` | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
+| Fundo do funil — Apresentação/Demonstração | `NEGOCIAR` (metade "comparecimento e veredito") | É o ponto de handoff: o SDR agenda, o **closer** apresenta |
+| Fundo do funil — Proposta, Negociação, Ganho/Perdido | `NEGOCIAR` (metade "negociação") → `FORMALIZAR` (`status = won`) ou saída com `status = lost` | Agora dentro deste pipeline (ver "Mudança relevante" acima) — administrado pelo closer, mas sem pipeline separado para administrar |
+| — (nenhum framework genérico tem isto) | Status `abandoned` (tag `nutricao-90d`), etapa como estava | É onde o Sales Model Canvas simplifica demais: o binário "Ganho ou Perdido" não tem espaço para "sem fit **agora**, mas com fit daqui a 90 dias". A reativação automática (R-08) trata isso como terceiro estado — nenhuma das fontes citadas pelo dono documenta isso como etapa própria, só como "relatório de nutrição vencida" manual |
+| Fundo do funil — Perdido | Status `lost`, etapa como estava | Igual em espírito, mas sem etapa própria — o status nativo do GHL já resolve isso sem etapa dedicada |
 
 ### 1.2 Canvas operacional por etapa (7 blocos, Sales Model Canvas)
 
-Preenchido para as 5 etapas onde ele se aplica de verdade — `Nutrição` e
-`Descartado` são estados terminais/de espera por desenho, não etapas de
-progresso, então ganham uma nota curta em vez do canvas completo (ao final
-desta seção). Convenção dos blocos, na ordem do framework: **Objetivo** (a
-meta central) → **Validação** (o que precisa ser verdade para avançar) →
-**Ferramentas** (o que já existe no projeto, sem inventar nada novo) →
-**Tempo de estagnação** (o alarme de "isto emperrou") → **Motivos de perda**
-(os jeitos documentados de sair sem avançar) → **Taxa de conversão
-esperada** (hipótese a calibrar, nunca meta imposta) → **Meta de avanço**
-(volume que sustenta a operação).
+**Preenchido para as 5 etapas reais.** Onde o plano de 7 tinha uma etapa
+que virou tag/status (`Retorno agendado`, `Nutrição`, `Descartado`), o
+conteúdo correspondente entra como sub-nota dentro da etapa em que esse
+estado de fato vive agora, não como bloco próprio. Convenção dos blocos,
+na ordem do framework: **Objetivo** (a meta central) → **Validação** (o
+que precisa ser verdade para avançar) → **Ferramentas** (o que já existe
+no projeto, sem inventar nada novo) → **Tempo de estagnação** (o alarme de
+"isto emperrou") → **Motivos de perda** (os jeitos documentados de sair
+sem avançar) → **Taxa de conversão esperada** (hipótese a calibrar, nunca
+meta imposta) → **Meta de avanço** (volume que sustenta a operação).
 
-#### Etapa 1 — `Novo lead`
+#### Etapa 0 — `NOVO LEAD`
 
 | Bloco | Conteúdo |
 |---|---|
 | Objetivo | Confirmar que o lead tem telefone e está pronto para entrar na régua — não é etapa de conversa |
-| Validação de passagem | Telefone existe e a tag `telefone-invalido` está ausente. Hoje a promoção para `Em cadência` é **decisão manual do SDR** (lacuna L-07, `briefing-sdr.md`) |
-| Ferramentas | Formulário/importação de lista → `Novo lead` nativo do pipeline |
-| Tempo de estagnação | Mesmo relógio do speed-to-lead (R-02/R-07): 15 min se a origem é inbound, 1h se é outbound — um lead parado em `Novo lead` além disso já perdeu a janela que a seção 2.11 mede a partir de `Em cadência`, então **o relógio ideal começa aqui, não lá** (ver nota abaixo) |
+| Validação de passagem | Telefone existe e a tag `telefone-invalido` está ausente. Hoje a promoção para `CONECTAR` é **decisão manual do SDR** (lacuna L-07, `briefing-sdr.md`) |
+| Ferramentas | Formulário/importação de lista → `NOVO LEAD` nativo do pipeline |
+| Tempo de estagnação | Mesmo relógio do speed-to-lead (R-02/R-07): 15 min se a origem é inbound, 1h se é outbound — um lead parado em `NOVO LEAD` além disso já perdeu a janela que a seção 2.11 mede a partir de `CONECTAR`, então **o relógio ideal começa aqui, não lá** (ver nota abaixo) |
 | Motivos de perda | Telefone claramente inválido já na entrada (não chega a rodar 12 tentativas) |
-| Taxa de conversão esperada | ~90-95% deveria avançar para `Em cadência` — hipótese, a calibrar com a lista `Higiene — Sem Telefone Válido` (8.18, R-13) depois de volume real |
+| Taxa de conversão esperada | ~90-95% deveria avançar para `CONECTAR` — hipótese, a calibrar com a lista `Higiene — Sem Telefone Válido` (8.18, R-13) depois de volume real |
 | Meta de avanço | 10-13 leads/dia (L-05, `briefing-sdr.md`) para sustentar 100 ligações/dia com folga |
 
 **Nota sobre o tempo de estagnação desta etapa:** o R-02 mede speed-to-lead
-a partir de `Entrada em`, carimbado só ao entrar em `Em cadência` (seção
+a partir de `Entrada em`, carimbado só ao entrar em `CONECTAR` (seção
 2.3, nó 0.6) — ou seja, o relógio de verdade só liga **depois** da
-promoção manual da L-07 acontecer, não em `Novo lead`. Enquanto a L-07
-não for resolvida, um lead pode ficar horas em `Novo lead` sem que
+promoção manual da L-07 acontecer, não em `NOVO LEAD`. Enquanto a L-07
+não for resolvida, um lead pode ficar horas em `NOVO LEAD` sem que
 nenhuma métrica deste projeto perceba. Não é bug novo — é a mesma lacuna
 L-07 já registrada, só que agora com o efeito colateral dela em cima de
 uma métrica que achávamos fechada (R-02). Registrado aqui para quem for
 priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 
-#### Etapa 2 — `Em cadência`
+#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado`)
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias |
-| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `Conectado`) ou `Pediu retorno` (→ `Retorno agendado`) — nó 10 do bloco padrão, seção 2.4 |
-| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), `script-de-ligacao.md` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap) monitora "sem tentativa há 7 dias"; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11) |
-| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND), 12 tentativas esgotadas sem conexão (→ `Nutrição`) — os três ramos do Pós-ligação, seção 4 |
+| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
+| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `AGENDAR`) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
+| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
+| Tempo de estagnação | Já coberto: F-05 (roadmap) monitora "sem tentativa há 7 dias"; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data do retorno`/`Hora do retorno` — o primeiro já existe como campo, o segundo não, ver `GUIA-MONTAGEM.md`) continua valendo aqui dentro, não em etapa separada |
+| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
 | Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
 
-#### Etapa 3 — `Conectado`
+#### Etapa 2 — `AGENDAR`
 
 | Bloco | Conteúdo |
 |---|---|
 | Objetivo | Qualificar e agendar com o closer na mesma ligação (briefing-sdr.md, "A máquina") |
 | Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
 | Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
-| Tempo de estagnação | **Gap encontrado ao preencher este bloco, sem monitor ainda:** nenhum relógio hoje mede "atendeu e não agendou em X horas". Registrado como adição ao F-05 (roadmap, ainda no bloco 6 — sem volume não vale construir agora): 24h sem sair de `Conectado` |
+| Tempo de estagnação | **Gap encontrado ao preencher este bloco, sem monitor ainda:** nenhum relógio hoje mede "atendeu e não agendou em X horas". Registrado como adição ao F-05 (roadmap, ainda no bloco 6 — sem volume não vale construir agora): 24h sem sair de `AGENDAR` |
 | Motivos de perda | **Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa — o Pós-ligação sempre cria a tarefa de agendar, mesmo quando a conversa já mostrou que não há fit. Registrado como lacuna nova, **L-08** (`briefing-sdr.md`) |
 | Taxa de conversão esperada | Depende do L-08 ser resolvido para medir separado de "não conseguiu horário"; hoje mistura os dois motivos numa métrica só |
 | Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
 
-#### Etapa 4 — `Retorno agendado`
+#### Etapa 3 — `NEGOCIAR` (absorve `Reunião agendada` + a negociação do closer)
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Cumprir o retorno combinado com o lead na data/hora certa |
-| Validação de passagem | SDR liga na `Data do retorno`/`Hora do retorno` (S-01, ainda campo sugerido — L-01) e reclassifica `Resultado da tentativa` |
-| Ferramentas | Lista `Retornos` (8.4) |
-| Tempo de estagnação | **Terceiro gap do mesmo exercício:** sem S-01 criado, não dá para alarmar "retorno vencido sem nova ligação" — depende de L-01 fechar primeiro. Registrado como adição ao F-05, mesma lógica da `Conectado` |
-| Motivos de perda | Mesmas opções de `Resultado da tentativa` (C-02) de qualquer outra tentativa |
-| Taxa de conversão esperada | Não medida hoje — nasce junto com S-01 |
-| Meta de avanço | Sem meta própria — é reentrada da etapa 2 |
-
-#### Etapa 5 — `Reunião agendada`
-
-| Bloco | Conteúdo |
-|---|---|
-| Objetivo | Comparecimento + veredito de qualificação real do closer |
-| Validação de passagem | `Reunião foi qualificada` preenchida pelo closer (Loop do closer, seção 5.1) |
-| Ferramentas | Calendário, Registro de Comparecimento (5.2), Loop do closer (5.1), SLA do Closer — No-show (5.4, R-12) |
-| Tempo de estagnação | Já coberto — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4) |
-| Motivos de perda | No-show 2x seguido (→ `Descartado` direto, R-12), `Reunião foi qualificada` = `Não` (→ roteamento da seção 5.1) |
+| Objetivo | Comparecimento + veredito de qualificação real do closer, e a negociação em si (proposta, condições) até a decisão de compra — a metade "negociação" não existia no plano de 7 etapas, que a mandava para fora do pipeline |
+| Validação de passagem | `Reunião foi qualificada` preenchida pelo closer (Loop do closer, seção 5.1) para a metade "comparecimento"; para a metade "negociação", decisão do closer registrada como `status = won` (→ `FORMALIZAR`) ou `status = lost` (permanece em `NEGOCIAR` com o status marcado, não some da tela) |
+| Ferramentas | Calendário, Registro de Comparecimento (5.2), Loop do closer (5.1), SLA do Closer — No-show (5.4, R-12); a negociação em si (proposta/condições) é conduzida pelo closer fora dos workflows deste documento |
+| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) **não tem monitor ainda** — gap novo, mesma classe dos dois já registrados nas etapas anteriores; candidato a entrar no F-05 quando ele for construído |
+| Motivos de perda | No-show 2x seguido (R-12: hoje descarta a oportunidade — com `Descartado` sem ser mais etapa, isso deve virar `status = lost` mantendo a oportunidade em `NEGOCIAR`, não um "mover para `Descartado`" — a seção 5.3/5.4 ainda usa a redação antiga e entra na fila de migração), `Reunião foi qualificada` = `Não` (→ roteamento da seção 5.1, mesma troca de "mover etapa" por "mudar status") |
 | Taxa de conversão esperada | "nota ≥ 70 acerta X%" é exatamente o que a lista `Calibração da Régua` (8.7, F-03) mede |
-| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `Conectado` |
+| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `AGENDAR` |
 
-#### Etapas terminais — `Nutrição` e `Descartado`
+#### Etapa 4 — `FORMALIZAR` (novo, não existia no plano de 7)
 
-Não recebem o canvas de 7 blocos porque não são etapas de **progresso**: são
-estados de saída, e "tempo de estagnação"/"meta de avanço" não fazem
-sentido para elas do jeito que fazem para as cinco de cima.
+| Bloco | Conteúdo |
+|---|---|
+| Objetivo | Fechamento/contrato assinado — equivale ao `status = won` da oportunidade |
+| Validação de passagem | Contrato assinado, registrado pelo closer |
+| Ferramentas | Fora do escopo dos workflows de SDR deste documento — é o closer fechando, sem automação da cadência envolvida |
 
-- **`Nutrição`**: ficar parado aqui **é o comportamento correto** por até 90
-  dias — o Reengajamento (R-08, seção 2.12) é o próprio relógio, não uma
-  falha a alarmar. Único ponto que vale medir: % de leads que reativam e
-  conectam na segunda rodada, contra a régua original — hipótese de métrica
-  nova, sem lista dedicada ainda (poderia entrar como adição à 8.14 `Reengajamento em Curso` numa rodada futura, não construída agora).
-- **`Descartado`**: fim de linha, sem reentrada automática de propósito. O
-  "motivo de perda" já é o motivo de estar aqui — `telefone-invalido`,
-  opt-out (`nao-perturbe`), no-show 2x, ou `Reunião foi qualificada` = `Não`.
-  Proporção de descartes por telefone inválido é diagnóstico de **qualidade
-  da lista de entrada**, não da cadência (liga direto com R-13, higiene de
-  base).
+Sem os outros blocos do canvas: é estado terminal de sucesso administrado
+pelo closer, não uma etapa de progresso que a máquina de SDR gerencia ou
+monitora — citada aqui só para o mapeamento da seção 1.0 ficar completo.
+
+#### Estados que não são mais etapa — `Nutrição` (status `abandoned`) e `Descartado` (status `lost`)
+
+Não recebem canvas próprio porque não são etapas: são **status da
+oportunidade**, sobrepostos a qualquer etapa em que o lead já estava
+(normalmente `CONECTAR` ou `NEGOCIAR`) — ver tabela 1.0. "Tempo de
+estagnação" e "meta de avanço" não fazem sentido para eles do jeito que
+fazem para as etapas de progresso.
+
+- **`abandoned` (ex-`Nutrição`)**: ficar marcado assim **é o comportamento
+  correto** por até 90 dias — o Reengajamento (R-08, seção 2.12) é o
+  próprio relógio, não uma falha a alarmar. Único ponto que vale medir: %
+  de leads que reativam e conectam na segunda rodada, contra a régua
+  original — hipótese de métrica nova, sem lista dedicada ainda (poderia
+  entrar como adição à 8.14 `Reengajamento em Curso` numa rodada futura,
+  não construída agora).
+- **`lost` (ex-`Descartado`)**: fim de linha, sem reentrada automática de
+  propósito. O "motivo de perda" já é o motivo de estar aqui —
+  `telefone-invalido`, opt-out (`nao-perturbe`), no-show 2x, ou `Reunião
+  foi qualificada` = `Não`. Proporção de descartes por telefone inválido é
+  diagnóstico de **qualidade da lista de entrada**, não da cadência (liga
+  direto com R-13, higiene de base).
 
 ---
 

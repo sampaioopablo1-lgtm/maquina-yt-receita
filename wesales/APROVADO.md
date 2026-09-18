@@ -99,24 +99,33 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `vrwdERfR24ax6GylG6No`, `qkHSdIMPJTB2JK5ECGrY`, `2MXzDPjxGjuvvsxlp5V1`),
       cada um com o cenário do checklist no campo `source`, sem telefone (nem
       real nem inválido — ainda falta o número da linha "Mensagens" abaixo)
-      e sem tag nem oportunidade: as etapas de `Pré-vendas` no `FUNIL DE
-      VENDAS` (decisão de 18/09/2026, ver "Autorizações" acima — o pipeline
-      passou a ser o mesmo, reaproveitado, não um novo) e os workflows que
-      o checklist testa contra eles não existem ainda na tela (só saem
-      manual). Rodar o checklist de verdade (seção 10 do `build-wesales.md`)
-      exige voltar aqui depois da montagem manual — os 5 já estão prontos
-      para receber telefone e entrar no pipeline nesse momento, sem precisar
-      recriar contato.
+      e sem tag nem oportunidade. **Atualizado em 18/09/2026:** as 5 etapas
+      reais do `FUNIL DE VENDAS` (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/
+      `NEGOCIAR`/`FORMALIZAR`, decisão ao vivo, ver "Autorizações" acima) já
+      existem na tela — o que falta agora são só os workflows que o
+      checklist testa contra eles (`build-wesales.md`, Fase 5 do
+      `GUIA-MONTAGEM.md`, ainda não publicados). Rodar o checklist de
+      verdade (seção 10 do `build-wesales.md`) exige voltar aqui depois da
+      montagem manual dos workflows — os 5 já estão prontos para receber
+      telefone e entrar no pipeline nesse momento, sem precisar recriar
+      contato.
 
 ### Oportunidades
 
 - [x] Mover oportunidades de etapa durante os testes do checklist
 
-      **Continua bloqueado — não é falta de permissão, é falta de etapa na
-      tela:** até as 7 etapas de `Pré-vendas` substituírem as 14 atuais do
-      `FUNIL DE VENDAS` (manual, decisão de 18/09/2026 acima), não existe etapa
-      para mover oportunidade nenhuma. Esta linha executa assim que o
-      pipeline existir.
+      **O bloqueio original (falta de etapa na tela) já não existe — o
+      `FUNIL DE VENDAS` tem suas 5 etapas reais desde 18/09/2026
+      (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`, decisão ao
+      vivo registrada acima e em `GUIA-MONTAGEM.md`, "Fase 1"; não as 7 do
+      plano original). Continua bloqueado por outro motivo, mais simples:
+      **não existe nenhuma oportunidade na subconta ainda**
+      (`opportunities_search-opportunity`, status `all`, reconfirmado nesta
+      execução: 0). Não há o que mover porque os workflows que criam
+      oportunidade para um lead (Cadência 12x30 e vizinhas, `build-wesales.md`)
+      ainda não foram publicados na tela. Esta linha executa assim que os 5
+      contatos fictícios (seção "Contatos de teste" abaixo) ganharem
+      oportunidade — no checklist de teste, seção 10 do `build-wesales.md`.
 
 ### Mensagens
 
