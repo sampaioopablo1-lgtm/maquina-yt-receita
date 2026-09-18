@@ -35,11 +35,16 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     Do passo 11 em diante o gatilho da seção 2.1 já leva o filtro novo do
     R-07 (tag `cad-inbound` ausente) — monte-o com o filtro desde o início,
     não depois. O bloco padrão de tentativa (seção 2.4) já leva o nó 2.5 de
-    pausa individual (R-09) desde a primeira montagem, não como retrofit
+    pausa individual (R-09) desde a primeira montagem, não como retrofit.
+    O nó 0 já leva o par 0.7/0.7b de distribuição de leads (R-10, seção
+    2.14) desde o início — defina a lista de round robin no nó 0.7b mesmo
+    com um único SDR hoje
 12. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
-    Também já leva o nó 1.5 de pausa individual (R-09) desde o início
+    Também já leva o nó 1.5 de pausa individual (R-09) desde o início e o
+    par 0.8/0.8b de distribuição de leads (R-10) apontando para a **mesma**
+    lista de round robin do nó 0.7b do passo 11
 13. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
 14. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
@@ -147,6 +152,8 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
 | 0.5 | Update Contact Field | `Prioridade` = 3 (padrão; a seção 9 recalcula) |
 | 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (R-02 — carimbo de speed-to-lead) |
+| 0.7 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.7b. Senão → pula 0.7b (contato já tem dono; ver seção 2.14) |
+| 0.7b | Assign to User → modo `Round Robin` | Lista de SDRs ativos, configurada na tela do nó (seção 2.14) |
 
 ### 2.4 O bloco padrão de uma tentativa (9 nós)
 
@@ -164,7 +171,7 @@ o número da tentativa.
 | 4 | **Seletor de canal** | If/Else (só em tentativa de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Ramo senão: vira telefone (decisão D-04 + regra das 2 seguidas) |
 | 5 | **Limpar resultado** | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
 | 6 | **Adicionar tag de fila** | Add Contact Tag | `fila-tel` (telefone) ou `fila-wa` (WhatsApp) |
-| 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: SDR (round-robin se houver mais de um) |
+| 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: `Contact Owner` (dinâmico — segue o `Assigned User` do nó 0.7b, R-10, seção 2.14) |
 | 8 | **Aguardar resultado** | Wait → Condition, com tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: até **18:30 do mesmo dia**. Se a sua versão não tiver Wait por condição, use Wait → Until 18:30 e um If/Else checando o campo — mesmo efeito |
 | 9 | **Remover tag de fila** | Remove Contact Tag | `fila-tel` e `fila-wa` (remova as duas, sempre — barato e evita tag presa) |
 | 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa |
@@ -394,7 +401,7 @@ link do calendário"; não vê que o link virou sensor.
 | 3 | Prioridade | Update Contact Field | `Prioridade` = 5 |
 | 4 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` · `Data do sinal` = `{{right_now}}` |
 | 5 | Fila | Add Contact Tag | `fila-quente` |
-| 6 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: SDR |
+| 6 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) |
 | 7 | Aviso | Internal Notification | Para o SDR: `{{contact.name}} clicou no link de agendar agora. Prioridade 5.` |
 | 8 | Registro | Add Note | `Sinal: clique em link · {{right_now}}` |
 
@@ -493,7 +500,10 @@ ligando à 1h da manhã, e forçar isso queimaria o lead em vez de convertê-lo.
 
 ### Nó 0 — inicialização (uma vez, ao entrar)
 
-Espelha 2.3, com duas diferenças (linhas 0.5 e 0.7, novas):
+Espelha 2.3, com duas diferenças próprias (linhas 0.5 e 0.7) e o mesmo par
+de distribuição de leads que 2.3 ganhou no R-10 (0.7/0.7b lá, 0.8/0.8b
+aqui — numeração diferente só porque cada bloco já tinha nós até um número
+distinto antes dele entrar):
 
 | Nó | Ação | Configuração |
 |---|---|---|
@@ -504,6 +514,8 @@ Espelha 2.3, com duas diferenças (linhas 0.5 e 0.7, novas):
 | 0.5 | Update Contact Field | `Prioridade` = 5 (não 3: todo lead inbound nasce no topo da fila — é a resposta rápida que a régua de degraus só cumpre se o SDR também priorizar certo) |
 | 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (mesmo campo do R-02 — a métrica de speed-to-lead nasceu para o outbound e serve de graça aqui, sem custo nenhum) |
 | 0.7 | Add Contact Tag | `fila-quente` (assim o lead aparece na lista `Fila Quente`, 8.1, sem lista nova) |
+| 0.8 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.8b. Senão → pula 0.8b |
+| 0.8b | Assign to User → modo `Round Robin` | Mesma lista de SDRs do nó 0.7b da Cadência 12x30 (seção 2.3) — um único grupo de round robin para toda a operação, não um por cadência, senão o mesmo SDR poderia ganhar dois leads simultâneos por entrar em réguas diferentes na mesma rodada da roleta |
 
 ### MI-0 — mensagem automática imediata
 
@@ -526,7 +538,7 @@ usado` = `MI-0`.
 | 3 | Seletor de canal | If/Else (só nas tentativas de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Senão → telefone |
 | 4 | Limpar resultado | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
 | 5 | Fila | Add Contact Tag | `fila-tel` ou `fila-wa` |
-| 6 | Tarefa | Add Task | Título: `[CADENCIA] TI{n} · Ligar (canal) — Inbound` · Vence: agora · Atribuir: SDR |
+| 6 | Tarefa | Add Task | Título: `[CADENCIA] TI{n} · Ligar (canal) — Inbound` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 7 | Aviso | Internal Notification | Para o SDR: `Lead inbound {{contact.name}} aguardando retorno — TI{n}.` Diferencial sobre o bloco padrão outbound (2.4): lá a fila espera ser vista; aqui o SDR é avisado na hora, o mesmo padrão do F-01 (seção 2.9) e do que o Meetime chama de notificação "independente de onde o SDR esteja" |
 | 8 | Aguardar resultado | Wait → Condition, tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: o delta até a tentativa seguinte da tabela abaixo — não 18:30 fixo, porque numa régua de minutos "esperar até o fim do dia" descaracterizaria a velocidade |
 | 9 | Remover tag de fila | Remove Contact Tag | `fila-tel` e `fila-wa` |
@@ -987,6 +999,139 @@ depender de calendário nenhum, via `pausado`, sem perder a posição na régua.
 
 ---
 
+## 2.14 Distribuição de leads — R-10
+
+O desenho inteiro até aqui (seções 2 a 2.13) assume um único SDR. No
+segundo, sem regra, os dois abrem a mesma `Fila Telefone Hoje` (8.2) e ligam
+para o mesmo lead ao mesmo tempo — pior que nenhuma distribuição, porque
+parece organizado e não é.
+
+Pesquisado antes de desenhar: o GHL tem uma ação de workflow nativa,
+**Assign to User**, com quatro modos — `Contact Owner` (mantém quem já é
+dono), `Selected User` (um usuário fixo), `Any User` (qualquer usuário
+elegível) e `Round Robin` (roda entre os usuários escolhidos, distribuição
+igual por padrão). É o mesmo mecanismo que Reev, Meetime, Outreach e
+Salesloft vendem como "lead routing" — aqui sai de graça, dentro do
+workflow, sem módulo adicional. **Nível de confiança:** médio-alto — veio de
+busca (não de leitura direta; os domínios de suporte da HighLevel seguem
+bloqueados neste ambiente, ver `APRENDIZADOS-CRM.md`), mas é o tipo de
+recurso básico de automação que teria aparecido em múltiplas fontes
+independentes se não existisse, e apareceu.
+
+### A decisão que separa isto de uma cópia de tela
+
+O roadmap pede "round robin **na atribuição da tarefa**". Segui o espírito,
+não a letra: o round robin sorteia o **dono do lead**, uma vez, no primeiro
+nó de inicialização que o lead encontra (0.7b na Cadência 12x30, seção 2.3;
+0.8b na Cadência Inbound, seção 2.10) — não sorteia de novo a cada uma das
+12 tentativas. Todo `Add Task` daqui em diante (seção 2.4 nó 7, seção 2.9.2
+nó 6 — e 2.9.3, que a espelha —, seção 2.10 nó 6, seção 4 nós `[CONECTADO]`
+e `[RETORNO]`) atribui a `Contact Owner`: segue o dono que o sorteio já
+decidiu, em vez de rodar a roleta de novo.
+
+Rodar a roleta por tarefa, como o texto literal do roadmap sugere, é o
+desenho que um concorrente copia olhando a tela — "ativei round robin no nó
+de criar tarefa" é um clique. O que não se vê de fora é a razão de **não**
+fazer isso: um lead trabalhado por SDRs diferentes a cada uma das 12
+tentativas em 30 dias perde o que a literatura de sales engagement chama de
+continuidade de relacionamento — o SDR da T7 não sabe o que o da T3
+prometeu, e o lead sente. Reev e Meetime não documentam isso como
+"limitação resolvida"; documentam como prática recomendada — dono único por
+lead, do início ao fim da cadência. A escolha de onde colocar o nó (uma vez,
+na entrada) em vez de qual ação usar (`Round Robin`, óbvia) é o que não
+aparece numa captura de tela do workflow.
+
+### Nós novos
+
+| Onde | Nó | Ação | Configuração |
+|---|---|---|---|
+| Seção 2.3, nó 0 | 0.7 / 0.7b | If/Else → Assign to User | Ver seção 2.3 |
+| Seção 2.10, nó 0 | 0.8 / 0.8b | If/Else → Assign to User | Ver seção 2.10 |
+
+O If/Else que precede cada sorteio (`Assigned User` vazio?) é o que faz a
+lógica ser idempotente: a Cadência Inbound (2.10) roda seu próprio sorteio
+na entrada; se o lead não responde em 3 dias, o handoff da TI5 (seção 2.10,
+"Handoff ao fim da TI5") entra na Cadência 12x30 por `Add to Workflow`, que
+**executa o nó 0 dela de novo** (é o mesmo mecanismo que já zera `Tentativa
+nº` no handoff, documentado ali). Sem o portão 0.7, o lead sorteado para o
+SDR A na entrada trocaria de dono para o SDR B só por atravessar o handoff —
+o oposto de "dono único". Pelo mesmo motivo, o Reengajamento 90 dias (seção
+2.12) não ganhou sorteio próprio: todo lead que chega lá já passou por 2.3
+ou 2.10 antes (é assim que ele chegou a `Nutrição`), então `Assigned User`
+já não está vazio — o dono da primeira rodada continua sendo o dono da
+reativação, sem precisar de nó novo ali.
+
+**Por que um grupo de round robin só, não um por cadência (nó 0.8b aponta
+para a mesma lista do 0.7b):** um lead inbound e um outbound entrando na
+mesma hora em cadências diferentes ainda competem pela agenda do mesmo SDR.
+Duas listas de round robin independentes rodando em paralelo podem mandar
+os dois leads para o mesmo SDR na mesma rodada — dois grupos sincronizados
+por acidente não são round robin nenhum, são coincidência. Um grupo único,
+referenciado pelos dois nós, é o que garante alternância de verdade entre
+os SDRs, qualquer que seja a porta de entrada do lead.
+
+### O que fazer se `Add Task` não tiver a opção `Contact Owner`
+
+Não testei em subconta com mais de um usuário (a atual só tem o dono, ver
+"Estado da subconta" abaixo) — é o item 28 do checklist da seção 10. Se a
+tela do nó `Add Task` não oferecer `Contact Owner` como destino dinâmico do
+campo "Atribuir a", o GHL costuma liberar o mesmo campo por **valor
+personalizado** (ícone `{}` ao lado do seletor) — insira o merge field do
+usuário atribuído do contato ali. Não crie um segundo mecanismo de round
+robin no nó `Add Task` como saída alternativa: isso reabriria exatamente o
+problema que a seção anterior evita (sorteio por tarefa em vez de por
+lead). Se nem o valor personalizado funcionar, registre o bloqueio em
+`APRENDIZADOS-CRM.md` — não existe hoje um terceiro caminho nativo
+identificado.
+
+### Listas inteligentes por SDR — o limite que decide o resto
+
+Pesquisado antes de desenhar: os fóruns de ideias da própria HighLevel têm
+mais de um pedido em aberto pedindo um filtro dinâmico "Atribuído a = usuário
+atual" para Smart Lists — hoje **não existe**. O filtro "Atribuído a" só
+aceita um usuário fixo, escolhido na hora de montar a lista. Uma lista
+inteligente compartilhada que se adapte sozinha a quem está logado (o que o
+roadmap pede ao dizer "listas inteligentes filtrando por usuário logado")
+não é possível hoje — é limitação da plataforma, não deste desenho.
+
+**Consequência prática, só quando o segundo SDR entrar (não antes — hoje é
+1 usuário, e uma lista fixa por um único nome não filtra nada de útil):**
+duplicar `Fila Quente` (8.1), `Fila Telefone Hoje` (8.2) e `Fila WhatsApp
+Hoje` (8.3) uma vez por SDR, acrescentando o filtro `Atribuído a = <nome do
+SDR>` em cada cópia — ex. `Fila Telefone Hoje — Ana`, `Fila Telefone Hoje —
+Bruno`. É trabalho manual repetido a cada contratação, não uma vez só; por
+isso fica registrado aqui como procedimento, não como lista já criada na
+seção 8 (criar as cópias agora, com um usuário só, não tem o que filtrar).
+
+### Estado da subconta
+
+Confirmado nesta execução via `locations_get-custom-fields`/
+`contacts_get-contacts`/`opportunities_get-pipelines`: 0 campos, 0
+contatos, só o `FUNIL DE VENDAS` pré-existente — sem mudança desde a
+auditoria. A subconta segue com um único usuário conhecido (o dono), então
+o grupo de round robin dos nós 0.7b/0.8b nasce, na prática, com uma pessoa
+só — o mecanismo já fica pronto para quando o segundo SDR entrar, sem
+precisar tocar nos workflows de novo: basta adicionar o novo usuário à
+mesma lista nos dois nós.
+
+**Nenhum campo ou tag novo.** Reaproveita o campo nativo `Assigned User`
+(dono do contato), que o GHL já expõe em filtro de Smart List e em ação de
+workflow — criar um campo personalizado `SDR responsável` para guardar a
+mesma informação seria o mesmo campo com dois donos que este projeto evita
+desde o Pós-ligação (seção 4): o nativo já faz o trabalho, e um campo
+espelhado diverge na primeira vez que alguém reatribuir manualmente pela
+tela sem lembrar de atualizar os dois lugares. Por isso este item não
+depende de `APROVADO.md` nem de criação manual de campo — só de
+configuração dos nós novos e, quando houver segundo SDR, da duplicação de
+listas descrita acima.
+
+**Pronto quando (do roadmap):** dois SDRs trabalham sem colidir — cada lead
+tem um dono sorteado uma vez na entrada, toda tarefa da cadência nasce para
+esse dono, e a filas do dia (8.1-8.3), quando duplicadas por SDR, mostram a
+cada um só o que é dele.
+
+---
+
 ## 3. Workflow "Mestre de saída"
 
 O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
@@ -1075,7 +1220,7 @@ ruim (R-01, feito em 18/09/2026).
 | 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 6 | Mover oportunidade → `Conectado` (dispara o Mestre de saída, que faz a limpeza) |
 | 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
-| 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · SDR |
+| 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 9 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
 
 #### Ramo `Caixa postal` e ramo `Não atendeu` (idênticos)
@@ -1107,7 +1252,7 @@ de lixo.
 | 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 3 | Add Contact Tag `fila-quente` |
 | 4 | Mover oportunidade → `Retorno agendado` |
-| 5 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · SDR |
+| 5 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
 
 Sem o campo `Data do retorno` (lacuna L-01) este ramo funciona, mas a tarefa
 vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje.
@@ -1724,6 +1869,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `Conectado`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
 | 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `Em cadência` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
 | 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e etapa `Nutrição` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa volta para `Em cadência`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, etapa volta para `Nutrição`, e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
+| 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `Em cadência` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.

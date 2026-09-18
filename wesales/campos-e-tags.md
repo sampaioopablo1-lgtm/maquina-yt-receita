@@ -100,6 +100,14 @@ valor digitado, que aqui é baixo porque só o workflow escreve neste campo,
 nunca o SDR. Textos e códigos completos, versionados, ficam em
 `biblioteca-mensagens.md`.
 
+**R-10 (distribuição de leads) não abre campo novo.** O roadmap sugeria um
+campo `SDR responsável`; a especificação (`build-wesales.md`, seção 2.14)
+reaproveita o campo nativo `Assigned User` (dono do contato), que o GHL já
+expõe em filtro de Smart List e em ação de workflow (`Assign to User`) — um
+campo personalizado espelhando a mesma informação divergiria na primeira
+reatribuição feita direto na tela, o mesmo problema de "campo com dois
+donos" que este documento já evita desde C-01 a C-23.
+
 ### Qualificação — BANT + diagnóstico
 
 | # | Nome | Tipo | Opções |

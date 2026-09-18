@@ -209,3 +209,41 @@ limitação do conector.
   caminhos de M1 precisam apontar para o mesmo Wait → Contact Replied).
   Regra prática, generalizável: qualquer item futuro do roadmap que precise
   dividir tráfego por percentual (não por condição) usa Split, não If/Else.
+
+- **Pesquisado ao fechar o R-10 (distribuição de leads), 18/09/2026:** o GHL
+  tem ação nativa de workflow **Assign to User** com quatro modos —
+  `Contact Owner` (mantém quem já é dono), `Selected User` (fixo),
+  `Any User` (qualquer usuário elegível) e `Round Robin` (roda entre os
+  escolhidos). Resolve "round robin de lead" sem workflow customizado.
+  **Nível de confiança: médio-alto** — veio só de busca, os domínios de
+  suporte da HighLevel continuam bloqueados neste ambiente (mesma limitação
+  já registrada para o R-09); não testado numa subconta com 2+ usuários
+  porque esta só tem o dono. Verificar de verdade é o item 28 do checklist
+  da seção 10 de `build-wesales.md`, na primeira vez que houver um segundo
+  usuário na subconta.
+
+  **Achado que muda o desenho de qualquer lista "por usuário logado"
+  daqui pra frente:** Smart Lists de contato no GHL **não** têm filtro
+  dinâmico "Atribuído a = usuário atual" — é pedido em aberto no fórum de
+  ideias da própria HighLevel (`ideas.gohighlevel.com`, mais de uma thread
+  pedindo isso), sem previsão. O filtro "Atribuído a" só aceita um usuário
+  fixo escolhido na hora de montar a lista. Regra prática, generalizável:
+  qualquer lista futura que precise "mostrar só o que é meu" para cada
+  membro do time precisa de **uma cópia da lista por pessoa**, com o nome
+  dela fixado no filtro — não existe lista única que se adapte sozinha a
+  quem está logado. É trabalho manual que se repete a cada contratação, não
+  uma vez só; documentado como procedimento em `build-wesales.md`, seção
+  2.14, em vez de lista já criada, porque com 1 usuário não há o que
+  filtrar ainda.
+
+  **Não confirmado, registrar quando testar:** se a ação `Add Task` aceita
+  `Contact Owner` como destino dinâmico do campo "Atribuir a" (o desenho do
+  R-10 depende disso para que toda tarefa de uma cadência de 30 dias siga
+  o mesmo dono sem precisar sortear de novo a cada tentativa). Se a tela
+  não oferecer essa opção, o caminho alternativo mais provável é o botão de
+  valor personalizado (`{}`) ao lado do campo, inserindo o merge field do
+  usuário atribuído do contato — não confirmado por falta de subconta com
+  2+ usuários para testar. Não criar um segundo mecanismo de round robin
+  dentro do `Add Task` como alternativa: isso sorteia por tarefa em vez de
+  por lead, o oposto do que o R-10 decidiu de propósito (ver "A decisão que
+  separa isto de uma cópia de tela", seção 2.14).

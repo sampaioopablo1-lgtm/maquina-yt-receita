@@ -269,12 +269,41 @@ pré-existente — nada mudou desde a auditoria.
 
 ## Bloco 4 — Operação com mais de um SDR
 
-### R-10 · Distribuição de leads
+### R-10 · Distribuição de leads — **FEITO em 18/09/2026**
 **Por quê:** o desenho atual assume um SDR. No segundo, sem regra, os dois
 ligam para o mesmo lead.
 **Como:** round robin na atribuição da tarefa + campo `SDR responsável`, com
 as listas inteligentes filtrando por usuário logado.
 **Pronto quando:** dois SDRs trabalham sem colidir.
+
+**Resumo:** especificado em `build-wesales.md`, seção 2.14 nova. O round
+robin (ação nativa `Assign to User`) sorteia o **dono do lead uma vez**, no
+nó 0 de quem primeiro recebe o lead (0.7b na Cadência 12x30, seção 2.3; 0.8b
+na Cadência Inbound, seção 2.10, mesmo grupo de usuários nas duas) — não a
+cada tarefa, como o texto literal do roadmap sugeria. Todo `Add Task` da
+máquina (seção 2.4 nó 7, seção 2.9.2/2.9.3, seção 2.10 nó 6, seção 4 ramos
+`Atendeu` e `Pediu retorno`) passou a atribuir a `Contact Owner`, dinâmico,
+seguindo o dono sorteado — é a diferença entre um round robin que um
+concorrente copia olhando a tela (sortear a cada tarefa) e um que não copia
+(decidir *onde* sortear, para o lead manter um único dono do início ao fim
+da cadência de 30 dias, prática que a literatura de sales engagement
+recomenda e que sortear por tarefa quebraria). Pesquisado antes de desenhar
+e decidido não criar o campo `SDR responsável` do roadmap: o GHL já expõe
+nativamente o dono do contato (`Assigned User`) em filtro de lista e em ação
+de workflow — um campo espelhado divergiria na primeira reatribuição feita
+direto na tela. Achado que limita a segunda metade do "Como" do roadmap:
+Smart List do GHL não tem filtro dinâmico "Atribuído a = usuário atual"
+(pedido em aberto na base de ideias da HighLevel) — "listas inteligentes
+filtrando por usuário logado" não existe como lista única; a alternativa
+documentada é duplicar `Fila Quente`/`Fila Telefone Hoje`/`Fila WhatsApp
+Hoje` (8.1-8.3) uma vez por SDR quando o segundo entrar, cada cópia com o
+nome fixado no filtro — não antes, porque com 1 usuário não há o que
+filtrar. Checklist de teste ganhou o item 28, que só valida de verdade com
+2+ usuários na subconta — hoje ela tem só o dono. Zero campo e zero tag
+novos: não depende de `APROVADO.md`. Subconta reconfirmada nesta execução
+via `locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
+pré-existente — nada mudou desde a auditoria.
 
 ### R-11 · Alerta de capacidade (lacuna L-05)
 **Por quê:** 10 leads/dia × 12 tentativas dá ~120 tarefas/dia em regime, acima
@@ -411,11 +440,13 @@ hora investida. Só então as cadências vizinhas e a operação com mais gente.
 Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. Com R-07,
 R-08 e R-09 fechados na mesma data, o bloco 3 (cadências vizinhas) está
 completo — a régua de reengajamento e todas as outras já respeitam feriado e
-pausa individual antes de a operação rodar volume de verdade. **R-10
-(distribuição de leads), abrindo o bloco 4 (mais de um SDR)**, é o próximo:
-não depende de volume nem de ressalva do bloco 6, e o desenho inteiro até
-aqui assume um único SDR — o primeiro ponto que quebra na hora de contratar
-o segundo.
+pausa individual antes de a operação rodar volume de verdade. Com R-10
+fechado em 18/09/2026, o primeiro ponto que quebraria ao contratar o
+segundo SDR (dois ligando para o mesmo lead) já está resolvido antes de
+existir segundo SDR. **R-11 (alerta de capacidade)** é o próximo do bloco
+4: mede a fila que R-10 agora distribui, e a distribuição por si só não
+avisa quando ela estoura — os dois se complementam, não competem por
+prioridade.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
