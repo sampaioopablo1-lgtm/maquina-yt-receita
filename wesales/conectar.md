@@ -22,6 +22,12 @@ Subconta da WeSales → **Settings → Private Integrations → Create New Integ
 
 Nome: `Claude Code SDR`
 
+**Atenção à armadilha:** a tela tem duas abas, "Informações do simples" e
+"Escopos", e a segunda **aparece bloqueada** — de propósito. Não é erro nem
+falta de permissão: é um passo a passo. Preencha o nome, role a página e clique
+no botão **Próximo / Next**, no canto inferior direito. Só então a aba de
+escopos abre.
+
 Escopos a marcar:
 
 | Área | Acesso |
