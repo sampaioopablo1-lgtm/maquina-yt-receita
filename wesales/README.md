@@ -21,10 +21,12 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 
 ## Estado do acesso (18/09/2026)
 
-O caminho curto está em `conectar.md`: um Private Integration Token criado na
-própria subconta, duas variáveis de ambiente, e o `.mcp.json` na raiz do
-repositório (já commitado) faz o resto. Sem OAuth, sem app de marketplace e sem
-e-mail de aprovação — que foi exatamente onde o caminho anterior travou.
+O caminho está em `conectar.md`. Resumo do que foi medido: a allowlist de rede
+deste ambiente bloqueia `services.leadconnectorhq.com`, então servidor de
+`.mcp.json` — que conecta de dentro do contêiner — não sobe. **Conector do
+claude.ai conecta pela infraestrutura do Claude e não passa por esse proxy**,
+então é por ali que o CRM entra: conector personalizado com a URL do MCP e o
+Private Integration Token num cabeçalho estático.
 
 Servidores MCP carregam no início da sessão: configure e abra uma sessão nova.
 Cobertura das ferramentas em `auditoria-etapa1.md`.

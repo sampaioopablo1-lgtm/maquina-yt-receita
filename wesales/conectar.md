@@ -1,95 +1,71 @@
-# Conectar sem OAuth, sem marketplace, sem e-mail de aprovação
+# Conectar o CRM — o caminho que funciona neste ambiente
 
-Este é o caminho curto. Ele não passa pelo app do marketplace, não abre tela de
-autorização e **não depende de e-mail nenhum**. É o que a comunidade que liga
-GoHighLevel ao Claude Code usa no dia a dia.
+Descoberta de 18/09/2026, medida e não suposta: **conector do claude.ai não
+passa pelo proxy do contêiner; servidor de `.mcp.json` passa.** É por isso que
+tudo travou até aqui.
 
-## Por que o outro caminho travou
+## A assimetria, medida
 
-O app `lc-mcp - Anthropic` é um app **público de marketplace**: instalar exige
-o fluxo OAuth completo, com tela de consentimento, escolha de subconta e, em
-várias contas, verificação por e-mail. Se esse e-mail não chega — e no seu caso
-não chegou — não existe o que clicar. A página fica de pé e nada avança.
-
-O Private Integration Token não tem nada disso. Ele nasce dentro da sua própria
-subconta, na hora, e é seu.
-
-## O que você faz (uma vez, ~3 minutos)
-
-### 1. Criar o token na subconta
-
-Subconta da WeSales → **Settings → Private Integrations → Create New Integration**
-
-Nome: `Claude Code SDR`
-
-**Atenção à armadilha:** a tela tem duas abas, "Informações do simples" e
-"Escopos", e a segunda **aparece bloqueada** — de propósito. Não é erro nem
-falta de permissão: é um passo a passo. Preencha o nome, role a página e clique
-no botão **Próximo / Next**, no canto inferior direito. Só então a aba de
-escopos abre.
-
-Escopos a marcar:
-
-| Área | Acesso |
+| Ação | Resultado |
 |---|---|
-| Locations | Ver |
-| Contacts | Ver e editar |
-| Custom Fields | Ver e editar |
-| Tags | Ver e editar |
-| Opportunities | Ver e editar |
-| Calendars | Ver |
-| Conversations | Ver e editar |
-| Tasks | Ver e editar |
-| Forms | Ver |
-| Workflows | Ver |
+| `curl https://api.cloudflare.com/` de dentro do contêiner | bloqueado |
+| Ferramenta MCP do Cloudflare (`workers_list`) | funcionou, listou os Workers reais |
+| `curl https://services.leadconnectorhq.com/` | bloqueado |
+| Servidor `wesales` do `.mcp.json` | `no rule or allowlist entry allows host services.leadconnectorhq.com` |
 
-Clique em criar e **copie o token na hora** — ele começa com `pit-` e só
-aparece uma vez. Se perder, cria outro; não tem problema.
+Os conectores já ligados nesta conta — Composio, Windsor, Cloudflare, Google
+Drive — funcionam porque **quem abre a conexão é a infraestrutura do Claude, não
+o contêiner da sessão**. A allowlist de rede do ambiente não se aplica a eles.
 
-### 2. Pegar o Location ID
+Servidor declarado em `.mcp.json` é o oposto: quem conecta é o cliente MCP
+rodando dentro do contêiner, e aí a allowlist vale. Por isso o `.mcp.json` foi
+removido deste repositório — ele não tinha como funcionar aqui e ainda deixava
+um servidor quebrado em toda sessão.
 
-Subconta → **Settings → Business Profile**. É o código com letras e números.
-(Também aparece no meio da URL quando você está dentro da subconta.)
+## Caminho A — conector do claude.ai com cabeçalho estático
 
-### 3. Guardar o token como variável de ambiente
+O suporte a **bearer token em conector personalizado** saiu do papel: hoje o
+claude.ai aceita cabeçalhos estáticos (`static_headers`), em beta. O
+administrador informa a credencial uma vez e o Claude a envia em toda
+requisição. Nomes padrão como `authorization` passam direto.
 
-**É uma variável só.** O Location ID da subconta (`1D53YTI9C7oIMBavcQxV`) já
-está escrito no `.mcp.json` — ele não é segredo, aparece na própria URL do CRM
-e não serve para nada sem o token.
+**claude.ai → Configurações → Conectores → Adicionar conector personalizado**
 
-Claude Code na web → configurações do ambiente **Default**
-(`env_01XLCuqxSBLRaGuecJjSRtKC`) → variáveis de ambiente:
-
-```
-WESALES_PIT=pit-...................
-```
-
-**O token não entra no repositório.** O `.mcp.json` versionado referencia só o
-nome da variável.
-
-### Por que não dá para o Claude fazer este passo
-
-Só existem dois lugares onde o token poderia ficar, e nenhum está ao alcance
-de uma sessão:
-
-| Lugar | Por que não |
+| Campo | Valor |
 |---|---|
-| Arquivo dentro do contêiner da sessão | O contêiner é descartado quando a sessão acaba, então não sobrevive até a sessão seguinte — que é justamente quem precisa dele. E o guarda de credenciais da sessão bloqueia a escrita, com razão |
-| `.mcp.json` com o token escrito | Funcionaria, e poria uma credencial viva no histórico do git, legível por qualquer um com acesso ao repositório e permanente mesmo depois de apagada. Não faço |
-| **Variáveis de ambiente** | É o único lugar que persiste entre sessões. Não existe ferramenta para escrever nele; é a interface do Claude Code na web |
+| URL | `https://services.leadconnectorhq.com/mcp/` |
+| Cabeçalho | `Authorization: Bearer pit-...` |
+| Cabeçalho | `locationId: 1D53YTI9C7oIMBavcQxV` |
+| Cabeçalho | `Version: 2021-07-28` |
 
-Some-se a isso: servidor MCP carrega no **início** da sessão. Mesmo que o token
-entrasse aqui, esta sessão continuaria sem enxergar o CRM.
+Sem OAuth, sem app de marketplace, sem e-mail de aprovação, sem mexer em
+allowlist de rede. E como é conector de conta, vale para qualquer sessão, em
+qualquer repositório.
 
-### 4. Abrir uma conversa nova
+Se a sua conta ainda não mostrar campo de cabeçalho (o recurso é beta e pode
+exigir administrador da organização), vá para o caminho B.
 
-Servidor MCP carrega no início da sessão. Na conversa nova, escreva:
+## Caminho B — MCP próprio hospedado, e o conector aponta para ele
 
-> roda a Etapa 1 do wesales/auditoria-etapa1.md
+Existem servidores MCP de GoHighLevel open source com deploy de um clique em
+Railway, Render ou Vercel. O token fica como variável de ambiente **no serviço**,
+e o conector do claude.ai aponta para a URL pública — que, por ser conector de
+conta, também não passa pelo proxy do contêiner.
 
-## O que já está pronto do meu lado
+1. Deploy de [mastanley13/GoHighLevel-MCP](https://github.com/mastanley13/GoHighLevel-MCP)
+   no Railway (template pronto em `railway.com/deploy/ghl-mcp`)
+2. Variáveis do serviço: o token `pit-` e o Location ID
+3. Copiar a URL pública e acrescentar `/mcp`
+4. claude.ai → Conectores → Adicionar conector personalizado → colar a URL
 
-O `.mcp.json` na raiz do repositório, commitado:
+Mais peças para manter, mas funciona com a interface de conector de hoje, sem
+depender do beta de cabeçalhos.
+
+## Caminho C — liberar o host na allowlist
+
+Se preferir manter o `.mcp.json`, o conserto é liberar
+`services.leadconnectorhq.com` na política de rede do ambiente. Aí o arquivo
+abaixo volta a fazer sentido e o servidor sobe dentro do contêiner:
 
 ```json
 {
@@ -99,7 +75,7 @@ O `.mcp.json` na raiz do repositório, commitado:
       "url": "https://services.leadconnectorhq.com/mcp/",
       "headers": {
         "Authorization": "Bearer ${WESALES_PIT}",
-        "locationId": "${WESALES_LOCATION_ID}",
+        "locationId": "1D53YTI9C7oIMBavcQxV",
         "Version": "2021-07-28"
       }
     }
@@ -107,68 +83,35 @@ O `.mcp.json` na raiz do repositório, commitado:
 }
 ```
 
-Sessão do Claude Code na nuvem carrega servidor de `.mcp.json` **sem pedir
-confirmação** — é sessão não interativa. Então, com as duas variáveis
-definidas, a próxima sessão já nasce conectada.
+## O token
 
-## ANTES DE TUDO: a rede do ambiente bloqueia o CRM
+Subconta → **Settings → Private Integrations → Create New Integration**.
 
-Medido em 18/09/2026, de dentro do contêiner de uma sessão:
+**Armadilha:** a aba "Escopos" nasce bloqueada. Não é permissão — é passo a
+passo. Preencha o nome, role a página e clique em **Próximo**, no canto
+inferior direito. Só então os escopos abrem.
 
-```
-$ curl -I https://services.leadconnectorhq.com/
-curl: (56) CONNECT tunnel failed, response 403
+Escopos: Locations (ver), Contacts, Custom Fields, Tags, Opportunities,
+Conversations, Tasks (ver e editar), Calendars, Forms, Workflows (ver).
 
-$ curl -I https://marketplace.gohighlevel.com/
-curl: (56) CONNECT tunnel failed, response 403
-```
+O token começa com `pit-` e só aparece uma vez. Chave de API comum ou v1 não
+funciona — é a causa nº 1 de erro 401. Cada token vale para uma subconta.
+Revogar é apagar a integração.
 
-O proxy de saída do ambiente **Default** (`env_01XLCuqxSBLRaGuecJjSRtKC`)
-recusa os dois domínios do GoHighLevel. Isso não tem nada a ver com token,
-escopo ou OAuth: o contêiner simplesmente não alcança o servidor.
+O Location ID desta subconta é `1D53YTI9C7oIMBavcQxV` — está na própria URL do
+CRM, não é segredo e não serve para nada sem o token.
 
-**Consequência que economiza uma noite:** configurar `WESALES_PIT` e abrir uma
-sessão nova **não vai funcionar enquanto isso não mudar**. O servidor MCP mora
-em `services.leadconnectorhq.com`, o cliente MCP roda dentro deste contêiner, e
-ele bate no mesmo 403 que o `curl` bateu.
+## Depois de conectar
 
-### O que destrava
+Conversa nova e:
 
-Liberar `services.leadconnectorhq.com` na política de rede do ambiente — a
-mesma tela das configurações de ambiente onde a variável vai. Uma visita, duas
-mudanças:
+> roda a Etapa 1 do wesales/auditoria-etapa1.md
 
-1. Política de rede: permitir `services.leadconnectorhq.com`
-   (e `marketplace.gohighlevel.com`, se for usar o caminho OAuth depois)
-2. Variável: `WESALES_PIT`
+## Fontes
 
-As políticas disponíveis e como editá-las estão em
-[code.claude.com/docs/claude-code-on-the-web](https://code.claude.com/docs/en/claude-code-on-the-web).
-
-### Plano B: rodar da sua própria máquina
-
-Claude Code ou Claude Desktop instalados no seu computador não passam por esse
-proxy. Lá o mesmo `.mcp.json` deste repositório funciona direto, bastando a
-variável `WESALES_PIT` no ambiente local. Se mexer em política de rede for
-chato, esse é o caminho curto.
-
-## Detalhes que evitam dor de cabeça
-
-- **Tem que ser o token `pit-`.** Chave de API comum ou de v1 não funciona e é
-  a causa nº 1 de erro 401 nesse setup.
-- **Um token por subconta.** Cada PIT fica preso a uma location. Para uma
-  segunda subconta, outro token e outra entrada no `.mcp.json`.
-- **O cabeçalho `Version: 2021-07-28`** é o que a API v2 espera. Sem ele,
-  algumas rotas respondem errado.
-- **Se `WESALES_PIT` ficar vazio**, o servidor aparece quebrado em toda sessão
-  deste repositório. Não estraga nada, mas polui. Se você desistir do caminho,
-  é só apagar o `.mcp.json`.
-- **Revogar é fácil:** Settings → Private Integrations → apagar a integração.
-  Corta o acesso na hora, sem mexer em mais nada.
-
-## E se você preferir o OAuth depois
-
-O caminho do conector personalizado continua valendo, e é melhor para
-multi-conta: claude.ai → Configurações → Conectores → Adicionar conector
-personalizado → `https://services.leadconnectorhq.com/mcp/anthropic/v2`.
-Os dois podem coexistir. Mas para sair do zero hoje, o PIT é o mais curto.
+- [Authentication for connectors — Claude docs](https://claude.com/docs/connectors/building/authentication)
+- [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+- [mastanley13/GoHighLevel-MCP](https://github.com/mastanley13/GoHighLevel-MCP)
+- [Deploy GHL MCP no Railway](https://railway.com/deploy/ghl-mcp)
+- [Deploying Claude Connectors to Production](https://sunpeak.ai/blogs/deploying-claude-connectors/)
+- [Private Integrations Token — HighLevel](https://marketplace.gohighlevel.com/docs/Authorization/PrivateIntegrationsToken/)
