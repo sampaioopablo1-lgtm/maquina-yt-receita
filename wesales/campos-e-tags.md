@@ -4,11 +4,11 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (30 + 1 sugerido)
+## Etapa 2 — Campos personalizados (32 + 1 sugerido)
 
 Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 
-### Controle da cadência (12)
+### Controle da cadência (14)
 
 | # | Nome | Tipo | Opções | Quem escreve |
 |---|---|---|---|---|
@@ -24,12 +24,22 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-10 | Tentativas WhatsApp | NUMERICAL | — | Workflow (R-01) |
 | C-11 | Conexões telefone | NUMERICAL | — | Workflow (R-01) |
 | C-12 | Conexões WhatsApp | NUMERICAL | — | Workflow (R-01) |
+| C-13 | Sinal recebido | SINGLE_OPTIONS | Clique em link, Resposta de mensagem | Workflow (F-01) |
+| C-14 | Data do sinal | DATE | — | Workflow (F-01) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
 do WhatsApp?", que é a pergunta do R-01 do roadmap. Escritos pelo Pós-ligação
 (`build-wesales.md`, seção 4, nós 2 e o ramo `Atendeu`); a lista inteligente
 que os lê é a 8.6.
+
+C-13 e C-14 alimentam a interceptação de sinal (`build-wesales.md`, seção 2.9,
+F-01 do roadmap): registram que tipo de sinal furou a fila e quando, para o
+SDR ver na nota do contato e para uma futura auditoria (bloco F-05) conseguir
+provar que o sinal foi atendido a tempo. **Atenção de tipo:** como o campo
+`Data do retorno` (S-01), `DATE` no GHL pode não gravar a hora — confirme na
+tela ao criar; se só guardar a data, `Data do sinal` ainda serve para saber
+"hoje/não hoje", só não para o "às 14h10" do `Pronto quando`.
 
 ### Qualificação — BANT + diagnóstico (18)
 

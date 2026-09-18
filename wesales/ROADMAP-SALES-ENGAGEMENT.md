@@ -158,7 +158,7 @@ taxa por tentativa, fila em atraso.
 Aqui não é paridade. É o que separa uma operação boa de uma operação que os
 concorrentes não conseguem copiar olhando de fora.
 
-### F-01 · Cadência que reage a sinal, não só a calendário
+### F-01 · Cadência que reage a sinal, não só a calendário — **FEITO em 18/09/2026**
 **Por quê:** uma régua por dia trata igual quem abriu a mensagem três vezes e
 quem nunca viu. O lead **dá sinal** — clica, responde, volta ao site — e a
 cadência segue no D7 como se nada tivesse acontecido. É o desperdício mais caro
@@ -168,6 +168,14 @@ de qualquer operação de prospecção.
 `Prioridade` = 5, aplica `fila-quente` e cria tarefa para agora, furando a fila
 do dia.
 **Pronto quando:** lead que clicou às 14h é ligado às 14h10, não no D7.
+
+**Resumo:** seção 2.9 do `build-wesales.md` especifica o Trigger Link
+`Agendar com o closer` embutido em M2/M3 e os dois workflows curtos
+("— Clique" e "— Resposta") que fazem a interceptação; campos C-13/C-14
+especificados em `campos-e-tags.md` — falta só a criação manual (Trigger Link
+e campos não saem por API; a subconta segue com 0 campos e 0 contatos,
+reconfirmado nesta execução via `locations_get-custom-fields`/
+`contacts_get-contacts`).
 
 ### F-02 · Melhor horário aprendido, por segmento
 **Por quê:** a tabela de horários das 12 tentativas é a mesma para todo mundo.
@@ -225,11 +233,11 @@ hora investida. Só então as cadências vizinhas e a operação com mais gente.
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
 
-Do bloco 6, dois não esperam a vez: **F-01** e **F-03**. O F-01 porque sinal
-ignorado é lead perdido hoje, não daqui a três meses — e ele se apoia em
-recurso nativo que já existe, é barato. O F-03 porque cada semana sem o loop do
+Do bloco 6, um ainda não espera a vez: **F-03**. Cada semana sem o loop do
 closer é uma semana de nota de qualificação não calibrada, e essa dívida não se
-paga retroativamente: os dados que faltaram não voltam.
+paga retroativamente: os dados que faltaram não voltam. (O F-01 furava a fila
+pela mesma urgência — sinal ignorado é lead perdido hoje — e por isso foi o
+item resolvido nesta rodada, antes mesmo de R-02/R-03 completarem o bloco 1.)
 
 Os outros quatro do bloco 6 pedem volume para fazer sentido. F-02 precisa de
 conexões suficientes para ter padrão; F-06 precisa de call tracking ligado;

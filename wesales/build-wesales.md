@@ -19,13 +19,17 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 1. Campos e tags (Etapas 2 e 3, por API)
 2. Pipeline "Pré-vendas" (seção 1)
 3. Calendário do closer + formulário (seção 7)
-4. Workflow "Mestre de saída" (seção 3)
-5. Workflow "Pós-ligação" (seção 4)
-6. Workflow "Pós-agendamento" (seção 5)
-7. Workflow "Qualificação por IA no WhatsApp" (seção 6)
-8. Workflow "Cadência 12x30" (seção 2) — por último, porque chama os outros
-9. Listas inteligentes (seção 8)
-10. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+4. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
+   calendário do passo 3
+5. Workflow "Mestre de saída" (seção 3)
+6. Workflow "Pós-ligação" (seção 4)
+7. Workflow "Pós-agendamento" (seção 5)
+8. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+9. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
+   porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3
+10. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+11. Listas inteligentes (seção 8)
+12. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
 
 ---
 
@@ -164,12 +168,19 @@ respondeu, o Stop on Response tira da cadência e o lead cai na seção 6.
 **M2 — D10 13:30, reforço**
 > {{contact.first_name}}, tentei falar com você algumas vezes e não quero ser
 > chato. Uma linha só: hoje vocês trazem cliente novo mais por indicação ou por
-> anúncio? Se for indicação, tenho um caso que talvez te interesse.
+> anúncio? Se for indicação, tenho um caso que talvez te interesse. Se preferir
+> já reservar 30 min direto, sem esperar minha ligação: [Agendar com o closer]
 
 **M3 — D30 17:45, encerramento**
 > {{contact.first_name}}, vou parar de te procurar por aqui. Se um dia quiser
 > falar sobre captação, me responde esta mensagem que eu retomo de onde paramos.
+> Ou, se quiser adiantar, o link continua de pé: [Agendar com o closer]
 > Sucesso!
+
+`[Agendar com o closer]` é o Trigger Link da seção 2.9, não texto literal —
+insira pelo ícone `{}` da caixa de mensagem, em Custom Values → Trigger Links.
+M1 fica sem link de propósito: é a mensagem que pergunta permissão de ligar, e
+um link ali compete com a pergunta em vez de reforçá-la.
 
 Depois de M3: Update `Resultado da tentativa` = vazio → Add Contact Tag
 `nutricao-90d` → mover oportunidade para `Nutrição` → fim do workflow. A
@@ -201,6 +212,87 @@ segue para o próximo Wait sem esperar; quem reage ao resultado é o
 Pós-ligação, que também remove a tag. Fica mais robusto a edições e mais
 difícil de depurar. Sugiro: sobe na 2.4 (mais legível, mais fácil de testar),
 e se você começar a editar a cadência com volume em produção, migra para B.
+
+---
+
+## 2.9 Interceptação de sinal — F-01
+
+A cadência de 2.4 trata toda tentativa igual: dispara no dia certo, olha o
+calendário, não o lead. Mas o lead **dá sinal** fora do calendário — clica num
+link, responde fora de hora — e hoje isso só some silenciosamente dentro do
+Stop on Response ou não tem lugar nenhum para ir (clique em link não é
+rastreado). É a lacuna F-01 do roadmap: paridade não basta, o que separa da
+concorrência é reagir ao sinal em minutos, não no próximo dia agendado.
+
+Dois workflows curtos, gatilho diferente, mesmo efeito: fura a fila e avisa o
+SDR agora. Não são um workflow só com dois gatilhos porque cada um precisa
+gravar de forma confiável **qual** sinal foi — e o GHL não expõe de forma
+segura, dentro dos nós, qual dos vários gatilhos de um mesmo workflow disparou.
+
+### 2.9.1 Trigger Link "Agendar com o closer"
+
+Marketing → Trigger Links → Novo. Destino: a URL pública do calendário
+`Reunião com closer` (seção 7.1). Nome do link: `Agendar com o closer` — é o
+nome que aparece no seletor de gatilho `Trigger Link Clicked` e no menu
+`{}` → Custom Values → Trigger Links das mensagens.
+
+Por que apontar para o calendário e não para uma landing page nova: a página
+já existe (é pré-requisito da seção 7), o link fica pronto sem depender de
+criar site, e clicar nele já é a maior demonstração de interesse possível —
+maior que abrir um artigo. Um concorrente copiando a tela de fora vê "manda
+link do calendário"; não vê que o link virou sensor.
+
+### 2.9.2 Workflow "Interceptação de Sinal — Clique"
+
+**Gatilho:** `Trigger Link Clicked` — Link: `Agendar com o closer`
+
+| Configuração | Valor |
+|---|---|
+| Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta |
+| Allow Re-entry | Ligado (cada clique é um sinal novo) |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Portão de etapa | If/Else | Etapa da oportunidade **é** `Em cadência` → segue. Senão → **encerra** (quem já saiu de cadência não precisa furar fila; já está tratado por outro caminho) |
+| 2 | Portão de silêncio | If/Else | tag `nao-perturbe` presente → **encerra**. Senão → segue |
+| 3 | Prioridade | Update Contact Field | `Prioridade` = 5 |
+| 4 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` · `Data do sinal` = `{{right_now}}` |
+| 5 | Fila | Add Contact Tag | `fila-quente` |
+| 6 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: SDR |
+| 7 | Aviso | Internal Notification | Para o SDR: `{{contact.name}} clicou no link de agendar agora. Prioridade 5.` |
+| 8 | Registro | Add Note | `Sinal: clique em link · {{right_now}}` |
+
+### 2.9.3 Workflow "Interceptação de Sinal — Resposta"
+
+Idêntico ao 2.9.2, trocando o gatilho e os dois textos marcados.
+
+**Gatilho:** `Customer Replied` — Canais: WhatsApp e SMS (os dois canais de
+texto da cadência)
+
+Mesma tabela de nós da 2.9.2, com estas trocas:
+- Nó 4: `Sinal recebido` = `Resposta de mensagem`
+- Nó 6: Título da tarefa `[CADENCIA] Sinal: respondeu mensagem — ligar agora`
+- Nó 7: `{{contact.name}} respondeu agora fora do fluxo normal. Prioridade 5.`
+
+O Stop on Response da Cadência 12x30 (seção 2.2) já tira o lead das tentativas
+futuras quando ele responde — isso continua acontecendo, sem mudança. O que
+faltava é o que este workflow cobre: ninguém avisava o SDR **agora**, e o lead
+respondido ficava com a mesma prioridade de antes até a próxima tentativa
+classificá-lo.
+
+### 2.9.4 Limite conhecido
+
+Allow Re-entry ligado significa que um lead respondendo várias mensagens
+seguidas em minutos gera uma tarefa por resposta. É a troca certa: melhor uma
+tarefa a mais para o SDR fechar do que um sinal perdido por deduplicação. Se
+isso virar ruído em volume, o ajuste nativo é um filtro de frequência no
+próprio gatilho `Customer Replied` (o GHL permite limitar por janela de tempo)
+— não crie campo contador novo para isso antes de o volume provar que precisa.
+
+**Pronto quando:** lead que clicou às 14h é ligado às 14h10, não no D7 —
+`Prioridade` = 5 e a tarefa `Sinal: ...` aparecem na `Fila Quente` (lista 8.1)
+no minuto do clique ou da resposta, dentro da janela de expediente.
 
 ---
 
