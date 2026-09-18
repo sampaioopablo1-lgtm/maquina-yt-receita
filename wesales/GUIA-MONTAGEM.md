@@ -71,26 +71,39 @@ sem oportunidade nenhuma dentro — confirmado por aqui, via
 inteiro**, em qualquer status. Pode apagar sem medo de perder negócio
 real.
 
-**Ordem final esperada, de cima para baixo, depois da edição:**
+### Configuração completa, etapa por etapa
 
-| Ordem | Etapa |
-|---|---|
-| 1 | `Novo lead` |
-| 2 | `Em cadência` |
-| 3 | `Conectado` |
-| 4 | `Retorno agendado` |
-| 5 | `Reunião agendada` |
-| 6 | `Nutrição` |
-| 7 | `Descartado` |
+Cada etapa, na tela de edição, tem 4 campos além do nome: **probabilidade
+de ganho** (%), **cor**, e dois toggles — **mostrar no funil** e **mostrar
+no gráfico de pizza**. Preencha assim, na ordem final (de cima para
+baixo):
 
-### Probabilidade de ganho por etapa
+| Ordem | Etapa | Probabilidade de ganho | Cor | Mostrar no funil | Mostrar no gráfico de pizza |
+|---|---|---|---|---|---|
+| 1 | `Novo lead` | 5% | Azul (`#2563EB`) | Sim | Sim |
+| 2 | `Em cadência` | 15% | Laranja (`#F59E0B`) | Sim | Sim |
+| 3 | `Conectado` | 30% | Ciano (`#0EA5E9`) | Sim | Sim |
+| 4 | `Retorno agendado` | 35% | Laranja escuro (`#F97316`) | Sim | Sim |
+| 5 | `Reunião agendada` | 50% | Verde (`#16A34A`) | Sim | Sim |
+| 6 | `Nutrição` | 10% | Rosa (`#DB2777`) | Sim | Sim |
+| 7 | `Descartado` | 0% | Cinza (`#374151`) | Sim | Sim |
 
-Enquanto edita, a tela deve pedir uma probabilidade de ganho (%) por
-etapa — **não deixe a progressão automática de 6,67% em 6,67% que estava
-lá antes** (é o bug que a auditoria achou: "NÃO TEM INTERESSE" tinha 93%
-de chance de ganho). Sugestão simples: 5 / 15 / 30 / 35 / 50 / 10 / 0 —
-repare que `Nutrição` é mais baixa que `Reunião agendada`, não mais alta
-(nutrição é "ainda não", não "quase lá").
+**Por que estes números e não outros:**
+- **Probabilidade:** não é a progressão automática de 6,67% em 6,67% que
+  estava lá antes (o bug que a auditoria achou — "NÃO TEM INTERESSE" com
+  93% de chance de ganho). Aqui `Nutrição` (10%) é **mais baixa** que
+  `Reunião agendada` (50%), não mais alta — nutrição é "ainda não", não
+  "quase lá". Nenhum destes números é medido ainda; são ponto de partida
+  razoável, não meta — a régua de qualificação (seção 9 do
+  `build-wesales.md`) é o que decide de verdade se um lead é "quente".
+- **Cor:** segue o mesmo código de cores que a régua de qualificação já
+  usa em espírito — quente (laranja/verde) sobe, frio (cinza/rosa) desce.
+  Se a tela não deixar digitar o hex exato, escolha a cor mais próxima do
+  preset dela — a cor exata não afeta nenhum workflow, é só leitura visual
+  para o gestor.
+- **Mostrar no funil / gráfico de pizza:** deixe as duas ligadas em todas
+  as 7 — é o padrão, e nenhuma etapa daqui tem motivo para ficar escondida
+  do relatório nativo.
 
 ### Outras configurações do pipeline (mesma tela)
 
