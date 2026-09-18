@@ -4117,3 +4117,67 @@ e uma quantidade alta de anúncio mudo pago. E, ao contrário da Barra, aqui que
 com o próprio dinheiro — o que encurta a conversa.
 
 Combos varridos até aqui: + imobiliária Niterói (novo bairro prioritário do nicho).
+
+---
+
+## Advocacia — recuperação judicial (varrido 18/09/2026, fim de tarde)
+
+Terceiro recorte de advocacia do dia, e o mais gordo de todos: **470 anúncios estimados** com o termo
+`recuperação judicial empresa`. Contra 14 do inventário e 318 (poluídos) do direito de família.
+
+**A regra do termo de processo se refina:** não basta ser processo, tem que ser processo que a
+EMPRESA contrata. `Recuperação judicial` é a dor de um dono de negócio pagando advogado caro — por
+isso tanta gente disputa o leilão.
+
+### Por que esta varredura vale mais que as outras: é munição de criativo
+
+Nosso conjunto de ADVOCACIA converteu hoje pela primeira vez, e o anúncio vencedor foi o mais curto.
+Aqui está o que os escritórios que mais gastam estão escrevendo, e o padrão é o mesmo:
+**pergunta de dor, curta, na segunda pessoa.**
+
+| Anunciante | Título | Estrutura |
+|---|---|---|
+| **Pablo Buarque Advogados** | `Sua empresa está sendo sufocada pelas dívidas?` | pergunta de dor |
+| **Godoy & Köhler Advogados** | `Regularize os débitos tributários` | verbo no imperativo |
+| **CSA Advocacia** | `Recuperação Judicial para Empresas` | serviço + público |
+| **Vantari Crédito** | `Recuperação judicial? Antecipe já!` | pergunta + ação |
+| **Fávaro Lemos Advogados** | `Procure um Advogado especialista.` | genérico, o mais fraco |
+
+**Leitura para o nosso criativo:** o melhor da lista (`Sua empresa está sendo sufocada pelas
+dívidas?`) tem seis palavras e nomeia o público pela dor, não pelo serviço. É exatamente a lógica do
+nosso ADV V05 "curta", que hoje converteu a R$2,94. **Vale escrever mais variações curtas em forma
+de pergunta para o conjunto de advocacia**, em vez de descrever o que a agência faz.
+
+### Alvos com defeito de título
+
+**Marcelo Oguido** — Trilha A — nome da página + **5 campos vazios**, no ar desde hoje.
+
+**Adv Djonata Lyvison** — Trilha A — 2 anúncios, título vazio.
+
+**Arpini & Araujo** — Trilha B — 2 anúncios, título vazio.
+
+Mais nove páginas com título vazio: Lucas Gavaza Advocacia, pedrovazfernandes,
+Rubens Gomes de Oliveira, Luiz Henrique Zanin Advocacia, Dr. Alex Abreu, Leandro Ribeiro,
+Wilson Sanches XR, Inquest Soluções, Lawletter. Sete das doze são Trilha A.
+
+**MQC Advogados** — `Toque em saiba mais`: rótulo de botão como título, o padrão já catalogado.
+
+### Poluição do termo (registrar para não repetir)
+
+`recuperação judicial empresa` puxa três categorias que não são alvo:
+1. **Infoproduto jurídico** — Raphael Costa "O mentor" (`Garanta já a sua vaga! ⚡️`), Escola
+   Trabalhista, Lawletter: vendem curso para advogado, não serviço para empresa.
+2. **Conteúdo em dólar** — Ethyl Bednar (`Depois do Divórcio, o Império Dela Caiu`) e
+   **Publicidade Verificada** (5 anúncios `Clique e confira`, moeda USD): fazenda de conteúdo, não
+   escritório.
+3. **Fora do nicho** — thiagosolaarquiteto, evoinc., Vantari Crédito (fintech, não advocacia).
+
+### Leitura
+
+O volume aqui é grande demais para prospecção fria manual — 470 anúncios não se varre a mão. Mas
+como **banco de headline para o nosso próprio conjunto de advocacia**, é a melhor fonte do arquivo:
+são dezenas de escritórios pagando para descobrir qual frase converte, e a resposta que aparece
+repetida é a pergunta curta sobre a dor.
+
+Combos varridos até aqui: + advocacia recuperação judicial (usado como munição de criativo, não só
+como lista fria).
