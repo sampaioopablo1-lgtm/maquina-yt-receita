@@ -3941,3 +3941,61 @@ e a nova poluição a vigiar é a faculdade que vende o curso do mesmo assunto.
 
 Combos varridos até aqui: + contabilidade planejamento tributário RJ (regra do termo de processo
 confirmada fora da advocacia).
+
+---
+
+## Imobiliária — Barra da Tijuca (varrido 18/09/2026)
+
+Termo `apartamento à venda Barra da Tijuca`: **178 anúncios estimados**, ~20 páginas distintas na
+primeira leva. Confirma pela enésima vez que imobiliária é o nicho mais gordo do arquivo, e a Barra
+é o bairro de ticket mais alto varrido até aqui.
+
+### 🏆 O RECORDE DO ARQUIVO
+
+**New Home Imóveis** — Trilha B — 4 anúncios.
+Título: `New Home Imóveis |` seguido de **VINTE campos vazios**. É o maior número de campos em
+branco já encontrado — o recorde anterior era nove (Marcia Rianelli Advocacia). No ar desde hoje,
+18/09, ou seja: a conta está gastando agora, neste minuto, num anúncio que não diz nada.
+**Melhor alvo da varredura**: gasto fresco + erro gritante.
+
+### O SEGUNDO CASO DE PORTUGUÊS DE PORTUGAL
+
+**Marcelo Nunes Broker** — Trilha A — no ar desde 15/09.
+Título: `Marcelo Nunes Broker | Conversa connosco` repetido **dez vezes**. "Connosco" com dois N é
+grafia portuguesa, não brasileira. É o **segundo caso** do arquivo (o primeiro foi a Rockfeller, na
+escola de idiomas), e a explicação é a mesma: o texto veio de um template ou de uma agência que não
+localizou. Para a abordagem é ouro — o dono lê e reconhece na hora que não foi ele que escreveu.
+
+### Demais alvos
+
+**O Único Imóvel** — Trilha B — 3 anúncios, título `O Único Imóvel | 📲 Agende sua visita` repetido
+**dez vezes**. Desde 16/09. Mesmo mecanismo do rótulo de botão virando título.
+
+**decastroleonardo_** — Trilha A — o @ do Instagram como nome da página, mais **onze campos vazios**.
+Desde 17/09. Irmão direto do caso `alinefrassonadv` de hoje de manhã.
+
+**Essencia Rio Imoveis** — Trilha B — nome da página + 7 campos vazios, desde hoje.
+
+**Coelho Lançamentos** — Trilha B — nome da página + 3 campos vazios.
+
+**mariapiaimoveis**, **Zayinimoveis**, **Chaves da Barra**, **Rodrigo Moraes Imóveis**,
+**vanessa.lopesenjoy**, **calcada.app.br** — todos com **título completamente vazio**. Seis páginas,
+o mesmo defeito, no mesmo bairro, no mesmo dia. Quatro delas são Trilha A.
+
+### Referências positivas (não abordar, usar de contraste)
+
+- **MNG Imobiliária** — `Latitud | 125 m² | Sala ampliada` e `Cyano | 380 m² | 4 suítes | Frontal mar`.
+  Empreendimento, metragem e diferencial em cinco palavras. O melhor título de imobiliária do arquivo.
+- **vistapro.rio** — `Venda - Jardim Oceânico - R$ 1.348.000`. Bairro e preço no título.
+- **Salles Imóveis** — 11 anúncios, mas com títulos de verdade (`A Maior Planta da Barra`).
+  Volume alto e bem feito: é concorrência, não alvo.
+- **Lopes Enjoy Imóveis** e **Grankasa** — títulos corretos e específicos do bairro.
+
+### Leitura
+
+A Barra separa o joio do trigo melhor que qualquer bairro varrido: convivem no mesmo leilão quem
+escreve `Cyano | 380 m² | 4 suítes | Frontal mar` e quem publica vinte campos em branco. Como o
+ticket é alto, o custo do anúncio mudo aqui é o mais caro do arquivo — e esse é exatamente o
+argumento a usar na abordagem.
+
+Combos varridos até aqui: + imobiliária Barra da Tijuca.
