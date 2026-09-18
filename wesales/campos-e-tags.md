@@ -4,11 +4,11 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (26 pedidos + 1 sugerido)
+## Etapa 2 — Campos personalizados (30 + 1 sugerido)
 
 Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 
-### Controle da cadência (8)
+### Controle da cadência (12)
 
 | # | Nome | Tipo | Opções | Quem escreve |
 |---|---|---|---|---|

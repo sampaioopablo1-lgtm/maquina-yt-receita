@@ -86,7 +86,7 @@ Muda bastante, e para melhor:
    `Describe Operation` e executo.
 3. **`Execute Operation` pede aprovação a cada uso.** Isso é bom e casa com a
    regra do projeto: nada é criado ou alterado sem você confirmar. Espere ver
-   prompts de aprovação quando eu criar os 26 campos e as 11 tags — um por
+   prompts de aprovação quando eu criar os campos e as 11 tags — um por
    operação.
 4. **`List Locations` resolve a escolha de subconta.** É por ela que eu te
    mostro as subcontas autorizadas para você escolher, em vez de perguntar no

@@ -80,7 +80,7 @@ ruim, olhando um forecast mentiroso.
 
 | Consequência | |
 |---|---|
-| Conflito com os 26 campos da Etapa 2 | **Nenhum** |
+| Conflito com os campos da Etapa 2 | **Nenhum** |
 | Risco de duplicidade | **Nenhum** |
 | Nomes livres | Todos |
 
@@ -145,7 +145,7 @@ Medido na lista real de ferramentas do conector (36 ferramentas):
 
 Duas consequências diretas:
 
-1. **Etapa 2 vira manual.** Os 26 campos são criados na tela. A lista com tipo e
+1. **Etapa 2 vira manual.** Os campos são criados na tela. A lista com tipo e
    opções, pronta para copiar, está em `campos-e-tags.md`.
 2. **A rotina da Etapa 5 vira relatório.** Sem ferramenta de concluir tarefa,
    ela aponta o que está fora de lugar e você fecha na tela. O prompt já está
@@ -157,5 +157,5 @@ Duas consequências diretas:
 2. Você confirma a lista de campos e tags (`campos-e-tags.md`), inclusive as
    opções do campo `Segmento`, que continuam faltando
 3. Eu crio as 11 tags por API
-4. Você cria os 26 campos na tela
+4. Você cria os campos na tela (a lista cresce com o roadmap; conte em `campos-e-tags.md`)
 5. Você monta pipeline e workflows pelo `build-wesales.md`
