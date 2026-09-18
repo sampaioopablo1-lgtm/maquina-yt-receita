@@ -14,6 +14,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 |---|---|
 | `briefing-sdr.md` | As instruções guardadas: a máquina que estamos construindo, cadência, regras e decisões em aberto |
 | `auditoria-etapa1.md` | Etapa 1 — plano de auditoria, o que o MCP lê e o que não lê, e a tabela a preencher |
+| `auditoria-resultado.md` | **Etapa 1 — resultado**, rodado em 18/09/2026 na subconta real |
 | `campos-e-tags.md` | Etapas 2 e 3 — lista exata de campos e tags para você confirmar antes de eu criar |
 | `build-wesales.md` | Etapa 4 — especificação nó a nó do que é manual na tela |
 | `rotina-limpar-tarefas.md` | Etapa 5 — prompt da rotina horária de manutenção |
