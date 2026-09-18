@@ -3846,3 +3846,49 @@ de advocacia quase sempre leva o nome do dono. E o defeito é o mesmo de sempre,
 branco, com um caso de 11 meses no ar que serve de exemplo para qualquer abordagem do nicho.
 
 Combos varridos até aqui: + advocacia direito de família RJ (com a ressalva do termo político).
+
+---
+
+## Advocacia — inventário RJ (varrido 18/09/2026, mesma rodada)
+
+Teste direto da hipótese aberta na seção anterior: **se o termo de ramo do direito puxa política, o
+termo de PROCESSO resolve?** Resolve.
+
+| Termo | Anúncios | Poluição |
+|---|---|---|
+| `direito de família Rio de Janeiro` | 318 estimados | deputado, vereador, pastor — quase tudo |
+| `inventário e partilha Rio de Janeiro` | 14 | **zero político** |
+
+**A regra vira definitiva: em advocacia, usar sempre o nome do PROCESSO, nunca o nome do ramo.**
+`ação trabalhista`, `aposentadoria INSS`, `inventário e partilha` — os três recortes que renderam.
+Um volume menor e limpo vale mais que 318 anúncios de campanha eleitoral.
+
+### Alvos
+
+**Dutel Advogados** — Trilha B — **entra na LISTA DE ATAQUE**.
+Título: `api.whatsapp.com`. No ar desde **24/02/2026** — quase sete meses. É o caso mais antigo do
+padrão "domínio no título" em toda a lista, e o segundo escritório de advocacia a cair nele.
+
+**Ivan Alexandre - Consultor Imobiliário** — Trilha A — **entra na LISTA DE ATAQUE**.
+Título: `api.whatsapp.com`, no ar desde 17/09. É de imobiliária, não de advocacia (apareceu na busca
+por anunciar inventário de imóvel), e é Trilha A com o nome completo na página: abordagem fácil.
+
+**Especialista em Inventários** — Trilha B — o caso de volume.
+**9 anúncios simultâneos**, todos com o mesmo título `Inventário não segue lógica, segue regra!`.
+Sem defeito técnico — o título até é bom —, mas nove criativos rodando a mesma frase é dinheiro
+competindo consigo mesmo. Desde 11/09. Argumento diferente dos outros: aqui não é erro, é desperdício.
+
+**Jonatas Albino** — Trilha A — título vazio, no ar desde **31/07/2026** (mês e meio).
+
+**Agência 01 Mídia** — nome da página repetido 6 vezes no título, desde 02/07. É agência, não cliente
+final: **não abordar** (registrado só para não reaparecer como alvo em varredura futura).
+
+**Marcia Rianelli Advocacia** — já catalogada na seção anterior. Apareceu nos dois termos, o que
+confirma que está com um anúncio único e antigo rodando de forma ampla.
+
+### Leitura
+
+Este recorte deu 3 alvos novos com 14 anúncios; o anterior deu 5 com 318. **Termo limpo rende mais
+por anúncio lido** — vale mais rodar três termos de processo estreitos que um termo de ramo largo.
+
+Combos varridos até aqui: + advocacia inventário RJ (hipótese do termo de processo confirmada).
