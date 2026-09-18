@@ -576,5 +576,11 @@ que restam pedem volume para fazer sentido. F-02 precisa de conexões
 suficientes para ter padrão; F-06 precisa de call tracking ligado; F-04 e F-05
 só mordem quando há mais de uma cadência no ar.
 
-A ordem normal retoma: R-03 fecha o bloco 1 de medição, e só então o bloco 2
-(conteúdo) entra na fila.
+**Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
+rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
+fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
+bloco 5. O que resta não espera posição na fila, espera a operação existir:
+R-14 quando a máquina começar a mandar mensagem de verdade, e os quatro itens
+do bloco 6 quando houver volume. Enquanto isso, o trabalho que sobra é montar
+na tela o que já está especificado — pipeline, campos, workflows, calendário e
+formulário, pelo `build-wesales.md`.
