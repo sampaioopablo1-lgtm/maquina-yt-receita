@@ -24,13 +24,19 @@ O que falta abaixo é quase tudo **instrumentação e cadências vizinhas** — 
 
 Hoje a máquina executa e não se mede. Um SDR sem medição é um SDR com opinião.
 
-### R-01 · Métricas de cadência por tentativa e por canal
+### R-01 · Métricas de cadência por tentativa e por canal — **FEITO em 18/09/2026**
 **Por quê:** a pergunta que paga a operação é "a T7 ainda vale a pena?". Sem
 taxa de conexão por tentativa, a cadência de 12 é fé, não desenho.
 **Como:** campos contadores por canal (`Tentativas telefone`,
 `Tentativas WhatsApp`, `Conexões telefone`, `Conexões WhatsApp`) alimentados
 pelo Pós-ligação, e listas inteligentes agrupando por `Tentativa nº`.
 **Pronto quando:** dá para responder "qual tentativa conecta mais" sem planilha.
+
+**Resumo:** campos C-09 a C-12 especificados em `campos-e-tags.md`, nós do
+Pós-ligação atualizados em `build-wesales.md` (seção 4) e lista inteligente
+`Conexão por Tentativa` criada (seção 8.6) — falta só a criação manual dos 4
+campos na tela (a subconta segue com 0 campos e 0 contatos, confirmado por
+`locations_get-custom-fields`/`contacts_get-contacts` nesta execução).
 
 ### R-02 · Speed-to-lead
 **Por quê:** é a métrica nº 1 de inbound na literatura de vendas, e a que mais

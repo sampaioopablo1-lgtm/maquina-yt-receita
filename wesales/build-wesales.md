@@ -258,19 +258,27 @@ crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
 | # | Ação | Configuração |
 |---|---|---|
 | 1 | If/Else | `Resultado da tentativa` está vazio → encerra (foi a limpeza do nó 5 da cadência que disparou, não o SDR) |
-| 2 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
-| 3 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
+| 2 | If/Else | A tentativa foi de WhatsApp? (`fila-wa` presente **ou** a tarefa aberta tem `(WhatsApp)` no título) → Math: `Tentativas WhatsApp` + 1. Senão → Math: `Tentativas telefone` + 1 |
+| 3 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
+| 4 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
+
+O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
+`Caixa postal`/`Não atendeu`, em vez de calcular uma vez só e guardar num
+campo: são dois pontos do fluxo que precisam saber o canal, e mais um campo
+"canal desta tentativa" só para não repetir uma condição de uma linha é troca
+ruim (R-01, feito em 18/09/2026).
 
 #### Ramo `Atendeu`
 | # | Ação |
 |---|---|
-| 1 | Math: `Total de conexões` + 1 |
-| 2 | Update: `WA não atendidas seguidas` = 0 |
-| 3 | Add Contact Tag `conectado-hoje` |
-| 4 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| 5 | Mover oportunidade → `Conectado` (dispara o Mestre de saída, que faz a limpeza) |
-| 6 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · SDR |
-| 7 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
+| 1 | If/Else | A tentativa foi de WhatsApp? (mesma checagem do nó 2) → Math: `Conexões WhatsApp` + 1. Senão → Math: `Conexões telefone` + 1 |
+| 2 | Math: `Total de conexões` + 1 |
+| 3 | Update: `WA não atendidas seguidas` = 0 |
+| 4 | Add Contact Tag `conectado-hoje` |
+| 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 6 | Mover oportunidade → `Conectado` (dispara o Mestre de saída, que faz a limpeza) |
+| 7 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · SDR |
+| 8 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
 
 #### Ramo `Caixa postal` e ramo `Não atendeu` (idênticos)
 | # | Ação |
@@ -573,6 +581,20 @@ chance de atender do que o da T11. A fila devolve primeiro o que converte.
 |---|---|
 | Filtros | tag `limpar-tarefas` presente **E** tag `fila-tel`/`fila-wa` ausentes |
 | Para quê | É o buraco de gestão: tentativas que venceram sem o SDR classificar. Se esta lista cresce, a operação está mentindo nos números |
+
+### 8.6 `Conexão por Tentativa` — R-01
+| Item | Configuração |
+|---|---|
+| Filtros | `Total de conexões` ≥ 1 |
+| Colunas | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` |
+| Ordenação | `Tentativa nº` asc |
+
+Funciona sem um campo extra de "tentativa em que conectou": ao registrar
+`Atendeu`, o nó 10 da cadência (seção 2.4) remove o contato do workflow —
+`Tentativa nº` para de mudar exatamente no valor em que ele conectou. Filtrar
+por quem já conectou e ordenar por essa tentativa responde "qual tentativa
+conecta mais" olhando a lista ordenada, sem planilha — é o "Pronto quando" do
+R-01 do roadmap.
 
 ---
 

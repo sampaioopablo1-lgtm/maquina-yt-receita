@@ -20,6 +20,16 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-06 | Total de ligações | NUMERICAL | — | Workflow |
 | C-07 | Total de conexões | NUMERICAL | — | Workflow |
 | C-08 | Nota de qualificação | NUMERICAL | 0 a 100 | Workflow |
+| C-09 | Tentativas telefone | NUMERICAL | — | Workflow (R-01) |
+| C-10 | Tentativas WhatsApp | NUMERICAL | — | Workflow (R-01) |
+| C-11 | Conexões telefone | NUMERICAL | — | Workflow (R-01) |
+| C-12 | Conexões WhatsApp | NUMERICAL | — | Workflow (R-01) |
+
+C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
+canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
+do WhatsApp?", que é a pergunta do R-01 do roadmap. Escritos pelo Pós-ligação
+(`build-wesales.md`, seção 4, nós 2 e o ramo `Atendeu`); a lista inteligente
+que os lê é a 8.6.
 
 ### Qualificação — BANT + diagnóstico (18)
 
