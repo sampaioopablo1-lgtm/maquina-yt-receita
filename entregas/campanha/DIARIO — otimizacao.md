@@ -1210,3 +1210,51 @@ e será poupado, com aviso ao Pablo. Está correto: não há o que julgar em 5 i
 **CTR do INTERESSE em 4,09%** — o melhor dia da série (era 0,79% em 09/09). O criativo segue
 melhorando enquanto a entrega encolhe, que é exatamente o retrato de uma conta limitada por verba e
 não por qualidade.
+
+---
+
+## 18/09/2026 09h13 BRT — rodada V3: nada a cortar, nada a trocar
+
+Relógio lido da Meta, não de data escrita em prompt.
+
+**PASSO 0 — C0.** Dos seis conjuntos, só dois são julgáveis:
+
+| Conjunto | created_time | Idade | Impressões | Leads | Veredito |
+|---|---|---|---|---|---|
+| INTERESSE | 09/09 16h50 | 8 dias | 6.200 | **21** | passa |
+| CNAE | 09/09 16h44 | 8 dias | 1.777 | **7** | passa |
+| HARMONIZAÇÃO | 16/09 17h59 | 39h14 | 5 | 0 | **não julgado (<48h)** |
+| IMOBILIÁRIA | 17/09 18h56 | 14h17 | 83 | 0 | não julgado (<48h) |
+| ADVOCACIA | 17/09 18h57 | 14h16 | 40 | 0 | não julgado (<48h) |
+| CONTABILIDADE | 17/09 18h57 | 14h16 | 10 | 0 | não julgado (<48h) |
+
+CPL acumulado: **R$8,56 no INTERESSE** e **R$7,18 no CNAE** — o CNAE segue mais barato por lead
+apesar de receber um terço da entrega.
+
+**A HARMONIZAÇÃO completa 48h hoje às 17h59 BRT, depois desta rodada.** Chega lá com 5 impressões
+em três dias. A rodada de amanhã vai julgá-la, e pela TRAVA 7 o veredito será **NÃO TESTADO**, não
+corte: 5 impressões estão muito abaixo do piso de 500, então o que falta é verba, não desempenho.
+Os três conjuntos de nicho completam 48h amanhã às 18h57 e devem cair no mesmo veredito — juntos
+receberam 133 impressões em 14 horas.
+
+**PASSO 1 e 2 — anúncios.** Sete anúncios têm 48h ou mais; nenhum bateu T1–T8:
+
+- **V15 (INTERESSE)** — 2.293 impressões, 6 leads, CPL R$9,79, CTR 1,57%, CPM R$25,62. É o vencedor
+  entre os julgáveis e não bate nenhuma condição.
+- **V16 e V17 (INTERESSE)** — 36 e 38 impressões em 62h. **Sem veredito por falta de entrega**, não
+  por desempenho. Se chegarem a 7 dias assim, vira aviso ao Pablo.
+- **V11 (CNAE)** — 280 impressões e 0 lead. Ficou a 20 impressões do piso de 300 do T1. **Não julgado.**
+  É o candidato número um da rodada de amanhã.
+- **V16 (CNAE)** — 83 impressões, 1 lead, CPL R$2,99. Sem veredito, e tem lead.
+
+Os onze anúncios restantes foram criados em 16/09 entre 11h43 e 13h18 e ainda não completaram 48h.
+
+**PASSO 3 — nenhuma troca.** Nada a pausar, nada a criar. Os seis conjuntos seguem com 38 anúncios
+ativos, todos ACTIVE/ACTIVE, e a segmentação dos seis conferida contra o estado correto: geo Brasil
+inteiro, exclusão só de Taubaté, nenhum `regions`, advantage_audience 0.
+
+**Leitura da rodada.** Pela primeira vez desde que a REGRA V3 existe, uma rodada inteira passou sem
+nenhum veredito — e o motivo é o mesmo em todas as linhas: **quase nada tem entrega suficiente para
+ser julgado**. Seis conjuntos e 38 anúncios repartindo R$20/dia significa que a maioria das peças
+recebe dezenas de impressões, não centenas. A TRAVA 7 foi escrita exatamente para este quadro, e
+amanhã ela vai segurar o primeiro corte.
