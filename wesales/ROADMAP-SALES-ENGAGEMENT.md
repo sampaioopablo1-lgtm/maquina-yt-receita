@@ -537,6 +537,16 @@ depois, quando o estrago já aconteceu.
 vencida sem resultado, contato com `nao-perturbe` ainda dentro de workflow ativo.
 **Pronto quando:** a operação avisa que quebrou antes de o gestor perguntar.
 
+**Adição de 18/09/2026, ao aplicar o "tempo de estagnação" do Sales Model
+Canvas (Thiago Reis) etapa a etapa (seção 1 do `build-wesales.md`):** duas
+invariantes novas para quando este item for construído, que a lista acima
+não cobria — `Conectado` sem mover para `Retorno agendado`/`Reunião
+agendada` em mais de 24h (o SDR atendeu e não fechou o loop) e `Retorno
+agendado` com `Data do retorno` (S-01) vencida sem nova classificação (o
+retorno combinado não aconteceu). As duas são o mesmo tipo de "estrago
+silencioso" que motivou o item, só em etapas que a primeira versão do
+"Como" não olhava.
+
 ### F-06 · Qualidade da conexão, não a contagem
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
 minutos. A métrica que importa não é alô, é conversa.

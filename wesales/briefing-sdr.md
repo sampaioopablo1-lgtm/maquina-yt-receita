@@ -108,6 +108,7 @@ Reentrada ligada duplica tentativas quando o lead volta para "Em cadência".
 | L-05 | Volume: 10 leads/dia × 12 tentativas = ~120 tentativas/dia em regime, acima da meta de 100 | Com saída antecipada (~35% conectam ou saem antes), cai para ~78–90/dia | Para bater 100 ligações/dia com folga, a entrada precisa ser ~11–13 leads/dia |
 | L-06 | Não há campo de **origem/lista** do lead além das tags de cadência | Dificulta diagnosticar qual fonte converte | Opcional: `Origem do lead` (lista) |
 | L-07 | Não existe gatilho que promova `Novo lead` → `Em cadência` | Hoje é decisão manual do SDR ao revisar a fila; descoberta ao fechar o R-08 (reengajamento), que por isso move o lead reativado direto para `Em cadência` em vez de parar em `Novo lead` | Definir depois; se o volume crescer, um gatilho por tag (ex.: "telefone validado") resolve |
+| L-08 | Etapa `Conectado` não tem caminho para desqualificação **na hora** — o Pós-ligação (`build-wesales.md`, seção 4, ramo `Atendeu`) sempre cria a tarefa `[CONECTADO] Qualificar e agendar`, mesmo quando a conversa já deixa claro que não há fit | Descoberta ao aplicar o bloco "Motivos de Perda" do Sales Model Canvas etapa a etapa (seção 1); sem esse caminho, o SDR ou força um agendamento sem fit (polui a agenda do closer) ou improvisa uma saída manual que a régua de nota (seção 9) não registra como perda | Opcional, baixo custo: no formulário de qualificação, um resultado "Sem fit — não agendar" que move direto para `Descartado`/`Nutrição` sem passar por `Reunião agendada` |
 
 ## Estado do acesso
 
