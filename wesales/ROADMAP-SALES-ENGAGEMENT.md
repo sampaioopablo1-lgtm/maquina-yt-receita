@@ -38,7 +38,7 @@ Pós-ligação atualizados em `build-wesales.md` (seção 4) e lista inteligente
 campos na tela (a subconta segue com 0 campos e 0 contatos, confirmado por
 `locations_get-custom-fields`/`contacts_get-contacts` nesta execução).
 
-### R-02 · Speed-to-lead
+### R-02 · Speed-to-lead — **FEITO em 18/09/2026**
 **Por quê:** é a métrica nº 1 de inbound na literatura de vendas, e a que mais
 move conversão. Ninguém mede porque ninguém guarda o par de horários.
 **Como:** carimbos `Entrada em` e `1ª tentativa em`, ambos **`TEXT` no formato
@@ -46,6 +46,19 @@ move conversão. Ninguém mede porque ninguém guarda o par de horários.
 descarta a hora, e speed-to-lead medido em minutos entre duas datas sem hora dá
 zero no mesmo dia. A diferença entre os dois carimbos é a métrica.
 **Pronto quando:** existe lista "leads com mais de 1h sem primeira tentativa".
+
+**Resumo:** campos C-18/C-19 especificados em `campos-e-tags.md`; nó 0.6 e o
+par 5c/5d (só na T1) especificados em `build-wesales.md` (seção 2.4); como
+campo `TEXT` não aceita filtro relativo de data em lista inteligente, o "mais
+de 1h" saiu de um workflow-relógio, não de um filtro — `Alerta de
+Speed-to-lead` (seção 2.11) espera 1h e marca a tag `atraso-1a-tentativa`, que
+a lista `Atraso na 1ª Tentativa` (8.8) só lê. **Falta a criação
+manual dos 2 campos (campo personalizado não sai por API) e a aprovação da
+tag nova em `APROVADO.md`** — ela é a 12ª, fora do lote das 11 já autorizadas
+por nome; ficou com linha própria, ainda `[ ]`. Subconta reconfirmada nesta
+execução via `locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: segue em 0 campos, 0 contatos, só o
+`FUNIL DE VENDAS` pré-existente — nada mudou desde a auditoria.
 
 ### R-03 · Funil do SDR por período
 **Por quê:** entraram / conectaram / agendaram / compareceram é o funil que o
@@ -256,5 +269,5 @@ que restam pedem volume para fazer sentido. F-02 precisa de conexões
 suficientes para ter padrão; F-06 precisa de call tracking ligado; F-04 e F-05
 só mordem quando há mais de uma cadência no ar.
 
-A ordem normal retoma: R-02 e R-03 fecham o bloco 1 de medição, e só então o
-bloco 2 (conteúdo) entra na fila.
+A ordem normal retoma: R-03 fecha o bloco 1 de medição, e só então o bloco 2
+(conteúdo) entra na fila.

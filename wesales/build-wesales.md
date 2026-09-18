@@ -30,8 +30,10 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 10. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
     porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3
 11. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-12. Listas inteligentes (seção 8)
-13. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+12. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
+    monitoramento que a lista 8.8 filtra
+13. Listas inteligentes (seção 8)
+14. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
 
 ---
 
@@ -92,6 +94,7 @@ telefone validado.
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
 | 0.5 | Update Contact Field | `Prioridade` = 3 (padrão; a seção 9 recalcula) |
+| 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (R-02 — carimbo de speed-to-lead) |
 
 ### 2.4 O bloco padrão de uma tentativa (9 nós)
 
@@ -116,6 +119,18 @@ o número da tentativa.
 Detalhe que costuma passar batido: o nó 5 **limpa** `Resultado da tentativa`
 antes de criar a tarefa. Sem isso, o nó 8 vê o resultado da tentativa anterior
 e passa direto.
+
+**Só no bloco da tentativa 1 (T1)**, entre os nós 5 e 6, some mais dois (R-02
+— speed-to-lead):
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 5c | Carimbo | Update Contact Field | `1ª tentativa em` = `{{right_now}}` |
+| 5d | Limpeza preventiva | Remove Contact Tag | `atraso-1a-tentativa` (barato mesmo se ausente — ver seção 2.11) |
+
+Não repita 5c/5d nas tentativas 2 a 12: T1 é sempre a primeira do molde (delta
+0d, sem tentativa antes dela), então `1ª tentativa em` só precisa de uma
+escrita — a mesma lógica de "Total de conexões" ter um dono só (seção 4).
 
 O contador `WA não atendidas seguidas` **não** é mexido aqui — quem soma e
 zera é o Pós-ligação (seção 4), que é o único lugar que sabe qual foi o canal
@@ -298,6 +313,54 @@ no minuto do clique ou da resposta, dentro da janela de expediente.
 
 ---
 
+## 2.11 Alerta de Speed-to-lead — R-02
+
+Speed-to-lead é a métrica nº 1 de inbound na literatura de vendas (Reev,
+Meetime, Outreach e Salesloft medem todos), mas nenhum deles resolve com
+lista estática: eles rodam um relógio de SLA por trás e só mostram o atraso
+quando ele já virou alarme. Aqui o relógio é um workflow de 1 nó de espera —
+sem dashboard pago, sem app externo.
+
+Por que não dá para responder isso só com uma lista inteligente filtrando
+`Entrada em` "há mais de 1h": os dois carimbos (`Entrada em`, `1ª tentativa
+em`) são `TEXT`, não `DATE` (a razão está em `APRENDIZADOS-CRM.md` — `DATE`
+descarta a hora, e aqui a hora é o que importa). Filtro de lista inteligente
+não faz aritmética de data sobre campo `TEXT`. A saída nativa é um workflow
+que espera 1h e **marca** o atraso com uma tag — daí a lista (8.8) vira
+trivial: filtra presença de tag, sem comparar data nenhuma.
+
+### Gatilho
+**Opportunity Stage Changed** — Pipeline `Pré-vendas` · Para a etapa:
+`Em cadência` (o mesmo gatilho da Cadência 12x30, seção 2.1 — os dois disparam
+juntos, um mede e cadencia, o outro só mede)
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Uma rodada 2 manual (decisão D-06) é uma nova entrada de verdade e merece seu próprio relógio |
+| Janela de envio | Sem janela | O atraso conta em tempo real, inclusive fora do expediente — é exatamente o que o alerta precisa capturar |
+| Stop on Response | Desligado | Não manda mensagem ao lead |
+
+### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Aguardar | Wait → Time Delay | 1 hora |
+| 2 | Portão | If/Else | Etapa da oportunidade **é** `Em cadência` **E** `1ª tentativa em` está vazio → segue. Senão → **encerra** (T1 já rodou, ou o lead já saiu de cadência — não é atraso) |
+| 3 | Fila | Add Contact Tag | `atraso-1a-tentativa` |
+| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está há mais de 1h em cadência sem a 1ª tentativa. Entrada: {{contact.entrada_em}}.` |
+| 5 | Registro | Add Note | `Alerta speed-to-lead: sem 1ª tentativa 1h após a entrada · {{right_now}}` |
+
+A limpeza é dupla, de propósito: o nó 5d da T1 (seção 2.4) remove a tag no
+caminho feliz (T1 rodou dentro da hora), e o nó 4 do Mestre de saída (seção 3)
+remove no caminho de saída (lead mudou de etapa antes de qualquer um dos
+dois). Tag presa custa uma lista suja; os dois pontos de remoção custam duas
+linhas.
+
+**Pronto quando (herdado do R-02 no roadmap):** existe lista "leads com mais
+de 1h sem primeira tentativa" — é a 8.8, filtrando `atraso-1a-tentativa`.
+
+---
+
 ## 3. Workflow "Mestre de saída"
 
 O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
@@ -319,7 +382,7 @@ destino.
 | 1 | If/Else | Etapa de destino **é** `Em cadência` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · tentativa {{contact.tentativa_no}} · resultado {{contact.resultado_da_tentativa}}` |
 
@@ -760,6 +823,18 @@ closer. Contar visualmente quantos `Sim` e `Não` caem acima de 70 responde
 tempo real da seção 5.1 (nós 5 e 6) avisa o gestor de um erro no dia; esta
 lista mostra o padrão acumulado quando ele quiser olhar.
 
+### 8.8 `Atraso na 1ª Tentativa` — R-02
+| Item | Configuração |
+|---|---|
+| Filtros | tag `atraso-1a-tentativa` presente |
+| Colunas | Nome · Empresa · Telefone · `Entrada em` · `1ª tentativa em` (sempre vazio nesta lista) · Tarefas abertas |
+| Ordenação | Última atividade asc (quem está parado há mais tempo aparece primeiro) |
+
+A tag só existe porque o workflow da seção 2.11 a aplicou depois de 1h de
+espera sem `1ª tentativa em` preenchido — a lista não faz conta nenhuma, só
+lê a marca que o relógio já fez. É o "Pronto quando" do R-02: dá para apontar
+o lead que já passou de 1h sem SDR ligar, sem abrir planilha.
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -884,7 +959,7 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 | Campos personalizados | Cria | Opções de lista podem precisar de ajuste na tela |
 | Tags | Cria | — |
 | Pipeline e etapas | Não | Seção 1 |
-| Workflows | Não | Seções 2, 2.9, 3 a 6, 5.1 |
+| Workflows | Não | Seções 2, 2.9, 2.11, 3 a 6, 5.1 |
 | Calendário | Lê | Cria e configura: seção 7.1 |
 | Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
 | Listas inteligentes | Não | Seção 8 |

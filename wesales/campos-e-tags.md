@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (35 + 1 sugerido)
+## Etapa 2 — Campos personalizados (37 + 1 sugerido)
 
 Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 
@@ -29,6 +29,8 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-15 | Reunião foi qualificada | SINGLE_OPTIONS | Sim, Não, Parcial | Closer (F-03) |
 | C-16 | Motivo da desqualificação | SINGLE_OPTIONS | Sem fit, Sem budget, Timing errado, Não é decisor, Concorrente, Duplicado ou já cliente | Closer (F-03) |
 | C-17 | Data do veredito do closer | DATE | — | Workflow (F-03) |
+| C-18 | Entrada em | TEXT | `AAAA-MM-DD HH:MM` | Workflow (R-02) |
+| C-19 | 1ª tentativa em | TEXT | `AAAA-MM-DD HH:MM` | Workflow (R-02) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -54,6 +56,12 @@ workflow, nem IA.
 C-17 é `DATE`, não `TEXT`: nada aqui mede minutos (diferente de C-14), só
 "em que dia o closer deu o veredito", então a granularidade de dia do `DATE`
 basta e evita outro par de campos como o de C-14/S-01.
+
+C-18 e C-19 medem speed-to-lead (`build-wesales.md`, seção 2.11, R-02 do
+roadmap): `Entrada em` grava quando o lead entra em `Em cadência` (nó 0.6 da
+Cadência 12x30), `1ª tentativa em` grava quando a T1 dispara de verdade (nó
+5c, só na primeira tentativa). Mesmo motivo de C-14: `TEXT` porque a métrica
+é em minutos e `DATE` descarta a hora.
 
 ### Qualificação — BANT + diagnóstico (18)
 
@@ -91,7 +99,7 @@ Observações de tipo:
 |---|---|---|---|
 | S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) | Sem ele a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento (lacuna L-01). São dois campos porque `DATE` no GHL descarta a hora |
 
-## Etapa 3 — Tags (11)
+## Etapa 3 — Tags (11 + 1 sugerida)
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -109,6 +117,18 @@ Observações de tipo:
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
+
+### Sugerida por mim (1) — não crio sem seu ok
+
+| # | Tag | Função na máquina |
+|---|---|---|
+| T-12 | `atraso-1a-tentativa` | Alerta de speed-to-lead (R-02): aplicada pelo workflow da seção 2.11 do `build-wesales.md` quando o lead passa 1h em `Em cadência` sem a T1 disparar; filtra a lista 8.8 |
+
+T-12 não está na lista das 11 aprovadas em `APROVADO.md` — criação por API
+fica parada até você trocar `[ ]` por `[x]` numa linha própria para ela (o
+formato do arquivo já reserva espaço para isso: uma linha por tag/lote,
+como as 11 originais). Tag criada sem aprovação explícita quebraria a regra
+2 do briefing, mesmo sendo tecnicamente igual de simples que as outras 11.
 
 ## O que eu preciso de você para executar
 

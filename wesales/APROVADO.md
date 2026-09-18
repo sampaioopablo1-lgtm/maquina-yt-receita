@@ -32,6 +32,12 @@ melhor forma possível".*
       `ZZ TESTE ESTRUTURA` criado só para isso. O contato fica na subconta
       (a rotina nunca exclui) e pode ser arquivado por você depois.
 
+- [ ] Criar a 12ª tag, `atraso-1a-tentativa` — nasceu no R-02 (speed-to-lead)
+      desta rodada, especificada em `campos-e-tags.md` (T-12) e
+      `build-wesales.md` (seção 2.11). Não está coberta pela linha acima, que
+      lista as 11 originais por nome — por isso fica com linha própria em vez
+      de ganhar `[x]` automático.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

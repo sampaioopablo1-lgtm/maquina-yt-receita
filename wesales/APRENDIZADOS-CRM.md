@@ -54,3 +54,18 @@ limitação do conector.
   `AAAA-MM-DD HH:MM`, e manter o `DATE` só quando a granularidade de dia
   bastar (filtro de lista, vencimento de tarefa). Onde a hora importa, TEXT.
   A ação premium `Date/Time Formatter` do workflow monta a string.
+
+  **Consequência de segunda ordem, descoberta ao fechar o R-02:** um campo
+  `TEXT` guardando carimbo de tempo resolve a escrita, mas quebra a leitura —
+  lista inteligente não faz aritmética de data sobre campo `TEXT` ("mais de
+  1h atrás" não é filtro disponível). Filtro relativo de data só existe para
+  campo `DATE`, que é exatamente o tipo que a gente evitou por perder a hora.
+  Não tem os dois ao mesmo tempo: hora certa e filtro relativo nativo.
+
+  **Saída, generalizável para qualquer SLA em minutos/horas daqui pra
+  frente:** não filtrar — **marcar**. Um workflow curto (`Wait → Time Delay`
+  do tamanho do SLA, depois `If/Else` checando se o carimbo ainda está vazio)
+  aplica uma tag quando o prazo estoura. A lista inteligente filtra a tag, não
+  a data — zero aritmética, funciona com campo `TEXT`. É o desenho do
+  `Alerta de Speed-to-lead` (`build-wesales.md`, seção 2.11): o relógio mora
+  no workflow, a lista só lê a marca.
