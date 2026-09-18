@@ -88,7 +88,32 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 
 ## 1. Pipeline "Pré-vendas"
 
-Oportunidades → Configurações → Pipelines → Adicionar pipeline.
+**Migração de arquitetura, 18/09/2026 — leia antes de montar.** O plano
+original (e a recomendação da auditoria) era criar um pipeline novo,
+separado do `FUNIL DE VENDAS` pré-existente. O dono decidiu diferente, ao
+vivo em chat: reaproveitar o `FUNIL DE VENDAS` (`0Fo2xbeayE4EP6yuSUtq`) já
+existente, **trocando as 14 etapas dele pelas 7 abaixo**, em vez de criar
+um segundo pipeline. Verificado antes de aceitar: 0 oportunidades reais
+nesse pipeline (`opportunities_search-opportunity`, todos os status), nada
+de negócio se perde na troca. Autorização e detalhe completo:
+`APROVADO.md`. As 14 etapas antigas (nomes, cor, probabilidade de ganho)
+continuam registradas em `auditoria-resultado.md` se algum dia fizer
+sentido reconstruir aquele pipeline separado.
+
+**Consequência para todo o resto deste documento:** onde qualquer seção
+disser "Pipeline: `Pré-vendas`" dentro de um gatilho de workflow (seções
+2.1, 2.10, 2.12, 3, listas do 8, dashboard do 2.17), configure o nó
+apontando para o pipeline **`FUNIL DE VENDAS`** — é o mesmo objeto, só de
+nome diferente na tela. `Pré-vendas` continua sendo como este documento
+**chama** o processo e as 7 etapas — não é mais o nome de um pipeline
+separado no GHL.
+
+### O que fazer na tela
+
+Oportunidades → Configurações → Pipelines → abra **`FUNIL DE VENDAS`** →
+edite as etapas: renomeie/reordene as que aproveitar, apague as que
+sobram, adicione as que faltam, até a lista bater exatamente com a tabela
+abaixo, na mesma ordem.
 
 | Ordem | Etapa | Significado operacional | Prefixo de tarefa válido |
 |---|---|---|---|
@@ -104,6 +129,11 @@ Configurações do pipeline:
 - Visibilidade: apenas SDR + closer + gestor.
 - "Nome da oportunidade" = nome do contato (padrão).
 - Deixe a etapa **Novo lead** como entrada de qualquer importação/formulário.
+- Probabilidade de ganho por etapa: não repita a progressão linear
+  (6,67% em 6,67%) que o `FUNIL DE VENDAS` tinha antes — é o bug que a
+  auditoria encontrou de graça (`NÃO TEM INTERESSE` com 93% de chance de
+  ganho). Use uma curva que reflita a realidade — `Nutrição` mais baixa
+  que `Reunião agendada`, por exemplo, não mais alta.
 
 Por que 7 etapas e não 5: "Em cadência" precisa ser uma etapa própria porque
 **é ela que o portão de cada tentativa consulta**. Se o lead sai dela, a
@@ -117,13 +147,23 @@ Inside Sales (funil genérico de RD Station/Salesforce/Meetime — prospecção
 (Thiago Reis / Growth Machine — 4 etapas macro, preenchidas por 7 blocos
 operacionais cada). As duas referências descrevem o ciclo **completo** de
 venda, até o contrato assinado. O nosso `Pré-vendas` **não é o ciclo
-completo** — pesquisado e decidido na auditoria (`auditoria-resultado.md`):
-o `FUNIL DE VENDAS` pré-existente da subconta já cobre cotação, documentos e
-pagamento, e misturar os dois faria o portão da cadência disparar em lead
-que já está em processo de venda. Por isso o mapeamento abaixo para na
-etapa em que o SDR entrega para o closer — o resto do ciclo (demo de
-verdade, proposta, negociação, contrato) é o `FUNIL DE VENDAS`, de outro
-dono, fora do escopo deste documento.
+completo** — o mapeamento abaixo para na etapa em que o SDR entrega para o
+closer; o resto do ciclo (demo de verdade, proposta, negociação, contrato)
+é conversa e gestão do closer, fora do escopo deste documento.
+
+**Nota sobre o que mudou em 18/09/2026:** a auditoria original
+(`auditoria-resultado.md`) recomendava um pipeline **separado** do `FUNIL
+DE VENDAS`, justamente porque aquele já vinha com etapas de cotação,
+documentos e pagamento — misturar os dois faria o portão da cadência
+disparar em lead que já está em processo de venda. O dono decidiu
+diferente, ao vivo em chat (ver seção 1, "Migração de arquitetura"):
+reaproveitar o mesmo pipeline, trocando as 14 etapas pelas 7 daqui. Isso
+resolve o risco que a auditoria apontava (não sobra etapa de venda para o
+portão confundir, porque não sobra etapa de venda nenhuma), mas troca por
+outro: **a subconta fica sem pipeline para cotação/documentos/pagamento**
+até alguém recriar isso — como oportunidade real era zero, nada de negócio
+se perdeu, só o **template** de etapas (preservado em
+`auditoria-resultado.md` para reconstrução futura, se um dia fizer falta).
 
 | Framework de mercado | Nossa etapa correspondente | Por que a granularidade difere |
 |---|---|---|

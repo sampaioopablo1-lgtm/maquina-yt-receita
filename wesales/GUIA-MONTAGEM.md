@@ -13,7 +13,7 @@ documento não detalha.
 
 ## Visão geral das fases
 
-- [ ] **Fase 1 — Pipeline "Pré-vendas"** (7 etapas) — abaixo, pronta para seguir agora
+- [ ] **Fase 1 — Pipeline "Pré-vendas"** (editar as 14 etapas do `FUNIL DE VENDAS` para as 7 novas) — abaixo, pronta para seguir agora
 - [ ] **Fase 2 — Campos personalizados** (~24 campos)
 - [ ] **Fase 3 — Calendário do closer + formulário de qualificação**
 - [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
@@ -26,22 +26,54 @@ documento não detalha.
 
 ---
 
-## Fase 1 — Pipeline "Pré-vendas"
+## Fase 1 — Pipeline "Pré-vendas" (reaproveitando o `FUNIL DE VENDAS`)
+
+**Mudou em 18/09/2026:** não é mais criar um pipeline novo. O dono decidiu
+reaproveitar o `FUNIL DE VENDAS` que já existe, trocando as etapas dele
+pelas 7 daqui. Detalhe da decisão e por quê: `build-wesales.md`, seção 1
+("Migração de arquitetura") e `APROVADO.md`.
 
 ### Onde clicar
 
-No menu lateral da WeSales: **Oportunidades** → ícone de engrenagem
-**Configurações** (canto superior direito da tela de Oportunidades) →
-**Pipelines** → botão **Adicionar pipeline** (ou "+ Add Pipeline").
+No menu lateral esquerdo da WeSales: **Configurações** (ícone de
+engrenagem, fica perto do fim da lista, abaixo de "Reputação") →
+**Pipelines** (pode aparecer como "Funis" ou "Estágios de negócio",
+dependendo da tradução da tela) → abra **`FUNIL DE VENDAS`** → **Editar**.
 
-### O que preencher
+Você **não** está mexendo em Oportunidades → Funil (aquela tela só mostra
+os cartões); é em Configurações que se edita a lista de etapas em si.
 
-**Nome do pipeline:** `Pré-vendas`
+### O que existe hoje nesse pipeline (14 etapas) e o que fazer com cada uma
 
-**Etapas, nesta ordem exata** (clique em "Adicionar etapa" 7 vezes, uma
-para cada linha, respeitando a ordem — a ordem decide a posição na tela):
+| Etapa atual | O que fazer |
+|---|---|
+| `ENTROU EM CONTATO` | Renomear para `Novo lead` |
+| `RESPONDEU O PRIMEIRO CONTATO` | Renomear para `Em cadência` |
+| `NÃO RESPONDEU` | Renomear para `Conectado` |
+| `CONVERSA EM ANDAMENTO` | Renomear para `Retorno agendado` |
+| `EM FOLLOW UP` | Renomear para `Reunião agendada` |
+| `COTAÇÃO REALIZADA` | Renomear para `Nutrição` |
+| `DOCUMENTOS ENVIADOS` | Renomear para `Descartado` |
+| `PAGAMENTO FEITO` | **Excluir** |
+| `NÃO FECHOU PÓS COTAÇÃO` | **Excluir** |
+| `ATIVAR FOLLOW UP AUTOMATIZADO` | **Excluir** |
+| `Geladeira 30D` | **Excluir** |
+| `Geladeira 60D` | **Excluir** |
+| `Geladeira 90D` | **Excluir** |
+| `NÃO TEM INTERESSE` | **Excluir** |
 
-| Ordem | Nome da etapa (copie exatamente) |
+Renomear em vez de apagar-e-recriar preserva a posição (ordem) sem
+trabalho extra — é por isso que a tabela casa a 1ª etapa antiga com a 1ª
+etapa nova, a 2ª com a 2ª, e assim por diante, nas 7 primeiras. As 7
+últimas (que sobram) só se apagam depois de confirmar que estão mesmo
+sem oportunidade nenhuma dentro — confirmado por aqui, via
+`opportunities_search-opportunity`: **0 oportunidades no pipeline
+inteiro**, em qualquer status. Pode apagar sem medo de perder negócio
+real.
+
+**Ordem final esperada, de cima para baixo, depois da edição:**
+
+| Ordem | Etapa |
 |---|---|
 | 1 | `Novo lead` |
 | 2 | `Em cadência` |
@@ -51,45 +83,40 @@ para cada linha, respeitando a ordem — a ordem decide a posição na tela):
 | 6 | `Nutrição` |
 | 7 | `Descartado` |
 
-**Probabilidade de ganho por etapa:** não se preocupe em acertar um número
-"certo" aqui. Esse pipeline não tem etapa de "Ganho" — o fechamento de
-verdade acontece no `FUNIL DE VENDAS` que já existe na subconta, depois
-que o closer assume. Use uma progressão simples só para não deixar em
-branco (ex.: 5, 15, 30, 35, 50, 10, 0 — repare que `Nutrição` é mais baixa
-que `Reunião agendada`, não mais alta, porque nutrição é "ainda não",
-não "quase lá"). **Não copie o padrão do `FUNIL DE VENDAS` existente**: a
-auditoria já achou que ele tem uma progressão automática de 6,67% em linha
-reta que deixa "Não tem interesse" com 93% de chance de ganho — é um bug
-de configuração daquele pipeline, não um padrão a repetir aqui.
+### Probabilidade de ganho por etapa
 
-### Configurações do pipeline (mesma tela, ou em "Editar pipeline" depois)
+Enquanto edita, a tela deve pedir uma probabilidade de ganho (%) por
+etapa — **não deixe a progressão automática de 6,67% em 6,67% que estava
+lá antes** (é o bug que a auditoria achou: "NÃO TEM INTERESSE" tinha 93%
+de chance de ganho). Sugestão simples: 5 / 15 / 30 / 35 / 50 / 10 / 0 —
+repare que `Nutrição` é mais baixa que `Reunião agendada`, não mais alta
+(nutrição é "ainda não", não "quase lá").
+
+### Outras configurações do pipeline (mesma tela)
 
 - **Visibilidade:** restrinja a quem faz parte da operação (SDR, closer,
-  gestor) — não deixe visível para o restante da equipe da WeSales.
+  gestor).
 - **Nome da oportunidade:** deixe no padrão (nome do contato).
-- Confirme que **`Novo lead`** é a etapa marcada como entrada padrão para
-  qualquer formulário ou importação que crie oportunidade neste pipeline.
+- Confirme que **`Novo lead`** fica marcada como etapa de entrada para
+  qualquer formulário/importação nova.
 
 ### Por que estas 7 e não menos
 
-Se você (ou quem for montar) ficar tentado a simplificar para 4-5 etapas
-(o funil genérico de Inside Sales tem menos): **não simplifique**.
 `Em cadência` precisa ser uma etapa própria porque é ela que todo
 workflow da cadência consulta antes de disparar uma tentativa — sem essa
 etapa exata, o mecanismo de segurança da máquina inteira não tem o que
-checar. O raciocínio completo, etapa por etapa (objetivo, quando avança,
-o que a bloqueia, taxa esperada), está em `build-wesales.md`, seção 1.1 e
-1.2 — vale a leitura se quiser entender o "porquê" de cada uma antes de
-criar.
+checar. Raciocínio completo, etapa por etapa (objetivo, quando avança, o
+que bloqueia, taxa esperada): `build-wesales.md`, seções 1.1 e 1.2.
 
 ### Como saber que terminou certo
 
-- [ ] Pipeline `Pré-vendas` existe, com as 7 etapas na ordem acima
-- [ ] `FUNIL DE VENDAS` (o pipeline que já existia) **não foi tocado** —
-      confira que ele continua com as mesmas 14 etapas de antes
+- [ ] O pipeline (ainda chamado `FUNIL DE VENDAS` na tela, é o mesmo
+      objeto) tem exatamente 7 etapas, na ordem da tabela acima
+- [ ] Nenhuma das 7 antigas (cotação, documentos, pagamento, follow up,
+      geladeiras, não tem interesse) sobrou
 - [ ] Visibilidade restrita configurada
 
-Quando terminar esta fase, me avise (ou só siga para a próxima conversa) —
-eu confirmo lendo o pipeline pelo conector (`opportunities_get-pipelines`)
-e ensino a Fase 2 (campos personalizados) em seguida, com a lista pronta
-para copiar direto de `campos-e-tags.md`.
+Quando terminar esta fase, me avise — eu confirmo lendo o pipeline pelo
+conector (`opportunities_get-pipelines`) e ensino a Fase 2 (campos
+personalizados) em seguida, com a lista pronta para copiar direto de
+`campos-e-tags.md`.

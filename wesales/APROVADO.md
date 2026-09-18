@@ -26,6 +26,22 @@ melhor forma possível".*
 prompts, definidos até aqui. CRM fique mais completo possível" — autoriza as
 três tags que ainda estavam com linha própria abaixo (T-12/13/14).*
 
+*Terceira liberação, ao vivo em chat, 18/09/2026 — revoga uma restrição que
+estava na lista "Nunca autorizado" logo abaixo: perguntado se o `Pré-vendas`
+seria um pipeline novo ou o `FUNIL DE VENDAS` reaproveitado, o dono
+respondeu "(B) Quero usar o mesmo FUNIL DE VENDAS que já existe, só
+trocando as etapas dele pelas 7 que você passou — não quero um segundo
+pipeline". **A partir desta data, alterar as etapas do `FUNIL DE VENDAS`
+está autorizado** — a restrição foi removida da lista abaixo. Verificado
+antes de aceitar: `opportunities_search-opportunity` confirmou **0
+oportunidades** (`open`/`won`/`lost`/`abandoned`) nesse pipeline — nenhum
+dado de negócio real seria perdido na troca. As 14 etapas originais (nomes,
+cor, `originId`, probabilidade de ganho) continuam registradas em
+`auditoria-resultado.md`, seção 1, para o caso de alguém querer reconstruir
+esse pipeline de venda separado no futuro — a troca de etapas em si é
+manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
+`GET`), então nenhuma automação executa isto sozinha.
+
 ### Tags — criação por API
 
 - [x] Criar as 11 tags do projeto: `fila-quente`, `fila-tel`, `fila-wa`,
@@ -83,7 +99,9 @@ três tags que ainda estavam com linha própria abaixo (T-12/13/14).*
       `vrwdERfR24ax6GylG6No`, `qkHSdIMPJTB2JK5ECGrY`, `2MXzDPjxGjuvvsxlp5V1`),
       cada um com o cenário do checklist no campo `source`, sem telefone (nem
       real nem inválido — ainda falta o número da linha "Mensagens" abaixo)
-      e sem tag nem oportunidade: o pipeline `Pré-vendas` e os workflows que
+      e sem tag nem oportunidade: as etapas de `Pré-vendas` no `FUNIL DE
+      VENDAS` (decisão de 18/09/2026, ver "Autorizações" acima — o pipeline
+      passou a ser o mesmo, reaproveitado, não um novo) e os workflows que
       o checklist testa contra eles não existem ainda na tela (só saem
       manual). Rodar o checklist de verdade (seção 10 do `build-wesales.md`)
       exige voltar aqui depois da montagem manual — os 5 já estão prontos
@@ -94,8 +112,9 @@ três tags que ainda estavam com linha própria abaixo (T-12/13/14).*
 
 - [x] Mover oportunidades de etapa durante os testes do checklist
 
-      **Continua bloqueado — não é falta de permissão, é falta de pipeline:**
-      sem o `Pré-vendas` criado na tela (não sai por API), não existe etapa
+      **Continua bloqueado — não é falta de permissão, é falta de etapa na
+      tela:** até as 7 etapas de `Pré-vendas` substituírem as 14 atuais do
+      `FUNIL DE VENDAS` (manual, decisão de 18/09/2026 acima), não existe etapa
       para mover oportunidade nenhuma. Esta linha executa assim que o
       pipeline existir.
 
@@ -113,6 +132,5 @@ três tags que ainda estavam com linha própria abaixo (T-12/13/14).*
 Estas linhas existem para deixar explícito e não têm caixa para marcar:
 
 - Excluir contato, campo, tag, workflow, pipeline ou oportunidade
-- Alterar o pipeline `FUNIL DE VENDAS` existente
 - Escrever em qualquer subconta que não seja `1D53YTI9C7oIMBavcQxV`
 - Enviar mensagem para contato que não seja de teste
