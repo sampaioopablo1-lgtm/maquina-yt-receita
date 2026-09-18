@@ -107,6 +107,7 @@ Reentrada ligada duplica tentativas quando o lead volta para "Em cadência".
 | L-04 | `cad-inbound` / `cad-outbound` sem cadência inbound especificada | Inbound pede cadência mais curta e mais rápida (minutos, não dias) | Definir depois; a tag já separa |
 | L-05 | Volume: 10 leads/dia × 12 tentativas = ~120 tentativas/dia em regime, acima da meta de 100 | Com saída antecipada (~35% conectam ou saem antes), cai para ~78–90/dia | Para bater 100 ligações/dia com folga, a entrada precisa ser ~11–13 leads/dia |
 | L-06 | Não há campo de **origem/lista** do lead além das tags de cadência | Dificulta diagnosticar qual fonte converte | Opcional: `Origem do lead` (lista) |
+| L-07 | Não existe gatilho que promova `Novo lead` → `Em cadência` | Hoje é decisão manual do SDR ao revisar a fila; descoberta ao fechar o R-08 (reengajamento), que por isso move o lead reativado direto para `Em cadência` em vez de parar em `Novo lead` | Definir depois; se o volume crescer, um gatilho por tag (ex.: "telefone validado") resolve |
 
 ## Estado do acesso
 

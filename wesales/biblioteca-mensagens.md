@@ -38,6 +38,8 @@ fluxo correto:
 | `M3-v1` | WhatsApp | Cadência 12x30 — após T12, D30 17:45 | 18/09/2026 | Ativo |
 | `MI-0` | WhatsApp | Cadência Inbound — imediata, antes da TI1 (R-07) | 18/09/2026 | Ativo |
 | `MI-F` | WhatsApp | Cadência Inbound — handoff ao fim da TI5 (R-07) | 18/09/2026 | Ativo |
+| `RE-1` | WhatsApp | Reengajamento 90 dias — imediata, antes da TR1 (R-08) | 18/09/2026 | Ativo |
+| `RE-2` | WhatsApp | Reengajamento 90 dias — handoff ao fim da TR4 (R-08) | 18/09/2026 | Ativo |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -126,6 +128,39 @@ sai da máquina, entra na Cadência 12x30 pela ação `Add to Workflow`.
 
 `[Agendar com o closer]` é o Trigger Link da seção 2.9 do `build-wesales.md`,
 mesmo uso de `M2-v1`/`M3-v1`.
+
+## RE-1 — reabertura (Reengajamento 90 dias — R-08)
+
+Especificada em `build-wesales.md`, seção 2.12. Dispara no instante em que
+o lead reativado entra em `Em cadência` pela régua de reengajamento, 90
+dias depois de cair em `Nutrição`. Tom deliberadamente diferente de
+`M1-a`/`M1-b`: não é a primeira abordagem, é uma retomada — a mensagem
+reconhece o tempo passado em vez de fingir que é um primeiro contato, e
+pergunta se vale a pena retomar em vez de pedir permissão de ligar (essa
+pergunta já foi feita e respondida com silêncio da primeira vez).
+
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da
+> {{location.name}} de novo. Já faz um tempo que a gente não troca uma
+> ideia — como estão as coisas aí em captação de clientes? Vale a pena
+> retomar a conversa, ou ainda não é o momento?
+
+Sem `[Agendar com o closer]`, mesmo motivo de `M1-a`/`M1-b`/`MI-0`: é a
+mensagem que reabre o diálogo, um link ali compete com a pergunta.
+
+## RE-2 — handoff de volta para a nutrição (Reengajamento 90 dias — R-08)
+
+Especificada em `build-wesales.md`, seção 2.12, no fim da régua TR1-TR4.
+Dispara se as 4 tentativas de reengajamento terminam sem conexão — o lead
+não sai da máquina, volta para `Nutrição` e o próprio workflow de
+reengajamento dispara de novo dali a mais 90 dias, sozinho.
+
+> {{contact.first_name}}, não consegui falar com você dessa vez também.
+> Vou deixar quieto por mais um tempo e volto a tentar depois — se antes
+> disso quiser conversar, é só responder aqui ou usar o link:
+> [Agendar com o closer]
+
+`[Agendar com o closer]` é o Trigger Link da seção 2.9 do
+`build-wesales.md`, mesmo uso de `M2-v1`/`M3-v1`/`MI-F`.
 
 ## Como isso responde o "Pronto quando" do R-04
 

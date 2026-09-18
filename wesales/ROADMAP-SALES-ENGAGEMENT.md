@@ -187,12 +187,47 @@ para outbound e não têm régua nativa em minutos para lead entrante — é a
 lacuna que este item fecha usando só workflow nativo do GHL. Zero criação
 no CRM (nenhum campo ou tag nova): não depende de `APROVADO.md`.
 
-### R-08 · Reengajamento dos 90 dias
+### R-08 · Reengajamento dos 90 dias — **FEITO em 18/09/2026**
 **Por quê:** `nutricao-90d` marca a saída e nada traz de volta. Nutrição sem
 retorno é arquivo morto.
 **Como:** workflow que, aos 90 dias, devolve para `Novo lead` com tag
 `cad-outbound` e uma abertura diferente da primeira rodada.
 **Pronto quando:** o lead de hoje volta à fila em dezembro, sozinho.
+
+**Resumo:** workflow novo `Reengajamento 90 dias` especificado em
+`build-wesales.md` (seção 2.12) — dispara ao entrar em `Nutrição`, espera
+90 dias, troca `cad-inbound` por `cad-outbound` (a reativação é sempre
+outbound, mesmo para quem nasceu inbound — a origem histórica cede lugar
+ao roteamento correto, ver seção 2.12) e roda uma régua própria de 4
+tentativas em 10 dias (TR1-TR4), mais curta que a original de propósito:
+lead reciclado não merece a mesma intensidade de quem está chegando agora,
+é o padrão que a literatura de reengajamento já trata como piso. Sem
+resposta ao fim, volta para `Nutrição` sozinho e o próprio workflow
+dispara de novo 90 dias depois — o ciclo se repete indefinidamente, sem
+depender de ninguém abrir uma lista, o que nem Reev nem Meetime fazem
+nativamente (os dois tratam isso como relatório manual). Pesquisado e
+resolvido antes de montar: reaproveitar a Cadência 12x30 diretamente para
+a reativação esbarraria no `Allow Re-entry` desligado dela (D-06,
+`briefing-sdr.md`) — um workflow próprio, isolado, com sua própria
+configuração de reentrada, resolve sem tocar numa decisão já fechada.
+Tag nova `reengajamento-ativo` (T-13, `campos-e-tags.md`) blinda o
+gatilho da Cadência 12x30 (seção 2.1) contra entrada dupla de um lead
+reativado que nunca tinha passado por aquele workflow específico — a
+Cadência Inbound (seção 2.10) já fica de fora sozinha, porque o mesmo nó
+que soma `cad-outbound` também remove `cad-inbound`, e é isso que o
+filtro dela exige presente. Mensagens `RE-1`/`RE-2` novas em
+`biblioteca-mensagens.md`. Zero campo novo — reaproveita `Tentativa nº`,
+`Entrada em`, `1ª tentativa em`, `Prioridade` e `Template usado`, todos já
+existentes; a única criação pendente é a tag T-13, ainda `[ ]` em
+`APROVADO.md`. Nova lacuna registrada dentro da seção 2.12:
+**L-07 — promoção automática de `Novo lead` → `Em cadência`**, descoberta
+ao notar que "devolver para `Novo lead`" (como o roadmap pedia
+literalmente) deixaria o lead reativado parado para sempre, porque essa
+transição ainda não tem gatilho nenhum — o workflow deste item move direto
+para `Em cadência` para não herdar essa lacuna. Subconta reconfirmada
+nesta execução via `locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 0 contatos, só o
+`FUNIL DE VENDAS` pré-existente — nada mudou desde a auditoria.
 
 ### R-09 · Regras de pausa
 **Por quê:** cadência que dispara em feriado ou com o SDR de férias queima
@@ -345,9 +380,11 @@ chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
 hora investida. Só então as cadências vizinhas e a operação com mais gente.
 
 Com R-06 fechado em 18/09/2026, o bloco 2 (conteúdo) está completo. Com R-07
-fechado na mesma data, o bloco 3 ganha seu primeiro item: R-08
-(reengajamento dos 90 dias) é o próximo aberto que não depende de volume nem
-de ressalva do bloco 6.
+e R-08 fechados na mesma data, o bloco 3 (cadências vizinhas) segue com dois
+itens abertos: **R-09 (regras de pausa)** é o próximo — não depende de
+volume nem de ressalva do bloco 6, e evita que a régua de reengajamento
+recém-fechada (ou qualquer outra) dispare em feriado ou com o SDR de
+férias. R-10 (o bloco 4, mais de um SDR) segue depois dele.
 
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.

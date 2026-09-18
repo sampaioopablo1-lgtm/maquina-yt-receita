@@ -38,6 +38,11 @@ melhor forma possível".*
       lista as 11 originais por nome — por isso fica com linha própria em vez
       de ganhar `[x]` automático.
 
+- [ ] Criar a 13ª tag, `reengajamento-ativo` — nasceu no R-08
+      (reengajamento dos 90 dias) desta rodada, especificada em
+      `campos-e-tags.md` (T-13) e `build-wesales.md` (seção 2.12). Mesmo
+      motivo da linha acima: fora do lote das 11 originais, linha própria.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

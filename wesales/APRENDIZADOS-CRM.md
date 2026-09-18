@@ -11,7 +11,29 @@ reconferir o estado antes de mexer no roadmap: 0 campos personalizados, 0
 contatos, 1 pipeline (`FUNIL DE VENDAS`, o que já existia, não o
 `Pré-vendas` do projeto). Bate exatamente com `auditoria-resultado.md` —
 nada mudou na subconta desde a auditoria. Reconfirmado de novo ao fechar o
-R-07 (mesma rodada, mesmo resultado): estado inalterado.
+R-07 (mesma rodada, mesmo resultado) e outra vez ao fechar o R-08: estado
+inalterado nas três checagens.
+
+## `Allow Re-entry` bloqueia por workflow, não por evento — mesmo via `Add to Workflow`
+
+Pesquisado ao fechar o R-08 (reengajamento dos 90 dias), 18/09/2026, porque
+o primeiro desenho cogitado (devolver o lead reativado direto para a
+Cadência 12x30) esbarrava nisso sem eu ter percebido de início. `Allow
+Re-entry` desligado bloqueia um contato que **já passou por aquele
+workflow específico** de entrar de novo nele — para sempre, não só "no
+mesmo dia" ou "na mesma sessão do gatilho". A entrada `Add to Workflow`
+não reavalia o filtro do gatilho de destino (já registrado acima, no
+fechamento do R-07), **mas continua respeitando `Allow Re-entry`** — as
+duas coisas são independentes, e é fácil ler a primeira e assumir que ela
+cobre a segunda. Na prática: se um workflow tem `Allow Re-entry` desligado
+por um motivo legítimo (aqui, D-06 em `briefing-sdr.md` — evitar tentativa
+duplicada), **nenhum caminho nativo** (gatilho de novo, `Add to Workflow`,
+reentrada manual) devolve um contato que já passou por ele uma vez. Regra
+prática para qualquer item futuro que precise reciclar um lead por um
+workflow que ele já visitou: não tente reaproveitar aquele workflow — crie
+um novo, mesmo que pequeno, com sua própria configuração de reentrada.
+Foi a saída usada no R-08 (workflow `Reengajamento 90 dias`, isolado da
+Cadência 12x30).
 
 ## `Add to Workflow` não reavalia o filtro do gatilho de destino
 
