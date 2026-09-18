@@ -1293,3 +1293,98 @@ acompanhar.
 Seis conjuntos ACTIVE, 38 anúncios ACTIVE, segmentação dos seis conferida e limpa. A HARMONIZAÇÃO
 segue em **zero impressão hoje** e completa 48h às 17h59 — vai para a rodada de amanhã como
 NÃO TESTADO pela TRAVA 7.
+
+---
+
+# 📊 REVISÃO DE SEXTA — 18/09/2026, 18h BRT
+
+## A pergunta central: VOLUME ou CONVERSÃO?
+
+**Nem um nem outro. O funil não travou — ele está acima da projeção.** O gargalo mudou de lugar:
+hoje é **verba**, e verba é decisão do Pablo.
+
+## Os números da semana (11 a 17/09, o `last_7d` da Meta não inclui hoje)
+
+| Conjunto | Impressões | Cliques | CTR | Gasto | Leads | Custo por lead |
+|---|---|---|---|---|---|---|
+| INTERESSE | 5.756 | 141 | 2,45% | R$161,80 | **20** | R$8,09 |
+| CNAE | 1.166 | 23 | 1,97% | R$30,92 | **3** | R$10,31 |
+| HARMONIZAÇÃO | 5 | 0 | 0% | R$0,05 | 0 | — |
+| IMOBILIÁRIA | 53 | 0 | 0% | R$1,74 | 0 | — |
+| ADVOCACIA | 27 | 1 | 3,70% | R$0,96 | 0 | — |
+| CONTABILIDADE | 9 | 1 | 11,11% | R$0,39 | 0 | — |
+| **Semana** | **7.016** | **166** | **2,37%** | **R$193,86** | **23** | **R$8,43** |
+
+Hoje (18/09), fora da janela acima: **mais 2 leads** — um do INTERESSE e o primeiro do ADVOCACIA,
+a R$2,94.
+
+## Acumulado desde 09/09 (campanha LEADS I FORM I FS1)
+
+- Gasto: **R$271,15**
+- Leads: **32**
+- Custo por lead: **R$8,47**
+- Reuniões de diagnóstico (pessoas distintas): **7**
+- **Custo por reunião: R$38,74**
+
+## De onde veio cada reunião
+
+Andre 10/09, Jessica 11→14/09, Cristiano 12/09, Neid 14/09, Decoratta 14/09 (nicho excluído),
+Emiliano 16/09, Elton 21/09 (agendado). **As sete vieram do formulário do Meta.**
+
+O braço outbound (convite manual do Pablo no LinkedIn/Instagram) **não tem fonte de dado nesta
+conta** — o Prospect Halo foi descartado por decisão do Pablo em 17/09 e nada o substituiu. Então a
+frase honesta é: **100% das reuniões MEDIDAS vêm do inbound pago.** Não afirmo que o outbound não
+produziu nada; afirmo que ele não é medido, e que essa é a lacuna do relatório.
+
+**Por isso NÃO proponho cortar orçamento de nenhum braço.** Cortar o que não se mede é apostar, não
+decidir.
+
+## Contra a projeção de 08/09
+
+| Marco | Projetado | Real | Veredito |
+|---|---|---|---|
+| 7 dias | 0 a 2 reuniões | 4 | **acima** |
+| 15 dias | 3 a 6 reuniões | 7 no dia 10 | **acima, antes do prazo** |
+| 30 dias | 10 a 18 reuniões | — | no ritmo de ~21 |
+
+Em dez dias a conta entregou o que a projeção esperava em quinze.
+
+## O que mudou esta semana
+
+1. **A conta foi de 3 para 6 conjuntos** (harmonização em 16/09; imobiliária, advocacia e
+   contabilidade em 17/09), com 15 anúncios novos.
+2. **A verba caiu de R$30 para R$20/dia** em 17/09 8h52, mexida pelo próprio Pablo.
+3. **Achamos a origem do bug de segmentação**: o `enable_adset` do Windsor reinjetava a exclusão de
+   26 estados. Regra nova, nunca mais ligar conjunto por ali.
+4. **TRAVA 7 escrita na REGRA**: conjunto com menos de 500 impressões em 48h não é cortado, é
+   marcado NÃO TESTADO. Sem ela, a regra de corte teria matado quatro conjuntos por falta de verba,
+   não por desempenho.
+5. **A LISTA fria dobrou de tamanho**: nove varreduras hoje, a LISTA DE ATAQUE subiu de 17 para 28
+   anunciantes, Niterói virou o bairro prioritário de imobiliária (21 de 33 páginas Trilha A) e
+   veterinária saiu da fila.
+
+## O nó da semana, em uma frase
+
+**Seis conjuntos disputando R$20/dia.** A CBO deu 89% da entrega ao INTERESSE e ao CNAE; os quatro
+novos somaram 94 impressões em sete dias. Eles não foram reprovados — **não foram testados**.
+
+## O que o Pablo precisa decidir
+
+Só uma coisa, e é dele: **verba**. Três caminhos:
+
+1. **Voltar para R$30/dia ou mais** e deixar os seis rodarem. A advocacia já deu lead a R$2,94 com
+   menos de 24h — é a evidência mais barata que a conta produziu.
+2. **Manter R$20** e pausar conjuntos até sobrarem 2 ou 3, para que os que ficarem tenham entrega
+   real.
+3. **Manter como está** e aceitar que os quatro novos vão levar semanas para juntar dados.
+
+Enquanto ele não decide, não mexo: orçamento é trava inegociável.
+
+## Plano da semana que vem
+
+- Segunda: subir a LISTA ao Drive e mandar a versão anterior para a lixeira.
+- A rodada V3 de amanhã vai marcar HARMONIZAÇÃO como **NÃO TESTADO** (0 impressões em 48h) e os três
+  de nicho na segunda-feira.
+- Escrever variações curtas em forma de pergunta para o conjunto de ADVOCACIA, seguindo o padrão
+  que a varredura de hoje mostrou ser o que os escritórios que mais gastam usam.
+- Continuar a varredura em imobiliária e estética, que rendem mais por busca; veterinária está fora.
