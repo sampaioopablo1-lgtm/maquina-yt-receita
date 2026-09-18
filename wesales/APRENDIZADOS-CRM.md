@@ -2,6 +2,45 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Fase 2 (campos) começou fora de ordem, e 3 dos 24 campos não batem com a especificação — 18/09/2026 ~21h UTC
+
+Rodada anterior tinha reconfirmado "0 campos, 0 contatos" ao fechar o
+R-15 (mesma checagem repetida cinco vezes seguidas até ali, sempre igual).
+Esta rodada, a mesma chamada (`locations_get-custom-fields`) devolveu
+**24 campos**, todos com `dateAdded` entre 20:18 e 21:01 UTC de
+18/09/2026 — trabalho manual de verdade na tela, não coisa desta rotina
+(o conector `GHL CRM` não tem ferramenta de criar campo, ver seção
+"O que o conector cria e o que não cria" abaixo).
+
+**Regra prática, generalizável: nunca confie só na contagem depois de uma
+criação em lote manual — confira nome e tipo, campo a campo, contra
+`campos-e-tags.md`.** Rodei essa conferência linha a linha e achei três
+divergências que a contagem batendo (24 campos ≈ ~24 esperados) teria
+escondido:
+
+1. **Dois campos da tabela não existem**: C-03 (`WA não atendidas
+   seguidas`) e C-04 (`Permissão WhatsApp`) — o segundo é o campo mais
+   referenciado do projeto depois de `Tentativa nº`/`Resultado da
+   tentativa` (14+ pontos do `build-wesales.md`).
+2. **Um campo tem o tipo errado**: C-11 (`Conexões telefone`) foi criado
+   como `PHONE`, não `NUMERICAL` — quebra a ação `Math: + 1` que o
+   Pós-ligação precisa fazer nele.
+3. Uma opção de picklist com capitalização diferente da documentação
+   (`Caixa Postal` vs. `Caixa postal`) — cosmético, não bloqueia nada.
+
+Detalhe completo, com as fontes de pesquisa sobre "dá para editar o tipo
+de um campo depois de criado" (resposta: não, só apagar e recriar) e o
+checklist de correção: `GUIA-MONTAGEM.md`, seção "Fase 2 — Campos
+personalizados (verificação do que já foi criado)".
+
+**Por que isso importa além deste achado específico:** a Fase 1
+(pipeline) segue travada sem confirmação há mais de uma rodada (ver
+achado abaixo), e mesmo assim alguém já avançou para a Fase 2 por fora da
+ordem do `GUIA-MONTAGEM.md`. Regra prática: não assumir que as fases
+avançam em ordem só porque o guia sugere isso — reconferir o estado real
+da subconta inteira (pipeline **e** campos) a cada rodada, não só a peça
+que a rodada anterior estava tratando.
+
 ## O `FUNIL DE VENDAS` mudou de novo, e não para o desenho do projeto — 18/09/2026 ~20h UTC
 
 Rodada anterior fechou às 19:52 UTC com o `GUIA-MONTAGEM.md` recém-criado,

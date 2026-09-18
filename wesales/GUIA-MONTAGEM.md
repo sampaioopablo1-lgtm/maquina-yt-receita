@@ -14,7 +14,7 @@ documento não detalha.
 ## Visão geral das fases
 
 - [ ] **Fase 1 — Pipeline "Pré-vendas"** (editar as 14 etapas do `FUNIL DE VENDAS` para as 7 novas) — abaixo, pronta para seguir agora
-- [ ] **Fase 2 — Campos personalizados** (~24 campos)
+- [ ] **Fase 2 — Campos personalizados** (~24 campos) — em andamento fora de ordem, ver verificação abaixo: faltam 2, 1 com tipo errado
 - [ ] **Fase 3 — Calendário do closer + formulário de qualificação**
 - [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
 - [ ] **Fase 5 — Os ~14 workflows**, na ordem da seção "Ordem de montagem" do `build-wesales.md`
@@ -183,3 +183,92 @@ foi isto (hipótese 1, e falta terminar as 2 etapas que sobraram e
 corrigir os 4 nomes) ou se é outra coisa (hipótese 2, e a Fase 1 recomeça
 do zero). A rotina horária reconfere a cada execução futura e atualiza
 esta seção assim que o estado mudar de novo.
+
+**Reconferido nesta execução (18/09/2026, ~21h UTC): sem mudança.**
+`opportunities_get-pipelines` devolve o mesmo `dateUpdated` de 19:56 UTC e
+as mesmas 5 etapas da tabela acima — ninguém mexeu no pipeline desde a
+última rodada. As duas hipóteses seguem em aberto.
+
+---
+
+## Fase 2 — Campos personalizados (verificação do que já foi criado)
+
+**A Fase 1 acima segue sem checkbox marcado — pela ordem deste guia, a
+Fase 2 nem deveria ter começado.** Mesmo assim, esta execução encontrou
+**24 campos personalizados já criados na tela** via
+`locations_get-custom-fields` (nenhum existia até a rodada em que o R-15
+fechou, poucas horas atrás — todos com `dateAdded` entre 20:18 e 21:01
+UTC de 18/09/2026). Como o trabalho manual já avançou fora da ordem
+sugerida, esta seção registra o que foi conferido campo a campo contra
+`campos-e-tags.md`, não um passo a passo de criação.
+
+### O que bate com a especificação
+
+22 dos 24 campos existentes batem em nome e tipo com `campos-e-tags.md`:
+C-01, C-02, C-05 até C-24 (o intervalo pula C-03/C-04, ver abaixo), mais
+Q-02 (`Site`) e Q-03 (`Instagram`). As opções de todo campo
+`SINGLE_OPTIONS` conferido batem uma a uma com a tabela, com uma exceção
+só cosmética (última seção abaixo).
+
+### Dois campos que ainda faltam
+
+`campos-e-tags.md` lista 24 linhas em "Controle da cadência" (C-01 a
+C-24); só 22 dessas 24 estão na tela. Faltam:
+
+- **C-03 · `WA não atendidas seguidas`** (`NUMERICAL`) — o seletor de
+  canal (`build-wesales.md`, nós 0.2 e 3/4 do Pós-ligação, lista 8.1) lê e
+  grava este contador para decidir quando 2 ligações de WhatsApp seguidas
+  sem atender viram telefone (regra D-04 do `briefing-sdr.md`). Sem ele a
+  Fase 5 não tem onde gravar esse contador.
+- **C-04 · `Permissão WhatsApp`** (`SINGLE_OPTIONS`: Sim, Não, Não
+  solicitado) — é a condição mais referenciada do projeto depois de
+  `Tentativa nº`/`Resultado da tentativa`: aparece em pelo menos 14
+  pontos do `build-wesales.md` (seletor de canal, reset de rodada,
+  cadência inbound, reengajamento, mensagem MI-1, lista 8.1). A Fase 5
+  não pode nascer sem ele.
+
+### Um campo com o tipo errado
+
+**C-11 · `Conexões telefone`** foi criado como **`PHONE`**, não
+`NUMERICAL` (confirmado por `locations_get-custom-fields`:
+`"dataType": "PHONE"`, `fieldKey: contact.conexes_telefone`). O
+Pós-ligação (`build-wesales.md`, seção 4, ramo `Atendeu`, nó 1) grava
+nele com `Math: Conexões telefone + 1` — um campo `PHONE` não tem ação
+matemática de incremento, só guarda string de telefone formatada. Se a
+Fase 5 montar esse nó em cima do campo como está hoje, a ação não vai
+nem aparecer como opção válida na tela.
+
+**Pesquisado nesta execução:** a HighLevel não permite trocar o
+`dataType` de um campo depois de criado, em nenhuma tela — é apagar e
+recriar, não editar (fontes de busca, `help.gohighlevel.com` segue
+bloqueado pelo proxy deste ambiente, mesma limitação já registrada desde
+o R-09; confiança média, mas convergente em várias fontes independentes:
+`leadsflex.com`, `ghlbuilds.com`, `growthable.io`). **Isto não é uma
+exclusão que esta rotina vai fazer** — regra 1 do projeto proíbe excluir
+campo, e o conector `GHL CRM` desta sessão nem tem ferramenta de
+apagar/criar campo. É uma decisão para quem está montando manualmente:
+`contacts_get-contacts` confirma 0 contatos com esse campo preenchido
+nesta subconta (a base inteira tem 6 contatos, nenhum com `customFields`
+não vazio), então apagar e recriar como `NUMERICAL` não perde dado
+nenhum — mas confirme isso ao vivo antes de apagar, é o tipo de ação que
+a regra 2 do `briefing-sdr.md` pede para confirmar antes de fazer.
+
+### Diferença cosmética, não bloqueia nada
+
+A opção `Caixa Postal` de C-02 (`Resultado da tentativa`) foi criada com
+"P" maiúsculo; `build-wesales.md` escreve `Caixa postal` (minúsculo) em
+todas as menções. Não é um bug funcional: quem montar o workflow vai
+selecionar a opção que existe de verdade no dropdown da tela, não digitar
+o texto do documento — registrado só para quem for revisar o texto não
+estranhar a diferença de caixa.
+
+### Como saber que terminou certo
+
+- [ ] C-03 e C-04 criados
+- [ ] C-11 recriado como `NUMERICAL` (confirmar antes se apagar é
+      necessário ou se a tela oferece outro caminho)
+- [ ] `locations_get-custom-fields` relido confirma cada uma das 24
+      linhas de `campos-e-tags.md` mais Q-02/Q-03, nome e tipo batendo
+      um a um — não só a contagem total
+
+Só depois disso marque `[x]` na Fase 2 na visão geral acima.
