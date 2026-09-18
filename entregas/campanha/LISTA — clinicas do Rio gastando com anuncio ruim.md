@@ -4316,3 +4316,56 @@ nicho mais magro da lista.
 rodada, imobiliária e estética rendem mais por busca.
 
 Combos varridos até aqui: + veterinária Barra da Tijuca (nicho encerrado, não varrer em bairro novo).
+
+---
+
+## Pet shop — Niterói (varrido 18/09/2026) — o combo mais magro deu o MAIOR achado do arquivo
+
+Termo `banho e tosa Niterói`: só **6 anúncios**. Volume ridículo. E mesmo assim esta varredura
+produziu o recorde absoluto de tempo no ar de toda a LISTA.
+
+### 🏆 O RECORDE ABSOLUTO — DOIS ANOS E TRÊS MESES NO AR
+
+**Bicho D+ Veterinária e Pet Shop** — Trilha B — **no ar desde 01/06/2024**.
+
+Título: `Clínica Veterinária Bicho D+ em Niterói/RJ.` seguido de **`Converse conosco` repetido
+sete vezes**.
+
+Dois anos e três meses e meio. O recorde anterior do arquivo era Marcia Rianelli Advocacia, com
+onze meses. Este anúncio está no ar desde antes de metade das outras páginas desta lista terem
+começado a anunciar.
+
+O primeiro campo até está certo — nomeia o serviço e o bairro. Do segundo em diante, sete repetições
+do rótulo do botão. **É o melhor exemplo do arquivo inteiro para a abordagem**: dá para mandar o
+print e dizer só "isso está no ar desde junho de 2024". Não precisa explicar mais nada.
+
+### O segundo mais antigo
+
+**Hachiko Pet House** — Trilha B — título **completamente vazio**, no ar desde **22/07/2025**.
+Quatorze meses. Sozinho já seria o segundo caso mais antigo da lista.
+
+### Os outros
+
+**Pets de luxo** — Trilha B — `api.whatsapp.com`, desde **30/07/2026** (quase dois meses).
+Entra na LISTA DE ATAQUE — sobe para **29 anunciantes**.
+
+**Fino trato** — Trilha B — título vazio, desde 13/07/2026.
+
+**Tonton Pet Care** — `Agende um horário`. Genérico, mas sem defeito técnico. Prioridade baixa.
+
+**Spin Imóveis** — contaminação, é imobiliária. Descartado.
+
+### A lição da rodada
+
+**Volume de busca e qualidade de alvo não têm relação.** Seis anúncios no termo mais magro do dia
+produziram o caso de 2 anos e o de 14 meses — enquanto `recuperação judicial`, com 470 anúncios,
+rendeu três alvos comuns.
+
+**Regra nova: não descartar um combo por ter poucos anúncios.** Termo magro tende a devolver quem
+anuncia há muito tempo sem ninguém olhar, que é exatamente o perfil que a gente procura. O que
+descarta um combo é não ter página real (como Madureira em imobiliária), não ter pouco volume.
+
+Isso muda a leitura de veterinária, encerrada na rodada passada por ser "magra": o motivo correto do
+encerramento é que as páginas são redes grandes, não que o volume é baixo. Correção anotada.
+
+Combos varridos até aqui: + pet shop Niterói (termo magro, achado recorde).
