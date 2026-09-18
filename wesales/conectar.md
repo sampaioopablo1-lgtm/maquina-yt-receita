@@ -51,18 +51,35 @@ aparece uma vez. Se perder, cria outro; não tem problema.
 Subconta → **Settings → Business Profile**. É o código com letras e números.
 (Também aparece no meio da URL quando você está dentro da subconta.)
 
-### 3. Guardar os dois como variáveis de ambiente
+### 3. Guardar o token como variável de ambiente
 
-Nas configurações do ambiente do Claude Code (o mesmo lugar onde ficam as
-outras chaves do projeto), crie:
+**É uma variável só.** O Location ID da subconta (`1D53YTI9C7oIMBavcQxV`) já
+está escrito no `.mcp.json` — ele não é segredo, aparece na própria URL do CRM
+e não serve para nada sem o token.
+
+Claude Code na web → configurações do ambiente **Default**
+(`env_01XLCuqxSBLRaGuecJjSRtKC`) → variáveis de ambiente:
 
 ```
 WESALES_PIT=pit-...................
-WESALES_LOCATION_ID=..............
 ```
 
 **O token não entra no repositório.** O `.mcp.json` versionado referencia só o
 nome da variável.
+
+### Por que não dá para o Claude fazer este passo
+
+Só existem dois lugares onde o token poderia ficar, e nenhum está ao alcance
+de uma sessão:
+
+| Lugar | Por que não |
+|---|---|
+| Arquivo dentro do contêiner da sessão | O contêiner é descartado quando a sessão acaba, então não sobrevive até a sessão seguinte — que é justamente quem precisa dele. E o guarda de credenciais da sessão bloqueia a escrita, com razão |
+| `.mcp.json` com o token escrito | Funcionaria, e poria uma credencial viva no histórico do git, legível por qualquer um com acesso ao repositório e permanente mesmo depois de apagada. Não faço |
+| **Variáveis de ambiente** | É o único lugar que persiste entre sessões. Não existe ferramenta para escrever nele; é a interface do Claude Code na web |
+
+Some-se a isso: servidor MCP carrega no **início** da sessão. Mesmo que o token
+entrasse aqui, esta sessão continuaria sem enxergar o CRM.
 
 ### 4. Abrir uma conversa nova
 

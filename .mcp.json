@@ -5,7 +5,7 @@
       "url": "https://services.leadconnectorhq.com/mcp/",
       "headers": {
         "Authorization": "Bearer ${WESALES_PIT}",
-        "locationId": "${WESALES_LOCATION_ID}",
+        "locationId": "1D53YTI9C7oIMBavcQxV",
         "Version": "2021-07-28"
       }
     }
