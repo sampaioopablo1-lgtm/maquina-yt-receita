@@ -417,11 +417,41 @@ algum envio saiu fora da janela.
 **Pronto quando:** existe relatório que prova que ninguém foi incomodado
 indevidamente.
 
-### R-15 · Dashboard do gestor
+### R-15 · Dashboard do gestor — **FEITO em 18/09/2026**
 **Por quê:** todo o resto acima morre se depender de alguém abrir seis listas.
 **Como:** dashboard nativo com ligações/dia, conexões/dia, agendamentos,
 taxa por tentativa, fila em atraso.
 **Pronto quando:** o gestor abre uma tela e sabe se o dia foi bom.
+
+**Resumo:** dashboard `Painel do Gestor — Pré-vendas` especificado em
+`build-wesales.md` (seção 2.17) com quatro peças nativas: widget
+"Appointment Report" (agendamentos, lendo o calendário da seção 7.1),
+widget "Opportunities" (funil ao vivo do pipeline `Pré-vendas`, diferente
+dos totais mensais das listas 8.9-8.12), widget "Tasks" (proxy do volume
+de ligações do dia) e quatro Custom Metrics — `Estouro da Fila` (já do
+R-11) mais três novas: `Atrasos de Speed-to-lead`, `Taxa de Conexão —
+Telefone` e `Taxa de Conexão — WhatsApp`. Pesquisado antes de desenhar:
+Smart List não pode virar widget de Dashboard no GHL (pedido em aberto na
+base de ideias da HighLevel) — descarta pinar as listas 8.1-8.18 direto,
+o dashboard aponta para elas em vez de repeti-las; e Custom Metrics aceita
+`Sum`/`Min`/`Max`/`Average` sobre campo numérico, não só contagem de tag —
+achado que deixou os contadores do R-01 (C-09 a C-12) virarem métrica sem
+campo novo. Limite documentado na seção 2.17: os contadores do R-01 são
+cumulativos (nunca resetam, de propósito — mesma razão do R-01), então
+"ligações/dia" e "conexões/dia" **literais** não têm caminho nativo com os
+campos atuais; o dashboard entrega taxa de conexão acumulada (mesma
+granularidade da lista 8.6) e o volume de tarefas do dia como proxy, não a
+contagem exata por dia — a mesma classe de troca honesta que o R-11 já
+aceitou. Zero campo e zero tag novos: as três Custom Metrics novas
+reaproveitam C-09 a C-12 (R-01) e a tag `atraso-1a-tentativa` (T-12,
+R-02). Falta só a montagem manual na tela — dashboard e Custom Metrics não
+saem por API; Custom Metrics é recurso de plano pago (mesma cautela já
+registrada para o R-11), então os dois primeiros widgets (nativos,
+qualquer plano) sozinhos já cobrem metade do "Pronto quando" se o plano
+não incluir o recurso. Subconta reconfirmada nesta execução via
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 6 contatos, só o
+`FUNIL DE VENDAS` pré-existente — nada mudou desde a última rodada.
 
 ---
 
@@ -530,12 +560,13 @@ já tem tratamento antes do primeiro lead de verdade entrar: contato sem
 telefone nunca gasta as 12 tentativas, e o formato ruim mas presente tem
 plano desenhado assim que o recurso nativo estiver ligado.
 
-**R-15 (dashboard do gestor)** é o próximo do bloco 5: sem ele, todo o resto
-que blocos 1 a 4 e o R-13 já constroem morre atrás de seis listas que
-ninguém abre. R-14 (auditoria de compliance) segue depois dele, fora de
-ordem por decisão de conteúdo, não de posição: sobe para o topo no dia em
-que a operação começar a mandar mensagem de verdade. Antes disso, não há a
-quem incomodar.
+Com R-15 fechado em 18/09/2026, todo o resto que os blocos 1 a 4 e o R-13
+já constroem tem onde ser visto numa tela só, em vez de morrer atrás de
+seis listas que ninguém abre. **R-14 (auditoria de compliance)** é o único
+item que resta no bloco 5 e no roadmap inteiro fora do bloco 6 — fica fora
+de ordem por decisão de conteúdo, não de posição: sobe para o topo no dia
+em que a operação começar a mandar mensagem de verdade. Antes disso, não há
+a quem incomodar.
 
 F-01 e F-03 já saíram do bloco 6 fora da ordem normal, cada um na rodada em
 que foi feito: sinal ignorado e nota não calibrada são dívidas que não se

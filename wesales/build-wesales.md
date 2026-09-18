@@ -77,6 +77,12 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     Validation** só existe depois de o recurso estar ligado, e o portão
     0.0/0.0b dos passos 12/13 já cobre o caso mais comum (sem telefone
     nenhum) sem depender disso
+22. Dashboard "Painel do Gestor — Pré-vendas" e as Custom Metrics novas
+    (seção 2.17, R-15) — por último de todos: cada widget aponta para uma
+    peça já montada nos passos anteriores (calendário do passo 3, pipeline
+    do passo 2, métrica `Estouro da Fila` do passo 18, tarefas das
+    cadências dos passos 12/13); montar antes disso deixaria widget
+    apontando para nada
 
 ---
 
@@ -1376,6 +1382,126 @@ uma ligação nele, não só depois — a distância que separa o portão 0.0
 
 ---
 
+## 2.17 Dashboard do Gestor — R-15
+
+**Por quê (herdado do roadmap):** todo o resto que os blocos 1 a 5 constroem
+morre se depender de alguém abrir seis listas inteligentes por hora. O
+gestor precisa de uma tela só.
+
+Pesquisado antes de montar: Reev e Meetime embutem o dashboard no próprio
+produto porque são eles quem gera o dado (dialer próprio, sequência
+própria) — aqui o dado nasce nos campos e listas que este projeto já
+construiu (R-01, R-02, R-03, R-11), e a pergunta certa não é "criar um
+dashboard do zero", é "que tipo de widget nativo do GHL consegue ler o que
+já existe". Três achados decidiram o desenho:
+
+1. **Smart List não vira widget de Dashboard.** É pedido em aberto na base
+   de ideias pública da HighLevel ("Add option to put smart lists on
+   dashboards", sem previsão) — confirmado por busca, não por tentativa na
+   tela (a subconta ainda não tem pipeline nem workflow publicado para
+   gerar dado de verdade). Isso descarta de saída a ideia mais óbvia:
+   pinar as listas 8.1 a 8.18 direto numa tela. O dashboard não repete as
+   listas — aponta para elas.
+2. **Custom Metrics soma campo numérico, não só conta tag.** Achado que
+   muda o alcance deste item sobre o que o R-11 já tinha mapeado: o
+   Formula Editor de Custom Metrics aceita agregação **Soma/Mín/Máx/Média**
+   sobre campo `NUMERICAL`/`MONETARY`, além de "contagem de contatos com
+   tag" — então os contadores do R-01 (C-09 a C-12) viram métrica de
+   dashboard sem campo novo. Mesma cautela já registrada para o R-11: o
+   recurso Custom Metrics é de plano pago (referências de mercado
+   apontam a partir de planos $497+) — **confirme na tela antes de montar
+   os itens 3 e 4 abaixo**; sem ele, os itens 1 e 2 (nativos, qualquer
+   plano) já entregam metade do "Pronto quando".
+3. **Os contadores do R-01 são cumulativos, não diários.** C-09 a C-12
+   nunca zeram (é o desenho de propósito da seção 2.4/4 — um contador que
+   reseta por dia teria dois donos escrevendo o mesmo campo em horários
+   diferentes, o problema que este projeto evita desde o nó do contador de
+   WhatsApp). Consequência honesta: "ligações/dia" e "conexões/dia", como o
+   roadmap pede ao pé da letra, não saem de um `Sum` sobre esses campos —
+   isso dá o total acumulado desde sempre, não o de hoje. O "Como" do
+   roadmap vira o que a plataforma permite de verdade: taxa de conexão
+   **acumulada** (mesma granularidade que a lista 8.6 já usa) mais o
+   volume de **tarefas** do dia (evento com timestamp próprio, diferente
+   de um contador sem histórico) — ver item 3 e o Limite conhecido no
+   fim desta seção.
+
+### O desenho: quatro peças nativas, uma tela
+
+Reporting → Dashboards → **Novo dashboard** → nome `Painel do Gestor —
+Pré-vendas`.
+
+**1. Widget "Appointment Report"** (nativo, qualquer plano) — filtrado pelo
+calendário `Reunião com closer` (seção 7.1). Cobre "agendamentos" do
+"Como" do roadmap direto: booked, cancelado, no-show, taxa de
+comparecimento — sem depender de nenhum campo deste projeto, porque lê o
+agendamento em si.
+
+**2. Widget "Opportunities"** (nativo, qualquer plano) — funil ao vivo do
+pipeline `Pré-vendas`, por etapa, snapshot do momento em que o gestor abre
+a tela. Complementa, não repete, o funil mensal das listas 8.9 a 8.12
+(R-03): aquelas dizem "quantos entraram/conectaram/agendaram/compareceram
+**este mês**"; este widget diz "quantos estão em cada etapa **agora**" —
+perguntas diferentes, mesma fonte de dado.
+
+**3. Widget "Tasks"** (nativo, qualquer plano, criadas/concluídas/
+vencidas) — sem filtro por prefixo de título confirmado na tela (ver
+Limite conhecido), é a aproximação mais próxima que a plataforma nativa dá
+de "ligações/dia": toda tentativa da Cadência 12x30 e da Cadência Inbound
+cria uma tarefa `[CADENCIA]` (seções 2.4 e 2.10), então o volume de
+tarefas criadas/concluídas num dia é, no pior caso, um proxy do volume de
+ligações daquele dia — no melhor caso (se o filtro de título existir),
+o número exato.
+
+**4. Widgets de Custom Metrics** (plano pago — confirme antes de montar):
+
+| Métrica | Fórmula | O que cobre do "Como" do roadmap |
+|---|---|---|
+| `Estouro da Fila` (já existe, R-11 — seção 2.15) | `(Contagem de contatos com tag "fila-tel" OU "fila-wa") − 100` | Fila em atraso — capacidade |
+| `Atrasos de Speed-to-lead` (nova) | `Contagem de contatos com tag "atraso-1a-tentativa"` | Fila em atraso — SLA da 1ª tentativa (a mesma tag que a lista 8.8 já filtra) |
+| `Taxa de Conexão — Telefone` (nova) | `(Soma de "Conexões telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — telefone, acumulada |
+| `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
+
+Nenhuma das quatro é campo ou tag nova: as três novas reaproveitam C-09 a
+C-12 (R-01) e a tag `atraso-1a-tentativa` (T-12, R-02) — o mesmo
+raciocínio de "não duplicar o que o projeto já expõe" que fechou o R-10 e
+o R-13 em `campos-e-tags.md`. Se o plano da subconta não incluir Custom
+Metrics, as duas primeiras linhas continuam cobertas pela lista 8.16 e
+8.8 (sem entrar no dashboard) e as duas últimas pela lista 8.6 — o
+dashboard perde a tela única, não perde o dado.
+
+### Limite conhecido
+
+"Ligações/dia" e "conexões/dia" literais — a contagem de um dia
+específico, separada do total acumulado — não têm caminho nativo neste
+desenho, pela razão do achado 3 acima: os únicos contadores do projeto
+não têm timestamp por evento, só um valor corrente. Resolver isso de
+verdade pediria um campo por-dia resetado por um Scheduler, o mesmo tipo
+de contador-com-dois-donos que este documento evita desde a seção 2.4 —
+não vale o risco por uma métrica que o widget de Tasks já aproxima. Se o
+volume da operação um dia justificar o gasto, a saída correta é um
+sistema de telefonia com log de chamada nativo (LC Phone da própria
+HighLevel, ou um dialer de terceiro) alimentando o widget "Calls by
+outcome or user" que o Dashboard já suporta — fora do escopo deste item
+porque a operação hoje disca por fora do GHL.
+
+Nível de confiança médio para os três achados desta seção: vieram de
+busca (`ghlexperts.com`, `consultevo.com`, `help.gohighlevel.com` nos
+resultados de busca, ainda bloqueado por leitura direta pelo proxy deste
+ambiente — mesma limitação já registrada para R-09 a R-13), não de teste
+na tela. Confirme os nomes exatos dos widgets e a disponibilidade de
+"Sum" no Formula Editor antes de montar.
+
+**Pronto quando (do roadmap):** o gestor abre uma tela e sabe se o dia foi
+bom — cumprido pelos widgets 1 e 2 (sempre disponíveis) mais o volume de
+tarefas do widget 3; os widgets 4, se o plano cobrir, somam taxa de
+conexão e fila em atraso sem o gestor abrir lista nenhuma. O que fica de
+fora, documentado acima, é a contagem exata por dia — troca aceita pelo
+mesmo motivo que o R-11 aceitou o aviso em horário fixo em vez de alarme
+condicionado: a plataforma nativa não expõe o dado que a versão literal
+do roadmap pediria.
+
+---
+
 ## 3. Workflow "Mestre de saída"
 
 O guarda-costas da operação: garante que sair de "Em cadência" limpa tudo.
@@ -2348,6 +2474,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 29 | Monitor de Capacidade (R-11) | Com os 5 contatos de teste em `fila-tel`/`fila-wa` ao mesmo tempo, confira que a lista `Fila do Dia — Total` (8.16) soma os dois grupos sem duplicar ninguém; confirme se o plano da subconta expõe Custom Metrics e, se sim, que `Estouro da Fila` mostra `5 − 100` (negativo, dia normal); rode o Scheduler do "Monitor de Capacidade" manualmente (ou aguarde o horário) e confira que o Internal Notification chega ao gestor nos dois horários configurados | |
 | 30 | Handoff e no-show (R-12) | No Teste Atendeu já em `Reunião agendada`, reduza os Waits das seções 5.3/5.4 para minutos e marque o agendamento como `No Show`: `Nº de no-shows` vai a 1, o closer recebe o alerta imediato (nó 3 da 5.4), `fila-tel` é aplicada e a tarefa `[CADENCIA] NS1` nasce; confirme NS2/NS3 nascendo nos horários reduzidos e, sem resposta a nenhuma, `Template usado` = `NS-2`, `nutricao-90d` aplicada e etapa de volta a `Nutrição`. Não deixe passar as 2h reduzidas do nó 4 da 5.4 sem reagendar: confirme o Internal Notification de escalonamento ao gestor (nó 6). Repita o `No Show` uma segunda vez no mesmo contato (rodada manual): `Nº de no-shows` chega a 2, a oportunidade vai direto para `Descartado`, sem tarefa nova e sem alerta de SLA ao closer (nó 2 da 5.4 encerra sozinho). Por fim, num terceiro contato, marque `No Show` e reagende pelo link do calendário antes do fim da régua: confirme que nenhuma tarefa `NS2`/`NS3` nasce depois do reagendamento (nó 3 do Pós-agendamento removeu os dois workflows do R-12) e que marcar `Showed` depois zera `Nº de no-shows` (nó 3 da seção 5.2) | |
 | 31 | Higiene de base (R-13) | Antes de os 5 contatos de teste ganharem telefone, mova o Teste Não Atende para `Em cadência` sem preencher `Phone`: o nó 0.0 aplica `telefone-invalido`; como o contato não tem `Site` (Q-02) nem `Instagram` (Q-03) preenchidos — o caso normal de lead outbound, porque esses dois só se preenchem na qualificação —, a oportunidade vai direto para `Descartado` (se algum dos dois estiver preenchido, vai para `Nutrição` + `nutricao-90d` — confira o ramo certo para o cadastro que estiver testando) e nenhuma tarefa `[CADENCIA] T1` nasce; o gestor recebe o aviso do nó 0.0b. Repita com um lead `cad-inbound` para confirmar o mesmo comportamento no nó 0.0 da Cadência Inbound (seção 2.10). Se a seção 2.16 tiver sido montada, valide também: um contato com telefone claramente fixo dispara o gatilho `Number Validation` como `Landline` e `Permissão WhatsApp` vira `Não` sem o lead sair de cadência | |
+| 32 | Dashboard do Gestor (R-15) | Com pelo menos o Teste Atendeu em `Reunião agendada` e algum dos 5 em `Em cadência`, abra `Painel do Gestor — Pré-vendas`: o widget "Appointment Report" mostra o agendamento do calendário `Reunião com closer`; o widget "Opportunities" mostra o Teste Atendeu na etapa certa do funil ao vivo; o widget "Tasks" mostra a(s) tarefa(s) `[CADENCIA]` criada(s) hoje. Se o plano expuser Custom Metrics, confira as quatro métricas da seção 2.17 — `Estouro da Fila` negativo com só 5 contatos, `Atrasos de Speed-to-lead` em 0 (nenhum atrasou de propósito no teste), e as duas de `Taxa de Conexão` refletindo `Conexões telefone`/`Tentativas telefone` e o par de WhatsApp dos contatos de teste que já passaram por uma tentativa | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -2365,7 +2492,8 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 | Calendário | Lê | Cria e configura: seção 7.1 |
 | Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
 | Listas inteligentes | Não | Seção 8 |
-| Métrica personalizada (dashboard) | Não | Cria na tela: seção 2.15 (R-11) |
+| Métrica personalizada (dashboard) | Não | Cria na tela: seção 2.15 (R-11), seção 2.17 (R-15) |
 | Number Validation (ativação) | Não | Ativa na tela, Configurações → Telefone: seção 2.16 (R-13) |
+| Dashboard nativo | Não | Cria na tela: seção 2.17 (R-15) |
 | Conversation AI | Não | Seção 6 |
 | Concluir tarefa em massa | Sim | É a rotina da seção 5 do projeto |

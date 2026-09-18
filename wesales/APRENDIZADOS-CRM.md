@@ -50,7 +50,10 @@ escrita nova, porque este item só abriu um campo (`Nº de no-shows`, C-24) e
 nenhuma tag. Reconfirmado outra vez ao fechar o R-13 (rodada seguinte,
 mesma data): estado idêntico — este item não escreve no CRM (reaproveita a
 tag `telefone-invalido` já existente e o campo nativo `Phone`, zero campo e
-zero tag novos), então não havia nada para criar.
+zero tag novos), então não havia nada para criar. Reconfirmado mais uma vez
+ao fechar o R-15 (rodada seguinte, mesma data): estado idêntico — dashboard
+e Custom Metrics não saem por API, e o item reaproveita C-09 a C-12 (R-01)
+e `atraso-1a-tentativa` (T-12), zero campo e zero tag novos de novo.
 
 ## Pesquisa externa que valeu a pena guardar (R-13)
 
@@ -188,6 +191,32 @@ provável é o mesmo já resolvido antes (ver `rotina-horaria.md`): a rotina
 precisa nascer com `GHL-CRM` anexado. Não é falta de acesso à subconta — é
 falta do conector na sessão. Registre e siga com o item de backlog que não
 depende do CRM, como a instrução manda.
+
+- **Pesquisado ao fechar o R-15 (dashboard do gestor), 18/09/2026:** dois
+  achados que mudam o alcance de qualquer item futuro que precise de tela
+  agregada. **Custom Metrics aceita `Sum`/`Min`/`Max`/`Average` sobre campo
+  `NUMERICAL`/`MONETARY`**, não só "contagem de contatos com tag" (o único
+  uso que o R-11 tinha mapeado) — o Formula Editor mostra a agregação como
+  opção assim que o campo existe, sem configuração extra. Isso é o que
+  deixou os contadores do R-01 (`Tentativas telefone`, `Conexões telefone`
+  etc., C-09 a C-12) virarem métrica de dashboard sem campo novo — regra
+  prática, generalizável: qualquer contador numérico já existente no
+  projeto pode virar Custom Metric por soma, sem precisar duplicar o dado
+  em outro lugar. **Confirmado por ausência, não testado na tela:** Smart
+  List **não** pode ser adicionada como widget de Dashboard — é pedido em
+  aberto na base de ideias pública da HighLevel ("Add option to put smart
+  lists on dashboards", sem previsão). Regra prática, generalizável para
+  qualquer item futuro que precise "mostrar uma lista filtrada numa tela
+  de gestor": o dashboard nunca substitui a lista, só aponta para ela (link
+  ou nota, como o Monitor de Capacidade do R-11 já fazia) — não vale tempo
+  tentando encontrar o widget certo para embutir uma Smart List, porque
+  ele não existe. **Nível de confiança médio nos dois:** vieram de busca
+  (`ghlexperts.com`, `consultevo.com`, changelog e base de ideias da
+  HighLevel), não de teste na tela — `help.gohighlevel.com` segue
+  bloqueado pelo proxy deste ambiente para leitura direta, mesma limitação
+  registrada desde o R-09; confirme os nomes exatos dos widgets
+  ("Appointment Report", "Opportunities", "Tasks") antes de montar a seção
+  2.17 do `build-wesales.md`.
 
 ## O que o conector cria e o que não cria (reconfirmado)
 
