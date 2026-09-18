@@ -25,6 +25,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `APRENDIZADOS-CRM.md` | O que as execuções da rotina já descobriram sobre o conector e o GHL, para não redescobrir 24 vezes por dia |
 | `biblioteca-mensagens.md` | R-04 — textos das mensagens automáticas, versionados por código; fonte única, `build-wesales.md` só referencia |
 | `script-de-ligacao.md` | R-06 — o que o SDR fala numa ligação: abertura, perguntas de diagnóstico na ordem da régua de qualificação, ponte para o agendamento e as 8 objeções mais comuns |
+| `GUIA-MONTAGEM.md` | Passo a passo, fase por fase, para quem vai clicar na tela e montar o que o `build-wesales.md` especifica — pipeline, campos, calendário, workflows, listas |
 
 ## Estado do acesso (18/09/2026)
 
