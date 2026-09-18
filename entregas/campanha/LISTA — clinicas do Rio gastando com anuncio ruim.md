@@ -3406,3 +3406,58 @@ está errado.
    português de Portugal na praça do Rio.
 
 Combos varridos até aqui: + escola de idiomas Rio de Janeiro (termo por bairro não funciona neste nicho).
+
+---
+
+## Estúdio de tatuagem — Rio de Janeiro (varrido 18/09/2026, 03h BRT)
+
+Termo: `estúdio de tatuagem Rio de Janeiro`. 53 anúncios, **27 páginas distintas** — o maior número
+de páginas de qualquer varredura até agora, e **16 delas Trilha A**. Faz sentido: tatuador vende o
+próprio traço, então a página é o nome dele.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Tattoo Experience RJ | 852344041284961 | 3 anúncios, todos com título vazio | **20/10/2025** (11 meses) | B | [link](https://www.facebook.com/ads/library/?id=1781946795775357) |
+| arthousebangu | 558871087317289 | título vazio | **12/11/2025** (10 meses) | B | [link](https://www.facebook.com/ads/library/?id=1956205548283727) |
+| Studio Emellyn | 100379565957249 | nome da página + 3 campos vazios | **14/11/2025** (10 meses) | B | [link](https://www.facebook.com/ads/library/?id=1608534883467118) |
+| Arpô Tattoo | 380689051802271 | **"👉 Enviar mensagem (WhatsApp)"** — o rótulo do BOTÃO colado no lugar do título | 03/02/2026 | B | [link](https://www.facebook.com/ads/library/?id=1436671701200888) |
+| Camila Sol Castello | 295403277295190 | título vazio | 22/03/2026 | A | [link](https://www.facebook.com/ads/library/?id=2687800238268717) |
+| Rabiska Tattoo Portifolio | 104196074773124 | título vazio — e **"Portifolio"** escrito errado no nome da própria página | 10/06/2026 | B | [link](https://www.facebook.com/ads/library/?id=994830242912580) |
+| Leandro Andrade Tattoo | 629823736879099 | **8 anúncios simultâneos** com o mesmo "Clique e Fale comigo". Oito peças, zero variação | 12/06/2026 | A | [link](https://www.facebook.com/ads/library/?id=1025160646554407) |
+| Primore Tattoo & Piercing | 100792137970789 | 2 anúncios, títulos vazios | 09/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1484355926792388) |
+| Severo Tatto's | 582980565161144 | "últimas vagas para essa semana 🔥" sem dizer de quê — e **"Tatto's"**, com letra faltando e apóstrofo indevido, no nome da página | 06/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1047452420980972) |
+| João C. Mello Tattoo | 626930584621605 | **5 anúncios**: 4 com título vazio e 1 com o nome da página seguido de 7 campos vazios | 07/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1747414603210662) |
+| Estúdio Rosa Black | 604894972706267 | "Faça seu agendamento!" — genérico, serve para qualquer negócio | 19/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1427653639298322) |
+| yann.tattoo | 102516815106081 | título vazio | 02/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1379200907728247) |
+| IG San Tattoo | 1236485939546010 | 3 anúncios iguais, "Sua tattoo começa aqui." | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1423835726314431) |
+| **bellacavelinne** | 104327822308065 | título **"instagram.com"** | 15/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=960511240467417) |
+| ANA JULIA Botafogo • Tattoo | 100814048304577 | "Converse conosco" | 15/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1469072431776915) |
+| Letícia Sousa | 109580284206502 | 2 anúncios, "Chama a gente!" | 16/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=904724109141800) |
+| Rodrigo Patello | 721625634892502 | 2 anúncios, títulos vazios | 17/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1097658699296727) |
+
+Outros Trilha A com defeito menor, no mesmo lote: Gustavo Tattoo Studio ("AGENDE AGORA!" em caixa
+alta, 2 anúncios), MelB.tattoo ("Conversar no Messenger" — outro rótulo de botão virando título),
+Guilherme Tattoo (vazio), Franklucas.tattoo ("Tattoo de Anime", que pelo menos é específico),
+Josi Bissaro (vazio), furtadottt (vazio), leo_fuque_tattoo (vazio).
+
+### O domínio no título já apareceu 4 vezes — é padrão, não coincidência
+`api.whatsapp.com` (contabilidade), `fb.me` (intercâmbio), `sndflw.com` (concursos) e agora
+**`instagram.com`** (bellacavelinne). Some-se a isso duas variações irmãs encontradas hoje: o
+**rótulo do botão** virando título — "👉 Enviar mensagem (WhatsApp)" na Arpô e "Conversar no
+Messenger" na MelB. Todas têm a mesma causa: o anunciante impulsiona pelo celular, não preenche o
+campo de título, e a Meta preenche sozinha com o que tiver à mão.
+
+**Por que isso importa para a abordagem.** É o único defeito da lista que o dono entende em dois
+segundos, sem precisar de nenhuma explicação sobre tráfego. Basta mandar o print. Vale montar uma
+mensagem de abordagem só para esse caso e usá-la em todos os nichos.
+
+### Observação sobre o nicho
+Tatuagem tem a melhor proporção de Trilha A em volume absoluto (16 donos identificáveis num só
+termo), mas é o nicho de **menor ticket** de toda a lista. Antes de priorizar, vale o Pablo decidir
+se quer volume de conversa ou tamanho de contrato — são objetivos diferentes. Imobiliária e
+odontologia continuam melhores por valor; tatuagem ganha em quantidade de porta para bater.
+
+**Os três melhores alvos**: Tattoo Experience RJ (11 meses com título vazio), Leandro Andrade
+(8 anúncios idênticos, e é Trilha A) e bellacavelinne (o "instagram.com", Trilha A, no ar há 3 dias).
+
+Combos varridos até aqui: + estúdio de tatuagem Rio de Janeiro.

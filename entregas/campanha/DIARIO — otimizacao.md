@@ -1181,3 +1181,32 @@ as outras travas já fazem.
 - Frequência: 1,10 a 1,67 nos conjuntos com entrega. Longe do limite de 3.
 - Agenda: 7 pessoas distintas (ver a correção do "Elton - Pintor" na entrada anterior). Custo por reunião R$ 43,81.
 - Amanhã (18/09) não tem reunião de diagnóstico marcada. A próxima é Elton, 21/09 12h.
+
+---
+
+## 18/09 03h UTC (00h BRT) — número FECHADO de 17/09
+
+O dia virou no fuso da conta, então este é o número definitivo, não o do dia em aberto.
+
+| Conjunto | Imp. | Alcance | Freq. | CTR | CPM | Gasto | Leads | CPL |
+|---|---|---|---|---|---|---|---|---|
+| INTERESSE | 538 | 485 | 1,11 | 4,09% | R$33,83 | R$18,20 | 2 | R$9,10 |
+| CNAE | 54 | 50 | 1,08 | 3,70% | R$17,96 | R$0,97 | 0 | — |
+| IMOBILIÁRIA | 51 | 46 | 1,11 | 0,00% | R$33,73 | R$1,72 | 0 | — |
+| ADVOCACIA | 27 | 26 | 1,04 | 3,70% | R$35,56 | R$0,96 | 0 | — |
+| CONTABILIDADE | 9 | 8 | 1,13 | 11,11% | R$43,33 | R$0,39 | 0 | — |
+| **HARMONIZAÇÃO** | **0** | **0** | — | — | — | **R$0** | 0 | — |
+| **Conta** | **679** | | | | | **R$22,24** | **2** | **R$11,12** |
+
+**O que confirma o diagnóstico da rodada anterior.** O INTERESSE levou R$ 18,20 dos R$ 22,24 —
+**82% da verba**. Os cinco outros conjuntos juntos ficaram com R$ 4,04, e três deles não chegaram a
+60 impressões. O HARMONIZAÇÃO passou o dia inteiro com **zero entrega**, segundo dia seguido.
+
+**Relógio da C0.** HARMONIZAÇÃO (created 16/09 17h59) completa 48h hoje, 18/09 às 17h59 BRT. Chega
+lá com 5 impressões de histórico — muito abaixo do piso de 500 da TRAVA 7. Portanto, na rodada da
+REGRA V3 de hoje ao meio-dia UTC ele ainda terá menos de 48h; na de amanhã cairá como **NÃO TESTADO**
+e será poupado, com aviso ao Pablo. Está correto: não há o que julgar em 5 impressões.
+
+**CTR do INTERESSE em 4,09%** — o melhor dia da série (era 0,79% em 09/09). O criativo segue
+melhorando enquanto a entrega encolhe, que é exatamente o retrato de uma conta limitada por verba e
+não por qualidade.
