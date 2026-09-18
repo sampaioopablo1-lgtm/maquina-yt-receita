@@ -119,6 +119,15 @@ campo personalizado espelhando a mesma informação divergiria na primeira
 reatribuição feita direto na tela, o mesmo problema de "campo com dois
 donos" que este documento já evita desde C-01 a C-23.
 
+**R-13 (higiene de base) não abre campo nem tag nova.** O portão 0.0/0.0b
+das seções 2.3 e 2.10 e o workflow opcional da seção 2.16 (`build-wesales.md`)
+reaproveitam `telefone-invalido` (T-09, já existente) e o campo nativo
+`Phone` — o mesmo raciocínio de "não duplicar o que o GHL já expõe" do
+parágrafo do R-10 acima, agora aplicado a tag em vez de campo: a tag já
+significava "não dá para ligar nesse número", e cobrir "não tem número
+nenhum" com a mesma tag é extensão de significado, não invenção de um
+segundo estado.
+
 ### Qualificação — BANT + diagnóstico
 
 | # | Nome | Tipo | Opções |

@@ -375,13 +375,39 @@ desde a última rodada.
 
 ## Bloco 5 — Qualidade e confiança
 
-### R-13 · Higiene de base
+### R-13 · Higiene de base — **FEITO em 18/09/2026**
 **Por quê:** base suja infla métrica e queima SDR. A subconta bloqueia
 duplicata por e-mail e telefone, o que ajuda, mas não cobre número inválido
 nem lead sem telefone.
 **Como:** lista inteligente de contatos sem telefone válido; rotina de
 marcação, nunca de exclusão.
 **Pronto quando:** a fila do SDR não tem lead impossível de ligar.
+
+**Resumo:** portão novo (nó 0.0/0.0b, `build-wesales.md` seções 2.3 e 2.10)
+na entrada da Cadência 12x30 **e** da Cadência Inbound — contato sem
+telefone nunca chega a gastar as 12 tentativas: sai direto para `Nutrição`
+(com e-mail/Instagram) ou `Descartado`, com a mesma tag `telefone-invalido`
+(T-09) e o mesmo critério que o ramo reativo `Número errado` (seção 4) já
+usa — zero campo e zero tag novos. Pesquisado antes de desenhar: o portão
+por tentativa (nó 3, seção 2.4) já bloqueava telefone quando essa tag está
+presente, mas não bloqueava WhatsApp — e neste projeto WhatsApp também
+depende do número de telefone do contato (`briefing-sdr.md`), então um lead
+sem telefone nenhum passaria pela T1 inteira antes de qualquer verificação
+rodar; o novo portão resolve antes da primeira tentativa existir. Lista
+inteligente `Higiene — Sem Telefone Válido` criada (seção 8.18), juntando
+os dois jeitos de ficar "impossível de ligar" (nasceu sem número, ou foi
+invalidado depois) — a peça de marcação (nunca exclusão) que o "Como" do
+roadmap pedia. Peça complementar e opcional (seção 2.16): o recurso nativo
+**Number Validation** do GHL, que fecha o caso que o portão 0.0 não cobre —
+telefone presente mas com formato ruim ou linha desligada —, pesquisado e
+registrado com nível de confiança médio (documentação oficial bloqueada
+pelo proxy deste ambiente; achado só por busca) e desenhado para ser
+dispensável se o plano da subconta não expuser o recurso. Falta só a
+criação manual dos nós na tela (workflow não sai por API) — subconta
+reconfirmada nesta execução via `locations_get-custom-fields`/
+`contacts_get-contacts`/`opportunities_get-pipelines`: 0 campos, 6
+contatos, só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a última
+rodada.
 
 ### R-14 · Auditoria de compliance
 **Por quê:** `nao-perturbe` e DND são a linha entre prospecção e perseguição.
@@ -499,13 +525,17 @@ existir segundo SDR. Com R-11 fechado em 18/09/2026, o bloco 4 (operação com
 mais de um SDR) está completo — a fila que R-10 distribui agora também avisa
 quando estoura. Com R-12 fechado em 18/09/2026, o bloco 5 (qualidade e
 confiança) começou a andar: reunião agendada que não acontece já tem tratamento,
-do vazamento ao SLA do closer. **R-13 (higiene de base)** é o próximo: base
-suja infla métrica e queima SDR desde o primeiro lead, e não depende de
-volume nem de segundo SDR para valer a pena — mesmo raciocínio que já valeu
-para R-12.
+do vazamento ao SLA do closer. Com R-13 fechado em 18/09/2026, base suja
+já tem tratamento antes do primeiro lead de verdade entrar: contato sem
+telefone nunca gasta as 12 tentativas, e o formato ruim mas presente tem
+plano desenhado assim que o recurso nativo estiver ligado.
 
-R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
-verdade. Antes disso, não há a quem incomodar.
+**R-15 (dashboard do gestor)** é o próximo do bloco 5: sem ele, todo o resto
+que blocos 1 a 4 e o R-13 já constroem morre atrás de seis listas que
+ninguém abre. R-14 (auditoria de compliance) segue depois dele, fora de
+ordem por decisão de conteúdo, não de posição: sobe para o topo no dia em
+que a operação começar a mandar mensagem de verdade. Antes disso, não há a
+quem incomodar.
 
 F-01 e F-03 já saíram do bloco 6 fora da ordem normal, cada um na rodada em
 que foi feito: sinal ignorado e nota não calibrada são dívidas que não se

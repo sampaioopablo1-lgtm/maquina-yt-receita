@@ -47,7 +47,51 @@ Estado da subconta após esta rodada: 0 campos personalizados, 6 contatos
 só o pipeline `FUNIL DE VENDAS` pré-existente. Reconfirmado de novo ao
 fechar o R-12 (rodada seguinte, mesma data): estado idêntico — nenhuma
 escrita nova, porque este item só abriu um campo (`Nº de no-shows`, C-24) e
-nenhuma tag.
+nenhuma tag. Reconfirmado outra vez ao fechar o R-13 (rodada seguinte,
+mesma data): estado idêntico — este item não escreve no CRM (reaproveita a
+tag `telefone-invalido` já existente e o campo nativo `Phone`, zero campo e
+zero tag novos), então não havia nada para criar.
+
+## Pesquisa externa que valeu a pena guardar (R-13)
+
+**Number Validation é um recurso nativo de conta do GHL**, não uma
+integração de terceiro montada por fora: Configurações → Telefone expõe um
+toggle (agência, depois subconta) que liga uma checagem de
+operadora/formato/alcançabilidade por número, cobrada por checagem
+(referências de mercado citam a Veriphone como provedor por trás e um
+custo de ordem de US$0,005/validação — não confirmado na tela da WeSales, e
+o plano/trial da subconta pode nem expor o recurso, mesma cautela já
+registrada para o Custom Metrics do R-11). Uma vez ligado, existe um
+gatilho de workflow próprio, **Number Validation**, que dispara com o
+resultado da checagem (`Valid`/`Invalid`/`Landline` são os nomes vistos na
+busca) — dá para reagir automaticamente sem precisar que o SDR discar
+primeiro. **Nível de confiança médio:** só achado por busca
+(`consultevo.com`, `growthable.io`, `gohighlevele.com`) — `help.gohighlevel.com`
+segue bloqueado pelo proxy deste ambiente, mesma limitação já registrada
+para R-09 a R-12 —, então os nomes exatos dos status e a disponibilidade
+por plano **precisam ser confirmados na tela** antes de montar o workflow
+da seção 2.16. Registrado como item opcional/dispensável no `build-wesales.md`
+de propósito: a parte estrutural do R-13 (contato sem telefone nenhum)
+resolve só com `If/Else` nativo sobre o campo `Phone`, sem depender deste
+recurso pago nem da confirmação acima.
+
+**Achado que gerou a mudança de desenho mais importante deste item:** o
+portão por tentativa (nó 3, seção 2.4) já bloqueava telefone quando
+`telefone-invalido` está presente, mas nunca bloqueou WhatsApp por essa
+tag — porque o desenho original assumia que a tag só nascia depois de o
+SDR confirmar "número errado" numa ligação de verdade (ramo da seção 4),
+quando o lead já estava saindo de cadência de qualquer jeito. Ao desenhar
+uma verificação **proativa** (antes de qualquer tentativa), reaproveitar
+só o portão do nó 3 teria deixado a T1 inteira (mensagem + telefone +
+WhatsApp) disparar para um contato sem telefone nenhum, porque WhatsApp
+neste projeto também depende do número de telefone do contato
+(`briefing-sdr.md`, "A máquina") — não é um canal independente. Regra
+prática, generalizável para qualquer verificação futura que precise
+travar **antes** da primeira ação de um workflow: um portão dentro do
+bloco padrão de tentativa (nó 3) é tarde demais para isso — a verificação
+proativa precisa ser um nó novo na inicialização (nó 0), não uma condição
+a mais dentro de um portão que já existe para outro propósito (bloquear
+canal por canal, tentativa por tentativa).
 
 ## `contacts_get-contacts` (lista) atrasa em relação à escrita — não confie nele logo após criar em lote
 

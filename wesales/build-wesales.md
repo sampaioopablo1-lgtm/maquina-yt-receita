@@ -43,13 +43,15 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     pausa individual (R-09) desde a primeira montagem, não como retrofit.
     O nó 0 já leva o par 0.7/0.7b de distribuição de leads (R-10, seção
     2.14) desde o início — defina a lista de round robin no nó 0.7b mesmo
-    com um único SDR hoje
+    com um único SDR hoje — e o portão 0.0/0.0b de higiene de telefone
+    (R-13, seção 2.3) na frente de tudo, antes do 0.1
 13. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
-    Também já leva o nó 1.5 de pausa individual (R-09) desde o início e o
+    Também já leva o nó 1.5 de pausa individual (R-09) desde o início, o
     par 0.8/0.8b de distribuição de leads (R-10) apontando para a **mesma**
-    lista de round robin do nó 0.7b do passo 12
+    lista de round robin do nó 0.7b do passo 12, e o mesmo portão 0.0/0.0b
+    de higiene de telefone (R-13) do passo 12
 14. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
 15. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
@@ -60,14 +62,21 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     nó 2.5 incluído, e exige que o gatilho do passo 12 já tenha o filtro
     `reengajamento-ativo` ausente (R-08) — monte-o com o filtro desde o
     início se ainda não montou, não depois
-17. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16) e
-    `Recuperação de No-show` (8.17, R-12)
+17. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16),
+    `Recuperação de No-show` (8.17, R-12) e `Higiene — Sem Telefone Válido`
+    (8.18, R-13)
 18. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
     2.15) — depende da lista 8.16 do passo 17 já montada
 19. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
 20. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
     todos: o recurso só lista workflows **publicados**, então precisa dos
     passos 12, 13, 16 e 18 já publicados para aparecerem no seletor
+21. Ativar Number Validation (Configurações → Telefone, agência e depois
+    subconta) e montar o workflow "Higiene de Número — Validação Automática"
+    (seção 2.16, R-13) — opcional, por último de todos: o gatilho **Number
+    Validation** só existe depois de o recurso estar ligado, e o portão
+    0.0/0.0b dos passos 12/13 já cobre o caso mais comum (sem telefone
+    nenhum) sem depender disso
 
 ---
 
@@ -154,6 +163,8 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 
 | Nó | Ação | Configuração |
 |---|---|---|
+| 0.0 | If/Else (R-13) | Campo nativo `Phone` **está vazio** → ramo 0.0b. Senão → segue para 0.1 |
+| 0.0b | Ramo sem telefone | Add Contact Tag `telefone-invalido` → If/Else: `Site` **ou** `Instagram` preenchido → Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d`. Senão → Mover oportunidade → `Descartado` → Internal Notification para o gestor: `Lead sem telefone: {{contact.name}} — revisar a fonte da lista antes de qualquer tentativa` → **Remove from Workflow: este** |
 | 0.1 | Update Contact Field | `Tentativa nº` = 0 |
 | 0.2 | Update Contact Field | `WA não atendidas seguidas` = 0 |
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
@@ -162,6 +173,25 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (R-02 — carimbo de speed-to-lead) |
 | 0.7 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.7b. Senão → pula 0.7b (contato já tem dono; ver seção 2.14) |
 | 0.7b | Assign to User → modo `Round Robin` | Lista de SDRs ativos, configurada na tela do nó (seção 2.14) |
+
+**Por que o portão de higiene (0.0/0.0b) vem antes de qualquer outro nó, e
+não dentro do portão da tentativa (nó 3, seção 2.4) — R-13:** o bloqueio
+duplicidade da subconta (e-mail e telefone) não cobre o contato que nasce
+**sem** telefone nenhum — só duplicata. Sem o 0.0, esse lead entraria nas 12
+tentativas normalmente: as tentativas de telefone falhariam sempre, e as de
+WhatsApp também, porque WhatsApp neste projeto é sempre ligação/mensagem
+**pelo número de telefone** do contato (seção "A máquina",
+`briefing-sdr.md`) — sem número, os 3 canais falham, não só 1. O portão do
+nó 3 já bloqueia telefone quando `telefone-invalido` está presente, mas
+**não** bloqueia WhatsApp por essa tag — o desenho dele assume que
+`telefone-invalido` só nasce depois de uma ligação de verdade confirmar
+"número errado" (ramo da seção 4), quando o lead já está saindo de cadência
+de qualquer forma. Um portão dentro do nó 3 chegaria tarde: o lead ainda
+gastaria a T1 inteira (mensagem + telefone + WhatsApp do D1) antes de
+qualquer verificação rodar. O nó 0.0 resolve antes da primeira tentativa
+existir, reaproveitando a mesma tag (`telefone-invalido`, T-09) e o mesmo
+desenho de saída (e-mail/Instagram → `Nutrição`, senão → `Descartado`) que
+o ramo `Número errado` da seção 4 já usa — zero tag e zero campo novos.
 
 ### 2.4 O bloco padrão de uma tentativa (9 nós)
 
@@ -508,13 +538,18 @@ ligando à 1h da manhã, e forçar isso queimaria o lead em vez de convertê-lo.
 
 ### Nó 0 — inicialização (uma vez, ao entrar)
 
-Espelha 2.3, com duas diferenças próprias (linhas 0.5 e 0.7) e o mesmo par
+Espelha 2.3, com duas diferenças próprias (linhas 0.5 e 0.7), o mesmo par
 de distribuição de leads que 2.3 ganhou no R-10 (0.7/0.7b lá, 0.8/0.8b
 aqui — numeração diferente só porque cada bloco já tinha nós até um número
-distinto antes dele entrar):
+distinto antes dele entrar) e o mesmo portão de higiene de telefone do R-13
+(0.0/0.0b, idêntico ao de 2.3 — um formulário sem campo de telefone
+obrigatório é a fonte mais provável deste caso aqui, não menos provável que
+no outbound):
 
 | Nó | Ação | Configuração |
 |---|---|---|
+| 0.0 | If/Else (R-13) | Campo nativo `Phone` **está vazio** → ramo 0.0b. Senão → segue para 0.1 |
+| 0.0b | Ramo sem telefone | Add Contact Tag `telefone-invalido` → If/Else: `Site` **ou** `Instagram` preenchido → Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d`. Senão → Mover oportunidade → `Descartado` → Internal Notification para o gestor: `Lead inbound sem telefone: {{contact.name}} — revisar o formulário de origem` → **Remove from Workflow: este** |
 | 0.1 | Update Contact Field | `Tentativa nº` = 0 |
 | 0.2 | Update Contact Field | `WA não atendidas seguidas` = 0 |
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
@@ -1236,6 +1271,108 @@ permite construir.
 desistir dela — cumprido pelo hábito de olhar 2x/dia mais o alarme
 embutido na métrica, não por detecção automática de limite (a plataforma
 não expõe o dado que isso exigiria).
+
+---
+
+## 2.16 Higiene de Número — Validação Automática (opcional) — R-13
+
+O portão 0.0/0.0b (seções 2.3 e 2.10) resolve o caso mais barato e mais
+comum: contato sem telefone nenhum. Não resolve o outro caso que o roadmap
+descreve ("número inválido") — um telefone **presente**, mas com formato
+quebrado, DDD inexistente ou linha desligada, que só se descobre hoje
+depois de o SDR discar de verdade e marcar `Número errado` (ramo da seção
+4). Pesquisado antes de desenhar: o GHL tem um recurso nativo de conta,
+separado de qualquer workflow — **Number Validation** (Configurações →
+Telefone, habilitado por agência e depois por subconta) — que roda uma
+checagem de operadora/formato/alcançabilidade num serviço de inteligência
+de número (a documentação de terceiros cita Veriphone como provedor) a um
+custo por checagem (referências de mercado apontam ~US$0,005/validação) e
+expõe um gatilho de workflow próprio, **Number Validation**, que dispara
+com o resultado (`Valid`, `Invalid`, `Landline`, entre outros status,
+conforme a versão do produto). É o mesmo tipo de "verificação de número"
+que Reev e Meetime deixam para integração de terceiro (ex.: serviços de
+verificação de telefone cobrados à parte) — aqui sai nativo, sem sair do
+GHL.
+
+**Por que isto é item separado, e não parte do portão 0.0 acima:** o
+portão 0.0 é `If/Else` sobre o campo `Phone` — nativo, gratuito, sem
+depender de nenhuma configuração de conta. Este workflow depende de um
+recurso pago e de uma ativação manual que pode não estar disponível no
+plano/trial da subconta (mesma cautela já registrada para o Custom Metrics
+do R-11) — por isso não é pré-requisito do R-13, é o complemento que fecha
+a lacuna que o portão 0.0 deixa aberta (telefone presente, mas ruim).
+
+### Ativação (manual, na tela — não sai por API)
+
+Configurações → Telefone → **Number Validation** → ativar na agência e,
+depois, na subconta `1D53YTI9C7oIMBavcQxV`. **Confirme o custo por
+validação e se o plano da WeSales cobre o recurso antes de ligar** — sem
+isso, este item para aqui e o portão 0.0 continua sendo a única defesa,
+o que já cumpre a parte estrutural do "Pronto quando" do roadmap.
+
+### Gatilho
+
+**Number Validation** — contato, sem filtro de pipeline (roda também para
+quem já saiu de `Em cadência`, porque um número pode ser invalidado a
+qualquer momento do ciclo de vida do contato, não só na entrada).
+
+### Configurações
+
+| Configuração | Valor | Por quê |
+|---|---|---|
+| Allow Re-entry | Ligado | O mesmo contato pode ser revalidado mais de uma vez (nova importação, correção manual do número) |
+| Janela de envio | Sem janela | Marcação interna, não manda mensagem |
+
+### Nós
+
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | If/Else | Status da validação **é** `Invalid` → ramo A. Senão → nó 2 |
+| 2 | If/Else | Status da validação **é** `Landline` → ramo B. Senão → encerra (`Valid`/celular: nada a fazer) |
+
+#### Ramo A — `Invalid`
+
+| # | Ação |
+|---|---|
+| 1 | Add Contact Tag `telefone-invalido` |
+| 2 | If/Else: etapa da oportunidade **é uma de** `Novo lead`, `Em cadência`, `Retorno agendado` → segue. Senão (já `Conectado`, `Reunião agendada`, `Nutrição` ou `Descartado`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
+| 3 | (só se o nó 2 seguiu) If/Else: `Site` ou `Instagram` preenchido → Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d`. Senão → Mover oportunidade → `Descartado` |
+| 4 | Internal Notification para o gestor: `Telefone inválido (validação automática): {{contact.name}} — revisar a fonte da lista` |
+
+Mesmo desenho de saída do nó 0.0b e do ramo `Número errado` da seção 4 —
+mesma tag, mesmo critério de Nutrição vs. Descartado. Mover a etapa aciona
+o Mestre de saída (seção 3) sozinho: nenhuma limpeza extra precisa ser
+escrita aqui.
+
+#### Ramo B — `Landline`
+
+| # | Ação |
+|---|---|
+| 1 | If/Else: `Permissão WhatsApp` está vazio ou `Não solicitado` → Update Contact Field `Permissão WhatsApp` = `Não`. Senão → encerra |
+
+Linha fixa não recebe WhatsApp (nem mensagem, nem ligação por WhatsApp) —
+diferente de `Invalid`, o número **funciona**, então o lead não sai de
+cadência nem ganha `telefone-invalido`; só deixa de queimar uma tentativa
+de WhatsApp que nunca teria chance de conectar. O seletor de canal (nó 4 da
+seção 2.4) já lê `Permissão WhatsApp` — este nó só adianta uma resposta que
+o lead nunca daria sozinho.
+
+### Limite conhecido
+
+Nível de confiança médio: a existência do gatilho **Number Validation** e
+dos status citados veio de busca (blogs especializados em GHL, não da
+documentação oficial — `help.gohighlevel.com` segue bloqueado pelo proxy
+deste ambiente, mesma limitação já registrada para R-09/R-10/R-11/R-12);
+os nomes exatos dos status e se `Landline` existe como valor distinto de
+`Invalid` **precisam ser confirmados na tela** antes de montar os nós 1/2.
+Se o recurso não existir no plano da subconta, ou se o custo por validação
+não for aprovado, este item fica em espera indefinida sem prejudicar o
+resto do R-13 — é desenhado para ser dispensável, não para ser bloqueante.
+
+**Pronto quando (parte do roadmap que só este item fecha):** um telefone
+com formato ruim ou linha desligada é sinalizado **antes** do SDR gastar
+uma ligação nele, não só depois — a distância que separa o portão 0.0
+(cobre "não tem telefone") de fechar também "tem telefone, mas é ruim".
 
 ---
 
@@ -2074,6 +2211,24 @@ continua `Reunião agendada`, de propósito (seção 5.3, "por que fica em
 Reunião agendada"): esta lista é a única visão de quem está na régua NS1-NS3,
 igual a 8.14 já ser a única visão de quem está na régua TR1-TR4.
 
+### 8.18 `Higiene — Sem Telefone Válido` — R-13
+| Item | Configuração |
+|---|---|
+| Filtros | Campo nativo `Phone` **vazio** **OU** tag `telefone-invalido` presente |
+| Colunas | Nome · Empresa · E-mail · `Site` · `Instagram` · Etapa da oportunidade · Data de criação |
+| Ordenação | Data de criação asc (quem está parado há mais tempo aparece primeiro) |
+
+A visão que fecha o "Como" do roadmap ("lista inteligente de contatos sem
+telefone válido"): junta os dois jeitos de um contato virar "impossível de
+ligar" neste projeto — nasceu sem telefone (portão 0.0/0.0b, seções 2.3 e
+2.10) ou teve o número invalidado durante uma ligação de verdade (ramo
+`Número errado`, seção 4) ou por validação automática (seção 2.16, se
+ativada). É rotina de **marcação**, não de exclusão — a regra 1 do projeto
+não muda: ninguém aqui é apagado, só sinalizado para alguém corrigir a
+fonte da lista ou completar o cadastro manualmente. Ordenar pelo mais
+antigo é o mesmo raciocínio já usado em 8.8 e 8.15: quem está represado há
+mais tempo é quem mais precisa de alguém decidir.
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -2192,6 +2347,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `Em cadência` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
 | 29 | Monitor de Capacidade (R-11) | Com os 5 contatos de teste em `fila-tel`/`fila-wa` ao mesmo tempo, confira que a lista `Fila do Dia — Total` (8.16) soma os dois grupos sem duplicar ninguém; confirme se o plano da subconta expõe Custom Metrics e, se sim, que `Estouro da Fila` mostra `5 − 100` (negativo, dia normal); rode o Scheduler do "Monitor de Capacidade" manualmente (ou aguarde o horário) e confira que o Internal Notification chega ao gestor nos dois horários configurados | |
 | 30 | Handoff e no-show (R-12) | No Teste Atendeu já em `Reunião agendada`, reduza os Waits das seções 5.3/5.4 para minutos e marque o agendamento como `No Show`: `Nº de no-shows` vai a 1, o closer recebe o alerta imediato (nó 3 da 5.4), `fila-tel` é aplicada e a tarefa `[CADENCIA] NS1` nasce; confirme NS2/NS3 nascendo nos horários reduzidos e, sem resposta a nenhuma, `Template usado` = `NS-2`, `nutricao-90d` aplicada e etapa de volta a `Nutrição`. Não deixe passar as 2h reduzidas do nó 4 da 5.4 sem reagendar: confirme o Internal Notification de escalonamento ao gestor (nó 6). Repita o `No Show` uma segunda vez no mesmo contato (rodada manual): `Nº de no-shows` chega a 2, a oportunidade vai direto para `Descartado`, sem tarefa nova e sem alerta de SLA ao closer (nó 2 da 5.4 encerra sozinho). Por fim, num terceiro contato, marque `No Show` e reagende pelo link do calendário antes do fim da régua: confirme que nenhuma tarefa `NS2`/`NS3` nasce depois do reagendamento (nó 3 do Pós-agendamento removeu os dois workflows do R-12) e que marcar `Showed` depois zera `Nº de no-shows` (nó 3 da seção 5.2) | |
+| 31 | Higiene de base (R-13) | Antes de os 5 contatos de teste ganharem telefone, mova o Teste Não Atende para `Em cadência` sem preencher `Phone`: o nó 0.0 aplica `telefone-invalido`; como o contato não tem e-mail nem Instagram preenchidos, a oportunidade vai direto para `Descartado` (se algum dos dois estiver preenchido, vai para `Nutrição` + `nutricao-90d` — confira o ramo certo para o cadastro que estiver testando) e nenhuma tarefa `[CADENCIA] T1` nasce; o gestor recebe o aviso do nó 0.0b. Repita com um lead `cad-inbound` para confirmar o mesmo comportamento no nó 0.0 da Cadência Inbound (seção 2.10). Se a seção 2.16 tiver sido montada, valide também: um contato com telefone claramente fixo dispara o gatilho `Number Validation` como `Landline` e `Permissão WhatsApp` vira `Não` sem o lead sair de cadência | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -2210,5 +2366,6 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 | Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
 | Listas inteligentes | Não | Seção 8 |
 | Métrica personalizada (dashboard) | Não | Cria na tela: seção 2.15 (R-11) |
+| Number Validation (ativação) | Não | Ativa na tela, Configurações → Telefone: seção 2.16 (R-13) |
 | Conversation AI | Não | Seção 6 |
 | Concluir tarefa em massa | Sim | É a rotina da seção 5 do projeto |
