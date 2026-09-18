@@ -24,12 +24,14 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 5. Workflow "Mestre de saída" (seção 3)
 6. Workflow "Pós-ligação" (seção 4)
 7. Workflow "Pós-agendamento" (seção 5)
-8. Workflow "Qualificação por IA no WhatsApp" (seção 6)
-9. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
-   porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3
-10. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-11. Listas inteligentes (seção 8)
-12. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+8. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
+   no passo 1
+9. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+10. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
+    porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3
+11. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+12. Listas inteligentes (seção 8)
+13. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
 
 ---
 
@@ -483,6 +485,63 @@ Histórico: {{contact.total_de_ligacoes}} ligações, {{contact.total_de_conexoe
 
 ---
 
+## 5.1 Workflow "Loop do closer — veredito pós-reunião" — F-03
+
+A seção 5 fecha o que o SDR controla: agendou, o closer recebeu a nota e o
+resumo. O que o SDR **nunca** descobre é se agendou bem — e sem isso a nota de
+qualificação da seção 9 é uma opinião que ninguém conferiu. Reev, Meetime,
+Outreach e Salesloft fecham esse loop do mesmo jeito: um campo de resultado da
+reunião que alimenta um relatório agregado, olhado semana ou mês depois. Aqui
+o preenchimento do closer **é** o gatilho: o workflow compara a nota que o SDR
+(ou a IA) deu com o veredito do closer no instante em que ele é registrado, e
+só interrompe o gestor quando os dois discordam. Um concorrente olhando a tela
+vê "o closer marca um select"; não vê que aquele clique dispara uma
+comparação imediata, não um relatório do mês seguinte.
+
+### Gatilho
+**Contact Changed** com filtro `Reunião foi qualificada` foi alterado.
+(Sem filtro de campo alterado na sua versão: mesma saída da seção 4 —
+Contact Tag Added `veredito-registrado`, aplicada pelo closer junto com o
+campo.)
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | O closer pode corrigir o veredito depois; cada alteração reavalia |
+| Janela de envio | Sem janela | É registro e alerta interno, não mensagem ao lead |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Portão | If/Else | `Reunião foi qualificada` está vazio → **encerra** (evita disparo por outra edição de campo que não seja o veredito) |
+| 2 | Carimbo | Update Contact Field | `Data do veredito do closer` = `{{right_now}}` |
+| 3 | Registro | Add Note | `Veredito do closer: {{contact.reuniao_foi_qualificada}} · motivo: {{contact.motivo_da_desqualificacao}} · nota do SDR/IA na hora: {{contact.nota_de_qualificacao}}` |
+| 4 | Roteamento | If/Else múltiplo por `Reunião foi qualificada` | ver ramos abaixo |
+| 5 | **Alerta de calibração (alta)** | If/Else | `Nota de qualificação` ≥ 70 **E** `Reunião foi qualificada` = `Não` → Internal Notification ao gestor: `Nota {{contact.nota_de_qualificacao}} mas o closer marcou Não ({{contact.motivo_da_desqualificacao}}) — revisar a régua da seção 9 com {{contact.name}}.` |
+| 6 | **Alerta de calibração (baixa)** | If/Else | `Nota de qualificação` < 45 **E** `Reunião foi qualificada` = `Sim` → Internal Notification ao gestor: `Nota baixa ({{contact.nota_de_qualificacao}}) mas o closer marcou Sim — a régua pode estar descartando lead bom. Revisar {{contact.name}}.` |
+
+Os cortes 70 e 45 dos nós 5 e 6 não são novos: são as mesmas fronteiras das
+faixas A/B da seção 9.1. Reaproveitar evita uma segunda régua para a régua.
+
+#### Ramos do nó 4
+| Veredito | Ação |
+|---|---|
+| `Sim` | Nenhuma mudança de etapa. A venda continua no `FUNIL DE VENDAS`, fora deste pipeline e fora desta automação — não é este workflow que move o lead para lá |
+| `Parcial` | Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d` |
+| `Não`, motivo = `Timing errado` | Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d` (sem fit **agora** não é sem fit nunca) |
+| `Não`, qualquer outro motivo | Mover oportunidade → `Descartado` |
+
+O motivo só decide o destino quando o veredito é `Não`; `Parcial` já é
+tratado como nutrição direto, sem olhar o motivo — é o mesmo critério do ramo
+`Não`/`Timing errado`, então não duplico a checagem.
+
+**Pronto quando (herdado do F-03 no roadmap):** dá para dizer "nota ≥ 70
+acerta X%" sem planilha (lista 8.7), e o gestor sabe de uma nota mal calibrada
+no dia da reunião, não no fechamento do mês.
+
+---
+
 ## 6. Workflow "Qualificação por IA no WhatsApp"
 
 ### Entrada
@@ -688,6 +747,19 @@ por quem já conectou e ordenar por essa tentativa responde "qual tentativa
 conecta mais" olhando a lista ordenada, sem planilha — é o "Pronto quando" do
 R-01 do roadmap.
 
+### 8.7 `Calibração da Régua` — F-03
+| Item | Configuração |
+|---|---|
+| Filtros | `Reunião foi qualificada` não vazio |
+| Colunas | Nome · `Nota de qualificação` · `Reunião foi qualificada` · `Motivo da desqualificação` · `Data do veredito do closer` |
+| Ordenação | `Nota de qualificação` desc |
+
+Cruza, reunião a reunião, a nota que o SDR ou a IA deram com o veredito do
+closer. Contar visualmente quantos `Sim` e `Não` caem acima de 70 responde
+"nota ≥ 70 acerta X%" sem planilha — o "Pronto quando" do F-03. O alerta em
+tempo real da seção 5.1 (nós 5 e 6) avisa o gestor de um erro no dia; esta
+lista mostra o padrão acumulado quando ele quiser olhar.
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -798,6 +870,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 21 | Listas inteligentes | Cada uma das 4 listas mostra exatamente os contatos esperados | |
 | 22 | Rotina de manutenção | Rodar `rotina-limpar-tarefas.md`: tarefas fora do prefixo são **concluídas**, nunca excluídas, e a tag sai | |
 | 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
+| 24 | Loop do closer | No Teste Atendeu já em `Reunião agendada`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: etapa vira `Descartado`, `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -811,7 +884,7 @@ exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
 | Campos personalizados | Cria | Opções de lista podem precisar de ajuste na tela |
 | Tags | Cria | — |
 | Pipeline e etapas | Não | Seção 1 |
-| Workflows (os 5) | Não | Seções 2 a 6 |
+| Workflows | Não | Seções 2, 2.9, 3 a 6, 5.1 |
 | Calendário | Lê | Cria e configura: seção 7.1 |
 | Formulário | Não (nem lê, neste toolkit) | Seção 7.2 |
 | Listas inteligentes | Não | Seção 8 |

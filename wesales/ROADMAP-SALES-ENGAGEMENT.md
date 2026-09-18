@@ -188,7 +188,7 @@ comparar por `Segmento`; ajustar os horários das tentativas por faixa.
 **Pronto quando:** o horário da T3 de um segmento é diferente do de outro, e a
 diferença veio de evidência, não de palpite.
 
-### F-03 · Loop do closer de volta para o SDR
+### F-03 · Loop do closer de volta para o SDR — **FEITO em 18/09/2026**
 **Por quê:** este é o defeito mais comum e mais caro em pré-vendas. O SDR
 agenda e **nunca descobre se agendou bem**. Sem isso, a nota de qualificação
 nunca se calibra: ela é uma opinião que ninguém conferiu.
@@ -197,6 +197,19 @@ nunca se calibra: ela é uma opinião que ninguém conferiu.
 cruzando a nota que o SDR deu com o veredito do closer.
 **Pronto quando:** dá para dizer "nota ≥ 70 acerta X%" — e corrigir a régua da
 seção 9 com dado, não com achismo.
+
+**Resumo:** campos C-15 a C-17 especificados em `campos-e-tags.md`; workflow
+`Loop do closer` especificado em `build-wesales.md` (seção 5.1), roteando por
+veredito e motivo para `Nutrição`/`Descartado` sem tocar em `FUNIL DE VENDAS`;
+lista inteligente `Calibração da Régua` criada (seção 8.7). Diferencial sobre
+Reev/Meetime/Outreach/Salesloft, que fecham este loop só em relatório
+agregado: dois nós de alerta em tempo real (nota ≥ 70 com veredito `Não`, ou
+nota < 45 com veredito `Sim`) avisam o gestor no dia da reunião, não no
+relatório do mês. Falta só a criação manual dos 3 campos na tela — campo
+personalizado não sai por API; subconta reconfirmada nesta execução via
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
+pré-existente.
 
 ### F-04 · Teto de toques por semana
 **Por quê:** lead em duas cadências recebe o dobro de toques, e ninguém percebe
@@ -235,12 +248,13 @@ hora investida. Só então as cadências vizinhas e a operação com mais gente.
 R-14 sobe para o topo no dia em que a operação começar a mandar mensagem de
 verdade. Antes disso, não há a quem incomodar.
 
-Do bloco 6, um ainda não espera a vez: **F-03**. Cada semana sem o loop do
-closer é uma semana de nota de qualificação não calibrada, e essa dívida não se
-paga retroativamente: os dados que faltaram não voltam. (O F-01 furava a fila
-pela mesma urgência — sinal ignorado é lead perdido hoje — e por isso foi o
-item resolvido nesta rodada, antes mesmo de R-02/R-03 completarem o bloco 1.)
+F-01 e F-03 já saíram do bloco 6 fora da ordem normal, cada um na rodada em
+que foi feito: sinal ignorado e nota não calibrada são dívidas que não se
+pagam retroativamente — os dados que faltaram não voltam, calendário nenhum
+devolve. Nenhum item do bloco 6 pede prioridade fora da ordem agora: os quatro
+que restam pedem volume para fazer sentido. F-02 precisa de conexões
+suficientes para ter padrão; F-06 precisa de call tracking ligado; F-04 e F-05
+só mordem quando há mais de uma cadência no ar.
 
-Os outros quatro do bloco 6 pedem volume para fazer sentido. F-02 precisa de
-conexões suficientes para ter padrão; F-06 precisa de call tracking ligado;
-F-04 e F-05 só mordem quando há mais de uma cadência no ar.
+A ordem normal retoma: R-02 e R-03 fecham o bloco 1 de medição, e só então o
+bloco 2 (conteúdo) entra na fila.

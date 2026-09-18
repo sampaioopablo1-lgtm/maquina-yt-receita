@@ -4,11 +4,11 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (32 + 1 sugerido)
+## Etapa 2 — Campos personalizados (35 + 1 sugerido)
 
 Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 
-### Controle da cadência (14)
+### Controle da cadência (17)
 
 | # | Nome | Tipo | Opções | Quem escreve |
 |---|---|---|---|---|
@@ -26,6 +26,9 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-12 | Conexões WhatsApp | NUMERICAL | — | Workflow (R-01) |
 | C-13 | Sinal recebido | SINGLE_OPTIONS | Clique em link, Resposta de mensagem | Workflow (F-01) |
 | C-14 | Data e hora do sinal | TEXT | `AAAA-MM-DD HH:MM` | Workflow (F-01) |
+| C-15 | Reunião foi qualificada | SINGLE_OPTIONS | Sim, Não, Parcial | Closer (F-03) |
+| C-16 | Motivo da desqualificação | SINGLE_OPTIONS | Sem fit, Sem budget, Timing errado, Não é decisor, Concorrente, Duplicado ou já cliente | Closer (F-03) |
+| C-17 | Data do veredito do closer | DATE | — | Workflow (F-03) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -42,6 +45,15 @@ descartada até quando se envia ISO completo pela API, e não existe tipo
 DateTime para campo de contato. Por isso `Data e hora do sinal` (C-14) é
 `TEXT` no formato `AAAA-MM-DD HH:MM`, e `Data do retorno` (S-01) virou par:
 `DATE` para filtrar e vencer tarefa, `TEXT` para a hora combinada.
+
+C-15 e C-16 fecham o loop do closer (`build-wesales.md`, seção 5.1, F-03 do
+roadmap): o closer registra se a reunião que o SDR agendou tinha fit de
+verdade, e por quê quando não teve. É o único par deste documento preenchido
+por um papel que a coluna "Quem escreve" ainda não tinha: nem SDR, nem
+workflow, nem IA.
+C-17 é `DATE`, não `TEXT`: nada aqui mede minutos (diferente de C-14), só
+"em que dia o closer deu o veredito", então a granularidade de dia do `DATE`
+basta e evita outro par de campos como o de C-14/S-01.
 
 ### Qualificação — BANT + diagnóstico (18)
 
