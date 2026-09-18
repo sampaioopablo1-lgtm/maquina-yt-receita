@@ -1258,3 +1258,38 @@ nenhum veredito — e o motivo é o mesmo em todas as linhas: **quase nada tem e
 ser julgado**. Seis conjuntos e 38 anúncios repartindo R$20/dia significa que a maioria das peças
 recebe dezenas de impressões, não centenas. A TRAVA 7 foi escrita exatamente para este quadro, e
 amanhã ela vai segurar o primeiro corte.
+
+---
+
+## 18/09/2026 13h08 BRT — DOIS LEADS, e o primeiro veio de um conjunto de nicho
+
+Às 09h07 a conta estava com 47 impressões e zero lead no dia. Às 13h08, dois leads.
+
+| Conjunto | Anúncio | Impressões | Cliques | Leads | Custo por lead |
+|---|---|---|---|---|---|
+| ADVOCACIA | **ADV V05 — curta** | 116 | 3 | **1** | **R$2,94** |
+| INTERESSE | **V17 — copy indicacao** | 3 | 2 | **1** | **R$0,10** |
+
+### O que isso muda
+
+**1. O conjunto de ADVOCACIA deu lead com menos de 24h de vida.** Foi criado ontem às 18h57 e já
+converteu. E converteu a **R$2,94**, contra os R$8,56 acumulados do INTERESSE — quase três vezes
+mais barato. É um único lead, então não é estatística; mas é a primeira evidência de que a aposta
+dos conjuntos de nicho tem fundamento.
+
+**2. O ADVOCACIA agora está protegido do corte.** A trava "nunca pausar quem gerou lead nas últimas
+48h" passa a valer para ele. Quando completar 48h amanhã às 18h57, não será candidato a C0.
+
+**3. O anúncio vencedor do ADVOCACIA é o "curta".** Dos cinco criativos do conjunto, o V05 levou
+116 das 117 impressões e foi quem converteu. Os outros quatro ficaram com 1 impressão somada. A CBO
+escolheu sozinha e escolheu a copy mais curta.
+
+**4. O V17 do INTERESSE converteu com 3 impressões.** Número pequeno demais para significar
+qualidade de criativo — é sorte estatística. Mas é o segundo lead da copy "indicação" e vale
+acompanhar.
+
+### Estado da conta
+
+Seis conjuntos ACTIVE, 38 anúncios ACTIVE, segmentação dos seis conferida e limpa. A HARMONIZAÇÃO
+segue em **zero impressão hoje** e completa 48h às 17h59 — vai para a rodada de amanhã como
+NÃO TESTADO pela TRAVA 7.
