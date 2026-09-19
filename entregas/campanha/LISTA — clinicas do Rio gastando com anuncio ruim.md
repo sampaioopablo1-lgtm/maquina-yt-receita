@@ -4846,3 +4846,34 @@ Total da LISTA DE ATAQUE: **37 → 39 anunciantes**.
 3. `energia solar` atrai serviço de obra correlato — filtrar na leitura, como em arquitetura.
 
 Combos varridos até aqui: + energia solar Rio de Janeiro (cidade inteira; recorde de duração do título repetido).
+
+---
+
+## 🇬🇧 Escola de idiomas — Copacabana (varredura de 19/09/2026, 05h) — RESULTADO NEGATIVO
+
+Termo: `curso de inglês Copacabana`. **3 anúncios**, 3 páginas, e nenhum serve.
+
+| Página | Por que não serve |
+|---|---|
+| **CNA Copacabana BH** | é o bairro **Copacabana de Belo Horizonte** — nem é o Rio |
+| Kumon Copacabana - Shopping 680 | franquia grande; título `Fazer Kumon Muda a Vida` repetido 2x (defeito), mas decisão de mídia é da rede. No ar desde 29/07 |
+| Projeto Jovem Empregado Rio de Janeiro | programa social, não escola |
+
+### Quarta armadilha de bairro: bairro homônimo em OUTRA CIDADE do mesmo país
+
+Já tínhamos três famílias mapeadas — homônimo em outro estado (Campo Grande), bairro-sobrenome
+(Madureira), bairro contido em outro bairro (Tijuca). Esta é a quarta: **Copacabana existe em
+Belo Horizonte**, e o `RJ` não foi usado porque Copacabana parecia inequívoco. Não é.
+
+**Regra corrigida e ampliada:** usar o reforço `RJ` em **todo** termo com bairro, sempre, mesmo
+nos que parecem únicos. Custa nada e evita o falso positivo.
+
+### Conclusão sobre o nicho
+
+Escola de idiomas no Rio é dominado por franquia (CNA, Kumon, Wizard, Fisk) — mesma situação de
+veterinária e da rede Fábrica: página local, decisão central. **Nicho vai para fora da fila**,
+junto com veterinária.
+
+LISTA DE ATAQUE segue em **39**.
+
+Combos varridos até aqui: + escola de idiomas Copacabana (negativo; nicho de franquia, fora da fila).
