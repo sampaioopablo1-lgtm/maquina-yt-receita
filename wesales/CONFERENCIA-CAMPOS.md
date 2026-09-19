@@ -105,5 +105,19 @@ regra 1 do briefing. É o mesmo raciocínio que o R-10 já aplicou ao reaproveit
 `Assigned User` em vez de criar `SDR responsável`: campo com dois donos diverge
 na primeira edição feita direto na tela.
 
+**Resolvido em 19/09, e a minha recomendação estava errada num ponto:** eu
+sugeri apontar o formulário para o `Company Name` nativo. O construtor de
+formulário do GHL **não oferece campo nativo** nesse seletor (confirmado na
+tela: nem "Adição rápida" nem "Adicionar campos de objeto" listam
+`Company Name`), então o personalizado `Empresa` é o único caminho —
+`build-wesales.md` já grava nele no formulário e no modelo de nota. O que
+faltava fechar era o outro lado: as **14 linhas de coluna** das listas
+inteligentes diziam só "Empresa", e o seletor de colunas mostra a padrão e a
+personalizada com nome parecido. Agora dizem `` `Empresa` `` e a seção 8 abre
+avisando qual é qual.
+
+`Necessidade` e `Urgência` continuam duplicando `Dor principal` e `Prazo` —
+a decisão sobre esses dois não foi tomada.
+
 **Continua aberto da Tabela A:** `Hora do retorno` ainda não existe, e
 `Plataformas de anúncio` continua `SINGLE_OPTIONS`.

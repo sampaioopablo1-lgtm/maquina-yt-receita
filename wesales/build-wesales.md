@@ -2370,18 +2370,25 @@ para o agendamento e objeções — está em `script-de-ligacao.md` (R-06).
 Contatos → Filtros → salvar como lista inteligente. Marque como favorita para
 aparecer na barra lateral do SDR.
 
+**A coluna `Empresa` destas listas é o campo personalizado**
+(`contact.empresa`), não a coluna padrão de empresa do GHL. O seletor de
+colunas mostra as duas com nome parecido, e a padrão vai ficar vazia: desde
+19/09/2026 o formulário grava no personalizado, porque o construtor de
+formulário não oferece o nativo (seção 7.2). Escolher a errada faz o SDR abrir
+a fila e ver empresa em branco em todas as listas de uma vez.
+
 ### 8.1 `Fila Quente` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
 | Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`CONECTAR`, `AGENDAR`) — `Retorno agendado` some da lista de etapas porque não é mais etapa própria (tabela 1.0): quem pediu retorno já está em `CONECTAR`, coberto |
-| Colunas | Nome · Empresa · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade |
+| Colunas | Nome · `Empresa` · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
 ### 8.2 `Fila Telefone Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
 | Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `CONECTAR` |
-| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas |
+| Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
 Ordenar por tentativa crescente é de propósito: lead na T1 tem muito mais
@@ -2391,14 +2398,14 @@ chance de atender do que o da T11. A fila devolve primeiro o que converte.
 | Item | Configuração |
 |---|---|
 | Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` |
-| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
+| Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
 | Ordenação | `Prioridade` desc, depois `WA não atendidas seguidas` asc |
 
 ### 8.4 `Retornos` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
 | Filtros | `Resultado da tentativa` = `Pediu retorno` **E** `nao-perturbe` ausente |
-| Colunas | Nome · Empresa · Telefone · `Data do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
+| Colunas | Nome · `Empresa` · Telefone · `Data do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
 | Ordenação | `Data do retorno` asc (sem o campo S-01: "Última atividade" asc — pior, mas funciona) |
 
 ### 8.5 Sugerida por mim: `Sem resultado ontem`
@@ -2438,7 +2445,7 @@ lista mostra o padrão acumulado quando ele quiser olhar.
 | Item | Configuração |
 |---|---|
 | Filtros | tag `atraso-1a-tentativa` presente |
-| Colunas | Nome · Empresa · Telefone · `Entrada em` · `1ª tentativa em` (sempre vazio nesta lista) · Tarefas abertas |
+| Colunas | Nome · `Empresa` · Telefone · `Entrada em` · `1ª tentativa em` (sempre vazio nesta lista) · Tarefas abertas |
 | Ordenação | Última atividade asc (quem está parado há mais tempo aparece primeiro) |
 
 A tag só existe porque o workflow da seção 2.11 a aplicou depois do tempo de
@@ -2451,7 +2458,7 @@ R-02: dá para apontar o lead atrasado sem SDR ligar, sem abrir planilha.
 | Item | Configuração |
 |---|---|
 | Filtros | Pipeline = `Pré-vendas` **E** `Data de criação` da oportunidade dentro do mês atual (filtro nativo "Este mês", sem campo novo) |
-| Colunas | Nome · Empresa · Etapa atual · `Data de criação` |
+| Colunas | Nome · `Empresa` · Etapa atual · `Data de criação` |
 | Ordenação | `Data de criação` desc |
 
 Se a sua versão do construtor de lista de contatos não expuser filtro por
@@ -2466,21 +2473,21 @@ pesquisado antes de desenhar C-20/C-21/C-22 abaixo.
 | Item | Configuração |
 |---|---|
 | Filtros | `Data conectado` dentro do mês atual (filtro relativo nativo de campo `DATE`) |
-| Colunas | Nome · Empresa · `Data conectado` · `Tentativa nº` |
+| Colunas | Nome · `Empresa` · `Data conectado` · `Tentativa nº` |
 | Ordenação | `Data conectado` desc |
 
 ### 8.11 `Funil — Agendaram no Mês` — R-03
 | Item | Configuração |
 |---|---|
 | Filtros | `Data agendado` dentro do mês atual |
-| Colunas | Nome · Empresa · `Data agendado` · `Nota de qualificação` |
+| Colunas | Nome · `Empresa` · `Data agendado` · `Nota de qualificação` |
 | Ordenação | `Data agendado` desc |
 
 ### 8.12 `Funil — Compareceram no Mês` — R-03
 | Item | Configuração |
 |---|---|
 | Filtros | `Data compareceu` dentro do mês atual |
-| Colunas | Nome · Empresa · `Data compareceu` · `Reunião foi qualificada` |
+| Colunas | Nome · `Empresa` · `Data compareceu` · `Reunião foi qualificada` |
 | Ordenação | `Data compareceu` desc |
 
 As quatro listas (8.9 a 8.12) respondem "a taxa de conexão do mês" sem
@@ -2512,7 +2519,7 @@ campo `Sinal recebido` (sobrescrito por sinal mais recente) estão em
 | Item | Configuração |
 |---|---|
 | Filtros | tag `reengajamento-ativo` presente |
-| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · `Prioridade` · `Template usado` · Tarefas abertas |
+| Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Template usado` · Tarefas abertas |
 | Ordenação | `Tentativa nº` asc |
 
 Separa quem está na régua TR1-TR4 (seção 2.12) de quem está numa rodada
@@ -2527,7 +2534,7 @@ sido necessária lá.
 | Item | Configuração |
 |---|---|
 | Filtros | tag `pausado` presente |
-| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · Etapa atual · Última atividade |
+| Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · Etapa atual · Última atividade |
 | Ordenação | Última atividade asc (quem está pausado há mais tempo aparece primeiro) |
 
 O laço da seção 2.13 (nó 2.5/1.5) represa a tentativa sozinho, sem tarefa
@@ -2541,7 +2548,7 @@ de vez".
 | Item | Configuração |
 |---|---|
 | Filtros | tag `fila-tel` presente **OU** tag `fila-wa` presente **E** `nao-perturbe` ausente |
-| Colunas | Nome · Empresa · Telefone · `Tentativa nº` · canal (`fila-tel` ou `fila-wa`) · `Prioridade` |
+| Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · canal (`fila-tel` ou `fila-wa`) · `Prioridade` |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
 O total desta lista **é** o total de tarefas `[CADENCIA]` abertas hoje —
@@ -2559,7 +2566,7 @@ em `Reunião agendada`, não em `Em cadência`.
 | Item | Configuração |
 |---|---|
 | Filtros | `Nº de no-shows` ≥ 1 **E** etapa da oportunidade = `Reunião agendada` **E** `nao-perturbe` ausente |
-| Colunas | Nome · Empresa · Telefone · `Nº de no-shows` · `Template usado` · Última atividade · Tarefas abertas |
+| Colunas | Nome · `Empresa` · Telefone · `Nº de no-shows` · `Template usado` · Última atividade · Tarefas abertas |
 | Ordenação | `Nº de no-shows` desc, depois Última atividade asc |
 
 Filtra por campo numérico direto, sem tag nova — mesmo raciocínio já usado
@@ -2572,7 +2579,7 @@ igual a 8.14 já ser a única visão de quem está na régua TR1-TR4.
 | Item | Configuração |
 |---|---|
 | Filtros | Campo nativo `Phone` **vazio** **OU** tag `telefone-invalido` presente |
-| Colunas | Nome · Empresa · E-mail · `Site` · `Instagram` · Etapa da oportunidade · Data de criação |
+| Colunas | Nome · `Empresa` · E-mail · `Site` · `Instagram` · Etapa da oportunidade · Data de criação |
 | Ordenação | Data de criação asc (quem está parado há mais tempo aparece primeiro) |
 
 A visão que fecha o "Como" do roadmap ("lista inteligente de contatos sem
