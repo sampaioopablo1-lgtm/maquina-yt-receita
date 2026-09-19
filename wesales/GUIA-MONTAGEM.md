@@ -508,41 +508,38 @@ nó**, ao vivo em chat, mesmo dia. Estado atual:
   2: `Branch`/`None`) no `If/Else` de `fila-wa` interno do Atendeu nessa
   cópia — pode ser resíduo do processo de duplicar, vale conferir primeiro
   na próxima sessão.
-- **Pendência pra próxima sessão:** entrar no ramo Atendeu da cópia
-  telefone, achar o nó `Update contact field` (`Conexões telefone`), e
-  conferir nó a nó, um de cada vez, se a linha de conexão para cada um dos
-  8 passos seguintes realmente liga no próximo (não solta, não aponta pro
-  nó errado). Testar de novo via API depois de cada nó confirmado, em vez
-  de só no final — assim, se quebrar, sabe-se exatamente em qual dos 8.
-  Contato de teste pronto: `Teste Atendeu` (`Lj96CIFYaGKPiC0opzbc`),
-  sem tag; alternar `Resultado da tentativa` entre dois valores força o
-  gatilho a disparar de novo.
-- **Antes de conferir nó a nó, duas coisas mais baratas.** Inspeção visual
-  de 8 nós com um teste depois de cada um custa até 8 ciclos; comece pelo
-  que responde em um:
-  1. **Histórico de execução do workflow** (Workflows → o workflow →
-     aba de histórico/execuções). Ele mostra, por contato, os nós que a
-     execução percorreu e onde parou. Isso dá o nó exato sem adivinhar —
-     e se a execução aparece como concluída tendo passado por todos os
-     nós, o problema não é ligação, é nó que executou sem efeito (campo
-     não selecionado), que é uma investigação diferente.
-  2. **O terceiro "Branch" que você notou no `If/Else` interno.** Se ele
-     existe e está vazio, a execução pode estar entrando nele e
-     terminando ali — o que explica "incrementa e para" sem nenhum erro.
-     É o primeiro a olhar justamente porque já foi visto.
-- **Dois suspeitos que a especificação aponta**, se o histórico não
-  resolver:
-  1. **Os nós 7, 7b e 7c do ramo Atendeu usam `{{right_now}}`** — e a
-     verificação de `{{right_now}}` é justamente o item bloqueante ainda
-     aberto nesta lista. Se o seletor não oferece data/hora atual, esses
-     três não têm como ser configurados de verdade; nó salvo com valor
-     vazio é candidato forte a parar a execução calada. **Este ramo é o
-     lugar onde aquela pendência encosta primeiro.**
-  2. **Nó `Math Operation` sem campo selecionado.** Foi exatamente um dos
-     defeitos que a autoauditoria da IA relatou nesta mesma montagem
-     ("nó de incremento sem campo selecionado e somando 0"), e esta cópia
-     descende daquele rascunho. Um `Math` com alvo vazio pode contar como
-     nó que falha, não como nó que soma zero.
-- Workflow ainda em **rascunho**, não publicado — não publicar antes de
-  fechar essa pendência, senão liga a limpeza pela metade (funcionaria só
-  pra tentativa por WhatsApp).
+- **Resolvido, mesmo dia, madrugada:** o método de diagnóstico nó-a-nó
+  (testar via API trocando `Resultado da tentativa`, depois ler o log de
+  `Registros de execução` pra ver exatamente onde parou) achou e corrigiu
+  **3 buracos separados** na cópia telefone, todos do mesmo tipo — a
+  duplicação colava o nó de entrada de cada sub-ramo mas perdia a conexão
+  logo depois do primeiro `Math operation`:
+  - Ramo `Atendeu`: parava em `Conexões telefone`, faltavam os 7 passos
+    seguintes (`Total de conexões`, `WA não atendidas seguidas`, tag
+    `conectado-hoje`, `Remove Tag`, mudança de etapa pra `AGENDAR`,
+    `Data conectado`, tarefa, nota) — corrigido, testado via API: etapa
+    moveu pra `AGENDAR`, tags e notas certas (a tarefa aparece como
+    "skipped" no log só porque o contato de teste não tem dono atribuído —
+    não é bug, é esperado o distribuidor de leads atribuir dono antes
+    disso em produção).
+  - Ramo `Número errado`: na verdade **não estava quebrado** — o log
+    mostrou que rodou até o fim (`Criar ou atualizar oportunidade`
+    executado), só pareceu travado porque o status já estava `lost` de um
+    teste anterior (`Não ligar`), sem mudança visível.
+  - Ramo `Caixa Postal`: parava em `WA não atendidas seguidas`, faltavam
+    `Remove Tag` (`fila-tel`/`fila-wa`) e `Add Tag` (`limpar-tarefas`) —
+    corrigido e confirmado.
+  - Ramo `Não atendeu` (duplicado do Caixa Postal): estava **vazio por
+    dentro**, terminava direto ao entrar no `Branch` — reconstruído do
+    zero com a mesma receita de 3 passos do Caixa Postal, confirmado pelo
+    log.
+  - Ramos `Pediu retorno` e `Não ligar`: confirmados funcionando sem
+    nenhuma correção (tag `fila-quente`/`Prioridade=5` e DND completo +
+    status `lost` + nota "Opt-out registrado", respectivamente).
+  **Os 6 ramos do lado telefone estão confirmados, um por um, via log de
+  execução real.** Descoberta lateral: trocar o valor de teste rápido
+  demais (menos de ~5s) faz o GHL pular o disparo inteiro ("Add to
+  workflow: skipped" ou nem chega a logar) — espaçar os testes evita
+  perder tempo interpretando resultado de execução que nunca rodou.
+- **Falta só publicar** (toggle "Publicar", ainda em rascunho no fim desta
+  sessão) antes de seguir pro próximo da fila (seção 5, "Pós-agendamento").
