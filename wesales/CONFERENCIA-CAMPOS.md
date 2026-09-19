@@ -4,7 +4,7 @@ Lido da subconta `1D53YTI9C7oIMBavcQxV` por `locations_get-custom-fields` em
 18/09/2026, 22:2x UTC, depois de a Fase 2 do `GUIA-MONTAGEM.md` ser montada na
 tela. Comparado linha por linha com `campos-e-tags.md`.
 
-**Resultado geral: 43 campos existem. Os 24 de controle (C-01 a C-24) estão
+**Resultado geral (primeira leitura, 18/09 22:2x): 43 campos existem. Os 24 de controle (C-01 a C-24) estão
 todos lá, com o tipo certo. Os 18 de qualificação (Q-01 a Q-18) também.** O que
 sobra são divergências de nome, de opção e de tipo — e um campo que ficou pela
 metade.
@@ -81,3 +81,29 @@ Cada nome e valor citado acima aparece em mais de um arquivo. Quem for ajustar:
 ajusta a ela, não o contrário — exceto nos dois itens da Tabela A, que são perda
 de função, e nas três faixas marcadas "decisão do dono", que mudam a nota do lead
 e por isso não são ajuste de texto.
+
+## F — Três campos novos que a tela criou sozinha (relido em 19/09, 00:2x UTC)
+
+Entre 23:52 e 00:17 a subconta passou de 43 para 46 campos. Os três novos não
+estão em `campos-e-tags.md` e têm cara de campo que o construtor de formulário
+do GHL cria por conta própria quando alguém adiciona uma pergunta que não casa
+com campo existente — dois deles nasceram numa pasta separada
+(`zHU4yGXKHdxBHnGxUmai`), fora da pasta dos 43 primeiros.
+
+| Campo novo | Tipo | Já existe quem faça esse papel | O problema |
+|---|---|---|---|
+| `Empresa` | TEXT | o campo **nativo** `Company Name` (`{{contact.company_name}}`) | O `build-wesales.md` usa o nativo em tudo: o campo 4 do formulário (seção 7.2), o corpo da tarefa da cadência e a coluna "Empresa" de **nove** listas inteligentes. Se o formulário passar a gravar no `Empresa` custom, o SDR abre a fila e vê empresa em branco em todas elas |
+| `Necessidade` | TEXT | `Dor principal` (Q-16) | Dois campos para a mesma resposta. Quem preenche um deixa o outro vazio, e a nota de qualificação lê só um |
+| `Urgência` | TEXT | `Prazo` (Q-17, `SINGLE_OPTIONS`) | Idem — e `Prazo` tem opções fechadas, que filtram em lista; `Urgência` é texto livre, que não filtra |
+
+**O que fazer:** decidir de que lado fica cada informação **antes** de o
+formulário entrar no ar, porque depois o dado já estará dividido entre dois
+campos e ninguém vai saber qual está certo. O caminho mais barato é apontar as
+perguntas do formulário para os campos que já existem (`Company Name` nativo,
+`Dor principal`, `Prazo`) e deixar estes três parados — **sem excluir**, pela
+regra 1 do briefing. É o mesmo raciocínio que o R-10 já aplicou ao reaproveitar
+`Assigned User` em vez de criar `SDR responsável`: campo com dois donos diverge
+na primeira edição feita direto na tela.
+
+**Continua aberto da Tabela A:** `Hora do retorno` ainda não existe, e
+`Plataformas de anúncio` continua `SINGLE_OPTIONS`.
