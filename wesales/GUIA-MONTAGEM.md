@@ -382,11 +382,12 @@ a regra 2 do `briefing-sdr.md` pede para confirmar antes de fazer.
 ### Diferença cosmética, não bloqueia nada
 
 A opção `Caixa Postal` de C-02 (`Resultado da tentativa`) foi criada com
-"P" maiúsculo; `build-wesales.md` escreve `Caixa postal` (minúsculo) em
-todas as menções. Não é um bug funcional: quem montar o workflow vai
-selecionar a opção que existe de verdade no dropdown da tela, não digitar
-o texto do documento — registrado só para quem for revisar o texto não
-estranhar a diferença de caixa.
+"P" maiúsculo. **Corrigido em 19/09/2026:** `build-wesales.md`,
+`campos-e-tags.md` e `script-de-ligacao.md` escreviam `Caixa postal`
+(minúsculo) em todas as menções — ajustados para bater com a grafia real
+da tela (`CONFERENCIA-CAMPOS.md`, Tabela C). Nunca foi um bug funcional
+(quem monta o workflow seleciona a opção do dropdown, não digita o texto
+do documento), só ficou registrado para não confundir quem lê.
 
 ### Resolvido ao vivo em chat, 18/09/2026 ~22h UTC
 
@@ -426,3 +427,9 @@ em vez de `MULTIPLE_OPTIONS` sugerido — decisão de quem montou, aceitável
 `Hora do retorno` (a segunda metade de S-01) não foi criada — sem ela a
 lista `Retornos` ordena só por dia, não por horário exato; criar depois se
 o volume de retornos justificar.
+
+**Resolvido em 19/09/2026:** a régua de qualificação (seção 9.1 do
+`build-wesales.md`) foi reescrita com os rótulos reais — era a "tarefa de
+documentação ainda pendente" citada acima. Detalhe completo, e o que ainda
+segue pendente (o tipo de `Plataformas de anúncio` e os três campos que a
+tela criou sozinha), em `campos-e-tags.md` e `CONFERENCIA-CAMPOS.md`.

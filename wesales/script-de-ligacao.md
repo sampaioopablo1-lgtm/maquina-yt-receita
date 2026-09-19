@@ -70,7 +70,7 @@ canal da cadência (`build-wesales.md`, seção 2.5) seguir seu curso:
 > {{contact.segmento}}. Vou te mandar uma mensagem por aqui também —
 > qualquer coisa, me chama.
 
-Classifique `Resultado da tentativa` = `Caixa postal`.
+Classifique `Resultado da tentativa` = `Caixa Postal`.
 
 ## 3. Perguntas de diagnóstico
 
@@ -81,11 +81,11 @@ qualquer pergunta cujo campo já esteja preenchido no contato.
 |---|---|---|---|
 | 1 | "Hoje, mais ou menos quantos clientes novos vocês fecham por mês?" | `Clientes novos por mês` (Q-04) | Fit (30) |
 | 2 | "E quem cuida de atender o lead quando ele chega — é você, é vendedor, tem alguém fixo nisso?" | `Quem atende os leads` (Q-11) | Fit (30) |
-| 3 | "O time comercial de vocês é só você, tem 1-2 pessoas, um time maior?" | `Tem time comercial` (Q-10) | Fit (30) |
+| 3 | "O time comercial de vocês é só você, um time de até 5 pessoas, ou maior que isso?" | `Tem time comercial` (Q-10) | Fit (30) |
 | 4 | "Vocês chegam a investir em anúncio hoje, tipo Meta ou Google?" | `Investe em anúncios` (Q-05) | Mídia (25) |
 | 4a | *Se `Sim` ou `Já investiu e parou`:* "E mais ou menos quanto por mês?" | `Investimento mensal em anúncios` (Q-06) | Mídia (25) |
 | 4b | *Se `Sim` ou `Já investiu e parou`:* "Em quais plataformas — Meta, Google, TikTok?" | `Plataformas de anúncio` (Q-07) | — (apoio, sem peso) |
-| 5 | "Já chegaram a trabalhar com agência antes?" | `Já teve agência` (Q-08) | — (apoio) |
+| 5 | "Já chegaram a trabalhar com agência antes?" | `Já teve agência?` (Q-08) | — (apoio) |
 | 5a | *Se `Tem hoje` ou `Já teve`:* "Como foi essa experiência?" | `Experiência com agência` (Q-09) | — (apoio, alimenta a objeção 2) |
 | 6 | "Hoje o principal canal que fecha venda pra vocês é WhatsApp, telefone, loja física?" | `Canal principal de venda` (Q-13) | — (apoio) |
 | 7 | "Se eu te perguntasse qual é o maior perrengue de vocês hoje pra trazer cliente novo, qual seria?" | `Dor principal` (Q-16) | — (apoio, é o gancho da ponte) |
@@ -110,8 +110,8 @@ tira pontos da nota sem o SDR perceber.
 Ao combinar o horário, abra o link do formulário de qualificação anexado ao
 calendário do closer (`build-wesales.md`, seção 7.2) e agende na mesma tela
 — o formulário já carrega as respostas das seções 2 e 3 se o SDR preencheu
-durante a ligação; `Qualificação preenchida por` sai com o valor padrão
-`SDR`. O envio dispara o Pós-agendamento (`build-wesales.md`, seção 5), que
+durante a ligação; `Qualificação` sai com o valor padrão `SDR`. O envio
+dispara o Pós-agendamento (`build-wesales.md`, seção 5), que
 calcula `Nota de qualificação` a partir do que acabou de ser preenchido.
 
 ## 5. As 8 objeções mais comuns

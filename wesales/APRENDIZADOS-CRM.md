@@ -2,6 +2,33 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Auditoria escrita não é auditoria aplicada — 19/09/2026
+
+`CONFERENCIA-CAMPOS.md` já existia com um levantamento completo, feito em
+18-19/09, comparando a tela contra `campos-e-tags.md`: nove campos
+(`Q-01, Q-04, Q-06, Q-08, Q-10, Q-12, Q-15, Q-17, Q-18`) tinham nome, opção
+ou tipo diferente do que a especificação sugeria. O arquivo até dizia
+literalmente, na sua própria conclusão (`GUIA-MONTAGEM.md`, seção
+"Pendências que sobraram"): "a régua de qualificação... precisa ser
+reescrita para usar os rótulos reais... tarefa de documentação ainda
+pendente". Essa rodada leu isso, conferiu `locations_get-custom-fields` de
+novo e achou os rótulos **ainda errados** em `campos-e-tags.md` e na seção
+9.1 do `build-wesales.md` — o achado tinha sido catalogado, nunca aplicado.
+
+**Por que isso importa:** a régua de nota (seção 9.1) compara texto em
+`If/Else`. Rótulo sugerido que não existe mais na tela nunca casa — a
+mesma classe de erro silencioso que o achado de `fieldKey` logo abaixo já
+descreve para merge field, só que aqui o efeito é pior: a nota de
+qualificação do lead sai errada sem nenhum erro visível, e ninguém percebe
+porque o workflow não quebra, só pontua mal.
+
+**Regra prática, generalizável:** quando um documento de auditoria lista
+"ajustar o documento" como próximo passo, isso é uma tarefa em aberto, não
+um problema resolvido — confira se a edição foi feita de verdade nos
+arquivos de especificação antes de assumir que aparecer no arquivo de
+auditoria significa que já está corrigido. Um achado escrito e um achado
+corrigido são coisas diferentes, e só o segundo protege o workflow.
+
 ## Como matar a classe de erro do `fieldKey`, em vez de um por vez — 19/09/2026
 
 O GHL **remove** a letra acentuada ao gerar o `fieldKey`, não translitera:

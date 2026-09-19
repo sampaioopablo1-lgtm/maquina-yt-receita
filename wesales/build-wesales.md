@@ -1992,7 +1992,7 @@ crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
 | 4 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
 
 O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
-`Caixa postal`/`Não atendeu`, em vez de calcular uma vez só e guardar num
+`Caixa Postal`/`Não atendeu`, em vez de calcular uma vez só e guardar num
 campo: são dois pontos do fluxo que precisam saber o canal, e mais um campo
 "canal desta tentativa" só para não repetir uma condição de uma linha é troca
 ruim (R-01, feito em 18/09/2026).
@@ -2012,7 +2012,7 @@ ruim (R-01, feito em 18/09/2026).
 | 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 9 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
 
-#### Ramo `Caixa postal` e ramo `Não atendeu` (idênticos)
+#### Ramo `Caixa Postal` e ramo `Não atendeu` (idênticos)
 | # | Ação |
 |---|---|
 | 1 | If/Else: a tentativa foi de WhatsApp? (`fila-wa` presente **ou** a tarefa aberta tem `(WhatsApp)` no título) → Math: `WA não atendidas seguidas` + 1. Senão → Update: `WA não atendidas seguidas` = 0 |
@@ -2448,7 +2448,10 @@ Um nó `Conversation AI` com:
 - Mapeamento de campos: cada pergunta grava no campo correspondente
 - Limite: **uma pergunta por mensagem**, máximo 8 perguntas na conversa
 - Ao fim (ou quando o lead demonstrar interesse): oferece o link do calendário
-- Nó seguinte: Update `Qualificação preenchida por` = `IA WhatsApp`
+- Nó seguinte: Update `Qualificação` = `IA Whatsapp` (nome e opção reais da
+  tela — `CONFERENCIA-CAMPOS.md`, Q-18: o campo nasceu `Qualificação`, não
+  `Qualificação preenchida por`, e a opção é `IA Whatsapp`, com "W"
+  minúsculo)
 
 Prompt do bot:
 ```
@@ -2463,13 +2466,14 @@ Ordem das perguntas (pule a que já estiver preenchida no contato):
 1. Permissão: "posso te ligar rapidinho ou prefere resolver por aqui?"
    -> grava Permissão WhatsApp (Sim se autorizar ligação, Não se recusar)
 2. Quantos clientes novos vocês fecham por mês hoje?
-   -> Clientes novos por mês: Até 10 / 11-30 / 31-100 / 100+
+   -> Clientes novos por mês: 10 / 11-30 / 31-100 / +101 (rótulos reais da
+      tela — `CONFERENCIA-CAMPOS.md`, Q-04)
 3. Vocês investem em anúncio hoje?
    -> Investe em anúncios: Sim / Já investiu e parou / Nunca
 4. Se sim: quanto mais ou menos por mês? -> Investimento mensal em anúncios
    E em quais plataformas? -> Plataformas de anúncio
 5. Já trabalhou com agência? Como foi?
-   -> Já teve agência + Experiência com agência
+   -> Já teve agência? + Experiência com agência
 6. Quem atende os leads que chegam hoje? -> Quem atende os leads
 7. Qual o maior problema hoje na captação? -> Dor principal
 8. Isso é algo para resolver agora ou está mais no radar? -> Prazo
@@ -2498,7 +2502,7 @@ tendo que ler as conversas na mão.
 ### Saída
 | # | Ação |
 |---|---|
-| 1 | Update `Qualificação preenchida por` = `IA WhatsApp` |
+| 1 | Update `Qualificação` = `IA Whatsapp` (rótulo real — mesma nota do nó "Estrutura" acima) |
 | 2 | Math: recalcula `Nota de qualificação` (seção 9.1) |
 | 3 | If/Else: nota ≥ 45 → Add Contact Tag `fila-quente` + Update `Prioridade` = 5 + Internal Notification para o SDR: "lead qualificado pela IA, ligar hoje" |
 | 4 | If/Else: nota < 25 **e** `Budget` = `Não tem` → mover para `Nutrição` + tag `nutricao-90d` |
@@ -2555,7 +2559,7 @@ modelo de nota da seção 5.
 | 9 | Investe em anúncios | `Investe em anúncios` | Sim |
 | 10 | Investimento mensal | `Investimento mensal em anúncios` | Não |
 | 11 | Plataformas | `Plataformas de anúncio` | Não |
-| 12 | Já teve agência | `Já teve agência` | Sim |
+| 12 | Já teve agência? | `Já teve agência?` | Sim |
 | 13 | Experiência com agência | `Experiência com agência` | Não |
 | 14 | Tem time comercial | `Tem time comercial` | Sim |
 | 15 | Quem atende os leads | `Quem atende os leads` | Sim |
@@ -2835,28 +2839,55 @@ aparecer, é manual: mecanismo completo em 2.18.
 Montada com nós **Math Operation** em série no Pós-agendamento (seção 5, nó 4)
 e na saída da IA (seção 6). Comece zerando o campo e some bloco a bloco.
 
+**Rótulos de opção — corrigidos em 19/09/2026.** As tabelas abaixo usavam os
+rótulos *sugeridos* na primeira rodada, não os que ficaram na tela quando
+alguém montou os campos na Fase 2 do `GUIA-MONTAGEM.md` (18/09/2026). Um
+`If/Else` que compara texto contra um rótulo que não existe mais nunca casa —
+a régua inteira ficaria pontuando errado sem nenhum erro visível, o mesmo
+risco de merge field órfão já registrado em `APRENDIZADOS-CRM.md` para
+`fieldKey`. Achado e catalogado em `CONFERENCIA-CAMPOS.md` (Tabela C), que
+também sinalizava a correção como pendente — aplicada agora. Regra daqui pra
+frente: rótulo de opção citado neste documento é sempre o que
+`locations_get-custom-fields` devolve, nunca o que pareceu razoável sugerir.
+
 **Bloco A — Fit (30 pontos)**
 | Campo | Valor | Pontos |
 |---|---|---|
-| Clientes novos por mês | Até 10 / 11-30 / 31-100 / 100+ | 3 / 6 / 8 / 10 |
-| Tem time comercial | Só o dono / 1-2 pessoas / 3-5 / 6+ | 3 / 6 / 8 / 10 |
+| Clientes novos por mês | 10 / 11-30 / 31-100 / +101 | 3 / 6 / 8 / 10 |
+| Tem time comercial | Só dono / 1-5 / 6-10 / +10 | 3 / 7 / 9 / 10 |
 | Quem atende os leads | Ninguém fixo / Dono / Vendedor / SDR | 10 / 7 / 5 / 3 |
 
 "Ninguém fixo" vale mais que "SDR" de propósito: é a dor mais fácil de
 resolver e a que mais precisa de nós.
 
+**`Tem time comercial` é o único remapeamento de verdade, não só relabel:**
+a tela juntou os dois degraus baixos do plano original (`1-2 pessoas`=6 e
+`3-5`=8) num só, `1-5`. Fica com 7 — a média dos dois, arredondada para cima
+porque "1-5" inclui o caso de 5 pessoas, mais perto do antigo degrau de 8 que
+do de 6. As outras três linhas de opção deste documento (`Clientes novos por
+mês`, `Investimento mensal`, `Prazo`) só trocaram o texto do rótulo: a
+ordem e a quantidade de degraus na tela bateram exatamente com o plano
+original, então a pontuação de cada degrau **não mudou**, só o texto que o
+`If/Else` compara.
+
 **Bloco B — Maturidade de mídia (25 pontos)**
 | Campo | Valor | Pontos |
 |---|---|---|
 | Investe em anúncios | Sim / Já investiu e parou / Nunca | 13 / 9 / 4 |
-| Investimento mensal | 15 mil+ / 5-15 mil / 1-5 mil / Até 1 mil | 12 / 10 / 6 / 2 |
+| Investimento mensal | Acima de 10k / 5k a 10k / 1k a 5k / Até 1k | 12 / 10 / 6 / 2 |
 
 **Bloco C — BANT (45 pontos)**
 | Campo | Valor | Pontos |
 |---|---|---|
 | Budget | Tem / Precisa aprovar / Não tem | 15 / 9 / 0 |
-| Decisor | É o decisor / Influencia / Não decide | 15 / 8 / 2 |
-| Prazo | Agora / Até 30 dias / 1-3 meses / Sem prazo | 15 / 11 / 6 / 2 |
+| Decisor | Sim / Influencia / Não decide | 15 / 8 / 2 |
+| Prazo | Pra ontem / Espera 30 dias / Este ano / Sem prazo | 15 / 11 / 6 / 2 |
+
+`Prazo` parece o mais arriscado dos três — "Este ano" soa bem mais largo que
+o antigo "1-3 meses" — mas a ordem de urgência não inverteu: `Pra ontem` é
+mais urgente que `Espera 30 dias`, que é mais urgente que `Este ano`, que é
+mais urgente que `Sem prazo`. Mesma ordem, mesmos 4 degraus, pontuação
+herdada sem mudança.
 
 Máximo: 30 + 25 + 45 = **100**.
 
@@ -2920,7 +2951,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 4 | Portão `telefone-invalido` | Aplicar a tag: tentativa de telefone não dispara, de WhatsApp sim | |
 | 5 | Limpeza do resultado | Na T2, `Resultado da tentativa` chega vazio (não herda o da T1) | |
 | 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `Conectado`, tarefa `[CONECTADO]` criada, saiu da cadência | |
-| 7 | `Caixa postal` em WhatsApp | `WA não atendidas seguidas` vai a 1; repetir vai a 2 | |
+| 7 | `Caixa Postal` em WhatsApp | `WA não atendidas seguidas` vai a 1; repetir vai a 2 | |
 | 8 | Regra das 2 seguidas | Com o contador em 2, a próxima tentativa de WhatsApp sai como **telefone** | |
 | 9 | Reset do contador | Uma tentativa de telefone não atendida zera `WA não atendidas seguidas` | |
 | 10 | Sem permissão | Com `Permissão WhatsApp` = `Não`, toda tentativa de WhatsApp vira telefone | |

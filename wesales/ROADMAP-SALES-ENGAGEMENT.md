@@ -514,6 +514,42 @@ não incluir o recurso. Subconta reconfirmada nesta execução via
 `opportunities_get-pipelines`: 0 campos, 6 contatos, só o
 `FUNIL DE VENDAS` pré-existente — nada mudou desde a última rodada.
 
+### R-16 · Régua de nota com rótulo que não existe na tela — **FEITO em 19/09/2026**
+**Por quê:** lacuna achada nesta rodada, não prevista nas anteriores. Quem
+montou os 46 campos na tela (Fase 2 do `GUIA-MONTAGEM.md`) trocou o rótulo
+de opção de nove campos de qualificação em relação ao que
+`campos-e-tags.md` sugeria — e `CONFERENCIA-CAMPOS.md` já tinha catalogado
+isso em 18-19/09, mas a correção ficou só catalogada: a régua de nota
+(`build-wesales.md`, seção 9.1) continuava comparando contra os rótulos
+antigos. Um `If/Else` que compara texto contra opção que não existe mais
+nunca casa — a nota de qualificação (que decide `Prioridade`, fila quente e
+o corte para nutrição/descarte) sairia errada em produção sem nenhum erro
+visível, a mesma classe de bug silencioso que o achado de `fieldKey` já
+descreveu para merge field, aplicada aqui a valor de opção.
+**Como:** reler `locations_get-custom-fields`, comparar contra
+`campos-e-tags.md` e `build-wesales.md` seção 9.1, e corrigir os dois para
+usar o rótulo real da tela em vez do sugerido.
+**Pronto quando:** nenhum `If/Else` da régua de nota compara contra um
+rótulo que a tela não tem.
+
+**Resumo:** nove campos corrigidos em `campos-e-tags.md` (Q-01, Q-04, Q-06,
+Q-08, Q-10, Q-12, Q-15, Q-17, Q-18) e a seção 9.1 do `build-wesales.md`
+reescrita com os rótulos reais — detalhe completo, incluindo por que só
+`Tem time comercial` precisou de um remapeamento de pontuação de verdade
+(as outras faixas bateram degrau a degrau, só o texto mudou), em
+`CONFERENCIA-CAMPOS.md`, seção G. `GUIA-MONTAGEM.md` e
+`script-de-ligacao.md` também tinham as mesmas citações desatualizadas,
+corrigidos junto. Lição registrada em `APRENDIZADOS-CRM.md`: um arquivo de
+auditoria que lista "ajustar o documento" documenta o achado, não a
+correção — quem pegar o próximo item precisa conferir se a edição foi
+feita de verdade, não assumir que aparecer no arquivo de auditoria
+significa resolvido. **Segue aberto, sem mudança nesta rodada:** o tipo
+errado de `Plataformas de anúncio` (`SINGLE_OPTIONS`, devia ser
+`MULTIPLE_OPTIONS` — perda de função de verdade, não só rótulo), a criação
+de `Hora do retorno`, e a decisão sobre os campos duplicados `Necessidade`/
+`Urgência` — nenhum dos três é ajuste de texto: os dois primeiros pedem
+ação manual na tela, o terceiro pede decisão do dono.
+
 ---
 
 ## Bloco 6 — fora da curva

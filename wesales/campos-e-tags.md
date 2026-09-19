@@ -18,7 +18,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | # | Nome | Tipo | Opções | Quem escreve |
 |---|---|---|---|---|
 | C-01 | Tentativa nº | NUMERICAL | — | Workflow |
-| C-02 | Resultado da tentativa | SINGLE_OPTIONS | Atendeu, Caixa postal, Não atendeu, Número errado, Pediu retorno, Não ligar | SDR |
+| C-02 | Resultado da tentativa | SINGLE_OPTIONS | Atendeu, Caixa Postal, Não atendeu, Número errado, Pediu retorno, Não ligar | SDR |
 | C-03 | WA não atendidas seguidas | NUMERICAL | — | Workflow |
 | C-04 | Permissão WhatsApp | SINGLE_OPTIONS | Sim, Não, Não solicitado | IA / SDR |
 | C-05 | Prioridade | NUMERICAL | 1 a 5 | Workflow |
@@ -56,8 +56,9 @@ provar que o sinal foi atendido a tempo. **Atenção de tipo:** como o campo
 **Medido em 18/09/2026:** campo `DATE` do GHL guarda **só a data** — a hora é
 descartada até quando se envia ISO completo pela API, e não existe tipo
 DateTime para campo de contato. Por isso `Data e hora do sinal` (C-14) é
-`TEXT` no formato `AAAA-MM-DD HH:MM`, e `Data do retorno` (S-01) virou par:
-`DATE` para filtrar e vencer tarefa, `TEXT` para a hora combinada.
+`TEXT` no formato `AAAA-MM-DD HH:MM`, e `Data de retorno` (S-01, nome real
+da tela) virou par: `DATE` para filtrar e vencer tarefa, `TEXT` para a hora
+combinada.
 
 C-15 e C-16 fecham o loop do closer (`build-wesales.md`, seção 5.1, F-03 do
 roadmap): o closer registra se a reunião que o SDR agendou tinha fit de
@@ -146,37 +147,62 @@ segundo estado.
 
 | # | Nome | Tipo | Opções |
 |---|---|---|---|
-| Q-01 | Segmento | SINGLE_OPTIONS | **pendente — L-02, preciso da lista** |
+| Q-01 | Segmento | TEXT | livre — **resolve a L-02**: a tela criou como texto livre em vez de esperar a lista fechada de segmentos |
 | Q-02 | Site | TEXT (URL) | — |
 | Q-03 | Instagram | TEXT | — |
-| Q-04 | Clientes novos por mês | SINGLE_OPTIONS | Até 10, 11-30, 31-100, 100+ |
+| Q-04 | Clientes novos por mês | SINGLE_OPTIONS | 10, 11-30, 31-100, +101 |
 | Q-05 | Investe em anúncios | SINGLE_OPTIONS | Sim, Já investiu e parou, Nunca |
-| Q-06 | Investimento mensal em anúncios | SINGLE_OPTIONS | Até 1 mil, 1-5 mil, 5-15 mil, 15 mil+ |
-| Q-07 | Plataformas de anúncio | MULTIPLE_OPTIONS | Meta, Google, TikTok, Outras |
-| Q-08 | Já teve agência | SINGLE_OPTIONS | Tem hoje, Já teve, Nunca |
-| Q-09 | Experiência com agência | LARGE_TEXT | — |
-| Q-10 | Tem time comercial | SINGLE_OPTIONS | Só o dono, 1-2 pessoas, 3-5, 6+ |
+| Q-06 | Investimento mensal em anúncios | SINGLE_OPTIONS | Até 1k, 1k a 5k, 5k a 10k, Acima de 10k |
+| Q-07 | Plataformas de anúncio | SINGLE_OPTIONS **— deveria ser MULTIPLE_OPTIONS** | Meta, Google, Tiktok, Outros — tipo errado ainda não corrigido na tela, ver `CONFERENCIA-CAMPOS.md` Tabela A |
+| Q-08 | Já teve agência? | SINGLE_OPTIONS | Tem hoje, Já teve, Nunca teve |
+| Q-09 | Experiência com agência | TEXT | — |
+| Q-10 | Tem time comercial | SINGLE_OPTIONS | Só dono, 1-5, 6-10, +10 |
 | Q-11 | Quem atende os leads | SINGLE_OPTIONS | Dono, Vendedor, SDR, Ninguém fixo |
-| Q-12 | Usa CRM | TEXT | — |
+| Q-12 | Usa CRM | SINGLE_OPTIONS | Sim, Não |
 | Q-13 | Canal principal de venda | SINGLE_OPTIONS | WhatsApp, Telefone, Loja, Online |
 | Q-14 | Budget | SINGLE_OPTIONS | Tem, Precisa aprovar, Não tem |
-| Q-15 | Decisor | SINGLE_OPTIONS | É o decisor, Influencia, Não decide |
-| Q-16 | Dor principal | LARGE_TEXT | — |
-| Q-17 | Prazo | SINGLE_OPTIONS | Agora, Até 30 dias, 1-3 meses, Sem prazo |
-| Q-18 | Qualificação preenchida por | SINGLE_OPTIONS | SDR, IA WhatsApp, Automático |
+| Q-15 | Decisor | SINGLE_OPTIONS | Sim, Influencia, Não decide |
+| Q-16 | Dor principal | TEXT | — |
+| Q-17 | Prazo | SINGLE_OPTIONS | Pra ontem, Espera 30 dias, Este ano, Sem prazo |
+| Q-18 | Qualificação | SINGLE_OPTIONS | SDR, IA Whatsapp, Vendedor |
 
 Observações de tipo:
 - **Q-02 Site**: o GHL não tem `dataType` URL. Vai como TEXT com placeholder
   `https://`. Se preferir validação, o campo do formulário pode ser marcado
   como website na tela.
-- **Q-09 e Q-16**: você pediu "texto". Usei LARGE_TEXT porque é resposta de
-  entrevista e TEXT corta em uma linha. Diga se prefere TEXT.
+- **Q-09 e Q-16**: resolvido — quem montou na tela criou os dois como
+  `TEXT` (não `LARGE_TEXT`, que eu tinha sugerido). Funciona, só corta em
+  uma linha; a coluna acima já reflete o tipo real.
+
+**Reconciliado com a tela em 19/09/2026** (`CONFERENCIA-CAMPOS.md`, Tabelas
+B/C/D): as duas tabelas acima (Controle da cadência e Qualificação) já
+mostram nome, tipo e opção **como `locations_get-custom-fields` devolve
+hoje**, não como foram sugeridos na primeira rodada. A régua de nota
+(`build-wesales.md`, seção 9.1) foi corrigida junto — é quem realmente
+sofre quando o rótulo muda, porque um `If/Else` que compara contra um
+rótulo que não existe mais não casa nunca, e a nota erra em silêncio.
+Nove campos tiveram nome, opção ou tipo diferente do sugerido (Q-01, Q-04,
+Q-06, Q-08, Q-10, Q-12, Q-15, Q-17, Q-18); só `Q-07 Plataformas de anúncio`
+continua **errado de verdade** (linha do campo, acima): nasceu
+`SINGLE_OPTIONS` em vez de `MULTIPLE_OPTIONS`, o único caso desta lista com
+perda de função (lead que anuncia em duas plataformas só registra uma) —
+pendente de correção manual na tela, detalhe em `CONFERENCIA-CAMPOS.md`
+Tabela A.
 
 ### Sugerido por mim — não crio sem seu ok
 
 | # | Nome | Tipo | Por que |
 |---|---|---|---|
-| S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) | Sem ele a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento (lacuna L-01). São dois campos porque `DATE` no GHL descarta a hora |
+| S-01 | Data do retorno | DATE (criado) + `Hora do retorno` (TEXT, **falta criar**) | Sem `Hora do retorno` a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento por horário (lacuna L-01). São dois campos porque `DATE` no GHL descarta a hora. **Metade feita:** `Data de retorno` (nome real da tela, sem o "o" — `DATE`) já existe; falta só o par `TEXT` |
+
+**Três campos fora desta lista, criados sozinhos pela tela ao montar o
+formulário** (`Urgência`, `Necessidade`, ambos `TEXT`, e `Empresa`, `TEXT`)
+— `Empresa` já foi absorvido pela especificação (`build-wesales.md`, seções
+5 e 7.2, e a seção 8 abre avisando qual coluna é a personalizada), mas
+`Urgência` e `Necessidade` seguem duplicando `Prazo` (Q-17) e `Dor
+principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
+Detalhe completo, e por que não contam nos "43" acima (regra da contagem
+única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
 ## Etapa 3 — Tags (14, todas criadas)
 
@@ -209,11 +235,21 @@ posteriores às 11 originais, cada uma numa linha própria de aprovação.
 
 ## O que eu preciso de você para executar
 
+**L-02, S-01 (metade) e Q-09/Q-16 já se resolveram sozinhos** — quem montou
+os campos na tela decidiu por você: `Segmento` virou `TEXT` livre em vez de
+esperar a lista fechada (fecha a L-02), `Q-09`/`Q-16` viraram `TEXT`, e a
+metade `DATE` de `S-01` (`Data de retorno`) já existe. Não são mais
+perguntas em aberto.
+
 Ainda em aberto:
 
-1. **L-02**: as opções do campo `Segmento`.
-2. **S-01**: entra `Data do retorno` na lista? (recomendo sim)
-3. **Q-09/Q-16**: LARGE_TEXT ou TEXT?
+1. **`Hora do retorno`** (a metade `TEXT` de S-01) — falta criar na tela.
+2. **`Plataformas de anúncio`** — nasceu `SINGLE_OPTIONS`, precisa virar
+   `MULTIPLE_OPTIONS` (campo novo, o antigo fica parado — regra 1 do
+   briefing proíbe excluir).
+3. **`Urgência` e `Necessidade`** — a tela criou os dois sozinha, duplicando
+   `Prazo` e `Dor principal`. Decidir se o formulário aponta para os campos
+   que já existem (recomendo) ou se os dois novos ganham função própria.
 
 Já respondido: a subconta é `1D53YTI9C7oIMBavcQxV` e a permissão de criar
 veio em 18/09/2026 ("tem todas as permissões") — é o que liberou a Etapa 3,

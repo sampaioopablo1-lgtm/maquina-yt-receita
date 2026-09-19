@@ -121,3 +121,31 @@ a decisão sobre esses dois não foi tomada.
 
 **Continua aberto da Tabela A:** `Hora do retorno` ainda não existe, e
 `Plataformas de anúncio` continua `SINGLE_OPTIONS`.
+
+## G — Tabelas B, C e D aplicadas nos documentos (19/09/2026)
+
+As correções que este arquivo listava como "ajustar o documento" (Tabelas B,
+C e D) tinham ficado só catalogadas — `campos-e-tags.md` e a régua de nota
+(`build-wesales.md`, seção 9.1) continuavam com os rótulos sugeridos da
+primeira rodada quando esta execução leu `locations_get-custom-fields` de
+novo, 46 campos, mesmos valores desta tabela. Aplicado agora: as duas
+tabelas de `campos-e-tags.md` (Controle da cadência e Qualificação) e a
+seção 9.1 do `build-wesales.md` usam os rótulos reais; `GUIA-MONTAGEM.md`,
+`script-de-ligacao.md` e as duas referências a `Qualificação preenchida
+por` na seção 6 do `build-wesales.md` também foram corrigidas. **Lição
+generalizável:** um arquivo de auditoria como este documenta o achado, não
+a correção — quem pegar o próximo item precisa conferir se o "ajustar o
+documento" recomendado aqui já virou edição de verdade nos arquivos de
+especificação, não só assumir que aparecer aqui significa resolvido.
+
+O único remapeamento de pontuação de verdade (não só troca de rótulo) foi
+`Tem time comercial`: a tela juntou dois degraus do plano original
+(`1-2 pessoas`=6, `3-5`=8) num só (`1-5`), que ficou com 7. As outras duas
+faixas marcadas "decisão do dono" nesta tabela (`Investimento mensal`,
+`Prazo`) bateram degrau a degrau com o plano original — só o texto do
+rótulo mudou, a pontuação de cada posição não.
+
+**Segue aberto, sem mudança:** Tabela A inteira (`Hora do retorno`,
+`Plataformas de anúncio`) e a decisão sobre `Necessidade`/`Urgência` na
+Tabela F — nenhum dos dois é ajuste de texto, os dois pedem ação manual ou
+decisão de negócio que este arquivo não toma sozinho.
