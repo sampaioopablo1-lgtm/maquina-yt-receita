@@ -444,3 +444,27 @@ o volume de retornos justificar.
 documentação ainda pendente" citada acima. Detalhe completo, e o que ainda
 segue pendente (o tipo de `Plataformas de anúncio` e os três campos que a
 tela criou sozinha), em `campos-e-tags.md` e `CONFERENCIA-CAMPOS.md`.
+
+## Estado da montagem em 19/09/2026 (sessão ao vivo em chat)
+
+**Publicados e testados:** `Porta de Entrada` (seção 1.3 — 40 oportunidades
+criadas, L-09/L-09b fechados), `Mestre de saída` (seção 3 — falta só
+apontar os nós 2 e 3, "Remove from Workflow", para `Cadência 12x30` e
+`Qualificação por IA no WhatsApp` quando esses existirem; os dois já foram
+criados vazios, só nome), `Interceptação de Sinal — Clique` e `— Resposta`
+(seção 2.9, Trigger Link "Agendar com o closer" criado).
+
+**Em andamento, incompleto:** `Pós-ligação` (seção 4), nome real na tela
+`Pós-ligação` — tentativa de montar via IA generativa do construtor de
+workflow (ferramenta nova do GHL, "Construa usando IA"). Depois de várias
+rodadas de correção, a própria IA relatou (autoauditoria pedida em prompt):
+gatilho sem filtro nenhum (deveria ser `Contact Changed` com filtro de
+campo `Resultado da tentativa` alterado), nó de checagem de vazio olhando
+campo errado (`last_appointment` em vez de `Resultado da tentativa`), nó de
+incremento sem campo selecionado e somando 0, e **os 6 ramos (Atendeu,
+Caixa Postal, Não atendeu, Número errado, Pediu retorno, Não ligar) sem
+nenhuma ação dentro — só a condição de entrada existe**, nenhum dos passos
+do build-wesales.md (tags, campos, tarefa, nota, mudança de etapa) foi
+implementado. Workflow ainda em rascunho, não publicado. A IA generativa se
+mostrou pouco confiável pra workflow deste tamanho — considerar montar este
+manualmente, nó a nó, na próxima sessão, em vez de insistir na IA.
