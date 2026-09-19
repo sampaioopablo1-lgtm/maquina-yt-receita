@@ -293,11 +293,29 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
       `CONECTAR`. Ramo `Pediu retorno` perdeu o nó de mudança de etapa —
       `Retorno agendado` não existe mais, o lead fica em `CONECTAR` e a
       lista `Retornos` (8.4) já filtra só pelo campo.
-- [ ] **Seção 5 e 5.1–5.4 (Pós-agendamento, Loop do closer, Comparecimento,
-      No-show)** — inclui o achado já registrado na seção 1.2 desta
-      migração: "descartar oportunidade" no no-show 2x (R-12) precisa virar
-      `status = lost` dentro de `NEGOCIAR`, não mover para uma etapa
-      `Descartado` que não existe mais
+- [x] **Seção 5 (Pós-agendamento)** — migrada em 19/09/2026: nó 1 trocado de
+      "mover para `Reunião agendada`" para "mover para `NEGOCIAR`" (tabela
+      1.0). **Publicado e ativo na tela antes desta migração de doc** (3
+      inscritos, 3 ativos, confirmado por leitura de tela em 19/09/2026) —
+      quem montou já usou o nome de etapa real; só a especificação escrita
+      estava desatualizada.
+  - [x] **5.1 (Loop do closer)** — migrada em 19/09/2026: os três ramos que
+        saem da reunião (`Parcial`, `Não`/Timing errado, `Não`/outro motivo)
+        trocaram "mover etapa" por `Update Opportunity status`
+        (`abandoned`/`abandoned`/`lost`), permanecendo em `NEGOCIAR` — o
+        ramo `Sim` não mexe em etapa nem status, é o closer que avança para
+        `FORMALIZAR` por fora deste workflow. Achado: diferente da maioria
+        das saídas de cadência (que mudam status dentro de `CONECTAR`),
+        aqui a saída acontece depois do avanço para `NEGOCIAR` — o Mestre
+        de saída não reage a isto de propósito, a limpeza de fila já rodou
+        no momento da conexão (seção 4). Ainda não publicado na tela.
+  - [ ] 5.2 (Registro de Comparecimento) — conferir se cita etapa antiga
+  - [ ] 5.3 (Recuperação de No-show), 5.4 (SLA do Closer — No-show) —
+        inclui o achado já registrado na seção 1.2 desta migração:
+        "descartar oportunidade" no no-show 2x (R-12) precisa virar
+        `status = lost` dentro de `NEGOCIAR`, não mover para uma etapa
+        `Descartado` que não existe mais. `Recuperação de No-show` já
+        existe na tela como rascunho (não publicado)
 - [ ] **Seção 6 (Qualificação por IA no WhatsApp)**
 - [ ] **Seção 8 (Listas inteligentes)** — qualquer lista com filtro de
       etapa `Retorno agendado`/`Nutrição`/`Descartado` precisa trocar para
@@ -553,3 +571,54 @@ nó**, ao vivo em chat, mesmo dia. Estado atual:
   perder tempo interpretando resultado de execução que nunca rodou.
 - **Falta só publicar** (toggle "Publicar", ainda em rascunho no fim desta
   sessão) antes de seguir pro próximo da fila (seção 5, "Pós-agendamento").
+
+## Estado da montagem em 19/09/2026, mais tarde (lista de workflows lida ao vivo em chat)
+
+O dono colou a lista de workflows da tela (`Automação → Fluxos de
+trabalho`), que este conector não lê por API — é a fonte mais confiável
+disponível para o estado real de publicação. Estado por nome, ordem
+alfabética da própria tela:
+
+| Workflow | Status | Inscritos (total / ativos) |
+|---|---|---|
+| Cadência 12x30 | **Rascunho** | 0 / 0 |
+| Interceptação de Sinal — Clique | Publicado | 3 / 0 |
+| Interceptação de Sinal — Resposta | Publicado | 1 / 0 |
+| Mestre de saída | Publicado | 5 / 0 |
+| Porta de Entrada | Publicado | 80 / 0 |
+| **Pós-agendamento** | **Publicado** | **3 / 3** |
+| Pós-ligação | Publicado | 24 / 0 |
+| Qualificação por IA no WhatsApp | **Rascunho** | 0 / 0 |
+| Recuperação de No-show | **Rascunho** | 0 / 0 |
+
+**Não aparecem na lista — ainda não criados na tela, nem como rascunho:**
+Alerta de Speed-to-lead (2.11), Cadência Inbound (2.10), Contador de
+Toques (2.19), Loop do closer (5.1), Monitor de Capacidade (2.15),
+Reengajamento 90 dias (2.12), Registro de Comparecimento (5.2), SLA do
+Closer — No-show (5.4). A lista está em ordem alfabética por nome; se
+qualquer um destes existisse, apareceria intercalado entre os que
+aparecem (ex.: "Alerta..." antes de "Cadência...", "Loop..." entre as duas
+"Interceptação..." e "Mestre...") — ausência na posição esperada é
+evidência de que não existem, não só de estarem fora desta página.
+
+**Achado que muda a prioridade do que montar a seguir:** `Pós-ligação` e
+`Mestre de saída` estão publicados (a seção anterior deste arquivo já
+tinha essa dúvida em aberto — resolvida: os dois foram publicados depois
+daquela sessão). Mas **`Cadência 12x30` — o motor principal do projeto —
+segue em rascunho**, com 0 inscritos. Isso significa que nenhum dos 40
+leads já em `NOVO LEAD` (Porta de Entrada) está de fato rodando as 12
+tentativas ainda, mesmo com Pós-ligação e Mestre de saída prontos para
+recebê-los quando a cadência começar a alimentá-los. `Qualificação por IA
+no WhatsApp` segue rascunho — não confirmado ainda se é o placeholder vazio
+original (criado só para o Mestre de saída ter o que apontar, ver seção
+anterior) ou se já ganhou o prompt de IA por dentro.
+
+**Ordem prática a partir daqui**, dado que a seção 5 (Pós-agendamento) já
+está publicada e ativa: montar 5.1 (Loop do closer) e 5.2 (Registro de
+Comparecimento), que não existem ainda; depois 5.3/5.4 (a `Recuperação de
+No-show` já existe como rascunho, falta o `SLA do Closer` par dela e
+publicar as duas juntas); só depois disso publicar `Cadência 12x30` — ela
+já emite a tag `toque` (F-04) desde o primeiro nó, então o ideal é o
+`Contador de Toques` (passo 2 da "Ordem de montagem") existir antes dela
+ir ao ar, senão a tag acumula sem o contador para reagir (não quebra nada,
+só atrasa o benefício do F-04).

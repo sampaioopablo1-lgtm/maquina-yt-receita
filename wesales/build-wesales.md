@@ -2283,7 +2283,7 @@ não-negociável.
 
 ---
 
-## 5. Workflow "Pós-agendamento"
+## 5. Workflow "Pós-agendamento" — migrado para as 5 etapas reais em 19/09/2026
 
 ### Gatilho
 **Appointment Status** — Calendário: `Reunião com closer` · Status:
@@ -2297,7 +2297,7 @@ ficaria muda.
 ### Nós
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Mover oportunidade → `Reunião agendada` | Aciona o Mestre de saída |
+| 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`AGENDAR` para `NEGOCIAR` — tabela 1.0) |
 | 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
 | 3 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp`, `Recuperação de No-show`, `SLA do Closer — No-show` (R-12 — este gatilho também dispara num **reagendamento** depois de um no-show; sem remover os dois workflows daqui, uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou. `Remove from Workflow` de um contato que não está no workflow não faz nada — chamar sempre é seguro) |
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
@@ -2352,7 +2352,7 @@ Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}}
 
 ---
 
-## 5.1 Workflow "Loop do closer — veredito pós-reunião" — F-03
+## 5.1 Workflow "Loop do closer — veredito pós-reunião" — F-03 — migrado para as 5 etapas reais em 19/09/2026
 
 A seção 5 fecha o que o SDR controla: agendou, o closer recebeu a nota e o
 resumo. O que o SDR **nunca** descobre é se agendou bem — e sem isso a nota de
@@ -2394,10 +2394,19 @@ faixas A/B da seção 9.1. Reaproveitar evita uma segunda régua para a régua.
 #### Ramos do nó 4
 | Veredito | Ação |
 |---|---|
-| `Sim` | Nenhuma mudança de etapa. A venda continua no `FUNIL DE VENDAS`, fora deste pipeline e fora desta automação — não é este workflow que move o lead para lá |
-| `Parcial` | Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d` |
-| `Não`, motivo = `Timing errado` | Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d` (sem fit **agora** não é sem fit nunca) |
-| `Não`, qualquer outro motivo | Mover oportunidade → `Descartado` |
+| `Sim` | Nenhuma mudança de etapa **nem de status**. A oportunidade segue `open` em `NEGOCIAR` — é o closer, fora deste workflow, que a leva a `FORMALIZAR` quando fechar |
+| `Parcial` | Update Opportunity `status` = `abandoned` (sem sair de `NEGOCIAR` — tabela 1.0, `Nutrição` não é etapa própria) + Add Contact Tag `nutricao-90d` |
+| `Não`, motivo = `Timing errado` | Mesma ação da linha `Parcial`: `status` = `abandoned` + tag `nutricao-90d` (sem fit **agora** não é sem fit nunca) |
+| `Não`, qualquer outro motivo | Update Opportunity `status` = `lost` (sem sair de `NEGOCIAR` — tabela 1.0, `Descartado` não é etapa própria) |
+
+**Achado desta migração:** nenhum destes três ramos move a oportunidade
+para fora de `NEGOCIAR` — só o `status` muda. Isso é diferente da maioria
+das outras saídas de cadência (que mudam status **dentro de `CONECTAR`**):
+aqui o "sair" acontece depois de já ter avançado para `NEGOCIAR` pelo Pós-
+agendamento (seção 5, nó 1). O Mestre de saída (seção 3) não reage a isto —
+seu portão só olha `CONECTAR`+`open` — e não deveria mesmo: a limpeza de
+fila (`fila-tel`/`fila-wa`) já rodou quando o lead conectou (seção 4, ramo
+`Atendeu`), não há fila para limpar de novo aqui.
 
 O motivo só decide o destino quando o veredito é `Não`; `Parcial` já é
 tratado como nutrição direto, sem olhar o motivo — é o mesmo critério do ramo
