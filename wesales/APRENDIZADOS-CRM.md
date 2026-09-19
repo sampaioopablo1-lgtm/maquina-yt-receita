@@ -22,7 +22,7 @@ de pedir correção pelo chat da própria IA:**
    qualificação`, `Last appointment at` no lugar de qualquer coisa
    relacionada à reunião) — não convergiu para os campos reais, só
    redistribuiu o erro.
-3. O dono then editou manualmente (fora do chat de IA, direto no nó) o
+3. O dono então editou manualmente (fora do chat de IA, direto no nó) o
    gatilho — aí sim ficou certo (`Reunião foi qualificada` / `Foi
    alterado`, mais um segundo filtro `Tags`/`Adicionado` sobrando de uma
    tentativa anterior da IA, removido). Mas o nó de condição seguinte
@@ -89,6 +89,28 @@ cadência que a primeira (o que o Mestre de saída remove) não tenha. Hoje as
 duas fecham em três: `Cadência 12x30`, `Cadência Inbound`,
 `Reengajamento 90 dias` — mais `Qualificação por IA no WhatsApp`, que só
 aparece na primeira porque não é régua de cadência (seção 2.7).
+
+**Quarta ocorrência, achada na rodada seguinte (mesma lista, outro
+workflow):** o nó 3 do Pós-agendamento (seção 5) também removia de
+`Cadência 12x30` e não das outras duas réguas. Efeito menor — o nó 1 move
+para `NEGOCIAR` e isso aciona o Mestre de saída —, mas o nó 3 existe para
+fechar a janela de segundos até a limpeza chegar, então a omissão é a
+mesma. E quinta ocorrência no mesmo grep: o ramo `Não ligar` do Pós-ligação
+(seção 4), que é o mais caro dos três — na janela entre o nó 4 e a limpeza
+cai tarefa de ligação para quem acabou de pedir para não ser procurado.
+
+Conclusão que vale guardar: **`Remove from Workflow` aparece em quatro
+lugares deste documento, e cada um tem sua própria lista.** Quando nasce uma
+régua nova, o grep é por `Remove from Workflow` em todo o arquivo, não só na
+seção 3:
+
+```
+grep -n 'Remove from Workflow' wesales/build-wesales.md
+```
+
+Dos quatro, só o ramo `Número errado` (seção 4) fica de fora de propósito:
+ele não tem lista, delega inteiro ao Mestre de saída, e isso está escrito no
+próprio parágrafo dele.
 
 **Onde `status` não entra, de propósito:** o nó 2 da Interceptação de Sinal
 (2.9.2/2.9.3) ganhou `status não é lost`, não `status é open`. `abandoned` é

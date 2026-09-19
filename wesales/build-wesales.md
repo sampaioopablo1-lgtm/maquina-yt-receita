@@ -2308,9 +2308,17 @@ nela com prioridade alta.
 | 1 | Add Contact Tag `nao-perturbe` |
 | 2 | **Set Contact DND** = ligado (todos os canais) |
 | 3 | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` |
-| 4 | Remove from Workflow: `Cadência 12x30` e `Qualificação por IA no WhatsApp` |
+| 4 | Remove from Workflow: `Cadência 12x30`, `Cadência Inbound` (2.10), `Reengajamento 90 dias` (2.12) e `Qualificação por IA no WhatsApp` — as duas do meio entraram em 19/09/2026, mesma lista incompleta da seção 3 |
 | 5 | Update Opportunity `status` = `lost` |
 | 6 | Add Note `Opt-out registrado em {{right_now}}` |
+
+**Por que as duas réguas novas entram aqui, e aqui mais que em qualquer
+lugar:** o nó 5 muda `status` para `lost` e isso aciona o Mestre de saída,
+que já remove as três — mas entre o nó 4 e a limpeza chegar existe uma
+janela de segundos, e o que pode cair nela é uma mensagem ou uma tarefa de
+ligação para alguém que **acabou de pedir para não ser procurado**. É o
+erro mais caro da operação inteira (o DND do nó 2 cobre o canal, não a
+tarefa que o SDR já vê na tela). Dois nomes numa lista pagam isso.
 
 Etapa também fica em `CONECTAR` aqui — só o `status` muda. O nó 4 já tira o
 contato dos dois workflows na hora (não depende de esperar o Mestre de saída
@@ -2340,7 +2348,7 @@ ficaria muda.
 |---|---|---|
 | 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`AGENDAR` para `NEGOCIAR` — tabela 1.0) |
 | 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
-| 3 | Remove from Workflow | `Cadência 12x30`, `Qualificação por IA no WhatsApp`, `Recuperação de No-show`, `SLA do Closer — No-show` (R-12 — este gatilho também dispara num **reagendamento** depois de um no-show; sem remover os dois workflows daqui, uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou. `Remove from Workflow` de um contato que não está no workflow não faz nada — chamar sempre é seguro) |
+| 3 | Remove from Workflow | `Cadência 12x30`, `Cadência Inbound` (2.10), `Reengajamento 90 dias` (2.12), `Qualificação por IA no WhatsApp`, `Recuperação de No-show`, `SLA do Closer — No-show` (R-12 — este gatilho também dispara num **reagendamento** depois de um no-show; sem remover os dois workflows de no-show daqui, uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou. `Remove from Workflow` de um contato que não está no workflow não faz nada — chamar sempre é seguro. As duas réguas novas entraram em 19/09/2026 pelo mesmo motivo da lista do Mestre de saída, seção 3 — ver nota abaixo) |
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
 | 5 | Update Contact Field | `Prioridade` = 5 |
 | 6 | Add Note | Resumo da qualificação (modelo abaixo) |
@@ -2348,6 +2356,19 @@ ficaria muda.
 | 8 | Wait até 24h antes | → Send WhatsApp lembrete |
 | 9 | Wait até 3h antes | → Send WhatsApp lembrete |
 | 10 | Wait até 30min antes | → Send WhatsApp lembrete curto |
+
+**Por que `Cadência Inbound` e `Reengajamento 90 dias` entraram no nó 3
+(19/09/2026):** é a mesma lista incompleta que o Mestre de saída (seção 3)
+tinha, escrita quando existia uma régua só. Aqui o efeito é menor, porque o
+nó 1 move a etapa para `NEGOCIAR` e isso aciona o Mestre de saída, que agora
+remove as três — mas o Mestre roda como workflow separado, e o nó 3 existe
+justamente para fechar a janela de segundos entre "agendou" e "a limpeza
+chegou". Um lead que agenda no meio da régua inbound podia receber a TI3
+nesse intervalo. Dois nomes numa lista, contra uma mensagem fora de hora
+para um lead que acabou de marcar reunião: vale. **Retoque de tela:** este
+workflow está publicado e ativo, e os dois nomes só aparecem no seletor
+depois que as réguas existirem (ver a tabela de retoques no
+`GUIA-MONTAGEM.md`).
 | 11 | Assign to User | Closer dono do horário |
 | 12 | Internal Notification | E-mail + SMS para o closer — **este SMS é para a sua equipe, não para o lead**, então a decisão "sem SMS" de 19/09/2026 não o alcança; se preferir só e-mail, é trocar aqui |
 

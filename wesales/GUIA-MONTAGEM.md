@@ -527,6 +527,8 @@ varredura de 19/09/2026, detalhe em `build-wesales.md`):
 | Onde | O que mudar na tela | Por quê |
 |---|---|---|
 | `Mestre de saída`, depois do nó 2 | Acrescentar dois `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **os dois só entram quando esses workflows existirem na tela** (hoje nenhum dos dois existe, nem como rascunho: ver a lista lida ao vivo mais abaixo); a hora certa é no mesmo dia em que cada um for criado, não depois | A limpeza conhecia só a régua original; as outras duas continuariam ligando para quem já saiu. Este é o retoque que se esquece sozinho, porque só vira possível semanas depois do achado |
+| `Pós-ligação`, ramo `Não ligar`, nó 4 | Somar ao `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **só possível quando existirem** | O mais caro dos três: na janela entre o nó 4 e a limpeza do Mestre de saída, cai tarefa de ligação para quem acabou de pedir para não ser procurado |
+| `Pós-agendamento`, nó 3 | Somar ao `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **também só possível quando existirem** | Mesma lista incompleta do Mestre de saída, um nível abaixo. Aqui a janela é de segundos (o nó 1 move para `NEGOCIAR` e o Mestre limpa), mas é a janela em que um lead que acabou de agendar recebe a TI3 |
 | `Interceptação de Sinal — Clique` e `— Resposta`, nó 2 | No If/Else, somar à condição de etapa: `status` da oportunidade **não é** `lost` | Um clique de quem pediu `Não ligar` (ou de número errado) virava tarefa `ligar agora`. `abandoned` continua passando de propósito — é o lead em nutrição esquentando, ver a nota na seção 2.9.2 |
 
 **Em andamento, incompleto:** `Pós-ligação` (seção 4). Primeira tentativa
