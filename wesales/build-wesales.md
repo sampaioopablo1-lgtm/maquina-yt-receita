@@ -2176,10 +2176,10 @@ campo.)
 |---|---|---|---|
 | 1 | Portão | If/Else | `Reunião foi qualificada` está vazio → **encerra** (evita disparo por outra edição de campo que não seja o veredito) |
 | 2 | Carimbo | Update Contact Field | `Data do veredito do closer` = `{{right_now}}` |
-| 3 | Registro | Add Note | `Veredito do closer: {{contact.reuniao_foi_qualificada}} · motivo: {{contact.motivo_da_desqualificacao}} · nota do SDR/IA na hora: {{contact.nota_de_qualificacao}}` |
+| 3 | Registro | Add Note | `Veredito do closer: {{contact.reunio_foi_qualificada}} · motivo: {{contact.motivo_da_desqualificao}} · nota do SDR/IA na hora: {{contact.nota_de_qualificao}}` |
 | 4 | Roteamento | If/Else múltiplo por `Reunião foi qualificada` | ver ramos abaixo |
-| 5 | **Alerta de calibração (alta)** | If/Else | `Nota de qualificação` ≥ 70 **E** `Reunião foi qualificada` = `Não` → Internal Notification ao gestor: `Nota {{contact.nota_de_qualificacao}} mas o closer marcou Não ({{contact.motivo_da_desqualificacao}}) — revisar a régua da seção 9 com {{contact.name}}.` |
-| 6 | **Alerta de calibração (baixa)** | If/Else | `Nota de qualificação` < 45 **E** `Reunião foi qualificada` = `Sim` → Internal Notification ao gestor: `Nota baixa ({{contact.nota_de_qualificacao}}) mas o closer marcou Sim — a régua pode estar descartando lead bom. Revisar {{contact.name}}.` |
+| 5 | **Alerta de calibração (alta)** | If/Else | `Nota de qualificação` ≥ 70 **E** `Reunião foi qualificada` = `Não` → Internal Notification ao gestor: `Nota {{contact.nota_de_qualificao}} mas o closer marcou Não ({{contact.motivo_da_desqualificao}}) — revisar a régua da seção 9 com {{contact.name}}.` |
+| 6 | **Alerta de calibração (baixa)** | If/Else | `Nota de qualificação` < 45 **E** `Reunião foi qualificada` = `Sim` → Internal Notification ao gestor: `Nota baixa ({{contact.nota_de_qualificao}}) mas o closer marcou Sim — a régua pode estar descartando lead bom. Revisar {{contact.name}}.` |
 
 Os cortes 70 e 45 dos nós 5 e 6 não são novos: são as mesmas fronteiras das
 faixas A/B da seção 9.1. Reaproveitar evita uma segunda régua para a régua.
@@ -2325,8 +2325,8 @@ gatilho.
 | 1 | Remove Contact Tag `fila-tel` (idempotente, mesmo se ausente) |
 | 2 | Add Contact Tag `limpar-tarefas` |
 | 3 | Mover oportunidade → `Descartado` (aciona o Mestre de saída, que faz o resto da limpeza) |
-| 4 | Add Note `Descartado após {{contact.n_de_no_shows}}º no-show seguido sem reagendar — regra de proteção de agenda do closer (R-12)` |
-| 5 | Internal Notification ao gestor `{{contact.name}} descartado automaticamente após {{contact.n_de_no_shows}}º no-show — nenhuma ação necessária, é a regra de proteção de agenda` |
+| 4 | Add Note `Descartado após {{contact.n_de_noshows}}º no-show seguido sem reagendar — regra de proteção de agenda do closer (R-12)` |
+| 5 | Internal Notification ao gestor `{{contact.name}} descartado automaticamente após {{contact.n_de_noshows}}º no-show — nenhuma ação necessária, é a regra de proteção de agenda` |
 
 #### Ramo Recuperação (1º no-show)
 

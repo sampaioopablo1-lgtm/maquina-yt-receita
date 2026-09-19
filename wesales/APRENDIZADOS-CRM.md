@@ -2,6 +2,34 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Como matar a classe de erro do `fieldKey`, em vez de um por vez — 19/09/2026
+
+O GHL **remove** a letra acentuada ao gerar o `fieldKey`, não translitera:
+`anúncios` → `anncios`, `qualificação` → `qualificao`, `agência` → `agncia`,
+`Tentativa nº` → `tentativa_n`. Escrever "como se lê" dá merge field em branco,
+e o erro não aparece em teste nenhum: a nota sai com um pedaço faltando e
+ninguém nota.
+
+Corrigir um nó por vez não fecha o buraco — em 19/09 houve dois commits
+seguidos achando o mesmo `tentativa_no` em lugares diferentes (nó 6 do Mestre
+de saída, depois nó 9 do Pós-ligação), e ainda sobraram quatro chaves erradas
+que nenhum dos dois pegou. **A verificação que fecha de uma vez** é comparar
+tudo que o documento cita contra o que a subconta tem:
+
+```
+# o que os documentos citam
+grep -rho "contact\.[a-z0-9_]*" wesales/*.md | sort -u > /tmp/usados.txt
+# o que existe de verdade: os fieldKey de locations_get-custom-fields
+# mais os nativos (first_name, last_name, name, phone, email, company_name)
+comm -23 /tmp/usados.txt /tmp/reais.txt
+```
+
+Saída vazia = nenhum merge field órfão. Em 19/09 essa comparação achou quatro
+de uma vez (`motivo_da_desqualificacao`, `n_de_no_shows`,
+`nota_de_qualificacao`, `reuniao_foi_qualificada`), corrigidos no mesmo commit.
+**Rode isto depois de qualquer rodada que acrescente merge field**, e depois de
+criar campo novo na tela — é mais barato que descobrir pela nota vazia.
+
 ## Pesquisa de mercado que valeu a pena guardar (F-02) — 19/09/2026
 
 Pesquisado ao especificar o horário aprendido por segmento
