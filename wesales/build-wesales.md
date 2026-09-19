@@ -2010,7 +2010,7 @@ ruim (R-01, feito em 18/09/2026).
 | 7b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
 | 7c | Update Contact Field | `Hora da conexão` = saída do nó 7b |
 | 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
-| 9 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
+| 9 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
 
 #### Ramo `Caixa postal` e ramo `Não atendeu` (idênticos)
 | # | Ação |
