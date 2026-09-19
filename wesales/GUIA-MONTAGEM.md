@@ -260,6 +260,24 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
   - [ ] 8.5 em diante (`Sem resultado ontem`, 8.6–8.18) — ainda não
         conferidas linha a linha nesta migração
 - [ ] **Seção 9 (Nota de qualificação e Prioridade)**
+- [x] **`rotina-limpar-tarefas.md` (fora de `build-wesales.md`, achado em
+      19/09/2026)** — este checklist só rastreava `build-wesales.md`; o
+      prompt autocontido da rotina de manutenção de tarefas buscava
+      oportunidades no pipeline `"Pré-vendas"` (nome que não existe na tela
+      — é `FUNIL DE VENDAS`) e mapeava prefixo de tarefa pelas 7 etapas
+      antigas, incluindo `Retorno agendado` como etapa própria (não é mais).
+      Corrigido: PASSO 2 agora busca no pipeline real e também lê o
+      `status` da oportunidade (não só a etapa) — sem isso, um lead que
+      esgotou as 12 tentativas (`status = abandoned`, mas segue parado em
+      `CONECTAR`) teria suas tarefas `[CADENCIA]` tratadas como válidas
+      para sempre, porque etapa sozinha não diferencia "ainda na régua" de
+      "saiu da régua sem mudar de etapa". PASSO 3 ganhou a tabela nova
+      (etapa + status + `Resultado da tentativa`), incluindo `NEGOCIAR`
+      aceitando `[CADENCIA]` para as tarefas de recuperação de no-show
+      (seção 5.3, que mantém a oportunidade em `NEGOCIAR`). Achado ao
+      revisar coerência entre documentos, não por relato de erro em
+      produção — a rotina nunca chegou a rodar com o pipeline real, porque
+      nenhuma oportunidade existe ainda na subconta.
 
 **Não assuma que 2.1/2.3/2.4/2.6/3/4 cobrem tudo que toca `Em cadência`,
 `Nutrição` ou `Descartado`** — são só os pontos consertados nesta rodada.

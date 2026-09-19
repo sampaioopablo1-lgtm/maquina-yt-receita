@@ -2,6 +2,46 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A migração de pipeline vazou para fora de `build-wesales.md` — `rotina-limpar-tarefas.md` também citava as 7 etapas antigas — 19/09/2026
+
+O checklist de migração do `GUIA-MONTAGEM.md` ("Fase 1") só rastreia seções
+de `build-wesales.md`. Ao revisar coerência entre documentos antes de pegar
+um item do roadmap, achei que `rotina-limpar-tarefas.md` — um prompt
+**autocontido**, feito para rodar numa rotina separada sem depender desta
+conversa — ainda buscava oportunidades no pipeline `"Pré-vendas"` (nome que
+nunca existiu na tela; o pipeline real chama `FUNIL DE VENDAS`, reaproveitado
+por decisão do dono) e mapeava prefixo de tarefa pelas 7 etapas do plano
+abandonado, incluindo `Retorno agendado` como se ainda fosse etapa própria.
+
+**Por que isso não apareceu antes:** a rotina nunca rodou de verdade contra
+o pipeline real — a subconta ainda tem 0 oportunidades, então o PASSO 2 do
+prompt nunca teve o que buscar. Um bug assim só aparece na primeira vez que
+alguém tentar rodar a rotina com oportunidade de verdade na tela.
+
+**Achado que generaliza para qualquer migração futura de nome de
+etapa/pipeline:** o `grep` de verificação do `GUIA-MONTAGEM.md` está escopado
+só a `wesales/build-wesales.md` — qualquer outro arquivo do projeto que cite
+etapa por nome literal (não pela tabela de tradução 1.0) precisa do mesmo
+grep rodado contra ele. Rodei `grep -rn` pelos nomes antigos em todo o
+`wesales/` desta vez; os outros arquivos que aparecem (`ROADMAP-SALES-ENGAGEMENT.md`,
+`APRENDIZADOS-CRM.md`, `briefing-sdr.md`, `biblioteca-mensagens.md`,
+`auditoria-*.md`) usam o nome antigo só como narrativa histórica ou como
+termo conceitual já coberto pela convenção da tabela 1.0 — não como valor
+literal que uma chamada de API vai comparar contra a tela. Só
+`rotina-limpar-tarefas.md` tinha os dois problemas ao mesmo tempo (nome de
+pipeline errado E comparação literal de etapa), porque é o único documento
+do projeto, fora de `build-wesales.md`, escrito para ser colado direto numa
+sessão que fala com o CRM.
+
+**Correção:** detalhe completo em `rotina-limpar-tarefas.md` (PASSO 2/3
+reescritos) e `GUIA-MONTAGEM.md` (novo item marcado na lista de migração).
+A régua nova também passou a checar o `status` da oportunidade, não só a
+etapa — sem isso, um lead que esgotou as 12 tentativas (`status = abandoned`,
+parado em `CONECTAR`) teria as tarefas `[CADENCIA]` tratadas como válidas
+para sempre, porque `CONECTAR` sozinho não diferencia "ainda na régua" de
+"saiu sem mudar de etapa" (a maioria das saídas de cadência no modelo de 5
+etapas muda só o `status`, não a etapa — tabela 1.0, `build-wesales.md`).
+
 ## Migração das 5 etapas continuou: Seção 3 (Mestre de saída) precisava de um segundo gatilho, não só troca de nome — 18/09/2026
 
 A tarefa de migração aberta em `GUIA-MONTAGEM.md` ("Fase 1", checklist de

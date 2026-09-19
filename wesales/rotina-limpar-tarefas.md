@@ -33,22 +33,35 @@ Se não houver nenhum, responda apenas "Nada na fila." e encerre.
 Pagine até o fim. Processe no máximo 200 contatos por execução; se houver
 mais, processe os 200 mais antigos e registre o restante no resumo.
 
-PASSO 2 — Para cada contato, descobrir a etapa atual
-Busque as oportunidades do contato no pipeline "Pré-vendas".
-- Uma oportunidade aberta: use a etapa dela.
-- Mais de uma aberta: use a mais recentemente atualizada e marque o contato
-  como "ambíguo" no resumo (é sintoma de oportunidade duplicada).
-- Nenhuma oportunidade: trate como etapa "sem oportunidade".
+PASSO 2 — Para cada contato, descobrir a etapa e o status atual
+Busque as oportunidades do contato no pipeline "FUNIL DE VENDAS" (é o nome
+do pipeline na tela; o projeto o chama de "Pré-vendas" só na documentação,
+nunca dentro do CRM — o dono reaproveitou o pipeline que já existia em vez
+de criar um separado).
+- Uma oportunidade com status "open": use a etapa dela, o status "open" e
+  o valor do campo "Resultado da tentativa".
+- Uma oportunidade com status "abandoned" ou "lost": trate como "fora da
+  cadência", não importa em qual etapa ela ficou parada — essas duas saídas
+  não movem mais a oportunidade de etapa, só mudam o status (a lista de
+  etapas do CRM real tem 5 posições, não 7; "abandoned"/"lost" substituem
+  o antigo movimento para etapa própria).
+- Mais de uma oportunidade com status "open": use a mais recentemente
+  atualizada e marque o contato como "ambíguo" no resumo (é sintoma de
+  oportunidade duplicada).
+- Nenhuma oportunidade: trate como "sem oportunidade".
 
-PASSO 3 — Definir o prefixo válido pela etapa
-  Em cadência ......... [CADENCIA]
-  Conectado ........... [CONECTADO]
-  Retorno agendado .... [RETORNO]
-  Novo lead ........... nenhum prefixo é válido
-  Reunião agendada .... nenhum prefixo é válido
-  Nutrição ............ nenhum prefixo é válido
-  Descartado .......... nenhum prefixo é válido
-  sem oportunidade .... nenhum prefixo é válido
+PASSO 3 — Definir o prefixo válido pela etapa, status e "Resultado da tentativa"
+  NOVO LEAD, qualquer status ............................. nenhum prefixo é válido
+  CONECTAR, "open", Resultado da tentativa ≠ "Pediu retorno" ... [CADENCIA]
+  CONECTAR, "open", Resultado da tentativa = "Pediu retorno" .... [RETORNO]
+  AGENDAR, "open" ......................................... [CONECTADO]
+  NEGOCIAR, "open" ........................................ [CADENCIA]
+  FORMALIZAR, qualquer status ............................. nenhum prefixo é válido
+  Qualquer etapa, status "abandoned" ou "lost" ("fora da cadência" do PASSO 2) . nenhum prefixo é válido
+  sem oportunidade ........................................ nenhum prefixo é válido
+
+NEGOCIAR aceita [CADENCIA] porque a régua de recuperação de no-show cria
+tarefas `[CADENCIA] NS1/NS2/NS3` sem tirar a oportunidade de `NEGOCIAR`.
 
 PASSO 4 — Concluir as tarefas fora de lugar
 Liste as tarefas ABERTAS (não concluídas) do contato. Para cada uma:
@@ -118,6 +131,15 @@ tarefas por hora. O teto transforma um incidente silencioso (a rotina
 oportunidade porque a etapa é o estado verdadeiro do lead — é ela que os
 portões da cadência consultam. A tarefa é só um lembrete; quando os dois
 divergem, a etapa está certa.
+
+**Por que o status entra na conta, não só a etapa.** No pipeline real (5
+etapas, `FUNIL DE VENDAS`), sair da cadência quase nunca move a oportunidade
+de etapa — "12 tentativas esgotadas", "número errado" e "não ligar" mudam só
+o `status` (`abandoned`/`lost`), e a oportunidade continua parada em
+`CONECTAR` (`build-wesales.md`, seção 1.0). Um lead assim tem etapa
+`CONECTAR`, igual a quem ainda está na régua — só o `status` diferencia os
+dois. Sem checar o `status`, a rotina trataria as tarefas `[CADENCIA]` de
+quem já saiu como válidas para sempre, e elas nunca seriam concluídas.
 
 ## Como agendar
 
