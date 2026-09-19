@@ -2,6 +2,59 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## G-02, sexta confirmação do mesmo padrão: "etapa sem status" falha também em nó opcional/de baixa prioridade — 19/09/2026, sessão automática
+
+Fechando as seções 2.13 a 2.17 (Regras de pausa, Distribuição de leads,
+Monitor de Capacidade, Higiene de Número, Dashboard do Gestor) do checklist
+de migração de nomes de etapa (G-02, `ROADMAP-SALES-ENGAGEMENT.md`). Achado
+real só na 2.16 (Higiene de Número — Validação Automática, item **opcional**
+do roadmap): o nó 2 do Ramo A (`Invalid`) comparava etapa da oportunidade
+contra `Novo lead`/`Em cadência`/`Retorno agendado` (segue) vs. `Conectado`/
+`Reunião agendada`/`Nutrição`/`Descartado` (não segue) — nomes que não
+existem mais na tela, e a "senão" misturava etapa avançada com status de
+saída, que a tabela 1.0 já trata como coisas diferentes.
+
+**Por que registrar mais uma vez o mesmo padrão já anotado para a seção 3,
+a 2.12 e a 2.11:** esta é a **sexta** vez que "o nó decide se o lead ainda
+está ativo, comparando só contra etapa" se mostra insuficiente — e a
+primeira vez que o item era **opcional** (2.16 é o único item de R-13 que
+"fica em espera indefinida sem prejudicar o resto" se o plano não cobrir o
+recurso). A prioridade baixa do item não isentou o achado: um nó pouco
+usado com bug de migração ainda quebra do mesmo jeito quando alguém liga o
+recurso um dia. Corrigido para `NOVO LEAD`/`CONECTAR` **e** `status é open`
+(segue) vs. `AGENDAR`/`NEGOCIAR` ou `status` já `abandoned`/`lost` (não
+segue) — mesma condição composta que a 2.4, a 2.10, a 2.11, a 2.12, o
+Mestre de saída e a família 5.3/5.4 já usam. **Regra prática para quem
+pegar as seções que ainda faltam (2.6.1, 2.7, 2.8, 2.9-2.9.4, seção 6,
+listas 8.5+, seção 9, checklist da seção 10):** a pergunta "este nó decide
+se o lead ainda está ativo?" vale a mesma checagem mesmo em seção marcada
+como opcional, de baixa prioridade ou pouco usada — o padrão não respeita
+prioridade do roadmap.
+
+As outras quatro subseções (2.13, 2.14, 2.15, 2.17) não tinham nó ativo com
+nome de etapa antigo: só uma menção solta em texto corrido na 2.13
+(`Em cadência` → `CONECTAR`, sem efeito em nó nenhum) e duas referências
+informais já esperadas — `Nutrição` em prosa na 2.14 (mesmo uso que a 1.2 e
+a 2.12 já fazem para o status `abandoned`) e `Pré-vendas` como apelido do
+pipeline na 2.17 (documentado na seção 1 desde a primeira migração). Zero
+escrita no CRM nesta rodada — o item é documentação pura (tradução de nome
+de etapa), não pede campo, tag ou nó novo, então não depende de
+`APROVADO.md`; a subconta foi só relida para reconfirmar estado (detalhe no
+fim desta entrada). Trabalho de documentação: `build-wesales.md` (seções
+2.13-2.17), `GUIA-MONTAGEM.md` (checklist da Fase 1) e
+`ROADMAP-SALES-ENGAGEMENT.md` (item G-02).
+
+Subconta reconfirmada nesta execução via `locations_get-custom-fields`
+(`query_model=all`)/`opportunities_get-pipelines`: 46 campos personalizados
+(mesma contagem da última checagem), pipeline `FUNIL DE VENDAS` com as
+mesmas 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`),
+mesma cor e probabilidade, `dateUpdated` ainda 18/09/2026 19:56 UTC — sem
+mudança desde a última rodada. As ferramentas do conector `GHL CRM`
+apareceram como ferramentas **adiadas** desta sessão (carregadas por
+`ToolSearch` antes do primeiro uso, não pré-carregadas na lista inicial) —
+registrado aqui só porque o briefing desta rodada avisa para não concluir
+"sem acesso" cedo demais: valeu a pena checar antes de assumir.
+
 ## "Construir com IA" do GHL não lê os campos personalizados da conta — hipotetiza nome de campo genérico, mesmo depois de corrigido — 19/09/2026, ao vivo em chat
 
 Sessão ao vivo com o dono, montando o `Loop do closer — veredito

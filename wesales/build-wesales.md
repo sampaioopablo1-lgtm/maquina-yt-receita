@@ -1322,9 +1322,9 @@ as duas datas.
 
 ---
 
-## 2.13 Regras de pausa — R-09
+## 2.13 Regras de pausa — R-09 — conferida para as 5 etapas reais em 19/09/2026, um retoque
 
-`nao-perturbe` já resolve "este lead nunca mais" e a etapa `Em cadência`
+`nao-perturbe` já resolve "este lead nunca mais" e a etapa `CONECTAR`
 resolve "este lead está correndo a régua". Falta o meio-termo: "não toque em
 *ninguém* por alguns dias" (feriado, o SDR de férias) e "não toque *neste*
 lead por alguns dias" (ele pediu, sem ser opt-out). São dois problemas de
@@ -1449,7 +1449,7 @@ depender de calendário nenhum, via `pausado`, sem perder a posição na régua.
 
 ---
 
-## 2.14 Distribuição de leads — R-10
+## 2.14 Distribuição de leads — R-10 — conferida para as 5 etapas reais em 19/09/2026, sem achado
 
 O desenho inteiro até aqui (seções 2 a 2.13) assume um único SDR. No
 segundo, sem regra, os dois abrem a mesma `Fila Telefone Hoje` (8.2) e ligam
@@ -1582,7 +1582,7 @@ cada um só o que é dele.
 
 ---
 
-## 2.15 Monitor de Capacidade — R-11
+## 2.15 Monitor de Capacidade — R-11 — conferida para as 5 etapas reais em 19/09/2026, sem achado
 
 **Por quê (herdado da lacuna L-05 do briefing):** 10 leads/dia × 12
 tentativas dá ~120 tarefas/dia em regime, acima da meta de 100 do briefing —
@@ -1680,7 +1680,7 @@ não expõe o dado que isso exigiria).
 
 ---
 
-## 2.16 Higiene de Número — Validação Automática (opcional) — R-13
+## 2.16 Higiene de Número — Validação Automática (opcional) — R-13 — migrada para as 5 etapas reais em 19/09/2026
 
 O portão 0.0/0.0b (seções 2.3 e 2.10) resolve o caso mais barato e mais
 comum: contato sem telefone nenhum. Não resolve o outro caso que o roadmap
@@ -1719,7 +1719,7 @@ o que já cumpre a parte estrutural do "Pronto quando" do roadmap.
 ### Gatilho
 
 **Number Validation** — contato, sem filtro de pipeline (roda também para
-quem já saiu de `Em cadência`, porque um número pode ser invalidado a
+quem já saiu de `CONECTAR`, porque um número pode ser invalidado a
 qualquer momento do ciclo de vida do contato, não só na entrada).
 
 ### Configurações
@@ -1741,14 +1741,22 @@ qualquer momento do ciclo de vida do contato, não só na entrada).
 | # | Ação |
 |---|---|
 | 1 | Add Contact Tag `telefone-invalido` |
-| 2 | If/Else: etapa da oportunidade **é uma de** `Novo lead`, `Em cadência`, `Retorno agendado` → segue. Senão (já `Conectado`, `Reunião agendada`, `Nutrição` ou `Descartado`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
-| 3 | (só se o nó 2 seguiu) If/Else: `Site` ou `Instagram` preenchido → Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d`. Senão → Mover oportunidade → `Descartado` |
+| 2 | If/Else: etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` **e** `status` **é** `open` → segue. Senão (já `AGENDAR`, `NEGOCIAR`, ou `status` já `abandoned`/`lost`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
+| 3 | (só se o nó 2 seguiu) If/Else: `Site` ou `Instagram` preenchido → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Senão → Update Opportunity `status` = `lost` |
 | 4 | Internal Notification para o gestor: `Telefone inválido (validação automática): {{contact.name}} — revisar a fonte da lista` |
 
 Mesmo desenho de saída do nó 0.0b e do ramo `Número errado` da seção 4 —
-mesma tag, mesmo critério de Nutrição vs. Descartado. Mover a etapa aciona
-o Mestre de saída (seção 3) sozinho: nenhuma limpeza extra precisa ser
-escrita aqui.
+mesma tag, mesmo critério de `abandoned` vs. `lost` (tabela 1.0). Mudar o
+`status` aciona o Mestre de saída (seção 3, gatilho 2 — `Opportunity
+Status Changed`) sozinho: nenhuma limpeza extra precisa ser escrita aqui.
+Achado desta migração, mesmo padrão já registrado para as seções 2.4/2.10/
+2.11/2.12/5.3/5.4: o nó 2 original comparava só contra nome de etapa —
+sem o `status é open` acrescentado aqui, um lead que já tivesse saído de
+`CONECTAR` por `abandoned`/`lost` (mesma etapa, status diferente) passaria
+pelo nó 2 como se ainda estivesse ativo, e o nó 3 tentaria mudar `status`
+de novo num lead que a `Mestre de saída` já tinha processado — inofensivo
+por ser idempotente, mas o motivo de checar é o mesmo: etapa sozinha não
+basta para saber se o lead ainda está de verdade correndo cadência.
 
 #### Ramo B — `Landline`
 
@@ -1782,7 +1790,7 @@ uma ligação nele, não só depois — a distância que separa o portão 0.0
 
 ---
 
-## 2.17 Dashboard do Gestor — R-15
+## 2.17 Dashboard do Gestor — R-15 — conferida para as 5 etapas reais em 19/09/2026, sem achado (usa `Pré-vendas` só como apelido do pipeline, ver seção 1)
 
 **Por quê (herdado do roadmap):** todo o resto que os blocos 1 a 5 constroem
 morre se depender de alguém abrir seis listas inteligentes por hora. O

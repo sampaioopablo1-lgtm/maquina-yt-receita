@@ -276,12 +276,34 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         "`CONECTAR` e `open`") leria a chegada como saída e disparia a
         limpeza no momento errado. Detalhe completo na seção 2.12 do
         `build-wesales.md`.
-  - [ ] 2.13 (Regras de pausa) — conferir se cita etapa antiga
-  - [ ] 2.14 (Distribuição de leads), 2.15 (Monitor de Capacidade), 2.16
-        (Higiene de Número) — 2.16 nó 2 cita `Novo lead`/`Em cadência`/
-        `Retorno agendado` num If/Else de lista, precisa virar
-        `NOVO LEAD`/`CONECTAR` (sem `Retorno agendado`, que não é etapa)
-  - [ ] 2.17 (Dashboard do Gestor) — cita pipeline `Pré-vendas`
+  - [x] **2.13 (Regras de pausa)** — conferida em 19/09/2026: uma menção
+        sobrevivente ("a etapa `Em cadência` resolve...", texto corrido, não
+        nó) trocada para `CONECTAR`. Nada mais a migrar — a seção já falava
+        só em tag `pausado` e no recurso nativo de pausa por data.
+  - [x] **2.14 (Distribuição de leads)** — conferida em 19/09/2026: zero
+        nome de etapa antigo em nó ativo. A única citação a `Nutrição` é
+        narrativa ("é assim que ele chegou a `Nutrição`", explicando por que
+        o Reengajamento não precisa de sorteio próprio de dono) — mesmo uso
+        informal que a 2.12 e a seção 1.2 já fazem para o status `abandoned`,
+        não um gatilho ou portão comparando contra etapa inexistente.
+  - [x] **2.15 (Monitor de Capacidade)** — conferida em 19/09/2026: sem
+        nome de etapa nenhum, antigo ou novo — a seção inteira gira em torno
+        de tag de fila (`fila-tel`/`fila-wa`) e Custom Metric, nada a migrar.
+  - [x] **2.16 (Higiene de Número)** — migrada em 19/09/2026: o gatilho
+        ("roda também para quem já saiu de `Em cadência`") e o nó 2 do Ramo
+        A (`Novo lead`/`Em cadência`/`Retorno agendado` vs. `Conectado`/
+        `Reunião agendada`/`Nutrição`/`Descartado`) trocados para
+        `NOVO LEAD`/`CONECTAR` **e** `status é open` vs. `AGENDAR`/
+        `NEGOCIAR` ou `status` já `abandoned`/`lost` — mesmo reforço de
+        `status` que a 2.11, o Mestre de saída, a 2.12 e a família 5.3/5.4
+        já precisaram. O nó 3 ("Mover oportunidade → `Nutrição`/
+        `Descartado`") virou `Update Opportunity status = abandoned/lost`,
+        espelhando o 0.0b já migrado da 2.3/2.10. Detalhe completo na seção
+        2.16 do `build-wesales.md`.
+  - [x] **2.17 (Dashboard do Gestor)** — conferida em 19/09/2026: as citações
+        a `Pré-vendas` (nome do dashboard, filtro do widget "Opportunities")
+        são o apelido documentado do pipeline na seção 1, não um nome de
+        etapa órfão — nada a migrar. Zero nome de etapa antigo na seção.
 - [x] **Seção 3 (Mestre de saída)** — migrada em 18/09/2026: mudança
       estrutural, não só nome — ganhou um segundo gatilho
       (`Opportunity Status Changed`, para `Lost`/`Abandoned`) porque, no

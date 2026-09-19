@@ -179,9 +179,35 @@ campos reais (`Reunião foi qualificada`, `Motivo da desqualificação`, `Nota
 de qualificação`) — mesma classe de falha já registrada para o Pós-ligação.
 Detalhe completo: `APRENDIZADOS-CRM.md`.
 
-**Segue aberto:** 2.13 a 2.17, seção 6, listas 8.5 em diante, seção 9 e o
-checklist de teste (seção 10) — todos
-listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
+**Resumo (19/09/2026, quinta rodada):** fechadas as seções 2.13 a 2.17
+(Regras de pausa, Distribuição de leads, Monitor de Capacidade, Higiene de
+Número, Dashboard do Gestor) — o pedaço de tamanho certo para uma execução
+depois da família do pós-agendamento ter fechado a rodada anterior. Achado
+real só na 2.16: o Ramo A (`Invalid`) tinha um nó ativo comparando etapa da
+oportunidade contra `Novo lead`/`Em cadência`/`Retorno agendado` (segue) vs.
+`Conectado`/`Reunião agendada`/`Nutrição`/`Descartado` (não segue) — nomes
+que não existem mais na tela, e a "senão" misturava duas coisas diferentes
+(etapa avançada e status de saída) que a tabela 1.0 já separa. Corrigido
+para `NOVO LEAD`/`CONECTAR` **e** `status é open` (segue) vs. `AGENDAR`/
+`NEGOCIAR` ou `status` já `abandoned`/`lost` (não segue) — sexta vez que
+este mesmo reforço de `status` aparece numa migração (depois de 2.4, 2.10,
+2.11, 2.12, Mestre de saída e a família 5.3/5.4), e sempre pelo mesmo
+motivo: nome de etapa sozinho não diz se o lead ainda está de verdade
+correndo a régua. O nó seguinte ("mover oportunidade → `Nutrição`/
+`Descartado`") virou `Update Opportunity status = abandoned/lost`,
+espelhando o 0.0b já migrado. As outras quatro subseções (2.13, 2.14, 2.15,
+2.17) não tinham nó ativo com nome de etapa antigo — só uma menção solta em
+texto corrido na 2.13 (`Em cadência` → `CONECTAR`) e referências
+informais/de apelido (`Nutrição` em prosa na 2.14, `Pré-vendas` como nome do
+pipeline na 2.17, ambas já documentadas como uso esperado desde a seção 1).
+Zero campo, zero tag: item de documentação pura, não depende de
+`APROVADO.md`. Detalhe completo em `build-wesales.md` (cabeçalhos das cinco
+seções) e `GUIA-MONTAGEM.md` (checklist da Fase 1).
+
+**Segue aberto:** 2.6.1, 2.7, 2.8 e 2.9–2.9.4 (ainda não conferidas linha a
+linha), seção 6, listas 8.5 em diante, seção 9 e o checklist de teste
+(seção 10) — todos listados item a item em `GUIA-MONTAGEM.md`, dentro da
+Fase 1.
 
 ---
 
