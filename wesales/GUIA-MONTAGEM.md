@@ -18,7 +18,7 @@ documento não detalha.
 - [ ] **Fase 3 — Calendário do closer + formulário de qualificação** — próxima
 - [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
 - [ ] **Fase 5 — Os ~14 workflows**, na ordem da seção "Ordem de montagem" do `build-wesales.md`
-- [ ] **Fase 6 — Listas inteligentes** (~18)
+- [ ] **Fase 6 — Listas inteligentes** (~19)
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
 - [ ] **Fase 8 — Pausar Workflows em Datas Específicas** (feriados/férias)
 - [ ] **Fase 9 — Number Validation** (opcional)

@@ -488,7 +488,7 @@ e campos não saem por API; a subconta segue com 0 campos e 0 contatos,
 reconfirmado nesta execução via `locations_get-custom-fields`/
 `contacts_get-contacts`).
 
-### F-02 · Melhor horário aprendido, por segmento
+### F-02 · Melhor horário aprendido, por segmento — **FEITO em 19/09/2026**
 **Por quê:** a tabela de horários das 12 tentativas é a mesma para todo mundo.
 Mas dentista atende às 14h e obra atende às 7h. A operação descobre isso depois
 de trezentas ligações — e não usa.
@@ -496,6 +496,36 @@ de trezentas ligações — e não usa.
 comparar por `Segmento`; ajustar os horários das tentativas por faixa.
 **Pronto quando:** o horário da T3 de um segmento é diferente do de outro, e a
 diferença veio de evidência, não de palpite.
+
+**Resumo:** campo C-25 (`Hora da conexão`, `TEXT` só a hora, formato `HH`)
+especificado em `campos-e-tags.md`; nós 7b/7c novos no ramo `Atendeu` do
+Pós-ligação (`build-wesales.md`, seção 4) gravam a hora com o `Date/Time
+Formatter`; lista `Conexão por Segmento e Horário` (seção 8.19) cruza
+`Segmento` com a hora, ordenada para o gestor ver o agrupamento sem
+planilha nem Custom Metric (Smart List não agrupa nem tira média, mesmo
+achado já registrado para o R-11). Pesquisado antes de desenhar: a
+literatura de outbound converge em janelas médias de mercado (manhã e fim
+de tarde) e o Rhythm da Salesloft faz send-time optimization só para
+e-mail — nenhuma fonte encontrada aprende horário de **ligação** por
+segmento a partir da conexão real do próprio cliente, o diferencial que
+este item fecha sem depender de IA de terceiro. Novo mecanismo
+especificado na seção 2.18 (`build-wesales.md`) para o dia em que a
+lista 8.19 mostrar padrão: um `If/Else` por `Segmento` antes do nó 2
+("Aguardar horário") do bloco padrão de tentativa (seção 2.4), com a
+tabela 2.5 atual como `senão`. **Decisão de bloqueio, não lacuna
+esquecida:** o `If/Else` em si não foi construído nesta rodada — com 0
+conexões reais na subconta (reconfirmado nesta execução), qualquer ramo
+por segmento agora seria palpite, o oposto do "Pronto quando" do item;
+falta a criação manual do campo (campo personalizado não sai por API
+neste conector) e, depois disso, volume real para o padrão aparecer.
+Escopo documentado: o mecanismo cobre só a Cadência 12x30 (horário de
+relógio fixo) — a Cadência Inbound (seção 2.10) usa espera relativa em
+minutos, onde "horário aprendido" não se aplica pela própria natureza da
+régua. Checklist ganhou o item 33. Subconta reconfirmada nesta execução
+via `locations_get-custom-fields`/`opportunities_search-opportunity`/
+`opportunities_get-pipelines`: 46 campos (nenhum deles o C-25 ainda), 0
+oportunidades, pipeline `FUNIL DE VENDAS` com as mesmas 5 etapas desde
+18/09/2026.
 
 ### F-03 · Loop do closer de volta para o SDR — **FEITO em 18/09/2026**
 **Por quê:** este é o defeito mais comum e mais caro em pré-vendas. O SDR
@@ -587,19 +617,21 @@ de ordem por decisão de conteúdo, não de posição: sobe para o topo no dia
 em que a operação começar a mandar mensagem de verdade. Antes disso, não há
 a quem incomodar.
 
-F-01 e F-03 já saíram do bloco 6 fora da ordem normal, cada um na rodada em
-que foi feito: sinal ignorado e nota não calibrada são dívidas que não se
+F-01, F-03 e F-02 já saíram do bloco 6 fora da ordem normal, cada um na rodada
+em que foi feito: sinal ignorado e nota não calibrada são dívidas que não se
 pagam retroativamente — os dados que faltaram não voltam, calendário nenhum
-devolve. Nenhum item do bloco 6 pede prioridade fora da ordem agora: os quatro
-que restam pedem volume para fazer sentido. F-02 precisa de conexões
-suficientes para ter padrão; F-06 precisa de call tracking ligado; F-04 e F-05
-só mordem quando há mais de uma cadência no ar.
+devolve. F-02 é o mesmo tipo de dívida: cada dia sem `Hora da conexão` sendo
+gravada é uma conexão que nunca vai ajudar a calibrar horário nenhum,
+mesma razão que tirou F-01/F-03 da fila normal antes dele. Nenhum item do
+bloco 6 pede prioridade fora da ordem agora: os três que restam pedem volume
+para fazer sentido. F-06 precisa de call tracking ligado; F-04 e F-05 só
+mordem quando há mais de uma cadência no ar.
 
 **Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
 rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
 bloco 5. O que resta não espera posição na fila, espera a operação existir:
-R-14 quando a máquina começar a mandar mensagem de verdade, e os quatro itens
-do bloco 6 quando houver volume. Enquanto isso, o trabalho que sobra é montar
-na tela o que já está especificado — pipeline, campos, workflows, calendário e
-formulário, pelo `build-wesales.md`.
+R-14 quando a máquina começar a mandar mensagem de verdade, e os três itens
+que restam no bloco 6 quando houver volume. Enquanto isso, o trabalho que
+sobra é montar na tela o que já está especificado — pipeline, campos,
+workflows, calendário e formulário, pelo `build-wesales.md`.

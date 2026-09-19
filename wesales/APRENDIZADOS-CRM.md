@@ -2,6 +2,36 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Pesquisa de mercado que valeu a pena guardar (F-02) — 19/09/2026
+
+Pesquisado ao especificar o horário aprendido por segmento
+(`ROADMAP-SALES-ENGAGEMENT.md`, F-02; mecanismo em `build-wesales.md`,
+seção 2.18): a literatura de outbound (Gong.io, HubSpot, achada por
+`WebSearch`) converge em janelas **médias de mercado** — manhã tarde
+(10h-11h) e fim de tarde (16h-17h) — como melhor horário de ligação, sem
+segmentar por indústria do lead. **Salesloft** anuncia send-time
+optimization (recurso "Rhythm") só para e-mail; a documentação de
+**Outreach** fala em "segment-level analysis" para desempenho de
+mensagem, não em horário de ligação aprendido por segmento. Nenhuma das
+duas plataformas de prateleira citadas no enunciado do projeto aprende
+horário de **ligação** por segmento a partir da conexão real da própria
+base do cliente — é a lacuna que o F-02 fecha, e é o tipo de diferencial
+que um concorrente não replica só olhando a tela, porque o dado é da
+operação, não do produto.
+
+**Confiança média, não confirmado na tela:** se a ação `Date/Time
+Formatter` do GHL aceita um "To Format" que isola só a hora (`HH`) de um
+carimbo completo — achado só por busca (`growthable.io`, `consultevo.com`,
+`gohighlevele.com`); `help.gohighlevel.com` segue bloqueado pelo proxy
+deste ambiente para leitura direta, mesma limitação registrada desde o
+R-09. A ação existe e aceita formato customizado de saída — confirmado por
+três fontes convergentes —, mas o token exato para "só a hora" precisa ser
+confirmado na tela antes de montar os nós 7b/7c da seção 4. Se a tela não
+oferecer esse recorte, o plano B documentado na seção 2.18 é gravar
+`{{right_now}}` completo (como C-14/C-18/C-19 já fazem) e o gestor lê os
+dois últimos dígitos de hora na lista 8.19 — mais trabalho manual, mesmo
+dado.
+
 ## A migração de pipeline vazou para fora de `build-wesales.md` — `rotina-limpar-tarefas.md` também citava as 7 etapas antigas — 19/09/2026
 
 O checklist de migração do `GUIA-MONTAGEM.md` ("Fase 1") só rastreia seções

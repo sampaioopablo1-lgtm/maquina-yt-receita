@@ -1673,6 +1673,80 @@ do roadmap pediria.
 
 ---
 
+## 2.18 Horário aprendido por segmento — mecanismo (F-02)
+
+**Por quê:** a tabela 2.5 tem um horário fixo por tentativa, igual para todo
+mundo. Dentista atende às 14h, obra atende às 7h — a operação só descobre
+isso depois de centenas de ligações, e hoje não guarda o dado que provaria a
+diferença.
+
+**Pesquisado antes de desenhar:** a literatura de outbound (Gong.io, HubSpot,
+citada em busca) converge em manhã tarde (10h-11h) e fim de tarde (16h-17h)
+como janelas médias de melhor conexão — mas é média de mercado, não da base
+desta operação. Salesloft anuncia send-time optimization (recurso "Rhythm")
+para e-mail, e a documentação de Outreach fala em "segment-level analysis"
+para mensagem — nenhuma das duas fontes encontradas descreve uma janela de
+**ligação** aprendida por segmento a partir dos dados do próprio cliente, só
+médias agregadas do produto ou otimização de e-mail. É a lacuna que este
+item fecha: horário por segmento vindo da conexão real desta base, não de
+benchmark de mercado nem de caixa-preta de IA de terceiro — o tipo de coisa
+que um concorrente não replica só olhando a tela, porque o dado é nosso.
+
+**O que este item entrega agora:** a captura do dado e o lugar para
+enxergar o padrão. **O que ele não entrega ainda, e não poderia:** o
+"Pronto quando" do roadmap ("o horário da T3 de um segmento é diferente do
+de outro, e a diferença veio de evidência") só se cumpre depois que
+conexões de verdade acontecerem — com a subconta em 0 contatos reais
+(reconfirmado nesta execução), qualquer horário por segmento agora seria
+palpite disfarçado de dado, o oposto do que o item pede.
+
+### Captura — nós novos no Pós-ligação (seção 4, ramo `Atendeu`)
+
+Nós 7b/7c, logo depois do carimbo `Data conectado` (nó 7): `Date/Time
+Formatter` reformata `{{right_now}}` para só a hora (`HH`, 00–23), e
+`Update Contact Field` grava em `Hora da conexão` (C-25, `campos-e-tags.md`).
+**Nível de confiança médio** no formato exato do "To Format" do Date/Time
+Formatter: achado só por busca (`growthable.io`, `consultevo.com`,
+`gohighlevele.com`) — `help.gohighlevel.com` segue bloqueado pelo proxy
+deste ambiente para leitura direta, mesma limitação registrada desde o
+R-09. Confirme o token de hora isolada (`HH` ou equivalente da tela) antes
+de montar; se a ação não suportar extrair só a hora, o caminho alternativo
+é gravar `{{right_now}}` completo (como C-14/C-18/C-19 já fazem) e recortar
+os dois dígitos da hora na leitura da lista 8.19 — mais trabalho manual
+para o gestor, mesmo dado.
+
+### Visualização — lista 8.19
+
+Especificada na seção 8 (`Conexão por Segmento e Horário`). Nenhuma conta
+nova: GHL não agrupa nem tira média dentro de uma Smart List (mesmo achado
+já registrado no R-11 para Custom Metrics) — a lista só filtra e ordena, o
+padrão sai do gestor olhando a coluna `Hora da conexão` agrupada visualmente
+por `Segmento`.
+
+### O que fica pronto para quando a evidência existir
+
+A tabela 2.5 (seção 2.5) continua única e compartilhada — é o "senão" de
+qualquer ajuste futuro. O ponto exato onde um ajuste por segmento entraria,
+se e quando a lista 8.19 mostrar um padrão real, é o nó 2 do bloco padrão de
+tentativa (seção 2.4, "Aguardar horário"): um `If/Else` por `Segmento` antes
+dele, com um ramo por segmento que tiver padrão comprovado e a tabela 2.5
+atual como `senão`. **Não construído nesta rodada de propósito:** com 0
+conexões reais, não há segmento com volume para justificar um ramo — criar
+o `If/Else` agora seria condicionar a régua a um palpite travestido de dado,
+exatamente o que o "Pronto quando" do item proíbe. Fica registrado como
+decisão de bloqueio, não como lacuna esquecida: quando a lista 8.19 mostrar
+um segmento com **volume suficiente para não ser ruído** (o gestor decide o
+número — este documento não inventa uma casa decimal de confiança
+estatística para uma amostra que ainda não existe), o `If/Else` é a mudança
+mínima, num nó já mapeado, não uma reforma da cadência.
+
+Este mecanismo cobre só a Cadência 12x30 (horário de relógio fixo, tabela
+2.5). A Cadência Inbound (seção 2.10) usa espera **relativa** (minutos desde
+a entrada, não horário de relógio) — "horário aprendido por segmento" não
+se aplica a ela pela própria natureza da régua, não por lacuna deste item.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
@@ -1791,6 +1865,8 @@ ruim (R-01, feito em 18/09/2026).
 | 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 6 | Mover oportunidade → `AGENDAR` (dispara o Mestre de saída pelo gatilho de etapa, que faz a limpeza) |
 | 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
+| 7b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
+| 7c | Update Contact Field | `Hora da conexão` = saída do nó 7b |
 | 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 9 | Add Note `Atendeu na T{{contact.tentativa_no}}` |
 
@@ -2593,6 +2669,21 @@ fonte da lista ou completar o cadastro manualmente. Ordenar pelo mais
 antigo é o mesmo raciocínio já usado em 8.8 e 8.15: quem está represado há
 mais tempo é quem mais precisa de alguém decidir.
 
+### 8.19 `Conexão por Segmento e Horário` — F-02
+| Item | Configuração |
+|---|---|
+| Filtros | `Hora da conexão` não vazio |
+| Colunas | Nome · `Segmento` · `Hora da conexão` · `Data conectado` · `Tentativa nº` |
+| Ordenação | `Segmento` asc, depois `Hora da conexão` asc |
+
+Não faz conta nenhuma — GHL não agrupa nem tira média dentro de uma Smart
+List (mesmo achado do R-11 sobre Custom Metrics). Ordenar por `Segmento` e
+depois por `Hora da conexão` deixa as conexões do mesmo segmento juntas e
+crescentes por hora, para o gestor ver o agrupamento visualmente sem
+planilha — o que a lista pode fazer sozinha, do "Pronto quando" do F-02
+(seção 2.18). A decisão de ajustar a régua por segmento, quando o padrão
+aparecer, é manual: mecanismo completo em 2.18.
+
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -2713,6 +2804,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 30 | Handoff e no-show (R-12) | No Teste Atendeu já em `Reunião agendada`, reduza os Waits das seções 5.3/5.4 para minutos e marque o agendamento como `No Show`: `Nº de no-shows` vai a 1, o closer recebe o alerta imediato (nó 3 da 5.4), `fila-tel` é aplicada e a tarefa `[CADENCIA] NS1` nasce; confirme NS2/NS3 nascendo nos horários reduzidos e, sem resposta a nenhuma, `Template usado` = `NS-2`, `nutricao-90d` aplicada e etapa de volta a `Nutrição`. Não deixe passar as 2h reduzidas do nó 4 da 5.4 sem reagendar: confirme o Internal Notification de escalonamento ao gestor (nó 6). Repita o `No Show` uma segunda vez no mesmo contato (rodada manual): `Nº de no-shows` chega a 2, a oportunidade vai direto para `Descartado`, sem tarefa nova e sem alerta de SLA ao closer (nó 2 da 5.4 encerra sozinho). Por fim, num terceiro contato, marque `No Show` e reagende pelo link do calendário antes do fim da régua: confirme que nenhuma tarefa `NS2`/`NS3` nasce depois do reagendamento (nó 3 do Pós-agendamento removeu os dois workflows do R-12) e que marcar `Showed` depois zera `Nº de no-shows` (nó 3 da seção 5.2) | |
 | 31 | Higiene de base (R-13) | Antes de os 5 contatos de teste ganharem telefone, mova o Teste Não Atende para `Em cadência` sem preencher `Phone`: o nó 0.0 aplica `telefone-invalido`; como o contato não tem `Site` (Q-02) nem `Instagram` (Q-03) preenchidos — o caso normal de lead outbound, porque esses dois só se preenchem na qualificação —, a oportunidade vai direto para `Descartado` (se algum dos dois estiver preenchido, vai para `Nutrição` + `nutricao-90d` — confira o ramo certo para o cadastro que estiver testando) e nenhuma tarefa `[CADENCIA] T1` nasce; o gestor recebe o aviso do nó 0.0b. Repita com um lead `cad-inbound` para confirmar o mesmo comportamento no nó 0.0 da Cadência Inbound (seção 2.10). Se a seção 2.16 tiver sido montada, valide também: um contato com telefone claramente fixo dispara o gatilho `Number Validation` como `Landline` e `Permissão WhatsApp` vira `Não` sem o lead sair de cadência | |
 | 32 | Dashboard do Gestor (R-15) | Com pelo menos o Teste Atendeu em `Reunião agendada` e algum dos 5 em `Em cadência`, abra `Painel do Gestor — Pré-vendas`: o widget "Appointment Report" mostra o agendamento do calendário `Reunião com closer`; o widget "Opportunities" mostra o Teste Atendeu na etapa certa do funil ao vivo; o widget "Tasks" mostra a(s) tarefa(s) `[CADENCIA]` criada(s) hoje. Se o plano expuser Custom Metrics, confira as quatro métricas da seção 2.17 — `Estouro da Fila` negativo com só 5 contatos, `Atrasos de Speed-to-lead` em 0 (nenhum atrasou de propósito no teste), e as duas de `Taxa de Conexão` refletindo `Conexões telefone`/`Tentativas telefone` e o par de WhatsApp dos contatos de teste que já passaram por uma tentativa | |
+| 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `Em cadência` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.

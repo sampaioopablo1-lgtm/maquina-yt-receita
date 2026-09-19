@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (42 + 1 sugerido)
+## Etapa 2 — Campos personalizados (43 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -41,6 +41,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-22 | Data compareceu | DATE | — | Workflow (R-03) |
 | C-23 | Template usado | TEXT | código do template, ex. `M1-a` | Workflow (R-04) |
 | C-24 | Nº de no-shows | NUMERICAL | — | Workflow (R-12) |
+| C-25 | Hora da conexão | TEXT | `HH`, 00 a 23 | Workflow (F-02) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -110,6 +111,19 @@ closer). **`NUMERICAL`, não uma tag:** a lista 8.17 (`build-wesales.md`)
 filtra direto pelo valor do campo, mesmo raciocínio já usado em C-06/C-07 —
 uma tag só valeria a pena se algum portão precisasse checar "presente/
 ausente" sem importar a contagem, o que não é o caso aqui.
+
+C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
+F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
+`Atendeu`, para cruzar com `Segmento` (Q-01) numa lista e enxergar se um
+segmento conecta mais de manhã e outro à tarde. **`TEXT` de duas casas
+(`HH`), não `NUMERICAL` nem o carimbo `AAAA-MM-DD HH:MM` que C-14/C-18/C-19
+usam:** aqui ninguém mede minutos entre dois eventos (o que pediria
+`TEXT` completo, R-02) nem soma o valor (o que pediria `NUMERICAL`, como
+C-06 a C-12) — o campo só precisa ser lido e comparado por um humano numa
+lista, por segmento, e uma string de duas casas evita o risco que o próprio
+projeto já registrou com `Conexões telefone` (C-11): um `NUMERICAL` criado
+errado na tela quebra a ação `Math` sem avisar; um `TEXT` não tem esse jeito
+de quebrar porque nenhum nó soma nele.
 
 **R-10 (distribuição de leads) não abre campo novo.** O roadmap sugeria um
 campo `SDR responsável`; a especificação (`build-wesales.md`, seção 2.14)
