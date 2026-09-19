@@ -454,17 +454,36 @@ apontar os nós 2 e 3, "Remove from Workflow", para `Cadência 12x30` e
 criados vazios, só nome), `Interceptação de Sinal — Clique` e `— Resposta`
 (seção 2.9, Trigger Link "Agendar com o closer" criado).
 
-**Em andamento, incompleto:** `Pós-ligação` (seção 4), nome real na tela
-`Pós-ligação` — tentativa de montar via IA generativa do construtor de
-workflow (ferramenta nova do GHL, "Construa usando IA"). Depois de várias
-rodadas de correção, a própria IA relatou (autoauditoria pedida em prompt):
-gatilho sem filtro nenhum (deveria ser `Contact Changed` com filtro de
-campo `Resultado da tentativa` alterado), nó de checagem de vazio olhando
-campo errado (`last_appointment` em vez de `Resultado da tentativa`), nó de
-incremento sem campo selecionado e somando 0, e **os 6 ramos (Atendeu,
-Caixa Postal, Não atendeu, Número errado, Pediu retorno, Não ligar) sem
-nenhuma ação dentro — só a condição de entrada existe**, nenhum dos passos
-do build-wesales.md (tags, campos, tarefa, nota, mudança de etapa) foi
-implementado. Workflow ainda em rascunho, não publicado. A IA generativa se
-mostrou pouco confiável pra workflow deste tamanho — considerar montar este
-manualmente, nó a nó, na próxima sessão, em vez de insistir na IA.
+**Em andamento, incompleto:** `Pós-ligação` (seção 4). Primeira tentativa
+via IA generativa do construtor de workflow ("Construa usando IA") saiu
+malformada — gatilho sem filtro, condição de vazio olhando campo errado,
+6 ramos sem nenhuma ação dentro — abandonada. Reconstruído **manual, nó a
+nó**, ao vivo em chat, mesmo dia. Estado atual:
+
+- Gatilho `Contact Changed` com filtro `Resultado da tentativa` alterado — ok.
+- Nó 1 (checagem de vazio) — ok, vazio encerra sem incrementar.
+- Nó 2 (`fila-wa` → `Tentativas WhatsApp`/`Tentativas telefone`) — ok, os
+  dois lados (Branch e None) incrementam certo. **Testado via API em
+  contato sem tag: confirmado que incrementa `Tentativas telefone`.**
+- Nó 3 (`Total de ligações` +1) — ok, duplicado nos dois lados do nó 2.
+- **Defeito real encontrado e confirmado por teste:** o `Condition` de 6
+  ramos (`Resultado da tentativa` = Atendeu/Caixa Postal/Não atendeu/
+  Número errado/Pediu retorno/Não ligar), com todas as ações dos 6 ramos já
+  montadas dentro (Atendeu com 9 ações; Caixa Postal e Não atendeu
+  idênticos, duplicados um do outro; Número errado, Pediu retorno e Não
+  ligar cada um com sua sequência própria) — **esse bloco de condição
+  inteiro só existe do lado "Branch" (tem `fila-wa`, ou seja, tentativa por
+  WhatsApp) do nó 2.** O lado "None" (tentativa por telefone, a maioria dos
+  casos reais) só incrementa `Tentativas telefone` e termina — nunca chega
+  nos 6 ramos. **Confirmado ao vivo:** contato de teste sem tag, `Resultado
+  da tentativa = Atendeu`, ganhou `Total de ligações`/`Tentativas
+  telefone`, mas nunca ganhou `Conexões telefone`, tag `conectado-hoje`,
+  tarefa nem nota.
+- **Pendência única, mas grande:** duplicar (ou reconstruir manualmente) o
+  `Condition` de 6 ramos inteiro, com tudo dentro, também no lado "None"
+  (telefone) do nó 2. Tentativa de usar a opção de duplicar nó ficou
+  confusa de guiar por chat/print — mais seguro reconstruir manual, nó a
+  nó, com calma, do mesmo jeito que a primeira cópia foi feita.
+- Workflow ainda em **rascunho**, não publicado — não publicar antes de
+  fechar essa pendência, senão liga a limpeza pela metade (funcionaria só
+  pra tentativa por WhatsApp).
