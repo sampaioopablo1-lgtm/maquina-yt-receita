@@ -14,7 +14,7 @@ documento não detalha.
 ## Visão geral das fases
 
 - [x] **Fase 1 — Pipeline** — concluída, mas com 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`), não as 7 originais — decisão do dono ao vivo, ver seção abaixo
-- [x] **Fase 2 — Campos personalizados** (42 campos) — concluída; os 2 que faltavam (`WA não atendidas seguidas`, `Permissão WhatsApp`) foram criados e o tipo errado (`Conexões telefone`) foi corrigido para Numérico, confirmado via `locations_get-custom-fields`
+- [x] **Fase 2 — Campos personalizados** — concluída; os 2 que faltavam (`WA não atendidas seguidas`, `Permissão WhatsApp`) foram criados e o tipo errado (`Conexões telefone`) foi corrigido para Numérico, confirmado via `locations_get-custom-fields`
 - [ ] **Fase 3 — Calendário do closer + formulário de qualificação** — próxima
 - [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
 - [ ] **Fase 5 — Os ~14 workflows**, na ordem da seção "Ordem de montagem" do `build-wesales.md`
@@ -382,8 +382,8 @@ estranhar a diferença de caixa.
       **Atualiza o achado anterior desta seção** ("não permite trocar o
       `dataType` depois de criado"): valeu a pena tentar editar antes de
       assumir que só apagando resolvia.
-- [x] 42 campos no total confirmados (`locations_get-custom-fields`,
-      `query_model=contact`) — todos os C-01 a C-24, Q-01 a Q-18 mais
+- [x] Confirmados por `locations_get-custom-fields` (`query_model=contact`)
+      todos os C-01 a C-24 e Q-01 a Q-18, mais
       `Segmento` (criado como `TEXT`, decisão registrada em
       `campos-e-tags.md` por causa da resposta "diversos nichos" do dono)
       e `Data de retorno` (`DATE`, sem o par `Hora do retorno` — pendência

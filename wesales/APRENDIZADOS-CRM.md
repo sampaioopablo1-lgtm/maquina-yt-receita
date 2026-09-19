@@ -133,8 +133,10 @@ Stage Changed → Nutrição`, que não existe mais como etapa, precisa virar
 **Reconfirmado nesta rodada:** pipeline `FUNIL DE VENDAS` continua com as
 mesmas 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`,
 mesma probabilidade e cor, `dateUpdated` ainda 18/09/2026 19:56 UTC — sem
-mudança desde a última verificação) e os 42 campos personalizados batendo
-com `campos-e-tags.md`. Nenhuma escrita no CRM nesta rodada: o trabalho foi
+mudança desde a última verificação) e os campos personalizados batendo com
+`campos-e-tags.md` — quantos existem de fato, e onde divergem da
+especificação, fica em `CONFERENCIA-CAMPOS.md`, que é quem compara os dois
+lados. Nenhuma escrita no CRM nesta rodada: o trabalho foi
 só migração de documento, sem campo/tag/contato novo exigido.
 
 ## Fase 2 (campos) começou fora de ordem, e 3 dos 24 campos não batem com a especificação — 18/09/2026 ~21h UTC
