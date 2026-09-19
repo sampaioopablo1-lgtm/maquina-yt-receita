@@ -2,6 +2,58 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Migração de etapa: um portão que só olha a etapa também engana um alerta, não só o Mestre de saída — 19/09/2026
+
+Sessão automática, mesmo cenário de sempre (R-14/F-05/F-06 esperando
+volume/mensagem real). Continuei o checklist de migração de nomes de etapa
+(`GUIA-MONTAGEM.md`, Fase 1) a partir de onde a rodada anterior parou e
+fechei a seção 2.11 (Alerta de Speed-to-lead) do `build-wesales.md`.
+
+A tradução mecânica (`Pré-vendas`/`Em cadência` → `FUNIL DE
+VENDAS`/`CONECTAR`) era só metade do trabalho. O portão do nó 2 decide se o
+alerta dispara comparando "etapa é `Em cadência`" — no plano de 7 etapas,
+sair de cadência por qualquer motivo sempre movia a etapa, então bastava.
+No modelo real de 5 etapas, o nó 0.0b (seção 2.3, R-13) pode descartar um
+lead sem telefone (`Update Opportunity status = abandoned`/`lost`) **sem
+tirá-lo de `CONECTAR`**, e isso acontece antes de qualquer tentativa
+rodar — exatamente a janela que este alerta observa. Traduzindo só o nome
+da etapa, o portão continuaria lendo "ainda em `CONECTAR`, `1ª tentativa
+em` vazio" como sinal de atraso, e aplicaria `atraso-1a-tentativa` num lead
+que já saiu de cadência, só que por `status`, não por etapa — um alarme
+falso, silencioso, sem erro nenhum na tela. Corrigido acrescentando
+`status é open` à condição do nó 2, a mesma composta que a seção 3 (Mestre
+de saída) já usa.
+
+**Por que isso generaliza, e por que vale procurar antes de traduzir
+qualquer seção que sobrar:** esta é a **terceira** seção onde "etapa sem
+status" se mostra insuficiente neste modelo (a primeira foi a seção 3, a
+segunda a reentrada da 2.12) — qualquer nó que decida algo a partir de "o
+lead ainda está correndo cadência?" precisa das duas condições juntas, não
+só do nome da etapa. Ao pegar as seções que ainda faltam (2.13 a 2.17,
+seção 5 e 5.1-5.4, seção 6, listas 8.5+, seção 9, checklist da seção 10),
+vale perguntar primeiro "este nó compara contra etapa para decidir se o
+lead ainda está ativo?" antes de assumir que é troca de nome — pelo
+histórico das três seções já migradas, a resposta vem sendo "precisa do
+`status` junto" mais vezes do que "é só o nome".
+
+Zero escrita no CRM nesta rodada (confirmado por
+`opportunities_get-pipelines`/`opportunities_search-opportunity`/
+`locations_get-custom-fields` antes de editar: pipeline com as mesmas 5
+etapas, 46 campos sem mudança). Trabalho só de documentação:
+`build-wesales.md` (seção 2.11), `GUIA-MONTAGEM.md` (checklist da Fase 1)
+e `ROADMAP-SALES-ENGAGEMENT.md` (item G-02).
+
+**Achado à parte, não relacionado à seção 2.11, registrado para a próxima
+rodada não redescobrir sozinha:** das 40 oportunidades, 39 seguem em
+`NOVO LEAD`, mas o contato `Daniel` (`c0uQwq5EqYM0vA8SGA0W`) apareceu em
+`NEGOCIAR` com a tag `limpar-tarefas`, `lastStageChangeAt` 19/09/2026
+06:41 UTC — a primeira oportunidade do projeto inteiro que já saiu de
+`NOVO LEAD`. Como nenhum workflow deste projeto está publicado ainda
+(`GUIA-MONTAGEM.md`, Fases 3+ seguem manuais), é mais provável mão humana
+na tela do que automação; não investiguei mais fundo porque é read-only e
+fora do escopo desta rodada (G-02), mas fica registrado para quem pegar o
+próximo item não estranhar o número mudando sem explicação.
+
 ## Migração de etapa: reentrar em `CONECTAR` sem resetar `status` engana o Mestre de saída — 19/09/2026
 
 Sessão automática, sem os três itens do roadmap desbloqueados (R-14/F-05/F-06

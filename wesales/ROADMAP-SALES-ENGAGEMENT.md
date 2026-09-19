@@ -125,9 +125,23 @@ Inbound) — tradução mecânica seguindo a mesma tabela 1.0, sem achado novo:
 gatilho `Pré-vendas`/`Em cadência` → `FUNIL DE VENDAS`/`CONECTAR`, nó 0.0b
 de "mover etapa" para `Update Opportunity status = abandoned/lost`
 (espelhando o 0.0b da 2.3, já migrado), portão da tentativa para
-`CONECTAR`. **Segue aberto:** 2.11, 2.13 a 2.17, seção 5 e 5.1-5.4, seção
-6, listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) —
-todos listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
+`CONECTAR`.
+
+**Resumo (19/09/2026, terceira rodada):** fechada a seção 2.11 (Alerta de
+Speed-to-lead) — gatilho migrado (`Pré-vendas`/`Em cadência` → `FUNIL DE
+VENDAS`/`CONECTAR`), e o portão (nó 2) ganhou um achado que a tradução
+mecânica sozinha não pegava: checar só "etapa é `CONECTAR`" deixaria um
+lead descartado por falta de telefone (nó 0.0b da seção 2.3, que muda
+`status` para `abandoned`/`lost` sem tirar a oportunidade de `CONECTAR`)
+disparar um alarme de speed-to-lead falso, porque a etapa continua batendo
+e `1ª tentativa em` nunca vai ser preenchida para esse lead. Portão
+corrigido para "`CONECTAR` **e** `status é open`" — a mesma condição
+composta que a seção 3 (Mestre de saída) já usa, e o mesmo tipo de achado
+que a reentrada da 2.12 já tinha documentado, agora numa terceira seção.
+Zero campo, zero tag: item de documentação pura, não depende de
+`APROVADO.md`. **Segue aberto:** 2.13 a 2.17, seção 5 e 5.1-5.4, seção 6,
+listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) — todos
+listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
 
 ---
 

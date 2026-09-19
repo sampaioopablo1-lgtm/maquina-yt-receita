@@ -247,7 +247,17 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         migrado da 2.3; portão da tentativa (nó 2) trocado para
         `CONECTAR`. Zero achado novo: era tradução mecânica, a mesma tabela
         1.0 já previa cada troca
-  - [ ] 2.11 (Alerta de Speed-to-lead) — cita `Em cadência` no portão
+  - [x] **2.11 (Alerta de Speed-to-lead)** — migrada em 19/09/2026: gatilho
+        trocado de `Pré-vendas`/`Em cadência` para `FUNIL DE
+        VENDAS`/`CONECTAR`. Achado novo, não previsto na tabela 1.0: o
+        portão (nó 2) não podia virar só "etapa é `CONECTAR`" — ganhou
+        também `status é open`, porque o nó 0.0b (seção 2.3) pode descartar
+        um lead sem telefone (`status = abandoned`/`lost`) sem tirá-lo de
+        `CONECTAR`, antes de qualquer tentativa rodar. Sem o `status`, esse
+        lead dispararia um alarme de speed-to-lead falso (a mesma classe de
+        bug que a seção 3 e a 2.12 já documentaram, aqui em rótulo de
+        alarme em vez de limpeza de fila). Detalhe completo na seção 2.11
+        do `build-wesales.md`.
   - [x] **2.12 (Reengajamento 90 dias)** — migrada em 19/09/2026, era o
         maior pedaço que sobrava: gatilho trocado de `Opportunity Stage
         Changed → Nutrição` para `Contact Tag Added → nutricao-90d` (a

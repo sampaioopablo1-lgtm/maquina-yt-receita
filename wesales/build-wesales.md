@@ -1009,7 +1009,7 @@ depois da entrada em `CONECTAR`, dentro da janela de expediente.
 
 ---
 
-## 2.11 Alerta de Speed-to-lead — R-02
+## 2.11 Alerta de Speed-to-lead — R-02 — migrado para as 5 etapas reais em 19/09/2026
 
 Speed-to-lead é a métrica nº 1 de inbound na literatura de vendas (Reev,
 Meetime, Outreach e Salesloft medem todos), mas nenhum deles resolve com
@@ -1026,8 +1026,9 @@ que espera 1h e **marca** o atraso com uma tag — daí a lista (8.8) vira
 trivial: filtra presença de tag, sem comparar data nenhuma.
 
 ### Gatilho
-**Opportunity Stage Changed** — Pipeline `Pré-vendas` · Para a etapa:
-`Em cadência` (o mesmo gatilho da Cadência 12x30, seção 2.1 — os dois disparam
+**Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS` (é o mesmo objeto
+que este documento chama de `Pré-vendas` — seção 1) · Para a etapa:
+`CONECTAR` (o mesmo gatilho da Cadência 12x30, seção 2.1 — os dois disparam
 juntos, um mede e cadencia, o outro só mede)
 
 ### Configurações
@@ -1042,19 +1043,35 @@ juntos, um mede e cadencia, o outro só mede)
 |---|---|---|---|
 | 0 | Bifurcação por origem (R-07) | If/Else | Tag `cad-inbound` presente → Wait 15 minutos (nó 1a). Senão → Wait 1 hora (nó 1b). Os dois caminhos convergem no nó 2 |
 | 1a/1b | Aguardar | Wait → Time Delay | 15 min (inbound) ou 1 hora (outbound), conforme o nó 0 |
-| 2 | Portão | If/Else | Etapa da oportunidade **é** `Em cadência` **E** `1ª tentativa em` está vazio **E** tag `pausado` **ausente** (R-09) → segue. Senão → **encerra** (T1 já rodou, o lead já saiu de cadência, ou está pausado de propósito — nenhum dos três é atraso) |
+| 2 | Portão | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` **E** `1ª tentativa em` está vazio **E** tag `pausado` **ausente** (R-09) → segue. Senão → **encerra** (T1 já rodou, o lead já saiu de cadência — por movimento de etapa ou por `status`, ver nota abaixo —, ou está pausado de propósito — nenhum dos três é atraso) |
 | 3 | Fila | Add Contact Tag | `atraso-1a-tentativa` |
 | 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está há mais de 1h em cadência sem a 1ª tentativa. Entrada: {{contact.entrada_em}}.` |
 | 5 | Registro | Add Note | `Alerta speed-to-lead: sem 1ª tentativa 1h após a entrada · {{right_now}}` |
 
 A limpeza é dupla, de propósito: o nó 5d da T1 (seção 2.4) remove a tag no
 caminho feliz (T1 rodou dentro da hora), e o nó 4 do Mestre de saída (seção 3)
-remove no caminho de saída (lead mudou de etapa antes de qualquer um dos
-dois). Tag presa custa uma lista suja; os dois pontos de remoção custam duas
-linhas.
+remove no caminho de saída (lead saiu de cadência antes de qualquer um dos
+dois — por movimento de etapa, como `Atendeu`, ou só por `status`, como
+`Número errado`/`Não ligar`/12 tentativas esgotadas). Tag presa custa uma
+lista suja; os dois pontos de remoção custam duas linhas.
 
 **Pronto quando (herdado do R-02 no roadmap):** existe lista "leads com mais
 de 1h sem primeira tentativa" — é a 8.8, filtrando `atraso-1a-tentativa`.
+
+**Por que o nó 2 ganhou `status é open`, não só `etapa é CONECTAR` (achado
+desta migração):** no plano de 7 etapas, todo jeito de sair de cadência
+movia a oportunidade para fora de `Em cadência` — checar só a etapa bastava.
+No modelo real de 5 etapas, o portão de higiene do nó 0.0b (seção 2.3) pode
+descartar um lead sem telefone (`status = abandoned`/`lost`) **sem tirá-lo de
+`CONECTAR`**, e isso acontece antes de qualquer tentativa rodar — exatamente
+a janela que este alerta observa. Sem o `status é open`, um lead assim
+dispararia um alarme de speed-to-lead falso: ele já saiu de cadência (nunca
+vai receber a T1), mas a condição "etapa é `CONECTAR` e `1ª tentativa em`
+vazio" continuaria verdadeira, e o nó 3 aplicaria `atraso-1a-tentativa` num
+lead que não está atrasado, só descartado. Mesma classe de bug que a seção 3
+(Mestre de saída) e a seção 2.12 (reentrada do Reengajamento) já documentaram
+para este modelo — checar só a etapa não basta onde saída e status andam
+separados.
 
 **Por que o nó 0 (R-07):** 1 hora é o limite certo para outbound (ninguém
 prometeu nada ao lead) e um limite inútil para inbound, cuja própria régua
