@@ -655,8 +655,11 @@ campos continuam valendo; só o que se escreve neles muda.
 
 Idêntico ao 2.9.2, trocando o gatilho e os dois textos marcados.
 
-**Gatilho:** `Customer Replied` — Canais: WhatsApp e SMS (os dois canais de
-texto da cadência)
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp**. Decisão ao vivo do
+dono, 19/09/2026: SMS nunca foi canal real da cadência (só telefone, ligação
+por WhatsApp e mensagem de WhatsApp — `briefing-sdr.md`), e o dono confirmou
+que não usa SMS em nenhum canal de contato com lead. O plano original media
+"WhatsApp e SMS" errado, como se fossem os dois canais de texto — não eram.
 
 Mesma tabela de nós da 2.9.2 (incluindo o nó 1 `Find opportunity`, que este
 gatilho também precisa — `Customer Replied` também não carrega oportunidade
