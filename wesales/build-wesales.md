@@ -1929,7 +1929,7 @@ condição que cobre os dois:
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
-| 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_no}} · resultado {{contact.resultado_da_tentativa}}` |
+| 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
 
 **Por que a condição do nó 1 é "CONECTAR E open", não só "CONECTAR":** as
 duas coisas precisam ser verdade ao mesmo tempo para o lead estar *de
