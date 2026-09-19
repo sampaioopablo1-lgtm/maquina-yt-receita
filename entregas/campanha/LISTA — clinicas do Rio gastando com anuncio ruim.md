@@ -4681,3 +4681,63 @@ Sem a Clinic Cursos, o bairro tem 7 anúncios reais. Foi ela que fez o termo par
    Dra. Flavia é aplicável direto ao nosso título — "Seleção para diagnóstico de tráfego".
 
 Combos varridos até aqui: + preenchimento labial Botafogo (bairro fraco; poluição de curso).
+
+---
+
+## 📐 Arquitetura — Barra da Tijuca (varredura de 19/09/2026, 02h)
+
+Termo usado: `escritório de arquitetura Barra da Tijuca`, seguindo a regra de que "arquitetura"
+sozinho puxa imobiliária. **A regra se confirmou mesmo com o termo corrigido**: dos 19 anúncios,
+13 são de incorporadora e imobiliária (Tegra com 8, New Home, Eliane Dias, luxobrasil).
+
+**O nicho real:** 6 páginas de arquitetura, 6 anúncios. Poucos — mas é a **melhor taxa de
+defeito do arquivo inteiro**.
+
+### Todas as 6 páginas de arquitetura têm o título quebrado
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **Marise Kessel Arquitetura** | título vazio | 15/09/2026 | **A** | https://www.facebook.com/ads/library/?id=4716417051972100 |
+| **Tayna Porto Arquitetura e Design** | título vazio | 08/09/2026 | **A** | https://www.facebook.com/ads/library/?id=1625056809213449 |
+| **Ingrid Suan Arquitetura e Interiores** | título vazio em 2 peças | **31/08/2026** | **A** | https://www.facebook.com/ads/library/?id=1628291432147164 |
+| **Ricardo Melo e Rodrigo Passos Arquitetura** | título vazio | **28/07/2026** (quase 2 meses) | **A** (dois nomes) | https://www.facebook.com/ads/library/?id=1235579512972925 |
+| **andreaesposito_75** | título vazio | **08/08/2026** | **A** (nome no @) | https://www.facebook.com/ads/library/?id=2284322635700272 |
+| **sdesign.arquitetura** | `sdesign.arquitetura \| \| \| \| \| \| \|` — barras vazias | **04/02/2026 (7,5 meses)** | B | https://www.facebook.com/ads/library/?id=827132887008791 |
+
+**6 de 6 páginas com título quebrado. 5 de 6 são Trilha A.**
+Nenhum outro combo do arquivo chegou perto disso — o Méier (9 de 12) era o recorde anterior
+de proporção, e aqui é 5 de 6 com defeito em 100% delas.
+
+### Por que isso acontece — e por que é o melhor alvo
+
+Arquiteto é profissional autônomo que impulsiona o próprio portfólio do Instagram. Não monta
+anúncio, aperta "impulsionar" na foto do projeto. Daí o título vazio em todas: **não existe
+campo de título quando se impulsiona post.** É a assinatura de "não tem gestor" no estado puro.
+
+Combina com as duas descobertas das últimas horas (o `{{product.name}}` da academia e o título
+de perfil repetido de Campo Grande): são todos o mesmo mecanismo, e arquitetura é onde ele
+aparece em 100% do nicho.
+
+### Para a LISTA DE ATAQUE
+
+Entram as **5 Trilha A** inteiras. Prioridade por tempo no ar:
+1. **Ricardo Melo e Rodrigo Passos Arquitetura** — quase 2 meses.
+2. **andreaesposito_75** — 6 semanas.
+3. **Ingrid Suan Arquitetura e Interiores** — 3 semanas, 2 peças.
+4. **Tayna Porto Arquitetura e Design** — 11 dias.
+5. **Marise Kessel Arquitetura** — 4 dias.
+
+Total da LISTA DE ATAQUE: **32 → 37 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **Arquitetura é o nicho de maior densidade de alvo do arquivo.** Volume baixíssimo (6 peças),
+   qualidade máxima (5 Trilha A, 100% com defeito). Terceira confirmação seguida de que
+   **volume de busca não prevê qualidade de alvo** — depois do pet shop e da academia.
+2. **A regra "arquitetura puxa imobiliária" vale mesmo com o termo corrigido.** `escritório de
+   arquitetura` melhorou, mas 2/3 do resultado ainda é incorporadora. Não há termo que limpe:
+   o jeito é filtrar na leitura.
+3. **Prioridade nova para a fila**: varrer arquitetura nos outros bairros antes de repetir
+   nichos gordos. Tijuca, Botafogo e Niterói ainda não foram.
+
+Combos varridos até aqui: + arquitetura Barra da Tijuca (6 de 6 com defeito, 5 Trilha A — recorde de densidade).
