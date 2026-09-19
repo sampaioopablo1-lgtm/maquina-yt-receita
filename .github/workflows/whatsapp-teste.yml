@@ -1,0 +1,79 @@
+name: WhatsApp — teste de ponta a ponta e publicação
+
+# Dispatch pela API dá 404 porque o arquivo vive fora do branch padrão; o push resolve.
+on:
+  push:
+    branches: [claude/opc-pablo-reel-ryxld4]
+    paths:
+      - "maquina-whatsapp/**"
+      - "infra/cf-whatsapp/**"
+      - .github/workflows/whatsapp-teste.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conversa:
+    name: 1. Conversa simulada com o Claude
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q -r maquina-whatsapp/requirements.txt
+      - name: Simular três leads
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "${ANTHROPIC_API_KEY:-}" ]; then echo "::warning::sem ANTHROPIC_API_KEY — pulando"; exit 0; fi
+          python maquina-whatsapp/teste_conversa.py
+
+  meta:
+    name: 2. O que o token da Meta enxerga do WhatsApp
+    runs-on: ubuntu-latest
+    steps:
+      - name: Listar contas de WhatsApp e números
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+        run: |
+          set -uo pipefail
+          if [ -z "${META_ACCESS_TOKEN:-}" ]; then echo "::warning::sem META_ACCESS_TOKEN"; exit 0; fi
+          echo "== app OPC Automação =="
+          curl -sS "https://graph.facebook.com/v22.0/2159128187972575?fields=name,id&access_token=$META_ACCESS_TOKEN"; echo
+          echo "== contas de WhatsApp que o token vê =="
+          curl -sS "https://graph.facebook.com/v22.0/me/businesses?fields=name,owned_whatsapp_business_accounts{id,name,phone_numbers{id,display_phone_number,verified_name,platform_type,status,quality_rating}}&access_token=$META_ACCESS_TOKEN" | python3 -m json.tool
+          echo "== permissões do token =="
+          curl -sS "https://graph.facebook.com/v22.0/me/permissions?access_token=$META_ACCESS_TOKEN" | python3 -c "import sys,json; d=json.load(sys.stdin); print(', '.join(p['permission'] for p in d.get('data',[]) if p.get('status')=='granted') or d)"
+
+  publicar:
+    name: 3. Publicar o Worker no Cloudflare
+    runs-on: ubuntu-latest
+    needs: [conversa]
+    defaults: { run: { working-directory: infra/cf-whatsapp } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Publicar e gravar segredos
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WA_PHONE_NUMBER_ID: ${{ secrets.WA_PHONE_NUMBER_ID }}
+          WA_VERIFY_TOKEN: ${{ secrets.WA_VERIFY_TOKEN }}
+          WA_APP_SECRET: ${{ secrets.WA_APP_SECRET }}
+        run: |
+          set -uo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "::warning::sem CLOUDFLARE_API_TOKEN no GitHub — Worker não publicado. Adicione CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID em Settings → Secrets."
+            exit 0
+          fi
+          npm install --silent --no-audit --no-fund
+          npx wrangler deploy
+          for s in META_ACCESS_TOKEN ANTHROPIC_API_KEY WA_PHONE_NUMBER_ID WA_VERIFY_TOKEN WA_APP_SECRET; do
+            v="${!s:-}"
+            if [ -n "$v" ]; then printf '%s' "$v" | npx wrangler secret put "$s"; else echo "::warning::segredo $s vazio no GitHub"; fi
+          done
+          echo "Worker publicado: https://opc-whatsapp.<conta>.workers.dev/webhook"
