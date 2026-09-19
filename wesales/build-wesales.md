@@ -453,8 +453,13 @@ as mensagens e mantenha para as ligações.
 
 ### 2.6 As 3 mensagens automáticas
 
-Nós de envio (Send WhatsApp; SMS como fallback se o provedor não estiver
-ativo), posicionados no fluxo conforme a tabela 2.5. Cada um precedido do
+Nós de envio (**Send WhatsApp, sem fallback de SMS** — decisão do dono em
+19/09/2026: SMS não é canal de contato com lead neste projeto, e um fallback
+que contradiz a decisão é pior que nenhum, porque dispara justamente quando
+ninguém está olhando. WhatsApp fora do ar não vira SMS: vira
+`Internal Notification` para o gestor e a régua segue pelo telefone, que é o
+canal que não depende de provedor de texto), posicionados no fluxo conforme a
+tabela 2.5. Cada um precedido do
 mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
 condição extra `nao-perturbe` ausente, e seguido de um nó **Update Contact
 Field** `Template usado` = o código da mensagem (R-04 — sem esse carimbo não
@@ -515,9 +520,9 @@ atribuída a uma causa só. Textos completos em `biblioteca-mensagens.md`.
 |---|---|---|
 | M1.1 | **Portão** | Mesmo portão do nó 3 (seção 2.4), sem a checagem de `telefone-invalido`, com `nao-perturbe` ausente |
 | M1.2 | **Split — Teste A/B abertura** | Ação nativa Split, sorteio aleatório: Caminho A 50% · Caminho B 50% |
-| M1.3a (Caminho A) | Send WhatsApp (SMS fallback) | Texto `M1-a`, `biblioteca-mensagens.md` |
+| M1.3a (Caminho A) | Send WhatsApp | Texto `M1-a`, `biblioteca-mensagens.md` |
 | M1.4a (Caminho A) | Update Contact Field | `Template usado` = `M1-a` |
-| M1.3b (Caminho B) | Send WhatsApp (SMS fallback) | Texto `M1-b`, `biblioteca-mensagens.md` |
+| M1.3b (Caminho B) | Send WhatsApp | Texto `M1-b`, `biblioteca-mensagens.md` |
 | M1.4b (Caminho B) | Update Contact Field | `Template usado` = `M1-b` |
 
 Depois de M1.4a e M1.4b, **conecte os dois caminhos ao mesmo nó seguinte**
@@ -775,7 +780,7 @@ no outbound):
 
 ### MI-0 — mensagem automática imediata
 
-Antes da T1, sem esperar nada: Send WhatsApp (SMS fallback), texto `MI-0`
+Antes da T1, sem esperar nada: Send WhatsApp, texto `MI-0`
 (`biblioteca-mensagens.md`) confirmando o recebimento e avisando que a
 ligação vem em minutos — o equivalente ao "notificar o SDR independente de
 onde ele esteja" que o Meetime documenta, só que do lado do lead: ele sabe
@@ -838,7 +843,7 @@ esgotados sem conexão), em vez de "próxima tentativa" (não há):
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Send WhatsApp (SMS fallback) | Texto `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal |
+| 1 | Send WhatsApp | Texto `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal |
 | 2 | Update Contact Field | `Template usado` = `MI-F` |
 | 3 | Add to Workflow | `Cadência 12x30` |
 | 4 | Remove from Workflow | Este (`Cadência Inbound`) |
@@ -986,7 +991,7 @@ workflow só com `if` decidindo por dentro qual configuração vale.
 | 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
 | 4 | Troca de origem | Remove Contact Tag `nutricao-90d` → Remove Contact Tag `cad-inbound` (idempotente, mesmo se ausente) → Add Contact Tag `cad-outbound` → Add Contact Tag `reengajamento-ativo` | Ver "A troca de origem" abaixo |
 | 5 | Reentrada no funil | Update Opportunity Stage → `Em cadência` | Dispara o Mestre de saída em no-op (destino é `Em cadência`, nó 1 encerra sem limpar) e o Alerta de Speed-to-lead (seção 2.11) com relógio novo, porque `1ª tentativa em` acabou de ser esvaziado no nó 3 — a reativação ganha sua própria medição de speed-to-lead de graça, sem campo novo |
-| 6 | Mensagem de reabertura | Send WhatsApp (SMS fallback) | Texto `RE-1` (`biblioteca-mensagens.md`) → Update `Template usado` = `RE-1` |
+| 6 | Mensagem de reabertura | Send WhatsApp | Texto `RE-1` (`biblioteca-mensagens.md`) → Update `Template usado` = `RE-1` |
 | 7 | Aguardar resposta | Wait → Contact Replied | Tempo limite 2h — mesmo padrão do pós-M1 (seção 2.6): se respondeu, `Stop on Response` tira da régua |
 
 ### O bloco padrão de uma tentativa de reengajamento (TR1 a TR4)
@@ -1036,7 +1041,7 @@ tentativas esgotaram sem conexão), em vez de "próxima tentativa":
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Send WhatsApp (SMS fallback) | Texto `RE-2` (`biblioteca-mensagens.md`) |
+| 1 | Send WhatsApp | Texto `RE-2` (`biblioteca-mensagens.md`) |
 | 2 | Update Contact Field | `Template usado` = `RE-2` |
 | 3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 4 | Add Contact Tag | `nutricao-90d` |
@@ -1995,7 +2000,7 @@ ficaria muda.
 | 9 | Wait até 3h antes | → Send WhatsApp lembrete |
 | 10 | Wait até 30min antes | → Send WhatsApp lembrete curto |
 | 11 | Assign to User | Closer dono do horário |
-| 12 | Internal Notification | E-mail + SMS para o closer |
+| 12 | Internal Notification | E-mail + SMS para o closer — **este SMS é para a sua equipe, não para o lead**, então a decisão "sem SMS" de 19/09/2026 não o alcança; se preferir só e-mail, é trocar aqui |
 
 Nos nós 8–10 use Wait → "relativo ao início do compromisso" (Appointment Start
 Date), não delay fixo: reagendamento move os lembretes junto.
@@ -2226,7 +2231,7 @@ gatilho.
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Send WhatsApp (SMS fallback) | Texto `NS-1` (`biblioteca-mensagens.md`) |
+| 1 | Send WhatsApp | Texto `NS-1` (`biblioteca-mensagens.md`) |
 | 2 | Update Contact Field | `Template usado` = `NS-1` |
 | 3 | Add Contact Tag | `fila-tel` |
 | 4 | Add Task | `[CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
@@ -2240,7 +2245,7 @@ gatilho.
 | 12 | Add Task | `[CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
 | 13 | Aguardar | Wait → Time Delay 1 dia (folga para o SDR classificar a NS3) |
 | 14 | Portão | If/Else — etapa ainda `Reunião agendada` → segue (ninguém reagendou nem descartou). Senão → **Remove from Workflow: este** |
-| 15 | Send WhatsApp (SMS fallback) | Texto `NS-2` |
+| 15 | Send WhatsApp | Texto `NS-2` |
 | 16 | Update Contact Field | `Template usado` = `NS-2` |
 | 17 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 18 | Remove Contact Tag | `fila-tel` |

@@ -129,7 +129,7 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 
 ### Mensagens
 
-- [ ] Enviar mensagem por WhatsApp/SMS a partir da subconta
+- [ ] Enviar mensagem por WhatsApp a partir da subconta (SMS saiu por decisão do dono em 19/09/2026 — não é canal de contato com lead neste projeto)
 
       **Único item ainda fechado, e não é cautela minha: falta informação.**
       Mensagem enviada não volta, e os contatos de teste precisam apontar para
