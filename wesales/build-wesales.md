@@ -605,7 +605,7 @@ link do calendário"; não vê que o link virou sensor.
 
 | Configuração | Valor |
 |---|---|
-| Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta |
+| Janela de envio | **Sem restrição, 24/7** — decisão do dono ao vivo, 19/09/2026: nenhum dos 8 nós manda mensagem pro lead (só atualização de campo, tag, tarefa e aviso interno); travar numa janela de expediente perde exatamente a vantagem de interceptar o sinal na hora. Não confundir com a janela 08:30–18:30 da Cadência 12x30 (seção 2), que continua valendo lá porque aquela liga/manda mensagem de verdade |
 | Allow Re-entry | Ligado (cada clique é um sinal novo) |
 | Stop on Response | Desligado |
 
