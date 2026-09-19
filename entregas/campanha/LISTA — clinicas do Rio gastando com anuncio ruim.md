@@ -4741,3 +4741,51 @@ Total da LISTA DE ATAQUE: **32 → 37 anunciantes**.
    nichos gordos. Tijuca, Botafogo e Niterói ainda não foram.
 
 Combos varridos até aqui: + arquitetura Barra da Tijuca (6 de 6 com defeito, 5 Trilha A — recorde de densidade).
+
+---
+
+## 📐 Arquitetura — Tijuca RJ (varredura de 19/09/2026, 03h) — RESULTADO NEGATIVO, COMBO FECHADO
+
+Depois do recorde de densidade da Barra, tentei o mesmo nicho na Tijuca. **Não existe.**
+
+**Tentativa 1** — `escritório de arquitetura Tijuca RJ`: **2 anúncios**, ambos de imobiliária
+(Eliane Dias Imóveis, Coutinho Imoveis). Zero arquitetura.
+
+**Tentativa 2** — `arquiteta Tijuca Rio de Janeiro`: 8 anúncios, e **todos os 8 são da Barra da
+Tijuca, não da Tijuca**:
+- Arquiteta Byanca Pietroluongo — 6 peças, todas com o título `Barra da Tijuca`
+- Louback França — `Barra da Tijuca X Península`
+- Atelier Denise Nagem — título vazio, mas é ateliê de artes e terapias, não escritório
+
+### A armadilha nova: bairro cujo nome é substring de outro bairro
+
+"Tijuca" está inteiro dentro de "Barra da Tijuca". Colocar `RJ` ou `Rio de Janeiro` no termo
+**não resolve**, porque os dois bairros são do Rio. É diferente de Campo Grande (outro estado)
+e de Madureira (sobrenome): aqui **não há reforço que separe** — a busca por texto não distingue
+o bairro do bairro que o contém.
+
+Regra nova para o manual: **bairro contido no nome de outro bairro da mesma cidade não é
+pesquisável por termo.** Vale para Tijuca→Barra da Tijuca. O jeito seria filtrar pelo conteúdo
+do anúncio, um a um, o que não compensa.
+
+### Único registro aproveitável
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| Atelier Denise Nagem | título vazio | 18/09/2026 | A | https://www.facebook.com/ads/library/?id=1816084299392310 |
+
+Não entra na LISTA DE ATAQUE: ateliê de artes/terapias/danças circulares não é o perfil
+(não é empresa que compra lead). Registrado só para não ser varrido de novo.
+
+LISTA DE ATAQUE segue em **37**.
+
+### O que essa varredura ensina
+
+1. **Densidade de nicho não se transfere entre bairros.** Arquitetura deu 6 de 6 na Barra e
+   zero na Tijuca uma hora depois. A conclusão da rodada anterior ("subir arquitetura na fila
+   para os demais bairros") foi otimista demais — **corrijo**: vale testar, não vale esperar
+   repetição.
+2. **Terceira família de armadilha de bairro**, junto com homônimo em outro estado e
+   bairro-sobrenome: **bairro contido em outro bairro**. Tijuca está fechada para busca por termo.
+
+Combos varridos até aqui: + arquitetura Tijuca RJ (negativo — bairro não pesquisável, contido em "Barra da Tijuca").
