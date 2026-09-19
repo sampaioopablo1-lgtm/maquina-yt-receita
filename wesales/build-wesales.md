@@ -653,7 +653,7 @@ campos continuam valendo; só o que se escreve neles muda.
 | 5 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` |
 | 6 | Fila | Add Contact Tag | `fila-quente` |
 | 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) |
-| 8 | Aviso | Internal Notification | Para o SDR: `{{contact.name}} clicou no link de agendar agora. Prioridade 5.` |
+| 8 | Aviso | Internal Notification | Para o SDR: `{{contact.first_name}} clicou no link de agendar agora. Prioridade 5.` |
 | 9 | Registro | Add Note | `Sinal: clique em link` (sem carimbo manual — a nota já sai com data/hora de criação, nativo do GHL) |
 
 ### 2.9.3 Workflow "Interceptação de Sinal — Resposta"
@@ -670,8 +670,14 @@ Mesma tabela de nós da 2.9.2 (incluindo o nó 1 `Find opportunity`, que este
 gatilho também precisa — `Customer Replied` também não carrega oportunidade
 no contexto sozinho), com estas trocas:
 - Nó 5: `Sinal recebido` = `Resposta de mensagem`
-- Nó 7: Título da tarefa `[CADENCIA] Sinal: respondeu mensagem — ligar agora`
-- Nó 8: `{{contact.name}} respondeu agora fora do fluxo normal. Prioridade 5.`
+- Nó 7: Título da tarefa `[CADENCIA] Sinal: respondeu mensagem — ligar agora` ·
+  Descrição: `Lead respondeu mensagem fora do fluxo normal da cadência. Ligar
+  imediatamente, prioridade 5.`
+- Nó 8: `{{contact.first_name}} respondeu agora fora do fluxo normal.
+  Prioridade 5.`
+- Nó 9: `Sinal: resposta de mensagem` (a 2.9.2 usava "Sinal: clique em link" —
+  esquecido na primeira versão desta lista de trocas, corrigido em 19/09/2026
+  montando na tela)
 
 O Stop on Response da Cadência 12x30 (seção 2.2) já tira o lead das tentativas
 futuras quando ele responde — isso continua acontecendo, sem mudança. O que
