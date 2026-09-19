@@ -4566,3 +4566,72 @@ Total da LISTA DE ATAQUE: **26 → 29 anunciantes**.
 3. Academia entra na fila como **nicho de rendimento médio**: muito anúncio, poucas Trilha A.
 
 Combos varridos até aqui: + academia/musculação Niterói (termo de serviço, defeito novo de template).
+
+---
+
+## 🦷 Odontologia — Campo Grande RJ (varredura de 19/09/2026, 00h)
+
+Termo usado: `dentista Campo Grande RJ` — com o "RJ" obrigatório (Campo Grande/MS engoliria a busca).
+Confirma as duas regras antigas de uma vez: "dentista <bairro>" funciona, e bairro com homônimo
+em outro estado precisa do reforço.
+
+**Volume:** 54 anúncios ativos, 8 páginas distintas.
+
+### Achado novo: título repetido 11 vezes na mesma peça
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **Luiz Ramos Filho** | o campo de título traz `Luiz Ramos Filho (@luizramosfilho.rj) • Instagram photos and videos` **repetido 11 vezes**, emendado com `\|`. É o título do perfil do Instagram puxado automaticamente em cada card do carrossel. | 18/09/2026 (novo) | **A** (nome do dono é o nome da página) | https://www.facebook.com/ads/library/?id=967687123045014 |
+
+Variante do defeito de Niterói (razão social repetida), mas pior: aqui o texto que repete é o
+"• Instagram photos and videos", que denuncia impulsionamento direto do perfil.
+Como está no ar há poucas horas, é o alvo com a conversa mais fácil: "acabei de ver seu anúncio".
+
+### Domínio de um anunciante só
+
+| Página | Anúncios | No ar desde | Trilha | Observação |
+|---|---|---|---|---|
+| **Odontovic - Implantes Dentários** | **27 dos 54** (metade do bairro) | **17/08/2026** | B | dois títulos alternando: `Implantes dentários em Campo Grande` e `Agende sua avaliação de Implantes Dentários`. **Não é anúncio ruim** — é o padrão certo: título com serviço + bairro, ou verbo + oferta. Uma peça escapou com `Entre em contato hoje mesmo.` (genérico). |
+
+Odontovic é o **melhor caso de disciplina de título** do arquivo inteiro: 27 peças, 3 títulos,
+zero campo vazio. Serve de referência, não de alvo.
+
+### Título vazio
+
+| Página | Anúncios | No ar desde | Trilha |
+|---|---|---|---|
+| Odontix Kids | 1 | 18/09/2026 | B |
+| Oral Imagem | 2 vazios + 1 com `Oral Imagem \| \| \| \| \| \| \|` (barras sem conteúdo) | 13/08/2026 | B |
+
+O caso da Oral Imagem é o mesmo mecanismo do Luiz Ramos: multi-card puxando um campo que
+não existe. Um repete, o outro repete o vazio.
+
+### Nome da doutora como título
+
+| Página | Título | Anúncios | No ar desde | Trilha |
+|---|---|---|---|---|
+| **Sorrisos Odontologia Estética** | `Dra. Dani Racca` em 9 peças | 9 | **06/06/2026** (3,5 meses) | **A** (nome da profissional no título, não na página) |
+
+Título que é só o nome do profissional não diz nada a quem não a conhece. Defeito clássico,
+mas **3,5 meses de constância** significa que há verba e não há quem cuide. Bom alvo.
+
+### Para a LISTA DE ATAQUE
+
+1. **Luiz Ramos Filho** — Trilha A, defeito escancarado, no ar hoje.
+2. **Sorrisos Odontologia Estética / Dra. Dani Racca** — Trilha A, 3,5 meses no mesmo erro.
+3. **Oral Imagem** — Trilha B, mas clínica local, 5 semanas com título vazio.
+
+Total da LISTA DE ATAQUE: **29 → 32 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **Um bairro pode ter um anunciante dominante que faz tudo certo.** Metade do inventário de
+   Campo Grande é da Odontovic e não há nada a oferecer a ela. Contar páginas, não anúncios —
+   a regra de sempre — é o que impede de confundir volume com oportunidade.
+2. **O defeito de "campo puxado automaticamente" é uma família, não um caso isolado.** Já são
+   quatro formas: razão social repetida (Niterói), `{{product.name}}` (academia), título do
+   perfil repetido e barras vazias (aqui). Todas vêm de impulsionar post/perfil em vez de
+   montar o anúncio. É o marcador mais confiável de "não tem gestor".
+3. Campo Grande entra como **bairro de rendimento médio**: volume bom, mas concentrado.
+
+Combos varridos até aqui: + odontologia Campo Grande RJ (termo com reforço de estado; anunciante dominante).

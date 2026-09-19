@@ -1529,3 +1529,31 @@ Isso é decisão do Pablo, então fica como proposta, não como ação.
 
 Verba (a decisão da revisão de sexta), separar o CNAE em dois conjuntos, criar o formulário de
 3 perguntas, escolher a ferramenta de WhatsApp, subir o maquina-whatsapp.
+
+## 19/09 00h07 — fechamento do dia 18/09 (número definitivo)
+
+Dia virou no fuso da conta. Números fechados, lidos com `date_preset: yesterday`:
+
+| Conjunto | Impressões | Gasto | Leads | CPL |
+|---|---|---|---|---|
+| ADVOCACIA | 492 | R$10,57 | **2** | R$5,29 |
+| INTERESSE | 161 | R$3,49 | **1** | R$3,49 |
+| CNAE | 104 | R$2,32 | 0 | — |
+| IMOBILIÁRIA | 61 | R$1,18 | 0 | — |
+| CONTABILIDADE | 18 | R$0,58 | 0 | — |
+| HARMONIZAÇÃO | 0 | — | 0 | — |
+| **Total** | **836** | **R$18,14** | **3** | **R$6,05** |
+
+**Correção do número que registrei durante o dia.** Às 21h33 anotei CPL de R$3,93 lendo o dia
+ainda em aberto. O fechado é **R$6,05**. A diferença não é erro de leitura: o gasto continua
+subindo depois do último lead do dia. Fica a regra: **CPL do dia só vale depois que o dia vira.**
+R$6,05 ainda é o melhor dia do histórico da conta (média da semana: R$8,47).
+
+**ADVOCACIA confirma a tese de nicho.** 58% da entrega e 67% dos leads, com CPL abaixo da média.
+Segue com o alerta já registrado: 1 dos 5 criativos leva quase toda a entrega.
+
+**HARMONIZAÇÃO: segundo dia com zero.** Criado 16/09 17h59, agora com ~55h e 5 impressões na vida
+inteira. Continua **NÃO TESTADO** pela TRAVA 7 — não é reprovação, é falta de verba para seis
+conjuntos. Pablo já foi avisado; não repito.
+
+Agenda: nenhuma reunião de diagnóstico nova. A próxima é Elton, 21/09 12h.
