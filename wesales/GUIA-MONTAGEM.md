@@ -14,16 +14,15 @@ documento não detalha.
 ## Visão geral das fases
 
 - [x] **Fase 1 — Pipeline** — concluída, mas com 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`), não as 7 originais — decisão do dono ao vivo, ver seção abaixo
-- [ ] **Fase 1.5 — Workflow "Porta de Entrada" (`build-wesales.md`, seção
-      1.3) — URGENTE, fure a fila.** Descoberto em 19/09/2026: nada na
-      especificação cria oportunidade, então nenhum lead — nem os que já
-      chegaram pelo Meta Lead Ads — nunca entra em etapa nenhuma
-      (`opportunities_search-opportunity`: 0 oportunidades, com dezenas de
-      contatos já na subconta em 19/09/2026 — número exato em
-      `build-wesales.md`, seção 1.3). Só depende da Fase 1 (já concluída),
-      não do que vem depois — monte antes da Fase 3, e rode o backfill
-      manual descrito na seção 1.3 imediatamente após publicar, para os
-      contatos que já estão parados
+- [x] **Fase 1.5 — Workflow "Porta de Entrada" (`build-wesales.md`, seção
+      1.3) — concluída em 19/09/2026, e era o furo de fila certo.** Nada na
+      especificação criava oportunidade, então nenhum lead — nem os que já
+      tinham chegado pelo Meta Lead Ads — entrava em etapa nenhuma. Workflow
+      publicado e backfill rodado: `opportunities_search-opportunity` foi de
+      0 para 40 oportunidades, todas em `NOVO LEAD`, com telefone e atribuição
+      de anúncio preservados (conferido por API às 02:2x UTC). O elo seguinte,
+      `NOVO LEAD` → `CONECTAR`, é o L-07 e segue aberto: os 40 estão no funil,
+      ainda não em cadência
 - [x] **Fase 2 — Campos personalizados** — concluída; os 2 que faltavam (`WA não atendidas seguidas`, `Permissão WhatsApp`) foram criados e o tipo errado (`Conexões telefone`) foi corrigido para Numérico, confirmado via `locations_get-custom-fields`
 - [ ] **Antes da Fase 5 (cadência), resolver `{{right_now}}`** — 17 nós gravam
       data/hora em campo de texto (`Entrada em`, `1ª tentativa em`), e o achado
@@ -33,8 +32,20 @@ documento não detalha.
       Não existindo, a seção 2.9.2 já traz o plano B (marca fixa em vez de
       carimbo, hora exata vindo da criação da tarefa/nota) — é decisão de 1
       minuto na tela que evita montar 17 nós errados
-- [ ] **Fase 3 — Calendário do closer + formulário de qualificação** — próxima
-- [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
+- [x] **Fase 3 — Calendário do closer + formulário de qualificação** —
+      concluída em 19/09/2026 (não verifiquei por API: o conector não lista
+      calendário nem formulário, então isto é o que os commits do dia
+      registram — link público do calendário testado, duração fixada em 1h, e
+      o formulário mapeado para o campo `Empresa` personalizado, porque o
+      construtor não oferece o nativo). **Pendência aberta dentro dela:** o
+      construtor criou `Necessidade` e `Urgência` sozinho, duplicando
+      `Dor principal` e `Prazo` — decidir antes de o formulário receber lead
+      de verdade (`CONFERENCIA-CAMPOS.md`, seção F)
+- [ ] **Fase 4 — Trigger Link "Agendar com o closer"** — em andamento em
+      19/09/2026; a Interceptação de Sinal foi montada na tela e rendeu dois
+      achados que mudaram a especificação (`Find opportunity` obrigatório antes
+      do `If/Else`, e data/hora atual indisponível em campo de texto — seção
+      2.9.2)
 - [ ] **Fase 5 — Os workflows restantes**, na ordem da seção "Ordem de montagem" do `build-wesales.md`
 - [ ] **Fase 6 — Listas inteligentes** (~19)
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
