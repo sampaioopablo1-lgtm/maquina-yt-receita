@@ -609,16 +609,27 @@ link do calendário"; não vê que o link virou sensor.
 | Allow Re-entry | Ligado (cada clique é um sinal novo) |
 | Stop on Response | Desligado |
 
+**Achado ao vivo em chat, 19/09/2026, montando isto na tela:** um gatilho
+`Trigger Link Clicked` não carrega a oportunidade do contato no contexto do
+workflow — o If/Else não enxerga a categoria "Opportunities" até existir uma
+ação `Find opportunity` antes dele (o GHL mostra um aviso pedindo isso). E o
+GHL não expõe "data/hora atual" como valor inserível num campo de contato de
+texto (só Custom Values fixos e outros campos) — por isso `Data e hora do
+sinal` saiu da lista de nós; Tarefa e Nota já carimbam a própria data de
+criação nativamente, o que cobre a mesma necessidade de auditoria sem
+duplicar em campo. A tabela abaixo é a sequência real, não a original.
+
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
-| 1 | Portão de etapa | If/Else | Etapa da oportunidade **é** `Em cadência` → segue. Senão → **encerra** (quem já saiu de cadência não precisa furar fila; já está tratado por outro caminho) |
-| 2 | Portão de silêncio | If/Else | tag `nao-perturbe` presente → **encerra**. Senão → segue |
-| 3 | Prioridade | Update Contact Field | `Prioridade` = 5 |
-| 4 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` · `Data e hora do sinal` = `{{right_now}}` (nome real do campo na tela; ver `campos-e-tags.md`) |
-| 5 | Fila | Add Contact Tag | `fila-quente` |
-| 6 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) |
-| 7 | Aviso | Internal Notification | Para o SDR: `{{contact.name}} clicou no link de agendar agora. Prioridade 5.` |
-| 8 | Registro | Add Note | `Sinal: clique em link · {{right_now}}` |
+| 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Opportunity Not Found**: encerra (vazio) · ramo **Opportunity Found**: segue |
+| 2 | Portão de etapa | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` → ramo verdadeiro (Branch): segue · ramo falso (None): **encerra** (quem já saiu de cadência não precisa furar fila; já está tratado por outro caminho) |
+| 3 | Portão de silêncio | If/Else | Tags inclui `nao-perturbe` → ramo verdadeiro (Branch): **encerra** · ramo falso (None): segue |
+| 4 | Prioridade | Update Contact Field | `Prioridade` = 5 |
+| 5 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` |
+| 6 | Fila | Add Contact Tag | `fila-quente` |
+| 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) |
+| 8 | Aviso | Internal Notification | Para o SDR: `{{contact.name}} clicou no link de agendar agora. Prioridade 5.` |
+| 9 | Registro | Add Note | `Sinal: clique em link` (sem carimbo manual — a nota já sai com data/hora de criação, nativo do GHL) |
 
 ### 2.9.3 Workflow "Interceptação de Sinal — Resposta"
 
@@ -627,10 +638,12 @@ Idêntico ao 2.9.2, trocando o gatilho e os dois textos marcados.
 **Gatilho:** `Customer Replied` — Canais: WhatsApp e SMS (os dois canais de
 texto da cadência)
 
-Mesma tabela de nós da 2.9.2, com estas trocas:
-- Nó 4: `Sinal recebido` = `Resposta de mensagem`
-- Nó 6: Título da tarefa `[CADENCIA] Sinal: respondeu mensagem — ligar agora`
-- Nó 7: `{{contact.name}} respondeu agora fora do fluxo normal. Prioridade 5.`
+Mesma tabela de nós da 2.9.2 (incluindo o nó 1 `Find opportunity`, que este
+gatilho também precisa — `Customer Replied` também não carrega oportunidade
+no contexto sozinho), com estas trocas:
+- Nó 5: `Sinal recebido` = `Resposta de mensagem`
+- Nó 7: Título da tarefa `[CADENCIA] Sinal: respondeu mensagem — ligar agora`
+- Nó 8: `{{contact.name}} respondeu agora fora do fluxo normal. Prioridade 5.`
 
 O Stop on Response da Cadência 12x30 (seção 2.2) já tira o lead das tentativas
 futuras quando ele responde — isso continua acontecendo, sem mudança. O que
