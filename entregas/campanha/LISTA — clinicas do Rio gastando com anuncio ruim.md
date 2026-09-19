@@ -4369,3 +4369,52 @@ Isso muda a leitura de veterinária, encerrada na rodada passada por ser "magra"
 encerramento é que as páginas são redes grandes, não que o volume é baixo. Correção anotada.
 
 Combos varridos até aqui: + pet shop Niterói (termo magro, achado recorde).
+
+---
+
+## Ótica — Niterói (varrido 18/09/2026, noite)
+
+Termo de PRODUTO, `óculos de grau Niterói`, seguindo a lição já registrada de que `ótica` puxa
+distribuidor. Funcionou: **14 anúncios, 10 páginas, todas do varejo final.** Nenhum distribuidor.
+
+E a regra descoberta na rodada anterior — **termo magro entrega anunciante antigo** — se confirma
+imediatamente: com só 14 anúncios, este combo devolveu o **terceiro caso mais antigo do arquivo**.
+
+### Os antigos
+
+**Ótica Visão Niterói** — Trilha B — título **vazio**, no ar desde **14/01/2026**.
+Oito meses. Terceiro lugar no ranking de tempo, atrás de Bicho D+ (2 anos) e Hachiko (14 meses).
+
+**Optoclínica Niterói** — Trilha B — título `Clique no Botão`, desde **22/05/2026** (4 meses).
+Variação nova do padrão: não é o rótulo do botão copiado, é uma **instrução para clicar no botão**
+escrita no campo do título. Ainda pior, porque parece intencional.
+
+**Óticas Turibio** — Trilha B — **4 anúncios**, todos com `Última Oportunidade 👇🏻`. O mais velho
+está no ar desde **03/06/2026** — três meses e meio de "última oportunidade". A frase se
+autodesmente, e é um ótimo gancho de abordagem.
+
+### Os demais
+
+**Óticas Visão Certa** — título vazio, começou hoje (18/09).
+**oticasamilapaula** — Trilha A (nome no @) — 2 anúncios, título vazio, desde 06/09.
+**Óticas Gassi** — título vazio, desde 11/08.
+**Projeto Popular Mais Cidadão** — título vazio; é projeto social, não varejo. Não abordar.
+
+### Referências positivas
+
+- **Ótica Na Moral** — título `R$330.00 | R$470.00 | R$489.00 | R$330.00 | R$319.00 | R$318.00`.
+  Curioso: é a **repetição usada de propósito e funcionando**. Seis preços em vez de seis frases
+  iguais. É o único caso do arquivo em que o campo repetido carrega informação diferente em cada
+  posição. Vale copiar a ideia.
+- **DiMagnus Ótica** — `Precisa de Óculos Multifocais?` — pergunta de dor, curta. A mesma estrutura
+  que os escritórios de advocacia usam e que o nosso ADV V05 usa.
+- **Dr. Vision Niterói** — `Avaliação Gratuita de Catarata em Niterói` — oferta, serviço e bairro.
+  Repetido 3 vezes, mas com conteúdo bom.
+
+### Leitura
+
+Terceiro nicho seguido em Niterói (imobiliária, fisioterapia, agora ótica) e o padrão não muda:
+poucas páginas, muita gente antiga no ar sem ninguém olhar. **Niterói é o bairro de maior densidade
+de alvo por busca do arquivo inteiro.**
+
+Combos varridos até aqui: + ótica Niterói (termo de produto, confirmado pela 2ª vez).
