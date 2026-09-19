@@ -4635,3 +4635,49 @@ Total da LISTA DE ATAQUE: **29 → 32 anunciantes**.
 3. Campo Grande entra como **bairro de rendimento médio**: volume bom, mas concentrado.
 
 Combos varridos até aqui: + odontologia Campo Grande RJ (termo com reforço de estado; anunciante dominante).
+
+---
+
+## 💉 Estética — preenchimento labial Botafogo (varredura de 19/09/2026, 01h)
+
+**Volume:** 16 anúncios ativos, 5 páginas. Bairro magro — mas a lição do pet shop vale:
+magro não quer dizer ruim. Aqui, porém, o problema é outro.
+
+### Poluição nova: venda de CURSO
+
+**9 dos 16 anúncios são da Clinic Cursos** (page 102844671347444), que não é clínica: vende
+`Curso de Preenchimento Labial`, `Curso de Perfiloplastia`, `Curso de Harmonização Facial`.
+Um deles está no ar desde **28/01/2026** — quase 8 meses.
+
+É o mesmo mecanismo da "faculdade" que poluiu contabilidade e da "vaga de emprego" que polui
+termo de profissão: **o termo do procedimento atrai quem ensina o procedimento.**
+Fica como **5º tipo de poluição** do manual: curso/formação.
+
+Sem a Clinic Cursos, o bairro tem 7 anúncios reais. Foi ela que fez o termo parecer vivo.
+
+### Alvos reais
+
+| Página | Defeito | Anúncios | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| **Espaço Facial Botafogo** | `AGENDE AQUI` em caixa alta nas 4 peças — título de botão, não de anúncio | 4 | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=2070781047657345 |
+| **Clinicaloza** | título é só `Preenchimento labial` — repete o nome do procedimento que já está na imagem | 1 | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=3184893051705327 |
+
+### Quem está fazendo certo
+
+- **Dra. Flavia Cerqueira - Ortodontista** — `Seleção para Preenchimento Labial`. A palavra
+  "seleção" inverte a posição: não é a clínica pedindo cliente, é o cliente se candidatando.
+  **Trilha A** e copy boa — página para estudar, não para abordar. No ar desde 17/09.
+- **Maselli Clinic** — `Realce sua beleza com naturalidade`. Benefício + objeção ("naturalidade"
+  responde ao medo de ficar artificial) em cinco palavras. No ar desde 13/09.
+
+### O que essa varredura ensina
+
+1. **Botafogo é bairro fraco para estética**: 4 páginas reais, nenhuma Trilha A com defeito.
+   Comparado ao Méier (12 páginas, 9 Trilha A), não compensa voltar.
+2. **Termo de procedimento atrai vendedor de curso.** A contagem bruta de 16 vira 7 quando se
+   tira a escola. Reforça a regra que já existia por outro caminho: **contar páginas, não
+   anúncios** — e, agora, conferir se a página é do setor ou vende PARA o setor.
+3. Munição de criativo para o nosso conjunto HARMONIZAÇÃO: o padrão `Seleção para X` da
+   Dra. Flavia é aplicável direto ao nosso título — "Seleção para diagnóstico de tráfego".
+
+Combos varridos até aqui: + preenchimento labial Botafogo (bairro fraco; poluição de curso).
