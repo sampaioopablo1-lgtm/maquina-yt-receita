@@ -118,10 +118,16 @@ etapa — sem isso o lead reativado chegaria a `CONECTAR` ainda com
 limpeza no momento errado (o oposto do "no-op" que o desenho original
 pressupunha). Seção 2.2 também tinha uma menção solta a `"Em cadência"`,
 corrigida junto por ser trivial. Zero campo, zero tag: item de
-documentação pura, não depende de `APROVADO.md`. **Segue aberto:** 2.10,
-2.11, 2.13 a 2.17, seção 5 e 5.1-5.4, seção 6, listas 8.5 em diante,
-seção 9 e o checklist de teste (seção 10) — todos listados item a item em
-`GUIA-MONTAGEM.md`, dentro da Fase 1.
+documentação pura, não depende de `APROVADO.md`.
+
+**Resumo (19/09/2026, segunda rodada):** fechada a seção 2.10 (Cadência
+Inbound) — tradução mecânica seguindo a mesma tabela 1.0, sem achado novo:
+gatilho `Pré-vendas`/`Em cadência` → `FUNIL DE VENDAS`/`CONECTAR`, nó 0.0b
+de "mover etapa" para `Update Opportunity status = abandoned/lost`
+(espelhando o 0.0b da 2.3, já migrado), portão da tentativa para
+`CONECTAR`. **Segue aberto:** 2.11, 2.13 a 2.17, seção 5 e 5.1-5.4, seção
+6, listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) —
+todos listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
 
 ---
 

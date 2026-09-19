@@ -835,7 +835,7 @@ no minuto do clique ou da resposta, dentro da janela de expediente.
 
 ---
 
-## 2.10 Workflow "Cadência Inbound" — R-07
+## 2.10 Workflow "Cadência Inbound" — R-07 — migrado para as 5 etapas reais em 19/09/2026
 
 A Cadência 12x30 (seção 2) mede a régua em dias porque foi desenhada para
 outbound: o lead não pediu nada, então não há pressa que se perca ficando um
@@ -865,8 +865,9 @@ decidindo qual tipo de nó usar a cada passo.
 
 ### Gatilho
 
-**Opportunity Stage Changed** — Pipeline `Pré-vendas` · Para a etapa:
-`Em cadência` · Filtro adicional: tag `cad-inbound` **presente**
+**Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS` (é o mesmo objeto
+que este documento chama de `Pré-vendas` — seção 1) · Para a etapa:
+`CONECTAR` · Filtro adicional: tag `cad-inbound` **presente**
 
 Espelha o gatilho da Cadência 12x30 (seção 2.1) com o filtro de tag
 invertido. Os dois disparam do mesmo evento; o filtro decide qual dos dois
@@ -875,7 +876,7 @@ fluxo.
 
 **Por que este gatilho não precisa do filtro `reengajamento-ativo` do R-08
 (seção 2.1 precisa, este não):** o nó 4 do Reengajamento 90 dias (seção
-2.12) remove `cad-inbound` **antes** de mover a etapa para `Em cadência` —
+2.12) remove `cad-inbound` **antes** de mover a etapa para `CONECTAR` —
 então, no instante em que este gatilho avalia o evento, `cad-inbound` já
 está ausente para qualquer lead reativado, sempre. O filtro `cad-inbound`
 **presente** já exclui a reativação sozinho, sem precisar de reforço.
@@ -908,7 +909,7 @@ no outbound):
 | Nó | Ação | Configuração |
 |---|---|---|
 | 0.0 | If/Else (R-13) | Campo nativo `Phone` **está vazio** → ramo 0.0b. Senão → segue para 0.1 |
-| 0.0b | Ramo sem telefone | Add Contact Tag `telefone-invalido` → If/Else: `Site` **ou** `Instagram` preenchido → Mover oportunidade → `Nutrição` + Add Contact Tag `nutricao-90d`. Senão → Mover oportunidade → `Descartado` → Internal Notification para o gestor: `Lead inbound sem telefone: {{contact.name}} — revisar o formulário de origem` → **Remove from Workflow: este** |
+| 0.0b | Ramo sem telefone | Add Contact Tag `telefone-invalido` → If/Else: `Site` **ou** `Instagram` preenchido → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Senão → Update Opportunity `status` = `lost` → Internal Notification para o gestor: `Lead inbound sem telefone: {{contact.name}} — revisar o formulário de origem` → **Remove from Workflow: este** |
 | 0.1 | Update Contact Field | `Tentativa nº` = 0 |
 | 0.2 | Update Contact Field | `WA não atendidas seguidas` = 0 |
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
@@ -935,7 +936,7 @@ usado` = `MI-0`.
 | 1 | Aguardar | Wait → Time Delay | Delta da tabela abaixo, relativo ao fim do bloco anterior (não horário fixo) |
 | 1.5 | Pausa individual (R-09) | If/Else | tag `pausado` presente → ramo 1.5b. Senão → segue para o Portão (nó 2) |
 | 1.5b | Ramo da pausa individual | Wait → Time Delay 30 min → **volta para o nó 1.5** | Mesmo mecanismo do nó 2.5 da 12x30 (seção 2.4), com relógio de 30 min em vez de 1 dia — a régua inbound é medida em minutos, e um retry diário aqui devolveria o lead numa velocidade que já não é mais inbound de verdade |
-| 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `Em cadência` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
+| 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 2b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Mesma saída limpa do nó 3b da 12x30 |
 | 3 | Seletor de canal | If/Else (só nas tentativas de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Senão → telefone |
 | 4 | Limpar resultado | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
@@ -1004,7 +1005,7 @@ o R-02 mede a partir da entrada na régua vigente, e a régua vigente mudou.
 
 **Pronto quando (do roadmap):** formulário preenchido dispara ligação em
 minutos — a tarefa `[CADENCIA] TI1` nasce e o SDR é avisado (nó 7) 5 minutos
-depois da entrada em `Em cadência`, dentro da janela de expediente.
+depois da entrada em `CONECTAR`, dentro da janela de expediente.
 
 ---
 

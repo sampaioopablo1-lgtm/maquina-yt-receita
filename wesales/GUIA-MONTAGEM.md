@@ -239,9 +239,14 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         de sinal) — ainda não conferidas linha a linha nesta migração;
         risco baixo (não parecem citar nome de etapa antigo nas leituras
         feitas até aqui, mas não foi grep dedicado)
-  - [ ] 2.10 (Cadência Inbound) — gatilho e nó 0.0b espelham 2.1/2.3, ainda
-        não migrados; mesma troca `Pré-vendas`/`Em cadência` →
-        `FUNIL DE VENDAS`/`CONECTAR` e `Nutrição`/`Descartado` → status
+  - [x] **2.10 (Cadência Inbound)** — migrada em 19/09/2026: gatilho trocado
+        de `Pré-vendas`/`Em cadência` para `FUNIL DE VENDAS`/`CONECTAR`
+        (nota explicando que são o mesmo objeto, igual à 2.1); nó 0.0b
+        trocado de "Mover oportunidade → `Nutrição`/`Descartado`" para
+        `Update Opportunity status = abandoned/lost`, espelhando o 0.0b já
+        migrado da 2.3; portão da tentativa (nó 2) trocado para
+        `CONECTAR`. Zero achado novo: era tradução mecânica, a mesma tabela
+        1.0 já previa cada troca
   - [ ] 2.11 (Alerta de Speed-to-lead) — cita `Em cadência` no portão
   - [x] **2.12 (Reengajamento 90 dias)** — migrada em 19/09/2026, era o
         maior pedaço que sobrava: gatilho trocado de `Opportunity Stage
