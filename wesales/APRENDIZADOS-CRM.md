@@ -2,6 +2,55 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A regra certa estava no portão errado: quem *limpa* também precisa conhecer todas as réguas — 19/09/2026 (conferência da rodada acima)
+
+A rodada anterior fechou a 2.11 e generalizou bem: "qualquer nó que decida
+'o lead ainda está correndo cadência?' precisa de etapa **e** `status`".
+A generalização foi escrita, mas aplicada só no nó que a rodada estava
+olhando. Varrendo os outros portões da mesma pergunta, sobraram três:
+
+| Onde | O que faltava | Consequência real |
+|---|---|---|
+| Seção 2.4, nó 3 (portão do bloco padrão) | `status é open` | Tentativa seguinte rodando para lead já descartado, na janela entre a saída e o `Remove from Workflow` |
+| Seção 2.10, nó 2 (mesmo portão na Cadência Inbound) | `status é open` | Idem, e aqui sem rede: ver a linha seguinte |
+| Seção 3, nó 2 (Mestre de saída) | Remover também de `Cadência Inbound` e `Reengajamento 90 dias` | **A pior das três:** a limpeza conhecia só a `Cadência 12x30`. Um lead inbound descartado pelo portão de higiene seguia recebendo TI2 a TI5 — tarefa e mensagem — porque a régua que estava rodando não era a que a limpeza removia |
+
+**A lição que não é sobre `status`:** o Mestre de saída estava *certo* no
+nó 1 (o portão que a rodada da 2.11 citou como modelo) e *incompleto* no nó
+2, escrito quando existia uma régua só. Uma peça pode ter o raciocínio
+correto e a lista desatualizada — conferir o portão não conferiu a ação que
+vem depois dele. Sempre que uma seção nova criar um workflow que reaproveita
+o bloco padrão da 2.4, o nó 2 do Mestre de saída ganha uma linha; isso não
+aparece em nenhum grep de nome de etapa.
+
+**Checagem barata, para não depender de lembrar:** toda régua tem título de
+tarefa `[CADENCIA]`. O que o Mestre de saída remove tem que ser a mesma
+lista.
+
+```
+sed -n '/^## 3\. Workflow/,/^## 4\. Workflow/p' wesales/build-wesales.md \
+  | grep 'Remove from Workflow'
+grep -o '^## 2[.0-9]* Workflow "[^"]*"' wesales/build-wesales.md
+```
+
+A segunda lista (as réguas que existem) não pode ter nenhum workflow de
+cadência que a primeira (o que o Mestre de saída remove) não tenha. Hoje as
+duas fecham em três: `Cadência 12x30`, `Cadência Inbound`,
+`Reengajamento 90 dias` — mais `Qualificação por IA no WhatsApp`, que só
+aparece na primeira porque não é régua de cadência (seção 2.7).
+
+**Onde `status` não entra, de propósito:** o nó 2 da Interceptação de Sinal
+(2.9.2/2.9.3) ganhou `status não é lost`, não `status é open`. `abandoned` é
+o lead em nutrição, e um clique dele no link de agendar é o único sinal que
+o Reengajamento 90 dias (relógio, não sensor) nunca vê. Aplicar a regra
+mecanicamente teria trocado um alarme falso por um sinal perdido — pior
+troca. Registrado na seção 2.9.2 como decisão do dono, com a linha exata a
+mudar se ele preferir o contrário.
+
+Zero escrita no CRM nesta conferência (46 campos e as mesmas 5 etapas
+antes e depois, por `locations_get-custom-fields` e
+`opportunities_get-pipelines`).
+
 ## Migração de etapa: um portão que só olha a etapa também engana um alerta, não só o Mestre de saída — 19/09/2026
 
 Sessão automática, mesmo cenário de sempre (R-14/F-05/F-06 esperando

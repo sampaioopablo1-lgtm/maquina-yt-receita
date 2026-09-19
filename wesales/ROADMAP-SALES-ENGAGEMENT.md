@@ -139,7 +139,20 @@ corrigido para "`CONECTAR` **e** `status é open`" — a mesma condição
 composta que a seção 3 (Mestre de saída) já usa, e o mesmo tipo de achado
 que a reentrada da 2.12 já tinha documentado, agora numa terceira seção.
 Zero campo, zero tag: item de documentação pura, não depende de
-`APROVADO.md`. **Segue aberto:** 2.13 a 2.17, seção 5 e 5.1-5.4, seção 6,
+`APROVADO.md`.
+
+**Conferência da mesma rodada (19/09/2026):** a regra que ela generalizou
+valia para mais três portões, e só um tinha sido corrigido. Entraram
+`status é open` no nó 3 da seção 2.4 e no nó 2 da seção 2.10, e — o achado
+que pesa — os nós 2b/2c no Mestre de saída (seção 3), que removia o lead de
+**uma** régua quando já existem três: um lead inbound descartado seguia
+recebendo TI2 a TI5. O nó 2 da Interceptação de Sinal (2.9.2/2.9.3) ganhou
+`status não é lost` em vez de `é open`, de propósito — clique de lead em
+nutrição é sinal, não ruído (nota na própria seção). Duas dessas peças já
+estão publicadas na tela: os retoques estão na tabela de
+`GUIA-MONTAGEM.md`, "Estado da montagem em 19/09/2026".
+
+**Segue aberto:** 2.13 a 2.17, seção 5 e 5.1-5.4, seção 6,
 listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) — todos
 listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
 
