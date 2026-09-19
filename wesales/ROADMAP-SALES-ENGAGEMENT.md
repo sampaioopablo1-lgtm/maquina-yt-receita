@@ -29,6 +29,58 @@ reescritas uma a uma para não inflar o diff sem necessidade.
 
 ---
 
+## Bloco 0 — Pré-requisito (antes de tudo)
+
+Descoberto em 19/09/2026, depois de todos os blocos 1 a 5 e a maior parte do
+6 já estarem desenhados: um buraco na base que faz cada um deles, sozinho,
+não valer nada até ser fechado. Fica antes do Bloco 1 porque é anterior em
+sentido literal — nenhum gatilho `Opportunity Stage Changed` de nenhum
+workflow já especificado tem o que disparar sem isto.
+
+### G-01 · Porta de entrada — nada cria oportunidade (lacunas L-09/L-09b) — **FEITO em 19/09/2026**
+**Por quê:** toda a máquina (cadência, interceptação de sinal, dashboard,
+tudo) é construída em cima de etapa de oportunidade. `grep "Create
+Opportunity"` no `build-wesales.md` inteiro dava zero até esta rodada —
+nenhum nó cria o registro, só leem ou movem etapa. Não é hipótese: nesta
+execução a subconta tinha **40 contatos** (a maioria leads reais do Meta
+Lead Ads, `source: Facebook`, `attributions` confirmando `adSource:
+facebook` — ad pago gerando lead de verdade) e **0 oportunidades**
+(`opportunities_search-opportunity`, status `all`). Descoberto ao vivo
+rodando a Interceptação de Sinal contra o contato `andre` (lacuna L-09,
+`briefing-sdr.md`), e generalizado ao notar que o mesmo vale para toda
+origem, não só Meta (L-09b).
+**Como:** workflow "Porta de Entrada" — gatilho `Contact Created` (sem
+filtro, cobre manual/formulário/API/integração), ação nativa
+`Create/Update Opportunity` para `FUNIL DE VENDAS` → `NOVO LEAD`.
+**Pronto quando:** todo contato novo, de qualquer origem, ganha oportunidade
+em `NOVO LEAD` sozinho, sem depender de um toggle por integração.
+
+**Resumo:** especificado nó a nó em `build-wesales.md`, seção 1.3 — um
+único nó (`Create/Update Opportunity`, `Allow Duplicate Opportunities`
+desligado, comportamento nativo de atualizar em vez de duplicar quando já
+existe oportunidade do contato naquele pipeline). Pesquisado antes de
+escolher o gatilho: `Contact Created` cobre toda origem, incluindo Meta
+Lead Ads (confirmado em fontes da HighLevel e de terceiros, que usam esse
+mesmo gatilho com filtro de `Lead Source Tag` para pegar a fatia do
+Facebook) — rejeitado o gatilho específico `Facebook Lead Form Submitted`
+por cobrir só uma origem, e `Tag Added` por depender de uma tag que
+nenhum fluxo aplica na entrada. Dois limites documentados na seção 1.3:
+importação em massa por CSV não dispara `Contact Created` (confirmado por
+pesquisa — proteção da própria HighLevel contra automação em massa
+acidental), e os **40 contatos já existentes não são pegos
+retroativamente** — os dois resolvidos pelo mesmo contorno manual, a ação
+em massa nativa `Add to Workflow` rodada uma vez depois de publicar.
+Zero campo e zero tag novos — não depende de `APROVADO.md`. Cruza com
+L-07 (`briefing-sdr.md`), que continua em aberto de propósito: este item
+só cria a oportunidade em `NOVO LEAD`, a promoção para `CONECTAR` (que
+liga a Cadência 12x30 de verdade) continua decisão manual do SDR. Falta
+só a criação manual na tela — workflow não sai por API; `GUIA-MONTAGEM.md`
+ganhou uma Fase 1.5 marcando este item como furando a fila de montagem, à
+frente da Fase 3, porque cada hora sem ele é lead pago do Meta acumulando
+sem nunca entrar em etapa nenhuma.
+
+---
+
 ## Bloco 1 — Medição (a maior lacuna)
 
 Hoje a máquina executa e não se mede. Um SDR sem medição é um SDR com opinião.
@@ -589,6 +641,12 @@ não consegue inflar o número desligando rápido.
 ---
 
 ## Ordem sugerida
+
+**Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
+não é item de fila, é pré-requisito — nenhum bloco abaixo importa enquanto
+nenhuma oportunidade nasce sozinha. Descoberto depois dos blocos 1 a 5 e
+quase todo o 6 já estarem prontos, mas listado primeiro porque é anterior
+em sentido literal, não por ordem de descoberta.
 
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por

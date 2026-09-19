@@ -18,26 +18,32 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 
 1. Campos e tags (Etapas 2 e 3, por API)
 2. Pipeline "Pré-vendas" (seção 1)
-3. Calendário do closer + formulário (seção 7)
-4. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
-   calendário do passo 3
-5. Workflow "Mestre de saída" (seção 3)
-6. Workflow "Pós-ligação" (seção 4)
-7. Workflow "Pós-agendamento" (seção 5)
-8. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
+3. **Workflow "Porta de Entrada" (seção 1.3, L-09/L-09b)** — só depende do
+   pipeline do passo 2; monte e publique antes de qualquer outro workflow,
+   e rode o backfill manual dos contatos já existentes (seção 1.3) assim
+   que publicar — é a única peça que faz uma oportunidade existir, sem ela
+   nenhum gatilho `Opportunity Stage Changed` do resto desta lista tem o
+   que disparar
+4. Calendário do closer + formulário (seção 7)
+5. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
+   calendário do passo 4
+6. Workflow "Mestre de saída" (seção 3)
+7. Workflow "Pós-ligação" (seção 4)
+8. Workflow "Pós-agendamento" (seção 5)
+9. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
    no passo 1
-9. Workflow "Registro de Comparecimento" (seção 5.2) — usa o mesmo
-   calendário do passo 3, gatilho por status de agendamento
-10. Workflows "Recuperação de No-show" e "SLA do Closer — No-show" (seção
+10. Workflow "Registro de Comparecimento" (seção 5.2) — usa o mesmo
+    calendário do passo 4, gatilho por status de agendamento
+11. Workflows "Recuperação de No-show" e "SLA do Closer — No-show" (seção
     5.3/5.4, R-12) — mesmo calendário e status `No Show`; o nó 3 do Pós-
-    agendamento (passo 7) precisa já remover destes dois workflows antes de
+    agendamento (passo 8) precisa já remover destes dois workflows antes de
     publicá-los, senão um reagendamento no meio de uma recuperação não limpa
     nada
-11. Workflow "Qualificação por IA no WhatsApp" (seção 6)
-12. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
-    porque chama os outros e usa o Trigger Link do passo 4 nas mensagens M2/M3;
+12. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+13. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
+    porque chama os outros e usa o Trigger Link do passo 5 nas mensagens M2/M3;
     textos das mensagens em `biblioteca-mensagens.md`, não neste documento.
-    Do passo 12 em diante o gatilho da seção 2.1 já leva o filtro novo do
+    Do passo 13 em diante o gatilho da seção 2.1 já leva o filtro novo do
     R-07 (tag `cad-inbound` ausente) — monte-o com o filtro desde o início,
     não depois. O bloco padrão de tentativa (seção 2.4) já leva o nó 2.5 de
     pausa individual (R-09) desde a primeira montagem, não como retrofit.
@@ -45,43 +51,43 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     2.14) desde o início — defina a lista de round robin no nó 0.7b mesmo
     com um único SDR hoje — e o portão 0.0/0.0b de higiene de telefone
     (R-13, seção 2.3) na frente de tudo, antes do 0.1
-13. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
+14. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
     Também já leva o nó 1.5 de pausa individual (R-09) desde o início, o
     par 0.8/0.8b de distribuição de leads (R-10) apontando para a **mesma**
-    lista de round robin do nó 0.7b do passo 12, e o mesmo portão 0.0/0.0b
-    de higiene de telefone (R-13) do passo 12
-14. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-15. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
+    lista de round robin do nó 0.7b do passo 13, e o mesmo portão 0.0/0.0b
+    de higiene de telefone (R-13) do passo 13
+15. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+16. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
     o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h);
     do R-09 em diante o nó 2 já ignora quem está com a tag `pausado`
-16. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
-    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 12) nó a nó,
-    nó 2.5 incluído, e exige que o gatilho do passo 12 já tenha o filtro
+17. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
+    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 13) nó a nó,
+    nó 2.5 incluído, e exige que o gatilho do passo 13 já tenha o filtro
     `reengajamento-ativo` ausente (R-08) — monte-o com o filtro desde o
     início se ainda não montou, não depois
-17. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16),
+18. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16),
     `Recuperação de No-show` (8.17, R-12) e `Higiene — Sem Telefone Válido`
     (8.18, R-13)
-18. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
-    2.15) — depende da lista 8.16 do passo 17 já montada
-19. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
-20. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
+19. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
+    2.15) — depende da lista 8.16 do passo 18 já montada
+20. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+21. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
     todos: o recurso só lista workflows **publicados**, então precisa dos
-    passos 12, 13, 16 e 18 já publicados para aparecerem no seletor
-21. Ativar Number Validation (Configurações → Telefone, agência e depois
+    passos 13, 14, 17 e 19 já publicados para aparecerem no seletor
+22. Ativar Number Validation (Configurações → Telefone, agência e depois
     subconta) e montar o workflow "Higiene de Número — Validação Automática"
     (seção 2.16, R-13) — opcional, por último de todos: o gatilho **Number
     Validation** só existe depois de o recurso estar ligado, e o portão
-    0.0/0.0b dos passos 12/13 já cobre o caso mais comum (sem telefone
+    0.0/0.0b dos passos 13/14 já cobre o caso mais comum (sem telefone
     nenhum) sem depender disso
-22. Dashboard "Painel do Gestor — Pré-vendas" e as Custom Metrics novas
+23. Dashboard "Painel do Gestor — Pré-vendas" e as Custom Metrics novas
     (seção 2.17, R-15) — por último de todos: cada widget aponta para uma
-    peça já montada nos passos anteriores (calendário do passo 3, pipeline
-    do passo 2, métrica `Estouro da Fila` do passo 18, tarefas das
-    cadências dos passos 12/13); montar antes disso deixaria widget
+    peça já montada nos passos anteriores (calendário do passo 4, pipeline
+    do passo 2, métrica `Estouro da Fila` do passo 19, tarefas das
+    cadências dos passos 13/14); montar antes disso deixaria widget
     apontando para nada
 
 ---
@@ -274,6 +280,95 @@ fazem para as etapas de progresso.
   foi qualificada` = `Não`. Proporção de descartes por telefone inválido é
   diagnóstico de **qualidade da lista de entrada**, não da cadência (liga
   direto com R-13, higiene de base).
+
+### 1.3 Workflow "Porta de Entrada" — fecha L-09/L-09b
+
+**Por que este workflow existe:** `grep "Create.*Opportunity"` neste
+documento inteiro dava zero até esta seção — todo nó lê etapa ou move
+etapa, nenhum cria o registro que tem etapa. Contato que nasce de
+formulário, API, importação, digitação manual ou integração (Meta Lead Ads
+incluído) fica sem oportunidade, logo sem etapa, logo fora de toda a
+máquina (cadência, interceptação de sinal, tudo — todos os gatilhos são
+`Opportunity Stage Changed`). Não é mais hipótese: reconfirmado nesta
+execução via `opportunities_search-opportunity`/`contacts_get-contacts`
+— **40 contatos** na subconta (subiu de 6/7 na última checagem, quase
+todos com `source: Facebook` e `attributions` confirmando `adSource:
+facebook`, entrada real de anúncio pago) e **0 oportunidades**. São leads
+reais parados, não um cenário de teste.
+
+**Gatilho: Contact Created**, sem filtro. Pesquisado antes de decidir entre
+três opções: `Contact Created` genérico, o gatilho específico `Facebook
+Lead Form Submitted`, e `Tag Added` de `cad-inbound`/`cad-outbound`.
+Confirmado que `Contact Created` dispara para toda origem de contato —
+manual, formulário nativo, API e integrações como Facebook/Instagram Lead
+Ads (a documentação da HighLevel e guias de terceiros mostram esse gatilho
+usado com filtro de `Lead Source Tag` justamente para pegar a fatia do
+Meta, o que prova que ele enxerga essa origem também) — enquanto o gatilho
+`Facebook Lead Form Submitted` só cobre a origem Meta, e `Tag Added`
+dependeria de alguém aplicar a tag primeiro, o que nenhum fluxo hoje faz na
+entrada. `Contact Created` é o único gatilho que cobre "toda origem" sem
+depender de nada acontecer antes — mesma lógica que já levou o L-09b a
+rejeitar o caminho do toggle da integração (`briefing-sdr.md`): resolver
+**dentro da máquina**, não fatia por fatia.
+
+**Configurações do workflow**
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Janela de envio / dias / fuso | Não se aplica | O único nó é uma escrita instantânea no CRM, não uma mensagem — não há o que respeitar janela |
+| Stop on Response | Não se aplica | Nenhuma mensagem sai daqui |
+| Allow Re-entry | Não se aplica | `Contact Created` não dispara duas vezes para o mesmo contato — não existe "reentrada" possível neste gatilho |
+| Contatos em múltiplos workflows | Permitido | É o primeiro de todos; o contato ainda vai entrar em Cadência 12x30/Inbound depois |
+
+### Nó único
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | **Criar oportunidade** | Create/Update Opportunity | Pipeline: `FUNIL DE VENDAS` · Etapa: `NOVO LEAD` · Nome da oportunidade: `{{contact.name}}` · Status: `open` · **Allow Duplicate Opportunities: desligado** |
+
+Um nó só, de propósito — qualquer coisa a mais aqui (tag de origem,
+atribuição de dono, verificação de telefone) já tem lugar certo mais à
+frente na máquina (nó 0 da Cadência 12x30, seção 2.3) e duplicaria lógica
+em vez de reaproveitar. Pesquisado antes de fechar em `Allow Duplicate
+Opportunities: desligado`: é o padrão nativo da ação — encontrando uma
+oportunidade existente do mesmo contato nesse pipeline, ela **atualiza**
+em vez de duplicar. É o que torna este workflow seguro mesmo se algum dia
+outro fluxo tentar criar oportunidade de novo para o mesmo contato: sem
+isso ligado, cada tentativa criaria uma cópia nova.
+
+### Limite conhecido — importação em massa não dispara `Contact Created`
+
+Pesquisado e confirmado: contato criado por importação de CSV **não**
+dispara `Contact Created` — é proteção da própria HighLevel contra
+disparar automação em massa sem querer, a mesma razão pela qual este
+projeto nunca usou esse gatilho para a Cadência (seção 2.1). Consequência
+prática: lead que entrar por importação de lista continua precisando do
+mesmo contorno manual documentado abaixo, não é bug deste workflow.
+
+### Backfill dos contatos já existentes — ação manual urgente, não automática
+
+`Contact Created` só dispara para contato **criado depois** de o workflow
+publicado existir — os contatos já cadastrados na subconta (a maioria
+leads reais do Meta, `source: Facebook`, ver o número exato reconfirmado
+na seção 1.3 acima) não vão ganhar oportunidade sozinhos quando este
+workflow for publicado. Mesma classe de limite do parágrafo acima, mesmo
+contorno: depois de publicar, em Contatos, selecione todos e rode a ação
+em massa **Add to Workflow** apontando para `Porta de Entrada` uma única
+vez — seguro por ser idempotente (o nó único não duplica, ver acima).
+**Prioridade sobre o resto do `GUIA-MONTAGEM.md`:** este workflow não
+depende de calendário nem de campo novo, só do pipeline (Fase 1, já
+concluída) — pode e deve ser montado antes da Fase 3, porque cada hora sem
+ele é lead pago do Meta acumulando sem nunca entrar em etapa nenhuma.
+
+### O que este item não resolve — L-07 continua aberto
+
+Este workflow só cria a oportunidade em `NOVO LEAD`. A promoção `NOVO
+LEAD` → `CONECTAR` (que é o que de fato liga a Cadência 12x30, seção 2.1)
+continua decisão manual do SDR — lacuna L-07 (`briefing-sdr.md`), não
+tocada aqui de propósito: resolver as duas juntas misturaria "o lead
+existe no funil" com "o lead está pronto para ser trabalhado", que são
+validações diferentes (a segunda depende de telefone confirmado, a
+primeira não).
 
 ---
 
@@ -2841,6 +2936,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 31 | Higiene de base (R-13) | Antes de os 5 contatos de teste ganharem telefone, mova o Teste Não Atende para `Em cadência` sem preencher `Phone`: o nó 0.0 aplica `telefone-invalido`; como o contato não tem `Site` (Q-02) nem `Instagram` (Q-03) preenchidos — o caso normal de lead outbound, porque esses dois só se preenchem na qualificação —, a oportunidade vai direto para `Descartado` (se algum dos dois estiver preenchido, vai para `Nutrição` + `nutricao-90d` — confira o ramo certo para o cadastro que estiver testando) e nenhuma tarefa `[CADENCIA] T1` nasce; o gestor recebe o aviso do nó 0.0b. Repita com um lead `cad-inbound` para confirmar o mesmo comportamento no nó 0.0 da Cadência Inbound (seção 2.10). Se a seção 2.16 tiver sido montada, valide também: um contato com telefone claramente fixo dispara o gatilho `Number Validation` como `Landline` e `Permissão WhatsApp` vira `Não` sem o lead sair de cadência | |
 | 32 | Dashboard do Gestor (R-15) | Com pelo menos o Teste Atendeu em `Reunião agendada` e algum dos 5 em `Em cadência`, abra `Painel do Gestor — Pré-vendas`: o widget "Appointment Report" mostra o agendamento do calendário `Reunião com closer`; o widget "Opportunities" mostra o Teste Atendeu na etapa certa do funil ao vivo; o widget "Tasks" mostra a(s) tarefa(s) `[CADENCIA]` criada(s) hoje. Se o plano expuser Custom Metrics, confira as quatro métricas da seção 2.17 — `Estouro da Fila` negativo com só 5 contatos, `Atrasos de Speed-to-lead` em 0 (nenhum atrasou de propósito no teste), e as duas de `Taxa de Conexão` refletindo `Conexões telefone`/`Tentativas telefone` e o par de WhatsApp dos contatos de teste que já passaram por uma tentativa | |
 | 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `Em cadência` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
+| 34 | Porta de Entrada (L-09/L-09b) | Crie um 6º contato de teste, fora dos 5 fictícios, só com nome e telefone (sem passar por `Add Contact` de dentro de um workflow): confirme que uma oportunidade nasce sozinha em `FUNIL DE VENDAS` → `NOVO LEAD` em segundos, sem precisar mover etapa na mão; edite qualquer campo desse mesmo contato e confirme que **não** nasce uma segunda oportunidade (Allow Duplicate Opportunities desligado). Rode o backfill manual (seção 1.3) sobre os 5 contatos fictícios existentes e confirme que os 5 ganham oportunidade em `NOVO LEAD` sem duplicar nada | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -2860,7 +2956,7 @@ misturados numa frase só, e a tabela agora separa os dois:
 | Campos personalizados | Não | **Sim** — `POST /locations/{locationId}/customFields`, escopo `locations/customFields.write`, `model: contact\|opportunity` decide o tipo | Cria na tela; lista com tipo e opções em `campos-e-tags.md` — **ou** via API, se o conector ganhar essa ferramenta (ver nota abaixo) |
 | Tags | Cria | Sim | — |
 | Pipeline e etapas | Não | **Não** (confirmado: só `GET /opportunities/pipelines` existe no spec; `opportunities.write` não cobre pipeline; issue aberta nº 248 no repo oficial pedindo exatamente isso, sem endpoint ainda) | Seção 1 — sem alternativa por API, de ninguém |
-| Workflows | Não | **Não** (só `GET /workflows/` existe; sem POST em nenhuma versão do spec) | Seções 2, 2.9, 2.11, 2.15, 3 a 6, 5.1, 5.2 — sem alternativa por API |
+| Workflows | Não | **Não** (só `GET /workflows/` existe; sem POST em nenhuma versão do spec) | Seções 1.3, 2, 2.9, 2.11, 2.15, 3 a 6, 5.1, 5.2 — sem alternativa por API |
 | Calendário | Lê | **Sim** — `POST /calendars/`, escopo `calendars.write`, corpo com `locationId`+`name` obrigatórios e dezenas de campos opcionais (disponibilidade, buffers, confirmação automática) | Cria e configura: seção 7.1 — **ou** via API, se o conector ganhar essa ferramenta |
 | Formulário | Não (nem lê, neste toolkit) | **Não** (só leitura/submissions/upload de arquivo; sem endpoint de criação da estrutura) | Seção 7.2 — sem alternativa por API |
 | Listas inteligentes | Não | Não documentado como recurso de API pública | Seção 8 |
