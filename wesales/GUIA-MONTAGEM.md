@@ -512,6 +512,32 @@ nó**, ao vivo em chat, mesmo dia. Estado atual:
   Contato de teste pronto: `Teste Atendeu` (`Lj96CIFYaGKPiC0opzbc`),
   sem tag; alternar `Resultado da tentativa` entre dois valores força o
   gatilho a disparar de novo.
+- **Antes de conferir nó a nó, duas coisas mais baratas.** Inspeção visual
+  de 8 nós com um teste depois de cada um custa até 8 ciclos; comece pelo
+  que responde em um:
+  1. **Histórico de execução do workflow** (Workflows → o workflow →
+     aba de histórico/execuções). Ele mostra, por contato, os nós que a
+     execução percorreu e onde parou. Isso dá o nó exato sem adivinhar —
+     e se a execução aparece como concluída tendo passado por todos os
+     nós, o problema não é ligação, é nó que executou sem efeito (campo
+     não selecionado), que é uma investigação diferente.
+  2. **O terceiro "Branch" que você notou no `If/Else` interno.** Se ele
+     existe e está vazio, a execução pode estar entrando nele e
+     terminando ali — o que explica "incrementa e para" sem nenhum erro.
+     É o primeiro a olhar justamente porque já foi visto.
+- **Dois suspeitos que a especificação aponta**, se o histórico não
+  resolver:
+  1. **Os nós 7, 7b e 7c do ramo Atendeu usam `{{right_now}}`** — e a
+     verificação de `{{right_now}}` é justamente o item bloqueante ainda
+     aberto nesta lista. Se o seletor não oferece data/hora atual, esses
+     três não têm como ser configurados de verdade; nó salvo com valor
+     vazio é candidato forte a parar a execução calada. **Este ramo é o
+     lugar onde aquela pendência encosta primeiro.**
+  2. **Nó `Math Operation` sem campo selecionado.** Foi exatamente um dos
+     defeitos que a autoauditoria da IA relatou nesta mesma montagem
+     ("nó de incremento sem campo selecionado e somando 0"), e esta cópia
+     descende daquele rascunho. Um `Math` com alvo vazio pode contar como
+     nó que falha, não como nó que soma zero.
 - Workflow ainda em **rascunho**, não publicado — não publicar antes de
   fechar essa pendência, senão liga a limpeza pela metade (funcionaria só
   pra tentativa por WhatsApp).
