@@ -4789,3 +4789,60 @@ LISTA DE ATAQUE segue em **37**.
    bairro-sobrenome: **bairro contido em outro bairro**. Tijuca está fechada para busca por termo.
 
 Combos varridos até aqui: + arquitetura Tijuca RJ (negativo — bairro não pesquisável, contido em "Barra da Tijuca").
+
+---
+
+## ☀️ Energia solar — Rio de Janeiro (varredura de 19/09/2026, 04h)
+
+Termo usado: `energia solar residencial Rio de Janeiro` — cidade inteira, não bairro, porque
+integrador de solar atende região e não rua.
+
+**Volume:** 11 anúncios, 9 páginas. Nicho magro, mas com **duas páginas Trilha A**.
+
+### O defeito de "título repetido" bate seu recorde
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **elétrica do André serviço em geral** | o nome da página repetido **10 vezes** no título, emendado com `\|`. Está no ar desde **01/06/2026 — 3,5 meses** mostrando isso. | 01/06/2026 | **A** (nome do dono) | https://www.facebook.com/ads/library/?id=2798580257163842 |
+| **RELAND** | `RELAND \| \| \| \| \| \| \| \| \|` — nome + 9 barras vazias | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1079780044906150 |
+| **smarthouse.4936379** | `smarthouse.4936379 \| \| \| \| \| \| \|` — e o nome da página é um número gerado automaticamente, ou seja, nunca foi configurada | 29/07/2026 | B | https://www.facebook.com/ads/library/?id=3198039297054937 |
+
+O caso do André é o **recorde de duração** desta família de defeito: 3,5 meses. E é Trilha A.
+
+### Título vazio
+
+| Página | Anúncios | No ar desde | Trilha |
+|---|---|---|---|
+| **Guilherme Marton - AG POWER** | 2 | **18/07/2026** (2 meses) | **A** (nome do dono na página) |
+
+### Quem está fazendo certo
+
+- **OGES - EcoSoluções** — `Seu telhado precisa de engenharia`. Melhor título de solar que já vi:
+  ataca o concorrente barato sem citá-lo e justifica preço. No ar desde 28/08.
+- **Fênix Energia Fotovoltaica** — `Clique agora e peça seu orçamento.` Genérico, mas funcional.
+- **Uil Van Top Solar** — `Orçamento gratuito 👉`.
+
+### Poluição do termo
+
+3 dos 11 não são solar: Summercar Film (película), Maria Imóveis (imobiliária de outra região),
+e a própria elétrica do André (serviço elétrico geral). O termo "energia solar" atrai
+**serviço correlato de obra** — quarta família de poluição depois de vaga, faculdade e curso.
+
+### Para a LISTA DE ATAQUE
+
+1. **elétrica do André serviço em geral** — Trilha A, 3,5 meses com o nome repetido 10x.
+   Recorde de duração desta família de defeito.
+2. **Guilherme Marton - AG POWER** — Trilha A, 2 meses com título vazio.
+
+Total da LISTA DE ATAQUE: **37 → 39 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **Solar é nicho pequeno mas de boa qualidade**: 9 páginas, 2 Trilha A com defeito antigo.
+   Vale uma segunda passada com outro termo (`placa solar`, `usina fotovoltaica`) mais adiante.
+2. **A família "campo puxado automaticamente" já é o defeito mais comum do arquivo.** Quinta
+   aparição em 24 horas, em cinco nichos diferentes (Niterói, academia, Campo Grande,
+   arquitetura, solar). É o marcador universal de "impulsionou em vez de anunciar".
+3. `energia solar` atrai serviço de obra correlato — filtrar na leitura, como em arquitetura.
+
+Combos varridos até aqui: + energia solar Rio de Janeiro (cidade inteira; recorde de duração do título repetido).
