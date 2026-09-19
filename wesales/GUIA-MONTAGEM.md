@@ -15,6 +15,14 @@ documento não detalha.
 
 - [x] **Fase 1 — Pipeline** — concluída, mas com 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`), não as 7 originais — decisão do dono ao vivo, ver seção abaixo
 - [x] **Fase 2 — Campos personalizados** — concluída; os 2 que faltavam (`WA não atendidas seguidas`, `Permissão WhatsApp`) foram criados e o tipo errado (`Conexões telefone`) foi corrigido para Numérico, confirmado via `locations_get-custom-fields`
+- [ ] **Antes da Fase 5 (cadência), resolver `{{right_now}}`** — 17 nós gravam
+      data/hora em campo de texto (`Entrada em`, `1ª tentativa em`), e o achado
+      da seção 2.9.2 do `build-wesales.md` diz que o GHL não oferece data/hora
+      atual para campo de texto. Abra `Update Contact Field` → `Entrada em` e
+      veja se existe "Right Now"/"Current date and time" no seletor de valor.
+      Não existindo, a seção 2.9.2 já traz o plano B (marca fixa em vez de
+      carimbo, hora exata vindo da criação da tarefa/nota) — é decisão de 1
+      minuto na tela que evita montar 17 nós errados
 - [ ] **Fase 3 — Calendário do closer + formulário de qualificação** — próxima
 - [ ] **Fase 4 — Trigger Link "Agendar com o closer"**
 - [ ] **Fase 5 — Os ~14 workflows**, na ordem da seção "Ordem de montagem" do `build-wesales.md`

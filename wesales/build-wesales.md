@@ -619,6 +619,26 @@ sinal` saiu da lista de nós; Tarefa e Nota já carimbam a própria data de
 criação nativamente, o que cobre a mesma necessidade de auditoria sem
 duplicar em campo. A tabela abaixo é a sequência real, não a original.
 
+**Consequência ainda não resolvida, e ela é grande:** se "data/hora atual" não
+entra em campo de texto, `{{right_now}}` — usado em **17 nós** deste documento
+para carimbar `Entrada em` (C-18), `1ª tentativa em` (C-19) e o reset da
+reativação — não existe também, e aí o R-02 (speed-to-lead) e o relógio da
+reativação do R-08 não se montam como estão escritos. Ou o achado acima é mais
+estreito do que parece (o seletor pode oferecer data/hora atual em campo do tipo
+`DATE`, ou sob outro nome que não "Custom Value"), ou esses 17 nós estão
+errados. **Confira na tela antes de montar a seção 2.3:** abra
+`Update Contact Field` → campo `Entrada em` → veja se o seletor de valor
+oferece algo como "Right Now"/"Current date and time".
+
+Se não oferecer, o caminho desenhado é este, e ele não perde o que importa: o
+Alerta de Speed-to-lead (seção 2.11) nunca precisou da hora exata — ele é um
+relógio que espera 1h e pergunta se `1ª tentativa em` continua vazio. Então
+`1ª tentativa em` e `Entrada em` viram **marca**, não carimbo: grave um valor
+fixo (`sim`) em vez de data/hora, e a hora exata fica onde o GHL já carimba de
+graça — a criação da tarefa e da nota. Perde-se o "quantos minutos", mantém-se
+o "furou 1h ou não", que é a pergunta que a operação responde. Os nomes dos
+campos continuam valendo; só o que se escreve neles muda.
+
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Opportunity Not Found**: encerra (vazio) · ramo **Opportunity Found**: segue |
