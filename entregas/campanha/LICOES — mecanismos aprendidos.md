@@ -1452,3 +1452,26 @@ Não vale a pena brigar — grave sem, ative, e ignore o que a leitura mostra de
 
 Toda edição de conjunto derruba os anúncios de formulário para PAUSED/WITH_ISSUES. Isso continua
 valendo e não é erro: é só religar no passo 3.
+
+## 18/09 21h33 — O VAZAMENTO NÃO ESTAVA NO META: A ETAPA "CONVERSA" NÃO EXISTE COMO DADO
+
+Durante dias a rotina de otimização procurou o vazamento dentro da conta de anúncio — qual conjunto
+entrega menos, qual criativo converte pior. Medindo o funil inteiro de ponta a ponta, o buraco
+apareceu em outro lugar:
+
+- 32 leads desde 09/09 (Meta, dado firme)
+- 7 reuniões marcadas (Google Agenda, dado firme)
+- **25 leads sem destino conhecido**
+
+Entre os dois extremos existe uma etapa — alguém chamar o lead e o lead responder — que **não produz
+nenhum registro nesta operação**. O WhatsApp do Pablo é manual e não tem log; o `leads.jsonl` do
+maquina-whatsapp cobriria, mas o serviço não subiu.
+
+**O mecanismo:** quando uma etapa do funil não tem instrumento, ela não aparece como "ruim" — ela
+aparece como nada. E o otimizador acaba melhorando o que consegue medir, que neste caso é o pedaço
+mais barato. Custo por lead R$8,47 contra custo por reunião R$38,74: a distância de 4,6x entre os
+dois é exatamente o tamanho do que não se mede.
+
+**A regra que fica:** antes de otimizar uma etapa, conferir se a etapa seguinte tem instrumento. Se
+não tiver, dizer isso em vez de otimizar a anterior com mais afinco. E a instrumentação mais barata
+quase nunca é um sistema — aqui, duas colunas numa planilha preenchidas à mão resolveriam.

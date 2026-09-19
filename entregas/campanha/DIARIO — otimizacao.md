@@ -1454,3 +1454,78 @@ hoje mostrou que os escritórios que mais gastam usam exatamente essa estrutura.
 porque o conjunto ainda não completou 48h e a REGRA V3 não julga entidade nova.
 
 Pablo avisado.
+
+---
+
+# 🔎 OTIMIZAÇÃO DIÁRIA — 18/09/2026, 21h33 BRT
+
+## Os números
+
+| | 17/09 (fechado) | 18/09 (até 21h33) |
+|---|---|---|
+| Impressões | 692 | 537 |
+| Gasto | R$22,42 | R$11,80 |
+| Leads | **2** | **3** |
+| Custo por lead | R$11,21 | **R$3,93** |
+
+**R$3,93 é o melhor custo por lead que esta conta já teve.** O acumulado desde 09/09 é R$8,47. O que
+mudou não foi criativo nem público: foi a CBO ter encontrado o conjunto de ADVOCACIA, que sozinho
+levou 291 das 537 impressões do dia e trouxe 2 dos 3 leads.
+
+Por conjunto hoje: ADVOCACIA 291 imp / 2 leads · INTERESSE 97 / 1 · CNAE 53 / 0 · IMOBILIÁRIA 48 / 0
+· CONTABILIDADE 6 / 0 · HARMONIZAÇÃO 0 / 0.
+
+Frequência de todos abaixo de 1,13 — nenhum sinal de fadiga. Nenhum anúncio com WITH_ISSUES.
+Segmentação dos seis conferida e limpa.
+
+## 🚨 A CAÇA AO VAZAMENTO — achei, e não é onde eu estava olhando
+
+Até hoje eu vinha procurando o vazamento dentro do Meta: qual conjunto entrega menos, qual criativo
+converte pior. **O vazamento não está lá.**
+
+| Etapa | Número | Fonte |
+|---|---|---|
+| Leads desde 09/09 | **32** | Meta, formulários |
+| Conversas iniciadas | **não medido** | — |
+| Reuniões marcadas | **7** | Google Agenda |
+| Reuniões realizadas | 6 (Elton é 21/09) | Google Agenda |
+
+**De 32 leads saíram 7 reuniões. Os outros 25 sumiram — e eu não tenho como dizer onde.**
+
+Não é que eles tenham recusado. É que **a etapa "conversa" não existe como dado nesta operação.**
+O lead preenche o formulário do Meta, e a partir daí:
+- se o Pablo chamou no WhatsApp, não há registro;
+- se o lead respondeu, não há registro;
+- se ninguém chamou, também não há registro.
+
+O `leads.jsonl` do maquina-whatsapp cobriria isso, mas o serviço não está no ar.
+
+### Por que isso é a coisa mais cara da operação
+
+Custo por lead: R$8,47. Custo por reunião: R$38,74. **A diferença entre os dois é o vazamento**, e
+ela é de 4,6x. Cada ponto percentual recuperado entre lead e reunião vale mais que qualquer
+otimização de criativo que eu possa fazer: melhorar o CPL em 20% economiza centavos; recuperar 20%
+dos 25 leads perdidos são 5 reuniões.
+
+**Eu estava otimizando o lado barato do funil.**
+
+### O que dá para fazer sem esperar o maquina-whatsapp
+
+Uma planilha de duas colunas — nome do lead e o que aconteceu — preenchida à mão pelo Pablo, já
+resolveria a medição. Não precisa de sistema. Precisa de alguém anotando "chamei / respondeu /
+sumiu". Sem isso, todo mês vou repetir que 78% dos leads desaparecem sem saber por quê.
+
+Isso é decisão do Pablo, então fica como proposta, não como ação.
+
+## Alarmes
+
+- **Nenhum conjunto com 0 impressão em 24h além do HARMONIZAÇÃO**, que já está registrado como
+  NÃO TESTADO pela TRAVA 7.
+- **CPL acima de R$8 em dia fechado**: 17/09 fechou em R$11,21. Se 18/09 fechar acima de R$8 também,
+  o alarme de dois dias seguidos dispara — mas às 21h33 o dia está em R$3,93, então não deve.
+- Nenhum bloqueio, denúncia ou erro de entrega.
+
+## Pendências que seguem com o Pablo
+
+Verba (a decisão da revisão de sexta), separar o CNAE em dois conjuntos, criar o formulário de
+3 perguntas, escolher a ferramenta de WhatsApp, subir o maquina-whatsapp.
