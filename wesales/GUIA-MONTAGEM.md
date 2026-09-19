@@ -486,11 +486,32 @@ nó**, ao vivo em chat, mesmo dia. Estado atual:
   da tentativa = Atendeu`, ganhou `Total de ligações`/`Tentativas
   telefone`, mas nunca ganhou `Conexões telefone`, tag `conectado-hoje`,
   tarefa nem nota.
-- **Pendência única, mas grande:** duplicar (ou reconstruir manualmente) o
-  `Condition` de 6 ramos inteiro, com tudo dentro, também no lado "None"
-  (telefone) do nó 2. Tentativa de usar a opção de duplicar nó ficou
-  confusa de guiar por chat/print — mais seguro reconstruir manual, nó a
-  nó, com calma, do mesmo jeito que a primeira cópia foi feita.
+- **Atualização, mesmo dia, mais tarde:** o dono conseguiu conectar o lado
+  "None" (telefone) ao `Condition` de 6 ramos (por duplicar+colar, depois
+  de várias tentativas). Teste real confirmou que passou a funcionar até
+  um ponto: `Conexões telefone` (dentro do ramo Atendeu) passou a
+  incrementar certo pelo telefone também. Mas a cadeia **quebra logo
+  depois** — os passos seguintes do ramo Atendeu (`Total de conexões`,
+  `WA não atendidas seguidas`, tag `conectado-hoje`, remoção de tag,
+  mudança de etapa pra `AGENDAR`, `Data conectado`, tarefa, nota) foram
+  adicionados manualmente pelo dono (mesma receita de 8 passos da cópia
+  WhatsApp), mas o teste seguinte **continuou parando no mesmo lugar**
+  (`Conexões telefone` incrementa, nada depois disso) — ou os 8 nós não
+  salvaram a conexão entre si corretamente, ou há um nó solto/mal ligado
+  entre `Conexões telefone` e `Total de conexões` nessa cópia específica.
+  Também foi notado, sem confirmar, um terceiro "Branch" (deveria ter só
+  2: `Branch`/`None`) no `If/Else` de `fila-wa` interno do Atendeu nessa
+  cópia — pode ser resíduo do processo de duplicar, vale conferir primeiro
+  na próxima sessão.
+- **Pendência pra próxima sessão:** entrar no ramo Atendeu da cópia
+  telefone, achar o nó `Update contact field` (`Conexões telefone`), e
+  conferir nó a nó, um de cada vez, se a linha de conexão para cada um dos
+  8 passos seguintes realmente liga no próximo (não solta, não aponta pro
+  nó errado). Testar de novo via API depois de cada nó confirmado, em vez
+  de só no final — assim, se quebrar, sabe-se exatamente em qual dos 8.
+  Contato de teste pronto: `Teste Atendeu` (`Lj96CIFYaGKPiC0opzbc`),
+  sem tag; alternar `Resultado da tentativa` entre dois valores força o
+  gatilho a disparar de novo.
 - Workflow ainda em **rascunho**, não publicado — não publicar antes de
   fechar essa pendência, senão liga a limpeza pela metade (funcionaria só
   pra tentativa por WhatsApp).
