@@ -614,7 +614,7 @@ link do calendário"; não vê que o link virou sensor.
 | 1 | Portão de etapa | If/Else | Etapa da oportunidade **é** `Em cadência` → segue. Senão → **encerra** (quem já saiu de cadência não precisa furar fila; já está tratado por outro caminho) |
 | 2 | Portão de silêncio | If/Else | tag `nao-perturbe` presente → **encerra**. Senão → segue |
 | 3 | Prioridade | Update Contact Field | `Prioridade` = 5 |
-| 4 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` · `Data do sinal` = `{{right_now}}` |
+| 4 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` · `Data e hora do sinal` = `{{right_now}}` (nome real do campo na tela; ver `campos-e-tags.md`) |
 | 5 | Fila | Add Contact Tag | `fila-quente` |
 | 6 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) |
 | 7 | Aviso | Internal Notification | Para o SDR: `{{contact.name}} clicou no link de agendar agora. Prioridade 5.` |
