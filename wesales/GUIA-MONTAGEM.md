@@ -222,8 +222,9 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
       maior bloco, quebrado abaixo por subseção (não é mais uma caixa só):
   - [x] **2.1 (Gatilho)** — migrada em 18/09/2026: `Pré-vendas` →
         `FUNIL DE VENDAS`, `Em cadência` → `CONECTAR`
-  - [ ] 2.2 (Configurações do workflow) — sem nome de etapa, não deveria
-        precisar de mudança; conferir na hora de montar
+  - [x] **2.2 (Configurações do workflow)** — migrada em 19/09/2026: tinha
+        uma menção sobrevivente a `"Em cadência"` na linha do `Allow
+        Re-entry`, trocada para `CONECTAR`
   - [x] **2.3 nó 0.0b (portão sem telefone)** — migrado em 18/09/2026:
         "mover para `Nutrição`/`Descartado`" virou `Update Opportunity
         status = abandoned/lost`, sem sair de `CONECTAR`
@@ -242,13 +243,18 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         não migrados; mesma troca `Pré-vendas`/`Em cadência` →
         `FUNIL DE VENDAS`/`CONECTAR` e `Nutrição`/`Descartado` → status
   - [ ] 2.11 (Alerta de Speed-to-lead) — cita `Em cadência` no portão
-  - [ ] 2.12 (Reengajamento 90 dias) — o mais grande dos que sobram:
-        gatilho hoje é `Opportunity Stage Changed → Nutrição`, que deixou
-        de existir (`Nutrição` não é mais etapa); precisa virar
-        `Contact Tag Added → nutricao-90d` (a tradução já está anotada na
-        tabela 1.0, linha `Nutrição`) — nó 5 ("Reentrada no funil") e o nó
-        final de TR4 esgotada também citam `Em cadência`/`Nutrição` como
-        movimento de etapa
+  - [x] **2.12 (Reengajamento 90 dias)** — migrada em 19/09/2026, era o
+        maior pedaço que sobrava: gatilho trocado de `Opportunity Stage
+        Changed → Nutrição` para `Contact Tag Added → nutricao-90d` (a
+        tradução já estava anotada na tabela 1.0, linha `Nutrição`); nó 5
+        ("Reentrada no funil") e o nó final de TR4 esgotada migrados para
+        `CONECTAR`/`status`. Achado novo durante a migração, não previsto
+        na tabela 1.0: o nó 5 agora reseta `status` para `open` junto com
+        a etapa — sem isso o lead reativado chegaria a `CONECTAR` ainda
+        com `status = abandoned`, e o portão do Mestre de saída (seção 3,
+        "`CONECTAR` e `open`") leria a chegada como saída e disparia a
+        limpeza no momento errado. Detalhe completo na seção 2.12 do
+        `build-wesales.md`.
   - [ ] 2.13 (Regras de pausa) — conferir se cita etapa antiga
   - [ ] 2.14 (Distribuição de leads), 2.15 (Monitor de Capacidade), 2.16
         (Higiene de Número) — 2.16 nó 2 cita `Novo lead`/`Em cadência`/
@@ -308,12 +314,13 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
       produção — a rotina nunca chegou a rodar com o pipeline real, porque
       nenhuma oportunidade existe ainda na subconta.
 
-**Não assuma que 2.1/2.3/2.4/2.6/3/4 cobrem tudo que toca `Em cadência`,
-`Nutrição` ou `Descartado`** — são só os pontos consertados nesta rodada.
-`grep -n "Em cadência\|Nutrição\|Descartado\|Pré-vendas\`" wesales/build-wesales.md`
-ainda retorna dezenas de linhas fora desses seis pontos (2.10, 2.11, 2.12,
-2.16, 2.17, seção 5.x, 8, 9, e o checklist de teste da seção 10) — todas se
-traduzem pela tabela 1.0 até serem migradas.
+**Não assuma que uma lista de seções já migradas está completa só porque
+apareceu num commit anterior** — a lista muda a cada rodada que fecha mais
+um pedaço (2.2 e 2.12, por exemplo, fecharam numa rodada automática em
+19/09/2026, bem depois do commit que originou este aviso). Confie no
+`[x]`/`[ ]` do checklist logo acima ("Seção 2 — subseções 2.1–2.17"), não em
+qualquer lista fixa escrita em prosa — inclusive esta mesma frase, que por
+isso não repete os números de seção pendentes.
 
 **Não assuma que uma seção já reflete a mudança só porque outra foi
 migrada** — verifique o `[x]` desta lista antes de confiar em qualquer

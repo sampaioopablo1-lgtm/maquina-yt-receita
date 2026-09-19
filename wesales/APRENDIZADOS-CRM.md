@@ -2,6 +2,52 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Migração de etapa: reentrar em `CONECTAR` sem resetar `status` engana o Mestre de saída — 19/09/2026
+
+Sessão automática, sem os três itens do roadmap desbloqueados (R-14/F-05/F-06
+seguiam todos esperando volume/mensagem real, mesmo motivo já documentado na
+entrada abaixo). Em vez de encerrar sem commit, voltei para o checklist de
+migração de nomes de etapa que `GUIA-MONTAGEM.md` (Fase 1) já rastreava desde
+18/09/2026 com várias seções ainda `[ ]` — um `build-wesales.md` que ainda
+cita `Em cadência`/`Nutrição` como se fossem etapa é o mesmo tipo de bug
+silencioso que o achado de `fieldKey` (abaixo) e o R-16 já descreveram para
+merge field e rótulo de opção, aqui em nome de etapa: um gatilho ou portão
+que compara contra etapa que não existe nunca casa, e ninguém vê erro nenhum
+na tela até notar que o workflow simplesmente não dispara. Fechei a seção
+2.12 (Reengajamento 90 dias) — a maior pendência do checklist, sinalizada
+como tal desde a entrada "Seção 3... 18/09/2026" abaixo.
+
+**Achado que a tabela de tradução (seção 1.0 do `build-wesales.md`) não
+previa, generalizável para o resto do checklist:** qualquer workflow que
+reative uma oportunidade **de volta** para `CONECTAR` depois que ela passou
+por `status = abandoned`/`lost` precisa resetar o `status` para `open`
+explicitamente, no mesmo nó que muda a etapa. Motivo: o Mestre de saída
+(seção 3) decide se limpa ou não pela condição composta "etapa é `CONECTAR`
+**e** `status` é `open`" — ela existe justamente porque, no modelo de 5
+etapas, sair de cadência nem sempre move etapa (vira só mudança de
+`status`). Se um workflow de reativação mover a etapa sem tocar no
+`status`, a oportunidade chega em `CONECTAR` ainda com `status = abandoned`
+da rodada anterior: a condição composta fica falsa, e o Mestre de saída lê a
+**chegada** como se fosse uma **saída**, disparando a limpeza (tirar de
+fila, apagar tag) no exato momento em que o lead está entrando de novo na
+cadência — o oposto do "no-op" que todo o desenho pressupõe para entrada.
+2.12 tinha exatamente esse buraco (nó "Reentrada no funil"); corrigido
+adicionando `status → open` ao mesmo nó que move a etapa. **Ao migrar
+2.10, 2.13 ou qualquer outra seção que mova oportunidade de volta para
+`CONECTAR`, conferir se ela também precisa desse reset** — não é
+específico do Reengajamento, é uma propriedade do modelo de 5 etapas +
+status que a migração de 18/09/2026 introduziu sem essa peça.
+
+Zero escrita no CRM nesta rodada (confirmado por
+`opportunities_get-pipelines`/`opportunities_search-opportunity`/
+`locations_get-custom-fields` antes de editar: pipeline com as mesmas 5
+etapas, custom fields sem mudança desde o R-16/F-04 — nenhum C-25/C-26/C-27
+novo ainda, esperado, são criação manual pendente). Trabalho só de
+documentação: `build-wesales.md` (seção 2.12 e a linha da seção 2.1 que
+apontava para ela), `GUIA-MONTAGEM.md` (checklist da Fase 1) e
+`ROADMAP-SALES-ENGAGEMENT.md` (novo item G-02, Bloco 0, registrando esta
+frente de trabalho para quem só lê o roadmap).
+
 ## F-04 fechado: a exposição real não era a do enunciado do roadmap — 19/09/2026
 
 Auditoria desta rodada (`locations_get-custom-fields`, `opportunities_get-pipelines`,

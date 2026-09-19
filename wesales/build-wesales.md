@@ -395,8 +395,8 @@ não causa dela. E não use "Contact Created", senão o lead entra antes de ter
 telefone validado.
 
 O filtro do R-08 existe por um caso que só aparece com o Reengajamento 90
-dias (seção 2.12, ainda escrita em cima do nome antigo `Nutrição` — tradução
-em 1.0) montado: um lead pode chegar a `status = abandoned` sem nunca ter
+dias (seção 2.12, migrada para as 5 etapas reais em 19/09/2026) montado: um
+lead pode chegar a `status = abandoned` sem nunca ter
 entrado de verdade nesta cadência 12x30 — por exemplo, um lead inbound que
 recebeu `Número errado` ainda dentro da Cadência Inbound (seção 2.10, antes
 do handoff da TI5) e tinha e-mail cadastrado cai direto em `abandoned` pelo
@@ -432,7 +432,7 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | Dias | Segunda a sexta | Tentativa que cai no sábado escorrega para segunda |
 | Fuso | Da subconta | Não use fuso do contato: o SDR trabalha no fuso dele |
 | Stop on Response | **Ligado** | "Respondeu em qualquer canal -> sai da cadência" |
-| Allow Re-entry | **Desligado** (decisão D-06) | Com reentrada ligada, o lead que volta para "Em cadência" ganha tentativas duplicadas |
+| Allow Re-entry | **Desligado** (decisão D-06) | Com reentrada ligada, o lead que volta para `CONECTAR` ganha tentativas duplicadas |
 | Contatos em múltiplos workflows | Permitido | O lead fica também no de IA |
 
 ### 2.3 Nó 0 — inicialização (uma vez, antes da T1)
@@ -1101,7 +1101,7 @@ automática ou por `Add to Workflow` (o comportamento documentado em
 destino, mas **não** ignora `Allow Re-entry`). Reduzir a régua de
 reativação para caber dentro da 12x30 exigiria ligar `Allow Re-entry` lá,
 o que reabre exatamente o risco que o D-06 fechou: qualquer entrada
-futura em "Em cadência" — inclusive um erro de clique do SDR — passaria a
+futura em "CONECTAR" — inclusive um erro de clique do SDR — passaria a
 duplicar tentativas para leads que nunca deveriam repetir a régua. Um
 workflow próprio, pequeno, com seu próprio `Allow Re-entry` **ligado** de
 propósito (só ele, isolado), resolve sem tocar no D-06. É o mesmo
@@ -1109,16 +1109,22 @@ raciocínio que já separou a Cadência Inbound (seção 2.10) da 12x30: dois
 workflows curtos, cada um com a configuração que sua régua pede, batem um
 workflow só com `if` decidindo por dentro qual configuração vale.
 
-### Gatilho
+### Gatilho — migrado para as 5 etapas reais em 19/09/2026
 
-**Opportunity Stage Changed** — Pipeline `Pré-vendas` · Para a etapa:
-`Nutrição`
+**Contact Tag Added** — tag: `nutricao-90d`. O gatilho original
+(`Opportunity Stage Changed` → `Nutrição`) não existe mais: `Nutrição`
+deixou de ser etapa própria na tela real de 5 etapas, virou
+`status = abandoned` da oportunidade, com a etapa permanecendo onde estava
+(tabela 1.0, seção 1). A tradução já estava anotada lá desde a migração da
+seção 2.1 — "todo gatilho `Opportunity Stage Changed → Nutrição` vira
+`Contact Tag Added → nutricao-90d`" —, só não tinha sido aplicada aqui
+ainda.
 
 ### Configurações
 
 | Configuração | Valor | Por que |
 |---|---|---|
-| Allow Re-entry | **Ligado** | Ao contrário da 12x30 (D-06), aqui *toda* entrada em `Nutrição` é uma rodada legítima e nova — o mesmo raciocínio já usado no Alerta de Speed-to-lead (seção 2.11): "uma rodada 2 manual é uma nova entrada de verdade e merece seu próprio relógio". Sem isso, o lead reativaria uma vez e nunca mais — o "por quê" deste item ("nutrição sem retorno é arquivo morto") voltaria a valer na segunda rodada |
+| Allow Re-entry | **Ligado** | Ao contrário da 12x30 (D-06), aqui *toda* aplicação da tag `nutricao-90d` é uma rodada legítima e nova — o mesmo raciocínio já usado no Alerta de Speed-to-lead (seção 2.11): "uma rodada 2 manual é uma nova entrada de verdade e merece seu próprio relógio". Sem isso, o lead reativaria uma vez e nunca mais — o "por quê" deste item ("nutrição sem retorno é arquivo morto") voltaria a valer na segunda rodada |
 | Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta | Mesma janela da 12x30 — reativação não é urgência, é rotina |
 | Stop on Response | Ligado | Respondeu em qualquer canal, sai da régua de reativação |
 
@@ -1127,11 +1133,11 @@ workflow só com `if` decidindo por dentro qual configuração vale.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Aguardar | Wait → Time Delay | 90 dias corridos |
-| 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `Nutrição` · tag `nutricao-90d` presente · tag `nao-perturbe` ausente |
-| 2b | Ramo falso do portão | **Remove from Workflow: este** | O lead já saiu de `Nutrição` por outro caminho (voltou a `Em cadência` na mão, converteu, foi descartado) ou pediu para não ser mais procurado — não reativa quem já mudou de estado por conta própria. Nada para limpar aqui: nenhuma tag de fila foi tocada ainda |
+| 2 | Portão | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · tag `nutricao-90d` presente · tag `nao-perturbe` ausente |
+| 2b | Ramo falso do portão | **Remove from Workflow: este** | O lead já saiu do estado de nutrição por outro caminho (voltou a `CONECTAR` na mão e converteu — `status` deixou de ser `abandoned` —, ou foi descartado, `status = lost`) ou pediu para não ser mais procurado — não reativa quem já mudou de estado por conta própria. Nada para limpar aqui: nenhuma tag de fila foi tocada ainda |
 | 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
 | 4 | Troca de origem | Remove Contact Tag `nutricao-90d` → Remove Contact Tag `cad-inbound` (idempotente, mesmo se ausente) → Add Contact Tag `cad-outbound` → Add Contact Tag `reengajamento-ativo` | Ver "A troca de origem" abaixo |
-| 5 | Reentrada no funil | Update Opportunity Stage → `Em cadência` | Dispara o Mestre de saída em no-op (destino é `Em cadência`, nó 1 encerra sem limpar) e o Alerta de Speed-to-lead (seção 2.11) com relógio novo, porque `1ª tentativa em` acabou de ser esvaziado no nó 3 — a reativação ganha sua própria medição de speed-to-lead de graça, sem campo novo |
+| 5 | Reentrada no funil | Update Opportunity — Etapa → `CONECTAR` **e** `status` → `open` | O reset explícito de `status` é achado desta migração: o desenho original não tinha campo `status` separado de etapa, então "mover para `Em cadência`" bastava. Hoje, sem zerar `status`, o lead chegaria a `CONECTAR` ainda com `status = abandoned` da rodada anterior, e o portão do Mestre de saída (seção 3, nó 1: "`CONECTAR` **e** `open`") ficaria falso — a chegada seria lida como saída, e a limpeza (tirar das filas, apagar tag de fila) rodaria no instante em que o lead está *entrando* de novo na cadência, não saindo. Com o reset, dispara o Mestre de saída em no-op de verdade (nó 1 encerra sem limpar) e o Alerta de Speed-to-lead (seção 2.11) com relógio novo, porque `1ª tentativa em` acabou de ser esvaziado no nó 3 — a reativação ganha sua própria medição de speed-to-lead de graça, sem campo novo |
 | 6 | Mensagem de reabertura | Send WhatsApp | Texto `RE-1` (`biblioteca-mensagens.md`) → Update `Template usado` = `RE-1` |
 | 7 | Aguardar resposta | Wait → Contact Replied | Tempo limite 2h — mesmo padrão do pós-M1 (seção 2.6): se respondeu, `Stop on Response` tira da régua |
 
@@ -1171,9 +1177,10 @@ Reaproveitar o nó 10 do bloco padrão (2.4) sem alteração significa que
 contato deste workflow e entregam para o Pós-ligação (seção 4, que é
 canal-agnóstico e não precisa saber que a tentativa veio do reengajamento)
 exatamente como fariam na régua original — inclusive movendo etapa para
-`Conectado`/`Retorno agendado`/`Descartado`. `reengajamento-ativo` sai
-sozinho nesse caminho: é o Mestre de saída (seção 3, nó 4) que limpa,
-porque qualquer um desses resultados tira a oportunidade de `Em cadência`.
+`AGENDAR` ou mudando `status` para `abandoned`/`lost` sem sair de
+`CONECTAR` (tabela 1.0). `reengajamento-ativo` sai sozinho nesse caminho: é
+o Mestre de saída (seção 3, nó 4) que limpa, porque qualquer um desses
+resultados tira a oportunidade da condição `CONECTAR` **e** `open`.
 
 ### Sem resposta ao fim da TR4
 
@@ -1186,13 +1193,16 @@ tentativas esgotaram sem conexão), em vez de "próxima tentativa":
 | 2 | Update Contact Field | `Template usado` = `RE-2` |
 | 3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 4 | Add Contact Tag | `nutricao-90d` |
-| 5 | Mover oportunidade | → `Nutrição` |
+| 5 | Update Opportunity | `status` = `abandoned` (etapa fica onde estava, `CONECTAR` — tabela 1.0; não é mais "mover para `Nutrição`", que não existe como etapa) |
 
-O nó 5 fecha o círculo: mover para `Nutrição` aciona o Mestre de saída
-(que limpa `reengajamento-ativo`, entre outras) **e** dispara este mesmo
-workflow de novo, do zero, porque `Allow Re-entry` está ligado — outro
-relógio de 90 dias começa a contar sozinho. É a régua que se repete para
-sempre até o lead conectar, pedir para não ser mais procurado, ou virar
+O nó 4 é quem fecha o círculo agora: como o gatilho deste workflow é
+`Contact Tag Added → nutricao-90d` (migrado nesta rodada), aplicar a tag de
+novo dispara este mesmo workflow do zero, porque `Allow Re-entry` está
+ligado — outro relógio de 90 dias começa a contar sozinho. O nó 5 cuida da
+outra metade: `status = abandoned` tira a oportunidade da condição
+`CONECTAR` **e** `open`, o que aciona o Mestre de saída (que limpa
+`reengajamento-ativo`, entre outras). É a régua que se repete para sempre
+até o lead conectar, pedir para não ser mais procurado, ou virar
 oportunidade em outra etapa — nenhum destino é "arquivo morto" outra vez.
 
 ### A troca de origem (nó 4)
@@ -1232,18 +1242,20 @@ o seu gatilho de fato tem.
 ### Por que não literalmente `Novo lead`, como o roadmap descreve
 
 O texto do roadmap (`ROADMAP-SALES-ENGAGEMENT.md`, R-08) diz "devolve para
-`Novo lead`". O espírito — o lead sai do arquivo morto e reaparece na fila
-do SDR — está mantido; o destino técnico mudou para `Em cadência`
-diretamente, por dois motivos concretos, não por preferência:
+`Novo lead`" — nome do plano original de 7 etapas, que na tela real virou
+`NOVO LEAD` (tabela 1.0: mesma etapa, só o nome mudou). O espírito — o lead
+sai do arquivo morto e reaparece na fila do SDR — está mantido; o destino
+técnico mudou para `CONECTAR` diretamente, por dois motivos concretos, não
+por preferência:
 
 1. Não existe, em nenhum lugar deste documento, um gatilho que promova
-   `Novo lead` → `Em cadência` automaticamente (é uma lacuna que já
+   `NOVO LEAD` → `CONECTAR` automaticamente (é uma lacuna que já
    existia antes deste item — hoje essa transição é manual, decisão do
-   SDR ao revisar a fila). Se este workflow parasse em `Novo lead`, o
+   SDR ao revisar a fila). Se este workflow parasse em `NOVO LEAD`, o
    lead reativado ficaria parado ali para sempre, o oposto do "Pronto
    quando" deste item ("o lead... volta à fila... sozinho").
-2. Passar por `Novo lead` de propósito, mesmo que por um instante,
-   aciona o Mestre de saída (seção 3, gatilho "qualquer etapa de
+2. Passar por `NOVO LEAD` de propósito, mesmo que por um instante,
+   aciona o Mestre de saída (seção 3, gatilho 1, "qualquer etapa de
    destino") nesse destino intermediário — ele rodaria a limpeza inteira
    (incluindo aplicar `limpar-tarefas` e gravar a nota "Saída de cadência"
    num contato que não estava, de fato, saindo de cadência nenhuma) antes
@@ -1253,11 +1265,11 @@ diretamente, por dois motivos concretos, não por preferência:
    cada hora.
 
 Registrar como lacuna nova para uma rodada futura: **L-07 — promoção
-automática de `Novo lead` → `Em cadência`**. Hoje isso é decisão do SDR ao
+automática de `NOVO LEAD` → `CONECTAR`**. Hoje isso é decisão do SDR ao
 revisar a fila; se o volume crescer, vale um gatilho (por exemplo,
 `Contact Tag Added` numa tag de "telefone validado") que faça essa
 promoção sozinha — o mesmo buraco que este item contornou indo direto
-para `Em cadência` afeta igualmente todo lead novo, não só o reativado.
+para `CONECTAR` afeta igualmente todo lead novo, não só o reativado.
 
 ### Nova tag — T-13
 
@@ -1269,9 +1281,9 @@ ao vivo em chat e **criada em 18/09/2026** via `contacts_add-tags`.
 **Pronto quando (do roadmap):** o lead de hoje volta à fila em dezembro,
 sozinho — a tarefa `[CADENCIA] TR1` nasce e o lead aparece nas listas
 `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (seções 8.2/8.3, que já filtram
-por etapa `Em cadência` + tag de fila, sem precisar de lista nova) 90 dias
-depois de entrar em `Nutrição`, sem qualquer ação humana entre as duas
-datas.
+por etapa `CONECTAR` + tag de fila, sem precisar de lista nova) 90 dias
+depois da tag `nutricao-90d` ser aplicada, sem qualquer ação humana entre
+as duas datas.
 
 ---
 

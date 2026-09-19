@@ -79,6 +79,50 @@ ganhou uma Fase 1.5 marcando este item como furando a fila de montagem, à
 frente da Fase 3, porque cada hora sem ele é lead pago do Meta acumulando
 sem nunca entrar em etapa nenhuma.
 
+### G-02 · Migração de nomes de etapa em `build-wesales.md` ainda incompleta — **em andamento**
+**Por quê:** quando o pipeline virou as 5 etapas reais (`NOVO LEAD`/
+`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`, decisão ao vivo de
+18/09/2026) em vez das 7 do plano original, boa parte do
+`build-wesales.md` ficou com gatilho, portão ou nó citando etapa ou
+pipeline que não existe mais na tela (`Em cadência`, `Nutrição`,
+`Retorno agendado`, `Descartado`, `Pré-vendas`). Um gatilho ou `If/Else`
+que compara contra etapa inexistente nunca casa — mesma classe de bug
+silencioso que R-16 já achou para rótulo de opção, aqui em nome de
+etapa/pipeline, e mais caro: não é nota errada, é o workflow inteiro
+nunca disparando. Descoberto ao notar que `GUIA-MONTAGEM.md` já rastreava
+essa migração seção por seção desde 18/09/2026, mas boa parte das caixas
+seguia `[ ]`.
+**Como:** seguir a tabela de tradução (`build-wesales.md`, seção 1.0)
+seção por seção, trocando gatilho/portão/nó para etapa real ou status
+nativo (`abandoned`/`lost`), sem mudar comportamento nenhum — é tradução,
+não redesenho. `GUIA-MONTAGEM.md`, dentro da Fase 1, é quem rastreia o
+checklist linha a linha; este item só existe para o trabalho não ficar
+invisível a quem lê só o roadmap.
+**Pronto quando:** todo `[ ]` do checklist de migração em
+`GUIA-MONTAGEM.md` (Fase 1) vira `[x]` — o que equivale a
+`grep -n "Em cadência\|Nutrição\|Descartado\|Pré-vendas" wesales/build-wesales.md`
+só retornar linha da tabela de tradução (1.0) ou de trecho citando o plano
+histórico de propósito (nunca um gatilho, portão ou nó ativo).
+
+**Resumo (19/09/2026):** fechada a seção 2.12 (Reengajamento 90 dias) — o
+maior pedaço que restava, sinalizado como tal no próprio
+`GUIA-MONTAGEM.md`. Gatilho trocado de `Opportunity Stage Changed →
+Nutrição` (que não existe mais) para `Contact Tag Added → nutricao-90d`,
+como a tabela 1.0 já previa; portão do nó 2 trocado de "etapa é Nutrição"
+para "status é abandoned"; nó de reentrada migrado para `CONECTAR`.
+Achado durante a migração, não estava na tabela 1.0: o nó de reentrada
+precisou ganhar um reset explícito de `status` para `open` junto com a
+etapa — sem isso o lead reativado chegaria a `CONECTAR` ainda com
+`status = abandoned` da rodada anterior, e o portão do Mestre de saída
+(seção 3, "`CONECTAR` e `open`") leria a chegada como saída e disparia a
+limpeza no momento errado (o oposto do "no-op" que o desenho original
+pressupunha). Seção 2.2 também tinha uma menção solta a `"Em cadência"`,
+corrigida junto por ser trivial. Zero campo, zero tag: item de
+documentação pura, não depende de `APROVADO.md`. **Segue aberto:** 2.10,
+2.11, 2.13 a 2.17, seção 5 e 5.1-5.4, seção 6, listas 8.5 em diante,
+seção 9 e o checklist de teste (seção 10) — todos listados item a item em
+`GUIA-MONTAGEM.md`, dentro da Fase 1.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -716,6 +760,14 @@ nenhuma oportunidade nasce sozinha. Descoberto depois dos blocos 1 a 5 e
 quase todo o 6 já estarem prontos, mas listado primeiro porque é anterior
 em sentido literal, não por ordem de descoberta.
 
+**G-02, em andamento desde 19/09/2026, roda em paralelo aos blocos abaixo,
+não antes deles:** ao contrário do G-01, uma seção de `build-wesales.md`
+ainda com nome de etapa antigo não impede nenhum outro item de fazer
+sentido — só faz aquela seção específica falhar quando alguém tentar
+montá-la na tela. Por isso não bloqueia a fila; é trabalho de fundo,
+pedaço por pedaço, cada vez que uma sessão automática não tem item de
+volume/mensagem real para avançar nos blocos 1-6.
+
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
 hora investida. Só então as cadências vizinhas e a operação com mais gente.
@@ -738,10 +790,12 @@ plano desenhado assim que o recurso nativo estiver ligado.
 Com R-15 fechado em 18/09/2026, todo o resto que os blocos 1 a 4 e o R-13
 já constroem tem onde ser visto numa tela só, em vez de morrer atrás de
 seis listas que ninguém abre. **R-14 (auditoria de compliance)** é o único
-item que resta no bloco 5 e no roadmap inteiro fora do bloco 6 — fica fora
-de ordem por decisão de conteúdo, não de posição: sobe para o topo no dia
-em que a operação começar a mandar mensagem de verdade. Antes disso, não há
-a quem incomodar.
+item numerado (R/F) que resta no bloco 5 e no roadmap inteiro fora do
+bloco 6 — fica fora de ordem por decisão de conteúdo, não de posição: sobe
+para o topo no dia em que a operação começar a mandar mensagem de verdade.
+Antes disso, não há a quem incomodar. (G-02, Bloco 0, é diferente dos
+dois: não é item de fila que espera sua vez, é dívida de documentação que
+se paga em paralelo, pedaço por pedaço — ver nota no início desta seção.)
 
 F-01, F-03, F-02 e F-04 já saíram do bloco 6 fora da ordem normal, cada um na
 rodada em que foi feito: sinal ignorado e nota não calibrada são dívidas que
@@ -761,8 +815,11 @@ só morde quando há mais de uma cadência no ar.
 **Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
 rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
-bloco 5. O que resta não espera posição na fila, espera a operação existir:
-R-14 quando a máquina começar a mandar mensagem de verdade, e os dois itens
-que restam no bloco 6 quando houver volume. Enquanto isso, o trabalho que
-sobra é montar na tela o que já está especificado — pipeline, campos,
-workflows, calendário e formulário, pelo `build-wesales.md`.
+bloco 5. O que resta entre os itens numerados não espera posição na fila,
+espera a operação existir: R-14 quando a máquina começar a mandar mensagem
+de verdade, e os dois itens que restam no bloco 6 quando houver volume.
+Enquanto isso, o trabalho que sobra é de dois tipos: montar na tela o que
+já está especificado (pipeline, campos, workflows, calendário e
+formulário, pelo `build-wesales.md`) — trabalho manual, ao vivo com o
+dono — e fechar o G-02 (migração de nomes de etapa), que uma sessão
+automática consegue avançar sozinha, sem depender de tela nem de volume.
