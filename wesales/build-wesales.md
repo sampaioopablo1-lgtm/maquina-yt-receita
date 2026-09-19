@@ -1889,27 +1889,35 @@ Nos nós 8–10 use Wait → "relativo ao início do compromisso" (Appointment S
 Date), não delay fixo: reagendamento move os lembretes junto.
 
 **Modelo da nota (nó 6)**
+
+Merge tags corrigidos em 19/09/2026 contra o fieldKey real (lido por
+`locations_get-custom-fields`): o GHL não transliteral o nome pro fieldKey,
+ele **remove** a letra acentuada inteira (ex.: "anúncios" → `anncios`, não
+`anuncios`; "qualificação" → `qualificao`). A versão anterior deste modelo
+usava a transliteração "limpa", que não bate com nada e faria a nota sair com
+os placeholders em branco. `Empresa` também trocou de nativo para
+personalizado — ver nota da seção 7.2.
 ```
-REUNIÃO AGENDADA · nota {{contact.nota_de_qualificacao}}/100
+REUNIÃO AGENDADA · nota {{contact.nota_de_qualificao}}/100
 Agendado por: {{user.name}} · Para: {{appointment.start_time}}
 
-Empresa: {{contact.company_name}} · Segmento: {{contact.segmento}}
+Empresa: {{contact.empresa}} · Segmento: {{contact.segmento}}
 Site: {{contact.site}} · IG: {{contact.instagram}}
 
 BANT
 Budget: {{contact.budget}} · Decisor: {{contact.decisor}} · Prazo: {{contact.prazo}}
 
 Diagnóstico
-Clientes novos/mês: {{contact.clientes_novos_por_mes}}
-Anúncios: {{contact.investe_em_anuncios}} · Investimento: {{contact.investimento_mensal_em_anuncios}}
-Plataformas: {{contact.plataformas_de_anuncio}}
-Agência: {{contact.ja_teve_agencia}} — {{contact.experiencia_com_agencia}}
+Clientes novos/mês: {{contact.clientes_novos_por_ms}}
+Anúncios: {{contact.investe_em_anncios}} · Investimento: {{contact.investimento_mensal_em_anncios}}
+Plataformas: {{contact.plataformas_de_anncio}}
+Agência: {{contact.j_teve_agncia}} — {{contact.experincia_com_agncia}}
 Time: {{contact.tem_time_comercial}} · Atende leads: {{contact.quem_atende_os_leads}}
 CRM: {{contact.usa_crm}} · Canal principal: {{contact.canal_principal_de_venda}}
 
 Dor principal: {{contact.dor_principal}}
-Preenchido por: {{contact.qualificacao_preenchida_por}}
-Histórico: {{contact.total_de_ligacoes}} ligações, {{contact.total_de_conexoes}} conexões, atendeu na T{{contact.tentativa_no}}
+Preenchido por: {{contact.qualificao}}
+Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}} conexões, atendeu na T{{contact.tentativa_n}}
 ```
 
 **Mensagem de confirmação (nó 7)**
@@ -2307,12 +2315,21 @@ tem dois sistemas mandando lembrete.
 Sites → Formulários → Novo. Anexe ao calendário em
 **Calendário → Formulários → Formulário personalizado**.
 
+**Campo `Empresa` (linha 4): use o personalizado, não o nativo.** O plano
+original apontava para o campo nativo `Company Name`
+(`{{contact.company_name}}`). Na tela, o construtor de formulário (aba
+"Adição rápida" e aba "Adicionar campos de objeto", Contato) não lista
+`Company Name` — nativo não aparece nesse seletor. Confirmado em
+19/09/2026, ao vivo em chat. Caminho aceito: campo personalizado `Empresa`
+(`contact.empresa`, criado em 18/09/2026), já usado na linha 4 abaixo e no
+modelo de nota da seção 5.
+
 | Ordem | Campo do formulário | Mapeado para | Obrigatório |
 |---|---|---|---|
 | 1 | Nome | `first_name` / `last_name` | Sim |
 | 2 | Telefone | `phone` | Sim |
 | 3 | E-mail | `email` | Sim |
-| 4 | Empresa | `company_name` | Sim |
+| 4 | Empresa | `Empresa` (personalizado, `contact.empresa`) | Sim |
 | 5 | Segmento | `Segmento` | Sim |
 | 6 | Site | `Site` | Não |
 | 7 | Instagram | `Instagram` | Não |
@@ -2330,7 +2347,7 @@ Sites → Formulários → Novo. Anexe ao calendário em
 | 19 | Decisor | `Decisor` | Sim |
 | 20 | Dor principal | `Dor principal` | Sim |
 | 21 | Prazo | `Prazo` | Sim |
-| 22 | Qualificação preenchida por | `Qualificação preenchida por` | Sim, valor padrão `SDR` |
+| 22 | Qualificação | `Qualificação` (renomeado de "Qualificação preenchida por"; opção `Automático` virou `Vendedor`) | Sim, valor padrão `SDR` |
 | 23 | Consentimento de contato | checkbox | Sim |
 
 Configurações do formulário:
