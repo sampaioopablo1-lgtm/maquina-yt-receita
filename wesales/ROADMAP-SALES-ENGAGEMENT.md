@@ -141,6 +141,17 @@ que a reentrada da 2.12 já tinha documentado, agora numa terceira seção.
 Zero campo, zero tag: item de documentação pura, não depende de
 `APROVADO.md`.
 
+**Conferência da mesma rodada (19/09/2026):** a regra que ela generalizou
+valia para mais três portões, e só um tinha sido corrigido. Entraram
+`status é open` no nó 3 da seção 2.4 e no nó 2 da seção 2.10, e — o achado
+que pesa — os nós 2b/2c no Mestre de saída (seção 3), que removia o lead de
+**uma** régua quando já existem três: um lead inbound descartado seguia
+recebendo TI2 a TI5. O nó 2 da Interceptação de Sinal (2.9.2/2.9.3) ganhou
+`status não é lost` em vez de `é open`, de propósito — clique de lead em
+nutrição é sinal, não ruído (nota na própria seção). Duas dessas peças já
+estão publicadas na tela: os retoques estão na tabela de
+`GUIA-MONTAGEM.md`, "Estado da montagem em 19/09/2026".
+
 **Resumo (19/09/2026, quarta rodada):** fechadas as seções 5, 5.1, 5.2, 5.3
 e 5.4 (Pós-agendamento, Loop do closer, Registro de Comparecimento,
 Recuperação de No-show, SLA do Closer — No-show) — a família inteira do
@@ -149,12 +160,13 @@ destinos que existiam como etapa própria (`Nutrição`/`Descartado` — Loop do
 closer, seção 5.1, e Recuperação de No-show, seção 5.3) viraram `status`
 (`abandoned`/`lost`) sem sair de `NEGOCIAR`. Achado novo: o portão de
 sanidade de 5.3 e 5.4 ("a oportunidade ainda reflete este compromisso?")
-checava só a etapa — quarta seção a precisar do mesmo reforço `status é
-open` que 2.11, o Mestre de saída e a reentrada de 2.12 já tinham exigido,
-aqui pelo motivo mais direto até agora: o Loop do closer (5.1) já pode ter
-fechado o veredito sem sair de `NEGOCIAR`, e sem checar `status` um `No
-Show` tardio reabriria uma recuperação ou repetiria um SLA de um lead cujo
-destino já foi decidido. Zero campo, zero tag: documentação pura.
+checava só a etapa — quinta peça a precisar do mesmo reforço `status é
+open` que 2.11, o Mestre de saída, a reentrada de 2.12 e a conferência
+acima já tinham exigido, aqui pelo motivo mais direto até agora: o Loop do
+closer (5.1) já pode ter fechado o veredito sem sair de `NEGOCIAR`, e sem
+checar `status` um `No Show` tardio reabriria uma recuperação ou repetiria
+um SLA de um lead cujo destino já foi decidido. Zero campo, zero tag:
+documentação pura.
 **Achado à parte, fora da migração:** o dono confirmou ao vivo o estado real
 da tela de workflows — `Pós-agendamento` publicado e ativo (3 inscritos),
 mas `Cadência 12x30` (motor principal) e `Qualificação por IA no WhatsApp`
@@ -165,9 +177,10 @@ campo inventado por outro (`Tags`, `Rescheduled`, `Opportunity status`,
 `score`, `Last appointment at` — nenhum existe no projeto) em vez de usar os
 campos reais (`Reunião foi qualificada`, `Motivo da desqualificação`, `Nota
 de qualificação`) — mesma classe de falha já registrada para o Pós-ligação.
-Detalhe completo: `APRENDIZADOS-CRM.md`. **Segue aberto:** 2.13 a 2.17,
-seção 6, listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) —
-todos
+Detalhe completo: `APRENDIZADOS-CRM.md`.
+
+**Segue aberto:** 2.13 a 2.17, seção 6, listas 8.5 em diante, seção 9 e o
+checklist de teste (seção 10) — todos
 listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
 
 ---

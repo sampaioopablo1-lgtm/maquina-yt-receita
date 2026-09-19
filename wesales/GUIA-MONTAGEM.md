@@ -245,8 +245,14 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         trocado de "Mover oportunidade → `Nutrição`/`Descartado`" para
         `Update Opportunity status = abandoned/lost`, espelhando o 0.0b já
         migrado da 2.3; portão da tentativa (nó 2) trocado para
-        `CONECTAR`. Zero achado novo: era tradução mecânica, a mesma tabela
-        1.0 já previa cada troca
+        `CONECTAR`. Zero achado novo na migração em si: era tradução
+        mecânica, a mesma tabela 1.0 já previa cada troca. **Achado
+        posterior, na varredura de 19/09/2026** (conferência da rodada que
+        fechou a 2.11): o portão do nó 2 ganhou `status é open`, e o Mestre
+        de saída ganhou o nó 2b (`Remove from Workflow: Cadência Inbound`)
+        — sem os dois, um lead inbound descartado pelo portão de higiene
+        seguia recebendo TI2 a TI5, porque a limpeza só conhecia a
+        `Cadência 12x30`
   - [x] **2.11 (Alerta de Speed-to-lead)** — migrada em 19/09/2026: gatilho
         trocado de `Pré-vendas`/`Em cadência` para `FUNIL DE
         VENDAS`/`CONECTAR`. Achado novo, não previsto na tabela 1.0: o
@@ -285,6 +291,13 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
       "etapa é `CONECTAR` **e** `status` é `open`", que cobre os dois
       gatilhos com uma condição só. Detalhe do raciocínio e dos casos
       testados mentalmente: `build-wesales.md`, seção 3.
+      **Corrigida de novo em 19/09/2026 (varredura da rodada da 2.11):** o
+      nó 2 removia de **uma** régua (`Cadência 12x30`), e hoje são três —
+      entraram os nós 2b (`Cadência Inbound`, seção 2.10) e 2c
+      (`Reengajamento 90 dias`, seção 2.12). O portão do nó 1 estava certo;
+      quem estava incompleto era a limpeza que vem depois dele, e o efeito
+      era pior que o alarme falso da 2.11: régua continuando a ligar para
+      quem já saiu.
 - [x] **Seção 4 (Pós-ligação)** — migrada em 18/09/2026, junto com a
       seção 3 (são acopladas: é o Pós-ligação que decide se a saída é
       `status` ou movimento de etapa). Ramo `Atendeu` → `AGENDAR` (etapa,
@@ -502,10 +515,19 @@ tela criou sozinha), em `campos-e-tags.md` e `CONFERENCIA-CAMPOS.md`.
 
 **Publicados e testados:** `Porta de Entrada` (seção 1.3 — 40 oportunidades
 criadas, L-09/L-09b fechados), `Mestre de saída` (seção 3 — falta só
-apontar os nós 2 e 3, "Remove from Workflow", para `Cadência 12x30` e
-`Qualificação por IA no WhatsApp` quando esses existirem; os dois já foram
-criados vazios, só nome), `Interceptação de Sinal — Clique` e `— Resposta`
+apontar os "Remove from Workflow" para as quatro réguas: `Cadência 12x30`,
+`Cadência Inbound`, `Reengajamento 90 dias` e `Qualificação por IA no
+WhatsApp`, quando cada uma existir; as criadas até agora estão vazias, só
+nome), `Interceptação de Sinal — Clique` e `— Resposta`
 (seção 2.9, Trigger Link "Agendar com o closer" criado).
+
+**Dois retoques de tela pendentes nessas peças já publicadas** (achados na
+varredura de 19/09/2026, detalhe em `build-wesales.md`):
+
+| Onde | O que mudar na tela | Por quê |
+|---|---|---|
+| `Mestre de saída`, depois do nó 2 | Acrescentar dois `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **os dois só entram quando esses workflows existirem na tela** (hoje nenhum dos dois existe, nem como rascunho: ver a lista lida ao vivo mais abaixo); a hora certa é no mesmo dia em que cada um for criado, não depois | A limpeza conhecia só a régua original; as outras duas continuariam ligando para quem já saiu. Este é o retoque que se esquece sozinho, porque só vira possível semanas depois do achado |
+| `Interceptação de Sinal — Clique` e `— Resposta`, nó 2 | No If/Else, somar à condição de etapa: `status` da oportunidade **não é** `lost` | Um clique de quem pediu `Não ligar` (ou de número errado) virava tarefa `ligar agora`. `abandoned` continua passando de propósito — é o lead em nutrição esquentando, ver a nota na seção 2.9.2 |
 
 **Em andamento, incompleto:** `Pós-ligação` (seção 4). Primeira tentativa
 via IA generativa do construtor de workflow ("Construa usando IA") saiu

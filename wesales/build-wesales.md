@@ -482,7 +482,7 @@ o número da tentativa.
 | 2.5b | Ramo da pausa individual | Wait → Time Delay 1 dia → **volta para o nó 2.5** | Não cria tag de fila, não cria tarefa, não avança `Tentativa nº`. Reconsulta a tag uma vez por dia até o SDR remover — a tentativa fica represada no mesmo lugar, não é descartada nem reagendada |
 | 2.5c | **Portão de frequência (F-04)** | If/Else | `Toques na semana` **≥** 6 → ramo 2.5d. Senão → segue para o Portão (nó 3) |
 | 2.5d | Ramo do teto de toques | Wait → Time Delay 1 dia → **volta para o nó 2.5c** | Mesmo mecanismo do 2.5/2.5b, teto em vez de pausa: represa sem consumir `Tentativa nº`, tag de fila ou tarefa. Some sozinho quando o Contador de Toques (seção 2.19) decrementar o campo abaixo de 6 — nenhuma ação manual precisa remover nada, ao contrário da pausa individual |
-| 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
+| 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · `status` da oportunidade **é** `open` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 3b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Saída limpa. Sem isso, sobra tag e tarefa órfã |
 | 4 | **Seletor de canal** | If/Else (só em tentativa de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Ramo senão: vira telefone (decisão D-04 + regra das 2 seguidas) |
 | 5 | **Limpar resultado** | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
@@ -766,7 +766,7 @@ campos continuam valendo; só o que se escreve neles muda.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Opportunity Not Found**: encerra (vazio) · ramo **Opportunity Found**: segue |
-| 2 | Portão de etapa | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` → ramo verdadeiro (Branch): segue · ramo falso (None): **encerra** (quem já saiu de cadência não precisa furar fila; já está tratado por outro caminho) |
+| 2 | Portão de etapa e status | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `status` da oportunidade **não é** `lost` → ramo verdadeiro (Branch): segue · ramo falso (None): **encerra** (quem já saiu de cadência por etapa não precisa furar fila, e quem saiu como `lost` pediu para não ser procurado ou tem telefone errado — ver nota abaixo sobre o `abandoned`) |
 | 3 | Portão de silêncio | If/Else | Tags inclui `nao-perturbe` → ramo verdadeiro (Branch): **encerra** · ramo falso (None): segue |
 | 3c | Portão de frequência (F-04) | If/Else | `Toques na semana` **≥** 6 → ramo verdadeiro: pula direto para o nó 9 · ramo falso: segue para o nó 4 |
 | 4 | Prioridade | Update Contact Field | `Prioridade` = 5 |
@@ -775,6 +775,23 @@ campos continuam valendo; só o que se escreve neles muda.
 | 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) → Depois: Add Contact Tag `toque` (F-04, seção 2.19) |
 | 8 | Aviso | Internal Notification | Para o SDR: `{{contact.first_name}} clicou no link de agendar agora. Prioridade 5.` |
 | 9 | Registro | Add Note | `Sinal: clique em link` — se veio do nó 3c (teto batido), o texto muda para `Sinal: clique em link (teto de toques da semana batido — sem tarefa nova, ver Toques na semana)`, para o SDR entender pela nota por que não apareceu tarefa |
+
+**Por que o nó 2 olha `status`, e por que `abandoned` continua passando
+(19/09/2026):** o portão original só olhava a etapa, e no modelo real de 5
+etapas isso deixa passar todo mundo que saiu de cadência sem sair de
+`CONECTAR` (tabela 1.0) — inclusive quem foi marcado `Não ligar` ou
+`Número errado`, que viram `status = lost`. Um clique no link de um lead
+desses geraria tarefa `ligar agora` e aviso interno para alguém que a
+operação já se comprometeu a não procurar; daí o `não é lost`.
+
+`abandoned` **passa de propósito** — não é esquecimento: é o lead que
+esgotou as 12 tentativas e está em nutrição, e um clique no link de agendar
+é exatamente o sinal que o Reengajamento 90 dias (seção 2.12) não consegue
+enxergar, porque ele é um relógio de 90 dias, não um sensor. Interceptar
+aqui é a única forma nativa de o SDR saber que a nutrição esquentou no dia
+em que esquentou. **Decisão do dono se quiser o contrário:** trocar
+`não é lost` por `é open` faz o clique de um lead em nutrição virar só a
+nota do nó 9, sem tarefa nem aviso.
 
 **Por que o teto (nó 3c) pula para a nota e não encerra puro, F-04:** um sinal
 que não vira tarefa ainda é informação — perdê-lo silenciosamente seria pior
@@ -936,7 +953,7 @@ usado` = `MI-0`.
 | 1 | Aguardar | Wait → Time Delay | Delta da tabela abaixo, relativo ao fim do bloco anterior (não horário fixo) |
 | 1.5 | Pausa individual (R-09) | If/Else | tag `pausado` presente → ramo 1.5b. Senão → segue para o Portão (nó 2) |
 | 1.5b | Ramo da pausa individual | Wait → Time Delay 30 min → **volta para o nó 1.5** | Mesmo mecanismo do nó 2.5 da 12x30 (seção 2.4), com relógio de 30 min em vez de 1 dia — a régua inbound é medida em minutos, e um retry diário aqui devolveria o lead numa velocidade que já não é mais inbound de verdade |
-| 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
+| 2 | Portão | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · `status` da oportunidade **é** `open` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 2b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Mesma saída limpa do nó 3b da 12x30 |
 | 3 | Seletor de canal | If/Else (só nas tentativas de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Senão → telefone |
 | 4 | Limpar resultado | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
@@ -2133,10 +2150,34 @@ condição que cobre os dois:
 |---|---|---|
 | 1 | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
+| 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
+| 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
+
+**Por que os nós 2b e 2c existem (achado de 19/09/2026, mesma classe do
+2.11):** quando este workflow foi escrito havia **uma** régua rodando —
+`Cadência 12x30` —, e tirar o lead dela era tirar o lead da cadência. Hoje
+são três (`Cadência 12x30`, `Cadência Inbound` da seção 2.10 e
+`Reengajamento 90 dias` da seção 2.12), e as duas novas reaproveitam o bloco
+padrão da 2.4 sem se remover sozinhas. Com o nó 2 sozinho, um lead inbound
+descartado pelo portão de higiene (`status` = `abandoned`/`lost` **sem sair
+de `CONECTAR`**) continuava recebendo as tentativas TI2 a TI5 — tarefa,
+mensagem e tudo — porque o único workflow que a limpeza conhecia não era o
+que estava rodando. O mesmo valia para um lead em reengajamento marcado como
+perdido na mão pelo SDR no meio das TR1-TR4. `Remove from Workflow` é
+idempotente para quem não está no workflow, então os três nós rodam sempre,
+sem If/Else de origem.
+
+**Por que o portão do nó 3 da seção 2.4 também ganhou `status é open`
+(mesma rodada):** os nós 2/2b/2c são a limpeza *correta*, mas ela é
+assíncrona — depende do gatilho 2 disparar e do `Remove from Workflow`
+chegar antes do próximo `Wait` da régua vencer. O portão dentro do bloco
+padrão é o cinto de segurança: mesmo que a remoção atrase, a tentativa
+seguinte lê `status` e encerra pelo ramo 3b (que já limpa fila e tarefa).
+Um dos dois sozinho deixa janela; os dois juntos, não.
 
 **Por que a condição do nó 1 é "CONECTAR E open", não só "CONECTAR":** as
 duas coisas precisam ser verdade ao mesmo tempo para o lead estar *de
