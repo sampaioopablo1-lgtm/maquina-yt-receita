@@ -4490,3 +4490,79 @@ combo por ter poucos anúncios; descartar só quando não houver página real.
   próprios conjuntos.
 - **Estética** — rende, mas exige dois termos por bairro.
 - **Veterinária** — **fora da fila**: as páginas são redes grandes, com pouco erro aproveitável.
+
+---
+
+## 🏋️ Academia / musculação — Niterói (varredura de 19/09/2026, 02h)
+
+Termo usado: `musculação Niterói` — **não** `academia Niterói`. A lição de Copacabana
+(termo de serviço bate melhor que termo de categoria) se confirmou de novo: 55 anúncios ativos
+contra o deserto que `academia` devolveu na época.
+
+**Volume:** 55 anúncios ativos, ~16 páginas distintas.
+
+### Achado novo de defeito: variável de template não renderizada
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **leosousanutricao** | título do anúncio é literalmente `{{product.name}}` — a variável do catálogo nunca foi substituída. O anúncio roda há mais de um mês mostrando código ao público. | **10/08/2026** | **A** (nome do dono na página) | https://www.facebook.com/ads/library/?id=2195501894633488 |
+
+Esse é o **quinto tipo de poluição/defeito** do manual, e o mais fácil de abrir conversa:
+não exige opinião nenhuma, é um erro objetivo que o dono consegue ver em 3 segundos.
+
+### Título vazio em escala
+
+| Página | Anúncios com título vazio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **Fábrica Premium Região Oceânica** | **18** — todos sem título | **30/06/2026** (2,5 meses) | B (rede) | https://www.facebook.com/ads/library/?id=1599206601560917 |
+| **Studio In Prime** | 2 | 28/08/2026 | B | https://www.facebook.com/ads/library/?id=1043747931773494 |
+| **Round Studio** | 1 | 23/06/2026 | B | https://www.facebook.com/ads/library/?id=1668449911118373 |
+| **bsk_studiobsk** | 1 | 17/07/2026 | B | https://www.facebook.com/ads/library/?id=1709713227002129 |
+| **Fábrica Ct Niteroi** | 1 | 06/07/2026 | B | https://www.facebook.com/ads/library/?id=2535941086853648 |
+| **Fábrica CT Barreto Niterói** | 1 | 02/09/2026 | B | https://www.facebook.com/ads/library/?id=28449632377965219 |
+
+**Cuidado com a rede Fábrica:** cinco páginas diferentes (Premium Niterói, Premium Região
+Oceânica, CT Niterói, CT Barreto, Ct Niteroi) são unidades da mesma franquia. Decisão de mídia
+é da rede, não da unidade — **Trilha B, prioridade baixa**, mesmo com 18 anúncios quebrados.
+É o mesmo padrão que tirou veterinária da fila.
+
+### Título genérico de botão
+
+| Página | Título | Anúncios | No ar desde | Trilha |
+|---|---|---|---|---|
+| Muscle Up | `Converse conosco` ×4 | 4 | 15/09/2026 | B |
+| ITC Vertebral Niterói | `Converse conosco` ×4 | 4 | 14/09/2026 | B (rede ITC) |
+| Nitfit Studio | `Converse conosco` | 1 | 04/09/2026 | B |
+| Fábrica Premium Niterói | `Fale Conosco` / `Fale conosco` (inconsistente) | 3 | 02/09/2026 | B |
+| Boleiros Night | `instagram.com` (URL crua como título) | 2 | 15/09/2026 | B |
+
+### Quem está fazendo certo (referência de copy)
+
+- **Academia Tio Sam Barreto** — `Clique para liberar uma aula gratuita`. Oferta concreta no
+  título, no ar desde **12/06/2026** (3 meses). É o melhor CTA de academia do arquivo.
+- **inovacaokickboxing** — de novo. `Pilates e musculação não competem` — título que resolve uma
+  objeção em vez de pedir clique. Já era a referência de copy da varredura de fisioterapia;
+  agora aparece também aqui, com criativo novo. Página para estudar, não para abordar.
+- **Instituto Trata - Niterói** — `Toque para Agendar sua Consulta`. Verbo + ação + objeto.
+
+### Para a LISTA DE ATAQUE
+
+1. **leosousanutricao** — Trilha A, defeito objetivo e inédito (`{{product.name}}`), 40 dias no ar.
+   **Melhor alvo desta varredura.**
+2. **Studio In Prime** — Trilha B, mas estúdio pequeno e independente (não é rede), 2 anúncios
+   sem título há 3 semanas. Decisor provavelmente alcançável.
+3. **Round Studio** — mesmo perfil, 3 meses no ar.
+
+Total da LISTA DE ATAQUE: **26 → 29 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **O termo de serviço vence o termo de categoria** — confirmado pela segunda vez
+   (`musculação` > `academia`, como `botox` > `estética`).
+2. **Volume de anúncios quebrados ≠ alvo bom.** As 18 peças sem título da Fábrica Premium são
+   o maior defeito do dia e o pior alvo do dia, porque a página é unidade de franquia.
+   A regra que já valia para veterinária vale para academia: **antes de contar defeitos,
+   conferir se a página decide a própria mídia.**
+3. Academia entra na fila como **nicho de rendimento médio**: muito anúncio, poucas Trilha A.
+
+Combos varridos até aqui: + academia/musculação Niterói (termo de serviço, defeito novo de template).
