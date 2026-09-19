@@ -4418,3 +4418,75 @@ poucas páginas, muita gente antiga no ar sem ninguém olhar. **Niterói é o ba
 de alvo por busca do arquivo inteiro.**
 
 Combos varridos até aqui: + ótica Niterói (termo de produto, confirmado pela 2ª vez).
+
+---
+
+# 📕 MANUAL DO TERMO — consolidado em 18/09/2026, 22h
+
+Onze varreduras em um dia produziram seis regras novas, espalhadas por onze seções. Este bloco
+junta tudo o que se sabe sobre **como escolher o termo de busca**, para que nenhuma rodada futura
+repita um caminho já testado. É a página a ler antes de varrer.
+
+## As sete regras, em ordem de força
+
+**1. Termo de PROCESSO, nunca de RAMO** *(descoberta 18/09, a mais forte do dia)*
+Em serviço profissional, buscar o nome do procedimento que o cliente contrata, não a área.
+
+| Nicho | ✅ funciona | ❌ falha |
+|---|---|---|
+| Advocacia | `ação trabalhista`, `aposentadoria INSS`, `inventário e partilha`, `recuperação judicial` | `direito de família` |
+| Contabilidade | `planejamento tributário`, `abertura de empresa` | — |
+
+O refinamento: **tem que ser processo que a EMPRESA contrata.** `recuperação judicial` deu 470
+anúncios; `inventário`, que é de pessoa física, deu 14.
+
+**2. Termo de PRODUTO onde o de LOJA falha** *(confirmado 2×)*
+`óculos de grau` ✅ · `ótica` ❌ (puxa distribuidor).
+
+**3. Termo de SERVIÇO, nunca de PROFISSÃO**
+Profissão puxa vaga de emprego. `banho e tosa` ✅ · `pet shop` tende a puxar franquia.
+
+**4. Em estética, o PROCEDIMENTO muda por bairro — rodar sempre os dois** *(confirmado 3×)*
+Méier: `preenchimento labial` = 2 páginas, `botox` = 32 anúncios.
+Madureira: `preenchimento labial` = zero, `botox` = 19.
+Nunca dar um bairro por varrido em estética com um termo só.
+
+**5. Imobiliária: `apartamento à venda` rende ~10× mais que `corretor`.**
+
+**6. Bairro ambíguo precisa de "RJ" — mas em imobiliária nem isso salva Madureira**
+`Tijuca` colide com Tijucas/SC; `Campo Grande` existe em outros estados.
+**Exceção registrada:** em Madureira + imobiliária os dois caminhos quebram — sem reforço a busca
+cai em São Paulo, com reforço sobra 1 anúncio. Combo fechado.
+
+**7. Volume de busca NÃO prediz qualidade de alvo** *(descoberta 18/09, contraintuitiva)*
+`banho e tosa Niterói` = 6 anúncios → deu o caso de **2 anos e 3 meses** no ar.
+`recuperação judicial` = 470 anúncios → deu três alvos comuns.
+**Termo magro tende a devolver quem anuncia há muito tempo sem ninguém olhar.** Nunca descartar um
+combo por ter poucos anúncios; descartar só quando não houver página real.
+
+## As quatro poluições a reconhecer
+
+| Poluição | Como aparece | Onde apareceu |
+|---|---|---|
+| **Política** | deputado, vereador, pastor | ramo do direito + nome do estado |
+| **Infoproduto** | "Garanta já sua vaga", curso para o profissional | advocacia, veterinária |
+| **Faculdade** | MBA, LL.M., pós | planejamento tributário |
+| **Conteúdo em dólar** | moeda USD, títulos de isca | advocacia |
+| **Fornecedor B2B** | manutenção de equipamento, distribuidor | fisioterapia, ótica |
+
+## O ranking de bairro, fechado hoje
+
+1. **Niterói** — três nichos varridos (imobiliária, fisioterapia, ótica), o mesmo retrato nos três:
+   poucas páginas, muita gente antiga no ar, **21 de 33 páginas Trilha A em imobiliária**. É o
+   bairro de maior densidade de alvo por busca do arquivo.
+2. **Méier** — melhor Trilha A em dois nichos (imobiliária 9/12, odontologia 5/12).
+3. **Barra da Tijuca** — maior gravidade de erro (20 campos vazios) e maior ticket.
+4. **Madureira** — fechado para imobiliária.
+
+## O ranking de nicho
+
+- **Imobiliária** — o mais gordo, varrido em todos os bairros prioritários. Fechado.
+- **Advocacia e contabilidade** — servem dobrado: lista fria e munição de criativo para os nossos
+  próprios conjuntos.
+- **Estética** — rende, mas exige dois termos por bairro.
+- **Veterinária** — **fora da fila**: as páginas são redes grandes, com pouco erro aproveitável.
