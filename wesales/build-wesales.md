@@ -17,77 +17,84 @@ Convenções deste documento:
 Monte nesta ordem, senão os nós não encontram o que referenciar.
 
 1. Campos e tags (Etapas 2 e 3, por API)
-2. Pipeline "Pré-vendas" (seção 1)
-3. **Workflow "Porta de Entrada" (seção 1.3, L-09/L-09b)** — só depende do
-   pipeline do passo 2; monte e publique antes de qualquer outro workflow,
+2. Workflow "Contador de Toques" (seção 2.19, F-04) — só depende do campo
+   `Toques na semana` e da tag `toque` do passo 1; monte cedo porque os
+   passos 14 e 16 (Cadência 12x30 e Interceptação de Sinal) já aplicam a tag
+   `toque` desde a primeira montagem, e o contador precisa existir para
+   reagir a ela
+3. Pipeline "Pré-vendas" (seção 1)
+4. **Workflow "Porta de Entrada" (seção 1.3, L-09/L-09b)** — só depende do
+   pipeline do passo 3; monte e publique antes de qualquer outro workflow,
    e rode o backfill manual dos contatos já existentes (seção 1.3) assim
    que publicar — é a única peça que faz uma oportunidade existir, sem ela
    nenhum gatilho `Opportunity Stage Changed` do resto desta lista tem o
    que disparar
-4. Calendário do closer + formulário (seção 7)
-5. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
-   calendário do passo 4
-6. Workflow "Mestre de saída" (seção 3)
-7. Workflow "Pós-ligação" (seção 4)
-8. Workflow "Pós-agendamento" (seção 5)
-9. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
-   no passo 1
-10. Workflow "Registro de Comparecimento" (seção 5.2) — usa o mesmo
-    calendário do passo 4, gatilho por status de agendamento
-11. Workflows "Recuperação de No-show" e "SLA do Closer — No-show" (seção
+5. Calendário do closer + formulário (seção 7)
+6. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
+   calendário do passo 5
+7. Workflow "Mestre de saída" (seção 3)
+8. Workflow "Pós-ligação" (seção 4)
+9. Workflow "Pós-agendamento" (seção 5)
+10. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
+    no passo 1
+11. Workflow "Registro de Comparecimento" (seção 5.2) — usa o mesmo
+    calendário do passo 5, gatilho por status de agendamento
+12. Workflows "Recuperação de No-show" e "SLA do Closer — No-show" (seção
     5.3/5.4, R-12) — mesmo calendário e status `No Show`; o nó 3 do Pós-
-    agendamento (passo 8) precisa já remover destes dois workflows antes de
+    agendamento (passo 9) precisa já remover destes dois workflows antes de
     publicá-los, senão um reagendamento no meio de uma recuperação não limpa
     nada
-12. Workflow "Qualificação por IA no WhatsApp" (seção 6)
-13. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
-    porque chama os outros e usa o Trigger Link do passo 5 nas mensagens M2/M3;
+13. Workflow "Qualificação por IA no WhatsApp" (seção 6)
+14. Workflow "Cadência 12x30" (seção 2) — por último entre os principais,
+    porque chama os outros e usa o Trigger Link do passo 6 nas mensagens M2/M3;
     textos das mensagens em `biblioteca-mensagens.md`, não neste documento.
-    Do passo 13 em diante o gatilho da seção 2.1 já leva o filtro novo do
+    Do passo 14 em diante o gatilho da seção 2.1 já leva o filtro novo do
     R-07 (tag `cad-inbound` ausente) — monte-o com o filtro desde o início,
     não depois. O bloco padrão de tentativa (seção 2.4) já leva o nó 2.5 de
-    pausa individual (R-09) desde a primeira montagem, não como retrofit.
-    O nó 0 já leva o par 0.7/0.7b de distribuição de leads (R-10, seção
-    2.14) desde o início — defina a lista de round robin no nó 0.7b mesmo
-    com um único SDR hoje — e o portão 0.0/0.0b de higiene de telefone
-    (R-13, seção 2.3) na frente de tudo, antes do 0.1
-14. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
+    pausa individual (R-09) e o nó 2.5c de teto de toques (F-04) desde a
+    primeira montagem, não como retrofit. O nó 0 já leva o par 0.7/0.7b de
+    distribuição de leads (R-10, seção 2.14) desde o início — defina a lista
+    de round robin no nó 0.7b mesmo com um único SDR hoje — e o portão
+    0.0/0.0b de higiene de telefone (R-13, seção 2.3) na frente de tudo,
+    antes do 0.1
+15. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
     Também já leva o nó 1.5 de pausa individual (R-09) desde o início, o
     par 0.8/0.8b de distribuição de leads (R-10) apontando para a **mesma**
-    lista de round robin do nó 0.7b do passo 13, e o mesmo portão 0.0/0.0b
-    de higiene de telefone (R-13) do passo 13
-15. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-16. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
+    lista de round robin do nó 0.7b do passo 14, e o mesmo portão 0.0/0.0b
+    de higiene de telefone (R-13) do passo 14
+16. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
+    — já levam o nó 3c de teto de toques (F-04) desde a primeira montagem
+17. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
     o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h);
     do R-09 em diante o nó 2 já ignora quem está com a tag `pausado`
-17. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
-    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 13) nó a nó,
-    nó 2.5 incluído, e exige que o gatilho do passo 13 já tenha o filtro
+18. Workflow "Reengajamento 90 dias" (seção 2.12) — por último entre os que
+    tocam cadência: reaproveita o bloco padrão da 12x30 (passo 14) nó a nó,
+    nó 2.5 incluído, e exige que o gatilho do passo 14 já tenha o filtro
     `reengajamento-ativo` ausente (R-08) — monte-o com o filtro desde o
     início se ainda não montou, não depois
-18. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16),
+19. Listas inteligentes (seção 8), incluindo `Fila do Dia — Total` (8.16),
     `Recuperação de No-show` (8.17, R-12) e `Higiene — Sem Telefone Válido`
     (8.18, R-13)
-19. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
-    2.15) — depende da lista 8.16 do passo 18 já montada
-20. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
-21. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
+20. Workflow "Monitor de Capacidade" e métrica `Estouro da Fila` (seção
+    2.15) — depende da lista 8.16 do passo 19 já montada
+21. Teste com os 5 contatos fictícios (seção 10) **antes** de publicar
+22. Pausar Workflows em Datas Específicas (seção 2.13, R-09) — por último de
     todos: o recurso só lista workflows **publicados**, então precisa dos
-    passos 13, 14, 17 e 19 já publicados para aparecerem no seletor
-22. Ativar Number Validation (Configurações → Telefone, agência e depois
+    passos 14, 15, 18 e 20 já publicados para aparecerem no seletor
+23. Ativar Number Validation (Configurações → Telefone, agência e depois
     subconta) e montar o workflow "Higiene de Número — Validação Automática"
     (seção 2.16, R-13) — opcional, por último de todos: o gatilho **Number
     Validation** só existe depois de o recurso estar ligado, e o portão
-    0.0/0.0b dos passos 13/14 já cobre o caso mais comum (sem telefone
+    0.0/0.0b dos passos 14/15 já cobre o caso mais comum (sem telefone
     nenhum) sem depender disso
-23. Dashboard "Painel do Gestor — Pré-vendas" e as Custom Metrics novas
+24. Dashboard "Painel do Gestor — Pré-vendas" e as Custom Metrics novas
     (seção 2.17, R-15) — por último de todos: cada widget aponta para uma
-    peça já montada nos passos anteriores (calendário do passo 4, pipeline
-    do passo 2, métrica `Estouro da Fila` do passo 19, tarefas das
-    cadências dos passos 13/14); montar antes disso deixaria widget
+    peça já montada nos passos anteriores (calendário do passo 5, pipeline
+    do passo 3, métrica `Estouro da Fila` do passo 20, tarefas das
+    cadências dos passos 14/15); montar antes disso deixaria widget
     apontando para nada
 
 ---
@@ -471,14 +478,16 @@ o número da tentativa.
 |---|---|---|---|
 | 1 | **Aguardar dia** | Wait → Time Delay | Dias corridos até o dia da tentativa (delta em relação à tentativa anterior — tabela 2.5) |
 | 2 | **Aguardar horário** | Wait → Until specific time | O horário da tabela 2.5. A janela do 2.2 empurra para o próximo dia útil se cair fora |
-| 2.5 | **Pausa individual (R-09)** | If/Else | tag `pausado` presente → ramo 2.5b. Senão → segue para o Portão (nó 3) |
+| 2.5 | **Pausa individual (R-09)** | If/Else | tag `pausado` presente → ramo 2.5b. Senão → segue para o nó 2.5c |
 | 2.5b | Ramo da pausa individual | Wait → Time Delay 1 dia → **volta para o nó 2.5** | Não cria tag de fila, não cria tarefa, não avança `Tentativa nº`. Reconsulta a tag uma vez por dia até o SDR remover — a tentativa fica represada no mesmo lugar, não é descartada nem reagendada |
+| 2.5c | **Portão de frequência (F-04)** | If/Else | `Toques na semana` **≥** 6 → ramo 2.5d. Senão → segue para o Portão (nó 3) |
+| 2.5d | Ramo do teto de toques | Wait → Time Delay 1 dia → **volta para o nó 2.5c** | Mesmo mecanismo do 2.5/2.5b, teto em vez de pausa: represa sem consumir `Tentativa nº`, tag de fila ou tarefa. Some sozinho quando o Contador de Toques (seção 2.19) decrementar o campo abaixo de 6 — nenhuma ação manual precisa remover nada, ao contrário da pausa individual |
 | 3 | **Portão** | If/Else — condições **E** | Etapa da oportunidade **é** `CONECTAR` · tag `nao-perturbe` **não** presente · `Resultado da tentativa` **não é** `Não ligar` · (só em tentativa de telefone) tag `telefone-invalido` **não** presente |
 | 3b | Ramo falso do portão | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag `limpar-tarefas` → **Remove from Workflow: este** | Saída limpa. Sem isso, sobra tag e tarefa órfã |
 | 4 | **Seletor de canal** | If/Else (só em tentativa de WhatsApp) | Ramo WA: `Permissão WhatsApp` **é** `Sim` **E** `WA não atendidas seguidas` **<** 2. Ramo senão: vira telefone (decisão D-04 + regra das 2 seguidas) |
 | 5 | **Limpar resultado** | Update Contact Field | `Resultado da tentativa` = vazio · `Tentativa nº` = `{n}` |
 | 6 | **Adicionar tag de fila** | Add Contact Tag | `fila-tel` (telefone) ou `fila-wa` (WhatsApp) |
-| 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: `Contact Owner` (dinâmico — segue o `Assigned User` do nó 0.7b, R-10, seção 2.14) |
+| 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: `Contact Owner` (dinâmico — segue o `Assigned User` do nó 0.7b, R-10, seção 2.14) · Depois: Add Contact Tag `toque` (F-04, seção 2.19 — cada tarefa criada é um toque, alimenta o Contador) |
 | 8 | **Aguardar resultado** | Wait → Condition, com tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: até **18:30 do mesmo dia**. Se a sua versão não tiver Wait por condição, use Wait → Until 18:30 e um If/Else checando o campo — mesmo efeito |
 | 9 | **Remover tag de fila** | Remove Contact Tag | `fila-tel` e `fila-wa` (remova as duas, sempre — barato e evita tag presa) |
 | 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa |
@@ -498,6 +507,18 @@ nó 2.5 resolve isso represando o contato num laço de 1 dia, sem tocar em fila,
 tarefa ou contador — a especificação inteira da seção 2.13 explica a régua de
 pausa completa, incluindo por que a pausa de calendário (feriado, férias do
 SDR) **não** usa esse mesmo mecanismo.
+
+**Por que o teto de toques (nó 2.5c) é o mesmo laço de 1 dia, e não um
+`Remove from Workflow` — F-04:** a régua de 12 tentativas não fez nada errado
+quando um lead esbarra no teto — o excesso normalmente vem de **fora** dela
+(sinal clicado várias vezes, uma segunda régua que devia estar bloqueada mas
+não bloqueou). Tirar o lead da Cadência 12x30 puniria a régua certa pelo
+excesso causado por outra coisa, e ainda esbarraria no mesmo `Allow Re-entry`
+desligado que o R-08 já pagou caro (`APRENDIZADOS-CRM.md`). Represar copia o
+padrão do 2.5/2.5b, com uma diferença: a pausa individual só sai quando o SDR
+tira a tag `pausado` à mão; o teto sai sozinho, porque o Contador de Toques
+(seção 2.19) decrementa `Toques na semana` 7 dias depois de cada toque — o
+lead retoma sem ninguém precisar lembrar de destravar nada.
 
 **Só no bloco da tentativa 1 (T1)**, entre os nós 5 e 6, some mais dois (R-02
 — speed-to-lead):
@@ -556,9 +577,12 @@ ninguém está olhando. WhatsApp fora do ar não vira SMS: vira
 canal que não depende de provedor de texto), posicionados no fluxo conforme a
 tabela 2.5. Cada um precedido do
 mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
-condição extra `nao-perturbe` ausente, e seguido de um nó **Update Contact
+condição extra `nao-perturbe` ausente, e seguido de dois nós **Update Contact
 Field** `Template usado` = o código da mensagem (R-04 — sem esse carimbo não
-dá para saber depois qual abertura gerou a resposta). M1 é exceção: em vez de
+dá para saber depois qual abertura gerou a resposta) e **Add Contact Tag**
+`toque` (F-04, seção 2.19 — mensagem automática também é toque; M2 e M3 não
+passam pelo portão de frequência do nó 2.5c porque só disparam depois da T8 e
+da T12, quando o teto semanal já não é o risco real). M1 é exceção: em vez de
 um envio único, testa duas versões em paralelo — nó a nó em 2.6.1.
 
 Textos, código e histórico de versão moram em `biblioteca-mensagens.md`, não
@@ -616,9 +640,9 @@ atribuída a uma causa só. Textos completos em `biblioteca-mensagens.md`.
 | M1.1 | **Portão** | Mesmo portão do nó 3 (seção 2.4), sem a checagem de `telefone-invalido`, com `nao-perturbe` ausente |
 | M1.2 | **Split — Teste A/B abertura** | Ação nativa Split, sorteio aleatório: Caminho A 50% · Caminho B 50% |
 | M1.3a (Caminho A) | Send WhatsApp | Texto `M1-a`, `biblioteca-mensagens.md` |
-| M1.4a (Caminho A) | Update Contact Field | `Template usado` = `M1-a` |
+| M1.4a (Caminho A) | Update Contact Field → Add Contact Tag | `Template usado` = `M1-a` → `toque` (F-04, seção 2.19) |
 | M1.3b (Caminho B) | Send WhatsApp | Texto `M1-b`, `biblioteca-mensagens.md` |
-| M1.4b (Caminho B) | Update Contact Field | `Template usado` = `M1-b` |
+| M1.4b (Caminho B) | Update Contact Field → Add Contact Tag | `Template usado` = `M1-b` → `toque` (F-04, seção 2.19) |
 
 Depois de M1.4a e M1.4b, **conecte os dois caminhos ao mesmo nó seguinte**
 (Wait → Contact Replied, 2h, citado em 2.6) — o Split do GHL não rejunta
@@ -744,12 +768,28 @@ campos continuam valendo; só o que se escreve neles muda.
 | 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Opportunity Not Found**: encerra (vazio) · ramo **Opportunity Found**: segue |
 | 2 | Portão de etapa | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` → ramo verdadeiro (Branch): segue · ramo falso (None): **encerra** (quem já saiu de cadência não precisa furar fila; já está tratado por outro caminho) |
 | 3 | Portão de silêncio | If/Else | Tags inclui `nao-perturbe` → ramo verdadeiro (Branch): **encerra** · ramo falso (None): segue |
+| 3c | Portão de frequência (F-04) | If/Else | `Toques na semana` **≥** 6 → ramo verdadeiro: pula direto para o nó 9 · ramo falso: segue para o nó 4 |
 | 4 | Prioridade | Update Contact Field | `Prioridade` = 5 |
 | 5 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` |
 | 6 | Fila | Add Contact Tag | `fila-quente` |
-| 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) |
+| 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) → Depois: Add Contact Tag `toque` (F-04, seção 2.19) |
 | 8 | Aviso | Internal Notification | Para o SDR: `{{contact.first_name}} clicou no link de agendar agora. Prioridade 5.` |
-| 9 | Registro | Add Note | `Sinal: clique em link` (sem carimbo manual — a nota já sai com data/hora de criação, nativo do GHL) |
+| 9 | Registro | Add Note | `Sinal: clique em link` — se veio do nó 3c (teto batido), o texto muda para `Sinal: clique em link (teto de toques da semana batido — sem tarefa nova, ver Toques na semana)`, para o SDR entender pela nota por que não apareceu tarefa |
+
+**Por que o teto (nó 3c) pula para a nota e não encerra puro, F-04:** um sinal
+que não vira tarefa ainda é informação — perdê-lo silenciosamente seria pior
+que não ter o teto. Só a tarefa nova e o aviso empurrando a fila é que
+custam caro quando empilham sem limite; a nota é barata e fica no histórico
+do contato para o SDR ver na próxima ligação já agendada por outro toque.
+**É este workflow, não a Cadência 12x30, que motivou o F-04 nesta rodada:**
+com `Allow Re-entry` ligado de propósito ("cada clique é um sinal novo"), um
+lead que clica o link várias vezes no mesmo dia — ou responde fora de hora
+mais de uma vez — cria uma tarefa `[CADENCIA]... ligar agora` **e** um aviso
+interno a cada vez, sem limite nenhum antes deste item. A Cadência 12x30
+sozinha dificilmente chega perto do teto (pico real é 4 toques em D1+D2,
+seção 2.5); é a soma com a Interceptação de Sinal — que roda em paralelo, sem
+saber quantos toques a cadência principal já gastou naquela semana — que
+gera o "dobro de toques" que o roadmap descrevia de forma mais genérica.
 
 ### 2.9.3 Workflow "Interceptação de Sinal — Resposta"
 
@@ -1889,6 +1929,143 @@ se aplica a ela pela própria natureza da régua, não por lacuna deste item.
 
 ---
 
+## 2.19 Teto de toques por semana — F-04
+
+**Por quê:** lead em duas cadências recebe o dobro de toques, e ninguém
+percebe até o opt-out chegar — a frase original do roadmap. Achado ao
+desenhar este item, mais preciso que a frase: a Cadência 12x30 sozinha
+dificilmente aproxima do problema (pico real é 4 toques em D1+D2, tabela
+2.5), e as réguas vizinhas (Inbound, Reengajamento) já têm blindagem de tag
+uma-ou-outra (R-07, R-08). Quem **não** tem nenhum limite é a Interceptação
+de Sinal (seção 2.9, F-01): com `Allow Re-entry` ligado de propósito, um
+lead que clica o link de agendar (ou responde fora do fluxo) várias vezes no
+mesmo dia gera uma tarefa `ligar agora` e um aviso ao SDR a cada clique, sem
+teto nenhum. É o mesmo tipo de "estrago silencioso" que o F-05 (monitor de
+saúde) persegue, só que aqui dá para prevenir antes de precisar de um
+monitor perceber.
+
+**Pesquisado antes de desenhar:** o Outreach.io resolve o caso de duas
+cadências com **Sequence Exclusivity** — um prospect marcado como exclusivo
+de uma sequência não pode ser adicionado a outra até sair da primeira
+(`support.outreach.io`, "Sequence Exclusivity Settings"). É uma trava de
+**admissão** (impede a entrada), não de **frequência** — não ajuda contra o
+caso real encontrado aqui, que não é duas cadências ao mesmo tempo, é uma
+cadência mais um workflow de sinal disparando em paralelo por natureza (não
+é bug, é o desenho do F-01). A literatura de outbound (`martal.ca`,
+`woodpecker.co`, achada por `WebSearch`) converge em 3 a 5 toques por semana
+como faixa segura contra fadiga do prospect antes do opt-out. Um teto fixo
+por contato, contado numa janela **móvel** de 7 dias corridos (não um
+"zerar toda segunda-feira", que deixa passar sábado+segunda como se fossem
+semanas diferentes) é o desenho que nenhuma das duas plataformas de
+prateleira do enunciado expõe pronto — Outreach trava admissão, não
+frequência; nenhuma fonte encontrada descreve um contador rolante por
+contato que soma telefone, WhatsApp e sinal no mesmo teto.
+
+**Teto escolhido: 6 por semana.** Acima do pico real de uso normal da
+Cadência 12x30 sozinha (4, D1+D2) com folga para 1-2 toques extra de sinal
+sem bloquear o fluxo saudável, e dentro da faixa "até 5-8" que a pesquisa
+de mercado trata como segura para não queimar a base. O gestor pode ajustar
+o número direto no `If/Else` do nó 2.5c/3c sem precisar de outro campo.
+
+### Campo novo
+
+`Toques na semana` (C-26, `campos-e-tags.md`), `NUMERICAL`, começa em 0 no
+nó 0 de cada cadência (a inicialização de cada workflow já zera outros
+contadores por lead novo, seção 2.3 nó 0.1 — este seria o mesmo tipo de nó,
+uma vez publicado o campo).
+
+### Workflow novo — "Contador de Toques"
+
+Gatilho comum, com contato em contexto (`Contact Tag Added`) — não confundir
+com o `Scheduler` contactless do R-11 (seção 2.15), que roda sem nenhum
+contato associado. Aqui cada execução já sabe de quem é o toque: é o mesmo
+contato que ganhou a tag `toque` em outro workflow.
+
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Contact Tag Added` — Tag: `toque` |
+| Allow Re-entry | **Ligado** — cada toque é um evento novo, mesmo motivo do F-01 (seção 2.9.2): sem isso, o segundo toque da semana não reabre o workflow e o contador para de subir |
+| Stop on Response | Desligado (este workflow não manda mensagem, não há resposta para parar) |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Limpar o pulso | Remove Contact Tag | `toque` — a tag é só o gatilho, não um estado; sem remover, ela se acumula como tag "presente" sem significar nada depois do primeiro toque |
+| 2 | Somar | Update Contact Field — Math | `Toques na semana` `+ 1` |
+| 3 | Esperar a janela | Wait → Time Delay | 7 dias |
+| 4 | Descontar | Update Contact Field — Math | `Toques na semana` `- 1` |
+
+Cada toque abre sua própria instância deste workflow (`Allow Re-entry`
+ligado permite isso — mesmo raciocínio já registrado em
+`APRENDIZADOS-CRM.md` para a Interceptação de Sinal: múltiplos sinais do
+mesmo contato rodam em paralelo, não substituem um ao outro). Um toque no
+dia 1 soma no dia 1 e desconta no dia 8; um segundo toque no dia 3 soma no
+dia 3 e desconta no dia 10 — o campo reflete sempre "quantos toques nos
+últimos 7 dias corridos", uma janela que desliza com o tempo, não um balde
+que zera numa data fixa. É o desenho que a pergunta "venha de onde vier" do
+"Pronto quando" do roadmap pede: o contador não sabe nem precisa saber qual
+workflow gerou o toque.
+
+### Onde o toque é emitido — nesta rodada
+
+`Add Contact Tag: toque` foi ligado nos dois pontos de maior risco real,
+identificados acima — não em todo o documento, decisão de escopo explicada
+abaixo:
+
+| Onde | Nó | Já editado nesta rodada? |
+|---|---|---|
+| Cadência 12x30 — cada tentativa | seção 2.4, nó 7 (Criar tarefa) | Sim |
+| Cadência 12x30 — M1 (as duas variantes do Split) | seção 2.6.1, nós M1.4a/M1.4b | Sim |
+| Cadência 12x30 — M2/M3 | seção 2.6, parágrafo de abertura | Sim |
+| Interceptação de Sinal — Clique | seção 2.9.2, nó 7 | Sim |
+| Interceptação de Sinal — Resposta | seção 2.9.3 (herda a tabela da 2.9.2) | Sim |
+| Cadência Inbound | seção 2.10, nó 6 | **Não** — deferido, ver abaixo |
+| Reengajamento 90 dias (TR1-TR4) | seção 2.12 | **Não** — deferido |
+| Recuperação de No-show (NS1-NS3) | seção 5.3 | **Não** — deferido |
+
+### Onde o teto é checado — nesta rodada
+
+`Toques na semana` **≥** 6 checado em dois portões, os mesmos dois pontos
+de emissão de maior risco:
+
+- Cadência 12x30: nó 2.5c/2.5d (seção 2.4) — represa 1 dia e reconsulta,
+  mesmo padrão da pausa individual (nó 2.5).
+- Interceptação de Sinal (Clique e Resposta): nó 3c — pula a tarefa e o
+  aviso, mas ainda registra a nota (seção 2.9.2). **Não** usa o padrão de
+  represar-e-reconsultar da 12x30 aqui de propósito: o sinal já aconteceu
+  (o lead já clicou ou respondeu), não há "dia certo" para reagendar como
+  há numa tentativa da régua — represar um sinal por 1 dia destruiria
+  exatamente a vantagem de minutos que o F-01 existe para entregar.
+
+**Decisão de escopo, não lacuna esquecida:** a Cadência Inbound (seção
+2.10), o Reengajamento (seção 2.12) e a Recuperação de No-show (seção 5.3)
+reaproveitam o mesmo campo, a mesma tag e o mesmo workflow "Contador de
+Toques" sem precisar de nada novo — só falta ligar `Add Contact Tag: toque`
+no nó de tarefa de cada um e, na Inbound, decidir a variante do portão
+(represar 1 dia quebraria a SLA de minutos do R-07, então o padrão certo lá
+é o mesmo "pula e registra" da Interceptação de Sinal, não o da 12x30).
+Nenhuma delas soma perto do teto sozinha no desenho atual (Inbound: 5
+toques em 3 dias; Reengajamento: 4 em 10 dias; No-show: 4 em 4 dias) — o
+risco real identificado nesta rodada está nos dois pontos já ligados.
+Fechar as três réguas restantes é a próxima fatia deste mesmo item, não um
+item novo.
+
+### Limite conhecido
+
+Mesmo aviso já registrado na seção 2.8 para a Cadência 12x30: se o workflow
+"Contador de Toques" for editado e republicado enquanto contatos estão
+parados no Wait de 7 dias (nó 3), o GHL pode reposicionar essas instâncias
+— o desconto de um toque antigo pode se perder. Baixo risco na prática
+(este workflow não deve precisar de edição frequente depois de publicado),
+mas vale conferir `Toques na semana` manualmente se ele for republicado com
+contatos em trânsito.
+
+**Pronto quando (do roadmap):** "nenhum lead recebe mais que N toques por
+semana, venha de onde vier" — cumprido para os dois canais de maior volume
+e maior risco (Cadência 12x30 e Interceptação de Sinal); "venha de onde
+vier" por completo depende de ligar os três pontos deferidos acima.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
@@ -2979,6 +3156,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 32 | Dashboard do Gestor (R-15) | Com pelo menos o Teste Atendeu em `Reunião agendada` e algum dos 5 em `Em cadência`, abra `Painel do Gestor — Pré-vendas`: o widget "Appointment Report" mostra o agendamento do calendário `Reunião com closer`; o widget "Opportunities" mostra o Teste Atendeu na etapa certa do funil ao vivo; o widget "Tasks" mostra a(s) tarefa(s) `[CADENCIA]` criada(s) hoje. Se o plano expuser Custom Metrics, confira as quatro métricas da seção 2.17 — `Estouro da Fila` negativo com só 5 contatos, `Atrasos de Speed-to-lead` em 0 (nenhum atrasou de propósito no teste), e as duas de `Taxa de Conexão` refletindo `Conexões telefone`/`Tentativas telefone` e o par de WhatsApp dos contatos de teste que já passaram por uma tentativa | |
 | 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `Em cadência` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
 | 34 | Porta de Entrada (L-09/L-09b) | Crie um 6º contato de teste, fora dos 5 fictícios, só com nome e telefone (sem passar por `Add Contact` de dentro de um workflow): confirme que uma oportunidade nasce sozinha em `FUNIL DE VENDAS` → `NOVO LEAD` em segundos, sem precisar mover etapa na mão; edite qualquer campo desse mesmo contato e confirme que **não** nasce uma segunda oportunidade (Allow Duplicate Opportunities desligado). Rode o backfill manual (seção 1.3) sobre os 5 contatos fictícios existentes e confirme que os 5 ganham oportunidade em `NOVO LEAD` sem duplicar nada | |
+| 35 | Teto de toques por semana (F-04) | Reduza o Wait de 7 dias do "Contador de Toques" (seção 2.19) para minutos, no ambiente de teste. Force `Toques na semana` para 5 no Teste Atendeu (Update Contact Field manual) e deixe a T1 disparar: o nó 7 aplica `toque`, o Contador soma 1 (campo chega a 6) e agenda o desconto; confirme que a T2 seguinte cai no portão 2.5c/2.5d e fica represada, sem consumir `Tentativa nº` nem criar tarefa nova, até o Wait reduzido do Contador descontar e o campo cair abaixo de 6. Repita clicando o Trigger Link do Teste Retorno 3 vezes seguidas com o campo já em 6: confirme que a 3ª Interceptação de Sinal pula direto para a nota (nó 3c → 9) sem criar tarefa nem aviso ao SDR, mas a nota `Sinal: clique em link (teto...)` aparece no contato | |
 
 Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
 exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
@@ -2998,7 +3176,7 @@ misturados numa frase só, e a tabela agora separa os dois:
 | Campos personalizados | Não | **Sim** — `POST /locations/{locationId}/customFields`, escopo `locations/customFields.write`, `model: contact\|opportunity` decide o tipo | Cria na tela; lista com tipo e opções em `campos-e-tags.md` — **ou** via API, se o conector ganhar essa ferramenta (ver nota abaixo) |
 | Tags | Cria | Sim | — |
 | Pipeline e etapas | Não | **Não** (confirmado: só `GET /opportunities/pipelines` existe no spec; `opportunities.write` não cobre pipeline; issue aberta nº 248 no repo oficial pedindo exatamente isso, sem endpoint ainda) | Seção 1 — sem alternativa por API, de ninguém |
-| Workflows | Não | **Não** (só `GET /workflows/` existe; sem POST em nenhuma versão do spec) | Seções 1.3, 2, 2.9, 2.11, 2.15, 3 a 6, 5.1, 5.2 — sem alternativa por API |
+| Workflows | Não | **Não** (só `GET /workflows/` existe; sem POST em nenhuma versão do spec) | Seções 1.3, 2, 2.9, 2.11, 2.15, 2.19, 3 a 6, 5.1, 5.2 — sem alternativa por API |
 | Calendário | Lê | **Sim** — `POST /calendars/`, escopo `calendars.write`, corpo com `locationId`+`name` obrigatórios e dezenas de campos opcionais (disponibilidade, buffers, confirmação automática) | Cria e configura: seção 7.1 — **ou** via API, se o conector ganhar essa ferramenta |
 | Formulário | Não (nem lê, neste toolkit) | **Não** (só leitura/submissions/upload de arquivo; sem endpoint de criação da estrutura) | Seção 7.2 — sem alternativa por API |
 | Listas inteligentes | Não | Não documentado como recurso de API pública | Seção 8 |

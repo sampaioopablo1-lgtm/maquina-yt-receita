@@ -638,13 +638,45 @@ personalizado não sai por API; subconta reconfirmada nesta execução via
 `opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
 pré-existente.
 
-### F-04 · Teto de toques por semana
+### F-04 · Teto de toques por semana — **FEITO em 19/09/2026**
 **Por quê:** lead em duas cadências recebe o dobro de toques, e ninguém percebe
 até o opt-out chegar. Frequência é o que transforma prospecção em perseguição.
 **Como:** campo `Toques na semana`, incrementado a cada envio e cada ligação,
 zerado semanalmente, checado no portão de toda tentativa.
 **Pronto quando:** nenhum lead recebe mais que N toques por semana, venha de
 onde vier.
+
+**Resumo:** campo C-26 e workflow novo "Contador de Toques" especificados em
+`build-wesales.md`, seção 2.19. Achado ao desenhar: a frase original do
+roadmap ("duas cadências") não é o risco real deste projeto — as réguas
+vizinhas já têm blindagem de tag uma-ou-outra (R-07/R-08); quem não tem
+nenhum teto é a Interceptação de Sinal (F-01, seção 2.9), que roda em
+paralelo com `Allow Re-entry` ligado e pode empilhar tarefa+aviso sem limite
+a cada clique ou resposta do mesmo lead. Pesquisado antes de desenhar: o
+Outreach.io resolve o caso citado no roadmap com **Sequence Exclusivity**
+(trava de admissão — não deixa entrar em duas sequências), não com um
+contador de frequência; nenhuma fonte encontrada descreve um teto rolante
+por contato somando telefone, WhatsApp e sinal no mesmo número, o desenho
+escolhido aqui. Contador **`NUMERICAL`, janela móvel de 7 dias corridos**
+(soma no toque, desconta 7 dias depois pelo próprio workflow, sem depender
+de zerar numa data fixa) reaproveita a tag `toque` (T-15, `campos-e-tags.md`,
+criada nesta rodada) como pulso de evento — mesma ideia da Interceptação de
+Sinal, sem precisar de aritmética de data sobre campo `TEXT` (a mesma
+armadilha que o R-02 já documentou). Teto escolhido: 6/semana, acima do
+pico real da Cadência 12x30 sozinha (4, D1+D2) e dentro da faixa "3 a 5-8"
+que a literatura de outbound trata como segura contra fadiga do prospect.
+**Escopo desta rodada, decisão e não lacuna esquecida:** a tag `toque` e o
+portão de teto foram ligados nos dois pontos de maior risco (Cadência
+12x30, seção 2.4, e as duas Interceptações de Sinal, seção 2.9.2/2.9.3) —
+Cadência Inbound, Reengajamento 90 dias e Recuperação de No-show reaproveitam
+o mesmo campo/tag/workflow sem precisar de nada novo, só falta ligar o nó
+`Add Contact Tag: toque` em cada uma, registrado como pendência explícita em
+`build-wesales.md` seção 2.19. Falta a criação manual do campo (campo
+personalizado não sai por API) e da tag na tela do workflow (workflow não
+sai por API); a tag T-15 em si já saiu por API: `contacts_add-tags` no
+contato de estrutura, confirmado por `contacts_get-contact` — 15 tags do
+projeto agora na subconta, `dateUpdated` 19/09/2026 04:15 UTC. Checklist
+ganhou o item 35.
 
 ### F-05 · Monitor de saúde da operação
 **Por quê:** automação falha **em silêncio**. Tag que não saiu, lead parado numa
@@ -711,21 +743,26 @@ de ordem por decisão de conteúdo, não de posição: sobe para o topo no dia
 em que a operação começar a mandar mensagem de verdade. Antes disso, não há
 a quem incomodar.
 
-F-01, F-03 e F-02 já saíram do bloco 6 fora da ordem normal, cada um na rodada
-em que foi feito: sinal ignorado e nota não calibrada são dívidas que não se
-pagam retroativamente — os dados que faltaram não voltam, calendário nenhum
-devolve. F-02 é o mesmo tipo de dívida: cada dia sem `Hora da conexão` sendo
-gravada é uma conexão que nunca vai ajudar a calibrar horário nenhum,
-mesma razão que tirou F-01/F-03 da fila normal antes dele. Nenhum item do
-bloco 6 pede prioridade fora da ordem agora: os três que restam pedem volume
-para fazer sentido. F-06 precisa de call tracking ligado; F-04 e F-05 só
-mordem quando há mais de uma cadência no ar.
+F-01, F-03, F-02 e F-04 já saíram do bloco 6 fora da ordem normal, cada um na
+rodada em que foi feito: sinal ignorado e nota não calibrada são dívidas que
+não se pagam retroativamente — os dados que faltaram não voltam, calendário
+nenhum devolve. F-02 é o mesmo tipo de dívida: cada dia sem `Hora da conexão`
+sendo gravada é uma conexão que nunca vai ajudar a calibrar horário nenhum,
+mesma razão que tirou F-01/F-03 da fila normal antes dele. F-04 saiu fora de
+ordem por um motivo diferente dos outros três: não é dívida que se acumula
+com o tempo, é uma exposição real já desenhada e sem teto (a Interceptação de
+Sinal, F-01, empilhando toque sem limite) — corrigi-la antes da operação
+rodar volume de verdade custa uma especificação; corrigi-la depois custaria
+explicar a um lead por que ele recebeu seis avisos no mesmo dia. Restam dois
+itens no bloco 6, e nenhum pede prioridade fora da ordem agora: os dois
+pedem volume para fazer sentido. F-06 precisa de call tracking ligado; F-05
+só morde quando há mais de uma cadência no ar.
 
 **Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
 rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
 bloco 5. O que resta não espera posição na fila, espera a operação existir:
-R-14 quando a máquina começar a mandar mensagem de verdade, e os três itens
+R-14 quando a máquina começar a mandar mensagem de verdade, e os dois itens
 que restam no bloco 6 quando houver volume. Enquanto isso, o trabalho que
 sobra é montar na tela o que já está especificado — pipeline, campos,
 workflows, calendário e formulário, pelo `build-wesales.md`.

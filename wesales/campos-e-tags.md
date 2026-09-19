@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (43 + 1 sugerido)
+## Etapa 2 — Campos personalizados (44 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -42,6 +42,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-23 | Template usado | TEXT | código do template, ex. `M1-a` | Workflow (R-04) |
 | C-24 | Nº de no-shows | NUMERICAL | — | Workflow (R-12) |
 | C-25 | Hora da conexão | TEXT | `HH`, 00 a 23 | Workflow (F-02) |
+| C-26 | Toques na semana | NUMERICAL | — | Workflow (F-04) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -112,6 +113,16 @@ closer). **`NUMERICAL`, não uma tag:** a lista 8.17 (`build-wesales.md`)
 filtra direto pelo valor do campo, mesmo raciocínio já usado em C-06/C-07 —
 uma tag só valeria a pena se algum portão precisasse checar "presente/
 ausente" sem importar a contagem, o que não é o caso aqui.
+
+C-26 fecha o teto de toques por semana (`build-wesales.md`, seção 2.19, F-04
+do roadmap): conta, numa janela móvel de 7 dias corridos, quantos toques
+(tarefa de ligação criada ou mensagem automática enviada) o lead recebeu —
+somado por um nó `Math +1` a cada toque e descontado por um `Math -1` 7 dias
+depois pelo workflow "Contador de Toques". `NUMERICAL`, mesmo raciocínio já
+usado em C-06/C-07/C-09 a C-12: é contado por `Math`, não lido por SDR nem
+por IA, então uma tag "presente/ausente" não bastaria — o portão de
+frequência (seção 2.4, nó 2.5c) compara contra um número, não contra
+presença.
 
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
@@ -201,10 +212,10 @@ formulário** (`Urgência`, `Necessidade`, ambos `TEXT`, e `Empresa`, `TEXT`)
 5 e 7.2, e a seção 8 abre avisando qual coluna é a personalizada), mas
 `Urgência` e `Necessidade` seguem duplicando `Prazo` (Q-17) e `Dor
 principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
-Detalhe completo, e por que não contam nos "43" acima (regra da contagem
+Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
-## Etapa 3 — Tags (14, todas criadas)
+## Etapa 3 — Tags (15, todas criadas)
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -222,16 +233,18 @@ Detalhe completo, e por que não contam nos "43" acima (regra da contagem
 | T-12 | `atraso-1a-tentativa` | Alerta de speed-to-lead (R-02/R-07): aplicada pelo workflow da seção 2.11 do `build-wesales.md` quando o lead passa o tempo daquele relógio (varia por origem, seção 2.11 tem o valor certo) em `Em cadência` sem a T1 disparar; filtra a lista 8.8 |
 | T-13 | `reengajamento-ativo` | Reengajamento 90 dias (R-08): aplicada pelo workflow da seção 2.12 do `build-wesales.md` enquanto o lead reativado roda a régua TR1-TR4; blinda o gatilho da Cadência 12x30 (seção 2.1) contra entrada dupla e filtra a lista 8.14 |
 | T-14 | `pausado` | Regras de pausa (R-09): aplicada manualmente pelo SDR para represar as tentativas de **um** lead sem ser opt-out; checada no nó 2.5 (seção 2.4) e 1.5 (seção 2.10) do `build-wesales.md`, limpa pelo Mestre de saída (seção 3) e filtra a lista 8.15 |
+| T-15 | `toque` | Teto de toques por semana (F-04): pulso, não estado — todo nó que cria tarefa de ligação ou manda mensagem automática aplica esta tag, o workflow "Contador de Toques" (seção 2.19 do `build-wesales.md`) reage a ela, soma em `Toques na semana` (C-26) e a remove no mesmo instante; nunca fica presente por mais que alguns segundos |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
 
-**Executado em 18/09/2026.** As 14 saíram em duas chamadas de
-`contacts_add-tags` sobre o mesmo contato de estrutura (`ZZ TESTE
-ESTRUTURA`, `c5r3ZxiAd8T5adL1Bt6j`): as 11 originais na primeira rodada, e
-T-12/13/14 nesta, depois de aprovadas ao vivo em chat (`APROVADO.md`) — não
-tinham sido criadas antes porque tinham nascido em rodadas de roadmap
-posteriores às 11 originais, cada uma numa linha própria de aprovação.
+**Executado em 18/09/2026 (as 14 primeiras) e 19/09/2026 (T-15).** Todas
+saíram por `contacts_add-tags` sobre o mesmo contato de estrutura (`ZZ
+TESTE ESTRUTURA`, `c5r3ZxiAd8T5adL1Bt6j`): as 11 originais numa chamada, as
+T-12/13/14 numa segunda chamada no mesmo dia, e T-15 (`toque`, nascida do
+F-04) numa terceira chamada no dia seguinte — cada uma com sua própria
+linha de aprovação em `APROVADO.md`, porque cada uma nasceu numa rodada de
+roadmap posterior às 11 originais.
 
 ## O que eu preciso de você para executar
 

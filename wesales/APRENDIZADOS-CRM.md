@@ -2,6 +2,94 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## F-04 fechado: a exposição real não era a do enunciado do roadmap — 19/09/2026
+
+Auditoria desta rodada (`locations_get-custom-fields`, `opportunities_get-pipelines`,
+`opportunities_search-opportunity`) reconfirmou: 46 campos (sem mudança desde
+o R-16), pipeline `FUNIL DE VENDAS` com as mesmas 5 etapas, **40 oportunidades,
+todas `open` em `NOVO LEAD`** (nenhuma ainda promovida a `CONECTAR` — L-07
+continua aberto por decisão, não por bug). Rodei também o grep de merge field
+órfão (`contact\.[a-zA-Z0-9_]*` em todo `wesales/*.md` contra os `fieldKey`
+reais) que o achado do `fieldKey` (abaixo) recomenda depois de qualquer
+criação de campo em lote: **zero órfãos** — as correções anteriores seguram.
+
+Com tudo isso batendo e nenhum item do roadmap literalmente aberto e
+desbloqueado (R-14/F-04/F-05/F-06 eram os quatro sem `FEITO`, e os quatro
+tinham motivo documentado para esperar), quase fechei a rodada sem commit.
+Antes disso, reli o "Como" do F-04 com calma e achei que o motivo original
+("lead em duas cadências recebe o dobro de toques") não é o risco real deste
+projeto: Cadência Inbound e Cadência 12x30 já são mutuamente exclusivas por
+tag no próprio gatilho (R-07), e o Reengajamento já blinda a 12x30 contra
+reentrada dupla (T-13, R-08). **Quem não tem nenhum teto é a Interceptação de
+Sinal (F-01, seção 2.9):** ela roda com `Allow Re-entry` ligado de propósito
+("cada clique é um sinal novo") em paralelo com qualquer cadência, sem saber
+quantos toques a cadência principal já gastou — um lead que clica o link ou
+responde várias vezes no mesmo dia empilha tarefa + aviso ao SDR sem limite
+nenhum. Esse é o achado que tornou o F-04 buildável de verdade nesta rodada,
+em vez de mais uma linha "precisa de volume" — a exposição já existe hoje,
+independente de volume.
+
+**Regra prática, generalizável:** quando um item do roadmap tem um "Como" que
+parece vago ou já coberto por outro mecanismo, vale reler os itens vizinhos
+(aqui, F-01) antes de assumir que o item inteiro está bloqueado por falta de
+dado. Às vezes o "Como" original mirou no lugar errado e o item mesmo assim
+vale a pena, só que por um motivo mais específico do que o enunciado original.
+
+Desenho escolhido, pesquisado contra o mercado antes de montar: Outreach.io
+resolve "duas sequências" com **Sequence Exclusivity** — trava de
+**admissão**, não de frequência (`support.outreach.io/hc/en-us/articles/
+360001587093-Sequence-Exclusivity-Settings`). Não serve para o caso real
+encontrado aqui (não são duas cadências ao mesmo tempo, é sinal em paralelo
+por desenho). Optei por um contador `NUMERICAL` por contato, janela **móvel**
+de 7 dias (soma no toque, desconta 7 dias depois — o próprio workflow agenda
+o desconto via `Wait → Time Delay`), acionado por uma tag-pulso (`toque`,
+T-15) que qualquer nó de toque aplica e o workflow "Contador de Toques" já
+remove no primeiro nó — mesma lógica de "tag como pulso de evento" que a
+Interceptação de Sinal já usa, evitando a armadilha que o R-02 documentou
+(aritmética de data não funciona sobre campo `TEXT`, e não existe campo de
+data com hora — um contador incremental em `NUMERICAL` não tem esse problema).
+Detalhe completo: `build-wesales.md`, seção 2.19.
+
+**Escopo explícito, não esquecimento:** o toque e o portão de teto só foram
+ligados nos dois pontos de maior risco (Cadência 12x30 e as duas
+Interceptações de Sinal) nesta rodada — Cadência Inbound, Reengajamento e
+Recuperação de No-show reaproveitam o mesmo mecanismo sem precisar de nada
+novo, só falta ligar o nó em cada uma (registrado em `build-wesales.md`,
+seção 2.19, tabela "Onde o toque é emitido").
+
+## Pesquisa que corrobora (não fecha) o `{{right_now}}` em aberto no `GUIA-MONTAGEM.md` — 19/09/2026
+
+O `GUIA-MONTAGEM.md` tem um item não marcado, "Antes da Fase 5, resolver
+`{{right_now}}`", pedindo para alguém abrir `Update Contact Field` → `Entrada
+em` na tela e ver se existe uma opção de data/hora atual — a sessão ao vivo já
+tinha testado isso na tela e não achou. Rodei `WebSearch` (esta rotina não tem
+acesso à tela, só à API) para tentar corroborar ou refutar isso à distância,
+sem conseguir fechar o item (só quem tem a tela aberta fecha), mas achei duas
+peças que reforçam o achado ao vivo, confiança média (não é leitura direta do
+texto oficial — `help.gohighlevel.com` e `ideas.gohighlevel.com` seguem
+bloqueados pelo proxy deste ambiente, mesma limitação de sempre):
+
+1. **"Right Now Merge Fields" existe e é documentado**, mas como parte do
+   guia oficial "Merge Fields Guide for **Personalized Messages and
+   Documents**" — ou seja, o caso de uso documentado é composição de
+   mensagem/documento (SMS, e-mail, `{}` dentro da caixa de texto de um
+   envio), não a ação de workflow `Update Contact Field` sobre um campo de
+   contato.
+2. Um changelog oficial (`ideas.gohighlevel.com/changelog/update-contact-
+   field-action-dynamic-custom-value-picker-expanded-field-support`, achado
+   só por `WebSearch`) descreve uma expansão **recente** do seletor de valor
+   dinâmico da ação `Update Contact Field` para os tipos **Numeric,
+   Select/Dropdown e Monetary** — não cita `Text` nem `Date`, e mesmo essa
+   expansão é sobre copiar de "passos anteriores ou campos já armazenados",
+   não sobre inserir um relógio ao vivo.
+
+Nenhuma das duas fontes confirma nem nega 100% — é evidência circunstancial
+de que campo `TEXT` na ação `Update Contact Field` provavelmente não expõe
+"agora" como valor pronto, o que bate com o que a sessão ao vivo já viu na
+tela. **Não fechei o checkbox do `GUIA-MONTAGEM.md`** porque isso exige
+alguém com a tela aberta confirmando, não pesquisa à distância — deixo aqui
+para quem for testar não precisar repetir a mesma busca.
+
 ## Auditoria escrita não é auditoria aplicada — 19/09/2026
 
 `CONFERENCIA-CAMPOS.md` já existia com um levantamento completo, feito em

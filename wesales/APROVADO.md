@@ -88,6 +88,20 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `APRENDIZADOS-CRM.md`): as 14 tags estão lá, `dateUpdated`
       18/09/2026 16:15 UTC.
 
+- [x] Criar a 15ª tag, `toque` — nasceu no F-04 (teto de toques por semana)
+      desta rodada, especificada em `campos-e-tags.md` (T-15) e
+      `build-wesales.md` (seção 2.19). Coberta pela mesma autorização geral
+      de 18/09/2026 ("tem todas as permissões... CRM fique mais completo
+      possível") que já liberou T-12/13/14 — mesmo motivo delas: nasceu
+      depois do lote original, ganha linha própria em vez de `[x]`
+      automático. — **FEITO em 19/09/2026**
+
+      **Executado:** `contacts_add-tags` no contato de estrutura `ZZ TESTE
+      ESTRUTURA` (`c5r3ZxiAd8T5adL1Bt6j`). Conferido por `contacts_get-contact`
+      no ID do contato (não pela listagem, que atrasa em relação à escrita —
+      `APRENDIZADOS-CRM.md`): as 15 tags estão lá, `dateUpdated` 19/09/2026
+      04:15 UTC.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do
