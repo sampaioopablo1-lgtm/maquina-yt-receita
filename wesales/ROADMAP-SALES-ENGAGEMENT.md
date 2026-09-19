@@ -139,8 +139,35 @@ corrigido para "`CONECTAR` **e** `status é open`" — a mesma condição
 composta que a seção 3 (Mestre de saída) já usa, e o mesmo tipo de achado
 que a reentrada da 2.12 já tinha documentado, agora numa terceira seção.
 Zero campo, zero tag: item de documentação pura, não depende de
-`APROVADO.md`. **Segue aberto:** 2.13 a 2.17, seção 5 e 5.1-5.4, seção 6,
-listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) — todos
+`APROVADO.md`.
+
+**Resumo (19/09/2026, quarta rodada):** fechadas as seções 5, 5.1, 5.2, 5.3
+e 5.4 (Pós-agendamento, Loop do closer, Registro de Comparecimento,
+Recuperação de No-show, SLA do Closer — No-show) — a família inteira do
+pós-agendamento. `Reunião agendada` → `NEGOCIAR` em todo portão; os dois
+destinos que existiam como etapa própria (`Nutrição`/`Descartado` — Loop do
+closer, seção 5.1, e Recuperação de No-show, seção 5.3) viraram `status`
+(`abandoned`/`lost`) sem sair de `NEGOCIAR`. Achado novo: o portão de
+sanidade de 5.3 e 5.4 ("a oportunidade ainda reflete este compromisso?")
+checava só a etapa — quarta seção a precisar do mesmo reforço `status é
+open` que 2.11, o Mestre de saída e a reentrada de 2.12 já tinham exigido,
+aqui pelo motivo mais direto até agora: o Loop do closer (5.1) já pode ter
+fechado o veredito sem sair de `NEGOCIAR`, e sem checar `status` um `No
+Show` tardio reabriria uma recuperação ou repetiria um SLA de um lead cujo
+destino já foi decidido. Zero campo, zero tag: documentação pura.
+**Achado à parte, fora da migração:** o dono confirmou ao vivo o estado real
+da tela de workflows — `Pós-agendamento` publicado e ativo (3 inscritos),
+mas `Cadência 12x30` (motor principal) e `Qualificação por IA no WhatsApp`
+seguem em rascunho, e oito workflows do roadmap ainda não existem nem como
+rascunho. A tentativa de montar `Loop do closer` usando o assistente
+"Construir com IA" do GHL falhou três vezes seguidas, cada vez trocando um
+campo inventado por outro (`Tags`, `Rescheduled`, `Opportunity status`,
+`score`, `Last appointment at` — nenhum existe no projeto) em vez de usar os
+campos reais (`Reunião foi qualificada`, `Motivo da desqualificação`, `Nota
+de qualificação`) — mesma classe de falha já registrada para o Pós-ligação.
+Detalhe completo: `APRENDIZADOS-CRM.md`. **Segue aberto:** 2.13 a 2.17,
+seção 6, listas 8.5 em diante, seção 9 e o checklist de teste (seção 10) —
+todos
 listados item a item em `GUIA-MONTAGEM.md`, dentro da Fase 1.
 
 ---

@@ -2,6 +2,57 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Construir com IA" do GHL não lê os campos personalizados da conta — hipotetiza nome de campo genérico, mesmo depois de corrigido — 19/09/2026, ao vivo em chat
+
+Sessão ao vivo com o dono, montando o `Loop do closer — veredito
+pós-reunião` (seção 5.1). Ele usou o assistente "Construir com IA" do
+construtor de workflow do GHL, colando um prompt com os nomes reais dos
+campos (`Reunião foi qualificada`, `Motivo da desqualificação`, `Nota de
+qualificação`). **Resultado, em três tentativas seguidas, cada uma depois
+de pedir correção pelo chat da própria IA:**
+
+1. 1ª tentativa: gatilho com filtro em `Tags` (não em `Reunião foi
+   qualificada`); ramo "Veredito = Sim" condicionado a um campo
+   `Rescheduled` = `True`; ramo "Veredito = Parcial" usando `Opportunity
+   status`; um segmento comparando `Lost reason` contra um valor vazio
+   (erro "detalhes do segmento ausentes" — a própria IA deixou a
+   comparação incompleta).
+2. Pedido de correção pelo chat → 2ª tentativa: trocou os campos errados
+   por **outros** campos errados (`score` no lugar de `Nota de
+   qualificação`, `Last appointment at` no lugar de qualquer coisa
+   relacionada à reunião) — não convergiu para os campos reais, só
+   redistribuiu o erro.
+3. O dono then editou manualmente (fora do chat de IA, direto no nó) o
+   gatilho — aí sim ficou certo (`Reunião foi qualificada` / `Foi
+   alterado`, mais um segundo filtro `Tags`/`Adicionado` sobrando de uma
+   tentativa anterior da IA, removido). Mas o nó de condição seguinte
+   (`Se 'Reunião foi qualificada' está vazio?`), apesar de ter o **nome**
+   corrigido, manteve a condição de verdade **igual à da 1ª tentativa**
+   (`Campo "Tags" não está em branco`) — a IA não limpa o que já colocou
+   por trás de um nó só porque o rótulo mudou.
+
+**Nenhum destes campos inventados (`Tags` neste contexto, `Rescheduled`,
+`Opportunity status` como condição de veredito, `Lost reason`, `score`,
+`Last appointment at`) existe no projeto.** Nenhum deles é nem parecido
+com nome de campo nativo do GHL que faria sentido aqui — parecem nomes
+genéricos de CRM em inglês que a IA usa como default quando não encontra
+(ou não procura) o campo real da conta.
+
+**Regra prática, generalizável, e a segunda confirmação da mesma classe de
+falha (a primeira foi o Pós-ligação, `GUIA-MONTAGEM.md`, "Fase 2"/"Estado
+da montagem 19/09"):** para qualquer workflow deste projeto que compare
+**campo personalizado** em condição (`If/Else`, `Condition` múltiplo,
+segmento de filtro), não usar "Construir com IA" do GHL, nem tentar
+corrigi-lo pedindo ajuste pelo chat da própria IA — ela troca um campo
+errado por outro campo errado em vez de convergir para o certo, e pode
+deixar a condição de verdade desalinhada do rótulo do nó (nome certo,
+lógica errada por trás). Montar manual, clicando campo por campo no editor
+("Point & Edit"), é mais lento no relógio mas não gera esse retrabalho.
+Vale só para nós que citam **gatilho ou fluxo simples sem condição sobre
+campo personalizado** (ex.: um `Send WhatsApp` isolado) — não testado se a
+IA erra também nesses casos mais simples, mas o risco é bem menor porque
+não há campo pra confundir.
+
 ## Migração de etapa: um portão que só olha a etapa também engana um alerta, não só o Mestre de saída — 19/09/2026
 
 Sessão automática, mesmo cenário de sempre (R-14/F-05/F-06 esperando

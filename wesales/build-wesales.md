@@ -2418,7 +2418,7 @@ no dia da reunião, não no fechamento do mês.
 
 ---
 
-## 5.2 Workflow "Registro de Comparecimento" — R-03
+## 5.2 Workflow "Registro de Comparecimento" — R-03 — conferido para as 5 etapas reais em 19/09/2026, sem mudança
 
 A seção 5 marca `Data agendado` no instante em que o SDR reserva o horário.
 Falta o terceiro marco do funil: a reunião **aconteceu**. Sem ele, "compareceu"
@@ -2458,13 +2458,13 @@ listas 8.10 a 8.12.
 
 ---
 
-## 5.3 Workflow "Recuperação de No-show" — R-12
+## 5.3 Workflow "Recuperação de No-show" — R-12 — migrado para as 5 etapas reais em 19/09/2026
 
 A seção 5 fecha o agendamento e a 5.2 confirma o comparecimento; nenhuma das
 duas trata o meio-termo, que é o vazamento mais caro do funil: reunião
 marcada, closer de agenda reservada, lead que simplesmente não aparece. Hoje
-isso morre em silêncio — a oportunidade fica parada em `Reunião agendada`
-para sempre, e ninguém tenta de novo.
+isso morre em silêncio — a oportunidade fica parada em `NEGOCIAR` para
+sempre, e ninguém tenta de novo.
 
 Pesquisado antes de desenhar: Outreach e Salesloft resolvem isso via
 integração com uma ferramenta de agendamento de terceiro (Chili Piper é o
@@ -2486,18 +2486,18 @@ automática. Aqui vira decisão porque o custo de ligar uma terceira vez para
 quem já furou duas reuniões marcadas é maior que o valor esperado do lead —
 e ninguém precisa lembrar de aplicar esse corte na mão.
 
-### Por que fica em `Reunião agendada`, não volta para `Em cadência`
+### Por que fica em `NEGOCIAR`, não volta para `CONECTAR`
 
 O Reengajamento 90 dias (seção 2.12, R-08) já pagou o preço de aprender que
-devolver um lead para `Em cadência` esbarra no `Allow Re-entry` desligado da
+devolver um lead para `CONECTAR` esbarra no `Allow Re-entry` desligado da
 Cadência 12x30 (D-06) — um contato que já passou por aquele workflow uma vez
 fica bloqueado de entrar de novo nele para sempre, gatilho ou `Add to
 Workflow`, e resolver isso exigiu tag de blindagem (`reengajamento-ativo`) e
 mudar a origem do lead. Este item não paga esse preço porque não tenta
-reentrar na 12x30 de jeito nenhum: a oportunidade nunca sai de `Reunião
-agendada`, o contador `Nº de no-shows` mora no contato (não numa etapa nova)
-e a régua de recuperação roda num workflow próprio, pequeno, do mesmo jeito
-que já separou a Cadência Inbound (2.10) e o Reengajamento (2.12) da 12x30.
+reentrar na 12x30 de jeito nenhum: a oportunidade nunca sai de `NEGOCIAR`,
+o contador `Nº de no-shows` mora no contato (não numa etapa nova) e a régua
+de recuperação roda num workflow próprio, pequeno, do mesmo jeito que já
+separou a Cadência Inbound (2.10) e o Reengajamento (2.12) da 12x30.
 Resultado: **zero tag nova e zero etapa nova** para este item — só o contador
 `Nº de no-shows` (C-24, `campos-e-tags.md`).
 
@@ -2530,7 +2530,7 @@ gatilho.
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Portão de sanidade | If/Else — etapa da oportunidade **é** `Reunião agendada` → segue. Senão → **encerra** (o compromisso já não reflete o estado atual do lead; evita reabrir um no-show velho de uma oportunidade que já foi resolvida por outro caminho) |
+| 1 | Portão de sanidade | If/Else — etapa da oportunidade **é** `NEGOCIAR` **E** `status` **é** `open` → segue. Senão → **encerra** (o compromisso já não reflete o estado atual do lead; evita reabrir um no-show velho de uma oportunidade que já foi resolvida por outro caminho — inclusive pelo Loop do closer, seção 5.1, que pode ter marcado `status = abandoned/lost` **sem sair de `NEGOCIAR`**, e nesse caso um `No Show` chegando depois não deveria reabrir nada) |
 | 2 | Contador | Math Operation — `Nº de no-shows` + 1 |
 | 3 | Portão de repetição | If/Else — `Nº de no-shows` ≥ 2 → **ramo Descarte** (abaixo). Senão → **ramo Recuperação** (abaixo) |
 
@@ -2540,7 +2540,7 @@ gatilho.
 |---|---|
 | 1 | Remove Contact Tag `fila-tel` (idempotente, mesmo se ausente) |
 | 2 | Add Contact Tag `limpar-tarefas` |
-| 3 | Mover oportunidade → `Descartado` (aciona o Mestre de saída, que faz o resto da limpeza) |
+| 3 | Update Opportunity `status` = `lost` (sem sair de `NEGOCIAR` — tabela 1.0; aciona o Mestre de saída pelo gatilho 2 dele, `Opportunity Status Changed`, que não filtra por etapa e por isso faz o resto da limpeza mesmo com a etapa continuando `NEGOCIAR`) |
 | 4 | Add Note `Descartado após {{contact.n_de_noshows}}º no-show seguido sem reagendar — regra de proteção de agenda do closer (R-12)` |
 | 5 | Internal Notification ao gestor `{{contact.name}} descartado automaticamente após {{contact.n_de_noshows}}º no-show — nenhuma ação necessária, é a regra de proteção de agenda` |
 
@@ -2553,7 +2553,7 @@ gatilho.
 | 3 | Add Contact Tag | `fila-tel` |
 | 4 | Add Task | `[CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 5 | Aguardar | Wait → Until specific time · D1 10:00 |
-| 6 | Portão | If/Else — etapa ainda `Reunião agendada` **E** `nao-perturbe` ausente **E** `pausado` ausente → segue. Senão → **Remove from Workflow: este** |
+| 6 | Portão | If/Else — etapa ainda `NEGOCIAR` **E** `status` ainda `open` **E** `nao-perturbe` ausente **E** `pausado` ausente → segue. Senão → **Remove from Workflow: este** |
 | 7 | Add Contact Tag | `fila-tel` |
 | 8 | Add Task | `[CADENCIA] NS2 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
 | 9 | Aguardar | Wait → Until specific time · D3 15:00 |
@@ -2561,13 +2561,13 @@ gatilho.
 | 11 | Add Contact Tag | `fila-tel` |
 | 12 | Add Task | `[CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
 | 13 | Aguardar | Wait → Time Delay 1 dia (folga para o SDR classificar a NS3) |
-| 14 | Portão | If/Else — etapa ainda `Reunião agendada` → segue (ninguém reagendou nem descartou). Senão → **Remove from Workflow: este** |
+| 14 | Portão | If/Else — etapa ainda `NEGOCIAR` **E** `status` ainda `open` → segue (ninguém reagendou nem descartou). Senão → **Remove from Workflow: este** |
 | 15 | Send WhatsApp | Texto `NS-2` |
 | 16 | Update Contact Field | `Template usado` = `NS-2` |
 | 17 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 18 | Remove Contact Tag | `fila-tel` |
 | 19 | Add Contact Tag | `nutricao-90d` |
-| 20 | Mover oportunidade | → `Nutrição` (aciona o Mestre de saída **e**, 90 dias depois, o próprio Reengajamento 90 dias — seção 2.12 — reativa o lead sozinho, sem workflow novo para o caminho "desistiu") |
+| 20 | Update Opportunity | `status` = `abandoned` (sem sair de `NEGOCIAR` — tabela 1.0; aciona o Mestre de saída pelo gatilho 2 dele, e 90 dias depois o próprio Reengajamento 90 dias — seção 2.12 — reativa o lead sozinho, sem workflow novo para o caminho "desistiu") |
 
 Canal só telefone, de propósito: quem já demonstrou interesse suficiente
 para marcar reunião com o closer merece o canal de maior esforço direto, não
@@ -2584,7 +2584,7 @@ mesmo dia — nova tentativa, não silêncio.
 
 ---
 
-## 5.4 Workflow "SLA do Closer — No-show" — R-12
+## 5.4 Workflow "SLA do Closer — No-show" — R-12 — migrado para as 5 etapas reais em 19/09/2026
 
 O ramo Recuperação da seção 5.3 cobre o lado do SDR. Falta o lado do closer:
 é quem tinha o horário reservado, quem mais rápido consegue julgar se vale a
@@ -2612,11 +2612,11 @@ com closer` · Status: `No Show`
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Portão | If/Else — etapa da oportunidade **é** `Reunião agendada` → segue. Senão → **encerra** |
+| 1 | Portão | If/Else — etapa da oportunidade **é** `NEGOCIAR` **E** `status` **é** `open` → segue. Senão → **encerra** (mesmo raciocínio da seção 5.3, nó 1: um veredito já registrado pelo Loop do closer muda `status` sem tirar a oportunidade de `NEGOCIAR`) |
 | 2 | Portão | If/Else — `Nº de no-shows` ≥ 2 → **encerra** (a seção 5.3 já decidiu descartar; cobrar retorno do closer aqui seria alertar para uma decisão que já foi tomada) |
 | 3 | Alerta imediato | Internal Notification ao closer `{{contact.name}} não compareceu à reunião de {{appointment.start_time}}. A recuperação automática (NS1) já dispara em instantes — se preferir reagendar você mesmo agora, é mais rápido para o lead e evita o SDR ligar à toa.` |
 | 4 | Aguardar | Wait → Time Delay 2h corridas |
-| 5 | Portão | If/Else — etapa da oportunidade ainda **é** `Reunião agendada` → segue (ninguém reagendou nem descartou nesse meio-tempo). Senão → **encerra** |
+| 5 | Portão | If/Else — etapa da oportunidade ainda **é** `NEGOCIAR` **E** `status` ainda `open` → segue (ninguém reagendou nem descartou nesse meio-tempo). Senão → **encerra** |
 | 6 | Escalonamento | Internal Notification ao gestor `Closer não deu retorno em 2h após o no-show de {{contact.name}} ({{appointment.start_time}}) — a recuperação automática (NS1) já está tentando reconectar, mas vale conferir com o closer.` |
 
 O nó 4 usa horas corridas, não úteis: como uma reunião só existe dentro da

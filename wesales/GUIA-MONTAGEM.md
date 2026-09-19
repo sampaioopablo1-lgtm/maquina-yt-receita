@@ -309,13 +309,26 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         aqui a saída acontece depois do avanço para `NEGOCIAR` — o Mestre
         de saída não reage a isto de propósito, a limpeza de fila já rodou
         no momento da conexão (seção 4). Ainda não publicado na tela.
-  - [ ] 5.2 (Registro de Comparecimento) — conferir se cita etapa antiga
-  - [ ] 5.3 (Recuperação de No-show), 5.4 (SLA do Closer — No-show) —
-        inclui o achado já registrado na seção 1.2 desta migração:
-        "descartar oportunidade" no no-show 2x (R-12) precisa virar
-        `status = lost` dentro de `NEGOCIAR`, não mover para uma etapa
-        `Descartado` que não existe mais. `Recuperação de No-show` já
-        existe na tela como rascunho (não publicado)
+  - [x] **5.2 (Registro de Comparecimento)** — conferida em 19/09/2026: não
+        cita etapa nenhuma ("não mexo em etapa aqui", já no próprio texto
+        original) — nada para migrar, só o registro de que foi conferida.
+  - [x] **5.3 (Recuperação de No-show) e 5.4 (SLA do Closer — No-show)** —
+        migradas em 19/09/2026. `Reunião agendada` → `NEGOCIAR` em todos os
+        portões; "descartar oportunidade" (ramo Descarte, 2º no-show) virou
+        `Update Opportunity status = lost`; "mover para Nutrição" (fim do
+        ramo Recuperação) virou `status = abandoned` — os dois sem sair de
+        `NEGOCIAR`, exatamente o achado já previsto na seção 1.2. **Achado
+        novo, não previsto:** todo portão de sanidade destas duas seções
+        (5.3 nó 1, ramo Recuperação nós 6/10/14, 5.4 nós 1/5) checava só
+        "etapa é `Reunião agendada`" — insuficiente pela mesma razão já
+        documentada para a 2.11 e o Mestre de saída: o Loop do closer
+        (seção 5.1) pode fechar o veredito (`status = abandoned`/`lost`)
+        **sem tirar a oportunidade de `NEGOCIAR`**, e sem checar `status`
+        também um `No Show` chegando depois reabriria a recuperação (NS1
+        a NS3) ou repetiria o SLA do closer num lead cujo destino já foi
+        decidido. Todos os portões ganharam `status é open` junto com a
+        etapa. `Recuperação de No-show` já existe na tela como rascunho
+        (não publicado); `SLA do Closer — No-show` ainda não existe.
 - [ ] **Seção 6 (Qualificação por IA no WhatsApp)**
 - [ ] **Seção 8 (Listas inteligentes)** — qualquer lista com filtro de
       etapa `Retorno agendado`/`Nutrição`/`Descartado` precisa trocar para
