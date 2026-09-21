@@ -2687,7 +2687,10 @@ condição que cobre os dois:
 |---|---|---|
 | 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20) — **incondicional, antes do portão do nó 1** |
 | 1 | If/Else | `status` **é** `open` **E** etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` → **encerra aqui** (não limpa nada). Senão, segue |
-| 2 | **Remove Workflows** | Opção **All Except Current Workflow** — tira o contato de toda régua automática ativa num nó só: `Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias`, `Qualificação por IA no WhatsApp`, as duas Interceptações de Sinal (2.9.2/2.9.3) e qualquer workflow futuro, sem precisar nomear nenhum. Substitui os antigos nós 2b/2c/3 (F-05, achado de 21/09/2026 — nota abaixo) |
+| 2 | Remove from Workflow | `Cadência 12x30` |
+| 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10, quando existir) |
+| 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12, quando existir) |
+| 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
@@ -2709,6 +2712,42 @@ essa invariante como algo para **detectar** — uma rotina que audita e avisa
 depois do vazamento. Pesquisado antes de desenhar o monitor: o GHL não tem
 filtro nativo de Smart List "ativo em qualquer workflow" (só "ativo neste
 workflow específico", pedido em aberto na base de ideias da HighLevel — a
+**Por que este workflow — e só ele — continua com a lista nomeada, em vez do
+`All Except Current Workflow` (correção de 21/09/2026, no mesmo dia da
+troca):** a ação nova é melhor e ficou nos outros três lugares (nó 3 do
+Pós-agendamento, ramo `Não ligar` da seção 4, e o Opt-out da 2.9.5). Aqui ela
+tem um efeito colateral que os outros três não têm, e é grave.
+
+O Mestre de saída quase nunca é disparado por uma ação do lead: ele é
+disparado **por outro workflow mexendo na etapa ou no status**, enquanto esse
+outro workflow **ainda está rodando**. Dois casos reais do próprio
+documento:
+
+| Quem dispara | O que ainda faltava rodar nele | O que `All Except Current` mataria |
+|---|---|---|
+| Pós-agendamento, nó 1 (`move para NEGOCIAR`) | nós 4 a 10: a `Nota de qualificação`, a confirmação no WhatsApp e os **três lembretes** (24h, 3h, 30min antes da reunião) | os lembretes de **toda reunião agendada** — o ativo mais caro do funil |
+| Pós-ligação, ramo `Atendeu`, nó 6 (`move para AGENDAR`) | nós 7 a 9: `Data conectado`, `Hora da conexão` (C-25), a tarefa `[CONECTADO] Qualificar e agendar` e a nota | a **próxima tarefa do SDR** depois de uma conexão — o lead atende e desaparece da fila |
+
+E como o Mestre roda como workflow separado, o corte chegaria em momentos
+diferentes a cada vez: às vezes depois do lembrete, às vezes antes. Bug não
+determinístico, que é o pior tipo de bug para uma operação diagnosticar.
+
+O raciocínio que evitou `All Workflows` ("cortaria a própria execução deste
+workflow") estava certo e parou um passo antes do necessário: **`All Except
+Current` protege o workflow atual e corta o de quem o chamou.** Exatamente a
+pergunta que este projeto já aprendeu a fazer — *quem mais passa por aqui?*
+(`APRENDIZADOS-CRM.md`, "Quando a previsão do bug está escrita").
+
+Nos outros três lugares a ação é segura porque o workflow **atual** é o que
+quer silêncio, e ninguém depende do que foi cortado: o Pós-agendamento
+protege os próprios lembretes (ele é o `Current`), e o opt-out e o
+`Não ligar` **querem** matar tudo que estiver pendente, lembrete incluído.
+
+A lista nomeada aqui volta com o custo conhecido — precisa ganhar uma linha
+quando nascer régua nova — e com a regra de manutenção já registrada
+(`APRENDIZADOS-CRM.md`, "Conte onde a tag é aplicada e onde é removida" e o
+grep de `Remove from Workflow`). É o custo menor dos dois.
+
 mesma classe de limite já documentada para R-10/R-11), então um monitor de
 verdade precisaria de um filtro por workflow, o mesmo problema de lista que
 já causou o furo duas vezes (a lista nasceu com um nome só, ganhou dois em

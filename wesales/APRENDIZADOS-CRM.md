@@ -452,6 +452,42 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## `All Except Current` protege o workflow atual e corta o de quem o chamou — 21/09/2026
+
+A peça 4 do F-05 trocou um monitor por uma ação nativa, e a ideia é melhor
+que a original: em vez de **detectar** que um lead com `nao-perturbe`
+continuou rodando régua, `Remove Workflows` → `All Except Current Workflow`
+faz o vazamento não poder acontecer, sem lista de nomes para manter. Ficou
+certa em três dos quatro lugares.
+
+No quarto — o **Mestre de saída** — tem um efeito colateral grave, e ele vem
+de uma pergunta que a própria rodada quase fez. Ela descartou
+`All Workflows` com o argumento certo ("cortaria a própria execução deste
+workflow, antes dos nós 4/5/6") e parou um passo antes: **`All Except
+Current` protege o atual e corta o de quem chamou.** E o Mestre de saída
+quase nunca é disparado pelo lead — ele é disparado por **outro workflow
+mexendo na etapa ou no status, enquanto esse outro ainda está rodando**:
+
+| Quem dispara | O que ainda faltava rodar | O que morreria |
+|---|---|---|
+| Pós-agendamento, nó 1 (move para `NEGOCIAR`) | nós 4-10 | `Nota de qualificação`, confirmação e os **três lembretes** de toda reunião agendada |
+| Pós-ligação, ramo `Atendeu`, nó 6 (move para `AGENDAR`) | nós 7-9 | `Data conectado`, `Hora da conexão`, e a **tarefa `[CONECTADO]`** de toda conexão |
+
+E como o Mestre roda em paralelo, o corte chegaria em momento diferente a
+cada vez — às vezes depois do lembrete, às vezes antes. Bug não
+determinístico, o pior tipo para diagnosticar numa operação.
+
+**A regra:** antes de usar uma ação que age sobre "todos", pergunte **quem me
+chamou, e ele ainda está rodando?** Ação de alcance total é segura num
+workflow disparado pelo **lead** (opt-out, `Não ligar` — ali matar tudo é o
+objetivo) e perigosa num workflow disparado por **outro workflow**. É a
+mesma pergunta de "quem mais passa por aqui?", virada para trás: não *quem
+vem depois de mim*, mas *quem está no meio de algo por minha causa*.
+
+Nos outros três lugares a ação ficou: o Pós-agendamento é o `Current` e
+protege os próprios lembretes; o opt-out e o `Não ligar` querem justamente
+matar tudo que estiver pendente.
+
 ## Tag de diagnóstico precisa de saída pelo caminho da recuperação, não só pela saída de cadência — 21/09/2026
 
 As três peças do Monitor de Saúde aplicam uma tag cada. Conferindo a peça 3
