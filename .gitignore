@@ -13,3 +13,11 @@ token*.json
 # Artefatos de producao (videos, audios, imagens, banco de jobs)
 out/
 data/
+
+# WeSales — sessao e tokens da API interna (NUNCA commitar)
+wesales/.local/
+_ghl_bearer.txt
+storage-state.json
+gohighlevel-cli/
+ghl-automation-builder/
+wesales/tools/__pycache__/
