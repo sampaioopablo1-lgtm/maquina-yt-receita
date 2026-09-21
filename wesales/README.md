@@ -18,7 +18,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `campos-e-tags.md` | Etapas 2 e 3 — lista exata de campos e tags para você confirmar antes de eu criar |
 | `build-wesales.md` | Etapa 4 — especificação nó a nó do que é manual na tela |
 | `rotina-limpar-tarefas.md` | Etapa 5 — prompt da rotina horária de manutenção |
-| `ROADMAP-SALES-ENGAGEMENT.md` | **A distância até um Reev/Meetime** — 15 lacunas medidas e priorizadas. É o backlog que a rotina horária trabalha |
+| `ROADMAP-SALES-ENGAGEMENT.md` | **A distância até um Reev/Meetime** — lacunas medidas e priorizadas. É o backlog que a rotina horária trabalha |
 | `APROVADO.md` | O freio de mão: o que a rotina pode escrever no CRM |
 | `rotina-horaria.md` | Como a rotina de construção contínua funciona |
 | `conectar.md` | **Como conectar o CRM** — caminho curto, por Private Integration Token, sem OAuth e sem e-mail |

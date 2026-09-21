@@ -594,7 +594,7 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | 3 | Math | `Total de ligações` + 1 | 3b |
 | 3b | Remove Contact Tag | `fila-quente` — incondicional, **depois** do nó 2 (que lê `fila-wa`). Retoque de 21/09: falta na versão publicada; sem ele o lead que deu sinal e não atendeu fica na `Fila Quente` para sempre | 3c |
 | 3c | Remove Contact Tag | `retorno-vencido` — incondicional (qualquer resultado novo é "o SDR agiu"; F-05 peça 6, quando a tag existir) | 4 |
-| 4 | If/Else múltiplo (Condition) | por `Resultado da tentativa`: 6 ramos abaixo | ramo |
+| 4 | If/Else múltiplo (Condition) | por `Resultado da tentativa`: ramos abaixo, incluindo `Desqualificado` (novo, R-18) | ramo |
 
 **Ramo `Atendeu`**
 
@@ -611,6 +611,24 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | A7c | Update Contact Field | `Hora da conexão` = saída do A7b |
 | A8 | Add Task | Título `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir `Contact Owner` |
 | A9 | Add Note | `Atendeu na T{{contact.tentativa_n}}` |
+
+**Ramo `Desqualificado` — novo, ainda não montado na tela (fecha L-08, R-18)**
+
+Exige criar antes a opção `Desqualificado` no campo `Resultado da tentativa`
+(C-02) e o 7º ramo neste `If/Else múltiplo` — nenhum dos dois sai por API.
+
+| # | Ação | Configuração exata |
+|---|---|---|
+| D1 | If/Else | `Tags` inclui `fila-wa` → Math `Conexões WhatsApp` + 1 · None → Math `Conexões telefone` + 1 |
+| D2 | Math | `Total de conexões` + 1 |
+| D3 | Update Contact Field | `WA não atendidas seguidas` = `0` |
+| D4 | Add Contact Tag | `conectado-hoje` |
+| D5 | Remove Contact Tag | `fila-tel`, `fila-wa` |
+| D6 | If/Else | `Motivo da desqualificação` = `Timing errado` → Update Opportunity status = `abandoned` + Add Tag `nutricao-90d` · Qualquer outro (ou vazio) → Update Opportunity status = `lost` — mesmo critério do W6 (Loop do closer, ramos `Parcial`/`Não, Timing errado` vs. `Não`, outro motivo) |
+| D7 | Add Note | `Desqualificado na T{{contact.tentativa_n}} — motivo: {{contact.motivo_da_desqualificao}}` |
+
+Sem nó de etapa — fica em `CONECTAR`, igual ao ramo `Número errado`; o
+Mestre de saída limpa pelo `status`.
 
 **Ramos `Caixa Postal` e `Não atendeu` (idênticos, montar duas vezes)**
 
@@ -649,9 +667,14 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | L5 | Update Opportunity | status = `lost` |
 | L6 | Add Note | `Opt-out registrado em {{right_now}}` |
 
-**Teste:** os 6 ramos do lado telefone já foram confirmados por log em
-19/09. Faltam A2, 3b e 3c: mude `Resultado da tentativa` = `Atendeu` num contato
-de teste em `CONECTAR` e confira `Total de conexões` subir.
+**Teste:** os 6 ramos originais do lado telefone já foram confirmados por log
+em 19/09. Faltam A2, 3b e 3c: mude `Resultado da tentativa` = `Atendeu` num
+contato de teste em `CONECTAR` e confira `Total de conexões` subir. O ramo
+`Desqualificado` (R-18) é novo nesta rodada — testar separadamente assim que
+a opção existir na tela: mude `Resultado da tentativa` = `Desqualificado` +
+`Motivo da desqualificação` num contato de teste em `CONECTAR` e confira que
+a oportunidade sai por `status` (não por etapa) e nenhuma tarefa
+`[CONECTADO]` nasce.
 
 ---
 
@@ -1331,7 +1354,7 @@ telefone de manhã e WhatsApp à tarde — o dia abaixo segue essa forma.
 | 08:30 | Abrir as 4 listas favoritas, nesta ordem: `Fila Quente` → `Retornos` → `Fila Telefone Hoje` → `Fila WhatsApp Hoje`. Não pular a ordem: `Fila Quente` tem quem deu sinal ontem à noite | 1.7 |
 | 08:30–08:45 | Promover para `CONECTAR` os leads de `NOVO LEAD` com telefone válido (é a **única** mudança de etapa manual do SDR; decisão G-03 pode automatizar) | Oportunidades |
 | 09:00–12:00 | Bloco de telefone: `Fila Telefone Hoje` de cima para baixo (já vem por `Prioridade` desc, `Tentativa nº` asc — lead novo primeiro, porque converte mais) | 8.2 |
-| a cada ligação | Abrir o contato → gravar **`Resultado da tentativa`** (um dos 6 valores) e **nada mais**. O Pós-ligação (W4) faz o resto em segundos: contadores, tags, etapa, tarefa | contato |
+| a cada ligação | Abrir o contato → gravar **`Resultado da tentativa`** (um dos valores de campos-e-tags.md, C-02 — `Desqualificado` também preenche `Motivo da desqualificação`) e **nada mais**. O Pós-ligação (W4) faz o resto em segundos: contadores, tags, etapa, tarefa | contato |
 | se `Atendeu` | Abrir o link do calendário `Reunião com closer` na mesma tela → preencher o formulário `Qualificação SDR` **enquanto fala** (perguntas na ordem do `script-de-ligacao.md`) → escolher o horário → enviar. Isso dispara o W5 (etapa `NEGOCIAR`, nota, confirmação ao lead) | 1.4 / 1.5 |
 | se `Pediu retorno` | Gravar `Data de retorno` (e `Hora do retorno`, quando existir) **antes** do resultado — a tarefa `[RETORNO]` vence nessa data | contato |
 | se `Não ligar` | Só quando o lead **pediu**. Liga DND em todos os canais e marca `lost` — não tem volta automática | contato |

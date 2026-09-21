@@ -858,6 +858,62 @@ dois sai por API; subconta reconfirmada nesta execução via
 mesmas 5 etapas do `FUNIL DE VENDAS`, 47 oportunidades em `NOVO LEAD` (G-03
 segue aguardando o dono, sem mudança).
 
+### R-18 · L-08 fechada — desqualificação instantânea no Pós-ligação, antes de poluir a agenda do closer — **FEITO em 21/09/2026**
+**Por quê:** `briefing-sdr.md` registrava a L-08 desde 18/09/2026 ("etapa
+`Conectado` não tem caminho para desqualificação na hora") como lacuna
+opcional, sem nunca virar item rastreado do roadmap — diferente de L-01,
+L-04, L-05, L-07 e L-09, que já tinham item próprio. Achada de novo, por um
+caminho diferente, ao reconferir a peça 5 do F-05 (`AGENDAR` sem fechar o
+loop, seção 2.23): aquele monitor cita a L-08 como precaução, mas nunca a
+resolve — só avisa que alguém ficou parado, não evita a tarefa nascer
+errada. O ramo `Atendeu` do Pós-ligação (`build-wesales.md`, seção 4) move
+**toda** ligação atendida para `AGENDAR` e cria `[CONECTADO] Qualificar e
+agendar`, mesmo quando a própria conversa já mostrou que não há fit — o SDR
+então força uma reunião sem fit (polui a agenda do closer) ou desfaz na mão
+por fora do sistema, e nenhum dos dois caminhos é registrado como perda em
+lugar nenhum: a nota de qualificação (seção 9) nunca vê esse lead, e o funil
+do R-03 mostra "conectou" sem nunca mostrar "descartado". O workflow já está
+publicado e rodando (`IMPLEMENTACAO-WORKFLOWS.md`, W4, 24 execuções) — não é
+hipótese de tela apagada, é o caminho que toda ligação atendida passa hoje.
+**Como:** nova opção `Desqualificado` em `Resultado da tentativa` (C-02,
+`campos-e-tags.md`) e um 7º ramo no `If/Else múltiplo` do Pós-ligação
+(`build-wesales.md`, seção 4; `IMPLEMENTACAO-WORKFLOWS.md`, W4): conta como
+conexão real (mesmos contadores do ramo `Atendeu`), mas sai por `status`
+(`abandoned` se `Motivo da desqualificação` = `Timing errado`, `lost` para
+qualquer outro motivo — o mesmo critério que o Loop do closer, seção 5.1, já
+usa para o veredito pós-reunião) sem passar por `AGENDAR` e sem criar tarefa
+de agendamento.
+**Pronto quando:** um "atendeu, mas claramente não serve" vira `status`
+`lost`/`abandoned` na hora, sem gerar `[CONECTADO] Qualificar e agendar` e
+sem abrir horário na agenda do closer.
+
+**Resumo:** pesquisado antes de desenhar — nenhuma das quatro plataformas do
+enunciado (Reev, Meetime, Outreach, Salesloft) separa "atendeu e desqualificou
+na ligação" de "atendeu e vai agendar" como resultado de primeira classe da
+tentativa; todas tratam isso como nota livre dentro de um CRM genérico,
+perdendo a chance de o dado virar filtro/lista sozinho. Reaproveitado de
+propósito o campo `Motivo da desqualificação` (C-16), já existente para o
+F-03 (veredito do closer pós-reunião) — sem duplicar campo, e sem colisão de
+uso: quem vira `Desqualificado` no Pós-ligação nunca chega ao Loop do closer
+na mesma passagem pela cadência, e vice-versa. `script-de-ligacao.md` ganhou
+a seção 3a, ensinando o SDR a reconhecer o momento (sem confundir com
+`Pediu retorno`/`Timing errado`, que continua reciclável) e a não forçar a
+ponte da seção 4 quando não há fit. Zero campo novo, zero tag nova — só uma
+opção nova num campo já existente e um ramo novo num workflow já publicado;
+falta a criação manual dos dois na tela (opção de picklist e ramo de
+workflow não saem por API). Detalhe completo em `build-wesales.md` (seção
+4), `IMPLEMENTACAO-WORKFLOWS.md` (W4) e `GUIA-MONTAGEM.md` (tabela de
+retoques). Subconta reconfirmada nesta execução via
+`opportunities_get-pipelines`/`opportunities_search-opportunity`/
+`locations_get-custom-fields`/`conversations_search-conversation`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 46 campos, 50 oportunidades (47 `NOVO LEAD` + 3
+`NEGOCIAR`, sem mudança desde a última rodada — G-03/G-04 seguem aguardando
+o dono), e nenhuma mensagem automática de cadência ainda saiu de verdade
+(as únicas conversas outbound reais na subconta são DMs pessoais de
+Instagram, não tráfego da máquina) — confirma que R-14 continua
+corretamente bloqueada por falta de volume de mensagem, sem mudança de
+estado a registrar ali.
+
 ---
 
 ## Bloco 6 — fora da curva
@@ -1335,3 +1391,28 @@ como esta rodada acabou de fazer com o F-05 (a razão de esperar pode ter
 vencido sem ninguém notar) e, só depois, procurar uma lacuna nova que
 nenhum item aqui cobre ainda (o mesmo raciocínio que criou G-01, G-02, a
 peça 4 do F-05 e o bloco 6 inteiro) antes de encerrar sem commit.
+
+**R-18 fechado em 21/09/2026, mesmo dia, sessão automática seguinte —
+achado exatamente por esse último caminho.** A varredura de coerência não
+achou nome de etapa órfão nem contagem duplicada nova; a releitura de
+premissa técnica (call duration nativo para o F-06) confirmou que a
+plataforma ainda não oferece isso, sem destravar nada. A lacuna nova veio
+de conferir se cada lacuna do `briefing-sdr.md` (L-01 a L-09) tinha item
+correspondente no roadmap: L-08 não tinha — ficou como "opcional" desde
+18/09/2026 e nunca foi promovida, diferente de L-01/L-04/L-05/L-07/L-09.
+Confirmado antes de fechar que ainda valia a pena: `opportunities_search-
+opportunity` segue em 50 (47 `NOVO LEAD` + 3 `NEGOCIAR`, sem mudança —
+G-03/G-04 continuam aguardando o dono) e `conversations_search-conversation`
+confirma que nenhuma mensagem de cadência automática saiu de verdade ainda
+(as 4 conversas outbound da subconta são DMs pessoais de Instagram, não
+tráfego da máquina) — R-14 corretamente segue bloqueada. Conferidas as nove
+lacunas do briefing (L-01 a L-09) uma a uma nesta rodada: L-02 também
+estava sem marcação de fechamento no `briefing-sdr.md` apesar de já
+resolvida sozinha (Fase 2 criou `Segmento` como `TEXT` livre), corrigido
+junto por ser trivial. L-03 (`fila-linkedin`, reserva) e L-06 (`Origem do
+lead`, opcional) continuam sem item de roadmap **de propósito** — são
+decisão registrada e melhoria opcional sem urgência, não bug à espera de
+alguém notar, a diferença que justificou promover L-08 e não as outras
+duas. Com isso, nenhuma lacuna do briefing original que se comporta como
+bug ainda represado ficou sem item próprio no roadmap; o que resta segue
+sendo os mesmos três tipos do parágrafo acima.

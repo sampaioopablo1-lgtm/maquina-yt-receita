@@ -97,10 +97,29 @@ qualquer pergunta cujo campo já esteja preenchido no contato.
 conversa (ex.: "hoje anoto tudo numa planilha"), registre; não vale
 interromper o roteiro para uma pergunta sem peso na régua.
 
+## 3a. Quando não há fit — R-18
+
+Se em qualquer ponto das perguntas de diagnóstico ficar claro que o lead não
+serve (concorrente ligando para pesquisar preço, já é cliente, sem budget
+nenhum e sem sinal de que muda, decisor ausente e sem acesso a ele), **não
+force a ponte da seção 4**. Encerre a ligação com cortesia, sem prometer
+retorno, e classifique `Resultado da tentativa` = `Desqualificado` +
+`Motivo da desqualificação` (`campos-e-tags.md`, C-02/C-16 — mesmas opções
+que o closer usa depois de uma reunião, aqui preenchidas por você antes dela
+existir). O Pós-ligação fecha a oportunidade sozinho, sem abrir tarefa de
+agendamento nem ocupar horário do closer.
+
+Timing errado ("agora não, mas talvez em alguns meses") **não** é
+`Desqualificado` — continue e classifique como `Pediu retorno` se o lead
+topar conversar de novo depois, ou registre `Motivo da desqualificação` =
+`Timing errado` só se ele mesmo encerrar o assunto (o Pós-ligação recicla
+esse motivo para nutrição em vez de descarte, seção 4 do `build-wesales.md`).
+
 ## 4. Ponte para o agendamento
 
-Só chegue aqui depois da pergunta 10. Pular a ponte antes do BANT completo
-tira pontos da nota sem o SDR perceber.
+Só chegue aqui depois da pergunta 10, com o lead ainda qualificado (seção
+3a não se aplicou). Pular a ponte antes do BANT completo tira pontos da
+nota sem o SDR perceber.
 
 > Baseado no que você me contou, faz sentido eu te apresentar como a gente
 > resolve isso. Vou reservar uns 30 minutos com nosso especialista pra te

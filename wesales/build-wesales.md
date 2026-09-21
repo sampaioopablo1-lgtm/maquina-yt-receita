@@ -33,7 +33,9 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 6. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
    calendário do passo 5
 7. Workflow "Mestre de saída" (seção 3)
-8. Workflow "Pós-ligação" (seção 4)
+8. Workflow "Pós-ligação" (seção 4) — retoque desta rodada (R-18): já
+   publicado com 6 ramos; acrescente a opção `Desqualificado` em `Resultado
+   da tentativa` (passo 1) e o 7º ramo (D1-D7) antes de montar do zero
 9. Workflow "Pós-agendamento" (seção 5)
 10. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
     no passo 1
@@ -268,8 +270,8 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
 | Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
 | Tempo de estagnação | **Gap encontrado ao preencher este bloco, sem monitor ainda:** nenhum relógio hoje mede "atendeu e não agendou em X horas". Registrado como adição ao F-05 (roadmap, ainda no bloco 6 — sem volume não vale construir agora): 24h sem sair de `AGENDAR` |
-| Motivos de perda | **Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa — o Pós-ligação sempre cria a tarefa de agendar, mesmo quando a conversa já mostrou que não há fit. Registrado como lacuna nova, **L-08** (`briefing-sdr.md`) |
-| Taxa de conversão esperada | Depende do L-08 ser resolvido para medir separado de "não conseguiu horário"; hoje mistura os dois motivos numa métrica só |
+| Motivos de perda | ~~**Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa~~ — **L-08 fechada em 21/09/2026 (R-18):** o ramo `Desqualificado` do Pós-ligação (seção 4) sai por `status` antes de chegar em `AGENDAR`, então a maioria dos "sem fit na ligação" nem entra mais nesta etapa. O que resta em `AGENDAR` sem agendar é só "atendeu, era fit, não fechou horário" — o gap de medição da linha abaixo |
+| Taxa de conversão esperada | Com o L-08 fechado, a métrica de `AGENDAR` já mede só "não conseguiu horário" — o motivo "sem fit" saiu antes, pelo ramo `Desqualificado` |
 | Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
 
 #### Etapa 3 — `NEGOCIAR` (absorve `Reunião agendada` + a negociação do closer)
@@ -2678,9 +2680,11 @@ o lead, ganhou a tarefa `[CONECTADO] Qualificar e agendar` (seção 4, ramo
 `Atendeu`, nó 8), e nunca fechou o loop: não agendou, não descartou. É a
 mesma classe de estrago silencioso das peças 1-3 (nada avisa sozinho), aqui
 na etapa em que L-08 (`briefing-sdr.md`) já tinha achado que falta caminho
-de saída para "sem fit" — este monitor não fecha essa lacuna (segue exigindo
-decisão do dono, L-08 continua aberta), só garante que ninguém fica parado
-ali sem ninguém saber.
+de saída para "sem fit" — este monitor não fecha essa lacuna sozinho (quem
+fechou foi o ramo `Desqualificado` do Pós-ligação, R-18, 21/09/2026, que
+tira a maioria dos "sem fit" **antes** de chegar aqui), só garante que quem
+ainda assim ficar parado em `AGENDAR` (fit real, sem horário fechado, ou
+desqualificado na mão já dentro da etapa) não fica sem ninguém saber.
 
 Mesma pesquisa de mercado das peças 1-3: nenhuma das quatro plataformas do
 enunciado do projeto (Reev, Meetime, Outreach, Salesloft) expõe alarme
@@ -3126,7 +3130,7 @@ crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
 | 3 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
 | 3b | Remove Contact Tag | `fila-quente` — **incondicional, e depois do nó 2 de propósito** (o nó 2 lê `fila-wa` para decidir o contador; tag de fila só pode sair depois dessa leitura). Ver nota abaixo |
 | 3c | Remove Contact Tag | `retorno-vencido` (F-05, seção 2.24) — **incondicional, qualquer resultado novo**. Ver nota abaixo |
-| 4 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
+| 4 | If/Else múltiplo | Ramifica por todos os valores de `Resultado da tentativa` (campos-e-tags.md, C-02), abaixo — inclui `Desqualificado`, novo nesta rodada (R-18) |
 
 O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
 `Caixa Postal`/`Não atendeu`, em vez de calcular uma vez só e guardar num
@@ -3182,6 +3186,51 @@ mudar. Detalhe completo na seção 2.24.
 | 7c | Update Contact Field | `Hora da conexão` = saída do nó 7b |
 | 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 9 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
+
+O nó 6 move **toda** ligação atendida para `AGENDAR`, sem olhar se a conversa
+já mostrou que não há fit — é a lacuna **L-08** (`briefing-sdr.md`), fechada
+nesta rodada pelo ramo `Desqualificado` abaixo (R-18): quem atende e claramente
+não serve não deveria abrir tarefa de agendamento nenhuma.
+
+#### Ramo `Desqualificado` — novo nesta rodada, fecha L-08 (R-18)
+
+O SDR atendeu a ligação (é uma conexão real, conta como tal), mas a própria
+conversa já descartou o lead — sem fit, sem budget, é concorrente, já é
+cliente, não fala com decisor. Hoje o único caminho para esse resultado é
+classificar como `Atendeu` mesmo assim, o que cria a tarefa `[CONECTADO]
+Qualificar e agendar` e empurra o lead para `AGENDAR` — o SDR então tem que
+desfazer isso na mão (não agendar, e sair explicando por fora por que a
+oportunidade não avança), ou pior, força uma reunião sem fit só para a
+tarefa fechar, poluindo a agenda do closer. Nenhum dos dois é registrado
+como perda em lugar nenhum — a nota de qualificação (seção 9) nunca vê esse
+lead, e o funil (R-03) mostra "conectou" sem nunca mostrar "descartado".
+
+| # | Ação |
+|---|---|
+| D1 | If/Else | A tentativa foi de WhatsApp? (mesma checagem do nó 2) → Math: `Conexões WhatsApp` + 1. Senão → Math: `Conexões telefone` + 1 — **é conexão real, conta igual ao ramo `Atendeu`** |
+| D2 | Math: `Total de conexões` + 1 |
+| D3 | Update: `WA não atendidas seguidas` = 0 |
+| D4 | Add Contact Tag `conectado-hoje` |
+| D5 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| D6 | If/Else | `Motivo da desqualificação` = `Timing errado` → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Qualquer outro motivo (ou vazio) → Update Opportunity `status` = `lost` |
+| D7 | Add Note `Desqualificado na T{{contact.tentativa_n}} — motivo: {{contact.motivo_da_desqualificao}}` |
+
+Sem nó de mudança de etapa: a oportunidade **fica em `CONECTAR`** (mesmo
+padrão do ramo `Número errado`, que também sai só por `status`) — o Mestre
+de saída (seção 3) já dispara pelo `Opportunity Status Changed` para
+`lost`/`abandoned` e limpa o resto. O critério do D6 é o mesmo já usado pelo
+Loop do closer (seção 5.1, ramos `Parcial`/`Não, Timing errado` vs. `Não`,
+qualquer outro motivo) — reaproveitado de propósito, para o SDR e o closer
+nunca decidirem "isso é reciclável" por réguas diferentes. `Motivo da
+desqualificação` (C-16) é o mesmo campo do F-03, escrito pelo SDR aqui
+**antes** da reunião existir — não há conflito porque só um dos dois
+(SDR ou closer) preenche por oportunidade nesta passagem pela cadência: quem
+vira `Desqualificado` aqui nunca chega ao Loop do closer, e quem chega ao
+Loop do closer nunca passou por este ramo na mesma tentativa.
+
+**Pronto quando:** um "atendeu, mas claramente não serve" vira `status`
+`lost`/`abandoned` na hora, sem gerar `[CONECTADO] Qualificar e agendar` e
+sem abrir horário na agenda do closer.
 
 #### Ramo `Caixa Postal` e ramo `Não atendeu` (idênticos)
 | # | Ação |
@@ -4267,6 +4316,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `CONECTAR` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
 | 34 | Porta de Entrada (L-09/L-09b) | Crie um 6º contato de teste, fora dos 5 fictícios, só com nome e telefone (sem passar por `Add Contact` de dentro de um workflow): confirme que uma oportunidade nasce sozinha em `FUNIL DE VENDAS` → `NOVO LEAD` em segundos, sem precisar mover etapa na mão; edite qualquer campo desse mesmo contato e confirme que **não** nasce uma segunda oportunidade (Allow Duplicate Opportunities desligado). Rode o backfill manual (seção 1.3) sobre os 5 contatos fictícios existentes e confirme que os 5 ganham oportunidade em `NOVO LEAD` sem duplicar nada | |
 | 35 | Teto de toques por semana (F-04) | Reduza o Wait de 7 dias do "Contador de Toques" (seção 2.19) para minutos, no ambiente de teste. Force `Toques na semana` para 5 no Teste Atendeu (Update Contact Field manual) e deixe a T1 disparar: o nó 7 aplica `toque`, o Contador soma 1 (campo chega a 6) e agenda o desconto; confirme que a T2 seguinte cai no portão 2.5c/2.5d e fica represada, sem consumir `Tentativa nº` nem criar tarefa nova, até o Wait reduzido do Contador descontar e o campo cair abaixo de 6. Repita clicando o Trigger Link do Teste Retorno 3 vezes seguidas com o campo já em 6: confirme que a 3ª Interceptação de Sinal pula direto para a nota (nó 3c → 9) sem criar tarefa nem aviso ao SDR, mas a nota `Sinal: clique em link (teto...)` aparece no contato | |
+| 36 | Desqualificação instantânea (R-18) | Num 7º contato de teste em `CONECTAR`, classifique `Resultado da tentativa` = `Desqualificado` + `Motivo da desqualificação` = `Sem fit`: confirme `Conexões telefone`/`Total de conexões` subindo (é conexão real), `conectado-hoje` aplicada, `fila-tel`/`fila-wa` removidas, `status` indo para `lost` **sem** a oportunidade sair de `CONECTAR` (não vai para `AGENDAR`) e **nenhuma** tarefa `[CONECTADO] Qualificar e agendar` nascendo. Repita com `Motivo da desqualificação` = `Timing errado`: confirme `status` `abandoned` + tag `nutricao-90d` em vez de `lost` | |
 
 Depois do teste, **marque as 5 oportunidades como `status = lost` e desative
 os 5 contatos** (nunca excluir contato nem oportunidade — regra 1 do

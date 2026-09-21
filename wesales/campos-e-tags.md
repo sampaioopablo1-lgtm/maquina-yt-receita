@@ -18,7 +18,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | # | Nome | Tipo | Opções | Quem escreve |
 |---|---|---|---|---|
 | C-01 | Tentativa nº | NUMERICAL | — | Workflow |
-| C-02 | Resultado da tentativa | SINGLE_OPTIONS | Atendeu, Caixa Postal, Não atendeu, Número errado, Pediu retorno, Não ligar | SDR |
+| C-02 | Resultado da tentativa | SINGLE_OPTIONS | Atendeu, Caixa Postal, Não atendeu, Número errado, Pediu retorno, Não ligar, **Desqualificado** (opção nova, L-08/R-18 — falta criar na tela) | SDR |
 | C-03 | WA não atendidas seguidas | NUMERICAL | — | Workflow |
 | C-04 | Permissão WhatsApp | SINGLE_OPTIONS | Sim, Não, Não solicitado | IA / SDR |
 | C-05 | Prioridade | NUMERICAL | 1 a 5 | Workflow |
@@ -32,7 +32,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-13 | Sinal recebido | SINGLE_OPTIONS | Clique em link, Resposta de mensagem | Workflow (F-01) |
 | C-14 | Data e hora do sinal | TEXT | `AAAA-MM-DD HH:MM` | Workflow (F-01) |
 | C-15 | Reunião foi qualificada | SINGLE_OPTIONS | Sim, Não, Parcial | Closer (F-03) |
-| C-16 | Motivo da desqualificação | SINGLE_OPTIONS | Sem fit, Sem budget, Timing errado, Não é decisor, Concorrente, Duplicado ou já cliente | Closer (F-03) |
+| C-16 | Motivo da desqualificação | SINGLE_OPTIONS | Sem fit, Sem budget, Timing errado, Não é decisor, Concorrente, Duplicado ou já cliente | Closer (F-03) — **e SDR (R-18)**, reaproveitado pré-reunião quando `Resultado da tentativa = Desqualificado` |
 | C-17 | Data do veredito do closer | DATE | — | Workflow (F-03) |
 | C-18 | Entrada em | TEXT | `AAAA-MM-DD HH:MM` | Workflow (R-02) |
 | C-19 | 1ª tentativa em | TEXT | `AAAA-MM-DD HH:MM` | Workflow (R-02) |
