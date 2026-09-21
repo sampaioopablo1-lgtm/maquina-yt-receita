@@ -2,6 +2,55 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## G-02 fechado: as últimas peças do checklist, e um checklist de teste mandando excluir oportunidade — 21/09/2026, sessão automática
+
+Fechei o que restava do checklist de migração de nomes de etapa
+(`GUIA-MONTAGEM.md`, Fase 1; `ROADMAP-SALES-ENGAGEMENT.md`, G-02): seções
+2.6.1/2.7/2.8/2.9–2.9.4 (zero achado — já estavam certas, só faltava
+marcar), seção 6, seção 8 completa (8.5–8.19), seção 9 e o checklist de
+teste inteiro (seção 10). `grep -n "Em cadência\|Nutrição\|Retorno
+agendado\|Descartado\|Pré-vendas" wesales/build-wesales.md` confirma:
+sobra só tabela de tradução (1.0) e prosa histórica.
+
+**Achado real, sétima ocorrência da mesma classe:** a lista `Recuperação de
+No-show` (8.17) tinha um filtro **ativo** comparando etapa contra `Reunião
+agendada` — nome que não existe mais na tela desde 18/09/2026. Mesma
+classe de bug silencioso já documentada seis vezes nas entradas abaixo
+(seção 3, 2.10, 2.11, 2.12, 2.16, família 5.3/5.4): quem escreveu a lista
+sabia que a oportunidade fica em `NEGOCIAR` (a própria seção 5.3, migrada
+antes, já dizia isso no título de uma subseção), mas a lista em si nunca
+recebeu o mesmo tratamento — reforça a regra prática já registrada:
+"seções já migradas" não significa "todo lugar que cita aquela seção já
+está migrado".
+
+**Achado fora do escopo de nome de etapa, generalizável:** a régua de
+prioridade (9.2, regra 1) comparava `Resultado da tentativa = Pediu
+retorno` **ou** `etapa = "Retorno agendado"` — a segunda metade do `ou`
+nunca podia casar (etapa não existe) e nunca fazia falta (todo lead que
+pede retorno já bate na primeira metade). Um `ou` morto não quebra nada
+sozinho, mas é peso morto que qualquer leitura futura pode interpretar
+como sinal de que a condição da esquerda não basta — removido, mesmo
+raciocínio que a lista `Retornos` (8.4) já tinha aplicado.
+
+**Achado que não é de nome de etapa, e por isso quase passou despercebido
+numa rodada de G-02:** a última linha do checklist de teste (seção 10)
+instruía "**apague as 5 oportunidades** e desative os 5 contatos" ao fim
+do teste — viola a regra 1 do projeto (nunca excluir contato, campo, tag,
+workflow, pipeline **ou oportunidade**), presente desde a primeira versão
+do documento e nunca antes achada porque nenhuma rodada de migração de
+etapa tinha motivo para ler essa linha final com atenção. **Regra
+prática:** uma varredura de "nome de etapa antigo" não é a mesma varredura
+que pega "instrução que viola regra inviolável" — vale reler o documento
+inteiro, não só a área do achado que a rodada está caçando, antes de
+declarar uma seção fechada. Corrigida para marcar `status = lost` em vez
+de excluir.
+
+Zero escrita no CRM: item de documentação pura, não depende de
+`APROVADO.md`. Subconta reconfirmada via `opportunities_get-pipelines`/
+`locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`
+(`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
+sem mudança desde a última rodada.
+
 ## G-02, sexta confirmação do mesmo padrão: "etapa sem status" falha também em nó opcional/de baixa prioridade — 19/09/2026, sessão automática
 
 Fechando as seções 2.13 a 2.17 (Regras de pausa, Distribuição de leads,

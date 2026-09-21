@@ -235,10 +235,13 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
   - [x] **2.6 fim (depois de M3, 12 tentativas esgotadas)** — migrado em
         18/09/2026: "mover para `Nutrição`" virou `status = abandoned`,
         permanece em `CONECTAR`
-  - [ ] 2.6.1, 2.7, 2.8, 2.9–2.9.4 (Split A/B, entrada na IA, interceptação
-        de sinal) — ainda não conferidas linha a linha nesta migração;
-        risco baixo (não parecem citar nome de etapa antigo nas leituras
-        feitas até aqui, mas não foi grep dedicado)
+  - [x] **2.6.1, 2.7, 2.8, 2.9–2.9.4 (Split A/B, entrada na IA, interceptação
+        de sinal)** — conferidas em 21/09/2026, `grep` dedicado (linhas
+        615-853 de `build-wesales.md`): zero nome de etapa antigo. As
+        quatro já tinham sido escritas ou corrigidas direto contra as 5
+        etapas reais em rodadas anteriores (2.9.2/2.9.3 já usam
+        `CONECTAR`/`status não é lost`, achado ao vivo em chat de
+        19/09/2026) — nada a migrar, só faltava marcar aqui.
   - [x] **2.10 (Cadência Inbound)** — migrada em 19/09/2026: gatilho trocado
         de `Pré-vendas`/`Em cadência` para `FUNIL DE VENDAS`/`CONECTAR`
         (nota explicando que são o mesmo objeto, igual à 2.1); nó 0.0b
@@ -364,18 +367,52 @@ vez, cada um marcado aqui assim que sai de `build-wesales.md` para valer:
         decidido. Todos os portões ganharam `status é open` junto com a
         etapa. `Recuperação de No-show` já existe na tela como rascunho
         (não publicado); `SLA do Closer — No-show` ainda não existe.
-- [ ] **Seção 6 (Qualificação por IA no WhatsApp)**
-- [ ] **Seção 8 (Listas inteligentes)** — qualquer lista com filtro de
-      etapa `Retorno agendado`/`Nutrição`/`Descartado` precisa trocar para
-      filtro de campo/status
+- [x] **Seção 6 (Qualificação por IA no WhatsApp)** — migrada em
+      21/09/2026: o nó 4 da saída ("Como nota < 25 e `Budget` = `Não tem`
+      → mover para `Nutrição`") virou `Update Opportunity status =
+      abandoned` (etapa fica onde estava — tabela 1.0), + tag
+      `nutricao-90d`, espelhando o mesmo achado já aplicado em toda saída
+      de cadência (2.3, 2.10, 2.16, Loop do closer). Único nó ativo da
+      seção com nome de etapa antigo.
+- [x] **Seção 8 (Listas inteligentes)** — fechada em 21/09/2026, qualquer
+      lista com filtro de etapa `Retorno agendado`/`Nutrição`/`Descartado`
+      já trocou para filtro de campo/status
   - [x] **8.1 `Fila Quente`, 8.2 `Fila Telefone Hoje`, 8.3 `Fila WhatsApp
         Hoje`, 8.4 `Retornos`** — migradas em 18/09/2026 (`Em cadência` →
         `CONECTAR`, `Conectado` → `AGENDAR`, `Retorno agendado` caiu do
         filtro de 8.1 por já estar coberto por `CONECTAR`, e caiu de 8.4
         por a lista já filtrar só pelo campo `Resultado da tentativa`)
-  - [ ] 8.5 em diante (`Sem resultado ontem`, 8.6–8.18) — ainda não
-        conferidas linha a linha nesta migração
-- [ ] **Seção 9 (Nota de qualificação e Prioridade)**
+  - [x] **8.5 a 8.15, 8.18, 8.19** — conferidas em 21/09/2026: zero nome de
+        etapa antigo em filtro ativo. 8.9-8.12 tinham uma frase narrativa
+        comparando contra `Reunião agendada` como hipótese descartada
+        (explicando por que **não** usar filtro de etapa) — atualizada
+        para `NEGOCIAR` só por precisão, sem mudar nenhum filtro real.
+  - [x] **8.16 `Fila do Dia — Total`** — migrada em 21/09/2026: a
+        comparação narrativa "oportunidade em `Reunião agendada`, não em
+        `Em cadência`" virou `NEGOCIAR`/`CONECTAR`.
+  - [x] **8.17 `Recuperação de No-show`** — migrada em 21/09/2026: o
+        filtro ativo "etapa da oportunidade = `Reunião agendada`" (nome
+        que não existe mais na tela — bug real, não só narrativa) virou
+        `NEGOCIAR`, e a explicação abaixo da tabela também.
+- [x] **Seção 9 (Nota de qualificação e Prioridade)** — migrada em
+      21/09/2026: as faixas C/D de 9.1 ("etapa `Nutrição`"/"etapa
+      `Descartado`") viraram `status abandoned`/`status lost` (etapa fica
+      onde estava — tabela 1.0); a regra 1 de 9.2 comparava também contra
+      `etapa = "Retorno agendado"` (nome inexistente na tela) num `ou` que
+      nunca fazia diferença — removida, sobrando só `Resultado da
+      tentativa = Pediu retorno`, mesmo raciocínio já aplicado à lista 8.4.
+- [x] **Checklist de teste (Seção 10)** — migrado em 21/09/2026: os
+      cenários e as verificações citavam etapa antiga em vários pontos
+      (`Em cadência`, `Conectado`, `Reunião agendada`, `Retorno agendado`,
+      `Nutrição`, `Descartado`) — reescritos com o nome real e, onde o
+      destino é `status` e não etapa (item 12, `Pediu retorno`; itens
+      2/4/24/27/30/31, saída por `status`), com a distinção explícita
+      entre os dois, para quem rodar o teste não confundir "mudou etapa"
+      com "mudou status" no meio de uma verificação manual.
+      Achado à parte, fora do escopo de nome de etapa: a frase final do
+      checklist mandava **apagar** as 5 oportunidades de teste — viola a
+      regra 1 do projeto (nunca excluir oportunidade). Corrigida para
+      marcar `status = lost` em vez de excluir.
 - [x] **`rotina-limpar-tarefas.md` (fora de `build-wesales.md`, achado em
       19/09/2026)** — este checklist só rastreava `build-wesales.md`; o
       prompt autocontido da rotina de manutenção de tarefas buscava

@@ -79,7 +79,7 @@ ganhou uma Fase 1.5 marcando este item como furando a fila de montagem, à
 frente da Fase 3, porque cada hora sem ele é lead pago do Meta acumulando
 sem nunca entrar em etapa nenhuma.
 
-### G-02 · Migração de nomes de etapa em `build-wesales.md` ainda incompleta — **em andamento**
+### G-02 · Migração de nomes de etapa em `build-wesales.md` ainda incompleta — **FEITO em 21/09/2026**
 **Por quê:** quando o pipeline virou as 5 etapas reais (`NOVO LEAD`/
 `CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`, decisão ao vivo de
 18/09/2026) em vez das 7 do plano original, boa parte do
@@ -204,10 +204,33 @@ Zero campo, zero tag: item de documentação pura, não depende de
 `APROVADO.md`. Detalhe completo em `build-wesales.md` (cabeçalhos das cinco
 seções) e `GUIA-MONTAGEM.md` (checklist da Fase 1).
 
-**Segue aberto:** 2.6.1, 2.7, 2.8 e 2.9–2.9.4 (ainda não conferidas linha a
-linha), seção 6, listas 8.5 em diante, seção 9 e o checklist de teste
-(seção 10) — todos listados item a item em `GUIA-MONTAGEM.md`, dentro da
-Fase 1.
+**Resumo (21/09/2026, sexta rodada) — G-02 fechado:** conferidas e fechadas
+as últimas peças do checklist: 2.6.1/2.7/2.8/2.9–2.9.4 (zero achado — já
+tinham sido escritas ou corrigidas contra as 5 etapas reais em rodadas
+anteriores, só faltava marcar), seção 6 (Qualificação por IA — um nó ativo
+migrado, "mover para `Nutrição`" → `status = abandoned`), seção 8 completa
+(8.5–8.19; achado real na 8.17, `Recuperação de No-show`, cujo filtro
+comparava contra `Reunião agendada`, nome que não existe mais — sétima
+ocorrência da mesma classe de bug silencioso desde a seção 3), seção 9
+(faixas C/D da nota de qualificação citavam etapa `Nutrição`/`Descartado`
+em vez de `status`, e a regra 1 de `Prioridade` tinha um `ou etapa =
+"Retorno agendado"` que nunca casava e nunca fazia falta — removido, mesmo
+raciocínio já usado na lista 8.4) e o checklist de teste inteiro (seção 10,
+vários pontos corrigidos nos cenários e nas verificações). `grep -n "Em
+cadência\|Nutrição\|Retorno agendado\|Descartado\|Pré-vendas"
+wesales/build-wesales.md` confirma: toda ocorrência restante é da tabela de
+tradução (1.0) ou prosa histórica explicando a migração — nenhum gatilho,
+portão ou nó ativo compara contra nome que a tela não tem. **Achado fora do
+escopo de nome de etapa, corrigido junto por estar no mesmo checklist:** a
+última linha da seção 10 mandava apagar as 5 oportunidades de teste ao
+final — viola a regra 1 do projeto (nunca excluir oportunidade); corrigida
+para marcar `status = lost`. Detalhe completo em `build-wesales.md` e
+`GUIA-MONTAGEM.md` (checklist da Fase 1, agora com todas as caixas `[x]`).
+Zero escrita no CRM: item de documentação pura, não depende de
+`APROVADO.md`.
+
+**Pronto quando (cumprido):** todo `[ ]` do checklist de migração em
+`GUIA-MONTAGEM.md` (Fase 1) virou `[x]`.
 
 ---
 
@@ -846,13 +869,13 @@ nenhuma oportunidade nasce sozinha. Descoberto depois dos blocos 1 a 5 e
 quase todo o 6 já estarem prontos, mas listado primeiro porque é anterior
 em sentido literal, não por ordem de descoberta.
 
-**G-02, em andamento desde 19/09/2026, roda em paralelo aos blocos abaixo,
-não antes deles:** ao contrário do G-01, uma seção de `build-wesales.md`
-ainda com nome de etapa antigo não impede nenhum outro item de fazer
-sentido — só faz aquela seção específica falhar quando alguém tentar
-montá-la na tela. Por isso não bloqueia a fila; é trabalho de fundo,
-pedaço por pedaço, cada vez que uma sessão automática não tem item de
-volume/mensagem real para avançar nos blocos 1-6.
+**G-02 fechado em 21/09/2026** — o checklist de migração de nomes de etapa
+(`GUIA-MONTAGEM.md`, Fase 1) está com todas as caixas `[x]`; `grep -n "Em
+cadência\|Nutrição\|Retorno agendado\|Descartado\|Pré-vendas"
+wesales/build-wesales.md` só retorna tabela de tradução (1.0) ou prosa
+histórica. Não sobra mais trabalho de fundo deste tipo para uma sessão
+automática sem item de volume/mensagem real avançar — ver nota no fim
+desta seção sobre o que resta.
 
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
@@ -879,9 +902,8 @@ seis listas que ninguém abre. **R-14 (auditoria de compliance)** é o único
 item numerado (R/F) que resta no bloco 5 e no roadmap inteiro fora do
 bloco 6 — fica fora de ordem por decisão de conteúdo, não de posição: sobe
 para o topo no dia em que a operação começar a mandar mensagem de verdade.
-Antes disso, não há a quem incomodar. (G-02, Bloco 0, é diferente dos
-dois: não é item de fila que espera sua vez, é dívida de documentação que
-se paga em paralelo, pedaço por pedaço — ver nota no início desta seção.)
+Antes disso, não há a quem incomodar. (G-02, Bloco 0, fechou em
+21/09/2026 — ver nota no início desta seção.)
 
 F-01, F-03, F-02 e F-04 já saíram do bloco 6 fora da ordem normal, cada um na
 rodada em que foi feito: sinal ignorado e nota não calibrada são dívidas que
@@ -904,8 +926,16 @@ fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
 bloco 5. O que resta entre os itens numerados não espera posição na fila,
 espera a operação existir: R-14 quando a máquina começar a mandar mensagem
 de verdade, e os dois itens que restam no bloco 6 quando houver volume.
-Enquanto isso, o trabalho que sobra é de dois tipos: montar na tela o que
-já está especificado (pipeline, campos, workflows, calendário e
-formulário, pelo `build-wesales.md`) — trabalho manual, ao vivo com o
-dono — e fechar o G-02 (migração de nomes de etapa), que uma sessão
-automática consegue avançar sozinha, sem depender de tela nem de volume.
+
+**Com G-02 fechado em 21/09/2026, não sobra mais item de documentação pura
+esperando uma sessão sem tela nem volume.** O que resta é de dois tipos: (1)
+montar na tela o que já está especificado (pipeline, campos, workflows,
+calendário e formulário, pelo `build-wesales.md`) — trabalho manual, ao vivo
+com o dono —, e (2) esperar volume/mensagem real para R-14/F-05/F-06. Uma
+sessão automática sem acesso à tela e sem esses dois itens desbloqueados
+não deve inventar trabalho para preencher a rodada: o próximo passo honesto
+é a varredura de coerência entre documentos (a mesma que fechou G-02 — grep
+por nome antigo, merge field órfão, contagem duplicada) e, se ela não achar
+nada, procurar uma lacuna nova que nenhum item aqui cobre ainda (o mesmo
+raciocínio que criou G-01, G-02 e o bloco 6 inteiro) antes de encerrar sem
+commit.

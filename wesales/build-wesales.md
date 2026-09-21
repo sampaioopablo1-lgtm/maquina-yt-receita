@@ -2548,8 +2548,9 @@ sua falta" imediata, e escalar para contato pessoal de um closer/AE dentro de
 Chili Piper faz, sem ferramenta de terceiro nenhuma.
 
 **A decisão que um concorrente não copia olhando a tela:** depois do 2º
-no-show seguido do mesmo lead, a oportunidade vai direto para `Descartado`,
-sem gerar nenhuma tarefa nova — regra de proteção da agenda do closer. Reev,
+no-show seguido do mesmo lead, o `status` da oportunidade vira `lost` (sem
+sair de `NEGOCIAR` — seção abaixo), sem gerar nenhuma tarefa nova — regra
+de proteção da agenda do closer. Reev,
 Meetime, Outreach e Salesloft tratam no-show repetido como métrica de
 relatório ("taxa de no-show por rep"), nunca como gatilho de decisão
 automática. Aqui vira decisão porque o custo de ligar uma terceira vez para
@@ -2791,7 +2792,7 @@ tendo que ler as conversas na mão.
 | 1 | Update `Qualificação` = `IA Whatsapp` (rótulo real — mesma nota do nó "Estrutura" acima) |
 | 2 | Math: recalcula `Nota de qualificação` (seção 9.1) |
 | 3 | If/Else: nota ≥ 45 → Add Contact Tag `fila-quente` + Update `Prioridade` = 5 + Internal Notification para o SDR: "lead qualificado pela IA, ligar hoje" |
-| 4 | If/Else: nota < 25 **e** `Budget` = `Não tem` → mover para `Nutrição` + tag `nutricao-90d` |
+| 4 | If/Else: nota < 25 **e** `Budget` = `Não tem` → Update Opportunity `status` = `abandoned` (etapa fica onde estava — tabela 1.0, `Nutrição` não é etapa própria) + tag `nutricao-90d` |
 
 ---
 
@@ -3006,7 +3007,7 @@ R-03. Cada campo `DATE` novo (C-20 a C-22) grava o marco na hora em que ele
 acontece pela primeira vez e não muda depois, então a oportunidade continua
 contando no mês em que **cruzou** aquele marco mesmo depois de avançar para
 a etapa seguinte — diferente de filtrar pela etapa atual, que subcontaria
-quem já foi para `Reunião agendada` ou saiu do pipeline.
+quem já foi para `NEGOCIAR` ou saiu do pipeline (`status` ≠ `open`).
 
 ### 8.13 `Resposta por Template` — R-04
 | Item | Configuração |
@@ -3068,20 +3069,21 @@ Fila` e o aviso do Monitor de Capacidade (seção 2.15, R-11).
 Este total agora também inclui as tarefas `NS1`/`NS2`/`NS3` da Recuperação de
 No-show (seção 5.3, R-12) de graça: o filtro é só por tag, sem etapa — a
 tag `fila-tel` aplicada pela seção 5.3 conta aqui mesmo com a oportunidade
-em `Reunião agendada`, não em `Em cadência`.
+em `NEGOCIAR`, não em `CONECTAR`.
 
-### 8.17 `Recuperação de No-show` — R-12
+### 8.17 `Recuperação de No-show` — R-12 — migrado para as 5 etapas reais em 21/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | `Nº de no-shows` ≥ 1 **E** etapa da oportunidade = `Reunião agendada` **E** `nao-perturbe` ausente |
+| Filtros | `Nº de no-shows` ≥ 1 **E** etapa da oportunidade = `NEGOCIAR` **E** `nao-perturbe` ausente |
 | Colunas | Nome · `Empresa` · Telefone · `Nº de no-shows` · `Template usado` · Última atividade · Tarefas abertas |
 | Ordenação | `Nº de no-shows` desc, depois Última atividade asc |
 
 Filtra por campo numérico direto, sem tag nova — mesmo raciocínio já usado
 na 8.6 (`Total de conexões` ≥ 1). Não aparece em 8.2/8.3 porque a etapa
-continua `Reunião agendada`, de propósito (seção 5.3, "por que fica em
-Reunião agendada"): esta lista é a única visão de quem está na régua NS1-NS3,
-igual a 8.14 já ser a única visão de quem está na régua TR1-TR4.
+continua `NEGOCIAR`, de propósito (seção 5.3, "Por que fica em `NEGOCIAR`,
+não volta para `CONECTAR`"): esta lista é a única visão de quem está na
+régua NS1-NS3, igual a 8.14 já ser a única visão de quem está na régua
+TR1-TR4.
 
 ### 8.18 `Higiene — Sem Telefone Válido` — R-13
 | Item | Configuração |
@@ -3182,8 +3184,8 @@ Máximo: 30 + 25 + 45 = **100**.
 |---|---|---|
 | 70–100 | A — agenda e avisa o closer sênior | `Prioridade` = 5, tag `fila-quente` |
 | 45–69 | B — agenda normal | `Prioridade` = 4 |
-| 25–44 | C — nutrição | `Prioridade` = 2, tag `nutricao-90d`, etapa `Nutrição` |
-| 0–24 | D — descarta | `Prioridade` = 1, etapa `Descartado` |
+| 25–44 | C — nutrição | `Prioridade` = 2, tag `nutricao-90d`, `status` = `abandoned` (etapa fica onde estava — tabela 1.0, `Nutrição` não é etapa própria) |
+| 0–24 | D — descarta | `Prioridade` = 1, `status` = `lost` (etapa fica onde estava — tabela 1.0, `Descartado` não é etapa própria) |
 
 **Corte independente da nota:** `Budget` = `Não tem` **e** `Prazo` = `Sem
 prazo` → nutrição, qualquer que seja a nota. Empresa grande sem dinheiro e sem
@@ -3195,9 +3197,18 @@ Recalcule nestes 4 momentos: entrada na cadência (2.3), cada Pós-ligação
 (seção 4), saída da IA (seção 6), reativação de 90 dias (seção 2.12, nó 3).
 Primeira regra que casar, ganha.
 
+**Migrado para as 5 etapas reais em 21/09/2026:** a regra 1 comparava também
+contra `etapa = "Retorno agendado"` — etapa que não existe mais (tabela 1.0,
+seção 1.0): "pediu retorno" não move a oportunidade, ela fica em `CONECTAR`
+só com `Resultado da tentativa = Pediu retorno` gravado. O `ou` nunca casava
+sozinho, mas também nunca fazia falta: todo lead que pede retorno já bate na
+primeira metade da condição. Removido para não deixar um `If/Else` comparando
+contra opção inexistente na tela — mesma classe de bug silencioso já
+documentada para a lista `Retornos` (8.4), que já filtra só pelo campo.
+
 | Ordem | Condição | Prioridade |
 |---|---|---|
-| 1 | `Resultado da tentativa` = `Pediu retorno` **ou** etapa = `Retorno agendado` | 5 |
+| 1 | `Resultado da tentativa` = `Pediu retorno` | 5 |
 | 2 | `Nota de qualificação` ≥ 70 | 5 |
 | 3 | Respondeu mensagem (tem conversa de entrada) **ou** `Permissão WhatsApp` = `Sim` | 4 |
 | 4 | `Nota de qualificação` entre 45 e 69 | 4 |
@@ -3222,31 +3233,31 @@ para minutos; **volte os valores reais antes de publicar**.
 ### Contatos
 | # | Nome | Cenário | Caminho esperado |
 |---|---|---|---|
-| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → `Conectado` → agenda → `Reunião agendada` |
-| 2 | Teste Não Atende | Nunca atende, vai até o fim | 12 tentativas → `Nutrição` + `nutricao-90d` |
-| 3 | Teste Retorno | Pede retorno na T3 | `Pediu retorno` → `Retorno agendado`, Prioridade 5 |
-| 4 | Teste Número Errado | Número errado na T1 | `telefone-invalido` → `Nutrição` ou `Descartado` |
-| 5 | Teste Não Ligar | Pede para não ligar na T2 | `nao-perturbe` + **DND ligado** → `Descartado`, nenhuma mensagem depois |
+| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → etapa `AGENDAR` → agenda → etapa `NEGOCIAR` |
+| 2 | Teste Não Atende | Nunca atende, vai até o fim | 12 tentativas → `status` `abandoned` (etapa fica em `CONECTAR` — tabela 1.0) + `nutricao-90d` |
+| 3 | Teste Retorno | Pede retorno na T3 | `Pediu retorno` → permanece em `CONECTAR` (não é etapa própria — tabela 1.0), Prioridade 5 |
+| 4 | Teste Número Errado | Número errado na T1 | `telefone-invalido` → `status` `abandoned` ou `lost` (etapa fica onde estava) |
+| 5 | Teste Não Ligar | Pede para não ligar na T2 | `nao-perturbe` + **DND ligado** → `status` `lost` (etapa fica onde estava), nenhuma mensagem depois |
 
 ### Verificações, uma por linha
 | # | O que testar | Como | Passou? |
 |---|---|---|---|
-| 1 | Entrada na cadência | Mover para `Em cadência` cria tag `fila-tel` e tarefa `[CADENCIA] T1` | |
-| 2 | Portão de etapa | Mover para `Conectado` no meio da espera: a tentativa seguinte **não** dispara | |
+| 1 | Entrada na cadência | Mover para `CONECTAR` cria tag `fila-tel` e tarefa `[CADENCIA] T1` | |
+| 2 | Portão de etapa | Mover para `AGENDAR` no meio da espera: a tentativa seguinte **não** dispara | |
 | 3 | Portão `nao-perturbe` | Aplicar a tag na mão: próxima tentativa não dispara | |
 | 4 | Portão `telefone-invalido` | Aplicar a tag: tentativa de telefone não dispara, de WhatsApp sim | |
 | 5 | Limpeza do resultado | Na T2, `Resultado da tentativa` chega vazio (não herda o da T1) | |
-| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `Conectado`, tarefa `[CONECTADO]` criada, saiu da cadência | |
+| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `AGENDAR`, tarefa `[CONECTADO]` criada, saiu da cadência | |
 | 7 | `Caixa Postal` em WhatsApp | `WA não atendidas seguidas` vai a 1; repetir vai a 2 | |
 | 8 | Regra das 2 seguidas | Com o contador em 2, a próxima tentativa de WhatsApp sai como **telefone** | |
 | 9 | Reset do contador | Uma tentativa de telefone não atendida zera `WA não atendidas seguidas` | |
 | 10 | Sem permissão | Com `Permissão WhatsApp` = `Não`, toda tentativa de WhatsApp vira telefone | |
-| 11 | `Número errado` | `telefone-invalido` aplicada, etapa muda, gestor notificado | |
-| 12 | `Pediu retorno` | Prioridade 5, etapa `Retorno agendado`, tarefa `[RETORNO]` criada | |
+| 11 | `Número errado` | `telefone-invalido` aplicada, `status` muda para `abandoned`/`lost` (etapa fica em `CONECTAR` — tabela 1.0), gestor notificado | |
+| 12 | `Pediu retorno` | Prioridade 5, permanece em `CONECTAR`, tarefa `[RETORNO]` criada | |
 | 13 | `Não ligar` | Tag + **DND ligado**; mandar mensagem de teste pelo workflow: **não** deve sair | |
 | 14 | Tempo limite | Não classificar uma tentativa: às 18:30 vira `Não atendeu`, tag de fila removida, `limpar-tarefas` aplicada | |
-| 15 | Mestre de saída | Qualquer mudança de etapa: nenhuma tag `fila-*` sobra e o contato sai dos 2 workflows | |
-| 16 | Mestre de saída não se morde | Mover **para** `Em cadência` não aciona a limpeza | |
+| 15 | Mestre de saída | Qualquer mudança de etapa **ou de `status`**: nenhuma tag `fila-*` sobra e o contato sai dos 3 workflows de cadência (`Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias`) | |
+| 16 | Mestre de saída não se morde | Mover **para** `CONECTAR` (com `status` = `open`) não aciona a limpeza | |
 | 17 | Agendamento manual | SDR agenda pelo link: o Pós-agendamento dispara (é o teste do gatilho `Appointment Status`) | |
 | 18 | Sticky Contact | Agendar 2 leads seguidos na mesma aba: o 2º **não** herda dados do 1º | |
 | 19 | Nota | Preencher a qualificação completa e conferir a nota na mão contra a seção 9.1 | |
@@ -3254,21 +3265,22 @@ para minutos; **volte os valores reais antes de publicar**.
 | 21 | Listas inteligentes | Cada uma das 4 listas mostra exatamente os contatos esperados | |
 | 22 | Rotina de manutenção | Rodar `rotina-limpar-tarefas.md`: tarefas fora do prefixo são **concluídas**, nunca excluídas, e a tag sai | |
 | 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
-| 24 | Loop do closer | No Teste Atendeu já em `Reunião agendada`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: etapa vira `Descartado`, `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
-| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `Conectado`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
-| 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `Em cadência` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
-| 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e etapa `Nutrição` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa volta para `Em cadência`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, etapa volta para `Nutrição`, e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
-| 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `Em cadência` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
+| 24 | Loop do closer | No Teste Atendeu já em `NEGOCIAR`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: `status` vira `lost` (permanece em `NEGOCIAR` — seção 5.1), `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
+| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `AGENDAR`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
+| 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `CONECTAR` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
+| 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e `status` `abandoned` em `CONECTAR` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa/`status` voltam para `CONECTAR`/`open`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, `status` volta a `abandoned` (etapa permanece `CONECTAR`), e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
+| 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `CONECTAR` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
 | 29 | Monitor de Capacidade (R-11) | Com os 5 contatos de teste em `fila-tel`/`fila-wa` ao mesmo tempo, confira que a lista `Fila do Dia — Total` (8.16) soma os dois grupos sem duplicar ninguém; confirme se o plano da subconta expõe Custom Metrics e, se sim, que `Estouro da Fila` mostra `5 − 100` (negativo, dia normal); rode o Scheduler do "Monitor de Capacidade" manualmente (ou aguarde o horário) e confira que o Internal Notification chega ao gestor nos dois horários configurados | |
-| 30 | Handoff e no-show (R-12) | No Teste Atendeu já em `Reunião agendada`, reduza os Waits das seções 5.3/5.4 para minutos e marque o agendamento como `No Show`: `Nº de no-shows` vai a 1, o closer recebe o alerta imediato (nó 3 da 5.4), `fila-tel` é aplicada e a tarefa `[CADENCIA] NS1` nasce; confirme NS2/NS3 nascendo nos horários reduzidos e, sem resposta a nenhuma, `Template usado` = `NS-2`, `nutricao-90d` aplicada e etapa de volta a `Nutrição`. Não deixe passar as 2h reduzidas do nó 4 da 5.4 sem reagendar: confirme o Internal Notification de escalonamento ao gestor (nó 6). Repita o `No Show` uma segunda vez no mesmo contato (rodada manual): `Nº de no-shows` chega a 2, a oportunidade vai direto para `Descartado`, sem tarefa nova e sem alerta de SLA ao closer (nó 2 da 5.4 encerra sozinho). Por fim, num terceiro contato, marque `No Show` e reagende pelo link do calendário antes do fim da régua: confirme que nenhuma tarefa `NS2`/`NS3` nasce depois do reagendamento (nó 3 do Pós-agendamento removeu os dois workflows do R-12) e que marcar `Showed` depois zera `Nº de no-shows` (nó 3 da seção 5.2) | |
-| 31 | Higiene de base (R-13) | Antes de os 5 contatos de teste ganharem telefone, mova o Teste Não Atende para `Em cadência` sem preencher `Phone`: o nó 0.0 aplica `telefone-invalido`; como o contato não tem `Site` (Q-02) nem `Instagram` (Q-03) preenchidos — o caso normal de lead outbound, porque esses dois só se preenchem na qualificação —, a oportunidade vai direto para `Descartado` (se algum dos dois estiver preenchido, vai para `Nutrição` + `nutricao-90d` — confira o ramo certo para o cadastro que estiver testando) e nenhuma tarefa `[CADENCIA] T1` nasce; o gestor recebe o aviso do nó 0.0b. Repita com um lead `cad-inbound` para confirmar o mesmo comportamento no nó 0.0 da Cadência Inbound (seção 2.10). Se a seção 2.16 tiver sido montada, valide também: um contato com telefone claramente fixo dispara o gatilho `Number Validation` como `Landline` e `Permissão WhatsApp` vira `Não` sem o lead sair de cadência | |
-| 32 | Dashboard do Gestor (R-15) | Com pelo menos o Teste Atendeu em `Reunião agendada` e algum dos 5 em `Em cadência`, abra `Painel do Gestor — Pré-vendas`: o widget "Appointment Report" mostra o agendamento do calendário `Reunião com closer`; o widget "Opportunities" mostra o Teste Atendeu na etapa certa do funil ao vivo; o widget "Tasks" mostra a(s) tarefa(s) `[CADENCIA]` criada(s) hoje. Se o plano expuser Custom Metrics, confira as quatro métricas da seção 2.17 — `Estouro da Fila` negativo com só 5 contatos, `Atrasos de Speed-to-lead` em 0 (nenhum atrasou de propósito no teste), e as duas de `Taxa de Conexão` refletindo `Conexões telefone`/`Tentativas telefone` e o par de WhatsApp dos contatos de teste que já passaram por uma tentativa | |
-| 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `Em cadência` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
+| 30 | Handoff e no-show (R-12) | No Teste Atendeu já em `NEGOCIAR`, reduza os Waits das seções 5.3/5.4 para minutos e marque o agendamento como `No Show`: `Nº de no-shows` vai a 1, o closer recebe o alerta imediato (nó 3 da 5.4), `fila-tel` é aplicada e a tarefa `[CADENCIA] NS1` nasce; confirme NS2/NS3 nascendo nos horários reduzidos e, sem resposta a nenhuma, `Template usado` = `NS-2`, `nutricao-90d` aplicada e `status` `abandoned` (permanece em `NEGOCIAR` — seção 5.3). Não deixe passar as 2h reduzidas do nó 4 da 5.4 sem reagendar: confirme o Internal Notification de escalonamento ao gestor (nó 6). Repita o `No Show` uma segunda vez no mesmo contato (rodada manual): `Nº de no-shows` chega a 2, `status` vai direto para `lost` (permanece em `NEGOCIAR`), sem tarefa nova e sem alerta de SLA ao closer (nó 2 da 5.4 encerra sozinho). Por fim, num terceiro contato, marque `No Show` e reagende pelo link do calendário antes do fim da régua: confirme que nenhuma tarefa `NS2`/`NS3` nasce depois do reagendamento (nó 3 do Pós-agendamento removeu os dois workflows do R-12) e que marcar `Showed` depois zera `Nº de no-shows` (nó 3 da seção 5.2) | |
+| 31 | Higiene de base (R-13) | Antes de os 5 contatos de teste ganharem telefone, mova o Teste Não Atende para `CONECTAR` sem preencher `Phone`: o nó 0.0 aplica `telefone-invalido`; como o contato não tem `Site` (Q-02) nem `Instagram` (Q-03) preenchidos — o caso normal de lead outbound, porque esses dois só se preenchem na qualificação —, `status` vai direto para `lost` (etapa fica em `CONECTAR` — tabela 1.0; se algum dos dois estiver preenchido, `status` vai para `abandoned` + `nutricao-90d` — confira o ramo certo para o cadastro que estiver testando) e nenhuma tarefa `[CADENCIA] T1` nasce; o gestor recebe o aviso do nó 0.0b. Repita com um lead `cad-inbound` para confirmar o mesmo comportamento no nó 0.0 da Cadência Inbound (seção 2.10). Se a seção 2.16 tiver sido montada, valide também: um contato com telefone claramente fixo dispara o gatilho `Number Validation` como `Landline` e `Permissão WhatsApp` vira `Não` sem o lead sair de cadência | |
+| 32 | Dashboard do Gestor (R-15) | Com pelo menos o Teste Atendeu em `NEGOCIAR` e algum dos 5 em `CONECTAR`, abra `Painel do Gestor — Pré-vendas`: o widget "Appointment Report" mostra o agendamento do calendário `Reunião com closer`; o widget "Opportunities" mostra o Teste Atendeu na etapa certa do funil ao vivo; o widget "Tasks" mostra a(s) tarefa(s) `[CADENCIA]` criada(s) hoje. Se o plano expuser Custom Metrics, confira as quatro métricas da seção 2.17 — `Estouro da Fila` negativo com só 5 contatos, `Atrasos de Speed-to-lead` em 0 (nenhum atrasou de propósito no teste), e as duas de `Taxa de Conexão` refletindo `Conexões telefone`/`Tentativas telefone` e o par de WhatsApp dos contatos de teste que já passaram por uma tentativa | |
+| 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `CONECTAR` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
 | 34 | Porta de Entrada (L-09/L-09b) | Crie um 6º contato de teste, fora dos 5 fictícios, só com nome e telefone (sem passar por `Add Contact` de dentro de um workflow): confirme que uma oportunidade nasce sozinha em `FUNIL DE VENDAS` → `NOVO LEAD` em segundos, sem precisar mover etapa na mão; edite qualquer campo desse mesmo contato e confirme que **não** nasce uma segunda oportunidade (Allow Duplicate Opportunities desligado). Rode o backfill manual (seção 1.3) sobre os 5 contatos fictícios existentes e confirme que os 5 ganham oportunidade em `NOVO LEAD` sem duplicar nada | |
 | 35 | Teto de toques por semana (F-04) | Reduza o Wait de 7 dias do "Contador de Toques" (seção 2.19) para minutos, no ambiente de teste. Force `Toques na semana` para 5 no Teste Atendeu (Update Contact Field manual) e deixe a T1 disparar: o nó 7 aplica `toque`, o Contador soma 1 (campo chega a 6) e agenda o desconto; confirme que a T2 seguinte cai no portão 2.5c/2.5d e fica represada, sem consumir `Tentativa nº` nem criar tarefa nova, até o Wait reduzido do Contador descontar e o campo cair abaixo de 6. Repita clicando o Trigger Link do Teste Retorno 3 vezes seguidas com o campo já em 6: confirme que a 3ª Interceptação de Sinal pula direto para a nota (nó 3c → 9) sem criar tarefa nem aviso ao SDR, mas a nota `Sinal: clique em link (teto...)` aparece no contato | |
 
-Depois do teste, **apague as 5 oportunidades e desative os 5 contatos** (não
-exclua contatos, pela regra 1) e restaure os Waits e a janela de envio.
+Depois do teste, **marque as 5 oportunidades como `status = lost` e desative
+os 5 contatos** (nunca excluir contato nem oportunidade — regra 1 do
+projeto) e restaure os Waits e a janela de envio.
 
 ---
 
