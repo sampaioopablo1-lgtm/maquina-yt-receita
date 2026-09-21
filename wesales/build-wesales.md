@@ -108,6 +108,24 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     rode `Add to Workflow` em massa pela lista de oportunidades em
     `NOVO LEAD` (mesmo mecanismo do backfill do passo 4) para cobrir quem já
     está parado hoje — o gatilho não varre sozinho quem já está na etapa
+26. Workflow "Fila Travada" (seção 2.21, F-05 peça 2) — retoque desta rodada:
+    faltava nesta lista desde que a seção foi escrita. Só depende do bloco
+    padrão de tentativa (passos 14/15) já aplicar `fila-tel`/`fila-wa`;
+    publique a qualquer momento depois deles
+27. Workflow "Cadência Sem Avanço" (seção 2.22, F-05 peça 3) — retoque desta
+    rodada, mesmo motivo do passo acima. Depende do campo
+    `Checkpoint — Tentativa nº` (passo 1) e do reset de `Tentativa nº` que a
+    Cadência 12x30/Inbound/Reengajamento (passos 14/15/18) já fazem
+28. Workflow "AGENDAR Estagnado" (seção 2.23, F-05 peça 5) — só depende do
+    pipeline do passo 3; o nó 0 do Mestre de saída (passo 7), atualizado
+    nesta rodada, já sai junto se você montar o Mestre de saída a partir
+    desta versão do documento
+29. Workflow "Retorno Vencido" (seção 2.24, F-05 peça 6) — depende do campo
+    `Checkpoint — Data de retorno` (passo 1) e do campo `Data de retorno`
+    (S-01, já existente na tela). O nó 3c novo do Pós-ligação (passo 8) e o
+    nó 4 do Mestre de saída (passo 7), os dois atualizados nesta rodada, já
+    saem junto se você montar as duas peças a partir desta versão do
+    documento
 
 ---
 
@@ -2650,6 +2668,212 @@ silencioso que o G-03 só foi achado porque alguém olhou o dado direto.
 
 ---
 
+## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `AGENDAR` sem fechar o loop) — F-05 fechado
+
+**Por quê:** a invariante que a "Adição de 18/09/2026" do roadmap
+acrescentou ao F-05 original, ao aplicar o tempo de estagnação do Sales
+Model Canvas etapa a etapa: `Conectado` (hoje `AGENDAR`, tabela 1.0) sem
+avançar para `Reunião agendada` (`NEGOCIAR`) em mais de 24h — o SDR atendeu
+o lead, ganhou a tarefa `[CONECTADO] Qualificar e agendar` (seção 4, ramo
+`Atendeu`, nó 8), e nunca fechou o loop: não agendou, não descartou. É a
+mesma classe de estrago silencioso das peças 1-3 (nada avisa sozinho), aqui
+na etapa em que L-08 (`briefing-sdr.md`) já tinha achado que falta caminho
+de saída para "sem fit" — este monitor não fecha essa lacuna (segue exigindo
+decisão do dono, L-08 continua aberta), só garante que ninguém fica parado
+ali sem ninguém saber.
+
+Mesma pesquisa de mercado das peças 1-3: nenhuma das quatro plataformas do
+enunciado do projeto (Reev, Meetime, Outreach, Salesloft) expõe alarme
+proativo para "lead conectado sem próximo passo fechado" — é reporting de
+engenharia interna, não recurso de sales engagement.
+
+**Desenho:** mesmo padrão de relógio por evento já validado em R-02 e na
+peça 1 (seção 2.20) — gatilho de chegada, `Wait` de 24h, portão que confere
+se o lead ainda está preso antes de avisar. `AGENDAR` só é alcançada uma vez
+por ciclo (o Pós-ligação, seção 4, ramo `Atendeu`, nó 6, é o único nó que
+move uma oportunidade para lá), então não tem o risco de eventos repetidos
+em menos de 24h que motivou o relógio ancorado por horário fixo da peça 2 —
+o `Wait` relativo de 24h, o mesmo mecanismo da peça 1, basta.
+
+### Gatilho
+**Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS` · Para a etapa:
+`AGENDAR`
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada entrada em `AGENDAR` merece seu próprio relógio, mesmo raciocínio da peça 1 |
+| Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, não mensagem ao lead |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Aguardar | Wait → Time Delay | 24 horas corridas |
+| 2 | Portão | If/Else | Etapa da oportunidade **ainda é** `AGENDAR` **E** `status` **é** `open` → segue (24h depois de atender, ninguém fechou o loop). Senão → **encerra** (agendou, foi descartado na mão, ou saiu por outro caminho — nada a avisar) |
+| 3 | Fila | Add Contact Tag | `agendar-estagnado` |
+| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} atendeu e está há mais de 24h em AGENDAR sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.` |
+| 5 | Registro | Add Note | `Alerta de saúde: AGENDAR sem fechar o loop em 24h · {{right_now}}` |
+
+**Limpeza da tag — por que entra no nó 0 do Mestre de saída (incondicional),
+não só na lista nomeada do nó 4 (achado ao desenhar):** o caminho normal de
+saída de `AGENDAR` (o Pós-agendamento move para `NEGOCIAR`, seção 5, nó 1)
+já aciona o nó 4 do Mestre de saída pela via comum — `NEGOCIAR` não está na
+lista de no-op do nó 1 ("`status` é `open` **e** etapa é uma de `NOVO LEAD`,
+`CONECTAR`"), então bastaria somar a tag à lista existente, como
+`fila-travada` e `conectar-estagnado` já fazem. Mas L-08 (`briefing-sdr.md`)
+registra que hoje não existe caminho formal de desqualificação a partir de
+`AGENDAR` — se algum dia alguém arrastar a oportunidade de volta para
+`CONECTAR` na mão (o único jeito manual de "desistir" sem esse caminho), a
+condição do nó 1 volta a ser verdadeira (`CONECTAR`/`open`) e o Mestre de
+saída trataria essa transição como no-op, a mesma classe de bug que já
+motivou o nó 0 incondicional para `novo-lead-estagnado` (seção 2.20).
+Somar `agendar-estagnado` ao nó 0 (em vez de só ao nó 4) cobre os dois
+caminhos de uma vez, sem custo: `Remove Contact Tag` de quem não tem a tag
+não faz nada, e o Mestre de saída já roda a cada mudança de etapa ou status.
+
+**Pronto quando (peça 5 do F-05):** um lead atendido que fica mais de 24h em
+`AGENDAR` sem virar reunião marcada nem sair por outro caminho gera aviso ao
+gestor sozinho.
+
+---
+
+## 2.24 Monitor de Saúde da Operação — F-05 (peça 6 de 6: retorno prometido e vencido) — F-05 fechado
+
+**Por quê:** a segunda invariante da mesma "Adição de 18/09/2026" — `Retorno
+agendado` (hoje: oportunidade em `CONECTAR` com `Resultado da tentativa` =
+`Pediu retorno`, tabela 1.0) com `Data de retorno` (S-01) vencida sem nova
+classificação. É a promessa mais fácil de esquecer da operação: o SDR marca
+`Pediu retorno`, a tarefa `[RETORNO]` nasce (seção 4, ramo `Pediu retorno`,
+nó 4), e se ninguém abrir a lista `Retornos` (8.4) no dia certo, a data passa
+em silêncio — o lead mais alto em `Prioridade` (5) da operação vira o mais
+esquecido, mesma classe de risco que a lição do `fila-quente`
+(`APRENDIZADOS-CRM.md`, "Conte onde a tag é aplicada e onde é removida") já
+descreveu para fila que não expira.
+
+**Isto era o único bloqueio real do F-05 até esta rodada — resolvido:** as
+peças 1-3 usaram relógio por evento (`Wait` relativo ou até horário fixo do
+dia); esta invariante precisa de "esperar até uma data que muda por lead",
+registrada como não testada neste conector desde a peça 1. Pesquisado via
+`WebSearch` nesta rodada (documentação oficial da HighLevel bloqueada pelo
+proxy deste ambiente, como sempre — a pesquisa lê o resultado de IA sobre a
+página de suporte, não a página em si): o nó `Wait` do GHL tem uma opção
+**Dynamic** (ao lado de **Standard**, valor fixo) que "lê a data de um campo
+do contato em tempo de execução" — o texto aparece **idêntico, palavra por
+palavra**, em duas buscas independentes (mesma citação do artigo oficial
+"Workflow Wait Action Setup and Options"), reforçado por um changelog da
+própria HighLevel ("Wait Action: Major Revamp") anunciando a funcionalidade
+e por um guia de terceiro (`consultevo.com`, não acessível para ler o corpo
+inteiro — proxy bloqueia o domínio, mas aparece na busca). **Nível de
+confiança médio-alto:** mais alto que o padrão "uma fonte de IA sobre
+documentação" já usado neste projeto (peça 3, R-17) porque a citação bateu
+palavra por palavra em buscas diferentes, sinal de que é o texto real do
+artigo e não uma paráfrase; ainda médio, não alto, porque nenhuma tela desta
+subconta confirmou o comportamento.
+
+### Gatilho
+**Contact Changed** — filtro: Custom Field `Data de retorno` **alterado**
+(qualquer valor novo, não um valor fixo — diferente da peça 3, que comparava
+`Tentativa nº` contra `0`). **Por que este operador, e por que a confiança
+aqui é maior que a da peça 3 para o mesmo tipo de dúvida ("dispara quando
+escreve o mesmo valor?"):** o Pós-ligação (seção 4) já usa exatamente este
+tipo de filtro — "`Resultado da tentativa` foi alterado" — **em produção,
+com 24 execuções confirmadas** (`APRENDIZADOS-CRM.md`, "Diagnóstico por
+contador vizinho"). Diferente daquele campo (`SINGLE_OPTIONS`, um SDR pode
+em tese escrever o mesmo resultado duas vezes seguidas), `Data de retorno`
+é uma data escolhida pelo SDR a cada nova ligação de retorno — reescrever o
+**mesmo dia exato** numa promessa renovada é a mesma classe de coincidência
+rara que a peça 3 já aceitou como limite conhecido, não um caso comum a
+proteger.
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada nova data de retorno (a primeira promessa, ou uma renovada depois de o SDR ligar de novo) merece seu próprio relógio |
+| Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Checkpoint | Update Contact Field | `Checkpoint — Data de retorno` = `{{contact.data_de_retorno}}` (o valor no instante do gatilho) |
+| 2 | Aguardar | Wait → Until specific time, **Dynamic** | Data = `{{contact.checkpoint_data_de_retorno}}` · horário `19:00` (mesma folga de 30 min depois do fim do expediente, 18:30, já usada na peça 2 — dá o dia inteiro para o SDR ligar antes do alerta) |
+| 3 | Portão — a promessa ainda é a mesma? | If/Else | `Data de retorno` (valor atual) **é igual a** `Checkpoint — Data de retorno` → segue (ninguém renovou a promessa desde que este relógio começou). Senão → **encerra** (o gatilho já disparou de novo com a data nova — outra instância está vigiando o valor certo) |
+| 4 | Portão — ainda pendente? | If/Else | `Resultado da tentativa` **é** `Pediu retorno` **E** etapa **é** `CONECTAR` **E** `status` **é** `open` → segue (a data passou sem reclassificação). Senão → **encerra** (o SDR já ligou de volta e classificou por outro caminho, ou o lead saiu de cadência) |
+| 5 | Fila | Add Contact Tag | `retorno-vencido` |
+| 6 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} tinha retorno prometido para {{contact.data_de_retorno}} e ainda não foi reclassificado.` |
+| 7 | Registro | Add Note | `Alerta de saúde: retorno vencido sem nova classificação · {{right_now}}` |
+
+**Por que o Checkpoint compara valor, não usa o campo vivo direto no
+portão do nó 3 (mesma lição da peça 3, `Checkpoint — Tentativa nº`):** entre
+o gatilho e o dia do vencimento, o SDR pode ter ligado de novo e renovado a
+promessa para uma data mais distante — a instância antiga, se comparasse o
+campo vivo, leria a data nova e concluiria "ainda pendente" no dia errado. O
+Checkpoint congela o valor que **esta** instância deve vigiar; se o campo
+vivo já é outro, uma instância mais nova (disparada pelo mesmo gatilho
+quando a data mudou) está cuidando do valor certo, e esta encerra em
+silêncio.
+
+**Por que a recorrência do campo não repete o risco de "contador com dois
+donos" (F-04, e a peça 2 descartando um desenho parecido):** `Data de
+retorno` muda no máximo poucas vezes na vida de um lead (uma promessa, e
+raramente uma renovação), sempre espaçada por dias — não escrita dezenas de
+vezes por dia como `toque`. Mesmo raciocínio já generalizado na peça 3
+(`APRENDIZADOS-CRM.md`, "Nem todo campo compartilhado é um 'contador com
+dois donos'").
+
+### Campo novo
+`Checkpoint — Data de retorno` (C-28, `campos-e-tags.md`), `DATE` — existe só
+para este workflow comparar consigo mesmo, mesmo raciocínio de C-27 (peça 3):
+nenhum outro nó do projeto lê ou escreve nele.
+
+### Limpeza da tag — dois caminhos, porque o caminho comum de recuperação nunca muda de etapa
+**Achado ao desenhar, o mais importante desta peça:** o caminho mais comum
+pelo qual esta invariante se resolve é o SDR ligar de volta e marcar
+`Resultado da tentativa` de novo — `Atendeu`, `Não atendeu`, `Número
+errado`, `Não ligar`, ou até um novo `Pediu retorno` com data futura. Três
+desses cinco (`Não atendeu`/ramo idêntico, `Pediu retorno` de novo) **não
+mudam etapa nem `status`** (o lead continua em `CONECTAR`/`open` — seção 4,
+ramos `Caixa Postal`/`Não atendeu` e `Pediu retorno`) — o que significa que
+o Mestre de saída **nunca dispara** nesse caminho, porque seu gatilho é
+`Opportunity Stage Changed`/`Opportunity Status Changed`, nenhum dos dois
+acontece aqui. Somar `retorno-vencido` só à lista do nó 4 do Mestre de
+saída (o mesmo tratamento de `fila-travada`/`conectar-estagnado`) deixaria a
+tag presa para sempre no caso mais comum de recuperação.
+
+**Resolvido com um nó novo no Pós-ligação, não no Mestre de saída:** o
+próprio gatilho do Pós-ligação (`Resultado da tentativa` alterado) é a
+definição operacional de "o SDR agiu sobre o lead" — mesmo raciocínio já
+usado para a limpeza de `fila-quente` no nó 3b daquele workflow
+(`APRENDIZADOS-CRM.md`, "Conte onde a tag é aplicada e onde é removida").
+Um nó novo, **3c**, logo depois do 3b e antes do nó 4 (a ramificação pelos 6
+resultados) — `Remove Contact Tag: retorno-vencido`, incondicional, roda
+qualquer que seja o resultado novo, inclusive um `Pediu retorno` renovado
+(a tag sai e, se a data mudou, uma instância nova deste monitor já está
+vigiando o valor novo desde o nó 1). O nó 4 do Mestre de saída continua
+com `retorno-vencido` na lista, como rede de segurança para o caso raro em
+que o lead sai de `CONECTAR`/`status open` por um caminho que não passa pelo
+Pós-ligação (ex.: movimento manual de etapa na tela).
+
+**Retoque de tela, os dois — Pós-ligação e Mestre de saída estão
+publicados:** linhas novas na tabela de `GUIA-MONTAGEM.md`.
+
+**Escopo depois desta peça — F-05 fechado:** das seis invariantes originais
+do "Como" do F-05 (mais as duas adições de 18/09/2026), todas têm tratamento
+agora: `fila-tel`/`fila-wa` presa (peça 2), `CONECTAR` sem avanço em 14 dias
+(peça 3), tarefa vencida sem resultado (descartada — já coberta pelo nó 10b
+da seção 2.4), `nao-perturbe` em workflow ativo (peça 4, por prevenção em vez
+de detecção), `AGENDAR` sem fechar o loop em 24h (peça 5) e retorno vencido
+sem reclassificação (esta peça). Mais `NOVO LEAD` esquecido (peça 1, achada
+fora da lista original via G-03). Não sobra invariante do F-05 sem
+workflow — o item fica fechado como bloco, não só peça a peça.
+
+**Pronto quando (peça 6 do F-05, e do F-05 inteiro):** um retorno prometido
+que vence sem o SDR ligar de volta gera aviso ao gestor sozinho, sem
+depender de alguém abrir a lista `Retornos` (8.4) no dia certo.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
@@ -2685,13 +2909,13 @@ condição que cobre os dois:
 ### Nós
 | # | Ação | Configuração |
 |---|---|---|
-| 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20) — **incondicional, antes do portão do nó 1** |
+| 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20), `agendar-estagnado` (F-05, seção 2.23) — **incondicional, antes do portão do nó 1** |
 | 1 | If/Else | `status` **é** `open` **E** etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10, quando existir) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12, quando existir) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
 
@@ -2704,6 +2928,19 @@ caminho, que é exatamente o caminho em que este alerta se resolve. Rodar a
 remoção antes do portão, sem condição, resolve sem duplicar o portão para
 uma tag só: `Remove Contact Tag` de quem não tem a tag não faz nada, mesmo
 raciocínio já usado para `Remove from Workflow` nos nós seguintes.
+
+**F-05, peça 5 (21/09/2026) — `agendar-estagnado` entrou no mesmo nó 0, por
+precaução, não porque o caminho normal precise dele:** a saída comum de
+`AGENDAR` (Pós-agendamento move para `NEGOCIAR`) já cai fora da lista de
+no-op do nó 1 e alcançaria o nó 4 sozinha, como `fila-travada`/
+`conectar-estagnado`. Mas L-08 (`briefing-sdr.md`) registra que hoje não
+existe caminho formal de desqualificar a partir de `AGENDAR` — se um dia
+alguém arrastar a oportunidade de volta para `CONECTAR` na mão (o único
+"desistir" manual possível sem esse caminho), a condição do nó 1 volta a
+ser verdadeira e trataria essa transição como no-op, repetindo a classe de
+bug que já motivou este nó 0 para `novo-lead-estagnado`. Somar a tag aqui
+custa nada (mesmo raciocínio do parágrafo acima) e cobre os dois caminhos de
+uma vez — detalhe completo na seção 2.23.
 
 **F-05, peça 4 (21/09/2026) — a lista dos nós 2/2b/2c/3 virou um só nó, e o
 motivo é o mesmo que motivou a peça 4 do "Como" original do F-05 ("`nao-
@@ -2888,6 +3125,7 @@ crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
 | 2 | If/Else | A tentativa foi de WhatsApp? (`fila-wa` presente **ou** a tarefa aberta tem `(WhatsApp)` no título) → Math: `Tentativas WhatsApp` + 1. Senão → Math: `Tentativas telefone` + 1 |
 | 3 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
 | 3b | Remove Contact Tag | `fila-quente` — **incondicional, e depois do nó 2 de propósito** (o nó 2 lê `fila-wa` para decidir o contador; tag de fila só pode sair depois dessa leitura). Ver nota abaixo |
+| 3c | Remove Contact Tag | `retorno-vencido` (F-05, seção 2.24) — **incondicional, qualquer resultado novo**. Ver nota abaixo |
 | 4 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
 
 O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
@@ -2920,6 +3158,15 @@ merece fila nova.
 
 **Retoque de tela:** o Pós-ligação está publicado (24 execuções). A linha
 está na tabela de retoques do `GUIA-MONTAGEM.md`.
+
+**Por que o nó 3c existe (F-05, peça 6, seção 2.24):** mesma classe de
+achado do nó 3b, aplicada a `retorno-vencido` em vez de `fila-quente` — o
+caminho mais comum de recuperação (o SDR liga de volta e reclassifica) não
+muda etapa nem `status` na maioria dos resultados possíveis, então o Mestre
+de saída nunca dispara para limpar. O gatilho deste workflow já é "alguém
+agiu sobre o lead"; um `Remove Contact Tag` incondicional aqui, antes da
+ramificação do nó 4, fecha o caminho de recuperação sem depender de etapa
+mudar. Detalhe completo na seção 2.24.
 
 #### Ramo `Atendeu`
 | # | Ação |
@@ -3834,6 +4081,31 @@ A tag só existe porque o workflow da seção 2.22 (F-05, peça 3) já esperou
 aplicá-la. Diferente da 8.21 (uma tentativa travada dentro do próprio dia),
 esta lista é o sensor da cadência **parada de vez** — o cenário-limite que
 a peça 2 já citava como fora do seu próprio alcance.
+
+### 8.23 `Saúde — AGENDAR Estagnado` — F-05
+| Item | Configuração |
+|---|---|
+| Filtros | tag `agendar-estagnado` presente |
+| Colunas | Nome · Telefone · `Data conectado` · Tarefas abertas |
+| Ordenação | `Data conectado` asc (quem atendeu há mais tempo sem fechar o loop aparece primeiro) |
+
+A tag só existe porque o workflow da seção 2.23 (F-05, peça 5) já esperou
+24h desde a conexão e conferiu de novo antes de aplicá-la — mesmo
+raciocínio de ordenação da 8.20 (quem espera há mais tempo precisa de
+decisão primeiro).
+
+### 8.24 `Saúde — Retorno Vencido` — F-05
+| Item | Configuração |
+|---|---|
+| Filtros | tag `retorno-vencido` presente |
+| Colunas | Nome · Telefone · `Data de retorno` · `Prioridade` · Tarefas abertas |
+| Ordenação | `Data de retorno` asc (quem venceu há mais tempo aparece primeiro) |
+
+A tag só existe porque o workflow da seção 2.24 (F-05, peça 6) já esperou
+até depois do horário combinado e conferiu de novo, comparando contra o
+`Checkpoint — Data de retorno` congelado no instante do gatilho, antes de
+aplicá-la — mesma garantia de "não é palpite" que as outras quatro listas de
+saúde (8.20-8.23) já seguem.
 
 ---
 

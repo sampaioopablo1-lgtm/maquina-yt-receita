@@ -2,6 +2,67 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Esperar até uma data dinâmica" não é mais bloqueio: o `Wait` do GHL tem opção `Dynamic` — F-05 fechado (peças 5 e 6) — 21/09/2026, sessão automática
+
+Desde a peça 1 do F-05 (18/09/2026), o roadmap registrava a última
+invariante do Monitor de Saúde (`Retorno agendado`/`Data do retorno`
+vencida) como bloqueada por "esperar até uma data dinâmica, não testado
+neste conector". Cada rodada seguinte (peças 2, 3, a nota de fechamento
+depois da peça 4) reconferiu a razão de esperar e a manteve — até esta
+rodada, seguindo a própria instrução do roadmap ("reler o 'por quê estamos
+esperando' de todo item represado").
+
+**Pesquisado via `WebSearch`** (domínios da HighLevel seguem bloqueados
+pelo proxy deste ambiente, mesma limitação de sempre — a busca lê o
+resultado de IA sobre a página de suporte, não a página em si): o nó `Wait`
+do GHL tem uma opção **Dynamic** (ao lado de **Standard**, um valor fixo),
+descrita como lendo "a data de um campo do contato em tempo de execução".
+**O que eleva a confiança acima do padrão usual deste projeto para achado
+só de busca:** a mesma frase — "Standard is a fixed date you choose... Use
+Dynamic when the value should be read from a contact field at runtime" —
+apareceu **palavra por palavra**, em duas buscas com termos diferentes,
+sinal de que é o texto real do artigo oficial ("Workflow Wait Action Setup
+and Options") sendo citado, não uma paráfrase que poderia estar errada. Um
+changelog da própria HighLevel ("Wait Action: Major Revamp") reforça que a
+funcionalidade existe e é recente. **Nível de confiança: médio-alto** —
+mais alto que "uma fonte de IA sobre documentação" isolada, mas ainda não
+confirmado numa tela desta subconta.
+
+**Regra prática, generalizável:** quando uma busca de IA sobre documentação
+retorna a mesma frase, quase idêntica, em consultas com termos de busca
+diferentes, é um sinal de que ela está citando o texto original (que a IA
+não inventaria duas vezes do mesmo jeito) — vale mais confiança do que uma
+única busca, mesmo sem conseguir ler a página fonte direto (proxy bloqueia
+`help.gohighlevel.com`, `ideas.gohighlevel.com` e blogs de terceiros como
+`consultevo.com` igualmente).
+
+**Isso desbloqueou as duas invariantes finais do F-05**, peças 5
+(`AGENDAR` sem fechar o loop em 24h — `build-wesales.md`, seção 2.23) e 6
+(retorno vencido sem reclassificação — seção 2.24), fechando o item por
+completo. Um achado de desenho na peça 6 vale registrar à parte: o gatilho
+"campo alterado" que ela precisa (`Data de retorno`) já está **provado em
+produção**, não só em documentação — o Pós-ligação (seção 4) usa
+exatamente esse tipo de filtro (`Resultado da tentativa` alterado) há dias,
+com 24 execuções confirmadas (ver "Diagnóstico por contador vizinho",
+abaixo). Isso resolve, por evidência própria do projeto e não só por busca,
+a mesma dúvida que a peça 3 tinha registrado com confiança baixa ("dispara
+quando escreve o mesmo valor?") — aqui o campo é uma data escolhida pelo
+SDR a cada ligação, não um valor de uma lista fechada, então a chance de
+reescrever o **mesmo** valor é baixa o bastante para não precisar da
+resposta exata daquela dúvida.
+
+Zero escrita no CRM nesta rodada: as duas peças são especificação
+(`build-wesales.md`, seções 2.23/2.24, mais os retoques nos nós 0/4 do
+Mestre de saída — seção 3 — e o nó 3c novo do Pós-ligação — seção 4), um
+campo novo (`Checkpoint — Data de retorno`, C-28) e duas tags novas
+(`agendar-estagnado` T-19, `retorno-vencido` T-20) propostas, não criadas —
+nascem `[ ]` em `APROVADO.md`, mesma regra desde o incidente da T-15.
+Subconta reconfirmada via `opportunities_get-pipelines`/
+`opportunities_search-opportunity`/`locations_get-custom-fields`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 46 campos, 50 oportunidades (47 `NOVO LEAD` +
+3 `NEGOCIAR`, status `open` em todas) — sem mudança desde a última rodada;
+G-03/G-04 seguem aguardando o dono.
+
 ## Teste do Loop do closer não disparou; o Mestre de saída dispara na criação da oportunidade — 21/09/2026, ao vivo em chat
 
 **Teste por API do `Post-Meeting Closer Loop` (seção 5.1), a pedido do

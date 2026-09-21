@@ -986,7 +986,7 @@ contato de estrutura, confirmado por `contacts_get-contact` — 15 tags do
 projeto agora na subconta, `dateUpdated` 19/09/2026 04:15 UTC. Checklist
 ganhou o item 35.
 
-### F-05 · Monitor de saúde da operação — peça 1 (lead esquecido em `NOVO LEAD`), peça 2 (`fila-tel`/`fila-wa` presa), peça 3 (`CONECTAR` sem avanço) e peça 4 (`nao-perturbe` ainda em workflow ativo) de N, todas FEITAS em 21/09/2026
+### F-05 · Monitor de saúde da operação — FEITO em 21/09/2026 (seis peças: lead esquecido em `NOVO LEAD`, `fila-tel`/`fila-wa` presa, `CONECTAR` sem avanço, `nao-perturbe` ainda em workflow ativo, `AGENDAR` sem fechar o loop, retorno vencido sem reclassificação)
 **Por quê:** automação falha **em silêncio**. Tag que não saiu, lead parado numa
 etapa, workflow que parou de disparar — descobre-se pelo número caindo, semanas
 depois, quando o estrago já aconteceu.
@@ -1158,13 +1158,59 @@ bloqueado por workflow que ainda não existe. Detalhe completo:
 (W3/W4/W5/W14), `GUIA-MONTAGEM.md` (retoques) e `APRENDIZADOS-CRM.md`
 (lição original marcada como superada, não apagada).
 
-**Escopo depois das quatro peças desta rodada:** das seis invariantes
-originais do "Como" (mais as duas adições de 18/09), três têm workflow
+**Escopo depois das quatro peças daquela rodada:** das seis invariantes
+originais do "Como" (mais as duas adições de 18/09), três tinham workflow
 (`NOVO LEAD` estagnado, `fila-tel`/`fila-wa` presa e `CONECTAR` sem avanço),
 uma foi descartada por já estar coberta (tarefa vencida sem resultado) e a
 de `nao-perturbe` em workflow ativo foi resolvida na raiz em vez de por
-monitor (acima). Resta uma: `Conectado`/`Retorno agendado` vencidos — segue
-dependendo de "esperar até uma data dinâmica", não testado neste conector.
+monitor (acima). Restava uma: `Conectado`/`Retorno agendado` vencidos —
+seguia dependendo de "esperar até uma data dinâmica", não testado neste
+conector.
+
+**Resumo (21/09/2026, peças 5 e 6 — mesmo dia, sessão automática seguinte
+— F-05 fechado):** o próprio roadmap (nota no fim deste arquivo) mandava
+reconferir se essa dependência ainda valia antes de procurar lacuna nova.
+Pesquisado via `WebSearch` (documentação oficial da HighLevel segue
+bloqueada pelo proxy deste ambiente): o nó `Wait` do GHL tem uma opção
+**Dynamic** que lê a data de um custom field em tempo de execução — achado
+com confiança médio-alta (a mesma citação do artigo oficial apareceu
+palavra por palavra em duas buscas independentes, reforçada por um
+changelog da própria HighLevel anunciando a funcionalidade). A dependência
+caiu, e as duas invariantes que faltavam ganharam workflow:
+
+- **Peça 5 — `AGENDAR` sem fechar o loop em 24h** (`Conectado` no plano
+  original): workflow "AGENDAR Estagnado" (`build-wesales.md`, seção 2.23),
+  mesmo padrão de relógio por evento da peça 1 — gatilho `Opportunity Stage
+  Changed → AGENDAR`, `Wait` de 24h, portão, tag `agendar-estagnado` (T-19)
+  e aviso ao gestor. Limpa pelo nó 0, incondicional, do Mestre de saída —
+  por precaução contra a lacuna L-08 (`briefing-sdr.md`, "`AGENDAR` não tem
+  caminho formal de desqualificação"), não porque o caminho normal precise.
+- **Peça 6 — retorno prometido e vencido sem reclassificação** (`Retorno
+  agendado` no plano original): workflow "Retorno Vencido" (`build-wesales.md`,
+  seção 2.24) — o que dependia da data dinâmica. Gatilho `Contact Changed`
+  filtrando `Data de retorno` alterado (o mesmo tipo de filtro que o
+  Pós-ligação já usa em produção, 24 execuções confirmadas —
+  `APRENDIZADOS-CRM.md`), checkpoint do valor no instante do gatilho (mesmo
+  padrão da peça 3, campo novo `Checkpoint — Data de retorno`, C-28), `Wait`
+  Dynamic até esse valor às 19:00, dois portões (a promessa não foi renovada
+  E ainda está pendente) antes de marcar `retorno-vencido` (T-20). **Achado
+  ao desenhar a limpeza, o mais importante das duas peças:** o caminho mais
+  comum de recuperação (o SDR liga de novo e reclassifica) não muda etapa
+  nem `status` na maioria dos resultados possíveis — o Mestre de saída
+  nunca dispara nesse caminho. Resolvido com um nó novo, incondicional, no
+  próprio Pós-ligação (nó 3c, mesmo raciocínio já usado para `fila-quente`
+  no nó 3b daquele workflow), com o nó 4 do Mestre de saída como rede de
+  segurança, não como limpeza principal.
+
+**F-05 fechado como bloco:** as seis invariantes originais do "Como" (mais
+a de `NOVO LEAD`, achada via G-03) têm tratamento agora — três por
+detecção com relógio (peças 1, 2, 3), uma por prevenção (peça 4), duas por
+detecção com checkpoint (peças 5, 6). Nenhuma pendência restante dentro do
+item. Zero escrita no CRM nesta rodada: as duas tags (T-19/T-20) e o campo
+novo (C-28) nascem propostos, não criados — mesma regra de todo `[ ]` desde
+o incidente da T-15. Subconta reconfirmada: mesmas 5 etapas do `FUNIL DE
+VENDAS`, 46 campos, 50 oportunidades — G-03/G-04 seguem aguardando o dono,
+sem mudança.
 
 ### F-06 · Qualidade da conexão, não a contagem
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
@@ -1260,29 +1306,32 @@ verdade para medir.
 **Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
 rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
-bloco 5. O que resta entre os itens numerados não espera posição na fila,
-espera a operação existir: R-14 quando a máquina começar a mandar mensagem
-de verdade, o resto do F-05 (peça 5, `Conectado`/`Retorno agendado`
-vencidos) quando alguém resolver "esperar até uma data dinâmica", e o F-06
-quando houver volume de ligação real.
+bloco 5. O F-05 (bloco 6) fechou por inteiro em 21/09/2026 — não sobra peça
+represada nele. O que resta entre os itens numerados não espera posição na
+fila, espera a operação existir: R-14 quando a máquina começar a mandar
+mensagem de verdade, e o F-06 quando houver volume de ligação real.
 
-**Com G-02 fechado em 21/09/2026 e as quatro primeiras peças do F-05
-especificadas na mesma data, não sobra item de documentação pura óbvio
-esperando uma sessão sem tela nem volume — mas isso não é permanente, como
-o próprio F-05 acabou de mostrar quatro vezes na mesma rodada.** O que
-resta é de três tipos: (1) montar na tela o que já está especificado
-(pipeline, campos, workflows, calendário e formulário, pelo
-`build-wesales.md`) — trabalho manual, ao vivo com o dono, e a peça 4 do
-F-05 acrescentou quatro retoques "dá para fazer hoje" a essa fila
-(`GUIA-MONTAGEM.md`) —, (2) esperar volume/mensagem real para R-14 e F-06,
-e (3) a única peça que resta do F-05 (a de `Conectado`/`Retorno agendado`
-vencidos), que continua esperando alguém resolver "esperar até uma data
-dinâmica" antes de virar desenho. Uma sessão automática sem acesso à tela e
-sem (2) desbloqueado não deve inventar trabalho para preencher a rodada: o
-próximo passo honesto é conferir se (3) deixou de estar bloqueada, depois a
-varredura de coerência entre documentos (a mesma que fechou G-02 e a peça 4
-— grep por nome antigo, merge field órfão, contagem duplicada, lista manual
-que devia ter virado ação nativa) e, se ela não achar nada, procurar uma
-lacuna nova que nenhum item aqui cobre ainda (o mesmo raciocínio que criou
-G-01, G-02, a peça 4 do F-05 e o bloco 6 inteiro) antes de encerrar sem
-commit.
+**Com G-02 fechado em 21/09/2026 e o F-05 inteiro (seis peças) fechado na
+mesma data, não sobra item de documentação pura óbvio esperando uma sessão
+sem tela nem volume — mas isso não é permanente, como o próprio F-05
+acabou de mostrar seis vezes na mesma rodada, a última (peças 5 e 6) só
+depois de uma dependência que parecia fechada ("esperar até uma data
+dinâmica, não testado neste conector") se resolver sozinha por uma busca
+melhor.** O que resta é de três tipos: (1) montar na tela o que já está
+especificado (pipeline, campos, workflows, calendário e formulário, pelo
+`build-wesales.md`) — trabalho manual, ao vivo com o dono, e as peças 5/6
+do F-05 acrescentaram mais retoques "dá para fazer hoje" a essa fila
+(`GUIA-MONTAGEM.md`), além de completar duas lacunas antigas da própria
+"Ordem de montagem" (as peças 2 e 3 do F-05 nunca tinham entrado nela) —,
+(2) esperar volume/mensagem real para R-14 e F-06, e (3) G-03/G-04, que
+esperam decisão do dono, não desenho. Não sobra peça do F-05 represada por
+premissa técnica. Uma sessão automática sem acesso à tela e sem (2)
+desbloqueado não deve inventar trabalho para preencher a rodada: o próximo
+passo honesto é a varredura de coerência entre documentos (a mesma que
+fechou G-02 e a peça 4 — grep por nome antigo, merge field órfão, contagem
+duplicada, lista manual que devia ter virado ação nativa) e, se ela não
+achar nada, reler os itens represados por "premissa técnica não testada"
+como esta rodada acabou de fazer com o F-05 (a razão de esperar pode ter
+vencido sem ninguém notar) e, só depois, procurar uma lacuna nova que
+nenhum item aqui cobre ainda (o mesmo raciocínio que criou G-01, G-02, a
+peça 4 do F-05 e o bloco 6 inteiro) antes de encerrar sem commit.
