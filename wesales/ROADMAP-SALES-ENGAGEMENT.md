@@ -291,6 +291,14 @@ como a própria seção 2.1 explica). **Então a ordem certa é: publicar a
 o estoque.** Vale igual para a opção 3 (ação manual em massa), que é a mais
 tentadora justamente por parecer não depender de nada.
 
+**Cruzamento com o G-05 (21/09/2026):** a precondição acima ("publicar a
+`Cadência 12x30` primeiro") ganhou um detalhe que vem do G-05 — publique-a
+**sem os quatro nós de envio de WhatsApp**, que dependem de Template
+aprovado pela Meta. As 12 tarefas de ligação, que são o motivo do item,
+funcionam sem eles. Esperar a aprovação da Meta para publicar deixaria estes
+47 leads sem ligação por mais dois dias sem ganho nenhum. A ordem completa
+está na tabela do G-05.
+
 **Por que não decidi sozinho:** mover 47 oportunidades reais de etapa é ação
 em massa em dado de produção — regra 2 do briefing pede listar e confirmar
 antes, e a régua de fila hoje é decisão deliberada do SDR (não bug), então
@@ -382,6 +390,29 @@ fields (`{{contact.first_name}}`, `{{contact.segmento}}`,
 Template, e o Trigger Link `[Agendar com o closer]` provavelmente vira um
 botão CTA de URL do Template em vez de texto inline (a confirmar na tela —
 Template tem formatação mais restrita que mensagem livre).
+**O que este item NÃO bloqueia, e vale dizer antes que alguém leia como
+"não publique nada" (acrescentado em 21/09/2026, ao conferir o item):** a
+`Cadência 12x30` são **12 tarefas de ligação** (telefone e ligação por
+WhatsApp) e **4 envios de texto** (`M1-a`/`M1-b`, `M2-v1`, `M3-v1`). O que
+paga a operação — a fila de ligação do SDR, os contadores, o roteamento por
+resultado, a saída limpa — não depende de Template nenhum. Publicar a régua
+com os quatro nós de envio **desativados** (ou com o portão já montado, ramo
+livre vazio) entrega o motor inteiro hoje e deixa só a mensagem esperando a
+Meta.
+
+A ordem que sai daqui, e que nenhum item dizia inteira num lugar só:
+
+| # | Passo | Depende de |
+|---|---|---|
+| 1 | Número de telefone e canal de WhatsApp na subconta | decisão do dono (pendência antiga do R-14) |
+| 2 | Publicar a `Cadência 12x30` **sem os 4 nós de envio**, testar com 1-2 leads | nada além do passo 1 para as tarefas |
+| 3 | Promover o estoque de `NOVO LEAD` (G-03) | passo 2 publicado, porque o gatilho é evento e não varre quem já está na etapa |
+| 4 | Submeter os Templates à Meta (até 48h) e ligar o portão nos 4 nós | passo 1, e só isso |
+
+Inverter 2 e 3 gasta o evento no vácuo (nota do G-03); esperar o passo 4
+para fazer o 2 deixa 47 leads pagos sem ligação por mais 48h sem nenhum
+ganho.
+
 **Pronto quando:** todo nó `Send WhatsApp` da operação tem o
 `Customer Service Window Check` antes dele e os dois ramos (livre/Template)
 especificados; os 11 textos de `biblioteca-mensagens.md` têm Template Meta
