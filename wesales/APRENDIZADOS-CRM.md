@@ -2,6 +2,49 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Teste do Loop do closer não disparou; o Mestre de saída dispara na criação da oportunidade — 21/09/2026, ao vivo em chat
+
+**Teste por API do `Post-Meeting Closer Loop` (seção 5.1), a pedido do
+dono:** gravei em `Teste Atendeu` (`NEGOCIAR`, `open`) `Nota de
+qualificação` = 80, depois (8 s depois) `Reunião foi qualificada` = `Não` +
+`Motivo da desqualificação` = `Sem fit` via `contacts_update-contact`
+(`customFields: [{id, fieldValue}]` — o `id` do campo funciona; testado).
+Duas leituras (30 s e 2 min): nenhum rastro — `Data do veredito` vazia,
+nenhuma nota nova, status ainda `open`, `dateUpdated` do contato parado na
+minha escrita. Conclusão: o workflow não executou — está em rascunho (toggle
+"Publicar" desligado em todas as telas do dono, com dois nós marcados "há um
+problema com esta configuração"). O contato ficou preparado para o
+re-teste (mudar o veredito para `Parcial` e voltar a `Não` depois de
+publicar — `Allow Re-entry` ligado exige que o campo *mude*).
+
+**Achado lateral, confirmado com timestamp:** o `Mestre de saída` (id de
+workflow `30da2c98…`) grava a nota "Saída de cadência · status: open" **4
+segundos depois** de a Porta de Entrada criar a oportunidade em `NOVO LEAD`
+(`Carlos Andrade`, criado 09:17:26, nota 09:17:30) e aplica
+`limpar-tarefas` — em todo lead novo. `Create/Update Opportunity` dispara
+`Opportunity Stage Changed`, e o portão do nó 1 só encerrava para
+`CONECTAR`+`open`. Corrigido na especificação (seção 3: nó 1 também encerra
+em `NOVO LEAD`) e na tabela de retoques do `GUIA-MONTAGEM.md`; a tela
+ainda precisa do clique. **Regra prática:** todo workflow com gatilho
+`Opportunity Stage Changed` sem filtro de etapa de destino recebe também a
+**criação** da oportunidade — o portão precisa tratar `NOVO LEAD`
+explicitamente, não só a etapa que ele "espera".
+
+**Dois achados menores, pelo mesmo rastro:** (1) o merge field
+`{{opportunity.pipeline_stage}}` renderiza **vazio** na nota publicada
+(`{{opportunity.status}}` renderiza certo) — o token real precisa ser pego
+no seletor `{}` da tela; (2) a nota "REUNIÃO AGENDADA · nota /100" do
+Pós-agendamento saiu com nota, `Empresa`, `Segmento`, `Agendado por`, `Para`
+e `conexões` em branco, e uma nota "Checklist de Autoauditoria" gravada pela
+IA do construtor no contato diz que a nota de qualificação foi montada como
+"custom code" — é o nó 4 que nunca escreve `nota_de_qualificao`.
+
+Tudo isso virou `IMPLEMENTACAO-WORKFLOWS.md`, novo: a configuração exata de
+cada nó de cada workflow (ação, campo, operador, valor, ramo), com os nomes
+reais lidos da subconta — para montar à mão. Escrita no CRM nesta rodada:
+só os 3 campos do contato fictício `Teste Atendeu` (teste do checklist,
+seção 10, autorizado em `APROVADO.md`); nenhum lead real tocado.
+
 ## Um número copiado de um enunciado precisa ser confrontado com a régua real antes de virar condição — 21/09/2026, ao desenhar a peça 3 do F-05
 
 Desenhando a peça 3 do Monitor de Saúde (`CONECTAR` sem tentativa nova),

@@ -46,8 +46,14 @@ documento não detalha.
       achados que mudaram a especificação (`Find opportunity` obrigatório antes
       do `If/Else`, e data/hora atual indisponível em campo de texto — seção
       2.9.2)
-- [ ] **Fase 5 — Os workflows restantes**, na ordem da seção "Ordem de montagem" do `build-wesales.md`
-- [ ] **Fase 6 — Listas inteligentes** (~19)
+- [ ] **Fase 5 — Os workflows restantes**, na ordem da seção "Ordem de montagem" do `build-wesales.md` — **configuração exata de cada nó (ação, campo, operador, valor) em `IMPLEMENTACAO-WORKFLOWS.md`**, escrito em 21/09/2026 para montar à mão, sem "Construir com IA"
+- [ ] **Fase 6 — Listas inteligentes** (~19) — **antes de montar, decida a
+      coluna `Empresa`:** ela aparece em 20 lugares do `build-wesales.md` e
+      está **vazia em todos os 50 contatos** (nem o campo nativo nem o
+      personalizado têm dado — nada a montante coleta nome de empresa).
+      Montar as 19 listas agora significa 19 listas com uma coluna morta.
+      Candidatas com dado hoje e a recomendação: `CONFERENCIA-CAMPOS.md`,
+      Tabela J
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
 - [ ] **Fase 8 — Pausar Workflows em Datas Específicas** (feriados/férias)
 - [ ] **Fase 9 — Number Validation** (opcional)
@@ -624,6 +630,9 @@ ainda não existe:
 | **`Mestre de saída`, nó 4 — dá para fazer HOJE, mas depende do workflow novo existir para valer algo** | Somar `fila-travada` à lista de `Remove Contact Tag` do nó 4 (F-05, seção 2.21) | Achado em 21/09 ao desenhar a peça 2 do Monitor de Saúde: diferente de `novo-lead-estagnado`, este alerta se resolve numa saída de cadência de verdade — a mesma transição que o nó 4 já alcança pela via normal —, então basta somar à lista existente. A edição em si não depende do workflow novo `Fila Travada` (seção 2.21) estar publicado, mas só limpa alguma coisa depois que ele existir e começar a aplicar a tag |
 | **`Mestre de saída`, nó 4 — dá para fazer HOJE, mesma condição da linha acima** | Somar `conectar-estagnado` à lista de `Remove Contact Tag` do nó 4 (F-05, seção 2.22) | Achado em 21/09 ao desenhar a peça 3 do Monitor de Saúde: mesmo raciocínio da linha `fila-travada` — este alerta também se resolve numa saída de cadência de verdade, então basta somar à lista existente. Só limpa alguma coisa depois que o workflow novo `Cadência Sem Avanço` (seção 2.22) existir e começar a aplicar a tag |
 | `Mestre de saída`, depois do nó 2 | Acrescentar dois `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **os dois só entram quando esses workflows existirem na tela** (hoje nenhum dos dois existe, nem como rascunho: ver a lista lida ao vivo mais abaixo); a hora certa é no mesmo dia em que cada um for criado, não depois | A limpeza conhecia só a régua original; as outras duas continuariam ligando para quem já saiu. Este é o retoque que se esquece sozinho, porque só vira possível semanas depois do achado |
+| `Mestre de saída`, nó 6 (nota) | Trocar `{{opportunity.pipeline_stage}}` pelo token real de "Pipeline Stage" do seletor `{}` | A nota gravada renderiza a etapa em branco (`Saída de cadência · etapa:  · status: open`) — o token documentado não é o que o GHL usa; `{{opportunity.status}}` renderiza certo |
+| `Pós-ligação`, ramo `Atendeu`, nó A2 | Conferir/recriar o `Math: Total de conexões + 1` | 24 execuções de teste: `Conexões telefone` = 8, `Total de conexões` vazio — o nó não existe ou grava em outro campo |
+| `Loop do closer` (`Post-Meeting Closer Loop`) | **Refazer do zero, manual** (`IMPLEMENTACAO-WORKFLOWS.md`, W6); apagar os nós da IA | Teste por API em 21/09 18:44 UTC não disparou (rascunho); as condições da IA comparam `Tags`, `Rescheduled`, `score`, `Last appointment at` — nenhum existe |
 | `Pós-ligação`, ramo `Não ligar`, nó 4 | Somar ao `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **só possível quando existirem** | O mais caro dos três: na janela entre o nó 4 e a limpeza do Mestre de saída, cai tarefa de ligação para quem acabou de pedir para não ser procurado |
 | `Pós-agendamento`, nó 3 | Somar ao `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **também só possível quando existirem** | Mesma lista incompleta do Mestre de saída, um nível abaixo. Aqui a janela é de segundos (o nó 1 move para `NEGOCIAR` e o Mestre limpa), mas é a janela em que um lead que acabou de agendar recebe a TI3 |
 | `Interceptação de Sinal — Clique` e `— Resposta`, nó 2 | No If/Else, somar à condição de etapa: `status` da oportunidade **não é** `lost` | Um clique de quem pediu `Não ligar` (ou de número errado) virava tarefa `ligar agora`. `abandoned` continua passando de propósito — é o lead em nutrição esquentando, ver a nota na seção 2.9.2 |

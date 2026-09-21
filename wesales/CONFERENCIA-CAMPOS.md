@@ -92,7 +92,7 @@ com campo existente — dois deles nasceram numa pasta separada
 
 | Campo novo | Tipo | Já existe quem faça esse papel | O problema |
 |---|---|---|---|
-| `Empresa` | TEXT | o campo **nativo** `Company Name` (`{{contact.company_name}}`) | O `build-wesales.md` usa o nativo em tudo: o campo 4 do formulário (seção 7.2), o corpo da tarefa da cadência e a coluna "Empresa" de **nove** listas inteligentes. Se o formulário passar a gravar no `Empresa` custom, o SDR abre a fila e vê empresa em branco em todas elas |
+| `Empresa` | TEXT | o campo **nativo** `Company Name` (`{{contact.company_name}}`) | Resolvido em 19/09 (fica o personalizado — o construtor de formulário não lista campo nativo). **Mas o aviso desta linha saiu pior do que previa:** medido em 21/09, os dois campos estão vazios em **todos** os 50 contatos, porque nada a montante coleta nome de empresa — ver Tabela J |
 | `Necessidade` | TEXT | `Dor principal` (Q-16) | Dois campos para a mesma resposta. Quem preenche um deixa o outro vazio, e a nota de qualificação lê só um |
 | `Urgência` | TEXT | `Prazo` (Q-17, `SINGLE_OPTIONS`) | Idem — e `Prazo` tem opções fechadas, que filtram em lista; `Urgência` é texto livre, que não filtra |
 
@@ -270,3 +270,48 @@ reconhecia chegada em `NOVO LEAD`.
 Os dois retoques estão na tabela do `GUIA-MONTAGEM.md`, na faixa "dá para
 fazer hoje". O método de diagnóstico ficou em `APRENDIZADOS-CRM.md`
 ("Diagnóstico por contador vizinho").
+
+---
+
+## J — A coluna `Empresa` das listas está vazia para 100% da base, e o debate "nativo vs. personalizado" era indiferente (21/09/2026)
+
+A Tabela F tratou `Empresa` como uma escolha entre o campo **nativo**
+(`{{contact.company_name}}`) e o **personalizado** (`contact.empresa`), com
+o aviso: "se o formulário passar a gravar no personalizado, o SDR abre a
+fila e vê empresa em branco". A decisão foi tomada em 19/09 (personalizado,
+porque o construtor de formulário não lista campo nativo) e as colunas das
+listas foram ajustadas.
+
+Medido agora, nos 50 contatos:
+
+| Campo | Contatos preenchidos |
+|---|---|
+| `companyName` (nativo) | **0** |
+| `Empresa` (personalizado) | **0** |
+
+Nenhum dos dois tem dado, porque **nada a montante coleta o nome da
+empresa**: os formulários do Meta Lead Ads não perguntam isso, e o
+formulário `Qualificação SDR` (seção 7.2), que perguntaria, só roda quando o
+SDR agenda a reunião — depois das ligações, não antes. O debate era entre
+dois campos igualmente vazios.
+
+**O que isso custa, e por que a hora de resolver é agora:** `Empresa` é
+coluna em **20 lugares** do `build-wesales.md`, quase todos listas
+inteligentes de fila. O SDR abriria a fila do dia e veria uma coluna em
+branco em todas elas. As listas ainda **não foram montadas** (Fase 6 do
+`GUIA-MONTAGEM.md` segue aberta) — então isto se conserta trocando a coluna
+antes de existir, não depois de montar 20 listas.
+
+**Recomendação (decisão do dono, porque é o que ele vê na fila):** trocar
+`Empresa` por uma coluna que tenha dado hoje e ajude na ligação:
+
+| Coluna candidata | Contatos com valor | Por que serve |
+|---|---|---|
+| `Necessidade` + `Dor principal` | 34 + 5 = **39** | A resposta do lead, nas palavras dele, sobre o que procura — é a primeira frase do script |
+| `Investimento mensal em anúncios` | **32** | Qualifica antes de discar (com a ressalva do G-04: os valores gravados não são as opções do campo) |
+| `Urgência` + `Prazo` | 39 + 3 = **42** | Quem tem pressa aparece primeiro |
+
+Manter `Empresa` também é legítimo **se** o dono acrescentar a pergunta aos
+formulários do anúncio — mas são oito formulários (Tabela H) e cada pergunta
+a mais derruba conversão de Lead Ads. Não recomendo.
+
