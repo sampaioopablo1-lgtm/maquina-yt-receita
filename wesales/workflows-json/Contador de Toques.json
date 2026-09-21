@@ -1,0 +1,196 @@
+{
+  "workflow": {
+    "_id": "f0e8a0f8-d18e-4f0e-86ef-75315b5fa616",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Contador de Toques",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/f0e8a0f8-d18e-4f0e-86ef-75315b5fa616/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Ff0e8a0f8-d18e-4f0e-86ef-75315b5fa616%2F3?alt=media&token=acc80d94-28e6-4a8f-8aef-96933c562f67",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-21T23:45:11.430Z",
+    "updatedAt": "2026-09-21T23:45:14.490Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "window": null,
+    "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-21T23:45:13.000Z"
+      }
+    },
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/f0e8a0f8-d18e-4f0e-86ef-75315b5fa616/3",
+    "id": "f0e8a0f8-d18e-4f0e-86ef-75315b5fa616",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "e068b87c-ff8e-472f-a54b-6e00e367f88a",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "toque"
+            ]
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "201343b4-6c82-41d2-b8b3-56503f52e849",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "201343b4-6c82-41d2-b8b3-56503f52e849",
+          "name": "Math operation",
+          "type": "math_operation",
+          "attributes": {
+            "selectField": "c1xuCuLyJheHOQoJ3grH",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "c1xuCuLyJheHOQoJ3grH",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "2cba8610-417e-4511-a6c6-90e450f48303",
+                "value": 1
+              }
+            ]
+          },
+          "order": 1,
+          "parentKey": "e068b87c-ff8e-472f-a54b-6e00e367f88a",
+          "next": "5c7cd406-bf14-49f6-a146-bdac910fd180",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "5c7cd406-bf14-49f6-a146-bdac910fd180",
+          "name": "Wait 7 Days",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "days",
+              "value": 7,
+              "when": "after"
+            },
+            "name": "Wait 7 Days",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 2,
+          "parentKey": "201343b4-6c82-41d2-b8b3-56503f52e849",
+          "next": "200f7977-fb0b-4b0d-9cd5-563770e6e6df",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "200f7977-fb0b-4b0d-9cd5-563770e6e6df",
+          "name": "Math operation",
+          "type": "math_operation",
+          "attributes": {
+            "selectField": "c1xuCuLyJheHOQoJ3grH",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "c1xuCuLyJheHOQoJ3grH",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "subtract",
+                "__id": "dad70130-1be4-40f2-9570-b7ecf1bd413f",
+                "value": 1
+              }
+            ]
+          },
+          "order": 3,
+          "parentKey": "5c7cd406-bf14-49f6-a146-bdac910fd180",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "0TKuhirFXdxvqkjBs8zU",
+      "date_added": "2026-09-21T23:45:11.956Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "f0e8a0f8-d18e-4f0e-86ef-75315b5fa616",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "toque",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "f0e8a0f8-d18e-4f0e-86ef-75315b5fa616",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Toque",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "e068b87c-ff8e-472f-a54b-6e00e367f88a",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-21T23:45:14.054Z"
+    }
+  ]
+}

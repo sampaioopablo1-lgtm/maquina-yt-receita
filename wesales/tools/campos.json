@@ -1,0 +1,587 @@
+{
+  "Opportunity Name": {
+    "id": "uvf01HRD0UCziq9eaJp4",
+    "chave": "opportunity.name",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Pipeline": {
+    "id": "fQ9Ij9ZYIVuuhFwZdj2p",
+    "chave": "opportunity.pipeline_id",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Stage": {
+    "id": "4EWN82XtUwbnuLhLQIJb",
+    "chave": "opportunity.pipeline_stage_id",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Status": {
+    "id": "LnHeTQPweLffxqYhBmP3",
+    "chave": "opportunity.status",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Lead Value": {
+    "id": "cRCWG7oXzV7FhAO6DK5H",
+    "chave": "opportunity.monetary_value",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Opportunity Owner": {
+    "id": "N8EbK3BOQkL75xPvWKw2",
+    "chave": "opportunity.assigned_to",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Opportunity Source": {
+    "id": "0uMHQEMRI1SMM1rZgxQp",
+    "chave": "opportunity.source",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Lost Reason": {
+    "id": "XNDKDD55J9izKtVtdrqo",
+    "chave": "opportunity.lost_reason",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Expected Close Date": {
+    "id": "aPvZ0365oMP05qvyCZTB",
+    "chave": "opportunity.forecast_expected_close_date",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Forecast Probability": {
+    "id": "082OJWDH1vuNOciO0yI5",
+    "chave": "opportunity.forecast_probability",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "MMzKAosiF9vubkefV83l"
+  },
+  "Company Name": {
+    "id": "sGg8DcDQeha2y0jKJHKc",
+    "chave": "business.name",
+    "tipo": "TEXT",
+    "pasta": "XWBDtFRL9ezgBaVUnIkO"
+  },
+  "Phone": {
+    "id": "Ez3okFKzDQUeJfI2BYv8",
+    "chave": "contact.phone",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Email": {
+    "id": "saJfdm8pOdIDTjDhBRXs",
+    "chave": "contact.email",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Website": {
+    "id": "h1MBfX7OoHbzd4FPcTBm",
+    "chave": "contact.website",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Address": {
+    "id": "wRkyTHqepytL76wPTtAd",
+    "chave": "business.address",
+    "tipo": "TEXT",
+    "pasta": "XWBDtFRL9ezgBaVUnIkO"
+  },
+  "State": {
+    "id": "fJMA10zFswd2PZURjCjo",
+    "chave": "contact.state",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "City": {
+    "id": "gb56jKCKbFGIvhBWmkHk",
+    "chave": "contact.city",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Description": {
+    "id": "RWvWbKx678u0Y5xkbAhY",
+    "chave": "business.description",
+    "tipo": "LARGE_TEXT",
+    "pasta": "XWBDtFRL9ezgBaVUnIkO"
+  },
+  "Postal Code": {
+    "id": "WA0w7uEYsMiC5t37LUGN",
+    "chave": "contact.postal_code",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Country": {
+    "id": "GBL3Aw7LdkK4gVv7aIMl",
+    "chave": "contact.country",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Tentativa nº": {
+    "id": "qHJGJKZBccASOKkKP8ge",
+    "chave": "contact.tentativa_n",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Resultado da tentativa": {
+    "id": "nPafc9c0JdSSptdPhUlF",
+    "chave": "contact.resultado_da_tentativa",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Atendeu",
+      "Caixa Postal",
+      "Não atendeu",
+      "Número errado",
+      "Pediu retorno",
+      "Não ligar"
+    ]
+  },
+  "Prioridade": {
+    "id": "chuJMRlKzY0Uq1f0lSkX",
+    "chave": "contact.prioridade",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Total de ligações": {
+    "id": "JUBhmz0DGQMvjLCxSNrk",
+    "chave": "contact.total_de_ligaes",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Total de conexões": {
+    "id": "tQ7Fzo6cWeBDmEoaTBIZ",
+    "chave": "contact.total_de_conexes",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Nota de qualificação": {
+    "id": "FHoXQnLYA8LW5mFzfdIq",
+    "chave": "contact.nota_de_qualificao",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Tentativas telefone": {
+    "id": "wCzdqF7uLQwtrZ1JyZRn",
+    "chave": "contact.tentativas_telefone",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Tentativas WhatsApp": {
+    "id": "5j9SerJeZ6ngfZCPb2Wg",
+    "chave": "contact.tentativas_whatsapp",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Sinal recebido": {
+    "id": "jfQgrZFnxhbn1qmCeFDC",
+    "chave": "contact.sinal_recebido",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Clique em link",
+      "Resposta de mensagem"
+    ]
+  },
+  "Data e hora do sinal": {
+    "id": "uXf6nG2tKQ7EtGCbHkfy",
+    "chave": "contact.data_e_hora_do_sinal",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Reunião foi qualificada": {
+    "id": "c470gqXWCkwqE9yVrcEi",
+    "chave": "contact.reunio_foi_qualificada",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Sim",
+      "Não",
+      "Parcial"
+    ]
+  },
+  "Motivo da desqualificação": {
+    "id": "5L0RMR1HZVQ7IevyjOQX",
+    "chave": "contact.motivo_da_desqualificao",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Sem fit",
+      "Sem budget",
+      "Timing errado",
+      "Não é decisor",
+      "Concorrente",
+      "Duplicado ou já cliente"
+    ]
+  },
+  "Data do veredito do closer": {
+    "id": "ffIpN8kTlhncr7K00Xzy",
+    "chave": "contact.data_do_veredito_do_closer",
+    "tipo": "DATE",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Entrada em": {
+    "id": "uWUGz5gVGAFmNuk5GXbX",
+    "chave": "contact.entrada_em",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "1ª tentativa em": {
+    "id": "PKzNljzDoU77O14nHLrV",
+    "chave": "contact.1_tentativa_em",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Data conectado": {
+    "id": "uJnePU1Tl1Zr1fTxYKIz",
+    "chave": "contact.data_conectado",
+    "tipo": "DATE",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Data agendado": {
+    "id": "aY5cwLe9y13CEyv8ecwv",
+    "chave": "contact.data_agendado",
+    "tipo": "DATE",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Data compareceu": {
+    "id": "EsisfhEZWFLcnEYEzx3k",
+    "chave": "contact.data_compareceu",
+    "tipo": "DATE",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Template usado": {
+    "id": "StguwRaz0AVlQqzaAoFh",
+    "chave": "contact.template_usado",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Nº de no-shows": {
+    "id": "ONBBDPg4LPIoRhv09Nf3",
+    "chave": "contact.n_de_noshows",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Site": {
+    "id": "f1jNltRYjcrgKUZlxo8z",
+    "chave": "contact.site",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Instagram": {
+    "id": "2tLo2m4KLTcP6fTEq3LG",
+    "chave": "contact.instagram",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Clientes novos por mês": {
+    "id": "wmod0p91VuukwWDwKCgi",
+    "chave": "contact.clientes_novos_por_ms",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "10",
+      "11-30",
+      "31-100",
+      "+101"
+    ]
+  },
+  "Investe em anúncios": {
+    "id": "x5JUx0YCWaZmH3Q85psI",
+    "chave": "contact.investe_em_anncios",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Sim",
+      "Já investiu e parou",
+      "Nunca"
+    ]
+  },
+  "Investimento mensal em anúncios": {
+    "id": "bQithNwReQIBGlZBaNlI",
+    "chave": "contact.investimento_mensal_em_anncios",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Até 1k",
+      "1k a 5k",
+      "5k a 10k",
+      "Acima de 10k"
+    ]
+  },
+  "Plataformas de anúncio": {
+    "id": "f5bd9nBObV1cGgejAzdv",
+    "chave": "contact.plataformas_de_anncio",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Meta",
+      "Google",
+      "Tiktok",
+      "Outros"
+    ]
+  },
+  "Já teve agência?": {
+    "id": "O500dbTabWUJwnBKwuUl",
+    "chave": "contact.j_teve_agncia",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Tem hoje",
+      "Já teve",
+      "Nunca teve"
+    ]
+  },
+  "Experiência com agência": {
+    "id": "QyEDg0qFlQ3gra5qZsJF",
+    "chave": "contact.experincia_com_agncia",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Tem time comercial": {
+    "id": "sJY6q3X7deZ5yGbjiORT",
+    "chave": "contact.tem_time_comercial",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Só dono",
+      "1-5",
+      "6-10",
+      "+10"
+    ]
+  },
+  "Quem atende os leads": {
+    "id": "xjEcIFfdt2h29wBaKMQO",
+    "chave": "contact.quem_atende_os_leads",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Dono",
+      "SDR",
+      "Vendedor",
+      "Ninguém fixo"
+    ]
+  },
+  "Usa CRM": {
+    "id": "dYKivcXqdw4MToQLwoA9",
+    "chave": "contact.usa_crm",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Sim",
+      "Não"
+    ]
+  },
+  "Canal principal de venda": {
+    "id": "qxJhMydTz6DcM4td4F08",
+    "chave": "contact.canal_principal_de_venda",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "WhatsApp",
+      "Telefone",
+      "Loja",
+      "Online"
+    ]
+  },
+  "Budget": {
+    "id": "SZVgh0Y5HRcWWZG4fO9V",
+    "chave": "contact.budget",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Tem",
+      "Precisa aprovar",
+      "Não tem"
+    ]
+  },
+  "Decisor": {
+    "id": "3dphGCPCoFcYXEQC2jeB",
+    "chave": "contact.decisor",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Sim",
+      "Influencia",
+      "Não decide"
+    ]
+  },
+  "Dor principal": {
+    "id": "qmIKSSDVYNLl5E8vnr3f",
+    "chave": "contact.dor_principal",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Prazo": {
+    "id": "lAqbaJE9K4LDkq3t2zzc",
+    "chave": "contact.prazo",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Pra ontem",
+      "Espera 30 dias",
+      "Este ano",
+      "Sem prazo"
+    ]
+  },
+  "Qualificação": {
+    "id": "mJv4YcFBH4NsPfbh5Q3G",
+    "chave": "contact.qualificao",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "SDR",
+      "IA Whatsapp",
+      "Vendedor"
+    ]
+  },
+  "Data de retorno": {
+    "id": "IBOMNQecWtIUruHpNAs1",
+    "chave": "contact.data_de_retorno",
+    "tipo": "DATE",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Segmento": {
+    "id": "Z7qwvDlagOLEhoCz5G5v",
+    "chave": "contact.segmento",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "WA não atendidas seguidas": {
+    "id": "FnphiGDVkijSNDEP53c3",
+    "chave": "contact.wa_no_atendidas_seguidas",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Permissão WhatsApp": {
+    "id": "kdKnJecyZtssILfPPigl",
+    "chave": "contact.permisso_whatsapp",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab",
+    "opcoes": [
+      "Sim",
+      "Não",
+      "Não solicitado"
+    ]
+  },
+  "Conexões telefone": {
+    "id": "LB11ao0AdSI1QSHyZBOP",
+    "chave": "contact.conexes_telefone",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Necessidade": {
+    "id": "OJQEsl5dV37pfVY2sIaB",
+    "chave": "contact.necessidade",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Toques na semana": {
+    "id": "c1xuCuLyJheHOQoJ3grH",
+    "chave": "contact.toques_na_semana",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Hora da conexão": {
+    "id": "5hU72B0HuoMApZvO1Qk7",
+    "chave": "contact.hora_da_conexo",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Hora do retorno": {
+    "id": "IHXNFnguTPyNj5Q59ea2",
+    "chave": "contact.hora_do_retorno",
+    "tipo": "TEXT",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Checkpoint — Tentativa nº": {
+    "id": "BRcN6IGXtDr0u52QtfiF",
+    "chave": "contact.checkpoint__tentativa_n",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Checkpoint — Data de retorno": {
+    "id": "el7xNMvPE8ZiyfysRff9",
+    "chave": "contact.checkpoint__data_de_retorno",
+    "tipo": "DATE",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Business Name": {
+    "id": "6Noh7pWVRNvQS6sGrBpC",
+    "chave": "contact.company_name",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Street Address": {
+    "id": "FxfgMPn5vQuU61P1pFh7",
+    "chave": "contact.address1",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Time Zone": {
+    "id": "06mi6D00Anqt8qKAE6CW",
+    "chave": "contact.timezone",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "Conexões WhatsApp": {
+    "id": "Og1CkI9x9OztsV242nIM",
+    "chave": "contact.conexes_whatsapp",
+    "tipo": "NUMERICAL",
+    "pasta": "vCqedGd185RiQKNlU870"
+  },
+  "First Name": {
+    "id": "3o03l2P9A719gHtGMZ5j",
+    "chave": "contact.first_name",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Last Name": {
+    "id": "WYhRjpjRXfPwW5G27Zc5",
+    "chave": "contact.last_name",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Date Of Birth": {
+    "id": "xbsKi2urv463heG2MFf8",
+    "chave": "contact.date_of_birth",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Contact Source": {
+    "id": "O4ZjaMNnlcrk1ptkEmzZ",
+    "chave": "contact.source",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Contact Type": {
+    "id": "8BMx7QpvLZoVCTXpqAR0",
+    "chave": "contact.type",
+    "tipo": "STANDARD_FIELD",
+    "pasta": "zHU4yGXKHdxBHnGxUmai",
+    "opcoes": [
+      {
+        "value": "lead",
+        "name": "Lead"
+      },
+      {
+        "value": "customer",
+        "name": "Customer"
+      }
+    ]
+  },
+  "Empresa": {
+    "id": "zs7KhkmfUMyuXWQlyUv7",
+    "chave": "contact.empresa",
+    "tipo": "TEXT",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Urgência": {
+    "id": "2LnUD4KYSGkIBwiUdzl3",
+    "chave": "contact.urgncia",
+    "tipo": "TEXT",
+    "pasta": "zHU4yGXKHdxBHnGxUmai"
+  }
+}

@@ -826,3 +826,25 @@ de preferência para nós (detalhe e fontes em `APRENDIZADOS-CRM.md`, entrada
    programático, mas não documentado e com risco de termos de uso. Só com
    decisão do dono, rodando na máquina dele, com
    `IMPLEMENTACAO-WORKFLOWS.md` como spec.
+
+## Estado da montagem em 21/09/2026, noite (montado pela API interna, do PC do dono)
+
+Primeira montagem programática do projeto. Caminho: Playwright abre
+`app.wesalescrm.com` com o dono logado, o bearer do `backend.leadconnectorhq.com`
+é capturado do tráfego da própria tela e renovado sozinho (headless, ~10 s);
+os workflows saem por `POST/PUT /workflow/{loc}`. Formato de cada tipo de nó
+foi **lido de workflows reais desta subconta**, não de schema de terceiro.
+Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
+`wesales/workflows-json/`. Todo workflow nasce `draft`; publicação é do dono.
+
+| Workflow | Estado | Conferência |
+|---|---|---|
+| `ZZ TESTE API` | rascunho, 1 nó | prova de vida: gatilho `Contact Tag Added` (`teste-api`) → `Add Note`. Lido de volta pela API e conferido no canvas |
+| `Contador de Toques` (W1) | rascunho, 4 nós | bate nó a nó com a W1: `Remove Tag toque` → Math `Toques na semana +1` → `Wait 7 Days` → Math `-1`. Re-entry ligado, Stop on Response desligado, sem janela |
+
+**Pré-requisitos resolvidos nesta sessão:** os 5 campos da tabela 1.2
+(`Toques na semana` `c1xuCuLyJheHOQoJ3grH`, `Hora da conexão`
+`5hU72B0HuoMApZvO1Qk7`, `Hora do retorno` `IHXNFnguTPyNj5Q59ea2`,
+`Checkpoint — Tentativa nº` `BRcN6IGXtDr0u52QtfiF`, `Checkpoint — Data de
+retorno` `el7xNMvPE8ZiyfysRff9`), todos em `Contato` / pasta `Additional
+Info`. Mapa completo nome→id→chave em `wesales/tools/campos.json`.
