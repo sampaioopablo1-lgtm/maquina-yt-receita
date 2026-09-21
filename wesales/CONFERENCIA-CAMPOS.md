@@ -249,3 +249,24 @@ mapear `Posso esperar...` = `Sem prazo` (2 pontos) ou criar essa opção em
 
 **Continua aberto da Tabela A:** `Hora do retorno` e `Plataformas de
 anúncio`, sem mudança.
+
+---
+
+## I — Os dois nós silenciosos da Tabela H têm causa (21/09/2026, mesma leitura de dados)
+
+O achado 3 da Tabela H listou três rastros ausentes sem explicá-los. Dois
+ficam resolvidos pela leitura dos **contadores vizinhos** do mesmo contato,
+sem abrir a tela:
+
+| Sintoma | O que o dado mostra | Causa |
+|---|---|---|
+| `Total de conexões` vazio, Pós-ligação com 24 execuções | "teste atendeu": `Total de ligações` 24 · `Tentativas telefone` 24 · `Conexões telefone` **8** · `Total de conexões` **vazio** | O ramo `Atendeu` rodou 8 vezes e o par vizinho fecha dos dois lados → o Math funciona e o ramo é alcançado. **Falta o nó 2 do ramo `Atendeu` na tela** (a especificação o pede) |
+| `Nota de qualificação` vazia nos 3 de `NEGOCIAR` | Os 3 têm `Investimento mensal`, `Decisor`, `Budget` e `Prazo` preenchidos, e `Prioridade` = 5 (nó **5**, posterior ao Math) | Entradas presentes + nó posterior escrito = **o fluxo passou pelo nó 4 e não escreveu**. Math com campo não selecionado, mesmo defeito do assistente de IA já registrado |
+
+O terceiro (leads novos chegando com `limpar-tarefas`) foi resolvido em
+`build-wesales.md`, seção 3: o portão do nó 1 do Mestre de saída não
+reconhecia chegada em `NOVO LEAD`.
+
+Os dois retoques estão na tabela do `GUIA-MONTAGEM.md`, na faixa "dá para
+fazer hoje". O método de diagnóstico ficou em `APRENDIZADOS-CRM.md`
+("Diagnóstico por contador vizinho").

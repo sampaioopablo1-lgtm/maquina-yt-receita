@@ -318,6 +318,50 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Diagnóstico por contador vizinho: o par que fecha prova que o mecanismo funciona — 21/09/2026
+
+A auditoria de dados (`e98aec6`) achou dois nós que "não deixaram rastro" e
+parou no sintoma. Os dois têm causa, e ela sai do mesmo dado, sem abrir a
+tela — lendo **o que funcionou ao lado do que não funcionou**.
+
+**Caso 1 — `Total de conexões` vazio depois de 24 execuções.** No contato
+"teste atendeu":
+
+| Campo | Valor | Nó que escreve |
+|---|---|---|
+| `Total de ligações` | 24 | Pós-ligação, nó 3 |
+| `Tentativas telefone` | 24 | Pós-ligação, nó 2 |
+| `Conexões telefone` | **8** | ramo `Atendeu`, nó 1 |
+| `Total de conexões` | **vazio** | ramo `Atendeu`, nó 2 |
+
+O ramo `Atendeu` rodou 8 vezes (senão `Conexões telefone` estaria vazio
+também), e o par vizinho `Tentativas`/`Total de ligações` fecha nos dois
+lados. Logo: o mecanismo de Math funciona, o ramo é alcançado, e **o nó 2 do
+ramo não existe na tela** — a especificação o pede, quem montou pulou.
+
+**Caso 2 — `Nota de qualificação` vazia nos 3 leads em `NEGOCIAR`.** Os três
+têm `Investimento mensal`, `Decisor`, `Budget` e `Prazo` **preenchidos**:
+não é falta de entrada. E têm `Prioridade` = 5, que é o nó **5** do
+Pós-agendamento, um depois do Math. **O fluxo passou pelo nó 4 e saiu sem
+escrever** — Math com campo de origem ou destino não selecionado, o mesmo
+defeito que o assistente de IA do construtor já tinha produzido no
+Pós-ligação.
+
+**O método, que serve para qualquer nó silencioso:**
+
+1. Ache um campo **vizinho** que o mesmo workflow deveria escrever e que
+   está preenchido. Ele prova que o workflow rodou e chegou até ali.
+2. Ache um campo escrito por um nó **posterior** ao suspeito. Se ele está
+   preenchido, o fluxo passou pelo suspeito — o nó rodou e não escreveu, que
+   é diferente de "o ramo não foi alcançado".
+3. Confira se as entradas do nó suspeito estão preenchidas. Com entrada
+   presente, saída vazia e nó posterior escrito, sobra uma explicação só:
+   o nó está mal configurado ou não existe.
+
+Isso separa três causas que de fora parecem a mesma coisa — ramo não
+alcançado, entrada faltando, nó mal montado — **sem abrir a tela e sem
+esperar o próximo lead passar**.
+
 ## Conte onde a tag é aplicada e onde é removida: os dois números têm que fechar — 21/09/2026
 
 A peça 2 do F-05 (workflow "Fila Travada") acertou em cheio ao não copiar a
