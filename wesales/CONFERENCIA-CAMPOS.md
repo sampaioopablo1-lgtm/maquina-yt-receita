@@ -187,6 +187,37 @@ duplicata parada — é o **destino real das respostas do Meta Lead Ads**:
    SDR mesmo quando o lead já respondeu exatamente isso no anúncio. O SDR
    pergunta de novo o que o lead já disse.
 
+**Quantos formulários existem, medido em 21/09/2026 — muda o custo da Opção
+A:** o achado 2 acima ("o formulário do Meta não é um só") tem número. Cada
+contato traz `attributions[].mediumId`, que é o **id do formulário de Lead
+Ads**. Contando a base inteira, são **oito formulários distintos** alimentando
+esta subconta:
+
+| `mediumId` (formulário) | Atribuições | Observação |
+|---|---|---|
+| `2412763482587375` | 42 | O formulário "Conversar no WhatsApp" dos 15 anúncios de nicho |
+| `1026163897118958` | 16 | |
+| `28266780626312413` | 14 | O formulário WhatsApp do conjunto INTERESSE |
+| `1751104652676702` | 2 | |
+| `1065515179587826` · `1471351778171903` · `1606774301099773` · `1054520230548260` | 1 cada | Quatro formulários com um lead cada — provavelmente anúncios antigos ou testes |
+
+(`utmSessionSource`: `Paid Social` 78, `Social media` 6 · `medium`:
+`facebook` 78, `instagram` 6.)
+
+Isso explica o achado 2 sem adivinhação — formulários diferentes, ordens de
+pergunta diferentes — e cobra o preço da **Opção A**: "apontar as perguntas
+do Meta para `Prazo`/`Dor principal`" é trabalho **oito vezes**, na tela do
+Gerenciador de Anúncios, um formulário por vez, e todo formulário novo
+criado depois nasce errado até alguém lembrar. A **Opção B** se aplica numa
+só vez, no CRM, e cobre os oito de imediato.
+
+**O que vale para A e para B, e nenhuma das duas dizia:** a régua tem de ler
+**os dois campos**, `Necessidade` **e** `Dor principal`, combinados em OU.
+Hoje 34 leads têm a resposta em `Necessidade` e 5 em `Dor principal` (o
+mapeamento trocou no meio) — qualquer régua que leia só um dos dois está
+errada para uma parte da base, e continuará errada durante a transição,
+qualquer que seja a opção escolhida. O mesmo vale para `Urgência`/`Prazo`.
+
 **O que fazer (decisão do dono, porque muda a nota do lead e o formulário
 do anúncio — nada aqui sai por API neste conector):**
 
