@@ -135,6 +135,50 @@ def wait_step(value: int, unit: str = "days") -> dict:
     }
 
 
+def math_step(campo_id: str, operador: str, valor, tipo: str = "numerical") -> dict:
+    """Operacao matematica sobre um campo (formato lido do Pos-ligacao)."""
+    return {
+        "id": uid(), "name": "Math operation", "type": "math_operation",
+        "attributes": {
+            "selectField": campo_id, "selectFieldtype": tipo,
+            "sourceCustomValueId": "",
+            "updateField": campo_id, "updateFieldType": tipo,
+            "targetCustomValueId": "",
+            "operators": [{"operator": operador, "__id": uid(), "value": valor}],
+        },
+    }
+
+
+def field_step(campo_id: str, titulo: str, valor, tipo: str = "numerical",
+               data: str = "") -> dict:
+    """Update Contact Field (formato lido da Interceptacao de Sinal)."""
+    return {
+        "id": uid(), "name": "Update contact field",
+        "type": "update_contact_field",
+        "attributes": {
+            "type": "update_contact_field", "actionType": "update_field_data",
+            "fields": [{"field": campo_id, "value": valor, "title": titulo,
+                        "type": tipo, "date": data}],
+        },
+    }
+
+
+def notify_step(html_body: str, canal: str = "whatsapp",
+                para: str = "contact_owner") -> dict:
+    """Internal Notification (formato lido da Interceptacao de Sinal)."""
+    return {
+        "id": uid(), "name": "Internal Notification",
+        "type": "internal_notification",
+        "attributes": {
+            "type": canal,
+            canal: {
+                "body": '<p style="padding-left: 0px!important;">' + html_body,
+                "userType": "assign", "assignedOwners": [para],
+            },
+        },
+    }
+
+
 def link(steps: list) -> list:
     """Encadeia nos lineares com order/parentKey/next."""
     out = []
