@@ -2,6 +2,54 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Sweep de coerência limpo — a lacuna nova estava nos dados de produção, não no texto — 21/09/2026, sessão automática
+
+Sessão sem tela e sem R-14/F-05/F-06 desbloqueados (mesmo cenário de sempre).
+Repeti a varredura que fechou o G-02: `grep` por nome de etapa antigo fora da
+tabela 1.0 (limpo — só prosa histórica e a própria tabela), comparação de
+merge field usado contra `fieldKey` real via `locations_get-custom-fields`
+(zero órfão), e o par de greps que a entrada "A regra certa estava no portão
+errado" pediu (réguas que existem vs. réguas que o Mestre de saída remove —
+as duas listas fecham: `Cadência 12x30`, `Cadência Inbound`, `Reengajamento
+90 dias`). Nada para corrigir — o `ROADMAP-SALES-ENGAGEMENT.md` já avisava
+que isso podia acontecer e mandava procurar lacuna nova antes de encerrar
+sem commit.
+
+**A lacuna nova não estava em nenhum documento — estava em como os dados
+mudaram desde a última leitura.** `opportunities_search-opportunity` por
+etapa: `NOVO LEAD` foi de 40 (19/09) para **47** (21/09), todas reais
+(Facebook Ads pago, nomes/telefone/e-mail/atribuição de campanha genuínos,
+a mais recente criada hoje às 09:17 UTC), e **nenhuma** chegou a `CONECTAR`
+— confirma que a lacuna L-07 (`briefing-sdr.md`, "promoção `NOVO LEAD` →
+`CONECTAR` é manual, ninguém construiu gatilho") não é mais hipótese: é
+lead pago de verdade parado há mais de 24h sem qualquer tentativa, o
+oposto exato do que R-02/G-01 foram construídos para garantir. Escalado
+como G-03 novo em `ROADMAP-SALES-ENGAGEMENT.md`, com três opções desenhadas
+(promoção automática pura, promoção automática com janela de revisão,
+ação manual em massa só para destravar o estoque de hoje) — nenhuma
+executada: mover 47 oportunidades reais de etapa é ação em massa em dado
+de produção (regra 2 do briefing) e a fila manual de hoje é decisão
+deliberada do SDR registrada desde a primeira versão do projeto, não bug —
+trocá-la é mudança de processo que só o dono decide, mesma régua já usada
+para L-02/D-04.
+
+**Regra prática, generalizável:** a varredura de coerência de documentos
+(nomes, merge fields, contagens) não é a mesma varredura que detecta uma
+lacuna que só aparece em produção — vale reler os números reais da
+subconta (`opportunities_search-opportunity` por etapa, não só o total) a
+cada rodada sem tela, mesmo com o texto todo consistente, porque uma
+lacuna pode ficar dormente por dias até o volume a tornar urgente (mesma
+lição, de novo, do achado "número medido dentro de uma instrução tem data
+de validade" — lá era uma instrução envelhecendo, aqui é uma lacuna
+acordando).
+
+Zero escrita no CRM: as três opções do G-03 ficam propostas, não `[x]` em
+`APROVADO.md`. Subconta reconfirmada: 46 campos, mesmas 5 etapas do
+`FUNIL DE VENDAS`, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, dois
+leads reais — `Daniel` e `Genilson | Bombeiro` — mais o contato fictício
+`Teste Atendeu` do checklist, cujas tags batem com o cenário esperado da
+seção 10).
+
 ## G-02 fechado: as últimas peças do checklist, e um checklist de teste mandando excluir oportunidade — 21/09/2026, sessão automática
 
 Fechei o que restava do checklist de migração de nomes de etapa

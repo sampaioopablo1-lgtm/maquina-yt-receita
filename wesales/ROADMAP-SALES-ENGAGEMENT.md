@@ -232,6 +232,51 @@ Zero escrita no CRM: item de documentação pura, não depende de
 **Pronto quando (cumprido):** todo `[ ]` do checklist de migração em
 `GUIA-MONTAGEM.md` (Fase 1) virou `[x]`.
 
+### G-03 · L-07 deixou de ser lacuna teórica — 47 leads reais parados em `NOVO LEAD`, crescendo — **aguarda decisão do dono**
+**Por quê:** `briefing-sdr.md` já registrava a L-07 ("não existe gatilho que
+promova `NOVO LEAD` → `CONECTAR`, hoje é decisão manual do SDR") desde
+18/09/2026, com a nota "definir depois; se o volume crescer, resolve". O
+volume cresceu: `opportunities_search-opportunity` em 21/09/2026 confirma
+**47 oportunidades reais em `NOVO LEAD`** (a maioria Facebook Ads pago, de
+verdade — nomes, telefone, e-mail e atribuição de campanha reais, não teste),
+contra 40 em 19/09 — a Porta de Entrada (G-01) está trazendo lead novo todo
+dia (~5-7/dia, batendo com a estimativa de "10 leads/dia" do `briefing-sdr.md`)
+e **nenhum** chega a `CONECTAR` sozinho. O mais antigo visível já tem mais de
+24h parado sem qualquer tentativa — o oposto do que R-02 (speed-to-lead) e
+G-01 foram construídos para garantir, e o dinheiro do anúncio já foi gasto
+para gerar esses 47 contatos. Diferença para as três frentes que o roadmap já
+trata como "espera volume" (R-14/F-05/F-06): aqui o volume **já chegou** e o
+que falta não é uma métrica ficar interessante, é o lead ser tocado.
+**Como (três opções, nenhuma escolhida — decisão do dono, mesma régua da
+L-02/D-04):**
+1. **Promoção automática na entrada.** Workflow novo, gatilho `Opportunity
+   Stage Changed` → `NOVO LEAD`, ação única `Update Opportunity` → etapa
+   `CONECTAR`, sem espera. Seguro mesmo sem triagem humana: o portão de
+   higiene de telefone que já existe na entrada da Cadência 12x30 (nó 0.0/
+   0.0b, seção 2.3) roda de qualquer forma assim que a oportunidade chega em
+   `CONECTAR` e já filtra quem não tem telefone válido — a promoção automática
+   não pula essa proteção, só para de esperar um clique manual antes dela.
+   Risco: lead duplicado, spam ou fora de perfil entra na régua de 12
+   tentativas sem ninguém olhar antes.
+2. **Promoção automática com janela de revisão.** Mesmo workflow do item 1,
+   mas com `Wait` de X horas antes do `Update Opportunity` — dá ao SDR uma
+   janela para tirar da fila manualmente (`status = lost`) um lead
+   claramente ruim antes que ele gaste tentativa. Mais fiel ao espírito atual
+   ("SDR revisa antes"), mas ainda fecha a lacuna de quem nunca é revisado.
+3. **Ação manual em massa, uma vez, para destravar os 47 de hoje** —
+   mesmo mecanismo que já resolveu o backfill do G-01 (ação nativa em massa
+   na lista de oportunidades, mover para `CONECTAR`), sem workflow novo.
+   Resolve o estoque parado agora; não resolve os próximos leads, que
+   voltam a se acumular no dia seguinte sem o item 1 ou 2 também.
+**Por que não decidi sozinho:** mover 47 oportunidades reais de etapa é ação
+em massa em dado de produção — regra 2 do briefing pede listar e confirmar
+antes, e a régua de fila hoje é decisão deliberada do SDR (não bug), então
+trocá-la por automática é mudança de processo, não correção de bug. Nenhuma
+das três opções foi executada nem virou `[x]` em `APROVADO.md`.
+**Pronto quando:** o dono escolhe uma opção (ou combina 3 com 1/2), ela vira
+especificação em `build-wesales.md` e `[x]` em `APROVADO.md` antes de
+qualquer escrita no CRM.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -876,6 +921,13 @@ wesales/build-wesales.md` só retorna tabela de tradução (1.0) ou prosa
 histórica. Não sobra mais trabalho de fundo deste tipo para uma sessão
 automática sem item de volume/mensagem real avançar — ver nota no fim
 desta seção sobre o que resta.
+
+**G-03 aberto em 21/09/2026, aguardando o dono** — mesma varredura que
+fechou o G-02 (reconferir a subconta antes de encerrar sem commit) achou
+que a L-07 (`briefing-sdr.md`), registrada como lacuna teórica desde
+18/09, virou problema real: 47 oportunidades pagas paradas em `NOVO LEAD`
+sem cadência, crescendo todo dia. Três opções escritas para o dono
+escolher — nenhuma executada, nenhuma vira `[x]` sozinha.
 
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são
 chute. Depois conteúdo (R-04, R-05, R-06), que é o que mais move resultado por
