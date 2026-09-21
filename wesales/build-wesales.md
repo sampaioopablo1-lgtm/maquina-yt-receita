@@ -3464,6 +3464,7 @@ original, então a pontuação de cada degrau **não mudou**, só o texto que o
 |---|---|---|
 | Investe em anúncios | Sim / Já investiu e parou / Nunca | 13 / 9 / 4 |
 | Investimento mensal | Acima de 10k / 5k a 10k / 1k a 5k / Até 1k | 12 / 10 / 6 / 2 |
+| ⚠ *(21/09/2026)* | *Os valores que o Meta Lead Ads **grava** neste campo são `Acima de 10k` / `Abaixo de 5k` / `Até R$ 1.000` / `Não invisto nada ainda` — só o primeiro é opção da tela; os outros três nunca casam num `If/Else`. E `Prazo` chega vazio do Meta: a resposta cai em `Urgência`. Não monte o nó 4 do Pós-agendamento contra esta tabela antes de o dono decidir o G-04 (`ROADMAP-SALES-ENGAGEMENT.md`; opções em `CONFERENCIA-CAMPOS.md`, Tabela H)* | — |
 
 **Bloco C — BANT (45 pontos)**
 | Campo | Valor | Pontos |

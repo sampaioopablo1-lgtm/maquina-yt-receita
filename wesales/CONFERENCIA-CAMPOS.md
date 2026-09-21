@@ -149,3 +149,72 @@ rótulo mudou, a pontuação de cada posição não.
 `Plataformas de anúncio`) e a decisão sobre `Necessidade`/`Urgência` na
 Tabela F — nenhum dos dois é ajuste de texto, os dois pedem ação manual ou
 decisão de negócio que este arquivo não toma sozinho.
+
+## H — A Tabela F se resolveu sozinha, pelos dados: `Necessidade` e `Urgência` são onde o formulário do Meta grava (lido em 21/09/2026)
+
+Lidos os 50 contatos por `contacts_get-contacts` (base inteira, `meta.total`
+= 50) e cruzado campo a campo. O que a Tabela F chamava de "três campos que
+a tela criou sozinha, duplicando `Dor principal` e `Prazo`" não é
+duplicata parada — é o **destino real das respostas do Meta Lead Ads**:
+
+| Campo | Tipo | Contatos com valor | O que chega nele |
+|---|---|---|---|
+| `Urgência` (`contact.urgncia`) | TEXT | **39** | A pergunta "quando você pretende resolver isso?": `Pra ontem`, `Posso esperar e ver oque acontece` — o mesmo conteúdo que `Prazo` (Q-17) deveria receber |
+| `Necessidade` (`contact.necessidade`) | TEXT | **34** | A pergunta "o que você busca hoje?": `Quero aprender a gerar meus próprios leads para o WhatsApp`, `Já faço anúncios e quero melhorar meus resultados`, `Quero contratar alguém para gerar meus leads (Agência).`, `Falta de novos clientes`, `Vivemos por indicação` |
+| `Dor principal` (Q-16) | TEXT | 5 | **As mesmas respostas de `Necessidade`**, só nos 5 leads mais novos (19-21/09: Carlos Andrade, Gerson, Ana Ruth, Ricardo, Andreia) — o mapeamento do formulário foi trocado para `Dor principal` em algum momento de 19/09; os 34 anteriores ficaram em `Necessidade` |
+| `Investimento mensal em anúncios` (Q-06) | SINGLE_OPTIONS (`Até 1k`, `1k a 5k`, `5k a 10k`, `Acima de 10k`) | 32 | `Não invisto nada ainda`, `Até R$ 1.000`, `Abaixo de 5k`, `Acima de 10k` — **só o último existe na lista de opções** |
+| `Prazo` (Q-17) | SINGLE_OPTIONS | 3 | Só os três leads qualificados à mão (Daniel, Genilson, Teste Atendeu) |
+
+**O que isso quebra, e é pior do que a Tabela F previa:**
+
+1. **A régua de nota (`build-wesales.md`, seção 9.1) lê `Prazo` e
+   `Investimento mensal` — o Meta escreve em `Urgência` e escreve em
+   `Investimento mensal` valores que não são opção do campo.** Um `If/Else`
+   comparando `Investimento mensal = "Até 1k"` nunca casa com `Até R$ 1.000`;
+   `= "1k a 5k"` nunca casa com `Abaixo de 5k`; `Não invisto nada ainda` não
+   tem degrau nenhum. Para todo lead vindo do Meta (37 dos 50), o Bloco B da
+   nota sai zerado em silêncio — a mesma classe de bug que a Tabela C/G já
+   corrigiu no *documento*, agora na *origem do dado*. Corrigir o rótulo no
+   documento não resolve: o valor gravado é que está fora da lista.
+2. **O formulário do Meta não é um só.** Em 4 contatos (`cm construções`,
+   `valéria`, `francisco`, `marcos alves`) a resposta de investimento
+   (`Acima de 10k`/`Abaixo de 5k`) caiu em `Urgência`, e `Investimento
+   mensal` ficou vazio — pelo menos um dos formulários de anúncio mapeia as
+   perguntas em ordem diferente. Também há um contato `<test lead: dummy
+   data for ...>` (teste do próprio Meta) com placeholders nos três campos.
+3. `Prazo` e `Dor principal` — os campos que o script de ligação
+   (`script-de-ligacao.md`) manda o SDR preencher — chegam **vazios** para o
+   SDR mesmo quando o lead já respondeu exatamente isso no anúncio. O SDR
+   pergunta de novo o que o lead já disse.
+
+**O que fazer (decisão do dono, porque muda a nota do lead e o formulário
+do anúncio — nada aqui sai por API neste conector):**
+
+- **Opção A — a tela vira a fonte:** apontar as perguntas do Meta Lead Ads
+  para `Prazo` e `Dor principal` (o mais novo já faz isso para `Dor
+  principal`), e trocar as opções de `Investimento mensal em anúncios` para
+  os quatro textos **exatos** que o Meta manda (`Não invisto nada ainda`,
+  `Até R$ 1.000`, `Abaixo de 5k`, `Acima de 10k`) — a régua 9.1 se ajusta a
+  esses quatro degraus (proposta de pontos abaixo). `Urgência`/`Necessidade`
+  ficam paradas, sem excluir (regra 1). Os 34+39 valores antigos ficam onde
+  estão; para a nota dos leads antigos, uma ação em massa "copiar
+  `Necessidade` → `Dor principal`" só sai por workflow com `Update Contact
+  Field` lendo o outro campo (confirmar na tela se o seletor de valor
+  dinâmico oferece campo `TEXT` — `APRENDIZADOS-CRM.md`, entrada
+  `{{right_now}}`, diz que a expansão recente cobre Numeric/Select/Monetary).
+- **Opção B — o documento vira a fonte:** a régua 9.1 passa a ler
+  `Urgência` e `Necessidade` (texto livre, comparando `Contains`), e Q-06
+  ganha as opções do Meta. Mais barato hoje, mas texto livre não filtra em
+  lista inteligente e qualquer mudança de copy no anúncio quebra a régua sem
+  aviso.
+
+Proposta de degraus para `Investimento mensal` se o dono for pela Opção A
+(mantém o espírito 12/10/6/2 da 9.1): `Acima de 10k` = 12 · `Abaixo de 5k`
+= 6 · `Até R$ 1.000` = 3 · `Não invisto nada ainda` = 1. `Espera 30
+dias`/`Este ano` de `Prazo` não têm equivalente no Meta (`Pra ontem` e
+`Posso esperar e ver oque acontece` são os dois únicos valores vistos) —
+mapear `Posso esperar...` = `Sem prazo` (2 pontos) ou criar essa opção em
+`Prazo` com o texto exato.
+
+**Continua aberto da Tabela A:** `Hora do retorno` e `Plataformas de
+anúncio`, sem mudança.

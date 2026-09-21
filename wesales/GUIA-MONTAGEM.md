@@ -751,3 +751,40 @@ já emite a tag `toque` (F-04) desde o primeiro nó, então o ideal é o
 `Contador de Toques` (passo 2 da "Ordem de montagem") existir antes dela
 ir ao ar, senão a tag acumula sem o contador para reagir (não quebra nada,
 só atrasa o benefício do F-04).
+
+## Estado da montagem em 21/09/2026 (lido por API — o que os workflows publicados já fizeram de verdade)
+
+Leitura completa da subconta por `contacts_get-contacts` (50 contatos),
+`opportunities_search-opportunity` (50 oportunidades),
+`conversations_search-conversation` (50 conversas), `contacts_get-all-tasks`
+nos três leads em `NEGOCIAR` e `calendars_get-calendar-events` pelo usuário
+dono deles. O conector não lista workflows, então isto é o **rastro** que
+cada workflow deixou nos dados — a única auditoria de "está funcionando?"
+possível sem a tela.
+
+| Workflow (tela em 19/09) | Rastro nos dados em 21/09 | Leitura |
+|---|---|---|
+| Porta de Entrada (publicado) | 50 oportunidades para 50 contatos, 10 delas criadas depois do backfill (19/09 22:50 → 21/09 09:17), todas em `NOVO LEAD` | **Funciona.** ~5 leads/dia entrando sozinhos |
+| Pós-agendamento (publicado, 3 ativos) | `Daniel`, `Genilson \| Bombeiro`, `Teste Atendeu`: em `NEGOCIAR`, `Prioridade` = 5, `Data agendado` gravada, BANT/Fit preenchidos (nós 2 e 5 rodaram) — mas **`Nota de qualificação` vazia nos três** | **Funciona pela metade:** o nó 4 (Math Operations em série, seção 9.1) não grava. Ou não foi montado, ou grava em campo errado. Conferir no Registro de execução antes de publicar o Loop do closer, que lê essa nota nos nós 5/6 |
+| Pós-ligação (publicado) | `Teste Atendeu`: `Total de ligações` 24, `Tentativas telefone` 24, `Conexões telefone` 8, `Data conectado` gravada — **`Total de conexões` vazio**. Um lead real (`carolfigueiredo`) com `Total de ligações` = 1 | **Funciona**, com um nó faltando: o "Math: `Total de conexões` + 1" do ramo `Atendeu` (seção 4, nó 2) nunca escreveu, mesmo com `Conexões telefone` chegando a 8. Provável nó ausente/desligado na cópia telefone |
+| Mestre de saída (publicado) | Os **10 leads criados depois de 19/09 ~23h nasceram com a tag `limpar-tarefas`**; os 40 do backfill não têm (só quem passou por teste) | **Efeito colateral real:** algo aplica `limpar-tarefas` na chegada em `NOVO LEAD`. Hipótese mais provável: o portão do nó 1 ("é `CONECTAR` e `open` → encerra; senão segue") lê a *criação* da oportunidade em `NOVO LEAD` como saída e roda a limpeza inteira (nó 5 = `limpar-tarefas`). Inofensivo hoje (não há tarefa `[CADENCIA]` para a rotina apagar), mas polui a tag para quando houver. Confirmar no Registro de execução; correção provável: nó 0/1 encerrar também quando etapa é `NOVO LEAD` |
+| Interceptação de Sinal — Clique/Resposta (publicados) | Nenhum contato com `fila-quente` ou `Sinal recebido` fora do contato de estrutura | Sem disparo real ainda (esperado: nenhuma mensagem com link saiu) |
+| Cadência 12x30, Qualificação por IA, Recuperação de No-show (rascunho) | Nenhuma tag `fila-tel`/`fila-wa`/`toque`, nenhuma tarefa `[CADENCIA]`, `Tentativa nº` vazio em todo lead real | Confirmado: **nada de cadência rodou para nenhum lead** |
+| Mensagens | 50 conversas; **zero WhatsApp ou SMS enviado pela operação**. As únicas mensagens reais são 5 DMs de Instagram (leads sem telefone: `dkw.oficial`, `nathalia.ggss`, `thiagoreis`, `Carla X. Sampaio`, `TINTIM`) | R-14 (compliance) segue sem o que auditar — a régua ainda não mandou mensagem a ninguém |
+| Calendário `Reunião com closer` | `calendars_get-calendar-events` pelo `userId` dono das 3 oportunidades: **vazio** (15/09 a 15/10) — mas `Data agendado` foi gravada nos três pelo gatilho `Appointment Status` | Não conclusivo: a busca por usuário pode não enxergar evento de calendário sem responsável, e o conector não lista calendários para buscar por `calendarId`. Conferir na tela se os 3 agendamentos existem |
+| Tarefas | `contacts_get-all-tasks` vazio em `Teste Atendeu`, `Daniel` e `Genilson` | Coerente: Pós-agendamento não cria tarefa, e a tarefa `[CONECTADO]` do teste de 19/09 foi registrada como "skipped" (contato sem dono na hora) |
+
+**Dois achados de dado que não são de workflow (detalhe em
+`CONFERENCIA-CAMPOS.md`, Tabela H):** o formulário do Meta grava em
+`Urgência`/`Necessidade` (39/34 contatos), não em `Prazo`/`Dor principal`
+que a régua lê; e grava em `Investimento mensal em anúncios` quatro textos
+dos quais só um é opção do campo — a nota de qualificação de todo lead do
+Meta nasce com o Bloco B zerado, independente de o nó 4 do Pós-agendamento
+ser consertado.
+
+**Estado bruto para a próxima leitura comparar:** 46 campos · 5 etapas ·
+50 contatos (38 com telefone; 12 sem: 5 DMs de Instagram, 5 fictícios, o
+de estrutura e 1 `<test lead>` do Meta) · 50 oportunidades (47 `NOVO LEAD`
++ 3 `NEGOCIAR`, todas `open`, 47 sem responsável, 3 com
+`JdvhvOTEBTvUyRi0BXU8`) · 1 contato com DND (`Teste Não Ligar`) · fuso da
+subconta `America/Sao_Paulo`, plano `trialing`.

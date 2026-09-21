@@ -2,6 +2,61 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Os dados de produção são a terceira auditoria — e acharam o que texto e tela não achavam — 21/09/2026, a pedido do dono
+
+Pedido ao vivo: "consulte o que foi configurado no CRM, atualize os
+documentos". Até aqui o projeto tinha duas auditorias: a de **texto**
+(grep por nome de etapa, merge field órfão — G-02) e a de **tela**
+(lista de workflows colada pelo dono, `locations_get-custom-fields`). Esta
+rodada leu a **terceira**: os valores gravados nos 50 contatos e 50
+oportunidades, e o que os workflows publicados deixaram neles. Três
+achados que nenhuma das outras duas podia ver:
+
+1. **`Investimento mensal em anúncios` recebe do Meta quatro textos, e só
+   um é opção do campo.** `SINGLE_OPTIONS` no GHL não recusa valor fora da
+   lista quando quem escreve é a integração do Lead Ads — grava o texto do
+   anúncio como veio (`Não invisto nada ainda`, `Até R$ 1.000`, `Abaixo de
+   5k`). A régua 9.1 compara contra `Até 1k`/`1k a 5k`/`5k a 10k` e nunca
+   casa. É a classe de bug do R-16 (rótulo que a tela não tem), só que o
+   R-16 corrigiu o *documento* contra a *tela*; aqui a tela também está
+   errada contra o *dado*. **Regra prática:** para todo campo `SINGLE_OPTIONS`
+   alimentado por integração (Meta, formulário, API), conferir os valores
+   *gravados* (`contacts_get-contacts`, `customFields[].value`) contra
+   `picklistOptions` — não basta conferir o documento contra a tela.
+2. **`Necessidade`/`Urgência` não eram duplicatas paradas** (Tabela F de
+   `CONFERENCIA-CAMPOS.md` esperava decisão há dois dias) — são onde o Meta
+   grava, com 34 e 39 contatos preenchidos. Enquanto o documento discutia
+   "de que lado fica", o dado já tinha escolhido o lado errado. E o
+   mapeamento mudou no meio (os 5 leads mais novos caem em `Dor
+   principal`): auditoria de campo precisa olhar *quando* cada valor
+   chegou, não só *se* chegou.
+3. **Rastro de execução vale mais que status "Publicado".** Pós-agendamento
+   está publicado com 3 ativos, e os 3 têm `Prioridade` e `Data agendado`
+   gravados — mas `Nota de qualificação` vazia nos 3. Pós-ligação rodou 24
+   vezes num contato e `Total de conexões` continua vazio. Os 10 leads
+   nascidos depois do Mestre de saída ir ao ar chegaram com
+   `limpar-tarefas`. Nenhum desses três aparece na lista de workflows nem
+   num grep — só no valor do campo. **Regra prática:** depois de publicar um
+   workflow, ler os campos que cada nó deveria ter escrito nos contatos que
+   passaram por ele; nó que não deixou rastro não rodou, esteja o workflow
+   "Publicado" ou não.
+
+Detalhe e opções de correção: `CONFERENCIA-CAMPOS.md` (Tabela H) e
+`GUIA-MONTAGEM.md` ("Estado da montagem em 21/09/2026"). Novo item G-04 no
+`ROADMAP-SALES-ENGAGEMENT.md`. Zero escrita no CRM: tudo é decisão do dono
+(formulário do anúncio, opções de campo, nós de workflow — nada sai por
+API neste conector). Confirmado também pelo lado das conversas: **zero
+mensagem de WhatsApp/SMS enviada pela operação até hoje** — R-14 segue
+esperando com razão.
+
+Limite desta leitura, registrado para ninguém confiar além do que ela
+prova: `calendars_get-calendar-events` por `userId` voltou vazio para o
+dono das 3 oportunidades em `NEGOCIAR`, embora `Data agendado` tenha sido
+gravada pelo gatilho `Appointment Status` — a busca por usuário pode não
+enxergar evento sem responsável, e o conector não lista calendários para
+buscar por `calendarId`. Não dá para afirmar por API se os 3 agendamentos
+existem.
+
 ## F-05 destravado pelo próprio G-03: "espera volume" tinha prazo de validade — 21/09/2026, sessão automática
 
 Sweep de coerência de sempre (limpo — zero merge field órfão, zero nome de

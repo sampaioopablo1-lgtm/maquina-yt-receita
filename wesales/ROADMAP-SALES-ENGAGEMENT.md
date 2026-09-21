@@ -300,6 +300,34 @@ das três opções foi executada nem virou `[x]` em `APROVADO.md`.
 especificação em `build-wesales.md` e `[x]` em `APROVADO.md` antes de
 qualquer escrita no CRM.
 
+### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **aguarda decisão do dono**
+**Por quê:** lidos os 50 contatos em 21/09/2026 (`contacts_get-contacts`,
+base inteira): as respostas do Meta Lead Ads caem em `Urgência` (39) e
+`Necessidade` (34) — não em `Prazo` e `Dor principal`, que são os campos que
+a régua de nota (seção 9.1) e o script de ligação leem. E `Investimento
+mensal em anúncios` (`SINGLE_OPTIONS`) recebe `Não invisto nada ainda`,
+`Até R$ 1.000`, `Abaixo de 5k` — três textos que não são opção do campo; a
+integração grava mesmo assim. Consequência: para 37 dos 50 leads (todos do
+Meta), o Bloco B da `Nota de qualificação` sai zerado em silêncio, e o SDR
+pergunta ao telefone o que o lead já respondeu no anúncio. Não é hipótese
+de documento — é o valor gravado hoje, lead por lead (`CONFERENCIA-CAMPOS.md`,
+Tabela H). Descoberto ao auditar os dados em vez do texto: a Tabela F
+esperava "decisão sobre `Necessidade`/`Urgência`" há dois dias enquanto os
+dois campos enchiam.
+**Como:** duas opções em `CONFERENCIA-CAMPOS.md`, Tabela H — (A) apontar o
+formulário do Meta para `Prazo`/`Dor principal` e trocar as opções de
+`Investimento mensal` pelos quatro textos exatos do anúncio, com a 9.1
+reponderada; ou (B) a 9.1 passa a ler `Urgência`/`Necessidade` por
+`Contains`. Em qualquer uma, os 34/39 valores antigos precisam de cópia em
+massa para o campo certo (workflow `Update Contact Field` lendo outro campo,
+a confirmar na tela) ou ficam fora da nota.
+**Por que não decidi sozinho:** muda a nota do lead (D-05) e o formulário do
+anúncio — decisão de negócio, e nenhuma das duas sai por API.
+**Pronto quando:** o dono escolhe A ou B; `campos-e-tags.md` (Q-06, Q-16,
+Q-17) e a seção 9.1 refletem os valores que o Meta grava de verdade; um lead
+novo do Meta chega com `Prazo`/`Dor principal`/`Investimento mensal`
+preenchidos e a nota calculada.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -1038,6 +1066,13 @@ wesales/build-wesales.md` só retorna tabela de tradução (1.0) ou prosa
 histórica. Não sobra mais trabalho de fundo deste tipo para uma sessão
 automática sem item de volume/mensagem real avançar — ver nota no fim
 desta seção sobre o que resta.
+
+**G-04 aberto em 21/09/2026, aguardando o dono** — a leitura dos dados
+(não do texto) mostrou o Meta Lead Ads gravando em `Urgência`/`Necessidade`
+e enchendo `Investimento mensal em anúncios` com valores fora da lista de
+opções: a nota de qualificação de todo lead do Meta nasce zerada no Bloco
+B. Junto com G-03, é o que separa "workflow publicado" de "operação
+funcionando" — os dois esperam decisão, nenhum sai por API.
 
 **G-03 aberto em 21/09/2026, aguardando o dono** — mesma varredura que
 fechou o G-02 (reconferir a subconta antes de encerrar sem commit) achou
