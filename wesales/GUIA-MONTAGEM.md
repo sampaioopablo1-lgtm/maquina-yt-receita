@@ -46,7 +46,7 @@ documento não detalha.
       achados que mudaram a especificação (`Find opportunity` obrigatório antes
       do `If/Else`, e data/hora atual indisponível em campo de texto — seção
       2.9.2)
-- [ ] **Fase 5 — Os workflows restantes**, na ordem da seção "Ordem de montagem" do `build-wesales.md` — **configuração exata de cada nó (ação, campo, operador, valor) em `IMPLEMENTACAO-WORKFLOWS.md`**, escrito em 21/09/2026 para montar à mão, sem "Construir com IA"
+- [ ] **Fase 5 — Os workflows restantes**, na ordem da seção "Ordem de montagem" do `build-wesales.md` — **configuração exata de cada nó (ação, campo, operador, valor) em `IMPLEMENTACAO-WORKFLOWS.md`** (Parte 2; a Parte 1 cobre campos, tags, calendário, formulário e listas, e a Parte 3 a operação diária), escrito em 21/09/2026 para montar à mão, sem "Construir com IA"
 - [ ] **Fase 6 — Listas inteligentes** (~19)
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
 - [ ] **Fase 8 — Pausar Workflows em Datas Específicas** (feriados/férias)

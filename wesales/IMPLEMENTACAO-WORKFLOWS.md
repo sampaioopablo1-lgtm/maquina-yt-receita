@@ -1,7 +1,11 @@
-# Implementação dos workflows — configuração exata de cada nó
+# Implementação — configuração exata do CRM, dos workflows e da operação
 
-Referência de montagem **clique a clique** dos workflows do projeto na tela
-da WeSales (GoHighLevel). Escrito em 21/09/2026 depois de três tentativas do
+Referência de montagem **clique a clique** do projeto inteiro na tela da
+WeSales (GoHighLevel), em três partes: **Parte 1 — Estrutura** (o que existe
+antes de qualquer workflow: pipeline, campos, tags, calendário, formulário,
+listas, dashboard, pausas, usuários), **Parte 2 — Workflows** (cada nó de cada
+um) e **Parte 3 — Operação** (como SDR, closer e gestor usam isso todo dia,
+e o que nunca fazer na tela). Escrito em 21/09/2026 depois de três tentativas do
 "Construir com IA" do construtor inventarem campos que não existem
 (`APRENDIZADOS-CRM.md`) — este arquivo existe para que cada nó seja montado
 **à mão, com o nome exato** de campo, opção, tag, etapa e workflow.
@@ -206,6 +210,230 @@ nome só precisa bater consigo mesmo).
 responder"; janela = "Janela de tempo" (dias + horário + fuso).
 
 ---
+
+
+---
+
+# PARTE 1 — ESTRUTURA (antes de qualquer workflow)
+
+Tudo aqui é criado uma vez, na tela. Nada sai pelo conector `GHL CRM`
+(campo, calendário, formulário, lista, dashboard não têm ferramenta de
+criação nele — `APRENDIZADOS-CRM.md`). Ordem: 1.1 → 1.2 → 1.3 → 1.4 → 1.5 →
+1.6, depois os workflows (Parte 2), depois 1.7 → 1.10.
+
+## 1.1 Pipeline — já existe, não mexer
+
+Configurações → Pipelines → `FUNIL DE VENDAS`. As 5 etapas da seção 0.1 já
+estão na tela desde 18/09/2026 com cor e probabilidade próprias. **Não
+renomear etapa** — todo `If/Else` e todo gatilho compara o nome exato; e
+**não excluir etapa** (regra 1; hoje há oportunidades reais em `NOVO LEAD` e
+`NEGOCIAR`). A tabela de 7 etapas antiga do `GUIA-MONTAGEM.md`, Fase 1, é
+histórico — está marcada como tal lá.
+
+## 1.2 Campos personalizados
+
+Configurações → Campos personalizados → **Adicionar campo** → Objeto:
+**Contato** → Tipo → Nome → (opções, uma por linha, texto **exato**) →
+Pasta.
+
+A lista completa, com nome, chave, tipo e opções exatas, é a tabela da
+seção 0.3 (é a mesma da `campos-e-tags.md`, que é a fonte). Estado na tela em
+21/09/2026: **tudo da 0.3 já existe**, exceto o que segue.
+
+**Criar agora (bloqueiam workflows da Parte 2):**
+
+| Nome exato | Tipo | Opções | Pasta | Quem precisa |
+|---|---|---|---|---|
+| `Toques na semana` | NUMERICAL | — | mesma dos campos de controle (`gabsbU3jsUN7oIXCnYab`) | W1 Contador de Toques; portões 2.5c (W11) e 3c (W13) |
+| `Hora da conexão` | TEXT | placeholder `HH` | idem | W4 nós A7b/A7c (F-02); lista 8.19 |
+| `Hora do retorno` | TEXT | placeholder `HH:MM` | idem | W4 ramo `Pediu retorno` (vencimento com hora); lista 8.4 |
+
+**Corrigir (não dá para trocar tipo de campo criado — criar novo, deixar o
+antigo parado, nunca excluir):**
+
+| Hoje | Problema | O que fazer |
+|---|---|---|
+| `Plataformas de anúncio` — SINGLE_OPTIONS | lead que anuncia em Meta **e** Google só registra um | criar `Plataformas de anúncio (múltipla)` MULTIPLE_OPTIONS com `Meta`, `Google`, `Tiktok`, `Outros`; apontar formulário (1.5) e prompt da IA (W10) para o novo |
+| `Investimento mensal em anúncios` — opções `Até 1k` / `1k a 5k` / `5k a 10k` / `Acima de 10k` | o Meta Lead Ads grava `Não invisto nada ainda` / `Até R$ 1.000` / `Abaixo de 5k` / `Acima de 10k` — três valores fora da lista, a régua 9.1 nunca casa | **decisão G-04** (`CONFERENCIA-CAMPOS.md`, Tabela H): Opção A — trocar as opções pelos 4 textos exatos do Meta e reponderar a régua (12/6/3/1); Opção B — régua lê `Urgência`/`Necessidade` por `Contains` |
+| `Prazo` / `Dor principal` chegam vazios do Meta; `Urgência` / `Necessidade` cheios | o formulário do anúncio mapeia para os campos que a tela criou sozinha | G-04, mesma decisão: apontar os 8 formulários do Meta para `Prazo`/`Dor principal` (Opção A) ou ler os outros dois (Opção B) |
+
+**Regras ao criar campo:** o nome vira a chave de merge field sem acento
+(`Urgência` → `urgncia`) — depois de criar, leia a chave real em
+Configurações → Campos → ícone `{}` ou por `locations_get-custom-fields`, e
+use **essa** nos nós; opção de lista é comparada por texto exato; campo
+`DATE` guarda só a data (hora em TEXT); nunca renomear campo em uso (o
+`Update Contact Field` dos workflows aponta por id, mas o merge field nas
+notas aponta por chave).
+
+## 1.3 Tags
+
+Configurações → Tags → **Nova tag** (ou aplicar a um contato — o GHL cria
+na hora). Minúsculas, hífen, exatamente como a seção 0.2. Estado: as 15
+primeiras existem (aplicadas ao contato `ZZ TESTE ESTRUTURA`); faltam
+`novo-lead-estagnado` (W17) e `fila-travada` (W17b) — as duas nascem `[ ]`
+em `APROVADO.md` e só saem por API depois do `[x]` do dono.
+
+Três famílias, e a regra de quem mexe:
+
+| Família | Tags | Quem aplica / remove |
+|---|---|---|
+| **Fila** (aparece nas listas do dia) | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` | **só workflow**. O SDR nunca aplica nem remove à mão — a fila do dia é consequência da cadência, não decisão |
+| **Estado** (sobrevive à saída de cadência) | `nao-perturbe`, `telefone-invalido`, `nutricao-90d`, `cad-inbound`, `cad-outbound`, `conectado-hoje`, `pausado` | workflow, exceto `pausado` (**SDR**, à mão, para represar um lead sem opt-out) e `cad-inbound` (integração/formulário na entrada) |
+| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20, 8.21), não aplica |
+
+## 1.4 Calendário `Reunião com closer` — já existe
+
+Calendários → `Reunião com closer` → Configurações. Confira contra isto
+(`build-wesales.md`, 7.1):
+
+| Configuração | Valor |
+|---|---|
+| Tipo | Round Robin (mais de um closer) ou Simple |
+| Duração | 1 hora (decisão do dono, 18/09) |
+| Intervalo entre slots | 15 min |
+| Aviso mínimo | 2 horas |
+| Máximo por dia | conforme o closer |
+| Disponibilidade | seg–sex, horário comercial |
+| Confirmação automática | ligada — é o status `Confirmed` que dispara o W5 |
+| Fuso | **do contato** |
+| **Sticky Contact** | **DESLIGADO** — ligado, o SDR agendando vários leads na mesma aba sobrescreve os dados de um no outro |
+| Reagendamento pelo lead | ligado |
+| Convidados adicionais | desligado |
+| Notificações | e-mail de confirmação ao lead e ao closer; **lembretes de WhatsApp não** (saem do W5, nós 8–10) |
+| Formulário anexado | `Qualificação SDR` (1.5), em Calendário → Formulários → Formulário personalizado |
+
+Os status que os workflows leem: `Confirmed`/`Booked` (W5), `Showed` (W7),
+`No Show` (W8 e W9). O closer marca `Showed`/`No Show` **no agendamento** —
+é o único jeito de disparar 5.2/5.3/5.4.
+
+## 1.5 Formulário `Qualificação SDR` — já existe
+
+Sites → Formulários → `Qualificação SDR`. 23 campos, uma coluna, sem
+paginação, sem captcha:
+
+| # | Campo do formulário | Grava em | Obrig. |
+|---|---|---|---|
+| 1 | Nome | `first_name` / `last_name` (nativos) | sim |
+| 2 | Telefone | `phone` | sim |
+| 3 | E-mail | `email` | sim |
+| 4 | Empresa | `Empresa` (personalizado — o nativo `Company Name` não aparece no construtor) | sim |
+| 5 | Segmento | `Segmento` | sim |
+| 6 | Site | `Site` | não |
+| 7 | Instagram | `Instagram` | não |
+| 8 | Clientes novos por mês | `Clientes novos por mês` | sim |
+| 9 | Investe em anúncios | `Investe em anúncios` | sim |
+| 10 | Investimento mensal | `Investimento mensal em anúncios` | não |
+| 11 | Plataformas | `Plataformas de anúncio` (trocar pelo campo múltiplo quando existir) | não |
+| 12 | Já teve agência? | `Já teve agência?` | sim |
+| 13 | Experiência com agência | `Experiência com agência` | não |
+| 14 | Tem time comercial | `Tem time comercial` | sim |
+| 15 | Quem atende os leads | `Quem atende os leads` | sim |
+| 16 | Usa CRM | `Usa CRM` | não |
+| 17 | Canal principal de venda | `Canal principal de venda` | não |
+| 18 | Budget | `Budget` | sim |
+| 19 | Decisor | `Decisor` | sim |
+| 20 | Dor principal | `Dor principal` | sim |
+| 21 | Prazo | `Prazo` | sim |
+| 22 | Qualificação | `Qualificação` — valor padrão `SDR` | sim |
+| 23 | Consentimento de contato | checkbox | sim |
+
+Configurações do formulário: **Sticky Contact desligado**; "Atualizar só
+campos vazios" **desligado** (o SDR corrige o que o lead disse errado);
+**`Necessidade` e `Urgência` não entram** neste formulário (são o destino do
+Meta Lead Ads, G-04).
+
+**Formulários do Meta Lead Ads (8 campanhas, `CONFERENCIA-CAMPOS.md` H):**
+em Marketing → Integrações → Facebook → Mapeamento de campos, cada formulário
+deve gravar: "o que você busca hoje?" → `Dor principal`; "quando pretende
+resolver?" → `Prazo`; "quanto investe por mês?" → `Investimento mensal em
+anúncios` — com as **opções do campo iguais, letra por letra, ao texto da
+resposta no anúncio** (é a Opção A do G-04; até o dono decidir, o mapeamento
+atual continua gravando em `Necessidade`/`Urgência`).
+
+## 1.6 Trigger Link `Agendar com o closer` — já existe
+
+Marketing → Trigger Links → `Agendar com o closer` → URL: a pública do
+calendário `Reunião com closer`. É o gatilho do W13-Clique e o link
+inserido em `M2-v1`/`M3-v1` pelo `{}` → Custom Values → Trigger Links.
+**Nunca cole a URL do calendário direto na mensagem** — sem o trigger link
+o clique não é rastreado e o F-01 não dispara.
+
+## 1.7 Listas inteligentes (Contatos → Filtros → Salvar como lista inteligente → ⭐ favorita)
+
+Coluna `Empresa` = o campo **personalizado** `Empresa` (o seletor mostra dois
+"Empresa"; o nativo fica vazio). Fonte da lógica: `build-wesales.md`, 8.
+
+| # | Nome exato | Filtros | Colunas | Ordenação | Para quem |
+|---|---|---|---|---|---|
+| 8.1 | `Fila Quente` | tag `fila-quente` **E** não `nao-perturbe` **E** etapa em (`CONECTAR`, `AGENDAR`) | Nome · `Empresa` · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade | `Prioridade` desc, `Tentativa nº` asc | SDR — abre primeiro |
+| 8.2 | `Fila Telefone Hoje` | tag `fila-tel` **E** não `nao-perturbe` **E** não `telefone-invalido` **E** não `conectado-hoje` **E** etapa = `CONECTAR` | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas | `Prioridade` desc, `Tentativa nº` asc | SDR |
+| 8.3 | `Fila WhatsApp Hoje` | tag `fila-wa` **E** não `nao-perturbe` **E** não `conectado-hoje` **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` | `Prioridade` desc, `WA não atendidas seguidas` asc | SDR |
+| 8.4 | `Retornos` | `Resultado da tentativa` = `Pediu retorno` **E** não `nao-perturbe` | Nome · `Empresa` · Telefone · `Data de retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas | `Data de retorno` asc | SDR |
+| 8.5 | `Sem resultado ontem` | tag `limpar-tarefas` **E** não `fila-tel` **E** não `fila-wa` | Nome · `Tentativa nº` · `Resultado da tentativa` · Última atividade | Última atividade asc | Gestor — diário |
+| 8.6 | `Conexão por Tentativa` | `Total de conexões` ≥ 1 | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` | `Tentativa nº` asc | Gestor — semanal |
+| 8.7 | `Calibração da Régua` | `Reunião foi qualificada` não vazio | Nome · `Nota de qualificação` · `Reunião foi qualificada` · `Motivo da desqualificação` · `Data do veredito do closer` | `Nota de qualificação` desc | Gestor — semanal |
+| 8.8 | `Atraso na 1ª Tentativa` | tag `atraso-1a-tentativa` | Nome · `Empresa` · Telefone · `Entrada em` · `1ª tentativa em` · Tarefas abertas | Última atividade asc | Gestor — diário |
+| 8.9 | `Funil — Entraram no Mês` | pipeline `FUNIL DE VENDAS` **E** data de criação da oportunidade = este mês (se o filtro não existir em Contatos, use a lista de Oportunidades) | Nome · `Empresa` · Etapa · Data de criação | Data de criação desc | Gestor — mensal |
+| 8.10 | `Funil — Conectaram no Mês` | `Data conectado` = este mês | Nome · `Empresa` · `Data conectado` · `Tentativa nº` | `Data conectado` desc | Gestor — mensal |
+| 8.11 | `Funil — Agendaram no Mês` | `Data agendado` = este mês | Nome · `Empresa` · `Data agendado` · `Nota de qualificação` | `Data agendado` desc | Gestor — mensal |
+| 8.12 | `Funil — Compareceram no Mês` | `Data compareceu` = este mês | Nome · `Empresa` · `Data compareceu` · `Reunião foi qualificada` | `Data compareceu` desc | Gestor — mensal |
+| 8.13 | `Resposta por Template` | `Sinal recebido` = `Resposta de mensagem` | Nome · `Template usado` · `Data e hora do sinal` · Etapa | `Template usado` asc | Gestor — A/B |
+| 8.14 | `Reengajamento em Curso` | tag `reengajamento-ativo` | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Template usado` · Tarefas abertas | `Tentativa nº` asc | Gestor |
+| 8.15 | `Pausados Individualmente` | tag `pausado` | Nome · `Empresa` · Telefone · `Tentativa nº` · Etapa · Última atividade | Última atividade asc | Gestor — semanal |
+| 8.16 | `Fila do Dia — Total` | (tag `fila-tel` **OU** tag `fila-wa`) **E** não `nao-perturbe` | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` | `Prioridade` desc, `Tentativa nº` asc | Gestor — 11:00 e 15:00 |
+| 8.17 | `Recuperação de No-show` | `Nº de no-shows` ≥ 1 **E** etapa = `NEGOCIAR` **E** não `nao-perturbe` | Nome · `Empresa` · Telefone · `Nº de no-shows` · `Template usado` · Última atividade · Tarefas abertas | `Nº de no-shows` desc | Gestor / closer |
+| 8.18 | `Higiene — Sem Telefone Válido` | `Phone` vazio **OU** tag `telefone-invalido` | Nome · `Empresa` · E-mail · `Site` · `Instagram` · Etapa · Data de criação | Data de criação asc | Gestor — semanal |
+| 8.19 | `Conexão por Segmento e Horário` | `Hora da conexão` não vazio | Nome · `Segmento` · `Hora da conexão` · `Data conectado` · `Tentativa nº` | `Segmento` asc, `Hora da conexão` asc | Gestor — mensal |
+| 8.20 | `Saúde — NOVO LEAD Estagnado` | tag `novo-lead-estagnado` | Nome · `Empresa` · Telefone · Origem · Data de criação · Etapa | Data de criação asc | Gestor — diário |
+| 8.21 | `Saúde — Fila Travada` | tag `fila-travada` | Nome · Telefone · Etapa · `Tentativa nº` · `Resultado da tentativa` | — (deve ficar vazia) | Gestor — diário |
+
+Com um segundo SDR: duplicar 8.1, 8.2 e 8.3 por pessoa acrescentando o
+filtro `Atribuído a = <nome>` (o GHL não tem "usuário atual" em lista).
+
+## 1.8 Dashboard `Painel do Gestor — Pré-vendas` (Reporting → Dashboards → Novo)
+
+| Widget | Configuração |
+|---|---|
+| Appointment Report | calendário `Reunião com closer` — agendados, cancelados, no-show, comparecimento |
+| Opportunities | pipeline `FUNIL DE VENDAS`, por etapa (foto de agora) |
+| Tasks | criadas / concluídas / vencidas por dia (proxy de ligações/dia; filtre por título `[CADENCIA]` se a tela permitir) |
+| Custom Metric `Estouro da Fila` | `contagem(tag fila-tel OU fila-wa) − 100` — número único |
+| Custom Metric `Atrasos de Speed-to-lead` | `contagem(tag atraso-1a-tentativa)` |
+| Custom Metric `Taxa de Conexão — Telefone` | `soma(Conexões telefone) ÷ soma(Tentativas telefone) × 100` |
+| Custom Metric `Taxa de Conexão — WhatsApp` | `soma(Conexões WhatsApp) ÷ soma(Tentativas WhatsApp) × 100` |
+
+Custom Metrics depende do plano (`trialing` hoje — confira em Reporting →
+Custom Metrics antes). Sem elas, os três widgets nativos + listas 8.16/8.8/8.6
+cobrem o mesmo dado.
+
+## 1.9 Pausas de feriado e Number Validation
+
+**Automação → Configurações → Global Workflow Settings → Pause Workflow.**
+Marcar **só** `Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias`
+(os que criam tarefa ou mandam mensagem). `Annually`: 01/01 · 21/04 · 01/05
+· 07/09 · 12/10 · 02/11 · 15/11 · 25/12. Sem `Annually`, uma vez por ano:
+Carnaval (2 dias), Sexta-feira Santa, Corpus Christi; férias do SDR em blocos
+de até 15 dias. Só aparece workflow **publicado** no seletor — fazer depois
+da Parte 2.
+
+**Number Validation** (Configurações → Telefone): opcional, pago por
+validação; só ligar depois de conferir custo/plano; habilita o W19.
+
+## 1.10 Usuários, papéis e round robin
+
+| Papel | Permissões mínimas | Onde entra na máquina |
+|---|---|---|
+| **SDR** | Contatos, Oportunidades (mover só `NOVO LEAD` → `CONECTAR`), Conversas, Calendário (agendar), listas favoritas 8.1–8.4 | dono do lead (`Assigned User`, sorteado no nó 0.7b/0.8b); recebe as notificações internas "ligar agora" (W13) e "lead inbound aguardando" (W12) |
+| **Closer** | Calendário (marcar `Showed`/`No Show`), Contatos (editar `Reunião foi qualificada` e `Motivo`), Oportunidades (`NEGOCIAR` → `FORMALIZAR`, status `won`) | dono do horário no calendário (W5 nó 11); recebe o alerta de no-show (W9 nó 3) |
+| **Gestor** | tudo, inclusive Automação e Reporting | recebe todos os `Internal Notification` "ao gestor" (W3-N4, W8-D5, W9-6, W11-0.0c, W15-4, W17-4, W17b-4, W18-1, W6-5/6) |
+
+Grupo de round robin dos nós 0.7b (W11) e 0.8b (W12): **um só**, com todos
+os SDRs — hoje só o dono (`JdvhvOTEBTvUyRi0BXU8`). Ao contratar o segundo
+SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
+
+---
+
+# PARTE 2 — WORKFLOWS
 
 ## Ordem de montagem (a mesma de `build-wesales.md`)
 
@@ -982,18 +1210,146 @@ Nomes dos status (`Invalid`/`Landline`) a confirmar na tela.
 
 ---
 
-## Configurações de conta que não são workflow (mesma fila de montagem)
-
-| Onde | O quê | Seção |
-|---|---|---|
-| Automação → Configurações → Global Workflow Settings → Pause Workflow | intervalos `Annually` para 01/01, 21/04, 01/05, 07/09, 12/10, 02/11, 15/11, 25/12 + Carnaval/Sexta Santa/Corpus Christi do ano; marcar só `Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias` | 2.13 |
-| Marketing → Trigger Links | `Agendar com o closer` → URL pública de `Reunião com closer` (já existe) | 2.9.1 |
-| Reporting → Custom Metrics | `Estouro da Fila`, `Atrasos de Speed-to-lead`, `Taxa de Conexão — Telefone/WhatsApp` | 2.15 / 2.17 |
-| Contatos → Listas inteligentes | as listas da seção 8 (8.1–8.20) | 8 |
 
 ---
 
-## Como validar por API depois de cada publicação (sem abrir a tela)
+# PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)
+
+A máquina só rende se cada papel mexer **apenas** no que é dele. A regra
+mais importante desta parte: o SDR preenche **um** campo por tentativa
+(`Resultado da tentativa`) e tudo o mais acontece sozinho. Quem "ajuda" a
+automação à mão — movendo etapa, aplicando tag de fila, criando tarefa
+`[CADENCIA]` — quebra a contagem e o roteamento sem ver erro nenhum.
+
+## 3.1 O dia do SDR
+
+Meta do briefing: **100 ligações/dia** com ~10 leads novos/dia
+(`briefing-sdr.md`). Os horários da cadência (tabela do W11) concentram
+telefone de manhã e WhatsApp à tarde — o dia abaixo segue essa forma.
+
+| Hora | O que fazer | Onde |
+|---|---|---|
+| 08:30 | Abrir as 4 listas favoritas, nesta ordem: `Fila Quente` → `Retornos` → `Fila Telefone Hoje` → `Fila WhatsApp Hoje`. Não pular a ordem: `Fila Quente` tem quem deu sinal ontem à noite | 1.7 |
+| 08:30–08:45 | Promover para `CONECTAR` os leads de `NOVO LEAD` com telefone válido (é a **única** mudança de etapa manual do SDR; decisão G-03 pode automatizar) | Oportunidades |
+| 09:00–12:00 | Bloco de telefone: `Fila Telefone Hoje` de cima para baixo (já vem por `Prioridade` desc, `Tentativa nº` asc — lead novo primeiro, porque converte mais) | 8.2 |
+| a cada ligação | Abrir o contato → gravar **`Resultado da tentativa`** (um dos 6 valores) e **nada mais**. O Pós-ligação (W4) faz o resto em segundos: contadores, tags, etapa, tarefa | contato |
+| se `Atendeu` | Abrir o link do calendário `Reunião com closer` na mesma tela → preencher o formulário `Qualificação SDR` **enquanto fala** (perguntas na ordem do `script-de-ligacao.md`) → escolher o horário → enviar. Isso dispara o W5 (etapa `NEGOCIAR`, nota, confirmação ao lead) | 1.4 / 1.5 |
+| se `Pediu retorno` | Gravar `Data de retorno` (e `Hora do retorno`, quando existir) **antes** do resultado — a tarefa `[RETORNO]` vence nessa data | contato |
+| se `Não ligar` | Só quando o lead **pediu**. Liga DND em todos os canais e marca `lost` — não tem volta automática | contato |
+| se `Número errado` | Só depois de confirmar (recado da operadora, pessoa diz que não é). Vai para nutrição se houver e-mail/Instagram, senão `lost` | contato |
+| 12:00–13:30 | Conversas: responder quem respondeu (W13 já criou tarefa "ligar agora" e pôs em `Fila Quente`) | Conversas |
+| 13:30 | M2 sai sozinha para quem está no D10 — nada a fazer | — |
+| 14:00–17:30 | Bloco de WhatsApp: `Fila WhatsApp Hoje` (só aparece quem tem `Permissão WhatsApp = Sim`); resto do telefone | 8.3 / 8.2 |
+| durante o dia | Notificação "clicou no link" / "respondeu agora" (W13) ou "lead inbound aguardando — TI{n}" (W12): **ligar em até 10 min**, é o único caso em que se interrompe o bloco | notificações |
+| lead pediu "me liga mês que vem" (sem opt-out) | Aplicar a tag **`pausado`** à mão; retirar quando voltar. A tentativa fica represada no mesmo ponto da régua | contato → tags |
+| 18:30 | Tudo o que ficou sem resultado o W11 classifica sozinho como `Não atendeu` (nó 10b) e entra na lista `Sem resultado ontem` do gestor — **é a lista que mostra tentativa não feita**. Classificar de verdade antes disso | — |
+
+**Nunca (SDR):** mover etapa além de `NOVO LEAD` → `CONECTAR`; aplicar ou
+remover `fila-*`, `toque`, `limpar-tarefas`; criar tarefa `[CADENCIA]` à mão;
+editar `Tentativa nº`, contadores ou `Template usado`; marcar `Não ligar`
+para se livrar de um lead difícil; mandar WhatsApp por fora (a mensagem
+manual não grava `Template usado` e o lead pode ter DND).
+
+## 3.2 O closer
+
+| Momento | O que fazer | O que dispara |
+|---|---|---|
+| ao ser notificado do agendamento (W5 nó 12) | ler a nota "REUNIÃO AGENDADA" no contato: nota de qualificação, BANT, dor, histórico | — |
+| na hora da reunião | marcar o agendamento como **`Showed`** ou **`No Show`** no calendário — não deixar em `Confirmed` | `Showed` → W7 (`Data compareceu`, zera no-shows) · `No Show` → W8 (NS1 ao SDR) + W9 (SLA) |
+| no-show | responder em **2 h**: reagendar pelo calendário (o W5 tira o lead da recuperação sozinho) ou deixar o SDR recuperar (NS1–NS3). Segundo no-show seguido descarta sozinho | W9 nó 6 avisa o gestor se passar de 2 h |
+| até o fim do dia da reunião | preencher **`Reunião foi qualificada`** (`Sim`/`Não`/`Parcial`) e, se `Não`, **`Motivo da desqualificação`** — no contato | W6: carimbo, nota, `abandoned`/`lost` conforme o veredito, alerta de calibração ao gestor |
+| negociação | trabalhar em `NEGOCIAR`; fechou → mover para `FORMALIZAR` e status `won`; perdeu → status `lost` com motivo | Mestre de saída limpa o que sobrar |
+
+**Nunca (closer):** mover o lead de volta para `CONECTAR` (o SDR não vai
+recebê-lo — `Allow Re-entry` da 12x30 é desligado; quem recicla é o
+Reengajamento, 90 dias depois de `nutricao-90d`); apagar `nao-perturbe`/DND.
+
+## 3.3 O gestor
+
+| Cadência | O que olhar | Sinal de problema |
+|---|---|---|
+| **diário, 08:15** | `Sem resultado ontem` (8.5) | lista crescendo = tentativa que o SDR não fez, classificada às 18:30 pelo nó 10b |
+| diário | `Atraso na 1ª Tentativa` (8.8), `Saúde — NOVO LEAD Estagnado` (8.20), `Saúde — Fila Travada` (8.21) | qualquer linha: speed-to-lead estourou (15 min inbound / 1 h outbound), lead esquecido 24 h, ou o motor travou |
+| **11:00 e 15:00** (W18 lembra) | `Estouro da Fila` no dashboard / `Fila do Dia — Total` (8.16) | positivo = mais de 100 tarefas hoje → segurar entrada ou remanejar SDR |
+| semanal | `Conexão por Tentativa` (8.6), `Calibração da Régua` (8.7), `Pausados Individualmente` (8.15), `Higiene — Sem Telefone Válido` (8.18) | tentativa que nunca conecta (cortar da régua); nota ≥ 70 com veredito `Não` repetido (régua 9.1 desregulada); pausado há semanas (decidir); lista suja (fonte de lead) |
+| mensal | `Funil — Entraram/Conectaram/Agendaram/Compareceram no Mês` (8.9–8.12), `Resposta por Template` (8.13), `Conexão por Segmento e Horário` (8.19) | taxa de conexão = 8.10 ÷ 8.9; declarar vencedor do A/B (editar o Split para 100/0 e registrar em `biblioteca-mensagens.md`); ajustar horário por segmento (2.18) quando houver volume |
+| por notificação | alertas "ao gestor": telefone inválido (W4-N4, W11-0.0c), speed-to-lead (W15), calibração (W6-5/6), no-show sem retorno (W9-6), descarte por 2º no-show (W8-D5), lead esquecido (W17), fila travada (W17b), opt-out (W14-6b) | cada um diz o que fazer no próprio texto |
+| a cada hora (automático) | `rotina-limpar-tarefas.md` fecha as tarefas `[CADENCIA]` vencidas de quem tem `limpar-tarefas` | se parar de rodar, tarefas vencidas se acumulam na tela do SDR |
+
+**Decisões que só o gestor/dono toma** (nada disso sai por API nem por
+rotina): G-03 (promoção `NOVO LEAD` → `CONECTAR`), G-04 (mapeamento do Meta
+e opções de `Investimento mensal`), `[x]` das tags `novo-lead-estagnado` e
+`fila-travada` em `APROVADO.md`, número de teste para WhatsApp, pausas de
+feriado/férias (1.9), vencedor do A/B, teto de toques (6/semana — editar
+no nó 2.5c/3c), segundo SDR (1.10).
+
+## 3.4 Regras de convivência com a automação — o que nunca fazer na tela
+
+1. **Não excluir** contato, campo, tag, workflow, pipeline, oportunidade
+   (regra 1 do projeto). Descartar é `status = lost`.
+2. **Não renomear** etapa, tag, opção de campo ou workflow em uso — todo
+   `If/Else`, filtro de gatilho e `Remove from Workflow` compara o nome exato
+   e passa a nunca casar, sem erro visível.
+3. **Não editar/republicar** `Cadência 12x30`, `Cadência Inbound`,
+   `Reengajamento 90 dias` ou `Contador de Toques` com contatos parados em
+   `Wait` — o GHL pode reposicionar as instâncias (`build-wesales.md`, 2.8).
+   Editar fora do expediente e conferir `Toques na semana` depois.
+4. **Não usar "Construir com IA"** para nó com campo personalizado.
+5. **Não criar campo paralelo** para a mesma informação (`SDR responsável`,
+   "canal desta tentativa"…) — campo com dois donos diverge.
+6. **Não mandar mensagem manual** para lead com `nao-perturbe`/DND, nem
+   para lead em cadência sem gravar `Template usado`.
+7. **Testar em contato fictício** (seção 0.5), nunca em lead real; espaçar
+   dois disparos no mesmo contato em ≥ 5 s.
+8. **Mudou algo na tela? Mude o documento.** `build-wesales.md` é a fonte;
+   `CONFERENCIA-CAMPOS.md` registra o que a tela tem; este arquivo, o
+   clique. Divergência entre os três é bug em espera.
+
+## 3.5 Metas e números que a máquina persegue (fonte de cada um)
+
+| Métrica | Alvo | Onde vive | Onde se lê |
+|---|---|---|---|
+| Leads novos/dia | ~10 | `briefing-sdr.md` | 8.9 / dashboard |
+| Ligações/dia por SDR | 100 | `briefing-sdr.md` | widget Tasks / 8.16 |
+| Tarefas abertas/dia | ≤ 100 | `build-wesales.md` 2.15 | `Estouro da Fila` |
+| Speed-to-lead | 1ª tentativa em ≤ 15 min (inbound) / ≤ 1 h (outbound) | 2.11 | 8.8 |
+| Tentativas por lead | 12 em 30 dias (outbound) · 5 em 3 dias (inbound) · 4 em 10 dias (reengajamento) · 3 em 4 dias (no-show) | 2.5 / 2.10 / 2.12 / 5.3 | `Tentativa nº` |
+| Toques por semana por lead | ≤ 6 | 2.19 | `Toques na semana` |
+| No-shows seguidos antes de descartar | 2 | 5.3 | 8.17 |
+| Nutrição | 90 dias, depois reativa sozinho | 2.12 | 8.14 |
+| Nota de qualificação | A ≥ 70 · B 45–69 · C 25–44 · D < 25 | 9.1 | 8.7 |
+| Retorno do closer após no-show | 2 h | 5.4 | notificação W9 |
+
+## 3.6 Checklist de go-live (na ordem)
+
+1. **Decisões do dono:** G-03, G-04, `{{right_now}}` (testar na tela), número
+   de teste para WhatsApp (`APROVADO.md`), `[x]` de `novo-lead-estagnado` e
+   `fila-travada`.
+2. **Estrutura:** criar os 3 campos (1.2); corrigir `Plataformas de anúncio`;
+   aplicar a decisão G-04 nos campos e nos 8 formulários do Meta; criar as
+   2 tags (por API, depois do `[x]`).
+3. **Retoques nos publicados** (tabela do `GUIA-MONTAGEM.md`): Mestre de
+   saída (nó 1 `NOVO LEAD`, nó 0, nó 4 `fila-travada`, token da nota),
+   Pós-ligação (A2, 3b), Pós-agendamento (nó 4 nota, merge fields do nó 6),
+   Interceptação — Resposta (filtro opt-out).
+4. **Montar e publicar, nesta ordem:** W1 Contador de Toques → W6 Loop do
+   closer (refazer) → W7 → W9 (+ publicar W8) → W10 (confirmar conteúdo) →
+   **W11 Cadência 12x30** → W12 → W14 → W15 → W16 → W17 → W17b → W18.
+5. **Testar** cada um com o contato fictício indicado na seção "Teste"
+   (checklist completo: `build-wesales.md`, seção 10) — e ler o rastro por
+   API (apêndice).
+6. **Só então** promover o estoque de `NOVO LEAD` para `CONECTAR` (G-03) —
+   promover antes de publicar a 12x30 manda os leads para um evento que
+   ninguém escuta (`APRENDIZADOS-CRM.md`, 21/09).
+7. Listas 8.1–8.21 favoritas por papel; dashboard; pausas de feriado (só
+   lista workflow publicado).
+8. Primeira semana: gestor abre 8.5, 8.8, 8.20, 8.21 **todo dia** — são os
+   sensores de que a máquina está rodando de verdade.
+
+---
+
+# APÊNDICE — validação por API
+
 
 O conector `GHL CRM` lê contato, oportunidade, notas e tarefas — não lê
 workflow. Então o teste é sempre: **mudar um campo/etapa num contato de
