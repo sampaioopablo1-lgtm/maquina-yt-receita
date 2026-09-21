@@ -214,6 +214,34 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## A tabela de retoques de tela também é uma lista que alguém esquece de atualizar — 21/09/2026
+
+A rodada do F-05 desenhou o Monitor de Saúde certo e, de quebra, achou um
+detalhe fino: a limpeza da tag `novo-lead-estagnado` não podia entrar na
+lista do nó 4 do Mestre de saída, porque o portão do nó 1 encerra em no-op
+justamente na transição `NOVO LEAD` → `CONECTAR`, que é como o alerta se
+resolve. Solução certa: um nó 0 incondicional, antes do portão.
+
+O que faltou: **o Mestre de saída está publicado na tela**, e o nó 0 é
+mudança numa peça que já roda. A tabela "retoques de tela pendentes" do
+`GUIA-MONTAGEM.md` — que existe exatamente para isso — não recebeu a linha.
+Especificação alterada + peça publicada = linha na tabela, sempre.
+
+Duas melhorias que saíram daí:
+
+1. A tabela ganhou a distinção **"dá para fazer hoje"** vs. "espera workflow
+   que não existe". Sem isso, quatro linhas bloqueadas escondiam a única que
+   estava pronta para executar — o nó 0 não depende de nada.
+2. O texto de abertura dizia "**Dois** retoques pendentes" com cinco linhas
+   embaixo. Número fixo fora da fonte vira mentira na rodada seguinte, que é
+   a regra que o próprio prompt da rotina já manda seguir; agora não conta,
+   só aponta para a tabela.
+
+**Padrão, já com nome:** toda vez que uma rodada muda a especificação de uma
+peça **publicada**, a pergunta é "onde fica a lista de coisas a mexer na
+tela?" — e a resposta tem que ser essa tabela, no mesmo commit. Foi assim
+que o R-17 acertou (entrou na tabela sozinho) e assim que o F-05 escorregou.
+
 ## `Contains` casa pedaço de palavra: `pare` está dentro de "parece ótimo" — 21/09/2026
 
 A rodada do R-17 achou um bug real e importante (resposta de opt-out no

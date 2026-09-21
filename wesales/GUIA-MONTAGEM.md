@@ -608,11 +608,15 @@ WhatsApp`, quando cada uma existir; as criadas até agora estão vazias, só
 nome), `Interceptação de Sinal — Clique` e `— Resposta`
 (seção 2.9, Trigger Link "Agendar com o closer" criado).
 
-**Dois retoques de tela pendentes nessas peças já publicadas** (achados na
-varredura de 19/09/2026, detalhe em `build-wesales.md`):
+**Retoques de tela pendentes nessas peças já publicadas** (achados nas
+varreduras de 19 e 21/09/2026, detalhe em `build-wesales.md` — a lista cresce
+a cada achado, então não vale contar aqui; a fonte é esta tabela). A coluna
+"Quando" separa o que dá para fazer **hoje** do que espera um workflow que
+ainda não existe:
 
 | Onde | O que mudar na tela | Por quê |
 |---|---|---|
+| **`Mestre de saída`, novo nó 0 — dá para fazer HOJE** | Inserir, **antes** do If/Else que hoje é o primeiro nó, um `Remove Contact Tag` de `novo-lead-estagnado` (F-05, seção 2.20) | Achado em 21/09 ao desenhar o Monitor de Saúde: o portão do nó 1 encerra em no-op exatamente na transição `NOVO LEAD` → `CONECTAR`, que é como este alerta se resolve — pôr a tag na lista do nó 4 não funcionaria, porque aquele nó nunca é alcançado nessa transição. Não depende de nenhum workflow novo: é o único retoque desta tabela que não espera nada |
 | `Mestre de saída`, depois do nó 2 | Acrescentar dois `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **os dois só entram quando esses workflows existirem na tela** (hoje nenhum dos dois existe, nem como rascunho: ver a lista lida ao vivo mais abaixo); a hora certa é no mesmo dia em que cada um for criado, não depois | A limpeza conhecia só a régua original; as outras duas continuariam ligando para quem já saiu. Este é o retoque que se esquece sozinho, porque só vira possível semanas depois do achado |
 | `Pós-ligação`, ramo `Não ligar`, nó 4 | Somar ao `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **só possível quando existirem** | O mais caro dos três: na janela entre o nó 4 e a limpeza do Mestre de saída, cai tarefa de ligação para quem acabou de pedir para não ser procurado |
 | `Pós-agendamento`, nó 3 | Somar ao `Remove from Workflow`: `Cadência Inbound` e `Reengajamento 90 dias` — **também só possível quando existirem** | Mesma lista incompleta do Mestre de saída, um nível abaixo. Aqui a janela é de segundos (o nó 1 move para `NEGOCIAR` e o Mestre limpa), mas é a janela em que um lead que acabou de agendar recebe a TI3 |
