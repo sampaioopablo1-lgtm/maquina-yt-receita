@@ -452,6 +452,37 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Tag de diagnóstico precisa de saída pelo caminho da recuperação, não só pela saída de cadência — 21/09/2026
+
+As três peças do Monitor de Saúde aplicam uma tag cada. Conferindo a peça 3
+logo depois de escrever a lição do `fila-quente`, fiz a mesma conta para as
+três:
+
+| Peça | Tag | Sai quando o lead **se recupera**? |
+|---|---|---|
+| 2.20 · lead esquecido em `NOVO LEAD` | `novo-lead-estagnado` | **Sim** — nó 0 do Mestre de saída, incondicional, roda na transição `NOVO LEAD` → `CONECTAR`, que é a recuperação |
+| 2.21 · fila travada | `fila-travada` | **Sim** — nó 0 do próprio workflow: uma tentativa nova aplicando `fila-tel` já prova que destravou |
+| 2.22 · `CONECTAR` sem avanço | `conectar-estagnado` | **Não** — só saía pelo nó 4 do Mestre de saída, ou seja, quando o lead **sai de cadência** |
+
+Na peça 3, o caminho do alerta terminava depois de avisar. Um lead que trava
+14 dias, é alertado e depois volta a receber tentativas ficaria marcado como
+estagnado para sempre, e a lista `Saúde — CONECTAR Estagnado` mostraria régua
+saudável como parada. **Um monitor de saúde com lista suja é pior que nenhum
+monitor: o gestor deixa de olhar.**
+
+Corrigido fechando o laço — nó 5 (recuperação) remove a tag, nó 6 garante um
+aviso só, nó 9 devolve ao `Wait`. Os três estados ficam certos sem repetir
+aviso: parou → tag e um alerta; continua parado → laço em silêncio; voltou a
+andar → tag sai e some da lista.
+
+**A regra, agora com as duas metades:** a lição do `fila-quente` dizia
+"conte onde aplica e onde remove". Esta acrescenta **qual** remoção costuma
+faltar: a do **caminho da recuperação**. A saída de cadência todo mundo
+lembra de limpar, porque é o fim da história; voltar ao normal não parece um
+evento, e por isso não ganha nó. Toda tag que marca um **estado ruim
+reversível** precisa de três saídas: recuperou, saiu de cadência, e nunca
+mais volta a entrar.
+
 ## Diagnóstico por contador vizinho: o par que fecha prova que o mecanismo funciona — 21/09/2026
 
 A auditoria de dados (`e98aec6`) achou dois nós que "não deixaram rastro" e

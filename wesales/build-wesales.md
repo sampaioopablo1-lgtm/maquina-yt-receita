@@ -2562,16 +2562,32 @@ especificação abaixo não muda se o operador exato for "equals" ou
 | 2 | Aguardar | Wait → Time Delay | 14 dias corridos |
 | 3 | Portão — ainda em cadência? | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → segue. Senão → **encerra** (saiu por um caminho normal — nada a avisar) |
 | 4 | Portão — avançou? | If/Else | `Tentativa nº` **é diferente de** `Checkpoint — Tentativa nº` → segue para o nó 5 (uma tentativa nova rodou nos últimos 14 dias — régua viva). Senão → segue para o nó 6 (parado) |
-| 5 | Novo ciclo | Update Contact Field | `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` → **voltar para o nó 2** (mesmo padrão de laço já usado nos nós 2.5b/2.5d da seção 2.4 — represa sem sair do workflow, reconsulta 14 dias depois) |
-| 6 | Fila | Add Contact Tag | `conectar-estagnado` |
-| 7 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está em CONECTAR sem tentativa nova há pelo menos 14 dias. Tentativa nº atual: {{contact.tentativa_n}}.` |
+| 5 | Novo ciclo — a régua voltou a andar | Remove Contact Tag `conectar-estagnado` → Update Contact Field `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` → **voltar para o nó 2** (mesmo padrão de laço já usado nos nós 2.5b/2.5d da seção 2.4 — represa sem sair do workflow, reconsulta 14 dias depois). A remoção da tag é o que tira da lista 8.22 o lead que **se recuperou** — ver nota abaixo |
+| 6 | Portão de aviso único | If/Else | tag `conectar-estagnado` **ausente** → segue para o nó 7 (é o primeiro alerta desta parada). **Presente** → pula direto para o nó 9 (já avisado; mantém o laço sem repetir o aviso) |
+| 7 | Fila e aviso | Add Contact Tag `conectar-estagnado` → Internal Notification para o gestor: `{{contact.name}} está em CONECTAR sem tentativa nova há pelo menos 14 dias. Tentativa nº atual: {{contact.tentativa_n}}.` |
 | 8 | Registro | Add Note | `Alerta de saúde: CONECTAR sem avanço em 14 dias · {{right_now}}` |
+| 9 | Continuar vigiando | Update Contact Field | `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` → **voltar para o nó 2** |
 
-Ao contrário do nó 5 (que volta ao nó 2 e continua o laço), o caminho do
-alerta **termina** no nó 8 — mesmo padrão das peças 1 e 2, que também
-avisam uma vez e encerram: a lista `Saúde — CONECTAR Estagnado` (8.22)
-mantém o lead visível enquanto a tag durar, sem precisar de um segundo
-aviso repetido a cada novo ciclo de 14 dias parado.
+**Por que o caminho do alerta também volta ao nó 2, e por que o nó 5 remove
+a tag (correção de 21/09/2026, antes de montar):** a primeira redação desta
+seção terminava no nó 8 — avisava uma vez e encerrava a instância. Isso
+deixava a tag `conectar-estagnado` sem nenhuma saída a não ser o nó 4 do
+Mestre de saída, que só roda quando o lead **sai de cadência de verdade**.
+Consequência: um lead que trava 14 dias, é alertado, e depois volta a
+receber tentativas (o SDR retomou, a pausa acabou, o workflow destravou)
+ficaria marcado como estagnado **para sempre**, e a lista `Saúde — CONECTAR
+Estagnado` (8.22) mostraria uma régua saudável como parada. É a mesma classe
+da tag `fila-quente` (seção 4, nó 3b): **aplicada no caminho ruim e removida
+só na saída, nunca no caminho da recuperação** — a lista de diagnóstico
+apodrece e o gestor para de confiar nela, que é o pior fim possível para um
+monitor de saúde.
+
+Com o laço fechado, os três estados ficam corretos sem aviso repetido: parou
+→ tag e um aviso (nó 6 garante que é um só); continua parado → nó 6 desvia
+para o 9 e o laço segue em silêncio; voltou a andar → nó 5 tira a tag, some
+da lista, e o monitor continua vigiando a partir do novo checkpoint. O nó 4
+do Mestre de saída continua na lista de limpeza como rede — a tag ainda
+precisa sair quando o lead deixa a cadência sem ter se recuperado.
 
 **Por que a comparação por `Checkpoint — Tentativa nº` não repete o erro
 "campo com dois donos" que este documento já evitou várias vezes (F-04,
