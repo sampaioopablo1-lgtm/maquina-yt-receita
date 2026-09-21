@@ -986,7 +986,7 @@ contato de estrutura, confirmado por `contacts_get-contact` — 15 tags do
 projeto agora na subconta, `dateUpdated` 19/09/2026 04:15 UTC. Checklist
 ganhou o item 35.
 
-### F-05 · Monitor de saúde da operação — peça 1 (lead esquecido em `NOVO LEAD`) e peça 2 (`fila-tel`/`fila-wa` presa) de N, ambas FEITAS em 21/09/2026
+### F-05 · Monitor de saúde da operação — FEITO em 21/09/2026 (seis peças: lead esquecido em `NOVO LEAD`, `fila-tel`/`fila-wa` presa, `CONECTAR` sem avanço, `nao-perturbe` ainda em workflow ativo, `AGENDAR` sem fechar o loop, retorno vencido sem reclassificação)
 **Por quê:** automação falha **em silêncio**. Tag que não saiu, lead parado numa
 etapa, workflow que parou de disparar — descobre-se pelo número caindo, semanas
 depois, quando o estrago já aconteceu.
@@ -1077,21 +1077,140 @@ o alerta de fila travada se resolve numa saída de cadência real, que o nó 4
 já alcança). Limite documentado, não escondido: se o gestor remover
 `fila-tel`/`fila-wa` na mão sem o lead nunca gerar tentativa nova nem sair
 de cadência, `fila-travada` fica presa para sempre sem afetar mais nada —
-cenário que a próxima invariante (`CONECTAR` sem tentativa há 7 dias) é
-quem pega de verdade (cadência morta, não só uma tentativa travada). Zero
+cenário que a peça 3 (`CONECTAR` sem avanço) é quem pega de verdade
+(cadência morta, não só uma tentativa travada). Zero
 escrita no CRM: tag nasce `[ ]` em `APROVADO.md`, mesma regra da T-16.
 Subconta reconfirmada nesta execução, sem mudança: mesmas 5 etapas do
 `FUNIL DE VENDAS`, 46 campos, 50 oportunidades — G-03 segue aguardando o
 dono.
 
-**Escopo depois das duas peças desta rodada:** das seis invariantes
-originais do "Como" (mais as duas adições de 18/09), duas já têm workflow
-(`NOVO LEAD` estagnado e `fila-tel`/`fila-wa` presa) e uma foi descartada
-por já estar coberta (tarefa vencida sem resultado). Restam três:
-`CONECTAR` sem tentativa há 7 dias, `nao-perturbe` em workflow ativo,
-`Conectado`/`Retorno agendado` vencidos — a última segue dependendo de
-"esperar até uma data dinâmica", não testado neste conector; as outras
-duas são candidatas à peça 3.
+**Resumo (21/09/2026, peça 3 — mesma rodada das peças 1 e 2):** a invariante
+que a própria peça 2 já apontava como sua vizinha natural (seção "Caso não
+coberto por nenhum dos dois" do `build-wesales.md`) — `CONECTAR`/`open` sem
+nenhuma tentativa nova por tempo demais, o sintoma de uma cadência **morta**,
+não só uma tentativa travada. **Achado que corrigiu o próprio enunciado do
+roadmap antes de publicar:** o "7 dias" original da lista de invariantes
+falharia contra a régua real — a tabela 2.5 tem um degrau de **10 dias
+corridos** entre T10 (D20) e T11 (D30), então um alarme aos 7 dias soaria
+para todo lead saudável passando por esse intervalo, o exato oposto de
+"cadência morta". Corrigido para 14 dias (acima do maior degrau real, com
+folga para o empurrão de dia útil que a seção 2.5 já documenta). **Segundo
+achado, de mecanismo:** o gatilho não é `Opportunity Stage Changed →
+CONECTAR` (a tradução mecânica da peça 1) — o Reengajamento 90 dias (seção
+2.12) reescreve a oportunidade para a **mesma** etapa em que ela já estava
+(12 tentativas esgotadas nunca move de `CONECTAR`, só muda `status`), e não
+há fonte confirmando se o GHL dispara o evento de mudança de etapa quando o
+valor escrito é igual ao valor anterior — apostar nisso arriscava deixar
+todo lead reativado sem monitor. Resolvido com um gatilho pesquisado via
+`WebSearch` (nível de confiança médio, documentação oficial confirma mas não
+testado nesta subconta): **Contact Changed**, filtrando por Custom Field
+`Tentativa nº` **igual a** `0` — o valor que os três pontos de início de
+rodada (Cadência 12x30, Cadência Inbound, Reengajamento) já escrevem, sem
+exceção. Workflow "Cadência Sem Avanço" especificado em `build-wesales.md`
+(seção 2.22): checkpoint de `Tentativa nº` num campo novo (C-27,
+`campos-e-tags.md`), laço de 14 em 14 dias comparando o valor atual contra o
+checkpoint (mesmo padrão de laço já usado nos nós 2.5b/2.5d da seção 2.4),
+tag `conectar-estagnado` (T-18) na régua realmente parada. Limite
+documentado, não escondido: o handoff do fim da Cadência Inbound também
+zera `Tentativa nº`, então um lead inbound sem resposta abre uma segunda
+instância deste monitor — na pior hipótese, a instância mais antiga sai em
+silêncio achando "avançou" (leu um checkpoint que na verdade a instância
+mais nova escreveu), mas a mais nova continua o laço corretamente a partir
+do seu próprio início; nunca os dois saem ao mesmo tempo sem avisar. Falta
+só a criação manual do workflow, do campo e da tag na tela — nenhum sai por
+API; subconta reconfirmada nesta execução via
+`opportunities_get-pipelines`/`locations_get-custom-fields`/
+`opportunities_search-opportunity`: mesmas 5 etapas do `FUNIL DE VENDAS`, 46
+campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, status `open` em
+todas) — sem mudança desde a última rodada, G-03/G-04 seguem aguardando o
+dono.
+
+**Resumo (21/09/2026, peça 4 — mesma rodada das peças 1 a 3):** a candidata
+que a própria peça 3 já apontava. Pesquisado antes de desenhar o monitor que
+o "Como" original descrevia ("rotina que confere invariantes e denuncia
+violação"): o GHL não tem filtro nativo de Smart List "contato ativo em
+**qualquer** workflow", só "ativo **neste** workflow específico" (pedido em
+aberto na base de ideias da HighLevel, mesma classe de limite já documentada
+para R-10/R-11) — um monitor de verdade precisaria de um filtro por
+workflow, exatamente a lista manual que `APRENDIZADOS-CRM.md` já tinha
+flagrado vazando quatro vezes (`build-wesales.md`: seção 3, seção 4 ramo
+`Não ligar`, seção 5 nó 3, seção 2.9.5) — **detectar o vazamento com a
+mesma peça que vaza não fecha o buraco, documenta ele**. **Achado que trocou
+detecção por prevenção:** pesquisada uma ação nativa melhor —
+**`Remove Workflows`**, com a opção **`All Except Current Workflow`**
+(pesquisado via `WebSearch`, confiança média — documentação oficial da
+HighLevel bloqueada pelo proxy deste ambiente, confirmado por três fontes de
+terceiros independentes) — que tira o contato de **toda** régua ativa,
+existente ou futura, sem precisar nomear nenhuma. Substituiu a lista manual
+nos quatro lugares que a tinham: o vazamento que a peça 4 do "Como" original
+foi desenhada para **detectar** deixa de poder **acontecer**. Cuidado
+documentado: a opção certa é sempre `All Except Current Workflow`, nunca
+`All Workflows` — as quatro peças têm nó depois na própria régua, e
+`All Workflows` cortaria a própria execução no meio (mesmo efeito que a
+seção 5.4 do `build-wesales.md` já documenta para `Remove from Workflow`
+cancelando um `Wait` pendente). Zero campo, zero tag, zero escrita no CRM:
+documentação pura, não depende de `APROVADO.md`. Três dos quatro lugares
+(`Mestre de saída`, ramo `Não ligar` do `Pós-ligação`, nó 3 do
+`Pós-agendamento`) já estão publicados e ativos na subconta — a troca virou
+retoque de tela "dá para fazer hoje" em `GUIA-MONTAGEM.md`, não mais
+bloqueado por workflow que ainda não existe. Detalhe completo:
+`build-wesales.md` (seções 3, 4, 5 e 2.9.5), `IMPLEMENTACAO-WORKFLOWS.md`
+(W3/W4/W5/W14), `GUIA-MONTAGEM.md` (retoques) e `APRENDIZADOS-CRM.md`
+(lição original marcada como superada, não apagada).
+
+**Escopo depois das quatro peças daquela rodada:** das seis invariantes
+originais do "Como" (mais as duas adições de 18/09), três tinham workflow
+(`NOVO LEAD` estagnado, `fila-tel`/`fila-wa` presa e `CONECTAR` sem avanço),
+uma foi descartada por já estar coberta (tarefa vencida sem resultado) e a
+de `nao-perturbe` em workflow ativo foi resolvida na raiz em vez de por
+monitor (acima). Restava uma: `Conectado`/`Retorno agendado` vencidos —
+seguia dependendo de "esperar até uma data dinâmica", não testado neste
+conector.
+
+**Resumo (21/09/2026, peças 5 e 6 — mesmo dia, sessão automática seguinte
+— F-05 fechado):** o próprio roadmap (nota no fim deste arquivo) mandava
+reconferir se essa dependência ainda valia antes de procurar lacuna nova.
+Pesquisado via `WebSearch` (documentação oficial da HighLevel segue
+bloqueada pelo proxy deste ambiente): o nó `Wait` do GHL tem uma opção
+**Dynamic** que lê a data de um custom field em tempo de execução — achado
+com confiança médio-alta (a mesma citação do artigo oficial apareceu
+palavra por palavra em duas buscas independentes, reforçada por um
+changelog da própria HighLevel anunciando a funcionalidade). A dependência
+caiu, e as duas invariantes que faltavam ganharam workflow:
+
+- **Peça 5 — `AGENDAR` sem fechar o loop em 24h** (`Conectado` no plano
+  original): workflow "AGENDAR Estagnado" (`build-wesales.md`, seção 2.23),
+  mesmo padrão de relógio por evento da peça 1 — gatilho `Opportunity Stage
+  Changed → AGENDAR`, `Wait` de 24h, portão, tag `agendar-estagnado` (T-19)
+  e aviso ao gestor. Limpa pelo nó 0, incondicional, do Mestre de saída —
+  por precaução contra a lacuna L-08 (`briefing-sdr.md`, "`AGENDAR` não tem
+  caminho formal de desqualificação"), não porque o caminho normal precise.
+- **Peça 6 — retorno prometido e vencido sem reclassificação** (`Retorno
+  agendado` no plano original): workflow "Retorno Vencido" (`build-wesales.md`,
+  seção 2.24) — o que dependia da data dinâmica. Gatilho `Contact Changed`
+  filtrando `Data de retorno` alterado (o mesmo tipo de filtro que o
+  Pós-ligação já usa em produção, 24 execuções confirmadas —
+  `APRENDIZADOS-CRM.md`), checkpoint do valor no instante do gatilho (mesmo
+  padrão da peça 3, campo novo `Checkpoint — Data de retorno`, C-28), `Wait`
+  Dynamic até esse valor às 19:00, dois portões (a promessa não foi renovada
+  E ainda está pendente) antes de marcar `retorno-vencido` (T-20). **Achado
+  ao desenhar a limpeza, o mais importante das duas peças:** o caminho mais
+  comum de recuperação (o SDR liga de novo e reclassifica) não muda etapa
+  nem `status` na maioria dos resultados possíveis — o Mestre de saída
+  nunca dispara nesse caminho. Resolvido com um nó novo, incondicional, no
+  próprio Pós-ligação (nó 3c, mesmo raciocínio já usado para `fila-quente`
+  no nó 3b daquele workflow), com o nó 4 do Mestre de saída como rede de
+  segurança, não como limpeza principal.
+
+**F-05 fechado como bloco:** as seis invariantes originais do "Como" (mais
+a de `NOVO LEAD`, achada via G-03) têm tratamento agora — três por
+detecção com relógio (peças 1, 2, 3), uma por prevenção (peça 4), duas por
+detecção com checkpoint (peças 5, 6). Nenhuma pendência restante dentro do
+item. Zero escrita no CRM nesta rodada: as duas tags (T-19/T-20) e o campo
+novo (C-28) nascem propostos, não criados — mesma regra de todo `[ ]` desde
+o incidente da T-15. Subconta reconfirmada: mesmas 5 etapas do `FUNIL DE
+VENDAS`, 46 campos, 50 oportunidades — G-03/G-04 seguem aguardando o dono,
+sem mudança.
 
 ### F-06 · Qualidade da conexão, não a contagem
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
@@ -1187,26 +1306,32 @@ verdade para medir.
 **Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
 rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
-bloco 5. O que resta entre os itens numerados não espera posição na fila,
-espera a operação existir: R-14 quando a máquina começar a mandar mensagem
-de verdade, o resto do F-05 (peças 3+) quando as invariantes restantes
-tiverem desenho pronto, e o F-06 quando houver volume de ligação real.
+bloco 5. O F-05 (bloco 6) fechou por inteiro em 21/09/2026 — não sobra peça
+represada nele. O que resta entre os itens numerados não espera posição na
+fila, espera a operação existir: R-14 quando a máquina começar a mandar
+mensagem de verdade, e o F-06 quando houver volume de ligação real.
 
-**Com G-02 fechado em 21/09/2026 e as duas primeiras peças do F-05
-especificadas na mesma data, não sobra item de documentação pura óbvio
-esperando uma sessão sem tela nem volume — mas isso não é permanente, como
-o próprio F-05 acabou de mostrar duas vezes na mesma rodada.** O que resta
-é de três tipos: (1) montar na tela o que já está especificado (pipeline,
-campos, workflows, calendário e formulário, pelo `build-wesales.md`) —
-trabalho manual, ao vivo com o dono —, (2) esperar volume/mensagem real
-para R-14 e F-06, e (3) desenhar as peças seguintes do F-05 (o "Escopo"
-no fim do item F-05 conta quantas invariantes restam e quais — número fixo
-só lá, não aqui) quando alguém tiver tempo para resolver o "esperar até uma
-data dinâmica" que uma delas exige. Uma sessão automática sem acesso à tela
-e sem (2) desbloqueado não deve inventar trabalho para preencher a rodada:
-o próximo passo honesto é conferir se (3) tem uma peça pronta para
-especificar, depois a varredura de coerência entre documentos (a mesma que
-fechou G-02 — grep por nome antigo, merge field órfão, contagem duplicada)
-e, se ela não achar nada, procurar uma lacuna nova que nenhum item aqui
-cobre ainda (o mesmo raciocínio que criou G-01, G-02 e o bloco 6 inteiro)
-antes de encerrar sem commit.
+**Com G-02 fechado em 21/09/2026 e o F-05 inteiro (seis peças) fechado na
+mesma data, não sobra item de documentação pura óbvio esperando uma sessão
+sem tela nem volume — mas isso não é permanente, como o próprio F-05
+acabou de mostrar seis vezes na mesma rodada, a última (peças 5 e 6) só
+depois de uma dependência que parecia fechada ("esperar até uma data
+dinâmica, não testado neste conector") se resolver sozinha por uma busca
+melhor.** O que resta é de três tipos: (1) montar na tela o que já está
+especificado (pipeline, campos, workflows, calendário e formulário, pelo
+`build-wesales.md`) — trabalho manual, ao vivo com o dono, e as peças 5/6
+do F-05 acrescentaram mais retoques "dá para fazer hoje" a essa fila
+(`GUIA-MONTAGEM.md`), além de completar duas lacunas antigas da própria
+"Ordem de montagem" (as peças 2 e 3 do F-05 nunca tinham entrado nela) —,
+(2) esperar volume/mensagem real para R-14 e F-06, e (3) G-03/G-04, que
+esperam decisão do dono, não desenho. Não sobra peça do F-05 represada por
+premissa técnica. Uma sessão automática sem acesso à tela e sem (2)
+desbloqueado não deve inventar trabalho para preencher a rodada: o próximo
+passo honesto é a varredura de coerência entre documentos (a mesma que
+fechou G-02 e a peça 4 — grep por nome antigo, merge field órfão, contagem
+duplicada, lista manual que devia ter virado ação nativa) e, se ela não
+achar nada, reler os itens represados por "premissa técnica não testada"
+como esta rodada acabou de fazer com o F-05 (a razão de esperar pode ter
+vencido sem ninguém notar) e, só depois, procurar uma lacuna nova que
+nenhum item aqui cobre ainda (o mesmo raciocínio que criou G-01, G-02, a
+peça 4 do F-05 e o bloco 6 inteiro) antes de encerrar sem commit.

@@ -2,6 +2,67 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Esperar até uma data dinâmica" não é mais bloqueio: o `Wait` do GHL tem opção `Dynamic` — F-05 fechado (peças 5 e 6) — 21/09/2026, sessão automática
+
+Desde a peça 1 do F-05 (18/09/2026), o roadmap registrava a última
+invariante do Monitor de Saúde (`Retorno agendado`/`Data do retorno`
+vencida) como bloqueada por "esperar até uma data dinâmica, não testado
+neste conector". Cada rodada seguinte (peças 2, 3, a nota de fechamento
+depois da peça 4) reconferiu a razão de esperar e a manteve — até esta
+rodada, seguindo a própria instrução do roadmap ("reler o 'por quê estamos
+esperando' de todo item represado").
+
+**Pesquisado via `WebSearch`** (domínios da HighLevel seguem bloqueados
+pelo proxy deste ambiente, mesma limitação de sempre — a busca lê o
+resultado de IA sobre a página de suporte, não a página em si): o nó `Wait`
+do GHL tem uma opção **Dynamic** (ao lado de **Standard**, um valor fixo),
+descrita como lendo "a data de um campo do contato em tempo de execução".
+**O que eleva a confiança acima do padrão usual deste projeto para achado
+só de busca:** a mesma frase — "Standard is a fixed date you choose... Use
+Dynamic when the value should be read from a contact field at runtime" —
+apareceu **palavra por palavra**, em duas buscas com termos diferentes,
+sinal de que é o texto real do artigo oficial ("Workflow Wait Action Setup
+and Options") sendo citado, não uma paráfrase que poderia estar errada. Um
+changelog da própria HighLevel ("Wait Action: Major Revamp") reforça que a
+funcionalidade existe e é recente. **Nível de confiança: médio-alto** —
+mais alto que "uma fonte de IA sobre documentação" isolada, mas ainda não
+confirmado numa tela desta subconta.
+
+**Regra prática, generalizável:** quando uma busca de IA sobre documentação
+retorna a mesma frase, quase idêntica, em consultas com termos de busca
+diferentes, é um sinal de que ela está citando o texto original (que a IA
+não inventaria duas vezes do mesmo jeito) — vale mais confiança do que uma
+única busca, mesmo sem conseguir ler a página fonte direto (proxy bloqueia
+`help.gohighlevel.com`, `ideas.gohighlevel.com` e blogs de terceiros como
+`consultevo.com` igualmente).
+
+**Isso desbloqueou as duas invariantes finais do F-05**, peças 5
+(`AGENDAR` sem fechar o loop em 24h — `build-wesales.md`, seção 2.23) e 6
+(retorno vencido sem reclassificação — seção 2.24), fechando o item por
+completo. Um achado de desenho na peça 6 vale registrar à parte: o gatilho
+"campo alterado" que ela precisa (`Data de retorno`) já está **provado em
+produção**, não só em documentação — o Pós-ligação (seção 4) usa
+exatamente esse tipo de filtro (`Resultado da tentativa` alterado) há dias,
+com 24 execuções confirmadas (ver "Diagnóstico por contador vizinho",
+abaixo). Isso resolve, por evidência própria do projeto e não só por busca,
+a mesma dúvida que a peça 3 tinha registrado com confiança baixa ("dispara
+quando escreve o mesmo valor?") — aqui o campo é uma data escolhida pelo
+SDR a cada ligação, não um valor de uma lista fechada, então a chance de
+reescrever o **mesmo** valor é baixa o bastante para não precisar da
+resposta exata daquela dúvida.
+
+Zero escrita no CRM nesta rodada: as duas peças são especificação
+(`build-wesales.md`, seções 2.23/2.24, mais os retoques nos nós 0/4 do
+Mestre de saída — seção 3 — e o nó 3c novo do Pós-ligação — seção 4), um
+campo novo (`Checkpoint — Data de retorno`, C-28) e duas tags novas
+(`agendar-estagnado` T-19, `retorno-vencido` T-20) propostas, não criadas —
+nascem `[ ]` em `APROVADO.md`, mesma regra desde o incidente da T-15.
+Subconta reconfirmada via `opportunities_get-pipelines`/
+`opportunities_search-opportunity`/`locations_get-custom-fields`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 46 campos, 50 oportunidades (47 `NOVO LEAD` +
+3 `NEGOCIAR`, status `open` em todas) — sem mudança desde a última rodada;
+G-03/G-04 seguem aguardando o dono.
+
 ## Teste do Loop do closer não disparou; o Mestre de saída dispara na criação da oportunidade — 21/09/2026, ao vivo em chat
 
 **Teste por API do `Post-Meeting Closer Loop` (seção 5.1), a pedido do
@@ -44,6 +105,98 @@ cada nó de cada workflow (ação, campo, operador, valor, ramo), com os nomes
 reais lidos da subconta — para montar à mão. Escrita no CRM nesta rodada:
 só os 3 campos do contato fictício `Teste Atendeu` (teste do checklist,
 seção 10, autorizado em `APROVADO.md`); nenhum lead real tocado.
+
+## Um número copiado de um enunciado precisa ser confrontado com a régua real antes de virar condição — 21/09/2026, ao desenhar a peça 3 do F-05
+
+Desenhando a peça 3 do Monitor de Saúde (`CONECTAR` sem tentativa nova),
+copiei primeiro o número literal do "Como" original do F-05 (`briefing-sdr.md`
+não, `ROADMAP-SALES-ENGAGEMENT.md` mesmo): "7 dias". Antes de escrever o nó,
+conferi a tabela 2.5 (`build-wesales.md`) — a régua das 12 tentativas — e
+achei um degrau de **10 dias corridos** entre T10 (D20) e T11 (D30), o maior
+intervalo planejado da cadência inteira. Um alarme em "7 dias sem tentativa
+nova" dispararia para **todo** lead são passando por esse intervalo — o
+oposto exato do que a peça existe para detectar.
+
+**A mesma classe de erro que a peça 2 já tinha cometido e corrigido** (relógio
+relativo de 24h confundindo intervalo legítimo entre tentativas próximas com
+trava real), só que achada **antes** de publicar, não depois de gerar falso
+positivo em produção. Corrigido para 14 dias: acima do maior degrau real (10)
+com folga para o empurrão de dia útil que a seção 2.5 já documenta.
+
+**Regra prática, generalizável:** todo número de um "Como" do roadmap que vira
+condição de tempo (`N dias sem X`, `N horas de atraso`) precisa ser
+confrontado contra a tabela real da régua que ele monitora antes de virar
+nó — o enunciado foi escrito antes da tabela existir em detalhe, e o maior
+intervalo planejado é sempre o candidato a furar um número redondo escolhido
+de memória. `grep` pela tabela de deltas da régua (seção 2.5 e as que a
+espelham) e pegue o maior valor antes de escolher o limite do alarme.
+
+## `Opportunity Stage Changed` é incerto quando a ação escreve a mesma etapa que já existia — prefira um gatilho por campo quando o "reentra" pode não sair da etapa — 21/09/2026, mesma rodada acima
+
+Ainda desenhando a peça 3: o instinto era copiar o gatilho da peça 1
+(`Opportunity Stage Changed → CONECTAR`), que cobre a entrada vinda de
+`NOVO LEAD` e a da Cadência Inbound de graça. Não cobre o Reengajamento 90
+dias (seção 2.12): o nó 5 daquele workflow escreve `Etapa → CONECTAR`
+quando a oportunidade **já está** em `CONECTAR` havia semanas (12 tentativas
+esgotadas nunca move de etapa, só muda `status` — tabela 1.0). `WebSearch`
+na documentação oficial (`help.gohighlevel.com/.../workflow-trigger-
+pipeline-stage-changed`) descreve o gatilho como reagindo a "opportunity
+moves from one stage to another" — não cobre, nem confirma nem nega, o caso
+de uma ação escrever o mesmo valor que o campo já tinha. Sem fonte que
+resolva a dúvida, apostar que o evento dispara mesmo assim arriscava deixar
+**todo** lead reativado sem monitor nenhum — o pior resultado possível para
+uma peça que existe para pegar o que mais ninguém vê.
+
+**Resolvido evitando a dúvida, não resolvendo-a:** em vez de `Opportunity
+Stage Changed`, o gatilho virou **Contact Changed** filtrando por Custom
+Field `Tentativa nº` **igual a** `0` — o valor que os três pontos de início
+de rodada (Cadência 12x30, Cadência Inbound, Reengajamento) já escrevem
+sempre, sem exceção nenhuma, porque cada um zera o contador como parte da
+própria inicialização (confirmado no texto de cada seção, não hipótese).
+`WebSearch` confirma que o `Contact Changed` aceita filtro por Custom Field
+com operador de igualdade (nível de confiança médio: documentação oficial,
+não testado nesta subconta).
+
+**Regra prática, generalizável:** quando um evento de "entrada" pode
+acontecer sem mudança de valor visível no campo mais óbvio (aqui, etapa que
+já estava onde deveria), procure um campo que **sempre** muda nesse
+instante, mesmo que seja um campo vizinho em vez do campo "principal" do
+evento — reset de contador, carimbo de timestamp, tag de pulso. `Tentativa
+nº` voltando a `0` é mais confiável como "início de rodada" do que a etapa
+em si, porque nenhuma das três réguas jamais pula esse reset, e nenhuma
+delas depende de a etapa ter mudado de verdade.
+
+## Nem todo campo compartilhado é um "contador com dois donos" — a diferença é a frequência de escrita concorrente, não o fato de ser compartilhado — 21/09/2026, mesma rodada acima
+
+A peça 3 precisa de um campo `Checkpoint — Tentativa nº` (C-27) escrito e
+lido pelo mesmo workflow, para comparar "avançou desde a última checagem?"
+14 dias depois. O primeiro instinto foi rejeitar o desenho por medo do
+mesmo bug já documentado nesta base (F-04/`Toques na semana`, e a peça 2
+descartando explicitamente um campo de snapshot pelo mesmo motivo): várias
+instâncias do mesmo workflow escrevendo no mesmo campo compartilhado quase
+ao mesmo tempo corrompem a leitura umas das outras.
+
+**A diferença que salva este desenho, e vale generalizar:** o risco daqueles
+dois casos não vinha de o campo ser compartilhado — vinha da **frequência**
+de escrita concorrente. `toque` dispara a cada tarefa criada ou mensagem
+enviada, várias vezes por dia por lead nos picos da régua; duas instâncias
+brigando pelo mesmo campo em minutos de diferença é o caso comum, não a
+exceção. Aqui o gatilho só dispara quando `Tentativa nº` volta a `0` — no
+máximo três vezes na vida inteira de um lead (entrada inicial, handoff do
+fim da Cadência Inbound, uma reativação), cada disparo separado dos outros
+por dias ou semanas. Duas instâncias correndo por cima uma da outra é a
+exceção rara (só no handoff), não o caso comum, e mesmo nela o efeito é um
+falso "tudo bem" isolado numa instância redundante que sai cedo — nunca um
+alarme real ficando mudo, porque a instância mais nova sempre continua seu
+próprio laço a partir do seu próprio início.
+
+**Regra prática, generalizável:** antes de rejeitar um campo de checkpoint
+por medo do "contador com dois donos", pergunte quantas vezes por vida do
+lead o gatilho realmente dispara, e quão perto no tempo essas vezes podem
+cair. Um campo escrito 2-3 vezes espaçadas por dias não tem o mesmo risco
+que um campo escrito dezenas de vezes por dia — a lição de F-04 e da peça 2
+é sobre concorrência real, não sobre "todo campo compartilhado é perigoso".
+
 ## Um relógio de "24h desde o gatilho" pode medir a tentativa errada quando o mesmo evento se repete várias vezes por lead — 21/09/2026, sessão automática
 
 Desenhando a peça 2 do F-05 (Monitor de Saúde — `fila-tel`/`fila-wa` presa
@@ -359,6 +512,73 @@ Zero escrita no CRM: item de documentação pura, não depende de
 `locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
+
+## `All Except Current` protege o workflow atual e corta o de quem o chamou — 21/09/2026
+
+A peça 4 do F-05 trocou um monitor por uma ação nativa, e a ideia é melhor
+que a original: em vez de **detectar** que um lead com `nao-perturbe`
+continuou rodando régua, `Remove Workflows` → `All Except Current Workflow`
+faz o vazamento não poder acontecer, sem lista de nomes para manter. Ficou
+certa em três dos quatro lugares.
+
+No quarto — o **Mestre de saída** — tem um efeito colateral grave, e ele vem
+de uma pergunta que a própria rodada quase fez. Ela descartou
+`All Workflows` com o argumento certo ("cortaria a própria execução deste
+workflow, antes dos nós 4/5/6") e parou um passo antes: **`All Except
+Current` protege o atual e corta o de quem chamou.** E o Mestre de saída
+quase nunca é disparado pelo lead — ele é disparado por **outro workflow
+mexendo na etapa ou no status, enquanto esse outro ainda está rodando**:
+
+| Quem dispara | O que ainda faltava rodar | O que morreria |
+|---|---|---|
+| Pós-agendamento, nó 1 (move para `NEGOCIAR`) | nós 4-10 | `Nota de qualificação`, confirmação e os **três lembretes** de toda reunião agendada |
+| Pós-ligação, ramo `Atendeu`, nó 6 (move para `AGENDAR`) | nós 7-9 | `Data conectado`, `Hora da conexão`, e a **tarefa `[CONECTADO]`** de toda conexão |
+
+E como o Mestre roda em paralelo, o corte chegaria em momento diferente a
+cada vez — às vezes depois do lembrete, às vezes antes. Bug não
+determinístico, o pior tipo para diagnosticar numa operação.
+
+**A regra:** antes de usar uma ação que age sobre "todos", pergunte **quem me
+chamou, e ele ainda está rodando?** Ação de alcance total é segura num
+workflow disparado pelo **lead** (opt-out, `Não ligar` — ali matar tudo é o
+objetivo) e perigosa num workflow disparado por **outro workflow**. É a
+mesma pergunta de "quem mais passa por aqui?", virada para trás: não *quem
+vem depois de mim*, mas *quem está no meio de algo por minha causa*.
+
+Nos outros três lugares a ação ficou: o Pós-agendamento é o `Current` e
+protege os próprios lembretes; o opt-out e o `Não ligar` querem justamente
+matar tudo que estiver pendente.
+
+## Tag de diagnóstico precisa de saída pelo caminho da recuperação, não só pela saída de cadência — 21/09/2026
+
+As três peças do Monitor de Saúde aplicam uma tag cada. Conferindo a peça 3
+logo depois de escrever a lição do `fila-quente`, fiz a mesma conta para as
+três:
+
+| Peça | Tag | Sai quando o lead **se recupera**? |
+|---|---|---|
+| 2.20 · lead esquecido em `NOVO LEAD` | `novo-lead-estagnado` | **Sim** — nó 0 do Mestre de saída, incondicional, roda na transição `NOVO LEAD` → `CONECTAR`, que é a recuperação |
+| 2.21 · fila travada | `fila-travada` | **Sim** — nó 0 do próprio workflow: uma tentativa nova aplicando `fila-tel` já prova que destravou |
+| 2.22 · `CONECTAR` sem avanço | `conectar-estagnado` | **Não** — só saía pelo nó 4 do Mestre de saída, ou seja, quando o lead **sai de cadência** |
+
+Na peça 3, o caminho do alerta terminava depois de avisar. Um lead que trava
+14 dias, é alertado e depois volta a receber tentativas ficaria marcado como
+estagnado para sempre, e a lista `Saúde — CONECTAR Estagnado` mostraria régua
+saudável como parada. **Um monitor de saúde com lista suja é pior que nenhum
+monitor: o gestor deixa de olhar.**
+
+Corrigido fechando o laço — nó 5 (recuperação) remove a tag, nó 6 garante um
+aviso só, nó 9 devolve ao `Wait`. Os três estados ficam certos sem repetir
+aviso: parou → tag e um alerta; continua parado → laço em silêncio; voltou a
+andar → tag sai e some da lista.
+
+**A regra, agora com as duas metades:** a lição do `fila-quente` dizia
+"conte onde aplica e onde remove". Esta acrescenta **qual** remoção costuma
+faltar: a do **caminho da recuperação**. A saída de cadência todo mundo
+lembra de limpar, porque é o fim da história; voltar ao normal não parece um
+evento, e por isso não ganha nó. Toda tag que marca um **estado ruim
+reversível** precisa de três saídas: recuperou, saiu de cadência, e nunca
+mais volta a entrar.
 
 ## Diagnóstico por contador vizinho: o par que fecha prova que o mecanismo funciona — 21/09/2026
 
@@ -769,6 +989,26 @@ grep -n 'Remove from Workflow' wesales/build-wesales.md
 Dos quatro, só o ramo `Número errado` (seção 4) fica de fora de propósito:
 ele não tem lista, delega inteiro ao Mestre de saída, e isso está escrito no
 próprio parágrafo dele.
+
+**Superado em 21/09/2026 (F-05, peça 4 do "Como" original — `nao-perturbe`
+ainda dentro de workflow ativo):** as quatro listas viraram um só nó em cada
+lugar, ação nativa **Remove Workflows**, opção **All Except Current
+Workflow** — pesquisado via `WebSearch`, confiança média (documentação
+oficial bloqueada pelo proxy deste ambiente, confirmado por três fontes de
+terceiros independentes). Ela tira o contato de toda régua ativa, existente
+ou futura, sem precisar nomear nenhuma — a checagem barata acima (dois greps
+comparando duas listas) não tem mais o que comparar: sobrou uma lista só
+(as réguas que existem), não duas. **Cuidado ao montar:** a opção certa é
+sempre `All Except Current Workflow`, nunca `All Workflows` — as quatro
+peças têm nó depois na própria régua (ex.: o Mestre de saída ainda precisa
+rodar os nós 4/5/6 depois da limpeza), e `All Workflows` removeria o
+contato do workflow que está executando o próprio nó, cortando o resto da
+execução no meio (mesmo efeito que a seção 5.4 do `build-wesales.md` já
+documenta para `Remove from Workflow` cancelando um `Wait` pendente).
+Detalhe nó a nó: `build-wesales.md`, seção 3 (nota "F-05, peça 4");
+`IMPLEMENTACAO-WORKFLOWS.md`, W3/W4/W5/W14; retoques de tela em
+`GUIA-MONTAGEM.md`. A lição acima fica pelo histórico (por que a lista
+existia, por que ela vazava) — só o "como manter sincronizada" mudou.
 
 **Onde `status` não entra, de propósito:** o nó 2 da Interceptação de Sinal
 (2.9.2/2.9.3) ganhou `status não é lost`, não `status é open`. `abandoned` é

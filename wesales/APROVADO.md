@@ -134,6 +134,27 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       regra: nasce `[ ]`, vira `[x]` quando o dono trocar, num commit que
       não é o meu.
 
+- [ ] Criar a 18ª tag, `conectar-estagnado` — nasceu no F-05 (Monitor de
+      Saúde da Operação, peça 3: `CONECTAR` sem nenhuma tentativa nova em 14
+      dias corridos), especificada em `campos-e-tags.md` (T-18) e
+      `build-wesales.md` (seção 2.22). Mesmo motivo e mesma regra das duas
+      linhas acima: nasce `[ ]`, vira `[x]` quando o dono trocar, num commit
+      que não é o meu.
+
+- [ ] Criar a 19ª tag, `agendar-estagnado` — nasceu no F-05 (Monitor de
+      Saúde da Operação, peça 5: lead atendido que passa 24h em `AGENDAR`
+      sem virar reunião marcada nem sair por outro caminho), especificada em
+      `campos-e-tags.md` (T-19) e `build-wesales.md` (seção 2.23). Mesmo
+      motivo e mesma regra das três linhas acima: nasce `[ ]`, vira `[x]`
+      quando o dono trocar, num commit que não é o meu.
+
+- [ ] Criar a 20ª tag, `retorno-vencido` — nasceu no F-05 (Monitor de Saúde
+      da Operação, peça 6: `Data de retorno` prometida que vence sem o SDR
+      reclassificar `Resultado da tentativa`), especificada em
+      `campos-e-tags.md` (T-20) e `build-wesales.md` (seção 2.24). Mesmo
+      motivo e mesma regra das quatro linhas acima: nasce `[ ]`, vira `[x]`
+      quando o dono trocar, num commit que não é o meu.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

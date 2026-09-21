@@ -77,6 +77,9 @@ checa **etapa E status**.
 | `toque` | Pulso: cada tarefa/mensagem aplica e o Contador de Toques remove | sim |
 | `novo-lead-estagnado` | F-05 peça 1: 24h em `NOVO LEAD` | **não** — `[ ]` em `APROVADO.md` |
 | `fila-travada` | F-05 peça 2: `fila-tel`/`fila-wa` que o nó 9 da cadência não removeu | **não** — `[ ]` em `APROVADO.md` |
+| `conectar-estagnado` | F-05 peça 3: `CONECTAR` sem tentativa nova em 14 dias | **não** — `[ ]` em `APROVADO.md` |
+| `agendar-estagnado` | F-05 peça 5: `AGENDAR` sem reunião nem descarte em 24h | **não** — `[ ]` em `APROVADO.md` |
+| `retorno-vencido` | F-05 peça 6: `Data de retorno` passou sem reclassificação | **não** — `[ ]` em `APROVADO.md` |
 
 ### 0.3 Campos personalizados (nome na tela → chave de merge field → tipo → opções exatas)
 
@@ -134,7 +137,8 @@ nunca a transliteração.
 **Campos que a especificação usa e que NÃO existem na tela ainda** (criar
 antes do nó que os usa — `campos-e-tags.md`): `Toques na semana` (C-26,
 NUMERICAL — Contador de Toques e portões 2.5c/3c), `Hora da conexão` (C-25,
-TEXT — Pós-ligação nós 7b/7c), `Hora do retorno` (S-01, TEXT).
+TEXT — Pós-ligação nós 7b/7c), `Hora do retorno` (S-01, TEXT), `Checkpoint — Tentativa nº` (C-27, NUMERICAL — W17c) e
+`Checkpoint — Data de retorno` (C-28, DATE — W17e).
 
 **Campos nativos usados em condição:** `Phone` (telefone), `Assigned User`
 (dono do contato), `DND`, `Tags`, `Pipeline stage`, `Opportunity status`.
@@ -165,7 +169,9 @@ renderiza certo.
 `Interceptação de Sinal — Resposta` · `Opt-out por Palavra-chave` · `Alerta
 de Speed-to-lead` · `Reengajamento 90 dias` · `Contador de Toques` ·
 `Monitor de Capacidade` · `Lead Esquecido em NOVO LEAD` · `Fila Travada` ·
-`Higiene de Número — Validação Automática`.
+`CONECTAR Estagnado` · `AGENDAR Estagnado` · `Retorno Vencido` (os três últimos:
+nome sugerido, o `build-wesales.md` 2.22–2.24 não fixa) · `Higiene de Número —
+Validação Automática`.
 
 Na tela o Loop do closer foi criado como **`Post-Meeting Closer Loop`** —
 renomeie para `Loop do closer` ou use o nome da tela em todo lugar que o
@@ -247,6 +253,8 @@ seção 0.3 (é a mesma da `campos-e-tags.md`, que é a fonte). Estado na tela e
 | `Toques na semana` | NUMERICAL | — | mesma dos campos de controle (`gabsbU3jsUN7oIXCnYab`) | W1 Contador de Toques; portões 2.5c (W11) e 3c (W13) |
 | `Hora da conexão` | TEXT | placeholder `HH` | idem | W4 nós A7b/A7c (F-02); lista 8.19 |
 | `Hora do retorno` | TEXT | placeholder `HH:MM` | idem | W4 ramo `Pediu retorno` (vencimento com hora); lista 8.4 |
+| `Checkpoint — Tentativa nº` | NUMERICAL | — | idem | W17c (só ele lê e escreve) |
+| `Checkpoint — Data de retorno` | DATE | — | idem | W17e (só ele lê e escreve) |
 
 **Corrigir (não dá para trocar tipo de campo criado — criar novo, deixar o
 antigo parado, nunca excluir):**
@@ -269,9 +277,10 @@ notas aponta por chave).
 
 Configurações → Tags → **Nova tag** (ou aplicar a um contato — o GHL cria
 na hora). Minúsculas, hífen, exatamente como a seção 0.2. Estado: as 15
-primeiras existem (aplicadas ao contato `ZZ TESTE ESTRUTURA`); faltam
-`novo-lead-estagnado` (W17) e `fila-travada` (W17b) — as duas nascem `[ ]`
-em `APROVADO.md` e só saem por API depois do `[x]` do dono.
+primeiras existem (aplicadas ao contato `ZZ TESTE ESTRUTURA`); faltam as
+cinco do F-05 — `novo-lead-estagnado` (W17), `fila-travada` (W17b),
+`conectar-estagnado` (W17c), `agendar-estagnado` (W17d), `retorno-vencido`
+(W17e) — todas `[ ]` em `APROVADO.md`; só saem por API depois do `[x]` do dono.
 
 Três famílias, e a regra de quem mexe:
 
@@ -279,7 +288,7 @@ Três famílias, e a regra de quem mexe:
 |---|---|---|
 | **Fila** (aparece nas listas do dia) | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` | **só workflow**. O SDR nunca aplica nem remove à mão — a fila do dia é consequência da cadência, não decisão |
 | **Estado** (sobrevive à saída de cadência) | `nao-perturbe`, `telefone-invalido`, `nutricao-90d`, `cad-inbound`, `cad-outbound`, `conectado-hoje`, `pausado` | workflow, exceto `pausado` (**SDR**, à mão, para represar um lead sem opt-out) e `cad-inbound` (integração/formulário na entrada) |
-| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20, 8.21), não aplica |
+| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20–8.24), não aplica |
 
 ## 1.4 Calendário `Reunião com closer` — já existe
 
@@ -361,7 +370,13 @@ o clique não é rastreado e o F-01 não dispara.
 ## 1.7 Listas inteligentes (Contatos → Filtros → Salvar como lista inteligente → ⭐ favorita)
 
 Coluna `Empresa` = o campo **personalizado** `Empresa` (o seletor mostra dois
-"Empresa"; o nativo fica vazio). Fonte da lógica: `build-wesales.md`, 8.
+"Empresa"; o nativo fica vazio). **Antes de montar qualquer lista — decisão
+do dono (`CONFERENCIA-CAMPOS.md`, Tabela J, 21/09):** `Empresa` está vazia
+em **100% dos 50 contatos** (nada a montante coleta nome de empresa — o Meta
+não pergunta, o formulário `Qualificação SDR` só roda no agendamento).
+Recomendação de lá: trocar a coluna por `Dor principal`/`Necessidade` (o que
+o lead disse que busca) ou `Prazo`/`Urgência` — campos com dado hoje.
+Fonte da lógica: `build-wesales.md`, 8.
 
 | # | Nome exato | Filtros | Colunas | Ordenação | Para quem |
 |---|---|---|---|---|---|
@@ -386,6 +401,9 @@ Coluna `Empresa` = o campo **personalizado** `Empresa` (o seletor mostra dois
 | 8.19 | `Conexão por Segmento e Horário` | `Hora da conexão` não vazio | Nome · `Segmento` · `Hora da conexão` · `Data conectado` · `Tentativa nº` | `Segmento` asc, `Hora da conexão` asc | Gestor — mensal |
 | 8.20 | `Saúde — NOVO LEAD Estagnado` | tag `novo-lead-estagnado` | Nome · `Empresa` · Telefone · Origem · Data de criação · Etapa | Data de criação asc | Gestor — diário |
 | 8.21 | `Saúde — Fila Travada` | tag `fila-travada` | Nome · Telefone · Etapa · `Tentativa nº` · `Resultado da tentativa` | — (deve ficar vazia) | Gestor — diário |
+| 8.22 | `Saúde — CONECTAR Estagnado` | tag `conectar-estagnado` | Nome · Telefone · Etapa · `Tentativa nº` · `Entrada em` · origem (`cad-inbound`/`cad-outbound`) | — (deve ficar vazia) | Gestor — diário |
+| 8.23 | `Saúde — AGENDAR Estagnado` | tag `agendar-estagnado` | Nome · Telefone · `Data conectado` · Tarefas abertas | `Data conectado` asc | Gestor — diário |
+| 8.24 | `Saúde — Retorno Vencido` | tag `retorno-vencido` | Nome · Telefone · `Data de retorno` · `Prioridade` · Tarefas abertas | `Data de retorno` asc | Gestor — diário |
 
 Com um segundo SDR: duplicar 8.1, 8.2 e 8.3 por pessoa acrescentando o
 filtro `Atribuído a = <nome>` (o GHL não tem "usuário atual" em lista).
@@ -457,6 +475,9 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 16 | Reengajamento 90 dias | não existe | — |
 | 17 | Lead Esquecido em NOVO LEAD (F-05 peça 1) | não existe | tag `novo-lead-estagnado` (`APROVADO.md`) |
 | 17b | Fila Travada (F-05 peça 2) | não existe | tag `fila-travada` (`APROVADO.md`) |
+| 17c | CONECTAR Estagnado (F-05 peça 3) | não existe | tag `conectar-estagnado`, campo `Checkpoint — Tentativa nº` |
+| 17d | AGENDAR Estagnado (F-05 peça 5) | não existe | tag `agendar-estagnado` |
+| 17e | Retorno Vencido (F-05 peça 6) | não existe | tag `retorno-vencido`, campo `Checkpoint — Data de retorno`, `Wait` Dynamic (confirmar na tela) |
 | 18 | Monitor de Capacidade | não existe | lista 8.16 |
 | 19 | Higiene de Número (opcional) | não existe | Number Validation ligado |
 
@@ -522,13 +543,13 @@ to Workflow` em massa.
 
 | # | Ação | Configuração exata | Vai para |
 |---|---|---|---|
-| 0 | Remove Contact Tag | `novo-lead-estagnado` (só depois de a tag existir — F-05) | 1 |
+| 0 | Remove Contact Tag | `novo-lead-estagnado`, `agendar-estagnado` (só depois de as tags existirem — F-05) — **incondicional, antes do portão** | 1 |
 | 1 | If/Else | `Opportunity status` é `open` **E** `Pipeline stage` é uma de `[FUNIL DE VENDAS] - NOVO LEAD`, `[FUNIL DE VENDAS] - CONECTAR` → **FIM** (retoque 21/09: a versão publicada só tem `CONECTAR`) · **None:** segue | 2 |
 | 2 | Remove from Workflow | `Cadência 12x30` | 2b |
 | 2b | Remove from Workflow | `Cadência Inbound` (quando existir) | 2c |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (quando existir) | 3 |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` | 4 |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada` (quando a tag existir) | 5 |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada`, `conectar-estagnado`, `retorno-vencido` (as três últimas quando existirem) | 5 |
 | 5 | Add Contact Tag | `limpar-tarefas` | 6 |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` | fim |
 
@@ -541,7 +562,12 @@ to Workflow` em massa.
    cai no `None` e roda a limpeza inteira. Incluir `NOVO LEAD` na condição
    resolve; as tags/nota já gravadas ficam (regra 1).
 2. Nós 2b/2c: entram quando `Cadência Inbound` e `Reengajamento 90 dias`
-   existirem (o dropdown só lista workflows criados).
+   existirem (o dropdown só lista workflows criados). **Não** use aqui
+   `Remove Workflows → All Except Current Workflow`: este workflow é disparado
+   por outro que ainda está rodando (Pós-agendamento, Pós-ligação…) e a
+   opção mataria os lembretes de reunião e a tarefa `[CONECTADO]` de quem
+   o chamou (`build-wesales.md`, seção 3, nota de 21/09). Nos outros três
+   lugares (W4-L4, W5-3, W14-5) ela é correta.
 3. Nó 0: entra quando a tag `novo-lead-estagnado` for aprovada e criada.
 4. Nó 6: `{{opportunity.pipeline_stage}}` renderiza vazio — trocar pelo
    token real do seletor `{}` (seção 0.3).
@@ -566,7 +592,8 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | 1 | If/Else | `Resultado da tentativa` **está vazio** → **FIM** · None → segue | 2 |
 | 2 | If/Else | `Tags` inclui `fila-wa` → Math `Tentativas WhatsApp` + 1 · None → Math `Tentativas telefone` + 1 (os dois lados seguem para 3) | 3 |
 | 3 | Math | `Total de ligações` + 1 | 3b |
-| 3b | Remove Contact Tag | `fila-quente` — incondicional, **depois** do nó 2 (que lê `fila-wa`). Retoque de 21/09: falta na versão publicada; sem ele o lead que deu sinal e não atendeu fica na `Fila Quente` para sempre | 4 |
+| 3b | Remove Contact Tag | `fila-quente` — incondicional, **depois** do nó 2 (que lê `fila-wa`). Retoque de 21/09: falta na versão publicada; sem ele o lead que deu sinal e não atendeu fica na `Fila Quente` para sempre | 3c |
+| 3c | Remove Contact Tag | `retorno-vencido` — incondicional (qualquer resultado novo é "o SDR agiu"; F-05 peça 6, quando a tag existir) | 4 |
 | 4 | If/Else múltiplo (Condition) | por `Resultado da tentativa`: 6 ramos abaixo | ramo |
 
 **Ramo `Atendeu`**
@@ -618,12 +645,12 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | L1 | Add Contact Tag | `nao-perturbe` |
 | L2 | Set Contact DND | ligado, todos os canais |
 | L3 | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
-| L4 | Remove from Workflow | `Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias`, `Qualificação por IA no WhatsApp` (os que já existirem) |
+| L4 | Remove Workflows | Opção `All Except Current Workflow` (F-05, 21/09/2026) — tira o contato de toda régua ativa, sem precisar nomear nenhuma |
 | L5 | Update Opportunity | status = `lost` |
 | L6 | Add Note | `Opt-out registrado em {{right_now}}` |
 
 **Teste:** os 6 ramos do lado telefone já foram confirmados por log em
-19/09. Faltam A2 e 3b: mude `Resultado da tentativa` = `Atendeu` num contato
+19/09. Faltam A2, 3b e 3c: mude `Resultado da tentativa` = `Atendeu` num contato
 de teste em `CONECTAR` e confira `Total de conexões` subir.
 
 ---
@@ -641,7 +668,7 @@ de teste em `CONECTAR` e confira `Total de conexões` subir.
 |---|---|---|---|
 | 1 | Update Opportunity | Etapa → `NEGOCIAR` (status `open`) | 2 |
 | 2 | Update Contact Field | `Data agendado` = data atual | 3 |
-| 3 | Remove from Workflow | `Cadência 12x30` · `Qualificação por IA no WhatsApp` · `Recuperação de No-show` · `SLA do Closer — No-show` (os que existirem) | 4 |
+| 3 | Remove Workflows | Opção `All Except Current Workflow` (F-05, 21/09/2026) — cobre `Recuperação de No-show`/`SLA do Closer — No-show` (R-12) e qualquer régua futura sem nomear nenhuma | 4 |
 | 4 | **Nota de qualificação** — ver bloco abaixo | Math em série (seção 9.1) | 5 |
 | 5 | Update Contact Field | `Prioridade` = `5` | 6 |
 | 6 | Add Note | modelo da seção 5 (`build-wesales.md`), com as chaves da seção 0.3 | 7 |
@@ -1066,7 +1093,7 @@ WhatsApp `MI-F` → Update `Template usado` = `MI-F` → Add to Workflow
 | 2 | Add Contact Tag | `nao-perturbe` | 3 |
 | 3 | Set Contact DND | ligado, todos os canais | 4 |
 | 4 | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` | 5 |
-| 5 | Remove from Workflow | `Cadência 12x30` · `Cadência Inbound` · `Reengajamento 90 dias` · `Qualificação por IA no WhatsApp` · `Interceptação de Sinal — Clique` · `Interceptação de Sinal — Resposta` (os que existirem) | 6 |
+| 5 | Remove Workflows | Opção `All Except Current Workflow` (F-05, 21/09/2026) — tira o contato de toda régua ativa num nó só | 6 |
 | 6 | If/Else | oportunidade encontrada **E** `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `Opportunity status` é `open` → Update Opportunity status = `lost` · None → Internal Notification ao `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} pediu para parar, oportunidade já em {{opportunity.pipeline_stage}}/{{opportunity.status}} — DND ligado, revisar se o negócio segue antes de qualquer novo contato` | 6b |
 | 6b | Internal Notification (**sempre**) | ao `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} — DND ligado e saiu de todas as réguas. Mensagem que disparou: revisar no histórico. Se foi falso positivo, desligar o DND na mão é a única volta.` | 7 |
 | 7 | Add Note | `Opt-out por palavra-chave detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` | fim |
@@ -1178,6 +1205,78 @@ publicar, `Add to Workflow` em massa nos leads já parados.
 
 ---
 
+## W17c · CONECTAR Estagnado — `build-wesales.md` 2.22 (F-05 peça 3)
+
+**Gatilho:** `Contact Changed` → filtro: Custom Field `Tentativa nº` **igual a** `0` (dispara a cada rodada nova: entrada, handoff da TI5, reativação)
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela, 24/7 |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Update Contact Field | `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` | 2 |
+| 2 | Wait → Time Delay | **14 dias** (não 7: o maior degrau real da régua é 10 dias, T10→T11) | 3 |
+| 3 | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `Opportunity status` é `open` → 4 · None → FIM | 4 |
+| 4 | If/Else | `Tentativa nº` **é diferente de** `Checkpoint — Tentativa nº` → 5 · None → 6 | |
+| 5 | Remove Contact Tag → Update Contact Field | `conectar-estagnado` → `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` → **liga de volta ao 2** | 2 |
+| 6 | If/Else | `Tags` não inclui `conectar-estagnado` → 7 · None → 9 | |
+| 7 | Add Contact Tag → Internal Notification | `conectar-estagnado` → ao gestor: `{{contact.name}} está em CONECTAR sem tentativa nova há pelo menos 14 dias. Tentativa nº atual: {{contact.tentativa_n}}.` | 8 |
+| 8 | Add Note | `Alerta de saúde: CONECTAR sem avanço em 14 dias · {{right_now}}` | 9 |
+| 9 | Update Contact Field | `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` → **liga de volta ao 2** | 2 |
+
+**Pré-requisitos:** tag `conectar-estagnado` e campo `Checkpoint — Tentativa nº` (C-27). Lista 8.22.
+
+---
+
+## W17d · AGENDAR Estagnado — `build-wesales.md` 2.23 (F-05 peça 5)
+
+**Gatilho:** `Opportunity Stage Changed` → Pipeline `FUNIL DE VENDAS` · Para a etapa `AGENDAR`
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela, 24/7 |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Wait → Time Delay | 24 horas | 2 |
+| 2 | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - AGENDAR` **E** `Opportunity status` é `open` → 3 · None → FIM | 3 |
+| 3 | Add Contact Tag | `agendar-estagnado` | 4 |
+| 4 | Internal Notification | ao gestor: `{{contact.name}} atendeu e está há mais de 24h em AGENDAR sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.` | 5 |
+| 5 | Add Note | `Alerta de saúde: AGENDAR sem fechar o loop em 24h · {{right_now}}` | fim |
+
+**Pré-requisito:** tag `agendar-estagnado` (limpa pelo nó 0 do W3). Lista 8.23.
+
+---
+
+## W17e · Retorno Vencido — `build-wesales.md` 2.24 (F-05 peça 6)
+
+**Gatilho:** `Contact Changed` → filtro: Custom Field `Data de retorno` · `Foi alterado`
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela, 24/7 |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Update Contact Field | `Checkpoint — Data de retorno` = `{{contact.data_de_retorno}}` | 2 |
+| 2 | Wait → Until specific time, opção **Dynamic** | data = campo `Checkpoint — Data de retorno` · horário **19:00** — **confirmar na tela** que o `Wait` oferece "Dynamic" (documentado, não testado nesta subconta) | 3 |
+| 3 | If/Else | `Data de retorno` **é igual a** `Checkpoint — Data de retorno` → 4 · None → FIM (a promessa foi renovada; outra instância vigia a data nova) | 4 |
+| 4 | If/Else | `Resultado da tentativa` é `Pediu retorno` **E** `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `Opportunity status` é `open` → 5 · None → FIM | 5 |
+| 5 | Add Contact Tag | `retorno-vencido` | 6 |
+| 6 | Internal Notification | ao gestor: `{{contact.name}} tinha retorno prometido para {{contact.data_de_retorno}} e ainda não foi reclassificado.` | 7 |
+| 7 | Add Note | `Alerta de saúde: retorno vencido sem nova classificação · {{right_now}}` | fim |
+
+**Pré-requisitos:** tag `retorno-vencido` (limpa pelo nó 3c do W4 e pelo nó 4 do W3), campo `Checkpoint — Data de retorno` (C-28). Lista 8.24.
+
+---
+
 ## W18 · Monitor de Capacidade — `build-wesales.md` 2.15
 
 **Gatilho:** `Scheduler` (sem contato) · seg–sex · **11:00** e **15:00** · fuso `America/Sao_Paulo`
@@ -1269,7 +1368,7 @@ Reengajamento, 90 dias depois de `nutricao-90d`); apagar `nao-perturbe`/DND.
 | Cadência | O que olhar | Sinal de problema |
 |---|---|---|
 | **diário, 08:15** | `Sem resultado ontem` (8.5) | lista crescendo = tentativa que o SDR não fez, classificada às 18:30 pelo nó 10b |
-| diário | `Atraso na 1ª Tentativa` (8.8), `Saúde — NOVO LEAD Estagnado` (8.20), `Saúde — Fila Travada` (8.21) | qualquer linha: speed-to-lead estourou (15 min inbound / 1 h outbound), lead esquecido 24 h, ou o motor travou |
+| diário | `Atraso na 1ª Tentativa` (8.8) e as listas de saúde 8.20–8.24 (`NOVO LEAD` estagnado, fila travada, `CONECTAR` sem avanço, `AGENDAR` sem loop, retorno vencido) | qualquer linha: speed-to-lead estourou (15 min inbound / 1 h outbound), lead esquecido, motor travado, promessa de retorno vencida |
 | **11:00 e 15:00** (W18 lembra) | `Estouro da Fila` no dashboard / `Fila do Dia — Total` (8.16) | positivo = mais de 100 tarefas hoje → segurar entrada ou remanejar SDR |
 | semanal | `Conexão por Tentativa` (8.6), `Calibração da Régua` (8.7), `Pausados Individualmente` (8.15), `Higiene — Sem Telefone Válido` (8.18) | tentativa que nunca conecta (cortar da régua); nota ≥ 70 com veredito `Não` repetido (régua 9.1 desregulada); pausado há semanas (decidir); lista suja (fonte de lead) |
 | mensal | `Funil — Entraram/Conectaram/Agendaram/Compareceram no Mês` (8.9–8.12), `Resposta por Template` (8.13), `Conexão por Segmento e Horário` (8.19) | taxa de conexão = 8.10 ÷ 8.9; declarar vencedor do A/B (editar o Split para 100/0 e registrar em `biblioteca-mensagens.md`); ajustar horário por segmento (2.18) quando houver volume |
@@ -1322,19 +1421,20 @@ no nó 2.5c/3c), segundo SDR (1.10).
 
 ## 3.6 Checklist de go-live (na ordem)
 
-1. **Decisões do dono:** G-03, G-04, `{{right_now}}` (testar na tela), número
-   de teste para WhatsApp (`APROVADO.md`), `[x]` de `novo-lead-estagnado` e
-   `fila-travada`.
-2. **Estrutura:** criar os 3 campos (1.2); corrigir `Plataformas de anúncio`;
+1. **Decisões do dono:** G-03, G-04, coluna `Empresa` das listas (Tabela J),
+   `{{right_now}}` (testar na tela), número de teste para WhatsApp
+   (`APROVADO.md`), `[x]` das cinco tags do F-05 (`novo-lead-estagnado`,
+   `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido`).
+2. **Estrutura:** criar os 5 campos (1.2); corrigir `Plataformas de anúncio`;
    aplicar a decisão G-04 nos campos e nos 8 formulários do Meta; criar as
-   2 tags (por API, depois do `[x]`).
+   5 tags (por API, depois do `[x]`).
 3. **Retoques nos publicados** (tabela do `GUIA-MONTAGEM.md`): Mestre de
    saída (nó 1 `NOVO LEAD`, nó 0, nó 4 `fila-travada`, token da nota),
-   Pós-ligação (A2, 3b), Pós-agendamento (nó 4 nota, merge fields do nó 6),
+   Pós-ligação (A2, 3b, 3c), Pós-agendamento (nó 4 nota, merge fields do nó 6),
    Interceptação — Resposta (filtro opt-out).
 4. **Montar e publicar, nesta ordem:** W1 Contador de Toques → W6 Loop do
    closer (refazer) → W7 → W9 (+ publicar W8) → W10 (confirmar conteúdo) →
-   **W11 Cadência 12x30** → W12 → W14 → W15 → W16 → W17 → W17b → W18.
+   **W11 Cadência 12x30** → W12 → W14 → W15 → W16 → W17 a W17e → W18.
 5. **Testar** cada um com o contato fictício indicado na seção "Teste"
    (checklist completo: `build-wesales.md`, seção 10) — e ler o rastro por
    API (apêndice).

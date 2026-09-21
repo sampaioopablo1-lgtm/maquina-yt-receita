@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (44 + 1 sugerido)
+## Etapa 2 — Campos personalizados (46 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -43,6 +43,8 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-24 | Nº de no-shows | NUMERICAL | — | Workflow (R-12) |
 | C-25 | Hora da conexão | TEXT | `HH`, 00 a 23 | Workflow (F-02) |
 | C-26 | Toques na semana | NUMERICAL | — | Workflow (F-04) |
+| C-27 | Checkpoint — Tentativa nº | NUMERICAL | — | Workflow (F-05) |
+| C-28 | Checkpoint — Data de retorno | DATE | — | Workflow (F-05) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -123,6 +125,27 @@ usado em C-06/C-07/C-09 a C-12: é contado por `Math`, não lido por SDR nem
 por IA, então uma tag "presente/ausente" não bastaria — o portão de
 frequência (seção 2.4, nó 2.5c) compara contra um número, não contra
 presença.
+
+C-27 fecha a peça 3 do Monitor de Saúde (`build-wesales.md`, seção 2.22,
+F-05 do roadmap): guarda o valor de `Tentativa nº` (C-01) no instante em que
+uma rodada nova começa, para o próprio workflow comparar 14 dias depois se a
+régua avançou. **`NUMERICAL`, campo de uso exclusivo deste workflow:**
+diferente de C-26 (vários toques por semana, escritas frequentes e
+concorrentes), este campo é escrito no máximo três vezes na vida de um lead
+(entrada inicial em `CONECTAR`, handoff do fim da Cadência Inbound,
+reativação do Reengajamento), sempre bem espaçadas — não herda o risco de
+"contador com dois donos" que C-26 e outros campos deste documento já
+evitaram com cuidado, porque nenhum outro nó do projeto lê ou escreve nele.
+
+C-28 fecha a peça 6 do Monitor de Saúde (`build-wesales.md`, seção 2.24,
+F-05 do roadmap): guarda o valor de `Data de retorno` no instante em que o
+workflow "Retorno Vencido" dispara, para comparar contra o valor ao vivo no
+dia do vencimento e saber se a promessa foi renovada enquanto o relógio
+esperava. Mesmo raciocínio de C-27: `DATE` (não `TEXT` — aqui não se mede
+minutos, só qual dia foi prometido, granularidade que o par C-14/S-01 já
+usa para o mesmo tipo de campo), campo de uso exclusivo deste workflow,
+escrito no máximo poucas vezes na vida de um lead e sempre espaçado por
+dias — não herda o risco de "contador com dois donos".
 
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
@@ -215,7 +238,7 @@ principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
 Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
-## Etapa 3 — Tags (17, duas pendentes de aprovação)
+## Etapa 3 — Tags (20, cinco pendentes de aprovação)
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -236,6 +259,9 @@ Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 | T-15 | `toque` | Teto de toques por semana (F-04): pulso, não estado — todo nó que cria tarefa de ligação ou manda mensagem automática aplica esta tag, o workflow "Contador de Toques" (seção 2.19 do `build-wesales.md`) reage a ela, soma em `Toques na semana` (C-26) e a remove no mesmo instante; nunca fica presente por mais que alguns segundos |
 | T-16 | `novo-lead-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.20 do `build-wesales.md`): aplicada pelo workflow "Lead Esquecido em NOVO LEAD" quando a oportunidade passa 24h em `NOVO LEAD` sem ser promovida nem descartada; limpa incondicionalmente pelo nó 0 novo do Mestre de saída (seção 3) e filtra a lista 8.20 |
 | T-17 | `fila-travada` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.21 do `build-wesales.md`): aplicada pelo workflow "Fila Travada" quando `fila-tel`/`fila-wa` segue presente depois do fim do dia em que foi aplicada (sinal de que o nó 9 do bloco padrão, seção 2.4, não rodou); limpa pelo próprio workflow (nó 0, na tentativa seguinte) e pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de cadência de verdade) e filtra a lista 8.21 |
+| T-18 | `conectar-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.22 do `build-wesales.md`): aplicada pelo workflow "Cadência Sem Avanço" quando a oportunidade segue em `CONECTAR`/`open` sem nenhuma tentativa nova em 14 dias corridos (sinal de cadência realmente parada, não só uma tentativa travada — diferença explicada na seção 2.22); limpa pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de cadência de verdade) e filtra a lista 8.22 |
+| T-19 | `agendar-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.23 do `build-wesales.md`): aplicada pelo workflow "AGENDAR Estagnado" quando a oportunidade passa 24h em `AGENDAR` sem virar reunião marcada nem sair por outro caminho (o SDR atendeu e não fechou o loop); limpa pelo nó 0 do Mestre de saída (seção 3, incondicional — mesmo tratamento de `novo-lead-estagnado`, por causa da lacuna L-08) e filtra a lista 8.23 |
+| T-20 | `retorno-vencido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.24 do `build-wesales.md`): aplicada pelo workflow "Retorno Vencido" quando `Data de retorno` (S-01) passa sem o SDR reclassificar `Resultado da tentativa`; limpa pelo nó 3c novo do Pós-ligação (seção 4, incondicional, a cada resultado novo) e, como rede de segurança, pelo nó 4 do Mestre de saída (seção 3); filtra a lista 8.24 |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -253,6 +279,9 @@ do F-05 em 21/09/2026) ainda não saiu por API** — nasce `[ ]` em
 autorizando) é para ficar, e vale para toda tag nova a partir de agora, não
 só para aquela. **T-17 (`fila-travada`, nascida do F-05 peça 2 nesta
 rodada) segue a mesma regra desde o nascimento** — nasce `[ ]`, não `[x]`.
+**T-18 (`conectar-estagnado`, nascida do F-05 peça 3), T-19
+(`agendar-estagnado`, nascida do F-05 peça 5) e T-20 (`retorno-vencido`,
+nascida do F-05 peça 6) idem — nenhuma das três saiu por API ainda.**
 
 ## O que eu preciso de você para executar
 
