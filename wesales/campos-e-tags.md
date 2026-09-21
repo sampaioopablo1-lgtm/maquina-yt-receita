@@ -215,7 +215,7 @@ principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
 Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
-## Etapa 3 — Tags (15, todas criadas)
+## Etapa 3 — Tags (16, uma pendente de aprovação)
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -234,6 +234,7 @@ Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 | T-13 | `reengajamento-ativo` | Reengajamento 90 dias (R-08): aplicada pelo workflow da seção 2.12 do `build-wesales.md` enquanto o lead reativado roda a régua TR1-TR4; blinda o gatilho da Cadência 12x30 (seção 2.1) contra entrada dupla e filtra a lista 8.14 |
 | T-14 | `pausado` | Regras de pausa (R-09): aplicada manualmente pelo SDR para represar as tentativas de **um** lead sem ser opt-out; checada no nó 2.5 (seção 2.4) e 1.5 (seção 2.10) do `build-wesales.md`, limpa pelo Mestre de saída (seção 3) e filtra a lista 8.15 |
 | T-15 | `toque` | Teto de toques por semana (F-04): pulso, não estado — todo nó que cria tarefa de ligação ou manda mensagem automática aplica esta tag, o workflow "Contador de Toques" (seção 2.19 do `build-wesales.md`) reage a ela, soma em `Toques na semana` (C-26) e a remove no mesmo instante; nunca fica presente por mais que alguns segundos |
+| T-16 | `novo-lead-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.20 do `build-wesales.md`): aplicada pelo workflow "Lead Esquecido em NOVO LEAD" quando a oportunidade passa 24h em `NOVO LEAD` sem ser promovida nem descartada; limpa incondicionalmente pelo nó 0 novo do Mestre de saída (seção 3) e filtra a lista 8.20 |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -244,7 +245,12 @@ TESTE ESTRUTURA`, `c5r3ZxiAd8T5adL1Bt6j`): as 11 originais numa chamada, as
 T-12/13/14 numa segunda chamada no mesmo dia, e T-15 (`toque`, nascida do
 F-04) numa terceira chamada no dia seguinte — cada uma com sua própria
 linha de aprovação em `APROVADO.md`, porque cada uma nasceu numa rodada de
-roadmap posterior às 11 originais.
+roadmap posterior às 11 originais. **T-16 (`novo-lead-estagnado`, nascida
+do F-05 em 21/09/2026) ainda não saiu por API** — nasce `[ ]` em
+`APROVADO.md`, não `[x]`: a lição do incidente de 19/09/2026 com a T-15
+(a própria rotina escrevendo o próprio `[x]` não é aprovação, é a rotina se
+autorizando) é para ficar, e vale para toda tag nova a partir de agora, não
+só para aquela.
 
 ## O que eu preciso de você para executar
 

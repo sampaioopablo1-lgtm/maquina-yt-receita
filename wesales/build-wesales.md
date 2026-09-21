@@ -101,6 +101,13 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     do passo 3, métrica `Estouro da Fila` do passo 20, tarefas das
     cadências dos passos 14/15); montar antes disso deixaria widget
     apontando para nada
+25. Workflow "Lead Esquecido em NOVO LEAD" (seção 2.20, F-05) — só depende
+    do pipeline do passo 3; o nó 0 novo do Mestre de saída (passo 7) já sai
+    junto se você montar o Mestre de saída a partir desta versão do
+    documento, então a ordem entre os dois não importa. Depois de publicar,
+    rode `Add to Workflow` em massa pela lista de oportunidades em
+    `NOVO LEAD` (mesmo mecanismo do backfill do passo 4) para cobrir quem já
+    está parado hoje — o gatilho não varre sozinho quem já está na etapa
 
 ---
 
@@ -2283,6 +2290,114 @@ vier" por completo depende de ligar os três pontos deferidos acima.
 
 ---
 
+## 2.20 Monitor de Saúde da Operação — F-05 (peça 1 de N: lead esquecido em `NOVO LEAD`)
+
+**Por quê:** automação falha em silêncio, e este projeto já viveu o caso
+real: G-03 (`ROADMAP-SALES-ENGAGEMENT.md`) só existe porque uma sessão
+automática *percebeu, olhando o número na mão*, que 47 oportunidades pagas
+estavam paradas em `NOVO LEAD` há mais de 24h — nada na máquina avisou
+sozinho. Qualquer que seja a opção que o dono escolher para o G-03
+(promoção automática, com ou sem janela, ou destravar o estoque de hoje),
+nenhuma delas impede a **próxima** estagnação — um formulário que para de
+disparar a Porta de Entrada, um SDR de férias sem substituto revisando a
+fila, um filtro que passa a excluir gente por engano. G-03 resolve o
+estoque de hoje; este item é o sensor que evita depender de outra sessão
+notar o número por acaso.
+
+Pesquisado antes de desenhar: nenhuma das quatro plataformas do enunciado
+do projeto (Reev, Meetime, Outreach, Salesloft) expõe um alarme proativo
+para "lead parado numa etapa" — o padrão do mercado é monitorar métricas de
+**saída** (taxa de resposta, taxa de aceite) que podem ficar estáveis
+enquanto o funcionamento por trás já quebrou (achado equivalente,
+`heyreach.io/blog/why-automation-fails`, sobre sequências de outbound: as
+equipes olham o resultado agregado e não o comportamento por trás dele, e
+o funil "silencia" antes de qualquer métrica de saída se mexer). A saída
+nativa aqui é o mesmo padrão de relógio por evento que já validou o R-02
+(Alerta de Speed-to-lead, seção 2.11) e o SLA do Closer (seção 5.4): um
+`Wait` marcando um prazo, e um portão que confere se o prazo estourou de
+verdade antes de avisar.
+
+**Escopo desta rodada, decisão e não lacuna esquecida:** o "Como" original
+do F-05 listava seis invariantes: `fila-tel`/`fila-wa` presente há mais de
+24h, `CONECTAR` sem tentativa há 7 dias, tarefa vencida sem resultado,
+`nao-perturbe` ainda dentro de workflow ativo, `Conectado` sem fechar o
+loop em 24h, `Retorno agendado` vencido. Nenhuma delas ganhou workflow
+nesta rodada — nem a de `NOVO LEAD`, que não estava na lista original e
+entrou por conta própria (achado do G-03, motivo acima). Ao ler as seis com
+calma antes de escolher a próxima, achei que **"tarefa vencida sem
+resultado", como está escrita, já não é um risco não coberto**: o nó 10b do
+bloco padrão (seção 2.4) já define `Resultado da tentativa = Não atendeu` e
+aplica `limpar-tarefas` sozinho quando o `Wait` do nó 8 estoura às 18:30 sem
+resposta do SDR — não existe "tarefa vencida sem resultado" pendente para
+sempre, ela vira "Não atendeu" classificado automaticamente no mesmo dia, e
+a lista 8.5 (`Sem resultado ontem`) já mostra esse volume para quem quiser
+olhar. **Não confundir com `fila-tel`/`fila-wa` presente há mais de 24h**
+(a primeira invariante da lista): essa continua um risco de verdade e
+diferente — se `fila-tel` ainda está lá depois de 24h, o próprio nó 9 (que
+remove a tag sempre, todo dia) não rodou, o que é sinal de workflow
+travado ou instância perdida, não de SDR lento. As quatro invariantes
+restantes (`fila-tel`/`fila-wa` há 24h, `CONECTAR` sem tentativa há 7 dias,
+`nao-perturbe` em workflow ativo, `Conectado`/`Retorno agendado` vencidos)
+seguem de pé, pedem mais desenho (a última, por exemplo, depende de
+"esperar até uma data dinâmica", não testado neste conector) e ficam para a
+próxima peça deste mesmo item, não um item novo. `NOVO LEAD` esquecido foi
+a primeira porque é a única com evidência de produção real (G-03) e a mais
+simples de desenhar com confiança.
+
+### Workflow "Lead Esquecido em NOVO LEAD"
+
+#### Gatilho
+**Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS` · Para a etapa:
+`NOVO LEAD` (dispara tanto na entrada da Porta de Entrada, seção 1.3,
+quanto em qualquer reentrada futura em `NOVO LEAD` que ninguém previu hoje)
+
+#### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada entrada em `NOVO LEAD` merece seu próprio relógio, mesmo motivo do R-02 (seção 2.11) |
+| Janela de envio | Sem janela, 24/7 | É aviso interno ao gestor, não mensagem ao lead — travar numa janela de expediente só atrasaria a detecção, mesmo raciocínio do F-01 (seção 2.9.2) |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+#### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Aguardar | Wait → Time Delay | 24 horas corridas |
+| 2 | Portão | If/Else | Etapa da oportunidade **ainda é** `NOVO LEAD` **E** `status` **é** `open` → segue (ninguém revisou o lead neste 1 dia). Senão → **encerra** (já foi promovido para `CONECTAR` ou descartado — nada para avisar) |
+| 3 | Fila | Add Contact Tag | `novo-lead-estagnado` |
+| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está há mais de 24h em NOVO LEAD sem revisão. Origem: {{contact.source}}.` |
+| 5 | Registro | Add Note | `Alerta de saúde: NOVO LEAD sem revisão em 24h · {{right_now}}` |
+
+**Por que 24h e não outro prazo:** é o mesmo limite que o próprio G-03 usou
+para chamar o estoque de "crescendo, grave" — abaixo disso um lead pode só
+estar esperando o SDR abrir a fila do dia; acima, já é o oposto exato do
+que a Porta de Entrada e o R-02 foram construídos para garantir.
+
+**Limpeza da tag, achado ao desenhar (mesma classe de bug que o Mestre de
+saída já documentou para outras réguas):** o Mestre de saída (seção 3) só
+limpa tag quando a oportunidade **sai** de `CONECTAR`/`open` — seu nó 1
+encerra em no-op exatamente na transição `NOVO LEAD` → `CONECTAR`, que é a
+forma normal de resolver este alerta. Colocar `novo-lead-estagnado` na
+lista de remoção do nó 4 do Mestre de saída (como as outras tags de fila)
+não bastaria: aquele nó nunca é alcançado nesta transição específica.
+Por isso a limpeza entra como um nó novo, incondicional, **antes** do
+portão do Mestre de saída — ver seção 3, nó 0, abaixo. `Remove Contact Tag`
+de quem não tem a tag não faz nada (mesmo raciocínio já usado para
+`Remove from Workflow` na entrada da seção 3), então rodar sempre é seguro
+mesmo para a maioria dos leads que nunca chegou a ficar estagnado.
+
+**Limite conhecido, o mesmo já registrado para o G-01 e para o G-03:**
+publicar este workflow **não varre os 47 leads que já estão parados
+hoje** — o gatilho dispara no instante da mudança de etapa, não ao ligar o
+workflow. Rodar `Add to Workflow` em massa pela lista de oportunidades em
+`NOVO LEAD` depois de publicar cobre o estoque atual; dali em diante, todo
+lead novo (ou reativado) já nasce com o relógio ligado sozinho.
+
+**Pronto quando (peça 1 do F-05):** um lead parado em `NOVO LEAD` por mais
+de 24h gera aviso ao gestor sozinho, sem depender de outra sessão notar o
+número na mão — o que faltou até o G-03 ser achado manualmente.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
@@ -2318,6 +2433,7 @@ condição que cobre os dois:
 ### Nós
 | # | Ação | Configuração |
 |---|---|---|
+| 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20) — **incondicional, antes do portão do nó 1** |
 | 1 | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
@@ -2326,6 +2442,16 @@ condição que cobre os dois:
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
+
+**Por que o nó 0 é incondicional, e não mais uma linha do nó 4 (achado de
+21/09/2026, F-05, seção 2.20):** `novo-lead-estagnado` marca um lead parado
+em `NOVO LEAD`, uma etapa **anterior** a `CONECTAR` — o portão do nó 1
+("`CONECTAR` e `open` → encerra sem limpar") trata a transição normal
+`NOVO LEAD` → `CONECTAR` como no-op, então nunca alcança o nó 4 nesse
+caminho, que é exatamente o caminho em que este alerta se resolve. Rodar a
+remoção antes do portão, sem condição, resolve sem duplicar o portão para
+uma tag só: `Remove Contact Tag` de quem não tem a tag não faz nada, mesmo
+raciocínio já usado para `Remove from Workflow` nos nós seguintes.
 
 **Por que os nós 2b e 2c existem (achado de 19/09/2026, mesma classe do
 2.11):** quando este workflow foi escrito havia **uma** régua rodando —
@@ -3279,6 +3405,19 @@ crescentes por hora, para o gestor ver o agrupamento visualmente sem
 planilha — o que a lista pode fazer sozinha, do "Pronto quando" do F-02
 (seção 2.18). A decisão de ajustar a régua por segmento, quando o padrão
 aparecer, é manual: mecanismo completo em 2.18.
+
+### 8.20 `Saúde — NOVO LEAD Estagnado` — F-05
+| Item | Configuração |
+|---|---|
+| Filtros | tag `novo-lead-estagnado` presente |
+| Colunas | Nome · `Empresa` · Telefone · Origem (`source`) · Data de criação da oportunidade · Etapa atual |
+| Ordenação | Data de criação asc (quem está parado há mais tempo aparece primeiro) |
+
+Mesmo raciocínio de ordenação já usado em 8.8/8.15/8.18: quem está
+estagnado há mais tempo é quem mais precisa de alguém decidir promover ou
+descartar. A tag só existe porque o workflow da seção 2.20 (F-05) já
+esperou 24h e conferiu de novo antes de aplicá-la — a lista não faz
+conta nenhuma, só lê a marca.
 
 ---
 

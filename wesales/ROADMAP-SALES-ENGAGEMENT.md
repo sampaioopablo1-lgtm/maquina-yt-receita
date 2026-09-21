@@ -244,9 +244,11 @@ dia (~5-7/dia, batendo com a estimativa de "10 leads/dia" do `briefing-sdr.md`)
 e **nenhum** chega a `CONECTAR` sozinho. O mais antigo visível já tem mais de
 24h parado sem qualquer tentativa — o oposto do que R-02 (speed-to-lead) e
 G-01 foram construídos para garantir, e o dinheiro do anúncio já foi gasto
-para gerar esses 47 contatos. Diferença para as três frentes que o roadmap já
-trata como "espera volume" (R-14/F-05/F-06): aqui o volume **já chegou** e o
-que falta não é uma métrica ficar interessante, é o lead ser tocado.
+para gerar esses 47 contatos. Diferença para as frentes que o roadmap trata
+como "espera volume" (R-14/F-06 — **F-05 saiu dessa lista na mesma rodada,
+como consequência direta deste achado**, ver seção do Bloco 6): aqui o
+volume **já chegou** e o que falta não é uma métrica ficar interessante, é
+o lead ser tocado.
 **Como (três opções, nenhuma escolhida — decisão do dono, mesma régua da
 L-02/D-04):**
 1. **Promoção automática na entrada.** Workflow novo, gatilho `Opportunity
@@ -947,7 +949,7 @@ contato de estrutura, confirmado por `contacts_get-contact` — 15 tags do
 projeto agora na subconta, `dateUpdated` 19/09/2026 04:15 UTC. Checklist
 ganhou o item 35.
 
-### F-05 · Monitor de saúde da operação
+### F-05 · Monitor de saúde da operação — peça 1 de N (lead esquecido em `NOVO LEAD`) FEITA em 21/09/2026
 **Por quê:** automação falha **em silêncio**. Tag que não saiu, lead parado numa
 etapa, workflow que parou de disparar — descobre-se pelo número caindo, semanas
 depois, quando o estrago já aconteceu.
@@ -965,6 +967,50 @@ agendado` com `Data do retorno` (S-01) vencida sem nova classificação (o
 retorno combinado não aconteceu). As duas são o mesmo tipo de "estrago
 silencioso" que motivou o item, só em etapas que a primeira versão do
 "Como" não olhava.
+
+**Resumo (21/09/2026, primeira peça):** o gatilho para tirar este item da
+espera não foi volume — foi o próprio G-03 acontecer. G-03 só existe porque
+uma sessão automática notou, olhando o número na mão, que 47 oportunidades
+pagas estavam paradas em `NOVO LEAD` há mais de 24h; nada na máquina avisou
+sozinho. Isso é exatamente o "estrago silencioso" que motiva o F-05, e é
+independente de qual opção o dono escolher para o G-03 — nenhuma delas
+impede a próxima estagnação. Workflow "Lead Esquecido em NOVO LEAD"
+especificado em `build-wesales.md` (seção 2.20): mesmo padrão de relógio
+por evento que já validou o R-02 (Alerta de Speed-to-lead) e o SLA do
+Closer (seção 5.4) — `Wait` de 24h desde a entrada em `NOVO LEAD`, portão
+confere se a oportunidade ainda está lá e `open`, tag `novo-lead-estagnado`
+(T-16, `campos-e-tags.md`) + aviso ao gestor. Lista `Saúde — NOVO LEAD
+Estagnado` criada (seção 8.20). Achado ao desenhar a limpeza: o Mestre de
+saída (seção 3) só limpa tag quando a oportunidade **sai** de
+`CONECTAR`/`open` — a transição `NOVO LEAD` → `CONECTAR` (onde este alerta
+se resolve) cai no ramo de no-op dele e nunca alcança a lista de remoção de
+tags; corrigido com um nó 0 novo, incondicional, antes do portão do Mestre
+de saída.
+
+**Escopo desta rodada, decisão e não lacuna esquecida:** das seis
+invariantes do "Como"/das duas adições de 18/09, só a de `NOVO LEAD`
+(que nem estava na lista original — entrou por conta do G-03) ganhou
+workflow nesta peça, por ser a única com evidência de produção real e a
+mais simples de desenhar com confiança. Achado que evita retrabalho
+futuro, e que exige cuidado para não confundir duas invariantes parecidas:
+"tarefa vencida sem resultado" **já não é risco** como está escrita — o nó
+10b do bloco padrão (seção 2.4) já classifica sozinho `Resultado da
+tentativa = Não atendeu` quando o prazo do dia estoura sem o SDR agir, e a
+lista 8.5 já mostra esse volume. **Diferente** de `fila-tel`/`fila-wa`
+presente há mais de 24h, que continua um risco de verdade: se a tag ainda
+está lá depois de 24h, é o nó 9 (que remove a tag sempre, todo dia) que não
+rodou — sinal de workflow travado, não de SDR lento. As quatro invariantes
+restantes (`fila-tel`/`fila-wa` há 24h, `CONECTAR` sem tentativa há 7 dias,
+`nao-perturbe` em workflow ativo, `Conectado`/`Retorno agendado` vencidos)
+seguem de pé e pedem mais desenho (a última, por exemplo, depende de
+"esperar até uma data dinâmica" — não testado neste conector) — próxima
+peça deste mesmo item, não item novo.
+Falta só a criação manual do workflow e da tag na tela — nenhum dos dois
+sai por API; subconta reconfirmada nesta execução via
+`opportunities_get-pipelines`/`opportunities_search-opportunity`/
+`locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`, 46
+campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`) — sem mudança
+desde a última rodada, G-03 segue aguardando o dono.
 
 ### F-06 · Qualidade da conexão, não a contagem
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
@@ -1038,27 +1084,40 @@ ordem por um motivo diferente dos outros três: não é dívida que se acumula
 com o tempo, é uma exposição real já desenhada e sem teto (a Interceptação de
 Sinal, F-01, empilhando toque sem limite) — corrigi-la antes da operação
 rodar volume de verdade custa uma especificação; corrigi-la depois custaria
-explicar a um lead por que ele recebeu seis avisos no mesmo dia. Restam dois
-itens no bloco 6, e nenhum pede prioridade fora da ordem agora: os dois
-pedem volume para fazer sentido. F-06 precisa de call tracking ligado; F-05
-só morde quando há mais de uma cadência no ar.
+explicar a um lead por que ele recebeu seis avisos no mesmo dia. F-05 saiu
+fora de ordem em 21/09/2026 pelo mesmo motivo geral de F-04, não por
+volume: **esta frase dizia até 21/09/2026 que "F-05 só morde quando há mais
+de uma cadência no ar" — estava errada.** As invariantes do F-05 (lead
+parado numa etapa, tarefa vencida) não dependem de quantas réguas existem;
+dependem de ter lead de verdade na subconta, e G-03 (Bloco 0) mostrou que
+isso já é fato — 47 leads pagos parados em `NOVO LEAD`, achados só porque
+uma sessão olhou o número na mão. Restou só o F-06 pedindo volume de
+verdade: precisa de call tracking ligado, que ninguém tem motivo para
+ligar antes da `Cadência 12x30` sair do rascunho e gerar ligação de
+verdade para medir.
 
 **Não há mais "ordem normal" a retomar.** Esta frase dizia, desde a primeira
 rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
 bloco 5. O que resta entre os itens numerados não espera posição na fila,
 espera a operação existir: R-14 quando a máquina começar a mandar mensagem
-de verdade, e os dois itens que restam no bloco 6 quando houver volume.
+de verdade, o resto do F-05 (peças 2+) quando as invariantes restantes
+tiverem desenho pronto, e o F-06 quando houver volume de ligação real.
 
-**Com G-02 fechado em 21/09/2026, não sobra mais item de documentação pura
-esperando uma sessão sem tela nem volume.** O que resta é de dois tipos: (1)
-montar na tela o que já está especificado (pipeline, campos, workflows,
-calendário e formulário, pelo `build-wesales.md`) — trabalho manual, ao vivo
-com o dono —, e (2) esperar volume/mensagem real para R-14/F-05/F-06. Uma
-sessão automática sem acesso à tela e sem esses dois itens desbloqueados
-não deve inventar trabalho para preencher a rodada: o próximo passo honesto
-é a varredura de coerência entre documentos (a mesma que fechou G-02 — grep
-por nome antigo, merge field órfão, contagem duplicada) e, se ela não achar
-nada, procurar uma lacuna nova que nenhum item aqui cobre ainda (o mesmo
+**Com G-02 fechado em 21/09/2026 e a primeira peça do F-05 especificada na
+mesma data, não sobra item de documentação pura óbvio esperando uma sessão
+sem tela nem volume — mas isso não é permanente, como o próprio F-05 acabou
+de mostrar.** O que resta é de três tipos: (1) montar na tela o que já está
+especificado (pipeline, campos, workflows, calendário e formulário, pelo
+`build-wesales.md`) — trabalho manual, ao vivo com o dono —, (2) esperar
+volume/mensagem real para R-14 e F-06, e (3) desenhar as peças 2+ do F-05
+(as quatro invariantes restantes, seção 2.20) quando alguém tiver tempo para
+resolver o "esperar até uma data dinâmica" que a última delas exige. Uma
+sessão automática sem acesso à tela e sem (2) desbloqueado não deve
+inventar trabalho para preencher a rodada: o próximo passo honesto é
+conferir se (3) tem uma peça pronta para especificar, depois a varredura de
+coerência entre documentos (a mesma que fechou G-02 — grep por nome antigo,
+merge field órfão, contagem duplicada) e, se ela não achar nada, procurar
+uma lacuna nova que nenhum item aqui cobre ainda (o mesmo
 raciocínio que criou G-01, G-02 e o bloco 6 inteiro) antes de encerrar sem
 commit.

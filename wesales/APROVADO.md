@@ -119,6 +119,14 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `APRENDIZADOS-CRM.md`): as 15 tags estão lá, `dateUpdated` 19/09/2026
       04:15 UTC.
 
+- [ ] Criar a 16ª tag, `novo-lead-estagnado` — nasceu no F-05 (Monitor de
+      Saúde da Operação, peça 1: lead esquecido em `NOVO LEAD`) desta rodada,
+      especificada em `campos-e-tags.md` (T-16) e `build-wesales.md` (seção
+      2.20). Nasce `[ ]` de propósito, não `[x]`: é linha nova que a própria
+      rotina acrescentou (regra "Como autorizar" no topo deste arquivo,
+      escrita depois do incidente da tag `toque`/T-15 em 19/09/2026) — vira
+      `[x]` quando o dono trocar, num commit que não é o meu.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

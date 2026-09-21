@@ -2,6 +2,78 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## F-05 destravado pelo próprio G-03: "espera volume" tinha prazo de validade — 21/09/2026, sessão automática
+
+Sweep de coerência de sempre (limpo — zero merge field órfão, zero nome de
+etapa antigo fora da tabela 1.0, listas de réguas batendo com as listas de
+remoção do Mestre de saída). Antes de procurar lacuna nova do zero, reli o
+F-05 (Monitor de Saúde da Operação) com a pergunta que a nota final do
+roadmap já sugeria: "por que ele está esperando, e essa razão ainda é
+verdade?" A "Ordem sugerida" dizia "F-05 só morde quando há mais de uma
+cadência no ar" — **e essa frase nunca foi verdade**: as invariantes do
+F-05 (lead parado numa etapa, tarefa vencida) checam **um** lead contra
+**uma** régua de cada vez, nunca comparam réguas entre si. A frase
+confundiu "por que o item ainda não incomodou ninguém" (não havia lead de
+verdade correndo cadência nenhuma) com "o que o item precisa para fazer
+sentido" (lead de verdade, ponto — não importa quantas réguas existem). E
+lead de verdade é exatamente o que G-03 (Bloco 0, mesma data) achou: 47
+oportunidades pagas paradas em `NOVO LEAD` há mais de 24h, e ninguém — nem
+uma automação, nem um dashboard — avisou sozinho. Isso não é só "F-05
+deixou de esperar volume"; é a prova em produção de que o problema que o
+F-05 existe para pegar já aconteceu, sem F-05 no ar para pegá-lo.
+
+**Regra prática, generalizável:** "este item espera X" é uma afirmação
+com data de validade, igual ao achado já registrado abaixo ("número medido
+dentro de uma instrução tem data de validade") — mas aqui a validade não
+era de um número, era do **raciocínio**. Vale reler o "por quê estamos
+esperando" de todo item represado a cada rodada sem tela, não só reconferir
+se o número mudou: às vezes o número que faltava já chegou por um caminho
+diferente do que o enunciado original previa.
+
+**Desenhada só a primeira peça (lead esquecido em `NOVO LEAD`, que nem
+estava nas seis invariantes originais do "Como") — decisão de escopo,
+registrada no roadmap (F-05).** Achado que vale por si, para não redesenhar
+a mesma coisa depois, e que exige cuidado para não confundir duas
+invariantes parecidas: "tarefa vencida sem resultado" **já não existe como
+risco** neste desenho — o nó 10b do bloco padrão de tentativa
+(`build-wesales.md`, seção 2.4) já classifica sozinho `Resultado da
+tentativa = Não atendeu` quando o prazo do dia estoura sem o SDR agir, e a
+lista 8.5 já mostra esse volume; não sobra "vencida sem resultado" pendurada
+em lugar nenhum. **Isto não vale para a invariante vizinha da mesma
+lista original, `fila-tel`/`fila-wa` presente há mais de 24h** — essa
+continua um risco de verdade e diferente: se a tag ainda está lá depois de
+24h é porque o nó 9 (que remove a tag sempre, todo dia até 18:30) não
+rodou, sinal de workflow travado ou instância perdida, não de SDR lento.
+Quase escrevi as duas como a mesma coisa por causa do nome parecido — vale
+a mesma pergunta antes de desenhar qualquer invariante futura do F-05:
+"isso ainda é um risco no desenho atual, ou o desenho já mudou debaixo
+dela — e é exatamente esta invariante, ou uma vizinha de nome parecido?"
+
+**Achado de desenho, mesma classe de bug que a entrada "A regra certa
+estava no portão errado" (abaixo) já descreveu para outras réguas, aqui
+achado *ao especificar*, não *depois de publicado*:** o Mestre de saída
+(seção 3) só alcança seu nó de remoção de tag quando a oportunidade **sai**
+de `CONECTAR`/`open` — a transição `NOVO LEAD` → `CONECTAR`, que é como o
+alerta de F-05 se resolve na prática, cai no ramo de no-op dele (nó 1) e
+nunca chega lá. Resolvido com um nó 0 novo, incondicional, antes do portão
+— `Remove Contact Tag` de quem não tem a tag não custa nada, mesmo
+raciocínio já usado para `Remove from Workflow`. Registrar aqui porque é a
+primeira vez que este projeto pega esta classe de bug **durante o desenho**
+em vez de descobri-la numa migração posterior — vale perguntar "este alerta
+se resolve numa transição que o Mestre de saída trata como no-op?" toda vez
+que uma tag nova precisar de limpeza automática.
+
+Zero escrita no CRM nesta rodada: item de especificação
+(`build-wesales.md`, seções 2.20, 3 e 8.20; `campos-e-tags.md`, T-16;
+`ROADMAP-SALES-ENGAGEMENT.md`, F-05) mais uma tag nova **proposta**, não
+criada — `novo-lead-estagnado` nasce `[ ]` em `APROVADO.md`, não `[x]`
+(mesma regra do incidente da T-15, 19/09/2026, aplicada desde o primeiro
+dia desta vez, não como correção depois). Subconta reconfirmada via
+`opportunities_get-pipelines`/`opportunities_search-opportunity`/
+`locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`, 46
+campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, status `open` em
+todas) — sem mudança desde a última rodada; G-03 segue aguardando o dono.
+
 ## R-17: resposta de opt-out tratada como sinal quente por um workflow já publicado — 21/09/2026, sessão automática
 
 Depois do sweep de coerência de sempre (limpo, ver entrada abaixo), reli o
