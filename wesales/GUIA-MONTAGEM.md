@@ -806,3 +806,23 @@ de estrutura e 1 `<test lead>` do Meta) · 50 oportunidades (47 `NOVO LEAD`
 + 3 `NEGOCIAR`, todas `open`, 47 sem responsável, 3 com
 `JdvhvOTEBTvUyRi0BXU8`) · 1 contato com DND (`Teste Não Ligar`) · fuso da
 subconta `America/Sao_Paulo`, plano `trialing`.
+
+## Como montar mais rápido sem clicar tudo de novo (pesquisado em 21/09/2026)
+
+Não existe endpoint público para criar workflow e este ambiente não alcança
+nem a tela nem a API interna da HighLevel. O que a comunidade usa, em ordem
+de preferência para nós (detalhe e fontes em `APRENDIZADOS-CRM.md`, entrada
+"Como a comunidade cria workflow sem clicar"):
+
+1. **Montar um modelo na tela e clonar por JSON** com a extensão Chrome
+   "GHL Workflows JSON Exporter" (ou "GHL Workflow Backup & Audit", que
+   declara suporte a white-label). Exporta o workflow aberto, edita texto,
+   espera e tag no JSON, importa as cópias. Alvo ideal: os 12 toques da
+   Cadência 12x30 e os 5 workflows de estagnação do Monitor de Saúde.
+   Guardar cada JSON exportado em `wesales/workflows-json/`.
+2. **Snapshot da subconta** quando a montagem fechar: backup e replicação.
+3. **API interna** (`backend.leadconnectorhq.com`, projetos
+   `gojc31/gohighlevel-cli` e `drleadflow/ghl-automation-builder`): 100%
+   programático, mas não documentado e com risco de termos de uso. Só com
+   decisão do dono, rodando na máquina dele, com
+   `IMPLEMENTACAO-WORKFLOWS.md` como spec.

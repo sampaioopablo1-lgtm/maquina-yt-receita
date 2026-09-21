@@ -2,6 +2,47 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Como a comunidade cria workflow sem clicar: API interna (`backend.leadconnectorhq.com`), extensão de JSON e "Copiar workflow" — 21/09/2026, ao vivo em chat
+
+O dono pediu para pesquisar no GitHub e nas comunidades como outros resolveram
+ou contornaram a falta de endpoint de escrita para workflows. Resultado da
+pesquisa (fontes no fim), do mais oficial ao mais arriscado:
+
+| Caminho | O que faz | Onde roda | Risco | Serve para nós? |
+|---|---|---|---|---|
+| **API pública v2** (`services.leadconnectorhq.com`) | `GET /workflows/` só lista nome, status e id. Sem POST/PUT. O pedido "REST API — Workflow POST/PUT Endpoint" está aberto no quadro de ideias da HighLevel, sem prazo. | — | nenhum | Não cria nada. É o que o conector `GHL CRM` já usa. |
+| **Copiar workflow para outra subconta** (nativo, Agency Admin) | Copia um workflow com tags, campos e pipeline referenciados; chega como rascunho. | Tela da agência | nenhum | Só ajuda se já existir um workflow pronto em outra subconta da agência. Não temos. |
+| **Snapshot** (nativo) | Empacota workflows + campos + tags + pipeline de uma subconta e importa em outra. A API de snapshots só lista e compartilha; não cria conteúdo. | Tela da agência | nenhum | Vale como **backup** de tudo que estiver montado, e para replicar em cliente futuro. Não monta do zero. |
+| **Extensão Chrome "GHL Workflows JSON Exporter"** (FiftyDevs) e **"GHL Workflow Backup & Audit"** | Exporta o workflow aberto como JSON e importa um JSON para reconstruir o workflow em qualquer localização; a segunda declara funcionar em CRM white-label. | Navegador do dono, dentro da tela do builder | baixo (usa a sessão logada) | **Sim, é o atalho mais barato.** Monta-se um workflow padrão uma vez (ex.: um toque da Cadência 12x30), exporta, edita o JSON (texto, espera, tag) e importa as cópias. Precisa de teste na tela `app.wesalescrm.com` antes de confiar. |
+| **API interna** (`backend.leadconnectorhq.com`, a que a própria tela usa) | Tudo que o builder faz: criar workflow, gatilhos, ações, ramos, publicar/rascunho, clonar. Dois projetos abertos: `drleadflow/ghl-automation-builder` (95 ações, 93 gatilhos com schema, 16 ferramentas MCP `ghl_workflow_builder_*`, mas preso ao Cloudflare Worker do autor) e `gojc31/gohighlevel-cli` (Python, `--experimental`, `utils/workflow_builder.py` com `tag_step`/`wait_step`/`link_steps`). | Máquina do dono | **alto**: endpoint não documentado, muda sem aviso, pode ferir os termos da HighLevel; o token é o `Authorization: Bearer` capturado na aba Network do navegador logado (desde ~07/2026 o endpoint rejeita o id-token Firebase da extensão). | Tecnicamente é o único caminho 100% programático. Só com decisão explícita do dono, e nunca deste ambiente. |
+| **MCP comunitários** (`BusyBee3333/go-high-level-mcp-2026-complete`, 927 ferramentas; `mastanley13`, `hridayshah7`, etc.) | Cobrem a API pública. O de 927 ferramentas admite no README que criação de workflow é "superfície interna privada/instável com autenticação derivada do navegador" e manda para um produto pago (RealWave). | — | — | Não acrescentam nada ao conector que já temos. |
+| **Automação de navegador** (Selenium/Playwright, citada na comunidade) | Clicar na tela por script. | Máquina do dono | médio (a tela muda) | Bloqueado daqui (R anterior). Pior que importar JSON. |
+
+**Teste feito neste ambiente:** `backend.leadconnectorhq.com:443` e
+`services.leadconnectorhq.com:443` também recebem `403 CONNECT` do proxy
+(`__agentproxy/status`, 21/09 21:51). Ou seja, mesmo com o bearer em mãos, a
+API interna não é alcançável daqui — só do computador do dono ou de um
+ambiente com política de rede que libere esses hosts.
+
+**Regra prática, em ordem de preferência:**
+1. **Montar 1 modelo na tela + extensão de JSON para clonar** — resolve o
+   grosso do trabalho repetitivo (12 toques da Cadência, 5 workflows de
+   estagnação que só mudam etapa/tag/prazo). Os JSONs exportados vão para
+   `wesales/workflows-json/` como fonte de verdade versionada.
+2. **Snapshot da subconta** quando a montagem fechar — backup e replicação.
+3. **API interna** só se o dono decidir assumir o risco; aí o ambiente certo
+   é o computador dele rodando `gojc31/gohighlevel-cli`, com os
+   `wesales/IMPLEMENTACAO-WORKFLOWS.md` como spec. Este ambiente nunca terá
+   rota até esses hosts.
+
+Fontes: `github.com/drleadflow/ghl-automation-builder`,
+`github.com/gojc31/gohighlevel-cli` (README, seção "Workflow building"),
+`github.com/BusyBee3333/go-high-level-mcp-2026-complete`,
+Chrome Web Store `ghl-workflows-json-export/epnhegdiefihpjkgjkfmnkkobkhmfepk`
+e `ghl-workflow-backup-audit/laoblobglngndhbdbecpfnfeaojhbnli`,
+`ideas.gohighlevel.com/automations/p/rest-api-workflow-postput-endpoint-for-creating-and-updating-workflows`,
+`help.gohighlevel.com/.../155000001229-how-to-copy-workflow-to-another-sub-account-`.
+
 ## Playwright contra a tela da WeSales: bloqueado pela política de rede do ambiente, não pela plataforma — 21/09/2026, ao vivo em chat
 
 O dono pediu para tentar o único caminho ainda não testado para criar
