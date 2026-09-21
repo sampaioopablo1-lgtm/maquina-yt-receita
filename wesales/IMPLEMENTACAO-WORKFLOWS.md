@@ -71,7 +71,8 @@ checa **etapa E status**.
 | `reengajamento-ativo` | Na régua TR1–TR4 | sim |
 | `pausado` | Represado pelo SDR, sem ser opt-out | sim |
 | `toque` | Pulso: cada tarefa/mensagem aplica e o Contador de Toques remove | sim |
-| `novo-lead-estagnado` | F-05: 24h em `NOVO LEAD` | **não** — `[ ]` em `APROVADO.md` |
+| `novo-lead-estagnado` | F-05 peça 1: 24h em `NOVO LEAD` | **não** — `[ ]` em `APROVADO.md` |
+| `fila-travada` | F-05 peça 2: `fila-tel`/`fila-wa` que o nó 9 da cadência não removeu | **não** — `[ ]` em `APROVADO.md` |
 
 ### 0.3 Campos personalizados (nome na tela → chave de merge field → tipo → opções exatas)
 
@@ -159,8 +160,8 @@ renderiza certo.
 12x30` · `Cadência Inbound` · `Interceptação de Sinal — Clique` ·
 `Interceptação de Sinal — Resposta` · `Opt-out por Palavra-chave` · `Alerta
 de Speed-to-lead` · `Reengajamento 90 dias` · `Contador de Toques` ·
-`Monitor de Capacidade` · `Lead Esquecido em NOVO LEAD` · `Higiene de Número
-— Validação Automática`.
+`Monitor de Capacidade` · `Lead Esquecido em NOVO LEAD` · `Fila Travada` ·
+`Higiene de Número — Validação Automática`.
 
 Na tela o Loop do closer foi criado como **`Post-Meeting Closer Loop`** —
 renomeie para `Loop do closer` ou use o nome da tela em todo lugar que o
@@ -226,7 +227,8 @@ responder"; janela = "Janela de tempo" (dias + horário + fuso).
 | 14 | Opt-out por Palavra-chave | não existe | — |
 | 15 | Alerta de Speed-to-lead | não existe | — |
 | 16 | Reengajamento 90 dias | não existe | — |
-| 17 | Lead Esquecido em NOVO LEAD (F-05) | não existe | tag `novo-lead-estagnado` (`APROVADO.md`) |
+| 17 | Lead Esquecido em NOVO LEAD (F-05 peça 1) | não existe | tag `novo-lead-estagnado` (`APROVADO.md`) |
+| 17b | Fila Travada (F-05 peça 2) | não existe | tag `fila-travada` (`APROVADO.md`) |
 | 18 | Monitor de Capacidade | não existe | lista 8.16 |
 | 19 | Higiene de Número (opcional) | não existe | Number Validation ligado |
 
@@ -293,23 +295,23 @@ to Workflow` em massa.
 | # | Ação | Configuração exata | Vai para |
 |---|---|---|---|
 | 0 | Remove Contact Tag | `novo-lead-estagnado` (só depois de a tag existir — F-05) | 1 |
-| 1 | If/Else | **Ramo A:** `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `Opportunity status` é `open` → **FIM** · **Ramo B (retoque 21/09):** `Pipeline stage` é `[FUNIL DE VENDAS] - NOVO LEAD` → **FIM** · **None:** segue | 2 |
+| 1 | If/Else | `Opportunity status` é `open` **E** `Pipeline stage` é uma de `[FUNIL DE VENDAS] - NOVO LEAD`, `[FUNIL DE VENDAS] - CONECTAR` → **FIM** (retoque 21/09: a versão publicada só tem `CONECTAR`) · **None:** segue | 2 |
 | 2 | Remove from Workflow | `Cadência 12x30` | 2b |
 | 2b | Remove from Workflow | `Cadência Inbound` (quando existir) | 2c |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (quando existir) | 3 |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` | 4 |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado` | 5 |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada` (quando a tag existir) | 5 |
 | 5 | Add Contact Tag | `limpar-tarefas` | 6 |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` | fim |
 
 **Retoques obrigatórios na versão publicada (evidência em 21/09):**
-1. **Ramo B do nó 1 — `NOVO LEAD` encerra.** Confirmado por API: a Porta de
+1. **Nó 1 — `NOVO LEAD` também encerra.** Confirmado por API: a Porta de
    Entrada cria a oportunidade e 4 segundos depois este workflow grava a
    nota "Saída de cadência · status: open" e aplica `limpar-tarefas` em
    **todo lead novo** (os 10 leads criados desde 19/09 nasceram com a tag).
    O portão atual só protege `CONECTAR`+`open`; a criação em `NOVO LEAD`
-   cai no `None` e roda a limpeza inteira. Adicionar a condição de
-   `NOVO LEAD` → FIM resolve; as tags/nota já gravadas ficam (regra 1).
+   cai no `None` e roda a limpeza inteira. Incluir `NOVO LEAD` na condição
+   resolve; as tags/nota já gravadas ficam (regra 1).
 2. Nós 2b/2c: entram quando `Cadência Inbound` e `Reengajamento 90 dias`
    existirem (o dropdown só lista workflows criados).
 3. Nó 0: entra quando a tag `novo-lead-estagnado` for aprovada e criada.
@@ -335,7 +337,8 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 |---|---|---|---|
 | 1 | If/Else | `Resultado da tentativa` **está vazio** → **FIM** · None → segue | 2 |
 | 2 | If/Else | `Tags` inclui `fila-wa` → Math `Tentativas WhatsApp` + 1 · None → Math `Tentativas telefone` + 1 (os dois lados seguem para 3) | 3 |
-| 3 | Math | `Total de ligações` + 1 | 4 |
+| 3 | Math | `Total de ligações` + 1 | 3b |
+| 3b | Remove Contact Tag | `fila-quente` — incondicional, **depois** do nó 2 (que lê `fila-wa`). Retoque de 21/09: falta na versão publicada; sem ele o lead que deu sinal e não atendeu fica na `Fila Quente` para sempre | 4 |
 | 4 | If/Else múltiplo (Condition) | por `Resultado da tentativa`: 6 ramos abaixo | ramo |
 
 **Ramo `Atendeu`**
@@ -392,7 +395,7 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | L6 | Add Note | `Opt-out registrado em {{right_now}}` |
 
 **Teste:** os 6 ramos do lado telefone já foram confirmados por log em
-19/09. Falta só A2: mude `Resultado da tentativa` = `Atendeu` num contato
+19/09. Faltam A2 e 3b: mude `Resultado da tentativa` = `Atendeu` num contato
 de teste em `CONECTAR` e confira `Total de conexões` subir.
 
 ---
@@ -921,6 +924,29 @@ Ligue os dois Waits (1a e 1b) ao **mesmo** nó 2.
 
 **Pré-requisito:** tag `novo-lead-estagnado` (`APROVADO.md`, `[ ]`). Depois de
 publicar, `Add to Workflow` em massa nos leads já parados.
+
+---
+
+## W17b · Fila Travada — `build-wesales.md` 2.21 (F-05 peça 2)
+
+**Gatilhos (dois, em OU):** `Contact Tag Added` → `fila-tel` · `Contact Tag Added` → `fila-wa`
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela, 24/7 |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 0 | Remove Contact Tag | `fila-travada` | 1 |
+| 1 | Wait → Until specific time | **19:00 do mesmo dia** (não "24h depois" — tentativas vizinhas ficam a menos de 24h uma da outra) | 2 |
+| 2 | If/Else | `Tags` inclui `fila-tel` **OU** `Tags` inclui `fila-wa` → 3 · None → FIM | 3 |
+| 3 | Add Contact Tag | `fila-travada` | 4 |
+| 4 | Internal Notification | ao gestor: `{{contact.name}} está com fila-tel/fila-wa presa desde antes de hoje às 18:30 — o nó 9 da cadência não rodou. Tentativa nº {{contact.tentativa_n}}.` | 5 |
+| 5 | Add Note | `Alerta de saúde: fila-tel/fila-wa travada, nó 9 não removeu até 18:30 · {{right_now}}` | fim |
+
+**Pré-requisito:** tag `fila-travada` (`APROVADO.md`, `[ ]`). Lista 8.21 filtra por ela.
 
 ---
 

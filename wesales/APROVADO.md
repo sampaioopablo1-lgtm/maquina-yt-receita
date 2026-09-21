@@ -127,6 +127,13 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       escrita depois do incidente da tag `toque`/T-15 em 19/09/2026) — vira
       `[x]` quando o dono trocar, num commit que não é o meu.
 
+- [ ] Criar a 17ª tag, `fila-travada` — nasceu no F-05 (Monitor de Saúde da
+      Operação, peça 2: `fila-tel`/`fila-wa` presa depois do fim do dia em
+      que foi aplicada), especificada em `campos-e-tags.md` (T-17) e
+      `build-wesales.md` (seção 2.21). Mesmo motivo da linha acima, mesma
+      regra: nasce `[ ]`, vira `[x]` quando o dono trocar, num commit que
+      não é o meu.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

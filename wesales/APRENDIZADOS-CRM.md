@@ -44,6 +44,54 @@ cada nó de cada workflow (ação, campo, operador, valor, ramo), com os nomes
 reais lidos da subconta — para montar à mão. Escrita no CRM nesta rodada:
 só os 3 campos do contato fictício `Teste Atendeu` (teste do checklist,
 seção 10, autorizado em `APROVADO.md`); nenhum lead real tocado.
+## Um relógio de "24h desde o gatilho" pode medir a tentativa errada quando o mesmo evento se repete várias vezes por lead — 21/09/2026, sessão automática
+
+Desenhando a peça 2 do F-05 (Monitor de Saúde — `fila-tel`/`fila-wa` presa
+mais de 24h), a primeira versão copiou literalmente o mecanismo que já
+validou a peça 1 e o R-02: `Wait` de 24h a partir do gatilho
+(`Contact Tag Added`), depois um portão checando se a tag ainda está
+presente. Funcionou de olho na peça 1 porque `NOVO LEAD` só recebe **um**
+evento relevante por entrada. Aqui não: a tabela 2.5 (`build-wesales.md`,
+seção 2.5) aplica `fila-tel`/`fila-wa` até 12 vezes no mesmo contato, às
+vezes a **menos de 24h** uma tentativa da outra (T1 D1 10:30 → T3 D2
+09:20, 22h50 de distância). Um relógio de 24h disparado pela T1 checaria o
+contato durante a janela em que a T3 já reaplicou a mesma tag de forma
+legítima e recente — o alerta leria "tag presente" e confundiria fila nova
+e saudável com fila velha e travada, gerando falso positivo toda vez que
+duas tentativas ficassem próximas (o que a tabela 2.5 faz de propósito,
+não é caso raro).
+
+**A correção não foi adicionar uma condição — foi trocar o tipo de
+relógio.** Em vez de "espera relativa a partir do disparo" (`Wait → Time
+Delay`), usar "espera até um horário fixo do dia" (`Wait → Until specific
+time`, 19:00 — 30 min depois do prazo de 18:30 que o próprio nó 9 do bloco
+padrão já respeita). Como a tag só pode legitimamente existir entre o
+início da tentativa e 18:30 do **mesmo dia**, ancorar a checagem num
+horário do calendário em vez de um delta a partir do gatilho garante que
+cada instância do monitor só vê o resultado do **seu próprio** dia,
+independente de quantas outras tentativas dispararem o mesmo gatilho depois
+dela.
+
+**Alternativa cogitada e descartada, registrada para não ser retentada:**
+snapshotar `Tentativa nº` num campo novo no momento do gatilho, e comparar
+contra o valor atual 24h depois. Não funciona aqui pelo mesmo motivo que a
+seção 2.4 já documenta para `WA não atendidas seguidas` ("um contador com
+dois donos sempre diverge"): com `Allow Re-entry` ligado e duas
+tentativas próximas, duas instâncias do workflow escrevem no **mesmo**
+campo do contato quase ao mesmo tempo — a segunda sobrescreve o snapshot da
+primeira antes da primeira terminar de esperar, e a comparação final lê o
+valor errado.
+
+**Regra prática, generalizável:** antes de copiar um mecanismo de "relógio
+por evento" (já usado no R-02, na peça 1 do F-05 e no SLA do Closer) para
+um gatilho novo, perguntar "este evento pode disparar mais de uma vez para
+o mesmo contato dentro da janela de espera do relógio?" Se a resposta for
+sim, uma espera **relativa** ao disparo é a peça errada — o disparo mais
+recente sempre corrompe a leitura do mais antigo. A peça certa é ancorar a
+espera num ponto fixo do calendário (hora do dia, ou uma data gravada em
+campo que **nenhuma** outra instância reescreve) que todas as instâncias
+concordam em checar, não uma contagem que cada instância mede a partir de
+si mesma.
 
 ## Os dados de produção são a terceira auditoria — e acharam o que texto e tela não achavam — 21/09/2026, a pedido do dono
 
@@ -311,6 +359,121 @@ Zero escrita no CRM: item de documentação pura, não depende de
 `locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
+
+## Diagnóstico por contador vizinho: o par que fecha prova que o mecanismo funciona — 21/09/2026
+
+A auditoria de dados (`e98aec6`) achou dois nós que "não deixaram rastro" e
+parou no sintoma. Os dois têm causa, e ela sai do mesmo dado, sem abrir a
+tela — lendo **o que funcionou ao lado do que não funcionou**.
+
+**Caso 1 — `Total de conexões` vazio depois de 24 execuções.** No contato
+"teste atendeu":
+
+| Campo | Valor | Nó que escreve |
+|---|---|---|
+| `Total de ligações` | 24 | Pós-ligação, nó 3 |
+| `Tentativas telefone` | 24 | Pós-ligação, nó 2 |
+| `Conexões telefone` | **8** | ramo `Atendeu`, nó 1 |
+| `Total de conexões` | **vazio** | ramo `Atendeu`, nó 2 |
+
+O ramo `Atendeu` rodou 8 vezes (senão `Conexões telefone` estaria vazio
+também), e o par vizinho `Tentativas`/`Total de ligações` fecha nos dois
+lados. Logo: o mecanismo de Math funciona, o ramo é alcançado, e **o nó 2 do
+ramo não existe na tela** — a especificação o pede, quem montou pulou.
+
+**Caso 2 — `Nota de qualificação` vazia nos 3 leads em `NEGOCIAR`.** Os três
+têm `Investimento mensal`, `Decisor`, `Budget` e `Prazo` **preenchidos**:
+não é falta de entrada. E têm `Prioridade` = 5, que é o nó **5** do
+Pós-agendamento, um depois do Math. **O fluxo passou pelo nó 4 e saiu sem
+escrever** — Math com campo de origem ou destino não selecionado, o mesmo
+defeito que o assistente de IA do construtor já tinha produzido no
+Pós-ligação.
+
+**O método, que serve para qualquer nó silencioso:**
+
+1. Ache um campo **vizinho** que o mesmo workflow deveria escrever e que
+   está preenchido. Ele prova que o workflow rodou e chegou até ali.
+2. Ache um campo escrito por um nó **posterior** ao suspeito. Se ele está
+   preenchido, o fluxo passou pelo suspeito — o nó rodou e não escreveu, que
+   é diferente de "o ramo não foi alcançado".
+3. Confira se as entradas do nó suspeito estão preenchidas. Com entrada
+   presente, saída vazia e nó posterior escrito, sobra uma explicação só:
+   o nó está mal configurado ou não existe.
+
+Isso separa três causas que de fora parecem a mesma coisa — ramo não
+alcançado, entrada faltando, nó mal montado — **sem abrir a tela e sem
+esperar o próximo lead passar**.
+
+## Conte onde a tag é aplicada e onde é removida: os dois números têm que fechar — 21/09/2026
+
+A peça 2 do F-05 (workflow "Fila Travada") acertou em cheio ao não copiar a
+fórmula de relógio da peça 1 — `fila-tel` pode ser reaplicada a 22h50 de
+distância, então "24h desde o gatilho" daria falso positivo estrutural.
+Conferindo essa peça, fiz a conta que faltava para a tag vizinha:
+
+| Tag | Aplicada em | Removida em |
+|---|---|---|
+| `fila-tel` / `fila-wa` | nó 6 do bloco padrão (2.4 e 2.10) | nó 9 (sempre, todo dia), ramo 3b, Mestre de saída nó 4 — **fecha** |
+| `fila-quente` | **4 lugares**: 2.9.2 nó 6, 2.9.3, 2.10 nó 0.7, régua da IA (seção 9) | **2 lugares**: ramo 3b da tentativa, Mestre de saída nó 4 — **não fecha** |
+
+O que faltava era a remoção do caso normal: **o sinal foi trabalhado**. Lead
+que clica no link, recebe a tarefa "ligar agora", é ligado e marca
+`Não atendeu` fica em `CONECTAR`/`open` — nada remove a tag, e ele mora na
+lista `Fila Quente` (8.1) para sempre, misturado com quem deu sinal agora.
+**A fila mais prioritária da operação é a que apodrece primeiro, porque nada
+nela expira.** Já tem 1 contato nesse estado.
+
+Corrigido com um nó 3b no Pós-ligação, não com um relógio: o gatilho daquele
+workflow é `Resultado da tentativa` alterado, que é a definição operacional
+de "alguém agiu sobre o lead". Sinal se consome quando é trabalhado, não
+quando o dia acaba.
+
+**Regra, barata e mecânica:** para cada tag de fila, contar os lugares que
+aplicam e os que removem. Se aplicar em mais lugares do que remove, a
+diferença é uma lista que vai apodrecer — e a remoção que falta é quase sempre
+a do **caminho feliz**, porque o caminho de saída é o que todo mundo lembra
+de limpar.
+
+```
+grep -n 'Add Contact Tag.*fila-' wesales/build-wesales.md
+grep -n 'Remove Contact Tag.*fila-' wesales/build-wesales.md
+```
+
+## Quando a previsão do bug está escrita e o bug acontece do mesmo jeito — 21/09/2026 (causa-raiz do achado 3 da auditoria)
+
+A auditoria de dados desta rodada achou que **os 10 leads nascidos depois do
+Mestre de saída ir ao ar chegaram com `limpar-tarefas`**, e registrou o
+sintoma sem causa. A causa é o nó 1 do próprio Mestre de saída: gatilho
+`Opportunity Stage Changed` para **qualquer** etapa de destino, Porta de
+Entrada criando a oportunidade em `NOVO LEAD`, e portão que só encerrava para
+`CONECTAR`/`open`. Todo lead novo rodava a limpeza de saída na chegada:
+`limpar-tarefas` aplicada e nota "Saída de cadência" num lead que nunca
+entrou em régua nenhuma.
+
+O que vale guardar não é o bug, é o formato dele. **A seção 2.12 tinha escrito
+essa consequência antes de ela acontecer**, palavra por palavra, como
+argumento para o Reengajamento não passar por `NOVO LEAD`:
+
+> "…ele rodaria a limpeza inteira (incluindo aplicar `limpar-tarefas` e
+> gravar a nota 'Saída de cadência' num contato que não estava, de fato,
+> saindo de cadência nenhuma)… risco de corrida real com a rotina horária de
+> manutenção."
+
+O raciocínio estava certo e foi usado para desviar **um** workflow. Ninguém
+perguntou "e quem mais passa por `NOVO LEAD`?" — a resposta era *todo lead da
+operação*, pelo caminho mais movimentado que existe.
+
+**Regra, a mais afiada da série "achado num lugar, ignorado nos outros N":**
+quando uma seção explica por que **evita** um caminho, esse parágrafo é um
+relatório de bug sobre o caminho, não uma justificativa de design. A pergunta
+seguinte é obrigatória: **quem mais passa por aí, e por que está tudo bem
+para eles?** Se a resposta for "ninguém pensou nisso", o bug já existe — só
+não foi medido ainda.
+
+Corrigido no nó 1 (`open` **e** etapa em `NOVO LEAD`/`CONECTAR` → encerra) e
+na tabela de retoques do `GUIA-MONTAGEM.md`, marcado como o mais urgente dos
+que dão para fazer hoje: o workflow está publicado e sujando o histórico de
+todo lead que entra.
 
 ## A tabela de retoques de tela também é uma lista que alguém esquece de atualizar — 21/09/2026
 

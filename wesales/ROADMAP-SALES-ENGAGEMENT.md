@@ -321,6 +321,15 @@ reponderada; ou (B) a 9.1 passa a ler `Urgência`/`Necessidade` por
 `Contains`. Em qualquer uma, os 34/39 valores antigos precisam de cópia em
 massa para o campo certo (workflow `Update Contact Field` lendo outro campo,
 a confirmar na tela) ou ficam fora da nota.
+**Medido depois, e muda a conta (21/09/2026):** `attributions[].mediumId`
+mostra **oito formulários de Lead Ads distintos** alimentando a subconta (42
+/ 16 / 14 / 2 / 1 / 1 / 1 / 1 atribuições) — então a Opção A é trabalho de
+tela **oito vezes**, e todo formulário novo nasce errado até alguém lembrar;
+a Opção B se aplica uma vez e cobre os oito. E valendo para as duas: a régua
+precisa ler `Necessidade` **e** `Dor principal` em OU (34 leads num, 5 no
+outro, porque o mapeamento trocou no meio) — ler só um lado está errado para
+parte da base durante toda a transição. Detalhe em `CONFERENCIA-CAMPOS.md`,
+Tabela H.
 **Por que não decidi sozinho:** muda a nota do lead (D-05) e o formulário do
 anúncio — decisão de negócio, e nenhuma das duas sai por API.
 **Pronto quando:** o dono escolhe A ou B; `campos-e-tags.md` (Q-06, Q-16,
@@ -977,7 +986,7 @@ contato de estrutura, confirmado por `contacts_get-contact` — 15 tags do
 projeto agora na subconta, `dateUpdated` 19/09/2026 04:15 UTC. Checklist
 ganhou o item 35.
 
-### F-05 · Monitor de saúde da operação — peça 1 de N (lead esquecido em `NOVO LEAD`) FEITA em 21/09/2026
+### F-05 · Monitor de saúde da operação — peça 1 (lead esquecido em `NOVO LEAD`) e peça 2 (`fila-tel`/`fila-wa` presa) de N, ambas FEITAS em 21/09/2026
 **Por quê:** automação falha **em silêncio**. Tag que não saiu, lead parado numa
 etapa, workflow que parou de disparar — descobre-se pelo número caindo, semanas
 depois, quando o estrago já aconteceu.
@@ -1039,6 +1048,50 @@ sai por API; subconta reconfirmada nesta execução via
 `locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`, 46
 campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`) — sem mudança
 desde a última rodada, G-03 segue aguardando o dono.
+
+**Resumo (21/09/2026, peça 2 — mesma rodada da peça 1):** a próxima
+invariante da lista de quatro, `fila-tel`/`fila-wa` presente depois do fim
+do dia em que foi aplicada — a única das quatro que mede saúde do **motor**
+(instância de workflow perdida), não decisão humana atrasada. Workflow
+"Fila Travada" especificado em `build-wesales.md` (seção 2.21), tag
+`fila-travada` (T-17, `campos-e-tags.md`), lista `Saúde — Fila Travada`
+criada (seção 8.21). **Achado ao desenhar, que mudou o mecanismo do "Como"
+original:** a primeira versão copiava o relógio da peça 1 (`Wait` 24h a
+partir do gatilho) e tinha um falso positivo real — a tabela 2.5 encaixa
+tentativas a menos de 24h uma da outra (T1 D1 10:30 → T3 D2 09:20, 22h50 de
+distância), então o relógio de 24h da T1 podia checar bem no meio da janela
+em que a T3 já tinha reaplicado a mesma tag, de forma legítima e recente, e
+confundir fila nova com fila travada. Corrigido ancorando a espera num
+horário fixo do dia (19:00, 30 min depois do prazo das 18:30 que o nó 9 do
+bloco padrão já respeita) em vez de um delta relativo ao gatilho — elimina
+a janela de sobreposição sem precisar de um campo novo para guardar "qual
+tentativa disparou este alerta" (a alternativa cogitada, copiar `Tentativa
+nº` para um campo próprio no gatilho, esbarraria no mesmo "contador com
+dois donos" que a seção 2.4 já documenta, porque duas instâncias deste
+workflow disparadas por tentativas próximas sobrescreveriam o campo uma da
+outra). Limpeza dupla, mesmo padrão do R-02: o nó 0 do próprio workflow
+(preventivo, roda a cada nova tentativa) e o nó 4 do Mestre de saída
+(seção 3, atualizado nesta rodada — aqui a tag entrou direto na lista
+existente, sem precisar do nó 0 incondicional que a peça 1 exigiu, porque
+o alerta de fila travada se resolve numa saída de cadência real, que o nó 4
+já alcança). Limite documentado, não escondido: se o gestor remover
+`fila-tel`/`fila-wa` na mão sem o lead nunca gerar tentativa nova nem sair
+de cadência, `fila-travada` fica presa para sempre sem afetar mais nada —
+cenário que a próxima invariante (`CONECTAR` sem tentativa há 7 dias) é
+quem pega de verdade (cadência morta, não só uma tentativa travada). Zero
+escrita no CRM: tag nasce `[ ]` em `APROVADO.md`, mesma regra da T-16.
+Subconta reconfirmada nesta execução, sem mudança: mesmas 5 etapas do
+`FUNIL DE VENDAS`, 46 campos, 50 oportunidades — G-03 segue aguardando o
+dono.
+
+**Escopo depois das duas peças desta rodada:** das seis invariantes
+originais do "Como" (mais as duas adições de 18/09), duas já têm workflow
+(`NOVO LEAD` estagnado e `fila-tel`/`fila-wa` presa) e uma foi descartada
+por já estar coberta (tarefa vencida sem resultado). Restam três:
+`CONECTAR` sem tentativa há 7 dias, `nao-perturbe` em workflow ativo,
+`Conectado`/`Retorno agendado` vencidos — a última segue dependendo de
+"esperar até uma data dinâmica", não testado neste conector; as outras
+duas são candidatas à peça 3.
 
 ### F-06 · Qualidade da conexão, não a contagem
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
@@ -1136,23 +1189,24 @@ rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
 bloco 5. O que resta entre os itens numerados não espera posição na fila,
 espera a operação existir: R-14 quando a máquina começar a mandar mensagem
-de verdade, o resto do F-05 (peças 2+) quando as invariantes restantes
+de verdade, o resto do F-05 (peças 3+) quando as invariantes restantes
 tiverem desenho pronto, e o F-06 quando houver volume de ligação real.
 
-**Com G-02 fechado em 21/09/2026 e a primeira peça do F-05 especificada na
-mesma data, não sobra item de documentação pura óbvio esperando uma sessão
-sem tela nem volume — mas isso não é permanente, como o próprio F-05 acabou
-de mostrar.** O que resta é de três tipos: (1) montar na tela o que já está
-especificado (pipeline, campos, workflows, calendário e formulário, pelo
-`build-wesales.md`) — trabalho manual, ao vivo com o dono —, (2) esperar
-volume/mensagem real para R-14 e F-06, e (3) desenhar as peças 2+ do F-05
-(as quatro invariantes restantes, seção 2.20) quando alguém tiver tempo para
-resolver o "esperar até uma data dinâmica" que a última delas exige. Uma
-sessão automática sem acesso à tela e sem (2) desbloqueado não deve
-inventar trabalho para preencher a rodada: o próximo passo honesto é
-conferir se (3) tem uma peça pronta para especificar, depois a varredura de
-coerência entre documentos (a mesma que fechou G-02 — grep por nome antigo,
-merge field órfão, contagem duplicada) e, se ela não achar nada, procurar
-uma lacuna nova que nenhum item aqui cobre ainda (o mesmo
-raciocínio que criou G-01, G-02 e o bloco 6 inteiro) antes de encerrar sem
-commit.
+**Com G-02 fechado em 21/09/2026 e as duas primeiras peças do F-05
+especificadas na mesma data, não sobra item de documentação pura óbvio
+esperando uma sessão sem tela nem volume — mas isso não é permanente, como
+o próprio F-05 acabou de mostrar duas vezes na mesma rodada.** O que resta
+é de três tipos: (1) montar na tela o que já está especificado (pipeline,
+campos, workflows, calendário e formulário, pelo `build-wesales.md`) —
+trabalho manual, ao vivo com o dono —, (2) esperar volume/mensagem real
+para R-14 e F-06, e (3) desenhar as peças seguintes do F-05 (o "Escopo"
+no fim do item F-05 conta quantas invariantes restam e quais — número fixo
+só lá, não aqui) quando alguém tiver tempo para resolver o "esperar até uma
+data dinâmica" que uma delas exige. Uma sessão automática sem acesso à tela
+e sem (2) desbloqueado não deve inventar trabalho para preencher a rodada:
+o próximo passo honesto é conferir se (3) tem uma peça pronta para
+especificar, depois a varredura de coerência entre documentos (a mesma que
+fechou G-02 — grep por nome antigo, merge field órfão, contagem duplicada)
+e, se ela não achar nada, procurar uma lacuna nova que nenhum item aqui
+cobre ainda (o mesmo raciocínio que criou G-01, G-02 e o bloco 6 inteiro)
+antes de encerrar sem commit.
