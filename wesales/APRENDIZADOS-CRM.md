@@ -318,6 +318,41 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Conte onde a tag é aplicada e onde é removida: os dois números têm que fechar — 21/09/2026
+
+A peça 2 do F-05 (workflow "Fila Travada") acertou em cheio ao não copiar a
+fórmula de relógio da peça 1 — `fila-tel` pode ser reaplicada a 22h50 de
+distância, então "24h desde o gatilho" daria falso positivo estrutural.
+Conferindo essa peça, fiz a conta que faltava para a tag vizinha:
+
+| Tag | Aplicada em | Removida em |
+|---|---|---|
+| `fila-tel` / `fila-wa` | nó 6 do bloco padrão (2.4 e 2.10) | nó 9 (sempre, todo dia), ramo 3b, Mestre de saída nó 4 — **fecha** |
+| `fila-quente` | **4 lugares**: 2.9.2 nó 6, 2.9.3, 2.10 nó 0.7, régua da IA (seção 9) | **2 lugares**: ramo 3b da tentativa, Mestre de saída nó 4 — **não fecha** |
+
+O que faltava era a remoção do caso normal: **o sinal foi trabalhado**. Lead
+que clica no link, recebe a tarefa "ligar agora", é ligado e marca
+`Não atendeu` fica em `CONECTAR`/`open` — nada remove a tag, e ele mora na
+lista `Fila Quente` (8.1) para sempre, misturado com quem deu sinal agora.
+**A fila mais prioritária da operação é a que apodrece primeiro, porque nada
+nela expira.** Já tem 1 contato nesse estado.
+
+Corrigido com um nó 3b no Pós-ligação, não com um relógio: o gatilho daquele
+workflow é `Resultado da tentativa` alterado, que é a definição operacional
+de "alguém agiu sobre o lead". Sinal se consome quando é trabalhado, não
+quando o dia acaba.
+
+**Regra, barata e mecânica:** para cada tag de fila, contar os lugares que
+aplicam e os que removem. Se aplicar em mais lugares do que remove, a
+diferença é uma lista que vai apodrecer — e a remoção que falta é quase sempre
+a do **caminho feliz**, porque o caminho de saída é o que todo mundo lembra
+de limpar.
+
+```
+grep -n 'Add Contact Tag.*fila-' wesales/build-wesales.md
+grep -n 'Remove Contact Tag.*fila-' wesales/build-wesales.md
+```
+
 ## Quando a previsão do bug está escrita e o bug acontece do mesmo jeito — 21/09/2026 (causa-raiz do achado 3 da auditoria)
 
 A auditoria de dados desta rodada achou que **os 10 leads nascidos depois do

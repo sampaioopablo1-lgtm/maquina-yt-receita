@@ -2656,6 +2656,7 @@ crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
 | 1 | If/Else | `Resultado da tentativa` está vazio → encerra (foi a limpeza do nó 5 da cadência que disparou, não o SDR) |
 | 2 | If/Else | A tentativa foi de WhatsApp? (`fila-wa` presente **ou** a tarefa aberta tem `(WhatsApp)` no título) → Math: `Tentativas WhatsApp` + 1. Senão → Math: `Tentativas telefone` + 1 |
 | 3 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
+| 3b | Remove Contact Tag | `fila-quente` — **incondicional, e depois do nó 2 de propósito** (o nó 2 lê `fila-wa` para decidir o contador; tag de fila só pode sair depois dessa leitura). Ver nota abaixo |
 | 4 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
 
 O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
@@ -2663,6 +2664,31 @@ O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
 campo: são dois pontos do fluxo que precisam saber o canal, e mais um campo
 "canal desta tentativa" só para não repetir uma condição de uma linha é troca
 ruim (R-01, feito em 18/09/2026).
+
+**Por que o nó 3b existe (achado em 21/09/2026, ao conferir a peça 2 do
+F-05):** `fila-quente` é aplicada em **quatro** lugares — Interceptação de
+Sinal por clique (2.9.2, nó 6) e por resposta (2.9.3), entrada da Cadência
+Inbound (2.10, nó 0.7) e a régua da IA quando a nota passa de 45 (seção 9) —
+e era **removida em apenas dois**: o ramo falso do portão da tentativa (nó 3b
+da seção 2.4) e o nó 4 do Mestre de saída, que só roda em saída de verdade da
+cadência.
+
+Faltava a remoção do caso normal: o sinal **foi atendido**. Um lead que clica
+no link, ganha a tarefa "ligar agora", é ligado e marca `Não atendeu`
+continua em `CONECTAR`/`open` — então nada remove a tag, e ele fica na lista
+`Fila Quente` (8.1) para sempre, misturado com quem deu sinal agora. A fila
+mais prioritária da operação é justamente a que apodrece primeiro, porque
+nada nela expira. Já acontece: um contato carrega `fila-quente` hoje.
+
+Este é o lugar certo para a remoção, e não um relógio como o da 2.21: o
+gatilho deste workflow é `Resultado da tentativa` **alterado**, que é a
+definição operacional de "alguém agiu sobre o lead". O sinal se consome
+quando é trabalhado, não quando o dia acaba. Se o lead clicar de novo depois,
+a Interceptação reaplica a tag (`Allow Re-entry` ligado) — é sinal novo,
+merece fila nova.
+
+**Retoque de tela:** o Pós-ligação está publicado (24 execuções). A linha
+está na tabela de retoques do `GUIA-MONTAGEM.md`.
 
 #### Ramo `Atendeu`
 | # | Ação |
