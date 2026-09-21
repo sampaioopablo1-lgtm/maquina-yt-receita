@@ -38,10 +38,41 @@ PUBLICADOS = {
 }
 
 
-def client():
+NODE_PATH_GLOBAL = r"C:\Users\sampa\AppData\Roaming\npm\node_modules"
+
+
+def _minutos_restantes(tok: str) -> float:
+    import base64
+    try:
+        p = tok.split(".")[1]
+        p += "=" * (-len(p) % 4)
+        exp = json.loads(base64.urlsafe_b64decode(p)).get("exp", 0)
+        return (float(exp) - time.time()) / 60.0
+    except Exception:
+        return -1.0
+
+
+def renovar_bearer() -> bool:
+    """Roda o renew.js (headless, perfil ja logado) e recarrega o token."""
+    import subprocess
+    env = dict(os.environ, NODE_PATH=NODE_PATH_GLOBAL)
+    r = subprocess.run(["node", os.path.join(_HERE, "renew.js")],
+                       capture_output=True, text=True, timeout=420,
+                       cwd=_HERE, env=env)
+    ok = r.returncode == 0
+    print("  [bearer] renovacao " + ("ok" if ok else "FALHOU: " + r.stdout[-300:]))
+    return ok
+
+
+def client(min_minutos: float = 8.0):
+    """Cliente da API interna, renovando o bearer se estiver perto de vencer."""
     if CLI_PATH not in sys.path:
         sys.path.insert(0, CLI_PATH)
     tok = open(BEARER_FILE, encoding="utf-8").read().strip()
+    if _minutos_restantes(tok) < min_minutos:
+        print("  [bearer] faltam %.1f min - renovando" % _minutos_restantes(tok))
+        if renovar_bearer():
+            tok = open(BEARER_FILE, encoding="utf-8").read().strip()
     os.environ["GHL_BACKEND_BEARER"] = tok
     from cli_anything.gohighlevel.utils.ghl_internal_client import (
         TokenManager, InternalGHLClient)
