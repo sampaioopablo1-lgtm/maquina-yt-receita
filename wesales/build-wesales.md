@@ -237,7 +237,7 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
 | Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `AGENDAR`) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
 | Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap) monitora "sem tentativa há 7 dias"; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data do retorno`/`Hora do retorno` — o primeiro já existe como campo, o segundo não, ver `GUIA-MONTAGEM.md`) continua valendo aqui dentro, não em etapa separada |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data do retorno`/`Hora do retorno` — o primeiro já existe como campo, o segundo não, ver `GUIA-MONTAGEM.md`) continua valendo aqui dentro, não em etapa separada |
 | Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
 | Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
@@ -2476,14 +2476,161 @@ tentativa nova nem sair de `CONECTAR`/`open` — ou seja, a instância travada
 morreu de vez e ninguém tirou o lead da etapa —, `fila-travada` fica presa
 para sempre, sem afetar mais nada (não é checada em nenhum portão da
 cadência, só filtra a lista 8.21). Esse cenário-limite é exatamente o que a
-próxima invariante da peça 1 (seção 2.20), `CONECTAR` sem tentativa há 7
-dias, existe para pegar — cadência realmente morta, não só uma tentativa
-travada.
+peça 3 (seção 2.22), `CONECTAR` sem avanço, existe para pegar — cadência
+realmente morta, não só uma tentativa travada.
 
 **Pronto quando (peça 2 do F-05):** `fila-tel`/`fila-wa` presente depois do
 fim do dia em que foi aplicada gera aviso ao gestor sozinho, sem depender
 de alguém abrir a fila do dia e notar um contato que não devia mais estar
 lá.
+
+---
+
+## 2.22 Monitor de Saúde da Operação — F-05 (peça 3 de N: `CONECTAR` sem avanço)
+
+**Por quê:** a terceira das quatro invariantes que ficaram para depois na
+peça 1 (seção 2.20) — e a que a própria peça 2 (seção 2.21, "Caso não
+coberto por nenhum dos dois") já apontava como sua vizinha natural:
+`fila-tel`/`fila-wa` presa pega a instância que trava **dentro** de uma
+tentativa; esta pega a instância que se perde **entre** duas tentativas —
+o lead segue em `CONECTAR`/`open`, sem nenhuma tag de fila presa (a peça 2
+não acusa nada), e mesmo assim nenhuma tentativa nova nasce. É o sintoma
+mais silencioso dos três: nenhuma tag errada, nenhuma tarefa vencida, só um
+relógio que parou de bater. Mesma pesquisa de mercado das peças 1 e 2 —
+nenhuma das quatro plataformas do enunciado expõe alarme proativo para
+"cadência que parou de avançar"; é reporting de engenharia interna.
+
+**Achado ao desenhar — por que "7 dias", o número literal do roadmap, é a
+condição errada:** a tabela 2.5 (a régua das 12 tentativas) tem um degrau de
+**10 dias corridos** entre T10 (D20) e T11 (D30) — o maior intervalo
+planejado da régua inteira, e o único que já passa dos "7 dias" do
+enunciado original. Um alerta disparando literalmente aos 7 dias sem
+tentativa nova acusaria **todo** lead que chega saudável até o D20, no meio
+exato do intervalo mais comprido e mais normal da cadência — o oposto de
+"cadência morta". A mesma classe de erro que a peça 2 já cometeu e corrigiu
+(relógio relativo confundindo intervalo legítimo com trava real), aqui
+achada *antes* de publicar, não depois. Corrigido para **14 dias**: acima do
+maior degrau real (10) com folga para o empurrão de dia útil que a seção 2.5
+já documenta (janela de expediente pode adiar um `Wait` que cai em fim de
+semana), sem chegar perto o bastante de um segundo intervalo real para
+confundir os dois.
+
+**Achado de desenho, o segundo — por que o gatilho não é `Opportunity Stage
+Changed → CONECTAR`, ao contrário do instinto de copiar a peça 1:** essa
+tradução mecânica pareceria óbvia (é o mesmo evento que abre a Cadência
+12x30 e a Cadência Inbound, seção 2.1/2.10), mas fica cega para exatamente
+o caso do Reengajamento 90 dias (seção 2.12): o nó 5 daquele workflow faz
+`Update Opportunity — Etapa → CONECTAR`, só que a oportunidade **já estava**
+em `CONECTAR` — por desenho, 12 tentativas esgotadas nunca tiram a
+oportunidade da etapa, só mudam `status` (tabela 1.0). Não há fonte
+confirmando se o GHL dispara `Opportunity Stage Changed` quando uma ação de
+workflow escreve o mesmo valor que o campo já tinha (pesquisado via
+`WebSearch`; a documentação oficial descreve o gatilho como reagindo a
+"opportunity moves from one stage to another", sem cobrir o caso de
+"mesma etapa, escrita de novo" — **nível de confiança baixo o bastante para
+não apostar nele**). Se o GHL suprimir o evento nesse caso (cenário mais
+provável, e o que a redação da documentação sugere), todo lead reativado
+ficaria sem monitor nenhum — o pior resultado possível para uma peça que
+existe justamente para pegar o que mais ninguém vê.
+**Como:** gatilho por `Tentativa nº` voltando a `0`, não por etapa —
+`Tentativa nº` é zerado exatamente nos três pontos em que uma rodada nova de
+verdade começa (nó 0.1 da Cadência 12x30, nó 0.1 da Cadência Inbound, nó 3
+do Reengajamento), inclusive a reativação. Pesquisado via `WebSearch`
+(`help.gohighlevel.com/.../workflow-trigger-contact-changed`): o gatilho
+nativo **Contact Changed**, com filtro por **Custom Field**, aceita a
+condição "campo igual a um valor" — cobre `Tentativa nº` **igual a** `0`
+sem depender de `Opportunity Stage Changed` nem do caso não confirmado
+acima. **Nível de confiança médio** (documentação oficial confirma o filtro
+por custom field com operador de igualdade; não testado nesta subconta — a
+especificação abaixo não muda se o operador exato for "equals" ou
+"changed to").
+
+### Gatilho
+**Contact Changed** — filtro: Custom Field `Tentativa nº` **igual a** `0`
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada rodada nova (entrada inicial em `CONECTAR`, handoff do fim da TI5, reativação do Reengajamento) zera `Tentativa nº` e merece seu próprio relógio — mesmo raciocínio já usado no R-02 e nas peças 1 e 2 |
+| Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, mesmo raciocínio das peças 1 e 2 |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Checkpoint | Update Contact Field | `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` (o valor no instante do gatilho) |
+| 2 | Aguardar | Wait → Time Delay | 14 dias corridos |
+| 3 | Portão — ainda em cadência? | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → segue. Senão → **encerra** (saiu por um caminho normal — nada a avisar) |
+| 4 | Portão — avançou? | If/Else | `Tentativa nº` **é diferente de** `Checkpoint — Tentativa nº` → segue para o nó 5 (uma tentativa nova rodou nos últimos 14 dias — régua viva). Senão → segue para o nó 6 (parado) |
+| 5 | Novo ciclo | Update Contact Field | `Checkpoint — Tentativa nº` = `{{contact.tentativa_n}}` → **voltar para o nó 2** (mesmo padrão de laço já usado nos nós 2.5b/2.5d da seção 2.4 — represa sem sair do workflow, reconsulta 14 dias depois) |
+| 6 | Fila | Add Contact Tag | `conectar-estagnado` |
+| 7 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está em CONECTAR sem tentativa nova há pelo menos 14 dias. Tentativa nº atual: {{contact.tentativa_n}}.` |
+| 8 | Registro | Add Note | `Alerta de saúde: CONECTAR sem avanço em 14 dias · {{right_now}}` |
+
+Ao contrário do nó 5 (que volta ao nó 2 e continua o laço), o caminho do
+alerta **termina** no nó 8 — mesmo padrão das peças 1 e 2, que também
+avisam uma vez e encerram: a lista `Saúde — CONECTAR Estagnado` (8.22)
+mantém o lead visível enquanto a tag durar, sem precisar de um segundo
+aviso repetido a cada novo ciclo de 14 dias parado.
+
+**Por que a comparação por `Checkpoint — Tentativa nº` não repete o erro
+"campo com dois donos" que este documento já evitou várias vezes (F-04,
+Contador de Toques; a peça 2 descartou explicitamente um campo assim):**
+lá o risco era **várias instâncias concorrentes do mesmo workflow**
+escrevendo no mesmo campo compartilhado quase ao mesmo tempo (um toque a
+cada poucos minutos). Aqui o gatilho só dispara quando `Tentativa nº` volta
+a `0` — no máximo três vezes na vida de um lead (entrada inicial, handoff
+do fim da TI5, uma reativação), cada disparo bem espaçado dos outros (dias
+ou semanas, nunca minutos) — então a escrita do nó 1/5 de uma instância não
+compete de verdade com a de outra. **Limite conhecido, documentado e não
+escondido:** o handoff do fim da TI5 (seção 2.10) *também* dispara este
+gatilho (a 12x30 zera `Tentativa nº` no seu próprio nó 0.1 ao receber o
+lead via `Add to Workflow`), então um lead inbound que não responde em 3
+dias abre uma **segunda** instância deste monitor além da que já rodava
+desde a entrada inbound. Na pior hipótese, a instância mais antiga acorda
+14 dias depois do seu próprio início, lê `Checkpoint` já reescrito pela
+instância mais nova e conclui "avançou" mesmo sem ter sido ela quem
+avançou — um falso "tudo bem" isolado, que **encerra a instância antiga em
+silêncio, mas nunca silencia o problema**: a instância mais nova (a que
+corresponde ao regime atual do lead, pós-handoff) continua seu próprio
+laço de 14 dias, tomando checkpoints corretos a partir do seu próprio
+início. Nenhuma trava real de leitura acaba escondida — o pior caso é uma
+instância redundante saindo cedo, nunca os dois monitores saindo ao mesmo
+tempo sem avisar.
+
+### Campo novo
+`Checkpoint — Tentativa nº` (C-27, `campos-e-tags.md`), `NUMERICAL` — existe
+só para este workflow comparar consigo mesmo; nenhum outro nó do projeto lê
+ou escreve nele, então não herda o risco de "contador com dois donos" que
+motivou C-26 a ser tratado com cuidado.
+
+### Limpeza da tag
+`conectar-estagnado` se resolve numa saída de cadência de verdade — a
+mesma transição que o nó 4 do Mestre de saída (seção 3) já alcança pela via
+normal (diferente de `novo-lead-estagnado`, peça 1, que precisou do nó 0
+incondicional porque seu caminho de resolução cai no ramo de no-op do nó 1).
+Basta somar a tag à lista existente do nó 4 — ver seção 3, abaixo.
+
+**Limite conhecido, o mesmo já citado na peça 2 como o cenário que só esta
+peça pega:** se o gestor mover a oportunidade para fora de `CONECTAR`/`open`
+na mão sem nenhuma tentativa nova ter rodado, ou se o lead ficar
+literalmente esquecido para sempre em `CONECTAR`, esta peça é quem primeiro
+denuncia — é o sensor de "cadência realmente morta" que a peça 2 (sensor de
+"uma tentativa travada") explicitamente não cobre.
+
+**Escopo depois desta peça:** das seis invariantes originais do "Como" do
+F-05 (mais as duas adições de 18/09/2026), três já têm workflow
+(`NOVO LEAD` estagnado, `fila-tel`/`fila-wa` presa, `CONECTAR` sem avanço) e
+uma foi descartada por já estar coberta (tarefa vencida sem resultado —
+peça 1). Restam duas: `nao-perturbe` ainda dentro de workflow ativo e
+`Conectado`/`Retorno agendado` vencidos — a última segue dependendo de
+"esperar até uma data dinâmica", não testado neste conector; a primeira é
+candidata à peça 4.
+
+**Pronto quando (peça 3 do F-05):** uma oportunidade em `CONECTAR`/`open`
+sem tentativa nova em 14 dias corridos gera aviso ao gestor sozinho, sem
+depender de outra sessão notar o número na mão — o mesmo tipo de estrago
+silencioso que o G-03 só foi achado porque alguém olhou o dado direto.
 
 ---
 
@@ -2528,7 +2675,7 @@ condição que cobre os dois:
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
 
@@ -3581,6 +3728,19 @@ lista, como a 8.20, não faz conta nenhuma, só lê a marca. Diferente de
 8.1-8.3 (filas normais, esperadas ter contato todo dia), esta lista é um
 sensor de defeito: qualquer linha aqui é uma tentativa cujo nó 9 (seção
 2.4) não rodou.
+
+### 8.22 `Saúde — CONECTAR Estagnado` — F-05
+| Item | Configuração |
+|---|---|
+| Filtros | tag `conectar-estagnado` presente |
+| Colunas | Nome · Telefone · Etapa atual · `Tentativa nº` · `Entrada em` · Origem (`cad-inbound`/`cad-outbound`) |
+| Ordenação | Nenhuma especial — mesma lógica da 8.21: a lista deve ficar vazia na maior parte do tempo, e qualquer linha é para o gestor abrir agora |
+
+A tag só existe porque o workflow da seção 2.22 (F-05, peça 3) já esperou
+14 dias corridos desde a última tentativa e conferiu de novo antes de
+aplicá-la. Diferente da 8.21 (uma tentativa travada dentro do próprio dia),
+esta lista é o sensor da cadência **parada de vez** — o cenário-limite que
+a peça 2 já citava como fora do seu próprio alcance.
 
 ---
 

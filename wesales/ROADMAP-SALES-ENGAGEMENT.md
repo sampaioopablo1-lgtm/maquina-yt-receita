@@ -986,7 +986,7 @@ contato de estrutura, confirmado por `contacts_get-contact` — 15 tags do
 projeto agora na subconta, `dateUpdated` 19/09/2026 04:15 UTC. Checklist
 ganhou o item 35.
 
-### F-05 · Monitor de saúde da operação — peça 1 (lead esquecido em `NOVO LEAD`) e peça 2 (`fila-tel`/`fila-wa` presa) de N, ambas FEITAS em 21/09/2026
+### F-05 · Monitor de saúde da operação — peça 1 (lead esquecido em `NOVO LEAD`), peça 2 (`fila-tel`/`fila-wa` presa) e peça 3 (`CONECTAR` sem avanço) de N, todas FEITAS em 21/09/2026
 **Por quê:** automação falha **em silêncio**. Tag que não saiu, lead parado numa
 etapa, workflow que parou de disparar — descobre-se pelo número caindo, semanas
 depois, quando o estrago já aconteceu.
@@ -1077,21 +1077,61 @@ o alerta de fila travada se resolve numa saída de cadência real, que o nó 4
 já alcança). Limite documentado, não escondido: se o gestor remover
 `fila-tel`/`fila-wa` na mão sem o lead nunca gerar tentativa nova nem sair
 de cadência, `fila-travada` fica presa para sempre sem afetar mais nada —
-cenário que a próxima invariante (`CONECTAR` sem tentativa há 7 dias) é
-quem pega de verdade (cadência morta, não só uma tentativa travada). Zero
+cenário que a peça 3 (`CONECTAR` sem avanço) é quem pega de verdade
+(cadência morta, não só uma tentativa travada). Zero
 escrita no CRM: tag nasce `[ ]` em `APROVADO.md`, mesma regra da T-16.
 Subconta reconfirmada nesta execução, sem mudança: mesmas 5 etapas do
 `FUNIL DE VENDAS`, 46 campos, 50 oportunidades — G-03 segue aguardando o
 dono.
 
-**Escopo depois das duas peças desta rodada:** das seis invariantes
-originais do "Como" (mais as duas adições de 18/09), duas já têm workflow
-(`NOVO LEAD` estagnado e `fila-tel`/`fila-wa` presa) e uma foi descartada
-por já estar coberta (tarefa vencida sem resultado). Restam três:
-`CONECTAR` sem tentativa há 7 dias, `nao-perturbe` em workflow ativo,
-`Conectado`/`Retorno agendado` vencidos — a última segue dependendo de
-"esperar até uma data dinâmica", não testado neste conector; as outras
-duas são candidatas à peça 3.
+**Resumo (21/09/2026, peça 3 — mesma rodada das peças 1 e 2):** a invariante
+que a própria peça 2 já apontava como sua vizinha natural (seção "Caso não
+coberto por nenhum dos dois" do `build-wesales.md`) — `CONECTAR`/`open` sem
+nenhuma tentativa nova por tempo demais, o sintoma de uma cadência **morta**,
+não só uma tentativa travada. **Achado que corrigiu o próprio enunciado do
+roadmap antes de publicar:** o "7 dias" original da lista de invariantes
+falharia contra a régua real — a tabela 2.5 tem um degrau de **10 dias
+corridos** entre T10 (D20) e T11 (D30), então um alarme aos 7 dias soaria
+para todo lead saudável passando por esse intervalo, o exato oposto de
+"cadência morta". Corrigido para 14 dias (acima do maior degrau real, com
+folga para o empurrão de dia útil que a seção 2.5 já documenta). **Segundo
+achado, de mecanismo:** o gatilho não é `Opportunity Stage Changed →
+CONECTAR` (a tradução mecânica da peça 1) — o Reengajamento 90 dias (seção
+2.12) reescreve a oportunidade para a **mesma** etapa em que ela já estava
+(12 tentativas esgotadas nunca move de `CONECTAR`, só muda `status`), e não
+há fonte confirmando se o GHL dispara o evento de mudança de etapa quando o
+valor escrito é igual ao valor anterior — apostar nisso arriscava deixar
+todo lead reativado sem monitor. Resolvido com um gatilho pesquisado via
+`WebSearch` (nível de confiança médio, documentação oficial confirma mas não
+testado nesta subconta): **Contact Changed**, filtrando por Custom Field
+`Tentativa nº` **igual a** `0` — o valor que os três pontos de início de
+rodada (Cadência 12x30, Cadência Inbound, Reengajamento) já escrevem, sem
+exceção. Workflow "Cadência Sem Avanço" especificado em `build-wesales.md`
+(seção 2.22): checkpoint de `Tentativa nº` num campo novo (C-27,
+`campos-e-tags.md`), laço de 14 em 14 dias comparando o valor atual contra o
+checkpoint (mesmo padrão de laço já usado nos nós 2.5b/2.5d da seção 2.4),
+tag `conectar-estagnado` (T-18) na régua realmente parada. Limite
+documentado, não escondido: o handoff do fim da Cadência Inbound também
+zera `Tentativa nº`, então um lead inbound sem resposta abre uma segunda
+instância deste monitor — na pior hipótese, a instância mais antiga sai em
+silêncio achando "avançou" (leu um checkpoint que na verdade a instância
+mais nova escreveu), mas a mais nova continua o laço corretamente a partir
+do seu próprio início; nunca os dois saem ao mesmo tempo sem avisar. Falta
+só a criação manual do workflow, do campo e da tag na tela — nenhum sai por
+API; subconta reconfirmada nesta execução via
+`opportunities_get-pipelines`/`locations_get-custom-fields`/
+`opportunities_search-opportunity`: mesmas 5 etapas do `FUNIL DE VENDAS`, 46
+campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, status `open` em
+todas) — sem mudança desde a última rodada, G-03/G-04 seguem aguardando o
+dono.
+
+**Escopo depois das três peças desta rodada:** das seis invariantes
+originais do "Como" (mais as duas adições de 18/09), três já têm workflow
+(`NOVO LEAD` estagnado, `fila-tel`/`fila-wa` presa e `CONECTAR` sem avanço)
+e uma foi descartada por já estar coberta (tarefa vencida sem resultado).
+Restam duas: `nao-perturbe` em workflow ativo e `Conectado`/`Retorno
+agendado` vencidos — a última segue dependendo de "esperar até uma data
+dinâmica", não testado neste conector; a primeira é candidata à peça 4.
 
 ### F-06 · Qualidade da conexão, não a contagem
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
@@ -1189,13 +1229,13 @@ rodada, que o bloco 1 de medição terminaria e só então o bloco 2 entraria na
 fila; os dois fecharam em 18/09/2026, junto com os blocos 3 e 4 e o R-13 do
 bloco 5. O que resta entre os itens numerados não espera posição na fila,
 espera a operação existir: R-14 quando a máquina começar a mandar mensagem
-de verdade, o resto do F-05 (peças 3+) quando as invariantes restantes
+de verdade, o resto do F-05 (peça 4+) quando as invariantes restantes
 tiverem desenho pronto, e o F-06 quando houver volume de ligação real.
 
-**Com G-02 fechado em 21/09/2026 e as duas primeiras peças do F-05
+**Com G-02 fechado em 21/09/2026 e as três primeiras peças do F-05
 especificadas na mesma data, não sobra item de documentação pura óbvio
 esperando uma sessão sem tela nem volume — mas isso não é permanente, como
-o próprio F-05 acabou de mostrar duas vezes na mesma rodada.** O que resta
+o próprio F-05 acabou de mostrar três vezes na mesma rodada.** O que resta
 é de três tipos: (1) montar na tela o que já está especificado (pipeline,
 campos, workflows, calendário e formulário, pelo `build-wesales.md`) —
 trabalho manual, ao vivo com o dono —, (2) esperar volume/mensagem real

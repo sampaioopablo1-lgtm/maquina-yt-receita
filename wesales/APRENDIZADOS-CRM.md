@@ -2,6 +2,97 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Um número copiado de um enunciado precisa ser confrontado com a régua real antes de virar condição — 21/09/2026, ao desenhar a peça 3 do F-05
+
+Desenhando a peça 3 do Monitor de Saúde (`CONECTAR` sem tentativa nova),
+copiei primeiro o número literal do "Como" original do F-05 (`briefing-sdr.md`
+não, `ROADMAP-SALES-ENGAGEMENT.md` mesmo): "7 dias". Antes de escrever o nó,
+conferi a tabela 2.5 (`build-wesales.md`) — a régua das 12 tentativas — e
+achei um degrau de **10 dias corridos** entre T10 (D20) e T11 (D30), o maior
+intervalo planejado da cadência inteira. Um alarme em "7 dias sem tentativa
+nova" dispararia para **todo** lead são passando por esse intervalo — o
+oposto exato do que a peça existe para detectar.
+
+**A mesma classe de erro que a peça 2 já tinha cometido e corrigido** (relógio
+relativo de 24h confundindo intervalo legítimo entre tentativas próximas com
+trava real), só que achada **antes** de publicar, não depois de gerar falso
+positivo em produção. Corrigido para 14 dias: acima do maior degrau real (10)
+com folga para o empurrão de dia útil que a seção 2.5 já documenta.
+
+**Regra prática, generalizável:** todo número de um "Como" do roadmap que vira
+condição de tempo (`N dias sem X`, `N horas de atraso`) precisa ser
+confrontado contra a tabela real da régua que ele monitora antes de virar
+nó — o enunciado foi escrito antes da tabela existir em detalhe, e o maior
+intervalo planejado é sempre o candidato a furar um número redondo escolhido
+de memória. `grep` pela tabela de deltas da régua (seção 2.5 e as que a
+espelham) e pegue o maior valor antes de escolher o limite do alarme.
+
+## `Opportunity Stage Changed` é incerto quando a ação escreve a mesma etapa que já existia — prefira um gatilho por campo quando o "reentra" pode não sair da etapa — 21/09/2026, mesma rodada acima
+
+Ainda desenhando a peça 3: o instinto era copiar o gatilho da peça 1
+(`Opportunity Stage Changed → CONECTAR`), que cobre a entrada vinda de
+`NOVO LEAD` e a da Cadência Inbound de graça. Não cobre o Reengajamento 90
+dias (seção 2.12): o nó 5 daquele workflow escreve `Etapa → CONECTAR`
+quando a oportunidade **já está** em `CONECTAR` havia semanas (12 tentativas
+esgotadas nunca move de etapa, só muda `status` — tabela 1.0). `WebSearch`
+na documentação oficial (`help.gohighlevel.com/.../workflow-trigger-
+pipeline-stage-changed`) descreve o gatilho como reagindo a "opportunity
+moves from one stage to another" — não cobre, nem confirma nem nega, o caso
+de uma ação escrever o mesmo valor que o campo já tinha. Sem fonte que
+resolva a dúvida, apostar que o evento dispara mesmo assim arriscava deixar
+**todo** lead reativado sem monitor nenhum — o pior resultado possível para
+uma peça que existe para pegar o que mais ninguém vê.
+
+**Resolvido evitando a dúvida, não resolvendo-a:** em vez de `Opportunity
+Stage Changed`, o gatilho virou **Contact Changed** filtrando por Custom
+Field `Tentativa nº` **igual a** `0` — o valor que os três pontos de início
+de rodada (Cadência 12x30, Cadência Inbound, Reengajamento) já escrevem
+sempre, sem exceção nenhuma, porque cada um zera o contador como parte da
+própria inicialização (confirmado no texto de cada seção, não hipótese).
+`WebSearch` confirma que o `Contact Changed` aceita filtro por Custom Field
+com operador de igualdade (nível de confiança médio: documentação oficial,
+não testado nesta subconta).
+
+**Regra prática, generalizável:** quando um evento de "entrada" pode
+acontecer sem mudança de valor visível no campo mais óbvio (aqui, etapa que
+já estava onde deveria), procure um campo que **sempre** muda nesse
+instante, mesmo que seja um campo vizinho em vez do campo "principal" do
+evento — reset de contador, carimbo de timestamp, tag de pulso. `Tentativa
+nº` voltando a `0` é mais confiável como "início de rodada" do que a etapa
+em si, porque nenhuma das três réguas jamais pula esse reset, e nenhuma
+delas depende de a etapa ter mudado de verdade.
+
+## Nem todo campo compartilhado é um "contador com dois donos" — a diferença é a frequência de escrita concorrente, não o fato de ser compartilhado — 21/09/2026, mesma rodada acima
+
+A peça 3 precisa de um campo `Checkpoint — Tentativa nº` (C-27) escrito e
+lido pelo mesmo workflow, para comparar "avançou desde a última checagem?"
+14 dias depois. O primeiro instinto foi rejeitar o desenho por medo do
+mesmo bug já documentado nesta base (F-04/`Toques na semana`, e a peça 2
+descartando explicitamente um campo de snapshot pelo mesmo motivo): várias
+instâncias do mesmo workflow escrevendo no mesmo campo compartilhado quase
+ao mesmo tempo corrompem a leitura umas das outras.
+
+**A diferença que salva este desenho, e vale generalizar:** o risco daqueles
+dois casos não vinha de o campo ser compartilhado — vinha da **frequência**
+de escrita concorrente. `toque` dispara a cada tarefa criada ou mensagem
+enviada, várias vezes por dia por lead nos picos da régua; duas instâncias
+brigando pelo mesmo campo em minutos de diferença é o caso comum, não a
+exceção. Aqui o gatilho só dispara quando `Tentativa nº` volta a `0` — no
+máximo três vezes na vida inteira de um lead (entrada inicial, handoff do
+fim da Cadência Inbound, uma reativação), cada disparo separado dos outros
+por dias ou semanas. Duas instâncias correndo por cima uma da outra é a
+exceção rara (só no handoff), não o caso comum, e mesmo nela o efeito é um
+falso "tudo bem" isolado numa instância redundante que sai cedo — nunca um
+alarme real ficando mudo, porque a instância mais nova sempre continua seu
+próprio laço a partir do seu próprio início.
+
+**Regra prática, generalizável:** antes de rejeitar um campo de checkpoint
+por medo do "contador com dois donos", pergunte quantas vezes por vida do
+lead o gatilho realmente dispara, e quão perto no tempo essas vezes podem
+cair. Um campo escrito 2-3 vezes espaçadas por dias não tem o mesmo risco
+que um campo escrito dezenas de vezes por dia — a lição de F-04 e da peça 2
+é sobre concorrência real, não sobre "todo campo compartilhado é perigoso".
+
 ## Um relógio de "24h desde o gatilho" pode medir a tentativa errada quando o mesmo evento se repete várias vezes por lead — 21/09/2026, sessão automática
 
 Desenhando a peça 2 do F-05 (Monitor de Saúde — `fila-tel`/`fila-wa` presa

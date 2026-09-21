@@ -134,6 +134,13 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       regra: nasce `[ ]`, vira `[x]` quando o dono trocar, num commit que
       não é o meu.
 
+- [ ] Criar a 18ª tag, `conectar-estagnado` — nasceu no F-05 (Monitor de
+      Saúde da Operação, peça 3: `CONECTAR` sem nenhuma tentativa nova em 14
+      dias corridos), especificada em `campos-e-tags.md` (T-18) e
+      `build-wesales.md` (seção 2.22). Mesmo motivo e mesma regra das duas
+      linhas acima: nasce `[ ]`, vira `[x]` quando o dono trocar, num commit
+      que não é o meu.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do
