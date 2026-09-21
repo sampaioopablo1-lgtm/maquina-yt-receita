@@ -321,6 +321,15 @@ reponderada; ou (B) a 9.1 passa a ler `Urgência`/`Necessidade` por
 `Contains`. Em qualquer uma, os 34/39 valores antigos precisam de cópia em
 massa para o campo certo (workflow `Update Contact Field` lendo outro campo,
 a confirmar na tela) ou ficam fora da nota.
+**Medido depois, e muda a conta (21/09/2026):** `attributions[].mediumId`
+mostra **oito formulários de Lead Ads distintos** alimentando a subconta (42
+/ 16 / 14 / 2 / 1 / 1 / 1 / 1 atribuições) — então a Opção A é trabalho de
+tela **oito vezes**, e todo formulário novo nasce errado até alguém lembrar;
+a Opção B se aplica uma vez e cobre os oito. E valendo para as duas: a régua
+precisa ler `Necessidade` **e** `Dor principal` em OU (34 leads num, 5 no
+outro, porque o mapeamento trocou no meio) — ler só um lado está errado para
+parte da base durante toda a transição. Detalhe em `CONFERENCIA-CAMPOS.md`,
+Tabela H.
 **Por que não decidi sozinho:** muda a nota do lead (D-05) e o formulário do
 anúncio — decisão de negócio, e nenhuma das duas sai por API.
 **Pronto quando:** o dono escolhe A ou B; `campos-e-tags.md` (Q-06, Q-16,
