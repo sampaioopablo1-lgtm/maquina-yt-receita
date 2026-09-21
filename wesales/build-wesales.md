@@ -965,7 +965,7 @@ português?* Se sim, use a frase, nunca o pedaço.
 | 2 | Silêncio | Add Contact Tag | `nao-perturbe` |
 | 3 | DND | **Set Contact DND** = ligado, todos os canais | Mesmo nó que a seção 4 (ramo `Não ligar`) já trata como não-negociável deste documento inteiro — aqui pela primeira vez, disparado por texto em vez de classificação do SDR |
 | 4 | Sair das filas | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
-| 5 | Sair das réguas | Remove from Workflow | `Cadência 12x30` (seção 2) · `Cadência Inbound` (2.10) · `Reengajamento 90 dias` (2.12) · `Qualificação por IA no WhatsApp` (seção 6) · `Interceptação de Sinal — Clique` (2.9.2) · `Interceptação de Sinal — Resposta` (2.9.3) — lista mais longa que a do Mestre de saída (seção 3) e do ramo `Não ligar` (seção 4) de propósito: este é o único ponto de saída do documento que não depende de esperar a oportunidade mudar de `status` primeiro (nó 6 abaixo é condicional; isto não pode ser) |
+| 5 | Sair das réguas | **Remove Workflows** | Opção **All Except Current Workflow** (F-05, achado de 21/09/2026, nota na seção 3 — substitui a lista antiga de seis nomes, que já era a mais longa do documento e ainda assim precisava ser mantida igual às outras duas na mão). Continua sendo o único ponto de saída do documento que não depende de esperar a oportunidade mudar de `status` primeiro (nó 6 abaixo é condicional; isto não pode ser) |
 | 6 | Fechar o negócio, com cautela | If/Else | Achou oportunidade no nó 1 **E** etapa é `CONECTAR` **E** `status` é `open` → Update Opportunity `status` = `lost` (aciona o Mestre de saída pelo gatilho de status, seção 3 — redundante com o nó 5 acima, inofensivo, mesmo raciocínio já usado na seção 3). Senão → Internal Notification para `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} pediu para parar, oportunidade já em {{opportunity.pipeline_stage}}/{{opportunity.status}} — DND ligado, revisar se o negócio segue antes de qualquer novo contato` |
 | 6b | **Aviso, sempre** | Internal Notification | Para `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} — DND ligado e saiu de todas as réguas. Mensagem que disparou: revisar no histórico. Se foi falso positivo, desligar o DND na mão é a única volta.` **Este nó roda em todos os caminhos**, inclusive quando o nó 6 fechou a oportunidade — ver nota abaixo |
 | 7 | Registro | Add Note | `Opt-out por palavra-chave detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` |
@@ -2687,10 +2687,7 @@ condição que cobre os dois:
 |---|---|---|
 | 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20) — **incondicional, antes do portão do nó 1** |
 | 1 | If/Else | `status` **é** `open` **E** etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` → **encerra aqui** (não limpa nada). Senão, segue |
-| 2 | Remove from Workflow | `Cadência 12x30` |
-| 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
-| 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12) |
-| 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
+| 2 | **Remove Workflows** | Opção **All Except Current Workflow** — tira o contato de toda régua automática ativa num nó só: `Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias`, `Qualificação por IA no WhatsApp`, as duas Interceptações de Sinal (2.9.2/2.9.3) e qualquer workflow futuro, sem precisar nomear nenhum. Substitui os antigos nós 2b/2c/3 (F-05, achado de 21/09/2026 — nota abaixo) |
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
@@ -2705,8 +2702,40 @@ remoção antes do portão, sem condição, resolve sem duplicar o portão para
 uma tag só: `Remove Contact Tag` de quem não tem a tag não faz nada, mesmo
 raciocínio já usado para `Remove from Workflow` nos nós seguintes.
 
-**Por que os nós 2b e 2c existem (achado de 19/09/2026, mesma classe do
-2.11):** quando este workflow foi escrito havia **uma** régua rodando —
+**F-05, peça 4 (21/09/2026) — a lista dos nós 2/2b/2c/3 virou um só nó, e o
+motivo é o mesmo que motivou a peça 4 do "Como" original do F-05 ("`nao-
+perturbe` ainda dentro de workflow ativo"):** o "Como" do roadmap descrevia
+essa invariante como algo para **detectar** — uma rotina que audita e avisa
+depois do vazamento. Pesquisado antes de desenhar o monitor: o GHL não tem
+filtro nativo de Smart List "ativo em qualquer workflow" (só "ativo neste
+workflow específico", pedido em aberto na base de ideias da HighLevel — a
+mesma classe de limite já documentada para R-10/R-11), então um monitor de
+verdade precisaria de um filtro por workflow, o mesmo problema de lista que
+já causou o furo duas vezes (a lista nasceu com um nome só, ganhou dois em
+19/09/2026 — nota abaixo —, e a de 2.9.5, seção 2.9.5, já é uma terceira
+cópia, maior, da mesma lista). Encontrada uma ação nativa melhor que
+detectar: **Remove Workflows**, com quatro opções (`Current Workflow`,
+`Another Workflow`, `All Except Current Workflow`, `All Workflows` —
+pesquisado via `WebSearch`, confiança média, documentação oficial da
+HighLevel bloqueada pelo proxy deste ambiente, confirmado por três fontes de
+terceiros independentes: um changelog da própria HighLevel referenciado por
+elas e dois guias). `All Except Current Workflow` (não `All Workflows` —
+teria removido este próprio Mestre de saída no meio da própria execução,
+cortando os nós 4/5/6 abaixo antes de rodarem, o mesmo tipo de corte que a
+seção 5.4 já documenta para `Remove from Workflow` cancelando um `Wait`
+pendente) tira o contato de **toda** régua automática ativa, existente ou
+futura, sem precisar nomear nenhuma — o vazamento que a peça 4 do F-05 foi
+desenhada para detectar deixa de poder acontecer, em vez de só ficar mais
+visível quando acontece. Zero campo, zero tag, zero escrita no CRM: item de
+documentação pura, não depende de `APROVADO.md`. Mesma troca aplicada nos
+outros dois lugares que tinham a mesma lista manual — seção 4 (ramo `Não
+ligar`) e seção 2.9.5 (`Opt-out por Palavra-chave`) — sempre com `All Except
+Current Workflow`, nunca `All Workflows`, porque as três têm nó depois na
+mesma régua.
+
+**Por que os nós 2b e 2c existiam, contexto que a mudança acima não apaga
+(achado de 19/09/2026, mesma classe do 2.11):** quando este workflow foi
+escrito havia **uma** régua rodando —
 `Cadência 12x30` —, e tirar o lead dela era tirar o lead da cadência. Hoje
 são três (`Cadência 12x30`, `Cadência Inbound` da seção 2.10 e
 `Reengajamento 90 dias` da seção 2.12), e as duas novas reaproveitam o bloco
@@ -2916,27 +2945,34 @@ nela com prioridade alta.
 | 1 | Add Contact Tag `nao-perturbe` |
 | 2 | **Set Contact DND** = ligado (todos os canais) |
 | 3 | Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` |
-| 4 | Remove from Workflow: `Cadência 12x30`, `Cadência Inbound` (2.10), `Reengajamento 90 dias` (2.12) e `Qualificação por IA no WhatsApp` — as duas do meio entraram em 19/09/2026, mesma lista incompleta da seção 3 |
+| 4 | **Remove Workflows** — opção **All Except Current Workflow** (F-05, achado de 21/09/2026 — mesma troca da seção 3, ver a nota lá; substitui a lista antiga `Cadência 12x30`/`Cadência Inbound`/`Reengajamento 90 dias`/`Qualificação por IA no WhatsApp`, que também nunca cobriu as Interceptações de Sinal) |
 | 5 | Update Opportunity `status` = `lost` |
 | 6 | Add Note `Opt-out registrado em {{right_now}}` |
 
-**Por que as duas réguas novas entram aqui, e aqui mais que em qualquer
-lugar:** o nó 5 muda `status` para `lost` e isso aciona o Mestre de saída,
-que já remove as três — mas entre o nó 4 e a limpeza chegar existe uma
-janela de segundos, e o que pode cair nela é uma mensagem ou uma tarefa de
-ligação para alguém que **acabou de pedir para não ser procurado**. É o
-erro mais caro da operação inteira (o DND do nó 2 cobre o canal, não a
-tarefa que o SDR já vê na tela). Dois nomes numa lista pagam isso.
+**Por que o nó 4 está aqui, e não só no Mestre de saída:** o nó 5 muda
+`status` para `lost` e isso aciona o Mestre de saída, que já remove o
+contato de toda régua ativa (seção 3, nó 2, mesma ação `Remove Workflows`) —
+mas entre o nó 4 e a limpeza do Mestre de saída chegar existe uma janela de
+segundos, e o que pode cair nela é uma mensagem ou uma tarefa de ligação
+para alguém que **acabou de pedir para não ser procurado**. É o erro mais
+caro da operação inteira (o DND do nó 2 cobre o canal, não a tarefa que o
+SDR já vê na tela).
 
 Etapa também fica em `CONECTAR` aqui — só o `status` muda. O nó 4 já tira o
-contato dos dois workflows na hora (não depende de esperar o Mestre de saída
-reagir ao `status`), então o opt-out é imediato mesmo se o gatilho de
+contato de toda régua ativa na hora (não depende de esperar o Mestre de
+saída reagir ao `status`), então o opt-out é imediato mesmo se o gatilho de
 `Opportunity Status Changed` atrasar.
 
-O DND nativo é o que impede qualquer workflow futuro de mandar mensagem. Tag
-sozinha não segura: workflow novo que ninguém lembrou de filtrar volta a
-incomodar o lead. Este é o único nó deste documento que eu trataria como
-não-negociável.
+O DND nativo é o que impede qualquer canal de mandar mensagem. **Até
+21/09/2026** este parágrafo dizia que a tag sozinha não segurava, porque
+"workflow novo que ninguém lembrou de filtrar volta a incomodar o lead" —
+esse risco específico (lista de nomes desatualizada) não existe mais desde
+a troca para `Remove Workflows`/`All Except Current Workflow` (nota da
+seção 3): um workflow novo nunca precisa ser adicionado a lugar nenhum para
+ser coberto aqui. O nó continua não-negociável mesmo assim — é a única
+linha de defesa contra uma mensagem que já estava saindo no mesmo instante
+por outro workflow em execução (a mesma janela de corrida que a seção 2.9.5
+documenta como limite conhecido, não deste nó).
 
 ---
 
@@ -2956,7 +2992,7 @@ ficaria muda.
 |---|---|---|
 | 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`AGENDAR` para `NEGOCIAR` — tabela 1.0) |
 | 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
-| 3 | Remove from Workflow | `Cadência 12x30`, `Cadência Inbound` (2.10), `Reengajamento 90 dias` (2.12), `Qualificação por IA no WhatsApp`, `Recuperação de No-show`, `SLA do Closer — No-show` (R-12 — este gatilho também dispara num **reagendamento** depois de um no-show; sem remover os dois workflows de no-show daqui, uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou. `Remove from Workflow` de um contato que não está no workflow não faz nada — chamar sempre é seguro. As duas réguas novas entraram em 19/09/2026 pelo mesmo motivo da lista do Mestre de saída, seção 3 — ver nota abaixo) |
+| 3 | **Remove Workflows** — opção **All Except Current Workflow** (F-05, achado de 21/09/2026 — mesma troca da seção 3; substitui a lista antiga de seis nomes, incluindo `Recuperação de No-show`/`SLA do Closer — No-show`, R-12: este gatilho também dispara num **reagendamento** depois de um no-show, e sem remover os dois workflows de no-show daqui uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou — a opção `All Except Current` cobre os dois sem precisar sabê-los pelo nome) |
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
 | 5 | Update Contact Field | `Prioridade` = 5 |
 | 6 | Add Note | Resumo da qualificação (modelo abaixo) |
@@ -2965,17 +3001,19 @@ ficaria muda.
 | 9 | Wait até 3h antes | → Send WhatsApp lembrete |
 | 10 | Wait até 30min antes | → Send WhatsApp lembrete curto |
 
-**Por que `Cadência Inbound` e `Reengajamento 90 dias` entraram no nó 3
-(19/09/2026):** é a mesma lista incompleta que o Mestre de saída (seção 3)
-tinha, escrita quando existia uma régua só. Aqui o efeito é menor, porque o
-nó 1 move a etapa para `NEGOCIAR` e isso aciona o Mestre de saída, que agora
-remove as três — mas o Mestre roda como workflow separado, e o nó 3 existe
+**Por que o nó 3 existe, e por que virou `Remove Workflows` em vez de lista
+(19/09/2026, atualizado 21/09/2026):** o nó 1 move a etapa para `NEGOCIAR` e
+isso aciona o Mestre de saída, que já remove o contato de toda régua ativa
+(seção 3, nó 2) — mas o Mestre roda como workflow separado, e o nó 3 existe
 justamente para fechar a janela de segundos entre "agendou" e "a limpeza
-chegou". Um lead que agenda no meio da régua inbound podia receber a TI3
-nesse intervalo. Dois nomes numa lista, contra uma mensagem fora de hora
-para um lead que acabou de marcar reunião: vale. **Retoque de tela:** este
-workflow está publicado e ativo, e os dois nomes só aparecem no seletor
-depois que as réguas existirem (ver a tabela de retoques no
+chegou". Um lead que agenda no meio de qualquer régua (inbound, no-show,
+reengajamento) podia receber uma tentativa nesse intervalo. Até 21/09/2026
+esta lista tinha o mesmo problema documentado na seção 3: nasceu com uma
+régua, precisou de dois nomes a mais em 19/09/2026, e ainda não cobria as
+Interceptações de Sinal. A troca para `Remove Workflows`/`All Except
+Current Workflow` (nota da seção 3) fecha isso pelo mesmo motivo: nenhum
+nome para esquecer. **Retoque de tela:** este workflow está publicado e
+ativo — a troca de nó é retoque na tela (ver a tabela de retoques no
 `GUIA-MONTAGEM.md`).
 | 11 | Assign to User | Closer dono do horário |
 | 12 | Internal Notification | E-mail + SMS para o closer — **este SMS é para a sua equipe, não para o lead**, então a decisão "sem SMS" de 19/09/2026 não o alcança; se preferir só e-mail, é trocar aqui |

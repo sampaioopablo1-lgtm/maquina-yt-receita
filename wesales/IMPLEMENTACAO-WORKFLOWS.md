@@ -296,10 +296,7 @@ to Workflow` em massa.
 |---|---|---|---|
 | 0 | Remove Contact Tag | `novo-lead-estagnado` (só depois de a tag existir — F-05) | 1 |
 | 1 | If/Else | `Opportunity status` é `open` **E** `Pipeline stage` é uma de `[FUNIL DE VENDAS] - NOVO LEAD`, `[FUNIL DE VENDAS] - CONECTAR` → **FIM** (retoque 21/09: a versão publicada só tem `CONECTAR`) · **None:** segue | 2 |
-| 2 | Remove from Workflow | `Cadência 12x30` | 2b |
-| 2b | Remove from Workflow | `Cadência Inbound` (quando existir) | 2c |
-| 2c | Remove from Workflow | `Reengajamento 90 dias` (quando existir) | 3 |
-| 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` | 4 |
+| 2 | Remove Workflows | Opção **`All Except Current Workflow`** — tira o contato de toda régua ativa num nó só (F-05, 21/09/2026, `build-wesales.md` seção 3). Substitui os antigos nós 2b/2c/3 | 4 |
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada` (quando a tag existir) | 5 |
 | 5 | Add Contact Tag | `limpar-tarefas` | 6 |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` | fim |
@@ -312,8 +309,9 @@ to Workflow` em massa.
    O portão atual só protege `CONECTAR`+`open`; a criação em `NOVO LEAD`
    cai no `None` e roda a limpeza inteira. Incluir `NOVO LEAD` na condição
    resolve; as tags/nota já gravadas ficam (regra 1).
-2. Nós 2b/2c: entram quando `Cadência Inbound` e `Reengajamento 90 dias`
-   existirem (o dropdown só lista workflows criados).
+2. **Superado em 21/09/2026 (F-05):** nó 2 trocado para `Remove Workflows` →
+   `All Except Current Workflow` — não depende mais de nenhum workflow
+   existir no dropdown, dá para montar hoje.
 3. Nó 0: entra quando a tag `novo-lead-estagnado` for aprovada e criada.
 4. Nó 6: `{{opportunity.pipeline_stage}}` renderiza vazio — trocar pelo
    token real do seletor `{}` (seção 0.3).
@@ -390,7 +388,7 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | L1 | Add Contact Tag | `nao-perturbe` |
 | L2 | Set Contact DND | ligado, todos os canais |
 | L3 | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
-| L4 | Remove from Workflow | `Cadência 12x30`, `Cadência Inbound`, `Reengajamento 90 dias`, `Qualificação por IA no WhatsApp` (os que já existirem) |
+| L4 | Remove Workflows | Opção `All Except Current Workflow` (F-05, 21/09/2026) — tira o contato de toda régua ativa, sem precisar nomear nenhuma |
 | L5 | Update Opportunity | status = `lost` |
 | L6 | Add Note | `Opt-out registrado em {{right_now}}` |
 
@@ -413,7 +411,7 @@ de teste em `CONECTAR` e confira `Total de conexões` subir.
 |---|---|---|---|
 | 1 | Update Opportunity | Etapa → `NEGOCIAR` (status `open`) | 2 |
 | 2 | Update Contact Field | `Data agendado` = data atual | 3 |
-| 3 | Remove from Workflow | `Cadência 12x30` · `Qualificação por IA no WhatsApp` · `Recuperação de No-show` · `SLA do Closer — No-show` (os que existirem) | 4 |
+| 3 | Remove Workflows | Opção `All Except Current Workflow` (F-05, 21/09/2026) — cobre `Recuperação de No-show`/`SLA do Closer — No-show` (R-12) e qualquer régua futura sem nomear nenhuma | 4 |
 | 4 | **Nota de qualificação** — ver bloco abaixo | Math em série (seção 9.1) | 5 |
 | 5 | Update Contact Field | `Prioridade` = `5` | 6 |
 | 6 | Add Note | modelo da seção 5 (`build-wesales.md`), com as chaves da seção 0.3 | 7 |
@@ -838,7 +836,7 @@ WhatsApp `MI-F` → Update `Template usado` = `MI-F` → Add to Workflow
 | 2 | Add Contact Tag | `nao-perturbe` | 3 |
 | 3 | Set Contact DND | ligado, todos os canais | 4 |
 | 4 | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` | 5 |
-| 5 | Remove from Workflow | `Cadência 12x30` · `Cadência Inbound` · `Reengajamento 90 dias` · `Qualificação por IA no WhatsApp` · `Interceptação de Sinal — Clique` · `Interceptação de Sinal — Resposta` (os que existirem) | 6 |
+| 5 | Remove Workflows | Opção `All Except Current Workflow` (F-05, 21/09/2026) — tira o contato de toda régua ativa num nó só | 6 |
 | 6 | If/Else | oportunidade encontrada **E** `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `Opportunity status` é `open` → Update Opportunity status = `lost` · None → Internal Notification ao `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} pediu para parar, oportunidade já em {{opportunity.pipeline_stage}}/{{opportunity.status}} — DND ligado, revisar se o negócio segue antes de qualquer novo contato` | 6b |
 | 6b | Internal Notification (**sempre**) | ao `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} — DND ligado e saiu de todas as réguas. Mensagem que disparou: revisar no histórico. Se foi falso positivo, desligar o DND na mão é a única volta.` | 7 |
 | 7 | Add Note | `Opt-out por palavra-chave detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` | fim |

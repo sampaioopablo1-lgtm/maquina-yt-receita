@@ -893,6 +893,26 @@ Dos quatro, só o ramo `Número errado` (seção 4) fica de fora de propósito:
 ele não tem lista, delega inteiro ao Mestre de saída, e isso está escrito no
 próprio parágrafo dele.
 
+**Superado em 21/09/2026 (F-05, peça 4 do "Como" original — `nao-perturbe`
+ainda dentro de workflow ativo):** as quatro listas viraram um só nó em cada
+lugar, ação nativa **Remove Workflows**, opção **All Except Current
+Workflow** — pesquisado via `WebSearch`, confiança média (documentação
+oficial bloqueada pelo proxy deste ambiente, confirmado por três fontes de
+terceiros independentes). Ela tira o contato de toda régua ativa, existente
+ou futura, sem precisar nomear nenhuma — a checagem barata acima (dois greps
+comparando duas listas) não tem mais o que comparar: sobrou uma lista só
+(as réguas que existem), não duas. **Cuidado ao montar:** a opção certa é
+sempre `All Except Current Workflow`, nunca `All Workflows` — as quatro
+peças têm nó depois na própria régua (ex.: o Mestre de saída ainda precisa
+rodar os nós 4/5/6 depois da limpeza), e `All Workflows` removeria o
+contato do workflow que está executando o próprio nó, cortando o resto da
+execução no meio (mesmo efeito que a seção 5.4 do `build-wesales.md` já
+documenta para `Remove from Workflow` cancelando um `Wait` pendente).
+Detalhe nó a nó: `build-wesales.md`, seção 3 (nota "F-05, peça 4");
+`IMPLEMENTACAO-WORKFLOWS.md`, W3/W4/W5/W14; retoques de tela em
+`GUIA-MONTAGEM.md`. A lição acima fica pelo histórico (por que a lista
+existia, por que ela vazava) — só o "como manter sincronizada" mudou.
+
 **Onde `status` não entra, de propósito:** o nó 2 da Interceptação de Sinal
 (2.9.2/2.9.3) ganhou `status não é lost`, não `status é open`. `abandoned` é
 o lead em nutrição, e um clique dele no link de agendar é o único sinal que
