@@ -1557,3 +1557,54 @@ inteira. Continua **NÃO TESTADO** pela TRAVA 7 — não é reprovação, é fal
 conjuntos. Pablo já foi avisado; não repito.
 
 Agenda: nenhuma reunião de diagnóstico nova. A próxima é Elton, 21/09 12h.
+
+## 21/09 10h30 — retomada depois de lacuna de monitoramento de ~2 dias
+
+**Aviso de honestidade primeiro:** a sessão ficou sem executar rodada entre a madrugada de 19/09
+e agora. As rodadas horárias dispararam e enfileiraram, mas nenhuma rodou. Portanto **19/09 e
+20/09 não foram vigiados em tempo real** — os números abaixo são leitura retroativa, e os leads
+do período não foram avisados ao Pablo na hora.
+
+### Segmentação — conferida agora, íntegra nos seis
+
+Geo `countries: [BR]`, exclusão só a cidade de Taubaté (key 272181), **nenhum `regions`**,
+advantage_audience 0, mobile+desktop, feed/story/reels nos dois, locales [16], flexible_spec
+igual ao estado correto em cada conjunto. `updated_time` parado em 16/09 (INTERESSE, CNAE,
+HARMONIZAÇÃO) e 17/09 (IMOBILIÁRIA, ADVOCACIA, CONTABILIDADE) — **ninguém mexeu por fora
+durante a lacuna**. Os 38 anúncios dos seis conjuntos estão ACTIVE/ACTIVE, zero WITH_ISSUES.
+
+### Números fechados de 19/09 + 20/09 (dois dias somados)
+
+| Conjunto | Impressões | Gasto | Leads | CPL |
+|---|---|---|---|---|
+| ADVOCACIA | 596 | R$14,97 | 2 | R$7,49 |
+| INTERESSE | 487 | R$11,66 | 1 | R$11,66 |
+| CONTABILIDADE | 303 | R$8,13 | 1 | R$8,13 |
+| IMOBILIÁRIA | 222 | R$6,02 | 0 | — |
+| CNAE | 105 | R$2,32 | 0 | — |
+| HARMONIZAÇÃO | 0 | — | 0 | — |
+| **Total** | **1713** | **R$43,10** | **4** | **R$10,78** |
+
+### O que os números dizem
+
+1. **ADVOCACIA confirma a liderança.** Terceiro dia seguido como melhor CPL da conta e o único
+   conjunto que passou de 500 impressões. A CBO está reconhecendo o público sozinha.
+2. **CPL subiu de R$6,05 (18/09) para R$10,78.** Dois dias de fim de semana, volume baixo. Não é
+   veredito — é sábado e domingo, e a série é curta demais para chamar de tendência.
+3. **HARMONIZAÇÃO segue com entrega ZERO.** Criado 16/09 17h59, já são ~4 dias e continua sem
+   uma impressão sequer. Pela TRAVA 7 é **NÃO TESTADO**, não reprovado, e **não é pausado**. O
+   Pablo já foi avisado uma vez; não repito.
+
+### Agenda
+
+Nenhuma reunião de diagnóstico nova entre 18/09 e 24/09. O evento "Elton - Pintor" de hoje 12h é
+pintor de parede, não diagnóstico — **corrijo a suposição anterior** de que seria uma reunião. A
+contagem segue em **6 pessoas distintas**.
+
+### A hipótese que continua aberta e sem instrumento
+
+Os 4 leads de 19–20/09 entram no mesmo buraco de sempre: viraram conversa no WhatsApp manual do
+Pablo e não têm registro. Nenhuma reunião nova foi marcada nesses dois dias. O vazamento
+lead→reunião segue sem medição.
+
+Relógio usado: `created_time` lido da Meta nesta rodada (conjuntos 09/09, 16/09 e 17/09).

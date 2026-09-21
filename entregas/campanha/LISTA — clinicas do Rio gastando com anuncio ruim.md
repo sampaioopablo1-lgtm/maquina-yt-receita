@@ -4877,3 +4877,49 @@ junto com veterinária.
 LISTA DE ATAQUE segue em **39**.
 
 Combos varridos até aqui: + escola de idiomas Copacabana (negativo; nicho de franquia, fora da fila).
+
+---
+
+## 📐 Arquitetura — Niterói (varredura de 21/09/2026, 10h30)
+
+Termo: `escritório de arquitetura Niterói`. **10 anúncios**, 10 páginas — e o mesmo fenômeno da
+Barra: o termo puxa majoritariamente imobiliária e incorporadora, não arquitetura. Só **3 das 10
+páginas** são de fato escritório/profissional de arquitetura.
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **pateo.arq** | B | título é `instagram.com` — o domínio cru no lugar do título | **15/11/2025 (10 meses)** | [ver](https://www.facebook.com/ads/library/?id=1211889954124011) |
+| **Architeq Arquitetura** | B | título vazio | 24/07/2026 | [ver](https://www.facebook.com/ads/library/?id=1640042554792361) |
+| **Marcelo Laurentino** | A | título vazio | 22/06/2026 | [ver](https://www.facebook.com/ads/library/?id=1341390297937983) |
+| ritadecassialucasferreira | A | título vazio | 26/08/2026 | [ver](https://www.facebook.com/ads/library/?id=2936640380028394) |
+
+As outras seis (Your Place, Luis Imóveis ×2, pc_paulocarolinobroker, SOTER Engenharia, Kiffer
+Imóveis) são imobiliária/incorporadora — poluição do termo, não alvo desta seção. A SOTER e a
+Kiffer, aliás, são as **únicas do lote com título escrito à mão** e servem de referência de
+como se escreve um: `Casa Alto Padrão em Itaipu: Agende Sua Visita!`.
+
+### Sexto tipo de defeito da família "campo puxado automaticamente": o domínio cru
+
+Novo membro da família, e o mais revelador de todos: **`instagram.com` como título**. Acontece
+quando o anúncio aponta para um perfil do Instagram e ninguém escreveu título — a Meta preenche
+com o domínio do destino. O anunciante está pagando para exibir a palavra "instagram.com" como
+manchete do próprio anúncio.
+
+Os cinco anteriores: título vazio, nome da página repetido N vezes, `{{product.name}}` não
+substituído, título do perfil do Instagram repetido, e separadores `|` sem nada entre eles.
+
+### Recorde de tempo no ar do arquivo
+
+**pateo.arq bate o recorde: 10 meses** (desde 15/11/2025), superando os 3,5 meses da "elétrica
+do André". Dez meses de verba com o título `instagram.com`. É o argumento de abordagem mais
+forte que o arquivo já produziu, porque o defeito é literal e verificável em um print.
+
+### Arquitetura confirma o padrão da Barra
+
+Segunda praça seguida em que **100% das páginas do nicho têm o título quebrado** (4 de 4 aqui,
+6 de 6 na Barra). O mecanismo é o mesmo já escrito: arquiteto impulsiona post de portfólio, e
+post impulsionado não tem campo de título. Diferente da Barra, aqui a Trilha A é minoria (2 de 4).
+
+LISTA DE ATAQUE: **39 → 43**.
+
+Combos varridos até aqui: + arquitetura Niterói (4 alvos, 2 Trilha A, recorde de 10 meses no ar).
