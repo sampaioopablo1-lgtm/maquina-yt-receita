@@ -47,7 +47,13 @@ documento não detalha.
       do `If/Else`, e data/hora atual indisponível em campo de texto — seção
       2.9.2)
 - [ ] **Fase 5 — Os workflows restantes**, na ordem da seção "Ordem de montagem" do `build-wesales.md` — **configuração exata de cada nó (ação, campo, operador, valor) em `IMPLEMENTACAO-WORKFLOWS.md`**, escrito em 21/09/2026 para montar à mão, sem "Construir com IA"
-- [ ] **Fase 6 — Listas inteligentes** (~19)
+- [ ] **Fase 6 — Listas inteligentes** (~19) — **antes de montar, decida a
+      coluna `Empresa`:** ela aparece em 20 lugares do `build-wesales.md` e
+      está **vazia em todos os 50 contatos** (nem o campo nativo nem o
+      personalizado têm dado — nada a montante coleta nome de empresa).
+      Montar as 19 listas agora significa 19 listas com uma coluna morta.
+      Candidatas com dado hoje e a recomendação: `CONFERENCIA-CAMPOS.md`,
+      Tabela J
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
 - [ ] **Fase 8 — Pausar Workflows em Datas Específicas** (feriados/férias)
 - [ ] **Fase 9 — Number Validation** (opcional)
