@@ -51,6 +51,40 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Número medido dentro de uma instrução é verdade com data de validade — 21/09/2026
+
+Varredura depois de dois dias sem sessão ao vivo. A `Fase 1` do
+`GUIA-MONTAGEM.md` — a página que o dono abre para clicar — mandava
+**excluir 7 etapas** do `FUNIL DE VENDAS`, e justificava assim:
+
+> "confirmado por aqui, via `opportunities_search-opportunity`: **0
+> oportunidades no pipeline inteiro**, em qualquer status. Pode apagar sem
+> medo de perder negócio real."
+
+Era verdade em 18/09. Em 21/09 o pipeline tem **50 oportunidades** (47 em
+`NOVO LEAD`, 3 em `NEGOCIAR`) — a Porta de Entrada ficou rodando. Seguir a
+instrução hoje apagaria etapa com oportunidade dentro, que é exatamente a
+regra 1 do projeto ("NUNCA exclua"). A mesma seção também mandava renomear
+as etapas para os 7 nomes antigos, o que quebraria todo workflow publicado.
+
+O documento **não estava errado quando foi escrito**, e não havia mentira
+em lugar nenhum: a correção existia, na seção "Resolvido ao vivo em chat" —
+oitenta linhas **depois** do passo a passo. Quem lê de cima para baixo
+executa antes de chegar nela.
+
+**Duas regras que saem daqui:**
+
+1. **Instrução destrutiva justificada por medição precisa ser remedida na
+   hora de executar.** O número envelhece sozinho e não avisa. Onde o
+   documento não puder remedir, ele tem que mandar quem executa remedir.
+2. **Correção vai para cima do que ela corrige, não para o fim da seção.**
+   Marcar o trecho velho como histórico custa três linhas; deixar a
+   correção no rodapé aposta que ninguém lê na ordem.
+
+Aplicado: a Fase 1 ganhou um aviso de bloqueio no topo, com a contagem de
+21/09 e o motivo, e o checklist "terminou certo" (que pedia 7 etapas)
+ficou marcado como histórico.
+
 ## G-02, sexta confirmação do mesmo padrão: "etapa sem status" falha também em nó opcional/de baixa prioridade — 19/09/2026, sessão automática
 
 Fechando as seções 2.13 a 2.17 (Regras de pausa, Distribuição de leads,

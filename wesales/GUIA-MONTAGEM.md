@@ -57,6 +57,32 @@ documento não detalha.
 
 ## Fase 1 — Pipeline "Pré-vendas" (reaproveitando o `FUNIL DE VENDAS`)
 
+> ### ⛔ FASE CONCLUÍDA — NÃO EXECUTE NADA DESTA SEÇÃO
+>
+> **Lida em 21/09/2026.** O pipeline real tem **5 etapas** (`NOVO LEAD`,
+> `CONECTAR`, `AGENDAR`, `NEGOCIAR`, `FORMALIZAR`), decisão do dono em
+> 18/09 — a tabela de 7 etapas mais abaixo foi **recusada** por ele e
+> está aqui só como histórico. A seção "Resolvido ao vivo em chat" ao
+> final traz o estado verdadeiro.
+>
+> **Duas instruções desta seção ficaram perigosas com o tempo:**
+>
+> 1. **"Excluir" 7 etapas.** A justificativa escrita era uma medição de
+>    18/09: *"0 oportunidades no pipeline inteiro… pode apagar sem medo"*.
+>    Isso **venceu**: em 21/09/2026 o pipeline tem **50 oportunidades**
+>    (47 em `NOVO LEAD`, 3 em `NEGOCIAR`), lidas por
+>    `opportunities_search-opportunity`. Excluir etapa com oportunidade
+>    dentro é exatamente o que a regra 1 do projeto proíbe.
+> 2. **Renomear para os 7 nomes antigos.** Hoje isso desfaria as etapas
+>    reais e quebraria todo workflow publicado, que consulta `CONECTAR` e
+>    `NEGOCIAR` pelo nome.
+>
+> **Lição, e o motivo de este aviso existir:** um número medido dentro de
+> uma instrução ("hoje são 0") é verdade com data de validade, e a
+> instrução que depende dele não avisa quando vence. Instrução destrutiva
+> justificada por medição precisa ser refeita na hora de executar, nunca
+> lida de um documento escrito dias antes.
+
 **Mudou em 18/09/2026:** não é mais criar um pipeline novo. O dono decidiu
 reaproveitar o `FUNIL DE VENDAS` que já existe, trocando as etapas dele
 pelas 7 daqui. Detalhe da decisão e por quê: `build-wesales.md`, seção 1
@@ -152,11 +178,13 @@ que bloqueia, taxa esperada): `build-wesales.md`, seções 1.1 e 1.2.
 
 ### Como saber que terminou certo
 
-- [ ] O pipeline (ainda chamado `FUNIL DE VENDAS` na tela, é o mesmo
-      objeto) tem exatamente 7 etapas, na ordem da tabela acima
-- [ ] Nenhuma das 7 antigas (cotação, documentos, pagamento, follow up,
-      geladeiras, não tem interesse) sobrou
-- [ ] Visibilidade restrita configurada
+*(Checklist histórico, da versão de 7 etapas que o dono recusou — o que
+vale hoje está na seção "Resolvido ao vivo em chat" logo abaixo.)*
+
+- [ ] ~~O pipeline tem exatamente 7 etapas, na ordem da tabela acima~~ —
+      **tem 5**, e é o correto
+- [ ] ~~Nenhuma das 7 antigas sobrou~~
+- [ ] Visibilidade restrita configurada — este item continua valendo
 
 Quando terminar esta fase, me avise — eu confirmo lendo o pipeline pelo
 conector (`opportunities_get-pipelines`) e ensino a Fase 2 (campos
