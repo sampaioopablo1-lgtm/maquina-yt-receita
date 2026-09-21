@@ -769,6 +769,56 @@ de `Hora do retorno`, e a decisão sobre os campos duplicados `Necessidade`/
 `Urgência` — nenhum dos três é ajuste de texto: os dois primeiros pedem
 ação manual na tela, o terceiro pede decisão do dono.
 
+### R-17 · Resposta de opt-out tratada como sinal quente — **FEITO em 21/09/2026**
+**Por quê:** lacuna nova, achada nesta rodada ao ler o 2.9.3
+(`build-wesales.md`) com atenção em vez de só conferir nome de etapa. O
+workflow "Interceptação de Sinal — Resposta" (F-01, seção 2.9.3) dispara em
+**toda** resposta de WhatsApp, sem olhar o conteúdo — um lead que responde
+"pare, não me manda mais mensagem" recebe o mesmo tratamento de quem
+responde "sim, tenho interesse": `Prioridade` = 5, tag `fila-quente`,
+tarefa `[CADENCIA] ... ligar agora`. O ramo `Não ligar` do Pós-ligação
+(seção 4, já tratado como não-negociável neste documento) só existe para
+**ligação de telefone** classificada pelo SDR — uma resposta de texto nunca
+passa por lá. Sem correção, o pedido mais explícito que um lead pode fazer
+("me deixa em paz") virava, na prática, uma tarefa dizendo ao SDR para
+ligar imediatamente. **Não é hipótese de tela apagada:** `GUIA-MONTAGEM.md`
+("Estado da montagem em 19/09/2026, mais tarde") registra `Interceptação de
+Sinal — Resposta` como **Publicado**, 1 inscrito — o workflow com o defeito
+já está ativo na subconta, mesmo com a `Cadência 12x30` (motor principal)
+ainda em rascunho. A exposição de hoje é baixa porque pouco envio automático
+está rodando ainda, mas cresce sozinha assim que a 12x30 publicar — por
+isso o item entrou nesta rodada em vez de esperar a vez do bloco 6.
+**Como:** workflow novo `Opt-out por Palavra-chave` (`build-wesales.md`,
+seção 2.9.5) — gatilho `Customer Replied`/WhatsApp filtrado por frases de
+opt-out, aplica `nao-perturbe` + DND nativo + remove de todas as réguas
+automáticas (a lista mais longa do documento) + fecha a oportunidade só se
+ainda estiver em `CONECTAR`/`open` (fora disso, avisa o dono do contato em
+vez de decidir sozinho). O 2.9.3 ganhou o filtro espelhado (`Doesn't
+Contain` as mesmas frases) para os dois nunca dispararem ao mesmo tempo
+para a mesma mensagem.
+**Pronto quando:** um lead que responde uma frase de opt-out no WhatsApp
+sai de toda cadência com DND ligado no mesmo minuto, sem nunca gerar a
+tarefa "ligar agora" que o 2.9.3 geraria antes deste item.
+
+**Resumo:** pesquisado antes de desenhar (Reev/Meetime/Outreach/Salesloft
+não precisam de detecção por palavra-chave em WhatsApp — o canal deles é
+e-mail com unsubscribe padronizado ou SMS com "STOP" reservado por lei nos
+EUA; nenhum dos quatro roda ligação por WhatsApp, o que torna esta
+combinação de gatilho global + filtro cruzado uma peça sem receita pronta
+para copiar). Zero campo e zero tag novos — reaproveita `nao-perturbe`
+(T-06, já existente) e o DND nativo. **Limite documentado, não escondido:**
+não cobre a janela de corrida com uma mensagem que já estava saindo no
+mesmo instante por outro workflow (ex.: a corrente de nós do Caminho B da
+Qualificação por IA, seção 6, que não olha o conteúdo da resposta antes de
+mandar a próxima pergunta — o Caminho A já tem uma instrução de prompt para
+a mesma janela, o B não tem nada equivalente ainda; registrado como lacuna
+pequena, sem volume que justifique rodada própria agora). Falta só a
+criação manual do workflow novo e do filtro cruzado no 2.9.3 — nenhum dos
+dois sai por API; subconta reconfirmada nesta execução via
+`opportunities_get-pipelines`/`locations_get-custom-fields`: 46 campos, as
+mesmas 5 etapas do `FUNIL DE VENDAS`, 47 oportunidades em `NOVO LEAD` (G-03
+segue aguardando o dono, sem mudança).
+
 ---
 
 ## Bloco 6 — fora da curva

@@ -2,6 +2,49 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## R-17: resposta de opt-out tratada como sinal quente por um workflow já publicado — 21/09/2026, sessão automática
+
+Depois do sweep de coerência de sempre (limpo, ver entrada abaixo), reli o
+2.9.3 (`Interceptação de Sinal — Resposta`) com atenção ao invés de só
+conferir nome de etapa — mesmo método do G-02. Achado: o gatilho
+`Customer Replied` não olha o **conteúdo** da resposta, só o canal. Um lead
+que responde "pare, não me manda mais mensagem" recebia `Prioridade` = 5,
+tag `fila-quente` e tarefa "ligar agora" — o mesmo tratamento de quem
+demonstra interesse. E não é achado de documento parado: `GUIA-MONTAGEM.md`
+("Estado da montagem em 19/09/2026, mais tarde") já registrava esse
+workflow como **Publicado**, 1 inscrito — o defeito estava ativo na
+subconta, não só na especificação.
+
+**Pesquisado (`WebSearch`, já que os domínios de suporte da HighLevel
+seguem bloqueados neste ambiente — mesma limitação de sempre):** o
+changelog oficial da HighLevel (`Customer Replied Trigger: Improved Message
+Filters`) confirma que o gatilho aceita filtro pelo **corpo da mensagem**
+com operadores `Contains`/`Doesn't Contain`/`Exact Match`, além de canal,
+tag (`Has Tag`/`Doesn't Have Tag`), tipo de intenção e canal de resposta.
+Isso fecha duas dúvidas de uma vez: dá para restringir um `Customer Replied`
+por palavra-chave sem precisar de um nó dentro do workflow, e dá para
+**excluir** por palavra-chave o gatilho de um workflow vizinho — é o que
+permite dois workflows ouvindo o mesmo evento nunca disparar para a mesma
+mensagem (`Contains` num, `Doesn't Contain` a mesma lista no outro).
+**Nível de confiança: médio** — confirmado por busca (resultado de IA sobre
+página de suporte + changelog oficial), não testado na tela desta subconta;
+a especificação (`build-wesales.md`, seção 2.9.5) já avisa para confirmar
+na tela se o campo aceita várias frases numa linha só (OR) ou se precisa de
+uma linha por frase — o desenho não depende de qual das duas for verdade.
+
+**Regra prática, generalizável:** todo gatilho `Customer Replied` já
+montado ou a montar neste projeto (2.9.2 não precisa, é `Trigger Link
+Clicked`; 2.9.3 e qualquer futuro workflow que reaja a resposta de texto)
+devia nascer perguntando "e se a resposta for um pedido para parar?" antes
+de decidir a ação — não é um caso de borda raro, é a única resposta que a
+operação inteira existe para nunca tratar como oportunidade.
+
+Zero escrita no CRM: item de documentação e especificação pura
+(`build-wesales.md` seção 2.9.5 + retoque no gatilho da 2.9.3,
+`ROADMAP-SALES-ENGAGEMENT.md` R-17, retoque em `GUIA-MONTAGEM.md`), não
+depende de `APROVADO.md` — workflow e filtro de gatilho não saem por API,
+igual a todo o resto do projeto.
+
 ## Sweep de coerência limpo — a lacuna nova estava nos dados de produção, não no texto — 21/09/2026, sessão automática
 
 Sessão sem tela e sem R-14/F-05/F-06 desbloqueados (mesmo cenário de sempre).

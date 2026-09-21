@@ -65,7 +65,12 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     lista de round robin do nó 0.7b do passo 14, e o mesmo portão 0.0/0.0b
     de higiene de telefone (R-13) do passo 14
 16. Workflows "Interceptação de Sinal — Clique" e "— Resposta" (seção 2.9)
-    — já levam o nó 3c de teto de toques (F-04) desde a primeira montagem
+    — já levam o nó 3c de teto de toques (F-04) desde a primeira montagem.
+    Monte o "Opt-out por Palavra-chave" (seção 2.9.5, R-17) **junto** com o
+    "— Resposta": os dois precisam nascer com o filtro cruzado por frase já
+    aplicado (`Contains`/`Doesn't Contain`, mesma lista de palavras-chave
+    nos dois lados) — montar um sem o outro deixa uma resposta de opt-out
+    disparando os dois workflows ao mesmo tempo
 17. Workflow "Alerta de Speed-to-lead" (seção 2.11) — usa a mesma tag nova de
     monitoramento que a lista 8.8 filtra; do R-07 em diante o nó 1 bifurca
     o tempo de espera por origem (`cad-inbound` presente = 15 min, senão 1h);
@@ -710,6 +715,11 @@ SDR agora. Não são um workflow só com dois gatilhos porque cada um precisa
 gravar de forma confiável **qual** sinal foi — e o GHL não expõe de forma
 segura, dentro dos nós, qual dos vários gatilhos de um mesmo workflow disparou.
 
+Um terceiro workflow desta família, 2.9.5, tem efeito **oposto** aos dois
+acima — não fura fila, cala a régua — e existe por um achado desta rodada:
+o 2.9.3 abaixo trata **toda** resposta de WhatsApp como sinal quente, sem
+olhar o conteúdo. Detalhe no próprio 2.9.5 (R-17 do roadmap).
+
 ### 2.9.1 Trigger Link "Agendar com o closer"
 
 Marketing → Trigger Links → Novo. Destino: a URL pública do calendário
@@ -810,13 +820,27 @@ gera o "dobro de toques" que o roadmap descrevia de forma mais genérica.
 
 ### 2.9.3 Workflow "Interceptação de Sinal — Resposta"
 
-Idêntico ao 2.9.2, trocando o gatilho e os dois textos marcados.
+Idêntico ao 2.9.2, trocando o gatilho, o filtro do gatilho e os dois textos
+marcados.
 
 **Gatilho:** `Customer Replied` — Canal: **WhatsApp**. Decisão ao vivo do
 dono, 19/09/2026: SMS nunca foi canal real da cadência (só telefone, ligação
 por WhatsApp e mensagem de WhatsApp — `briefing-sdr.md`), e o dono confirmou
 que não usa SMS em nenhum canal de contato com lead. O plano original media
 "WhatsApp e SMS" errado, como se fossem os dois canais de texto — não eram.
+
+**Filtro do gatilho, acrescentado em 21/09/2026 (R-17 — ver 2.9.5):** uma
+linha `Doesn't Contain` por palavra-chave da mesma lista do 2.9.5 (`pare`,
+`para de mandar`, `não quero mais`, `não quero receber`, `remove meu
+contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga
+mais`, `sai da lista`, `unsubscribe`, `stop`), combinadas em E — pesquisado
+nesta rodada (`Customer Replied Trigger: Improved Message Filters`, changelog
+oficial da HighLevel): o gatilho aceita filtro por corpo da mensagem com os
+operadores `Contains`/`Doesn't Contain`/`Exact Match`, além de canal, tag e
+tipo de intenção. **Sem este filtro, uma resposta de opt-out dispara os dois
+workflows ao mesmo tempo** — este (que grita "ligar agora, prioridade 5") e o
+2.9.5 (que aplica DND) — e o SDR vê uma tarefa mandando ligar para quem
+acabou de pedir silêncio.
 
 Mesma tabela de nós da 2.9.2 (incluindo o nó 1 `Find opportunity`, que este
 gatilho também precisa — `Customer Replied` também não carrega oportunidade
@@ -849,6 +873,101 @@ próprio gatilho `Customer Replied` (o GHL permite limitar por janela de tempo)
 **Pronto quando:** lead que clicou às 14h é ligado às 14h10, não no D7 —
 `Prioridade` = 5 e a tarefa `Sinal: ...` aparecem na `Fila Quente` (lista 8.1)
 no minuto do clique ou da resposta, dentro da janela de expediente.
+
+### 2.9.5 Workflow "Opt-out por Palavra-chave" — R-17
+
+**Achado desta rodada, lendo o 2.9.3 com atenção ao invés de só migrar nome
+de etapa:** o gatilho `Customer Replied` do 2.9.3 não olha o **conteúdo** da
+resposta — só que o canal é WhatsApp. Um lead que responde "pare, não me
+manda mais mensagem" cai no mesmo lugar que um lead que responde "sim, tenho
+interesse": `Prioridade` = 5, tag `fila-quente`, tarefa `[CADENCIA] Sinal:
+respondeu mensagem — ligar agora`. A operação inteira existe para não tratar
+pedido de silêncio como oportunidade — e este workflow, sozinho, fazia
+exatamente isso, sem que nenhum item do roadmap tivesse notado. Diferença
+para o ramo `Não ligar` do Pós-ligação (seção 4, o nó que este documento já
+trata como "não-negociável"): aquele só dispara depois que o SDR classifica
+uma **ligação de telefone**. Uma resposta de **texto** nunca passa por lá —
+não existe ligação para classificar. Sem este item, o único jeito de um
+opt-out por WhatsApp virar DND é o SDR ler a mensagem sozinho e lembrar de ir
+até o contato desligar tudo na mão, depois de já ter recebido (por causa do
+2.9.3) uma tarefa dizendo o oposto: "ligar agora".
+
+**Pesquisado antes de desenhar:** Reev, Meetime, Outreach e Salesloft tratam
+opt-out como estado de contato/lista (unsubscribe, "não contatar"), não como
+uma régua por palavra — porque o canal principal deles é e-mail, com
+cabeçalho de unsubscribe padronizado, e SMS nos EUA já tem "STOP" reservado
+por lei (TCPA) e filtrado pela operadora antes de chegar à plataforma. Nenhum
+dos quatro documenta detecção de palavra-chave em **WhatsApp** — não existe
+"STOP" reservado nesse canal, e a LGPD não define uma palavra obrigatória
+como o TCPA define. A lacuna que este item fecha não tem receita pronta para
+copiar: o próprio "Como" abaixo (gatilho global por frase + filtro de
+exclusão espelhado no vizinho, 2.9.3) é montado a partir de duas peças
+nativas do GHL que nenhuma das quatro plataformas citadas precisa combinar,
+porque nenhuma delas roda cadência de **ligação por WhatsApp** — só mensagem.
+
+**Como:**
+
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp** — `Contains Phrase`:
+`pare`, `para de mandar`, `não quero mais`, `não quero receber`, `remove meu
+contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga
+mais`, `sai da lista`, `unsubscribe`, `stop` (**confirme na tela** se o
+campo aceita a lista inteira numa linha só, combinada em OU — se não aceitar,
+o mesmo efeito sai com uma linha de filtro por palavra, todas apontando para
+este workflow, o mesmo padrão de "vários gatilhos, um efeito" que a seção
+2.9 já usa entre 2.9.2 e 2.9.3).
+
+| Configuração | Valor |
+|---|---|
+| Janela de envio | Sem restrição, 24/7 — mesmo motivo do 2.9.2: nenhum nó manda mensagem para o lead, e DND atrasado por causa de janela de expediente é o oposto do que este item existe para evitar |
+| Allow Re-entry | Ligado — uma segunda mensagem de opt-out do mesmo lead não pode ser ignorada só porque a primeira já rodou; todas as ações abaixo são idempotentes |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" — mesmo motivo do 2.9.2/2.9.3: `Customer Replied` não carrega oportunidade no contexto sozinho. Ramo **Opportunity Not Found**: segue mesmo assim para o nó 2 (DND é do contato, não da oportunidade — não pode depender de achar uma) |
+| 2 | Silêncio | Add Contact Tag | `nao-perturbe` |
+| 3 | DND | **Set Contact DND** = ligado, todos os canais | Mesmo nó que a seção 4 (ramo `Não ligar`) já trata como não-negociável deste documento inteiro — aqui pela primeira vez, disparado por texto em vez de classificação do SDR |
+| 4 | Sair das filas | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
+| 5 | Sair das réguas | Remove from Workflow | `Cadência 12x30` (seção 2) · `Cadência Inbound` (2.10) · `Reengajamento 90 dias` (2.12) · `Qualificação por IA no WhatsApp` (seção 6) · `Interceptação de Sinal — Clique` (2.9.2) · `Interceptação de Sinal — Resposta` (2.9.3) — lista mais longa que a do Mestre de saída (seção 3) e do ramo `Não ligar` (seção 4) de propósito: este é o único ponto de saída do documento que não depende de esperar a oportunidade mudar de `status` primeiro (nó 6 abaixo é condicional; isto não pode ser) |
+| 6 | Fechar o negócio, com cautela | If/Else | Achou oportunidade no nó 1 **E** etapa é `CONECTAR` **E** `status` é `open` → Update Opportunity `status` = `lost` (aciona o Mestre de saída pelo gatilho de status, seção 3 — redundante com o nó 5 acima, inofensivo, mesmo raciocínio já usado na seção 3). Senão → Internal Notification para `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} pediu para parar, oportunidade já em {{opportunity.pipeline_stage}}/{{opportunity.status}} — DND ligado, revisar se o negócio segue antes de qualquer novo contato` |
+| 7 | Registro | Add Note | `Opt-out por palavra-chave detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` |
+
+**Por que o nó 6 não move sozinho quem já passou de `CONECTAR`:** um lead em
+`NEGOCIAR` que responde "pare" pode estar pedindo para parar de receber
+mensagem automática, não cancelando a negociação em andamento com o closer —
+os dois são pedidos diferentes, e só um humano sabe qual é. O DND (nó 3) e a
+saída de todas as réguas automáticas (nó 5) valem para os dois casos sem
+ambiguidade; mudar o `status` da oportunidade sozinho, não.
+
+**Por que este workflow não depende do 2.9.3 nem o substitui:** os dois
+escutam o mesmo evento (`Customer Replied`, WhatsApp) e por isso precisam do
+filtro cruzado descrito no 2.9.3 acima — sem ele, uma resposta de opt-out
+dispararia os dois ao mesmo tempo, e o SDR veria "ligar agora, prioridade 5"
+e "DND ligado" na mesma tela. Com o filtro, são mutuamente exclusivos: toda
+resposta de WhatsApp cai num dos dois, nunca nos dois.
+
+**Limite conhecido, documentado em vez de escondido:** este workflow protege
+contra a resposta de opt-out virar sinal quente (2.9.3) e contra a cadência
+principal continuar tentando (Stop on Response da seção 2.2 já resolvia
+isso, mas sem DND nem limpeza das outras réguas). Não protege contra uma
+mensagem que **já estava saindo no mesmo instante** por outro workflow em
+execução (ex.: a próxima pergunta da corrente de nós do Caminho B, seção 6,
+que não checa o conteúdo da resposta antes de mandar a pergunta seguinte) —
+é uma janela de corrida entre dois workflows assíncronos, não um bug deste
+item. O Caminho A (Conversation AI, seção 6) já tem uma instrução de prompt
+("pare imediatamente... não faça mais perguntas") que cobre a mesma janela
+por outro caminho; o Caminho B não tem nada equivalente hoje — fica
+registrado como lacuna nova, pequena e sem cadência de mensagem alta o
+bastante ainda para valer uma rodada própria.
+
+**Zero campo e zero tag novos:** reaproveita `nao-perturbe` (T-06) e o DND
+nativo, ambos já existentes desde a Etapa 3. Falta só a criação manual do
+workflow e do filtro cruzado no 2.9.3 — nenhum dos dois sai por API.
+
+**Pronto quando:** um lead que responde "pare" (ou qualquer frase da lista)
+no WhatsApp sai de toda cadência automática e fica com DND ligado no mesmo
+minuto — nunca mais chega a gerar a tarefa "ligar agora" que o 2.9.3
+geraria antes deste item.
 
 ---
 
