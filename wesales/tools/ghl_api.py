@@ -163,6 +163,24 @@ def field_step(campo_id: str, titulo: str, valor, tipo: str = "numerical",
     }
 
 
+def notify_user_step(titulo: str, corpo: str, usuario: str = USER) -> dict:
+    """Notificacao interna para UM usuario (o gestor), nao para o dono do
+    contato - o dono pode estar vazio justamente nos casos que os monitores
+    de saude pegam. Formato lido do template 'Alerta de SLA Atrasado'."""
+    return {
+        "id": uid(), "name": "Internal Notification",
+        "type": "internal_notification",
+        "attributes": {
+            "type": "notification",
+            "notification": {
+                "type": "send_notification", "body": corpo, "title": titulo,
+                "redirectPage": "contact", "selectedUser": usuario,
+                "userType": "user",
+            },
+        },
+    }
+
+
 def notify_step(html_body: str, canal: str = "whatsapp",
                 para: str = "contact_owner") -> dict:
     """Internal Notification (formato lido da Interceptacao de Sinal)."""
@@ -192,6 +210,137 @@ def link(steps: list) -> list:
     return out
 
 
+# -- condicoes e ramificacao (formato lido do Mestre de saida) ------------
+
+_NESTED = ["inboundWebhookRequest", "sheet", "datetime_formatter",
+           "custom_webhook", "array_functions", "ivr_gather",
+           "ivr_connect_call", "custom_code", "ai_agent",
+           "task-notification", "event"]
+_ALLOWIS = ["contact_reply", "inboundWebhookRequest", "custom_webhook",
+            "custom_code", "ai_agent", "contact_detail", "array_functions",
+            "appointment", "service_booking", "rental_booking"]
+
+
+def cond(tipo: str, subtipo: str, operador: str, valor,
+         cf_tipo: str = "standard") -> dict:
+    """Uma condicao de If/Else.
+
+    tipo/subtipo usados neste projeto:
+      ('opportunities','pipelineStageId')  ('opportunities','status')
+      ('contact','tags')                   ('custom_field', <id do campo>)
+    """
+    return {
+        "conditionType": tipo, "conditionSubType": subtipo,
+        "conditionOperator": operador, "conditionValue": valor,
+        "__conditionId": uid(), "ifElseNodeId": "",
+        "__customFieldType__": cf_tipo, "isWait": False,
+        "nestedDropdownTypes": list(_NESTED),
+        "allowIsOperatorTypes": list(_ALLOWIS),
+    }
+
+
+def goto_step(alvo: str) -> dict:
+    """Salta para outro no. E o que permite dois ramos convergirem no mesmo
+    no e o que fecha os lacos (W17c, W17e). Formato lido de template real."""
+    return {"id": uid(), "name": "Go To", "type": "goto",
+            "attributes": {"targetNodeId": alvo, "type": "goto"}}
+
+
+class Branch:
+    """Marcador de If/Else dentro de uma lista de passos.
+
+    Em GHL um If/Else encerra a linha: tudo que vem depois mora dentro de
+    um dos ramos. Por isso um Branch so pode ser o ULTIMO item de uma lista.
+
+    `id` pode ser fixado de fora quando outro ramo precisa saltar para esta
+    condicao (convergencia ou laco) - o alvo do goto e o id do no de condicao.
+    """
+
+    def __init__(self, nome: str, condicoes: list, sim: list, nao: list,
+                 operador: str = "and", id: str = None):
+        self.nome = nome
+        self.condicoes = condicoes
+        self.sim = sim
+        self.nao = nao
+        self.operador = operador
+        self.id = id or str(uuid.uuid4())
+
+
+def montar(passos: list, parent=None, parent_key=None) -> list:
+    """Transforma uma lista de nos (com Branch opcional no fim) na lista
+    plana de templates que a API espera, com parent/parentKey/next/order."""
+    out = []
+    prev = parent_key
+
+    def encadeia():
+        """Liga os nos simples ja acumulados em sequencia."""
+        for j in range(len(out) - 1):
+            out[j]["next"] = out[j + 1]["id"]
+
+    for i, p in enumerate(passos):
+        if isinstance(p, Branch):
+            if i != len(passos) - 1:
+                raise SystemExit("Branch tem de ser o ultimo item da lista")
+            cid, yid, nid = p.id, uid(), uid()
+            filhos_sim = montar(p.sim, yid, yid) if p.sim else []
+            filhos_nao = montar(p.nao, nid, nid) if p.nao else []
+            no_cond = {
+                "id": cid, "order": i, "name": p.nome, "type": "if_else",
+                "cat": "conditions", "next": [yid, nid], "comments": [],
+                "nodeType": "condition-node",
+                # o validador exige operator/if/conditionName no no de
+                # condicao quando 'else' nao e true (erro 400, 21/09/2026)
+                "attributes": {
+                    "currentRecipeType": "CUSTOM",
+                    "branches": [{
+                        "id": yid, "name": "Branch",
+                        "segments": [{"__segmentId": uid(),
+                                      "operator": p.operador,
+                                      "conditions": p.condicoes}],
+                        "operator": p.operador,
+                        "showErrors": False, "branchNameError": False,
+                    }],
+                    "operator": p.operador, "if": True,
+                    "conditionName": "Condition", "version": 2,
+                    "noneBranchName": "None",
+                },
+            }
+            if parent:
+                no_cond["parent"] = parent
+            if prev:
+                no_cond["parentKey"] = prev
+            no_sim = {"id": yid, "parent": cid, "parentKey": cid, "order": i + 1,
+                      "name": "Branch", "type": "if_else", "cat": "conditions",
+                      "sibling": [nid], "comments": [], "nodeType": "branch-yes",
+                      "attributes": {"if": False, "conditionName": "Condition",
+                                     "operator": p.operador, "branches": []}}
+            no_nao = {"id": nid, "parent": cid, "parentKey": cid, "order": i + 1,
+                      "name": "None", "type": "if_else", "cat": "conditions",
+                      "sibling": [yid], "comments": [], "nodeType": "branch-no",
+                      "attributes": {"else": True}}
+            if filhos_sim:
+                no_sim["next"] = filhos_sim[0]["id"]
+            if filhos_nao:
+                no_nao["next"] = filhos_nao[0]["id"]
+            # liga os simples que vieram antes e aponta o ultimo para a condicao
+            out.append(no_cond)
+            encadeia()
+            out.pop()
+            if len(out):
+                out[-1]["next"] = cid
+            return out + [no_cond, no_sim, no_nao] + filhos_sim + filhos_nao
+        s = dict(p)
+        s["order"] = i
+        if parent:
+            s["parent"] = parent
+        s["parentKey"] = prev
+        # o proximo e resolvido depois de saber quem vem a seguir
+        out.append(s)
+        prev = s["id"]
+    encadeia()
+    return out
+
+
 def tag_trigger(name: str, tag: str) -> dict:
     return {
         "status": "draft", "schedule_config": {},
@@ -217,22 +366,47 @@ def build(c, name: str, steps: list, triggers: list,
           stop_on_response: bool = False) -> str:
     """Cria workflow RASCUNHO com nos e gatilhos. Devolve o id."""
     wf = create_workflow(c, name)
-    steps = link(steps)
+    return preencher(c, wf, name, steps, triggers, tags_to_create,
+                     allow_reentry, stop_on_response)
+
+
+def preencher(c, wf: str, name: str, steps: list, triggers: list,
+              tags_to_create=None, allow_reentry: bool = True,
+              stop_on_response: bool = False) -> str:
+    """Preenche um workflow EXISTENTE (rascunho vazio) com nos e gatilhos.
+
+    Recusa se o id for de um workflow publicado (regra do dono).
+    """
+    guard(wf)
+    steps = montar(steps)
 
     for t in (tags_to_create or []):
         c.create_location_tag(t)
 
+    # Gatilhos ja existentes sao REAPROVEITADOS (PUT), nunca duplicados: uma
+    # tentativa que falha depois de criar o gatilho deixaria um orfao
+    # apontando para um no que nao existe mais (aconteceu em 21/09/2026).
+    ja = c.request("GET", "/workflow/" + LOC + "/trigger?workflowId=" + wf)
+    ja = [t for t in ja if not t.get("deleted")] if isinstance(ja, list) else []
+    if len(ja) > len(triggers):
+        print("  ! %d gatilhos na tela para %d esperados - conferir orfaos"
+              % (len(ja), len(triggers)))
+
     saved = []
-    for tdef in triggers:
+    for i, tdef in enumerate(triggers):
         body = dict(tdef)
         body["workflowId"] = wf
         body["location_id"] = LOC
         body["actions"] = [{"workflow_id": wf, "type": "add_to_workflow"}]
-        tr = c.request("POST", "/workflow/" + LOC + "/trigger", body)
-        if not tr or tr.get("_error") or not tr.get("id"):
-            print("  ! gatilho '" + str(tdef.get("name")) + "' falhou: " + str(tr))
-            continue
-        tid = tr["id"]
+        if i < len(ja):
+            tid = ja[i]["id"]
+        else:
+            tr = c.request("POST", "/workflow/" + LOC + "/trigger", body)
+            if not tr or tr.get("_error") or not tr.get("id"):
+                print("  ! gatilho '" + str(tdef.get("name")) + "' falhou: "
+                      + str(tr))
+                continue
+            tid = tr["id"]
         c.request("PUT", "/workflow/" + LOC + "/trigger/" + tid,
                   dict(body, targetActionId=steps[0]["id"],
                        advanceCanvasMeta={"position": {"x": 57.5, "y": -73}}))

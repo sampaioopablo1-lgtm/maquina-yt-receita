@@ -1,0 +1,402 @@
+{
+  "workflow": {
+    "_id": "60268916-7522-4a32-b9ee-0f00993988fb",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Lead Esquecido em NOVO LEAD",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/60268916-7522-4a32-b9ee-0f00993988fb/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F60268916-7522-4a32-b9ee-0f00993988fb%2F3?alt=media&token=1915bd9a-327b-4c93-bc10-9a26f8972d70",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-21T23:52:55.614Z",
+    "updatedAt": "2026-09-21T23:54:18.004Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "window": null,
+    "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-21T23:54:16.000Z"
+      }
+    },
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/60268916-7522-4a32-b9ee-0f00993988fb/3",
+    "id": "60268916-7522-4a32-b9ee-0f00993988fb",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "ef191aca-aa6b-48d6-b111-b769f9a73c62",
+          "name": "Wait 24 Hours",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "hour",
+              "value": 24,
+              "when": "after"
+            },
+            "name": "Wait 24 Hours",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "64b2abd5-4545-4b39-8695-86e24da20e15",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "64b2abd5-4545-4b39-8695-86e24da20e15",
+          "order": 1,
+          "name": "Ainda em NOVO LEAD e aberta?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+            "4c6e113f-d13f-4f6c-b86c-6f957de0aad2"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1cc382ae-9dd5-4505-b405-943159923caa",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
+                        "__conditionId": "62a22f1f-90ea-4f88-82e6-6f9aa9dfc6ab",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "1ada7ee2-3897-4368-90d1-be44f04dc4b6",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parentKey": "ef191aca-aa6b-48d6-b111-b769f9a73c62",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+          "parent": "64b2abd5-4545-4b39-8695-86e24da20e15",
+          "parentKey": "64b2abd5-4545-4b39-8695-86e24da20e15",
+          "order": 2,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "4c6e113f-d13f-4f6c-b86c-6f957de0aad2"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "8e5b11ca-4b86-4fcc-8ca1-a9e2ec0da14f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "4c6e113f-d13f-4f6c-b86c-6f957de0aad2",
+          "parent": "64b2abd5-4545-4b39-8695-86e24da20e15",
+          "parentKey": "64b2abd5-4545-4b39-8695-86e24da20e15",
+          "order": 2,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "2ed7e276-24b4-43b4-acf2-ffc245611aa4"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "8e5b11ca-4b86-4fcc-8ca1-a9e2ec0da14f",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "novo-lead-estagnado"
+            ]
+          },
+          "order": 0,
+          "parent": "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+          "parentKey": "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+          "next": "a60fb980-8f1b-4031-a003-d68ae4294eac",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "a60fb980-8f1b-4031-a003-d68ae4294eac",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "{{contact.name}} está há mais de 24h em NOVO LEAD sem revisão. Origem: {{contact.source}}.",
+              "title": "Lead parado em NOVO LEAD",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 1,
+          "parent": "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+          "parentKey": "8e5b11ca-4b86-4fcc-8ca1-a9e2ec0da14f",
+          "next": "014e1775-c609-4e1e-9940-dec3bf39e989",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "014e1775-c609-4e1e-9940-dec3bf39e989",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Alerta de saúde: NOVO LEAD sem revisão em 24h · <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Alerta de saúde"
+          },
+          "order": 2,
+          "parent": "2ed7e276-24b4-43b4-acf2-ffc245611aa4",
+          "parentKey": "a60fb980-8f1b-4031-a003-d68ae4294eac",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "UlsPrTX6JoQeIzQvkRso",
+      "date_added": "2026-09-21T23:54:15.795Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineStageId",
+          "value": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
+          "title": "Movido para o estágio",
+          "type": "select",
+          "id": "moved-to-stage"
+        }
+      ],
+      "type": "pipeline_stage_updated",
+      "masterType": "highlevel",
+      "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Etapa Do Funil Alterada",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "ef191aca-aa6b-48d6-b111-b769f9a73c62",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-21T23:54:17.600Z"
+    },
+    {
+      "id": "yogylHjdDRcms3bcUlJQ",
+      "date_added": "2026-09-21T23:52:56.102Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineStageId",
+          "value": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
+          "title": "Movido para o estágio",
+          "type": "select",
+          "id": "moved-to-stage"
+        }
+      ],
+      "type": "pipeline_stage_updated",
+      "masterType": "highlevel",
+      "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Etapa Do Funil Alterada",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "25679337-8930-4e45-9d54-7edce707d84c",
+      "date_updated": "2026-09-21T23:52:56.546Z",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      }
+    }
+  ]
+}
