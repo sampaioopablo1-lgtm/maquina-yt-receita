@@ -269,6 +269,42 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Quando a previsão do bug está escrita e o bug acontece do mesmo jeito — 21/09/2026 (causa-raiz do achado 3 da auditoria)
+
+A auditoria de dados desta rodada achou que **os 10 leads nascidos depois do
+Mestre de saída ir ao ar chegaram com `limpar-tarefas`**, e registrou o
+sintoma sem causa. A causa é o nó 1 do próprio Mestre de saída: gatilho
+`Opportunity Stage Changed` para **qualquer** etapa de destino, Porta de
+Entrada criando a oportunidade em `NOVO LEAD`, e portão que só encerrava para
+`CONECTAR`/`open`. Todo lead novo rodava a limpeza de saída na chegada:
+`limpar-tarefas` aplicada e nota "Saída de cadência" num lead que nunca
+entrou em régua nenhuma.
+
+O que vale guardar não é o bug, é o formato dele. **A seção 2.12 tinha escrito
+essa consequência antes de ela acontecer**, palavra por palavra, como
+argumento para o Reengajamento não passar por `NOVO LEAD`:
+
+> "…ele rodaria a limpeza inteira (incluindo aplicar `limpar-tarefas` e
+> gravar a nota 'Saída de cadência' num contato que não estava, de fato,
+> saindo de cadência nenhuma)… risco de corrida real com a rotina horária de
+> manutenção."
+
+O raciocínio estava certo e foi usado para desviar **um** workflow. Ninguém
+perguntou "e quem mais passa por `NOVO LEAD`?" — a resposta era *todo lead da
+operação*, pelo caminho mais movimentado que existe.
+
+**Regra, a mais afiada da série "achado num lugar, ignorado nos outros N":**
+quando uma seção explica por que **evita** um caminho, esse parágrafo é um
+relatório de bug sobre o caminho, não uma justificativa de design. A pergunta
+seguinte é obrigatória: **quem mais passa por aí, e por que está tudo bem
+para eles?** Se a resposta for "ninguém pensou nisso", o bug já existe — só
+não foi medido ainda.
+
+Corrigido no nó 1 (`open` **e** etapa em `NOVO LEAD`/`CONECTAR` → encerra) e
+na tabela de retoques do `GUIA-MONTAGEM.md`, marcado como o mais urgente dos
+que dão para fazer hoje: o workflow está publicado e sujando o histórico de
+todo lead que entra.
+
 ## A tabela de retoques de tela também é uma lista que alguém esquece de atualizar — 21/09/2026
 
 A rodada do F-05 desenhou o Monitor de Saúde certo e, de quebra, achou um

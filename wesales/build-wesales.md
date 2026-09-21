@@ -2434,7 +2434,7 @@ condição que cobre os dois:
 | # | Ação | Configuração |
 |---|---|---|
 | 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20) — **incondicional, antes do portão do nó 1** |
-| 1 | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → **encerra aqui** (não limpa nada). Senão, segue |
+| 1 | If/Else | `status` **é** `open` **E** etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` → **encerra aqui** (não limpa nada). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12) |
@@ -2474,6 +2474,34 @@ chegar antes do próximo `Wait` da régua vencer. O portão dentro do bloco
 padrão é o cinto de segurança: mesmo que a remoção atrase, a tentativa
 seguinte lê `status` e encerra pelo ramo 3b (que já limpa fila e tarefa).
 Um dos dois sozinho deixa janela; os dois juntos, não.
+
+**Por que `NOVO LEAD` entrou no nó 1 em 21/09/2026 — o dado de produção
+cobrou uma consequência que este documento já tinha escrito:** a auditoria
+dos 50 contatos (`APRENDIZADOS-CRM.md`, "Os dados de produção são a terceira
+auditoria") achou que **os 10 leads nascidos depois deste workflow ir ao ar
+chegaram com a tag `limpar-tarefas`** — leads que nunca entraram em cadência
+nenhuma. A causa é este nó: o gatilho 1 é `Opportunity Stage Changed` para
+**qualquer** etapa de destino, a Porta de Entrada (seção 1.3) cria a
+oportunidade em `NOVO LEAD`, e o portão só encerrava para `CONECTAR`/`open`.
+Resultado: todo lead novo rodava a limpeza inteira na chegada — ganhava
+`limpar-tarefas` e uma nota "Saída de cadência" dizendo que saiu de uma
+régua em que nunca esteve.
+
+O mais instrutivo é que **a seção 2.12 já havia previsto exatamente isso**,
+por escrito, como motivo para o Reengajamento não passar por `NOVO LEAD`
+("ele rodaria a limpeza inteira… num contato que não estava, de fato, saindo
+de cadência nenhuma… risco de corrida real com a rotina horária"). O
+raciocínio estava certo e ficou local: usado para desviar **um** workflow,
+nunca aplicado ao caminho por onde entra **todo** lead da operação. Mesma
+classe das outras listas incompletas deste documento — a diferença é que
+aqui a previsão do bug estava escrita antes do bug acontecer.
+
+`NOVO LEAD` **e** `open` nunca é saída de cadência: é chegada (ou um
+retrocesso manual para o topo do funil). O único caso que essa condição passa
+a não limpar é o lead arrastado de `CONECTAR` de volta para `NOVO LEAD` na
+mão, que mantém tag de fila — e esse cai no monitor de lead esquecido (seção
+2.20) em 24h, que avisa o gestor; tratar o caso raro valeria menos que sujar
+o histórico de todo lead novo.
 
 **Por que a condição do nó 1 é "CONECTAR E open", não só "CONECTAR":** as
 duas coisas precisam ser verdade ao mesmo tempo para o lead estar *de
