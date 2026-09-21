@@ -99,6 +99,31 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Gatilho de workflow é evento, não estado: promover lead antes de publicar a régua gasta o evento no vácuo — 21/09/2026
+
+Ao conferir o G-03 (47 leads pagos parados em `NOVO LEAD`, três opções
+escritas para o dono escolher), faltava uma precondição que nenhuma das três
+mencionava: a `Cadência 12x30` está **em rascunho**. O gatilho dela é
+`Opportunity Stage Changed → CONECTAR` — um evento. Promover os 47 agora faz
+o evento acontecer sem ninguém escutando, e **publicar a cadência depois não
+inscreve quem já está na etapa**: workflow do GHL inscreve no instante do
+gatilho, não varre o estado atual do pipeline.
+
+O resultado seria pior que o problema: 47 leads fora de `NOVO LEAD` (logo
+fora da lista de triagem) e fora da cadência — um limbo que nenhuma lista
+mostra.
+
+**Regra:** antes de qualquer promoção em massa de etapa, conferir se o
+workflow que deveria reagir àquela etapa está **publicado**. Régua em
+rascunho + movimento em massa = evento gasto. A ordem é sempre publicar,
+testar com 1-2 leads, e só então mover o estoque.
+
+Recuperação, se acontecer: `Add to Workflow` em massa pela lista de
+contatos, ou tirar e recolocar a etapa para gerar evento novo (o
+`Allow Re-entry` desligado da D-06 não bloqueia quem nunca entrou neste
+workflow — a própria seção 2.1 do `build-wesales.md` explica por quê). Mas
+as duas alternativas tocam dado de produção duas vezes.
+
 ## Número medido dentro de uma instrução é verdade com data de validade — 21/09/2026
 
 Varredura depois de dois dias sem sessão ao vivo. A `Fase 1` do

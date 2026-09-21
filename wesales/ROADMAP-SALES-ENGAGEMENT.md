@@ -268,6 +268,27 @@ L-02/D-04):**
    na lista de oportunidades, mover para `CONECTAR`), sem workflow novo.
    Resolve o estoque parado agora; não resolve os próximos leads, que
    voltam a se acumular no dia seguinte sem o item 1 ou 2 também.
+**Precondição que vale para as três opções, achada ao conferir este item em
+21/09/2026 — a ordem não é livre:** o gatilho da Cadência 12x30 é
+`Opportunity Stage Changed → CONECTAR` (seção 2.1), um **evento**, não um
+estado. E a `Cadência 12x30` está **em rascunho** na tela (0 inscritos,
+lista de workflows lida em 21/09). Promover os 47 antes de publicar a
+cadência gasta o evento no vácuo: eles chegam em `CONECTAR`, nenhum
+workflow está escutando, e **publicar a cadência depois não os inscreve** —
+workflow do GHL inscreve na hora do gatilho, não varre quem já está na
+etapa. Os 47 ficariam num limbo pior que o de hoje: fora de `NOVO LEAD` (e
+portanto fora da lista de "leads que precisam de triagem") e fora da
+cadência.
+
+Recuperável, mas ao preço de tocar dado de produção duas vezes: ou
+`Add to Workflow` em massa pela lista de contatos, ou tirar e recolocar a
+etapa (o que gera evento novo; o `Allow Re-entry` desligado da D-06 não
+bloquearia, porque ele só vale para quem já tem histórico *neste* workflow,
+como a própria seção 2.1 explica). **Então a ordem certa é: publicar a
+`Cadência 12x30` primeiro, conferir com 1 ou 2 leads, e só depois promover
+o estoque.** Vale igual para a opção 3 (ação manual em massa), que é a mais
+tentadora justamente por parecer não depender de nada.
+
 **Por que não decidi sozinho:** mover 47 oportunidades reais de etapa é ação
 em massa em dado de produção — regra 2 do briefing pede listar e confirmar
 antes, e a régua de fila hoje é decisão deliberada do SDR (não bug), então
