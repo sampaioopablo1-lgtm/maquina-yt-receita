@@ -142,6 +142,51 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## `Contains` casa pedaço de palavra: `pare` está dentro de "parece ótimo" — 21/09/2026
+
+A rodada do R-17 achou um bug real e importante (resposta de opt-out no
+WhatsApp virava sinal quente: `Prioridade` 5 e tarefa "ligar agora" para quem
+pediu silêncio) e desenhou o workflow certo. O problema estava na lista de
+palavras-chave: começava com `pare` solto.
+
+`Contains` do GHL casa **substring**, não palavra. `pare` está dentro de
+*parece*, *aparelho*, *comparecer*, *preparei*, *separado*, *transparente*.
+A resposta mais positiva que um lead brasileiro manda — **"parece ótimo, me
+liga"** — contém `pare`. E como o 2.9.3 ganhou o filtro espelhado
+(`Doesn't Contain`), o falso positivo custava duas vezes na mesma mensagem:
+
+| O que acontecia com "parece ótimo, me liga" | Onde |
+|---|---|
+| DND em todos os canais + tag `nao-perturbe` | 2.9.5, nós 2-3 |
+| Saída de todas as 6 réguas automáticas | 2.9.5, nó 5 |
+| `status` da oportunidade = `lost` | 2.9.5, nó 6 |
+| **Nenhuma** tarefa de sinal quente | 2.9.3, filtro espelhado |
+| **Nenhum** aviso a ninguém | o único aviso estava no ramo raro do nó 6 |
+
+O lead mais quente do dia virava o lead mais morto do CRM, em silêncio.
+Nenhuma automação deste projeto desfaz DND, e nenhuma lista mostra "DND
+aplicado hoje".
+
+**Três regras:**
+
+1. **Palavra-chave de opt-out é frase, nunca pedaço.** Antes de pôr uma na
+   lista: *ela aparece dentro de alguma palavra comum do português?* `pare` →
+   `pare de`/`pare com`. Saíram também `não quero mais` e `não quero receber`
+   soltos, porque neste negócio é assim que o lead descreve a dor ("não quero
+   mais perder cliente"). E `stop`, que em WhatsApp brasileiro não é palavra
+   reservada como o TCPA faz no SMS americano — só traria falso positivo sem
+   compensar nada.
+2. **Ação irreversível por automação avisa sempre, não só no caminho
+   estranho.** O aviso do nó 6 só existia no ramo raro; o caso comum não
+   avisava ninguém. Opt-out são poucos por dia por definição, então aviso
+   sempre é barato. Regra geral: se a automação faz algo que nenhuma
+   automação desfaz, alguém tem que ficar sabendo no minuto.
+3. **Duas listas que precisam ser iguais são uma lista com dois lugares.**
+   O 2.9.5 e o filtro do 2.9.3 usam a mesma lista de frases. Isso está
+   escrito nos dois lados, com "lista canônica" num e "idênticas" no outro —
+   sem isso, mexer num lado reabre o bug original (os dois disparando) ou o
+   inverso (opt-out que não silencia).
+
 ## Gatilho de workflow é evento, não estado: promover lead antes de publicar a régua gasta o evento no vácuo — 21/09/2026
 
 Ao conferir o G-03 (47 leads pagos parados em `NOVO LEAD`, três opções

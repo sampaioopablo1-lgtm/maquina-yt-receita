@@ -830,10 +830,11 @@ que não usa SMS em nenhum canal de contato com lead. O plano original media
 "WhatsApp e SMS" errado, como se fossem os dois canais de texto — não eram.
 
 **Filtro do gatilho, acrescentado em 21/09/2026 (R-17 — ver 2.9.5):** uma
-linha `Doesn't Contain` por palavra-chave da mesma lista do 2.9.5 (`pare`,
-`para de mandar`, `não quero mais`, `não quero receber`, `remove meu
-contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga
-mais`, `sai da lista`, `unsubscribe`, `stop`), combinadas em E — pesquisado
+linha `Doesn't Contain` por frase da lista canônica do 2.9.5 — `pare de`, `pare com`, `para de mandar`, `para de me mandar`, `não quero mais mensagem`, `não quero mais contato`, `não quero receber mensagem`, `não quero receber mais`, `remove meu contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga mais`, `não me mande mais`, `sai da lista`, `me tira da lista`, `unsubscribe` —, combinadas em E (a lista
+nasceu com `pare`, `não quero mais`, `não quero receber` e `stop` soltos;
+saíram no mesmo dia porque `Contains` casa pedaço de palavra e "parece
+ótimo" carregava `pare` — o raciocínio completo está no 2.9.5, e **as duas
+listas têm que continuar idênticas**), combinadas em E — pesquisado
 nesta rodada (`Customer Replied Trigger: Improved Message Filters`, changelog
 oficial da HighLevel): o gatilho aceita filtro por corpo da mensagem com os
 operadores `Contains`/`Doesn't Contain`/`Exact Match`, além de canal, tag e
@@ -907,14 +908,43 @@ porque nenhuma delas roda cadência de **ligação por WhatsApp** — só mensag
 
 **Como:**
 
-**Gatilho:** `Customer Replied` — Canal: **WhatsApp** — `Contains Phrase`:
-`pare`, `para de mandar`, `não quero mais`, `não quero receber`, `remove meu
-contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga
-mais`, `sai da lista`, `unsubscribe`, `stop` (**confirme na tela** se o
-campo aceita a lista inteira numa linha só, combinada em OU — se não aceitar,
-o mesmo efeito sai com uma linha de filtro por palavra, todas apontando para
-este workflow, o mesmo padrão de "vários gatilhos, um efeito" que a seção
-2.9 já usa entre 2.9.2 e 2.9.3).
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp** — `Contains Phrase`,
+esta lista (**a lista canônica do projeto — o filtro do 2.9.3 tem que ser
+idêntica a ela, palavra por palavra**):
+
+`pare de`, `pare com`, `para de mandar`, `para de me mandar`, `não quero mais mensagem`, `não quero mais contato`, `não quero receber mensagem`, `não quero receber mais`, `remove meu contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga mais`, `não me mande mais`, `sai da lista`, `me tira da lista`, `unsubscribe`
+
+(**Confirme na tela** se o campo aceita a lista inteira numa linha só,
+combinada em OU — se não aceitar, o mesmo efeito sai com uma linha de filtro
+por frase, todas apontando para este workflow, o mesmo padrão de "vários
+gatilhos, um efeito" que a seção 2.9 já usa entre 2.9.2 e 2.9.3.)
+
+**Por que `pare` sozinho saiu da lista, e por que isso não é preciosismo
+(conferido em 21/09/2026):** `Contains` casa **pedaço de palavra**, não
+palavra inteira. `pare` está dentro de *parece*, *aparelho*, *comparecer*,
+*preparei*, *separado*, *transparente*, *reparei*. A resposta mais positiva
+que um lead brasileiro manda — **"parece ótimo, me liga"** — contém `pare`.
+Com a lista antiga, essa resposta produzia, de uma vez: DND em todos os
+canais, tag `nao-perturbe`, saída de todas as réguas, `status = lost` na
+oportunidade **e** (pelo filtro espelhado do 2.9.3) nenhuma tarefa de sinal
+quente. O lead mais quente do dia viraria o lead mais morto do CRM, em
+silêncio — ninguém recebe alerta de DND aplicado, e nenhuma automação
+desfaz DND.
+
+O mesmo cuidado tirou `não quero mais` e `não quero receber` soltos: neste
+negócio o lead descreve a dor com exatamente essas palavras ("**não quero
+mais** perder cliente", "**não quero receber** lead ruim"). Ficaram só com o
+complemento que fecha o sentido (`mensagem`, `contato`, `mais`). E `stop`
+saiu: em WhatsApp brasileiro ele não é palavra reservada como o TCPA faz no
+SMS americano, então só traria falso positivo de texto em inglês sem
+compensar nada.
+
+**Regra de manutenção:** esta lista e a do filtro do 2.9.3 são **a mesma
+lista**. Mexer numa sem mexer na outra reabre exatamente o bug que o 2.9.5
+existe para fechar (os dois workflows disparando na mesma mensagem) ou o
+inverso (opt-out que não silencia). Antes de mudar qualquer palavra, teste-a
+contra a pergunta: *ela aparece dentro de alguma palavra comum do
+português?* Se sim, use a frase, nunca o pedaço.
 
 | Configuração | Valor |
 |---|---|
@@ -930,7 +960,20 @@ este workflow, o mesmo padrão de "vários gatilhos, um efeito" que a seção
 | 4 | Sair das filas | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
 | 5 | Sair das réguas | Remove from Workflow | `Cadência 12x30` (seção 2) · `Cadência Inbound` (2.10) · `Reengajamento 90 dias` (2.12) · `Qualificação por IA no WhatsApp` (seção 6) · `Interceptação de Sinal — Clique` (2.9.2) · `Interceptação de Sinal — Resposta` (2.9.3) — lista mais longa que a do Mestre de saída (seção 3) e do ramo `Não ligar` (seção 4) de propósito: este é o único ponto de saída do documento que não depende de esperar a oportunidade mudar de `status` primeiro (nó 6 abaixo é condicional; isto não pode ser) |
 | 6 | Fechar o negócio, com cautela | If/Else | Achou oportunidade no nó 1 **E** etapa é `CONECTAR` **E** `status` é `open` → Update Opportunity `status` = `lost` (aciona o Mestre de saída pelo gatilho de status, seção 3 — redundante com o nó 5 acima, inofensivo, mesmo raciocínio já usado na seção 3). Senão → Internal Notification para `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} pediu para parar, oportunidade já em {{opportunity.pipeline_stage}}/{{opportunity.status}} — DND ligado, revisar se o negócio segue antes de qualquer novo contato` |
+| 6b | **Aviso, sempre** | Internal Notification | Para `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} — DND ligado e saiu de todas as réguas. Mensagem que disparou: revisar no histórico. Se foi falso positivo, desligar o DND na mão é a única volta.` **Este nó roda em todos os caminhos**, inclusive quando o nó 6 fechou a oportunidade — ver nota abaixo |
 | 7 | Registro | Add Note | `Opt-out por palavra-chave detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` |
+
+**Por que o nó 6b avisa sempre, e não só no ramo "senão" do nó 6
+(acrescentado em 21/09/2026):** na versão original, o único caminho que
+gerava aviso era o do lead que **não** estava em `CONECTAR`/`open` — ou
+seja, o caso raro. O caso comum (lead em cadência responde, vira DND e
+`lost`) produzia apenas uma nota no histórico do contato, que ninguém abre
+sem motivo. Isso deixava o falso positivo da lista de palavras **invisível**:
+nenhuma automação desfaz DND, nenhuma lista mostra "DND aplicado hoje", e o
+lead simplesmente para de aparecer. Um aviso por opt-out é barato — são
+poucos por dia, por definição — e é a única chance de alguém dizer "esse aí
+não pediu para sair, ele disse *parece ótimo*". Aviso que chega demais se
+ignora; DND errado que não avisa ninguém não se descobre.
 
 **Por que o nó 6 não move sozinho quem já passou de `CONECTAR`:** um lead em
 `NEGOCIAR` que responde "pare" pode estar pedindo para parar de receber
