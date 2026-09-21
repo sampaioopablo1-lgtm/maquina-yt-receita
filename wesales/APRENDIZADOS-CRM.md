@@ -2161,3 +2161,63 @@ limitação do conector.
     item que dependa disso precisa checar isso na tela antes de montar, e
     tem que sobreviver sem o recurso se ele não existir (a Smart List sozinha
     sempre existe, independente de plano).
+
+## WhatsApp Business API recusa texto livre fora da janela de 24h — toda mensagem automática do projeto precisava desse portão e nenhuma tinha — G-05, 21/09/2026, sessão automática
+
+Seguindo a própria instrução do roadmap (reler coerência, reler premissa
+técnica represada e só então procurar lacuna nova antes de encerrar sem
+commit): sweep de coerência limpo de novo (zero nome de etapa órfão, zero
+merge field órfão), `opportunities_search-opportunity`/
+`locations_get-custom-fields` sem mudança desde a última rodada (46 campos,
+50 oportunidades, G-03/G-04 ainda aguardando o dono) — nada para corrigir
+nem para desbloquear por volume. A lacuna nova veio de uma pergunta que
+nenhuma rodada tinha feito ainda sobre um assunto que todo o projeto trata
+como resolvido: "o texto livre de `Send WhatsApp` sempre funciona?"
+
+**Não funciona.** `WebSearch` (documentação da HighLevel e da própria Meta,
+domínios bloqueados pelo proxy deste ambiente, achado por citação de página
+oficial repetida em buscas com termos diferentes — mesmo padrão de confiança
+já usado para o `Wait Dynamic` do F-05): o WhatsApp Business API só aceita
+mensagem de texto livre quando o contato está dentro da **janela de
+atendimento de 24h**, que abre quando o **cliente** manda mensagem primeiro
+(nunca quando a empresa inicia o contato) e fecha 24h depois do último toque
+dele. Fora da janela, só um **Template** pré-aprovado pela Meta pode ser
+enviado — texto livre é recusado. O GHL expõe duas ações nativas para isso,
+nunca citadas em nenhum documento do projeto até esta rodada:
+`WhatsApp: Customer Service Window Check` (confere a janela) e `Send
+WhatsApp` com modo **Template** (funciona dentro e fora da janela).
+
+**Por que isso passou despercebido em três rodadas de auditoria de dados e
+sete de migração de nome de etapa:** nenhum lead desta base jamais escreveu
+no WhatsApp da subconta (confirmado várias vezes por
+`conversations_search-conversation` — zero mensagem de cadência enviada até
+hoje, R-14 segue bloqueada por isso mesmo). Sem tráfego de saída ainda, não
+existe rastro de recusa para uma auditoria de dados achar — é o tipo de
+lacuna que só aparece **antes** do primeiro envio real, numa leitura de
+especificação contra a regra da plataforma, não numa leitura de campo
+gravado. As nove entradas anteriores deste arquivo sobre "auditoria de
+dados acha o que o texto não acha" pressupunham tráfego rodando; aqui é o
+oposto — o texto precisava ser lido contra uma regra externa (a política do
+WhatsApp Business API), não contra os dados da própria subconta.
+
+**Regra prática, generalizável:** para todo canal de mensageria com regra de
+plataforma própria (WhatsApp, e no futuro qualquer outro canal que o
+projeto adicionar), a pergunta "o texto livre sempre funciona?" precisa ser
+feita **antes** do primeiro envio real, não descoberta pela ausência de
+rastro depois — o padrão "ler os dados de produção" (auditoria de dados,
+entrada acima) só encontra o que já tentou e falhou; uma regra de
+plataforma que ainda não foi testada nenhuma vez não deixa rastro nenhum
+para achar.
+
+**Escopo desta rodada:** guarda especificada só para os quatro envios da
+Cadência 12x30 (`M1-a`/`M1-b`/`M2-v1`/`M3-v1`) — o motor principal, maior
+volume esperado. Os demais pontos de envio seguem sem o mesmo tratamento
+(`MI-0`/`MI-F`, `RE-1`/`RE-2`, `NS-1`/`NS-2`, confirmação e três lembretes
+do Pós-agendamento), pendência explícita dentro do próprio G-05
+(`ROADMAP-SALES-ENGAGEMENT.md`).
+Zero campo, zero tag, zero escrita no CRM: item de especificação pura
+(`build-wesales.md` seção 2.6.2 nova, `IMPLEMENTACAO-WORKFLOWS.md` nós
+M1.3a/M1.3b/M2.2/M3.2, `biblioteca-mensagens.md` tabela de Templates Meta),
+não depende de `APROVADO.md` — nem a guarda nem o Template saem por API; a
+submissão do Template à Meta é ação do dono no Business Manager, fora deste
+conector.

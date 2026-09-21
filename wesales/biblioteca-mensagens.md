@@ -195,6 +195,38 @@ inclui o link.
 `[Agendar com o closer]` é o Trigger Link da seção 2.9 do `build-wesales.md`,
 mesmo uso de `M2-v1`/`M3-v1`/`MI-F`/`RE-2`.
 
+## Template Meta para envio fora da janela de 24h — G-05
+
+Descoberto em 21/09/2026 (roadmap, G-05): o WhatsApp Business API só aceita
+o texto livre desta biblioteca quando o contato está dentro da janela de
+atendimento de 24h (abre só quando o **cliente** escreve primeiro). Como
+nenhum lead desta base jamais escreveu no WhatsApp antes de receber uma
+mensagem automática, praticamente todo envio cai fora da janela — cada
+código abaixo precisa de um **Template** equivalente, pré-aprovado pela
+Meta no Business Manager (decisão e ação do dono, fora do alcance deste
+conector; aprovação leva até 48h), para o portão de `build-wesales.md`
+seção 2.6.2 ter o que enviar no ramo "fora da janela".
+
+| Código | Template Meta | Status |
+|---|---|---|
+| `M1-a` | — | A submeter (peça 1 do G-05, feita) |
+| `M1-b` | — | A submeter (peça 1 do G-05, feita) |
+| `M2-v1` | — | A submeter (peça 1 do G-05, feita) |
+| `M3-v1` | — | A submeter (peça 1 do G-05, feita) |
+| `MI-0` | — | Guarda ainda não especificada (pendência do G-05) |
+| `MI-F` | — | Guarda ainda não especificada (pendência do G-05) |
+| `RE-1` | — | Guarda ainda não especificada (pendência do G-05) |
+| `RE-2` | — | Guarda ainda não especificada (pendência do G-05) |
+| `NS-1` | — | Guarda ainda não especificada (pendência do G-05) |
+| `NS-2` | — | Guarda ainda não especificada (pendência do G-05) |
+
+"A submeter" cobre só a guarda de janela em si (`build-wesales.md`, seção
+2.6.2, e os nós M1.3a/M1.3b/M2.2/M3.2 de `IMPLEMENTACAO-WORKFLOWS.md`) — a
+submissão de verdade no Meta Business Manager, com o texto convertido para
+o formato de Template (variáveis posicionadas no lugar dos merge fields,
+possível botão CTA no lugar do Trigger Link) continua ação do dono, não
+executada nesta rodada.
+
 ## Como isso responde o "Pronto quando" do R-04
 
 "Dá para dizer qual abertura teve mais resposta" sem abrir mensagem por

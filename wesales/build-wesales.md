@@ -58,7 +58,10 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     distribuição de leads (R-10, seção 2.14) desde o início — defina a lista
     de round robin no nó 0.7b mesmo com um único SDR hoje — e o portão
     0.0/0.0b de higiene de telefone (R-13, seção 2.3) na frente de tudo,
-    antes do 0.1
+    antes do 0.1. Os quatro nós `Send WhatsApp` (M1-a, M1-b, M2-v1, M3-v1)
+    já levam a guarda de janela de 24h (G-05, seção 2.6.2) desde a primeira
+    montagem — sem ela, a mensagem livre é recusada pela API assim que o
+    lead estiver fora da janela, o caso comum desta operação
 15. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
@@ -631,7 +634,9 @@ ninguém está olhando. WhatsApp fora do ar não vira SMS: vira
 canal que não depende de provedor de texto), posicionados no fluxo conforme a
 tabela 2.5. Cada um precedido do
 mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
-condição extra `nao-perturbe` ausente, e seguido de dois nós **Update Contact
+condição extra `nao-perturbe` ausente, **e do portão de janela de 24h da
+seção 2.6.2 (G-05) — sem ele, a mensagem livre é recusada pelo WhatsApp
+Business API na maioria dos envios**, e seguido de dois nós **Update Contact
 Field** `Template usado` = o código da mensagem (R-04 — sem esse carimbo não
 dá para saber depois qual abertura gerou a resposta) e **Add Contact Tag**
 `toque` (F-04, seção 2.19 — mensagem automática também é toque; M2 e M3 não
@@ -693,9 +698,9 @@ atribuída a uma causa só. Textos completos em `biblioteca-mensagens.md`.
 |---|---|---|
 | M1.1 | **Portão** | Mesmo portão do nó 3 (seção 2.4), sem a checagem de `telefone-invalido`, com `nao-perturbe` ausente |
 | M1.2 | **Split — Teste A/B abertura** | Ação nativa Split, sorteio aleatório: Caminho A 50% · Caminho B 50% |
-| M1.3a (Caminho A) | Send WhatsApp | Texto `M1-a`, `biblioteca-mensagens.md` |
+| M1.3a (Caminho A) | **Guarda de janela (seção 2.6.2, G-05)** → Send WhatsApp | Dentro da janela: texto livre `M1-a` · Fora da janela: Template Meta `M1-a`, `biblioteca-mensagens.md` |
 | M1.4a (Caminho A) | Update Contact Field → Add Contact Tag | `Template usado` = `M1-a` → `toque` (F-04, seção 2.19) |
-| M1.3b (Caminho B) | Send WhatsApp | Texto `M1-b`, `biblioteca-mensagens.md` |
+| M1.3b (Caminho B) | **Guarda de janela (seção 2.6.2, G-05)** → Send WhatsApp | Dentro da janela: texto livre `M1-b` · Fora da janela: Template Meta `M1-b`, `biblioteca-mensagens.md` |
 | M1.4b (Caminho B) | Update Contact Field → Add Contact Tag | `Template usado` = `M1-b` → `toque` (F-04, seção 2.19) |
 
 Depois de M1.4a e M1.4b, **conecte os dois caminhos ao mesmo nó seguinte**
@@ -720,6 +725,76 @@ versionamento: marcar a linha perdedora como encerrada, nunca apagar).
 lista inteligente" — cumprido. M1-a e M1-b rodam ao mesmo tempo pelo Split, e
 `Resposta por Template` (8.13) já cruza `Sinal recebido` com `Template
 usado`, sem lista nova.
+
+### 2.6.2 Guarda de janela de atendimento (24h) antes de cada mensagem livre — G-05
+
+**Por quê:** o WhatsApp Business API só aceita mensagem de **texto livre**
+quando o contato está dentro da **janela de atendimento de 24h** — que abre
+quando o **cliente** manda mensagem primeiro, não quando a operação inicia o
+contato, e fecha 24h depois do último toque dele. Fora dela, só um
+**Template** pré-aprovado pela Meta pode ser enviado. Nenhum lead desta base
+jamais escreveu no WhatsApp da subconta antes de M1 (vêm de Meta Lead Ads e
+formulário) — a primeira mensagem de todo lead já nasce fora da janela por
+definição, e M2 (D10) e M3 (D30) quase sempre também, porque a maioria dos
+leads nunca responde nada entre uma mensagem e a próxima. Sem esta guarda, o
+texto livre de `M1-a`/`M1-b`/`M2-v1`/`M3-v1` seria recusado pela API na
+maioria dos envios assim que a `Cadência 12x30` publicar — silenciosamente,
+do mesmo jeito que motivou o F-05 (roadmap).
+
+**Como (pesquisado via `WebSearch`, confiança média — página de suporte
+oficial da HighLevel confirmada por citação direta e idêntica em duas
+buscas com termos diferentes, não testada nesta subconta, domínio bloqueado
+pelo proxy deste ambiente):** o GHL tem a ação nativa
+**`WhatsApp: Customer Service Window Check`**, que confere se o contato
+está dentro da janela, e a ação **`Send WhatsApp`** aceita um modo
+**Template** (em vez de "None – Manual Text") que envia uma mensagem
+pré-aprovada pela Meta — funciona dentro **e** fora da janela, diferente do
+texto livre, que só funciona dentro.
+
+| Nó | Ação | Configuração |
+|---|---|---|
+| G.1 | **`WhatsApp: Customer Service Window Check`** | Confere o contato disparando o envio |
+| G.2 (dentro da janela) | segue | para o nó `Send WhatsApp` já especificado, texto livre, sem mudar nada |
+| G.3 (fora da janela) | `Send WhatsApp`, modo **Template** | Template Meta equivalente ao texto livre (tabela abaixo) |
+
+Insira `G.1` imediatamente antes de cada nó `Send WhatsApp` de texto livre já
+especificado neste documento, e ligue o ramo "fora da janela" ao mesmo
+destino que o texto livre segue hoje (ex.: `M1.4a`) — a guarda não muda o
+resto do fluxo, só decide qual dos dois envios sai.
+
+| Código (texto livre) | Template Meta equivalente | Status |
+|---|---|---|
+| `M1-a` | `m1_a` (nome sugerido, a confirmar na submissão) | A submeter pelo dono no Meta Business Manager |
+| `M1-b` | `m1_b` | A submeter pelo dono no Meta Business Manager |
+| `M2-v1` | `m2_v1` | A submeter pelo dono no Meta Business Manager |
+| `M3-v1` | `m3_v1` | A submeter pelo dono no Meta Business Manager |
+
+Os merge fields do texto livre (`{{contact.first_name}}`,
+`{{contact.segmento}}`, `{{user.first_name}}`, `{{location.name}}`) viram
+variáveis posicionadas do Template na submissão à Meta — mapeamento exato a
+confirmar na tela do Business Manager, não sai por API. O Trigger Link
+`[Agendar com o closer]` (citado em `M2-v1`/`M3-v1`) provavelmente precisa
+virar um botão CTA de URL do Template em vez de texto inline — Template tem
+formatação mais restrita que mensagem livre; a confirmar na tela antes de
+submeter.
+
+**Limite documentado, não escondido:** aprovação de Template pela Meta leva
+até 48h e é decisão/ação do dono (Business Manager, fora deste conector) —
+esta guarda não desbloqueia sozinha, só evita que o texto livre seja
+recusado enquanto o Template não existe (o ramo "fora da janela" fica sem
+efeito até o Template ser aprovado e configurado no nó `G.3`).
+
+**Escopo desta rodada:** guarda aplicada aos quatro envios da Cadência
+12x30 (M1-a, M1-b, M2-v1, M3-v1) — o motor principal. Os demais pontos de
+envio seguem sem a guarda, pendência explícita do próprio G-05: `MI-0`/
+`MI-F` (Cadência Inbound, seção 2.10), `RE-1`/`RE-2` (Reengajamento, seção
+2.12), `NS-1`/`NS-2` (Recuperação de No-show, seção 5.3) e a confirmação
+mais os três lembretes do Pós-agendamento (seção 5, nós 7-10 — esses
+quatro nem têm texto versionado em `biblioteca-mensagens.md` ainda).
+
+**Pronto quando (desta peça):** M1.3a/M1.3b/M2.2/M3.2 (`IMPLEMENTACAO-WORKFLOWS.md`)
+têm o `Customer Service Window Check` antes deles e os dois ramos
+especificados.
 
 ### 2.7 Entrada na qualificação por IA
 

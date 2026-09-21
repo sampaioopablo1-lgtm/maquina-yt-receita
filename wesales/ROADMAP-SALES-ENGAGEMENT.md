@@ -337,6 +337,77 @@ Q-17) e a seção 9.1 refletem os valores que o Meta grava de verdade; um lead
 novo do Meta chega com `Prazo`/`Dor principal`/`Investimento mensal`
 preenchidos e a nota calculada.
 
+### G-05 · Mensagens automáticas de WhatsApp especificadas como texto livre, sem checar a janela de 24h — pode falhar em silêncio assim que a cadência publicar
+**Por quê:** todo nó `Send WhatsApp` da operação (M1-a/M1-b/M2-v1/M3-v1 na
+Cadência 12x30, `build-wesales.md` seção 2.6; `MI-0`/`MI-F` na Cadência
+Inbound, seção 2.10; `RE-1`/`RE-2` no Reengajamento, seção 2.12; `NS-1`/
+`NS-2` na Recuperação de No-show, seção 5.3; a confirmação e os três
+lembretes do Pós-agendamento, seção 5, nós 7-10) está especificado como
+texto livre, sem checar se
+o lead está dentro da **janela de atendimento de 24h** do WhatsApp Business
+API. Pesquisado via `WebSearch` (domínios de suporte da HighLevel seguem
+bloqueados pelo proxy deste ambiente — achado por citação de página
+oficial, não pela página em si): essa janela só abre quando o **cliente**
+manda mensagem primeiro, e fecha 24h depois do último contato dele; fora
+dela, a API recusa mensagem de texto livre e só aceita **Template**
+pré-aprovado pela Meta. Nenhum lead desta operação jamais mandou mensagem de
+WhatsApp antes (vêm de Meta Lead Ads e formulário, não de WhatsApp), e a
+maioria dos envios da régua sai dias ou semanas depois do anterior (D1,
+D10, D30, 90 dias de reengajamento) — então **praticamente todo envio desta
+operação cai fora da janela**, o oposto do que o desenho atual assume. Sem
+correção, a `Cadência 12x30` publica, o WhatsApp passa a recusar (ou cobrar
+taxa extra de conversa, a depender do provedor) cada mensagem automática, e
+ninguém percebe — a mesma classe de "estrago silencioso" que motivou o
+F-05, aqui no canal inteiro em vez de um caso isolado. Confirmado por
+ausência: nenhum documento do projeto (`briefing-sdr.md`,
+`build-wesales.md`, `biblioteca-mensagens.md`, `campos-e-tags.md`) menciona
+janela de atendimento, Template Meta ou risco de recusa — a régua foi
+desenhada como se WhatsApp fosse texto livre sem restrição, que não é o
+caso da API oficial que uma integração white-label do GHL usa.
+**Como:** o GHL expõe duas peças nativas para isto (`WebSearch`, confiança
+média — página de suporte oficial confirmada por citação direta em duas
+buscas com termos diferentes, não testada nesta subconta): a ação
+**`WhatsApp: Customer Service Window Check`**, que confere se o contato
+está dentro da janela, e a ação **`Send WhatsApp`** com modo **Template**
+(em vez de "None – Manual Text"), que envia uma mensagem pré-aprovada pela
+Meta e funciona dentro **e** fora da janela. Padrão: antes de cada nó de
+envio livre já especificado, inserir o `Customer Service Window Check` e
+ramificar — dentro da janela, segue para o texto livre já desenhado, sem
+mudar nada; fora da janela, desvia para `Send WhatsApp` com o Template
+correspondente. Cada um dos 11 textos de `biblioteca-mensagens.md` precisa
+de um Template Meta equivalente, submetido pelo dono no Meta Business
+Manager (aprovação de até 48h, fora do alcance deste conector) — os merge
+fields (`{{contact.first_name}}`, `{{contact.segmento}}`,
+`{{user.first_name}}`, `{{location.name}}`) viram variáveis posicionadas do
+Template, e o Trigger Link `[Agendar com o closer]` provavelmente vira um
+botão CTA de URL do Template em vez de texto inline (a confirmar na tela —
+Template tem formatação mais restrita que mensagem livre).
+**Pronto quando:** todo nó `Send WhatsApp` da operação tem o
+`Customer Service Window Check` antes dele e os dois ramos (livre/Template)
+especificados; os 11 textos de `biblioteca-mensagens.md` têm Template Meta
+aprovado e mapeado.
+
+**Resumo (21/09/2026):** especificado o primeiro pedaço — o motor
+principal, Cadência 12x30 (`M1-a`, `M1-b`, `M2-v1`, `M3-v1`), em
+`build-wesales.md` (seção 2.6.2, nova) e `IMPLEMENTACAO-WORKFLOWS.md` (nós
+`M1.3a`/`M1.3b`/`M2.2`/`M3.2` reescritos com o portão e os dois ramos).
+`biblioteca-mensagens.md` ganhou uma tabela nova marcando os quatro textos
+como "a submeter no Meta Business Manager" — decisão e execução do dono,
+não sai por API. **Escopo desta rodada, decisão e não lacuna esquecida:**
+faltam os pontos de envio abaixo para o mesmo tratamento — `MI-0`/`MI-F`
+(Cadência Inbound, seção 2.10), `RE-1`/`RE-2` (Reengajamento, seção 2.12),
+`NS-1`/`NS-2` (Recuperação de No-show, seção 5.3) e a confirmação mais os
+três lembretes do Pós-agendamento (seção 5, nós 7-10, que nem têm texto
+versionado em `biblioteca-mensagens.md` ainda — pendência a mais, achada só
+ao contar os nós com atenção) — mesmo padrão desta peça, próxima peça deste
+mesmo item. Zero campo e zero tag novos, zero escrita no CRM: item de
+especificação pura, não depende de `APROVADO.md`. Subconta reconfirmada
+nesta execução via `opportunities_search-opportunity`/
+`opportunities_get-pipelines`/`locations_get-custom-fields`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 46 campos, 50 oportunidades (47 `NOVO LEAD` +
+3 `NEGOCIAR`, todas `open`) — sem mudança desde a última rodada; G-03/G-04
+seguem aguardando o dono.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -1416,3 +1487,17 @@ alguém notar, a diferença que justificou promover L-08 e não as outras
 duas. Com isso, nenhuma lacuna do briefing original que se comporta como
 bug ainda represado ficou sem item próprio no roadmap; o que resta segue
 sendo os mesmos três tipos do parágrafo acima.
+
+**G-05 aberto em 21/09/2026, sessão automática seguinte, mesmo dia —
+lacuna nova, achada seguindo a própria instrução deste roadmap ("procurar
+lacuna nova que nenhum item aqui cobre ainda" antes de encerrar sem
+commit).** CRM reconfirmado sem mudança (46 campos, 50 oportunidades, G-03/
+G-04 ainda aguardando o dono) — nada para o sweep de coerência de sempre
+corrigir. A lacuna veio de uma pergunta que nenhuma rodada tinha feito
+ainda: toda mensagem de WhatsApp da operação está especificada como texto
+livre, e o WhatsApp Business API recusa texto livre fora da janela de 24h
+de atendimento — janela que só abre quando o cliente escreve primeiro, o
+que nenhum lead desta base jamais fez. Especificado o primeiro pedaço (a
+Cadência 12x30, motor principal) — faltam os demais pontos de envio para o
+mesmo tratamento, registrados como pendência explícita dentro do próprio
+item.

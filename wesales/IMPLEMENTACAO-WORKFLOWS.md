@@ -945,13 +945,19 @@ para o Mestre de saída apontar, ou se já tem o nó de IA dentro.
 | M1.0 | Wait → Until specific time | 08:45 | M1.1 |
 | M1.1 | If/Else (portão) | `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` E `Opportunity status` é `open` E `Tags` não inclui `nao-perturbe` E `Resultado da tentativa` não é `Não ligar` → M1.2 · None → 3b | |
 | M1.2 | Split | Caminho A 50% · Caminho B 50% | |
-| M1.3a | Send WhatsApp | texto `M1-a` | M1.4a |
+| M1.3a0 | **`WhatsApp: Customer Service Window Check`** (G-05, `build-wesales.md` 2.6.2) | Dentro da janela → M1.3a · Fora da janela → M1.3aT | |
+| M1.3a | Send WhatsApp | texto livre `M1-a` | M1.4a |
+| M1.3aT | Send WhatsApp, modo **Template** | Template Meta `M1-a` (a submeter — `biblioteca-mensagens.md`) | M1.4a |
 | M1.4a | Update Contact Field → Add Contact Tag | `Template usado` = `M1-a` → `toque` | M1.5 |
-| M1.3b | Send WhatsApp | texto `M1-b` | M1.4b |
+| M1.3b0 | **`WhatsApp: Customer Service Window Check`** (G-05, `build-wesales.md` 2.6.2) | Dentro da janela → M1.3b · Fora da janela → M1.3bT | |
+| M1.3b | Send WhatsApp | texto livre `M1-b` | M1.4b |
+| M1.3bT | Send WhatsApp, modo **Template** | Template Meta `M1-b` (a submeter — `biblioteca-mensagens.md`) | M1.4b |
 | M1.4b | Update Contact Field → Add Contact Tag | `Template usado` = `M1-b` → `toque` | M1.5 |
 | M1.5 | Wait → Contact Replied | tempo limite 2h (respondeu → Stop on Response tira do fluxo) | T1 |
 
-Ligue **as duas pontas** do Split ao M1.5 manualmente.
+Ligue **as duas pontas** do Split (M1.3a0/M1.3b0) e **as quatro saídas**
+(M1.4a recebe de M1.3a e M1.3aT; M1.4b recebe de M1.3b e M1.3bT) manualmente.
+Ao M1.5, ligue as duas saídas de M1.4a/M1.4b.
 
 ### Bloco padrão de uma tentativa T{n} — repita 12 vezes
 
@@ -1008,12 +1014,16 @@ Valores por tentativa na tabela seguinte. `{n}` = número; canal = telefone ou W
 | # | Ação | Configuração exata |
 |---|---|---|
 | M2.0 | Wait → Until specific time | 13:30 |
-| M2.1 | If/Else | mesmo portão do M1.1 → M2.2 · None → 3b |
-| M2.2 | Send WhatsApp | texto `M2-v1`, com o Trigger Link `Agendar com o closer` inserido pelo `{}` → Custom Values → Trigger Links |
+| M2.1 | If/Else | mesmo portão do M1.1 → M2.1w · None → 3b |
+| M2.1w | **`WhatsApp: Customer Service Window Check`** (G-05, `build-wesales.md` 2.6.2) | Dentro da janela → M2.2 · Fora da janela → M2.2T |
+| M2.2 | Send WhatsApp | texto livre `M2-v1`, com o Trigger Link `Agendar com o closer` inserido pelo `{}` → Custom Values → Trigger Links → M2.3 |
+| M2.2T | Send WhatsApp, modo **Template** | Template Meta `M2-v1` (a submeter — `biblioteca-mensagens.md`), CTA de URL no lugar do Trigger Link (a confirmar na tela) → M2.3 |
 | M2.3 | Update Contact Field → Add Contact Tag | `Template usado` = `M2-v1` → `toque` → T9 |
 | M3.0 | Wait → Until specific time | 17:45 |
-| M3.1 | If/Else | mesmo portão → M3.2 · None → 3b |
-| M3.2 | Send WhatsApp | texto `M3-v1`, com o Trigger Link |
+| M3.1 | If/Else | mesmo portão → M3.1w · None → 3b |
+| M3.1w | **`WhatsApp: Customer Service Window Check`** (G-05, `build-wesales.md` 2.6.2) | Dentro da janela → M3.2 · Fora da janela → M3.2T |
+| M3.2 | Send WhatsApp | texto livre `M3-v1`, com o Trigger Link → M3.3 |
+| M3.2T | Send WhatsApp, modo **Template** | Template Meta `M3-v1` (a submeter — `biblioteca-mensagens.md`), CTA de URL no lugar do Trigger Link (a confirmar na tela) → M3.3 |
 | M3.3 | Update Contact Field → Add Contact Tag | `Template usado` = `M3-v1` → `toque` |
 | M3.4 | Update Contact Field | `Resultado da tentativa` = vazio |
 | M3.5 | Add Contact Tag | `nutricao-90d` |
