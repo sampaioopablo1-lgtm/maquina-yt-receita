@@ -2,6 +2,36 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Playwright contra a tela da WeSales: bloqueado pela política de rede do ambiente, não pela plataforma — 21/09/2026, ao vivo em chat
+
+O dono pediu para tentar o único caminho ainda não testado para criar
+workflow sem clique humano: automação de navegador (o ambiente tem Chromium
+em `/opt/pw-browsers/chromium` e `playwright@1.56.1` global no Node 22).
+Antes de pedir credenciais, testei se o sandbox alcança a tela:
+
+```
+curl https://app.wesalescrm.com/  →  curl: (56) CONNECT tunnel failed, response 403
+$HTTPS_PROXY/__agentproxy/status  →  recentRelayFailures: connect_rejected,
+    "gateway answered 403 to CONNECT (policy denial)", host app.wesalescrm.com:443
+```
+
+É a **política de rede do ambiente de execução** (escolhida ao criar o
+ambiente no Claude Code on the web — `code.claude.com/docs/en/claude-code-on-the-web`)
+negando o domínio, o mesmo bloqueio que já derruba `help.gohighlevel.com`,
+`highlevel.stoplight.io` e `marketplace.gohighlevel.com` desde o R-09. O
+navegador sairia pelo mesmo proxy, então nem chegaria à página de login —
+credenciais não resolveriam. O conector `GHL CRM` funciona porque passa por
+`mcp-proxy.anthropic.com`, que está na lista de exceções.
+
+**Regra prática:** o caminho Playwright só existe se o dono trocar a
+política de rede do ambiente para liberar `app.wesalescrm.com` (e os
+domínios de assets da HighLevel que a UI carrega) e abrir uma sessão nova.
+Ainda assim seria um piloto num workflow em rascunho, com sessão logada
+fornecida por ele — nunca num publicado. Até lá, o caminho continua sendo
+o manual pelo `IMPLEMENTACAO-WORKFLOWS.md`, com teste por API.
+
+Zero escrita no CRM.
+
 ## "Esperar até uma data dinâmica" não é mais bloqueio: o `Wait` do GHL tem opção `Dynamic` — F-05 fechado (peças 5 e 6) — 21/09/2026, sessão automática
 
 Desde a peça 1 do F-05 (18/09/2026), o roadmap registrava a última
