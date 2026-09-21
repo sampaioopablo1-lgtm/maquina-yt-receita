@@ -584,6 +584,41 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Portão que manda "qualquer outro" para o lado ruim: opção nova de campo nasce com o significado errado — 21/09/2026
+
+O R-18 fechou a lacuna L-08 criando uma opção nova em `Resultado da
+tentativa`: `Desqualificado`, para a ligação atendida que a própria conversa
+mostrou não ter fit. Desenho certo — conta como conexão real, sai por
+`status`, não passa por `AGENDAR`, não cria tarefa de agendar.
+
+O que faltou está num nó **de outro workflow**: o nó 10 do bloco padrão da
+cadência (seções 2.4 e 2.10) decide assim —
+
+> `Atendeu` ou `Pediu retorno` → encerra · `Número errado` ou `Não ligar` →
+> encerra · **qualquer outro** → próxima tentativa
+
+Esse "qualquer outro" faz do nó um portão que **erra para o lado de
+insistir**: toda opção nova no campo nasce, por omissão, significando
+"continue ligando". Então o lead que o SDR acabou de desqualificar receberia
+a tentativa seguinte no dia seguinte — o contrário exato do item. O Mestre de
+saída acabaria removendo o contato (o ramo novo muda `status`), mas só depois
+da janela assíncrona, e o texto do nó continuaria dizendo a coisa errada para
+quem monta na tela.
+
+**A regra, que vale além deste campo:** quando um portão tem um ramo
+"qualquer outro / senão", **esse ramo é o valor-padrão de toda opção que
+alguém criar depois** — e quem cria a opção está olhando outro documento.
+Ao acrescentar valor a um campo que algum `If/Else` consulta, a pergunta é:
+*em que ramo ele cai hoje, sem eu fazer nada?* Se a resposta for o ramo
+perigoso, o portão precisa da linha nova **no mesmo commit** que cria a
+opção.
+
+Corrigido nos dois blocos e no `IMPLEMENTACAO-WORKFLOWS.md`. Registrada também
+a alternativa mais segura por construção, **não aplicada**: inverter o nó —
+listar `Caixa Postal` e `Não atendeu` como os únicos que seguem e mandar todo
+o resto encerrar. Aí opção nova nasce significando "pare", que é o lado
+barato de errar.
+
 ## `All Except Current` protege o workflow atual e corta o de quem o chamou — 21/09/2026
 
 A peça 4 do F-05 trocou um monitor por uma ação nativa, e a ideia é melhor

@@ -522,8 +522,30 @@ o número da tentativa.
 | 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: `Contact Owner` (dinâmico — segue o `Assigned User` do nó 0.7b, R-10, seção 2.14) · Depois: Add Contact Tag `toque` (F-04, seção 2.19 — cada tarefa criada é um toque, alimenta o Contador) |
 | 8 | **Aguardar resultado** | Wait → Condition, com tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: até **18:30 do mesmo dia**. Se a sua versão não tiver Wait por condição, use Wait → Until 18:30 e um If/Else checando o campo — mesmo efeito |
 | 9 | **Remover tag de fila** | Remove Contact Tag | `fila-tel` e `fila-wa` (remova as duas, sempre — barato e evita tag presa) |
-| 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa |
+| 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado`, `Não ligar` ou `Desqualificado` (R-18) → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa. **Só `Caixa Postal` e `Não atendeu` continuam a régua** — a lista é fechada de propósito, ver nota abaixo |
 | 10b | Ramo do tempo limite | Update Contact Field | `Resultado da tentativa` = `Não atendeu` · Add Contact Tag `limpar-tarefas` (a tarefa do dia não foi feita; a rotina horária fecha) |
+
+**Por que o nó 10 lista os resultados que encerram, em vez de listar os que
+continuam (e por que `Desqualificado` entrou nele em 21/09/2026):** o nó
+manda para a próxima tentativa tudo que não reconhece — "qualquer outro".
+Isso faz dele um portão que **erra para o lado de insistir**: toda opção nova
+em `Resultado da tentativa` nasce, por omissão, significando "continue
+ligando". O R-18 criou a opção `Desqualificado`, e sem esta linha um lead que
+o SDR acabou de desqualificar na conversa receberia a tentativa seguinte no
+dia seguinte — exatamente o contrário do que o item foi desenhado para
+resolver. O Mestre de saída (seção 3) acabaria removendo o contato, porque o
+ramo novo muda `status`, mas só depois da janela assíncrona de sempre, e o
+texto do nó continuaria dizendo a coisa errada para quem monta na tela.
+
+**Regra para a próxima opção nova:** hoje só `Caixa Postal` e `Não atendeu`
+continuam a régua. Ao acrescentar uma sétima, oitava opção em `Resultado da
+tentativa`, decida explicitamente em qual dos dois lados ela cai **antes** de
+criá-la na tela — e, se o padrão "qualquer outro → insiste" ficar arriscado
+demais, inverta o nó: liste `Caixa Postal` e `Não atendeu` como os únicos que
+seguem, e mande todo o resto encerrar. A inversão é mais segura por
+construção; ficou como opção registrada, não aplicada, porque mexer num nó
+de uma régua que ainda não foi publicada é barato, mas mudar a forma do
+portão sem necessidade não é.
 
 Detalhe que costuma passar batido: o nó 5 **limpa** `Resultado da tentativa`
 antes de criar a tarefa. Sem isso, o nó 8 vê o resultado da tentativa anterior
@@ -1151,7 +1173,7 @@ usado` = `MI-0`.
 | 7 | Aviso | Internal Notification | Para o SDR: `Lead inbound {{contact.name}} aguardando retorno — TI{n}.` Diferencial sobre o bloco padrão outbound (2.4): lá a fila espera ser vista; aqui o SDR é avisado na hora, o mesmo padrão do F-01 (seção 2.9) e do que o Meetime chama de notificação "independente de onde o SDR esteja" |
 | 8 | Aguardar resultado | Wait → Condition, tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: o delta até a tentativa seguinte da tabela abaixo — não 18:30 fixo, porque numa régua de minutos "esperar até o fim do dia" descaracterizaria a velocidade |
 | 9 | Remover tag de fila | Remove Contact Tag | `fila-tel` e `fila-wa` |
-| 10 | Condição por resultado | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (o Pós-ligação, seção 4, cuida do resto — é canal-agnóstico, já reaproveitado sem alteração) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → próxima tentativa (ou handoff, na TI5) |
+| 10 | Condição por resultado | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (o Pós-ligação, seção 4, cuida do resto — é canal-agnóstico, já reaproveitado sem alteração) · `Número errado`, `Não ligar` ou `Desqualificado` (R-18) → **Remove from Workflow: este** · qualquer outro / tempo limite → próxima tentativa (ou handoff, na TI5) |
 | 10b | Ramo do tempo limite | Update Contact Field | `Resultado da tentativa` = `Não atendeu` · Add Contact Tag `limpar-tarefas` |
 
 Só na T1 (aqui, TI1), repita o par 5c/5d da seção 2.4 (`1ª tentativa em` =

@@ -975,7 +975,7 @@ Valores por tentativa na tabela seguinte. `{n}` = número; canal = telefone ou W
 | 7 | Add Task → Add Contact Tag | título da tabela · vence hoje no horário da tentativa · Atribuir `Contact Owner` → tag `toque` | 8 |
 | 8 | Wait → Condition | `Resultado da tentativa` não está vazio · tempo limite: hoje 18:30 | 9 |
 | 9 | Remove Contact Tag | `fila-tel`, `fila-wa` | 10 |
-| 10 | If/Else | `Resultado da tentativa` é `Atendeu` OU `Pediu retorno` OU `Número errado` OU `Não ligar` → Remove from Workflow (este) · None → 10b | |
+| 10 | If/Else | `Resultado da tentativa` é `Atendeu` OU `Pediu retorno` OU `Número errado` OU `Não ligar` OU **`Desqualificado`** (R-18) → Remove from Workflow (este) · None → 10b. **Só `Caixa Postal` e `Não atendeu` seguem para a tentativa seguinte** — opção nova em `Resultado da tentativa` cai por omissão no lado que insiste, então decida o lado antes de criá-la (`build-wesales.md`, nota do nó 10) | |
 | 10b | If/Else | `Resultado da tentativa` está vazio (tempo limite) → Update `Resultado da tentativa` = `Não atendeu` → Add Tag `limpar-tarefas` · None → próxima tentativa | T{n+1} |
 
 | T | Delta (nó 1) | Horário (nó 2) | Canal | Tag | Título da tarefa |
