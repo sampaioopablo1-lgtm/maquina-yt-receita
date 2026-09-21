@@ -2434,7 +2434,7 @@ condição que cobre os dois:
 | # | Ação | Configuração |
 |---|---|---|
 | 0 | Remove Contact Tag | `novo-lead-estagnado` (F-05, seção 2.20) — **incondicional, antes do portão do nó 1** |
-| 1 | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → **encerra aqui** (não limpa nada). Senão, segue |
+| 1 | If/Else | Etapa da oportunidade **é** `CONECTAR` **E** `status` **é** `open` → **encerra aqui** (não limpa nada). **OU** etapa da oportunidade **é** `NOVO LEAD` → **encerra aqui** (achado de 21/09/2026, ver abaixo). Senão, segue |
 | 2 | Remove from Workflow | `Cadência 12x30` |
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12) |
@@ -2442,6 +2442,22 @@ condição que cobre os dois:
 | 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
+
+**Por que o nó 1 também encerra em `NOVO LEAD` (confirmado por API em
+21/09/2026):** o gatilho 1 dispara na **criação** da oportunidade pela
+Porta de Entrada (seção 1.3) — `Create/Update Opportunity` conta como
+"etapa alterada" para `NOVO LEAD`. A condição original só protegia
+`CONECTAR`+`open`; a chegada em `NOVO LEAD` caía no "senão" e rodava a
+limpeza inteira: nota "Saída de cadência · status: open" 4 segundos depois
+da criação e `limpar-tarefas` em todo lead novo — os 10 leads criados desde
+19/09 nasceram assim (o backfill dos 40 originais foi por `Add to Workflow`
+direto na Porta de Entrada, mesma ação, mesmo efeito esperado — mas não
+carregou a tag, o que sugere que o `Contact Created` e o `Add to Workflow`
+chegam ao gatilho de etapa por caminhos diferentes; não investigado além
+do necessário). Inofensivo hoje (não existe tarefa `[CADENCIA]` para a
+rotina de higiene fechar), mas polui `limpar-tarefas` e o histórico de
+todo lead antes de a cadência começar. Um lead em `NOVO LEAD` nunca tem
+fila para limpar: encerrar ali é sempre correto.
 
 **Por que o nó 0 é incondicional, e não mais uma linha do nó 4 (achado de
 21/09/2026, F-05, seção 2.20):** `novo-lead-estagnado` marca um lead parado
