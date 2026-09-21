@@ -2,6 +2,55 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Um relógio de "24h desde o gatilho" pode medir a tentativa errada quando o mesmo evento se repete várias vezes por lead — 21/09/2026, sessão automática
+
+Desenhando a peça 2 do F-05 (Monitor de Saúde — `fila-tel`/`fila-wa` presa
+mais de 24h), a primeira versão copiou literalmente o mecanismo que já
+validou a peça 1 e o R-02: `Wait` de 24h a partir do gatilho
+(`Contact Tag Added`), depois um portão checando se a tag ainda está
+presente. Funcionou de olho na peça 1 porque `NOVO LEAD` só recebe **um**
+evento relevante por entrada. Aqui não: a tabela 2.5 (`build-wesales.md`,
+seção 2.5) aplica `fila-tel`/`fila-wa` até 12 vezes no mesmo contato, às
+vezes a **menos de 24h** uma tentativa da outra (T1 D1 10:30 → T3 D2
+09:20, 22h50 de distância). Um relógio de 24h disparado pela T1 checaria o
+contato durante a janela em que a T3 já reaplicou a mesma tag de forma
+legítima e recente — o alerta leria "tag presente" e confundiria fila nova
+e saudável com fila velha e travada, gerando falso positivo toda vez que
+duas tentativas ficassem próximas (o que a tabela 2.5 faz de propósito,
+não é caso raro).
+
+**A correção não foi adicionar uma condição — foi trocar o tipo de
+relógio.** Em vez de "espera relativa a partir do disparo" (`Wait → Time
+Delay`), usar "espera até um horário fixo do dia" (`Wait → Until specific
+time`, 19:00 — 30 min depois do prazo de 18:30 que o próprio nó 9 do bloco
+padrão já respeita). Como a tag só pode legitimamente existir entre o
+início da tentativa e 18:30 do **mesmo dia**, ancorar a checagem num
+horário do calendário em vez de um delta a partir do gatilho garante que
+cada instância do monitor só vê o resultado do **seu próprio** dia,
+independente de quantas outras tentativas dispararem o mesmo gatilho depois
+dela.
+
+**Alternativa cogitada e descartada, registrada para não ser retentada:**
+snapshotar `Tentativa nº` num campo novo no momento do gatilho, e comparar
+contra o valor atual 24h depois. Não funciona aqui pelo mesmo motivo que a
+seção 2.4 já documenta para `WA não atendidas seguidas` ("um contador com
+dois donos sempre diverge"): com `Allow Re-entry` ligado e duas
+tentativas próximas, duas instâncias do workflow escrevem no **mesmo**
+campo do contato quase ao mesmo tempo — a segunda sobrescreve o snapshot da
+primeira antes da primeira terminar de esperar, e a comparação final lê o
+valor errado.
+
+**Regra prática, generalizável:** antes de copiar um mecanismo de "relógio
+por evento" (já usado no R-02, na peça 1 do F-05 e no SLA do Closer) para
+um gatilho novo, perguntar "este evento pode disparar mais de uma vez para
+o mesmo contato dentro da janela de espera do relógio?" Se a resposta for
+sim, uma espera **relativa** ao disparo é a peça errada — o disparo mais
+recente sempre corrompe a leitura do mais antigo. A peça certa é ancorar a
+espera num ponto fixo do calendário (hora do dia, ou uma data gravada em
+campo que **nenhuma** outra instância reescreve) que todas as instâncias
+concordam em checar, não uma contagem que cada instância mede a partir de
+si mesma.
+
 ## Os dados de produção são a terceira auditoria — e acharam o que texto e tela não achavam — 21/09/2026, a pedido do dono
 
 Pedido ao vivo: "consulte o que foi configurado no CRM, atualize os

@@ -215,7 +215,7 @@ principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
 Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
-## Etapa 3 — Tags (16, uma pendente de aprovação)
+## Etapa 3 — Tags (17, duas pendentes de aprovação)
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -235,6 +235,7 @@ Detalhe completo, e por que não contam nos "44" acima (regra da contagem
 | T-14 | `pausado` | Regras de pausa (R-09): aplicada manualmente pelo SDR para represar as tentativas de **um** lead sem ser opt-out; checada no nó 2.5 (seção 2.4) e 1.5 (seção 2.10) do `build-wesales.md`, limpa pelo Mestre de saída (seção 3) e filtra a lista 8.15 |
 | T-15 | `toque` | Teto de toques por semana (F-04): pulso, não estado — todo nó que cria tarefa de ligação ou manda mensagem automática aplica esta tag, o workflow "Contador de Toques" (seção 2.19 do `build-wesales.md`) reage a ela, soma em `Toques na semana` (C-26) e a remove no mesmo instante; nunca fica presente por mais que alguns segundos |
 | T-16 | `novo-lead-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.20 do `build-wesales.md`): aplicada pelo workflow "Lead Esquecido em NOVO LEAD" quando a oportunidade passa 24h em `NOVO LEAD` sem ser promovida nem descartada; limpa incondicionalmente pelo nó 0 novo do Mestre de saída (seção 3) e filtra a lista 8.20 |
+| T-17 | `fila-travada` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.21 do `build-wesales.md`): aplicada pelo workflow "Fila Travada" quando `fila-tel`/`fila-wa` segue presente depois do fim do dia em que foi aplicada (sinal de que o nó 9 do bloco padrão, seção 2.4, não rodou); limpa pelo próprio workflow (nó 0, na tentativa seguinte) e pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de cadência de verdade) e filtra a lista 8.21 |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -250,7 +251,8 @@ do F-05 em 21/09/2026) ainda não saiu por API** — nasce `[ ]` em
 `APROVADO.md`, não `[x]`: a lição do incidente de 19/09/2026 com a T-15
 (a própria rotina escrevendo o próprio `[x]` não é aprovação, é a rotina se
 autorizando) é para ficar, e vale para toda tag nova a partir de agora, não
-só para aquela.
+só para aquela. **T-17 (`fila-travada`, nascida do F-05 peça 2 nesta
+rodada) segue a mesma regra desde o nascimento** — nasce `[ ]`, não `[x]`.
 
 ## O que eu preciso de você para executar
 

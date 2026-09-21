@@ -2398,6 +2398,95 @@ número na mão — o que faltou até o G-03 ser achado manualmente.
 
 ---
 
+## 2.21 Monitor de Saúde da Operação — F-05 (peça 2 de N: `fila-tel`/`fila-wa` presa)
+
+**Por quê:** a segunda das quatro invariantes que ficaram para depois na
+peça 1 (seção 2.20) — e, das quatro, a única que **não** é "SDR não decidiu
+a tempo": se `fila-tel` ou `fila-wa` ainda está no contato mais de um dia
+depois de aplicada, é porque o nó 9 do bloco padrão (seção 2.4, "remova as
+duas, sempre") **não rodou** — instância de workflow perdida, travada ou
+alguma falha do motor do GHL, não lentidão humana. É o mesmo tipo de
+"estrago silencioso" da peça 1, só que aqui o sintoma é o oposto: em vez de
+um lead nunca entrar em fila, é uma fila que nunca some — o SDR liga
+achando que a tarefa ainda vale, ou a lista `Fila Telefone Hoje`/`Fila
+WhatsApp Hoje` (8.2-8.3) mostra um contato que já devia ter saído dela há
+dias.
+
+Pesquisa de mercado: a mesma da peça 1 vale aqui, mesma classe de
+invariante (saúde do motor, não do funil) — nenhuma das quatro plataformas
+do enunciado do projeto expõe alarme proativo para isso; é reporting de
+engenharia interna, não recurso de sales engagement.
+
+**Achado ao desenhar — por que este workflow não espera 24h fixas a partir
+do momento em que a tag foi aplicada, ao contrário da peça 1 e do R-02:**
+a primeira versão deste desenho fazia exatamente isso (`Wait` 24h desde o
+gatilho, depois checava se a tag ainda estava lá) e tinha um bug real de
+falso positivo. A tabela 2.5 encaixa mais de uma tentativa no mesmo dia e
+em dias consecutivos (T1 D1 10:30 e T3 D2 09:20, por exemplo, ficam a 22h50
+uma da outra — menos de 24h). Um relógio de 24h disparado pela T1 checaria
+o contato às 10:30 de D2, quando a T3 já pode estar com `fila-tel` aplicada
+de novo, a menos de 1h de vida, sem nada de errado — o alerta da T1
+confundiria a fila **nova e saudável** da T3 com a fila **velha e travada**
+que ele deveria estar medindo. Como o nó 9 do bloco padrão sempre roda
+**até 18:30 do mesmo dia** em que a tag foi aplicada (nó 8, mesmo tempo
+limite), a checagem certa não é "24h depois do gatilho", é "depois das
+18:30 de hoje" — ancorada no relógio do dia, não numa contagem relativa a
+partir do disparo. Isso elimina a janela de confusão entre tentativas
+vizinhas sem precisar de campo novo para guardar "qual tentativa disparou
+este alerta" (uma alternativa cogitada e descartada: um campo de
+`NUMERICAL` copiando `Tentativa nº` no gatilho tem o mesmo problema de
+"contador com dois donos" já documentado na seção 2.4 — duas instâncias
+deste workflow rodando ao mesmo tempo, uma por tentativa próxima,
+sobrescreveriam o campo uma da outra antes da comparação final).
+
+### Gatilhos
+1. **Contact Tag Added** — `fila-tel`
+2. **Contact Tag Added** — `fila-wa`
+
+(dois gatilhos no mesmo workflow, em OR — o mesmo recurso já usado e
+confirmado no Mestre de saída, seção 3: "GHL aceita mais de um gatilho no
+mesmo workflow, cada um em OR")
+
+### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada tentativa que aplica a tag merece seu próprio relógio, mesmo raciocínio do R-02 (seção 2.11) e da peça 1 (seção 2.20) |
+| Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, não mensagem ao lead |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 0 | Limpeza preventiva | Remove Contact Tag | `fila-travada` — barato mesmo se ausente (mesmo raciocínio do nó 3b/5d da seção 2.4). Se este gatilho disparou de novo é porque uma tentativa nova aplicou `fila-tel`/`fila-wa`, prova de que a cadência não está mais parada no ciclo que gerou um alerta anterior, se houve algum |
+| 1 | Aguardar | Wait → Until specific time | 19:00 do mesmo dia (30 min de folga depois das 18:30, o prazo do nó 8 da seção 2.4 — nenhuma tentativa da tabela 2.5 aplica a tag depois das 17:20, então "hoje às 19:00" nunca cai no passado quando o gatilho dispara) |
+| 2 | Portão | If/Else | Tag `fila-tel` **presente** OU tag `fila-wa` **presente** → segue (o nó 9 da tentativa que disparou este relógio não rodou até o fim do próprio dia). Senão → **encerra** (a fila foi limpa a tempo — caminho feliz) |
+| 3 | Fila | Add Contact Tag | `fila-travada` |
+| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} está com fila-tel/fila-wa presa desde antes de hoje às 18:30 — o nó 9 da cadência não rodou. Tentativa nº {{contact.tentativa_n}}.` |
+| 5 | Registro | Add Note | `Alerta de saúde: fila-tel/fila-wa travada, nó 9 não removeu até 18:30 · {{right_now}}` |
+
+**Limpeza:** dupla, do mesmo jeito que o R-02 já usa (seção 2.11) — o nó 0
+deste próprio workflow limpa no caminho em que a cadência volta a andar (uma
+tentativa nova dispara o gatilho de novo), e o nó 4 do Mestre de saída
+(seção 3, atualizado nesta rodada) limpa no caminho em que o lead sai de
+`CONECTAR`/`open` de vez, pela via normal (o gestor resolve a instância
+travada movendo o lead, ou ele sai por outro motivo enquanto isso). **Caso
+não coberto por nenhum dos dois, documentado e não escondido:** se o
+gestor remover `fila-tel`/`fila-wa` na mão sem o lead nunca mais gerar
+tentativa nova nem sair de `CONECTAR`/`open` — ou seja, a instância travada
+morreu de vez e ninguém tirou o lead da etapa —, `fila-travada` fica presa
+para sempre, sem afetar mais nada (não é checada em nenhum portão da
+cadência, só filtra a lista 8.21). Esse cenário-limite é exatamente o que a
+próxima invariante da peça 1 (seção 2.20), `CONECTAR` sem tentativa há 7
+dias, existe para pegar — cadência realmente morta, não só uma tentativa
+travada.
+
+**Pronto quando (peça 2 do F-05):** `fila-tel`/`fila-wa` presente depois do
+fim do dia em que foi aplicada gera aviso ao gestor sozinho, sem depender
+de alguém abrir a fila do dia e notar um contato que não devia mais estar
+lá.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
@@ -2439,7 +2528,7 @@ condição que cobre os dois:
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
 
@@ -2535,6 +2624,12 @@ motivo de `fila-tel`/`fila-wa` estarem lá: nasce ao entrar em `CONECTAR`
 pela reativação e não tem por que sobreviver a uma saída dela, qualquer que
 seja o resultado (conectou, número errado, não ligar ou esgotou as 4
 tentativas).
+`fila-travada` (F-05, seção 2.21) entrou no nó 4 por um motivo diferente de
+`novo-lead-estagnado` (que precisou do nó 0 incondicional, acima): o alerta
+de fila travada se resolve quando o lead sai de `CONECTAR`/`open` de
+verdade — exatamente a transição que este nó 4 já alcança pela via normal,
+ao contrário do caso de `NOVO LEAD` → `CONECTAR`, que o portão do nó 1 trata
+como no-op. Não precisa de nó extra: a limpeza cai na lista existente.
 
 ---
 
@@ -3446,6 +3541,20 @@ estagnado há mais tempo é quem mais precisa de alguém decidir promover ou
 descartar. A tag só existe porque o workflow da seção 2.20 (F-05) já
 esperou 24h e conferiu de novo antes de aplicá-la — a lista não faz
 conta nenhuma, só lê a marca.
+
+### 8.21 `Saúde — Fila Travada` — F-05
+| Item | Configuração |
+|---|---|
+| Filtros | tag `fila-travada` presente |
+| Colunas | Nome · Telefone · Etapa atual · `Tentativa nº` · `Resultado da tentativa` |
+| Ordenação | Nenhuma especial — a lista deve ficar vazia na maior parte do tempo; quando tiver linha, é para o gestor abrir agora, não para priorizar entre várias |
+
+A tag só existe porque o workflow da seção 2.21 (F-05, peça 2) já esperou
+até o fim do dia da tentativa e conferiu de novo antes de aplicá-la — a
+lista, como a 8.20, não faz conta nenhuma, só lê a marca. Diferente de
+8.1-8.3 (filas normais, esperadas ter contato todo dia), esta lista é um
+sensor de defeito: qualquer linha aqui é uma tentativa cujo nó 9 (seção
+2.4) não rodou.
 
 ---
 
