@@ -2,6 +2,46 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## As cinco cópias v2 entraram no ar — e a troca derrubou três workflows antes de dar certo — 22/09/2026
+
+Decisão tomada: trocar. Os cinco publicados defeituosos foram **desligados**
+(status `draft`, nenhum nó alterado — a regra do dono foi respeitada) e as
+cópias corrigidas ligadas no lugar. Reversível com um clique em cada.
+
+| Agora no ar | O que corrige |
+|---|---|
+| `Interceptação de Sinal — Clique v2` | o original aponta para um Trigger Link inexistente: **nunca disparou** |
+| `Interceptação de Sinal — Resposta v2` | portão de opt-out; sem ele "pare de mandar mensagem" virava tarefa "ligar agora" |
+| `Pós-agendamento v2` | a régua de qualificação (0–100) que **nunca existiu** — provada somando 93 no contato de teste |
+| `Mestre de saída v2` | não marca mais `limpar-tarefas` em lead que acabou de chegar |
+| `Pós-ligação v2` | 4 nós de Math que escreviam em campo nenhum |
+
+### O erro que quase custou caro: troca sem rollback
+
+Na primeira tentativa desliguei os cinco originais e **três cópias falharam
+ao publicar**. Resultado: `Interceptação — Resposta` e `Pós-agendamento`,
+que estavam funcionando, ficaram **fora do ar**. Religados na mão em
+seguida.
+
+**Regra que fica: toda troca precisa de rollback no mesmo passo.** O script
+agora religa o original automaticamente se a cópia não subir — e foi
+exatamente isso que salvou o `Pós-agendamento` na segunda rodada.
+
+### Dois defeitos do clonador, que só a publicação revela
+
+1. **`transitions` não era remapeado.** Nó multi-path (`find_opportunity`)
+   guarda em `attributes.transitions[].id` a referência aos nós do tipo
+   `transition`. O clone trocava o id do nó e deixava a referência órfã:
+   *"Transition node id X has no match"*. Era isso que derrubava os três.
+2. **Nó alcançado só por `goto` não pode ter pai.** Ao inserir a régua no
+   meio da cadeia, a nota final deixou de vir logo depois do nó anterior.
+   Com `parentKey` apontando para o antecessor antigo a publicação recusa;
+   apontando para o `goto` também (*"parentKey points to ... (Go To)"*).
+   A forma aceita é **sem `parentKey` e sem `parent`**.
+
+Nenhum dos dois aparece no salvamento do rascunho. Só na publicação.
+
+
 ## Revisão dos workflows que já existiam: três defeitos, um deles apagava a régua inteira — 22/09/2026
 
 A pedido do dono, revisei os publicados que não foram montados nesta

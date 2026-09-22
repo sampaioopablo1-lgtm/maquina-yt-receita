@@ -103,6 +103,14 @@ zera = g.field_step(NOTA, "Nota de qualificação", 0, "numerical")
 regua = g.montar([zera] + arvore, parent=antes.get("parent"),
                  parent_key=antes["id"])
 antes["next"] = zera["id"]
+# a nota deixou de vir logo depois de `antes`: agora ela e alcancada pelos
+# gotos da regua. O parentKey dela tem de apontar para um predecessor real,
+# senao a publicacao recusa ("parentKey points to ...").
+# no alcancado SO por goto nao tem pai na cadeia: goto nao pode ser pai
+# ("parentKey points to ... (Go To)") e o antecessor antigo agora aponta
+# para a regua.
+alvo.pop("parentKey", None)
+alvo.pop("parent", None)
 
 novo = tpl + regua
 gat = [{"status": "draft", "schedule_config": {}, "type": "appointment",

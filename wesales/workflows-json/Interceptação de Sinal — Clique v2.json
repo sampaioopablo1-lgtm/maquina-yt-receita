@@ -5,20 +5,20 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Interceptação de Sinal — Clique v2",
-    "version": 2,
+    "version": 3,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/30b5fc0d-a955-4a80-8b28-a43a37475f83/2",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F30b5fc0d-a955-4a80-8b28-a43a37475f83%2F2?alt=media&token=feffb3f7-03bc-417b-9fe3-57fe09695499",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/30b5fc0d-a955-4a80-8b28-a43a37475f83/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F30b5fc0d-a955-4a80-8b28-a43a37475f83%2F3?alt=media&token=cacd9abc-c5df-4024-9adb-d909242d5097",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "meta": null,
     "createdAt": "2026-09-22T01:20:42.111Z",
-    "updatedAt": "2026-09-22T01:20:44.392Z",
+    "updatedAt": "2026-09-22T12:40:52.309Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -35,7 +35,7 @@
     "workflowData": {
       "templates": [
         {
-          "id": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "id": "e940cc9e-d2f7-4981-ad82-3c2d94cc2383",
           "type": "find_opportunity",
           "name": "Find opportunity",
           "attributes": {
@@ -54,7 +54,7 @@
             "convertToMultipath": true,
             "transitions": [
               {
-                "id": "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+                "id": "8a8baf60-5f7d-4beb-967a-df733ab1b1ec",
                 "name": "Opportunity Found",
                 "fields": [],
                 "meta": {
@@ -63,7 +63,7 @@
                 "conditionType": "pre-defined"
               },
               {
-                "id": "0c8e21f6-5dc5-40a2-810d-705842de76f5",
+                "id": "19e5a9e3-bcc6-4d30-8d1e-0f7480175934",
                 "name": "Opportunity Not Found",
                 "fields": [],
                 "meta": {
@@ -78,30 +78,30 @@
           "cat": "multi-path",
           "workflowsActionType": "INTERNAL",
           "next": [
-            "c82aecfd-b991-4b61-b19d-8fea059e3f3e",
-            "8057e17f-f7b8-420c-89cf-02a73ba9ecd3"
+            "8a8baf60-5f7d-4beb-967a-df733ab1b1ec",
+            "19e5a9e3-bcc6-4d30-8d1e-0f7480175934"
           ]
         },
         {
-          "id": "c82aecfd-b991-4b61-b19d-8fea059e3f3e",
-          "parentKey": "7d3a33e7-e537-4a55-9d43-003880220c45",
-          "parent": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "id": "8a8baf60-5f7d-4beb-967a-df733ab1b1ec",
+          "parentKey": "e940cc9e-d2f7-4981-ad82-3c2d94cc2383",
+          "parent": "e940cc9e-d2f7-4981-ad82-3c2d94cc2383",
           "type": "transition",
           "name": "Opportunity Found",
           "attributes": {},
           "order": 1,
           "cat": "transition",
-          "next": "82d099af-10f4-4af2-a0fe-8258e3ff95c1"
+          "next": "3f62735b-cb1b-4110-a372-4bae6bfcb621"
         },
         {
-          "id": "82d099af-10f4-4af2-a0fe-8258e3ff95c1",
-          "parent": "c82aecfd-b991-4b61-b19d-8fea059e3f3e",
+          "id": "3f62735b-cb1b-4110-a372-4bae6bfcb621",
+          "parent": "8a8baf60-5f7d-4beb-967a-df733ab1b1ec",
           "order": 0,
           "attributes": {
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "0f36bd22-7f45-476b-8226-8d86826b7362",
+                "id": "c1d2408b-3d65-40b9-8627-89a868eaf235",
                 "name": "Branch",
                 "segments": [
                   {
@@ -161,16 +161,16 @@
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "0f36bd22-7f45-476b-8226-8d86826b7362",
-            "a9e16854-d8d5-4fd7-b4c3-d15bb94cec42"
+            "c1d2408b-3d65-40b9-8627-89a868eaf235",
+            "6cc4cb32-c067-48f0-a7a7-b15f7077f7f3"
           ],
           "comments": [],
           "nodeType": "condition-node",
-          "parentKey": "c82aecfd-b991-4b61-b19d-8fea059e3f3e"
+          "parentKey": "8a8baf60-5f7d-4beb-967a-df733ab1b1ec"
         },
         {
-          "id": "0f36bd22-7f45-476b-8226-8d86826b7362",
-          "parent": "82d099af-10f4-4af2-a0fe-8258e3ff95c1",
+          "id": "c1d2408b-3d65-40b9-8627-89a868eaf235",
+          "parent": "3f62735b-cb1b-4110-a372-4bae6bfcb621",
           "order": 1,
           "attributes": {
             "if": false,
@@ -181,23 +181,23 @@
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
-          "next": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "next": "c926ba5a-3ddb-41f8-99fa-aef4c6b5438e",
           "sibling": [
-            "a9e16854-d8d5-4fd7-b4c3-d15bb94cec42"
+            "6cc4cb32-c067-48f0-a7a7-b15f7077f7f3"
           ],
           "comments": [],
           "nodeType": "branch-yes",
-          "parentKey": "82d099af-10f4-4af2-a0fe-8258e3ff95c1"
+          "parentKey": "3f62735b-cb1b-4110-a372-4bae6bfcb621"
         },
         {
-          "id": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
-          "parent": "0f36bd22-7f45-476b-8226-8d86826b7362",
+          "id": "c926ba5a-3ddb-41f8-99fa-aef4c6b5438e",
+          "parent": "c1d2408b-3d65-40b9-8627-89a868eaf235",
           "order": 0,
           "attributes": {
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "cf3e1138-a035-4dc1-897f-1251bfddd5af",
+                "id": "3139d930-78fd-4c62-9c79-d9d21d7a9677",
                 "name": "Branch",
                 "segments": [
                   {
@@ -259,16 +259,16 @@
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "cf3e1138-a035-4dc1-897f-1251bfddd5af",
-            "be4bad47-4f9c-4304-b777-680d538a82a1"
+            "3139d930-78fd-4c62-9c79-d9d21d7a9677",
+            "141b970d-dd21-40f1-b03a-eeff661fa1db"
           ],
           "comments": [],
           "nodeType": "condition-node",
-          "parentKey": "0f36bd22-7f45-476b-8226-8d86826b7362"
+          "parentKey": "c1d2408b-3d65-40b9-8627-89a868eaf235"
         },
         {
-          "id": "cf3e1138-a035-4dc1-897f-1251bfddd5af",
-          "parent": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "id": "3139d930-78fd-4c62-9c79-d9d21d7a9677",
+          "parent": "c926ba5a-3ddb-41f8-99fa-aef4c6b5438e",
           "order": 1,
           "attributes": {
             "if": false,
@@ -280,15 +280,15 @@
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "be4bad47-4f9c-4304-b777-680d538a82a1"
+            "141b970d-dd21-40f1-b03a-eeff661fa1db"
           ],
           "comments": [],
           "nodeType": "branch-yes",
-          "parentKey": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0"
+          "parentKey": "c926ba5a-3ddb-41f8-99fa-aef4c6b5438e"
         },
         {
-          "id": "be4bad47-4f9c-4304-b777-680d538a82a1",
-          "parent": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "id": "141b970d-dd21-40f1-b03a-eeff661fa1db",
+          "parent": "c926ba5a-3ddb-41f8-99fa-aef4c6b5438e",
           "order": 1,
           "attributes": {
             "else": true
@@ -296,17 +296,17 @@
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
-          "next": "b0ea38cd-3b72-4dba-a15f-3e0681314458",
+          "next": "b04fa9df-ce11-4605-9794-3fbebb541678",
           "sibling": [
-            "cf3e1138-a035-4dc1-897f-1251bfddd5af"
+            "3139d930-78fd-4c62-9c79-d9d21d7a9677"
           ],
           "comments": [],
           "nodeType": "branch-no",
-          "parentKey": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0"
+          "parentKey": "c926ba5a-3ddb-41f8-99fa-aef4c6b5438e"
         },
         {
-          "id": "b0ea38cd-3b72-4dba-a15f-3e0681314458",
-          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "id": "b04fa9df-ce11-4605-9794-3fbebb541678",
+          "parent": "141b970d-dd21-40f1-b03a-eeff661fa1db",
           "order": 0,
           "attributes": {
             "type": "update_contact_field",
@@ -323,12 +323,12 @@
           },
           "name": "Update contact field",
           "type": "update_contact_field",
-          "next": "447fbb64-2cae-4558-807c-17986e01fc93",
-          "parentKey": "be4bad47-4f9c-4304-b777-680d538a82a1"
+          "next": "856a3160-00b9-4121-a3f8-7464c5d2d36d",
+          "parentKey": "141b970d-dd21-40f1-b03a-eeff661fa1db"
         },
         {
-          "id": "447fbb64-2cae-4558-807c-17986e01fc93",
-          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "id": "856a3160-00b9-4121-a3f8-7464c5d2d36d",
+          "parent": "141b970d-dd21-40f1-b03a-eeff661fa1db",
           "order": 1,
           "attributes": {
             "type": "update_contact_field",
@@ -345,12 +345,12 @@
           },
           "name": "Update contact field",
           "type": "update_contact_field",
-          "next": "cfd90b94-ba7d-412c-94f8-50ce0a9b6ea0",
-          "parentKey": "b0ea38cd-3b72-4dba-a15f-3e0681314458"
+          "next": "4d32be0f-dc6f-46c0-8036-c3bea42a28a2",
+          "parentKey": "b04fa9df-ce11-4605-9794-3fbebb541678"
         },
         {
-          "id": "cfd90b94-ba7d-412c-94f8-50ce0a9b6ea0",
-          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "id": "4d32be0f-dc6f-46c0-8036-c3bea42a28a2",
+          "parent": "141b970d-dd21-40f1-b03a-eeff661fa1db",
           "order": 2,
           "attributes": {
             "tags": [
@@ -359,13 +359,13 @@
           },
           "name": "Add Tag",
           "type": "add_contact_tag",
-          "next": "ca51c38f-cba7-416e-b36c-29963fe02425",
-          "parentKey": "447fbb64-2cae-4558-807c-17986e01fc93"
+          "next": "76c9d406-4f74-43a4-8168-81e4ac82a1fb",
+          "parentKey": "856a3160-00b9-4121-a3f8-7464c5d2d36d"
         },
         {
-          "id": "ca51c38f-cba7-416e-b36c-29963fe02425",
+          "id": "76c9d406-4f74-43a4-8168-81e4ac82a1fb",
           "stepIndex": 1,
-          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "parent": "141b970d-dd21-40f1-b03a-eeff661fa1db",
           "order": 3,
           "attributes": {
             "title": "[CADENCIA] Sinal: clicou no link — ligar agora",
@@ -379,13 +379,13 @@
           },
           "name": "Sinal clique",
           "type": "task-notification",
-          "next": "863d2a34-55a7-465f-b6f7-5cff61902316",
+          "next": "d22830d2-fc90-4bd1-b8c4-89a07125b43b",
           "workflowsActionType": "INTERNAL",
-          "parentKey": "cfd90b94-ba7d-412c-94f8-50ce0a9b6ea0"
+          "parentKey": "4d32be0f-dc6f-46c0-8036-c3bea42a28a2"
         },
         {
-          "id": "863d2a34-55a7-465f-b6f7-5cff61902316",
-          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "id": "d22830d2-fc90-4bd1-b8c4-89a07125b43b",
+          "parent": "141b970d-dd21-40f1-b03a-eeff661fa1db",
           "order": 4,
           "attributes": {
             "type": "whatsapp",
@@ -399,12 +399,12 @@
           },
           "name": "Internal Notification",
           "type": "internal_notification",
-          "next": "a36a8353-3588-42b2-a701-b71086c2d169",
-          "parentKey": "ca51c38f-cba7-416e-b36c-29963fe02425"
+          "next": "1c6b9276-efac-45ab-8972-18e64026434f",
+          "parentKey": "76c9d406-4f74-43a4-8168-81e4ac82a1fb"
         },
         {
-          "id": "a36a8353-3588-42b2-a701-b71086c2d169",
-          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "id": "1c6b9276-efac-45ab-8972-18e64026434f",
+          "parent": "141b970d-dd21-40f1-b03a-eeff661fa1db",
           "order": 5,
           "attributes": {
             "html": "<p style=\"padding-left: 0px!important;\">Sinal: clique em link</p>",
@@ -413,11 +413,11 @@
           },
           "name": "Note",
           "type": "add_notes",
-          "parentKey": "863d2a34-55a7-465f-b6f7-5cff61902316"
+          "parentKey": "d22830d2-fc90-4bd1-b8c4-89a07125b43b"
         },
         {
-          "id": "a9e16854-d8d5-4fd7-b4c3-d15bb94cec42",
-          "parent": "82d099af-10f4-4af2-a0fe-8258e3ff95c1",
+          "id": "6cc4cb32-c067-48f0-a7a7-b15f7077f7f3",
+          "parent": "3f62735b-cb1b-4110-a372-4bae6bfcb621",
           "order": 1,
           "attributes": {
             "else": true
@@ -426,16 +426,16 @@
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "0f36bd22-7f45-476b-8226-8d86826b7362"
+            "c1d2408b-3d65-40b9-8627-89a868eaf235"
           ],
           "comments": [],
           "nodeType": "branch-no",
-          "parentKey": "82d099af-10f4-4af2-a0fe-8258e3ff95c1"
+          "parentKey": "3f62735b-cb1b-4110-a372-4bae6bfcb621"
         },
         {
-          "id": "8057e17f-f7b8-420c-89cf-02a73ba9ecd3",
-          "parentKey": "7d3a33e7-e537-4a55-9d43-003880220c45",
-          "parent": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "id": "19e5a9e3-bcc6-4d30-8d1e-0f7480175934",
+          "parentKey": "e940cc9e-d2f7-4981-ad82-3c2d94cc2383",
+          "parent": "e940cc9e-d2f7-4981-ad82-3c2d94cc2383",
           "type": "transition",
           "name": "Opportunity Not Found",
           "attributes": {},
@@ -477,14 +477,14 @@
       "name": "Link De Acionamento Clicado",
       "belongs_to": "workflow",
       "schedule_config": {},
-      "targetActionId": "7d3a33e7-e537-4a55-9d43-003880220c45",
       "advanceCanvasMeta": {
         "position": {
           "x": 57.5,
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T01:20:43.920Z"
+      "targetActionId": "e940cc9e-d2f7-4981-ad82-3c2d94cc2383",
+      "date_updated": "2026-09-22T12:40:51.201Z"
     }
   ]
 }

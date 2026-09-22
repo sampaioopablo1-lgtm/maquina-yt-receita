@@ -40,6 +40,14 @@ def remapear(templates: list) -> list:
         if isinstance(a.get("branches"), list):
             a["branches"] = [dict(b, id=tr(b["id"])) if b.get("id") else b
                              for b in a["branches"]]
+        # multi-path (find_opportunity, wait hibrido): cada entrada de
+        # `transitions` aponta para um NO do tipo `transition`. Sem remapear
+        # aqui, o no muda de id e a referencia fica orfa - a publicacao
+        # recusa com "Transition node id X has no match". Foi o que derrubou
+        # tres workflows em 22/09/2026.
+        if isinstance(a.get("transitions"), list):
+            a["transitions"] = [dict(t, id=tr(t["id"])) if t.get("id") else t
+                                for t in a["transitions"]]
         s["attributes"] = a
         # meta de canvas do original nao serve na copia
         s.pop("advanceCanvasMeta", None)

@@ -5,20 +5,20 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Interceptação de Sinal — Resposta v2",
-    "version": 2,
+    "version": 3,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/2",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F2?alt=media&token=6e0c8b22-d226-47f7-82e8-9d2117828bbc",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F3?alt=media&token=76fc7a4b-b80a-4f62-9e4e-11b23840e2bc",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "meta": null,
     "createdAt": "2026-09-22T01:20:45.605Z",
-    "updatedAt": "2026-09-22T01:20:47.952Z",
+    "updatedAt": "2026-09-22T12:40:56.162Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -35,14 +35,14 @@
     "workflowData": {
       "templates": [
         {
-          "id": "5ea3fad4-b246-4fe8-b085-b0ababac67e0",
+          "id": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
           "order": 0,
           "name": "Pediu para parar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "a970c39a-1093-4c32-a25a-64141ccabded",
-            "ee4d27ea-7dfb-41c9-9205-a0b60860b356"
+            "c0b61287-be46-46cb-8af0-42744e5da63f",
+            "fb02a090-a09b-468c-bb73-f9873124df68"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -50,11 +50,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "a970c39a-1093-4c32-a25a-64141ccabded",
+                "id": "c0b61287-be46-46cb-8af0-42744e5da63f",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "8e762306-08a8-4f6e-9c63-57694c91df65",
+                    "__segmentId": "65eee503-df57-4747-a7ae-1bd17383514c",
                     "operator": "or",
                     "conditions": [
                       {
@@ -62,7 +62,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "pare de",
-                        "__conditionId": "36b9d95d-7ad0-4247-babb-3198a76bb881",
+                        "__conditionId": "2e5c6a69-b368-4640-a952-dff8fd9c63bf",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -97,7 +97,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "pare com",
-                        "__conditionId": "18bb923f-0ec3-4f48-988d-6f6349b6a904",
+                        "__conditionId": "36be61f8-c2b4-4d64-a844-0a4b3c35feda",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -132,7 +132,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "para de mandar",
-                        "__conditionId": "2dff87a5-a53c-406a-a03f-c248740bd613",
+                        "__conditionId": "1cb20dac-21a9-4d8f-946a-bb9355e9d1ac",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -167,7 +167,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "para de me mandar",
-                        "__conditionId": "01f17765-9ada-4273-9a63-ff6bc303e47b",
+                        "__conditionId": "5f75bb9a-aa39-4f66-bafa-73c9d731b15d",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -202,7 +202,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não quero mais mensagem",
-                        "__conditionId": "c11c2a72-2b1f-4fbc-b498-8d272e0bd4d8",
+                        "__conditionId": "c6013928-44b7-414d-9d9c-54406c7a47b5",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -237,7 +237,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não quero mais contato",
-                        "__conditionId": "31b40321-2495-4fe8-866b-94b1f3f2f07e",
+                        "__conditionId": "0d63cfc1-6b1c-42f2-924f-540de34c848c",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -272,7 +272,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não quero receber mensagem",
-                        "__conditionId": "3472c39d-f69c-4056-99d9-5a2b6f6b5164",
+                        "__conditionId": "efa0ce8c-530f-4a92-b35f-bbbdaf3a3950",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -307,7 +307,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não quero receber mais",
-                        "__conditionId": "dfc717e1-321d-4dc0-85cb-70b649b2e0e9",
+                        "__conditionId": "cbacc984-056f-4553-9d20-ec5ea6e03bf2",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -342,7 +342,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "remove meu contato",
-                        "__conditionId": "805ed996-3d03-46e6-ba80-1846c26c59c4",
+                        "__conditionId": "ef016e7f-2c93-4105-9be5-8644dce8a128",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -377,7 +377,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "tira meu número",
-                        "__conditionId": "bf663b58-9d5d-4610-b9a5-50cdf5e6b2bb",
+                        "__conditionId": "31bd4e87-7782-467e-951e-c321694c0680",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -412,7 +412,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "descadastr",
-                        "__conditionId": "52c6a733-a442-4653-871f-e79c04df26cb",
+                        "__conditionId": "d1d82e8c-16db-4f7c-b1ea-671b857b3f5e",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -447,7 +447,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "cancelar inscri",
-                        "__conditionId": "f9299b50-56fb-4456-bf7f-57a6415b5dfd",
+                        "__conditionId": "71877f96-0933-45c8-9363-06fda0bf1331",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -482,7 +482,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não me liga mais",
-                        "__conditionId": "487979c8-d8e1-4176-b3cf-cfe43b3c684f",
+                        "__conditionId": "7659544b-3ce3-4229-8f24-ae07d42503e3",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -517,7 +517,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não me mande mais",
-                        "__conditionId": "0733600c-5413-45b0-a756-2ff6d8324e48",
+                        "__conditionId": "eeaddde5-cae6-417a-aae6-551d753e068a",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -552,7 +552,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "sai da lista",
-                        "__conditionId": "3fa2bf21-4a4c-4b64-8a5b-1ee1a571ddb9",
+                        "__conditionId": "88f97dba-9db4-499e-bb98-5e9736acf00a",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -587,7 +587,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "me tira da lista",
-                        "__conditionId": "3c9016d6-4f26-4826-a40a-0b56929d61ea",
+                        "__conditionId": "7ee3540e-6e1e-42a4-8ad8-1bd8845c9f60",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -622,7 +622,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "unsubscribe",
-                        "__conditionId": "9b63060b-30d9-4924-b4ef-d72e3088530b",
+                        "__conditionId": "c42c121a-18a6-45e0-9de8-58660024c02b",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -668,15 +668,15 @@
           }
         },
         {
-          "id": "a970c39a-1093-4c32-a25a-64141ccabded",
-          "parent": "5ea3fad4-b246-4fe8-b085-b0ababac67e0",
-          "parentKey": "5ea3fad4-b246-4fe8-b085-b0ababac67e0",
+          "id": "c0b61287-be46-46cb-8af0-42744e5da63f",
+          "parent": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
+          "parentKey": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "ee4d27ea-7dfb-41c9-9205-a0b60860b356"
+            "fb02a090-a09b-468c-bb73-f9873124df68"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -688,25 +688,25 @@
           }
         },
         {
-          "id": "ee4d27ea-7dfb-41c9-9205-a0b60860b356",
-          "parent": "5ea3fad4-b246-4fe8-b085-b0ababac67e0",
-          "parentKey": "5ea3fad4-b246-4fe8-b085-b0ababac67e0",
+          "id": "fb02a090-a09b-468c-bb73-f9873124df68",
+          "parent": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
+          "parentKey": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "a970c39a-1093-4c32-a25a-64141ccabded"
+            "c0b61287-be46-46cb-8af0-42744e5da63f"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "af58fd80-fca9-4552-a7a5-4846cb293a98"
+          "next": "74233785-1b02-49a5-ac60-950ad0459d67"
         },
         {
-          "id": "af58fd80-fca9-4552-a7a5-4846cb293a98",
+          "id": "74233785-1b02-49a5-ac60-950ad0459d67",
           "type": "find_opportunity",
           "name": "Find opportunity",
           "attributes": {
@@ -725,7 +725,7 @@
             "convertToMultipath": true,
             "transitions": [
               {
-                "id": "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+                "id": "d49c8960-c384-47b9-a664-3d3835443e34",
                 "name": "Opportunity Found",
                 "fields": [],
                 "meta": {
@@ -734,7 +734,7 @@
                 "conditionType": "pre-defined"
               },
               {
-                "id": "0c8e21f6-5dc5-40a2-810d-705842de76f5",
+                "id": "886ec445-e79a-436d-aa09-6d698eaf37c7",
                 "name": "Opportunity Not Found",
                 "fields": [],
                 "meta": {
@@ -749,32 +749,32 @@
           "cat": "multi-path",
           "workflowsActionType": "INTERNAL",
           "next": [
-            "387b9712-8a5d-408f-8d9b-1bab4b83c692",
-            "afae8cd2-e551-4d1d-9598-b6cbca1d33de"
+            "d49c8960-c384-47b9-a664-3d3835443e34",
+            "886ec445-e79a-436d-aa09-6d698eaf37c7"
           ],
-          "parentKey": "ee4d27ea-7dfb-41c9-9205-a0b60860b356",
-          "parent": "ee4d27ea-7dfb-41c9-9205-a0b60860b356"
+          "parentKey": "fb02a090-a09b-468c-bb73-f9873124df68",
+          "parent": "fb02a090-a09b-468c-bb73-f9873124df68"
         },
         {
-          "id": "387b9712-8a5d-408f-8d9b-1bab4b83c692",
-          "parentKey": "af58fd80-fca9-4552-a7a5-4846cb293a98",
-          "parent": "af58fd80-fca9-4552-a7a5-4846cb293a98",
+          "id": "d49c8960-c384-47b9-a664-3d3835443e34",
+          "parentKey": "74233785-1b02-49a5-ac60-950ad0459d67",
+          "parent": "74233785-1b02-49a5-ac60-950ad0459d67",
           "type": "transition",
           "name": "Opportunity Found",
           "attributes": {},
           "order": 1,
           "cat": "transition",
-          "next": "a9cf46e4-eb0d-4992-84f4-99f31738b0d7"
+          "next": "326e680b-751e-4b72-aff5-fe8dd0f39371"
         },
         {
-          "id": "a9cf46e4-eb0d-4992-84f4-99f31738b0d7",
-          "parent": "387b9712-8a5d-408f-8d9b-1bab4b83c692",
+          "id": "326e680b-751e-4b72-aff5-fe8dd0f39371",
+          "parent": "d49c8960-c384-47b9-a664-3d3835443e34",
           "order": 0,
           "attributes": {
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "b78cfc35-d262-432f-a523-fc6a83a61887",
+                "id": "1da370e4-971d-49d0-bcc4-b91812065cbd",
                 "name": "Branch",
                 "segments": [
                   {
@@ -834,16 +834,16 @@
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "b78cfc35-d262-432f-a523-fc6a83a61887",
-            "5c286b36-47dc-4da3-94c2-9fbc5f236ab7"
+            "1da370e4-971d-49d0-bcc4-b91812065cbd",
+            "5b989560-dfb4-41a1-9fe6-36cc6326856b"
           ],
           "comments": [],
           "nodeType": "condition-node",
-          "parentKey": "387b9712-8a5d-408f-8d9b-1bab4b83c692"
+          "parentKey": "d49c8960-c384-47b9-a664-3d3835443e34"
         },
         {
-          "id": "b78cfc35-d262-432f-a523-fc6a83a61887",
-          "parent": "a9cf46e4-eb0d-4992-84f4-99f31738b0d7",
+          "id": "1da370e4-971d-49d0-bcc4-b91812065cbd",
+          "parent": "326e680b-751e-4b72-aff5-fe8dd0f39371",
           "order": 1,
           "attributes": {
             "if": false,
@@ -854,23 +854,23 @@
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
-          "next": "ef78865e-a104-4050-a1f3-7bde977f6424",
+          "next": "ba3776bc-9647-42d5-9ebd-b9d49a570886",
           "sibling": [
-            "5c286b36-47dc-4da3-94c2-9fbc5f236ab7"
+            "5b989560-dfb4-41a1-9fe6-36cc6326856b"
           ],
           "comments": [],
           "nodeType": "branch-yes",
-          "parentKey": "a9cf46e4-eb0d-4992-84f4-99f31738b0d7"
+          "parentKey": "326e680b-751e-4b72-aff5-fe8dd0f39371"
         },
         {
-          "id": "ef78865e-a104-4050-a1f3-7bde977f6424",
-          "parent": "b78cfc35-d262-432f-a523-fc6a83a61887",
+          "id": "ba3776bc-9647-42d5-9ebd-b9d49a570886",
+          "parent": "1da370e4-971d-49d0-bcc4-b91812065cbd",
           "order": 0,
           "attributes": {
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "d1e74cb4-06a7-44f4-9f3f-8a99971090d3",
+                "id": "b0b56dc9-fb59-4fcf-8ccd-fdb458f02403",
                 "name": "Branch",
                 "segments": [
                   {
@@ -932,16 +932,16 @@
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "d1e74cb4-06a7-44f4-9f3f-8a99971090d3",
-            "64d5ea05-9910-465b-abfd-1898396b4246"
+            "b0b56dc9-fb59-4fcf-8ccd-fdb458f02403",
+            "c448b628-86bd-4037-836d-58a0710228ea"
           ],
           "comments": [],
           "nodeType": "condition-node",
-          "parentKey": "b78cfc35-d262-432f-a523-fc6a83a61887"
+          "parentKey": "1da370e4-971d-49d0-bcc4-b91812065cbd"
         },
         {
-          "id": "d1e74cb4-06a7-44f4-9f3f-8a99971090d3",
-          "parent": "ef78865e-a104-4050-a1f3-7bde977f6424",
+          "id": "b0b56dc9-fb59-4fcf-8ccd-fdb458f02403",
+          "parent": "ba3776bc-9647-42d5-9ebd-b9d49a570886",
           "order": 1,
           "attributes": {
             "if": false,
@@ -953,15 +953,15 @@
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "64d5ea05-9910-465b-abfd-1898396b4246"
+            "c448b628-86bd-4037-836d-58a0710228ea"
           ],
           "comments": [],
           "nodeType": "branch-yes",
-          "parentKey": "ef78865e-a104-4050-a1f3-7bde977f6424"
+          "parentKey": "ba3776bc-9647-42d5-9ebd-b9d49a570886"
         },
         {
-          "id": "64d5ea05-9910-465b-abfd-1898396b4246",
-          "parent": "ef78865e-a104-4050-a1f3-7bde977f6424",
+          "id": "c448b628-86bd-4037-836d-58a0710228ea",
+          "parent": "ba3776bc-9647-42d5-9ebd-b9d49a570886",
           "order": 1,
           "attributes": {
             "else": true
@@ -969,17 +969,17 @@
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
-          "next": "78c2d6d8-a625-447f-810e-731e6c1bbba7",
+          "next": "df70464b-8274-4c19-bd4b-b65ff00c9c37",
           "sibling": [
-            "d1e74cb4-06a7-44f4-9f3f-8a99971090d3"
+            "b0b56dc9-fb59-4fcf-8ccd-fdb458f02403"
           ],
           "comments": [],
           "nodeType": "branch-no",
-          "parentKey": "ef78865e-a104-4050-a1f3-7bde977f6424"
+          "parentKey": "ba3776bc-9647-42d5-9ebd-b9d49a570886"
         },
         {
-          "id": "78c2d6d8-a625-447f-810e-731e6c1bbba7",
-          "parent": "64d5ea05-9910-465b-abfd-1898396b4246",
+          "id": "df70464b-8274-4c19-bd4b-b65ff00c9c37",
+          "parent": "c448b628-86bd-4037-836d-58a0710228ea",
           "order": 0,
           "attributes": {
             "type": "update_contact_field",
@@ -996,12 +996,12 @@
           },
           "name": "Update contact field",
           "type": "update_contact_field",
-          "next": "6ab926af-e885-43c9-8d1c-e22b64838de0",
-          "parentKey": "64d5ea05-9910-465b-abfd-1898396b4246"
+          "next": "003eb01e-c83f-4cc5-a06a-669641f00099",
+          "parentKey": "c448b628-86bd-4037-836d-58a0710228ea"
         },
         {
-          "id": "6ab926af-e885-43c9-8d1c-e22b64838de0",
-          "parent": "64d5ea05-9910-465b-abfd-1898396b4246",
+          "id": "003eb01e-c83f-4cc5-a06a-669641f00099",
+          "parent": "c448b628-86bd-4037-836d-58a0710228ea",
           "order": 1,
           "attributes": {
             "type": "update_contact_field",
@@ -1018,12 +1018,12 @@
           },
           "name": "Update contact field",
           "type": "update_contact_field",
-          "next": "24f7646c-18c4-4b24-a18e-96d0703e58f1",
-          "parentKey": "78c2d6d8-a625-447f-810e-731e6c1bbba7"
+          "next": "01af2b58-8399-49ff-bbed-fdf899dcd4ad",
+          "parentKey": "df70464b-8274-4c19-bd4b-b65ff00c9c37"
         },
         {
-          "id": "24f7646c-18c4-4b24-a18e-96d0703e58f1",
-          "parent": "64d5ea05-9910-465b-abfd-1898396b4246",
+          "id": "01af2b58-8399-49ff-bbed-fdf899dcd4ad",
+          "parent": "c448b628-86bd-4037-836d-58a0710228ea",
           "order": 2,
           "attributes": {
             "tags": [
@@ -1032,13 +1032,13 @@
           },
           "name": "Add Tag",
           "type": "add_contact_tag",
-          "next": "1b8d9669-011c-4b9d-98f1-ca7b03f9e0cb",
-          "parentKey": "6ab926af-e885-43c9-8d1c-e22b64838de0"
+          "next": "09bdf141-d109-4515-be28-de24d169c519",
+          "parentKey": "003eb01e-c83f-4cc5-a06a-669641f00099"
         },
         {
-          "id": "1b8d9669-011c-4b9d-98f1-ca7b03f9e0cb",
+          "id": "09bdf141-d109-4515-be28-de24d169c519",
           "stepIndex": 1,
-          "parent": "64d5ea05-9910-465b-abfd-1898396b4246",
+          "parent": "c448b628-86bd-4037-836d-58a0710228ea",
           "order": 3,
           "attributes": {
             "title": "[CADENCIA] Sinal: respondeu mensagem — ligar agora",
@@ -1052,13 +1052,13 @@
           },
           "name": "Sinal clique",
           "type": "task-notification",
-          "next": "e13b2190-de68-40eb-b479-05c2ce1eb78c",
+          "next": "bc860e05-4ddb-4600-b3ad-9a945380b211",
           "workflowsActionType": "INTERNAL",
-          "parentKey": "24f7646c-18c4-4b24-a18e-96d0703e58f1"
+          "parentKey": "01af2b58-8399-49ff-bbed-fdf899dcd4ad"
         },
         {
-          "id": "e13b2190-de68-40eb-b479-05c2ce1eb78c",
-          "parent": "64d5ea05-9910-465b-abfd-1898396b4246",
+          "id": "bc860e05-4ddb-4600-b3ad-9a945380b211",
+          "parent": "c448b628-86bd-4037-836d-58a0710228ea",
           "order": 4,
           "attributes": {
             "type": "whatsapp",
@@ -1072,12 +1072,12 @@
           },
           "name": "Internal Notification",
           "type": "internal_notification",
-          "next": "ffb1a89c-42ef-4afa-b9a8-45b60e942f30",
-          "parentKey": "1b8d9669-011c-4b9d-98f1-ca7b03f9e0cb"
+          "next": "1922626c-ab82-4764-a7be-ab00b5ba4fd0",
+          "parentKey": "09bdf141-d109-4515-be28-de24d169c519"
         },
         {
-          "id": "ffb1a89c-42ef-4afa-b9a8-45b60e942f30",
-          "parent": "64d5ea05-9910-465b-abfd-1898396b4246",
+          "id": "1922626c-ab82-4764-a7be-ab00b5ba4fd0",
+          "parent": "c448b628-86bd-4037-836d-58a0710228ea",
           "order": 5,
           "attributes": {
             "html": "<p style=\"padding-left: 0px!important;\">Sinal: resposta de mensagem</p>",
@@ -1086,11 +1086,11 @@
           },
           "name": "Note",
           "type": "add_notes",
-          "parentKey": "e13b2190-de68-40eb-b479-05c2ce1eb78c"
+          "parentKey": "bc860e05-4ddb-4600-b3ad-9a945380b211"
         },
         {
-          "id": "5c286b36-47dc-4da3-94c2-9fbc5f236ab7",
-          "parent": "a9cf46e4-eb0d-4992-84f4-99f31738b0d7",
+          "id": "5b989560-dfb4-41a1-9fe6-36cc6326856b",
+          "parent": "326e680b-751e-4b72-aff5-fe8dd0f39371",
           "order": 1,
           "attributes": {
             "else": true
@@ -1099,16 +1099,16 @@
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "b78cfc35-d262-432f-a523-fc6a83a61887"
+            "1da370e4-971d-49d0-bcc4-b91812065cbd"
           ],
           "comments": [],
           "nodeType": "branch-no",
-          "parentKey": "a9cf46e4-eb0d-4992-84f4-99f31738b0d7"
+          "parentKey": "326e680b-751e-4b72-aff5-fe8dd0f39371"
         },
         {
-          "id": "afae8cd2-e551-4d1d-9598-b6cbca1d33de",
-          "parentKey": "af58fd80-fca9-4552-a7a5-4846cb293a98",
-          "parent": "af58fd80-fca9-4552-a7a5-4846cb293a98",
+          "id": "886ec445-e79a-436d-aa09-6d698eaf37c7",
+          "parentKey": "74233785-1b02-49a5-ac60-950ad0459d67",
+          "parent": "74233785-1b02-49a5-ac60-950ad0459d67",
           "type": "transition",
           "name": "Opportunity Not Found",
           "attributes": {},
@@ -1150,14 +1150,14 @@
       "name": "Cliente Respondeu",
       "belongs_to": "workflow",
       "schedule_config": {},
-      "targetActionId": "5ea3fad4-b246-4fe8-b085-b0ababac67e0",
       "advanceCanvasMeta": {
         "position": {
           "x": 57.5,
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T01:20:47.466Z"
+      "targetActionId": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
+      "date_updated": "2026-09-22T12:40:55.213Z"
     }
   ]
 }
