@@ -3991,9 +3991,36 @@ ao mesmo evento, um registra e roteia na hora, o outro só liga um relógio.
 | 1 | Portão — vale a pena vigiar? | If/Else | `Reunião foi qualificada` **é** `Sim` → segue. Senão (vazio, `Não`, `Parcial`) → **encerra** (os outros três vereditos já saem de `open` na hora, seção 5.1 — nada a esperar) |
 | 2 | Aguardar | Wait → Time Delay | 3 dias corridos |
 | 3 | Portão — ainda pendente? | If/Else | Etapa da oportunidade **é** `NEGOCIAR` **E** `status` **é** `open` **E** `Reunião foi qualificada` **é** `Sim` → segue (3 dias depois do "Sim", o closer não fechou nem descartou, e o veredito não mudou). Senão → **encerra** (fechou `won`, saiu por `lost`/`abandoned`, ou o veredito foi corrigido — os três já passam pelo Mestre de saída, seção 3) |
+| 3b | **Portão de aviso único** | If/Else | tag `negociacao-estagnada` **ausente** → segue para o nó 4 (é o primeiro alerta desta parada). **Presente** → **encerra** (outro relógio já avisou). Acrescentado na conferência de 22/09 — ver nota abaixo |
 | 4 | Fila | Add Contact Tag | `negociacao-estagnada` |
 | 5 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} foi qualificado pelo closer (Sim) há mais de 3 dias e segue em NEGOCIAR sem fechar nem perder. Veredito em: {{contact.data_do_veredito_do_closer}}.` |
 | 6 | Registro | Add Note | `Alerta de saúde: NEGOCIAR sem decisão do closer em 3 dias · {{right_now}}` |
+
+#### Por que o nó 3b existe — conferência de 22/09/2026
+
+`Allow Re-entry` **ligado** (decisão certa: o closer pode corrigir o veredito)
+mais um gatilho que dispara a **cada alteração** do campo produzem instâncias
+simultâneas, e o nó 3 não olha a tag. O caminho:
+
+| Momento | O que acontece |
+|---|---|
+| T0 | closer marca `Sim` → **instância A** começa o `Wait` de 3 dias |
+| T0+1h | closer corrige para `Parcial` → instância B nasce e **morre no nó 1** (não é `Sim`) ✔ |
+| T0+2h | closer volta para `Sim` → **instância C** começa o próprio `Wait` |
+| T0+3d | nó 3 da A: `NEGOCIAR` + `open` + `Sim` → tag + **aviso nº 1** |
+| T0+3d+2h | nó 3 da C: **mesmo estado** → **aviso nº 2, do mesmo lead** |
+
+A tag do nó 4 é idempotente; a **notificação do nó 5 não é**. Dois avisos para
+a mesma parada é como um canal de alerta começa a ser ignorado — e este
+projeto já resolveu exatamente isso, com exatamente este nó: a seção 2.22 tem
+um "**Portão de aviso único**" (nó 6) que checa a tag ausente antes de alertar,
+pelo mesmo motivo, só que lá a repetição vem do laço em vez da reentrada.
+Mesmo sintoma, mesmo remédio, e assim as duas peças ficam consistentes.
+
+**Diferença de desenho em relação ao 2.22, de propósito:** lá o portão
+**desvia** para o fim do laço (o workflow continua vigiando); aqui ele
+**encerra**, porque não há laço — a instância A já está de olho, e quem mantém
+o lead na lista 8.28 é a tag, não a instância.
 
 **Por que não precisa de tratamento incondicional no Mestre de saída, ao
 contrário de `novo-lead-estagnado`/`agendar-estagnado` (peças 1 e 5):**

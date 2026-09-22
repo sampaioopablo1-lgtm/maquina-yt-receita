@@ -2250,6 +2250,22 @@ especificados e ainda não publicados.
 ---
 
 ### F-13 · A última metade de etapa sem relógio — reunião qualificada sem decisão do closer não tem monitor — **FEITO em 22/09/2026**
+
+> **Conferido no mesmo dia:** o desenho passou o checklist inteiro sem
+> correção — o portão do nó 3 checa `status is open` (o bug recorrente do
+> projeto), a tag entrou na lista do nó 4 do Mestre de saída **nos dois**
+> documentos, T-21 nasceu `[ ]`, e o prazo de 3 dias vem argumentado e rotulado
+> como escolha, não medição. Uma única adição: **nó 3b, portão de aviso único**.
+> `Allow Re-entry` ligado (decisão certa) mais gatilho por alteração de campo
+> criam instâncias simultâneas; se o closer editar o veredito duas vezes para
+> `Sim`, o gestor recebe **dois avisos da mesma parada**, porque o nó 3 não olha
+> a tag. A seção 2.22 já resolve isso com o mesmo nó (o dela é o 6), só que lá a
+> repetição vem do laço — mesmo sintoma, mesmo remédio, e agora as duas peças
+> ficam consistentes. Também conferido e OK: o merge field
+> `{{contact.data_do_veredito_do_closer}}` do aviso renderiza, porque o nó 2 do
+> Loop do closer carimba a data **antes** de ramificar, e o `Wait` de 3 dias
+> elimina qualquer corrida entre os dois workflows que reagem ao mesmo evento.
+
 **Por quê:** `build-wesales.md`, seção 1.1 (Etapa 3 — `NEGOCIAR`), registrava
 desde antes de o F-05 existir que a metade "comparecimento" da etapa tem
 monitor (R-12, SLA do closer) mas a metade "negociação" não — nota deixada

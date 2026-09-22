@@ -1508,6 +1508,7 @@ escrita do closer.
 | 1 | If/Else | `Reunião foi qualificada` é `Sim` → 2 · None → FIM | 2 |
 | 2 | Wait → Time Delay | 3 dias corridos | 3 |
 | 3 | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - NEGOCIAR` **E** `Opportunity status` é `open` **E** `Reunião foi qualificada` é `Sim` → 4 · None → FIM | 4 |
+| 3b | If/Else | tag `negociacao-estagnada` **ausente** → 4 · **Presente** → FIM (**portão de aviso único**, acrescentado em 22/09: `Allow Re-entry` + gatilho por alteração de campo criam instâncias simultâneas, e sem este nó o gestor recebe dois avisos da mesma parada quando o closer edita o veredito mais de uma vez para `Sim`. Mesmo nó que a 2.22 já usa no seu nó 6) | 4 |
 | 4 | Add Contact Tag | `negociacao-estagnada` | 5 |
 | 5 | Internal Notification | ao gestor: `{{contact.name}} foi qualificado pelo closer (Sim) há mais de 3 dias e segue em NEGOCIAR sem fechar nem perder. Veredito em: {{contact.data_do_veredito_do_closer}}.` | 6 |
 | 6 | Add Note | `Alerta de saúde: NEGOCIAR sem decisão do closer em 3 dias · {{right_now}}` | fim |
