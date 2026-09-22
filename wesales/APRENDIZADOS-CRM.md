@@ -2,6 +2,67 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O dono está executando o checklist na tela agora — estado capturado às 12:50, e a tag nº 16 nasceu fora de todo documento — 22/09/2026, sessão automática
+
+Primeira atividade de montagem na tela desde 21/09 23:33, e a primeira vez que
+o **checklist de teste da seção 10** é de fato exercitado. Capturado por API às
+12:50 UTC, pelos `dateUpdated`:
+
+| Contato de teste | `dateUpdated` | O que mudou |
+|---|---|---|
+| `Teste Não Atende` (`OIvOGQfdGg2Ndr5GtcAG`) | **11:59:23** | tags `limpar-tarefas` + **`toque`**; `Total de ligações` = 2, `Tentativas telefone` = 2, `Toques na semana` = 1, `Tentativa nº` = 0 |
+| `ZZ TESTE ESTRUTURA` (`c5r3ZxiAd8T5adL1Bt6j`) | **12:06:24** | `Toques na semana` = 1 |
+| `Teste Número Errado` (`qkHSdIMPJTB2JK5ECGrY`) | **12:08:35** | `Resultado da tentativa` = **`Não ligar`**, DND **nos 6 canais** (por workflow), tags `nao-perturbe` + `limpar-tarefas`, oportunidade movida para `CONECTAR` 12:05 e `lost` 12:08 |
+| `Teste Retorno` (`vrwdERfR24ax6GylG6No`) | **12:08:47** | idem — `Não ligar`, DND 6 canais, `CONECTAR` 12:00 → `lost` 12:08 |
+| `Teste Atendeu` (`Lj96CIFYaGKPiC0opzbc`) | **12:38:07** | `Nota de qualificação` **80 → 93**, tag nova **`teste-regua`** |
+| `Teste Não Ligar` (`2MXzDPjxGjuvvsxlp5V1`) | 18/09, intocado | tags vazias — cenário ainda não rodado |
+
+**1. Existe uma 16ª tag na subconta, criada na tela: `teste-regua`.** `grep -rn
+"teste-regua" wesales/*.md` retorna **vazio** — ela não está em
+`campos-e-tags.md`, não está em `APROVADO.md`, não está em nenhum nó. É
+marcador de teste do dono, inofensivo, e **não deve ser tratada como órfã nem
+entrar em lista de limpeza**: registrar aqui é o que evita uma rodada futura
+"descobrir" e tentar consertar. Vale a regra geral: **tag que aparece na tela e
+não está em documento nenhum é do dono até que se prove o contrário** — o
+caminho é perguntar, nunca remover (regra 1 do briefing).
+
+**2. `CONECTAR` deixou de ser sempre-zero.** A auditoria diária das 10:31
+registrou `CONECTAR`/`AGENDAR`/`FORMALIZAR` com **zero** oportunidades desde
+sempre. Entre 12:00 e 12:08 duas oportunidades de teste passaram por
+`CONECTAR` antes de virar `lost`. A frase "nenhuma cadência publicada moveu um
+lead sequer" continua verdadeira **para lead real**, mas deixou de ser
+verdadeira para o pipeline — quem reler aquela entrada precisa desta ressalva.
+
+**3. O `Não ligar` funciona ponta a ponta, e é a primeira prova disso.** Nos
+dois contatos: `Resultado da tentativa` = `Não ligar` → DND ativo nos **seis**
+canais com `message: Updated from workflow_cf6fa19d-…` → tag `nao-perturbe` →
+`status` = `lost` **sem sair de `CONECTAR`**. É exatamente o ramo `Não ligar` da
+seção 4 como especificado, incluindo a decisão de que o `status` muda e a etapa
+não. Nenhum dos dois ganhou `telefone-invalido` nem `fila-quente`, coerente com
+o ramo escolhido (os cenários originais daqueles contatos eram outros — o dono
+testou o `Não ligar` neles, não o cenário do nome).
+
+**4. A auditoria do F-12 que eu propus 1h antes, rodada de verdade:** filtro
+`status = lost` devolve **3** oportunidades (`Teste Número Errado`, `Teste
+Retorno`, `Teste Atendeu`) e **todas as três com `lostReasonId: null`**. Linha
+de base: 0% preenchido. O comando funciona, e é exatamente a divergência que o
+item existe para impedir — agora com número em vez de hipótese.
+
+**5. Um dado que não dá para interpretar, e por isso fica como dado:**
+`Nota de qualificação` do `Teste Atendeu` foi de **80 para 93** entre 11:00 e
+12:38. Pode ser o nó 4 do Pós-agendamento finalmente gravando, pode ser o
+veredito do closer, pode ser edição manual. **Não conclua que o nó 4 foi
+corrigido** — os dois leads reais em `NEGOCIAR` (`Daniel`, `genilson |
+Bombeiro`) continuam com o campo vazio, que é o teste que vale. Mesma ressalva
+que a auditoria diária já tinha levantado, agora com um número novo que
+tentaria desmenti-la.
+
+**Por que capturar isso importa:** estado de tela muda sem aviso e não tem
+histórico legível por API além do `dateUpdated`. Quando o dono voltar e
+perguntar "em que pé está", a diferença entre "o checklist começou" e "o
+checklist não começou" é esta tabela — e ela existe por dez minutos de leitura,
+não por acesso à tela.
+
 ## Auditoria diária (só leitura): a entrada piorou de ~22h47 para ~25h14 sem lead novo, e o rastro de teste do closer não prova nada sobre lead real — 22/09/2026, sessão automática (auditor diário)
 
 Primeira rodada do **Auditor diário** (read-only, sem conector de tela,

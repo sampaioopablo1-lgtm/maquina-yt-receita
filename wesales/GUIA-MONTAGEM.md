@@ -806,12 +806,30 @@ dos quais só um é opção do campo — a nota de qualificação de todo lead d
 Meta nasce com o Bloco B zerado, independente de o nó 4 do Pós-agendamento
 ser consertado.
 
-**Estado bruto para a próxima leitura comparar:** 46 campos · 5 etapas ·
-50 contatos (38 com telefone; 12 sem: 5 DMs de Instagram, 5 fictícios, o
-de estrutura e 1 `<test lead>` do Meta) · 50 oportunidades (47 `NOVO LEAD`
-+ 3 `NEGOCIAR`, todas `open`, 47 sem responsável, 3 com
-`JdvhvOTEBTvUyRi0BXU8`) · 1 contato com DND (`Teste Não Ligar`) · fuso da
-subconta `America/Sao_Paulo`, plano `trialing`.
+**Estado bruto para a próxima leitura comparar — 19/09/2026 (linha de base
+original):** 46 campos · 5 etapas · 50 contatos (38 com telefone; 12 sem: 5
+DMs de Instagram, 5 fictícios, o de estrutura e 1 `<test lead>` do Meta) · 50
+oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, todas `open`, 47 sem
+responsável, 3 com `JdvhvOTEBTvUyRi0BXU8`) · 1 contato com DND (`Teste Não
+Ligar`) · fuso da subconta `America/Sao_Paulo`, plano `trialing`.
+
+**Relido em 22/09/2026 12:50 UTC — o que mudou desde aquela linha de base:**
+
+| O quê | 19/09 | 22/09 12:50 |
+|---|---|---|
+| Campos personalizados | 46 | **51** (os 5 criados em 21/09 23:15–23:33, `CONFERENCIA-CAMPOS.md` Tabela K) |
+| Contatos / oportunidades | 50 / 50 | **50 / 50** (sem lead novo desde 21/09 09:17 — F-10) |
+| Oportunidades por etapa | 47 `NOVO LEAD` + 3 `NEGOCIAR`, todas `open` | 47 `NOVO LEAD` + 3 `NEGOCIAR`; **3 `lost`** (2 em `CONECTAR`, 1 em `NEGOCIAR`), 47 `open` |
+| `CONECTAR` já recebeu oportunidade? | nunca | **sim** — duas de teste passaram por ali em 22/09 12:00–12:08 |
+| Contatos com DND | 1 | **3** (`Teste Atendeu`, `Teste Número Errado`, `Teste Retorno`) — todos nos **6 canais**, por workflow (`message: Updated from workflow_cf6fa19d-…`) |
+| Tags na subconta | 15 do projeto | **16** — a nova é `teste-regua`, criada pelo dono na tela, fora de todo documento (`campos-e-tags.md`) |
+| `lostReasonId` nas `lost` | — | **`null` nas três** — linha de base do F-12 é 0% preenchido |
+
+**O dono estava executando o checklist da seção 10 durante esta leitura** —
+escritas às 11:59, 12:05, 12:06, 12:08 e 12:38. Detalhe contato por contato em
+`APRENDIZADOS-CRM.md` ("O dono está executando o checklist na tela agora").
+Estado de tela muda sem aviso: se a próxima leitura divergir desta tabela, a
+causa mais provável é o checklist continuando, não defeito.
 
 ## Como montar mais rápido sem clicar tudo de novo (pesquisado em 21/09/2026)
 
