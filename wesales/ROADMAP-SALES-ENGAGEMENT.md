@@ -634,6 +634,78 @@ etapas do `FUNIL DE VENDAS`, 51 campos, 50 oportunidades (47 `NOVO LEAD` +
 checklist da seção 10, R-18 — sem mudança de volume real) — G-03/G-04
 seguem aguardando o dono.
 
+### G-07 · O e-mail (canal novo do F-15) herdou a régua de compliance a zero — resposta de opt-out por texto não vira DND sozinha, e a auditoria do R-14 nunca aprendeu a olhar para o canal — **FEITO em 22/09/2026**
+**Por quê:** mesmo padrão do G-06 (a guarda de um item mais velho nunca
+alcançou o canal mais novo), aqui aplicado a dois itens mais velhos ao
+mesmo tempo. (1) O R-17 (21/09/2026) ensinou o projeto a nunca tratar
+resposta de texto como sinal cego — antes dele, qualquer resposta de
+WhatsApp virava "ligar agora, prioridade 5", incluindo quem respondia
+"pare, não me manda mais mensagem". O F-15 (22/09/2026, mesmo dia deste
+item) abriu o primeiro canal de texto novo desde então — e-mail — e o
+único ponto que manda e-mail (`Resgate por E-mail — Sem Telefone`, seção
+2.30) repete a mesma lacuna que o R-17 fechou para WhatsApp: o nó 4/7
+(`Wait → Contact Replied`) não olha o conteúdo da resposta, só notifica o
+gestor para decidir na mão — sem `nao-perturbe` nem DND aplicados
+sozinhos. Não é o mesmo bug (nenhuma tarefa errada nasce daqui), mas é a
+mesma classe: "o único jeito de um opt-out virar DND é alguém ler a
+mensagem e lembrar de desligar tudo", a frase exata que o R-17 já tinha
+usado para justificar por que isso é inaceitável. (2) O R-14 (Auditoria de
+compliance, fechado mais cedo no mesmo dia 22/09/2026) criou duas Smart
+Lists (8.26/8.27) cruzando a tag `nao-perturbe` com o DND nativo por
+canal — mas só cobria `Calls & Voicemails DND` e `WhatsApp DND`, os dois
+canais que existiam quando foi escrito. O e-mail nasceu depois, no mesmo
+dia, e ninguém tinha voltado para atualizar a auditoria: um lead com
+`Email DND` desligado (a única exposição real que falta fechar) passaria
+pelas duas listas sem aparecer em nenhuma.
+**O que já estava protegido, e não precisou de nada novo (pesquisado antes
+de desenhar, `WebSearch`):** todo e-mail enviado pela plataforma nativa do
+GHL já sai com um link de descadastro automático no rodapé
+(`{{unsubscribe}}`), que aplica opt-out num clique sem depender de nenhum
+workflow — cobre LGPD art. 18 (direito de revogar consentimento a
+qualquer momento) para quem usa o link. A lacuna real é só a resposta por
+**texto**, o mesmo ponto cego que o WhatsApp tinha antes do R-17.
+**Como:** especificado nó a nó em `build-wesales.md`. (1) Workflow novo
+"Opt-out por Palavra-chave — E-mail" (seção 2.9.6) — mesmo padrão do 2.9.5/
+R-17, canal e lista de frases trocados (a mesma lista canônica, reaproveitada
+sem alteração porque este workflow não concorre pelo mesmo evento que o
+2.9.3/2.9.5, então não precisa da mirror obrigatória que aqueles dois
+precisam entre si). (2) Smart Lists 8.26/8.27 (R-14) ganharam a terceira
+cláusula, `Email DND`, no mesmo `OU` que já cobria Calls/WhatsApp. (3)
+Checklist novo do gestor na seção 2.30: confirmar SPF/DKIM/DMARC do domínio
+de envio antes do primeiro disparo real (mesma lógica do F-07/F-08 —
+reputação de canal, sem gatilho nativo para ler por workflow) e confirmar
+que o template criado por `emails_create-template` manteve o link de
+descadastro no rodapé.
+**Pesquisado antes de desenhar:** nenhuma das quatro plataformas do
+enunciado (Reev, Meetime, Outreach, Salesloft) precisa resolver isto do
+jeito que este projeto precisa — o canal principal delas é e-mail desde o
+primeiro dia, com unsubscribe padronizado por lei/convenção de mercado
+havia anos; aqui o e-mail chegou por último, depois de três canais já
+maduros, e herdou menos proteção que os outros três justamente por ser o
+mais novo. É a mesma inversão que o G-06 já registrou para a Qualificação
+por IA no WhatsApp: o canal mais novo de uma operação tende a ser o menos
+protegido, não porque seja mais simples, mas porque as guardas anteriores
+foram escritas antes dele existir.
+**Zero campo e zero tag novos:** reaproveita `nao-perturbe` (T-06) e o DND
+nativo (`Email DND`, já comprovado gravável nesta subconta mesmo antes de
+qualquer integração — mesma evidência que a 8.26 já registrou para
+WhatsApp). Zero escrita no CRM: item de especificação pura, não depende de
+`APROVADO.md` — nem o workflow novo, nem a edição das duas Smart Lists
+saem por API. Subconta reconfirmada nesta execução via
+`opportunities_search-opportunity`/`locations_get-custom-fields`/
+`contacts_get-contacts`/`conversations_search-conversation`: 55 campos, 50
+oportunidades (45 `NOVO LEAD` open + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost
++ 2 `CONECTAR` lost de teste), 50 contatos, `Carlos Andrade` (21/09 09:17)
+ainda o lead mais novo — entrada seguia parada há ~36h47min no momento da
+leitura, zero mensagem de cadência automática real — G-03, G-04 (peça 2),
+F-09 e F-10 seguem aguardando o dono, sem novidade.
+**Pronto quando (cumprido):** um lead que responde pedindo para parar de
+receber e-mail sai de toda cadência automática com DND ligado no mesmo
+minuto, sem depender de o gestor ler uma notificação genérica e agir na
+tela; e as duas Smart Lists de compliance do R-14 enxergam os três canais
+que a operação de fato usa, não só os dois que existiam quando foram
+escritas.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -3213,8 +3285,11 @@ Antes de desenhar, duas pistas já registradas em documentos vizinhos
 evitaram trabalho duplicado: `CONFERENCIA-CAMPOS.md`, Tabela L, já tinha
 medido `country`/`timezone` como não-problema agora (Number Validation
 fora por decisão do dono; fuso do contato nunca é lido por nenhum nó) —
-por isso este item **não** virou também um G-07 sobre país/fuso, que seria
-investigar de novo o que a Tabela L já fechou. A lacuna real veio de
+por isso este item **não** virou também um item extra sobre país/fuso, que
+seria investigar de novo o que a Tabela L já fechou (o número G-07 citado
+naquele dia nunca chegou a existir para este assunto — quem usa esse
+número hoje é outro item, sobre compliance de e-mail, aberto em
+22/09/2026, mais abaixo nesta seção). A lacuna real veio de
 cruzar dois fatos que nenhum documento tinha juntado: o portão 0.0/0.0b já
 existe desde a Etapa 1, e o Reengajamento 90 dias (R-08) recicla todo
 `nutricao-90d` sem checar se a causa foi "sem telefone" — as duas peças
@@ -3231,3 +3306,38 @@ F-12, F-13 e F-15 têm desenho completo e só faltam ser montados na tela
 (F-15 também precisa dos dois templates de e-mail, `[ ]` em `APROVADO.md`);
 F-14 é checklist de gestor, pronto para uso assim que o número começar a
 discar de verdade.
+
+**G-07 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+nova, achada relendo o R-17 logo depois de reler o F-15, no mesmo dia em
+que os dois foram escritos.** CRM reconfirmado sem mudança via API (55
+campos, 50 oportunidades, 50 contatos, zero mensagem de cadência
+automática real — G-03/G-04/F-09/F-10 seguem aguardando o dono, sem
+novidade) — nada para o sweep de coerência de sempre corrigir a partir
+daí. A lacuna não veio de nome de etapa nem de `fieldKey` órfão: veio de
+perguntar, pela primeira vez, se as duas proteções que o projeto já tinha
+para "resposta de texto pode ser opt-out disfarçado" (R-17) e "quem está
+protegido em cada canal" (R-14, Smart Lists 8.26/8.27) tinham acompanhado
+o canal que nasceu por último, e-mail (F-15) — nenhuma das duas tinha,
+porque as duas foram escritas antes de o e-mail existir como canal real
+neste projeto, ambas no mesmo dia 22/09/2026, só mais cedo. É o mesmo
+padrão que o G-06 já registrou para a Qualificação por IA no WhatsApp
+("a guarda de um item mais velho nunca alcançou o canal mais novo"),
+agora achado numa dobradinha de dois itens em vez de um. Fechado como
+G-07: workflow novo `Opt-out por Palavra-chave — E-mail`
+(`build-wesales.md`, seção 2.9.6, espelhando o 2.9.5/R-17 sem reabrir a
+lista de frases), as duas Smart Lists do R-14 ganharam a cláusula `Email
+DND`, e a seção 2.30 ganhou um checklist de reputação/compliance do
+canal e-mail (SPF/DKIM/DMARC, preservar o link de descadastro nativo do
+GHL ao criar o template por API) — o mesmo tipo de checklist que o F-07/
+F-08 já usam para os outros dois canais, e que o e-mail nunca tinha
+ganhado por ser o mais novo dos três. Zero campo, zero tag novos, zero
+escrita no CRM: item de especificação pura, não depende de `APROVADO.md`.
+Detalhe completo no próprio G-07, acima.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real; F-11,
+F-12, F-13, F-15 e G-07 têm desenho completo e só faltam ser montados na
+tela (F-15 também precisa dos dois templates de e-mail, `[ ]` em
+`APROVADO.md`); F-14 é checklist de gestor, pronto para uso assim que o
+número começar a discar de verdade.

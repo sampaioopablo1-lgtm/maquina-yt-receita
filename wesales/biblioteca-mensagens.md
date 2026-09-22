@@ -313,6 +313,15 @@ tabela é sobre a janela de atendimento de 24h do WhatsApp Business API
 (G-05/G-06), uma restrição que não existe para e-mail transacional do GHL
 — os dois códigos não precisam de Template aprovado pela Meta.
 
+**Ao criar os dois via `emails_create-template`, preserve o link de
+descadastro (`{{unsubscribe}}`) no rodapé** — o GHL insere esse link por
+padrão em todo e-mail enviado pela plataforma, mas a API grava o HTML
+exatamente como enviado; colar só o corpo acima sem o rodapé produz um
+e-mail sem descadastro de um clique, o mínimo exigido pela LGPD (art. 18)
+e o gatilho mais rápido para denúncia de spam. Checklist completo
+(SPF/DKIM/DMARC do domínio, confirmação do link) em `build-wesales.md`,
+seção 2.30 — G-07, aberto e fechado em 22/09/2026.
+
 ## Template Meta para envio fora da janela de 24h — G-05
 
 Descoberto em 21/09/2026 (roadmap, G-05): o WhatsApp Business API só aceita

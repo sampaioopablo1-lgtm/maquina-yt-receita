@@ -1457,6 +1457,102 @@ no WhatsApp sai de toda cadência automática e fica com DND ligado no mesmo
 minuto — nunca mais chega a gerar a tarefa "ligar agora" que o 2.9.3
 geraria antes deste item.
 
+### 2.9.6 Workflow "Opt-out por Palavra-chave — E-mail" — G-07
+
+**Por quê:** o 2.9.5 (acima) só escuta `Customer Replied` no canal WhatsApp
+— o único canal de texto que existia no projeto quando o R-17 foi escrito
+(21/09/2026). O F-15 (seção 2.30, mesmo dia 22/09/2026) abriu o primeiro
+canal novo desde então, e-mail, e o único ponto que manda e-mail
+(`Resgate por E-mail — Sem Telefone`) trata **toda** resposta do mesmo jeito
+que o 2.9.3 tratava toda resposta de WhatsApp antes do R-17: o nó 4/7
+daquele workflow (`Wait → Contact Replied`, canal e-mail) não olha o
+conteúdo — uma resposta "pare de me mandar e-mail" cai no mesmo ramo que uma
+resposta "tenho interesse, me liga": `Internal Notification` ao gestor
+pedindo decisão manual, sem tag `nao-perturbe` nem DND aplicados sozinhos.
+Não é o mesmo bug do R-17 (nenhuma tarefa "ligar agora" nasce daqui — o ramo
+já é cauteloso, só notifica), mas é a mesma classe de defeito que o R-17
+documentou como inaceitável para WhatsApp: **"o único jeito de um opt-out
+virar DND é alguém ler a mensagem e lembrar de desligar tudo na mão"** —
+aqui, literalmente a mesma frase, trocando SDR por gestor e WhatsApp por
+e-mail. Achado ao reler o 2.30 depois de ler o R-17 com atenção: o próprio
+"Como" do R-17 já dizia que Reev/Meetime/Outreach/Salesloft tratam opt-out
+"como estado de contato/lista (unsubscribe...)" porque o canal principal
+deles é e-mail — e justamente por isso é o canal onde o projeto tem menos
+desculpa para deixar a mesma lacuna aberta.
+**O que já está protegido, e não precisa de nada novo (pesquisado antes de
+desenhar, `WebSearch`):** todo e-mail enviado pela plataforma nativa do GHL
+já sai com um link de descadastro automático (`{{unsubscribe}}`, inserido no
+rodapé mesmo sem configuração extra) — clicar nele já aplica opt-out sem
+depender de workflow nenhum, o mesmo papel que o link de Trigger cumpre para
+recurso mais avançado. Isso cobre LGPD (art. 18, direito de revogar
+consentimento a qualquer momento — o descadastro por clique já entrega isso)
+e cobre quem simplesmente clica em vez de responder por escrito. **O que não
+está protegido é a resposta por texto** — o mesmo ponto cego que o WhatsApp
+tinha antes do R-17, porque nem todo lead usa o link; alguns respondem o
+e-mail como se fosse uma conversa, do mesmo jeito que respondem WhatsApp.
+**Como:** mesmo padrão do 2.9.5, canal trocado — workflow novo, separado do
+`Resgate por E-mail — Sem Telefone` (mesma razão já registrada em
+`APRENDIZADOS-CRM.md` para não empilhar duas responsabilidades num workflow
+só: este é um listener global por conteúdo, aquele é uma régua de 2 e-mails
+com relógio próprio; a convivência dos dois no mesmo contato, quando ambos
+reagem à mesma resposta, é tratada abaixo).
+
+**Gatilho:** `Customer Replied` — Canal: **E-mail** — `Contains Phrase`, a
+mesma lista canônica do 2.9.5/2.9.3 (`pare de`, `pare com`, `para de mandar`,
+`para de me mandar`, `não quero mais mensagem`, `não quero mais contato`,
+`não quero receber mensagem`, `não quero receber mais`, `remove meu
+contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga
+mais`, `não me mande mais`, `sai da lista`, `me tira da lista`,
+`unsubscribe`) — reaproveitada sem alteração, de propósito: ao contrário do
+par 2.9.3/2.9.5 (que **precisam** ser idênticas porque escutam o mesmo canal
+e concorrem pelo mesmo evento), este workflow escuta um canal diferente e
+não tem esse risco — reaproveitar a lista existente só evita manter uma
+terceira versão do mesmo texto sem necessidade. `pare`/`stop`/`não quero
+mais` soltos continuam de fora pelo mesmo motivo do 2.9.5 (`Contains` casa
+pedaço de palavra — "parece ótimo" também vale em e-mail).
+
+| Configuração | Valor |
+|---|---|
+| Janela de envio | Sem restrição, 24/7 — mesmo motivo do 2.9.5: nenhum nó manda mensagem, DND atrasado é o oposto do que o item existe para evitar |
+| Allow Re-entry | Ligado — mesmo motivo do 2.9.5 |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" — os dois ramos seguem, mesmo motivo do 2.9.5 |
+| 2 | Silêncio | Add Contact Tag | `nao-perturbe` |
+| 3 | DND | Set Contact DND = ligado, todos os canais | Mesmo nó do 2.9.5 — já medido nesta subconta que grava a flag dos seis canais (inclusive canais não integrados), seção 8.26 |
+| 4 | Sair das filas | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
+| 5 | Sair das réguas | Remove Workflows | `All Except Current Workflow` — inclui o `Resgate por E-mail — Sem Telefone`, então o nó 4/7 daquele workflow deixa de esperar (ver nota abaixo sobre o aviso duplicado) |
+| 6 | Fechar o negócio, com cautela | If/Else | Achou oportunidade **E** etapa é `CONECTAR` **E** `status` é `open` → Update Opportunity `status` = `lost`. Senão → Internal Notification ao `Contact Owner`, mesmo texto do 2.9.5 trocando "WhatsApp" por "e-mail" |
+| 6b | Aviso, sempre | Internal Notification | Mesmo texto do 2.9.5, mesma troca de canal |
+| 7 | Registro | Add Note | `Opt-out por palavra-chave (e-mail) detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` |
+
+**Redundância aceita, não escondida:** quando a resposta de opt-out chega
+enquanto o lead está dentro do `Resgate por E-mail — Sem Telefone` (esperando
+no nó 4 ou 7), os dois workflows reagem ao mesmo evento — este aplica DND e
+remove o lead de todas as réguas (nó 5, que inclui o próprio Resgate), e o
+nó 4b/7b do Resgate dispara em paralelo com sua notificação genérica
+("respondeu, decisão manual"). O gestor recebe dois avisos do mesmo evento
+em vez de um. Diferente do 2.9.3/2.9.5 (onde o filtro cruzado é
+obrigatório porque um dos dois manda uma tarefa **errada** — "ligar agora"
+para quem pediu silêncio), aqui os dois avisos dizem coisas compatíveis
+(um diz "DND aplicado", o outro diz "revisar manualmente") — nenhum dos
+dois instrui uma ação incorreta. Corrigir a duplicação exigiria o mesmo
+filtro cruzado do 2.9.3 dentro do nó 4/7 do 2.30, que é um `Wait`, não um
+gatilho — **não confirmado na tela** se o nó `Wait → Contact Replied`
+aceita o mesmo filtro de conteúdo que a trigger `Customer Replied` aceita;
+registrado como retoque de segunda ordem, não bloqueia este item.
+
+**Zero campo e zero tag novos:** reaproveita `nao-perturbe` (T-06) e o DND
+nativo, mesmos do 2.9.5. Falta só a criação manual do workflow — não sai
+por API; não depende de `APROVADO.md`.
+
+**Pronto quando:** um lead que responde pedindo para parar de receber
+e-mail sai de toda cadência automática e fica com DND ligado no mesmo
+minuto, sem depender de o gestor ler a notificação genérica do 2.30 e agir
+na tela — mesmo padrão que o R-17 já garante para WhatsApp.
+
 ---
 
 ## 2.10 Workflow "Cadência Inbound" — R-07 — migrado para as 5 etapas reais em 19/09/2026
@@ -4420,6 +4516,25 @@ transacional — pendência a checar na tela antes de publicar, mesma classe
 de "confirmar na tela" já registrada para Number Validation (R-13) e
 Voice Intelligence (F-06).
 
+**Resposta de opt-out por texto não vira DND sozinha.** O nó 4b/7b acima
+trata toda resposta como "decisão manual" — inclusive uma pedindo para
+parar. Fechado como item próprio, G-07 (`ROADMAP-SALES-ENGAGEMENT.md`,
+seção 2.9.6 acima): workflow separado, mesmo padrão do R-17 aplicado ao
+canal e-mail.
+
+**Checklist do gestor — reputação e compliance do canal e-mail (G-07),
+antes do primeiro envio real:** nenhum item do projeto tinha protegido a
+reputação do canal e-mail até aqui (F-07 protege o número de WhatsApp,
+F-08 o de telefone) — checklist, não workflow, mesmo motivo do F-07/F-08:
+não existe gatilho nativo para ler taxa de rejeição, denúncia de spam ou
+status de autenticação de domínio por workflow.
+
+| Conferir | Por quê |
+|---|---|
+| Domínio de envio tem SPF, DKIM e DMARC configurados (Configurações → E-mail) | Sem os três, provedores como Gmail/Outlook classificam o e-mail como spam ou rejeitam — e um domínio que nunca mandou e-mail em volume é "novo" para reputação, mesmo raciocínio que já fundamentou o F-14 (rampa de aquecimento do telefone) para outro canal |
+| O template criado por `emails_create-template` manteve o link `{{unsubscribe}}` (ou o link de descadastro nativo do GHL) no rodapé | A API deste conector grava o HTML exatamente como enviado — se o texto de `biblioteca-mensagens.md` for colado sem o merge field, o e-mail sai sem descadastro de um clique, o mínimo exigido pela LGPD (art. 18) e o que evita denúncia de spam que derruba reputação de domínio mais rápido que qualquer outro fator |
+| Volume dos dois primeiros dias de `EM-1`/`EM-2` fica pequeno (mesma lógica do lote de 10-13/dia do G-03/F-14, mesmo sem rampa formal desenhada para e-mail) | Um domínio novo mandando dezenas de e-mails no mesmo dia é o padrão que provedores associam a spam — o volume real aqui é baixo por natureza (F-15 mede zero lead real resgatável hoje), então o risco é menor que o do WhatsApp/telefone, mas não é zero se o backfill dos 9 contatos (acima) sair de uma vez |
+
 **Pronto quando:** todo contato que cai em `abandoned`+`nutricao-90d` sem
 telefone e com e-mail recebe ao menos uma tentativa de contato real pelo
 canal que ele de fato tem, em vez de reciclar indefinidamente sem nunca ser
@@ -6157,14 +6272,27 @@ Fase 6 do `GUIA-MONTAGEM.md` realmente consulta. Fechado nesta rodada
 
 | Item | Configuração |
 |---|---|
-| Filtros | tag `nao-perturbe` presente **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled) |
+| Filtros | tag `nao-perturbe` presente **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled **OU** `Email DND` = Disabled) |
 | Colunas | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status da oportunidade |
 | Ordenação | Data de criação do contato, desc (o mais recente primeiro — é o mais provável de ainda estar "quente" numa régua) |
 
+**`Email DND` acrescentado em 22/09/2026 (G-07):** até aqui a lista só
+cobria os dois canais que existiam quando o R-14 foi escrito — o e-mail só
+virou canal real no F-15, no mesmo dia, e ninguém tinha voltado para
+atualizar esta lista até agora. Mesmo raciocínio da correção de `E`→`OU`
+abaixo: um contato com a tag e `Email DND` desligado (mas `Calls`/`WhatsApp`
+ligados) é exatamente quem já foi protegido nos outros canais e continua
+exposto no mais novo — o mesmo padrão "protegido num canal, exposto no
+vizinho" que o G-06 e o F-14 já registraram para outras combinações.
+
 Lista de exceção, não de volume: o alvo é sempre zero linha. Existe porque
 `Set Contact DND` e `Add Contact Tag: nao-perturbe` nascem no mesmo nó em
-quatro lugares diferentes do documento (2.9.5, seção 4 ramo `Não ligar`,
-seção 6 nó 3, opt-out por palavra-chave do R-17) — um deles aplicando só a
+quatro lugares diferentes do documento (2.9.5 — opt-out por palavra-chave no
+WhatsApp, R-17; 2.9.6 — o mesmo para e-mail, G-07; seção 4 ramo `Não ligar`;
+seção 6 nó 3 — a lista dizia "quatro" antes desta rodada citando "opt-out
+por palavra-chave do R-17" como item **separado** do 2.9.5, quando são o
+mesmo lugar; corrigido ao contar de novo para acrescentar o 2.9.6 de
+verdade) — um deles aplicando só a
 tag sem o DND nativo é o caso que realmente arrisca reincomodar o lead,
 porque a tag sozinha não bloqueia nada na plataforma; é convenção interna
 lida por filtro de lista, o DND é quem impede o próximo envio de sair.
@@ -6228,7 +6356,8 @@ dela** é que fica parcial. Uma conferência, não duas, e sem prazo de véspera
 
 | Conferir | Por quê |
 |---|---|
-| O filtro `WhatsApp DND` aparece na Smart List hoje? | Se sim, montar as duas listas completas já. Se não, montar só com `Calls & Voicemails DND` e completar no dia da integração |
+| O filtro `WhatsApp DND` aparece na Smart List hoje? | Se sim, montar as duas listas completas já. Se não, montar só com `Calls & Voicemails DND`/`Email DND` e completar a cláusula de WhatsApp no dia da integração |
+| O filtro `Email DND` aparece na Smart List hoje? (acrescentado em 22/09/2026, G-07) | A mesma fonte que restringiu WhatsApp/Messenger/GMB a "depois da integração" não lista e-mail entre os três — é canal nativo do GHL, não um app conectável à parte, então o filtro deveria estar disponível desde sempre. **Não confirmado na tela** (mesma classe de "a fonte fala de outra plataforma, a palavra certa é da tela" já registrada no F-10/8.25) — se não aparecer, montar as duas listas só com `Calls`/`WhatsApp` e completar quando confirmado |
 
 **Brinde da mesma leitura, e é uma ferramenta nova de diagnóstico:**
 `dndSettings[canal].message` carrega **o id do workflow que ligou aquele DND**
@@ -6242,7 +6371,7 @@ coisa, foi clique ou API.
 
 | Item | Configuração |
 |---|---|
-| Filtros | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag `nao-perturbe` ausente |
+| Filtros | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled **OU** `Email DND` = Enabled) **E** tag `nao-perturbe` ausente |
 | Colunas | Nome · Telefone · Tags · Etapa/status da oportunidade |
 | Ordenação | Data de criação do contato, desc |
 
@@ -6251,7 +6380,13 @@ lead está protegido — mas a divergência ainda importa, porque aponta um
 caminho que ligou DND sem passar pelo registro do projeto (ação manual na
 tela, ou um nó de opt-out que este documento ainda não cobre). Uma linha
 aqui não é emergência como na 8.26, é pista para achar o nó ou o clique
-que a especificação atual não previu.
+que a especificação atual não previu. **`Email DND` acrescentado em
+22/09/2026 (G-07)**, mesmo motivo da 8.26: um lead que clicou no link de
+descadastro nativo do GHL (o `{{unsubscribe}}` que todo e-mail da
+plataforma já carrega) liga `Email DND` sem passar por nenhum workflow
+deste projeto — exatamente o "caminho não documentado" que esta lista
+existe para achar, e que a versão anterior (só Calls/WhatsApp) não tinha
+como ver.
 
 **As duas juntas são o "relatório que prova que ninguém foi incomodado
 indevidamente" do R-14** (`ROADMAP-SALES-ENGAGEMENT.md`): zero linha na
