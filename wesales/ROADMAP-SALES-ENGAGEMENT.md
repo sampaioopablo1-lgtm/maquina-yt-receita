@@ -1830,19 +1830,29 @@ escolhido estar escrito nó a nó nas seções 2.4/2.10/4.
 
 ---
 
-### F-10 · Nenhum monitor olha a **entrada** — 46 horas sem lead novo e nada avisou — **aguarda decisão do dono** (aberto em 22/09/2026)
+### F-10 · Nenhum monitor olha a **entrada** — mais de 22 horas sem lead novo e nada avisou — **aguarda decisão do dono** (aberto em 22/09/2026)
+
+> **Correção (22/09/2026, sessão automática seguinte):** a rodada que abriu
+> este item errou a conta — escreveu "~46 horas" quando as próprias duas
+> datas da tabela abaixo (21/09 09:17 → 22/09 ~07:30) dão ~22h13min, quase a
+> metade. O erro se espalhou para o título deste item, `APRENDIZADOS-CRM.md`,
+> `briefing-sdr.md` (correção da L-07) e `build-wesales.md` (F-10 na tabela
+> de Custom Metrics) — os quatro corrigidos no mesmo commit. A conclusão do
+> item **não muda** (a entrada segue parada, os seis monitores do F-05
+> continuam cegos para isso), só a magnitude. Detalhe da regra generalizável
+> em `APRENDIZADOS-CRM.md`.
 
 **O que foi medido**, na conferência da rodada de `b7ae300` (leitura por API, nada
-suposto):
+suposto), e reconfirmado nesta rodada (leitura por API às 22/09 ~08:05 UTC):
 
 | Fato | Valor |
 |---|---|
-| Contatos na subconta | **50** |
+| Contatos na subconta | **50** (sem mudança) |
 | Oportunidades | **50** — um para um, a Porta de Entrada (G-01) está funcionando |
-| Lead mais novo (contato) | `Carlos Andrade`, **21/09 09:17:23 UTC**, `source: Facebook` |
+| Lead mais novo (contato) | `Carlos Andrade`, **21/09 09:17:23 UTC**, `source: Facebook` — ainda o mesmo, nenhum lead novo entrou |
 | Oportunidade dele | 21/09 09:17:**26** UTC — 3 segundos depois, é o G-01 disparando num lead real |
-| Agora | 22/09 ~07:30 UTC |
-| **Tempo sem lead novo** | **~46 horas** |
+| Agora | 22/09 ~08:05 UTC |
+| **Tempo sem lead novo** | **~22h47min e subindo** (correto: 21/09 09:17 → 22/09 08:05; a rodada anterior tinha escrito ~46h por engano — ver correção acima) |
 
 O padrão de chegada antes disso, pelos `dateAdded`: 9 leads entre 19/09 22:50 e
 20/09 18:11 (~19h), 1 em 21/09 09:17, e **nada desde então**. Todos os 50
@@ -1903,8 +1913,9 @@ não um número no painel. **Não especifico a (b) sem ele escolher.**
 
 **Consequência para o G-03, e é uma correção de fato:** o item diz que os 47
 parados estão "crescendo todo dia". **Não estão** — o estoque está estático em
-47 há 46 horas. Isso não torna o G-03 menos importante (47 leads pagos sem
-cadência continuam sendo 47 leads pagos sem cadência), mas troca o argumento:
+47 há mais de 22 horas (e subindo). Isso não torna o G-03 menos importante (47
+leads pagos sem cadência continuam sendo 47 leads pagos sem cadência), mas
+troca o argumento:
 a pressão não é o crescimento, é o **envelhecimento**. Lead de Meta Lead Ads
 esfria por hora, não por semana — e o mais velho do estoque já tem três dias.
 
@@ -1942,7 +1953,7 @@ funcionando" — os dois esperam decisão, nenhum sai por API.
 fechou o G-02 (reconferir a subconta antes de encerrar sem commit) achou
 que a L-07 (`briefing-sdr.md`), registrada como lacuna teórica desde
 18/09, virou problema real: 47 oportunidades pagas paradas em `NOVO LEAD`
-sem cadência. (O "crescendo todo dia" de 21/09 **não vale mais**: medido em 22/09, zero lead novo em ~46 horas — o estoque está estático em 47 e o que pressiona agora é o envelhecimento, não o crescimento. Ver F-10.) Três opções escritas para o dono
+sem cadência. (O "crescendo todo dia" de 21/09 **não vale mais**: medido em 22/09, zero lead novo em mais de 22 horas e subindo — o estoque está estático em 47 e o que pressiona agora é o envelhecimento, não o crescimento. Ver F-10, que corrige também o número de horas escrito na abertura do item.) Três opções escritas para o dono
 escolher — nenhuma executada, nenhuma vira `[x]` sozinha.
 
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são
@@ -2218,3 +2229,34 @@ antes desta rodada. Com F-06 fechado, todo o bloco 6 (F-01 a F-09) está
 `FEITO` ou aguardando decisão do dono (só F-09) — nenhum item numerado
 (G/R/F) resta sem dono claro fora de G-03, G-04, F-09 (decisão) e R-14
 (volume real de mensagem).
+
+**F-10 aberto em 22/09/2026, sessão automática seguinte — lacuna nova, achada
+seguindo a mesma instrução de sempre ("reler o 'por quê estamos esperando'" e,
+sem nada represado para destravar, "procurar lacuna nova").** Com o bloco 6
+inteiro fechado ou aguardando o dono, a pergunta que sobrou foi generalizar o
+próprio F-05: se seis monitores cobrem "lead que ficou parado", existe alguma
+falha que nenhum deles cobre? Sim — "lead que nunca chegou", achada ao medir
+por API que a subconta estava, naquele momento, ~22h sem nenhum contato novo
+(a rodada de abertura escreveu por engano "~46h"; conta corrigida na sessão
+seguinte, junto com um registro novo em `APRENDIZADOS-CRM.md` sobre a classe
+de erro — aritmética manual sobre datas, não fonte externa). Especificados
+dois widgets de Custom Metrics e uma Smart List equivalente, todos usando
+contagem de contatos por filtro (a mesma capacidade que a peça 2 do F-06
+tinha rejeitado para outro uso). O alerta automático de ausência (opção "b")
+não foi especificado — é engenhoca com custo próprio, decisão do dono. Zero
+campo, zero tag, zero escrita no CRM: item de especificação pura.
+
+**Sessão automática seguinte, mesma data — correção de aritmética, não de
+desenho:** conferido de novo por API (50 contatos, 50 oportunidades, mesmo
+`Carlos Andrade` como lead mais novo — a entrada segue parada, agora mais de
+22h e subindo), a rodada recalculou o intervalo entre as duas datas que a
+própria tabela do F-10 já trazia e achou que "~46 horas" não batia com elas
+— o correto era ~22h13min no momento em que foi escrito. Corrigido nos quatro
+arquivos onde o número errado tinha se propagado (aqui, `APRENDIZADOS-CRM.md`,
+`briefing-sdr.md`, `build-wesales.md`). A conclusão do item não muda: a
+entrada continua parada e nenhum monitor cobre isso — só a magnitude do
+"há quanto tempo" estava errada.
+
+Com isso, nenhum item numerado (G/R/F) resta sem dono claro fora de G-03,
+G-04, F-09 e F-10 (todos aguardando decisão do dono) e R-14 (volume real de
+mensagem).

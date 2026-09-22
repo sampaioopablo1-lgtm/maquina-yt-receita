@@ -2,12 +2,56 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O próprio F-10 errou a conta que ele mesmo tabulava — "46 horas" era quase o dobro do que as duas datas ao lado diziam — 22/09/2026, sessão automática seguinte
+
+A rodada que abriu o F-10 (entrada abaixo, mesma data) fez tudo certo até a
+última linha: mediu por API, conferiu que não era falha de workflow, achou o
+gap estrutural real. E então escreveu, na própria tabela, `Lead mais novo:
+21/09 09:17:23` e `Agora: 22/09 ~07:30`, e na linha seguinte `Tempo sem lead
+novo: ~46 horas`. As duas primeiras datas, subtraídas uma da outra, dão
+**22h13min** — quase exatamente metade do que a terceira linha afirma. O erro
+não veio de uma fonte externa nem de uma suposição: veio de fazer conta errada
+com os próprios números, escritos duas linhas acima, na mesma tabela.
+
+**Como foi pego:** esta rodada reconferiu o CRM por rotina antes de decidir o
+que fazer (mesmo lead mais novo, `Carlos Andrade`, ainda `21/09 09:17:23` —
+nenhum lead novo chegou) e, ao recalcular o tempo decorrido para atualizar a
+tabela, a conta não bateu com a que já estava escrita. `date -u` confirmou o
+horário real da máquina (`22/09 08:04 UTC`) contra o `createdAt` devolvido
+pela API (`2026-09-21T09:17:26Z`): 22h47min, não o dobro disso.
+
+**Por que vale uma entrada própria, e não só a correção silenciosa:** é uma
+classe de erro diferente das anteriores registradas aqui (premissa negativa
+não pesquisada, configuração herdada lida como local, campo com dois donos).
+Ali a fonte era externa e podia estar errada; aqui a fonte eram os próprios
+dados já corretos na mesma tabela, e a aritmética sobre eles é que falhou — o
+tipo de erro que nenhuma pesquisa adicional pega, só reconferir a conta com a
+calculadora (ou `date -u` mais subtração) em vez de confiar no número que "soa
+plausível" (46h também soa como "quase dois dias sem lead", frase que uma
+operação de tráfego pago aceita sem estranhar).
+
+**A regra:** todo número que expressa "tempo decorrido entre A e B" escrito
+num documento merece a mesma verificação que um `fieldKey` adivinhado — não
+porque a fonte é suspeita, mas porque é aritmética manual e aritmética manual
+erra sem avisar. Antes de publicar uma conta de horas/dias, refaça a
+subtração isolada (`date -u` + subtração, ou o equivalente) e confira contra
+as duas datas que já estão escritas ao lado — se elas não batem com o
+resultado, é a conta que está errada, não as datas. Propagou para **quatro
+arquivos** (`ROADMAP-SALES-ENGAGEMENT.md` em três pontos, `APRENDIZADOS-CRM.md`,
+`briefing-sdr.md`, `build-wesales.md`) antes de alguém recalcular — o mesmo
+padrão de "número repetido vira mentira na rodada seguinte" que a coerência
+entre documentos já vigia para nomes e contagens, agora para aritmética de
+data. Os quatro corrigidos neste commit; a conclusão do F-10 (entrada parada,
+sem monitor) não muda — só a magnitude.
+
 ## Seis monitores vigiam lead parado e nenhum vigia lead que não chegou — a falha que faz todos os indicadores melhorarem — F-10, 22/09/2026, sessão automática
 
 Medido nesta rodada, por API: **50 contatos, 50 oportunidades**, e o lead mais
-novo da subconta é de **21/09 09:17 UTC** — ~**46 horas** atrás. O padrão
-anterior era 9 leads em 19 horas (19/09 22:50 → 20/09 18:11), depois 1 em
-21/09 09:17, depois nada.
+novo da subconta é de **21/09 09:17 UTC** — **~22h13min** atrás (esta entrada
+originalmente dizia "~46 horas"; era conta errada, quase o dobro do real —
+corrigido na entrada mais recente deste arquivo, que também generaliza a
+regra). O padrão anterior era 9 leads em 19 horas (19/09 22:50 → 20/09 18:11),
+depois 1 em 21/09 09:17, depois nada.
 
 **Não é falha de workflow, e isso foi conferido antes de concluir:** contatos
 e oportunidades batem um para um, e no lead real mais recente o contato nasceu
@@ -59,13 +103,13 @@ engenhoca com custo (um contato de serviço, um campo) e não foi especificada:
 é escolha do dono, não de rodada automática.
 
 **Efeito colateral — uma alegação do roadmap venceu:** o G-03 dizia 47 leads
-parados "crescendo todo dia". Estático em 47 há 46 horas. O item não fica menos
-importante (47 leads pagos sem cadência continuam sendo isso), mas o argumento
-muda de **crescimento** para **envelhecimento**: lead de Lead Ads esfria por
-hora, e o mais velho do estoque já tem três dias. Corrigido no roadmap e no
-briefing. Terceira vez hoje que uma frase de urgência escrita num dia parou de
-ser verdade no seguinte, sem ninguém revisar — mesmo padrão da entrada "pendência
-que virou feito".
+parados "crescendo todo dia". Estático em 47 há mais de 22 horas. O item não
+fica menos importante (47 leads pagos sem cadência continuam sendo isso), mas
+o argumento muda de **crescimento** para **envelhecimento**: lead de Lead Ads
+esfria por hora, e o mais velho do estoque já tem três dias. Corrigido no
+roadmap e no briefing. Terceira vez hoje que uma frase de urgência escrita num
+dia parou de ser verdade no seguinte, sem ninguém revisar — mesmo padrão da
+entrada "pendência que virou feito".
 
 ## O CRM não pode responder a pergunta do LC Phone, e agora isso está provado: **zero registro de chamada** na subconta, e o markup de 20% é da agência, não desta subconta — 22/09/2026, sessão automática
 
