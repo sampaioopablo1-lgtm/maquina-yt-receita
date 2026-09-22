@@ -3921,22 +3921,20 @@ Recuperação de No-show como pendência deferida pelo mesmo motivo (nenhuma
 delas chega perto do teto sozinha); QI-1 entra na mesma fila, não é lacuna
 nova desta rodada.
 
-**O que este item NÃO cobre ainda — pendência explícita, mesmo padrão do
-G-05 (peça 1 → peça 2):** o **Caminho B** (`Send WhatsApp` manual, 8 blocos,
-abaixo) tem o mesmo problema em **cada uma** das 8 perguntas, não só na
-primeira — o desenho já assume que, sem resposta em 24h, a pergunta seguinte
-sai de qualquer forma (`No tempo limite, pula para a pergunta seguinte`), e
-essa segunda tentativa pode cair fora da janela de novo se a primeira nunca
-reabriu. Guardar as 8 exige ou um Template por pergunta (8 Templates novos,
-inviável para um fluxo pensado como conversa) ou reestruturar o caminho para
-só avançar depois de uma resposta de verdade — nenhuma das duas está
-desenhada nesta rodada. Não bloqueia nada: o Caminho A (guardado acima, e já
-o recomendado pelo próprio documento) não depende do Caminho B para ir ao
-ar, e quem montar isto na tela deveria montar só o A.
+**Caminho B, fechado nesta rodada (peça 2):** tinha o mesmo problema em
+**cada uma** das 8 perguntas, não só na primeira — o desenho original
+assumia que, sem resposta em 24h, a pergunta seguinte saía de qualquer
+forma (`pula para a pergunta seguinte`), e essa tentativa cairia fora da
+janela de novo se a anterior nunca tivesse reaberto. Das duas saídas
+cogitadas (Template por pergunta — 8 novos, inviável para um fluxo pensado
+como conversa — ou reestruturar para só avançar depois de resposta de
+verdade), a segunda venceu: cada bloco agora encerra o workflow em vez de
+insistir sem garantia de janela. Detalhe nó a nó na seção "B — Sem
+Conversation AI" abaixo.
 
-**Pronto quando:** todo envio de WhatsApp deste workflow — Caminho A e
-Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já garante para
-o resto da operação.
+**Pronto quando (cumprido):** todo envio de WhatsApp deste workflow —
+Caminho A e Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já
+garante para o resto da operação.
 
 ### Estrutura
 Duas formas de montar. Recomendo a **A**, agora precedida pela guarda 6.0.
@@ -3996,13 +3994,40 @@ caso de cliente. Se o lead perguntar preço, diga que depende do diagnóstico e
 que é exatamente o assunto da reunião.
 ```
 
-**B — Sem Conversation AI (só nós)**
+**B — Sem Conversation AI (só nós) — guarda de janela fechada (G-06)**
 
 Corrente de 8 blocos: `Send WhatsApp (pergunta)` → `Wait → Contact Replied,
-tempo limite 24h` → `Update Contact Field` (com a resposta) → próxima. No
-tempo limite, pula para a pergunta seguinte ou encerra. Funciona sem
-Conversation AI contratado, mas não interpreta resposta livre — você acaba
-tendo que ler as conversas na mão.
+tempo limite 24h` → `Update Contact Field` (com a resposta) → próxima
+pergunta. Funciona sem Conversation AI contratado, mas não interpreta
+resposta livre — você acaba tendo que ler as conversas na mão.
+
+**No tempo limite (sem resposta), o bloco encerra o workflow — nunca "pula
+para a pergunta seguinte".** Era essa a metade do G-06 que ficou pendente
+na peça 1 (guarda 6.0 acima cobre só a entrada). O motivo é o mesmo em
+cada uma das 8 perguntas, não só na primeira: a guarda 6.0 garante que a
+**pergunta 1** parte de dentro da janela (direto, ou reaberta pela resposta
+ao convite `QI-1`) — mas cada pergunta seguinte só herda essa garantia
+porque a pergunta anterior **recebeu resposta**, e é a resposta do lead
+(não o envio nosso) que reabre a janela de 24h. "Pular para a próxima
+pergunta" sem resposta manda texto livre com a janela já fechada, exatamente
+o defeito que a peça 1 corrigiu na entrada — só que oito vezes, uma por
+pergunta, e sem Template equivalente para nenhuma delas (8 Templates novos
+para um fluxo pensado como conversa foi avaliado e descartado desde a
+primeira redação deste item). Terminar em silêncio, em vez de insistir sem
+garantia de janela, é o mesmo "lado barato de errar" que a lição do R-18 já
+registrou para outro portão do projeto — o lead segue coberto pela
+Cadência 12x30 principal (ligação), que não passa por aqui.
+
+| # | Ação | Configuração exata |
+|---|---|---|
+| B.1 | Send WhatsApp | texto livre, pergunta 1 (prompt da seção 6, item 1) |
+| B.2 | Wait → Contact Replied | tempo limite 24h |
+| B.2 (respondeu) | Update Contact Field | grava a resposta no campo da pergunta 1 → segue para B.3 (pergunta 2), dentro da janela que a própria resposta reabriu |
+| B.2 (sem resposta) | Add Note | `IA de qualificação (Caminho B): sem resposta na pergunta 1 — encerra, segue só pela cadência de ligação` → fim do workflow |
+
+Repita o par (`Send WhatsApp` → `Wait → Contact Replied` com o mesmo
+desvio "respondeu segue / sem resposta encerra") para as 7 perguntas
+restantes, cada uma citando seu próprio número na nota de saída.
 
 ### Saída
 | # | Ação |

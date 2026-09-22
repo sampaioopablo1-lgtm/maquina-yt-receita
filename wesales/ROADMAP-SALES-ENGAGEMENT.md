@@ -475,7 +475,7 @@ inteiro:** a submissão dos Templates ao Meta Business Manager (ação do
 dono, até 48h) e a montagem manual de cada guarda na tela quando cada
 workflow for construído/editado — nenhuma das duas sai por API.
 
-### G-06 · A guarda de janela do G-05 nunca chegou à `Qualificação por IA no WhatsApp` — o ponto de envio mais exposto de todos ficou sem ela
+### G-06 · A guarda de janela do G-05 nunca chegou à `Qualificação por IA no WhatsApp` — o ponto de envio mais exposto de todos ficou sem ela — **FEITO em 22/09/2026**
 **Por quê:** o G-05 fechou a guarda de janela de 24h em todo `Send WhatsApp`
 de texto livre **catalogado em `biblioteca-mensagens.md`** — mas os envios
 do workflow `Qualificação por IA no WhatsApp` (`build-wesales.md`, seção 6)
@@ -502,9 +502,9 @@ reabre a janela (é o cliente escrevendo primeiro) e só então a IA assume.
 Sem resposta em 24h, o workflow encerra sozinho sem tocar na Cadência
 12x30 principal, que continua ligando por fora. Detalhe nó a nó em
 `build-wesales.md`, seção 6.0, e em `IMPLEMENTACAO-WORKFLOWS.md`, W10.
-**Pronto quando:** todo envio de WhatsApp deste workflow — Caminho A e
-Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já garante
-para o resto da operação.
+**Pronto quando (cumprido):** todo envio de WhatsApp deste workflow —
+Caminho A e Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já
+garante para o resto da operação.
 
 **Resumo (22/09/2026):** fechado o Caminho A (o recomendado pelo próprio
 documento): guarda especificada em `build-wesales.md` (seção 6.0, nova) e
@@ -535,6 +535,31 @@ criar campo/calendário por API) segue **sem conta conectada**
 (`COMPOSIO_MANAGE_CONNECTIONS`, ação `list`, 0 contas ativas) — mesma
 conclusão de 18/09/2026, conectar continua exigindo OAuth que só o dono
 autoriza.
+
+**Resumo (22/09/2026, segunda rodada) — G-06 fechado por inteiro:** fechado
+o Caminho B, a pendência que a peça 1 tinha deixado explícita. Das duas
+saídas que o próprio item já cogitava, a escolhida foi reestruturar o
+caminho, não multiplicar Template: cada um dos 8 blocos `Send WhatsApp` só
+avança para a pergunta seguinte quando o lead **responde de verdade** (a
+resposta é o que reabre a janela de 24h, não o nosso envio) — sem resposta
+no prazo, o bloco grava uma nota e encerra o workflow, no lugar de "pular
+para a pergunta seguinte" (o desenho original), que mandaria texto livre
+com a janela já fechada. Mesmo raciocínio da peça 1, generalizado: uma
+guarda na entrada garante a **primeira** mensagem dentro da janela, não as
+sete seguintes — cada uma delas só herda a garantia da anterior ter
+recebido resposta. Perder a resposta agora significa parar de perguntar em
+vez de insistir sem garantia, o mesmo "lado barato de errar" que o R-18 já
+tinha registrado para outro portão do projeto — o lead segue coberto pela
+Cadência 12x30 (ligação), que não passa por este workflow. Detalhe nó a nó
+em `build-wesales.md`, seção 6 ("B — Sem Conversation AI"), e
+`IMPLEMENTACAO-WORKFLOWS.md`, W10. Zero campo e zero tag novos, zero
+escrita no CRM: item de especificação pura, não depende de `APROVADO.md`.
+Subconta reconfirmada nesta execução via `opportunities_search-opportunity`/
+`locations_get-custom-fields`/`opportunities_get-pipelines`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 51 campos, 50 oportunidades (47 `NOVO LEAD` +
+3 `NEGOCIAR`, uma agora com `status = lost` — o contato de teste do
+checklist da seção 10, R-18 — sem mudança de volume real) — G-03/G-04
+seguem aguardando o dono.
 
 ---
 
@@ -1663,3 +1688,18 @@ próprio G-06 — não bloqueia o Caminho A, que é o recomendado. CRM
 reconfirmado sem mudança (51 campos, 50 oportunidades, G-03/G-04 ainda
 aguardando o dono); Composio/HighLevel reconferido e ainda sem conta
 conectada (0 contas ativas). Detalhe completo no próprio G-06, acima.
+
+**G-06, segunda peça, 22/09/2026, sessão automática seguinte — item
+fechado por inteiro.** A pendência que a peça 1 deixou explícita (Caminho
+B, mesmo problema da janela em cada uma das 8 perguntas) tinha duas saídas
+cogitadas e nenhuma escolhida; esta rodada escolheu reestruturar o caminho
+em vez de multiplicar Template — cada bloco só avança para a pergunta
+seguinte quando o lead responde de verdade, e sem resposta encerra em vez
+de insistir fora da janela. Não sobra mais nenhum `Send WhatsApp` da
+operação sem guarda. CRM reconfirmado sem mudança (51 campos, 50
+oportunidades — a única variação frente à última leitura é um registro de
+teste com `status = lost`, não volume real; G-03/G-04 ainda aguardando o
+dono). Com G-06 fechado, o Bloco 0 inteiro está resolvido ou aguardando
+decisão do dono (G-01, G-02, G-05 peças de especificação e G-06, todos
+`FEITO`; só G-03 e G-04 restam, e nenhum dos dois sai por trabalho de
+documentação — precisam de escolha do dono).

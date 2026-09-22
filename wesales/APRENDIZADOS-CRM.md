@@ -2,6 +2,36 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Uma guarda de janela na entrada protege a primeira mensagem de uma troca; cada mensagem seguinte precisa da sua própria — "sem resposta" não pode virar "pula para a próxima" — G-06 peça 2, 22/09/2026, sessão automática
+
+O G-06 fechou a peça 1 (Caminho A, `Conversation AI`) com uma guarda de
+janela só na **entrada** do workflow — correto ali, porque dali em diante
+uma única ação (a IA) decide o que mandar e quando, e ela já assume que
+está numa conversa em andamento. A peça 2 (Caminho B, 8 blocos manuais
+`Send WhatsApp` → `Wait → Contact Replied` → próxima pergunta) quase herdou
+o mesmo raciocínio — "já guardei a entrada, as 8 perguntas estão cobertas"
+— e estaria errado: o desenho original de cada bloco, no timeout, "pulava
+para a pergunta seguinte" mesmo sem resposta. Isso manda texto livre com a
+janela fechada em qualquer pergunta a partir da 2ª, porque é a **resposta
+do lead**, não o nosso envio, que reabre a janela de 24h — uma guarda na
+entrada garante isso só para a primeira mensagem da corrente.
+
+**A regra, generalizável para qualquer corrente de várias mensagens
+guardada por janela de atendimento:** "guardei a entrada" não é "guardei a
+corrente". Cada elo que pode enviar texto livre precisa da mesma pergunta
+que a guarda de entrada já respondeu — "isto está dentro da janela agora,
+ou preciso de uma saída seguindo o padrão Template/encerrar?" — e quando a
+única coisa que reabre a janela é uma resposta real, "sem resposta" só tem
+uma saída segura: **encerrar**, nunca "seguir mesmo assim". Multiplicar
+Template por elo (aqui seriam 8) resolve o mesmo problema, mas custa uma
+aprovação da Meta por mensagem da conversa — inviável quando o conteúdo é
+pensado como pergunta-e-resposta, não como texto fixo recorrente (M1/M2/M3
+já usam Template porque são disparos isolados, não uma troca).
+
+Detalhe da correção: `build-wesales.md`, seção 6, "B — Sem Conversation
+AI"; `IMPLEMENTACAO-WORKFLOWS.md`, W10; `ROADMAP-SALES-ENGAGEMENT.md`,
+G-06. Zero campo, zero tag, zero escrita no CRM.
+
 ## Uma varredura de guarda por código catalogado deixa passar quem nunca foi catalogado — busque pelo nome da ação, não pela lista — 22/09/2026, sessão automática
 
 O G-05 (guarda de janela de 24h do WhatsApp) fechou em duas peças (21 e

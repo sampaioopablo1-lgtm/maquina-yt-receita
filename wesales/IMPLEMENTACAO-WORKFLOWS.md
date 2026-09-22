@@ -918,13 +918,15 @@ G-06) — insira antes do Caminho A ou B:**
 | 4 | If/Else | `Nota de qualificação` ≥ 45 → Add Tag `fila-quente` → Update `Prioridade` = `5` → Internal Notification ao SDR: `lead qualificado pela IA, ligar hoje` |
 | 5 | If/Else | `Nota de qualificação` < 25 **E** `Budget` é `Não tem` → Update Opportunity status = `abandoned` → Add Tag `nutricao-90d` |
 
-**Caminho B (sem Conversation AI):** 8 blocos `Send WhatsApp (pergunta)` →
-`Wait → Contact Replied, 24h` → `Update Contact Field` (campo da pergunta),
-na ordem do prompt; no tempo limite pula para a próxima. Depois, nós 2–5.
-**Pendência (G-06):** só o nó G.1-G.5 acima guarda a primeira pergunta —
-cada uma das 8 ainda pode cair fora da janela se o lead nunca respondeu;
-sem tratamento nesta rodada, monte só o Caminho A (`build-wesales.md`,
-seção 6.0).
+**Caminho B (sem Conversation AI, guarda fechada — G-06 peça 2):** 8 blocos
+`Send WhatsApp (pergunta)` → `Wait → Contact Replied, 24h` → respondeu:
+`Update Contact Field` (campo da pergunta) e segue para a próxima pergunta
+· sem resposta: `Add Note` (`sem resposta na pergunta N — encerra`) e **fim
+do workflow**, nunca "pula para a próxima". Cada pergunta só herda janela
+aberta porque a anterior recebeu resposta de verdade — pular sem resposta
+mandaria texto livre fora da janela, oito vezes. Depois da última pergunta
+respondida, nós 2–5. Detalhe nó a nó: `build-wesales.md`, seção 6, "B — Sem
+Conversation AI".
 
 **Estado na tela:** rascunho — confirmar se é o placeholder vazio criado
 para o Mestre de saída apontar, ou se já tem o nó de IA dentro.
