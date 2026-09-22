@@ -3049,6 +3049,95 @@ depender de alguém abrir a lista `Retornos` (8.4) no dia certo.
 
 ---
 
+## 2.25 Proteção de reputação do número de WhatsApp — F-07
+
+**Por quê:** todo o desenho de mensagem desta operação (G-05, G-06)
+protege a **entrega** de cada mensagem — janela de 24h, Template aprovado.
+Nenhum item protege o **número** que envia. A Meta atribui a todo número do
+WhatsApp Business API uma **Quality Rating** (Verde/Amarela/Vermelha,
+calculada sobre bloqueios, denúncias de spam e baixo engajamento dos
+últimos 30 dias) e um **Tier de mensagens** (teto de clientes únicos
+contactados por uma janela rolante de 24h — número novo nasce no Tier 1,
+250 clientes únicos, e só sobe consumindo metade do teto atual dentro de 7
+dias com qualidade aceitável). Uma rajada de bloqueios ou denúncias derruba
+a nota para Amarela/Vermelha, trava a subida de Tier e pode **throttlar ou
+recusar** mensagens mesmo dentro da janela de 24h e mesmo com Template
+aprovado — o mesmo "estrago silencioso" que motivou o F-05 e o G-05/G-06,
+aqui na camada mais funda: se o número perder reputação, toda a
+especificação de mensagem do projeto (M1-a/M1-b/M2/M3, MI-0/MI-F, RE-1/
+RE-2, NS-1/NS-2, os quatro lembretes do Pós-agendamento, QI-1 e o
+Caminho B da Qualificação por IA) para de entregar ao mesmo tempo, sem
+nenhum erro visível numa tela de workflow — o nó roda, "envia", e a Meta
+descarta ou atrasa do outro lado. É o equivalente, para WhatsApp, do que
+"aquecimento de domínio"/monitoramento de spam score é para e-mail em
+Outreach/Salesloft — nenhuma das duas ferramentas de sales engagement
+citadas neste projeto lida com WhatsApp Business API como canal principal,
+então aqui o risco é maior do que a paridade com elas sugere, não menor.
+**Pesquisado (`WebSearch`, confiança média-alta — mecânica confirmada por
+múltiplas fontes de terceiros e pela documentação de suporte da própria
+HighLevel, cujo domínio segue bloqueado pelo proxy deste ambiente, citada
+por resultado de busca, não lida direto):** o artigo "WhatsApp Quality
+Rating, Status Changes, and Messaging Limits" do HighLevel Support Portal
+confirma que a mecânica de Meta se aplica sem alteração dentro do GHL —
+não é um risco só de quem usa a API da Meta direto.
+
+**O que este item NÃO é, para não duplicar outro:** não é o teto de fadiga
+do F-04 (`Toques na semana`), que protege o **lead** de receber toque
+demais — um número pode ter reputação perfeita e ainda assim cansar um
+lead, e um número pode respeitar o teto de F-04 lead a lead e ainda
+acumular denúncia suficiente para cair de nota, porque a Quality Rating
+soma bloqueios de **todos** os leads, não de um só. Também não é a higiene
+de telefone do R-13 (`telefone-invalido`), que filtra número que não existe
+— aqui o número do **lead** está certo, o risco é a reação dele à
+mensagem. É uma peça nova, na mesma família do F-05 (monitor de saúde),
+mas de infraestrutura do canal, não de lead individual.
+
+**Como — e por que não é um workflow:** pesquisado explicitamente se existe
+gatilho, ação ou Custom Value nativo do GHL que leia Quality Rating ou Tier
+em tempo de execução (para um workflow reagir sozinho, no espírito do F-05)
+— **não encontrado**. A tela nativa (`Settings → WhatsApp → Manage` no
+número conectado, "Quality rating" dos últimos 30 dias, com os motivos de
+bloqueio ao passar o mouse quando a nota cai) é a única superfície, e o
+conector `GHL CRM` desta sessão não a expõe (sem ferramenta de leitura de
+canal/número — confirmado pela lista de ferramentas disponíveis). Isto não
+é lacuna deste item, é limite de plataforma/conector como qualquer outro
+já registrado no projeto (campo e workflow por API, por exemplo) — a saída
+correta não é inventar um workflow que a tela não sustenta, é registrar a
+checagem como rotina manual do gestor, com gatilho por evento (quando
+olhar) em vez de por calendário fixo:
+
+| Quando olhar | Por quê |
+|---|---|
+| **Antes de publicar os 4 nós de envio da Cadência 12x30 pela primeira vez com volume real** (G-05, passo 4 da tabela da seção G-05 no roadmap) | É o salto de volume mais brusco da operação — de zero para o regime diário de uma hora para a outra; se a nota já não é Verde antes disso, o salto piora rápido |
+| **Semanalmente enquanto o volume crescer** (10-13 leads novos/dia entrando, mais Reengajamento 90 dias, mais Cadência Inbound) | O teto de Tier 1 (250 clientes únicos/24h) tem folga larga no volume atual do projeto — o risco não é estourar o teto, é a nota cair antes de precisar subir de Tier |
+| **Depois de qualquer pico visível na lista `Opt-out por Palavra-chave` (R-17, seção 2.9.5)** | Quem digita "pare" na conversa é o mesmo tipo de reação que gera denúncia/bloqueio no WhatsApp — um pico na lista de opt-out por texto é sinal antecedente barato de checar a nota antes que ela caia sozinha |
+
+**Se a nota cair para Amarela/Vermelha (mitigação com o que o projeto já
+tem, sem desenho novo):** (1) parar de promover leads novos para a
+Cadência 12x30 até a nota normalizar não é necessário — os quatro nós de
+envio já têm a guarda de janela (G-05/G-06): a maioria dos envios já sai
+como Template, que a Meta trata com mais tolerância que texto livre; (2)
+revisar os motivos de bloqueio que a tela mostra por cima da nota — se
+apontarem para um Template específico (ex.: `M1-b`, a variante do R-05/
+teste A/B), pausar só aquela variante no Split em vez do canal inteiro;
+(3) conferir se o pico de opt-out (gatilho da linha acima) aponta para um
+segmento ou origem específica, e se sim, tratar a causa (ex.: formulário do
+Meta mal configurado, G-04) em vez de só a reputação, porque a nota volta a
+cair de novo enquanto a causa não for corrigida.
+
+**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
+documentação e rotina manual pura — não depende de `APROVADO.md`. Não
+entra na "Ordem de montagem" (não há nó para montar) nem no checklist de
+teste da seção 10 (não há objeto de CRM para simular reputação de número
+com contato fictício).
+
+**Pronto quando:** o gestor sabe, sem perguntar a ninguém, os três
+momentos em que precisa olhar `Settings → WhatsApp → Manage` antes que a
+nota caia em silêncio — e o que fazer, com as peças que o projeto já tem,
+se ela cair.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.

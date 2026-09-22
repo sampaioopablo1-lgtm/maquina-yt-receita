@@ -1501,6 +1501,54 @@ esse campo.
 **Pronto quando:** "taxa de conexão" no relatório significa conversa, e o SDR
 não consegue inflar o número desligando rápido.
 
+### F-07 · Proteção de reputação do número de WhatsApp — **FEITO em 22/09/2026**
+**Por quê:** G-05/G-06 protegem a **entrega** de cada mensagem individual
+(janela de 24h, Template aprovado). Nada no projeto protegia o **número**
+que envia: a Meta atribui a todo número do WhatsApp Business API uma
+Quality Rating (Verde/Amarela/Vermelha, por bloqueios/denúncias/engajamento
+dos últimos 30 dias) e um Tier de mensagens que trava de subir e pode
+throttlar ou recusar envio se a nota cair — inclusive dentro da janela e
+com Template aprovado. Se isso acontecer, toda a especificação de mensagem
+do projeto (M1 a NS-2, os lembretes do Pós-agendamento, QI-1) para de
+entregar ao mesmo tempo, sem erro visível em nenhum workflow — o mesmo tipo
+de "estrago silencioso" que motivou o F-05 e o G-05, aqui na camada de
+infraestrutura do canal, não de lead individual (não duplica F-04, que
+protege o lead de excesso de toque, nem R-13, que valida o telefone do
+lead, não a reputação do nosso número). Achado seguindo a própria instrução
+deste roadmap: pesquisar como Reev/Meetime/Outreach/Salesloft resolvem
+antes de desenhar — nenhuma das quatro trata WhatsApp Business API como
+canal principal, o que deixa este risco fora do repertório usual de sales
+engagement e mais alto aqui do que a paridade sugeriria.
+**Como:** sem gatilho nativo do GHL para ler Quality Rating/Tier em tempo
+de execução (pesquisado, não encontrado) — não é workflow, é checklist
+manual do gestor em `Settings → WhatsApp → Manage`, com três gatilhos por
+evento (antes de publicar os 4 nós de envio da 12x30 com volume real;
+semanalmente enquanto o volume crescer; depois de qualquer pico na lista de
+Opt-out do R-17) e mitigação com as peças que o projeto já tem (Template
+já é a maioria dos envios por G-05/G-06; pausar só a variante do Split
+apontada como causa; tratar a origem do pico de opt-out, ex. G-04, em vez
+de só a nota). Detalhe nó a nó — na verdade linha a linha, já que não há nó
+— em `build-wesales.md`, seção 2.25.
+**Pronto quando (cumprido):** o gestor sabe os três momentos de checar a
+nota antes que ela caia em silêncio, e o que fazer se cair, com o que o
+projeto já tem — sem esperar um workflow que a plataforma não sustenta.
+
+**Resumo:** especificado em `build-wesales.md`, seção 2.25 (nova, entre a
+peça 6 do F-05 e o Mestre de saída). Zero campo, zero tag, zero workflow,
+zero escrita no CRM — item de documentação e rotina manual pura, não
+depende de `APROVADO.md`, não entra na "Ordem de montagem" (não há nó) nem
+no checklist de teste da seção 10 (não há objeto de CRM para simular
+reputação de número com contato fictício). Subconta reconfirmada nesta
+execução via agente de leitura dedicado (`opportunities_search-opportunity`/
+`locations_get-custom-fields`/`contacts_get-contacts`/
+`conversations_search-conversation`): mesmas 5 etapas do `FUNIL DE VENDAS`,
+51 campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, uma `lost` de
+teste) — sem mudança desde a última leitura; confirmado também que a
+subconta segue sem qualquer conversa de WhatsApp/SMS real da operação (só
+DMs pessoais de Instagram), o que faz deste item um item "antes de ligar o
+motor", não uma correção depois de já ter sofrido dano de reputação — G-03/
+G-04 seguem aguardando o dono.
+
 ---
 
 ## Ordem sugerida
@@ -1703,3 +1751,26 @@ dono). Com G-06 fechado, o Bloco 0 inteiro está resolvido ou aguardando
 decisão do dono (G-01, G-02, G-05 peças de especificação e G-06, todos
 `FEITO`; só G-03 e G-04 restam, e nenhum dos dois sai por trabalho de
 documentação — precisam de escolha do dono).
+
+**F-07 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+nova, achada pela pesquisa de concorrência que este roadmap sempre manda
+fazer antes de desenhar.** CRM reconfirmado sem mudança (51 campos, 50
+oportunidades, zero conversa de WhatsApp/SMS real ainda — G-03/G-04
+seguem aguardando o dono): sweep de coerência de sempre não achou nada
+novo em texto (nomes de etapa, merge field, contagem duplicada — a lista
+manual do Mestre de saída, seção 3, foi conferida de novo e continua
+correta *de propósito*, não é a mesma lista das outras três seções: o
+achado do F-05 peça 4 já registra por que só ali `Remove Workflows`/`All
+Except Current Workflow` teria cortado lembrete e tarefa de um workflow
+ainda em execução). A lacuna veio de perguntar "como Reev/Meetime/
+Outreach/Salesloft protegem o canal de envio, e o que eles não cobrem
+porque não usam WhatsApp Business API como canal principal" — nenhuma das
+quatro lida com Quality Rating/Tier de mensagens, e nada no projeto (F-04
+protege o lead da frequência, R-13 valida o telefone do lead, G-05/G-06
+protegem a janela de 24h) protegia a reputação do **nosso** número, que
+pode cair mesmo com toques dentro do teto, telefone válido e Template
+aprovado. Sem gatilho nativo para ler isso por workflow (pesquisado, não
+achado): virou checklist manual do gestor com três gatilhos por evento,
+não um workflow novo — `build-wesales.md`, seção 2.25. É item para checar
+**antes** de a `Cadência 12x30` sair do rascunho com volume real, não
+depois de a nota já ter caído.

@@ -2,6 +2,61 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Nenhum item protegia a reputação do número, só a entrega de cada mensagem — F-07, 22/09/2026, sessão automática
+
+Sessão sem novidade no CRM (agente de leitura dedicado confirmou: 51
+campos, 50 oportunidades, zero conversa de WhatsApp/SMS real ainda — só
+DMs de Instagram — G-03/G-04 seguem aguardando o dono) e sweep de
+coerência de sempre limpo (nomes de etapa, merge field, e a lista manual
+do Mestre de saída — seção 3 — reconferida contra a explicação do F-05
+peça 4 de por que ali ela fica de propósito; nada para corrigir). Seguindo
+a própria instrução deste documento e do roadmap ("pesquisar como Reev,
+Meetime, Outreach e Salesloft resolvem antes de desenhar"), a pergunta que
+ainda não tinha sido feita: **o que essas quatro ferramentas não cobrem,
+porque não é o problema delas?** Nenhuma trata WhatsApp Business API como
+canal principal — então nenhuma tem repertório para o risco mais
+específico deste projeto: a **Quality Rating** que a Meta atribui a todo
+número do WhatsApp Business API (Verde/Amarela/Vermelha, por
+bloqueio/denúncia/engajamento dos últimos 30 dias) e o **Tier de
+mensagens** que ela trava de subir — uma nota ruim pode throttlar ou
+recusar envio mesmo dentro da janela de 24h e com Template aprovado
+(`WebSearch`, confiança média-alta: mecânica confirmada por várias fontes
+de terceiros e por um artigo do próprio HighLevel Support Portal citando a
+mesma mecânica sem alteração dentro do GHL — domínio bloqueado pelo proxy
+deste ambiente, lido só por citação de busca, mesma limitação de sempre).
+
+**Por que nenhum item existente já cobria isto, mesmo depois de F-04, R-13
+e G-05/G-06 — a distinção que quase fez este achado parecer duplicado:**
+cada um protege uma coisa diferente, e nenhuma é "o número". F-04 (`Toques
+na semana`) protege o **lead** de receber toque demais — um número com
+reputação perfeita ainda cansa um lead se ninguém olhar o teto, e um
+número pode respeitar o teto lead a lead e ainda cair de nota, porque a
+Meta soma bloqueio de todos os leads, não de um só. R-13 (`telefone-
+invalido`) valida se o número **do lead** existe, não a reação dele à
+mensagem. G-05/G-06 garantem que cada mensagem individual **pode ser
+entregue agora** (janela, Template) — nenhum dos dois pergunta se o canal
+como um todo ainda está autorizado a entregar amanhã. **Regra prática,
+generalizável:** antes de declarar uma família de risco coberta ("mensagem
+protegida", "lead protegido"), pergunte que **nível** cada peça protege —
+mensagem individual, lead individual, ou canal/infraestrutura inteira. Uma
+operação pode ter as três primeiras camadas perfeitas e ainda cair porque
+ninguém olhou a de infraestrutura, que geralmente é a única sem gatilho
+nativo para automatizar (não existe leitura de Quality Rating por workflow
+no GHL — pesquisado, não encontrado), e por isso a mais fácil de esquecer
+num projeto pensado em automação.
+
+**Registrado como checklist manual, não workflow, e por que isso é a
+escolha certa aqui e não preguiça:** diferente de toda peça anterior deste
+projeto que virou workflow por não ter automação nativa (esperar dono
+montar na tela), aqui não existe **nenhum** gatilho, ação ou Custom Value
+que leia a nota — não é "falta montar", é "não existe o que montar". A
+saída correta registrada foi transformar em rotina do gestor com gatilho
+por **evento** (antes de publicar os 4 nós de envio com volume real,
+semanalmente com volume crescendo, depois de pico no Opt-out do R-17), não
+por calendário fixo — detalhe completo em `build-wesales.md`, seção 2.25,
+e `ROADMAP-SALES-ENGAGEMENT.md`, F-07. Zero campo, zero tag, zero
+workflow, zero escrita no CRM.
+
 ## Uma guarda de janela na entrada protege a primeira mensagem de uma troca; cada mensagem seguinte precisa da sua própria — "sem resposta" não pode virar "pula para a próxima" — G-06 peça 2, 22/09/2026, sessão automática
 
 O G-06 fechou a peça 1 (Caminho A, `Conversation AI`) com uma guarda de
