@@ -52,6 +52,67 @@ vazio o tempo todo), é o dono testando na tela — trate como dado de
 teste, nunca como amostra do que a operação real está fazendo, e não deixe
 isso maquiar um achado aberto (aqui, o nó 4) como resolvido.
 
+## Ler não é escrever: a flag de DND de WhatsApp é gravável num canal que a tela não mostra — minha própria conclusão de 1h antes, medida e refutada — 22/09/2026, sessão automática
+
+Uma hora antes desta entrada eu escrevi, na conferência do R-14, que "quem
+pede silêncio hoje não fica protegido em WhatsApp", porque a documentação diz
+que as preferências de DND de WhatsApp/Messenger/GMB **só aparecem depois que o
+app está integrado** — e esta subconta não tem WhatsApp integrado. Parecia a
+mesma classe do F-10: falha que não acende luz, com o lead que pediu silêncio
+recebendo a primeira mensagem no dia da integração.
+
+**Medido, e é o contrário.** `contacts_get-contact` em `Teste Atendeu`
+(`Lj96CIFYaGKPiC0opzbc`), contato que ganhou DND na noite de 21/09:
+
+```
+dndSettings: { Call, Email, SMS, FB, GMB, WhatsApp }  — todos status: "active"
+message em todos: "Updated from workflow_cf6fa19d-6af8-4fcb-b0dd-6fcfcefde0cc"
+```
+
+**`WhatsApp` está lá, ativo, escrito por um workflow, sem o canal estar
+integrado.** O `Set Contact DND` grava os seis independentemente. Não há
+problema de retroatividade, não há lead desprotegido, e a "mesma classe do
+F-10" não existia.
+
+**Onde o raciocínio quebrou, e é a lição:** a fonte falava sobre as
+*preferências aparecerem* — sobre **a tela mostrar** e **o filtro oferecer**,
+isto é, sobre **ler**. Eu apliquei a frase a **escrever**. São camadas
+diferentes do mesmo sistema, e uma frase sobre a interface não é uma frase
+sobre o dado.
+
+**Regra:** antes de transformar um limite de interface em conclusão sobre
+comportamento, pergunte de qual das duas a fonte estava falando — *exibir /
+filtrar / selecionar* é leitura; *gravar / aplicar / disparar* é escrita. Um
+limite de leitura quase nunca implica um limite de escrita, e é o erro mais
+fácil de cometer quando a fonte é documentação de UI (que é quase toda a
+documentação de plataforma que este projeto consegue ler, já que o proxy
+bloqueia o portal oficial e sobra citação de busca sobre telas). **Teste
+barato que eu tinha à mão e não usei:** um contato que já passou pelo caminho
+— aqui bastava ler `dndSettings` de qualquer contato com `nao-perturbe`. A
+medição existia antes da conclusão; foi só não ter procurado.
+
+**O que sobrou do achado, no tamanho certo:** só a auditabilidade. Se o filtro
+`WhatsApp DND` não aparecer na Smart List sem integração, as listas 8.26/8.27
+se montam com a cláusula de ligação apenas — a **proteção** está inteira, a
+**conferência** dela é que fica parcial. Deixou de ter ação de véspera.
+
+**E um brinde que vale mais que o susto:** `dndSettings[canal].message` carrega
+**o id do workflow que ligou aquele DND** (`Updated from workflow_cf6fa19d-…`).
+Dá para saber *quem* silenciou um contato sem abrir a tela — exatamente o que a
+lista 8.27 (`DND sem tag`) precisa, já que o propósito dela é achar o caminho
+não documentado que ligou DND. `message` com `workflow_…` = régua; qualquer
+outra coisa = clique ou API. Primeira ferramenta de rastreabilidade de workflow
+que este projeto tem sem acesso à tela, e ela veio de uma leitura que eu fiz
+para conferir um erro meu.
+
+**Correção de detalhe na auditoria diária da mesma data** (entrada acima): ela
+leu a mudança noturna de `Teste Atendeu` como "alguém clicou manualmente o Loop
+do closer". O `message` do `dndSettings` diz `Updated from workflow_…`, então
+**o DND, pelo menos, veio de workflow**, não de clique. As escritas de campo
+custom no mesmo horário podem ter sido manuais — mas o DND não foi, e isso
+muda a leitura: algum workflow rodou naquele contato às 00:45, o que é
+informação útil e não ruído de teste.
+
 ## Espelho de "algum ligado" é "algum desligado", não "todos desligados" — e o filtro de DND de WhatsApp pode não existir antes do canal existir — R-14, 22/09/2026, sessão automática
 
 A rodada que especificou o R-14 acertou a distinção que destrava o item (o que
@@ -84,11 +145,13 @@ zero linha, que é o resultado esperado, e por isso ninguém desconfia. Mesma
 família do portão que só olhava etapa sem `status`: o teste passa, a cobertura
 não existe.
 
-**2. O achado que a pesquisa entregou de lado, e vale mais que a correção
-acima:** as preferências de DND de **WhatsApp, Facebook Messenger e GMB só
-aparecem depois que o app está integrado à subconta.** Esta subconta **não tem
-WhatsApp integrado** — é a razão de o R-14 esperar volume e de não existir uma
-mensagem de WhatsApp aqui. Então:
+**2.** ⚠️ **Esta segunda parte eu medi ~1h depois e estava ERRADA — leia a
+entrada "Ler não é escrever" (mesma data, acima) antes de usar qualquer coisa
+daqui.** O que segue era a conclusão da hora, mantida como registro do erro:
+as preferências de DND de **WhatsApp, Facebook Messenger e GMB só aparecem
+depois que o app está integrado à subconta.** Esta subconta **não tem WhatsApp
+integrado** — é a razão de o R-14 esperar volume e de não existir uma mensagem
+de WhatsApp aqui. Então:
 
 - As duas listas se montam **pela metade** hoje (só a cláusula de ligação).
   Ainda vale montar: meia auditoria pega tag sem bloqueio nenhum.

@@ -5265,31 +5265,49 @@ consequências, e a segunda é de compliance, não de montagem:
 1. **Hoje as duas listas se montam só pela metade** — com `Calls & Voicemails
    DND`. A cláusula de WhatsApp entra quando o canal for integrado. Monte
    assim mesmo: meia auditoria já pega o caso de tag sem nenhum bloqueio.
-2. **O `Set Contact DND` "todos os canais" dos quatro nós que aplicam
-   `nao-perturbe`** (2.9.5, seção 4 ramo `Não ligar`, seção 6 nó 3, e o
-   opt-out por palavra-chave do R-17) **não pode estar ligando DND de um canal
-   que não existe na subconta.** Ou seja: quem pedir para não ser procurado
-   **hoje** fica protegido em ligação/SMS/e-mail e **não** em WhatsApp — e no
-   dia em que o WhatsApp for integrado, esses contatos podem nascer
-   WhatsApp-alcançáveis, porque nada garante que o DND seja aplicado
-   retroativamente a quem já estava com "todos os canais" marcado antes do
-   canal existir.
+2. ~~O `Set Contact DND` "todos os canais" não pode estar ligando DND de um
+   canal que não existe na subconta.~~ **MEDIDO E REFUTADO no mesmo dia, ~1h
+   depois — a suposição era minha e estava errada.** Leitura de
+   `contacts_get-contact` em `Teste Atendeu` (`Lj96CIFYaGKPiC0opzbc`):
 
-**Se isso se confirmar, é a mesma classe do F-10:** nada alerta, tudo parece
-certo, e a falha acontece no dia da integração — com o lead que pediu
-silêncio recebendo a primeira mensagem da cadência. **Não afirmo a
-retroatividade**, que não dá para testar por API e depende de como o GHL
-preenche `dndSettings` (hoje `{}` em todos os contatos lidos, inclusive no
-`Teste Não Ligar`). Fica como **duas conferências acopladas ao passo de
-integração do WhatsApp**, e não como item separado que se perde:
+   ```
+   dndSettings: {
+     Call:     { status: "active", message: "Updated from workflow_cf6fa19d-…" }
+     Email:    { status: "active", … }   SMS: { status: "active", … }
+     FB:       { status: "active", … }   GMB: { status: "active", … }
+     WhatsApp: { status: "active", message: "Updated from workflow_cf6fa19d-…" }
+   }
+   ```
 
-| Conferir no dia em que o WhatsApp for integrado | Por quê |
+   **`WhatsApp` está lá, `active`, escrito por um workflow**, numa subconta que
+   não tem WhatsApp integrado. Então o `Set Contact DND` grava a flag dos seis
+   canais independentemente de integração, quem pede silêncio **fica** protegido
+   em WhatsApp, e não existe problema de retroatividade nenhum.
+
+   **Onde eu errei, e é uma distinção que vale guardar:** a fonte diz que as
+   *preferências* de DND de WhatsApp/Messenger/GMB "só aparecem depois que o app
+   está integrado". Isso é sobre **o que a tela mostra e o que o filtro
+   oferece** — ou seja, sobre **ler**. Eu li como se fosse sobre **escrever**, e
+   concluí que a proteção não era aplicada. São coisas diferentes: a flag é
+   gravável por workflow mesmo quando a interface não a expõe.
+
+**O que sobra da ressalva, agora no tamanho certo:** só a metade de
+*auditabilidade*. Se o filtro `WhatsApp DND` não aparecer na Smart List desta
+subconta enquanto o canal não estiver integrado, as listas 8.26/8.27 se montam
+apenas com a cláusula de ligação — a **proteção** está inteira, a **conferência
+dela** é que fica parcial. Uma conferência, não duas, e sem prazo de véspera:
+
+| Conferir | Por quê |
 |---|---|
-| O filtro `WhatsApp DND` apareceu na Smart List? | Só então as listas 8.26/8.27 ficam completas |
-| Os contatos já marcados `nao-perturbe` **antes** da integração ganharam `WhatsApp DND` sozinhos? | Se **não**, rodar uma vez a 8.26 (que passa a acusá-los) e reaplicar `Set Contact DND` neles **antes** de publicar qualquer régua de WhatsApp |
+| O filtro `WhatsApp DND` aparece na Smart List hoje? | Se sim, montar as duas listas completas já. Se não, montar só com `Calls & Voicemails DND` e completar no dia da integração |
 
-O segundo item é a única ação desta seção que tem prazo: vale **antes** do
-primeiro envio, não depois.
+**Brinde da mesma leitura, e é uma ferramenta nova de diagnóstico:**
+`dndSettings[canal].message` carrega **o id do workflow que ligou aquele DND**
+(`Updated from workflow_cf6fa19d-6af8-4fcb-b0dd-6fcfcefde0cc`). Dá para
+descobrir *quem* silenciou um contato sem abrir a tela — útil exatamente para a
+8.27 (`DND sem tag`), cujo propósito é achar o caminho não documentado que
+ligou DND. Se o `message` disser `workflow_…`, foi régua; se disser outra
+coisa, foi clique ou API.
 
 ### 8.27 `Auditoria — DND sem tag` — R-14
 

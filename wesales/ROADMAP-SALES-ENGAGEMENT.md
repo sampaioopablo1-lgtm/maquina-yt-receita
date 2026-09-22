@@ -968,16 +968,22 @@ rodada.
 > ela só acusava quem está desprotegido nos **dois** canais, deixando escapar a
 > tag com ligação bloqueada e WhatsApp livre, que é o caso perigoso **e** o mais
 > provável (basta um nó chamar `Set Contact DND` num canal só). Corrigido: "zero
-> linha" só prova o que o item diz provar com `OU`. (b) **O filtro `WhatsApp
-> DND` só existe depois que o WhatsApp está integrado à subconta** — e esta não
-> tem. Então as listas se montam pela metade hoje, e, mais grave, o `Set Contact
-> DND` "todos os canais" dos quatro nós que aplicam `nao-perturbe` não pode
-> estar ligando DND de um canal inexistente: **quem pede silêncio hoje não fica
-> protegido em WhatsApp.** No dia da integração, esses contatos podem nascer
-> alcançáveis — mesma classe do F-10 (nada acende luz, porque o que mudou não
-> foi um estado no CRM, foi o conjunto de canais que existem). Duas conferências
-> ficaram acopladas ao passo de integração, com a única ação de prazo da área:
-> reaplicar `Set Contact DND` nos contatos antigos **antes** do primeiro envio.
+> linha" só prova o que o item diz provar com `OU`. (b) A documentação diz que as
+> preferências de DND de WhatsApp/Messenger/GMB **só aparecem depois que o app
+> está integrado**, e daí eu concluí que quem pede silêncio hoje não ficaria
+> protegido em WhatsApp. **Medido ~1h depois: errado.** `dndSettings` de
+> `Teste Atendeu` tem `WhatsApp: active`, escrito por workflow, nesta subconta
+> que **não** tem WhatsApp integrado — a flag é gravável num canal que a tela não
+> expõe. Quem pede silêncio **fica** protegido, e não há retroatividade a
+> corrigir. O erro foi aplicar à **escrita** uma frase da fonte que era sobre
+> **leitura** (o que a tela mostra, o que o filtro oferece). **Sobra só a
+> auditabilidade:** se o filtro `WhatsApp DND` não existir sem integração, as
+> listas 8.26/8.27 se montam com a cláusula de ligação apenas — a proteção está
+> inteira, a conferência dela é que fica parcial, e não há mais ação de véspera.
+> **Brinde da mesma leitura:** `dndSettings[canal].message` carrega o **id do
+> workflow** que ligou aquele DND (`Updated from workflow_cf6fa19d-…`) — primeira
+> rastreabilidade de workflow que o projeto tem sem acesso à tela, e exatamente o
+> que a 8.27 (`DND sem tag`) precisava para achar o caminho não documentado.
 
 **Por quê:** `nao-perturbe` e DND são a linha entre prospecção e perseguição.
 Precisa ser verificável, não confiável.
