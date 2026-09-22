@@ -1,0 +1,490 @@
+{
+  "workflow": {
+    "_id": "30b5fc0d-a955-4a80-8b28-a43a37475f83",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Interceptação de Sinal — Clique v2",
+    "version": 2,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/30b5fc0d-a955-4a80-8b28-a43a37475f83/2",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F30b5fc0d-a955-4a80-8b28-a43a37475f83%2F2?alt=media&token=feffb3f7-03bc-417b-9fe3-57fe09695499",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": null,
+    "createdAt": "2026-09-22T01:20:42.111Z",
+    "updatedAt": "2026-09-22T01:20:44.392Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/30b5fc0d-a955-4a80-8b28-a43a37475f83/2",
+    "window": null,
+    "workflowNote": null,
+    "id": "30b5fc0d-a955-4a80-8b28-a43a37475f83",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "type": "find_opportunity",
+          "name": "Find opportunity",
+          "attributes": {
+            "sorting": "latest",
+            "type": "find_opportunity",
+            "__customInputFields__": [
+              {
+                "__customInputs__": {},
+                "filterField": "pipeline_id",
+                "value": "eq",
+                "secondValue": "0Fo2xbeayE4EP6yuSUtq"
+              }
+            ],
+            "__customInputs__": {},
+            "cat": "multi-path",
+            "convertToMultipath": true,
+            "transitions": [
+              {
+                "id": "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+                "name": "Opportunity Found",
+                "fields": [],
+                "meta": {
+                  "__branchKey__": "predefined_Opportunity Found"
+                },
+                "conditionType": "pre-defined"
+              },
+              {
+                "id": "0c8e21f6-5dc5-40a2-810d-705842de76f5",
+                "name": "Opportunity Not Found",
+                "fields": [],
+                "meta": {
+                  "__branchKey__": "predefined_Opportunity Not Found"
+                },
+                "conditionType": "pre-defined"
+              }
+            ],
+            "__name__": "Find opportunity"
+          },
+          "order": 0,
+          "cat": "multi-path",
+          "workflowsActionType": "INTERNAL",
+          "next": [
+            "c82aecfd-b991-4b61-b19d-8fea059e3f3e",
+            "8057e17f-f7b8-420c-89cf-02a73ba9ecd3"
+          ]
+        },
+        {
+          "id": "c82aecfd-b991-4b61-b19d-8fea059e3f3e",
+          "parentKey": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "parent": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "type": "transition",
+          "name": "Opportunity Found",
+          "attributes": {},
+          "order": 1,
+          "cat": "transition",
+          "next": "82d099af-10f4-4af2-a0fe-8258e3ff95c1"
+        },
+        {
+          "id": "82d099af-10f4-4af2-a0fe-8258e3ff95c1",
+          "parent": "c82aecfd-b991-4b61-b19d-8fea059e3f3e",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "0f36bd22-7f45-476b-8226-8d86826b7362",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "f6bf0c10-4d8f-4b9a-b0d5-a870d4fcbc52",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "c2d33505-5d1b-4f0b-8ba2-24e02be5225e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "0f36bd22-7f45-476b-8226-8d86826b7362",
+            "a9e16854-d8d5-4fd7-b4c3-d15bb94cec42"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "c82aecfd-b991-4b61-b19d-8fea059e3f3e"
+        },
+        {
+          "id": "0f36bd22-7f45-476b-8226-8d86826b7362",
+          "parent": "82d099af-10f4-4af2-a0fe-8258e3ff95c1",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "sibling": [
+            "a9e16854-d8d5-4fd7-b4c3-d15bb94cec42"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "82d099af-10f4-4af2-a0fe-8258e3ff95c1"
+        },
+        {
+          "id": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "parent": "0f36bd22-7f45-476b-8226-8d86826b7362",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "cf3e1138-a035-4dc1-897f-1251bfddd5af",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "0c85dfa6-251e-455a-9be2-e9c4488e20e9",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "56ca50dd-4044-41aa-ad41-eba3a188a4cc",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "cf3e1138-a035-4dc1-897f-1251bfddd5af",
+            "be4bad47-4f9c-4304-b777-680d538a82a1"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "0f36bd22-7f45-476b-8226-8d86826b7362"
+        },
+        {
+          "id": "cf3e1138-a035-4dc1-897f-1251bfddd5af",
+          "parent": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "be4bad47-4f9c-4304-b777-680d538a82a1"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0"
+        },
+        {
+          "id": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "parent": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "b0ea38cd-3b72-4dba-a15f-3e0681314458",
+          "sibling": [
+            "cf3e1138-a035-4dc1-897f-1251bfddd5af"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "8a1e6656-cd67-47d7-9ac3-e9bb63466ef0"
+        },
+        {
+          "id": "b0ea38cd-3b72-4dba-a15f-3e0681314458",
+          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "order": 0,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "chuJMRlKzY0Uq1f0lSkX",
+                "value": 5,
+                "title": "Prioridade",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "447fbb64-2cae-4558-807c-17986e01fc93",
+          "parentKey": "be4bad47-4f9c-4304-b777-680d538a82a1"
+        },
+        {
+          "id": "447fbb64-2cae-4558-807c-17986e01fc93",
+          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "jfQgrZFnxhbn1qmCeFDC",
+                "value": "Clique em link",
+                "title": "Sinal recebido",
+                "type": "select",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "cfd90b94-ba7d-412c-94f8-50ce0a9b6ea0",
+          "parentKey": "b0ea38cd-3b72-4dba-a15f-3e0681314458"
+        },
+        {
+          "id": "cfd90b94-ba7d-412c-94f8-50ce0a9b6ea0",
+          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "fila-quente"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "ca51c38f-cba7-416e-b36c-29963fe02425",
+          "parentKey": "447fbb64-2cae-4558-807c-17986e01fc93"
+        },
+        {
+          "id": "ca51c38f-cba7-416e-b36c-29963fe02425",
+          "stepIndex": 1,
+          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "order": 3,
+          "attributes": {
+            "title": "[CADENCIA] Sinal: clicou no link — ligar agora",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead clicou no link \"Agendar com o closer\" agora. Ligar imediatamente, prioridade 5.</p>",
+            "assignedTo": "contact.assigned_user",
+            "type": "task_notification",
+            "dueDate": "{{right_now.date}}",
+            "__customInputs__": {
+              "dueDate": "duration-picker"
+            }
+          },
+          "name": "Sinal clique",
+          "type": "task-notification",
+          "next": "863d2a34-55a7-465f-b6f7-5cff61902316",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "cfd90b94-ba7d-412c-94f8-50ce0a9b6ea0"
+        },
+        {
+          "id": "863d2a34-55a7-465f-b6f7-5cff61902316",
+          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "order": 4,
+          "attributes": {
+            "type": "whatsapp",
+            "whatsapp": {
+              "body": "<p style=\"padding-left: 0px!important;\"><span data-cv-variable=\"contact.first_name\" data-cv-token=\"true\">{{contact.first_name}}</span> clicou no link de agendar agora. Prioridade 5.",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ]
+            }
+          },
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "next": "a36a8353-3588-42b2-a701-b71086c2d169",
+          "parentKey": "ca51c38f-cba7-416e-b36c-29963fe02425"
+        },
+        {
+          "id": "a36a8353-3588-42b2-a701-b71086c2d169",
+          "parent": "be4bad47-4f9c-4304-b777-680d538a82a1",
+          "order": 5,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Sinal: clique em link</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "863d2a34-55a7-465f-b6f7-5cff61902316"
+        },
+        {
+          "id": "a9e16854-d8d5-4fd7-b4c3-d15bb94cec42",
+          "parent": "82d099af-10f4-4af2-a0fe-8258e3ff95c1",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "0f36bd22-7f45-476b-8226-8d86826b7362"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "82d099af-10f4-4af2-a0fe-8258e3ff95c1"
+        },
+        {
+          "id": "8057e17f-f7b8-420c-89cf-02a73ba9ecd3",
+          "parentKey": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "parent": "7d3a33e7-e537-4a55-9d43-003880220c45",
+          "type": "transition",
+          "name": "Opportunity Not Found",
+          "attributes": {},
+          "order": 1,
+          "cat": "transition"
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "1jgiXmsjbqidXmbWb0vL",
+      "date_added": "2026-09-22T01:20:42.879Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "30b5fc0d-a955-4a80-8b28-a43a37475f83",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "link.id",
+          "value": "vSUOvEbVZfxBlWFlTvDV",
+          "title": "Link de acionamento",
+          "type": "select"
+        }
+      ],
+      "type": "trigger_link",
+      "masterType": "highlevel",
+      "workflow_id": "30b5fc0d-a955-4a80-8b28-a43a37475f83",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Link De Acionamento Clicado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "7d3a33e7-e537-4a55-9d43-003880220c45",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T01:20:43.920Z"
+    }
+  ]
+}
