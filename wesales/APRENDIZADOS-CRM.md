@@ -2,6 +2,39 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Encerra a régua" é meia especificação — e a outra metade dispara um monitor falso todo dia — 22/09/2026, sessão automática
+
+A rodada anterior aplicou a regra de refazer a multiplicação depois de uma
+decisão de canal e achou um bug de verdade: as opções A e B do F-09 mandavam
+o telefone **desviar para WhatsApp** ao estourar o limiar, num motor que não
+tem mais WhatsApp. Corrigiu as duas para "encerra a régua mais cedo". Certo.
+
+O que sobrou é a metade que não foi escrita: **como** encerra. Do jeito que
+ficou, quem montar põe um `Remove from Workflow` seco — e o lead sai
+carregando `fila-tel` e com tarefa órfã. A saída limpa canônica do projeto
+tem três passos (nó 3b da 12x30): remover as tags de fila, aplicar
+`limpar-tarefas`, e só então sair.
+
+**E aí a junção:** o `Fila Travada` (F-05 peça 2) dispara sobre "`fila-tel`
+presente depois das 18:30, porque o nó 9 não rodou". Um portão do F-09 sem
+saída limpa geraria **um alerta falso por lead cortado, todo dia** — e o
+resultado prático não é o alerta extra, é o gestor aprendendo a ignorar o
+único monitor de fila parada que existe. Um monitor que grita sem motivo é
+pior que monitor nenhum, porque consome a atenção que o caso real precisava.
+
+**A regra:** num item que "encerra", "sai", "para" ou "remove", a
+especificação só está completa quando diz **por qual caminho** — e num
+projeto que já tem saída canônica, o caminho é citar o nó que já existe, não
+descrever de novo. Verbo de saída sem caminho é onde tag órfã nasce, e tag
+órfã é o que os monitores deste projeto foram feitos para caçar: o bug se
+disfarça de alerta legítimo.
+
+**Segundo achado, menor:** o mesmo "Como" mandava pendurar o portão "no
+seletor de canal", que deixou de existir com 100% telefone. Resíduo da régua
+alternada sobrevivendo dentro da própria correção que tirou o WhatsApp do
+item — a correção acertou a tabela e passou por cima da frase três linhas
+acima.
+
 ## A "regra que fica" do F-14 mandava reabrir todo item com toques por canal — F-09 ficou de fora, e suas opções mandavam desviar para um canal que não existe mais — 22/09/2026, sessão automática
 
 A rodada anterior (`4d5bcf6`) já tinha nomeado o problema: a decisão de 100%

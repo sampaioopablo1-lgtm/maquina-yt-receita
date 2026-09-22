@@ -1986,8 +1986,36 @@ subconta.
 (NUMERICAL), somado no ramo `Não atendeu`/`Caixa Postal` do Pós-ligação e
 zerado em toda conexão real — espelho exato do que o nó C1 (`IMPLEMENTACAO-
 WORKFLOWS.md`, W4) já fazia para o extinto contador de WhatsApp; depois um
-portão, no seletor de canal e/ou no nó 10, que ao estourar encerre a régua
+portão, ~~no seletor de canal e/ou~~ no nó 10, que ao estourar encerre a régua
 mais cedo (não há mais canal para desviar).
+
+> **Duas correções de 22/09/2026, 19:20 UTC, sobre este mesmo "Como".**
+>
+> **1. "Encerra a régua" não pode ser um `Remove from Workflow` seco** — e do
+> jeito que está escrito, é o que alguém montaria. Este projeto já tem uma
+> saída limpa canônica, o nó 3b da 12x30 (seção 2.4 do `build-wesales.md`):
+> **Remove Contact Tag `fila-tel`, `fila-wa`, `fila-quente` → Add Contact Tag
+> `limpar-tarefas` → Remove from Workflow: este**. Sem os dois primeiros
+> passos, o lead cortado pelo limiar sai da régua **carregando `fila-tel` e
+> com tarefa órfã aberta**.
+>
+> E aí encontra outro item deste roadmap: o **F-05 peça 2 (`Fila Travada`,
+> seção 2.21)** dispara exatamente sobre "`fila-tel` ainda presente depois
+> das 18:30, porque o nó 9 não rodou". Um portão do F-09 sem saída limpa
+> produziria **um alerta falso de fila travada por lead cortado**, todos os
+> dias, para sempre — e o gestor aprenderia a ignorar o monitor, que é o
+> único aviso de fila parada que a operação tem. Nenhum dos dois itens está
+> errado sozinho; é a junção que quebra, e ela só aparece quando se escreve
+> **como** a régua encerra, não que ela encerra.
+>
+> **2. "No seletor de canal" é resíduo da régua alternada.** Com 100%
+> telefone não existe mais seletor de canal para pendurar portão nenhum
+> (seção 2.5). O lugar é o nó 10, e só. Risquei acima em vez de apagar,
+> porque a frase mostra de onde veio.
+>
+> Nada disso muda as três opções A/B/C abaixo — o limiar continua sendo
+> decisão do dono. Muda o que precisa estar desenhado **antes** de qualquer
+> uma delas virar `[x]`.
 
 **Por que não executo sozinho:** o limiar **é** a régua. Cortar o telefone
 na 2ª não atendida seguida reduziria os 12 toques de telefone a talvez 2-3
