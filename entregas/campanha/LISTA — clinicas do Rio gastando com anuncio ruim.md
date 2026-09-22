@@ -5140,3 +5140,79 @@ LISTA DE ATAQUE: **46 → 52**.
 
 Combos varridos até aqui: + contabilidade Rio por serviço (abertura de empresa — 6 alvos
 novos, regra de varrer por serviço confirmada no segundo nicho).
+
+---
+
+## ⚖️ Advocacia — direito do consumidor (22/09/2026, 14h) — O MAIOR VOLUME DO ARQUIVO
+
+Termo: `advogado direito do consumidor Rio de Janeiro`. **251 anúncios estimados.**
+
+Para comparar, os maiores até hoje eram academia Niterói (55), odontologia Campo Grande
+(54) e tatuagem Niterói (53). **Este é quase 5x o recorde anterior.**
+
+### Ressalva honesta, antes dos nomes
+
+Os 251 são **nacionais, não do Rio**. A Biblioteca casa o termo com o texto do anúncio, e
+"Rio de Janeiro" no termo não garante que o anunciante seja daqui — apareceram nomes que
+soam de outros estados. **Antes de abordar, conferir a praça de cada um.** O que está
+provado aqui é o tamanho do nicho, não a localização.
+
+### Os alvos do lote lido (40 dos 251)
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Juliana Benicio** | **A** | **11 anúncios, os 11 sem título** | 20–21/09 |
+| angelotancredoadv_ | A | 2 anúncios, sem título | 22/09 |
+| **karinaviana.advogada** | A | `karinaviana.advogada \|  \|  \|  \|  \|  \|  \|` — nome e **7 barras vazias** | 22/09 |
+| **Antero Paes de Barros** | A | nome e 7 barras vazias (mesmo padrão) | 22/09 |
+| MVGF Juris | B | `MVGF Juris \|  \|  \|` | 22/09 |
+| Quadros Advogados & Associados | B | `api.whatsapp.com` | 22/09 |
+| **Melhor Advogado** / **fabiotoledoadv** | A | duas páginas do mesmo advogado: uma com `api.whatsapp.com`, a outra com `instagram.com` | 21/09 |
+| Prof. Claudio Branchieri | A | sem título | 22/09 |
+| Guilherme Delaroli | A | sem título | 21/09 |
+| Laura zandavalle zopelaro | A | sem título | 21/09 |
+| Mara Damasceno | A | sem título | 20/09 |
+| Fabiano Gonçalves | A | 2 anúncios, sem título | 20/09 |
+| Advocacia Piacentini | B | título é só o nome da página | 22/09 |
+
+**Treze páginas com defeito em quarenta anúncios lidos, e onze delas Trilha A.** Se a
+proporção se mantiver nos 251, é o maior poço da lista.
+
+### Juliana Benicio: onze peças, onze sem título, todas de ontem
+
+Maior concentração individual de advocacia no arquivo — e todas subidas em 20 e 21/09.
+Alguém investindo pesado esta semana e errando em série.
+
+### O caso Fábio Toledo repete o padrão AFR
+
+Segunda vez hoje: **o mesmo profissional rodando por duas páginas**, "Melhor Advogado" e
+"fabiotoledoadv", e errando nas duas com defeitos diferentes (`api.whatsapp.com` numa,
+`instagram.com` na outra). O padrão apareceu de manhã na contabilidade (AFR / Alailton
+Raze). Vale virar item de checagem: **ao achar um alvo, procurar se ele tem segunda
+página** — dobra a prova e mostra desorganização.
+
+### Referências de título bem escrito
+
+- **Linhares & Senna**: `Paga IR sobre a GRAM? Saiba mais` — pergunta específica que só o
+  público-alvo entende. O melhor de advocacia no arquivo.
+- **Petronilho Carneiro**: `Militar do RJ: Converse conosco` — segmenta o público na
+  primeira palavra.
+- **Diego Lopes**: `ADVOGADO (5,0)⭐⭐⭐⭐⭐` — usa avaliação como prova; discutível, mas é
+  uma escolha, não um descuido.
+
+### Poluição
+
+**Marcelo Cabeleireiro** (sem título) caiu no termo — cabeleireiro. E "Invisto Direito -
+Comunidade" parece infoproduto, não escritório.
+
+### A regra fica mais forte
+
+Nas três áreas testadas hoje: trabalhista 3, previdenciário 8, **consumidor 251**. Não é só
+que advocacia se varre por área — **as áreas diferem em uma ordem de grandeza entre si.**
+Consumidor é onde o advogado brasileiro gasta em anúncio, e de longe.
+
+LISTA DE ATAQUE: **52 → 65**.
+
+Combos varridos até aqui: + advocacia direito do consumidor (nacional, 251 anúncios — maior
+volume do arquivo; 13 páginas com defeito em 40 lidos, 11 Trilha A; conferir praça antes de
+abordar).
