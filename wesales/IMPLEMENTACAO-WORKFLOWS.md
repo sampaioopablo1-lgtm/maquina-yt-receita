@@ -1546,6 +1546,91 @@ deve encerrar sem aplicar a tag.
 
 ---
 
+## W23 · Resgate por E-mail — Sem Telefone — `build-wesales.md` 2.30 (F-15, especificado em 22/09/2026)
+
+**Entrada que faltava neste documento:** o F-15 fechou a especificação
+no mesmo dia em que foi aberto, mas nunca ganhou seu W-code aqui — achado
+ao montar o W24 (abaixo) e notar que não havia o que citar como "vizinho".
+Nenhum nó novo, só a tradução do que já está em `build-wesales.md`.
+
+**Gatilho:** `Contact Tag Added` — Tag: `nutricao-90d`.
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | 08:30–18:30, segunda a sexta, fuso da subconta |
+| Stop on Response | Ligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | `Opportunity status` é `Abandoned` **E** `Phone` vazio **E** `Email` preenchido **E** tag `nao-perturbe` ausente → 2 · None → **Remove from Workflow: este** | 2 |
+| 2 | Send Email | Template `EM-1` (`biblioteca-mensagens.md`) | 3 |
+| 3 | Update Contact Field | `Template usado` = `EM-1` | 4 |
+| 4 | Wait → Contact Replied | Canal E-mail (confirmar na tela) · limite 5 dias corridos | respondeu → 4b · sem resposta → 5 |
+| 4b | Internal Notification (ao gestor) | `{{contact.name}} respondeu ao resgate por e-mail (sem telefone) — pedir telefone/WhatsApp ou seguir por e-mail/Instagram, decisão manual` → **Remove from Workflow: este** | fim |
+| 5 | Send Email | Template `EM-2` (`biblioteca-mensagens.md`) | 6 |
+| 6 | Update Contact Field | `Template usado` = `EM-2` | 7 |
+| 7 | Wait → Contact Replied | Canal E-mail · limite 5 dias corridos | respondeu → 7b · sem resposta → fim |
+| 7b | Internal Notification (mesmo texto do 4b) → **Remove from Workflow: este** | | fim |
+
+**Pré-requisito:** os dois templates `EM-1`/`EM-2` (`emails_create-template`,
+`[ ]` em `APROVADO.md`) e confirmar na tela que a subconta tem domínio de
+e-mail verificado para envio transacional. **Checklist de reputação/
+compliance antes do primeiro envio real:** ver `build-wesales.md`, seção
+2.30, "Checklist do gestor" (G-07) — SPF/DKIM/DMARC do domínio e o link de
+descadastro (`{{unsubscribe}}`) preservado no template.
+
+**Teste:** num contato fictício sem telefone e com e-mail, aplique
+`nutricao-90d` e confira: `EM-1` sai, `Template usado` grava `EM-1`. Responda
+pelo e-mail de teste e confirme que o workflow sai (nó 4b) em vez de mandar
+`EM-2`.
+
+---
+
+## W24 · Opt-out por Palavra-chave — E-mail — `build-wesales.md` 2.9.6 (G-07, fechado em 22/09/2026)
+
+**Gatilho:** `Customer Replied` → Canal `E-mail` · corpo `Contains` — mesma
+lista canônica do W14 (`pare de` · `pare com` · `para de mandar` · `para de
+me mandar` · `não quero mais mensagem` · `não quero mais contato` · `não
+quero receber mensagem` · `não quero receber mais` · `remove meu contato` ·
+`tira meu número` · `descadastr` · `cancelar inscri` · `não me liga mais` ·
+`não me mande mais` · `sai da lista` · `me tira da lista` · `unsubscribe`).
+Diferente do par W13-Resposta/W14 (que precisam da lista idêntica porque
+disputam o mesmo canal), este workflow não tem vizinho no canal e-mail
+disputando o mesmo evento — reaproveita a lista pronta, não precisa manter
+sincronismo com nenhuma outra.
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created" — os dois ramos seguem | 2 |
+| 2 | Add Contact Tag | `nao-perturbe` | 3 |
+| 3 | Set Contact DND | ligado, todos os canais | 4 |
+| 4 | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` | 5 |
+| 5 | Remove Workflows | `All Except Current Workflow` — inclui o W23 (`Resgate por E-mail`), que deixa de esperar resposta | 6 |
+| 6 | If/Else | oportunidade encontrada **E** `Pipeline stage` é `[FUNIL DE VENDAS] - CONECTAR` **E** `Opportunity status` é `open` → Update Opportunity status = `lost` · None → Internal Notification ao `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} pediu para parar, oportunidade já em {{opportunity.pipeline_stage}}/{{opportunity.status}} — DND ligado, revisar se o negócio segue antes de qualquer novo contato` | 6b |
+| 6b | Internal Notification (**sempre**) | ao `Contact Owner`: `Opt-out por palavra-chave: {{contact.name}} — DND ligado e saiu de todas as réguas. Mensagem que disparou: revisar no histórico. Se foi falso positivo, desligar o DND na mão é a única volta.` | 7 |
+| 7 | Add Note | `Opt-out por palavra-chave (e-mail) detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` | fim |
+
+**Pré-requisito:** nenhum — reaproveita `nao-perturbe` (T-06) e o DND
+nativo, mesmos do W14. Não depende de `APROVADO.md`.
+
+**Redundância aceita:** se a resposta chegar enquanto o lead está dentro do
+W23 (nó 4/7), o W23 também dispara sua notificação genérica de "respondeu,
+decisão manual" — o gestor vê dois avisos do mesmo evento. Nenhum dos dois
+instrui uma ação errada (diferente do W13/W14, onde o filtro cruzado é
+obrigatório); registrado como retoque de segunda ordem em
+`build-wesales.md`, seção 2.9.6.
+
+**Teste:** num contato fictício com e-mail, dispare uma resposta contendo
+"descadastrar" (ou outra frase da lista) e confira: tag `nao-perturbe`
+aplicada, `dndSettings` do contato com todos os canais `active`
+(`contacts_get-contact`), nota registrada.
 
 ---
 
@@ -1609,7 +1694,7 @@ Reengajamento, 90 dias depois de `nutricao-90d`); apagar `nao-perturbe`/DND.
 | **11:00 e 15:00** (W18 lembra) | `Estouro da Fila` no dashboard / `Fila do Dia — Total` (8.16) | positivo = mais de 100 tarefas hoje → segurar entrada ou remanejar SDR |
 | semanal | `Conexão por Tentativa` (8.6), `Calibração da Régua` (8.7), `Pausados Individualmente` (8.15), `Higiene — Sem Telefone Válido` (8.18) | tentativa que nunca conecta (cortar da régua); nota ≥ 70 com veredito `Não` repetido (régua 9.1 desregulada); pausado há semanas (decidir); lista suja (fonte de lead) |
 | mensal | `Funil — Entraram/Conectaram/Agendaram/Compareceram no Mês` (8.9–8.12), `Resposta por Template` (8.13), `Conexão por Segmento e Horário` (8.19) | taxa de conexão = 8.10 ÷ 8.9; declarar vencedor do A/B (editar o Split para 100/0 e registrar em `biblioteca-mensagens.md`); ajustar horário por segmento (2.18) quando houver volume |
-| por notificação | alertas "ao gestor": telefone inválido (W4-N4, W11-0.0c), speed-to-lead (W15), calibração (W6-5/6), no-show sem retorno (W9-6), descarte por 2º no-show (W8-D5), lead esquecido (W17), fila travada (W17b), opt-out (W14-6b) | cada um diz o que fazer no próprio texto |
+| por notificação | alertas "ao gestor": telefone inválido (W4-N4, W11-0.0c), speed-to-lead (W15), calibração (W6-5/6), no-show sem retorno (W9-6), descarte por 2º no-show (W8-D5), lead esquecido (W17), fila travada (W17b), opt-out WhatsApp (W14-6b), opt-out e-mail (W24-6b) | cada um diz o que fazer no próprio texto |
 | a cada hora (automático) | `rotina-limpar-tarefas.md` fecha as tarefas `[CADENCIA]` vencidas de quem tem `limpar-tarefas` | se parar de rodar, tarefas vencidas se acumulam na tela do SDR |
 
 **Decisões que só o gestor/dono toma** (nada disso sai por API nem por
