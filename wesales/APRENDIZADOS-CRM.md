@@ -2,6 +2,36 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Dois itens certos, escritos com meio dia de diferença, viram um errado — 22/09/2026, sessão automática
+
+O F-14 (rampa de aquecimento do telefone) e a decisão de 100% telefone
+entraram no mesmo dia, com ~40 minutos entre um e outro, por sessões
+diferentes. Cada um está certo sozinho. Juntos, quebram:
+
+- o F-14 dimensionou a rampa dizendo que o telefone carrega **8 de 12**
+  toques. Depois da decisão são **12 de 12**;
+- o lote de 10-13 leads/dia do G-03 cabia na rampa: 12, 24, 24, 23, 11
+  ligações nos cinco primeiros dias, encostando no teto de ~20-25 sem
+  passar;
+- com o telefone sozinho vira 24, 48, 48, 58, 34 — **2,3× o teto da semana
+  1, já no dia 2**.
+
+Ninguém errou uma conta. O que faltou foi alguém **multiplicar de novo**
+depois que a premissa mudou.
+
+**A regra que fica:** quando uma decisão muda uma premissa numérica (aqui,
+quantos toques por canal), o trabalho não é achar os textos que citam a
+premissa — é achar os **números que foram calculados com ela**. Texto
+vencido se lê e se desconfia; número vencido parece certo, porque um teto
+de "~20-25/dia" continua com a mesma cara depois que o que entra nele
+dobrou. Foi o mesmo tipo de armadilha do erro de 2× do F-10, só que ao
+contrário: lá eu errei a conta, aqui a conta estava certa e a entrada
+mudou embaixo dela.
+
+**Operacionalmente:** depois de qualquer decisão de canal, capacidade ou
+volume, reabrir todo item que tenha tabela com "por dia", "por semana" ou
+"teto" e refazer a multiplicação. São poucos e valem a rodada.
+
 ## A auditoria de órfãos mudou de gabarito: 6 linhas viraram 2 — 22/09/2026, sessão automática
 
 A varredura de merge field órfão passou rodadas inteiras devolvendo

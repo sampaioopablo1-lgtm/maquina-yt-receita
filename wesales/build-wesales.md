@@ -4083,6 +4083,53 @@ gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 
 ## 2.29 Rampa de aquecimento do número de telefone — F-14
 
+> **Conferência de 22/09/2026, 16:30 UTC — a rampa foi calibrada para uma
+> régua que não existe mais, e o lote do G-03 passou a estourá-la.**
+>
+> O F-14 (`93ad877`) foi escrito antes de a sessão incorporar a decisão de
+> 100% telefone (`d52e61d`). Ele diz, com todas as letras, que o telefone
+> carrega "**8 de 12**" toques. Não carrega mais: carrega **12 de 12**. Os
+> toques por dia de régua dobraram exatamente onde a rampa é mais apertada —
+> D1 passou de 1 para 2 ligações, D2 de 1 para 2, D7 de 1 para 2.
+>
+> | Dia de régua | D1 | D2 | D4 | D7 | D10 | D14 | D20 | D30 |
+> |---|---|---|---|---|---|---|---|---|
+> | Ligações — régua alternada | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
+> | Ligações — 100% telefone | **2** | **2** | **1** | **2** | 1 | **1** | 1 | **2** |
+>
+> **O efeito sobre o plano do G-03** (47 leads parados, lotes de ~12/dia por
+> 4 dias, que é o plano real e finito — não um lote por dia para sempre):
+>
+> | Dia | Ligações na régua alternada | Ligações hoje | Teto da semana 1 |
+> |---|---|---|---|
+> | 1 | 12 | 24 | ~20-25 |
+> | 2 | 24 | **48** | ~20-25 — estoura |
+> | 3 | 24 | **48** | ~20-25 — estoura |
+> | 4 | 23 | **58** | ~20-25 — estoura |
+> | 5 | 11 | **34** | ~20-25 — estoura |
+>
+> Com a régua alternada, a rampa do F-14 e o lote do G-03 **cabiam um no
+> outro** — 12, 24, 24, 23, 11 encosta no teto e não passa. Com o telefone
+> sozinho, o pico vai a 58, **2,3× o teto da própria semana 1**, e no dia 2,
+> não no fim da rampa. Nenhum dos dois itens está errado isolado: eles foram
+> escritos com meio dia de diferença e a decisão de canal passou entre os
+> dois.
+>
+> **Isto é decisão do dono, não conserto automático**, porque os dois lados
+> são metas dele: o lote de 10-13/dia veio do Quality Rating do WhatsApp
+> (F-07), e o teto da semana 1 veio da faixa de aquecimento do mercado. As
+> saídas que a aritmética permite:
+>
+> | Saída | O que custa |
+> |---|---|
+> | **Lote de ~6/dia** em vez de 10-13 | devolve a curva exata da coluna "régua alternada" acima. O estoque de 47 leva ~8 dias em vez de 4 |
+> | Manter 10-13 e **aceitar a semana 1 em ~50/dia** | é a faixa "agressiva" que as fontes citam (75-150/dia), não fora do mundo — mas joga fora a margem que a rampa existia para ter, num número que nunca discou |
+> | Segurar a fila quando bater o teto | já está no checklist do gestor abaixo; a diferença é que agora isso vai acontecer **todo dia da semana 1**, não como exceção |
+>
+> A tabela de tetos por semana mais abaixo **continua válida** — ela vem das
+> fontes de mercado, não da régua. O que venceu foi a coluna "como se atinge
+> com os lotes do G-03", e a frase de que "10-13 ligações no dia 1 já está
+> dentro da faixa conservadora": no dia 1 agora são 24.
 **Por quê:** o F-08 (seção 2.26) protegeu a reputação do número de telefone
 com um checklist — cadastro no "Qual Empresa Me Ligou?", `Origem Verificada`,
 vigiar queda de atendimento — mas o único item sobre **volume** ficou como
