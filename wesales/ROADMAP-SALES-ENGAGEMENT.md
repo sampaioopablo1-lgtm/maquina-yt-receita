@@ -2469,6 +2469,65 @@ reconfirmado por API nesta execução: 50 oportunidades (45 `NOVO LEAD` `open`
 a entrada segue sem lead novo desde 21/09 09:17, agora ~30h47min (F-10) —
 G-03/G-04/F-09/F-10 seguem aguardando o dono.
 
+### F-15 · Lead sem telefone recicla de 90 em 90 dias sem nunca ser procurado — a régua é 100% telefone e o canal e-mail (78% da base) nunca foi usado — **FEITO em 22/09/2026 (especificação)**
+
+**Por quê:** achado em `ESTADO-E-PLANO.md` (nova leitura completa da
+subconta pedida pelo dono, 22/09/2026, commit `cdaef2d`) e aprofundado
+nesta rodada. O portão 0.0/0.0b (seções 2.3/2.10 do `build-wesales.md`)
+manda quem não tem telefone, mas tem `Site` ou `Instagram`, para
+`status = abandoned` + tag `nutricao-90d` — a mesma saída branda de
+qualquer lead com telefone que esgota as 12 tentativas. O Reengajamento
+90 dias (R-08) reativa todos de volta para `CONECTAR` sem distinguir os
+dois casos, e quem não tem telefone bate no mesmo portão de novo e volta
+para `nutricao-90d` no mesmo instante — um ciclo fechado de 90 em 90 dias
+que nunca produz uma tentativa de contato real, porque toda a operação
+fala só por telefone e WhatsApp desde a decisão de 100% telefone
+(`d52e61d`). Medido: **9 dos 50 contatos reais não têm telefone**
+(`ESTADO-E-PLANO.md`, seção 2); **39 dos 50 (78%) têm e-mail**, e nenhuma
+régua deste projeto usa esse canal (`grep -c "Send Email"
+wesales/build-wesales.md` = 0, antes desta rodada). Diferente do G-03
+("ninguém entra na régua"): aqui o lead entra, é avaliado e sai decidido,
+ciclicamente, sem nunca ser procurado — o tipo de "estrago silencioso" que
+só uma leitura de dados de produção revela, não uma leitura de texto.
+**Conferido antes de escalar como decisão do dono:** ao contrário de
+G-03/G-04/F-09/F-10, este item não tem opções concorrentes nem tradeoff de
+negócio — é canal ocioso preenchendo uma lacuna que a própria régua já
+identificou e nunca tratou, então virou especificação completa nesta
+rodada em vez de pergunta em aberto.
+**Como:** pesquisado antes de desenhar — literatura de sales engagement
+(Zendesk, Highspot, Salesforce, via `WebSearch`) confirma que cadência
+multicanal supera canal único; nenhuma das quatro plataformas do
+enunciado (Reev, Meetime, Outreach, Salesloft) documenta publicamente uma
+rota de resgate específica para o subconjunto "sem telefone" de uma
+cadência phone-first — a peça mais próxima é o **breakup e-mail**
+genérico (`myphoner.com`), medido em 30–40% de reabertura de negócios
+"mortos", usado no segundo dos dois e-mails. Workflow novo "Resgate por
+E-mail — Sem Telefone", especificado nó a nó em `build-wesales.md`, seção
+2.30: gatilho `Contact Tag Added: nutricao-90d`, portão que filtra só quem
+tem `Phone` vazio **e** `Email` preenchido **e** não está `nao-perturbe`
+(a maioria de quem ganha a tag tem telefone e o R-08 já atende), dois
+e-mails (`EM-1`, `EM-2` — textos em `biblioteca-mensagens.md`, primeiro
+código de canal e-mail desta biblioteca) com 5 dias de espera de resposta
+entre eles, e aviso ao gestor se o lead responder (decisão manual de como
+retomar, sem régua automática pronta para um canal novo). Zero campo, zero
+tag novos — reaproveita `Phone`/`Email` nativos, `Template usado` (C-23) e
+as tags `nutricao-90d`/`nao-perturbe` já existentes. Zero escrita no CRM
+nesta rodada: item de especificação pura, não depende de `APROVADO.md`
+para nascer, mas os dois templates de e-mail (`EM-1`/`EM-2`, via
+`emails_create-template`, ferramenta que este conector expõe) precisam de
+`[x]` antes de saírem por API — linha nova em `APROVADO.md`, nasce `[ ]`.
+**O que este item não resolve:** os 9 contatos já parados hoje precisam do
+mesmo backfill manual que o G-01/F-05 já usaram (`Add to Workflow` em
+massa) — ação em massa em dado de produção, regra 2 do briefing pede
+listar e confirmar antes; e não há como confirmar por este conector se a
+subconta tem domínio de e-mail verificado para envio transacional,
+pendência a checar na tela antes de montar.
+**Pronto quando:** os dois templates de e-mail existem
+(`biblioteca-mensagens.md`, feito) e o workflow está publicado — todo
+contato que cai em `abandoned`+`nutricao-90d` sem telefone e com e-mail
+passa a receber ao menos uma tentativa de contato pelo canal que ele de
+fato tem, em vez de reciclar para sempre sem nenhuma.
+
 ---
 
 ## Ordem sugerida
@@ -3102,3 +3161,30 @@ desenho completo e espera a operação mandar a primeira mensagem real; F-11,
 F-12 e F-13 têm desenho completo e só faltam ser montados na tela; F-14 é
 checklist de gestor, pronto para uso assim que o número começar a discar de
 verdade.
+
+**F-15 aberto e fechado (especificação) em 22/09/2026, sessão automática
+seguinte — lacuna nova, achada lendo `ESTADO-E-PLANO.md` (novo documento,
+commit `cdaef2d`, fora da lista de leitura padrão deste projeto — corrigido
+no `README.md` nesta mesma rodada) em vez de repetir o próprio roadmap.**
+Antes de desenhar, duas pistas já registradas em documentos vizinhos
+evitaram trabalho duplicado: `CONFERENCIA-CAMPOS.md`, Tabela L, já tinha
+medido `country`/`timezone` como não-problema agora (Number Validation
+fora por decisão do dono; fuso do contato nunca é lido por nenhum nó) —
+por isso este item **não** virou também um G-07 sobre país/fuso, que seria
+investigar de novo o que a Tabela L já fechou. A lacuna real veio de
+cruzar dois fatos que nenhum documento tinha juntado: o portão 0.0/0.0b já
+existe desde a Etapa 1, e o Reengajamento 90 dias (R-08) recicla todo
+`nutricao-90d` sem checar se a causa foi "sem telefone" — as duas peças
+são antigas, o encontro delas é que é novo. CRM reconfirmado por
+`ESTADO-E-PLANO.md` na mesma rodada em que este item nasceu (50 contatos,
+50 oportunidades, 9 sem telefone, 39 com e-mail) — G-03/G-04/F-09/F-10
+seguem aguardando o dono, sem novidade. Detalhe completo no próprio F-15,
+acima.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real; F-11,
+F-12, F-13 e F-15 têm desenho completo e só faltam ser montados na tela
+(F-15 também precisa dos dois templates de e-mail, `[ ]` em `APROVADO.md`);
+F-14 é checklist de gestor, pronto para uso assim que o número começar a
+discar de verdade.

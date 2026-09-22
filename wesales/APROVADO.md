@@ -286,6 +286,18 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       um número que seja seu. Me diga qual número usar nos testes e esta linha
       vira `[x]` na mesma hora.
 
+- [ ] Criar os 2 templates de e-mail `EM-1`/`EM-2` via `emails_create-template`
+      — nasceram no F-15 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em
+      22/09/2026): resgate por e-mail para o contato que fica em
+      `abandoned`+`nutricao-90d` sem telefone, canal que 78% da base tem
+      (`Email` preenchido) e nenhuma régua deste projeto usa. Textos em
+      `biblioteca-mensagens.md`. Nasce `[ ]` de propósito, mesma regra do
+      topo deste arquivo: linha que a própria rotina acrescentou não é
+      autorização, vira `[x]` quando o dono trocar. **Depende também de uma
+      confirmação que este conector não faz:** a subconta ter domínio de
+      e-mail verificado para envio transacional — checar na tela antes de
+      marcar.
+
 ## Nunca autorizado
 
 Estas linhas existem para deixar explícito e não têm caixa para marcar:
