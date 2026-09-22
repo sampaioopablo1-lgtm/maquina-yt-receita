@@ -810,6 +810,30 @@ D2 (que é a T4) porque aí já houve 4 tentativas reais em 2 dias — o lead te
 chance de atender antes de a IA entrar. Se preferir literalmente após a T2,
 mova o par de nós para o fim do bloco da T2.
 
+**A assimetria de `Permissão WhatsApp` entre este portão e o nó 4 da seção
+2.4 é deliberada — conferida e documentada em 22/09/2026 para ninguém
+"consertar" um dos dois lados sem querer:**
+
+| Onde | Condição | Efeito |
+|---|---|---|
+| Nó 4 do bloco padrão (2.4) — **tentativa por ligação de WhatsApp** | `Permissão WhatsApp` **é** `Sim` | lista de permissão: só quem autorizou expressamente |
+| Nó `a` aqui — **mensagem de texto da IA** | `Permissão WhatsApp` **≠** `Não` | lista de recusa: entra também quem está em `Não solicitado` |
+
+Não é descuido de um dos dois: **ligação de WhatsApp toca o telefone da
+pessoa**, e o `Sim` é justamente o que o SDR pede numa ligação anterior
+(seção 6, roteiro); **mensagem de texto é a fricção mais baixa que existe**,
+e o convite `QI-1` da guarda 6.0 é literalmente o pedido de consentimento —
+exigir consentimento para poder pedir consentimento fecharia o caminho em si
+mesmo. Um lead vindo de Meta Lead Ads nasce `Não solicitado` e deu o telefone
+num formulário: pode receber mensagem, não pode receber chamada.
+
+**O que continua valendo para os dois:** `Não` bloqueia tudo, e a tag
+`nao-perturbe` bloqueia tudo por um caminho independente (o nó 3 do Mestre de
+saída remove o contato deste workflow, seção 3). Se o dono quiser a régua
+mais estrita — só `Sim` também para mensagem —, o lugar é este nó `a`, e o
+custo é que a IA nunca alcança lead nenhum que não tenha atendido uma ligação
+antes, o que esvazia o item.
+
 ### 2.8 Alternativa que eu recomendo avaliar (Opção B)
 
 O bloco da 2.4 mantém o contato **parado dentro do workflow** esperando o
