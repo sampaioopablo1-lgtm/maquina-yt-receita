@@ -2,6 +2,56 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Auditoria diária (só leitura): a entrada piorou de ~22h47 para ~25h14 sem lead novo, e o rastro de teste do closer não prova nada sobre lead real — 22/09/2026, sessão automática (auditor diário)
+
+Primeira rodada do **Auditor diário** (read-only, sem conector de tela,
+compara contra o "Estado bruto para a próxima leitura comparar" no fim de
+`GUIA-MONTAGEM.md` e contra a medição do F-10 desta mesma manhã em
+`ROADMAP-SALES-ENGAGEMENT.md`/`APRENDIZADOS-CRM.md`). Lido por API às
+22/09 10:31 UTC: **50 contatos, 50 oportunidades** (inalterado) — **47
+`NOVO LEAD`** + **2 `NEGOCIAR` `open`** + **1 `NEGOCIAR` `lost`** (era 3
+`open`; ver achado 2). `CONECTAR`, `AGENDAR` e `FORMALIZAR` seguem com
+**zero** oportunidades — nenhuma cadência publicada moveu um lead sequer
+desde sempre, confirmado de novo.
+
+**1. F-10 não é mais "~22h47" — é "~25h14", 1,67× o maior intervalo já
+visto (15h06).** Excluindo os 7 contatos de teste/estrutura (`Lj96CIFYaGKPiC0opzbc`,
+`OIvOGQfdGg2Ndr5GtcAG`, `vrwdERfR24ax6GylG6No`, `qkHSdIMPJTB2JK5ECGrY`,
+`2MXzDPjxGjuvvsxlp5V1`, `c5r3ZxiAd8T5adL1Bt6j`, `eNqNOQI7FT2CBwYAHGrN`), 41
+oportunidades reais em `NOVO LEAD`. O lead mais novo continua sendo
+`Carlos Andrade`, `createdAt` **21/09 09:17:26** — nenhum lead novo chegou
+desde a medição do F-10 desta manhã. Às 22/09 10:31 UTC isso é **25h14min**,
+contra os ~22h47min medidos ~2h30 antes: a régua "múltiplo do pior caso"
+que a correção do F-10 estabeleceu segue valendo e agora mostra 1,67× (era
+1,53×). Nenhuma tag de alarme do F-05 apareceu em contato nenhum — **é o
+esperado, não um sinal de saúde**: as 5 tags (`novo-lead-estagnado`,
+`fila-travada`, `conectar-estagnado`, `agendar-estagnado`,
+`retorno-vencido`) continuam `[ ]` em `APROVADO.md`, não existem na tela.
+Mesma razão para zero `fila-tel`/`fila-wa` presa: nada entrou na cadência
+para poder travar.
+
+**2. `Teste Atendeu` saiu de `NEGOCIAR`/`open` para `NEGOCIAR`/`lost` entre a
+leitura de 21/09 e agora — é rastro de teste manual na tela, não sinal de
+operação real.** `dateUpdated` do contato: **22/09 00:45:58 UTC** (~10h
+antes desta auditoria). Também ganhou, pela primeira vez, `Nota de
+qualificação` = 80, `Motivo da desqualificação` = "Sem fit", `Reunião foi
+qualificada` = "Não", `Data do veredito do closer` = 2026-09-21, e DND
+ativo nos 6 canais — sinal de que alguém clicou manualmente o Loop do
+closer (ou o SLA do Closer) nesse contato de teste. **Armadilha para a
+próxima rodada:** não concluir daí que o nó 4 do Pós-agendamento (que
+grava `Nota de qualificação`, achado aberto em 21/09) foi corrigido — os
+dois leads **reais** que também estão em `NEGOCIAR` (`Daniel`,
+`genilson | Bombeiro`) continuam com esse campo **vazio**, exatamente como
+na leitura de 21/09. O preenchimento em `Teste Atendeu` é plausivelmente
+escrito pelo veredito do closer, não pelo nó 4 — são dois nós diferentes
+gravando o mesmo campo, e só um dos dois tem rastro de estar rodando.
+
+**Regra generalizável:** contato de teste mudando de estado no meio da
+noite, sem nenhuma rodada automática ter mexido em nada (`APROVADO.md`
+vazio o tempo todo), é o dono testando na tela — trate como dado de
+teste, nunca como amostra do que a operação real está fazendo, e não deixe
+isso maquiar um achado aberto (aqui, o nó 4) como resolvido.
+
 ## Espelho de "algum ligado" é "algum desligado", não "todos desligados" — e o filtro de DND de WhatsApp pode não existir antes do canal existir — R-14, 22/09/2026, sessão automática
 
 A rodada que especificou o R-14 acertou a distinção que destrava o item (o que
