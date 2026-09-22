@@ -3456,6 +3456,7 @@ subconta enxergue. Vira checklist do gestor, não automação:
 |---|---|
 | **Cadastrar o(s) número(s) usado(s) para ligar no portal gratuito "Qual Empresa Me Ligou?" da Anatel** (`qualempresameligou.com.br`, associa o número ao CNPJ) | Equivalente brasileiro real do Branded Caller ID/CNAM — quando o lead pesquisa o número desconhecido antes de decidir atender, encontra o nome e o CNPJ da empresa em vez de nada, reduzindo a chance de ele ignorar ou denunciar por puro desconhecimento |
 | **Antes de escalar volume** (promover o estoque do G-03, ou ao entrar o 2º SDR do R-10) — **distribuir as ligações entre mais de um número**, em vez de concentrar 100/dia num só | A norma não publica um limiar numérico próprio ainda (cada operadora escolhe a tecnologia); a referência de mercado (fora do Brasil, adaptada com cautela) fica em torno de 50-75 chamadas/dia por número antes do risco de rótulo subir — a meta desta operação, sozinha, já está no teto ou acima dele |
+| **Seguir a rampa de aquecimento por semana** (seção 2.29/F-14) em vez de partir direto para 100/dia — o número desta operação nunca discou de verdade (zero registro de chamada, `APRENDIZADOS-CRM.md`), então é "novo" para efeito de reputação mesmo já existindo na subconta | "Distribuir entre números" (linha acima) não diz quanto por dia em qual semana; a rampa escreve o teto que falta |
 | **Se a taxa de atendimento de um número cair de forma abrupta e sem explicação de horário/segmento** (o mesmo tipo de sinal que o F-06, quando destravar, vai medir por duração de chamada) | É o sintoma prático de bloqueio silencioso — a norma de agosto/2026 não obriga a operadora a avisar o autor da ligação, só o destinatário |
 | **Usar o canal de contestação que a norma de agosto/2026 passa a exigir de toda operadora** ("procedimento específico para usuários que tiveram chamadas bloqueadas solicitarem revisão") | Existe agora um caminho formal para reverter um bloqueio de número legítimo — antes de agosto/2026 isso dependia só de boa vontade da operadora |
 
@@ -4045,6 +4046,107 @@ quanto essa.
 passa 3 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost` gera aviso ao
 gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 `NOVO LEAD` a `FORMALIZAR`) que ainda dizia "sem monitor" agora tem um.
+
+---
+
+## 2.29 Rampa de aquecimento do número de telefone — F-14
+
+**Por quê:** o F-08 (seção 2.26) protegeu a reputação do número de telefone
+com um checklist — cadastro no "Qual Empresa Me Ligou?", `Origem Verificada`,
+vigiar queda de atendimento — mas o único item sobre **volume** ficou como
+"distribuir entre mais de um número **antes de escalar**", sem nunca escrever
+quanto por dia em qual semana. É a mesma lacuna que o F-07 já tinha fechado
+para o WhatsApp com um objeto próprio: número novo nasce **Tier 1** (250
+contatos únicos), só sobe "consumindo metade do teto atual dentro de 7 dias
+com qualidade aceitável" (seção 2.25). O telefone nunca ganhou o equivalente,
+apesar de carregar o dobro dos toques (8 de 12, contra 4 de 12 do WhatsApp) e
+de já estar, pela própria conta do F-08, **acima** da referência internacional
+de segurança (50-75/dia) na meta de regime (100/dia).
+
+**E o canal está, hoje, tecnicamente "novo" mesmo sem ser recente na
+subconta:** `APRENDIZADOS-CRM.md` ("O CRM não pode responder a pergunta do
+LC Phone") mediu **zero registro de chamada** nas 50 conversas da subconta —
+nenhuma tocou ainda. Para efeito de reputação de operadora, um número que
+nunca discou e um número criado ontem são a mesma coisa: sem histórico de uso
+legítimo, o primeiro dia de volume alto é o que os provedores de identificação
+de chamada usam para decidir se marcam "Spam Likely". `WebSearch` (Kixie,
+Tendril, PhoneBurner, Salesloft, Aircall, SalesHive — convergência de fontes
+de mercado independentes, nenhuma vendendo o mesmo produto): o padrão do
+setor é aquecer **2 semanas antes de qualquer campanha de volume**, com teto
+diário explícito por número no início (as fontes variam entre 20-50/dia numa
+janela conservadora e 75-150/dia numa mais agressiva, sempre **crescente**, e
+nunca a meta plena no primeiro dia) — e o mesmo veredito do F-08 aparece nas
+fontes de mercado sobre o produto americano equivalente: o "Voice Integrity"
+do **Outreach** também é descrito como valendo só para número comprado nos
+EUA, o mesmo limite que já descartou o "Voice Integrity" da HighLevel — sinal
+de que a plataforma de origem não é o motivo do limite, é o próprio recurso.
+
+**A conexão que faltava, e que é o motivo deste item não ser genérico:** o
+G-03 (Bloco 0) já decidiu, no cruzamento com o F-07, promover o estoque de 47
+leads parados em **lotes de 10-13/dia** — mas só para proteger o Quality
+Rating do WhatsApp. Nenhuma das três opções do G-03 nem aquele cruzamento
+menciona telefone. Só que o mesmo lote que protege o WhatsApp também é,
+por construção, quem determina o volume de telefone do primeiro dia (cada
+lead promovido gera uma tentativa de telefone em D1, tabela 2.5) — a notícia
+boa é que 10-13 ligações no dia 1 já está dentro da faixa conservadora de
+aquecimento; a notícia que falta escrever é que isso só vale enquanto os
+lotes não se **empilham**: a partir da segunda semana, cada dia soma o lote
+novo às reentradas D2/D4/D7 dos lotes anteriores (tabela 2.5), e sem um teto
+explícito o volume cresce mais rápido que a rampa do setor recomenda —
+exatamente o tipo de "queima silenciosa" que o F-07 já preveniu para o
+WhatsApp e que aqui não tinha nenhum guarda-corpo escrito.
+
+**Como:** rampa de referência, calibrada com os dois lados (a faixa do
+mercado e o teto de regime já decidido de 100/dia por número, `briefing-sdr.md`):
+
+| Semana | Teto de ligações/dia (por número) | Como se atinge com os lotes do G-03 |
+|---|---|---|
+| 1 | ~20-25 | 1 lote/dia (10-13 leads × ~1-2 toques de telefone/dia no início da régua) |
+| 2 | ~40-50 | lotes seguem entrando, e as reentradas D2/D4/D7 do lote 1 já somam — é aqui que o teto pode estourar sem aviso |
+| 3 | ~75 | ainda abaixo da meta de regime |
+| 4+ | 100 (meta de regime, `briefing-sdr.md`) | volume pleno, só depois do número ter 3 semanas de uso real |
+
+Sem gatilho nativo para ler "quantas ligações este número já fez hoje" (mesmo
+limite de plataforma do F-06/F-07/F-08 — nenhum objeto do GHL soma tentativa
+por dia por número, só `Tentativas telefone`, que é cumulativo desde sempre e
+por contato, não por dia nem por número) — vira checklist do gestor, mesmo
+tratamento do F-07/F-08, não um nó novo:
+
+| Ação | Por quê |
+|---|---|
+| Nas primeiras 3 semanas após o primeiro dia de ligação real, conferir o teto da tabela acima **antes** de liberar o lote seguinte do G-03 | O lote controla quem entra; só o gestor sabe, olhando a fila do dia (`fila-tel`), se o total já bateu o teto da semana |
+| Se o teto for atingido antes do fim do dia, **segurar** o restante da fila `fila-tel` para o dia seguinte em vez de discar tudo | É a mesma folga que a cadência já assume em outros pontos (Wait Dynamic do F-05, janela de 24h do G-05) — atrasar um dia custa menos que queimar o número |
+| Se a operação escalar para 2º número antes da rampa terminar (R-10, novo SDR) | O número novo começa a própria rampa do zero — a experiência do primeiro número não "empresta" reputação para o segundo |
+| Vigiar queda abrupta de atendimento (mesmo sintoma do F-08) com atenção redobrada nas 3 primeiras semanas | É a janela em que o número está mais vulnerável a rótulo, pela própria natureza da rampa |
+
+**Por que não é um workflow, mesmo motivo do F-07/F-08:** a pergunta que o
+gatilho precisaria responder — "quantas ligações este número específico já
+discou hoje" — não existe como evento nem como contador nativo no GHL, e
+`Tentativas telefone` (C-09) mistura os dois números do dia que a operação
+tiver, além de nunca zerar por dia. Inventar esse contador exigiria um campo
+novo por número e um reset diário, engenharia desproporcional ao problema
+quando a operação ainda tem **um** número e o gestor já olha a fila todo dia
+(mesma folga que o F-10 aceitou não ter alarme automático de ausência de
+lead, por proporção parecida de custo × benefício).
+
+**Pendência que este item não resolve, e por quê:** a mesma de sempre —
+confirmar se as ligações saem por LC Phone ou linha própria do SDR muda quem
+executa o cadastro do F-08, mas não muda a rampa em si: os provedores de
+identificação de chamada (que decidem "Spam Likely") observam o número que
+discou, não o sistema que o discou.
+
+**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
+documentação e rotina manual pura, mesmo tratamento do F-07/F-08 — não
+depende de `APROVADO.md`, não entra na "Ordem de montagem" nem no checklist
+de teste da seção 10 (não há objeto de CRM para simular volume de discagem
+com contato fictício).
+
+**Pronto quando:** a rampa de 4 semanas está escrita com teto por semana; o
+checklist do F-08 (seção 2.26) referencia esta seção; e o G-03
+(`ROADMAP-SALES-ENGAGEMENT.md`) ganha uma nota dizendo que o mesmo cuidado de
+lote que protege o WhatsApp (cruzamento com o F-07) também é, por
+construção, quem paga a rampa de telefone — e que isso só segura até os
+lotes começarem a se empilhar na segunda semana.
 
 ---
 

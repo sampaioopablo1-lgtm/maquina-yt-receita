@@ -2,6 +2,51 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Dois itens que fecharam no mesmo dia, protegendo canais vizinhos, não se olharam — a pergunta que achou o F-14 não foi "o que falta", foi "os dois já tratam igual?" — 22/09/2026, sessão automática
+
+O F-07 (Quality Rating do WhatsApp) e o F-08 (reputação do número de
+telefone) fecharam no mesmo dia, um logo depois do outro, os dois pela
+mesma pesquisa de mercado e o mesmo tipo de achado (recurso nativo da
+plataforma não serve, vira checklist do gestor). O F-07 saiu com um objeto
+concreto — Tier de número novo, teto que sobe em 7 dias. O F-08 saiu só com
+"distribua entre números antes de escalar", sem cronograma. Ninguém
+comparou os dois depois de prontos porque cada rodada fecha o item que está
+fazendo e segue — a pergunta "o vizinho que acabou de fechar tratou o mesmo
+risco com a mesma régua?" nunca é a pergunta natural de quem está dentro do
+item.
+
+**A técnica, generalizável:** quando dois itens resolvem o mesmo tipo de
+problema (aqui: proteção de reputação de canal) para dois canais diferentes
+da mesma cadência, e os dois fecham perto um do outro, vale a pena reabrir
+os dois lado a lado e perguntar **não** "o que falta no roadmap" (pergunta
+ampla, já esgotada por várias rodadas) mas "estes dois pares têm a mesma
+profundidade de tratamento?" — é uma busca muito mais estreita que "achar
+lacuna nova", e por isso mais barata de responder. Foi assim que nasceu o
+F-14 (`ROADMAP-SALES-ENGAGEMENT.md`): o WhatsApp tinha Tier com números por
+semana, o telefone não tinha nada além de "cuidado, distribua". Mesma
+família de achado do G-06 (guarda de janela chegou ao Caminho A e não ao
+Caminho B do mesmo workflow) e do F-08→F-09 (freio de "não atendidas
+seguidas" existe no WhatsApp e não existia no telefone) — a terceira vez que
+"protegido num canal, esquecido no gêmeo" aparece neste projeto. Vale
+promover a pergunta a rotina: toda vez que um item de proteção de canal
+fechar, perguntar se o canal irmão já tem o mesmo nível de cuidado, não só
+se ele tem proteção nenhuma.
+
+**Achado que só apareceu ao medir para escrever este item, não ao
+procurá-lo:** a soma na entrada do F-13 ("47 `NOVO LEAD` + 2 `NEGOCIAR`
+open + 1 `NEGOCIAR` lost + 2 `CONECTAR` lost") dava 52, não os 50
+oportunidades que a mesma frase afirmava. A leitura fresca por API
+(`opportunities_search-opportunity`, `status=all`) deu 45/2/1/2 = 50 — a
+etapa `NOVO LEAD` estava contada como 47 por engano (provavelmente
+confundindo com uma leitura anterior, de antes de dois contatos de teste
+saírem para `CONECTAR`/`lost`). Mesma classe de erro do F-10 ("46 horas"
+que não batia com as duas datas ao lado): aritmética manual sobre números já
+escritos no próprio documento, não fonte externa errada. Corrigido na
+mesma linha (`ROADMAP-SALES-ENGAGEMENT.md`); os outros ~15 lugares que ainda
+dizem "47 `NOVO LEAD`" são snapshots históricos de datas anteriores em que o
+número provavelmente era mesmo esse — não foram tocados, por serem registro
+de outro dia, não a mesma frase se contradizendo.
+
 ## O teste que responde a dúvida das sete listas estava preso atrás de uma decisão que ele não precisa — e a lista que o destrava é a mais urgente do projeto — 22/09/2026, sessão automática
 
 A rodada anterior fez a coisa certa com a dúvida da ordenação de dois níveis:
