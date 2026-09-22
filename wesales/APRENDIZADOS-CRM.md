@@ -2,7 +2,89 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O CRM não pode responder a pergunta do LC Phone, e agora isso está provado: **zero registro de chamada** na subconta, e o markup de 20% é da agência, não desta subconta — 22/09/2026, sessão automática
+
+A rodada anterior fez a coisa certa (perguntar ao CRM, não aos documentos) e
+tratou o achado com o cuidado certo (evidência, não confirmação; nenhum item
+fechou, nenhum `[x]`). Duas correções na leitura, e as duas apertam a
+conclusão em vez de afrouxá-la.
+
+**1. `markup: 20` não é "alguém configurou um número nesta subconta".** A
+mecânica do rebilling, conferida por busca: o markup é definido em
+**Agency Settings → SaaS Configurator** como valor **global**, com
+*override* opcional por subconta. Então `twilioRebilling = { enabled: true,
+markup: 20 }` lido nesta subconta é compatível com — e mais provavelmente é
+— o **global da agência herdado aqui**, exatamente igual em toda subconta do
+plano, incluindo as que nunca fizeram uma ligação. O argumento da rodada
+anterior ("não é o default de fábrica, logo alguém configurou") confunde
+*não-default* com *configurado para esta subconta*: um valor global não é
+default de fábrica e também não diz nada sobre esta subconta. (O único
+default de fábrica que a busca mostrou é 1.05x/5%, e é para cobrir taxa de
+Stripe — outra coisa.)
+
+**2. A evidência direta existia e ninguém tinha olhado: não há registro de
+chamada nenhum.** `conversations_search-conversation` nas **50** conversas da
+subconta: 41 são atividade de CRM (`TYPE_NO_SHOW`/atividade, grupo `100`) e
+9 são DM de Instagram (grupo `18`). **Nenhuma chamada.** Conferido no nível
+da mensagem, não só do agrupamento: a conversa de `ZZ TESTE ESTRUTURA` — o
+contato com 14 tags e todo o histórico de teste — tem **exatamente uma**
+mensagem, `type: 28`, `messageType: TYPE_ACTIVITY_OPPORTUNITY`, corpo
+"Opportunity created", `source: app`. Nada de `TYPE_CALL`, nada de
+`TYPE_VOICEMAIL`, em lugar nenhum.
+
+**O que isso revela sobre um número que o projeto já citava com confiança:**
+`Tentativas telefone` = 24 e `Conexões telefone` = 8 no contato de teste
+**não são 24 ligações**. São 24 escritas de campo, disparadas por
+classificação manual de `Resultado da tentativa`. O Pós-ligação rodou 24
+vezes; o telefone nunca tocou. Está tudo certo como teste de workflow — e é
+zero evidência sobre telefonia.
+
+**Conclusão, que é a parte útil:** a pergunta "LC Phone ou linha própria do
+SDR?" **não tem resposta possível dentro deste CRM**, porque a resposta
+estaria nos registros de chamada e não existe nenhum. A ausência é
+compatível com os dois lados (pode não haver número provisionado, ou haver
+um que nunca foi usado), então não desempata — mas elimina o CRM como fonte.
+**Regra: não gaste outra rodada procurando isto por API.** É pergunta para o
+dono, e ponto. Se alguém quiser uma última tentativa, o único lugar que
+resolveria é a tela **Configurações → Números de Telefone**, que este
+conector não expõe.
+
+**E o achado que vale mais que a pergunta original — o canal de telefone
+inteiro nunca foi exercitado uma vez.** Oito dos doze toques da régua, o
+F-06 (medição de duração), o F-08 (reputação de número) e o F-09 (freio de
+canal) tratam de um canal com **zero** execução real nesta subconta. Duas
+consequências concretas:
+
+- O checklist de teste da seção 10 testa o telefone **classificando
+  `Resultado da tentativa`** — que exercita o Pós-ligação e mais nada. Para
+  todo item que dependa do *evento de chamada* isso não serve, e o caso
+  extremo é o F-06: `Transcript Generated` só dispara com chamada **discada
+  e gravada**. Não existe jeito de testá-lo mexendo em campo. O item precisa
+  de uma ligação real, que precisa de número provisionado, que é justamente
+  a pergunta travada — **dependência que nenhum documento declarava.**
+- Toda a régua de telefone (o motor da operação) está na mesma situação em
+  que o G-05 pegou o WhatsApp: especificada, nunca executada, e por isso sem
+  rastro para uma auditoria de dados achar. A diferença é que no WhatsApp a
+  regra externa (janela de 24h) foi lida antes do primeiro envio; aqui a
+  regra externa (bloqueio de operadora, F-08) também já foi lida antes da
+  primeira ligação. Os dois canais estão, hoje, protegidos no papel e
+  virgens na prática.
+
+**Regra generalizável, a terceira desta classe neste arquivo:** antes de
+tirar conclusão de uma **configuração**, pergunte se ela é *desta* entidade
+ou herdada de um nível acima — configuração global se parece com decisão
+local quando se lê uma subconta por vez. E antes de aceitar um contador como
+prova de atividade, pergunte **quem escreve** aquele contador: `Tentativas
+telefone` é escrito por classificação humana, não por evento de telefonia, e
+por isso 24 nele não é 24 de nada no mundo real.
+
 ## A pendência que bloqueia F-06/F-08/F-09 ganhou evidência indireta, não confirmação — `twilioRebilling` ligado é sinal de LC Phone, mas não prova quem discou — 22/09/2026, sessão automática
+
+> **Leia a entrada acima antes de usar isto.** O raciocínio e a cautela desta
+> entrada estão certos, mas o `markup: 20` é **global da agência** (herdado por
+> toda subconta), não sinal de configuração desta — e a evidência direta que
+> faltava foi lida na conferência: **zero registro de chamada** nas 50
+> conversas. O CRM não pode responder a esta pergunta.
 
 Com G-03/G-04/F-09 aguardando o dono e R-14 aguardando volume real de
 mensagem, nenhum item numerado do roadmap tinha trabalho de API executável

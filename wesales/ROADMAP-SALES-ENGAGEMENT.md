@@ -1802,14 +1802,21 @@ briefing é não criar campo nem mexer em régua em massa sem confirmação.
 
 **Três opções para o dono escolher — nenhuma aplicada:**
 
-**Evidência indireta sobre a pendência de canal, achada em 22/09/2026, não
-resolve a decisão acima:** `locations_get-location` mostra
-`saasSettings.twilioRebilling.enabled = true` (markup 20%) — sinal de que
-a agência provisiona e monetiza LC Phone nesta subconta, não prova de que
-é o canal usado pelo SDR nas 100 ligações/dia. Não muda a régua (limiar
-continua sendo escolha do dono, não fato técnico), mas torna a pergunta
-pendente mais fácil de responder. Detalhe em `APRENDIZADOS-CRM.md`, "A
-pendência que bloqueia F-06/F-08/F-09 ganhou evidência indireta".
+**Evidência indireta reavaliada em 22/09/2026, mesma data — o CRM não
+responde esta pergunta:** `locations_get-location` mostra
+`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas o markup
+do rebilling é definido **global na agência** (SaaS Configurator), com
+override opcional por subconta — o valor lido aqui é compatível com o global
+herdado, igual em subconta que nunca ligou, então **não é sinal de número
+provisionado nesta**. E a evidência direta, lida na mesma rodada, aponta para
+o outro lado: **zero registro de chamada** nas 50 conversas da subconta
+(41 atividade de CRM, 9 DM de Instagram, nenhum `TYPE_CALL`) — o contato de
+teste com `Tentativas telefone` = 24 tem **uma** mensagem, "Opportunity
+created". Os 24 são escritas de campo por classificação manual, não ligações.
+A ausência não desempata (pode não haver número, ou haver e nunca ter sido
+usado), mas **elimina o CRM como fonte**: é pergunta para o dono, e nenhuma
+rodada deve gastar mais tempo procurando por API. Detalhe em
+`APRENDIZADOS-CRM.md`, "O CRM não pode responder a pergunta do LC Phone".
 
 | Opção | Limiar | Efeito |
 |---|---|---|

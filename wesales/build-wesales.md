@@ -3257,12 +3257,21 @@ provisionado pelo GHL é o dono técnico registrar; linha própria do SDR
 exige registro pelo próprio SDR ou pela operadora dele. Confirmar isso é
 pré-requisito prático do primeiro item da tabela acima, não deste item
 inteiro — o achado da norma e a exclusão do "Não Me Perturbe" valem
-independente da resposta. **Evidência indireta, não confirmação, achada em
-22/09/2026:** `locations_get-location` mostra
-`saasSettings.twilioRebilling.enabled = true` (markup 20%), sinal de LC
-Phone provisionado e monetizado nesta subconta — não prova de que é o
-canal usado pelo SDR hoje. Detalhe em `APRENDIZADOS-CRM.md`, "A pendência
-que bloqueia F-06/F-08/F-09 ganhou evidência indireta".
+independente da resposta. **Evidência indireta reavaliada em 22/09/2026, mesma data — o CRM não
+responde esta pergunta:** `locations_get-location` mostra
+`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas o markup
+do rebilling é definido **global na agência** (SaaS Configurator), com
+override opcional por subconta — o valor lido aqui é compatível com o global
+herdado, igual em subconta que nunca ligou, então **não é sinal de número
+provisionado nesta**. E a evidência direta, lida na mesma rodada, aponta para
+o outro lado: **zero registro de chamada** nas 50 conversas da subconta
+(41 atividade de CRM, 9 DM de Instagram, nenhum `TYPE_CALL`) — o contato de
+teste com `Tentativas telefone` = 24 tem **uma** mensagem, "Opportunity
+created". Os 24 são escritas de campo por classificação manual, não ligações.
+A ausência não desempata (pode não haver número, ou haver e nunca ter sido
+usado), mas **elimina o CRM como fonte**: é pergunta para o dono, e nenhuma
+rodada deve gastar mais tempo procurando por API. Detalhe em
+`APRENDIZADOS-CRM.md`, "O CRM não pode responder a pergunta do LC Phone".
 
 **Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
 documentação e rotina manual pura — não depende de `APROVADO.md`. Não
@@ -3419,13 +3428,21 @@ registrou a mesma lacuna). Se for LC Phone, este item funciona como
 especificado abaixo; se for linha própria, `Transcript Generated` nunca
 dispara para essas chamadas e o item volta a depender de call tracking
 externo, do zero. Uma resposta só resolve as três pendências (F-06, F-08,
-F-09) ao mesmo tempo. **Evidência indireta, não confirmação, achada em
-22/09/2026:** `locations_get-location` mostra
-`saasSettings.twilioRebilling.enabled = true` (markup 20%) — sinal de que
-a agência provisiona e monetiza LC Phone nesta subconta, não prova de que
-é o canal usado pelo SDR. Detalhe e limite do achado em
-`APRENDIZADOS-CRM.md`, "A pendência que bloqueia F-06/F-08/F-09 ganhou
-evidência indireta".
+F-09) ao mesmo tempo. **Evidência indireta reavaliada em 22/09/2026, mesma data — o CRM não
+responde esta pergunta:** `locations_get-location` mostra
+`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas o markup
+do rebilling é definido **global na agência** (SaaS Configurator), com
+override opcional por subconta — o valor lido aqui é compatível com o global
+herdado, igual em subconta que nunca ligou, então **não é sinal de número
+provisionado nesta**. E a evidência direta, lida na mesma rodada, aponta para
+o outro lado: **zero registro de chamada** nas 50 conversas da subconta
+(41 atividade de CRM, 9 DM de Instagram, nenhum `TYPE_CALL`) — o contato de
+teste com `Tentativas telefone` = 24 tem **uma** mensagem, "Opportunity
+created". Os 24 são escritas de campo por classificação manual, não ligações.
+A ausência não desempata (pode não haver número, ou haver e nunca ter sido
+usado), mas **elimina o CRM como fonte**: é pergunta para o dono, e nenhuma
+rodada deve gastar mais tempo procurando por API. Detalhe em
+`APRENDIZADOS-CRM.md`, "O CRM não pode responder a pergunta do LC Phone".
 
 **Confiança:** média — a descrição do gatilho ("duration... direction...
 across Voice AI, IVR, and LC Phone calls") apareceu de forma consistente em
@@ -5289,6 +5306,38 @@ para minutos; **volte os valores reais antes de publicar**.
 Depois do teste, **marque as 5 oportunidades como `status = lost` e desative
 os 5 contatos** (nunca excluir contato nem oportunidade — regra 1 do
 projeto) e restaure os Waits e a janela de envio.
+
+### O que este checklist **não** testa, medido em 22/09/2026
+
+Todo item acima exercita o CRM do mesmo jeito: escrevendo campo (quase sempre
+`Resultado da tentativa`) e vendo o workflow reagir. Isso cobre tudo o que é
+disparado por mudança de campo, tag ou etapa — e **não cobre nada que dependa
+de um evento de telefonia real.** A diferença nunca esteve escrita, e ela
+importa porque o telefone é o canal majoritário da régua (8 dos 12 toques).
+
+Medido nesta data: as **50 conversas** da subconta não têm **um único**
+registro de chamada (41 são atividade de CRM, 9 são DM de Instagram; nenhum
+`TYPE_CALL` nem `TYPE_VOICEMAIL`). O contato `ZZ TESTE ESTRUTURA`, com
+`Tentativas telefone` = 24, tem **uma** mensagem na conversa: "Opportunity
+created". Os 24 são escritas de campo por classificação manual — o
+Pós-ligação rodou 24 vezes e **o telefone nunca tocou nesta subconta.** Como
+teste de workflow está correto; como evidência de telefonia, é zero.
+
+| Item | Testável por mudança de campo? | Por quê |
+|---|---|---|
+| Tudo de 1 a 36 acima | **Sim** | Gatilho é campo, tag ou etapa |
+| **F-06 / seção 2.27** (`Duração da ligação`, `Conexão real`, C-31, C-32) | **Não** | O gatilho é `Transcript Generated`: exige chamada **discada e gravada**. Não existe campo que simule uma transcrição |
+| **F-08 / seção 2.26** (reputação do número) | **Não** | Bloqueio de operadora acontece na rede ou no aparelho do lead; não há objeto de CRM para simular |
+| **F-09** (freio de telefone, quando o dono escolher o limiar) | **Parcial** | O contador e o portão se testam por campo; a duração real das chamadas que alimentam a decisão, não |
+
+**Consequência prática, que é uma dependência nova:** o F-06 só pode ser
+testado depois de existir uma ligação real por LC Phone, com gravação e
+transcrição ligadas. Isso encadeia três pendências que os documentos tratavam
+como independentes — a confirmação de canal (LC Phone vs. linha própria), a
+decisão de gravar (aviso LGPD + custo) e a criação dos campos C-29 a C-32 —
+e coloca a confirmação de canal como **primeira** delas, não como detalhe
+lateral. Nenhuma pode ser marcada `[x]` por leitura de CRM: todas passam pela
+tela e pelo dono.
 
 ---
 
