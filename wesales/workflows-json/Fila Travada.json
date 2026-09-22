@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Fila Travada",
-    "version": 3,
+    "version": 6,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/23c33803-c760-49fd-a189-8d1a86bf3d9e/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F23c33803-c760-49fd-a189-8d1a86bf3d9e%2F3?alt=media&token=e3434814-5f42-4a56-96b7-2f34e407b08c",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/23c33803-c760-49fd-a189-8d1a86bf3d9e/6",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F23c33803-c760-49fd-a189-8d1a86bf3d9e%2F6?alt=media&token=2724873c-8d66-48b5-b19a-7aaa014a8468",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-22T01:18:36.000Z"
-      }
-    },
     "createdAt": "2026-09-22T01:18:33.646Z",
-    "updatedAt": "2026-09-22T01:18:37.566Z",
+    "updatedAt": "2026-09-22T01:42:05.510Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -33,14 +27,20 @@
     "eventStartDate": null,
     "senderAddress": null,
     "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/23c33803-c760-49fd-a189-8d1a86bf3d9e/3",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/23c33803-c760-49fd-a189-8d1a86bf3d9e/6",
     "window": null,
     "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-22T01:42:04.000Z"
+      }
+    },
     "id": "23c33803-c760-49fd-a189-8d1a86bf3d9e",
     "workflowData": {
       "templates": [
         {
-          "id": "2b160e93-6d3c-4107-9eb8-0bdf3f223a8f",
+          "id": "f1461f92-7628-4e13-b37b-9fcffc7b53cd",
           "name": "Remove Tag",
           "type": "remove_contact_tag",
           "attributes": {
@@ -50,7 +50,7 @@
           },
           "order": 0,
           "parentKey": null,
-          "next": "9fcbe26c-cf19-4167-b899-f3ef1a5aaf14",
+          "next": "9e138a7e-e7af-4b0d-a303-20b5685d78ec",
           "advanceCanvasMeta": {
             "position": {
               "x": 400,
@@ -60,24 +60,27 @@
           "cat": ""
         },
         {
-          "id": "9fcbe26c-cf19-4167-b899-f3ef1a5aaf14",
-          "name": "Wait até 19:00",
+          "id": "9e138a7e-e7af-4b0d-a303-20b5685d78ec",
+          "name": "Wait 8 Hours",
           "type": "wait",
           "cat": "",
           "attributes": {
-            "type": "specific_date",
-            "name": "Wait até 19:00",
+            "type": "time",
+            "startAfter": {
+              "type": "hour",
+              "value": 8,
+              "when": "after"
+            },
+            "name": "Wait 8 Hours",
             "cat": "",
-            "specificTimeHour": 19,
-            "specificTimeMinute": 0,
             "isHybridAction": true,
             "hybridActionType": "wait",
             "convertToMultipath": false,
             "transitions": []
           },
           "order": 1,
-          "parentKey": "2b160e93-6d3c-4107-9eb8-0bdf3f223a8f",
-          "next": "b3bdf580-3b43-4c2c-bfde-da001cb292c9",
+          "parentKey": "f1461f92-7628-4e13-b37b-9fcffc7b53cd",
+          "next": "8feeb340-d1da-4014-bd73-0d62fc24f1d2",
           "advanceCanvasMeta": {
             "position": {
               "x": 700,
@@ -86,14 +89,14 @@
           }
         },
         {
-          "id": "b3bdf580-3b43-4c2c-bfde-da001cb292c9",
+          "id": "8feeb340-d1da-4014-bd73-0d62fc24f1d2",
           "order": 2,
           "name": "Fila ainda presa?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
-            "2342d1fe-9276-4add-9d05-86605cb6f212"
+            "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
+            "b847c2c0-42bb-4de6-ae4e-fb6efea6aacf"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -101,11 +104,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
+                "id": "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "1efaf281-062c-4c98-b890-91a96582da9a",
+                    "__segmentId": "fa966918-4ecf-46a0-a1e5-500704d10303",
                     "operator": "or",
                     "conditions": [
                       {
@@ -115,7 +118,7 @@
                         "conditionValue": [
                           "fila-tel"
                         ],
-                        "__conditionId": "3d343c78-f961-4861-b5d1-61eb518b25fe",
+                        "__conditionId": "b94cb2eb-2996-4173-be8e-07cd3999e962",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -152,7 +155,7 @@
                         "conditionValue": [
                           "fila-wa"
                         ],
-                        "__conditionId": "4af6c674-92bd-4528-a45e-f8ebac54e68a",
+                        "__conditionId": "8652e7ec-a7c3-45e0-b195-b76990ebc544",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -196,7 +199,7 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parentKey": "9fcbe26c-cf19-4167-b899-f3ef1a5aaf14",
+          "parentKey": "9e138a7e-e7af-4b0d-a303-20b5685d78ec",
           "advanceCanvasMeta": {
             "position": {
               "x": 1000,
@@ -205,15 +208,15 @@
           }
         },
         {
-          "id": "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
-          "parent": "b3bdf580-3b43-4c2c-bfde-da001cb292c9",
-          "parentKey": "b3bdf580-3b43-4c2c-bfde-da001cb292c9",
+          "id": "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
+          "parent": "8feeb340-d1da-4014-bd73-0d62fc24f1d2",
+          "parentKey": "8feeb340-d1da-4014-bd73-0d62fc24f1d2",
           "order": 3,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "2342d1fe-9276-4add-9d05-86605cb6f212"
+            "b847c2c0-42bb-4de6-ae4e-fb6efea6aacf"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -223,7 +226,7 @@
             "operator": "or",
             "branches": []
           },
-          "next": "f93eabdc-e849-47ee-9ca8-205fb9e9954c",
+          "next": "b9d9e13e-18a6-4cd4-a629-ffcb6ed4b03e",
           "advanceCanvasMeta": {
             "position": {
               "x": 1300,
@@ -232,15 +235,15 @@
           }
         },
         {
-          "id": "2342d1fe-9276-4add-9d05-86605cb6f212",
-          "parent": "b3bdf580-3b43-4c2c-bfde-da001cb292c9",
-          "parentKey": "b3bdf580-3b43-4c2c-bfde-da001cb292c9",
+          "id": "b847c2c0-42bb-4de6-ae4e-fb6efea6aacf",
+          "parent": "8feeb340-d1da-4014-bd73-0d62fc24f1d2",
+          "parentKey": "8feeb340-d1da-4014-bd73-0d62fc24f1d2",
           "order": 3,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "a8cfcc45-ba23-481a-a41a-7f29ca227dc5"
+            "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff"
           ],
           "comments": [],
           "nodeType": "branch-no",
@@ -255,7 +258,7 @@
           }
         },
         {
-          "id": "f93eabdc-e849-47ee-9ca8-205fb9e9954c",
+          "id": "b9d9e13e-18a6-4cd4-a629-ffcb6ed4b03e",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -264,9 +267,9 @@
             ]
           },
           "order": 0,
-          "parent": "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
-          "parentKey": "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
-          "next": "4ae54d6e-1327-49a7-a54a-80f32618fa7b",
+          "parent": "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
+          "parentKey": "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
+          "next": "7eb11a56-9a61-45e8-8b14-0237d6e51230",
           "advanceCanvasMeta": {
             "position": {
               "x": 1900,
@@ -276,7 +279,7 @@
           "cat": ""
         },
         {
-          "id": "4ae54d6e-1327-49a7-a54a-80f32618fa7b",
+          "id": "7eb11a56-9a61-45e8-8b14-0237d6e51230",
           "name": "Internal Notification",
           "type": "internal_notification",
           "attributes": {
@@ -291,9 +294,9 @@
             }
           },
           "order": 1,
-          "parent": "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
-          "parentKey": "f93eabdc-e849-47ee-9ca8-205fb9e9954c",
-          "next": "07d4f2f1-6da4-47d3-88c2-f8dcc73691c6",
+          "parent": "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
+          "parentKey": "b9d9e13e-18a6-4cd4-a629-ffcb6ed4b03e",
+          "next": "fd88285b-cdd0-486e-a188-62b10bb20fd4",
           "advanceCanvasMeta": {
             "position": {
               "x": 2200,
@@ -303,7 +306,7 @@
           "cat": ""
         },
         {
-          "id": "07d4f2f1-6da4-47d3-88c2-f8dcc73691c6",
+          "id": "fd88285b-cdd0-486e-a188-62b10bb20fd4",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -313,8 +316,8 @@
             "title": "Alerta de saúde"
           },
           "order": 2,
-          "parent": "a8cfcc45-ba23-481a-a41a-7f29ca227dc5",
-          "parentKey": "4ae54d6e-1327-49a7-a54a-80f32618fa7b",
+          "parent": "1f43e534-6e5a-4787-ab96-2e9e5c7aaaff",
+          "parentKey": "7eb11a56-9a61-45e8-8b14-0237d6e51230",
           "advanceCanvasMeta": {
             "position": {
               "x": 2500,
@@ -335,7 +338,6 @@
       "id": "418cJO0NePfVeSCgMk4r",
       "date_added": "2026-09-22T01:18:34.421Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "23c33803-c760-49fd-a189-8d1a86bf3d9e",
@@ -359,20 +361,20 @@
       "name": "Fila Tel",
       "belongs_to": "workflow",
       "schedule_config": {},
-      "targetActionId": "2b160e93-6d3c-4107-9eb8-0bdf3f223a8f",
       "advanceCanvasMeta": {
         "position": {
           "x": 57.5,
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T01:18:36.120Z"
+      "targetActionId": "f1461f92-7628-4e13-b37b-9fcffc7b53cd",
+      "active": false,
+      "date_updated": "2026-09-22T01:42:03.983Z"
     },
     {
       "id": "fC0jUtPTQAsBE33HAw9y",
       "date_added": "2026-09-22T01:18:35.092Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "23c33803-c760-49fd-a189-8d1a86bf3d9e",
@@ -396,14 +398,15 @@
       "name": "Fila Wa",
       "belongs_to": "workflow",
       "schedule_config": {},
-      "targetActionId": "2b160e93-6d3c-4107-9eb8-0bdf3f223a8f",
       "advanceCanvasMeta": {
         "position": {
           "x": 57.5,
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T01:18:36.172Z"
+      "targetActionId": "f1461f92-7628-4e13-b37b-9fcffc7b53cd",
+      "active": false,
+      "date_updated": "2026-09-22T01:42:04.034Z"
     }
   ]
 }

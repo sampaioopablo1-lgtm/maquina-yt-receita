@@ -95,10 +95,11 @@ NOME16 = "Reengajamento 90 dias"
 WF16 = ids.get(NOME16) or g.create_workflow(c, NOME16)
 ids[NOME16] = WF16
 
-TR = [(1, None, 14, 0, "fila-tel", "telefone"),
-      (2, (3, "days"), 10, 0, "fila-wa", "WhatsApp"),
-      (3, (4, "days"), 15, 30, "fila-tel", "telefone"),
-      (4, (3, "days"), 11, 0, "fila-tel", "telefone")]
+# espera ATE O PROXIMO toque (duracao, nao horario - ver nota no W11)
+TR = [(1, (3, "days"), "fila-tel", "telefone"),
+      (2, (4, "days"), "fila-wa", "WhatsApp"),
+      (3, (3, "days"), "fila-tel", "telefone"),
+      (4, None, "fila-tel", "telefone")]
 
 
 def encerrar_re():
@@ -110,7 +111,7 @@ def encerrar_re():
             rm_wf(WF16)]
 
 
-def bloco_tr(n, delta, hora, minuto, tag_fila, rotulo, proximo):
+def bloco_tr(n, espera_prox, tag_fila, rotulo, proximo):
     depois = proximo if proximo else encerrar_re()
     marcar = [campos_step([f(RESULT, "Resultado da tentativa", "Não atendeu",
                              "select")]),
@@ -130,8 +131,10 @@ def bloco_tr(n, delta, hora, minuto, tag_fila, rotulo, proximo):
               task_step("[CADENCIA] TR%d · Ligar (%s) — Reengajamento"
                         % (n, rotulo), "Régua de reengajamento, toque %d de 4."
                         % n),
-              g.tag_step(["toque"]), g.wait_until_step(18, 30),
-              g.tag_step(["fila-tel", "fila-wa"], remove=True), b10]
+              g.tag_step(["toque"])]
+    if espera_prox:
+        corpo.append(g.wait_step(espera_prox[0], espera_prox[1]))
+    corpo += [g.tag_step(["fila-tel", "fila-wa"], remove=True), b10]
     b3 = g.Branch("TR%d · Ainda vale ligar?" % n,
                   [g.cond("opportunities", "pipelineStageId", "==",
                           g.STAGES["CONECTAR"]),
@@ -142,11 +145,7 @@ def bloco_tr(n, delta, hora, minuto, tag_fila, rotulo, proximo):
                   sim=corpo,
                   nao=[g.tag_step(["fila-tel", "fila-wa"], remove=True),
                        g.tag_step(["limpar-tarefas"]), rm_wf(WF16)])
-    passos = []
-    if delta:
-        passos.append(g.wait_step(delta[0], delta[1]))
-    passos += [g.wait_until_step(hora, minuto), b3]
-    return passos
+    return [b3]
 
 
 prox = []
@@ -223,8 +222,8 @@ fim_ns = [campos_step([f(RESULT, "Resultado da tentativa", "", "select")]),
           g.tag_step(["nutricao-90d"]),
           g.opp_step("abandoned", g.STAGES["NEGOCIAR"])]
 ns3 = toque_ns(3, [g.wait_step(1, "days")], fim_ns)
-ns2 = toque_ns(2, [g.wait_step(2, "days"), g.wait_until_step(15, 0)], ns3)
-ns1 = toque_ns(1, [g.wait_until_step(10, 0)], ns2)
+ns2 = toque_ns(2, [g.wait_step(2, "days")], ns3)
+ns1 = toque_ns(1, [g.wait_step(1, "days")], ns2)
 
 descarte = [g.tag_step(["fila-tel"], remove=True),
             g.tag_step(["limpar-tarefas"]),

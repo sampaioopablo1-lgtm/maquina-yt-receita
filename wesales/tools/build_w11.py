@@ -48,20 +48,29 @@ TOQUES = C["Toques na semana"]["id"]
 SITE = C["Site"]["id"]
 INSTA = C["Instagram"]["id"]
 
-# T, delta em dias, hora, minuto, canal, tag de fila, titulo da tarefa
+# T, espera ATE O PROXIMO toque, canal, tag de fila, titulo da tarefa
+#
+# POR QUE DURACAO E NAO HORARIO (corrigido em 21/09/2026 depois da
+# simulacao): o wait `specific_date` exige `specificDate` e
+# `specificTimePeriod`; sem eles o GHL entende "a data ja passou" e SEGUE
+# DIRETO. Num teste real o lead atravessou T1 e T2 em 90 segundos. O wait
+# `time` com janela de retomada tambem nao vale: o validador passa a exigir
+# `Condition` e `Start`. Duracao e o unico tipo comprovado.
+# Os intervalos abaixo sao as diferencas entre os horarios da tabela da
+# spec, e somam os mesmos ~30 dias.
 TOQUES_TAB = [
-    (1, 0, 10, 30, "telefone", "fila-tel", "[CADENCIA] T1 · Ligar (telefone)"),
-    (2, 0, 16, 10, "whatsapp", "fila-wa", "[CADENCIA] T2 · Ligar (WhatsApp)"),
-    (3, 1, 9, 20, "telefone", "fila-tel", "[CADENCIA] T3 · Ligar (telefone)"),
-    (4, 0, 17, 20, "whatsapp", "fila-wa", "[CADENCIA] T4 · Ligar (WhatsApp)"),
-    (5, 2, 11, 0, "whatsapp", "fila-wa", "[CADENCIA] T5 · Ligar (WhatsApp)"),
-    (6, 3, 9, 0, "telefone", "fila-tel", "[CADENCIA] T6 · Ligar (telefone)"),
-    (7, 0, 15, 30, "whatsapp", "fila-wa", "[CADENCIA] T7 · Ligar (WhatsApp)"),
-    (8, 3, 11, 40, "telefone", "fila-tel", "[CADENCIA] T8 · Ligar (telefone)"),
-    (9, 4, 16, 40, "whatsapp", "fila-wa", "[CADENCIA] T9 · Ligar (WhatsApp)"),
-    (10, 6, 10, 15, "telefone", "fila-tel", "[CADENCIA] T10 · Ligar (telefone)"),
-    (11, 10, 9, 40, "telefone", "fila-tel", "[CADENCIA] T11 · Ligar (telefone)"),
-    (12, 0, 17, 0, "whatsapp", "fila-wa", "[CADENCIA] T12 · Ligar (WhatsApp)"),
+    (1, (6, "hours"), "telefone", "fila-tel", "[CADENCIA] T1 · Ligar (telefone)"),
+    (2, (17, "hours"), "whatsapp", "fila-wa", "[CADENCIA] T2 · Ligar (WhatsApp)"),
+    (3, (8, "hours"), "telefone", "fila-tel", "[CADENCIA] T3 · Ligar (telefone)"),
+    (4, (2, "days"), "whatsapp", "fila-wa", "[CADENCIA] T4 · Ligar (WhatsApp)"),
+    (5, (3, "days"), "whatsapp", "fila-wa", "[CADENCIA] T5 · Ligar (WhatsApp)"),
+    (6, (6, "hours"), "telefone", "fila-tel", "[CADENCIA] T6 · Ligar (telefone)"),
+    (7, (3, "days"), "whatsapp", "fila-wa", "[CADENCIA] T7 · Ligar (WhatsApp)"),
+    (8, (4, "days"), "telefone", "fila-tel", "[CADENCIA] T8 · Ligar (telefone)"),
+    (9, (6, "days"), "whatsapp", "fila-wa", "[CADENCIA] T9 · Ligar (WhatsApp)"),
+    (10, (10, "days"), "telefone", "fila-tel", "[CADENCIA] T10 · Ligar (telefone)"),
+    (11, (7, "hours"), "telefone", "fila-tel", "[CADENCIA] T11 · Ligar (telefone)"),
+    (12, None, "whatsapp", "fila-wa", "[CADENCIA] T12 · Ligar (WhatsApp)"),
 ]
 
 c = g.client()
@@ -113,7 +122,7 @@ def sair_da_cadencia():
     ]
 
 
-def corpo_toque(n, tag_fila, titulo, proximo):
+def corpo_toque(n, espera_prox, tag_fila, titulo, proximo):
     """Nos 5 a 10b de um toque. `proximo` e a lista de passos do toque
     seguinte (ou [] no ultimo)."""
     # 10b: resultado vazio -> marca Nao atendeu e segue; senao segue
@@ -151,16 +160,17 @@ def corpo_toque(n, tag_fila, titulo, proximo):
         g.tag_step([tag_fila]),
         task_step(titulo, "Tarefa da cadência 12x30, toque %d." % n),
         g.tag_step(["toque"]),
-        g.wait_until_step(18, 30),
-        g.tag_step(["fila-tel", "fila-wa"], remove=True),
-        b10,
     ]
+    if espera_prox:
+        passos.append(g.wait_step(espera_prox[0], espera_prox[1]))
+    passos += [g.tag_step(["fila-tel", "fila-wa"], remove=True), b10]
     return passos
 
 
-def bloco_toque(n, delta, hora, minuto, canal, tag_fila, titulo, proximo):
-    """Um toque inteiro: esperas, portao de pausa, teto, portao e corpo."""
-    corpo = corpo_toque(n, tag_fila, titulo, proximo)
+def bloco_toque(n, espera_prox, canal, tag_fila, titulo, proximo):
+    """Um toque inteiro: portao de pausa, teto, portao de saida e corpo.
+    A espera fica DEPOIS da tarefa (ver nota na tabela)."""
+    corpo = corpo_toque(n, espera_prox, tag_fila, titulo, proximo)
 
     # portao de saida (no 3)
     conds = [g.cond("opportunities", "pipelineStageId", "==",
@@ -188,12 +198,7 @@ def bloco_toque(n, delta, hora, minuto, canal, tag_fila, titulo, proximo):
                    sim=[], nao=[b25c])
     b25.sim = [g.wait_step(1, "days"), g.goto_step(b25.id)]
 
-    passos = []
-    if delta:
-        passos.append(g.wait_step(delta, "days"))
-    passos.append(g.wait_until_step(hora, minuto))
-    passos.append(b25)
-    return passos
+    return [b25]
 
 
 # monta de tras para frente: o toque n precisa do n+1 pronto

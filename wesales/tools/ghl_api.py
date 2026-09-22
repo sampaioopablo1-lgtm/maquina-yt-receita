@@ -507,6 +507,7 @@ def preencher(c, wf: str, name: str, steps: list, triggers: list,
         s.setdefault("cat", "")
         swm.append(s)
     ver = cur.get("version", 2) if isinstance(cur, dict) else 2
+    _esperado = len(steps)
     # status='draft' e OBRIGATORIO: sem ele o workflow existe na API mas nao
     # aparece na lista da tela (a lista filtra por status). Descoberto no
     # PASSO 1, 21/09/2026. 'draft' nunca publica.
@@ -517,6 +518,27 @@ def preencher(c, wf: str, name: str, steps: list, triggers: list,
                "workflowData": {"templates": swm},
                "triggersChanged": bool(tl), "oldTriggers": tl,
                "newTriggers": tl})
+    # Reapontar TODOS os gatilhos, nao so os que vieram nesta chamada:
+    # reconstruir o workflow troca os ids dos nos, e um gatilho criado a
+    # parte (foi o caso do cad-outbound na Cadencia 12x30) fica apontando
+    # para um no que nao existe mais - e o workflow para de disparar.
+    for t in (c.request("GET", "/workflow/" + LOC + "/trigger?workflowId=" + wf)
+              or []):
+        if t.get("deleted") or t.get("targetActionId") == steps[0]["id"]:
+            continue
+        limpo = {k: v for k, v in t.items()
+                 if k not in ("date_added", "date_updated", "company_id",
+                              "company_age")}
+        c.request("PUT", "/workflow/" + LOC + "/trigger/" + t["id"],
+                  dict(limpo, targetActionId=steps[0]["id"],
+                       advanceCanvasMeta={"position": {"x": 57.5, "y": -73}}))
+
+    # TRAVA: confere que os nos ficaram mesmo gravados antes de dar por feito
+    depois = c.request("GET", "/workflow/" + LOC + "/" + wf)
+    gravados = len(((depois or {}).get("workflowData") or {}).get("templates") or [])
+    if gravados != _esperado:
+        raise SystemExit("ABORTADO: mandei %d nos e a API gravou %d em '%s'. "
+                         "Nao siga sem investigar." % (_esperado, gravados, name))
     return wf
 
 
@@ -528,6 +550,12 @@ def publicar(c, wf_id: str) -> bool:
     cur = c.request("GET", "/workflow/" + LOC + "/" + wf_id)
     if not isinstance(cur, dict) or cur.get("_error"):
         print("  nao consegui ler o workflow: " + str(cur))
+        return False
+    # TRAVA: em 21/09/2026 uma falha transitoria deixou um workflow com 0 nos
+    # e ele foi publicado assim, sem reclamacao. Publicado e vazio e pior que
+    # nao publicado: parece pronto e nao faz nada.
+    if not ((cur.get("workflowData") or {}).get("templates") or []):
+        print("  RECUSADO: workflow sem nenhum no - nao publico vazio")
         return False
     # CUIDADO: o PUT sobrescreve as configuracoes que nao forem enviadas.
     # Publicar mandando so nome/status/nos zerou allowMultiple (Allow

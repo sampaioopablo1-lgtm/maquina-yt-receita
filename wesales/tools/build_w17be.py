@@ -82,7 +82,7 @@ c = g.client()
 print("########## Fila Travada (W17b)")
 passos_b = [
     g.tag_step(["fila-travada"], remove=True),
-    g.wait_until_step(19, 0),
+    g.wait_step(8, "hours"),   # fecha o dia: ver nota do W11
     g.Branch(
         "Fila ainda presa?",
         [g.cond("contact_detail", "tags", "index-of-true", ["fila-tel"]),
@@ -128,7 +128,13 @@ b4 = g.Branch(
 passos_e = [
     g.field_step(CHK_DATA["id"], "Checkpoint — Data de retorno",
                  VAL_DATA_RET, "date"),
-    g.wait_until_step(19, 0, data=VAL_CHK),
+    # LIMITACAO CONHECIDA: a spec pede esperar ATE a data prometida.
+    # O wait `specific_date` exige specificDate + specificTimePeriod e,
+    # mesmo com os dois, nao passou na publicacao; e nao ha operador de
+    # comparacao de datas para conferir "ja passou". Esperar 2 dias e uma
+    # aproximacao: pega a maioria dos retornos prometidos, mas alerta cedo
+    # para promessa longa. Revisitar quando houver comparacao de data.
+    g.wait_step(2, "days"),
     g.Branch(
         "A data ainda é a mesma?",
         [g.cond("contact_detail", DATA_RET["id"], "==", VAL_CHK)],

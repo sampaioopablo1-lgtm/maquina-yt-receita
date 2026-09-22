@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Retorno Vencido",
-    "version": 3,
+    "version": 6,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/70ca5354-18e8-4d17-b929-b13d4e71aacf/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F70ca5354-18e8-4d17-b929-b13d4e71aacf%2F3?alt=media&token=0ac02cce-8aee-462c-8c6a-12a9ccac3afd",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/70ca5354-18e8-4d17-b929-b13d4e71aacf/6",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F70ca5354-18e8-4d17-b929-b13d4e71aacf%2F6?alt=media&token=fbf3bce3-f048-42e0-b8ad-0670a78050de",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-22T01:18:43.000Z"
-      }
-    },
     "createdAt": "2026-09-22T01:18:40.895Z",
-    "updatedAt": "2026-09-22T01:18:44.200Z",
+    "updatedAt": "2026-09-22T01:42:11.082Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -33,14 +27,20 @@
     "eventStartDate": null,
     "senderAddress": null,
     "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/70ca5354-18e8-4d17-b929-b13d4e71aacf/3",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/70ca5354-18e8-4d17-b929-b13d4e71aacf/6",
     "window": null,
     "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-22T01:42:09.000Z"
+      }
+    },
     "id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
     "workflowData": {
       "templates": [
         {
-          "id": "60c189c6-5120-41cb-9e61-a5e469914897",
+          "id": "9458f766-449a-4249-a0c2-be7af4b39655",
           "name": "Update contact field",
           "type": "update_contact_field",
           "attributes": {
@@ -58,7 +58,7 @@
           },
           "order": 0,
           "parentKey": null,
-          "next": "daabaf3e-10f2-4f2e-811c-5241d36fc9b2",
+          "next": "61b7a7e4-95d9-43df-ac0f-53988aae3f87",
           "advanceCanvasMeta": {
             "position": {
               "x": 400,
@@ -68,25 +68,27 @@
           "cat": ""
         },
         {
-          "id": "daabaf3e-10f2-4f2e-811c-5241d36fc9b2",
-          "name": "Wait até 19:00",
+          "id": "61b7a7e4-95d9-43df-ac0f-53988aae3f87",
+          "name": "Wait 2 Days",
           "type": "wait",
           "cat": "",
           "attributes": {
-            "type": "specific_date",
-            "name": "Wait até 19:00",
+            "type": "time",
+            "startAfter": {
+              "type": "days",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Days",
             "cat": "",
-            "specificTimeHour": 19,
-            "specificTimeMinute": 0,
             "isHybridAction": true,
             "hybridActionType": "wait",
             "convertToMultipath": false,
-            "transitions": [],
-            "specificDate": "{{contact.checkpoint__data_de_retorno}}"
+            "transitions": []
           },
           "order": 1,
-          "parentKey": "60c189c6-5120-41cb-9e61-a5e469914897",
-          "next": "f8d09d36-ca45-42c8-9a08-0d900eb0499f",
+          "parentKey": "9458f766-449a-4249-a0c2-be7af4b39655",
+          "next": "497d8261-e944-4805-ad09-cf5c76599cd7",
           "advanceCanvasMeta": {
             "position": {
               "x": 700,
@@ -95,14 +97,14 @@
           }
         },
         {
-          "id": "f8d09d36-ca45-42c8-9a08-0d900eb0499f",
+          "id": "497d8261-e944-4805-ad09-cf5c76599cd7",
           "order": 2,
           "name": "A data ainda é a mesma?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "cbb84fd2-488b-4878-9ae7-341f9188d5b6",
-            "923b10fc-20e0-4def-9c08-af965fb6f1aa"
+            "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+            "b8366bef-cd6c-49a1-91ca-86a1ca016365"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -110,11 +112,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "cbb84fd2-488b-4878-9ae7-341f9188d5b6",
+                "id": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "904f3c12-4e27-47e6-9bc7-dc34484739b2",
+                    "__segmentId": "5437eadb-9044-48e9-806a-a411bc90d27e",
                     "operator": "and",
                     "conditions": [
                       {
@@ -122,7 +124,7 @@
                         "conditionSubType": "IBOMNQecWtIUruHpNAs1",
                         "conditionOperator": "==",
                         "conditionValue": "{{contact.checkpoint__data_de_retorno}}",
-                        "__conditionId": "65e19fcb-bdcb-4419-8417-eaa492e19d54",
+                        "__conditionId": "af8e0416-7729-4e39-b4d8-ba487d1f98b6",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -166,7 +168,7 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parentKey": "daabaf3e-10f2-4f2e-811c-5241d36fc9b2",
+          "parentKey": "61b7a7e4-95d9-43df-ac0f-53988aae3f87",
           "advanceCanvasMeta": {
             "position": {
               "x": 1000,
@@ -175,15 +177,15 @@
           }
         },
         {
-          "id": "cbb84fd2-488b-4878-9ae7-341f9188d5b6",
-          "parent": "f8d09d36-ca45-42c8-9a08-0d900eb0499f",
-          "parentKey": "f8d09d36-ca45-42c8-9a08-0d900eb0499f",
+          "id": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+          "parent": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "parentKey": "497d8261-e944-4805-ad09-cf5c76599cd7",
           "order": 3,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "923b10fc-20e0-4def-9c08-af965fb6f1aa"
+            "b8366bef-cd6c-49a1-91ca-86a1ca016365"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -193,7 +195,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "6720c4e1-c91c-42b8-adc6-752769870da3",
+          "next": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
           "advanceCanvasMeta": {
             "position": {
               "x": 1300,
@@ -202,15 +204,15 @@
           }
         },
         {
-          "id": "923b10fc-20e0-4def-9c08-af965fb6f1aa",
-          "parent": "f8d09d36-ca45-42c8-9a08-0d900eb0499f",
-          "parentKey": "f8d09d36-ca45-42c8-9a08-0d900eb0499f",
+          "id": "b8366bef-cd6c-49a1-91ca-86a1ca016365",
+          "parent": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "parentKey": "497d8261-e944-4805-ad09-cf5c76599cd7",
           "order": 3,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "cbb84fd2-488b-4878-9ae7-341f9188d5b6"
+            "4b6523b7-f470-4480-b5ea-edb3775cce2d"
           ],
           "comments": [],
           "nodeType": "branch-no",
@@ -225,14 +227,14 @@
           }
         },
         {
-          "id": "6720c4e1-c91c-42b8-adc6-752769870da3",
+          "id": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
           "order": 0,
           "name": "Promessa vencida sem reclassificar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
-            "822ef339-375d-405c-b139-c33ee33c663f"
+            "56147f87-b5af-4208-a0d4-005d110beb2a",
+            "383cf692-240b-4f2d-b803-cdc1d62dc08f"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -240,11 +242,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
+                "id": "56147f87-b5af-4208-a0d4-005d110beb2a",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "b560538b-d03c-41e0-8699-8f83f1589a5e",
+                    "__segmentId": "26524c25-d39b-4d3a-a891-de7b3d77ab8b",
                     "operator": "and",
                     "conditions": [
                       {
@@ -252,7 +254,7 @@
                         "conditionSubType": "nPafc9c0JdSSptdPhUlF",
                         "conditionOperator": "==",
                         "conditionValue": "Pediu retorno",
-                        "__conditionId": "bc06b91f-c944-44bf-a8bf-0e4ce39fe7cd",
+                        "__conditionId": "3b5c66c7-e9c3-43ea-bd65-3eb062ce42d8",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -287,7 +289,7 @@
                         "conditionSubType": "pipelineStageId",
                         "conditionOperator": "==",
                         "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
-                        "__conditionId": "4ecf4958-4f4f-4dc6-bc72-a88df1cd087c",
+                        "__conditionId": "aa67595c-e1c4-420a-8207-292d420ed153",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -322,7 +324,7 @@
                         "conditionSubType": "status",
                         "conditionOperator": "==",
                         "conditionValue": "open",
-                        "__conditionId": "626cb705-2a6f-4235-9d24-3e0d28af7c7e",
+                        "__conditionId": "32d30a74-20d4-422a-9af8-49dbf90acdff",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -366,8 +368,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "cbb84fd2-488b-4878-9ae7-341f9188d5b6",
-          "parentKey": "cbb84fd2-488b-4878-9ae7-341f9188d5b6",
+          "parent": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+          "parentKey": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
           "advanceCanvasMeta": {
             "position": {
               "x": 1900,
@@ -376,15 +378,15 @@
           }
         },
         {
-          "id": "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
-          "parent": "6720c4e1-c91c-42b8-adc6-752769870da3",
-          "parentKey": "6720c4e1-c91c-42b8-adc6-752769870da3",
+          "id": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parent": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "parentKey": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "822ef339-375d-405c-b139-c33ee33c663f"
+            "383cf692-240b-4f2d-b803-cdc1d62dc08f"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -394,7 +396,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "1157cff4-7508-4f05-97dd-e89257154723",
+          "next": "fb0303b0-ddeb-41b0-9234-46e317b0beb5",
           "advanceCanvasMeta": {
             "position": {
               "x": 2200,
@@ -403,15 +405,15 @@
           }
         },
         {
-          "id": "822ef339-375d-405c-b139-c33ee33c663f",
-          "parent": "6720c4e1-c91c-42b8-adc6-752769870da3",
-          "parentKey": "6720c4e1-c91c-42b8-adc6-752769870da3",
+          "id": "383cf692-240b-4f2d-b803-cdc1d62dc08f",
+          "parent": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "parentKey": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62"
+            "56147f87-b5af-4208-a0d4-005d110beb2a"
           ],
           "comments": [],
           "nodeType": "branch-no",
@@ -426,7 +428,7 @@
           }
         },
         {
-          "id": "1157cff4-7508-4f05-97dd-e89257154723",
+          "id": "fb0303b0-ddeb-41b0-9234-46e317b0beb5",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -435,9 +437,9 @@
             ]
           },
           "order": 0,
-          "parent": "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
-          "parentKey": "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
-          "next": "fba0abb1-47fe-43c2-9189-9fa9baa3cf3e",
+          "parent": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parentKey": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "next": "a42b444c-d13b-4731-b9ee-3089f8b4c125",
           "advanceCanvasMeta": {
             "position": {
               "x": 2800,
@@ -447,7 +449,7 @@
           "cat": ""
         },
         {
-          "id": "fba0abb1-47fe-43c2-9189-9fa9baa3cf3e",
+          "id": "a42b444c-d13b-4731-b9ee-3089f8b4c125",
           "name": "Internal Notification",
           "type": "internal_notification",
           "attributes": {
@@ -462,9 +464,9 @@
             }
           },
           "order": 1,
-          "parent": "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
-          "parentKey": "1157cff4-7508-4f05-97dd-e89257154723",
-          "next": "4136191c-85c0-4817-9387-0dee0fa48828",
+          "parent": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parentKey": "fb0303b0-ddeb-41b0-9234-46e317b0beb5",
+          "next": "439bf785-5db1-4c97-868c-5425c4017c02",
           "advanceCanvasMeta": {
             "position": {
               "x": 3100,
@@ -474,7 +476,7 @@
           "cat": ""
         },
         {
-          "id": "4136191c-85c0-4817-9387-0dee0fa48828",
+          "id": "439bf785-5db1-4c97-868c-5425c4017c02",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -484,8 +486,8 @@
             "title": "Alerta de saúde"
           },
           "order": 2,
-          "parent": "0dd05374-6234-4f5c-91b3-e1f0d0ffdc62",
-          "parentKey": "fba0abb1-47fe-43c2-9189-9fa9baa3cf3e",
+          "parent": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parentKey": "a42b444c-d13b-4731-b9ee-3089f8b4c125",
           "advanceCanvasMeta": {
             "position": {
               "x": 3400,
@@ -506,7 +508,6 @@
       "id": "8GttkLY6MrewKbGqwAHX",
       "date_added": "2026-09-22T01:18:41.675Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
@@ -529,14 +530,15 @@
       "name": "Contato Alterado",
       "belongs_to": "workflow",
       "schedule_config": {},
-      "targetActionId": "60c189c6-5120-41cb-9e61-a5e469914897",
       "advanceCanvasMeta": {
         "position": {
           "x": 57.5,
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T01:18:42.706Z"
+      "targetActionId": "9458f766-449a-4249-a0c2-be7af4b39655",
+      "active": false,
+      "date_updated": "2026-09-22T01:42:09.683Z"
     }
   ]
 }
