@@ -363,3 +363,19 @@ no lugar de quem investiga, não no lugar de quem executa. **Toda leva de
 campo novo na tela precisa fechar a linha correspondente da Tabela A no
 mesmo commit** — a auditoria de merge field órfão pega chave errada, não pega
 pendência que deixou de ser pendência.
+
+---
+
+## L — Dois campos nativos do contato que o Meta não preenche: `country` e `timezone` (22/09/2026)
+
+Observado ao ler o lead mais recente por API (`Carlos Andrade`, entrada do Meta
+Lead Ads em 21/09). Não é item de roadmap, é registro para não ser investigado
+duas vezes:
+
+| Campo nativo | Valor real | Consequência |
+|---|---|---|
+| `country` | **`US`** | Lead brasileiro, telefone `+55…`. O formulário do Meta não envia país e o GHL assume `US`. **Vale conferir**, quando o R-13 (Number Validation, seção 2.16) for montado, se a validação de telefone usa o país do contato — se usar, um `US` com número `+55` pode reprovar número válido. Não testado, e não dá para testar por API: fica como conferência acoplada ao R-13, não como afirmação |
+| `timezone` | **`null`** | **Já neutralizado pela especificação, por acaso feliz:** a decisão D-02 (`briefing-sdr.md`) e a tabela da seção 2.4 do `build-wesales.md` mandam usar **fuso da subconta**, com a justificativa explícita "não use fuso do contato: o SDR trabalha no fuso dele". Como nenhum nó lê fuso do contato, o `null` não quebra nada. Se algum workflow futuro escolher "fuso do contato" num `Wait` ou numa janela de envio, vai cair em fallback silencioso — é o motivo de registrar aqui |
+
+Os dois valem para os **10 leads reais** do Meta; os 40 do backfill não foram
+conferidos campo a campo neste ponto.

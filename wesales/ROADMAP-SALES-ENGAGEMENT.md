@@ -1871,6 +1871,14 @@ consecutivas, na própria base, se calibra:
 | 20/09 18:11 → 21/09 09:17 | **15h06** ← maior já observado nesta subconta |
 | 21/09 09:17 → agora | **23h02 e subindo** ← **1,53× o maior já visto** |
 
+**Atualização 22/09 09:36 UTC — a marca de 24h foi cruzada:** gap agora em
+**24h19min = 1,61× o maior já observado**, e nenhum lead novo (reconferido:
+`meta.total` = 50, o mais recente segue sendo `Carlos Andrade` de 21/09
+09:17:23). Consequência prática: a lista `Entrada — últimas 24h` (seção 8.25
+do `build-wesales.md`), se já estivesse montada, estaria **vazia agora** — o
+limiar "zero linha na janela rolante" deixou de ser hipótese e está valendo
+neste momento. O widget `Leads novos hoje` também marcaria zero.
+
 É assim que o número vira sinal em vez de curiosidade: o silêncio atual já
 passou de metade além do maior silêncio que esta operação jamais teve. E é
 a comparação que qualquer widget do F-10 deve mostrar, não o total de horas —
