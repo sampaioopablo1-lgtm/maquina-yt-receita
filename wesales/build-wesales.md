@@ -1225,12 +1225,15 @@ no outbound):
 
 ### MI-0 — mensagem automática imediata
 
-Antes da T1, sem esperar nada: Send WhatsApp, texto `MI-0`
-(`biblioteca-mensagens.md`) confirmando o recebimento e avisando que a
-ligação vem em minutos — o equivalente ao "notificar o SDR independente de
-onde ele esteja" que o Meetime documenta, só que do lado do lead: ele sabe
-que foi ouvido antes mesmo do telefone tocar. Seguido de Update `Template
-usado` = `MI-0`.
+Antes da T1, sem esperar nada: **Guarda de janela de atendimento (seção
+2.6.2, G-05)** → dentro da janela, Send WhatsApp texto livre `MI-0`
+(`biblioteca-mensagens.md`) · fora da janela (o caso de praticamente todo
+lead, que nunca escreveu no WhatsApp da subconta antes), Send WhatsApp modo
+**Template** `MI-0` (a submeter — `biblioteca-mensagens.md`) — confirmando o
+recebimento e avisando que a ligação vem em minutos — o equivalente ao
+"notificar o SDR independente de onde ele esteja" que o Meetime documenta,
+só que do lado do lead: ele sabe que foi ouvido antes mesmo do telefone
+tocar. Os dois ramos convergem no mesmo Update `Template usado` = `MI-0`.
 
 ### O bloco padrão de uma tentativa inbound (mirror de 2.4, com espera relativa)
 
@@ -1288,8 +1291,10 @@ esgotados sem conexão), em vez de "próxima tentativa" (não há):
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Send WhatsApp | Texto `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal |
-| 2 | Update Contact Field | `Template usado` = `MI-F` |
+| 0 | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 1 · Fora da janela → 1T |
+| 1 | Send WhatsApp | Texto livre `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal → 2 |
+| 1T | Send WhatsApp, modo Template | Template Meta `MI-F` (a submeter — `biblioteca-mensagens.md`) → 2 |
+| 2 | Update Contact Field | `Template usado` = `MI-F` (os dois ramos acima convergem aqui) |
 | 3 | Add to Workflow | `Cadência 12x30` |
 | 4 | Remove from Workflow | Este (`Cadência Inbound`) |
 
@@ -1459,7 +1464,10 @@ ainda.
 | 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
 | 4 | Troca de origem | Remove Contact Tag `nutricao-90d` → Remove Contact Tag `cad-inbound` (idempotente, mesmo se ausente) → Add Contact Tag `cad-outbound` → Add Contact Tag `reengajamento-ativo` | Ver "A troca de origem" abaixo |
 | 5 | Reentrada no funil | Update Opportunity — Etapa → `CONECTAR` **e** `status` → `open` | O reset explícito de `status` é achado desta migração: o desenho original não tinha campo `status` separado de etapa, então "mover para `Em cadência`" bastava. Hoje, sem zerar `status`, o lead chegaria a `CONECTAR` ainda com `status = abandoned` da rodada anterior, e o portão do Mestre de saída (seção 3, nó 1: "`CONECTAR` **e** `open`") ficaria falso — a chegada seria lida como saída, e a limpeza (tirar das filas, apagar tag de fila) rodaria no instante em que o lead está *entrando* de novo na cadência, não saindo. Com o reset, dispara o Mestre de saída em no-op de verdade (nó 1 encerra sem limpar) e o Alerta de Speed-to-lead (seção 2.11) com relógio novo, porque `1ª tentativa em` acabou de ser esvaziado no nó 3 — a reativação ganha sua própria medição de speed-to-lead de graça, sem campo novo |
-| 6 | Mensagem de reabertura | Send WhatsApp | Texto `RE-1` (`biblioteca-mensagens.md`) → Update `Template usado` = `RE-1` |
+| 6 | Guarda de janela de atendimento (seção 2.6.2, G-05) | If/Else nativo | Dentro da janela → 6b · Fora da janela → 6c |
+| 6b | Mensagem de reabertura | Send WhatsApp | Texto livre `RE-1` (`biblioteca-mensagens.md`) → 6d |
+| 6c | Mensagem de reabertura (fora da janela) | Send WhatsApp, modo Template | Template Meta `RE-1` (a submeter — `biblioteca-mensagens.md`) → 6d |
+| 6d | Carimbo | Update Contact Field | `Template usado` = `RE-1` (os dois ramos acima convergem aqui) |
 | 7 | Aguardar resposta | Wait → Contact Replied | Tempo limite 2h — mesmo padrão do pós-M1 (seção 2.6): se respondeu, `Stop on Response` tira da régua |
 
 ### O bloco padrão de uma tentativa de reengajamento (TR1 a TR4)
@@ -1510,8 +1518,10 @@ tentativas esgotaram sem conexão), em vez de "próxima tentativa":
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Send WhatsApp | Texto `RE-2` (`biblioteca-mensagens.md`) |
-| 2 | Update Contact Field | `Template usado` = `RE-2` |
+| 0 | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 1 · Fora da janela → 1T |
+| 1 | Send WhatsApp | Texto livre `RE-2` (`biblioteca-mensagens.md`) → 2 |
+| 1T | Send WhatsApp, modo Template | Template Meta `RE-2` (a submeter — `biblioteca-mensagens.md`) → 2 |
+| 2 | Update Contact Field | `Template usado` = `RE-2` (os dois ramos acima convergem aqui) |
 | 3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 4 | Add Contact Tag | `nutricao-90d` |
 | 5 | Update Opportunity | `status` = `abandoned` (etapa fica onde estava, `CONECTAR` — tabela 1.0; não é mais "mover para `Nutrição`", que não existe como etapa) |
@@ -3428,10 +3438,22 @@ ficaria muda.
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
 | 5 | Update Contact Field | `Prioridade` = 5 |
 | 6 | Add Note | Resumo da qualificação (modelo abaixo) |
-| 7 | Send WhatsApp | Confirmação imediata ao lead |
-| 8 | Wait até 24h antes | → Send WhatsApp lembrete |
-| 9 | Wait até 3h antes | → Send WhatsApp lembrete |
-| 10 | Wait até 30min antes | → Send WhatsApp lembrete curto |
+| 7 | Guarda de janela (G-05) → Send WhatsApp | Confirmação imediata ao lead — dentro da janela: texto livre `PA-CONF` · fora da janela: Template Meta `PA-CONF` (`biblioteca-mensagens.md`) → Update `Template usado` = `PA-CONF` |
+| 8 | Wait até 24h antes → Guarda de janela (G-05) → Send WhatsApp | Lembrete — dentro da janela: texto livre `PA-R24` · fora da janela: Template Meta `PA-R24` → Update `Template usado` = `PA-R24` |
+| 9 | Wait até 3h antes → Guarda de janela (G-05) → Send WhatsApp | Lembrete — dentro da janela: texto livre `PA-R3H` · fora da janela: Template Meta `PA-R3H` → Update `Template usado` = `PA-R3H` |
+| 10 | Wait até 30min antes → Guarda de janela (G-05) → Send WhatsApp | Lembrete curto — dentro da janela: texto livre `PA-R30` · fora da janela: Template Meta `PA-R30` → Update `Template usado` = `PA-R30` |
+
+**Guarda de janela nos nós 7-10 (G-05, peça 2):** mesmo mecanismo da seção
+2.6.2 — `WhatsApp: Customer Service Window Check` antes de cada envio, ramo
+dentro da janela segue com o texto livre já especificado, ramo fora da
+janela usa `Send WhatsApp` modo Template. Diferença destes quatro para os
+pontos de envio já cobertos: nenhum dos quatro tinha código nem texto
+versionado em `biblioteca-mensagens.md` antes desta rodada — a confirmação
+(nó 7) já tinha texto solto no modelo abaixo, sem código; os três lembretes
+(nós 8-10) não tinham texto nenhum. Os quatro ganharam código (`PA-CONF`,
+`PA-R24`, `PA-R3H`, `PA-R30`) e texto nesta rodada, porque não dá para
+montar o ramo Template de uma guarda sem saber qual texto livre ele
+substitui fora da janela.
 
 **Por que o nó 3 existe, e por que virou `Remove Workflows` em vez de lista
 (19/09/2026, atualizado 21/09/2026):** o nó 1 move a etapa para `NEGOCIAR` e
@@ -3485,10 +3507,23 @@ Preenchido por: {{contact.qualificao}}
 Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}} conexões, atendeu na T{{contact.tentativa_n}}
 ```
 
-**Mensagem de confirmação (nó 7)**
-> {{contact.first_name}}, reunião confirmada para
-> {{appointment.start_time}}. Vou te mandar o link aqui mesmo 30 min antes. Se
-> precisar remarcar, responde esta mensagem.
+**Mensagens dos nós 7-10 — `PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`:** texto,
+código e histórico de versão moram em `biblioteca-mensagens.md` (mesma regra
+da seção 2.6, "texto duplicado em dois documentos diverge na primeira
+edição") — não repetidos aqui.
+
+**Limite conhecido, não escondido (achado nesta rodada, G-05 peça 2):**
+`PA-CONF` promete "vou te mandar o link aqui mesmo 30 min antes", mas este
+documento não especifica nenhum merge field nem nó que grave ou leia um
+link de reunião — nem `{{appointment}}` nem os campos personalizados da
+seção 0.3 (`IMPLEMENTACAO-WORKFLOWS.md`) têm um. `PA-R30` (nó 10, o "30 min
+antes" que a promessa cita) por isso não afirma anexar link nenhum no
+texto — só confirma o horário. A entrega do link em si continua dependendo
+do e-mail de confirmação automática do calendário (seção 7.1, "Confirmação
+automática: Ligada") ou de o SDR/closer mandar manualmente; nenhum dos dois
+é workflow, então nenhum sai por API. Lacuna pré-existente a este item, não
+criada por ele — registrada aqui por ter sido notada só agora, ao escrever
+o texto de verdade para os quatro nós.
 
 ---
 
@@ -3689,8 +3724,10 @@ gatilho.
 
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Send WhatsApp | Texto `NS-1` (`biblioteca-mensagens.md`) |
-| 2 | Update Contact Field | `Template usado` = `NS-1` |
+| 0 | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 1 · Fora da janela → 1T |
+| 1 | Send WhatsApp | Texto livre `NS-1` (`biblioteca-mensagens.md`) → 2 |
+| 1T | Send WhatsApp, modo Template | Template Meta `NS-1` (a submeter — `biblioteca-mensagens.md`) → 2 |
+| 2 | Update Contact Field | `Template usado` = `NS-1` (os dois ramos acima convergem aqui) |
 | 3 | Add Contact Tag | `fila-tel` |
 | 4 | Add Task | `[CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 5 | Aguardar | Wait → Until specific time · D1 10:00 |
@@ -3703,8 +3740,10 @@ gatilho.
 | 12 | Add Task | `[CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
 | 13 | Aguardar | Wait → Time Delay 1 dia (folga para o SDR classificar a NS3) |
 | 14 | Portão | If/Else — etapa ainda `NEGOCIAR` **E** `status` ainda `open` → segue (ninguém reagendou nem descartou). Senão → **Remove from Workflow: este** |
-| 15 | Send WhatsApp | Texto `NS-2` |
-| 16 | Update Contact Field | `Template usado` = `NS-2` |
+| 14b | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 15 · Fora da janela → 15T |
+| 15 | Send WhatsApp | Texto livre `NS-2` → 16 |
+| 15T | Send WhatsApp, modo Template | Template Meta `NS-2` (a submeter — `biblioteca-mensagens.md`) → 16 |
+| 16 | Update Contact Field | `Template usado` = `NS-2` (os dois ramos acima convergem aqui) |
 | 17 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 18 | Remove Contact Tag | `fila-tel` |
 | 19 | Add Contact Tag | `nutricao-90d` |

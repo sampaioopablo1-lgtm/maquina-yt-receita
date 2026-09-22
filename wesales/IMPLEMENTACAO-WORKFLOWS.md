@@ -695,10 +695,10 @@ a oportunidade sai por `status` (não por etapa) e nenhuma tarefa
 | 4 | **Nota de qualificação** — ver bloco abaixo | Math em série (seção 9.1) | 5 |
 | 5 | Update Contact Field | `Prioridade` = `5` | 6 |
 | 6 | Add Note | modelo da seção 5 (`build-wesales.md`), com as chaves da seção 0.3 | 7 |
-| 7 | Send WhatsApp | confirmação (texto na seção 5) | 8 |
-| 8 | Wait → relativo ao início do compromisso | 24h antes → Send WhatsApp lembrete | 9 |
-| 9 | Wait | 3h antes → Send WhatsApp lembrete | 10 |
-| 10 | Wait | 30 min antes → Send WhatsApp lembrete curto | 11 |
+| 7 | Guarda de janela (G-05) → Send WhatsApp | `WhatsApp: Customer Service Window Check` → dentro: texto livre `PA-CONF` · fora: modo Template `PA-CONF` (a submeter) → Update `Template usado` = `PA-CONF` | 8 |
+| 8 | Wait → relativo ao início do compromisso | 24h antes → mesma guarda → dentro: texto livre `PA-R24` · fora: Template `PA-R24` (a submeter) → Update `Template usado` = `PA-R24` | 9 |
+| 9 | Wait | 3h antes → mesma guarda → dentro: texto livre `PA-R3H` · fora: Template `PA-R3H` (a submeter) → Update `Template usado` = `PA-R3H` | 10 |
+| 10 | Wait | 30 min antes → mesma guarda → dentro: texto livre `PA-R30` · fora: Template `PA-R30` (a submeter) → Update `Template usado` = `PA-R30` | 11 |
 | 11 | Assign to User | closer dono do horário | 12 |
 | 12 | Internal Notification | e-mail + SMS ao closer (SMS interno é permitido) | fim |
 
@@ -737,7 +737,11 @@ código da IA, mas ele precisa ler as chaves da seção 0.3 e **escrever** em
 `conexões` e `T.` em branco: conferir cada merge field contra a seção 0.3
 (`{{user.name}}` e `{{appointment.start_time}}` só existem se o gatilho for
 de agendamento; `{{contact.empresa}}` só se o formulário gravar em
-`Empresa`).
+`Empresa`); nós 7-10 (G-05, peça 2, 22/09/2026) — a versão publicada envia
+os quatro textos livres sem guarda de janela nem `Template usado`; inserir
+o `WhatsApp: Customer Service Window Check` antes de cada um e o Update de
+`Template usado` correspondente (`PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`) é
+retoque de tela, não republicação do zero.
 
 **Teste:** marque um agendamento em `Reunião com closer` para `Teste Não
 Atende` → etapa `NEGOCIAR`, `Data agendado`, `Prioridade` 5, **`Nota de
@@ -833,8 +837,10 @@ Sem mudança de etapa. **Teste:** marque `Showed` no agendamento do contato de t
 
 | # | Ação | Configuração exata |
 |---|---|---|
-| R1 | Send WhatsApp | texto `NS-1` (`biblioteca-mensagens.md`) |
-| R2 | Update Contact Field | `Template usado` = `NS-1` |
+| R0 | Guarda de janela (G-05) | `WhatsApp: Customer Service Window Check` → dentro → R1 · fora → R1T |
+| R1 | Send WhatsApp | texto livre `NS-1` (`biblioteca-mensagens.md`) → R2 |
+| R1T | Send WhatsApp, modo Template | Template Meta `NS-1` (a submeter) → R2 |
+| R2 | Update Contact Field | `Template usado` = `NS-1` (os dois ramos acima convergem aqui) |
 | R3 | Add Contact Tag | `fila-tel` (→ depois, quando o Contador existir: Add Tag `toque`) |
 | R4 | Add Task | `[CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show` · vence hoje · `Contact Owner` |
 | R5 | Wait → Until specific time | dia seguinte (D1) 10:00 |
@@ -847,8 +853,10 @@ Sem mudança de etapa. **Teste:** marque `Showed` no agendamento do contato de t
 | R12 | Add Task | `[CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show` · vence hoje · `Contact Owner` |
 | R13 | Wait → Time Delay | 1 dia |
 | R14 | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - NEGOCIAR` **E** `Opportunity status` é `open` → segue · None → Remove from Workflow (este) |
-| R15 | Send WhatsApp | texto `NS-2` |
-| R16 | Update Contact Field | `Template usado` = `NS-2` |
+| R14b | Guarda de janela (G-05) | `WhatsApp: Customer Service Window Check` → dentro → R15 · fora → R15T |
+| R15 | Send WhatsApp | texto livre `NS-2` → R16 |
+| R15T | Send WhatsApp, modo Template | Template Meta `NS-2` (a submeter) → R16 |
+| R16 | Update Contact Field | `Template usado` = `NS-2` (os dois ramos acima convergem aqui) |
 | R17 | Update Contact Field | `Resultado da tentativa` = vazio |
 | R18 | Remove Contact Tag | `fila-tel` |
 | R19 | Add Contact Tag | `nutricao-90d` |
@@ -1052,7 +1060,10 @@ inbound sem telefone: {{contact.name}} — revisar o formulário de origem`;
 0.5 `Prioridade` = `5`; 0.7 `Add Contact Tag fila-quente`; 0.8/0.8b =
 0.7/0.7b do W11 (**mesmo** grupo de round robin).
 
-**MI-0:** Send WhatsApp texto `MI-0` → Update `Template usado` = `MI-0`.
+**MI-0 (guarda G-05):** `WhatsApp: Customer Service Window Check` → dentro
+da janela, Send WhatsApp texto livre `MI-0` · fora da janela, Send WhatsApp
+modo Template `MI-0` (a submeter — `biblioteca-mensagens.md`) → os dois
+convergem em Update `Template usado` = `MI-0`.
 
 **Bloco por tentativa TI{n}** = bloco do W11 com estas trocas:
 - nó 1: `Wait → Time Delay` **relativo** (tabela abaixo); sem nó 2 de horário
@@ -1070,9 +1081,11 @@ inbound sem telefone: {{contact.name}} — revisar o formulário de origem`;
 | 4 | 22 h | telefone + WhatsApp (seletor) |
 | 5 | 2 dias | telefone |
 
-**Handoff (TI5 sem resposta, no lugar de "próxima tentativa"):** Send
-WhatsApp `MI-F` → Update `Template usado` = `MI-F` → Add to Workflow
-`Cadência 12x30` → Remove from Workflow (este).
+**Handoff (TI5 sem resposta, no lugar de "próxima tentativa", guarda
+G-05):** `WhatsApp: Customer Service Window Check` → dentro da janela, Send
+WhatsApp texto livre `MI-F` · fora da janela, Send WhatsApp modo Template
+`MI-F` (a submeter) → os dois convergem em Update `Template usado` = `MI-F`
+→ Add to Workflow `Cadência 12x30` → Remove from Workflow (este).
 
 **Pré-requisito:** `Cadência 12x30` publicada (o Add to Workflow precisa dela).
 
@@ -1174,7 +1187,9 @@ Ligue os dois Waits (1a e 1b) ao **mesmo** nó 2.
 | 3 | Update Contact Field (6 campos) | `Tentativa nº` = `0` · `WA não atendidas seguidas` = `0` · `Resultado da tentativa` = vazio · `Prioridade` = `3` · `Entrada em` = `{{right_now}}` (ou `sim`) · `1ª tentativa em` = vazio | 4 |
 | 4 | Remove Contact Tag → Remove Contact Tag → Add Contact Tag → Add Contact Tag | `nutricao-90d` → `cad-inbound` → `cad-outbound` → `reengajamento-ativo` | 5 |
 | 5 | Update Opportunity | Etapa → `CONECTAR` **E** status → `open` (no mesmo nó) | 6 |
-| 6 | Send WhatsApp → Update Contact Field | texto `RE-1` → `Template usado` = `RE-1` | 7 |
+| 6 | Guarda de janela (G-05) | `WhatsApp: Customer Service Window Check` → dentro → 6b · fora → 6c | ramo |
+| 6b | Send WhatsApp → Update Contact Field | texto livre `RE-1` → `Template usado` = `RE-1` | 7 |
+| 6c | Send WhatsApp, modo Template → Update Contact Field | Template Meta `RE-1` (a submeter) → `Template usado` = `RE-1` | 7 |
 | 7 | Wait → Contact Replied | tempo limite 2h | TR1 |
 
 **TR1–TR4:** bloco padrão do W11 (com 2.5/2.5b, 3/3b, 10/10b; sem 2.5c até o campo existir), título `[CADENCIA] TR{n} · Ligar (canal) — Reengajamento`, 5c/5d só na TR1:
@@ -1186,9 +1201,12 @@ Ligue os dois Waits (1a e 1b) ao **mesmo** nó 2.
 | 3 | 4 d | 15:30 | telefone | `fila-tel` |
 | 4 | 3 d | 11:00 | telefone | `fila-tel` |
 
-**Fim da TR4 sem resposta:** Send WhatsApp `RE-2` → Update `Template usado`
-= `RE-2` → Update `Resultado da tentativa` = vazio → Add Tag `nutricao-90d`
-(reabre o relógio de 90 dias) → Update Opportunity status = `abandoned`.
+**Fim da TR4 sem resposta (guarda G-05):** `WhatsApp: Customer Service
+Window Check` → dentro, Send WhatsApp texto livre `RE-2` · fora, Send
+WhatsApp modo Template `RE-2` (a submeter) → os dois convergem em Update
+`Template usado` = `RE-2` → Update `Resultado da tentativa` = vazio → Add
+Tag `nutricao-90d` (reabre o relógio de 90 dias) → Update Opportunity
+status = `abandoned`.
 
 ---
 

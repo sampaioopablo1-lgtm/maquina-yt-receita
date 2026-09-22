@@ -415,7 +415,7 @@ ganho.
 
 **Pronto quando:** todo nó `Send WhatsApp` da operação tem o
 `Customer Service Window Check` antes dele e os dois ramos (livre/Template)
-especificados; os 11 textos de `biblioteca-mensagens.md` têm Template Meta
+especificados; os textos de `biblioteca-mensagens.md` têm Template Meta
 aprovado e mapeado.
 
 **Resumo (21/09/2026):** especificado o primeiro pedaço — o motor
@@ -438,6 +438,42 @@ nesta execução via `opportunities_search-opportunity`/
 etapas do `FUNIL DE VENDAS`, 46 campos, 50 oportunidades (47 `NOVO LEAD` +
 3 `NEGOCIAR`, todas `open`) — sem mudança desde a última rodada; G-03/G-04
 seguem aguardando o dono.
+
+**Resumo (22/09/2026, segunda rodada) — pendência de guarda zerada:** os
+seis pontos de envio que a peça 1 tinha deixado de fora ganharam o mesmo
+tratamento (guarda + os dois ramos) em `build-wesales.md` (seções 2.10,
+2.12, 5, 5.3) e `IMPLEMENTACAO-WORKFLOWS.md` (W5, W8, W12, W16): `MI-0`/
+`MI-F` (Cadência Inbound), `RE-1`/`RE-2` (Reengajamento 90 dias), `NS-1`/
+`NS-2` (Recuperação de No-show) — os seis já tinham texto versionado em
+`biblioteca-mensagens.md`, só faltava a guarda — e a confirmação mais os
+três lembretes do Pós-agendamento (seção 5, nós 7-10), que não tinham nem
+texto: ganharam código e texto novos (`PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`)
+nesta rodada, porque não dá para montar o ramo Template de uma guarda sem
+saber que texto livre ele substitui fora da janela. Achado ao escrever o
+texto de `PA-CONF` (herdado, não introduzido por esta rodada): a mensagem
+promete "vou te mandar o link aqui mesmo 30 min antes", e nenhum documento
+do projeto especifica um merge field ou nó que grave/leia link de reunião
+— registrado como limite conhecido em `build-wesales.md`, seção 5, sem
+inventar um campo que a tela não tem (a mesma classe de erro que motivou
+o achado do `fieldKey`/rótulo de opção em rodadas anteriores). O
+Pós-agendamento está **publicado e ativo** (3 inscritos) — a guarda nos
+nós 7-10 entrou também na tabela de retoques do `GUIA-MONTAGEM.md`, como
+qualquer edição em peça já no ar; os outros três workflows (Cadência
+Inbound, Reengajamento, Recuperação de No-show) ainda não existem na tela
+ou existem só como rascunho, então a mudança ali é só na especificação que
+vai orientar a montagem. Zero campo e zero tag novos, zero escrita no CRM:
+item de especificação pura, não depende de `APROVADO.md`. Subconta
+reconfirmada nesta execução via `opportunities_search-opportunity`/
+`locations_get-custom-fields`: **51 campos** (5 novos desde a última
+leitura — `Hora da conexão`, `Toques na semana`, `Checkpoint — Tentativa
+nº`, `Checkpoint — Data de retorno` e `Hora do retorno`, todos já
+especificados em `campos-e-tags.md`, C-25 a C-28 e S-01 — sinal de que a
+montagem manual na tela avançou desde 21/09/2026, fora desta sessão), 50
+oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, todas `open`, sem mudança) —
+G-03/G-04 seguem aguardando o dono. **O que falta para fechar o G-05 por
+inteiro:** a submissão dos Templates ao Meta Business Manager (ação do
+dono, até 48h) e a montagem manual de cada guarda na tela quando cada
+workflow for construído/editado — nenhuma das duas sai por API.
 
 ---
 
@@ -1532,3 +1568,17 @@ que nenhum lead desta base jamais fez. Especificado o primeiro pedaço (a
 Cadência 12x30, motor principal) — faltam os demais pontos de envio para o
 mesmo tratamento, registrados como pendência explícita dentro do próprio
 item.
+
+**G-05, segunda peça, 22/09/2026, sessão automática seguinte — pendência de
+guarda zerada.** CRM reconfirmado: 50 oportunidades sem mudança, mas os
+campos personalizados subiram de 46 para 51 — os 5 novos (`Hora da
+conexão`, `Toques na semana`, dois `Checkpoint —`, `Hora do retorno`) já
+estavam especificados em `campos-e-tags.md` desde rodadas anteriores
+(C-25 a C-28, S-01), então a montagem manual na tela avançou por fora
+desta sessão, sem gerar achado novo de coerência. A pendência que a peça 1
+tinha deixado explícita (`MI-0`/`MI-F`, `RE-1`/`RE-2`, `NS-1`/`NS-2` e os
+quatro nós do Pós-agendamento) está fechada — todo `Send WhatsApp` da
+operação já tem a guarda de janela e os dois ramos especificados. O que
+resta do G-05 não é mais desenho: é a submissão dos Templates à Meta
+(ação do dono) e a montagem manual de cada guarda na tela — o mesmo tipo
+de trabalho que já espera em outras peças do projeto, não uma lacuna nova.

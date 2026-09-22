@@ -42,6 +42,10 @@ fluxo correto:
 | `RE-2` | WhatsApp | Reengajamento 90 dias — handoff ao fim da TR4 (R-08) | 18/09/2026 | Ativo |
 | `NS-1` | WhatsApp | Recuperação de No-show — imediata, antes da NS1 (R-12) | 18/09/2026 | Ativo |
 | `NS-2` | WhatsApp | Recuperação de No-show — handoff ao fim da NS3 (R-12) | 18/09/2026 | Ativo |
+| `PA-CONF` | WhatsApp | Pós-agendamento — confirmação imediata, nó 7 (R-12/seção 5) | 22/09/2026 | Ativo |
+| `PA-R24` | WhatsApp | Pós-agendamento — lembrete 24h antes, nó 8 | 22/09/2026 | Ativo |
+| `PA-R3H` | WhatsApp | Pós-agendamento — lembrete 3h antes, nó 9 | 22/09/2026 | Ativo |
+| `PA-R30` | WhatsApp | Pós-agendamento — lembrete curto 30min antes, nó 10 | 22/09/2026 | Ativo |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -195,6 +199,56 @@ inclui o link.
 `[Agendar com o closer]` é o Trigger Link da seção 2.9 do `build-wesales.md`,
 mesmo uso de `M2-v1`/`M3-v1`/`MI-F`/`RE-2`.
 
+## PA-CONF — confirmação imediata (Pós-agendamento — R-12/seção 5)
+
+Especificada em `build-wesales.md`, seção 5, nó 7. Dispara no instante em
+que o SDR confirma o horário na tela, junto com a nota de qualificação —
+texto que já existia solto no modelo do nó 7 desde a migração de
+19/09/2026, sem código nem versão própria; ganhou os dois nesta rodada
+(G-05, peça 2) para poder entrar na guarda de janela como as outras
+mensagens automáticas.
+
+> {{contact.first_name}}, reunião confirmada para
+> {{appointment.start_time}}. Vou te mandar o link aqui mesmo 30 min antes. Se
+> precisar remarcar, responde esta mensagem.
+
+**Limite conhecido, herdado do texto original, não desta versão:** a
+promessa "vou te mandar o link aqui mesmo 30 min antes" não tem, hoje,
+nenhum mecanismo de workflow que a cumpra — detalhe em `build-wesales.md`,
+seção 5, depois da tabela de nós.
+
+## PA-R24 — lembrete 24h antes (Pós-agendamento — R-12/seção 5)
+
+Especificada em `build-wesales.md`, seção 5, nó 8. Primeiro dos três
+lembretes — nenhum tinha texto versionado antes desta rodada (G-05, peça
+2), achado ao contar os nós do Pós-agendamento com atenção. Tom de
+confirmação, não de alerta: 24h de antecedência é cedo demais para soar
+como cobrança.
+
+> {{contact.first_name}}, passando para confirmar: nossa reunião com
+> {{user.first_name}} é amanhã, {{appointment.start_time}}. Segue valendo? Se
+> precisar remarcar, responde por aqui.
+
+## PA-R3H — lembrete 3h antes (Pós-agendamento — R-12/seção 5)
+
+Especificada em `build-wesales.md`, seção 5, nó 9. Mesmo motivo do
+`PA-R24`: sem texto antes desta rodada. Mais curto que o de 24h — a essa
+distância o lead já decidiu comparecer ou não, o lembrete é só para não
+deixar a agenda esfriar.
+
+> {{contact.first_name}}, nossa reunião com {{user.first_name}} é hoje às
+> {{appointment.start_time}}, daqui a poucas horas. Te espero!
+
+## PA-R30 — lembrete curto (Pós-agendamento — R-12/seção 5)
+
+Especificada em `build-wesales.md`, seção 5, nó 10. O mais curto dos
+quatro, de propósito — a tabela de nós já pedia "lembrete curto" desde a
+versão original. Não afirma anexar o link da reunião (ver o limite
+registrado em `PA-CONF` acima): confirma só o horário.
+
+> {{contact.first_name}}, é agora — nossa reunião com {{user.first_name}}
+> começa em 30 min.
+
 ## Template Meta para envio fora da janela de 24h — G-05
 
 Descoberto em 21/09/2026 (roadmap, G-05): o WhatsApp Business API só aceita
@@ -213,19 +267,27 @@ seção 2.6.2 ter o que enviar no ramo "fora da janela".
 | `M1-b` | — | A submeter (peça 1 do G-05, feita) |
 | `M2-v1` | — | A submeter (peça 1 do G-05, feita) |
 | `M3-v1` | — | A submeter (peça 1 do G-05, feita) |
-| `MI-0` | — | Guarda ainda não especificada (pendência do G-05) |
-| `MI-F` | — | Guarda ainda não especificada (pendência do G-05) |
-| `RE-1` | — | Guarda ainda não especificada (pendência do G-05) |
-| `RE-2` | — | Guarda ainda não especificada (pendência do G-05) |
-| `NS-1` | — | Guarda ainda não especificada (pendência do G-05) |
-| `NS-2` | — | Guarda ainda não especificada (pendência do G-05) |
+| `MI-0` | — | A submeter (peça 2 do G-05, feita) |
+| `MI-F` | — | A submeter (peça 2 do G-05, feita) |
+| `RE-1` | — | A submeter (peça 2 do G-05, feita) |
+| `RE-2` | — | A submeter (peça 2 do G-05, feita) |
+| `NS-1` | — | A submeter (peça 2 do G-05, feita) |
+| `NS-2` | — | A submeter (peça 2 do G-05, feita) |
+| `PA-CONF` | — | A submeter (peça 2 do G-05, feita) |
+| `PA-R24` | — | A submeter (peça 2 do G-05, feita) |
+| `PA-R3H` | — | A submeter (peça 2 do G-05, feita) |
+| `PA-R30` | — | A submeter (peça 2 do G-05, feita) |
 
-"A submeter" cobre só a guarda de janela em si (`build-wesales.md`, seção
-2.6.2, e os nós M1.3a/M1.3b/M2.2/M3.2 de `IMPLEMENTACAO-WORKFLOWS.md`) — a
-submissão de verdade no Meta Business Manager, com o texto convertido para
-o formato de Template (variáveis posicionadas no lugar dos merge fields,
-possível botão CTA no lugar do Trigger Link) continua ação do dono, não
-executada nesta rodada.
+"A submeter" cobre só a guarda de janela em si (`build-wesales.md`, seções
+2.6.2, 2.10, 2.12, 5 e 5.3, e os nós correspondentes de
+`IMPLEMENTACAO-WORKFLOWS.md`) — a submissão de verdade no Meta Business
+Manager, com o texto convertido para o formato de Template (variáveis
+posicionadas no lugar dos merge fields, possível botão CTA no lugar do
+Trigger Link) continua ação do dono, não executada nesta rodada. Com esta
+rodada, todo código ativo da tabela "Templates ativos" acima (o `M1-v1`
+substituído não conta) tem guarda de janela especificada — a lista de
+pendências que o G-05 registrou em 21/09/2026 (`ROADMAP-SALES-ENGAGEMENT.md`)
+está zerada.
 
 ## Como isso responde o "Pronto quando" do R-04
 
