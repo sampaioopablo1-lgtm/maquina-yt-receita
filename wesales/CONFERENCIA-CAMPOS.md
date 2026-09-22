@@ -417,3 +417,48 @@ graça.
 `2412763482587375` (42 atribuições, o maior). Os outros sete podem ter perguntas
 e ordens diferentes — é exatamente o achado 2 desta seção ("o formulário do Meta
 não é um só"), e o motivo de a Opção A custar oito vezes.
+
+## N — As chaves reais dos 4 campos do W20, lidas na hora em que nasceram (22/09/2026, 17:20 UTC)
+
+O dono criou na tela, entre 16:38 e 16:56 UTC, os quatro campos que faltavam
+para a Qualidade da Conexão (W20/F-06). A base foi de 51 para **55 campos**.
+
+Li as chaves por API **antes de qualquer documento escrever um `{{merge
+field}}` para elas**, e é esse o ponto desta tabela: a seção 2.24 já custou
+um monitor mudo por ter adivinhado `checkpoint_data_de_retorno` (1
+underscore) antes de o campo existir. Aqui não há o que adivinhar.
+
+| # | Nome na tela | `fieldKey` **real** | Tipo | O que a adivinhação diria |
+|---|---|---|---|---|
+| C-29 | `Duração da ligação` | `contact.durao_da_ligao` | NUMERICAL | ~~`duracao_da_ligacao`~~ |
+| C-30 | `Conexão real` | `contact.conexo_real` | SINGLE_OPTIONS (`Sim`/`Não`) | ~~`conexao_real`~~ |
+| C-31 | `Conexões reais telefone` | `contact.conexes_reais_telefone` | NUMERICAL | ~~`conexoes_reais_telefone`~~ |
+| C-32 | `Ligações com transcrição` | `contact.ligaes_com_transcrio` | NUMERICAL | ~~`ligacoes_com_transcricao`~~ |
+
+A mecânica é a já documentada e agora confirmada pela quarta vez: **o GHL
+remove a letra acentuada inteira**, não transilitera. `Duração` vira `durao`,
+`ligação` vira `ligao`, `transcrição` vira `transcrio`. Quem escrever a
+chave "bonita" não recebe erro — o nó lê vazio e o widget morre calado.
+
+**Armadilha de vizinhança, que é o risco maior desta leva:** já existia
+desde 18/09 um campo `Conexões telefone` → `contact.conexes_telefone`
+(posição 2150). O novo é `Conexões **reais** telefone` →
+`contact.conexes_reais_telefone` (posição 2550). Dois nomes quase iguais,
+duas chaves quase iguais, populações **diferentes**:
+
+| Campo | Conta o quê |
+|---|---|
+| `Conexões telefone` (antigo) | contador cumulativo de conexão, do jeito que a cadência já marcava |
+| `Conexões reais telefone` (C-31) | só chamada de LC Phone **com transcrição** que passou de 60s |
+
+O widget `Taxa de Conexão Real — Telefone` usa **C-31 sobre C-32**, os dois
+da mesma população (foi a correção que criou o C-32). Usar o campo antigo no
+numerador devolve uma taxa que parece certa e mistura duas medições — o erro
+de razão que este projeto já cometeu uma vez.
+
+**Fonte dos campos para auditoria:** `wesales/tools/campos.json` é dump do PC
+de 21/09 e **não tem estes quatro**. Enquanto ele não for regerado, a
+auditoria de órfão não enxerga C-29 a C-32; hoje isso não gera falso
+positivo porque nenhum documento ainda os cita como merge field, mas gerará
+no minuto em que o W20 for escrito.
+

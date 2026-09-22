@@ -2,6 +2,43 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Li as chaves dos 4 campos novos antes de alguém precisar delas — é a única hora barata — 22/09/2026, sessão automática
+
+O dono criou os 4 campos do W20 entre 16:38 e 16:56 (base de 51 → 55). Nenhum
+documento ainda escreveu `{{merge field}}` para eles. **Foi exatamente por
+isso que li as chaves agora**, e não quando o W20 for montado.
+
+| Nome na tela | Chave real | O que a adivinhação diria |
+|---|---|---|
+| `Duração da ligação` | `contact.durao_da_ligao` | ~~`duracao_da_ligacao`~~ |
+| `Conexão real` | `contact.conexo_real` | ~~`conexao_real`~~ |
+| `Conexões reais telefone` | `contact.conexes_reais_telefone` | ~~`conexoes_reais_telefone`~~ |
+| `Ligações com transcrição` | `contact.ligaes_com_transcrio` | ~~`ligacoes_com_transcricao`~~ |
+
+As quatro adivinhações estariam erradas, pela mecânica já confirmada quatro
+vezes: o GHL **remove a letra acentuada inteira**. E chave errada não dá
+erro — o nó lê vazio e o monitor morre calado, que é como a seção 2.24
+perdeu um monitor inteiro com `checkpoint_data_de_retorno`.
+
+**A regra de timing, que é o achado real:** o custo de conferir a chave é o
+mesmo hoje e daqui a uma semana — ~9k tokens de uma leitura. O custo de
+**não** conferir cresce: hoje corrijo uma tabela, depois de montado o W20
+corrijo a tabela, o workflow publicado e o tempo em que ele rodou mudo sem
+ninguém notar. Campo novo no CRM é o gatilho para ler a chave, não o
+workflow novo que vai usá-lo.
+
+**Armadilha de vizinhança nesta leva:** já existia `Conexões telefone`
+(`contact.conexes_telefone`, 18/09) e agora há `Conexões **reais**
+telefone` (`contact.conexes_reais_telefone`). Nomes quase iguais, chaves
+quase iguais, **populações diferentes** — e o widget `Taxa de Conexão Real`
+é uma razão C-31/C-32. Trocar por engano o numerador pelo campo antigo
+devolve um número que parece certo e mistura duas medições. Detalhe na
+Tabela N do `CONFERENCIA-CAMPOS.md`.
+
+**Fonte da auditoria atualizada:** os 4 entraram no `wesales/tools/campos.json`
+(79 → 83 entradas) com id, chave e tipo lidos da API, senão a varredura de
+órfão passaria a acusar falso positivo no minuto em que o W20 fosse escrito.
+
 ## Os 4 campos do W20 (C-29 a C-32) já existem — a leitura de 16:13 UTC que dizia "continuam ausentes" venceu em menos de uma hora — 22/09/2026, sessão automática
 
 Rotina de sempre (reler premissa represada antes de assumir que o item segue

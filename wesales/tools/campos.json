@@ -583,5 +583,29 @@
     "chave": "contact.urgncia",
     "tipo": "TEXT",
     "pasta": "zHU4yGXKHdxBHnGxUmai"
+  },
+  "Duração da ligação": {
+    "id": "PLjkuvnoDk7Hvt4qv0a8",
+    "chave": "contact.durao_da_ligao",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Conexão real": {
+    "id": "7wtFfDDxOpYCfHzBsZXP",
+    "chave": "contact.conexo_real",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Conexões reais telefone": {
+    "id": "2BSLMqty4LEwdoyNTdU8",
+    "chave": "contact.conexes_reais_telefone",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Ligações com transcrição": {
+    "id": "JejovPl6Vf0SBtAiVIpw",
+    "chave": "contact.ligaes_com_transcrio",
+    "tipo": "NUMERICAL",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
   }
 }
