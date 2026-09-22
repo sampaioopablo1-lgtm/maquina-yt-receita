@@ -876,3 +876,50 @@ o dono, vencendo hoje.
 `Checkpoint — Tentativa nº` `BRcN6IGXtDr0u52QtfiF`, `Checkpoint — Data de
 retorno` `el7xNMvPE8ZiyfysRff9`), todos em `Contato` / pasta `Additional
 Info`. Mapa completo nome→id→chave em `wesales/tools/campos.json`.
+
+
+## Estado final em 22/09/2026 — o que está no ar
+
+**20 workflows publicados.** 15 montados nesta sessão pela API interna e 5
+cópias corrigidas que substituíram os originais defeituosos (os originais
+ficaram em rascunho, sem nenhum nó alterado — reversível com um clique).
+
+| No ar | Nós | |  No ar | Nós |
+|---|---|---|---|---|
+| `Cadência 12x30` | 410 | | `Opt-out por Palavra-chave` | 14 |
+| `Cadência Inbound` | 172 | | `Alerta de Speed-to-lead` | 12 |
+| `Pós-agendamento v2` | 180 | | `SLA do Closer — No-show` | 12 |
+| `Pós-ligação v2` | 142 | | `Retorno Vencido` | 11 |
+| `Reengajamento 90 dias` | 105 | | `Mestre de saída v2` | 10 |
+| `Recuperação de No-show` | 40 | | `Fila Travada` | 8 |
+| `Loop do closer v2` | 31 | | `Lead Esquecido` / `AGENDAR Estagnado` | 7 + 7 |
+| `CONECTAR Estagnado` | 20 | | `Registro de Comparecimento` | 6 |
+| `Interceptação — Resposta v2` | 18 | | `Contador de Toques` | 4 |
+| `Interceptação — Clique v2` | 15 | | `Porta de Entrada` | 1 |
+
+**Provado rodando, com rastro lido pela API:** `Contador de Toques`,
+`Loop do closer v2` (nos dois ramos), a `Cadência 12x30` inteira (nó 0 →
+tarefa `[CADENCIA] T1` criada para o dono) e a régua de qualificação
+(93 por `Prazo`, 15 pelo bloco de reserva `Urgência`).
+
+**Fora do ar de propósito:** `Qualificação por IA no WhatsApp` (vazio,
+precisa de Conversation AI), `Post-Meeting Closer Loop` (substituído pelo
+`Loop do closer v2`) e os 5 originais trocados.
+
+**Não montados, e por quê:** W10 (Conversation AI), W18 (gatilho Scheduler
+sem formato conhecido neste build) e W19 (Number Validation desligado — e
+ver a ressalva de `country=US` abaixo).
+
+### Decisões que continuam com o dono
+
+1. **WhatsApp desconectado.** Os nós de envio exigem `template_id` e
+   `from_phone_number`; sem o canal não passam nem como rascunho. Faltam
+   M1/M2/M3, MI-0/MI-F, RE-1/RE-2 e NS-1/NS-2 — o resto de cada régua está
+   montado e funcionando.
+2. **`country` da subconta está `US`** com fuso `America/Sao_Paulo`, moeda
+   `BRL` e telefone `+55`. Afeta o W19: Number Validation checaria número
+   brasileiro contra regra americana. Não mexi porque `country` toca
+   telefonia e faturamento (`saasSettings`, `twilioRebilling` ativos).
+3. **Linha "Mensagens" do `APROVADO.md`** continua `[ ]`: falta o número
+   completo para os testes de envio.
+4. **Push bloqueado:** a credencial git desta máquina é de outra conta.
