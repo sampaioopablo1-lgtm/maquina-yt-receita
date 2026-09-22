@@ -2444,6 +2444,17 @@ Lists sozinhas já cumprem o "relatório que prova" do R-14 sem depender de
 plano pago — mesmo raciocínio de fallback das outras quatro peças desta
 seção.
 
+**6. Reporting → Pipeline (nativo, F-12, 22/09/2026):** a pergunta "por que
+estamos perdendo" não tinha widget nem lista aqui — Custom Metrics não
+agrega por valor de `SINGLE_OPTIONS` (achado 2 desta seção), então
+`Motivo da desqualificação` (C-16) nunca teve para onde ir. Não é mais
+lacuna: o relatório nativo de Pipeline do GHL já quebra oportunidades
+perdidas por `Lost Reason`, o campo nativo de oportunidade que a seção 4.1
+passou a alimentar com o mesmo valor de C-16. Não é widget deste dashboard
+— é uma tela própria do Reporting nativo — mas fecha a pergunta sem
+depender de Custom Metrics nem de plano pago. Detalhe completo, incluindo o
+que ainda não está confirmado na tela, em `build-wesales.md`, seção 4.1.
+
 ### Limite conhecido
 
 "Ligações/dia" e "conexões/dia" literais — a contagem de um dia
@@ -4254,7 +4265,7 @@ lead, e o funil (R-03) mostra "conectou" sem nunca mostrar "descartado".
 | D3 | Update: `WA não atendidas seguidas` = 0 |
 | D4 | Add Contact Tag `conectado-hoje` |
 | D5 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| D6 | If/Else | `Motivo da desqualificação` = `Timing errado` → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Qualquer outro motivo (ou vazio) → Update Opportunity `status` = `lost` |
+| D6 | If/Else múltiplo (Condition) | por `Motivo da desqualificação` — ver a tabela completa de ramos na seção 4.1 (F-12): `Timing errado` sai por `abandoned`+`nutricao-90d` como antes; os outros cinco valores saem por `lost` **e** agora também gravam o `Lost Reason` nativo da oportunidade com o mesmo valor |
 | D7 | Add Note `Desqualificado na T{{contact.tentativa_n}} — motivo: {{contact.motivo_da_desqualificao}}` |
 
 Sem nó de mudança de etapa: a oportunidade **fica em `CONECTAR`** (mesmo
@@ -4360,6 +4371,104 @@ ser coberto aqui. O nó continua não-negociável mesmo assim — é a única
 linha de defesa contra uma mensagem que já estava saindo no mesmo instante
 por outro workflow em execução (a mesma janela de corrida que a seção 2.9.5
 documenta como limite conhecido, não deste nó).
+
+---
+
+## 4.1 Motivo de perda — espelhando no `Lost Reason` nativo da oportunidade (F-12)
+
+**Por quê:** `Motivo da desqualificação` (C-16) existe desde 18/09/2026 e é
+preenchido por SDR e closer (R-18, F-03), mas nada no projeto agrega esse
+valor — a seção 9.1 e a lista 8.5 do Loop do closer só o exibem coluna a
+coluna, contato por contato. O Dashboard do Gestor (seção 2.17, R-15) já
+tinha documentado por quê: Custom Metrics só agrega por **tag** ou por soma
+de campo `NUMERICAL`/`MONETARY` — nunca por valor de um `SINGLE_OPTIONS`.
+Resultado: a pergunta que todo gestor de pré-vendas faz ("por que estamos
+perdendo, na maioria das vezes?") não tem resposta sem abrir oportunidade
+por oportunidade e contar na mão — o mesmo problema que R-01/R-03/F-06 já
+resolveram para outras perguntas, nunca para esta.
+
+Pesquisado antes de desenhar (o mesmo hábito que já achou o `Transcript
+Generated` do F-06 e o `Customer Service Window Check` do G-05): o GHL **já
+tem** um objeto nativo para isto, **em nível de oportunidade**, chamado
+`Lost Reason` — configurado em Settings → Custom Fields → `Lost Reason` →
+Bulk Actions → Edit (é um campo reservado da plataforma, por isso não
+aparece na listagem de `locations_get-custom-fields`, que só traz os 51
+campos de verdade personalizados). Confirmado por convergência de fontes
+independentes (`WebSearch`, domínios de suporte da HighLevel bloqueados
+pelo proxy deste ambiente como sempre — achado por citação, confiança
+média, não testado nesta subconta): a plataforma expõe, de graça, o que
+este projeto reinventou parcialmente sem o alcance completo —
+
+1. **Relatório nativo** de quebra por motivo de perda (Reporting → Pipeline)
+   e **coluna própria na exportação** de oportunidades — a agregação que a
+   seção 2.17 já tinha descartado por falta de recurso nativo existia, só
+   não no lugar que o projeto tinha olhado (Custom Metrics, não Pipeline
+   Report).
+2. **Filtro de gatilho** — `Lost Reason` está disponível como condição em
+   `Opportunity Created/Changed`, `Opportunity Status Changed`,
+   `Stale Opportunities` e `Pipeline Stage Changed`, e como valor de
+   `If/Else`. Nenhuma automação deste projeto usa isso hoje — é capacidade
+   nova, não uma peça faltando (ver "O que isto abre" abaixo).
+3. **Ação nativa** — a ação de workflow `Create/Update Opportunity` aceita
+   gravar `Lost Reason` no mesmo nó que muda `status`, o mesmo padrão já
+   usado neste documento para `status`/etapa juntos.
+
+**Por que não é substituir `Motivo da desqualificação` por `Lost Reason`, e
+sim espelhar os dois:** `Motivo da desqualificação` é campo de **contato**,
+lido pelo script de ligação (`script-de-ligacao.md`) e pela nota do D7/do
+nó 3 da seção 5.1 — e regra 1 do projeto proíbe excluir campo já em uso.
+`Lost Reason` é de **oportunidade**, existe só para desbloquear relatório e
+gatilho nativos. Os dois convivem: o SDR/closer continua preenchendo um
+campo só (`Motivo da desqualificação`), e o workflow, no mesmo nó que já
+muda `status` para `lost`, espelha o valor no `Lost Reason` — zero campo
+extra para quem opera, zero decisão dupla.
+
+**Como (a tabela completa de ramos que a seção 4 e a seção 5.1 referenciam):**
+
+| `Motivo da desqualificação` | Ação |
+|---|---|
+| `Timing errado` | Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d` — **sem** `Lost Reason`: a oportunidade nunca chega a `lost` por este ramo, e o campo nativo é da plataforma para "perdido", não para "nutrição" |
+| `Sem fit` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Sem fit` |
+| `Sem budget` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Sem budget` |
+| `Não é decisor` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Não é decisor` |
+| `Concorrente` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Concorrente` |
+| `Duplicado ou já cliente` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Duplicado ou já cliente` |
+| (vazio) | Update Opportunity `status` = `lost`, sem `Lost Reason` — nada para espelhar; mesmo comportamento de hoje |
+
+Esta é a tabela que o D6 (seção 4, ramo `Desqualificado` do Pós-ligação) e o
+ramo `Não`/qualquer motivo do nó 4 (seção 5.1, Loop do closer) usam — cinco
+valores, não os seis do campo, porque `Timing errado` nunca chega a `lost`
+(tabela acima). **Pré-requisito de tela, fora de qualquer API:** os cinco
+valores precisam existir em Settings → Custom Fields → `Lost Reason` antes
+de montar os nós — mesma classe de trabalho manual que criar opção em
+campo personalizado (nunca sai por API, `APROVADO.md` não se aplica porque
+não é escrita neste conector).
+
+**A confirmar na tela, honestamente não testado nesta subconta:** (a) se o
+seletor de `Lost Reason` dentro da ação `Update Opportunity` aceita ser
+preenchido por um valor fixo por ramo (o desenho acima assume isso, do
+mesmo jeito que `Pipeline Stage` já exige seleção fixa em vez de merge
+field neste projeto) — se a tela expuser um jeito de ler o valor
+dinamicamente de `Motivo da desqualificação` em vez de um ramo por valor, o
+desenho colapsa para um único nó, mais simples que o daqui; (b) se
+`Lost Reason` é gravável quando o `status` do mesmo nó é `abandoned` — a
+tabela acima assume que não (é recurso de "perdido", não de "nutrição") e
+por isso não tenta.
+
+**O que isto abre, sem construir agora (registrado para não se perder, não
+é parte do "Pronto quando" desta rodada):** com `Lost Reason` alimentado, o
+Reengajamento 90 dias (seção 2.12) poderia um dia diferenciar a régua por
+motivo — um lead perdido por `Concorrente` provavelmente não vale
+reativação automática de conteúdo, um perdido por `Sem budget` talvez valha
+um ciclo mais longo — usando o filtro nativo de `Lost Reason` no gatilho em
+vez de reler o campo de contato. Não desenhado: é otimização sobre uma
+régua que já existe e funciona, não lacuna aberta.
+
+**Pronto quando:** todo lead que sai por `lost` com `Motivo da
+desqualificação` preenchido (D6 da seção 4, nó 4 da seção 5.1) também tem o
+`Lost Reason` nativo da oportunidade gravado com o mesmo valor, e o
+Reporting → Pipeline do GHL mostra a quebra por motivo sem precisar abrir
+oportunidade por oportunidade.
 
 ---
 
@@ -4517,7 +4626,7 @@ faixas A/B da seção 9.1. Reaproveitar evita uma segunda régua para a régua.
 | `Sim` | Nenhuma mudança de etapa **nem de status**. A oportunidade segue `open` em `NEGOCIAR` — é o closer, fora deste workflow, que a leva a `FORMALIZAR` quando fechar |
 | `Parcial` | Update Opportunity `status` = `abandoned` (sem sair de `NEGOCIAR` — tabela 1.0, `Nutrição` não é etapa própria) + Add Contact Tag `nutricao-90d` |
 | `Não`, motivo = `Timing errado` | Mesma ação da linha `Parcial`: `status` = `abandoned` + tag `nutricao-90d` (sem fit **agora** não é sem fit nunca) |
-| `Não`, qualquer outro motivo | Update Opportunity `status` = `lost` (sem sair de `NEGOCIAR` — tabela 1.0, `Descartado` não é etapa própria) |
+| `Não`, qualquer outro motivo | Update Opportunity `status` = `lost` (sem sair de `NEGOCIAR` — tabela 1.0, `Descartado` não é etapa própria) **+ Lost Reason** = mesmo valor de `Motivo da desqualificação`, mesmo mapeamento da tabela da seção 4.1 (F-12) — SDR (D6, seção 4) e closer decidem por réguas diferentes quando é `lost`, mas o motivo nativo grava pelo mesmo critério nos dois lugares |
 
 **Achado desta migração:** nenhum destes três ramos move a oportunidade
 para fora de `NEGOCIAR` — só o `status` muda. Isso é diferente da maioria

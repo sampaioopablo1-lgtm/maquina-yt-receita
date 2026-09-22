@@ -643,7 +643,7 @@ Exige criar antes a opção `Desqualificado` no campo `Resultado da tentativa`
 | D3 | Update Contact Field | `WA não atendidas seguidas` = `0` |
 | D4 | Add Contact Tag | `conectado-hoje` |
 | D5 | Remove Contact Tag | `fila-tel`, `fila-wa` |
-| D6 | If/Else | `Motivo da desqualificação` = `Timing errado` → Update Opportunity status = `abandoned` + Add Tag `nutricao-90d` · Qualquer outro (ou vazio) → Update Opportunity status = `lost` — mesmo critério do W6 (Loop do closer, ramos `Parcial`/`Não, Timing errado` vs. `Não`, outro motivo) |
+| D6 | If/Else múltiplo (Condition) | por `Motivo da desqualificação`, 7 ramos: `Timing errado` → Update Opportunity status = `abandoned` + Add Tag `nutricao-90d`; cada um dos outros cinco valores → Update Opportunity status = `lost` **+ Lost Reason** = o mesmo valor; vazio → status = `lost` sem Lost Reason. Tabela completa e o pré-requisito de configurar os 5 valores de `Lost Reason` em Settings → Custom Fields: `build-wesales.md`, seção 4.1 (F-12) — mesmo critério do W6 (Loop do closer, ramos `Parcial`/`Não, Timing errado` vs. `Não`, outro motivo) |
 | D7 | Add Note | `Desqualificado na T{{contact.tentativa_n}} — motivo: {{contact.motivo_da_desqualificao}}` |
 
 Sem nó de etapa — fica em `CONECTAR`, igual ao ramo `Número errado`; o
@@ -790,7 +790,7 @@ da IA e monte:
 | 2 | Update Contact Field | `Data do veredito do closer` = data atual | 3 |
 | 3 | Add Note | `Veredito do closer: {{contact.reunio_foi_qualificada}} · motivo: {{contact.motivo_da_desqualificao}} · nota do SDR/IA na hora: {{contact.nota_de_qualificao}}` | 4 |
 | 4 | If/Else múltiplo (Condition), campo `Reunião foi qualificada` | **= `Sim`** → nenhuma ação, FIM · **= `Parcial`** → Update Opportunity status = `abandoned` → Add Tag `nutricao-90d` · **= `Não`** → nó 4b | 5 |
-| 4b | If/Else (dentro do ramo `Não`) | `Motivo da desqualificação` é `Timing errado` → Update Opportunity status = `abandoned` → Add Tag `nutricao-90d` · None → Update Opportunity status = `lost` | 5 |
+| 4b | If/Else múltiplo (dentro do ramo `Não`), por `Motivo da desqualificação` | `Timing errado` → Update Opportunity status = `abandoned` → Add Tag `nutricao-90d` · cada um dos outros cinco valores → Update Opportunity status = `lost` **+ Lost Reason** = o mesmo valor (tabela completa: `build-wesales.md`, seção 4.1, F-12) | 5 |
 | 5 | If/Else | `Nota de qualificação` **≥ 70** E `Reunião foi qualificada` é `Não` → Internal Notification ao gestor: `Nota {{contact.nota_de_qualificao}} mas o closer marcou Não ({{contact.motivo_da_desqualificao}}) — revisar a régua da seção 9 com {{contact.name}}.` · None → 6 | 6 |
 | 6 | If/Else | `Nota de qualificação` **< 45** E `Reunião foi qualificada` é `Sim` → Internal Notification ao gestor: `Nota baixa ({{contact.nota_de_qualificao}}) mas o closer marcou Sim — a régua pode estar descartando lead bom. Revisar {{contact.name}}.` · None → FIM | fim |
 

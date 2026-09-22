@@ -2179,6 +2179,54 @@ que reenviar um formulário do Meta sem `nao-perturbe` volta sozinho para
 `NOVO LEAD`/`open`, pronto para nova triagem — sem esperar 90 dias nem
 depender de alguém abrir uma lista.
 
+### F-12 · "Por que estamos perdendo?" não tem resposta — o motivo de desqualificação não agrega em lugar nenhum, e o GHL já resolve isso de graça — **FEITO em 22/09/2026**
+
+**Por quê:** `Motivo da desqualificação` (C-16, `campos-e-tags.md`) existe
+desde 18/09/2026, preenchido por SDR (R-18) e closer (F-03), mas nunca teve
+onde agregar — a seção 9.1 e a lista 8.5 só o mostram coluna a coluna,
+oportunidade por oportunidade. O próprio Dashboard do Gestor (R-15, seção
+2.17) já tinha registrado por quê ao fechar em 18/09/2026: Custom Metrics
+soma campo `NUMERICAL`/`MONETARY` ou conta tag — nunca agrega por valor de
+`SINGLE_OPTIONS`. A pergunta que todo gestor de pré-vendas faz primeiro
+("por que estamos perdendo, na maioria das vezes?") ficou sem resposta
+nativa desde então, sem que nenhuma rodada a tivesse marcado como lacuna —
+achada só agora, ao procurar o que Reev/Meetime/Outreach/Salesloft
+reportam e este projeto não.
+**Como:** pesquisado antes de desenhar (`WebSearch`, domínios de suporte da
+HighLevel bloqueados pelo proxy deste ambiente como sempre — achado por
+convergência de citação em buscas com termos diferentes, confiança média,
+não testado nesta subconta): o GHL já tem um objeto nativo de oportunidade,
+`Lost Reason` (configurado em Settings → Custom Fields → `Lost Reason` →
+Bulk Actions → Edit — campo reservado da plataforma, por isso nunca
+apareceu em `locations_get-custom-fields`), com relatório nativo de quebra
+por motivo (Reporting → Pipeline), coluna própria na exportação de
+oportunidades, e filtro disponível em quatro gatilhos de workflow mais o
+operador `If/Else` — nenhum usado ainda por este projeto. Em vez de
+substituir C-16 (seria excluir campo em uso, regra 1), o desenho espelha:
+no mesmo nó que já muda `status` para `lost` (D6 da seção 4, Pós-ligação; nó
+4 da seção 5.1, Loop do closer), grava também o `Lost Reason` nativo com o
+mesmo valor de `Motivo da desqualificação` — cinco dos seis valores, porque
+`Timing errado` nunca chega a `lost` (sai por `abandoned`). Tabela completa
+de ramos, o pré-requisito de tela (configurar os 5 valores antes de montar
+os nós) e o que fica pendente de confirmação (se o seletor de `Lost Reason`
+aceita valor dinâmico em vez de ramo fixo; se é gravável junto com
+`abandoned`) em `build-wesales.md`, seção 4.1 (nova); nós atualizados em
+`IMPLEMENTACAO-WORKFLOWS.md`, W4 e W6; cross-reference em `campos-e-tags.md`
+(C-16) e no Dashboard do Gestor (seção 2.17, peça 6 nova). Zero campo, zero
+tag novos, zero escrita no CRM: item de especificação pura, não depende de
+`APROVADO.md` — `Lost Reason` não sai por API neste conector (confirmado:
+`opportunities_update-opportunity` não expõe o parâmetro, mesma classe de
+limitação já registrada para custom field e calendário em
+`APRENDIZADOS-CRM.md`) nem a configuração dos 5 valores (é criação de opção
+em campo reservado, mesma classe de trabalho manual que campo
+personalizado).
+**Pronto quando (cumprido):** todo lead que sai por `lost` com `Motivo da
+desqualificação` preenchido também tem o `Lost Reason` nativo da
+oportunidade gravado com o mesmo valor, e o Reporting → Pipeline do GHL
+mostra a quebra por motivo sem precisar abrir oportunidade por oportunidade
+— o que falta é só a montagem manual na tela, mesma fila dos demais nós já
+especificados e ainda não publicados.
+
 ---
 
 ## Ordem sugerida
@@ -2586,3 +2634,38 @@ desenho completo e espera a operação mandar a primeira mensagem real para
 executar o que já está pronto na documentação; F-11 tem desenho completo
 e não depende de nada — só falta ser montado na tela, mesma fila manual
 dos demais workflows ainda não publicados.
+
+**F-12 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+nova, achada seguindo a mesma instrução de sempre (procurar o que a
+concorrência reporta e este projeto ainda não).** CRM reconfirmado via API
+sem mudança de estrutura (51 campos, mesmas 5 etapas do `FUNIL DE VENDAS`)
+— a única variação real é de dado, não de desenho: 50 oportunidades seguem
+(46 `NOVO LEAD`, 1 `CONECTAR`, 3 `NEGOCIAR`, 1 `lost` de teste — uma
+oportunidade avançou de `NOVO LEAD` para `CONECTAR` e outra para `NEGOCIAR`
+por fora desta sessão desde a última leitura, G-03/G-04 seguem sem decisão
+do dono) — sweep de coerência de sempre limpo (grep por nome de etapa
+antigo e pelos merge fields tocados nesta rodada não achou nada órfão). A
+lacuna veio de perguntar, pela primeira vez neste projeto, "o que Reev,
+Meetime, Outreach e Salesloft reportam sobre motivo de perda, e o que este
+projeto nunca respondeu": `Motivo da desqualificação` (C-16) é preenchido
+desde 18/09 e nunca teve como agregar — o próprio Dashboard (R-15) já tinha
+documentado a razão técnica em 18/09/2026 sem nunca virar item de roadmap
+próprio. A resposta não exigiu campo novo nem redesenho: o GHL já tem um
+`Lost Reason` nativo em nível de oportunidade, com relatório e filtro de
+gatilho de graça — o projeto só nunca tinha olhado para lá. Espelhar C-16
+nele, só nos dois nós que já marcam `lost` (D6 do Pós-ligação, nó 4 do Loop
+do closer), fecha o item sem tocar em nada que já funciona. Zero campo,
+zero tag novos, zero escrita no CRM: item de especificação pura, não
+depende de `APROVADO.md` — nem `Lost Reason` sai por API neste conector,
+nem a configuração dos 5 valores nativos, mesma classe de trabalho manual
+de sempre. Pendência explícita registrada no próprio item: não confirmado
+se o seletor de `Lost Reason` na ação `Update Opportunity` aceita valor
+dinâmico (colapsaria o desenho para um nó só) ou só fixo por ramo (o que o
+desenho assume).
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem
+dono claro: G-03, G-04, F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real para
+executar o que já está pronto na documentação; F-11 e F-12 têm desenho
+completo e não dependem de nada além de serem montados na tela, mesma fila
+manual dos demais workflows ainda não publicados.

@@ -72,6 +72,15 @@ roadmap): o closer registra se a reunião que o SDR agendou tinha fit de
 verdade, e por quê quando não teve. É o único par deste documento preenchido
 por um papel que a coluna "Quem escreve" ainda não tinha: nem SDR, nem
 workflow, nem IA.
+
+C-16 ganhou um espelho fora deste documento em 22/09/2026 (F-12): quando o
+valor leva a `status = lost`, o mesmo motivo passa a ser gravado também no
+`Lost Reason` nativo da oportunidade — campo reservado da plataforma, por
+isso não aparece nesta lista de campos personalizados. Não substitui C-16
+(continua sendo o SDR/closer quem preenche, um campo só); só abre relatório
+e gatilho nativos que um `SINGLE_OPTIONS` de contato nunca teria. Desenho
+completo em `build-wesales.md`, seção 4.1.
+
 C-17 é `DATE`, não `TEXT`: nada aqui mede minutos (diferente de C-14), só
 "em que dia o closer deu o veredito", então a granularidade de dia do `DATE`
 basta e evita outro par de campos como o de C-14/S-01.
