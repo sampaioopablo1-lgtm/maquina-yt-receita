@@ -5468,3 +5468,73 @@ Combos varridos até aqui: + advocacia de família (pensão/divórcio, nacional,
 estimados — **a área com mais anunciante de todas**; 11 de 13 alvos com nome do dono,
 recorde de Trilha A; confirma que pergunta em segunda pessoa é o padrão que converte em
 advocacia, o mesmo mecanismo do nosso melhor anúncio).
+
+---
+
+## CONTABILIDADE — serviço MEI (22/09, nacional)
+
+Segundo serviço de contabilidade varrido, depois de "abertura de empresa". Termo:
+"abrir MEI contador". **104 anúncios ativos** — um décimo da advocacia de família, e
+bem abaixo de abertura de empresa.
+
+### A regra nova: serviço de ticket baixo puxa software, não escritório
+
+O volume baixo não é o achado. O achado é **quem está anunciando**. Dos 30 lidos, uma
+parte grande não é escritório contábil vendendo contabilidade:
+
+- **"MEI sem contador"** — o nome da página é a negação do nosso alvo
+- **"Mapa Fácil do MEI"** — infoproduto, "Evite multas e dívidas no seu MEI 🚨"
+- **"Meisuite"** — "O app que organiza seu MEI de ponta a ponta"
+- **"App Donu"** — app
+- **Murilo Moraes** — "GARANTA JÁ O SEU INGRESSO!", venda de evento, nada a ver
+- **Contabilizei** — player nacional, não escritório de bairro
+
+O mecanismo: MEI é o serviço mais barato da contabilidade. O escritório de bairro não
+briga por ele — quem briga é quem vende software e curso, porque para esses o MEI é
+volume. Abertura de empresa rendeu escritório; MEI rende app.
+
+**Regra:** dentro do eixo certo (serviço), o TICKET do serviço decide o tipo de
+anunciante. Serviço barato puxa quem vende ferramenta no lugar do profissional. Para
+achar escritório, varrer pelo serviço que ele cobra caro — abertura de empresa,
+recuperação de crédito, folha —, não pelo que ele cobra barato.
+
+Isto refina a regra do eixo de 22/09, não a contradiz: o eixo continua sendo o critério
+de compra do cliente. O que se acrescenta é que **o preço do serviço filtra o
+anunciante**.
+
+### Os alvos
+
+| Página | Defeito do título | Trilha |
+|---|---|---|
+| **yuriaires.contador** | "yuriaires.contador \| \| \| \| \| \|" — carrossel com os cards vazios | A |
+| **Azon Contabilidade** | "Fale conosco" repetido em **6 cards** do carrossel | B |
+| **Start Assessoria Contábil** | "Contador Recomendado ⭐⭐⭐⭐⭐" — estrela sem origem | B |
+| caparozcontabilidadeexpert | "Contador Atende no WhatsApp 🌟🌟🌟🌟🌟" | A |
+| Mentore Contabilidade | "Converse conosco e saiba mais" — o campo padrão da Meta | B |
+| OMC Organização Mouta Contábil | "Contabilidade para sua empresa" — diz o óbvio | A |
+| Contabilidade Tribo de Judá | título = nome da página | B |
+| Asmj Contabilidade | "api.whatsapp.com" | B |
+| Contabilidade Morando LTDA | "api.whatsapp.com" | A |
+| jessicasoarescontadora | vazio | A |
+| Maurício Carvalho | vazio | A |
+| daianaolopes | vazio | A |
+| João Mimoso | vazio | A |
+| Contabilbr | vazio | B |
+| Fatorxcontabilidade | vazio | B |
+| Contabilidade Cruz | vazio | B |
+| ANX Contabilidade | vazio | B |
+
+Dezessete alvos, oito de Trilha A. O **yuriaires.contador** é a terceira aparição do
+defeito de carrossel com card vazio — depois do Ricardo Simões e do Lucrum. O padrão se
+confirma: quem sobe carrossel preenche o primeiro card e esquece os outros.
+
+Quem escreve bem aqui, para munição: **"Vai abrir uma empresa?"** (PC Nasci — pergunta
+na situação), **"Ei, prestador!"** (Assessoria do pequeno — nomeia o público na
+primeira palavra), **"Não perca mais trabalhos"** (Contabilizei — consequência).
+
+LISTA DE ATAQUE: **90 → 107**.
+
+Combos varridos até aqui: + contabilidade serviço MEI (nacional, 104 ativos — magro;
+**regra nova: dentro do eixo certo, o ticket do serviço decide o tipo de anunciante —
+serviço barato puxa app e infoproduto no lugar do escritório**; varrer contabilidade
+pelo serviço caro, não pelo barato).
