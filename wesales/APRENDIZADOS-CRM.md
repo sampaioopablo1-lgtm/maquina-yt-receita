@@ -2,6 +2,28 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Ligação de WhatsApp pelo SDR de dentro do GHL, sem permissão do lead, não existe em nenhum plano — 22/09/2026, sessão do PC
+
+Pesquisado a pedido do dono ("talvez exista plano pago"):
+
+| Caminho | Liga pelo WhatsApp de dentro do GHL? | Quem fala | Permissão do lead |
+|---|---|---|---|
+| WhatsApp nativo do GHL (API oficial da Meta) | sim, botão na conversa | SDR humano | **obrigatória** (template, 2 pedidos/7 dias) |
+| Stevo (conexão atual, QR) — planos Stevo 1/3/5: R$ 59/129/189 por mês | só o **Stevo Voice** | **agente de IA** (ElevenLabs), com gravação, transcrição e nota | — |
+| WhatsApp Desktop no PC do SDR, mesmo número | fora do GHL, ao lado dele | SDR humano | não |
+
+- A conexão da Stevo usa o canal de **SMS** do GHL: a ação "Enviar SMS" do
+  workflow sai como WhatsApp pela Stevo (a Stevo tem um script que só troca o
+  rótulo "SMS" por "WhatsApp QR" na tela). Mensagens chegam como `TYPE_CUSTOM_SMS`.
+- O WhatsApp nativo do GHL **não está conectado** nesta subconta (a tela de
+  WhatsApp mostra só o cadastro).
+- Todos os planos Stevo trazem "Stevo voice liberado"; nenhum anuncia ligação
+  de WhatsApp feita por humano de dentro do GHL.
+
+Fontes: stevo.chat (planos e FAQ, lidos renderizados em 22/09/2026);
+tutorial.stevo.chat (integração GHL, mudando SMS para WhatsApp QR);
+help.gohighlevel.com 155000007253 / 155000007989.
+
 ## O GHL liga pelo WhatsApp — mas só na API oficial, e o lead precisa dar permissão antes — 22/09/2026, sessão do PC
 
 Eu disse ao dono que "ligação de WhatsApp não sai pelo GHL". **Errado** — ele

@@ -49,6 +49,14 @@ fluxo correto:
 | `QI-1` | WhatsApp | Qualificação por IA no WhatsApp — guarda de entrada, nó G.3 (G-06) | 22/09/2026 | Ativo — só no ramo fora da janela; dentro da janela a IA não usa texto fixo |
 | `EM-1` | **E-mail** | Resgate por E-mail — Sem Telefone — nó 2 (F-15) | 22/09/2026 | Ativo — primeiro código de canal e-mail desta biblioteca |
 | `EM-2` | **E-mail** | Resgate por E-mail — Sem Telefone — nó 5, "breakup" (F-15) | 22/09/2026 | Ativo |
+| `MT1-v1` | WhatsApp (SDR envia) | Cadência 12x30 multicanal — T1, depois das duas ligações | 22/09/2026 | Aguardando aprovação do dono |
+| `MT4-v1` | WhatsApp (SDR envia) | Cadência 12x30 multicanal — T4 | 22/09/2026 | Aguardando aprovação do dono |
+| `M2-v1` | WhatsApp (SDR envia) | Cadência 12x30 multicanal — T8 (antes: automático após T8) | 22/09/2026 | Reaproveitado sem mudar o texto |
+| `MT11-v1` | WhatsApp (SDR envia) | Cadência 12x30 multicanal — T11 | 22/09/2026 | Aguardando aprovação do dono |
+| `M3-v1` | WhatsApp (SDR envia) | Cadência 12x30 multicanal — T12 (antes: automático após T12) | 22/09/2026 | Reaproveitado sem mudar o texto |
+| `EC-1` | E-mail (SDR envia) | Cadência 12x30 multicanal — T6 | 22/09/2026 | Aguardando aprovação do dono |
+| `EC-2` | E-mail (SDR envia) | Cadência 12x30 multicanal — T10 | 22/09/2026 | Aguardando aprovação do dono |
+| `EC-3` | E-mail (SDR envia) | Cadência 12x30 multicanal — T12, "breakup" | 22/09/2026 | Aguardando aprovação do dono |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -321,6 +329,78 @@ e-mail sem descadastro de um clique, o mínimo exigido pela LGPD (art. 18)
 e o gatilho mais rápido para denúncia de spam. Checklist completo
 (SPF/DKIM/DMARC do domínio, confirmação do link) em `build-wesales.md`,
 seção 2.30 — G-07, aberto e fechado em 22/09/2026.
+
+## Cadência 12x30 multicanal (caminho B) — textos que o SDR envia — 22/09/2026
+
+Na versão multicanal (WhatsApp não oficial, por QR) **nenhuma mensagem sai
+automática**: o texto vai dentro da tarefa do toque e o SDR envia pela
+conversa do contato. E-mail também é enviado pelo SDR até o checklist G-07
+(SPF/DKIM/DMARC) ser fechado — depois vira envio automático. Nenhum texto
+cita caso ou número de cliente: não há caso documentado no projeto, e texto
+de venda não inventa prova.
+
+### MT1-v1 — T1, depois das duas ligações não atendidas
+
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
+> Acabei de tentar te ligar sobre o seu cadastro. Queria te fazer 2 perguntas
+> rápidas sobre como vocês trazem cliente novo hoje. Qual o melhor horário
+> pra eu te ligar: manhã ou tarde?
+
+### MT4-v1 — T4
+
+> {{contact.first_name}}, tentei te ligar de novo agora. Sei que a rotina é
+> corrida — se preferir, me responde por aqui mesmo: hoje o cliente novo de
+> vocês vem mais de indicação ou de anúncio?
+
+### MT11-v1 — T11
+
+> {{contact.first_name}}, última tentativa de te pegar por telefone. Se captar
+> cliente novo não é prioridade agora, sem problema, me diz que eu respeito.
+> Se for, 10 minutos de conversa já mostram se faz sentido a gente ajudar.
+
+### EC-1 — T6 (e-mail)
+
+> Assunto: {{contact.first_name}}, uma pergunta sobre os seus anúncios
+>
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}.
+> Tentei falar com você por telefone e WhatsApp nesta semana.
+>
+> Uma coisa que vemos com frequência em empresas de {{contact.segmento}}: o
+> anúncio até traz contato, mas o cliente se perde entre o primeiro "oi" e a
+> primeira conversa de verdade. Normalmente o problema não é o anúncio, é o
+> que acontece depois dele.
+>
+> Se isso soa familiar, me responde este e-mail com o melhor horário que eu
+> te ligo. São 10 minutos.
+>
+> {{user.first_name}}
+
+### EC-2 — T10 (e-mail)
+
+> Assunto: Vale 10 minutos, {{contact.first_name}}?
+>
+> {{contact.first_name}}, sigo tentando falar com você sobre captação de
+> clientes. Para facilitar: responda este e-mail só com um número de 1 a 3.
+>
+> 1 — quero conversar esta semana
+> 2 — agora não, me procure daqui a alguns meses
+> 3 — não tenho interesse
+>
+> Qualquer resposta me ajuda a não te incomodar à toa.
+>
+> {{user.first_name}}
+
+### EC-3 — T12, "breakup" (e-mail)
+
+> Assunto: Vou parar de te procurar, {{contact.first_name}}
+>
+> {{contact.first_name}}, tentei algumas vezes nas últimas semanas e não
+> consegui falar com você — vou parar por aqui. Se um dia quiser conversar
+> sobre trazer mais clientes com anúncio, é só responder este e-mail, mesmo
+> que seja daqui a meses, que eu retomo de onde paramos.
+>
+> Sucesso!
+> {{user.first_name}}
 
 ## Template Meta para envio fora da janela de 24h — G-05
 
