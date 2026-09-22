@@ -5293,3 +5293,45 @@ LISTA DE ATAQUE: **65 → 75**.
 
 Combos varridos até aqui: + imobiliária ALUGUEL Rio (eixo novo; 10 alvos, recorde de 22
 meses; **as barras são carrossel, não defeito de campo** — mecanismo corrigido).
+
+---
+
+## 🏢 Sala comercial — aluguel (22/09/2026, 18h) — termo magro, achado exemplar
+
+Termo: `sala comercial para alugar Rio de Janeiro`. **2 anúncios.** Termo magro — sala
+comercial no Rio quase não se anuncia no Meta. **Não vale voltar.**
+
+Mas o único alvo novo é a ilustração mais limpa do mecanismo de carrossel que o arquivo tem.
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Ricardo Simões Corretor de Imóveis Avaliador Judicial** | **A** | carrossel de 11 slots: o nome da página e **a mesma descrição repetida 10 vezes** | 15/09/2026 |
+
+A descrição repetida é:
+
+> `Sala Comercial 25m² à venda Rua Dias da Cruz, Méier, Rio de Janeiro - R$ 89.000
+> RSSL00001 - Ricardo Simões`
+
+### Por que este caso é tão bom para abordar
+
+**A descrição é boa.** Tem metragem, rua, bairro, preço. O cara sabe descrever imóvel. Só
+que ele escreveu **uma** e deixou copiar nas **dez** outras fotos do carrossel. Quem desliza
+vê a mesma sala onze vezes.
+
+Não é falta de capricho — é falta de saber que cada card tem campo próprio. **É o alvo mais
+fácil de converter da lista: a correção é meia hora de trabalho e ele já tem o texto.**
+
+### Defeito novo na família do rótulo interno: o código do imóvel
+
+`RSSL00001` é o código de cadastro interno dele, exposto na manchete pública. É irmão do
+`Alt Anúncios` encontrado hoje de manhã na Alfaiataria Imobiliária — **campo de uso interno
+vazando para o público**. Fica registrado como variação: além de rótulo de organização,
+**código de imóvel**.
+
+E o termo casou "para alugar" com um anúncio "à venda" — a Biblioteca é frouxa na
+correspondência, o que reforça conferir o texto antes de classificar.
+
+LISTA DE ATAQUE: **75 → 76**.
+
+Combos varridos até aqui: + sala comercial aluguel Rio (termo magro, 2 anúncios, não voltar;
+1 alvo exemplar de carrossel repetido 10x e código interno no título).
