@@ -20,6 +20,31 @@ tabela, a conta não bateu com a que já estava escrita. `date -u` confirmou o
 horário real da máquina (`22/09 08:04 UTC`) contra o `createdAt` devolvido
 pela API (`2026-09-21T09:17:26Z`): 22h47min, não o dobro disso.
 
+**O antídoto, achado ao conferir esta correção (22/09, mesma data):** não é
+"refazer a conta com mais cuidado" — é **trocar a unidade por uma que se
+calibre**. `~46h` passou porque hora absoluta não tem referência: 46h e 22h
+soam igualmente plausíveis para quem não tem um "normal" na cabeça. O
+intervalo entre chegadas **na própria base** tem referência embutida:
+
+| Gap entre chegadas consecutivas | |
+|---|---|
+| Os 8 primeiros | 9 min a 3h06 |
+| 20/09 07:32 → 17:47 | 10h15 |
+| 20/09 18:11 → 21/09 09:17 | **15h06** ← maior já observado |
+| 21/09 09:17 → agora | **23h02** ← **1,53× o maior já visto** |
+
+Escrito como "1,5× o maior intervalo já observado", um erro de 2× na conta
+vira absurdo na hora ("3× o maior já visto" não passa despercebido), enquanto
+"46 horas" passa. **Regra: quando um número mede anormalidade, expresse-o em
+múltiplos do pior caso já observado, não em unidade absoluta.** O erro de
+aritmética continua possível; o que muda é que ele deixa de ser invisível.
+
+Do mesmo cálculo saiu um número que ninguém tinha: na janela em que a entrada
+funcionou (~34h30), chegaram 10 leads — **~7 leads/dia** contra a premissa de
+**~10/dia** que dimensiona a régua inteira (L-05). Amostra pequena, não é
+conclusão, mas é a primeira medição de entrada do projeto e vem abaixo da
+meta. Anotado no F-10.
+
 **Por que vale uma entrada própria, e não só a correção silenciosa:** é uma
 classe de erro diferente das anteriores registradas aqui (premissa negativa
 não pesquisada, configuração herdada lida como local, campo com dois donos).

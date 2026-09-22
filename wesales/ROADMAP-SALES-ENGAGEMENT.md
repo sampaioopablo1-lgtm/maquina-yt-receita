@@ -1859,6 +1859,33 @@ O padrão de chegada antes disso, pelos `dateAdded`: 9 leads entre 19/09 22:50 e
 carregam atribuição de Meta Lead Ads viva (`LEADS I FORM I FS1`, anúncio
 `120247453176830766`, criativo `V16 — copy impulsionou`).
 
+**A medida que torna isto interpretável — e que o erro de conta da abertura
+teria evitado, acrescentada em 22/09:** horas absolutas não se calibram (foi o
+que deixou "~46h" passar: soava plausível). O intervalo entre chegadas
+consecutivas, na própria base, se calibra:
+
+| Gap entre chegadas | |
+|---|---|
+| Os 8 primeiros | de **9 min** a **3h06** |
+| 20/09 07:32 → 17:47 | **10h15** |
+| 20/09 18:11 → 21/09 09:17 | **15h06** ← maior já observado nesta subconta |
+| 21/09 09:17 → agora | **23h02 e subindo** ← **1,53× o maior já visto** |
+
+É assim que o número vira sinal em vez de curiosidade: o silêncio atual já
+passou de metade além do maior silêncio que esta operação jamais teve. E é
+a comparação que qualquer widget do F-10 deve mostrar, não o total de horas —
+um "23h" sozinho não diz a ninguém se é normal; "1,5× o maior intervalo já
+visto" diz.
+
+**Um segundo número, mais desconfortável, do mesmo cálculo:** na janela em que
+a entrada *funcionou* (19/09 22:50 → 21/09 09:17, ~34h30), chegaram **10
+leads** — cerca de **7 leads/dia**, contra a premissa de **~10/dia** do
+`briefing-sdr.md`. Amostra pequena (10 leads, uma janela, e os outros 40
+contatos são backfill sem data de chegada real), então **não é conclusão** —
+mas é a primeira medição de entrada que o projeto tem, e ela vem abaixo da
+meta que dimensiona a régua inteira (a conta da L-05: 10/dia × 12 tentativas).
+Se confirmar com mais dados, o gargalo da operação não é a cadência, é o
+funil de aquisição antes dela.
 **Não é falha de workflow.** Contatos = oportunidades, e o G-01 fecha em 3
 segundos no lead real mais recente. Se o Meta entregasse, o CRM registraria. O
 que parou está **antes** do CRM: campanha pausada, orçamento esgotado,
