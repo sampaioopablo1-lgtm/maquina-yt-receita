@@ -2,6 +2,41 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A trava do aviso de LGPD vigiava o checkbox, não o botão — e os dois se separaram hoje — 22/09/2026, sessão automática
+
+O dono ligou a transcrição de chamadas na subconta e deixou o W20 pronto em
+rascunho. Fui ver o que isso aciona, e o achado não está no W20: está na
+trava que protegia o aviso de gravação.
+
+O `script-de-ligacao.md` fechava a pendência assim: *"enquanto o F-06 não
+for ligado (os campos C-29/C-30 nascem `[ ]` em `APROVADO.md`), hoje nada é
+gravado"*. A frase amarrava um fato do mundo — **nada é gravado** — ao
+estado de um **checkbox de aprovação**. Hoje os dois se separaram: os campos
+existem, a transcrição está ligada, e o `APROVADO.md` segue `[ ]` (certo,
+só o dono marca). A trava continuava dizendo "verde" sobre uma condição que
+já não era a que ela olhava.
+
+**Mesma falha do `country`, em outro traje:** o documento vigia um
+**proxy** em vez da coisa. Lá, `contact.country` no lugar de
+`location.country`; aqui, o checkbox no lugar do botão de gravação. Proxy e
+coisa andam juntos até o dia em que não andam, e é exatamente nesse dia que
+alguém lê a garantia antiga.
+
+**O segundo achado é mais sério, e é de sequência.** O aviso de LGPD está
+catalogado como *pré-requisito nº 4 do W20*. Mas a LGPD se aplica à
+**gravação**, não à medição: ligar gravação por número é um clique que não
+passa pelo W20, e a partir dele existe ligação gravada **com o W20 ainda em
+rascunho**. Catalogado onde estava, o aviso parecia ter o prazo da
+publicação; o prazo real é o do clique, que é anterior e independente.
+
+**Regra:** quando um pré-requisito for de natureza legal ou irreversível,
+verificar de qual **ação** ele é pré-requisito, não de qual **entrega** ele
+apareceu na lista. A lista foi escrita a partir do workflow; a obrigação
+nasce do ato.
+
+Continuo não escrevendo a frase do aviso — redação e base legal são do dono.
+O que mudou é que agora está escrito **quando** ela passa a ser devida.
+
 ## O gatilho `Scheduler` não estava oculto — a via certa é o intervalo `Cron`, e o fuso é o da subconta — 22/09/2026, sessão do PC
 
 A dúvida "o `scheduler_trigger` pode estar oculto para esta conta" (W18) caiu:

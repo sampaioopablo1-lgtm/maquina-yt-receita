@@ -79,9 +79,35 @@ otimizar.
 
 **Não escrevo a frase.** Redação e base legal são do dono ou de quem o
 assessora — não é dedução que uma rodada automática deva fazer sozinha. O
-que fica registrado é onde ela entra e o que ela custa. Enquanto o F-06 não
-for ligado (os campos C-29/C-30 nascem `[ ]` em `APROVADO.md`), a abertura
-acima vale como está: **hoje nada é gravado.**
+que fica registrado é onde ela entra e o que ela custa.
+
+> **Atualizado em 22/09/2026, 19:00 UTC — a condição desta pendência mudou,
+> e a frase que ela usava como trava não serve mais.**
+>
+> O parágrafo dizia: "enquanto o F-06 não for ligado (os campos C-29/C-30
+> nascem `[ ]` em `APROVADO.md`), hoje nada é gravado". ~~Isso.~~ A trava
+> estava presa ao **checkbox de aprovação**, não ao **botão de gravação** —
+> e hoje os dois divergiram:
+>
+> | | Estado em 22/09 19:00 UTC |
+> |---|---|
+> | Campos C-29 a C-32 | **existem** (criados na tela 16:38–16:56) |
+> | `APROVADO.md` | seguem `[ ]` — correto, só o dono marca |
+> | Transcrição na subconta | **ligada** (conferido pela sessão do PC; a API pública não lê configuração de telefonia, então isto não é medição minha) |
+> | Gravação **por número** | ainda **desligada** |
+> | W20 | rascunho `5fbb2e5d-…`, 8 nós, gatilho `Transcript Generated` |
+>
+> **Enquanto a gravação por número estiver desligada, continua valendo que
+> nada é gravado** — mas por esse motivo, não pelo estado do `APROVADO.md`.
+> Um checkbox `[ ]` nunca impediu ninguém de ligar um botão na tela.
+>
+> **E a obrigação não espera o W20.** O aviso está catalogado como
+> pré-requisito nº 4 do workflow (`IMPLEMENTACAO-WORKFLOWS.md`), o que dá a
+> impressão errada de que só faz falta quando o W20 for publicado. A LGPD se
+> aplica à **gravação**, não à medição: ligar a gravação por número é um
+> clique que não passa pelo W20, e a partir dele há ligação gravada com ou
+> sem workflow. **A frase precisa existir antes desse clique**, não antes de
+> publicar o W20.
 
 Quando o R-05 (`build-wesales.md`, seção 2.6.1) declarar um vencedor entre
 `M1-a` e `M1-b`, revise esta abertura para usar o mesmo gancho da mensagem
