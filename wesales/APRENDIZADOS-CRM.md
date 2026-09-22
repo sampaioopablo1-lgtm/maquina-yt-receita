@@ -2,6 +2,68 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "78% da base tem e-mail" era verdade sobre a base errada — e o resgate resgataria zero lead — 22/09/2026, sessão na nuvem
+
+A rodada anterior achou um ciclo fechado de verdade, e eu confirmei no payload
+publicado: nó 3 da 12x30 (`phone has_no_value`) → nó 10 (`abandoned`) → nó 11
+(`nutricao-90d`), e o nó 1 do R-08 recicla em `status == abandoned`. Quem não
+tem telefone volta, bate no mesmo portão e volta ao mesmo lugar, de 90 em 90
+dias, para sempre. **Diagnóstico certo.**
+
+A solução proposta — um workflow de resgate por e-mail (F-15) — foi justificada
+com "9 de 50 sem telefone, 39 com e-mail (78% da base)". Cruzei as duas
+populações contato por contato:
+
+| | |
+|---|---|
+| Sem telefone | 9 |
+| Desses, **com** e-mail | **1** — e é um lead de teste do Meta |
+| Desses, **sem** e-mail | 8 |
+| Leads reais de Instagram sem telefone **e** sem e-mail | 5 |
+
+**O resgate alcançaria zero lead real.** E não é coincidência, é estrutural: o
+formulário do Meta coleta telefone **e** e-mail juntos, então quem vem por ali
+tem os dois; quem não tem telefone veio por **DM de Instagram**, que não coleta
+nenhum dos dois. As populações são quase disjuntas **por construção do canal de
+origem**.
+
+**Isto é o ponto 4 do checklist numa forma nova.** Até hoje ele aparecia como
+"os dois lados de uma razão têm de vir da mesma população" — uma regra sobre
+métricas. Aqui não havia razão nenhuma: havia uma **cobertura de canal medida
+no conjunto todo** sendo usada para dimensionar uma **solução para um
+subconjunto**. Mesma falha, sem divisão nenhuma à vista.
+
+**A pergunta que pega isso em uma linha:** antes de usar um percentual para
+justificar uma solução, perguntar **"esse percentual foi medido exatamente nas
+linhas que a solução vai tocar?"** Aqui bastava filtrar por `phone is null`
+antes de contar e-mail — uma condição a mais no mesmo laço.
+
+**E o corolário que salva o trabalho:** o e-mail não é inútil, está no público
+errado. Os 39 com e-mail são justamente os que **têm** telefone — ali e-mail é
+canal **adicional** e barato, que não consome o teto da rampa F-14. O resgate
+de verdade, para os 5 do Instagram, só existe pelo **DM do Instagram**. Uma
+solução no público certo e um público sem solução, separados — em vez de uma
+solução aparentemente completa que não toca ninguém.
+
+## E o mesmo erro, meu, na mesma rodada: rebaixei a Etapa B que eu tinha vendido — 22/09/2026
+
+Propus ao dono corrigir `country`/`timezone` em 49 contatos dizendo que
+"afeta janela de horário de workflow e validação de número". **As duas metades
+estavam refutadas dentro do projeto**, na Tabela L do `CONFERENCIA-CAMPOS.md`:
+a especificação usa fuso **da subconta** por decisão explícita (D-02), nenhum
+nó lê fuso do contato; e o W19/Number Validation saiu por decisão do dono, então
+não havia o que destravar.
+
+Pior: **citei a Tabela L nessa mesma rodada**, para a distinção
+`contact.country` vs `location.country`, e não carreguei a conclusão dela para
+a minha própria proposta. É o ponto 12 do checklist aplicado a mim — ler um
+documento não é o mesmo que propagar o que ele conclui, e a distância entre as
+duas coisas é onde este projeto erra desde o começo.
+
+Sobra higiene de dado, com o risco real que a Tabela L aponta (workflow futuro
+que escolha "fuso do contato" cai em fallback silencioso). Barato, reversível,
+**sem urgência** — e eu apresentei como a coisa mais fácil de aprovar.
+
 ## Leitura completa de 22/09: a máquina está construída e a esteira não está ligada — 22/09/2026, sessão na nuvem
 
 O dono pediu leitura completa antes de implementar. Três achados que nenhuma

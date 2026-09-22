@@ -135,10 +135,31 @@ lotes. É o que faz os 20 workflows publicados começarem a rodar.
 **Decisão necessária:** tamanho do lote. Ver a conta da rampa F-14 — 6/dia
 devolve a curva segura, 10-13/dia estoura o teto da semana 1 no dia 2.
 
-### Etapa B — consertar o país e o fuso dos 49 contatos restantes
-`country: US` + `timezone: vazio` em base 100% brasileira afeta janela de
+### Etapa B — consertar o país e o fuso dos 49 contatos restantes — **rebaixada**, era o item que eu tinha vendido como o mais fácil de aprovar
+
+~~`country: US` + `timezone: vazio` em base 100% brasileira afeta janela de
 horário de workflow, validação de número (W19) e qualquer nó que use fuso do
-contato. É reversível e não destrutivo.
+contato.~~
+
+**Corrigido em 22/09/2026, 21:25 UTC — eu superestimei esta etapa, e a medição
+que me refuta já estava no projeto.** A Tabela L do `CONFERENCIA-CAMPOS.md`
+tinha fechado os dois lados antes de eu escrever isto:
+
+| O que eu afirmei | O que a Tabela L já tinha medido |
+|---|---|
+| "afeta janela de horário de workflow" | **Não afeta.** A decisão D-02 e a seção 2.4 mandam usar fuso **da subconta**, com a justificativa explícita "não use fuso do contato: o SDR trabalha no fuso dele". Nenhum nó lê fuso do contato, então o `null` não quebra nada |
+| "afeta validação de número (W19)" | A Tabela L registrou isso como **conferência acoplada ao R-13, não afirmação** — e o W19 saiu **por decisão do dono** (`c945077`), então não há o que destravar |
+
+**O que sobra, honestamente:** higiene de dado. Uma base brasileira marcada
+como americana está errada, e a própria Tabela L aponta o risco real — se
+algum workflow futuro escolher "fuso do contato" num `Wait` ou numa janela de
+envio, cai em fallback silencioso. Isso é **prevenção**, não conserto: barato,
+reversível e **sem urgência nenhuma**. Não deve ser a primeira coisa a
+aprovar, e eu a apresentei como se fosse.
+
+O erro de método foi o ponto 12 do meu próprio checklist: a conclusão existia
+num documento (Tabela L), eu citei essa mesma tabela para outra coisa na mesma
+rodada, e não carreguei a conclusão dela para dentro da minha proposta.
 
 ### Etapa C — enriquecer `Empresa`
 O campo está vazio em 100% da base (Tabela J). Muitos nomes de lead do Meta
@@ -146,10 +167,13 @@ carregam o nome do negócio (`Zenilson Fonseca, Serviços E Instalações`,
 `Ana Ruth / Especialista em Cabelos`, `TINTIM | Rastreie suas conversas`).
 Dá para extrair e gravar por API, com revisão do dono numa lista antes.
 
-### Etapa D — rota para os 9 sem telefone
-Numa operação 100% telefone eles são inalcançáveis. Opções: responder por
-Instagram DM (5 deles), campanha de e-mail (Etapa E), ou marcar como
-inaproveitável com motivo registrado.
+### Etapa D — rota para os 9 sem telefone — **agora com o número que faltava**
+Numa operação 100% telefone eles são inalcançáveis. Medido em 22/09, 21:25:
+dos 9 sem telefone, **1 tem e-mail** (e é lead de teste do Meta) e **8 não
+têm**; os 5 leads reais do Instagram não têm telefone **nem** e-mail. Então
+"campanha de e-mail" **não é rota para este público** — o único canal que os
+alcança é o **DM do Instagram**. Isso derruba a premissa do F-15; correção
+completa na seção 2.30 do `build-wesales.md`.
 
 ### Etapa E — canal de e-mail (não disputa a rampa do telefone)
 Criar templates por API a partir da `biblioteca-mensagens.md`, com sequência

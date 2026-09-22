@@ -2471,6 +2471,49 @@ G-03/G-04/F-09/F-10 seguem aguardando o dono.
 
 ### F-15 · Lead sem telefone recicla de 90 em 90 dias sem nunca ser procurado — a régua é 100% telefone e o canal e-mail (78% da base) nunca foi usado — **FEITO em 22/09/2026 (especificação)**
 
+> **Medido em 22/09/2026, 21:25 UTC — o ciclo é real, e o e-mail não o fecha.**
+>
+> Conferi o payload publicado e o ciclo existe exatamente como descrito: nó 3
+> da `Cadência 12x30` (`contact_detail / phone / has_no_value`) → nó 10
+> (`status = abandoned`) → nó 11 (tag `nutricao-90d`); e o nó 1 do
+> `Reengajamento 90 dias` recicla em `opportunities / status == abandoned`.
+> Quem não tem telefone volta, bate no mesmo portão e volta ao mesmo lugar.
+> **O diagnóstico está certo.**
+>
+> **A solução é que não alcança ninguém.** O "78% da base tem e-mail" é
+> verdade sobre a base **inteira** — e a base inteira tem telefone. Cruzando
+> as duas populações, contato por contato:
+>
+> | | |
+> |---|---|
+> | Contatos sem telefone | 9 |
+> | Desses, **com** e-mail | **1** — e é `<test lead: dummy data…>`, lead de teste do Meta |
+> | Desses, **sem** e-mail | **8** |
+> | Leads reais do Instagram sem telefone **e** sem e-mail | **5** |
+>
+> O `F-15` resgataria **zero lead real**. E não é azar: é estrutural. O
+> formulário do Meta coleta telefone **e** e-mail juntos, então quem veio por
+> ali tem os dois; quem não tem telefone veio por **DM de Instagram**, que não
+> coleta nenhum dos dois. As duas populações são quase disjuntas por
+> construção do canal de origem.
+>
+> **O que fica valendo, separado em duas coisas que estavam juntas:**
+>
+> 1. **Fechar o ciclo** continua necessário e não depende de e-mail. O nó 1 do
+>    R-08 precisa distinguir **por que** o lead virou `abandoned`: se foi o
+>    portão de telefone (tag `telefone-invalido`, aplicada no nó 6 da 12x30),
+>    reciclar não produz tentativa — é só queimar 90 dias e repetir. Portão
+>    novo no R-08, antes de reativar: `telefone-invalido` **presente** →
+>    encerra sem reciclar, pela saída limpa do nó 3b.
+> 2. **E-mail continua uma boa ideia — para outro público.** Os 39 contatos
+>    **com** e-mail são justamente os que têm telefone: ali o e-mail é canal
+>    **adicional** (toque barato que não consome o teto da rampa F-14), não
+>    resgate. Vale manter `EM-1`/`EM-2`, mudando o público-alvo declarado.
+> 3. **Quem realmente precisa de rota são os 5 do Instagram**, e o único canal
+>    que os alcança é o **DM do Instagram** — conectado e vivo na subconta
+>    (página `O Próximo Cliente`). Isso é decisão de operação (quem responde e
+>    em quanto tempo), não workflow de e-mail.
+
 **Por quê:** achado em `ESTADO-E-PLANO.md` (nova leitura completa da
 subconta pedida pelo dono, 22/09/2026, commit `cdaef2d`) e aprofundado
 nesta rodada. O portão 0.0/0.0b (seções 2.3/2.10 do `build-wesales.md`)
