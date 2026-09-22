@@ -46,7 +46,7 @@ async function abreEEscolhe(page, valorAtualRe, opcaoRe, rotulo, filtro) {
   if (!nome || !tipo) { console.log('uso: node create_field.js "<Nome>" "<Tipo>" [ph]'); process.exit(1); }
 
   const ctx = await chromium.launchPersistentContext(PROFILE, {
-    headless: false, viewport: { width: 1600, height: 1000 },
+    headless: process.env.HEADED ? false : true, viewport: { width: 1600, height: 1000 },
   });
   const page = ctx.pages()[0] || await ctx.newPage();
   await page.goto(`https://app.wesalescrm.com/v2/location/${LOC}/settings/fields`,

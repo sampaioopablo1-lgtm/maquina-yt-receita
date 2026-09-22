@@ -1,0 +1,112 @@
+{
+  "workflow": {
+    "_id": "63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Monitor de Capacidade",
+    "version": 5,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d/auto-save-1790103128402",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d%2Fauto-save-1790103128402?alt=media&token=effb0ed7-3aa0-451c-ad77-4b2c3c7fe478",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": false,
+        "disabledAt": "2026-09-22T18:37:53.041Z"
+      }
+    },
+    "createdAt": "2026-09-22T18:34:22.089Z",
+    "updatedAt": "2026-09-22T18:52:08.598Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d/5",
+    "window": null,
+    "workflowNote": null,
+    "updatedBy": "JdvhvOTEBTvUyRi0BXU8",
+    "autoSaveSessionId": "db8d6c9e-c093-43f0-b3b7-b58a2d46170f",
+    "id": "63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "2ead5053-0332-4210-95dc-a484bb663bae",
+          "name": "Avisar o gestor para conferir a fila do dia",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Confira a fila de hoje: a meta é no máximo 100 tarefas por dia. Abra Contatos → Smart Lists → \"Fila do Dia — Total\". Se passou de 100, tire leads da cadência ou redistribua antes do fim do expediente.",
+              "title": "Fila do dia — conferir capacidade",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 0,
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "XNeDGNmwxCubq1oAaUlE",
+      "date_updated": "2026-09-22T18:52:07.047Z",
+      "date_added": "2026-09-22T18:52:07.047Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "scheduler.interval",
+          "value": "cron",
+          "title": "Intervalo",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "scheduler.cron.expression",
+          "value": "0 11,15 * * 1-5",
+          "title": "Expressão Cron",
+          "type": "input"
+        }
+      ],
+      "type": "scheduler_trigger",
+      "masterType": "highlevel",
+      "workflow_id": "63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Scheduler",
+      "belongs_to": "workflow",
+      "schedule_config": {}
+    }
+  ]
+}

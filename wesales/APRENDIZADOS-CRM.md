@@ -2,6 +2,36 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O gatilho `Scheduler` não estava oculto — a via certa é o intervalo `Cron`, e o fuso é o da subconta — 22/09/2026, sessão do PC
+
+A dúvida "o `scheduler_trigger` pode estar oculto para esta conta" (W18) caiu:
+ele aparece na busca de gatilhos (categoria Eventos). O painel oferece
+`Intervalo` = A cada hora / Diariamente / Semanalmente / Mensalmente / **Cron**.
+Semanal pede dias e horários em dois seletores clicáveis; **Cron** é um campo
+de texto só (`placeholder="Valor"`), portanto determinístico por script.
+
+Gravado no W18 (`63cbb270-…`): `0 11,15 * * 1-5`. Formato que a API devolve:
+
+```
+conditions: [{field: "scheduler.interval", value: "cron"},
+             {field: "scheduler.cron.expression", value: "0 11,15 * * 1-5"}]
+```
+
+O cron roda no fuso da subconta — lido pela API: `timezone = America/Sao_Paulo`.
+A própria tela avisa que **expressões que disparam mais de uma vez por hora
+não são aceitas**.
+
+Também conferido nesta rodada: `Habilitar Transcrição de Chamadas` está
+**ligada** (Sistema de telefonia → Voz → Transcrição de chamada). O gatilho do
+W20 está gravado com `call_type == call` e `call_direction == outbound`.
+
+**Publicar ficou com o dono:** o classificador de permissões do Claude Code
+bloqueou o `PUT status=published` do W18 e do W20 ("Production Deploy"). Os
+dois ficam em rascunho, prontos. Pendente do W20 que ainda vale: pré-requisito
+6 (zerar `Conexão real` antes de cada tentativa, nos workflows 2.4/2.10 já
+publicados) e gravação ligada **por número** — sem ela não há transcrição e o
+W20 nunca dispara.
+
 ## A prova que destravou o C-14 não existe — os dois carimbos da base guardam a string `sim` — 22/09/2026, sessão automática
 
 A rodada anterior restaurou o nó do `Data e hora do sinal` (C-14) com um

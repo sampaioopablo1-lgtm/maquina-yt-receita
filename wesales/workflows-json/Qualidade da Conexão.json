@@ -1,0 +1,365 @@
+{
+  "workflow": {
+    "_id": "5fbb2e5d-88f5-4d84-a7ec-4c87c7078198",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Qualidade da Conexão",
+    "version": 6,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/5fbb2e5d-88f5-4d84-a7ec-4c87c7078198/6",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F5fbb2e5d-88f5-4d84-a7ec-4c87c7078198%2F6?alt=media&token=b9319e11-778f-4573-82cc-152cba1e307f",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": false,
+        "disabledAt": "2026-09-22T17:21:19.718Z"
+      }
+    },
+    "createdAt": "2026-09-22T17:14:34.894Z",
+    "updatedAt": "2026-09-22T18:31:11.578Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/5fbb2e5d-88f5-4d84-a7ec-4c87c7078198/5",
+    "window": null,
+    "workflowNote": null,
+    "senderAddress": null,
+    "id": "5fbb2e5d-88f5-4d84-a7ec-4c87c7078198",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "22c80ac4-fa9b-4354-8ee7-e0c708df1025",
+          "name": "1. Gravar a duração da ligação",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "PLjkuvnoDk7Hvt4qv0a8",
+                "value": "{{transcript_generated.call_duration}}",
+                "title": "Duração da ligação",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "next": "7e9e8f93-ba3a-46e5-a48e-29448df230ca",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "7e9e8f93-ba3a-46e5-a48e-29448df230ca",
+          "name": "2. Contar +1 ligação com transcrição",
+          "type": "math_operation",
+          "attributes": {
+            "selectField": "JejovPl6Vf0SBtAiVIpw",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "JejovPl6Vf0SBtAiVIpw",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "+",
+                "__id": "95148271-c6e5-490c-9fe9-c28e35f915fb",
+                "value": 1
+              }
+            ]
+          },
+          "order": 1,
+          "parentKey": "22c80ac4-fa9b-4354-8ee7-e0c708df1025",
+          "next": "64106625-4ac6-4c28-a2be-0d6c9ee2ee5b",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "64106625-4ac6-4c28-a2be-0d6c9ee2ee5b",
+          "order": 2,
+          "name": "3. A ligação durou 60s ou mais?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45",
+            "59fe41da-184f-4745-b3ef-ebfc0dccadd4"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "2f8cb352-e36f-4d60-b3d0-74c73e36a2df",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "PLjkuvnoDk7Hvt4qv0a8",
+                        "conditionOperator": ">=",
+                        "conditionValue": "60",
+                        "__conditionId": "12a94da2-32f4-4528-a4f2-49f7b7fae0ce",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parentKey": "7e9e8f93-ba3a-46e5-a48e-29448df230ca",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45",
+          "parent": "64106625-4ac6-4c28-a2be-0d6c9ee2ee5b",
+          "parentKey": "64106625-4ac6-4c28-a2be-0d6c9ee2ee5b",
+          "order": 3,
+          "name": "Sim — durou 60s ou mais",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "59fe41da-184f-4745-b3ef-ebfc0dccadd4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "f748992e-5755-4edd-9f7b-b98bef2d4948",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "59fe41da-184f-4745-b3ef-ebfc0dccadd4",
+          "parent": "64106625-4ac6-4c28-a2be-0d6c9ee2ee5b",
+          "parentKey": "64106625-4ac6-4c28-a2be-0d6c9ee2ee5b",
+          "order": 3,
+          "name": "Não — durou menos",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "d36220b5-1f28-40ca-b64e-d02c209377a6",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "f748992e-5755-4edd-9f7b-b98bef2d4948",
+          "name": "4. Conexão real = Sim (falou 60s ou mais)",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "7wtFfDDxOpYCfHzBsZXP",
+                "value": "Sim",
+                "title": "Conexão real",
+                "type": "select",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "parent": "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45",
+          "parentKey": "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45",
+          "next": "3898ce7a-cb29-4881-be16-f200bd217545",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "3898ce7a-cb29-4881-be16-f200bd217545",
+          "name": "6. Contar +1 conexão real no telefone",
+          "type": "math_operation",
+          "attributes": {
+            "selectField": "2BSLMqty4LEwdoyNTdU8",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "2BSLMqty4LEwdoyNTdU8",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "+",
+                "__id": "94635589-e525-4582-8dbb-d95ad698e4ea",
+                "value": 1
+              }
+            ]
+          },
+          "order": 1,
+          "parent": "bfd89108-17a9-4f4e-afa9-f1fcab1a8a45",
+          "parentKey": "f748992e-5755-4edd-9f7b-b98bef2d4948",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "d36220b5-1f28-40ca-b64e-d02c209377a6",
+          "name": "5. Conexão real = Não (menos de 60s)",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "7wtFfDDxOpYCfHzBsZXP",
+                "value": "Não",
+                "title": "Conexão real",
+                "type": "select",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "parent": "59fe41da-184f-4745-b3ef-ebfc0dccadd4",
+          "parentKey": "59fe41da-184f-4745-b3ef-ebfc0dccadd4",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "ad4uCCOEf4CsNiHGkPQk",
+      "date_added": "2026-09-22T17:59:49.039Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "5fbb2e5d-88f5-4d84-a7ec-4c87c7078198",
+          "type": "add_to_workflow"
+        }
+      ],
+      "type": "transcript_generated",
+      "masterType": "internal",
+      "workflow_id": "5fbb2e5d-88f5-4d84-a7ec-4c87c7078198",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Transcript Generated",
+      "belongs_to": "workflow",
+      "workflowsTriggerType": "INTERNAL",
+      "schedule_config": {},
+      "date_updated": "2026-09-22T18:30:46.886Z",
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "call_type",
+          "value": "call",
+          "title": "Type",
+          "type": "select",
+          "id": "call_type"
+        },
+        {
+          "operator": "==",
+          "field": "call_direction",
+          "value": "outbound",
+          "title": "Direction",
+          "type": "select",
+          "id": "call_direction"
+        }
+      ]
+    }
+  ]
+}
