@@ -2119,6 +2119,26 @@ tag, zero escrita no CRM: item de especificação pura, não depende de
 
 ### F-11 · Lead que reenvia o formulário do Meta depois de sair do funil é invisível para a máquina inteira — **FEITO em 22/09/2026**
 
+> **Conferido no mesmo dia** (`build-wesales.md`, "Conferência do F-11"): o
+> desenho está certo onde importa (o portão do nó 1 resolve a corrida com a
+> Porta de Entrada; a interação com o R-08 foi checada contra o portão real
+> dele). Três acréscimos. (a) A dúvida do "sem filtro" se resolve **a favor de
+> um workflow só**: a recomendação de boas práticas diz para evitar o gatilho
+> sem filtro *"a menos que todos os formulários pertençam ao mesmo pipeline e
+> etapa"* — o que implica que sem filtro é possível, e descreve exatamente este
+> caso (os oito formulários caem em `FUNIL DE VENDAS`/`NOVO LEAD`). A pendência
+> das 8 cópias provavelmente não existe. (b) **Faltava o reset de rodada**: o
+> lead voltava para `NOVO LEAD` com `Tentativa nº` = 12, `WA não atendidas
+> seguidas` estourado, `Resultado da tentativa` antigo e `Prioridade`
+> rebaixada — a régua encerraria na entrada, o WhatsApp nasceria bloqueado e o
+> lead que deu o sinal mais forte receberia o pior tratamento. O nó 3 do R-08 já
+> tem os seis campos prontos para copiar; entra como nó 3b. (c) **`telefone-
+> invalido` é aplicada em dois nós e removida em nenhum** — e a resubmissão mais
+> provável é "meu telefone estava errado, corrigi", o que torna a tag falsa no
+> instante em que o número novo entra. Entra na limpeza do nó 4; `nao-perturbe`
+> fica fora de propósito, é o portão de consentimento.
+
+
 **Por quê:** um lead com oportunidade `abandoned`/`lost` (12 tentativas
 esgotadas, número errado, desqualificado) que **preenche de novo** o mesmo
 anúncio do Meta está dando o sinal de reengajamento mais forte que existe —

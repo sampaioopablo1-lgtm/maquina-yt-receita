@@ -520,6 +520,76 @@ duplicada, nenhuma mudança necessária no R-08. É o mesmo tipo de garantia
 que a migração do G-02 já deixou espalhada pelo documento (checar estado ao
 vivo, não confiar em quando um evento aconteceu).
 
+#### Conferência do F-11, 22/09/2026 (mesma rodada): falta o reset que o R-08 tem, e a tag que ninguém remove
+
+O desenho está certo onde importa — o portão do nó 1 resolve a corrida com a
+Porta de Entrada sem precisar distinguir "sem oportunidade" de "já `open`", e a
+interação com o R-08 foi conferida contra o portão real dele, não suposta. Três
+acréscimos.
+
+**1. A dúvida do "sem filtro" se resolve, e a favor de um workflow só.** A
+ressalva de confiança média sobre `Facebook Lead Form Submitted` cobrir todos os
+formulários de uma vez tem resposta na própria recomendação de boas práticas que
+a pesquisa desta rodada trouxe: *evite um gatilho que aceite todo formulário do
+Facebook de toda oferta **a menos que todos pertençam ao mesmo pipeline e
+etapa***. Isso (a) implica que o gatilho **aceita** ficar sem filtro, senão não
+haveria o que evitar, e (b) descreve a exceção que é exatamente este caso — os
+oito formulários desta subconta alimentam **o mesmo** pipeline (`FUNIL DE
+VENDAS`) e **a mesma** etapa (`NOVO LEAD`). Então a pendência das "8 cópias"
+provavelmente não existe: monte **um** workflow sem filtro de formulário. Se a
+tela exigir escolher um, aí sim as cópias — mas não planeje para isso.
+
+**2. Falta o reset de rodada, e o R-08 já tem o nó pronto para copiar.** O nó 3
+reabre a oportunidade e o nó 4 tira `nutricao-90d`, mas **nenhum campo de
+contador é zerado.** O lead volta para `NOVO LEAD` carregando o estado do fim da
+régua anterior:
+
+| Campo, como fica | Efeito quando o SDR promover para `CONECTAR` |
+|---|---|
+| `Tentativa nº` = 12 | A cadência pode encerrar na entrada — a régua tem 12 tentativas, e ele já está na 12ª |
+| `WA não atendidas seguidas` ≥ 2 | O seletor de canal (nó 4 da 2.4) manda direto para telefone, **do primeiro toque**, porque o contador ainda está estourado |
+| `Resultado da tentativa` = valor antigo (`Não atendeu`, `Número errado`…) | O nó 10 decide pelo valor velho; e o Pós-ligação pode não disparar na primeira classificação nova, se o SDR escolher o **mesmo** valor que já está lá (gatilho é *mudança* de campo) |
+| `Prioridade` = 1 ou 2 (rebaixada no fim da régua) | O lead que acabou de levantar a mão entra no fim da fila |
+
+Ou seja: **o lead que deu o sinal mais forte que existe recebe o pior tratamento
+da máquina.** O R-08, que faz a mesma coisa (reativar um lead que saiu), já
+resolve isso no nó 3 dele (seção 2.12) — copie literalmente:
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 3b | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
+
+Mesmos seis campos, mesmo motivo, e entra **entre** os nós 3 e 4 — antes de o
+lead ficar visível na fila do SDR.
+
+**3. `telefone-invalido` é aplicada em dois lugares e removida em nenhum — e
+esta é a resubmissão mais provável de todas.** `grep` confirma: a tag nasce no
+nó 0.0b da 2.4 e da 2.10, e **nenhum** nó do documento a remove. Agora junte com
+o caso de uso: **por que um lead reenviaria o formulário?** O motivo número um é
+que o telefone estava errado e ele corrigiu. A resubmissão traz telefone novo,
+que a HighLevel escreve no contato existente — e no mesmo instante a tag
+`telefone-invalido` passa a ser **factualmente falsa**, num contato que ela
+ainda marca, alimentando a lista de higiene do R-13.
+
+O nó 4 é o único lugar do projeto que pode limpá-la:
+
+| # | Nó | Ação |
+|---|---|---|
+| 4 | Limpeza de estado antigo | Remove Contact Tag: `nutricao-90d` **e `telefone-invalido`** |
+
+**O trade-off, declarado em vez de escondido:** se o telefone reenviado for o
+mesmo número errado, remover a tag perde a informação. Recomendo remover de todo
+jeito, porque o sistema se autocorrige — a próxima tentativa classificada como
+`Número errado` reaplica a tag pelo caminho normal — enquanto uma tag "inválido"
+grudada num contato cujo telefone acabou de ser atualizado não se corrige nunca e
+contamina a higiene. É uma escolha, não um fato; se o dono preferir o contrário,
+é uma linha a menos.
+
+**`nao-perturbe` continua fora dessa limpeza, de propósito** — é o portão de
+consentimento do nó 2, e apagá-la aqui transformaria uma resubmissão de
+formulário em revogação automática de opt-out, que não é o que um clique em
+anúncio significa.
+
 **Zero campo, zero tag novos:** reaproveita `status`, etapa, `nao-perturbe`
 e `nutricao-90d`, todos já existentes. Não depende de `APROVADO.md` para a
 especificação; a montagem na tela (workflow não sai por API) segue a mesma

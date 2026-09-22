@@ -1466,7 +1466,8 @@ formulário, mesma lista do G-04 — hoje 8).
 | 2 | If/Else | tag `nao-perturbe` presente → 2b · None → 3 | |
 | 2b | Internal Notification (ao gestor) | `{{contact.name}} reenviou um formulário do Meta, mas está marcado nao-perturbe — decisão manual sobre reabrir a oportunidade` | fim |
 | 3 | Update Opportunity | Etapa → `[FUNIL DE VENDAS] - NOVO LEAD` · Status → `Open` | 4 |
-| 4 | Remove Contact Tag | `nutricao-90d` | 5 |
+| 3b | Update Contact Field | **Reset de rodada** (conferência de 22/09, copiado do nó 3 do W16/R-08): `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio. **Sem isto o lead volta com `Tentativa nº` = 12 e o contador de WhatsApp estourado — a régua encerra na entrada e o canal já nasce bloqueado** (`build-wesales.md`, "Conferência do F-11") | 4 |
+| 4 | Remove Contact Tag | `nutricao-90d` **e `telefone-invalido`** — a segunda é aplicada em dois nós do documento e removida em nenhum, e a resubmissão mais provável é justamente "meu telefone estava errado, corrigi": a tag fica factualmente falsa no instante em que o telefone novo entra. `nao-perturbe` **não** entra nesta limpeza (é o portão do nó 2) | 5 |
 | 5 | Add Note | `Oportunidade reaberta em {{right_now}} — lead reenviou o formulário do Meta. Reentrada automática (F-11), etapa reiniciada em NOVO LEAD para nova triagem do SDR.` | fim |
 
 **Pré-requisito: nenhum.** Zero campo, zero tag novos — reaproveita
