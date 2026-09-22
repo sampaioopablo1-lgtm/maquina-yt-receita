@@ -2,6 +2,46 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Leitura completa de 22/09: a máquina está construída e a esteira não está ligada — 22/09/2026, sessão na nuvem
+
+O dono pediu leitura completa antes de implementar. Três achados que nenhuma
+rodada anterior tinha, porque nenhuma tinha olhado a base **como base** em vez
+de olhar campo por campo.
+
+**1. 45 das 50 oportunidades estão `open` em `NOVO LEAD`, 37 delas há 3-4
+dias, 44 de 50 contatos sem dono, 33 de 50 sem tag alguma.** Não falta
+automação: 20 workflows publicados, 55 campos, 21 tags, pipeline montado. O
+que falta é o passo que põe o lead na esteira — o L-07/G-03, aberto desde o
+primeiro dia. A `Cadência 12x30` está publicada e correta e não roda para
+ninguém, porque ninguém entra nela. **Construir mais não resolve; ligar
+resolve.**
+
+**2. Instagram está conectado e vivo, e não existe em documento nenhum.**
+Página `O Próximo Cliente`, 5 conversas com DM real, os 5 contatos com
+oportunidade aberta e **nenhum com telefone** — inalcançáveis numa cadência
+100% telefone. Cuidado de leitura aplicado: as mensagens vêm
+`direction: outbound` com `from` = a conta, e uma é pessoal, então **não**
+concluí "lead pedindo preço"; concluí que o canal existe e não é governado.
+
+**3. Nove contatos não têm telefone**, cinco deles os do Instagram. Numa
+operação de um canal só, "sem telefone" é o mesmo que "fora da operação", e
+ninguém tinha contado.
+
+**Duas capacidades e duas armadilhas, medidas:**
+
+| Achado | Detalhe |
+|---|---|
+| `contacts_update-contact` escreve `country` e `timezone` | testado no contato de estrutura: `US`/vazio → `BR`/`America/Sao_Paulo` |
+| `body_tags` no update **sobrescreve todas as tags** | não passar esse parâmetro em update que não seja de tag; no teste eu omiti e as 14 tags sobreviveram |
+| `assignedTo` e `customFields` saem por API | abre atribuição de dono e preenchimento de campo em massa |
+| `calendars_get-calendar-events` devolve 422 **mesmo com `userId`** | o conector não repassa o parâmetro; calendário do closer não é auditável por API |
+
+**A regra de método que isso rendeu:** auditar campo por campo responde "o
+que existe"; auditar a base como população responde "o que está acontecendo".
+O projeto passou dias no primeiro e o gargalo estava no segundo. Contar
+quantos registros estão sem dono, sem tag e parados há quantos dias custa uma
+chamada e reordena a fila de prioridade inteira.
+
 ## Aborto de coleta em ~2s é instalação ruim, não defeito — e eu diagnostiquei antes de medir — 22/09/2026, sessão automática
 
 O CI de `c16c4e0` não deu as 12 falhas de sempre: deu **erro de coleta** em
