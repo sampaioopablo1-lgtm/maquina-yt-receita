@@ -584,6 +584,51 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## O dono criou 5 campos na tela e um merge field já nasceu órfão: travessão vira dois underscores — 22/09/2026
+
+Primeira vez em dias que a montagem manual andou: **5 campos novos** na
+subconta entre 23:15 e 23:33 de 21/09, todos conferindo com a especificação
+em nome, tipo e placeholder — inclusive as escolhas finas de `TEXT` em vez de
+`DATE` onde a hora importa:
+
+| Campo | Tipo | Placeholder | Item |
+|---|---|---|---|
+| `Toques na semana` | NUMERICAL | — | F-04 |
+| `Hora da conexão` | TEXT | `HH` | C-25 / F-02 |
+| `Hora do retorno` | TEXT | `HH:MM` | pendência aberta desde 18/09 |
+| `Checkpoint — Tentativa nº` | NUMERICAL | — | C-27 / F-05 peça 3 |
+| `Checkpoint — Data de retorno` | DATE | — | C-28 / F-05 peça 6 |
+
+Rodei a auditoria de merge field órfão (`grep` dos `contact.*` dos documentos
+contra os 51 `fieldKey` reais) e ela pegou **um**:
+
+```
+contact.checkpoint_data_de_retorno   ← escrito no documento (1 underscore)
+contact.checkpoint__data_de_retorno  ← real na tela      (2 underscores)
+```
+
+O GHL **remove** o travessão (`—`) em vez de transliterar, e os dois espaços
+que o cercavam sobram como dois underscores seguidos. Mesma mecânica que já
+tinha comido os acentos, agora com pontuação. A seção 2.24 foi escrita antes
+de o campo existir, então adivinhou a chave pelo nome — e a chave errada num
+`Wait → Dynamic` não dá erro: o nó lê vazio e o monitor inteiro deixa de
+funcionar em silêncio.
+
+**Regra:** nome de campo com travessão, dois pontos ou parêntese → **crie na
+tela primeiro, leia o `fieldKey` por API, e só então escreva o merge field no
+documento.** E rode a auditoria órfã depois de toda leva de campos novos;
+ela custa dois comandos e é o único jeito de pegar isto antes do primeiro
+lead passar:
+
+```
+grep -rho "contact\.[a-z0-9_]*" wesales/*.md | sort -u > /tmp/usados.txt
+comm -23 /tmp/usados.txt /tmp/reais.txt   # reais.txt = fieldKeys lidos por API
+```
+
+Os quatro "órfãos" restantes são nativos do GHL e esperados:
+`contact.first_name`, `contact.name`, `contact.source`,
+`contact.company_name`.
+
 ## Portão que manda "qualquer outro" para o lado ruim: opção nova de campo nasce com o significado errado — 21/09/2026
 
 O R-18 fechou a lacuna L-08 criando uma opção nova em `Resultado da

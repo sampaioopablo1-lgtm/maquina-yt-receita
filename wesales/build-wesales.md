@@ -2908,12 +2908,29 @@ proteger.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Checkpoint | Update Contact Field | `Checkpoint — Data de retorno` = `{{contact.data_de_retorno}}` (o valor no instante do gatilho) |
-| 2 | Aguardar | Wait → Until specific time, **Dynamic** | Data = `{{contact.checkpoint_data_de_retorno}}` · horário `19:00` (mesma folga de 30 min depois do fim do expediente, 18:30, já usada na peça 2 — dá o dia inteiro para o SDR ligar antes do alerta) |
+| 2 | Aguardar | Wait → Until specific time, **Dynamic** | Data = `{{contact.checkpoint__data_de_retorno}}` (**dois** underscores — o campo foi criado na tela em 21/09/2026 23:33 e o travessão do nome virou nada, deixando os dois espaços como dois underscores; ver nota abaixo) · horário `19:00` (mesma folga de 30 min depois do fim do expediente, 18:30, já usada na peça 2 — dá o dia inteiro para o SDR ligar antes do alerta) |
 | 3 | Portão — a promessa ainda é a mesma? | If/Else | `Data de retorno` (valor atual) **é igual a** `Checkpoint — Data de retorno` → segue (ninguém renovou a promessa desde que este relógio começou). Senão → **encerra** (o gatilho já disparou de novo com a data nova — outra instância está vigiando o valor certo) |
 | 4 | Portão — ainda pendente? | If/Else | `Resultado da tentativa` **é** `Pediu retorno` **E** etapa **é** `CONECTAR` **E** `status` **é** `open` → segue (a data passou sem reclassificação). Senão → **encerra** (o SDR já ligou de volta e classificou por outro caminho, ou o lead saiu de cadência) |
 | 5 | Fila | Add Contact Tag | `retorno-vencido` |
 | 6 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} tinha retorno prometido para {{contact.data_de_retorno}} e ainda não foi reclassificado.` |
 | 7 | Registro | Add Note | `Alerta de saúde: retorno vencido sem nova classificação · {{right_now}}` |
+
+**Chave real dos dois campos Checkpoint, lida do CRM em 22/09/2026 — não
+adivinhe pelo nome:**
+
+| Nome na tela | `fieldKey` real |
+|---|---|
+| `Checkpoint — Tentativa nº` | `contact.checkpoint__tentativa_n` |
+| `Checkpoint — Data de retorno` | `contact.checkpoint__data_de_retorno` |
+
+O GHL **remove** o travessão (`—`) em vez de transliterar, e os dois espaços
+que o cercavam sobram como **dois underscores seguidos**. É a mesma mecânica
+que já tinha comido os acentos (`conexão` → `conexo`, `anúncios` → `anncios`
+— `APRENDIZADOS-CRM.md`), agora com pontuação. Esta seção nasceu com
+`checkpoint_data_de_retorno`, um underscore, escrita antes de o campo existir
+na tela; corrigido em 22/09 pela auditoria de merge field órfão. **Nome com
+travessão, dois pontos ou parêntese: crie na tela primeiro, leia o
+`fieldKey` por API, e só então escreva o merge field no documento.**
 
 **Por que o Checkpoint compara valor, não usa o campo vivo direto no
 portão do nó 3 (mesma lição da peça 3, `Checkpoint — Tentativa nº`):** entre
