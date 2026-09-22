@@ -280,7 +280,7 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Objetivo | Qualificar e agendar com o closer na mesma ligação (briefing-sdr.md, "A máquina") |
 | Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
 | Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
-| Tempo de estagnação | **Gap encontrado ao preencher este bloco, sem monitor ainda:** nenhum relógio hoje mede "atendeu e não agendou em X horas". Registrado como adição ao F-05 (roadmap, ainda no bloco 6 — sem volume não vale construir agora): 24h sem sair de `AGENDAR` |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 5 — seção 2.23) monitora 24h sem sair de `AGENDAR` depois de atender. Esta linha dizia "sem monitor ainda" até 22/09/2026 — ficou parada desde antes de a peça 5 fechar; a mesma ressalva que a linha de `CONECTAR` já dá logo acima |
 | Motivos de perda | ~~**Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa~~ — **L-08 fechada em 21/09/2026 (R-18):** o ramo `Desqualificado` do Pós-ligação (seção 4) sai por `status` antes de chegar em `AGENDAR`, então a maioria dos "sem fit na ligação" nem entra mais nesta etapa. O que resta em `AGENDAR` sem agendar é só "atendeu, era fit, não fechou horário" — o gap de medição da linha abaixo |
 | Taxa de conversão esperada | Com o L-08 fechado, a métrica de `AGENDAR` já mede só "não conseguiu horário" — o motivo "sem fit" saiu antes, pelo ramo `Desqualificado` |
 | Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
@@ -292,7 +292,7 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Objetivo | Comparecimento + veredito de qualificação real do closer, e a negociação em si (proposta, condições) até a decisão de compra — a metade "negociação" não existia no plano de 7 etapas, que a mandava para fora do pipeline |
 | Validação de passagem | `Reunião foi qualificada` preenchida pelo closer (Loop do closer, seção 5.1) para a metade "comparecimento"; para a metade "negociação", decisão do closer registrada como `status = won` (→ `FORMALIZAR`) ou `status = lost` (permanece em `NEGOCIAR` com o status marcado, não some da tela) |
 | Ferramentas | Calendário, Registro de Comparecimento (5.2), Loop do closer (5.1), SLA do Closer — No-show (5.4, R-12); a negociação em si (proposta/condições) é conduzida pelo closer fora dos workflows deste documento |
-| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) **não tem monitor ainda** — gap novo, mesma classe dos dois já registrados nas etapas anteriores; candidato a entrar no F-05 quando ele for construído |
+| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) ficou sem monitor até 22/09/2026: F-05 fechou com seis peças sem incorporar este gap, apesar de citado aqui como candidato desde a etapa ser escrita. Fechado como item próprio, F-13 (roadmap), seção 2.28 abaixo |
 | Motivos de perda | No-show 2x seguido (R-12: `status = lost` mantendo a oportunidade em `NEGOCIAR`, não um "mover para `Descartado`" — migrado nas seções 5.3 e 5.4 em 19/09/2026; este parágrafo dizia "ainda usa a redação antiga e entra na fila" até 21/09, quando a fila já não existia), `Reunião foi qualificada` = `Não` (→ roteamento da seção 5.1, mesma troca de "mover etapa" por "mudar status") |
 | Taxa de conversão esperada | "nota ≥ 70 acerta X%" é exatamente o que a lista `Calibração da Régua` (8.7, F-03) mede |
 | Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `AGENDAR` |
@@ -3931,6 +3931,96 @@ próprios nós.
 
 ---
 
+## 2.28 Monitor de Saúde da Operação — extensão à negociação — F-13
+
+**Por quê:** achado ao conferir a Etapa 3 (`NEGOCIAR`) deste documento, seção
+1.1 acima — a linha "Tempo de estagnação" registrava, desde antes de F-05
+existir, que a metade "comparecimento" tem monitor (R-12, SLA do closer) mas
+a metade "negociação" não. F-05 fechou em 21/09/2026 com seis peças
+(`NOVO LEAD`, `fila-tel`/`fila-wa`, `CONECTAR`, `nao-perturbe` em workflow
+ativo, `AGENDAR`, retorno vencido) e nunca chegou a incorporar esta — o
+"candidato a entrar no F-05" nunca virou peça. O buraco é o mesmo tipo dos
+outros seis: o Loop do closer (seção 5.1,
+ramo `Sim`) registra o veredito e **não move etapa nem status** — "é o
+closer, fora deste workflow, que leva a `FORMALIZAR` quando fechar" (seção
+5.1, ramos do nó 4). Um lead qualificado que o closer nunca mais toca fica
+parado em `NEGOCIAR`/`open` para sempre, sem que nada avise: mesma classe de
+"estrago silencioso" que abriu as seis peças do F-05, aqui na única
+transição da operação (comparecimento → decisão) que sobrou sem relógio.
+
+Mesma pesquisa das peças anteriores: nenhuma das quatro plataformas do
+enunciado (Reev, Meetime, Outreach, Salesloft) expõe alarme proativo para
+"reunião qualificada sem decisão do closer" — todas tratam isso como
+relatório de pipeline (dias em estágio, olhado por quem abre o dashboard),
+não como notificação disparada pelo tempo. Continua sendo engenharia
+interna, não recurso de sales engagement de prateleira.
+
+**Prazo escolhido, e por quê 3 dias e não 24h como a peça 5:** as peças 1, 3
+e 5 usam 24h porque medem passos que dependem só do SDR (revisar fila,
+insistir, fechar horário) — o mesmo dia deveria bastar. Aqui quem decide é o
+**closer**, sobre uma proposta que o próprio lead também precisa avaliar; a
+régua de No-show (seção 5.3) já reconhece esse ritmo mais lento ao dar 4
+tentativas em 4 dias corridos para uma reunião remarcar, e a maioria dos
+leads desta base marca `Urgência` = `Pra ontem` (G-04), o que pesa a favor de
+um prazo curto, não longo. 3 dias corridos fica entre os dois: mais que o
+ciclo de um único dia de trabalho do SDR, menos que o horizonte de 4 dias já
+aceito pela régua mais lenta do projeto. É escolha desta rodada, não medição
+— ajustável na tela sem redesenho (é um único `Wait`), e de baixo risco por
+ser aviso interno ao gestor, não mensagem ao lead (a mesma razão que já
+deixou as peças 1, 3 e 5 decidirem sozinhas, sem esperar o dono, diferente de
+G-03/G-04/F-09, que mudam comportamento visível para o lead ou o volume de
+ligação).
+
+### Workflow "Negociação Estagnada"
+
+#### Gatilho
+**Contact Changed** — filtro: Custom Field `Reunião foi qualificada`
+**alterado**. Mesmo gatilho do Loop do closer (seção 5.1) — os dois reagem
+ao mesmo evento, um registra e roteia na hora, o outro só liga um relógio.
+
+#### Configurações
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | O closer pode corrigir o veredito mais de uma vez; cada alteração para `Sim` merece seu próprio relógio, mesmo motivo do 5.1 |
+| Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, não mensagem ao lead |
+| Stop on Response | Desligado | Não há mensagem ao lead aqui |
+
+#### Nós
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Portão — vale a pena vigiar? | If/Else | `Reunião foi qualificada` **é** `Sim` → segue. Senão (vazio, `Não`, `Parcial`) → **encerra** (os outros três vereditos já saem de `open` na hora, seção 5.1 — nada a esperar) |
+| 2 | Aguardar | Wait → Time Delay | 3 dias corridos |
+| 3 | Portão — ainda pendente? | If/Else | Etapa da oportunidade **é** `NEGOCIAR` **E** `status` **é** `open` **E** `Reunião foi qualificada` **é** `Sim` → segue (3 dias depois do "Sim", o closer não fechou nem descartou, e o veredito não mudou). Senão → **encerra** (fechou `won`, saiu por `lost`/`abandoned`, ou o veredito foi corrigido — os três já passam pelo Mestre de saída, seção 3) |
+| 4 | Fila | Add Contact Tag | `negociacao-estagnada` |
+| 5 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} foi qualificado pelo closer (Sim) há mais de 3 dias e segue em NEGOCIAR sem fechar nem perder. Veredito em: {{contact.data_do_veredito_do_closer}}.` |
+| 6 | Registro | Add Note | `Alerta de saúde: NEGOCIAR sem decisão do closer em 3 dias · {{right_now}}` |
+
+**Por que não precisa de tratamento incondicional no Mestre de saída, ao
+contrário de `novo-lead-estagnado`/`agendar-estagnado` (peças 1 e 5):**
+aquelas duas tags marcam estagnação numa etapa que o nó 1 do Mestre de saída
+trata como no-op (`NOVO LEAD`/`CONECTAR`, junto com `status = open`) — a
+transição normal de saída delas nunca alcança o nó 4. `NEGOCIAR` não está
+nessa lista: toda saída real (fechar `won` → `FORMALIZAR`, mudar `status`
+para `lost`/`abandoned` sem sair da etapa, ou o próprio veredito sendo
+corrigido de `Sim` para outra coisa, que também muda `status` pela seção
+5.1) já é uma transição que o Mestre de saída enxerga pela via normal — basta
+somar a tag à lista já existente do nó 4 (seção 3, abaixo), mesmo tratamento
+de `fila-travada`/`conectar-estagnado`/`retorno-vencido`.
+
+**Limite conhecido:** se o closer corrigir o veredito de `Sim` para `Não`
+sem que isso mude `status` nem etapa — não deveria acontecer, os três ramos
+do nó 4 da seção 5.1 sempre mudam `status` — a tag sobreviveria até a
+próxima saída real. Mesma classe de limite que `retorno-vencido` já aceitou
+(rede de segurança, não garantia absoluta) para uma coincidência tão rara
+quanto essa.
+
+**Pronto quando (F-13):** uma reunião qualificada pelo closer (`Sim`) que
+passa 3 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost` gera aviso ao
+gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
+`NOVO LEAD` a `FORMALIZAR`) que ainda dizia "sem monitor" agora tem um.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
@@ -3972,7 +4062,7 @@ condição que cobre os dois:
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10, quando existir) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12, quando existir) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4), `negociacao-estagnada` (F-13, seção 2.28) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
 
@@ -5555,6 +5645,18 @@ até depois do horário combinado e conferiu de novo, comparando contra o
 `Checkpoint — Data de retorno` congelado no instante do gatilho, antes de
 aplicá-la — mesma garantia de "não é palpite" que as outras quatro listas de
 saúde (8.20-8.23) já seguem.
+
+### 8.28 `Saúde — Negociação Estagnada` — F-13
+| Item | Configuração |
+|---|---|
+| Filtros | tag `negociacao-estagnada` presente |
+| Colunas | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` |
+| Ordenação | `Data do veredito do closer` asc (quem foi qualificado há mais tempo sem decisão aparece primeiro) |
+
+A tag só existe porque o workflow da seção 2.28 (F-13) já esperou 3 dias
+corridos desde o veredito `Sim` e conferiu de novo (etapa, `status` e o
+próprio veredito) antes de aplicá-la — mesma garantia de "não é palpite" que
+as listas de saúde 8.20-8.24 já seguem.
 
 ### 8.25 `Entrada do Dia` — F-10
 

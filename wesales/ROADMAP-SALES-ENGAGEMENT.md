@@ -2249,6 +2249,62 @@ especificados e ainda não publicados.
 
 ---
 
+### F-13 · A última metade de etapa sem relógio — reunião qualificada sem decisão do closer não tem monitor — **FEITO em 22/09/2026**
+**Por quê:** `build-wesales.md`, seção 1.1 (Etapa 3 — `NEGOCIAR`), registrava
+desde antes de o F-05 existir que a metade "comparecimento" da etapa tem
+monitor (R-12, SLA do closer) mas a metade "negociação" não — nota deixada
+como "candidato a entrar no F-05 quando ele for construído". F-05 fechou em
+21/09/2026 com seis peças (`NOVO LEAD`, `fila-tel`/`fila-wa`, `CONECTAR`,
+`nao-perturbe` em workflow ativo, `AGENDAR`, retorno vencido) e nunca
+incorporou esta, que ficou represada
+dentro de uma nota de rodapé em vez de virar item — achada só agora, ao
+reler a seção 1.1 inteira (`NOVO LEAD` → `FORMALIZAR`) e conferir, linha de
+"Tempo de estagnação" por linha, se cada etapa tem relógio. Todas as outras
+têm; esta não tinha: o Loop do closer (seção 5.1, ramo `Sim`) registra
+o veredito e não move nem etapa nem `status` — "é o closer, fora deste
+workflow, que leva a `FORMALIZAR` quando fechar" — e um lead qualificado que
+o closer nunca mais toca fica parado em `NEGOCIAR`/`open` sem que nada
+avise. Mesma classe de estrago silencioso que abriu as seis peças do F-05,
+na única transição da operação que sobrou sem monitor.
+**Como:** workflow novo "Negociação Estagnada" — gatilho `Contact Changed`
+(`Reunião foi qualificada` alterado, mesmo evento do Loop do closer),
+portão para `Sim`, `Wait` de 3 dias corridos, portão de confirmação (etapa
+`NEGOCIAR` **e** `status` `open` **e** veredito ainda `Sim`), tag
+`negociacao-estagnada` (21ª tag) e aviso ao gestor. Prazo de 3 dias em vez
+das 24h que as peças 1/3/5 do F-05 usam: aquelas medem passos que dependem
+só do SDR (mesmo dia deveria bastar); aqui quem decide é o closer sobre uma
+proposta que o próprio lead também avalia — mais perto do horizonte de 4
+dias que a régua de No-show (seção 5.3) já aceita para o mesmo tipo de
+decisão mais lenta, e ainda curto porque a maioria dos leads desta base
+marca `Urgência` = `Pra ontem` (G-04). Detalhe nó a nó, incluindo por que a
+tag não precisa de tratamento incondicional no Mestre de saída (diferente
+de `novo-lead-estagnado`/`agendar-estagnado`), em `build-wesales.md`, seção
+2.28; Smart List `Saúde — Negociação Estagnada` especificada na seção 8.28.
+Pesquisado antes de desenhar: mesma varredura de mercado das peças do F-05 —
+nenhuma das quatro plataformas do enunciado (Reev, Meetime, Outreach,
+Salesloft) expõe alarme proativo para "reunião qualificada sem decisão do
+closer"; todas tratam isso como relatório de pipeline (dias em estágio),
+não como notificação disparada pelo tempo.
+**Pronto quando (cumprido):** uma reunião qualificada pelo closer (`Sim`)
+que passa 3 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost` gera aviso
+ao gestor sozinho. Zero escrita no CRM nesta rodada: item de especificação
+pura, a tag nasce `[ ]` em `APROVADO.md` (T-21, `campos-e-tags.md`) e só
+vira `[x]` quando o dono decidir — mesma regra das cinco tags do F-05 que
+ainda esperam aprovação. CRM reconfirmado por API nesta execução:
+`opportunities_search-opportunity`/`opportunities_get-pipelines` seguem em
+50 oportunidades (47 `NOVO LEAD` `open`, 2 `NEGOCIAR` `open`, 1 `NEGOCIAR`
+`lost`, 2 `CONECTAR` `lost` de teste, sem mudança) e
+`locations_get-custom-fields` segue em 51 campos — G-03/G-04/F-09/F-10
+seguem aguardando o dono, sem novidade; a entrada segue sem lead novo desde
+21/09 09:17 (F-10). Duas correções de coerência feitas junto, achadas ao
+reler a mesma tabela que abriu este item: a linha "Tempo de estagnação" da
+Etapa 2 (`AGENDAR`) ainda dizia "sem monitor ainda" apesar de a peça 5 do
+F-05 já cobrir exatamente esse gap desde 21/09/2026 — texto nunca
+atualizado quando a peça fechou; corrigida para apontar para a seção 2.23,
+como a linha da etapa `CONECTAR` já fazia.
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -2711,3 +2767,29 @@ escrito em `build-wesales.md`, seção 8.4) se a tela recusar o segundo nível.
 Detalhe completo, e por que uma quarta rodada de pesquisa não vale a pena
 agora, em `APRENDIZADOS-CRM.md`. Zero campo, zero tag, zero escrita no CRM:
 item de documentação pura, não depende de `APROVADO.md`.
+
+**F-13 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+nova, achada relendo o próprio `build-wesales.md` em vez de procurar fora.**
+CRM reconfirmado sem mudança via API (51 campos, 50 oportunidades — 47
+`NOVO LEAD` `open` + 2 `NEGOCIAR` `open` + 1 `NEGOCIAR` `lost` + 2
+`CONECTAR` `lost` de teste; entrada segue sem lead novo desde 21/09 09:17,
+F-10 sem novidade; G-03/G-04/F-09/F-10 seguem aguardando o dono) — nada para
+o sweep de coerência de sempre corrigir a partir daí. A lacuna veio de
+reler a seção 1.1 (as cinco etapas do funil, cada uma com sua linha "Tempo
+de estagnação") depois de notar que o F-05 fechou citando "seis peças" sem
+nunca explicar por que a nota da Etapa 3 (`NEGOCIAR`) sobre "a metade
+negociação não tem monitor ainda" nunca tinha virado uma sétima peça. Não
+tinha virado porque ninguém tinha voltado a ler aquela nota depois de
+escrevê-la — o
+mesmo padrão de "achado registrado como rodapé, nunca promovido a item" que
+já se repetiu neste documento (F-12 veio do mesmo tipo de releitura, sobre
+`Motivo da desqualificação`). Fechado como F-13: workflow "Negociação
+Estagnada", tag nova `negociacao-estagnada` (21ª, T-21) e Smart List
+`Saúde — Negociação Estagnada` (seção 8.28) — mesmo padrão das seis peças do
+F-05, com prazo de 3 dias em vez de 24h porque quem decide aqui é o closer,
+não o SDR. Corrigida também, na mesma leitura, a nota irmã da Etapa 2
+(`AGENDAR`): dizia "sem monitor ainda" apesar de a peça 5 do F-05 já cobrir
+esse gap desde 21/09/2026 — texto nunca atualizado quando a peça fechou.
+Zero escrita no CRM: item de especificação pura, a tag nasce `[ ]` em
+`APROVADO.md`, mesma regra das cinco tags do F-05 que ainda esperam
+aprovação do dono. Detalhe completo no próprio F-13, acima.

@@ -80,6 +80,7 @@ checa **etapa E status**.
 | `conectar-estagnado` | F-05 peça 3: `CONECTAR` sem tentativa nova em 14 dias | **não** — `[ ]` em `APROVADO.md` |
 | `agendar-estagnado` | F-05 peça 5: `AGENDAR` sem reunião nem descarte em 24h | **não** — `[ ]` em `APROVADO.md` |
 | `retorno-vencido` | F-05 peça 6: `Data de retorno` passou sem reclassificação | **não** — `[ ]` em `APROVADO.md` |
+| `negociacao-estagnada` | F-13: `Reunião foi qualificada` = `Sim` há 3 dias sem `won` nem `lost` | **não** — `[ ]` em `APROVADO.md` |
 
 ### 0.3 Campos personalizados (nome na tela → chave de merge field → tipo → opções exatas)
 
@@ -296,7 +297,8 @@ na hora). Minúsculas, hífen, exatamente como a seção 0.2. Estado: as 15
 primeiras existem (aplicadas ao contato `ZZ TESTE ESTRUTURA`); faltam as
 cinco do F-05 — `novo-lead-estagnado` (W17), `fila-travada` (W17b),
 `conectar-estagnado` (W17c), `agendar-estagnado` (W17d), `retorno-vencido`
-(W17e) — todas `[ ]` em `APROVADO.md`; só saem por API depois do `[x]` do dono.
+(W17e) — e a do F-13, `negociacao-estagnada` (W22) — todas `[ ]` em
+`APROVADO.md`; só saem por API depois do `[x]` do dono.
 
 Três famílias, e a regra de quem mexe:
 
@@ -304,7 +306,7 @@ Três famílias, e a regra de quem mexe:
 |---|---|---|
 | **Fila** (aparece nas listas do dia) | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` | **só workflow**. O SDR nunca aplica nem remove à mão — a fila do dia é consequência da cadência, não decisão |
 | **Estado** (sobrevive à saída de cadência) | `nao-perturbe`, `telefone-invalido`, `nutricao-90d`, `cad-inbound`, `cad-outbound`, `conectado-hoje`, `pausado` | workflow, exceto `pausado` (**SDR**, à mão, para represar um lead sem opt-out) e `cad-inbound` (integração/formulário na entrada) |
-| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20–8.24), não aplica |
+| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido`, `negociacao-estagnada` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20–8.24, 8.28), não aplica |
 
 ## 1.4 Calendário `Reunião com closer` — já existe
 
@@ -420,6 +422,11 @@ Fonte da lógica: `build-wesales.md`, 8.
 | 8.22 | `Saúde — CONECTAR Estagnado` | tag `conectar-estagnado` | Nome · Telefone · Etapa · `Tentativa nº` · `Entrada em` · origem (`cad-inbound`/`cad-outbound`) | — (deve ficar vazia) | Gestor — diário |
 | 8.23 | `Saúde — AGENDAR Estagnado` | tag `agendar-estagnado` | Nome · Telefone · `Data conectado` · Tarefas abertas | `Data conectado` asc | Gestor — diário |
 | 8.24 | `Saúde — Retorno Vencido` | tag `retorno-vencido` | Nome · Telefone · `Data de retorno` · `Prioridade` · Tarefas abertas | `Data de retorno` asc | Gestor — diário |
+| 8.25a | `Entrada — últimas 24h` | `Data de criação` `In the Last` 1 dia (relativo) | Nome · Telefone · Origem (`source`) · Data de criação | Data de criação desc | Gestor — diário |
+| 8.25b | `Entrada — últimos 7 dias` | `Data de criação` `In the Last` 7 dias | idem | idem | Gestor — semanal |
+| 8.26 | `Auditoria — tag sem DND nativo` | tag `nao-perturbe` **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled) | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status | Data de criação desc | Gestor — R-14 |
+| 8.27 | `Auditoria — DND sem tag` | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag `nao-perturbe` ausente | Nome · Telefone · Tags · Etapa/status | Data de criação desc | Gestor — R-14 |
+| 8.28 | `Saúde — Negociação Estagnada` | tag `negociacao-estagnada` | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` | `Data do veredito do closer` asc | Gestor — diário |
 
 Com um segundo SDR: duplicar 8.1, 8.2 e 8.3 por pessoa acrescentando o
 filtro `Atribuído a = <nome>` (o GHL não tem "usuário atual" em lista).
@@ -499,6 +506,7 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 19 | Higiene de Número (opcional) | não existe | Number Validation ligado |
 | 20 | Qualidade da Conexão (F-06) | não existe | campos C-29 a C-32 (`APROVADO.md`), gravação de chamada habilitada |
 | 21 | Reentrada por Formulário (F-11) | não existe | — |
+| 22 | Negociação Estagnada (F-13) | não existe | tag `negociacao-estagnada` (`APROVADO.md`) |
 
 ---
 
@@ -568,7 +576,7 @@ to Workflow` em massa.
 | 2b | Remove from Workflow | `Cadência Inbound` (quando existir) | 2c |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (quando existir) | 3 |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` | 4 |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada`, `conectar-estagnado`, `retorno-vencido` (as três últimas quando existirem) | 5 |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada`, `conectar-estagnado`, `retorno-vencido`, `negociacao-estagnada` (as quatro últimas quando existirem) | 5 |
 | 5 | Add Contact Tag | `limpar-tarefas` | 6 |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` | fim |
 
@@ -1480,6 +1488,41 @@ simule via API mudando o `status` e disparando o fluxo) e confira: etapa
 volta para `NOVO LEAD`, `status` volta para `open`, nota nova no contato,
 tag `nutricao-90d` (se presente) some. Repita com a tag `nao-perturbe`
 aplicada: nada muda na oportunidade, e o gestor recebe a notificação.
+
+---
+
+## W22 · Negociação Estagnada — `build-wesales.md` 2.28 (F-13, fechado em 22/09/2026)
+
+**Gatilho:** `Contact Changed` — Custom Field `Reunião foi qualificada`
+alterado. Mesmo evento do W6 (Loop do closer) — os dois reagem à mesma
+escrita do closer.
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela, 24/7 |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | `Reunião foi qualificada` é `Sim` → 2 · None → FIM | 2 |
+| 2 | Wait → Time Delay | 3 dias corridos | 3 |
+| 3 | If/Else | `Pipeline stage` é `[FUNIL DE VENDAS] - NEGOCIAR` **E** `Opportunity status` é `open` **E** `Reunião foi qualificada` é `Sim` → 4 · None → FIM | 4 |
+| 4 | Add Contact Tag | `negociacao-estagnada` | 5 |
+| 5 | Internal Notification | ao gestor: `{{contact.name}} foi qualificado pelo closer (Sim) há mais de 3 dias e segue em NEGOCIAR sem fechar nem perder. Veredito em: {{contact.data_do_veredito_do_closer}}.` | 6 |
+| 6 | Add Note | `Alerta de saúde: NEGOCIAR sem decisão do closer em 3 dias · {{right_now}}` | fim |
+
+**Pré-requisito:** tag `negociacao-estagnada` (`APROVADO.md`, `[ ]`, T-21).
+Sem tratamento incondicional no Mestre de saída (W3) — diferente de
+`novo-lead-estagnado`/`agendar-estagnado`, `NEGOCIAR` não está na lista de
+no-op do nó 1, então toda saída real já alcança o nó 4 pela via normal
+(somar `negociacao-estagnada` à lista existente basta).
+
+**Teste:** no contato de estrutura ou num contato fictício já em `NEGOCIAR`,
+preencha `Reunião foi qualificada` = `Sim`, reduza o `Wait` para minutos e
+confirme: tag `negociacao-estagnada` aplicada, notificação ao gestor.
+Repita marcando `status = won` (ou `lost`) antes do `Wait` estourar: o nó 3
+deve encerrar sem aplicar a tag.
 
 ---
 

@@ -155,6 +155,13 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       motivo e mesma regra das quatro linhas acima: nasce `[ ]`, vira `[x]`
       quando o dono trocar, num commit que não é o meu.
 
+- [ ] Criar a 21ª tag, `negociacao-estagnada` — nasceu no F-13 (Monitor de
+      Saúde da Operação, extensão à negociação: reunião qualificada pelo
+      closer que passa 3 dias em `NEGOCIAR`/`open` sem virar `won` nem
+      `lost`), especificada em `campos-e-tags.md` (T-21) e `build-wesales.md`
+      (seção 2.28). Mesmo motivo e mesma regra das cinco linhas acima: nasce
+      `[ ]`, vira `[x]` quando o dono trocar, num commit que não é o meu.
+
 - [ ] Criar o campo `Tel não atendidas seguidas` (NUMERICAL) — nasceu no
       F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026): o telefone
       carrega 8 dos 12 toques e é o único canal sem freio próprio, enquanto o
