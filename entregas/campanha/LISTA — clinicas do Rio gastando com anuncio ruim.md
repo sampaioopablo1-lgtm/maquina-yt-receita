@@ -5079,3 +5079,64 @@ LISTA DE ATAQUE: **45 → 46**.
 
 Combos varridos até aqui: + advocacia Barra da Tijuca por área (previdenciário — regra nova:
 advocacia se varre por área do direito, não por bairro).
+
+---
+
+## 🧾 Contabilidade — Rio, por SERVIÇO (varredura de 22/09/2026, 13h)
+
+Termo: `abertura de empresa contabilidade Rio de Janeiro`. **14 anúncios.** A regra
+descoberta em advocacia hoje de manhã — varrer por **serviço**, não pelo nome do nicho —
+vale igual aqui. É o termo mais produtivo que contabilidade já deu.
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Alailton Raze contabilidade e legalização de empresas.** | **A** | título vazio | 21/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1723178228739693) |
+| *(mesma página, nome anterior)* Afr contabilidade e legalização | A | título vazio | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1631825928523232) |
+| **afr_contabilidade** (outra página) | B | 3 anúncios, os 3 com título vazio | 03–07/09/2026 | [ver](https://www.facebook.com/ads/library/?id=3351706071678641) |
+| **PRECISA CONTABILIDADE** | B | título `api.whatsapp.com` | 18/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1950457518955365) |
+| **contabilizando_na_pratica_** | B | `contabilizando_na_pratica_ \|   \|   \|  ` — nome da página e três barras vazias | 11/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1566588261878298) |
+| **Facilite Tecnologia Contábil** | B | título vazio | 26/06/2026 (3 meses) | [ver](https://www.facebook.com/ads/library/?id=1504555890637699) |
+| **Robson Wailant** | **A** | título é só o próprio nome da página | 21/07/2026 (2 meses) | [ver](https://www.facebook.com/ads/library/?id=1010030495120972) |
+
+### O caso AFR: o mesmo contador aparece três vezes, errando igual nas três
+
+Reparei numa coisa olhando os `page_id`: **"Afr contabilidade e legalização de empresas."
+e "Alailton Raze contabilidade e legalização de empresas." são a MESMA página** (id
+1211780232029362). Ela foi **renomeada entre 20 e 21/09** — trocou a sigla pelo nome do
+dono. E existe ainda uma terceira página, `afr_contabilidade` (id 227837610411206), com
+mais 3 anúncios.
+
+Ou seja: **o mesmo negócio rodando anúncio por duas páginas ao mesmo tempo, com 5 peças no
+ar, e as 5 sem título.** E acabou de rebatizar a página para o nome do dono — sinal de
+alguém mexendo na presença digital *agora*, tentando melhorar, sem saber onde está o erro.
+
+É o alvo mais bem qualificado que a lista tem hoje: dono identificado, mexendo no negócio
+esta semana, errando de forma visível e repetida.
+
+### Poluição do termo, registrada
+
+- **Gustavo Tutuca** (17/09, título vazio) — político do RJ, não é contabilidade
+- **Allmed** (2 peças) — curso de medicina
+- Ambos caem no termo por causa de "empresa"/"Rio de Janeiro"
+
+**Quinto e sexto tipo de poluição** do arquivo, junto com curso/formação, distribuidor,
+vaga de emprego e incorporadora: **político** e **curso de outra área**.
+
+### Referências de título bem escrito
+
+- **Adiel Portes - Contabilidade**: `Pagar contador sai mais barato do que pagar multa` —
+  o melhor título de contabilidade do arquivo. Argumento inteiro numa linha, com a dor
+  (multa) e a solução no mesmo fôlego. Serve de modelo pro nosso próprio criativo do
+  conjunto CONTABILIDADE.
+- Salesy Serviços Digitais: `Serviços Contábeis e Digitais` — funcional, sem graça.
+
+### A regra confirmada nos dois nichos que a gente anuncia
+
+Advocacia e contabilidade **não se varrem por bairro nem pelo nome da profissão.** Varre-se
+por **serviço**: abertura de empresa, imposto de renda, MEI, folha de pagamento,
+recuperação de crédito. Mesma lógica das áreas do direito.
+
+LISTA DE ATAQUE: **46 → 52**.
+
+Combos varridos até aqui: + contabilidade Rio por serviço (abertura de empresa — 6 alvos
+novos, regra de varrer por serviço confirmada no segundo nicho).
