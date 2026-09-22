@@ -1244,8 +1244,8 @@ Ligue os dois Waits (1a e 1b) ao **mesmo** nó 2.
 | # | Ação | Configuração exata | Vai para |
 |---|---|---|---|
 | 1 | Wait → Time Delay | 90 dias | 2 |
-| 2 | If/Else | `Opportunity status` é `abandoned` **E** `Tags` inclui `nutricao-90d` **E** `Tags` não inclui `nao-perturbe` → 3 · None → Remove from Workflow (este) | 3 |
-| 3 | Update Contact Field (6 campos) | `Tentativa nº` = `0` · `WA não atendidas seguidas` = `0` · `Resultado da tentativa` = vazio · `Prioridade` = `3` · `Entrada em` = `{{right_now}}` (ou `sim`) · `1ª tentativa em` = vazio | 4 |
+| 2 | If/Else | `Opportunity status` é `abandoned` **E** `Tags` inclui `nutricao-90d` **E** `Tags` não inclui `nao-perturbe` **E** `Tags` não inclui `telefone-invalido` (G-08, 22/09/2026 — sem isto, lead sem telefone reativava a cada 90 dias sem nunca produzir tentativa) → 3 · None → Remove from Workflow (este) | 3 |
+| 3 | Update Contact Field (6 campos) | `Tentativa nº` = `0` · `WA não atendidas seguidas` = `0` · `Resultado da tentativa` = vazio · `Prioridade` = `3` · `Entrada em` = `{{right_now.date}} {{right_now.time}}` (patch cirúrgico aplicado ao vivo em 22/09/2026, `APRENDIZADOS-CRM.md` — o texto antigo aqui, `{{right_now}}`/`sim`, já não é o que está publicado) · `1ª tentativa em` = vazio | 4 |
 | 4 | Remove Contact Tag → Remove Contact Tag → Add Contact Tag → Add Contact Tag | `nutricao-90d` → `cad-inbound` → `cad-outbound` → `reengajamento-ativo` | 5 |
 | 5 | Update Opportunity | Etapa → `CONECTAR` **E** status → `open` (no mesmo nó) | 6 |
 | 6 | Guarda de janela (G-05) | `WhatsApp: Customer Service Window Check` → dentro → 6b · fora → 6c | ramo |
