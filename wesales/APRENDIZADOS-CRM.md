@@ -2,6 +2,35 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O GHL liga pelo WhatsApp — mas só na API oficial, e o lead precisa dar permissão antes — 22/09/2026, sessão do PC
+
+Eu disse ao dono que "ligação de WhatsApp não sai pelo GHL". **Errado** — ele
+corrigiu, e a documentação confirma: *WhatsApp Calling* está em GA (web e app
+LeadConnector ≥ 4.18), com ligação de dentro da conversa, disposição no fim e
+gatilho `Call Details` filtrado por disposição. As regras que mudam o desenho:
+
+| Regra | Valor (docs HighLevel) |
+|---|---|
+| Conexão exigida | número na **API oficial** do WhatsApp Business (Meta); **sem Coexistence** |
+| Limite de mensagens da WABA | tier **2.000+** |
+| Ligação iniciada pela empresa | **só com permissão do lead**, pedida por template (janela fechada) ou mensagem interativa (janela aberta) |
+| Pedido de permissão | máx. **1 a cada 24 h** e **2 em 7 dias** por contato |
+| Validade | temporária **7 dias** ou permanente |
+| Ligações conectadas | até **5 por contato em 24 h**; **100 por número em 24 h** |
+| Revogação automática | **4 ligações seguidas não atendidas** |
+| País | Brasil permitido (bloqueados: EUA, Canadá, Turquia, Egito, Vietnã, Nigéria) |
+| Custo | por minuto, pulsos de 6 s; ligação do cliente é grátis |
+| Gravação / transcrição | **não mencionadas** — não contar com o W20 para essas ligações |
+
+**Consequência para esta conta:** o WhatsApp conectado é **não oficial (QR)**
+— esse recurso não vale para ele. E, mesmo na API oficial, "D1: ligação de
+WhatsApp" para lead frio não existe: o D1 vira **pedir permissão**; a ligação
+só a partir do aceite. O limite de 4 não atendidas casa com o contador `WA não
+atendidas seguidas` que a 12x30 já tem — o teto da régua tem que ficar em 3.
+
+Fontes: help.gohighlevel.com artigos 155000007253 e 155000007989; changelog
+"WhatsApp Calling is now Generally Available (Web + Mobile)".
+
 ## Relógio das cadências corrigido no ar por ajuste cirúrgico — e `{{right_now}}` puro ainda está em 8 notas publicadas — 22/09/2026, sessão do PC
 
 **Aplicado** (o dono escolheu "ajuste cirúrgico" — exceção consciente à regra
