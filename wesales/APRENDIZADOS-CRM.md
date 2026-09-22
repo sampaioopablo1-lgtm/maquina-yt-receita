@@ -2,6 +2,68 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "A plataforma ainda não oferece isso" fechou a pergunta errada — a busca não tinha ido fundo o bastante, não o recurso não existia — F-06, 22/09/2026, sessão automática
+
+A rodada de 21/09/2026 (a mesma que fechou o R-18) tinha lido o F-06
+("qualidade da conexão, não a contagem") como bloqueado: "premissa técnica
+(call duration nativo para o F-06) confirmou que a plataforma ainda não
+oferece isso, sem destravar nada" — uma frase, sem entrada própria neste
+arquivo, sem lista de fontes, sem segunda busca com termos diferentes. É
+exatamente o padrão que a entrada "Premissa negativa..." (abaixo) já tinha
+nomeado para o F-08, na mesma semana: **uma afirmação negativa
+("não existe X") pedia busca própria pelo nome certo, e não teve.**
+
+Três buscas desta rodada, com termos diferentes (`"LC Phone" call duration
+custom field`, `"Call Status Workflow Trigger" duration`, `"Transcript
+Generated" ... minimum call duration`), convergem numa resposta que aquela
+pergunta rasa não achou: o GHL tem um gatilho de workflow chamado
+**`Transcript Generated`** — dispara quando a transcrição de uma chamada
+fica pronta e carrega **duração, direção, localização do autor da chamada e
+horário** como dado do próprio evento. Funciona para chamadas de **Voice
+AI, IVR e LC Phone** (a telefonia nativa do GHL, back-end Twilio) — não é
+recurso de call tracking de terceiro, é nativo da mesma plataforma que o
+F-06 original já citava como "call tracking" sem saber o nome. Pré-requisito
+citado pela fonte: para chamadas LC Phone, **transcrição precisa estar
+ligada em Configurações → Telefone** (em Voice AI já vem ligada por
+padrão) — ação de tela, não de API.
+
+**O que impede fechar o item por inteiro agora, e por que não é o mesmo tipo
+de bloqueio:** o F-08 (seção 2.26 do `build-wesales.md`) já tinha registrado,
+sem resposta, se as 100 ligações/dia da operação saem por **LC Phone** ou
+por **linha própria do SDR**. O `Transcript Generated` só cobre LC Phone (e
+Voice AI/IVR, que este projeto não usa) — se a resposta for "linha própria",
+o gatilho nunca dispara e o F-06 volta à estaca zero. Diferente do bloqueio
+antigo ("a plataforma não oferece"), que era permanente e não tinha saída, este
+é uma pergunta com dono — uma resposta do dono resolve F-06, F-08 e F-09 ao
+mesmo tempo, porque os três citam a mesma lacuna.
+
+**Contradição não resolvida, registrada em vez de escondida:** uma busca
+citou "Call Direction & Call Duration são filtros opcionais" do próprio
+gatilho `Transcript Generated`; outra busca, sobre um gatilho diferente
+(`Call Status`), afirma que filtro nativo de duração **ainda não existe** na
+plataforma (há pedidos abertos em `ideas.gohighlevel.com` pedindo
+exatamente isso). Não achei fonte que resolvesse a contradição para o
+`Transcript Generated` especificamente — por isso o desenho em
+`build-wesales.md` (seção 2.27) **não depende** de o gatilho filtrar por
+duração: lê a duração como dado do evento e decide num `If/Else` comum,
+caminho que funciona com ou sem o filtro nativo.
+
+**Regra prática, reforçando a já escrita para o F-08 com um segundo caso
+concreto:** uma frase de fechamento de item que diz "a plataforma não
+oferece X" sem uma entrada própria neste arquivo (fontes, termos de busca,
+nível de confiança) é sinal de busca rasa, não de resposta definitiva — vale
+reabrir com termos diferentes antes de aceitar como permanente, mesmo que a
+rodada anterior já tenha "confirmado". A diferença entre "não achei" e "não
+existe" continua custando a mesma frase para escrever e levando a decisões
+diferentes.
+
+Zero escrita no CRM. Subconta reconfirmada via
+`opportunities_search-opportunity`/`locations_get-custom-fields`/
+`opportunities_get-pipelines`/`conversations_search-conversation`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
+`NOVO LEAD` + 3 `NEGOCIAR`, 1 `lost` de teste), zero conversa de
+WhatsApp/SMS real — G-03/G-04 seguem aguardando o dono.
+
 ## Uma solução de mercado (americana) e uma solução nacional (mas de outro setor) foram as duas primeiras respostas erradas para a mesma pergunta — F-08, 22/09/2026, sessão automática
 
 > **Leia antes a entrada seguinte** ("Premissa negativa…", mesma data): a

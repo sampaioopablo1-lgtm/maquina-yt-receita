@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (46 + 1 sugerido)
+## Etapa 2 — Campos personalizados (48 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -45,6 +45,8 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-26 | Toques na semana | NUMERICAL | — | Workflow (F-04) |
 | C-27 | Checkpoint — Tentativa nº | NUMERICAL | — | Workflow (F-05) |
 | C-28 | Checkpoint — Data de retorno | DATE | — | Workflow (F-05) |
+| C-29 | Duração da ligação | NUMERICAL | segundos | Workflow (F-06) |
+| C-30 | Conexão real | SINGLE_OPTIONS | Sim, Não | Workflow (F-06) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -146,6 +148,18 @@ minutos, só qual dia foi prometido, granularidade que o par C-14/S-01 já
 usa para o mesmo tipo de campo), campo de uso exclusivo deste workflow,
 escrito no máximo poucas vezes na vida de um lead e sempre espaçado por
 dias — não herda o risco de "contador com dois donos".
+
+C-29 e C-30 fecham a peça 1 do F-06 (`build-wesales.md`, seção 2.27):
+`Duração da ligação` (`NUMERICAL`, segundos) grava o dado que o gatilho
+nativo `Transcript Generated` carrega para toda chamada de LC Phone;
+`Conexão real` (`SINGLE_OPTIONS`: Sim, Não) é o veredito automático — mais
+de 60s conta, menos não conta, mesmo que o SDR tenha marcado `Atendeu`. Os
+dois convivem com `Conexões telefone`/`Conexões WhatsApp`/`Total de
+conexões` (C-06/C-07/C-11/C-12) em vez de substituí-los: aqueles vêm do
+julgamento do SDR no Pós-ligação e continuam alimentando o relatório atual
+até a peça 2 apontar a lista/dashboard para o campo novo. Escrito só pelo
+workflow novo, uma vez por chamada — não herda risco de "contador com dois
+donos".
 
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead

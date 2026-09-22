@@ -131,6 +131,14 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     nó 4 do Mestre de saída (passo 7), os dois atualizados nesta rodada, já
     saem junto se você montar as duas peças a partir desta versão do
     documento
+30. Workflow "Qualidade da Conexão" (seção 2.27, F-06) — por último de
+    todos, condicionado a uma confirmação que ainda não existe: **as
+    ligações desta operação saem por LC Phone?** (mesma pendência sem
+    resposta do F-08/F-09). Se sim, ligue transcrição em Configurações →
+    Telefone antes de montar — sem ela o gatilho `Transcript Generated`
+    nunca dispara. Depende dos campos `Duração da ligação`/`Conexão real`
+    (passo 1). Corrige só a métrica de conexão; não bloqueia nenhum passo
+    anterior desta lista, e nenhum passo anterior depende dele
 
 ---
 
@@ -3355,6 +3363,100 @@ Telecom e as datas do `0303` apareceram de forma convergente em fontes
 independentes, que é o teste que este projeto usa quando a fonte primária
 não abre. Nada aqui foi escrito por dedução.
 
+
+---
+
+## 2.27 Qualidade da Conexão — F-06 (peça 1 de 2, especificada em 22/09/2026)
+
+Destrava o item errado como "esperando volume" desde a primeira versão do
+roadmap: `Atendeu` empacota, na mesma célula do relatório, a ligação de 8
+segundos e a de 8 minutos, e os contadores de conexão (`Conexões
+telefone`/`Conexões WhatsApp`/`Total de conexões`, seção 4) vêm do
+julgamento do SDR no calor da discagem, não de conversa de verdade.
+
+**O achado que destrava, e por que a rodada de 21/09/2026 não o tinha
+achado:** aquela rodada perguntou "existe duração de chamada nativa no
+GHL" e concluiu que não — sem entrada própria em `APRENDIZADOS-CRM.md`,
+sinal de busca rasa, a mesma classe de premissa negativa que o F-08 já
+cometeu duas vezes na mesma semana (`APRENDIZADOS-CRM.md`, "Premissa
+negativa..."). Três buscas desta rodada, com termos diferentes, convergem
+numa resposta que aquela pergunta não achou: o gatilho de workflow
+**`Transcript Generated`** dispara quando a transcrição de uma chamada fica
+pronta e carrega duração, direção e horário como dado do próprio evento —
+funciona para chamadas de **Voice AI, IVR e LC Phone** (a telefonia nativa
+do GHL, back-end Twilio). Este projeto não usa Voice AI nem IVR (seção 6 é
+WhatsApp, não voz), então toda ocorrência do gatilho nesta subconta só pode
+vir de LC Phone. Pré-requisito citado pela fonte: transcrição precisa
+estar **ligada em Configurações → Telefone** para chamadas LC Phone (em
+Voice AI já vem ligada por padrão) — ação de tela, não de API, mesma classe
+de pendência que o Number Validation (seção 2.16) já tem.
+
+**A mesma pendência que o F-08/F-09 já registraram, herdada aqui sem
+solução nova:** nenhum documento do projeto confirma se as 100 ligações/dia
+da operação saem por LC Phone ou por linha própria do SDR (`grep` por `LC
+Phone`/`Twilio`/`discador` em todo o `wesales/` confirma: a seção 2.26 já
+registrou a mesma lacuna). Se for LC Phone, este item funciona como
+especificado abaixo; se for linha própria, `Transcript Generated` nunca
+dispara para essas chamadas e o item volta a depender de call tracking
+externo, do zero. Uma resposta só resolve as três pendências (F-06, F-08,
+F-09) ao mesmo tempo.
+
+**Confiança:** média — a descrição do gatilho ("duration... direction...
+across Voice AI, IVR, and LC Phone calls") apareceu de forma consistente em
+buscas diferentes, mas `help.gohighlevel.com` segue bloqueado pelo proxy
+deste ambiente (lido só por citação de busca) e nada foi testado nesta
+subconta. Um filtro de duração **no próprio gatilho** apareceu numa busca;
+outra busca, sobre um gatilho diferente (`Call Status`), afirma que filtro
+nativo de duração ainda não existe na plataforma — sem fonte que resolvesse
+a contradição para o `Transcript Generated` especificamente, o desenho
+abaixo **não depende dela**: lê a duração como dado do próprio gatilho e
+decide no `If/Else`, caminho que funciona com ou sem filtro nativo de
+duração no gatilho.
+
+### Gatilho
+**`Transcript Generated`**, filtro Direção = `Outbound` se o gatilho
+oferecer (senão o nó 1 abaixo faz o mesmo por `If/Else` — não é redundância
+inútil, é rede de segurança caso o filtro nativo não exista, mesmo
+raciocínio do parágrafo de confiança acima).
+
+### Configurações
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | **Ligado** (uma chamada pode gerar uma transcrição por vez, mas o mesmo lead liga de novo em tentativas futuras) |
+| Janela de envio | Sem janela |
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | If/Else | Direção da chamada é `Outbound` → 2 · Senão → FIM (chamada recebida não é tentativa da cadência) |
+| 2 | Update Contact Field | `Duração da ligação` = duração da chamada (merge field exato do gatilho — **confirmar na tela**, nome não testado nesta subconta) |
+| 3 | If/Else | `Duração da ligação` **é maior ou igual a** `60` → 4 · Senão → 5 |
+| 4 | Update Contact Field | `Conexão real` = `Sim` → fim |
+| 5 | Update Contact Field | `Conexão real` = `Não` → fim |
+
+Não toca nos contadores existentes (`Conexões telefone`/`Conexões
+WhatsApp`/`Total de conexões`, escritos pelo Pós-ligação a partir do
+julgamento do SDR, seção 4) — os dois convivem, e a diferença entre eles é
+o próprio dado que expõe quando o SDR marca `Atendeu` numa ligação curta
+demais para ser conversa.
+
+**Pronto quando (parcial — falta a fiação do relatório, peça 2):** todo
+`Send Call`/discagem feita por LC Phone grava duração real e `Conexão real`
+sem depender do julgamento do SDR no calor da ligação. **O que este item
+ainda não fecha, registrado em vez de inventado:** a lista `Conexão por
+Tentativa` (seção 8.6, R-01) e os widgets de Taxa de Conexão do Dashboard
+(seção 2.17, R-15) continuam lendo `Resultado da tentativa = Atendeu` —
+apontar os dois para `Conexão real = Sim` é a segunda metade do "Pronto
+quando" original do F-06 (`ROADMAP-SALES-ENGAGEMENT.md`), deixada para a
+próxima peça por já ter volume próprio (duas telas a reabrir e testar
+contra os 5 contatos fictícios do checklist, seção 10) e por não bloquear
+nada enquanto isso não acontece: o relatório antigo continua funcionando
+exatamente como hoje, os dois números só passam a conviver.
+
+**Zero escrita no CRM:** os dois campos (`Duração da ligação`, `Conexão
+real`) nascem propostos em `campos-e-tags.md` (C-29, C-30) e `[ ]` em
+`APROVADO.md` — campo personalizado não sai por API, mesma regra de
+sempre.
 
 ---
 

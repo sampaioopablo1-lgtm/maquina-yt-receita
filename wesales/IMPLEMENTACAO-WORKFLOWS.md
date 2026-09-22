@@ -1395,6 +1395,38 @@ Nomes dos status (`Invalid`/`Landline`) a confirmar na tela.
 
 ---
 
+## W20 · Qualidade da Conexão — `build-wesales.md` 2.27 (F-06, peça 1 de 2)
+
+**Pré-condição, ainda sem resposta:** as ligações desta operação saem por
+LC Phone? Mesma pendência do F-08/F-09 (seção 2.26) — se a resposta for
+"linha própria do SDR", este workflow nunca dispara e não vale montar.
+
+**Gatilho:** `Transcript Generated` · Direção: `Outbound`, se o gatilho
+oferecer o filtro (senão o nó 1 faz o mesmo por `If/Else`)
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela, 24/7 |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | Direção da chamada é `Outbound` → 2 · None → FIM | 2 |
+| 2 | Update Contact Field | `Duração da ligação` = merge field de duração do gatilho (**confirmar nome exato na tela** — não testado nesta subconta) | 3 |
+| 3 | If/Else | `Duração da ligação` **é maior ou igual a** `60` → 4 · None → 5 | |
+| 4 | Update Contact Field | `Conexão real` = `Sim` | fim |
+| 5 | Update Contact Field | `Conexão real` = `Não` | fim |
+
+**Pré-requisitos:** campos `Duração da ligação` (C-29) e `Conexão real`
+(C-30) — `[ ]` em `APROVADO.md`. Transcrição ligada em Configurações →
+Telefone (LC Phone; em Voice AI já vem ligada por padrão, mas este projeto
+não usa Voice AI). **Peça 2, ainda não especificada:** apontar a lista
+`Conexão por Tentativa` (8.6) e os widgets de Taxa de Conexão do Dashboard
+(W-do-painel, `build-wesales.md` 2.17) para `Conexão real = Sim`.
+
+---
+
 
 ---
 

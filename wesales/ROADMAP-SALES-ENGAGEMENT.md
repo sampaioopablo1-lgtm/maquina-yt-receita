@@ -1501,7 +1501,7 @@ o incidente da T-15. Subconta reconfirmada: mesmas 5 etapas do `FUNIL DE
 VENDAS`, 46 campos, 50 oportunidades — G-03/G-04 seguem aguardando o dono,
 sem mudança.
 
-### F-06 · Qualidade da conexão, não a contagem
+### F-06 · Qualidade da conexão, não a contagem — peça 1 de 2, especificada em 22/09/2026
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
 minutos. A métrica que importa não é alô, é conversa.
 **Como:** duração da ligação vinda do call tracking; campo `Conexão real` = 
@@ -1509,6 +1509,70 @@ atendeu **e** durou mais de 60s. A taxa de conexão do relatório passa a usar
 esse campo.
 **Pronto quando:** "taxa de conexão" no relatório significa conversa, e o SDR
 não consegue inflar o número desligando rápido.
+
+**Achado que destrava o item — corrige a rodada de 21/09/2026 (a mesma que
+fechou o R-18), que tinha lido este item como "premissa técnica (call
+duration nativo) confirmou que a plataforma ainda não oferece isso, sem
+destravar nada":** essa conclusão veio de uma busca rasa, sem entrada própria
+em `APRENDIZADOS-CRM.md` — exatamente a classe de erro que o próprio F-08
+cometeu duas vezes na mesma semana e que já tem regra escrita contra ela
+("premissa negativa é a mais barata de conferir e a mais cara de errar").
+Três buscas desta rodada, com termos diferentes, convergem: o GHL tem um
+gatilho de workflow chamado **`Transcript Generated`**, que dispara quando a
+transcrição de uma chamada fica pronta e carrega duração, direção e horário
+como dado do próprio evento — e funciona para chamadas de **Voice AI, IVR e
+LC Phone** (a telefonia nativa do GHL). Este projeto não usa Voice AI nem
+IVR, então toda ocorrência do gatilho nesta subconta só pode vir de LC
+Phone. Pré-requisito citado pela fonte: transcrição precisa estar **ligada
+em Configurações → Telefone** para chamadas LC Phone (em Voice AI já vem
+ligada por padrão) — ação de tela, não de API, mesma classe de pendência que
+o Number Validation (seção 2.16) já tem.
+
+**A mesma pendência que o F-08/F-09 já registraram, herdada aqui sem
+solução nova:** nenhum documento do projeto confirma se as 100 ligações/dia
+da operação saem por LC Phone ou por linha própria do SDR. Se for LC Phone,
+este item funciona como especificado abaixo; se for linha própria,
+`Transcript Generated` nunca dispara para essas chamadas e o item volta a
+depender de call tracking externo, do zero. Uma resposta só resolve as três
+pendências (F-06, F-08, F-09) ao mesmo tempo — não é desenhada aqui de novo.
+
+**Confiança:** média — a descrição do gatilho ("duration... direction...
+across Voice AI, IVR, and LC Phone calls") apareceu de forma consistente em
+buscas diferentes, mas `help.gohighlevel.com` segue bloqueado pelo proxy
+deste ambiente (lido só por citação de busca, mesma limitação de sempre) e
+nada foi testado nesta subconta. Um filtro de duração **no próprio gatilho**
+apareceu numa busca; outra busca, sobre um gatilho diferente (`Call
+Status`), afirma que filtro nativo de duração ainda não existe na
+plataforma — sem fonte que resolvesse a contradição para o `Transcript
+Generated` especificamente, o desenho abaixo não depende dela: lê a duração
+como dado do gatilho e decide no `If/Else`, caminho que funciona com ou sem
+filtro nativo.
+
+**Resumo (22/09/2026, peça 1 — especificação do workflow):** workflow novo
+"Qualidade da Conexão" especificado nó a nó em `build-wesales.md`, seção
+2.27, e `IMPLEMENTACAO-WORKFLOWS.md`, W20 — grava a duração real e decide
+`Conexão real` por um limiar de 60s, **sem** tocar nos contadores existentes
+(`Conexões telefone`/`Conexões WhatsApp`/`Total de conexões`, que continuam
+vindo do julgamento do SDR no Pós-ligação): os dois convivem, e a diferença
+entre eles é o próprio dado que expõe quando o SDR marca `Atendeu` numa
+ligação curta demais para ser conversa. Dois campos novos propostos —
+`Duração da ligação` (C-29, NUMERICAL, segundos) e `Conexão real` (C-30,
+SINGLE_OPTIONS: Sim, Não) — em `campos-e-tags.md` e `APROVADO.md`, nascendo
+`[ ]`, mesma regra de todo campo desde o incidente da T-15. **Escopo desta
+rodada, pendência explícita e não lacuna esquecida:** falta apontar a lista
+`Conexão por Tentativa` (seção 8.6, R-01) e os widgets de Taxa de Conexão do
+Dashboard (seção 2.17, R-15) para `Conexão real` — a segunda metade do
+"Pronto quando" original, deixada para a próxima peça por já ter volume
+próprio (duas telas a reabrir e testar contra os 5 contatos fictícios) e por
+não bloquear nada enquanto isso não acontece: o relatório antigo continua
+funcionando exatamente como hoje, os dois números só passam a conviver.
+Zero escrita no CRM nesta rodada. Subconta reconfirmada via
+`opportunities_search-opportunity`/`locations_get-custom-fields`/
+`opportunities_get-pipelines`/`conversations_search-conversation`: mesmas 5
+etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
+`NOVO LEAD` + 3 `NEGOCIAR`, 1 `lost` de teste, 49 `open`), zero conversa de
+WhatsApp/SMS real (só DMs de Instagram e o rastro de no-show dos contatos
+fictícios) — G-03/G-04 seguem aguardando o dono.
 
 ### F-07 · Proteção de reputação do número de WhatsApp — **FEITO em 22/09/2026**
 **Por quê:** G-05/G-06 protegem a **entrega** de cada mensagem individual
@@ -1934,3 +1998,20 @@ do F-07 (sem gatilho nativo para ler bloqueio de operadora) —
 projeto não documenta se a ligação sai por LC Phone ou linha própria do
 SDR — não bloqueia o item, muda só qual mitigação da tabela se aplica
 primeiro.
+
+**F-06, peça 1, 22/09/2026, sessão automática seguinte — item destravado,
+não fechado por inteiro.** CRM reconfirmado sem mudança (51 campos, 50
+oportunidades, zero conversa de WhatsApp/SMS real — G-03/G-04 ainda
+aguardando o dono) e sweep de coerência de sempre limpo. Seguindo a própria
+instrução deste roadmap ("reler o 'por quê estamos esperando' de todo item
+represado", o mesmo caminho que já destravou o F-05 em 21/09/2026), reli o
+F-06 — o único item numerado do roadmap inteiro, fora do R-14, ainda
+etiquetado como "esperando volume real". A razão registrada não era bem
+essa: `WebSearch` achou o gatilho nativo `Transcript Generated` (duração de
+chamada, LC Phone incluído), que a rodada de 21/09/2026 não tinha achado —
+correção da mesma classe da premissa negativa que o F-08 já cometeu duas
+vezes na mesma semana. Isso não fecha o item: falta confirmar se a operação
+liga por LC Phone (mesma pendência sem resposta do F-08/F-09) e falta
+apontar a lista/dashboard de taxa de conexão para o campo novo — as duas
+registradas como pendência explícita dentro do próprio F-06, não como lacuna
+esquecida. Detalhe completo na entrada acima.

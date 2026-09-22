@@ -165,6 +165,20 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       não sai por este conector (é criação na tela), então esta linha é
       autorização de desenho, não de escrita por API. Nasce `[ ]`.
 
+- [ ] Criar os campos `Duração da ligação` (NUMERICAL, segundos) e `Conexão
+      real` (SINGLE_OPTIONS: Sim, Não) — nasceram na peça 1 do F-06
+      (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 18/09/2026, especificada em
+      22/09/2026), especificados em `campos-e-tags.md` (C-29, C-30) e
+      `build-wesales.md` (seção 2.27): duração real da chamada, lida do
+      gatilho nativo `Transcript Generated` (LC Phone), e o veredito
+      automático que substitui o julgamento do SDR como métrica de "conexão
+      real" (mais de 60s conta, menos não conta). **Depende de uma
+      confirmação que ainda não existe:** se as ligações desta operação saem
+      por LC Phone ou por linha própria do SDR — mesma pendência sem
+      resposta do F-08/seção 2.26; se for linha própria, o gatilho não
+      dispara para essas chamadas e este desenho não serve. Campo
+      personalizado também não sai por este conector. Nasce `[ ]`.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do
