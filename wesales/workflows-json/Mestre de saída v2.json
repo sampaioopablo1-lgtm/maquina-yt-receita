@@ -1,0 +1,493 @@
+{
+  "workflow": {
+    "_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Mestre de saída v2",
+    "version": 2,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c616e2d7-a618-4581-94f4-7eefbcef8047/2",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc616e2d7-a618-4581-94f4-7eefbcef8047%2F2?alt=media&token=b9e62608-7278-4456-9810-c9a73b23c235",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": null,
+    "createdAt": "2026-09-22T11:57:49.066Z",
+    "updatedAt": "2026-09-22T11:57:52.919Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/c616e2d7-a618-4581-94f4-7eefbcef8047/2",
+    "window": null,
+    "workflowNote": null,
+    "id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "c18abc2b-0d89-43f5-be53-d555fec80372",
+          "order": 0,
+          "name": "Acabou de chegar em NOVO LEAD?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "f6bf3446-ed81-40fa-8cd8-44429a3e94b5",
+            "8e9bbc0a-dffc-4a47-b72b-a9f41993535e"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "f6bf3446-ed81-40fa-8cd8-44429a3e94b5",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "23f64c00-3121-406c-885f-ca825d74bac5",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
+                        "__conditionId": "6098955f-e028-4eda-9c69-6ffe30ee419f",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          }
+        },
+        {
+          "id": "f6bf3446-ed81-40fa-8cd8-44429a3e94b5",
+          "parent": "c18abc2b-0d89-43f5-be53-d555fec80372",
+          "parentKey": "c18abc2b-0d89-43f5-be53-d555fec80372",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "8e9bbc0a-dffc-4a47-b72b-a9f41993535e"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          }
+        },
+        {
+          "id": "8e9bbc0a-dffc-4a47-b72b-a9f41993535e",
+          "parent": "c18abc2b-0d89-43f5-be53-d555fec80372",
+          "parentKey": "c18abc2b-0d89-43f5-be53-d555fec80372",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "f6bf3446-ed81-40fa-8cd8-44429a3e94b5"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "86aee23c-e18d-4052-b49e-8546a9e16fb7"
+        },
+        {
+          "id": "86aee23c-e18d-4052-b49e-8546a9e16fb7",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "66dd791e-e2e6-46a0-97e6-94f4bcd695da",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "160078bb-c335-410a-96c9-986587e6cb1a",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "c66250f7-969f-4657-baa9-908a9d5b4e72",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "8b8af57b-ec43-4c37-ac98-bb1c56c68c83",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "66dd791e-e2e6-46a0-97e6-94f4bcd695da",
+            "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "8e9bbc0a-dffc-4a47-b72b-a9f41993535e",
+          "parent": "8e9bbc0a-dffc-4a47-b72b-a9f41993535e"
+        },
+        {
+          "id": "66dd791e-e2e6-46a0-97e6-94f4bcd695da",
+          "parent": "86aee23c-e18d-4052-b49e-8546a9e16fb7",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "86aee23c-e18d-4052-b49e-8546a9e16fb7"
+        },
+        {
+          "id": "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5",
+          "parent": "86aee23c-e18d-4052-b49e-8546a9e16fb7",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "7badae52-ea40-40a6-aca8-c20975746797",
+          "sibling": [
+            "66dd791e-e2e6-46a0-97e6-94f4bcd695da"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "86aee23c-e18d-4052-b49e-8546a9e16fb7"
+        },
+        {
+          "id": "7badae52-ea40-40a6-aca8-c20975746797",
+          "parent": "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5",
+          "order": 0,
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "ea0a49b7-f3a9-4d8a-8acd-802975d6db03"
+            ]
+          },
+          "name": "Remove from Workflow",
+          "type": "remove_from_workflow",
+          "parentKey": "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5",
+          "next": "22b51014-a9d4-402b-b356-ff5174f866b2"
+        },
+        {
+          "id": "22b51014-a9d4-402b-b356-ff5174f866b2",
+          "parent": "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-quente",
+              "fila-tel",
+              "fila-wa",
+              "reengajamento-ativo",
+              "pausado",
+              "fila-linkedin",
+              "atraso-1a-tentativa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "e5e18dfc-2eb7-4ee3-b5ea-4a5b62afbbd8",
+          "parentKey": "7badae52-ea40-40a6-aca8-c20975746797"
+        },
+        {
+          "id": "e5e18dfc-2eb7-4ee3-b5ea-4a5b62afbbd8",
+          "parent": "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "9c8e7c38-e7b3-469a-9be4-442a3d85baa6",
+          "parentKey": "22b51014-a9d4-402b-b356-ff5174f866b2"
+        },
+        {
+          "id": "9c8e7c38-e7b3-469a-9be4-442a3d85baa6",
+          "parent": "dc690ca4-61ea-4b2b-9dc9-e7499f32b0c5",
+          "order": 3,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Saída de cadência · etapa: <span data-cv-variable=\"opportunity.pipeline_stage\" data-cv-token=\"true\">{{opportunity.pipeline_stage}}</span> · status: <span data-cv-variable=\"opportunity.status\" data-cv-token=\"true\">{{opportunity.status}}</span> · tentativa <span data-cv-variable=\"contact.tentativa_n\" data-cv-token=\"true\">{{contact.tentativa_n}}</span> · resultado <span data-cv-variable=\"contact.resultado_da_tentativa\" data-cv-token=\"true\">{{contact.resultado_da_tentativa}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Saída de cadência"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "e5e18dfc-2eb7-4ee3-b5ea-4a5b62afbbd8"
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "SCp5F2GqfVi5eeHw06Hd",
+      "date_added": "2026-09-22T11:57:50.092Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.status",
+          "value": "lost",
+          "title": "Movido para o status",
+          "type": "select",
+          "id": "moved-to-status"
+        }
+      ],
+      "type": "opportunity_status_changed",
+      "masterType": "highlevel",
+      "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Status Da Oportunidade Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "c18abc2b-0d89-43f5-be53-d555fec80372",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T11:57:52.376Z"
+    },
+    {
+      "id": "Xv98J1K7SyNEbdIMHRwC",
+      "date_added": "2026-09-22T11:57:50.738Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        }
+      ],
+      "type": "pipeline_stage_updated",
+      "masterType": "highlevel",
+      "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Etapa Do Funil Alterada",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "c18abc2b-0d89-43f5-be53-d555fec80372",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T11:57:52.419Z"
+    },
+    {
+      "id": "tdPeaLP0cNBLLhBQS4Ij",
+      "date_added": "2026-09-22T11:57:51.416Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.status",
+          "value": "abandoned",
+          "title": "Movido para o status",
+          "type": "select",
+          "id": "moved-to-status"
+        }
+      ],
+      "type": "opportunity_status_changed",
+      "masterType": "highlevel",
+      "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Status Da Oportunidade Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "c18abc2b-0d89-43f5-be53-d555fec80372",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T11:57:52.474Z"
+    }
+  ]
+}
