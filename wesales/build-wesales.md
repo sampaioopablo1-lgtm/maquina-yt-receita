@@ -2251,6 +2251,18 @@ só perdem o total pronto, que sem Custom Metrics vira contar linha na tela.
 São duas listas salvas de propósito: trocar o filtro de uma só muda a view
 para todo mundo que a usa.
 
+**5. Seção "Compliance" (nova, R-14):** referência às duas listas da
+seção 8.26/8.27 (`Auditoria — tag sem DND nativo` e `Auditoria — DND sem
+tag`) — não widget de Custom Metric por padrão, porque a métrica de
+"contagem de contatos com tag" descrita na pesquisa desta seção (achado 2
+acima) filtra por tag/pipeline/owner/metric-level, sem citar DND; combinar
+tag **e** filtro de DND numa única fórmula não está confirmado como
+possível. Se a tela confirmar que dá, as duas viram Custom Metric (`Sem
+DND — Contagem` / `Sem tag — Contagem`, meta zero); se não, as duas Smart
+Lists sozinhas já cumprem o "relatório que prova" do R-14 sem depender de
+plano pago — mesmo raciocínio de fallback das outras quatro peças desta
+seção.
+
 ### Limite conhecido
 
 "Ligações/dia" e "conexões/dia" literais — a contagem de um dia
@@ -5211,6 +5223,51 @@ dias`), mas a Smart List equivalente, citada só em prosa no roadmap
 criação"), nunca tinha ganhado uma entrada própria aqui — a fonte que a
 Fase 6 do `GUIA-MONTAGEM.md` realmente consulta. Fechado nesta rodada
 (22/09/2026), documentação pura, zero campo e zero tag novos.
+
+### 8.26 `Auditoria — tag sem DND nativo` — R-14
+
+| Item | Configuração |
+|---|---|
+| Filtros | tag `nao-perturbe` presente **E** `Calls & Voicemails DND` = Disabled **E** `WhatsApp DND` = Disabled |
+| Colunas | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status da oportunidade |
+| Ordenação | Data de criação do contato, desc (o mais recente primeiro — é o mais provável de ainda estar "quente" numa régua) |
+
+Lista de exceção, não de volume: o alvo é sempre zero linha. Existe porque
+`Set Contact DND` e `Add Contact Tag: nao-perturbe` nascem no mesmo nó em
+quatro lugares diferentes do documento (2.9.5, seção 4 ramo `Não ligar`,
+seção 6 nó 3, opt-out por palavra-chave do R-17) — um deles aplicando só a
+tag sem o DND nativo é o caso que realmente arrisca reincomodar o lead,
+porque a tag sozinha não bloqueia nada na plataforma; é convenção interna
+lida por filtro de lista, o DND é quem impede o próximo envio de sair.
+Uma linha aqui é bug a corrigir na hora (falta de `Set Contact DND` num nó
+que já tem a tag), não estatística a acompanhar.
+
+### 8.27 `Auditoria — DND sem tag` — R-14
+
+| Item | Configuração |
+|---|---|
+| Filtros | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag `nao-perturbe` ausente |
+| Colunas | Nome · Telefone · Tags · Etapa/status da oportunidade |
+| Ordenação | Data de criação do contato, desc |
+
+Espelho da 8.26, risco menor: o DND nativo já bloqueia o canal, então o
+lead está protegido — mas a divergência ainda importa, porque aponta um
+caminho que ligou DND sem passar pelo registro do projeto (ação manual na
+tela, ou um nó de opt-out que este documento ainda não cobre). Uma linha
+aqui não é emergência como na 8.26, é pista para achar o nó ou o clique
+que a especificação atual não previu.
+
+**As duas juntas são o "relatório que prova que ninguém foi incomodado
+indevidamente" do R-14** (`ROADMAP-SALES-ENGAGEMENT.md`): zero linha na
+8.26 é a prova em si, a 8.27 é a rede de segurança que pega o que a 8.26
+sozinha não veria. Nomes exatos dos dois filtros de DND a confirmar na
+tela — a documentação consultada (`WebSearch`, `help.gohighlevel.com`/
+`consultevo.com`/`growthable.io`) está em inglês, a tela desta subconta é
+em português; mesma ressalva já registrada para outros filtros nativos do
+projeto (F-10, seção 8.25). Zero campo e zero tag novos: reaproveita
+`nao-perturbe` (T-06) e os filtros de DND nativos do contato — não depende
+de `APROVADO.md`. Referenciadas na seção 2.17 (Painel do Gestor), seção
+"Compliance".
 
 ---
 

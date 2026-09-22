@@ -2,6 +2,38 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Smart List do GHL filtra por DND nativo, por canal — nunca citado em nenhum documento do projeto até o R-14, 22/09/2026, sessão automática
+
+Procurando como desenhar o R-14 (auditoria de compliance, o único item do
+roadmap que ainda não tinha nó nenhum desenhado): a pergunta era "dá para
+comparar, numa lista, a tag interna `nao-perturbe` contra o estado real do
+DND nativo do contato?" — nenhuma seção do projeto até aqui tinha filtrado
+Smart List por DND, só aplicado DND via `Set Contact DND` (ação de
+workflow, já em uso desde 18/09/2026).
+
+**Achado por `WebSearch`** (`help.gohighlevel.com`/`consultevo.com`/
+`growthable.io`, confiança média — página oficial citada em buscas com
+termos diferentes, o proxy deste ambiente bloqueia leitura direta dos
+domínios de suporte da HighLevel, mesmo padrão de confiança já usado para
+o `Wait Dynamic` do F-05 e a janela de 24h do G-05): o filtro de Smart
+List por DND existe e é **por canal**, não um booleano único — `DND all`,
+`SMS DND`, `Email DND`, `Calls & Voicemails DND`, `WhatsApp DND`, `Inbound
+DND`, `FB Messenger DND`, `GMB Messenger DND`, cada um com opção
+Enabled/Disabled. Isso decidiu o desenho do R-14: comparar a tag
+`nao-perturbe` (convenção interna, não bloqueia nada sozinha) contra
+`Calls & Voicemails DND`/`WhatsApp DND` (bloqueio real de plataforma) numa
+Smart List — mesma classe de "duas condições de contato diferentes" que
+só Smart List resolve neste projeto (F-05/R-11 já bateram nesse limite
+para contagem entre contatos; aqui é o mesmo limite para comparação de
+dois campos do mesmo contato).
+
+**Por que vale registrar:** é um filtro nativo que qualquer item futuro
+envolvendo DND (novo canal, nova regra de opt-out) vai precisar — sem
+essa busca, a suposição mais fácil seria "não dá para auditar DND sem
+workflow novo", que é o erro que o F-05/R-11 já ensinaram a desconfiar.
+Nome exato do filtro na tela em português ainda não confirmado — mesma
+ressalva de sempre para achado só por busca, não por teste na subconta.
+
 ## O próprio F-10 errou a conta que ele mesmo tabulava — "46 horas" era quase o dobro do que as duas datas ao lado diziam — 22/09/2026, sessão automática seguinte
 
 A rodada que abriu o F-10 (entrada abaixo, mesma data) fez tudo certo até a

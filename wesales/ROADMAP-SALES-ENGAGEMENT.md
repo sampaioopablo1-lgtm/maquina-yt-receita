@@ -961,13 +961,101 @@ reconfirmada nesta execução via `locations_get-custom-fields`/
 contatos, só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a última
 rodada.
 
-### R-14 · Auditoria de compliance
+### R-14 · Auditoria de compliance — especificação fechada em 22/09/2026, execução aguarda mensagem real
 **Por quê:** `nao-perturbe` e DND são a linha entre prospecção e perseguição.
 Precisa ser verificável, não confiável.
 **Como:** rotina que confere se algum contato com DND recebeu mensagem, e se
 algum envio saiu fora da janela.
 **Pronto quando:** existe relatório que prova que ninguém foi incomodado
 indevidamente.
+
+**Resumo (22/09/2026):** único item numerado do roadmap inteiro, fora dos
+quatro que aguardam decisão do dono (G-03/G-04/F-09/F-10), que continuava
+com um "Como" de três linhas e zero nó desenhado — todos os outros já
+tinham especificação nó a nó em `build-wesales.md` mesmo os que ainda
+esperam volume ou decisão. A releitura do "por quê estamos esperando"
+(mandato do fim desta seção) achou que a espera valia só para a
+**execução**, não para o **desenho**: dava para especificar agora, do
+mesmo jeito que o G-05 especificou Template antes da aprovação da Meta.
+
+A metade "janela de envio" do "Como" já estava coberta sem item próprio:
+toda seção de `build-wesales.md` que manda mensagem para o lead já declara
+`Janela de envio` na própria tabela de configuração do workflow (08:30 às
+18:30, segunda a sexta, ou "sem janela" com justificativa explícita para
+aviso interno) — `grep -c "Janela de envio" build-wesales.md` retorna 21
+ocorrências, uma por workflow/seção (algumas seções têm mais de uma tabela
+de configuração), nenhuma pendência nova. Provar que o
+Send Window foi de fato ligado na tela (não só documentado) é montagem,
+não desenho — mesmo tipo de verificação manual que o resto do
+`GUIA-MONTAGEM.md` já cobre, sem precisar de item próprio.
+
+A metade que faltava de verdade é a auditoria DND ↔ tag `nao-perturbe`.
+Achado ao ler `build-wesales.md` (linha 4160) antes de desenhar: os dois
+mecanismos que hoje protegem o lead já são nativos e já **impedem** o
+envio — `Set Contact DND` bloqueia todo canal na hora que é ligado, e o
+Send Window bloqueia o disparo fora de horário no nível do workflow. O
+"Pronto quando" não pede um terceiro mecanismo de bloqueio, pede **prova**:
+achar o nó que aplicou a tag sem acionar o DND nativo (ou o inverso) — os
+dois nascem juntos em quatro lugares diferentes do documento (2.9.5, seção
+4 ramo `Não ligar`, seção 6 nó 3, opt-out por palavra-chave do R-17), e
+divergência entre eles é sintoma de nó quebrado, mesma classe de "estrago
+silencioso" que motivou o F-05.
+
+Pesquisado antes de desenhar (`WebSearch`, `help.gohighlevel.com`/
+`consultevo.com`/`growthable.io`, confiança média — página oficial citada
+em buscas com termos diferentes, proxy deste ambiente bloqueia leitura
+direta, mesmo padrão de confiança já usado no G-05/F-05): Smart List do
+GHL tem filtro nativo por canal de DND (`Calls & Voicemails DND`,
+`WhatsApp DND`, entre outros), com opção Enabled/Disabled — o mesmo tipo de
+filtro booleano que já sustenta as seis listas de saúde do F-05. Decide o
+desenho: **duas Smart Lists**, não um workflow novo — comparar duas
+condições diferentes entre contatos é o mesmo limite de "workflow não
+compara contagem" que o F-05/R-11 já bateram (`APRENDIZADOS-CRM.md`,
+entrada do `Scheduler`/Custom Metrics).
+
+Duas listas novas, especificadas em `build-wesales.md`, seção 8 (8.26,
+8.27):
+
+| Lista | Filtro | O que denuncia |
+|---|---|---|
+| `Auditoria — tag sem DND nativo` | tag `nao-perturbe` presente **E** `Calls & Voicemails DND` = Disabled **E** `WhatsApp DND` = Disabled | O caso perigoso: a marca interna existe, mas o bloqueio de plataforma que de fato impede o próximo envio não está ligado — se algum nó de mensagem ainda não alinhado ignorar a tag, a mensagem sai |
+| `Auditoria — DND sem tag` | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag `nao-perturbe` ausente | O caso menos perigoso (a prevenção nativa já bloqueia), mas aponta um caminho que ligou DND sem passar pelo registro do projeto — nó não documentado ou ação manual na tela |
+
+Zero campo novo, zero tag nova — reaproveita `nao-perturbe` (T-06,
+`campos-e-tags.md`) e os filtros nativos de DND. Nome exato dos filtros a
+confirmar na tela (a documentação consultada está em inglês; a tela desta
+subconta é em português — mesma ressalva já registrada para outros
+filtros nativos do projeto, F-10/seção 8.25).
+
+As duas listas entram como referência numa seção nova "Compliance" do
+`Painel do Gestor — Pré-vendas` (R-15, `build-wesales.md` seção 2.17),
+mesmo padrão de fallback que 8.6/8.16/8.25 já usam: **se** o plano tiver
+Custom Metrics e o Formula Editor aceitar combinar "contagem de tag" com
+um filtro de DND — não confirmado, os relatos de mercado descrevem a
+métrica de contagem por tag/pipeline/owner/metric-level (mesmo achado já
+registrado na "Conferência da peça 2" do F-06), sem citar DND —, as duas
+viram widget numérico; senão, as duas Smart Lists sozinhas já cumprem o
+"Pronto quando" (zero linha = nada a provar) sem depender de plano pago,
+mesmo raciocínio do F-10.
+
+**Por que não fecha ainda:** as duas listas só têm o que auditar depois
+que a `Cadência 12x30` publicar e o primeiro `nao-perturbe`/DND real
+acontecer. Reconfirmado nesta rodada via `conversations_search-conversation`
+(50 conversas, `total` sem mudança): as 4 conversas outbound da subconta
+continuam sendo DMs pessoais de Instagram — zero mensagem de cadência
+automática enviada, zero DND real aplicado ainda. Diferente de antes: a
+partir de agora existe o que montar assim que o volume chegar, não mais
+um "Como" de três linhas sem nó nenhum. Zero escrita no CRM, zero campo e
+zero tag novos — item de especificação pura, não depende de `APROVADO.md`.
+Subconta reconfirmada nesta execução via `opportunities_search-opportunity`/
+`locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`, 51
+campos, 50 oportunidades (47 `NOVO LEAD` + 2 `NEGOCIAR` + 1 `lost`, sem
+mudança) — G-03/G-04/F-09/F-10 seguem aguardando o dono.
+
+**Pronto quando:** as duas listas existirem na tela e, quando a operação
+já estiver mandando mensagem de verdade, `Auditoria — tag sem DND nativo`
+estiver **sempre vazia** — divergência ali é bug a corrigir na hora, não
+estatística a monitorar.
 
 ### R-15 · Dashboard do gestor — **FEITO em 18/09/2026**
 **Por quê:** todo o resto acima morre se depender de alguém abrir seis listas.
@@ -2341,3 +2429,32 @@ sendo só a decisão do dono sobre o alarme (opção b), a mesma pendência que
 G-03, G-04 e F-09 já têm. CRM reconfirmado sem mudança (51 campos, 50
 oportunidades) — a entrada segue parada, agora com quase 24h de silêncio
 (era ~22h47min na conferência anterior).
+
+**R-14, sessão automática seguinte, mesma data (22/09/2026) — especificação
+fechada, execução segue esperando volume real.** CRM reconfirmado sem
+mudança via API (51 campos, 50 oportunidades — 47 `NOVO LEAD` + 2
+`NEGOCIAR` + 1 `lost` de teste; `conversations_search-conversation`
+confirma as mesmas 4 conversas outbound de sempre, DMs pessoais de
+Instagram, zero mensagem de cadência real) — nada para o sweep de
+coerência de sempre corrigir, e G-03/G-04/F-09/F-10 seguem parados
+esperando o dono, sem novidade. Seguindo a própria instrução desta seção
+("reler o 'por quê estamos esperando' de todo item represado"), a releitura
+caiu sobre o único item do roadmap que ainda não tinha nó nenhum desenhado
+— R-14, que dizia "espera volume real" desde a primeira versão do
+documento sem nunca separar o que da espera é **execução** (precisa de
+mensagem real para auditar) do que é **desenho** (não precisa). A segunda
+metade não precisava esperar nada, e não tinha sido feita. Fechada agora:
+duas Smart Lists novas (`build-wesales.md`, seções 8.26/8.27) cruzando a
+tag `nao-perturbe` com os filtros nativos de DND por canal (`Calls &
+Voicemails DND`, `WhatsApp DND`) — achado de pesquisa desta rodada, nunca
+citado em nenhum documento do projeto antes. A metade "janela de envio" do
+"Como" original já estava coberta sem item próprio (toda seção que manda
+mensagem já declara `Janela de envio` na sua tabela de configuração,
+conferido por `grep`). Zero campo, zero tag, zero escrita no CRM: item de
+especificação pura, não depende de `APROVADO.md`. Detalhe completo na
+entrada do R-14 acima.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem
+dono claro: G-03, G-04, F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real para
+executar o que já está pronto na documentação.
