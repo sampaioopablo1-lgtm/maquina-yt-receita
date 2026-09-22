@@ -107,7 +107,7 @@ def task_step(titulo, corpo):
                         + corpo + "</p>",
                 "assignedTo": "contact.assigned_user",
                 "type": "task_notification",
-                "dueDate": "{{right_now.date}}",
+                "dueDate": "0",
                 "__customInputs__": {"dueDate": "duration-picker"}}}
 
 
