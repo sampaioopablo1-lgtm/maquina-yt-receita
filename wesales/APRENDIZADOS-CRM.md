@@ -2,6 +2,66 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A simulação de uso real pegou o que a leitura de JSON não pegaria: espera por horário NÃO espera — 21/09/2026, PC do dono
+
+Com 15 workflows publicados e a auditoria estrutural limpa, movi um lead de
+teste para `CONECTAR`. **Em 90 segundos ele atravessou T1 e T2.** A régua de
+30 dias teria disparado os 12 toques de uma vez.
+
+### 1. O `Wait` por horário não espera — use duração
+
+O validador do JS do builder é explícito: `specific_date` exige
+**`specificDate`** e **`specificTimePeriod`**. Sem eles o GHL entende que
+*a data já passou* e **segue direto**. Como eu montei os nós só com
+`specificTimeHour`/`specificTimeMinute`, todo "esperar até 10:30" virou
+"não esperar".
+
+Também não adianta o `Wait` do tipo `time` **com janela de retomada**: com
+a chave `window` o validador passa a exigir `Condition` e `Start`.
+
+**Regra:** neste build, o único tipo de espera confiável é **duração**
+(`time` + `startAfter`). Todas as cadências foram refeitas assim — os
+intervalos são as diferenças entre os horários da tabela da spec e somam os
+mesmos ~30 dias. Perde-se a hora exata do dia; ganha-se o espaçamento, que
+é o que a régua realmente precisa.
+
+**Corolário que vale para todo o projeto:** a **janela do workflow
+(08:30–18:30) NÃO segura a execução fora do horário**. O nó 0 rodou às
+22:37. A janela vale para envio, não para ação. Quem precisa de hora certa
+tem de ser a tarefa, não o workflow.
+
+### 2. Publiquei um workflow vazio sem perceber
+
+Uma falha transitória deixou o Reengajamento com **0 nós**, e publicar não
+reclamou. Publicado e vazio é pior que não publicado: parece pronto e não
+faz nada. Agora `publicar()` recusa workflow sem nós, e `preencher()`
+**aborta** se a API gravar um número de nós diferente do que foi enviado.
+
+### 3. Reconstruir um workflow órfã os gatilhos criados à parte
+
+Refazer um workflow troca os ids de todos os nós. O gatilho
+`cad-outbound` da Cadência 12x30, que eu tinha criado numa chamada
+separada, ficou apontando para um nó que não existia mais — a cadência
+havia parado de disparar por tag, em silêncio. `preencher()` agora
+reaponta **todos** os gatilhos do workflow, não só os que recebeu.
+
+### O que a simulação confirmou funcionando
+
+Nó 0 inteiro (dono atribuído, `Prioridade` 3, `Permissão WhatsApp`
+`Não solicitado`, `Entrada em`, contadores zerados) e — o mais valioso —
+a **integração entre módulos**: o `Contador de Toques` somou pela tag
+`toque`, o `CONECTAR Estagnado` gravou o checkpoint ao ver `Tentativa nº`
+= 0, e o `Pós-ligação` **publicado** reagiu ao `Resultado da tentativa`
+somando `Total de ligações`. Os workflows novos e os antigos conversam.
+
+### Auditoria estrutural: `wesales/tools/auditoria.py`
+
+Cruza os 24 workflows e procura o que só aparece no conjunto: gatilho
+órfão, `goto` morto, referência a workflow inexistente, publicado vazio ou
+sem gatilho, configuração diferente da spec, e o mapa de quem dispara quem
+por tag. Rodar depois de qualquer mudança — foi ele que pegou o defeito 3.
+
+
 ## Montagem programática funcionou: 9 workflows criados, testados e publicados pela API interna — 21/09/2026, PC do dono
 
 O caminho que o R anterior classificou como "só com decisão explícita do
