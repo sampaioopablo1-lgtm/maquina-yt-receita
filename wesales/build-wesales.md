@@ -3112,6 +3112,26 @@ olhar) em vez de por calendário fixo:
 | **Semanalmente enquanto o volume crescer** (10-13 leads novos/dia entrando, mais Reengajamento 90 dias, mais Cadência Inbound) | O teto de Tier 1 (250 clientes únicos/24h) tem folga larga no volume atual do projeto — o risco não é estourar o teto, é a nota cair antes de precisar subir de Tier |
 | **Depois de qualquer pico visível na lista `Opt-out por Palavra-chave` (R-17, seção 2.9.5)** | Quem digita "pare" na conversa é o mesmo tipo de reação que gera denúncia/bloqueio no WhatsApp — um pico na lista de opt-out por texto é sinal antecedente barato de checar a nota antes que ela caia sozinha |
 
+**O risco concreto que este projeto tem hoje, e que os três gatilhos acima
+não pegam (achado em 22/09/2026, ao cruzar este item com o G-03):** o estoque
+do G-03 são **47 leads parados**, e a opção 3 daquele item é promovê-los **de
+uma vez**. Some isso a um número de WhatsApp recém-ativado e ao primeiro dia
+da `Cadência 12x30` no ar: a M1 sairia como Template para ~47 pessoas que
+nunca escreveram para este número, **todas no mesmo dia, sem nenhum
+histórico de conversa no número**. Não é problema de Tier (47 cabe folgado no
+teto inicial); é o pior começo possível de **Quality Rating** — burst frio de
+mensagem business-initiated é exatamente o padrão que gera bloqueio e
+denúncia, e bloqueio nos primeiros dias pesa mais, porque a nota é calculada
+sobre os últimos 30 dias e não há volume bom para diluir.
+
+**A correção é de graça e já está no briefing:** o regime normal da operação
+é **~10-13 leads novos por dia** (`briefing-sdr.md`, entrada e L-05). Promover
+o estoque em lotes desse tamanho — em vez de 47 de uma vez — espalha o
+primeiro volume de Template por 4 dias, é o mesmo ritmo que o SDR vai ter
+quando a régua estabilizar, e não exige mecanismo nenhum: é a ordem em que o
+dono clica. Quem promover os 47 de uma vez ganha um dia de fila cheia e
+arrisca o canal inteiro pelas 4 semanas seguintes.
+
 **Se a nota cair para Amarela/Vermelha (mitigação com o que o projeto já
 tem, sem desenho novo):** (1) parar de promover leads novos para a
 Cadência 12x30 até a nota normalizar não é necessário — os quatro nós de

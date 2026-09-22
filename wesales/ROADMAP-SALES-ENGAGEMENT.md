@@ -291,6 +291,15 @@ como a própria seção 2.1 explica). **Então a ordem certa é: publicar a
 o estoque.** Vale igual para a opção 3 (ação manual em massa), que é a mais
 tentadora justamente por parecer não depender de nada.
 
+**Cruzamento com o F-07 (22/09/2026) — promova em lotes, não os 47 de uma
+vez:** qualquer das três opções acima, feita em bloco no primeiro dia da
+cadência no ar, manda a M1 como Template para ~47 pessoas que nunca
+escreveram para o número, tudo num dia, num número sem histórico. É o pior
+começo possível de Quality Rating (F-07, seção 2.25 do `build-wesales.md`) —
+e o remédio não custa nada: lotes de **10-13 leads/dia**, que é o regime
+normal do briefing (L-05) e o mesmo ritmo que o SDR terá depois. Quatro dias
+de promoção em vez de um.
+
 **Cruzamento com o G-05 (21/09/2026):** a precondição acima ("publicar a
 `Cadência 12x30` primeiro") ganhou um detalhe que vem do G-05 — publique-a
 **sem os quatro nós de envio de WhatsApp**, que dependem de Template
