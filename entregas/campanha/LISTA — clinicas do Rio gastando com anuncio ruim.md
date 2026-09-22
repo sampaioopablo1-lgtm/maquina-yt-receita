@@ -5024,3 +5024,58 @@ LISTA DE ATAQUE: **44 → 45** (uma página, três peças).
 
 Combos varridos até aqui: + advocacia Barra da Tijuca (termo de serviço; 1 página, 3 peças
 quebradas, alvo recém-chegado — nova categoria de fila).
+
+---
+
+## ⚖️ Advocacia — Barra da Tijuca, 2ª passada por ÁREA DO DIREITO (22/09/2026, 10h)
+
+Teste da hipótese levantada na varredura anterior: o bairro não é raso, o **termo** é que
+estava estreito. Mesmo bairro, só troquei a área.
+
+| Termo | Anúncios | Páginas |
+|---|---|---|
+| `advogado trabalhista Barra da Tijuca` | 3 | 1 |
+| `advogado previdenciário Barra da Tijuca` | **8** | **2** |
+
+**Hipótese confirmada.** Mais que dobrou trocando uma palavra.
+
+### REGRA NOVA: advocacia se varre por área do direito, não por bairro
+
+Este é o primeiro nicho do arquivo em que o **eixo de busca não é o bairro**. Advogado não
+anuncia "sou advogado na Barra" — ele anuncia a dor que resolve, e a dor tem nome jurídico.
+Cada área é um mercado separado, com anunciantes diferentes.
+
+Áreas a varrer antes de dar qualquer bairro por esgotado: **previdenciário/INSS**,
+trabalhista, **direito do consumidor**, família e divórcio, criminal, **bancário e
+superendividamento**. As três em negrito são as que mais se anunciam em lead-gen.
+
+Isso provavelmente vale para **contabilidade** também (abertura de empresa, imposto de
+renda, MEI, folha) — o outro nicho que a gente anuncia. Vale testar do mesmo jeito.
+
+### O alvo novo
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Videira e Palhano Previdenciario** | **A** | os **5 anúncios com o título idêntico**: `FALE COMIGO!`, em caixa alta | 21/09/2026 | [ver](https://www.facebook.com/ads/library/?id=2313614956153265) |
+
+Trilha A pelos sobrenomes dos sócios no nome da página — mesmo critério do Machado de
+Souza. Subiu dois lotes ontem, 13h e 19h, cinco peças ao todo, e **as cinco com a mesma
+manchete**.
+
+O defeito é da família "chamada repetida" (mesma do Petmalia com `Entre em contato` ×20 e
+da Bicho D+ com `Converse conosco` ×7), mas com um agravante próprio: `FALE COMIGO!` **não
+diz nada sobre previdência.** Podia ser anúncio de qualquer coisa. Quem rola o feed não
+tem como saber que ali tem alguém que resolve INSS negado.
+
+E cinco peças com a mesma manchete disputam o mesmo leilão entre si — encarecem umas às
+outras.
+
+**Segundo alvo recém-chegado seguido.** Subiu ontem, como o Rodrigo Gonçalves subiu
+anteontem. A fila dos recentes, criada na varredura passada, já tem dois nomes — e os dois
+de advocacia. Faz sentido: é nicho em que o profissional sobe anúncio sozinho, e setembro
+é mês de movimento em escritório.
+
+LISTA DE ATAQUE: **45 → 46**.
+
+Combos varridos até aqui: + advocacia Barra da Tijuca por área (previdenciário — regra nova:
+advocacia se varre por área do direito, não por bairro).
