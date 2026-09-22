@@ -2,6 +2,73 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A pendência que bloqueia F-06/F-08/F-09 ganhou evidência indireta, não confirmação — `twilioRebilling` ligado é sinal de LC Phone, mas não prova quem discou — 22/09/2026, sessão automática
+
+Com G-03/G-04/F-09 aguardando o dono e R-14 aguardando volume real de
+mensagem, nenhum item numerado do roadmap tinha trabalho de API executável
+nesta rodada (`ROADMAP-SALES-ENGAGEMENT.md`, "Ordem sugerida", conferido de
+novo — reler o "por quê estamos esperando" de todo item represado é a
+própria instrução do documento antes de procurar lacuna nova). A pendência
+mais repetida do projeto — "a operação liga por **LC Phone** (telefonia
+nativa do GHL) ou por linha própria do SDR?" — aparece sem resposta em
+três lugares (`build-wesales.md`, seção 2.26/F-08, "Conferência do F-06" e
+`ROADMAP-SALES-ENGAGEMENT.md`/F-09) e trava as três ao mesmo tempo: sem
+saber, não dá para confirmar `[x]` nos campos do F-06 nem escolher a opção
+do F-09.
+
+**Tentativa 1 — reler os documentos do projeto atrás de uma resposta já
+dada em outro lugar.** `grep -rn` por `LC Phone`, `Twilio`, `discador` em
+todo `wesales/`: todas as ocorrências já eram desta mesma pendência sendo
+citada três vezes, nenhuma nova informação — confirma que não é uma
+resposta esquecida, é uma pergunta genuinamente sem dado no projeto.
+
+**Tentativa 2 — perguntar ao próprio CRM, não a um documento.** O conector
+não expõe endpoint de números de telefone/discador, mas
+`locations_get-location` devolve a configuração completa da subconta —
+nunca lida por inteiro antes, as rodadas anteriores só liam
+`get-custom-fields`/`get-pipelines`/`search-opportunity`. Achado:
+`settings.saasSettings.twilioRebilling` = `{ "enabled": true, "markup": 20 }`.
+
+**Tentativa 3 — confirmar o que esse campo significa de verdade, por
+pesquisa, antes de tratar como resposta.** Duas buscas com termos
+diferentes convergem: "Twilio Rebilling" é a função de SaaS Mode que
+aplica uma margem (aqui, 20%) sobre o custo que a **HighLevel paga à
+Twilio** por uso do **Phone System nativo (LC Phone)** e repassa esse
+custo marcado para a carteira do cliente — é uma configuração de billing
+que só faz sentido existir **para** uso de telefonia via Twilio/LC Phone;
+GHL não rebill a por chamada feita pelo celular pessoal do SDR, porque
+nada dessa chamada passa pelo Twilio da agência. `enabled: true` +
+`markup: 20` (não o default de fábrica, alguém configurou um número)
+é sinal de que a agência **provisionou e está monetizando** telefonia
+nativa nesta subconta — evidência a favor de LC Phone, não prova de uso.
+
+**Terceira checagem, não uma quarta tentativa — corroboração do mesmo
+achado:** `conversations_search-conversation` filtrado por
+`query_lastMessageType = TYPE_CALL` devolve **zero** conversas. Não ajuda a
+distinguir LC Phone de linha própria (não houve nenhuma ligação ainda,
+`Cadência 12x30` segue em rascunho, mesmo fato que já bloqueia R-14) — mas
+é consistente com o achado acima, não o contradiz.
+
+**Por que isto não fecha F-06/F-08/F-09 sozinho, e não vira `[x]` em
+`APROVADO.md`:** `twilioRebilling` é uma configuração de **billing da
+agência**, que pode valer para todas as subcontas de uma vez e não muda
+sozinha se o SDR liga por LC Phone ou pelo celular em algum dia específico
+— é indício de que a infraestrutura de LC Phone está provisionada e paga
+para esta subconta, não prova de que as 100 ligações/dia do SDR saem por
+ela em vez do celular pessoal. A regra 2 do `briefing-sdr.md`
+(confirmar antes de agir) vale aqui: decisão de negócio (F-09, limiar do
+freio de telefone) e desenho que muda comportamento (F-06, gravar toda
+ligação) continuam esperando confirmação **do dono**, agora com uma
+pergunta mais fácil de responder — "vocês configuraram rebilling de
+Twilio de propósito, ou veio ligado?" — em vez da pergunta em aberto de
+sempre.
+
+**Atualizado nos três lugares que citavam a pendência sem essa evidência:**
+`build-wesales.md` (seção 2.26/F-08 e "Conferência do F-06") e
+`ROADMAP-SALES-ENGAGEMENT.md` (F-09) — nenhum dos três teve a pendência
+declarada resolvida, só passou a linkar para esta entrada em vez de
+repetir "nenhum documento confirma".
+
 ## Dois contadores cumulativos ainda podem ser populações diferentes — a razão fica enviesada para um lado, e o número não parece errado — F-06 peça 2, 22/09/2026, sessão automática
 
 A peça 2 do F-06 acertou a pergunta difícil: widget de Custom Metrics só soma

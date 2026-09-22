@@ -3257,7 +3257,12 @@ provisionado pelo GHL é o dono técnico registrar; linha própria do SDR
 exige registro pelo próprio SDR ou pela operadora dele. Confirmar isso é
 pré-requisito prático do primeiro item da tabela acima, não deste item
 inteiro — o achado da norma e a exclusão do "Não Me Perturbe" valem
-independente da resposta.
+independente da resposta. **Evidência indireta, não confirmação, achada em
+22/09/2026:** `locations_get-location` mostra
+`saasSettings.twilioRebilling.enabled = true` (markup 20%), sinal de LC
+Phone provisionado e monetizado nesta subconta — não prova de que é o
+canal usado pelo SDR hoje. Detalhe em `APRENDIZADOS-CRM.md`, "A pendência
+que bloqueia F-06/F-08/F-09 ganhou evidência indireta".
 
 **Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
 documentação e rotina manual pura — não depende de `APROVADO.md`. Não
@@ -3414,7 +3419,13 @@ registrou a mesma lacuna). Se for LC Phone, este item funciona como
 especificado abaixo; se for linha própria, `Transcript Generated` nunca
 dispara para essas chamadas e o item volta a depender de call tracking
 externo, do zero. Uma resposta só resolve as três pendências (F-06, F-08,
-F-09) ao mesmo tempo.
+F-09) ao mesmo tempo. **Evidência indireta, não confirmação, achada em
+22/09/2026:** `locations_get-location` mostra
+`saasSettings.twilioRebilling.enabled = true` (markup 20%) — sinal de que
+a agência provisiona e monetiza LC Phone nesta subconta, não prova de que
+é o canal usado pelo SDR. Detalhe e limite do achado em
+`APRENDIZADOS-CRM.md`, "A pendência que bloqueia F-06/F-08/F-09 ganhou
+evidência indireta".
 
 **Confiança:** média — a descrição do gatilho ("duration... direction...
 across Voice AI, IVR, and LC Phone calls") apareceu de forma consistente em

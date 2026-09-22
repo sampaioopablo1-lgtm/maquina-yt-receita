@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (49 + 1 sugerido)
+## Etapa 2 — Campos personalizados (50 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -296,7 +296,7 @@ formulário** (`Urgência`, `Necessidade`, ambos `TEXT`, e `Empresa`, `TEXT`)
 5 e 7.2, e a seção 8 abre avisando qual coluna é a personalizada), mas
 `Urgência` e `Necessidade` seguem duplicando `Prazo` (Q-17) e `Dor
 principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
-Detalhe completo, e por que não contam nos "44" acima (regra da contagem
+Detalhe completo, e por que não contam no título acima (regra da contagem
 única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
 ## Etapa 3 — Tags (20, cinco pendentes de aprovação)

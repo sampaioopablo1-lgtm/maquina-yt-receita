@@ -1802,6 +1802,15 @@ briefing é não criar campo nem mexer em régua em massa sem confirmação.
 
 **Três opções para o dono escolher — nenhuma aplicada:**
 
+**Evidência indireta sobre a pendência de canal, achada em 22/09/2026, não
+resolve a decisão acima:** `locations_get-location` mostra
+`saasSettings.twilioRebilling.enabled = true` (markup 20%) — sinal de que
+a agência provisiona e monetiza LC Phone nesta subconta, não prova de que
+é o canal usado pelo SDR nas 100 ligações/dia. Não muda a régua (limiar
+continua sendo escolha do dono, não fato técnico), mas torna a pergunta
+pendente mais fácil de responder. Detalhe em `APRENDIZADOS-CRM.md`, "A
+pendência que bloqueia F-06/F-08/F-09 ganhou evidência indireta".
+
 | Opção | Limiar | Efeito |
 |---|---|---|
 | **A — espelhar o WhatsApp** | 2 não atendidas seguidas → sai do telefone | Mais protetora; corta mais fundo os 8 toques |
