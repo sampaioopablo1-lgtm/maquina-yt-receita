@@ -291,3 +291,95 @@ agente de inbound.
 4. **Quais campos a aba `IA` oferece** — prompt livre, modelo, temperatura — e
    se `Custom Tools` permite gravar campo personalizado e mover oportunidade.
    É isso que decide se a seção 7 sai por configuração ou vira workflow.
+
+---
+
+## 9. As 5 conversas de teste — o que decide o provedor
+
+Escritas em 22/09/2026. Rode **as mesmas 5 em cada provedor que você
+configurar**, com o mesmo prompt, e compare lado a lado. Cada uma testa um
+modo de falha diferente, e todas terminam com a mesma conferência: **abrir o
+contato e olhar se os campos foram gravados com o texto exato**.
+
+Mande as mensagens **uma por vez**, esperando a resposta, como um lead real.
+
+### Teste 1 — o caminho feliz
+
+| Você manda | O que tem de acontecer |
+|---|---|
+| `oi, vi o anúncio de vocês` | ETAPA 1: cumprimenta, cita o anúncio e o que ela já respondeu no formulário, pede licença, termina com pergunta |
+| `pode perguntar` | ETAPA 2a: pergunta o maior perrengue |
+| `to gastando com anúncio e não fecha ninguém` | ETAPA 2b: pergunta se investe e quanto — **uma pergunta só** |
+| `uns 3 mil por mês no meta` | ETAPA 2c: pergunta quem atende o lead |
+| `sou eu mesmo que respondo` | **ETAPA 3**: devolve o diagnóstico em uma frase + um insight. **Não** pode pular direto para o agendamento |
+| `faz sentido` | ETAPA 4: oferece **dois horários concretos** |
+
+**Reprova se:** pular a etapa 3 · fizer duas perguntas na mesma mensagem ·
+perguntar "quando você pode?" em vez de oferecer dois horários · escrever mais
+de 3 linhas.
+
+### Teste 2 — preço cedo (o mais comum de todos)
+
+| Você manda | O que tem de acontecer |
+|---|---|
+| `oi` | ETAPA 1 |
+| `quanto custa?` | desvia sem inventar valor, diz que depende do tamanho da operação, **e continua o fluxo** |
+| `mas me dá uma ideia, 2 mil? 5 mil?` | continua sem dar número, oferece a conversa com o especialista |
+
+**Reprova se:** citar qualquer valor, faixa, "a partir de", ou percentual.
+Este é o teste que mais reprova modelo fraco.
+
+### Teste 3 — lead monossilábico
+
+| Você manda | O que tem de acontecer |
+|---|---|
+| `oi` | ETAPA 1 |
+| `sim` | entende como permissão e faz a 1ª pergunta |
+| `não sei` | **não trava**: reformula ou segue para a próxima pergunta |
+| `talvez` | continua conduzindo, não fica repetindo a mesma pergunta |
+
+**Reprova se:** repetir a mesma pergunta duas vezes · responder algo sem
+sentido · desistir e mandar o link do calendário sem passar pela etapa 3.
+
+### Teste 4 — sai do assunto
+
+| Você manda | O que tem de acontecer |
+|---|---|
+| `oi` | ETAPA 1 |
+| `vocês fazem site também?` | responde curto e traz de volta |
+| `e quanto tempo vocês estão no mercado?` | **segunda saída do assunto → passa para humano**, como manda o prompt |
+
+**Reprova se:** continuar respondendo perguntas soltas indefinidamente ·
+inventar história da empresa · não passar para humano.
+
+### Teste 5 — pede humano / hostil
+
+| Você manda | O que tem de acontecer |
+|---|---|
+| `quero falar com uma pessoa` | passa para humano **imediatamente**, sem insistir, sem mais perguntas |
+| *(em outra conversa)* `vocês só enchem o saco, me tira daqui` | encerra com cortesia, não insiste, e aplica o caminho de opt-out |
+
+**Reprova se:** tentar mais uma pergunta antes de passar · argumentar · pedir
+para a pessoa reconsiderar.
+
+### A conferência que vale mais que as respostas
+
+Depois dos 5 testes, abra o contato no CRM e confira **o texto gravado**:
+
+| Campo | Tem de estar exatamente |
+|---|---|
+| `Dor principal` | texto livre, o que a pessoa disse |
+| `Investe em anúncios` | `Sim` · `Já investiu e parou` · `Nunca` |
+| `Investimento mensal em anúncios` | `Até 1k` · `1k a 5k` · `5k a 10k` · `Acima de 10k` |
+| `Quem atende os leads` | `Dono` · `SDR` · `Vendedor` · `Ninguém fixo` |
+
+No teste 1, `3 mil por mês` tem de virar **`1k a 5k`** — não `3k`, não
+`R$ 3.000`, não `3 mil`. E `sou eu mesmo que respondo` tem de virar
+**`Dono`**. Modelo que erra isso passa despercebido na conversa e estraga a
+régua de qualificação em silêncio, que é exatamente o modo de falha que este
+projeto já viveu uma vez.
+
+**Critério final:** quem passar nos 5 e gravar os 4 campos certos, ganha.
+Empate, fique com o mais rápido — pela regra dos 5 minutos, latência é
+vantagem real.
+
