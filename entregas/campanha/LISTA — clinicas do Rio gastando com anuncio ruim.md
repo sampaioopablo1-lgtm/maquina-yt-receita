@@ -5592,3 +5592,64 @@ Combos varridos até aqui: + contabilidade serviço caro (recuperação de créd
 tributário, nacional, 172 ativos — **a regra do ticket está provada: o serviço caro
 puxa escritório, o barato puxa app**; o termo entrega contabilidade E advocacia
 tributária no mesmo saco; carrossel com card sem headline é padrão do nicho, 4ª vez).
+
+---
+
+## ADVOCACIA DE TICKET ALTO — holding familiar e planejamento sucessório (22/09, nacional)
+
+Varredura: `holding familiar planejamento sucessório`, BR, ACTIVE. **201 anúncios ativos**,
+**28 páginas distintas**. Foi o teste da regra do ticket num segundo eixo, e ela passou —
+mas com uma ressalva que vale escrever.
+
+**A ressalva:** ticket alto puxa escritório, sim. Mas quando o tema também virou **assunto
+de curso para o próprio profissional**, o infoproduto volta pelo outro lado. Aqui caíram
+três: Professor Edgar Madruga, "Holding Familiar" (workshop gratuito) e o "Método ESPIA"
+do Nelson Shikicima. Não é advogado vendendo holding para o cliente, é gente vendendo
+holding para o advogado. Fora esses três, sobram **25 alvos**.
+
+Isso fecha a regra em duas partes: **o ticket decide se o anunciante é escritório ou app;
+o tema decide se aparece curso junto.** Serviço barato → app. Serviço caro → escritório.
+Serviço caro E ensinável → escritório + curso.
+
+Também repetiu a mistura da varredura anterior: contabilidade e advocacia disputando a
+mesma palavra. DePizzol, Sintya Abreu e Fisconet são contábeis; o resto é jurídico.
+
+**Trilha A (dono no nome da página) — 18 de 25:** Joyce Nunes, Cabral e Nakasato Sociedade
+de Advogados, Sintya Abreu Contabilidade & Holding, Caio Roman, Marcio Rodrigo Pereira
+Holding, Holding com Bruno Couto Rocha, Marcondes Machado e Beek, Amorim e Giacomolli,
+Melo Braga, Negrão e Fares, Valéria Zangrandi Advogada, joaopaulogoncalvesoli, Advogado
+Paulo Henrique Buere, Eber Coloni, Fernando Corrêa da Silva Advogados, Camila Becker
+Advocacia, hoffmann.advogado, Marra Araujo Adv.
+
+**Demais alvos (7):** DePizzol Organização Contábil, Fisconet Soluções Tributárias,
+Planejamento Sucessório Holding Familiar Brasil, Governança Familiar Br, Minas Advocacia,
+MPC Law, heloisahvm.
+
+**Defeitos:**
+- **Título vazio, em escala**: 13 das 25 páginas rodam anúncio sem nenhuma promessa no
+  título — Melo Braga, Valéria Zangrandi, joaopaulogoncalvesoli, Governança Familiar Br
+  (5 anúncios), Paulo Buere, Minas Advocacia, MPC Law, Fernando Corrêa, heloisahvm,
+  hoffmann.advogado, Marra Araujo, Marcondes Machado, Planejamento Sucessório Brasil.
+  Mais da metade do nicho. É o defeito dominante aqui, não o carrossel.
+- **Carrossel com card sem headline** — 5ª e 6ª aparições: Cabral e Nakasato, Sintya Abreu.
+- **DEFEITO NOVO — carrossel com o mesmo texto em todos os cards**: Camila Becker repete o
+  próprio nome nos 10 cards; Amorim e Giacomolli repete "Fale conosco" 6 vezes; Fisconet
+  repete "Clique em Saiba Mais" 5 vezes. Pior que o card vazio: o card vazio é esquecimento,
+  esse é o anunciante achando que preencheu. O leitor desliza cinco telas e não lê nada novo.
+- **CTA que descreve o clique, não o resultado**: "Clique em Saiba Mais" (Fisconet, em
+  todos), "Toque No Botão Para Saber Mais 👉" (Joyce Nunes).
+
+**Quem escreve bem, para munição:** **"Planejamento sucessório é cuidado, não pressa"**
+(Negrão e Fares — desarma o medo de estar sendo empurrado, num tema onde todo mundo
+empurra); **"Seu patrimônio está preparado para o futuro da sua família?"** (Eber Coloni —
+pergunta na situação, como a advocacia de família que deu 11 Trilha A); **"A Passagem
+Secreta do ITBI na Holding"** (é infoproduto e está fora da lista, mas a headline é a
+melhor de todas: promete uma coisa específica que o leitor não sabe que existe).
+
+LISTA DE ATAQUE: **127 → 152**.
+
+Combos varridos até aqui: + advocacia ticket alto (holding familiar/planejamento
+sucessório, nacional, 201 ativos — **regra do ticket fechada em duas partes: o ticket
+decide escritório vs app, o tema decide se vem curso junto**; defeito dominante aqui é
+título vazio, 13 de 25 páginas; **defeito novo: carrossel com o mesmo texto repetido em
+todos os cards**).
