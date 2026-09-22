@@ -1,5 +1,15 @@
 # O que falta para virar Reev/Meetime de verdade
 
+> **Aviso de 22/09/2026 — o canal WhatsApp saiu do projeto.** Decisão do dono:
+> as quatro réguas são 100% telefone, remontadas e publicadas em `d52e61d`.
+> As 11 menções a WhatsApp/`fila-wa` abaixo são registro histórico. Dois itens
+> deste roadmap mudam de tamanho por causa disso: o que dependia de Templates
+> do Meta/WhatsApp deixa de ser caminho crítico, e a aplicação ao
+> **`Origem Verificada`** sobe de prioridade, porque tirar um canal dobra
+> aproximadamente o volume de ligação por lead — exatamente o que o Despacho
+> Decisório nº 82/2026 avalia. Detalhe e medição: seção 2.5 do
+> `build-wesales.md`.
+
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
 a chegada. O bloco 6 é o que faz a operação ficar fora da curva: coisas que a
@@ -299,6 +309,23 @@ começo possível de Quality Rating (F-07, seção 2.25 do `build-wesales.md`) �
 e o remédio não custa nada: lotes de **10-13 leads/dia**, que é o regime
 normal do briefing (L-05) e o mesmo ritmo que o SDR terá depois. Quatro dias
 de promoção em vez de um.
+
+**Cruzamento com o F-14 (22/09/2026) — o mesmo lote protege o telefone, mas
+só na primeira semana:** o remédio acima (10-13 leads/dia) fala do Quality
+Rating do WhatsApp; achado ao abrir o F-14 (rampa de aquecimento do número de
+telefone, `build-wesales.md`, seção 2.29): o número desta operação nunca
+discou de verdade (zero registro de chamada, `APRENDIZADOS-CRM.md`), então é
+"novo" para efeito de reputação de operadora mesmo já existindo na subconta —
+e o mesmo lote de 10-13/dia também determina o volume de telefone do dia 1
+(cada lead promovido gera uma tentativa em D1, tabela 2.5), o que por acaso
+cai dentro da faixa conservadora de aquecimento (~20-25/dia na semana 1). A
+folga acaba na semana 2: os lotes seguem entrando e somam com as reentradas
+D2/D4/D7 dos lotes anteriores, e sem o teto por semana do F-14 o volume
+ultrapassa a rampa sem ninguém perceber — o mesmo tipo de "protegido num
+canal, exposto no vizinho" que o G-06 já achou entre Caminho A e B da
+Qualificação por IA. Não é motivo para atrasar a decisão deste item; é nota
+para quem conduzir a promoção depois de escolhida: acompanhar o teto do F-14
+junto com o ritmo de lotes daqui.
 
 **Cruzamento com o G-05 (21/09/2026):** a precondição acima ("publicar a
 `Cadência 12x30` primeiro") ganhou um detalhe que vem do G-05 — publique-a
@@ -2308,8 +2335,9 @@ pura, a tag nasce `[ ]` em `APROVADO.md` (T-21, `campos-e-tags.md`) e só
 vira `[x]` quando o dono decidir — mesma regra das cinco tags do F-05 que
 ainda esperam aprovação. CRM reconfirmado por API nesta execução:
 `opportunities_search-opportunity`/`opportunities_get-pipelines` seguem em
-50 oportunidades (47 `NOVO LEAD` `open`, 2 `NEGOCIAR` `open`, 1 `NEGOCIAR`
-`lost`, 2 `CONECTAR` `lost` de teste, sem mudança) e
+50 oportunidades (45 `NOVO LEAD` `open`, 2 `NEGOCIAR` `open`, 1 `NEGOCIAR`
+`lost`, 2 `CONECTAR` `lost` de teste, sem mudança — a soma bate 50; a versão
+anterior desta linha somava 52 por engano, corrigido nesta rodada) e
 `locations_get-custom-fields` segue em 51 campos — G-03/G-04/F-09/F-10
 seguem aguardando o dono, sem novidade; a entrada segue sem lead novo desde
 21/09 09:17 (F-10). Duas correções de coerência feitas junto, achadas ao
@@ -2318,6 +2346,57 @@ Etapa 2 (`AGENDAR`) ainda dizia "sem monitor ainda" apesar de a peça 5 do
 F-05 já cobrir exatamente esse gap desde 21/09/2026 — texto nunca
 atualizado quando a peça fechou; corrigida para apontar para a seção 2.23,
 como a linha da etapa `CONECTAR` já fazia.
+
+---
+
+### F-14 · A rampa de aquecimento do número de telefone nunca foi escrita — o F-08 disse "distribua antes de escalar" sem dizer quanto por dia — **FEITO em 22/09/2026**
+
+**Por quê:** achado ao reler o F-08 (proteção de reputação do número de
+telefone) contra o F-07 (proteção de reputação do número de WhatsApp), os
+dois vizinhos diretos. O F-07 criou um objeto específico para número novo —
+Tier 1, 250 contatos únicos, só sobe "consumindo metade do teto atual dentro
+de 7 dias" (`build-wesales.md`, seção 2.25). O F-08 só disse "distribuir as
+ligações entre mais de um número antes de escalar", sem nunca escrever
+quanto por dia em qual semana — mesmo canal que carrega o **dobro** dos
+toques da régua (8 de 12, contra 4 de 12 do WhatsApp) e que a própria conta
+do F-08 já colocava na meta de regime (100/dia) **acima** da referência
+internacional de segurança (50-75/dia). E o número está, hoje, tecnicamente
+"novo" para efeito de reputação mesmo sem ser recente na subconta:
+`APRENDIZADOS-CRM.md` ("O CRM não pode responder a pergunta do LC Phone")
+mediu **zero registro de chamada** nas 50 conversas da subconta — o canal
+nunca foi exercitado de verdade.
+**Como:** pesquisado antes de desenhar (mandato do próprio roadmap) —
+`WebSearch` em fontes de mercado sobre discador (Kixie, Tendril, PhoneBurner,
+SalesHive, Salesloft, Aircall, Outreach), convergindo num padrão do setor:
+aquecer um número novo por **~2 semanas** antes de qualquer campanha de
+volume, com teto diário crescente (nunca a meta plena no primeiro dia) — e o
+achado extra que fecha o argumento: o "Voice Integrity" do **Outreach**
+(concorrente direto citado neste projeto) também vale só para número
+comprado nos EUA, o mesmo limite que já tinha descartado o "Voice Integrity"
+da HighLevel — confirma que o limite é do próprio recurso, não da
+plataforma. Rampa escrita para esta operação (`build-wesales.md`, seção
+2.29): semana 1 ~20-25/dia, semana 2 ~40-50/dia, semana 3 ~75/dia, semana 4+
+os 100/dia de regime — cruzada com os lotes de 10-13 leads/dia que o G-03 já
+decidiu para proteger o WhatsApp (F-07): o mesmo lote também governa o
+volume de telefone do dia 1, e cai dentro da faixa conservadora sozinho — a
+folga acaba na semana 2, quando os lotes novos somam com as reentradas
+D2/D4/D7 dos lotes anteriores sem nenhum teto escrito. Sem gatilho nativo
+para contar ligações por dia por número (mesmo limite de plataforma do
+F-06/F-07/F-08): vira checklist do gestor, mesmo tratamento dos dois vizinhos
+— referenciado dentro do próprio checklist do F-08 (`build-wesales.md`,
+seção 2.26) em vez de duplicado.
+**Pronto quando (cumprido):** a rampa de 4 semanas está escrita com teto por
+semana; o checklist do F-08 referencia a seção 2.29; e o G-03
+(`ROADMAP-SALES-ENGAGEMENT.md`, cruzamento acima) registra que o mesmo lote
+que protege o WhatsApp também paga a rampa de telefone — só na primeira
+semana. Zero campo, zero tag, zero workflow, zero escrita no CRM: item de
+documentação e rotina manual pura, não depende de `APROVADO.md`, não entra
+na "Ordem de montagem" nem no checklist de teste da seção 10. CRM
+reconfirmado por API nesta execução: 50 oportunidades (45 `NOVO LEAD` `open`
++ 2 `NEGOCIAR` `open` + 1 `NEGOCIAR` `lost` + 2 `CONECTAR` `lost` de teste),
+51 campos, mesmas 5 etapas do `FUNIL DE VENDAS` — sem mudança de estrutura;
+a entrada segue sem lead novo desde 21/09 09:17, agora ~30h47min (F-10) —
+G-03/G-04/F-09/F-10 seguem aguardando o dono.
 
 ---
 
@@ -2809,3 +2888,38 @@ esse gap desde 21/09/2026 — texto nunca atualizado quando a peça fechou.
 Zero escrita no CRM: item de especificação pura, a tag nasce `[ ]` em
 `APROVADO.md`, mesma regra das cinco tags do F-05 que ainda esperam
 aprovação do dono. Detalhe completo no próprio F-13, acima.
+
+**F-14 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+nova, achada comparando o F-08 com o vizinho que ele mesmo cita, o F-07.**
+CRM reconfirmado por API (51 campos, 50 oportunidades — 45 `NOVO LEAD`
+`open` + 2 `NEGOCIAR` `open` + 1 `NEGOCIAR` `lost` + 2 `CONECTAR` `lost` de
+teste, a mesma leitura corrigiu uma soma que a entrada do F-13 tinha errado
+em 2 — 47+2+1+2 não batia com o total de 50 já escrito na mesma frase;
+`grep` confirma que a soma antiga só aparecia naquela linha, sem se
+propagar; entrada segue sem lead novo desde 21/09 09:17, agora ~30h47min —
+G-03/G-04/F-09/F-10 seguem aguardando o dono) — o achado do dia não veio do
+sweep de coerência, veio de perguntar "os dois itens de proteção de número
+que fecharam ontem se tratam com a mesma régua?" O F-07 (WhatsApp) tem Tier
+de número novo com ramp de 7 dias, objeto próprio da Meta; o F-08 (telefone)
+só disse "distribua entre números antes de escalar", sem cronograma — mesmo
+canal com o dobro dos toques (8 de 12) e já acima da referência
+internacional de segurança na meta de regime. Fechado como F-14: rampa de 4
+semanas (`build-wesales.md`, seção 2.29), pesquisada contra fontes de
+mercado de discador (Kixie, Tendril, Salesloft, Aircall, Outreach — o
+"Voice Integrity" do Outreach tem o mesmo limite US-only que já descartara o
+da HighLevel, confirmando que o limite é do recurso, não da plataforma), e
+cruzada com o G-03: o mesmo lote de 10-13 leads/dia que protege o Quality
+Rating do WhatsApp também governa o volume de telefone do dia 1 — dentro da
+faixa segura sozinho, até a segunda semana, quando os lotes se empilham com
+as reentradas D2/D4/D7 sem teto nenhum. Zero campo, zero tag, zero
+workflow, zero escrita no CRM: item de documentação e rotina manual pura,
+mesmo tratamento do F-07/F-08, não depende de `APROVADO.md`. Detalhe
+completo no próprio F-14, acima.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04, F-09 e F-10 esperam decisão do dono; R-14 tem desenho
+completo e espera a operação mandar a primeira mensagem real para executar
+o que já está pronto na documentação; F-11, F-12 e F-13 têm desenho
+completo e não dependem de nada além de serem montados na tela; F-14 é
+checklist de gestor, já pronto para uso assim que o número começar a discar
+de verdade.

@@ -92,6 +92,161 @@ na config da subconta, reconfirmado nesta mesma leitura via
 Nenhuma escrita no CRM por causa desta resposta — é registro de decisão,
 não execução.
 
+## Dois itens certos, escritos com meio dia de diferença, viram um errado — 22/09/2026, sessão automática
+
+O F-14 (rampa de aquecimento do telefone) e a decisão de 100% telefone
+entraram no mesmo dia, com ~40 minutos entre um e outro, por sessões
+diferentes. Cada um está certo sozinho. Juntos, quebram:
+
+- o F-14 dimensionou a rampa dizendo que o telefone carrega **8 de 12**
+  toques. Depois da decisão são **12 de 12**;
+- o lote de 10-13 leads/dia do G-03 cabia na rampa: 12, 24, 24, 23, 11
+  ligações nos cinco primeiros dias, encostando no teto de ~20-25 sem
+  passar;
+- com o telefone sozinho vira 24, 48, 48, 58, 34 — **2,3× o teto da semana
+  1, já no dia 2**.
+
+Ninguém errou uma conta. O que faltou foi alguém **multiplicar de novo**
+depois que a premissa mudou.
+
+**A regra que fica:** quando uma decisão muda uma premissa numérica (aqui,
+quantos toques por canal), o trabalho não é achar os textos que citam a
+premissa — é achar os **números que foram calculados com ela**. Texto
+vencido se lê e se desconfia; número vencido parece certo, porque um teto
+de "~20-25/dia" continua com a mesma cara depois que o que entra nele
+dobrou. Foi o mesmo tipo de armadilha do erro de 2× do F-10, só que ao
+contrário: lá eu errei a conta, aqui a conta estava certa e a entrada
+mudou embaixo dela.
+
+**Operacionalmente:** depois de qualquer decisão de canal, capacidade ou
+volume, reabrir todo item que tenha tabela com "por dia", "por semana" ou
+"teto" e refazer a multiplicação. São poucos e valem a rodada.
+
+## A auditoria de órfãos mudou de gabarito: 6 linhas viraram 2 — 22/09/2026, sessão automática
+
+A varredura de merge field órfão passou rodadas inteiras devolvendo
+**6 linhas esperadas**. Nesta rodada devolveu **2**, e a queda não é defeito:
+o dono criou na tela os 5 campos pendentes da tabela 1.2 (`3740858`), então
+4 dos 6 "órfãos" deixaram de ser órfãos por terem virado campo de verdade.
+
+**Gabarito novo — 2 linhas, as duas falsos positivos conhecidos:**
+
+| Linha | Por que não é órfão |
+|---|---|
+| `contact.checkpoint_data_de_retorno` | citação deliberada do erro de 1 underscore, dentro da entrada que ensina o erro. Nunca foi uso. |
+| `contact.name` | merge field nativo do GHL, não é campo personalizado |
+
+Duas regras saem daí. A primeira: **número esperado de uma auditoria é estado,
+não constante** — quando a realidade muda a favor, o gabarito precisa mudar
+junto, senão a rodada seguinte "descobre" uma melhora e vai investigar o
+próprio sucesso. A segunda: a fonte dos campos reais agora é
+`wesales/tools/campos.json` (dump do PC, 79 entradas, 66 de contato), não mais
+uma leitura da API a cada rodada — é de graça e não gasta os ~8-9k tokens de
+`locations_get-custom-fields`. O preço é que o `campos.json` envelhece: se o
+dono criar campo na tela, ele some da auditoria até alguém redumpar.
+
+Comando com a fonte nova:
+
+```
+grep -rho "contact\.[a-z0-9_]*" wesales/*.md | sort -u > /tmp/usados.txt
+python3 -c "import json;d=json.load(open('wesales/tools/campos.json'));\
+print('\n'.join(sorted({v['chave'] for v in d.values() \
+if isinstance(v,dict) and str(v.get('chave','')).startswith('contact.')})))" > /tmp/reais.txt
+comm -23 /tmp/usados.txt /tmp/reais.txt | grep -v '^contact\.$'   # espera 2 linhas
+```
+
+## Um dump uniforme é suspeita de artefato, não descoberta — 22/09/2026, sessão automática
+
+Os 22 arquivos de `workflows-json/` vieram todos com `status: draft` e
+`triggers: []`. A leitura tentadora era "nada está no ar, o build não
+publicou" — e ela seria espetacular e errada: o próprio `GUIA-MONTAGEM`
+lista 20 workflows publicados com rastro lido pela API.
+
+O sinal que salvou foi a **uniformidade**. Quando um defeito aparece em
+100% dos casos, sem uma única exceção, quase nunca é defeito: é
+característica de como o artefato foi produzido. Defeito real tem
+distribuição irregular — alguns sim, outros não. Aqui o dump era a
+fotografia do payload antes de publicar, e o gatilho é gravado por outra
+chamada que nunca entra no arquivo.
+
+**Regra:** antes de concluir a partir de um arquivo, pergunte em que
+momento ele foi escrito e o que ele não teria como conter. E quando o
+resultado for 100% ou 0%, desconfie da medição antes de desconfiar do
+sistema. Parente próximo do "ler não é escrever" de ontem: ali o erro era
+tomar limite de tela por limite de comportamento; aqui, tomar limite do
+dump por estado do CRM.
+
+## Uma decisão de canal viaja pelo código e fica presa nos documentos — 22/09/2026, sessão automática
+
+O dono tirou o WhatsApp das réguas (`d52e61d`). A decisão chegou 100% ao
+CRM — medi no payload publicado: 12 nós `add_contact_tag` com `fila-tel` e
+**zero** adicionando `fila-wa`, que só sobrevive em nós de remoção. Mas
+chegou a **2 documentos de 10**: sobraram 60 menções em `build-wesales.md`,
+36 em `IMPLEMENTACAO-WORKFLOWS.md` e 11 no `ROADMAP`.
+
+O caso é pior que inconsistência de texto, por dois motivos que valem como
+regra:
+
+1. **Documento de montagem é instrução, não descrição.** Enquanto o
+   `IMPLEMENTACAO-WORKFLOWS` mandar criar toque de "Ligação WhatsApp", a
+   próxima montagem reintroduz um canal que a conta não tem. Documento
+   vencido não fica só errado — ele desfaz a decisão na montagem seguinte.
+2. **Tag morta não é inofensiva.** `fila-wa` deixou de ser aplicada, e a
+   fórmula do `Estouro da Fila` somava `fila-tel` **OU** `fila-wa`: ela
+   continua contando resíduo e pode disparar alarme de capacidade sem fila
+   nenhuma. E o F-05 peça 2 tinha um gatilho `Contact Tag Added — fila-wa`,
+   que a partir de agora nunca dispara. Quando um canal sai, o trabalho não
+   é achar as menções: é achar **o que dependia delas**.
+
+Não reescrevi as 107 menções — seria alteração em massa sem pedir. Pus a
+decisão medida num lugar só (seção 2.5 do `build-wesales.md`), avisos no
+topo dos dois documentos que mandam montar, e corrigi no lugar os três
+pontos carregantes.
+## Dois itens que fecharam no mesmo dia, protegendo canais vizinhos, não se olharam — a pergunta que achou o F-14 não foi "o que falta", foi "os dois já tratam igual?" — 22/09/2026, sessão automática
+
+O F-07 (Quality Rating do WhatsApp) e o F-08 (reputação do número de
+telefone) fecharam no mesmo dia, um logo depois do outro, os dois pela
+mesma pesquisa de mercado e o mesmo tipo de achado (recurso nativo da
+plataforma não serve, vira checklist do gestor). O F-07 saiu com um objeto
+concreto — Tier de número novo, teto que sobe em 7 dias. O F-08 saiu só com
+"distribua entre números antes de escalar", sem cronograma. Ninguém
+comparou os dois depois de prontos porque cada rodada fecha o item que está
+fazendo e segue — a pergunta "o vizinho que acabou de fechar tratou o mesmo
+risco com a mesma régua?" nunca é a pergunta natural de quem está dentro do
+item.
+
+**A técnica, generalizável:** quando dois itens resolvem o mesmo tipo de
+problema (aqui: proteção de reputação de canal) para dois canais diferentes
+da mesma cadência, e os dois fecham perto um do outro, vale a pena reabrir
+os dois lado a lado e perguntar **não** "o que falta no roadmap" (pergunta
+ampla, já esgotada por várias rodadas) mas "estes dois pares têm a mesma
+profundidade de tratamento?" — é uma busca muito mais estreita que "achar
+lacuna nova", e por isso mais barata de responder. Foi assim que nasceu o
+F-14 (`ROADMAP-SALES-ENGAGEMENT.md`): o WhatsApp tinha Tier com números por
+semana, o telefone não tinha nada além de "cuidado, distribua". Mesma
+família de achado do G-06 (guarda de janela chegou ao Caminho A e não ao
+Caminho B do mesmo workflow) e do F-08→F-09 (freio de "não atendidas
+seguidas" existe no WhatsApp e não existia no telefone) — a terceira vez que
+"protegido num canal, esquecido no gêmeo" aparece neste projeto. Vale
+promover a pergunta a rotina: toda vez que um item de proteção de canal
+fechar, perguntar se o canal irmão já tem o mesmo nível de cuidado, não só
+se ele tem proteção nenhuma.
+
+**Achado que só apareceu ao medir para escrever este item, não ao
+procurá-lo:** a soma na entrada do F-13 ("47 `NOVO LEAD` + 2 `NEGOCIAR`
+open + 1 `NEGOCIAR` lost + 2 `CONECTAR` lost") dava 52, não os 50
+oportunidades que a mesma frase afirmava. A leitura fresca por API
+(`opportunities_search-opportunity`, `status=all`) deu 45/2/1/2 = 50 — a
+etapa `NOVO LEAD` estava contada como 47 por engano (provavelmente
+confundindo com uma leitura anterior, de antes de dois contatos de teste
+saírem para `CONECTAR`/`lost`). Mesma classe de erro do F-10 ("46 horas"
+que não batia com as duas datas ao lado): aritmética manual sobre números já
+escritos no próprio documento, não fonte externa errada. Corrigido na
+mesma linha (`ROADMAP-SALES-ENGAGEMENT.md`); os outros ~15 lugares que ainda
+dizem "47 `NOVO LEAD`" são snapshots históricos de datas anteriores em que o
+número provavelmente era mesmo esse — não foram tocados, por serem registro
+de outro dia, não a mesma frase se contradizendo.
+
 ## O teste que responde a dúvida das sete listas estava preso atrás de uma decisão que ele não precisa — e a lista que o destrava é a mais urgente do projeto — 22/09/2026, sessão automática
 
 A rodada anterior fez a coisa certa com a dúvida da ordenação de dois níveis:
