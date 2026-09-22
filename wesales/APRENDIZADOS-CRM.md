@@ -2,6 +2,40 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Dois campos com o mesmo nome em objetos diferentes seguraram um workflow — 22/09/2026, sessão automática
+
+O `GUIA-MONTAGEM` registrava, como decisão pendente do dono, que **a
+subconta está `country: "US"`**, e usava isso como parte do motivo de o W19
+(Number Validation) não ter sido montado: "checaria número brasileiro contra
+regra americana".
+
+Medido: a subconta é **`BR`** — `locale: pt_BR`, São José dos Campos/SP, CEP,
+`BRL`, fuso `America/Sao_Paulo`. A rodada das 16:13 mediu o mesmo
+independentemente. O `US` é real, mas vive em **outro objeto**: é o `country`
+dos **contatos** que entram pelo formulário do Meta, já documentado na
+Tabela L e reconfirmado hoje no `Carlos Andrade`.
+
+O que torna isso mais que um detalhe: o conserto muda de lugar e de risco.
+Na leitura errada, mexer em `country` da subconta "toca telefonia e
+faturamento" (`saasSettings`, `twilioRebilling`) — caro e assustador, e por
+isso ninguém mexeu. Na leitura certa, o que se ajusta é o **mapeamento do
+formulário** (G-04), que não toca faturamento nenhum. E a preocupação com o
+W19 **aumenta** em vez de sumir: `Number Validation` valida o telefone do
+contato, e é justamente o contato que está marcado como americano com
+número `+55`.
+
+**A regra:** quando um campo justifica um bloqueio, confirme **de qual
+objeto** ele foi lido antes de aceitar o bloqueio. `contact.country` e
+`location.country` têm o mesmo nome, vêm em respostas parecidas e significam
+coisas diferentes. Aqui o nome igual custou um workflow não montado e uma
+"decisão do dono" que nunca foi dele — era medição errada.
+
+**Padrão do dia, terceira vez:** o achado certo foi escrito num documento e
+o documento vizinho seguiu afirmando o contrário. A rodada das 16:13 mediu
+`BR` e anotou no `APRENDIZADOS`; o `GUIA-MONTAGEM` continuou dizendo `US` e
+continuou usando o `US` como motivo. Medir não propaga — propagar é um passo
+separado, e é o que mais falha neste projeto.
+
 ## A sessão na nuvem não tem como montar W18/W19/W20 pela API interna — o toolkit de `wesales/tools/` só roda no PC do dono — 22/09/2026 16:13 UTC, sessão na nuvem
 
 Pedido: montar W19 (Higiene de Número), W18 (Monitor de Capacidade) e,

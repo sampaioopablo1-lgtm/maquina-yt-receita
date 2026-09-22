@@ -956,8 +956,10 @@ precisa de Conversation AI), `Post-Meeting Closer Loop` (substituído pelo
 `Loop do closer v2`) e os 5 originais trocados.
 
 **Não montados, e por quê:** W10 (Conversation AI), W18 (gatilho Scheduler
-sem formato conhecido neste build) e W19 (Number Validation desligado — e
-ver a ressalva de `country=US` abaixo).
+sem formato conhecido neste build) e W19 (Number Validation desligado — ~~e
+ver a ressalva de `country=US` abaixo~~; **a ressalva de `country` caiu em
+22/09, item 2 abaixo: a subconta é `BR`**. O que sustenta "não montado"
+continua sendo só o gatilho desligado / sem exemplo capturado).
 
 ### Decisões que continuam com o dono
 
@@ -971,10 +973,25 @@ ver a ressalva de `country=US` abaixo).
    não "faltam": as quatro réguas estão **inteiras**. A decisão está registrada
    na seção 2.5 do `build-wesales.md`. Mantido riscado porque a diferença entre
    "falta montar" e "não existe" é o que decide se alguém vai tentar montar.
-2. **`country` da subconta está `US`** com fuso `America/Sao_Paulo`, moeda
+2. ~~**`country` da subconta está `US`** com fuso `America/Sao_Paulo`, moeda
    `BRL` e telefone `+55`. Afeta o W19: Number Validation checaria número
    brasileiro contra regra americana. Não mexi porque `country` toca
-   telefonia e faturamento (`saasSettings`, `twilioRebilling` ativos).
+   telefonia e faturamento (`saasSettings`, `twilioRebilling` ativos).~~
+   **Medido e refutado em 22/09/2026, 16:25 UTC** (`locations_get-location`,
+   e a rodada das 16:13 mediu o mesmo independentemente): a subconta está
+   **`country: "BR"`**, `locale: "pt_BR"`, São José dos Campos / São Paulo,
+   CEP 12216-200, `currency: "BRL"`, fuso `America/Sao_Paulo`. Nada a
+   arrumar, e **nada aqui bloqueia o W19**.
+
+   O `US` existe, mas em outro objeto: é o **`country` dos contatos** que
+   entram pelo formulário do Meta — `country: "US"` e `timezone: null`,
+   documentado na Tabela L do `CONFERENCIA-CAMPOS.md` e reconfirmado hoje em
+   `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`). Subconta e contato são campos
+   diferentes com o mesmo nome, e a diferença muda o conserto: **não se
+   mexe em `saasSettings`, mexe-se no mapeamento do formulário** (terreno do
+   G-04). E para o W19 a preocupação até aumenta, em vez de desaparecer —
+   `Number Validation` valida o telefone **do contato**, e é o contato que
+   está marcado como americano com número `+55`.
 3. **Linha "Mensagens" do `APROVADO.md`** continua `[ ]`: falta o número
    completo para os testes de envio.
 4. **Push bloqueado:** a credencial git desta máquina é de outra conta.
