@@ -50,6 +50,11 @@ INSTA = C["Instagram"]["id"]
 
 # T, espera ATE O PROXIMO toque, canal, tag de fila, titulo da tarefa
 #
+# FOCO TOTAL EM LIGACAO (decisao do dono, 22/09/2026): todos os 12 toques
+# sao por TELEFONE. A spec alternava telefone e chamada de WhatsApp; com o
+# canal de WhatsApp fora do jogo, alternar so criaria toque que nao
+# acontece. O espacamento e o resto do bloco nao mudam.
+#
 # POR QUE DURACAO E NAO HORARIO (corrigido em 21/09/2026 depois da
 # simulacao): o wait `specific_date` exige `specificDate` e
 # `specificTimePeriod`; sem eles o GHL entende "a data ja passou" e SEGUE
@@ -60,17 +65,17 @@ INSTA = C["Instagram"]["id"]
 # spec, e somam os mesmos ~30 dias.
 TOQUES_TAB = [
     (1, (6, "hours"), "telefone", "fila-tel", "[CADENCIA] T1 · Ligar (telefone)"),
-    (2, (17, "hours"), "whatsapp", "fila-wa", "[CADENCIA] T2 · Ligar (WhatsApp)"),
+    (2, (17, "hours"), "telefone", "fila-tel", "[CADENCIA] T2 · Ligar (telefone)"),
     (3, (8, "hours"), "telefone", "fila-tel", "[CADENCIA] T3 · Ligar (telefone)"),
-    (4, (2, "days"), "whatsapp", "fila-wa", "[CADENCIA] T4 · Ligar (WhatsApp)"),
-    (5, (3, "days"), "whatsapp", "fila-wa", "[CADENCIA] T5 · Ligar (WhatsApp)"),
+    (4, (2, "days"), "telefone", "fila-tel", "[CADENCIA] T4 · Ligar (telefone)"),
+    (5, (3, "days"), "telefone", "fila-tel", "[CADENCIA] T5 · Ligar (telefone)"),
     (6, (6, "hours"), "telefone", "fila-tel", "[CADENCIA] T6 · Ligar (telefone)"),
-    (7, (3, "days"), "whatsapp", "fila-wa", "[CADENCIA] T7 · Ligar (WhatsApp)"),
+    (7, (3, "days"), "telefone", "fila-tel", "[CADENCIA] T7 · Ligar (telefone)"),
     (8, (4, "days"), "telefone", "fila-tel", "[CADENCIA] T8 · Ligar (telefone)"),
-    (9, (6, "days"), "whatsapp", "fila-wa", "[CADENCIA] T9 · Ligar (WhatsApp)"),
+    (9, (6, "days"), "telefone", "fila-tel", "[CADENCIA] T9 · Ligar (telefone)"),
     (10, (10, "days"), "telefone", "fila-tel", "[CADENCIA] T10 · Ligar (telefone)"),
     (11, (7, "hours"), "telefone", "fila-tel", "[CADENCIA] T11 · Ligar (telefone)"),
-    (12, None, "whatsapp", "fila-wa", "[CADENCIA] T12 · Ligar (WhatsApp)"),
+    (12, None, "telefone", "fila-tel", "[CADENCIA] T12 · Ligar (telefone)"),
 ]
 
 c = g.client()

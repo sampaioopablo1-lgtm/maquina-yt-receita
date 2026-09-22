@@ -41,8 +41,8 @@ INSTA = C["Instagram"]["id"]
 TOQUES = [
     (1, (25, "minutes"), "telefone", "fila-tel", "telefone"),
     (2, (90, "minutes"), "telefone", "fila-tel", "telefone"),
-    (3, (22, "hours"), "whatsapp", "fila-wa", "WhatsApp"),
-    (4, (2, "days"), "whatsapp", "fila-wa", "WhatsApp"),
+    (3, (22, "hours"), "telefone", "fila-tel", "telefone"),
+    (4, (2, "days"), "telefone", "fila-tel", "telefone"),
     (5, None, "telefone", "fila-tel", "telefone"),
 ]
 ESPERA_INICIAL = (5, "minutes")

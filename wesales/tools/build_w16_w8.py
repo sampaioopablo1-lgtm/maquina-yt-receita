@@ -97,7 +97,7 @@ ids[NOME16] = WF16
 
 # espera ATE O PROXIMO toque (duracao, nao horario - ver nota no W11)
 TR = [(1, (3, "days"), "fila-tel", "telefone"),
-      (2, (4, "days"), "fila-wa", "WhatsApp"),
+      (2, (4, "days"), "fila-tel", "telefone"),
       (3, (3, "days"), "fila-tel", "telefone"),
       (4, None, "fila-tel", "telefone")]
 

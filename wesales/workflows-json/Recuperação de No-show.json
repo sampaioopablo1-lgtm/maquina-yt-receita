@@ -6,20 +6,20 @@
     "companyAge": 29,
     "name": "Recuperação de No-show",
     "status": "draft",
-    "version": 13,
+    "version": 16,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/050052db-5ae8-43fe-8e94-b0f747563d57/13",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F050052db-5ae8-43fe-8e94-b0f747563d57%2F13?alt=media&token=8f0e4b94-367e-4c11-bd9f-479f24e1a2b8",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/050052db-5ae8-43fe-8e94-b0f747563d57/16",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F050052db-5ae8-43fe-8e94-b0f747563d57%2F16?alt=media&token=4cef6707-b6ac-420b-8e0b-30ca1b6525e3",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "parentId": null,
     "createdAt": "2026-09-19T06:36:27.303Z",
-    "updatedAt": "2026-09-22T12:04:16.776Z",
+    "updatedAt": "2026-09-22T13:47:50.474Z",
     "deleted": false,
     "allowMultipleOpportunity": false,
     "creationSource": "workflow_ai",
@@ -42,25 +42,25 @@
     },
     "workflowNote": null,
     "senderAddress": null,
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/050052db-5ae8-43fe-8e94-b0f747563d57/13",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/050052db-5ae8-43fe-8e94-b0f747563d57/16",
     "meta": {
       "advanceCanvasMeta": {
         "enabled": true,
-        "enabledAt": "2026-09-22T12:04:15.000Z"
+        "enabledAt": "2026-09-22T13:47:49.000Z"
       }
     },
     "id": "050052db-5ae8-43fe-8e94-b0f747563d57",
     "workflowData": {
       "templates": [
         {
-          "id": "c9a6624c-5e12-4507-b0ed-e7356577ae9e",
+          "id": "9bed961a-c7f2-4937-a1c5-b1332e6e2bcb",
           "order": 0,
           "name": "Em NEGOCIAR e aberta?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "860444ea-fc3e-49d1-9499-4095130680a3",
-            "3f09a24e-7797-4693-92aa-78ab9a43ef53"
+            "b22d9c23-d974-4709-9955-98633847e255",
+            "2fa23ae0-3f7a-4ef9-ac33-7288a19037a6"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -68,11 +68,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "860444ea-fc3e-49d1-9499-4095130680a3",
+                "id": "b22d9c23-d974-4709-9955-98633847e255",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "c2830f5a-2c52-480c-a0f7-e5b421fefd3c",
+                    "__segmentId": "de1ee029-1f94-4b8f-8da4-595293bcf09a",
                     "operator": "and",
                     "conditions": [
                       {
@@ -80,7 +80,7 @@
                         "conditionSubType": "pipelineStageId",
                         "conditionOperator": "==",
                         "conditionValue": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
-                        "__conditionId": "e75c17b1-b1b0-43a1-9ea7-527d86c08a78",
+                        "__conditionId": "b7137ea7-5f94-41a1-a530-c4ffceafba44",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -115,7 +115,7 @@
                         "conditionSubType": "status",
                         "conditionOperator": "==",
                         "conditionValue": "open",
-                        "__conditionId": "ce8940a0-1a43-45fa-a6ff-d8ba64f43b98",
+                        "__conditionId": "19cc1fb4-4c2a-4fbe-a6d0-4c725dd830ac",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -167,15 +167,15 @@
           }
         },
         {
-          "id": "860444ea-fc3e-49d1-9499-4095130680a3",
-          "parent": "c9a6624c-5e12-4507-b0ed-e7356577ae9e",
-          "parentKey": "c9a6624c-5e12-4507-b0ed-e7356577ae9e",
+          "id": "b22d9c23-d974-4709-9955-98633847e255",
+          "parent": "9bed961a-c7f2-4937-a1c5-b1332e6e2bcb",
+          "parentKey": "9bed961a-c7f2-4937-a1c5-b1332e6e2bcb",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "3f09a24e-7797-4693-92aa-78ab9a43ef53"
+            "2fa23ae0-3f7a-4ef9-ac33-7288a19037a6"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -185,7 +185,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "a003263f-697f-4884-a2fe-710f31dcbddb",
+          "next": "8471d0e4-d1f3-4c85-aab2-7c708bdd89fa",
           "advanceCanvasMeta": {
             "position": {
               "x": 700,
@@ -194,15 +194,15 @@
           }
         },
         {
-          "id": "3f09a24e-7797-4693-92aa-78ab9a43ef53",
-          "parent": "c9a6624c-5e12-4507-b0ed-e7356577ae9e",
-          "parentKey": "c9a6624c-5e12-4507-b0ed-e7356577ae9e",
+          "id": "2fa23ae0-3f7a-4ef9-ac33-7288a19037a6",
+          "parent": "9bed961a-c7f2-4937-a1c5-b1332e6e2bcb",
+          "parentKey": "9bed961a-c7f2-4937-a1c5-b1332e6e2bcb",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "860444ea-fc3e-49d1-9499-4095130680a3"
+            "b22d9c23-d974-4709-9955-98633847e255"
           ],
           "comments": [],
           "nodeType": "branch-no",
@@ -217,7 +217,7 @@
           }
         },
         {
-          "id": "a003263f-697f-4884-a2fe-710f31dcbddb",
+          "id": "8471d0e4-d1f3-4c85-aab2-7c708bdd89fa",
           "name": "Math operation",
           "type": "math_operation",
           "attributes": {
@@ -230,15 +230,15 @@
             "operators": [
               {
                 "operator": "add",
-                "__id": "947ab375-ef18-4e02-afbd-669ff387e97a",
+                "__id": "7823380c-b9d1-49e9-8f7f-dbb5f4f1fa61",
                 "value": 1
               }
             ]
           },
           "order": 0,
-          "parent": "860444ea-fc3e-49d1-9499-4095130680a3",
-          "parentKey": "860444ea-fc3e-49d1-9499-4095130680a3",
-          "next": "7df2d1f4-3ec3-4835-b3b5-80e52ec5ec20",
+          "parent": "b22d9c23-d974-4709-9955-98633847e255",
+          "parentKey": "b22d9c23-d974-4709-9955-98633847e255",
+          "next": "63f80a06-8b4f-41d3-879e-ff5a09ce0876",
           "advanceCanvasMeta": {
             "position": {
               "x": 1300,
@@ -248,14 +248,14 @@
           "cat": ""
         },
         {
-          "id": "7df2d1f4-3ec3-4835-b3b5-80e52ec5ec20",
+          "id": "63f80a06-8b4f-41d3-879e-ff5a09ce0876",
           "order": 1,
           "name": "Já é o segundo no-show?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-            "f0ebced4-2c7c-4197-a1a1-f43a3096d38f"
+            "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+            "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -263,11 +263,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
+                "id": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "7290eb2b-3afc-4144-969f-108e42c86026",
+                    "__segmentId": "e2649085-9e0d-4027-8b05-9080fb92f75a",
                     "operator": "and",
                     "conditions": [
                       {
@@ -275,7 +275,7 @@
                         "conditionSubType": "ONBBDPg4LPIoRhv09Nf3",
                         "conditionOperator": ">=",
                         "conditionValue": "2",
-                        "__conditionId": "06636329-0e81-4cfb-a11d-5295b09baf76",
+                        "__conditionId": "974a402e-0803-400d-9617-64d13dd7f521",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -319,8 +319,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "860444ea-fc3e-49d1-9499-4095130680a3",
-          "parentKey": "a003263f-697f-4884-a2fe-710f31dcbddb",
+          "parent": "b22d9c23-d974-4709-9955-98633847e255",
+          "parentKey": "8471d0e4-d1f3-4c85-aab2-7c708bdd89fa",
           "advanceCanvasMeta": {
             "position": {
               "x": 1600,
@@ -329,15 +329,15 @@
           }
         },
         {
-          "id": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "parent": "7df2d1f4-3ec3-4835-b3b5-80e52ec5ec20",
-          "parentKey": "7df2d1f4-3ec3-4835-b3b5-80e52ec5ec20",
+          "id": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "parent": "63f80a06-8b4f-41d3-879e-ff5a09ce0876",
+          "parentKey": "63f80a06-8b4f-41d3-879e-ff5a09ce0876",
           "order": 2,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "f0ebced4-2c7c-4197-a1a1-f43a3096d38f"
+            "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -347,7 +347,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "831181ea-bb42-42d5-a4e0-ed81fbbbf52b",
+          "next": "7f7e9665-0263-4ea9-b520-28eafb78ee0a",
           "advanceCanvasMeta": {
             "position": {
               "x": 1900,
@@ -356,22 +356,22 @@
           }
         },
         {
-          "id": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "parent": "7df2d1f4-3ec3-4835-b3b5-80e52ec5ec20",
-          "parentKey": "7df2d1f4-3ec3-4835-b3b5-80e52ec5ec20",
+          "id": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parent": "63f80a06-8b4f-41d3-879e-ff5a09ce0876",
+          "parentKey": "63f80a06-8b4f-41d3-879e-ff5a09ce0876",
           "order": 2,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "859cc7be-ca2e-4665-a411-5de3e1ebe3e1"
+            "7e2a87c9-8ed6-4865-81ea-d721d4b56554"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "abd9f620-08c7-4e2d-83f8-573361377038",
+          "next": "f2f138a8-7a7a-4d43-98f4-75ce73ca6b16",
           "advanceCanvasMeta": {
             "position": {
               "x": 2200,
@@ -380,7 +380,7 @@
           }
         },
         {
-          "id": "831181ea-bb42-42d5-a4e0-ed81fbbbf52b",
+          "id": "7f7e9665-0263-4ea9-b520-28eafb78ee0a",
           "name": "Remove Tag",
           "type": "remove_contact_tag",
           "attributes": {
@@ -389,9 +389,9 @@
             ]
           },
           "order": 0,
-          "parent": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "parentKey": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "next": "e28a0985-4882-4db2-a2d6-6bd709fa86c1",
+          "parent": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "parentKey": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "next": "29ab2980-0907-4f12-bf11-842ceceef51a",
           "advanceCanvasMeta": {
             "position": {
               "x": 2500,
@@ -401,7 +401,7 @@
           "cat": ""
         },
         {
-          "id": "e28a0985-4882-4db2-a2d6-6bd709fa86c1",
+          "id": "29ab2980-0907-4f12-bf11-842ceceef51a",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -410,9 +410,9 @@
             ]
           },
           "order": 1,
-          "parent": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "parentKey": "831181ea-bb42-42d5-a4e0-ed81fbbbf52b",
-          "next": "3c235be9-e607-4860-b812-8c4c75db9b33",
+          "parent": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "parentKey": "7f7e9665-0263-4ea9-b520-28eafb78ee0a",
+          "next": "45a1e56a-90d7-4c1c-897f-e211fb257063",
           "advanceCanvasMeta": {
             "position": {
               "x": 2800,
@@ -422,7 +422,7 @@
           "cat": ""
         },
         {
-          "id": "3c235be9-e607-4860-b812-8c4c75db9b33",
+          "id": "45a1e56a-90d7-4c1c-897f-e211fb257063",
           "name": "Update Opportunity",
           "type": "create_opportunity",
           "attributes": {
@@ -436,9 +436,9 @@
             "monetary_value": ""
           },
           "order": 2,
-          "parent": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "parentKey": "e28a0985-4882-4db2-a2d6-6bd709fa86c1",
-          "next": "b206811e-ed52-41ae-937c-f476b1022a6a",
+          "parent": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "parentKey": "29ab2980-0907-4f12-bf11-842ceceef51a",
+          "next": "e7bb2223-9b6a-46df-b75f-c68216b9d281",
           "advanceCanvasMeta": {
             "position": {
               "x": 3100,
@@ -448,7 +448,7 @@
           "cat": ""
         },
         {
-          "id": "b206811e-ed52-41ae-937c-f476b1022a6a",
+          "id": "e7bb2223-9b6a-46df-b75f-c68216b9d281",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -458,9 +458,9 @@
             "title": "Descartado por no-show"
           },
           "order": 3,
-          "parent": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "parentKey": "3c235be9-e607-4860-b812-8c4c75db9b33",
-          "next": "a07358b1-9d98-4f43-95dc-2b5c55d7ed6b",
+          "parent": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "parentKey": "45a1e56a-90d7-4c1c-897f-e211fb257063",
+          "next": "a4f44c78-a15f-474a-8b4a-605335dde4cd",
           "advanceCanvasMeta": {
             "position": {
               "x": 3400,
@@ -470,7 +470,7 @@
           "cat": ""
         },
         {
-          "id": "a07358b1-9d98-4f43-95dc-2b5c55d7ed6b",
+          "id": "a4f44c78-a15f-474a-8b4a-605335dde4cd",
           "name": "Internal Notification",
           "type": "internal_notification",
           "attributes": {
@@ -485,8 +485,8 @@
             }
           },
           "order": 4,
-          "parent": "859cc7be-ca2e-4665-a411-5de3e1ebe3e1",
-          "parentKey": "b206811e-ed52-41ae-937c-f476b1022a6a",
+          "parent": "7e2a87c9-8ed6-4865-81ea-d721d4b56554",
+          "parentKey": "e7bb2223-9b6a-46df-b75f-c68216b9d281",
           "advanceCanvasMeta": {
             "position": {
               "x": 3700,
@@ -496,7 +496,7 @@
           "cat": ""
         },
         {
-          "id": "abd9f620-08c7-4e2d-83f8-573361377038",
+          "id": "f2f138a8-7a7a-4d43-98f4-75ce73ca6b16",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -505,9 +505,9 @@
             ]
           },
           "order": 0,
-          "parent": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "parentKey": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "next": "28c99687-b6b6-4bd2-b503-f1bc6cab89ff",
+          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parentKey": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "next": "08b41130-c353-45b2-b94f-3b76543936d9",
           "advanceCanvasMeta": {
             "position": {
               "x": 4000,
@@ -517,7 +517,7 @@
           "cat": ""
         },
         {
-          "id": "28c99687-b6b6-4bd2-b503-f1bc6cab89ff",
+          "id": "08b41130-c353-45b2-b94f-3b76543936d9",
           "name": "Add Task",
           "type": "task-notification",
           "attributes": {
@@ -531,9 +531,9 @@
             }
           },
           "order": 1,
-          "parent": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "parentKey": "abd9f620-08c7-4e2d-83f8-573361377038",
-          "next": "d756ad47-0a98-43f5-aa76-85e4869f7ff8",
+          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parentKey": "f2f138a8-7a7a-4d43-98f4-75ce73ca6b16",
+          "next": "50068e96-9c48-48e7-a4a6-0287bfff7637",
           "advanceCanvasMeta": {
             "position": {
               "x": 4300,
@@ -543,7 +543,7 @@
           "cat": ""
         },
         {
-          "id": "d756ad47-0a98-43f5-aa76-85e4869f7ff8",
+          "id": "50068e96-9c48-48e7-a4a6-0287bfff7637",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -552,9 +552,9 @@
             ]
           },
           "order": 2,
-          "parent": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "parentKey": "28c99687-b6b6-4bd2-b503-f1bc6cab89ff",
-          "next": "fe7af8ad-d01b-4a74-8a52-661850e6233a",
+          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parentKey": "08b41130-c353-45b2-b94f-3b76543936d9",
+          "next": "7979e560-7f6f-48fa-97dd-f6462224bede",
           "advanceCanvasMeta": {
             "position": {
               "x": 4600,
@@ -564,7 +564,7 @@
           "cat": ""
         },
         {
-          "id": "fe7af8ad-d01b-4a74-8a52-661850e6233a",
+          "id": "7979e560-7f6f-48fa-97dd-f6462224bede",
           "name": "Wait 1 Days",
           "type": "wait",
           "cat": "",
@@ -583,9 +583,9 @@
             "transitions": []
           },
           "order": 3,
-          "parent": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "parentKey": "d756ad47-0a98-43f5-aa76-85e4869f7ff8",
-          "next": "a84c7984-7fc5-478d-ab93-0f0c7b82b0f2",
+          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parentKey": "50068e96-9c48-48e7-a4a6-0287bfff7637",
+          "next": "72990e55-013d-4f3b-ab12-f7001640c435",
           "advanceCanvasMeta": {
             "position": {
               "x": 4900,
@@ -594,14 +594,14 @@
           }
         },
         {
-          "id": "a84c7984-7fc5-478d-ab93-0f0c7b82b0f2",
+          "id": "72990e55-013d-4f3b-ab12-f7001640c435",
           "order": 4,
           "name": "NS1 · Ainda vale recuperar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-            "1fcc1ecf-a191-4cee-b2d6-6f2c60ab4a09"
+            "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+            "59bf3b24-3624-4b24-844f-e874d76bf3b2"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -609,11 +609,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
+                "id": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "9b2c1519-aedd-46c7-ab0f-45eddc19f5c0",
+                    "__segmentId": "f0613ebe-6b85-41c3-819f-c7e0e2afe959",
                     "operator": "and",
                     "conditions": [
                       {
@@ -621,7 +621,7 @@
                         "conditionSubType": "pipelineStageId",
                         "conditionOperator": "==",
                         "conditionValue": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
-                        "__conditionId": "c754768a-e736-4434-b03f-50c53a7e9080",
+                        "__conditionId": "72aedf84-04ad-4453-96a8-de4d88def1fb",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -656,7 +656,7 @@
                         "conditionSubType": "status",
                         "conditionOperator": "==",
                         "conditionValue": "open",
-                        "__conditionId": "cff1d434-af9c-4e62-9df8-c361d588929c",
+                        "__conditionId": "0d6158f2-8b07-42bc-a5c6-f7cf4760e47a",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -693,7 +693,7 @@
                         "conditionValue": [
                           "nao-perturbe"
                         ],
-                        "__conditionId": "9418175a-ffe2-4706-b71a-cfd36300e735",
+                        "__conditionId": "08b26b47-b71d-46e4-9c3a-0da17cf644f4",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -730,7 +730,7 @@
                         "conditionValue": [
                           "pausado"
                         ],
-                        "__conditionId": "33f0bf8a-1321-4641-8ad1-aca810a6af07",
+                        "__conditionId": "2774f736-655c-4e3f-be14-7d44224b4085",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -774,8 +774,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "f0ebced4-2c7c-4197-a1a1-f43a3096d38f",
-          "parentKey": "fe7af8ad-d01b-4a74-8a52-661850e6233a",
+          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parentKey": "7979e560-7f6f-48fa-97dd-f6462224bede",
           "advanceCanvasMeta": {
             "position": {
               "x": 5200,
@@ -784,15 +784,15 @@
           }
         },
         {
-          "id": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "parent": "a84c7984-7fc5-478d-ab93-0f0c7b82b0f2",
-          "parentKey": "a84c7984-7fc5-478d-ab93-0f0c7b82b0f2",
+          "id": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "parent": "72990e55-013d-4f3b-ab12-f7001640c435",
+          "parentKey": "72990e55-013d-4f3b-ab12-f7001640c435",
           "order": 5,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "1fcc1ecf-a191-4cee-b2d6-6f2c60ab4a09"
+            "59bf3b24-3624-4b24-844f-e874d76bf3b2"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -802,7 +802,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "7a7cf35f-3ee7-41a9-ba70-86dd71d0a53c",
+          "next": "61a817f3-b791-4b56-8241-b55d0b78136d",
           "advanceCanvasMeta": {
             "position": {
               "x": 5500,
@@ -811,22 +811,22 @@
           }
         },
         {
-          "id": "1fcc1ecf-a191-4cee-b2d6-6f2c60ab4a09",
-          "parent": "a84c7984-7fc5-478d-ab93-0f0c7b82b0f2",
-          "parentKey": "a84c7984-7fc5-478d-ab93-0f0c7b82b0f2",
+          "id": "59bf3b24-3624-4b24-844f-e874d76bf3b2",
+          "parent": "72990e55-013d-4f3b-ab12-f7001640c435",
+          "parentKey": "72990e55-013d-4f3b-ab12-f7001640c435",
           "order": 5,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "ace0b67a-9e3d-49dd-8364-86e3aa8b1872"
+            "2ab351cc-7926-4cdf-9be6-13713dbd9d84"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "1615f1a4-2054-4520-88ba-345c1f5fbbc9",
+          "next": "418b01be-4f0b-4156-a90d-5b15253b6869",
           "advanceCanvasMeta": {
             "position": {
               "x": 5800,
@@ -835,7 +835,7 @@
           }
         },
         {
-          "id": "7a7cf35f-3ee7-41a9-ba70-86dd71d0a53c",
+          "id": "61a817f3-b791-4b56-8241-b55d0b78136d",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -844,9 +844,9 @@
             ]
           },
           "order": 0,
-          "parent": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "parentKey": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "next": "88355090-c253-436b-84c6-93eefaea5a5a",
+          "parent": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "parentKey": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "next": "5a2a85f8-85c6-446c-a02d-18299a35e2fb",
           "advanceCanvasMeta": {
             "position": {
               "x": 6100,
@@ -856,7 +856,7 @@
           "cat": ""
         },
         {
-          "id": "88355090-c253-436b-84c6-93eefaea5a5a",
+          "id": "5a2a85f8-85c6-446c-a02d-18299a35e2fb",
           "name": "Add Task",
           "type": "task-notification",
           "attributes": {
@@ -870,9 +870,9 @@
             }
           },
           "order": 1,
-          "parent": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "parentKey": "7a7cf35f-3ee7-41a9-ba70-86dd71d0a53c",
-          "next": "8290a426-c893-47d7-8425-82358298aaef",
+          "parent": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "parentKey": "61a817f3-b791-4b56-8241-b55d0b78136d",
+          "next": "75c1f9fd-3ea2-4b48-9ce4-4f8a092485ce",
           "advanceCanvasMeta": {
             "position": {
               "x": 6400,
@@ -882,7 +882,7 @@
           "cat": ""
         },
         {
-          "id": "8290a426-c893-47d7-8425-82358298aaef",
+          "id": "75c1f9fd-3ea2-4b48-9ce4-4f8a092485ce",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -891,9 +891,9 @@
             ]
           },
           "order": 2,
-          "parent": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "parentKey": "88355090-c253-436b-84c6-93eefaea5a5a",
-          "next": "b39c8d61-8cb2-4802-b78f-0c7799f2259c",
+          "parent": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "parentKey": "5a2a85f8-85c6-446c-a02d-18299a35e2fb",
+          "next": "3d79e038-f71c-46fa-841e-8c28bb82cc4c",
           "advanceCanvasMeta": {
             "position": {
               "x": 6700,
@@ -903,7 +903,7 @@
           "cat": ""
         },
         {
-          "id": "b39c8d61-8cb2-4802-b78f-0c7799f2259c",
+          "id": "3d79e038-f71c-46fa-841e-8c28bb82cc4c",
           "name": "Wait 2 Days",
           "type": "wait",
           "cat": "",
@@ -922,9 +922,9 @@
             "transitions": []
           },
           "order": 3,
-          "parent": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "parentKey": "8290a426-c893-47d7-8425-82358298aaef",
-          "next": "a874aaf5-f08f-48aa-8807-086ec0fb2771",
+          "parent": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "parentKey": "75c1f9fd-3ea2-4b48-9ce4-4f8a092485ce",
+          "next": "aa213c6f-1dfa-4469-9275-796a09b2d16a",
           "advanceCanvasMeta": {
             "position": {
               "x": 7000,
@@ -933,14 +933,14 @@
           }
         },
         {
-          "id": "a874aaf5-f08f-48aa-8807-086ec0fb2771",
+          "id": "aa213c6f-1dfa-4469-9275-796a09b2d16a",
           "order": 4,
           "name": "NS2 · Ainda vale recuperar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-            "3f7a87fd-ea54-4d6a-b422-03e6d06333b1"
+            "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+            "74c80c0f-6e07-4f82-8923-7016d9e317d6"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -948,11 +948,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
+                "id": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "cdded978-9999-4b86-b956-fa70625ac1cc",
+                    "__segmentId": "feca848e-4bda-4bca-a0b9-61697f9fa478",
                     "operator": "and",
                     "conditions": [
                       {
@@ -960,7 +960,7 @@
                         "conditionSubType": "pipelineStageId",
                         "conditionOperator": "==",
                         "conditionValue": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
-                        "__conditionId": "fc27e61c-c99c-414a-8f47-11524bb8c68d",
+                        "__conditionId": "44106c75-53ef-4e35-90d3-8217a89dea01",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -995,7 +995,7 @@
                         "conditionSubType": "status",
                         "conditionOperator": "==",
                         "conditionValue": "open",
-                        "__conditionId": "472704b0-b96f-4dc6-978d-75edb2322309",
+                        "__conditionId": "8f49497a-7506-4b24-a9f5-032bb39128f6",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1032,7 +1032,7 @@
                         "conditionValue": [
                           "nao-perturbe"
                         ],
-                        "__conditionId": "78cd73b5-3b0d-40ec-87dd-dc0dff57e8a8",
+                        "__conditionId": "2f3b6227-6ef8-4a4e-96be-06aae607cb01",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1069,7 +1069,7 @@
                         "conditionValue": [
                           "pausado"
                         ],
-                        "__conditionId": "255f029e-97f7-431f-9173-9731f52ff694",
+                        "__conditionId": "55d59a2d-036b-49f1-90c8-62409c489928",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1113,8 +1113,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "ace0b67a-9e3d-49dd-8364-86e3aa8b1872",
-          "parentKey": "b39c8d61-8cb2-4802-b78f-0c7799f2259c",
+          "parent": "2ab351cc-7926-4cdf-9be6-13713dbd9d84",
+          "parentKey": "3d79e038-f71c-46fa-841e-8c28bb82cc4c",
           "advanceCanvasMeta": {
             "position": {
               "x": 7300,
@@ -1123,15 +1123,15 @@
           }
         },
         {
-          "id": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "parent": "a874aaf5-f08f-48aa-8807-086ec0fb2771",
-          "parentKey": "a874aaf5-f08f-48aa-8807-086ec0fb2771",
+          "id": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "parent": "aa213c6f-1dfa-4469-9275-796a09b2d16a",
+          "parentKey": "aa213c6f-1dfa-4469-9275-796a09b2d16a",
           "order": 5,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "3f7a87fd-ea54-4d6a-b422-03e6d06333b1"
+            "74c80c0f-6e07-4f82-8923-7016d9e317d6"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -1141,7 +1141,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "e3bb3c42-eb6f-4e9a-870c-963fb86278f4",
+          "next": "b42b42f4-0411-4c86-8a26-fd03bce14c83",
           "advanceCanvasMeta": {
             "position": {
               "x": 7600,
@@ -1150,22 +1150,22 @@
           }
         },
         {
-          "id": "3f7a87fd-ea54-4d6a-b422-03e6d06333b1",
-          "parent": "a874aaf5-f08f-48aa-8807-086ec0fb2771",
-          "parentKey": "a874aaf5-f08f-48aa-8807-086ec0fb2771",
+          "id": "74c80c0f-6e07-4f82-8923-7016d9e317d6",
+          "parent": "aa213c6f-1dfa-4469-9275-796a09b2d16a",
+          "parentKey": "aa213c6f-1dfa-4469-9275-796a09b2d16a",
           "order": 5,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "a34ca3e8-2070-401e-9ac4-6759fa481b37"
+            "a20a5894-f3f3-4797-825b-e4205c2ae1c5"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "f6093df1-c0b9-4861-a858-0a4751f638c0",
+          "next": "0f0e3fc8-9cb9-4c4c-8811-24d29adf7e37",
           "advanceCanvasMeta": {
             "position": {
               "x": 7900,
@@ -1174,7 +1174,7 @@
           }
         },
         {
-          "id": "e3bb3c42-eb6f-4e9a-870c-963fb86278f4",
+          "id": "b42b42f4-0411-4c86-8a26-fd03bce14c83",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -1183,9 +1183,9 @@
             ]
           },
           "order": 0,
-          "parent": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "parentKey": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "next": "e1a1406b-4539-480f-b1de-910b512d30e0",
+          "parent": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "parentKey": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "next": "62d8c591-8c12-4feb-9e7d-6e0fafa37f0c",
           "advanceCanvasMeta": {
             "position": {
               "x": 8200,
@@ -1195,7 +1195,7 @@
           "cat": ""
         },
         {
-          "id": "e1a1406b-4539-480f-b1de-910b512d30e0",
+          "id": "62d8c591-8c12-4feb-9e7d-6e0fafa37f0c",
           "name": "Add Task",
           "type": "task-notification",
           "attributes": {
@@ -1209,9 +1209,9 @@
             }
           },
           "order": 1,
-          "parent": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "parentKey": "e3bb3c42-eb6f-4e9a-870c-963fb86278f4",
-          "next": "7180c10c-0618-461e-8b9f-80c306a42fbd",
+          "parent": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "parentKey": "b42b42f4-0411-4c86-8a26-fd03bce14c83",
+          "next": "01d49c84-b548-4a77-9314-2a46609f2182",
           "advanceCanvasMeta": {
             "position": {
               "x": 8500,
@@ -1221,7 +1221,7 @@
           "cat": ""
         },
         {
-          "id": "7180c10c-0618-461e-8b9f-80c306a42fbd",
+          "id": "01d49c84-b548-4a77-9314-2a46609f2182",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -1230,9 +1230,9 @@
             ]
           },
           "order": 2,
-          "parent": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "parentKey": "e1a1406b-4539-480f-b1de-910b512d30e0",
-          "next": "e4419866-3a12-4153-8c1b-82847fb22986",
+          "parent": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "parentKey": "62d8c591-8c12-4feb-9e7d-6e0fafa37f0c",
+          "next": "65e4f963-1bd3-4730-a37a-e3e25ec1bde0",
           "advanceCanvasMeta": {
             "position": {
               "x": 8800,
@@ -1242,7 +1242,7 @@
           "cat": ""
         },
         {
-          "id": "e4419866-3a12-4153-8c1b-82847fb22986",
+          "id": "65e4f963-1bd3-4730-a37a-e3e25ec1bde0",
           "name": "Wait 1 Days",
           "type": "wait",
           "cat": "",
@@ -1261,9 +1261,9 @@
             "transitions": []
           },
           "order": 3,
-          "parent": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "parentKey": "7180c10c-0618-461e-8b9f-80c306a42fbd",
-          "next": "088734f5-8ca9-47f2-96fe-9a350efa9c36",
+          "parent": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "parentKey": "01d49c84-b548-4a77-9314-2a46609f2182",
+          "next": "429a3277-22dd-4fc9-a1b7-d8f7fdf3e59b",
           "advanceCanvasMeta": {
             "position": {
               "x": 9100,
@@ -1272,14 +1272,14 @@
           }
         },
         {
-          "id": "088734f5-8ca9-47f2-96fe-9a350efa9c36",
+          "id": "429a3277-22dd-4fc9-a1b7-d8f7fdf3e59b",
           "order": 4,
           "name": "NS3 · Ainda vale recuperar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-            "c8d17390-bfb6-438d-9154-2609b2fd4db3"
+            "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+            "6da81ca7-d5f6-4a7b-8d01-a3d06fe35a84"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -1287,11 +1287,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
+                "id": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "acf79641-24ba-4ba2-8e08-5ca098a0380c",
+                    "__segmentId": "c5b0d4d0-2d2b-4e8d-9067-d3b0826deb0a",
                     "operator": "and",
                     "conditions": [
                       {
@@ -1299,7 +1299,7 @@
                         "conditionSubType": "pipelineStageId",
                         "conditionOperator": "==",
                         "conditionValue": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
-                        "__conditionId": "72323e57-cc8d-4975-acbb-238fd8b0f1b6",
+                        "__conditionId": "c868b18a-0213-468b-b953-39046f50186d",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1334,7 +1334,7 @@
                         "conditionSubType": "status",
                         "conditionOperator": "==",
                         "conditionValue": "open",
-                        "__conditionId": "fe307ef9-78e7-43b4-8f81-f73ae9720847",
+                        "__conditionId": "b207b88d-66cf-4688-a89a-cb97c0db55a2",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1371,7 +1371,7 @@
                         "conditionValue": [
                           "nao-perturbe"
                         ],
-                        "__conditionId": "f459c94a-15c4-4720-bc31-d5977a159205",
+                        "__conditionId": "434e883b-563f-440d-bf29-8708e4cba71a",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1408,7 +1408,7 @@
                         "conditionValue": [
                           "pausado"
                         ],
-                        "__conditionId": "f3d5bbaa-4428-4ded-9713-d3660950981c",
+                        "__conditionId": "763e70b9-3562-492a-9b16-7c5516141314",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1452,8 +1452,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "a34ca3e8-2070-401e-9ac4-6759fa481b37",
-          "parentKey": "e4419866-3a12-4153-8c1b-82847fb22986",
+          "parent": "a20a5894-f3f3-4797-825b-e4205c2ae1c5",
+          "parentKey": "65e4f963-1bd3-4730-a37a-e3e25ec1bde0",
           "advanceCanvasMeta": {
             "position": {
               "x": 9400,
@@ -1462,15 +1462,15 @@
           }
         },
         {
-          "id": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-          "parent": "088734f5-8ca9-47f2-96fe-9a350efa9c36",
-          "parentKey": "088734f5-8ca9-47f2-96fe-9a350efa9c36",
+          "id": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+          "parent": "429a3277-22dd-4fc9-a1b7-d8f7fdf3e59b",
+          "parentKey": "429a3277-22dd-4fc9-a1b7-d8f7fdf3e59b",
           "order": 5,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "c8d17390-bfb6-438d-9154-2609b2fd4db3"
+            "6da81ca7-d5f6-4a7b-8d01-a3d06fe35a84"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -1480,7 +1480,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "79b2eed3-c072-4b5f-b242-5c6861f5da1b",
+          "next": "9a545e47-d4b0-4292-bf54-4639913563d3",
           "advanceCanvasMeta": {
             "position": {
               "x": 9700,
@@ -1489,22 +1489,22 @@
           }
         },
         {
-          "id": "c8d17390-bfb6-438d-9154-2609b2fd4db3",
-          "parent": "088734f5-8ca9-47f2-96fe-9a350efa9c36",
-          "parentKey": "088734f5-8ca9-47f2-96fe-9a350efa9c36",
+          "id": "6da81ca7-d5f6-4a7b-8d01-a3d06fe35a84",
+          "parent": "429a3277-22dd-4fc9-a1b7-d8f7fdf3e59b",
+          "parentKey": "429a3277-22dd-4fc9-a1b7-d8f7fdf3e59b",
           "order": 5,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "20cbaba5-369e-40fe-916d-19fa1ea4e1f5"
+            "fa05f1c7-bb63-47c7-a14a-854475b3f0c2"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "5fbb36c5-8b6f-4f6c-a2b9-33aa6a483594",
+          "next": "48932044-2b63-4c3b-97e8-0af0106d0d49",
           "advanceCanvasMeta": {
             "position": {
               "x": 10000,
@@ -1513,7 +1513,7 @@
           }
         },
         {
-          "id": "79b2eed3-c072-4b5f-b242-5c6861f5da1b",
+          "id": "9a545e47-d4b0-4292-bf54-4639913563d3",
           "name": "Update contact field",
           "type": "update_contact_field",
           "attributes": {
@@ -1530,9 +1530,9 @@
             ]
           },
           "order": 0,
-          "parent": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-          "parentKey": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-          "next": "99aa5340-4340-41e5-8b6b-0713e5057659",
+          "parent": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+          "parentKey": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+          "next": "6ca46820-758f-4f15-82e9-16cfd973abc9",
           "advanceCanvasMeta": {
             "position": {
               "x": 10300,
@@ -1542,7 +1542,7 @@
           "cat": ""
         },
         {
-          "id": "99aa5340-4340-41e5-8b6b-0713e5057659",
+          "id": "6ca46820-758f-4f15-82e9-16cfd973abc9",
           "name": "Remove Tag",
           "type": "remove_contact_tag",
           "attributes": {
@@ -1551,9 +1551,9 @@
             ]
           },
           "order": 1,
-          "parent": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-          "parentKey": "79b2eed3-c072-4b5f-b242-5c6861f5da1b",
-          "next": "6ca0f665-c01b-425a-b185-325bb54a73e8",
+          "parent": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+          "parentKey": "9a545e47-d4b0-4292-bf54-4639913563d3",
+          "next": "bf83840e-6c62-441e-b19f-fc110cc4e442",
           "advanceCanvasMeta": {
             "position": {
               "x": 10600,
@@ -1563,7 +1563,7 @@
           "cat": ""
         },
         {
-          "id": "6ca0f665-c01b-425a-b185-325bb54a73e8",
+          "id": "bf83840e-6c62-441e-b19f-fc110cc4e442",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -1572,9 +1572,9 @@
             ]
           },
           "order": 2,
-          "parent": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-          "parentKey": "99aa5340-4340-41e5-8b6b-0713e5057659",
-          "next": "fbf6a2d9-a899-46b2-a59e-a3af7f2d2966",
+          "parent": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+          "parentKey": "6ca46820-758f-4f15-82e9-16cfd973abc9",
+          "next": "5d23bbfd-bec5-4c65-a2ce-68a9f950f8ce",
           "advanceCanvasMeta": {
             "position": {
               "x": 10900,
@@ -1584,7 +1584,7 @@
           "cat": ""
         },
         {
-          "id": "fbf6a2d9-a899-46b2-a59e-a3af7f2d2966",
+          "id": "5d23bbfd-bec5-4c65-a2ce-68a9f950f8ce",
           "name": "Update Opportunity",
           "type": "create_opportunity",
           "attributes": {
@@ -1598,8 +1598,8 @@
             "monetary_value": ""
           },
           "order": 3,
-          "parent": "20cbaba5-369e-40fe-916d-19fa1ea4e1f5",
-          "parentKey": "6ca0f665-c01b-425a-b185-325bb54a73e8",
+          "parent": "fa05f1c7-bb63-47c7-a14a-854475b3f0c2",
+          "parentKey": "bf83840e-6c62-441e-b19f-fc110cc4e442",
           "advanceCanvasMeta": {
             "position": {
               "x": 11200,
@@ -1609,7 +1609,7 @@
           "cat": ""
         },
         {
-          "id": "5fbb36c5-8b6f-4f6c-a2b9-33aa6a483594",
+          "id": "48932044-2b63-4c3b-97e8-0af0106d0d49",
           "name": "Remove from Workflow",
           "type": "remove_from_workflow",
           "attributes": {
@@ -1619,8 +1619,8 @@
             ]
           },
           "order": 0,
-          "parent": "c8d17390-bfb6-438d-9154-2609b2fd4db3",
-          "parentKey": "c8d17390-bfb6-438d-9154-2609b2fd4db3",
+          "parent": "6da81ca7-d5f6-4a7b-8d01-a3d06fe35a84",
+          "parentKey": "6da81ca7-d5f6-4a7b-8d01-a3d06fe35a84",
           "advanceCanvasMeta": {
             "position": {
               "x": 11500,
@@ -1630,7 +1630,7 @@
           "cat": ""
         },
         {
-          "id": "f6093df1-c0b9-4861-a858-0a4751f638c0",
+          "id": "0f0e3fc8-9cb9-4c4c-8811-24d29adf7e37",
           "name": "Remove from Workflow",
           "type": "remove_from_workflow",
           "attributes": {
@@ -1640,8 +1640,8 @@
             ]
           },
           "order": 0,
-          "parent": "3f7a87fd-ea54-4d6a-b422-03e6d06333b1",
-          "parentKey": "3f7a87fd-ea54-4d6a-b422-03e6d06333b1",
+          "parent": "74c80c0f-6e07-4f82-8923-7016d9e317d6",
+          "parentKey": "74c80c0f-6e07-4f82-8923-7016d9e317d6",
           "advanceCanvasMeta": {
             "position": {
               "x": 11800,
@@ -1651,7 +1651,7 @@
           "cat": ""
         },
         {
-          "id": "1615f1a4-2054-4520-88ba-345c1f5fbbc9",
+          "id": "418b01be-4f0b-4156-a90d-5b15253b6869",
           "name": "Remove from Workflow",
           "type": "remove_from_workflow",
           "attributes": {
@@ -1661,8 +1661,8 @@
             ]
           },
           "order": 0,
-          "parent": "1fcc1ecf-a191-4cee-b2d6-6f2c60ab4a09",
-          "parentKey": "1fcc1ecf-a191-4cee-b2d6-6f2c60ab4a09",
+          "parent": "59bf3b24-3624-4b24-844f-e874d76bf3b2",
+          "parentKey": "59bf3b24-3624-4b24-844f-e874d76bf3b2",
           "advanceCanvasMeta": {
             "position": {
               "x": 12100,
@@ -1702,7 +1702,7 @@
           "y": -73
         }
       },
-      "targetActionId": "c9a6624c-5e12-4507-b0ed-e7356577ae9e",
+      "targetActionId": "9bed961a-c7f2-4937-a1c5-b1332e6e2bcb",
       "active": false,
       "conditions": [
         {
@@ -1718,7 +1718,7 @@
           "value": "3uNQFjCEDe7b4gKZJuOZ",
           "title": "In calendar",
           "type": "select",
-          "id": "68e5487b-138b-4ec6-a6ea-4c9e4dc26baf"
+          "id": "822245c8-f62d-4e34-8fd3-dec911e1a021"
         },
         {
           "operator": "==",
@@ -1726,7 +1726,7 @@
           "value": "noshow",
           "title": "Appointment status is",
           "type": "select",
-          "id": "3025bf3b-df79-4eca-9f38-ed8a01228ea8"
+          "id": "5166b939-6b2d-4553-ad8a-c4c82fb962fd"
         },
         {
           "operator": "is-any-of",
@@ -1737,7 +1737,7 @@
           "type": "input"
         }
       ],
-      "date_updated": "2026-09-22T12:04:15.182Z"
+      "date_updated": "2026-09-22T13:47:48.745Z"
     }
   ]
 }
