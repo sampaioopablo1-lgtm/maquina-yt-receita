@@ -27,6 +27,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `script-de-ligacao.md` | R-06 — o que o SDR fala numa ligação: abertura, perguntas de diagnóstico na ordem da régua de qualificação, ponte para o agendamento e as 8 objeções mais comuns |
 | `GUIA-MONTAGEM.md` | Passo a passo, fase por fase, para quem vai clicar na tela e montar o que o `build-wesales.md` especifica — pipeline, campos, calendário, workflows, listas |
 | `IMPLEMENTACAO-WORKFLOWS.md` | **O documento de implementação, em três partes:** Estrutura (pipeline, campos, tags, calendário, formulário, listas, dashboard, pausas, papéis), Workflows (cada nó de cada um: ação, campo, operador, valor, ramo, com os nomes reais lidos da subconta) e Operação (o dia do SDR, do closer e do gestor, regras de convivência com a automação, metas, checklist de go-live). Para montar e operar à mão, sem "Construir com IA" |
+| `AGENTE-IA-CONEXAO.md` | Definição do agente de IA "Conexão — Inbound" para a tela (Agentes de AI → IA v2): trabalho do agente, regra do portão, valores de cada aba, prompt do sistema e os rótulos exatos dos campos |
 | `CONFERENCIA-CAMPOS.md` | O que a tela tem contra o que o `campos-e-tags.md` pede, campo por campo, depois da Fase 2 montada — o que falta, o que divergiu de nome, de opção e de tipo |
 | `ESTADO-E-PLANO.md` | Leitura completa da subconta (documentos + API ao vivo + workflows), pedida pelo dono antes de implementar — o que está medido, o que os dumps de workflow não dizem, e o plano de continuidade por etapas |
 
