@@ -55,6 +55,13 @@ tentativa `T{n}`).
 Se a resposta for "pode": segue para a seção 3. Se for "não tenho tempo
 agora" ou qualquer variação de recusa: vai para a objeção 1 da seção 5.
 
+**Detalhe de digitação que decide a ordem da fila:** quando o lead pedir para
+ligar em outro horário, anote em `Hora do retorno` **sempre com dois dígitos**
+— `09:30`, nunca `9:30`. O campo é `TEXT` (o GHL descarta a hora em campo
+`DATE`, por isso o par), e `TEXT` ordena por letra: `9:30` cai **depois** de
+`14:00` na lista `Retornos`, porque `'9'` vem depois de `'1'`. O placeholder da
+tela já mostra `HH:MM`; esta linha existe porque o placeholder não impede.
+
 ### ⚠️ Aviso de gravação — pendência aberta em 22/09/2026, **decisão do dono**
 
 **Se as ligações passarem a ser gravadas, esta abertura muda, e este é o

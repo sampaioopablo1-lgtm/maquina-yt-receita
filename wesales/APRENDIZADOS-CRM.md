@@ -2,6 +2,53 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Já fazemos assim em outros N lugares" é consistência, não evidência — e o `grep` diz exatamente quantos lugares estão em risco — 22/09/2026, sessão automática
+
+A rodada fechou uma contradição real (a lista `Retornos` ainda descrevia o
+mundo de antes de `Hora do retorno` existir, enquanto o ramo `Pediu retorno`
+já a dava como atualizada — contradição que **eu** criei de manhã ao fechar a
+L-01 em quatro documentos e esquecer o quinto). Boa pegada. Mas a justificativa
+da ordenação nova merece atenção:
+
+> "`Data de retorno` asc, depois `Hora do retorno` asc (**mesmo padrão de dois
+> níveis de 8.1/8.2/8.3**)"
+
+Isso não verifica nada. As três listas citadas **também nunca foram montadas na
+tela**. `grep "^| Ordenação | .*, depois "` devolve **sete** listas com
+ordenação de dois níveis. Se a Smart List do GHL não aceitar ordenação
+secundária, o desenho está errado em sete lugares — e a consistência entre eles
+**esconde** o problema em vez de denunciá-lo: tudo combina, logo tudo parece
+certo.
+
+Pesquisa desta rodada: a documentação descreve ordenação e gestão de colunas
+como recursos da Smart List, mas **não achei confirmação de ordenação por mais
+de uma coluna**, e há pedido de usuário aberto sobre limitação de ordenação em
+lista de contato. Não afirmo que não existe — afirmo que ninguém verificou, e
+que a justificativa usada não verifica.
+
+**Regra, e é sobre como se justifica uma escolha de plataforma:** quando a
+capacidade nunca foi testada, "já usamos em N lugares" **multiplica** o risco
+em vez de reduzi-lo. A frase certa é "assumimos isso em N lugares, e o `grep`
+que conta N é o tamanho do estrago se estiver errado". O número vem de graça e
+transforma uma nota de rodapé numa prioridade — ou, neste caso, mostra que o
+plano B cabe em uma linha por lista (ordenar pelo primeiro nível, deixar o
+segundo como coluna visível, que já está em todas as sete).
+
+**Distinção que vale separar da anterior:** esta não é a classe "premissa
+negativa não pesquisada" (aquela era sobre o mundo lá fora). É sobre **a
+própria base de código/documento como fonte de autoridade** — o documento cita
+a si mesmo, e a repetição vira evidência aparente. O sintoma é a palavra
+"mesmo" numa justificativa: *mesmo padrão*, *mesmo raciocínio*, *igual ao que
+já fazemos*. Quando aparecer, perguntar: e aquele lugar, foi verificado contra
+o quê?
+
+**Segundo achado, pequeno e certo:** `Hora do retorno` é `TEXT`, e `TEXT`
+ordena por letra. Com `HH:MM` zero-padded a ordem alfabética coincide com a
+cronológica — é por isso que o placeholder é `HH:MM`. Mas `9:30` digitado sem o
+zero cai **depois** de `14:00`, porque `'9' > '1'`. O placeholder não impede,
+só sugere; foi para o `script-de-ligacao.md`, seção 2, que é onde está quem
+digita.
+
 ## O dono está executando o checklist na tela agora — estado capturado às 12:50, e a tag nº 16 nasceu fora de todo documento — 22/09/2026, sessão automática
 
 Primeira atividade de montagem na tela desde 21/09 23:33, e a primeira vez que

@@ -5236,6 +5236,48 @@ nó 4/4b) que já dava a lista como atualizada. Fechado agora: quem venceu há
 mais tempo aparece primeiro, e dentro do mesmo dia o SDR vê o horário
 combinado pela coluna.
 
+#### ⚠️ Duas ressalvas sobre esta ordenação, levantadas em 22/09/2026 — e a primeira vale para **sete** listas, não para esta
+
+**1. "Mesmo padrão de 8.1/8.2/8.3" não é verificação, é repetição.** A
+justificativa da ordenação de dois níveis aqui foi que as outras listas já
+fazem assim. Mas nenhuma delas foi testada na tela: `grep "^| Ordenação | .*,
+depois "` acha **sete** listas com dois níveis (8.1, 8.2, 8.3, 8.4, 8.16,
+8.18, 8.19). Se a Smart List do GHL **não** aceitar ordenação secundária, o
+desenho está errado em sete lugares de uma vez — e a consistência entre eles
+esconde isso, em vez de denunciar. Pesquisa desta rodada: a documentação
+descreve ordenação e gestão de colunas como recursos da Smart List, mas **não
+achei confirmação de ordenação por mais de uma coluna** (e há pedido aberto de
+usuários sobre limitação de ordenação em lista de contato). **Não afirmo que
+não existe** — afirmo que ninguém verificou, e que a justificativa usada não
+verifica nada.
+
+**Regra:** "já fazemos assim em outros N lugares" é consistência, não
+evidência. Quando a capacidade da plataforma nunca foi testada, repetir o
+padrão multiplica o risco em vez de reduzi-lo — e o número de lugares afetados
+é exatamente o que o `grep` devolve.
+
+**Plano B, se a tela só aceitar uma coluna** (uma linha por lista, sem
+redesenho):
+
+| Lista | Ordenar por | O que o segundo nível vira |
+|---|---|---|
+| 8.4 `Retornos` | `Data de retorno` asc | `Hora do retorno` já é **coluna** — o SDR lê o horário sem ordenar por ele |
+| 8.1 / 8.2 / 8.3 / 8.16 | `Prioridade` desc | o desempate (`Tentativa nº` / `WA não atendidas seguidas`) vira coluna visível |
+| 8.18 | `Nº de no-shows` desc | idem |
+| 8.19 | `Segmento` asc | idem |
+
+Em todas, o primeiro nível é o que importa para a decisão; o segundo é
+refinamento que a coluna entrega de graça.
+
+**2. `Hora do retorno` é `TEXT`, e `TEXT` ordena por letra, não por hora.** Com
+`HH:MM` zero-padded (`09:30`, `14:00`) a ordem alfabética coincide com a
+cronológica — é por isso que o placeholder do campo é `HH:MM` e não `H:MM`.
+Mas nada impede o SDR de digitar `9:30`, e aí a linha vai parar **depois** de
+`14:00` na lista, porque `'9'` > `'1'`. Não é defeito de desenho, é
+característica do tipo: a única defesa é o placeholder (que já está certo na
+tela, conferido por API) e o SDR saber disso. Vale uma linha no
+`script-de-ligacao.md`, seção 2 — quem anota o horário é quem digita.
+
 ### 8.5 Sugerida por mim: `Sem resultado ontem`
 | Item | Configuração |
 |---|---|
