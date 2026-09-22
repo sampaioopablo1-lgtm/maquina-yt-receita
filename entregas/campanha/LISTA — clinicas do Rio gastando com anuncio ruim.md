@@ -5398,3 +5398,73 @@ LISTA DE ATAQUE: **76 → 77**.
 Combos varridos até aqui: + odontologia por procedimento (negativo — **a regra do eixo não
 generaliza**; o eixo é o critério de compra do cliente: proximidade → bairro, problema →
 área, produto → transação).
+
+---
+
+## ADVOCACIA DE FAMÍLIA — pensão e divórcio (22/09, nacional)
+
+Terceira área do direito varrida, depois de trabalhista e previdenciário (Barra) e
+consumidor (nacional). O termo foi de SERVIÇO, não de profissão: "pensão alimentícia
+advogado". **855 anúncios ativos estimados** — atrás só do consumidor (251 na amostra,
+mas menor no total). Como no consumidor, isto é nacional, não Rio: dos 30 lidos, um
+único é declaradamente carioca.
+
+### O que esta área ensina sobre criativo, que é o achado do dia
+
+Advocacia de família é a área onde **a pergunta em segunda pessoa domina**. Não é
+estilo: é a natureza do problema. Quem procura advogado de família tem uma situação
+concreta e datada, e o título que nomeia essa situação é lido como se fosse sobre ele.
+
+Os títulos bons que apareceram, todos perguntas:
+
+- "O cônjuge pediu o divórcio?" — Ederval Oscar dos Santos
+- "Separado(a) e sem acordo na partilha?" — o mesmo, segunda peça, outra situação
+- "Seu filho recebe o valor correto?" — Evandro Soares
+- "Pensão do seu filho ainda não foi definida?" — Advocacia
+- "Precisa regularizar a pensão do seu filho?" — o mesmo, variação
+- "O valor da pensão pode ser revisto?" — Tarek Maluf
+- "Paternidade: cartório ou via judicial?" — o mesmo, outra dúvida
+- "Está passando por divórcio? Fale conosco!" — Arthur Alexandre
+
+Repare no mecanismo: nenhuma fala do escritório. Todas falam do **estado civil de quem
+lê**. É a mesma coisa que faz o nosso ADV V05 — curta ser o melhor CPL da conta
+(R$7,01): pergunta que só o alvo responde.
+
+Vale para o nosso criativo: o alvo do OPC não tem estado civil, tem **agenda**. A
+tradução da fórmula é perguntar pelo número que só o dono sabe — "quantas visitas
+saíram dos seus leads?", "quantas ligações sua equipe fez hoje?".
+
+### Os alvos
+
+Todos anunciam, todos gastam, todos erram o título.
+
+| Página | Defeito do título | Trilha |
+|---|---|---|
+| **Advogado Rio de Janeiro - Dr. Max Victor** | vazio | A — **e é do Rio** |
+| Campos e Carvalho ADV | "Advogado Especialista PENSÃO ALIMENTÍCIA" repetido em **6 anúncios** | A |
+| Castello Branco Advogados | "Saiba Mais..." em 2 peças | A |
+| Arthur Alexandre Advogados | "Clique e Fale Conosco" | A |
+| Guidio Advogados Associados | "Não Perca Esse Tempo" — urgência sem objeto | A |
+| Luciana Lima Advocacia | "Saiba mais!" | A |
+| leodutraadvocacia | vazio | A |
+| Juan Pinheiro | "Iniciar Atendimento" | A |
+| andersonsstein | "Saiba mais" | A |
+| adv.anaclaraaraujo | "instagram.com" | A |
+| Michelline Rodrigues Raez | "Advogado" — nomeia a profissão, não o problema | A |
+| advocacia.jh | vazio | B |
+| advogado_fortalezace | vazio | B — Fortaleza, fora do Rio |
+
+Treze alvos, **onze de Trilha A**. É a maior proporção de nome de dono de todas as
+varreduras até hoje — maior que o Méier (9 de 12). Faz sentido: advocacia de família é
+vendida na pessoa, então o escritório leva o nome de quem atende.
+
+**Arthur Alexandre merece nota:** tem uma peça com "Está passando por divórcio? Fale
+conosco!" e outra com "Clique e Fale Conosco". Sabe fazer e não aplica em tudo — é o
+alvo mais fácil de abordar, porque a prova está dentro da própria conta dele.
+
+LISTA DE ATAQUE: **77 → 90**.
+
+Combos varridos até aqui: + advocacia de família (pensão/divórcio, nacional, 855 ativos
+estimados — **a área com mais anunciante de todas**; 11 de 13 alvos com nome do dono,
+recorde de Trilha A; confirma que pergunta em segunda pessoa é o padrão que converte em
+advocacia, o mesmo mecanismo do nosso melhor anúncio).
