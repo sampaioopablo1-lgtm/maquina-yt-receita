@@ -1924,9 +1924,20 @@ contatos por filtro e nada mais:
 | `Leads novos hoje` | contagem de contatos com `Date Created` = hoje | Entrada do dia. Zero às 12h já é sinal |
 | `Leads novos — 7 dias` | contagem de contatos com `Date Created` nos últimos 7 dias | Tendência: separa "dia fraco" de "parou" |
 
-E a lista equivalente, para quem não tiver Custom Metrics no plano: Smart List
-`Entrada do dia`, filtro `Date Created` = hoje, ordenada por criação — o mesmo
-dado sem a tela única, mesmo raciocínio já usado nas listas 8.8/8.16.
+E a lista equivalente, para quem não tiver Custom Metrics no plano —
+especificada como seção **8.25** do `build-wesales.md`, e **conferida em
+22/09** com duas correções que decidem se ela serve:
+
+- O filtro tem de ser **relativo** (`Data de criação` `In the Last` `1 dia`),
+  não igualdade contra uma data picada no calendário: Smart List do GHL tem
+  filtro de data relativa e é dinâmica de verdade, mas quem escolher um dia
+  fixo congela a lista e ela para de atualizar amanhã, em silêncio.
+- **Duas listas salvas** (24h e 7 dias), não uma com o filtro trocado: Smart
+  List é view compartilhada, e alternar o filtro muda para todos os usuários.
+
+E a leitura: `In the Last 1 dia` é janela **rolante**, não "hoje" — que para o
+F-10 é melhor, porque é a mesma grandeza do gap (maior já observado: 15h06),
+mas não deve ser chamada de "hoje" ou alguém lê errado às 9 da manhã.
 
 **O que eu não sei fazer nativo, e digo em vez de inventar:** um **alerta**
 automático de ausência de entrada. Workflow do GHL vê um contato por vez

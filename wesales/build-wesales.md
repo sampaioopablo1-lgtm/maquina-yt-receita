@@ -2244,10 +2244,12 @@ Se o plano da subconta não incluir Custom Metrics, as duas primeiras
 linhas continuam cobertas pela lista 8.16 e 8.8 (sem entrar no dashboard)
 e as três últimas pela lista 8.6, que já ganhou a coluna `Conexão real`
 na mesma peça — o dashboard perde a tela única, não perde o dado. As duas
-últimas linhas (F-10) têm o mesmo fallback: a lista 8.25 (`Entrada do
-Dia`), que é a mesma pergunta ("quantos contatos com `Data de criação` =
-hoje") sem depender do plano pago — só perde o número pronto de "7 dias",
-que sem Custom Metrics vira contar linha na tela em vez de ler um total.
+últimas linhas (F-10) têm o mesmo fallback: as **duas** listas da seção
+8.25 (`Entrada — últimas 24h` e `Entrada — últimos 7 dias`), que fazem a
+mesma pergunta por filtro de data **relativo** sem depender do plano pago —
+só perdem o total pronto, que sem Custom Metrics vira contar linha na tela.
+São duas listas salvas de propósito: trocar o filtro de uma só muda a view
+para todo mundo que a usa.
 
 ### Limite conhecido
 
@@ -5148,11 +5150,42 @@ aplicá-la — mesma garantia de "não é palpite" que as outras quatro listas d
 saúde (8.20-8.23) já seguem.
 
 ### 8.25 `Entrada do Dia` — F-10
-| Item | Configuração |
-|---|---|
-| Filtros | Data de criação = hoje |
-| Colunas | Nome · `Empresa` · Telefone · Origem (`source`) · Data de criação |
-| Ordenação | Data de criação desc (quem entrou por último aparece primeiro) |
+
+**Conferido na tela conceitual em 22/09/2026 (pesquisa, `help.gohighlevel.com`
+bloqueado pelo proxy — lido por citação):** Smart List do GHL **tem** filtro de
+data **relativa** (`Is` → `In the Last`, com janela em dias) e a lista é
+dinâmica de verdade — reavalia em tempo real e o contato entra e sai sozinho.
+Então esta lista funciona. Mas o filtro precisa ser escrito como **relativo**,
+e não como igualdade contra uma data: se quem monta escolher `Data de criação`
+`is` e então **picar um dia no calendário**, a lista congela naquela data e
+para de atualizar amanhã, em silêncio — o mesmo tipo de armadilha do rótulo de
+etapa que nunca casa. **É o detalhe que faz a lista servir ou não servir.**
+
+**São duas listas salvas, não uma com o filtro trocado.** Smart List é uma
+view salva; alternar o filtro de 1 para 7 dias e de volta muda a view **para
+todo mundo** que a usa, e é o tipo de edição que alguém esquece desfeita.
+Duas listas custam o mesmo e não disputam:
+
+| Lista | Filtro | Colunas | Ordenação |
+|---|---|---|---|
+| **`Entrada — últimas 24h`** | `Data de criação` **`In the Last`** `1 dia` (relativo, **não** igualdade a uma data) | Nome · `Empresa` · Telefone · Origem (`source`) · Data de criação | Data de criação desc |
+| **`Entrada — últimos 7 dias`** | `Data de criação` **`In the Last`** `7 dias` | idem | idem |
+
+**"Últimas 24h" não é "hoje", e a diferença importa na leitura:** `In the
+Last 1 dia` é janela **rolante** (conta para trás a partir de agora); "hoje" é
+desde a meia-noite. Para o F-10 a rolante é a **melhor** das duas — é
+literalmente a mesma grandeza do gap que mede a anormalidade (o maior
+intervalo já observado nesta base é 15h06, `ROADMAP-SALES-ENGAGEMENT.md`,
+F-10), então "zero linha nas últimas 24h" já significa "passamos do pior caso
+histórico". Mas não chame de "hoje" no nome nem na conversa: às 09h da manhã a
+lista mostra o que entrou desde as 09h de ontem, e quem ler "hoje" vai
+interpretar errado.
+
+**Nome exato do campo: confirmar na tela.** A documentação usa `Created On` /
+`Date Added` em inglês; a tela em português desta subconta pode trazer `Data de
+criação` ou `Data de adição`. Este projeto já perdeu tempo com `Data de
+retorno` vs `Data do retorno` — escolha pelo seletor, não pelo que está escrito
+aqui.
 
 Equivalente, para quem não tem Custom Metrics no plano, dos dois widgets
 `Leads novos hoje`/`Leads novos — 7 dias` da seção 2.17 (ROADMAP-SALES-
