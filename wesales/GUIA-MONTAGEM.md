@@ -606,6 +606,12 @@ documentação ainda pendente" citada acima. Detalhe completo, e o que ainda
 segue pendente (o tipo de `Plataformas de anúncio` e os três campos que a
 tela criou sozinha), em `campos-e-tags.md` e `CONFERENCIA-CAMPOS.md`.
 
+**Resolvido em 22/09/2026:** `Hora do retorno` foi criada na tela em
+21/09/2026 23:18 (o parágrafo acima ficou desatualizado no dia seguinte à
+sua própria escrita) — a lista `Retornos` (seção 8.4 do `build-wesales.md`)
+já ordena por `Data de retorno` e depois por `Hora do retorno`, fechando a
+L-01 do `briefing-sdr.md` por inteiro. Falta só a montagem manual na tela.
+
 ## Estado da montagem em 19/09/2026 (sessão ao vivo em chat)
 
 **Publicados e testados:** `Porta de Entrada` (seção 1.3 — 40 oportunidades

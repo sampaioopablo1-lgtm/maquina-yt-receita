@@ -307,7 +307,7 @@ Tabela A.
 
 | # | Nome | Tipo | Por que |
 |---|---|---|---|
-| S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) — **os dois já existem na tela desde 21/09/2026 23:18** | São dois campos porque `DATE` no GHL descarta a hora. Nomes reais da tela: `Data de retorno` (sem o "o", `DATE`, `contact.data_de_retorno`) e `Hora do retorno` (`TEXT`, placeholder `HH:MM`, `contact.hora_do_retorno`). **Campo não é mais a pendência:** o que resta da L-01 é a fiação — a tarefa `[RETORNO]` vencer por `{{contact.hora_do_retorno}}` e a lista `Retornos` ordenar o dia por ela (`CONFERENCIA-CAMPOS.md`, Tabela K) |
+| S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) — **os dois já existem na tela desde 21/09/2026 23:18** | São dois campos porque `DATE` no GHL descarta a hora. Nomes reais da tela: `Data de retorno` (sem o "o", `DATE`, `contact.data_de_retorno`) e `Hora do retorno` (`TEXT`, placeholder `HH:MM`, `contact.hora_do_retorno`). **L-01 fechada por inteiro em 22/09/2026:** a fiação que faltava (tarefa `[RETORNO]` citando `{{contact.hora_do_retorno}}` no corpo, `build-wesales.md` seção 4 nó 4b, e a lista `Retornos` ordenando por `Data de retorno`/`Hora do retorno`, seção 8.4) está especificada — falta só a montagem manual na tela, mesma fila dos demais nós ainda não publicados |
 
 **Três campos fora desta lista, criados sozinhos pela tela ao montar o
 formulário** (`Urgência`, `Necessidade`, ambos `TEXT`, e `Empresa`, `TEXT`)

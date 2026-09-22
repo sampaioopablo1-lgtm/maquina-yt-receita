@@ -5221,12 +5221,20 @@ chance de atender do que o da T11. A fila devolve primeiro o que converte.
 | Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
 | Ordenação | `Prioridade` desc, depois `WA não atendidas seguidas` asc |
 
-### 8.4 `Retornos` — migrado para as 5 etapas reais em 18/09/2026
+### 8.4 `Retornos` — migrado para as 5 etapas reais em 18/09/2026, ordenação fechada em 22/09/2026
 | Item | Configuração |
 |---|---|
 | Filtros | `Resultado da tentativa` = `Pediu retorno` **E** `nao-perturbe` ausente |
-| Colunas | Nome · `Empresa` · Telefone · `Data do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
-| Ordenação | `Data do retorno` asc (sem o campo S-01: "Última atividade" asc — pior, mas funciona) |
+| Colunas | Nome · `Empresa` · Telefone · `Data de retorno` · `Hora do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
+| Ordenação | `Data de retorno` asc, depois `Hora do retorno` asc (mesmo padrão de dois níveis de 8.1/8.2/8.3) |
+
+Os dois campos de S-01 (`Data de retorno`, `Hora do retorno`) existem na tela
+desde 21/09/2026 23:18 — a versão anterior desta seção ainda descrevia o
+estado de antes deles existirem ("sem o campo S-01: Última atividade asc —
+pior, mas funciona"), contradizendo a nota do ramo `Pediu retorno` (acima,
+nó 4/4b) que já dava a lista como atualizada. Fechado agora: quem venceu há
+mais tempo aparece primeiro, e dentro do mesmo dia o SDR vê o horário
+combinado pela coluna.
 
 ### 8.5 Sugerida por mim: `Sem resultado ontem`
 | Item | Configuração |

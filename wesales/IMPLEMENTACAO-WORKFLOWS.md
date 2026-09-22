@@ -110,7 +110,7 @@ nunca a transliteração.
 | `Data do veredito do closer` | `data_do_veredito_do_closer` | DATE | só data |
 | `Data conectado` / `Data agendado` / `Data compareceu` | `data_conectado` / `data_agendado` / `data_compareceu` | DATE | só data |
 | `Nº de no-shows` | `n_de_noshows` | NUMERICAL | — |
-| `Data de retorno` | `data_de_retorno` | DATE | (S-01; o `build-wesales.md` chama de `Data do retorno`) |
+| `Data de retorno` | `data_de_retorno` | DATE | (S-01; par de `Hora do retorno`, `TEXT`, `contact.hora_do_retorno`) |
 | `Site` / `Instagram` / `Empresa` / `Segmento` | `site` / `instagram` / `empresa` / `segmento` | TEXT | — |
 
 **Qualificação (lidos pela régua 9.1 e pelo formulário)**
