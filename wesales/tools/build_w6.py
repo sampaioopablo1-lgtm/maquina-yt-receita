@@ -36,7 +36,7 @@ JSON_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 
 
 def abandonar():
-    return [g.opp_step(status="abandoned"), g.tag_step(["nutricao-90d"])]
+    return [g.opp_step("abandoned", g.STAGES["NEGOCIAR"]), g.tag_step(["nutricao-90d"])]
 
 
 # --- nos 5 e 6 (o 4 converge neles) -------------------------------------
@@ -72,7 +72,7 @@ b4b = g.Branch(
     "Motivo é Timing errado?",
     [g.cond("contact_detail", MOTIVO["id"], "==", "Timing errado")],
     sim=abandonar() + [g.goto_step(b5.id)],
-    nao=[g.opp_step(status="lost"), b5],
+    nao=[g.opp_step("lost", g.STAGES["NEGOCIAR"]), b5],
 )
 
 b4_parcial = g.Branch(
@@ -124,11 +124,9 @@ if NOME in existentes:
     wf = existentes[NOME]
     atual = c.request("GET", "/workflow/" + g.LOC + "/" + wf)
     n = len(((atual or {}).get("workflowData") or {}).get("templates") or [])
-    if n:
-        print("ja existe com %d nos - nao mexo" % n)
-    else:
-        g.preencher(c, wf, NOME, passos, [gatilho])
-        print("rascunho vazio preenchido: " + wf)
+    # este workflow e meu (nasceu nesta sessao): sempre reescrevo
+    g.preencher(c, wf, NOME, passos, [gatilho])
+    print("reescrito (%d nos antes): %s" % (n, wf))
 else:
     wf = g.build(c, NOME, passos, [gatilho],
                  allow_reentry=True, stop_on_response=False)
@@ -150,8 +148,8 @@ for s in tpl:
                                        x["conditionValue"]) for x in cs)
     elif s["type"] == "goto":
         det = "-> %s" % ("OK" if a.get("targetNodeId") in vivos else "ALVO INEXISTENTE")
-    elif s["type"] == "internal_update_opportunity":
-        det = "status=%s etapa=%s" % (a.get("status"), a.get("pipelineStageId"))
+    elif s["type"] == "create_opportunity":
+        det = "status=%s etapa=%s" % (a.get("opportunity_status"), a.get("pipeline_stage_id"))
     elif s["type"] == "update_contact_field":
         f = a["fields"][0]
         det = "%s = %s" % (f["title"], f["value"])

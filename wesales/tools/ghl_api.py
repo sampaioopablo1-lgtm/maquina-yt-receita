@@ -239,29 +239,30 @@ def cond(tipo: str, subtipo: str, operador: str, valor,
     }
 
 
-def opp_step(status: str = None, etapa_id: str = None,
+def opp_step(status: str, etapa_id: str,
              nome_no: str = "Update Opportunity") -> dict:
-    """Atualiza a oportunidade (status e/ou etapa).
+    """Atualiza a oportunidade (status e etapa).
 
-    Nenhum workflow desta subconta usava este no; o tipo veio do schema do
-    ghl-automation-builder (`internal_update_opportunity`) e foi conferido
-    na tela depois de criado.
+    Nesta versao do CRM NAO existe um no separado de 'atualizar': a acao
+    `create_opportunity` e a de Criar/Atualizar - com duplicata desligada na
+    subconta, ela atualiza a oportunidade que ja existe (e o que a `Porta de
+    Entrada` publicada faz). Descoberto por forca bruta com a PUBLICACAO como
+    criterio: o validador de rascunho aceita `internal_update_opportunity`,
+    mas o de publicacao recusa; so `create_opportunity` passa nos dois.
+
+    `etapa_id` e obrigatorio porque a acao exige etapa. Para NAO mover o
+    lead, passe a etapa em que ele ja esta - fica um no-op.
     """
-    # 'Update opportunity' e acao de marketplace (workflowsActionType
-    # INTERNAL, key internal_update_opportunity), lida do catalogo que o
-    # proprio builder baixa. Os valores nao vao soltos nos atributos: vao em
-    # __customInputFields__, o mesmo padrao do find_opportunity real da conta.
-    campos = []
-    if status:
-        campos.append({"filterField": "status", "value": status,
-                       "valueFieldType": "select"})
-    if etapa_id:
-        campos.append({"filterField": "pipelineStageId", "value": etapa_id,
-                       "valueFieldType": "select"})
-    at = {"type": "internal_update_opportunity", "allowBackward": False,
-          "__customInputs__": {}, "__customInputFields__": campos}
-    return {"id": uid(), "name": nome_no,
-            "type": "internal_update_opportunity", "attributes": at}
+    return {
+        "id": uid(), "name": nome_no, "type": "create_opportunity",
+        "attributes": {
+            "fields": [], "type": "create_opportunity",
+            "pipeline_id": PIPELINE, "pipeline_stage_id": etapa_id,
+            "opportunity_name": "{{contact.name}}",
+            "opportunity_status": status, "opportunity_source": "",
+            "monetary_value": "",
+        },
+    }
 
 
 def goto_step(alvo: str) -> dict:
