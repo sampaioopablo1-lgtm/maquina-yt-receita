@@ -3458,6 +3458,118 @@ real`) nascem propostos em `campos-e-tags.md` (C-29, C-30) e `[ ]` em
 `APROVADO.md` — campo personalizado não sai por API, mesma regra de
 sempre.
 
+### Conferência do F-06, 22/09/2026 (mesma rodada): o gatilho existe, mas só existe para chamada **gravada** — e isso traz um custo, uma obrigação legal e um campo que nunca se apaga
+
+A descoberta do `Transcript Generated` confere, e a ressalva de confiança
+acima estava bem colocada. Três coisas que a especificação ainda não diz, e
+que mudam o que precisa acontecer antes do primeiro lead passar.
+
+**1. Transcrição não é um item de configuração — é gravação de chamada.** A
+dependência não pára em "ligar a transcrição em Configurações → Telefone": a
+transcrição **exige gravação de chamada habilitada** para o número. Sem
+gravação não há transcrição, e sem transcrição **este workflow nunca
+dispara** — o gatilho não tem outro caminho de entrada. A frase correta do
+pré-requisito é, então, mais forte do que a que está escrita acima:
+
+> Para o F-06 funcionar, **toda ligação de saída da operação passa a ser
+> gravada**.
+
+Isso não é detalhe de implementação. É uma decisão sobre a operação, e ela
+nunca foi tomada: `grep -rn "gravaç\|LGPD\|consentimento"` em todo o
+`wesales/` não encontra **uma única** menção a gravação de chamada, aviso de
+gravação ou base legal. O `script-de-ligacao.md` abre direto na abordagem,
+sem aviso de gravação em nenhuma das versões.
+
+**2. Consequência legal, do mesmo tipo que a janela de 24h do WhatsApp
+(G-05) — uma regra externa que não deixa rastro até o primeiro evento
+real.** Gravar ligação com lead no Brasil, numa operação de venda ativa
+B2B, é tratamento de dado pessoal sob a LGPD e pede, no mínimo, **aviso ao
+interlocutor no início da chamada** e uma base legal declarada. O padrão de
+mercado é uma frase fixa nos primeiros segundos ("esta ligação está sendo
+gravada para fins de qualidade"). Duas observações que fazem isso valer a
+pena escrever agora e não depois:
+
+- O aviso entra exatamente no ponto do script onde hoje começa a abordagem
+  — e **muda a abordagem**, porque consome os primeiros segundos, que são o
+  ativo mais escasso de uma ligação fria. É decisão de script, não de
+  workflow: pertence ao `script-de-ligacao.md`, não a esta seção.
+- É o mesmo padrão já aprendido no G-05 e registrado em
+  `APRENDIZADOS-CRM.md`: regra de plataforma (ou de lei) que ainda não foi
+  testada nenhuma vez **não deixa rastro nenhum** para uma auditoria de
+  dados achar. Tem de ser lida contra a regra, antes do primeiro envio — ou,
+  aqui, antes da primeira gravação.
+
+**Não sou a fonte jurídica disto e não escrevo a frase do aviso por
+dedução** — a redação e a base legal (legítimo interesse vs. consentimento)
+são do dono ou de quem o assessora. O que esta conferência entrega é que a
+pergunta existe e está no caminho crítico do F-06, não depois dele.
+
+**3. Custo, nunca calculado em nenhum documento do projeto.** A transcrição
+é um add-on pago de **Voice Intelligence**, a **US$ 0,024 por minuto
+gravado**, cobrado **por cima** da tarifa de gravação de chamada (e do
+armazenamento das gravações, que o HighLevel cobra separadamente). Com a
+meta de 100 ligações/dia:
+
+| Premissa (declarada, não medida) | Conta |
+|---|---|
+| ~20% conectam, ~3 min cada | 60 min/dia |
+| ~80% morrem curtas, ~20 s cada | ~27 min/dia |
+| Total | **~87 min/dia ≈ 1.900 min/mês** |
+| Só a transcrição | **≈ US$ 45/mês**, mais gravação e armazenamento |
+
+Ordem de grandeza modesta, e vale dizer: **não é argumento contra o item.**
+Mas tem uma ironia que o dono deveria ver antes de ligar a chave — paga-se
+para transcrever principalmente os ~80% de chamadas que **não** são
+conversa, só para descobrir que não eram. Se o custo incomodar, existe saída
+barata sem abandonar o F-06: o `Resultado da tentativa` do SDR já separa
+`Atendeu` do resto, e gravar/transcrever **só** o que ele marcou como
+`Atendeu` cortaria a maior parte do volume — ao preço de perder exatamente a
+medição que o F-06 existe para fazer (pegar o `Atendeu` que durou 8
+segundos). É um trade-off para o dono, não uma escolha de rodada automática.
+
+**4. O `Conexão real` nunca é apagado — e um lead pode carregar um `Sim`
+vencido por várias tentativas.** Este é um defeito de desenho, não de
+pesquisa. Os nós 4 e 5 escrevem `Sim` ou `Não`; nada, em lugar nenhum,
+devolve o campo ao vazio. Combine isso com o item 1 e aparece o caso ruim:
+
+> Uma chamada que **ninguém atendeu** pode não gerar transcrição nenhuma —
+> não há o que transcrever. Então o workflow **não roda**, e o campo fica
+> com o valor da tentativa **anterior**.
+
+Lead que conversou de verdade na T3 (`Conexão real = Sim`) e depois teve
+T4, T5, T6 e T7 no vazio continua lendo `Sim` na ficha e em qualquer lista
+que filtre por ele. O campo deixa de significar "esta tentativa foi
+conversa" e passa a significar "alguma tentativa, em algum momento, foi
+conversa" — que é outra métrica, e não a que o F-06 pede. É a mesma classe
+de estado vencido que este projeto já catalogou três vezes
+(`APRENDIZADOS-CRM.md`: o contador que não zera, a tag que não sai, o portão
+que lê etapa sem `status`).
+
+**Onde o reset pertence, e por que não é no Pós-ligação:** a transcrição
+chega **minutos depois** da chamada, enquanto o SDR classifica na hora.
+Zerar o campo no Pós-ligação (gatilho `Resultado da tentativa` alterado)
+disputaria com a escrita desta seção — o clássico "campo com dois donos" já
+registrado. O ponto sem ambiguidade é **antes** da ligação existir: o nó de
+cada tentativa que cria a tarefa de ligação (seções 2.4 e 2.10) acrescenta
+`Update Contact Field: Conexão real = vazio`. A ordem passa a ser sempre
+tarefa criada (limpa) → ligação → SDR classifica → transcrição escreve, sem
+dois nós disputando o mesmo campo no mesmo instante.
+
+**Não altero o nó aqui:** mexer nas seções 2.4/2.10 é mexer na régua das
+duas cadências, e os dois campos ainda nascem `[ ]` em `APROVADO.md` —
+enquanto não existirem na tela, não há o que zerar. Fica registrado como
+pré-requisito do "Pronto quando" desta seção, junto com a gravação e o
+aviso: **o F-06 não está pronto com os nós 1-5 sozinhos.**
+
+**Confiança das fontes:** média-alta para os fatos de plataforma
+(transcrição exige gravação; add-on Voice Intelligence a US$ 0,024/min
+gravado; caminho Configurações → Sistema de Telefonia → Voz → Transcrição
+de Chamadas) — convergentes em fontes independentes, com
+`help.gohighlevel.com` ainda bloqueado pelo proxy, lido só por citação. A
+conta de custo é **minha, com as premissas declaradas na tabela**, não uma
+medição. O ponto 4 não depende de fonte externa nenhuma: sai da leitura dos
+próprios nós.
+
 ---
 
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026

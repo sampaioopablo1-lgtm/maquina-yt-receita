@@ -1418,10 +1418,22 @@ oferecer o filtro (senão o nó 1 faz o mesmo por `If/Else`)
 | 4 | Update Contact Field | `Conexão real` = `Sim` | fim |
 | 5 | Update Contact Field | `Conexão real` = `Não` | fim |
 
-**Pré-requisitos:** campos `Duração da ligação` (C-29) e `Conexão real`
-(C-30) — `[ ]` em `APROVADO.md`. Transcrição ligada em Configurações →
-Telefone (LC Phone; em Voice AI já vem ligada por padrão, mas este projeto
-não usa Voice AI). **Peça 2, ainda não especificada:** apontar a lista
+**Pré-requisitos — corrigidos em 22/09/2026, são mais do que estavam
+escritos aqui:**
+
+| # | Pré-requisito | Por quê |
+|---|---|---|
+| 1 | Campos `Duração da ligação` (C-29) e `Conexão real` (C-30) | `[ ]` em `APROVADO.md`; campo personalizado não sai por API |
+| 2 | **Gravação de chamada habilitada no número** | Sem gravação não existe transcrição, e sem transcrição **este workflow nunca dispara**. É o pré-requisito real por trás do item 3 |
+| 3 | Transcrição ligada em **Configurações → Sistema de Telefonia → Voz → Transcrição de Chamadas** (Voice Intelligence) | Caminho de tela; em Voice AI já vem ligada, mas este projeto não usa Voice AI |
+| 4 | Aviso de gravação no início da ligação (LGPD) | Lugar reservado em `script-de-ligacao.md`, seção 2 — redação e base legal do dono |
+| 5 | Add-on pago: **US$ 0,024 por minuto gravado**, acima da gravação e do armazenamento | ~US$ 45/mês na conta da seção 2.27 (premissas declaradas lá) |
+| 6 | `Update Contact Field: Conexão real = vazio` no nó que cria a tarefa de cada tentativa (seções 2.4 e 2.10) | Chamada não atendida pode não gerar transcrição nenhuma → este workflow não roda → o campo mantém o valor da tentativa anterior. Um `Sim` da T3 sobrevive a T4-T8. O reset vai **antes** da ligação, não no Pós-ligação, para não disputar o campo com o nó 4/5 daqui (a transcrição chega minutos depois; o SDR classifica na hora) |
+| 7 | Confirmar se as ligações saem por **LC Phone** ou por linha própria do SDR | Se for linha própria, o gatilho nunca dispara e o desenho não serve. Mesma pendência do F-08/F-09 |
+
+Detalhe e fontes em `build-wesales.md`, "Conferência do F-06".
+
+**Peça 2, ainda não especificada:** apontar a lista
 `Conexão por Tentativa` (8.6) e os widgets de Taxa de Conexão do Dashboard
 (W-do-painel, `build-wesales.md` 2.17) para `Conexão real = Sim`.
 

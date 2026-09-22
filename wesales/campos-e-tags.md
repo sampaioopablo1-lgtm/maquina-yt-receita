@@ -161,6 +161,20 @@ até a peça 2 apontar a lista/dashboard para o campo novo. Escrito só pelo
 workflow novo, uma vez por chamada — não herda risco de "contador com dois
 donos".
 
+**Corrigido em 22/09/2026, dois pontos** (`build-wesales.md`, "Conferência do
+F-06"): (1) os dois campos só se preenchem se **a gravação de chamada estiver
+habilitada** — transcrição exige gravação, e sem transcrição o workflow nunca
+dispara; ligar isto implica aviso de gravação por LGPD no início da ligação
+(`script-de-ligacao.md`, seção 2) e custo de add-on por minuto gravado. (2)
+`Conexão real` **precisa de um reset**: chamada não atendida pode não gerar
+transcrição nenhuma, e sem reset um `Sim` da T3 sobrevive a T4-T8, fazendo o
+campo significar "alguma tentativa foi conversa" em vez de "esta foi". O
+reset (`= vazio`) vai no nó que cria a tarefa de cada tentativa (seções 2.4 e
+2.10), **antes** da ligação — não no Pós-ligação, que disputaria o campo com o
+workflow novo, já que a transcrição chega minutos depois e o SDR classifica na
+hora. Com o reset nesse ponto não há "dois donos"; sem ele, há estado
+vencido.
+
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
 `Atendeu`, para cruzar com `Segmento` (Q-01) numa lista e enxergar se um

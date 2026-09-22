@@ -1502,6 +1502,25 @@ VENDAS`, 46 campos, 50 oportunidades — G-03/G-04 seguem aguardando o dono,
 sem mudança.
 
 ### F-06 · Qualidade da conexão, não a contagem — peça 1 de 2, especificada em 22/09/2026
+
+> **Conferido no mesmo dia** (`build-wesales.md`, "Conferência do F-06"): o
+> gatilho `Transcript Generated` confere, mas a dependência é mais funda do
+> que "ligar a transcrição". **Transcrição exige gravação de chamada** — sem
+> gravação não há transcrição e o workflow nunca dispara. Então ligar o F-06 é
+> decidir que **toda ligação de saída passa a ser gravada**, o que traz três
+> pré-requisitos que não estavam no item: (a) **aviso de gravação** no início
+> da ligação, por LGPD — lugar reservado em `script-de-ligacao.md`, seção 2,
+> redação e base legal do dono, e ele **concorre com o gancho** que o R-05 vai
+> otimizar; (b) **custo**: add-on Voice Intelligence a US$ 0,024/minuto
+> gravado, acima da gravação e do armazenamento (~US$ 45/mês pela conta da
+> seção 2.27, premissas declaradas) — e paga-se principalmente por transcrever
+> os ~80% de chamadas que não são conversa; (c) **um reset**: `Conexão real`
+> nunca é apagado, e chamada não atendida pode não gerar transcrição nenhuma,
+> então um `Sim` da T3 sobrevive a T4-T8 e o campo passa a significar "alguma
+> tentativa foi conversa" em vez de "esta foi". O reset vai no nó que cria a
+> tarefa de cada tentativa (2.4/2.10), antes da ligação, não no Pós-ligação.
+> **O F-06 não está pronto com os nós 1-5 sozinhos.**
+
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
 minutos. A métrica que importa não é alô, é conversa.
 **Como:** duração da ligação vinda do call tracking; campo `Conexão real` = 

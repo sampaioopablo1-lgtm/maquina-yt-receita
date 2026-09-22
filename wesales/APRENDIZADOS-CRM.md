@@ -64,6 +64,67 @@ etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
 `NOVO LEAD` + 3 `NEGOCIAR`, 1 `lost` de teste), zero conversa de
 WhatsApp/SMS real — G-03/G-04 seguem aguardando o dono.
 
+## Um pré-requisito de configuração escondia uma decisão de operação: transcrição de chamada é gravação de chamada — F-06, 22/09/2026, sessão automática
+
+A rodada anterior destravou o F-06 achando o gatilho `Transcript Generated`
+(existe, carrega duração, cobre LC Phone — confere) e registrou o
+pré-requisito como um item de tela: "transcrição precisa estar ligada em
+Configurações → Telefone". Uma linha de checklist, do mesmo tamanho que
+"habilitar Number Validation".
+
+Não é do mesmo tamanho. **Transcrição exige gravação de chamada habilitada:**
+sem gravação não há o que transcrever, sem transcrição o gatilho não dispara,
+e o gatilho não tem outro caminho de entrada. A tradução honesta do
+pré-requisito é uma frase sobre a operação, não sobre a tela:
+
+> Para o F-06 funcionar, toda ligação de saída da operação passa a ser
+> gravada.
+
+E aí ele deixa de ser configuração e passa a ter três consequências que
+nenhum documento do projeto tinha: **aviso de gravação por LGPD** (`grep -rn
+"gravaç\|LGPD\|consentimento"` em todo o `wesales/` não achava **uma**
+menção, e o `script-de-ligacao.md` abre direto na abordagem), **custo** (US$
+0,024/minuto gravado, add-on pago, acima da gravação e do armazenamento) e
+**um aviso que concorre com o gancho da abertura** — os primeiros segundos
+são o ativo mais escasso de uma ligação fria, e é exatamente ali que o aviso
+entra.
+
+**A regra, que é sobre como ler um pré-requisito e não sobre telefonia:**
+quando um item de checklist diz "habilite X", perguntar **o que X exige por
+baixo** antes de aceitar o tamanho dele. Um pré-requisito que muda o
+comportamento da operação com o lead (gravar, enviar, cobrar, registrar) não
+é irmão de um que muda uma preferência da conta. O teste rápido: *este item
+de configuração cria alguma obrigação perante o lead ou perante a lei?* Se
+sim, ele é uma decisão do dono, não um passo de montagem — e vai para o
+documento de quem decide, não só para o de quem clica.
+
+**O segundo achado não veio de fonte nenhuma, veio de ler os nós.** Os nós 4
+e 5 escrevem `Conexão real` = `Sim`/`Não` e **nada apaga o campo**. Junte com
+o item acima: chamada que ninguém atendeu pode não gerar transcrição nenhuma,
+então o workflow **não roda** e o campo fica com o valor da tentativa
+anterior. Lead que conversou na T3 e morreu em T4-T8 segue lendo `Sim`. O
+campo para de significar "esta tentativa foi conversa" e passa a significar
+"alguma tentativa, algum dia, foi conversa" — outra métrica, e não a que o
+item pede.
+
+Quarta vez que esta mesma classe aparece neste projeto (o contador que não
+zera, a tag que não sai, o portão que lê etapa sem `status`, agora o veredito
+que não expira), e a primeira em que o gatilho **pode simplesmente não
+rodar** — as três anteriores eram "rodou e não limpou". Vale registrar a
+variação, porque muda onde se procura: **um campo escrito por um gatilho
+condicional precisa de reset por um caminho que não dependa da mesma
+condição.** Se a condição falhar, o valor velho não é sobrescrito por nada.
+
+**E onde o reset vai, que é a parte não óbvia:** *não* no Pós-ligação. A
+transcrição chega minutos depois da chamada; o SDR classifica na hora. Zerar
+no Pós-ligação disputaria o campo com o nó que escreve aqui — "campo com dois
+donos", já catalogado. O ponto sem ambiguidade é antes de a ligação existir:
+o nó que cria a tarefa de cada tentativa. A ordem fica sempre tarefa criada
+(limpa) → ligação → SDR classifica → transcrição escreve. **Regra
+generalizável:** quando dois nós escrevem o mesmo campo com latências
+diferentes, o reset pertence ao mais previsível dos dois momentos — e o mais
+previsível quase nunca é o que reage ao evento.
+
 ## Uma solução de mercado (americana) e uma solução nacional (mas de outro setor) foram as duas primeiras respostas erradas para a mesma pergunta — F-08, 22/09/2026, sessão automática
 
 > **Leia antes a entrada seguinte** ("Premissa negativa…", mesma data): a

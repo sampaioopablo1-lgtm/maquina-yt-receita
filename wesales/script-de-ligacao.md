@@ -55,6 +55,27 @@ tentativa `T{n}`).
 Se a resposta for "pode": segue para a seção 3. Se for "não tenho tempo
 agora" ou qualquer variação de recusa: vai para a objeção 1 da seção 5.
 
+### ⚠️ Aviso de gravação — pendência aberta em 22/09/2026, **decisão do dono**
+
+**Se as ligações passarem a ser gravadas, esta abertura muda, e este é o
+lugar da mudança.** O F-06 (`build-wesales.md`, seção 2.27) mede duração
+real de chamada pelo gatilho `Transcript Generated`, que só existe para
+chamada **gravada** — a transcrição depende da gravação estar habilitada no
+número. Gravar ligação com lead no Brasil é tratamento de dado pessoal sob a
+LGPD e pede, no mínimo, aviso ao interlocutor no início da chamada e uma
+base legal declarada (legítimo interesse ou consentimento).
+
+Consequência prática para este roteiro: o aviso entra exatamente aqui, nos
+primeiros segundos — que são o ativo mais escasso de uma ligação fria. Não
+é um acréscimo neutro ao texto acima; concorre com o gancho que o R-05 vai
+otimizar.
+
+**Não escrevo a frase.** Redação e base legal são do dono ou de quem o
+assessora — não é dedução que uma rodada automática deva fazer sozinha. O
+que fica registrado é onde ela entra e o que ela custa. Enquanto o F-06 não
+for ligado (os campos C-29/C-30 nascem `[ ]` em `APROVADO.md`), a abertura
+acima vale como está: **hoje nada é gravado.**
+
 Quando o R-05 (`build-wesales.md`, seção 2.6.1) declarar um vencedor entre
 `M1-a` e `M1-b`, revise esta abertura para usar o mesmo gancho da mensagem
 vencedora — os dois canais (mensagem escrita e ligação) falando com ganchos

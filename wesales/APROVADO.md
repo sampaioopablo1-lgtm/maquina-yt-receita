@@ -179,6 +179,20 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       dispara para essas chamadas e este desenho não serve. Campo
       personalizado também não sai por este conector. Nasce `[ ]`.
 
+      **Conferido em 22/09/2026 — o que este `[x]` vai autorizar de verdade,
+      além dos dois campos:** a transcrição **exige gravação de chamada
+      habilitada** no número (sem gravação não há transcrição, e o workflow
+      nunca dispara), então dizer sim aqui é decidir que **toda ligação de
+      saída passa a ser gravada**. Isso traz (a) um aviso de gravação no
+      início da ligação, por LGPD — lugar já reservado em
+      `script-de-ligacao.md`, seção 2, redação e base legal do dono; (b)
+      custo de add-on Voice Intelligence a US$ 0,024 por minuto gravado,
+      acima da tarifa de gravação e do armazenamento (~US$ 45/mês na conta
+      da seção 2.27, com premissas declaradas); (c) um `Update Contact
+      Field: Conexão real = vazio` nas seções 2.4/2.10, sem o qual um `Sim`
+      de uma tentativa antiga sobrevive às seguintes. Detalhe em
+      `build-wesales.md`, "Conferência do F-06".
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do
