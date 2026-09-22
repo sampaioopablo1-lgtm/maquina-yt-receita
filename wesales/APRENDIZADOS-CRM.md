@@ -648,6 +648,41 @@ Zero escrita no CRM: item de documentação pura, não depende de
 (`dateUpdated` ainda 18/09/2026 19:56 UTC) e 46 campos personalizados —
 sem mudança desde a última rodada.
 
+## Conferir cobertura de uma guarda: ela está escrita de três formas, e grepar o nome da ação diz que falta o que não falta — 22/09/2026
+
+Fechado o G-06, fui verificar a afirmação que os dois itens fazem juntos:
+"todo `Send WhatsApp` de texto livre tem guarda de janela". Grepei o nome da
+ação (`Customer Service Window Check`) e achei **5** ocorrências num
+documento com **30** menções a `Send WhatsApp` — parecia que a maioria dos
+envios estava descoberta, e cheguei perto de escrever isso como achado.
+
+Não estava. A guarda aparece de **três formas**, porque cada rodada escreveu
+do jeito mais econômico no contexto dela:
+
+| Forma | Onde aparece |
+|---|---|
+| `WhatsApp: Customer Service Window Check` | onde a guarda é **especificada** (2.6.2 e 6.0) |
+| `Guarda de janela (seção 2.6.2, G-05)` | onde ela é **referenciada** num nó (MI-0, MI-F, RE-1, RE-2, NS-1, NS-2, Pós-agendamento 7-10) |
+| `Send WhatsApp, modo Template` | onde só o **ramo de fora da janela** é descrito |
+
+A verificação que não erra não procura a palavra: lista os envios e olha as
+linhas **anteriores** a cada um, aceitando qualquer das três formas. Feito
+assim, o resultado é que **um único** `Send WhatsApp` não tem guarda nas
+linhas de cima — a pergunta 1 do Caminho B — e esse está coberto pela guarda
+6.0 da entrada, como o próprio texto explica.
+
+**A lição, que vale para qualquer auditoria de cobertura neste projeto:**
+antes de concluir "falta em N lugares", pergunte *de quantas formas isso pode
+estar escrito?* Documento longo escrito por muitas rodadas tem sinônimos por
+construção — cada rodada abrevia o que a anterior definiu. Grep de uma forma
+só produz falso positivo de lacuna, que é o tipo de achado que faz alguém
+"consertar" o que já estava certo.
+
+Efeito colateral útil da conferência: o parágrafo "Escopo desta rodada" da
+2.6.2 ainda dizia que os outros dez envios seguiam **sem** guarda — ficou
+dois dias desatualizado depois de a peça 2 cobri-los. Corrigido, com a
+cobertura real e o comando de verificação ao lado.
+
 ## O dono criou 5 campos na tela e um merge field já nasceu órfão: travessão vira dois underscores — 22/09/2026
 
 Primeira vez em dias que a montagem manual andou: **5 campos novos** na

@@ -784,13 +784,36 @@ esta guarda não desbloqueia sozinha, só evita que o texto livre seja
 recusado enquanto o Template não existe (o ramo "fora da janela" fica sem
 efeito até o Template ser aprovado e configurado no nó `G.3`).
 
-**Escopo desta rodada:** guarda aplicada aos quatro envios da Cadência
-12x30 (M1-a, M1-b, M2-v1, M3-v1) — o motor principal. Os demais pontos de
-envio seguem sem a guarda, pendência explícita do próprio G-05: `MI-0`/
-`MI-F` (Cadência Inbound, seção 2.10), `RE-1`/`RE-2` (Reengajamento, seção
-2.12), `NS-1`/`NS-2` (Recuperação de No-show, seção 5.3) e a confirmação
-mais os três lembretes do Pós-agendamento (seção 5, nós 7-10 — esses
-quatro nem têm texto versionado em `biblioteca-mensagens.md` ainda).
+**Cobertura, conferida em 22/09/2026 — o G-05 está fechado:** esta peça
+cobriu os quatro envios da Cadência 12x30 (M1-a, M1-b, M2-v1, M3-v1); a
+peça 2 cobriu `MI-0`/`MI-F` (Cadência Inbound, 2.10), `RE-1`/`RE-2`
+(Reengajamento, 2.12), `NS-1`/`NS-2` (Recuperação de No-show, 5.3) e a
+confirmação mais os três lembretes do Pós-agendamento (seção 5, nós 7-10,
+que ganharam código e texto naquela rodada porque não tinham); o G-06 cobriu
+a entrada da Qualificação por IA (6.0) e as 8 perguntas do Caminho B.
+Verificado nó a nó: **todo `Send WhatsApp` de texto livre deste documento
+tem guarda de janela antes dele.** O parágrafo anterior aqui dizia o
+contrário e ficou desatualizado por duas rodadas — corrigido.
+
+**Como conferir de novo, e o cuidado que essa conferência exige:** a guarda
+aparece escrita de **três formas diferentes** ao longo do documento —
+`WhatsApp: Customer Service Window Check` (o nome da ação), `Guarda de
+janela (seção 2.6.2, G-05)` (a referência curta) e `Send WhatsApp, modo
+Template` (só o ramo de fora). Procurar apenas pelo nome da ação encontra 5
+lugares e dá a impressão de que o resto está descoberto; é preciso procurar
+as três. O jeito que não erra é listar os envios e olhar as linhas
+anteriores a cada um:
+
+```
+python3 - <<'EOF'
+L=open('wesales/build-wesales.md').read().split('\n')
+for i,l in enumerate(L):
+    if 'Send WhatsApp' in l and ('exto livre' in l or 'pergunta' in l):
+        ctx='\n'.join(L[max(0,i-7):i+1])
+        ok = ('uarda de janela' in ctx) or ('Window Check' in ctx) or ('modo Template' in ctx)
+        print('OK ' if ok else 'SEM', i+1, l[:80])
+EOF
+```
 
 **Pronto quando (desta peça):** M1.3a/M1.3b/M2.2/M3.2 (`IMPLEMENTACAO-WORKFLOWS.md`)
 têm o `Customer Service Window Check` antes deles e os dois ramos
