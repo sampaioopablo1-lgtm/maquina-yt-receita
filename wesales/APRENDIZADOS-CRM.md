@@ -2,6 +2,40 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Aborto de coleta em ~2s é instalação ruim, não defeito — e eu diagnostiquei antes de medir — 22/09/2026, sessão automática
+
+O CI de `c16c4e0` não deu as 12 falhas de sempre: deu **erro de coleta** em
+`tests/test_mcp.py` (`ImportError: cannot import name 'MCPServer' from
+'mcp.server'`), abortando a suíte inteira em **1,87s**, exit 2.
+
+Diagnostiquei como deriva de dependência: `pyproject.toml` declara
+`mcp>=1.2` sem teto e sem lock, então o CI resolve a versão mais nova a cada
+instalação — e eu tinha o argumento de que o mesmo `src/` havia coletado bem
+9 minutos antes. Escrevi que ia quebrar todos os branches.
+
+**Errado.** Re-rodei o mesmo commit e ele voltou ao baseline normal
+(`12 failed, 1949 passed, 32 skipped`). A falha era **transitória** — uma
+instalação ruim naquele job, não uma versão publicada tirando o `MCPServer`.
+
+Duas coisas para a próxima rodada:
+
+**1. A assinatura de tempo distingue os casos.** Suíte que aborta em ~2s
+morreu na importação, antes de qualquer teste rodar — isso é instalação,
+checkout ou runner, e o procedimento é **re-rodar uma vez antes de
+diagnosticar**. As 12 falhas conhecidas levam ~190s, porque os testes de
+fato rodam. Ler o tempo total custa nada e separa "ambiente" de "código".
+
+**2. Eu apliquei a mim mesmo o erro que tinha escrito hoje.** A regra do
+C-14 dizia: "já foi provado" exige data, objeto e **valor lido**. Eu tinha
+um mecanismo plausível e uma inferência temporal, chamei de causa e
+anunciei consequência. O re-run era a medição — e contrariou. Mecanismo
+plausível + coincidência de horário **não é** medição.
+
+**O que sobra de verdade, sem exagero:** `mcp>=1.2` sem teto nem lockfile é
+fragilidade real — foi ela que permitiu a resolução ruim. Não é urgente e
+não é deste projeto (`wesales/` não toca `src/maquina/`), mas é o motivo
+pelo qual esse aborto pode voltar sem ninguém mudar código.
+
 ## Usei o monitor que escrevi há uma hora e ele quase me pegou — duas vezes, de jeitos diferentes — 22/09/2026, sessão automática
 
 Rodei o `auditoria_refs.py` com `tail -3` para economizar, vi a última linha
