@@ -116,6 +116,44 @@ Revogar é apagar a integração.
 O Location ID desta subconta é `1D53YTI9C7oIMBavcQxV` — está na própria URL do
 CRM, não é segredo e não serve para nada sem o token.
 
+## Quando der 403 — medido em 22/09/2026
+
+Um `403` do conector **não** significa, por si só, que o token perdeu acesso.
+Medido na mesma sessão, na mesma subconta, com o mesmo token:
+
+| Chamada | `locationId` no parâmetro | Resposta |
+|---|---|---|
+| `locations_get-custom-fields` | ausente | `403` — `The token does not have access to this location.` |
+| `locations_get-location` | ausente | `403` — `Forbidden resource` |
+| `opportunities_get-pipelines` | ausente | `422` — `locationId can't be undefined` |
+| `opportunities_get-pipelines` | `1D53YTI9C7oIMBavcQxV` | `200` |
+| `locations_get-custom-fields` | `1D53YTI9C7oIMBavcQxV` (+ `model: all`) | `200`, 51 campos |
+
+A terceira linha é a prova: a **mesma** ausência de `locationId` que um
+endpoint de `opportunities` reporta como `422` explícito, um endpoint de
+`locations` reporta como `403` de permissão. O texto do `403` descreve a
+consequência, não a causa — e o cabeçalho `locationId` do conector não
+substitui o parâmetro na chamada quando a ferramenta o exige.
+
+**Procedimento, nesta ordem:**
+
+1. Repita a chamada com `locationId: 1D53YTI9C7oIMBavcQxV` explícito.
+2. Voltou `200` → era resolução de location. Passe `locationId` em **todas**
+   as chamadas daquela sessão e siga.
+3. Continua `403` → aí sim suspeite do token (revogado, rotacionado, ou
+   integração apagada). Confirme na subconta em **Settings → Private
+   Integrations**.
+
+Importa porque os dois casos são indistinguíveis pela mensagem, e um token
+rotacionado responde igual — confundir os dois custa uma rodada inteira de
+diagnóstico errado em qualquer direção.
+
+**Armadilhas de parâmetro, medidas junto:** o `model` de
+`locations_get-custom-fields` é o modelo de **dado** do campo (`contact`,
+`opportunity`, `all`, `business`, `task`), não um modelo de linguagem; e
+`opportunities_get-pipelines` **recusa** `model` como propriedade
+desconhecida.
+
 ## Depois de conectar
 
 Conversa nova e:

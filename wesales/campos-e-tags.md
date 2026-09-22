@@ -227,7 +227,7 @@ Tabela A.
 
 | # | Nome | Tipo | Por que |
 |---|---|---|---|
-| S-01 | Data do retorno | DATE (criado) + `Hora do retorno` (TEXT, **falta criar**) | Sem `Hora do retorno` a lista "Retornos" não filtra "hoje" e a tarefa `[RETORNO]` não tem vencimento por horário (lacuna L-01). São dois campos porque `DATE` no GHL descarta a hora. **Metade feita:** `Data de retorno` (nome real da tela, sem o "o" — `DATE`) já existe; falta só o par `TEXT` |
+| S-01 | Data do retorno | DATE + `Hora do retorno` (TEXT) — **os dois já existem na tela desde 21/09/2026 23:18** | São dois campos porque `DATE` no GHL descarta a hora. Nomes reais da tela: `Data de retorno` (sem o "o", `DATE`, `contact.data_de_retorno`) e `Hora do retorno` (`TEXT`, placeholder `HH:MM`, `contact.hora_do_retorno`). **Campo não é mais a pendência:** o que resta da L-01 é a fiação — a tarefa `[RETORNO]` vencer por `{{contact.hora_do_retorno}}` e a lista `Retornos` ordenar o dia por ela (`CONFERENCIA-CAMPOS.md`, Tabela K) |
 
 **Três campos fora desta lista, criados sozinhos pela tela ao montar o
 formulário** (`Urgência`, `Necessidade`, ambos `TEXT`, e `Empresa`, `TEXT`)
@@ -291,13 +291,18 @@ esperar a lista fechada (fecha a L-02), `Q-09`/`Q-16` viraram `TEXT`, e a
 metade `DATE` de `S-01` (`Data de retorno`) já existe. Não são mais
 perguntas em aberto.
 
+**S-01 fechou por inteiro em 21/09/2026 23:18**, junto com mais quatro campos
+que a tela criou na mesma leva (C-25, C-26, C-27, C-28 — total de 51 campos na
+subconta, detalhe e `fieldKey` reais em `CONFERENCIA-CAMPOS.md`, Tabela K).
+**Não recrie `Hora do retorno`:** ele existe, com o placeholder `HH:MM` da
+especificação.
+
 Ainda em aberto:
 
-1. **`Hora do retorno`** (a metade `TEXT` de S-01) — falta criar na tela.
-2. **`Plataformas de anúncio`** — nasceu `SINGLE_OPTIONS`, precisa virar
+1. **`Plataformas de anúncio`** — nasceu `SINGLE_OPTIONS`, precisa virar
    `MULTIPLE_OPTIONS` (campo novo, o antigo fica parado — regra 1 do
    briefing proíbe excluir).
-3. **`Urgência` e `Necessidade`** — a tela criou os dois sozinha, duplicando
+2. **`Urgência` e `Necessidade`** — a tela criou os dois sozinha, duplicando
    `Prazo` e `Dor principal`. Decidir se o formulário aponta para os campos
    que já existem (recomendo) ou se os dois novos ganham função própria.
 

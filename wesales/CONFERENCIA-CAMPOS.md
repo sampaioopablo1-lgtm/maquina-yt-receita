@@ -19,7 +19,7 @@ faixa trocada muda a nota do lead.
 
 | O quê | Na tela | Deveria ser | O que quebra |
 |---|---|---|---|
-| Falta `Hora do retorno` (TEXT) | só `Data de retorno` (DATE) existe | o par `Data do retorno` (DATE) + `Hora do retorno` (TEXT) — S-01 | `DATE` no GHL descarta a hora (registrado em `APRENDIZADOS-CRM.md`). Sem o par, "retorno às 15h" vira só "retorno hoje": a tarefa `[RETORNO]` nasce sem hora de vencimento e a lista `Retornos` não ordena o dia |
+| ~~Falta `Hora do retorno` (TEXT)~~ — **fechado em 21/09/2026 23:18** | o par completo existe: `Data de retorno` (DATE) + `Hora do retorno` (TEXT, placeholder `HH:MM`) | — | Era: `DATE` no GHL descarta a hora, então sem o par "retorno às 15h" virava só "retorno hoje". **Não crie este campo, ele já está na tela** (Tabela K). O que sobrou da L-01 é fiação de workflow e lista, não campo |
 | `Plataformas de anúncio` | `SINGLE_OPTIONS` | `MULTIPLE_OPTIONS` (Q-07) | Lead que anuncia no Meta **e** no Google só registra um. O GHL não troca `dataType` de campo já criado: o caminho é criar um campo novo com o tipo certo e parar de usar este — **sem excluir** (regra 1 do briefing) |
 
 ## B — Nomes que divergem
@@ -120,7 +120,8 @@ avisando qual é qual.
 a decisão sobre esses dois não foi tomada.
 
 **Continua aberto da Tabela A:** `Hora do retorno` ainda não existe, e
-`Plataformas de anúncio` continua `SINGLE_OPTIONS`.
+`Plataformas de anúncio` continua `SINGLE_OPTIONS`. *(Era verdade em 19/09;
+`Hora do retorno` foi criado em 21/09 23:18 — Tabela K.)*
 
 ## G — Tabelas B, C e D aplicadas nos documentos (19/09/2026)
 
@@ -145,8 +146,8 @@ faixas marcadas "decisão do dono" nesta tabela (`Investimento mensal`,
 `Prazo`) bateram degrau a degrau com o plano original — só o texto do
 rótulo mudou, a pontuação de cada posição não.
 
-**Segue aberto, sem mudança:** Tabela A inteira (`Hora do retorno`,
-`Plataformas de anúncio`) e a decisão sobre `Necessidade`/`Urgência` na
+**Segue aberto, sem mudança:** Tabela A inteira (`Hora do retorno` —
+criado depois, em 21/09 23:18, Tabela K —, `Plataformas de anúncio`) e a decisão sobre `Necessidade`/`Urgência` na
 Tabela F — nenhum dos dois é ajuste de texto, os dois pedem ação manual ou
 decisão de negócio que este arquivo não toma sozinho.
 
@@ -248,7 +249,8 @@ mapear `Posso esperar...` = `Sem prazo` (2 pontos) ou criar essa opção em
 `Prazo` com o texto exato.
 
 **Continua aberto da Tabela A:** `Hora do retorno` e `Plataformas de
-anúncio`, sem mudança.
+anúncio`, sem mudança. *(`Hora do retorno` foi criado horas depois desta
+leitura, em 21/09 23:18 — Tabela K.)*
 
 ---
 
@@ -315,3 +317,49 @@ Manter `Empresa` também é legítimo **se** o dono acrescentar a pergunta aos
 formulários do anúncio — mas são oito formulários (Tabela H) e cada pergunta
 a mais derruba conversão de Lead Ads. Não recomendo.
 
+---
+
+## K — Os 5 campos que a tela criou em 21/09 nunca chegaram a este arquivo, e a Tabela A ficou pedindo um campo que já existe (22/09/2026)
+
+Este arquivo existe para reconciliar tela e especificação, e estava **dois
+dias atrasado exatamente no único avanço manual que houve.** Lido por API em
+22/09/2026, com `locationId` explícito:
+
+| Campo | `id` | `fieldKey` real | Tipo | Placeholder | Criado em | Item |
+|---|---|---|---|---|---|---|
+| `Toques na semana` | `c1xuCuLyJheHOQoJ3grH` | `contact.toques_na_semana` | NUMERICAL | — | 21/09 23:15:43 | C-26 / F-04 |
+| `Hora da conexão` | `5hU72B0HuoMApZvO1Qk7` | `contact.hora_da_conexo` | TEXT | `HH` | 21/09 23:17:11 | C-25 / F-02 |
+| `Hora do retorno` | `IHXNFnguTPyNj5Q59ea2` | `contact.hora_do_retorno` | TEXT | `HH:MM` | 21/09 23:18:32 | **metade `TEXT` de S-01** |
+| `Checkpoint — Tentativa nº` | `BRcN6IGXtDr0u52QtfiF` | `contact.checkpoint__tentativa_n` | NUMERICAL | — | 21/09 23:19:54 | C-27 / F-05 peça 3 |
+| `Checkpoint — Data de retorno` | `el7xNMvPE8ZiyfysRff9` | `contact.checkpoint__data_de_retorno` | DATE | — | 21/09 23:33:28 | C-28 / F-05 peça 6 |
+
+Total na subconta: **51 campos** (eram 46). Todos os cinco conferem com a
+especificação em nome, tipo e placeholder — inclusive as escolhas finas de
+`TEXT` onde a hora importa, que é a razão de S-01 ser um par.
+
+**A linha da Tabela A sobre `Hora do retorno` está fechada desde 21/09
+23:18.** Ficou aberta aqui por mais um dia, e isso não é erro de texto: um
+arquivo que lista pendências manuais é lido *na tela*, com a tela aberta.
+Pedir a criação de um campo que já existe convida exatamente o duplicado que
+a regra 3 do briefing manda evitar — e pior, esconde o que de fato
+sobrou. Com o campo criado, o que resta da L-01 **não é mais criar campo**, é
+fiação:
+
+| O que sobrou da L-01 | Onde |
+|---|---|
+| A tarefa `[RETORNO]` usar `{{contact.hora_do_retorno}}` como hora de vencimento | `build-wesales.md` seção 4, ramo `Pediu retorno` |
+| A lista `Retornos` ordenar o dia por essa hora | `build-wesales.md` seção 6 |
+| O monitor de retorno vencido ler `{{contact.checkpoint__data_de_retorno}}` no `Wait → Dynamic` | `build-wesales.md` seção 2.24 |
+
+**Da Tabela A, segue aberto só `Plataformas de anúncio`** (`SINGLE_OPTIONS`
+onde a função pede `MULTIPLE_OPTIONS`) — e essa não se resolve criando o que
+falta, e sim criando um campo novo com o tipo certo e parando de usar o
+antigo, sem excluir.
+
+**A lição, que vale além destes cinco:** o dono criou os campos às 23:15 e a
+rodada seguinte registrou a novidade em `APRENDIZADOS-CRM.md` (onde ela
+rendeu o achado do travessão no `fieldKey`) sem voltar aqui. Achado anotado
+no lugar de quem investiga, não no lugar de quem executa. **Toda leva de
+campo novo na tela precisa fechar a linha correspondente da Tabela A no
+mesmo commit** — a auditoria de merge field órfão pega chave errada, não pega
+pendência que deixou de ser pendência.

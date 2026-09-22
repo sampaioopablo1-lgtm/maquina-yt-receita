@@ -260,7 +260,7 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
 | Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `AGENDAR`) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
 | Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data do retorno`/`Hora do retorno` — o primeiro já existe como campo, o segundo não, ver `GUIA-MONTAGEM.md`) continua valendo aqui dentro, não em etapa separada |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data de retorno`/`Hora do retorno` — **os dois já existem na tela desde 21/09/2026**, `CONFERENCIA-CAMPOS.md` Tabela K) continua valendo aqui dentro, não em etapa separada |
 | Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
 | Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
@@ -3543,10 +3543,20 @@ de etapa.
 | 1 | Update: `Prioridade` = 5 |
 | 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 3 | Add Contact Tag `fila-quente` |
-| 4 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
+| 4 | Add Task `[RETORNO] Ligar de volta` · vence: `Data de retorno` (S-01, `DATE`, **já existe na tela** — `contact.data_de_retorno`) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
+| 4b | No corpo da tarefa, incluir `Horário combinado: {{contact.hora_do_retorno}}` — o par `TEXT` de S-01 existe desde 21/09/2026 23:18 (placeholder `HH:MM`) |
 
-Sem o campo `Data do retorno` (lacuna L-01) este ramo funciona, mas a tarefa
-vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje. Não há
+**A lacuna L-01 deixou de ser falta de campo — atualizado em 22/09/2026.** Os
+dois campos de S-01 existem na tela: `Data de retorno` (`DATE`) desde 18/09 e
+`Hora do retorno` (`TEXT`, placeholder `HH:MM`) desde 21/09 23:18. O que
+sobrou é fiação, e uma pergunta de tela: o seletor de vencimento do `Add
+Task` aceita a **data** de um campo personalizado, mas **não está verificado**
+se aceita hora vinda de um `TEXT`. Por isso o nó 4b põe o horário no corpo da
+tarefa, que funciona sempre — o SDR lê `Horário combinado: 15:30` ao abrir a
+tarefa mesmo que o vencimento fique no dia. Se a tela aceitar hora dinâmica,
+o 4b passa a ser redundante e pode sair; até alguém conferir, ele é o
+caminho garantido. A lista "Retornos" (8.4) ordena o dia por
+`Hora do retorno` de qualquer jeito, que era a outra metade da L-01. Não há
 mais nó de mudança de etapa aqui: `Retorno agendado` deixou de ser etapa
 própria (tabela 1.0) — o lead **fica em `CONECTAR`**, e a lista `Retornos`
 (8.4) filtra só pelo valor de `Resultado da tentativa`, sem OR de etapa. Por

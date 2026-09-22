@@ -2,6 +2,135 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O dono fez a parte manual e três documentos continuaram pedindo — pendência que virou feito é tão errada quanto achado que não foi aplicado — 22/09/2026, sessão automática
+
+Os 5 campos criados na tela em 21/09 23:15–23:33 foram registrados na rodada
+seguinte **só aqui** (onde renderam o achado do travessão no `fieldKey`).
+Quem executa não lê este arquivo — lê os que dizem o que fazer. Varredura de
+22/09, um dia depois:
+
+| Documento | O que ainda dizia | Consequência para quem abre a tela |
+|---|---|---|
+| `IMPLEMENTACAO-WORKFLOWS.md` | bloco "**Criar agora** (bloqueiam workflows da Parte 2)" com os 5 campos; "o campo `Toques na semana` **não existe** na tela"; "**só depois de criar `Hora da conexão`**"; "`Hora do retorno`, **quando existir**" | criar os 5 de novo → **duplicado**, exatamente o que a regra 3 do briefing manda evitar; e a Parte 2 parecendo bloqueada quando já não está |
+| `campos-e-tags.md` | "Ainda em aberto: 1. `Hora do retorno` — falta criar na tela" | idem, no arquivo que é a autoridade de contagem de campos |
+| `CONFERENCIA-CAMPOS.md` | Tabela A pedindo `Hora do retorno`, e **nenhum registro** dos 5 campos — no arquivo que existe só para reconciliar tela e especificação | o reconciliador dois dias atrasado no único avanço manual que houve |
+| `briefing-sdr.md` | L-01 como "não existe campo de data/hora do retorno" | lacuna contada como aberta quando o que sobrou dela é outra coisa |
+
+**A assimetria que faz esta classe passar:** a auditoria de merge field órfão
+(entrada abaixo) compara documento contra tela e pega **chave que não
+existe**. Não existe auditoria simétrica que pegue **pendência que deixou de
+existir** — a frase "falta criar X" segue gramaticalmente perfeita para
+sempre. O custo também é assimétrico: chave errada falha em silêncio dentro
+de um workflow; pendência vencida faz uma pessoa gastar tempo e criar um
+duplicado que a regra 1 do briefing depois **proíbe excluir**. O erro caro é
+o que nenhum comando pegava.
+
+**Regra:** toda vez que a leitura por API mostrar um campo, tag, opção ou
+workflow **novo** na tela, o mesmo commit fecha a linha correspondente em
+*todos* os documentos de execução — `IMPLEMENTACAO-WORKFLOWS.md`,
+`campos-e-tags.md`, `CONFERENCIA-CAMPOS.md`, `GUIA-MONTAGEM.md`,
+`briefing-sdr.md`. O comando que vale rodar depois de cada leva:
+
+```
+grep -rn "falta criar\|criar antes\|só depois de criar\|quando existir\|Criar agora\|não existe" wesales/*.md \
+ | grep -F -f /tmp/nomes.txt | grep -v "^wesales/APRENDIZADOS-CRM.md"
+```
+
+`nomes.txt` = a coluna `name` dos campos lidos por API, um por linha. **O
+filtro por nome de campo não é opcional:** sem ele o comando devolve 101
+linhas neste repositório, quase todas legítimas (etapa que não existe mais,
+workflow que ainda não existe) — ruído que faz a varredura ser abandonada na
+primeira tentativa. Com o filtro, 10 linhas, e cada uma é uma afirmação sobre
+a tela a confrontar com a leitura daquela rodada. Depois das correções de
+22/09 as 10 são legítimas: nó de workflow que falta, opção de campo que falta
+(`Desqualificado`, R-18), e um parágrafo datado com o ponteiro já anexado.
+Uma décima primeira linha é o que se procura.
+
+**E o oposto, que aconteceu no mesmo arquivo:** ao fechar uma pendência,
+**não reescreva o parágrafo datado** que a registrava — os três "continua
+aberto da Tabela A" de 19, 20 e 21/09 eram verdade nas suas datas.
+Ganharam um ponteiro para a Tabela K e ficaram onde estão. Reescrever
+apagaria a única prova de quanto tempo a pendência levou, que é o dado que
+gerou esta entrada.
+
+Sobrou desta varredura uma pergunta de tela, deliberadamente **não**
+respondida por dedução: o seletor de vencimento do `Add Task` aceita hora
+vinda de campo `TEXT`? Não sei, e chutar aqui seria repetir o erro do
+`fieldKey` adivinhado. Está como conferência acoplada ao retoque no
+`GUIA-MONTAGEM.md` — quem for editar o nó já está com a tela aberta, e o
+caminho garantido (o horário no corpo da tarefa) foi especificado sem
+depender da resposta.
+
+## 403 "The token does not have access to this location" não quer dizer token sem acesso — quer dizer `locationId` não resolvido — 22/09/2026, sessão automática
+
+A rodada abriu com a verificação de sempre (campos, etapas, oportunidades) e
+as duas primeiras chamadas do conector `GHL CRM` voltaram assim:
+
+| Chamada | Parâmetros | Resposta |
+|---|---|---|
+| `locations_get-custom-fields` | sem `locationId` | `403` — `The token does not have access to this location.` |
+| `locations_get-location` | sem `locationId` | `403` — `Forbidden resource` |
+| `opportunities_get-pipelines` | sem `locationId` | `422` — `locationId can't be undefined` |
+| `opportunities_get-pipelines` | **com** `locationId: 1D53YTI9C7oIMBavcQxV` | `200` — pipeline e 5 etapas |
+| `locations_get-custom-fields` | **com** `locationId` + `model: all` | `200` — os 51 campos |
+
+Ou seja: **o token está intacto.** O que faltava era o `locationId`, que em
+rodadas anteriores o conector resolvia sozinho e nesta não resolveu. A
+terceira linha da tabela é a que denuncia: a mesma ausência de `locationId`
+que produz um `422` explícito num endpoint de `opportunities` produz um
+`403` com texto de permissão num endpoint de `locations`. A mensagem do
+`403` descreve a consequência (o pedido chegou sem location, então nenhuma
+location está autorizada) e não a causa.
+
+**Por que isto era perigoso justamente agora:** a recomendação de **rotacionar
+o PIT** está aberta desde que ele apareceu no histórico de chat de uma sessão
+anterior — e um PIT rotacionado responde `403` também. Sem esta medição, o
+primeiro `403` de uma rodada futura seria lido como "o dono rotacionou o
+token, acesso perdido, rodada encerrada": diagnóstico plausível, errado, e
+que custaria a rodada inteira. Pior no sentido inverso: um `403` de token
+realmente revogado seria descartado como "é só o `locationId` de novo".
+
+**Regra:** `403` do conector **nunca** é conclusão, é sintoma. Antes de
+qualquer diagnóstico, repita a chamada com `locationId:
+1D53YTI9C7oIMBavcQxV` explícito. Funciona → era resolução de location, siga
+a rodada passando `locationId` em **todas** as chamadas. Continua `403` →
+aí sim é token, e a rodada para com isso escrito.
+
+Duas armadilhas de parâmetro medidas no mesmo minuto, que valem guardar:
+
+- `locations_get-custom-fields` tem um parâmetro chamado **`model`** que
+  **não é o modelo de LLM** — é o modelo de dado do campo (`contact`,
+  `opportunity`, `all`, `business`, `task`). Mandar um nome de modelo de
+  linguagem ali devolve `422` com a lista de valores válidos.
+- `opportunities_get-pipelines` **rejeita** `model` como propriedade
+  desconhecida (`property model should not exist`). Os dois erros são `422`
+  e chegam juntos se as chamadas forem em paralelo — é fácil ler os dois
+  como um problema só.
+
+Conferência da rodada, já com `locationId` explícito: **51 campos** (nenhum
+novo desde os 5 de 21/09 23:15–23:33), **5 etapas** no `FUNIL DE VENDAS`
+(`NOVO LEAD` · `CONECTAR` · `AGENDAR` · `NEGOCIAR` · `FORMALIZAR`),
+`Resultado da tentativa` ainda com as **6** opções originais — a opção
+`Desqualificado` do R-18 continua só no papel, como os documentos dizem.
+Zero escrita no CRM nesta rodada.
+
+**Addendum à auditoria de merge field órfão** (entrada de 22/09 sobre o
+travessão, mais abaixo): rodada de novo agora, ela acusa
+`contact.checkpoint_data_de_retorno` — e é **falso positivo permanente**. As
+duas únicas ocorrências (`APRENDIZADOS-CRM.md`, tabela daquela entrada;
+`build-wesales.md` seção 2.24, nota que explica o erro) citam a chave errada
+*de propósito*, para documentar o bug. Não corrija: "corrigir" ali apaga a
+própria lição. A leitura certa do resultado da auditoria é
+**seis** linhas esperadas, não quatro:
+
+```
+contact.                              ← artefato do grep (o ponto final de frase)
+contact.checkpoint_data_de_retorno    ← citação deliberada do erro, não um uso
+contact.company_name  contact.first_name  contact.name  contact.source   ← nativos do GHL
+```
+
+Qualquer sétima linha é um órfão de verdade.
+
 ## Nenhum item protegia a reputação do número, só a entrega de cada mensagem — F-07, 22/09/2026, sessão automática
 
 Sessão sem novidade no CRM (agente de leitura dedicado confirmou: 51

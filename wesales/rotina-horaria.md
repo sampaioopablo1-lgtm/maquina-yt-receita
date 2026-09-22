@@ -32,6 +32,16 @@ O que aprender vai para `APRENDIZADOS-CRM.md`, para a execução seguinte não
 refazer a mesma investigação. É o que evita a rotina descobrir a mesma coisa
 vinte e quatro vezes por dia.
 
+**Uma exceção com regra própria, medida em 22/09/2026:** `403` do conector
+(`The token does not have access to this location.` ou `Forbidden resource`)
+**não** é bloqueio de acesso até ser provado. Repita a chamada com
+`locationId: 1D53YTI9C7oIMBavcQxV` explícito antes de qualquer outra coisa —
+na medição, as mesmas chamadas que davam `403` sem o parâmetro voltaram `200`
+com ele, e um endpoint de `opportunities` reportou a mesma falta como `422
+locationId can't be undefined`. Só se o `403` sobreviver ao parâmetro
+explícito é que se suspeita do token. Procedimento completo em
+`conectar.md`, seção "Quando der 403".
+
 ## Conector: resolvido
 
 A rotina nasceu sem o conector anexado — a API de criação desta organização não

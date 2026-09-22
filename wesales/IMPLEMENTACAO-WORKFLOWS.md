@@ -134,11 +134,23 @@ nunca a transliteração.
 | `Qualificação` | `qualificao` | `SDR` · `IA Whatsapp` · `Vendedor` |
 | `Necessidade` / `Urgência` | `necessidade` / `urgncia` | texto — onde o Meta Lead Ads grava hoje (`CONFERENCIA-CAMPOS.md`, Tabela H) |
 
-**Campos que a especificação usa e que NÃO existem na tela ainda** (criar
-antes do nó que os usa — `campos-e-tags.md`): `Toques na semana` (C-26,
-NUMERICAL — Contador de Toques e portões 2.5c/3c), `Hora da conexão` (C-25,
-TEXT — Pós-ligação nós 7b/7c), `Hora do retorno` (S-01, TEXT), `Checkpoint — Tentativa nº` (C-27, NUMERICAL — W17c) e
-`Checkpoint — Data de retorno` (C-28, DATE — W17e).
+**Os cinco campos que faltavam foram criados na tela em 21/09/2026 entre
+23:15 e 23:33 — nenhum campo da especificação está faltando hoje** (lido por
+API em 22/09: 51 campos; detalhe e `id` em `CONFERENCIA-CAMPOS.md`, Tabela K).
+**Não os crie de novo.** Use estes `fieldKey`, que não se adivinham pelo nome:
+
+| Campo | `fieldKey` real | Quem usa |
+|---|---|---|
+| `Toques na semana` (C-26) | `contact.toques_na_semana` | Contador de Toques; portões 2.5c/3c |
+| `Hora da conexão` (C-25) | `contact.hora_da_conexo` | Pós-ligação nós A7b/A7c; lista 8.19 |
+| `Hora do retorno` (S-01) | `contact.hora_do_retorno` | W4 ramo `Pediu retorno` (nó R4b); lista 8.4 |
+| `Checkpoint — Tentativa nº` (C-27) | `contact.checkpoint__tentativa_n` | W17c |
+| `Checkpoint — Data de retorno` (C-28) | `contact.checkpoint__data_de_retorno` | W17e |
+
+Os dois últimos levam **dois** underscores: o GHL remove o travessão do nome
+e os espaços que o cercavam sobram como `__` (`APRENDIZADOS-CRM.md`). Chave
+errada num `Wait → Dynamic` não dá erro — lê vazio e o monitor para em
+silêncio.
 
 **Campos nativos usados em condição:** `Phone` (telefone), `Assigned User`
 (dono do contato), `DND`, `Tags`, `Pipeline stage`, `Opportunity status`.
@@ -246,15 +258,19 @@ A lista completa, com nome, chave, tipo e opções exatas, é a tabela da
 seção 0.3 (é a mesma da `campos-e-tags.md`, que é a fonte). Estado na tela em
 21/09/2026: **tudo da 0.3 já existe**, exceto o que segue.
 
-**Criar agora (bloqueiam workflows da Parte 2):**
+**~~Criar agora~~ — os cinco já existem na tela desde 21/09/2026 23:15–23:33.
+Não recrie nenhum:**
 
-| Nome exato | Tipo | Opções | Pasta | Quem precisa |
+| Nome exato | Tipo | Confirmado na tela | `fieldKey` real | Quem precisa |
 |---|---|---|---|---|
-| `Toques na semana` | NUMERICAL | — | mesma dos campos de controle (`gabsbU3jsUN7oIXCnYab`) | W1 Contador de Toques; portões 2.5c (W11) e 3c (W13) |
-| `Hora da conexão` | TEXT | placeholder `HH` | idem | W4 nós A7b/A7c (F-02); lista 8.19 |
-| `Hora do retorno` | TEXT | placeholder `HH:MM` | idem | W4 ramo `Pediu retorno` (vencimento com hora); lista 8.4 |
-| `Checkpoint — Tentativa nº` | NUMERICAL | — | idem | W17c (só ele lê e escreve) |
-| `Checkpoint — Data de retorno` | DATE | — | idem | W17e (só ele lê e escreve) |
+| `Toques na semana` | NUMERICAL | 21/09 23:15:43 | `contact.toques_na_semana` | W1 Contador de Toques; portões 2.5c (W11) e 3c (W13) |
+| `Hora da conexão` | TEXT, placeholder `HH` | 21/09 23:17:11 | `contact.hora_da_conexo` | W4 nós A7b/A7c (F-02); lista 8.19 |
+| `Hora do retorno` | TEXT, placeholder `HH:MM` | 21/09 23:18:32 | `contact.hora_do_retorno` | W4 ramo `Pediu retorno` (nó R4b, corpo da tarefa); lista 8.4 |
+| `Checkpoint — Tentativa nº` | NUMERICAL | 21/09 23:19:54 | `contact.checkpoint__tentativa_n` | W17c (só ele lê e escreve) |
+| `Checkpoint — Data de retorno` | DATE | 21/09 23:33:28 | `contact.checkpoint__data_de_retorno` | W17e (só ele lê e escreve) |
+
+Os tipos e placeholders conferem com a especificação um a um — nada a
+corrigir. **Nenhum campo bloqueia mais a Parte 2.**
 
 **Corrigir (não dá para trocar tipo de campo criado — criar novo, deixar o
 antigo parado, nunca excluir):**
@@ -500,9 +516,9 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 3 | Wait → Time Delay | **7 dias** | 4 |
 | 4 | Update Contact Field → Math | `Toques na semana` = `Toques na semana` **− 1** | fim |
 
-**Pré-requisito:** o campo `Toques na semana` (NUMERICAL) **não existe** na
-tela — crie em Configurações → Campos personalizados antes (não sai por
-este conector).
+**Pré-requisito: cumprido.** O campo `Toques na semana` (NUMERICAL,
+`contact.toques_na_semana`) foi criado na tela em 21/09/2026 23:15 — não
+recrie. Nada bloqueia este workflow.
 
 **Teste:** aplique a tag `toque` em `ZZ TESTE ESTRUTURA` (ou por API,
 `contacts_add-tags`). Em segundos: tag `toque` removida, `Toques na semana`
@@ -607,7 +623,7 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | A5 | Remove Contact Tag | `fila-tel`, `fila-wa` |
 | A6 | Update Opportunity | Etapa → `AGENDAR` (status fica `open`) |
 | A7 | Update Contact Field | `Data conectado` = data atual |
-| A7b | Date/Time Formatter | entrada `{{right_now}}` · formato `HH` — **só depois de criar `Hora da conexão`** |
+| A7b | Date/Time Formatter | entrada `{{right_now}}` · formato `HH` — grava em `Hora da conexão` (`contact.hora_da_conexo`), **campo já criado em 21/09 23:17**; o que ainda depende de decisão é o `{{right_now}}` (seção 0.3), não o campo |
 | A7c | Update Contact Field | `Hora da conexão` = saída do A7b |
 | A8 | Add Task | Título `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir `Contact Owner` |
 | A9 | Add Note | `Atendeu na T{{contact.tentativa_n}}` |
@@ -655,6 +671,7 @@ Mestre de saída limpa pelo `status`.
 | R2 | Remove Contact Tag | `fila-tel`, `fila-wa` |
 | R3 | Add Contact Tag | `fila-quente` |
 | R4 | Add Task | `[RETORNO] Ligar de volta` · vence: `Data de retorno` (se vazio, amanhã) · Atribuir `Contact Owner` |
+| R4b | (no corpo da mesma tarefa) | `Horário combinado: {{contact.hora_do_retorno}}` — o campo existe desde 21/09 23:18. Se o seletor de vencimento aceitar hora de campo `TEXT`, use `Hora do retorno` ali e o R4b fica opcional; **não verificado na tela**, por isso o corpo é o caminho garantido |
 
 **Ramo `Não ligar`**
 
@@ -944,8 +961,9 @@ para o Mestre de saída apontar, ou se já tem o nó de IA dentro.
 | Allow Re-entry | **Desligado** (D-06) |
 | Contato em múltiplos workflows | permitido |
 
-**Antes de montar:** criar `Toques na semana` (para 2.5c/2.5d) e decidir
-`{{right_now}}` (seção 0.3). Trigger Link `Agendar com o closer` já existe.
+**Antes de montar:** só falta decidir `{{right_now}}` (seção 0.3) — o campo
+`Toques na semana` (2.5c/2.5d) já existe na tela desde 21/09 23:15, e o
+Trigger Link `Agendar com o closer` também.
 
 ### Nó 0 — inicialização (uma vez)
 
@@ -1401,7 +1419,7 @@ telefone de manhã e WhatsApp à tarde — o dia abaixo segue essa forma.
 | 09:00–12:00 | Bloco de telefone: `Fila Telefone Hoje` de cima para baixo (já vem por `Prioridade` desc, `Tentativa nº` asc — lead novo primeiro, porque converte mais) | 8.2 |
 | a cada ligação | Abrir o contato → gravar **`Resultado da tentativa`** (um dos valores de campos-e-tags.md, C-02 — `Desqualificado` também preenche `Motivo da desqualificação`) e **nada mais**. O Pós-ligação (W4) faz o resto em segundos: contadores, tags, etapa, tarefa | contato |
 | se `Atendeu` | Abrir o link do calendário `Reunião com closer` na mesma tela → preencher o formulário `Qualificação SDR` **enquanto fala** (perguntas na ordem do `script-de-ligacao.md`) → escolher o horário → enviar. Isso dispara o W5 (etapa `NEGOCIAR`, nota, confirmação ao lead) | 1.4 / 1.5 |
-| se `Pediu retorno` | Gravar `Data de retorno` (e `Hora do retorno`, quando existir) **antes** do resultado — a tarefa `[RETORNO]` vence nessa data | contato |
+| se `Pediu retorno` | Gravar `Data de retorno` **e** `Hora do retorno` (os dois existem) **antes** do resultado — a tarefa `[RETORNO]` vence nessa data | contato |
 | se `Não ligar` | Só quando o lead **pediu**. Liga DND em todos os canais e marca `lost` — não tem volta automática | contato |
 | se `Número errado` | Só depois de confirmar (recado da operadora, pessoa diz que não é). Vai para nutrição se houver e-mail/Instagram, senão `lost` | contato |
 | 12:00–13:30 | Conversas: responder quem respondeu (W13 já criou tarefa "ligar agora" e pôs em `Fila Quente`) | Conversas |
