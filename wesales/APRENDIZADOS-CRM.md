@@ -2,6 +2,58 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Um achado escrito dentro do texto de um item fechado não é aplicado sozinho — precisa da mesma conferência de "isto virou mudança de verdade?" — 22/09/2026, sessão da nuvem (G-08)
+
+Ao medir o F-15 (resgate por e-mail para quem não tem telefone), a própria
+sessão que fechou aquele item já tinha escrito a correção que o R-08
+precisava ("o nó 1 do R-08 precisa distinguir por que o lead virou
+`abandoned`... portão novo, antes de reativar") — e nunca voltou para
+aplicar no nó real do R-08. Ficou um parágrafo de intenção dentro do texto
+do F-15, tratado como resolvido porque estava escrito, mas o nó 2 do
+Reengajamento 90 dias continuou sem a condição. Achado só porque esta rodada
+perguntou "o F-15 tem alguma correção pendente que nunca virou edição?" em
+vez de assumir que um item `FEITO` fechou tudo que o próprio texto dele
+descreveu. **Regra prática, generalizável:** ao reler um item fechado (a
+mesma instrução de sempre do roadmap), não basta conferir se o "Pronto
+quando" dele foi cumprido — é preciso conferir se toda frase de ação dentro
+do próprio texto ("X precisa disto", "falta fazer Y") virou de fato uma
+edição em algum arquivo de especificação. Um parágrafo que descreve uma
+correção não é a correção. Mesma classe de erro que já motivou F-12 e F-13
+(achado em rodapé, nunca promovido a item), agora um nível mais fundo:
+dentro do próprio item que registrou o achado, não num item vizinho.
+
+**Efeito colateral útil desta rodada — reconferir dado antes de escrever
+sobre um "ciclo ativo":** o texto do F-15 (escrito horas antes) descrevia os
+5 leads reais do Instagram como "presos num ciclo fechado" de
+`abandoned`+`nutricao-90d`. Reconferido por API antes de escrever o G-08:
+**nenhum estava** — os 5 seguem em `NOVO LEAD`, sem nenhum campo de cadência
+preenchido, porque nunca foram promovidos para `CONECTAR` (G-03 segue
+represado) e portanto nunca passaram pelo portão que aplicaria
+`telefone-invalido`. A base tem **zero** oportunidade `abandoned` agora. O
+diagnóstico do F-15 (o nó do R-08 não protege quem não tem telefone) segue
+correto e vale a pena corrigir **antes** do primeiro lead cair nesse buraco
+— mas a frase "estão presos" era sobre um estado futuro, não atual, e só a
+releitura pela API pegou a diferença. Vale para qualquer achado herdado de
+uma sessão anterior: reconferir o dado antes de descrever como fato
+presente, não só copiar a frase de quem escreveu primeiro.
+
+## GHL não-oficial (QR) já está recebendo mensagem real de teste — 3 contatos novos nesta sessão, criados pela Porta de Entrada sozinha
+
+Lendo a base às 22h56 UTC de 22/09/2026 (antes de fechar o G-08), apareceram
+3 contatos novos desde a última leitura registrada no roadmap (50→53),
+todos criados por `INTEGRATION`/`OAUTH`, `sourceId`
+`682cd9287059b4173d8b17bd-mawx7is9` — a integração de WhatsApp não oficial
+(`stevo`, QR) que o dono conectou nesta mesma tarde (ver entrada "GHL não
+oficial conectado" abaixo). São mensagens manuais do próprio dono testando o
+número ("fds", "me diz o nome do seu crm"), não lead real — mas confirma,
+com tráfego de verdade, que a Porta de Entrada (G-01, gatilho `Contact
+Created` sem filtro) pega **qualquer** origem, inclusive uma integração que
+não existia quando o G-01 foi desenhado: os 3 ganharam oportunidade em
+`NOVO LEAD` sozinhos, em segundos. Útil para quem for medir "quantos
+contatos reais existem": filtrar por `createdBy.sourceId` antes de contar
+como lead — esta integração pode gerar mais ruído de teste enquanto o dono
+configura o agente de IA (`AGENTE-IA-CONEXAO.md`).
+
 ## O GHL liga pelo WhatsApp — mas só na API oficial, e o lead precisa dar permissão antes — 22/09/2026, sessão do PC
 
 Eu disse ao dono que "ligação de WhatsApp não sai pelo GHL". **Errado** — ele

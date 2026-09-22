@@ -1060,3 +1060,35 @@ quem mede. Registro aqui só para o `APROVADO.md` não virar ficção: se elas j
 estão no ar por decisão de quem manda, o certo é ele marcar as seis; se alguma
 entrou sem querer, este é o aviso.
 
+## Conferência da nuvem em 22/09/2026, ~23h UTC — retoque pendente no `Reengajamento 90 dias`
+
+Achado ao fechar o G-08 (`ROADMAP-SALES-ENGAGEMENT.md`): o nó 2 (portão) do
+workflow `Reengajamento 90 dias` — **já publicado**, tabela "Estado final em
+22/09/2026" acima, 105 nós — reativa hoje qualquer oportunidade
+`abandoned`+`nutricao-90d` sem checar se o lead tem telefone válido. Um lead
+que nunca teve telefone (a maioria vem de DM do Instagram) voltaria para
+`CONECTAR` a cada 90 dias, sem nenhum canal capaz de alcançá-lo, para
+sempre. Corrigido na especificação (`build-wesales.md`, seção 2.12;
+`IMPLEMENTACAO-WORKFLOWS.md`, W16): o nó 2 ganha a condição **E** `Tags` não
+inclui `telefone-invalido`.
+
+**Retoque pendente na tela, mesma classe do nó 5b já registrado acima:**
+adicionar essa quarta condição ao `If/Else` do nó 2, na mesma configuração
+do workflow já no ar — patch cirúrgico de uma condição, mesmo padrão que o
+`tools/patch_relogio_cadencias.py` já usou para o relógio no mesmo dia
+(`APRENDIZADOS-CRM.md`). Não é urgente hoje: a base tem **zero** oportunidade
+`abandoned` no momento desta conferência (53 oportunidades, todas
+`NOVO LEAD`/`CONECTAR`/`NEGOCIAR`) — o ciclo só dispara quando G-03 for
+decidido e um lead sem telefone esgotar a cadência a partir de `CONECTAR`.
+Aproveitar quando alguém for aplicar o próximo patch cirúrgico neste
+workflow, ou quando o primeiro lead real chegar perto de esgotar as 4
+tentativas do reengajamento, o que vier primeiro.
+
+**Junto, mesmo nó vizinho, achado de coerência:** o nó 3 (reset de rodada)
+ainda documentava `Entrada em` = `{{right_now}}` nos dois arquivos de
+especificação, mas a tela já usa `{{right_now.date}} {{right_now.time}}`
+desde o mesmo patch cirúrgico do relógio — a doc estava um passo atrás do
+que já está publicado. Corrigida nos dois arquivos junto com o retoque
+acima; não muda nada na tela, só põe a spec de volta batendo com a
+realidade.
+

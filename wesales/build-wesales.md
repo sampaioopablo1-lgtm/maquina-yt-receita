@@ -1876,9 +1876,9 @@ ainda.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Aguardar | Wait → Time Delay | 90 dias corridos |
-| 2 | Portão | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · tag `nutricao-90d` presente · tag `nao-perturbe` ausente |
-| 2b | Ramo falso do portão | **Remove from Workflow: este** | O lead já saiu do estado de nutrição por outro caminho (voltou a `CONECTAR` na mão e converteu — `status` deixou de ser `abandoned` —, ou foi descartado, `status = lost`) ou pediu para não ser mais procurado — não reativa quem já mudou de estado por conta própria. Nada para limpar aqui: nenhuma tag de fila foi tocada ainda |
-| 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
+| 2 | Portão | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · tag `nutricao-90d` presente · tag `nao-perturbe` ausente · tag `telefone-invalido` ausente (G-08, 22/09/2026 — ver nota abaixo) |
+| 2b | Ramo falso do portão | **Remove from Workflow: este** | Três motivos possíveis, nenhum reativa: o lead já saiu do estado de nutrição por outro caminho (voltou a `CONECTAR` na mão e converteu — `status` deixou de ser `abandoned` —, ou foi descartado, `status = lost`); pediu para não ser mais procurado; ou nunca teve telefone válido (`telefone-invalido`, aplicada no nó 6 da Cadência 12x30/nó 0.0b da Cadência Inbound) — reativar sem telefone só queima mais 90 dias sem produzir nenhuma tentativa real, porque a operação é 100% telefone (`d52e61d`) e nenhuma régua automática deste workflow fala outro canal. Nada para limpar aqui: nenhuma tag de fila foi tocada ainda |
+| 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026, mesma correção já aplicada nas seções 2.3/2.10) · `1ª tentativa em` = vazio |
 | 4 | Troca de origem | Remove Contact Tag `nutricao-90d` → Remove Contact Tag `cad-inbound` (idempotente, mesmo se ausente) → Add Contact Tag `cad-outbound` → Add Contact Tag `reengajamento-ativo` | Ver "A troca de origem" abaixo |
 | 5 | Reentrada no funil | Update Opportunity — Etapa → `CONECTAR` **e** `status` → `open` | O reset explícito de `status` é achado desta migração: o desenho original não tinha campo `status` separado de etapa, então "mover para `Em cadência`" bastava. Hoje, sem zerar `status`, o lead chegaria a `CONECTAR` ainda com `status = abandoned` da rodada anterior, e o portão do Mestre de saída (seção 3, nó 1: "`CONECTAR` **e** `open`") ficaria falso — a chegada seria lida como saída, e a limpeza (tirar das filas, apagar tag de fila) rodaria no instante em que o lead está *entrando* de novo na cadência, não saindo. Com o reset, dispara o Mestre de saída em no-op de verdade (nó 1 encerra sem limpar) e o Alerta de Speed-to-lead (seção 2.11) com relógio novo, porque `1ª tentativa em` acabou de ser esvaziado no nó 3 — a reativação ganha sua própria medição de speed-to-lead de graça, sem campo novo |
 | 6 | Guarda de janela de atendimento (seção 2.6.2, G-05) | If/Else nativo | Dentro da janela → 6b · Fora da janela → 6c |
@@ -1886,6 +1886,46 @@ ainda.
 | 6c | Mensagem de reabertura (fora da janela) | Send WhatsApp, modo Template | Template Meta `RE-1` (a submeter — `biblioteca-mensagens.md`) → 6d |
 | 6d | Carimbo | Update Contact Field | `Template usado` = `RE-1` (os dois ramos acima convergem aqui) |
 | 7 | Aguardar resposta | Wait → Contact Replied | Tempo limite 2h — mesmo padrão do pós-M1 (seção 2.6): se respondeu, `Stop on Response` tira da régua |
+
+> **G-08, 22/09/2026 — o nó 2 reativaria para sempre um lead sem telefone
+> válido, sem nunca produzir uma tentativa real.** Achado ao aprofundar o
+> F-15 (seção 2.30): o texto daquela seção já tinha identificado o problema
+> ("o nó 1 do R-08 precisa distinguir por que o lead virou `abandoned`") mas
+> nunca virou mudança neste nó — ficou registrado e não aplicado, o mesmo
+> padrão de "achado em rodapé nunca promovido" que este projeto já viveu
+> antes (F-12, F-13). Reconferido por API nesta rodada, e a conta mudou: **a
+> base tem 0 oportunidades `abandoned` agora** (53 oportunidades reais, 48
+> `NOVO LEAD` + 2 `CONECTAR` `lost` + 2 `NEGOCIAR` `open` + 1 `NEGOCIAR`
+> `lost`) — os 5 leads reais do Instagram sem telefone que o F-15 mediu
+> continuam em `NOVO LEAD`, sem nenhum campo de cadência preenchido, porque
+> ainda não foram promovidos para `CONECTAR` (G-03, aguardando o dono) e
+> portanto nunca passaram pelo portão 0.0b que aplicaria `telefone-invalido`
+> e `nutricao-90d`. **O ciclo ainda não é um estrago ativo hoje — é uma
+> armadilha armada, não disparada:** no instante em que G-03 for decidido e
+> esses leads (ou qualquer lead futuro sem telefone) entrarem em `CONECTAR`,
+> o portão 0.0b (seções 2.3/2.10) os manda para `abandoned` + `nutricao-90d`
+> depois de esgotar o que a cadência sem telefone conseguir tentar, e sem
+> este nó 2 corrigido o Reengajamento 90 dias os reativaria de volta para
+> `CONECTAR` a cada 90 dias, correndo o bloco TR1-TR4 (que hoje é só
+> WhatsApp/telefone — a operação não fala mais WhatsApp desde `d52e61d`, e
+> quem chegou sem telefone continua sem telefone) até voltar para
+> `abandoned` + `nutricao-90d` de novo, reabrindo o relógio sozinho, sem
+> fim. A tag `telefone-invalido` já existe (T-09, R-13) e já é aplicada por
+> quem detecta a falta de telefone — o nó 2 só precisava lê-la antes de
+> reativar, e agora lê. **Não é o mesmo problema do F-15** (que resolve quem
+> tem e-mail, canal que os 5 do Instagram não têm) — é o problema mais
+> barato de fechar: parar de agendar uma tentativa que a própria régua sabe
+> de antemão que não vai acontecer. Zero campo, zero tag novos — reaproveita
+> `telefone-invalido`, que já existe na base desde a R-13. Zero escrita no
+> CRM nesta rodada: item de especificação pura, não depende de
+> `APROVADO.md` (nenhuma tag ou campo novo nasce). **O que isto não
+> resolve:** é correção de spec, não de dado — precisa ser aplicada como
+> retoque no workflow `Reengajamento 90 dias`, já **publicado** na tela
+> (`GUIA-MONTAGEM.md`, "Estado final em 22/09/2026"), o mesmo tipo de patch
+> cirúrgico já usado para o relógio (`APRENDIZADOS-CRM.md`,
+> `tools/patch_relogio_cadencias.py`) — não sai por este conector (sem
+> endpoint de workflow) nem pela API interna desta sessão (sem bearer local).
+> Detalhe completo: `ROADMAP-SALES-ENGAGEMENT.md`, G-08.
 
 ### O bloco padrão de uma tentativa de reengajamento (TR1 a TR4)
 

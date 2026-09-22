@@ -706,6 +706,76 @@ tela; e as duas Smart Lists de compliance do R-14 enxergam os três canais
 que a operação de fato usa, não só os dois que existiam quando foram
 escritas.
 
+### G-08 · O achado do F-15 apontava uma correção no R-08 e nunca virou mudança nele — nó 2 reativaria lead sem telefone para sempre — **FEITO em 22/09/2026 (especificação)**
+**Por quê:** ao medir o F-15 (seção 2.30 do `build-wesales.md`), esta mesma
+rodada já tinha escrito a correção que faltava: *"1. Fechar o ciclo continua
+necessário e não depende de e-mail. O nó 1 do R-08 precisa distinguir por
+que o lead virou `abandoned`: se foi o portão de telefone (tag
+`telefone-invalido`)... Portão novo no R-08, antes de reativar."* Isso ficou
+registrado dentro do texto do F-15 e nunca virou edição no nó real do R-08
+(seção 2.12) — o mesmo padrão de "achado em rodapé, nunca promovido a item
+próprio" que este roadmap já viveu duas vezes (F-12, com `Motivo da
+desqualificação`; F-13, com o monitor de `NEGOCIAR`). Sem a correção, o nó 2
+do Reengajamento 90 dias reativava **qualquer** oportunidade `abandoned` +
+`nutricao-90d` sem olhar se o lead tinha telefone — um lead que nunca teve
+telefone (a maioria vinda de DM do Instagram, que não coleta telefone nem
+e-mail) voltaria para `CONECTAR` a cada 90 dias, rodaria o bloco TR1-TR4
+sem nenhum canal capaz de alcançá-lo (a operação é 100% telefone desde
+`d52e61d`) e voltaria para `abandoned` + `nutricao-90d` no fim, reabrindo o
+relógio sozinho, para sempre — a régua fingindo tentar contato onde já
+sabia de antemão que não há como.
+**Conferido por API antes de escrever, para não repetir o erro que este
+item corrige (agir sobre uma leitura antiga sem reconferir):** a subconta
+tem hoje **53 oportunidades reais** (48 `NOVO LEAD` open + 2 `CONECTAR`
+lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost) e **zero em `abandoned`** — os
+5 leads reais do Instagram que o F-15 mediu como "presos no ciclo" ainda
+estão em `NOVO LEAD`, sem nenhum campo de cadência preenchido, porque G-03
+(promoção `NOVO LEAD` → `CONECTAR`) segue aguardando o dono e eles nunca
+passaram pelo portão 0.0b que aplicaria `telefone-invalido`/`nutricao-90d`.
+**O ciclo não é estrago ativo hoje — é uma armadilha armada, ainda não
+disparada:** dispara no instante em que G-03 for decidido e um lead sem
+telefone (destes 5 ou de qualquer origem futura, inclusive a nova integração
+de WhatsApp não oficial que já criou 3 contatos de teste nesta mesma
+sessão) entrar em `CONECTAR` e esgotar o que a cadência sem telefone
+conseguir tentar. Corrigir agora, antes do primeiro lead real cair nesse
+buraco, é mais barato que corrigir depois de um lead já ter dado três voltas
+de 90 dias sem nenhuma tentativa — o mesmo raciocínio que já tirou F-04 e
+F-05 da fila normal.
+**Como:** especificado nó a nó em `build-wesales.md`, seção 2.12 — o nó 2
+(portão) ganhou a quarta condição **E** `tag telefone-invalido ausente`; o
+nó 2b (ramo falso) ganhou o terceiro motivo na explicação. Espelhado em
+`IMPLEMENTACAO-WORKFLOWS.md`, W16. **Achado à parte, corrigido junto por
+estar na mesma linha:** o nó 3 (reset de rodada) ainda escrevia `Entrada em`
+= `{{right_now}}`, o valor que grava `[object Object]` em campo `TEXT`
+(`APRENDIZADOS-CRM.md`) — só que o workflow **já foi corrigido ao vivo**
+para `{{right_now.date}} {{right_now.time}}` por um patch cirúrgico do PC do
+dono (`tools/patch_relogio_cadencias.py`, mesmo dia), e a documentação nunca
+foi atualizada para bater com o que está publicado. Os dois arquivos agora
+refletem o valor real em produção.
+**Pesquisado antes de desenhar:** nenhuma das quatro plataformas do
+enunciado (Reev, Meetime, Outreach, Salesloft) documenta publicamente uma
+proteção equivalente — o cenário "cadência de reativação corre para sempre
+sobre um lead que a própria plataforma já sabe ser incontatável por aquele
+canal" é específico de uma régua 100% telefone com canal de entrada que não
+garante telefone (DM do Instagram), combinação que nenhuma delas assume por
+padrão.
+**Zero campo, zero tag novos:** reaproveita `telefone-invalido` (T-09), já
+criada desde a R-13. Zero escrita no CRM: item de especificação pura, não
+depende de `APROVADO.md`.
+**O que este item não resolve:** é correção de spec, não de dado — o
+workflow `Reengajamento 90 dias` já está **publicado** na tela
+(`GUIA-MONTAGEM.md`, "Estado final em 22/09/2026", 105 nós), então a
+correção do nó 2 precisa do mesmo tipo de patch cirúrgico já usado para o
+relógio; não sai por este conector (sem endpoint de workflow) nem pela API
+interna desta sessão (sem bearer local — `wesales/tools/ghl_api.py` exige
+`.local/_ghl_bearer.txt`, ausente nesta sessão da nuvem). Fica registrado
+como retoque pendente, mesmo padrão já usado para o nó 5b da Interceptação
+de Sinal.
+**Pronto quando (cumprido, na especificação):** o nó 2 do R-08 não reativa
+mais nenhuma oportunidade `abandoned`+`nutricao-90d` que carregue
+`telefone-invalido` — falta só aplicar o mesmo patch cirúrgico ao workflow
+já publicado, mesma fila de retoques manuais do resto do projeto.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -3341,3 +3411,48 @@ F-12, F-13, F-15 e G-07 têm desenho completo e só faltam ser montados na
 tela (F-15 também precisa dos dois templates de e-mail, `[ ]` em
 `APROVADO.md`); F-14 é checklist de gestor, pronto para uso assim que o
 número começar a discar de verdade.
+
+**G-08 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+não é nova, é um achado do próprio F-15 que nunca virou edição no nó que
+ele apontava.** CRM reconfirmado por API: 53 oportunidades (48 `NOVO LEAD`
+open + 2 `CONECTAR` lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost, **zero**
+`abandoned`), 55 campos, 53 contatos — subiu de 50 para 53 contatos e
+oportunidades desde a última leitura: os 3 novos vieram da integração de
+WhatsApp não oficial que o dono conectou nesta mesma sessão (`stevo`/QR,
+`APRENDIZADOS-CRM.md`), mensagens de teste do próprio dono ("fds", "me diz
+o nome do seu crm"), não lead real — a Porta de Entrada (G-01) os pegou e
+criou oportunidade em `NOVO LEAD` sozinha, confirmando que o portão
+"qualquer origem" continua funcionando até para um canal que não existia
+quando foi desenhado. Sweep de coerência: nenhum nome de etapa órfão novo;
+o achado veio de reler o texto do F-15 (seção 2.30) depois de fechá-lo e
+notar que o item 1 da lista "o que fica valendo" ("fechar o ciclo") descrevia
+uma mudança de nó que o resto daquela mesma sessão nunca aplicou — o F-15
+fechou os nós do workflow de e-mail que inventou, mas não voltou ao nó do
+R-08 que sua própria análise mandava corrigir. Antes de escrever, reconferi
+que o ciclo é uma armadilha futura, não um estrago já rodando: zero
+oportunidade `abandoned` na base agora, porque G-03 (promoção `NOVO LEAD` →
+`CONECTAR`) segue represada e os 5 leads do Instagram sem telefone nunca
+chegaram ao portão que os marcaria `telefone-invalido`. Fechado como G-08:
+quarta condição no portão do nó 2 do R-08 (`build-wesales.md`, seção 2.12;
+`IMPLEMENTACAO-WORKFLOWS.md`, W16) — `tag telefone-invalido ausente` — e,
+corrigido junto por estar na mesma linha do nó 3, a documentação do valor de
+`Entrada em` (ainda `{{right_now}}`, já era `{{right_now.date}}
+{{right_now.time}}` na tela desde o patch cirúrgico do relógio, mesmo dia,
+`APRENDIZADOS-CRM.md`). Zero campo, zero tag novos, zero escrita no CRM:
+item de especificação pura, não depende de `APROVADO.md`. **Regra prática,
+generalizável:** um achado escrito dentro do texto de um item fechado
+("o que fica valendo, item 1") não é automaticamente aplicado só por estar
+escrito — precisa da mesma verificação de "isto virou mudança de verdade?"
+que este roadmap já aplica a premissa técnica represada (F-05, F-06) e a
+decisão do dono parcialmente resolvida (G-04); aqui o represado era um
+parágrafo de intenção dentro do próprio commit que o registrou. Detalhe
+completo no próprio G-08, acima.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real; F-11,
+F-12, F-13, F-15, G-07 e G-08 têm desenho completo e só faltam ser montados/
+aplicados na tela (F-15 também precisa dos dois templates de e-mail, `[ ]`
+em `APROVADO.md`; G-08 é um retoque de uma linha num workflow já publicado);
+F-14 é checklist de gestor, pronto para uso assim que o número começar a
+discar de verdade.
