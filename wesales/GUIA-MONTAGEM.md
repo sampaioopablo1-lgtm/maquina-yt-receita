@@ -858,6 +858,18 @@ Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
 | `Interceptação de Sinal — Clique v2` | **rascunho**, 15 nós | aponta para o Trigger Link novo; o publicado aponta para um id morto |
 | `Interceptação de Sinal — Resposta v2` | **rascunho**, 18 nós | portão de opt-out com 17 frases na frente do fluxo (retoque R-17) |
 
+| `SLA do Closer — No-show` (W9) / `Opt-out` (W14) | **publicados** | 12 e 14 nós |
+| `Pós-agendamento v2` | **rascunho**, 160 nós | a régua da 9.1 que nunca existiu: 28 somas, máximo 100 |
+| `Mestre de saída v2` | **rascunho**, 10 nós | portão que encerra em `NOVO LEAD`, para não marcar `limpar-tarefas` em lead que chega |
+
+**Testado de ponta a ponta, com rastro lido pela API:** `Contador de Toques`
+(tag removida, campo = 1), `Loop do closer v2` (nos dois ramos: `Parcial` →
+`abandoned`, `Não` → `lost`, etapa intacta) e a **`Cadência 12x30` completa**
+— lead movido para `CONECTAR` resultou em dono atribuído, `Prioridade` 3,
+`Entrada em`, contadores zerados, tag `fila-tel`, `Tentativa nº` = 1 (parou
+no T1, sem correr) e a tarefa `[CADENCIA] T1 · Ligar (telefone)` criada para
+o dono, vencendo hoje.
+
 **Pré-requisitos resolvidos nesta sessão:** os 5 campos da tabela 1.2
 (`Toques na semana` `c1xuCuLyJheHOQoJ3grH`, `Hora da conexão`
 `5hU72B0HuoMApZvO1Qk7`, `Hora do retorno` `IHXNFnguTPyNj5Q59ea2`,
