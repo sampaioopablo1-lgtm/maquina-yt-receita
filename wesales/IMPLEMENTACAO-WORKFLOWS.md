@@ -1,5 +1,17 @@
 # Implementação — configuração exata do CRM, dos workflows e da operação
 
+> **Aviso de 22/09/2026 — 36 menções ao canal WhatsApp neste documento estão
+> vencidas.** O dono decidiu em 22/09 que as quatro réguas são **100%
+> telefone** e elas foram remontadas e publicadas assim (commit `d52e61d`).
+> Este documento não foi reescrito: onde ele manda criar toque de "Ligação
+> WhatsApp", aplicar `fila-wa` ou montar nó de mensagem (M1/M2/M3, MI-0/MI-F,
+> RE-1/RE-2, NS-1/NS-2), **não monte** — esses nós não existem mais na
+> operação. A decisão, a medição que a confirma no payload publicado e as
+> consequências em lista/widget/gatilho estão na seção 2.5 do
+> `build-wesales.md`, que é a fonte desta regra. Reescrever as 36 menções é
+> trabalho de uma rodada futura; até lá, este aviso é o que impede a montagem
+> de reintroduzir um canal que a conta não tem.
+
 Referência de montagem **clique a clique** do projeto inteiro na tela da
 WeSales (GoHighLevel), em três partes: **Parte 1 — Estrutura** (o que existe
 antes de qualquer workflow: pipeline, campos, tags, calendário, formulário,

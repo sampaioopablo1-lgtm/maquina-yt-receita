@@ -961,10 +961,16 @@ ver a ressalva de `country=US` abaixo).
 
 ### Decisões que continuam com o dono
 
-1. **WhatsApp desconectado.** Os nós de envio exigem `template_id` e
+1. ~~**WhatsApp desconectado.** Os nós de envio exigem `template_id` e
    `from_phone_number`; sem o canal não passam nem como rascunho. Faltam
    M1/M2/M3, MI-0/MI-F, RE-1/RE-2 e NS-1/NS-2 — o resto de cada régua está
-   montado e funcionando.
+   montado e funcionando.~~
+   **Deixou de valer 39 minutos depois de ser escrito.** Este item é de
+   `329c9b1` (10:09); em `d52e61d` (10:48) o dono decidiu que as réguas são
+   **100% telefone**. Numa operação só de ligação esses nós não existem, então
+   não "faltam": as quatro réguas estão **inteiras**. A decisão está registrada
+   na seção 2.5 do `build-wesales.md`. Mantido riscado porque a diferença entre
+   "falta montar" e "não existe" é o que decide se alguém vai tentar montar.
 2. **`country` da subconta está `US`** com fuso `America/Sao_Paulo`, moeda
    `BRL` e telefone `+55`. Afeta o W19: Number Validation checaria número
    brasileiro contra regra americana. Não mexi porque `country` toca
@@ -972,3 +978,60 @@ ver a ressalva de `country=US` abaixo).
 3. **Linha "Mensagens" do `APROVADO.md`** continua `[ ]`: falta o número
    completo para os testes de envio.
 4. **Push bloqueado:** a credencial git desta máquina é de outra conta.
+
+## Conferência da nuvem em 22/09/2026, 16:10 UTC
+
+Li o merge `3cc1c4b` (os 27 commits do PC) e conferi contra a API. Três coisas
+para a próxima pessoa que abrir este repositório.
+
+### 1. Os 22 arquivos de `workflows-json/` não dizem o que está no ar
+
+Todos os 22 dumps trazem `status: draft` e `triggers: []` — **os 22, sem
+exceção**. Isso não significa que nada está publicado: significa que o dump é
+a fotografia do payload **antes** de publicar, e que o gatilho é gravado por
+outra chamada e nunca entrou no arquivo. A prova de que os workflows estão no
+ar é a tabela dos 20 logo acima, com rastro lido pela API.
+
+A regra que fica: **`workflows-json/` serve para conferir nó, tag e campo —
+nunca para responder "isto está ligado?" nem "em que gatilho?".** Quem quiser
+responder isso hoje precisa da tela: a API pública (MCP) não tem endpoint de
+workflow, então a sessão da nuvem não consegue verificar publicação nem
+gatilho de jeito nenhum. É o maior ponto cego do projeto neste momento.
+
+### 2. O lead mais novo da base nunca foi tocado
+
+`Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`), lead pago do Facebook, campanha
+`LEADS I FORM I FS1`:
+
+| | |
+|---|---|
+| Entrou | 21/09 09:17:23 |
+| Oportunidade criada | 21/09 09:17:26 (3 s — a Porta de Entrada funciona) |
+| Última alteração no contato | 21/09 09:17:30 (7 s depois de entrar) |
+| Etapa agora | `NOVO LEAD`, `status: open`, `lastStageChangeAt` 21/09 09:17:26 |
+| Tags agora | só `limpar-tarefas` — a tag de **saída limpa** |
+| Campos de cadência | vazios (só as 3 respostas do formulário) |
+
+Ele entrou, foi ejetado em 7 segundos pelo portão da régua que estava no ar
+naquela manhã, e **está parado há 30h49min sem um único toque**. Não atribuo
+isso ao que o dono publicou ontem à noite: a ejeção é de 09:17, e o primeiro
+commit do PC é de 19:50. O que estava no ar na manhã de 21/09 eu não consigo
+ler pela API, então **não sei qual portão o ejetou** — só que foi ejetado.
+
+O que importa para a operação é o que vem depois: workflow publicado age em
+quem **entra**, não em quem já está parado. Carlos não vai ser re-enrolado
+sozinho. E o monitor que existe exatamente para isso — `Lead Esquecido em
+NOVO LEAD` — só o alcança se o gatilho dele pegar lead já parado na etapa; se
+for gatilho de mudança de etapa, Carlos é invisível para ele. **Isso é uma
+pergunta para a tela**, pelo ponto cego do item 1.
+
+### 3. Seis tags estão no ar com a linha ainda `[ ]` no `APROVADO.md`
+
+`novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`,
+`agendar-estagnado`, `retorno-vencido` e `negociacao-estagnada` aparecem nos
+workflows publicados, e as seis linhas continuam `[ ]`. **Não marquei
+nenhuma** — `[x]` quer dizer "o dono aprovou", e quem aprova é o dono, não
+quem mede. Registro aqui só para o `APROVADO.md` não virar ficção: se elas já
+estão no ar por decisão de quem manda, o certo é ele marcar as seis; se alguma
+entrou sem querer, este é o aviso.
+

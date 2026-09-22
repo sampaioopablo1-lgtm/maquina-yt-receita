@@ -2,6 +2,86 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A auditoria de órfãos mudou de gabarito: 6 linhas viraram 2 — 22/09/2026, sessão automática
+
+A varredura de merge field órfão passou rodadas inteiras devolvendo
+**6 linhas esperadas**. Nesta rodada devolveu **2**, e a queda não é defeito:
+o dono criou na tela os 5 campos pendentes da tabela 1.2 (`3740858`), então
+4 dos 6 "órfãos" deixaram de ser órfãos por terem virado campo de verdade.
+
+**Gabarito novo — 2 linhas, as duas falsos positivos conhecidos:**
+
+| Linha | Por que não é órfão |
+|---|---|
+| `contact.checkpoint_data_de_retorno` | citação deliberada do erro de 1 underscore, dentro da entrada que ensina o erro. Nunca foi uso. |
+| `contact.name` | merge field nativo do GHL, não é campo personalizado |
+
+Duas regras saem daí. A primeira: **número esperado de uma auditoria é estado,
+não constante** — quando a realidade muda a favor, o gabarito precisa mudar
+junto, senão a rodada seguinte "descobre" uma melhora e vai investigar o
+próprio sucesso. A segunda: a fonte dos campos reais agora é
+`wesales/tools/campos.json` (dump do PC, 79 entradas, 66 de contato), não mais
+uma leitura da API a cada rodada — é de graça e não gasta os ~8-9k tokens de
+`locations_get-custom-fields`. O preço é que o `campos.json` envelhece: se o
+dono criar campo na tela, ele some da auditoria até alguém redumpar.
+
+Comando com a fonte nova:
+
+```
+grep -rho "contact\.[a-z0-9_]*" wesales/*.md | sort -u > /tmp/usados.txt
+python3 -c "import json;d=json.load(open('wesales/tools/campos.json'));\
+print('\n'.join(sorted({v['chave'] for v in d.values() \
+if isinstance(v,dict) and str(v.get('chave','')).startswith('contact.')})))" > /tmp/reais.txt
+comm -23 /tmp/usados.txt /tmp/reais.txt | grep -v '^contact\.$'   # espera 2 linhas
+```
+
+## Um dump uniforme é suspeita de artefato, não descoberta — 22/09/2026, sessão automática
+
+Os 22 arquivos de `workflows-json/` vieram todos com `status: draft` e
+`triggers: []`. A leitura tentadora era "nada está no ar, o build não
+publicou" — e ela seria espetacular e errada: o próprio `GUIA-MONTAGEM`
+lista 20 workflows publicados com rastro lido pela API.
+
+O sinal que salvou foi a **uniformidade**. Quando um defeito aparece em
+100% dos casos, sem uma única exceção, quase nunca é defeito: é
+característica de como o artefato foi produzido. Defeito real tem
+distribuição irregular — alguns sim, outros não. Aqui o dump era a
+fotografia do payload antes de publicar, e o gatilho é gravado por outra
+chamada que nunca entra no arquivo.
+
+**Regra:** antes de concluir a partir de um arquivo, pergunte em que
+momento ele foi escrito e o que ele não teria como conter. E quando o
+resultado for 100% ou 0%, desconfie da medição antes de desconfiar do
+sistema. Parente próximo do "ler não é escrever" de ontem: ali o erro era
+tomar limite de tela por limite de comportamento; aqui, tomar limite do
+dump por estado do CRM.
+
+## Uma decisão de canal viaja pelo código e fica presa nos documentos — 22/09/2026, sessão automática
+
+O dono tirou o WhatsApp das réguas (`d52e61d`). A decisão chegou 100% ao
+CRM — medi no payload publicado: 12 nós `add_contact_tag` com `fila-tel` e
+**zero** adicionando `fila-wa`, que só sobrevive em nós de remoção. Mas
+chegou a **2 documentos de 10**: sobraram 60 menções em `build-wesales.md`,
+36 em `IMPLEMENTACAO-WORKFLOWS.md` e 11 no `ROADMAP`.
+
+O caso é pior que inconsistência de texto, por dois motivos que valem como
+regra:
+
+1. **Documento de montagem é instrução, não descrição.** Enquanto o
+   `IMPLEMENTACAO-WORKFLOWS` mandar criar toque de "Ligação WhatsApp", a
+   próxima montagem reintroduz um canal que a conta não tem. Documento
+   vencido não fica só errado — ele desfaz a decisão na montagem seguinte.
+2. **Tag morta não é inofensiva.** `fila-wa` deixou de ser aplicada, e a
+   fórmula do `Estouro da Fila` somava `fila-tel` **OU** `fila-wa`: ela
+   continua contando resíduo e pode disparar alarme de capacidade sem fila
+   nenhuma. E o F-05 peça 2 tinha um gatilho `Contact Tag Added — fila-wa`,
+   que a partir de agora nunca dispara. Quando um canal sai, o trabalho não
+   é achar as menções: é achar **o que dependia delas**.
+
+Não reescrevi as 107 menções — seria alteração em massa sem pedir. Pus a
+decisão medida num lugar só (seção 2.5 do `build-wesales.md`), avisos no
+topo dos dois documentos que mandam montar, e corrigi no lugar os três
+pontos carregantes.
 ## Dois itens que fecharam no mesmo dia, protegendo canais vizinhos, não se olharam — a pergunta que achou o F-14 não foi "o que falta", foi "os dois já tratam igual?" — 22/09/2026, sessão automática
 
 O F-07 (Quality Rating do WhatsApp) e o F-08 (reputação do número de

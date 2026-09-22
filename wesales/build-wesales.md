@@ -784,6 +784,36 @@ e o resultado. Um contador com dois donos sempre diverge.
 
 ### 2.5 As 12 tentativas
 
+> **Decisão do dono em 22/09/2026 — as réguas são 100% telefone.** O canal
+> "Ligação WhatsApp" saiu do jogo. As quatro réguas foram remontadas e
+> publicadas assim (commit `d52e61d`): **12x30 com 12 toques de telefone**,
+> **Inbound com 5**, **Reengajamento com 4**, **No-show com 3** (esta já era).
+> Medido no payload publicado, não deduzido do commit: a `Cadência 12x30` tem
+> 12 nós `add_contact_tag` com `fila-tel` e **nenhum** nó que adicione
+> `fila-wa` — a tag só sobrevive em 24 nós `remove_contact_tag`, como limpeza
+> defensiva de quem carregava a tag da versão anterior.
+>
+> **A tabela abaixo é o registro histórico da régua alternada e não descreve
+> mais o que está no ar.** Onde ela diz `Ligação WhatsApp` / `fila-wa`, leia
+> `Telefone` / `fila-tel`. A contagem de toques não mudou: continuam 12 em 30
+> dias. O que desapareceu foram os nós de mensagem (M1/M2/M3) — numa operação
+> só de ligação eles não existem, e é por isso que as réguas deixaram de estar
+> incompletas.
+>
+> **Consequência que não está nas tabelas:** `fila-wa` virou uma tag que nada
+> mais aplica. Toda lista, widget ou gatilho deste documento que dependa dela
+> passou a ser letra morta — os pontos onde isso é carregante estão corrigidos
+> no lugar (métrica `Estouro da Fila`, seções 2.15 e 2.17; gatilhos do F-05
+> peça 2, seção 2.21). Se aparecer outro, é bug de propagação desta decisão,
+> não regra nova.
+>
+> **Efeito colateral a considerar, não medido:** com o WhatsApp fora, o volume
+> de ligações por lead aproximadamente dobra. Os critérios do Despacho
+> Decisório nº 82/2026 (volume, proporção de chamadas muito curtas, duração
+> média, taxa de completamento) passam a ser avaliados sobre esse volume
+> maior. Não é motivo para voltar atrás; é motivo para a aplicação ao
+> `Origem Verificada` subir de prioridade.
+
 Tentativa = ação do SDR (decisão D-01). As mensagens automáticas são nós de
 envio no meio do fluxo e não contam como tentativa.
 
@@ -2152,7 +2182,9 @@ obrigar o gestor a fazer a conta contra a meta toda vez que olhar.
 
 Reporting → Custom Metrics → Nova métrica → fórmula:
 
-`(Contagem de contatos com tag "fila-tel" OU "fila-wa") − 100`
+`(Contagem de contatos com tag "fila-tel") − 100`
+
+> Corrigido em 22/09/2026: a fórmula somava `fila-tel` **OU** `fila-wa`. Com a decisão de 100% telefone (seção 2.5) nada mais aplica `fila-wa`, e o termo a mais não é inofensivo — ele continua contando quem carrega a tag antiga por resíduo, inflando a fila e podendo disparar o alarme de capacidade sem fila nenhuma. Antes: ~~`OU "fila-wa"`~~.
 
 O "− 100" é de propósito, não decoração: em vez da contagem crua — que
 obriga o gestor a lembrar a meta do briefing toda vez que olha —, a métrica
@@ -2396,7 +2428,7 @@ o número exato.
 
 | Métrica | Fórmula | O que cobre do "Como" do roadmap |
 |---|---|---|
-| `Estouro da Fila` (já existe, R-11 — seção 2.15) | `(Contagem de contatos com tag "fila-tel" OU "fila-wa") − 100` | Fila em atraso — capacidade |
+| `Estouro da Fila` (já existe, R-11 — seção 2.15) | `(Contagem de contatos com tag "fila-tel") − 100` | Fila em atraso — capacidade |
 | `Atrasos de Speed-to-lead` (nova) | `Contagem de contatos com tag "atraso-1a-tentativa"` | Fila em atraso — SLA da 1ª tentativa (a mesma tag que a lista 8.8 já filtra) |
 | `Taxa de Conexão — Telefone` (nova) | `(Soma de "Conexões telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — telefone, acumulada |
 | `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
@@ -2850,7 +2882,7 @@ sobrescreveriam o campo uma da outra antes da comparação final).
 
 ### Gatilhos
 1. **Contact Tag Added** — `fila-tel`
-2. **Contact Tag Added** — `fila-wa`
+2. ~~**Contact Tag Added** — `fila-wa`~~ — **removido em 22/09/2026.** Nada mais adiciona `fila-wa` (seção 2.5), então este gatilho nunca dispararia. Fica riscado porque a justificativa do OR logo abaixo foi escrita para dois gatilhos: com um só, o recurso de multi-gatilho deixa de ser **necessário aqui** — não deixa de existir, e não é a regra que mudou.
 
 (dois gatilhos no mesmo workflow, em OR — o mesmo recurso já usado e
 confirmado no Mestre de saída, seção 3: "GHL aceita mais de um gatilho no

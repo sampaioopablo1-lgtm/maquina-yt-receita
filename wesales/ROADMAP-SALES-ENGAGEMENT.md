@@ -1,5 +1,15 @@
 # O que falta para virar Reev/Meetime de verdade
 
+> **Aviso de 22/09/2026 — o canal WhatsApp saiu do projeto.** Decisão do dono:
+> as quatro réguas são 100% telefone, remontadas e publicadas em `d52e61d`.
+> As 11 menções a WhatsApp/`fila-wa` abaixo são registro histórico. Dois itens
+> deste roadmap mudam de tamanho por causa disso: o que dependia de Templates
+> do Meta/WhatsApp deixa de ser caminho crítico, e a aplicação ao
+> **`Origem Verificada`** sobe de prioridade, porque tirar um canal dobra
+> aproximadamente o volume de ligação por lead — exatamente o que o Despacho
+> Decisório nº 82/2026 avalia. Detalhe e medição: seção 2.5 do
+> `build-wesales.md`.
+
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
 a chegada. O bloco 6 é o que faz a operação ficar fora da curva: coisas que a
