@@ -1501,7 +1501,27 @@ o incidente da T-15. Subconta reconfirmada: mesmas 5 etapas do `FUNIL DE
 VENDAS`, 46 campos, 50 oportunidades — G-03/G-04 seguem aguardando o dono,
 sem mudança.
 
-### F-06 · Qualidade da conexão, não a contagem — **FEITO em 22/09/2026, duas peças, mesmo dia**
+### F-06 · Qualidade da conexão, não a contagem — **FEITO em 22/09/2026, duas peças, mesmo dia** (com duas conferências, também no dia)
+
+> **Segunda conferência, sobre a peça 2** (`build-wesales.md`, "Conferência da
+> peça 2"): o raciocínio de unidade está certo (contador cumulativo de um lado
+> pede contador cumulativo do outro — é por isso que C-31 existe), mas os dois
+> lados da razão **não são da mesma população**. `Conexões reais telefone`
+> (C-31) só conta chamada de **LC Phone que gerou transcrição**; `Tentativas
+> telefone` (C-09) conta **toda** tentativa que o SDR classificou. Ligação pelo
+> celular do SDR, período com transcrição desligada e ring sem transcrição a
+> gerar entram no denominador e nunca no numerador — a razão fica enviesada
+> **para baixo, de forma sistemática**, num widget chamado "Taxa de Conexão
+> Real". Um número baixo seria lido como "o SDR não conversa com ninguém"
+> quando a causa pode ser inteiramente "metade das ligações não é medida": a
+> métrica que o F-06 existe para consertar, trocada por outra enganosa na
+> direção oposta, e mais difícil de pegar porque não dá erro nem fica vazia.
+> **Correção:** nó 2b (`Math: Ligações com transcrição + 1`), no caminho que já
+> existe, e o denominador do widget passa a ser C-32 em vez de C-09 — "das
+> chamadas que dá para medir, quantas foram conversa". De brinde, `C-32 ÷ C-09`
+> vira o widget `Cobertura da Medição — Telefone`, que expõe quanto da operação
+> está instrumentada em vez de esconder isso dentro da taxa. C-32 nasce `[ ]`.
+
 
 > **Conferido no mesmo dia** (`build-wesales.md`, "Conferência do F-06"): o
 > gatilho `Transcript Generated` confere, mas a dependência é mais funda do

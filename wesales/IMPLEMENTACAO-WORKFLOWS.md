@@ -1415,6 +1415,7 @@ oferecer o filtro (senão o nó 1 faz o mesmo por `If/Else`)
 |---|---|---|---|
 | 1 | If/Else | Direção da chamada é `Outbound` → 2 · None → FIM | 2 |
 | 2 | Update Contact Field | `Duração da ligação` = merge field de duração do gatilho (**confirmar nome exato na tela** — não testado nesta subconta) | 3 |
+| 2b | Math | `Ligações com transcrição` (C-32) **+ 1** — roda para toda transcrição, antes do teste dos 60s; é o denominador da mesma população que C-31, sem o qual a "Taxa de Conexão Real" do dashboard fica enviesada para baixo (`build-wesales.md`, "Conferência da peça 2") | 3 |
 | 3 | If/Else | `Duração da ligação` **é maior ou igual a** `60` → 4 · None → 5 | |
 | 4 | Update Contact Field | `Conexão real` = `Sim` | 6 |
 | 5 | Update Contact Field | `Conexão real` = `Não` | fim |
@@ -1425,7 +1426,7 @@ escritos aqui:**
 
 | # | Pré-requisito | Por quê |
 |---|---|---|
-| 1 | Campos `Duração da ligação` (C-29), `Conexão real` (C-30) e `Conexões reais telefone` (C-31) | `[ ]` em `APROVADO.md`; campo personalizado não sai por API |
+| 1 | Campos `Duração da ligação` (C-29), `Conexão real` (C-30), `Conexões reais telefone` (C-31) e `Ligações com transcrição` (C-32) | todos `[ ]` em `APROVADO.md`; campo personalizado não sai por API |
 | 2 | **Gravação de chamada habilitada no número** | Sem gravação não existe transcrição, e sem transcrição **este workflow nunca dispara**. É o pré-requisito real por trás do item 3 |
 | 3 | Transcrição ligada em **Configurações → Sistema de Telefonia → Voz → Transcrição de Chamadas** (Voice Intelligence) | Caminho de tela; em Voice AI já vem ligada, mas este projeto não usa Voice AI |
 | 4 | Aviso de gravação no início da ligação (LGPD) | Lugar reservado em `script-de-ligacao.md`, seção 2 — redação e base legal do dono |

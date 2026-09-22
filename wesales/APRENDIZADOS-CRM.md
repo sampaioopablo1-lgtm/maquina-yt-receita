@@ -2,6 +2,67 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Dois contadores cumulativos ainda podem ser populações diferentes — a razão fica enviesada para um lado, e o número não parece errado — F-06 peça 2, 22/09/2026, sessão automática
+
+A peça 2 do F-06 acertou a pergunta difícil: widget de Custom Metrics só soma
+`NUMERICAL`/`MONETARY`, então `Conexão real` (`SINGLE_OPTIONS`) não serve de
+numerador, e contar contatos no estado atual misturaria unidade com
+`Tentativas telefone`, que é soma cumulativa. Daí nasceu `Conexões reais
+telefone` (C-31), cumulativo dos dois lados. Raciocínio correto, e a
+armadilha de unidade é justamente a que este arquivo já ensinava a evitar.
+
+Falta a pergunta seguinte, que não é de unidade e sim de **população**:
+
+| Lado | Conta |
+|---|---|
+| `Conexões reais telefone` (C-31) | chamada **de LC Phone** que **gerou transcrição** e passou de 60s |
+| `Tentativas telefone` (C-09) | **toda** tentativa de telefone que o SDR classificou |
+
+Os dois somam. Os dois são cumulativos. E a razão entre eles não é uma taxa,
+é a comparação de dois conjuntos diferentes. Três caminhos levam ao mesmo
+desvio, e nenhum é bug: ligação pelo celular do SDR (entra no denominador,
+nunca no numerador), período com transcrição desligada (idem, e para sempre,
+porque contador acumulado não volta atrás) e ring que não gera transcrição
+nenhuma (idem).
+
+**O que torna esta classe pior que ruído:** o viés é **sistemático e numa
+direção só** — sempre para baixo — num widget que vai se chamar "Taxa de
+Conexão Real". Número baixo lido como "o SDR não está conversando com
+ninguém", quando a causa pode ser inteiramente "metade das ligações não é
+medida". É a métrica que o item existia para consertar (`Atendeu` inflado
+pelo julgamento do SDR) substituída por outra enganosa no sentido oposto. E é
+a mais difícil de achar depois: não dá erro, não fica vazia, não quebra
+nenhum portão. Só mente, com cara de número.
+
+**A regra:** antes de dividir dois campos, perguntar **de quem** é cada lado,
+não só qual a unidade. Três perguntas, todas de uma linha:
+
+1. Quem **escreve** cada lado? (aqui: workflow de transcrição vs. Pós-ligação
+   — donos diferentes já é sinal)
+2. Existe evento que incrementa **um** e não o outro? Se sim, a razão tem
+   viés, e a direção é previsível.
+3. O lado de baixo é **superconjunto** do de cima por construção, ou só por
+   coincidência do desenho atual?
+
+Se a resposta da 2 for sim, o denominador certo quase sempre já está no
+caminho do numerador — basta somar onde a condição comum é conhecida. Aqui era
+o nó 2, que roda para toda transcrição antes do teste dos 60s: um `Math` ali
+(C-32, `Ligações com transcrição`) dá o denominador da mesma população, e a
+taxa passa a ler "das chamadas que dá para medir, quantas foram conversa".
+
+**E o brinde, que é o motivo de valer a pena e não só de estar correto:**
+`C-32 ÷ C-09` passa a ser um **medidor de cobertura da instrumentação**. 95%
+significa que a taxa de cima é confiável; 40% conta ao dono, sem abrir a tela
+de telefonia, que a maior parte da operação está fora do LC Phone ou sem
+transcrição. É o mesmo método de "contador vizinho" que este arquivo já
+registra para achar nó silencioso (`Conexões telefone` = 8 com `Total de
+conexões` vazio): duas somas que deveriam andar juntas, e a distância entre
+elas é o diagnóstico. **Sem o campo do denominador, essa distância não
+desaparece — ela fica invisível, diluída dentro da taxa, indistinguível de
+desempenho ruim do SDR.** Generalizando: quando um viés de população existe,
+medi-lo custa um contador e transforma o defeito em informação; não medi-lo
+não o elimina, só o esconde no número que alguém vai usar para decidir.
+
 ## Custom Metrics soma `NUMERICAL`/`MONETARY`, não `SINGLE_OPTIONS` — e "contar contatos por filtro" não é a mesma unidade que "somar tentativas" — F-06 peça 2, 22/09/2026, sessão automática
 
 A peça 1 do F-06 (entrada abaixo) tinha deixado como plano "apontar a

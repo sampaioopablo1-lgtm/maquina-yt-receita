@@ -2219,7 +2219,8 @@ o número exato.
 | `Atrasos de Speed-to-lead` (nova) | `Contagem de contatos com tag "atraso-1a-tentativa"` | Fila em atraso — SLA da 1ª tentativa (a mesma tag que a lista 8.8 já filtra) |
 | `Taxa de Conexão — Telefone` (nova) | `(Soma de "Conexões telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — telefone, acumulada |
 | `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
-| `Taxa de Conexão Real — Telefone` (nova, F-06, peça 2) | `(Soma de "Conexões reais telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — só chamada que durou mais de 60s, sem depender do julgamento do SDR |
+| `Taxa de Conexão Real — Telefone` (nova, F-06, peça 2) | `(Soma de "Conexões reais telefone" ÷ Soma de "Ligações com transcrição") × 100` | **Das chamadas que dá para medir**, quantas duraram mais de 60s — sem depender do julgamento do SDR. O denominador **não** é `Tentativas telefone`: os dois lados precisam da mesma população, ver "Conferência da peça 2" na seção 2.27 |
+| `Cobertura da Medição — Telefone` (nova, F-06, peça 2) | `(Soma de "Ligações com transcrição" ÷ Soma de "Tentativas telefone") × 100` | Quanto da operação de telefone está instrumentada (LC Phone + transcrição ligada). Abaixo de ~90%, a linha acima merece ressalva; abaixo de ~50%, o F-06 está medindo outra operação |
 
 A quinta linha é a que fecha o "Pronto quando" do F-06 no dashboard: por
 que não reaproveita `Conexão real` direto na fórmula, e por que precisou
@@ -3496,6 +3497,85 @@ diferente.
 real`, `Conexões reais telefone`) nascem propostos em `campos-e-tags.md`
 (C-29, C-30, C-31) e `[ ]` em `APROVADO.md` — campo personalizado não sai
 por API, mesma regra de sempre.
+
+#### Conferência da peça 2, 22/09/2026 (mesma rodada): os dois lados da razão são cumulativos, mas não são da mesma população
+
+O raciocínio de unidade está certo — contador cumulativo de um lado exige
+contador cumulativo do outro, e é por isso que C-31 precisou existir. Falta a
+pergunta seguinte, que é sobre **quem** cada lado conta:
+
+| Lado da razão | Conta o quê | Escrito por |
+|---|---|---|
+| `Conexões reais telefone` (C-31) | chamadas **de LC Phone** que **geraram transcrição** e bateram 60s | o workflow desta seção, no nó 6 |
+| `Tentativas telefone` (C-09) | **toda** tentativa de telefone que o SDR classificou | o Pós-ligação (seção 4), a partir de `Resultado da tentativa` |
+
+Os dois somam, os dois são cumulativos, e ainda assim a razão entre eles não
+é uma taxa — é uma comparação entre dois conjuntos diferentes. Três caminhos
+levam ao mesmo erro, e nenhum deles é um bug, é o desenho:
+
+1. **Ligação por linha própria do SDR.** A pendência aberta de LC Phone
+   (mesma do F-08/F-09) não é binária na prática: uma operação pode discar
+   por LC Phone e o SDR ligar do celular quando está fora. Toda chamada
+   assim entra no denominador (o SDR classifica) e **não pode** entrar no
+   numerador (sem LC Phone não há transcrição).
+2. **Transcrição desligada, ou ligada depois.** Tudo que foi discado antes de
+   alguém marcar a caixa em Configurações → Sistema de Telefonia conta no
+   denominador e não no numerador — para sempre, porque os dois campos são
+   acumulados e ninguém volta atrás.
+3. **Chamada sem transcrição a gerar.** Ring que ninguém atendeu pode não
+   produzir transcrição nenhuma (o mesmo fato que criou o estado vencido do
+   `Conexão real`, registrado acima). Entra no denominador, nunca no
+   numerador.
+
+**Por que isto é pior do que ruído:** a razão não fica imprecisa, fica
+**enviesada para baixo de forma sistemática**, e o widget vai se chamar "Taxa
+de Conexão Real". Quem olhar um número baixo vai ler "o SDR não está
+conversando com ninguém" — quando a explicação pode ser inteiramente "metade
+das ligações não é medida". É exatamente a métrica que o F-06 existe para
+consertar (`Atendeu` inflado pelo julgamento do SDR) trocada por outra
+enganosa na direção oposta. E a mais difícil de pegar depois, porque o
+número **parece** certo: não dá erro, não fica vazio, só mente.
+
+**A correção é um nó no caminho que já existe.** O nó 2 roda para **toda**
+transcrição, antes do teste dos 60s — é o ponto exato onde "esta chamada é
+medível" fica conhecido:
+
+| # | Ação | Configuração |
+|---|---|---|
+| 2b | Math | `Ligações com transcrição` (C-32, NUMERICAL) **+ 1** → segue para o nó 3 |
+
+E a fórmula do widget (seção 2.17) passa a dividir populações iguais:
+
+> `Taxa de Conexão Real — Telefone` = (Soma de `Conexões reais telefone` ÷
+> Soma de **`Ligações com transcrição`**) × 100
+
+Lê-se: **das chamadas que dá para medir, quantas foram conversa.** Não é uma
+taxa menos ambiciosa que a anterior — é a única das duas que responde a
+pergunta do F-06 sem depender de quanto da operação está instrumentada.
+
+**Brinde, e não é pequeno:** `Ligações com transcrição` ÷ `Tentativas
+telefone` passa a ser um **medidor de cobertura da medição**. Se der 95%, o
+número de cima é confiável; se der 40%, o dono descobre — sem abrir a tela de
+telefonia — que a maior parte da operação está fora do LC Phone ou sem
+transcrição. É o mesmo método de "contador vizinho" que este projeto já usou
+para achar nó silencioso (`APRENDIZADOS-CRM.md`): duas somas que deveriam
+andar juntas, e a distância entre elas é o diagnóstico. Sem C-32 essa
+distância existe, mas fica invisível — misturada dentro da taxa, indistinguível
+de desempenho ruim do SDR.
+
+**Sugestão de widget, junto com o outro:**
+
+| Widget | Fórmula | O que responde |
+|---|---|---|
+| `Cobertura da Medição — Telefone` | `(Soma de "Ligações com transcrição" ÷ Soma de "Tentativas telefone") × 100` | Quanto da operação de telefone está instrumentada. Abaixo de ~90%, a taxa acima merece ressalva; abaixo de ~50%, o F-06 está medindo outra operação |
+
+**Não altero o nó nem a fórmula, pelo mesmo motivo de sempre:** C-32 é campo
+novo, nasce `[ ]` em `APROVADO.md`, e campo personalizado não sai por API.
+Enquanto os quatro campos do F-06 não existirem na tela, a seção 2.17 pode
+manter a linha antiga — que **ainda não está montada** em nenhum widget, então
+não há número errado circulando hoje. O que esta conferência garante é que a
+primeira versão montada já nasça com os dois lados da mesma população, em vez
+de ser corrigida depois de alguém tomar uma decisão com ela.
 
 ### Conferência do F-06, 22/09/2026 (mesma rodada): o gatilho existe, mas só existe para chamada **gravada** — e isso traz um custo, uma obrigação legal e um campo que nunca se apaga
 

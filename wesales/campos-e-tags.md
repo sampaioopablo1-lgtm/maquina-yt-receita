@@ -48,6 +48,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-29 | Duração da ligação | NUMERICAL | segundos | Workflow (F-06) |
 | C-30 | Conexão real | SINGLE_OPTIONS | Sim, Não | Workflow (F-06) |
 | C-31 | Conexões reais telefone | NUMERICAL | — | Workflow (F-06) |
+| C-32 | Ligações com transcrição | NUMERICAL | — | Workflow (F-06) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -178,6 +179,20 @@ uma vez por chamada e nunca é sobrescrito — mesmo padrão de C-06/C-07/C-11/
 C-12, e a mesma razão por que eles existem: contador cumulativo, não
 estado. Escrito só pelo workflow do F-06 — não herda risco de "contador com
 dois donos".
+
+C-32 foi acrescentado na conferência da mesma peça (`build-wesales.md`, seção
+2.27, "Conferência da peça 2", nó 2b) porque C-31 e C-09 são cumulativos mas
+**não são da mesma população**: C-31 só conta chamada de LC Phone que gerou
+transcrição; C-09 conta toda tentativa que o SDR classificou. Ligação pelo
+celular do SDR, período com transcrição desligada e ring sem transcrição a
+gerar entram no denominador e nunca no numerador — a razão fica enviesada
+para baixo de forma sistemática, num widget chamado "Taxa de Conexão Real".
+C-32 é incrementado no nó 2b, que roda para **toda** transcrição, antes do
+teste dos 60s: passa a ser o denominador da mesma população ("das chamadas
+que dá para medir, quantas foram conversa"). De brinde, `C-32 ÷ C-09` mede a
+**cobertura da instrumentação** — a distância entre dois contadores que
+deveriam andar juntos, o mesmo método de contador vizinho que este projeto já
+usou para achar nó silencioso. Escrito só pelo workflow do F-06.
 
 **Corrigido em 22/09/2026, dois pontos** (`build-wesales.md`, "Conferência do
 F-06"): (1) os dois campos só se preenchem se **a gravação de chamada estiver

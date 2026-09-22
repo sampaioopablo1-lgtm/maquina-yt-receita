@@ -189,6 +189,18 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       mesmo padrão dos contadores já existentes (C-06/C-07/C-11/C-12). Nasce
       `[ ]`, mesma regra de sempre.
 
+      **Mais um, da conferência da peça 2 (mesma data):** `Ligações com
+      transcrição` (C-32, NUMERICAL). C-31 e `Tentativas telefone` (C-09) são
+      os dois cumulativos, mas não da mesma população — C-31 só conta chamada
+      de LC Phone que gerou transcrição, C-09 conta toda tentativa
+      classificada pelo SDR. Sem C-32, a "Taxa de Conexão Real" do dashboard
+      fica enviesada para baixo de forma sistemática e ilegível (número baixo
+      lido como SDR ruim quando é falta de instrumentação). C-32 é
+      incrementado no nó 2b, que roda para toda transcrição, e serve de
+      denominador da mesma população; `C-32 ÷ C-09` passa a medir a cobertura
+      da medição. Detalhe em `build-wesales.md`, "Conferência da peça 2".
+      Nasce `[ ]`.
+
       **Conferido em 22/09/2026 — o que este `[x]` vai autorizar de verdade,
       além dos dois campos:** a transcrição **exige gravação de chamada
       habilitada** no número (sem gravação não há transcrição, e o workflow
