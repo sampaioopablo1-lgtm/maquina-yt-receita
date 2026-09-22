@@ -2,6 +2,37 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Descrevi um mecanismo como se fosse um estrago em curso — e eu tinha o número que me desmentia — 22/09/2026, sessão na nuvem
+
+Ao conferir o F-15 eu escrevi, sobre o ciclo do lead sem telefone: *"Quem não
+tem telefone volta, bate no mesmo portão e volta ao mesmo lugar, de 90 em 90
+dias, sem nunca receber uma tentativa."* Presente do indicativo, como se
+estivesse acontecendo.
+
+A rodada do G-08 conferiu por API antes de aplicar e achou o que eu não olhei:
+**zero oportunidade `abandoned` na base.** O ciclo nunca rodou. É uma armadilha
+montada, não um estrago em curso.
+
+**O agravante é que o número estava na minha própria medição.** Horas antes eu
+tinha levantado a distribuição etapa × status e publicado a tabela: 45 `NOVO
+LEAD open`, 2 `CONECTAR lost`, 2 `NEGOCIAR open`, 1 `NEGOCIAR lost`. Somam 50 e
+não há **nenhum** `abandoned` — e o gatilho do R-08 é exatamente
+`status == abandoned`. Eu verifiquei o mecanismo no payload, confirmei que ele
+está correto, e não cruzei com a contagem que eu mesmo tinha feito.
+
+**A regra:** verificar que um caminho **existe** no workflow não diz **quantas
+vezes ele rodou**. São duas perguntas, e a segunda quase sempre tem resposta
+barata — uma contagem por status, um filtro por tag. Antes de escrever no
+presente ("o lead volta", "isso está acontecendo"), contar quantos registros
+passaram por ali. Se o número for zero, o texto correto é "montado e ainda não
+disparado" — que muda a urgência do item e o tom da entrega ao dono.
+
+Corolário prático: mecanismo verificado + ocorrência zero = **armadilha**, e
+armadilha se conserta com calma. Mecanismo verificado + ocorrência alta =
+incêndio. Chamar armadilha de incêndio gasta o crédito de atenção do dono, que
+é finito, e é exatamente o mesmo custo do monitor que grita sem motivo que eu
+apontei no F-09.
+
 ## Um achado escrito dentro do texto de um item fechado não é aplicado sozinho — precisa da mesma conferência de "isto virou mudança de verdade?" — 22/09/2026, sessão da nuvem (G-08)
 
 Ao medir o F-15 (resgate por e-mail para quem não tem telefone), a própria
