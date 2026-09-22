@@ -1286,6 +1286,236 @@ devolveu exatamente o mesmo resultado da primeira). Mesma conclusão de
 conector até o dono autorizar a conexão Composio↔HighLevel (fluxo de
 OAuth, fora do que esta rotina pode fazer sozinha).
 
+## As cinco cópias v2 entraram no ar — e a troca derrubou três workflows antes de dar certo — 22/09/2026
+
+Decisão tomada: trocar. Os cinco publicados defeituosos foram **desligados**
+(status `draft`, nenhum nó alterado — a regra do dono foi respeitada) e as
+cópias corrigidas ligadas no lugar. Reversível com um clique em cada.
+
+| Agora no ar | O que corrige |
+|---|---|
+| `Interceptação de Sinal — Clique v2` | o original aponta para um Trigger Link inexistente: **nunca disparou** |
+| `Interceptação de Sinal — Resposta v2` | portão de opt-out; sem ele "pare de mandar mensagem" virava tarefa "ligar agora" |
+| `Pós-agendamento v2` | a régua de qualificação (0–100) que **nunca existiu** — provada somando 93 no contato de teste |
+| `Mestre de saída v2` | não marca mais `limpar-tarefas` em lead que acabou de chegar |
+| `Pós-ligação v2` | 4 nós de Math que escreviam em campo nenhum |
+
+### O erro que quase custou caro: troca sem rollback
+
+Na primeira tentativa desliguei os cinco originais e **três cópias falharam
+ao publicar**. Resultado: `Interceptação — Resposta` e `Pós-agendamento`,
+que estavam funcionando, ficaram **fora do ar**. Religados na mão em
+seguida.
+
+**Regra que fica: toda troca precisa de rollback no mesmo passo.** O script
+agora religa o original automaticamente se a cópia não subir — e foi
+exatamente isso que salvou o `Pós-agendamento` na segunda rodada.
+
+### Dois defeitos do clonador, que só a publicação revela
+
+1. **`transitions` não era remapeado.** Nó multi-path (`find_opportunity`)
+   guarda em `attributes.transitions[].id` a referência aos nós do tipo
+   `transition`. O clone trocava o id do nó e deixava a referência órfã:
+   *"Transition node id X has no match"*. Era isso que derrubava os três.
+2. **Nó alcançado só por `goto` não pode ter pai.** Ao inserir a régua no
+   meio da cadeia, a nota final deixou de vir logo depois do nó anterior.
+   Com `parentKey` apontando para o antecessor antigo a publicação recusa;
+   apontando para o `goto` também (*"parentKey points to ... (Go To)"*).
+   A forma aceita é **sem `parentKey` e sem `parent`**.
+
+Nenhum dos dois aparece no salvamento do rascunho. Só na publicação.
+
+
+## Revisão dos workflows que já existiam: três defeitos, um deles apagava a régua inteira — 22/09/2026
+
+A pedido do dono, revisei os publicados que não foram montados nesta
+sessão. Os três defeitos abaixo estavam vivos em produção.
+
+### 1. `Pós-agendamento` nunca calculou a nota — e isso matava o Loop do closer
+
+O workflow publicado **não tem nenhum nó de cálculo**. Tem só uma *nota de
+texto* com o título `Nota de qualificação`, que o `GUIA-MONTAGEM.md` leu
+como se fosse a régua. O campo numérico nunca foi escrito.
+
+**A consequência não fica no Pós-agendamento:** os nós 5 e 6 do `Loop do
+closer` comparam essa nota (`≥ 70` e `< 45`) para cobrar o closer quando a
+régua e o veredito discordam. Com o campo sempre vazio, nenhuma das duas
+comparações jamais bateu. A régua da seção 9.1 — o coração da
+qualificação — **nunca existiu na prática**.
+
+Corrigido em `Pós-agendamento v2` (rascunho): 28 somas condicionais,
+máximo 100 pontos (30 Fit + 25 Mídia + 45 BANT), inseridas exatamente onde
+a spec manda. Ressalva G-04 continua valendo: lead do Meta perde os 12
+pontos de `Investimento mensal em anúncios`, porque o Meta grava ali
+textos que não são opção do campo.
+
+### 2. `Mestre de saída` marca `limpar-tarefas` em todo lead que CHEGA
+
+O portão pergunta "etapa é `CONECTAR` e status é `open`?". Quando a
+oportunidade **nasce** em `NOVO LEAD` a resposta é não, e ele cai no ramo de
+limpeza. Era um efeito colateral conhecido e inofensivo — **deixou de ser
+inofensivo agora**: a `Cadência 12x30` está publicada criando tarefas
+`[CADENCIA]`, e `limpar-tarefas` é justamente a tag que autoriza a rotina
+de higiene a fechá-las. Corrigido em `Mestre de saída v2` (rascunho) com um
+portão que encerra quando a etapa é `NOVO LEAD`.
+
+### 3. `Pós-ligação` tem quatro nós de Math apontando para campo nenhum
+
+O `GUIA-MONTAGEM.md` registrava "falta o nó de `Total de conexões`". **O
+diagnóstico estava errado** — esse nó existe. O defeito real é outro:
+quatro `math_operation` com `updateField` **vazio** (ids `3d43bda9`,
+`9ca6a104`, `7ba568ac`, `0759af13`), somando 1 ou 0 em lugar nenhum.
+
+É por isso que `WA não atendidas seguidas` nunca é preenchido — e esse
+campo é lido pelo nó 4 da `Cadência 12x30` para decidir se o toque sai por
+WhatsApp. **Não corrigi de propósito:** adivinhar para qual campo cada um
+deveria apontar corromperia contador em silêncio, que é pior que o campo
+vazio. Precisa da decisão do dono.
+
+### Lição que atravessa os três
+
+Nenhum apareceu lendo a documentação — dois deles a documentação
+descrevia **errado**. Todos apareceram lendo o **JSON real** do workflow
+publicado. Para este projeto, a fonte de verdade é a subconta, não o
+documento; e nó que existe com nome certo não quer dizer nó configurado.
+
+
+## A simulação de uso real pegou o que a leitura de JSON não pegaria: espera por horário NÃO espera — 21/09/2026, PC do dono
+
+Com 15 workflows publicados e a auditoria estrutural limpa, movi um lead de
+teste para `CONECTAR`. **Em 90 segundos ele atravessou T1 e T2.** A régua de
+30 dias teria disparado os 12 toques de uma vez.
+
+### 1. O `Wait` por horário não espera — use duração
+
+O validador do JS do builder é explícito: `specific_date` exige
+**`specificDate`** e **`specificTimePeriod`**. Sem eles o GHL entende que
+*a data já passou* e **segue direto**. Como eu montei os nós só com
+`specificTimeHour`/`specificTimeMinute`, todo "esperar até 10:30" virou
+"não esperar".
+
+Também não adianta o `Wait` do tipo `time` **com janela de retomada**: com
+a chave `window` o validador passa a exigir `Condition` e `Start`.
+
+**Regra:** neste build, o único tipo de espera confiável é **duração**
+(`time` + `startAfter`). Todas as cadências foram refeitas assim — os
+intervalos são as diferenças entre os horários da tabela da spec e somam os
+mesmos ~30 dias. Perde-se a hora exata do dia; ganha-se o espaçamento, que
+é o que a régua realmente precisa.
+
+**Corolário que vale para todo o projeto:** a **janela do workflow
+(08:30–18:30) NÃO segura a execução fora do horário**. O nó 0 rodou às
+22:37. A janela vale para envio, não para ação. Quem precisa de hora certa
+tem de ser a tarefa, não o workflow.
+
+### 2. Publiquei um workflow vazio sem perceber
+
+Uma falha transitória deixou o Reengajamento com **0 nós**, e publicar não
+reclamou. Publicado e vazio é pior que não publicado: parece pronto e não
+faz nada. Agora `publicar()` recusa workflow sem nós, e `preencher()`
+**aborta** se a API gravar um número de nós diferente do que foi enviado.
+
+### 3. Reconstruir um workflow órfã os gatilhos criados à parte
+
+Refazer um workflow troca os ids de todos os nós. O gatilho
+`cad-outbound` da Cadência 12x30, que eu tinha criado numa chamada
+separada, ficou apontando para um nó que não existia mais — a cadência
+havia parado de disparar por tag, em silêncio. `preencher()` agora
+reaponta **todos** os gatilhos do workflow, não só os que recebeu.
+
+### O que a simulação confirmou funcionando
+
+Nó 0 inteiro (dono atribuído, `Prioridade` 3, `Permissão WhatsApp`
+`Não solicitado`, `Entrada em`, contadores zerados) e — o mais valioso —
+a **integração entre módulos**: o `Contador de Toques` somou pela tag
+`toque`, o `CONECTAR Estagnado` gravou o checkpoint ao ver `Tentativa nº`
+= 0, e o `Pós-ligação` **publicado** reagiu ao `Resultado da tentativa`
+somando `Total de ligações`. Os workflows novos e os antigos conversam.
+
+### Auditoria estrutural: `wesales/tools/auditoria.py`
+
+Cruza os 24 workflows e procura o que só aparece no conjunto: gatilho
+órfão, `goto` morto, referência a workflow inexistente, publicado vazio ou
+sem gatilho, configuração diferente da spec, e o mapa de quem dispara quem
+por tag. Rodar depois de qualquer mudança — foi ele que pegou o defeito 3.
+
+
+## Montagem programática funcionou: 9 workflows criados, testados e publicados pela API interna — 21/09/2026, PC do dono
+
+O caminho que o R anterior classificou como "só com decisão explícita do
+dono, e nunca deste ambiente" foi executado, no computador dele. **Funciona.**
+Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
+`wesales/workflows-json/`.
+
+**Como a sessão autentica (o README do `gohighlevel-cli` está certo, o
+prompt estava errado):** *storage state* do Playwright **não** autentica a
+API interna. O `backend.leadconnectorhq.com` exige o `Authorization: Bearer`
+nativo do LeadConnector, e o jeito de obtê-lo é capturar do tráfego da
+própria tela logada (`login-capture.js`). O token dura ~1 h e `renew.js`
+recaptura sozinho, headless, em ~10 s, a partir do perfil persistente do
+Chrome — só pede login humano se o perfil perder a sessão.
+
+### As cinco armadilhas que custaram tempo (e a regra que fica de cada uma)
+
+| Armadilha | O que acontece | Regra |
+|---|---|---|
+| **Salvar rascunho não valida** | O validador do `PUT` de rascunho aceita payload que o de **publicação** recusa. O nó de oportunidade passou horas "funcionando" em rascunho | **Critério de pronto é *publicou*, não *salvou*.** Todo teste de forma nova deve terminar em publicação |
+| **Workflow sem `status`** | Um workflow criado mas nunca salvo com sucesso fica **sem** a chave `status`. Nesse estado o `PUT` recusa com a mensagem enganosa `"<nome do nó>" action has a corrupted type` — que aponta para o nó errado | Mandar `status: "draft"` **já no primeiro PUT**, e usar a **versão corrente** (não `1`) |
+| **Todo `PUT` é substituição** | Publicar mandando só `name`/`status`/`workflowData` **zerou `allowMultiple`** (Allow Re-entry) em 7 workflows. Sem re-entry o contato não volta a entrar — a 2ª rodada do teste do W6 simplesmente não executou | Carregar `allowMultiple`, `stopOnResponse`, `timezone`, `window` e `allowMultipleOpportunity` do estado atual em **todo** PUT |
+| **Gatilho órfão** | Uma tentativa que falha **depois** de criar o gatilho deixa um gatilho apontando para um nó que não existe mais. Dois gatilhos = risco de inscrição dupla ao publicar | `preencher()` **reaproveita** gatilho existente (PUT) em vez de criar outro |
+| **Schema de terceiro não vale** | O `ghl-automation-builder` documenta `internal_update_opportunity`, `has_tag`, `is_empty`. Esta conta usa `create_opportunity`, `index-of-true`, `has_no_value` | Ler o formato de **workflow real desta subconta** (`dump_corpus.py`) e, quando não houver exemplo, varrer por força bruta contra um rascunho descartável |
+
+### Formatos confirmados nesta subconta (fonte: workflows reais + força bruta)
+
+- **If/Else é uma trinca de nós:** `condition-node` (com `branches[0].segments[0].conditions`) + `branch-yes` + `branch-no`. O nó de condição exige `operator`, `if`, `conditionName`, `version: 2` e `noneBranchName` — sem eles, erro 400.
+- **`goto` (`{targetNodeId}`)** é o que faz dois ramos **convergirem** no mesmo nó e o que fecha **laços**. Um nó só pode existir uma vez na árvore: os demais caminhos saltam para ele.
+- **Operadores:** `index-of-true` = "inclui", **`index-of-false` = "não inclui"**, `has_value` / `has_no_value`, `==`, `!=`, `>=`, `<`, `contain`. O `!=` **aceita merge field como valor** — a tela renderiza `If "Checkpoint — Tentativa nº" não é igual a "{{contact.tentativa_n}}"`.
+- **Mudar status de oportunidade** não é um nó separado: é **`create_opportunity`** (nesta versão a ação é Criar/**Atualizar**, e com duplicata desligada ela atualiza a que já existe). Ela **exige etapa** — para não mover o lead, passe a etapa em que ele já está.
+- **`remove_from_all_workflows`** exige `includeCurrent`; `false` é o "All Except Current" da spec.
+- **Notificação interna** tem dois alvos: `userType: "user"` + `selectedUser` (o gestor) e `userType: "assign"` + `assignedOwners: ["contact_owner"]` (o dono do contato). Monitor de saúde deve usar o **gestor** — o lead que ele pega costuma estar sem dono.
+
+### `{{right_now}}` — pendência da seção 0.3 RESOLVIDA
+
+O token existe nesta conta. Duas provas: `{{right_now.date}}` já está **em
+produção** no vencimento da tarefa do `Interceptação de Sinal — Clique`
+publicado; e o W6 gravou `2026-09-21` no campo `Data do veredito do closer`
+(DATE) usando exatamente esse token.
+
+### Achado que a spec não registrava: o Trigger Link está morto
+
+**Não existe nenhum Trigger Link na subconta** (`0 - 0 of 0` na tela de
+Marketing → Links de acionamento), mas o workflow **publicado**
+`Interceptação de Sinal — Clique` tem gatilho apontando para o link
+`HUdfNRzzEAQJJBMFfeCy`. **Ele não tem como disparar.** A seção 0.5 diz que
+`Agendar com o closer` "já existe" — não existe. Isso também trava os nós
+M2.2/M3.2 da Cadência 12x30, que inserem esse link na mensagem.
+
+### Quatro workflows que a spec dava como montados estavam vazios
+
+`Cadência 12x30`, `Recuperação de No-show`, `Qualificação por IA no WhatsApp`
+e `SLA do Closer — No-show` tinham **0 nós** (o último a spec dava como
+inexistente). Nada a preservar — e preencher o rascunho existente, em vez de
+criar outro com o mesmo nome, é o certo: nome duplicado quebraria os
+`Add to Workflow` / `Remove from Workflow` que os citam.
+
+### Campo personalizado sai na tela, não por API
+
+`/locations/{loc}/customFields` recusa o bearer do app de workflows. Os 5
+campos da tabela 1.2 foram criados na tela por Playwright. Armadilhas do
+diálogo: os seletores são Naive UI — clica-se no **valor** visível, não no
+rótulo, e o clique precisa de `force: true`; a lista de tipos é
+**virtualizada**, então a opção de data (`Seletor de data`) só existe no DOM
+depois de digitar para filtrar.
+
+### Testes de ponta a ponta executados (contatos de teste, nunca lead real)
+
+| Workflow | Disparo | Rastro conferido |
+|---|---|---|
+| `Contador de Toques` (W1) | tag `toque` em `ZZ TESTE ESTRUTURA` | tag removida sozinha e `Toques na semana` = 1 — exatamente o que a seção de teste da W1 previa |
+| `Loop do closer v2` (W6) | `Reunião foi qualificada` = `Parcial` em `Teste Atendeu` | nota "Veredito do closer: Parcial · motivo: Sem fit · nota 80", oportunidade → `abandoned`, tag `nutricao-90d`, `Data do veredito` = hoje, **etapa intacta em NEGOCIAR** |
+| `Loop do closer v2` (W6) | depois `= Não` (motivo `Sem fit`) | oportunidade → `lost`, etapa intacta. Só passou **depois** de corrigir o Allow Re-entry que a publicação havia zerado |
+
+
 ## Como a comunidade cria workflow sem clicar: API interna (`backend.leadconnectorhq.com`), extensão de JSON e "Copiar workflow" — 21/09/2026, ao vivo em chat
 
 O dono pediu para pesquisar no GitHub e nas comunidades como outros resolveram

@@ -1,0 +1,107 @@
+{
+  "workflow": {
+    "_id": "e0792c83-8fa5-480d-a3fb-f10268507699",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE API",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": false,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e0792c83-8fa5-480d-a3fb-f10268507699/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe0792c83-8fa5-480d-a3fb-f10268507699%2F3?alt=media&token=6b676a5f-2524-4fe4-8166-c0b604a23053",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-21T22:24:46.643Z",
+    "updatedAt": "2026-09-21T22:24:50.179Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "window": null,
+    "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-21T22:24:48.000Z"
+      }
+    },
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e0792c83-8fa5-480d-a3fb-f10268507699/3",
+    "id": "e0792c83-8fa5-480d-a3fb-f10268507699",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "c958c64c-7b26-4d97-99c0-f8e9533c55c9",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">criado pela API interna em <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "ZZ TESTE API"
+          },
+          "order": 0,
+          "parentKey": null,
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "eDBVS7ckjplJfBDoWShv",
+      "date_added": "2026-09-21T22:24:47.562Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "e0792c83-8fa5-480d-a3fb-f10268507699",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "teste-api",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "e0792c83-8fa5-480d-a3fb-f10268507699",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Teste Api",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "c958c64c-7b26-4d97-99c0-f8e9533c55c9",
+      "date_updated": "2026-09-21T22:24:47.918Z",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      }
+    }
+  ]
+}

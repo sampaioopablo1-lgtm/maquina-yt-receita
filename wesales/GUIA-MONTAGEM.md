@@ -875,3 +875,100 @@ de preferência para nós (detalhe e fontes em `APRENDIZADOS-CRM.md`, entrada
    programático, mas não documentado e com risco de termos de uso. Só com
    decisão do dono, rodando na máquina dele, com
    `IMPLEMENTACAO-WORKFLOWS.md` como spec.
+
+## Estado da montagem em 21/09/2026, noite (montado pela API interna, do PC do dono)
+
+Primeira montagem programática do projeto. Caminho: Playwright abre
+`app.wesalescrm.com` com o dono logado, o bearer do `backend.leadconnectorhq.com`
+é capturado do tráfego da própria tela e renovado sozinho (headless, ~10 s);
+os workflows saem por `POST/PUT /workflow/{loc}`. Formato de cada tipo de nó
+foi **lido de workflows reais desta subconta**, não de schema de terceiro.
+Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
+`wesales/workflows-json/`. Todo workflow nasce `draft`; publicação é do dono.
+
+| Workflow | Estado | Conferência |
+|---|---|---|
+| `ZZ TESTE API` | rascunho, 1 nó (descartável) | prova de vida: gatilho `Contact Tag Added` (`teste-api`) → `Add Note`. Lido de volta pela API e conferido no canvas |
+| `Contador de Toques` (W1) | rascunho, 4 nós | bate nó a nó com a W1: `Remove Tag toque` → Math `Toques na semana +1` → `Wait 7 Days` → Math `-1`. Re-entry ligado, Stop on Response desligado, sem janela |
+
+| `CONECTAR Estagnado` (W17c) | rascunho, 20 nós | os dois laços de volta ao Wait de 14 dias fechados por `goto`; a tela confirma `If "Checkpoint — Tentativa nº" não é igual a "{{contact.tentativa_n}}"` e `If "Tags" não inclui "conectar-estagnado"` |
+| `Alerta de Speed-to-lead` (W15) | rascunho, 12 nós | os Waits de 15 min e 1 h convergem no mesmo portão por `goto` |
+| `AGENDAR Estagnado` (W17d) | rascunho, 7 nós | igual ao W17, etapa `AGENDAR`, tag `agendar-estagnado` |
+| `Lead Esquecido em NOVO LEAD` (W17) | rascunho, 7 nós | preencheu um rascunho vazio que já existia |
+| `Registro de Comparecimento` (W7) | rascunho, 6 nós | gatilho `Appointment Status` = `showed` no calendário `Reunião com closer` (`3uNQFjCEDe7b4gKZJuOZ`) |
+
+| `SLA do Closer — No-show` (W9) | **publicado**, 12 nós | preencheu rascunho vazio; notifica o closer, espera 2 h, cobra o gestor |
+| `Opt-out por Palavra-chave` (W14) | **publicado**, 14 nós | OU das 17 frases num If/Else (o gatilho só combina com E); DND + saída de todas as réguas exceto a atual |
+
+| `Cadência 12x30` (W11) | **publicado**, 430 nós | nó 0 + 12 toques completos; janela 08:30–18:30, re-entry desligado, Stop on Response ligado; 2 gatilhos (etapa→CONECTAR e tag `cad-outbound`) |
+| `Cadência Inbound` (W12) | **publicado**, 172 nós | 5 toques rápidos; handoff para a 12x30 por tag |
+| `Reengajamento 90 dias` (W16) | **publicado**, 113 nós | TR1–TR4; `reengajamento-ativo` entra antes de `cad-outbound` (sinergia) |
+| `Recuperação de No-show` (W8) | **publicado**, 41 nós | NS1–NS3 + descarte automático no 2º no-show |
+| `Interceptação de Sinal — Clique v2` | **rascunho**, 15 nós | aponta para o Trigger Link novo; o publicado aponta para um id morto |
+| `Interceptação de Sinal — Resposta v2` | **rascunho**, 18 nós | portão de opt-out com 17 frases na frente do fluxo (retoque R-17) |
+
+| `SLA do Closer — No-show` (W9) / `Opt-out` (W14) | **publicados** | 12 e 14 nós |
+| `Pós-agendamento v2` | **rascunho**, 160 nós | a régua da 9.1 que nunca existiu: 28 somas, máximo 100 |
+| `Mestre de saída v2` | **rascunho**, 10 nós | portão que encerra em `NOVO LEAD`, para não marcar `limpar-tarefas` em lead que chega |
+
+**Testado de ponta a ponta, com rastro lido pela API:** `Contador de Toques`
+(tag removida, campo = 1), `Loop do closer v2` (nos dois ramos: `Parcial` →
+`abandoned`, `Não` → `lost`, etapa intacta) e a **`Cadência 12x30` completa**
+— lead movido para `CONECTAR` resultou em dono atribuído, `Prioridade` 3,
+`Entrada em`, contadores zerados, tag `fila-tel`, `Tentativa nº` = 1 (parou
+no T1, sem correr) e a tarefa `[CADENCIA] T1 · Ligar (telefone)` criada para
+o dono, vencendo hoje.
+
+**Pré-requisitos resolvidos nesta sessão:** os 5 campos da tabela 1.2
+(`Toques na semana` `c1xuCuLyJheHOQoJ3grH`, `Hora da conexão`
+`5hU72B0HuoMApZvO1Qk7`, `Hora do retorno` `IHXNFnguTPyNj5Q59ea2`,
+`Checkpoint — Tentativa nº` `BRcN6IGXtDr0u52QtfiF`, `Checkpoint — Data de
+retorno` `el7xNMvPE8ZiyfysRff9`), todos em `Contato` / pasta `Additional
+Info`. Mapa completo nome→id→chave em `wesales/tools/campos.json`.
+
+
+## Estado final em 22/09/2026 — o que está no ar
+
+**20 workflows publicados.** 15 montados nesta sessão pela API interna e 5
+cópias corrigidas que substituíram os originais defeituosos (os originais
+ficaram em rascunho, sem nenhum nó alterado — reversível com um clique).
+
+| No ar | Nós | |  No ar | Nós |
+|---|---|---|---|---|
+| `Cadência 12x30` | 410 | | `Opt-out por Palavra-chave` | 14 |
+| `Cadência Inbound` | 172 | | `Alerta de Speed-to-lead` | 12 |
+| `Pós-agendamento v2` | 180 | | `SLA do Closer — No-show` | 12 |
+| `Pós-ligação v2` | 142 | | `Retorno Vencido` | 11 |
+| `Reengajamento 90 dias` | 105 | | `Mestre de saída v2` | 10 |
+| `Recuperação de No-show` | 40 | | `Fila Travada` | 8 |
+| `Loop do closer v2` | 31 | | `Lead Esquecido` / `AGENDAR Estagnado` | 7 + 7 |
+| `CONECTAR Estagnado` | 20 | | `Registro de Comparecimento` | 6 |
+| `Interceptação — Resposta v2` | 18 | | `Contador de Toques` | 4 |
+| `Interceptação — Clique v2` | 15 | | `Porta de Entrada` | 1 |
+
+**Provado rodando, com rastro lido pela API:** `Contador de Toques`,
+`Loop do closer v2` (nos dois ramos), a `Cadência 12x30` inteira (nó 0 →
+tarefa `[CADENCIA] T1` criada para o dono) e a régua de qualificação
+(93 por `Prazo`, 15 pelo bloco de reserva `Urgência`).
+
+**Fora do ar de propósito:** `Qualificação por IA no WhatsApp` (vazio,
+precisa de Conversation AI), `Post-Meeting Closer Loop` (substituído pelo
+`Loop do closer v2`) e os 5 originais trocados.
+
+**Não montados, e por quê:** W10 (Conversation AI), W18 (gatilho Scheduler
+sem formato conhecido neste build) e W19 (Number Validation desligado — e
+ver a ressalva de `country=US` abaixo).
+
+### Decisões que continuam com o dono
+
+1. **WhatsApp desconectado.** Os nós de envio exigem `template_id` e
+   `from_phone_number`; sem o canal não passam nem como rascunho. Faltam
+   M1/M2/M3, MI-0/MI-F, RE-1/RE-2 e NS-1/NS-2 — o resto de cada régua está
+   montado e funcionando.
+2. **`country` da subconta está `US`** com fuso `America/Sao_Paulo`, moeda
+   `BRL` e telefone `+55`. Afeta o W19: Number Validation checaria número
+   brasileiro contra regra americana. Não mexi porque `country` toca
+   telefonia e faturamento (`saasSettings`, `twilioRebilling` ativos).
+3. **Linha "Mensagens" do `APROVADO.md`** continua `[ ]`: falta o número
+   completo para os testes de envio.
+4. **Push bloqueado:** a credencial git desta máquina é de outra conta.

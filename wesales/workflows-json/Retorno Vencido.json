@@ -1,0 +1,544 @@
+{
+  "workflow": {
+    "_id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Retorno Vencido",
+    "version": 6,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/70ca5354-18e8-4d17-b929-b13d4e71aacf/6",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F70ca5354-18e8-4d17-b929-b13d4e71aacf%2F6?alt=media&token=fbf3bce3-f048-42e0-b8ad-0670a78050de",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T01:18:40.895Z",
+    "updatedAt": "2026-09-22T01:42:11.082Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/70ca5354-18e8-4d17-b929-b13d4e71aacf/6",
+    "window": null,
+    "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-22T01:42:09.000Z"
+      }
+    },
+    "id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "9458f766-449a-4249-a0c2-be7af4b39655",
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "el7xNMvPE8ZiyfysRff9",
+                "value": "{{contact.data_de_retorno}}",
+                "title": "Checkpoint — Data de retorno",
+                "type": "date",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "61b7a7e4-95d9-43df-ac0f-53988aae3f87",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "61b7a7e4-95d9-43df-ac0f-53988aae3f87",
+          "name": "Wait 2 Days",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "days",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Days",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 1,
+          "parentKey": "9458f766-449a-4249-a0c2-be7af4b39655",
+          "next": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "order": 2,
+          "name": "A data ainda é a mesma?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+            "b8366bef-cd6c-49a1-91ca-86a1ca016365"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "5437eadb-9044-48e9-806a-a411bc90d27e",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "IBOMNQecWtIUruHpNAs1",
+                        "conditionOperator": "==",
+                        "conditionValue": "{{contact.checkpoint__data_de_retorno}}",
+                        "__conditionId": "af8e0416-7729-4e39-b4d8-ba487d1f98b6",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parentKey": "61b7a7e4-95d9-43df-ac0f-53988aae3f87",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+          "parent": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "parentKey": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "order": 3,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "b8366bef-cd6c-49a1-91ca-86a1ca016365"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "b8366bef-cd6c-49a1-91ca-86a1ca016365",
+          "parent": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "parentKey": "497d8261-e944-4805-ad09-cf5c76599cd7",
+          "order": 3,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "4b6523b7-f470-4480-b5ea-edb3775cce2d"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "order": 0,
+          "name": "Promessa vencida sem reclassificar?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "56147f87-b5af-4208-a0d4-005d110beb2a",
+            "383cf692-240b-4f2d-b803-cdc1d62dc08f"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "56147f87-b5af-4208-a0d4-005d110beb2a",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "26524c25-d39b-4d3a-a891-de7b3d77ab8b",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Pediu retorno",
+                        "__conditionId": "3b5c66c7-e9c3-43ea-bd65-3eb062ce42d8",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "aa67595c-e1c4-420a-8207-292d420ed153",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "32d30a74-20d4-422a-9af8-49dbf90acdff",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+          "parentKey": "4b6523b7-f470-4480-b5ea-edb3775cce2d",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parent": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "parentKey": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "383cf692-240b-4f2d-b803-cdc1d62dc08f"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "fb0303b0-ddeb-41b0-9234-46e317b0beb5",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "383cf692-240b-4f2d-b803-cdc1d62dc08f",
+          "parent": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "parentKey": "89ced2bb-f16e-4fe7-88eb-745eeb70f225",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "56147f87-b5af-4208-a0d4-005d110beb2a"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "fb0303b0-ddeb-41b0-9234-46e317b0beb5",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "retorno-vencido"
+            ]
+          },
+          "order": 0,
+          "parent": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parentKey": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "next": "a42b444c-d13b-4731-b9ee-3089f8b4c125",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "a42b444c-d13b-4731-b9ee-3089f8b4c125",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "{{contact.name}} tinha retorno prometido para {{contact.data_de_retorno}} e ainda não foi reclassificado.",
+              "title": "Retorno prometido venceu",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 1,
+          "parent": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parentKey": "fb0303b0-ddeb-41b0-9234-46e317b0beb5",
+          "next": "439bf785-5db1-4c97-868c-5425c4017c02",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3100,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "439bf785-5db1-4c97-868c-5425c4017c02",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Alerta de saúde: retorno vencido sem nova classificação · <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Alerta de saúde"
+          },
+          "order": 2,
+          "parent": "56147f87-b5af-4208-a0d4-005d110beb2a",
+          "parentKey": "a42b444c-d13b-4731-b9ee-3089f8b4c125",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "8GttkLY6MrewKbGqwAHX",
+      "date_added": "2026-09-22T01:18:41.675Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "has-changed",
+          "field": "contact.IBOMNQecWtIUruHpNAs1",
+          "title": "Data de retorno",
+          "type": "select",
+          "id": "IBOMNQecWtIUruHpNAs1"
+        }
+      ],
+      "type": "contact_changed",
+      "masterType": "highlevel",
+      "workflow_id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Contato Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "targetActionId": "9458f766-449a-4249-a0c2-be7af4b39655",
+      "active": false,
+      "date_updated": "2026-09-22T01:42:09.683Z"
+    }
+  ]
+}
