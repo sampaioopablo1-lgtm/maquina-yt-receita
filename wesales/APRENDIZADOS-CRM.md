@@ -2,6 +2,42 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Usei o monitor que escrevi há uma hora e ele quase me pegou — duas vezes, de jeitos diferentes — 22/09/2026, sessão automática
+
+Rodei o `auditoria_refs.py` com `tail -3` para economizar, vi a última linha
+(`Pós-ligação v2 → Cadência 12x30`) colada no resumo "1 referência para
+workflow arquivado", e concluí que ele estava acusando a `Cadência 12x30`,
+que está no ar. Ia "consertar" um bug que não existia.
+
+Rodei sem truncar: o único item marcado é o `Mestre de saída v2 → Clique
+(antigo)`, o achado real do dono, que continua aparecendo porque o dump é
+fotografia de antes do conserto ao vivo. O script estava certo; **quem errou
+foi o meu jeito de ler a saída dele.**
+
+**Regra 1:** não truncar saída de auditoria. `tail` separa o veredito das
+linhas que o justificam, e aí o veredito cola na linha errada — que é
+exatamente o modo de falha de um alerta mal lido, o mesmo que a entrada sobre
+o `Fila Travada` descreve. Se a saída é longa demais para ler, o conserto é a
+saída ficar mais curta, não a leitura ficar parcial.
+
+**Mas a rodada achou um defeito de verdade no script, e era meu.** Três ids
+existem em dois arquivos ao mesmo tempo — `Mestre de saída v2`, `ZZ TESTE W6`
+e `ZZ TESTE API` têm backup em `_arquivo/` com o **mesmo id** do vivo. O
+`carrega()` lia `_arquivo` depois e sobrescrevia, então o dicionário passava a
+dizer que aquele id é arquivado. Ninguém aponta para o `Mestre de saída v2`
+hoje; no dia em que apontar, o script diria "aponta para arquivado" sobre um
+workflow publicado — **alarme falso no monitor que existe para não dar alarme
+falso.**
+
+Corrigido: o vivo tem precedência, e ids duplicados são listados no topo em
+vez de silenciosamente resolvidos. O contador caiu de "11 arquivados" para
+**8**, que é o número certo — os 3 a mais eram backups do que está no ar.
+
+**Regra 2:** quando uma ferramenta indexa por id a partir de duas fontes, a
+ordem de leitura é uma decisão de precedência, não um detalhe de laço.
+Escrever "backup não sobrescreve vivo" custa uma linha; descobrir depois custa
+a confiança no monitor.
+
 ## "Encerra a régua" é meia especificação — e a outra metade dispara um monitor falso todo dia — 22/09/2026, sessão automática
 
 A rodada anterior aplicou a regra de refazer a multiplicação depois de uma

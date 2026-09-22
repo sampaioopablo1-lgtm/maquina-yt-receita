@@ -29,11 +29,19 @@ UUID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
 
 
 def carrega():
-    """id -> (nome, arquivado?) de todo workflow com dump neste repositorio."""
+    """id -> (nome, arquivado?) de todo workflow com dump neste repositorio.
+
+    Um backup em `_arquivo/` pode ter o MESMO id do workflow vivo (e tem: o
+    `Mestre de saida v2` e dois `ZZ TESTE`). Nesse caso o vivo manda — senao a
+    auditoria acusaria como arquivado um workflow que esta no ar, que e
+    exatamente o alarme falso que ela existe para nao dar.
+    """
     mapa = {}
+    duplicados = {}
+    # vivo primeiro; `_arquivo` so acrescenta id que o vivo nao tem
     padroes = (os.path.join(DUMPS, "*.json"), os.path.join(DUMPS, "_arquivo", "*.json"))
     for padrao in padroes:
-        for caminho in glob.glob(padrao):
+        for caminho in sorted(glob.glob(padrao)):
             try:
                 with open(caminho, encoding="utf-8") as fh:
                     dado = json.load(fh)
@@ -41,14 +49,24 @@ def carrega():
                 continue
             wf = dado.get("workflow") or {}
             wid = wf.get("id") or wf.get("_id")
-            if wid:
-                arquivado = os.sep + "_arquivo" + os.sep in caminho
-                mapa[wid] = (os.path.basename(caminho)[:-5], arquivado)
-    return mapa
+            if not wid:
+                continue
+            nome = os.path.basename(caminho)[:-5]
+            arquivado = os.sep + "_arquivo" + os.sep in caminho
+            if wid in mapa:
+                duplicados.setdefault(wid, [mapa[wid][0]]).append(nome)
+                continue
+            mapa[wid] = (nome, arquivado)
+    return mapa, duplicados
 
 
 def main():
-    mapa = carrega()
+    mapa, duplicados = carrega()
+    if duplicados:
+        print("%d id(s) com backup de mesmo id — o vivo tem precedencia:" % len(duplicados))
+        for wid, nomes in sorted(duplicados.items()):
+            print("   %s  %s" % (wid[:13], " | ".join(nomes)))
+        print()
     if not mapa:
         print("nenhum dump encontrado em %s" % DUMPS)
         return 0
