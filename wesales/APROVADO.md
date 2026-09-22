@@ -179,6 +179,16 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       dispara para essas chamadas e este desenho não serve. Campo
       personalizado também não sai por este conector. Nasce `[ ]`.
 
+      **Conferido em 22/09/2026, peça 2 do F-06 (mesma rodada) — a lista e o
+      dashboard não podem apontar direto para `Conexão real`:** widget de
+      Custom Metrics só soma campo `NUMERICAL`/`MONETARY` (achado da seção
+      2.17 do `build-wesales.md`), e `Conexão real` é `SINGLE_OPTIONS` — não
+      soma. Terceiro campo proposto, `Conexões reais telefone` (NUMERICAL),
+      especificado em `campos-e-tags.md` (C-31) e `build-wesales.md` (seção
+      2.27, nó 6): conta cumulativamente as chamadas que bateram o limiar,
+      mesmo padrão dos contadores já existentes (C-06/C-07/C-11/C-12). Nasce
+      `[ ]`, mesma regra de sempre.
+
       **Conferido em 22/09/2026 — o que este `[x]` vai autorizar de verdade,
       além dos dois campos:** a transcrição **exige gravação de chamada
       habilitada** no número (sem gravação não há transcrição, e o workflow

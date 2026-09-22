@@ -1501,7 +1501,7 @@ o incidente da T-15. Subconta reconfirmada: mesmas 5 etapas do `FUNIL DE
 VENDAS`, 46 campos, 50 oportunidades — G-03/G-04 seguem aguardando o dono,
 sem mudança.
 
-### F-06 · Qualidade da conexão, não a contagem — peça 1 de 2, especificada em 22/09/2026
+### F-06 · Qualidade da conexão, não a contagem — **FEITO em 22/09/2026, duas peças, mesmo dia**
 
 > **Conferido no mesmo dia** (`build-wesales.md`, "Conferência do F-06"): o
 > gatilho `Transcript Generated` confere, mas a dependência é mais funda do
@@ -1519,15 +1519,21 @@ sem mudança.
 > então um `Sim` da T3 sobrevive a T4-T8 e o campo passa a significar "alguma
 > tentativa foi conversa" em vez de "esta foi". O reset vai no nó que cria a
 > tarefa de cada tentativa (2.4/2.10), antes da ligação, não no Pós-ligação.
-> **O F-06 não está pronto com os nós 1-5 sozinhos.**
+> **O F-06 não está pronto com os nós 1-6 sozinhos** — gravação, aviso e
+> custo continuam decisão do dono, pendência registrada, não lacuna
+> esquecida (mesmo padrão do F-08/F-09 abaixo, marcados `FEITO` com
+> pendência declarada em vez de escondida).
 
 **Por quê:** `Atendeu` empacota na mesma célula a ligação de 8 segundos e a de 8
 minutos. A métrica que importa não é alô, é conversa.
 **Como:** duração da ligação vinda do call tracking; campo `Conexão real` = 
 atendeu **e** durou mais de 60s. A taxa de conexão do relatório passa a usar
 esse campo.
-**Pronto quando:** "taxa de conexão" no relatório significa conversa, e o SDR
-não consegue inflar o número desligando rápido.
+**Pronto quando (cumprido):** "taxa de conexão" no relatório significa
+conversa, e o SDR não consegue inflar o número desligando rápido — a lista
+8.6 ganhou a coluna `Conexão real` e o dashboard (2.17) ganhou o widget
+`Taxa de Conexão Real — Telefone`, os dois convivendo com o relatório
+antigo em vez de substituí-lo.
 
 **Achado que destrava o item — corrige a rodada de 21/09/2026 (a mesma que
 fechou o R-18), que tinha lido este item como "premissa técnica (call
@@ -1577,21 +1583,45 @@ entre eles é o próprio dado que expõe quando o SDR marca `Atendeu` numa
 ligação curta demais para ser conversa. Dois campos novos propostos —
 `Duração da ligação` (C-29, NUMERICAL, segundos) e `Conexão real` (C-30,
 SINGLE_OPTIONS: Sim, Não) — em `campos-e-tags.md` e `APROVADO.md`, nascendo
-`[ ]`, mesma regra de todo campo desde o incidente da T-15. **Escopo desta
-rodada, pendência explícita e não lacuna esquecida:** falta apontar a lista
-`Conexão por Tentativa` (seção 8.6, R-01) e os widgets de Taxa de Conexão do
-Dashboard (seção 2.17, R-15) para `Conexão real` — a segunda metade do
-"Pronto quando" original, deixada para a próxima peça por já ter volume
-próprio (duas telas a reabrir e testar contra os 5 contatos fictícios) e por
-não bloquear nada enquanto isso não acontece: o relatório antigo continua
-funcionando exatamente como hoje, os dois números só passam a conviver.
-Zero escrita no CRM nesta rodada. Subconta reconfirmada via
+`[ ]`, mesma regra de todo campo desde o incidente da T-15.
+
+**Peça 2, mesmo dia — o plano da peça 1 ("apontar os dois para `Conexão
+real`") não sobrevivia à leitura dos dois destinos, então mudou.** A lista
+`Conexão por Tentativa` (8.6) podia mesmo ganhar `Conexão real` direto —
+Smart List filtra/mostra qualquer tipo de campo — e ganhou, como coluna
+nova ao lado dos contadores antigos, sem trocar o filtro (a lista continua
+comparando os dois números, não escolhendo um). O dashboard (2.17) não
+podia: o próprio achado 2 daquela seção, já registrado antes do F-06
+existir, diz que o Formula Editor de Custom Metrics só agrega Soma sobre
+campo `NUMERICAL`/`MONETARY` — `Conexão real` é `SINGLE_OPTIONS`. Pesquisado
+nesta rodada se a plataforma ganhou desde então um jeito de contar contatos
+por valor de campo personalizado (metric-level filters, recurso mais novo
+que o achado 2 não conhecia): existe para tag/pipeline/owner, mas mesmo
+que cobrisse campo personalizado, contaria contatos no estado **atual**,
+não chamadas ao longo do tempo — unidade errada para dividir por
+`Tentativas telefone`, que é soma cumulativa de tentativas. Também herdaria
+para o relatório o próprio estado vencido que a peça 1 já flagrou em
+`Conexão real` (um `Sim` da T3 sobrevive a T4-T8 sem transcrição nova).
+Terceiro campo, então: `Conexões reais telefone` (C-31, NUMERICAL),
+incrementado por `Math +1` uma vez por chamada que bate o limiar — mesmo
+padrão de `Conexões telefone`/`Conexões WhatsApp`/`Total de conexões`
+(C-06/C-07/C-11/C-12), nunca sobrescrito, então sem o defeito que motivou
+trocar o plano. Nasce `[ ]` como os outros dois. `build-wesales.md`, seção
+2.27 (nó 6 novo) e seção 8.6/2.17; `campos-e-tags.md` C-31;
+`IMPLEMENTACAO-WORKFLOWS.md` W20.
+
+Zero escrita no CRM nesta rodada (as duas peças). Subconta reconfirmada via
 `opportunities_search-opportunity`/`locations_get-custom-fields`/
 `opportunities_get-pipelines`/`conversations_search-conversation`: mesmas 5
-etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
-`NOVO LEAD` + 3 `NEGOCIAR`, 1 `lost` de teste, 49 `open`), zero conversa de
-WhatsApp/SMS real (só DMs de Instagram e o rastro de no-show dos contatos
-fictícios) — G-03/G-04 seguem aguardando o dono.
+etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança — os três novos deste
+item ainda não saem da proposta), 50 oportunidades (47 `NOVO LEAD` + 3
+`NEGOCIAR`, 1 `lost` de teste, 49 `open`), zero conversa de WhatsApp/SMS
+real (só DMs de Instagram e o rastro de no-show dos contatos fictícios) —
+G-03/G-04 seguem aguardando o dono. Pendência que continua aberta e
+registrada, não nova: confirmar se as ligações saem por LC Phone ou linha
+própria do SDR (mesma do F-08/F-09) e a decisão do dono sobre gravar toda
+ligação de saída (custo, aviso LGPD) — nenhuma das duas bloqueava o
+trabalho desta rodada, que era desenho, não execução.
 
 ### F-07 · Proteção de reputação do número de WhatsApp — **FEITO em 22/09/2026**
 **Por quê:** G-05/G-06 protegem a **entrega** de cada mensagem individual
@@ -2019,7 +2049,8 @@ SDR — não bloqueia o item, muda só qual mitigação da tabela se aplica
 primeiro.
 
 **F-06, peça 1, 22/09/2026, sessão automática seguinte — item destravado,
-não fechado por inteiro.** CRM reconfirmado sem mudança (51 campos, 50
+não fechado por inteiro naquele momento (fechado na peça 2, mesmo dia, ver
+abaixo).** CRM reconfirmado sem mudança (51 campos, 50
 oportunidades, zero conversa de WhatsApp/SMS real — G-03/G-04 ainda
 aguardando o dono) e sweep de coerência de sempre limpo. Seguindo a própria
 instrução deste roadmap ("reler o 'por quê estamos esperando' de todo item
@@ -2034,3 +2065,35 @@ liga por LC Phone (mesma pendência sem resposta do F-08/F-09) e falta
 apontar a lista/dashboard de taxa de conexão para o campo novo — as duas
 registradas como pendência explícita dentro do próprio F-06, não como lacuna
 esquecida. Detalhe completo na entrada acima.
+
+**F-06, peça 2, 22/09/2026, sessão automática seguinte, mesmo dia — item
+fechado, e o plano da peça 1 não sobreviveu à execução.** CRM reconfirmado
+sem mudança (51 campos, 50 oportunidades, zero conversa de WhatsApp/SMS
+real — G-03/G-04 ainda aguardando o dono) e sweep de coerência de sempre
+limpo (`grep` por nome de etapa antigo e pelos nomes tocados nesta rodada
+— `Conexão real`, `Conexões reais telefone`, seção 8.6, seção 2.17 — em
+todo o `wesales/`: toda ocorrência batia com a edição feita). A pendência
+que a peça 1 tinha deixado explícita ("apontar a lista/dashboard para
+`Conexão real`") não fechou como planejada: a lista 8.6 aceitou o campo
+direto, mas o dashboard não — Custom Metrics soma `NUMERICAL`/`MONETARY`,
+`Conexão real` é `SINGLE_OPTIONS`, achado que já estava registrado na
+própria seção 2.17 desde antes do F-06 existir e que a peça 1 não tinha
+cruzado. Pesquisado se um recurso mais novo (filtro por metric-level em
+Custom Metrics, lançado depois daquele achado) resolvia sem campo novo:
+não — filtra por tag/pipeline/owner, e mesmo que cobrisse campo
+personalizado, contaria contatos no estado atual, unidade diferente da
+soma cumulativa do outro lado da razão. Saída: terceiro campo,
+`Conexões reais telefone` (C-31, `NUMERICAL`, `campos-e-tags.md`),
+incrementado por `Math +1` (nó 6 novo em `build-wesales.md`, seção 2.27) —
+mesmo padrão dos contadores C-06/C-07/C-11/C-12, e sem o estado vencido que
+`Conexão real` sozinho carrega. É a mesma lição que o G-06 já tinha deixado
+(reestruturar em vez de multiplicar Template) num formato diferente:
+diante de um plano que não serve para os dois destinos, tratar cada um
+pela regra que se aplica a ele, não forçar os dois pelo mesmo campo. Com
+isso, o F-06 fecha por inteiro — as pendências que restam (gravação/LGPD/
+custo, decisão do dono; LC Phone confirmado ou não, mesma do F-08/F-09)
+são pré-requisito de operação, não de desenho, e já estavam registradas
+antes desta rodada. Com F-06 fechado, todo o bloco 6 (F-01 a F-09) está
+`FEITO` ou aguardando decisão do dono (só F-09) — nenhum item numerado
+(G/R/F) resta sem dono claro fora de G-03, G-04, F-09 (decisão) e R-14
+(volume real de mensagem).

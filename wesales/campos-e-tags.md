@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (48 + 1 sugerido)
+## Etapa 2 — Campos personalizados (49 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -47,6 +47,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-28 | Checkpoint — Data de retorno | DATE | — | Workflow (F-05) |
 | C-29 | Duração da ligação | NUMERICAL | segundos | Workflow (F-06) |
 | C-30 | Conexão real | SINGLE_OPTIONS | Sim, Não | Workflow (F-06) |
+| C-31 | Conexões reais telefone | NUMERICAL | — | Workflow (F-06) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -156,10 +157,27 @@ nativo `Transcript Generated` carrega para toda chamada de LC Phone;
 de 60s conta, menos não conta, mesmo que o SDR tenha marcado `Atendeu`. Os
 dois convivem com `Conexões telefone`/`Conexões WhatsApp`/`Total de
 conexões` (C-06/C-07/C-11/C-12) em vez de substituí-los: aqueles vêm do
-julgamento do SDR no Pós-ligação e continuam alimentando o relatório atual
-até a peça 2 apontar a lista/dashboard para o campo novo. Escrito só pelo
-workflow novo, uma vez por chamada — não herda risco de "contador com dois
-donos".
+julgamento do SDR no Pós-ligação e continuam alimentando o relatório atual.
+
+C-31 fecha a peça 2 do F-06 (`build-wesales.md`, seção 2.27, nó 6): conta,
+cumulativamente, quantas chamadas de telefone bateram o limiar dos 60s —
+`NUMERICAL`, incrementado por `Math +1` a cada `Conexão real = Sim`, nunca
+sobrescrito. **Por que não basta apontar a lista/o dashboard direto para
+`Conexão real` (o que a peça 1 tinha deixado como plano):** `Conexão real`
+é um veredito por tentativa, sobrescrito a cada chamada (e sujeito ao
+próprio estado vencido que a peça 1 já registrou — um `Sim` da T3 sobrevive
+a T4-T8 sem transcrição) — serve para o portão do "Pronto quando" que olha
+uma tentativa por vez, não para uma taxa acumulada. Widget de Custom
+Metrics (seção 2.17) só soma campo `NUMERICAL`/`MONETARY` (achado já
+registrado ali) — somar um `SINGLE_OPTIONS` não é operação que a fórmula
+aceite, e contar contatos com `Conexão real = Sim` (recurso mais novo de
+filtro por metric-level, checado nesta rodada) contaria pessoas no estado
+atual, não chamadas ao longo do tempo, misturando unidade diferente da do
+`Tentativas telefone` (C-09) que forma o outro lado da razão. C-31 escreve
+uma vez por chamada e nunca é sobrescrito — mesmo padrão de C-06/C-07/C-11/
+C-12, e a mesma razão por que eles existem: contador cumulativo, não
+estado. Escrito só pelo workflow do F-06 — não herda risco de "contador com
+dois donos".
 
 **Corrigido em 22/09/2026, dois pontos** (`build-wesales.md`, "Conferência do
 F-06"): (1) os dois campos só se preenchem se **a gravação de chamada estiver

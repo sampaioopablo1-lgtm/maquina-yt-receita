@@ -2,6 +2,38 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Custom Metrics soma `NUMERICAL`/`MONETARY`, não `SINGLE_OPTIONS` — e "contar contatos por filtro" não é a mesma unidade que "somar tentativas" — F-06 peça 2, 22/09/2026, sessão automática
+
+A peça 1 do F-06 (entrada abaixo) tinha deixado como plano "apontar a
+lista/dashboard de taxa de conexão para `Conexão real`" — um campo
+`SINGLE_OPTIONS` (Sim/Não). Essa frase não sobreviveu à peça 2, no mesmo
+dia: dava para a **lista** (Smart List filtra/mostra qualquer tipo de
+campo), mas não para o **widget de Dashboard** (Custom Metrics). O achado
+da seção 2.17 do `build-wesales.md`, registrado antes do F-06 existir, já
+dizia isso ("Custom Metrics soma campo numérico, não só conta tag") — a
+peça 1 não cruzou os dois achados antes de propor o plano.
+
+Pesquisado nesta rodada se um recurso mais novo resolveria sem campo novo:
+o changelog do HighLevel (`ideas.gohighlevel.com/changelog/custom-metrics-
+now-with-filters-meta-ads-google-analytics-support`) mostra que Custom
+Metrics ganhou **filtro por metric-level** (tag, pipeline, owner, agente de
+chamada — múltiplas condições AND por métrica), mais recente que o achado
+original da seção 2.17. Não achei confirmação de que esse filtro cobre
+igualdade sobre campo personalizado arbitrário (só tag/pipeline/owner nos
+exemplos documentados) — mas mesmo que cobrisse, não resolveria o F-06:
+"contagem de contatos com `Conexão real = Sim`" mede quantos contatos estão
+**agora** nesse estado (snapshot), enquanto `Tentativas telefone` (o outro
+lado da razão) é uma **soma cumulativa** de tentativas ao longo do tempo —
+dividir um pelo outro mistura unidade, mesmo que a plataforma deixasse
+fazer a conta. A saída que funciona é sempre a mesma, e já estava no
+próprio projeto desde o R-01: um contador `NUMERICAL` que só incrementa
+(`Math +1`), nunca é lido como estado — mesmo padrão de `Conexões
+telefone`/`Conexões WhatsApp`/`Total de conexões` (C-06/C-07/C-11/C-12).
+Regra para a próxima vez que aparecer "queremos a taxa de X" com X sendo
+`SINGLE_OPTIONS`/booleano: a pergunta certa não é "dá para filtrar por X",
+é "o outro lado da razão já é uma soma cumulativa? se sim, X também
+precisa ser".
+
 ## "A plataforma ainda não oferece isso" fechou a pergunta errada — a busca não tinha ido fundo o bastante, não o recurso não existia — F-06, 22/09/2026, sessão automática
 
 A rodada de 21/09/2026 (a mesma que fechou o R-18) tinha lido o F-06

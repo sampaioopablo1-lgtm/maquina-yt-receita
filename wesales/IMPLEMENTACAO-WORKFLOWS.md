@@ -401,7 +401,7 @@ Fonte da lógica: `build-wesales.md`, 8.
 | 8.3 | `Fila WhatsApp Hoje` | tag `fila-wa` **E** não `nao-perturbe` **E** não `conectado-hoje` **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` | `Prioridade` desc, `WA não atendidas seguidas` asc | SDR |
 | 8.4 | `Retornos` | `Resultado da tentativa` = `Pediu retorno` **E** não `nao-perturbe` | Nome · `Empresa` · Telefone · `Data de retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas | `Data de retorno` asc | SDR |
 | 8.5 | `Sem resultado ontem` | tag `limpar-tarefas` **E** não `fila-tel` **E** não `fila-wa` | Nome · `Tentativa nº` · `Resultado da tentativa` · Última atividade | Última atividade asc | Gestor — diário |
-| 8.6 | `Conexão por Tentativa` | `Total de conexões` ≥ 1 | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` | `Tentativa nº` asc | Gestor — semanal |
+| 8.6 | `Conexão por Tentativa` | `Total de conexões` ≥ 1 | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` · `Conexão real` | `Tentativa nº` asc | Gestor — semanal |
 | 8.7 | `Calibração da Régua` | `Reunião foi qualificada` não vazio | Nome · `Nota de qualificação` · `Reunião foi qualificada` · `Motivo da desqualificação` · `Data do veredito do closer` | `Nota de qualificação` desc | Gestor — semanal |
 | 8.8 | `Atraso na 1ª Tentativa` | tag `atraso-1a-tentativa` | Nome · `Empresa` · Telefone · `Entrada em` · `1ª tentativa em` · Tarefas abertas | Última atividade asc | Gestor — diário |
 | 8.9 | `Funil — Entraram no Mês` | pipeline `FUNIL DE VENDAS` **E** data de criação da oportunidade = este mês (se o filtro não existir em Contatos, use a lista de Oportunidades) | Nome · `Empresa` · Etapa · Data de criação | Data de criação desc | Gestor — mensal |
@@ -435,10 +435,11 @@ filtro `Atribuído a = <nome>` (o GHL não tem "usuário atual" em lista).
 | Custom Metric `Atrasos de Speed-to-lead` | `contagem(tag atraso-1a-tentativa)` |
 | Custom Metric `Taxa de Conexão — Telefone` | `soma(Conexões telefone) ÷ soma(Tentativas telefone) × 100` |
 | Custom Metric `Taxa de Conexão — WhatsApp` | `soma(Conexões WhatsApp) ÷ soma(Tentativas WhatsApp) × 100` |
+| Custom Metric `Taxa de Conexão Real — Telefone` (F-06, peça 2) | `soma(Conexões reais telefone) ÷ soma(Tentativas telefone) × 100` — só conta chamada com mais de 60s |
 
 Custom Metrics depende do plano (`trialing` hoje — confira em Reporting →
 Custom Metrics antes). Sem elas, os três widgets nativos + listas 8.16/8.8/8.6
-cobrem o mesmo dado.
+cobrem o mesmo dado (8.6 já ganhou a coluna `Conexão real`, peça 2 do F-06).
 
 ## 1.9 Pausas de feriado e Number Validation
 
@@ -1395,7 +1396,7 @@ Nomes dos status (`Invalid`/`Landline`) a confirmar na tela.
 
 ---
 
-## W20 · Qualidade da Conexão — `build-wesales.md` 2.27 (F-06, peça 1 de 2)
+## W20 · Qualidade da Conexão — `build-wesales.md` 2.27 (F-06, fechado em 22/09/2026)
 
 **Pré-condição, ainda sem resposta:** as ligações desta operação saem por
 LC Phone? Mesma pendência do F-08/F-09 (seção 2.26) — se a resposta for
@@ -1415,15 +1416,16 @@ oferecer o filtro (senão o nó 1 faz o mesmo por `If/Else`)
 | 1 | If/Else | Direção da chamada é `Outbound` → 2 · None → FIM | 2 |
 | 2 | Update Contact Field | `Duração da ligação` = merge field de duração do gatilho (**confirmar nome exato na tela** — não testado nesta subconta) | 3 |
 | 3 | If/Else | `Duração da ligação` **é maior ou igual a** `60` → 4 · None → 5 | |
-| 4 | Update Contact Field | `Conexão real` = `Sim` | fim |
+| 4 | Update Contact Field | `Conexão real` = `Sim` | 6 |
 | 5 | Update Contact Field | `Conexão real` = `Não` | fim |
+| 6 | Math | `Conexões reais telefone` (C-31) + 1 | fim |
 
 **Pré-requisitos — corrigidos em 22/09/2026, são mais do que estavam
 escritos aqui:**
 
 | # | Pré-requisito | Por quê |
 |---|---|---|
-| 1 | Campos `Duração da ligação` (C-29) e `Conexão real` (C-30) | `[ ]` em `APROVADO.md`; campo personalizado não sai por API |
+| 1 | Campos `Duração da ligação` (C-29), `Conexão real` (C-30) e `Conexões reais telefone` (C-31) | `[ ]` em `APROVADO.md`; campo personalizado não sai por API |
 | 2 | **Gravação de chamada habilitada no número** | Sem gravação não existe transcrição, e sem transcrição **este workflow nunca dispara**. É o pré-requisito real por trás do item 3 |
 | 3 | Transcrição ligada em **Configurações → Sistema de Telefonia → Voz → Transcrição de Chamadas** (Voice Intelligence) | Caminho de tela; em Voice AI já vem ligada, mas este projeto não usa Voice AI |
 | 4 | Aviso de gravação no início da ligação (LGPD) | Lugar reservado em `script-de-ligacao.md`, seção 2 — redação e base legal do dono |
@@ -1433,9 +1435,13 @@ escritos aqui:**
 
 Detalhe e fontes em `build-wesales.md`, "Conferência do F-06".
 
-**Peça 2, ainda não especificada:** apontar a lista
-`Conexão por Tentativa` (8.6) e os widgets de Taxa de Conexão do Dashboard
-(W-do-painel, `build-wesales.md` 2.17) para `Conexão real = Sim`.
+**Peça 2, fechada em 22/09/2026:** a lista `Conexão por Tentativa` (8.6)
+ganhou a coluna `Conexão real` direto (Smart List aceita igualdade sobre
+qualquer campo); o dashboard (2.17) **não** pôde apontar direto para
+`Conexão real` — Custom Metrics só soma `NUMERICAL`/`MONETARY`, e o campo
+é `SINGLE_OPTIONS` — por isso ganhou o nó 6 acima e o campo novo
+`Conexões reais telefone` (C-31), a peça que a fórmula do widget soma.
+Detalhe completo em `build-wesales.md`, seção 2.27 ("Peça 2").
 
 ---
 

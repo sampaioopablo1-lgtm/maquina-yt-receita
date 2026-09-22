@@ -2219,14 +2219,28 @@ o número exato.
 | `Atrasos de Speed-to-lead` (nova) | `Contagem de contatos com tag "atraso-1a-tentativa"` | Fila em atraso — SLA da 1ª tentativa (a mesma tag que a lista 8.8 já filtra) |
 | `Taxa de Conexão — Telefone` (nova) | `(Soma de "Conexões telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — telefone, acumulada |
 | `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
+| `Taxa de Conexão Real — Telefone` (nova, F-06, peça 2) | `(Soma de "Conexões reais telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — só chamada que durou mais de 60s, sem depender do julgamento do SDR |
 
-Nenhuma das quatro é campo ou tag nova: as três novas reaproveitam C-09 a
-C-12 (R-01) e a tag `atraso-1a-tentativa` (T-12, R-02) — o mesmo
-raciocínio de "não duplicar o que o projeto já expõe" que fechou o R-10 e
-o R-13 em `campos-e-tags.md`. Se o plano da subconta não incluir Custom
-Metrics, as duas primeiras linhas continuam cobertas pela lista 8.16 e
-8.8 (sem entrar no dashboard) e as duas últimas pela lista 8.6 — o
-dashboard perde a tela única, não perde o dado.
+A quinta linha é a que fecha o "Pronto quando" do F-06 no dashboard: por
+que não reaproveita `Conexão real` direto na fórmula, e por que precisou
+de um campo novo (`Conexões reais telefone`, C-31, `NUMERICAL`) em vez de
+só trocar o nome do campo na conta acima, está registrado em
+`build-wesales.md`, seção 2.27 ("Peça 2") e `campos-e-tags.md` (C-31) —
+resumo: Custom Metrics só soma `NUMERICAL`/`MONETARY`, `Conexão real` é
+`SINGLE_OPTIONS`, e contar contatos no estado atual misturaria unidade
+diferente da de `Tentativas telefone` (soma cumulativa de tentativas, não
+de contatos). Convive com a linha `Taxa de Conexão — Telefone` acima —
+nenhuma substitui a outra, cada uma responde uma pergunta diferente
+(conectou vs. conversou).
+
+Nenhuma das cinco é campo ou tag nova além do já registrado: as três
+"Taxa" reaproveitam C-09/C-10 (Tentativas) e C-11/C-12/C-31 (Conexões,
+incluindo a nova C-31 do F-06) — o mesmo raciocínio de "não duplicar o
+que o projeto já expõe" que fechou o R-10 e o R-13 em `campos-e-tags.md`.
+Se o plano da subconta não incluir Custom Metrics, as duas primeiras
+linhas continuam cobertas pela lista 8.16 e 8.8 (sem entrar no dashboard)
+e as três últimas pela lista 8.6, que já ganhou a coluna `Conexão real`
+na mesma peça — o dashboard perde a tela única, não perde o dado.
 
 ### Limite conhecido
 
@@ -3366,7 +3380,7 @@ não abre. Nada aqui foi escrito por dedução.
 
 ---
 
-## 2.27 Qualidade da Conexão — F-06 (peça 1 de 2, especificada em 22/09/2026)
+## 2.27 Qualidade da Conexão — F-06 (fechado em 22/09/2026, duas peças)
 
 Destrava o item errado como "esperando volume" desde a primeira versão do
 roadmap: `Atendeu` empacota, na mesma célula do relatório, a ligação de 8
@@ -3431,8 +3445,9 @@ raciocínio do parágrafo de confiança acima).
 | 1 | If/Else | Direção da chamada é `Outbound` → 2 · Senão → FIM (chamada recebida não é tentativa da cadência) |
 | 2 | Update Contact Field | `Duração da ligação` = duração da chamada (merge field exato do gatilho — **confirmar na tela**, nome não testado nesta subconta) |
 | 3 | If/Else | `Duração da ligação` **é maior ou igual a** `60` → 4 · Senão → 5 |
-| 4 | Update Contact Field | `Conexão real` = `Sim` → fim |
+| 4 | Update Contact Field | `Conexão real` = `Sim` → 6 |
 | 5 | Update Contact Field | `Conexão real` = `Não` → fim |
+| 6 | Math | `Conexões reais telefone` (C-31) + 1 → fim |
 
 Não toca nos contadores existentes (`Conexões telefone`/`Conexões
 WhatsApp`/`Total de conexões`, escritos pelo Pós-ligação a partir do
@@ -3440,23 +3455,47 @@ julgamento do SDR, seção 4) — os dois convivem, e a diferença entre eles é
 o próprio dado que expõe quando o SDR marca `Atendeu` numa ligação curta
 demais para ser conversa.
 
-**Pronto quando (parcial — falta a fiação do relatório, peça 2):** todo
-`Send Call`/discagem feita por LC Phone grava duração real e `Conexão real`
-sem depender do julgamento do SDR no calor da ligação. **O que este item
-ainda não fecha, registrado em vez de inventado:** a lista `Conexão por
-Tentativa` (seção 8.6, R-01) e os widgets de Taxa de Conexão do Dashboard
-(seção 2.17, R-15) continuam lendo `Resultado da tentativa = Atendeu` —
-apontar os dois para `Conexão real = Sim` é a segunda metade do "Pronto
-quando" original do F-06 (`ROADMAP-SALES-ENGAGEMENT.md`), deixada para a
-próxima peça por já ter volume próprio (duas telas a reabrir e testar
-contra os 5 contatos fictícios do checklist, seção 10) e por não bloquear
-nada enquanto isso não acontece: o relatório antigo continua funcionando
-exatamente como hoje, os dois números só passam a conviver.
+**Peça 2, fechada no mesmo dia — por que a lista e o dashboard não apontam
+direto para `Conexão real`:** o plano original da peça 1 ("apontar os dois
+para `Conexão real = Sim`") não sobrevive à leitura dos dois destinos.
 
-**Zero escrita no CRM:** os dois campos (`Duração da ligação`, `Conexão
-real`) nascem propostos em `campos-e-tags.md` (C-29, C-30) e `[ ]` em
-`APROVADO.md` — campo personalizado não sai por API, mesma regra de
-sempre.
+- **Lista `Conexão por Tentativa` (8.6, R-01):** pode sim filtrar/mostrar
+  `Conexão real` direto — Smart List aceita igualdade sobre qualquer tipo
+  de campo. Resolvido na própria seção 8.6, abaixo.
+- **Widgets de Taxa de Conexão do Dashboard (2.17, R-15):** não podem. O
+  achado 2 daquela seção já registra que o Formula Editor de Custom
+  Metrics só agrega **Soma/Mín/Máx/Média sobre campo `NUMERICAL`/
+  `MONETARY`** (ou contagem de contatos por filtro) — `Conexão real` é
+  `SINGLE_OPTIONS`, não é campo que a fórmula some. Contar contatos com
+  `Conexão real = Sim` (o recurso mais novo de filtro por metric-level,
+  pesquisado nesta rodada) também não serve: devolveria quantos contatos
+  estão **agora** nesse estado, não quantas chamadas bateram o limiar ao
+  longo do tempo — unidade diferente da que o outro lado da razão
+  (`Tentativas telefone`, uma soma cumulativa) usa. E `Conexão real` tem o
+  próprio estado vencido já registrado abaixo (um `Sim` da T3 sobrevive a
+  T4-T8 sem transcrição): usá-lo num widget acumulado herdaria esse
+  defeito para o relatório.
+
+A saída é o nó 6 acima: `Conexões reais telefone` (C-31, `NUMERICAL`),
+incrementado uma vez por chamada que bate o limiar, nunca sobrescrito —
+mesmo padrão de `Conexões telefone`/`Conexões WhatsApp`/`Total de conexões`
+(C-06/C-07/C-11/C-12) e pelo mesmo motivo que eles existem: uma razão
+cumulativa pede dois lados cumulativos. Detalhe da comparação em
+`campos-e-tags.md` (C-31).
+
+**Pronto quando (cumprido):** todo `Send Call`/discagem feita por LC Phone
+grava duração real e `Conexão real` sem depender do julgamento do SDR no
+calor da ligação, e "taxa de conexão" tem uma versão no relatório (lista
+8.6, nova coluna) e no dashboard (2.17, novo widget) que só conta chamada
+que durou mais de 60s — o SDR não consegue mais inflar esse número
+desligando rápido. O relatório antigo (`Atendeu`) continua existindo, sem
+ser substituído — os dois convivem, cada um respondendo uma pergunta
+diferente.
+
+**Zero escrita no CRM:** os três campos (`Duração da ligação`, `Conexão
+real`, `Conexões reais telefone`) nascem propostos em `campos-e-tags.md`
+(C-29, C-30, C-31) e `[ ]` em `APROVADO.md` — campo personalizado não sai
+por API, mesma regra de sempre.
 
 ### Conferência do F-06, 22/09/2026 (mesma rodada): o gatilho existe, mas só existe para chamada **gravada** — e isso traz um custo, uma obrigação legal e um campo que nunca se apaga
 
@@ -3559,7 +3598,7 @@ dois nós disputando o mesmo campo no mesmo instante.
 duas cadências, e os dois campos ainda nascem `[ ]` em `APROVADO.md` —
 enquanto não existirem na tela, não há o que zerar. Fica registrado como
 pré-requisito do "Pronto quando" desta seção, junto com a gravação e o
-aviso: **o F-06 não está pronto com os nós 1-5 sozinhos.**
+aviso: **o F-06 não está pronto com os nós 1-6 sozinhos.**
 
 **Confiança das fontes:** média-alta para os fatos de plataforma
 (transcrição exige gravação; add-on Voice Intelligence a US$ 0,024/min
@@ -4722,11 +4761,11 @@ chance de atender do que o da T11. A fila devolve primeiro o que converte.
 | Filtros | tag `limpar-tarefas` presente **E** tag `fila-tel`/`fila-wa` ausentes |
 | Para quê | É o buraco de gestão: tentativas que venceram sem o SDR classificar. Se esta lista cresce, a operação está mentindo nos números |
 
-### 8.6 `Conexão por Tentativa` — R-01
+### 8.6 `Conexão por Tentativa` — R-01, coluna de qualidade acrescentada pelo F-06 (peça 2, 22/09/2026)
 | Item | Configuração |
 |---|---|
 | Filtros | `Total de conexões` ≥ 1 |
-| Colunas | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` |
+| Colunas | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` · `Conexão real` (nova) |
 | Ordenação | `Tentativa nº` asc |
 
 Funciona sem um campo extra de "tentativa em que conectou": ao registrar
@@ -4735,6 +4774,18 @@ Funciona sem um campo extra de "tentativa em que conectou": ao registrar
 por quem já conectou e ordenar por essa tentativa responde "qual tentativa
 conecta mais" olhando a lista ordenada, sem planilha — é o "Pronto quando" do
 R-01 do roadmap.
+
+**Coluna `Conexão real` (F-06):** não troca o filtro — continua mostrando
+todo `Atendeu`, de propósito, porque é a lista que compara os dois números,
+não a que escolhe um. Olhando a coluna nova ao lado de `Conexões telefone`,
+o gestor vê direto quais dessas conexões marcadas pelo SDR duraram menos de
+60s (`Conexão real = Não` ou vazio — sem gravação habilitada, ou chamada
+ainda sem transcrição) — a mesma pergunta do "Pronto quando" do F-06 ("o SDR
+não consegue inflar o número desligando rápido"), respondida linha a linha
+em vez de por uma taxa só. Filtro extra opcional para quem quiser isolar só
+as reais: `Conexão real = Sim` — funciona aqui porque é leitura pontual por
+contato, sem somar nada (diferente do widget de dashboard, seção 2.17, que
+precisa de campo cumulativo — ver C-31 em `campos-e-tags.md`).
 
 ### 8.7 `Calibração da Régua` — F-03
 | Item | Configuração |
