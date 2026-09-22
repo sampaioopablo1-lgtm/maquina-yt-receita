@@ -2,6 +2,41 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Conferi o achado do Clique antigo e ele estava completo — a varredura virou script — 22/09/2026, sessão automática
+
+O dono achou, no PC, que o `Mestre de saída v2` removia o lead do
+`Interceptação de Sinal — Clique` **antigo** em vez do v2 no ar, e corrigiu.
+A pergunta que importa depois de um achado assim não é "está certo?", é
+**"quantos mais existem?"** — a troca das 5 cópias v2 poderia ter deixado o
+mesmo id velho em qualquer outro nó.
+
+Varri de forma independente todos os dumps e achei **exatamente um**: o que
+ele já corrigiu. As outras 5 referências cruzadas apontam para workflow no
+ar e estão certas:
+
+| Workflow | Nó | Aponta para |
+|---|---|---|
+| `Mestre de saída v2` | 6 | Clique **antigo** — já corrigido ao vivo |
+| `Pós-agendamento v2` | 4 | `Recuperação de No-show`, `SLA do Closer — No-show`, `Cadência 12x30` |
+| `Pós-ligação v2` | 54 e 127 | `Cadência 12x30` |
+
+**O achado dele era completo, não parcial.** Vale registrar porque o
+resultado natural de uma varredura de bug mecânico é achar mais um, e aqui
+não havia mais.
+
+**Limite da minha conferência, que não anula a dele:** os dumps cobrem **30**
+workflows com id; ele varreu **38** ao vivo. Os ~8 sem dump neste repositório
+são invisíveis para mim, e o dump é fotografia de antes de publicar — por isso
+o `Mestre de saída v2` ainda aparece com o id velho aqui mesmo já corrigido no
+CRM. A varredura autoritativa é a dele, pela API interna; a minha corrobora
+dentro do que alcança.
+
+**Virou ferramenta:** `wesales/tools/auditoria_refs.py`, somente leitura, sai
+com código 1 se algum workflow apontar para arquivado. É a regra dele — "antes
+de apagar um workflow, procure o id dele em todos os outros" — como comando em
+vez de lembrete, porque a exclusão dos 10 rascunhos ainda vai acontecer e essa
+é a hora exata em que o erro custa caro.
+
 ## O Mestre de saída v2 removia o lead do Clique ANTIGO, não do v2 que está no ar — 22/09/2026, PC do dono
 
 Achado ao preparar a limpeza dos rascunhos: antes de apagar qualquer workflow,
