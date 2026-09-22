@@ -1475,3 +1475,39 @@ dois é exatamente o tamanho do que não se mede.
 **A regra que fica:** antes de otimizar uma etapa, conferir se a etapa seguinte tem instrumento. Se
 não tiver, dizer isso em vez de otimizar a anterior com mais afinco. E a instrumentação mais barata
 quase nunca é um sistema — aqui, duas colunas numa planilha preenchidas à mão resolveriam.
+
+## 22/09 — Entrega zerada não era leilão: era fatura em aberto. E o `ads_get_errors` diz isso em uma chamada
+
+**Sintoma:** em 21/09 a campanha gastou R$12,01 de uma verba de R$20. Em 22/09, entrega
+**zero** nos seis conjuntos até o meio do dia. Campanha, conjuntos e os 38 anúncios todos
+`ACTIVE`/`ACTIVE`, segmentação íntegra, `updated_time` parado desde 17/09.
+
+**Causa:** `mcp__Facebook_MCP__ads_get_errors` com o id da conta devolveu, no nível
+`ad_account`:
+
+> "This ad account has a balance that needs to be paid before you can publish. Please
+> verify your billing information is up to date."
+
+Fatura em aberto. A Meta estrangula e depois para a entrega, sem mudar o status de nenhuma
+entidade.
+
+**O erro de raciocínio que eu cometi, e a regra que fica:** na rodada anterior eu li o
+gasto abaixo da verba e escrevi no DIARIO que era "a CBO não achando leilão que valha o
+lance". Era palpite, apresentado como leitura. **Entrega abaixo da verba ou zerada com
+todas as entidades ACTIVE é motivo para chamar `ads_get_errors` na conta ANTES de arriscar
+qualquer explicação de leilão, público ou criativo.** É uma chamada, é barata, e é a única
+que enxerga o nível da conta — `effective_status` de campanha, conjunto e anúncio **não
+mostram bloqueio de cobrança**. Todos continuam ACTIVE com a conta travada.
+
+**Como diferenciar de número do dia em aberto congelado:** pedir `time_increment: "1"` num
+`time_range` que cubra ontem e hoje. Se vierem linhas para os dias anteriores e **nenhuma
+linha** para hoje, a fonte está funcionando e a entrega de hoje é zero de verdade. Se o
+número de hoje simplesmente não se move mas existe, é congelamento de relatório.
+
+**O que NÃO fazer:** nada. Cobrança é do Pablo. Não mexer em verba, não pausar, não
+recriar. Assim que ele quita, a entrega volta sozinha — nenhuma entidade precisa ser
+tocada, porque nenhuma foi alterada.
+
+**Achado lateral na mesma chamada:** 8 anúncios antigos e pausados acusam "Terms of Service
+Not Accepted: You can't run lead ads until your Facebook Page accepts Facebook's Lead
+Generation Terms of Service". Não afeta os 38 no ar, mas é dívida técnica da Página.

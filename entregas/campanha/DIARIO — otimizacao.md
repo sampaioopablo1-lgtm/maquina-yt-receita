@@ -1655,3 +1655,30 @@ Segmentação conferida nesta rodada: íntegra nos seis, `updated_time` parado e
 17/09. Os 38 anúncios ACTIVE, nenhum WITH_ISSUES.
 
 Relógio: `created_time` lido da Meta; dias fechados lidos por `time_range` explícito.
+
+## 22/09 meio-dia — a conta está travada por fatura em aberto
+
+Entrega **zero** nos seis conjuntos hoje, o dia inteiro. Causa encontrada via
+`ads_get_errors` no nível da conta: **fatura em aberto**, a Meta parou de publicar.
+
+Confirmação de que não é relatório congelado: `time_increment: "1"` de 20 a 22/09 devolve
+linha para 20/09 e para 21/09, e **nenhuma linha** para 22/09.
+
+| Dia | Impressões | Gasto | Leads |
+|---|---|---|---|
+| 20/09 | 984 | R$25,28 | 3 |
+| 21/09 | 453 | R$12,01 | 1 |
+| **22/09** | **0** | **—** | **0** |
+
+A queda de 21/09 — que eu tinha atribuído à CBO não achar leilão — era o começo do
+estrangulamento por cobrança. **Corrijo aquela leitura.** Também cai por terra a suspeita
+de que o ADVOCACIA tinha desabado por mérito próprio: ele caiu junto com todo o resto,
+pela mesma causa.
+
+Estado das entidades, conferido: campanha ACTIVE, 6 conjuntos ACTIVE, 38 anúncios
+ACTIVE/ACTIVE, segmentação íntegra, `updated_time` parado em 16 e 17/09. **Nada foi
+tocado e nada precisa ser** — quitada a fatura, a entrega volta sozinha.
+
+Pablo avisado uma vez, com o que fazer (Gerenciador → Pagamentos). Mecanismo registrado em
+LICOES, com a regra de sempre chamar `ads_get_errors` antes de explicar entrega baixa por
+leilão ou público.
