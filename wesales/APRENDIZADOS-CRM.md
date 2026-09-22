@@ -2,6 +2,59 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A "regra que fica" do F-14 mandava reabrir todo item com toques por canal — F-09 ficou de fora, e suas opções mandavam desviar para um canal que não existe mais — 22/09/2026, sessão automática
+
+A rodada anterior (`4d5bcf6`) já tinha nomeado o problema: a decisão de 100%
+telefone (`d52e61d`) mudou "8 de 12 toques" para "12 de 12", e a rodada
+generalizou em `APRENDIZADOS-CRM.md` — "quando uma decisão muda uma premissa
+numérica, reabrir todo item que tenha tabela de toques por canal e refazer a
+multiplicação". Ela fez isso para o F-14. Não fez para o F-09, que tem
+exatamente esse tipo de tabela e é o item que a própria correção do F-08
+tinha gerado horas antes.
+
+Sem tela nem G-03/G-04/F-09/F-10/R-14 desbloqueados, o passo era o sweep de
+coerência de sempre — desta vez guiado pela "regra que fica" em vez de
+`grep` por nome de etapa. `grep -rn "8 de 12\|8 dos 12"` em `wesales/`
+devolveu 11 linhas; a maioria é prosa histórica de item já `FEITO` (F-07,
+F-08, "Resumo" datados) ou checklist de teste cujo ponto só fica mais forte
+com o número certo (seção 10 do `build-wesales.md`: "telefone é o canal
+majoritário" continua verdade, agora mais) — essas não foram tocadas, mesmo
+critério que `dd9c65a` já usou para não reescrever as 107 menções de
+WhatsApp. Duas linhas eram diferentes: o F-09 em `ROADMAP-SALES-ENGAGEMENT.md`
+e a autorização pendente espelho em `APROVADO.md` — as duas ainda **abertas**,
+as duas alimentando uma decisão que o dono ainda vai tomar.
+
+**O número errado não era o pior problema.** F-09 propunha três opções para
+o limiar de `Tel não atendidas seguidas`, e duas delas (A e B) mandavam o
+telefone **"desviar para WhatsApp"** quando estourasse — texto herdado do
+período em que o WhatsApp ainda carregava toques da régua. Depois de
+`d52e61d`, WhatsApp não aplica nenhum toque: não existe canal para desviar.
+Um dono lendo o item sem saber disso escolheria uma opção que descreve um
+comportamento que a régua publicada não pode mais executar. Corrigido para
+"encerra a régua mais cedo" nas duas opções — o único efeito que o motor de
+workflow ainda pode produzir sem um segundo canal.
+
+**Segundo achado, menor mas parado havia 8h por falta de quem fechasse o
+loop:** a seção "Evidência indireta" do F-09 dizia, textualmente, "é
+pergunta para o dono, nenhuma rodada deve gastar mais tempo procurando" —
+sobre se as ligações saem por LC Phone ou linha própria. O dono **já tinha
+respondido isso ao vivo** (`APRENDIZADOS-CRM.md`, "Resposta do dono...",
+16:13 UTC) quase 9 horas antes desta rodada. A resposta já estava registrada
+no arquivo certo; só não tinha voltado para dentro do item que fez a
+pergunta. Fechado o loop: a seção agora aponta para a resposta em vez de
+repetir que ninguém deve procurar.
+
+**Regra prática, reforçando a de `4d5bcf6` em vez de repeti-la:** "reabrir
+todo item com tabela de toques por canal" não é suficiente sozinho — um item
+ainda **aberto**, cujo texto alimenta uma decisão que falta tomar, pesa
+diferente de um item **fechado**, cujo texto só documenta o que já foi
+decidido. A primeira categoria (aqui, F-09) é a que precisa ser corrigida
+antes da próxima leitura do dono; a segunda (F-07, F-08, os "Resumo"
+datados) pode ficar como registro histórico, porque reescrevê-la não muda
+nenhuma decisão futura — só infla o diff. Ao aplicar a "regra que fica",
+filtrar por "o item ainda está aberto?" antes de decidir se vale a pena
+corrigir.
+
 ## A trava do aviso de LGPD vigiava o checkbox, não o botão — e os dois se separaram hoje — 22/09/2026, sessão automática
 
 O dono ligou a transcrição de chamadas na subconta e deixou o W20 pronto em

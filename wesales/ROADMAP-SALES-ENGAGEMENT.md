@@ -1937,66 +1937,86 @@ dono.
 
 ---
 
-### F-09 · O telefone não tem freio de canal, e o WhatsApp tem — **aguarda decisão do dono** (aberto em 22/09/2026)
+### F-09 · O telefone não tem freio de canal — e desde a decisão de 100% telefone é o único canal da régua — **aguarda decisão do dono** (aberto em 22/09/2026, corrigido em 22/09/2026)
+
+> **Correção de 22/09/2026, sessão automática seguinte — duas premissas
+> venceram no dia em que o item nasceu, e nenhuma das duas tinha sido
+> corrigida ainda aqui.** (1) O item foi escrito comparando telefone (8
+> toques) contra WhatsApp (4 toques, com freio). A decisão de 100% telefone
+> (`d52e61d`, mesma data, seção 2.5) mudou isso para **12 de 12** — o F-14
+> (rampa de aquecimento) já recebeu esse mesmo conserto em `4d5bcf6`, cuja
+> "regra que fica" (`APRENDIZADOS-CRM.md`) mandava reabrir todo item com
+> tabela de toques por canal antes de fechar a rodada; F-09 ficou de fora até
+> agora. Não é só o número: as opções A e B abaixo mandavam o telefone
+> "desviar para WhatsApp" quando estourasse o limiar — **esse canal não
+> aplica mais nenhum toque da régua**, então desviar não é mais uma saída
+> possível, só encerrar a régua mais cedo é. (2) O dono já respondeu, ao
+> vivo, a pergunta que a seção "Evidência indireta" mais abaixo registrava
+> como aberta: as ligações desta operação saem por **LC Phone**
+> (`APRENDIZADOS-CRM.md`, "Resposta do dono à pré-condição do W20/F-06/F-08/
+> F-09", 22/09/2026 16:13 UTC). Isso não escolhe o limiar por conta própria —
+> A/B/C continuam decisão do dono — só fecha a pergunta de infraestrutura que
+> a seção abaixo ainda descrevia como sem resposta.
 
 **Por quê:** achado ao conferir o F-08. O seletor de canal (nó 4 da seção
-2.4; nó 3 da 2.10) só manda pelo WhatsApp se `WA não atendidas seguidas` for
-**< 2** — duas sem resposta seguidas e o lead sai daquele canal. Não existe
-equivalente no telefone: conferido por `grep` em todo o `wesales/`, `WA não
-atendidas seguidas` é o **único** contador de "seguidas" do projeto, e o nó
-10 das duas cadências manda `Caixa Postal` e `Não atendeu` **insistirem**
-até o fim da régua.
+2.4; nó 3 da 2.10) é registro histórico da régua alternada (seção 2.5) — só
+mandava pelo WhatsApp se `WA não atendidas seguidas` fosse **< 2**, duas sem
+resposta seguidas e o lead saía daquele canal. Não existe equivalente para o
+telefone, o único canal que resta: conferido por `grep` em todo o
+`wesales/`, `WA não atendidas seguidas` é o **único** contador de "seguidas"
+do projeto, e o nó 10 das duas cadências manda `Caixa Postal` e `Não
+atendeu` **insistirem** até o fim da régua.
 
 | Canal | Toques dos 12 | Freio próprio |
 |---|---|---|
-| WhatsApp | 4 | 2 sem resposta seguidas → troca de canal |
-| Telefone | **8** | **nenhum** |
+| Telefone | **12** (era 8 antes de 22/09/2026 — seção 2.5) | **nenhum** |
 
-O canal com o dobro dos toques, o único com regulador olhando (Despacho
-Decisório nº 82/2026/RCTS/SRC — F-08), e o único sem freio. Pior: os
+O único canal da régua, o único com regulador olhando (Despacho Decisório nº
+82/2026/RCTS/SRC — F-08), e o único sem freio — os três agora coincidem no
+mesmo canal, quando antes eram três fatos sobre canais diferentes. Pior: os
 critérios que a norma manda a operadora considerar são **proporção de
 chamadas de curtíssima duração, duração média e taxa de completamento** — as
-três pioradas exatamente pelas tentativas que insistem sem conectar. É a
-mitigação mais barata do F-08: não custa número novo, cadastro nem esperar a
-`Origem Verificada` aceitar a subconta.
+três pioradas exatamente pelas tentativas que insistem sem conectar, e o
+volume que bate nesses critérios dobrou junto com os toques (seção 2.5,
+"Efeito colateral a considerar"). É a mitigação mais barata do F-08: não
+custa número novo, cadastro nem esperar a `Origem Verificada` aceitar a
+subconta.
 
 **Como (proposta, não executada):** campo novo `Tel não atendidas seguidas`
 (NUMERICAL), somado no ramo `Não atendeu`/`Caixa Postal` do Pós-ligação e
 zerado em toda conexão real — espelho exato do que o nó C1 (`IMPLEMENTACAO-
-WORKFLOWS.md`, W4) já faz para o WhatsApp; depois um portão, no seletor de
-canal e/ou no nó 10, que ao estourar desvie para WhatsApp ou encerre a régua
-mais cedo.
+WORKFLOWS.md`, W4) já fazia para o extinto contador de WhatsApp; depois um
+portão, no seletor de canal e/ou no nó 10, que ao estourar encerre a régua
+mais cedo (não há mais canal para desviar).
 
 **Por que não executo sozinho:** o limiar **é** a régua. Cortar o telefone
-na 2ª não atendida seguida, como o WhatsApp faz, reduziria os 8 toques de
-telefone a talvez 2-3 por lead — mexe direto na meta de 100 ligações/dia do
-`briefing-sdr.md` e na conta de volume da L-05. Pode ser exatamente o que se
-quer (menos discagem morta, mais tempo em lead que atende), ou o oposto
-(insistir é o jeito de furar base fria). É decisão de negócio, e a regra do
-briefing é não criar campo nem mexer em régua em massa sem confirmação.
+na 2ª não atendida seguida reduziria os 12 toques de telefone a talvez 2-3
+por lead — mexe direto na meta de 100 ligações/dia do `briefing-sdr.md` e na
+conta de volume da L-05, e mexe mais fundo agora que são 12 toques e não 8.
+Pode ser exatamente o que se quer (menos discagem morta, mais tempo em lead
+que atende), ou o oposto (insistir é o jeito de furar base fria). É decisão
+de negócio, e a regra do briefing é não criar campo nem mexer em régua em
+massa sem confirmação.
 
 **Três opções para o dono escolher — nenhuma aplicada:**
 
-**Evidência indireta reavaliada em 22/09/2026, mesma data — o CRM não
-responde esta pergunta:** `locations_get-location` mostra
-`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas o markup
-do rebilling é definido **global na agência** (SaaS Configurator), com
-override opcional por subconta — o valor lido aqui é compatível com o global
-herdado, igual em subconta que nunca ligou, então **não é sinal de número
-provisionado nesta**. E a evidência direta, lida na mesma rodada, aponta para
-o outro lado: **zero registro de chamada** nas 50 conversas da subconta
-(41 atividade de CRM, 9 DM de Instagram, nenhum `TYPE_CALL`) — o contato de
-teste com `Tentativas telefone` = 24 tem **uma** mensagem, "Opportunity
-created". Os 24 são escritas de campo por classificação manual, não ligações.
-A ausência não desempata (pode não haver número, ou haver e nunca ter sido
-usado), mas **elimina o CRM como fonte**: é pergunta para o dono, e nenhuma
-rodada deve gastar mais tempo procurando por API. Detalhe em
+**Evidência indireta, registrada em 22/09/2026 e resolvida horas depois no
+mesmo dia:** a pergunta "as ligações saem por LC Phone ou por linha própria
+do SDR?" não tinha resposta por API — `locations_get-location` mostrava
+`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas esse
+markup é definido **global na agência** (SaaS Configurator), compatível com
+o valor herdado mesmo numa subconta que nunca ligou; e as 50 conversas da
+subconta traziam **zero registro de chamada** (`TYPE_CALL`), o que não
+desempata (pode não haver número, ou haver e nunca ter sido usado). O dono
+respondeu ao vivo horas depois: **LC Phone** (ver banner de correção no
+início deste item). A pergunta de infraestrutura está fechada; o limiar
+(A/B/C abaixo) continua em aberto. Detalhe da evidência indireta em
 `APRENDIZADOS-CRM.md`, "O CRM não pode responder a pergunta do LC Phone".
 
 | Opção | Limiar | Efeito |
 |---|---|---|
-| **A — espelhar o WhatsApp** | 2 não atendidas seguidas → sai do telefone | Mais protetora; corta mais fundo os 8 toques |
-| **B — meio caminho** (recomendo começar aqui) | 4 não atendidas seguidas → desvia para WhatsApp; se WhatsApp também estourar, encerra | Mantém boa parte da insistência e ainda melhora as três razões da norma; reversível |
+| **A — mais protetora** | 2 não atendidas seguidas → encerra a régua para aquele lead | Corta mais fundo os 12 toques; menos discagem morta, mais leads saindo da régua sem esgotar as 12 tentativas |
+| **B — meio caminho** (recomendo começar aqui) | 4 não atendidas seguidas → encerra a régua para aquele lead | Mantém boa parte da insistência (metade das 12 tentativas garantida) e ainda melhora as três razões da norma; reversível |
 | **C — só medir** | contador criado, nenhum portão | Zero risco de régua, e em duas semanas há número real para decidir A ou B com dado em vez de palpite |
 
 **Pronto quando:** o dono escolher A, B ou C; o campo `Tel não atendidas
@@ -3015,3 +3035,42 @@ revisitou — o F-05 e o F-06 já tinham mostrado isso para "esperar volume" e
 "esperar recurso nativo"; esta rodada mostra que o mesmo vale para "esperar
 um caminho de montagem melhor que o que existia no dia em que a premissa
 foi escrita".
+
+**F-09, sessão automática seguinte, 22/09/2026 — correção de premissa
+vencida, não item novo.** CRM reconfirmado por API sem mudança (55 campos de
+contato, mesmas 5 etapas do `FUNIL DE VENDAS`, 50 oportunidades — 45
+`NOVO LEAD` `open` + 2 `NEGOCIAR` `open` + 1 `NEGOCIAR` `lost` + 2
+`CONECTAR` `lost` de teste; `Carlos Andrade`, 21/09 09:17, segue o lead mais
+novo — entrada ainda parada, sem novidade para F-10). Nenhum G/R/F estava
+desbloqueado; a "regra que fica" que `4d5bcf6` deixou registrada
+(`APRENDIZADOS-CRM.md`: depois de uma decisão mudar uma premissa numérica,
+reabrir todo item com tabela de toques por canal) apontava direto para o
+F-09, que tem exatamente esse tipo de tabela e não tinha sido reaberto. Não
+era só o número (8 de 12 → 12 de 12, mesmo conserto do F-14): as opções A e
+B do F-09 mandavam o telefone "desviar para WhatsApp" ao estourar o
+limiar — canal que não aplica mais nenhum toque da régua desde `d52e61d`,
+então a opção descrevia um comportamento que o motor publicado não pode
+mais produzir. Corrigidas as duas para "encerra a régua mais cedo", a
+tabela para 12/12, e fechado um segundo loop que o próprio item deixava
+aberto: a pergunta "LC Phone ou linha própria?" já tinha resposta do dono ao
+vivo (`APRENDIZADOS-CRM.md`, 16:13 UTC) quase 9h antes desta rodada, e o
+F-09 ainda dizia "pergunta para o dono, ninguém deve procurar mais". Espelho
+da mesma correção aplicado à autorização pendente em `APROVADO.md` (campo
+`Tel não atendidas seguidas`), que citava o mesmo número vencido. As opções
+A/B/C continuam decisão do dono — nada disso executa sozinho. Zero campo,
+zero tag, zero escrita no CRM: item de documentação pura, não depende de
+`APROVADO.md`. Detalhe completo no próprio F-09, acima, e em
+`APRENDIZADOS-CRM.md`. **Regra prática, refinando a de `4d5bcf6`:** ao
+aplicar "reabrir item com tabela de toques por canal", filtrar por "o item
+ainda está aberto?" primeiro — um item fechado (F-07, F-08) só documenta o
+que já foi decidido, e reescrevê-lo não muda decisão nenhuma; um item aberto
+(F-09) alimenta uma decisão que falta tomar, e um número ou uma opção
+vencida nele pode levar o dono a escolher algo que a régua publicada não
+sabe mais fazer.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real; F-11,
+F-12 e F-13 têm desenho completo e só faltam ser montados na tela; F-14 é
+checklist de gestor, pronto para uso assim que o número começar a discar de
+verdade.

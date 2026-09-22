@@ -163,9 +163,10 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `[ ]`, vira `[x]` quando o dono trocar, num commit que não é o meu.
 
 - [ ] Criar o campo `Tel não atendidas seguidas` (NUMERICAL) — nasceu no
-      F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026): o telefone
-      carrega 8 dos 12 toques e é o único canal sem freio próprio, enquanto o
-      WhatsApp sai depois de 2 sem resposta. **Não é só criar o campo:** ele
+      F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026, corrigido em
+      22/09/2026): o telefone carrega os **12 de 12** toques da régua (era
+      "8 dos 12" até a decisão de 100% telefone do mesmo dia, `d52e61d`) e é
+      o único canal, sem freio próprio nenhum. **Não é só criar o campo:** ele
       só serve com um portão, e o limiar do portão muda quantas ligações/dia
       a operação faz — o dono escolhe A (2), B (4, recomendada) ou C (só
       medir, sem portão) antes de qualquer `[x]`. Campo personalizado também
