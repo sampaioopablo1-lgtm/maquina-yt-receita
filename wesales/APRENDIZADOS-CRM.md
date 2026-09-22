@@ -2,6 +2,69 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Espelho de "algum ligado" é "algum desligado", não "todos desligados" — e o filtro de DND de WhatsApp pode não existir antes do canal existir — R-14, 22/09/2026, sessão automática
+
+A rodada que especificou o R-14 acertou a distinção que destrava o item (o que
+espera volume é a **execução** da auditoria, não o **desenho**) e a pesquisa
+que a viabiliza: Smart List do GHL filtra DND **por canal**, com os nomes
+exatos `Calls & Voicemails DND`, `WhatsApp DND`, `SMS DND`, `Email DND`, `DND
+all` e mais. Duas correções.
+
+**1. Uma lista nasceu com `E` onde o par dela usa `OU`.** As duas listas são
+espelhos:
+
+| Lista | Filtro escrito | Certo? |
+|---|---|---|
+| 8.27 `DND sem tag` | (`Calls DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag ausente | **Sim** |
+| 8.26 `tag sem DND` | tag presente **E** `Calls DND` = Disabled **E** `WhatsApp DND` = Disabled | **Não** |
+
+Com `E`, a 8.26 só acusa quem está desprotegido nos **dois** canais. Contato
+com a tag, ligação bloqueada e WhatsApp **livre** não aparece — e é justo um
+lead que pediu silêncio e ainda recebe mensagem. E **proteção parcial é o
+defeito mais provável** dos dois, porque basta um nó chamar `Set Contact DND`
+num canal só. Consequência: "zero linha na 8.26" não provava o que o item diz
+provar.
+
+**A regra, e é de lógica, não de GHL:** quando duas listas são declaradas
+espelhos, negue a condição **inteira**, não cada termo. Negação de "algum
+canal ligado" é "algum canal desligado" (`OU`), nunca "todos desligados"
+(`E`) — trocar `OU` por `E` ao espelhar é a forma mais comum de uma lista de
+exceção ficar estreita demais **sem parecer errada**: ela continua devolvendo
+zero linha, que é o resultado esperado, e por isso ninguém desconfia. Mesma
+família do portão que só olhava etapa sem `status`: o teste passa, a cobertura
+não existe.
+
+**2. O achado que a pesquisa entregou de lado, e vale mais que a correção
+acima:** as preferências de DND de **WhatsApp, Facebook Messenger e GMB só
+aparecem depois que o app está integrado à subconta.** Esta subconta **não tem
+WhatsApp integrado** — é a razão de o R-14 esperar volume e de não existir uma
+mensagem de WhatsApp aqui. Então:
+
+- As duas listas se montam **pela metade** hoje (só a cláusula de ligação).
+  Ainda vale montar: meia auditoria pega tag sem bloqueio nenhum.
+- E o `Set Contact DND` "todos os canais" dos **quatro** nós que aplicam
+  `nao-perturbe` (2.9.5, seção 4 ramo `Não ligar`, seção 6 nó 3, opt-out do
+  R-17) **não pode ligar DND de um canal que não existe**. Quem pedir silêncio
+  hoje fica protegido em ligação/SMS/e-mail e **não** em WhatsApp.
+
+**Por que isto é da mesma classe do F-10 (a falha que não acende luz):** no
+dia em que o WhatsApp for integrado, os contatos que já pediram para não ser
+procurados podem nascer alcançáveis por WhatsApp — e a primeira mensagem da
+cadência vai para quem pediu silêncio. Nenhum monitor pega isso, porque nada
+mudou de estado no CRM: mudou o **conjunto de canais existentes**, que nenhum
+alerta observa. `dndSettings` está `{}` em todos os contatos lidos, inclusive
+no `Teste Não Ligar`, então não há como inferir por API se o GHL preencheria
+retroativamente.
+
+**Regra generalizável:** quando uma proteção é declarada "para todos os
+canais", pergunte **quais canais existem no momento em que ela é aplicada** —
+e o que acontece com os registros antigos quando um canal novo entra. "Todos"
+é uma lista que muda de tamanho, e uma garantia escrita contra "todos" envelhece
+sozinha sem avisar. Deixei as duas conferências **acopladas ao passo de
+integração do WhatsApp** em `build-wesales.md` (8.26), com a única ação desta
+área que tem prazo: reaplicar `Set Contact DND` nos contatos antigos **antes**
+do primeiro envio, não depois.
+
 ## Smart List do GHL filtra por DND nativo, por canal — nunca citado em nenhum documento do projeto até o R-14, 22/09/2026, sessão automática
 
 Procurando como desenhar o R-14 (auditoria de compliance, o único item do

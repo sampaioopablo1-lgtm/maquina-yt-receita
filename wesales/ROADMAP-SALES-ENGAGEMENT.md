@@ -962,6 +962,23 @@ contatos, só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a última
 rodada.
 
 ### R-14 · Auditoria de compliance — especificação fechada em 22/09/2026, execução aguarda mensagem real
+
+> **Conferido no mesmo dia** (`build-wesales.md`, 8.26): duas correções. (a) O
+> filtro da 8.26 nasceu com `E` onde o espelho dela (8.27) usa `OU` — com `E`
+> ela só acusava quem está desprotegido nos **dois** canais, deixando escapar a
+> tag com ligação bloqueada e WhatsApp livre, que é o caso perigoso **e** o mais
+> provável (basta um nó chamar `Set Contact DND` num canal só). Corrigido: "zero
+> linha" só prova o que o item diz provar com `OU`. (b) **O filtro `WhatsApp
+> DND` só existe depois que o WhatsApp está integrado à subconta** — e esta não
+> tem. Então as listas se montam pela metade hoje, e, mais grave, o `Set Contact
+> DND` "todos os canais" dos quatro nós que aplicam `nao-perturbe` não pode
+> estar ligando DND de um canal inexistente: **quem pede silêncio hoje não fica
+> protegido em WhatsApp.** No dia da integração, esses contatos podem nascer
+> alcançáveis — mesma classe do F-10 (nada acende luz, porque o que mudou não
+> foi um estado no CRM, foi o conjunto de canais que existem). Duas conferências
+> ficaram acopladas ao passo de integração, com a única ação de prazo da área:
+> reaplicar `Set Contact DND` nos contatos antigos **antes** do primeiro envio.
+
 **Por quê:** `nao-perturbe` e DND são a linha entre prospecção e perseguição.
 Precisa ser verificável, não confiável.
 **Como:** rotina que confere se algum contato com DND recebeu mensagem, e se

@@ -5228,7 +5228,7 @@ Fase 6 do `GUIA-MONTAGEM.md` realmente consulta. Fechado nesta rodada
 
 | Item | Configuração |
 |---|---|
-| Filtros | tag `nao-perturbe` presente **E** `Calls & Voicemails DND` = Disabled **E** `WhatsApp DND` = Disabled |
+| Filtros | tag `nao-perturbe` presente **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled) |
 | Colunas | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status da oportunidade |
 | Ordenação | Data de criação do contato, desc (o mais recente primeiro — é o mais provável de ainda estar "quente" numa régua) |
 
@@ -5241,6 +5241,55 @@ porque a tag sozinha não bloqueia nada na plataforma; é convenção interna
 lida por filtro de lista, o DND é quem impede o próximo envio de sair.
 Uma linha aqui é bug a corrigir na hora (falta de `Set Contact DND` num nó
 que já tem a tag), não estatística a acompanhar.
+
+**Correção de lógica, 22/09/2026 — o filtro nasceu com `E` onde precisa de
+`OU`.** Estava escrito `tag presente E Calls DND = Disabled E WhatsApp DND =
+Disabled`, que só pega quem está desprotegido **nos dois** canais. Um contato
+com a tag, `Calls DND` ligado e `WhatsApp DND` **desligado** escapava da
+lista — e é exatamente um lead que pediu para não ser procurado e ainda pode
+receber WhatsApp. Pior: **proteção parcial é o defeito mais provável** dos
+dois, porque basta um nó chamar `Set Contact DND` num canal só. Com `E`, "zero
+linha" não provava o que o R-14 diz provar. Note que a 8.27 já usava `OU`
+corretamente — as duas são espelhos, e espelho de "algum canal ligado" é
+"algum canal desligado", não "todos desligados".
+
+#### ⚠️ O filtro `WhatsApp DND` pode não existir nesta subconta hoje — e isso é mais que um detalhe de montagem
+
+Pesquisa desta rodada, na mesma fonte que confirmou os nomes dos filtros: as
+preferências de DND de **WhatsApp, Facebook Messenger e GMB só aparecem depois
+que o app correspondente está integrado à subconta.** Esta subconta **não tem
+WhatsApp integrado** (é a razão pela qual o R-14 esperava "volume real de
+mensagem" e pela qual não existe uma única mensagem de WhatsApp aqui). Duas
+consequências, e a segunda é de compliance, não de montagem:
+
+1. **Hoje as duas listas se montam só pela metade** — com `Calls & Voicemails
+   DND`. A cláusula de WhatsApp entra quando o canal for integrado. Monte
+   assim mesmo: meia auditoria já pega o caso de tag sem nenhum bloqueio.
+2. **O `Set Contact DND` "todos os canais" dos quatro nós que aplicam
+   `nao-perturbe`** (2.9.5, seção 4 ramo `Não ligar`, seção 6 nó 3, e o
+   opt-out por palavra-chave do R-17) **não pode estar ligando DND de um canal
+   que não existe na subconta.** Ou seja: quem pedir para não ser procurado
+   **hoje** fica protegido em ligação/SMS/e-mail e **não** em WhatsApp — e no
+   dia em que o WhatsApp for integrado, esses contatos podem nascer
+   WhatsApp-alcançáveis, porque nada garante que o DND seja aplicado
+   retroativamente a quem já estava com "todos os canais" marcado antes do
+   canal existir.
+
+**Se isso se confirmar, é a mesma classe do F-10:** nada alerta, tudo parece
+certo, e a falha acontece no dia da integração — com o lead que pediu
+silêncio recebendo a primeira mensagem da cadência. **Não afirmo a
+retroatividade**, que não dá para testar por API e depende de como o GHL
+preenche `dndSettings` (hoje `{}` em todos os contatos lidos, inclusive no
+`Teste Não Ligar`). Fica como **duas conferências acopladas ao passo de
+integração do WhatsApp**, e não como item separado que se perde:
+
+| Conferir no dia em que o WhatsApp for integrado | Por quê |
+|---|---|
+| O filtro `WhatsApp DND` apareceu na Smart List? | Só então as listas 8.26/8.27 ficam completas |
+| Os contatos já marcados `nao-perturbe` **antes** da integração ganharam `WhatsApp DND` sozinhos? | Se **não**, rodar uma vez a 8.26 (que passa a acusá-los) e reaplicar `Set Contact DND` neles **antes** de publicar qualquer régua de WhatsApp |
+
+O segundo item é a única ação desta seção que tem prazo: vale **antes** do
+primeiro envio, não depois.
 
 ### 8.27 `Auditoria — DND sem tag` — R-14
 
