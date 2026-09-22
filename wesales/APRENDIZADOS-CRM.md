@@ -2,6 +2,38 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## `{{right_now}}` grava `[object Object]` — a variável que funciona é `{{right_now.date}} {{right_now.time}}` — 22/09/2026, sessão do PC
+
+Medido, não deduzido: workflow `ZZ TESTE RELOGIO` (`6d40b678-…`, gatilho tag
+`teste-relogio`) gravou candidatas no C-14 do `Teste Atendeu` às 22:15 UTC:
+
+| Variável | Valor gravado |
+|---|---|
+| `{{right_now}}` — **a que a spec manda** (seção 2.3) | `[object Object]` |
+| `{{right_now.date}}` | `22/09/2026` |
+| `{{right_now.year}}-{{right_now.month}}-{{right_now.day}} {{right_now.hour}}:{{right_now.minute}}` | `2026-9-22 19:15` (sem zero à esquerda) |
+| `{{right_now.day_of_week}}` | `terça-feira` |
+| `{{right_now.time}}` | `19:15` — já no fuso da subconta (SP) |
+
+Isso explica o `sim`: quem montou provavelmente viu `{{right_now}}` falhar e
+caiu no plano B "marca, não carimbo" sem registrar. **Trocar `sim` por
+`{{right_now}}`, que é o que a spec e a rodada da nuvem pediam, teria gravado
+lixo em todo lead.** Valor a usar: `{{right_now.date}} {{right_now.time}}` →
+`22/09/2026 19:15`. É texto; não ordena nem compara como data.
+
+**Onde está o `sim` (builders):** `build_w11.py` (12x30: `1ª tentativa em`
+no toque 1, `Entrada em` no nó comum), `build_w12.py` (Inbound: os mesmos
+dois) e `build_w16_w8.py` (Reengajamento 90d: os dois). O único leitor é o
+W15 (`build_w15.py`), que só testa `has_no_value` → trocar o valor não o afeta.
+
+**Armadilha antes de corrigir:** `Pós-ligação v2` (2×) e `Pós-agendamento v2`
+(1×) referenciam o **id** da `Cadência 12x30` (`c64a808b-…`). Uma troca por
+v2 os deixaria apontando para o original desligado — o mesmo defeito do
+`Mestre de saída v2`. E rebuild pelo builder gera ids de nó novos (`g.uid()`),
+o que pode soltar contatos parados num `Wait`. O caminho seguro é patch
+cirúrgico no mesmo workflow (mesmo id, mesmos ids de nó, só o `value`), o que
+esbarra na regra "nunca edite um publicado" — decisão do dono.
+
 ## O `sim` em `Entrada em` não é resíduo de teste — é o valor escrito no nó — 22/09/2026, sessão do PC
 
 Li os nós dos exports em `workflows-json/`. O `Update contact field` grava a
