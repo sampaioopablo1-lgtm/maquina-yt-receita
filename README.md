@@ -134,10 +134,26 @@ src/maquina/
     ├── youtube.py      # upload resumable + Analytics
     └── diagnostico.py  # gargalo dos 3 pilares
 
+fabrica/                # gerador parametrico (specs versionadas), o motor da frota
+├── arte.py             # layout `arte`: imagem gerada na Muapi atras do cartao
+└── muapi.py            # cliente stdlib da Muapi (Open Higgsfield AI)
+ferramentas/open-higgsfield-ai/   # estudio web (Image/Video/LipSync/Cinema)
+config/muapi_modelos.json         # catalogo dos 221 modelos e endpoints
+
 .github/workflows/      # producao (cron), publicacao (manual), diagnostico, ci
 supabase/schema.sql     # tabelas, views painel_pilares e progresso_ypp
 docs/                   # decisões, arquitetura, playbook, compliance
 ```
+
+## Artes, imagens e vídeos gerados (Open Higgsfield AI)
+
+O estúdio open-source [Open Higgsfield AI](https://github.com/Autom8AI/Open-Higgsfield-AI)
+está vendido em `ferramentas/open-higgsfield-ai/` e ligado à máquina por três portas:
+o estúdio web (`npm run dev`), o layout `arte` da fábrica (imagem gerada atrás do
+cartão da cena, etapa 1.6 do `etapas.py`) e o provider `muapi` da pipeline
+(`MAQ_IMAGE_PROVIDER=muapi`). Uma chave da Muapi.ai dá acesso aos 221 modelos do
+catálogo (`config/muapi_modelos.json`). Sem chave nada quebra: a cena cai no
+fallback. Detalhes em [`docs/23-open-higgsfield-muapi.md`](docs/23-open-higgsfield-muapi.md).
 
 ## Testes
 

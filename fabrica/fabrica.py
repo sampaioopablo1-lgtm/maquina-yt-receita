@@ -368,9 +368,10 @@ def elementos(c):
     tela transparente, e quem monta o clipe faz cada um entrar no seu tempo.
     """
     lay = c.get('layout', 'titulo')
-    if lay == 'broll':
-        # Uma peca so: o movimento da cena vem do proprio footage, nao de
-        # camadas entrando. Zero manda o clipe_cena para o ramo simples.
+    if lay in ('broll', 'arte'):
+        # Uma peca so: o movimento da cena vem do proprio footage (broll) ou
+        # do Ken Burns sobre a imagem gerada (arte), nao de camadas entrando.
+        # Zero manda o clipe_cena para o ramo simples.
         return 0
     if lay in ('lista', 'barras'):
         return len(c.get('itens', []))
@@ -479,10 +480,13 @@ def svg_cena(c, pal, W, H, camada=None):
     # A cena broll nao pinta fundo: o PNG sai com alpha e o clipe_cena poe o
     # footage por baixo. Se o footage faltar, o fallback compoe sobre preto —
     # texto branco sobre preto le, entao o degrade e o pior caso aceitavel.
-    if fundo and lay != 'broll':
+    # `arte` (fabrica/arte.py) segue a mesma regra: a imagem gerada na Muapi
+    # entra por baixo na composicao, e um fundo opaco aqui a cobriria inteira
+    # sem nenhum portao acusar — o mesmo defeito invisivel que o broll cerca.
+    if fundo and lay not in ('broll', 'arte'):
         s += f'<rect width="{W}" height="{H}" fill="{bg}"/>'
     cx = W//2
-    if lay == 'broll':
+    if lay in ('broll', 'arte'):
         # Cartao flutuante, NAO faixa ate a borda: o portao do prontidao.py
         # mede tinta nos 4% externos (MAX 1,2%) e a primeira versao — faixa
         # colada no rodape + descendentes do devanagari — reprovou 6/7 cenas

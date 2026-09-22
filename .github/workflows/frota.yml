@@ -329,6 +329,10 @@ jobs:
         env:
           SB: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # arte.py (layout `arte`): imagem gerada na Muapi, o motor do Open
+          # Higgsfield AI. Secret opcional; sem ele cai em config.muapi_api_key
+          # no banco, e sem os dois a cena vai no fallback — nunca derruba.
+          MUAPI_API_KEY: ${{ secrets.MUAPI_API_KEY }}
         run: python3 fabrica/etapas.py spec.json
 
       # A ENTREGA NO STORAGE NAO PODE DERRUBAR A PUBLICACAO.

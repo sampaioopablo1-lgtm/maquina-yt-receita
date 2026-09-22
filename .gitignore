@@ -13,3 +13,10 @@ token*.json
 # Artefatos de producao (videos, audios, imagens, banco de jobs)
 out/
 data/
+
+# Open Higgsfield AI (ferramentas/open-higgsfield-ai): dependencias e builds
+ferramentas/open-higgsfield-ai/node_modules/
+ferramentas/open-higgsfield-ai/packages/*/node_modules/
+ferramentas/open-higgsfield-ai/.next/
+ferramentas/open-higgsfield-ai/dist/
+ferramentas/open-higgsfield-ai/release/

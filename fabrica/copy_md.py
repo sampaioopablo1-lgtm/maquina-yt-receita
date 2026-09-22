@@ -112,7 +112,7 @@ def capitulos(sp, tempos):
         # aparece em 785 cenas de todos os layouts e viraria capitulo a cada
         # minuto.
         if i == 0 or (pode and dt >= MIN_CAP and
-                      c.get("layout") in ("titulo", "broll")) \
+                      c.get("layout") in ("titulo", "broll", "arte")) \
                 or (pode and dt >= MAX_CAP):
             caps.append(f"{int(t//60)}:{int(t%60):02d} {c.get('cap', c.get('kicker','...'))}")
             ultimo = t

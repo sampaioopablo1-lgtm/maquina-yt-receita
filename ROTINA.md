@@ -6,6 +6,16 @@ Cópia versionada do prompt em `trig_01Y6ZvwsrbxteyS933sgzqK4`
 O trigger é a fonte que executa; este arquivo existe para que a rotina tenha
 histórico em git. **Quando um mudar, mude o outro no mesmo commit.**
 
+## Mudança de 22/09/2026 — artes geradas por IA (Open Higgsfield AI / Muapi)
+
+O Open Higgsfield AI entrou no repositório (`ferramentas/open-higgsfield-ai`,
+motor Muapi.ai, 221 modelos) e a fábrica ganhou o layout `arte`: cena com
+`arte_prompt` recebe imagem gerada atrás do cartão, na etapa 1.6 do
+`etapas.py`. O PASSO 1 abaixo passou a pedir isso — com fallback: sem
+`MUAPI_API_KEY` (ou `config.muapi_api_key` no banco) a cena sai como antes e o
+render nunca para. Guia: `docs/23-open-higgsfield-muapi.md`; regras para o
+Claude: skill `higgsfield-artes`.
+
 ## Mudança de 05/08/2026 — publicação deixou de ser condicional
 
 A versão anterior publicava só `SE config.api_auditada = 'true'`, subia como
@@ -56,6 +66,7 @@ PASSO 1 — PRODUÇÃO (sandbox Composio; fábrica em fabrica/; pip install edge
 - SHORT 9:16: 30-45s, gancho nos 2 primeiros segundos, CTA falado.
 - TRILHA: trilha_do_canal(), -28 dB, crédito no copy.md.
 - Áudio loudnorm I=-14 TP=-1.5, estéreo 48kHz, +faststart. Legenda queimada só no short; o longo exporta legendas.srt.
+- ARTES (Open Higgsfield AI / Muapi, desde 22/09/2026): leia a skill `higgsfield-artes`. Na spec, abertura de capítulo e cenas de ambiente podem ser `layout: "arte"` com `arte_prompt` em inglês (cena, nunca texto) — no máximo 1 a cada 4 cenas, nunca no short, um `arte_estilo` por spec herdado do canal. A etapa 1.6 do `etapas.py` gera (padrão `flux-schnell`) e compõe atrás do cartão; a chave vem de `MUAPI_API_KEY` ou `config.muapi_api_key`. Sem chave a cena cai no fallback e você DIZ isso na resposta final (quantas cenas com arte, quantas sem, e por quê). Vídeo gerado (Kling/Veo/Wan) só com linha em `experimentos` e teto de crédito. Modelos e endpoints: `config/muapi_modelos.json`.
 - thumbnail 1280x720 (máx 3 palavras) + copy.md no idioma do canal: título ≤100c, descrição 200+ palavras com capítulos cronometrados REAIS, CTA, disclosure de conteúdo sintético, 3 hashtags, 15 tags, comentário fixado, configurações do Studio.
 
 PASSO 2 — ENTREGA. Do sandbox, para cada artefato:
@@ -91,4 +102,4 @@ PASSO 5 — ANALISE E TENDÊNCIAS (1x por dia, no primeiro disparo após 06:00 U
 
 NUNCA criar novos triggers.
 
-Resposta final: canal → título → duração real → fonte da pauta (views/dia) → link do YouTube → links do Drive → "estoque: X/50".
+Resposta final: canal → título → duração real → fonte da pauta (views/dia) → artes (N cenas com arte / M no fallback, modelo) → link do YouTube → links do Drive → "estoque: X/50".

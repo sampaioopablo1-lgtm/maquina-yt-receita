@@ -548,11 +548,11 @@ def _gate_capitulos(sp):
                 f"some no render (setiap-level-014, 01/09/2026). Estique o "
                 f"texto ate {copy_md.MIN_CAP * MARGEM_CAP:.0f}s estimados"]
     perdidos = [c.get("cap") for c in longo
-                if c.get("cap") and c.get("layout") not in ("titulo", "broll")]
+                if c.get("cap") and c.get("layout") not in ("titulo", "broll", "arte")]
     if perdidos:
         return [f"{desenhados} capitulos desenhados e {produzidos} produzidos — "
                 f"abre(m) em layout que o render ignora: {perdidos}. "
-                f"Abertura de capitulo tem de ser layout `titulo` ou `broll`"]
+                f"Abertura de capitulo tem de ser layout `titulo`, `broll` ou `arte`"]
 
     # Sobrou a outra causa, e ela precisa ser DITA: com as aberturas todas em
     # `titulo`, o que derruba capitulo e a distancia ate o anterior. Dizer
