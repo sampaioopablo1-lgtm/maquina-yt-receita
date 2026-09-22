@@ -2,6 +2,41 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O Mestre de saída v2 removia o lead do Clique ANTIGO, não do v2 que está no ar — 22/09/2026, PC do dono
+
+Achado ao preparar a limpeza dos rascunhos: antes de apagar qualquer workflow,
+varri os 38 restantes procurando o id dele. Um publicado apontava para um
+desligado — o nó `Remove from Workflow` do `Mestre de saída v2`
+(`c616e2d7…`) ainda tinha `ea0a49b7…` (Interceptação de Sinal — Clique,
+antigo). A cópia v2 herdou o id e a troca v2 não o remapeou. Efeito: lead que
+saía do funil continuava dentro do `Clique v2` (`30b5fc0d…`).
+
+**Corrigido** trocando só o id do nó, preservando status, re-entry, janela e
+os 3 gatilhos (conferido por leitura depois). Backup do antes em
+`workflows-json/_arquivo/`.
+
+**Regra:** toda cópia v2 tem de remapear também os ids de workflow dentro de
+`remove_from_workflow` / `add_to_workflow`, não só os gatilhos. E antes de
+apagar um workflow, procure o id dele em todos os outros.
+
+## Estado da limpeza e dos três que faltavam — 22/09/2026, PC do dono
+
+- **Limpeza:** backup dos 10 alvos em `workflows-json/_arquivo/` (5 `ZZ TESTE`
+  + as 5 versões antigas substituídas por v2). A exclusão em si ficou para o
+  dono — a ferramenta desta sessão exige autorização direta para apagar.
+- **W19 Higiene de Número:** fora por decisão do dono (Number Validation não
+  será ligado agora).
+- **W20 Qualidade da Conexão:** o dono respondeu que **as ligações saem pelo
+  CRM (LC Phone)** — a pré-condição 7 está resolvida. Os campos C-29 a C-32
+  ainda **não existem** (lidos por API) e gravação+transcrição (add-on pago,
+  aviso LGPD) não estão ligados.
+- **W18 Monitor de Capacidade:** o gatilho real é `scheduler_trigger`
+  (condição `scheduler.interval` = `hourly|daily|weekly|monthly|cron`,
+  `scheduler.weekly.days` / `scheduler.weekly.times`, `schedule_config` com
+  `skip_weekends`/`stop_at`), lido do bundle do builder. O mesmo bundle marca
+  esse gatilho com `requiresInternalAccess` e o **esconde em produção** para
+  conta sem acesso interno — ainda não confirmado na tela desta subconta.
+
 ## Dois campos com o mesmo nome em objetos diferentes seguraram um workflow — 22/09/2026, sessão automática
 
 O `GUIA-MONTAGEM` registrava, como decisão pendente do dono, que **a

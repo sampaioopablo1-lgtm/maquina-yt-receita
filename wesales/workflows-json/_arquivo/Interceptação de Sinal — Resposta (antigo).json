@@ -1,0 +1,484 @@
+{
+  "workflow": {
+    "_id": "7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Interceptação de Sinal — Resposta",
+    "status": "draft",
+    "version": 7,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "eventStartDate": null,
+    "window": null,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff%2F7?alt=media&token=9615a5c1-ce50-4062-a37e-15b3606fc749",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff/7",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "parentId": null,
+    "createdAt": "2026-09-19T01:56:10.907Z",
+    "updatedAt": "2026-09-22T12:41:36.772Z",
+    "deleted": false,
+    "workflowNote": null,
+    "allowMultipleOpportunity": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "duplicate-workflow",
+    "__v": 0,
+    "senderAddress": null,
+    "meta": null,
+    "id": "7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "a128512f-4952-4e49-bf0d-24d189955e3c",
+          "type": "find_opportunity",
+          "name": "Find opportunity",
+          "attributes": {
+            "sorting": "latest",
+            "type": "find_opportunity",
+            "__customInputFields__": [
+              {
+                "__customInputs__": {},
+                "filterField": "pipeline_id",
+                "value": "eq",
+                "secondValue": "0Fo2xbeayE4EP6yuSUtq"
+              }
+            ],
+            "__customInputs__": {},
+            "cat": "multi-path",
+            "convertToMultipath": true,
+            "transitions": [
+              {
+                "id": "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+                "name": "Opportunity Found",
+                "fields": [],
+                "meta": {
+                  "__branchKey__": "predefined_Opportunity Found"
+                },
+                "conditionType": "pre-defined"
+              },
+              {
+                "id": "0c8e21f6-5dc5-40a2-810d-705842de76f5",
+                "name": "Opportunity Not Found",
+                "fields": [],
+                "meta": {
+                  "__branchKey__": "predefined_Opportunity Not Found"
+                },
+                "conditionType": "pre-defined"
+              }
+            ],
+            "__name__": "Find opportunity"
+          },
+          "order": 0,
+          "cat": "multi-path",
+          "workflowsActionType": "INTERNAL",
+          "next": [
+            "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+            "0c8e21f6-5dc5-40a2-810d-705842de76f5"
+          ]
+        },
+        {
+          "id": "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+          "parentKey": "a128512f-4952-4e49-bf0d-24d189955e3c",
+          "parent": "a128512f-4952-4e49-bf0d-24d189955e3c",
+          "type": "transition",
+          "name": "Opportunity Found",
+          "attributes": {},
+          "order": 1,
+          "cat": "transition",
+          "next": "624cab41-457e-4344-bf13-8dc516561c94"
+        },
+        {
+          "id": "624cab41-457e-4344-bf13-8dc516561c94",
+          "parent": "ee7ab6e0-0d07-41be-a216-a190710e07dc",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "8c73191f-fa30-420b-828e-8eddb2ca7f9e",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "f6bf0c10-4d8f-4b9a-b0d5-a870d4fcbc52",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "c2d33505-5d1b-4f0b-8ba2-24e02be5225e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "8c73191f-fa30-420b-828e-8eddb2ca7f9e",
+            "7c99cf2d-5fee-4e3f-89e0-e4a661a346fe"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "ee7ab6e0-0d07-41be-a216-a190710e07dc"
+        },
+        {
+          "id": "8c73191f-fa30-420b-828e-8eddb2ca7f9e",
+          "parent": "624cab41-457e-4344-bf13-8dc516561c94",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "9f09abb7-c4f3-4e0e-a21d-793f17c5d51a",
+          "sibling": [
+            "7c99cf2d-5fee-4e3f-89e0-e4a661a346fe"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "624cab41-457e-4344-bf13-8dc516561c94"
+        },
+        {
+          "id": "9f09abb7-c4f3-4e0e-a21d-793f17c5d51a",
+          "parent": "8c73191f-fa30-420b-828e-8eddb2ca7f9e",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "7ab27bf6-fde4-4b94-9639-8b48c3c4a5a1",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "0c85dfa6-251e-455a-9be2-e9c4488e20e9",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "56ca50dd-4044-41aa-ad41-eba3a188a4cc",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "7ab27bf6-fde4-4b94-9639-8b48c3c4a5a1",
+            "318ebd26-5774-465c-925f-9074c3689fa1"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "8c73191f-fa30-420b-828e-8eddb2ca7f9e"
+        },
+        {
+          "id": "7ab27bf6-fde4-4b94-9639-8b48c3c4a5a1",
+          "parent": "9f09abb7-c4f3-4e0e-a21d-793f17c5d51a",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "318ebd26-5774-465c-925f-9074c3689fa1"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "9f09abb7-c4f3-4e0e-a21d-793f17c5d51a"
+        },
+        {
+          "id": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "parent": "9f09abb7-c4f3-4e0e-a21d-793f17c5d51a",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "e1393d05-179e-4271-be93-49bfba311f63",
+          "sibling": [
+            "7ab27bf6-fde4-4b94-9639-8b48c3c4a5a1"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "9f09abb7-c4f3-4e0e-a21d-793f17c5d51a"
+        },
+        {
+          "id": "e1393d05-179e-4271-be93-49bfba311f63",
+          "parent": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "order": 0,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "chuJMRlKzY0Uq1f0lSkX",
+                "value": 5,
+                "title": "Prioridade",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "d34bf0ff-35d3-4bb6-9938-df7c31271a01",
+          "parentKey": "318ebd26-5774-465c-925f-9074c3689fa1"
+        },
+        {
+          "id": "d34bf0ff-35d3-4bb6-9938-df7c31271a01",
+          "parent": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "jfQgrZFnxhbn1qmCeFDC",
+                "value": "Resposta de mensagem",
+                "title": "Sinal recebido",
+                "type": "select",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "07f35779-f579-4a8c-9185-0591ec66140d",
+          "parentKey": "e1393d05-179e-4271-be93-49bfba311f63"
+        },
+        {
+          "id": "07f35779-f579-4a8c-9185-0591ec66140d",
+          "parent": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "fila-quente"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "6af4dcbc-d407-41c4-95e4-ce8b26fce20e",
+          "parentKey": "d34bf0ff-35d3-4bb6-9938-df7c31271a01"
+        },
+        {
+          "id": "6af4dcbc-d407-41c4-95e4-ce8b26fce20e",
+          "stepIndex": 1,
+          "parent": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "order": 3,
+          "attributes": {
+            "title": "[CADENCIA] Sinal: respondeu mensagem — ligar agora",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;margin: 0px;\">Lead respondeu mensagem fora do fluxo normal da cadência. Ligar imediatamente, prioridade 5.</p>",
+            "assignedTo": "contact.assigned_user",
+            "type": "task_notification",
+            "dueDate": "{{right_now.date}}",
+            "__customInputs__": {
+              "dueDate": "duration-picker"
+            }
+          },
+          "name": "Sinal clique",
+          "type": "task-notification",
+          "next": "511a5cb1-d4bc-4bfa-af16-d5ad45f4af3f",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "07f35779-f579-4a8c-9185-0591ec66140d"
+        },
+        {
+          "id": "511a5cb1-d4bc-4bfa-af16-d5ad45f4af3f",
+          "parent": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "order": 4,
+          "attributes": {
+            "type": "whatsapp",
+            "whatsapp": {
+              "body": "<p style=\"padding-left: 0px!important;\"><span data-cv-variable=\"contact.first_name\" data-cv-token=\"true\">{{contact.first_name}}</span> respondeu agora fora do fluxo normal. Prioridade 5.",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ]
+            }
+          },
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "next": "fe0e9bfa-1417-4e42-b2e8-57f6d4c7b7fa",
+          "parentKey": "6af4dcbc-d407-41c4-95e4-ce8b26fce20e"
+        },
+        {
+          "id": "fe0e9bfa-1417-4e42-b2e8-57f6d4c7b7fa",
+          "parent": "318ebd26-5774-465c-925f-9074c3689fa1",
+          "order": 5,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Sinal: resposta de mensagem</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "511a5cb1-d4bc-4bfa-af16-d5ad45f4af3f"
+        },
+        {
+          "id": "7c99cf2d-5fee-4e3f-89e0-e4a661a346fe",
+          "parent": "624cab41-457e-4344-bf13-8dc516561c94",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "8c73191f-fa30-420b-828e-8eddb2ca7f9e"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "624cab41-457e-4344-bf13-8dc516561c94"
+        },
+        {
+          "id": "0c8e21f6-5dc5-40a2-810d-705842de76f5",
+          "parentKey": "a128512f-4952-4e49-bf0d-24d189955e3c",
+          "parent": "a128512f-4952-4e49-bf0d-24d189955e3c",
+          "type": "transition",
+          "name": "Opportunity Not Found",
+          "attributes": {},
+          "order": 1,
+          "cat": "transition"
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "YJGVjLJFL5en2CkwZnGz",
+      "date_added": "2026-09-19T01:56:10.933Z",
+      "deleted": false,
+      "belongs_to": "workflow",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "actions": [
+        {
+          "workflow_id": "7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff",
+          "type": "add_to_workflow"
+        }
+      ],
+      "masterType": "highlevel",
+      "workflow_id": "7a1b4e6b-7e6e-4ed8-8ff4-cd98b88cdcff",
+      "name": "Cliente Respondeu",
+      "schedule_config": {},
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "message.type",
+          "value": 19,
+          "title": "Canal de resposta",
+          "type": "select"
+        }
+      ],
+      "type": "customer_reply",
+      "date_updated": "2026-09-22T12:41:36.344Z",
+      "active": false
+    }
+  ]
+}

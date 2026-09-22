@@ -1,0 +1,107 @@
+{
+  "workflow": {
+    "_id": "e51d1cd5-254b-420d-9cef-fff377eb291d",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE TAREFA",
+    "version": 5,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e51d1cd5-254b-420d-9cef-fff377eb291d/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe51d1cd5-254b-420d-9cef-fff377eb291d%2F5?alt=media&token=81fc3868-eab2-460a-ae5b-1bc0a27bb02b",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T12:02:15.586Z",
+    "updatedAt": "2026-09-22T12:06:16.470Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e51d1cd5-254b-420d-9cef-fff377eb291d/5",
+    "window": null,
+    "workflowNote": null,
+    "meta": null,
+    "id": "e51d1cd5-254b-420d-9cef-fff377eb291d",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "75072ffa-188a-4987-925b-99ca320f6949",
+          "name": "Add Task",
+          "type": "task-notification",
+          "attributes": {
+            "title": "[TESTE] tarefa variante A",
+            "body": "<p>variante A</p>",
+            "assignedTo": "contact.assigned_user",
+            "type": "task_notification",
+            "dueDate": "0",
+            "__customInputs__": {
+              "dueDate": "duration-picker"
+            }
+          },
+          "order": 0,
+          "parentKey": null,
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "cWZ5T68QnDn3Kv23cYig",
+      "date_added": "2026-09-22T12:02:16.274Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "e51d1cd5-254b-420d-9cef-fff377eb291d",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "teste-tarefa",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "e51d1cd5-254b-420d-9cef-fff377eb291d",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Teste Tarefa",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "75072ffa-188a-4987-925b-99ca320f6949",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T12:06:16.055Z",
+      "active": false
+    }
+  ]
+}

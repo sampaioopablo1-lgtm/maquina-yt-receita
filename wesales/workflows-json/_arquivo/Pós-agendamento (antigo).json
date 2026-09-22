@@ -1,0 +1,424 @@
+{
+  "workflow": {
+    "_id": "94a837d0-d87a-438e-95f1-c620d55f1a7f",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Pós-agendamento",
+    "status": "draft",
+    "version": 15,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/94a837d0-d87a-438e-95f1-c620d55f1a7f/15",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F94a837d0-d87a-438e-95f1-c620d55f1a7f%2F15?alt=media&token=07741013-3813-41eb-a02e-815b79d7692b",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "parentId": null,
+    "createdAt": "2026-09-19T06:25:39.790Z",
+    "updatedAt": "2026-09-22T12:44:16.348Z",
+    "deleted": false,
+    "allowMultipleOpportunity": false,
+    "creationSource": "workflow_ai",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "eventStartDate": null,
+    "window": null,
+    "workflowNote": null,
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/94a837d0-d87a-438e-95f1-c620d55f1a7f/15",
+    "senderAddress": null,
+    "meta": null,
+    "id": "94a837d0-d87a-438e-95f1-c620d55f1a7f",
+    "workflowData": {
+      "templates": [
+        {
+          "type": "find_opportunity",
+          "id": "b013a82c-3522-410e-acd8-138aa0368146",
+          "name": "Find Opportunity in FUNIL DE VENDAS",
+          "attributes": {
+            "transitions": [
+              {
+                "id": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+                "fields": {},
+                "name": "Opportunity Found",
+                "conditionType": "pre-defined",
+                "meta": {
+                  "__branchKey__": "predefined_Opportunity Found"
+                }
+              },
+              {
+                "id": "b664ffcb-32ca-49da-830a-b8a2aff98226",
+                "fields": {},
+                "name": "Opportunity Not Found",
+                "conditionType": "pre-defined",
+                "meta": {
+                  "__branchKey__": "predefined_Opportunity Not Found"
+                }
+              }
+            ],
+            "type": "find_opportunity",
+            "name": "Find Opportunity in FUNIL DE VENDAS",
+            "__name__": "Find Opportunity in FUNIL DE VENDAS",
+            "convertToMultipath": true,
+            "cat": "multi-path",
+            "sorting": "latest"
+          },
+          "cat": "multi-path",
+          "convertToMultipath": true,
+          "next": [
+            "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+            "b664ffcb-32ca-49da-830a-b8a2aff98226"
+          ],
+          "workflowsActionType": "INTERNAL",
+          "order": 0
+        },
+        {
+          "id": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "name": "Opportunity Found",
+          "type": "transition",
+          "next": "4ebacf58-8899-4d3f-8c7b-f0c722c1c75a",
+          "attributes": {},
+          "fields": {},
+          "conditionType": "pre-defined",
+          "meta": {
+            "__branchKey__": "predefined_Opportunity Found"
+          },
+          "parentKey": "b013a82c-3522-410e-acd8-138aa0368146",
+          "parent": "b013a82c-3522-410e-acd8-138aa0368146",
+          "cat": "transition",
+          "order": 1
+        },
+        {
+          "type": "create_opportunity",
+          "id": "4ebacf58-8899-4d3f-8c7b-f0c722c1c75a",
+          "name": "Criar/Atualizar Oportunidade em NEGOCIAR",
+          "next": "0acaccd7-b9ba-4d66-ba7d-3840c3488931",
+          "attributes": {
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
+            "opportunity_name": "{{contact.name}}",
+            "opportunity_source": "default",
+            "monetary_value": "",
+            "opportunity_status": "open"
+          },
+          "parentKey": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 0
+        },
+        {
+          "type": "update_contact_field",
+          "id": "0acaccd7-b9ba-4d66-ba7d-3840c3488931",
+          "name": "Atualizar campo Data agendado",
+          "next": "ccc69ab2-dec4-4787-beb6-4e0c57289c48",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "aY5cwLe9y13CEyv8ecwv",
+                "value": "{{right_now.date}}",
+                "title": "Data agendado",
+                "type": "date",
+                "date": "customDate"
+              },
+              {
+                "field": "chuJMRlKzY0Uq1f0lSkX",
+                "value": 6,
+                "title": "Prioridade",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "parentKey": "4ebacf58-8899-4d3f-8c7b-f0c722c1c75a",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 1
+        },
+        {
+          "type": "remove_from_workflow",
+          "id": "ccc69ab2-dec4-4787-beb6-4e0c57289c48",
+          "name": "Remover dos Workflows Paralelos",
+          "next": "aa09d74f-328d-4e2c-8578-03fb687d3858",
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "c64a808b-3040-431e-8015-642a265e1022",
+              "319ae603-2e33-4ea9-a8b7-fe63a914a40e",
+              "050052db-5ae8-43fe-8e94-b0f747563d57",
+              "b83870d3-5d3f-4eec-9447-4be1392c061c"
+            ]
+          },
+          "parentKey": "0acaccd7-b9ba-4d66-ba7d-3840c3488931",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 2
+        },
+        {
+          "type": "update_contact_field",
+          "id": "aa09d74f-328d-4e2c-8578-03fb687d3858",
+          "name": "Atualizar Prioridade para 5",
+          "next": "2ab37039-9026-4db9-9dad-60274daa91c2",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "chuJMRlKzY0Uq1f0lSkX",
+                "value": 5,
+                "title": "Prioridade",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "parentKey": "ccc69ab2-dec4-4787-beb6-4e0c57289c48",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 3
+        },
+        {
+          "type": "add_notes",
+          "id": "2ab37039-9026-4db9-9dad-60274daa91c2",
+          "name": "Adicionar Nota de qualificação",
+          "next": "01048366-e631-4a23-84fa-08f79c7ac8e4",
+          "attributes": {
+            "html": "REUNIÃO AGENDADA · nota {{contact.nota_de_qualificao}}/100 Agendado por: {{user.name}} · Para: {{appointment.start_time}} Empresa: {{contact.empresa}} · Segmento: {{contact.segmento}} Site: {{contact.site}} · IG: {{contact.instagram}} BANT Budget: {{contact.budget}} · Decisor: {{contact.decisor}} · Prazo: {{contact.prazo}} Diagnóstico Clientes novos/mês: {{contact.clientes_novos_por_ms}} Anúncios: {{contact.investe_em_anncios}} · Investimento: {{contact.investimento_mensal_em_anncios}} Plataformas: {{contact.plataformas_de_anncio}} Agência: {{contact.j_teve_agncia}} — {{contact.experincia_com_agncia}} Time: {{contact.tem_time_comercial}} · Atende leads: {{contact.quem_atende_os_leads}} CRM: {{contact.usa_crm}} · Canal principal: {{contact.canal_principal_de_venda}} Dor principal: {{contact.dor_principal}} Preenchido por: {{contact.qualificao}} Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}} conexões, atendeu na T{{contact.tentativa_n}}.",
+            "title": "Nota de qualificação",
+            "type": "add_notes"
+          },
+          "parentKey": "aa09d74f-328d-4e2c-8578-03fb687d3858",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 4
+        },
+        {
+          "type": "wait",
+          "id": "01048366-e631-4a23-84fa-08f79c7ac8e4",
+          "name": "Aguardar até 24h antes da reunião",
+          "next": "0289b545-4ea9-41fb-b96f-382244ade0a0",
+          "attributes": {
+            "type": "appointment",
+            "convertToMultipath": false,
+            "hybridActionType": "wait",
+            "isHybridAction": true,
+            "name": "Aguardar até 24h antes da reunião",
+            "cat": "action",
+            "transitions": [],
+            "appointmentStartAfter": {
+              "when": "before",
+              "type": "hours",
+              "value": 24,
+              "action_in": 0,
+              "distributed": {
+                "months": 0,
+                "days": 1,
+                "hours": 0,
+                "minutes": 0
+              }
+            },
+            "appointmentCondition": "next",
+            "appointmentSpecificStep": ""
+          },
+          "parentKey": "2ab37039-9026-4db9-9dad-60274daa91c2",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 5
+        },
+        {
+          "type": "wait",
+          "id": "0289b545-4ea9-41fb-b96f-382244ade0a0",
+          "name": "Aguardar até 3h antes da reunião",
+          "next": "9ab07f42-9bd5-46a8-8e88-bf581372b8af",
+          "attributes": {
+            "type": "time",
+            "convertToMultipath": false,
+            "hybridActionType": "wait",
+            "isHybridAction": true,
+            "name": "Aguardar até 3h antes da reunião",
+            "cat": "action",
+            "transitions": [],
+            "startAfter": {
+              "when": "after",
+              "type": "hour",
+              "value": 3
+            },
+            "timePeriodInputMode": "standard",
+            "unitInputMode": "standard"
+          },
+          "parentKey": "01048366-e631-4a23-84fa-08f79c7ac8e4",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 6
+        },
+        {
+          "type": "wait",
+          "id": "9ab07f42-9bd5-46a8-8e88-bf581372b8af",
+          "name": "Aguardar até 30min antes do compromisso",
+          "next": "a8e12934-1b0a-4cfd-91a9-06af370d3232",
+          "attributes": {
+            "type": "appointment",
+            "convertToMultipath": false,
+            "hybridActionType": "wait",
+            "isHybridAction": true,
+            "name": "Aguardar até 30min antes do compromisso",
+            "cat": "action",
+            "transitions": [],
+            "appointmentStartAfter": {
+              "when": "before",
+              "type": "minutes",
+              "value": 30,
+              "action_in": 0
+            },
+            "appointmentCondition": "next",
+            "appointmentSpecificStep": ""
+          },
+          "parentKey": "0289b545-4ea9-41fb-b96f-382244ade0a0",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 7
+        },
+        {
+          "type": "assign_user",
+          "id": "a8e12934-1b0a-4cfd-91a9-06af370d3232",
+          "name": "Atribuir contato ao dono do horário",
+          "next": "489089c8-56e6-4d41-9921-2aa127cc0da5",
+          "attributes": {
+            "only_unassigned_contact": false,
+            "total_index": 1,
+            "traffic_split": "equally",
+            "traffic_weightage": {
+              "JdvhvOTEBTvUyRi0BXU8": 1
+            },
+            "traffic_index": [
+              {
+                "id": "JdvhvOTEBTvUyRi0BXU8",
+                "indexes": [
+                  1
+                ]
+              }
+            ],
+            "user_list": [
+              "JdvhvOTEBTvUyRi0BXU8"
+            ],
+            "type": "assign_user"
+          },
+          "parentKey": "9ab07f42-9bd5-46a8-8e88-bf581372b8af",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 8
+        },
+        {
+          "type": "internal_notification",
+          "id": "489089c8-56e6-4d41-9921-2aa127cc0da5",
+          "name": "Notificação interna ao closer",
+          "next": "cce2da33-49aa-4b7b-8056-d946bf1ff78f",
+          "attributes": {
+            "type": "notification",
+            "email": null,
+            "sms": null,
+            "userType": "assign",
+            "whatsapp": null,
+            "notification": {
+              "title": "Reunião Confirmada",
+              "body": "Reunião agendada e confirmada para o contato.\nVerifique os detalhes do compromisso.",
+              "redirectPage": "contact",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ],
+              "alsoNotifyContactFollowers": false,
+              "alsoNotifyOpportunityFollowers": false
+            }
+          },
+          "parentKey": "a8e12934-1b0a-4cfd-91a9-06af370d3232",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 9
+        },
+        {
+          "type": "add_notes",
+          "id": "cce2da33-49aa-4b7b-8056-d946bf1ff78f",
+          "name": "Autoauditoria checklist (nota interna)",
+          "attributes": {
+            "html": "[CHECKLIST DE AUTOAUDITORIA: Confira abaixo se todos os nós estão configurados conforme solicitado. 1 - Find opportunity (pipeline FUNIL DE VENDAS): correto; 2 - Criar/atualizar oportunidade no pipeline/etapa: correto; 3 - Atualizar campo Data agendado: correto; 4 - Remover dos workflows listados: correto; 5 - Nota de qualificação (custom code): correto, campos e critérios conforme orientado; 6 - Atualizar campo Prioridade=5: correto; 7 - Nota de agendamento: correto, com variáveis detalhadas; 8 a 14 - Mensagens e waits WhatsApp: corretas, tempos e textos; 15 - Atribuir usuário: correto; 16 - Notificação interna: correto. Se algum campo/ação estiver incompleto, revisar antes da publicação.",
+            "title": "Checklist de Autoauditoria",
+            "color": "#FEF0C7"
+          },
+          "parentKey": "489089c8-56e6-4d41-9921-2aa127cc0da5",
+          "parent": "355904f5-e2ee-43bf-bc92-d94812e57a4a",
+          "order": 10
+        },
+        {
+          "id": "b664ffcb-32ca-49da-830a-b8a2aff98226",
+          "name": "Opportunity Not Found",
+          "type": "transition",
+          "attributes": {},
+          "fields": {},
+          "conditionType": "pre-defined",
+          "meta": {
+            "__branchKey__": "predefined_Opportunity Not Found"
+          },
+          "parentKey": "b013a82c-3522-410e-acd8-138aa0368146",
+          "parent": "b013a82c-3522-410e-acd8-138aa0368146",
+          "cat": "transition",
+          "order": 1
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "NxkRVNnu6HFMPAyhxHMV",
+      "date_added": "2026-09-19T06:29:42.250Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "94a837d0-d87a-438e-95f1-c620d55f1a7f",
+          "type": "add_to_workflow"
+        }
+      ],
+      "type": "appointment",
+      "masterType": "highlevel",
+      "workflow_id": "94a837d0-d87a-438e-95f1-c620d55f1a7f",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Status da reunião com closer é Confirmed/Booked/New",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "appointment.eventType",
+          "value": "normal",
+          "title": "Tipo de evento",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "calendar.id",
+          "value": "3uNQFjCEDe7b4gKZJuOZ",
+          "title": "In calendar",
+          "type": "select",
+          "id": "b6a669b9-1f3d-4ab1-989d-c383ee3ca0c1"
+        },
+        {
+          "operator": "==",
+          "field": "appointment.status",
+          "value": "confirmed",
+          "title": "Appointment status is",
+          "type": "select",
+          "id": "ad120252-8bf6-4a05-8cd8-a4746be3b8ef"
+        },
+        {
+          "operator": "is-any-of",
+          "field": "contactMode",
+          "value": [
+            "contact"
+          ],
+          "type": "input"
+        }
+      ],
+      "date_updated": "2026-09-22T12:44:15.928Z",
+      "active": false
+    }
+  ]
+}

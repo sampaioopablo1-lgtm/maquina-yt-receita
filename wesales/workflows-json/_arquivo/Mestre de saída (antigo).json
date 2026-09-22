@@ -1,0 +1,360 @@
+{
+  "workflow": {
+    "_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Mestre de saída",
+    "status": "draft",
+    "version": 5,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/30da2c98-5f84-4af9-9ed2-71f628dc7c1e/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F30da2c98-5f84-4af9-9ed2-71f628dc7c1e%2F5?alt=media&token=1b1f1ee8-344c-43bf-a120-899c367793e9",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "parentId": null,
+    "createdAt": "2026-09-19T02:27:47.528Z",
+    "updatedAt": "2026-09-22T12:39:32.464Z",
+    "deleted": false,
+    "allowMultipleOpportunity": true,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "eventStartDate": null,
+    "window": null,
+    "workflowNote": null,
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/30da2c98-5f84-4af9-9ed2-71f628dc7c1e/5",
+    "meta": null,
+    "senderAddress": null,
+    "id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "d7012ebb-0ae6-41ee-90bb-464cbf0ae16a",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "fd0fa948-c854-42b3-9e1b-e738fd215a01",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "160078bb-c335-410a-96c9-986587e6cb1a",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "c66250f7-969f-4657-baa9-908a9d5b4e72",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "8b8af57b-ec43-4c37-ac98-bb1c56c68c83",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "fd0fa948-c854-42b3-9e1b-e738fd215a01",
+            "0249ac7c-6263-49ca-841f-e713ca5ca8a0"
+          ],
+          "comments": [],
+          "nodeType": "condition-node"
+        },
+        {
+          "id": "fd0fa948-c854-42b3-9e1b-e738fd215a01",
+          "parent": "d7012ebb-0ae6-41ee-90bb-464cbf0ae16a",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "0249ac7c-6263-49ca-841f-e713ca5ca8a0"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "d7012ebb-0ae6-41ee-90bb-464cbf0ae16a"
+        },
+        {
+          "id": "0249ac7c-6263-49ca-841f-e713ca5ca8a0",
+          "parent": "d7012ebb-0ae6-41ee-90bb-464cbf0ae16a",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "3c0eda0b-abd3-4daa-9448-2119a2674ca5",
+          "sibling": [
+            "fd0fa948-c854-42b3-9e1b-e738fd215a01"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "d7012ebb-0ae6-41ee-90bb-464cbf0ae16a"
+        },
+        {
+          "id": "3c0eda0b-abd3-4daa-9448-2119a2674ca5",
+          "parent": "0249ac7c-6263-49ca-841f-e713ca5ca8a0",
+          "order": 0,
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "ea0a49b7-f3a9-4d8a-8acd-802975d6db03"
+            ]
+          },
+          "name": "Remove from Workflow",
+          "type": "remove_from_workflow",
+          "parentKey": "0249ac7c-6263-49ca-841f-e713ca5ca8a0",
+          "next": "867c25b2-c437-4db8-8b90-ecb7c3ad25a1"
+        },
+        {
+          "id": "867c25b2-c437-4db8-8b90-ecb7c3ad25a1",
+          "parent": "0249ac7c-6263-49ca-841f-e713ca5ca8a0",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-quente",
+              "fila-tel",
+              "fila-wa",
+              "reengajamento-ativo",
+              "pausado",
+              "fila-linkedin",
+              "atraso-1a-tentativa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "af04b0d5-4ee4-4f74-ad15-146b2a11886f",
+          "parentKey": "3c0eda0b-abd3-4daa-9448-2119a2674ca5"
+        },
+        {
+          "id": "af04b0d5-4ee4-4f74-ad15-146b2a11886f",
+          "parent": "0249ac7c-6263-49ca-841f-e713ca5ca8a0",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "efea877a-a5f2-457a-82d2-19dfed8593aa",
+          "parentKey": "867c25b2-c437-4db8-8b90-ecb7c3ad25a1"
+        },
+        {
+          "id": "efea877a-a5f2-457a-82d2-19dfed8593aa",
+          "parent": "0249ac7c-6263-49ca-841f-e713ca5ca8a0",
+          "order": 3,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Saída de cadência · etapa: <span data-cv-variable=\"opportunity.pipeline_stage\" data-cv-token=\"true\">{{opportunity.pipeline_stage}}</span> · status: <span data-cv-variable=\"opportunity.status\" data-cv-token=\"true\">{{opportunity.status}}</span> · tentativa <span data-cv-variable=\"contact.tentativa_n\" data-cv-token=\"true\">{{contact.tentativa_n}}</span> · resultado <span data-cv-variable=\"contact.resultado_da_tentativa\" data-cv-token=\"true\">{{contact.resultado_da_tentativa}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Saída de cadência"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "af04b0d5-4ee4-4f74-ad15-146b2a11886f"
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "W03NBwV0jIEcJZnEO5gj",
+      "date_added": "2026-09-19T02:34:33.999Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+          "type": "add_to_workflow"
+        }
+      ],
+      "type": "opportunity_status_changed",
+      "masterType": "highlevel",
+      "workflow_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Status Da Oportunidade Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.status",
+          "value": "lost",
+          "title": "Movido para o status",
+          "type": "select",
+          "id": "moved-to-status"
+        }
+      ],
+      "date_updated": "2026-09-22T12:39:31.843Z",
+      "active": false
+    },
+    {
+      "id": "sZ3hzGC40ThKyTq8SaJm",
+      "date_added": "2026-09-19T02:28:41.918Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        }
+      ],
+      "type": "pipeline_stage_updated",
+      "masterType": "highlevel",
+      "workflow_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Etapa Do Funil Alterada",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "date_updated": "2026-09-22T12:39:31.886Z",
+      "active": false
+    },
+    {
+      "id": "uD7g0L2Unbck1LZkpvSc",
+      "date_added": "2026-09-19T02:34:01.276Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.status",
+          "value": "abandoned",
+          "title": "Movido para o status",
+          "type": "select",
+          "id": "moved-to-status"
+        }
+      ],
+      "type": "opportunity_status_changed",
+      "masterType": "highlevel",
+      "workflow_id": "30da2c98-5f84-4af9-9ed2-71f628dc7c1e",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Status Da Oportunidade Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "date_updated": "2026-09-22T12:39:31.929Z",
+      "active": false
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "workflow": {
+    "_id": "6214ab6e-3c6c-4d88-a46c-6c669301ec3c",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE ACOES",
+    "version": 68,
+    "dataVersion": 7,
+    "allowMultiple": false,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/6214ab6e-3c6c-4d88-a46c-6c669301ec3c/68",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F6214ab6e-3c6c-4d88-a46c-6c669301ec3c%2F68?alt=media&token=e7ac50b5-0d46-418e-83f3-b6edf5d913ea",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T00:25:53.537Z",
+    "updatedAt": "2026-09-22T01:39:42.783Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": null,
+    "window": null,
+    "workflowNote": null,
+    "meta": null,
+    "id": "6214ab6e-3c6c-4d88-a46c-6c669301ec3c",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "1dd984b1-3429-4ba9-822e-511897c292e9",
+          "name": "Wait",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "name": "Wait",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": [],
+            "type": "time",
+            "startAfter": {
+              "type": "minutes",
+              "value": 1,
+              "when": "after"
+            },
+            "window": {
+              "days": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "startHour": 10,
+              "startMinute": 30,
+              "endHour": 18,
+              "endMinute": 30
+            }
+          },
+          "order": 0,
+          "parentKey": null
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": []
+}
