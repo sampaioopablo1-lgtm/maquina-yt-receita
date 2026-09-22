@@ -671,6 +671,7 @@ ainda não existe:
 | **`Pós-ligação`, ramo `Pediu retorno`, nós 4 e 4b — dá para fazer HOJE** | No nó 4, apontar o vencimento da tarefa `[RETORNO] Ligar de volta` para o campo `Data de retorno` (e não para hoje+1 fixo). Depois, inserir o nó 4b: no **corpo** da tarefa, `Horário combinado: {{contact.hora_do_retorno}}`. **Enquanto estiver com a tela aberta, confira uma coisa e anote:** o seletor de vencimento do `Add Task` oferece hora vinda de campo personalizado `TEXT`? Se oferecer, use `Hora do retorno` ali e o nó 4b fica opcional | L-01 deixou de ser falta de campo em 21/09 23:18, quando `Hora do retorno` (`TEXT`, `HH:MM`) foi criado na tela — o par `DATE`+`TEXT` de S-01 está completo (`CONFERENCIA-CAMPOS.md`, Tabela K). O que sobrou é fiação: hoje a tarefa vence sempre em hoje+1 e o horário combinado com o lead não chega a quem vai ligar. O corpo da tarefa funciona com certeza; hora dinâmica no vencimento é a única parte não verificada, e é por isso que a conferência vai junto |
 | **`Negociação Estagnada` — workflow novo, dá para fazer quando alguém abrir a tela** | Montar o workflow inteiro (`build-wesales.md`, seção 2.28; F-13, `ROADMAP-SALES-ENGAGEMENT.md`) e a Smart List `Saúde — Negociação Estagnada` (seção 8.28) | Fecha a única transição do funil (`NOVO LEAD` → `FORMALIZAR`) que ficou sem monitor: reunião qualificada pelo closer (`Sim`) sem virar `won` nem `lost` em 3 dias. Depende da tag `negociacao-estagnada` (T-21) existir na tela — mesma fila das outras cinco tags do F-05, ainda `[ ]` em `APROVADO.md` |
 | **`Mestre de saída`, nó 4 — dá para fazer HOJE, mas depende do workflow novo existir para valer algo** | Somar `negociacao-estagnada` à lista de `Remove Contact Tag` do nó 4 (F-13, seção 2.28) | Achado em 22/09 ao desenhar o F-13: mesmo raciocínio das linhas `fila-travada`/`conectar-estagnado`/`retorno-vencido` — este alerta também se resolve numa saída de cadência de verdade (fechar `won`, sair por `lost`/`abandoned`, ou o veredito ser corrigido), que o nó 4 já alcança pela via normal. Não precisa do tratamento incondicional do nó 0 que `novo-lead-estagnado`/`agendar-estagnado` exigem — `NEGOCIAR` não está na lista de no-op do nó 1 |
+| **`Interceptação de Sinal — Clique v2` e `— Resposta v2` (publicados, 15/18 nós), novo nó 5b — dá para fazer HOJE** | Depois do nó 5 (`Update Contact Field: Sinal recebido`), inserir `Update Contact Field: Data e hora do sinal = {{right_now}}` (`build-wesales.md`, seção 2.9.2) | Restaurado em 22/09/2026: o campo tinha sido descartado em 19/09 por um limite do **seletor da tela** (não parecia oferecer data/hora atual em campo `TEXT`) — mas a montagem destes dois workflows já saiu pela API interna, que grava o valor direto, e `Entrada em` (mesmo tipo `TEXT`) prova que `{{right_now}}` funciona nesse caminho. Sem este nó, a lista `Resposta por Template` (8.13, R-04) sempre mostra a coluna `Data e hora do sinal` vazia, e uma futura auditoria do F-05 perde o único carimbo de "quando o sinal chegou" que não depende da hora nativa de uma tarefa |
 
 **Em andamento, incompleto:** `Pós-ligação` (seção 4). Primeira tentativa
 via IA generativa do construtor de workflow ("Construa usando IA") saiu
@@ -943,8 +944,12 @@ ficaram em rascunho, sem nenhum nó alterado — reversível com um clique).
 | `Recuperação de No-show` | 40 | | `Fila Travada` | 8 |
 | `Loop do closer v2` | 31 | | `Lead Esquecido` / `AGENDAR Estagnado` | 7 + 7 |
 | `CONECTAR Estagnado` | 20 | | `Registro de Comparecimento` | 6 |
-| `Interceptação — Resposta v2` | 18 | | `Contador de Toques` | 4 |
-| `Interceptação — Clique v2` | 15 | | `Porta de Entrada` | 1 |
+| `Interceptação — Resposta v2` | 18* | | `Contador de Toques` | 4 |
+| `Interceptação — Clique v2` | 15* | | `Porta de Entrada` | 1 |
+
+*Contagem de 22/09/2026, antes do retoque do nó 5b (`Data e hora do sinal`,
+tabela de retoques acima) — a tela ainda tem 15/18, sobe para 16/19 quando
+alguém aplicar o retoque.
 
 **Provado rodando, com rastro lido pela API:** `Contador de Toques`,
 `Loop do closer v2` (nos dois ramos), a `Cadência 12x30` inteira (nó 0 →

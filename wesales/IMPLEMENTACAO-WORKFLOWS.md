@@ -116,7 +116,7 @@ nunca a transliteração.
 | `Conexões telefone` / `Conexões WhatsApp` | `conexes_telefone` / `conexes_whatsapp` | NUMERICAL | — |
 | `Total de ligações` / `Total de conexões` | `total_de_ligaes` / `total_de_conexes` | NUMERICAL | — |
 | `Sinal recebido` | `sinal_recebido` | SINGLE_OPTIONS | `Clique em link` · `Resposta de mensagem` |
-| `Data e hora do sinal` | `data_e_hora_do_sinal` | TEXT | não usado desde 19/09 (seção 2.9.2) |
+| `Data e hora do sinal` | `data_e_hora_do_sinal` | TEXT | `{{right_now}}`, restaurado em 22/09/2026 (`build-wesales.md`, seção 2.9.2, nó 5b) — o descarte de 19/09 supunha que o seletor da tela não oferecia data/hora atual em campo `TEXT`; a montagem por API prova o contrário |
 | `Nota de qualificação` | `nota_de_qualificao` | NUMERICAL | 0–100 |
 | `Reunião foi qualificada` | `reunio_foi_qualificada` | SINGLE_OPTIONS | `Sim` · `Não` · `Parcial` |
 | `Motivo da desqualificação` | `motivo_da_desqualificao` | SINGLE_OPTIONS | `Sem fit` · `Sem budget` · `Timing errado` · `Não é decisor` · `Concorrente` · `Duplicado ou já cliente` |

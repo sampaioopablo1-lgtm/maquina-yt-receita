@@ -2973,3 +2973,45 @@ que ele segue do tamanho que tinha na última rodada — o mesmo raciocínio já
 valeu para "premissa técnica represada" (F-05, F-06), agora vale também
 para "decisão do dono represada", que pode ter sido parcialmente resolvida
 por um caminho que não passou pela decisão em si.
+
+**Sessão automática seguinte, 22/09/2026 — sem item numerado novo; corrigido
+um merge field órfão achado pela varredura de coerência de sempre, o único
+tipo de trabalho que sobrava para uma sessão sem tela e sem G-03/G-04/F-09/
+F-10/R-14 desbloqueados.** CRM reconfirmado por API: 55 campos (sem mudança
+desde a rodada anterior), pipeline com as mesmas 5 etapas, 50 oportunidades
+(45 `NOVO LEAD` `open` + 2 `NEGOCIAR` `open` + 1 `NEGOCIAR` `lost` + 2
+`CONECTAR` `lost` de teste — a soma agora bate exata com o total, a mesma
+correção que o F-14 já tinha feito para a frase deste roadmap se propagou
+sozinha para o dado real), 50 contatos, `Carlos Andrade` (21/09 09:17)
+ainda o lead mais novo — entrada segue parada, F-10 sem novidade. O achado
+não veio de nome de etapa nem de `fieldKey`: veio de reler, campo por campo,
+se cada um dos 55 ainda tinha o mesmo "quem escreve" que `campos-e-tags.md`
+promete — `Data e hora do sinal` (C-14) prometia `Workflow (F-01)` desde o
+início, mas `build-wesales.md` (seção 2.9.2) tinha descartado o nó que o
+escreve em 19/09/2026, por um limite do **seletor da tela** ao montar ao
+vivo naquele dia (não parecia oferecer "data/hora atual" para campo `TEXT`).
+`IMPLEMENTACAO-WORKFLOWS.md` já registrava isso ("não usado desde 19/09"),
+mas `campos-e-tags.md` nunca soube, e a Smart List `Resposta por Template`
+(8.13, "Pronto quando" do R-04 já fechado) tinha — e teria para sempre —
+uma coluna vazia sem ninguém notar, porque o workflow não quebra, só um
+carimbo nunca aparece. **O que destravou a correção, e não é óbvio:** a
+premissa de 19/09 era sobre o *seletor clicável* da tela, e a montagem deste
+projeto passou a sair também pela API interna a partir de 21/09/2026 — que
+grava o valor direto no payload, sem depender do seletor. Essa mesma API já
+tinha provado, rodando de verdade, que `{{right_now}}` escreve num campo
+`TEXT` de contato (`Entrada em`, C-18, mesmo tipo de C-14, carimbado ao
+promover um lead de teste para `CONECTAR` — `GUIA-MONTAGEM.md`, "Testado de
+ponta a ponta"). Ninguém tinha cruzado essa prova com a pendência antiga do
+C-14 porque as duas viviam em documentos diferentes. Restaurado o nó 5b em
+`build-wesales.md` (seção 2.9.2, herdado por 2.9.3), retoque registrado em
+`GUIA-MONTAGEM.md` para os dois workflows já publicados (`Interceptação —
+Clique v2`/`— Resposta v2`, 15/18 nós na tela, sobe para 16/19 quando
+aplicado), e `IMPLEMENTACAO-WORKFLOWS.md` corrigido para não repetir "não
+usado". Zero campo novo (C-14 já existe desde 18/09/2026), zero tag, zero
+escrita no CRM: item de documentação e retoque de spec, não depende de
+`APROVADO.md`. **Regra prática, generalizável:** uma premissa técnica que
+travou uma decisão de montagem não é permanente só porque ninguém a
+revisitou — o F-05 e o F-06 já tinham mostrado isso para "esperar volume" e
+"esperar recurso nativo"; esta rodada mostra que o mesmo vale para "esperar
+um caminho de montagem melhor que o que existia no dia em que a premissa
+foi escrita".

@@ -2,6 +2,48 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Uma premissa técnica descartada em 19/09 (`{{right_now}}` em campo `TEXT`) morreu com o método de montagem que a gerou, não com o teste que a refutaria — 22/09/2026, sessão automática
+
+`Data e hora do sinal` (C-14) foi descartada do nó 2.9.2 em 19/09/2026
+porque, **montando ao vivo na tela** naquele dia, o seletor de valor de
+`Update Contact Field` não parecia oferecer "data/hora atual" para um campo
+`TEXT`. A dúvida ficou registrada como tecnicamente aberta (entrada "Pesquisa
+que corrobora (não fecha)..." abaixo) — correto para o método de montagem de
+19/09. O que ninguém cruzou é que **o método mudou** dois dias depois: a
+partir de 21/09/2026 a montagem passou a sair também pela API interna
+(`wesales/tools/`), que grava o valor do campo direto no payload sem passar
+pelo seletor clicável. E essa mesma API já tinha **provado, rodando de
+verdade**, que `{{right_now}}` escreve sem problema num campo `TEXT` de
+contato — `Entrada em` (C-18, mesmo tipo) foi carimbado com sucesso ao
+promover um lead de teste (`GUIA-MONTAGEM.md`, "Testado de ponta a ponta").
+A prova já existia desde 21/09; só não tinha sido cruzada com a pendência do
+C-14, porque uma vivia em `build-wesales.md` (seção 2.9.2) e a outra em
+`GUIA-MONTAGEM.md`, e nada disparava a comparação.
+
+**Consequência, achada só nesta rodada:** `campos-e-tags.md` nunca soube do
+descarte (continuou prometendo "Workflow (F-01)" o tempo todo) e
+`IMPLEMENTACAO-WORKFLOWS.md` sabia mas não linkava a causa — os dois
+documentos discordavam de `build-wesales.md` sem que nenhuma varredura de
+nome de etapa ou `fieldKey` pegasse isso, porque não é nome errado nem
+chave errada: é uma linha de spec que um documento aplicou e os outros dois
+não. A Smart List `Resposta por Template` (8.13) tinha uma coluna
+condenada a ficar vazia para sempre, num workflow que não quebra — o
+mesmo padrão de "achado só por ausência" que várias outras entradas aqui já
+descrevem, aqui numa coluna de relatório em vez de um monitor.
+
+**Regra prática, generalizável:** quando uma premissa técnica nasce de um
+teste **na tela** ("montando ao vivo, o seletor não oferece X"), ela vale
+para aquele método de montagem, não para sempre. Se o projeto ganhar um
+segundo método de montagem depois (aqui, a API interna), releia as
+premissas que nasceram do primeiro método antes de assumir que ainda
+travam — o mesmo tipo de coisa que já rendeu o F-05 (premissa de "esperar
+data dinâmica" resolvida por busca melhor) e o F-06 (premissa de "sem
+duração nativa" resolvida por busca melhor), agora por mudança de
+**método**, não de busca. Corrigido em `build-wesales.md` (seção 2.9.2, nó
+5b), `GUIA-MONTAGEM.md` (tabela de retoques + contagem de nós marcada com
+`*`) e `IMPLEMENTACAO-WORKFLOWS.md` (linha do C-14). Detalhe completo em
+`ROADMAP-SALES-ENGAGEMENT.md`, "Ordem sugerida", entrada de 22/09/2026.
+
 ## Li as chaves dos 4 campos novos antes de alguém precisar delas — é a única hora barata — 22/09/2026, sessão automática
 
 O dono criou os 4 campos do W20 entre 16:38 e 16:56 (base de 51 → 55). Nenhum

@@ -1138,30 +1138,42 @@ link do calendário"; não vê que o link virou sensor.
 workflow — o If/Else não enxerga a categoria "Opportunities" até existir uma
 ação `Find opportunity` antes dele (o GHL mostra um aviso pedindo isso). E o
 GHL não expõe "data/hora atual" como valor inserível num campo de contato de
-texto (só Custom Values fixos e outros campos) — por isso `Data e hora do
-sinal` saiu da lista de nós; Tarefa e Nota já carimbam a própria data de
-criação nativamente, o que cobre a mesma necessidade de auditoria sem
-duplicar em campo. A tabela abaixo é a sequência real, não a original.
+texto pelo seletor da tela (só Custom Values fixos e outros campos) — por
+isso `Data e hora do sinal` **chegou a sair** da lista de nós naquele dia
+(**revertido em 22/09/2026, ver nota logo abaixo — o nó 5b da tabela volta a
+gravá-lo**). Tarefa e Nota continuam carimbando a própria data de criação
+nativamente, o que já cobria parte da mesma necessidade de auditoria mesmo
+sem o campo. A tabela abaixo é a sequência real, não a original.
 
-**Consequência ainda não resolvida, e ela é grande:** se "data/hora atual" não
-entra em campo de texto, `{{right_now}}` — usado em **17 nós** deste documento
-para carimbar `Entrada em` (C-18), `1ª tentativa em` (C-19) e o reset da
-reativação — não existe também, e aí o R-02 (speed-to-lead) e o relógio da
-reativação do R-08 não se montam como estão escritos. Ou o achado acima é mais
-estreito do que parece (o seletor pode oferecer data/hora atual em campo do tipo
-`DATE`, ou sob outro nome que não "Custom Value"), ou esses 17 nós estão
-errados. **Confira na tela antes de montar a seção 2.3:** abra
-`Update Contact Field` → campo `Entrada em` → veja se o seletor de valor
-oferece algo como "Right Now"/"Current date and time".
+**Consequência que parecia grande em 19/09/2026, e por que não travou nada —
+achado revendo o item em 22/09/2026:** esta seção chegou a descartar
+`Data e hora do sinal` (C-14) da lista de nós porque, montando ao vivo na
+tela naquele dia, o seletor de valor de `Update Contact Field` não parecia
+oferecer "data/hora atual" para um campo `TEXT`. A dúvida ficou registrada
+como aberta (`APRENDIZADOS-CRM.md`, "Pesquisa que corrobora (não fecha) o
+`{{right_now}}`") porque só quem tem a tela aberta fecharia — e ninguém tinha
+motivo para reabrir, já que nenhum destes dois workflows tinha sido publicado.
 
-Se não oferecer, o caminho desenhado é este, e ele não perde o que importa: o
-Alerta de Speed-to-lead (seção 2.11) nunca precisou da hora exata — ele é um
-relógio que espera 1h e pergunta se `1ª tentativa em` continua vazio. Então
-`1ª tentativa em` e `Entrada em` viram **marca**, não carimbo: grave um valor
-fixo (`sim`) em vez de data/hora, e a hora exata fica onde o GHL já carimba de
-graça — a criação da tarefa e da nota. Perde-se o "quantos minutos", mantém-se
-o "furou 1h ou não", que é a pergunta que a operação responde. Os nomes dos
-campos continuam valendo; só o que se escreve neles muda.
+O motivo de reabrir agora: a montagem deste projeto **deixou de ser só clique
+manual** depois de 19/09/2026 — passou a sair também pela API interna
+(`wesales/tools/`, `GUIA-MONTAGEM.md`, "Estado da montagem em 21/09/2026"),
+que grava o valor do campo direto no payload, sem depender do que o seletor
+visual oferece na tela. E essa mesma API **já provou, rodando de verdade**,
+que `{{right_now}}` escreve num campo `TEXT` de contato: `Entrada em` (C-18,
+mesmo tipo `TEXT` de C-14) foi carimbado com sucesso ao promover um contato de
+teste para `CONECTAR` (`GUIA-MONTAGEM.md`, "Testado de ponta a ponta, com
+rastro lido pela API"). A limitação de 19/09 era do **seletor clicável**, não
+do campo nem do token — e o caminho de montagem que a operação usa hoje não
+passa mais por aquele seletor. Os 17 nós que já contavam com
+`{{right_now}}` em campo `TEXT` (inclusive `Entrada em`/`1ª tentativa em`, R-02)
+estavam certos o tempo todo; **`Data e hora do sinal` é quem estava descartado
+sem precisar** — restaurado abaixo, nó 5b.
+
+A fallback "marca, não carimbo" (gravar `sim` em vez da hora) que esta seção
+chegou a desenhar como plano B nunca foi necessária e não é mais o caminho:
+nenhum nó deste documento usa esse formato hoje, `Entrada em`/`1ª tentativa
+em` gravam `{{right_now}}` completo desde a primeira versão (seção 2.3, nó
+0.6, e os resets da seção 2.4/2.10), e é isso que está publicado e testado.
 
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
@@ -1171,6 +1183,7 @@ campos continuam valendo; só o que se escreve neles muda.
 | 3c | Portão de frequência (F-04) | If/Else | `Toques na semana` **≥** 6 → ramo verdadeiro: pula direto para o nó 9 · ramo falso: segue para o nó 4 |
 | 4 | Prioridade | Update Contact Field | `Prioridade` = 5 |
 | 5 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` |
+| 5b | Carimbo do sinal | Update Contact Field | `Data e hora do sinal` = `{{right_now}}` — restaurado em 22/09/2026, ver nota acima; formato igual ao de C-18/C-19 |
 | 6 | Fila | Add Contact Tag | `fila-quente` |
 | 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) → Depois: Add Contact Tag `toque` (F-04, seção 2.19) |
 | 8 | Aviso | Internal Notification | Para o SDR: `{{contact.first_name}} clicou no link de agendar agora. Prioridade 5.` |
