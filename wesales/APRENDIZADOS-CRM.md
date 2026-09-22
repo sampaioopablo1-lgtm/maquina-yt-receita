@@ -2,6 +2,42 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Os 4 campos do W20 (C-29 a C-32) já existem — a leitura de 16:13 UTC que dizia "continuam ausentes" venceu em menos de uma hora — 22/09/2026, sessão automática
+
+Rotina de sempre (reler premissa represada antes de assumir que o item segue
+do tamanho de antes): `locations_get-custom-fields` nesta rodada devolve
+**55 campos**, não 51. Os 4 novos são exatamente os que o F-06/W20 esperava —
+`Duração da ligação` (`PLjkuvnoDk7Hvt4qv0a8`), `Conexão real`
+(`7wtFfDDxOpYCfHzBsZXP`), `Conexões reais telefone`
+(`2BSLMqty4LEwdoyNTdU8`) e `Ligações com transcrição`
+(`JejovPl6Vf0SBtAiVIpw`) — todos com `dateAdded` entre 16:38 e 16:56 UTC de
+hoje, ou seja, **depois** da leitura das 16:13 UTC que registrou "os campos
+C-29 a C-32 continuam ausentes" (entrada abaixo, "A sessão na nuvem não tem
+como montar W18/W19/W20…") e **depois** do último commit desta sessão na
+nuvem (`0539aa3`, 16:35). Quem criou foi o dono, direto na tela — mesma
+classe de evento já registrada aqui para os 5 campos de S-01/C-25–C-28
+("Fase 2 começou fora de ordem") e para as 6 tags do F-05/F-13
+(`GUIA-MONTAGEM.md`, "Estado final em 22/09/2026", item 3): trabalho que
+acontece fora desta sessão e não espera o documento ser lido de novo para
+existir.
+
+**Não escrevi nada:** os quatro campos existem e estão vazios (nenhum
+contato lido tem valor neles ainda) — não é o mesmo caso das 6 tags (que já
+apareciam aplicadas em workflow publicado); aqui é só a estrutura, pronta
+para receber valor quando o W20 rodar. **O que isso destrava e o que não
+destrava, exatamente:** o pré-requisito "campo existe" do F-06/W20 está
+resolvido; o pré-requisito "toda ligação de saída gravada" (LGPD + custo do
+add-on Voice Intelligence, `APROVADO.md`) **não** — é ele, não mais a falta
+de campo, que segura o W20 agora. Registrado em `APROVADO.md` (linha dos
+quatro campos) sem marcar `[x]`, pela mesma regra de sempre: campo na tela
+sem `[x]` aqui é o dono decidindo, não a rotina se autorizando.
+
+**Regra prática, generalizável, mesma do achado do G-04 nesta rodada:**
+quando parte do trabalho acontece fora desta sessão (a tela, o PC do dono),
+uma leitura de 3 horas atrás pode já estar errada — reconferir por API
+antes de repetir "continua ausente"/"aguardando o dono" é mais barato que
+supor que nada mudou.
+
 ## Conferi o achado do Clique antigo e ele estava completo — a varredura virou script — 22/09/2026, sessão automática
 
 O dono achou, no PC, que o `Mestre de saída v2` removia o lead do

@@ -292,7 +292,8 @@ antigo parado, nunca excluir):**
 |---|---|---|
 | `Plataformas de anúncio` — SINGLE_OPTIONS | lead que anuncia em Meta **e** Google só registra um | criar `Plataformas de anúncio (múltipla)` MULTIPLE_OPTIONS com `Meta`, `Google`, `Tiktok`, `Outros`; apontar formulário (1.5) e prompt da IA (W10) para o novo |
 | `Investimento mensal em anúncios` — opções `Até 1k` / `1k a 5k` / `5k a 10k` / `Acima de 10k` | o Meta Lead Ads grava `Não invisto nada ainda` / `Até R$ 1.000` / `Abaixo de 5k` / `Acima de 10k` — três valores fora da lista, a régua 9.1 nunca casa | **decisão G-04** (`CONFERENCIA-CAMPOS.md`, Tabela H): Opção A — trocar as opções pelos 4 textos exatos do Meta e reponderar a régua (12/6/3/1); Opção B — régua lê `Urgência`/`Necessidade` por `Contains` |
-| `Prazo` / `Dor principal` chegam vazios do Meta; `Urgência` / `Necessidade` cheios | o formulário do anúncio mapeia para os campos que a tela criou sozinha | G-04, mesma decisão: apontar os 8 formulários do Meta para `Prazo`/`Dor principal` (Opção A) ou ler os outros dois (Opção B) |
+| `Prazo` chega vazio do Meta; `Urgência` cheio — **já não precisa de decisão** (G-04, resolvido em 22/09/2026): o Pós-agendamento v2 lê `Urgência` como reserva quando `Prazo` vem vazio, mesma pontuação, publicado e no ar | — | nada a fazer aqui; ficou só como registro de por que o campo `Urgência` segue existindo ao lado de `Prazo` |
+| `Dor principal` chega vazio do Meta; `Necessidade` cheio | o formulário do anúncio mapeia para o campo que a tela criou sozinha; nenhum dos dois entra na régua de nota (9.1), então não pontua errado — só duplica dado | opcional, sem decisão G-04 pendente: apontar os 8 formulários do Meta para `Dor principal` (mais organizado) ou deixar como está |
 
 **Regras ao criar campo:** o nome vira a chave de merge field sem acento
 (`Urgência` → `urgncia`) — depois de criar, leia a chave real em
@@ -497,7 +498,7 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 2 | Porta de Entrada | **publicado, funciona** | — |
 | 3 | Mestre de saída | **publicado, 4 retoques** | — |
 | 4 | Pós-ligação | **publicado, 1 retoque** | — |
-| 5 | Pós-agendamento | **publicado, nó 4 não grava** | decisão G-04 antes de refazer a nota |
+| 5 | Pós-agendamento | ~~publicado, nó 4 não grava~~ — **refeito e publicado como `Pós-agendamento v2` em 22/09/2026** (`GUIA-MONTAGEM.md`) | Bloco B (`Investimento mensal`) ainda depende da decisão G-04; o resto da nota já grava e está provado rodando |
 | 6 | Loop do closer | rascunho, montado pela IA com campos errados — **refazer** | — |
 | 7 | Registro de Comparecimento | não existe | — |
 | 8 | Recuperação de No-show | rascunho | — |
@@ -516,7 +517,7 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 17e | Retorno Vencido (F-05 peça 6) | não existe | tag `retorno-vencido`, campo `Checkpoint — Data de retorno`, `Wait` Dynamic (confirmar na tela) |
 | 18 | Monitor de Capacidade | não existe | lista 8.16 |
 | 19 | Higiene de Número (opcional) | não existe | Number Validation ligado |
-| 20 | Qualidade da Conexão (F-06) | não existe | campos C-29 a C-32 (`APROVADO.md`), gravação de chamada habilitada |
+| 20 | Qualidade da Conexão (F-06) | não existe | ~~campos C-29 a C-32~~ **já existem na tela desde 22/09/2026** (`APRENDIZADOS-CRM.md`) — falta só gravação de chamada habilitada |
 | 21 | Reentrada por Formulário (F-11) | não existe | — |
 | 22 | Negociação Estagnada (F-13) | não existe | tag `negociacao-estagnada` (`APROVADO.md`) |
 
@@ -756,13 +757,15 @@ Bloco A
 Bloco B
   If Investe em anúncios = "Sim" → +13 · "Já investiu e parou" → +9 · "Nunca" → +4
   If Investimento mensal em anúncios = "Acima de 10k" → +12 · "5k a 10k" → +10 · "1k a 5k" → +6 · "Até 1k" → +2
-     ⚠ G-04: o Meta grava "Abaixo de 5k", "Até R$ 1.000", "Não invisto nada ainda" — só monte este
+     ⚠ G-04 (ainda aberto): o Meta grava "Abaixo de 5k", "Até R$ 1.000", "Não invisto nada ainda" — só monte este
        If/Else depois de o dono decidir a Tabela H de CONFERENCIA-CAMPOS.md
 Bloco C
   If Budget = "Tem" → +15 · "Precisa aprovar" → +9 · "Não tem" → +0
   If Decisor = "Sim" → +15 · "Influencia" → +8 · "Não decide" → +2
   If Prazo = "Pra ontem" → +15 · "Espera 30 dias" → +11 · "Este ano" → +6 · "Sem prazo" → +2
-     ⚠ G-04: o Meta grava a resposta em Urgência, não em Prazo
+     (G-04, metade resolvida em 22/09/2026: o Meta grava a resposta em Urgência — o Pós-agendamento
+       v2 já tem um bloco de reserva lendo Urgência com a mesma tabela quando Prazo vem vazio,
+       publicado e no ar; ver build-wesales.md 9.1, Bloco C)
 Corte: If Budget = "Não tem" E Prazo = "Sem prazo" → Add Tag nutricao-90d + Update Opportunity status = abandoned
 ```
 
@@ -1606,8 +1609,9 @@ Reengajamento, 90 dias depois de `nutricao-90d`); apagar `nao-perturbe`/DND.
 | a cada hora (automático) | `rotina-limpar-tarefas.md` fecha as tarefas `[CADENCIA]` vencidas de quem tem `limpar-tarefas` | se parar de rodar, tarefas vencidas se acumulam na tela do SDR |
 
 **Decisões que só o gestor/dono toma** (nada disso sai por API nem por
-rotina): G-03 (promoção `NOVO LEAD` → `CONECTAR`), G-04 (mapeamento do Meta
-e opções de `Investimento mensal`), `[x]` das tags `novo-lead-estagnado` e
+rotina): G-03 (promoção `NOVO LEAD` → `CONECTAR`), G-04 (só a parte que
+resta: opções de `Investimento mensal` — a parte `Prazo`/`Urgência` já
+resolveu sem decisão, 22/09/2026), `[x]` das tags `novo-lead-estagnado` e
 `fila-travada` em `APROVADO.md`, número de teste para WhatsApp, pausas de
 feriado/férias (1.9), vencedor do A/B, teto de toques (6/semana — editar
 no nó 2.5c/3c), segundo SDR (1.10).

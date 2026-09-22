@@ -385,8 +385,15 @@ Ainda em aberto:
    `MULTIPLE_OPTIONS` (campo novo, o antigo fica parado — regra 1 do
    briefing proíbe excluir).
 2. **`Urgência` e `Necessidade`** — a tela criou os dois sozinha, duplicando
-   `Prazo` e `Dor principal`. Decidir se o formulário aponta para os campos
-   que já existem (recomendo) ou se os dois novos ganham função própria.
+   `Prazo` e `Dor principal`. **A metade `Urgência`/`Prazo` já não bloqueia
+   nada** (G-04, `ROADMAP-SALES-ENGAGEMENT.md`): o Pós-agendamento v2, no ar
+   desde 22/09/2026, lê `Urgência` como reserva quando `Prazo` vem vazio, com
+   a mesma pontuação — nenhuma decisão de formulário foi necessária para
+   isso. `Necessidade`/`Dor principal` seguem duplicados sem decisão (nenhum
+   dos dois entra na régua de nota, então não é urgente); decidir se o
+   formulário aponta para os campos que já existem (recomendo) ou se os dois
+   novos ganham função própria continua em aberto só por organização, não
+   por pontuação errada.
 
 Já respondido: a subconta é `1D53YTI9C7oIMBavcQxV` e a permissão de criar
 veio em 18/09/2026 ("tem todas as permissões") — é o que liberou a Etapa 3,

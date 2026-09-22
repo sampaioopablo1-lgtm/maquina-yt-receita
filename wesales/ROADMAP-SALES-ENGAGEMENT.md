@@ -344,7 +344,27 @@ das três opções foi executada nem virou `[x]` em `APROVADO.md`.
 especificação em `build-wesales.md` e `[x]` em `APROVADO.md` antes de
 qualquer escrita no CRM.
 
-### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **aguarda decisão do dono**
+### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **peça 1 (Prazo/Urgência) resolvida em 22/09/2026 sem decisão; peça 2 (Investimento mensal) aguarda o dono**
+
+> **Atualização de 22/09/2026, sessão automática — o item se dividiu em duas
+> peças de tamanho e urgência diferentes, e só uma segue bloqueada.** No PC do
+> dono (`dec3a20`), ao montar o Pós-agendamento v2, a metade `Prazo`/`Urgência`
+> deste item foi resolvida sem esperar a escolha entre Opção A e Opção B: como
+> os rótulos de `Prazo` e `Urgência` são **idênticos**, a régua ganhou um bloco
+> de reserva que lê `Urgência` com a mesma tabela de pontos sempre que `Prazo`
+> vier vazio — sem remapear os 8 formulários do Meta, sem decisão de negócio,
+> só estrutura (`wesales/tools/regua_qualificacao.py`). Publicado e provado
+> rodando: **93 leads pontuaram por `Prazo`, 15 pelo bloco de reserva
+> `Urgência`** (`GUIA-MONTAGEM.md`, "Estado final em 22/09/2026"). Isso fecha
+> o Bloco C (BANT) do item — a régua não perde mais os 15 pontos de `Prazo`
+> para lead do Meta. **O que resta é só a linha `Investimento mensal em
+> anúncios`, Bloco B**, que o mesmo mecanismo não resolve: os valores que o
+> Meta grava (`Abaixo de 5k`, `Até R$ 1.000`, `Não invisto nada ainda`) não são
+> os rótulos das opções da tela (`5k a 10k`, `1k a 5k`, `Até 1k`) — não é um
+> problema de "campo errado" como `Prazo`/`Urgência` era, é valor fora da
+> lista, e só se resolve mudando a opção do campo (Opção A) ou comparando por
+> texto parcial em vez de igualdade (Opção B), as duas decisão do dono. Detalhe
+> em `build-wesales.md`, seção 9.1, Bloco B.
 
 > **Evidência nova em 22/09, e ela reforça a Opção B** (`CONFERENCIA-CAMPOS.md`,
 > Tabela M): o contato de teste que o Meta injeta guarda o **texto literal de
@@ -390,10 +410,13 @@ parte da base durante toda a transição. Detalhe em `CONFERENCIA-CAMPOS.md`,
 Tabela H.
 **Por que não decidi sozinho:** muda a nota do lead (D-05) e o formulário do
 anúncio — decisão de negócio, e nenhuma das duas sai por API.
-**Pronto quando:** o dono escolhe A ou B; `campos-e-tags.md` (Q-06, Q-16,
-Q-17) e a seção 9.1 refletem os valores que o Meta grava de verdade; um lead
-novo do Meta chega com `Prazo`/`Dor principal`/`Investimento mensal`
-preenchidos e a nota calculada.
+**Pronto quando (revisado em 22/09/2026 — só a peça 2 segue aberta):**
+`Prazo`/`Urgência` já fecharam sem decisão (peça 1, acima — bloco de reserva
+publicado e provado). Falta só: o dono escolhe A ou B **para
+`Investimento mensal em anúncios`**; `campos-e-tags.md` (Q-06) e a seção 9.1,
+Bloco B, refletem a escolha; um lead novo do Meta chega com `Investimento
+mensal` pontuando na nota sem depender de qual dos quatro textos o anúncio
+grava.
 
 ### G-05 · Mensagens automáticas de WhatsApp especificadas como texto livre, sem checar a janela de 24h — pode falhar em silêncio assim que a cadência publicar
 **Por quê:** todo nó `Send WhatsApp` da operação (M1-a/M1-b/M2-v1/M3-v1 na
@@ -2923,3 +2946,30 @@ o que já está pronto na documentação; F-11, F-12 e F-13 têm desenho
 completo e não dependem de nada além de serem montados na tela; F-14 é
 checklist de gestor, já pronto para uso assim que o número começar a discar
 de verdade.
+
+**G-04, sessão automática seguinte, 22/09/2026 — não é item novo, é a
+mesma instrução de sempre (reler o "por quê estamos esperando" de todo item
+represado) aplicada a um item que ninguém tinha relido desde 21/09.** Entre
+esta rodada e a anterior, o dono montou 20 workflows no CRM pelo caminho que
+só o PC dele alcança (API interna, `wesales/tools/`) — fora do que esta
+sessão na nuvem consegue ver em tempo real, porque a API pública (MCP) não
+tem endpoint de workflow (`APRENDIZADOS-CRM.md`, "os 22 arquivos de
+`workflows-json/` não dizem o que está no ar"). Um desses commits
+(`dec3a20`) resolveu a metade `Prazo`/`Urgência` do G-04 sem esperar a
+decisão A/B que este roadmap ainda apresentava como bloqueio único — e o
+roadmap, `build-wesales.md` (seção 9.1) e `campos-e-tags.md` continuaram
+descrevendo o item inteiro como travado, o que já não era verdade para essa
+metade. **Achado por releitura de documento contra `GUIA-MONTAGEM.md`
+("Estado final em 22/09/2026"), não por nova pesquisa nem por escrita no
+CRM.** Corrigidos os três: a seção 9.1 do `build-wesales.md` (Bloco B), a
+entrada do G-04 aqui (que ganhou "Resumo" e "Pronto quando" revisados) e o
+item 2 da lista aberta de `campos-e-tags.md`. O que sobrou, de verdade, é só
+a linha `Investimento mensal em anúncios` — decisão do dono entre Opção A e
+Opção B, sem mudança desde 21/09. Zero campo, zero tag, zero escrita no
+CRM: item de documentação pura, não depende de `APROVADO.md`. **Regra
+prática, generalizável:** quando parte do trabalho de um item acontece fora
+desta sessão (o PC do dono, neste projeto), reler o item antes de assumir
+que ele segue do tamanho que tinha na última rodada — o mesmo raciocínio já
+valeu para "premissa técnica represada" (F-05, F-06), agora vale também
+para "decisão do dono represada", que pode ter sido parcialmente resolvida
+por um caminho que não passou pela decisão em si.

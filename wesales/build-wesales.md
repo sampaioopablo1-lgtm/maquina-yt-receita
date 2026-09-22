@@ -6110,7 +6110,7 @@ original, então a pontuação de cada degrau **não mudou**, só o texto que o
 |---|---|---|
 | Investe em anúncios | Sim / Já investiu e parou / Nunca | 13 / 9 / 4 |
 | Investimento mensal | Acima de 10k / 5k a 10k / 1k a 5k / Até 1k | 12 / 10 / 6 / 2 |
-| ⚠ *(21/09/2026)* | *Os valores que o Meta Lead Ads **grava** neste campo são `Acima de 10k` / `Abaixo de 5k` / `Até R$ 1.000` / `Não invisto nada ainda` — só o primeiro é opção da tela; os outros três nunca casam num `If/Else`. E `Prazo` chega vazio do Meta: a resposta cai em `Urgência`. Não monte o nó 4 do Pós-agendamento contra esta tabela antes de o dono decidir o G-04 (`ROADMAP-SALES-ENGAGEMENT.md`; opções em `CONFERENCIA-CAMPOS.md`, Tabela H)* | — |
+| ⚠ *(atualizado em 22/09/2026)* | *`Prazo` chega vazio do Meta — a resposta cai em `Urgência` — mas isso **não bloqueia mais o nó 4**: o Pós-agendamento v2 (montado no PC do dono, `dec3a20`) ganhou um bloco de reserva que lê `Urgência` com a mesma tabela de pontos sempre que `Prazo` vier vazio, e está publicado e provado rodando (`GUIA-MONTAGEM.md`, "93 por `Prazo`, 15 pelo bloco de reserva `Urgência`"). O que **segue** bloqueado, e é a metade real do G-04 que falta: `Investimento mensal em anúncios` recebe do Meta `Acima de 10k` / `Abaixo de 5k` / `Até R$ 1.000` / `Não invisto nada ainda` — só o primeiro é opção da tela, e os outros três nunca casam num `If/Else`, essa linha da tabela acima ainda soma 0 para 3 de cada 4 leads do Meta. Decisão do dono continua em aberto só para esta linha (`ROADMAP-SALES-ENGAGEMENT.md`, G-04; opções em `CONFERENCIA-CAMPOS.md`, Tabela H)* | — |
 
 **Bloco C — BANT (45 pontos)**
 | Campo | Valor | Pontos |
@@ -6261,7 +6261,12 @@ como independentes — a confirmação de canal (LC Phone vs. linha própria), a
 decisão de gravar (aviso LGPD + custo) e a criação dos campos C-29 a C-32 —
 e coloca a confirmação de canal como **primeira** delas, não como detalhe
 lateral. Nenhuma pode ser marcada `[x]` por leitura de CRM: todas passam pela
-tela e pelo dono.
+tela e pelo dono. **Duas das três já resolveram (22/09/2026):** o dono
+confirmou ao vivo que as ligações saem por LC Phone (`APRENDIZADOS-CRM.md`,
+"Resposta do dono à pré-condição do W20"), e os quatro campos já existem na
+tela (`APRENDIZADOS-CRM.md`, "Os 4 campos do W20"). **Só a decisão de
+gravar segue sem `[x]`** — é ela, sozinha, que trava o teste deste item e a
+montagem do W20 agora.
 
 ---
 

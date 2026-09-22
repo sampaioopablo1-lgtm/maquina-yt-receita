@@ -222,6 +222,21 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       de uma tentativa antiga sobrevive às seguintes. Detalhe em
       `build-wesales.md`, "Conferência do F-06".
 
+      **Registro, não aprovação — 22/09/2026, sessão automática:** os quatro
+      campos desta linha (`Duração da ligação` `PLjkuvnoDk7Hvt4qv0a8`,
+      `Conexão real` `7wtFfDDxOpYCfHzBsZXP`, `Conexões reais telefone`
+      `2BSLMqty4LEwdoyNTdU8`, `Ligações com transcrição`
+      `JejovPl6Vf0SBtAiVIpw`) **já existem na subconta**
+      (`locations_get-custom-fields`, `dateAdded` entre 16:38 e 16:56 UTC de
+      hoje — depois da última leitura registrada em `GUIA-MONTAGEM.md`, que
+      ainda dizia "continuam ausentes"). Mesmo caso já registrado ali para as
+      seis tags do F-05/F-13: campo na tela sem `[x]` aqui é o dono decidindo
+      direto na tela, não a rotina se autorizando — **não marquei o `[x]`**.
+      Se foi você quem criou, marque; se não foi, os quatro campos existem e
+      estão vazios, sem valor gravado ainda. **O que isso não resolve:** a
+      decisão de gravar toda ligação de saída (LGPD + custo, acima) segue sem
+      `[x]`, e é ela — não mais a falta de campo — que trava o W20.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do
