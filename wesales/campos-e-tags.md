@@ -79,7 +79,17 @@ valor leva a `status = lost`, o mesmo motivo passa a ser gravado também no
 isso não aparece nesta lista de campos personalizados. Não substitui C-16
 (continua sendo o SDR/closer quem preenche, um campo só); só abre relatório
 e gatilho nativos que um `SINGLE_OPTIONS` de contato nunca teria. Desenho
-completo em `build-wesales.md`, seção 4.1.
+completo em `build-wesales.md`, seção 4.1 — **e leia a "Conferência do F-12"
+no fim daquela seção antes de criar os valores na tela**: (1) `Lost Reason`
+criado **nunca pode ser apagado**, então os cinco valores têm de nascer com o
+texto exato de C-16 na primeira vez (`Sem fit`, `Sem budget`, `Não é decisor`,
+`Concorrente`, `Duplicado ou já cliente`); (2) não está confirmado que a ação
+`Update Opportunity` permita gravá-lo por workflow — há pedido aberto de
+usuários dizendo que automação não referencia `Lost Reason` —, e o plano B é
+escolha manual na tela de quem marca `lost`; (3) `lostReasonId` é **legível**
+por API (`opportunities_search-opportunity`) e **não gravável** por este
+conector, o que torna a conferência automática: oportunidade `lost` com
+`lostReasonId` vazio é a divergência que o item existe para impedir.
 
 C-17 é `DATE`, não `TEXT`: nada aqui mede minutos (diferente de C-14), só
 "em que dia o closer deu o veredito", então a granularidade de dia do `DATE`

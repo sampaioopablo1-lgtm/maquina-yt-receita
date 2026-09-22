@@ -2181,6 +2181,26 @@ depender de alguém abrir uma lista.
 
 ### F-12 · "Por que estamos perdendo?" não tem resposta — o motivo de desqualificação não agrega em lugar nenhum, e o GHL já resolve isso de graça — **FEITO em 22/09/2026**
 
+> **Conferido no mesmo dia** (`build-wesales.md`, "Conferência do F-12"): três
+> pontos. (a) A dúvida "o seletor de `Lost Reason` existe na ação `Update
+> Opportunity`?" é **mais séria** do que um "a confirmar": há pedido aberto no
+> canal de ideias da HighLevel para poder referenciar `Lost Reason` em automações
+> e usá-lo como gatilho, com a observação de que **não está disponível**. Não
+> refuta (pedidos envelhecem), mas o plano B — `Lost Reason` escolhido **na mão**
+> por quem marca `lost` na tela — passa a ser caminho de verdade, não nota de pé
+> de página. Pela mesma razão, a afirmação de que `Lost Reason` serve de condição
+> em quatro gatilhos fica como **não confirmada**, e com ela a ideia de
+> diferenciar o Reengajamento por motivo. (b) **`Lost Reason` criado nunca pode
+> ser apagado** — os cinco valores têm de nascer com o texto exato de C-16 na
+> primeira vez; errar o rótulo não se corrige, só se abandona, e o dropdown fica
+> com os dois para sempre. (c) **Assimetria de API medida:** `lostReasonId` vem
+> na resposta de `opportunities_search-opportunity`, e o schema de
+> `opportunities_update-opportunity` não tem parâmetro de lost reason — legível,
+> não gravável. A metade legível é nova e torna o item **auditável sem tela**:
+> buscar `status = lost` e conferir que todo resultado tem `lostReasonId`
+> preenchido. Vale ainda mais no plano B, onde o preenchimento é manual.
+
+
 **Por quê:** `Motivo da desqualificação` (C-16, `campos-e-tags.md`) existe
 desde 18/09/2026, preenchido por SDR (R-18) e closer (F-03), mas nunca teve
 onde agregar — a seção 9.1 e a lista 8.5 só o mostram coluna a coluna,

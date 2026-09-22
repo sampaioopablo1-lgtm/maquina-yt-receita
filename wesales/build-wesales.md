@@ -4455,6 +4455,61 @@ desenho colapsa para um único nó, mais simples que o daqui; (b) se
 tabela acima assume que não (é recurso de "perdido", não de "nutrição") e
 por isso não tenta.
 
+#### Conferência do F-12, 22/09/2026 (mesma rodada): a dúvida (a) é mais séria do que "a confirmar", e há dois fatos novos
+
+**1. Existe fonte contrária à premissa central, e ela precisa estar escrita
+aqui.** A pesquisa desta conferência achou, no próprio canal de ideias da
+HighLevel, um pedido aberto de usuários para **poder referenciar `Lost Reason`
+em automações e usá-lo como gatilho**, com a observação de que isso **não está
+disponível**. Isso não refuta o desenho — pedidos envelhecem, e outra fonte da
+mesma busca menciona um recurso já entregue de *editar* `Lost Reason` em
+Settings → Custom Fields —, mas muda o peso da dúvida (a): a possibilidade de o
+seletor de `Lost Reason` **não existir de jeito nenhum** dentro da ação
+`Update Opportunity` deixa de ser remota. Consequência prática: **escreva o
+plano B como caminho de verdade, não como nota de pé de página.**
+
+| Se a tela… | Então |
+|---|---|
+| oferecer `Lost Reason` com valor **fixo** na ação | o desenho acima vale como está (cinco ramos) |
+| oferecer com valor **dinâmico** | colapsa para um nó só, melhor |
+| **não oferecer** `Lost Reason` na ação | **plano B:** o `Lost Reason` passa a ser escolha **manual** de quem marca `lost` na tela — SDR no Pós-ligação, closer no Loop —, e o par `Motivo da desqualificação` (campo de contato, gravado pela régua) + `Lost Reason` (objeto de oportunidade, escolhido na mão) convivem. O relatório de quebra por motivo continua funcionando; o que se perde é a garantia de que os dois sempre batem, e aí a auditoria do item 3 abaixo passa a ser obrigatória, não opcional |
+
+Esta terceira linha também desmente, por precaução, a afirmação de que
+`Lost Reason` está "disponível como condição em quatro gatilhos de workflow":
+não encontrei confirmação disso, e encontrei o oposto no pedido acima. Tratar
+como **não confirmado** até alguém abrir a tela — e o item "o que isto abre"
+abaixo (diferenciar o Reengajamento por motivo) depende justamente desse filtro
+de gatilho, então ele é mais especulativo do que parecia.
+
+**2. `Lost Reason` criado nunca pode ser apagado.** A mesma pesquisa: *once a
+Lost Reason is created, it cannot be deleted and will remain in the dropdown
+list forever.* Consequência direta para o pré-requisito de tela: os cinco
+valores têm de nascer **com o texto exato** de `Motivo da desqualificação`
+(C-16) na primeira vez — `Sem fit`, `Sem budget`, `Não é decisor`,
+`Concorrente`, `Duplicado ou já cliente`. Errar o rótulo aqui não se corrige,
+só se abandona, e o dropdown fica com o errado e o certo lado a lado para
+sempre. É a regra 1 do briefing ("nunca exclua") imposta pela própria
+plataforma, e vale escrever antes de alguém digitar às pressas.
+
+**3. Assimetria de API medida agora, e ela torna o item auditável sem tela.**
+O `lostReasonId` **vem** na resposta de `opportunities_search-opportunity` (já
+apareceu, como `null`, nas leituras de oportunidade desta sessão). E o schema de
+`opportunities_update-opportunity` **não tem** nenhum parâmetro de `lostReason`
+(conferido campo a campo: `name`, `pipelineId`, `pipelineStageId`, `status`,
+`monetaryValue`, `assignedTo`, `customFields`). Ou seja:
+
+> **legível por API, não gravável por este conector.**
+
+A metade "não gravável" confirma o que o item já dizia. A metade **legível** é
+nova e útil: o "Pronto quando" desta seção depende hoje de olhar
+Reporting → Pipeline na tela, e passa a ter uma verificação automática —
+`opportunities_search-opportunity` filtrando `status = lost` e conferindo que
+**todo** resultado tem `lostReasonId` preenchido. Uma oportunidade `lost` com
+`lostReasonId: null` é exatamente a divergência que o item existe para impedir,
+e agora dá para achá-la de fora, em qualquer rodada, sem depender de ninguém
+abrir a tela. Vale ainda mais no plano B acima, onde o preenchimento é manual e
+portanto esquecível.
+
 **O que isto abre, sem construir agora (registrado para não se perder, não
 é parte do "Pronto quando" desta rodada):** com `Lost Reason` alimentado, o
 Reengajamento 90 dias (seção 2.12) poderia um dia diferenciar a régua por
