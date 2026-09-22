@@ -497,6 +497,8 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 17e | Retorno Vencido (F-05 peça 6) | não existe | tag `retorno-vencido`, campo `Checkpoint — Data de retorno`, `Wait` Dynamic (confirmar na tela) |
 | 18 | Monitor de Capacidade | não existe | lista 8.16 |
 | 19 | Higiene de Número (opcional) | não existe | Number Validation ligado |
+| 20 | Qualidade da Conexão (F-06) | não existe | campos C-29 a C-32 (`APROVADO.md`), gravação de chamada habilitada |
+| 21 | Reentrada por Formulário (F-11) | não existe | — |
 
 ---
 
@@ -1443,6 +1445,40 @@ qualquer campo); o dashboard (2.17) **não** pôde apontar direto para
 é `SINGLE_OPTIONS` — por isso ganhou o nó 6 acima e o campo novo
 `Conexões reais telefone` (C-31), a peça que a fórmula do widget soma.
 Detalhe completo em `build-wesales.md`, seção 2.27 ("Peça 2").
+
+---
+
+## W21 · Reentrada por Formulário — `build-wesales.md` 1.4 (F-11, fechado em 22/09/2026)
+
+**Gatilho:** `Facebook Lead Form Submitted` — sem formulário específico
+selecionado (confirmar na tela; se exigir um por vez, uma cópia por
+formulário, mesma lista do G-04 — hoje 8).
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela |
+| Stop on Response | Não se aplica (nenhuma mensagem sai daqui) |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | `status` da oportunidade no `FUNIL DE VENDAS` é `Abandoned` **ou** `Lost` → 2 · None → FIM | |
+| 2 | If/Else | tag `nao-perturbe` presente → 2b · None → 3 | |
+| 2b | Internal Notification (ao gestor) | `{{contact.name}} reenviou um formulário do Meta, mas está marcado nao-perturbe — decisão manual sobre reabrir a oportunidade` | fim |
+| 3 | Update Opportunity | Etapa → `[FUNIL DE VENDAS] - NOVO LEAD` · Status → `Open` | 4 |
+| 4 | Remove Contact Tag | `nutricao-90d` | 5 |
+| 5 | Add Note | `Oportunidade reaberta em {{right_now}} — lead reenviou o formulário do Meta. Reentrada automática (F-11), etapa reiniciada em NOVO LEAD para nova triagem do SDR.` | fim |
+
+**Pré-requisito: nenhum.** Zero campo, zero tag novos — reaproveita
+`status`, etapa e as tags `nao-perturbe`/`nutricao-90d`, todos já
+existentes na subconta. Não depende de `APROVADO.md`.
+
+**Teste:** no contato de estrutura ou num contato fictício, deixe a
+oportunidade em `status = abandoned`, aplique manualmente o gatilho (ou
+simule via API mudando o `status` e disparando o fluxo) e confira: etapa
+volta para `NOVO LEAD`, `status` volta para `open`, nota nova no contato,
+tag `nutricao-90d` (se presente) some. Repita com a tag `nao-perturbe`
+aplicada: nada muda na oportunidade, e o gestor recebe a notificação.
 
 ---
 

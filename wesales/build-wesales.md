@@ -422,6 +422,117 @@ primeira não).
 
 ---
 
+### 1.4 Workflow "Reentrada por Formulário" — F-11
+
+**Por quê:** um lead que já saiu do funil (`status` `abandoned` ou `lost` —
+12 tentativas esgotadas, número errado, desqualificado) e depois **preenche
+de novo** o mesmo formulário de um anúncio do Meta é o sinal de reengajamento
+mais forte que existe: dinheiro pago de novo, de propósito, pela mesma
+pessoa. Hoje esse sinal é invisível para a máquina inteira. A Porta de
+Entrada (G-01, seção 1.3) só reage a `Contact Created`, e a HighLevel
+deduplica contato por e-mail/telefone — uma resubmissão de um contato que
+já existe **atualiza** o registro, não recria, então `Contact Created` nunca
+dispara de novo (pesquisado: comportamento de deduplicação nativo,
+confirmado por página oficial da HighLevel citada em duas buscas com termos
+diferentes — mesmo padrão de confiança já usado no G-05). O único caminho de
+volta hoje é o Reengajamento 90 dias (R-08, seção 2.12), que só cobre quem
+saiu **pela via `nutricao-90d`** e só reage **90 dias depois**, não no
+instante em que o lead literalmente acabou de levantar a mão de novo. É
+exatamente o tipo de dívida que o F-01 já descreveu para outro sinal ("sinal
+ignorado é dívida que não se paga retroativamente") — aqui o sinal nem chega
+a ser ignorado, ele nunca é lido. E é o tipo de vantagem que "faça melhor,
+não igual" pede: Reev, Meetime, Outreach e Salesloft não enxergam a
+resubmissão de um anúncio — só recebem o que alguém empurra para eles via
+integração, uma vez. Aqui o CRM **é** a plataforma de anúncio, então o dado
+já está disponível nativamente; nenhuma das quatro plataformas de sales
+engagement tem como copiar isso olhando só a tela delas.
+
+**Como:** workflow novo e pequeno, símile do G-05/R-08 ("não dá para caber
+dentro do workflow que já existe, um workflow curto e próprio resolve sem
+tocar em nada publicado").
+
+**Gatilho: `Facebook Lead Form Submitted`**, sem filtro de formulário
+específico — pesquisado: diferente do que motivou o G-01 a **rejeitar** este
+gatilho para a entrada nova ("só cobre a origem Meta", o oposto de "toda
+origem" que aquele caso pedia), aqui a origem já é conhecida de propósito —
+é reentrada de quem **já** veio do Meta, e não da entrada genérica que a
+Porta de Entrada cobre. A documentação e guias de terceiros confirmam que o
+gatilho aceita filtro por página + formulário específico, mas não deixam
+claro se "sem filtro" cobre todos os formulários conectados de uma vez —
+**confiança média**, não testado nesta subconta. Se a tela exigir escolher
+um formulário por vez, a saída é a mesma do G-04 (Opção A): uma cópia deste
+workflow por formulário — hoje são 8 (`ROADMAP-SALES-ENGAGEMENT.md`, G-04) —,
+registrada aqui como pendência explícita, não como bloqueio: o primeiro
+formulário já vale a pena montado sozinho.
+
+**Configurações do workflow**
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada resubmissão do formulário é um evento novo e genuíno — mesmo raciocínio já usado no R-08 (seção 2.12) para a tag `nutricao-90d`: sem reentrada ligada, o lead só reativaria uma vez na vida e a segunda resubmissão cairia no vazio |
+| Janela de envio / Stop on Response | Não se aplica | O único trabalho aqui é reabrir a oportunidade e (no ramo de exceção) avisar o gestor — nenhuma mensagem sai deste workflow, mesmo raciocínio da Porta de Entrada (seção 1.3) |
+| Contatos em múltiplos workflows | Permitido | O contato pode estar (raramente) noutra régua ao mesmo tempo; este workflow só mexe na etapa/status da oportunidade, não compete por tarefa ou tag de fila |
+
+### Nós
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | **Portão de estado** | If/Else | `status` da oportunidade no `FUNIL DE VENDAS` **é** `abandoned` **ou** `lost` → nó 2. Senão (nenhuma oportunidade ainda, ou já `open`) → **Remove from Workflow: este** |
+| 2 | **Portão de consentimento** | If/Else | tag `nao-perturbe` presente → nó 2b. Senão → nó 3 |
+| 2b | Ramo do opt-out | Internal Notification para o gestor: `{{contact.name}} reenviou um formulário do Meta, mas está marcado nao-perturbe — decisão manual sobre reabrir a oportunidade` → **Remove from Workflow: este** | Mesmo padrão do nó 0.0b (seção 2.3): achado ambíguo não se resolve sozinho, vai para o gestor decidir |
+| 3 | Reabertura | Update Opportunity | Etapa → `NOVO LEAD` · `status` → `open` |
+| 4 | Limpeza de estado antigo | Remove Contact Tag | `nutricao-90d` (idempotente, mesmo se ausente — mesma linguagem já usada no nó 4 do R-08, seção 2.12) |
+| 5 | Registro | Add Note | `Oportunidade reaberta em {{right_now}} — lead reenviou o formulário do Meta. Reentrada automática (F-11), etapa reiniciada em NOVO LEAD para nova triagem do SDR.` |
+
+**Por que volta para `NOVO LEAD` e não direto para `CONECTAR` (ao contrário
+do R-08, que reativa direto em `CONECTAR`):** o R-08 sabe que o lead já
+passou pela triagem uma vez (12 tentativas completas). Aqui não — o motivo
+da saída pode ter sido `Número errado` ou uma desqualificação por falta de
+fit, e mandar direto para `CONECTAR` puxaria a cadência de novo sem
+ninguém olhar. `NOVO LEAD` é o mesmo ponto de entrada que todo lead
+genuinamente novo usa (G-01) — reaproveita a mesma decisão manual do SDR
+(L-07/G-03) em vez de abrir uma terceira porta com regra própria.
+
+**Por que o nó 1 não precisa distinguir "nenhuma oportunidade" de
+"oportunidade já `open`":** nos dois casos a ação certa é a mesma — não
+fazer nada. Contato realmente novo já está coberto pela Porta de Entrada
+(que dispara por `Contact Created`, evento diferente, sem corrida entre os
+dois: este workflow só age quando encontra `abandoned`/`lost`, condição que
+um contato novíssimo nunca tem). Lead já `open` está correndo alguma
+cadência agora — reabrir de novo duplicaria régua, o mesmo erro que o
+`Allow Re-entry` desligado da 12x30 (D-06) já existe para evitar.
+
+**Por que checar `nao-perturbe` e não o DND nativo direto:** todo outro
+portão deste documento (nó 3 da seção 2.4, nó 2 do R-08, nó 0.0b) usa a tag
+como fonte da verdade para "não procurar este lead", nunca o DND nativo
+isolado — e o ramo `Não ligar` do Pós-ligação (seção 4) sempre aplica os
+dois juntos, então checar a tag cobre o mesmo caso sem inventar uma segunda
+fonte de verdade só para este workflow.
+
+**Interação com o R-08 (Reengajamento 90 dias) — verificada, não montada às
+cegas:** o nó 2 do R-08 (seção 2.12) já checa `status` **ao vivo** ("Status
+da oportunidade é `abandoned`") antes de reativar, com exatamente esta nota
+no próprio item: "não reativa quem já mudou de estado por conta própria".
+Se este workflow reabrir o lead antes do relógio de 90 dias do R-08 vencer,
+quando o `Wait` dele terminar o portão vai encontrar `status = open` (não
+mais `abandoned`) e sair pelo ramo 2b, um no-op limpo — nenhuma tentativa
+duplicada, nenhuma mudança necessária no R-08. É o mesmo tipo de garantia
+que a migração do G-02 já deixou espalhada pelo documento (checar estado ao
+vivo, não confiar em quando um evento aconteceu).
+
+**Zero campo, zero tag novos:** reaproveita `status`, etapa, `nao-perturbe`
+e `nutricao-90d`, todos já existentes. Não depende de `APROVADO.md` para a
+especificação; a montagem na tela (workflow não sai por API) segue a mesma
+fila manual dos demais.
+
+**Pronto quando:** todo lead com oportunidade `abandoned`/`lost` que
+reenviar um formulário do Meta sem estar marcado `nao-perturbe` volta para
+`NOVO LEAD`/`open` sozinho, pronto para nova triagem do SDR — sem esperar o
+relógio de 90 dias do R-08 nem depender de alguém abrir uma lista para
+notar que o lead voltou.
+
+---
+
 ## 2. Workflow "Cadência 12x30"
 
 ### 2.1 Gatilho — migrado para as 5 etapas reais em 18/09/2026

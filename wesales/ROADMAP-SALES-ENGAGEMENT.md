@@ -2117,6 +2117,48 @@ seguem aguardando o dono; a opção (b) deste item também. Zero campo, zero
 tag, zero escrita no CRM: item de especificação pura, não depende de
 `APROVADO.md`.
 
+### F-11 · Lead que reenvia o formulário do Meta depois de sair do funil é invisível para a máquina inteira — **FEITO em 22/09/2026**
+
+**Por quê:** um lead com oportunidade `abandoned`/`lost` (12 tentativas
+esgotadas, número errado, desqualificado) que **preenche de novo** o mesmo
+anúncio do Meta está dando o sinal de reengajamento mais forte que existe —
+pagou para levantar a mão de novo. Hoje isso não chega a lugar nenhum:
+`Contact Created` (gatilho da Porta de Entrada, G-01) nunca dispara de novo
+para um contato que já existe, porque a HighLevel deduplica por e-mail/
+telefone e só **atualiza** o registro — pesquisado, comportamento nativo
+confirmado por citação de página oficial em duas buscas com termos
+diferentes, mesmo padrão de confiança do G-05. O único caminho de volta que
+já existe (R-08, Reengajamento 90 dias) só cobre quem saiu por
+`nutricao-90d` e só reage **90 dias depois**, não no instante em que o lead
+acabou de agir de novo. Verificado por dado, não por suposição: a leitura
+de 50 contatos desta rodada (`contacts_get-contacts`) confirma que o
+padrão de mapeamento de campo do G-04 (39 leads em `Urgência`, 34 em
+`Necessidade`, 25 valores fora da lista em `Investimento mensal`) segue
+valendo sem mudança — nenhum lead reabriu sozinho porque nenhum mecanismo
+escuta essa resubmissão.
+**Como:** workflow novo "Reentrada por Formulário" — gatilho `Facebook
+Lead Form Submitted` (rejeitado no G-01 para a entrada nova por cobrir só
+o Meta; aqui é exatamente o que se quer, porque a reentrada **é** de quem
+já veio do Meta), portão duplo (oportunidade `abandoned`/`lost` **e** sem
+`nao-perturbe`) e reabertura em `NOVO LEAD`/`open` — não direto em
+`CONECTAR`, para não pular a mesma triagem manual do SDR que toda entrada
+nova passa (L-07/G-03). Detalhe nó a nó em `build-wesales.md`, seção 1.4;
+clique a clique em `IMPLEMENTACAO-WORKFLOWS.md`, W21.
+**Verificado, não suposto:** a interação com o R-08 foi conferida contra o
+próprio nó 2 dele (seção 2.12), que já checa `status` ao vivo antes de
+reativar — se este workflow reabrir o lead antes do relógio de 90 dias do
+R-08 vencer, o portão dele encontra `status = open` e sai em no-op limpo,
+sem precisar mudar nada lá. Zero campo, zero tag novos: reaproveita
+`status`, etapa e as tags `nao-perturbe`/`nutricao-90d`. Zero escrita no
+CRM: item de especificação pura, não depende de `APROVADO.md` — workflow
+não sai por API. Pendência explícita, registrada no próprio item: não
+confirmado se o gatilho aceita "todos os formulários" de uma vez ou exige
+um por vez (se exigir, são 8 cópias, mesma conta do G-04).
+**Pronto quando (cumprido):** todo lead com oportunidade `abandoned`/`lost`
+que reenviar um formulário do Meta sem `nao-perturbe` volta sozinho para
+`NOVO LEAD`/`open`, pronto para nova triagem — sem esperar 90 dias nem
+depender de alguém abrir uma lista.
+
 ---
 
 ## Ordem sugerida
@@ -2495,3 +2537,32 @@ Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem
 dono claro: G-03, G-04, F-09 e F-10 esperam decisão do dono; R-14 tem
 desenho completo e espera a operação mandar a primeira mensagem real para
 executar o que já está pronto na documentação.
+
+**F-11 aberto e fechado em 22/09/2026, sessão automática seguinte — lacuna
+nova, achada seguindo a mesma instrução de sempre.** Sweep de coerência
+limpo (zero nome de etapa órfão, zero merge field órfão — os 36 merge
+fields usados no documento batem 1:1 contra os `fieldKey` reais dos 51
+campos; Composio/HighLevel reconferido, ainda 0 contas ativas) e CRM
+reconfirmado sem mudança via API (51 campos, 50 oportunidades — 47
+`NOVO LEAD` + 2 `NEGOCIAR` + 1 `lost` de teste; lead mais novo ainda
+`Carlos Andrade`, 21/09 09:17, entrada agora com quase 26h de silêncio) —
+nada para corrigir nem para reler premissa vencida. A lacuna veio de ler
+os dados de contato (não só o texto) atrás de outra coisa (reconferir o
+G-04) e notar, no meio do caminho, que um contato pode ter oportunidade
+`abandoned`/`lost` e mesmo assim reenviar o mesmo formulário pago do Meta
+sem que nada no projeto reaja — nem a Porta de Entrada (que só dispara uma
+vez por contato), nem o Reengajamento 90 dias (que só reage a quem saiu
+por `nutricao-90d`, e só depois de 90 dias). Workflow novo especificado
+(`build-wesales.md`, seção 1.4; `IMPLEMENTACAO-WORKFLOWS.md`, W21),
+interação com o R-08 verificada contra o portão real dele, não suposta.
+Zero campo, zero tag novos, zero escrita no CRM: item de especificação
+pura, não depende de `APROVADO.md`. Pendência explícita registrada no
+próprio item: não confirmado se o gatilho `Facebook Lead Form Submitted`
+aceita "todos os formulários" de uma vez.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem
+dono claro: G-03, G-04, F-09 e F-10 esperam decisão do dono; R-14 tem
+desenho completo e espera a operação mandar a primeira mensagem real para
+executar o que já está pronto na documentação; F-11 tem desenho completo
+e não depende de nada — só falta ser montado na tela, mesma fila manual
+dos demais workflows ainda não publicados.
