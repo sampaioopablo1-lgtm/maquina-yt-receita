@@ -4923,3 +4923,52 @@ post impulsionado não tem campo de título. Diferente da Barra, aqui a Trilha A
 LISTA DE ATAQUE: **39 → 43**.
 
 Combos varridos até aqui: + arquitetura Niterói (4 alvos, 2 Trilha A, recorde de 10 meses no ar).
+
+---
+
+## 📐 Arquitetura — Botafogo (varredura de 22/09/2026, 02h) — RESULTADO NEGATIVO NO NICHO
+
+Duas tentativas de termo:
+
+| Termo | Resultado |
+|---|---|
+| `escritório de arquitetura Botafogo RJ` | **zero anúncios** |
+| `arquiteta Botafogo` | 1 anúncio, e é imobiliária |
+
+**Arquitetura em Botafogo não existe na Biblioteca.** Diferente da Tijuca, aqui não é
+armadilha de termo — é ausência real: o bairro é pequeno, denso e já construído, então
+não há obra residencial para escritório de arquitetura anunciar. Barra e Niterói têm
+condomínio novo e casa; Botafogo tem prédio antigo.
+
+**Regra nova:** arquitetura só rende em bairro com obra nova. Antes de varrer o nicho num
+bairro, perguntar se ali se constrói. Botafogo, Copacabana e Méier provavelmente dão zero
+pelo mesmo motivo — não vale gastar rodada neles.
+
+Isso fecha arquitetura com **Barra e Niterói como as duas únicas praças produtivas**, e as
+duas já foram varridas. **Nicho encerrado.**
+
+### O achado lateral: um alvo de imobiliária
+
+O único anúncio que voltou merece entrar na lista.
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Alfaiataria Imobiliária** | B | título com **`Alt Anúncios`** seguido de **`Chat with us` repetido 10 vezes** | 17/08/2026 (5 semanas) | [ver](https://www.facebook.com/ads/library/?id=1575003674035723) |
+
+Dois defeitos empilhados num título só, e o primeiro é inédito no arquivo:
+
+1. **`Alt Anúncios` é rótulo interno vazando.** É nome de campo de organização — de quem
+   montou o anúncio — aparecendo como manchete para o público. Sétimo membro da família
+   "campo puxado automaticamente", e o mais constrangedor deles: não é a Meta preenchendo
+   sozinha, é o próprio anunciante deixando a etiqueta de bastidor no ar.
+2. **`Chat with us` dez vezes, e em inglês.** Uma imobiliária carioca anunciando para
+   público brasileiro com a chamada padrão da Meta em inglês, nunca traduzida. Mesma
+   família do "Converse conosco" ×7 da Bicho D+, com a agravante do idioma.
+
+É o tipo de alvo que se aborda em uma frase: *"seu anúncio está dizendo 'Alt Anúncios' e
+'Chat with us' dez vezes, em inglês, há cinco semanas."*
+
+LISTA DE ATAQUE: **43 → 44**.
+
+Combos varridos até aqui: + arquitetura Botafogo (negativo no nicho, nicho encerrado;
+1 alvo lateral de imobiliária).
