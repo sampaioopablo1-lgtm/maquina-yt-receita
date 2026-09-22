@@ -5335,3 +5335,66 @@ LISTA DE ATAQUE: **75 → 76**.
 
 Combos varridos até aqui: + sala comercial aluguel Rio (termo magro, 2 anúncios, não voltar;
 1 alvo exemplar de carrossel repetido 10x e código interno no título).
+
+---
+
+## 🦷 Odontologia por PROCEDIMENTO (22/09/2026, 19h) — a regra do eixo NÃO generaliza
+
+Teste deliberado: a regra descoberta hoje em advocacia e contabilidade — varrer por
+**serviço**, não por bairro — vale para os outros nichos?
+
+Termo: `lente de contato dental Rio de Janeiro` (procedimento + cidade, sem bairro).
+**12 anúncios**, e 10 deles de uma página só.
+
+**Resposta: não generaliza.** Compare no mesmo dia:
+
+| Nicho | Eixo testado | Anúncios |
+|---|---|---|
+| Advocacia | área (consumidor) | **251** |
+| Contabilidade | serviço (abertura de empresa) | 14 |
+| **Odontologia** | **procedimento (lente de contato)** | **12** |
+| Odontologia | **bairro** (Campo Grande, 19/09) | **54** |
+
+Odontologia rende **4x mais por bairro do que por procedimento**. O eixo certo depende do
+nicho.
+
+### A REGRA GERAL, que é o achado desta rodada
+
+> **O eixo de busca tem que ser o mesmo critério pelo qual o cliente escolhe o
+> fornecedor.**
+
+| Como o cliente escolhe | Eixo de varredura | Nichos |
+|---|---|---|
+| Por **proximidade** — quero perto de casa | **bairro** | odontologia, estética, academia, pet shop, ótica, fisioterapia, tatuagem |
+| Por **problema** — tenho essa dor específica | **área / serviço** | advocacia, contabilidade |
+| Por **produto** — quero esse imóvel | **tipo de transação** | imobiliária (venda × aluguel) |
+
+Paciente escolhe dentista pelo caminho de casa; cliente escolhe advogado pelo problema que
+tem. **Por isso "implante + bairro" dava zero e "dentista + bairro" funcionava** — o eixo
+estava certo, o termo é que era específico demais dentro dele.
+
+Isso fecha uma dúvida antiga do arquivo e evita gastar rodada testando procedimento em
+nicho de proximidade.
+
+### O único alvo
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Clínica Viotto - Rio de Janeiro** | B | 9 anúncios: seis com o título `🟢 SAIBA MAIS >>` repetido e um vazio | 27/07/2026 (2 meses) |
+
+Ressalva: tem página irmã em Salvador (`Clínica Viotto Salvador - Nova`, também com título
+vazio). **Quarto caso hoje de mesmo negócio com duas páginas.** Pode ser rede pequena com
+decisão de mídia central — conferir antes de abordar, como se faz com franquia.
+
+`SAIBA MAIS` não diz nada sobre lente de contato dental. É botão, não manchete.
+
+### Referência de título
+
+**Clínica Magna Odontologia e Bem Estar**: `Parcele no boleto! ➡` e `Agendar avaliação! ➡`.
+Duas peças, dois títulos diferentes, os dois com verbo e objeção tratada (preço). Faz certo.
+
+LISTA DE ATAQUE: **76 → 77**.
+
+Combos varridos até aqui: + odontologia por procedimento (negativo — **a regra do eixo não
+generaliza**; o eixo é o critério de compra do cliente: proximidade → bairro, problema →
+área, produto → transação).
