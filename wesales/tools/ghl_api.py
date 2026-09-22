@@ -135,6 +135,27 @@ def wait_step(value: int, unit: str = "days") -> dict:
     }
 
 
+def wait_until_step(hora: int, minuto: int = 0, data=None) -> dict:
+    """Wait ate um horario (tipo `specific_date`).
+
+    Os tipos de wait deste build, lidos do JS do builder: time,
+    specific_date, recurring_schedule, appointment, email_event,
+    contact_action, condition. A opcao 'Dynamic' que a spec supunha (achado
+    de busca, nunca confirmado) NAO existe aqui - mas `specificDate` aceita
+    merge field, o que resolve o mesmo problema.
+    Sem `data`, espera ate a proxima ocorrencia do horario.
+    """
+    disp = "Wait até %02d:%02d" % (hora, minuto)
+    at = {"type": "specific_date", "name": disp, "cat": "",
+          "specificTimeHour": hora, "specificTimeMinute": minuto,
+          "isHybridAction": True, "hybridActionType": "wait",
+          "convertToMultipath": False, "transitions": []}
+    if data:
+        at["specificDate"] = data
+    return {"id": uid(), "name": disp, "type": "wait", "cat": "",
+            "attributes": at}
+
+
 def math_step(campo_id: str, operador: str, valor, tipo: str = "numerical") -> dict:
     """Operacao matematica sobre um campo (formato lido do Pos-ligacao)."""
     return {
