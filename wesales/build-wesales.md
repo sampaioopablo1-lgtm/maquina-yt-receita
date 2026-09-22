@@ -3249,6 +3249,113 @@ alcança este setor) como proteção; e sabe, antes de escalar volume, que
 concentrar 100 ligações/dia num único número é o próprio risco que a norma
 de agosto/2026 existe para pegar.
 
+### Correção do F-08, 22/09/2026 (mesma rodada, verificação): SHAKEN/STIR **existe** no Brasil, e a asfixia do canal está dentro da própria cadência
+
+Três coisas mudaram depois de conferir as fontes uma a uma. A conclusão
+prática do F-08 ("o telefone não tem proteção de reputação neste projeto")
+continua certa; duas das premissas, não.
+
+**1. A premissa "SHAKEN/STIR não existe para número brasileiro" está
+errada.** Existe, e em produção: chama-se **`Origem Verificada`**, é a
+implementação brasileira de STIR/SHAKEN + RCD, gerida pela ABR Telecom pelo
+**Portal AIA** (Autoridade de Identificação e Autenticação), com **52+
+prestadoras** aderidas (Vivo, Claro, Oi, TIM entre elas) e cerca de **6
+bilhões de chamadas autenticadas por mês em agosto/2026 — ~30% do tráfego
+nacional**. O que ela faz é exatamente o que o F-08 disse não existir por
+aqui: mostra **nome, logo e motivo da chamada** na tela de quem recebe, com
+selo de autenticidade.
+
+O erro de conclusão que isso causou: o F-08 apresenta o portal **"Qual
+Empresa Me Ligou?"** como "equivalente brasileiro real do Branded Caller
+ID". Não é o equivalente — é o plano B. Ele depende de o lead **procurar** o
+número desconhecido antes de decidir; a `Origem Verificada` entrega a
+identificação **antes** da decisão, na própria tela da chamada. Os dois
+continuam valendo, em ordem invertida: a `Origem Verificada` é o alvo, o
+"Qual Empresa Me Ligou?" é o que dá para fazer hoje de graça.
+
+| O que é | Vale para esta operação? |
+|---|---|
+| **Obrigatória** para quem origina **mais de 500 mil chamadas/mês** (bancos, call centers, recuperação de crédito, grande varejo) | **Não.** 100 ligações/dia ≈ **2.200/mês** — três ordens de grandeza abaixo |
+| Obrigação geral para todos, com prazo de três anos | Alvo em torno de **outubro/2028**: dá tempo, mas a data existe |
+| Contratação: pelo site `origemverificada.com.br`, assinando os Termos de Acesso e o pedido de acesso ao Portal AIA; informa CNPJ, dados cadastrais, representantes legais e faturamento; documentos (cartão CNPJ, inscrição estadual, termo de acesso); **ABR Telecom responde em 5 dias úteis** | O caminho é documentado e a papelada é de porte pequeno |
+| **Ressalva medida:** nesta fase inicial a contratação é descrita como aberta a **empresas de grande volume de chamadas** | **Pode ser recusada por volume.** Vale pedir de todo jeito — é um formulário e 5 dias úteis, e um "não" hoje já dá a data para voltar |
+
+`Voice Integrity` da HighLevel segue descartada, e pelo motivo certo: ela
+registra em First Orion/Hiya/TNS com SHAKEN/STIR **americano** (EIN, FCC),
+e é `US only` na própria documentação. O que não vale é a generalização —
+"não há SHAKEN/STIR para o Brasil" — que vinha embutida.
+
+**2. O critério da norma é mais largo que "quantidade e duração", e é aí que
+a cadência deste projeto se encaixa mal.** O ato é o **Despacho Decisório nº
+82/2026/RCTS/SRC, de 17/08/2026**. Além de volume e duração, ele autoriza a
+prestadora a considerar:
+
+| Critério da norma | O que a cadência 12x30 produz |
+|---|---|
+| **Proporção de chamadas de curtíssima duração** | `Não atendeu` e `Caixa Postal` são, por definição, chamadas curtíssimas — e são os **dois únicos** resultados que o nó 10 (seções 2.4 e 2.10) manda **insistir** |
+| **Duração média das chamadas** | Puxada para baixo pelo mesmo motivo, em toda tentativa que não conecta |
+| **Taxa de completamento** | 8 toques de telefone por lead numa base fria derrubam esta taxa por desenho |
+| **CNAE de quem origina** | Agência vendendo serviço de marketing. Nada a fazer, mas é entrada do cálculo — vale saber |
+| Volume de chamadas | O que o F-08 já tratou (a linha dos 50-75/dia por número) |
+
+Ou seja: a norma não mede só **quantas** ligações saem, mede **como elas
+terminam**. E o "como terminam" é decisão de cadência, não de infraestrutura.
+
+**3. O achado que fecha o item — a proteção já existe neste projeto, só não
+para o telefone.** O seletor de canal (nó 4 da seção 2.4; nó 3 da 2.10) tem
+esta condição:
+
+> Ramo WA: `Permissão WhatsApp` é `Sim` **E** `WA não atendidas seguidas` **< 2**
+
+Isto é uma proteção de canal: duas mensagens de WhatsApp seguidas sem
+resposta e o lead **sai** daquele canal. **Não existe gêmeo de telefone.**
+Conferido por `grep` em todo o `wesales/`: `WA não atendidas seguidas` é o
+único contador de "seguidas" do projeto, e nenhum campo, nó ou portão conta
+ligações não atendidas consecutivas. O resultado é a assimetria exata ao
+contrário do risco:
+
+| Canal | Toques na régua | Protege-se depois de… |
+|---|---|---|
+| WhatsApp | 4 dos 12 | **2** sem resposta seguidas |
+| Telefone | **8** dos 12 | nada — `Caixa Postal`/`Não atendeu` insistem até o fim |
+
+O canal com o dobro dos toques, o único com regulador olhando, e o único
+sem freio. E o remédio não é novo: é o **mesmo padrão já provado no outro
+canal** — um contador de não atendidas seguidas no telefone, e um portão
+que desvie para WhatsApp (ou encerre a régua mais cedo) ao estourar. Isso
+melhora justamente as três razões que a norma cita — proporção de curtas,
+duração média, taxa de completamento — e de graça, sem número novo, sem
+cadastro e sem esperar a `Origem Verificada` aceitar a subconta.
+
+**Não especifico o nó aqui, de propósito.** Criar o contador exige campo
+novo (`Tel não atendidas seguidas`, NUMERICAL) e mexer no seletor de canal
+e no nó 10 das duas cadências — decisão de régua, que muda quantas
+ligações/dia a operação faz de verdade e por isso conversa direto com a
+meta de 100/dia do `briefing-sdr.md`. É pergunta para o dono, registrada
+como **F-09** no roadmap, não escolha de rodada automática. O que esta
+correção fecha é o diagnóstico: o F-08 procurou a proteção fora do CRM e
+ela também faltava dentro.
+
+**4. O prefixo `0303`, que o F-08 não mencionou.** Obrigatório para
+telemarketing ativo de junho/2022 até **agosto/2025**, quando a Anatel o
+tornou **facultativo**. O MPF recomendou em seguida que a obrigatoriedade
+volte, justamente porque a `Origem Verificada` ainda não alcança toda a
+população. Para esta operação: **não adote por conta própria** — o motivo
+declarado da revogação é que o `0303` virou estigma e passou a ser rejeitado
+automaticamente, o que bate de frente com a taxa de atendimento que esta
+operação persegue. Mas é item de vigilância: se voltar a ser obrigatório,
+alcança venda ativa por telefone, que é exatamente isto aqui.
+
+**Confiança das fontes:** média-alta. Tudo acima vem de busca — `gov.br` e
+`teletime.com.br` estão **bloqueados pelo proxy deste ambiente** (testados
+nesta rodada, `EGRESS_BLOCKED`), mesma limitação já registrada para
+`help.gohighlevel.com`. O número do despacho, a lista de critérios, o
+limiar de 500 mil chamadas/mês, o prazo de 2028, os 5 dias úteis da ABR
+Telecom e as datas do `0303` apareceram de forma convergente em fontes
+independentes, que é o teste que este projeto usa quando a fonte primária
+não abre. Nada aqui foi escrito por dedução.
+
+
 ---
 
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026

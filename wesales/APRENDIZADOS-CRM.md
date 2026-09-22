@@ -4,6 +4,12 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 ## Uma solução de mercado (americana) e uma solução nacional (mas de outro setor) foram as duas primeiras respostas erradas para a mesma pergunta — F-08, 22/09/2026, sessão automática
 
+> **Leia antes a entrada seguinte** ("Premissa negativa…", mesma data): a
+> terceira resposta desta entrada — "não existe SHAKEN/STIR para número
+> brasileiro, então o equivalente é o portal *Qual Empresa Me Ligou?*" —
+> também estava errada. Existe: é a `Origem Verificada`. O resto desta
+> entrada continua valendo.
+
 Fechando o F-08 (proteção de reputação do número de **telefone**, o par do
 F-07 que protege WhatsApp), a pesquisa foi direto para a resposta "óbvia"
 duas vezes seguidas e as duas estavam erradas para esta subconta —
@@ -54,6 +60,83 @@ documentação e rotina manual pura, mesmo tratamento do F-07. Detalhe
 completo em `build-wesales.md`, seção 2.26, e `ROADMAP-SALES-ENGAGEMENT.md`,
 F-08. Subconta reconfirmada sem mudança (51 campos, 50 oportunidades,
 G-03/G-04 ainda aguardando o dono).
+
+## Premissa negativa ("isso não existe no Brasil") é a mais barata de conferir e a mais cara de errar — correção do F-08, 22/09/2026, sessão automática
+
+O F-08 descartou o `Voice Integrity` do HighLevel pelo motivo certo (é `US
+only`, exige SHAKEN/STIR com EIN americano) mas embutiu uma generalização
+que ninguém testou: **"SHAKEN/STIR não existe para número brasileiro"**.
+Existe. Chama-se **`Origem Verificada`**, é a implementação brasileira de
+STIR/SHAKEN + RCD, gerida pela ABR Telecom pelo Portal AIA, com 52+
+prestadoras e ~6 bilhões de chamadas autenticadas por mês em agosto/2026 —
+cerca de 30% do tráfego nacional. Não é piloto: é infraestrutura em
+produção, com prazo legal (obrigatória acima de 500 mil chamadas/mês hoje,
+geral em ~outubro/2028).
+
+**O dano de uma premissa negativa não é a linha errada, é a recomendação que
+ela troca.** Com "não existe equivalente", o item recomendou como
+"equivalente brasileiro real do Branded Caller ID" o portal **"Qual Empresa
+Me Ligou?"** — que só funciona se o lead **procurar** o número antes de
+decidir atender. A `Origem Verificada` mostra nome, logo e motivo **na tela
+da chamada**, antes da decisão. O plano B foi promovido a plano A porque o
+plano A tinha sido declarado inexistente. A recomendação errada sobreviveria
+à revisão: ela é verdadeira em si (o portal existe e é gratuito), só não é o
+melhor caminho.
+
+**Por que esta classe engana com tanta facilidade:** afirmação positiva
+("existe X") é conferida achando X. Afirmação negativa ("não existe
+equivalente brasileiro") exige procurar pelo **nome local**, que por
+definição não está na fonte em inglês que originou a dúvida. Buscar
+`"SHAKEN/STIR Brazil"` a partir da documentação da HighLevel tende a
+devolver mais documentação americana; o que achou foi buscar pelo nome
+brasileiro (`Origem Verificada`), e esse nome só aparece quando se busca o
+**problema** em português, não o **produto** em inglês. Foi assim que veio
+junto o `0303` — item que o F-08 nem mencionou e que é a primeira coisa que
+qualquer operação de ligação ativa no Brasil precisa saber (facultativo
+desde agosto/2025, com o MPF pedindo que volte).
+
+**Regra:** toda frase da forma "não existe X para o Brasil / para este
+canal / nesta plataforma" precisa de uma busca própria **no idioma e na
+nomenclatura locais** antes de virar premissa de recomendação. Uma busca. E
+se a busca não achar, escrever "não encontrei" em vez de "não existe" — as
+duas frases custam o mesmo para escrever e levam a decisões diferentes.
+
+**O segundo achado veio de ler o critério inteiro, não o resumo.** O F-08
+citou a norma (Despacho Decisório nº 82/2026/RCTS/SRC, 17/08/2026) pelo par
+"quantidade e duração". A lista completa que a norma autoriza a prestadora a
+considerar é: **CNAE de quem origina, volume, proporção de chamadas de
+curtíssima duração, duração média e taxa de completamento**. Os três últimos
+mudam a natureza do item: a norma não mede só *quantas* ligações saem, mede
+**como elas terminam** — e "como terminam" é decisão de régua, não de
+infraestrutura. Com o resumo, a mitigação era externa (cadastrar número,
+dividir volume). Com a lista inteira, a mitigação mais barata estava dentro
+da própria especificação.
+
+**E aí apareceu o achado que fechou o item, por comparação entre canais:** o
+seletor de canal já protege o WhatsApp (`WA não atendidas seguidas < 2` —
+duas sem resposta e o lead sai do canal) e **não existe nada equivalente no
+telefone**, que carrega 8 dos 12 toques. `grep` em todo o `wesales/`
+confirma: é o único contador de "seguidas" do projeto. O canal com o dobro
+dos toques, o único com regulador olhando e o único sem freio. Virou **F-09**
+no roadmap, com três limiares para o dono escolher — não executei, porque o
+limiar **é** a régua e mexeria na meta de 100 ligações/dia.
+
+**Regra, generalizável para além deste caso:** quando um item protege um
+canal, perguntar o que o **outro** canal tem que ele não tem — e o
+contrário. A assimetria entre dois canais do mesmo projeto é mais fácil de
+achar (um `grep` pelo nome do contador) do que a ausência absoluta, e foi o
+que três rodadas de "proteção de reputação" não tinham perguntado. Mesmo
+padrão do achado do F-07 (cada item protegia lead ou mensagem, nenhum
+protegia o canal): a pergunta produtiva é *o que ninguém está protegendo*,
+aplicada uma vez por canal, não uma vez por projeto.
+
+**Limite de fonte, registrado como sempre:** `gov.br` e `teletime.com.br`
+foram testados nesta rodada e voltaram `EGRESS_BLOCKED` do proxy — mesma
+limitação já registrada para `help.gohighlevel.com`. Tudo acima veio de
+convergência entre fontes independentes (número do despacho, lista de
+critérios, limiar de 500 mil/mês, prazo de 2028, 5 dias úteis da ABR
+Telecom, datas do `0303`), que é o teste que este projeto usa quando a fonte
+primária não abre. Confiança média-alta, e escrito como tal no documento.
 
 ## O dono fez a parte manual e três documentos continuaram pedindo — pendência que virou feito é tão errada quanto achado que não foi aplicado — 22/09/2026, sessão automática
 

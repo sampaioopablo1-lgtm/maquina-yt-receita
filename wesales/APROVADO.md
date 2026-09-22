@@ -155,6 +155,16 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       motivo e mesma regra das quatro linhas acima: nasce `[ ]`, vira `[x]`
       quando o dono trocar, num commit que não é o meu.
 
+- [ ] Criar o campo `Tel não atendidas seguidas` (NUMERICAL) — nasceu no
+      F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026): o telefone
+      carrega 8 dos 12 toques e é o único canal sem freio próprio, enquanto o
+      WhatsApp sai depois de 2 sem resposta. **Não é só criar o campo:** ele
+      só serve com um portão, e o limiar do portão muda quantas ligações/dia
+      a operação faz — o dono escolhe A (2), B (4, recomendada) ou C (só
+      medir, sem portão) antes de qualquer `[x]`. Campo personalizado também
+      não sai por este conector (é criação na tela), então esta linha é
+      autorização de desenho, não de escrita por API. Nasce `[ ]`.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

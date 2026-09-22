@@ -1558,7 +1558,29 @@ DMs pessoais de Instagram), o que faz deste item um item "antes de ligar o
 motor", não uma correção depois de já ter sofrido dano de reputação — G-03/
 G-04 seguem aguardando o dono.
 
-### F-08 · Proteção de reputação do número de telefone — **FEITO em 22/09/2026**
+### F-08 · Proteção de reputação do número de telefone — **FEITO em 22/09/2026, com correção no mesmo dia**
+
+> **Corrigido em 22/09/2026, na conferência da mesma rodada** (detalhe em
+> `build-wesales.md`, "Correção do F-08"): a conclusão do item está certa, duas
+> premissas não. (a) **SHAKEN/STIR existe no Brasil** — é a `Origem
+> Verificada` (ABR Telecom / Portal AIA, 52+ prestadoras, ~6 bi de chamadas
+> autenticadas/mês em agosto/2026, ~30% do tráfego), que mostra nome, logo e
+> motivo na tela de quem recebe; obrigatória só acima de **500 mil
+> chamadas/mês** (esta operação faz ~2.200), obrigação geral em ~outubro/2028,
+> contratação documentada em `origemverificada.com.br` com resposta da ABR
+> Telecom em 5 dias úteis — **mas descrita como aberta a empresas de grande
+> volume nesta fase inicial**, então pode ser recusada por porte. Vale pedir:
+> é um formulário. O "Qual Empresa Me Ligou?" não é o equivalente brasileiro,
+> é o plano B — depende de o lead procurar o número. (b) O ato é o **Despacho
+> Decisório nº 82/2026/RCTS/SRC, de 17/08/2026**, e o critério é mais largo que
+> "quantidade e duração": inclui **proporção de chamadas de curtíssima
+> duração, duração média, taxa de completamento e CNAE de quem origina** — ou
+> seja, a norma mede **como as ligações terminam**, que é decisão de cadência,
+> não de infraestrutura. (c) O `0303`, não mencionado no item, é facultativo
+> desde agosto/2025 (com recomendação do MPF para voltar a ser obrigatório):
+> **não adotar por conta própria** — virou estigma e derruba a taxa de
+> atendimento —, mas vigiar. A correção também gerou o **F-09** abaixo.
+
 **Por quê:** o F-07 protegeu a infraestrutura do canal WhatsApp; o canal
 **majoritário** da cadência — ligação por telefone, 8 dos 12 toques da
 tabela 2.5 — seguia sem proteção nenhuma de reputação de número, e o risco
@@ -1604,6 +1626,58 @@ etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
 `NOVO LEAD` + 3 `NEGOCIAR`, 1 `lost` de teste, 49 `open`) — sem mudança
 desde a última leitura (F-07, mesma data) — G-03/G-04 seguem aguardando o
 dono.
+
+---
+
+### F-09 · O telefone não tem freio de canal, e o WhatsApp tem — **aguarda decisão do dono** (aberto em 22/09/2026)
+
+**Por quê:** achado ao conferir o F-08. O seletor de canal (nó 4 da seção
+2.4; nó 3 da 2.10) só manda pelo WhatsApp se `WA não atendidas seguidas` for
+**< 2** — duas sem resposta seguidas e o lead sai daquele canal. Não existe
+equivalente no telefone: conferido por `grep` em todo o `wesales/`, `WA não
+atendidas seguidas` é o **único** contador de "seguidas" do projeto, e o nó
+10 das duas cadências manda `Caixa Postal` e `Não atendeu` **insistirem**
+até o fim da régua.
+
+| Canal | Toques dos 12 | Freio próprio |
+|---|---|---|
+| WhatsApp | 4 | 2 sem resposta seguidas → troca de canal |
+| Telefone | **8** | **nenhum** |
+
+O canal com o dobro dos toques, o único com regulador olhando (Despacho
+Decisório nº 82/2026/RCTS/SRC — F-08), e o único sem freio. Pior: os
+critérios que a norma manda a operadora considerar são **proporção de
+chamadas de curtíssima duração, duração média e taxa de completamento** — as
+três pioradas exatamente pelas tentativas que insistem sem conectar. É a
+mitigação mais barata do F-08: não custa número novo, cadastro nem esperar a
+`Origem Verificada` aceitar a subconta.
+
+**Como (proposta, não executada):** campo novo `Tel não atendidas seguidas`
+(NUMERICAL), somado no ramo `Não atendeu`/`Caixa Postal` do Pós-ligação e
+zerado em toda conexão real — espelho exato do que o nó C1 (`IMPLEMENTACAO-
+WORKFLOWS.md`, W4) já faz para o WhatsApp; depois um portão, no seletor de
+canal e/ou no nó 10, que ao estourar desvie para WhatsApp ou encerre a régua
+mais cedo.
+
+**Por que não executo sozinho:** o limiar **é** a régua. Cortar o telefone
+na 2ª não atendida seguida, como o WhatsApp faz, reduziria os 8 toques de
+telefone a talvez 2-3 por lead — mexe direto na meta de 100 ligações/dia do
+`briefing-sdr.md` e na conta de volume da L-05. Pode ser exatamente o que se
+quer (menos discagem morta, mais tempo em lead que atende), ou o oposto
+(insistir é o jeito de furar base fria). É decisão de negócio, e a regra do
+briefing é não criar campo nem mexer em régua em massa sem confirmação.
+
+**Três opções para o dono escolher — nenhuma aplicada:**
+
+| Opção | Limiar | Efeito |
+|---|---|---|
+| **A — espelhar o WhatsApp** | 2 não atendidas seguidas → sai do telefone | Mais protetora; corta mais fundo os 8 toques |
+| **B — meio caminho** (recomendo começar aqui) | 4 não atendidas seguidas → desvia para WhatsApp; se WhatsApp também estourar, encerra | Mantém boa parte da insistência e ainda melhora as três razões da norma; reversível |
+| **C — só medir** | contador criado, nenhum portão | Zero risco de régua, e em duas semanas há número real para decidir A ou B com dado em vez de palpite |
+
+**Pronto quando:** o dono escolher A, B ou C; o campo `Tel não atendidas
+seguidas` nascer em `APROVADO.md` com `[x]` **dele**, não meu; e o portão
+escolhido estar escrito nó a nó nas seções 2.4/2.10/4.
 
 ---
 
