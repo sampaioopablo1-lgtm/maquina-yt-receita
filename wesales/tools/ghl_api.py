@@ -490,9 +490,18 @@ def publicar(c, wf_id: str) -> bool:
     if not isinstance(cur, dict) or cur.get("_error"):
         print("  nao consegui ler o workflow: " + str(cur))
         return False
+    # CUIDADO: o PUT sobrescreve as configuracoes que nao forem enviadas.
+    # Publicar mandando so nome/status/nos zerou allowMultiple (Allow
+    # Re-entry) em 7 workflows em 21/09/2026 - e sem re-entry o contato nao
+    # volta a entrar, o que matou a 2a rodada do teste do W6. Preserve tudo.
     r = c.request("PUT", "/workflow/" + LOC + "/" + wf_id,
                   {"name": cur.get("name"), "status": "published",
                    "version": cur.get("version", 1),
+                   "allowMultiple": cur.get("allowMultiple", True),
+                   "stopOnResponse": cur.get("stopOnResponse", False),
+                   "allowMultipleOpportunity": cur.get("allowMultipleOpportunity", False),
+                   "timezone": cur.get("timezone", "account"),
+                   "window": cur.get("window"),
                    "workflowData": {"templates":
                                     (cur.get("workflowData") or {}).get("templates") or []}})
     if r and r.get("_error"):
