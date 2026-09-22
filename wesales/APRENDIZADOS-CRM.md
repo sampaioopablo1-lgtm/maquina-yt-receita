@@ -2,6 +2,48 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O teste que responde a dúvida das sete listas estava preso atrás de uma decisão que ele não precisa — e a lista que o destrava é a mais urgente do projeto — 22/09/2026, sessão automática
+
+A rodada anterior fez a coisa certa com a dúvida da ordenação de dois níveis:
+esgotou três caminhos de pesquisa (WebFetch bloqueado pelo proxy, WebSearch por
+vários ângulos sem confirmação, documentação da API) e, em vez de deixar nota de
+rodapé, transformou em **teste de 10 segundos** no `GUIA-MONTAGEM.md`. Duas
+precisões e uma reordenação.
+
+**1. O achado da API não serve para testar, só para raciocinar.** A rodada achou
+que o endpoint oficial `Search Contacts` aceita array de ordenação multi-campo —
+bom sinal de que a plataforma modela isso na camada de dados. Mas **este conector
+não implementa esse endpoint**: o `contacts_get-contacts` que temos é o
+*deprecated* `/contacts/`, e o schema dele **não tem parâmetro de ordenação
+nenhum** (conferido campo a campo: `locationId`, `query_limit`, `query_query`,
+`query_startAfter`, `query_startAfterId`). Ou seja, não dá para testar multi-sort
+nem no nível da API a partir daqui. Registrado para ninguém tentar.
+
+**2. O teste foi parar na Fase 6, e a Fase 6 está bloqueada.** A instrução ficou
+em "antes de configurar a ordenação das 8.1, 8.2, 8.3, 8.4, 8.16, 8.18 e 8.19" —
+todas da Fase 6, que espera a decisão da coluna `Empresa` (Tabela J). Então o
+teste herdou um bloqueio que **não é dele**: qualquer Smart List aberta responde
+a pergunta, não só aquelas sete.
+
+**3. E existe uma lista que não espera nada — e que por acaso é a mais urgente do
+projeto.** As duas do F-10 (`Entrada — últimas 24h` / `— 7 dias`, seção 8.25):
+
+| | Por quê |
+|---|---|
+| Não dependem da Tabela J | tirei a coluna `Empresa` da definição — ela está vazia em 100% da base e o trabalho da lista é **contar chegada**, não qualificar. Nas outras sete a coluna morta atrapalha a leitura do SDR; aqui não existe |
+| Ordenação de um nível só | `Data de criação` desc — montam inteiras independentemente da resposta |
+| Respondem a pergunta de graça | quem montar está com a tela de Smart List aberta e olha em 10 segundos se há `, depois` |
+| São o único monitor de entrada que existe | e a entrada está parada há mais de 1,9× o maior intervalo já observado (F-10) |
+
+**A lição, que é sobre onde se pendura uma verificação:** um teste barato
+herda o bloqueio do lugar onde é escrito. Antes de anexá-lo a uma fase,
+perguntar **qual é o primeiro momento em que ele poderia acontecer** — e
+pendurá-lo ali. Aqui a diferença é entre "quando o dono decidir a coluna
+`Empresa`" e "na próxima vez que alguém abrir uma Smart List", que pode ser
+hoje. Mesmo raciocínio das conferências acopladas do F-06 e do R-14, agora
+aplicado no sentido inverso: não basta acoplar ao passo certo, tem de ser ao
+passo **mais cedo** que serve.
+
 ## Ordenação secundária de Smart List: pesquisa não resolve, só a tela resolve — três abordagens diferentes, todas inconclusivas — 22/09/2026, sessão automática
 
 A rodada anterior (nota abaixo) deixou em aberto se a Smart List do GHL

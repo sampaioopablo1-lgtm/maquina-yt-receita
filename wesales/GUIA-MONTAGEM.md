@@ -64,7 +64,15 @@ documento não detalha.
       segundo fica como coluna visível) em vez de forçar ou deixar a lista
       pela metade. Registre o resultado (aceita ou não) em
       `APRENDIZADOS-CRM.md` assim que descobrir — é a única forma de
-      verificação que este projeto não conseguiu fazer por pesquisa
+      verificação que este projeto não conseguiu fazer por pesquisa.
+      **E não espere a Fase 6 para isso:** as duas listas do F-10 (`Entrada —
+      últimas 24h` / `— 7 dias`, seção 8.25 do `build-wesales.md`) **não
+      dependem da decisão da coluna `Empresa`** — foram redefinidas sem ela em
+      22/09 —, montam com ordenação de um nível só e portanto podem ser feitas
+      **hoje**. Monte a `Entrada — últimas 24h` primeiro de todas as listas do
+      projeto: é o único monitor de entrada que existe (e a entrada está
+      parada), não espera ninguém, e com a tela aberta você responde de lambuja
+      a pergunta que decide o desenho das outras sete
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
 - [ ] **Fase 8 — Pausar Workflows em Datas Específicas** (feriados/férias)
 - [ ] **Fase 9 — Number Validation** (opcional)

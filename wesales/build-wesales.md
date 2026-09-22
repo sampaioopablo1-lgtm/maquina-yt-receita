@@ -5575,8 +5575,32 @@ Duas listas custam o mesmo e não disputam:
 
 | Lista | Filtro | Colunas | Ordenação |
 |---|---|---|---|
-| **`Entrada — últimas 24h`** | `Data de criação` **`In the Last`** `1 dia` (relativo, **não** igualdade a uma data) | Nome · `Empresa` · Telefone · Origem (`source`) · Data de criação | Data de criação desc |
+| **`Entrada — últimas 24h`** | `Data de criação` **`In the Last`** `1 dia` (relativo, **não** igualdade a uma data) | Nome · Telefone · Origem (`source`) · Data de criação | Data de criação desc |
 | **`Entrada — últimos 7 dias`** | `Data de criação` **`In the Last`** `7 dias` | idem | idem |
+
+**Estas duas são as únicas listas do documento que dá para montar hoje, sem
+esperar decisão nenhuma — e são a mais urgente da casa.** Acrescentado em
+22/09/2026, por dois motivos que se somam:
+
+1. **Não dependem da Tabela J.** A coluna `Empresa` saiu da definição acima (a
+   versão anterior a trazia por hábito): ela está vazia para 100% da base e o
+   trabalho destas listas é **contar chegada**, não qualificar lead. Sem
+   `Empresa`, não há o que decidir — as outras sete listas esperam a Tabela J
+   porque nelas a coluna morta atrapalha a leitura do SDR; aqui não existe.
+2. **Respondem, de graça, a pergunta de ordenação que trava as outras sete.**
+   A ordenação destas duas é de **um nível só** (`Data de criação` desc), então
+   elas se montam inteiras de qualquer jeito — mas quem as montar está com a
+   tela de Smart List aberta e pode olhar, em dez segundos, se o construtor
+   oferece um segundo critério (`, depois`). **É a primeira oportunidade real
+   de responder aquilo**, e ela chega antes da Fase 6.
+
+**Ordem sugerida, portanto:** monte a `Entrada — últimas 24h` primeiro, de
+todas as listas do projeto. Ela é o único monitor de entrada que existe
+(F-10 — e a entrada está parada há mais de 1,9× o maior intervalo já
+observado), não espera ninguém, e responde de lambuja a dúvida que decide o
+desenho das outras sete. Anote o resultado da ordenação em
+`APRENDIZADOS-CRM.md` — é a verificação que nenhuma pesquisa deste projeto
+conseguiu fazer.
 
 **"Últimas 24h" não é "hoje", e a diferença importa na leitura:** `In the
 Last 1 dia` é janela **rolante** (conta para trás a partir de agora); "hoje" é
