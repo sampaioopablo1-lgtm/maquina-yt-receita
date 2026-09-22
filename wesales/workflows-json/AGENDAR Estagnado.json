@@ -1,0 +1,358 @@
+{
+  "workflow": {
+    "_id": "4d25eb9e-beee-4d8b-b338-ae1b51327622",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "AGENDAR Estagnado",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/4d25eb9e-beee-4d8b-b338-ae1b51327622/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F4d25eb9e-beee-4d8b-b338-ae1b51327622%2F3?alt=media&token=541f4c5d-10dd-4345-a584-44d0f067f312",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-21T23:54:19.195Z",
+    "updatedAt": "2026-09-21T23:54:21.688Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "window": null,
+    "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-21T23:54:20.000Z"
+      }
+    },
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/4d25eb9e-beee-4d8b-b338-ae1b51327622/3",
+    "id": "4d25eb9e-beee-4d8b-b338-ae1b51327622",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "2f39602c-31d7-444c-b96a-7a8858de7b80",
+          "name": "Wait 24 Hours",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "hour",
+              "value": 24,
+              "when": "after"
+            },
+            "name": "Wait 24 Hours",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "299fac45-222e-4017-91ba-0399fe29d42c",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "299fac45-222e-4017-91ba-0399fe29d42c",
+          "order": 1,
+          "name": "Ainda em AGENDAR e aberta?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "73c24d04-10ff-4c41-8724-ca48bfec1123",
+            "6f4eb5a3-ae07-446c-9af0-3d543f86c8bd"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "73c24d04-10ff-4c41-8724-ca48bfec1123",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "b957194c-bf2c-4c45-a7d5-a189e3e278b9",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
+                        "__conditionId": "bb6157f6-63f5-440c-b40b-0be6254e553e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "d169c999-5b5c-49d7-9e5a-4de92c82ec4d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parentKey": "2f39602c-31d7-444c-b96a-7a8858de7b80",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "73c24d04-10ff-4c41-8724-ca48bfec1123",
+          "parent": "299fac45-222e-4017-91ba-0399fe29d42c",
+          "parentKey": "299fac45-222e-4017-91ba-0399fe29d42c",
+          "order": 2,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "6f4eb5a3-ae07-446c-9af0-3d543f86c8bd"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "dccf27cd-fe34-4783-b23b-154ef49ba8dc",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "6f4eb5a3-ae07-446c-9af0-3d543f86c8bd",
+          "parent": "299fac45-222e-4017-91ba-0399fe29d42c",
+          "parentKey": "299fac45-222e-4017-91ba-0399fe29d42c",
+          "order": 2,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "73c24d04-10ff-4c41-8724-ca48bfec1123"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "dccf27cd-fe34-4783-b23b-154ef49ba8dc",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "agendar-estagnado"
+            ]
+          },
+          "order": 0,
+          "parent": "73c24d04-10ff-4c41-8724-ca48bfec1123",
+          "parentKey": "73c24d04-10ff-4c41-8724-ca48bfec1123",
+          "next": "c6f870f2-0b48-4650-a645-208ab527c228",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "c6f870f2-0b48-4650-a645-208ab527c228",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "{{contact.name}} atendeu e está há mais de 24h em AGENDAR sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.",
+              "title": "Lead parado em AGENDAR",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 1,
+          "parent": "73c24d04-10ff-4c41-8724-ca48bfec1123",
+          "parentKey": "dccf27cd-fe34-4783-b23b-154ef49ba8dc",
+          "next": "8a0f492c-69ff-4ce0-81ad-34f6772c43dd",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "8a0f492c-69ff-4ce0-81ad-34f6772c43dd",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Alerta de saúde: AGENDAR sem fechar o loop em 24h · <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Alerta de saúde"
+          },
+          "order": 2,
+          "parent": "73c24d04-10ff-4c41-8724-ca48bfec1123",
+          "parentKey": "c6f870f2-0b48-4650-a645-208ab527c228",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "jJRo4rCO9PsFYMNL8aTE",
+      "date_added": "2026-09-21T23:54:19.669Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "4d25eb9e-beee-4d8b-b338-ae1b51327622",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineStageId",
+          "value": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
+          "title": "Movido para o estágio",
+          "type": "select",
+          "id": "moved-to-stage"
+        }
+      ],
+      "type": "pipeline_stage_updated",
+      "masterType": "highlevel",
+      "workflow_id": "4d25eb9e-beee-4d8b-b338-ae1b51327622",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Etapa Do Funil Alterada",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "2f39602c-31d7-444c-b96a-7a8858de7b80",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-21T23:54:21.286Z"
+    }
+  ]
+}

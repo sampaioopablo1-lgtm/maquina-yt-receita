@@ -1,0 +1,1230 @@
+{
+  "workflow": {
+    "_id": "87fead84-5a1f-4de8-8456-e6e8bf24c61e",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE W6",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/87fead84-5a1f-4de8-8456-e6e8bf24c61e/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F87fead84-5a1f-4de8-8456-e6e8bf24c61e%2F3?alt=media&token=a4e57cd1-339a-4461-9bcd-4cab2eaf8edd",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T00:28:21.330Z",
+    "updatedAt": "2026-09-22T00:28:24.704Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "window": null,
+    "workflowNote": null,
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-22T00:28:23.000Z"
+      }
+    },
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/87fead84-5a1f-4de8-8456-e6e8bf24c61e/3",
+    "id": "87fead84-5a1f-4de8-8456-e6e8bf24c61e",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "68aaaa03-2d94-4b2c-a70d-fa56461cf08f",
+          "order": 0,
+          "name": "Veredito está vazio?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "14446ace-6e60-479d-a599-a37a51f28107",
+            "ca13b3bc-37c5-46ed-a6bb-306fb9d49090"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "14446ace-6e60-479d-a599-a37a51f28107",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "21a860e7-a5a7-4edc-b651-e8a8f4fb4e32",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "c470gqXWCkwqE9yVrcEi",
+                        "conditionOperator": "has_no_value",
+                        "conditionValue": null,
+                        "__conditionId": "41b29046-b8b1-4da8-b66b-307261949db6",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "14446ace-6e60-479d-a599-a37a51f28107",
+          "parent": "68aaaa03-2d94-4b2c-a70d-fa56461cf08f",
+          "parentKey": "68aaaa03-2d94-4b2c-a70d-fa56461cf08f",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "ca13b3bc-37c5-46ed-a6bb-306fb9d49090"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "ca13b3bc-37c5-46ed-a6bb-306fb9d49090",
+          "parent": "68aaaa03-2d94-4b2c-a70d-fa56461cf08f",
+          "parentKey": "68aaaa03-2d94-4b2c-a70d-fa56461cf08f",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "14446ace-6e60-479d-a599-a37a51f28107"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "ae4ef8d1-72fa-4d70-b305-97977805272a",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "ae4ef8d1-72fa-4d70-b305-97977805272a",
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "ffIpN8kTlhncr7K00Xzy",
+                "value": "{{right_now.date}}",
+                "title": "Data do veredito do closer",
+                "type": "date",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "parent": "ca13b3bc-37c5-46ed-a6bb-306fb9d49090",
+          "parentKey": "ca13b3bc-37c5-46ed-a6bb-306fb9d49090",
+          "next": "1267187f-7205-473f-b022-a97f18012b56",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "1267187f-7205-473f-b022-a97f18012b56",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Veredito do closer: <span data-cv-variable=\"contact.reunio_foi_qualificada\" data-cv-token=\"true\">{{contact.reunio_foi_qualificada}}</span> · motivo: <span data-cv-variable=\"contact.motivo_da_desqualificao\" data-cv-token=\"true\">{{contact.motivo_da_desqualificao}}</span> · nota do SDR/IA na hora: <span data-cv-variable=\"contact.nota_de_qualificao\" data-cv-token=\"true\">{{contact.nota_de_qualificao}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Veredito do closer"
+          },
+          "order": 1,
+          "parent": "ca13b3bc-37c5-46ed-a6bb-306fb9d49090",
+          "parentKey": "ae4ef8d1-72fa-4d70-b305-97977805272a",
+          "next": "c4d0543c-383e-4e2d-8d20-0da5351f7218",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "c4d0543c-383e-4e2d-8d20-0da5351f7218",
+          "order": 2,
+          "name": "Veredito é Sim?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "963a56f2-4f69-4e85-9741-3c976e5bfd20",
+            "c4406f05-e8eb-48ee-a424-b6f29152d2f6"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "963a56f2-4f69-4e85-9741-3c976e5bfd20",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "7bd40ded-7c53-4c3e-aa54-0f394d7d269d",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "c470gqXWCkwqE9yVrcEi",
+                        "conditionOperator": "==",
+                        "conditionValue": "Sim",
+                        "__conditionId": "5e34ea14-024c-4f46-b329-5e97a20a1dec",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "ca13b3bc-37c5-46ed-a6bb-306fb9d49090",
+          "parentKey": "1267187f-7205-473f-b022-a97f18012b56",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "963a56f2-4f69-4e85-9741-3c976e5bfd20",
+          "parent": "c4d0543c-383e-4e2d-8d20-0da5351f7218",
+          "parentKey": "c4d0543c-383e-4e2d-8d20-0da5351f7218",
+          "order": 3,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "c4406f05-e8eb-48ee-a424-b6f29152d2f6"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "8345cbe1-aaa9-47f6-988a-cf561cf015c6",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "c4406f05-e8eb-48ee-a424-b6f29152d2f6",
+          "parent": "c4d0543c-383e-4e2d-8d20-0da5351f7218",
+          "parentKey": "c4d0543c-383e-4e2d-8d20-0da5351f7218",
+          "order": 3,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "963a56f2-4f69-4e85-9741-3c976e5bfd20"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "bac4b8e1-3459-4f38-bf10-395d5c106962",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "8345cbe1-aaa9-47f6-988a-cf561cf015c6",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+            "type": "goto"
+          },
+          "order": 0,
+          "parent": "963a56f2-4f69-4e85-9741-3c976e5bfd20",
+          "parentKey": "963a56f2-4f69-4e85-9741-3c976e5bfd20",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "bac4b8e1-3459-4f38-bf10-395d5c106962",
+          "order": 0,
+          "name": "Veredito é Parcial?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "07a75c73-fb2c-4647-a963-635ca2a27183",
+            "0766ff4f-5f71-4d3c-8806-fe2cf512014b"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "07a75c73-fb2c-4647-a963-635ca2a27183",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "e38b0a78-c0ca-434a-956f-67f0a8f9ba1d",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "c470gqXWCkwqE9yVrcEi",
+                        "conditionOperator": "==",
+                        "conditionValue": "Parcial",
+                        "__conditionId": "1a745e0d-8b23-4f87-b54d-2707d4611cf8",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "c4406f05-e8eb-48ee-a424-b6f29152d2f6",
+          "parentKey": "c4406f05-e8eb-48ee-a424-b6f29152d2f6",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3100,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "07a75c73-fb2c-4647-a963-635ca2a27183",
+          "parent": "bac4b8e1-3459-4f38-bf10-395d5c106962",
+          "parentKey": "bac4b8e1-3459-4f38-bf10-395d5c106962",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "0766ff4f-5f71-4d3c-8806-fe2cf512014b"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "799d643d-f293-4d94-bff7-7a61799f219a",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "0766ff4f-5f71-4d3c-8806-fe2cf512014b",
+          "parent": "bac4b8e1-3459-4f38-bf10-395d5c106962",
+          "parentKey": "bac4b8e1-3459-4f38-bf10-395d5c106962",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "07a75c73-fb2c-4647-a963-635ca2a27183"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "a63f284f-e294-4d45-828c-16efba754490",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "799d643d-f293-4d94-bff7-7a61799f219a",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "zz-placeholder-ab"
+            ]
+          },
+          "order": 0,
+          "parent": "07a75c73-fb2c-4647-a963-635ca2a27183",
+          "parentKey": "07a75c73-fb2c-4647-a963-635ca2a27183",
+          "next": "7047964a-668a-4918-9619-43b97d93a485",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4000,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "7047964a-668a-4918-9619-43b97d93a485",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "nutricao-90d"
+            ]
+          },
+          "order": 1,
+          "parent": "07a75c73-fb2c-4647-a963-635ca2a27183",
+          "parentKey": "799d643d-f293-4d94-bff7-7a61799f219a",
+          "next": "fd3ac7b0-0a39-44db-9e31-bd9d24ff686d",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "fd3ac7b0-0a39-44db-9e31-bd9d24ff686d",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+            "type": "goto"
+          },
+          "order": 2,
+          "parent": "07a75c73-fb2c-4647-a963-635ca2a27183",
+          "parentKey": "7047964a-668a-4918-9619-43b97d93a485",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "a63f284f-e294-4d45-828c-16efba754490",
+          "order": 0,
+          "name": "Motivo é Timing errado?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "3d97364f-3565-4b06-848b-60f9046deee2",
+            "6e5503a0-ebd4-44ad-84c4-1049a9d16e43"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "3d97364f-3565-4b06-848b-60f9046deee2",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "8f14cf6d-889f-4139-b21c-ab97688d1cf2",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "5L0RMR1HZVQ7IevyjOQX",
+                        "conditionOperator": "==",
+                        "conditionValue": "Timing errado",
+                        "__conditionId": "fe44e259-e5a8-4fe2-a3c6-d7cd2b352ad3",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "0766ff4f-5f71-4d3c-8806-fe2cf512014b",
+          "parentKey": "0766ff4f-5f71-4d3c-8806-fe2cf512014b",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4900,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "3d97364f-3565-4b06-848b-60f9046deee2",
+          "parent": "a63f284f-e294-4d45-828c-16efba754490",
+          "parentKey": "a63f284f-e294-4d45-828c-16efba754490",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "6e5503a0-ebd4-44ad-84c4-1049a9d16e43"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "6d6f44f8-6c48-4426-964a-5df36d36156f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5200,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "6e5503a0-ebd4-44ad-84c4-1049a9d16e43",
+          "parent": "a63f284f-e294-4d45-828c-16efba754490",
+          "parentKey": "a63f284f-e294-4d45-828c-16efba754490",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "3d97364f-3565-4b06-848b-60f9046deee2"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "7820034d-e19e-477c-8258-ed832d8afca5",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5500,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "6d6f44f8-6c48-4426-964a-5df36d36156f",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "zz-placeholder-ab"
+            ]
+          },
+          "order": 0,
+          "parent": "3d97364f-3565-4b06-848b-60f9046deee2",
+          "parentKey": "3d97364f-3565-4b06-848b-60f9046deee2",
+          "next": "22053492-971a-43d2-a097-d35be59c58d4",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "22053492-971a-43d2-a097-d35be59c58d4",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "nutricao-90d"
+            ]
+          },
+          "order": 1,
+          "parent": "3d97364f-3565-4b06-848b-60f9046deee2",
+          "parentKey": "6d6f44f8-6c48-4426-964a-5df36d36156f",
+          "next": "eaa47217-5fb0-4ed1-8c67-20a8d5787450",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6100,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "eaa47217-5fb0-4ed1-8c67-20a8d5787450",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+            "type": "goto"
+          },
+          "order": 2,
+          "parent": "3d97364f-3565-4b06-848b-60f9046deee2",
+          "parentKey": "22053492-971a-43d2-a097-d35be59c58d4",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "7820034d-e19e-477c-8258-ed832d8afca5",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "zz-placeholder-lost"
+            ]
+          },
+          "order": 0,
+          "parent": "6e5503a0-ebd4-44ad-84c4-1049a9d16e43",
+          "parentKey": "6e5503a0-ebd4-44ad-84c4-1049a9d16e43",
+          "next": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+          "order": 1,
+          "name": "Nota alta mas closer reprovou?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "0f148993-b93d-4214-8d51-45e7c9309120",
+            "6b09a846-b1a4-4e9f-983f-539d38186f35"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "0f148993-b93d-4214-8d51-45e7c9309120",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "fdec23ce-056d-4d2d-b80b-f79864a858ed",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "FHoXQnLYA8LW5mFzfdIq",
+                        "conditionOperator": ">=",
+                        "conditionValue": "70",
+                        "__conditionId": "13eb2316-e702-4477-b0a9-8156eb58ff9d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "c470gqXWCkwqE9yVrcEi",
+                        "conditionOperator": "==",
+                        "conditionValue": "Não",
+                        "__conditionId": "da1a9638-94dd-4e90-9744-a480f4277d65",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "6e5503a0-ebd4-44ad-84c4-1049a9d16e43",
+          "parentKey": "7820034d-e19e-477c-8258-ed832d8afca5",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "0f148993-b93d-4214-8d51-45e7c9309120",
+          "parent": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+          "parentKey": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+          "order": 2,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "6b09a846-b1a4-4e9f-983f-539d38186f35"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "482ef2dd-d4f9-4af5-8f46-970f4b6ef4c5",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "6b09a846-b1a4-4e9f-983f-539d38186f35",
+          "parent": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+          "parentKey": "6fe5c84b-3875-4a07-83f4-c14c72dd0884",
+          "order": 2,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "0f148993-b93d-4214-8d51-45e7c9309120"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "97e4625b-d81e-40e8-8157-c195a7936159",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "482ef2dd-d4f9-4af5-8f46-970f4b6ef4c5",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Nota {{contact.nota_de_qualificao}} mas o closer marcou Não ({{contact.motivo_da_desqualificao}}) — revisar a régua da seção 9 com {{contact.name}}.",
+              "title": "Nota alta reprovada pelo closer",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 0,
+          "parent": "0f148993-b93d-4214-8d51-45e7c9309120",
+          "parentKey": "0f148993-b93d-4214-8d51-45e7c9309120",
+          "next": "a5433ff1-3ac7-43ed-8542-eefd2d46b5a6",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "a5433ff1-3ac7-43ed-8542-eefd2d46b5a6",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "97e4625b-d81e-40e8-8157-c195a7936159",
+            "type": "goto"
+          },
+          "order": 1,
+          "parent": "0f148993-b93d-4214-8d51-45e7c9309120",
+          "parentKey": "482ef2dd-d4f9-4af5-8f46-970f4b6ef4c5",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "97e4625b-d81e-40e8-8157-c195a7936159",
+          "order": 0,
+          "name": "Nota baixa mas closer aprovou?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "c11d7725-6eb8-4e4e-8d38-a88307091033",
+            "33044675-844d-462f-ab94-086b84f5315d"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "c11d7725-6eb8-4e4e-8d38-a88307091033",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "6fab8b29-b731-4a60-8843-caf1b725de81",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "FHoXQnLYA8LW5mFzfdIq",
+                        "conditionOperator": "<",
+                        "conditionValue": "45",
+                        "__conditionId": "2348781f-9cc3-46c8-b352-f91333e7387c",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "c470gqXWCkwqE9yVrcEi",
+                        "conditionOperator": "==",
+                        "conditionValue": "Sim",
+                        "__conditionId": "6e58de82-8df3-4cc0-ba0b-1d588b0fcd83",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "6b09a846-b1a4-4e9f-983f-539d38186f35",
+          "parentKey": "6b09a846-b1a4-4e9f-983f-539d38186f35",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8500,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "c11d7725-6eb8-4e4e-8d38-a88307091033",
+          "parent": "97e4625b-d81e-40e8-8157-c195a7936159",
+          "parentKey": "97e4625b-d81e-40e8-8157-c195a7936159",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "33044675-844d-462f-ab94-086b84f5315d"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "fd5422b3-59e6-4d01-8581-694deb935e1d",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8800,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "33044675-844d-462f-ab94-086b84f5315d",
+          "parent": "97e4625b-d81e-40e8-8157-c195a7936159",
+          "parentKey": "97e4625b-d81e-40e8-8157-c195a7936159",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "c11d7725-6eb8-4e4e-8d38-a88307091033"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 9100,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "fd5422b3-59e6-4d01-8581-694deb935e1d",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Nota baixa ({{contact.nota_de_qualificao}}) mas o closer marcou Sim — a régua pode estar descartando lead bom. Revisar {{contact.name}}.",
+              "title": "Régua pode estar descartando lead bom",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 0,
+          "parent": "c11d7725-6eb8-4e4e-8d38-a88307091033",
+          "parentKey": "c11d7725-6eb8-4e4e-8d38-a88307091033",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 9400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "iclVsy0ANwD6cQfDtSNL",
+      "date_added": "2026-09-22T00:28:22.117Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "87fead84-5a1f-4de8-8456-e6e8bf24c61e",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "has-changed",
+          "field": "contact.c470gqXWCkwqE9yVrcEi",
+          "title": "Reunião foi qualificada",
+          "type": "select",
+          "id": "c470gqXWCkwqE9yVrcEi"
+        }
+      ],
+      "type": "contact_changed",
+      "masterType": "highlevel",
+      "workflow_id": "87fead84-5a1f-4de8-8456-e6e8bf24c61e",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Contato Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "68aaaa03-2d94-4b2c-a70d-fa56461cf08f",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T00:28:24.266Z"
+    }
+  ]
+}
