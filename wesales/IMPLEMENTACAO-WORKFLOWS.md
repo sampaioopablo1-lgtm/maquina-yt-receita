@@ -897,6 +897,17 @@ Sem mudança de etapa. **Teste:** marque `Showed` no agendamento do contato de t
 | Stop on Response | **Desligado** |
 | Janela | 08:30–20:00, seg–sáb |
 
+**Guarda de janela na entrada (G.1-G.5, seção 6.0 do `build-wesales.md`,
+G-06) — insira antes do Caminho A ou B:**
+
+| # | Ação | Configuração exata |
+|---|---|---|
+| G.1 | `WhatsApp: Customer Service Window Check` | Confere o contato ao entrar no workflow |
+| G.2 (dentro da janela) | segue | direto para o nó 1 do caminho escolhido |
+| G.3 (fora da janela) | `Send WhatsApp`, modo Template → `Update Contact Field` | Template Meta `qi_1` (`QI-1`, `biblioteca-mensagens.md`) → `Template usado` = `QI-1` |
+| G.4 | `Wait → Contact Replied`, tempo limite 24h | Respondeu → nó 1 do caminho escolhido (janela reaberta pela resposta) |
+| G.5 (sem resposta) | `Add Note` | `IA de qualificação: sem resposta ao convite de reabertura — segue só pela cadência de ligação` → fim do workflow |
+
 **Caminho A (recomendado, exige Conversation AI no plano)**
 
 | # | Ação | Configuração exata |
@@ -910,6 +921,10 @@ Sem mudança de etapa. **Teste:** marque `Showed` no agendamento do contato de t
 **Caminho B (sem Conversation AI):** 8 blocos `Send WhatsApp (pergunta)` →
 `Wait → Contact Replied, 24h` → `Update Contact Field` (campo da pergunta),
 na ordem do prompt; no tempo limite pula para a próxima. Depois, nós 2–5.
+**Pendência (G-06):** só o nó G.1-G.5 acima guarda a primeira pergunta —
+cada uma das 8 ainda pode cair fora da janela se o lead nunca respondeu;
+sem tratamento nesta rodada, monte só o Caminho A (`build-wesales.md`,
+seção 6.0).
 
 **Estado na tela:** rascunho — confirmar se é o placeholder vazio criado
 para o Mestre de saída apontar, ou se já tem o nó de IA dentro.

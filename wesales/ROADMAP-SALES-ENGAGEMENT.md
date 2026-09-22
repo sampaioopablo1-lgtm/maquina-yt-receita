@@ -475,6 +475,67 @@ inteiro:** a submissão dos Templates ao Meta Business Manager (ação do
 dono, até 48h) e a montagem manual de cada guarda na tela quando cada
 workflow for construído/editado — nenhuma das duas sai por API.
 
+### G-06 · A guarda de janela do G-05 nunca chegou à `Qualificação por IA no WhatsApp` — o ponto de envio mais exposto de todos ficou sem ela
+**Por quê:** o G-05 fechou a guarda de janela de 24h em todo `Send WhatsApp`
+de texto livre **catalogado em `biblioteca-mensagens.md`** — mas os envios
+do workflow `Qualificação por IA no WhatsApp` (`build-wesales.md`, seção 6)
+nunca entraram naquele documento. O R-04, que criou a biblioteca, fechou em
+18/09/2026, dois dias antes de o G-05 sequer existir (21/09/2026); a
+varredura que fechou o G-05 conferiu texto por texto da tabela "Templates
+ativos" e nunca teve como olhar para um workflow ausente dela. Achado ao
+perguntar, nesta rodada, "todo `Send WhatsApp` do documento tem guarda?" em
+vez de "todo código da biblioteca tem guarda?" — `grep -n "Send WhatsApp"
+build-wesales.md` aponta a linha 3909, dentro da seção 6, sem nenhuma
+guarda por perto. É o ponto mais exposto da operação, não um caso a mais:
+a entrada deste workflow (seção 2.7) dispara pelo resultado de uma
+**ligação** sem resposta, não por uma mensagem do lead — o WhatsApp quase
+nunca trocou palavra com ele antes daqui, e o Caminho A recomendado
+(`Conversation AI`) é pior que os outros porque gera o texto **no momento
+da conversa**: não dá para pré-aprovar como Template Meta um conteúdo que
+não existe até a hora do envio, a única saída de fábrica que a Meta aceita
+fora da janela.
+**Como:** guarda de entrada (`WhatsApp: Customer Service Window Check`)
+antes do Caminho A: dentro da janela, segue direto para a `Conversation AI`
+já especificada; fora dela, manda um convite fixo e curto (`QI-1`, novo,
+`biblioteca-mensagens.md`) pedindo para o lead responder ali — a resposta
+reabre a janela (é o cliente escrevendo primeiro) e só então a IA assume.
+Sem resposta em 24h, o workflow encerra sozinho sem tocar na Cadência
+12x30 principal, que continua ligando por fora. Detalhe nó a nó em
+`build-wesales.md`, seção 6.0, e em `IMPLEMENTACAO-WORKFLOWS.md`, W10.
+**Pronto quando:** todo envio de WhatsApp deste workflow — Caminho A e
+Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já garante
+para o resto da operação.
+
+**Resumo (22/09/2026):** fechado o Caminho A (o recomendado pelo próprio
+documento): guarda especificada em `build-wesales.md` (seção 6.0, nova) e
+`IMPLEMENTACAO-WORKFLOWS.md` (W10), template novo `QI-1` escrito e
+versionado em `biblioteca-mensagens.md` — a única mensagem da biblioteca
+que não é "equivalente de um texto livre já em uso", porque o texto livre
+correspondente (o que a IA diria dentro da janela) não existe até a
+conversa acontecer; registrado assim no próprio documento para o próximo
+leitor não estranhar a assimetria. **Escopo desta rodada, pendência
+explícita e não lacuna esquecida:** o Caminho B (8 blocos `Send WhatsApp`
+manuais) tem o mesmo problema em cada uma das 8 perguntas, não só na
+primeira, e guardar as 8 exigiria 8 Templates novos ou reestruturar o
+caminho para só avançar depois de resposta de verdade — nenhuma das duas
+desenhada agora; quem montar isto na tela deve montar só o Caminho A, que
+já está seguro e é o recomendado. Zero campo e zero tag novos — a
+proposta de marcar `QI-1` como `toque` (F-04) foi avaliada e descartada
+pelo mesmo raciocínio que já deferiu Cadência Inbound/Reengajamento/
+Recuperação de No-show naquela seção: nenhum chega perto do teto sozinho.
+Zero escrita no CRM: item de especificação pura, não depende de
+`APROVADO.md`. Subconta reconfirmada nesta execução via
+`locations_get-custom-fields`/`opportunities_search-opportunity`: 51
+campos, 50 oportunidades (47 `NOVO LEAD` + 3 `NEGOCIAR`, todas `open`),
+sem mudança desde 22/09/2026 (primeira peça do G-05) — G-03/G-04 seguem
+aguardando o dono. Conferido também nesta rodada, premissa técnica
+reaberta e ainda sem novidade: o toolkit HighLevel via Composio (cogitado
+desde `briefing-sdr.md`, "Estado do acesso", como rota alternativa para
+criar campo/calendário por API) segue **sem conta conectada**
+(`COMPOSIO_MANAGE_CONNECTIONS`, ação `list`, 0 contas ativas) — mesma
+conclusão de 18/09/2026, conectar continua exigindo OAuth que só o dono
+autoriza.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -1582,3 +1643,23 @@ operação já tem a guarda de janela e os dois ramos especificados. O que
 resta do G-05 não é mais desenho: é a submissão dos Templates à Meta
 (ação do dono) e a montagem manual de cada guarda na tela — o mesmo tipo
 de trabalho que já espera em outras peças do projeto, não uma lacuna nova.
+
+**G-06 aberto e peça 1 fechada em 22/09/2026, sessão automática seguinte —
+o parágrafo acima estava incompleto no dia em que foi escrito.** "Todo
+`Send WhatsApp` da operação" queria dizer "todo `Send WhatsApp` catalogado
+em `biblioteca-mensagens.md`" sem dizer isso explicitamente — e o workflow
+`Qualificação por IA no WhatsApp` nunca entrou naquele documento (fechou em
+18/09/2026, antes de o G-05 existir), então a varredura que fechou a peça 2
+não tinha como alcançá-lo. Achado ao trocar a pergunta "todo código da
+biblioteca tem guarda?" (já respondida) por "todo `Send WhatsApp` do
+`build-wesales.md` tem guarda?" — `grep -n "Send WhatsApp"` aponta um uso
+sem guarda dentro da seção 6, o ponto de entrada mais exposto de todos:
+dispara depois de uma ligação sem resposta, não de uma mensagem do lead, e
+o Caminho A recomendado usa `Conversation AI`, que gera texto na hora e por
+isso não tem como pré-aprovar Template do jeito que M1/M2/M3 têm. Fechado o
+Caminho A (guarda + template novo `QI-1`); Caminho B (8 perguntas manuais,
+mesmo problema em cada uma) fica pendência explícita, registrada dentro do
+próprio G-06 — não bloqueia o Caminho A, que é o recomendado. CRM
+reconfirmado sem mudança (51 campos, 50 oportunidades, G-03/G-04 ainda
+aguardando o dono); Composio/HighLevel reconferido e ainda sem conta
+conectada (0 contas ativas). Detalhe completo no próprio G-06, acima.

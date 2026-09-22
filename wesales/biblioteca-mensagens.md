@@ -46,6 +46,7 @@ fluxo correto:
 | `PA-R24` | WhatsApp | Pós-agendamento — lembrete 24h antes, nó 8 | 22/09/2026 | Ativo |
 | `PA-R3H` | WhatsApp | Pós-agendamento — lembrete 3h antes, nó 9 | 22/09/2026 | Ativo |
 | `PA-R30` | WhatsApp | Pós-agendamento — lembrete curto 30min antes, nó 10 | 22/09/2026 | Ativo |
+| `QI-1` | WhatsApp | Qualificação por IA no WhatsApp — guarda de entrada, nó G.3 (G-06) | 22/09/2026 | Ativo — só no ramo fora da janela; dentro da janela a IA não usa texto fixo |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -249,6 +250,23 @@ registrado em `PA-CONF` acima): confirma só o horário.
 > {{contact.first_name}}, é agora — nossa reunião com {{user.first_name}}
 > começa em 30 min.
 
+## QI-1 — convite de reabertura antes da IA (Qualificação por IA — G-06)
+
+Especificada em `build-wesales.md`, seção 6.0 (nó G.3). Diferente de todo
+outro código desta tabela, `QI-1` **não é o "Template equivalente" de um
+texto livre já em uso** — o Caminho A deste workflow é um `Conversation AI`
+que gera a mensagem no momento da conversa, e conteúdo gerado não pode ser
+pré-aprovado pela Meta. `QI-1` existe só para o ramo fora da janela: um
+convite curto e fixo para o lead responder, cuja resposta reabre a janela e
+deixa a IA assumir a partir daí com o prompt normal da seção 6. Por isso
+`QI-1` nunca aparece "dentro da janela" — nesse caso a guarda pula direto
+para a IA, sem mandar este texto.
+
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da
+> {{location.name}}. Tentei te ligar algumas vezes e não consegui — se
+> quiser, resolvemos por aqui mesmo. Responde essa mensagem que eu te faço
+> só 2 perguntas rápidas.
+
 ## Template Meta para envio fora da janela de 24h — G-05
 
 Descoberto em 21/09/2026 (roadmap, G-05): o WhatsApp Business API só aceita
@@ -277,6 +295,7 @@ seção 2.6.2 ter o que enviar no ramo "fora da janela".
 | `PA-R24` | — | A submeter (peça 2 do G-05, feita) |
 | `PA-R3H` | — | A submeter (peça 2 do G-05, feita) |
 | `PA-R30` | — | A submeter (peça 2 do G-05, feita) |
+| `QI-1` | — | A submeter — item separado, G-06, não G-05 (ver nota abaixo) |
 
 "A submeter" cobre só a guarda de janela em si (`build-wesales.md`, seções
 2.6.2, 2.10, 2.12, 5 e 5.3, e os nós correspondentes de
@@ -288,6 +307,14 @@ rodada, todo código ativo da tabela "Templates ativos" acima (o `M1-v1`
 substituído não conta) tem guarda de janela especificada — a lista de
 pendências que o G-05 registrou em 21/09/2026 (`ROADMAP-SALES-ENGAGEMENT.md`)
 está zerada.
+
+**`QI-1` entrou nesta tabela por conveniência de tela (é o mesmo tipo de
+pendência — Template a submeter), mas nasceu de um item diferente:** o G-05
+fechou a guarda de todo `Send WhatsApp` de texto livre já catalogado nesta
+biblioteca; `QI-1` é o texto novo que o **G-06** (`ROADMAP-SALES-ENGAGEMENT.md`)
+precisou criar para guardar a entrada da `Qualificação por IA no WhatsApp`,
+workflow cujos envios nunca tinham entrado nesta biblioteca antes — por isso
+a varredura do G-05 não o alcançou.
 
 ## Como isso responde o "Pronto quando" do R-04
 

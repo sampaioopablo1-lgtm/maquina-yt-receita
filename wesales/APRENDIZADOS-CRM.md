@@ -2,6 +2,40 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Uma varredura de guarda por código catalogado deixa passar quem nunca foi catalogado — busque pelo nome da ação, não pela lista — 22/09/2026, sessão automática
+
+O G-05 (guarda de janela de 24h do WhatsApp) fechou em duas peças (21 e
+22/09/2026) conferindo, um por um, os códigos da tabela "Templates ativos"
+de `biblioteca-mensagens.md`. Parecia completo — e não era: o workflow
+`Qualificação por IA no WhatsApp` (`build-wesales.md`, seção 6) manda
+`Send WhatsApp` desde 18/09/2026 e nunca entrou naquela tabela, porque o
+R-04 que a criou fechou dois dias antes de o G-05 existir. Uma varredura
+que confere "todo código da lista X tem propriedade Y" nunca vai achar o
+que não está na lista X — só acha o que já foi catalogado errado, não o
+que nunca foi catalogado. O jeito que achou isto (G-06,
+`ROADMAP-SALES-ENGAGEMENT.md`): trocar a pergunta por uma que não passa
+pela lista — `grep -n "Send WhatsApp" build-wesales.md` sobre o documento
+inteiro, e conferir cada ocorrência contra a guarda, não contra a
+biblioteca. **Regra para a próxima vez que uma guarda, contador ou
+convenção nova precisar valer "em toda a operação":** primeiro grep pelo
+nome literal da ação/nó no documento inteiro (aqui, `"Send WhatsApp"`), e
+só depois cruze com qualquer tabela de rastreio — nunca o contrário. O
+mesmo vale para `toque` (F-04) e para qualquer convenção futura do mesmo
+formato.
+
+**Reconferido na mesma rodada, sem novidade:** o toolkit HighLevel via
+Composio (`briefing-sdr.md`, "Estado do acesso") segue **sem conta
+conectada** — `mcp__Composio__COMPOSIO_MANAGE_CONNECTIONS`, toolkit
+`gohighlevel`, ação `list`, retornou `"active_connections": 0,
+"accounts": []` em duas chamadas seguidas (a mensagem "connections have
+been initiated and are pending completion" que acompanha a resposta é
+texto padrão da ferramenta, não um convite de OAuth novo disparado por
+esta leitura — nenhum `redirect_url` veio junto, e a segunda chamada
+devolveu exatamente o mesmo resultado da primeira). Mesma conclusão de
+18/09/2026: campo e calendário por API continuam fora do alcance deste
+conector até o dono autorizar a conexão Composio↔HighLevel (fluxo de
+OAuth, fora do que esta rotina pode fazer sozinha).
+
 ## Como a comunidade cria workflow sem clicar: API interna (`backend.leadconnectorhq.com`), extensão de JSON e "Copiar workflow" — 21/09/2026, ao vivo em chat
 
 O dono pediu para pesquisar no GitHub e nas comunidades como outros resolveram

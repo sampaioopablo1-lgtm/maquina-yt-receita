@@ -3849,10 +3849,78 @@ assim você nunca tem IA conversando com lead que não passou pelo portão.
 | Stop on Response | **Desligado** (aqui a resposta é o objetivo, não a saída) |
 | Allow Re-entry | Desligado |
 
+### 6.0 Guarda de janela na entrada — G-06
+
+**Por quê:** a entrada deste workflow (seção 2.7) dispara pelo resultado de
+uma tentativa de **ligação** (`Tentativa nº` ≥ 2 e `Resultado da tentativa`
+≠ `Atendeu`), não por uma mensagem do lead no WhatsApp — nada garante que a
+janela de atendimento de 24h (G-05, seção 2.6.2) já esteja aberta quando a
+IA entra em cena. O G-05 fechou a guarda em todo `Send WhatsApp` de texto
+livre da operação, mas a varredura que fechou aquele item nunca chegou
+aqui: os textos deste workflow nunca entraram em `biblioteca-mensagens.md`
+(o R-04 que criou aquele documento é de 18/09/2026, dois dias antes de o
+G-05 existir), e sem linha na tabela de templates não havia o que a
+varredura pudesse conferir — o mesmo padrão de "achado por ausência" que já
+fechou outras lacunas deste projeto.
+
+O Caminho A (recomendado, abaixo) é o caso mais exposto, não o mais seguro:
+`Conversation AI` também entrega por WhatsApp Business API — pesquisado via
+`WebSearch` (confiança média, mesma limitação de proxy contra domínios de
+suporte da HighLevel já registrada no G-05): a ação nativa manda "a single
+AI-generated message to a contact" ao ser usada em workflow, e nenhuma fonte
+lida sugere que ela seja isenta da janela — mas, diferente de `M1-a` ou
+`MI-0`, o texto que a IA manda é **gerado no momento da conversa**, então
+não existe um texto fixo para pré-aprovar como Template Meta (que exige
+conteúdo estático). Sem guarda, a primeira mensagem da IA cairia fora da
+janela na maioria dos casos e a Meta recusaria em silêncio — nem o lead
+recebe nada, nem o SDR fica sabendo, porque essa falha não gera tarefa nem
+aviso nenhum.
+
+**Como:** a mesma guarda do G-05 (`WhatsApp: Customer Service Window
+Check`), com uma saída diferente por não existir texto livre para
+pré-aprovar aqui: em vez de um "Template equivalente ao texto de M1", a
+guarda manda um convite fixo e curto (`QI-1`, novo, `biblioteca-mensagens.md`)
+pedindo para o lead responder por ali — a resposta **reabre a janela** (é o
+cliente escrevendo primeiro) e só então a IA assume a conversa:
+
+| Nó | Ação | Configuração |
+|---|---|---|
+| G.1 | `WhatsApp: Customer Service Window Check` | Confere o contato ao entrar no workflow |
+| G.2 (dentro da janela) | segue | direto para o nó 1 (Conversation AI), sem mudar nada |
+| G.3 (fora da janela) | `Send WhatsApp`, modo **Template** → `Update Contact Field` | Template Meta `qi_1` (`QI-1`, `biblioteca-mensagens.md`) → `Template usado` = `QI-1` |
+| G.4 | `Wait → Contact Replied`, tempo limite 24h | Respondeu: segue para o nó 1 (Conversation AI, agora dentro da janela que a própria resposta reabriu) |
+| G.5 (sem resposta no prazo) | `Add Note` | `IA de qualificação: sem resposta ao convite de reabertura — segue só pela cadência de ligação` → fim do workflow. Não remove de nenhum outro workflow: a Cadência 12x30 principal não passa por aqui, continua sozinha |
+
+Fora do escopo desta guarda, de propósito: marcar `QI-1` como um `toque`
+(F-04, seção 2.19) — aquela seção já trata Cadência Inbound, Reengajamento e
+Recuperação de No-show como pendência deferida pelo mesmo motivo (nenhuma
+delas chega perto do teto sozinha); QI-1 entra na mesma fila, não é lacuna
+nova desta rodada.
+
+**O que este item NÃO cobre ainda — pendência explícita, mesmo padrão do
+G-05 (peça 1 → peça 2):** o **Caminho B** (`Send WhatsApp` manual, 8 blocos,
+abaixo) tem o mesmo problema em **cada uma** das 8 perguntas, não só na
+primeira — o desenho já assume que, sem resposta em 24h, a pergunta seguinte
+sai de qualquer forma (`No tempo limite, pula para a pergunta seguinte`), e
+essa segunda tentativa pode cair fora da janela de novo se a primeira nunca
+reabriu. Guardar as 8 exige ou um Template por pergunta (8 Templates novos,
+inviável para um fluxo pensado como conversa) ou reestruturar o caminho para
+só avançar depois de uma resposta de verdade — nenhuma das duas está
+desenhada nesta rodada. Não bloqueia nada: o Caminho A (guardado acima, e já
+o recomendado pelo próprio documento) não depende do Caminho B para ir ao
+ar, e quem montar isto na tela deveria montar só o A.
+
+**Pronto quando:** todo envio de WhatsApp deste workflow — Caminho A e
+Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já garante para
+o resto da operação.
+
 ### Estrutura
-Duas formas de montar. Recomendo a **A**.
+Duas formas de montar. Recomendo a **A**, agora precedida pela guarda 6.0.
 
 **A — Conversation AI (Bot nativo), modo perguntas + agendamento**
+
+Depois da guarda 6.0 (nós G.1-G.5), o nó 1 abaixo é o destino de G.2 e de
+G.4 quando o lead responde:
 
 Um nó `Conversation AI` com:
 - Canal: WhatsApp
