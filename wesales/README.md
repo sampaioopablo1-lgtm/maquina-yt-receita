@@ -28,6 +28,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `GUIA-MONTAGEM.md` | Passo a passo, fase por fase, para quem vai clicar na tela e montar o que o `build-wesales.md` especifica — pipeline, campos, calendário, workflows, listas |
 | `IMPLEMENTACAO-WORKFLOWS.md` | **O documento de implementação, em três partes:** Estrutura (pipeline, campos, tags, calendário, formulário, listas, dashboard, pausas, papéis), Workflows (cada nó de cada um: ação, campo, operador, valor, ramo, com os nomes reais lidos da subconta) e Operação (o dia do SDR, do closer e do gestor, regras de convivência com a automação, metas, checklist de go-live). Para montar e operar à mão, sem "Construir com IA" |
 | `CONFERENCIA-CAMPOS.md` | O que a tela tem contra o que o `campos-e-tags.md` pede, campo por campo, depois da Fase 2 montada — o que falta, o que divergiu de nome, de opção e de tipo |
+| `ESTADO-E-PLANO.md` | Leitura completa da subconta (documentos + API ao vivo + workflows), pedida pelo dono antes de implementar — o que está medido, o que os dumps de workflow não dizem, e o plano de continuidade por etapas |
 
 ## Estado do acesso (18/09/2026)
 

@@ -139,6 +139,14 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     nunca dispara. Depende dos campos `Duração da ligação`/`Conexão real`
     (passo 1). Corrige só a métrica de conexão; não bloqueia nenhum passo
     anterior desta lista, e nenhum passo anterior depende dele
+31. Workflow "Resgate por E-mail — Sem Telefone" (seção 2.30, F-15) — não
+    depende de nenhum passo anterior além dos campos/tags do passo 1 (todos
+    já existentes); monte a qualquer momento depois do R-08 (passo 18)
+    estar publicado, porque os dois escutam o mesmo gatilho (`Contact Tag
+    Added: nutricao-90d`) e a leitura fica mais fácil comparando os dois
+    lado a lado. Confirme antes de montar: a subconta tem domínio de
+    e-mail verificado para envio transacional (não checável por este
+    conector)
 
 ---
 
@@ -4273,6 +4281,151 @@ checklist do F-08 (seção 2.26) referencia esta seção; e o G-03
 lote que protege o WhatsApp (cruzamento com o F-07) também é, por
 construção, quem paga a rampa de telefone — e que isso só segura até os
 lotes começarem a se empilhar na segunda semana.
+
+---
+
+## 2.30 Resgate por E-mail — Sem Telefone (F-15)
+
+> **Medido em 22/09/2026, 21:25 UTC — o ciclo é real, e o e-mail não o fecha.**
+>
+> Conferi o payload publicado e o ciclo existe exatamente como descrito: nó 3
+> da `Cadência 12x30` (`contact_detail / phone / has_no_value`) → nó 10
+> (`status = abandoned`) → nó 11 (tag `nutricao-90d`); e o nó 1 do
+> `Reengajamento 90 dias` recicla em `opportunities / status == abandoned`.
+> Quem não tem telefone volta, bate no mesmo portão e volta ao mesmo lugar.
+> **O diagnóstico está certo.**
+>
+> **A solução é que não alcança ninguém.** O "78% da base tem e-mail" é
+> verdade sobre a base **inteira** — e a base inteira tem telefone. Cruzando
+> as duas populações, contato por contato:
+>
+> | | |
+> |---|---|
+> | Contatos sem telefone | 9 |
+> | Desses, **com** e-mail | **1** — e é `<test lead: dummy data…>`, lead de teste do Meta |
+> | Desses, **sem** e-mail | **8** |
+> | Leads reais do Instagram sem telefone **e** sem e-mail | **5** |
+>
+> O `F-15` resgataria **zero lead real**. E não é azar: é estrutural. O
+> formulário do Meta coleta telefone **e** e-mail juntos, então quem veio por
+> ali tem os dois; quem não tem telefone veio por **DM de Instagram**, que não
+> coleta nenhum dos dois. As duas populações são quase disjuntas por
+> construção do canal de origem.
+>
+> **O que fica valendo, separado em duas coisas que estavam juntas:**
+>
+> 1. **Fechar o ciclo** continua necessário e não depende de e-mail. O nó 1 do
+>    R-08 precisa distinguir **por que** o lead virou `abandoned`: se foi o
+>    portão de telefone (tag `telefone-invalido`, aplicada no nó 6 da 12x30),
+>    reciclar não produz tentativa — é só queimar 90 dias e repetir. Portão
+>    novo no R-08, antes de reativar: `telefone-invalido` **presente** →
+>    encerra sem reciclar, pela saída limpa do nó 3b.
+> 2. **E-mail continua uma boa ideia — para outro público.** Os 39 contatos
+>    **com** e-mail são justamente os que têm telefone: ali o e-mail é canal
+>    **adicional** (toque barato que não consome o teto da rampa F-14), não
+>    resgate. Vale manter `EM-1`/`EM-2`, mudando o público-alvo declarado.
+> 3. **Quem realmente precisa de rota são os 5 do Instagram**, e o único canal
+>    que os alcança é o **DM do Instagram** — conectado e vivo na subconta
+>    (página `O Próximo Cliente`). Isso é decisão de operação (quem responde e
+>    em quanto tempo), não workflow de e-mail.
+
+**Por quê:** o portão 0.0/0.0b (seções 2.3 e 2.10) manda quem não tem
+telefone, mas tem `Site` ou `Instagram` preenchido, para `status = abandoned`
++ tag `nutricao-90d` — a mesma saída branda que qualquer lead com telefone
+recebe depois de 12 tentativas esgotadas. A diferença é que o Reengajamento
+90 dias (R-08, seção 2.12) reativa **todos** eles de volta para `CONECTAR`
+sem distinguir os dois casos — e um lead sem telefone bate no mesmo portão
+0.0/0.0b de novo, sem telefone ainda, e volta para `abandoned`+`nutricao-90d`
+no mesmo instante. O resultado, medido em `ESTADO-E-PLANO.md` (22/09/2026):
+**9 dos 50 contatos reais não têm telefone**, e numa operação 100% telefone
+(decisão registrada no topo deste roadmap) eles reciclam de 90 em 90 dias
+para sempre sem jamais receber uma tentativa de contato de verdade — nenhuma
+ligação (não têm número), nenhuma mensagem (`grep -c "Send Email"
+build-wesales.md` = 0, nenhuma régua deste projeto usa e-mail). Não é o
+mesmo problema do G-03 (ninguém entra na régua): aqui o lead entra, é
+avaliado e sai decidido, ciclicamente, sem nunca ser procurado. `E-mail`
+está preenchido em 39 dos 50 contatos (78%, `ESTADO-E-PLANO.md`, seção 2) —
+o canal existe, nunca foi usado, e é o único dos três (telefone, WhatsApp,
+e-mail) que não disputa a rampa de aquecimento do F-14 nem a janela de 24h
+do G-05/G-06 (e-mail transacional do GHL não tem essa restrição de
+WhatsApp Business API).
+
+**Pesquisado antes de desenhar** (`WebSearch`, sem acesso a
+`help.gohighlevel.com`, bloqueado pelo proxy deste ambiente — mesma
+limitação já registrada no G-05): a literatura de sales engagement
+(Zendesk, Highspot, Salesforce) converge que cadência multicanal supera
+cadência de canal único, e cita ganho de resposta ao somar e-mail a uma
+régua de ligação; nenhuma das quatro plataformas do enunciado (Reev,
+Meetime, Outreach, Salesloft) documenta publicamente uma rota de resgate
+automática **especificamente** para o subconjunto "sem telefone" de uma
+cadência phone-first — o que existe na literatura é o **breakup e-mail**
+genérico (`myphoner.com`): mensagem de encerramento sem pressão, medida em
+30–40% de reabertura de negócios "mortos" em alguns contextos. O nó 5
+abaixo usa esse padrão. `WebSearch` também confirma (confiança média, via
+página de suporte oficial citada por terceiros, não acessada direto) que o
+gatilho nativo **Customer Replied** do GHL aceita restringir por canal,
+incluindo e-mail — a mesma capacidade que a seção 2.12 (R-08) já usa para
+WhatsApp via `Wait → Contact Replied`; **não confirmado na tela** se o nó
+`Wait` (em vez do gatilho de workflow) aceita o mesmo filtro de canal —
+registrar ao montar.
+
+**Por que não é dentro do R-08:** o nó 6 do Reengajamento 90 dias (guarda
+de janela de WhatsApp, G-05) já ramifica por canal, mas as duas saídas são
+WhatsApp (livre ou Template) — não há onde encaixar "manda e-mail em vez
+disso" sem reescrever a régua toda para quem tem telefone também. Um
+workflow pequeno e separado, do mesmo jeito que a Cadência Inbound (seção
+2.10) e o Reengajamento (seção 2.12) já são workflows próprios em vez de um
+`If` dentro da 12x30, resolve sem tocar em nada que já funciona.
+
+**Campo novo:** nenhum — reaproveita `Phone`, `Email` (nativos) e `Template
+usado` (C-23, já existente, `campos-e-tags.md`). **Tag nova:** nenhuma —
+reaproveita `nutricao-90d` e `nao-perturbe`. **Zero escrita no CRM nesta
+rodada:** item de especificação pura.
+
+### Workflow novo — "Resgate por E-mail — Sem Telefone"
+
+| Configuração | Valor | Por quê |
+|---|---|---|
+| Gatilho | `Contact Tag Added` — Tag: `nutricao-90d` | Mesmo gatilho do R-08 (seção 2.12) — os dois workflows rodam em paralelo, cada um cuidando do canal que sabe atender |
+| Allow Re-entry | **Ligado** | Toda reaplicação de `nutricao-90d` (inclusive a cada ciclo de 90 dias que o R-08 reabre e fecha de novo para quem segue sem telefone) é uma rodada nova e legítima — mesmo raciocínio do R-08 |
+| Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta | Mesma cortesia usada em toda mensagem ao lead deste projeto — e-mail não tem a restrição de API do WhatsApp (G-05), mas não é motivo para mandar de madrugada |
+| Stop on Response | Ligado | Respondeu por e-mail em qualquer ponto da régua, sai — mesmo padrão do R-08 |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Portão de elegibilidade | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · `Phone` vazio · `Email` preenchido · tag `nao-perturbe` ausente |
+| 1b | Ramo falso | **Remove from Workflow: este** | A maioria de quem ganha `nutricao-90d` tem telefone (12 tentativas esgotadas, nota baixa, timing errado, no-show — grep confirma 6 origens diferentes da tag) — esses o R-08 já atende sozinho por telefone/WhatsApp. Este workflow existe só para o subconjunto sem telefone nenhum (nó 0.0b) |
+| 2 | 1º resgate | Send Email — Template `EM-1` | Texto em `biblioteca-mensagens.md` |
+| 3 | Carimbo | Update Contact Field | `Template usado` = `EM-1` |
+| 4 | Aguardar resposta | Wait → Contact Replied — canal E-mail (a confirmar na tela, ver pesquisa acima) | Tempo limite 5 dias corridos |
+| 4b | Ramo respondeu | Internal Notification para o gestor: `{{contact.name}} respondeu ao resgate por e-mail (sem telefone) — pedir telefone/WhatsApp ou seguir por e-mail/Instagram, decisão manual` → **Remove from Workflow: este** | O lead voltou a dar sinal; não há régua automática pronta para um canal que a operação nunca usou, decisão fica com o SDR |
+| 5 | 2º resgate ("breakup") | Send Email — Template `EM-2` | Só se o nó 4 não recebeu resposta no prazo |
+| 6 | Carimbo | Update Contact Field | `Template usado` = `EM-2` |
+| 7 | Aguardar resposta | Wait → Contact Replied — canal E-mail | Tempo limite 5 dias corridos |
+| 7b | Ramo respondeu | Internal Notification (mesmo texto do nó 4b) → **Remove from Workflow: este** | |
+| 8 | Fim natural | — | Sem resposta em nenhum dos dois e-mails, o contato segue `abandoned`+`nutricao-90d` exatamente como hoje — o R-08 recicla em 90 dias e este workflow dispara de novo nesse ciclo (`Allow Re-entry` ligado), tentando de novo em vez de nunca mais tentar |
+
+### O que este item não resolve
+
+**Retroativo aos 9 contatos de hoje.** Publicar o workflow cobre quem entrar
+em `nutricao-90d` sem telefone **a partir de agora**; os 9 já parados
+precisam do mesmo backfill manual que o G-01 e o F-05 já usaram (`Add to
+Workflow` em massa pela lista filtrada) — ação em massa em dado de
+produção, regra 2 do briefing pede listar e confirmar antes, então não
+executa sozinha.
+
+**Domínio de e-mail verificado.** Não há ferramenta neste conector para
+conferir se a subconta tem remetente/domínio configurado para envio
+transacional — pendência a checar na tela antes de publicar, mesma classe
+de "confirmar na tela" já registrada para Number Validation (R-13) e
+Voice Intelligence (F-06).
+
+**Pronto quando:** todo contato que cai em `abandoned`+`nutricao-90d` sem
+telefone e com e-mail recebe ao menos uma tentativa de contato real pelo
+canal que ele de fato tem, em vez de reciclar indefinidamente sem nunca ser
+procurado; os dois templates (`EM-1`, `EM-2`) existem em
+`biblioteca-mensagens.md` (feito nesta rodada) e o workflow está publicado
+na tela.
 
 ---
 

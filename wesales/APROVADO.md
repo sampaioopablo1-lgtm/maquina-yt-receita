@@ -163,9 +163,10 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `[ ]`, vira `[x]` quando o dono trocar, num commit que não é o meu.
 
 - [ ] Criar o campo `Tel não atendidas seguidas` (NUMERICAL) — nasceu no
-      F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026): o telefone
-      carrega 8 dos 12 toques e é o único canal sem freio próprio, enquanto o
-      WhatsApp sai depois de 2 sem resposta. **Não é só criar o campo:** ele
+      F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026, corrigido em
+      22/09/2026): o telefone carrega os **12 de 12** toques da régua (era
+      "8 dos 12" até a decisão de 100% telefone do mesmo dia, `d52e61d`) e é
+      o único canal, sem freio próprio nenhum. **Não é só criar o campo:** ele
       só serve com um portão, e o limiar do portão muda quantas ligações/dia
       a operação faz — o dono escolhe A (2), B (4, recomendada) ou C (só
       medir, sem portão) antes de qualquer `[x]`. Campo personalizado também
@@ -284,6 +285,18 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       Mensagem enviada não volta, e os contatos de teste precisam apontar para
       um número que seja seu. Me diga qual número usar nos testes e esta linha
       vira `[x]` na mesma hora.
+
+- [ ] Criar os 2 templates de e-mail `EM-1`/`EM-2` via `emails_create-template`
+      — nasceram no F-15 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em
+      22/09/2026): resgate por e-mail para o contato que fica em
+      `abandoned`+`nutricao-90d` sem telefone, canal que 78% da base tem
+      (`Email` preenchido) e nenhuma régua deste projeto usa. Textos em
+      `biblioteca-mensagens.md`. Nasce `[ ]` de propósito, mesma regra do
+      topo deste arquivo: linha que a própria rotina acrescentou não é
+      autorização, vira `[x]` quando o dono trocar. **Depende também de uma
+      confirmação que este conector não faz:** a subconta ter domínio de
+      e-mail verificado para envio transacional — checar na tela antes de
+      marcar.
 
 ## Nunca autorizado
 

@@ -1455,10 +1455,10 @@ escritos aqui:**
 
 | # | Pré-requisito | Por quê |
 |---|---|---|
-| 1 | Campos `Duração da ligação` (C-29), `Conexão real` (C-30), `Conexões reais telefone` (C-31) e `Ligações com transcrição` (C-32) | todos `[ ]` em `APROVADO.md`; campo personalizado não sai por API |
+| 1 | ~~Campos `Duração da ligação` (C-29), `Conexão real` (C-30), `Conexões reais telefone` (C-31) e `Ligações com transcrição` (C-32)~~ — **resolvido: os 4 existem** (criados na tela em 22/09, 16:38–16:56) | Chaves reais lidas e registradas na Tabela N do `CONFERENCIA-CAMPOS.md` — `durao_da_ligao`, `conexo_real`, `conexes_reais_telefone`, `ligaes_com_transcrio`. Seguem `[ ]` em `APROVADO.md`: existir na tela é decisão do dono, marcar também |
 | 2 | **Gravação de chamada habilitada no número** | Sem gravação não existe transcrição, e sem transcrição **este workflow nunca dispara**. É o pré-requisito real por trás do item 3 |
 | 3 | Transcrição ligada em **Configurações → Sistema de Telefonia → Voz → Transcrição de Chamadas** (Voice Intelligence) | Caminho de tela; em Voice AI já vem ligada, mas este projeto não usa Voice AI |
-| 4 | Aviso de gravação no início da ligação (LGPD) | Lugar reservado em `script-de-ligacao.md`, seção 2 — redação e base legal do dono |
+| 4 | Aviso de gravação no início da ligação (LGPD) | Lugar reservado em `script-de-ligacao.md`, seção 2 — redação e base legal do dono. **Atenção: este não é pré-requisito do W20, é pré-requisito da gravação** (item 2). Ligar gravação por número é um clique que não passa por este workflow; a partir dele existe ligação gravada mesmo com o W20 em rascunho. Único item da tabela que precisa estar pronto **antes do item 2**, e não antes de publicar |
 | 5 | Add-on pago: **US$ 0,024 por minuto gravado**, acima da gravação e do armazenamento | ~US$ 45/mês na conta da seção 2.27 (premissas declaradas lá) |
 | 6 | `Update Contact Field: Conexão real = vazio` no nó que cria a tarefa de cada tentativa (seções 2.4 e 2.10) | Chamada não atendida pode não gerar transcrição nenhuma → este workflow não roda → o campo mantém o valor da tentativa anterior. Um `Sim` da T3 sobrevive a T4-T8. O reset vai **antes** da ligação, não no Pós-ligação, para não disputar o campo com o nó 4/5 daqui (a transcrição chega minutos depois; o SDR classifica na hora) |
 | 7 | Confirmar se as ligações saem por **LC Phone** ou por linha própria do SDR | Se for linha própria, o gatilho nunca dispara e o desenho não serve. Mesma pendência do F-08/F-09 |

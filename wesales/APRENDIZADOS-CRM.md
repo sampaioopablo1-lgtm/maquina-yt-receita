@@ -2,6 +2,299 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "78% da base tem e-mail" era verdade sobre a base errada — e o resgate resgataria zero lead — 22/09/2026, sessão na nuvem
+
+A rodada anterior achou um ciclo fechado de verdade, e eu confirmei no payload
+publicado: nó 3 da 12x30 (`phone has_no_value`) → nó 10 (`abandoned`) → nó 11
+(`nutricao-90d`), e o nó 1 do R-08 recicla em `status == abandoned`. Quem não
+tem telefone volta, bate no mesmo portão e volta ao mesmo lugar, de 90 em 90
+dias, para sempre. **Diagnóstico certo.**
+
+A solução proposta — um workflow de resgate por e-mail (F-15) — foi justificada
+com "9 de 50 sem telefone, 39 com e-mail (78% da base)". Cruzei as duas
+populações contato por contato:
+
+| | |
+|---|---|
+| Sem telefone | 9 |
+| Desses, **com** e-mail | **1** — e é um lead de teste do Meta |
+| Desses, **sem** e-mail | 8 |
+| Leads reais de Instagram sem telefone **e** sem e-mail | 5 |
+
+**O resgate alcançaria zero lead real.** E não é coincidência, é estrutural: o
+formulário do Meta coleta telefone **e** e-mail juntos, então quem vem por ali
+tem os dois; quem não tem telefone veio por **DM de Instagram**, que não coleta
+nenhum dos dois. As populações são quase disjuntas **por construção do canal de
+origem**.
+
+**Isto é o ponto 4 do checklist numa forma nova.** Até hoje ele aparecia como
+"os dois lados de uma razão têm de vir da mesma população" — uma regra sobre
+métricas. Aqui não havia razão nenhuma: havia uma **cobertura de canal medida
+no conjunto todo** sendo usada para dimensionar uma **solução para um
+subconjunto**. Mesma falha, sem divisão nenhuma à vista.
+
+**A pergunta que pega isso em uma linha:** antes de usar um percentual para
+justificar uma solução, perguntar **"esse percentual foi medido exatamente nas
+linhas que a solução vai tocar?"** Aqui bastava filtrar por `phone is null`
+antes de contar e-mail — uma condição a mais no mesmo laço.
+
+**E o corolário que salva o trabalho:** o e-mail não é inútil, está no público
+errado. Os 39 com e-mail são justamente os que **têm** telefone — ali e-mail é
+canal **adicional** e barato, que não consome o teto da rampa F-14. O resgate
+de verdade, para os 5 do Instagram, só existe pelo **DM do Instagram**. Uma
+solução no público certo e um público sem solução, separados — em vez de uma
+solução aparentemente completa que não toca ninguém.
+
+## E o mesmo erro, meu, na mesma rodada: rebaixei a Etapa B que eu tinha vendido — 22/09/2026
+
+Propus ao dono corrigir `country`/`timezone` em 49 contatos dizendo que
+"afeta janela de horário de workflow e validação de número". **As duas metades
+estavam refutadas dentro do projeto**, na Tabela L do `CONFERENCIA-CAMPOS.md`:
+a especificação usa fuso **da subconta** por decisão explícita (D-02), nenhum
+nó lê fuso do contato; e o W19/Number Validation saiu por decisão do dono, então
+não havia o que destravar.
+
+Pior: **citei a Tabela L nessa mesma rodada**, para a distinção
+`contact.country` vs `location.country`, e não carreguei a conclusão dela para
+a minha própria proposta. É o ponto 12 do checklist aplicado a mim — ler um
+documento não é o mesmo que propagar o que ele conclui, e a distância entre as
+duas coisas é onde este projeto erra desde o começo.
+
+Sobra higiene de dado, com o risco real que a Tabela L aponta (workflow futuro
+que escolha "fuso do contato" cai em fallback silencioso). Barato, reversível,
+**sem urgência** — e eu apresentei como a coisa mais fácil de aprovar.
+
+## Leitura completa de 22/09: a máquina está construída e a esteira não está ligada — 22/09/2026, sessão na nuvem
+
+O dono pediu leitura completa antes de implementar. Três achados que nenhuma
+rodada anterior tinha, porque nenhuma tinha olhado a base **como base** em vez
+de olhar campo por campo.
+
+**1. 45 das 50 oportunidades estão `open` em `NOVO LEAD`, 37 delas há 3-4
+dias, 44 de 50 contatos sem dono, 33 de 50 sem tag alguma.** Não falta
+automação: 20 workflows publicados, 55 campos, 21 tags, pipeline montado. O
+que falta é o passo que põe o lead na esteira — o L-07/G-03, aberto desde o
+primeiro dia. A `Cadência 12x30` está publicada e correta e não roda para
+ninguém, porque ninguém entra nela. **Construir mais não resolve; ligar
+resolve.**
+
+**2. Instagram está conectado e vivo, e não existe em documento nenhum.**
+Página `O Próximo Cliente`, 5 conversas com DM real, os 5 contatos com
+oportunidade aberta e **nenhum com telefone** — inalcançáveis numa cadência
+100% telefone. Cuidado de leitura aplicado: as mensagens vêm
+`direction: outbound` com `from` = a conta, e uma é pessoal, então **não**
+concluí "lead pedindo preço"; concluí que o canal existe e não é governado.
+
+**3. Nove contatos não têm telefone**, cinco deles os do Instagram. Numa
+operação de um canal só, "sem telefone" é o mesmo que "fora da operação", e
+ninguém tinha contado.
+
+**Duas capacidades e duas armadilhas, medidas:**
+
+| Achado | Detalhe |
+|---|---|
+| `contacts_update-contact` escreve `country` e `timezone` | testado no contato de estrutura: `US`/vazio → `BR`/`America/Sao_Paulo` |
+| `body_tags` no update **sobrescreve todas as tags** | não passar esse parâmetro em update que não seja de tag; no teste eu omiti e as 14 tags sobreviveram |
+| `assignedTo` e `customFields` saem por API | abre atribuição de dono e preenchimento de campo em massa |
+| `calendars_get-calendar-events` devolve 422 **mesmo com `userId`** | o conector não repassa o parâmetro; calendário do closer não é auditável por API |
+
+**A regra de método que isso rendeu:** auditar campo por campo responde "o
+que existe"; auditar a base como população responde "o que está acontecendo".
+O projeto passou dias no primeiro e o gargalo estava no segundo. Contar
+quantos registros estão sem dono, sem tag e parados há quantos dias custa uma
+chamada e reordena a fila de prioridade inteira.
+
+## Aborto de coleta em ~2s é instalação ruim, não defeito — e eu diagnostiquei antes de medir — 22/09/2026, sessão automática
+
+O CI de `c16c4e0` não deu as 12 falhas de sempre: deu **erro de coleta** em
+`tests/test_mcp.py` (`ImportError: cannot import name 'MCPServer' from
+'mcp.server'`), abortando a suíte inteira em **1,87s**, exit 2.
+
+Diagnostiquei como deriva de dependência: `pyproject.toml` declara
+`mcp>=1.2` sem teto e sem lock, então o CI resolve a versão mais nova a cada
+instalação — e eu tinha o argumento de que o mesmo `src/` havia coletado bem
+9 minutos antes. Escrevi que ia quebrar todos os branches.
+
+**Errado.** Re-rodei o mesmo commit e ele voltou ao baseline normal
+(`12 failed, 1949 passed, 32 skipped`). A falha era **transitória** — uma
+instalação ruim naquele job, não uma versão publicada tirando o `MCPServer`.
+
+Duas coisas para a próxima rodada:
+
+**1. A assinatura de tempo distingue os casos.** Suíte que aborta em ~2s
+morreu na importação, antes de qualquer teste rodar — isso é instalação,
+checkout ou runner, e o procedimento é **re-rodar uma vez antes de
+diagnosticar**. As 12 falhas conhecidas levam ~190s, porque os testes de
+fato rodam. Ler o tempo total custa nada e separa "ambiente" de "código".
+
+**2. Eu apliquei a mim mesmo o erro que tinha escrito hoje.** A regra do
+C-14 dizia: "já foi provado" exige data, objeto e **valor lido**. Eu tinha
+um mecanismo plausível e uma inferência temporal, chamei de causa e
+anunciei consequência. O re-run era a medição — e contrariou. Mecanismo
+plausível + coincidência de horário **não é** medição.
+
+**O que sobra de verdade, sem exagero:** `mcp>=1.2` sem teto nem lockfile é
+fragilidade real — foi ela que permitiu a resolução ruim. Não é urgente e
+não é deste projeto (`wesales/` não toca `src/maquina/`), mas é o motivo
+pelo qual esse aborto pode voltar sem ninguém mudar código.
+
+## Usei o monitor que escrevi há uma hora e ele quase me pegou — duas vezes, de jeitos diferentes — 22/09/2026, sessão automática
+
+Rodei o `auditoria_refs.py` com `tail -3` para economizar, vi a última linha
+(`Pós-ligação v2 → Cadência 12x30`) colada no resumo "1 referência para
+workflow arquivado", e concluí que ele estava acusando a `Cadência 12x30`,
+que está no ar. Ia "consertar" um bug que não existia.
+
+Rodei sem truncar: o único item marcado é o `Mestre de saída v2 → Clique
+(antigo)`, o achado real do dono, que continua aparecendo porque o dump é
+fotografia de antes do conserto ao vivo. O script estava certo; **quem errou
+foi o meu jeito de ler a saída dele.**
+
+**Regra 1:** não truncar saída de auditoria. `tail` separa o veredito das
+linhas que o justificam, e aí o veredito cola na linha errada — que é
+exatamente o modo de falha de um alerta mal lido, o mesmo que a entrada sobre
+o `Fila Travada` descreve. Se a saída é longa demais para ler, o conserto é a
+saída ficar mais curta, não a leitura ficar parcial.
+
+**Mas a rodada achou um defeito de verdade no script, e era meu.** Três ids
+existem em dois arquivos ao mesmo tempo — `Mestre de saída v2`, `ZZ TESTE W6`
+e `ZZ TESTE API` têm backup em `_arquivo/` com o **mesmo id** do vivo. O
+`carrega()` lia `_arquivo` depois e sobrescrevia, então o dicionário passava a
+dizer que aquele id é arquivado. Ninguém aponta para o `Mestre de saída v2`
+hoje; no dia em que apontar, o script diria "aponta para arquivado" sobre um
+workflow publicado — **alarme falso no monitor que existe para não dar alarme
+falso.**
+
+Corrigido: o vivo tem precedência, e ids duplicados são listados no topo em
+vez de silenciosamente resolvidos. O contador caiu de "11 arquivados" para
+**8**, que é o número certo — os 3 a mais eram backups do que está no ar.
+
+**Regra 2:** quando uma ferramenta indexa por id a partir de duas fontes, a
+ordem de leitura é uma decisão de precedência, não um detalhe de laço.
+Escrever "backup não sobrescreve vivo" custa uma linha; descobrir depois custa
+a confiança no monitor.
+
+## "Encerra a régua" é meia especificação — e a outra metade dispara um monitor falso todo dia — 22/09/2026, sessão automática
+
+A rodada anterior aplicou a regra de refazer a multiplicação depois de uma
+decisão de canal e achou um bug de verdade: as opções A e B do F-09 mandavam
+o telefone **desviar para WhatsApp** ao estourar o limiar, num motor que não
+tem mais WhatsApp. Corrigiu as duas para "encerra a régua mais cedo". Certo.
+
+O que sobrou é a metade que não foi escrita: **como** encerra. Do jeito que
+ficou, quem montar põe um `Remove from Workflow` seco — e o lead sai
+carregando `fila-tel` e com tarefa órfã. A saída limpa canônica do projeto
+tem três passos (nó 3b da 12x30): remover as tags de fila, aplicar
+`limpar-tarefas`, e só então sair.
+
+**E aí a junção:** o `Fila Travada` (F-05 peça 2) dispara sobre "`fila-tel`
+presente depois das 18:30, porque o nó 9 não rodou". Um portão do F-09 sem
+saída limpa geraria **um alerta falso por lead cortado, todo dia** — e o
+resultado prático não é o alerta extra, é o gestor aprendendo a ignorar o
+único monitor de fila parada que existe. Um monitor que grita sem motivo é
+pior que monitor nenhum, porque consome a atenção que o caso real precisava.
+
+**A regra:** num item que "encerra", "sai", "para" ou "remove", a
+especificação só está completa quando diz **por qual caminho** — e num
+projeto que já tem saída canônica, o caminho é citar o nó que já existe, não
+descrever de novo. Verbo de saída sem caminho é onde tag órfã nasce, e tag
+órfã é o que os monitores deste projeto foram feitos para caçar: o bug se
+disfarça de alerta legítimo.
+
+**Segundo achado, menor:** o mesmo "Como" mandava pendurar o portão "no
+seletor de canal", que deixou de existir com 100% telefone. Resíduo da régua
+alternada sobrevivendo dentro da própria correção que tirou o WhatsApp do
+item — a correção acertou a tabela e passou por cima da frase três linhas
+acima.
+
+## A "regra que fica" do F-14 mandava reabrir todo item com toques por canal — F-09 ficou de fora, e suas opções mandavam desviar para um canal que não existe mais — 22/09/2026, sessão automática
+
+A rodada anterior (`4d5bcf6`) já tinha nomeado o problema: a decisão de 100%
+telefone (`d52e61d`) mudou "8 de 12 toques" para "12 de 12", e a rodada
+generalizou em `APRENDIZADOS-CRM.md` — "quando uma decisão muda uma premissa
+numérica, reabrir todo item que tenha tabela de toques por canal e refazer a
+multiplicação". Ela fez isso para o F-14. Não fez para o F-09, que tem
+exatamente esse tipo de tabela e é o item que a própria correção do F-08
+tinha gerado horas antes.
+
+Sem tela nem G-03/G-04/F-09/F-10/R-14 desbloqueados, o passo era o sweep de
+coerência de sempre — desta vez guiado pela "regra que fica" em vez de
+`grep` por nome de etapa. `grep -rn "8 de 12\|8 dos 12"` em `wesales/`
+devolveu 11 linhas; a maioria é prosa histórica de item já `FEITO` (F-07,
+F-08, "Resumo" datados) ou checklist de teste cujo ponto só fica mais forte
+com o número certo (seção 10 do `build-wesales.md`: "telefone é o canal
+majoritário" continua verdade, agora mais) — essas não foram tocadas, mesmo
+critério que `dd9c65a` já usou para não reescrever as 107 menções de
+WhatsApp. Duas linhas eram diferentes: o F-09 em `ROADMAP-SALES-ENGAGEMENT.md`
+e a autorização pendente espelho em `APROVADO.md` — as duas ainda **abertas**,
+as duas alimentando uma decisão que o dono ainda vai tomar.
+
+**O número errado não era o pior problema.** F-09 propunha três opções para
+o limiar de `Tel não atendidas seguidas`, e duas delas (A e B) mandavam o
+telefone **"desviar para WhatsApp"** quando estourasse — texto herdado do
+período em que o WhatsApp ainda carregava toques da régua. Depois de
+`d52e61d`, WhatsApp não aplica nenhum toque: não existe canal para desviar.
+Um dono lendo o item sem saber disso escolheria uma opção que descreve um
+comportamento que a régua publicada não pode mais executar. Corrigido para
+"encerra a régua mais cedo" nas duas opções — o único efeito que o motor de
+workflow ainda pode produzir sem um segundo canal.
+
+**Segundo achado, menor mas parado havia 8h por falta de quem fechasse o
+loop:** a seção "Evidência indireta" do F-09 dizia, textualmente, "é
+pergunta para o dono, nenhuma rodada deve gastar mais tempo procurando" —
+sobre se as ligações saem por LC Phone ou linha própria. O dono **já tinha
+respondido isso ao vivo** (`APRENDIZADOS-CRM.md`, "Resposta do dono...",
+16:13 UTC) quase 9 horas antes desta rodada. A resposta já estava registrada
+no arquivo certo; só não tinha voltado para dentro do item que fez a
+pergunta. Fechado o loop: a seção agora aponta para a resposta em vez de
+repetir que ninguém deve procurar.
+
+**Regra prática, reforçando a de `4d5bcf6` em vez de repeti-la:** "reabrir
+todo item com tabela de toques por canal" não é suficiente sozinho — um item
+ainda **aberto**, cujo texto alimenta uma decisão que falta tomar, pesa
+diferente de um item **fechado**, cujo texto só documenta o que já foi
+decidido. A primeira categoria (aqui, F-09) é a que precisa ser corrigida
+antes da próxima leitura do dono; a segunda (F-07, F-08, os "Resumo"
+datados) pode ficar como registro histórico, porque reescrevê-la não muda
+nenhuma decisão futura — só infla o diff. Ao aplicar a "regra que fica",
+filtrar por "o item ainda está aberto?" antes de decidir se vale a pena
+corrigir.
+
+## A trava do aviso de LGPD vigiava o checkbox, não o botão — e os dois se separaram hoje — 22/09/2026, sessão automática
+
+O dono ligou a transcrição de chamadas na subconta e deixou o W20 pronto em
+rascunho. Fui ver o que isso aciona, e o achado não está no W20: está na
+trava que protegia o aviso de gravação.
+
+O `script-de-ligacao.md` fechava a pendência assim: *"enquanto o F-06 não
+for ligado (os campos C-29/C-30 nascem `[ ]` em `APROVADO.md`), hoje nada é
+gravado"*. A frase amarrava um fato do mundo — **nada é gravado** — ao
+estado de um **checkbox de aprovação**. Hoje os dois se separaram: os campos
+existem, a transcrição está ligada, e o `APROVADO.md` segue `[ ]` (certo,
+só o dono marca). A trava continuava dizendo "verde" sobre uma condição que
+já não era a que ela olhava.
+
+**Mesma falha do `country`, em outro traje:** o documento vigia um
+**proxy** em vez da coisa. Lá, `contact.country` no lugar de
+`location.country`; aqui, o checkbox no lugar do botão de gravação. Proxy e
+coisa andam juntos até o dia em que não andam, e é exatamente nesse dia que
+alguém lê a garantia antiga.
+
+**O segundo achado é mais sério, e é de sequência.** O aviso de LGPD está
+catalogado como *pré-requisito nº 4 do W20*. Mas a LGPD se aplica à
+**gravação**, não à medição: ligar gravação por número é um clique que não
+passa pelo W20, e a partir dele existe ligação gravada **com o W20 ainda em
+rascunho**. Catalogado onde estava, o aviso parecia ter o prazo da
+publicação; o prazo real é o do clique, que é anterior e independente.
+
+**Regra:** quando um pré-requisito for de natureza legal ou irreversível,
+verificar de qual **ação** ele é pré-requisito, não de qual **entrega** ele
+apareceu na lista. A lista foi escrita a partir do workflow; a obrigação
+nasce do ato.
+
+Continuo não escrevendo a frase do aviso — redação e base legal são do dono.
+O que mudou é que agora está escrito **quando** ela passa a ser devida.
+
 ## O gatilho `Scheduler` não estava oculto — a via certa é o intervalo `Cron`, e o fuso é o da subconta — 22/09/2026, sessão do PC
 
 A dúvida "o `scheduler_trigger` pode estar oculto para esta conta" (W18) caiu:

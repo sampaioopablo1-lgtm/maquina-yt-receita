@@ -47,6 +47,8 @@ fluxo correto:
 | `PA-R3H` | WhatsApp | Pós-agendamento — lembrete 3h antes, nó 9 | 22/09/2026 | Ativo |
 | `PA-R30` | WhatsApp | Pós-agendamento — lembrete curto 30min antes, nó 10 | 22/09/2026 | Ativo |
 | `QI-1` | WhatsApp | Qualificação por IA no WhatsApp — guarda de entrada, nó G.3 (G-06) | 22/09/2026 | Ativo — só no ramo fora da janela; dentro da janela a IA não usa texto fixo |
+| `EM-1` | **E-mail** | Resgate por E-mail — Sem Telefone — nó 2 (F-15) | 22/09/2026 | Ativo — primeiro código de canal e-mail desta biblioteca |
+| `EM-2` | **E-mail** | Resgate por E-mail — Sem Telefone — nó 5, "breakup" (F-15) | 22/09/2026 | Ativo |
 
 ## M1-v1 — abertura, pede permissão de ligar (substituído)
 
@@ -266,6 +268,50 @@ para a IA, sem mandar este texto.
 > {{location.name}}. Tentei te ligar algumas vezes e não consegui — se
 > quiser, resolvemos por aqui mesmo. Responde essa mensagem que eu te faço
 > só 2 perguntas rápidas.
+
+## EM-1 — primeiro resgate por e-mail (Resgate por E-mail — Sem Telefone — F-15)
+
+Especificada em `build-wesales.md`, seção 2.30. Único canal deste projeto
+que não é WhatsApp — dispara para quem caiu em `abandoned`+`nutricao-90d`
+sem nenhum telefone cadastrado (nó 0.0b da Cadência 12x30/Inbound), o
+subconjunto que hoje nunca recebe tentativa nenhuma. Tom explica a lacuna
+sem soar como desculpa — a operação tentou por telefone, não tinha como, e
+está tentando pelo canal que sobrou.
+
+> Assunto: {{contact.first_name}}, não consegui falar por telefone — tenta por aqui?
+>
+> Oi {{contact.first_name}}, aqui é o {{user.first_name}} da
+> {{location.name}}. Vi que vocês trabalham com {{contact.segmento}} e
+> queria te fazer 2 perguntas rápidas sobre captação de clientes, mas não
+> encontrei um telefone para ligar. Se puder responder este e-mail (ou
+> mandar um WhatsApp/telefone para eu te ligar), começamos por aqui mesmo.
+
+Sem `[Agendar com o closer]`, mesmo motivo de `M1-a`/`M1-b`: é a mensagem
+que pede uma resposta, um link ali compete com o pedido.
+
+## EM-2 — segundo resgate, "breakup" (Resgate por E-mail — Sem Telefone — F-15)
+
+Especificada em `build-wesales.md`, seção 2.30, nó 5. Dispara só se `EM-1`
+ficar 5 dias sem resposta. Tom de encerramento sem pressão, de propósito —
+o padrão "breakup e-mail" que a pesquisa desta rodada (`myphoner.com`)
+associa a 30–40% de reabertura de negócios considerados mortos: remover a
+pressão costuma gerar resposta que a insistência não gera.
+
+> Assunto: Vou parar de te procurar por aqui, {{contact.first_name}}
+>
+> {{contact.first_name}}, tentei duas vezes e não tive retorno — vou parar
+> de escrever por enquanto. Se um dia quiser falar sobre captação de
+> clientes, é só responder este e-mail (mesmo que seja daqui a meses) que
+> eu retomo de onde paramos.
+
+Sem `[Agendar com o closer]`: o Trigger Link (seção 2.9 do
+`build-wesales.md`) é recurso de WhatsApp/SMS; e-mail usa link comum, e
+este texto não afirma ter um até a integração ser confirmada na tela.
+
+**`EM-1`/`EM-2` não entram na tabela "Template Meta" abaixo:** aquela
+tabela é sobre a janela de atendimento de 24h do WhatsApp Business API
+(G-05/G-06), uma restrição que não existe para e-mail transacional do GHL
+— os dois códigos não precisam de Template aprovado pela Meta.
 
 ## Template Meta para envio fora da janela de 24h — G-05
 
