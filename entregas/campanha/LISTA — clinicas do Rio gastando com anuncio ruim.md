@@ -4972,3 +4972,55 @@ LISTA DE ATAQUE: **43 → 44**.
 
 Combos varridos até aqui: + arquitetura Botafogo (negativo no nicho, nicho encerrado;
 1 alvo lateral de imobiliária).
+
+---
+
+## ⚖️ Advocacia — Barra da Tijuca (varredura de 22/09/2026, 06h)
+
+Termo: `advogado trabalhista Barra da Tijuca` — termo de SERVIÇO, não de profissão, pela
+regra já aprendida. **3 anúncios, e os três são da mesma página.**
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Rodrigo Gonçalves Advogado** | **A** | título vazio | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1396282512479781) |
+| Rodrigo Gonçalves Advogado | A | título vazio | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=28359425577048647) |
+| Rodrigo Gonçalves Advogado | A | título `instagram.com` | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1392530149130462) |
+
+### O alvo mais quente do arquivo, por um motivo novo: ele acabou de começar
+
+Todo o resto da lista é gente errando há meses — seis, dez, dezoito. Este subiu os três
+anúncios **no mesmo minuto, anteontem**, e os três já saíram quebrados: dois sem título
+nenhum e um com o domínio cru.
+
+Isso muda a abordagem por completo:
+
+- **Ainda não desistiu.** Quem erra há dez meses já normalizou o resultado ruim. Quem
+  subiu anteontem ainda está olhando o painel todo dia esperando o telefone tocar.
+- **Ainda não gastou.** A frustração está chegando agora, não chegou. Dá para pegar antes
+  de ele concluir que "anúncio não funciona pro meu escritório".
+- **O erro é do primeiro dia.** Não é descuido acumulado, é falta de saber. Mais fácil de
+  aceitar ajuda, menos constrangedor.
+
+**Regra nova para o arquivo:** além de ordenar por tempo no ar (o mais velho = prova mais
+forte), passar a marcar **os que subiram nos últimos 7 dias** — são os de maior chance de
+resposta, ainda que a prova seja menor. São duas filas diferentes, não uma.
+
+### O termo de serviço confirmou a regra, e revelou outra
+
+`advogado trabalhista` puxou só escritório de captação, zero vaga de emprego — a regra de
+termo de SERVIÇO vs PROFISSÃO segue de pé.
+
+Mas o volume foi baixíssimo (3 anúncios, 1 página) para um bairro do tamanho da Barra.
+Hipótese: **advogado anuncia por área do direito, e trabalhista pode não ser a que mais
+se anuncia no Rio.** Vale testar `advogado previdenciário`, `INSS` e `direito do
+consumidor` antes de concluir que a Barra é rasa em advocacia.
+
+### Munição para o nosso próprio criativo
+
+Advocacia é conjunto nosso e está entregando. Aqui está a prova de que o dono de
+escritório sobe anúncio sem título — é exatamente a dor que o nosso anúncio pode nomear.
+
+LISTA DE ATAQUE: **44 → 45** (uma página, três peças).
+
+Combos varridos até aqui: + advocacia Barra da Tijuca (termo de serviço; 1 página, 3 peças
+quebradas, alvo recém-chegado — nova categoria de fila).
