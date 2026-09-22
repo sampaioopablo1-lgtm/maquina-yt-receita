@@ -1511,3 +1511,18 @@ tocada, porque nenhuma foi alterada.
 **Achado lateral na mesma chamada:** 8 anúncios antigos e pausados acusam "Terms of Service
 Not Accepted: You can't run lead ads until your Facebook Page accepts Facebook's Lead
 Generation Terms of Service". Não afeta os 38 no ar, mas é dívida técnica da Página.
+
+### Adendo (22/09, mesma rodada): o `limit` do `ads_get_errors` corta o nível da conta
+
+Quase dei um falso "liberou" ao Pablo. Rechamando o `ads_get_errors` com `limit: 3` para
+conferir se a fatura tinha sido quitada, a resposta **não trouxe o erro de cobrança** — e a
+leitura ingênua seria "resolveu".
+
+Não resolveu. O `limit` corta a árvore em profundidade e **o nó `ad_account` vem por
+último**, depois de campanha, conjuntos e anúncios. Com limite baixo, ele simplesmente não
+aparece — e a ausência parece boa notícia.
+
+**Regra: ao conferir bloqueio de conta, chamar sempre com `limit` alto (50).** E nunca
+concluir "liberou" pela ausência do erro numa resposta truncada — a confirmação de que
+voltou é **entrega aparecendo no `time_increment: "1"` do dia**, não a ausência de um erro
+numa lista cortada.
