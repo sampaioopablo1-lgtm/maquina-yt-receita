@@ -5538,3 +5538,57 @@ Combos varridos até aqui: + contabilidade serviço MEI (nacional, 104 ativos �
 **regra nova: dentro do eixo certo, o ticket do serviço decide o tipo de anunciante —
 serviço barato puxa app e infoproduto no lugar do escritório**; varrer contabilidade
 pelo serviço caro, não pelo barato).
+
+---
+
+## CONTABILIDADE — serviço caro: recuperação de crédito tributário (22/09, nacional)
+
+Varredura: `recuperação de crédito tributário`, BR, ACTIVE. **172 anúncios ativos** —
+contra 104 do MEI. A regra do ticket, escrita na varredura passada, se confirma na
+primeira prova: **o serviço caro puxou escritório de verdade**. No MEI, metade do que
+aparecia era app e infoproduto. Aqui, de 23 páginas distintas, só duas são curso (IPOG,
+ibpt.educacao) e uma é ruído de busca (Ricardo Nunes Eletro). Sobram **20 alvos**.
+
+Outra coisa que mudou: apareceu o **anunciante híbrido**. Recuperação tributária é
+vendida tanto por contabilidade quanto por advogado tributarista — Porto Câmara, DC-
+Assessoria Jurídica, ADVINTEGRA, marcelasantosadv_, Lucas Teixeira Dezem são jurídicos
+disputando a mesma palavra que Hope, Sanji, Múltipla e maxicont. Para a lista fria isso
+é bom: um mesmo termo entrega dois nichos que a gente já anuncia.
+
+**Trilha A (dono no nome da página) — 9 de 20:** Dr. Jose Netto — Recuperação de Crédito
+Tributário, Rafaela Posser, Advogado Lucas Teixeira Dezem, marcelasantosadv_,
+andrebaeta.obraspublicas, Burati GT, Mello Consultoria, Porto Câmara, Rocha Assessoria e
+Consultoria Empresarial.
+
+**Demais alvos (11):** Hope Contabilidade, Múltipla Contabilidade e Consultoria São
+Paulo, ARS Consultoria Tributária, ASEC — Serviços Administrativos e Financeiros,
+maxicontassessoriacontabil, OSET • Open Soluções Empresariais e Tributárias, DC-
+Assessoria Jurídica, Vocare Tax, Sanji Contabilidade, MS Tax — Inteligência e Gestão
+Tributária, ADVINTEGRA Soluções Tributárias.
+
+**Defeitos:**
+- **Título vazio** (o anúncio não promete nada onde o olho cai): Dr. Jose Netto (os dois
+  anúncios), Vocare Tax, ASEC, IPOG, ibpt. MS Tax é pior: o título é um espaço em branco.
+- **Carrossel com card sem headline** — **quarta aparição** do mesmo defeito (depois de
+  Ricardo Simões, Lucrum e yuriaires.contador): andrebaeta.obraspublicas e Rafaela Posser
+  aparecem com `|   |   |   |   |` no lugar dos títulos dos cards. Card montado, headline
+  esquecida. Já dá para chamar de padrão do nicho, não de acidente.
+- **CTA de porta fechada**: "Fale conosco" (Hope), "Converse conosco" (Múltipla, Lucas
+  Teixeira Dezem), "Saiba mais" (DC — nos quatro anúncios). Nenhum diz o que acontece
+  depois do clique.
+- **Volume no lugar de variação**: OSET tem 16 anúncios ativos com **a mesma headline**
+  ("Sua empresa pode ter impostos a recuperar"). Não é teste, é repetição paga.
+
+**Quem escreve bem, para munição:** **"O que sai da sua margem"** (ARS — a dor em cinco
+palavras, sem falar de imposto); **"Para Empresas de R$10 milhões+ · Lucro Real e
+Presumido"** (Burati GT — qualifica e desqualifica na própria headline, o clique que
+sobra é bom); **"Sua empresa pode ter impostos a recuperar"** (OSET — situação do leitor,
+não serviço do vendedor); **"Especialista em Recuperação e Restituição de ICMS-ST no
+Estado de São Paulo"** (Mello — estreita até doer e é exatamente por isso que funciona).
+
+LISTA DE ATAQUE: **107 → 127**.
+
+Combos varridos até aqui: + contabilidade serviço caro (recuperação de crédito
+tributário, nacional, 172 ativos — **a regra do ticket está provada: o serviço caro
+puxa escritório, o barato puxa app**; o termo entrega contabilidade E advocacia
+tributária no mesmo saco; carrossel com card sem headline é padrão do nicho, 4ª vez).
