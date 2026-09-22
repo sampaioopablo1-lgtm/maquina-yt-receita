@@ -5216,3 +5216,80 @@ LISTA DE ATAQUE: **52 → 65**.
 Combos varridos até aqui: + advocacia direito do consumidor (nacional, 251 anúncios — maior
 volume do arquivo; 13 páginas com defeito em 40 lidos, 11 Trilha A; conferir praça antes de
 abordar).
+
+---
+
+## 🏠 Imobiliária — ALUGUEL (22/09/2026, 16h) — eixo novo, e a explicação das barras
+
+Termo: `apartamento para alugar Rio de Janeiro`. **27 anúncios.** Eixo nunca testado: o
+arquivo inteiro de imobiliária foi feito em cima de **venda** (`apartamento à venda`,
+`corretor`). Aluguel é outro conjunto de anunciantes — administradora e corretor de
+locação — e rendeu bem.
+
+### A descoberta que reescreve um item do arquivo: as barras são CARROSSEL
+
+O arquivo vinha tratando `nome da página |  |  |  |` como um tipo de defeito. **Não é um
+defeito, é um formato.** As barras separam os títulos dos **cards de um carrossel** — cada
+`|` é um card. O que varia é o que foi escrito em cada slot, e é aí que está o defeito:
+
+| O que aparece | O que significa |
+|---|---|
+| `Nome \|  \|  \|  \|` | só o primeiro card tem título; os outros ficaram em branco |
+| `Texto \| Texto \| Texto \| Texto` | escreveu um e deixou repetir em todos os cards |
+| `Descrição A \| Descrição B \| Descrição C` | **feito certo** — cada card com sua descrição |
+
+Isso explica de uma vez os casos antigos de "nome repetido N vezes" e "N barras vazias":
+são o mesmo mecanismo, em carrossel de tamanho diferente. **E muda a abordagem:** não é
+"seu anúncio está sem título", é *"seu carrossel tem 6 fotos e as 6 estão com a mesma
+legenda — a pessoa desliza e vê a mesma frase seis vezes"*. Muito mais concreto.
+
+### A prova mais bonita está dentro de um único anunciante
+
+A **Lucrum Imobiliária** (já no arquivo) tem, ao mesmo tempo:
+
+- dois anúncios com **título totalmente vazio**
+- e um com **seis descrições distintas e úteis**: `Centro - Sala para aluguel - 10 | Apto
+  para alugar, térreo com quintal, 2 quartos com dependência reversível, próx. BRT
+  Campinho e Estação Madureira. Cód 1071 | Apto para alugar em Copacabana, andar alto, 3
+  qts (suíte/armários), dep. complt. e garagem. | ...`
+
+O mesmo anunciante prova o certo e o errado. **É o melhor argumento de abordagem do
+arquivo: não precisa ensinar nada, só mostrar o trabalho dele mesmo.**
+
+### Alvos novos
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Sérgio Castro Imóveis - A Empresa que Resolve.** | B | nome da página + `A 2 Quadras da Praia de Copacabana!` repetido 6× | **22/07/2025 — 14 meses** |
+| **Encontre seu Lar** | B | `Encontre seu Lar` **11 vezes** | 08/09/2026 |
+| **Igarashi Imóveis** | B | 2 anúncios; título bom, mas repetido 6× em cada | 17/09/2026 |
+| **Elias Jabbour** | **A** | 3 anúncios, título vazio | 04/09/2026 |
+| **Charles Nunes** | **A** | 3 anúncios, título = `Clique em "saiba mais"` | 05/08/2026 |
+| **Corretor Rodrigo Pereira** | **A** | título vazio | 07/07/2026 |
+| GEPS.imoveis | B | título = nome da página | 25/07/2026 |
+| Suhcasa Copacabana | B | título vazio | 05/03/2026 |
+| As Incríveis Aventuras de Eu Mesmo | B | descrição boa no 1º card, **7 barras vazias** depois | 21/09/2026 |
+| Itaúna - Saquarema / Rio - Copacabana | B | 1º slot com o nome da página, 2 slots repetidos, typo `Atântica` | **29/11/2024 — 22 meses** |
+
+**O Itaúna bate o recorde de tempo no ar do arquivo: 22 meses**, contra os 18 do Dr. Daniel
+Pinheiro. Ressalva honesta: o carrossel dele **está parcialmente preenchido** — alguém
+trabalhou nele. É recorde de duração, não de descuido.
+
+### Poluição
+
+- `Aluguel chapecó` — Chapecó/SC, outro estado (o `Rio de Janeiro` no termo não segurou)
+- **Xtay, Luggo, Biahost** — proptech e aluguel por temporada, operação profissional
+- fabimachado_so — RE/MAX, decisão de mídia da rede
+
+### Conclusão do eixo
+
+Aluguel **vale a pena** e estava invisível: 10 alvos novos num termo só, 3 deles Trilha A,
+e o recorde de duração do arquivo. **Venda e aluguel são dois mercados distintos dentro da
+mesma imobiliária** — varrer os dois, sempre.
+
+Próximos do eixo: `sala comercial para alugar`, `casa para alugar`, `aluguel temporada`.
+
+LISTA DE ATAQUE: **65 → 75**.
+
+Combos varridos até aqui: + imobiliária ALUGUEL Rio (eixo novo; 10 alvos, recorde de 22
+meses; **as barras são carrossel, não defeito de campo** — mecanismo corrigido).
