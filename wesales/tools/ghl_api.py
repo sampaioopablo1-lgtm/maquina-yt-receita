@@ -437,7 +437,7 @@ def build(c, name: str, steps: list, triggers: list,
 
 def preencher(c, wf: str, name: str, steps: list, triggers: list,
               tags_to_create=None, allow_reentry: bool = True,
-              stop_on_response: bool = False) -> str:
+              stop_on_response: bool = False, janela=None) -> str:
     """Preenche um workflow EXISTENTE (rascunho vazio) com nos e gatilhos.
 
     Recusa se o id for de um workflow publicado (regra do dono).
@@ -513,7 +513,7 @@ def preencher(c, wf: str, name: str, steps: list, triggers: list,
     c.request("PUT", "/workflow/" + LOC + "/" + wf,
               {"name": name, "status": "draft", "version": ver, "meta": meta,
                "allowMultiple": allow_reentry,
-               "stopOnResponse": stop_on_response,
+               "stopOnResponse": stop_on_response, "window": janela,
                "workflowData": {"templates": swm},
                "triggersChanged": bool(tl), "oldTriggers": tl,
                "newTriggers": tl})
