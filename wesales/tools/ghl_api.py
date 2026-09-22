@@ -181,6 +181,24 @@ def notify_user_step(titulo: str, corpo: str, usuario: str = USER) -> dict:
     }
 
 
+def notify_owner_step(titulo: str, corpo: str) -> dict:
+    """Notificacao interna para o DONO do contato (o closer / o SDR dele)."""
+    return {
+        "id": uid(), "name": "Internal Notification",
+        "type": "internal_notification",
+        "attributes": {
+            "type": "notification",
+            "notification": {
+                "type": "send_notification", "body": corpo, "title": titulo,
+                "redirectPage": "contact", "userType": "assign",
+                "assignedOwners": ["contact_owner"],
+                "alsoNotifyContactFollowers": False,
+                "alsoNotifyOpportunityFollowers": False,
+            },
+        },
+    }
+
+
 def notify_step(html_body: str, canal: str = "whatsapp",
                 para: str = "contact_owner") -> dict:
     """Internal Notification (formato lido da Interceptacao de Sinal)."""

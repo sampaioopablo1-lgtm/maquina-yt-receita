@@ -2,6 +2,82 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Montagem programática funcionou: 9 workflows criados, testados e publicados pela API interna — 21/09/2026, PC do dono
+
+O caminho que o R anterior classificou como "só com decisão explícita do
+dono, e nunca deste ambiente" foi executado, no computador dele. **Funciona.**
+Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
+`wesales/workflows-json/`.
+
+**Como a sessão autentica (o README do `gohighlevel-cli` está certo, o
+prompt estava errado):** *storage state* do Playwright **não** autentica a
+API interna. O `backend.leadconnectorhq.com` exige o `Authorization: Bearer`
+nativo do LeadConnector, e o jeito de obtê-lo é capturar do tráfego da
+própria tela logada (`login-capture.js`). O token dura ~1 h e `renew.js`
+recaptura sozinho, headless, em ~10 s, a partir do perfil persistente do
+Chrome — só pede login humano se o perfil perder a sessão.
+
+### As cinco armadilhas que custaram tempo (e a regra que fica de cada uma)
+
+| Armadilha | O que acontece | Regra |
+|---|---|---|
+| **Salvar rascunho não valida** | O validador do `PUT` de rascunho aceita payload que o de **publicação** recusa. O nó de oportunidade passou horas "funcionando" em rascunho | **Critério de pronto é *publicou*, não *salvou*.** Todo teste de forma nova deve terminar em publicação |
+| **Workflow sem `status`** | Um workflow criado mas nunca salvo com sucesso fica **sem** a chave `status`. Nesse estado o `PUT` recusa com a mensagem enganosa `"<nome do nó>" action has a corrupted type` — que aponta para o nó errado | Mandar `status: "draft"` **já no primeiro PUT**, e usar a **versão corrente** (não `1`) |
+| **Todo `PUT` é substituição** | Publicar mandando só `name`/`status`/`workflowData` **zerou `allowMultiple`** (Allow Re-entry) em 7 workflows. Sem re-entry o contato não volta a entrar — a 2ª rodada do teste do W6 simplesmente não executou | Carregar `allowMultiple`, `stopOnResponse`, `timezone`, `window` e `allowMultipleOpportunity` do estado atual em **todo** PUT |
+| **Gatilho órfão** | Uma tentativa que falha **depois** de criar o gatilho deixa um gatilho apontando para um nó que não existe mais. Dois gatilhos = risco de inscrição dupla ao publicar | `preencher()` **reaproveita** gatilho existente (PUT) em vez de criar outro |
+| **Schema de terceiro não vale** | O `ghl-automation-builder` documenta `internal_update_opportunity`, `has_tag`, `is_empty`. Esta conta usa `create_opportunity`, `index-of-true`, `has_no_value` | Ler o formato de **workflow real desta subconta** (`dump_corpus.py`) e, quando não houver exemplo, varrer por força bruta contra um rascunho descartável |
+
+### Formatos confirmados nesta subconta (fonte: workflows reais + força bruta)
+
+- **If/Else é uma trinca de nós:** `condition-node` (com `branches[0].segments[0].conditions`) + `branch-yes` + `branch-no`. O nó de condição exige `operator`, `if`, `conditionName`, `version: 2` e `noneBranchName` — sem eles, erro 400.
+- **`goto` (`{targetNodeId}`)** é o que faz dois ramos **convergirem** no mesmo nó e o que fecha **laços**. Um nó só pode existir uma vez na árvore: os demais caminhos saltam para ele.
+- **Operadores:** `index-of-true` = "inclui", **`index-of-false` = "não inclui"**, `has_value` / `has_no_value`, `==`, `!=`, `>=`, `<`, `contain`. O `!=` **aceita merge field como valor** — a tela renderiza `If "Checkpoint — Tentativa nº" não é igual a "{{contact.tentativa_n}}"`.
+- **Mudar status de oportunidade** não é um nó separado: é **`create_opportunity`** (nesta versão a ação é Criar/**Atualizar**, e com duplicata desligada ela atualiza a que já existe). Ela **exige etapa** — para não mover o lead, passe a etapa em que ele já está.
+- **`remove_from_all_workflows`** exige `includeCurrent`; `false` é o "All Except Current" da spec.
+- **Notificação interna** tem dois alvos: `userType: "user"` + `selectedUser` (o gestor) e `userType: "assign"` + `assignedOwners: ["contact_owner"]` (o dono do contato). Monitor de saúde deve usar o **gestor** — o lead que ele pega costuma estar sem dono.
+
+### `{{right_now}}` — pendência da seção 0.3 RESOLVIDA
+
+O token existe nesta conta. Duas provas: `{{right_now.date}}` já está **em
+produção** no vencimento da tarefa do `Interceptação de Sinal — Clique`
+publicado; e o W6 gravou `2026-09-21` no campo `Data do veredito do closer`
+(DATE) usando exatamente esse token.
+
+### Achado que a spec não registrava: o Trigger Link está morto
+
+**Não existe nenhum Trigger Link na subconta** (`0 - 0 of 0` na tela de
+Marketing → Links de acionamento), mas o workflow **publicado**
+`Interceptação de Sinal — Clique` tem gatilho apontando para o link
+`HUdfNRzzEAQJJBMFfeCy`. **Ele não tem como disparar.** A seção 0.5 diz que
+`Agendar com o closer` "já existe" — não existe. Isso também trava os nós
+M2.2/M3.2 da Cadência 12x30, que inserem esse link na mensagem.
+
+### Quatro workflows que a spec dava como montados estavam vazios
+
+`Cadência 12x30`, `Recuperação de No-show`, `Qualificação por IA no WhatsApp`
+e `SLA do Closer — No-show` tinham **0 nós** (o último a spec dava como
+inexistente). Nada a preservar — e preencher o rascunho existente, em vez de
+criar outro com o mesmo nome, é o certo: nome duplicado quebraria os
+`Add to Workflow` / `Remove from Workflow` que os citam.
+
+### Campo personalizado sai na tela, não por API
+
+`/locations/{loc}/customFields` recusa o bearer do app de workflows. Os 5
+campos da tabela 1.2 foram criados na tela por Playwright. Armadilhas do
+diálogo: os seletores são Naive UI — clica-se no **valor** visível, não no
+rótulo, e o clique precisa de `force: true`; a lista de tipos é
+**virtualizada**, então a opção de data (`Seletor de data`) só existe no DOM
+depois de digitar para filtrar.
+
+### Testes de ponta a ponta executados (contatos de teste, nunca lead real)
+
+| Workflow | Disparo | Rastro conferido |
+|---|---|---|
+| `Contador de Toques` (W1) | tag `toque` em `ZZ TESTE ESTRUTURA` | tag removida sozinha e `Toques na semana` = 1 — exatamente o que a seção de teste da W1 previa |
+| `Loop do closer v2` (W6) | `Reunião foi qualificada` = `Parcial` em `Teste Atendeu` | nota "Veredito do closer: Parcial · motivo: Sem fit · nota 80", oportunidade → `abandoned`, tag `nutricao-90d`, `Data do veredito` = hoje, **etapa intacta em NEGOCIAR** |
+| `Loop do closer v2` (W6) | depois `= Não` (motivo `Sem fit`) | oportunidade → `lost`, etapa intacta. Só passou **depois** de corrigir o Allow Re-entry que a publicação havia zerado |
+
+
 ## Como a comunidade cria workflow sem clicar: API interna (`backend.leadconnectorhq.com`), extensão de JSON e "Copiar workflow" — 21/09/2026, ao vivo em chat
 
 O dono pediu para pesquisar no GitHub e nas comunidades como outros resolveram
