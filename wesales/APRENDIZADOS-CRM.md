@@ -2,6 +2,96 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A sessão na nuvem não tem como montar W18/W19/W20 pela API interna — o toolkit de `wesales/tools/` só roda no PC do dono — 22/09/2026 16:13 UTC, sessão na nuvem
+
+Pedido: montar W19 (Higiene de Número), W18 (Monitor de Capacidade) e,
+depois da resposta do dono sobre LC Phone (entrada acima), W20 (Qualidade
+da Conexão) — os três pelo mesmo caminho que já criou W1-W17/W21/W22
+(`wesales/tools/ghl_api.py` + `build_w*.py`, API interna
+`backend.leadconnectorhq.com`, bearer capturado do navegador logado).
+
+**Três verificações antes de registrar bloqueio, não suposição:**
+1. `wesales/.local/_ghl_bearer.txt` (onde `ghl_api.py` lê o token) —
+   **não existe** nesta sessão. O arquivo é gitignored de propósito (segredo,
+   nunca commitado) e só nasce quando `renew.js` roda contra um Chrome já
+   logado no WeSales.
+2. `renew.js`/`login-capture.js` dependem de um **perfil de Chrome
+   persistente e já autenticado** e de `CLI_PATH` apontando para
+   `gohighlevel-cli/`, um diretório **fora deste repositório**
+   (`os.path.join(_HERE, "..", "..", "gohighlevel-cli")`) — não existe nesta
+   sessão, e `NODE_PATH_GLOBAL` em `ghl_api.py` está hardcoded para
+   `C:\Users\sampa\AppData\Roaming\npm\node_modules`, confirmando que este
+   toolkit foi escrito para rodar no Windows do dono, não num sandbox Linux
+   remoto.
+3. `curl` para `backend.leadconnectorhq.com` desta sessão devolve conexão
+   recusada (`000`) — mesmo bloqueio de proxy já registrado para
+   `help.gohighlevel.com` e outros domínios (G-05, "EGRESS_BLOCKED"), agora
+   confirmado para o host da API interna também.
+
+**As três batem na mesma causa: este ambiente é a sessão na nuvem (leitura
+por `GHL-CRM`/API pública), não o PC do dono.** É a mesma divisão de
+trabalho que já existia — os 27 commits que a fusão de hoje trouxe
+(`3cc1c4b`) só existem porque rodaram do lado de lá. Aqui não dá para
+criar workflow por API nenhuma: a pública nunca ofereceu isso (registrado
+desde 18/09), e a interna precisa da infraestrutura acima.
+
+**Um segundo motivo, independente do primeiro, para não escrever os
+`build_w18.py`/`build_w19.py` mesmo como rascunho não executado:** todo
+`build_w*.py` existente copia o formato de nó de um workflow **real já lido
+desta subconta** (`ghl_api.py`, linhas 1-6: "formato de nó lido de workflows
+reais, não de schema de terceiro"). Os gatilhos `Number Validation` (W19) e
+`Scheduler` (W18) **nunca foram capturados** em nenhum workflow desta
+subconta — não há exemplo real para copiar, só a suposição de nome escrita
+na spec. Adivinhar o formato JSON desses dois gatilhos sem poder testar
+contra a API repetiria a mesma classe de erro que este arquivo já
+documentou duas vezes (campo/rótulo inventado pelo assistente de IA no
+Pós-ligação e no Loop do closer) — aqui o custo seria maior, porque um
+gatilho mal formado ou não publica ou publica e nunca dispara, calado.
+
+**O que isto não bloqueia:** a resposta do dono sobre LC Phone (entrada
+abaixo) é documentação pura, sem escrita no CRM — registrada. Confirmado
+também nesta sessão, via API pública (`locations_get-location`): país `BR`,
+fuso `America/Sao_Paulo`, batendo com a spec do W19; e via
+`locations_get-custom-fields` (51 campos): os quatro campos do W20 (C-29 a
+C-32) **continuam ausentes**, então mesmo destravado pela resposta do dono,
+W20 tem um segundo pré-requisito não resolvido, igual ao que já estava
+escrito na spec.
+
+**Registrado para não redescobrir:** para montar W18/W19/W20 por este
+caminho, a sessão que roda precisa ser a que tem o bearer e o Chrome
+logado — ou seja, no PC do dono, do jeito que os outros 22 workflows já
+foram montados. Uma sessão na nuvem sem essa infraestrutura não deveria
+tentar de novo sem ela mudar.
+
+## Resposta do dono à pré-condição do W20/F-06/F-08/F-09: as ligações saem por LC Phone — 22/09/2026 16:13 UTC, ao vivo em chat
+
+Pablo confirmou, ao vivo, a pergunta que travava os três itens desde
+21-22/09/2026 (`build-wesales.md`, seção 2.26/F-08, "Conferência do F-06";
+`ROADMAP-SALES-ENGAGEMENT.md`, F-09): **as ligações desta operação saem por
+LC Phone** (telefonia nativa do GHL), não por linha própria do SDR. Bate com
+o indício indireto já registrado (`twilioRebilling.enabled: true, markup: 20`
+na config da subconta, reconfirmado nesta mesma leitura via
+`locations_get-location`) — agora é confirmação, não mais indício.
+
+**O que isso destrava, sem executar sozinho:**
+- **F-06/W20 (Qualidade da Conexão):** o gatilho `Transcript Generated`
+  passa a valer a pena montar — mas **ainda faltam os 4 campos
+  pré-requisito** (`Duração da ligação` C-29, `Conexão real` C-30,
+  `Conexões reais telefone` C-31, `Ligações com transcrição` C-32, todos
+  `[ ]` em `APROVADO.md`), confirmados ausentes nesta rodada
+  (`locations_get-custom-fields`: 51 campos, nenhum dos quatro) — e a
+  decisão de operação que o pré-requisito esconde (gravar toda ligação de
+  saída, aviso de LGPD, custo do add-on) continua sem `[x]` do dono.
+- **F-08/F-09 (proteção de reputação e freio do canal de telefone):** a
+  pendência "LC Phone ou linha própria?" que bloqueava a escolha do limiar
+  de `Tel não atendidas seguidas` (F-09) e a mitigação certa de reputação de
+  número (F-08) está resolvida — os dois continuam esperando o dono escolher
+  entre as opções já escritas (`ROADMAP-SALES-ENGAGEMENT.md`), não mais a
+  pergunta de infraestrutura.
+
+Nenhuma escrita no CRM por causa desta resposta — é registro de decisão,
+não execução.
+
 ## O teste que responde a dúvida das sete listas estava preso atrás de uma decisão que ele não precisa — e a lista que o destrava é a mais urgente do projeto — 22/09/2026, sessão automática
 
 A rodada anterior fez a coisa certa com a dúvida da ordenação de dois níveis:
