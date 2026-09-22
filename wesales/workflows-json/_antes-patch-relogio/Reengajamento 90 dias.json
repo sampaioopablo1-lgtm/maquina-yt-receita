@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Reengajamento 90 dias",
-    "version": 17,
+    "version": 16,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/17",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F17?alt=media&token=ae943406-965e-402e-b014-48b94dd64941",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/16",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F16?alt=media&token=64328660-3f58-4bf9-a5d5-790757d738ed",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:33:43.759Z",
-    "updatedAt": "2026-09-22T22:23:36.735Z",
+    "updatedAt": "2026-09-22T13:47:46.674Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -317,7 +317,7 @@
               },
               {
                 "field": "uWUGz5gVGAFmNuk5GXbX",
-                "value": "{{right_now.date}} {{right_now.time}}",
+                "value": "sim",
                 "title": "Entrada em",
                 "type": "text",
                 "date": ""
@@ -327,13 +327,6 @@
                 "value": "",
                 "title": "1ª tentativa em",
                 "type": "text",
-                "date": ""
-              },
-              {
-                "field": "7wtFfDDxOpYCfHzBsZXP",
-                "value": "",
-                "title": "Conexão real",
-                "type": "select",
                 "date": ""
               }
             ]
@@ -720,13 +713,6 @@
                 "title": "Tentativa nº",
                 "type": "numerical",
                 "date": ""
-              },
-              {
-                "field": "7wtFfDDxOpYCfHzBsZXP",
-                "value": "",
-                "title": "Conexão real",
-                "type": "select",
-                "date": ""
               }
             ]
           },
@@ -752,7 +738,7 @@
             "fields": [
               {
                 "field": "PKzNljzDoU77O14nHLrV",
-                "value": "{{right_now.date}} {{right_now.time}}",
+                "value": "sim",
                 "title": "1ª tentativa em",
                 "type": "text",
                 "date": ""
@@ -1526,13 +1512,6 @@
                 "title": "Tentativa nº",
                 "type": "numerical",
                 "date": ""
-              },
-              {
-                "field": "7wtFfDDxOpYCfHzBsZXP",
-                "value": "",
-                "title": "Conexão real",
-                "type": "select",
-                "date": ""
               }
             ]
           },
@@ -2282,13 +2261,6 @@
                 "title": "Tentativa nº",
                 "type": "numerical",
                 "date": ""
-              },
-              {
-                "field": "7wtFfDDxOpYCfHzBsZXP",
-                "value": "",
-                "title": "Conexão real",
-                "type": "select",
-                "date": ""
               }
             ]
           },
@@ -3037,13 +3009,6 @@
                 "value": 4,
                 "title": "Tentativa nº",
                 "type": "numerical",
-                "date": ""
-              },
-              {
-                "field": "7wtFfDDxOpYCfHzBsZXP",
-                "value": "",
-                "title": "Conexão real",
-                "type": "select",
                 "date": ""
               }
             ]

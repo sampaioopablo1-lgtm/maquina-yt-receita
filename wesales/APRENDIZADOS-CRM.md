@@ -2,6 +2,39 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Relógio das cadências corrigido no ar por ajuste cirúrgico — e `{{right_now}}` puro ainda está em 8 notas publicadas — 22/09/2026, sessão do PC
+
+**Aplicado** (o dono escolheu "ajuste cirúrgico" — exceção consciente à regra
+"nunca edite um publicado"), `tools/patch_relogio_cadencias.py --aplicar`:
+
+| Workflow | Mudanças | Conferido depois do PUT |
+|---|---|---|
+| `Cadência 12x30` (`c64a808b`) | `Entrada em` + `1ª tentativa em` = `{{right_now.date}} {{right_now.time}}`; `Conexão real` = vazio no nó de entrada e nos 12 toques | 410 nós, ids iguais, gatilhos ativos |
+| `Cadência Inbound` (`c2375e2f`) | idem; entrada + 5 toques | 172 nós, ids iguais, gatilho ativo |
+| `Reengajamento 90 dias` (`37eb32e4`) | idem; reset de rodada + 4 toques | 105 nós, ids iguais, gatilho ativo |
+
+`allowMultiple`, `stopOnResponse`, `timezone` e `window` comparados com o
+backup (`workflows-json/_antes-patch-relogio/`): nenhum mudou. `allowMultiple
+= False` na 12x30/Inbound **já era** o valor original. Isso fecha o
+pré-requisito 6 do W20. Os builders (`build_w11/w12/w16_w8.py`) ainda dizem
+`"sim"` — se alguém reconstruir por eles, o defeito volta; corrigir antes de
+qualquer rebuild.
+
+**Aberto — medir antes de mexer:** `{{right_now}}` puro (sem `.date`/`.time`)
+está no texto de `Add Note` de 8 workflows publicados (AGENDAR Estagnado,
+Alerta de Speed-to-lead, CONECTAR Estagnado, Fila Travada, Lead Esquecido,
+Opt-out por Palavra-chave, Registro de Comparecimento, Retorno Vencido). Em
+campo TEXT ele vira `[object Object]`; em nota **não foi medido**.
+`python tools/teste_relogio.py nota` monta o teste (`ZZ TESTE RELOGIO NOTA`,
+tag `teste-relogio-nota`) — o classificador do modo automático bloqueou rodar.
+
+**WhatsApp conectado (informado pelo dono, 22/09/2026):** conexão **não
+oficial, por QR code**. Relevante para o M1–M3 (fora da 12x30 porque os nós
+de WhatsApp pediam `template_id`/`from_phone_number`) e para a decisão
+"cadências 100% telefone" (`d52e61d`). Nada mudado por isso ainda — voltar a
+usar WhatsApp nas cadências é decisão do dono, e API não oficial tem risco de
+bloqueio do número em disparo automatizado.
+
 ## `{{right_now}}` grava `[object Object]` — a variável que funciona é `{{right_now.date}} {{right_now.time}}` — 22/09/2026, sessão do PC
 
 Medido, não deduzido: workflow `ZZ TESTE RELOGIO` (`6d40b678-…`, gatilho tag

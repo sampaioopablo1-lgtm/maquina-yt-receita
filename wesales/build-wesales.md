@@ -678,7 +678,7 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
 | 0.5 | Update Contact Field | `Prioridade` = 3 (padrão; a seção 9 recalcula) |
-| 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (R-02 — carimbo de speed-to-lead) |
+| 0.6 | Update Contact Field | `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) (R-02 — carimbo de speed-to-lead) |
 | 0.7 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.7b. Senão → pula 0.7b (contato já tem dono; ver seção 2.14) |
 | 0.7b | Assign to User → modo `Round Robin` | Lista de SDRs ativos, configurada na tela do nó (seção 2.14) |
 
@@ -779,7 +779,7 @@ lead retoma sem ninguém precisar lembrar de destravar nada.
 
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
-| 5c | Carimbo | Update Contact Field | `1ª tentativa em` = `{{right_now}}` |
+| 5c | Carimbo | Update Contact Field | `1ª tentativa em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) |
 | 5d | Limpeza preventiva | Remove Contact Tag | `atraso-1a-tentativa` (barato mesmo se ausente — ver seção 2.11) |
 
 Não repita 5c/5d nas tentativas 2 a 12: T1 é sempre a primeira do molde (delta
@@ -1635,7 +1635,7 @@ no outbound):
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
 | 0.5 | Update Contact Field | `Prioridade` = 5 (não 3: todo lead inbound nasce no topo da fila — é a resposta rápida que a régua de degraus só cumpre se o SDR também priorizar certo) |
-| 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (mesmo campo do R-02 — a métrica de speed-to-lead nasceu para o outbound e serve de graça aqui, sem custo nenhum) |
+| 0.6 | Update Contact Field | `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) (mesmo campo do R-02 — a métrica de speed-to-lead nasceu para o outbound e serve de graça aqui, sem custo nenhum) |
 | 0.7 | Add Contact Tag | `fila-quente` (assim o lead aparece na lista `Fila Quente`, 8.1, sem lista nova) |
 | 0.8 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.8b. Senão → pula 0.8b |
 | 0.8b | Assign to User → modo `Round Robin` | Mesma lista de SDRs do nó 0.7b da Cadência 12x30 (seção 2.3) — um único grupo de round robin para toda a operação, não um por cadência, senão o mesmo SDR poderia ganhar dois leads simultâneos por entrar em réguas diferentes na mesma rodada da roleta |
