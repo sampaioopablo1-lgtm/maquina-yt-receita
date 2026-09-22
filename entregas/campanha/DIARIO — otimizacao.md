@@ -1608,3 +1608,50 @@ Pablo e não têm registro. Nenhuma reunião nova foi marcada nesses dois dias. 
 lead→reunião segue sem medição.
 
 Relógio usado: `created_time` lido da Meta nesta rodada (conjuntos 09/09, 16/09 e 17/09).
+
+## 22/09 — fechamento de 21/09, e correção de uma data que eu errei
+
+### A correção primeiro
+
+Na rodada anterior eu li `date_preset: yesterday` quando o fuso da conta ainda estava
+em 21/09 — ou seja, o "ontem" era **20/09**, e eu reportei ao Pablo como se fosse 21/09.
+Os 3 leads e o CPL de R$8,43 são de **domingo**, não de segunda.
+
+**Regra que fica:** `yesterday` é relativo ao fuso da conta (BRT), não ao relógio da
+sessão (UTC). Quando a sessão está em UTC do dia seguinte e o BRT ainda não virou, os
+dois discordam. Para fechar um dia, usar `time_range` com a data explícita — nunca
+`yesterday`.
+
+### Os dois dias, agora com a data certa
+
+| Dia | Impressões | Gasto | Leads | CPL |
+|---|---|---|---|---|
+| Domingo 20/09 | 984 | R$25,28 | 3 | R$8,43 |
+| Segunda 21/09 | 453 | R$12,01 | 1 | R$12,01 |
+
+Por conjunto em 21/09: INTERESSE 228 imp / R$4,46 / 0 · CNAE 19 / R$0,98 / **1** ·
+IMOBILIÁRIA 113 / R$3,16 / 0 · ADVOCACIA 43 / R$1,51 / 0 · CONTABILIDADE 50 / R$1,90 / 0
+· HARMONIZAÇÃO sem entrega.
+
+### O que chama atenção em 21/09
+
+**1. A verba não foi gasta.** R$12,01 de R$20/dia. Não é teto atingido nem campanha
+parada — é a CBO não encontrando leilão que valha o lance. Segundo sinal na mesma
+direção: a entrega caiu pela metade em relação ao domingo. Nada foi alterado; fica
+registrado para ver se repete.
+
+**2. ADVOCACIA despencou.** Era o conjunto líder (596 imp em 19–20/09, 280 no domingo)
+e entregou 43 impressões na segunda. Queda de 85%. Ainda não é veredito — um dia só, e
+nada foi mexido no conjunto — mas é o número para vigiar na próxima rodada.
+
+**3. O lead veio do CNAE com 19 impressões.** O conjunto que quase não recebe verba foi
+o único que converteu. Amostra pequena demais para concluir qualquer coisa, mas é o
+segundo sinal de que o CNAE responde quando recebe entrega.
+
+**4. HARMONIZAÇÃO segue em zero.** Criado 16/09 17h59, ~5 dias sem uma impressão. TRAVA 7:
+**NÃO TESTADO**, não pausar. Pablo já avisado uma vez; não repito.
+
+Segmentação conferida nesta rodada: íntegra nos seis, `updated_time` parado em 16/09 e
+17/09. Os 38 anúncios ACTIVE, nenhum WITH_ISSUES.
+
+Relógio: `created_time` lido da Meta; dias fechados lidos por `time_range` explícito.
