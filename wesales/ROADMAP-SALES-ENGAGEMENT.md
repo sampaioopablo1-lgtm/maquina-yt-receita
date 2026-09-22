@@ -232,7 +232,7 @@ Zero escrita no CRM: item de documentação pura, não depende de
 **Pronto quando (cumprido):** todo `[ ]` do checklist de migração em
 `GUIA-MONTAGEM.md` (Fase 1) virou `[x]`.
 
-### G-03 · L-07 deixou de ser lacuna teórica — 47 leads reais parados em `NOVO LEAD`, crescendo — **aguarda decisão do dono**
+### G-03 · L-07 deixou de ser lacuna teórica — 47 leads reais parados em `NOVO LEAD`, **envelhecendo** (não mais crescendo, medido em 22/09) — **aguarda decisão do dono**
 **Por quê:** `briefing-sdr.md` já registrava a L-07 ("não existe gatilho que
 promova `NOVO LEAD` → `CONECTAR`, hoje é decisão manual do SDR") desde
 18/09/2026, com a nota "definir depois; se o volume crescer, resolve". O
@@ -1830,6 +1830,91 @@ escolhido estar escrito nó a nó nas seções 2.4/2.10/4.
 
 ---
 
+### F-10 · Nenhum monitor olha a **entrada** — 46 horas sem lead novo e nada avisou — **aguarda decisão do dono** (aberto em 22/09/2026)
+
+**O que foi medido**, na conferência da rodada de `b7ae300` (leitura por API, nada
+suposto):
+
+| Fato | Valor |
+|---|---|
+| Contatos na subconta | **50** |
+| Oportunidades | **50** — um para um, a Porta de Entrada (G-01) está funcionando |
+| Lead mais novo (contato) | `Carlos Andrade`, **21/09 09:17:23 UTC**, `source: Facebook` |
+| Oportunidade dele | 21/09 09:17:**26** UTC — 3 segundos depois, é o G-01 disparando num lead real |
+| Agora | 22/09 ~07:30 UTC |
+| **Tempo sem lead novo** | **~46 horas** |
+
+O padrão de chegada antes disso, pelos `dateAdded`: 9 leads entre 19/09 22:50 e
+20/09 18:11 (~19h), 1 em 21/09 09:17, e **nada desde então**. Todos os 50
+carregam atribuição de Meta Lead Ads viva (`LEADS I FORM I FS1`, anúncio
+`120247453176830766`, criativo `V16 — copy impulsionou`).
+
+**Não é falha de workflow.** Contatos = oportunidades, e o G-01 fecha em 3
+segundos no lead real mais recente. Se o Meta entregasse, o CRM registraria. O
+que parou está **antes** do CRM: campanha pausada, orçamento esgotado,
+formulário do anúncio com problema, ou reprovação de criativo. Nenhuma dessas
+coisas o CRM enxerga.
+
+**O gap, e é estrutural:** o Monitor de Saúde da Operação (F-05) tem **seis**
+peças — `NOVO LEAD` estagnado, fila travada, `CONECTAR` sem avanço, `AGENDAR`
+estagnado, retorno vencido, teto de toques. Todas as seis vigiam lead que
+**ficou parado**. **Nenhuma vigia lead que nunca chegou.**
+
+E essa é a falha mais consequente que esta operação pode ter, porque é a única
+que faz **todos** os outros indicadores melhorarem:
+
+| Com a entrada parada | O que o painel mostra |
+|---|---|
+| Fila de ligação | esvazia (bom sinal) |
+| `NOVO LEAD` estagnado | para de crescer (bom sinal) |
+| Toques na semana | cai abaixo do teto (bom sinal) |
+| Alerta de speed-to-lead | silencia — não há 1ª tentativa atrasada se não há lead |
+| Taxa de conexão | sobe, porque só sobram os leads já trabalhados |
+
+Seis monitores, todos verdes, e a máquina passando fome. É o oposto exato do
+que os alertas foram desenhados para pegar — eles medem congestionamento, e
+isto é inanição.
+
+**Como fazer, e é barato — usando a capacidade que o F-06 peça 2 rejeitou:**
+o Formula Editor de Custom Metrics **conta contatos por filtro** (achado da
+seção 2.17, reconfirmado na peça 2 do F-06). Ali aquilo era a unidade errada,
+porque o outro lado da razão era cumulativo. Aqui é exatamente a unidade certa
+— a pergunta é "quantos contatos nasceram hoje", que é uma contagem de
+contatos por filtro e nada mais:
+
+| Widget | Definição | Lê-se |
+|---|---|---|
+| `Leads novos hoje` | contagem de contatos com `Date Created` = hoje | Entrada do dia. Zero às 12h já é sinal |
+| `Leads novos — 7 dias` | contagem de contatos com `Date Created` nos últimos 7 dias | Tendência: separa "dia fraco" de "parou" |
+
+E a lista equivalente, para quem não tiver Custom Metrics no plano: Smart List
+`Entrada do dia`, filtro `Date Created` = hoje, ordenada por criação — o mesmo
+dado sem a tela única, mesmo raciocínio já usado nas listas 8.8/8.16.
+
+**O que eu não sei fazer nativo, e digo em vez de inventar:** um **alerta**
+automático de ausência de entrada. Workflow do GHL vê um contato por vez
+(limite já registrado em `APRENDIZADOS-CRM.md`) e não existe gatilho "nenhum
+contato foi criado em 24h" — não há contato para o workflow enrolar. As saídas
+são (a) o widget/lista acima, que depende de alguém olhar, ou (b) um contato
+sentinela fixo, num workflow com `Wait 24h` em laço, comparando um campo de
+checkpoint que todo lead novo atualiza — funciona, mas é engenhoca, custa um
+contato de serviço e um campo, e só vale se o dono quiser alarme de verdade e
+não um número no painel. **Não especifico a (b) sem ele escolher.**
+
+**Consequência para o G-03, e é uma correção de fato:** o item diz que os 47
+parados estão "crescendo todo dia". **Não estão** — o estoque está estático em
+47 há 46 horas. Isso não torna o G-03 menos importante (47 leads pagos sem
+cadência continuam sendo 47 leads pagos sem cadência), mas troca o argumento:
+a pressão não é o crescimento, é o **envelhecimento**. Lead de Meta Lead Ads
+esfria por hora, não por semana — e o mais velho do estoque já tem três dias.
+
+**Pronto quando:** existe um número de entrada do dia visível sem abrir o
+Gerenciador de Anúncios (widget ou lista), o dono sabe que os seis monitores
+do F-05 não cobrem entrada, e ele decidiu se quer só o número ou também o
+alarme da opção (b).
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -1857,7 +1942,7 @@ funcionando" — os dois esperam decisão, nenhum sai por API.
 fechou o G-02 (reconferir a subconta antes de encerrar sem commit) achou
 que a L-07 (`briefing-sdr.md`), registrada como lacuna teórica desde
 18/09, virou problema real: 47 oportunidades pagas paradas em `NOVO LEAD`
-sem cadência, crescendo todo dia. Três opções escritas para o dono
+sem cadência. (O "crescendo todo dia" de 21/09 **não vale mais**: medido em 22/09, zero lead novo em ~46 horas — o estoque está estático em 47 e o que pressiona agora é o envelhecimento, não o crescimento. Ver F-10.) Três opções escritas para o dono
 escolher — nenhuma executada, nenhuma vira `[x]` sozinha.
 
 Medição primeiro (R-01, R-02, R-03), porque sem ela as decisões seguintes são

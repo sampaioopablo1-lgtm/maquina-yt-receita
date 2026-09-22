@@ -2220,6 +2220,8 @@ o número exato.
 | `Taxa de Conexão — Telefone` (nova) | `(Soma de "Conexões telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — telefone, acumulada |
 | `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
 | `Taxa de Conexão Real — Telefone` (nova, F-06, peça 2) | `(Soma de "Conexões reais telefone" ÷ Soma de "Ligações com transcrição") × 100` | **Das chamadas que dá para medir**, quantas duraram mais de 60s — sem depender do julgamento do SDR. O denominador **não** é `Tentativas telefone`: os dois lados precisam da mesma população, ver "Conferência da peça 2" na seção 2.27 |
+| `Leads novos hoje` (nova, F-10) | `Contagem de contatos com "Date Created" = hoje` | **Entrada do dia** — o único indicador que piora quando a operação para de receber lead, e o único que nenhum monitor do F-05 cobre. Zero às 12h já é sinal. Usa a contagem de contatos por filtro (achado 2 desta seção), que aqui é a unidade certa |
+| `Leads novos — 7 dias` (nova, F-10) | `Contagem de contatos com "Date Created" nos últimos 7 dias` | Tendência de entrada: separa "dia fraco" de "parou". Medido em 22/09: ~46h sem lead novo, e nenhum alerta existia para dizer isso |
 | `Cobertura da Medição — Telefone` (nova, F-06, peça 2) | `(Soma de "Ligações com transcrição" ÷ Soma de "Tentativas telefone") × 100` | Quanto da operação de telefone está instrumentada (LC Phone + transcrição ligada). Abaixo de ~90%, a linha acima merece ressalva; abaixo de ~50%, o F-06 está medindo outra operação |
 
 A quinta linha é a que fecha o "Pronto quando" do F-06 no dashboard: por

@@ -2,6 +2,71 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Seis monitores vigiam lead parado e nenhum vigia lead que não chegou — a falha que faz todos os indicadores melhorarem — F-10, 22/09/2026, sessão automática
+
+Medido nesta rodada, por API: **50 contatos, 50 oportunidades**, e o lead mais
+novo da subconta é de **21/09 09:17 UTC** — ~**46 horas** atrás. O padrão
+anterior era 9 leads em 19 horas (19/09 22:50 → 20/09 18:11), depois 1 em
+21/09 09:17, depois nada.
+
+**Não é falha de workflow, e isso foi conferido antes de concluir:** contatos
+e oportunidades batem um para um, e no lead real mais recente o contato nasceu
+às 09:17:23 e a oportunidade às 09:17:**26** — três segundos, é a Porta de
+Entrada (G-01) funcionando. Se o Meta entregasse, o CRM registraria. O que
+parou está fora do CRM: campanha, orçamento, formulário ou criativo.
+
+**O gap estrutural:** o Monitor de Saúde (F-05) tem seis peças e **todas as
+seis vigiam lead que ficou parado** — estagnado em `NOVO LEAD`, fila travada,
+`CONECTAR` sem avanço, `AGENDAR` estagnado, retorno vencido, teto de toques.
+Nenhuma vigia lead que **nunca chegou**.
+
+E é a falha mais consequente possível justamente porque é a única que faz
+todos os outros indicadores **melhorarem**:
+
+| Entrada parada | O painel mostra |
+|---|---|
+| Fila de ligação | esvazia |
+| `NOVO LEAD` estagnado | para de crescer |
+| Toques na semana | cai abaixo do teto |
+| Alerta de speed-to-lead | silencia (sem lead, sem 1ª tentativa atrasada) |
+| Taxa de conexão | **sobe** (sobram só os já trabalhados) |
+
+Seis alertas verdes e a máquina passando fome. Os monitores medem
+**congestionamento**; isto é **inanição**, e são grandezas opostas.
+
+**A regra, que é o que vale guardar:** para todo conjunto de alertas, perguntar
+**qual falha faria todos eles ficarem verdes**. Se existir uma, é exatamente a
+que falta monitorar — e ela é sempre a mais perigosa do conjunto, porque o
+painel não fica em silêncio: fica *otimista*. Alerta de estoque parado e alerta
+de estoque zerado são itens diferentes; ter os seis primeiros não dá nenhuma
+cobertura do sétimo.
+
+**E a ironia útil:** a capacidade que resolve isto é a **mesma** que a peça 2
+do F-06 tinha acabado de rejeitar por motivo correto. "Contar contatos por
+filtro" era a unidade errada lá (o outro lado da razão era cumulativo); aqui é
+a unidade exata, porque a pergunta *é* uma contagem de contatos ("quantos
+nasceram hoje"). Registrado para a próxima rodada não descartar a ferramenta
+pelo veredito antigo: **capacidade rejeitada para um uso não está rejeitada
+para todos** — o que se descarta é o par ferramenta+pergunta, nunca a
+ferramenta.
+
+**O que não sei fazer nativo, dito em vez de inventado:** alerta automático de
+**ausência** de entrada. Workflow do GHL vê um contato por vez e não há gatilho
+"nenhum contato criado em 24h" — não existe contato para enrolar. Sobram o
+widget/lista (depende de alguém olhar) ou um contato sentinela com `Wait 24h`
+em laço comparando um checkpoint que todo lead novo atualiza. A segunda é
+engenhoca com custo (um contato de serviço, um campo) e não foi especificada:
+é escolha do dono, não de rodada automática.
+
+**Efeito colateral — uma alegação do roadmap venceu:** o G-03 dizia 47 leads
+parados "crescendo todo dia". Estático em 47 há 46 horas. O item não fica menos
+importante (47 leads pagos sem cadência continuam sendo isso), mas o argumento
+muda de **crescimento** para **envelhecimento**: lead de Lead Ads esfria por
+hora, e o mais velho do estoque já tem três dias. Corrigido no roadmap e no
+briefing. Terceira vez hoje que uma frase de urgência escrita num dia parou de
+ser verdade no seguinte, sem ninguém revisar — mesmo padrão da entrada "pendência
+que virou feito".
+
 ## O CRM não pode responder a pergunta do LC Phone, e agora isso está provado: **zero registro de chamada** na subconta, e o markup de 20% é da agência, não desta subconta — 22/09/2026, sessão automática
 
 A rodada anterior fez a coisa certa (perguntar ao CRM, não aos documentos) e
