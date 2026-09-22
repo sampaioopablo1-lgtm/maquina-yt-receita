@@ -239,6 +239,31 @@ def cond(tipo: str, subtipo: str, operador: str, valor,
     }
 
 
+def opp_step(status: str = None, etapa_id: str = None,
+             nome_no: str = "Update Opportunity") -> dict:
+    """Atualiza a oportunidade (status e/ou etapa).
+
+    Nenhum workflow desta subconta usava este no; o tipo veio do schema do
+    ghl-automation-builder (`internal_update_opportunity`) e foi conferido
+    na tela depois de criado.
+    """
+    # 'Update opportunity' e acao de marketplace (workflowsActionType
+    # INTERNAL, key internal_update_opportunity), lida do catalogo que o
+    # proprio builder baixa. Os valores nao vao soltos nos atributos: vao em
+    # __customInputFields__, o mesmo padrao do find_opportunity real da conta.
+    campos = []
+    if status:
+        campos.append({"filterField": "status", "value": status,
+                       "valueFieldType": "select", "dataType": ""})
+    if etapa_id:
+        campos.append({"filterField": "pipelineStageId", "value": etapa_id,
+                       "valueFieldType": "select", "dataType": ""})
+    at = {"type": "internal_update_opportunity", "allowBackward": False,
+          "__customInputs__": {}, "__customInputFields__": campos}
+    return {"id": uid(), "name": nome_no,
+            "type": "internal_update_opportunity", "attributes": at}
+
+
 def goto_step(alvo: str) -> dict:
     """Salta para outro no. E o que permite dois ramos convergirem no mesmo
     no e o que fecha os lacos (W17c, W17e). Formato lido de template real."""

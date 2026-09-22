@@ -842,6 +842,12 @@ Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
 | `ZZ TESTE API` | rascunho, 1 nó | prova de vida: gatilho `Contact Tag Added` (`teste-api`) → `Add Note`. Lido de volta pela API e conferido no canvas |
 | `Contador de Toques` (W1) | rascunho, 4 nós | bate nó a nó com a W1: `Remove Tag toque` → Math `Toques na semana +1` → `Wait 7 Days` → Math `-1`. Re-entry ligado, Stop on Response desligado, sem janela |
 
+| `CONECTAR Estagnado` (W17c) | rascunho, 20 nós | os dois laços de volta ao Wait de 14 dias fechados por `goto`; a tela confirma `If "Checkpoint — Tentativa nº" não é igual a "{{contact.tentativa_n}}"` e `If "Tags" não inclui "conectar-estagnado"` |
+| `Alerta de Speed-to-lead` (W15) | rascunho, 12 nós | os Waits de 15 min e 1 h convergem no mesmo portão por `goto` |
+| `AGENDAR Estagnado` (W17d) | rascunho, 7 nós | igual ao W17, etapa `AGENDAR`, tag `agendar-estagnado` |
+| `Lead Esquecido em NOVO LEAD` (W17) | rascunho, 7 nós | preencheu um rascunho vazio que já existia |
+| `Registro de Comparecimento` (W7) | rascunho, 6 nós | gatilho `Appointment Status` = `showed` no calendário `Reunião com closer` (`3uNQFjCEDe7b4gKZJuOZ`) |
+
 **Pré-requisitos resolvidos nesta sessão:** os 5 campos da tabela 1.2
 (`Toques na semana` `c1xuCuLyJheHOQoJ3grH`, `Hora da conexão`
 `5hU72B0HuoMApZvO1Qk7`, `Hora do retorno` `IHXNFnguTPyNj5Q59ea2`,
