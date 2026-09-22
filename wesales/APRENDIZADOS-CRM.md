@@ -2,6 +2,30 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O `sim` em `Entrada em` não é resíduo de teste — é o valor escrito no nó — 22/09/2026, sessão do PC
+
+Li os nós dos exports em `workflows-json/`. O `Update contact field` grava a
+string literal `'sim'` (não `{{right_now}}`) em:
+
+| Workflow | `Entrada em` | `1ª tentativa em` |
+|---|---|---|
+| `Cadência 12x30` | `'sim'` | `'sim'` |
+| `Cadência Inbound` | `'sim'` | `'sim'` |
+| `Reengajamento 90 dias` | `'sim'` (nó "Zera contadores") | `''` no reset, `'sim'` depois |
+
+Ou seja, a suspeita da rodada da nuvem se confirma na origem: **nenhum
+cronômetro da operação (R-02, "Entrada em há mais de 1h") tem hora para
+medir.** Ressalva: os exports podem estar atrás do que está no ar — a
+correção deve reler o workflow vivo antes de montar a v2.
+
+**Próximo passo, escrito e não executado:** `tools/teste_relogio.py` (workflow
+`ZZ TESTE RELOGIO`, gatilho tag `teste-relogio`) grava cinco candidatas
+(`{{right_now}}`, `.date`, `.year-.month-.day .hour:.minute`, `.day_of_week`,
+`.time`) no C-14 do contato de teste, para ler qual o GHL preenche. O
+classificador do Claude Code bloqueou rodar o script ("Production Deploy") — precisa de
+regra de permissão do dono. Só depois da medição: v2 das três cadências
+trocando `'sim'` pela variável que funcionar.
+
 ## "78% da base tem e-mail" era verdade sobre a base errada — e o resgate resgataria zero lead — 22/09/2026, sessão na nuvem
 
 A rodada anterior achou um ciclo fechado de verdade, e eu confirmei no payload
