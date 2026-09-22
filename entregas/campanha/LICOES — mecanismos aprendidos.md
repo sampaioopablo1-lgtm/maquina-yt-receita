@@ -1526,3 +1526,64 @@ aparece — e a ausência parece boa notícia.
 concluir "liberou" pela ausência do erro numa resposta truncada — a confirmação de que
 voltou é **entrega aparecendo no `time_increment: "1"` do dia**, não a ausência de um erro
 numa lista cortada.
+
+## 22/09 — A geo é o Brasil inteiro e 92% da entrega é no Rio. Não é a segmentação, é o algoritmo
+
+**Pergunta do Pablo:** os leads vêm com DDD 21 mesmo com a geo ajustada para todo o Brasil.
+
+**Medição** — `ads_get_ad_entities` com `breakdowns: ["region"]`, campanha
+120247320350570766, de 09/09 a 22/09:
+
+| Estado | Impressões | Gasto |
+|---|---|---|
+| **Rio de Janeiro** | **10.805** | **R$299,65** |
+| São Paulo | 248 | R$10,27 |
+| Minas Gerais | 111 | R$4,52 |
+| Bahia | 78 | R$2,07 |
+| Rio Grande do Sul | 56 | R$2,49 |
+| demais 21 estados somados | ~400 | ~R$17 |
+
+**92,4% das impressões e 89% do gasto no RJ**, com `geo_locations.countries: ["BR"]` e
+nenhuma exclusão de estado — estado verificado em toda rodada.
+
+### A hipótese errada, e o teste que a derrubou
+
+A explicação óbvia era o **CNAE**: os públicos dele são listas de RJ (`CNAE 41 42 43 RJ
+100K`, `Contabilidade RJ.csv`) e o semelhante foi construído em cima dessa semente. Público
+de origem RJ gera semelhante RJ.
+
+Testei contra o **ADVOCACIA**, que não tem público personalizado nenhum — só `industries`,
+`interests` e Brasil inteiro. De 17 a 22/09: **1.165 impressões, 100% Rio de Janeiro**,
+zero nos outros 26 estados.
+
+**Hipótese derrubada.** Sem lista, mesmo resultado. Não é o público montado à mão.
+
+### O mecanismo real
+
+Três coisas que se somam, e nenhuma é configuração:
+
+1. **Aprendizado do otimizador.** A campanha otimiza por lead. Os primeiros leads vieram do
+   RJ, ela aprendeu que RJ converte e passou a concentrar. É autorreforçante, e o
+   aprendizado é da campanha — atravessa conjuntos novos que nunca tiveram lista.
+2. **Gravidade da Página.** O Meta favorece quem tem afinidade com a página anunciante. A
+   página e o público orgânico são do Rio.
+3. **Verba pequena.** Com R$20/dia não há folga para explorar: o leilão vai direto ao bolso
+   mais barato e mais provável, que é o já conhecido. **Verba maior é o que obriga a
+   abrir.** (Verba é decisão do Pablo — não mexer.)
+
+### O que isso significa na prática
+
+- **Geo BR-wide não garante entrega BR-wide.** Geo é o teto do que *pode* ser alcançado,
+  não uma instrução de distribuição. Nunca ler concentração regional como erro de
+  segmentação sem antes rodar o breakdown por região.
+- **Para forçar nacional de verdade** só há dois caminhos: mais verba, ou um conjunto que
+  **exclua** o RJ — aí o algoritmo é obrigado a procurar fora. O segundo encarece o lead.
+- **Pode não ser problema.** O serviço é vendido por WhatsApp e Calendly, sem limite
+  geográfico, e lead do Rio é mais barato e mais fácil de virar reunião presencial.
+
+### Limite da medição, registrado
+
+O `breakdowns: ["region"]` devolve impressões e gasto por estado, mas o campo `lead` volta
+**null** em todas as linhas — a Meta não atribui o lead por região nesta chamada. Dá para
+afirmar onde a **entrega** foi, não de onde veio cada lead. Com 92% da entrega no RJ o DDD
+21 está explicado, mas a afirmação honesta é sobre entrega, não sobre o registro individual.
