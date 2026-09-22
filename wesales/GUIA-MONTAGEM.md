@@ -851,6 +851,13 @@ Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
 | `SLA do Closer — No-show` (W9) | **publicado**, 12 nós | preencheu rascunho vazio; notifica o closer, espera 2 h, cobra o gestor |
 | `Opt-out por Palavra-chave` (W14) | **publicado**, 14 nós | OU das 17 frases num If/Else (o gatilho só combina com E); DND + saída de todas as réguas exceto a atual |
 
+| `Cadência 12x30` (W11) | **publicado**, 430 nós | nó 0 + 12 toques completos; janela 08:30–18:30, re-entry desligado, Stop on Response ligado; 2 gatilhos (etapa→CONECTAR e tag `cad-outbound`) |
+| `Cadência Inbound` (W12) | **publicado**, 172 nós | 5 toques rápidos; handoff para a 12x30 por tag |
+| `Reengajamento 90 dias` (W16) | **publicado**, 113 nós | TR1–TR4; `reengajamento-ativo` entra antes de `cad-outbound` (sinergia) |
+| `Recuperação de No-show` (W8) | **publicado**, 41 nós | NS1–NS3 + descarte automático no 2º no-show |
+| `Interceptação de Sinal — Clique v2` | **rascunho**, 15 nós | aponta para o Trigger Link novo; o publicado aponta para um id morto |
+| `Interceptação de Sinal — Resposta v2` | **rascunho**, 18 nós | portão de opt-out com 17 frases na frente do fluxo (retoque R-17) |
+
 **Pré-requisitos resolvidos nesta sessão:** os 5 campos da tabela 1.2
 (`Toques na semana` `c1xuCuLyJheHOQoJ3grH`, `Hora da conexão`
 `5hU72B0HuoMApZvO1Qk7`, `Hora do retorno` `IHXNFnguTPyNj5Q59ea2`,
