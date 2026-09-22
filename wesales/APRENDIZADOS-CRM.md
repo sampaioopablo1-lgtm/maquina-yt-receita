@@ -2,6 +2,60 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Revisão dos workflows que já existiam: três defeitos, um deles apagava a régua inteira — 22/09/2026
+
+A pedido do dono, revisei os publicados que não foram montados nesta
+sessão. Os três defeitos abaixo estavam vivos em produção.
+
+### 1. `Pós-agendamento` nunca calculou a nota — e isso matava o Loop do closer
+
+O workflow publicado **não tem nenhum nó de cálculo**. Tem só uma *nota de
+texto* com o título `Nota de qualificação`, que o `GUIA-MONTAGEM.md` leu
+como se fosse a régua. O campo numérico nunca foi escrito.
+
+**A consequência não fica no Pós-agendamento:** os nós 5 e 6 do `Loop do
+closer` comparam essa nota (`≥ 70` e `< 45`) para cobrar o closer quando a
+régua e o veredito discordam. Com o campo sempre vazio, nenhuma das duas
+comparações jamais bateu. A régua da seção 9.1 — o coração da
+qualificação — **nunca existiu na prática**.
+
+Corrigido em `Pós-agendamento v2` (rascunho): 28 somas condicionais,
+máximo 100 pontos (30 Fit + 25 Mídia + 45 BANT), inseridas exatamente onde
+a spec manda. Ressalva G-04 continua valendo: lead do Meta perde os 12
+pontos de `Investimento mensal em anúncios`, porque o Meta grava ali
+textos que não são opção do campo.
+
+### 2. `Mestre de saída` marca `limpar-tarefas` em todo lead que CHEGA
+
+O portão pergunta "etapa é `CONECTAR` e status é `open`?". Quando a
+oportunidade **nasce** em `NOVO LEAD` a resposta é não, e ele cai no ramo de
+limpeza. Era um efeito colateral conhecido e inofensivo — **deixou de ser
+inofensivo agora**: a `Cadência 12x30` está publicada criando tarefas
+`[CADENCIA]`, e `limpar-tarefas` é justamente a tag que autoriza a rotina
+de higiene a fechá-las. Corrigido em `Mestre de saída v2` (rascunho) com um
+portão que encerra quando a etapa é `NOVO LEAD`.
+
+### 3. `Pós-ligação` tem quatro nós de Math apontando para campo nenhum
+
+O `GUIA-MONTAGEM.md` registrava "falta o nó de `Total de conexões`". **O
+diagnóstico estava errado** — esse nó existe. O defeito real é outro:
+quatro `math_operation` com `updateField` **vazio** (ids `3d43bda9`,
+`9ca6a104`, `7ba568ac`, `0759af13`), somando 1 ou 0 em lugar nenhum.
+
+É por isso que `WA não atendidas seguidas` nunca é preenchido — e esse
+campo é lido pelo nó 4 da `Cadência 12x30` para decidir se o toque sai por
+WhatsApp. **Não corrigi de propósito:** adivinhar para qual campo cada um
+deveria apontar corromperia contador em silêncio, que é pior que o campo
+vazio. Precisa da decisão do dono.
+
+### Lição que atravessa os três
+
+Nenhum apareceu lendo a documentação — dois deles a documentação
+descrevia **errado**. Todos apareceram lendo o **JSON real** do workflow
+publicado. Para este projeto, a fonte de verdade é a subconta, não o
+documento; e nó que existe com nome certo não quer dizer nó configurado.
+
+
 ## A simulação de uso real pegou o que a leitura de JSON não pegaria: espera por horário NÃO espera — 21/09/2026, PC do dono
 
 Com 15 workflows publicados e a auditoria estrutural limpa, movi um lead de
