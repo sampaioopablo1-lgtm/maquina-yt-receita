@@ -1951,6 +1951,28 @@ Gerenciador de Anúncios (widget ou lista), o dono sabe que os seis monitores
 do F-05 não cobrem entrada, e ele decidiu se quer só o número ou também o
 alarme da opção (b).
 
+**Resumo (22/09/2026, sessão automática seguinte) — especificação
+fechada, decisão do dono ainda em aberto:** a peça que faltava era a
+Smart List `Entrada do dia` — os dois widgets de Custom Metrics já
+tinham entrada própria na seção 2.17 do `build-wesales.md` desde a
+abertura do item, mas a lista só existia como frase solta aqui no
+roadmap ("Smart List `Entrada do dia`, filtro `Date Created` = hoje,
+ordenada por criação"), nunca como seção numerada em "8. Listas
+inteligentes" — a fonte que `GUIA-MONTAGEM.md` (Fase 6) de fato consulta,
+por instrução própria dele ("este guia não repete o conteúdo, só organiza
+a ordem"). Achado ao conferir se a Fase 6 encontraria a lista partindo só
+do `build-wesales.md`: não encontraria. Fechada como seção 8.25, com
+referência cruzada nova na 2.17 (mesmo padrão de fallback "sem Custom
+Metrics" que as outras linhas do dashboard já usam). CRM reconfirmado sem
+mudança via API: 51 campos, 50 oportunidades (47 `NOVO LEAD` + 3
+`NEGOCIAR`), lead mais novo ainda `Carlos Andrade` (21/09 09:17:26 UTC) —
+agora **quase 24h** sem entrada nova (23h47min no momento desta leitura,
+09:04 UTC de 22/09), confirmando que o silêncio segue e que o item de
+alarme (opção b) continua tão relevante quanto na abertura. G-03/G-04
+seguem aguardando o dono; a opção (b) deste item também. Zero campo, zero
+tag, zero escrita no CRM: item de especificação pura, não depende de
+`APROVADO.md`.
+
 ---
 
 ## Ordem sugerida
@@ -2287,3 +2309,16 @@ entrada continua parada e nenhum monitor cobre isso — só a magnitude do
 Com isso, nenhum item numerado (G/R/F) resta sem dono claro fora de G-03,
 G-04, F-09 e F-10 (todos aguardando decisão do dono) e R-14 (volume real de
 mensagem).
+
+**F-10, sessão automática seguinte, mesma data (22/09/2026) — especificação
+fechada por inteiro, item continua aguardando o dono.** Reler o "por quê
+estamos esperando" de F-10 (a própria instrução desta seção) achou que a
+espera não era total: os dois widgets do dashboard já estavam prontos, mas
+a Smart List equivalente — citada só em prosa aqui, nunca como seção
+numerada em `build-wesales.md` — não existia onde a Fase 6 do
+`GUIA-MONTAGEM.md` de fato procura. Fechada como seção 8.25, com
+referência cruzada na 2.17. Não muda a fila: o que falta em F-10 continua
+sendo só a decisão do dono sobre o alarme (opção b), a mesma pendência que
+G-03, G-04 e F-09 já têm. CRM reconfirmado sem mudança (51 campos, 50
+oportunidades) — a entrada segue parada, agora com quase 24h de silêncio
+(era ~22h47min na conferência anterior).

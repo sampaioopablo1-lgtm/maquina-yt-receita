@@ -2243,7 +2243,11 @@ que o projeto já expõe" que fechou o R-10 e o R-13 em `campos-e-tags.md`.
 Se o plano da subconta não incluir Custom Metrics, as duas primeiras
 linhas continuam cobertas pela lista 8.16 e 8.8 (sem entrar no dashboard)
 e as três últimas pela lista 8.6, que já ganhou a coluna `Conexão real`
-na mesma peça — o dashboard perde a tela única, não perde o dado.
+na mesma peça — o dashboard perde a tela única, não perde o dado. As duas
+últimas linhas (F-10) têm o mesmo fallback: a lista 8.25 (`Entrada do
+Dia`), que é a mesma pergunta ("quantos contatos com `Data de criação` =
+hoje") sem depender do plano pago — só perde o número pronto de "7 dias",
+que sem Custom Metrics vira contar linha na tela em vez de ler um total.
 
 ### Limite conhecido
 
@@ -5142,6 +5146,38 @@ até depois do horário combinado e conferiu de novo, comparando contra o
 `Checkpoint — Data de retorno` congelado no instante do gatilho, antes de
 aplicá-la — mesma garantia de "não é palpite" que as outras quatro listas de
 saúde (8.20-8.23) já seguem.
+
+### 8.25 `Entrada do Dia` — F-10
+| Item | Configuração |
+|---|---|
+| Filtros | Data de criação = hoje |
+| Colunas | Nome · `Empresa` · Telefone · Origem (`source`) · Data de criação |
+| Ordenação | Data de criação desc (quem entrou por último aparece primeiro) |
+
+Equivalente, para quem não tem Custom Metrics no plano, dos dois widgets
+`Leads novos hoje`/`Leads novos — 7 dias` da seção 2.17 (ROADMAP-SALES-
+ENGAGEMENT.md, F-10) — mesmo padrão de fallback que 8.6/8.8/8.16 já cobrem
+para as outras métricas do dashboard: o gestor perde a tela única, não
+perde o dado. Diferente das outras listas de saúde (8.20-8.24), que
+esperam alguém estar parado, esta é a única que vigia o lado oposto —
+**nenhuma linha nova entrando**: as seis peças do Monitor de Saúde (F-05)
+ficam todas verdes justamente quando a entrada para (achado que abriu o
+F-10, `APRENDIZADOS-CRM.md`), então zero linha com `Data de criação = hoje`
+antes do meio-dia já é sinal de olhar, mesmo com a lista vazia — o oposto
+de toda outra lista deste documento, onde vazia é o estado bom. Para o
+número de 7 dias (tendência), a mesma lista trocando o filtro para
+"últimos 7 dias" e contando as linhas na tela é o substituto manual do
+segundo widget — sem Custom Metrics não há cálculo automático de
+tendência, e essa é a mesma limitação já registrada no "Limite conhecido"
+da seção 2.17.
+
+Esta é a peça que faltava para o F-10 fechar a especificação por inteiro:
+a seção 2.17 já tinha os dois widgets (`Leads novos hoje`/`Leads novos — 7
+dias`), mas a Smart List equivalente, citada só em prosa no roadmap
+("Smart List `Entrada do dia`, filtro `Date Created` = hoje, ordenada por
+criação"), nunca tinha ganhado uma entrada própria aqui — a fonte que a
+Fase 6 do `GUIA-MONTAGEM.md` realmente consulta. Fechado nesta rodada
+(22/09/2026), documentação pura, zero campo e zero tag novos.
 
 ---
 
