@@ -2,6 +2,59 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Uma solução de mercado (americana) e uma solução nacional (mas de outro setor) foram as duas primeiras respostas erradas para a mesma pergunta — F-08, 22/09/2026, sessão automática
+
+Fechando o F-08 (proteção de reputação do número de **telefone**, o par do
+F-07 que protege WhatsApp), a pesquisa foi direto para a resposta "óbvia"
+duas vezes seguidas e as duas estavam erradas para esta subconta —
+registrado aqui para a próxima rodada não repetir nenhuma das duas:
+
+1. **Voice Integrity** (HighLevel) é o recurso nativo que resolveria
+   exatamente este problema — registra o número junto a First Orion/Hiya/
+   TNS para tirar o rótulo "Spam Likely". A documentação de suporte da
+   própria HighLevel e cobertura de terceiros dizem, sem ambiguidade,
+   "**Labs, US only**" e exigem registro SHAKEN/STIR com EIN — framework da
+   FCC americana. Número brasileiro não tem EIN, não se qualifica. Copiar a
+   receita americana sem ler a letra miúda teria produzido uma
+   especificação que nunca funcionaria aqui.
+2. **"Não Me Perturbe" da Anatel** parecia o equivalente nacional óbvio —
+   é uma plataforma real, brasileira, de opt-out contra telemarketing. Mas
+   a obrigatoriedade de adesão (inclusive a ampliação de 2025-2026) alcança
+   **só prestadoras de serviços de telecomunicações**, cerca de 32% das
+   ligações indesejadas do país; os outros dois terços — que incluem uma
+   agência de marketing vendendo serviço, o caso desta subconta — ficam
+   fora do alcance daquela plataforma especificamente. Múltiplas fontes
+   independentes convergiram no mesmo número (32%) e na mesma frase
+   ("exclusivamente das prestadoras de telecomunicações"), sinal de que
+   estão citando o mesmo dado de origem, não inventando cada uma o seu.
+
+**O risco real não estava em nenhuma das duas respostas óbvias — estava
+numa regra menos badalada, de agosto/2026:** toda operadora brasileira
+agora é obrigada a oferecer bloqueio de chamada "abusiva" grátis e
+**ativado por padrão** para todo cliente, com critério declarado de
+**quantidade e duração de chamadas** — sem exigir cadastro prévio do lead
+em nada. É o equivalente funcional do "Spam Likely" americano, só que sem
+o Voice Integrity para remediar, porque aquele recurso não se aplica aqui.
+A meta desta operação (100 ligações/dia) já bate ou passa a referência
+internacional de segurança (50-75/dia por número) — o mesmo tipo de
+"estrago silencioso" que motivou o F-05 e o F-07, aqui na camada de
+infraestrutura de voz.
+
+**Regra prática, generalizável:** quando uma pesquisa de mitigação para
+risco de plataforma encontra rápido uma resposta que "parece certa" — um
+recurso nativo com o nome exato do problema, ou uma lei nacional com o
+nome exato do problema — vale <b>ler o escopo até o fim</b> antes de
+especificar em cima dela. As duas respostas rápidas deste item tinham nome
+perfeito e escopo errado (país errado numa, setor errado na outra); a
+resposta certa estava numa notícia sem nome chamativo, achada só ao
+continuar procurando depois das duas primeiras não fecharem.
+
+Zero campo, zero tag, zero workflow, zero escrita no CRM — item de
+documentação e rotina manual pura, mesmo tratamento do F-07. Detalhe
+completo em `build-wesales.md`, seção 2.26, e `ROADMAP-SALES-ENGAGEMENT.md`,
+F-08. Subconta reconfirmada sem mudança (51 campos, 50 oportunidades,
+G-03/G-04 ainda aguardando o dono).
+
 ## O dono fez a parte manual e três documentos continuaram pedindo — pendência que virou feito é tão errada quanto achado que não foi aplicado — 22/09/2026, sessão automática
 
 Os 5 campos criados na tela em 21/09 23:15–23:33 foram registrados na rodada

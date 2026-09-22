@@ -1558,6 +1558,53 @@ DMs pessoais de Instagram), o que faz deste item um item "antes de ligar o
 motor", não uma correção depois de já ter sofrido dano de reputação — G-03/
 G-04 seguem aguardando o dono.
 
+### F-08 · Proteção de reputação do número de telefone — **FEITO em 22/09/2026**
+**Por quê:** o F-07 protegeu a infraestrutura do canal WhatsApp; o canal
+**majoritário** da cadência — ligação por telefone, 8 dos 12 toques da
+tabela 2.5 — seguia sem proteção nenhuma de reputação de número, e o risco
+deixou de ser hipótese na própria semana desta rodada: desde agosto/2026 a
+Anatel obriga toda operadora brasileira a oferecer bloqueio de chamada
+"abusiva" **grátis e ativado por padrão** para todo cliente, com critério
+declarado de **quantidade e duração de chamadas** — exatamente o padrão da
+meta do SDR (100 ligações/dia, tentativa curta quando não atende).
+**Como:** pesquisado antes de desenhar (mandato do próprio roadmap) —
+duas saídas óbvias, as duas descartadas por pesquisa e não por suposição:
+(1) o recurso nativo do HighLevel para isto, **Voice Integrity**, é
+explicitamente **US only** (exige registro SHAKEN/STIR com EIN americano),
+não serve para número brasileiro; (2) o "Não Me Perturbe" da Anatel não se
+aplica a este negócio — a obrigatoriedade alcança só prestadoras de
+telecomunicações (~32% das ligações indesejadas do país), não uma agência
+de marketing. Sem gatilho nativo para ler bloqueio de operadora (mesmo
+limite de plataforma do F-07): virou checklist do gestor — cadastrar o(s)
+número(s) no portal gratuito "Qual Empresa Me Ligou?" da Anatel (equivalente
+brasileiro ao Branded Caller ID/CNAM), distribuir volume entre mais de um
+número antes de escalar (100/dia num só número já bate ou passa a
+referência internacional de 50-75/dia), vigiar queda abrupta de atendimento
+como sintoma de bloqueio silencioso, e usar o canal de contestação que a
+norma de agosto/2026 passa a exigir de toda operadora se isso acontecer.
+Detalhe nó a nó — checklist, não há nó — em `build-wesales.md`, seção 2.26.
+**Pronto quando (cumprido):** o(s) número(s) reais estão cadastrados no
+"Qual Empresa Me Ligou?"; o gestor sabe que Voice Integrity e "Não Me
+Perturbe" não protegem este número; e sabe, antes de escalar volume, que
+concentrar 100 ligações/dia num único número é o próprio risco que a norma
+existe para pegar.
+
+**Resumo:** especificado em `build-wesales.md`, seção 2.26 (nova, logo após
+a 2.25/F-07). Pendência registrada e não resolvida: nenhum documento do
+projeto confirma se as ligações saem por LC Phone (telefonia nativa do
+GHL) ou por linha própria do SDR — a mitigação de "quem cadastra o número"
+muda com a resposta; o achado da norma e a exclusão do Voice Integrity/Não
+Me Perturbe valem independente dela. Zero campo, zero tag, zero workflow,
+zero escrita no CRM — item de documentação e rotina manual pura, mesmo
+tratamento do F-07, não depende de `APROVADO.md`, não entra na "Ordem de
+montagem" nem no checklist de teste da seção 10. Subconta reconfirmada
+nesta execução (`opportunities_get-pipelines`/
+`opportunities_search-opportunity`/`locations_get-custom-fields`): mesmas 5
+etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
+`NOVO LEAD` + 3 `NEGOCIAR`, 1 `lost` de teste, 49 `open`) — sem mudança
+desde a última leitura (F-07, mesma data) — G-03/G-04 seguem aguardando o
+dono.
+
 ---
 
 ## Ordem sugerida
@@ -1783,3 +1830,33 @@ achado): virou checklist manual do gestor com três gatilhos por evento,
 não um workflow novo — `build-wesales.md`, seção 2.25. É item para checar
 **antes** de a `Cadência 12x30` sair do rascunho com volume real, não
 depois de a nota já ter caído.
+
+**F-08 aberto e fechado em 22/09/2026, sessão automática seguinte — mesmo
+método do F-07, canal diferente.** CRM reconfirmado sem mudança (51
+campos, 50 oportunidades — G-03/G-04 ainda aguardando o dono): sweep de
+coerência de sempre limpo (grep por nome de etapa antigo confirma que toda
+ocorrência restante é da tabela 1.0 ou prosa histórica; merge fields de
+`build-wesales.md`, `biblioteca-mensagens.md`, `IMPLEMENTACAO-WORKFLOWS.md`,
+`script-de-ligacao.md` e `GUIA-MONTAGEM.md` batem 1:1 contra os 51
+`fieldKey` reais, incluindo o falso positivo deliberado já documentado do
+`checkpoint_data_de_retorno`). A lacuna veio de perguntar a mesma pergunta
+do F-07 para o canal que ele não cobriu: telefone carrega 8 dos 12 toques
+da cadência e não tinha proteção de reputação de número nenhuma. A
+pesquisa quase copiou a resposta errada duas vezes — o recurso nativo do
+HighLevel para isto (**Voice Integrity**) é **US only** (SHAKEN/STIR com
+EIN americano), e o mecanismo brasileiro que mais parece resolver
+("Não Me Perturbe" da Anatel) **não alcança este setor** (só prestadoras
+de telecomunicações, confirmado por múltiplas fontes convergindo no mesmo
+número, ~32% das ligações indesejadas do país) — as duas descartadas por
+pesquisa, não por suposição, evitando a mesma classe de erro que motivou
+guardar a regra de nunca supor rótulo/campo sem checar a fonte certa. O
+risco real e atual: desde agosto/2026 toda operadora brasileira é obrigada
+a oferecer bloqueio de chamada "abusiva" grátis e ativado por padrão, com
+critério declarado de quantidade e duração de chamada — a meta desta
+operação (100 ligações/dia) já bate ou passa a referência internacional de
+segurança (50-75/dia por número). Virou checklist do gestor, mesmo motivo
+do F-07 (sem gatilho nativo para ler bloqueio de operadora) —
+`build-wesales.md`, seção 2.26. Pendência registrada, não resolvida: o
+projeto não documenta se a ligação sai por LC Phone ou linha própria do
+SDR — não bloqueia o item, muda só qual mitigação da tabela se aplica
+primeiro.

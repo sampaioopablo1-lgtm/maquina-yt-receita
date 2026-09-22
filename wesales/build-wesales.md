@@ -3158,6 +3158,99 @@ se ela cair.
 
 ---
 
+## 2.26 Proteção de reputação do número de telefone — F-08
+
+**Por quê:** o F-07 fechou a proteção de infraestrutura para o WhatsApp
+(Quality Rating da Meta); o canal **majoritário** da cadência — ligação por
+telefone, tabela 2.5, que carrega 8 dos 12 toques e é o único canal que o
+SDR controla direto — segue sem proteção nenhuma de reputação de número. E
+o risco deixou de ser hipótese exatamente na semana em que esta rodada
+roda: desde agosto/2026 a Anatel obriga toda operadora brasileira a
+oferecer, **grátis e ativado por padrão** para todo cliente, um sistema
+próprio de bloqueio de chamadas "abusivas" — cada operadora escolhe a
+tecnologia, mas o critério que a norma manda considerar é **quantidade e
+duração das chamadas** (`WebSearch`, confiança média-alta: a mesma
+descrição — "quantidade e duração", "gratuito e ativado por padrão" —
+apareceu em várias matérias independentes cobrindo a mesma normativa de
+agosto/2026, sinal de que estão citando o texto oficial da Anatel, não
+parafraseando cada uma à sua maneira; domínio `gov.br/anatel` não testado
+direto neste ambiente, mesma limitação de proxy já registrada para
+`help.gohighlevel.com`). **Meta do SDR: 100 ligações/dia** (`briefing-sdr.md`,
+"A máquina") de um número que, quando não atende, gera uma tentativa curta
+e sem duração — exatamente o par "muita quantidade, pouca duração" que o
+próprio critério da norma aponta como sinal de abuso, não a exceção.
+
+**Por que este item não é "aplicar a mesma solução do F-07 num canal
+diferente" — achado ao pesquisar antes de desenhar, como o próprio roadmap
+manda:** a saída óbvia, copiada de mercado americano (Reev/Meetime não
+cobrem isso — nenhuma das quatro plataformas de referência deste projeto
+trata reputação de número de voz como funcionalidade própria, mesma lacuna
+de repertório já registrada para o F-07), seria o recurso nativo do
+HighLevel para isto, **Voice Integrity** (`Settings → Phone Numbers →
+Trust Center`), que registra o número junto a empresas de análise de
+identificador de chamada (First Orion, Hiya, TNS) para remover rótulo de
+"Spam Likely". **Ele não serve aqui:** a própria documentação de suporte da
+HighLevel e cobertura de terceiros são explícitas — "Voice Integrity
+(Labs, **US only**)", e o pré-requisito é registro **SHAKEN/STIR**, um
+framework da FCC americana com EIN, que não existe para número brasileiro.
+Copiar a receita americana sem checar a letra miúda teria produzido uma
+especificação que nunca funcionaria para esta subconta — o mesmo tipo de
+erro que motivou registrar, em `APRENDIZADOS-CRM.md`, a regra de nunca
+supor rótulo ou campo sem confirmar contra a fonte certa.
+
+**Um segundo caminho pesquisado e também descartado, para não ser
+retentado à toa numa rodada futura:** o "Não Me Perturbe" da Anatel (a
+plataforma nacional de opt-out por CNPJ) **não se aplica a este negócio**.
+Fontes independentes convergem: a obrigatoriedade de adesão, inclusive a
+ampliação de agosto/2025–2026, alcança **só prestadoras de serviço de
+telecomunicações** — cerca de 32% das ligações indesejadas do país; os
+outros dois terços, de outros setores econômicos (o desta operação
+incluído, uma agência vendendo serviço de marketing), ficam fora do
+alcance daquela plataforma especificamente. Não confundir com o
+`nao-perturbe` interno do projeto (tag e campo `Permissão WhatsApp`, DND
+por contato, R-14/R-17) — são mecanismos diferentes, o interno continua
+valendo e não muda com este achado.
+
+**Como — e por que também não é um workflow, mesmo motivo do F-07:**
+nenhuma API pública de operadora brasileira nem do GHL expõe "este número
+foi rotulado/bloqueado por algum cliente" para um workflow ler — o
+bloqueio acontece no aparelho ou na rede do lead, não em nada que a
+subconta enxergue. Vira checklist do gestor, não automação:
+
+| Ação | Por quê |
+|---|---|
+| **Cadastrar o(s) número(s) usado(s) para ligar no portal gratuito "Qual Empresa Me Ligou?" da Anatel** (`qualempresameligou.com.br`, associa o número ao CNPJ) | Equivalente brasileiro real do Branded Caller ID/CNAM — quando o lead pesquisa o número desconhecido antes de decidir atender, encontra o nome e o CNPJ da empresa em vez de nada, reduzindo a chance de ele ignorar ou denunciar por puro desconhecimento |
+| **Antes de escalar volume** (promover o estoque do G-03, ou ao entrar o 2º SDR do R-10) — **distribuir as ligações entre mais de um número**, em vez de concentrar 100/dia num só | A norma não publica um limiar numérico próprio ainda (cada operadora escolhe a tecnologia); a referência de mercado (fora do Brasil, adaptada com cautela) fica em torno de 50-75 chamadas/dia por número antes do risco de rótulo subir — a meta desta operação, sozinha, já está no teto ou acima dele |
+| **Se a taxa de atendimento de um número cair de forma abrupta e sem explicação de horário/segmento** (o mesmo tipo de sinal que o F-06, quando destravar, vai medir por duração de chamada) | É o sintoma prático de bloqueio silencioso — a norma de agosto/2026 não obriga a operadora a avisar o autor da ligação, só o destinatário |
+| **Usar o canal de contestação que a norma de agosto/2026 passa a exigir de toda operadora** ("procedimento específico para usuários que tiveram chamadas bloqueadas solicitarem revisão") | Existe agora um caminho formal para reverter um bloqueio de número legítimo — antes de agosto/2026 isso dependia só de boa vontade da operadora |
+
+**Pendência que este item não resolve, registrada em vez de inventada:**
+não há confirmação em nenhum documento do projeto se as 100 ligações/dia
+saem por **LC Phone** (telefonia nativa do GHL, back-end Twilio) ou pela
+linha própria do SDR — `grep` por `LC Phone`/`Twilio`/`discador` em todo o
+`wesales/` só encontra uma menção lateral (seção 2.17, sobre call tracking
+do F-06), nunca uma afirmação do canal real. A mitigação muda: número
+provisionado pelo GHL é o dono técnico registrar; linha própria do SDR
+exige registro pelo próprio SDR ou pela operadora dele. Confirmar isso é
+pré-requisito prático do primeiro item da tabela acima, não deste item
+inteiro — o achado da norma e a exclusão do "Não Me Perturbe" valem
+independente da resposta.
+
+**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
+documentação e rotina manual pura — não depende de `APROVADO.md`. Não
+entra na "Ordem de montagem" (não há nó para montar) nem no checklist de
+teste da seção 10 (não há objeto de CRM para simular bloqueio de operadora
+com contato fictício) — mesmo tratamento do F-07.
+
+**Pronto quando:** o(s) número(s) reais da operação estão cadastrados no
+"Qual Empresa Me Ligou?"; o gestor sabe que não pode copiar o Voice
+Integrity da HighLevel (US only) nem contar com o "Não Me Perturbe" (não
+alcança este setor) como proteção; e sabe, antes de escalar volume, que
+concentrar 100 ligações/dia num único número é o próprio risco que a norma
+de agosto/2026 existe para pegar.
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
