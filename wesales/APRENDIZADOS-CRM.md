@@ -2,6 +2,50 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A prova que destravou o C-14 não existe — os dois carimbos da base guardam a string `sim` — 22/09/2026, sessão automática
+
+A rodada anterior restaurou o nó do `Data e hora do sinal` (C-14) com um
+raciocínio bom: a premissa que o matou em 19/09 vinha do **seletor da tela**,
+e a montagem passou a sair pela API interna, que não usa o seletor. Certo até
+aí. O problema é o passo seguinte — ela disse que `{{right_now}}` em campo
+`TEXT` **já estava provado**, citando `Entrada em` (C-18) "carimbado ao
+promover um contato de teste".
+
+Fui ler os campos. O que está na base:
+
+| Contato | `Entrada em` | `1ª tentativa em` |
+|---|---|---|
+| `Teste Número Errado` | `"sim"` | `"sim"` |
+| `Teste Retorno` | `"sim"` | `"sim"` |
+| todo o resto, inclusive o lead mais novo | vazio | vazio |
+
+**Nenhum contato tem hora nesses campos.** Os dois que têm algo têm a string
+literal `sim` — que é justamente o formato "marca, não carimbo" que a mesma
+nota afirmava nunca ter sido usado. A frase "é isso que está publicado e
+testado" descreve o contrário do CRM.
+
+**O erro não é ter restaurado o nó — é a palavra "provado".** Uma premissa
+foi derrubada corretamente (o seletor não vale mais) e, no impulso, uma
+segunda premissa entrou como se também tivesse sido testada. Derrubar
+"X é impossível" **não prova "X funciona"**: devolve a pergunta ao estado
+de aberta. Entre as duas há um teste que ninguém fez.
+
+Por isso **não apaguei o nó 5b**: apagar agora seria o mesmo erro ao
+contrário — decidir sem medir, na direção oposta. O nó fica, a
+justificativa fica marcada como não verificada, e o teste que fecha está
+escrito (abrir o nó 0.6 na tela, ou promover um lead e reler o campo).
+
+**O que faz isso valer mais que o C-14:** o R-02 (speed-to-lead) e toda
+comparação de "`Entrada em` há mais de 1h" dependem desses campos terem
+hora. Se a régua publicada grava `sim`, essas medições **não estão medindo
+nada** — e, como sempre neste projeto, sem nunca dar erro. O C-14 era uma
+coluna vazia numa lista; isto é o cronômetro da operação.
+
+**Regra:** "já foi provado" é uma afirmação sobre uma medição — então ela
+tem data, objeto e valor lido. Quando uma nota disser que algo está provado
+sem dizer **onde ler o valor**, é hipótese herdada, e o custo de conferir
+é uma chamada de API.
+
 ## Uma premissa técnica descartada em 19/09 (`{{right_now}}` em campo `TEXT`) morreu com o método de montagem que a gerou, não com o teste que a refutaria — 22/09/2026, sessão automática
 
 `Data e hora do sinal` (C-14) foi descartada do nó 2.9.2 em 19/09/2026

@@ -1169,11 +1169,45 @@ passa mais por aquele seletor. Os 17 nós que já contavam com
 estavam certos o tempo todo; **`Data e hora do sinal` é quem estava descartado
 sem precisar** — restaurado abaixo, nó 5b.
 
-A fallback "marca, não carimbo" (gravar `sim` em vez da hora) que esta seção
+~~A fallback "marca, não carimbo" (gravar `sim` em vez da hora) que esta seção
 chegou a desenhar como plano B nunca foi necessária e não é mais o caminho:
 nenhum nó deste documento usa esse formato hoje, `Entrada em`/`1ª tentativa
 em` gravam `{{right_now}}` completo desde a primeira versão (seção 2.3, nó
-0.6, e os resets da seção 2.4/2.10), e é isso que está publicado e testado.
+0.6, e os resets da seção 2.4/2.10), e é isso que está publicado e testado.~~
+
+> **Medido em 22/09/2026, 18:30 UTC, e é o contrário disto.** Li os campos
+> pela API nos contatos que os têm preenchidos:
+>
+> | Contato | `Entrada em` (C-18, TEXT) | `1ª tentativa em` (C-19, TEXT) |
+> |---|---|---|
+> | `Teste Número Errado` (`qkHSdIMPJTB2JK5ECGrY`) | `"sim"` | `"sim"` |
+> | `Teste Retorno` (`vrwdERfR24ax6GylG6No`) | `"sim"` | `"sim"` |
+> | todos os demais, inclusive `Carlos Andrade` | vazio | vazio |
+>
+> **Nenhum contato da base tem hora nesses campos.** Os dois únicos que têm
+> qualquer coisa têm a string literal `sim` — exatamente o formato "marca,
+> não carimbo" que o parágrafo riscado diz que nunca foi usado. A frase "e é
+> isso que está publicado e testado" descreve o inverso do que está no CRM.
+>
+> **O que isso derruba e o que não derruba.** Não derruba o nó 5b, e **não
+> apaguei o nó**: apagar agora repetiria o erro ao contrário — decidir sem
+> medir. Derruba a **justificativa**: não existe, em lugar nenhum desta base,
+> evidência de que `{{right_now}}` renderize em campo `TEXT`. A prova citada
+> para restaurar o nó é de um carimbo que não está lá.
+>
+> **Consequência maior que o C-14, e é por isso que esta nota está aqui e não
+> num rodapé:** o R-02 (speed-to-lead) e toda comparação de "`Entrada em` há
+> mais de 1h" (seção 2.3 e a lista da seção 8) dependem desses dois campos
+> terem hora. Se o que a régua publicada grava for `sim`, essas medições não
+> estão erradas por pouco — **não estão medindo nada**, e nunca dão erro.
+>
+> **O teste que fecha isso custa um minuto e só se faz na tela** (a API
+> pública não lê nó de workflow): abrir o nó 0.6 da Cadência 12x30 e ver o
+> que está no campo — `{{right_now}}` ou `sim`. Alternativa sem abrir o
+> builder: promover um lead de teste e reler `Entrada em` pela API. Enquanto
+> não for feito, tratar o formato de C-18/C-19 como **desconhecido**, e o
+> "formato igual ao de C-18/C-19" do nó 5b abaixo como o que é: uma
+> referência a um formato que ninguém confirmou.
 
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
