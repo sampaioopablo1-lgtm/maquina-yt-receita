@@ -2689,3 +2689,25 @@ desenho completo e espera a operação mandar a primeira mensagem real para
 executar o que já está pronto na documentação; F-11 e F-12 têm desenho
 completo e não dependem de nada além de serem montados na tela, mesma fila
 manual dos demais workflows ainda não publicados.
+
+**Sessão automática seguinte, 22/09/2026 — sem item numerado novo; fechada a
+pendência que a conferência de `3fb9b20` deixou em aberto.** CRM reconfirmado
+sem mudança via API (51 campos, 50 oportunidades — `Carlos Andrade` segue o
+lead mais novo, entrada real ainda parada). Nenhum G/R/F está livre para
+avançar (todos aguardam o dono ou volume real, listados acima) — seguindo a
+própria instrução desta seção, o passo era reler o "por quê estamos
+esperando" do que ficou represado na última rodada, não inventar item novo.
+A ressalva sobre ordenação de dois níveis em sete Smart Lists (8.1, 8.2, 8.3,
+8.4, 8.16, 8.18, 8.19), levantada pela conferência anterior sem resposta,
+foi de fato testada — três caminhos de pesquisa diferentes (`WebFetch` direto
+nas páginas oficiais, bloqueado pelo proxy deste ambiente como já era o caso
+do G-05; `WebSearch` por vários ângulos; a documentação da API oficial, que
+confirma um array de ordenação multi-campo no endpoint `Search Contacts`, mas
+não resolve o que o construtor visual da Smart List expõe). Nenhum fechou a
+dúvida — a resposta só existe na tela. Em vez de deixar o achado boiando como
+nota de rodapé, virou passo acionável: `GUIA-MONTAGEM.md`, Fase 6, ganhou a
+instrução de testar as sete listas na hora de montar e aplicar o Plano B (já
+escrito em `build-wesales.md`, seção 8.4) se a tela recusar o segundo nível.
+Detalhe completo, e por que uma quarta rodada de pesquisa não vale a pena
+agora, em `APRENDIZADOS-CRM.md`. Zero campo, zero tag, zero escrita no CRM:
+item de documentação pura, não depende de `APROVADO.md`.

@@ -55,7 +55,16 @@ documento não detalha.
       contatos** (nem o campo nativo nem o personalizado têm dado — nada a
       montante coleta nome de empresa). Montar as listas agora significa
       montar com uma coluna morta em cada uma. Candidatas com dado hoje e a
-      recomendação: `CONFERENCIA-CAMPOS.md`, Tabela J
+      recomendação: `CONFERENCIA-CAMPOS.md`, Tabela J. **Teste de 10 segundos
+      antes de configurar a ordenação das 8.1, 8.2, 8.3, 8.4, 8.16, 8.18 e
+      8.19:** a tela permite um segundo critério de ordenação (`, depois`)?
+      Ninguém verificou isso ainda (achado de 22/09/2026 em `build-wesales.md`,
+      seção 8.4, e em `APRENDIZADOS-CRM.md`) — se a tela só aceitar uma
+      coluna, use o Plano B já escrito ali (ordena pelo primeiro nível, o
+      segundo fica como coluna visível) em vez de forçar ou deixar a lista
+      pela metade. Registre o resultado (aceita ou não) em
+      `APRENDIZADOS-CRM.md` assim que descobrir — é a única forma de
+      verificação que este projeto não conseguiu fazer por pesquisa
 - [ ] **Fase 7 — Teste com os 5 contatos fictícios** (já existem no CRM, seção 10)
 - [ ] **Fase 8 — Pausar Workflows em Datas Específicas** (feriados/férias)
 - [ ] **Fase 9 — Number Validation** (opcional)

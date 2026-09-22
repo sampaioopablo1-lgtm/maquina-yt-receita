@@ -2,6 +2,49 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Ordenação secundária de Smart List: pesquisa não resolve, só a tela resolve — três abordagens diferentes, todas inconclusivas — 22/09/2026, sessão automática
+
+A rodada anterior (nota abaixo) deixou em aberto se a Smart List do GHL
+aceita ordenação por dois níveis (`, depois`), usada em sete listas (8.1,
+8.2, 8.3, 8.4, 8.16, 8.18, 8.19). Esta rodada tentou fechar a dúvida por
+pesquisa, três caminhos genuinamente diferentes:
+
+1. **`WebFetch` direto nas páginas oficiais e em blogs de terceiros**
+   (`help.gohighlevel.com`, `ideas.gohighlevel.com`, `marketecs.com`,
+   `ghlbuilds.com`, `glama.ai`) — **todas bloqueadas pelo proxy deste
+   ambiente** (`EGRESS_BLOCKED`), mesma barreira já registrada no G-05. Não é
+   falha de busca, é o ambiente: nenhuma dessas páginas é alcançável por
+   `WebFetch` aqui, só por `WebSearch` (que resume via outro caminho).
+2. **`WebSearch` com várias frases** (documentação oficial, portal de ideias/
+   feature requests, blogs de terceiros, fóruns de comunidade) — nenhuma
+   retornou confirmação em nenhum dos dois sentidos. A documentação descreve
+   "definir ordenação" no singular, nunca menciona um segundo nível, e não
+   achei um pedido de feature explícito sobre isso no portal de ideias — mas
+   ausência de menção não é o mesmo que confirmação de limite.
+3. **API oficial (não a tela) —** achado novo, não estava registrado antes: o
+   endpoint `Search Contacts (Advanced)` documentado em
+   `marketplace.gohighlevel.com/docs/ghl/contacts/search-contacts-advanced/`
+   aceita um **array** de objetos de ordenação (`[{"field": "dateAdded",
+   "direction": "desc"}, ...]`) — a API, portanto, suporta múltiplos critérios
+   de ordenação. Isto **não prova nada sobre a Smart List da tela** (Contatos
+   → Filtros → salvar como lista inteligente é UI, não é este endpoint), mas
+   derruba a hipótese de que "a plataforma não pensa em ordenação de mais de
+   um campo" — ela pensa, pelo menos na API. A pergunta que fica em aberto é
+   estritamente sobre o que o construtor visual expõe, não sobre a
+   capacidade da HighLevel.
+
+**Conclusão prática, registrada para não repetir a mesma busca:** esta dúvida
+**não fecha por pesquisa neste ambiente** — os domínios que teriam a resposta
+definitiva (página de suporte, portal de ideias) estão bloqueados para
+`WebFetch`, e o `WebSearch` já foi tentado por três ângulos diferentes sem
+achar a frase que resolve. A única verificação que resta é abrir a tela e
+tentar configurar um segundo critério — por isso a Fase 6 do
+`GUIA-MONTAGEM.md` ganhou um passo explícito pedindo esse teste de 10
+segundos no momento da montagem, com o Plano B (já escrito em
+`build-wesales.md`, seção 8.4) pronto para quem encontrar o limite. Não vale
+a pena uma quarta rodada de `WebSearch` sobre o mesmo tema até a tela
+confirmar ou refutar.
+
 ## "Já fazemos assim em outros N lugares" é consistência, não evidência — e o `grep` diz exatamente quantos lugares estão em risco — 22/09/2026, sessão automática
 
 A rodada fechou uma contradição real (a lista `Retornos` ainda descrevia o
