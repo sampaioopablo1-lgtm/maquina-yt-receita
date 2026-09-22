@@ -196,7 +196,7 @@ esta subconta:
 
 | `mediumId` (formulário) | Atribuições | Observação |
 |---|---|---|
-| `2412763482587375` | 42 | O formulário "Conversar no WhatsApp" dos 15 anúncios de nicho |
+| `2412763482587375` | 42 | **`formName` real, lido por API em 22/09: `O PROXIMO CLIENTE FORMS v1`** (a descrição anterior, "o formulário 'Conversar no WhatsApp' dos 15 anúncios de nicho", era inferida do anúncio, não o nome do formulário — é por este nome que ele aparece no Gerenciador de Anúncios) |
 | `1026163897118958` | 16 | |
 | `28266780626312413` | 14 | O formulário WhatsApp do conjunto INTERESSE |
 | `1751104652676702` | 2 | |
@@ -379,3 +379,41 @@ duas vezes:
 
 Os dois valem para os **10 leads reais** do Meta; os 40 do backfill não foram
 conferidos campo a campo neste ponto.
+
+---
+
+## M — O texto real das perguntas do formulário do Meta, e por que ele decide o G-04 (22/09/2026)
+
+O contato de teste que o próprio Meta injeta (`eNqNOQI7FT2CBwYAHGrN`,
+`test@meta.com`, `dateAdded` 19/09 00:42) guarda o que faltava para o G-04 ser
+decidido sem abrir o Gerenciador de Anúncios: **os placeholders dele são o
+texto literal de cada pergunta**, e cada um está gravado no campo que aquela
+pergunta alimenta. Lido por API:
+
+| Pergunta, como está escrita no formulário | Cai em | O que a régua lê |
+|---|---|---|
+| `Como podemos chamá-lo?` | `firstName` (nativo) | — |
+| `quando_você_pretende_resolver_isso?` | `Urgência` (C-…, `2LnUD4KYSGkIBwiUdzl3`) | **`Prazo`** (Q-… ) |
+| `o_que_você_busca_hoje?` | `Necessidade` (`OJQEsl5dV37pfVY2sIaB`) | **`Dor principal`** |
+| `quanto_você_investe_hoje_por_mês_para_atrair_clientes?` | `Investimento mensal em anúncios` (`bQithNwReQIBGlZBaNlI`) | o mesmo campo ✔ (o problema aqui é o **valor**, fora da lista de opções — achado original do G-04) |
+
+**Isto é evidência a favor da Opção B, não só argumento.** As duas primeiras
+perguntas são, pelo texto, exatamente `Prazo` e `Dor principal` — os campos que
+a régua de nota lê e que o script manda o SDR preencher. Elas não caem lá por
+acidente de configuração de um formulário: caem em `Urgência`/`Necessidade`
+porque quem montou os formulários usou os próprios rótulos, e são **oito
+formulários** (tabela H). Corrigir a origem é oito vezes o mesmo trabalho, com
+todo formulário futuro nascendo errado; fazer a régua ler onde o dado já cai
+resolve os oito de uma vez e é imune ao nono.
+
+**Método, para quem quiser nomear os outros sete formulários sem abrir o
+Gerenciador:** `attributionSource.formName` e `attributionSource.formId` vêm em
+**todo** contato (`contacts_get-contact`). Basta um contato por `mediumId` da
+tabela H para preencher a coluna de nomes inteira — dois campos que o projeto
+lia como `mediumId` anônimo e que na verdade trazem o nome do formulário de
+graça.
+
+**Ressalva de amostra:** o texto das perguntas acima é do formulário
+`2412763482587375` (42 atribuições, o maior). Os outros sete podem ter perguntas
+e ordens diferentes — é exatamente o achado 2 desta seção ("o formulário do Meta
+não é um só"), e o motivo de a Opção A custar oito vezes.

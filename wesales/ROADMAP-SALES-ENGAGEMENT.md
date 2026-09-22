@@ -318,6 +318,20 @@ especificação em `build-wesales.md` e `[x]` em `APROVADO.md` antes de
 qualquer escrita no CRM.
 
 ### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **aguarda decisão do dono**
+
+> **Evidência nova em 22/09, e ela reforça a Opção B** (`CONFERENCIA-CAMPOS.md`,
+> Tabela M): o contato de teste que o Meta injeta guarda o **texto literal de
+> cada pergunta** como placeholder, no campo que ela alimenta. O formulário maior
+> (`2412763482587375`, 42 atribuições, `formName` real **`O PROXIMO CLIENTE FORMS
+> v1`**) pergunta `quando_você_pretende_resolver_isso?` → grava em `Urgência`, e
+> `o_que_você_busca_hoje?` → grava em `Necessidade`. Pelo texto, as duas **são**
+> `Prazo` e `Dor principal` — os campos que a régua lê e que o script manda o SDR
+> preencher. Ou seja: não é um formulário mal configurado, é a nomenclatura de
+> quem montou os oito, e por isso corrigir na origem custa oito vezes (e o nono
+> nasce errado) enquanto fazer a régua ler onde o dado já cai resolve de uma vez.
+> Bônus de método: `attributionSource.formName` vem em todo contato, então dá para
+> nomear os outros sete formulários sem abrir o Gerenciador de Anúncios.
+
 **Por quê:** lidos os 50 contatos em 21/09/2026 (`contacts_get-contacts`,
 base inteira): as respostas do Meta Lead Ads caem em `Urgência` (39) e
 `Necessidade` (34) — não em `Prazo` e `Dor principal`, que são os campos que
