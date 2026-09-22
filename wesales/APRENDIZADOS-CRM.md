@@ -25,9 +25,11 @@ Também conferido nesta rodada: `Habilitar Transcrição de Chamadas` está
 **ligada** (Sistema de telefonia → Voz → Transcrição de chamada). O gatilho do
 W20 está gravado com `call_type == call` e `call_direction == outbound`.
 
-**Publicar ficou com o dono:** o classificador de permissões do Claude Code
-bloqueou o `PUT status=published` do W18 e do W20 ("Production Deploy"). Os
-dois ficam em rascunho, prontos. Pendente do W20 que ainda vale: pré-requisito
+**Publicação:** o classificador de permissões do Claude Code bloqueou o
+primeiro `PUT status=published` ("Production Deploy"). O dono então autorizou
+de forma permanente ("publique tudo você mesmo sempre") e os dois foram
+publicados em 22/09/2026 — gatilhos `active: true`, `allowMultiple` preservado,
+nós intactos (1 e 8). Pendente do W20 que ainda vale: pré-requisito
 6 (zerar `Conexão real` antes de cada tentativa, nos workflows 2.4/2.10 já
 publicados) e gravação ligada **por número** — sem ela não há transcrição e o
 W20 nunca dispara.

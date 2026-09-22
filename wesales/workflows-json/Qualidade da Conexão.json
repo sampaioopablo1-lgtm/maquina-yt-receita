@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Qualidade da Conexão",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/5fbb2e5d-88f5-4d84-a7ec-4c87c7078198/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F5fbb2e5d-88f5-4d84-a7ec-4c87c7078198%2F6?alt=media&token=b9319e11-778f-4573-82cc-152cba1e307f",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/5fbb2e5d-88f5-4d84-a7ec-4c87c7078198/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F5fbb2e5d-88f5-4d84-a7ec-4c87c7078198%2F7?alt=media&token=33275f4e-8e68-45c4-9972-e7047f195e57",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": false,
-        "disabledAt": "2026-09-22T17:21:19.718Z"
-      }
-    },
     "createdAt": "2026-09-22T17:14:34.894Z",
-    "updatedAt": "2026-09-22T18:31:11.578Z",
+    "updatedAt": "2026-09-22T19:03:35.887Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -31,8 +25,8 @@
     "__v": 0,
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/5fbb2e5d-88f5-4d84-a7ec-4c87c7078198/5",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/5fbb2e5d-88f5-4d84-a7ec-4c87c7078198/7",
     "window": null,
     "workflowNote": null,
     "senderAddress": null,
@@ -326,7 +320,6 @@
       "id": "ad4uCCOEf4CsNiHGkPQk",
       "date_added": "2026-09-22T17:59:49.039Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "5fbb2e5d-88f5-4d84-a7ec-4c87c7078198",
@@ -341,7 +334,6 @@
       "belongs_to": "workflow",
       "workflowsTriggerType": "INTERNAL",
       "schedule_config": {},
-      "date_updated": "2026-09-22T18:30:46.886Z",
       "conditions": [
         {
           "operator": "==",
@@ -359,7 +351,9 @@
           "type": "select",
           "id": "call_direction"
         }
-      ]
+      ],
+      "date_updated": "2026-09-22T19:03:35.444Z",
+      "active": true
     }
   ]
 }

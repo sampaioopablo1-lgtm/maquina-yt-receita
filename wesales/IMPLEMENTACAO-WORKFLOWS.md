@@ -1393,7 +1393,7 @@ publicar, `Add to Workflow` em massa nos leads já parados.
 
 **Gatilho:** `Scheduler` (sem contato) · seg–sex · **11:00** e **15:00** · fuso `America/Sao_Paulo`
 
-**Estado 22/09/2026:** rascunho `63cbb270-…` montado, gatilho gravado como Cron `0 11,15 * * 1-5` (fuso da subconta = São Paulo). Falta só publicar.
+**Estado 22/09/2026:** rascunho `63cbb270-…` montado, gatilho gravado como Cron `0 11,15 * * 1-5` (fuso da subconta = São Paulo). **Publicado em 22/09/2026.**
 
 | # | Ação | Configuração exata |
 |---|---|---|
@@ -1425,7 +1425,7 @@ Nomes dos status (`Invalid`/`Landline`) a confirmar na tela.
 
 ## W20 · Qualidade da Conexão — `build-wesales.md` 2.27 (F-06, fechado em 22/09/2026)
 
-**Estado 22/09/2026:** rascunho `5fbb2e5d-…` com 8 nós e gatilho `Transcript Generated` (Tipo = Ligação, Direção = Saída); transcrição ligada na subconta. Falta publicar, ligar gravação em cada número e o pré-requisito 6.
+**Estado 22/09/2026:** rascunho `5fbb2e5d-…` com 8 nós e gatilho `Transcript Generated` (Tipo = Ligação, Direção = Saída); transcrição ligada na subconta. **Publicado em 22/09/2026.** Falta ligar gravação em cada número e o pré-requisito 6.
 
 **Pré-condição, ainda sem resposta:** as ligações desta operação saem por
 LC Phone? Mesma pendência do F-08/F-09 (seção 2.26) — se a resposta for
