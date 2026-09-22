@@ -194,3 +194,62 @@ entra no funil. Hoje não há regra nenhuma.
 | 4 | Entrada de leads parada (Gerenciador de Anúncios) | a esteira sem alimentação |
 | 5 | Marcar as 6 tags e os 4 campos no `APROVADO.md` | coerência do freio de mão |
 | 6 | Pré-requisito 6 do W20 (`Conexão real = vazio` antes de cada tentativa) | sem ele, um `Sim` antigo sobrevive às tentativas seguintes |
+
+---
+
+## 9. O modo de operação mudou em 22/09, e nenhum documento dizia isso
+
+Em `f0a0474` o dono autorizou publicar de forma permanente ("publique tudo você
+mesmo sempre") e o W18 e o W20 foram publicados no mesmo commit. Isso muda o
+projeto mais do que qualquer item de roadmap, e muda em silêncio.
+
+**Até hoje, publicar era um passo humano.** A rotina especificava, o dono
+abria a tela, olhava e publicava. Esse intervalo não era burocracia: era o
+único lugar onde um erro de especificação parava antes de virar
+comportamento. Todos os defeitos achados hoje — o `Mestre de saída v2`
+apontando para o Clique antigo, o F-09 mandando desviar para um canal
+extinto, o F-15 resgatando por um canal que o público não tem — foram
+achados **em especificação**, antes de rodarem.
+
+**A partir de agora a distância entre especificar e produzir é zero.** O que
+antes era "uma rodada escreveu isso, alguém vai olhar" passou a ser "uma
+rodada escreveu isso e está no ar". A consequência prática:
+
+| Antes | Agora |
+|---|---|
+| erro de spec custava uma correção de documento | erro de spec custa comportamento errado em lead real |
+| o checklist de conferência era desejável | o checklist de conferência é a **única** barreira |
+| "publicar ficou com o dono" era o freio | não há freio automático nenhum |
+
+Não é argumento para voltar atrás — é decisão do dono e ela acelera muito.
+É argumento para **duas coisas ficarem obrigatórias**, não opcionais:
+
+1. **Conferir antes de publicar, na própria rodada que publica.** O checklist
+   de 14 pontos (`APRENDIZADOS-CRM.md`) deixou de ser revisão posterior e
+   passou a ser pré-condição.
+2. **Publicar só o que tem gatilho que não pode disparar sozinho, ou que já
+   passou por conferência.** O W20 é o exemplo bom por acidente: está no ar e
+   **não dispara**, porque depende de gravação por número que continua
+   desligada. Publicar um workflow ocioso é seguro; publicar um que já tem
+   gatilho vivo não é a mesma coisa.
+
+### O caso do W20, e o encadeamento de um clique
+
+Estado medido agora: W20 publicado, gatilho `Transcript Generated` ativo,
+transcrição ligada na subconta, **gravação por número desligada**. Então hoje
+nada é gravado e o W20 nunca roda. Correto e seguro.
+
+**Um único clique — ligar gravação num número — dispara três coisas ao mesmo
+tempo:**
+
+| O que acontece | Estado |
+|---|---|
+| Toda ligação de saída passa a ser gravada | **aviso de LGPD ainda não escrito** (`script-de-ligacao.md`, seção 2) |
+| O W20 começa a gravar `Duração da ligação` e `Conexão real` | desenho conferido: escreve nos **dois** ramos (nós 5 e 7), então não há valor velho sobrevivendo entre chamadas **com** transcrição |
+| Custo do add-on começa a contar | US$ 0,024 por minuto gravado |
+
+O pré-requisito 6 continua aberto e continua correto, com escopo menor do que
+está escrito: como o W20 escreve nos dois ramos, o valor só envelhece na
+tentativa que **não gera transcrição nenhuma** (não atendida, caixa postal).
+Para essa, um `Sim` antigo sobrevive — é o reset que falta nas seções 2.4/2.10.
+

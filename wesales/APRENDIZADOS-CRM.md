@@ -2,6 +2,40 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Publique sempre" apagou o único freio que pegou todos os defeitos de hoje — 22/09/2026, sessão na nuvem
+
+O dono autorizou publicar de forma permanente e o W18/W20 foram publicados no
+mesmo commit (`f0a0474`). Decisão dele, e acelera muito. Mas vale registrar o
+que ela custa, porque nenhum documento registrou.
+
+**Todos os defeitos achados hoje foram achados em especificação, não em
+produção:** o `Mestre de saída v2` apontando para o Clique antigo, o F-09
+mandando o telefone desviar para um canal extinto, o F-15 resgatando por um
+canal que o público-alvo não tem, o F-14 dimensionado com 8 de 12 toques. Cada
+um deles teria virado comportamento errado em lead real se a publicação fosse
+automática na hora em que a spec foi escrita.
+
+O intervalo entre "especificado" e "publicado" não era burocracia — era o
+único ponto do processo onde um erro de raciocínio parava. **Agora é zero.**
+
+O que isso muda para as próximas rodadas, e não é opcional:
+
+1. O checklist de conferência deixou de ser revisão **posterior** e passou a
+   ser **pré-condição** da publicação. Conferir depois de publicar é conferir
+   com o lead já dentro.
+2. Publicar workflow **ocioso** é seguro; publicar workflow com gatilho vivo
+   não é a mesma coisa. O W20 é o exemplo bom por acidente: está no ar e não
+   dispara, porque depende de gravação por número que segue desligada.
+3. Quando a rodada que especifica é a mesma que publica, ela não tem revisor.
+   O mínimo é ela mesma rodar o checklist **antes** do `PUT status=published`,
+   e dizer na entrega que rodou.
+
+**A regra geral, que vale além deste projeto:** quando um gate humano é
+removido por ganho de velocidade, o custo não aparece na primeira rodada — ele
+aparece na primeira rodada que erra. Quem remove o gate herda a obrigação de
+substituí-lo por uma verificação explícita, ou aceita que o próximo erro chega
+em produção. Vale dizer isso em voz alta no momento da remoção, não depois.
+
 ## "78% da base tem e-mail" era verdade sobre a base errada — e o resgate resgataria zero lead — 22/09/2026, sessão na nuvem
 
 A rodada anterior achou um ciclo fechado de verdade, e eu confirmei no payload
