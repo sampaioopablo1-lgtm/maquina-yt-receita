@@ -254,10 +254,10 @@ def opp_step(status: str = None, etapa_id: str = None,
     campos = []
     if status:
         campos.append({"filterField": "status", "value": status,
-                       "valueFieldType": "select", "dataType": ""})
+                       "valueFieldType": "select"})
     if etapa_id:
         campos.append({"filterField": "pipelineStageId", "value": etapa_id,
-                       "valueFieldType": "select", "dataType": ""})
+                       "valueFieldType": "select"})
     at = {"type": "internal_update_opportunity", "allowBackward": False,
           "__customInputs__": {}, "__customInputFields__": campos}
     return {"id": uid(), "name": nome_no,
@@ -437,8 +437,13 @@ def preencher(c, wf: str, name: str, steps: list, triggers: list,
                        advanceCanvasMeta={"position": {"x": 57.5, "y": -73}}))
         saved.append(dict(body, id=tid))
 
+    # a versao TEM de ser a corrente: um workflow que ja existe (tentativa
+    # anterior, rascunho vazio) tem versao > 1 e o PUT com 1 e recusado
+    # ('Your version is outdated').
+    antes = c.request("GET", "/workflow/" + LOC + "/" + wf)
+    ver_atual = antes.get("version", 1) if isinstance(antes, dict) else 1
     put = c.request("PUT", "/workflow/" + LOC + "/" + wf,
-                    {"name": name, "version": 1,
+                    {"name": name, "status": "draft", "version": ver_atual,
                      "workflowData": {"templates": steps}})
     if not put or put.get("_error"):
         raise SystemExit("falha ao salvar nos de '" + name + "': " + str(put))
@@ -473,6 +478,29 @@ def preencher(c, wf: str, name: str, steps: list, triggers: list,
                "triggersChanged": bool(tl), "oldTriggers": tl,
                "newTriggers": tl})
     return wf
+
+
+def publicar(c, wf_id: str) -> bool:
+    """Tira do rascunho. So com autorizacao explicita do dono (21/09/2026:
+    ele escolheu 'eu publico tudo sozinho ao terminar cada um').
+    Recusa workflow publicado de antes - esses nao se tocam."""
+    guard(wf_id)
+    cur = c.request("GET", "/workflow/" + LOC + "/" + wf_id)
+    if not isinstance(cur, dict) or cur.get("_error"):
+        print("  nao consegui ler o workflow: " + str(cur))
+        return False
+    r = c.request("PUT", "/workflow/" + LOC + "/" + wf_id,
+                  {"name": cur.get("name"), "status": "published",
+                   "version": cur.get("version", 1),
+                   "workflowData": {"templates":
+                                    (cur.get("workflowData") or {}).get("templates") or []}})
+    if r and r.get("_error"):
+        print("  falha ao publicar: " + str(r.get("message"))[:160])
+        return False
+    volta = c.request("GET", "/workflow/" + LOC + "/" + wf_id)
+    st = volta.get("status") if isinstance(volta, dict) else None
+    print("  status agora: " + str(st))
+    return st == "published"
 
 
 def export(c, wf_id: str, path: str) -> dict:
