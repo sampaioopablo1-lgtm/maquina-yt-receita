@@ -33,6 +33,14 @@ REGUA = [
     ("Decisor", [("Sim", 15), ("Influencia", 8), ("Não decide", 2)]),
     ("Prazo", [("Pra ontem", 15), ("Espera 30 dias", 11), ("Este ano", 6),
                ("Sem prazo", 2)]),
+    # G-04 resolvido sem remapear formulario: o Meta Lead Ads grava a
+    # resposta de prazo em `Urgência`, nao em `Prazo` (confirmado no lead
+    # real Carlos Andrade, 21/09/2026: Urgência='Pra ontem', Prazo vazio).
+    # Os rotulos sao os MESMOS, entao basta um bloco de reserva logo depois.
+    # A estrutura ja garante que so um dos dois pontua: se `Prazo` casar, o
+    # ramo salta por cima deste bloco. Maximo continua 100.
+    ("Urgência", [("Pra ontem", 15), ("Espera 30 dias", 11), ("Este ano", 6),
+                  ("Sem prazo", 2)]),
 ]
 
 

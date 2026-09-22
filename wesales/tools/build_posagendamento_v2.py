@@ -26,6 +26,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ghl_api as g
 import clone_workflow as cl
+import regua_qualificacao as rq
 
 NOME = "Pós-agendamento v2"
 ORIG = "94a837d0-d87a-438e-95f1-c620d55f1a7f"
@@ -34,47 +35,6 @@ C = json.load(open(os.path.join(os.path.dirname(__file__), "campos.json"),
 JSON_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
                                         "workflows-json"))
 NOTA = C["Nota de qualificação"]["id"]
-
-# (campo, rotulo, [(valor exato na tela, pontos)]) - secao 9.1
-REGUA = [
-    ("Clientes novos por mês", [("10", 3), ("11-30", 6), ("31-100", 8),
-                                ("+101", 10)]),
-    ("Tem time comercial", [("Só dono", 3), ("1-5", 7), ("6-10", 9),
-                            ("+10", 10)]),
-    ("Quem atende os leads", [("Ninguém fixo", 10), ("Dono", 7),
-                              ("Vendedor", 5), ("SDR", 3)]),
-    ("Investe em anúncios", [("Sim", 13), ("Já investiu e parou", 9),
-                             ("Nunca", 4)]),
-    ("Investimento mensal em anúncios", [("Acima de 10k", 12),
-                                         ("5k a 10k", 10), ("1k a 5k", 6),
-                                         ("Até 1k", 2)]),
-    ("Budget", [("Tem", 15), ("Precisa aprovar", 9), ("Não tem", 0)]),
-    ("Decisor", [("Sim", 15), ("Influencia", 8), ("Não decide", 2)]),
-    ("Prazo", [("Pra ontem", 15), ("Espera 30 dias", 11), ("Este ano", 6),
-               ("Sem prazo", 2)]),
-]
-
-
-def pontuar(rotulo, campo_id, opcoes, proximo, fim_id):
-    """Cadeia de If/Else de um campo.
-
-    Cada opcao mora no ramo 'nao' da anterior; casou, soma e SALTA para o
-    proximo campo. O proximo campo MORA no ramo 'nao' da ultima opcao - nao
-    pode ser so alvo de goto, senao fica fora do grafo (erro cometido na
-    primeira tentativa: 5 gotos para nos inexistentes)."""
-    destino = (proximo[0].id if isinstance(proximo[0], g.Branch)
-               else proximo[0]["id"]) if proximo else fim_id
-    atual = list(proximo) if proximo else [g.goto_step(fim_id)]
-    for valor, pts in reversed(opcoes):
-        sim = []
-        if pts:
-            sim.append(g.math_step(NOTA, "add", pts))
-        sim.append(g.goto_step(destino))
-        atual = [g.Branch("%s = %s?" % (rotulo, valor),
-                          [g.cond("contact_detail", campo_id, "==", valor)],
-                          sim=sim, nao=atual)]
-    return atual
-
 
 c = g.client()
 orig = c.request("GET", "/workflow/" + g.LOC + "/" + ORIG)
@@ -95,14 +55,13 @@ antes = antes[0]
 print("insiro a régua entre '%s' e a nota" % antes.get("name"))
 
 # monta de tras para frente: o ultimo campo salta para a nota
-arvore = []
-for rotulo, opcoes in reversed(REGUA):
-    arvore = pontuar(rotulo, C[rotulo]["id"], opcoes, arvore, alvo["id"])
-
-zera = g.field_step(NOTA, "Nota de qualificação", 0, "numerical")
-regua = g.montar([zera] + arvore, parent=antes.get("parent"),
+# a regua vem do modulo compartilhado: manter uma copia local aqui foi
+# exatamente como as duas divergiram (o bloco de reserva Urgência entrou no
+# modulo e nao chegou aqui).
+passos_regua = rq.montar_regua(C, NOTA, alvo["id"])
+regua = g.montar(passos_regua, parent=antes.get("parent"),
                  parent_key=antes["id"])
-antes["next"] = zera["id"]
+antes["next"] = regua[0]["id"]
 # a nota deixou de vir logo depois de `antes`: agora ela e alcancada pelos
 # gotos da regua. O parentKey dela tem de apontar para um predecessor real,
 # senao a publicacao recusa ("parentKey points to ...").
