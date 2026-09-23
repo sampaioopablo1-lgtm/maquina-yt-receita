@@ -259,9 +259,9 @@ def bloco_toque(n, espera_h, codigo, liga, proximo):
     corpo = corpo_toque(n, espera_h, codigo, liga, proximo)
     # parte 1 tem gatilho de etapa (a oportunidade esta no contexto); a parte 2
     # e disparada por tag e so enxerga a tag do Espelho de Etapa (23/09/2026)
-    etapa = ([g.cond("opportunities", "pipelineStageId", "==", g.STAGES["CONECTAR"]),
-              g.cond("opportunities", "status", "==", "open")] if PARTE == 1 and not TAG_TESTE
-             else [g.cond("contact_detail", "tags", "index-of-true", ["etapa-conectar"])])
+    # tag do Espelho de Etapa: funciona nos dois gatilhos (etapa e cad-outbound,
+    # que e como a Inbound passa o lead) - condicao de oportunidade so no de etapa
+    etapa = [g.cond("contact_detail", "tags", "index-of-true", ["etapa-conectar"])]
     conds = etapa + [
              g.cond("contact_detail", "tags", "index-of-false", ["nao-perturbe"]),
              g.cond("contact_detail", RESULT, "!=", "Não ligar"),
@@ -322,7 +322,8 @@ b04 = g.Branch("Permissão de WhatsApp em branco?",
                sim=[campos_step([f(PERM_WA, "Permissão WhatsApp", "Não solicitado", "select")]),
                     g.goto_step(raiz_id(comum))],
                nao=comum)
-inicio = [campos_step([f(TENT, "Tentativa nº", 0, "numerical"),
+inicio = [g.tag_step(["etapa-conectar"]),   # sincrono: o Espelho chega segundos depois
+          campos_step([f(TENT, "Tentativa nº", 0, "numerical"),
                        f(WA_NAO, "WA não atendidas seguidas", 0, "numerical"),
                        f(RESULT, "Resultado da tentativa", "", "select"),
                        f(CONEXAO, "Conexão real", "", "select")],

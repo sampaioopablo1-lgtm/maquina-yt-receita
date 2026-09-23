@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Cadência 12x30 — parte 2",
-    "version": 7,
+    "version": 8,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/17e6dc19-3eca-42e8-83ff-e25a9d5c28e8/7",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F17e6dc19-3eca-42e8-83ff-e25a9d5c28e8%2F7?alt=media&token=db86c55b-f883-4d58-b353-d60ec9d6b772",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/17e6dc19-3eca-42e8-83ff-e25a9d5c28e8/8",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F17e6dc19-3eca-42e8-83ff-e25a9d5c28e8%2F8?alt=media&token=9b9526c1-7995-4010-b9cd-11c637c835c5",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T01:44:01.632Z",
-    "updatedAt": "2026-09-23T01:59:38.358Z",
+    "updatedAt": "2026-09-23T01:59:58.374Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/17e6dc19-3eca-42e8-83ff-e25a9d5c28e8/7",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/17e6dc19-3eca-42e8-83ff-e25a9d5c28e8/8",
     "window": {
       "days": [
         1,
@@ -42,12 +42,6 @@
       "endMinute": 30
     },
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T01:59:37.000Z"
-      }
-    },
     "id": "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8",
     "workflowData": {
       "templates": [
@@ -13289,8 +13283,8 @@
         }
       },
       "targetActionId": "6f680259-918e-46f9-8760-681df93747b2",
-      "active": false,
-      "date_updated": "2026-09-23T01:59:36.228Z"
+      "date_updated": "2026-09-23T01:59:57.947Z",
+      "active": true
     }
   ]
 }

@@ -3,8 +3,12 @@
 Regua curta e rapida para quem chegou por formulario: 5 toques em ~2 dias,
 e no fim o lead passa para a Cadencia 12x30.
 
-Fora, por falta do canal de WhatsApp: MI-0 (abertura) e MI-F (handoff) -
-os dois unicos nos de texto. Os toques sao tarefas de LIGAR.
+MULTICANAL (23/09/2026, PLANO-MULTICANAL.md): toques com WhatsApp primeiro
+(Stevo Voice) e ligacao normal depois; com 3 ligacoes de WhatsApp seguidas
+nao atendidas, o toque comeca pela normal. Mensagens automaticas pela Stevo
+(no `sms`): MI-0 na entrada e MIF-v2 na passagem para a 12x30. Relogio com
+`{{right_now.date}} {{right_now.time}}`; `Conexao real` zerada a cada toque;
+"Pediu retorno" pausa em laco de 1 h.
 
 DESVIO CONSCIENTE: a spec separa o no 8 (esperar o resultado, com limite =
 delta ate a proxima tentativa) do no 1 da tentativa seguinte (esperar esse
@@ -35,6 +39,17 @@ PRIOR = C["Prioridade"]["id"]
 ENTRADA = C["Entrada em"]["id"]
 PRIMEIRA = C["1ª tentativa em"]["id"]
 SITE = C["Site"]["id"]
+CONEXAO = C["Conexão real"]["id"]
+TEMPLATE = C["Template usado"]["id"]
+AGORA = "{{right_now.date}} {{right_now.time}}"
+MSG = {
+    "MI-0": ("Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}. "
+             "Recebi seu contato agora e já vou te ligar em poucos minutos. Se preferir me "
+             "responder por aqui enquanto isso, também tá valendo."),
+    "MIF-v2": ("{{contact.first_name}}, tentei falar com você algumas vezes nos últimos dias "
+               "sem sucesso. Vou continuar te procurando — se preferir, me responde por aqui "
+               "o melhor horário pra eu te ligar."),
+}
 INSTA = C["Instagram"]["id"]
 
 # TI, espera ate o proximo toque, canal, tag de fila, rotulo do canal
@@ -47,11 +62,15 @@ TOQUES = [
 ]
 ESPERA_INICIAL = (5, "minutes")
 
-c = g.client()
-ids = {w.get("name"): w["id"] for w in c.request("GET", "/workflow/" + g.LOC)
-       if w.get("type") == "workflow"}
-WF = ids.get(NOME) or g.create_workflow(c, NOME)
-W11 = ids.get("Cadência 12x30")
+SO_MONTAR = "--so-montar" in sys.argv
+if SO_MONTAR:
+    c, WF, W11 = None, "00000000-0000-0000-0000-000000000003", "c64a808b-3040-431e-8015-642a265e1022"
+else:
+    c = g.client()
+    ids = {w.get("name"): w["id"] for w in c.request("GET", "/workflow/" + g.LOC)
+           if w.get("type") == "workflow"}
+    WF = ids.get(NOME) or g.create_workflow(c, NOME)
+    W11 = ids.get("Cadência 12x30")
 print("workflow: %s | Cadencia 12x30: %s" % (WF, W11))
 
 
@@ -90,6 +109,23 @@ def sair():
                             "workflow_id": [WF]}}]
 
 
+def sms_step(codigo):
+    return [{"id": g.uid(), "name": "WhatsApp · " + codigo, "type": "sms",
+             "attributes": {"type": "sms", "body": MSG[codigo], "attachments": []}},
+            campos_step([f(TEMPLATE, "Template usado", codigo, "text")])]
+
+
+def tarefa(n, wa_primeiro):
+    wa = "🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa)."
+    tel = "📞 Ligar pelo telefone (botão de ligar do contato)."
+    passos = [wa, tel] if wa_primeiro else [tel, wa + " <i>(ignorou 3 ligações de WhatsApp seguidas)</i>"]
+    corpo = ("Lead inbound: retorno rápido — toque %d de 5.%s<br><br>Atendeu? Converse, qualifique "
+             "e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>."
+             % (n, "".join("<br>%d. %s" % (i, x) for i, x in enumerate(passos, 1))))
+    return task_step("[CADENCIA] TI%d · %s — Inbound" % (n, "WhatsApp → Ligar" if wa_primeiro
+                                                         else "Ligar → WhatsApp"), corpo)
+
+
 def handoff():
     """Fim da TI5 sem resposta: passa o bastao para a Cadencia 12x30.
 
@@ -102,7 +138,7 @@ def handoff():
     nos ja provados - e de quebra qualquer lead marcado como outbound entra
     na regua, venha de onde vier.
     """
-    return [
+    return sms_step("MIF-v2") + [
         g.tag_step(["cad-inbound"], remove=True),
         g.tag_step(["cad-outbound"]),
         {"id": g.uid(), "name": "Remove from Workflow",
@@ -129,25 +165,38 @@ def bloco(n, espera_prox, canal, tag_fila, rotulo, proximo):
                          "attributes": {"type": "remove_from_workflow",
                                         "workflow_id": [WF]}}],
                    nao=[b10b])
+    b_ret = g.Branch("TI%d · Pediu retorno? (pausa)" % n,
+                     [g.cond("contact_detail", RESULT, "==", "Pediu retorno")],
+                     sim=[], nao=[b10])
+    b_ret.sim = [g.wait_step(1, "hours"), g.goto_step(b_ret.id)]
+    conta = g.Branch("TI%d · WhatsApp não atendido?" % n,
+                     [g.cond("contact_detail", RESULT, "has_no_value", None),
+                      g.cond("contact_detail", RESULT, "==", "Não atendeu"),
+                      g.cond("contact_detail", RESULT, "==", "Caixa Postal")], operador="or",
+                     sim=[g.math_step(WA_NAO, "+", 1), g.goto_step(b_ret.id)], nao=[b_ret])
+    avalia = [g.tag_step(["fila-tel", "fila-wa"], remove=True),
+              g.Branch("TI%d · WhatsApp ainda vem primeiro?" % n,
+                       [g.cond("contact_detail", WA_NAO, ">=", "3")],
+                       sim=[g.goto_step(b_ret.id)], nao=[conta])]
 
     corpo = [campos_step([f(RESULT, "Resultado da tentativa", "", "select"),
-                          f(TENT, "Tentativa nº", n, "numerical")])]
+                          f(TENT, "Tentativa nº", n, "numerical"),
+                          f(CONEXAO, "Conexão real", "", "select")])]
     if n == 1:
-        corpo.append(campos_step([f(PRIMEIRA, "1ª tentativa em", "sim",
+        corpo.append(campos_step([f(PRIMEIRA, "1ª tentativa em", AGORA,
                                     "text")]))
         corpo.append(g.tag_step(["atraso-1a-tentativa"], remove=True))
-    corpo += [
-        g.tag_step([tag_fila]),
-        task_step("[CADENCIA] TI%d · Ligar (%s) — Inbound" % (n, rotulo),
-                  "Lead inbound: retorno rapido. Toque %d de 5." % n),
-        g.tag_step(["toque"]),
-        g.notify_owner_step(
-            "Lead inbound aguardando retorno",
-            "Lead inbound {{contact.name}} aguardando retorno — TI%d." % n),
-    ]
-    if espera_prox:
-        corpo.append(g.wait_step(espera_prox[0], espera_prox[1]))
-    corpo += [g.tag_step(["fila-tel", "fila-wa"], remove=True), b10]
+    cont = [g.tag_step(["toque"]),
+            g.notify_owner_step(
+                "Lead inbound aguardando retorno",
+                "Lead inbound {{contact.name}} aguardando retorno — TI%d." % n)]
+    cont += ([g.wait_step(espera_prox[0], espera_prox[1])] if espera_prox
+             else [g.wait_step(1, "days")]) + avalia
+    corpo += [g.tag_step([tag_fila]),
+              g.Branch("TI%d · WhatsApp bloqueado para este lead?" % n,
+                       [g.cond("contact_detail", WA_NAO, ">=", "3")],
+                       sim=[tarefa(n, False), g.goto_step(raiz_id(cont))],
+                       nao=[tarefa(n, True)] + cont)]
 
     conds = [g.cond("opportunities", "pipelineStageId", "==",
                     g.STAGES["CONECTAR"]),
@@ -188,7 +237,7 @@ b08 = g.Branch("Sem dono?",
                nao=list(cadencia))
 
 comum = [campos_step([f(PRIOR, "Prioridade", 5, "numerical"),
-                      f(ENTRADA, "Entrada em", "sim", "text")]),
+                      f(ENTRADA, "Entrada em", AGORA, "text")])] + sms_step("MI-0") + [
          g.tag_step(["fila-quente"]),
          b08]
 b04 = g.Branch("Permissão de WhatsApp em branco?",
@@ -200,7 +249,8 @@ b04 = g.Branch("Permissão de WhatsApp em branco?",
 
 inicio = [campos_step([f(TENT, "Tentativa nº", 0, "numerical"),
                        f(WA_NAO, "WA não atendidas seguidas", 0, "numerical"),
-                       f(RESULT, "Resultado da tentativa", "", "select")],
+                       f(RESULT, "Resultado da tentativa", "", "select"),
+                       f(CONEXAO, "Conexão real", "", "select")],
                       "Inicializa contadores"),
           b04]
 
@@ -238,20 +288,24 @@ gatilho = {"status": "draft", "schedule_config": {},
                 "value": g.STAGES["CONECTAR"], "title": "Movido para o estágio",
                 "type": "select", "id": "moved-to-stage"}]}
 
-g.preencher(c, WF, NOME, passos, [gatilho],
-            allow_reentry=False, stop_on_response=True,
-            janela={"days": [1, 2, 3, 4, 5], "startHour": 8,
-                    "startMinute": 30, "endHour": 18, "endMinute": 30})
-
-doc = g.export(c, WF, os.path.join(JSON_DIR, NOME + ".json"))
-w = doc["workflow"]
-tpl = (w.get("workflowData") or {}).get("templates") or []
+if SO_MONTAR:
+    tpl, w = g.montar(passos), {}
+else:
+    g.preencher(c, WF, NOME, passos, [gatilho],
+                allow_reentry=False, stop_on_response=True,
+                janela={"days": [1, 2, 3, 4, 5], "startHour": 8,
+                        "startMinute": 30, "endHour": 18, "endMinute": 30})
+    doc = g.export(c, WF, os.path.join(JSON_DIR, NOME + ".json"))
+    w = doc["workflow"]
+    tpl = (w.get("workflowData") or {}).get("templates") or []
 vivos = {s["id"] for s in tpl}
 from collections import Counter
 print("nos=%d janela=%s" % (len(tpl), w.get("window")))
 print(Counter(s["type"] for s in tpl))
 print("gotos quebrados:", sum(1 for s in tpl if s["type"] == "goto"
                               and (s.get("attributes") or {}).get("targetNodeId") not in vivos))
-print("tarefas:", [s["attributes"]["title"] for s in tpl
-                   if s["type"] == "task-notification"])
-print("PUBLICADO" if g.publicar(c, WF) else "NAO PUBLICOU")
+print("tarefas:", len([s for s in tpl if s["type"] == "task-notification"]),
+      "mensagens:", [s["name"] for s in tpl if s["type"] == "sms"],
+      "'sim':", sum(1 for s in tpl if s["type"] == "update_contact_field"
+                    and any(x.get("value") == "sim" for x in s["attributes"]["fields"])))
+print("limite:", "OK" if len(tpl) <= g.MAX_NOS else "ACIMA")

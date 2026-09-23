@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Espelho de Etapa",
-    "version": 3,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/2b1667a4-e289-4d27-b6cf-824b93971b32/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F2b1667a4-e289-4d27-b6cf-824b93971b32%2F3?alt=media&token=c931f190-15f8-4a75-8fd1-4ff72ecb0f05",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/2b1667a4-e289-4d27-b6cf-824b93971b32/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F2b1667a4-e289-4d27-b6cf-824b93971b32%2F4?alt=media&token=b45cc8c5-e21a-4a04-ab09-4e08e2f0da60",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T01:53:08.000Z"
-      }
-    },
     "createdAt": "2026-09-23T01:53:00.386Z",
-    "updatedAt": "2026-09-23T01:53:09.519Z",
+    "updatedAt": "2026-09-23T01:53:13.530Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -32,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/2b1667a4-e289-4d27-b6cf-824b93971b32/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/2b1667a4-e289-4d27-b6cf-824b93971b32/4",
     "window": null,
     "workflowNote": null,
     "id": "2b1667a4-e289-4d27-b6cf-824b93971b32",
@@ -1423,7 +1417,6 @@
       "id": "0zhu4BoXOAcwokUXkX0T",
       "date_added": "2026-09-23T01:53:04.450Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "2b1667a4-e289-4d27-b6cf-824b93971b32",
@@ -1461,13 +1454,13 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T01:53:07.554Z"
+      "date_updated": "2026-09-23T01:53:12.862Z",
+      "active": true
     },
     {
       "id": "JPnm9Vs1SSN2RaC2yzti",
       "date_added": "2026-09-23T01:53:05.155Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "2b1667a4-e289-4d27-b6cf-824b93971b32",
@@ -1505,13 +1498,13 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T01:53:07.597Z"
+      "date_updated": "2026-09-23T01:53:12.907Z",
+      "active": true
     },
     {
       "id": "RO2rEXxaQo5WES80jLhH",
       "date_added": "2026-09-23T01:53:06.546Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "2b1667a4-e289-4d27-b6cf-824b93971b32",
@@ -1549,13 +1542,13 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T01:53:07.641Z"
+      "date_updated": "2026-09-23T01:53:12.953Z",
+      "active": true
     },
     {
       "id": "fHfdLS8CqF9ZdLWbamMh",
       "date_added": "2026-09-23T01:53:05.856Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "2b1667a4-e289-4d27-b6cf-824b93971b32",
@@ -1593,13 +1586,13 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T01:53:07.679Z"
+      "date_updated": "2026-09-23T01:53:12.997Z",
+      "active": true
     },
     {
       "id": "iF5RitP5HqkwItpszN8p",
       "date_added": "2026-09-23T01:53:03.777Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "2b1667a4-e289-4d27-b6cf-824b93971b32",
@@ -1629,7 +1622,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T01:53:07.727Z"
+      "date_updated": "2026-09-23T01:53:13.040Z",
+      "active": true
     }
   ]
 }
