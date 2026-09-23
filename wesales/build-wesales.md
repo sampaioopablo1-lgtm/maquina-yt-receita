@@ -4274,6 +4274,28 @@ gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 
 ## 2.29 Rampa de aquecimento do número de telefone — F-14
 
+> **Conferido em 22/09/2026, 23:35 UTC — a proposta multicanal (caminho B)
+> não alivia esta rampa, e é fácil supor que alivia.**
+>
+> Os textos de WhatsApp/e-mail do caminho B (`biblioteca-mensagens.md`) são
+> **aditivos**, não substitutivos: MT1 diz "acabei de tentar te ligar", MT4 diz
+> "tentei te ligar de novo agora", MT11 diz "última tentativa de te pegar por
+> telefone". Cada mensagem acompanha um toque de telefone que continua
+> existindo. **Os 12 toques de telefone continuam 12.**
+>
+> Então a conta desta seção **não muda**: lote de ~12/dia continua levando o
+> pico a 58 ligações/dia, 2,3× o teto da semana 1; lote de ~6/dia continua
+> sendo o que cabe.
+>
+> **O efeito de segunda ordem existe, mas no lugar errado para ajudar aqui.**
+> Mais canais aumentam a chance de conexão por lead, e lead que responde sai
+> da régua — menos discagem ao longo dos 30 dias. Só que a rampa não é
+> limitada pelo **total**, é limitada pelo **pico**, e o pico acontece nos
+> dias 1 e 2, quando ninguém ainda teve tempo de responder e todo mundo segue
+> na régua. Multicanal ajuda a cauda, não o pico.
+>
+> Dito de outro jeito: se alguém adotar o caminho B esperando que ele resolva
+> o conflito F-14 × G-03, vai descobrir no dia 2 que não resolveu.
 > **Conferência de 22/09/2026, 16:30 UTC — a rampa foi calibrada para uma
 > régua que não existe mais, e o lote do G-03 passou a estourá-la.**
 >
