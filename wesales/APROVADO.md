@@ -126,7 +126,16 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 > publicado). Regra 1 vale: ficam, não removo nada. Registro aqui só para a
 > contagem desta lista parar de divergir da conta — as tags numeradas T-16 a T-21
 > abaixo continuam sendo as que **eu** não crio sem o seu `[x]`. A `fechar-horario`
-> tem um detalhe que segue aberto: quem a remove é o `Fechar Horário`, publicado
+> **Atualização de 23/09 02:10:** com o commit `61eb167` são **dez** as tags fora
+> desta lista, todas por ação do dono: as duas acima, `cadencia-12x30-p2`,
+> `teste-12x30` e as **8 do Espelho de Etapa** (`etapa-*` e `status-*`). Todas
+> ficam, regra 1. As tags numeradas T-16 a T-21 abaixo continuam sendo as que
+> **eu** não crio sem o seu `[x]`. Uma das dez tem problema ativo: o workflow que
+> aplica as 8 do espelho está em **rascunho** e 8 workflows publicados já testam
+> essas tags — seção 2.32 do `build-wesales.md`. Não é item de aprovação, é um
+> clique de publicação.
+>
+> A `fechar-horario` tem um detalhe que segue aberto: quem a remove é o `Fechar Horário`, publicado
 > no `23db864` (a janela de rascunho fechou limpa, 0 contatos), mas a remoção
 > está nos nós de saída dele — e o lead que **agenda** é arrancado do workflow
 > pelo `Pós-agendamento v2` (nó 4) sem passar por eles. Então quem agenda fica

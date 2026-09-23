@@ -2,6 +2,59 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Produtor em rascunho + consumidor publicado = defeito ativo e silencioso — três casos em uma noite — 23/09/2026, sessão na nuvem
+
+Padrão que apareceu três vezes na mesma noite e merece checagem fixa. Quando um
+workflow **publicado** depende de um estado (tag) que só um workflow em
+**rascunho** produz, a condição lê o estado ausente e desce pelo ramo errado.
+**Nenhum erro aparece** — é o pior formato possível.
+
+| Caso | Produtor | Consumidor | Situação |
+|---|---|---|---|
+| `fechar-horario` | `Pós-ligação v2` aplicava (publicado) | `Fechar Horário` removia e era gatilhado pela tag (rascunho) | fechado pelo dono no mesmo dia, janela limpa |
+| 8 tags do **Espelho de Etapa** | `Espelho de Etapa` (**rascunho**, 16 nós) | **8 workflows publicados** testam as tags | **aberto** |
+| limpeza de tag | workflow no ar aplica | limpeza mora em workflow em rascunho | mesma família |
+
+O caso do espelho é o mais instrutivo porque a correção do dono está certa e
+mesmo assim o defeito continua no ar: antes a condição lia **etapa vazia** e ia
+pelo "não"; agora lê **tag ausente** e vai pelo "não". O comportamento não mudou,
+só o motivo. Conserto escrito ≠ conserto no ar.
+
+**A checagem, barata e para entrar em toda rodada** — para cada tag citada em
+condição de workflow publicado, achar quem aplica e olhar o `status` de quem
+aplica:
+
+```
+cd wesales/workflows-json && python3 - <<'EOF'
+import json,glob
+from collections import defaultdict
+TAGS={'etapa-conectar','etapa-reuniao','status-nutricao'}   # as que interessam
+aplica=defaultdict(list); testa=defaultdict(list)
+for f in sorted(glob.glob("*.json")):
+    w=json.load(open(f)).get('workflow') or json.load(open(f))
+    for i,t in enumerate(w['workflowData']['templates']):
+        a=t.get('attributes',{}) or {}
+        if t.get('type') in ('add_contact_tag','remove_contact_tag'):
+            for tg in (a.get('tags') or []):
+                if tg in TAGS: aplica[(f,w.get('status'))].append(tg)
+        else:
+            blob=json.dumps(a,ensure_ascii=False)
+            h=[tg for tg in TAGS if '"'+tg+'"' in blob]
+            if h: testa[(f,w.get('status'))].append(h)
+print("APLICA:",dict(aplica)); print("TESTA:",dict(testa))
+EOF
+```
+
+Aplicador em `draft` com consumidor em `published` = defeito ativo. Atenção a
+dois detalhes que custaram tempo: o campo do nó é **`type`**, não `actionType`;
+e um dump pode estar pré-patch (comparar com o backup irmão antes de concluir).
+
+**Regra de ordem:** publicar sempre o produtor primeiro. E ao publicar um
+produtor com gatilho de oportunidade, conferir na tela se ele etiqueta o
+**acervo** ou só mudança futura — se for só futura, as oportunidades já paradas
+nunca recebem a tag e seguem invisíveis às condições. O dump não responde isso:
+gatilho não entra nesta exportação.
+
 ## Condição de etapa não funciona em workflow que não é disparado por oportunidade — 11 workflows testavam etapa às cegas — 23/09/2026, sessão do PC
 
 **Medido** no registro de execução da `ZZ TESTE 12X30` (gatilho de tag): o
@@ -44,6 +97,34 @@ Em qualquer outro, teste a tag do Espelho.
   anterior, não "antes de agora".
 - **Canal:** confirmado pelo dono na tela — mandar pelo canal "SMS" entrega
   WhatsApp (Stevo). É o canal das mensagens automáticas.
+
+## Documento que contém um artefato colável tem duas naturezas — não anotar dentro do artefato — 23/09/2026, sessão na nuvem
+
+Consertando a coerência do `AGENTE-IA-CONEXAO.md` depois da renomeação de etapa,
+anotei "(etapa da conversa, não a etapa do funil — a do funil chama `REUNIÃO DE
+DIAGNÓSTICO` desde 22/09)" numa linha que está **dentro** do bloco do prompt do
+sistema, ou seja, dentro do texto que o dono cola na tela do GHL. A anotação
+estava certa e o lugar estava errado: nome de etapa do funil, id e data não
+servem ao modelo, gastam contexto e podem vazar na conversa com o lead. Revertido
+no mesmo turno; a nota foi para fora da cerca de código.
+
+**A regra:** em documento de `wesales/` que carrega artefato colável (prompt de
+agente, corpo de mensagem, JSON de import), o conteúdo entre cercas ``` é
+**produto**, não documentação. Antes de editar, conferir se a linha está dentro
+de uma cerca — `grep -n '^```'` dá os limites. Comentário, data, id e
+justificativa vão sempre fora. Vale também para `biblioteca-mensagens.md`.
+
+**Do mesmo conserto, um achado que vale por si:** o portão de entrada do agente
+(seção 1) lista as tags que o fazem não responder e **não tinha
+`fechar-horario`**. Hoje é inofensivo, porque `conectado-hoje` é aplicada no
+mesmo nó e nunca sai. Mas a saída A que eu recomendei para o F-16 (`Wait 24h` →
+`Remove Tag conectado-hoje`) **abre exatamente essa fresta**: a partir dela, um
+lead 25h dentro da tentativa de fechar horário teria `fechar-horario` sem
+`conectado-hoje`, e o agente entraria por cima do SDR. Acrescentei a tag ao
+portão agora, enquanto é redundante. É o F-16 de novo, um nível acima: **quando
+você recomenda tirar uma cláusula de circulação, procure quem dependia dela sem
+saber** — e conserte antes, não depois.
+
 ## Uma cláusula redundante vira vazamento quando a cláusula vizinha muda — cruzar toda mudança de etapa com os filtros das listas — 23/09/2026, sessão na nuvem
 
 O commit `1d04af2` (do PC do dono) fez o ramo `Atendeu` **ficar** em `CONECTAR`
@@ -2648,7 +2729,6 @@ exatamente isso que salvou o `Pós-agendamento` na segunda rodada.
 
 Nenhum dos dois aparece no salvamento do rascunho. Só na publicação.
 
-
 ## Revisão dos workflows que já existiam: três defeitos, um deles apagava a régua inteira — 22/09/2026
 
 A pedido do dono, revisei os publicados que não foram montados nesta
@@ -2701,7 +2781,6 @@ Nenhum apareceu lendo a documentação — dois deles a documentação
 descrevia **errado**. Todos apareceram lendo o **JSON real** do workflow
 publicado. Para este projeto, a fonte de verdade é a subconta, não o
 documento; e nó que existe com nome certo não quer dizer nó configurado.
-
 
 ## A simulação de uso real pegou o que a leitura de JSON não pegaria: espera por horário NÃO espera — 21/09/2026, PC do dono
 
@@ -2761,7 +2840,6 @@ Cruza os 24 workflows e procura o que só aparece no conjunto: gatilho
 órfão, `goto` morto, referência a workflow inexistente, publicado vazio ou
 sem gatilho, configuração diferente da spec, e o mapa de quem dispara quem
 por tag. Rodar depois de qualquer mudança — foi ele que pegou o defeito 3.
-
 
 ## Montagem programática funcionou: 9 workflows criados, testados e publicados pela API interna — 21/09/2026, PC do dono
 
@@ -2837,7 +2915,6 @@ depois de digitar para filtrar.
 | `Contador de Toques` (W1) | tag `toque` em `ZZ TESTE ESTRUTURA` | tag removida sozinha e `Toques na semana` = 1 — exatamente o que a seção de teste da W1 previa |
 | `Loop do closer v2` (W6) | `Reunião foi qualificada` = `Parcial` em `Teste Atendeu` | nota "Veredito do closer: Parcial · motivo: Sem fit · nota 80", oportunidade → `abandoned`, tag `nutricao-90d`, `Data do veredito` = hoje, **etapa intacta em NEGOCIAR** |
 | `Loop do closer v2` (W6) | depois `= Não` (motivo `Sem fit`) | oportunidade → `lost`, etapa intacta. Só passou **depois** de corrigir o Allow Re-entry que a publicação havia zerado |
-
 
 ## Como a comunidade cria workflow sem clicar: API interna (`backend.leadconnectorhq.com`), extensão de JSON e "Copiar workflow" — 21/09/2026, ao vivo em chat
 
