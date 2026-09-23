@@ -1682,3 +1682,27 @@ tocado e nada precisa ser** — quitada a fatura, a entrega volta sozinha.
 Pablo avisado uma vez, com o que fazer (Gerenciador → Pagamentos). Mecanismo registrado em
 LICOES, com a regra de sempre chamar `ads_get_errors` antes de explicar entrega baixa por
 leilão ou público.
+
+**Fechamento do dia 22/09 (21h33 BRT).** Reli tudo no fim do dia, para não deixar o
+registro depender de leitura de meio-dia. Confirmado: 22/09 fechou com **0 impressão e
+R$0** nos seis conjuntos, e `ads_get_errors` continua devolvendo, no nível da conta, "This
+ad account has a balance that needs to be paid before you can publish". Nada mudou desde a
+leitura da tarde — mesma causa, mesmo estado.
+
+Entidades conferidas de novo: seis conjuntos ACTIVE, `updated_time` parado em 16 e 17/09,
+segmentação íntegra (Brasil inteiro, só Taubaté excluída, nenhum estado, advantage_audience
+0). **Ninguém mexeu por fora e não há nada a consertar.**
+
+Uma coisa que vale separar, porque não é a mesma história: os erros de *"Terms of Service
+Not Accepted — you can't run lead ads until your Facebook Page accepts the Lead Generation
+Terms"* aparecem em oito anúncios, e **todos os oito são da leva ZZ FORM ANTIGO**, que está
+pausada desde sempre. Nenhum anúncio ativo carrega esse erro. Não é bloqueio de campanha,
+é lixo antigo. Registro para que a próxima rodada não confunda um com o outro ao ler a
+mesma saída de `ads_get_errors`.
+
+O buraco do funil (32 leads → 7 reuniões, os 25 sem destino conhecido) segue sem
+instrumento, e nesta rodada segue sem novidade: com entrega zerada não entra lead novo,
+então não há o que medir na etapa da conversa. **Não gastei a rodada otimizando criativo**
+— com a conta parada, qualquer leitura de criativo seria leitura de nada.
+
+Pablo já foi avisado uma vez sobre a fatura. Não repito.
