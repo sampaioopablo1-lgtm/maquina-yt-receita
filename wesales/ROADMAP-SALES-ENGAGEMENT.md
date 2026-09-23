@@ -776,6 +776,85 @@ mais nenhuma oportunidade `abandoned`+`nutricao-90d` que carregue
 `telefone-invalido` — falta só aplicar o mesmo patch cirúrgico ao workflow
 já publicado, mesma fila de retoques manuais do resto do projeto.
 
+### G-09 · O único WhatsApp que esta subconta tem entrega mensagem como SMS por baixo — e todo gatilho que protege o lead (R-17) escuta "Canal: WhatsApp" — **FEITO em 23/09/2026 (especificação)**
+**Por quê:** reconferindo a base por API nesta rodada (23/09/2026, ~00h UTC):
+**54 oportunidades** (49 `NOVO LEAD` open + 2 `CONECTAR` lost + 2 `NEGOCIAR`
+open + 1 `NEGOCIAR` lost), 55 campos de contato, mesmas 5 etapas do `FUNIL DE
+VENDAS` — e **4 contatos novos** desde a última leitura registrada
+(`APRENDIZADOS-CRM.md`, "GHL não-oficial (QR) já está recebendo mensagem real
+de teste", 22/09 22h56 UTC, que tinha contado 3): `Sem Nome` (22:34:40 UTC),
+`O Próximo Cliente` (22:54:09), `Pablo Sampaio` (22:56:02) e, o que aquela
+nota ainda não tinha, `Francisca` (23:34:36) — os quatro com `createdBy.source
+= INTEGRATION`, `channel = OAUTH`, mesmo `sourceId`
+`682cd9287059b4173d8b17bd-mawx7is9` (a integração Stevo/QR que o dono
+conectou em 22/09/2026), os quatro sem `source` nem atribuição de anúncio
+(diferente de todo lead do Meta), e os quatro com oportunidade própria em
+`NOVO LEAD`, criada pela Porta de Entrada (G-01) em segundos — confirmando de
+novo, com um caso a mais, que o portão "qualquer origem" continua pegando
+tráfego que não existia quando foi desenhado. Isso já estava registrado como
+aprendizado; o que esta rodada acrescenta é o motivo técnico de um risco
+maior escondido atrás do mesmo fato. A conversa do contato `Francisca`
+(`conversations_search-conversation`, id `5Iy866hqiTZ4TFe34Bew`) mostra
+`lastMessageType: TYPE_CUSTOM_SMS` — não `TYPE_WHATSAPP` — batendo com o que
+`APRENDIZADOS-CRM.md` já tinha achado por outra via ("a conexão da Stevo usa
+o canal de SMS do GHL... a Stevo tem um script que só troca o rótulo 'SMS'
+por 'WhatsApp QR' na tela"). Ou seja: o único WhatsApp que esta subconta tem
+hoje **não é** o tipo nativo que um filtro "Canal: WhatsApp" foi feito para
+reconhecer — é SMS por baixo, com rótulo trocado só na tela. E dois
+workflows críticos de compliance filtram exatamente esse canal por nome: o
+2.9.3 (Interceptação de Sinal — Resposta) e o 2.9.5 (Opt-out por
+Palavra-chave, R-17) — ambos `Customer Replied` — **Canal: WhatsApp**.
+Pesquisado nesta rodada (`WebSearch`, confiança média — documentação e
+blogs de terceiros sobre o gatilho `Customer Replied`, não testado nesta
+subconta): a lista de canais do filtro "Reply Channel" é um conjunto fixo —
+SMS, Email, Calls, Voicemail, Live Chat, WhatsApp, Facebook, Instagram, GBP —
+sem nenhuma categoria própria para "Custom SMS Provider"/canal customizado.
+Se "WhatsApp" nesse filtro corresponde ao canal nativo (API oficial da Meta,
+`TYPE_WHATSAPP`) e não a `TYPE_CUSTOM_SMS`, então **nenhuma resposta que chega
+pela Stevo dispara o 2.9.3 nem o 2.9.5** — e é o único canal de texto
+conectado nesta subconta. Consequência prática, se confirmar: um lead que
+responder "pare de mandar mensagem" pelo número que o dono conectou não
+aciona o DND automático que o R-17 existe para garantir; o único jeito de
+virar DND seria o SDR ler a conversa na mão e lembrar de desligar tudo —
+exatamente o cenário que o R-17 foi escrito para eliminar, e que o G-06/G-07
+já mostraram se repetir toda vez que um canal novo chega depois da guarda
+ter sido escrita. Diferente do G-06/G-07 (canal novo que a documentação nunca
+tinha visto), aqui é mais estreito: o canal já era WhatsApp na intenção do
+projeto o tempo todo — o que mudou é o transporte por baixo dele, que
+nenhuma rodada tinha olhado até a Stevo começar a gerar tráfego de verdade.
+**Não é certeza de tela** (mesma classe de confiança "média" que o G-05 já
+usa para peças do WhatsApp) — falta abrir o construtor de workflow e ver qual
+rótulo o filtro `Reply Channel` mostra para uma resposta já recebida pela
+Stevo; é a mesma pendência de verificação que o G-05 (Templates Meta) e a
+seção 8.26/8.27 (abaixo) já carregam sem bloquear a especificação.
+**Como:** correção aditiva, não substitutiva — reduz o risco mesmo se a
+suposição acima estiver errada. Em todo `Customer Replied` que hoje filtra só
+`Canal: WhatsApp` (2.9.3, 2.9.5, e qualquer nó `Conversation AI`/ação de
+canal WhatsApp que a Qualificação por IA — seção 6 — ou o Agente de IA
+`Conexão — Inbound` — `AGENTE-IA-CONEXAO.md` — vierem a usar), acrescentar
+**SMS** como segundo canal aceito no mesmo filtro, sem tirar WhatsApp: cobre
+os dois cenários possíveis (WhatsApp nativo, se um dia for conectado, e
+Custom SMS da Stevo, que é o que existe hoje) até a tela confirmar qual
+rótulo é o certo. Aplicado nesta rodada aos dois pontos que já existem em
+`build-wesales.md` (2.9.3, 2.9.5); a Qualificação por IA (seção 6) e o
+Agente de IA ainda não estão publicados nem totalmente especificados quanto
+a canal de escuta — ficam com a mesma nota, para quem montar decidir com a
+tela na frente. Cruza com o R-14 (seção 8.26/8.27, "O filtro `WhatsApp DND`
+pode não existir nesta subconta hoje"): aquele texto parte da premissa "esta
+subconta não tem WhatsApp integrado", verdadeira até 21/09/2026 — desde
+22/09/2026 tem, via Stevo. Não muda a conclusão prática dali (checar na tela
+se o filtro aparece), mas a premissa escrita ficou desatualizada; corrigida
+nesta rodada com uma frase, sem reabrir a análise.
+**Zero campo, zero tag novos:** é edição de filtro de gatilho, não de dado.
+Zero escrita no CRM: item de especificação pura, não depende de
+`APROVADO.md` — a edição em si não sai por API (workflow não é editável por
+este conector), então o "Como" acima é o que orienta a montagem manual.
+**Pronto quando (cumprido, na especificação; montagem manual pendente como
+sempre):** 2.9.3 e 2.9.5 escutam WhatsApp **e** SMS no mesmo filtro; a
+premissa desatualizada do R-14 sobre WhatsApp não integrado está corrigida;
+fica registrada a pendência de confirmar na tela qual rótulo a Stevo usa,
+para quem montar decidir sem achismo.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -3456,3 +3535,29 @@ aplicados na tela (F-15 também precisa dos dois templates de e-mail, `[ ]`
 em `APROVADO.md`; G-08 é um retoque de uma linha num workflow já publicado);
 F-14 é checklist de gestor, pronto para uso assim que o número começar a
 discar de verdade.
+
+**G-09 aberto e fechado em 23/09/2026, sessão automática seguinte — lacuna
+que já estava meio escrita, em dois documentos diferentes, e nunca tinha
+sido cruzada.** CRM reconfirmado por API: 54 oportunidades (49 `NOVO LEAD`
+open + 2 `CONECTAR` lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost), 55 campos
+— 4 contatos a mais desde a última leitura (F-10/G-08), todos da integração
+não-oficial Stevo (QR), confirmando que o canal continua ativo e crescendo,
+não foi um teste isolado — G-03/G-04 (peça 2)/F-09/F-10 seguem aguardando o
+dono, sem novidade. A lacuna veio de perguntar, pela primeira vez, se o
+"WhatsApp" que a Stevo entrega é o mesmo "WhatsApp" que os filtros
+`Customer Replied — Canal: WhatsApp` do R-17 e do 2.9.3 foram escritos para
+reconhecer — não é: a Stevo entrega como `TYPE_CUSTOM_SMS`, confirmado pela
+conversa de um dos 4 contatos novos. Corrigido com filtro aditivo
+(WhatsApp **e** SMS) nos dois pontos onde isso já estava especificado, e a
+premissa desatualizada da 8.26/8.27 ("esta subconta não tem WhatsApp
+integrado") corrigida para refletir a Stevo, sem reabrir a análise daquela
+seção. Zero campo, zero tag novos, zero escrita no CRM: item de
+especificação pura, não depende de `APROVADO.md`. **Regra prática,
+generalizável, e diferente das anteriores:** G-06/G-07 acharam canal novo
+que a guarda mais velha nunca tinha visto; aqui o canal já era WhatsApp na
+intenção do projeto desde sempre — o que mudou, sem ninguém decidir isso
+como projeto, foi o transporte por baixo dele. Um filtro por **nome de
+canal** pode estar certo na intenção e errado na prática se a integração que
+implementa aquele canal não for o que o nome sugere — vale conferir sempre
+que uma integração nova ou não-oficial entrar no meio de um canal que já
+tinha proteção escrita. Detalhe completo no próprio G-09, acima.

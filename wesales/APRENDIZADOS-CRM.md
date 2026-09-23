@@ -2,6 +2,28 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## A Stevo continuou gerando contato de teste depois da nota de 22/09 — e a nota nunca tinha virado item do roadmap — 23/09/2026, sessão na nuvem
+
+A entrada "GHL não-oficial (QR) já está recebendo mensagem real de teste"
+(abaixo) registrou 3 contatos de teste às 22h56 UTC de 22/09/2026 e parou
+por aí — um aprendizado, não um item numerado. Nesta rodada (23/09/2026), a
+reconferência de rotina achou um **4º contato** (`Francisca`, 23:34:36 UTC,
+mesmo `sourceId` da Stevo) e, ao investigar a conversa dele por API
+(`conversations_search-conversation`), o dado que faltava: `lastMessageType:
+TYPE_CUSTOM_SMS`. Isso conecta duas notas que estavam soltas em documentos
+diferentes — esta aqui ("a Stevo usa o canal de SMS do GHL por baixo") e o
+filtro `Customer Replied — Canal: WhatsApp` que o R-17 (opt-out) e o 2.9.3
+(sinal quente) usam em `build-wesales.md` — e produz um risco de compliance
+concreto: se o filtro "WhatsApp" do gatilho não reconhece `TYPE_CUSTOM_SMS`,
+nenhuma resposta pela Stevo aciona o DND automático. Promovido a item do
+roadmap como **G-09**, com o fix aditivo (escutar WhatsApp **e** SMS) já
+aplicado ao 2.9.3/2.9.5. **A regra que fica, generalizável:** um achado
+registrado só aqui, sem virar item numerado, não é revisitado por rotina
+nenhuma — esta entrada ficou parada uma rodada inteira apesar de ter os dois
+fatos (canal técnico da Stevo, filtro por nome no build) já escritos em
+documentos diferentes do projeto. Cruzar aprendizado com item aberto (não só
+aprendizado com aprendizado) devia ser parte do sweep de toda rodada.
+
 ## Ligação de WhatsApp pelo SDR de dentro do GHL, sem permissão do lead, não existe em nenhum plano — 22/09/2026, sessão do PC
 
 Pesquisado a pedido do dono ("talvez exista plano pago"):
