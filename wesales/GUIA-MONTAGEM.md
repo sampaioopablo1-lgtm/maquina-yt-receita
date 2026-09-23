@@ -1012,6 +1012,12 @@ para a próxima pessoa que abrir este repositório.
 
 ### 1. Os 22 arquivos de `workflows-json/` não dizem o que está no ar
 
+> **Atualizado em 23/09/2026:** depois do refresh ao vivo (`482de1f`) os dumps
+> passaram a mostrar `status: published` em 24 de 26 — então o `draft` era
+> mesmo artefato de fotografia, e hoje o arquivo **responde** "está no ar?".
+> O que **não** mudou: `triggers: []` em todos os 26, mesmo refeitos. O gatilho
+> não entra nesta exportação. Detalhe na seção 6 do `ESTADO-E-PLANO.md`.
+
 Todos os 22 dumps trazem `status: draft` e `triggers: []` — **os 22, sem
 exceção**. Isso não significa que nada está publicado: significa que o dump é
 a fotografia do payload **antes** de publicar, e que o gatilho é gravado por
