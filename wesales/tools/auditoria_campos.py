@@ -28,6 +28,9 @@ Limite, o mesmo das outras duas auditorias: le os dumps de
 `wesales/workflows-json/`, que podem estar defasados da conta. Dump com backup
 irmao identico em `updatedAt` e pre-patch e nao responde nada.
 
+As duas guardas de frescor ficam no `_frescor.py`, compartilhado pelas tres
+auditorias: elas imprimem o mesmo aviso porque leem os mesmos dumps.
+
 Uso:  python3 wesales/tools/auditoria_campos.py
 """
 import glob
@@ -36,6 +39,8 @@ import os
 import re
 import sys
 from collections import defaultdict
+
+from _frescor import aviso
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DUMPS = os.path.join(AQUI, "..", "workflows-json")
@@ -99,6 +104,7 @@ def varre(campos):
 
 
 def main():
+    aviso(DUMPS)
     campos = inventario()
     if not campos:
         print("nenhum campo personalizado de contato em %s" % INVENTARIO)

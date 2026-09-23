@@ -7594,3 +7594,51 @@ acesso") ou de pedir para quem administra este conector adicionar as duas
 ferramentas que faltam (`locations_create-custom-field`,
 `calendars_create-calendar`, nomeação hipotética). Detalhe completo,
 endpoint por endpoint, com todas as fontes: `APRENDIZADOS-CRM.md`.
+
+---
+
+## 2.35 `_frescor.py` — a guarda de dump velho estava em uma das três auditorias, e as três leem os mesmos dumps
+
+Em 23/09/2026 a `auditoria_tags.py` ganhou duas guardas de frescor, depois de
+ela ter reportado 5 achados lendo um dump de 22/09 16:27 — e 3 deles já
+estavam resolvidos na conta havia uma hora. A correção funcionou, mas ficou
+onde o erro tinha acontecido, e não onde ele pode acontecer:
+
+| auditoria | lê dumps de `wesales/workflows-json/` | avisava de dump velho |
+|---|---|---|
+| `auditoria_tags.py` | sim | sim |
+| `auditoria_refs.py` | sim | **não** |
+| `auditoria_campos.py` | sim | **não** |
+
+As três respondem perguntas diferentes sobre exatamente o mesmo material. Um
+dump 28 h atrasado engana a `refs` ("este workflow aponta para um arquivado")
+e engana a `campos` ("ninguém escreve neste campo") do mesmo jeito que enganou
+a `tags`. Quem rodasse só uma das duas sem aviso não tinha como saber.
+
+As duas funções saíram da `auditoria_tags.py` para o módulo
+`wesales/tools/_frescor.py`, e as três auditorias passaram a chamar
+`aviso(DUMPS)` como primeira linha do `main()`:
+
+1. **`backup_mais_novo`** — prova direta: existe backup irmão em `_antes-*/`
+   com `updatedAt` mais novo que o arquivo principal? Então alguém aplicou
+   patch na conta e não re-exportou. Só enxerga workflow que tem backup irmão.
+2. **`muito_atras`** — heurística: o arquivo está 12 h ou mais atrás do mais
+   novo da pasta? Não prova nada (workflow que ninguém toca há dias aparece
+   aqui, e é correto que apareça), mas pega o caso que a (1) não vê. Foi assim
+   que apareceu o `AGENDAR Estagnado`, dizendo `published` com dump de 28 h
+   antes, depois de o dono já tê-lo despublicado.
+
+Saída de hoje, idêntica nas três: 7 dumps possivelmente defasados (`ZZ TESTE
+API` 31 h, `ZZ TESTE W6` 29 h, `AGENDAR Estagnado`, `Alerta de Speed-to-lead`,
+`Contador de Toques` e `Lead Esquecido em NOVO LEAD` 28 h, `Fila Travada`
+27 h), e 0 com backup irmão mais novo.
+
+Nenhum resultado de auditoria mudou com a refatoração: `tags` continua sem tag
+de limpeza pulada sem segunda rede, `refs` sem referência para arquivado, e
+`campos` com os mesmos 4 campos nem escritos nem lidos (`Canal que conectou`,
+`Hora da conexão`, `Hora do retorno`, `Necessidade`). As três continuam
+saindo com código 0.
+
+A lição que o módulo carrega no próprio docstring, para não se perder de novo:
+**achado tirado de dump é CANDIDATO, não item** — só vira item depois de
+confirmação ao vivo, pela API ou medindo o efeito.
