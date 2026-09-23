@@ -5653,3 +5653,62 @@ sucessório, nacional, 201 ativos — **regra do ticket fechada em duas partes: 
 decide escritório vs app, o tema decide se vem curso junto**; defeito dominante aqui é
 título vazio, 13 de 25 páginas; **defeito novo: carrossel com o mesmo texto repetido em
 todos os cards**).
+
+---
+
+## IMOBILIÁRIA DE TICKET ALTO — apartamento na planta e lançamento (23/09, nacional)
+
+Varredura: `apartamento na planta lançamento`, BR, ACTIVE. **1.793 anúncios ativos** — o
+maior combo já varrido, o dobro da advocacia de família. **26 páginas distintas na
+primeira página de resultados, 26 alvos: nenhuma descartada.**
+
+É a confirmação mais limpa da regra do ticket, no terceiro eixo seguido. **Zero app, zero
+portal, zero infoproduto.** Só corretor, imobiliária e incorporadora. Compare com o MEI,
+onde metade era aplicativo. Imóvel na planta é caro demais para app vender e específico
+demais para virar curso — então só quem faz o serviço anuncia.
+
+**Trilha A (dono no nome da página) — 13 de 26:** Isabela Corretora, Henrique Berticelli,
+Miriam Sepulvida Corretora Vivaz, Brüno Deretti — Corretor de Imóveis, Ignácio Figueiredo,
+Corretor Altair Barbosa Gouveia, Fabio Rocha — Consultor Imobiliário, Yan Coan Corretor de
+Imóveis, RodolfoRocha.SP, Jeremias Caetano Imóveis, Corretor José Aparecido, Celso
+Ferracini, Ademir — Consultor de Negócios Imobiliários.
+
+**Demais alvos (13):** Consultor Orion, Torresul Imobiliária Piçarras, Conect Home Imóveis,
+APÊ FÁCIL SP, Joal Empreendimentos, INC Uberaba — Vendas, AD Imóveis, Prospere Imóveis,
+Incorporare Empreendimentos, Apartamentos Grande São Paulo, S2 Imob, Empreendimentos na
+Planta, RRE Soluções Imobiliárias.
+
+**Defeitos:**
+- **DEFEITO NOVO — URL crua no lugar da headline**: Isabela Corretora roda com o título
+  `api.whatsapp.com`. Não é título vazio, é pior: é o endereço do link aparecendo onde
+  deveria estar a promessa. O leitor lê um domínio.
+- **Título vazio**: Joal Empreendimentos, AD Imóveis, Altair Barbosa, Fabio Rocha, S2 Imob,
+  José Aparecido.
+- **Repetição em escala** — aqui é o defeito dominante: Brüno Deretti mantém **14 anúncios
+  ativos alternando só DUAS headlines**; Ademir roda 5 com o mesmo `📍Zona Norte` (um
+  título que é só localização, não promete nada); RRE roda 4 iguais. Gastam como quem testa
+  e entregam como quem repete.
+- **CTA que manda o leitor trabalhar**: "CADASTRE - SE AGORA!" (Consultor Orion),
+  "Cadastre-se!!" (APÊ FÁCIL), "Clique em 'Saiba mais' e receba valores, disponibilidade e
+  todas as condições..." (Jeremias Caetano — a headline inteira é instrução de uso).
+- **Texto malfeito**: "tudo oque voce precisa em um só lugar," (Apartamentos Grande São
+  Paulo) — erro de português e vírgula solta no fim.
+
+**Quem escreve bem, para munição:** **"O metro quadrado que você não comprou vai custar o
+dobro em 2 anos"** (Brüno Deretti — a melhor do nicho: não vende o imóvel, cobra o preço de
+não agir; é a mesma mecânica de "boca a boca tem teto", só que com número); **"Invista na
+Tabela Zero em Porto Belo-SC"** (mesmo anunciante — termo de dentro do mercado, que
+qualifica quem já sabe o que é); **"More à 5min do Iguatemi"** (Prospere — benefício de
+lugar em cinco palavras, sem adjetivo).
+
+Observação para o nosso criativo: o defeito de repetição aqui é o mesmo que a nossa REGRA
+V3 existe para evitar. Deretti tem 14 anúncios e 2 mensagens. Nós temos 5 por conjunto e
+5 mensagens.
+
+LISTA DE ATAQUE: **152 → 178**.
+
+Combos varridos até aqui: + imobiliária ticket alto (apartamento na planta/lançamento,
+nacional, **1.793 ativos, o maior de todos**; 26 páginas, 26 alvos, **nenhuma descartada —
+a regra do ticket no seu caso mais limpo: caro demais para app, específico demais para
+curso**; defeito dominante é repetição em escala; **defeito novo: URL crua no lugar da
+headline**).
