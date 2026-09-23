@@ -6252,3 +6252,67 @@ de medição e as duas opções de desenho para o dono escolher por cadência);
 não repetir a mesma lacuna que o G-16 já tinha corrigido para si mesmo.
 Zero escrita no CRM, zero campo, zero tag: item de coerência entre
 documentos e especificação de decisão.
+
+## Ler o JSON do workflow (`next`/`parent`/`parentKey`) prova comportamento que o texto do `build-wesales.md` só descreve — e quase me fez reportar um bug catastrófico que era código morto — G-18, 23/09/2026, sessão automática
+
+O G-13 tinha deixado uma pendência explícita, nunca promovida a item: "o
+ramo `Atendeu` do `Pós-ligação v2` não tira o lead da `Cadência 12x30`
+(confirmado no dump)". Em vez de confiar no texto, abri
+`wesales/workflows-json/Pós-ligação v2.json` e reconstruí o grafo de
+execução na mão: cada nó tem `id`, `next` (ou lista, se é um `if_else` com
+`branches[].id`), `parent`/`parentKey` (metadado de canvas, não de
+execução). Um `grep` por nome de ação não basta — o mesmo `if_else` por
+`Resultado da tentativa` existe **duas vezes** no arquivo (uma para cada
+lado de um canal-check por tag `fila-wa`, herdado de antes da régua virar
+100% telefone), e só uma das duas cópias é alcançada pela operação real
+hoje. Script usado (não ficou como ferramenta, foi só investigação ad hoc):
+BFS a partir de um nó, seguindo `next`, imprimindo `type`/`name`/atributos
+relevantes até bater num nó sem `next` (terminal) ou numa lista (bifurcação).
+
+**O quase-erro:** ao rastrear a cópia "morta" (alcançável só se `fila-wa`
+sobreviver até o ramo `Atendeu`), achei um caminho que termina em
+`Math: Conexões telefone +1` **sem nenhuma tag, tarefa ou nota depois** —
+parecia que o canal telefone (100% da operação) nunca gerava a tarefa
+`[FECHAR HORÁRIO]`, um bug catastrófico. Só não virei isso num achado
+antes de confirmar duas coisas: (1) qual das duas cópias do switch a
+operação real alcança (a que tem `fila-wa` **ausente** no canal-check
+externo, não a que eu estava seguindo), e (2) que a cópia real, rastreada
+por completo, está inteira — tem a tarefa, a tag, a nota. O caminho quebrado
+só é alcançado quando `fila-wa` está presente **duas vezes seguidas** (no
+canal-check externo e de novo dentro do próprio ramo `Atendeu`), e a régua
+publicada nunca deixa essa tag presente nesse ponto — é código morto pelas
+mesmas tags que o levariam até ali, não um caminho que lead real percorre.
+Mesma classe de alarme falso que `auditoria_tudo.py` já registrou (achado
+que "tem um gêmeo" e o gêmeo muda a leitura).
+
+**A parte que sobreviveu à conferência, e virou G-18:** independente da
+cópia morta, **nenhuma** das duas cópias do ramo `Atendeu` tem
+`remove_from_workflow` — diferente do ramo `Não ligar`, que tem, nas duas
+cópias. Conferi também o dump da própria `Cadência 12x30` antes de escrever
+qualquer coisa: ela já se auto-remove no caso comum (nó 10 de cada
+tentativa, `remove_from_workflow: este`, mas só enquanto o `Aguardar
+resultado` daquela tentativa específica ainda está ativo). O que falta não
+é "o lead nunca sai" — é a segunda linha de defesa, independente de timing,
+que o `Não ligar` já tem e o `Atendeu` não, para quando a classificação
+chega fora da janela da tentativa.
+
+**Regra prática, generalizável:** ao investigar comportamento de workflow
+publicado, ler o JSON (grafo `next`/`branches`) prova o que o texto do
+`build-wesales.md` só descreve — e às vezes o texto e o dump divergem sem
+que ninguém tenha mentido (o texto foi escrito quando só uma cópia existia,
+o dump carrega as duas). Antes de reportar um achado como grave, sempre
+perguntar: **qual caminho a operação real percorre hoje, e o achado está
+nesse caminho ou num vizinho que parece igual mas nunca é alcançado?** A
+mesma pergunta que já salvou o F-08/F-09 de decisão baseada em número
+vencido, aqui aplicada a grafo de execução em vez de texto.
+
+**Correção aplicada:** achado promovido a `G-18` no
+`ROADMAP-SALES-ENGAGEMENT.md` (por quê, com a precisão sobre gravidade
+registrada explicitamente para não superestimar; como; pronto quando);
+patch novo `wesales/tools/patch_remove_atendeu.py`, validado por `--dump`
+(142 → 146 nós, `exit 0`); `build-wesales.md` (seção 4, ramo `Atendeu`)
+atualizado para não repetir a pendência como "em aberto" depois de ela ter
+"Pronto quando" próprio; `GUIA-MONTAGEM.md` (retoque do nó 2/"Total de
+conexões") anotado para não deixar alguém "consertar" a cópia morta achando
+que é a que roda de verdade. Zero escrita no CRM, zero campo, zero tag: item
+de especificação e patch validado por dump, não depende de `APROVADO.md`.

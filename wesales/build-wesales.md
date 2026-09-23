@@ -5844,13 +5844,18 @@ mudar. Detalhe completo na seção 2.24.
 **O que este ramo não faz mais, e por quê:** não dispara mais o Mestre de
 saída por mudança de etapa (§3, gatilho 1) — porque não há mudança de etapa.
 A oportunidade só entra em `REUNIÃO DE DIAGNÓSTICO` pelo `Pós-agendamento v2`
-quando a reunião é de fato marcada (D4). **Pendência em aberto, não
-resolvida por esta correção:** com isso, o contato conectado e ainda não
-agendado permanece inscrito em `Cadência 12x30` (o dump não mostra
-`remove_from_workflow` no ramo `Atendeu`, diferente do ramo `Não ligar`) —
-se isso é intencional (a régua continua tentando até o lead fechar horário)
-ou um vazamento, não está registrado em nenhum documento deste projeto.
-Fica como pergunta para quem revisar a fase "fechar horário" na tela.
+quando a reunião é de fato marcada (D4). **Era pendência em aberto, não
+resolvida por esta correção — precisada e fechada em G-18
+(`ROADMAP-SALES-ENGAGEMENT.md`):** a `Cadência 12x30` já se auto-remove no
+caso comum (nó 10 do próprio molde, `remove_from_workflow: este`, enquanto o
+`Aguardar resultado` daquela tentativa ainda está ativo) — o que faltava era
+a segunda linha de defesa que o ramo `Não ligar` já tem no `Pós-ligação v2`
+(o dump não mostrava `remove_from_workflow` no ramo `Atendeu`), para o caso
+em que a classificação chega fora da janela da tentativa ativa. Patch
+escrito e validado por dump (não aplica sozinho — edição de workflow
+publicado não sai por este conector): `wesales/tools/patch_remove_atendeu.py`,
+`--dump` → `exit 0`. Falta só o dono rodar `--aplicar` ou aplicar pela
+tela; detalhe completo em G-18.
 
 O nó 9 (task) nasce para **toda** ligação atendida, sem olhar se a conversa
 já mostrou que não há fit — é a lacuna **L-08** (`briefing-sdr.md`), fechada

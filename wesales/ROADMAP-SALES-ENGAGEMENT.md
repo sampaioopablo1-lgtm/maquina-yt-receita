@@ -1547,6 +1547,99 @@ por `auditoria_condicoes.py`) e 9e (cresceu deste item 1-caso para o G-17
 
 ---
 
+### G-18 · O ramo `Atendeu` do `Pós-ligação v2` é o único ramo de saída sem a segunda linha de defesa que o `Não ligar` já tem — pendência 2 do G-13, nunca promovida a item próprio — patch escrito e validado por dump, falta aplicar na tela — **FEITO em 23/09/2026 (especificação + patch validado por dump)**
+
+**Por quê:** o G-13 (acima) já tinha registrado, como pendência explícita e
+não resolvida, que o ramo `Atendeu` do `Pós-ligação v2` não remove o
+contato da `Cadência 12x30` — confirmado no dump, ao contrário do ramo
+`Não ligar`, que tem `remove_from_workflow` desde a correção do F-05. Essa
+pendência ficou dentro do texto do G-13 por dois dias sem ganhar "Pronto
+quando" próprio — o mesmo padrão que o G-16/G-17 já descreveram para outros
+achados ("achado técnico completo não é a mesma coisa que achado
+rastreável"). Reli o G-13 seguindo a própria instrução desta seção (reler
+pendência represada antes de procurar lacuna nova) e fui direto ao dump para
+confirmar, não deduzir do texto.
+
+**Precisão sobre a gravidade, para não superestimar o achado (conferido no
+dump da própria `Cadência 12x30`, não só no do `Pós-ligação v2`):** a
+`Cadência 12x30` já tem, publicada, sua própria saída por tentativa — o nó
+10 do molde (`build-wesales.md`, seção 2.4; `IMPLEMENTACAO-WORKFLOWS.md`,
+linha do nó 10) faz `Remove from Workflow: este` quando `Resultado da
+tentativa` é `Atendeu` (entre outros) **enquanto o "Aguardar resultado"
+daquela tentativa específica ainda está ativo** (até 18:30 do mesmo dia) —
+confirmado no dump: 12 nós `remove_from_workflow` (um por tentativa),
+todos apontando para a própria `Cadência 12x30`. Ou seja, **no caso comum
+(SDR liga e classifica no mesmo dia, dentro da janela da tentativa), o lead
+já sai sozinho.** O que falta é a **segunda linha de defesa** que o ramo
+`Não ligar` do `Pós-ligação v2` tem e o ramo `Atendeu` não: se a
+classificação `Atendeu` chega **fora** da janela ativa daquela tentativa —
+por exemplo, o SDR corrige o resultado depois (de `Não atendeu` para
+`Atendeu`, num retorno tardio) enquanto a cadência está no `Wait` de dias
+entre tentativas, não no `Aguardar resultado` — o nó 10 daquela tentativa já
+passou e não há outro ouvindo o mesmo evento. É exatamente o cenário que
+justificou o `remove_from_workflow` do ramo `Não ligar` (proteção
+independente de timing) — só que aplicado só lá, nunca ao `Atendeu`. Não é
+"todo lead atendido continua sendo chamado para sempre"; é "falta a mesma
+rede de segurança que os outros ramos de saída já têm para quando a
+classificação não acontece no instante exato em que a régua está olhando".
+
+**Confirmado no `wesales/workflows-json/Pós-ligação v2.json` (version 7),
+nó a nó, não por grep de texto:** o switch por `Resultado da tentativa`
+existe em **duas cópias** dentro do workflow — uma para cada lado do nó 2
+(canal-check por tag `fila-wa`, herdado de quando a régua ainda ligava por
+WhatsApp; `d52e61d` tirou o canal mas as duas cópias continuam publicadas).
+Dentro do ramo `Atendeu`, cada cópia tem **ainda** um segundo If/Else por
+canal (nó 1 da tabela do `build-wesales.md` §4) — quatro caminhos ao todo,
+e nenhum termina em `remove_from_workflow`:
+
+| caminho | nó terminal | vale hoje? |
+|---|---|---|
+| cópia 1 (`fila-wa` presente), ramo WA | `627573c8…` | não — `fila-wa` nunca fica presente na régua atual |
+| cópia 1 (`fila-wa` presente), ramo telefone | `a39fe8fc…` | **não — é também um beco sem saída, ver nota abaixo** |
+| cópia 2 (`fila-wa` ausente), ramo WA | `ca6a4dba…` | não, mesmo motivo da linha 1 |
+| cópia 2 (`fila-wa` ausente), ramo telefone | `b5167da9…` | **sim — é o caminho real, 100% da operação hoje** |
+
+**Nota que quase virou um achado maior, e não é — registrada para quem
+revisar não redescobrir o susto:** o caminho `a39fe8fc…` (cópia 1, telefone)
+não só carece do `remove_from_workflow` como é um beco sem saída completo —
+só `Math: Conexões telefone +1`, sem tag `conectado-hoje`/`fechar-horario`,
+sem `[FECHAR HORÁRIO]`, sem nota. Parecia um bug catastrófico (o canal
+telefone é 100% da operação) até eu confirmar que este caminho específico
+só é alcançado quando `fila-wa` está presente **duas vezes seguidas** (no
+nó 2 do workflow e de novo dentro do próprio ramo `Atendeu`) — e a régua
+publicada nunca deixa essa tag presente nesse ponto. É código morto pelas
+mesmas tags que o levariam até ali, não um caminho que lead real percorre.
+O caminho que **de fato** roda para 100% da operação (`fila-wa` ausente nas
+duas checagens) é o da última linha da tabela, e esse está completo em tudo
+— só falta o `remove_from_workflow`.
+
+**Como:** `wesales/tools/patch_remove_atendeu.py`, novo nesta rodada — clona
+a mesma ação que o ramo `Não ligar` já usa (`remove_from_workflow` com a
+mesma lista de `workflow_id`: `Cadência 12x30`, `Cadência 12x30 — parte 2`
+e um terceiro id sem workflow vivo nos dumps atuais, inofensivo, herdado da
+mesma lista) — não "All Except Current Workflow": essa opção removeria o
+lead também do `Fechar Horário`, que a mesma execução do ramo `Atendeu`
+acabou de inscrever pela tag `fechar-horario` alguns nós antes, e a corrida
+entre os dois workflows não é testável por este script (mesma ressalva já
+registrada na seção 2.9.5 do `build-wesales.md` para outro par). O nó novo
+entra **depois** do último nó de cada um dos quatro caminhos (nunca antes),
+para dar ao `Fechar Horário` a maior janela possível para começar a própria
+inscrição primeiro. Validado com `--dump` nesta rodada, sem tocar a conta:
+142 → 146 nós, ids únicos, nenhum pai órfão, os 4 nós novos com o alvo
+certo — `exit 0`.
+
+**Pronto quando:** o dono rodar `patch_remove_atendeu.py --aplicar` no PC
+(ou aplicar o mesmo `Remove from Workflow` nos quatro pontos pela tela) e o
+script confirmar `status=published` com os 4 nós novos gravados; depois
+disso, o ramo `Atendeu` do `Pós-ligação v2` passa a remover o lead da
+`Cadência 12x30` **também** quando a classificação chega fora da janela da
+tentativa ativa — a mesma rede de segurança que o ramo `Não ligar` já tem,
+cobrindo o caso que o nó 10 da própria `Cadência 12x30` (que já resolve o
+caso comum, mesmo dia) não alcança. Zero tag nova, zero campo novo, zero
+escrita no CRM por este item: não depende de `[x]` em `APROVADO.md`
+(edição de workflow publicado não sai por este conector).
+
+---
 
 ## Bloco 1 — Medição (a maior lacuna)
 
@@ -4639,3 +4732,32 @@ conector). Detalhe completo no próprio G-17, acima.
 Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1), G-16 e G-17 são as
 **sete** decisões que esperam o dono — a próxima rodada sem tela nem decisão
 desbloqueada repete o mesmo caminho de sempre.
+
+**G-18 aberto e fechado em 23/09/2026, sessão automática seguinte — a
+pendência 2 do G-13 (o ramo `Atendeu` sem a segunda linha de defesa que o
+`Não ligar` já tem contra falha de timing) finalmente ganhou "Pronto quando"
+próprio, patch escrito e validado por dump.** Conferido também no dump da
+própria `Cadência 12x30` — ela já se auto-remove no caso comum (mesmo dia,
+dentro da janela da tentativa); o que faltava era só a rede de segurança
+para quando a classificação chega fora dessa janela, não a remoção em si.
+CRM reconfirmado por API nesta rodada: 56 oportunidades e 56 campos
+de contato, mesma composição da leitura do G-17 — G-03, G-04 (peça 2), F-09,
+F-10, G-11 (item 1), G-16 e G-17 seguem aguardando o dono, sem novidade.
+Não é lacuna nova: é a mesma instrução de sempre (reler pendência represada
+antes de procurar achado novo) aplicada a uma frase que o próprio G-13 já
+tinha escrito e ninguém tinha revisitado. A diferença deste item para os
+sete acima: **não é decisão do dono** — é patch pronto
+(`wesales/tools/patch_remove_atendeu.py`, validado por `--dump`, `exit 0`),
+mesma classe de F-11/F-12/F-13/F-15/G-07/G-08/G-11 (itens 2/3): espera só
+ser aplicado na tela ou rodado no PC, não uma escolha entre opções. Zero
+tag, zero campo, zero escrita no CRM.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1), G-16 e G-17 continuam
+sendo as sete decisões que esperam o dono; F-11, F-12, F-13, F-15, G-07,
+G-08, G-11 (itens 2/3) e **G-18** têm desenho completo (G-18 com patch já
+validado por dump) e só faltam ser montados/aplicados na tela ou no PC; F-14
+é checklist de gestor, pronto para uso assim que o número começar a discar
+de verdade. A próxima rodada sem tela nem decisão desbloqueada repete o
+mesmo caminho de sempre — agora também conferindo se o dono já rodou algum
+dos patches represados (G-17, G-18) antes de assumir que continuam abertos.
