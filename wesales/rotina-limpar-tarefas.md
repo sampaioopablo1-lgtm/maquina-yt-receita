@@ -149,3 +149,60 @@ tarefa nascendo e não há SDR trabalhando). Fuso da subconta.
 Primeira semana: rode com a fila pequena e leia o resumo todo dia. O que você
 está procurando é "Tarefas concluídas" alto de forma consistente — isso não é
 sinal de rotina eficiente, é sinal de SDR não classificando as tentativas.
+
+---
+
+## O token existe, o agendador não — conferido em 23/09/2026
+
+Depois do `0aebc38` (integração privada "Faxina de Tarefas" criada com 4 escopos,
+token guardado no segredo `GHL_TOKEN`), a Faxina tem **duas** encarnações e
+nenhuma das duas está agendada de fato:
+
+| Caminho | O que é | Estado |
+|---|---|---|
+| o prompt acima | rotina horária de agente, dias úteis 08:00–19:00, fuso da subconta | é a forma descrita neste documento; depende de alguém colar o prompt numa rotina |
+| `wesales/tools/faxina_tarefas.py` | script Python, lê `GHL_TOKEN` do ambiente, validado com token real no `0aebc38` | **nada o chama**: nenhum `.github/workflows/*.yml` cita `GHL_TOKEN` nem `wesales/` |
+
+Conferido com `git grep -ln 'GHL_TOKEN' .github/` e `git grep -ln 'wesales'
+.github/workflows/` — os dois vêm vazios. Então o segredo está guardado e sem
+consumidor, e o script está validado e sem gatilho. Não é defeito de código: é
+um elo que falta.
+
+**Duas saídas, e elas não se misturam:**
+
+1. **Actions**, se a Faxina é para rodar sozinha: um `.github/workflows/` com
+   `schedule` (hora em hora nos dias úteis, convertendo para UTC) chamando
+   `python wesales/tools/faxina_tarefas.py` com `GHL_TOKEN: ${{ secrets.GHL_TOKEN }}`.
+   É o caminho que o segredo já pressupõe.
+2. **Rotina de agente**, se é para continuar como está descrito acima: aí o
+   `GHL_TOKEN` não serve, porque sessão na nuvem não tem a API interna nem o
+   segredo — a rotina faz o trabalho pelo MCP, e o script fica como ferramenta
+   de PC.
+
+Escolher uma. Ter as duas meio-feitas é o formato em que ninguém percebe que a
+faxina não rodou.
+
+### Nota de segurança: o PIT antigo pode ser revogado sem quebrar nada aqui
+
+Fica registrado junto porque saiu da mesma varredura. O Private Integration
+Token que apareceu no histórico de chat de uma sessão anterior está com a
+rotação **recomendada e nunca confirmada**. Varri o repositório:
+
+- `wesales/tools/ghl_api.py` usa o **bearer da API interna**
+  (`wesales/.local/_ghl_bearer.txt`, renovado por sessão de navegador), não PIT.
+- `faxina_tarefas.py` usa o `GHL_TOKEN` **novo**, da integração do `0aebc38`.
+- `conectar.md` descreve o caminho por PIT como receita manual, com
+  `${WESALES_PIT}` — variável, não valor.
+- `git grep` por `pit-[0-9a-f]{8}-` e por JWT em `wesales/` volta **vazio**:
+  nenhum token versionado.
+
+Ou seja: **nenhum consumidor automatizado do PIT antigo dentro deste
+repositório** — revogar não quebra nada daqui. O limite honesto é esse "daqui":
+se aquele PIT foi colado em algo fora do repositório (Zapier, Make, n8n, um
+serviço próprio), revogar quebra aquilo, e isso eu não tenho como ver. Se não
+foi, é um clique sem risco em Settings → Private Integrations.
+
+Conferido também que o `criar_pit.js` não vaza o token novo: ele escreve só em
+`stdout` (para ser canalizado ao `gh secret set`) e os prints vão para
+`wesales/.local/`, que está no `.gitignore` (linha 18). Nenhum `pit-*.png`
+rastreado no git.
