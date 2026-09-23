@@ -20,16 +20,34 @@ import ghl_api as g
 
 
 def put(c, cur, templates):
-    """Mesmo corpo do g.publicar (preserva allowMultiple etc.)."""
-    return c.request("PUT", "/workflow/" + g.LOC + "/" + cur["id"],
-                     {"name": cur.get("name"), "status": "published",
-                      "version": cur.get("version", 1),
-                      "allowMultiple": cur.get("allowMultiple", True),
-                      "stopOnResponse": cur.get("stopOnResponse", False),
-                      "allowMultipleOpportunity": cur.get("allowMultipleOpportunity", False),
-                      "timezone": cur.get("timezone", "account"),
-                      "window": cur.get("window"),
-                      "workflowData": {"templates": templates}})
+    """Mesmo corpo do g.publicar (preserva allowMultiple etc.).
+
+    **Levanta `RuntimeError` se a conta recusar o PUT.** Nao devolve erro em
+    silencio, de proposito: em 23/09/2026 o `patch_portao_inbound.py` religou
+    `parentKey` e esqueceu `next`, a conta respondeu 400, e como quem chamava
+    esta funcao nao lia a resposta, o script seguiu adiante e imprimiu um
+    resumo de sucesso. Nove dos dezessete pontos de chamada nao conferiam o
+    retorno; conferir em cada um seria esquecer de novo no proximo patch, e
+    quem esquece nao ve. Aqui ninguem esquece.
+
+    Quem precisa seguir apesar da recusa (varredura de varios workflows, por
+    exemplo) captura a excecao — mas ai a escolha esta escrita no codigo.
+    """
+    r = c.request("PUT", "/workflow/" + g.LOC + "/" + cur["id"],
+                  {"name": cur.get("name"), "status": "published",
+                   "version": cur.get("version", 1),
+                   "allowMultiple": cur.get("allowMultiple", True),
+                   "stopOnResponse": cur.get("stopOnResponse", False),
+                   "allowMultipleOpportunity": cur.get("allowMultipleOpportunity", False),
+                   "timezone": cur.get("timezone", "account"),
+                   "window": cur.get("window"),
+                   "workflowData": {"templates": templates}})
+    if not isinstance(r, dict) or r.get("_error"):
+        raise RuntimeError(
+            "PUT RECUSADO pela conta em %r (%s nos enviados): %s"
+            % (cur.get("name"), len(templates),
+               json.dumps(r, ensure_ascii=False)[:400] if r is not None else "sem resposta"))
+    return r
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 BACKUP = os.path.join(AQUI, "..", "workflows-json", "_antes-patch-funil")

@@ -1,15 +1,15 @@
 {
   "campos": {
-    "achados": 4,
-    "porque": "`Canal que conectou`, `Hora da conexão`, `Hora do retorno`, `Necessidade` — nem escritos nem lidos por workflow. Os tres ultimos o SDR preenche na tela (GUIA-SDR.md). O `Canal que conectou` era a pendencia 9c, DECIDIDA pelo dono em 23/09/2026: automatico onde o ramo ja sabe, manual no resto — falta o patch no `Pós-ligação v2` e nos ramos de resposta do WhatsApp, e ate ele entrar o campo continua aparecendo aqui. Esta auditoria nao ve lista inteligente, entao `so escrito` nunca e orfao."
+    "achados": 3,
+    "porque": "`Hora da conexão`, `Hora do retorno`, `Necessidade` — nem escritos nem lidos por workflow, e os tres o SDR preenche na tela (`GUIA-SDR.md`). Esta auditoria nao ve lista inteligente, entao `so escrito` nunca e orfao. Caiu de 4 para 3 em 23/09/2026 21:4x UTC: o `Canal que conectou` (pendencia 9c) passou a ser gravado em 5 pontos — `Interceptação de Sinal — Resposta v2` (1), `Pós-ligação v2` (3), `Triagem da Nutrição` (1) — quando o dono aplicou `patch_canal_conectou.py` e `patch_canal_posligacao.py`. Ver `build-wesales.md` §2.41 e §2.43."
   },
   "condicoes": {
     "achados": 0,
     "porque": ""
   },
   "portoes": {
-    "achados": 2,
-    "porque": "`Cadência Inbound` e `Recuperação de No-show` consomem capacidade (fila-tel/fila-wa/toque) sem ler `sdr-lotado` nem o teto semanal. G-17, DECIDIDO em 23/09/2026 na opcao (A): as duas respeitam o teto. Os dois patches estao escritos e validados (`patch_portao_inbound.py`, `patch_portao_noshow.py`) e esperam o dono rodar `--aplicar` — a conta sai de 2 para 0 quando isso acontecer. Caiu de 3 para 2 porque o `Reengajamento 90 dias` era dump de workflow morto, substituido pela Nutricao em 22/09; arquivado em `_arquivo/` no commit `5659ac2`. Ver a correcao em `build-wesales.md` §2.40."
+    "achados": 0,
+    "porque": "Zerado em 23/09/2026 21:40 UTC, quando o dono rodou `patch_portao_inbound.py --aplicar` (`Cadência Inbound` 272 -> 322 nos) e `patch_portao_noshow.py --aplicar` (`Recuperação de No-show` 61 nos): as duas cadencias passaram a ler `sdr-lotado` e o teto semanal `c1xuCuLyJheHOQoJ3grH` em todos os toques. Era o G-17, decidido na opcao (A). Se este numero voltar a subir, a promessa do `GUIA-SDR.md` linhas 74-76 ficou falsa de novo — nao e para 'restaurar a base', e para consertar a cadencia. Ver `build-wesales.md` §2.37, §2.38 e §2.43."
   },
   "refs": {
     "achados": 0,

@@ -78,8 +78,48 @@ def le(bruto, chave):
     return ('"%s"' % chave) in bruto
 
 
+def toque_consome(tpl, prefixos, prefixo):
+    """Este toque COLOCA o lead na fila, ou so arruma a casa?
+
+    A pergunta importa porque `NS3 · Ainda vale recuperar?` nao e um toque: o
+    ramo dele limpa `Resultado da tentativa`, **remove** `fila-tel`, aplica
+    `nutricao-90d` e move a oportunidade — e a saida da cadencia. Exigir portao
+    de capacidade ali seria adiar a SAIDA de um lead porque o SDR esta cheio,
+    o que nao faz sentido nenhum. Em 23/09/2026 esta auditoria gritou
+    "PARCIAL: 'SDR lotado?' em 2 de 3 toques" justamente por isso, e o achado
+    era dela, nao da cadencia.
+
+    Entao: percorre a arvore a partir dos nos com o prefixo do toque, para de
+    descer quando entra no territorio de outro toque, e responde se algum no
+    desse pedaco **adiciona** `fila-tel`/`fila-wa`/`toque`. Remover nao conta.
+    """
+    por_pai = collections.defaultdict(list)
+    for t in tpl:
+        por_pai[t.get("parentKey")].append(t)
+
+    def de_outro_toque(t):
+        m = TOQUE.match(t.get("name") or "")
+        return bool(m) and (m.group(1) + m.group(2)) != prefixo
+
+    visto, pilha = set(), [t for t in tpl
+                           if (lambda m: bool(m) and m.group(1) + m.group(2) == prefixo)
+                           (TOQUE.match(t.get("name") or ""))]
+    while pilha:
+        t = pilha.pop()
+        if t["id"] in visto:
+            continue
+        visto.add(t["id"])
+        a = t.get("attributes") or {}
+        if t.get("type") == "add_contact_tag" and (set(a.get("tags") or []) & CONSOME):
+            return True
+        for f in por_pai.get(t["id"], []):
+            if not de_outro_toque(f):
+                pilha.append(f)
+    return False
+
+
 def cadencias():
-    """[(nome, status, {toque: {portao}}, bruto, consome?)] de todo dump com toques."""
+    """[(nome, status, {toque: {portao}}, bruto, consome?, {toques que consomem})]."""
     saida = []
     for caminho in sorted(glob.glob(os.path.join(DUMPS, "*.json"))):
         try:
@@ -100,8 +140,9 @@ def cadencias():
             continue
         bruto = json.dumps(tpl, ensure_ascii=False)
         consome = sorted(c for c in CONSOME if le(bruto, c))
+        gastam = {k for k in toques if toque_consome(tpl, set(toques), k)}
         saida.append((wf.get("name") or os.path.basename(caminho)[:-5],
-                      wf.get("status"), dict(toques), bruto, consome))
+                      wf.get("status"), dict(toques), bruto, consome, gastam))
     return saida
 
 
@@ -115,26 +156,36 @@ def main():
     print("%d cadencia(s) com toques nomeados\n" % len(todas))
     graves, avisos = [], []
 
-    for nome, status, toques, bruto, consome in todas:
+    for nome, status, toques, bruto, consome, gastam in todas:
         n = len(toques)
+        # So os toques que COLOCAM o lead na fila precisam de portao. Saida de
+        # cadencia (`NS3`) entra na contagem de toques mas nao consome nada.
+        alvo = gastam or set(toques)
+        na = len(alvo)
         faltam, parciais = [], []
         for portao, chave in PORTOES.items():
             if not le(bruto, chave):
                 faltam.append((portao, chave))
                 continue
-            k = sum(1 for g in toques.values() if portao in g)
-            if 0 < k < n:      # k == 0 e so rotulo diferente, nao buraco
-                parciais.append((portao, k, n))
+            k = sum(1 for t, g in toques.items() if t in alvo and portao in g)
+            if 0 < k < na:     # k == 0 e so rotulo diferente, nao buraco
+                parciais.append((portao, k, na))
 
-        print("%-38s [%-9s] %d toque(s)  consome: %s"
-              % (nome[:38], status, n, ", ".join(consome) or "nao aparenta consumir"))
+        fora = sorted(set(toques) - alvo)
+        print("%-38s [%-9s] %d toque(s)%s  consome: %s"
+              % (nome[:38], status, n,
+                 ", %d que gasta(m) fila" % na if fora else "",
+                 ", ".join(consome) or "nao aparenta consumir"))
+        if fora:
+            print("     nao gasta fila (saida/arrumacao, portao nao se aplica): %s"
+                  % ", ".join(fora))
         for portao, chave in PORTOES.items():
             if not le(bruto, chave):
                 print("     NAO le %-22s  (portao %r ausente)" % (chave, portao))
                 continue
-            k = sum(1 for g in toques.values() if portao in g)
-            if k == n:
-                print("     le %-26s  portao %r nos %d toques" % (chave, portao, n))
+            k = sum(1 for t, g in toques.items() if t in alvo and portao in g)
+            if k == na:
+                print("     le %-26s  portao %r nos %d toques que gastam" % (chave, portao, na))
             elif k == 0:
                 # `Recuperação de No-show` le `pausado` dentro do
                 # `NS{n} · Ainda vale recuperar?`. Ler e o que importa; o nome
@@ -142,13 +193,14 @@ def main():
                 print("     le %-26s  sob outro nome de no (nenhum %r) — ok"
                       % (chave, portao))
             else:
-                print("     le %-26s  portao %r em %d de %d toques" % (chave, portao, k, n))
+                print("     le %-26s  portao %r em %d de %d toques que gastam"
+                      % (chave, portao, k, na))
         if faltam and consome:
             alvo = graves if (status == "published"
                               and not nome.startswith("ZZ TESTE")) else avisos
             alvo.append((nome, status, n, consome, faltam))
         for portao, k, total in parciais:
-            print("     PARCIAL: %r em %d de %d toques" % (portao, k, total))
+            print("     PARCIAL: %r em %d de %d toques que gastam fila" % (portao, k, total))
         print()
 
     print("=" * 72)

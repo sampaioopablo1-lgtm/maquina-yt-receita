@@ -8426,3 +8426,81 @@ mudou é o peso do item — e que quando a decisão vier, quem for montar já sa
 que o elo que falta é **uma ação** (`create_opportunity` → `CONECTAR`,
 `status: open`), não um workflow novo, e que ela cai dentro da própria `Porta de
 Entrada` ou num promotor separado, conforme a regra que o dono escolher.
+
+## 2.43 Os portões entraram no ar — e o que o `--aplicar` mostrou sobre a minha conferência
+
+Em 23/09/2026, entre 21:40 e 21:46 UTC, o dono rodou os quatro `--aplicar` que
+estavam na fila (commit `5904feb`). Medido nos dumps re-exportados pelo próprio
+patch, 2 a 6 minutos depois da escrita:
+
+| workflow | antes | depois | o quê |
+|---|---|---|---|
+| `Cadência Inbound` | 272 | **322** | G-17 (A): 2 portões × 5 toques × 5 nós |
+| `Recuperação de No-show` | 41 | **61** | G-17 (A) |
+| `Pós-ligação v2` | 142 | **146** | G-18 |
+| `Canal que conectou` | 0 pontos | **5 pontos** | 9c completo: `Resposta v2` (1), `Pós-ligação v2` (3), `Triagem` (1) |
+
+`auditoria_portoes.py` agora lê `sdr-lotado` e o teto `c1xuCuLyJheHOQoJ3grH` em
+**todos** os toques das duas cadências. Base atualizada no mesmo commit desta
+seção: **`portoes` 2 → 0**, **`campos` 4 → 3**.
+
+### O bug era meu, e a minha conferência não podia pegá-lo
+
+O `patch_portao_inbound.py` religava `parent`/`parentKey` dos nós clonados e
+**nunca acertava os `next`**. O GHL valida `next`. A conta respondeu **400** — e
+o script seguiu adiante e imprimiu resumo de sucesso, porque o `put()`
+compartilhado **devolvia a resposta e ninguém a lia**.
+
+Duas falhas, e a segunda é a grave:
+
+1. A `confere()` checava ids únicos, pais inexistentes, `goto` quebrado e
+   vazamento de uuid. Não checava encadeamento de `next` — logo **não tinha como
+   falhar exatamente no que estava errado.** Conferência que eu mesmo escrevo só
+   pega o defeito que eu imaginei.
+2. O `--aplicar` não tinha como distinguir sucesso de recusa. O §2.37 desta
+   página diz que o patch estava "validado"; era verdade sobre as invariantes que
+   eu escrevi e **mudo** sobre a única resposta que não se engana: a da conta.
+
+### O conserto ficou na fonte, não em cada chamador
+
+`put()` (em `patch_funil_reuniao.py`, importado por nove scripts) agora
+**levanta `RuntimeError`** quando a conta recusa:
+
+```
+PUT RECUSADO pela conta em 'Cadência Inbound' (322 nos enviados): {"_error": true, …}
+```
+
+Contei: dos 17 pontos de chamada de `put`, **9 não conferiam o retorno**
+(`patch_campos_data`, `patch_canal_conectou`, `patch_closer_tarefa`,
+`patch_condicoes_etapa`, `patch_mestre_tags`, `patch_noshow_ns1`,
+`patch_remove_atendeu`, `patch_remove_parte2`, `patch_textos_marca`). Consertar
+um por um seria esquecer de novo no próximo patch — e quem esquece não vê.
+Testado nos três caminhos: recusa 400 → levanta; resposta vazia → levanta;
+sucesso → passa e devolve.
+
+### E a minha auditoria deu alarme falso no mesmo minuto
+
+Com os portões no ar, `auditoria_portoes.py` passou a imprimir
+`PARCIAL: 'SDR lotado?' em 2 de 3 toques` na `Recuperação de No-show`. Fui
+conferir o `NS3` antes de reportar: o ramo dele limpa `Resultado da tentativa`,
+**remove** `fila-tel`, aplica `nutricao-90d` e move a oportunidade. **`NS3` não
+é um toque — é a saída da cadência.** Portão de capacidade ali adiaria a *saída*
+de um lead porque o SDR está cheio.
+
+O achado era da auditoria, não da cadência. A invariante no docstring sempre
+falou de **toque que consome**; a implementação contava toque por prefixo de
+nome. Agora `toque_consome()` desce a árvore do toque (parando quando entra no
+território de outro) e só exige portão de quem **adiciona** `fila-tel` /
+`fila-wa` / `toque` — remover não conta. O conserto não é um caso especial do
+`NS3`: a `Cadência 12x30 — parte 2` também tem 6 toques dos quais 5 gastam fila,
+e teria produzido o mesmo alarme falso no dia em que faltasse um portão nela.
+
+Depois do conserto: **nenhum `PARCIAL` em nenhuma cadência**, nenhuma grave,
+`auditoria_tudo.py` exit 0.
+
+### O que isto não resolve
+
+Os três portões agora protegem uma cadência que **nenhum lead alcança**. O
+gatilho da `Cadência Inbound` só escuta `CONECTAR`, e os 49 leads continuam em
+`NOVO LEAD` — §2.42. O G-17 no ar cumpre a promessa do `GUIA-SDR.md` linhas
+74-76 e a precondição do **lote de 6/dia**; não cumpre nem substitui a L-07.
