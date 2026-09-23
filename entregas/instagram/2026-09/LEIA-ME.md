@@ -23,3 +23,20 @@ Cadência: uma por dia, de manhã (as medições da conta apontam 9h–12h e 20h
 
 Gerador: `scratchpad/gerar_ig.py` desta sessão; para refazer, rode `padrao.py` com as
 chamadas do arquivo. Fontes por `producao/padrao/fontes.sh`.
+
+## Registro de publicação
+
+| Peça | Quando | Onde |
+|---|---|---|
+| IG11 | 23/09/2026 02:42 UTC (22/09 23:42 BRT) | https://www.instagram.com/p/DdnQv0vDX0M/ (media 18230455786323292) |
+| IG12 | agendada 23/09 07:30 BRT | — |
+| IG13 | agendada 24/09 07:30 BRT | — |
+| IG14 | agendada 25/09 07:30 BRT (lembrete a criar na rodada de 24/09) | — |
+| IG15 | agendada 26/09 07:30 BRT | — |
+
+Entrega no Drive: `OPC — entregas / 01 — Topo de Funil / Imagens`
+(pasta `1V2HUnoPpHhJRv4nSDwmkR7_q1hxutqS5`): as cinco artes e as cinco legendas.
+
+Estado da conta em 23/09: 16 seguidores, 10 posts antes deste lote, último em 10/09.
+O nome do perfil ainda diz "Mentoria de criação de anúncios online" — contradiz o
+posicionamento de agência e só se troca no app (a API não edita perfil).
