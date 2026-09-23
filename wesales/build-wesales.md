@@ -5093,6 +5093,49 @@ Limite que vale para as duas: leem os dumps, e dump pode estar defasado da conta
 Comparar com o backup irmão em `_antes-*/` antes de concluir — e, para `draft`,
 não concluir nada sem confirmar fora do arquivo.
 
+### 2.33.3 Três dos cinco achados desta auditoria já estavam resolvidos quando eu os reportei
+
+Correção do registro, e é a mais séria da noite porque eu levei dado velho ao dono
+duas vezes. Datas medidas:
+
+| Quando | O que |
+|---|---|
+| 22/09 16:27 | `updatedAt` do dump de `Mestre de saída v2` que eu estava auditando |
+| 23/09 03:24 | `Triagem da Nutrição` **publicada** — ela remove `cad-inbound` e `nutricao-90d` |
+| 23/09 04:35 e 04:55 | **eu reportei os 5 achados como abertos** |
+| 23/09 05:05 | o dono re-exportou os dumps; meu `auditoria_tags.py` foi a **0** |
+
+Ou seja: das 5 linhas, **3** (`cad-inbound` em dois lugares e `nutricao-90d`) já
+estavam resolvidas na conta **uma hora antes** de eu reportá-las — o dump dizia
+`draft` na `Triagem` porque foi exportado antes da publicação. As outras 2
+(`fechar-horario`, `cadencia-12x30-p2`) o `Mestre de saída v2` já limpava no backup
+`_antes-patch-mestre`, mas o dump que eu tinha era de 22/09 16:27 e não as
+continha; **não consigo datar o momento em que entraram**, então não afirmo que
+estavam abertas nem que estavam fechadas quando eu as reportei.
+
+**O que isso custou:** as pendências 9a e 9b do `ESTADO-E-PLANO.md`, apresentadas
+ao dono como trabalho a fazer, eram trabalho já feito. Nenhuma escrita errada no
+CRM — só ruído na fila dele, que é exatamente o que uma auditoria deveria reduzir.
+
+**Conserto na ferramenta, não no texto.** O `auditoria_tags.py` ganhou uma
+**guarda de frescor**: para cada dump, compara o `updatedAt` dele com o do backup
+`_antes-*` mais novo do mesmo workflow. Se o backup for mais novo, o arquivo
+principal não foi re-exportado depois de um patch, e a auditoria imprime um aviso
+em bloco dizendo que qualquer achado envolvendo aquele workflow pode já estar
+resolvido. Hoje o aviso não aparece — os dumps estão frescos — mas teria aparecido
+ontem à noite e eu não teria reportado nada como aberto.
+
+As três auditorias ganharam também guarda de `BrokenPipeError`, pelo mesmo motivo
+da §2.34: `... | head` morria com traceback e `exit=1`, que parece falha de
+auditoria.
+
+**A regra, agora com três instâncias:** esta família de auditoria lê fotografia, e
+fotografia deste repositório fica velha em minutos quando alguém está trabalhando
+na conta. Achado tirado de dump só vira item para o dono depois de confirmação ao
+vivo — e a confirmação ao vivo, neste projeto, é a `auditoria_final.py` (que lê a
+API) ou uma medição de efeito pelo MCP. Da nuvem eu tenho a segunda; a primeira
+precisa do PC.
+
 ### 2.33.1 A `auditoria_final.py` do dono diz "0 problemas" e isso não cobre estes achados
 
 O `beebd23` trouxe `wesales/tools/auditoria_final.py` com o resultado "26

@@ -5,6 +5,19 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+
+## A tag que DISPARA precisa ser tirada por quem tira o lead do fluxo — 23/09/2026, rodada autônoma
+
+`remove_from_workflow` cancela os `Remove Tag` finais do workflow alvo, e pôr
+de novo uma tag que o contato **já tem não dispara** o gatilho. Então
+`fechar-horario`, `cadencia-12x30-p2` e `cad-outbound` ficavam no contato de
+quem agendava e, numa volta futura ao CONECTAR, a cadência não arrancava — em
+silêncio. A segunda rede certa é o `Mestre de saída v2` (roda em toda mudança
+de etapa além de CONECTAR e em perdido/nutrição): só a lista de tags cresceu.
+**Não** pôr "remover das cadências" nele: a própria 12x30 muda a oportunidade
+para nutrição no fim, o Mestre dispara e cortaria os nós finais dela.
+Medido no 9940: o Espelho troca a tag de etapa em ~4 s depois da mudança; ler o
+contato logo em seguida mostra o estado anterior — ler de novo.
 ## Tag que "vale por um dia": workflow à parte com espera — e tag pela API dispara gatilho — 23/09/2026, rodada autônoma
 
 `conectado-hoje` (F-16) não tinha removedor. Em vez de mexer no Pós-ligação v2
@@ -146,6 +159,45 @@ Corrigido em todas as mensagens publicadas e nos builders
 (`tools/patch_textos_marca.py`): "aqui é da O Próximo Cliente". **Regra:** em
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
+
+## Levei dado velho ao dono duas vezes — 3 dos 5 achados já estavam resolvidos quando reportei — 23/09/2026, sessão na nuvem
+
+A pior da noite, e não é erro de raciocínio: é erro de **fonte**, o terceiro da
+mesma família, agora com consequência na fila do dono.
+
+| Quando | O que |
+|---|---|
+| 22/09 16:27 | `updatedAt` do dump de `Mestre de saída v2` que eu auditava |
+| 23/09 03:24 | `Triagem da Nutrição` **publicada** (remove `cad-inbound`, `nutricao-90d`) |
+| 23/09 04:35 e 04:55 | **eu reportei 5 achados como abertos** |
+| 23/09 05:05 | dono re-exportou os dumps; a auditoria foi a **0** |
+
+Três das cinco linhas já estavam resolvidas **uma hora antes** de eu reportá-las. O
+dump dizia `draft` na `Triagem` porque foi exportado antes da publicação. As outras
+duas eu não consigo datar, então não afirmo nada sobre elas. Custo: as pendências 9a
+e 9b do `ESTADO-E-PLANO.md`, apresentadas como trabalho a fazer, eram trabalho
+feito. Nenhuma escrita errada no CRM — só ruído na fila dele, que é o oposto do que
+auditoria deveria produzir.
+
+**Conserto na ferramenta, não no texto.** `auditoria_tags.py` ganhou **guarda de
+frescor**: para cada dump, compara o `updatedAt` dele com o do backup `_antes-*`
+mais novo do mesmo workflow. Backup mais novo que o principal = o arquivo não foi
+re-exportado depois de um patch → imprime aviso em bloco dizendo que qualquer
+achado daquele workflow pode já estar resolvido. Hoje o aviso não aparece (dumps
+frescos), mas teria aparecido ontem e eu não teria reportado nada como aberto.
+
+**A regra, agora com três instâncias e uma consequência real:** esta família de
+auditoria lê **fotografia**, e fotografia deste repositório envelhece em **minutos**
+quando alguém está trabalhando na conta. Achado tirado de dump não é item para o
+dono — é **candidato**. Vira item depois de confirmação ao vivo: `auditoria_final.py`
+(que lê a API, precisa do PC) ou medição de efeito pelo MCP, que é o que eu tenho da
+nuvem. Quando não houver nenhuma das duas, reportar como "o dump diz X, não
+confirmado ao vivo", nunca como estado.
+
+E a assimetria que fecha o assunto: nas três instâncias eu errei para o lado de
+**afirmar que algo estava quebrado**. Um alarme falso custa a atenção do dono; o
+silêncio custaria um defeito no ar. Então o viés a manter é o do alarme — mas com o
+rótulo certo: **candidato, não item**.
 
 ## Duplicata de workflow com temporizador: o risco não é disparar duas vezes, é a espera mais curta ganhar — 23/09/2026, sessão na nuvem
 

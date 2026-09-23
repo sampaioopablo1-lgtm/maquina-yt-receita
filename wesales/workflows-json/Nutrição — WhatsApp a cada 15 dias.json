@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Nutrição — WhatsApp a cada 15 dias",
-    "version": 30,
+    "version": 31,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/30",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F30?alt=media&token=e48947a2-e1e8-4229-b486-b1f7259fbbf5",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/31",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F31?alt=media&token=e9646e84-bab0-4ad2-b851-3a4580c34baf",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:33:43.759Z",
-    "updatedAt": "2026-09-23T03:23:24.913Z",
+    "updatedAt": "2026-09-23T03:23:36.419Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/37eb32e4-4c21-4c69-bba1-36879ae0886c/30",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/37eb32e4-4c21-4c69-bba1-36879ae0886c/31",
     "window": {
       "days": [
         1,
@@ -42,12 +42,6 @@
       "endMinute": 30
     },
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T03:23:23.000Z"
-      }
-    },
     "id": "37eb32e4-4c21-4c69-bba1-36879ae0886c",
     "workflowData": {
       "templates": [
@@ -2055,8 +2049,8 @@
       },
       "name": "Entrou em nutrição",
       "targetActionId": "36d769f1-26ad-4d12-b243-db80694cd298",
-      "active": false,
-      "date_updated": "2026-09-23T03:23:23.198Z"
+      "date_updated": "2026-09-23T03:23:35.963Z",
+      "active": true
     }
   ]
 }

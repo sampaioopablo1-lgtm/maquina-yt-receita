@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Limpa conectado-hoje (24 h)",
-    "version": 3,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e3c012bf-8e0c-4c8a-b51f-bd524a041390/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe3c012bf-8e0c-4c8a-b51f-bd524a041390%2F3?alt=media&token=f0c465cc-3855-44da-bfa6-7523066fd9ba",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e3c012bf-8e0c-4c8a-b51f-bd524a041390/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe3c012bf-8e0c-4c8a-b51f-bd524a041390%2F4?alt=media&token=083aae6c-58eb-4566-ba83-0e8213ba322f",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T04:46:37.000Z"
-      }
-    },
     "createdAt": "2026-09-23T04:46:35.690Z",
-    "updatedAt": "2026-09-23T04:46:38.903Z",
+    "updatedAt": "2026-09-23T04:46:41.142Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -32,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e3c012bf-8e0c-4c8a-b51f-bd524a041390/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e3c012bf-8e0c-4c8a-b51f-bd524a041390/4",
     "window": null,
     "workflowNote": null,
     "id": "e3c012bf-8e0c-4c8a-b51f-bd524a041390",
@@ -99,7 +93,6 @@
       "id": "QUlhVy3NBSbNmTV1R5YG",
       "date_added": "2026-09-23T04:46:36.449Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "e3c012bf-8e0c-4c8a-b51f-bd524a041390",
@@ -130,7 +123,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T04:46:37.479Z"
+      "date_updated": "2026-09-23T04:46:40.697Z",
+      "active": true
     }
   ]
 }
