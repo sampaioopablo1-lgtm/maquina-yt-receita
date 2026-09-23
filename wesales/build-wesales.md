@@ -5117,6 +5117,51 @@ Ou seja: **publicar a `Triagem da Nutrição` fecha 3 dos 5**, e sobram os dois
 ---
 
 
+## 2.34 `auditoria_campos.py` — mapa de quem escreve e quem lê cada campo, e a lacuna que ele achou
+
+Nasceu do `d880870`, onde o dono achou **à mão** "4 campos de data que nunca
+gravavam". A pergunta generaliza, então virou script:
+`wesales/tools/auditoria_campos.py`, somente leitura, **sai sempre com 0 de
+propósito**. Ele não é alarme, é mapa — e a razão de não ser alarme é a regra
+que este projeto aprendeu hoje: auditoria que grita sobre o que é intencional
+treina a gente a ignorar auditoria. Aqui a maior parte do resultado é
+intencional:
+
+| Coluna | Quantos | Como ler |
+|---|---|---|
+| **só lido**, ninguém escreve | 23 | é o **normal** dos campos de qualificação: quem preenche `Budget`, `Decisor`, `Dor principal`, `Segmento`, `Urgência`, `Motivo da desqualificação`, `Reunião foi qualificada` é o SDR ou o closer na tela. Workflow lê o que o humano classificou |
+| **só escrito**, ninguém lê | 13 | quase sempre significa **"a lista que leria ainda não existe"**. `Prioridade`, `Tentativas telefone`, `Conexões telefone` existem para ordenar e mostrar nas listas inteligentes (seções 8.x), e **lista inteligente não aparece em nenhum dump** — o script não vê listas, logo não pode chamar isso de órfão. É, aliás, a checklist do que o **A7** vai precisar consumir |
+| **nem escrito nem lido** | **4** | é a coluna que vale olhar |
+
+Os quatro, cruzados um por um com `campos-e-tags.md` — e só o primeiro é
+lacuna:
+
+| Campo | O que o documento diz | Veredito |
+|---|---|---|
+| **`Canal que conectou`** | D10 do `PLANO-MULTICANAL.md`: "campo novo, **marcado junto com o resultado**" | ⚠️ **lacuna real.** Quem marca o resultado é o `Pós-ligação v2`, publicado — e ele **não escreve** este campo. O id `TxJmoWdkA8rTqC1uEsMW` não aparece em **nenhum** dos 33 dumps. Ou seja: a pergunta que o multicanal existe para responder — *qual canal conectou?* — nunca vai ter resposta, porque ninguém grava a resposta |
+| `Hora da conexão` | C-25, preenchido por "Workflow (F-02)" | especificado, não montado. Consistente |
+| `Hora do retorno` | S-01/L-01: existe na tela, fiação especificada, "falta só a montagem manual" | especificado, não montado. Consistente |
+| `Necessidade` | veio do formulário e "segue duplicando `Dor principal`" | duplicata declarada de desenho antigo. Não é lacuna |
+
+**A correção do `Canal que conectou` é pequena e cabe onde o dono já está
+mexendo:** no `Pós-ligação v2`, nos mesmos nós que gravam `Resultado da
+tentativa`, acrescentar um `update_contact_field` com `Canal que conectou` =
+`Ligação WhatsApp` / `Ligação normal` / `Mensagem`, conforme o ramo. Sem isso, a
+decisão D6 ("WhatsApp primeiro, ligação normal como segunda tentativa; com 3
+ligações de WhatsApp não atendidas o lead passa a ter a ligação normal primeiro")
+fica sem dado para ser avaliada depois — o projeto vai poder dizer que trocou de
+canal, mas não qual canal funcionou.
+
+Rodar as três juntas:
+
+```
+python3 wesales/tools/auditoria_refs.py     # referência para workflow arquivado  (falha em achado)
+python3 wesales/tools/auditoria_tags.py     # ciclo de vida das tags de estado    (falha em achado)
+python3 wesales/tools/auditoria_campos.py   # mapa de escrita/leitura de campo    (nunca falha)
+```
+
+---
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.

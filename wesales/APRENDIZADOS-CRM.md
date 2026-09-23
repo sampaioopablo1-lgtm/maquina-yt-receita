@@ -106,6 +106,53 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## Campo que existe e ninguém escreve: o multicanal não vai saber qual canal funcionou — e um mapa que de propósito não falha — 23/09/2026, sessão na nuvem
+
+O `d880870` conta que o dono achou **à mão** "4 campos de data que nunca
+gravavam". Pergunta boa demais para depender de alguém topar com ela, então
+virou `wesales/tools/auditoria_campos.py`: para cada campo personalizado de
+contato, quem escreve e quem lê, entre os publicados.
+
+**Achado:** `Canal que conectou` **existe e nenhum workflow escreve nele** — o
+id `TxJmoWdkA8rTqC1uEsMW` não aparece em nenhum dos 33 dumps. A D10 do
+`PLANO-MULTICANAL.md` diz que ele deve ser "marcado junto com o resultado", e
+quem marca o resultado é o `Pós-ligação v2`, publicado, que não grava este
+campo. Consequência: a pergunta que o multicanal existe para responder — *qual
+canal conectou?* — nunca vai ter resposta, e a decisão D6 (WhatsApp primeiro,
+ligação normal na segunda, troca depois de 3 não atendidas) fica sem dado para
+ser avaliada. O projeto vai poder dizer que trocou de canal, não qual funcionou.
+
+**E a decisão de design da ferramenta, que é a parte reaproveitável: ela sai
+sempre com 0.** Não é descuido — das 56 colunas, 36 caem em duas categorias
+inteiramente intencionais:
+
+- **"só lido, ninguém escreve" (23)** é o normal dos campos de qualificação:
+  `Budget`, `Decisor`, `Dor principal`, `Segmento`, `Urgência`, `Motivo da
+  desqualificação`, `Reunião foi qualificada` são preenchidos pelo SDR ou pelo
+  closer **na tela**. Workflow lê o que o humano classificou.
+- **"só escrito, ninguém lê" (13)** quase sempre quer dizer "a **lista** que
+  leria ainda não existe". `Prioridade`, `Tentativas telefone`, `Conexões
+  telefone` existem para ordenar e mostrar nas listas inteligentes, e **lista
+  inteligente não aparece em nenhum dump**. O script não vê listas, logo não
+  pode chamar isso de órfão — e essa coluna é, na prática, a checklist do que o
+  A7 vai consumir.
+
+Sobra **uma** coluna que vale olhar (4 campos), e mesmo nela só 1 era lacuna: os
+outros 3 estão declarados em `campos-e-tags.md` como "especificado, falta
+montar" (`Hora da conexão`, `Hora do retorno`) ou como duplicata de desenho
+antigo (`Necessidade`).
+
+**A regra:** quando a maior parte do resultado de uma checagem é intencional,
+ela é **mapa**, não alarme — e deve dizer isso no próprio código de saída, não
+só no texto. Auditoria que falha em 36 linhas esperadas ensina a ignorar as 4
+que importam. As duas outras auditorias deste projeto falham (exit 1) porque
+**toda** linha que elas listam é defeito; esta não falha porque não é.
+
+E um detalhe de ferramenta que vale em qualquer script de relatório: sem guarda
+de `BrokenPipeError`, `python3 auditoria_campos.py | head` morre com traceback e
+`exit=1` — que parece exatamente a falha de auditoria que o script existe para
+não causar. Guarda posta.
+
 ## A fila autônoma do dono passava ao lado de três coisas já medidas — cruzar backlog novo com achados abertos — 23/09/2026, sessão na nuvem
 
 O `e52d55f` criou uma fila autônoma A1–A9 para o ciclo de 15 min. Boa fila. Três
