@@ -2,6 +2,70 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Teste que cria oportunidade deixa pegada indistinguível de lead — e uma pendência fechada por medição em vez de por tela — 23/09/2026, sessão na nuvem
+
+Check-in das 02:29. Nada novo no git, todos os gabaritos batendo — e a medição do
+CRM mostrou duas coisas que nenhum commit contava.
+
+**1. O `Espelho de Etapa` etiqueta o ACERVO, não só mudança futura.** Essa era a
+pergunta que eu tinha registrado como "só a tela responde". Respondida sem tela:
+das **53 oportunidades `open`, 53 carregam a tag de etapa certa**, 0 sem tag, 0
+divergente — incluindo as criadas em 20 e 21/09, antes da publicação. **A regra:**
+antes de mandar o dono conferir na tela, ver se a consequência é mensurável pela
+API. Tag no contato é mensurável; gatilho não é. Eu quase gastei uma pendência do
+dono numa coisa que eu mesmo podia medir.
+
+**2. Cinco oportunidades nascidas de teste estão indistinguíveis de lead.** A
+validação do multicanal de ontem à noite (22:34–00:45) criou contato e
+oportunidade `open` em `NOVO LEAD` para `Sem Nome`, `O Próximo Cliente`,
+`Pablo Sampaio`, `Francisca` e `156766977421470` — **sem `source` e sem prefixo
+`ZZ`**, que é a convenção do projeto para marcar teste. Se a esteira ligar assim,
+a máquina liga para o dono e para a própria agência.
+
+Duas consequências práticas:
+- **A base mudou de composição e o número que eu repetia estava velho.** Eu
+  carregava "39 leads reais"; são **37** de `source: Facebook` mais 5 de Instagram
+  sem telefone, e os 5 de teste por cima. Número repetido entre rodadas envelhece
+  — a mesma regra de "número fixo só na fonte" vale para número que eu carrego no
+  prompt de check-in.
+- **Teste que escreve no funil precisa da marcação na hora de escrever**, não
+  depois: `ZZ` no nome e `source` dizendo que é teste. Sem isso, o teste de hoje
+  vira lead de amanhã, e quem descobre é o SDR ligando para o dono. Os 3 testes
+  antigos (`ZZ Teste Porta Inbound`, `ZZ TESTE ESTRUTURA`, `Teste Não Ligar`) foram
+  feitos assim e não dão trabalho nenhum — a convenção funciona quando é usada.
+
+## `testpaths = ["tests"]` encerra a conferência de CI commit por commit — e duas coisas que saíram de varrer um commit de token — 23/09/2026, sessão na nuvem
+
+**CI, a razão definitiva.** Eu vinha provando "o CI não mudou" commit a commit
+com dois argumentos fracos (nenhum teste faz `grep` de `wesales/`; o diff só
+toca `wesales/`). O argumento forte está no `pyproject.toml`:
+`[tool.pytest.ini_options] testpaths = ["tests"]`. **Pytest só coleta de
+`tests/`.** Logo commit que toca apenas `wesales/` não pode alterar o resultado
+da suíte — nem markdown, nem script novo em `wesales/tools/`. A conferência vira
+uma linha: `git -c core.quotePath=false diff --name-only <base>..HEAD | grep -v
+'^wesales/'`; vazio = está provado. Vale também para não perder rodada lendo log
+do MCP, que vem truncado e às vezes não traz a linha de resumo.
+
+**Varrer commit que mexe em credencial vale sempre, e desta vez achou duas
+coisas.** O `0aebc38` criou uma integração privada e guardou o token num segredo
+do GitHub. Nada vazou (nenhum token no diff, nenhum `pit-`/JWT versionado em
+`wesales/`, prints do `criar_pit.js` vão para `wesales/.local/`, que está no
+`.gitignore`, e o token sai só por `stdout` para o `gh secret set`). Mas a
+varredura mostrou duas coisas que ninguém estava olhando:
+
+1. **Segredo guardado, sem consumidor.** `git grep -ln 'GHL_TOKEN' .github/`
+   volta vazio: nenhum workflow do Actions usa o segredo, e nenhum toca
+   `wesales/`. A Faxina tem duas encarnações (prompt de rotina e script Python)
+   e nenhuma das duas está agendada de fato.
+2. **O PIT antigo não tem consumidor automatizado neste repositório.** Isso
+   transforma "rotação recomendada, nunca confirmada" — pendência aberta há dias
+   — em um clique sem risco: `ghl_api.py` usa o bearer interno, a Faxina usa o
+   `GHL_TOKEN` novo, `conectar.md` só documenta a receita com variável. **A regra
+   que fica:** antes de tratar rotação de credencial como tarefa arriscada,
+   procurar quem a consome. Sem consumidor, o risco é zero e a pendência para de
+   ser pendência. E declarar o limite: "nenhum consumidor **aqui**" não é
+   "nenhum consumidor", porque integração fora do repositório eu não vejo.
+
 ## Checagem à mão que achou defeito duas vezes vira script, não vira parágrafo — `auditoria_tags.py` — 23/09/2026, sessão na nuvem
 
 As duas varreduras de tag desta noite acharam coisa real (a limpeza de
