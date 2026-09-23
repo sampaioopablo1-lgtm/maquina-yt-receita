@@ -5912,3 +5912,57 @@ Combos varridos até aqui: + veterinária clínica 24 horas (nacional, 591 ativo
 7 em Trilha A, confirmando por um terceiro ponto a curva nome-próprio × entrega técnica;
 **URL crua no título em 17 páginas de uma varredura só**; munição nova: o termo que denuncia
 estrutura cara denuncia quem tem verba, e o plano de assinatura da Fauna Pet).
+
+---
+
+## FISIOTERAPIA E PILATES — clínica (23/09, nacional)
+
+Varredura: `clínica de fisioterapia e pilates`, BR, ACTIVE. **936 anúncios ativos**, 34
+páginas distintas, **30 alvos** (fora Vedius, que é software; Cursosrs, que é curso;
+Esquadrão da Juventude; e Mariana Gestora de Tráfego, que é concorrente — ver abaixo).
+
+**Trilha A: 1 de 30** — só a Clínica Dayse Andrade. É a menor proporção de todas as
+varreduras, menor até que energia solar. Reforça a curva: **quanto mais a entrega é
+clínica/técnica, menos o dono aparece no nome** — em fisioterapia a marca é sempre um nome
+de conceito (Plenitude, Habilitare, Corporis, Cedrus, Limonium).
+
+**Defeito novo, e é o maior que apareceu até agora: uma página só disputando o leilão
+contra ela mesma.** A Fisio Nova roda **11 anúncios ativos** com duas manchetes repetidas —
+"Cuide da sua saúde" em três e "FALE AQUI 👉" em oito. Não é teste: é a mesma mensagem
+multiplicada. Quem faz isso paga mais caro pelo próprio público. A Clínica Plenitude faz o
+mesmo em escala menor (três anúncios idênticos, título vazio) e a Viver Fisioterapia também
+(três, dois sem título). **Munição direta: "sua agência está fazendo você competir com você
+mesmo?"**
+
+Título vazio é epidemia aqui — 14 páginas: Fisyobem, Dor Crônica, Cedrus, Dayse Andrade,
+Plenitude (três), Vida Ativa, Habilitare, Corporis, Florescer, Abba (dois), Viver (dois),
+Esquadrão. URL crua: luvittafisio, Paf Lagos, Clínica GL, Cursosrs (`instagram.com`),
+movimente_pilates (`api.whatsapp.com`), Santa Lúcia (`fb.com` — variante nova). Carrossel
+com card vazio: Fisio Victory, FisioVida, Clube Carioca. Nome da página como headline:
+Saúde e Movimento, com o título inteiro do perfil do Instagram ("• Instagram photos and
+videos") dentro do campo.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A personalização por cidade na headline se confirmou num segundo nicho.** A Fisio Clínica
+roda "⚠️ATENÇÃO ITAGUARA!⚠️" e "⚠️ATENÇÃO CLÁUDIO!⚠️" — mesma copy, cidade trocada, igual à
+EcoSun em solar. Dois nichos sem nenhuma relação chegaram sozinhos na mesma solução; deixa
+de ser achado e vira padrão para copiar.
+
+**E apareceu um gancho que nenhum outro nicho tinha: usar um benefício que o leitor já
+paga.** A Clínica Zelo anuncia "Seu benefício Wellhub agora vale na Zelo." Não é desconto, é
+lembrar que o dinheiro já saiu. É o mesmo mecanismo do "conta de luz maior que R$300?" da
+energia solar, pelo outro lado: **qualificar pelo que a pessoa já gasta, seja para doer,
+seja para aproveitar.**
+
+**Concorrente direto na varredura:** "Mariana Gestora de Tráfego — Mais alunos para SEU
+ESPAÇO", anunciando exatamente para estúdios de pilates. É a primeira vez que uma gestora de
+tráfego aparece disputando um nicho que a gente varre. Vale acompanhar a página.
+
+LISTA DE ATAQUE: **259 → 289**.
+
+Combos varridos até aqui: + fisioterapia e pilates (nacional, 936 ativos — 30 alvos, **só 1
+em Trilha A, o piso da curva nome-próprio × entrega técnica**; defeito novo e grande: **uma
+página com 11 anúncios repetidos competindo contra ela mesma**, munição direta para a nossa
+copy; a personalização por cidade na headline se confirmou num segundo nicho; gancho novo:
+o benefício que o leitor já paga, tipo Wellhub).
