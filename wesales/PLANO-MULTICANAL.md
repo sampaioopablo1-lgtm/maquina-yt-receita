@@ -72,5 +72,24 @@ mudar preço/plano, mexer em outro projeto.
 - [ ] A5 Negociação Estagnada (W22, F-13): está especificado e não publicado — revisar, montar com portão por tag (`etapa-negociar`), testar, publicar.
 - [ ] A6 Documentação do usuário: reescrever `briefing-sdr.md` (rotina do SDR multicanal, prioridades, o que cada resultado faz, Faxina, limite 100/dia) e um guia curto do closer. Linguagem de quem usa, não de quem constrói.
 - [ ] A7 Listas inteligentes (tela): Fila Telefone Hoje, Retornos, Fechar Horário, No-show, Nutrição — filtros por tag `etapa-*`/`status-*`; conferir colunas úteis ao SDR.
+      > **Antes de montar a Fila Telefone Hoje, ler o F-16 (§2.31 do `build-wesales.md`).**
+      > Trocar a cláusula de etapa por `etapa-conectar` resolve o lado da etapa, mas o
+      > filtro especificado tem **duas** cláusulas: `não conectado-hoje` **E** etapa. E
+      > `conectado-hoje` **nunca é removida** por ninguém (varredura nos 32 dumps). Com o
+      > `Atendeu` ficando em `CONECTAR`, quem atende uma vez e não fecha horário sai da
+      > fila **para sempre**. Montar a lista com o filtro como está escrito entrega um
+      > vazamento pronto. A decisão é a pendência 2 do `ESTADO-E-PLANO.md` (recomendo a
+      > saída A: `Wait 24h` → `Remove Tag` no `Pós-ligação v2`). **A7 depende dela.**
 - [ ] A8 Auditoria completa de novo (`tools/auditoria_final.py`) + releitura de cada workflow publicado pensando no usuário (nomes dos nós, textos de tarefa, notificações).
+      > Rodar **também** `python3 wesales/tools/auditoria_tags.py`. Ela faz duas perguntas
+      > que a `auditoria_final.py` não faz (cruzamento completo na §2.33.1): limpeza de tag
+      > pulada por `remove_from_workflow`, e tag só removida e nunca aplicada. Hoje devolve
+      > **5 achados**, e **3 deles saem publicando a `Triagem da Nutrição`**.
 - [ ] A9 Limpeza de testes: contato 9940 (tirar `status-nutricao`, `triagem-enviada` depois do A1), `ZZ TESTE MENSAGEM` e cópias ZZ em rascunho; `ZZ Teste Porta Inbound`.
+      > **Faltam cinco, e são as que dão problema.** Medido em 23/09 02:35: a validação do
+      > multicanal de 22:34 a 00:45 criou contato **e oportunidade `open` em `NOVO LEAD`**
+      > para `Sem Nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca` e
+      > `156766977421470` — **sem `source` e sem prefixo `ZZ`**. As que o A9 lista já estão
+      > marcadas e por isso são fáceis; estas cinco são indistinguíveis de lead, e se a
+      > esteira ligar assim a máquina liga para o dono e para a própria agência. Elas
+      > também inflam a base: o `NOVO LEAD` tem 50 `open` e só **37** são lead pago.

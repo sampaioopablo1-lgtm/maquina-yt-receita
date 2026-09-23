@@ -85,6 +85,32 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## A fila autônoma do dono passava ao lado de três coisas já medidas — cruzar backlog novo com achados abertos — 23/09/2026, sessão na nuvem
+
+O `e52d55f` criou uma fila autônoma A1–A9 para o ciclo de 15 min. Boa fila. Três
+itens dela iam andar em cima de coisa que já estava medida e registrada em outro
+arquivo — é o G-10 outra vez (duas trilhas que param de se ver), agora entre o
+backlog novo e os achados da noite.
+
+| Item | O que ele ia fazer | O que já estava medido |
+|---|---|---|
+| **A7** montar as listas inteligentes | trocar a cláusula de etapa por tag `etapa-*` | o filtro tem **duas** cláusulas, e a outra é `não conectado-hoje`, que **nada remove**. Montar a lista como está especificada entrega o vazamento do F-16 pronto. A7 depende da pendência 2 |
+| **A8** rodar a auditoria completa | só `auditoria_final.py` | ela não faz as duas perguntas do `auditoria_tags.py`, que hoje devolve 5 achados — e 3 saem publicando a `Triagem da Nutrição` |
+| **A9** limpeza de testes | 9940, `ZZ TESTE MENSAGEM`, `ZZ Teste Porta Inbound` | **faltam as cinco que dão problema**: `Sem Nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca`, `156766977421470` — sem `source` e sem `ZZ`. As que o A9 lista já estão marcadas e por isso são as fáceis |
+
+**A regra:** quando aparece backlog novo num arquivo, cruzar cada item com os
+achados abertos **antes** de deixar a fila andar — e escrever a nota **dentro do
+item**, não num documento vizinho. Nota ao lado do `[ ]` viaja com quem for
+executar; nota em outro arquivo depende de a pessoa lembrar de abrir os dois. Foi
+assim que registrei, sem tocar em nenhum `[ ]`: o dono continua dono da fila dele.
+
+**O padrão por trás dos três:** os itens não estavam errados, estavam **incompletos
+de um jeito que parece completo**. "Limpeza de testes" parece cobrir os testes;
+cobre os que têm marcação. "Auditoria completa" parece cobrir a auditoria; cobre a
+que está citada. Item de backlog que nomeia a categoria e lista os exemplos vira
+checklist dos exemplos — e o que ficou de fora fica invisível justamente porque a
+categoria diz que foi coberto.
+
 ## `git grep` numa branch não responde "existe workflow do Actions para isto?" — segundo erro de fonte no mesmo dia — 23/09/2026, sessão na nuvem
 
 Eu afirmei, e commitei, que "nenhum workflow do Actions usa `GHL_TOKEN`", apoiado
