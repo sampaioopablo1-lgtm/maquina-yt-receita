@@ -130,10 +130,10 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 > desta lista, todas por ação do dono: as duas acima, `cadencia-12x30-p2`,
 > `teste-12x30` e as **8 do Espelho de Etapa** (`etapa-*` e `status-*`). Todas
 > ficam, regra 1. As tags numeradas T-16 a T-21 abaixo continuam sendo as que
-> **eu** não crio sem o seu `[x]`. Uma das dez tem problema ativo: o workflow que
-> aplica as 8 do espelho está em **rascunho** e 8 workflows publicados já testam
-> essas tags — seção 2.32 do `build-wesales.md`. Não é item de aprovação, é um
-> clique de publicação.
+> **eu** não crio sem o seu `[x]`. Nenhuma das dez tem problema ativo — cheguei a
+> registrar que o workflow das 8 do espelho estava em rascunho, e era leitura de
+> dump exportado 4 segundos antes da publicação; achado retirado na seção 2.32 do
+> `build-wesales.md`.
 >
 > A `fechar-horario` tem um detalhe que segue aberto: quem a remove é o `Fechar Horário`, publicado
 > no `23db864` (a janela de rascunho fechou limpa, 0 contatos), mas a remoção

@@ -3862,7 +3862,6 @@ Telecom e as datas do `0303` apareceram de forma convergente em fontes
 independentes, que é o teste que este projeto usa quando a fonte primária
 não abre. Nada aqui foi escrito por dedução.
 
-
 ---
 
 ## 2.27 Qualidade da Conexão — F-06 (fechado em 22/09/2026, duas peças)
@@ -4308,6 +4307,26 @@ gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 
 ## 2.29 Rampa de aquecimento do número de telefone — F-14
 
+> **Decidido por ação em 23/09 (commit `9020079`), e a decisão foi a que concentra
+> a segunda.** O dono aplicou a janela seg-sex em 4 workflows de tarefa
+> (`Pós-ligação v2`, as duas `Interceptação de Sinal` e o `Monitor de
+> Capacidade`) **mantendo a régua em dias corridos** — ou seja, a combinação
+> exata cuja aritmética está medida abaixo: em regime, a segunda carrega ~3/7 da
+> semana em vez de 1/5, e com o lote conservador de 6/dia bate 120 ligações
+> contra a meta de 100/dia.
+>
+> No mesmo commit veio o `Monitor de Capacidade` (publicado). Conferi o que ele
+> é: **1 nó, `internal_notification`** — avisa o gestor de que a capacidade é 100
+> toques/dia e de que há tarefas vencidas. É aviso, não teto: não represa tarefa,
+> não adia toque, não redistribui. Serve para o gestor ver a segunda-feira
+> chegando, não para impedi-la.
+>
+> Então a aritmética abaixo continua valendo inteira, e a pergunta que sobra não
+> é mais "dias úteis ou corridos" — é **se o lote de entrada vai ser calibrado
+> pela segunda-feira em vez de pela média**. Com lote 6/dia a segunda já passa da
+> capacidade; com 12/dia são 240. Nada disso está acontecendo hoje: zero lead em
+> cadência.
+
 > **Conta nova de 23/09/2026 — a regra D13 ("nenhuma tarefa nasce no fim de
 > semana") concentra a segunda-feira em +82%, e é a segunda que vira o teto.**
 >
@@ -4681,7 +4700,6 @@ procurado; os dois templates (`EM-1`, `EM-2`) existem em
 `biblioteca-mensagens.md` (feito nesta rodada) e o workflow está publicado
 na tela.
 
-
 ---
 
 ## 2.31 "Atendeu fica em CONECTAR" transformou `conectado-hoje` em mudo permanente — F-16
@@ -4861,10 +4879,9 @@ escreve nada: `python patch_remove_parte2.py` **sem** `--aplicar`. Ele lista
 quantos nós ainda faltam por workflow; **zero nó listado = confirmado, nada a
 fazer**.
 
-
 ---
 
-## 2.32 O Espelho de Etapa está em rascunho e 8 workflows publicados já dependem dele — F-17
+## 2.32 Eu errei este achado: o Espelho de Etapa já estava publicado — F-17, **retirado**
 
 Achado conferindo o `61eb167`, do PC do dono. O achado **dele** é excelente e
 maior que o meu: num workflow cujo gatilho **não é oportunidade** (tag, contato,
@@ -4877,7 +4894,50 @@ estado (`etapa-novo-lead`, `etapa-conectar`, `etapa-reuniao`, `etapa-negociar`,
 `etapa-formalizar`, `status-nutricao`, `status-perdido`, `status-ganho`), e os
 outros passam a testar a **tag**, que funciona com qualquer gatilho.
 
-**O problema é a ordem de publicação, e é a terceira vez nesta mesma noite:**
+### Correção, escrita minutos depois de eu ter publicado o achado
+
+**O achado abaixo está errado e eu o retiro.** Escrevi que o `Espelho de Etapa`
+estava em rascunho com 8 consumidores publicados. Medi isso lendo
+`workflows-json/Espelho de Etapa.json`, que dizia `status: draft`, v3,
+`updatedAt` **01:53:09**. A conta tinha o workflow **publicado** (v4) às
+**01:53:13** — quatro segundos depois daquele export. O dump que li já nascia
+velho; o defeito nunca existiu na conta, só na fotografia.
+
+Pior: eu tinha acabado de escrever, na seção 2.31.3 e no `APRENDIZADOS-CRM.md`,
+a regra de comparar o dump com o backup irmão antes de afirmar qualquer coisa —
+e não a apliquei. A regra, do jeito que eu a escrevi, também não teria salvado:
+o `Espelho de Etapa` é **novo**, não tem backup irmão em `_antes-*/`, e eu tratei
+ausência de backup como sinal de frescor. **Segunda perna da regra, que faltava:
+dump sem backup irmão não é por isso recente.** Para um `status: draft`
+especialmente, o valor é "no momento do export", nunca "agora" — e `draft` é o
+estado natural de um workflow nos segundos entre montar e publicar, que é
+exatamente a janela em que os scripts de `wesales/tools/` exportam.
+
+**Como conferir de verdade, da próxima vez:** `status: draft` num dump só vira
+achado depois de (a) comparar o `updatedAt` do dump com o horário do commit que
+o trouxe, e (b) confirmar o estado por uma fonte que não seja o arquivo — a tela,
+ou uma medição ao vivo do efeito (contatos com a tag, por exemplo). Sem isso, o
+que existe é uma pergunta, não um defeito.
+
+**O que sobrevive, e é o motivo de eu não apagar a seção:** a regra de ordem
+(produtor antes de consumidor) continua certa e tem um caso real, medido ao
+vivo, na §2.31.1 — a `fechar-horario`. O que não sobrevive é esta instância. E
+sobrevive também o registro das 8 tags novas em `campos-e-tags.md`, que é fato
+independente do erro.
+
+**Estado real, conferido depois da correção:** `Espelho de Etapa` publicado (v4,
+36 nós), aplicando as tags; os 11 consumidores publicados. A ordem está certa.
+Fica valendo a pergunta de tela que a §2.32.1 já levantava e que nenhum dump
+responde: **o gatilho de oportunidade etiqueta o acervo ou só mudança futura?**
+Se for só futura, as 45 oportunidades paradas em `NOVO LEAD` não recebem
+`etapa-novo-lead` e seguem invisíveis às condições. Isso continua aberto.
+
+---
+
+O texto original do achado fica abaixo, riscado pelo parágrafo acima, para a
+rodada seguinte ver o erro e não repeti-lo.
+
+**~~O problema é a ordem de publicação, e é a terceira vez nesta mesma noite:~~**
 
 | Papel | Peça | Estado ao vivo |
 |---|---|---|
@@ -4926,9 +4986,10 @@ de divergir da conta. Com elas, a conta tem 25 tags: 15 do projeto, `teste-regua
 | errada | rascunho | publicado | consumidor testa/espera algo que ninguém produz, e vai pelo ramo errado **sem erro** |
 | certa | publicado | publicado ou rascunho | consumidor que entra depois já encontra o estado montado |
 
-Três instâncias em uma noite: `fechar-horario` (§2.31.1, fechada pelo dono no
-mesmo dia), as 8 tags do espelho (aqui, aberta) e — a mesma família — a tag
-aplicada por workflow no ar cuja limpeza mora num workflow em rascunho.
+Uma instância real em uma noite: `fechar-horario` (§2.31.1, fechada pelo dono no
+mesmo dia), mais a família vizinha da tag cuja limpeza mora dentro de um
+workflow (§2.31.2). A instância das 8 tags do espelho **não conta** — foi erro
+meu de leitura de dump, corrigido no topo desta seção.
 
 **Checagem barata, para entrar em toda rodada:** para cada tag que apareça em
 condição de workflow publicado, procurar quem a aplica e conferir o `status` de
