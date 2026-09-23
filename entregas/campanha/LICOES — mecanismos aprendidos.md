@@ -1672,3 +1672,16 @@ compartilhado. Trocar o cartão em uma destrava uma.
 que qualquer mensagem de erro — e vale paginar até achar a conta, porque ela pode não estar
 na primeira página. Com `is_queryable: false` e `not_queryable_reason: "Unknown error"`, o
 motivo verdadeiro está no `account_status`, não no campo de motivo.
+
+
+## Toda rotina que publica checa o canal antes de produzir (23/09)
+
+Protocolo em **`entregas/campanha/PROTOCOLO — checar antes de publicar.md`**, e ele vale
+para as rotinas "OPC — publicar" (manhã, tarde, noite), "OPC — vídeo longo", "Instagram OPC
+— publicar a próxima da fila" e "OPC — troca de criativo em 48h (REGRA V3)".
+
+Resumo: **checar antes de produzir, não na hora de subir.** No Meta, `ads_get_ad_accounts`
+(paginando até achar a conta) decide sozinho — `account_status` vale mais que qualquer
+mensagem de erro. Canal fechado não cancela a rodada: produz, versiona no repositório com a
+copy pronta para colar, registra a mensagem exata do erro, avisa o Pablo uma vez e
+reconfere na rodada seguinte.
