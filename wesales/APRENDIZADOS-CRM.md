@@ -2,6 +2,48 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Uma cláusula redundante vira vazamento quando a cláusula vizinha muda — cruzar toda mudança de etapa com os filtros das listas — 23/09/2026, sessão na nuvem
+
+O commit `1d04af2` (do PC do dono) fez o ramo `Atendeu` **ficar** em `CONECTAR`
+em vez de mover a oportunidade para a etapa de reunião. Mudança certa e
+coerente com o funil novo. Mas os dois filtros das filas do SDR são
+conjunções com **duas** cláusulas que fazem o mesmo trabalho:
+
+    não `conectado-hoje`   E   etapa = `CONECTAR`
+
+Enquanto o `Atendeu` saía de `CONECTAR`, a segunda cláusula excluía o lead e a
+primeira era redundante — e o fato de que **nada remove `conectado-hoje`** não
+aparecia em nenhum comportamento. Tirar a segunda cláusula de jogo promoveu a
+redundante a única, e ela exclui para sempre. O vazamento não está em nenhuma
+das duas mudanças: está no encontro delas.
+
+**A regra que fica:** numa conjunção de filtro, cláusula redundante não é
+inofensiva — é uma dependência escondida. Quando uma mudança altera o valor de
+uma cláusula, todas as outras do mesmo `E` precisam ser relidas, inclusive (e
+sobretudo) as que "não faziam nada". Concretamente, para este projeto: **toda
+mudança de etapa em workflow exige reler os filtros das listas inteligentes que
+citam etapa** — são as seções 8.x de `IMPLEMENTACAO-WORKFLOWS.md`.
+
+**A segunda regra, sobre nome de tag:** `conectado-hoje` promete "hoje" no
+próprio nome e nunca é removida. O nome era a única documentação do ciclo de
+vida dela, e estava errado. Tag cujo nome afirma um prazo (`-hoje`, `-semana`,
+`-24h`) precisa de um removedor identificável por `grep` nos dumps; se a busca
+por `remove_contact_tag` com aquele nome vem vazia, o nome é mentira até prova
+em contrário. Checagem barata, vale em toda rodada.
+
+**Terceira, sobre gatilho de tag:** `fechar-horario` é aplicada por workflow
+publicado e removida só por um workflow em **rascunho** cujo gatilho é a
+própria tag. Gatilho de tag dispara no *evento* de aplicação; aplicar tag já
+presente não gera evento. Logo, par "aplicador publicado + consumidor em
+rascunho" numa tag que ninguém remove produz exclusão permanente e silenciosa
+do consumidor. Sempre que um workflow novo é gatilhado por tag, conferir se
+quem aplica a tag já está no ar antes dele.
+
+Medição da rodada, para separar armadilha de incêndio: `conectado-hoje` em 2
+contatos (os dois de teste do projeto), `fechar-horario` em 0. Nenhum lead real
+afetado — conta de projeto, dá para consertar antes de doer. Achado completo e
+as quatro saídas: seção 2.31 do `build-wesales.md` (F-16).
+
 ## Duas trilhas de execução deste projeto não se enxergam — checar `PLANO-MULTICANAL.md` antes de tratar o roadmap como única fonte de estado — 23/09/2026, sessão na nuvem
 
 Esta sessão (MCP `GHL CRM`, sem bearer da API interna) leu o roadmap inteiro,

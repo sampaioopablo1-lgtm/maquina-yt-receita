@@ -4681,6 +4681,95 @@ procurado; os dois templates (`EM-1`, `EM-2`) existem em
 `biblioteca-mensagens.md` (feito nesta rodada) e o workflow está publicado
 na tela.
 
+
+---
+
+## 2.31 "Atendeu fica em CONECTAR" transformou `conectado-hoje` em mudo permanente — F-16
+
+Achado desta rodada, conferindo o commit `1d04af2` que chegou do PC do dono
+(mudança de etapa aplicada ao vivo em 5 workflows). A mudança está certa no
+que ela quer fazer. O problema nasce do encontro dela com uma contradição
+antiga que, até hoje, era inofensiva.
+
+**A cadeia, elo por elo:**
+
+| # | Fato | Onde conferi |
+|---|---|---|
+| 1 | `conectado-hoje` é aplicada pelo `Pós-ligação v2` em **5 ramos** (nós 13, 26, 77, 86, 97), todos `add_contact_tag` | dump ao vivo, `status: published`, versão 4 |
+| 2 | **Nenhum** dos 26 dumps tem `remove_contact_tag` com `conectado-hoje`. Nenhum documento de `wesales/` especifica reset diário, de 24h ou de fim de dia | varredura dos 26 dumps + `grep` em `wesales/` |
+| 3 | A função declarada da tag é "tira o lead das filas **do dia** após conexão" | `campos-e-tags.md`, T-05 |
+| 4 | A classificação declarada da mesma tag é família **Estado** — "sobrevive à saída de cadência" | `IMPLEMENTACAO-WORKFLOWS.md`, seção da tabela das três famílias |
+| 5 | (3) e (4) se contradizem: "do dia" é pulso, "sobrevive" é estado. A conta ao vivo implementa a versão permanente | consequência de (2) |
+| 6 | Até 22/09 a contradição não doía: o ramo `Atendeu` movia a oportunidade **para fora** de `CONECTAR` (ia para `3d26fcd1`), e as duas filas do SDR também exigem `etapa = CONECTAR`. Quem excluía o lead da fila era a cláusula de etapa; `conectado-hoje` era redundante | `_antes-patch-funil/Pós-ligação v2.json` vs. filtros 8.2/8.3 |
+| 7 | `1d04af2` faz o `Atendeu` **ficar** em `CONECTAR` (`deb60542`). A cláusula de etapa para de excluir, e `conectado-hoje` — que nunca sai — fica sendo a única cláusula de pé | diff do dump, nós do ramo `Atendeu` |
+
+**O que isso produz:** um lead que o SDR alcança uma vez e que **não** fecha
+horário na mesma ligação sai de `Fila Telefone Hoje` e `Fila WhatsApp Hoje`
+**para sempre** — enquanto a oportunidade continua aberta em `CONECTAR` e a
+cadência continua criando tarefa para ele. O trabalho não desaparece: ele
+some das duas listas de onde o SDR trabalha e reaparece só na lista de
+tarefas cruas. É o pior formato de vazamento: silencioso e com a
+oportunidade parecendo saudável no funil.
+
+Os dois filtros afetados, literais:
+
+| Lista | Filtro hoje | O que a cláusula de etapa fazia até 22/09 |
+|---|---|---|
+| 8.2 `Fila Telefone Hoje` | `fila-tel` **E** não `nao-perturbe` **E** não `telefone-invalido` **E** não `conectado-hoje` **E** etapa = `CONECTAR` | excluía o lead que atendeu, porque ele saía de `CONECTAR` |
+| 8.3 `Fila WhatsApp Hoje` | `fila-wa` **E** não `nao-perturbe` **E** não `conectado-hoje` **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` | idem |
+
+**Estado declarado, para não confundir armadilha com incêndio:** medi a conta
+nesta rodada. `conectado-hoje` está em **2 contatos**, os dois do próprio
+projeto (`teste atendeu` e `ZZ TESTE ESTRUTURA`). **Zero lead real.** Não está
+acontecendo com ninguém — dá para consertar antes de doer. O que torna isso
+urgente não é o dano de hoje, é que o primeiro lote que entrar em cadência
+começa a produzir o vazamento a partir da primeira conexão.
+
+**Quatro saídas, e a recomendação:**
+
+| # | Saída | Custo | Efeito colateral |
+|---|---|---|---|
+| A | Dar à tag o reset que o nome dela promete: dentro do `Pós-ligação v2`, depois de cada `Add Tag`, um `Wait 24h` → `Remove Tag conectado-hoje` | edição em 5 ramos de **um** workflow que já está sendo editado | nenhum workflow novo; o nome da tag passa a ser verdade |
+| B | Trocar a cláusula das filas: em vez de não `conectado-hoje`, usar não `fechar-horario` (o estado novo "conectado, fechando horário") | edição de 2 listas inteligentes | depende do `Fechar Horário` publicado; `conectado-hoje` fica sem função e deve sair da família Estado |
+| C | Um workflow recorrente de meia-noite que remove `conectado-hoje` de todo mundo | workflow novo + o MCP não cria workflow | mais uma peça para manter |
+| D | Aceitar a tag como permanente e tirar a cláusula das duas filas | edição de 2 listas | perde o efeito "já falei com ele hoje" — o SDR volta a ver na fila quem ele acabou de ligar |
+
+**Recomendo A**, e A não exclui B: A faz o nome da tag ser verdade sem criar
+peça nova e sem depender de publicação, e B é a cláusula certa para o funil
+novo assim que o `Fechar Horário` sair do rascunho. Nenhuma das duas é
+aplicável por este MCP (edição de workflow e lista inteligente não têm
+ferramenta) — é tela ou `wesales/tools/`.
+
+### 2.31.1 A tag `fechar-horario` é aplicada ao vivo e removida só num rascunho
+
+Segundo achado do mesmo commit, e este tem janela de tempo:
+
+| Peça | Papel com a tag | Estado ao vivo |
+|---|---|---|
+| `Pós-ligação v2` | **aplica** `fechar-horario` (nós 13, 26, 77, 86, 97) | `published`, versão 4 |
+| `Fechar Horário` | único que **remove** (nós 36, 38, 39, 40), e o gatilho dele é a própria tag (`tag_trigger`, `build_fechar_horario.py:122`) | `draft`, versão 3 |
+
+Gatilho de tag dispara no **evento** de aplicação. Enquanto o `Fechar
+Horário` está em rascunho, cada lead que conecta recebe a tag sem ninguém
+escutando o evento; e como nada remove a tag, uma conexão posterior não gera
+evento novo (aplicar tag já presente não é aplicação). O resultado é que os
+leads conectados durante a janela de rascunho ficam **permanentemente
+invisíveis** ao `Fechar Horário` depois que ele for publicado.
+
+Medido: `fechar-horario` está em **0 contatos**. A janela ainda está limpa. A
+ordem que evita o problema é simples e só vale antes do primeiro lote:
+publicar o `Fechar Horário` **antes** de ligar a esteira, não depois. Se
+algum lead conectar antes disso, a tag dele precisa ser limpa à mão antes da
+publicação.
+
+**Tag nova fora da lista aprovada:** `fechar-horario` é a 16ª tag do projeto
+e não está entre as 15 do `APROVADO.md`. Ela entrou por ação do dono, no
+próprio commit — não é criação minha e não estou desfazendo nada. Fica
+registrada aqui e em `campos-e-tags.md` (linha `—`, na mesma convenção do
+`teste-regua`; T-16 já está ocupada pelo `novo-lead-estagnado`) para a
+contagem do gate parar de divergir da conta. Por ordem de criação ela é a
+17ª tag da conta, não a 16ª — `teste-regua`, criada pelo dono na tela em
+22/09, veio antes.
 ---
 
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
@@ -5959,7 +6048,7 @@ a fila e ver empresa em branco em todas as listas de uma vez.
 ### 8.2 `Fila Telefone Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `CONECTAR` |
+| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `CONECTAR` ⚠️ **F-16 (seção 2.31): `conectado-hoje` nunca é removida e o `Atendeu` agora fica em `CONECTAR` — esta cláusula virou exclusão permanente. Não construir com o filtro como está.** |
 | Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
@@ -5969,7 +6058,7 @@ chance de atender do que o da T11. A fila devolve primeiro o que converte.
 ### 8.3 `Fila WhatsApp Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` |
+| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` ⚠️ **Mesmo problema da 8.2 — F-16, seção 2.31.** |
 | Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
 | Ordenação | `Prioridade` desc, depois `WA não atendidas seguidas` asc |
 

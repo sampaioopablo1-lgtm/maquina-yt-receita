@@ -217,6 +217,17 @@ entra no funil. Hoje não há regra nenhuma.
 | 4 | Entrada de leads parada (Gerenciador de Anúncios) | a esteira sem alimentação |
 | 5 | Marcar as 6 tags e os 4 campos no `APROVADO.md` | coerência do freio de mão |
 | 6 | Pré-requisito 6 do W20 (`Conexão real = vazio` antes de cada tentativa) | sem ele, um `Sim` antigo sobrevive às tentativas seguintes |
+| 7 | **`conectado-hoje` sem removedor** (F-16 / G-11) — escolher entre as 4 saídas da seção 2.31 do `build-wesales.md`; recomendo a A (`Wait 24h` → `Remove Tag` dentro do `Pós-ligação v2`) | as duas filas do SDR (8.2 e 8.3). Com o `Atendeu` ficando em `CONECTAR`, quem atende uma vez e não fecha horário some das filas para sempre |
+| 8 | **Publicar o `Fechar Horário`** (hoje em rascunho) **antes** do primeiro lote | o gatilho dele é a tag `fechar-horario`, que o `Pós-ligação v2` já aplica publicado. Quem conectar antes da publicação fica invisível a ele para sempre |
+
+**Sobre as pendências 7 e 8 (novas em 23/09):** as duas nasceram do commit
+`1d04af2`, que veio do seu PC e aplicou a mudança de etapa ao vivo em 5
+workflows. A mudança está certa; o que apareceu foi o encontro dela com
+coisas antigas. Medi a conta antes de escrever: `conectado-hoje` está em 2
+contatos (os dois de teste do projeto) e `fechar-horario` em 0. **Nenhum lead
+real afetado** — as duas são armadilha, não incêndio, e é exatamente por isso
+que elas precisam ser resolvidas *antes* da Etapa A, não depois: o primeiro
+lote que entrar em cadência é quem começa a pagar.
 
 ---
 

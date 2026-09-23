@@ -24,7 +24,7 @@
 > DIAGNÓSTICO` (mesmo `id`, confirmado por API em 23/09) e reformula boa
 > parte da Cadência 12x30/Pós-ligação/Pós-agendamento (D2–D9). Nenhuma
 > dessas mudanças foi propagada para este roadmap nem para `build-wesales.md`
-> ainda — os blocos abaixo (G-01 a G-09, R-01 a R-18, F-01 a F-15) continuam
+> ainda — os blocos abaixo (G-01 a G-09, R-01 a R-18, F-01 a F-16) continuam
 > descrevendo o desenho "100% telefone" pré-`PLANO-MULTICANAL`, e a execução
 > real (`PLANO-MULTICANAL.md`, checklist E1-E14) está rodando por fora,
 > pela API interna (`wesales/tools/`), não pelo `GHL CRM` (MCP) que esta
@@ -958,6 +958,41 @@ inteiro, E4-E14) continua em aberto — este item só garante que ela é
 visível a partir daqui, não a executa.
 
 ---
+
+### G-11 · A mudança de etapa aplicada ao vivo em `1d04af2` deixa duas armadilhas nos filtros e numa tag nova — **ABERTO, decisão do dono (23/09/2026)**
+
+**Por quê:** o commit `1d04af2` (PC do dono) aplicou a mudança de etapa em 5
+workflows ao vivo — `REUNIÃO DE DIAGNÓSTICO` no lugar de `NEGOCIAR` no Loop do
+closer, na Recuperação de No-show e no SLA do Closer, e o `Atendeu` passando a
+**ficar** em `CONECTAR` no `Pós-ligação v2`. A mudança é coerente com o funil
+novo. Conferindo offline, duas consequências que nenhum dos dois desenhos vê:
+
+1. **`conectado-hoje` virou mudo permanente.** Nada remove essa tag (varredura
+   nos 26 dumps, nenhum `remove_contact_tag`, nenhum reset em nenhum
+   documento). Os filtros das filas 8.2/8.3 têm `não conectado-hoje` **E**
+   `etapa = CONECTAR`: enquanto o `Atendeu` saía de `CONECTAR`, a cláusula de
+   etapa fazia a exclusão e a da tag era redundante. Agora a da tag é a única
+   — e o lead que atende uma vez sem fechar horário some das duas filas do SDR
+   para sempre, com a oportunidade aberta e a cadência ainda criando tarefa.
+2. **`fechar-horario` é aplicada por workflow publicado e removida só por um em
+   rascunho** — e o gatilho do rascunho é a própria tag. Gatilho de tag dispara
+   no evento de aplicação; tag já presente não gera evento novo. Quem conectar
+   antes de o `Fechar Horário` ser publicado fica invisível a ele para sempre.
+
+**Medido em 23/09:** `conectado-hoje` em 2 contatos (os dois de teste do
+projeto), `fechar-horario` em 0. **Zero lead real afetado** — é armadilha, não
+incêndio, e por isso dá para consertar antes de ligar a esteira.
+
+**O que falta, e é decisão sua:** as quatro saídas para a (1) estão na seção
+2.31 do `build-wesales.md` com custo e efeito colateral de cada uma
+(recomendo a **A**: `Wait 24h` → `Remove Tag` dentro do próprio
+`Pós-ligação v2`, que faz o nome da tag ser verdade sem criar peça nova). Para
+a (2) não há decisão, só ordem: publicar o `Fechar Horário` **antes** do
+primeiro lote. Nenhuma das duas é aplicável por este MCP — edição de workflow e
+de lista inteligente não têm ferramenta aqui; é tela ou `wesales/tools/`.
+
+---
+
 
 ## Bloco 1 — Medição (a maior lacuna)
 
