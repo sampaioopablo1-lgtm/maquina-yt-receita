@@ -5864,3 +5864,51 @@ Combos varridos até aqui: + energia solar residencial (nacional, 384 ativos —
 cara**; a URL crua no título é epidemia de nicho técnico, 9 páginas somando as varreduras;
 **munição nova: qualificar pelo gasto atual do leitor — "conta de luz maior que R$300?"** —
 e a personalização por cidade da EcoSun).
+
+---
+
+## VETERINÁRIA — clínica 24 horas (23/09, nacional)
+
+Varredura: `clínica veterinária 24 horas`, BR, ACTIVE. **591 anúncios ativos**, 35 páginas
+distintas, **31 alvos** (fora Cursos vet Paraguay e Vetclinic Cursos, que são curso, e
+Chumbo Leve Proteção Radiológica, que é fornecedor vendendo para a clínica, não clínica).
+
+**Trilha A: 7 de 31** — Bündchen, SmartDog Teo, Munari, Veterinária Bassin, Tabanez,
+Veterinária & Estética Pacheco, Coellho. Fica no meio do caminho entre a advocacia criminal
+(16 de 18) e a energia solar (3 de 24), e isso confirma a regra do nicho técnico por um
+terceiro ponto: **veterinária é metade relação pessoal, metade entrega técnica, e o nome
+próprio na fachada acompanha essa metade.**
+
+**Defeitos.** A URL crua no título continua sendo o defeito número um: `api.whatsapp.com`
+em Guapeka's, Mundo Silvestre, Uxvet, Ceprovet, Pet Peludim, Vet Norte, Tabanez e Bela
+Vista; `instagram.com` em Vet Suporte, Hellen Cordeiro, Arca de Noé, UpaPets (quatro
+anúncios), Vita Vet, Clínica da Hora, Satori, Vet Center 24H e Guarany. **São 17 páginas só
+nesta varredura** — mais que as nove somadas de todas as anteriores. Carrossel com card
+vazio, com o nome da página repetido e barras vazias no lugar das manchetes: Tierplatz,
+Arca de Noé, Vita Vet, Miados e Latidos. Título vazio: SmartDog Teo, Mavie Vet, Bündchen,
+Animalmedic (dois), Bicho Livre, Cursos vet Paraguay.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**O termo "24 horas" é o filtro de gasto do nicho** — é o equivalente veterinário do
+"conta de luz maior que R$300?" da energia solar. Quem anuncia plantão está dizendo que tem
+estrutura e folha para sustentar, ou seja, tem verba. Vale como regra de varredura: em
+qualquer nicho, **o termo que denuncia estrutura cara denuncia junto quem tem dinheiro para
+anunciar.**
+
+**E aqui apareceu o plano de assinatura** — Fauna Pet roda "Conheça os planos👉" em dois
+anúncios. É o único nicho varrido até agora que vende recorrência em vez de atendimento
+avulso, e isso muda a abordagem: para essas páginas o argumento não é "mais clientes", é
+"mais assinantes", que é exatamente o que a gente entrega.
+
+**Munição direta para o nosso criativo:** três páginas usam o CTA no imperativo da decisão
+do dono do pet — "AGENDE A CONSULTA DO SEU PET" (Animal Help, em dois), "AGENDAR AGORA"
+(Coellho, em dois), "Agende o banho e tosa do seu pet" (Coellho). É o mesmo movimento do
+nosso "É O MEU CASO": **o CTA que descreve a ação do leitor, não a do anunciante.**
+
+LISTA DE ATAQUE: **228 → 259**.
+
+Combos varridos até aqui: + veterinária clínica 24 horas (nacional, 591 ativos — 31 alvos,
+7 em Trilha A, confirmando por um terceiro ponto a curva nome-próprio × entrega técnica;
+**URL crua no título em 17 páginas de uma varredura só**; munição nova: o termo que denuncia
+estrutura cara denuncia quem tem verba, e o plano de assinatura da Fauna Pet).
