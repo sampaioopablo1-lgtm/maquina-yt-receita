@@ -6786,3 +6786,46 @@ Campo Grande confirmada em odontologia, e com "RJ" o termo devolve zero, mesma a
 Madureira; **título-domínio pela quarta varredura seguida**; poluição por curso para
 dentista; contraexemplos: headline de história do Dr. Gabriel Lopes e prova social pelo par
 do Studio Oral Group).
+
+## Ótica — Copacabana: combo morto, mas com uma regra nova (23/09, 21h)
+
+Dois termos: `óculos de grau Copacabana` → **2 ativos**. `ótica Copacabana lentes` → **1 ativo**.
+Três anúncios no total, **2 páginas**, e nenhuma delas é uma ótica de bairro. **Combo morto,
+registrado para não se repetir.**
+
+### Regra nova: bairro que também é nome de marca
+
+As duas páginas que aparecem provam por que o termo não serve:
+
+- **Copacabana Eyewear – Distribuidora de Óculos.** "Copacabana" aqui é o nome da EMPRESA,
+  não o bairro — e ela é distribuidora, atende lojista, não consumidor. Dois anúncios, um
+  com **10 "Fale conosco"** no título e outro com 4.
+- **Chilli Beans do Shopping Copacabana.** Franquia de rede, com `instagram.com` no título.
+
+A regra antiga da ótica dizia: *termo de loja ("ótica") puxa distribuidor, termo de produto
+("óculos de grau") resolve*. **Aqui os dois puxaram a mesma distribuidora.** O motivo é
+outro: **o bairro virou marca.** Quando existe empresa com o nome do bairro, o termo
+geográfico deixa de filtrar geografia e passa a filtrar razão social.
+
+Isso soma às armadilhas de bairro já catalogadas, e agora são quatro tipos:
+
+| armadilha | exemplo | efeito |
+|---|---|---|
+| bairro homônimo em outro estado | Campo Grande/MS, Madureira/Caxias, Tijucas/SC | traz o outro estado |
+| bairro que é sobrenome | Madureira | traz pessoas |
+| bairro sem mercado anunciado | Madureira (imóveis) | traz zero do Rio |
+| **bairro que é marca** | **Copacabana Eyewear** | **traz a empresa, não o bairro** |
+
+### Título-domínio: quinta varredura seguida
+
+`instagram.com` na Chilli Beans. Psicologia, solar, imobiliária Barra, odontologia Campo
+Grande e agora ótica. **Cinco varreduras, cinco nichos, o mesmo defeito.** Não há mais dúvida
+sobre a regra.
+
+LISTA DE ATAQUE: **578 → 578** (nenhum alvo novo — as duas páginas são distribuidora e
+franquia de rede, fora do perfil).
+
+Combos varridos até aqui: + ótica Copacabana — **combo morto** (2 termos, 3 anúncios, 2
+páginas, nenhuma ótica de bairro). **Regra nova: bairro que também é nome de marca
+(Copacabana Eyewear) faz o termo geográfico filtrar razão social em vez de geografia** — é a
+quarta armadilha de bairro da base. **Título-domínio pela quinta varredura seguida.**
