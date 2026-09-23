@@ -5111,10 +5111,26 @@ open — corrigido nos dois lugares desta rodada que citavam 49 como atual
 por esta sessão: a escrita do G-16 foi de outra sessão, lida de volta e
 incorporada por coerência, não repetida.
 
-Com isso, G-03, G-04 (peça 2), F-09, **F-10**, G-11 (item 1), G-17 e G-19
-são agora as **sete** decisões que esperam o dono — uma a menos que no
-fechamento do G-20, porque o G-16 saiu da lista ao ser executado nesta
-janela. F-10 chega à próxima rodada com o peso maior do que saiu desta. A
-próxima rodada sem tela nem decisão desbloqueada repete o mesmo caminho de
-sempre — e, se o silêncio de entrada continuar, vale reconferir o F-10 de
-novo antes de assumir que esta leitura ainda é a mais recente que existe.
+**Segunda reconciliação, mesma janela — `git fetch` achou um terceiro
+commit em paralelo antes deste push completar, e ele também mexe no G-17
+acima.** O dono decidiu a opção (A) para as duas cadências restantes,
+patches escritos e validados (`patch_portao_inbound.py`,
+`patch_portao_noshow.py` — planos ao vivo conferidos), e a correção "o
+`Reengajamento 90 dias` não existe mais, foi substituído pela `Nutrição —
+WhatsApp 15 dias`" já está registrada no próprio G-17. **O que não mudou: a
+aplicação em si.** As duas gravações foram negadas pelo classificador do
+modo automático (o dono mantém o modo automático ligado) — G-17 sai da
+lista de "decisão do dono" e entra na mesma classe de G-11 (itens 2/3) e
+G-18: desenho e decisão completos, patch validado, só falta rodar
+`--aplicar` no PC do dono ou aplicar na tela.
+
+Com isso, G-03, G-04 (peça 2), F-09, **F-10**, G-11 (item 1) e G-19 são
+agora as **seis** decisões que esperam o dono — duas a menos que no
+fechamento do G-20 (G-16 executado, G-17 decidido e só pendente de
+aplicação). F-10 chega à próxima rodada com o peso maior do que saiu desta.
+A próxima rodada sem tela nem decisão desbloqueada repete o mesmo caminho
+de sempre — e, com pelo menos três sessões trabalhando esta subconta na
+mesma janela de tempo, vale um `git fetch` antes de qualquer leitura de CRM
+que vá virar número escrito no roadmap, não só antes do push: uma leitura
+que já nasce velha por 60 segundos ainda é melhor que uma que nasce velha
+por não ter conferido se alguém mexeu primeiro.
