@@ -6,14 +6,41 @@ execucao, 23/09/2026). O `Espelho de Etapa` mantem no contato a tag do estado;
 aqui cada segmento de If/Else com condicao de oportunidade troca essas
 condicoes por UMA condicao de tag equivalente. Demais condicoes ficam.
 
-  etapa == CONECTAR (+ status open)              -> tag etapa-conectar
+  etapa == NOVO LEAD              (+ status open) -> tag etapa-novo-lead
+  etapa == CONECTAR               (+ status open) -> tag etapa-conectar
   etapa == REUNIAO DE DIAGNOSTICO (+ status open) -> tag etapa-reuniao
+  etapa == NEGOCIAR               (+ status open) -> tag etapa-negociar
+  etapa == FORMALIZAR             (+ status open) -> tag etapa-formalizar
   status == abandoned                             -> tag status-nutricao
+  status == lost                                  -> tag status-perdido
+  status == won                                   -> tag status-ganho
 
-Nao mexe na `Cadência 12x30` (parte 1): gatilho de etapa, e ali a condicao
-funciona e evita corrida com o Espelho no instante da entrada.
+As oito tags ja existem e estao publicadas — o dono as criou no commit
+`61eb167`, e o `Espelho de Etapa` (publicado, v4) e quem as mantem. Este
+script nao cria tag nenhuma, so passa a saber traduzir para as cinco que a
+tabela antiga nao cobria (NOVO LEAD, NEGOCIAR, FORMALIZAR, perdido, ganho).
+A tabela incompleta nunca traduziu errado: padrao que ela nao conhecia caia
+em `falhas`, e `falhas` bloqueia o PUT. Era limite para o futuro, nao bug.
 
-Uso: python patch_condicoes_etapa.py [--aplicar]
+ALVOS deixou de ser lista fixa (23/09/2026). A lista tinha os 10 nomes da
+rodada em que o defeito foi descoberto, e os 10 ja estao consertados — 49
+condicoes trocadas, medido nos backups de `_antes-patch-condicoes/`. O
+problema da lista fixa nao era o passado: era o futuro. Workflow criado
+depois, com gatilho de tag e condicao de etapa, nasce com o mesmo defeito
+silencioso e a lista nao o ve. Agora o alvo e varrido ao vivo: workflow
+publicado que tenha QUALQUER gatilho sem oportunidade e ao menos uma
+condicao de oportunidade em `if_else`.
+
+A deteccao tambem roda sem API e sem PC, pelos dumps: veja
+`auditoria_condicoes.py` (somente leitura, sai 1 se achar em publicado).
+
+Nao mexe na `Cadência 12x30` (parte 1), e a varredura respeita isso: gatilho
+de etapa, ali a condicao funciona e a troca criaria corrida com o Espelho no
+instante da entrada. Decisao registrada em 23/09/2026 — a varredura nao a
+reverte calada.
+
+Uso: python patch_condicoes_etapa.py [--aplicar] [--incluir-teste] [--alvo NOME]
+     sem `--aplicar` so imprime o que faria.
 """
 import copy
 import os
@@ -22,11 +49,22 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from patch_funil_reuniao import put, g        # put preserva configuracoes
 
-ALVOS = ["CONECTAR Estagnado", "Cadência 12x30 — parte 2", "Fechar Horário",
-         "Interceptação de Sinal — Clique v2", "Interceptação de Sinal — Resposta v2",
-         "Opt-out por Palavra-chave", "Recuperação de No-show", "Reengajamento 90 dias",
-         "Retorno Vencido", "SLA do Closer — No-show"]
-CONECTAR, REUNIAO = g.STAGES["CONECTAR"], g.STAGES["REUNIÃO DE DIAGNÓSTICO"]
+# Gatilhos que entregam a oportunidade no contexto de execucao. Qualquer outro
+# nao entrega, e la a condicao de oportunidade le vazio e da sempre falso.
+GATILHO_COM_OPORTUNIDADE = {"pipeline_stage_updated", "opportunity_status_changed"}
+
+# Decisao de 23/09/2026 que a varredura NAO reverte: ver docstring.
+NUNCA = {"Cadência 12x30"}
+
+ETAPA_TAG = {
+    g.STAGES["NOVO LEAD"]: "etapa-novo-lead",
+    g.STAGES["CONECTAR"]: "etapa-conectar",
+    g.STAGES["REUNIÃO DE DIAGNÓSTICO"]: "etapa-reuniao",
+    g.STAGES["NEGOCIAR"]: "etapa-negociar",
+    g.STAGES["FORMALIZAR"]: "etapa-formalizar",
+}
+STATUS_TAG = {"abandoned": "status-nutricao", "lost": "status-perdido",
+              "won": "status-ganho"}
 BACKUP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "workflows-json",
                       "_antes-patch-condicoes")
 
@@ -36,12 +74,10 @@ def tag_equivalente(opp):
               and x["conditionOperator"] == "=="}
     status = {x["conditionValue"] for x in opp if x["conditionSubType"] == "status"
               and x["conditionOperator"] == "=="}
-    if etapas == {CONECTAR} and status <= {"open"}:
-        return "etapa-conectar"
-    if etapas == {REUNIAO} and status <= {"open"}:
-        return "etapa-reuniao"
-    if not etapas and status == {"abandoned"}:
-        return "status-nutricao"
+    if len(etapas) == 1 and status <= {"open"}:
+        return ETAPA_TAG.get(next(iter(etapas)))
+    if not etapas and len(status) == 1:
+        return STATUS_TAG.get(next(iter(status)))
     return None
 
 
@@ -90,19 +126,74 @@ def reengajamento_sincrono(tpl):
     return log
 
 
+def tem_condicao_de_oportunidade(tpl):
+    for t in tpl:
+        if t.get("type") != "if_else":
+            continue
+        for b in (t.get("attributes") or {}).get("branches") or []:
+            for sg in b.get("segments") or []:
+                if any(x.get("conditionType") == "opportunities"
+                       for x in (sg.get("conditions") or [])):
+                    return True
+    return False
+
+
+def varre(c, incluir_teste=False, so=None):
+    """[(nome, id)] dos workflows que tem o defeito, lidos ao vivo.
+
+    Defeito = ao menos um gatilho que NAO entrega oportunidade, e ao menos uma
+    condicao de oportunidade em `if_else`. Rascunho e `ZZ TESTE*` ficam de fora
+    por padrao: rascunho nao roda, e copia de teste existe para exibir o
+    defeito — `--incluir-teste` traz os dois.
+    """
+    alvos, pulados = [], []
+    for w in c.request("GET", "/workflow/" + g.LOC):
+        nome, wf = w.get("name"), w.get("id")
+        if not wf or not nome:
+            continue
+        if so and nome != so:
+            continue
+        if nome in NUNCA:
+            pulados.append((nome, "decisao registrada (NUNCA)"))
+            continue
+        if not incluir_teste and (w.get("status") != "published"
+                                  or nome.startswith("ZZ TESTE")):
+            continue
+        gatilhos = {t.get("type") for t in
+                    c.request("GET", "/workflow/" + g.LOC + "/trigger?workflowId=" + wf)
+                    if not t.get("deleted")}
+        if gatilhos and gatilhos <= GATILHO_COM_OPORTUNIDADE:
+            continue
+        cur = c.request("GET", "/workflow/" + g.LOC + "/" + wf)
+        if tem_condicao_de_oportunidade((cur.get("workflowData") or {}).get("templates") or []):
+            alvos.append((nome, wf, sorted(gatilhos)))
+    for nome, porque in pulados:
+        print("-- pulado: %s (%s)" % (nome, porque))
+    return alvos
+
+
 def main():
     aplicar = "--aplicar" in sys.argv
+    incluir_teste = "--incluir-teste" in sys.argv
+    so = None
+    if "--alvo" in sys.argv:
+        so = sys.argv[sys.argv.index("--alvo") + 1]
     c = g.client()
-    ids = {w.get("name"): w["id"] for w in c.request("GET", "/workflow/" + g.LOC)}
     os.makedirs(BACKUP, exist_ok=True)
-    for nome in ALVOS:
-        wf = ids[nome]
+    alvos = varre(c, incluir_teste, so)
+    if not alvos:
+        print("nenhum workflow com condicao de oportunidade sem gatilho que a carregue.")
+        print("(os 10 da rodada de 23/09/2026 ja estao consertados — 49 condicoes trocadas)")
+        return
+    print("%d workflow(s) com o defeito:\n" % len(alvos))
+    for nome, wf, gatilhos in alvos:
+        print("== %s  gatilho: %s" % (nome, ", ".join(gatilhos) or "nenhum"))
         cur = c.request("GET", "/workflow/" + g.LOC + "/" + wf)
         tpl = copy.deepcopy((cur.get("workflowData") or {}).get("templates") or [])
         log, falhas = corrigir(tpl)
         if nome == "Reengajamento 90 dias":
             log += reengajamento_sincrono(tpl)
-        print("== %s: %d troca(s)%s" % (nome, len(log), " — %d FALHA(S)" % len(falhas) if falhas else ""))
+        print("   %d troca(s)%s" % (len(log), " — %d FALHA(S)" % len(falhas) if falhas else ""))
         for l in log + falhas:
             print("   " + l)
         if not aplicar or not log or falhas:

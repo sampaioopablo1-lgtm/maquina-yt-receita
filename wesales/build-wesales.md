@@ -7734,3 +7734,91 @@ saindo com código 0.
 A lição que o módulo carrega no próprio docstring, para não se perder de novo:
 **achado tirado de dump é CANDIDATO, não item** — só vira item depois de
 confirmação ao vivo, pela API ou medindo o efeito.
+
+---
+
+## 2.36 A pendência 9d estava superestimada: os 10 alvos já estavam consertados, e o que faltava era o guarda
+
+A pendência que eu vinha reportando como "3 linhas no `traduz()` e trocar o
+`ALVOS` fixo por varredura" sugeria defeito vivo. Fui medir antes de mexer, e
+não havia:
+
+| o que eu afirmava | o que a medição mostra |
+|---|---|
+| a lista fixa de 10 pode estar escondendo workflow com o defeito | os 10 já estão consertados: **49 condições em 28 segmentos**, zero restantes, provado pelos backups de `_antes-patch-condicoes/` |
+| a tabela de tradução incompleta é um bug | ela **nunca traduziu errado**: padrão desconhecido cai em `falhas`, e `falhas` bloqueia o `PUT` — era limite para o futuro |
+| a varredura acharia coisa hoje | acha **um**: `ZZ TESTE 12X30`, rascunho, a cópia de teste que existe justamente para exibir o defeito |
+
+Os 7 workflows publicados que ainda testam condição de oportunidade têm
+gatilho `pipeline_stage_updated` ou `opportunity_status_changed` — ali a
+condição funciona e está certo estar ali.
+
+### O que era problema de verdade
+
+Não o passado, o futuro. Workflow criado amanhã, com gatilho de tag e
+condição de etapa, nasce com o mesmo defeito **silencioso** — o ramo nunca
+roda, não dá erro, não aparece em lugar nenhum — e uma lista de 10 nomes
+escrita ontem não o vê. Faltava o guarda, não o conserto.
+
+### `auditoria_condicoes.py` — a quarta auditoria
+
+Somente leitura, roda sem API e sem PC, pelos dumps. Classifica cada workflow
+que testa condição de oportunidade em `if_else`:
+
+| classe | critério | código de saída |
+|---|---|---|
+| **defeito** | `published`, não-`ZZ TESTE`, com algum gatilho que não carrega oportunidade | **1** |
+| aviso | mesmo padrão em `draft` ou `ZZ TESTE*` | 0 |
+| correto | todos os gatilhos carregam oportunidade | 0 |
+
+Isto desfaz uma afirmação errada que eu havia registrado: **os dumps carregam
+os gatilhos**. O `g.export` grava `{"workflow": ..., "triggers": ...}`, e eu
+tinha anotado `triggers: []` em todo dump. A classificação de gatilho desta
+auditoria não é chute — é leitura.
+
+Saída de hoje: 38 dumps, 9 testam condição de oportunidade, **0 defeitos em
+publicado**, 1 aviso (`ZZ TESTE 12X30`, rascunho, 6 segmentos), 8 corretos.
+
+### `patch_condicoes_etapa.py` — varredura no lugar da lista
+
+`ALVOS` saiu. O alvo passa a ser varrido ao vivo: workflow publicado com
+algum gatilho sem oportunidade e ao menos uma condição de oportunidade em
+`if_else`. `--incluir-teste` traz rascunho e `ZZ TESTE*`; `--alvo NOME`
+restringe a um; sem `--aplicar` só imprime.
+
+A `Cadência 12x30` (parte 1) ficou num conjunto `NUNCA` explícito, com o
+motivo registrado: gatilho de etapa, a condição funciona e a troca criaria
+corrida com o Espelho no instante da entrada. A varredura imprime que a
+pulou — decisão tomada não se reverte calada.
+
+A tabela de tradução passou de 3 para 8 padrões:
+
+| condição | tag do Espelho |
+|---|---|
+| etapa == `NOVO LEAD` (+ status open) | `etapa-novo-lead` |
+| etapa == `CONECTAR` | `etapa-conectar` |
+| etapa == `REUNIÃO DE DIAGNÓSTICO` | `etapa-reuniao` |
+| etapa == `NEGOCIAR` | `etapa-negociar` |
+| etapa == `FORMALIZAR` | `etapa-formalizar` |
+| status == `abandoned` | `status-nutricao` |
+| status == `lost` | `status-perdido` |
+| status == `won` | `status-ganho` |
+
+**Nenhuma tag nova.** As oito já existem e estão publicadas — o dono as criou
+no `61eb167`, e o `Espelho de Etapa` (publicado, v4) é quem as mantém. Por
+isso esta mudança não precisa de linha no `APROVADO.md`: o script sabe
+traduzir para mais coisas, e não cria nada.
+
+### Regressão medida, não deduzida
+
+Rodei a tabela nova contra os 10 backups pré-patch, offline:
+
+| | resultado |
+|---|---|
+| trocas | 28 segmentos, 49 condições — idêntico ao patch original |
+| falhas | 0 |
+| condições de oportunidade restantes | 0 em todos os 10 |
+| segmento com duas etapas | devolve `None`, cai em `falhas`, não troca |
+
+Zero escrita na conta: o patch não foi executado, e sem `--aplicar` ele não
+escreve. O que vai para a conta continua sendo decisão do dono.
