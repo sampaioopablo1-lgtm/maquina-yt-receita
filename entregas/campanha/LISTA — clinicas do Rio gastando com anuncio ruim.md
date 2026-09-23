@@ -6716,3 +6716,73 @@ pelo bairro Madureira de **Caxias do Sul/RS**, pelo sobrenome Madureira e por S�
 **Regra nova: em bairro de ticket baixo não existe termo, porque não existe anunciante** —
 e com isso a escala do ticket fica completa: empreendimento (alto), bairro (médio), nada
 (baixo).
+
+## Odontologia — Campo Grande (23/09, 20h)
+
+Dois termos. `dentista Campo Grande RJ implante e clareamento` → **0 ativos** (termo longo
+demais, de novo). `dentista Campo Grande` → **247 ativos**, amostra de 50 → **17 páginas
+distintas**. **16 alvos, 9 em Trilha A.**
+
+### NOVO RECORDE ABSOLUTO DE AUTO-CONCORRÊNCIA: 22 anúncios de uma página só
+
+A **Odontovic – Implantes Dentários** responde por **22 dos 50 anúncios da amostra** —
+quase metade — todos criados no mesmo minuto, alternando só três headlines:
+
+- `Agende sua avaliação de Implantes Dentários` (13 vezes)
+- `Implantes dentários em Campo Grande` (8 vezes)
+- `Entre em contato hoje mesmo.` (1 vez)
+
+Dois deles são carrossel repetindo a mesma frase em dois cards. O recorde anterior da base
+era 13 anúncios idênticos (Diego Bruno Nascimento, advocacia). **A Odontovic quase dobrou.**
+
+E ela já estava na base: é a mesma página que dominava o termo `odontologia Copacabana`
+sendo de Campo Grande. **Agora dá para dizer o que ela realmente faz: ela não domina um
+bairro, ela domina o leilão inteiro com 22 anúncios competindo entre si.** É o melhor caso
+da base para a conversa de venda — dá para mostrar página, contagem e headline repetida.
+
+### A regra do Campo Grande confirmada em outro nicho
+
+Sem "RJ" no termo, **quem aparece é Campo Grande/MS**: Dr. Gabriel Lopes – Oral Unic Campo
+Grande, Laeli Weis Schons – Dentista em Campo Grande **Ms** (4 anúncios, todos com título
+vazio), Dra. Alessandra Terra | Campo Grande **MS** (2 iguais), OdontoMed Campo Grande, Oral
+Unic Naviraí. A regra tinha nascido em imobiliária; agora está confirmada em odontologia.
+
+Mas com "RJ" o termo devolve zero. **Mesma armadilha da Madureira: ou o termo é largo demais
+e traz outro estado, ou é específico demais e não traz nada.** Para Campo Grande/RJ o que
+funciona é buscar pela página conhecida, não pelo bairro.
+
+### Título-domínio: quarta varredura seguida
+
+**Giselle Duarte – Dentista no Rio de Janeiro**, com `instagram.com` no campo do título.
+Psicologia (16h), energia solar (17h), imobiliária Barra (18h), odontologia agora. Quatro
+nichos, quatro varreduras, o mesmo defeito.
+
+### Poluição do termo: curso para dentista
+
+Dra. Aline Pedrosa ("Mentoria Vip Botox Iniciante e Preenchimento Lábial" — com o erro de
+acento no anúncio), Dra Andrea Melo ("Faça sua inscrição", 2 anúncios), Professor Tiago
+Botelho, Canal Janela Aberta (entrevista de universidade). **Confirma a regra do idiomas:
+onde existe curso para o profissional, o termo da profissão puxa o curso junto.** Some a
+Mediquo Telemedicina, que vende plano ("Dentista a preços popular", sic) e não é clínica.
+
+### Dois contraexemplos que valem copiar
+
+- **Dr. Gabriel Lopes — "Do medo à transformação: a história da Dona Elizabeth".** É a única
+  headline de HISTÓRIA em toda a base. Não promete resultado, não pede contato: apresenta
+  uma pessoa. Num nicho onde todo mundo escreve "agende sua avaliação", isso para o dedo.
+- **Studio Oral Group — "Quando um dentista escolhe onde transformar o próprio sorriso, essa
+  escolha diz muito."** Prova social pelo par: o profissional como cliente. Nenhuma outra
+  página da base usou esse ângulo.
+
+O contraste dentro da própria página do Dr. Gabriel Lopes também ensina: ele tem a melhor
+headline do nicho e, nos outros dois anúncios, "Converse conosco".
+
+LISTA DE ATAQUE: **562 → 578**.
+
+Combos varridos até aqui: + odontologia Campo Grande (247 ativos, 17 páginas em 50
+anúncios; 16 alvos, 9 em Trilha A; **NOVO RECORDE ABSOLUTO DE AUTO-CONCORRÊNCIA: Odontovic
+com 22 anúncios ativos e só 3 headlines** — quase o dobro do recorde anterior; regra do
+Campo Grande confirmada em odontologia, e com "RJ" o termo devolve zero, mesma armadilha da
+Madureira; **título-domínio pela quarta varredura seguida**; poluição por curso para
+dentista; contraexemplos: headline de história do Dr. Gabriel Lopes e prova social pelo par
+do Studio Oral Group).
