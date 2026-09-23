@@ -5183,6 +5183,48 @@ vivo — e a confirmação ao vivo, neste projeto, é a `auditoria_final.py` (qu
 API) ou uma medição de efeito pelo MCP. Da nuvem eu tenho a segunda; a primeira
 precisa do PC.
 
+### 2.33.4 A guarda de frescor não pegava dump sem irmão — e havia um `published` velho de 28 h
+
+A guarda que eu pus na §2.33.3 compara cada dump com o backup `_antes-*` do
+mesmo workflow. Boa, e **cega para dump que não tem irmão** — que é a maioria.
+Achei o caso concreto conferindo o G-13 do dono:
+
+| Fonte | Diz |
+|---|---|
+| `workflows-json/AGENDAR Estagnado.json`, `updatedAt` **22/09 00:45** | `status: published` |
+| commit `23db864` do dono, 23/09 ~01:47, no assunto | "**W17d despublicado**" |
+
+O dump está **28 h atrás da conta** e afirma `published` sobre um workflow que o
+dono já tinha despublicado. Não tem backup `_antes-*`, então a guarda imprimiu 0.
+Se eu tivesse tirado um achado dali, seria o quarto dado velho levado ao dono.
+
+**Segunda guarda, heurística e declarada como tal:** o `auditoria_tags.py` agora
+compara o `updatedAt` de cada dump com o **mais novo da pasta** e lista os que
+estão 12 h ou mais atrás. Não prova defasagem — a pasta pode ter workflow que
+ninguém tocou há dias, e é isso mesmo. O que ela faz é nomear o que **precisa de
+confirmação ao vivo antes de virar item**. Hoje lista 7:
+
+```
+ZZ TESTE API                31 h     Contador de Toques            28 h
+ZZ TESTE W6                 29 h     Lead Esquecido em NOVO LEAD   28 h
+AGENDAR Estagnado           28 h     Fila Travada                  27 h
+Alerta de Speed-to-lead     28 h
+```
+
+Quatro deles são os monitores do F-05 (`Alerta de Speed-to-lead`, `Contador de
+Toques`, `Lead Esquecido em NOVO LEAD`, `Fila Travada`) — ou seja, **exatamente a
+parte da máquina sobre a qual eu tenho menos informação fresca**. Qualquer coisa
+que eu disser sobre os monitores a partir de dump, daqui pra frente, sai com esse
+rótulo.
+
+E um bug meu no caminho, pego porque rodei com `| head` e vi o traceback: as duas
+guardas usavam `nome` como variável de laço, sombreando a lambda `nome()` que
+resolve id → nome do workflow. A auditoria morria com `'str' object is not
+callable` **depois** de imprimir os avisos — ou seja, falhava exatamente na parte
+que importa, e o cabeçalho bonito dava a impressão de que tinha rodado.
+Corrigido; lição pequena e velha: em script de relatório, nome de variável de
+laço não pode colidir com nome de função auxiliar.
+
 ### 2.33.1 A `auditoria_final.py` do dono diz "0 problemas" e isso não cobre estes achados
 
 O `beebd23` trouxe `wesales/tools/auditoria_final.py` com o resultado "26

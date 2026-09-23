@@ -160,6 +160,36 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## A guarda de frescor era cega para dump sem irmão — e havia um `published` velho de 28 h — 23/09/2026, sessão na nuvem
+
+Conferindo o G-13 do dono achei o caso que a minha própria guarda não pegava:
+`workflows-json/AGENDAR Estagnado.json` diz `status: published` com `updatedAt` de
+**22/09 00:45**, e o commit `23db864` do dono (23/09 ~01:47) diz no assunto "**W17d
+despublicado**". O dump está 28 h atrás da conta e afirma o contrário do estado
+real. Ele não tem backup `_antes-*`, e a guarda da entrada anterior só compara com
+irmão — imprimiu 0.
+
+**Segunda guarda, heurística e rotulada como tal:** compara o `updatedAt` de cada
+dump com o **mais novo da pasta** e lista os que estão 12 h ou mais atrás. Não prova
+defasagem (workflow que ninguém tocou há dias aparece, e é correto que apareça); o
+que ela faz é nomear o que precisa de **confirmação ao vivo antes de virar item**.
+Hoje lista 7 — e **quatro são os monitores do F-05**, justamente a parte da máquina
+sobre a qual eu tenho menos informação fresca.
+
+**A regra que fecha a série:** guarda contra dado velho não pode depender de o dado
+velho ter um par. A primeira versão só via defasagem quando existia um backup irmão
+para comparar — ou seja, funcionava exatamente nos casos em que alguém já tinha se
+dado o trabalho de fazer backup, e falhava em silêncio nos outros. Guarda que só
+funciona quando o ambiente colabora não é guarda.
+
+E um bug meu no caminho, pego só porque rodei com `| head` e vi o traceback: as duas
+guardas usavam `nome` como variável de laço, sombreando a lambda `nome()` que resolve
+id → nome. A auditoria morria com `'str' object is not callable` **depois** de
+imprimir os avisos — falhava na parte que importa, com um cabeçalho bonito dando a
+impressão de sucesso. Em script de relatório, variável de laço não pode colidir com
+função auxiliar; e rodar o script **inteiro**, não só o cabeçalho, antes de confiar
+nele.
+
 ## Classifiquei cinco contatos por nome e acertei um — o telefone é que diz o que a coisa é — 23/09/2026, sessão na nuvem
 
 Eu disse que cinco oportunidades eram "teste sem marcação, indistinguíveis de lead",

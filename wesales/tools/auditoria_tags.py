@@ -104,8 +104,48 @@ def frescor():
             if u > mais_novo:
                 mais_novo = u
         if mais_novo and mais_novo > meu:
-            atraso[nome[:-5]] = (meu, mais_novo)
+            atraso[nome[:-5]] = (meu, mais_novo, "backup irmao mais novo")
     return atraso
+
+
+def defasados(horas=12):
+    """Dumps exportados MUITO antes do mais novo da pasta.
+
+    A guarda do `frescor()` so ve dump que tem irmao em `_antes-*`. Dump SEM
+    irmao pode estar velho do mesmo jeito e ela nao percebe — foi o que
+    aconteceu em 23/09/2026 com o `AGENDAR Estagnado`: o arquivo dizia
+    `published` com `updatedAt` de 22/09 00:45, e o dono havia despublicado o
+    W17d no commit `23db864`. O arquivo estava 25 h atras da conta e a guarda
+    imprimiu 0.
+
+    Heuristica simples e honesta: se a pasta tem export de agora e este arquivo
+    e de muitas horas antes, ele provavelmente nao foi refeito. Nao prova nada —
+    marca o que conferir ao vivo antes de virar item.
+    """
+    import datetime
+    stamps = {}
+    for caminho in sorted(glob.glob(os.path.join(DUMPS, "*.json"))):
+        try:
+            with open(caminho, encoding="utf-8") as fh:
+                u = (json.load(fh).get("workflow") or {}).get("updatedAt") or ""
+        except (ValueError, OSError):
+            continue
+        if u:
+            stamps[os.path.basename(caminho)[:-5]] = u
+    if not stamps:
+        return {}, ""
+    novo = max(stamps.values())
+    def horas_entre(a, b):
+        f = "%Y-%m-%dT%H:%M:%S"
+        try:
+            da = datetime.datetime.strptime(a[:19], f)
+            db = datetime.datetime.strptime(b[:19], f)
+        except ValueError:
+            return 0.0
+        return (db - da).total_seconds() / 3600.0
+    velhos = {k: (v, round(horas_entre(v, novo), 1))
+              for k, v in stamps.items() if horas_entre(v, novo) >= horas}
+    return velhos, novo
 
 
 def carrega():
@@ -185,10 +225,23 @@ def main():
         print("AVISO DE FRESCOR — %d dump(s) com backup `_antes-*` MAIS NOVO que eles." % len(atraso))
         print("O arquivo principal nao foi re-exportado depois de um patch na conta.")
         print("QUALQUER achado abaixo que envolva estes workflows pode ja estar resolvido:")
-        for nome, (meu, novo) in sorted(atraso.items()):
-            print("   %-34s dump %s  <  backup %s" % (nome, meu[:19], novo[:19]))
+        for arq, (meu, novo_b, motivo) in sorted(atraso.items()):
+            print("   %-34s dump %s  <  backup %s" % (arq, meu[:19], novo_b[:19]))
         print("Conferir ao vivo antes de reportar. Em 23/09/2026 esta auditoria")
         print("reportou 5 tags sem segunda rede e 3 ja estavam resolvidas por isto.")
+        print("=" * 72 + "\n")
+
+    velhos, novo = defasados()
+    if velhos:
+        print("=" * 72)
+        print("DUMPS POSSIVELMENTE DEFASADOS — %d arquivo(s) exportado(s) 12 h ou mais" % len(velhos))
+        print("antes do mais novo da pasta (%s). Dump sem irmao em `_antes-*`" % novo[:19])
+        print("nao e pego pela guarda acima, e pode estar velho igual:")
+        for arq, (u, h) in sorted(velhos.items(), key=lambda kv: -kv[1][1])[:12]:
+            print("   %-34s %s  (%.0f h atras)" % (arq, u[:19], h))
+        if len(velhos) > 12:
+            print("   ... e mais %d" % (len(velhos) - 12))
+        print("Achado que envolva estes e CANDIDATO, nunca item.")
         print("=" * 72 + "\n")
 
     # ---- PERGUNTA 1 ----
