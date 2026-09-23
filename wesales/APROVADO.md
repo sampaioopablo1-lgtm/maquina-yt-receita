@@ -308,6 +308,19 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       contatos fictícios (seção "Contatos de teste" abaixo) ganharem
       oportunidade — no checklist de teste, seção 10 do `build-wesales.md`.
 
+### Correções pontuais em contato real
+
+- [ ] Remover as tags `etapa-novo-lead` e `cad-inbound` do contato
+      `Francisca` (`9wOSMuznjenFxa3yaep0`, `+5512981913254`) e mover a
+      oportunidade `gwDvzf9FeRDv2LfOVbH9` para `abandoned` — nasceu do G-16
+      (`ROADMAP-SALES-ENGAGEMENT.md`): o fio de mensagens inteiro
+      (`conversations_get-messages`) é pessoal (PIX, carona, áudio), sem
+      nenhum sinal comercial, e a Porta de Entrada tratou a primeira
+      mensagem inbound do número como lead. Não apaga nada (regra 1) — só
+      tira o contato da régua ativa, contato e histórico continuam
+      intactos. Nasce `[ ]` de propósito, mesma regra do topo deste
+      arquivo: linha que a própria rotina acrescentou não é autorização.
+
 ### Mensagens
 
 - [ ] Enviar mensagem por WhatsApp a partir da subconta (SMS saiu por decisão do dono em 19/09/2026 — não é canal de contato com lead neste projeto)

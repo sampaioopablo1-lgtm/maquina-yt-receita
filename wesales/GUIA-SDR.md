@@ -99,6 +99,19 @@ existir alguém com o mesmo telefone ou o mesmo negócio, é a mesma pessoa:
 avise o gestor para fundir os dois contatos (Configurações → Contatos →
 Duplicate Management & Merge Tool), não abra uma cadência nova por cima.
 
+## Lead novo inbound que parece contato pessoal do dono
+
+O WhatsApp da conta recebe qualquer mensagem que chegar nesse número, e o
+sistema cria oportunidade para qualquer primeira mensagem — ele não sabe
+diferenciar "prospect" de "amigo/fornecedor do Pablo mandando mensagem
+pessoal". Antes de tratar a tarefa **TI1** (lead novo inbound) como
+prospect de verdade, abra a conversa e leia as primeiras trocas: se o
+assunto é pessoal (chama o dono pelo nome, fala de pagamento/PIX, carona,
+favor — nada de agência, anúncio, cliente), **não ligue oferecendo
+diagnóstico**. Anote o nome e avise o gestor — é ele quem decide tirar o
+contato da régua (regra abaixo: você não apaga nada, e também não muda tag
+nem etapa sozinho para isso, mesmo parecendo óbvio).
+
 ## Se algo parecer errado
 
 Não apague nada. Anote o nome do lead e o que aconteceu e avise o gestor.

@@ -107,3 +107,13 @@ mudar preço/plano, mexer em outro projeto.
       > e está `open` em `NOVO LEAD` **sem dono** desde 22/09 23:34. Não é "teste sem
       > marcação", é o risco contrário: lead real parado. Uma pergunta, não uma
       > limpeza: `Francisca` é você testando ou é gente?
+      >
+      > **Respondida em 23/09/2026, sessão automática seguinte, promovida a item
+      > de roadmap (`ROADMAP-SALES-ENGAGEMENT.md`, G-16) — e a hipótese acima
+      > ("é lead inbound") estava errada, na direção oposta da que este item
+      > temia.** `conversations_get-messages` no fio inteiro: é pessoa real, sim,
+      > mas a conversa é **pessoal** (PIX, carona, áudio, "Oi Pablo, boa noite"),
+      > sem nenhum sinal comercial — não é lead inbound parado, é contato pessoal
+      > do dono capturado pela Porta de Entrada. Segue `open` em `NOVO LEAD` com
+      > `etapa-novo-lead` + `cad-inbound` até o dono aprovar a correção
+      > (`APROVADO.md`, nasce `[ ]`).

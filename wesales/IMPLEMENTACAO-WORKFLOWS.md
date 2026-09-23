@@ -1781,6 +1781,7 @@ no nó 2.5c/3c), segundo SDR (1.10).
 ## 3.6 Checklist de go-live (na ordem)
 
 1. **Decisões do dono:** G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1),
+   G-16 (contato `Francisca`, retirar da régua),
    coluna `Empresa` das listas (Tabela J), `{{right_now}}` (testar na tela),
    número de teste para WhatsApp (`APROVADO.md`), `[x]` das tags do Monitor
    de Saúde (F-05) e da Negociação Estagnada (F-13) que ainda aguardam em

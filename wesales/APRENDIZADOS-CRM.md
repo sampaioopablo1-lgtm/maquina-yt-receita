@@ -4,6 +4,58 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## "Quem mais fala disso?" também vale para documentos que nunca foram objeto de nenhuma varredura de coerência anterior — `ESTADO-E-PLANO.md` ficou de fora de três rodadas seguidas (G-10, G-13, G-14) — 23/09/2026, sessão automática
+
+CRM reconfirmado por API antes de investigar: 56 oportunidades (mesma
+composição da leitura do G-15/roadmap-self-coherence, sem mudança), 56
+campos de contato, pipeline com as mesmas 5 etapas — G-03, G-04 (peça 2),
+F-09, F-10 e G-11 (item 1) seguiam exatamente onde estavam, nenhum
+desbloqueado. Passo seguinte, pela ordem que o próprio roadmap manda: a
+varredura de coerência de sempre.
+
+**O que mudou desta vez:** em vez de `grep` por nome de etapa antigo (G-02,
+G-12) ou perguntar quem mais cita um fato já corrigido (G-10, G-14), a
+pergunta foi outra — **quais arquivos de `wesales/` nenhuma das rodadas de
+coerência já tinha cruzado?** `git log --oneline -- wesales/ESTADO-E-
+PLANO.md` mostra a última edição em `deb74cf`, um commit anterior a G-10 —
+e nem G-10, nem G-13, nem G-14 (que corrigiram `GUIA-MONTAGEM.md`,
+`rotina-limpar-tarefas.md`, `IMPLEMENTACAO-WORKFLOWS.md` e `README.md`)
+tocaram nele, apesar de ser o documento com a leitura mais recente e mais
+completa da base inteira. Ele tinha uma pergunta em aberto na seção 8, item
+"0", desde 23/09 02:35 UTC: o contato `Francisca` (`+5512981913254`,
+`9wOSMuznjenFxa3yaep0`) era teste do dono ou pessoa real que escreveu no
+WhatsApp da operação? Quem escreveu a pergunta não tinha como responder
+sozinho e ninguém tinha voltado a esse arquivo desde então.
+
+**Como resolvi, sem chute:** `conversations_search-conversation` com
+`query_contact_id` traz a conversa; `conversations_get-messages` no
+`conversationId` traz o fio completo (8 mensagens). Ler o fio de ponta a
+ponta bastou: "Oi Pablo, boa noite" (chamando o dono pelo nome), "Te
+lembrando do pix", um áudio, "Feito", um número de telefone compartilhado,
+"E mais uma vez obrigado pela carona", "Salvou rs". Nenhum sinal comercial
+em nenhuma mensagem. Pessoa real, conversa pessoal — a Porta de Entrada
+(gatilho de primeira mensagem inbound) não tem como diferenciar isso de um
+prospect, e criou oportunidade do mesmo jeito.
+
+**Regra prática, generalizável — estende a do G-10/G-14 ("quem mais fala
+disso?") para "quem nunca foi perguntado ainda":** depois de fechar uma
+rodada de coerência que reescreve vários documentos, vale listar
+explicitamente quais deles foram cruzados — e, na rodada seguinte sem item
+desbloqueado, testar `git log --oneline -- wesales/<arquivo>` contra essa
+lista para achar o que ficou de fora, não só repetir o mesmo grep de nome de
+etapa. Foi assim que apareceu o `ESTADO-E-PLANO.md` aqui, e é provável que
+haja outros — a lista de arquivos "já cruzados" que o G-14 abriu
+(`GUIA-MONTAGEM.md`, `rotina-limpar-tarefas.md`, `README.md`) continua
+sendo um subconjunto de `wesales/`, não o diretório inteiro.
+
+**Correção aplicada:** achado promovido a item de roadmap (`G-16`), linha
+nova em `APROVADO.md` (nasce `[ ]`, mesma regra de sempre), passo
+preventivo escrito no `GUIA-SDR.md` (ler o fio antes de tratar tarefa `TI1`
+como prospect), e a pendência 0 do `ESTADO-E-PLANO.md` marcada como
+respondida com link de volta para o G-16. Nenhuma escrita no CRM: a leitura
+de conversa não altera nada, só a correção proposta (remover duas tags,
+`abandoned` na oportunidade) espera o `[x]` do dono.
+
 ## O parágrafo "Com isso" do próprio roadmap pode divergir das entradas que ele resume — a varredura de coerência nunca tinha testado o roadmap contra ele mesmo — 23/09/2026, sessão automática
 
 CRM reconfirmado por API antes de investigar: 56 oportunidades (49 `NOVO
@@ -133,6 +185,13 @@ está parada há ~35h em `NOVO LEAD`, sem dono.** Pergunta aberta desde
 houver resposta, ela continua fora da contagem de 44 leads reais (por
 cautela) e fora da lista de teste conhecida (por não ter confirmação) —
 **decisão do dono, não dado que uma auditoria resolve sozinha.**
+
+> **Respondida em 23/09/2026, sessão automática seguinte, sem precisar do
+> dono:** `conversations_get-messages` no fio inteiro (não só o nome) diz o
+> que nenhuma rodada anterior tinha lido — é conversa pessoal do dono (PIX,
+> carona, áudio), nem teste nem lead inbound. Promovida a item de roadmap
+> (`G-16`); correção (tirar as tags, `abandoned` na oportunidade) aguarda
+> `[x]` em `APROVADO.md`. Detalhe completo no próprio G-16.
 
 **O que ficou saudável e sem mudança:** pipeline com as 5 etapas certas
 (`opportunities_get-pipelines` confere nome e ordem, incluindo

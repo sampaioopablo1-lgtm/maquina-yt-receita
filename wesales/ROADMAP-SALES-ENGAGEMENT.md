@@ -1384,6 +1384,78 @@ CRM: item de especificação e achado de limite de plataforma, não depende de
 
 ---
 
+### G-16 · A Porta de Entrada não distingue lead de contato pessoal do dono — um WhatsApp pessoal virou oportunidade aberta, exposta à cadência automática — **especificação fechada, execução aguarda decisão do dono** (aberto e especificado em 23/09/2026)
+
+**Por quê:** achado ao seguir a própria regra que o G-10/G-14 deixaram —
+"quem mais fala disso?" — mas aplicada a um alvo que nenhuma sessão tinha
+cruzado ainda: `ESTADO-E-PLANO.md`, que **nenhuma** das varreduras de
+coerência (G-10, G-13, G-14) tocou, embora todas as outras tenham revisado
+`GUIA-MONTAGEM.md`, `rotina-limpar-tarefas.md`, `IMPLEMENTACAO-WORKFLOWS.md`
+e `README.md`. A seção 8 desse documento tem uma linha (item "0") em aberto
+desde 23/09/2026, 02:35 UTC, nunca promovida a item de roadmap: "`Francisca`
+(+5512981913254) é você testando ou é gente?" — pergunta que ficou sem
+resposta por horas porque quem a escreveu não tinha como confirmar, e
+ninguém mais leu aquele documento depois.
+
+Conferido nesta rodada, por API, o que o documento não podia responder:
+`contacts_get-contacts` confirma o contato (`9wOSMuznjenFxa3yaep0`) ainda
+aberto — `etapa-novo-lead` + `cad-inbound`, sem `assignedTo`, oportunidade
+`gwDvzf9FeRDv2LfOVbH9` em `NOVO LEAD`/`open`. `conversations_get-messages`
+no fio inteiro (8 mensagens, 22/09 23:34 a 23/09 00:01 UTC) resolve a
+pergunta: é pessoa real, e a conversa é **pessoal**, não comercial —
+"Oi Pablo, boa noite" (a lead chamando o dono pelo nome), "Te lembrando do
+pix", um áudio, "Feito", um número de telefone compartilhado, "E mais uma
+vez obrigado pela carona", "Salvou rs". Nenhuma mensagem do fio tem qualquer
+sinal de anúncio, agência ou fit comercial. **Não é o mesmo achado do G-15**
+(duas cadências para o mesmo lead): aqui não há lead nenhum — é o número de
+WhatsApp da operação recebendo tráfego pessoal do próprio dono, e a máquina
+tratando isso como prospect.
+
+**Causa raiz, e por que não é só sobre a `Francisca`:** o gatilho que cria
+oportunidade a partir de mensagem inbound (Porta de Entrada / `Qualificação
+por IA no WhatsApp`, seção 6 do `build-wesales.md`) dispara para **qualquer
+primeira mensagem** recebida naquele número — o GHL não tem campo nenhum
+para diferenciar "prospect desconhecido" de "contato pessoal do dono
+escrevendo por engano no número errado". Qualquer outra pessoa da vida
+pessoal do dono que mandar mensagem para esse número recebe o mesmo
+tratamento: vira oportunidade em `NOVO LEAD`, ganha `cad-inbound`, e fica
+elegível à cadência automática de qualificação assim que a fila rodar.
+**Sem dano ainda** — o fio inteiro só tem mensagem pessoal do dono, nenhuma
+automática de cadência —, mas o risco fica aberto enquanto as duas tags
+continuarem no contato: o próximo toque da `Cadência Inbound` pode mandar
+uma mensagem de qualificação de anúncios para uma pessoa que só queria
+lembrar o dono de um Pix.
+
+**Como (dois pedaços, riscos diferentes):**
+
+1. **Preventivo, sem escrita no CRM — fechado nesta rodada:** passo novo no
+   `GUIA-SDR.md` ("Lead novo inbound que parece contato pessoal do dono"),
+   pedindo para ler o fio antes de tratar a tarefa `TI1` como prospect, e
+   avisar o gestor em vez de mudar tag/etapa sozinho — mesmo padrão do passo
+   do G-15 para Instagram (checar antes de tratar como lead novo), mesma
+   razão: o filtro que falta não é algo que um workflow consiga decidir
+   sozinho, só leitura humana da conversa resolve.
+2. **Corretivo, escreve no CRM — aguarda `[x]`:** remover `etapa-novo-lead`
+   e `cad-inbound` do contato `9wOSMuznjenFxa3yaep0` e mover a oportunidade
+   `gwDvzf9FeRDv2LfOVbH9` para `abandoned` (não `lost` — nunca houve
+   conversa comercial para perder). Não apaga nada (regra 1): o contato e o
+   histórico de mensagens continuam intactos, só saem da régua ativa.
+
+**Por que não executo sozinho:** é escrita em contato real, não de teste, e
+a regra 2 do briefing e a "Como autorizar" do `APROVADO.md` existem
+exatamente para isto — por mais óbvio que pareça pela leitura do fio, quem
+decide que um contato real não é lead é o dono, não a rotina. Linha nova
+registrada em `APROVADO.md`, nasce `[ ]`.
+
+**Pronto quando:** o dono confirmar (ou corrigir, se for engano meu) que
+`Francisca` é pessoal, marcar o `[x]` novo em `APROVADO.md`, e as duas tags
+saírem do contato com a oportunidade em `abandoned` — conferido por
+`contacts_get-contact` depois, mesmo padrão de leitura de volta que este
+projeto já usa em toda escrita. O passo preventivo no `GUIA-SDR.md` já vale
+a partir de agora, independente da decisão sobre este contato específico.
+
+---
+
 
 ## Bloco 1 — Medição (a maior lacuna)
 
@@ -4413,3 +4485,38 @@ Com isso, nenhum item numerado (G/R/F) muda de estado nesta rodada: G-03,
 G-04 (peça 2), F-09, F-10 e G-11 (item 1) são as cinco decisões que esperam
 o dono — a próxima rodada sem tela nem decisão desbloqueada repete o mesmo
 caminho de sempre.
+
+**G-16 aberto e especificado em 23/09/2026, sessão automática seguinte —
+CRM reconfirmado sem mudança nenhuma desde a leitura acima (56 oportunidades
+na mesma composição, 56 campos de contato, pipeline com as mesmas 5 etapas):
+G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) seguem exatamente onde
+estavam.** A varredura de coerência desta vez não foi grep por nome de
+etapa — foi perguntar, seguindo a própria regra generalizável que o
+parágrafo anterior acabou de reafirmar ("quem mais fala disso?"), qual
+documento de `wesales/` nenhuma das rodadas de coerência (G-10, G-13, G-14)
+tinha cruzado ainda. `ESTADO-E-PLANO.md` nunca tinha sido tocado por
+nenhuma delas, apesar de ser o documento com a leitura mais recente da base
+inteira — e a seção 8 dele carregava uma pergunta em aberto desde 23/09
+02:35 UTC, nunca promovida a item de roadmap: se o contato `Francisca`
+(criado pelo canal inbound do WhatsApp) era teste do dono ou pessoa real.
+Conferido por API nesta rodada (`conversations_get-messages` no fio
+inteiro): é pessoa real, e a conversa é pessoal — PIX, carona, áudio —, sem
+nenhum sinal comercial. O contato segue com `etapa-novo-lead` e
+`cad-inbound`, oportunidade aberta em `NOVO LEAD`, exposto à próxima rodada
+da Cadência Inbound. Fechado como **G-16**: passo preventivo já escrito no
+`GUIA-SDR.md` (não depende de `[x]`, é orientação de leitura antes de agir,
+mesmo padrão do passo do G-15 para Instagram); a correção no contato
+específico (tirar as duas tags, mover a oportunidade para `abandoned`) fica
+registrada em `APROVADO.md`, nasce `[ ]`, e entra na mesma fila de decisão
+do dono que G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) — agora **seis**
+decisões, não cinco. Zero campo novo, zero escrita no CRM (a leitura do fio
+de mensagem não altera nada): item de especificação e achado de coerência
+entre documentos, a escrita em si aguarda `[x]`. Detalhe completo no
+próprio G-16, acima.
+
+Com isso, G-16 fecha por inteiro quanto à especificação; G-03, G-04 (peça
+2), F-09, F-10, G-11 (item 1) e G-16 são as **seis** decisões que esperam o
+dono — a próxima rodada sem tela nem decisão desbloqueada repete o mesmo
+caminho de sempre, agora também cruzando `ESTADO-E-PLANO.md` na varredura
+de coerência (a lista de arquivos a cruzar que o G-14 abriu ainda não o
+incluía).
