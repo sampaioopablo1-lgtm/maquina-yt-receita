@@ -46,7 +46,13 @@ for wid, w in todos.items():
             prob.append('4 prefixo desconhecido: %s: %s' % (w['name'], a.get('title')))
     if any(t['type'] == 'task-notification' for t in tpl) and not d.get('window'):
         prob.append('5 tarefa sem janela: %s' % w['name'])
-    if any(t['type'] == 'sms' for t in tpl) and not d.get('window'):
+    # Lembretes da Reunião: toda mensagem espera um horário RELATIVO À REUNIÃO
+    # (wait type=appointment) — janela seg-sex 08:30-18:30 atrasaria o aviso de
+    # 10 min. Exceção só vale se TODO sms vier depois de espera de agendamento
+    # ou for a confirmação imediata (resposta ao ato de marcar). 23/09/2026.
+    relativo = w['name'].startswith('Lembretes da Reunião') and any(
+        t['type'] == 'wait' and (t.get('attributes') or {}).get('type') == 'appointment' for t in tpl)
+    if any(t['type'] == 'sms' for t in tpl) and not d.get('window') and not relativo:
         prob.append('6 mensagem sem janela: %s' % w['name'])
 print('publicados auditados:', n)
 for p in sorted(set(prob)):

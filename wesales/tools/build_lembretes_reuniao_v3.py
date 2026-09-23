@@ -38,7 +38,8 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ghl_api as g
 
-NOME = "Lembretes da Reunião v2"
+NOME = "Lembretes da Reunião v3"
+MARCA = "lr-conf-agora"   # posta na confirmação; `Lembretes · limpa marca (2 h)` tira
 F = {"investe": "x5JUx0YCWaZmH3Q85psI", "atende": "xjEcIFfdt2h29wBaKMQO",
      "dor": "qmIKSSDVYNLl5E8vnr3f"}
 QUANDO = "{{appointment.only_start_date}} às {{appointment.only_start_time}}"
@@ -110,11 +111,19 @@ def de_pe():
             g.cond("contact_detail", "tags", "index-of-false", ["nao-perturbe"])]
 
 
-def ponto(minutos, rotulo, trilha, envios, resto):
-    """espera -> 'ainda de pé?' -> envios -> resto"""
+def ponto(minutos, rotulo, trilha, envios, resto, longe=False):
+    """espera -> 'ainda de pé?' -> envios -> resto.
+
+    longe=True (D-3, D-1): além de "de pé", exige que a confirmação NÃO tenha
+    saído há menos de 2 h (tag MARCA ausente). Reunião marcada em cima da hora
+    pula a espera (skip) e cairia junto da confirmação — medido na simulação
+    de 23/09: CONF + D-3 + D-1 no mesmo minuto. Se suprimido, segue o resto.
+    """
+    conds = de_pe() + ([g.cond("contact_detail", "tags", "index-of-false", [MARCA])] if longe else [])
     return [espera(minutos, rotulo),
-            g.Branch("%s · %s · Reunião ainda de pé?" % (rotulo, trilha), de_pe(),
-                     envios + resto, [])]
+            g.Branch("%s · %s · Reunião ainda de pé?" % (rotulo, trilha), conds,
+                     envios + resto,
+                     [g.goto_step(resto[0]["id"])] if (longe and resto) else [])]
 
 
 def h3(trilha):
@@ -132,21 +141,35 @@ def trilha(t):
     p3h[1].sim[-1].sim += copy.deepcopy(m10)
     p3h[1].sim[-1].nao += copy.deepcopy(m10)
     p1d = ponto(1440, "1 dia", t, [sms("D-1", D1),
-                                   email("D-1", "Nossa reunião: " + QUANDO, D1)], p3h)
-    p3d = ponto(4320, "3 dias", t, [sms("D-3 " + t, D3[t])], p1d)
+                                   email("D-1", "Nossa reunião: " + QUANDO, D1)], p3h, longe=True)
+    p3d = ponto(4320, "3 dias", t, [sms("D-3 " + t, D3[t])], p1d, longe=True)
     return p3d
 
 
 def novos_ids(passos):
-    """copy.deepcopy + id novo em cada nó/Branch (ramos duplicados)."""
-    out = []
-    for p in copy.deepcopy(passos):
-        if isinstance(p, g.Branch):
-            p.id = g.uid()
-            p.sim, p.nao = novos_ids(p.sim), novos_ids(p.nao)
-        else:
-            p["id"] = g.uid()
-        out.append(p)
+    """copy.deepcopy + id novo em cada nó/Branch, reapontando os goto."""
+    mapa = {}
+
+    def troca(lista):
+        out = []
+        for p in lista:
+            if isinstance(p, g.Branch):
+                novo = g.uid(); mapa[p.id] = novo; p.id = novo
+                p.sim, p.nao = troca(p.sim), troca(p.nao)
+            else:
+                novo = g.uid(); mapa[p["id"]] = novo; p["id"] = novo
+            out.append(p)
+        return out
+
+    def reaponta(lista):
+        for p in lista:
+            if isinstance(p, g.Branch):
+                reaponta(p.sim); reaponta(p.nao)
+            elif p.get("type") == "goto":
+                a = p["attributes"]; a["targetNodeId"] = mapa.get(a["targetNodeId"], a["targetNodeId"])
+
+    out = troca(copy.deepcopy(passos))
+    reaponta(out)
     return out
 
 
@@ -164,7 +187,7 @@ escolha = g.Branch(
 
 passos = [g.Branch("Confirmação · Pode receber mensagem?",
                    [g.cond("contact_detail", "tags", "index-of-false", ["nao-perturbe"])],
-                   [sms("Confirmação", CONF),
+                   [sms("Confirmação", CONF), g.tag_step([MARCA]),
                     email("Confirmação", "Reunião confirmada — " + QUANDO, CONF), escolha],
                    [])]
 

@@ -4,6 +4,18 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## Espera "até X antes da reunião" com a reunião perto demais: os lembretes empilham — simular antes de testar — 23/09/2026
+
+A simulação (`simular_lembretes.py`, grafo real + condições + relógio) achou
+o que o teste real só acharia com lead de verdade: SDR marca para amanhã, as
+esperas de 3 dias e 1 dia já passaram (`appointmentCondition: skip` segue na
+hora) e o lead recebe confirmação + D-3 + D-1 juntos. Sem condição de "data da
+reunião" copiável na conta, a saída foi uma marca de tempo por tag
+(`lr-conf-agora` + workflow que tira em 2 h) — mesmo padrão do
+`conectado-hoje`. **Regra:** workflow com espera relativa a agendamento se
+simula com reunião a 22 h E a 5 dias antes de publicar. E: reaproveitar ramo
+em GHL = `goto` para o nó, não cópia (419 → 151 nós).
+
 ## Voltar a oportunidade de etapa NÃO desinscreve do workflow — e a MI-0 da Inbound não olhava a etapa — 23/09/2026, sessão local
 
 Carlos Andrade (lead real) foi a CONECTAR às 19:01 e voltou a NOVO LEAD 10 s

@@ -1,0 +1,136 @@
+{
+  "workflow": {
+    "_id": "eaedda3f-3845-43f1-8443-90a6c37ffa52",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Lembretes · limpa marca de confirmação (2 h)",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/eaedda3f-3845-43f1-8443-90a6c37ffa52/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Feaedda3f-3845-43f1-8443-90a6c37ffa52%2F3?alt=media&token=c0ad0f75-d9a6-4624-9322-a30d59e4ad34",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-23T22:29:01.000Z"
+      }
+    },
+    "createdAt": "2026-09-23T22:28:58.806Z",
+    "updatedAt": "2026-09-23T22:29:02.436Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/eaedda3f-3845-43f1-8443-90a6c37ffa52/3",
+    "window": null,
+    "workflowNote": null,
+    "id": "eaedda3f-3845-43f1-8443-90a6c37ffa52",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "fbaf88e0-63f9-45d9-92c8-8c02321afecf",
+          "name": "Wait 2 Hours",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "hour",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Hours",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "ec15f036-64bd-4878-956c-3617c3d4d04f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "ec15f036-64bd-4878-956c-3617c3d4d04f",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "lr-conf-agora"
+            ]
+          },
+          "order": 1,
+          "parentKey": "fbaf88e0-63f9-45d9-92c8-8c02321afecf",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "VLd1Gpt0NaIMk52rnPGM",
+      "date_added": "2026-09-23T22:28:59.639Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "eaedda3f-3845-43f1-8443-90a6c37ffa52",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "lr-conf-agora",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "eaedda3f-3845-43f1-8443-90a6c37ffa52",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Marca de confirmação",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "fbaf88e0-63f9-45d9-92c8-8c02321afecf",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-23T22:29:00.912Z"
+    }
+  ]
+}

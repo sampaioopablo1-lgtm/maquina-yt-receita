@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Lembretes da Reunião v2",
-    "version": 6,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/7c5cbf03-ab17-4a3f-bb7a-d720607d2f51/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F7c5cbf03-ab17-4a3f-bb7a-d720607d2f51%2F6?alt=media&token=487d5aa1-a39b-4a43-a26e-3f39eb2d25ff",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/7c5cbf03-ab17-4a3f-bb7a-d720607d2f51/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F7c5cbf03-ab17-4a3f-bb7a-d720607d2f51%2F4?alt=media&token=efe42fb8-c696-4b09-a491-0d41bbbbaf65",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T22:17:41.165Z",
-    "updatedAt": "2026-09-23T22:29:30.940Z",
+    "updatedAt": "2026-09-23T22:18:28.040Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,11 +26,10 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/7c5cbf03-ab17-4a3f-bb7a-d720607d2f51/6",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/7c5cbf03-ab17-4a3f-bb7a-d720607d2f51/4",
     "window": null,
     "workflowNote": null,
-    "meta": null,
     "id": "7c5cbf03-ab17-4a3f-bb7a-d720607d2f51",
     "workflowData": {
       "templates": [
@@ -171,7 +170,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.\nLink: {{appointment.meeting_location}}\n\nNa reunião a gente olha o caminho do seu cliente — do anúncio até a venda — e você sai com ajustes que dá pra aplicar na mesma semana. Se precisar remarcar, é só responder aqui.",
+            "body": "Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.\nLink: {{appointment.meeting_location}}\n\nEm 30 min a gente olha o caminho do seu cliente — do anúncio até a venda — e você sai com ajustes que dá pra aplicar na mesma semana. Se precisar remarcar, é só responder aqui.",
             "attachments": []
           },
           "order": 0,
@@ -194,7 +193,7 @@
             "from_name": "O Próximo Cliente",
             "from_email": "agencia.proximocliente@gmail.com",
             "subject": "Reunião confirmada — {{appointment.only_start_date}} às {{appointment.only_start_time}}",
-            "html": "<p style=\"margin:0px 0px 12px 0px;\">Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.</p><p style=\"margin:0px 0px 12px 0px;\">Link: {{appointment.meeting_location}}</p><p style=\"margin:0px 0px 12px 0px;\">Na reunião a gente olha o caminho do seu cliente — do anúncio até a venda — e você sai com ajustes que dá pra aplicar na mesma semana. Se precisar remarcar, é só responder aqui.</p>",
+            "html": "<p style=\"margin:0px 0px 12px 0px;\">Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.</p><p style=\"margin:0px 0px 12px 0px;\">Link: {{appointment.meeting_location}}</p><p style=\"margin:0px 0px 12px 0px;\">Em 30 min a gente olha o caminho do seu cliente — do anúncio até a venda — e você sai com ajustes que dá pra aplicar na mesma semana. Se precisar remarcar, é só responder aqui.</p>",
             "attachments": []
           },
           "order": 1,
@@ -6180,8 +6179,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T22:29:30.375Z",
-      "active": false
+      "date_updated": "2026-09-23T22:18:27.602Z",
+      "active": true
     }
   ]
 }
