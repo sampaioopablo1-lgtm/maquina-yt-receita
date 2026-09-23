@@ -1,0 +1,136 @@
+{
+  "workflow": {
+    "_id": "e3c012bf-8e0c-4c8a-b51f-bd524a041390",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Limpa conectado-hoje (24 h)",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e3c012bf-8e0c-4c8a-b51f-bd524a041390/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe3c012bf-8e0c-4c8a-b51f-bd524a041390%2F3?alt=media&token=f0c465cc-3855-44da-bfa6-7523066fd9ba",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-23T04:46:37.000Z"
+      }
+    },
+    "createdAt": "2026-09-23T04:46:35.690Z",
+    "updatedAt": "2026-09-23T04:46:38.903Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e3c012bf-8e0c-4c8a-b51f-bd524a041390/3",
+    "window": null,
+    "workflowNote": null,
+    "id": "e3c012bf-8e0c-4c8a-b51f-bd524a041390",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "9bc825e1-1ddd-4735-a3a7-01d416df7bea",
+          "name": "Wait 1 Days",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "days",
+              "value": 1,
+              "when": "after"
+            },
+            "name": "Wait 1 Days",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "a3acb69b-3fee-46f5-b20b-398ba95c7780",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "a3acb69b-3fee-46f5-b20b-398ba95c7780",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "conectado-hoje"
+            ]
+          },
+          "order": 1,
+          "parentKey": "9bc825e1-1ddd-4735-a3a7-01d416df7bea",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "QUlhVy3NBSbNmTV1R5YG",
+      "date_added": "2026-09-23T04:46:36.449Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "e3c012bf-8e0c-4c8a-b51f-bd524a041390",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "conectado-hoje",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "e3c012bf-8e0c-4c8a-b51f-bd524a041390",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Conectado hoje",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "9bc825e1-1ddd-4735-a3a7-01d416df7bea",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-23T04:46:37.479Z"
+    }
+  ]
+}
