@@ -366,6 +366,69 @@ das três opções foi executada nem virou `[x]` em `APROVADO.md`.
 especificação em `build-wesales.md` e `[x]` em `APROVADO.md` antes de
 qualquer escrita no CRM.
 
+> **Medido em 23/09/2026, sessão na nuvem — o "Só inbound" de
+> `PLANO-MULTICANAL.md` não promoveu ninguém, e o texto lá diz que promoveu.**
+> A entrada de execução daquele documento ("todo contato novo nasce com
+> `cad-inbound`... e os 49 leads em `NOVO LEAD` foram marcados. Promovido
+> para `CONECTAR` → Inbound...") resolveu só a metade da tag — a promoção de
+> etapa que a frase descreve **não aconteceu**. Medido por API, não
+> deduzido: `opportunities_search-opportunity` mostra **50 oportunidades
+> abertas em `NOVO LEAD`** (subiu de 47 para 50, não desceu), e as **50**
+> que carregam a tag `cad-inbound` (`contacts_get-contacts`) são exatamente
+> essas 50 — nenhuma está em `CONECTAR`. Nenhuma tem `Entrada em` nem
+> `Tentativa nº` preenchidos (os dois campos que a Cadência Inbound carimba
+> no nó 0), e uma amostra de 5 (`zz teste porta inbound` — criado nesta
+> mesma sessão, sem telefone de propósito — e três leads reais, `carlos
+> andrade`, `carlos alberto`, `carlos` `+5583...`) tem **zero tarefa** via
+> `contacts_get-all-tasks`. `dateUpdated` das 50 tags cai entre 01:55 e
+> 02:56 UTC de hoje — mais de meia hora antes desta medição, tempo de sobra
+> para o nó 0 (`Wait` de 15 min/1h, seção 2.10) já ter rodado se o gatilho
+> tivesse disparado.
+>
+> **Por que não disparou — não é hipótese, é o gatilho documentado:**
+> `IMPLEMENTACAO-WORKFLOWS.md`, W12 (linha 1125): *"Gatilho: `Opportunity
+> Stage Changed` → Pipeline `FUNIL DE VENDAS` · Para a etapa `CONECTAR` ·
+> Filtro: `Tags` inclui `cad-inbound`"*. A Cadência Inbound escuta **mudança
+> de etapa para `CONECTAR`**, filtrada pela tag — não escuta a tag sozinha.
+> A 12x30 parte 1 (W11) tem o mesmo formato de gatilho, filtro oposto (tag
+> **ausente**). Aplicar `cad-inbound` a um lead que continua em `NOVO LEAD`
+> não aciona nenhuma das duas: é o mesmo evento-não-estado que o G-03 já
+> registra acima ("promover os 47 antes de publicar a cadência gasta o
+> evento no vácuo"), agora do lado inverso — a cadência já está publicada,
+> quem falta mover é a etapa. **A tag por si só nunca teria feito a
+> promoção**: ela decide **qual** cadência o lead recebe depois de mover
+> para `CONECTAR`, não move ninguém para lá. O commit que fechou "Só
+> inbound" resolveu o bug real que tinha (a Porta de Entrada não marcava
+> `cad-inbound` em ninguém, então a Inbound nunca tinha candidato) mas
+> escreveu a frase seguinte como se isso também fosse a promoção — e não é;
+> **G-03 continua sem nenhuma opção escolhida, e agora com 3 leads a mais
+> parados** (47 → 50, mesmo cálculo de sempre, sem crescimento de entrada
+> nova: são os mesmos 47 mais os re-lidos como `open`).
+>
+> **O que isto não é:** não é um novo defeito de desenho — o gatilho do W12
+> está correto para o que ele faz (rodar a cadência certa depois que a
+> oportunidade já chegou em `CONECTAR`, do jeito que G-03 sempre presumiu
+> que aconteceria). É `PLANO-MULTICANAL.md` afirmando uma consequência que a
+> própria tag não produz sozinha — o mesmo tipo de "achado escrito não é
+> aplicado sozinho" que o G-08 já registrou, aqui na direção inversa: não é
+> uma correção que ficou só no texto, é uma ação que o texto descreve como
+> feita e a conta desmente.
+>
+> **Correção nos dois documentos, sem decidir por conta própria qual das
+> três opções do G-03 aplicar:** `PLANO-MULTICANAL.md` (E-item "Só inbound")
+> ganhou a mesma nota, para quem ler só aquele arquivo não repetir a
+> conclusão errada. Nenhuma oportunidade foi movida por esta sessão — mover
+> etapa de 50 oportunidades reais é exatamente a ação em massa que G-03 já
+> classificou como decisão do dono (regra 2 do briefing), e o texto de
+> `PLANO-MULTICANAL.md` não é um `[x]` em `APROVADO.md`. **Sugestão prática
+> para quem tiver o bearer da API interna (`wesales/tools/`):** testar a
+> hipótese num lead só antes de decidir em massa — mover 1 oportunidade real
+> de `NOVO LEAD` para `CONECTAR` por API (que dispara `Opportunity Stage
+> Changed` de verdade, diferente de só marcar a tag) e conferir em minutos
+> se `Entrada em`/tarefa aparecem; confirma o diagnóstico antes de aplicar
+> às outras 49. Zero campo, zero tag novos, zero escrita no CRM por esta
+> sessão: achado de medição, não depende de `APROVADO.md`.
+
 ### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **peça 1 (Prazo/Urgência) resolvida em 22/09/2026 sem decisão; peça 2 (Investimento mensal) aguarda o dono**
 
 > **Atualização de 22/09/2026, sessão automática — o item se dividiu em duas
