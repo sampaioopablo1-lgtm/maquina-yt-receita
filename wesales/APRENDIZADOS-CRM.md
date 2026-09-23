@@ -2,6 +2,39 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Checagem à mão que achou defeito duas vezes vira script, não vira parágrafo — `auditoria_tags.py` — 23/09/2026, sessão na nuvem
+
+As duas varreduras de tag desta noite acharam coisa real (a limpeza de
+`fechar-horario` pulada, e a ordem produtor/consumidor). Eu ia deixar o heredoc
+escrito num documento; heredoc em markdown não roda. Virou
+`wesales/tools/auditoria_tags.py`, ao lado do `auditoria_refs.py`, e na primeira
+execução limpa achou **uma terceira coisa** que eu não estava procurando:
+`fila-wa` é removida em 75 nós e aplicada em nenhum.
+
+**Duas lições sobre escrever a auditoria, e as duas nasceram de alarme falso meu
+no primeiro rascunho do script:**
+
+1. **"Segunda rede" não se identifica por nome.** Eu tinha escrito a regra como
+   "o Mestre de saída também limpa?" e o script acusou o `toque`, que é limpo
+   pelo `Contador de Toques` — rede perfeitamente legítima. A regra certa é
+   estrutural: *existe algum removedor que ninguém arranca?* Se existe, a limpeza
+   dele sempre roda. Isso derrubou 4 dos 7 alarmes.
+2. **Auditoria precisa conhecer as exceções de projeto.** `pausado` é aplicada à
+   mão pelo SDR e `cad-inbound` vem da integração na entrada
+   (`IMPLEMENTACAO-WORKFLOWS.md`, tabela das três famílias). Sem essa lista, o
+   script acusa as duas como "ninguém aplica" e como "limpeza pulada" — e
+   marcador de origem que persiste não é defeito, é o ponto dele.
+
+**Regra geral:** auditoria que grita sobre o que é intencional treina a gente a
+ignorar auditoria. Antes de fixar uma checagem, rodar, olhar cada linha do
+resultado e perguntar "isto é defeito ou é o desenho?" — e codificar a resposta
+no script, com comentário dizendo de onde veio a exceção. O `auditoria_tags.py`
+saiu de 7 alarmes para 3, e os 3 são reais.
+
+**A pergunta 2 do script nunca muda o código de saída**, de propósito: foi lendo
+`status: draft` que eu errei o F-17. Checagem cuja fonte é frágil deve reportar
+pergunta, não falha.
+
 ## Produtor em rascunho + consumidor publicado = defeito ativo e silencioso — três casos em uma noite — 23/09/2026, sessão na nuvem
 
 Padrão que apareceu três vezes na mesma noite e merece checagem fixa. Quando um

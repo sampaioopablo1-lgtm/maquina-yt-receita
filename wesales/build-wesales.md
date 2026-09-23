@@ -4999,6 +4999,65 @@ defeito ativo e silencioso. O comando que achou este caso está no
 
 ---
 
+## 2.33 `auditoria_tags.py` — as duas perguntas que acharam defeito hoje viraram auditoria, e a terceira apareceu sozinha
+
+As checagens de tag que fiz à mão nesta noite acharam coisa real duas vezes.
+Viraram `wesales/tools/auditoria_tags.py` (somente leitura, sai com 1 na
+pergunta 1), para não depender de eu lembrar de rodar o heredoc certo. Ela
+responde três perguntas, e a terceira nasceu da própria varredura.
+
+**Pergunta 1 — a limpeza da tag é alcançada?** `remove_from_workflow` cancela os
+passos pendentes do contato no alvo: os nós de saída do alvo não rodam. Tag cuja
+limpeza mora dentro de um workflow é permanente para quem sai por remoção
+externa. O relatório só acusa quando **nenhum** removedor está livre de ser
+arrancado — se algum está, a tag tem por onde sair. Isso é o que separa alarme de
+achado: o `toque`, por exemplo, é limpo pelo `Contador de Toques`, que ninguém
+arranca, e por isso **não** entra na lista.
+
+Três tags entram, e as três são reais:
+
+| Tag | Limpa só em | Arrancado por | O que sobra no contato |
+|---|---|---|---|
+| `fechar-horario` | `Fechar Horário` | `Pós-agendamento v2` (nó 4) | quem **agenda** fica marcado como "fechando horário" para sempre (§2.31.2) |
+| `nutricao-90d` | `Reengajamento 90 dias` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) | lead reativado que agenda ou volta a fechar horário continua marcado como nutrição |
+| `cadencia-12x30-p2` | `Cadência 12x30 — parte 2` | `Fechar Horário`, `Pós-agendamento v2`, `Pós-ligação v2` | lead fica marcado como "está na parte 2" para sempre — e a parte 1 passou a ter **portão por tag** (`9020079`), então isso pode barrar a reentrada dele |
+
+As três têm a mesma correção, a mesma da §2.31.2: **quem arranca o contato limpa,
+no mesmo nó, as tags que as saídas do alvo limpariam.** Três `Remove Tag` em dois
+workflows resolvem as três.
+
+**Pergunta 2 — o aplicador está no ar antes de quem testa?** Hoje: nenhuma
+pergunta aberta. Esta pergunta nunca muda o código de saída, de propósito — foi
+lendo `status: draft` num dump exportado 4 segundos antes da publicação que eu
+registrei o F-17 errado (§2.32). No script está escrito por quê.
+
+**Pergunta 3 — tag só removida, nunca aplicada.** Não é defeito de workflow: é
+peça do desenho antigo que sobrou, e cada linha é uma decisão sua.
+
+| Tag | Situação | Leitura |
+|---|---|---|
+| `fila-wa` | removida em **75 nós**, em 8 workflows; aplicada em **nenhum** | a `Fila WhatsApp Hoje` (lista 8.3) **nunca pode encher**. E não é bug: o `PLANO-MULTICANAL.md` (D5/D6) fez o WhatsApp virar parte do próprio toque — ligação Stevo e mensagem automática — em vez de fila separada do SDR. A tag ficou sem produtor **por decisão**, e os 75 nós são no-op. O que está desatualizado é a lista 8.3, não a cadência |
+| `fila-linkedin` | removida em 1 nó; aplicada em nenhum | já era conhecida e deliberada — T-04, "reserva, hoje sem canal na cadência" (lacuna L-03). Fica |
+
+Decisão que falta para o `fila-wa`: **apagar a lista 8.3 e tirar os 75 nós**, ou
+**devolver ao WhatsApp uma fila própria**. Recomendo a primeira: o plano novo já
+resolveu o canal de outro jeito, e manter 75 nós que não fazem nada é custo de
+leitura em todo patch futuro. Nenhuma das duas sai por este MCP.
+
+Rodar junto com as outras duas, toda rodada:
+
+```
+python3 wesales/tools/auditoria_refs.py     # referência para workflow arquivado
+python3 wesales/tools/auditoria_tags.py     # ciclo de vida das tags de estado
+```
+
+Limite que vale para as duas: leem os dumps, e dump pode estar defasado da conta.
+Comparar com o backup irmão em `_antes-*/` antes de concluir — e, para `draft`,
+não concluir nada sem confirmar fora do arquivo.
+
+---
+
+
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 
 O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
