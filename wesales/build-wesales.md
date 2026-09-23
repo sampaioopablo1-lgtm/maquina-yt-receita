@@ -213,13 +213,12 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 > tem as duas chaves, `"AGENDAR"` e `"REUNIÃO DE DIAGNÓSTICO"`, apontando
 > para o mesmo `id`, com comentário explicando o apelido — feito por fora
 > desta sessão, entre a rodada que escreveu este parágrafo e esta. Migração
-> de **texto puro** segue incompleta: promovida a item próprio,
-> `ROADMAP-SALES-ENGAGEMENT.md`, G-12. A tabela desta seção (1) e a linha
-> `Conectado` da tabela acima já foram migradas nesta rodada, primeiro
-> pedaço do G-12; o resto — seções 2 em diante deste documento e
-> `ROADMAP-SALES-ENGAGEMENT.md` — segue chamando a etapa de `AGENDAR`, e
-> continua correto ler como "nome antigo da mesma etapa" até cada seção ser
-> migrada. Nomes próprios publicados na tela com "AGENDAR" no texto (o
+> de **texto puro**, promovida a item próprio em
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-12, **está completa desde 23/09/2026
+> (peça 2):** a tabela desta seção (1) e a linha `Conectado` da tabela acima
+> saíram na peça 1; as seções 2 em diante deste documento e todo
+> `ROADMAP-SALES-ENGAGEMENT.md` saíram na peça 2 — nenhuma delas trata mais
+> `AGENDAR` como etapa corrente. Nomes próprios publicados na tela com "AGENDAR" no texto (o
 > workflow `AGENDAR Estagnado`, a lista `Saúde — AGENDAR Estagnado`) **não**
 > entram nesta migração — são o nome real do objeto, trocar o texto aqui
 > sem renomear o objeto na tela criaria uma divergência nova, pior que a
@@ -2005,7 +2004,7 @@ Reaproveitar o nó 10 do bloco padrão (2.4) sem alteração significa que
 contato deste workflow e entregam para o Pós-ligação (seção 4, que é
 canal-agnóstico e não precisa saber que a tentativa veio do reengajamento)
 exatamente como fariam na régua original — inclusive movendo etapa para
-`AGENDAR` ou mudando `status` para `abandoned`/`lost` sem sair de
+`REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) ou mudando `status` para `abandoned`/`lost` sem sair de
 `CONECTAR` (tabela 1.0). `reengajamento-ativo` sai sozinho nesse caminho: é
 o Mestre de saída (seção 3, nó 4) que limpa, porque qualquer um desses
 resultados tira a oportunidade da condição `CONECTAR` **e** `open`.
@@ -2538,7 +2537,7 @@ qualquer momento do ciclo de vida do contato, não só na entrada).
 | # | Ação |
 |---|---|
 | 1 | Add Contact Tag `telefone-invalido` |
-| 2 | If/Else: etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` **e** `status` **é** `open` → segue. Senão (já `AGENDAR`, `NEGOCIAR`, ou `status` já `abandoned`/`lost`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
+| 2 | If/Else: etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` **e** `status` **é** `open` → segue. Senão (já `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`), `NEGOCIAR`, ou `status` já `abandoned`/`lost`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
 | 3 | (só se o nó 2 seguiu) If/Else: `Site` ou `Instagram` preenchido → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Senão → Update Opportunity `status` = `lost` |
 | 4 | Internal Notification para o gestor: `Telefone inválido (validação automática): {{contact.name}} — revisar a fonte da lista` |
 
@@ -3324,11 +3323,11 @@ silencioso que o G-03 só foi achado porque alguém olhou o dado direto.
 
 ---
 
-## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `AGENDAR` sem fechar o loop) — F-05 fechado
+## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) sem fechar o loop) — F-05 fechado
 
 **Por quê:** a invariante que a "Adição de 18/09/2026" do roadmap
 acrescentou ao F-05 original, ao aplicar o tempo de estagnação do Sales
-Model Canvas etapa a etapa: `Conectado` (hoje `AGENDAR`, tabela 1.0) sem
+Model Canvas etapa a etapa: `Conectado` (hoje `REUNIÃO DE DIAGNÓSTICO`, tabela 1.0) sem
 avançar para `Reunião agendada` (`NEGOCIAR`) em mais de 24h — o SDR atendeu
 o lead, ganhou a tarefa `[CONECTADO] Qualificar e agendar` (seção 4, ramo
 `Atendeu`, nó 8), e nunca fechou o loop: não agendou, não descartou. É a
@@ -3337,7 +3336,7 @@ na etapa em que L-08 (`briefing-sdr.md`) já tinha achado que falta caminho
 de saída para "sem fit" — este monitor não fecha essa lacuna sozinho (quem
 fechou foi o ramo `Desqualificado` do Pós-ligação, R-18, 21/09/2026, que
 tira a maioria dos "sem fit" **antes** de chegar aqui), só garante que quem
-ainda assim ficar parado em `AGENDAR` (fit real, sem horário fechado, ou
+ainda assim ficar parado em `REUNIÃO DE DIAGNÓSTICO` (fit real, sem horário fechado, ou
 desqualificado na mão já dentro da etapa) não fica sem ninguém saber.
 
 Mesma pesquisa de mercado das peças 1-3: nenhuma das quatro plataformas do
@@ -3347,7 +3346,7 @@ engenharia interna, não recurso de sales engagement.
 
 **Desenho:** mesmo padrão de relógio por evento já validado em R-02 e na
 peça 1 (seção 2.20) — gatilho de chegada, `Wait` de 24h, portão que confere
-se o lead ainda está preso antes de avisar. `AGENDAR` só é alcançada uma vez
+se o lead ainda está preso antes de avisar. `REUNIÃO DE DIAGNÓSTICO` só é alcançada uma vez
 por ciclo (o Pós-ligação, seção 4, ramo `Atendeu`, nó 6, é o único nó que
 move uma oportunidade para lá), então não tem o risco de eventos repetidos
 em menos de 24h que motivou o relógio ancorado por horário fixo da peça 2 —
@@ -3355,12 +3354,12 @@ o `Wait` relativo de 24h, o mesmo mecanismo da peça 1, basta.
 
 ### Gatilho
 **Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS` · Para a etapa:
-`AGENDAR`
+`REUNIÃO DE DIAGNÓSTICO`
 
 ### Configurações
 | Configuração | Valor | Por que |
 |---|---|---|
-| Allow Re-entry | **Ligado** | Cada entrada em `AGENDAR` merece seu próprio relógio, mesmo raciocínio da peça 1 |
+| Allow Re-entry | **Ligado** | Cada entrada em `REUNIÃO DE DIAGNÓSTICO` merece seu próprio relógio, mesmo raciocínio da peça 1 |
 | Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, não mensagem ao lead |
 | Stop on Response | Desligado | Não há mensagem ao lead aqui |
 
@@ -3368,20 +3367,20 @@ o `Wait` relativo de 24h, o mesmo mecanismo da peça 1, basta.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Aguardar | Wait → Time Delay | 24 horas corridas |
-| 2 | Portão | If/Else | Etapa da oportunidade **ainda é** `AGENDAR` **E** `status` **é** `open` → segue (24h depois de atender, ninguém fechou o loop). Senão → **encerra** (agendou, foi descartado na mão, ou saiu por outro caminho — nada a avisar) |
+| 2 | Portão | If/Else | Etapa da oportunidade **ainda é** `REUNIÃO DE DIAGNÓSTICO` **E** `status` **é** `open` → segue (24h depois de atender, ninguém fechou o loop). Senão → **encerra** (agendou, foi descartado na mão, ou saiu por outro caminho — nada a avisar) |
 | 3 | Fila | Add Contact Tag | `agendar-estagnado` |
-| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} atendeu e está há mais de 24h em AGENDAR sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.` |
-| 5 | Registro | Add Note | `Alerta de saúde: AGENDAR sem fechar o loop em 24h · {{right_now}}` |
+| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} atendeu e está há mais de 24h em REUNIÃO DE DIAGNÓSTICO sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.` |
+| 5 | Registro | Add Note | `Alerta de saúde: REUNIÃO DE DIAGNÓSTICO sem fechar o loop em 24h · {{right_now}}` |
 
 **Limpeza da tag — por que entra no nó 0 do Mestre de saída (incondicional),
 não só na lista nomeada do nó 4 (achado ao desenhar):** o caminho normal de
-saída de `AGENDAR` (o Pós-agendamento move para `NEGOCIAR`, seção 5, nó 1)
+saída de `REUNIÃO DE DIAGNÓSTICO` (o Pós-agendamento move para `NEGOCIAR`, seção 5, nó 1)
 já aciona o nó 4 do Mestre de saída pela via comum — `NEGOCIAR` não está na
 lista de no-op do nó 1 ("`status` é `open` **e** etapa é uma de `NOVO LEAD`,
 `CONECTAR`"), então bastaria somar a tag à lista existente, como
 `fila-travada` e `conectar-estagnado` já fazem. Mas L-08 (`briefing-sdr.md`)
 registra que hoje não existe caminho formal de desqualificação a partir de
-`AGENDAR` — se algum dia alguém arrastar a oportunidade de volta para
+`REUNIÃO DE DIAGNÓSTICO` — se algum dia alguém arrastar a oportunidade de volta para
 `CONECTAR` na mão (o único jeito manual de "desistir" sem esse caminho), a
 condição do nó 1 volta a ser verdadeira (`CONECTAR`/`open`) e o Mestre de
 saída trataria essa transição como no-op, a mesma classe de bug que já
@@ -3391,7 +3390,7 @@ caminhos de uma vez, sem custo: `Remove Contact Tag` de quem não tem a tag
 não faz nada, e o Mestre de saída já roda a cada mudança de etapa ou status.
 
 **Pronto quando (peça 5 do F-05):** um lead atendido que fica mais de 24h em
-`AGENDAR` sem virar reunião marcada nem sair por outro caminho gera aviso ao
+`REUNIÃO DE DIAGNÓSTICO` sem virar reunião marcada nem sair por outro caminho gera aviso ao
 gestor sozinho.
 
 ---
@@ -3538,7 +3537,7 @@ do "Como" do F-05 (mais as duas adições de 18/09/2026), todas têm tratamento
 agora: `fila-tel`/`fila-wa` presa (peça 2), `CONECTAR` sem avanço em 14 dias
 (peça 3), tarefa vencida sem resultado (descartada — já coberta pelo nó 10b
 da seção 2.4), `nao-perturbe` em workflow ativo (peça 4, por prevenção em vez
-de detecção), `AGENDAR` sem fechar o loop em 24h (peça 5) e retorno vencido
+de detecção), `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) sem fechar o loop em 24h (peça 5) e retorno vencido
 sem reclassificação (esta peça). Mais `NOVO LEAD` esquecido (peça 1, achada
 fora da lista original via G-03). Não sobra invariante do F-05 sem
 workflow — o item fica fechado como bloco, não só peça a peça.
@@ -4203,7 +4202,7 @@ próprios nós.
 existir, que a metade "comparecimento" tem monitor (R-12, SLA do closer) mas
 a metade "negociação" não. F-05 fechou em 21/09/2026 com seis peças
 (`NOVO LEAD`, `fila-tel`/`fila-wa`, `CONECTAR`, `nao-perturbe` em workflow
-ativo, `AGENDAR`, retorno vencido) e nunca chegou a incorporar esta — o
+ativo, `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`), retorno vencido) e nunca chegou a incorporar esta — o
 "candidato a entrar no F-05" nunca virou peça. O buraco é o mesmo tipo dos
 outros seis: o Loop do closer (seção 5.1,
 ramo `Sim`) registra o veredito e **não move etapa nem status** — "é o
@@ -5209,7 +5208,7 @@ O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
 etapas, toda saída de cadência (conectou, número errado, não ligar, 12
 tentativas esgotadas) era um movimento de etapa — um `Opportunity Stage
 Changed` cobria os quatro casos. Na tela real, só o primeiro continua sendo
-movimento de etapa (`CONECTAR` → `AGENDAR`); os outros três viraram `status`
+movimento de etapa (`CONECTAR` → `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`)); os outros três viraram `status`
 da oportunidade (`abandoned`/`lost`) **sem sair de `CONECTAR`** (tabela 1.0).
 Um gatilho só de `Opportunity Stage Changed` deixaria de disparar para eles —
 a limpeza nunca aconteceria para o caminho mais comum de saída (12
@@ -5258,10 +5257,10 @@ raciocínio já usado para `Remove from Workflow` nos nós seguintes.
 
 **F-05, peça 5 (21/09/2026) — `agendar-estagnado` entrou no mesmo nó 0, por
 precaução, não porque o caminho normal precise dele:** a saída comum de
-`AGENDAR` (Pós-agendamento move para `NEGOCIAR`) já cai fora da lista de
+`REUNIÃO DE DIAGNÓSTICO` (Pós-agendamento move para `NEGOCIAR`) já cai fora da lista de
 no-op do nó 1 e alcançaria o nó 4 sozinha, como `fila-travada`/
 `conectar-estagnado`. Mas L-08 (`briefing-sdr.md`) registra que hoje não
-existe caminho formal de desqualificar a partir de `AGENDAR` — se um dia
+existe caminho formal de desqualificar a partir de `REUNIÃO DE DIAGNÓSTICO` — se um dia
 alguém arrastar a oportunidade de volta para `CONECTAR` na mão (o único
 "desistir" manual possível sem esse caminho), a condição do nó 1 volta a
 ser verdadeira e trataria essa transição como no-op, repetindo a classe de
@@ -5290,7 +5289,7 @@ documento:
 | Quem dispara | O que ainda faltava rodar nele | O que `All Except Current` mataria |
 |---|---|---|
 | Pós-agendamento, nó 1 (`move para NEGOCIAR`) | nós 4 a 10: a `Nota de qualificação`, a confirmação no WhatsApp e os **três lembretes** (24h, 3h, 30min antes da reunião) | os lembretes de **toda reunião agendada** — o ativo mais caro do funil |
-| Pós-ligação, ramo `Atendeu`, nó 6 (`move para AGENDAR`) | nós 7 a 9: `Data conectado`, `Hora da conexão` (C-25), a tarefa `[CONECTADO] Qualificar e agendar` e a nota | a **próxima tarefa do SDR** depois de uma conexão — o lead atende e desaparece da fila |
+| Pós-ligação, ramo `Atendeu`, nó 6 (`move para REUNIÃO DE DIAGNÓSTICO`) | nós 7 a 9: `Data conectado`, `Hora da conexão` (C-25), a tarefa `[CONECTADO] Qualificar e agendar` e a nota | a **próxima tarefa do SDR** depois de uma conexão — o lead atende e desaparece da fila |
 
 E como o Mestre roda como workflow separado, o corte chegaria em momentos
 diferentes a cada vez: às vezes depois do lembrete, às vezes antes. Bug não
@@ -5396,8 +5395,8 @@ nascimento, o mesmo raciocínio do nó 1 original). 12 tentativas esgotadas,
 número errado, não ligar ou o portão de higiene do nó 0.0b mudam o `status`
 para `abandoned`/`lost` **sem sair de `CONECTAR`** — `status` deixa de ser
 `open`, a condição fica falsa, e a limpeza roda mesmo com a etapa igual.
-Atendeu move para `AGENDAR` — etapa deixa de ser `CONECTAR`, a condição já
-fica falsa por esse lado sozinho. Progressões seguintes (`AGENDAR` →
+Atendeu move para `REUNIÃO DE DIAGNÓSTICO` — etapa deixa de ser `CONECTAR`, a condição já
+fica falsa por esse lado sozinho. Progressões seguintes (`REUNIÃO DE DIAGNÓSTICO` →
 `NEGOCIAR` → `FORMALIZAR`) também disparam o gatilho 1 e reexecutam a
 limpeza — redundante (as tags já não estão mais lá, as ações são
 idempotentes) mas inofensivo, e já era assim no desenho original com
@@ -5503,14 +5502,14 @@ mudar. Detalhe completo na seção 2.24.
 | 3 | Update: `WA não atendidas seguidas` = 0 |
 | 4 | Add Contact Tag `conectado-hoje` |
 | 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| 6 | Mover oportunidade → `AGENDAR` (dispara o Mestre de saída pelo gatilho de etapa, que faz a limpeza) |
+| 6 | Mover oportunidade → `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) (dispara o Mestre de saída pelo gatilho de etapa, que faz a limpeza) |
 | 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
 | 7b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
 | 7c | Update Contact Field | `Hora da conexão` = saída do nó 7b |
 | 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 9 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
 
-O nó 6 move **toda** ligação atendida para `AGENDAR`, sem olhar se a conversa
+O nó 6 move **toda** ligação atendida para `REUNIÃO DE DIAGNÓSTICO`, sem olhar se a conversa
 já mostrou que não há fit — é a lacuna **L-08** (`briefing-sdr.md`), fechada
 nesta rodada pelo ramo `Desqualificado` abaixo (R-18): quem atende e claramente
 não serve não deveria abrir tarefa de agendamento nenhuma.
@@ -5521,7 +5520,7 @@ O SDR atendeu a ligação (é uma conexão real, conta como tal), mas a própria
 conversa já descartou o lead — sem fit, sem budget, é concorrente, já é
 cliente, não fala com decisor. Hoje o único caminho para esse resultado é
 classificar como `Atendeu` mesmo assim, o que cria a tarefa `[CONECTADO]
-Qualificar e agendar` e empurra o lead para `AGENDAR` — o SDR então tem que
+Qualificar e agendar` e empurra o lead para `REUNIÃO DE DIAGNÓSTICO` — o SDR então tem que
 desfazer isso na mão (não agendar, e sair explicando por fora por que a
 oportunidade não avança), ou pior, força uma reunião sem fit só para a
 tarefa fechar, poluindo a agenda do closer. Nenhum dos dois é registrado
@@ -5811,7 +5810,7 @@ ficaria muda.
 ### Nós
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`AGENDAR` para `NEGOCIAR` — tabela 1.0) |
+| 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) para `NEGOCIAR` — tabela 1.0) |
 | 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
 | 3 | **Remove Workflows** — opção **All Except Current Workflow** (F-05, achado de 21/09/2026 — mesma troca da seção 3; substitui a lista antiga de seis nomes, incluindo `Recuperação de No-show`/`SLA do Closer — No-show`, R-12: este gatilho também dispara num **reagendamento** depois de um no-show, e sem remover os dois workflows de no-show daqui uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou — a opção `All Except Current` cobre os dois sem precisar sabê-los pelo nome) |
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
@@ -6470,7 +6469,7 @@ a fila e ver empresa em branco em todas as listas de uma vez.
 ### 8.1 `Fila Quente` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`CONECTAR`, `AGENDAR`) — `Retorno agendado` some da lista de etapas porque não é mais etapa própria (tabela 1.0): quem pediu retorno já está em `CONECTAR`, coberto |
+| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`CONECTAR`, `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`)) — `Retorno agendado` some da lista de etapas porque não é mais etapa própria (tabela 1.0): quem pediu retorno já está em `CONECTAR`, coberto |
 | Colunas | Nome · `Empresa` · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
@@ -7180,7 +7179,7 @@ para minutos; **volte os valores reais antes de publicar**.
 ### Contatos
 | # | Nome | Cenário | Caminho esperado |
 |---|---|---|---|
-| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → etapa `AGENDAR` → agenda → etapa `NEGOCIAR` |
+| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → etapa `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) → agenda → etapa `NEGOCIAR` |
 | 2 | Teste Não Atende | Nunca atende, vai até o fim | 12 tentativas → `status` `abandoned` (etapa fica em `CONECTAR` — tabela 1.0) + `nutricao-90d` |
 | 3 | Teste Retorno | Pede retorno na T3 | `Pediu retorno` → permanece em `CONECTAR` (não é etapa própria — tabela 1.0), Prioridade 5 |
 | 4 | Teste Número Errado | Número errado na T1 | `telefone-invalido` → `status` `abandoned` ou `lost` (etapa fica onde estava) |
@@ -7190,11 +7189,11 @@ para minutos; **volte os valores reais antes de publicar**.
 | # | O que testar | Como | Passou? |
 |---|---|---|---|
 | 1 | Entrada na cadência | Mover para `CONECTAR` cria tag `fila-tel` e tarefa `[CADENCIA] T1` | |
-| 2 | Portão de etapa | Mover para `AGENDAR` no meio da espera: a tentativa seguinte **não** dispara | |
+| 2 | Portão de etapa | Mover para `REUNIÃO DE DIAGNÓSTICO` no meio da espera: a tentativa seguinte **não** dispara | |
 | 3 | Portão `nao-perturbe` | Aplicar a tag na mão: próxima tentativa não dispara | |
 | 4 | Portão `telefone-invalido` | Aplicar a tag: tentativa de telefone não dispara, de WhatsApp sim | |
 | 5 | Limpeza do resultado | Na T2, `Resultado da tentativa` chega vazio (não herda o da T1) | |
-| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `AGENDAR`, tarefa `[CONECTADO]` criada, saiu da cadência | |
+| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `REUNIÃO DE DIAGNÓSTICO`, tarefa `[CONECTADO]` criada, saiu da cadência | |
 | 7 | `Caixa Postal` em WhatsApp | `WA não atendidas seguidas` vai a 1; repetir vai a 2 | |
 | 8 | Regra das 2 seguidas | Com o contador em 2, a próxima tentativa de WhatsApp sai como **telefone** | |
 | 9 | Reset do contador | Uma tentativa de telefone não atendida zera `WA não atendidas seguidas` | |
@@ -7213,7 +7212,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 22 | Rotina de manutenção | Rodar `rotina-limpar-tarefas.md`: tarefas fora do prefixo são **concluídas**, nunca excluídas, e a tag sai | |
 | 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
 | 24 | Loop do closer | No Teste Atendeu já em `NEGOCIAR`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: `status` vira `lost` (permanece em `NEGOCIAR` — seção 5.1), `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
-| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `AGENDAR`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
+| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `REUNIÃO DE DIAGNÓSTICO`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
 | 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `CONECTAR` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
 | 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e `status` `abandoned` em `CONECTAR` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa/`status` voltam para `CONECTAR`/`open`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, `status` volta a `abandoned` (etapa permanece `CONECTAR`), e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
 | 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `CONECTAR` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
@@ -7224,7 +7223,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `CONECTAR` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
 | 34 | Porta de Entrada (L-09/L-09b) | Crie um 6º contato de teste, fora dos 5 fictícios, só com nome e telefone (sem passar por `Add Contact` de dentro de um workflow): confirme que uma oportunidade nasce sozinha em `FUNIL DE VENDAS` → `NOVO LEAD` em segundos, sem precisar mover etapa na mão; edite qualquer campo desse mesmo contato e confirme que **não** nasce uma segunda oportunidade (Allow Duplicate Opportunities desligado). Rode o backfill manual (seção 1.3) sobre os 5 contatos fictícios existentes e confirme que os 5 ganham oportunidade em `NOVO LEAD` sem duplicar nada | |
 | 35 | Teto de toques por semana (F-04) | Reduza o Wait de 7 dias do "Contador de Toques" (seção 2.19) para minutos, no ambiente de teste. Force `Toques na semana` para 5 no Teste Atendeu (Update Contact Field manual) e deixe a T1 disparar: o nó 7 aplica `toque`, o Contador soma 1 (campo chega a 6) e agenda o desconto; confirme que a T2 seguinte cai no portão 2.5c/2.5d e fica represada, sem consumir `Tentativa nº` nem criar tarefa nova, até o Wait reduzido do Contador descontar e o campo cair abaixo de 6. Repita clicando o Trigger Link do Teste Retorno 3 vezes seguidas com o campo já em 6: confirme que a 3ª Interceptação de Sinal pula direto para a nota (nó 3c → 9) sem criar tarefa nem aviso ao SDR, mas a nota `Sinal: clique em link (teto...)` aparece no contato | |
-| 36 | Desqualificação instantânea (R-18) | Num 7º contato de teste em `CONECTAR`, classifique `Resultado da tentativa` = `Desqualificado` + `Motivo da desqualificação` = `Sem fit`: confirme `Conexões telefone`/`Total de conexões` subindo (é conexão real), `conectado-hoje` aplicada, `fila-tel`/`fila-wa` removidas, `status` indo para `lost` **sem** a oportunidade sair de `CONECTAR` (não vai para `AGENDAR`) e **nenhuma** tarefa `[CONECTADO] Qualificar e agendar` nascendo. Repita com `Motivo da desqualificação` = `Timing errado`: confirme `status` `abandoned` + tag `nutricao-90d` em vez de `lost` | |
+| 36 | Desqualificação instantânea (R-18) | Num 7º contato de teste em `CONECTAR`, classifique `Resultado da tentativa` = `Desqualificado` + `Motivo da desqualificação` = `Sem fit`: confirme `Conexões telefone`/`Total de conexões` subindo (é conexão real), `conectado-hoje` aplicada, `fila-tel`/`fila-wa` removidas, `status` indo para `lost` **sem** a oportunidade sair de `CONECTAR` (não vai para `REUNIÃO DE DIAGNÓSTICO`) e **nenhuma** tarefa `[CONECTADO] Qualificar e agendar` nascendo. Repita com `Motivo da desqualificação` = `Timing errado`: confirme `status` `abandoned` + tag `nutricao-90d` em vez de `lost` | |
 
 Depois do teste, **marque as 5 oportunidades como `status = lost` e desative
 os 5 contatos** (nunca excluir contato nem oportunidade — regra 1 do

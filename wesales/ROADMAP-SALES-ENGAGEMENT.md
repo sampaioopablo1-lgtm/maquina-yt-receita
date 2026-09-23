@@ -30,11 +30,14 @@
 > pela API interna (`wesales/tools/`), não pelo `GHL CRM` (MCP) que esta
 > rotina usa. Antes de fechar qualquer G/R/F novo que toque canal ou etapa,
 > checar `PLANO-MULTICANAL.md` primeiro — é a decisão mais recente do dono,
-> não este aviso. **Exceção, aberta em 23/09/2026 (G-12, abaixo):** a
+> não este aviso. **Exceção, fechada em 23/09/2026 (G-12, abaixo):** a
 > migração de texto do nome da etapa (`AGENDAR` → `REUNIÃO DE DIAGNÓSTICO`)
-> tem seu primeiro pedaço fechado — a seção 1 de `build-wesales.md` já usa o
-> nome novo. O resto do documento e este roadmap seguem chamando a etapa de
-> `AGENDAR` até a migração completar.
+> está completa — `build-wesales.md` (seção 1 na peça 1, seções 2 em diante
+> na peça 2) e este roadmap não tratam mais `AGENDAR` como etapa corrente em
+> nenhuma citação nova; toda ocorrência que resta é nota histórica datada
+> (descrevendo o nome como era no momento em que o item foi escrito) ou nome
+> próprio publicado na tela (o workflow `AGENDAR Estagnado`, a lista
+> `Saúde — AGENDAR Estagnado`).
 
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
@@ -1087,7 +1090,7 @@ execução — um nó e um comando. Nada disso é aplicável por este MCP (ediç
 workflow e de lista inteligente não têm ferramenta aqui); é tela ou
 `wesales/tools/`.
 
-### G-12 · Segunda renomeação de etapa (`AGENDAR` → `REUNIÃO DE DIAGNÓSTICO`) documentada como aviso, nunca virou item — mesma classe do G-02, achado mas represado em rodapé — **peça 1 (seção 1 de `build-wesales.md`) FEITA em 23/09/2026**
+### G-12 · Segunda renomeação de etapa (`AGENDAR` → `REUNIÃO DE DIAGNÓSTICO`) documentada como aviso, nunca virou item — mesma classe do G-02, achado mas represado em rodapé — **FEITO em 23/09/2026 (peça 1: seção 1 de `build-wesales.md`; peça 2: resto do documento e este roadmap)**
 **Por quê:** o G-10 já tinha cruzado a existência de `PLANO-MULTICANAL.md`
 com este roadmap, e a nota do topo deste arquivo (e uma nota dentro da
 seção 1 de `build-wesales.md`, linhas 202-218 antes desta rodada) já
@@ -1138,6 +1141,34 @@ e as ocorrências em `ROADMAP-SALES-ENGAGEMENT.md` seguem chamando a etapa
 de `AGENDAR` — próxima peça deste mesmo item, mesmo padrão de "uma seção
 por rodada" que fechou o G-02 em seis rodadas. Zero campo, zero tag, zero
 escrita no CRM: item de documentação pura, não depende de `APROVADO.md`.
+
+**Resumo (23/09/2026) — peça 2, item fechado por inteiro:** das 39
+ocorrências medidas antes da peça 1 (34 em `build-wesales.md` a partir da
+seção 2, mais as do próprio roadmap — a contagem original somava os dois
+arquivos), 32 tratavam `AGENDAR` como etapa corrente em `build-wesales.md`
+e foram trocadas por `REUNIÃO DE DIAGNÓSTICO`, com a anotação "(antiga
+`AGENDAR`)" só na primeira citação de cada seção `##` (2.12, 2.16, 2.23,
+2.24, 2.28, 3, 4, 5, 8.1, 10), como o "Como" deste item pedia. As duas
+sobras (`workflow "AGENDAR Estagnado"`, seção 2.23; a lista `Saúde —
+AGENDAR Estagnado`, seção 8.23) são nome próprio já publicado na tela e
+ficam de propósito. Conferido em seguida `ROADMAP-SALES-ENGAGEMENT.md`
+inteiro: as ~30 ocorrências que restavam pertencem todas a itens já
+`FEITO`, datados antes ou no mesmo dia da segunda renomeação (G-02, F-05,
+R-18, F-13, F-14, G-10, G-11) — descrevem o nome como ele era no momento em
+que cada entrada foi escrita, a mesma categoria de "prosa histórica" que a
+tabela de tradução 1.0 já tinha direito de manter (G-02 nunca reescreveu
+essas). Reescrever essas entradas para `REUNIÃO DE DIAGNÓSTICO` teria
+efeito oposto ao pretendido: um item fechado em 21/09/2026 que dissesse
+"REUNIÃO DE DIAGNÓSTICO" estaria mentindo sobre o nome que a tela mostrava
+naquele dia. Nenhuma edição no roadmap além do aviso do topo (que apontava
+"resto do documento e este roadmap seguem chamando a etapa de AGENDAR" —
+corrigido para refletir a migração completa) e deste próprio item. **Pronto
+quando, cumprido:** `grep -n "AGENDAR" wesales/build-wesales.md
+wesales/ROADMAP-SALES-ENGAGEMENT.md` só retorna a tabela de tradução 1.0,
+notas históricas datadas de propósito e os dois nomes próprios — conferido
+depois da edição, zero ocorrência tratando `AGENDAR` como etapa corrente.
+Zero campo, zero tag, zero escrita no CRM: item de documentação pura, não
+depende de `APROVADO.md`. Com isso, G-12 fecha por inteiro.
 
 ---
 
@@ -3927,12 +3958,36 @@ desatualizado só nessa parte). Zero campo, zero tag, zero escrita no CRM:
 item de documentação pura, não depende de `APROVADO.md`. Detalhe completo no
 próprio G-12, acima.
 
+**G-12, peça 2, 23/09/2026, sessão automática seguinte — item fechado por
+inteiro, mesmo `git log` de `wesales/` confirmando que nenhuma sessão
+tocou o roadmap principal entre a peça 1 (`d1b1c04`) e esta leitura.** CRM
+reconfirmado por API: 56 oportunidades (49 `NOVO LEAD` open + 1 `CONECTAR`
+open + 2 `CONECTAR` lost de teste + 1 `REUNIÃO DE DIAGNÓSTICO` open + 2
+`NEGOCIAR` open + 1 `NEGOCIAR` lost), 56 campos de contato, pipeline com a
+etapa `3d26fcd1-...` inalterada — G-03,
+G-04 (peça 2), F-09, F-10 e G-11 (item 1) seguem aguardando o dono, sem
+novidade; a oportunidade nova em `REUNIÃO DE DIAGNÓSTICO` é a primeira
+desde a segunda renomeação, sinal de que o teste de tela do dono já passou
+por essa etapa com o nome novo. Migradas as 32 ocorrências de `AGENDAR`
+como etapa corrente nas seções 2 em diante de `build-wesales.md`, com a
+anotação "(antiga `AGENDAR`)" só na primeira citação por seção `##`, como
+o "Como" original pedia; conferido que `ROADMAP-SALES-ENGAGEMENT.md` não
+precisava da mesma troca — toda ocorrência que resta ali é nota histórica
+datada (o nome como era no dia em que o item fechou), a mesma classe que a
+tabela de tradução 1.0 do G-02 já tinha o direito de manter sem reescrever.
+Corrigido também o aviso do topo deste arquivo e a nota-espelho na seção 1
+de `build-wesales.md`, os dois ainda dizendo "resto do documento segue
+chamando a etapa de `AGENDAR`". Zero campo, zero tag, zero escrita no CRM:
+item de documentação pura, não depende de `APROVADO.md`. Detalhe completo
+no próprio G-12, acima.
+
 Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
 claro: G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) esperam decisão do
 dono; R-14 tem desenho completo e espera a operação mandar a primeira
 mensagem real; F-11, F-12, F-13, F-15, G-07, G-08 e G-11 (itens 2 e 3) têm
 desenho completo e só faltam ser montados/aplicados na tela; F-14 é
 checklist de gestor, pronto para uso assim que o número começar a discar de
-verdade; G-12 tem a peça 1 fechada e a peça 2 (seções 2 em diante de
-`build-wesales.md` e `ROADMAP-SALES-ENGAGEMENT.md`) pronta para a próxima
-rodada sem CRM desbloqueado.
+verdade; G-12 fechou por inteiro (peças 1 e 2). Não sobra item de
+documentação pura óbvio esperando uma sessão sem tela nem volume — a
+próxima rodada nessas condições volta à varredura de coerência de sempre e,
+se ela não achar nada, a uma lacuna nova.
