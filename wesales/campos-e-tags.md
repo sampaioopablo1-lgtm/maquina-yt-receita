@@ -331,7 +331,7 @@ leitura em `build-wesales.md` §2.33.7). O dono decidiu em 23/09/2026 tornar
 automática a parte que o workflow já sabe sozinho (pendência 9c de
 `ESTADO-E-PLANO.md`); o patch dessa metade já existe (`dac443f`,
 `wesales/tools/patch_canal_conectou.py`, `build-wesales.md` §2.41), validado
-por `--dump` e **ainda não aplicado**. Registro, não aprovação — o campo já
+por `--dump` e **APLICADO em 23/09/2026 ~18:45 BRT** (mais `patch_canal_posligacao.py` no `Pós-ligação v2`: 5 pontos gravam o campo, testado no 9940 = "Ligação normal"). Registro, não aprovação — o campo já
 existe na tela, criado por fora deste conector. Acompanhamento e "Pronto
 quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 

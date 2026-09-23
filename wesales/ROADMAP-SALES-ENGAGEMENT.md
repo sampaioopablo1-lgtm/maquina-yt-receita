@@ -1472,7 +1472,7 @@ próximo caso do mesmo tipo.
 
 ---
 
-### G-17 · O portão de capacidade só protege duas cadências das seis — `Reengajamento 90 dias` gasta a cota semanal sem nunca respeitá-la, e ignora a pausa do próprio SDR — decisão do dono, patch da Inbound já escrito e validado — **DECIDIDO 23/09/2026 (opção A); aplicação pendente de `--aplicar`**
+### G-17 · O portão de capacidade só protege duas cadências das seis — `Reengajamento 90 dias` gasta a cota semanal sem nunca respeitá-la, e ignora a pausa do próprio SDR — decisão do dono, patch da Inbound já escrito e validado — **FEITO 23/09/2026 ~18:40 BRT** (Inbound 322 + No-show 61 no ar; `auditoria_portoes` 0)
 
 **Por quê:** uma sessão em paralelo (commits fora deste roadmap, ver G-10)
 foi corrigir a pendência 9e de `ESTADO-E-PLANO.md` ("portar os 6 nós de

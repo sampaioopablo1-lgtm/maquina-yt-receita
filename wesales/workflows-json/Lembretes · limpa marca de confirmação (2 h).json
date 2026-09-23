@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Lembretes · limpa marca de confirmação (2 h)",
-    "version": 3,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/eaedda3f-3845-43f1-8443-90a6c37ffa52/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Feaedda3f-3845-43f1-8443-90a6c37ffa52%2F3?alt=media&token=c0ad0f75-d9a6-4624-9322-a30d59e4ad34",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/eaedda3f-3845-43f1-8443-90a6c37ffa52/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Feaedda3f-3845-43f1-8443-90a6c37ffa52%2F4?alt=media&token=beb7130f-0350-403a-bd14-2ba139b6c894",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T22:29:01.000Z"
-      }
-    },
     "createdAt": "2026-09-23T22:28:58.806Z",
-    "updatedAt": "2026-09-23T22:29:02.436Z",
+    "updatedAt": "2026-09-23T22:29:05.004Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -32,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/eaedda3f-3845-43f1-8443-90a6c37ffa52/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/eaedda3f-3845-43f1-8443-90a6c37ffa52/4",
     "window": null,
     "workflowNote": null,
     "id": "eaedda3f-3845-43f1-8443-90a6c37ffa52",
@@ -99,7 +93,6 @@
       "id": "VLd1Gpt0NaIMk52rnPGM",
       "date_added": "2026-09-23T22:28:59.639Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "eaedda3f-3845-43f1-8443-90a6c37ffa52",
@@ -130,7 +123,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T22:29:00.912Z"
+      "date_updated": "2026-09-23T22:29:04.553Z",
+      "active": true
     }
   ]
 }

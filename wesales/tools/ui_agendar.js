@@ -70,7 +70,7 @@ const PASSO = process.argv[2] || 'abrir';
     await page.waitForTimeout(3000);
     await foto('4');
     const t4 = await txt();
-    if (!/Pablo Sampaio/.test(t4) || !/set 24, 5:30 PM/.test(t4)) { console.log('CONFERENCIA FALHOU — nada agendado'); await ctx.close(); process.exit(4); }
+    const m4 = t4.match(/set \d+, \d+:\d+ [AP]M[^\n]*/); console.log('HORARIO:', m4 && m4[0]); if (!/Pablo Sampaio/.test(t4) || !m4) { console.log('CONFERENCIA FALHOU — nada agendado'); await ctx.close(); process.exit(4); }
     await page.getByRole('button', { name: /^\s*Agendar compromisso\s*$/i }).last().click({ force: true });
     await page.waitForTimeout(8000);
     await foto('5');

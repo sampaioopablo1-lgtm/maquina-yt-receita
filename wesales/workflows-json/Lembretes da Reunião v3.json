@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Lembretes da Reunião v3",
-    "version": 3,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/10065adb-aad7-4d12-92df-6941f05d130c/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F10065adb-aad7-4d12-92df-6941f05d130c%2F3?alt=media&token=83f3c659-ed7c-4c8e-8ee8-ad3d6509bb59",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/10065adb-aad7-4d12-92df-6941f05d130c/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F10065adb-aad7-4d12-92df-6941f05d130c%2F4?alt=media&token=c10edc92-2976-4fad-b93a-e2d9b2e2b3a7",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T22:29:10.000Z"
-      }
-    },
     "createdAt": "2026-09-23T22:29:07.371Z",
-    "updatedAt": "2026-09-23T22:29:11.968Z",
+    "updatedAt": "2026-09-23T22:29:16.361Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -32,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/10065adb-aad7-4d12-92df-6941f05d130c/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/10065adb-aad7-4d12-92df-6941f05d130c/4",
     "window": null,
     "workflowNote": null,
     "id": "10065adb-aad7-4d12-92df-6941f05d130c",
@@ -6609,7 +6603,6 @@
       "id": "cFyQuY53MvmoZh92tpas",
       "date_added": "2026-09-23T22:29:08.144Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "10065adb-aad7-4d12-92df-6941f05d130c",
@@ -6663,7 +6656,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-23T22:29:09.623Z"
+      "date_updated": "2026-09-23T22:29:15.865Z",
+      "active": true
     }
   ]
 }
