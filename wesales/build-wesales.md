@@ -199,6 +199,24 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 | `Descartado` | **status da oportunidade = `lost`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Descartado` vira uma ação `Update Opportunity` mudando o `status`, não a etapa |
 | *(não existia)* | `FORMALIZAR` | Etapa nova, fechamento/contrato — equivale a `status = won`. Fora do escopo dos workflows de SDR deste documento (é o closer fechando), citada aqui só para a tabela ficar completa |
 
+> **Segunda renomeação, 23/09/2026 — `AGENDAR` também já não é o nome na
+> tela.** Fora do plano de 7 desta tabela: o dono decidiu, em
+> `wesales/PLANO-MULTICANAL.md` (D1/E2), renomear a etapa `AGENDAR` para
+> `REUNIÃO DE DIAGNÓSTICO` — **mesmo `id`**
+> (`3d26fcd1-220d-49ed-8325-705dfe9055b1`), confirmado por
+> `opportunities_get-pipelines` nesta rodada (`dateUpdated`
+> 2026-09-23T00:59Z). Todo workflow publicado que decide por `pipelineStageId`
+> (não por nome) continua funcionando sem tocar em nada — é o caso de todos
+> os já montados. O que fica desatualizado é só texto: toda vez que este
+> documento (daqui em diante) e o `ROADMAP-SALES-ENGAGEMENT.md` dizem
+> `AGENDAR`, é o nome antigo da mesma etapa. Migração completa (trocar o
+> texto em toda seção 2 em diante, mais `wesales/tools/ghl_api.py` `STAGES`)
+> ainda não foi feita — mesmo estado de "em andamento" que a tabela acima já
+> assume para o plano de 7, agora com uma segunda camada por cima. Não
+> reescrevi esta tabela nem fiz o grep de migração nesta rodada: registro
+> aqui para a próxima sessão não tratar `AGENDAR` como etapa corrente e não
+> recriar uma etapa nova por engano.
+
 **Por que isso é simplificação, não perda:** `CONECTAR` continua etapa
 própria porque é o único estado que um portão de workflow *precisa*
 consultar antes de disparar uma tentativa — é o mecanismo de segurança da

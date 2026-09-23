@@ -10,6 +10,28 @@
 > Decisório nº 82/2026 avalia. Detalhe e medição: seção 2.5 do
 > `build-wesales.md`.
 
+> **Atualização de 23/09/2026 — este aviso já não é a última palavra do dono
+> sobre canal.** No mesmo dia 22/09, horas depois do aviso acima,
+> `wesales/PLANO-MULTICANAL.md` (decidido ao vivo pelo dono, "aplique todas
+> as recomendações… ajuste de ponta a ponta") reintroduz o WhatsApp como
+> canal de cadência — D5: ligação por WhatsApp (Stevo Voice) e ligação normal
+> como os dois canais de toque, D6: WhatsApp primeiro, vira ligação normal
+> depois de 3 ligações de WhatsApp seguidas sem atender. O texto do D5 já
+> nomeia o mesmo achado técnico que fechou o G-09 abaixo (a mensagem
+> automática de WhatsApp sai pela ação "SMS" do GHL via Stevo) — o dono
+> decidiu usar esse transporte de propósito, não por engano. `PLANO-
+> MULTICANAL.md` também renomeia a etapa `AGENDAR` para `REUNIÃO DE
+> DIAGNÓSTICO` (mesmo `id`, confirmado por API em 23/09) e reformula boa
+> parte da Cadência 12x30/Pós-ligação/Pós-agendamento (D2–D9). Nenhuma
+> dessas mudanças foi propagada para este roadmap nem para `build-wesales.md`
+> ainda — os blocos abaixo (G-01 a G-09, R-01 a R-18, F-01 a F-15) continuam
+> descrevendo o desenho "100% telefone" pré-`PLANO-MULTICANAL`, e a execução
+> real (`PLANO-MULTICANAL.md`, checklist E1-E14) está rodando por fora,
+> pela API interna (`wesales/tools/`), não pelo `GHL CRM` (MCP) que esta
+> rotina usa. Antes de fechar qualquer G/R/F novo que toque canal ou etapa,
+> checar `PLANO-MULTICANAL.md` primeiro — é a decisão mais recente do dono,
+> não este aviso.
+
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
 a chegada. O bloco 6 é o que faz a operação ficar fora da curva: coisas que a
@@ -893,6 +915,47 @@ sempre):** 2.9.3 e 2.9.5 escutam WhatsApp **e** SMS no mesmo filtro; a
 premissa desatualizada do R-14 sobre WhatsApp não integrado está corrigida;
 fica registrada a pendência de confirmar na tela qual rótulo a Stevo usa,
 para quem montar decidir sem achismo.
+
+### G-10 · Duas trilhas de execução deste projeto param de se ver — `PLANO-MULTICANAL.md` reformula canal e etapa sem cruzar com o roadmap principal — **FEITO em 23/09/2026 (coerência entre documentos)**
+**Por quê:** todo item numerado deste roadmap (G/R/F) estava fechado ou
+represado por decisão do dono — nenhum executável hoje por este conector.
+Seguindo a própria instrução deste documento para uma sessão sem tela e sem
+decisão desbloqueada (varredura de coerência antes de procurar lacuna nova),
+o cruzamento entre `git log` e o estado ao vivo da subconta (API) achou uma
+segunda trilha de trabalho que nenhum G/R/F cita: `wesales/tools/` (~30
+scripts que falam com a **API interna** da HighLevel, não com o MCP `GHL
+CRM` que esta sessão usa) e `wesales/PLANO-MULTICANAL.md`, um plano de
+reformulação inteiro commitado direto pelo dono em 22/09/2026 ("aplique
+todas as recomendações… ajuste de ponta a ponta") — 22 minutos **depois**
+do commit que fechou o G-09 acima. O plano novo (D1-D14, checklist E1-E14)
+renomeia `AGENDAR` para `REUNIÃO DE DIAGNÓSTICO` (confirmado por API: mesmo
+`id`, já renomeado na tela), reintroduz WhatsApp/Stevo como canal (D5/D6 —
+resposta de fato à pergunta que o próprio G-09 levantou sobre o transporte
+SMS por baixo do Stevo) e reformula Cadência 12x30/Pós-ligação/
+Pós-agendamento. Nada disso estava citado aqui nem em `build-wesales.md`:
+uma leitura só destes dois documentos concluiria, errado, que o aviso
+"100% telefone" (topo deste arquivo) e a etapa `AGENDAR` seguem valendo.
+**Como:** sem reescrever nenhum dos dois desenhos por inteiro (trabalho
+grande demais para uma rodada, e não é o que este achado pede) — notas
+cruzadas datadas: topo deste arquivo (aponta para `PLANO-MULTICANAL.md`
+como decisão mais recente), `build-wesales.md` seção 1.0 (segunda
+renomeação de etapa, mesmo `id`), `APROVADO.md` (linha do SMS/WhatsApp,
+sinalizando que a premissa mudou sem tocar no `[ ]`), `campos-e-tags.md`
+(campo `Canal que conectou`, já existente na tela, registrado com id real),
+`PLANO-MULTICANAL.md` (E3 confirmado `[x]` por API; E2 marcado parcial — a
+etapa já foi renomeada na tela, falta código e docs) e um comentário em
+`wesales/tools/ghl_api.py` (`STAGES["AGENDAR"]`, sem renomear a chave para
+não quebrar `build_w17.py`). Detalhe completo em `APRENDIZADOS-CRM.md`.
+**Zero campo, zero tag novos por esta sessão** (o campo `Canal que conectou`
+já existia, criado pela outra trilha); zero escrita no CRM: item de
+coerência documental pura, não depende de `APROVADO.md`.
+**Pronto quando (cumprido):** as duas trilhas ficam achável uma pela outra —
+qualquer sessão que abra `ROADMAP-SALES-ENGAGEMENT.md` ou `build-wesales.md`
+encontra a nota que aponta para `PLANO-MULTICANAL.md` antes de tratar o
+desenho "100% telefone"/`AGENDAR` como corrente. **O que este item não
+resolve:** a reformulação completa de `PLANO-MULTICANAL.md` (E2 por
+inteiro, E4-E14) continua em aberto — este item só garante que ela é
+visível a partir daqui, não a executa.
 
 ---
 
@@ -3600,3 +3663,25 @@ canal** pode estar certo na intenção e errado na prática se a integração qu
 implementa aquele canal não for o que o nome sugere — vale conferir sempre
 que uma integração nova ou não-oficial entrar no meio de um canal que já
 tinha proteção escrita. Detalhe completo no próprio G-09, acima.
+
+**G-10 aberto e fechado em 23/09/2026, sessão automática seguinte — a
+lacuna não era técnica, era entre sessões.** Todo item numerado (G/R/F)
+seguia fechado ou represado por decisão do dono; a varredura de coerência
+que a própria seção seguinte deste documento pede (passo 1, antes de
+procurar lacuna nova) achou que `wesales/PLANO-MULTICANAL.md` — commitado
+pelo dono só 22 minutos depois do G-09 acima — já tinha respondido a
+pergunta que o G-09 levantou (reintroduz WhatsApp/Stevo como canal de
+propósito) e reformulado etapa e cadência, sem que este roadmap ou
+`build-wesales.md` citassem isso em lugar nenhum. Fechado com notas
+cruzadas datadas nos quatro documentos afetados, sem reescrever nenhum dos
+dois desenhos por inteiro — não era o achado, e é trabalho grande demais
+para uma rodada. **Regra prática, diferente de G-06/G-07/G-08/G-09 (todas
+sobre um nó ou filtro que não acompanhou algo mais novo):** aqui o que não
+acompanhou foi o documento inteiro — quando duas sessões automáticas
+diferentes commitam na mesma branch, cada uma seguindo seu próprio fluxo de
+leitura, um plano decidido ao vivo pelo dono num commit direto pode ficar
+invisível para quem só lê o roadmap principal. Verificar `git log` do
+diretório `wesales/` (não só os arquivos já conhecidos) deveria entrar na
+varredura de coerência de toda rodada a partir de agora, junto com o grep
+de nome de etapa e contagem duplicada. Detalhe completo no próprio G-10 e
+em `APRENDIZADOS-CRM.md`.

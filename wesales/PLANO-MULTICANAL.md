@@ -26,8 +26,8 @@ pela lista de execução no fim.
 ## Execução (marcar ao concluir, com data e commit)
 
 - [x] E1 Inventário ao vivo — 24 publicados, `INVENTARIO-WORKFLOWS.md` (22/09). Achado: Interceptação Resposta v2 e Opt-out filtram canal 19 (WhatsApp oficial); a Stevo chega como 20 → hoje nenhuma resposta pela Stevo dispara os dois (E10).
-- [ ] E2 Renomear a etapa (D1) e trocar `AGENDAR` no código (`ghl_api.STAGES`) e nos documentos
-- [ ] E3 Campo `Canal que conectou` (D10)
+- [ ] E2 Renomear a etapa (D1) e trocar `AGENDAR` no código (`ghl_api.STAGES`) e nos documentos — **parcial, 23/09/2026, sessão automática (MCP):** o nome na tela já é `REUNIÃO DE DIAGNÓSTICO` (confirmado por `opportunities_get-pipelines`, mesmo `id` `3d26fcd1-...`, `dateUpdated` 2026-09-23T00:59Z — quem rodou `renomear_etapa.js` não marcou aqui). Ainda faltam as duas outras partes: `ghl_api.STAGES["AGENDAR"]` continua com a chave antiga (usada por `build_w17.py`; renomear a chave sem atualizar esse arquivo quebra um re-run), e `build-wesales.md`/`ROADMAP-SALES-ENGAGEMENT.md` seguem citando `AGENDAR` em texto — nota de migração pendente adicionada em `build-wesales.md`, seção 1.0, em vez de reescrever tudo agora
+- [x] E3 Campo `Canal que conectou` (D10) — **confirmado por API em 23/09/2026** (`locations_get-custom-fields`: `contact.canal_que_conectou`, id `TxJmoWdkA8rTqC1uEsMW`, `SINGLE_OPTIONS` com as 3 opções do D10, `dateAdded` 2026-09-23T01:06Z). Registrado em `campos-e-tags.md`. Não sei quem criou (API interna, fora desta sessão) — só verifiquei que existe e bate com o D10
 - [ ] E4 Cadência 12x30 multicanal com fase "fechar horário" e pausa no retorno (D2, D3, D5, D6, D9)
 - [ ] E5 Pós-ligação v2: Atendeu não move etapa; resultado → manter/excluir/reagendar (D3, D9)
 - [ ] E6 Pós-agendamento v2: reunião marcada → REUNIÃO DE DIAGNÓSTICO (D4)

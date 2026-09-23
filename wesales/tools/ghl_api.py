@@ -17,7 +17,7 @@ PIPELINE = "0Fo2xbeayE4EP6yuSUtq"
 STAGES = {
     "NOVO LEAD": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
     "CONECTAR": "deb60542-a5cd-43ae-b875-b467b120a72c",
-    "AGENDAR": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
+    "AGENDAR": "3d26fcd1-220d-49ed-8325-705dfe9055b1",  # nome na tela desde 23/09/2026: "REUNIÃO DE DIAGNÓSTICO" (mesmo id, PLANO-MULTICANAL.md D1/E2). Chave não renomeada aqui de propósito: build_w17.py referencia STAGES["AGENDAR"] por nome; renomear os dois juntos fica para quem fechar o E2 por inteiro.
     "NEGOCIAR": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
     "FORMALIZAR": "b8485ec0-98e8-459f-b990-f40a5e3bd25b",
 }
