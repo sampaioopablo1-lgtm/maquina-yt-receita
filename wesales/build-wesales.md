@@ -4696,7 +4696,7 @@ antiga que, até hoje, era inofensiva.
 | # | Fato | Onde conferi |
 |---|---|---|
 | 1 | `conectado-hoje` é aplicada pelo `Pós-ligação v2` em **5 ramos** (nós 13, 26, 77, 86, 97), todos `add_contact_tag` | dump ao vivo, `status: published`, versão 4 |
-| 2 | **Nenhum** dos 26 dumps tem `remove_contact_tag` com `conectado-hoje`. Nenhum documento de `wesales/` especifica reset diário, de 24h ou de fim de dia | varredura dos 26 dumps + `grep` em `wesales/` |
+| 2 | **Nenhum** dos 29 dumps tem `remove_contact_tag` com `conectado-hoje`. Nenhum documento de `wesales/` especifica reset diário, de 24h ou de fim de dia | varredura dos 29 dumps + `grep` em `wesales/`. Refeita **depois** da reescrita multicanal da 12x30 (`23db864`): a régua nova também não removeu. Três dumps estão pré-patch (seção 2.31.3), mas aquele patch só edita listas `workflow_id` de nós `remove_from_workflow` — não há como uma remoção de tag estar escondida neles |
 | 3 | A função declarada da tag é "tira o lead das filas **do dia** após conexão" | `campos-e-tags.md`, T-05 |
 | 4 | A classificação declarada da mesma tag é família **Estado** — "sobrevive à saída de cadência" | `IMPLEMENTACAO-WORKFLOWS.md`, seção da tabela das três famílias |
 | 5 | (3) e (4) se contradizem: "do dia" é pulso, "sobrevive" é estado. A conta ao vivo implementa a versão permanente | consequência de (2) |
@@ -4734,42 +4734,125 @@ começa a produzir o vazamento a partir da primeira conexão.
 | C | Um workflow recorrente de meia-noite que remove `conectado-hoje` de todo mundo | workflow novo + o MCP não cria workflow | mais uma peça para manter |
 | D | Aceitar a tag como permanente e tirar a cláusula das duas filas | edição de 2 listas | perde o efeito "já falei com ele hoje" — o SDR volta a ver na fila quem ele acabou de ligar |
 
-**Recomendo A**, e A não exclui B: A faz o nome da tag ser verdade sem criar
-peça nova e sem depender de publicação, e B é a cláusula certa para o funil
-novo assim que o `Fechar Horário` sair do rascunho. Nenhuma das duas é
-aplicável por este MCP (edição de workflow e lista inteligente não têm
-ferramenta) — é tela ou `wesales/tools/`.
+**Recomendo A.** ⚠️ **A saída B caiu** — eu a tinha escrito como alternativa
+limpa e ela não sobrevive à conferência: a seção 2.31.2 mostra que o
+removedor de `fechar-horario` mora dentro do `Fechar Horário` e **não é
+alcançado pelo caminho de quem agenda** (o `Pós-agendamento v2` arranca o
+contato do workflow no nó 4, e as saídas dele não rodam). B trocaria uma
+exclusão permanente por outra. B só volta a valer se o nó 4 do
+`Pós-agendamento v2` também remover a tag. Nenhuma das saídas é aplicável por
+este MCP (edição de workflow e de lista inteligente não têm ferramenta) — é
+tela ou `wesales/tools/`.
 
-### 2.31.1 A tag `fechar-horario` é aplicada ao vivo e removida só num rascunho
+### 2.31.1 A tag `fechar-horario` nasceu com o consumidor em rascunho — janela fechada limpa em 23/09
 
-Segundo achado do mesmo commit, e este tem janela de tempo:
+Quando abri este achado, `Pós-ligação v2` (publicado) já aplicava
+`fechar-horario` e o único que a remove, o `Fechar Horário`, estava em
+**rascunho** — com gatilho na própria tag. Gatilho de tag dispara no *evento*
+de aplicação, e aplicar tag já presente não gera evento: todo lead que
+conectasse na janela ficaria invisível ao workflow para sempre.
 
-| Peça | Papel com a tag | Estado ao vivo |
+**Fechado no `23db864`, do PC do dono, ainda nesta rodada:** o `Fechar Horário`
+foi publicado (v4, `status: published`). Remedi depois da publicação:
+`fechar-horario` em **0 contatos**. A janela fechou sem nenhum lead dentro
+dela. Não há nada a corrigir e nada a limpar.
+
+**A regra fica, porque o caso vai repetir:** sempre que um workflow novo é
+gatilhado por tag, conferir se quem *aplica* a tag já está publicado antes
+dele. Par "aplicador no ar + consumidor em rascunho" numa tag que ninguém
+remove produz exclusão permanente e silenciosa. A ordem certa é publicar o
+consumidor primeiro, ou o aplicador por último.
+
+### 2.31.2 `remove_from_workflow` pula os nós de saída — e isso derruba uma das minhas quatro saídas
+
+Conferindo como `fechar-horario` sai do contato, achei que a remoção dela mora
+**dentro** do `Fechar Horário`, nos 4 nós de saída dele (36, 38, 39, 40, os
+quatro `Remove Tag`). Só que o caminho mais importante não passa por esses nós:
+
+| Caminho | Quem conduz | Passa pelos nós 36/38/39/40? |
 |---|---|---|
-| `Pós-ligação v2` | **aplica** `fechar-horario` (nós 13, 26, 77, 86, 97) | `published`, versão 4 |
-| `Fechar Horário` | único que **remove** (nós 36, 38, 39, 40), e o gatilho dele é a própria tag (`tag_trigger`, `build_fechar_horario.py:122`) | `draft`, versão 3 |
+| lead desiste / vira nutrição | o próprio `Fechar Horário` | sim — a tag sai |
+| **lead agenda a reunião** | `Pós-agendamento v2`, nó 4, `remove_from_workflow` → `Fechar Horário` | **não** — o contato é arrancado do workflow e as saídas dele não rodam |
 
-Gatilho de tag dispara no **evento** de aplicação. Enquanto o `Fechar
-Horário` está em rascunho, cada lead que conecta recebe a tag sem ninguém
-escutando o evento; e como nada remove a tag, uma conexão posterior não gera
-evento novo (aplicar tag já presente não é aplicação). O resultado é que os
-leads conectados durante a janela de rascunho ficam **permanentemente
-invisíveis** ao `Fechar Horário` depois que ele for publicado.
+`remove_from_workflow` cancela os passos pendentes do contato no workflow
+alvo; os nós de limpeza do alvo não são executados. Logo **todo lead que
+agenda fica com `fechar-horario` para sempre** — e é justamente o lead que a
+`Recuperação de No-show` pode devolver ao trabalho ativo (ela reaplica
+`fila-tel` nos nós 12, 19 e 26).
 
-Medido: `fechar-horario` está em **0 contatos**. A janela ainda está limpa. A
-ordem que evita o problema é simples e só vale antes do primeiro lote:
-publicar o `Fechar Horário` **antes** de ligar a esteira, não depois. Se
-algum lead conectar antes disso, a tag dele precisa ser limpa à mão antes da
-publicação.
+**Consequência direta para a decisão da seção 2.31:** a saída **B** (trocar a
+cláusula das filas de `não conectado-hoje` para `não fechar-horario`) **não
+serve como está escrita.** Ela troca uma exclusão permanente por outra: parece
+limpa porque `fechar-horario` tem removedor, mas o removedor não é alcançado
+pelo caminho de quem agenda. B só passa a valer se o nó 4 do
+`Pós-agendamento v2` também remover a tag, ao lado do `remove_from_workflow`.
+Recomendação revisada, em uma frase: **quem arranca o contato de um workflow
+precisa limpar, no mesmo nó, as tags que as saídas daquele workflow
+limpariam.** No caso concreto é um `Remove Tag fechar-horario` no nó 4 do
+`Pós-agendamento v2` — uma peça, um workflow.
 
-**Tag nova fora da lista aprovada:** `fechar-horario` é a 16ª tag do projeto
-e não está entre as 15 do `APROVADO.md`. Ela entrou por ação do dono, no
-próprio commit — não é criação minha e não estou desfazendo nada. Fica
-registrada aqui e em `campos-e-tags.md` (linha `—`, na mesma convenção do
-`teste-regua`; T-16 já está ocupada pelo `novo-lead-estagnado`) para a
-contagem do gate parar de divergir da conta. Por ordem de criação ela é a
-17ª tag da conta, não a 16ª — `teste-regua`, criada pelo dono na tela em
-22/09, veio antes.
+**Exposição geral desta classe, medida nos 29 dumps.** Descontando as
+auto-remoções (workflow que se remove no fim do próprio ramo, onde a limpeza
+roda antes e está correta), sobram 5 alvos arrancados por terceiros com
+limpeza de tag nos próprios nós:
+
+| Alvo (publicado) | Tags que ele limpa nas saídas | Arrancado por |
+|---|---|---|
+| `Cadência 12x30` | `atraso-1a-tentativa`, `fila-quente`, `fila-tel`, `fila-wa` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4), `Pós-ligação v2` (nós 54 e 127) |
+| `Cadência Inbound` | `atraso-1a-tentativa`, `cad-inbound`, `fila-quente`, `fila-tel`, `fila-wa` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) |
+| `Reengajamento 90 dias` | `atraso-1a-tentativa`, `cad-inbound`, `fila-tel`, `fila-wa`, `nutricao-90d`, `reengajamento-ativo` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) |
+| `Fechar Horário` | `fechar-horario` | `Pós-agendamento v2` (nó 4) |
+| `Recuperação de No-show` | `fila-tel` | `Pós-agendamento v2` (nó 4) |
+
+Nem toda linha é bug: várias dessas tags são limpas **também** pelo Mestre de
+saída, que é justamente a rede de segurança para este caso, e as de fila são
+reaplicadas na tentativa seguinte. O que a tabela diz é onde olhar — e
+`fechar-horario` é a única da lista que **não** tem segunda rede: quem limpa
+ela é só o `Fechar Horário`. Conferir tag por tag contra o Mestre de saída
+antes de mexer em qualquer outra linha.
+
+### 2.31.3 O dump de 3 workflows ficou descrevendo a conta pré-patch — corrigido na ferramenta
+
+Enquanto conferia a parte 2 da 12x30, li nos dumps que as listas de
+`remove_from_workflow` **não** citam a `Cadência 12x30 — parte 2` — nem no
+`Fechar Horário` (nó 0), nem no `Pós-agendamento v2` (nó 4), nem no
+`Pós-ligação v2` (nós 54 e 127). Ia registrar isso como achado grave: lead que
+agenda sairia da parte 1 e continuaria recebendo toque automático da parte 2.
+
+**Não registro, porque o dump não pode responder isso.** Comparei os três
+arquivos com os backups `_antes-patch-parte2/` e eles são idênticos em
+`version` e `updatedAt`. A causa está na ferramenta:
+
+| Script | Exporta o backup | Aplica | **Re-exporta o estado novo** |
+|---|---|---|---|
+| `patch_funil_reuniao.py` | linha 137 | linha 138 | **sim**, linha 150 |
+| `patch_remove_parte2.py` | linha 26 | linha 27 | **não existia** |
+
+Por isso os 5 workflows do patch de funil têm dump fresco e correto, e os 3 do
+patch da parte 2 têm dump congelado no estado de antes. O `workflows-json/`
+passou a descrever uma conta que a conta já deixou — e de um jeito silencioso,
+porque `version` e `updatedAt` também são do arquivo antigo, então nenhuma
+checagem de frescor pega.
+
+**Corrigido nesta rodada, na ferramenta e não no arquivo:**
+`patch_remove_parte2.py` ganhou o `g.export` depois do `put`, espelhando a
+linha 150 do script irmão, e os dois caminhos de export passaram a ser
+relativos ao script (`DUMPS`) em vez de ao diretório de execução — o backup
+antes só caía no lugar certo se o script fosse rodado de dentro de
+`wesales/tools/`. Nada disso toca a conta; é o repositório voltando a contar a
+verdade na próxima execução.
+
+**O que continua em aberto, e é a verificação mais consequente de agora:** se a
+`Cadência 12x30 — parte 2` entrou ou não nas listas de remoção. Se não entrou,
+o lead que agenda continua recebendo toque automático da segunda metade da
+régua — o pior defeito possível numa máquina de pré-venda. O `--aplicar` do
+script imprime `conferido: ... com parte 2=N` no momento em que roda, e essa
+saída não está no repositório. Daqui não dá para ler workflow (o MCP
+`GHL CRM` não tem ferramenta de workflow). Resolve em um comando, no PC:
+`python patch_remove_parte2.py` **sem** `--aplicar` — ele lista quantos nós
+ainda faltam por workflow e não escreve nada. Zero nó listado = a parte 2 já
+está em todas as listas.
+
 ---
 
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026

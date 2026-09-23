@@ -126,11 +126,12 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 > publicado). Regra 1 vale: ficam, não removo nada. Registro aqui só para a
 > contagem desta lista parar de divergir da conta — as tags numeradas T-16 a T-21
 > abaixo continuam sendo as que **eu** não crio sem o seu `[x]`. A `fechar-horario`
-> tem um detalhe com prazo: quem a remove é o workflow `Fechar Horário`, que está
-> em **rascunho**, e o gatilho dele é a própria tag. Publicar o `Fechar Horário`
-> antes de ligar a esteira evita que os primeiros leads conectados fiquem
-> invisíveis a ele para sempre. Medido em 23/09: 0 contatos com a tag, janela
-> ainda limpa. Detalhe na seção 2.31.1 do `build-wesales.md`.
+> tem um detalhe que segue aberto: quem a remove é o `Fechar Horário`, publicado
+> no `23db864` (a janela de rascunho fechou limpa, 0 contatos), mas a remoção
+> está nos nós de saída dele — e o lead que **agenda** é arrancado do workflow
+> pelo `Pós-agendamento v2` (nó 4) sem passar por eles. Então quem agenda fica
+> com a tag para sempre. Não é item de aprovação: é uma edição de workflow, que
+> este MCP não faz. Seções 2.31.1 e 2.31.2 do `build-wesales.md`.
 
 - [ ] Criar a 16ª tag, `novo-lead-estagnado` — nasceu no F-05 (Monitor de
       Saúde da Operação, peça 1: lead esquecido em `NOVO LEAD`) desta rodada,

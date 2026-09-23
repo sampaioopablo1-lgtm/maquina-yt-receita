@@ -6,6 +6,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ghl_api as g
 from patch_funil_reuniao import put
 P1, P2 = "c64a808b-3040-431e-8015-642a265e1022", "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8"
+AQUI = os.path.dirname(os.path.abspath(__file__))
+DUMPS = os.path.join(AQUI, "..", "workflows-json")
 aplicar = "--aplicar" in sys.argv
 c = g.client()
 for w in c.request("GET", "/workflow/" + g.LOC):
@@ -23,9 +25,14 @@ for w in c.request("GET", "/workflow/" + g.LOC):
         continue
     print("%s: %d nó(s)" % (w["name"], n))
     if aplicar:
-        g.export(c, w["id"], os.path.join("..", "workflows-json", "_antes-patch-parte2", w["name"] + ".json"))
+        g.export(c, w["id"], os.path.join(DUMPS, "_antes-patch-parte2", w["name"] + ".json"))
         put(c, cur, tpl)
         v = c.request("GET", "/workflow/" + g.LOC + "/" + w["id"])
         ok = sum(1 for t in v["workflowData"]["templates"] if t.get("type") == "remove_from_workflow"
                  and P2 in ((t.get("attributes") or {}).get("workflow_id") or []))
         print("   conferido: status=%s nós=%d com parte 2=%d" % (v.get("status"), len(v["workflowData"]["templates"]), ok))
+        # Re-exporta o estado DEPOIS do patch. Sem esta linha o dump em
+        # workflows-json/ fica descrevendo a conta pré-patch para sempre, e toda
+        # auditoria que lê o dump conclui que o patch não foi aplicado. O script
+        # irmao patch_funil_reuniao.py ja faz isso (ultima linha do loop dele).
+        g.export(c, w["id"], os.path.join(DUMPS, w["name"] + ".json"))
