@@ -1,0 +1,136 @@
+{
+  "workflow": {
+    "_id": "966d75f6-cf77-470d-875e-c122da88d70c",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE Limpa conectado-hoje (24 h)",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/966d75f6-cf77-470d-875e-c122da88d70c/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F966d75f6-cf77-470d-875e-c122da88d70c%2F3?alt=media&token=7ecdb302-a480-4c39-8289-992709b2ffac",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-23T04:32:16.000Z"
+      }
+    },
+    "createdAt": "2026-09-23T04:32:14.373Z",
+    "updatedAt": "2026-09-23T04:32:17.522Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/966d75f6-cf77-470d-875e-c122da88d70c/3",
+    "window": null,
+    "workflowNote": null,
+    "id": "966d75f6-cf77-470d-875e-c122da88d70c",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "2d0636ff-a9b8-4c3f-8781-4a208539655b",
+          "name": "Wait 2 Minutes",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "minutes",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Minutes",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "0b685c77-d409-49e4-94a5-d4fa3121d1b3",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "0b685c77-d409-49e4-94a5-d4fa3121d1b3",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "conectado-hoje"
+            ]
+          },
+          "order": 1,
+          "parentKey": "2d0636ff-a9b8-4c3f-8781-4a208539655b",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "FEVq4KZO8t9dtMjpljJo",
+      "date_added": "2026-09-23T04:32:15.165Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "966d75f6-cf77-470d-875e-c122da88d70c",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "conectado-hoje",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "966d75f6-cf77-470d-875e-c122da88d70c",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Conectado hoje",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "2d0636ff-a9b8-4c3f-8781-4a208539655b",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-23T04:32:16.152Z"
+    }
+  ]
+}
