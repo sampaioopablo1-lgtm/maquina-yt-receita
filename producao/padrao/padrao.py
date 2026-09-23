@@ -36,7 +36,11 @@ L, A = 1080, 1350
 MARGEM = 80
 TETO_DE_TEXTO = 25.0
 
-LARANJA = (255, 122, 26)
+LARANJA = (255, 122, 26)          # so sobre fundo ESCURO (7.3 de contraste)
+LARANJA_ESCURO = (176, 68, 6)     # sobre fundo CLARO (5.0). O laranja vivo
+                                  # sobre creme da 2.29 — metade do minimo
+                                  # legivel. Medido em 23/09, depois de o Pablo
+                                  # dizer que "quase nao deu para entender".
 GRAFITE = (14, 16, 20)
 CREME = (242, 240, 235)
 BRANCO = (255, 255, 255)
@@ -139,7 +143,7 @@ def pergunta(chamada, apoio, kicker="DONO DE EMPRESA"):
     d = ImageDraw.Draw(im)
     cx = []
 
-    d.rectangle([MARGEM, 222, MARGEM + 96, 232], fill=LARANJA)
+    d.rectangle([MARGEM, 222, MARGEM + 96, 232], fill=LARANJA_ESCURO)
     f_k = fonte(MONT, 28, "Bold")
     d.text((MARGEM, 272), kicker, font=f_k, fill=(138, 132, 120))
     cx.append(f_k.getbbox(kicker))

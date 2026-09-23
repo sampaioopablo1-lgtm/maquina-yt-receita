@@ -57,6 +57,8 @@ e **expressão que concorde com a frase**. Foto de pessoa rindo não recebe copy
 | **Nem foto que se PAREÇA com ele** | Ordem do Pablo em 23/09. Não basta não ser ele: modelo de banco com traços próximos (homem, 30–45, pele negra ou parda, barba curta, cabelo raspado) faz o leitor achar que é. Na dúvida sobre uma foto, não usar. |
 | Sem preço, sem promessa em reais, sem "Rio", sem "90 dias" | Briefing da campanha. |
 | Fontes reais (Montserrat + Playfair) | Liberation dá cara de PowerPoint. |
+| **Laranja só sobre fundo escuro** | Medido: `#FF7A1A` sobre creme dá **2,29** de contraste, sobre branco **2,61** — o mínimo legível é 4,5. Sobre grafite dá 7,30. Em fundo claro usar `LARANJA_ESCURO #B04406` (5,02) ou preto. |
+| **Laranja sobre foto só em área escura** | A foto tem regiões claras. Onde o texto laranja cair, a vinheta precisa garantir fundo escuro — senão some, mesmo com a cor certa. |
 | Rodapé sempre fechado | Sem ele sobram ~200px mortos no pé. |
 
 ## Como rodar
