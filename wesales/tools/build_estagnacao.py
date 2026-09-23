@@ -26,6 +26,7 @@ import ghl_api as g
 TESTE = os.environ.get("TESTE") == "1"
 SO = "--so-montar" in sys.argv
 QUALIF = "c470gqXWCkwqE9yVrcEi"      # Reunião foi qualificada
+JANELA = {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
 AQUI = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -113,7 +114,8 @@ for nome, passos, gat in PECAS:
         tpl = g.montar(passos)
     else:
         wf = ids.get(nome) or g.create_workflow(c, nome)
-        g.preencher(c, wf, nome, passos, [gat], allow_reentry=True, stop_on_response=False)
+        g.preencher(c, wf, nome, passos, [gat], allow_reentry=True, stop_on_response=False,
+                    janela=None if TESTE else JANELA)
         tpl = g.export(c, wf, os.path.join(AQUI, "..", "workflows-json", nome + ".json"))["workflow"]["workflowData"]["templates"]
         print("  publicar:", g.publicar(c, wf), wf)
     print("%s: nós=%d %s" % (nome, len(tpl), dict(Counter(s["type"] for s in tpl))))
