@@ -24,6 +24,32 @@ fatos (canal técnico da Stevo, filtro por nome no build) já escritos em
 documentos diferentes do projeto. Cruzar aprendizado com item aberto (não só
 aprendizado com aprendizado) devia ser parte do sweep de toda rodada.
 
+## Correção: a conta JÁ liga pelo WhatsApp dentro do GHL — Stevo Voice, com humano, sem API oficial — 22/09/2026, sessão do PC
+
+A entrada logo abaixo ("não existe em nenhum plano") estava **errada para
+esta conta**. O dono já contratou o Stevo Voice, e a tela confirma: a
+conversa de um contato de WhatsApp mostra o botão **"Ligar via WhatsApp"**, e
+o menu lateral tem **"WhatsApp Api Não Oficial"** e **"Call Center"**. O erro
+foi ler "voz com IA" no resumo do módulo e concluir que só a IA ligava.
+
+O que a documentação (doc.stevo.chat, seção Stevo Voice) diz:
+
+- **Painel de Chamadas:** o operador (humano) liga e atende pelo WhatsApp do
+  número conectado; discador por número ou pela lista, status (chamando,
+  ocupado, atendeu), histórico e relatórios básicos (ligações do dia, tempo
+  falado, **taxa de atendimento**).
+- **Gravação** ("quando permitida"); gravações listáveis por API
+  (`GET /v1/instances/{id}/voice/recordings`, escopo `voice:read`).
+- **AI Coach:** transcreve em tempo real e sugere ao SDR como conduzir; debita
+  da carteira; análise pós-ligação com resumo e nota. Quem fala continua sendo
+  o SDR.
+- Não há pedido de permissão da Meta (é QR). A própria Stevo recomenda ter
+  consentimento, respeitar horário e **não exagerar na frequência**.
+
+**Regra:** o resumo de um módulo não é a documentação dele, e o que está
+instalado na conta vale mais que as duas. Antes de dizer "não existe", abrir a
+tela.
+
 ## Ligação de WhatsApp pelo SDR de dentro do GHL, sem permissão do lead, não existe em nenhum plano — 22/09/2026, sessão do PC
 
 Pesquisado a pedido do dono ("talvez exista plano pago"):
