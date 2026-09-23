@@ -2,6 +2,31 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O filtro "canal 20" no gatilho de resposta nunca disparou — e o número oficial de teste é o 9940 — 23/09/2026, sessão do PC
+
+**Medido:** o dono respondeu do 9940 ("Bh", mensagem de ENTRADA na conversa,
+`type 20`), e nem a Triagem nem o Opt-out (este sem janela) registraram
+execução. O gatilho `customer_reply` com `message.type == 20` **nunca casa**:
+20 é o tipo interno da mensagem Stevo, mas o filtro "Canal de resposta" do
+gatilho usa outra numeração. A correção de 23/09 (gatilho "— Stevo" com canal
+20) estava errada e passou pela conferência porque só confere se o gatilho
+existe e está ativo — não se dispara.
+
+**Correção:** o gatilho da Stevo nos 3 workflows de resposta (Triagem, Opt-out,
+Interceptação Resposta v2) ficou **sem filtro de canal** ("qualquer canal").
+Os três já decidem pelo conteúdo e pelas tags. Republicados (rascunho →
+publicado reativa o gatilho).
+
+**Regra:** gatilho só está testado quando dispara com um evento real. "Ativo"
+e "alvo existe" não provam nada.
+
+**Número oficial de teste (decisão do dono, 23/09/2026):** **+55 21 98742-9940**
+(contato "Pablo Sampaio", `rdaijzR0ZVCmXLAJ6jT2`). Use-o em toda rotina de
+construção e manutenção que precise mandar ou receber mensagem de verdade.
+**Nunca** use o +55 12 98238-1407: é o número CONECTADO à Stevo (telefone da
+empresa); mensagem para ele é a empresa falando com ela mesma, e o que se digita
+nele aparece como mensagem da conta.
+
 ## "Marcado" não é "promovido" — tag sozinha não move etapa, e a frase que descrevia os dois como feitos só tinha feito o primeiro — 23/09/2026, sessão na nuvem
 
 `PLANO-MULTICANAL.md` ("Só inbound", madrugada de 23/09) registrou como

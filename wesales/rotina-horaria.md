@@ -70,3 +70,10 @@ parar.
 ## Controlar
 
 Pausar, mudar o intervalo ou desligar: é só pedir. Ela não se cancela sozinha.
+
+## Número oficial de teste (23/09/2026)
+
+Para qualquer teste que precise mandar ou receber WhatsApp de verdade:
+**+55 21 98742-9940** — contato "Pablo Sampaio" (`rdaijzR0ZVCmXLAJ6jT2`), celular
+do dono. **Nunca** usar +55 12 98238-1407 (é o número conectado à Stevo). Lead
+real nunca é usado em teste.
