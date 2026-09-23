@@ -14,6 +14,9 @@ antigo aqui ate alguem redumpar, e workflow sem dump neste repositorio e
 invisivel para esta auditoria. Para a resposta autoritativa, varra pela API
 interna, do PC.
 
+As duas guardas de frescor ficam no `_frescor.py`, compartilhado pelas tres
+auditorias: elas imprimem o mesmo aviso porque leem os mesmos dumps.
+
 Uso:  python3 wesales/tools/auditoria_refs.py
 Sai com codigo 1 se achar referencia para arquivado.
 """
@@ -22,6 +25,8 @@ import json
 import os
 import re
 import sys
+
+from _frescor import aviso
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DUMPS = os.path.join(AQUI, "..", "workflows-json")
@@ -61,6 +66,7 @@ def carrega():
 
 
 def main():
+    aviso(DUMPS)
     mapa, duplicados = carrega()
     if duplicados:
         print("%d id(s) com backup de mesmo id — o vivo tem precedencia:" % len(duplicados))
