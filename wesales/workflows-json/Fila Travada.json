@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Fila Travada",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/23c33803-c760-49fd-a189-8d1a86bf3d9e/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F23c33803-c760-49fd-a189-8d1a86bf3d9e%2F6?alt=media&token=2724873c-8d66-48b5-b19a-7aaa014a8468",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/23c33803-c760-49fd-a189-8d1a86bf3d9e/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F23c33803-c760-49fd-a189-8d1a86bf3d9e%2F7?alt=media&token=26dac8e4-9de7-4e7a-9733-47f7ebdb0d01",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:18:33.646Z",
-    "updatedAt": "2026-09-22T01:42:05.510Z",
+    "updatedAt": "2026-09-22T01:42:07.258Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,16 +26,10 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/23c33803-c760-49fd-a189-8d1a86bf3d9e/6",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/23c33803-c760-49fd-a189-8d1a86bf3d9e/7",
     "window": null,
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-22T01:42:04.000Z"
-      }
-    },
     "id": "23c33803-c760-49fd-a189-8d1a86bf3d9e",
     "workflowData": {
       "templates": [
@@ -368,8 +362,8 @@
         }
       },
       "targetActionId": "f1461f92-7628-4e13-b37b-9fcffc7b53cd",
-      "active": false,
-      "date_updated": "2026-09-22T01:42:03.983Z"
+      "date_updated": "2026-09-22T01:42:06.714Z",
+      "active": true
     },
     {
       "id": "fC0jUtPTQAsBE33HAw9y",
@@ -405,8 +399,8 @@
         }
       },
       "targetActionId": "f1461f92-7628-4e13-b37b-9fcffc7b53cd",
-      "active": false,
-      "date_updated": "2026-09-22T01:42:04.034Z"
+      "date_updated": "2026-09-22T01:42:06.760Z",
+      "active": true
     }
   ]
 }

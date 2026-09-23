@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Contador de Toques",
-    "version": 3,
+    "version": 5,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/f0e8a0f8-d18e-4f0e-86ef-75315b5fa616/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Ff0e8a0f8-d18e-4f0e-86ef-75315b5fa616%2F3?alt=media&token=acc80d94-28e6-4a8f-8aef-96933c562f67",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/f0e8a0f8-d18e-4f0e-86ef-75315b5fa616/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Ff0e8a0f8-d18e-4f0e-86ef-75315b5fa616%2F5?alt=media&token=d0218843-39aa-4751-98c1-ff1691a26c5f",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-21T23:45:11.430Z",
-    "updatedAt": "2026-09-21T23:45:14.490Z",
+    "updatedAt": "2026-09-22T00:45:14.208Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -28,14 +28,8 @@
     "senderAddress": null,
     "window": null,
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-21T23:45:13.000Z"
-      }
-    },
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/f0e8a0f8-d18e-4f0e-86ef-75315b5fa616/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/f0e8a0f8-d18e-4f0e-86ef-75315b5fa616/4",
     "id": "f0e8a0f8-d18e-4f0e-86ef-75315b5fa616",
     "workflowData": {
       "templates": [
@@ -159,7 +153,6 @@
       "id": "0TKuhirFXdxvqkjBs8zU",
       "date_added": "2026-09-21T23:45:11.956Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "f0e8a0f8-d18e-4f0e-86ef-75315b5fa616",
@@ -190,7 +183,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-21T23:45:14.054Z"
+      "date_updated": "2026-09-22T00:33:28.511Z",
+      "active": true
     }
   ]
 }

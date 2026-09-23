@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Lead Esquecido em NOVO LEAD",
-    "version": 3,
+    "version": 5,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/60268916-7522-4a32-b9ee-0f00993988fb/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F60268916-7522-4a32-b9ee-0f00993988fb%2F3?alt=media&token=1915bd9a-327b-4c93-bc10-9a26f8972d70",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/60268916-7522-4a32-b9ee-0f00993988fb/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F60268916-7522-4a32-b9ee-0f00993988fb%2F5?alt=media&token=e97d55fa-3c9a-484a-acb5-099c24800ec7",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-21T23:52:55.614Z",
-    "updatedAt": "2026-09-21T23:54:18.004Z",
+    "updatedAt": "2026-09-22T00:45:15.353Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -28,14 +28,8 @@
     "senderAddress": null,
     "window": null,
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-21T23:54:16.000Z"
-      }
-    },
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/60268916-7522-4a32-b9ee-0f00993988fb/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/60268916-7522-4a32-b9ee-0f00993988fb/4",
     "id": "60268916-7522-4a32-b9ee-0f00993988fb",
     "workflowData": {
       "templates": [
@@ -314,7 +308,6 @@
       "id": "UlsPrTX6JoQeIzQvkRso",
       "date_added": "2026-09-21T23:54:15.795Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
@@ -352,51 +345,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-21T23:54:17.600Z"
-    },
-    {
-      "id": "yogylHjdDRcms3bcUlJQ",
-      "date_added": "2026-09-21T23:52:56.102Z",
-      "deleted": false,
-      "active": false,
-      "actions": [
-        {
-          "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
-          "type": "add_to_workflow"
-        }
-      ],
-      "conditions": [
-        {
-          "operator": "==",
-          "field": "opportunity.pipelineId",
-          "value": "0Fo2xbeayE4EP6yuSUtq",
-          "title": "No pipeline",
-          "type": "select"
-        },
-        {
-          "operator": "==",
-          "field": "opportunity.pipelineStageId",
-          "value": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
-          "title": "Movido para o estágio",
-          "type": "select",
-          "id": "moved-to-stage"
-        }
-      ],
-      "type": "pipeline_stage_updated",
-      "masterType": "highlevel",
-      "workflow_id": "60268916-7522-4a32-b9ee-0f00993988fb",
-      "location_id": "1D53YTI9C7oIMBavcQxV",
-      "name": "Etapa Do Funil Alterada",
-      "belongs_to": "workflow",
-      "schedule_config": {},
-      "targetActionId": "25679337-8930-4e45-9d54-7edce707d84c",
-      "date_updated": "2026-09-21T23:52:56.546Z",
-      "advanceCanvasMeta": {
-        "position": {
-          "x": 57.5,
-          "y": -73
-        }
-      }
+      "date_updated": "2026-09-22T00:36:01.556Z",
+      "active": true
     }
   ]
 }

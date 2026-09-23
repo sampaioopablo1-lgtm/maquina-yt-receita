@@ -5,25 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Loop do closer v2",
-    "version": 5,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/db2f9531-39e4-4107-ad65-33666ab0fd35/5",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fdb2f9531-39e4-4107-ad65-33666ab0fd35%2F5?alt=media&token=3082a862-b71e-4efe-a961-79bef2bba8e6",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/db2f9531-39e4-4107-ad65-33666ab0fd35/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fdb2f9531-39e4-4107-ad65-33666ab0fd35%2F7?alt=media&token=d60663b7-3b46-4797-9e71-785bd00e3b9a",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-22T00:40:37.000Z"
-      }
-    },
     "createdAt": "2026-09-22T00:04:36.846Z",
-    "updatedAt": "2026-09-22T00:40:38.447Z",
+    "updatedAt": "2026-09-22T00:45:16.709Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -32,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/db2f9531-39e4-4107-ad65-33666ab0fd35/5",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/db2f9531-39e4-4107-ad65-33666ab0fd35/6",
     "window": null,
     "workflowNote": null,
     "id": "db2f9531-39e4-4107-ad65-33666ab0fd35",
@@ -1209,7 +1203,6 @@
       "id": "sWTcoZcjRzRFO9sdcCxC",
       "date_added": "2026-09-22T00:04:37.661Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "db2f9531-39e4-4107-ad65-33666ab0fd35",
@@ -1239,7 +1232,8 @@
         }
       },
       "targetActionId": "d05be523-ca45-4bd6-9b76-6c72bc3b05b7",
-      "date_updated": "2026-09-22T00:40:36.265Z"
+      "date_updated": "2026-09-22T00:40:41.067Z",
+      "active": true
     }
   ]
 }

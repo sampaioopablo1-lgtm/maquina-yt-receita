@@ -5,20 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Interceptação de Sinal — Resposta v2",
-    "version": 3,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F3?alt=media&token=76fc7a4b-b80a-4f62-9e4e-11b23840e2bc",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F4?alt=media&token=de5ea350-3b3b-4529-a888-373290bde4f2",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": null,
     "createdAt": "2026-09-22T01:20:45.605Z",
-    "updatedAt": "2026-09-22T12:40:56.162Z",
+    "updatedAt": "2026-09-22T12:41:38.780Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -27,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/2",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/4",
     "window": null,
     "workflowNote": null,
     "id": "42bfaf59-ba56-455d-bb4c-8ecd39efbcd1",
@@ -1127,7 +1126,6 @@
       "id": "j12Ta4VaO0reWVq9diDb",
       "date_added": "2026-09-22T01:20:46.420Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "42bfaf59-ba56-455d-bb4c-8ecd39efbcd1",
@@ -1157,7 +1155,8 @@
         }
       },
       "targetActionId": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
-      "date_updated": "2026-09-22T12:40:55.213Z"
+      "date_updated": "2026-09-22T12:41:38.334Z",
+      "active": true
     }
   ]
 }

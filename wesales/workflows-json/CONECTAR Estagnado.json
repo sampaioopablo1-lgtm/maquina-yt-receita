@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "CONECTAR Estagnado",
-    "version": 3,
+    "version": 5,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/249232e3-e9e3-4338-8956-5f6ea0776af1/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F249232e3-e9e3-4338-8956-5f6ea0776af1%2F3?alt=media&token=85f68176-68a1-40b6-a9d5-ab098d74a8df",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/249232e3-e9e3-4338-8956-5f6ea0776af1/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F249232e3-e9e3-4338-8956-5f6ea0776af1%2F5?alt=media&token=b81f17c0-a530-4b4c-a498-bd2263785833",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-21T23:59:43.059Z",
-    "updatedAt": "2026-09-21T23:59:46.040Z",
+    "updatedAt": "2026-09-22T00:45:13.027Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -28,14 +28,8 @@
     "senderAddress": null,
     "window": null,
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-21T23:59:44.000Z"
-      }
-    },
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/249232e3-e9e3-4338-8956-5f6ea0776af1/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/249232e3-e9e3-4338-8956-5f6ea0776af1/4",
     "id": "249232e3-e9e3-4338-8956-5f6ea0776af1",
     "workflowData": {
       "templates": [
@@ -745,7 +739,6 @@
       "id": "6YaJRW1xUod7aqcGNCNo",
       "date_added": "2026-09-21T23:59:43.856Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "249232e3-e9e3-4338-8956-5f6ea0776af1",
@@ -776,7 +769,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-21T23:59:45.581Z"
+      "date_updated": "2026-09-22T00:36:06.650Z",
+      "active": true
     }
   ]
 }

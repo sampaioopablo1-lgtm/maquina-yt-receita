@@ -1,0 +1,109 @@
+{
+  "workflow": {
+    "_id": "6d40b678-2ac8-47dc-8c07-e242740b9ce7",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE RELOGIO",
+    "version": 4,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/6d40b678-2ac8-47dc-8c07-e242740b9ce7/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F6d40b678-2ac8-47dc-8c07-e242740b9ce7%2F4?alt=media&token=9317f662-3a56-483f-9441-009b0c5317fd",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T22:14:55.112Z",
+    "updatedAt": "2026-09-22T22:15:01.069Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/6d40b678-2ac8-47dc-8c07-e242740b9ce7/4",
+    "window": null,
+    "workflowNote": null,
+    "id": "6d40b678-2ac8-47dc-8c07-e242740b9ce7",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "2c4b2ad8-993b-44ea-9b27-205c7458e18a",
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "uXf6nG2tKQ7EtGCbHkfy",
+                "value": "A={{right_now}} | B={{right_now.date}} | C={{right_now.year}}-{{right_now.month}}-{{right_now.day}} {{right_now.hour}}:{{right_now.minute}} | D={{right_now.day_of_week}} | E={{right_now.time}}",
+                "title": "Data e hora do sinal",
+                "type": "text",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "parentKey": null,
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "QgNneVHgcJ3VEvgEYuEX",
+      "date_added": "2026-09-22T22:14:55.962Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "6d40b678-2ac8-47dc-8c07-e242740b9ce7",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "index-of-true",
+          "field": "tagsAdded",
+          "value": "teste-relogio",
+          "title": "Tag Added",
+          "type": "select",
+          "id": "tag-added"
+        }
+      ],
+      "type": "contact_tag",
+      "masterType": "highlevel",
+      "workflow_id": "6d40b678-2ac8-47dc-8c07-e242740b9ce7",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Teste Relogio",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "2c4b2ad8-993b-44ea-9b27-205c7458e18a",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T22:15:00.447Z",
+      "active": true
+    }
+  ]
+}

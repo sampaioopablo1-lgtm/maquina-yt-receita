@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Retorno Vencido",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/70ca5354-18e8-4d17-b929-b13d4e71aacf/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F70ca5354-18e8-4d17-b929-b13d4e71aacf%2F6?alt=media&token=fbf3bce3-f048-42e0-b8ad-0670a78050de",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/70ca5354-18e8-4d17-b929-b13d4e71aacf/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F70ca5354-18e8-4d17-b929-b13d4e71aacf%2F7?alt=media&token=b5f313bf-0c64-45ee-b3d8-e3370985b7fc",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:18:40.895Z",
-    "updatedAt": "2026-09-22T01:42:11.082Z",
+    "updatedAt": "2026-09-22T01:42:13.020Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,16 +26,10 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/70ca5354-18e8-4d17-b929-b13d4e71aacf/6",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/70ca5354-18e8-4d17-b929-b13d4e71aacf/7",
     "window": null,
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-22T01:42:09.000Z"
-      }
-    },
     "id": "70ca5354-18e8-4d17-b929-b13d4e71aacf",
     "workflowData": {
       "templates": [
@@ -537,8 +531,8 @@
         }
       },
       "targetActionId": "9458f766-449a-4249-a0c2-be7af4b39655",
-      "active": false,
-      "date_updated": "2026-09-22T01:42:09.683Z"
+      "date_updated": "2026-09-22T01:42:12.623Z",
+      "active": true
     }
   ]
 }

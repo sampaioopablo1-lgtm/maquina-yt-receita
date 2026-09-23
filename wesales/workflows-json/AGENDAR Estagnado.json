@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "AGENDAR Estagnado",
-    "version": 3,
+    "version": 5,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/4d25eb9e-beee-4d8b-b338-ae1b51327622/3",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F4d25eb9e-beee-4d8b-b338-ae1b51327622%2F3?alt=media&token=541f4c5d-10dd-4345-a584-44d0f067f312",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/4d25eb9e-beee-4d8b-b338-ae1b51327622/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F4d25eb9e-beee-4d8b-b338-ae1b51327622%2F5?alt=media&token=b608fca6-ae53-47f2-a3f1-165a051fdb08",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-21T23:54:19.195Z",
-    "updatedAt": "2026-09-21T23:54:21.688Z",
+    "updatedAt": "2026-09-22T00:45:10.612Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -28,14 +28,8 @@
     "senderAddress": null,
     "window": null,
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-21T23:54:20.000Z"
-      }
-    },
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/4d25eb9e-beee-4d8b-b338-ae1b51327622/3",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/4d25eb9e-beee-4d8b-b338-ae1b51327622/4",
     "id": "4d25eb9e-beee-4d8b-b338-ae1b51327622",
     "workflowData": {
       "templates": [
@@ -314,7 +308,6 @@
       "id": "jJRo4rCO9PsFYMNL8aTE",
       "date_added": "2026-09-21T23:54:19.669Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "4d25eb9e-beee-4d8b-b338-ae1b51327622",
@@ -352,7 +345,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-21T23:54:21.286Z"
+      "date_updated": "2026-09-22T00:36:03.496Z",
+      "active": true
     }
   ]
 }

@@ -5,27 +5,21 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "SLA do Closer — No-show",
-    "status": "draft",
-    "version": 4,
+    "status": "published",
+    "version": 5,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/b83870d3-5d3f-4eec-9447-4be1392c061c/4",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fb83870d3-5d3f-4eec-9447-4be1392c061c%2F4?alt=media&token=edb87f4f-cd73-4f17-880c-999c8d7727e5",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/b83870d3-5d3f-4eec-9447-4be1392c061c/5",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fb83870d3-5d3f-4eec-9447-4be1392c061c%2F5?alt=media&token=5ba60f38-8b82-4ce2-9f76-61583bb56f67",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "parentId": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-22T00:47:03.000Z"
-      }
-    },
     "createdAt": "2026-09-19T06:36:43.105Z",
-    "updatedAt": "2026-09-22T00:47:05.101Z",
+    "updatedAt": "2026-09-22T00:47:07.221Z",
     "deleted": false,
     "allowMultipleOpportunity": false,
     "creationSource": "workflow_ai",
@@ -36,7 +30,7 @@
     "window": null,
     "workflowNote": null,
     "senderAddress": null,
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/b83870d3-5d3f-4eec-9447-4be1392c061c/4",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/b83870d3-5d3f-4eec-9447-4be1392c061c/5",
     "id": "b83870d3-5d3f-4eec-9447-4be1392c061c",
     "workflowData": {
       "templates": [
@@ -600,7 +594,6 @@
       "id": "ebdgd9uXmmKtzNP6jc0i",
       "date_added": "2026-09-22T00:47:02.878Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "b83870d3-5d3f-4eec-9447-4be1392c061c",
@@ -648,13 +641,14 @@
       "belongs_to": "workflow",
       "schedule_config": {},
       "targetActionId": "fbff7dea-0f92-46ab-92dc-02c1acc0fd96",
-      "date_updated": "2026-09-22T00:47:03.252Z",
       "advanceCanvasMeta": {
         "position": {
           "x": 57.5,
           "y": -73
         }
-      }
+      },
+      "date_updated": "2026-09-22T00:47:06.784Z",
+      "active": true
     }
   ]
 }

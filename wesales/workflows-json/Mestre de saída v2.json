@@ -5,20 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Mestre de saída v2",
-    "version": 2,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c616e2d7-a618-4581-94f4-7eefbcef8047/2",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc616e2d7-a618-4581-94f4-7eefbcef8047%2F2?alt=media&token=b9e62608-7278-4456-9810-c9a73b23c235",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c616e2d7-a618-4581-94f4-7eefbcef8047/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc616e2d7-a618-4581-94f4-7eefbcef8047%2F4?alt=media&token=01d0252e-2e9d-4e61-a3c5-4deff9983d5f",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
-    "meta": null,
     "createdAt": "2026-09-22T11:57:49.066Z",
-    "updatedAt": "2026-09-22T11:57:52.919Z",
+    "updatedAt": "2026-09-22T16:27:24.157Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -27,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/c616e2d7-a618-4581-94f4-7eefbcef8047/2",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/c616e2d7-a618-4581-94f4-7eefbcef8047/3",
     "window": null,
     "workflowNote": null,
     "id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
@@ -300,7 +299,7 @@
           "attributes": {
             "type": "remove_from_workflow",
             "workflow_id": [
-              "ea0a49b7-f3a9-4d8a-8acd-802975d6db03"
+              "30b5fc0d-a955-4a80-8b28-a43a37475f83"
             ]
           },
           "name": "Remove from Workflow",
@@ -369,7 +368,6 @@
       "id": "SCp5F2GqfVi5eeHw06Hd",
       "date_added": "2026-09-22T11:57:50.092Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
@@ -407,13 +405,13 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T11:57:52.376Z"
+      "date_updated": "2026-09-22T12:39:33.660Z",
+      "active": true
     },
     {
       "id": "Xv98J1K7SyNEbdIMHRwC",
       "date_added": "2026-09-22T11:57:50.738Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
@@ -443,13 +441,13 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T11:57:52.419Z"
+      "date_updated": "2026-09-22T12:39:33.710Z",
+      "active": true
     },
     {
       "id": "tdPeaLP0cNBLLhBQS4Ij",
       "date_added": "2026-09-22T11:57:51.416Z",
       "deleted": false,
-      "active": false,
       "actions": [
         {
           "workflow_id": "c616e2d7-a618-4581-94f4-7eefbcef8047",
@@ -487,7 +485,8 @@
           "y": -73
         }
       },
-      "date_updated": "2026-09-22T11:57:52.474Z"
+      "date_updated": "2026-09-22T12:39:33.756Z",
+      "active": true
     }
   ]
 }

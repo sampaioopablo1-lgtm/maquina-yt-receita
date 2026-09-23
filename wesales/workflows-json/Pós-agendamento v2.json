@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Pós-agendamento v2",
-    "version": 10,
+    "version": 11,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/81815fcc-ff4f-4b72-8a1f-7dbf44ce6911/10",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F81815fcc-ff4f-4b72-8a1f-7dbf44ce6911%2F10?alt=media&token=3da97aa0-40f6-4693-8255-502053df0c1b",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/81815fcc-ff4f-4b72-8a1f-7dbf44ce6911/11",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F81815fcc-ff4f-4b72-8a1f-7dbf44ce6911%2F11?alt=media&token=7a86be5a-000a-4768-8949-e828d5c8c5aa",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T11:55:46.614Z",
-    "updatedAt": "2026-09-22T13:05:25.025Z",
+    "updatedAt": "2026-09-22T13:05:46.575Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,11 +26,10 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/81815fcc-ff4f-4b72-8a1f-7dbf44ce6911/10",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/81815fcc-ff4f-4b72-8a1f-7dbf44ce6911/11",
     "window": null,
     "workflowNote": null,
-    "meta": null,
     "id": "81815fcc-ff4f-4b72-8a1f-7dbf44ce6911",
     "workflowData": {
       "templates": [
@@ -5381,8 +5380,8 @@
         }
       },
       "targetActionId": "aa0e10a3-0332-41b4-8479-7ef12dd27993",
-      "active": false,
-      "date_updated": "2026-09-22T13:05:24.484Z"
+      "date_updated": "2026-09-22T13:05:46.156Z",
+      "active": true
     }
   ]
 }
