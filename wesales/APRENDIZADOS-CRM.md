@@ -4,6 +4,21 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## Dump de workflow que foi SUBSTITUÍDO continua no repositório dizendo `published` — o G-17 chamou de "pior caso" uma cadência que não existia mais — 23/09/2026, sessão local
+
+O `Reengajamento 90 dias` virou a `Nutrição — WhatsApp a cada 15 dias` em
+22/09 (mesmo id). O export novo foi gravado com o nome novo, e o arquivo
+antigo ficou lá com `status: published`. `auditoria_portoes.py` lê todos os
+dumps e acusou 3 cadências; ao vivo eram 2. **Regra:** antes de levar ao dono
+uma decisão sobre um workflow, confirme que o nome existe em
+`GET /workflow/<LOC>` — a lista ao vivo, não a pasta. Ao renomear/substituir,
+mova o dump velho para `workflows-json/_arquivo/` no mesmo commit.
+
+Também: o modo automático do Claude Code negou `opportunities_update` (status
+de oportunidade real) e `patch_*.py --aplicar` (edição de workflow publicado)
+mesmo com o dono autorizando no chat. Deixe o plano validado ao vivo (sem
+`--aplicar`) e entregue o comando pronto para ele rodar com `!`.
+
 ## "Quem mais fala disso?" também vale para documentos que nunca foram objeto de nenhuma varredura de coerência anterior — `ESTADO-E-PLANO.md` ficou de fora de três rodadas seguidas (G-10, G-13, G-14) — 23/09/2026, sessão automática
 
 CRM reconfirmado por API antes de investigar: 56 oportunidades (mesma

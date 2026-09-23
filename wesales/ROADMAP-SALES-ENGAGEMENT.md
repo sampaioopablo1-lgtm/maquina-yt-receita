@@ -1456,7 +1456,7 @@ a partir de agora, independente da decisão sobre este contato específico.
 
 ---
 
-### G-17 · O portão de capacidade só protege duas cadências das seis — `Reengajamento 90 dias` gasta a cota semanal sem nunca respeitá-la, e ignora a pausa do próprio SDR — decisão do dono, patch da Inbound já escrito e validado — **ABERTO, decisão do dono (23/09/2026)**
+### G-17 · O portão de capacidade só protege duas cadências das seis — `Reengajamento 90 dias` gasta a cota semanal sem nunca respeitá-la, e ignora a pausa do próprio SDR — decisão do dono, patch da Inbound já escrito e validado — **DECIDIDO 23/09/2026 (opção A); aplicação pendente de `--aplicar`**
 
 **Por quê:** uma sessão em paralelo (commits fora deste roadmap, ver G-10)
 foi corrigir a pendência 9e de `ESTADO-E-PLANO.md` ("portar os 6 nós de
@@ -1544,6 +1544,28 @@ cadência publicada em falha contra a invariante. Detalhe completo em
 (resolvido — o "problema" era ausência de guarda para o futuro, já coberto
 por `auditoria_condicoes.py`) e 9e (cresceu deste item 1-caso para o G-17
 3-casos, tabela atualizada com a referência cruzada).
+
+
+**Decisão (23/09/2026, dono ao vivo em chat: "siga as suas recomendações").**
+Opção **(A)** — portar os portões — para as duas cadências que ainda existem.
+E uma correção deste item: **o `Reengajamento 90 dias` não existe mais na
+conta.** Foi substituído em 22/09 pela `Nutrição — WhatsApp a cada 15 dias`
+(mesmo id `37eb32e4`, 37 nós), 100% automática, sem `toque` e sem `fila-tel`
+— não consome capacidade, logo não precisa de portão. O "pior caso" da
+tabela acima era um dump morto (`workflows-json/Reengajamento 90 dias.json`,
+agora em `_arquivo/`). Lido ao vivo pela lista de workflows da subconta.
+
+- `Cadência Inbound`: `patch_portao_inbound.py` — plano ao vivo ok (272 → 322).
+- `Recuperação de No-show`: `patch_portao_noshow.py` (novo) — portões só em
+  NS1 e NS2; o toque imediato do no-show fica livre de propósito (lead
+  quente, é a ligação que mais recupera reunião) e o NS3 não enfileira.
+  Plano ao vivo ok (41 → 61).
+- `auditoria_portoes.py` depois do arquivamento: 2 cadências em falha (eram 3).
+
+**Por que não está no ar:** as duas gravações foram negadas pelo classificador
+do modo automático do Claude Code (o dono escolheu manter o modo automático).
+Aplicar = o dono rodar, na sessão, `! python wesales/tools/patch_portao_inbound.py --aplicar`
+e `! python wesales/tools/patch_portao_noshow.py --aplicar` (backup automático).
 
 ---
 
