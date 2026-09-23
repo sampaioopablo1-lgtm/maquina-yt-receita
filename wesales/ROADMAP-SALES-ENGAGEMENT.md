@@ -2120,6 +2120,69 @@ O lembrete que fica: quando um achado parece "buraco nunca especificado",
 checar `PLANO-MULTICANAL.md` (seção "Fila autônoma") e `wesales/tools/`
 antes de desenhar — a resposta pode já estar publicada.
 
+### G-24 · O próprio G-23 fechou sem o parágrafo de fechamento que todo G-16/G-17/G-19/G-20/G-21/G-22 ganhou nesta seção, e a lista "documentos ainda não cruzados" continuava citando o documento que o G-23 acabara de cruzar — **FEITO em 23/09/2026 (coerência da própria seção "Ordem sugerida")**
+
+**Por quê:** `git fetch` limpo (nenhum commit novo na janela desta leitura);
+CRM reconfirmado por API — `opportunities_search-opportunity` (`status:
+all`) segue em 56, mesma composição da leitura do G-23 (48 `NOVO LEAD` open
++ 1 `NOVO LEAD` abandoned + 1 `REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR`
+open + 2 `CONECTAR` lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost) e
+`locations_get-custom-fields` segue em 56 campos de contato: G-03, G-04
+(peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam sendo as seis decisões
+que esperam o dono, sem novidade.
+
+A lacuna não veio de grep por nome nem de contagem duplicada em prosa — veio
+de aplicar a própria regra que fechou G-16/G-17/G-19/G-20/G-21 ("documento
+medido não é o mesmo que documento rastreado") **à seção onde essa regra
+mora**, não a um documento-irmão. Todo G-item fechado nesta família, de
+G-16 a G-23, ganhou um parágrafo de recapitulação no fim da própria "Ordem
+sugerida" — é o parágrafo que atualiza a lista de "decisões que esperam o
+dono" e a lista de "itens com desenho completo, falta tela/PC" para quem lê
+só o fim do arquivo. O G-23 foi o primeiro da família a não ganhar esse
+parágrafo (a rodada fechou o item, mas não voltou ao fim do arquivo) — e o
+parágrafo do G-22, escrito antes do G-23 existir, continuava dizendo que
+`script-de-ligacao.md`, `GUIA-CLOSER.md`, `GUIA-SDR.md` e `conectar.md`
+"ainda não passaram por nenhuma rodada desta família", quando `GUIA-CLOSER.md`
+já tinha passado — o próprio G-23.
+
+Seguindo a instrução de sempre ("variando a fonte da varredura de coerência
+a cada vez"), esta rodada cruzou os três documentos que sobravam da lista —
+`script-de-ligacao.md`, `GUIA-SDR.md` e `conectar.md` — contra as decisões
+publicadas mais recentes (`PLANO-MULTICANAL.md` D1-D14 e A1-A9,
+`tools/build_estagnacao.py`, `tools/patch_closer_tarefa.py`) e não achou
+gatilho, campo, tag ou número que divergisse do que os três já descrevem:
+`GUIA-SDR.md` já reflete a etapa `REUNIÃO DE DIAGNÓSTICO` (não `AGENDAR`), o
+teto de 100 toques/50 tarefas vencidas (D14) com os números certos, e a
+tabela de `Resultado da tentativa` com a opção `Desqualificado` (R-18) já
+presente; `script-de-ligacao.md` já tem a pendência de gravação/LGPD do F-06
+datada e correta (transcrição ligada, gravação por número desligada, medido
+22/09 19:00 UTC); `conectar.md` é só infraestrutura de conexão, sem conteúdo
+de workflow para divergir. **Achado negativo, não vazio**: os três
+documentos batem com o publicado — a varredura serviu para fechar a lista,
+não para achar item novo.
+
+**Como:** um parágrafo só, no fim desta seção (abaixo), fazendo o que os
+parágrafos de G-16 a G-22 já faziam: recapitular as seis decisões do dono,
+confirmar que nada mudou nelas, e substituir a lista de documentos
+pendentes por uma vazia — os quatro nomes que o G-22 tinha deixado (um
+cruzado pelo G-23, três por este item) saem da lista de "ainda não
+cruzados". Nenhum documento fora da seção "Ordem sugerida" foi tocado: o
+achado é sobre a própria seção, não sobre `GUIA-CLOSER.md`/
+`script-de-ligacao.md`/`GUIA-SDR.md`/`conectar.md`, que continuam corretos
+como estavam.
+
+**Zero campo, zero tag, zero escrita no CRM: item de coerência dentro do
+próprio roadmap, não depende de `APROVADO.md`.**
+
+**Pronto quando:** feito — este parágrafo e o de fechamento abaixo são o
+próprio "Pronto quando".
+
+**Resumo:** o roadmap tem uma seção cujo trabalho é resumir as outras; essa
+seção também pode ficar desatualizada, e ninguém a audita porque ela *é* a
+auditoria. A partir de agora, todo G-item que fechar nesta família confere,
+antes do commit, se o próprio parágrafo de fechamento foi escrito — não só
+se o item foi especificado.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -5496,3 +5559,61 @@ de sempre — variando a fonte da varredura de coerência a cada vez, para
 não esgotar sempre o mesmo documento: `AGENTE-IA-CONEXAO.md` acabou de ser
 cruzado; `script-de-ligacao.md`, `GUIA-CLOSER.md`, `GUIA-SDR.md` e
 `conectar.md` ainda não passaram por nenhuma rodada desta família.
+
+**G-23 fechado em 23/09/2026, sessão automática seguinte — o F-13
+(`negociacao-estagnada`) já estava publicado com um desenho diferente do
+especificado (5 dias, não 3; gatilho na mudança de etapa, não no campo), e
+um segundo alerta (`proposta-pendente`) já cobria um buraco que nenhum
+documento tinha registrado, achado ao cruzar `GUIA-CLOSER.md`.** CRM
+reconfirmado sem mudança (56 oportunidades, mesma composição da leitura do
+G-22; 56 campos de contato): G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1)
+e G-19 seguem sendo as seis decisões que esperam o dono, sem novidade. Zero
+campo, zero tag criados por esta sessão (as duas já existiam antes de a
+rodada começar): reconciliação de seis documentos (`campos-e-tags.md`,
+`APROVADO.md`, `build-wesales.md`, `IMPLEMENTACAO-WORKFLOWS.md`,
+`GUIA-MONTAGEM.md`, e o próprio item) contra `tools/build_estagnacao.py` e
+`PLANO-MULTICANAL.md` A5/A8. Detalhe completo no próprio G-23, acima.
+
+Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam
+sendo as seis decisões que esperam o dono; F-11, F-12, F-13, F-15, G-07,
+G-08, G-11 (itens 2/3), G-17, G-18, G-21, G-22 e agora **G-23** são os
+itens com desenho completo (a maioria com patch validado ou já publicado)
+e só faltam ser montados/aplicados na tela ou no PC. `GUIA-CLOSER.md`
+acabou de ser cruzado; `script-de-ligacao.md`, `GUIA-SDR.md` e
+`conectar.md` seguem na lista de documentos ainda não cruzados por
+nenhuma rodada desta família.
+
+**G-24 aberto e fechado em 23/09/2026, sessão automática seguinte — o
+próprio G-23 fechou sem o parágrafo de recapitulação que todo G-item desta
+família ganha aqui, e a lista de documentos pendentes (parágrafo acima)
+ainda citava `GUIA-CLOSER.md` como não cruzado quando o G-23 já o tinha
+cruzado.** `git fetch` limpo (nenhum commit novo na janela desta leitura),
+CRM reconfirmado sem mudança (56 oportunidades, mesma composição da
+leitura do G-23; 56 campos de contato): as seis decisões do dono seguem
+exatamente onde estavam. A lacuna veio de aplicar a regra "documento
+medido não é o mesmo que documento rastreado" **a esta própria seção**, não
+a um documento-irmão — o parágrafo que faltava é o de cima. Cruzados nesta
+rodada os três documentos que sobravam da lista do G-22
+(`script-de-ligacao.md`, `GUIA-SDR.md`, `conectar.md`) contra as decisões
+mais recentes publicadas (`PLANO-MULTICANAL.md` D1-D14/A1-A9): achado
+negativo — os três já batem com o publicado (etapa `REUNIÃO DE
+DIAGNÓSTICO`, teto de 100 toques/50 vencidas, opção `Desqualificado`,
+pendência de gravação/LGPD datada e correta), nenhuma correção necessária
+neles. Detalhe completo no próprio G-24, acima.
+
+Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam
+sendo as seis decisões que esperam o dono; F-11, F-12, F-13, F-15, G-07,
+G-08, G-11 (itens 2/3), G-17, G-18, G-21, G-22, G-23 e agora **G-24**
+(este último só de coerência da própria seção, não de tela/PC) são os
+itens fora das seis decisões. Com o G-24, a lista de documentos "ainda não
+cruzados por nenhuma rodada desta família" que o G-22 tinha aberto **fica
+vazia** — não porque a varredura de coerência acabou (ela não acaba;
+`CONFERENCIA-CAMPOS.md`, `GUIA-MONTAGEM.md`, `INVENTARIO-WORKFLOWS.md`,
+`biblioteca-mensagens.md`, `rotina-horaria.md`, `auditoria-etapa1.md` e
+`README.md` nunca tiveram uma rodada dedicada desta família nomeando-os um
+a um), mas porque a lista explícita que vinha sendo citada por nome
+esgotou. A próxima rodada sem tela nem decisão desbloqueada repete o
+mesmo caminho de sempre — escolhendo a próxima fonte entre os sete
+documentos do parágrafo anterior, ou voltando a reler os itens represados
+por premissa técnica (mesmo caminho que já destravou F-05 e F-06), antes
+de procurar lacuna genuinamente nova.

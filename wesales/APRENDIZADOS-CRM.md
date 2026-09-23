@@ -4,6 +4,50 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## A própria seção "Ordem sugerida" pode ficar incoerente — o G-23 fechou sem o parágrafo de recapitulação que a família G-16...G-22 sempre escreve (G-24) — 23/09/2026, sessão automática
+
+Toda rodada desta família fecha um item com dois movimentos: escreve o
+`### G-XX` detalhado no corpo do Bloco 6, e acrescenta um parágrafo curto no
+fim da seção "Ordem sugerida" recapitulando o que mudou (a lista de
+decisões que esperam o dono, a lista de itens com desenho completo). O
+G-23 fez só o primeiro — fechou o `### G-23` mas não voltou ao fim do
+arquivo. Resultado: o parágrafo de fechamento mais recente ali (do G-22)
+continuava dizendo que `GUIA-CLOSER.md` "ainda não passou por nenhuma
+rodada desta família", quando o próprio G-23 tinha acabado de cruzá-lo —
+divergência que só aparece em quem lê só o fim do arquivo (a leitura que a
+própria seção instrui fazer quando não há tela/decisão nova).
+
+**Por que isso escapa da varredura normal:** a varredura de coerência desta
+família sempre olha *outros* documentos em busca de "medido mas não
+rastreado" — nunca tinha olhado a própria seção que faz esse papel. Uma
+seção cujo trabalho é resumir pode ela mesma ficar desatualizada, e
+ninguém a audita por padrão porque ela *é* a auditoria.
+
+**Regra prática, nova:** todo G-item que fechar nesta família confere, como
+último passo antes do commit, se o parágrafo de recapitulação no fim da
+"Ordem sugerida" foi escrito — não só se o `### G-XX` do corpo foi. Um
+checklist de duas linhas (corpo + recap) é mais barato que descobrir na
+rodada seguinte que a lista de "documentos ainda não cruzados" está
+mentindo sobre um documento que acabou de ser cruzado.
+
+**O que esta rodada fez, além do achado:** cruzou os três documentos que
+sobravam da lista do G-22 (`script-de-ligacao.md`, `GUIA-SDR.md`,
+`conectar.md`) contra `PLANO-MULTICANAL.md` (D1-D14, A1-A9) — achado
+negativo, os três já batem com o publicado. Com isso mais o G-23 tendo
+cruzado `GUIA-CLOSER.md`, a lista nomeada de "documentos ainda não
+cruzados" que o G-22 tinha aberto esvaziou; a próxima rodada sem tela nem
+decisão escolhe entre os documentos que nunca tiveram uma rodada dedicada
+com esse nome (`CONFERENCIA-CAMPOS.md`, `GUIA-MONTAGEM.md`,
+`INVENTARIO-WORKFLOWS.md`, `biblioteca-mensagens.md`, `rotina-horaria.md`,
+`auditoria-etapa1.md`, `README.md`) ou relê itens represados por premissa
+técnica.
+
+**Correção aplicada:** achado promovido a `G-24` no
+`ROADMAP-SALES-ENGAGEMENT.md` — o `### G-24` no corpo do Bloco 6, mais os
+dois parágrafos de recapitulação que faltavam no fim da "Ordem sugerida"
+(um para o G-23, retroativo, e um para o próprio G-24). Zero campo, zero
+tag, zero escrita no CRM: item de coerência dentro do próprio roadmap.
+
 ## "Buraco nunca especificado" pode já estar publicado — quase desenhei em cima do que o dono já tinha construído e testado (G-23) — 23/09/2026, sessão automática
 
 Cruzando `GUIA-CLOSER.md` contra `build-wesales.md` (F-13), achei dois
