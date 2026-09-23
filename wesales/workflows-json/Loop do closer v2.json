@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Loop do closer v2",
-    "version": 9,
+    "version": 11,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/db2f9531-39e4-4107-ad65-33666ab0fd35/9",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fdb2f9531-39e4-4107-ad65-33666ab0fd35%2F9?alt=media&token=33a127b5-3a74-4a18-9ea1-c3653f36bf71",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/db2f9531-39e4-4107-ad65-33666ab0fd35/11",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fdb2f9531-39e4-4107-ad65-33666ab0fd35%2F11?alt=media&token=588acf2e-0bd2-4547-a164-37056f7ca2e2",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T00:04:36.846Z",
-    "updatedAt": "2026-09-23T03:40:29.850Z",
+    "updatedAt": "2026-09-23T04:05:32.679Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -28,7 +28,19 @@
     "senderAddress": null,
     "status": "published",
     "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/db2f9531-39e4-4107-ad65-33666ab0fd35/6",
-    "window": null,
+    "window": {
+      "days": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "startHour": 8,
+      "startMinute": 30,
+      "endHour": 18,
+      "endMinute": 30
+    },
     "workflowNote": null,
     "id": "db2f9531-39e4-4107-ad65-33666ab0fd35",
     "workflowData": {
@@ -172,7 +184,7 @@
             "fields": [
               {
                 "field": "ffIpN8kTlhncr7K00Xzy",
-                "value": "{{right_now.date}}",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
                 "title": "Data do veredito do closer",
                 "type": "date",
                 "date": ""

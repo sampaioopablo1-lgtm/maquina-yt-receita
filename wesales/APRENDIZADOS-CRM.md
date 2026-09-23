@@ -5,6 +5,19 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+
+## A tag que DISPARA precisa ser tirada por quem tira o lead do fluxo — 23/09/2026, rodada autônoma
+
+`remove_from_workflow` cancela os `Remove Tag` finais do workflow alvo, e pôr
+de novo uma tag que o contato **já tem não dispara** o gatilho. Então
+`fechar-horario`, `cadencia-12x30-p2` e `cad-outbound` ficavam no contato de
+quem agendava e, numa volta futura ao CONECTAR, a cadência não arrancava — em
+silêncio. A segunda rede certa é o `Mestre de saída v2` (roda em toda mudança
+de etapa além de CONECTAR e em perdido/nutrição): só a lista de tags cresceu.
+**Não** pôr "remover das cadências" nele: a própria 12x30 muda a oportunidade
+para nutrição no fim, o Mestre dispara e cortaria os nós finais dela.
+Medido no 9940: o Espelho troca a tag de etapa em ~4 s depois da mudança; ler o
+contato logo em seguida mostra o estado anterior — ler de novo.
 ## Tag que "vale por um dia": workflow à parte com espera — e tag pela API dispara gatilho — 23/09/2026, rodada autônoma
 
 `conectado-hoje` (F-16) não tinha removedor. Em vez de mexer no Pós-ligação v2

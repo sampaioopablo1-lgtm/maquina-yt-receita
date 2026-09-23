@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Pós-ligação v2",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F6?alt=media&token=ffc768a6-0d77-4433-a5ed-c77fae52c40e",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F7?alt=media&token=8f03793c-0875-4eea-861d-85e6ebb244d8",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T12:35:58.574Z",
-    "updatedAt": "2026-09-23T02:05:08.912Z",
+    "updatedAt": "2026-09-23T03:43:15.134Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -863,7 +863,7 @@
             "fields": [
               {
                 "field": "uJnePU1Tl1Zr1fTxYKIz",
-                "value": "",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
@@ -1185,7 +1185,7 @@
             "fields": [
               {
                 "field": "uJnePU1Tl1Zr1fTxYKIz",
-                "value": "",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
@@ -2705,7 +2705,7 @@
             "fields": [
               {
                 "field": "uJnePU1Tl1Zr1fTxYKIz",
-                "value": "",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
@@ -2879,7 +2879,7 @@
             "fields": [
               {
                 "field": "uJnePU1Tl1Zr1fTxYKIz",
-                "value": "",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
@@ -3159,7 +3159,7 @@
             "fields": [
               {
                 "field": "uJnePU1Tl1Zr1fTxYKIz",
-                "value": "",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"

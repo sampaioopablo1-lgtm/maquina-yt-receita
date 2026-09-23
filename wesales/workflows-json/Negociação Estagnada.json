@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Negociação Estagnada",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/53334baa-2d3d-40e0-9992-6dafd0c85538/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F53334baa-2d3d-40e0-9992-6dafd0c85538%2F6?alt=media&token=41ec2a5f-5540-4550-983b-21422d68a873",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/53334baa-2d3d-40e0-9992-6dafd0c85538/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F53334baa-2d3d-40e0-9992-6dafd0c85538%2F7?alt=media&token=75997e38-8858-46f5-975b-c66f1b525c3b",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T04:03:50.229Z",
-    "updatedAt": "2026-09-23T04:05:42.568Z",
+    "updatedAt": "2026-09-23T04:05:44.875Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -26,8 +26,8 @@
     "allowMultipleOpportunity": false,
     "eventStartDate": null,
     "senderAddress": null,
-    "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/53334baa-2d3d-40e0-9992-6dafd0c85538/6",
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/53334baa-2d3d-40e0-9992-6dafd0c85538/7",
     "window": {
       "days": [
         1,
@@ -42,12 +42,6 @@
       "endMinute": 30
     },
     "workflowNote": null,
-    "meta": {
-      "advanceCanvasMeta": {
-        "enabled": true,
-        "enabledAt": "2026-09-23T04:05:41.000Z"
-      }
-    },
     "id": "53334baa-2d3d-40e0-9992-6dafd0c85538",
     "workflowData": {
       "templates": [
@@ -410,8 +404,8 @@
         }
       },
       "targetActionId": "54083825-aba1-4eec-8c2c-aa7ee6009eb7",
-      "active": false,
-      "date_updated": "2026-09-23T04:05:41.085Z"
+      "date_updated": "2026-09-23T04:05:44.445Z",
+      "active": true
     }
   ]
 }

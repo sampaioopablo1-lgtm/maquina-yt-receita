@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Interceptação de Sinal — Resposta v2",
-    "version": 6,
+    "version": 8,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F6?alt=media&token=9497900e-e677-4c2d-ab3b-03e45e29f36f",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/8",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F8?alt=media&token=f83e664d-4bb5-461d-b281-0537896c295a",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:20:45.605Z",
-    "updatedAt": "2026-09-23T02:05:05.192Z",
+    "updatedAt": "2026-09-23T03:17:57.258Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -27,7 +27,7 @@
     "eventStartDate": null,
     "senderAddress": null,
     "status": "published",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/4",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/8",
     "window": {
       "days": [
         1,
@@ -1138,30 +1138,18 @@
   "triggers": [
     {
       "id": "3oKj9MRJ7VgjsupOu5Al",
-      "date_updated": "2026-09-23T01:02:02.019Z",
       "date_added": "2026-09-23T01:02:02.019Z",
       "deleted": false,
-      "active": true,
       "actions": [
         {
           "workflow_id": "42bfaf59-ba56-455d-bb4c-8ecd39efbcd1",
           "type": "add_to_workflow"
         }
       ],
-      "conditions": [
-        {
-          "operator": "==",
-          "field": "message.type",
-          "value": 20,
-          "title": "Canal de resposta",
-          "type": "select"
-        }
-      ],
       "type": "customer_reply",
       "masterType": "highlevel",
       "workflow_id": "42bfaf59-ba56-455d-bb4c-8ecd39efbcd1",
       "location_id": "1D53YTI9C7oIMBavcQxV",
-      "name": "Cliente Respondeu — Stevo",
       "belongs_to": "workflow",
       "targetActionId": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
       "advanceCanvasMeta": {
@@ -1170,7 +1158,11 @@
           "y": -73
         }
       },
-      "schedule_config": {}
+      "schedule_config": {},
+      "name": "Cliente Respondeu — qualquer canal (Stevo)",
+      "conditions": [],
+      "date_updated": "2026-09-23T03:17:56.745Z",
+      "active": true
     },
     {
       "id": "j12Ta4VaO0reWVq9diDb",
@@ -1205,7 +1197,7 @@
         }
       },
       "targetActionId": "f23db06d-f608-4d0a-bbda-e31bad1694a3",
-      "date_updated": "2026-09-22T12:41:38.334Z",
+      "date_updated": "2026-09-23T03:17:56.792Z",
       "active": true
     }
   ]
