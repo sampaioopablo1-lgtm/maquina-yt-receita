@@ -5767,3 +5767,50 @@ Combos varridos até aqui: + advocacia criminal (prisão em flagrante, nacional,
 **16 de 18 em Trilha A, recorde de proporção: o nicho anuncia por nome próprio**; terceira
 confirmação do tema ensinável, com um curso sozinho rodando 20+ anúncios; **achado novo:
 erro de audiência — anunciar para o preso e não para a família que procura por ele**).
+
+---
+
+## IMOBILIÁRIA — aluguel residencial (23/09, Rio) + o teste do critério de longevidade
+
+Varredura: `casa para alugar Rio de Janeiro`, BR, ACTIVE. **27 anúncios ativos** — contra
+1.793 de "apartamento na planta". Diferença de 66 vezes no mesmo nicho, só trocando venda
+por aluguel.
+
+**A regra do ticket, agora provada pela negativa.** Aluguel residencial é comissão de um
+mês; planta é comissão de venda. No caro, 26 páginas disputando o leilão; no barato, o
+corretor simplesmente não anuncia — quem atende esse mercado é portal, e portal não compra
+palavra-chave de bairro. **Não voltar a varrer aluguel residencial.**
+
+O termo ainda puxou muito ruído, e o ruído confirma duas regras antigas de uma vez:
+"Mantiqueira" e "Canastra" são de **Minas**, não do Rio (cidade no termo não filtra geo, só
+texto), e entraram coworking, loja de andaimes, academia e uma "Cegonha de Aluguel". Dos 27,
+sobram **8 alvos** de verdade: BAP Administração de Bens, GEPS.imoveis, Encontre seu Lar,
+MegaClick, Allan Barros, pauloramos.1, olajeadense1891, Maria Vânia Corretora de Imóveis
+(Trilha A).
+
+### O teste do critério de longevidade — e a ressalva que ele merece
+
+Esta varredura serviu para uma segunda coisa: **é a primeira em que consegui medir há
+quanto tempo cada anúncio está no ar.** Com 27 resultados a lista inteira volta; com 1.793
+a Biblioteca devolve só as últimas horas. **O critério "no ar há mais de 60 dias" só é
+aplicável em combo magro** — em combo gordo, a ferramenta não deixa.
+
+Quem passa de 60 dias aqui: Xtay (232 dias), Maria Vânia (142), The Last Night Group (125),
+Maria Imóveis Mantiqueira (74), MegaClick (67).
+
+E aqui está a ressalva que muda como usar esse critério: **quatro dos cinco não têm headline
+nenhuma** — título vazio. Se longevidade fosse prova de copy boa, a conclusão seria que não
+escrever título é a melhor estratégia do mercado. Não é. **Anúncio velho também é anúncio
+esquecido**: campanha ligada há oito meses que ninguém olha, com verba baixa pingando.
+
+Fica então a regra corrigida, para as próximas varreduras: **tempo no ar só vale como sinal
+quando vem acompanhado de sinal de cuidado** — headline escrita, mais de uma variação viva,
+criativo trocado ao longo do período. Velho e abandonado é ruído; velho e mexido é ouro.
+
+LISTA DE ATAQUE: **196 → 204**.
+
+Combos varridos até aqui: + imobiliária aluguel residencial (Rio, 27 ativos — **magro, não
+repetir: a regra do ticket pela negativa, no barato o corretor não anuncia**; cidade no
+termo não filtra geo, Mantiqueira/Canastra são de MG; **regra nova sobre o critério de
+longevidade: só é medível em combo magro, e velho sem headline é anúncio esquecido, não
+anúncio campeão**).
