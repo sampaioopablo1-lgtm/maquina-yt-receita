@@ -8022,3 +8022,72 @@ Nada foi escrito na conta: as duas auditorias são somente leitura e o patch nã
 foi executado. Achado tirado de dump é **candidato**: confirma-se lendo os três
 workflows ao vivo, ou medindo — contato com `pausado` que ainda recebe
 `fila-tel`.
+
+---
+
+## 2.39 `auditoria_tudo.py` — o alarme falso tem um gêmeo, e ele também treina a ignorar
+
+São cinco auditorias, cada uma com seu comando, e nenhuma sabe das outras.
+Duas dores, e a segunda é a que importa.
+
+**Rodar 3 de 5.** Rodada que esquece uma auditoria não percebe que esqueceu.
+
+**Repetir o que já foi dito.** Em 23/09 eu reportei 5 achados de tag como
+trabalho novo e 3 já estavam resolvidos havia uma hora — o `_frescor.py`
+consertou esse lado. Mas existe o lado oposto, e ele é igualmente corrosivo:
+**achado real, já reportado, já na fila do dono, reapresentado a cada rodada
+como se fosse novidade.** Isso treina o dono a ignorar o relatório tão bem
+quanto o alarme falso treina. As cinco auditorias, rodadas de hora em hora,
+iam reimprimir os mesmos 4 campos e as mesmas 3 cadências para sempre.
+
+### A linha de base
+
+`auditoria-base.json` guarda, por auditoria, **quantos achados existem hoje e
+por quê**. O relatório compara:
+
+| comparação | leitura |
+|---|---|
+| contagem `==` base | conhecido, já na fila do dono — não é novidade |
+| contagem `>` base | **NOVO** — o único caso que pede atenção, exit 1 |
+| contagem `<` base | **CONSERTADO** — notícia boa, exit 2, e manda atualizar a base |
+
+A base é commitada de propósito. Quando o dono decide e alguém conserta, a
+base muda **no mesmo commit do conserto**, e quem lê o diff vê as duas coisas
+juntas. Base que ninguém atualiza vira mentira — por isso o exit 2 quando a
+contagem cai: o script cobra a atualização em vez de aceitar silenciosamente.
+
+O campo `porque` é o que transforma um número em informação. Hoje:
+
+| auditoria | achados | por quê |
+|---|---|---|
+| `refs` | 0 | — |
+| `tags` | 0 | — |
+| `campos` | 4 | `Canal que conectou` (é a 9c), `Hora da conexão`, `Hora do retorno`, `Necessidade` — os três últimos o SDR preenche na tela |
+| `condicoes` | 0 | — |
+| `portoes` | 3 | as três cadências do §2.38, aguardando **uma** decisão do dono |
+
+### Verificado nos três caminhos
+
+Não confiei em ler o código: mexi na base e conferi o comportamento.
+
+| cenário | resultado |
+|---|---|
+| base `portoes=1`, real 3 | `*** NOVO: 2 a mais que a base ***`, exit **1** |
+| base `portoes=5`, real 3 | `CONSERTADO: 2 a menos`, manda gravar base, exit **2** |
+| base igual ao real | `conhecido, já na fila do dono`, exit **0** |
+
+O aviso de frescor também foi consolidado: em vez de repetir o bloco cinco
+vezes, o relatório resume numa linha (hoje: 7 dumps possivelmente defasados, 0
+com backup irmão mais novo), porque o `_frescor.py` imprime o mesmo nas cinco.
+
+### Consequência prática
+
+O check-in horário passa a rodar **um** comando em vez de listar auditorias que
+podem ficar desatualizadas na lista:
+
+```
+python3 wesales/tools/auditoria_tudo.py
+```
+
+Exit 0 significa literalmente "nada novo desde a última vez que o dono foi
+informado". Exit 1 é a única coisa que merece interromper alguém.

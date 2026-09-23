@@ -1,0 +1,22 @@
+{
+  "campos": {
+    "achados": 4,
+    "porque": "`Canal que conectou`, `Hora da conexão`, `Hora do retorno`, `Necessidade` — nem escritos nem lidos por workflow. Os tres primeiros sao preenchidos pelo SDR na tela (GUIA-SDR.md); o `Canal que conectou` e a pendencia 9c, esperando o dono decidir entre manual e automatico. Esta auditoria nao ve lista inteligente, entao `so escrito` nunca e orfao."
+  },
+  "condicoes": {
+    "achados": 0,
+    "porque": ""
+  },
+  "portoes": {
+    "achados": 3,
+    "porque": "`Cadência Inbound`, `Recuperação de No-show` e `Reengajamento 90 dias` consomem capacidade (fila-tel/fila-wa/toque) sem ler os portoes. build-wesales.md §2.37 e §2.38. Aguarda UMA decisao do dono: no-show e reengajamento respeitam o teto semanal (entao porta-se o portao) ou sao prioritarios (entao tira-se o `add_contact_tag ['toque']`)."
+  },
+  "refs": {
+    "achados": 0,
+    "porque": ""
+  },
+  "tags": {
+    "achados": 0,
+    "porque": ""
+  }
+}
