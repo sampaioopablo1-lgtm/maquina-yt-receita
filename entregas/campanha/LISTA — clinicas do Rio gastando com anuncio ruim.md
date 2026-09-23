@@ -6170,3 +6170,49 @@ todos, 16 alvos, 11 em Trilha A; **a regra de longevidade se comprovou: INK Lega
 título forte há 11 meses é campeão, quatro páginas com título vazio há meses são
 abandonadas**; auto-concorrência na quinta aparição — Geysler com 6 iguais — e agora é o
 defeito mais universal da base; dois alvos do Rio, Botafogo e Bangu).
+
+---
+
+## PET SHOP — banho e tosa (23/09, nacional)
+
+Varredura: `banho e tosa pet shop leva e traz`, BR, ACTIVE. **16 anúncios ativos** — novo
+piso, menor que tatuagem. 14 páginas, **13 alvos**.
+
+**O filtro de moeda, criado na varredura de idiomas há duas rodadas, funcionou de primeira.**
+"3D PET PRO — Pack de 300 Modelos STL Pet", **em USD**: infoproduto para quem tem impressora
+3D, não pet shop. Descartado sem precisar abrir a página. A regra está valendo.
+
+**O caso mais extremo de anúncio abandonado de toda a base está aqui.** A página Flor Dicão
+roda um anúncio **desde 24 de abril de 2025 — dezessete meses — com o campo de título
+vazio.** Não é campeão: é verba saindo há um ano e meio sem ninguém olhar. O segundo pior é
+petlandmongagua, com `api.whatsapp.com` no título desde abril deste ano.
+
+**Botão padrão no título, agora em inglês:** o Cantinho do Cão roda **"Chat with us"** como
+headline — o texto que a Meta preenche sozinha, sem nem estar traduzido. Petit Gattoo roda
+"Converse conosco" desde maio. Some com as cinco óticas da varredura anterior e a família
+"nunca abri o campo do título" já tem oito páginas.
+
+**Auto-concorrência, sexta aparição:** Pet Shop Lavô Tosô com 3 anúncios idênticos, Petpeluxo
+com 2. Seis nichos seguidos.
+
+**E um defeito de meio-termo que vale registrar como categoria própria.** O Lavô Tosô escreve
+no campo de título a frase inteira: *"Banho, tosa bebê e serviço de leva e traz em Vicente
+Pires. Agende agora e garanta o melhor cuidado para o seu pet!"* — 120 caracteres, corta na
+metade no feed. É a versão pequena do que a Bossa Nova faz com descrição de imóvel. **Vira
+regra de diagnóstico: título acima de ~40 caracteres é texto de legenda no lugar errado.**
+
+### O que este nicho ensina
+
+**Nicho magro não é nicho ruim — é nicho sem concorrência de leilão.** Dezesseis anúncios no
+Brasil inteiro para banho e tosa significa que qualquer pet shop que anuncie direito domina a
+praça dele por muito pouco. É o argumento mais forte que a gente tem para abordar aqui, e vale
+o mesmo para tatuagem (27) e idiomas (115): **"seus concorrentes não estão anunciando."**
+
+LISTA DE ATAQUE: **381 → 394**.
+
+Combos varridos até aqui: + pet shop banho e tosa (nacional, 16 ativos — novo piso da base,
+13 alvos; **o filtro de moeda funcionou de primeira e descartou um infoproduto em USD**;
+recorde de anúncio abandonado: Flor Dicão há 17 meses com título vazio; botão padrão no
+título agora em inglês, "Chat with us"; auto-concorrência na sexta aparição; **regra nova de
+diagnóstico: título acima de ~40 caracteres é legenda no lugar errado**; e o argumento de
+abordagem para nicho magro — "seus concorrentes não estão anunciando").
