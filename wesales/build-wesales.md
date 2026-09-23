@@ -5225,6 +5225,56 @@ que importa, e o cabeçalho bonito dava a impressão de que tinha rodado.
 Corrigido; lição pequena e velha: em script de relatório, nome de variável de
 laço não pode colidir com nome de função auxiliar.
 
+### 2.33.5 Auditei os quatro monitores do F-05 — o candidato não virou achado, e o que sobrou foi uma lacuna no `patch_condicoes_etapa.py`
+
+Fui olhar os quatro monitores justamente porque são os dumps mais velhos que eu
+tenho (28 h, §2.33.4) — onde o cuidado tem de ser maior, não menor. Dois deles
+testam **etapa de oportunidade**, que é exatamente o que o G-13 mostrou que lê
+vazio quando o gatilho não é de oportunidade:
+
+| Monitor | Nó | Testa |
+|---|---|---|
+| `Alerta de Speed-to-lead` | 6, "Ainda sem 1ª tentativa?" | etapa = `CONECTAR`, `conditionType: opportunities` |
+| `Lead Esquecido em NOVO LEAD` | 1, "Ainda em NOVO LEAD e aberta?" | etapa = `NOVO LEAD`, `conditionType: opportunities` |
+
+E nenhum dos dois está em `_antes-patch-condicoes/`, ou seja, o patch não passou
+por eles.
+
+**Não registro isso como defeito, e o motivo é a regra da §2.33.3 funcionando.**
+Se esses dois tivessem condição de oportunidade com gatilho que não é de
+oportunidade, a `auditoria_final.py` do dono — que lê **a API, inclusive o
+gatilho** — teria acusado, e ela reportou **0 problemas**. Fonte ao vivo vence
+dump de 28 h. A leitura mais provável é que os dois têm gatilho de oportunidade
+(faz sentido: "lead esquecido em NOVO LEAD" nasce de oportunidade criada), e aí a
+condição funciona e não havia o que patchear. **Candidato, não item.**
+
+**O que sobra é certo, porque está no código e não depende do estado ao vivo — e
+são duas lacunas do `patch_condicoes_etapa.py`:**
+
+1. **`ALVOS` é lista fixa de 10 nomes.** Quem não está na lista nunca foi
+   examinado — inclusive os dois monitores acima. Ou seja, a cobertura do patch é
+   uma **lista**, não uma varredura. Quem varre é a `auditoria_final.py`; é ela
+   que precisa continuar rodando, e é ela que pega o que a lista não viu.
+2. **O tradutor cobre 3 dos 5 estados.** `traduz()` mapeia só
+   `CONECTAR → etapa-conectar`, `REUNIÃO DE DIAGNÓSTICO → etapa-reuniao` e
+   `abandoned → status-nutricao`. **Não há entrada para `NOVO LEAD`, `NEGOCIAR`
+   nem `FORMALIZAR`**, embora o Espelho de Etapa produza `etapa-novo-lead`,
+   `etapa-negociar` e `etapa-formalizar`. Então, se a varredura um dia apontar um
+   workflow que testa essas três etapas com gatilho que não é de oportunidade, o
+   patch devolve `None` e **deixa a condição como estava, em silêncio**.
+
+Hoje nenhuma das duas dói: os dois monitores têm gatilho compatível (pela
+evidência acima) e nenhum workflow publicado testa `NEGOCIAR`/`FORMALIZAR` com
+gatilho de tag. A (2) é a que vai morder primeiro — o `Lead Esquecido em NOVO
+LEAD` é o candidato natural a ganhar gatilho de tag algum dia, e nesse dia o
+patch não vai saber traduzir a etapa dele.
+
+**Correção sugerida, pequena:** acrescentar as três entradas que faltam em
+`traduz()` (uma linha cada) e trocar `ALVOS` por "todos os publicados, menos a
+`Cadência 12x30` parte 1", que é a única exceção que o próprio docstring
+justifica. Não faço porque o script escreve na conta e roda no PC — é edição do
+dono.
+
 ### 2.33.1 A `auditoria_final.py` do dono diz "0 problemas" e isso não cobre estes achados
 
 O `beebd23` trouxe `wesales/tools/auditoria_final.py` com o resultado "26

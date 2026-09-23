@@ -160,6 +160,38 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## Cobertura por lista fixa parece varredura e não é — `ALVOS` no `patch_condicoes_etapa.py` — 23/09/2026, sessão na nuvem
+
+Auditei os quatro monitores do F-05 de propósito: são os dumps mais velhos que eu
+tenho (28 h), e é aí que o cuidado tem de ser maior, não menor. Dois deles testam
+etapa de oportunidade — o mesmo padrão do G-13 — e nenhum dos dois está em
+`_antes-patch-condicoes/`.
+
+**E o candidato não virou achado, o que é a regra desta noite funcionando.** Se os
+dois tivessem condição de oportunidade com gatilho que não é de oportunidade, a
+`auditoria_final.py` do dono — que lê a API **inclusive o gatilho** — teria acusado,
+e ela reportou 0 problemas. **Fonte ao vivo vence dump de 28 h.** Registrei como
+candidato e parei ali, em vez de levar o quinto dado velho para a fila dele.
+
+**O que sobrou é certo porque está no código, não no estado:** o
+`patch_condicoes_etapa.py` tem duas lacunas.
+
+1. **`ALVOS` é lista fixa de 10 nomes.** Quem não está na lista nunca foi
+   examinado. A cobertura do patch é uma **lista**, não uma varredura — e uma lista
+   de nomes num script *parece* varredura quando você lê o resultado ("10 workflows
+   corrigidos") em vez de ler o código.
+2. **O tradutor cobre 3 dos 5 estados:** `CONECTAR`, `REUNIÃO DE DIAGNÓSTICO` e
+   `abandoned`. Não há entrada para `NOVO LEAD`, `NEGOCIAR` nem `FORMALIZAR`, mesmo
+   o Espelho produzindo as três tags. Workflow que teste essas etapas volta do
+   patch **inalterado e sem aviso**, porque `traduz()` devolve `None`.
+
+**A regra:** ferramenta de conserto com alvo hardcoded precisa da varredura do lado
+— e a varredura é que manda. Quando as duas existem (aqui: patch por lista +
+`auditoria_final.py` por API), o número que vale é o da varredura, nunca o "N
+corrigidos" do patch. E tradutor que devolve `None` silenciosamente deveria
+**listar o que não soube traduzir**: é a diferença entre "não havia o que fazer" e
+"não soube o que fazer", e as duas saem iguais no terminal.
+
 ## A guarda de frescor era cega para dump sem irmão — e havia um `published` velho de 28 h — 23/09/2026, sessão na nuvem
 
 Conferindo o G-13 do dono achei o caso que a minha própria guarda não pegava:
