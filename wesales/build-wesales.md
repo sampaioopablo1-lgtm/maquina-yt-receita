@@ -7928,3 +7928,97 @@ lead sem perdê-lo — sem ele, o toque é descartado em vez de adiado.
 
 Zero escrita na conta nesta seção: o patch não foi executado, e sem
 `--aplicar` ele não escreve.
+
+---
+
+## 2.38 O 9e não era um caso, eram três — e o pior deles ignora a pausa do próprio SDR
+
+Escrevi o patch do §2.37 e então fiz a pergunta que devia ter vindo antes:
+**achei o 9e à mão, então o que mais está lá que eu não olhei?** A resposta são
+duas cadências além da Inbound.
+
+### A invariante, não a comparação
+
+A tentação era comparar cadência com cadência ("a Inbound tem menos portões que
+a 12x30"). Isso daria alarme falso em cada diferença legítima de desenho. A
+pergunta certa é uma invariante:
+
+> **Se um toque coloca o lead na fila (`fila-tel` / `fila-wa`) ou conta `toque`,
+> ele consome capacidade do SDR — logo a cadência tem de ler os três portões.**
+
+| portão | lê |
+|---|---|
+| `Lead pausado?` | tag `pausado` |
+| `SDR lotado?` | tag `sdr-lotado` |
+| `Teto de toques da semana?` | campo `c1xuCuLyJheHOQoJ3grH` |
+
+### O que a invariante achou
+
+| cadência | toques | marca | `pausado` | `sdr-lotado` | teto semanal |
+|---|---|---|---|---|---|
+| `Cadência 12x30` | 6 | fila-tel, fila-wa, toque | 6/6 | 6/6 | 6/6 |
+| `Cadência 12x30 — parte 2` | 6 | fila-tel, fila-wa, toque | 6/6 | 6/6 | 6/6 |
+| **`Cadência Inbound`** | 5 | fila-tel, fila-wa, toque | 5/5 | **0** | **0** |
+| **`Recuperação de No-show`** | 3 | fila-tel, toque | ok¹ | **0** | **0** |
+| **`Reengajamento 90 dias`** | 4 | fila-tel, fila-wa, toque | **0** | **0** | **0** |
+| `Nutrição — WhatsApp 15 dias` | 6 | — não consome | — | — | — |
+| `Fechar Horário` | 2 | — não consome | — | — | — |
+
+¹ lê `pausado` dentro do `NS{n} · Ainda vale recuperar?`, nos 3 toques. Ler é o
+que importa; o nome do nó é rótulo.
+
+O `Reengajamento 90 dias` é o pior: publicado, 105 nós, e as strings `pausado`,
+`sdr-lotado` e `c1xuCuLyJheHOQoJ3grH` aparecem **0 vezes em todo o workflow** —
+nem por toque, nem no portão de entrada (que checa `status-nutricao`,
+`nutricao-90d` e `nao-perturbe`). Seus 4 toques fazem
+`add_contact_tag ['fila-tel']` e `add_contact_tag ['toque']`.
+
+Duas consequências, e a segunda é mais feia que a primeira:
+
+1. **O `pausado` do SDR não vale ali.** É a pausa que o SDR aplica à mão; a
+   cadência que mais mexe com lead frio é a única que não a lê.
+2. **Enche o contador que trava os outros.** Cada toque marca `toque`, que
+   alimenta o `c1xuCuLyJheHOQoJ3grH` que os portões da 12x30 leem. O
+   Reengajamento **gasta** a cota semanal sem nunca **respeitá-la** — ele
+   aperta o freio dos outros e passa livre.
+
+### `auditoria_portoes.py`
+
+Somente leitura, roda sem API, verifica a invariante. Detecção por **conteúdo**,
+não por nome de nó — foi o que evitou acusar o `Recuperação de No-show`
+injustamente. Cobertura por toque entra como informação; portão em 0 de N é o
+que falha. `published` e não-`ZZ` falha com código 1; rascunho e teste são
+aviso. Hoje: **3 cadências publicadas em falha**, exit 1.
+
+A primeira versão dava um alarme falso próprio — imprimia "portão em 0/3
+toques" para o `Recuperação de No-show`, que lê `pausado` sob outro nome.
+Consertado antes de virar item: auditoria que grita sobre o que está certo
+treina a gente a ignorar auditoria, e isso valia para ela mesma.
+
+### O que isto muda no que está pendente
+
+A pendência 9e cresceu e mudou de forma. Não é "portar 2 portões para 1
+cadência", é **decidir a regra** e aplicá-la a três:
+
+| cadência | o que falta |
+|---|---|
+| `Cadência Inbound` | `sdr-lotado` + teto — patch pronto e validado, §2.37 |
+| `Recuperação de No-show` | `sdr-lotado` + teto (o `pausado` já está) |
+| `Reengajamento 90 dias` | os três |
+
+E há uma pergunta de desenho que é sua, porque as duas respostas são
+defensáveis: **no-show e reengajamento devem respeitar o teto semanal, ou são
+prioritários sobre lead novo?** Quem marcou reunião e não apareceu é mais
+quente que lead de anúncio — pode fazer sentido que furem a fila de propósito.
+Se for isso, o conserto não é portar portão: é **tirar o `add_contact_tag
+['toque']`** dessas cadências, para elas não gastarem uma cota que não
+respeitam. São desenhos opostos e eu não escolho por você.
+
+`patch_portao_inbound.py` cobre só a Inbound. Estendê-lo para as outras duas é
+mecânico depois de a regra estar decidida — os `TOQUES` e o `ALVO` são
+parâmetro.
+
+Nada foi escrito na conta: as duas auditorias são somente leitura e o patch não
+foi executado. Achado tirado de dump é **candidato**: confirma-se lendo os três
+workflows ao vivo, ou medindo — contato com `pausado` que ainda recebe
+`fila-tel`.
