@@ -6583,3 +6583,79 @@ onde se contrata capacidade, nome onde se escolhe pessoa**; **a regra do título
 criada na psicologia se repetiu de primeira aqui**; **headline commodity: a mesma frase em
 páginas concorrentes, prova de template de agência**; contraexemplo Get Financas, carrossel
 com um segmento por card e qualificação pelo valor da conta).
+
+## Imobiliária — Barra da Tijuca (23/09, 18h)
+
+Termo: `apartamento à venda Barra da Tijuca`, BR, ACTIVE. **177 anúncios ativos.** Amostra de
+50 → **30 páginas distintas**. **28 alvos, 11 em Trilha A.** Fecha imobiliária nos sete
+bairros prioritários (faltava só a Barra).
+
+### Novo recorde absoluto de carrossel vazio — e por larga margem
+
+**New Home Imóveis** sobe **dois anúncios, cada um com vinte cards sem título**: o campo vem
+como `New Home Imóveis | | | | ...`, vinte barras seguidas. **Quarenta cards em branco numa
+página só.** O recorde anterior era um anúncio de 20 cards (Niterói); aqui são dois.
+
+Up Seven Imóveis: 15 cards vazios. bq_consultoriaimobiliaria: 11. Ilaine Imóveis: 9. Rio
+Couto Imóveis: nove "Fale conosco". ÓGA Soluções Imobiliárias: dez cards, todos com a MESMA
+frase ("Apartamento à venda - Porteira fechada").
+
+### O título-domínio aparece pela terceira varredura seguida
+
+`api.whatsapp.com` no campo do título: **elkeredgarcorretor** e **Gilberto Cupolillo
+Imóveis**. Psicologia às 16h, energia solar às 17h, imobiliária da Barra às 18h — três
+nichos sem nenhuma relação entre si, o mesmo defeito. **A regra está fechada: é assinatura
+de quem impulsiona post pelo celular, não vício de mercado.**
+
+### O que a Barra ensina e nenhum outro bairro ensinou
+
+Aqui o título carrega **o nome do empreendimento, a metragem e o preço**:
+
+- `Américas Park | 93 m² | R$ 930 mil` — Chaves da Barra
+- `Cyano | 380 m² | 4 suítes | Frontal mar` — MNG Imobiliária
+- `Latitud | 125 m² | Sala ampliada` — MNG
+- `Vista Mar e Golfe | 255 m² no Golden Green` — Conectta Imóveis
+- `TERRAZAS | 215 M², 4 QUARTOS E VARANDA COM PISCINA` — MNG
+
+**Na Barra o condomínio tem marca própria.** Quem compra procura pelo nome do prédio, não
+pelo nome do bairro — e quem anuncia bem já entendeu isso. Nenhum dos outros seis bairros
+mostrou esse padrão. **Regra nova: em bairro de ticket alto, o termo de busca é o nome do
+empreendimento; em bairro de ticket médio, é o bairro.** Isso muda como a gente monta
+campanha para imobiliária da Barra.
+
+### Sua Casa Digital: acerta o formato e erra o alvo
+
+Carrossel de seis cards, **um imóvel por card**, cada um com metragem, quartos, suítes,
+vagas e condomínio. É o carrossel usado como catálogo, do jeito certo. Só que:
+
+1. Os títulos têm 80 a 120 caracteres e terminam todos com ` - Imóvel pronto` — a mesma
+   frase repetida seis vezes dentro do mesmo anúncio.
+2. **O anúncio que sai por "Barra da Tijuca" está cheio de Leblon.** Rita Ludolf, quadra da
+   praia do Leblon, Garden de 198 m² no Leblon. O outro anúncio da mesma página é todo
+   Jardim Oceânico, esse sim da Barra.
+
+Um bom formato entregando o imóvel errado para a pessoa errada. Serve de exemplo na
+conversa: não adianta o criativo estar bonito se ele responde à busca errada.
+
+### Captação de proprietário, de novo
+
+**Marcus Godoy Corretor de Imóveis: "Saiba o valor real do seu imóvel"**, dois anúncios
+iguais. Não vende apartamento, capta quem quer vender o dele. Confirma pela terceira vez a
+regra de que termo de serviço puxa captação — e mostra o lado bom dela: é a headline de
+qualificação mais limpa do nicho.
+
+### Poluição nova do termo
+
+`Desconto no cupom` (4 anúncios), `FlexLeilões`, `Portal On`, `Carlota Pets Realistas`.
+**Regra nova: termo de compra de ticket alto puxa página de cupom, leilão e dropshipping**,
+que tem verba e não é do nicho. Filtrar pelo nome da página antes de contar o mercado.
+
+LISTA DE ATAQUE: **532 → 560**.
+
+Combos varridos até aqui: + imobiliária/corretor Barra da Tijuca (177 ativos, 30 páginas em
+50 anúncios; 28 alvos, 11 em Trilha A — **com isso imobiliária está fechada nos sete bairros
+prioritários**; **novo recorde absoluto de carrossel vazio: New Home Imóveis com dois
+anúncios de 20 cards em branco cada**; **título-domínio pela terceira varredura seguida, em
+nicho sem relação — regra fechada**; **regra nova: em bairro de ticket alto o termo de busca
+é o nome do empreendimento, não o bairro**; regra nova: termo de ticket alto puxa cupom e
+leilão).
