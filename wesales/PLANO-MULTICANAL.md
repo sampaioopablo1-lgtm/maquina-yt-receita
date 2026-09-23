@@ -66,7 +66,7 @@ Proibido sem o dono: excluir workflow/contato, mandar mensagem para lead real,
 mudar preço/plano, mexer em outro projeto.
 
 - [ ] A1 08:30+: conferir que a TRI-1 saiu UMA vez para o 9940 (a marca antes da espera evita duplicata). Registrar. Depois de o dono responder 1/2/3, conferir o desfecho.
-- [ ] A2 Revisão do Pós-agendamento com olhos de usuário: confirmações e lembretes da reunião (PA-CONF, PA-R24, PA-R3H, PA-R30 da biblioteca) agora podem sair pela Stevo (nó `sms`) — sobe comparecimento. Montar, testar com o 9940, publicar.
+- [~] A2 (23/09 00:50) Investigado: nesta versão do GHL o calendário NÃO tem aba de lembretes (Calendários → Configurações só tem preferências) — lembrete de reunião é por WORKFLOW. Falta: (a) mapear o formato do nó "esperar até X h antes da reunião" (wait tipo `appointment`) pela tela num rascunho; (b) agendamento de teste para o 9940 (sem ferramenta de criar agendamento — pela tela). Depois: workflow "Lembretes da Reunião" (PA-CONF na hora, PA-R24, PA-R3H, PA-R30, sem `{{user.first_name}}`). Revisão do Pós-agendamento com olhos de usuário: confirmações e lembretes da reunião (PA-CONF, PA-R24, PA-R3H, PA-R30 da biblioteca) agora podem sair pela Stevo (nó `sms`) — sobe comparecimento. Montar, testar com o 9940, publicar.
 - [ ] A3 Recuperação de No-show: mensagem NS-1 automática pela Stevo antes da NS1 (hoje só tarefa).
 - [ ] A4 Closer: ao "Reunião foi qualificada = Sim", criar tarefa `[CLOSER] Apresentar proposta` (a Faxina já reconhece o prefixo) — o closer hoje não tem tarefa nenhuma. Conferir o Loop do closer nó a nó.
 - [ ] A5 Negociação Estagnada (W22, F-13): está especificado e não publicado — revisar, montar com portão por tag (`etapa-negociar`), testar, publicar.
