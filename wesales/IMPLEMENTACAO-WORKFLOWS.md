@@ -318,8 +318,22 @@ Três famílias, e a regra de quem mexe:
 | Família | Tags | Quem aplica / remove |
 |---|---|---|
 | **Fila** (aparece nas listas do dia) | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` | **só workflow**. O SDR nunca aplica nem remove à mão — a fila do dia é consequência da cadência, não decisão |
-| **Estado** (sobrevive à saída de cadência) | `nao-perturbe`, `telefone-invalido`, `nutricao-90d`, `cad-inbound`, `cad-outbound`, `conectado-hoje`, `pausado` | workflow, exceto `pausado` (**SDR**, à mão, para represar um lead sem opt-out) e `cad-inbound` (integração/formulário na entrada) |
+| **Estado** (sobrevive à saída de cadência) | `nao-perturbe`, `telefone-invalido`, `nutricao-90d`, `cad-inbound`, `cad-outbound`, `conectado-hoje` (**ver nota abaixo — o nome dela diz "hoje" e o comportamento é permanente**), `pausado` | workflow, exceto `pausado` (**SDR**, à mão, para represar um lead sem opt-out) e `cad-inbound` (integração/formulário na entrada) |
 | **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido`, `negociacao-estagnada` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20–8.24, 8.28), não aplica |
+
+**Nota de 23/09/2026 — `conectado-hoje` está nesta família e não deveria estar sem reset.**
+Nenhum dos 26 dumps remove esta tag e nenhum documento especifica reset diário, de
+24h ou de fim de dia. Isso torna a linha de função dela em `campos-e-tags.md`
+("tira o lead das filas **do dia**") falsa na prática. Até 22/09 era inofensivo: o
+ramo `Atendeu` do `Pós-ligação v2` tirava a oportunidade de `CONECTAR`, e as duas
+filas do SDR (8.2 e 8.3) também exigem `etapa = CONECTAR` — quem excluía o lead da
+fila era a cláusula de etapa. O commit `1d04af2` faz o `Atendeu` **ficar** em
+`CONECTAR`, e a partir dele `conectado-hoje` é a única cláusula de pé: o lead que
+atende uma vez e não fecha horário some das duas filas para sempre, com a
+oportunidade aberta e a cadência ainda criando tarefa. Achado completo, medição (2
+contatos, os dois de teste — zero lead real) e as quatro saídas: seção 2.31 do
+`build-wesales.md` (F-16). Enquanto isso não for decidido, os filtros 8.2 e 8.3
+abaixo estão marcados.
 
 ## 1.4 Calendário `Reunião com closer` — já existe
 
@@ -412,8 +426,8 @@ Fonte da lógica: `build-wesales.md`, 8.
 | # | Nome exato | Filtros | Colunas | Ordenação | Para quem |
 |---|---|---|---|---|---|
 | 8.1 | `Fila Quente` | tag `fila-quente` **E** não `nao-perturbe` **E** etapa em (`CONECTAR`, `AGENDAR`) | Nome · `Empresa` · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade | `Prioridade` desc, `Tentativa nº` asc | SDR — abre primeiro |
-| 8.2 | `Fila Telefone Hoje` | tag `fila-tel` **E** não `nao-perturbe` **E** não `telefone-invalido` **E** não `conectado-hoje` **E** etapa = `CONECTAR` | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas | `Prioridade` desc, `Tentativa nº` asc | SDR |
-| 8.3 | `Fila WhatsApp Hoje` | tag `fila-wa` **E** não `nao-perturbe` **E** não `conectado-hoje` **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` | `Prioridade` desc, `WA não atendidas seguidas` asc | SDR |
+| 8.2 | `Fila Telefone Hoje` | tag `fila-tel` **E** não `nao-perturbe` **E** não `telefone-invalido` **E** não `conectado-hoje` **E** etapa = `CONECTAR` — ⚠️ **F-16, seção 2.31 do `build-wesales.md`: com o `Atendeu` ficando em `CONECTAR` (commit `1d04af2`), a cláusula `não conectado-hoje` virou exclusão permanente, porque nada remove essa tag. Não construir esta lista com o filtro como está** | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas | `Prioridade` desc, `Tentativa nº` asc | SDR |
+| 8.3 | `Fila WhatsApp Hoje` | tag `fila-wa` **E** não `nao-perturbe` **E** não `conectado-hoje` **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` — ⚠️ **mesmo problema da 8.2 (F-16, seção 2.31)** | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` | `Prioridade` desc, `WA não atendidas seguidas` asc | SDR |
 | 8.4 | `Retornos` | `Resultado da tentativa` = `Pediu retorno` **E** não `nao-perturbe` | Nome · `Empresa` · Telefone · `Data de retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas | `Data de retorno` asc | SDR |
 | 8.5 | `Sem resultado ontem` | tag `limpar-tarefas` **E** não `fila-tel` **E** não `fila-wa` | Nome · `Tentativa nº` · `Resultado da tentativa` · Última atividade | Última atividade asc | Gestor — diário |
 | 8.6 | `Conexão por Tentativa` | `Total de conexões` ≥ 1 | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` · `Conexão real` | `Tentativa nº` asc | Gestor — semanal |

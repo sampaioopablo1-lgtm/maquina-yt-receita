@@ -24,7 +24,7 @@
 > DIAGNÓSTICO` (mesmo `id`, confirmado por API em 23/09) e reformula boa
 > parte da Cadência 12x30/Pós-ligação/Pós-agendamento (D2–D9). Nenhuma
 > dessas mudanças foi propagada para este roadmap nem para `build-wesales.md`
-> ainda — os blocos abaixo (G-01 a G-09, R-01 a R-18, F-01 a F-15) continuam
+> ainda — os blocos abaixo (G-01 a G-09, R-01 a R-18, F-01 a F-16) continuam
 > descrevendo o desenho "100% telefone" pré-`PLANO-MULTICANAL`, e a execução
 > real (`PLANO-MULTICANAL.md`, checklist E1-E14) está rodando por fora,
 > pela API interna (`wesales/tools/`), não pelo `GHL CRM` (MCP) que esta
@@ -958,6 +958,59 @@ inteiro, E4-E14) continua em aberto — este item só garante que ela é
 visível a partir daqui, não a executa.
 
 ---
+
+### G-11 · A mudança de etapa aplicada ao vivo em `1d04af2` deixa duas armadilhas nos filtros e numa tag nova — **ABERTO, decisão do dono (23/09/2026)**
+
+**Por quê:** o commit `1d04af2` (PC do dono) aplicou a mudança de etapa em 5
+workflows ao vivo — `REUNIÃO DE DIAGNÓSTICO` no lugar de `NEGOCIAR` no Loop do
+closer, na Recuperação de No-show e no SLA do Closer, e o `Atendeu` passando a
+**ficar** em `CONECTAR` no `Pós-ligação v2`. A mudança é coerente com o funil
+novo. Conferindo offline, duas consequências que nenhum dos dois desenhos vê:
+
+1. **`conectado-hoje` virou mudo permanente.** Nada remove essa tag (varredura
+   nos 26 dumps, nenhum `remove_contact_tag`, nenhum reset em nenhum
+   documento). Os filtros das filas 8.2/8.3 têm `não conectado-hoje` **E**
+   `etapa = CONECTAR`: enquanto o `Atendeu` saía de `CONECTAR`, a cláusula de
+   etapa fazia a exclusão e a da tag era redundante. Agora a da tag é a única
+   — e o lead que atende uma vez sem fechar horário some das duas filas do SDR
+   para sempre, com a oportunidade aberta e a cadência ainda criando tarefa.
+2. **`fechar-horario` sobrevive ao caminho de quem agenda.** A tag nasceu com o
+   consumidor (`Fechar Horário`) em rascunho; isso foi fechado no `23db864`, que
+   o publicou, e a janela fechou limpa (0 contatos). O que **continua aberto** é
+   outro elo: a remoção mora nos 4 nós de saída do `Fechar Horário`, e o lead que
+   agenda é arrancado do workflow pelo `Pós-agendamento v2` (nó 4) —
+   `remove_from_workflow` não executa as saídas do alvo. Quem agenda fica com a
+   tag para sempre, e ela é a única tag da conta **sem** segunda rede no Mestre
+   de saída. Correção: um `Remove Tag fechar-horario` ao lado do
+   `remove_from_workflow` no nó 4.
+3. **O dump de 3 workflows ficou descrevendo a conta pré-patch.**
+   `patch_remove_parte2.py` exportava o backup e nunca re-exportava o estado
+   novo (o script irmão `patch_funil_reuniao.py` faz isso na linha 150). Corrigi
+   a ferramenta nesta rodada. O que fica em aberto é uma **confirmação**, não um
+   defeito provável: o assunto do commit `23db864` diz *"parte 2 nas remoções"*,
+   logo há evidência de que o script rodou com `--aplicar` — só não dá para
+   verificar pelo repositório quantos nós ele pegou, e o script varre apenas os
+   publicados (workflow em rascunho na hora ficou de fora). Vale confirmar
+   porque, se algum nó ficou para trás, o lead que agenda continua recebendo
+   toque **automático** da segunda metade da régua. Um comando no PC, sem
+   escrever nada: `python patch_remove_parte2.py` sem `--aplicar`.
+
+**Medido em 23/09:** `conectado-hoje` em 2 contatos (os dois de teste do
+projeto), `fechar-horario` em 0 (remedido depois da publicação). **Zero lead
+real afetado** — é armadilha, não
+incêndio, e por isso dá para consertar antes de ligar a esteira.
+
+**O que falta:** para a (1), decisão sua entre as quatro saídas da seção 2.31 do
+`build-wesales.md` — recomendo a **A** (`Wait 24h` → `Remove Tag` dentro do
+próprio `Pós-ligação v2`). A saída **B** que eu tinha oferecido como
+alternativa limpa **caiu na conferência**, pelo mesmo motivo do item (2): ela
+trocaria uma exclusão permanente por outra. Para (2) e (3) não há decisão, só
+execução — um nó e um comando. Nada disso é aplicável por este MCP (edição de
+workflow e de lista inteligente não têm ferramenta aqui); é tela ou
+`wesales/tools/`.
+
+---
+
 
 ## Bloco 1 — Medição (a maior lacuna)
 

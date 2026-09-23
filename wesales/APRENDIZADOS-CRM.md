@@ -44,6 +44,76 @@ Em qualquer outro, teste a tag do Espelho.
   anterior, não "antes de agora".
 - **Canal:** confirmado pelo dono na tela — mandar pelo canal "SMS" entrega
   WhatsApp (Stevo). É o canal das mensagens automáticas.
+## Uma cláusula redundante vira vazamento quando a cláusula vizinha muda — cruzar toda mudança de etapa com os filtros das listas — 23/09/2026, sessão na nuvem
+
+O commit `1d04af2` (do PC do dono) fez o ramo `Atendeu` **ficar** em `CONECTAR`
+em vez de mover a oportunidade para a etapa de reunião. Mudança certa e
+coerente com o funil novo. Mas os dois filtros das filas do SDR são
+conjunções com **duas** cláusulas que fazem o mesmo trabalho:
+
+    não `conectado-hoje`   E   etapa = `CONECTAR`
+
+Enquanto o `Atendeu` saía de `CONECTAR`, a segunda cláusula excluía o lead e a
+primeira era redundante — e o fato de que **nada remove `conectado-hoje`** não
+aparecia em nenhum comportamento. Tirar a segunda cláusula de jogo promoveu a
+redundante a única, e ela exclui para sempre. O vazamento não está em nenhuma
+das duas mudanças: está no encontro delas.
+
+**A regra que fica:** numa conjunção de filtro, cláusula redundante não é
+inofensiva — é uma dependência escondida. Quando uma mudança altera o valor de
+uma cláusula, todas as outras do mesmo `E` precisam ser relidas, inclusive (e
+sobretudo) as que "não faziam nada". Concretamente, para este projeto: **toda
+mudança de etapa em workflow exige reler os filtros das listas inteligentes que
+citam etapa** — são as seções 8.x de `IMPLEMENTACAO-WORKFLOWS.md`.
+
+**A segunda regra, sobre nome de tag:** `conectado-hoje` promete "hoje" no
+próprio nome e nunca é removida. O nome era a única documentação do ciclo de
+vida dela, e estava errado. Tag cujo nome afirma um prazo (`-hoje`, `-semana`,
+`-24h`) precisa de um removedor identificável por `grep` nos dumps; se a busca
+por `remove_contact_tag` com aquele nome vem vazia, o nome é mentira até prova
+em contrário. Checagem barata, vale em toda rodada.
+
+**Terceira, sobre gatilho de tag:** par "aplicador publicado + consumidor em
+**rascunho**" numa tag que ninguém remove produz exclusão permanente e
+silenciosa do consumidor — gatilho de tag dispara no *evento* de aplicação, e
+aplicar tag já presente não gera evento. Foi o caso de `fechar-horario`; o dono
+publicou o consumidor no mesmo dia e a janela fechou limpa (0 contatos), mas a
+regra vale: quando um workflow novo é gatilhado por tag, conferir se quem
+aplica a tag já está no ar antes dele. A ordem certa é o consumidor primeiro.
+
+**Quarta, e é a mais reaproveitável: `remove_from_workflow` pula os nós de
+saída do alvo.** Arrancar o contato de um workflow cancela os passos pendentes
+dele — os `Remove Tag` que aquele workflow faria não rodam. Então toda tag cuja
+limpeza mora *dentro* de um workflow é permanente para quem sai por remoção
+externa. Foi isso que derrubou uma saída que eu mesmo tinha recomendado como
+limpa (trocar a cláusula do filtro para `não fechar-horario`): parecia segura
+porque a tag tem removedor, mas o removedor não é alcançado pelo caminho de
+quem agenda. **A regra:** quem arranca o contato de um workflow precisa limpar,
+no mesmo nó, as tags que as saídas daquele workflow limpariam — e a checagem
+barata é cruzar cada `remove_from_workflow` de terceiro com os
+`remove_contact_tag` do alvo. Medido: 5 alvos nesta conta, e só
+`fechar-horario` não tem segunda rede no Mestre de saída. Tabela na seção
+2.31.2 do `build-wesales.md`.
+
+**Quinta, sobre as próprias ferramentas de patch: script que aplica na conta e
+não re-exporta o dump deixa o repositório mentindo.** `patch_remove_parte2.py`
+exportava o backup, aplicava e parava — o script irmão `patch_funil_reuniao.py`
+re-exporta na última linha do loop. Resultado: 3 dumps ficaram idênticos ao
+backup pré-patch, `version` e `updatedAt` inclusive, então **nenhuma checagem
+de frescor pega** e a auditoria seguinte (a minha, nesta rodada) conclui que o
+patch não foi aplicado. Quase registrei um achado grave em cima disso.
+Corrigido na ferramenta. **Duas regras:** todo script que faz `put` tem que
+re-exportar depois; e antes de afirmar qualquer coisa a partir de um dump,
+comparar com o backup irmão — se forem idênticos em `updatedAt`, o dump é o
+pré-patch e não responde nada. Bônus do mesmo arquivo: caminho de export
+relativo ao diretório de execução em vez de ao script só funciona se o script
+for rodado de dentro de `wesales/tools/`; usar sempre o caminho relativo ao
+`__file__`.
+
+Medição da rodada, para separar armadilha de incêndio: `conectado-hoje` em 2
+contatos (os dois de teste do projeto), `fechar-horario` em 0 (remedido depois da
+publicação do consumidor). Nenhum lead real afetado — conta de projeto, dá para consertar antes de doer. Achado completo e
+as quatro saídas: seção 2.31 do `build-wesales.md` (F-16).
 
 ## Duas trilhas de execução deste projeto não se enxergam — checar `PLANO-MULTICANAL.md` antes de tratar o roadmap como única fonte de estado — 23/09/2026, sessão na nuvem
 

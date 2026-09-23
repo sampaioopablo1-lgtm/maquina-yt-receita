@@ -119,6 +119,20 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `APRENDIZADOS-CRM.md`): as 15 tags estão lá, `dateUpdated` 19/09/2026
       04:15 UTC.
 
+> **Sinalização de 23/09/2026 — não é item de aprovação, é aviso de divergência.**
+> Duas tags existem na conta fora desta lista, as duas por ação do dono, nenhuma
+> criada por mim: `teste-regua` (tela, 22/09, marcador de teste dele) e
+> `fechar-horario` (commit `1d04af2`, 23/09, aplicada pelo `Pós-ligação v2`
+> publicado). Regra 1 vale: ficam, não removo nada. Registro aqui só para a
+> contagem desta lista parar de divergir da conta — as tags numeradas T-16 a T-21
+> abaixo continuam sendo as que **eu** não crio sem o seu `[x]`. A `fechar-horario`
+> tem um detalhe que segue aberto: quem a remove é o `Fechar Horário`, publicado
+> no `23db864` (a janela de rascunho fechou limpa, 0 contatos), mas a remoção
+> está nos nós de saída dele — e o lead que **agenda** é arrancado do workflow
+> pelo `Pós-agendamento v2` (nó 4) sem passar por eles. Então quem agenda fica
+> com a tag para sempre. Não é item de aprovação: é uma edição de workflow, que
+> este MCP não faz. Seções 2.31.1 e 2.31.2 do `build-wesales.md`.
+
 - [ ] Criar a 16ª tag, `novo-lead-estagnado` — nasceu no F-05 (Monitor de
       Saúde da Operação, peça 1: lead esquecido em `NOVO LEAD`) desta rodada,
       especificada em `campos-e-tags.md` (T-16) e `build-wesales.md` (seção
