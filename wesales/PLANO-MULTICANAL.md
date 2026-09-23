@@ -70,7 +70,7 @@ mudar preço/plano, mexer em outro projeto.
 - [ ] A3 Recuperação de No-show: mensagem NS-1 automática pela Stevo antes da NS1 (hoje só tarefa).
 - [ ] A4 Closer: ao "Reunião foi qualificada = Sim", criar tarefa `[CLOSER] Apresentar proposta` (a Faxina já reconhece o prefixo) — o closer hoje não tem tarefa nenhuma. Conferir o Loop do closer nó a nó.
 - [ ] A5 Negociação Estagnada (W22, F-13): está especificado e não publicado — revisar, montar com portão por tag (`etapa-negociar`), testar, publicar.
-- [ ] A6 Documentação do usuário: reescrever `briefing-sdr.md` (rotina do SDR multicanal, prioridades, o que cada resultado faz, Faxina, limite 100/dia) e um guia curto do closer. Linguagem de quem usa, não de quem constrói.
+- [x] A6 (23/09 01:00) `GUIA-SDR.md` e `GUIA-CLOSER.md` escritos (linguagem de quem usa; conferidos contra os workflows no ar — ex.: veredito Não + Timing errado → nutrição, lido do Loop do closer). O `briefing-sdr.md` fica como instrução do dono. Antes: reescrever `briefing-sdr.md` (rotina do SDR multicanal, prioridades, o que cada resultado faz, Faxina, limite 100/dia) e um guia curto do closer. Linguagem de quem usa, não de quem constrói.
 - [ ] A7 Listas inteligentes (tela): Fila Telefone Hoje, Retornos, Fechar Horário, No-show, Nutrição — filtros por tag `etapa-*`/`status-*`; conferir colunas úteis ao SDR.
       > **Antes de montar a Fila Telefone Hoje, ler o F-16 (§2.31 do `build-wesales.md`).**
       > Trocar a cláusula de etapa por `etapa-conectar` resolve o lado da etapa, mas o
