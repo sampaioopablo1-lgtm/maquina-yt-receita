@@ -1268,11 +1268,24 @@ gera o "dobro de toques" que o roadmap descrevia de forma mais genérica.
 Idêntico ao 2.9.2, trocando o gatilho, o filtro do gatilho e os dois textos
 marcados.
 
-**Gatilho:** `Customer Replied` — Canal: **WhatsApp**. Decisão ao vivo do
-dono, 19/09/2026: SMS nunca foi canal real da cadência (só telefone, ligação
-por WhatsApp e mensagem de WhatsApp — `briefing-sdr.md`), e o dono confirmou
-que não usa SMS em nenhum canal de contato com lead. O plano original media
-"WhatsApp e SMS" errado, como se fossem os dois canais de texto — não eram.
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp e SMS**. Decisão ao vivo
+do dono, 19/09/2026: SMS nunca foi canal real da cadência (só telefone,
+ligação por WhatsApp e mensagem de WhatsApp — `briefing-sdr.md`), e o dono
+confirmou que não usa SMS em nenhum canal de contato com lead. O plano
+original media "WhatsApp e SMS" errado, como se fossem os dois canais de
+texto — não eram, e isso continua valendo: SMS não é canal de contato deste
+projeto. **O SMS entrou de volta no filtro por um motivo técnico, não
+estratégico (G-09, 23/09/2026):** o único WhatsApp conectado nesta subconta
+é a integração não-oficial Stevo (QR), que entrega mensagem como
+`TYPE_CUSTOM_SMS` por baixo do capô (confirmado por API — a conversa do
+contato de teste `Francisca` traz esse tipo, não `TYPE_WHATSAPP`), com um
+script que só troca o rótulo "SMS" por "WhatsApp QR" na tela. Se o filtro
+"Canal: WhatsApp" reconhece só o tipo nativo, nenhuma resposta pela Stevo
+dispara este gatilho — o canal que o filtro precisa escutar de verdade é
+esse, mesmo chamando "WhatsApp" na intenção do projeto. Filtro aditivo
+(WhatsApp **e** SMS, não WhatsApp trocado por SMS) para cobrir os dois
+cenários sem depender de qual rótulo a tela confirmar — detalhe e fontes no
+G-09.
 
 **Filtro do gatilho, acrescentado em 21/09/2026 (R-17 — ver 2.9.5):** uma
 linha `Doesn't Contain` por frase da lista canônica do 2.9.5 — `pare de`, `pare com`, `para de mandar`, `para de me mandar`, `não quero mais mensagem`, `não quero mais contato`, `não quero receber mensagem`, `não quero receber mais`, `remove meu contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga mais`, `não me mande mais`, `sai da lista`, `me tira da lista`, `unsubscribe` —, combinadas em E (a lista
@@ -1353,7 +1366,10 @@ porque nenhuma delas roda cadência de **ligação por WhatsApp** — só mensag
 
 **Como:**
 
-**Gatilho:** `Customer Replied` — Canal: **WhatsApp** — `Contains Phrase`,
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp e SMS** (o SMS entrou
+pelo mesmo motivo técnico do 2.9.3, não por decisão de canal — a Stevo
+entrega o único WhatsApp desta subconta como `TYPE_CUSTOM_SMS`; detalhe e
+fontes no G-09) — `Contains Phrase`,
 esta lista (**a lista canônica do projeto — o filtro do 2.9.3 tem que ser
 idêntica a ela, palavra por palavra**):
 
@@ -6376,10 +6392,17 @@ corretamente — as duas são espelhos, e espelho de "algum canal ligado" é
 
 Pesquisa desta rodada, na mesma fonte que confirmou os nomes dos filtros: as
 preferências de DND de **WhatsApp, Facebook Messenger e GMB só aparecem depois
-que o app correspondente está integrado à subconta.** Esta subconta **não tem
-WhatsApp integrado** (é a razão pela qual o R-14 esperava "volume real de
-mensagem" e pela qual não existe uma única mensagem de WhatsApp aqui). Duas
-consequências, e a segunda é de compliance, não de montagem:
+que o app correspondente está integrado à subconta.** Esta subconta **não
+tinha WhatsApp integrado até 21/09/2026** (era a razão pela qual o R-14
+esperava "volume real de mensagem" e pela qual não existia uma única
+mensagem de WhatsApp aqui). **Desde 22/09/2026 tem** — a integração
+não-oficial Stevo (QR), que o dono conectou e já gerou tráfego de teste real
+(`APRENDIZADOS-CRM.md`; G-09 no roadmap). Se essa conexão faz o app
+"WhatsApp" da subconta aparecer como integrado para o GHL (e portanto libera
+o filtro `WhatsApp DND` na Smart List) é a mesma pendência de tela do item 1
+abaixo — a Stevo não é o app nativo de WhatsApp do GHL, então não é certo
+que conte. Duas consequências, e a segunda é de compliance, não de
+montagem:
 
 1. **Hoje as duas listas se montam só pela metade** — com `Calls & Voicemails
    DND`. A cláusula de WhatsApp entra quando o canal for integrado. Monte

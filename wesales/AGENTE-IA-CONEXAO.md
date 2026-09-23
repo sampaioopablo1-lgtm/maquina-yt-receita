@@ -285,7 +285,17 @@ agente de inbound.
 2. **Quais canais este agente atende.** A aba diz `IA · proximo-cliente-1`, e
    há abas separadas de WhatsApp/Voice/Grupos. **Se ele só responde WhatsApp,
    não alcança os 5 do Instagram** — que são o motivo principal dele existir.
-   O WhatsApp, além disso, está desconectado na subconta.
+   **Corrigido em 23/09/2026 (G-09, roadmap):** esta frase dizia "o WhatsApp
+   está desconectado" — valia até 21/09/2026. Desde 22/09/2026 a subconta tem
+   a integração não-oficial Stevo (QR) conectada, e ela já está gerando
+   contato de teste sozinha (`APRENDIZADOS-CRM.md`). O que continua sem
+   confirmação de tela, e importa mais agora que existe tráfego real: a aba
+   "WhatsApp" da IA v2 escuta o canal nativo (Meta) ou também reconhece uma
+   integração não-oficial que entrega mensagem como SMS por baixo
+   (`TYPE_CUSTOM_SMS`, confirmado por API)? Se só reconhecer o nativo, este
+   agente não vê a Stevo, mesmo com ela conectada e recebendo mensagem —
+   mesma pergunta que o G-09 deixou em aberto para os workflows por trás do
+   canal WhatsApp deste projeto.
 3. **Se existe filtro de entrada por tag** (seção 1). Sem ele, não ligue o
    Agente Principal.
 4. **Quais campos a aba `IA` oferece** — prompt livre, modelo, temperatura — e
