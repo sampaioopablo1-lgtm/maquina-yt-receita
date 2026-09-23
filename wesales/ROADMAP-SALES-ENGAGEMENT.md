@@ -777,6 +777,45 @@ mais nenhuma oportunidade `abandoned`+`nutricao-90d` que carregue
 já publicado, mesma fila de retoques manuais do resto do projeto.
 
 ### G-09 · O único WhatsApp que esta subconta tem entrega mensagem como SMS por baixo — e todo gatilho que protege o lead (R-17) escuta "Canal: WhatsApp" — **FEITO em 23/09/2026 (especificação)**
+
+> **Conferido em 23/09/2026 — a medição do G-09 tem uma segunda consequência,
+> e ela é de decisão do dono, não de gatilho.**
+>
+> O G-09 resolve o lado técnico (o filtro precisa escutar SMS além de
+> WhatsApp). O lado que ficou sem puxar: **o canal reconectado como "WhatsApp"
+> é, por baixo, o mesmo canal que o dono removeu do projeto.**
+>
+> `APROVADO.md`, linha de Mensagens: *"SMS saiu por decisão do dono em
+> 19/09/2026 — **não é canal de contato com lead neste projeto**"*, e a linha
+> segue `[ ]` até hoje. A integração Stevo entrega `TYPE_CUSTOM_SMS` e só
+> troca o rótulo na tela. Então, na prática:
+>
+> | O que a tela mostra | O que sai | O que o dono decidiu sobre isso |
+> |---|---|---|
+> | "WhatsApp QR, conectado" | SMS | removido do projeto em 19/09, linha ainda `[ ]` |
+>
+> **Três coisas dependem disso, e nenhuma é óbvia olhando a tela:**
+>
+> 1. **A régua multicanal (caminho B).** Os textos `MT1`/`MT4`/`MT11` foram
+>    escritos como "WhatsApp (SDR envia)". Se saem por esse canal, o SDR está
+>    mandando **SMS** — canal excluído por decisão, e com tarifa de SMS
+>    (`twilioRebilling` ativo na subconta), não de WhatsApp.
+> 2. **O agente de IA (`AGENTE-IA-CONEXAO.md`).** O desenho supõe conversa de
+>    WhatsApp/DM. Se o canal da IA v2 for esse, o agente conversa **por SMS**:
+>    outra experiência, outro custo por mensagem e outras regras de
+>    consentimento. A pergunta que o G-09 levantou — se o filtro "WhatsApp" da
+>    IA v2 reconhece `TYPE_CUSTOM_SMS` — decide também **em que canal o agente
+>    fala**, não só quais gatilhos disparam.
+> 3. **O risco de banimento que registramos ontem muda de natureza.** "API não
+>    oficial de WhatsApp pode banir o número" vale para tráfego de WhatsApp.
+>    Se o tráfego é SMS, o risco de banimento do WhatsApp não se aplica — mas
+>    entram no lugar as regras de SMS (custo por segmento, opt-out por STOP,
+>    e o fato de SMS ter sido descartado como canal).
+>
+> **Não é conserto automático: é decisão.** Ou o dono reabre o SMS como canal
+> (e a linha do `APROVADO.md` vira `[x]`, com a tarifa aceita), ou o caminho B
+> e o agente precisam de um canal que não seja este. O que não dá é seguir com
+> a tela dizendo "WhatsApp" e a operação mandando o canal que ele tirou.
 **Por quê:** reconferindo a base por API nesta rodada (23/09/2026, ~00h UTC):
 **54 oportunidades** (49 `NOVO LEAD` open + 2 `CONECTAR` lost + 2 `NEGOCIAR`
 open + 1 `NEGOCIAR` lost), 55 campos de contato, mesmas 5 etapas do `FUNIL DE

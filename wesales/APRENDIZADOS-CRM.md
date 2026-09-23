@@ -2,6 +2,35 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## O rótulo na tela escondia uma decisão já tomada — "WhatsApp" é o SMS que o dono removeu — 23/09/2026, sessão na nuvem
+
+A rodada do G-09 mediu bem: a integração Stevo entrega `TYPE_CUSTOM_SMS`, não
+`TYPE_WHATSAPP` — é SMS com o rótulo trocado na tela. E tirou a consequência
+técnica certa: o R-17 e o 2.9.3 filtram por "Canal: WhatsApp" e nunca
+disparariam para uma resposta por esse número.
+
+**A consequência que ficou sem puxar é maior e é de decisão.** O `APROVADO.md`
+diz, desde 19/09: *"SMS saiu por decisão do dono — não é canal de contato com
+lead neste projeto"*, e a linha segue `[ ]`. Ou seja: **o canal reconectado
+como "WhatsApp" é o canal que o dono removeu do projeto.** A tela diz uma
+coisa, o fio entrega outra, e a decisão do dono estava escrita sobre o nome
+que o fio usa, não sobre o nome que a tela mostra.
+
+Isso atinge três coisas que pareciam resolvidas: a régua multicanal manda
+"WhatsApp (SDR envia)" que na verdade é SMS tarifado; o agente de IA foi
+desenhado para conversa de WhatsApp/DM e conversaria por SMS; e o risco que
+registramos como "banimento do número no WhatsApp" troca de natureza — some o
+risco de WhatsApp, entram custo por segmento e opt-out por STOP.
+
+**A regra:** quando uma integração é "não oficial", perguntar **o que ela usa
+por baixo** antes de tratá-la como o canal que o nome promete. Rótulo de tela
+não é tipo de canal — e aqui a diferença entre os dois atravessava uma decisão
+de negócio já tomada, que ninguém teria como ver olhando a interface.
+
+**Corolário para este projeto:** decisão registrada sobre um canal deve citar
+o **tipo técnico** (`TYPE_CUSTOM_SMS`, `TYPE_WHATSAPP`), não só o nome
+comercial. "SMS saiu" e "WhatsApp entrou" descrevem o mesmo fio.
+
 ## A Stevo continuou gerando contato de teste depois da nota de 22/09 — e a nota nunca tinha virado item do roadmap — 23/09/2026, sessão na nuvem
 
 A entrada "GHL não-oficial (QR) já está recebendo mensagem real de teste"
