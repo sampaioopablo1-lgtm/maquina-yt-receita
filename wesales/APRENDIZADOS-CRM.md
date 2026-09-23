@@ -6215,3 +6215,40 @@ agregada (`Scheduler`/Custom Metrics, entrada acima), agora para mudança de
 campo padrão (Telefone/E-mail) em vez de custom field. Onde isso acontece,
 a saída não é insistir no workflow: é a ferramenta nativa de tela mais uma
 rotina humana (mesmo padrão do R-11/R-14) — `build-wesales.md`, seção 5.5.
+
+## Um achado real de outra sessão pode ficar preso num documento que o roadmap principal nunca cruza, mesmo depois de ter sido medido e documentado a fundo — G-17, 23/09/2026, sessão automática
+
+Aplicando a própria regra do parágrafo anterior (`git log -- wesales/`
+contra a lista de arquivos já cruzados): entre a leitura do G-16 e esta
+rodada, uma sessão em paralelo tinha escrito quatro commits
+(`ab5f4d5`/`46724a9`/`31206c6`/`ea16ca3`) resolvendo a pendência 9e de
+`ESTADO-E-PLANO.md` — e generalizando o achado para três cadências
+publicadas (`Cadência Inbound`, `Recuperação de No-show`,
+`Reengajamento 90 dias`) que não leem o portão de capacidade do SDR, a
+pior delas (`Reengajamento 90 dias`) gastando a cota semanal compartilhada
+sem nunca respeitá-la. O trabalho técnico (medição nó a nó, duas
+ferramentas novas — `auditoria_portoes.py`, `patch_portao_inbound.py` — e
+validação `--dump` sem tocar a conta) já estava completo e correto em
+`build-wesales.md` §2.36–2.39. O que faltava não era pesquisa nem desenho:
+era a ponte para `ROADMAP-SALES-ENGAGEMENT.md`, sem a qual uma leitura
+futura que só abrisse o roadmap principal (a maioria) nunca saberia que a
+decisão existe.
+
+**Regra prática, generalizável — mesma do G-10/G-14/G-16, agora com um caso
+a mais:** achado técnico completo (medido, documentado, com ferramenta
+validada) em `build-wesales.md`/`ESTADO-E-PLANO.md` não é a mesma coisa que
+achado **rastreável** — só vira rastreável quando ganha um item numerado no
+roadmap principal com "Pronto quando" próprio. A pergunta "isto já virou
+item de roadmap?" precisa ser feita mesmo quando o resto do trabalho
+(pesquisa, script, validação) já está pronto — principalmente aí, porque é
+exatamente quando parece "já resolvido" que ninguém verifica se falta só a
+ponte.
+
+**Correção aplicada:** achado promovido a `G-17` no
+`ROADMAP-SALES-ENGAGEMENT.md` (por quê / como / pronto quando, com a tabela
+de medição e as duas opções de desenho para o dono escolher por cadência);
+`ESTADO-E-PLANO.md` (itens 9d, resolvido, e 9e, com link de volta) e
+`IMPLEMENTACAO-WORKFLOWS.md` (checklist de go-live, §3.6) atualizados para
+não repetir a mesma lacuna que o G-16 já tinha corrigido para si mesmo.
+Zero escrita no CRM, zero campo, zero tag: item de coerência entre
+documentos e especificação de decisão.

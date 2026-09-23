@@ -1456,6 +1456,97 @@ a partir de agora, independente da decisão sobre este contato específico.
 
 ---
 
+### G-17 · O portão de capacidade só protege duas cadências das seis — `Reengajamento 90 dias` gasta a cota semanal sem nunca respeitá-la, e ignora a pausa do próprio SDR — decisão do dono, patch da Inbound já escrito e validado — **ABERTO, decisão do dono (23/09/2026)**
+
+**Por quê:** uma sessão em paralelo (commits fora deste roadmap, ver G-10)
+foi corrigir a pendência 9e de `ESTADO-E-PLANO.md` ("portar os 6 nós de
+portão de capacidade da `Cadência 12x30` para a `Cadência Inbound`") e, antes
+de aplicar, fez a pergunta que faltava: **o que mais está lá que ninguém
+olhou?** A resposta não é a Inbound sozinha — é uma invariante que nenhum
+item numerado deste roadmap tinha verificado antes: *se um toque coloca o
+lead numa fila (`fila-tel`/`fila-wa`) ou marca a tag `toque`, ele consome
+capacidade do SDR, logo a cadência tem de ler os três portões* (`Lead
+pausado?` → tag `pausado`; `SDR lotado?` → tag `sdr-lotado`; `Teto de toques
+da semana?` → campo `Toques na semana`, `c1xuCuLyJheHOQoJ3grH`). Medido nó a
+nó nas sete cadências publicadas:
+
+| cadência | toques | marca fila/`toque` | `pausado` | `sdr-lotado` | teto semanal |
+|---|---|---|---|---|---|
+| `Cadência 12x30` | 6 | sim | 6/6 | 6/6 | 6/6 |
+| `Cadência 12x30 — parte 2` | 6 | sim | 6/6 | 6/6 | 6/6 |
+| `Cadência Inbound` | 5 | sim | 5/5 | **0** | **0** |
+| `Recuperação de No-show` | 3 | sim | ok¹ | **0** | **0** |
+| `Reengajamento 90 dias` | 4 | sim | **0** | **0** | **0** |
+| `Nutrição — WhatsApp 15 dias` | 6 | não consome | — | — | — |
+| `Fechar Horário` | 2 | não consome | — | — | — |
+
+¹ lê `pausado` dentro de `NS{n} · Ainda vale recuperar?`, nos 3 toques —
+cobre por conteúdo, não pelo nome do nó.
+
+O `Reengajamento 90 dias` é o pior caso: publicado, 105 nós, e as três
+strings (`pausado`, `sdr-lotado`, `c1xuCuLyJheHOQoJ3grH`) não aparecem em
+lugar nenhum do workflow, nem por toque nem no portão de entrada. Duas
+consequências, a segunda pior que a primeira — (1) a pausa que o SDR aplica
+à mão não vale para a cadência que mais mexe com lead frio; (2) cada um dos
+4 toques marca `toque`, que **alimenta** o contador que os portões da 12x30
+leem para travar — o Reengajamento gasta a cota semanal sem nunca respeitá-
+la, apertando o freio dos outros e passando livre ele mesmo. Achado de dump,
+tratado como candidato, não como fato: confirma-se lendo os três workflows
+ao vivo, ou medindo — contato com a tag `pausado` que ainda assim recebe
+`fila-tel`.
+
+**Como:** duas ferramentas novas em `wesales/tools/`, ambas somente leitura
+ou validadas sem tocar a conta, documentadas em `build-wesales.md` §2.36 a
+§2.39 (`patch_condicoes_etapa.py`, `auditoria_condicoes.py`,
+`patch_portao_inbound.py`, `auditoria_portoes.py`, `auditoria_tudo.py`):
+
+- `auditoria_portoes.py` — verifica a invariante acima por conteúdo (não por
+  nome de nó) contra os dumps publicados; hoje devolve 3 cadências em falha,
+  `exit 1`.
+- `patch_portao_inbound.py` — clona o grupo de 5 nós que já existe e já
+  funciona na `Cadência 12x30 — parte 2` (10 portões lógicos × 5 nós = 50
+  nós novos, de 272 para 322) e remapeia todo uuid interno do clone. Tem
+  modo `--dump` que valida sem token e sem rede contra os dumps do
+  repositório (medido: 0 id repetido, 0 `parentKey` órfão, 0 `goto` para nó
+  inexistente, condição dos 10 clones idêntica à do doador). Cobre hoje só a
+  `Cadência Inbound` — estendê-lo às outras duas é mecânico (o `ALVO` e os
+  `TOQUES` são parâmetro), mas só depois da decisão abaixo.
+
+Zero tag nova, zero campo novo — `sdr-lotado` e `Toques na semana` já
+existem e a `Cadência 12x30` já os lê. Não depende de `[x]` em
+`APROVADO.md`: editar workflow publicado não sai por este conector (nem
+leitura nem escrita além do `GET`), então a aplicação é script no PC do
+dono (`--aplicar`, com backup em `_antes-portao-inbound/`) ou tela, nos dois
+casos ação manual dele, mesma classe de G-11 (itens 2/3).
+
+**A decisão que é do dono, não minha:** `Recuperação de No-show` e
+`Reengajamento 90 dias` tocam lead mais quente (marcou reunião e não
+apareceu, ou já foi lead antes) que a fila de entrada nova — pode ser
+desenho de propósito que eles furem a fila em vez de esperar a cota. As
+duas saídas são opostas e ambas defensáveis: **(A)** portar os três portões
+para as duas cadências, mesma régua da 12x30/Inbound — cada toque delas
+passa a respeitar `pausado`/`sdr-lotado`/teto semanal; **(B)** tirar o
+`add_contact_tag ['toque']` dessas duas cadências, para elas pararem de
+gastar (sem nunca respeitar) uma cota que não é delas — nesse caso não
+precisam do portão, precisam de sair do contador alheio. Recomendo (A) para
+`Recuperação de No-show` (já lê `pausado`, falta pouco, e não há razão para
+ele ignorar `sdr-lotado`) e deixo (A) vs. (B) em aberto para o
+`Reengajamento 90 dias`, que é o caso realmente ambíguo.
+
+**Pronto quando:** o dono escolher A ou B para cada uma das duas cadências
+restantes (a Inbound já está decidida a favor de A, patch pronto); o script
+correspondente rodar com `--aplicar` (ou a tela, Caminho B do §2.37, para
+quem preferir clique) nas cadências que precisam de portão novo, e nas que
+saem do contador o nó `add_contact_tag ['toque']` for removido; e
+`auditoria_portoes.py` voltar a rodar depois, devolvendo `exit 0` — zero
+cadência publicada em falha contra a invariante. Detalhe completo em
+`build-wesales.md` §2.36 a §2.39 e em `ESTADO-E-PLANO.md`, itens 9d
+(resolvido — o "problema" era ausência de guarda para o futuro, já coberto
+por `auditoria_condicoes.py`) e 9e (cresceu deste item 1-caso para o G-17
+3-casos, tabela atualizada com a referência cruzada).
+
+---
+
 
 ## Bloco 1 — Medição (a maior lacuna)
 
@@ -4520,3 +4611,31 @@ dono — a próxima rodada sem tela nem decisão desbloqueada repete o mesmo
 caminho de sempre, agora também cruzando `ESTADO-E-PLANO.md` na varredura
 de coerência (a lista de arquivos a cruzar que o G-14 abriu ainda não o
 incluía).
+
+**G-17 aberto em 23/09/2026, sessão automática seguinte — lacuna achada
+seguindo `git log` de `wesales/` além do roadmap principal, exatamente a
+regra que o G-10 deixou escrita ("verificar o git log deveria entrar na
+varredura de coerência de toda rodada").** Entre a leitura do G-16 e esta
+rodada, uma sessão em paralelo (commits `ab5f4d5`, `46724a9`, `31206c6`,
+`ea16ca3`) trabalhou a pendência 9e de `ESTADO-E-PLANO.md` sem nunca virar
+item deste roadmap — o mesmo padrão do G-10 (dois fluxos de leitura, um
+plano decidido/achado num não chega ao outro). CRM reconfirmado por API
+nesta rodada: 56 oportunidades, mesma composição da leitura do G-16 (49
+`NOVO LEAD` open + 1 `REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2
+`CONECTAR` lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost), 56 campos de
+contato — G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) seguem aguardando
+o dono, sem novidade. O achado em si (três cadências publicadas que não
+leem o portão de capacidade, uma delas — `Reengajamento 90 dias` — gastando
+a cota semanal sem nunca respeitá-la) já estava medido e documentado em
+`build-wesales.md` §2.36–2.39 por essa sessão paralela; o trabalho desta
+rodada foi só a promoção a item de roadmap com "Pronto quando" próprio —
+sem essa ponte, a próxima leitura que só abrisse este arquivo não saberia
+que a pendência existe, mesmo risco que o G-16 já tinha descrito para
+`ESTADO-E-PLANO.md` como um todo. Zero campo, zero tag, zero escrita no
+CRM: item de coerência entre documentos e especificação de decisão, não
+depende de `APROVADO.md` (edição de workflow publicado não sai por este
+conector). Detalhe completo no próprio G-17, acima.
+
+Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1), G-16 e G-17 são as
+**sete** decisões que esperam o dono — a próxima rodada sem tela nem decisão
+desbloqueada repete o mesmo caminho de sempre.
