@@ -607,5 +607,11 @@
     "chave": "contact.ligaes_com_transcrio",
     "tipo": "NUMERICAL",
     "pasta": "gabsbU3jsUN7oIXCnYab"
+  },
+  "Canal que conectou": {
+    "id": "TxJmoWdkA8rTqC1uEsMW",
+    "chave": "contact.canal_que_conectou",
+    "tipo": "SINGLE_OPTIONS",
+    "pasta": "gabsbU3jsUN7oIXCnYab"
   }
 }

@@ -26,16 +26,19 @@ pela lista de execução no fim.
 ## Execução (marcar ao concluir, com data e commit)
 
 - [x] E1 Inventário ao vivo — 24 publicados, `INVENTARIO-WORKFLOWS.md` (22/09). Achado: Interceptação Resposta v2 e Opt-out filtram canal 19 (WhatsApp oficial); a Stevo chega como 20 → hoje nenhuma resposta pela Stevo dispara os dois (E10).
-- [ ] E2 Renomear a etapa (D1) e trocar `AGENDAR` no código (`ghl_api.STAGES`) e nos documentos
-- [ ] E3 Campo `Canal que conectou` (D10)
+- [x] E2 Etapa renomeada pelo dono na tela (23/09), mesmo id; `ghl_api.STAGES` ganhou `REUNIÃO DE DIAGNÓSTICO` (AGENDAR fica como apelido)
+- [x] E3 Campo `Canal que conectou` criado (`TxJmoWdkA8rTqC1uEsMW`, `contact.canal_que_conectou`). Falta na tela: opção `Desqualificado` em `Resultado da tentativa` (dono)
 - [ ] E4 Cadência 12x30 multicanal com fase "fechar horário" e pausa no retorno (D2, D3, D5, D6, D9)
-- [ ] E5 Pós-ligação v2: Atendeu não move etapa; resultado → manter/excluir/reagendar (D3, D9)
+- [~] E5-E7 prontos em `tools/patch_funil_reuniao.py` (simulado: Pós-agendamento 2, Loop do closer 3, No-show 6, SLA 2, Pós-ligação 15 mudanças); aplicação bloqueada pelo modo automático. E5 Pós-ligação v2: Atendeu não move etapa; resultado → manter/excluir/reagendar (D3, D9)
 - [ ] E6 Pós-agendamento v2: reunião marcada → REUNIÃO DE DIAGNÓSTICO (D4)
 - [ ] E7 Loop do closer, Registro de Comparecimento, SLA/Recuperação de no-show → nova etapa (D4)
 - [ ] E8 W17d (AGENDAR Estagnado) → "atendeu e não agendou" dentro de CONECTAR; W22 conta desde a proposta
 - [ ] E9 Cadência Inbound multicanal (D7) e Reengajamento 90d coerente
-- [ ] E10 Interceptação de Sinal / Opt-out: responder pela Stevo (canal SMS) dispara?
+- [~] E10 Gatilho canal 20 (Stevo) acrescentado na Interceptação Resposta v2 e no Opt-out, ativos (23/09, `tools/gatilho_stevo.py`). Falta o teste real com mensagem do número do dono
 - [ ] E11 Mestre de saída, W15, W17b, W18 (meta em toques), listas e painel
 - [ ] E12 Testes ponta a ponta com contato de teste + auditoria final
 - [ ] E13 Faxina: capacidade por SDR (D14) + agendador no GitHub Actions + token do GHL (dono cria)
 - [ ] E14 Janela seg-sex em todo workflow que cria tarefa (D13)
+
+
+Notas: nó `sms` aceito pela API (formato {type:sms, body, attachments}) — gravado no rascunho ZZ TESTE API; prova de entrega pela Stevo pendente. Pausa do retorno = laço de 1 h enquanto Resultado = Pediu retorno (sem espera por data). Pós-agendamento não tirava o lead da Inbound nem do Reengajamento — incluído no patch.

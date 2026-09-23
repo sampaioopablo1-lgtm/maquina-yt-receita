@@ -17,7 +17,10 @@ PIPELINE = "0Fo2xbeayE4EP6yuSUtq"
 STAGES = {
     "NOVO LEAD": "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d",
     "CONECTAR": "deb60542-a5cd-43ae-b875-b467b120a72c",
+    # renomeada na tela em 23/09/2026 (D1); "AGENDAR" fica como apelido
+    # para os builders antigos. Mesmo id — nenhum workflow mudou com o nome.
     "AGENDAR": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
+    "REUNIÃO DE DIAGNÓSTICO": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
     "NEGOCIAR": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
     "FORMALIZAR": "b8485ec0-98e8-459f-b990-f40a5e3bd25b",
 }
