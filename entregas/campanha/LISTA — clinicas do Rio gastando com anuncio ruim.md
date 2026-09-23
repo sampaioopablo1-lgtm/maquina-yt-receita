@@ -6401,3 +6401,56 @@ Combos varridos até aqui: + imobiliária apartamento à venda Niterói (84 ativ
 carrossel vazio: 20 cards sem título numa peça só**; botão padrão repetido em 10 cards em três
 páginas; **munição nova: qualificar pela ENTRADA e não pelo preço total, e "aceita proposta"
 como filtro de quem decide**).
+
+---
+
+## ADVOCACIA TRABALHISTA — rescisão (23/09, nacional)
+
+Duas varreduras nesta rodada. A primeira, `advogado trabalhista demissão Botafogo`, devolveu
+**2 anúncios** — e a lição é a regra de termo: **profissão + bairro estreita demais.** Ficou
+registrado e refiz pelo serviço.
+
+Varredura boa: `demissão sem justa causa receber seus direitos`, BR, ACTIVE. **981 anúncios
+ativos** — o maior volume de advocacia até agora, acima dos 855 da advocacia de família. 22
+páginas distintas, **22 alvos**.
+
+**Novo recorde de "Converse conosco":** o Diego Bruno Nascimento roda **13 anúncios ativos**,
+todos com essa headline, três deles em carrossel repetindo a mesma frase em cada card. Some
+com os 12 da Huff Life (estética) e com os 11 da Fisio Nova: **a auto-concorrência não é mais
+o defeito de um nicho, é o defeito do mercado.** Ghidoni com 4 iguais, Suelen Fraga com 3,
+Carolina Barreira com 2, George Pessoa com 2.
+
+**Trilha A: 13 de 22.** Advocacia segue sendo o nicho de nome próprio.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**Aqui está o melhor contraexemplo da base — uma página que faz certo o que todas as outras
+fazem errado.** O Theodoro & Souza roda sete anúncios ativos e **cada um ataca um ângulo
+diferente**, com headline própria:
+
+- "Você acorda sem vontade de ir trabalhar porque já sabe o que vai encontrar?"
+- "Trabalhou sem registro?"
+- "⚠️ Está pensando em pedir demissão? Calma!"
+- "Você está sendo lesado no trabalho?"
+
+É exatamente o que a gente prega: mesma verba, sete mensagens, zero canibalização. Vale como
+prova na conversa de venda — não é teoria nossa, é o que o concorrente que faz certo já faz.
+
+**E apareceu o primeiro uso realmente bom de carrossel de toda a base.** O Guinossi &
+Rodrigues monta a peça como **lista numerada, um item por card**: "Foi Demitido? 5 Erros no
+Acerto" → "1. Aviso Prévio Proporcional" → "2. Multa de 40% do FGTS" → "3. Descontos
+Indevidos no TRCT" → "Não Assine Antes de Conferir". Cada card carrega informação e o último
+é o CTA. **Regra nova: carrossel é lista, não galeria.** Todas as 30+ páginas com card vazio
+que a gente catalogou estão usando carrossel como álbum de fotos; esta usa como argumento.
+
+**Duas headlines de qualificação para copiar:** "Você assumiu funções além do seu cargo?"
+(Dra. Juciely Nere) e "Sua rescisão está certa?" (Jairo Mota). Nenhuma promete resultado —
+ambas fazem a pessoa checar um fato sobre a própria vida.
+
+LISTA DE ATAQUE: **460 → 482**.
+
+Combos varridos até aqui: + advocacia trabalhista rescisão (nacional, 981 ativos — maior
+volume de advocacia; 22 alvos, 13 em Trilha A; **novo recorde de "Converse conosco": 13
+anúncios de uma página só**; regra confirmada por falha: profissão + bairro devolve quase
+nada; **melhor contraexemplo da base — Theodoro & Souza com 7 anúncios e 7 ângulos
+diferentes**; e o **primeiro carrossel bem usado: lista numerada, um item por card**).
