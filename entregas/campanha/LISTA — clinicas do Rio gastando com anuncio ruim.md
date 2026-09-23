@@ -6073,3 +6073,55 @@ todos; 22 alvos; **filtro novo: `currency` diferente de BRL denuncia infoproduto
 disfarçado de página local**, 5 páginas com nome de pessoa e a mesma copy; auto-concorrência
 pela terceira vez e agora em franquia grande — Wizard com 11 anúncios iguais; melhor oferta
 de risco zero já vista, da Five Nova Friburgo).
+
+---
+
+## ÓTICA — óculos de grau (23/09, nacional)
+
+Varredura: `óculos de grau armação completa`, BR, ACTIVE. **131 anúncios ativos**, 35 páginas
+distintas, **31 alvos** (fora Verlux Brasil Ofertas, Millu Shop, Querover e Oculosjaoficial,
+que são e-commerce de dropship, não loja).
+
+**A regra do termo de PRODUTO se confirma, mas com ressalva.** "Óculos de grau" de fato traz
+ótica de rua onde "ótica" trazia distribuidor — mas traz junto **dropship de produto barato**
+("Óculos de leitura HD com ajuste automático", "Óculos 2 em 1") e **oftalmologista**. Dá
+para separar sem abrir a página: a loja real põe cidade ou bairro no nome; o dropship põe
+"Ofertas", "Shop" ou "Brasil".
+
+**Achado que vale mais que a lista: o nicho já tem uma máquina de lead pronta rodando.**
+Cinco páginas operam no modelo *exame grátis + armação cortesia* com nome de instituto —
+Projeto Enxergar (Castanhal), Instituto Claro, Instituto Visão Solidária (Itaperuna/RJ),
+Visão no Lar, Visão Perfeita (Manaus, três unidades). As headlines são de urgência pura:
+"🚨 VAGAS ABERTAS: EXAME + ARMAÇÃO DE GRAU GRÁTIS NA ZONA LESTE", "🚨 PARE TUDO,
+ITAPERUNA!". **É exatamente o nosso modelo de negócio — gerar lead qualificado por oferta de
+entrada — só que operado pela própria ótica.** Quem já faz isso sozinho é alvo difícil; quem
+não faz e vê o concorrente fazendo é alvo fácil. Vale usar isso na abordagem.
+
+**Auto-concorrência, quarta aparição:** Óticas Lillo com **6 anúncios ativos** e a mesma
+headline "Minha Experiência Completa na Óticas Lillo! 👓". Ótica Curitiba com 3, Ótica da
+Cidade e Stile com 2 cada. Quatro nichos, cinco páginas, o mesmo erro.
+
+**Defeito novo e barato de identificar: o texto padrão do botão deixado no campo do
+título.** "Converse conosco" aparece como headline em cinco páginas — Stile, Oticasmaia,
+Suenny Maia, Equilibrium, Ótica da Cidade. Não é URL crua nem título vazio: é a pessoa que
+nunca abriu o campo. Some com "Nos chame agora mesmo" (Ótica Curitiba) e "Fale conosco!"
+(Mercadão Paracatu) e vira a família de defeito mais comum do nicho.
+
+E um defeito que eu não tinha visto em lugar nenhum: **headline que diz o que NÃO tem.** O
+Projeto Enxergar roda "CIRURGIAS NÃO ESTÃO DISPONIVEIS" como título. Está gastando para
+avisar quem o procurou que não vai ser atendido.
+
+**Trilha A: 6 de 31** — Suenny Maia, Oticasmaia, Josy JMB, Fábio Medina Rocha, Dra Raisa
+Rubert, Barboza Saab. Baixo, e coerente com a regra corrigida na arquitetura: óculos a
+pessoa **contrata uma capacidade**, não escolhe um dono.
+
+**Alvo do Rio:** Instituto Visão Solidária — Itaperuna/RJ.
+
+LISTA DE ATAQUE: **334 → 365**.
+
+Combos varridos até aqui: + ótica óculos de grau (nacional, 131 ativos — 31 alvos, 6 em
+Trilha A; o termo de produto traz a loja real mas também dropship, separável pelo nome da
+página; **achado grande: cinco páginas já rodam o modelo "exame grátis + armação cortesia",
+que é a nossa própria mecânica de lead operada pela ótica**; auto-concorrência na quarta
+aparição, Óticas Lillo com 6 iguais; **defeito novo: o texto padrão do botão — "Converse
+conosco" — deixado no campo do título, em 5 páginas**).
