@@ -1711,3 +1711,65 @@ então não há o que medir na etapa da conversa. **Não gastei a rodada otimiza
 — com a conta parada, qualquer leitura de criativo seria leitura de nada.
 
 Pablo já foi avisado uma vez sobre a fatura. Não repito.
+
+---
+
+## 23/09 12h — a conta parou no dia 22, e o dia 22 foi o único zerado
+
+Rodada REGRA V3. **Li o dia a dia da campanha em vez de só o acumulado, e isso desfaz uma
+leitura errada que eu estava carregando.** A campanha entregou normalmente de 16 a 21/09 e
+parou de vez no dia 22:
+
+| dia | impressões | gasto | leads |
+|---|---|---|---|
+| 16/09 | 828 | R$32,30 | 5 |
+| 17/09 | 692 | R$22,42 | 2 |
+| 18/09 | 850 | R$18,26 | 3 |
+| 19/09 | 730 | R$17,89 | 1 |
+| 20/09 | 984 | R$25,28 | 3 |
+| 21/09 | 453 | R$12,01 | 1 |
+| **22/09** | **0** | **R$0** | **0** |
+
+São **15 leads em seis dias por R$128,16**, CPL médio **R$8,54**. Nenhum é novo — todos
+entraram antes da conta travar. O que eu venho chamando de "conta parada" tem data exata de
+início: **22/09**. Antes disso a máquina estava funcionando.
+
+**C0 — julgamento dos seis conjuntos** (janela dos últimos 7 dias, que é o que a Meta
+devolve; os conjuntos de nicho foram criados em 17/09, então a janela cobre a vida deles):
+
+| conjunto | impressões | leads | CPL | veredito |
+|---|---|---|---|---|
+| INTERESSE | 2.030 | 7 | R$8,82 | mantém |
+| ADVOCACIA | 1.165 | 4 | R$7,03 | mantém — **melhor CPL dos grandes** |
+| IMOBILIÁRIA | 449 | 0 | — | **NÃO TESTADO (TRAVA 7)** |
+| CNAE | 422 | 2 | R$6,08 | mantém |
+| CONTABILIDADE | 380 | 1 | R$11,00 | mantém |
+| HARMONIZAÇÃO | **5** | 0 | — | **NÃO TESTADO (TRAVA 7)** |
+
+Nenhum corte. Os dois sem lead ficaram abaixo das 500 impressões, então a TRAVA 7 se aplica:
+o veredito é falta de verba, não público ruim. A HARMONIZAÇÃO é o caso extremo — **cinco
+impressões desde 16/09**. A CBO simplesmente nunca a alimentou.
+
+**T1–T8 — um anúncio bateu condição de troca.** Só quatro anúncios passaram das 300
+impressões, que é o piso para ter veredito:
+
+- `120247466750200766` **V11 — F3** (INTERESSE): 1.347 imp, 4 leads, CPL R$8,99, CTR 3,04% —
+  **vencedor do conjunto**.
+- `120247487668280766` **ADV V05 — curta** (ADVOCACIA): 1.160 imp, 4 leads, CPL R$7,01 —
+  **vencedor da conta**, e é a copy curta.
+- `120247487435050766` **CONT V03 — abertura de empresa**: 362 imp, 1 lead, CPL R$10,70 — passa.
+- `120247487409370766` **IMOB V03 — indicacao acabou**: **430 impressões, 0 lead, CTR 1,86%**
+  → **bate T1**.
+
+**A troca do IMOB V03 não foi feita, e a razão não é julgamento meu.** Duas travas ao mesmo
+tempo: (a) o conjunto IMOBILIÁRIA tem exatamente 5 anúncios ativos, e a regra proíbe deixá-lo
+com menos de 5 — então o antigo não poderia ser pausado de qualquer forma; (b) criar o
+substituto depende do Windsor (`create_ad`), que está **sem autorização nesta sessão**, e do
+MCP, que não escreve na conta desde o bloqueio. Registro aqui para a troca sair na primeira
+rodada em que a conta voltar.
+
+**O que os números dizem para o criativo, e vale mais que a troca:** o vencedor da conta
+inteira é **a copy curta** (ADV V05, R$7,01). O V11 do INTERESSE tem CTR maior (3,04%) mas
+CPL pior (R$8,99). E os dois melhores CPL absolutos são de anúncios com pouca entrega e um
+lead só — V16 CNAE a R$1,37 e V17 do INTERESSE a R$1,62 —, número bonito demais para o
+volume que têm; não servem de base ainda.
