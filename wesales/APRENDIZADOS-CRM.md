@@ -2,6 +2,44 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## "Marcado" não é "promovido" — tag sozinha não move etapa, e a frase que descrevia os dois como feitos só tinha feito o primeiro — 23/09/2026, sessão na nuvem
+
+`PLANO-MULTICANAL.md` ("Só inbound", madrugada de 23/09) registrou como
+`[x]` uma frase com duas partes: "os 49 leads em `NOVO LEAD` foram
+marcados. Promovido para `CONECTAR` → Inbound...". A primeira parte
+aconteceu (medido: as 50 oportunidades hoje em `NOVO LEAD` têm a tag
+`cad-inbound`). A segunda não: as mesmas 50 seguem abertas em `NOVO LEAD`,
+zero com `Entrada em`/`Tentativa nº`, zero com tarefa (`contacts_get-all-
+tasks` em 5 amostras, incluindo 3 leads reais). O motivo está escrito no
+próprio projeto e ninguém cruzou antes de escrever "promovido": o gatilho
+da Cadência Inbound (`IMPLEMENTACAO-WORKFLOWS.md`, W12) é `Opportunity
+Stage Changed → CONECTAR`, filtrado por `cad-inbound` presente — ele
+escuta a **mudança de etapa**, não a tag. Aplicar a tag a um lead que
+continua em `NOVO LEAD` não aciona nada; é o mesmo "gatilho de workflow é
+evento, não estado" que este arquivo já registrou em 21/09/2026 (entrada
+"Gatilho de workflow é evento..."), agora do lado da tag em vez do lado da
+publicação do workflow.
+
+**A regra que fica, generalizável:** quando uma correção mexe em **duas**
+coisas que juntas produzem um resultado (aqui: tag decide qual cadência,
+etapa decide se alguma cadência roda), marcar as duas como `[x]` na mesma
+frase exige medir as duas — medir só a mais fácil (a tag, que aparece na
+lista de tags do contato) e escrever a frase como se a mais difícil
+(mudança de etapa em massa, que precisa de `opportunities_search-
+opportunity`, não de `contacts_get-contacts`) também tivesse acontecido é
+o mesmo erro que o G-08 já registrou ("achado escrito não é aplicado
+sozinho"), aqui na direção oposta: não é uma correção que ficou só no
+texto, é um resultado que o texto descreve como obtido e a conta desmente.
+**Antes de marcar `[x]` uma frase com verbo composto ("marcado e
+promovido", "corrigido e publicado"), medir cada verbo separado — o
+`[x]` vale para a frase inteira, não para a parte que foi medida.**
+
+Sem mudança no CRM por esta sessão: mover as 50 oportunidades é a mesma
+decisão que G-03 já represa há dias (regra 2 do briefing — ação em massa
+em dado de produção pede confirmação do dono antes). Detalhe completo,
+com os números e a amostra, em `ROADMAP-SALES-ENGAGEMENT.md` (G-03) e
+`PLANO-MULTICANAL.md` (nota na linha "Só inbound").
+
 ## Mensagem automática testada com número real — e dois merge fields que saíam errados — 23/09/2026, sessão do PC
 
 Teste com o número do dono (+55 12 98238-1407; a conta Stevo é outro número,
