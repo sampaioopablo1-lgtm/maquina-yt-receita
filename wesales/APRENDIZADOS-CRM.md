@@ -136,6 +136,36 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## O dono resolveu o F-16 melhor do que eu havia recomendado — tirar a cláusula vence consertar a cláusula — 23/09/2026, sessão na nuvem
+
+Eu recomendei a saída A para o F-16: dar a `conectado-hoje` o reset que o nome
+dela promete (`Wait 24h` → `Remove Tag`, dentro do `Pós-ligação v2`). O dono fez
+duas coisas, e as duas são melhores:
+
+1. **Em workflow à parte** (`tag adicionada → espera 1 dia → remove`,
+   `allowMultiple: true`) em vez de dentro do `Pós-ligação v2`. Não acrescenta
+   cinco ramos de `Wait` num workflow de 130 nós, e a re-entrada fica explícita em
+   vez de implícita. Conferi por medição que funciona: a cópia ZZ (espera 2 min)
+   tirou a tag do contato de teste.
+2. **E uma saída que eu não tinha visto:** `Fila Telefone Hoje = fila-tel +
+   etapa-conectar`, **sem `conectado-hoje` na lista** — porque a 12x30 põe e tira
+   `fila-tel` a cada toque (conferido nos nós: adiciona em 48/108/161/214/274/327,
+   remove em 64/117/170/230/283/336). Se `fila-tel` só existe enquanto a tentativa
+   está liberada, ele já carrega a informação que a cláusula `não conectado-hoje`
+   tentava dar.
+
+**A lição, e ela é sobre como eu penso:** eu tratei o sintoma — a tag não expirava,
+então fiz a tag expirar. Ele tirou a cláusula da equação. Numa conjunção de filtro,
+**remover uma cláusula é estruturalmente mais forte que consertar uma cláusula**,
+porque cláusula que não existe não pode virar dependência escondida quando a
+vizinha mudar — que é *exatamente* o mecanismo do F-16 que eu mesmo descrevi. Eu
+tinha o diagnóstico certo e parei uma casa antes da conclusão.
+
+Regra: diante de uma cláusula redundante que virou perigosa, perguntar **"esta
+cláusula precisa existir?"** antes de **"como faço ela funcionar?"**. As duas
+juntas são o ideal (a tag passa a expirar, por higiene de estado, **e** a lista
+deixa de depender dela), mas a ordem de preferência é tirar antes de consertar.
+
 ## Campo que existe e ninguém escreve: o multicanal não vai saber qual canal funcionou — e um mapa que de propósito não falha — 23/09/2026, sessão na nuvem
 
 O `d880870` conta que o dono achou **à mão** "4 campos de data que nunca

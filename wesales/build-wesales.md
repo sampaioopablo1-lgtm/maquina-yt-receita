@@ -4760,6 +4760,27 @@ começa a produzir o vazamento a partir da primeira conexão.
 | C | Um workflow recorrente de meia-noite que remove `conectado-hoje` de todo mundo | workflow novo + o MCP não cria workflow | mais uma peça para manter |
 | D | Aceitar a tag como permanente e tirar a cláusula das duas filas | edição de 2 listas | perde o efeito "já falei com ele hoje" — o SDR volta a ver na fila quem ele acabou de ligar |
 
+> **Atualização de 23/09 04:40 — o dono executou, e com uma variante melhor que a
+> minha em dois pontos.** Ele fez a saída A **em workflow à parte** (`tag adicionada
+> → espera 1 dia → remove`, `build_limpa_conectado.py`, `allowMultiple: true`) em
+> vez de dentro do `Pós-ligação v2`, que era o que eu recomendei. Melhor: não
+> acrescenta cinco ramos de `Wait` num workflow de 130 nós, e a re-entrada fica
+> explícita. A cópia `ZZ TESTE Limpa conectado-hoje (24 h)` (espera 2 min) foi
+> testada e **conferi por medição que a tag saiu** — `conectado-hoje` em 2 contatos,
+> os dois de 01:55, nenhum é o 9940.
+>
+> **E ele achou uma saída que eu não tinha visto, que é melhor que a A para o
+> filtro:** `Fila Telefone Hoje = fila-tel + etapa-conectar`, **dispensando
+> `conectado-hoje` na lista** — porque a 12x30 põe e tira `fila-tel` a cada toque
+> (conferido: `Cadência 12x30` adiciona nos nós 48/108/161/214/274/327 e remove nos
+> 64/117/170/230/283/336). Se `fila-tel` só existe enquanto a tentativa está
+> liberada, ele já carrega a informação que a cláusula `não conectado-hoje` tentava
+> dar. Minha saída A trata o sintoma (a tag não expirava); a dele tira a cláusula da
+> equação. **As duas juntas são o certo:** a tag passa a expirar (higiene do estado)
+> e a lista deixa de depender dela (o filtro fica com uma cláusula em vez de duas —
+> e cláusula que não existe não pode virar dependência escondida, que é a lição do
+> F-16).
+
 **Recomendo A.** ⚠️ **A saída B caiu** — eu a tinha escrito como alternativa
 limpa e ela não sobrevive à conferência: a seção 2.31.2 mostra que o
 removedor de `fechar-horario` mora dentro do `Fechar Horário` e **não é
