@@ -17,6 +17,8 @@ Interceptação Resposta v2) ficou **sem filtro de canal** ("qualquer canal").
 Os três já decidem pelo conteúdo e pelas tags. Republicados (rascunho →
 publicado reativa o gatilho).
 
+**Provado com evento real (23/09, 00:19):** nova resposta do 9940 → Triagem entrou (passou "em nutrição?", foi para a espera de 2 min) e o Opt-out rodou e terminou sem agir (não era pedido de parar).
+
 **Regra:** gatilho só está testado quando dispara com um evento real. "Ativo"
 e "alvo existe" não provam nada.
 
