@@ -6514,3 +6514,72 @@ Combos varridos até aqui: + psicologia/terapia nacional por termo de serviço (
 **defeito novo: título = domínio (`instagram.com`, `api.whatsapp.com`), impulsionamento pelo
 celular**; **novo recorde de botão padrão: 9 "Fale conosco" num título só**; regra nova:
 termo de saúde mental puxa terapia espiritual, filtrar por `psi.`/CRP no nome da página).
+
+## Energia solar — varredura nacional por termo de serviço (23/09, 17h)
+
+Termo: `energia solar economize na conta de luz orçamento sem compromisso`, BR, ACTIVE.
+**545 anúncios ativos.** Amostra de 50 → **33 páginas distintas**. **24 alvos, só 3 em
+Trilha A** — e é isso que o nicho ensina.
+
+### A regra do nome próprio fecha aqui
+
+Quase ninguém usa o próprio nome: Gm, MM, Rawell, Dunnas, Solarium são exceção no meio de
+TMD, GDX, VS Energy, Ecosfera, Stellato, Revelis, Bitsol, Seven Tech, NewSolar, Yottawatt.
+**Confirma a regra nascida na arquitetura: o que decide o nome da página é se o cliente
+escolhe uma PESSOA ou contrata uma CAPACIDADE.** Ninguém escolhe quem parafusa a placa no
+telhado — escolhe quem entrega o sistema. Advocacia e psicologia são nome próprio;
+arquitetura e solar são marca. A regra agora tem os dois lados provados.
+
+### O defeito novo da psicologia se repete aqui, uma hora depois
+
+**Título = domínio**, de novo: Sun Mega Energia Solar com `api.whatsapp.com`, Solar RMT com
+`instagram.com`. A regra criada às 16h num nicho totalmente diferente apareceu de primeira
+no seguinte. **Não é vício de um mercado, é o que acontece quando se impulsiona pelo celular.**
+
+E o título em branco continua: GDX Engenharia sobe **dois anúncios cujo título é um espaço
+literal** (` `). Smart Litoral e Solarse, campo vazio.
+
+### A headline virou commodity — e dá para provar
+
+Nenhum outro nicho da base mostrou isso com tanta clareza:
+
+| headline | quantas páginas DIFERENTES usam |
+|---|---|
+| `⚡ De R$ 600 para R$ 69 na conta de luz!` | 2 (VS Energy e Ecosfera Solar) |
+| `Economize até 90% na conta de luz` | 5 (EASY WAY, Stellato, Revelis, Rawell, 2L) |
+| `Orçamento👉` | 3 (NewSolar, Bitsol, Seven Tech) |
+| `Converse conosco` | 3 (Gratitude, Rali, Norte Solar) |
+
+A primeira linha é a mais séria: **duas empresas concorrentes rodando a MESMA frase, no
+MESMO formato de carrossel com seis cards repetindo o texto.** Isso não é coincidência, é
+template — a mesma agência atendendo as duas, ou modelo comprado pronto. **Argumento de
+venda direto: "o seu anúncio é o mesmo do seu concorrente, palavra por palavra."**
+
+Auto-concorrência dentro de casa, como sempre: VS Energy 4 iguais, Seven Tech 3, Revelis 3,
+Rawell 3, Gm 2, Stellato 2, Solar Eletricidade 2. Rali Solar com 5 "Converse conosco" num
+carrossel, Norte Solar com 6, Solvix com 6 "Sua conta de luz está alta?".
+
+**2L Elétrica** põe a legenda inteira no campo do título — cinco linhas com quebra de linha
+e emoji. Confirma a regra do pet shop (título acima de ~40 caracteres é legenda no campo
+errado), agora com quebra de linha dentro.
+
+### O contraexemplo do nicho: Get Financas
+
+Carrossel de dez cards, **um segmento de cliente por card**: "Sua loja precisa de energia
+para vender." / "Refrigeração e iluminação sem parar." / "Cozinha funcionando. Energia
+trabalhando." / "Sua clínica precisa de energia. Seu custo merece atenção." / e fecha com
+**"Sua conta passa de R$ 400? Pode existir uma oportunidade"**.
+
+É o carrossel-como-lista do Guinossi (advocacia) aplicado a segmentação, e o último card
+**qualifica pelo valor da conta** — o mesmo movimento do "qualificar pela entrada" que a
+imobiliária de Niterói ensinou. Um anúncio só cobrindo seis públicos sem canibalizar
+nenhum. É o que a gente vende.
+
+LISTA DE ATAQUE: **508 → 532**.
+
+Combos varridos até aqui: + energia solar nacional por termo de serviço (545 ativos, 33
+páginas em 50 anúncios; 24 alvos, só 3 em Trilha A — **fecha a regra do nome próprio: marca
+onde se contrata capacidade, nome onde se escolhe pessoa**; **a regra do título-domínio
+criada na psicologia se repetiu de primeira aqui**; **headline commodity: a mesma frase em
+páginas concorrentes, prova de template de agência**; contraexemplo Get Financas, carrossel
+com um segmento por card e qualificação pelo valor da conta).
