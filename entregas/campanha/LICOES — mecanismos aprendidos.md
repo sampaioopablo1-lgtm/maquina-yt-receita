@@ -1587,3 +1587,31 @@ O `breakdowns: ["region"]` devolve impressões e gasto por estado, mas o campo `
 **null** em todas as linhas — a Meta não atribui o lead por região nesta chamada. Dá para
 afirmar onde a **entrega** foi, não de onde veio cada lead. Com 92% da entrega no RJ o DDD
 21 está explicado, mas a afirmação honesta é sobre entrega, não sobre o registro individual.
+
+## Escrita no Meta está fechada por todos os conectores (23/09 03h)
+
+O Pablo mandou subir dez criativos nos conjuntos. Não foi possível por nenhum caminho, e
+cada um falhou de um jeito diferente — registrado aqui para ninguém refazer a varredura:
+
+| Caminho | Resposta |
+|---|---|
+| `ads_creative_upload_media` (Facebook MCP, URL) | "This tool is new and is being gradually rolled out" — não liberado nesta conta |
+| `ads_creative_upload_image` (Facebook MCP, URL) | `Authorization Error` |
+| `ads_create_creative` (Facebook MCP, hash já existente na conta) | `Permission Error: the action you are trying to take is restricted to certain account types` |
+| `METAADS_CREATE_AD_CREATIVE`, `METAADS_CREATE_AD`, `METAADS_CREATE_AD_SET` (Composio) | **restritas neste ambiente** — o servidor as lista como bloqueadas e não as expõe |
+| `METAADS_UPLOAD_AD_IMAGE` (Composio) | aceita só `s3key` do storage interno; URL pública devolve 404 |
+| Windsor | conector sem autorização nesta sessão |
+
+**Leitura segue inteira** — conjuntos, anúncios, criativos, imagens, insights e Biblioteca
+de Anúncios funcionaram a noite toda. O bloqueio é só de escrita, e bate com o erro da
+própria conta: *"This ad account has a balance that needs to be paid before you can
+publish"*.
+
+**Regra prática:** antes de prometer publicação, testar a escrita com uma chamada barata
+(`ads_create_creative` com um `image_hash` que já existe na conta). Se devolver Permission
+Error, a conta está fechada para escrita e o resto do plano não vai rodar — melhor dizer
+isso de saída do que descobrir depois de montar tudo.
+
+**O que destrava:** quitar a fatura. Se depois disso a escrita continuar fechada, o
+caminho seguinte é autorizar o conector Windsor (que serve para `create_ad`), e não
+insistir no Facebook MCP.
