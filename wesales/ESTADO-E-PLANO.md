@@ -117,6 +117,29 @@ calendário do closer por API.
 
 ## 6. O que os 24 dumps de workflow não dizem
 
+> **Refinado em 23/09/2026, 01:30 UTC — metade disto venceu, e a metade que
+> sobrou ficou mais precisa.**
+>
+> Os dumps foram refeitos ao vivo em `482de1f` ("inventário ao vivo dos 24
+> workflows"). Depois do refresh:
+>
+> | | Antes (22/09) | Agora |
+> |---|---|---|
+> | `status` | `draft` em todos os 22 | **`published` em 24** de 26 |
+> | `triggers` | `[]` em todos | **`[]` em todos os 26, ainda** |
+>
+> Então a conclusão se divide em duas, e só uma continua valendo:
+>
+> - **"O `draft` era artefato de fotografia pré-publicação" — confirmado.** Um
+>   dump refeito depois de publicar mostra `published`. Hoje dá para responder
+>   "isto está no ar?" olhando o arquivo.
+> - **"O dump não diz o gatilho" — continua, e agora é mais forte.** O
+>   `triggers: []` sobreviveu ao refresh ao vivo nos 26 arquivos. Não é
+>   defasagem: **o gatilho não entra nesta forma de exportação, ponto.** E é
+>   nele que mora a correção dos monitores do F-05.
+>
+> A frase que fica: **`workflows-json/` responde "está publicado?" e nunca
+> responde "em qual gatilho?".** Para a segunda pergunta, só a tela.
 Os 24 arquivos de `workflows-json/` — incluindo `Monitor de Capacidade` e
 `Qualidade da Conexão`, criados hoje — trazem **todos** `status: draft` e
 `triggers: []`. É artefato do dump (fotografia do payload antes de publicar),
