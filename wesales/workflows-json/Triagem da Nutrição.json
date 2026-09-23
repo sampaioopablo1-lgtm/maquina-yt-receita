@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Triagem da Nutrição",
-    "version": 9,
+    "version": 14,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/9",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F9?alt=media&token=c862de18-c509-4851-a473-99e899a66630",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/14",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F14?alt=media&token=dffd20b2-967b-4aec-b30e-26f9e0183c3b",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T02:28:04.232Z",
-    "updatedAt": "2026-09-23T02:30:16.812Z",
+    "updatedAt": "2026-09-23T03:23:29.577Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -27,7 +27,7 @@
     "eventStartDate": null,
     "senderAddress": null,
     "status": "draft",
-    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e7738b57-b047-4fdb-b3cb-06c72f2ca103/9",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e7738b57-b047-4fdb-b3cb-06c72f2ca103/14",
     "window": {
       "days": [
         1,
@@ -45,21 +45,21 @@
     "meta": {
       "advanceCanvasMeta": {
         "enabled": true,
-        "enabledAt": "2026-09-23T02:30:15.000Z"
+        "enabledAt": "2026-09-23T03:23:28.000Z"
       }
     },
     "id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
     "workflowData": {
       "templates": [
         {
-          "id": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
+          "id": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
           "order": 0,
           "name": "Está em nutrição?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "f478410a-c042-44a1-8fc1-34e2af459f04",
-            "ae4f7b84-bb2f-4318-9764-190e3b5fd50d"
+            "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+            "497f8c02-c54b-419c-9757-364b639af998"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -67,11 +67,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "f478410a-c042-44a1-8fc1-34e2af459f04",
+                "id": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "a0cd2472-e9d5-4c61-a4d5-9c523567e8bc",
+                    "__segmentId": "1f7ea9d3-3804-4bed-b3ca-89527807f1ce",
                     "operator": "and",
                     "conditions": [
                       {
@@ -81,7 +81,7 @@
                         "conditionValue": [
                           "status-nutricao"
                         ],
-                        "__conditionId": "a0a60aca-df11-42cd-8744-5d83c71cadbd",
+                        "__conditionId": "029420b6-fb4f-410c-b54e-80d56104c3e0",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -118,7 +118,7 @@
                         "conditionValue": [
                           "nao-perturbe"
                         ],
-                        "__conditionId": "e9617ecd-84a6-4df4-abfc-8c3ef20b9ba1",
+                        "__conditionId": "fcfe5114-7fa9-45f2-b4b0-6f9f8f693448",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -170,15 +170,15 @@
           }
         },
         {
-          "id": "f478410a-c042-44a1-8fc1-34e2af459f04",
-          "parent": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
-          "parentKey": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
+          "id": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+          "parent": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "parentKey": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "ae4f7b84-bb2f-4318-9764-190e3b5fd50d"
+            "497f8c02-c54b-419c-9757-364b639af998"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -188,7 +188,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "d6fe5426-3898-42b6-a650-17c1ca2477b8",
+          "next": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
           "advanceCanvasMeta": {
             "position": {
               "x": 700,
@@ -197,15 +197,15 @@
           }
         },
         {
-          "id": "ae4f7b84-bb2f-4318-9764-190e3b5fd50d",
-          "parent": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
-          "parentKey": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
+          "id": "497f8c02-c54b-419c-9757-364b639af998",
+          "parent": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "parentKey": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "f478410a-c042-44a1-8fc1-34e2af459f04"
+            "5dfd2342-904d-4ec6-a804-52d0a9a05639"
           ],
           "comments": [],
           "nodeType": "branch-no",
@@ -220,14 +220,14 @@
           }
         },
         {
-          "id": "d6fe5426-3898-42b6-a650-17c1ca2477b8",
+          "id": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
           "order": 0,
           "name": "Já recebeu a triagem?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "77d8856a-98ed-4402-a3bb-59c38312796f",
-            "591280a6-6e8b-47ad-978d-8afe7cce0cde"
+            "3547732b-370d-4db2-947a-597dd76b7a38",
+            "70609ac8-1d51-4fd9-bcd7-7403f5fc6593"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -235,11 +235,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "77d8856a-98ed-4402-a3bb-59c38312796f",
+                "id": "3547732b-370d-4db2-947a-597dd76b7a38",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "5bdc7a92-746a-4c76-b78c-65951a2559d9",
+                    "__segmentId": "5095ee11-5172-40ec-9518-567383f6e343",
                     "operator": "and",
                     "conditions": [
                       {
@@ -249,7 +249,7 @@
                         "conditionValue": [
                           "triagem-enviada"
                         ],
-                        "__conditionId": "80bf0db0-1422-4b42-af38-7096669c33c8",
+                        "__conditionId": "e3364430-7faa-4d30-b232-a36c7d17ad9e",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -293,8 +293,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "f478410a-c042-44a1-8fc1-34e2af459f04",
-          "parentKey": "f478410a-c042-44a1-8fc1-34e2af459f04",
+          "parent": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+          "parentKey": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
           "advanceCanvasMeta": {
             "position": {
               "x": 1300,
@@ -303,15 +303,15 @@
           }
         },
         {
-          "id": "77d8856a-98ed-4402-a3bb-59c38312796f",
-          "parent": "d6fe5426-3898-42b6-a650-17c1ca2477b8",
-          "parentKey": "d6fe5426-3898-42b6-a650-17c1ca2477b8",
+          "id": "3547732b-370d-4db2-947a-597dd76b7a38",
+          "parent": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "parentKey": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "591280a6-6e8b-47ad-978d-8afe7cce0cde"
+            "70609ac8-1d51-4fd9-bcd7-7403f5fc6593"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -321,7 +321,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "434df5cd-4911-47fc-8bb5-c129ff0c2152",
+          "next": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
           "advanceCanvasMeta": {
             "position": {
               "x": 1600,
@@ -330,22 +330,22 @@
           }
         },
         {
-          "id": "591280a6-6e8b-47ad-978d-8afe7cce0cde",
-          "parent": "d6fe5426-3898-42b6-a650-17c1ca2477b8",
-          "parentKey": "d6fe5426-3898-42b6-a650-17c1ca2477b8",
+          "id": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parent": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "parentKey": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "77d8856a-98ed-4402-a3bb-59c38312796f"
+            "3547732b-370d-4db2-947a-597dd76b7a38"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "bc02a221-aefd-40ae-aad5-42b514a19993",
+          "next": "b83b545b-4efe-4bac-adc8-d5eb3cdb637f",
           "advanceCanvasMeta": {
             "position": {
               "x": 1900,
@@ -354,14 +354,14 @@
           }
         },
         {
-          "id": "434df5cd-4911-47fc-8bb5-c129ff0c2152",
+          "id": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
           "order": 0,
           "name": "Sem interesse?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-            "ba4b015b-7a7b-46b5-b0e1-b464139c5c9d"
+            "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+            "e3b3104f-069e-4608-889f-2ba555b7bbba"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -369,11 +369,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
+                "id": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "b72d3507-b4d3-49b1-b0ff-e5c8eb42d26a",
+                    "__segmentId": "e52b26b9-11d3-4ee4-8cb0-a0596b433bd5",
                     "operator": "or",
                     "conditions": [
                       {
@@ -381,7 +381,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "==",
                         "conditionValue": "3",
-                        "__conditionId": "590a3deb-1a67-49f8-b572-6d87b878d255",
+                        "__conditionId": "d31cc5ce-43ad-4ff9-9f59-d5818589187b",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -391,7 +391,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não tenho interesse",
-                        "__conditionId": "ca0f228b-45da-43bb-942d-3fd58b19ec9a",
+                        "__conditionId": "39a23c3b-bda2-4ffa-8ed2-eab5c8410a72",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -401,7 +401,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "nao tenho interesse",
-                        "__conditionId": "d9a98872-5363-45ab-b4c9-61b2e2dbc6cc",
+                        "__conditionId": "900e9b3b-4271-45df-963d-df84a98cad75",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -411,7 +411,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "sem interesse",
-                        "__conditionId": "bfed6971-f75d-4cd8-80f4-b5efc23c52a8",
+                        "__conditionId": "209e6bf2-e10a-4d9f-ae83-a84e381949af",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -421,7 +421,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "não quero",
-                        "__conditionId": "d11a41eb-e451-472d-af62-01cd87c4a239",
+                        "__conditionId": "2648a496-f6c6-436a-b295-7cafd52d4e45",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -431,7 +431,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "nao quero",
-                        "__conditionId": "99207550-fb0a-4d80-a207-3ef7629eadfc",
+                        "__conditionId": "e2ada6e2-343b-40f3-befa-0859c9d94a65",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -450,8 +450,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "77d8856a-98ed-4402-a3bb-59c38312796f",
-          "parentKey": "77d8856a-98ed-4402-a3bb-59c38312796f",
+          "parent": "3547732b-370d-4db2-947a-597dd76b7a38",
+          "parentKey": "3547732b-370d-4db2-947a-597dd76b7a38",
           "advanceCanvasMeta": {
             "position": {
               "x": 2200,
@@ -460,15 +460,15 @@
           }
         },
         {
-          "id": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "parent": "434df5cd-4911-47fc-8bb5-c129ff0c2152",
-          "parentKey": "434df5cd-4911-47fc-8bb5-c129ff0c2152",
+          "id": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parent": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "parentKey": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "ba4b015b-7a7b-46b5-b0e1-b464139c5c9d"
+            "e3b3104f-069e-4608-889f-2ba555b7bbba"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -478,7 +478,7 @@
             "operator": "or",
             "branches": []
           },
-          "next": "ae6e5b56-22b2-466c-a415-4d8fa97f8fb5",
+          "next": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
           "advanceCanvasMeta": {
             "position": {
               "x": 2500,
@@ -487,22 +487,22 @@
           }
         },
         {
-          "id": "ba4b015b-7a7b-46b5-b0e1-b464139c5c9d",
-          "parent": "434df5cd-4911-47fc-8bb5-c129ff0c2152",
-          "parentKey": "434df5cd-4911-47fc-8bb5-c129ff0c2152",
+          "id": "e3b3104f-069e-4608-889f-2ba555b7bbba",
+          "parent": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "parentKey": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "f803316b-0fdf-4eb3-b523-af9bbd7f0e03"
+            "a6fd0239-35f1-41d1-9c36-47f31e05ce6c"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "6995397c-d4b9-4b5b-8ce3-d6d090ff8d45",
+          "next": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
           "advanceCanvasMeta": {
             "position": {
               "x": 2800,
@@ -511,7 +511,7 @@
           }
         },
         {
-          "id": "ae6e5b56-22b2-466c-a415-4d8fa97f8fb5",
+          "id": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -520,9 +520,9 @@
             ]
           },
           "order": 0,
-          "parent": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "parentKey": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "next": "efa40581-4a66-4d70-bca6-15fe0f88e04e",
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "next": "83763403-2f6a-466b-968f-b5c621047985",
           "advanceCanvasMeta": {
             "position": {
               "x": 3100,
@@ -532,7 +532,7 @@
           "cat": ""
         },
         {
-          "id": "efa40581-4a66-4d70-bca6-15fe0f88e04e",
+          "id": "83763403-2f6a-466b-968f-b5c621047985",
           "name": "Remove Tag",
           "type": "remove_contact_tag",
           "attributes": {
@@ -543,9 +543,9 @@
             ]
           },
           "order": 1,
-          "parent": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "parentKey": "ae6e5b56-22b2-466c-a415-4d8fa97f8fb5",
-          "next": "222c610e-966e-4d21-90ff-ff8eaad44f68",
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
+          "next": "f230980a-216a-4c67-8260-bc2130a40d40",
           "advanceCanvasMeta": {
             "position": {
               "x": 3400,
@@ -555,7 +555,7 @@
           "cat": ""
         },
         {
-          "id": "222c610e-966e-4d21-90ff-ff8eaad44f68",
+          "id": "f230980a-216a-4c67-8260-bc2130a40d40",
           "name": "Set Contact DND",
           "type": "dnd_contact",
           "attributes": {
@@ -565,9 +565,9 @@
             "specific_channels": []
           },
           "order": 2,
-          "parent": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "parentKey": "efa40581-4a66-4d70-bca6-15fe0f88e04e",
-          "next": "9890db94-7b4d-4d2c-89c4-6a8885ba8b33",
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "83763403-2f6a-466b-968f-b5c621047985",
+          "next": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
           "advanceCanvasMeta": {
             "position": {
               "x": 3700,
@@ -577,7 +577,7 @@
           "cat": ""
         },
         {
-          "id": "9890db94-7b4d-4d2c-89c4-6a8885ba8b33",
+          "id": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
           "name": "Oportunidade → lost",
           "type": "create_opportunity",
           "attributes": {
@@ -591,9 +591,9 @@
             "monetary_value": ""
           },
           "order": 3,
-          "parent": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "parentKey": "222c610e-966e-4d21-90ff-ff8eaad44f68",
-          "next": "3c23afb3-5339-4ca1-ae49-30a5b938ffe7",
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "f230980a-216a-4c67-8260-bc2130a40d40",
+          "next": "2e0f7368-871a-4e71-be2c-c0b0ab08a2ac",
           "advanceCanvasMeta": {
             "position": {
               "x": 4000,
@@ -603,7 +603,7 @@
           "cat": ""
         },
         {
-          "id": "3c23afb3-5339-4ca1-ae49-30a5b938ffe7",
+          "id": "2e0f7368-871a-4e71-be2c-c0b0ab08a2ac",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -613,8 +613,8 @@
             "title": "Nutrição"
           },
           "order": 4,
-          "parent": "f803316b-0fdf-4eb3-b523-af9bbd7f0e03",
-          "parentKey": "9890db94-7b4d-4d2c-89c4-6a8885ba8b33",
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
           "advanceCanvasMeta": {
             "position": {
               "x": 4300,
@@ -624,14 +624,14 @@
           "cat": ""
         },
         {
-          "id": "6995397c-d4b9-4b5b-8ce3-d6d090ff8d45",
+          "id": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
           "order": 0,
           "name": "Agora não?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "c047194e-d267-46e5-b931-f95421d85910",
-            "00e54da0-88ed-414b-bc62-2b4c9990c7a1"
+            "18db56cc-fc78-450d-9ce9-96be12cce012",
+            "132be0ce-e569-4784-87a4-5c73dd59bd2e"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -639,11 +639,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "c047194e-d267-46e5-b931-f95421d85910",
+                "id": "18db56cc-fc78-450d-9ce9-96be12cce012",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "0e970144-a293-4e24-b8b5-42d22d84392a",
+                    "__segmentId": "e593095f-4c32-4052-bb0f-6591a22e00f9",
                     "operator": "or",
                     "conditions": [
                       {
@@ -651,7 +651,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "==",
                         "conditionValue": "2",
-                        "__conditionId": "03bda650-22bd-4c39-beb9-1542044389da",
+                        "__conditionId": "587abb54-bec7-4649-b6c4-1e6c45e7cdef",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -661,7 +661,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "agora não",
-                        "__conditionId": "73ccc78a-cad5-421d-8356-d1eb3fad9a7c",
+                        "__conditionId": "b442ce3d-4ec4-473f-a32c-f112e33d8bcb",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -671,7 +671,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "agora nao",
-                        "__conditionId": "7570ad38-2746-4e08-8b7b-8ae1f6dd9df4",
+                        "__conditionId": "191a654d-b11e-4824-8a66-d777480d1dfa",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -681,7 +681,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "mais pra frente",
-                        "__conditionId": "2b229318-be98-4708-8156-e0c8f51032f3",
+                        "__conditionId": "de4e1fff-2932-4832-9166-9e7945d70276",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -691,7 +691,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "mais para frente",
-                        "__conditionId": "921d34a0-5569-4c90-9e3a-863e5231f4a9",
+                        "__conditionId": "331f7947-11e9-4b6b-b697-cd8839eb9d87",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -701,7 +701,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "outro momento",
-                        "__conditionId": "b143b1d3-509c-4848-b2ad-c1f1a9ad7dfd",
+                        "__conditionId": "997d2b9a-e9b9-47e5-b513-149f5c628587",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -720,8 +720,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "ba4b015b-7a7b-46b5-b0e1-b464139c5c9d",
-          "parentKey": "ba4b015b-7a7b-46b5-b0e1-b464139c5c9d",
+          "parent": "e3b3104f-069e-4608-889f-2ba555b7bbba",
+          "parentKey": "e3b3104f-069e-4608-889f-2ba555b7bbba",
           "advanceCanvasMeta": {
             "position": {
               "x": 4600,
@@ -730,15 +730,15 @@
           }
         },
         {
-          "id": "c047194e-d267-46e5-b931-f95421d85910",
-          "parent": "6995397c-d4b9-4b5b-8ce3-d6d090ff8d45",
-          "parentKey": "6995397c-d4b9-4b5b-8ce3-d6d090ff8d45",
+          "id": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "parent": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "parentKey": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "00e54da0-88ed-414b-bc62-2b4c9990c7a1"
+            "132be0ce-e569-4784-87a4-5c73dd59bd2e"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -748,7 +748,7 @@
             "operator": "or",
             "branches": []
           },
-          "next": "2ea490f4-2399-4d49-a22b-9a9efa157c97",
+          "next": "b0641070-8c8d-427d-b821-a5d72e2a8c99",
           "advanceCanvasMeta": {
             "position": {
               "x": 4900,
@@ -757,22 +757,22 @@
           }
         },
         {
-          "id": "00e54da0-88ed-414b-bc62-2b4c9990c7a1",
-          "parent": "6995397c-d4b9-4b5b-8ce3-d6d090ff8d45",
-          "parentKey": "6995397c-d4b9-4b5b-8ce3-d6d090ff8d45",
+          "id": "132be0ce-e569-4784-87a4-5c73dd59bd2e",
+          "parent": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "parentKey": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "c047194e-d267-46e5-b931-f95421d85910"
+            "18db56cc-fc78-450d-9ce9-96be12cce012"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "40f3085d-83d5-4335-acf7-4d1d8470ba8a",
+          "next": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
           "advanceCanvasMeta": {
             "position": {
               "x": 5200,
@@ -781,7 +781,7 @@
           }
         },
         {
-          "id": "2ea490f4-2399-4d49-a22b-9a9efa157c97",
+          "id": "b0641070-8c8d-427d-b821-a5d72e2a8c99",
           "name": "Remove Tag",
           "type": "remove_contact_tag",
           "attributes": {
@@ -790,9 +790,9 @@
             ]
           },
           "order": 0,
-          "parent": "c047194e-d267-46e5-b931-f95421d85910",
-          "parentKey": "c047194e-d267-46e5-b931-f95421d85910",
-          "next": "c7f18188-2922-4ede-80ca-bf3536e675a5",
+          "parent": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "parentKey": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "next": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
           "advanceCanvasMeta": {
             "position": {
               "x": 5500,
@@ -802,7 +802,7 @@
           "cat": ""
         },
         {
-          "id": "c7f18188-2922-4ede-80ca-bf3536e675a5",
+          "id": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -812,8 +812,8 @@
             "title": "Nutrição"
           },
           "order": 1,
-          "parent": "c047194e-d267-46e5-b931-f95421d85910",
-          "parentKey": "2ea490f4-2399-4d49-a22b-9a9efa157c97",
+          "parent": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "parentKey": "b0641070-8c8d-427d-b821-a5d72e2a8c99",
           "advanceCanvasMeta": {
             "position": {
               "x": 5800,
@@ -823,14 +823,14 @@
           "cat": ""
         },
         {
-          "id": "40f3085d-83d5-4335-acf7-4d1d8470ba8a",
+          "id": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
           "order": 0,
           "name": "Quer conversar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "72c02602-c743-4109-b385-1ab5b20a9342",
-            "70fb65a1-0142-4d24-9c19-43853e8496bc"
+            "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+            "a7611d61-4c87-4c94-b453-44ad492b4845"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -838,11 +838,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "72c02602-c743-4109-b385-1ab5b20a9342",
+                "id": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "2478c866-504f-4e25-9fbb-6dd1e05dfb9e",
+                    "__segmentId": "29004589-8bad-4d20-aa80-b56e59f42b72",
                     "operator": "or",
                     "conditions": [
                       {
@@ -850,7 +850,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "==",
                         "conditionValue": "1",
-                        "__conditionId": "318fe189-0559-44ed-abb8-2433143733a2",
+                        "__conditionId": "cea98c05-36fd-453b-be8b-44ba889367c1",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -860,7 +860,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "==",
                         "conditionValue": "sim",
-                        "__conditionId": "91b368ff-ba84-4645-b2a9-4ac5dce5d18b",
+                        "__conditionId": "f4f72408-7d16-428c-be31-d08ccbe29464",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -870,7 +870,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "==",
                         "conditionValue": "Sim",
-                        "__conditionId": "2428dea8-09e2-4452-a7eb-1db100848190",
+                        "__conditionId": "fa6c2691-3452-4933-9a5b-d6182d2f63bf",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -880,7 +880,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "quero conversar",
-                        "__conditionId": "0bcf5b77-6343-4355-baef-f9d292d3dfe0",
+                        "__conditionId": "2670c53f-99d3-4aa9-9f1b-5f650506e732",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -890,7 +890,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "tenho interesse",
-                        "__conditionId": "381b85b0-4d1e-48ac-8c18-fd3d44b81e55",
+                        "__conditionId": "e5a6626e-93dd-4f6b-87a8-38edaff8043d",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -900,7 +900,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "pode ligar",
-                        "__conditionId": "bda6df0e-975b-4f55-9e28-e25c92810252",
+                        "__conditionId": "789ec432-3bbe-4903-9292-db0ed7687fb2",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -910,7 +910,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "pode me ligar",
-                        "__conditionId": "3af448f1-3ef1-4635-8b64-f4b6371374d8",
+                        "__conditionId": "93156845-3902-4975-a6e1-831c38f1be45",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -920,7 +920,7 @@
                         "conditionSubType": "message.body",
                         "conditionOperator": "contain",
                         "conditionValue": "vamos conversar",
-                        "__conditionId": "534d7efa-a515-49cb-b777-bd5020b02615",
+                        "__conditionId": "a8ae93b7-5a16-4854-8261-887522e32034",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
@@ -939,8 +939,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "00e54da0-88ed-414b-bc62-2b4c9990c7a1",
-          "parentKey": "00e54da0-88ed-414b-bc62-2b4c9990c7a1",
+          "parent": "132be0ce-e569-4784-87a4-5c73dd59bd2e",
+          "parentKey": "132be0ce-e569-4784-87a4-5c73dd59bd2e",
           "advanceCanvasMeta": {
             "position": {
               "x": 6100,
@@ -949,15 +949,15 @@
           }
         },
         {
-          "id": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "parent": "40f3085d-83d5-4335-acf7-4d1d8470ba8a",
-          "parentKey": "40f3085d-83d5-4335-acf7-4d1d8470ba8a",
+          "id": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parent": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "parentKey": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
           "order": 1,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "70fb65a1-0142-4d24-9c19-43853e8496bc"
+            "a7611d61-4c87-4c94-b453-44ad492b4845"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -967,7 +967,7 @@
             "operator": "or",
             "branches": []
           },
-          "next": "24ce916a-3efb-4a25-b9bb-b639ffdc51e9",
+          "next": "fe62712e-6c37-4207-879b-95071f3d1f40",
           "advanceCanvasMeta": {
             "position": {
               "x": 6400,
@@ -976,22 +976,22 @@
           }
         },
         {
-          "id": "70fb65a1-0142-4d24-9c19-43853e8496bc",
-          "parent": "40f3085d-83d5-4335-acf7-4d1d8470ba8a",
-          "parentKey": "40f3085d-83d5-4335-acf7-4d1d8470ba8a",
+          "id": "a7611d61-4c87-4c94-b453-44ad492b4845",
+          "parent": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "parentKey": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
           "order": 1,
           "name": "None",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "72c02602-c743-4109-b385-1ab5b20a9342"
+            "369debf4-aa7a-4a9b-9b41-a75a9526c4f3"
           ],
           "comments": [],
           "nodeType": "branch-no",
           "attributes": {
             "else": true
           },
-          "next": "efecd1ff-3626-445c-b01b-d52fe9988856",
+          "next": "1b8b8a2a-0a32-402c-808e-f2147ad5af46",
           "advanceCanvasMeta": {
             "position": {
               "x": 6700,
@@ -1000,7 +1000,7 @@
           }
         },
         {
-          "id": "24ce916a-3efb-4a25-b9bb-b639ffdc51e9",
+          "id": "fe62712e-6c37-4207-879b-95071f3d1f40",
           "name": "Remove Tag",
           "type": "remove_contact_tag",
           "attributes": {
@@ -1014,9 +1014,9 @@
             ]
           },
           "order": 0,
-          "parent": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "parentKey": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "next": "6e34928c-3a90-4a25-a31b-8869a0c19ebf",
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "next": "882b979e-cdb0-4167-81df-5d91e493a014",
           "advanceCanvasMeta": {
             "position": {
               "x": 7000,
@@ -1026,7 +1026,7 @@
           "cat": ""
         },
         {
-          "id": "6e34928c-3a90-4a25-a31b-8869a0c19ebf",
+          "id": "882b979e-cdb0-4167-81df-5d91e493a014",
           "name": "Oportunidade → open",
           "type": "create_opportunity",
           "attributes": {
@@ -1040,9 +1040,9 @@
             "monetary_value": ""
           },
           "order": 1,
-          "parent": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "parentKey": "24ce916a-3efb-4a25-b9bb-b639ffdc51e9",
-          "next": "a9fa77ea-8135-4cad-8c9c-6b7729cb3375",
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "fe62712e-6c37-4207-879b-95071f3d1f40",
+          "next": "be530dec-1f77-4aa8-922f-b79c4c0be097",
           "advanceCanvasMeta": {
             "position": {
               "x": 7300,
@@ -1052,7 +1052,7 @@
           "cat": ""
         },
         {
-          "id": "a9fa77ea-8135-4cad-8c9c-6b7729cb3375",
+          "id": "be530dec-1f77-4aa8-922f-b79c4c0be097",
           "name": "Add Tag",
           "type": "add_contact_tag",
           "attributes": {
@@ -1063,9 +1063,9 @@
             ]
           },
           "order": 2,
-          "parent": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "parentKey": "6e34928c-3a90-4a25-a31b-8869a0c19ebf",
-          "next": "a7d6a5ea-ae56-4925-97c9-87ba2dee3f3a",
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "882b979e-cdb0-4167-81df-5d91e493a014",
+          "next": "a282a31b-9c17-40ba-b850-08946824e4aa",
           "advanceCanvasMeta": {
             "position": {
               "x": 7600,
@@ -1075,7 +1075,7 @@
           "cat": ""
         },
         {
-          "id": "a7d6a5ea-ae56-4925-97c9-87ba2dee3f3a",
+          "id": "a282a31b-9c17-40ba-b850-08946824e4aa",
           "name": "Internal Notification",
           "type": "internal_notification",
           "attributes": {
@@ -1094,9 +1094,9 @@
             }
           },
           "order": 3,
-          "parent": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "parentKey": "a9fa77ea-8135-4cad-8c9c-6b7729cb3375",
-          "next": "9065f1d3-286d-49f8-9b3d-f8a3bc961cfc",
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "be530dec-1f77-4aa8-922f-b79c4c0be097",
+          "next": "62704529-9311-4eed-8ffc-c1b0c3092c7c",
           "advanceCanvasMeta": {
             "position": {
               "x": 7900,
@@ -1106,7 +1106,7 @@
           "cat": ""
         },
         {
-          "id": "9065f1d3-286d-49f8-9b3d-f8a3bc961cfc",
+          "id": "62704529-9311-4eed-8ffc-c1b0c3092c7c",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -1116,8 +1116,8 @@
             "title": "Nutrição"
           },
           "order": 4,
-          "parent": "72c02602-c743-4109-b385-1ab5b20a9342",
-          "parentKey": "a7d6a5ea-ae56-4925-97c9-87ba2dee3f3a",
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "a282a31b-9c17-40ba-b850-08946824e4aa",
           "advanceCanvasMeta": {
             "position": {
               "x": 8200,
@@ -1127,7 +1127,7 @@
           "cat": ""
         },
         {
-          "id": "efecd1ff-3626-445c-b01b-d52fe9988856",
+          "id": "1b8b8a2a-0a32-402c-808e-f2147ad5af46",
           "name": "Add Task",
           "type": "task-notification",
           "attributes": {
@@ -1141,8 +1141,8 @@
             }
           },
           "order": 0,
-          "parent": "70fb65a1-0142-4d24-9c19-43853e8496bc",
-          "parentKey": "70fb65a1-0142-4d24-9c19-43853e8496bc",
+          "parent": "a7611d61-4c87-4c94-b453-44ad492b4845",
+          "parentKey": "a7611d61-4c87-4c94-b453-44ad492b4845",
           "advanceCanvasMeta": {
             "position": {
               "x": 8500,
@@ -1152,7 +1152,28 @@
           "cat": ""
         },
         {
-          "id": "bc02a221-aefd-40ae-aad5-42b514a19993",
+          "id": "b83b545b-4efe-4bac-adc8-d5eb3cdb637f",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "triagem-enviada"
+            ]
+          },
+          "order": 0,
+          "parent": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parentKey": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "next": "5bae0eb7-00a7-4e7b-b39b-415ae9b2cc62",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "5bae0eb7-00a7-4e7b-b39b-415ae9b2cc62",
           "name": "Wait 2 Minutes",
           "type": "wait",
           "cat": "",
@@ -1170,26 +1191,26 @@
             "convertToMultipath": false,
             "transitions": []
           },
-          "order": 0,
-          "parent": "591280a6-6e8b-47ad-978d-8afe7cce0cde",
-          "parentKey": "591280a6-6e8b-47ad-978d-8afe7cce0cde",
-          "next": "0922d3db-41d9-4b36-b32b-de4fc261343f",
+          "order": 1,
+          "parent": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parentKey": "b83b545b-4efe-4bac-adc8-d5eb3cdb637f",
+          "next": "0c45b76a-0524-482e-8571-e371a6a737c4",
           "advanceCanvasMeta": {
             "position": {
-              "x": 8800,
+              "x": 9100,
               "y": 0
             }
           }
         },
         {
-          "id": "0922d3db-41d9-4b36-b32b-de4fc261343f",
-          "order": 1,
+          "id": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "order": 2,
           "name": "Triagem · Não pediu para parar?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
-            "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-            "b10fd425-8f46-4277-95c5-967e016a18fb"
+            "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+            "d0d3109a-5901-420a-8ff6-5fcb8be467f9"
           ],
           "comments": [],
           "nodeType": "condition-node",
@@ -1197,11 +1218,11 @@
             "currentRecipeType": "CUSTOM",
             "branches": [
               {
-                "id": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
+                "id": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
                 "name": "Branch",
                 "segments": [
                   {
-                    "__segmentId": "f4056fbe-7e18-4edc-aeef-d99a1a3387a0",
+                    "__segmentId": "1f2da875-57c9-45b3-93c3-baee941ac24a",
                     "operator": "and",
                     "conditions": [
                       {
@@ -1211,7 +1232,7 @@
                         "conditionValue": [
                           "nao-perturbe"
                         ],
-                        "__conditionId": "ba3222e5-948a-4a0c-9fed-22af5b14d0f7",
+                        "__conditionId": "03c8e9de-7376-480e-9138-7adb78f9dbe5",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1255,25 +1276,25 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "591280a6-6e8b-47ad-978d-8afe7cce0cde",
-          "parentKey": "bc02a221-aefd-40ae-aad5-42b514a19993",
+          "parent": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parentKey": "5bae0eb7-00a7-4e7b-b39b-415ae9b2cc62",
           "advanceCanvasMeta": {
             "position": {
-              "x": 9100,
+              "x": 9400,
               "y": 0
             }
           }
         },
         {
-          "id": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-          "parent": "0922d3db-41d9-4b36-b32b-de4fc261343f",
-          "parentKey": "0922d3db-41d9-4b36-b32b-de4fc261343f",
-          "order": 2,
+          "id": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parent": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "parentKey": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "order": 3,
           "name": "Branch",
           "type": "if_else",
           "cat": "conditions",
           "sibling": [
-            "b10fd425-8f46-4277-95c5-967e016a18fb"
+            "d0d3109a-5901-420a-8ff6-5fcb8be467f9"
           ],
           "comments": [],
           "nodeType": "branch-yes",
@@ -1283,30 +1304,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "d4b562a8-8c23-4572-83b4-cc8c0650666a",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 9400,
-              "y": 0
-            }
-          }
-        },
-        {
-          "id": "b10fd425-8f46-4277-95c5-967e016a18fb",
-          "parent": "0922d3db-41d9-4b36-b32b-de4fc261343f",
-          "parentKey": "0922d3db-41d9-4b36-b32b-de4fc261343f",
-          "order": 2,
-          "name": "None",
-          "type": "if_else",
-          "cat": "conditions",
-          "sibling": [
-            "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36"
-          ],
-          "comments": [],
-          "nodeType": "branch-no",
-          "attributes": {
-            "else": true
-          },
+          "next": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
           "advanceCanvasMeta": {
             "position": {
               "x": 9700,
@@ -1315,7 +1313,31 @@
           }
         },
         {
-          "id": "d4b562a8-8c23-4572-83b4-cc8c0650666a",
+          "id": "d0d3109a-5901-420a-8ff6-5fcb8be467f9",
+          "parent": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "parentKey": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "order": 3,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "67031b10-18c8-40ec-9c88-ff0dfb99effc"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "b42965b0-4a45-4c25-991b-380071635347",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
           "name": "WhatsApp · TRI-1-v1",
           "type": "sms",
           "attributes": {
@@ -1324,19 +1346,19 @@
             "attachments": []
           },
           "order": 0,
-          "parent": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-          "parentKey": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-          "next": "9cc41ca4-25df-4063-a44f-0ab4275d674d",
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "next": "0e279bd9-8a16-4173-bc24-35824ec80a68",
           "advanceCanvasMeta": {
             "position": {
-              "x": 10000,
+              "x": 10300,
               "y": 0
             }
           },
           "cat": ""
         },
         {
-          "id": "9cc41ca4-25df-4063-a44f-0ab4275d674d",
+          "id": "0e279bd9-8a16-4173-bc24-35824ec80a68",
           "name": "Update contact field",
           "type": "update_contact_field",
           "attributes": {
@@ -1353,30 +1375,9 @@
             ]
           },
           "order": 1,
-          "parent": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-          "parentKey": "d4b562a8-8c23-4572-83b4-cc8c0650666a",
-          "next": "68e67c2e-3716-4f0a-8f47-7f2a02bfea87",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 10300,
-              "y": 0
-            }
-          },
-          "cat": ""
-        },
-        {
-          "id": "68e67c2e-3716-4f0a-8f47-7f2a02bfea87",
-          "name": "Add Tag",
-          "type": "add_contact_tag",
-          "attributes": {
-            "tags": [
-              "triagem-enviada"
-            ]
-          },
-          "order": 2,
-          "parent": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-          "parentKey": "9cc41ca4-25df-4063-a44f-0ab4275d674d",
-          "next": "de67e7b0-d570-4386-a660-0cdbd6bce8da",
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
+          "next": "3b24dcfb-17e8-4326-8711-fc7663427ac5",
           "advanceCanvasMeta": {
             "position": {
               "x": 10600,
@@ -1386,7 +1387,7 @@
           "cat": ""
         },
         {
-          "id": "de67e7b0-d570-4386-a660-0cdbd6bce8da",
+          "id": "3b24dcfb-17e8-4326-8711-fc7663427ac5",
           "name": "Note",
           "type": "add_notes",
           "attributes": {
@@ -1395,12 +1396,32 @@
             "type": "add_notes",
             "title": "Nutrição"
           },
-          "order": 3,
-          "parent": "0db14033-9b8a-4ac2-be3d-7cd09fe0bd36",
-          "parentKey": "68e67c2e-3716-4f0a-8f47-7f2a02bfea87",
+          "order": 2,
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "0e279bd9-8a16-4173-bc24-35824ec80a68",
           "advanceCanvasMeta": {
             "position": {
               "x": 10900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "b42965b0-4a45-4c25-991b-380071635347",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "triagem-enviada"
+            ]
+          },
+          "order": 0,
+          "parent": "d0d3109a-5901-420a-8ff6-5fcb8be467f9",
+          "parentKey": "d0d3109a-5901-420a-8ff6-5fcb8be467f9",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
               "y": 0
             }
           },
@@ -1446,9 +1467,9 @@
           "type": "select"
         }
       ],
-      "targetActionId": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
+      "targetActionId": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
       "active": false,
-      "date_updated": "2026-09-23T02:30:15.184Z"
+      "date_updated": "2026-09-23T03:23:27.380Z"
     },
     {
       "id": "tOY951puDH3mv8TiY2oz",
@@ -1472,7 +1493,9 @@
           "y": -73
         }
       },
+      "targetActionId": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
       "name": "Cliente Respondeu — Stevo",
+      "active": false,
       "conditions": [
         {
           "operator": "==",
@@ -1482,9 +1505,7 @@
           "type": "select"
         }
       ],
-      "targetActionId": "3c0bec62-221d-47d9-9f94-3bac4e3feac1",
-      "active": false,
-      "date_updated": "2026-09-23T02:30:15.232Z"
+      "date_updated": "2026-09-23T03:23:27.423Z"
     }
   ]
 }

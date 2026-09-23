@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Loop do closer v2",
-    "version": 9,
+    "version": 8,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/db2f9531-39e4-4107-ad65-33666ab0fd35/9",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fdb2f9531-39e4-4107-ad65-33666ab0fd35%2F9?alt=media&token=33a127b5-3a74-4a18-9ea1-c3653f36bf71",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/db2f9531-39e4-4107-ad65-33666ab0fd35/8",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fdb2f9531-39e4-4107-ad65-33666ab0fd35%2F8?alt=media&token=d28de73a-5ba0-4279-a94b-4da02d305990",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T00:04:36.846Z",
-    "updatedAt": "2026-09-23T03:40:29.850Z",
+    "updatedAt": "2026-09-23T01:35:40.792Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -313,7 +313,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "341af936-db6d-490d-9d19-c09dd1e50de5",
+          "next": "e580cf90-fa77-4cbe-bef7-816084cab94f",
           "advanceCanvasMeta": {
             "position": {
               "x": 2200,
@@ -346,32 +346,6 @@
           }
         },
         {
-          "id": "341af936-db6d-490d-9d19-c09dd1e50de5",
-          "name": "Tarefa do closer — apresentar proposta",
-          "type": "task-notification",
-          "parent": "a6a67f3d-42aa-4534-8186-69296b0daabc",
-          "parentKey": "a6a67f3d-42aa-4534-8186-69296b0daabc",
-          "next": "e580cf90-fa77-4cbe-bef7-816084cab94f",
-          "order": 0,
-          "cat": "",
-          "attributes": {
-            "title": "[CLOSER] Apresentar proposta",
-            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Reunião de diagnóstico qualificada. Monte e apresente a proposta. Ao apresentar, mova o lead para <b>NEGOCIAR</b> — esta tarefa sai sozinha quando ele mudar de etapa.</p>",
-            "assignedTo": "contact.assigned_user",
-            "type": "task_notification",
-            "dueDate": "0",
-            "__customInputs__": {
-              "dueDate": "duration-picker"
-            }
-          },
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 2800,
-              "y": 0
-            }
-          }
-        },
-        {
           "id": "e580cf90-fa77-4cbe-bef7-816084cab94f",
           "name": "Go To",
           "type": "goto",
@@ -379,9 +353,9 @@
             "targetNodeId": "adf80448-a81f-40ca-a488-1c1267525f7c",
             "type": "goto"
           },
-          "order": 1,
+          "order": 0,
           "parent": "a6a67f3d-42aa-4534-8186-69296b0daabc",
-          "parentKey": "341af936-db6d-490d-9d19-c09dd1e50de5",
+          "parentKey": "a6a67f3d-42aa-4534-8186-69296b0daabc",
           "advanceCanvasMeta": {
             "position": {
               "x": 2800,

@@ -38,6 +38,10 @@ for wid, w in todos.items():
             for f in a.get('fields', []):
                 if f.get('field') in RELOGIO and f.get('value') in ('sim', '{{right_now}}'):
                     prob.append('3 relógio errado: %s' % w['name'])
+        if t['type'] == 'update_contact_field':
+            for f in a.get('fields', []):
+                if f.get('type') == 'date' and f.get('value') in ('{{right_now.date}}', '{{right_now}}'):
+                    prob.append('7 campo de data com formato que dá erro: %s / %s' % (w['name'], f.get('title')))
         if t['type'] == 'task-notification' and familia(a.get('title')) is None:
             prob.append('4 prefixo desconhecido: %s: %s' % (w['name'], a.get('title')))
     if any(t['type'] == 'task-notification' for t in tpl) and not d.get('window'):

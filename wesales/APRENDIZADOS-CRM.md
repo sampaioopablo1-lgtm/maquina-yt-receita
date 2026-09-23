@@ -2,6 +2,27 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Nenhuma data de marco do funil era gravada — campo DATA não aceita `{{right_now.date}}` — 23/09/2026, rodada autônoma
+
+**Medido** no registro de execução do Loop do closer (teste com o contato 9940):
+o passo que grava `Data do veredito do closer` deu **Error**. O valor era
+`{{right_now.date}}`, que sai "23/09/2026" (dia/mês/ano) — campo do tipo DATA
+recusa. Teste isolado (`ZZ TESTE DATA`): `{{right_now.year}}-{{right_now.month}}-{{right_now.day}}`
+grava **2026-09-23** (e mês/dia/ano também).
+
+Estavam quebrados: `Data do veredito do closer` (Loop do closer), `Data agendado`
+(Pós-agendamento), `Data compareceu` (Registro de Comparecimento) e `Data
+conectado` (Pós-ligação — este gravava VAZIO de propósito, 5 nós). Corrigidos
+(`tools/patch_campos_data.py`); a auditoria ganhou a checagem 7. Consequência
+que some agora: listas e relatórios de funil por data (entraram/conectaram/
+agendaram/compareceram no mês) estavam sem base.
+
+**A4 no mesmo teste:** o closer não recebia tarefa nenhuma; o ramo "Sim" do Loop
+agora cria `[CLOSER] Apresentar proposta` (executou no teste).
+
+**Regra:** registro de execução "Executado" não basta — leia cada linha; um
+"Error" no meio não para o fluxo e passa despercebido.
+
 ## O filtro "canal 20" no gatilho de resposta nunca disparou — e o número oficial de teste é o 9940 — 23/09/2026, sessão do PC
 
 **Medido:** o dono respondeu do 9940 ("Bh", mensagem de ENTRADA na conversa,
