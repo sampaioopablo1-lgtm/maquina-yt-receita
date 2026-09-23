@@ -62,6 +62,8 @@ def familia(titulo):
     if t.startswith("[FECHAR HORÁRIO]") or t.startswith("[FECHAR HORARIO]") \
             or t.startswith("[CONECTADO]"):
         return "FECHAR"
+    if t.startswith("[CLOSER] APRESENTAR PROPOSTA"):
+        return "PROPOSTA"                  # so faz sentido antes da proposta (REUNIAO)
     if t.startswith("[CLOSER]"):
         return "CLOSER"
     return None
@@ -80,7 +82,7 @@ def validas(etapa, status, resultado):
             return {"FECHAR", "SINAL"}
         return {"CADENCIA", "SINAL"}
     if etapa == "REUNIAO":
-        return {"CLOSER", "NO-SHOW"}
+        return {"CLOSER", "PROPOSTA", "NO-SHOW"}
     if etapa == "NEGOCIAR":
         return {"CLOSER"}
     return set()                                       # NOVO LEAD, FORMALIZAR
@@ -246,9 +248,17 @@ def main():
     for contato, ts in por_contato.items():
         etapa, status, res = estado(api, contato)
         ok = validas(etapa, status, res)
-        for t in ts:
-            if familia(t["title"]) not in ok and idade_min(t) >= CARENCIA_MIN:
+        vistos = set()
+        # mais antiga primeiro: se houver duplicata (mesmo titulo aberto), fica a mais antiga
+        for t in sorted(ts, key=lambda x: x.get("dateAdded") or ""):
+            if idade_min(t) < CARENCIA_MIN:
+                continue
+            if familia(t["title"]) not in ok:
                 excluir.append((contato, t, motivo(etapa, status, res)))
+            elif t["title"] in vistos:
+                excluir.append((contato, t, "tarefa duplicada (já existe outra igual aberta)"))
+            else:
+                vistos.add(t["title"])
 
     print("tarefas abertas: %d | automaticas: %d | contatos: %d | a excluir: %d"
           % (len(todas), len(auto), len(por_contato), len(excluir)))
