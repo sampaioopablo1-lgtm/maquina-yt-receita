@@ -8318,3 +8318,111 @@ workflow publicado costuma ser rodada mais de uma vez, entre tentativas.
 
 Zero escrita na conta: sem `--aplicar` o patch não escreve, e ele não foi
 executado. O campo continua contando na `auditoria_campos.py` até você rodar.
+
+## 2.42 O L-07 medido lead por lead: os 48 nunca entraram na cadência, e a tag `cad-inbound` diz o contrário
+
+**Isto não é achado novo.** A lacuna já tem nome desde o `briefing-sdr.md`
+(**L-07**, "não existe gatilho que promova `NOVO LEAD` → `CONECTAR`") e item
+próprio no `ROADMAP-SALES-ENGAGEMENT.md` (**G-03**, 47 leads medidos em
+22/09/2026, *aguardando decisão do dono*). O que esta seção acrescenta é
+medição ao vivo pela API — não mais leitura de dump — e uma correção de
+mecanismo: o que eu e os documentos dizíamos estava certo no efeito e **errado
+no motivo**.
+
+### O que eu media antes, e o que medi agora
+
+| antes (22/09, dump + contagem) | agora (23/09 21:29 UTC, API) |
+|---|---|
+| "47 leads parados em `NOVO LEAD`, envelhecendo" | **49** — entraram 2 depois (nenhum de anúncio) |
+| "ainda não em cadência" | **nunca entraram na cadência**, e a razão é o gatilho, não o portão |
+| nada dito sobre o que aconteceu com cada um | **zero tarefa, zero mensagem** nos 3 conferidos um por um |
+
+### O mecanismo, exato
+
+O gatilho da `Cadência Inbound` (`jecAUagw3f4V4Lujd4rG`, ativo) não é "lead de
+inbound chegou". É:
+
+```
+type: pipeline_stage_updated
+  opportunity.pipelineId      == 0Fo2xbeayE4EP6yuSUtq   (FUNIL DE VENDAS)
+  opportunity.pipelineStageId == deb60542-…              ("Movido para o estágio" = CONECTAR)
+```
+
+E a `Porta de Entrada` cria a oportunidade em `NOVO LEAD`:
+
+```
+create_opportunity  pipeline_stage_id: 7ae9c950-…  (NOVO LEAD)  status: open
+```
+
+Varri os 38 dumps procurando quem move oportunidade de etapa: os únicos
+`create_opportunity` da `Cadência Inbound` que apontam para `CONECTAR` são as
+**saídas** dela (`status: abandoned` → nutrição, `status: lost`). **Nenhum
+workflow da subconta move `NOVO LEAD` → `CONECTAR` com `status: open`.**
+
+Consequência: o lead que entra pela porta fica numa etapa que nenhum gatilho
+escuta. Não é que a cadência o pegou e o portão o barrou — **a cadência nunca
+foi acionada para ele.** Os cinco `TIn · Ainda vale ligar?` também exigem
+`pipelineStageId == CONECTAR` (segmento com `operator: and`, primeira condição),
+mas isso é *coerente* com o gatilho, não um segundo defeito.
+
+### A tag que mente
+
+Os 48 carregam `cad-inbound`. O nome se lê como "está na Cadência Inbound"; o
+que ela significa é "entrou pela porta de inbound" — ela é aplicada pela `Porta
+de Entrada` e **lida** pelo primeiro `if_else` da cadência (`É lead de
+inbound?`). Um lead com `cad-inbound` e sem toque nenhum não é contradição: é o
+estado normal enquanto a L-07 estiver aberta. Foi por isso que a contagem de
+tags não delatou o problema antes — `fila-tel`, `fila-wa` e `fila-quente`
+aparecem **1x cada** entre os 49, e eu poderia ter lido isso como "filas
+consumidas normalmente".
+
+### Medido, contato por contato
+
+| contato | entrou | tags | tarefas | mensagens | parado há |
+|---|---|---|---|---|---|
+| `Andre` (Facebook, form "O PROXIMO CLIENTE FORMS v1") | 19/09 02:18 | `etapa-novo-lead`, `cad-inbound` | **0** | **0** | **4d 19h** |
+| `Neid` (Facebook) | 19/09 02:18 | idem | — | **0** | **4d 19h** |
+| `Carlos Andrade` (Facebook, o último do anúncio) | 21/09 09:17 | + `limpar-tarefas` | **0** | **0** | **2d 12h** |
+
+"Mensagens 0" quer dizer: a única entrada no histórico da conversa é a
+atividade de sistema `Opportunity created` (`type: 28`,
+`TYPE_ACTIVITY_OPPORTUNITY`). Nenhuma mensagem de saída, nunca.
+
+O `Andre` respondeu no formulário do anúncio, em três campos: urgência **"Pra
+ontem"**, "Já faço anúncios e quero melhorar meus resultados", "Não invisto nada
+ainda". Está esperando há **4 dias e 19 horas**. É o custo da L-07 em uma linha,
+e é a única coisa nesta seção que o dono não podia saber antes: o item G-03
+dizia *quantos*, não o que estava dentro de um deles.
+
+### A entrada, agora medida na conta e não inferida
+
+| | |
+|---|---|
+| oportunidades com `source = Facebook` | 37 de 49 |
+| a mais nova delas | `Carlos Andrade`, **21/09 09:17:26** |
+| desde então | **60 h sem um único lead de anúncio** |
+| criadas em 22/09 e 23/09 | 4, todas sem `source` (manuais/teste: `Francisca`, `O Próximo Cliente`, `Sem Nome`, um número) + 1 `ZZ Teste` |
+
+Isto é o **F-10** deixando de ser suspeita: a porta está fechada há 60 h, e a
+conta confirma. Os 49 não estão crescendo — estão só envelhecendo, como o G-03
+já dizia em 22/09.
+
+### Limite honesto
+
+Conferi **3 dos 48** um por um (tarefas + histórico de conversa + campos do
+contato). A afirmação sobre os outros 45 não vem de medição individual, vem da
+estrutura: eles estão todos em `NOVO LEAD`, e o gatilho da cadência só escuta
+`CONECTAR`. A estrutura cobre os 48; as 3 amostras servem para confirmar que a
+estrutura se comporta como se lê. O MCP não expõe o registro de execução de
+workflow, então "nunca foi acionada" é inferência do gatilho + ausência de
+qualquer rastro (tarefa, mensagem, `Tentativa nº`, `1ª tentativa em`), não
+leitura de log.
+
+### O que isto muda na fila
+
+**Nada para aplicar.** A L-07/G-03 é decisão do dono e continua sendo: promover
+automaticamente (e sob qual regra) é escolha de operação, não de código. O que
+mudou é o peso do item — e que quando a decisão vier, quem for montar já sabe
+que o elo que falta é **uma ação** (`create_opportunity` → `CONECTAR`,
+`status: open`), não um workflow novo, e que ela cai dentro da própria `Porta de
+Entrada` ou num promotor separado, conforme a regra que o dono escolher.
