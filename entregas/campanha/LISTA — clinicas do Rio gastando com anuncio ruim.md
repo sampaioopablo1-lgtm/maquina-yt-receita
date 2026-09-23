@@ -6352,3 +6352,52 @@ pior caso combinado da base: Huff Life Barra com 12 anúncios, título vazio, de
 rede Espaço Facial com 12 peças e 2 headlines em três endereços; **oferta de entrada no
 preço de custo — o mesmo mecanismo do exame grátis das óticas**; e a headline pela objeção,
 "lábios lindos sem volumizar").
+
+---
+
+## IMOBILIÁRIA — apartamento à venda, Niterói (23/09, Rio)
+
+Varredura: `apartamento à venda Niterói`, BR, ACTIVE. **84 anúncios ativos**, 38 páginas
+distintas, **36 alvos**. Primeira varredura em Niterói.
+
+**Trilha A: 19 de 36** — metade. Barbara, Gabriel César, Eveline Andrade, Lucy Santos, Amanda
+Mendes, Dani Marmo, Fábio Massa, Danilo Gomes, Evelyn Bevilaqua, Carlos Macedo, Fernanda
+Mello, Antônio Quinto, André Cyriaco, Victor Mafram, Jorge Henrique, Paulo Guerreiro, Felipe,
+Wallace Gomes, Natália. Confirma o que o Méier já tinha mostrado: **corretor é o nicho em que
+o nome próprio é a fachada**, e é por isso que imobiliária continua rendendo mais alvo que
+qualquer outro.
+
+**Recorde de carrossel vazio da base inteira.** O fabiomassacorretor roda um anúncio com
+**vinte cards** e o título vazio em todos os vinte. A página Promoção de Imóveis faz o mesmo
+com quinze. São peças caras, de carrossel, em que ninguém escreveu uma única manchete.
+
+**E o botão padrão virou carrossel inteiro:** a Eveline Andrade roda "Converse conosco"
+repetido em **dez cards**; o Carlos Macedo, "Fale conosco" em **oito**; a invest.predial
+repete o nome da própria empresa em **dez**. Não é um card esquecido — é o campo nunca aberto,
+multiplicado pelo número de fotos do imóvel.
+
+Outros: Barbara com 5 anúncios entre "Agende sua Visita", "Converse conosco" e título vazio;
+Evelyn Bevilaqua com 3 idênticos; AGM com 2 iguais; Kiffer com 2.
+
+### O que este bairro ensina e os outros não ensinaram
+
+**Em Niterói o preço está na headline, e isso é o certo.** "R$ 1.500.000 — 166 m² frente mar
+na Praia de Icaraí", "2 quartos + suíte em Icaraí por R$ 655 mil", "Apto de 2 quartos à venda
+em Icaraí". Quem não tem o valor não clica, e o corretor economiza a conversa. É a mesma
+mecânica da conta de luz na energia solar, aplicada a ticket alto.
+
+**Duas variações que valem copiar:**
+
+- **"2 quartos em Niterói com entrada de R$ 10 mil"** (Lar Doce Lar Cury) — qualifica pelo que
+  a pessoa consegue pagar **agora**, não pelo preço total. Para ticket alto, a entrada é o
+  filtro mais honesto que existe.
+- **"Apartamento em Icaraí — aceita proposta"** (Imóvel Icaraí) — sinaliza negociação aberta
+  sem dizer desconto. Atrai quem está decidido a comprar e afasta quem só olha vitrine.
+
+LISTA DE ATAQUE: **424 → 460**.
+
+Combos varridos até aqui: + imobiliária apartamento à venda Niterói (84 ativos — 36 alvos,
+**19 em Trilha A**, metade, confirmando corretor como o nicho de nome próprio; **recorde de
+carrossel vazio: 20 cards sem título numa peça só**; botão padrão repetido em 10 cards em três
+páginas; **munição nova: qualificar pela ENTRADA e não pelo preço total, e "aceita proposta"
+como filtro de quem decide**).
