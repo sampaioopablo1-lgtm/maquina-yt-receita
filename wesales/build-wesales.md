@@ -5508,6 +5508,15 @@ ligações de WhatsApp não atendidas o lead passa a ter a ligação normal prim
 fica sem dado para ser avaliada depois — o projeto vai poder dizer que trocou de
 canal, mas não qual canal funcionou.
 
+> **Atualização de 23/09/2026 (G-21):** esta sugestão ficou incompleta depois
+> que a §2.33.7 corrigiu a leitura da D10 (o campo é preenchimento manual do
+> SDR, não lacuna de workflow) e o dono decidiu a pendência 9c. **Não aplicar
+> este parágrafo ao pé da letra** — a versão atual, com o patch já escrito e
+> a razão de ele não tocar o `Pós-ligação v2` ainda (sequenciamento com o
+> `patch_remove_atendeu.py`/G-18, que mexe nos mesmos ramos `Atendeu`), está
+> na §2.41. "Pronto quando" e acompanhamento: `ROADMAP-SALES-ENGAGEMENT.md`,
+> G-21.
+
 Rodar as três juntas:
 
 ```

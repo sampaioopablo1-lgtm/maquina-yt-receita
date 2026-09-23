@@ -14,10 +14,12 @@ não herdado de rodada anterior. Onde não deu para medir, está dito.
 > viraram item de roadmap — pendência 0 → G-16, 9e → G-17, 11a/11b → G-19 —
 > pela mesma razão de sempre: nenhuma rodada de coerência (G-10/G-13/G-14)
 > tinha cruzado este arquivo linha por linha até essas promoções
-> acontecerem. **O que esta correção não afirma:** que as demais linhas da
-> seção 8 (1, 2, 4, 5, 6, 8, 9c, 10, 12) estão todas cobertas em outro
-> lugar — isso não foi reconferido nesta rodada; cada uma continua valendo
-> como está escrita ali até alguém confirmar o contrário.
+> acontecerem. **Atualização de 23/09/2026:** `9c` também virou item de
+> roadmap (`G-21`) na mesma sessão que corrigiu esta nota — mesmo padrão
+> das três primeiras. **O que esta correção não afirma:** que as demais
+> linhas da seção 8 (1, 2, 4, 5, 6, 8, 10, 12) estão todas cobertas em
+> outro lugar — isso não foi reconferido nesta rodada; cada uma continua
+> valendo como está escrita ali até alguém confirmar o contrário.
 
 ## 1. A subconta
 
@@ -245,7 +247,7 @@ entra no funil. Hoje não há regra nenhuma.
 | 12 | **Revogar o PIT antigo** (o que apareceu no histórico de chat) — Settings → Private Integrations | varri o repositório: nenhum consumidor automatizado dele aqui (o `ghl_api.py` usa o bearer interno, a Faxina usa o `GHL_TOKEN` novo, o `conectar.md` só documenta a receita). Revogar não quebra nada **deste repositório**. O limite é esse: se ele foi colado em algo fora (Zapier, Make, n8n), revogar quebra aquilo, e isso eu não vejo |
 | ~~9a/9b~~ | ~~Publicar a `Triagem da Nutrição`~~ e ~~dois `Remove Tag`~~ — **FECHADAS pelo dono, e 3 das 5 já estavam fechadas quando eu as reportei.** A `Triagem da Nutrição` foi publicada às 03:24 e o `Mestre de saída v2` passou a limpar `fechar-horario` e `cadencia-12x30-p2`. Eu reportei os 5 achados às 04:35 e 04:55 lendo um dump de **22/09 16:27** — detalhe e conserto da ferramenta na §2.33.3 |
 | ~~9d~~ | ~~Duas linhas no `patch_condicoes_etapa.py`~~ — **MEDIDA em 23/09/2026, e a pendência estava superestimada.** Os 10 alvos já estavam consertados (28 segmentos, 49 condições, 0 falhas, contra os backups pré-patch); o defeito real não era o passado, era a falta de guarda para workflow futuro. `auditoria_condicoes.py` (nova, somente leitura) cobre isso agora; `ALVOS` virou varredura ao vivo (`--incluir-teste`, `--alvo NOME`), tabela de tradução de 3 para 8 padrões | `build-wesales.md` §2.36 |
-| 9c | **DECIDIDO 23/09/2026 pelo dono: AUTOMÁTICO onde o ramo já sabe, manual no resto** (falta o patch no `Pós-ligação v2`/ramos de resposta do WhatsApp). Pergunta original: `Canal que conectou` é manual ou automático? O `GUIA-SDR.md` instrui o SDR a preencher na tela, junto com `Resultado da tentativa` — minha leitura anterior ("ninguém escreve, logo nunca terá resposta") lia a D10 errado e está corrigida na §2.33.7 | manual capta o que só o humano sabe; automático não depende de disciplina. Recomendo automático **onde o ramo já sabe** (o nó que trata "atendeu no WhatsApp" pode gravar sozinho) e manual onde não sabe |
+| ~~9c~~ | ~~DECIDIDO 23/09/2026 pelo dono: AUTOMÁTICO onde o ramo já sabe, manual no resto~~ — **promovido a item de roadmap em 23/09/2026: `ROADMAP-SALES-ENGAGEMENT.md`, G-21.** O patch da metade automática já existe (`dac443f`, `wesales/tools/patch_canal_conectou.py`, `build-wesales.md` §2.41: grava nos ramos `Resposta v2` e `Triagem da Nutrição` que já sabem a resposta) — não é mais "falta o patch", é "patch escrito e validado, falta aplicar e depois estender ao `Pós-ligação v2`", mesma classe do G-18. O `GUIA-SDR.md` segue instruindo o SDR a preencher na tela, correto **enquanto** a extensão ao `Pós-ligação v2` não aplicar — minha leitura anterior ("ninguém escreve, logo nunca terá resposta") lia a D10 errado e está corrigida na §2.33.7 | G-21 é a fila de decisão/aplicação a partir de agora, não esta linha |
 | 9e | **Cresceu de "portar 6 nós na Inbound" para uma decisão sobre três cadências — promovido a item de roadmap próprio em 23/09/2026: `ROADMAP-SALES-ENGAGEMENT.md`, G-17.** A invariante (todo toque que enfileira ou marca `toque` deve ler `pausado`/`sdr-lotado`/teto semanal) achou que `Recuperação de No-show` e `Reengajamento 90 dias` também falham — o `Reengajamento` pior que a Inbound: gasta a cota semanal sem nunca respeitá-la. Patch da Inbound pronto e validado (`patch_portao_inbound.py --dump`, `build-wesales.md` §2.37); as outras duas esperam o dono escolher, por cadência, entre portar o portão ou tirar a tag `toque` (§2.38) | `auditoria_portoes.py` mede 3 cadências publicadas em falha hoje; G-17 é a fila de decisão a partir de agora, não esta linha |
 | 10 | **Decidir o `fila-wa`**: apagar a lista 8.3 e tirar os 75 nós, ou devolver fila própria ao WhatsApp | a tag é removida em 75 nós e aplicada em nenhum — a `Fila WhatsApp Hoje` nunca pode encher. Não é bug: o `PLANO-MULTICANAL.md` fez o WhatsApp virar parte do toque. O desatualizado é a lista 8.3. Recomendo apagar (seção 2.33) |
 

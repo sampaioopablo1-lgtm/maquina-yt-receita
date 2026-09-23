@@ -1834,6 +1834,88 @@ números certos (12/27) e a data desta correção; `APROVADO.md` e
 Zero campo, zero tag, zero escrita no CRM: item de coerência entre
 documentos, não depende de `APROVADO.md`.
 
+### G-21 · A pendência 9c (`Canal que conectou`, decisão do dono já dada) tinha patch escrito e validado desde `dac443f` e nunca virou item rastreável — mesma classe do G-16/G-17/G-18/G-19 — **FEITO em 23/09/2026 (promoção + achado de instrução que fica errada quando o patch completar)**
+
+**Por quê:** CRM reconfirmado por API nesta rodada — 56 oportunidades, mesma
+composição da leitura do G-20 (48 `NOVO LEAD` open + 1 abandoned + 1
+`REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR` lost + 2
+`NEGOCIAR` open + 1 `NEGOCIAR` lost), 56 campos de contato — G-03, G-04
+(peça 2), F-09, F-10, G-11 (item 1) e G-19 seguem aguardando o dono, sem
+novidade. O achado não veio de grep por nome nem de contagem: veio de
+reler, como o G-16/G-17/G-19 já ensinaram, um documento que mede e nunca
+promove — `ESTADO-E-PLANO.md`, seção 8, linha `9c`. O dono já decidiu essa
+pendência em 23/09/2026 ("automático onde o ramo já sabe, manual no
+resto"), uma sessão em paralelo já escreveu e validou o patch da metade
+automática (`dac443f`, `wesales/tools/patch_canal_conectou.py`,
+`build-wesales.md` §2.41) — mas a decisão e o patch nunca ganharam item de
+roadmap próprio, e a linha 9c de `ESTADO-E-PLANO.md` ainda dizia "falta o
+patch", que não é mais verdade (o patch existe; falta **aplicar**, e depois
+estender). Mesmo padrão exato do G-19: achado medido e documentado em dois
+lugares, sem "Pronto quando" rastreável em nenhum dos dois.
+
+**O que o patch cobre, e o que fica de fora por sequenciamento — resumo do
+§2.41 (detalhe completo lá, não repetido aqui):** grava `Canal que
+conectou` = `Mensagem` em dois ramos que já sabem a resposta
+(`Interceptação de Sinal — Resposta v2`, sinal quente; `Triagem da
+Nutrição`, ramo "Quer conversar?"). Fica de fora, por enquanto, o
+`Pós-ligação v2` — que também já sabe o canal (testa `fila-wa` logo depois
+de gravar `Resultado da tentativa`: presente é WhatsApp, ausente é ligação
+normal) — porque a extensão mexeria nos mesmos ramos `Atendeu` que o
+`patch_remove_atendeu.py` do G-18 ainda não aplicado vai alterar; aplicar
+os dois fora de ordem arrisca um sobrescrever o nó do outro. Ordem
+correta, já registrada no próprio §2.41: aplicar o G-18 primeiro,
+re-exportar o dump, só então estender este patch ao `Pós-ligação v2`.
+
+**Achado novo desta rodada, que nenhuma das duas leituras anteriores
+(9c em `ESTADO-E-PLANO.md`, §2.41 em `build-wesales.md`) tinha escrito:**
+`GUIA-SDR.md` (seção "Depois de cada ligação: marque 2 campos") instrui o
+SDR a preencher `Canal que conectou` na tela **toda vez que marca
+`Atendeu`** — instrução certa **hoje**, porque nada grava esse campo
+automaticamente ainda para o caminho do telefone. Mas o `Pós-ligação v2` é
+exatamente o ramo que decide `Atendeu`, e é exatamente o ramo que a
+extensão do §2.41 vai automatizar quando o G-18 destravar — ou seja, no dia
+em que as duas aplicações completarem, `GUIA-SDR.md` passa a pedir ao SDR
+um preenchimento manual que o sistema já faz sozinho para todo caso que
+existe hoje (a pendência 9c, ao decidir "automático onde o ramo já sabe",
+não deixou nenhum caso órfão de "onde não sabe" no telefone — só no
+WhatsApp, e esses dois já estão cobertos pelo patch atual). Duplicar não é
+neutro: o SDR pode marcar um valor por hábito ou engano que sobrescreve o
+que o workflow acabou de gravar corretamente, o mesmo risco de dado que o
+G-06 já tratou para outro campo. **Não é para corrigir agora** — corrigir
+antes da automação existir deixaria o campo sem preenchimento nenhum,
+pior que o duplicado de hoje —, é para não ficar esquecido quando a hora
+chegar, mesma razão de existir de todo "Pronto quando" deste roadmap.
+
+**Como:** nada disto sai por este conector — é decisão já dada (não abre
+pendência nova para o dono), patch já escrito (não abre trabalho de
+especificação novo) e instrução de guia (`GUIA-SDR.md`) que só deve mudar
+depois que a automação estiver no ar, não antes. O trabalho desta rodada é
+só a ponte que faltava: registrar aqui, com "Pronto quando" próprio, para a
+aplicação não ficar represada em três documentos sem nenhum deles apontar
+para os outros dois.
+
+**Pronto quando:** (1) `patch_remove_atendeu.py` (G-18) aplicado e
+re-exportado; (2) `patch_canal_conectou.py` estendido ao `Pós-ligação v2`
+nos mesmos moldes do §2.41 (grava por ramo, sem nó novo onde já existe
+`update_contact_field`), validado por `--dump` e aplicado; (3) `GUIA-SDR.md`
+atualizado para não pedir mais o preenchimento manual de `Canal que
+conectou` nos casos que passaram a ser automáticos — só então o campo
+some da lacuna "nem escrito nem lido" da `auditoria_campos.py` de vez, sem
+duplicidade. Zero campo, zero tag novos (o campo já existe desde
+23/09 01:06); zero escrita no CRM por esta sessão — patch e guia esperam
+aplicação manual, mesma classe de F-11/F-12/F-13/F-15/G-07/G-08/G-11
+(itens 2/3)/G-18.
+
+**Correção de coerência aplicada nesta rodada, nos três documentos que
+falavam do mesmo achado sem se citar:** `ESTADO-E-PLANO.md` (linha 9c)
+passou a apontar para este G-21, mesmo padrão de 0→G-16/9e→G-17/
+11a-11b→G-19; `campos-e-tags.md` (nota sobre o quarto campo fora da lista,
+Etapa 2) parou de dizer "nenhum nó... o lê ou escreve ainda" (falso desde
+o `dac443f`) e passou a citar o patch e o G-21; `build-wesales.md` §2.34
+(que sugeria a correção direto no `Pós-ligação v2`, sem saber do
+sequenciamento com o G-18) ganhou uma nota apontando para o §2.41, para
+ninguém implementar a sugestão antiga por cima do patch do G-18.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -5134,3 +5216,35 @@ mesma janela de tempo, vale um `git fetch` antes de qualquer leitura de CRM
 que vá virar número escrito no roadmap, não só antes do push: uma leitura
 que já nasce velha por 60 segundos ainda é melhor que uma que nasce velha
 por não ter conferido se alguém mexeu primeiro.
+
+**G-21 aberto e fechado (promoção + achado de instrução) em 23/09/2026,
+sessão automática seguinte — `git fetch` limpo desta vez (nenhum commit
+novo na janela desta leitura), CRM reconfirmado sem mudança (56
+oportunidades, mesma composição da reconciliação acima; 56 campos de
+contato): G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19 seguem
+exatamente as seis decisões que esperam o dono, sem novidade.** A lacuna
+não veio de grep por nome nem de contagem — veio, de novo, de reler
+`ESTADO-E-PLANO.md` linha por linha (regra que o G-16/G-17/G-19 já
+deixaram escrita: "documento medido não é o mesmo que documento
+rastreado") e achar que a pendência `9c` (`Canal que conectou`) tinha
+decisão do dono já dada e patch já escrito (`dac443f`,
+`patch_canal_conectou.py`, `build-wesales.md` §2.41) desde a rodada
+anterior, sem nunca ter virado item de roadmap nem atualizado a própria
+linha que a descrevia — o quarto caso exato do mesmo padrão de G-16/
+G-17/G-19. Detalhe completo, achado extra sobre `GUIA-SDR.md` ficar
+desatualizado no dia em que a automação completar, e as três correções de
+coerência aplicadas, no próprio G-21, acima.
+
+Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam
+sendo as seis decisões que esperam o dono; F-11, F-12, F-13, F-15, G-07,
+G-08, G-11 (itens 2/3), G-17, G-18 e agora **G-21** são os itens com
+desenho e decisão completos, patch validado, só faltando tela ou PC — a
+lista cresceu em um, não porque surgiu trabalho novo, mas porque um
+trabalho que já existia (decisão do dono de 23/09, patch de `dac443f`)
+finalmente ganhou onde ser visto por quem só abre este roadmap. A próxima
+rodada sem tela nem decisão desbloqueada repete o mesmo caminho de
+sempre — e, seguindo a mesma regra que abriu G-16/G-17/G-19/G-21, vale
+conferir se alguma outra linha de `ESTADO-E-PLANO.md` (ou de
+`PLANO-MULTICANAL.md`, que o G-19 já apontou como não lido por inteiro)
+tem decisão e patch prontos represados do mesmo jeito, antes de assumir
+que a fonte dessa classe de achado secou.

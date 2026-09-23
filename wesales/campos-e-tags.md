@@ -322,18 +322,18 @@ Detalhe completo, e por que não contam no título acima (regra da contagem
 `Canal que conectou` (`SINGLE_OPTIONS`: Ligação WhatsApp, Ligação normal,
 Mensagem — `contact.canal_que_conectou`, id `TxJmoWdkA8rTqC1uEsMW`,
 confirmado por `locations_get-custom-fields` nesta rodada, `dateAdded`
-2026-09-23T01:06Z). ⚠️ **Medido em 23/09 03:50: nenhum workflow escreve nele.**
-O id não aparece em nenhum dos 33 dumps, e a D10 do `PLANO-MULTICANAL.md` diz
-que ele deve ser "marcado junto com o resultado" — quem marca o resultado é o
-`Pós-ligação v2`, publicado, e ele não grava este campo. Logo a pergunta que o
-multicanal existe para responder (*qual canal conectou?*) não vai ter resposta.
-Correção e onde encaixá-la: seção 2.34 do `build-wesales.md`. Não nasceu deste documento nem de `build-wesales.md`:
+2026-09-23T01:06Z). Não nasceu deste documento nem de `build-wesales.md`:
 é o D10/E3 de `wesales/PLANO-MULTICANAL.md`, o plano do dono de 22/09/2026
 que reformula a cadência (ver nota no topo de `ROADMAP-SALES-ENGAGEMENT.md`).
-Registro, não aprovação — o campo já existe na tela, criado por fora deste
-conector; nenhum nó de `build-wesales.md` o lê ou escreve ainda, porque
-`build-wesales.md` segue descrevendo o desenho anterior ao `PLANO-
-MULTICANAL.md`.
+Quem preenche é o SDR na tela, junto com `Resultado da tentativa`
+(`GUIA-SDR.md` — a D10 pedia isso, não escrita automática; correção de
+leitura em `build-wesales.md` §2.33.7). O dono decidiu em 23/09/2026 tornar
+automática a parte que o workflow já sabe sozinho (pendência 9c de
+`ESTADO-E-PLANO.md`); o patch dessa metade já existe (`dac443f`,
+`wesales/tools/patch_canal_conectou.py`, `build-wesales.md` §2.41), validado
+por `--dump` e **ainda não aplicado**. Registro, não aprovação — o campo já
+existe na tela, criado por fora deste conector. Acompanhamento e "Pronto
+quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 
 ## Etapa 3 — Tags (21 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 
