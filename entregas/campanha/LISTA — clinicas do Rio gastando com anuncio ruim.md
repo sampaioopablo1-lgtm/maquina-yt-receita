@@ -5814,3 +5814,53 @@ repetir: a regra do ticket pela negativa, no barato o corretor não anuncia**; c
 termo não filtra geo, Mantiqueira/Canastra são de MG; **regra nova sobre o critério de
 longevidade: só é medível em combo magro, e velho sem headline é anúncio esquecido, não
 anúncio campeão**).
+
+---
+
+## ENERGIA SOLAR — residencial, pela conta de luz (23/09, nacional)
+
+Varredura: `energia solar residencial economia conta de luz`, BR, ACTIVE. **384 anúncios
+ativos**, 25 páginas distintas, **24 alvos** (fora Rossi Sampaio, corretora que entrou por
+ruído).
+
+**A proporção de Trilha A desabou: 3 ou 4 em 24.** Energia Solar Reginaldo, Raio Solar
+Daniel, Solar Teles, Persol Jaú. O resto anuncia como empresa — Evolua, Engensol, Naster,
+Spenergy, EcoSun. É o oposto exato da advocacia criminal (16 de 18 com nome próprio) e diz
+algo sobre o nicho: **quanto mais técnica a entrega, menos o dono vende a própria cara.**
+Vale como regra de abordagem — em solar, falar com a empresa; em advocacia, com a pessoa.
+
+**O defeito da URL crua virou epidemia aqui.** Cinco páginas rodam com `api.whatsapp.com`
+no lugar da headline: Branco Energia, Megasulsolar, Raio Solar Daniel (em três anúncios),
+Engensol e Rocha Elétrica. Somando com advocacia criminal e imobiliária, o defeito já
+apareceu em nove páginas — e a concentração tem padrão: **é nicho de instalador e serviço
+técnico, gente que monta o anúncio sozinha e não percebe que o campo do título ficou com o
+endereço do link.**
+
+Outros defeitos: carrossel com card vazio (Instalações Segura, Voltprime — 9ª e 10ª
+aparições); nome da própria página como headline (Spenergy quatro vezes, Fort Sol);
+"Conversar no Messenger" como título (Naster); título vazio (Persol Jaú, nos dois).
+
+### O que este nicho ensina e os outros não ensinaram
+
+**Aqui todo mundo põe preço — e usa o preço como filtro, não como promessa.** "Kit solar a
+partir de R$ 399,90 por mês" (Solar Teles), "Energia Solar a Partir de R$400/mês" (EcoSun).
+Em advocacia e contabilidade ninguém cita valor; em solar é regra. A diferença é que solar
+vende parcela contra uma despesa que o cliente já tem.
+
+E daí sai a melhor munição da varredura, que é **qualificar pelo gasto atual do leitor**:
+**"Energia Elétrica maior que 300 reais?"** (lopessolarsystem) e **"Cansado de pagar mais de
+R$ 350?"** (MultServ Indaiatuba). Quem paga menos não clica; quem paga mais se reconhece na
+hora. É o mesmo mecanismo do nosso "para quem já fatura", só que com número — e é a forma
+mais barata de filtrar que apareceu em todas as varreduras até agora.
+
+A EcoSun faz outra coisa que vale copiar: **a mesma copy com a cidade trocada na headline**
+("Moradores de Governador Valadares e Região", "Moradores de Belo Horizonte e Região"). Seis
+anúncios, uma mensagem, várias praças. Personalização geográfica sem reescrever nada.
+
+LISTA DE ATAQUE: **204 → 228**.
+
+Combos varridos até aqui: + energia solar residencial (nacional, 384 ativos — 24 alvos,
+**só 3 ou 4 em Trilha A: quanto mais técnica a entrega, menos o dono vende a própria
+cara**; a URL crua no título é epidemia de nicho técnico, 9 páginas somando as varreduras;
+**munição nova: qualificar pelo gasto atual do leitor — "conta de luz maior que R$300?"** —
+e a personalização por cidade da EcoSun).
