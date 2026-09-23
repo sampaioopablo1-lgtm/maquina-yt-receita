@@ -4,13 +4,20 @@ Leitura completa pedida pelo dono antes de implementar qualquer coisa:
 documentos, API ao vivo e workflows. **Tudo abaixo foi medido nesta rodada**,
 não herdado de rodada anterior. Onde não deu para medir, está dito.
 
-> **Nota de 23/09/2026:** este documento é uma fotografia datada (números de
-> pipeline/campos/etapa mudaram desde então — a fonte viva é a leitura por
-> API que cada rodada do `ROADMAP-SALES-ENGAGEMENT.md` faz, não este
-> arquivo). A única linha ainda ativa é a pendência 0 da seção 8, corrigida
-> abaixo: virou item de roadmap (G-16) depois de ficar sem resposta por uma
-> rodada inteira sem que as varreduras de coerência (G-10/G-13/G-14)
-> tivessem cruzado este arquivo.
+> **Nota de 23/09/2026, corrigida na mesma data:** este documento é uma
+> fotografia datada (números de pipeline/campos/etapa mudaram desde então —
+> a fonte viva é a leitura por API que cada rodada do
+> `ROADMAP-SALES-ENGAGEMENT.md` faz, não este arquivo). Esta nota dizia que
+> "a única linha ainda ativa é a pendência 0" — estava errada, sem ter
+> conferido as outras linhas antes de afirmar isso: 9e e 11a/11b também
+> seguiam ativas na seção 8 na hora em que isto foi escrito. As três já
+> viraram item de roadmap — pendência 0 → G-16, 9e → G-17, 11a/11b → G-19 —
+> pela mesma razão de sempre: nenhuma rodada de coerência (G-10/G-13/G-14)
+> tinha cruzado este arquivo linha por linha até essas promoções
+> acontecerem. **O que esta correção não afirma:** que as demais linhas da
+> seção 8 (1, 2, 4, 5, 6, 8, 9c, 10, 12) estão todas cobertas em outro
+> lugar — isso não foi reconferido nesta rodada; cada uma continua valendo
+> como está escrita ali até alguém confirmar o contrário.
 
 ## 1. A subconta
 
@@ -230,8 +237,8 @@ entra no funil. Hoje não há regra nenhuma.
 | 8 | **Confirmar com um comando no seu PC:** `python patch_remove_parte2.py` **sem** `--aplicar` (não escreve nada, só lista) | o assunto do `23db864` diz "parte 2 nas remoções", então provavelmente já está feito — o que falta é confirmar quantos nós o script pegou, porque ele varre só os publicados. Se algum ficou para trás, o lead que agenda continua recebendo toque automático da segunda metade da régua. O dump não responde isso (seção 2.31.3) |
 | ~~0~~ | ~~Uma pergunta, não uma limpeza: `Francisca` (+5512981913254) é você testando ou é gente?~~ — **respondida em 23/09/2026 por outra sessão, que promoveu a pergunta a item de roadmap (`ROADMAP-SALES-ENGAGEMENT.md`, G-16), porque nenhuma das rodadas de coerência (G-10/G-13/G-14) tinha cruzado este documento até então.** `conversations_get-messages` no fio inteiro confirma: é pessoa real, conversa pessoal (PIX, carona, áudio), sem sinal comercial. Continua `open` em `NOVO LEAD` com `etapa-novo-lead` + `cad-inbound`, sem dono — a correção (tirar as duas tags, mover para `abandoned`) está registrada em `APROVADO.md`, nasce `[ ]`, aguardando o `[x]` do dono. | risco confirmado, não mais hipótese: enquanto as tags não saem, o contato segue elegível ao próximo toque da Cadência Inbound |
 | ~~11~~ | ~~Escolher como a Faxina roda~~ — **FECHADA por ação: é o Actions.** O `faxina-tarefas.yml` existe e já rodou 2× com sucesso. Eu havia dito que nenhum workflow o chamava; era `git grep` numa branch só, e o arquivo vive em outra — corrigido |
-| 11a | **Acertar a cadência da Faxina** — o `cron` diz `*/10 11-22 * * 1-5` **mais** `0 * * * *`, e os dois somam: **84 execuções por dia útil** (documentado: 12) e **24 por dia no fim de semana** (documentado: 0) | a carência de 5 min contra corrida com o workflow do GHL foi desenhada para cadência horária; com 10 min ela cobre metade do intervalo. O teto de 200 e a trava da metade seguem valendo, então não é destruição — é margem que encolheu sem ninguém decidir. Ou o `cron` vira `0 11-22 * * 1-5`, ou o documento passa a descrever 10 min e a carência é revista |
-| 11b | **Despinar o `checkout` do `faxina-tarefas.yml`** — está em `ref: claude/amazing-johnson-mclksg` | quando este PR for mesclado e a branch apagada, o workflow quebra no primeiro `checkout`, rodando sozinho de madrugada sem ninguém olhando. Trocar pela branch padrão no mesmo movimento do merge |
+| 11a | ~~**Acertar a cadência da Faxina**~~ — **promovido a item de roadmap em 23/09/2026: `ROADMAP-SALES-ENGAGEMENT.md`, G-19.** o `cron` diz `*/10 11-22 * * 1-5` **mais** `0 * * * *`, e os dois somam: **84 execuções por dia útil** (documentado: 12) e **24 por dia no fim de semana** (documentado: 0) | a carência de 5 min contra corrida com o workflow do GHL foi desenhada para cadência horária; com 10 min ela cobre metade do intervalo. O teto de 200 e a trava da metade seguem valendo, então não é destruição — é margem que encolheu sem ninguém decidir. Ou o `cron` vira `0 11-22 * * 1-5`, ou o documento passa a descrever 10 min e a carência é revista |
+| 11b | ~~**Despinar o `checkout` do `faxina-tarefas.yml`**~~ — **mesma promoção, G-19** — está em `ref: claude/amazing-johnson-mclksg` | quando este PR for mesclado e a branch apagada, o workflow quebra no primeiro `checkout`, rodando sozinho de madrugada sem ninguém olhando. Trocar pela branch padrão no mesmo movimento do merge |
 | 12 | **Revogar o PIT antigo** (o que apareceu no histórico de chat) — Settings → Private Integrations | varri o repositório: nenhum consumidor automatizado dele aqui (o `ghl_api.py` usa o bearer interno, a Faxina usa o `GHL_TOKEN` novo, o `conectar.md` só documenta a receita). Revogar não quebra nada **deste repositório**. O limite é esse: se ele foi colado em algo fora (Zapier, Make, n8n), revogar quebra aquilo, e isso eu não vejo |
 | ~~9a/9b~~ | ~~Publicar a `Triagem da Nutrição`~~ e ~~dois `Remove Tag`~~ — **FECHADAS pelo dono, e 3 das 5 já estavam fechadas quando eu as reportei.** A `Triagem da Nutrição` foi publicada às 03:24 e o `Mestre de saída v2` passou a limpar `fechar-horario` e `cadencia-12x30-p2`. Eu reportei os 5 achados às 04:35 e 04:55 lendo um dump de **22/09 16:27** — detalhe e conserto da ferramenta na §2.33.3 |
 | ~~9d~~ | ~~Duas linhas no `patch_condicoes_etapa.py`~~ — **MEDIDA em 23/09/2026, e a pendência estava superestimada.** Os 10 alvos já estavam consertados (28 segmentos, 49 condições, 0 falhas, contra os backups pré-patch); o defeito real não era o passado, era a falta de guarda para workflow futuro. `auditoria_condicoes.py` (nova, somente leitura) cobre isso agora; `ALVOS` virou varredura ao vivo (`--incluir-teste`, `--alvo NOME`), tabela de tradução de 3 para 8 padrões | `build-wesales.md` §2.36 |

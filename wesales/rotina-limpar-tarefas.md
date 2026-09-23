@@ -196,6 +196,13 @@ confirmei fora do dump e não confirmei fora da **branch**.
 
 ### Mas o agendamento não é o que este documento especifica
 
+> **Promovido a item de roadmap em 23/09/2026:
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-19** — os dois achados desta seção (a
+> cadência somada e o `checkout` pinado nesta branch de PR) ficaram sem
+> "Pronto quando" rastreável por dias, o mesmo padrão que já rendeu
+> G-16/G-17/G-18. Detalhe e as duas opções de conserto, iguais às escritas
+> aqui, estão no G-19.
+
 O arquivo tem **dois** `cron`, e em GitHub Actions eles **somam**:
 
 ```

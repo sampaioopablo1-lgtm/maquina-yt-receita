@@ -1641,6 +1641,110 @@ escrita no CRM por este item: não depende de `[x]` em `APROVADO.md`
 
 ---
 
+### G-19 · O agendamento da Faxina (`.github/workflows/faxina-tarefas.yml`) já estava medido em `rotina-limpar-tarefas.md` e `ESTADO-E-PLANO.md` (pendências 11a/11b), nos dois sem "Pronto quando" — dois defeitos, mesmo arquivo, nunca viraram item rastreável — **ABERTO, decisão do dono**
+
+**Por quê:** a Faxina de Tarefas (D12 do `PLANO-MULTICANAL.md`, único
+mecanismo real de higiene de tarefa desde que a rotina de agente por prompt
+foi aposentada) roda hoje bem mais vezes do que qualquer documento deste
+projeto diz que roda, e carrega um risco de quebra silenciosa que nenhum
+item numerado (G/R/F) cobre. Achado técnico completo já existia em dois
+lugares — `rotina-limpar-tarefas.md` (seção "Mas o agendamento não é o que
+este documento especifica", medido por API do Actions, não por `git grep`)
+e `ESTADO-E-PLANO.md` (seção 8, pendências 11a/11b) — mesmo padrão que já
+motivou G-16/G-17/G-18: achado medido e documentado não é o mesmo que
+achado rastreável, e sem "Pronto quando" próprio ele fica represado no
+texto até alguém reler o documento certo.
+
+**Defeito 1 — cadência 7× maior que a documentada.** O arquivo tem dois
+`cron`, e o GitHub Actions **soma** os dois em vez de escolher um:
+
+```
+schedule:
+  - cron: "*/10 11-22 * * 1-5"    # a cada 10 min, 11h-22h UTC (08h-19h BRT), seg-sex
+  - cron: "0 * * * *"             # de hora em hora, TODOS os dias, sem exceção
+```
+
+Confirmado nesta rodada lendo o arquivo direto da branch padrão
+(`claude/youtube-publication-next-steps-v7o4el`), não deduzido do texto: os
+dois `cron` estão lá, ativos, exatamente como `rotina-limpar-tarefas.md`
+mediu.
+
+| | Documentado (`rotina-limpar-tarefas.md`, `PLANO-MULTICANAL.md` D12) | No ar |
+|---|---|---|
+| dia útil, janela 08–19 BRT | 12 execuções (horária) | **84** |
+| sábado e domingo | 0 ("não há tarefa nascendo e não há SDR trabalhando") | **24 por dia** |
+| madrugada (fora da janela) | 0 | 1 por hora |
+
+Não é só custo de minuto de Actions: a proteção contra corrida com os
+workflows do GHL é a carência de 5 minutos (tarefa criada há menos de 5 min
+não é tocada pela Faxina). Desenhada para cadência horária, 5 minutos é
+folga grande; com execução a cada 10 minutos essa folga cobre só metade do
+intervalo entre execuções — a margem encolheu sem que ninguém tivesse
+decidido isso. O teto de 200 tarefas por execução e a trava de "não mexe se
+mais da metade das tarefas abertas estão vencidas" (D12) continuam valendo,
+então o risco não é destruição — é a mesma classe de "margem que encolheu
+sem decisão" que o G-17 já descreveu para o portão de capacidade, aqui para
+o intervalo entre execuções em vez de para o volume por execução.
+
+**Defeito 2 — o `checkout` está pinado nesta branch de PR, não na branch
+padrão.** O mesmo arquivo tem:
+
+```
+- uses: actions/checkout@v4
+  with:
+    ref: claude/amazing-johnson-mclksg
+```
+
+— a branch deste próprio PR (#93). Confirmado nesta rodada: o PR segue
+`open`/`draft`, sem merge. Quando ele mesclar e a branch for apagada (fluxo
+padrão de merge do GitHub), o primeiro `checkout` de toda execução seguinte
+falha — a Faxina para de rodar, de madrugada, sem ninguém olhando, e as
+tarefas automáticas órfãs voltam a se acumular sem a única rede que hoje as
+segura. Diferente do defeito 1 (cadência errada, mas funcionando), este é
+"funciona até o dia em que para de funcionar por completo", a mesma classe
+de exposição sem teto que já tirou o F-04 da ordem normal.
+
+**Como:** os dois defeitos vivem no mesmo arquivo, fora de `wesales/` —
+`.github/workflows/faxina-tarefas.yml` é raiz do repositório, e a regra 5
+desta rotina ("só mexa em `wesales/`") impede esta sessão de editá-lo, por
+mais mecânico que o conserto seja. `rotina-limpar-tarefas.md` já deixa as
+duas correções escritas, prontas para quem tiver escopo de repo-root:
+
+1. Cadência (escolha do dono, as duas são válidas — só não do jeito que
+   está, com um documento dizendo uma coisa e o `cron` outra): **(A)** o
+   `cron` passa a valer o documentado — `0 11-22 * * 1-5`, horária na
+   janela, remove o `0 * * * *`; ou **(B)** o documento (`PLANO-
+   MULTICANAL.md` D12, `rotina-limpar-tarefas.md`) passa a descrever a
+   cadência de 10 minutos de verdade, e a carência de 5 minutos contra
+   corrida é revista para caber num intervalo menor (por exemplo, subir a
+   carência ou reduzir a frequência fora da janela comercial).
+2. Branch (mecânico, não decisão — fazer no mesmo movimento do merge deste
+   PR #93): trocar `ref: claude/amazing-johnson-mclksg` pela branch padrão
+   do repositório (`claude/youtube-publication-next-steps-v7o4el`, medida
+   por API do GitHub nesta rodada) ou remover o `ref:` para herdar o
+   default do `checkout@v4`.
+
+**Achado relacionado, registrado mas não promovido a item próprio —** a
+mesma varredura de `rotina-limpar-tarefas.md` cobre um terceiro ponto (o
+Private Integration Token antigo, que apareceu no histórico de chat de uma
+sessão anterior): conferido ali que nenhum consumidor deste repositório usa
+esse PIT (`ghl_api.py` usa o bearer interno, `faxina_tarefas.py` usa o
+`GHL_TOKEN` novo), revogá-lo em Settings → Private Integrations é seguro
+**daqui** — decisão pronta, sem "Pronto quando" técnico pendente, mesma
+categoria de L-03/L-06 (registrada de propósito sem item de roadmap, ação
+do dono quando ele quiser, sem urgência nem dependência de outra coisa).
+
+**Pronto quando:** o `.github/workflows/faxina-tarefas.yml` tem um único
+`cron` cuja cadência bate com o que `PLANO-MULTICANAL.md`/
+`rotina-limpar-tarefas.md` descrevem (nenhum dos dois documentos precisando
+de correção depois), e o `ref` do `checkout` aponta para a branch padrão do
+repositório, não para a branch de um PR que vai deixar de existir. Zero
+campo, zero tag, zero escrita no CRM: item de coerência entre documentos e
+de infraestrutura de repositório, fora do que `APROVADO.md` governa (não é
+escrita na subconta) e fora do escopo desta sessão (não é `wesales/`).
+
+---
+
 ## Bloco 1 — Medição (a maior lacuna)
 
 Hoje a máquina executa e não se mede. Um SDR sem medição é um SDR com opinião.
@@ -4761,3 +4865,41 @@ validado por dump) e só faltam ser montados/aplicados na tela ou no PC; F-14
 de verdade. A próxima rodada sem tela nem decisão desbloqueada repete o
 mesmo caminho de sempre — agora também conferindo se o dono já rodou algum
 dos patches represados (G-17, G-18) antes de assumir que continuam abertos.
+
+**G-19 aberto em 23/09/2026, sessão automática seguinte — sweep de
+coerência limpo de novo (56 oportunidades, mesma composição da leitura do
+G-18; 56 campos de contato), G-03/G-04 (peça 2)/F-09/F-10/G-11 (item
+1)/G-16/G-17 sem novidade.** A lacuna não veio de grep por nome de etapa:
+veio de olhar o `git log` mais recente de `wesales/` (regra do G-10, "o git
+log deveria entrar na varredura de toda rodada") e achar um commit
+(`8f1001c`, fora do vocabulário G/F/R — "A1 conferido") apontando para
+`PLANO-MULTICANAL.md`, documento que o G-10 já tinha cruzado uma vez mas
+cuja seção "Fila autônoma" (protocolo de execução próprio, por fora do
+`APROVADO.md`, usando o bearer local que esta sessão na nuvem não tem — não
+executável nem replicável aqui) nunca tinha sido lida linha a linha por uma
+rodada deste roadmap. Dela não saiu item novo (a pergunta que o próprio A9
+carregava, "Francisca é teste ou é gente", já tinha sido promovida ao G-16
+por outro caminho) — mas o rastro levou a `rotina-limpar-tarefas.md`, que
+tinha o achado completo (dois `cron` que se somam, `checkout` pinado nesta
+branch de PR) escrito e medido por API do Actions, replicado em
+`ESTADO-E-PLANO.md` (pendências 11a/11b) e nunca promovido a item
+rastreável — a mesma classe exata que já rendeu G-16/G-17/G-18. Fechado
+como **G-19**: os dois defeitos vivem em `.github/workflows/
+faxina-tarefas.yml`, fora de `wesales/` e fora do que `APROVADO.md`
+governa, então esta sessão só documenta e não edita — a correção é mecânica
+(trocar o `ref:` do `checkout` na branch padrão) mais uma decisão pequena
+do dono (qual cadência vale, a do `cron` ou a do documento). Zero campo,
+zero tag, zero escrita no CRM: item de coerência entre documentos e de
+infraestrutura de repositório, não depende de `APROVADO.md`. Detalhe
+completo no próprio G-19, acima.
+
+Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1), G-16, G-17 e
+**G-19** são as **oito** decisões que esperam o dono; F-11, F-12, F-13,
+F-15, G-07, G-08, G-11 (itens 2/3) e G-18 continuam com desenho completo e
+patch pronto, só faltando tela ou PC; F-14 é checklist de gestor, pronto
+para uso assim que o número começar a discar de verdade. A próxima rodada
+sem tela nem decisão desbloqueada repete o mesmo caminho de sempre — agora
+também lendo `PLANO-MULTICANAL.md` por inteiro (não só a tabela de decisões
+D1-D14, também a "Fila autônoma" no fim) na varredura de coerência, e
+conferindo se o dono já mesclou o PR #93 (o que fecharia sozinho a metade
+"branch" do G-19, restando só a cadência).
