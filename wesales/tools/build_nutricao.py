@@ -38,7 +38,7 @@ NOME_NUTRI = "Nutrição — WhatsApp a cada 15 dias"
 NOME_TRI = "Triagem da Nutrição"
 
 MSG = {
-    "N1-v1": ("Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}. "
+    "N1-v1": ("Oi {{contact.first_name}}, aqui é da O Próximo Cliente. "
               "Passando rápido: uma coisa que muda o resultado de anúncio é responder o lead "
               "nos primeiros minutos — depois disso a chance de conversar cai muito. Se quiser, "
               "te mostro como organizar isso aí. É só responder."),

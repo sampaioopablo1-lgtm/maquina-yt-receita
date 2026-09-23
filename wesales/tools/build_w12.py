@@ -43,7 +43,7 @@ CONEXAO = C["Conexão real"]["id"]
 TEMPLATE = C["Template usado"]["id"]
 AGORA = "{{right_now.date}} {{right_now.time}}"
 MSG = {
-    "MI-0": ("Oi {{contact.first_name}}, aqui é o {{user.first_name}} da {{location.name}}. "
+    "MI-0": ("Oi {{contact.first_name}}, aqui é da O Próximo Cliente. "
              "Recebi seu contato agora e já vou te ligar em poucos minutos. Se preferir me "
              "responder por aqui enquanto isso, também tá valendo."),
     "MIF-v2": ("{{contact.first_name}}, tentei falar com você algumas vezes nos últimos dias "
