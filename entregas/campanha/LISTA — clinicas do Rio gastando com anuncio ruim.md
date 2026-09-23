@@ -6125,3 +6125,48 @@ página; **achado grande: cinco páginas já rodam o modelo "exame grátis + arm
 que é a nossa própria mecânica de lead operada pela ótica**; auto-concorrência na quarta
 aparição, Óticas Lillo com 6 iguais; **defeito novo: o texto padrão do botão — "Converse
 conosco" — deixado no campo do título, em 5 páginas**).
+
+---
+
+## ESTÚDIO DE TATUAGEM (23/09, nacional)
+
+Varredura: `estúdio de tatuagem agendar sessão`, BR, ACTIVE. **27 anúncios ativos** — o menor
+número de todas as varreduras, menor até que o aluguel residencial no Rio. 16 páginas
+distintas, **16 alvos**, e como o combo é magro o retorno trouxe os 27, o que torna a
+longevidade medível de verdade aqui.
+
+**Trilha A: 11 de 16** — gledstontattoo, Salerno, Yumi, Ana Julia, Carol Mendonça, Marcos
+Maranho, Geysler Rodrigues, Hiago Ribas, João Kovalski, Tarciana Negromonte, Alex Bosevic.
+Confirma pela quarta vez a regra corrigida na arquitetura: **tatuagem o cliente escolhe uma
+pessoa, e o nome dela está na fachada.**
+
+**A regra de longevidade funcionou exatamente como foi escrita.** Cinco anúncios estão no ar
+há muito tempo, e o título separa os dois casos:
+
+- **Campeão de verdade:** INK Legacy, "ENVIE SUA IDEIA", no ar desde **novembro de 2025** —
+  onze meses. Título curto, imperativo, que descreve a ação do leitor. É a terceira vez que
+  a fórmula "CTA que descreve a ação de quem lê" aparece entre os melhores.
+- **Abandonados, não campeões:** arthousebangu (outubro e novembro de 2025), Alex Bosevic
+  (novembro de 2025), Tarciana Negromonte (junho), João Kovalski (julho) — **todos com o
+  campo de título vazio.** Anúncio velho sem headline é dinheiro saindo sem ninguém olhar,
+  e aqui tem um que está assim há quase um ano.
+
+**Auto-concorrência, quinta aparição:** Geysler Rodrigues com **6 anúncios ativos** e a
+headline idêntica "Tatuagem Realista em JF"; Junco Tattoo com 3 iguais ("Estúdio de tatuagem
+em Itapema") mais 2 iguais ("Orçamento grátis no WhatsApp"). Cinco nichos, seis páginas.
+**Isso deixou de ser curiosidade e virou o defeito mais universal que a gente achou** — mais
+comum que URL crua, mais comum que título vazio.
+
+Outros defeitos: URL crua (gledstontattoo, Artes Marginais); "Converse conosco" no título
+(Ana Julia); título vazio em 7 das 16 páginas.
+
+**Dois alvos do Rio:** ANA JULIA Botafogo • Tattoo (Botafogo) e arthousebangu (Bangu) — e o
+de Bangu está rodando anúncio sem título desde outubro de 2025.
+
+LISTA DE ATAQUE: **365 → 381**.
+
+Combos varridos até aqui: + estúdio de tatuagem (nacional, 27 ativos — o combo mais magro de
+todos, 16 alvos, 11 em Trilha A; **a regra de longevidade se comprovou: INK Legacy com
+título forte há 11 meses é campeão, quatro páginas com título vazio há meses são
+abandonadas**; auto-concorrência na quinta aparição — Geysler com 6 iguais — e agora é o
+defeito mais universal da base; dois alvos do Rio, Botafogo e Bangu).
