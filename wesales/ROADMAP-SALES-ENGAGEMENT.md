@@ -3367,6 +3367,50 @@ troca o argumento:
 a pressão não é o crescimento, é o **envelhecimento**. Lead de Meta Lead Ads
 esfria por hora, não por semana — e o mais velho do estoque já tem três dias.
 
+**Atualização 23/09/2026, sessão automática seguinte — a marca de 48h foi
+cruzada, e o recorde da própria base mais que triplicou.** Reconfirmado por
+API (`opportunities_search-opportunity`, `status: all`): 56 oportunidades,
+mesma composição das leituras de G-16 a G-20 (49 `NOVO LEAD` open + 1
+`REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR` lost + 2
+`NEGOCIAR` open + 1 `NEGOCIAR` lost) — nenhuma oportunidade nova desde a
+última leitura. O lead com `source: Facebook` mais novo continua sendo
+`Carlos Andrade`, `21/09/2026 09:17:26 UTC` — os contatos criados depois dele
+(22-23/09: `Sem nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca`,
+`156766977421470`, `ZZ Teste Porta Inbound`) são todos teste do dono, já
+identificados no G-16/G-20, nenhum com `source: Facebook`.
+
+| Fato | Valor |
+|---|---|
+| Agora | 23/09/2026 17:07 UTC (14:07 em `America/Sao_Paulo`, quarta-feira, horário comercial) |
+| Tempo sem lead novo pago | **55h50min e subindo** |
+| Maior intervalo já observado antes deste episódio (20/09 18:11 → 21/09 09:17) | 15h06 |
+| Múltiplo do recorde anterior | **3,7×** — era 1,61× na última leitura registrada deste número (22/09 09:36 UTC) |
+| Dias cobertos pelo silêncio | segunda, terça e quarta — três dias **úteis**, não é hiato de fim de semana |
+
+Não é mais "o maior silêncio já visto por uma margem" — é o maior silêncio
+por uma margem que **mais que dobrou** desde a última leitura registrada (de
+1,61× para 3,7× em cerca de 31h30min). O gap de 22/09 já tinha cruzado o
+recorde antigo; este não é o mesmo evento medido de novo, é o mesmo evento
+**persistindo** um dia inteiro a mais depois de o item ter sido aberto (F-10
+abriu em 22/09; hoje é 23/09, e o silêncio de entrada não teve uma única
+exceção entre as duas datas). A cada leitura que reconfirma "sem lead novo",
+a hipótese que o item já levantava
+("campanha pausada, orçamento esgotado, formulário com problema ou criativo
+reprovado") fica mais provável que a alternativa ("dia fraco, vai
+normalizar"): a janela em que a entrada funcionava trouxe 10 leads em 34h30;
+esta janela sem nenhuma entrada já passa de 55h — mais que o dobro do tempo
+sem sequer repetir um décimo do resultado.
+
+**O que isto muda, e o que não muda:** não desbloqueia a opção (b) sozinho —
+o alarme automático continua sendo decisão do dono, registrada acima. Muda o
+peso do G-03: os leads parados em `NOVO LEAD` (49 na composição atual) não
+estão só "envelhecendo" — estão parados numa operação cujo próprio funil de
+entrada parece ter parado de vez, o que torna a decisão do lote (Etapa A do
+`ESTADO-E-PLANO.md`) mais urgente, não menos: é o estoque inteiro da operação
+até a entrada voltar, e não há sinal nenhum, três dias depois, de que vá
+voltar sozinha. Zero campo, zero tag, zero escrita no CRM: leitura por API,
+não depende de `APROVADO.md`.
+
 **Pronto quando:** existe um número de entrada do dia visível sem abrir o
 Gerenciador de Anúncios (widget ou lista), o dono sabe que os seis monitores
 do F-05 não cobrem entrada, e ele decidiu se quer só o número ou também o
@@ -4986,3 +5030,31 @@ Com isso, nenhum item numerado (G/R/F) muda de estado nesta rodada além do
 próprio G-20: G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1), G-16, G-17 e
 G-19 continuam sendo as oito decisões que esperam o dono — a próxima rodada
 sem tela nem decisão desbloqueada repete o mesmo caminho de sempre.
+
+**Sessão automática seguinte, 23/09/2026 — sem item numerado novo; F-10
+recebeu a leitura que muda a leitura do próprio F-10.** CRM reconfirmado por
+API: 56 oportunidades, mesma composição da leitura do G-20 (49 `NOVO LEAD`
+open + 1 `REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR`
+lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost), 56 campos de contato — nada
+para o sweep de coerência de sempre corrigir. O trabalho desta rodada não
+veio de grep por nome nem de contagem duplicada: veio de reler, como a
+própria seção "Ordem sugerida" instrui quando não há tela nem decisão nova,
+os itens represados por informação que pode ter vencido — e o F-10, a
+última vez que teve o próprio número atualizado em 22/09 às 09:36 UTC
+(24h19min, 1,61× o recorde da base), nunca tinha sido reconferido desde
+então. Reconferido agora: o lead pago mais recente continua sendo `Carlos
+Andrade`, de 21/09 09:17:26 UTC — o silêncio chegou a **55h50min, 3,7× o
+maior intervalo que esta base já teve**, cobrindo três dias de calendário
+(segunda a quarta) sem uma única exceção. Não é a mesma leitura republicada: é a
+evidência de que a causa (campanha pausada, orçamento esgotado ou criativo
+reprovado — as três hipóteses que o item já levantava) segue ativa, e cada
+rodada que reconfirma o silêncio torna "vai normalizar sozinho" uma aposta
+pior. Detalhe completo dentro do próprio F-10, acima. Zero campo, zero tag,
+zero escrita no CRM: leitura por API, não depende de `APROVADO.md`.
+
+Com isso, G-03, G-04 (peça 2), F-09, **F-10**, G-11 (item 1), G-16, G-17 e
+G-19 continuam sendo as oito decisões que esperam o dono — nenhuma mudou de
+estado, mas o F-10 chega à próxima rodada com o peso maior do que saiu desta.
+A próxima rodada sem tela nem decisão desbloqueada repete o mesmo caminho de
+sempre — e, se o silêncio de entrada continuar, vale reconferir o F-10 de
+novo antes de assumir que 22/09 ainda é a leitura mais recente que existe.

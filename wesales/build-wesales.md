@@ -2676,7 +2676,7 @@ o número exato.
 | `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
 | `Taxa de Conexão Real — Telefone` (nova, F-06, peça 2) | `(Soma de "Conexões reais telefone" ÷ Soma de "Ligações com transcrição") × 100` | **Das chamadas que dá para medir**, quantas duraram mais de 60s — sem depender do julgamento do SDR. O denominador **não** é `Tentativas telefone`: os dois lados precisam da mesma população, ver "Conferência da peça 2" na seção 2.27 |
 | `Leads novos hoje` (nova, F-10) | `Contagem de contatos com "Date Created" = hoje` | **Entrada do dia** — o único indicador que piora quando a operação para de receber lead, e o único que nenhum monitor do F-05 cobre. Zero às 12h já é sinal. Usa a contagem de contatos por filtro (achado 2 desta seção), que aqui é a unidade certa |
-| `Leads novos — 7 dias` (nova, F-10) | `Contagem de contatos com "Date Created" nos últimos 7 dias` | Tendência de entrada: separa "dia fraco" de "parou". **Leia contra o maior intervalo já observado** (15h06 nesta base) e não contra um total de horas — hora absoluta não se calibra, e foi por isso que a abertura do F-10 publicou um número errado que "soava plausível". Medido em 22/09: mais de 22h sem lead novo (número corrigido — a abertura do F-10 tinha escrito ~46h por erro de conta, ver `ROADMAP-SALES-ENGAGEMENT.md`), e nenhum alerta existia para dizer isso |
+| `Leads novos — 7 dias` (nova, F-10) | `Contagem de contatos com "Date Created" nos últimos 7 dias` | Tendência de entrada: separa "dia fraco" de "parou". **Leia contra o maior intervalo já observado** (15h06 nesta base) e não contra um total de horas — hora absoluta não se calibra, e foi por isso que a abertura do F-10 publicou um número errado que "soava plausível". O tempo sem lead novo só sobe a cada rodada (última leitura em `ROADMAP-SALES-ENGAGEMENT.md`, F-10 — número fixo só lá, para não desatualizar aqui) e nenhum alerta existia para dizer isso |
 | `Cobertura da Medição — Telefone` (nova, F-06, peça 2) | `(Soma de "Ligações com transcrição" ÷ Soma de "Tentativas telefone") × 100` | Quanto da operação de telefone está instrumentada (LC Phone + transcrição ligada). Abaixo de ~90%, a linha acima merece ressalva; abaixo de ~50%, o F-06 está medindo outra operação |
 
 A quinta linha é a que fecha o "Pronto quando" do F-06 no dashboard: por
@@ -7265,9 +7265,11 @@ esperar decisão nenhuma — e são a mais urgente da casa.** Acrescentado em
 
 **Ordem sugerida, portanto:** monte a `Entrada — últimas 24h` primeiro, de
 todas as listas do projeto. Ela é o único monitor de entrada que existe
-(F-10 — e a entrada está parada há mais de 1,9× o maior intervalo já
-observado), não espera ninguém, e responde de lambuja a dúvida que decide o
-desenho das outras sete. Anote o resultado da ordenação em
+(F-10 — e o silêncio de entrada já passa, por uma margem grande e crescente
+a cada rodada, o maior intervalo que esta base já teve; número exato só na
+leitura mais recente do F-10 em `ROADMAP-SALES-ENGAGEMENT.md`, para não
+desatualizar aqui), não espera ninguém, e responde de lambuja a dúvida que
+decide o desenho das outras sete. Anote o resultado da ordenação em
 `APRENDIZADOS-CRM.md` — é a verificação que nenhuma pesquisa deste projeto
 conseguiu fazer.
 

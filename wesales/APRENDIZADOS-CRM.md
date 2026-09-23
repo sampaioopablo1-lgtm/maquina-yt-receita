@@ -6363,3 +6363,53 @@ números certos (12/27); `APROVADO.md` e `build-wesales.md` §2.32 pararam de
 repetir o número (regra "número fixo só na fonte") e passaram a apontar
 para `campos-e-tags.md`. Zero campo, zero tag, zero escrita no CRM: item de
 coerência entre documentos, não depende de `APROVADO.md`.
+
+## Auditoria diária (só leitura): a entrada piorou de ~25h14 (22/09) para 55h50 (23/09) sem lead novo, e o recorde que a régua "múltiplo do pior caso" mede mais que dobrou de uma rodada para a outra — 23/09/2026, sessão automática seguinte
+
+Continuação da série que a auditoria diária de 22/09/2026 abriu (entrada
+acima). Naquela leitura (22/09, ~10:31 UTC) o silêncio de entrada estava em
+25h14min, 1,67× o recorde da base (15h06, 20/09 18:11 → 21/09 09:17).
+Nenhuma rodada entre aquela e esta tinha voltado a medir especificamente
+este número — G-16 a G-20 reconfirmaram oportunidades e campos a cada
+rodada, mas nenhuma reabriu o F-10 para perguntar de novo "quanto tempo faz
+desde o último lead pago". A regra generalizável do próprio F-10 ("reler
+item represado por informação que pode ter vencido") se aplica a ele mesmo
+quando a informação é um relógio que nunca para de correr.
+
+**Medido às 23/09 17:07 UTC, por `opportunities_search-opportunity`
+(`status: all`):** 56 oportunidades, mesma composição das leituras de G-16 a
+G-20 — nenhuma nova desde então. O lead com `source: Facebook` mais recente
+continua sendo `Carlos Andrade`, 21/09/2026 09:17:26 UTC. Diferença: **55h50min**
+sem lead pago novo, contra 25h14min na leitura anterior (22/09, ~10:31 UTC).
+O intervalo entre as duas auditorias foi de ~30h36min, e o silêncio cresceu
+exatamente esse mesmo tanto (25h14 → 55h50) — a aritmética confirma o que já
+era esperado de "nenhuma oportunidade nova desde então": **zero lead novo em
+todo o intervalo entre as duas auditorias**, não só desde o último lead.
+O múltiplo do recorde foi de 1,67× para **3,7×**.
+
+**Por que isto é o tipo de achado que uma auditoria pontual, e não um
+alarme automático, ainda consegue pegar:** as seis peças do Monitor de Saúde
+(F-05) — todas sobre lead que ficou parado — continuam sem ver nada de
+errado, exatamente como o F-10 já tinha documentado (fila esvazia, `NOVO
+LEAD` para de crescer, toques caem, tudo "verde"). Só uma leitura que pergunta
+"quando foi o último lead novo" pega isto, e nenhum widget do F-10 está
+montado na tela ainda — as duas Smart Lists da seção 8.25 seguem
+especificadas, não publicadas. Enquanto isso não muda, a única rede de
+segurança contra este tipo de falha silenciosa é a próxima sessão automática
+lembrar de perguntar de novo — o que esta rodada fez, e o que a rodada
+seguinte devia fazer também, até a entrada voltar ou o dono decidir o alarme
+da opção (b).
+
+**Regra prática, que fica:** para um item cujo "Pronto quando" depende de um
+relógio (tempo desde o último evento), a leitura fica velha mesmo sem
+nenhuma mudança no resto da subconta — reconfirmar "oportunidades sem
+mudança" não é o mesmo que reconfirmar o próprio relógio, e as duas coisas
+podem divergir por dias se ninguém perguntar pela segunda explicitamente.
+
+**Correção aplicada:** `ROADMAP-SALES-ENGAGEMENT.md`, F-10, ganhou o novo
+número e uma nota de fechamento própria; `build-wesales.md` (duas menções,
+seção 2.17 e seção 8.25) e `briefing-sdr.md` (L-07) pararam de repetir o
+múltiplo/contagem específicos (regra "número fixo só na fonte", a mesma que
+o G-20 já tinha aplicado a campo/tag) e passaram a apontar para a leitura
+mais recente do F-10. Zero campo, zero tag, zero escrita no CRM: leitura por
+API, não depende de `APROVADO.md`.
