@@ -69,8 +69,7 @@ MSG_APOS_H = 2          # mensagem sai 2 h depois da tarefa do toque
 
 # ---------------- textos (biblioteca-mensagens.md) ----------------
 MSG = {
-    "MT1-v1": ("Oi {{contact.first_name}}, aqui é o {{user.first_name}} da "
-               "{{location.name}}. Acabei de tentar te ligar sobre o seu cadastro. "
+    "MT1-v1": ("Oi {{contact.first_name}}, aqui é da O Próximo Cliente. Acabei de tentar te ligar sobre o seu cadastro. "
                "Queria te fazer 2 perguntas rápidas sobre como vocês trazem cliente "
                "novo hoje. Qual o melhor horário pra eu te ligar: manhã ou tarde?"),
     "MT4-v1": ("{{contact.first_name}}, tentei te ligar de novo agora. Sei que a "

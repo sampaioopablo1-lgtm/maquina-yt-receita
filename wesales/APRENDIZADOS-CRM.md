@@ -2,6 +2,24 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Mensagem automática testada com número real — e dois merge fields que saíam errados — 23/09/2026, sessão do PC
+
+Teste com o número do dono (+55 12 98238-1407; a conta Stevo é outro número,
+final 1497): o nó `sms` de um workflow saiu **entregue como WhatsApp pela
+Stevo** (`type 20`, `TYPE_CUSTOM_SMS`, `from: stevo`). O canal está provado.
+
+O mesmo teste pegou dois textos quebrados, que nenhuma validação estrutural
+pegaria:
+- `{{user.first_name}}` saiu **vazio** ("aqui é o  da…") — na automação nem
+  sempre há usuário no contexto;
+- `{{location.name}}` saiu **"Pablo Santos's Account"** — é o nome interno da
+  conta, não a marca.
+
+Corrigido em todas as mensagens publicadas e nos builders
+(`tools/patch_textos_marca.py`): "aqui é da O Próximo Cliente". **Regra:** em
+mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
+no texto. Mensagem de automação só está testada depois de ser lida no celular.
+
 ## Teste que cria oportunidade deixa pegada indistinguível de lead — e uma pendência fechada por medição em vez de por tela — 23/09/2026, sessão na nuvem
 
 Check-in das 02:29. Nada novo no git, todos os gabaritos batendo — e a medição do
