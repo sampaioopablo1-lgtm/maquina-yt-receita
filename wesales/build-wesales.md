@@ -8099,3 +8099,73 @@ python3 wesales/tools/auditoria_tudo.py
 
 Exit 0 significa literalmente "nada novo desde a última vez que o dono foi
 informado". Exit 1 é a única coisa que merece interromper alguém.
+
+---
+
+## 2.40 Um terço do meu achado do §2.38 era sobre um workflow morto — e a falha que deixou passar não é a que o `_frescor.py` pega
+
+O dono decidiu o G-17 na **opção (A)**: no-show e reengajamento respeitam o
+teto semanal. E na mesma rodada apareceu que **o `Reengajamento 90 dias` não
+existe mais** — foi substituído pela Nutrição em 22/09, e o dump foi para
+`_arquivo/` no commit `5659ac2`.
+
+Então o pior dos três casos que eu reportei no §2.38 era sobre um workflow que
+não roda. Eu escrevi que "a cadência publicada que mais mexe com lead frio é a
+única que não lê a pausa do SDR". **Os números estavam certos e a conclusão
+estava errada:** as três strings realmente apareciam 0 vezes naqueles 105 nós,
+mas nenhum lead passava por lá.
+
+### Por que o guarda de frescor não pegou
+
+Esta é a parte que vale guardar, porque é uma classe nova. O
+`_frescor.py` compara **datas**: dump velho contra backup irmão, dump velho
+contra o mais novo da pasta. O `Reengajamento 90 dias` **não estava velho** —
+estava aposentado. Um workflow substituído não envelhece o arquivo dele.
+
+| o que o dump dizia | o que era verdade |
+|---|---|
+| `status: published` | o workflow foi trocado pela Nutrição em 22/09 |
+| `updatedAt` recente | o arquivo não era antigo; o workflow é que morreu |
+| estava em `workflows-json/` | ninguém tinha movido para `_arquivo/` ainda |
+
+**A regra que faltava:** as auditorias tratam "arquivo na pasta viva" como
+"workflow vivo". A única marca do projeto para o contrário é a pasta
+`_arquivo/`, e ela depende de alguém mover o arquivo na hora em que
+desativa o workflow — o que é justamente o passo que se esquece.
+
+A `auditoria_refs.py` já sabia disso (ela existe para achar referência a
+workflow arquivado). As outras quatro não sabiam. Depois que o `5659ac2` moveu
+o arquivo, a `auditoria_portoes.py` parou de reportá-lo sozinha, porque ela
+varre `workflows-json/*.json` e não desce em `_arquivo/`. O conserto de fundo,
+que exige API e não sai daqui, é cruzar a lista de dumps com a lista de
+workflows da conta: dump que diz `published` e não aparece na conta é dump
+aposentado, e nenhuma data revela isso.
+
+### O que a linha de base fez
+
+Ela funcionou como desenhada, e vale registrar porque foi o primeiro uso real:
+a contagem de `portoes` caiu de 3 para 2, e o `auditoria_tudo.py` **não aceitou
+em silêncio** — saiu com código 2, imprimiu `CONSERTADO: 1 a menos que a base`
+e cobrou `--gravar-base` no mesmo commit. Sem isso, a base ficaria dizendo 3
+para sempre e a próxima queda real passaria como "conhecido".
+
+Base atualizada neste commit: `portoes` 3 → **2**.
+
+### O que sobrou do §2.38, medido de novo
+
+| cadência | situação |
+|---|---|
+| `Cadência Inbound` | falta `sdr-lotado` + teto — `patch_portao_inbound.py`, validado, espera `--aplicar` |
+| `Recuperação de No-show` | falta `sdr-lotado` + teto — `patch_portao_noshow.py` (escrito pela sessão paralela), validado, espera `--aplicar` |
+| ~~`Reengajamento 90 dias`~~ | **morto desde 22/09**, arquivado; não é achado |
+
+A invariante do §2.38 segue válida e os outros dois casos seguem reais. O que
+muda é o tamanho: **dois**, não três, e os dois já têm patch pronto.
+
+### E o 9c saiu decidido junto
+
+**Automático onde o ramo já sabe, manual no resto.** Falta o patch no
+`Pós-ligação v2` e nos ramos de resposta do WhatsApp. Até ele entrar, o
+`Canal que conectou` continua aparecendo na `auditoria_campos.py` — o que está
+certo, e agora está escrito no `porque` da base para ninguém reportar como
+novidade.
