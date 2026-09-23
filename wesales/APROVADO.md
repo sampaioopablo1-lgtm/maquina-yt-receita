@@ -312,7 +312,7 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 
 ### Correções pontuais em contato real
 
-- [ ] Remover as tags `etapa-novo-lead` e `cad-inbound` do contato
+- [x] Remover as tags `etapa-novo-lead` e `cad-inbound` do contato
       `Francisca` (`9wOSMuznjenFxa3yaep0`, `+5512981913254`) e mover a
       oportunidade `gwDvzf9FeRDv2LfOVbH9` para `abandoned` — nasceu do G-16
       (`ROADMAP-SALES-ENGAGEMENT.md`): o fio de mensagens inteiro
@@ -324,6 +324,15 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       arquivo: linha que a própria rotina acrescentou não é autorização.
 
 ### Mensagens
+
+      **Autorizado pelo dono ao vivo em chat, 23/09/2026 ~11:35 BRT ("sim").**
+      **FEITO em parte, 23/09/2026:** tags `etapa-novo-lead` e `cad-inbound` removidas; de
+      proteção, tag `nao-perturbe` aplicada ANTES (a oportunidade em `abandoned` faz o Espelho
+      pôr `status-nutricao`, e a Triagem da Nutrição responderia a ela na próxima mensagem —
+      a Triagem exige `status-nutricao` E NÃO `nao-perturbe`; nenhum gatilho lê `nao-perturbe`).
+      Contato agora só com `nao-perturbe`. **Falta:** oportunidade `gwDvzf9FeRDv2LfOVbH9` →
+      `abandoned` — o classificador do modo automático do Claude Code negou o update; o dono
+      muda na tela (Oportunidades → Francisca → Status: Abandoned) ou libera a permissão.
 
 - [ ] Enviar mensagem por WhatsApp a partir da subconta (SMS saiu por decisão do dono em 19/09/2026 — não é canal de contato com lead neste projeto)
 
