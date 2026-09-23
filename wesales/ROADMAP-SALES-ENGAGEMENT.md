@@ -2684,6 +2684,23 @@ etapas do `FUNIL DE VENDAS`, 51 campos (sem mudança), 50 oportunidades (47
 desde a última leitura (F-07, mesma data) — G-03/G-04 seguem aguardando o
 dono.
 
+**Acréscimo à tabela, 23/09/2026, sessão automática seguinte — Presença
+Local (DDD) pesquisada, nativo do HighLevel é US/Canada only, equivalente
+manual não tem restrição.** Pesquisado como o roadmap manda (o que
+Reev/Meetime/Outreach/Salesloft fazem que este item ainda não cobre):
+`Local Presence Dialing` — escolher automaticamente um número da subconta
+com o mesmo DDD do lead a cada ligação — é recurso nativo do HighLevel e
+prática central de mercado em ferramentas de outbound americanas, mas
+`WebSearch` confirma que é **suportado só para números dos EUA e Canadá**
+(mesmo formato de descarte do `Voice Integrity`, correção acima). O que
+não é US only: o Web App Softphone deixa o usuário escolher manualmente
+qual número da subconta usar (dropdown "Calling From") antes de discar —
+zero custo além dos números que este item já recomenda comprar por
+reputação, zero engenharia. Vira acréscimo de uma linha na tabela já
+publicada (`build-wesales.md`, seção 2.26) e instrução nova em
+`GUIA-SDR.md`, não item de roadmap próprio — não muda o "Pronto quando"
+deste F-08, já cumprido. Zero campo, zero tag, zero escrita no CRM.
+
 ---
 
 ### F-09 · O telefone não tem freio de canal — e desde a decisão de 100% telefone é o único canal da régua — **aguarda decisão do dono** (aberto em 22/09/2026, corrigido em 22/09/2026)
@@ -4316,3 +4333,44 @@ premissas técnicas represadas (mensagem real, volume de ligação, plano com
 Custom Metrics, número de WhatsApp para teste, domínio de e-mail
 verificado) e só depois lacuna nova — a mesma ordem que este roadmap já
 segue desde o G-01.
+
+**Sessão automática seguinte, 23/09/2026 — sem item numerado novo; achado
+que estende o F-08 em vez de abrir item próprio.** CRM reconfirmado por API:
+56 campos de contato (sem mudança), pipeline com as mesmas 5 etapas, 56
+oportunidades (53 `open` + 0 `won` + 3 `lost` + 0 `abandoned`) — mesma
+composição da leitura do G-15, G-03/G-04 (peça 2)/G-11 (item 1) seguem sem
+novidade. A varredura de coerência (grep por `AGENDAR` como etapa corrente
+em todo `wesales/`) não achou nada novo: toda ocorrência fora de
+`build-wesales.md`/`ROADMAP-SALES-ENGAGEMENT.md` (já migrados pelo G-12) é
+nota histórica datada (decisão de 18/09/2026, antes da segunda renomeação)
+ou nome próprio já publicado na tela (`AGENDAR Estagnado`), a mesma classe
+que este roadmap já decidiu não reescrever. Conferido também, por API, se
+os dois achados do G-04 ainda reproduzem em dado real (não só em texto): a
+metade `Prazo`/`Urgência` segue certa (contatos do Meta recém-lidos trazem
+`Prazo` vazio e `Urgência` = valor de `Prazo`, exatamente como o bloco de
+reserva do Pós-agendamento v2 já espera); a metade `Investimento mensal em
+anúncios` segue quebrada (`Acima de 10k` válido, mas `Abaixo de 5k` e `Não
+invisto nada ainda` — lidos ao vivo em dois leads do Meta desta rodada —
+continuam fora das 4 opções da tela) — G-04 (peça 2) segue exatamente onde
+estava, sem decisão possível sem o dono.
+
+A lacuna nova veio da pesquisa de concorrência que este roadmap sempre
+manda fazer: Outreach/Salesloft/Kixie/Aircall tratam **Local Presence
+Dialing** (número de saída com o mesmo DDD do lead, para aumentar taxa de
+atendimento) como recurso central — nenhum item deste projeto tinha
+verificado se o HighLevel tem o mesmo. Tem, nativo — e `WebSearch` confirma
+que é **suportado só para números dos EUA e Canadá**, mesmo formato de
+descarte do `Voice Integrity` que já fechou o F-08. O que não tem essa
+restrição: o Web App Softphone deixa o usuário escolher manualmente qual
+número da subconta discar (dropdown "Calling From") — mesmo custo zero,
+mesmos números que o F-08 já recomenda comprar por reputação, só muda
+**qual** número o SDR escolhe a cada ligação. Fechado como acréscimo à
+tabela do F-08 (`build-wesales.md`, seção 2.26) e instrução nova em
+`GUIA-SDR.md`, não como item numerado próprio — não tem "Pronto quando"
+distinto do que o F-08 já cumpriu. Zero campo, zero tag, zero escrita no
+CRM. Detalhe completo no próprio F-08, acima.
+
+Com isso, nenhum item numerado (G/R/F) muda de estado nesta rodada: G-03,
+G-04 (peça 2) e G-11 (item 1) continuam sendo os únicos que esperam decisão
+do dono — a próxima rodada sem tela nem decisão desbloqueada repete o mesmo
+caminho de sempre.

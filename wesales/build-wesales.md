@@ -3916,6 +3916,59 @@ Telecom e as datas do `0303` apareceram de forma convergente em fontes
 independentes, que é o teste que este projeto usa quando a fonte primária
 não abre. Nada aqui foi escrito por dedução.
 
+### Terceiro caminho pesquisado e descartado, 23/09/2026 — Presença Local (DDD): recurso nativo é US/Canada only, mas o equivalente manual já dá para fazer hoje, de graça
+
+Pesquisado seguindo o mesmo mandato do roadmap (checar o que Reev, Meetime,
+Outreach e Salesloft fazem antes de desenhar): as quatro plataformas de
+outbound americanas tratam **Local Presence Dialing** — mostrar ao lead um
+número com o mesmo DDD/área dele, prática documentada por aumentar taxa de
+atendimento — como recurso central (Outreach, Salesloft, Kixie, Aircall
+têm isso nativo). Vale checar se o HighLevel tem o mesmo antes de propor
+algo próprio.
+
+**Tem, nativo — e não serve para este número.** `WebSearch` confirma:
+`Local Presence Dialing` do HighLevel escolhe automaticamente, a cada
+ligação de saída, o número da própria subconta com o DDD mais próximo do
+contato (hierarquia: DDD exato → região → padrão), configurado em
+`Settings → Phone Numbers → Voice → Other Settings → Outbound Call →
+Default Phone Number for Outbound Calls`. A própria documentação de
+suporte da HighLevel e cobertura de terceiros convergem: **suportado só
+para números dos EUA e Canadá** — não compra número novo sozinho (exige já
+possuir números nos DDDs alvo) e não há confirmação de expansão para
+número brasileiro. Mesmo formato de descarte do Voice Integrity (item 1
+acima): recurso real, documentado, e **US only** — não copiar a receita
+americana sem checar a letra miúda de novo.
+
+**O que não é US only, e resolve a mesma fatia do problema sem automação:**
+o **Web App Softphone** do HighLevel deixa o usuário escolher manualmente,
+num dropdown "Calling From", qual dos números da subconta usar antes de
+discar — recurso confirmado por documentação de suporte e por terceiros,
+sem restrição de país citada em lugar nenhum. **Não precisa de item de
+roadmap próprio nem de nó novo:** é a mesma tabela deste F-08 já em vigor
+— "distribuir as ligações entre mais de um número" (linha 2 da tabela
+acima) já manda comprar mais de um número antes de escalar volume; o único
+acréscimo é **qual** número escolher no dropdown a cada ligação — o de DDD
+igual ou mais próximo do lead, quando a subconta tiver mais de um. Zero
+custo adicional (mesmos números que o F-08 já recomenda comprar por
+reputação), zero engenharia (escolha manual, sem workflow): é rotina de
+SDR, não configuração de tela — acrescentada em `GUIA-SDR.md`.
+
+**Por que isto é o tipo de vantagem que a instrução deste roadmap pede**
+("escolha o que um concorrente não consegue copiar olhando a tela de
+fora"): qualquer concorrente que abra esta subconta vê os mesmos números
+comprados por reputação (F-08) — não vê a disciplina de **qual** número o
+SDR escolhe em cada ligação, porque isso não é configuração, é hábito
+registrado só aqui e no guia do SDR.
+
+**Confiança das fontes:** média — os mesmos domínios oficiais
+(`help.gohighlevel.com`) seguem bloqueados pelo proxy deste ambiente
+(`EGRESS_BLOCKED`, mesma limitação já registrada acima); a descrição do
+comportamento (hierarquia DDD → região → padrão, caminho de configuração,
+restrição US/Canada, dropdown "Calling From" no softphone) apareceu
+convergente em busca por ângulos diferentes, sem fonte única. Não muda o
+"Pronto quando" do F-08 (já cumprido) — é acréscimo à mesma tabela, não
+item novo.
+
 ---
 
 ## 2.27 Qualidade da Conexão — F-06 (fechado em 22/09/2026, duas peças)

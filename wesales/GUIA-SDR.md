@@ -80,6 +80,16 @@ primeiro.
   Se responder, o sistema pergunta "1 quero conversar / 2 agora não / 3 sem
   interesse" — quem responde **1** volta para você com uma tarefa nova.
 
+## Ligando pelo telefone, se houver mais de um número
+
+Se a operação tiver mais de um número de telefone ativo (a subconta compra
+mais de um antes de escalar volume — regra própria, não é este guia que
+decide isso), escolha no dropdown **"Calling From"** do softphone o número
+com o mesmo DDD do lead, ou o mais próximo, antes de discar. Número "de
+fora" tem mais chance de ser ignorado. O HighLevel não faz essa escolha
+sozinho para número brasileiro (o recurso automático dele só existe para
+EUA/Canadá) — é escolha manual, a cada ligação.
+
 ## Lead que chegou pelo Instagram
 
 O agente de IA não sabe se essa pessoa já existe no CRM por telefone (o

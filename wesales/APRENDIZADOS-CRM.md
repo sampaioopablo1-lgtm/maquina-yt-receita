@@ -4,6 +4,41 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## `Local Presence Dialing` do HighLevel é US/Canada only — não pesquise de novo para número brasileiro — 23/09/2026, sessão automática
+
+Pesquisando um diferencial de Bloco 6 (o que Outreach/Salesloft/Kixie/Aircall
+fazem que este projeto ainda não cobre), `Local Presence Dialing` — escolher
+automaticamente, a cada ligação de saída, um número da própria subconta com
+o mesmo DDD/área do contato — apareceu como recurso nativo do HighLevel
+(`Settings → Phone Numbers → Voice → Other Settings → Outbound Call →
+Default Phone Number for Outbound Calls`). Antes de especificar qualquer
+coisa em cima disso: **é `US/Canada only`**, confirmado por `WebSearch`
+convergente (documentação de suporte da HighLevel e cobertura de
+terceiros) — não compra número novo sozinho, e não há sinal de expansão
+para número brasileiro. Mesmo formato de descarte já registrado para o
+`Voice Integrity` (F-08): recurso real e documentado, mas com o mesmo
+limite geográfico. Não gaste `WebSearch` verificando de novo se isso mudou
+sem um motivo concreto (ex.: changelog do HighLevel citando Brasil/LatAm).
+
+**O que não tem essa restrição, e por isso virou acréscimo ao F-08 em vez
+de bloqueio:** o Web App Softphone do HighLevel deixa o usuário escolher
+manualmente, num dropdown "Calling From", qual número da subconta discar
+antes de cada ligação — sem restrição de país citada em nenhuma fonte.
+Zero custo (mesmos números que o F-08 já recomenda comprar por reputação),
+zero engenharia (escolha manual, não workflow). Fechado como linha nova na
+tabela do F-08 (`build-wesales.md`, seção 2.26) e instrução em
+`GUIA-SDR.md` — não como item de roadmap próprio, porque não tem "Pronto
+quando" distinto do que o F-08 já cumpre.
+
+**Regra prática:** ao pesquisar um recurso "central de mercado" (a mesma
+pergunta que já fechou F-07/F-08/G-15), checar sempre dois níveis, não um
+só — (1) existe algo parecido nesta plataforma? e (2) esse algo cobre o
+país desta operação, ou só EUA? — porque a resposta de (1) tende a vir
+otimista (documentação de suporte escrita para o mercado majoritário da
+HighLevel) e só (2) evita propor uma especificação que nunca vai rodar
+aqui, o mesmo erro de categoria que o SHAKEN/STIR do F-08 já cometeu ao
+contrário (supôs que não existia versão brasileira sem checar).
+
 
 
 ## A tag que DISPARA precisa ser tirada por quem tira o lead do fluxo — 23/09/2026, rodada autônoma
