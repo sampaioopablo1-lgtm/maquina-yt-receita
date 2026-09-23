@@ -3862,7 +3862,6 @@ Telecom e as datas do `0303` apareceram de forma convergente em fontes
 independentes, que é o teste que este projeto usa quando a fonte primária
 não abre. Nada aqui foi escrito por dedução.
 
-
 ---
 
 ## 2.27 Qualidade da Conexão — F-06 (fechado em 22/09/2026, duas peças)
@@ -4308,6 +4307,26 @@ gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 
 ## 2.29 Rampa de aquecimento do número de telefone — F-14
 
+> **Decidido por ação em 23/09 (commit `9020079`), e a decisão foi a que concentra
+> a segunda.** O dono aplicou a janela seg-sex em 4 workflows de tarefa
+> (`Pós-ligação v2`, as duas `Interceptação de Sinal` e o `Monitor de
+> Capacidade`) **mantendo a régua em dias corridos** — ou seja, a combinação
+> exata cuja aritmética está medida abaixo: em regime, a segunda carrega ~3/7 da
+> semana em vez de 1/5, e com o lote conservador de 6/dia bate 120 ligações
+> contra a meta de 100/dia.
+>
+> No mesmo commit veio o `Monitor de Capacidade` (publicado). Conferi o que ele
+> é: **1 nó, `internal_notification`** — avisa o gestor de que a capacidade é 100
+> toques/dia e de que há tarefas vencidas. É aviso, não teto: não represa tarefa,
+> não adia toque, não redistribui. Serve para o gestor ver a segunda-feira
+> chegando, não para impedi-la.
+>
+> Então a aritmética abaixo continua valendo inteira, e a pergunta que sobra não
+> é mais "dias úteis ou corridos" — é **se o lote de entrada vai ser calibrado
+> pela segunda-feira em vez de pela média**. Com lote 6/dia a segunda já passa da
+> capacidade; com 12/dia são 240. Nada disso está acontecendo hoje: zero lead em
+> cadência.
+
 > **Conta nova de 23/09/2026 — a regra D13 ("nenhuma tarefa nasce no fim de
 > semana") concentra a segunda-feira em +82%, e é a segunda que vira o teto.**
 >
@@ -4681,7 +4700,6 @@ procurado; os dois templates (`EM-1`, `EM-2`) existem em
 `biblioteca-mensagens.md` (feito nesta rodada) e o workflow está publicado
 na tela.
 
-
 ---
 
 ## 2.31 "Atendeu fica em CONECTAR" transformou `conectado-hoje` em mudo permanente — F-16
@@ -4861,10 +4879,9 @@ escreve nada: `python patch_remove_parte2.py` **sem** `--aplicar`. Ele lista
 quantos nós ainda faltam por workflow; **zero nó listado = confirmado, nada a
 fazer**.
 
-
 ---
 
-## 2.32 O Espelho de Etapa está em rascunho e 8 workflows publicados já dependem dele — F-17
+## 2.32 Eu errei este achado: o Espelho de Etapa já estava publicado — F-17, **retirado**
 
 Achado conferindo o `61eb167`, do PC do dono. O achado **dele** é excelente e
 maior que o meu: num workflow cujo gatilho **não é oportunidade** (tag, contato,
@@ -4877,7 +4894,50 @@ estado (`etapa-novo-lead`, `etapa-conectar`, `etapa-reuniao`, `etapa-negociar`,
 `etapa-formalizar`, `status-nutricao`, `status-perdido`, `status-ganho`), e os
 outros passam a testar a **tag**, que funciona com qualquer gatilho.
 
-**O problema é a ordem de publicação, e é a terceira vez nesta mesma noite:**
+### Correção, escrita minutos depois de eu ter publicado o achado
+
+**O achado abaixo está errado e eu o retiro.** Escrevi que o `Espelho de Etapa`
+estava em rascunho com 8 consumidores publicados. Medi isso lendo
+`workflows-json/Espelho de Etapa.json`, que dizia `status: draft`, v3,
+`updatedAt` **01:53:09**. A conta tinha o workflow **publicado** (v4) às
+**01:53:13** — quatro segundos depois daquele export. O dump que li já nascia
+velho; o defeito nunca existiu na conta, só na fotografia.
+
+Pior: eu tinha acabado de escrever, na seção 2.31.3 e no `APRENDIZADOS-CRM.md`,
+a regra de comparar o dump com o backup irmão antes de afirmar qualquer coisa —
+e não a apliquei. A regra, do jeito que eu a escrevi, também não teria salvado:
+o `Espelho de Etapa` é **novo**, não tem backup irmão em `_antes-*/`, e eu tratei
+ausência de backup como sinal de frescor. **Segunda perna da regra, que faltava:
+dump sem backup irmão não é por isso recente.** Para um `status: draft`
+especialmente, o valor é "no momento do export", nunca "agora" — e `draft` é o
+estado natural de um workflow nos segundos entre montar e publicar, que é
+exatamente a janela em que os scripts de `wesales/tools/` exportam.
+
+**Como conferir de verdade, da próxima vez:** `status: draft` num dump só vira
+achado depois de (a) comparar o `updatedAt` do dump com o horário do commit que
+o trouxe, e (b) confirmar o estado por uma fonte que não seja o arquivo — a tela,
+ou uma medição ao vivo do efeito (contatos com a tag, por exemplo). Sem isso, o
+que existe é uma pergunta, não um defeito.
+
+**O que sobrevive, e é o motivo de eu não apagar a seção:** a regra de ordem
+(produtor antes de consumidor) continua certa e tem um caso real, medido ao
+vivo, na §2.31.1 — a `fechar-horario`. O que não sobrevive é esta instância. E
+sobrevive também o registro das 8 tags novas em `campos-e-tags.md`, que é fato
+independente do erro.
+
+**Estado real, conferido depois da correção:** `Espelho de Etapa` publicado (v4,
+36 nós), aplicando as tags; os 11 consumidores publicados. A ordem está certa.
+Fica valendo a pergunta de tela que a §2.32.1 já levantava e que nenhum dump
+responde: **o gatilho de oportunidade etiqueta o acervo ou só mudança futura?**
+Se for só futura, as 45 oportunidades paradas em `NOVO LEAD` não recebem
+`etapa-novo-lead` e seguem invisíveis às condições. Isso continua aberto.
+
+---
+
+O texto original do achado fica abaixo, riscado pelo parágrafo acima, para a
+rodada seguinte ver o erro e não repeti-lo.
+
+**~~O problema é a ordem de publicação, e é a terceira vez nesta mesma noite:~~**
 
 | Papel | Peça | Estado ao vivo |
 |---|---|---|
@@ -4926,9 +4986,10 @@ de divergir da conta. Com elas, a conta tem 25 tags: 15 do projeto, `teste-regua
 | errada | rascunho | publicado | consumidor testa/espera algo que ninguém produz, e vai pelo ramo errado **sem erro** |
 | certa | publicado | publicado ou rascunho | consumidor que entra depois já encontra o estado montado |
 
-Três instâncias em uma noite: `fechar-horario` (§2.31.1, fechada pelo dono no
-mesmo dia), as 8 tags do espelho (aqui, aberta) e — a mesma família — a tag
-aplicada por workflow no ar cuja limpeza mora num workflow em rascunho.
+Uma instância real em uma noite: `fechar-horario` (§2.31.1, fechada pelo dono no
+mesmo dia), mais a família vizinha da tag cuja limpeza mora dentro de um
+workflow (§2.31.2). A instância das 8 tags do espelho **não conta** — foi erro
+meu de leitura de dump, corrigido no topo desta seção.
 
 **Checagem barata, para entrar em toda rodada:** para cada tag que apareça em
 condição de workflow publicado, procurar quem a aplica e conferir o `status` de
@@ -4937,6 +4998,65 @@ defeito ativo e silencioso. O comando que achou este caso está no
 `APRENDIZADOS-CRM.md`, na entrada desta data.
 
 ---
+
+## 2.33 `auditoria_tags.py` — as duas perguntas que acharam defeito hoje viraram auditoria, e a terceira apareceu sozinha
+
+As checagens de tag que fiz à mão nesta noite acharam coisa real duas vezes.
+Viraram `wesales/tools/auditoria_tags.py` (somente leitura, sai com 1 na
+pergunta 1), para não depender de eu lembrar de rodar o heredoc certo. Ela
+responde três perguntas, e a terceira nasceu da própria varredura.
+
+**Pergunta 1 — a limpeza da tag é alcançada?** `remove_from_workflow` cancela os
+passos pendentes do contato no alvo: os nós de saída do alvo não rodam. Tag cuja
+limpeza mora dentro de um workflow é permanente para quem sai por remoção
+externa. O relatório só acusa quando **nenhum** removedor está livre de ser
+arrancado — se algum está, a tag tem por onde sair. Isso é o que separa alarme de
+achado: o `toque`, por exemplo, é limpo pelo `Contador de Toques`, que ninguém
+arranca, e por isso **não** entra na lista.
+
+Três tags entram, e as três são reais:
+
+| Tag | Limpa só em | Arrancado por | O que sobra no contato |
+|---|---|---|---|
+| `fechar-horario` | `Fechar Horário` | `Pós-agendamento v2` (nó 4) | quem **agenda** fica marcado como "fechando horário" para sempre (§2.31.2) |
+| `nutricao-90d` | `Reengajamento 90 dias` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) | lead reativado que agenda ou volta a fechar horário continua marcado como nutrição |
+| `cadencia-12x30-p2` | `Cadência 12x30 — parte 2` | `Fechar Horário`, `Pós-agendamento v2`, `Pós-ligação v2` | lead fica marcado como "está na parte 2" para sempre — e a parte 1 passou a ter **portão por tag** (`9020079`), então isso pode barrar a reentrada dele |
+
+As três têm a mesma correção, a mesma da §2.31.2: **quem arranca o contato limpa,
+no mesmo nó, as tags que as saídas do alvo limpariam.** Três `Remove Tag` em dois
+workflows resolvem as três.
+
+**Pergunta 2 — o aplicador está no ar antes de quem testa?** Hoje: nenhuma
+pergunta aberta. Esta pergunta nunca muda o código de saída, de propósito — foi
+lendo `status: draft` num dump exportado 4 segundos antes da publicação que eu
+registrei o F-17 errado (§2.32). No script está escrito por quê.
+
+**Pergunta 3 — tag só removida, nunca aplicada.** Não é defeito de workflow: é
+peça do desenho antigo que sobrou, e cada linha é uma decisão sua.
+
+| Tag | Situação | Leitura |
+|---|---|---|
+| `fila-wa` | removida em **75 nós**, em 8 workflows; aplicada em **nenhum** | a `Fila WhatsApp Hoje` (lista 8.3) **nunca pode encher**. E não é bug: o `PLANO-MULTICANAL.md` (D5/D6) fez o WhatsApp virar parte do próprio toque — ligação Stevo e mensagem automática — em vez de fila separada do SDR. A tag ficou sem produtor **por decisão**, e os 75 nós são no-op. O que está desatualizado é a lista 8.3, não a cadência |
+| `fila-linkedin` | removida em 1 nó; aplicada em nenhum | já era conhecida e deliberada — T-04, "reserva, hoje sem canal na cadência" (lacuna L-03). Fica |
+
+Decisão que falta para o `fila-wa`: **apagar a lista 8.3 e tirar os 75 nós**, ou
+**devolver ao WhatsApp uma fila própria**. Recomendo a primeira: o plano novo já
+resolveu o canal de outro jeito, e manter 75 nós que não fazem nada é custo de
+leitura em todo patch futuro. Nenhuma das duas sai por este MCP.
+
+Rodar junto com as outras duas, toda rodada:
+
+```
+python3 wesales/tools/auditoria_refs.py     # referência para workflow arquivado
+python3 wesales/tools/auditoria_tags.py     # ciclo de vida das tags de estado
+```
+
+Limite que vale para as duas: leem os dumps, e dump pode estar defasado da conta.
+Comparar com o backup irmão em `_antes-*/` antes de concluir — e, para `draft`,
+não concluir nada sem confirmar fora do arquivo.
+
+---
+
 
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026
 

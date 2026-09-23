@@ -2,6 +2,39 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Checagem à mão que achou defeito duas vezes vira script, não vira parágrafo — `auditoria_tags.py` — 23/09/2026, sessão na nuvem
+
+As duas varreduras de tag desta noite acharam coisa real (a limpeza de
+`fechar-horario` pulada, e a ordem produtor/consumidor). Eu ia deixar o heredoc
+escrito num documento; heredoc em markdown não roda. Virou
+`wesales/tools/auditoria_tags.py`, ao lado do `auditoria_refs.py`, e na primeira
+execução limpa achou **uma terceira coisa** que eu não estava procurando:
+`fila-wa` é removida em 75 nós e aplicada em nenhum.
+
+**Duas lições sobre escrever a auditoria, e as duas nasceram de alarme falso meu
+no primeiro rascunho do script:**
+
+1. **"Segunda rede" não se identifica por nome.** Eu tinha escrito a regra como
+   "o Mestre de saída também limpa?" e o script acusou o `toque`, que é limpo
+   pelo `Contador de Toques` — rede perfeitamente legítima. A regra certa é
+   estrutural: *existe algum removedor que ninguém arranca?* Se existe, a limpeza
+   dele sempre roda. Isso derrubou 4 dos 7 alarmes.
+2. **Auditoria precisa conhecer as exceções de projeto.** `pausado` é aplicada à
+   mão pelo SDR e `cad-inbound` vem da integração na entrada
+   (`IMPLEMENTACAO-WORKFLOWS.md`, tabela das três famílias). Sem essa lista, o
+   script acusa as duas como "ninguém aplica" e como "limpeza pulada" — e
+   marcador de origem que persiste não é defeito, é o ponto dele.
+
+**Regra geral:** auditoria que grita sobre o que é intencional treina a gente a
+ignorar auditoria. Antes de fixar uma checagem, rodar, olhar cada linha do
+resultado e perguntar "isto é defeito ou é o desenho?" — e codificar a resposta
+no script, com comentário dizendo de onde veio a exceção. O `auditoria_tags.py`
+saiu de 7 alarmes para 3, e os 3 são reais.
+
+**A pergunta 2 do script nunca muda o código de saída**, de propósito: foi lendo
+`status: draft` que eu errei o F-17. Checagem cuja fonte é frágil deve reportar
+pergunta, não falha.
+
 ## Produtor em rascunho + consumidor publicado = defeito ativo e silencioso — três casos em uma noite — 23/09/2026, sessão na nuvem
 
 Padrão que apareceu três vezes na mesma noite e merece checagem fixa. Quando um
@@ -12,13 +45,27 @@ workflow **publicado** depende de um estado (tag) que só um workflow em
 | Caso | Produtor | Consumidor | Situação |
 |---|---|---|---|
 | `fechar-horario` | `Pós-ligação v2` aplicava (publicado) | `Fechar Horário` removia e era gatilhado pela tag (rascunho) | fechado pelo dono no mesmo dia, janela limpa |
-| 8 tags do **Espelho de Etapa** | `Espelho de Etapa` (**rascunho**, 16 nós) | **8 workflows publicados** testam as tags | **aberto** |
+| ~~8 tags do **Espelho de Etapa**~~ | ~~`Espelho de Etapa` (rascunho)~~ | ~~8 workflows publicados~~ | **ERRO MEU — retirado.** O dump dizia `draft` às 01:53:09; a conta publicou às 01:53:13. Nunca existiu na conta |
 | limpeza de tag | workflow no ar aplica | limpeza mora em workflow em rascunho | mesma família |
 
-O caso do espelho é o mais instrutivo porque a correção do dono está certa e
-mesmo assim o defeito continua no ar: antes a condição lia **etapa vazia** e ia
-pelo "não"; agora lê **tag ausente** e vai pelo "não". O comportamento não mudou,
-só o motivo. Conserto escrito ≠ conserto no ar.
+**O caso do espelho eu inventei, e a lição está aí.** Li `status: draft` num dump
+exportado quatro segundos antes da publicação e registrei um defeito que a conta
+nunca teve. Tinha acabado de escrever, no commit anterior, a regra de comparar o
+dump com o backup irmão — e não a apliquei. E a regra, como eu a escrevi, também
+não teria salvado: o `Espelho de Etapa` é **novo** e não tem backup irmão, e eu
+li ausência de backup como sinal de frescor.
+
+**Segunda perna da regra, que faltava: dump sem backup irmão não é por isso
+recente.** E mais específico: `status: draft` é o estado natural de um workflow
+nos segundos entre montar e publicar — que é exatamente a janela em que os
+scripts de `wesales/tools/` exportam. Então **`draft` num dump é a afirmação mais
+frágil do arquivo inteiro**, e nunca deve virar achado sozinho. Antes de
+registrar: comparar o `updatedAt` do dump com o horário do commit que o trouxe, e
+confirmar por fonte que não seja o arquivo — a tela, ou a medição ao vivo do
+efeito (contatos com a tag). Sem isso existe uma pergunta, não um defeito.
+
+O caso `fechar-horario` (§2.31.1) continua válido porque ali eu confirmei ao
+vivo, contando contatos com a tag, em vez de só ler o `status`.
 
 **A checagem, barata e para entrar em toda rodada** — para cada tag citada em
 condição de workflow publicado, achar quem aplica e olhar o `status` de quem
