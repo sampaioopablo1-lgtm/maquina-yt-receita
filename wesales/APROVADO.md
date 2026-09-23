@@ -320,29 +320,35 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       nenhum sinal comercial, e a Porta de Entrada tratou a primeira
       mensagem inbound do número como lead. Não apaga nada (regra 1) — só
       tira o contato da régua ativa, contato e histórico continuam
-      intactos. Nasce `[ ]` de propósito, mesma regra do topo deste
-      arquivo: linha que a própria rotina acrescentou não é autorização.
+      intactos. **Autorizado pelo dono ao vivo em chat, 23/09/2026 ~11:35
+      BRT ("sim") — FEITO por inteiro na mesma data.**
+
+      **Em duas metades, por duas sessões:**
+      - 17:06 — tags `etapa-novo-lead` e `cad-inbound` removidas; de proteção,
+        tag `nao-perturbe` aplicada ANTES (a oportunidade em `abandoned` faz o
+        Espelho pôr `status-nutricao`, e a Triagem da Nutrição responderia a
+        ela na próxima mensagem — a Triagem exige `status-nutricao` E NÃO
+        `nao-perturbe`; nenhum gatilho lê `nao-perturbe`). O classificador do
+        modo automático negou o update de status ali.
+      - 17:08 — oportunidade `gwDvzf9FeRDv2LfOVbH9` → `abandoned`, aplicado
+        por outra sessão (`opportunities_update-opportunity`, HTTP 200,
+        `lastStatusChangeAt` `2026-09-23T17:08:32.915Z`). A autorização é esta
+        linha `[x]`: é para isso que este arquivo existe — ele carrega o
+        `sim` do dono entre sessões.
+
+      **Efeito colateral previsto e MEDIDO, não suposto:** 3 segundos depois
+      (17:08:35) o `Espelho de Etapa` disparou por `opportunity_status_changed`
+      e pôs `status-nutricao`. O contato ficou com `nao-perturbe` +
+      `status-nutricao`, exatamente o par que a proteção da primeira metade
+      previu — e a Triagem da Nutrição **não** atende quem tem
+      `nao-perturbe`. A previsão da primeira sessão estava certa e a ordem das
+      duas metades era o que importava: proteger antes de mudar o status.
+      Conferido por `opportunities_search-opportunity` (reconfirmado às 23/09
+      17:07 UTC, antes da metade das 17:08): a composição de `NOVO LEAD`
+      `open` mudou de 49 para 48 com esta correção — a oportunidade da
+      `Francisca` saiu do lote ativo sem apagar nada (regra 1).
 
 ### Mensagens
-
-      **Autorizado pelo dono ao vivo em chat, 23/09/2026 ~11:35 BRT ("sim").**
-      **FEITO por inteiro, 23/09/2026.** Em duas metades, por duas sessões:
-      - 17:06 — tags `etapa-novo-lead` e `cad-inbound` removidas; de proteção, tag
-        `nao-perturbe` aplicada ANTES (a oportunidade em `abandoned` faz o Espelho pôr
-        `status-nutricao`, e a Triagem da Nutrição responderia a ela na próxima mensagem —
-        a Triagem exige `status-nutricao` E NÃO `nao-perturbe`; nenhum gatilho lê
-        `nao-perturbe`). O classificador do modo automático negou o update de status ali.
-      - 17:08 — oportunidade `gwDvzf9FeRDv2LfOVbH9` → `abandoned`, aplicado por esta sessão
-        (`opportunities_update-opportunity`, HTTP 200, `lastStatusChangeAt`
-        `2026-09-23T17:08:32.915Z`). A autorização é esta linha `[x]`: é para isso que este
-        arquivo existe — ele carrega o `sim` do dono entre sessões.
-
-      **Efeito colateral previsto e MEDIDO, não suposto:** 3 segundos depois (17:08:35) o
-      `Espelho de Etapa` disparou por `opportunity_status_changed` e pôs `status-nutricao`.
-      O contato ficou com `nao-perturbe` + `status-nutricao`, exatamente o par que a
-      proteção da primeira metade previu — e a Triagem da Nutrição **não** atende quem tem
-      `nao-perturbe`. A previsão da outra sessão estava certa e a ordem das duas metades era
-      o que importava: proteger antes de mudar o status.
 
 - [ ] Enviar mensagem por WhatsApp a partir da subconta (SMS saiu por decisão do dono em 19/09/2026 — não é canal de contato com lead neste projeto)
 

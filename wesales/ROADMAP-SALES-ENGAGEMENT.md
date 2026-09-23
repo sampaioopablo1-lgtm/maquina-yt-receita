@@ -1384,7 +1384,7 @@ CRM: item de especificação e achado de limite de plataforma, não depende de
 
 ---
 
-### G-16 · A Porta de Entrada não distingue lead de contato pessoal do dono — um WhatsApp pessoal virou oportunidade aberta, exposta à cadência automática — **especificação fechada, execução aguarda decisão do dono** (aberto e especificado em 23/09/2026)
+### G-16 · A Porta de Entrada não distingue lead de contato pessoal do dono — um WhatsApp pessoal virou oportunidade aberta, exposta à cadência automática — **FEITO em 23/09/2026** (aberto e especificado em 23/09/2026, executado na mesma data)
 
 **Por quê:** achado ao seguir a própria regra que o G-10/G-14 deixaram —
 "quem mais fala disso?" — mas aplicada a um alvo que nenhuma sessão tinha
@@ -1453,6 +1453,22 @@ saírem do contato com a oportunidade em `abandoned` — conferido por
 `contacts_get-contact` depois, mesmo padrão de leitura de volta que este
 projeto já usa em toda escrita. O passo preventivo no `GUIA-SDR.md` já vale
 a partir de agora, independente da decisão sobre este contato específico.
+
+**Fechado em 23/09/2026 — o dono autorizou ao vivo em chat (~11:35 BRT,
+"sim") e a execução saiu em duas metades, por duas sessões, registradas em
+`APROVADO.md`:** 17:06 UTC, tags `etapa-novo-lead`/`cad-inbound` removidas e
+`nao-perturbe` aplicada de proteção **antes** da mudança de status — decisão
+que se provou certa 3 segundos depois da segunda metade, quando o `Espelho
+de Etapa` reagiu à mudança de status e pôs `status-nutricao`: sem a
+proteção prévia, o contato ficaria elegível à Triagem da Nutrição (que exige
+`status-nutricao` **e** ausência de `nao-perturbe`); com ela, fica de fora.
+17:08 UTC, `opportunities_update-opportunity` moveu `gwDvzf9FeRDv2LfOVbH9`
+para `abandoned` (`HTTP 200`). Reconfirmado por
+`opportunities_search-opportunity`: a composição de `NOVO LEAD` `open` caiu
+de 49 para 48 com esta correção — nada apagado (regra 1), o contato e o
+histórico de mensagens continuam intactos, só fora da régua ativa. O passo
+preventivo no `GUIA-SDR.md` (item 1 do "Como" acima) segue valendo para o
+próximo caso do mesmo tipo.
 
 ---
 
@@ -3369,15 +3385,21 @@ esfria por hora, não por semana — e o mais velho do estoque já tem três dia
 
 **Atualização 23/09/2026, sessão automática seguinte — a marca de 48h foi
 cruzada, e o recorde da própria base mais que triplicou.** Reconfirmado por
-API (`opportunities_search-opportunity`, `status: all`): 56 oportunidades,
-mesma composição das leituras de G-16 a G-20 (49 `NOVO LEAD` open + 1
-`REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR` lost + 2
-`NEGOCIAR` open + 1 `NEGOCIAR` lost) — nenhuma oportunidade nova desde a
-última leitura. O lead com `source: Facebook` mais novo continua sendo
-`Carlos Andrade`, `21/09/2026 09:17:26 UTC` — os contatos criados depois dele
-(22-23/09: `Sem nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca`,
-`156766977421470`, `ZZ Teste Porta Inbound`) são todos teste do dono, já
-identificados no G-16/G-20, nenhum com `source: Facebook`.
+API (`opportunities_search-opportunity`, `status: all`) às 17:07 UTC: 56
+oportunidades, mesma composição das leituras de G-16 a G-20 (49 `NOVO LEAD`
+open + 1 `REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR`
+lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost) — nenhuma oportunidade nova
+desde a última leitura. **Um minuto depois** (17:08 UTC), o G-16 fechou por
+inteiro numa sessão em paralelo: a oportunidade da `Francisca` saiu de
+`NOVO LEAD`/`open` para `NOVO LEAD`/`abandoned` (detalhe no próprio G-16,
+acima) — a composição correta a partir daquele instante é **48** `NOVO LEAD`
+open + 1 abandoned, não mais 49 open. O lead com `source: Facebook` mais
+novo continua sendo `Carlos Andrade`, `21/09/2026 09:17:26 UTC` — os
+contatos criados depois dele (22-23/09: `Sem nome`, `O Próximo Cliente`,
+`Pablo Sampaio`, `Francisca`, `156766977421470`, `ZZ Teste Porta Inbound`)
+são todos teste do dono ou, no caso da `Francisca`, contato pessoal (G-16),
+nenhum com `source: Facebook` — nenhum muda o tempo sem lead **pago** que a
+tabela abaixo mede.
 
 | Fato | Valor |
 |---|---|
@@ -3403,8 +3425,9 @@ sem sequer repetir um décimo do resultado.
 
 **O que isto muda, e o que não muda:** não desbloqueia a opção (b) sozinho —
 o alarme automático continua sendo decisão do dono, registrada acima. Muda o
-peso do G-03: os leads parados em `NOVO LEAD` (49 na composição atual) não
-estão só "envelhecendo" — estão parados numa operação cujo próprio funil de
+peso do G-03: os leads parados em `NOVO LEAD` (48 na composição atual, depois
+da correção do G-16) não estão só "envelhecendo" — estão parados numa
+operação cujo próprio funil de
 entrada parece ter parado de vez, o que torna a decisão do lote (Etapa A do
 `ESTADO-E-PLANO.md`) mais urgente, não menos: é o estoque inteiro da operação
 até a entrada voltar, e não há sinal nenhum, três dias depois, de que vá
@@ -5032,11 +5055,13 @@ G-19 continuam sendo as oito decisões que esperam o dono — a próxima rodada
 sem tela nem decisão desbloqueada repete o mesmo caminho de sempre.
 
 **Sessão automática seguinte, 23/09/2026 — sem item numerado novo; F-10
-recebeu a leitura que muda a leitura do próprio F-10.** CRM reconfirmado por
-API: 56 oportunidades, mesma composição da leitura do G-20 (49 `NOVO LEAD`
-open + 1 `REUNIÃO DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR`
-lost + 2 `NEGOCIAR` open + 1 `NEGOCIAR` lost), 56 campos de contato — nada
-para o sweep de coerência de sempre corrigir. O trabalho desta rodada não
+recebeu a leitura que muda a leitura do próprio F-10, e o G-16 fechou por
+inteiro numa sessão em paralelo, encontrada só no `git fetch` antes do
+push.** CRM reconfirmado por API às 17:07 UTC: 56 oportunidades, mesma
+composição da leitura do G-20 (49 `NOVO LEAD` open + 1 `REUNIÃO DE
+DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR` lost + 2 `NEGOCIAR`
+open + 1 `NEGOCIAR` lost), 56 campos de contato — nada para o sweep de
+coerência de sempre corrigir nesse momento. O trabalho desta rodada não
 veio de grep por nome nem de contagem duplicada: veio de reler, como a
 própria seção "Ordem sugerida" instrui quando não há tela nem decisão nova,
 os itens represados por informação que pode ter vencido — e o F-10, a
@@ -5045,16 +5070,29 @@ os itens represados por informação que pode ter vencido — e o F-10, a
 então. Reconferido agora: o lead pago mais recente continua sendo `Carlos
 Andrade`, de 21/09 09:17:26 UTC — o silêncio chegou a **55h50min, 3,7× o
 maior intervalo que esta base já teve**, cobrindo três dias de calendário
-(segunda a quarta) sem uma única exceção. Não é a mesma leitura republicada: é a
-evidência de que a causa (campanha pausada, orçamento esgotado ou criativo
-reprovado — as três hipóteses que o item já levantava) segue ativa, e cada
-rodada que reconfirma o silêncio torna "vai normalizar sozinho" uma aposta
-pior. Detalhe completo dentro do próprio F-10, acima. Zero campo, zero tag,
-zero escrita no CRM: leitura por API, não depende de `APROVADO.md`.
+(segunda a quarta) sem uma única exceção. Não é a mesma leitura republicada:
+é a evidência de que a causa (campanha pausada, orçamento esgotado ou
+criativo reprovado — as três hipóteses que o item já levantava) segue
+ativa, e cada rodada que reconfirma o silêncio torna "vai normalizar
+sozinho" uma aposta pior. Detalhe completo dentro do próprio F-10, acima.
 
-Com isso, G-03, G-04 (peça 2), F-09, **F-10**, G-11 (item 1), G-16, G-17 e
-G-19 continuam sendo as oito decisões que esperam o dono — nenhuma mudou de
-estado, mas o F-10 chega à próxima rodada com o peso maior do que saiu desta.
-A próxima rodada sem tela nem decisão desbloqueada repete o mesmo caminho de
+**Um minuto depois da leitura acima** (17:08 UTC), outra sessão autorizada
+pelo dono ("sim", ~11:35 BRT) fechou o G-16: a oportunidade da `Francisca`
+saiu de `NOVO LEAD`/`open` para `abandoned`, com as tags de cadência
+removidas e `nao-perturbe` aplicada antes, na ordem certa para não ser
+capturada pela Triagem da Nutrição — detalhe completo no próprio G-16,
+acima. `git fetch` antes deste push achou os dois commits, e o merge
+incorporou a mudança sem conflito (arquivos diferentes). A composição de
+`NOVO LEAD` a partir de 17:08 UTC é **48** open + 1 abandoned, não mais 49
+open — corrigido nos dois lugares desta rodada que citavam 49 como atual
+(o próprio corpo do F-10, acima). Zero campo, zero tag, zero escrita no CRM
+por esta sessão: a escrita do G-16 foi de outra sessão, lida de volta e
+incorporada por coerência, não repetida.
+
+Com isso, G-03, G-04 (peça 2), F-09, **F-10**, G-11 (item 1), G-17 e G-19
+são agora as **sete** decisões que esperam o dono — uma a menos que no
+fechamento do G-20, porque o G-16 saiu da lista ao ser executado nesta
+janela. F-10 chega à próxima rodada com o peso maior do que saiu desta. A
+próxima rodada sem tela nem decisão desbloqueada repete o mesmo caminho de
 sempre — e, se o silêncio de entrada continuar, vale reconferir o F-10 de
-novo antes de assumir que 22/09 ainda é a leitura mais recente que existe.
+novo antes de assumir que esta leitura ainda é a mais recente que existe.
