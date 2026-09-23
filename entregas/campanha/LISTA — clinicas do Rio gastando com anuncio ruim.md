@@ -6454,3 +6454,63 @@ volume de advocacia; 22 alvos, 13 em Trilha A; **novo recorde de "Converse conos
 anúncios de uma página só**; regra confirmada por falha: profissão + bairro devolve quase
 nada; **melhor contraexemplo da base — Theodoro & Souza com 7 anúncios e 7 ângulos
 diferentes**; e o **primeiro carrossel bem usado: lista numerada, um item por card**).
+
+## Psicologia / terapia — varredura nacional por termo de serviço (23/09, 16h)
+
+Termo: `terapia para ansiedade agende sua sessão`, BR, ACTIVE. **713 anúncios ativos.**
+Amostra de 50 → **43 páginas distintas**. É o nicho mais pulverizado da base inteira: quase
+um anunciante por anúncio. O oposto de odontologia Copacabana (117 anúncios, 3 páginas).
+Onde o mercado é pulverizado, o volume não é de concorrente grande — é de gente pequena
+gastando pouco e errado. **26 alvos, 21 em Trilha A.**
+
+### Defeito novo, e é o pior que a base já registrou: o título é o domínio
+
+Oito anúncios sobem com a headline literal **`instagram.com`**, **`api.whatsapp.com`** ou
+**`fb.com`**. Não é botão padrão, não é campo vazio — é a URL de destino aparecendo como
+argumento de venda. Lucas Nascimento, vannyvidaplena, espacolotusgyn, daya_von,
+daianemachadopsicologa, psiemelinecerqueira, psi.fabianasouzagomes, psico.biancacamargo,
+Missionária Delza Costa. **Regra nova: título com ponto-com é impulsionamento de post feito
+pelo celular, sem nenhuma configuração.** Quem faz isso nunca entrou no Gerenciador.
+
+### Novo recorde de botão padrão como título
+
+**Fernanda Manuela Psicóloga:** um único anúncio com o título
+`Fernanda Manuela Psicóloga | Fale conosco | Fale conosco | ...` — **nove "Fale conosco"
+seguidos**, um por card. O Instituto Vinícius Graça repete o mesmo com sete. E a página
+**Dani** sobe um carrossel onde os onze cards têm o mesmo título: `Dani`. Talita Martins sem
+tabu vai além: quatro cards com o título em branco separados por barra.
+
+Some ao Diego Bruno Nascimento (13 "Converse conosco") e à Huff Life (12 títulos vazios): o
+carrossel continua sendo o formato onde o erro se multiplica sozinho.
+
+### O termo puxa terapia espiritual junto
+
+Kokopelli Vibracional, Missionária Delza Costa, SOS EMOTIONAL PRONTO SOCORRO DA ALMA, Fil
+Felix – Central dos Sonhos, Forjados para Vencer. **Regra nova: termo de saúde mental puxa
+terapia espiritual e coaching no mesmo balde.** Filtro que funciona: `psi.`, `psicóloga`,
+`Psicólogo` ou CRP no nome da página. Sem o filtro, um terço da lista não é o alvo.
+
+### Auto-concorrência e os dois que fazem certo
+
+**Psicólogo Tatiane Cunha: 3 anúncios ativos, os três com a mesma headline** ("Você não
+precisa enfrentar tudo sozinha"). Mariana Patrocínio: 2 iguais. Renan César: 2 iguais.
+Terapeuta Maria Helena: 2, ambos com título vazio. Instituto Fregona: 2, um deles `fb.com`.
+
+Dois merecem anotação pelo acerto:
+
+- **Mariana Patrocínio — "Agendar Sessão de Mapeamento".** Dá nome ao mecanismo de entrada.
+  Não é "agende uma consulta", é uma coisa específica que a pessoa vai receber. Copiar.
+- **Psicóloga Ana Carolina Oliveira — "Terapia online para mulheres."** Qualifica no título
+  e economiza o clique de quem não é o público. É o mesmo movimento do "Sua rescisão está
+  certa?" da advocacia.
+
+E um que **não** é alvo: **Aora — "terapia online com psicólogos verificados a partir de
+R$119"**. Plataforma, não consultório. Preço no título, escala, verba grande. Passa longe.
+
+LISTA DE ATAQUE: **482 → 508**.
+
+Combos varridos até aqui: + psicologia/terapia nacional por termo de serviço (713 ativos,
+43 páginas em 50 anúncios — **nicho mais pulverizado da base**; 26 alvos, 21 em Trilha A;
+**defeito novo: título = domínio (`instagram.com`, `api.whatsapp.com`), impulsionamento pelo
+celular**; **novo recorde de botão padrão: 9 "Fale conosco" num título só**; regra nova:
+termo de saúde mental puxa terapia espiritual, filtrar por `psi.`/CRP no nome da página).
