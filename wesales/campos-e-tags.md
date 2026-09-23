@@ -318,6 +318,18 @@ principal` (Q-16) sem que ninguém tenha decidido qual dos dois pares fica.
 Detalhe completo, e por que não contam no título acima (regra da contagem
 única no topo deste arquivo), em `CONFERENCIA-CAMPOS.md`, Tabela F.
 
+**Um quarto campo fora desta lista, criado pela API interna em 23/09/2026:**
+`Canal que conectou` (`SINGLE_OPTIONS`: Ligação WhatsApp, Ligação normal,
+Mensagem — `contact.canal_que_conectou`, id `TxJmoWdkA8rTqC1uEsMW`,
+confirmado por `locations_get-custom-fields` nesta rodada, `dateAdded`
+2026-09-23T01:06Z). Não nasceu deste documento nem de `build-wesales.md`:
+é o D10/E3 de `wesales/PLANO-MULTICANAL.md`, o plano do dono de 22/09/2026
+que reformula a cadência (ver nota no topo de `ROADMAP-SALES-ENGAGEMENT.md`).
+Registro, não aprovação — o campo já existe na tela, criado por fora deste
+conector; nenhum nó de `build-wesales.md` o lê ou escreve ainda, porque
+`build-wesales.md` segue descrevendo o desenho anterior ao `PLANO-
+MULTICANAL.md`.
+
 ## Etapa 3 — Tags (20, cinco pendentes de aprovação)
 
 | # | Tag | Função na máquina |

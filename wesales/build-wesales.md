@@ -199,6 +199,24 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 | `Descartado` | **status da oportunidade = `lost`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Descartado` vira uma ação `Update Opportunity` mudando o `status`, não a etapa |
 | *(não existia)* | `FORMALIZAR` | Etapa nova, fechamento/contrato — equivale a `status = won`. Fora do escopo dos workflows de SDR deste documento (é o closer fechando), citada aqui só para a tabela ficar completa |
 
+> **Segunda renomeação, 23/09/2026 — `AGENDAR` também já não é o nome na
+> tela.** Fora do plano de 7 desta tabela: o dono decidiu, em
+> `wesales/PLANO-MULTICANAL.md` (D1/E2), renomear a etapa `AGENDAR` para
+> `REUNIÃO DE DIAGNÓSTICO` — **mesmo `id`**
+> (`3d26fcd1-220d-49ed-8325-705dfe9055b1`), confirmado por
+> `opportunities_get-pipelines` nesta rodada (`dateUpdated`
+> 2026-09-23T00:59Z). Todo workflow publicado que decide por `pipelineStageId`
+> (não por nome) continua funcionando sem tocar em nada — é o caso de todos
+> os já montados. O que fica desatualizado é só texto: toda vez que este
+> documento (daqui em diante) e o `ROADMAP-SALES-ENGAGEMENT.md` dizem
+> `AGENDAR`, é o nome antigo da mesma etapa. Migração completa (trocar o
+> texto em toda seção 2 em diante, mais `wesales/tools/ghl_api.py` `STAGES`)
+> ainda não foi feita — mesmo estado de "em andamento" que a tabela acima já
+> assume para o plano de 7, agora com uma segunda camada por cima. Não
+> reescrevi esta tabela nem fiz o grep de migração nesta rodada: registro
+> aqui para a próxima sessão não tratar `AGENDAR` como etapa corrente e não
+> recriar uma etapa nova por engano.
+
 **Por que isso é simplificação, não perda:** `CONECTAR` continua etapa
 própria porque é o único estado que um portão de workflow *precisa*
 consultar antes de disparar uma tentativa — é o mecanismo de segurança da
@@ -4290,6 +4308,49 @@ gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 
 ## 2.29 Rampa de aquecimento do número de telefone — F-14
 
+> **Conta nova de 23/09/2026 — a regra D13 ("nenhuma tarefa nasce no fim de
+> semana") concentra a segunda-feira em +82%, e é a segunda que vira o teto.**
+>
+> A regra está certa e o comportamento também: a janela seg–sex **segura** a
+> tarefa até a janela abrir, não a descarta. O efeito colateral é de
+> distribuição, não de perda — e é exatamente o tipo de coisa que só aparece
+> multiplicando.
+>
+> Modelo: entrada de lote todo dia útil, régua de 12 toques nos dias corridos
+> D1·D1·D2·D2·D4·D7·D7·D10·D14·D20·D30·D30, todo toque que cai em sábado ou
+> domingo adiado para a segunda seguinte. Regime (janelas já sobrepostas):
+>
+> | Lote/dia útil | Terça a sexta | **Segunda** | Pico sem a regra |
+> |---|---|---|---|
+> | **6** | 48 a 66 | **120** | 66 |
+> | **12** | 96 a 132 | **240** | 132 |
+>
+> Some 360 toques/semana nos dois casos (6 × 5 × 12), então **o total não
+> muda** — muda quem carrega. A segunda absorve os dois dias parados e fica
+> com ~3/7 do volume da semana em vez de 1/5.
+>
+> **Por que isso decide o lote:** a meta de capacidade do SDR é **100
+> ligações/dia** (`briefing-sdr.md`, e a própria D14 do plano do dono
+> repete). Com o lote conservador de 6/dia, **a segunda já bate 120** — 20%
+> acima da capacidade, em regime, sem nenhum imprevisto. O lote de 12/dia põe
+> 240 numa segunda, que é 2,4× a capacidade.
+>
+> **Estado, para não confundir armadilha com incêndio:** isto é aritmética
+> sobre parâmetros declarados, não medição do sistema rodando — hoje há **zero
+> lead em cadência**, então nada disso está acontecendo. É conta de projeto, e
+> por isso dá para consertar antes de doer.
+>
+> **Quatro saídas, em ordem de elegância:**
+>
+> | Saída | O que muda | Custo |
+> |---|---|---|
+> | **Régua em dias úteis** em vez de dias corridos (D1, D2, D4… contados em dia útil) | nenhum toque cai em fim de semana, por construção | a régua de 30 dias vira ~42 dias corridos |
+> | **Espalhar o represado** entre segunda e terça | segunda cai para ~93 | um nó a mais decidindo o destino |
+> | **Adiar para sexta** em vez de segunda (antecipar) | sexta sobe de 48 para ~102, segunda fica em 42 | toque chega antes, não depois |
+> | **Baixar o lote** | segunda proporcional | mais tempo para escoar o estoque |
+>
+> A primeira é a que as plataformas de sales engagement usam, e some com o
+> problema em vez de administrá-lo.
 > **Conferido em 22/09/2026, 23:35 UTC — a proposta multicanal (caminho B)
 > não alivia esta rampa, e é fácil supor que alivia.**
 >

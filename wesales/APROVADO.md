@@ -286,6 +286,20 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       um número que seja seu. Me diga qual número usar nos testes e esta linha
       vira `[x]` na mesma hora.
 
+      **Nota de 23/09/2026, sem mexer no `[ ]` acima — a premissa mudou, a
+      autorização não:** `wesales/PLANO-MULTICANAL.md` (D5/D6, decidido ao
+      vivo pelo dono em 22/09/2026) já assume mensagem automática de WhatsApp
+      saindo pela ação "SMS" do GHL via Stevo — o mesmo transporte técnico
+      que esta linha trata como "não é canal deste projeto". Pode ser que o
+      dono já tenha decidido usar esse caminho de propósito (o texto do D5
+      sugere isso) sem perceber que esvazia esta restrição, ou as duas
+      decisões podem conviver (SMS "puro" continua fora; SMS-como-transporte-
+      de-WhatsApp-via-Stevo entra). Não escrevo `[x]` nem `[ ]` novo aqui — é
+      exatamente o caso que a regra "Como autorizar" no topo deste arquivo
+      pede para não fazer sozinho. Quem executar `PLANO-MULTICANAL.md` E4/E9
+      (cadência multicanal) precisa desta linha resolvida antes: hoje ela diz
+      "não autorizado" para o canal que o plano novo já assume como padrão.
+
 - [ ] Criar os 2 templates de e-mail `EM-1`/`EM-2` via `emails_create-template`
       — nasceram no F-15 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em
       22/09/2026): resgate por e-mail para o contato que fica em

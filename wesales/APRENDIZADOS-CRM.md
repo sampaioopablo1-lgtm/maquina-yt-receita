@@ -2,6 +2,49 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Duas trilhas de execução deste projeto não se enxergam — checar `PLANO-MULTICANAL.md` antes de tratar o roadmap como única fonte de estado — 23/09/2026, sessão na nuvem
+
+Esta sessão (MCP `GHL CRM`, sem bearer da API interna) leu o roadmap inteiro,
+achou tudo fechado ou represado por decisão do dono, e ia registrar bloqueio
+— até cruzar `git log` com o estado ao vivo da subconta e achar uma segunda
+trilha de trabalho que os documentos principais não citam.
+
+**O que existe e este projeto quase não vê:** `wesales/tools/` tem ~30
+scripts Python/JS que falam com a **API interna** da HighLevel (a mesma que
+`briefing-sdr.md`/`campos-e-tags.md` chamam de "só no PC do dono, exige
+bearer que esta sessão não tem") — `ghl_api.py`, `create_field.js`,
+`renomear_etapa.js`, os `build_w*.py` que montaram os workflows publicados.
+Essa trilha **cria campo e renomeia etapa por API de verdade**, coisa que
+este conector MCP nunca fez. E ela está ativa: `wesales/PLANO-MULTICANAL.md`
+(commit direto do dono, 22/09/2026 21:43 BRT, co-autorado por outra sessão
+Claude) é um plano de reformulação inteiro — renomeia `AGENDAR` para
+`REUNIÃO DE DIAGNÓSTICO`, reintroduz WhatsApp/Stevo como canal, muda o
+comportamento de `CONECTAR` — com checklist próprio (E1-E14) rodando por
+commits desde então (`482de1f`, `4f6a9c2`, `9268130`, e o campo `Canal que
+conectou` já criado na subconta às 01:06 UTC de hoje). **Nada disso está
+citado em `ROADMAP-SALES-ENGAGEMENT.md` nem em `build-wesales.md`** — os
+dois continuam descrevendo o desenho anterior ("100% telefone", etapa
+`AGENDAR`), e uma leitura só desses dois documentos concluiria (errado) que
+nada mudou desde o G-09.
+
+**Por que aconteceu:** as duas trilhas são sessões automáticas diferentes,
+cada uma commitando na mesma branch, cada uma lendo só os documentos que o
+seu próprio fluxo de trabalho aponta. `G-09`, fechado por esta classe de
+sessão 22 minutos **antes** do commit do `PLANO-MULTICANAL.md`, até
+levantou exatamente a pergunta que o plano novo responde (Stevo entrega SMS,
+não WhatsApp de verdade) — e ninguém cruzou as duas coisas até agora.
+
+**A regra, generalizável:** antes de tratar um roadmap/aviso como estado
+corrente do projeto, checar se existe um documento de execução **mais
+recente** (por data no texto ou por `git log -- <arquivo>`) que o
+sobreponha — um "aviso" ou "decisão" datado não é necessariamente a última
+palavra só por estar no arquivo mais lido. Nesta rodada, corrigido com notas
+cruzadas em `ROADMAP-SALES-ENGAGEMENT.md` (topo), `build-wesales.md`
+(seção 1.0), `APROVADO.md` (linha do SMS/WhatsApp) e `campos-e-tags.md`
+(campo `Canal que conectou` registrado) — sem reescrever nenhum dos dois
+desenhos por inteiro, que é trabalho grande demais para uma rodada e não
+era o achado desta.
+
 ## O rótulo na tela escondia uma decisão já tomada — "WhatsApp" é o SMS que o dono removeu — 23/09/2026, sessão na nuvem
 
 A rodada do G-09 mediu bem: a integração Stevo entrega `TYPE_CUSTOM_SMS`, não
