@@ -2,6 +2,33 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Documento que contém um artefato colável tem duas naturezas — não anotar dentro do artefato — 23/09/2026, sessão na nuvem
+
+Consertando a coerência do `AGENTE-IA-CONEXAO.md` depois da renomeação de etapa,
+anotei "(etapa da conversa, não a etapa do funil — a do funil chama `REUNIÃO DE
+DIAGNÓSTICO` desde 22/09)" numa linha que está **dentro** do bloco do prompt do
+sistema, ou seja, dentro do texto que o dono cola na tela do GHL. A anotação
+estava certa e o lugar estava errado: nome de etapa do funil, id e data não
+servem ao modelo, gastam contexto e podem vazar na conversa com o lead. Revertido
+no mesmo turno; a nota foi para fora da cerca de código.
+
+**A regra:** em documento de `wesales/` que carrega artefato colável (prompt de
+agente, corpo de mensagem, JSON de import), o conteúdo entre cercas ``` é
+**produto**, não documentação. Antes de editar, conferir se a linha está dentro
+de uma cerca — `grep -n '^```'` dá os limites. Comentário, data, id e
+justificativa vão sempre fora. Vale também para `biblioteca-mensagens.md`.
+
+**Do mesmo conserto, um achado que vale por si:** o portão de entrada do agente
+(seção 1) lista as tags que o fazem não responder e **não tinha
+`fechar-horario`**. Hoje é inofensivo, porque `conectado-hoje` é aplicada no
+mesmo nó e nunca sai. Mas a saída A que eu recomendei para o F-16 (`Wait 24h` →
+`Remove Tag conectado-hoje`) **abre exatamente essa fresta**: a partir dela, um
+lead 25h dentro da tentativa de fechar horário teria `fechar-horario` sem
+`conectado-hoje`, e o agente entraria por cima do SDR. Acrescentei a tag ao
+portão agora, enquanto é redundante. É o F-16 de novo, um nível acima: **quando
+você recomenda tirar uma cláusula de circulação, procure quem dependia dela sem
+saber** — e conserte antes, não depois.
+
 ## Uma cláusula redundante vira vazamento quando a cláusula vizinha muda — cruzar toda mudança de etapa com os filtros das listas — 23/09/2026, sessão na nuvem
 
 O commit `1d04af2` (do PC do dono) fez o ramo `Atendeu` **ficar** em `CONECTAR`

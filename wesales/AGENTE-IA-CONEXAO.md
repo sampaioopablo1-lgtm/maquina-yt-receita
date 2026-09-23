@@ -46,6 +46,12 @@ entrada):** o agente **não responde** contato que tenha qualquer destas tags:
 | `conectado-hoje` | o SDR já falou com ele hoje |
 | `nao-perturbe` | pediu para não ser procurado |
 | `pausado` | pausa individual (R-09) |
+| `fechar-horario` | **acrescentada em 23/09.** Estado novo: o SDR conectou e está fechando o horário da reunião de diagnóstico. Hoje ela é redundante, porque o `Pós-ligação v2` aplica `fechar-horario` e `conectado-hoje` no mesmo nó e nada remove a segunda. **Ela deixa de ser redundante no momento em que a saída A da seção 2.31 do `build-wesales.md` for implementada** (`Wait 24h` → `Remove Tag conectado-hoje`): a partir daí, um lead 25h dentro da tentativa de fechar horário teria `fechar-horario` sem `conectado-hoje`, e o agente entraria por cima do SDR. Por isso ela entra agora, antes da correção, e não depois |
+
+Sobre a linha `fechar-horario`: é o mesmo erro que já custou caro neste projeto
+(cláusula redundante que vira dependência escondida quando a vizinha muda —
+F-16). A tag entra no portão **agora**, enquanto é inofensiva, exatamente para
+não ser esquecida quando passar a importar.
 
 Se a tela não oferecer filtro por tag na entrada do agente, isto vira
 pendência e o agente **não deve ficar como Agente Principal** até existir.
@@ -198,6 +204,15 @@ NUNCA
 - Nunca escreva mais de 3 linhas.
 ```
 
+**Sobre o nome "ETAPA 4 — AGENDAR" dentro do prompt:** é nome de etapa da
+**conversa**, para o modelo se orientar, e não tem relação com a etapa do
+funil. A do funil se chama `REUNIÃO DE DIAGNÓSTICO` desde 22/09 (id
+`3d26fcd1-220d-49ed-8325-705dfe9055b1`, o mesmo de antes da renomeação). O
+prompt acima é para colar como está, sem acrescentar nada: **nome de etapa do
+funil, id e data não entram nele** — o modelo não precisa dessa informação e
+ela só gasta contexto e arrisca aparecer na conversa com o lead. Quem configura
+etapa é a aba `Funil` (seção 7), não o prompt.
+
 ### 3.3 Custom Tools — o que o agente precisa poder fazer
 
 O prompt acima só funciona se a aba `Custom Tools` der estas ações. Confira
@@ -272,11 +287,11 @@ agente de inbound.
 
 | Situação | O que o agente faz |
 |---|---|
-| Agendou | move a oportunidade para `AGENDAR`, tag `conectado-hoje`, remove `fila-tel` |
-| Qualificado, não agendou | mantém em `CONECTAR`, aplica `fila-tel` para o SDR ligar |
+| Agendou | move a oportunidade para **`REUNIÃO DE DIAGNÓSTICO`** (`3d26fcd1-220d-49ed-8325-705dfe9055b1`), tag `conectado-hoje`, remove `fila-tel` e `fechar-horario`. **Corrigido em 23/09:** esta linha dizia `AGENDAR`, nome que a etapa deixou de ter na renomeação de 22/09 — o id é o mesmo, então nada quebrou, mas o documento estava mandando configurar por um nome que não existe mais na tela. A remoção de `fechar-horario` é a mesma correção que o nó 4 do `Pós-agendamento v2` precisa (seção 2.31.2): quem agenda tem de sair desse estado, e aqui é o agente que conduz |
+| Qualificado, não agendou | mantém em `CONECTAR`, aplica `fila-tel` para o SDR ligar. **Não aplicar `conectado-hoje`** — o agente conversou, o SDR ainda não, e essa tag hoje é permanente: aplicá-la aqui tiraria o lead das filas 8.2/8.3 para sempre sem ninguém nunca ter ligado para ele. É a armadilha do F-16 vista do lado do agente |
 | Sem fit | grava `Motivo da desqualificação`, `status = lost` sem mudar de etapa |
 | Pediu para não ser procurado | tag `nao-perturbe` **e** DND nativo — os dois, nunca só um (é o que a auditoria R-14 confere) |
-| Handoff | tag `conectado-hoje` e notificação interna |
+| Handoff | notificação interna. **`conectado-hoje` sai desta linha (23/09)** pelo mesmo motivo da linha "Qualificado, não agendou": handoff é o agente passando a bola, não conexão do SDR. Com a tag permanente, aplicá-la no handoff entrega ao SDR um lead que já está fora das filas dele — o oposto do que um handoff quer |
 
 ## 8. O que falta confirmar na tela — não consigo ver por API
 
