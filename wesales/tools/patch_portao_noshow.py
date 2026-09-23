@@ -64,6 +64,7 @@ def insere(tpl_alvo, tpl_doador):
                                     entra, base_x + 1100 * (j + 1))
             novos += bloco
         depois["parent"] = depois["parentKey"] = entra
+        pi.encadeia(tpl, sim["id"], novos, depois["id"])
         pos = max(k for k, t in enumerate(tpl)
                   if t["id"] in {porta["id"], sim["id"]}
                   or t.get("parentKey") == porta["id"]) + 1
@@ -103,7 +104,10 @@ def main():
 
     os.makedirs(BACKUP, exist_ok=True)
     g.export(c, ids[ALVO], os.path.join(BACKUP, ALVO + ".json"))
-    put(c, alvo, novo)
+    r = put(c, alvo, novo)
+    if r is None or r.get("_error"):
+        print("PUT RECUSADO:", r)
+        return 1
     v = c.request("GET", "/workflow/" + g.LOC + "/" + ids[ALVO])
     vt = (v.get("workflowData") or {}).get("templates") or []
     trs = [t.get("active") for t in

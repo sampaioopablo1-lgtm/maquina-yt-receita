@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Triagem da Nutrição",
-    "version": 18,
+    "version": 17,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/18",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F18?alt=media&token=64c57064-01de-4809-8119-dfa8f1b7c3a6",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/17",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F17?alt=media&token=2fc6ba8b-25c4-45c8-a22c-018b4b05912b",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T02:28:04.232Z",
-    "updatedAt": "2026-09-23T21:42:48.915Z",
+    "updatedAt": "2026-09-23T03:24:06.413Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -1059,7 +1059,7 @@
           "order": 2,
           "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
           "parentKey": "882b979e-cdb0-4167-81df-5d91e493a014",
-          "next": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "next": "a282a31b-9c17-40ba-b850-08946824e4aa",
           "advanceCanvasMeta": {
             "position": {
               "x": 7600,
@@ -1067,28 +1067,6 @@
             }
           },
           "cat": ""
-        },
-        {
-          "id": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
-          "parent": "be530dec-1f77-4aa8-922f-b79c4c0be097",
-          "parentKey": "be530dec-1f77-4aa8-922f-b79c4c0be097",
-          "order": 1,
-          "name": "Update contact field",
-          "type": "update_contact_field",
-          "attributes": {
-            "type": "update_contact_field",
-            "actionType": "update_field_data",
-            "fields": [
-              {
-                "field": "TxJmoWdkA8rTqC1uEsMW",
-                "value": "Mensagem",
-                "title": "Canal que conectou",
-                "type": "select",
-                "date": ""
-              }
-            ]
-          },
-          "next": "a282a31b-9c17-40ba-b850-08946824e4aa"
         },
         {
           "id": "a282a31b-9c17-40ba-b850-08946824e4aa",
@@ -1110,8 +1088,8 @@
             }
           },
           "order": 3,
-          "parent": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
-          "parentKey": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "be530dec-1f77-4aa8-922f-b79c4c0be097",
           "next": "62704529-9311-4eed-8ffc-c1b0c3092c7c",
           "advanceCanvasMeta": {
             "position": {

@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Pós-ligação v2",
-    "version": 9,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/9",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F9?alt=media&token=f691ead9-0f7f-4f76-bc3f-ad724ea09149",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F7?alt=media&token=8f03793c-0875-4eea-861d-85e6ebb244d8",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T12:35:58.574Z",
-    "updatedAt": "2026-09-23T21:45:53.574Z",
+    "updatedAt": "2026-09-23T03:43:15.134Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -867,13 +867,6 @@
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
-              },
-              {
-                "field": "TxJmoWdkA8rTqC1uEsMW",
-                "value": "Ligação WhatsApp",
-                "title": "Canal que conectou",
-                "type": "select",
-                "date": ""
               }
             ]
           },
@@ -918,24 +911,7 @@
           },
           "name": "Note",
           "type": "add_notes",
-          "parentKey": "ea6c7817-fd1d-42ba-979b-4ca649af71a7",
-          "next": "921f2cf0-333b-42b9-813a-9e3916f9482e"
-        },
-        {
-          "id": "921f2cf0-333b-42b9-813a-9e3916f9482e",
-          "parent": "627573c8-908c-4f3c-a274-6530f05f45b7",
-          "parentKey": "627573c8-908c-4f3c-a274-6530f05f45b7",
-          "order": 8,
-          "name": "Remove from Workflow",
-          "type": "remove_from_workflow",
-          "attributes": {
-            "type": "remove_from_workflow",
-            "workflow_id": [
-              "c64a808b-3040-431e-8015-642a265e1022",
-              "319ae603-2e33-4ea9-a8b7-fe63a914a40e",
-              "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8"
-            ]
-          }
+          "parentKey": "ea6c7817-fd1d-42ba-979b-4ca649af71a7"
         },
         {
           "id": "0c84a52f-8ef8-4506-bb40-eff49df9f8e1",
@@ -977,24 +953,7 @@
           },
           "name": "Math operation",
           "type": "math_operation",
-          "parentKey": "0c84a52f-8ef8-4506-bb40-eff49df9f8e1",
-          "next": "7c564ce6-0ff1-4821-bbf1-1c82d916b845"
-        },
-        {
-          "id": "7c564ce6-0ff1-4821-bbf1-1c82d916b845",
-          "parent": "a39fe8fc-88d8-4f49-bd32-15dede515f2c",
-          "parentKey": "a39fe8fc-88d8-4f49-bd32-15dede515f2c",
-          "order": 1,
-          "name": "Remove from Workflow",
-          "type": "remove_from_workflow",
-          "attributes": {
-            "type": "remove_from_workflow",
-            "workflow_id": [
-              "c64a808b-3040-431e-8015-642a265e1022",
-              "319ae603-2e33-4ea9-a8b7-fe63a914a40e",
-              "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8"
-            ]
-          }
+          "parentKey": "0c84a52f-8ef8-4506-bb40-eff49df9f8e1"
         },
         {
           "id": "f85fb4d6-645e-477d-93ec-824871c592e4",
@@ -2750,13 +2709,6 @@
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
-              },
-              {
-                "field": "TxJmoWdkA8rTqC1uEsMW",
-                "value": "Ligação WhatsApp",
-                "title": "Canal que conectou",
-                "type": "select",
-                "date": ""
               }
             ]
           },
@@ -2801,24 +2753,7 @@
           },
           "name": "Note",
           "type": "add_notes",
-          "parentKey": "c5a3b98d-0f51-4086-968e-744ea567da12",
-          "next": "246d6544-b8ea-46cb-bcde-e9471c1349ba"
-        },
-        {
-          "id": "246d6544-b8ea-46cb-bcde-e9471c1349ba",
-          "parent": "ca6a4dba-37db-41fa-973c-4c0caebc98b9",
-          "parentKey": "ca6a4dba-37db-41fa-973c-4c0caebc98b9",
-          "order": 8,
-          "name": "Remove from Workflow",
-          "type": "remove_from_workflow",
-          "attributes": {
-            "type": "remove_from_workflow",
-            "workflow_id": [
-              "c64a808b-3040-431e-8015-642a265e1022",
-              "319ae603-2e33-4ea9-a8b7-fe63a914a40e",
-              "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8"
-            ]
-          }
+          "parentKey": "c5a3b98d-0f51-4086-968e-744ea567da12"
         },
         {
           "id": "a1fa1716-3565-4b00-b5cd-853970c6df37",
@@ -2948,13 +2883,6 @@
                 "title": "Data conectado",
                 "type": "date",
                 "date": "currentDate"
-              },
-              {
-                "field": "TxJmoWdkA8rTqC1uEsMW",
-                "value": "Ligação normal",
-                "title": "Canal que conectou",
-                "type": "select",
-                "date": ""
               }
             ]
           },
@@ -2999,24 +2927,7 @@
           },
           "name": "Note",
           "type": "add_notes",
-          "parentKey": "0ed90d2b-f043-4ece-881a-d50d51bcb5cf",
-          "next": "cde13e9d-ae42-4407-bc4a-3262f78150a6"
-        },
-        {
-          "id": "cde13e9d-ae42-4407-bc4a-3262f78150a6",
-          "parent": "b5167da9-7748-4cc7-948d-22be94620c00",
-          "parentKey": "b5167da9-7748-4cc7-948d-22be94620c00",
-          "order": 8,
-          "name": "Remove from Workflow",
-          "type": "remove_from_workflow",
-          "attributes": {
-            "type": "remove_from_workflow",
-            "workflow_id": [
-              "c64a808b-3040-431e-8015-642a265e1022",
-              "319ae603-2e33-4ea9-a8b7-fe63a914a40e",
-              "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8"
-            ]
-          }
+          "parentKey": "0ed90d2b-f043-4ece-881a-d50d51bcb5cf"
         },
         {
           "id": "a1e7268e-859d-4950-8860-43bf3dcff879",

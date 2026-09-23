@@ -112,6 +112,22 @@ def clona(g5, none_id, novo_nome, entra_de, x):
     return novos, mapa[none_id]
 
 
+def encadeia(tpl, entra_id, novos, depois_id):
+    """Acerta os ponteiros `next` (o GHL valida `next`, nao so `parentKey`).
+
+    `entra_id` passa a apontar para a cabeca do primeiro portao; o `None` de
+    cada portao aponta para a cabeca do seguinte, e o ultimo para `depois_id`.
+    """
+    por_id = {t["id"]: t for t in tpl}
+    cabecas = [n for n in novos if n.get("type") == "if_else"
+               and not (n.get("attributes") or {}).get("else")
+               and isinstance(n.get("next"), list)]
+    nones = [n for n in novos if (n.get("attributes") or {}).get("else")]
+    por_id[entra_id]["next"] = cabecas[0]["id"]
+    for k, n in enumerate(nones):
+        n["next"] = cabecas[k + 1]["id"] if k + 1 < len(cabecas) else depois_id
+
+
 def insere(tpl_alvo, tpl_doador):
     """Insere os dois portoes em cada toque. Devolve (novo template, log)."""
     tpl = copy.deepcopy(tpl_alvo)
@@ -146,6 +162,7 @@ def insere(tpl_alvo, tpl_doador):
             novos += bloco
         # o que vinha depois do Lead pausado? passa a vir depois do ultimo portao
         depois["parent"] = depois["parentKey"] = entra
+        encadeia(tpl, else_id, novos, depois["id"])
         # insere os 10 nos logo depois do grupo do Lead pausado?
         pos = max(k for k, t in enumerate(tpl)
                   if t["id"] in {porta["id"], else_id}
@@ -168,6 +185,11 @@ def confere(tpl, antes):
         if p and p not in conhecidos:
             erros.append("%s (%r) pendura em pai inexistente %s"
                          % (t["id"][:8], t.get("name"), str(p)[:8]))
+        nx = t.get("next")
+        for n in (nx if isinstance(nx, list) else [nx] if nx else []):
+            if n not in conhecidos:
+                erros.append("%s (%r) next para no inexistente %s"
+                             % (t["id"][:8], t.get("name"), str(n)[:8]))
         if t.get("type") == "goto":
             alvo = (t.get("attributes") or {}).get("targetNodeId")
             if alvo not in conhecidos:
@@ -247,7 +269,10 @@ def main():
 
     os.makedirs(BACKUP, exist_ok=True)
     g.export(c, ids[ALVO], os.path.join(BACKUP, ALVO + ".json"))
-    put(c, alvo, novo)
+    r = put(c, alvo, novo)
+    if r is None or r.get("_error"):
+        print("PUT RECUSADO:", r)
+        return 1
     v = c.request("GET", "/workflow/" + g.LOC + "/" + ids[ALVO])
     vt = (v.get("workflowData") or {}).get("templates") or []
     trs = [t.get("active") for t in
