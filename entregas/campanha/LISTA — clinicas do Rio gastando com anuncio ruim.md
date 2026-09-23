@@ -6022,3 +6022,54 @@ próprio não é ser técnico, é **se o cliente escolhe uma pessoa ou contrata 
 "projeto de interiores" NÃO limpa o ruído de imobiliária, porque é o anúncio de alto padrão
 que usa a palavra; defeito recorde: **descrição inteira do imóvel dentro do campo de
 título**; auto-concorrência confirmada num segundo nicho, AUPI com 6 anúncios iguais).
+
+---
+
+## ESCOLA DE IDIOMAS — matrícula (23/09, nacional)
+
+Varredura: `escola de idiomas matrícula inglês`, BR, ACTIVE. **115 anúncios ativos** — o
+nicho mais magro de todos os varridos até agora, menos que a metade da contabilidade MEI.
+27 páginas distintas, **22 alvos**.
+
+**A descoberta da varredura não é um alvo: é um filtro novo.** Cinco páginas com nome de
+pessoa — Lucy Santos, Carlos Souza, Wagner Rufino, Taty Lucena, Kelly Watson — rodam a
+**mesma headline idêntica**, "Não estude inglês antes de ver isto 👉", em **onze anúncios**.
+E todas cobram em **USD**, não em BRL. Não são escolas nem professores: é uma operação de
+afiliado/infoproduto usando páginas com cara de gente local.
+
+**Regra nova, barata e que serve em toda varredura daqui em diante: moeda diferente de BRL
+denuncia que o anunciante não é negócio brasileiro.** O campo `currency` vem em toda
+resposta da Biblioteca e eu nunca tinha usado. Economiza o trabalho de abrir a página para
+descobrir que é infoproduto.
+
+**A auto-concorrência apareceu pela terceira vez, e agora numa franquia grande.** A Wizard
+nacional roda **11 anúncios ativos** com a headline idêntica "Inglês que destrava seu futuro
+🚀", e a Wizard SJC roda **5** com "Matrículas Abertas". Junto com Fisio Nova (11) e AUPI
+(6), são quatro páginas em três nichos sem relação. **Isso não é erro de amador: é erro de
+quem tem verba e nenhum controle de leilão** — o que torna a copy "sua agência está fazendo
+você competir com você mesmo?" boa para empresa grande também, não só para clínica de bairro.
+
+Outros defeitos: nome da página como headline (KNN Pindamonhangaba, Escola M60); título do
+perfil do Instagram inteiro repetido cinco vezes (inglescomsamira); "Saiba mais" e "Toque e
+Saiba Mais 👉" repetido em quatro cards (CNA Teresina, CNA Vila Mariana); título vazio
+(americanacademyscs, Minds Santa Rita nos dois); português de Portugal no CTA ("Conversa
+connosco" — Poliglotix).
+
+**Um alvo do Rio:** Yes Irajá, rodando "🔥ÚLTIMAS VAGAS".
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A melhor oferta de risco zero de todas as varreduras**, da Five Nova Friburgo: *"A aula
+experimental é gratuita e sem compromisso: ele vive uma aula de verdade, e vocês decidem
+depois."* Ela não promete resultado — ela **descreve o que vai acontecer** e devolve a
+decisão para quem lê. É o caminho mais honesto para o nosso bloco dos R$5k, e resolve o
+problema que ficou em aberto lá: "não gostou" é subjetivo; **"você vê acontecer e decide
+depois" não é.**
+
+LISTA DE ATAQUE: **312 → 334**.
+
+Combos varridos até aqui: + escola de idiomas (nacional, 115 ativos — o nicho mais magro de
+todos; 22 alvos; **filtro novo: `currency` diferente de BRL denuncia infoproduto/afiliado
+disfarçado de página local**, 5 páginas com nome de pessoa e a mesma copy; auto-concorrência
+pela terceira vez e agora em franquia grande — Wizard com 11 anúncios iguais; melhor oferta
+de risco zero já vista, da Five Nova Friburgo).
