@@ -6316,3 +6316,50 @@ atualizado para não repetir a pendência como "em aberto" depois de ela ter
 conexões") anotado para não deixar alguém "consertar" a cópia morta achando
 que é a que roda de verdade. Zero escrita no CRM, zero campo, zero tag: item
 de especificação e patch validado por dump, não depende de `APROVADO.md`.
+
+## Uma varredura de coerência que só procura texto divergente não acha soma errada — o total de tags estava escrito errado em três documentos, e a lista ao lado de cada um já somava certo — G-20, 23/09/2026, sessão automática
+
+Sweep de sempre (CRM por API, PR #93) veio limpo — 56 oportunidades, mesma
+composição da leitura do G-19, PR ainda `open`/`draft`. `PLANO-MULTICANAL.md`
+lido por inteiro nesta rodada (pendência que o próprio G-19 tinha deixado
+para a próxima) sem achado novo — a seção "Fila autônoma" já estava coberta
+pelos itens A1-A9 que ela mesma lista, nenhum promovido a item de roadmap
+faltante.
+
+A lacuna veio de uma pergunta que nenhuma das 19 rodadas anteriores tinha
+feito: os **totais** que este projeto declara (quantos campos, quantas
+tags) batem com a própria enumeração que cada um resume? Bateu para campos.
+Não bateu para tags: `campos-e-tags.md` ("10 na conta fora da numeração",
+"Total na conta hoje: 25"), `APROVADO.md` ("são dez as tags fora desta
+lista") e `build-wesales.md` §2.32 ("a conta tem 25 tags") — as três somas
+erradas, apesar de a frase ao lado de cada uma já enumerar `teste-regua`,
+`fechar-horario`, `cadencia-12x30-p2`, `teste-12x30` e "as 8 do Espelho de
+Etapa" (1+1+1+1+8 = 12, não 10; 15 do projeto + 12 = 27, não 25).
+
+**Como o erro nasceu:** a primeira versão (só `teste-regua`/`fechar-horario`
+existiam) dizia "duas", certo para aquele momento. Quando o commit
+`61eb167` trouxe as 8 tags do Espelho de Etapa, a atualização somou 2 + 8 =
+10 e esqueceu que `cadencia-12x30-p2`/`teste-12x30` já estavam na mesma
+tabela, duas linhas abaixo — um erro de soma no meio de uma edição que
+parecia completa (o texto foi reescrito na mesma rodada que acrescentou o
+dado novo). As cópias seguintes (`APROVADO.md`, `build-wesales.md`) herdaram
+o "10"/"25" já errado sem resomar.
+
+**Regra prática, generalizável — estende o "quem mais fala disso?" do
+G-10/G-14/G-16/G-17 (que acha nome e referência divergente) para números:**
+grep encontra nome de etapa órfão e merge field trocado porque o valor
+errado é *diferente* do valor certo em texto. Uma soma errada não é
+diferente de nada — ela só aparece resomando a lista contra o total escrito
+ao lado. "O texto foi editado nesta mesma rodada" não é evidência de que o
+número está certo; é só evidência de que alguém mexeu perto dele. A partir
+de agora, toda rodada que mexer em contagem (campo, tag, etapa, tentativa)
+resoma a lista antes de aceitar o número escrito perto dela — não só
+depois de mudar algo, também ao herdar um número que já existia.
+
+**Correção aplicada:** achado promovido a `G-20` no
+`ROADMAP-SALES-ENGAGEMENT.md`; `campos-e-tags.md` (Etapa 3) ganhou a mesma
+convenção "onde mora a contagem" que a Etapa 2 (campos) já tinha, com os
+números certos (12/27); `APROVADO.md` e `build-wesales.md` §2.32 pararam de
+repetir o número (regra "número fixo só na fonte") e passaram a apontar
+para `campos-e-tags.md`. Zero campo, zero tag, zero escrita no CRM: item de
+coerência entre documentos, não depende de `APROVADO.md`.

@@ -1743,6 +1743,59 @@ campo, zero tag, zero escrita no CRM: item de coerência entre documentos e
 de infraestrutura de repositório, fora do que `APROVADO.md` governa (não é
 escrita na subconta) e fora do escopo desta sessão (não é `wesales/`).
 
+### G-20 · A conta "tem 25 tags" em dois documentos e "dez fora da numeração" num terceiro — a própria lista ao lado de cada frase já somava 27 e 12 — **FEITO em 23/09/2026 (coerência entre documentos)**
+
+**Por quê:** CRM reconfirmado por API nesta rodada — 56 oportunidades (mesma
+composição da leitura do G-19), 56 campos de contato — G-03, G-04 (peça 2),
+F-09, F-10, G-11 (item 1), G-16, G-17 e G-19 seguem aguardando o dono, sem
+novidade; PR #93 continua `open`/`draft`, sem merge (a metade "branch" do
+G-19 segue aberta). O sweep desta rodada não foi grep por nome de etapa nem
+`git log` fora de `wesales/` (G-17/G-19 já tinham esgotado essas duas
+veias) — foi conferir, campo a campo e tag a tag, se os **totais** que este
+projeto declara batem com a própria enumeração ao lado deles, pergunta que
+nenhuma rodada anterior tinha feito para números (só para nomes e
+referências). Bateu para campos (o "(50 + 1 sugerido)" de `campos-e-tags.md`
+soma certo contra os 56 que `locations_get-custom-fields` devolve, contando
+os 4 registrados fora do título de propósito). Não bateu para tags: o
+cabeçalho da Etapa 3 dizia "10 na conta fora da numeração" e "Total na
+conta hoje: 25", mas a própria frase ao lado já enumerava `teste-regua`,
+`fechar-horario`, `cadencia-12x30-p2`, `teste-12x30` e "as 8 do Espelho de
+Etapa" — 1+1+1+1+8 = **12**, não 10; com as 15 tags do projeto já criadas
+(T-01 a T-15), o total real é **27**, não 25. O mesmo "10" tinha sido
+copiado para `APROVADO.md` ("são dez as tags fora desta lista", mesma
+enumeração de 12 ao lado) e o mesmo "25" para `build-wesales.md` §2.32
+("a conta tem 25 tags: 15 do projeto, `teste-regua`, `fechar-horario`,
+`cadencia-12x30-p2`, `teste-12x30` e as 8 do espelho" — a própria frase soma
+27 na cara de quem lê, mas o número escrito ficou 25). As tags `T-16` a
+`T-21` (ainda `[ ]` em `APROVADO.md`) não entram nesta conta — são tags do
+projeto ainda não criadas, não tags "fora da numeração"; nenhuma decisão do
+dono muda com esta correção.
+
+**Como aconteceu:** todas as três menções nasceram na mesma noite de
+23/09/2026, em rodadas próximas — a primeira (`campos-e-tags.md`, quando só
+`teste-regua`/`fechar-horario` existiam) dizia "duas", correta para aquele
+momento; quando o commit `61eb167` trouxe as 8 tags do Espelho de Etapa, a
+atualização somou 2 (as originais) + 8 (o espelho) = 10 e **esqueceu**
+`cadencia-12x30-p2`/`teste-12x30`, que já estavam registradas na mesma
+tabela, duas linhas abaixo — cada versão seguinte copiou o "10"/"25" errado
+sem resomar a lista. **Regra prática, generalizável, que estende a do G-10
+(um achado consertado num lugar não se propaga sozinho) para números em vez
+de nomes:** grep acha nome de etapa órfão e merge field trocado, mas não
+acha soma errada — uma conferência de coerência que só procura texto
+divergente vai deixar passar um total que "parece" atualizado (foi editado
+na mesma rodada que acrescentou o dado novo) mas nunca foi resomado contra
+a própria enumeração ao lado. A partir daqui, a varredura de toda rodada
+que mexer em contagem (campo, tag, etapa) soma a lista antes de aceitar o
+número escrito ao lado dela, não só depois de mudar algo.
+
+**Correção aplicada:** `campos-e-tags.md` (Etapa 3) ganhou a mesma
+convenção "onde mora a contagem" que a Etapa 2 (campos) já tinha, com os
+números certos (12/27) e a data desta correção; `APROVADO.md` e
+`build-wesales.md` §2.32 pararam de repetir o número (regra deste roadmap,
+"número fixo só na fonte") e passaram a apontar para `campos-e-tags.md`.
+Zero campo, zero tag, zero escrita no CRM: item de coerência entre
+documentos, não depende de `APROVADO.md`.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -4903,3 +4956,33 @@ também lendo `PLANO-MULTICANAL.md` por inteiro (não só a tabela de decisões
 D1-D14, também a "Fila autônoma" no fim) na varredura de coerência, e
 conferindo se o dono já mesclou o PR #93 (o que fecharia sozinho a metade
 "branch" do G-19, restando só a cadência).
+
+**G-20 aberto e fechado em 23/09/2026, sessão automática seguinte — CRM
+reconfirmado sem mudança (56 oportunidades, mesma composição da leitura do
+G-19; 56 campos de contato) e PR #93 ainda `open`/`draft`: as oito decisões
+acima seguem exatamente onde estavam.** A lacuna não veio de grep por nome
+nem de `git log` fora de `wesales/` (as duas veias que renderam G-17/G-19)
+— veio de resomar, pela primeira vez, os totais que o projeto declara
+contra a própria lista que cada um deveria resumir. Bateu para campos; não
+bateu para tags: `campos-e-tags.md` dizia "10 na conta fora da numeração" e
+"Total na conta hoje: 25", `APROVADO.md` dizia "são dez as tags fora desta
+lista" e `build-wesales.md` §2.32 dizia "a conta tem 25 tags" — as três
+frases enumeravam, na sequência seguinte, `teste-regua`, `fechar-horario`,
+`cadencia-12x30-p2`, `teste-12x30` e "as 8 do Espelho de Etapa" (1+1+1+1+8 =
+12, não 10; com as 15 do projeto, 27, não 25). Corrigidos os três; `campos-
+e-tags.md` ganhou a convenção "onde mora a contagem" que a seção de campos
+já tinha, e os outros dois pararam de repetir o número. Zero campo, zero
+tag, zero escrita no CRM: item de coerência entre documentos, não depende
+de `APROVADO.md`. Detalhe completo no próprio G-20, acima. **Regra prática,
+generalizável, que estende o "quem mais fala disso?" do G-10/G-14/G-16/G-17
+de nomes para números:** uma varredura de coerência que só procura texto
+divergente (nome de etapa, merge field órfão) não acha soma errada — um
+total pode ter sido editado na mesma rodada que acrescentou o dado novo, e
+ainda assim nunca ter sido resomado contra a própria enumeração ao lado.
+A partir de agora, toda rodada que mexer em contagem (campo, tag, etapa,
+tentativa) resoma a lista antes de aceitar o número escrito perto dela.
+
+Com isso, nenhum item numerado (G/R/F) muda de estado nesta rodada além do
+próprio G-20: G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1), G-16, G-17 e
+G-19 continuam sendo as oito decisões que esperam o dono — a próxima rodada
+sem tela nem decisão desbloqueada repete o mesmo caminho de sempre.

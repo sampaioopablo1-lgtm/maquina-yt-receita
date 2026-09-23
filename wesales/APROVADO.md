@@ -126,11 +126,13 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 > publicado). Regra 1 vale: ficam, não removo nada. Registro aqui só para a
 > contagem desta lista parar de divergir da conta — as tags numeradas T-16 a T-21
 > abaixo continuam sendo as que **eu** não crio sem o seu `[x]`. A `fechar-horario`
-> **Atualização de 23/09 02:10:** com o commit `61eb167` são **dez** as tags fora
+> **Atualização de 23/09 02:10:** com o commit `61eb167` são mais tags fora
 > desta lista, todas por ação do dono: as duas acima, `cadencia-12x30-p2`,
 > `teste-12x30` e as **8 do Espelho de Etapa** (`etapa-*` e `status-*`). Todas
 > ficam, regra 1. As tags numeradas T-16 a T-21 abaixo continuam sendo as que
-> **eu** não crio sem o seu `[x]`. Nenhuma das dez tem problema ativo — cheguei a
+> **eu** não crio sem o seu `[x]`. Contagem exata em `campos-e-tags.md`, Etapa 3
+> (corrigida em 23/09/2026, G-20 — esta nota dizia "dez", a soma certa é doze).
+> Nenhuma delas tem problema ativo — cheguei a
 > registrar que o workflow das 8 do espelho estava em rascunho, e era leitura de
 > dump exportado 4 segundos antes da publicação; achado retirado na seção 2.32 do
 > `build-wesales.md`.

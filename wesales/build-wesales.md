@@ -5118,8 +5118,9 @@ responde (gatilho não entra nesta exportação — seção 6 do `ESTADO-E-PLANO
 próprio commit — não são criação minha e não estou desfazendo nada. Ficam
 registradas em `campos-e-tags.md` e sinalizadas no `APROVADO.md`, na mesma
 convenção do `teste-regua` e do `fechar-horario`, só para a contagem do gate parar
-de divergir da conta. Com elas, a conta tem 25 tags: 15 do projeto, `teste-regua`,
-`fechar-horario`, `cadencia-12x30-p2`, `teste-12x30` e as 8 do espelho.
+de divergir da conta. Com elas, a conta tem mais tags que as 21 do projeto —
+contagem exata (e a correção de 23/09/2026, G-20, que achou esta mesma soma
+errada aqui) em `campos-e-tags.md`, Etapa 3.
 
 ### 2.32.1 A regra que já custou três achados na mesma noite
 
