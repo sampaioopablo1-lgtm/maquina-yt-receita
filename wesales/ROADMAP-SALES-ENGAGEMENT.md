@@ -22,15 +22,19 @@
 > decidiu usar esse transporte de propósito, não por engano. `PLANO-
 > MULTICANAL.md` também renomeia a etapa `AGENDAR` para `REUNIÃO DE
 > DIAGNÓSTICO` (mesmo `id`, confirmado por API em 23/09) e reformula boa
-> parte da Cadência 12x30/Pós-ligação/Pós-agendamento (D2–D9). Nenhuma
-> dessas mudanças foi propagada para este roadmap nem para `build-wesales.md`
-> ainda — os itens G/R/F já registrados abaixo continuam
+> parte da Cadência 12x30/Pós-ligação/Pós-agendamento (D2–D9). A maior parte
+> dessas mudanças segue sem propagar para este roadmap nem para
+> `build-wesales.md` — os itens G/R/F já registrados abaixo continuam
 > descrevendo o desenho "100% telefone" pré-`PLANO-MULTICANAL`, e a execução
 > real (`PLANO-MULTICANAL.md`, checklist E1-E14) está rodando por fora,
 > pela API interna (`wesales/tools/`), não pelo `GHL CRM` (MCP) que esta
 > rotina usa. Antes de fechar qualquer G/R/F novo que toque canal ou etapa,
 > checar `PLANO-MULTICANAL.md` primeiro — é a decisão mais recente do dono,
-> não este aviso.
+> não este aviso. **Exceção, aberta em 23/09/2026 (G-12, abaixo):** a
+> migração de texto do nome da etapa (`AGENDAR` → `REUNIÃO DE DIAGNÓSTICO`)
+> tem seu primeiro pedaço fechado — a seção 1 de `build-wesales.md` já usa o
+> nome novo. O resto do documento e este roadmap seguem chamando a etapa de
+> `AGENDAR` até a migração completar.
 
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
@@ -1082,6 +1086,58 @@ trocaria uma exclusão permanente por outra. Para (2) e (3) não há decisão, s
 execução — um nó e um comando. Nada disso é aplicável por este MCP (edição de
 workflow e de lista inteligente não têm ferramenta aqui); é tela ou
 `wesales/tools/`.
+
+### G-12 · Segunda renomeação de etapa (`AGENDAR` → `REUNIÃO DE DIAGNÓSTICO`) documentada como aviso, nunca virou item — mesma classe do G-02, achado mas represado em rodapé — **peça 1 (seção 1 de `build-wesales.md`) FEITA em 23/09/2026**
+**Por quê:** o G-10 já tinha cruzado a existência de `PLANO-MULTICANAL.md`
+com este roadmap, e a nota do topo deste arquivo (e uma nota dentro da
+seção 1 de `build-wesales.md`, linhas 202-218 antes desta rodada) já
+registravam que a etapa `AGENDAR` foi renomeada para `REUNIÃO DE
+DIAGNÓSTICO` na tela — mas nenhum dos dois tinha virado item de trabalho
+com "pronto quando" próprio, o mesmo padrão de "achado escrito não é
+aplicado sozinho" que já motivou promover F-12 e F-13. Reconferido nesta
+rodada: `opportunities_get-pipelines` confirma o nome na tela e o `id`
+inalterado (`3d26fcd1-220d-49ed-8325-705dfe9055b1`); `grep -c` em
+`build-wesales.md` a partir da linha 270 (fora da seção 1, que esta
+rodada já fechou) contava **39 ocorrências** de `AGENDAR` como nome de
+etapa antes desta rodada, nenhuma delas causando bug funcional — todo
+workflow publicado decide por `pipelineStageId`, não por nome, então isto
+é dívida de documentação, não de comportamento (diferente do G-02, que
+tinha risco real de gatilho nunca disparando). **Achado à parte, que já
+saiu do estado "represado" nesta mesma rodada:** o aviso em
+`build-wesales.md` dizia que `wesales/tools/ghl_api.py` (`STAGES`) ainda
+não tinha o nome novo — checado o arquivo, e já tem: as chaves `"AGENDAR"`
+e `"REUNIÃO DE DIAGNÓSTICO"` apontam para o mesmo `id`, com comentário
+explicando o apelido, feito por fora desta sessão (provavelmente no mesmo
+commit `1d04af2`/`2d6a778` do PC do dono que abriu o G-11). O lado código
+deste item já está fechado; só restava o lado texto.
+**Como:** find-and-replace supervisionado, seção por seção — mesmo método
+do G-02 — trocando `AGENDAR` por `REUNIÃO DE DIAGNÓSTICO` em toda prosa e
+tabela que descreve a **etapa**, preservando **sem tocar** todo nome
+**próprio** já publicado na tela que contém a palavra "AGENDAR" dentro do
+nome (o workflow `AGENDAR Estagnado`, a lista `Saúde — AGENDAR
+Estagnado`) — trocar o texto desses sem renomear o objeto na tela criaria
+uma divergência nova, pior que a atual. Onde a etapa é citada pela
+primeira vez numa seção, anotar "(antiga `AGENDAR`)" uma vez; nas
+citações seguintes da mesma seção, só o nome novo.
+**Pronto quando:** `grep -n "AGENDAR" wesales/build-wesales.md
+wesales/ROADMAP-SALES-ENGAGEMENT.md` só retornar (a) a tabela de tradução
+1.0 e as notas históricas que já existem de propósito, e (b) os nomes
+próprios publicados na tela (`AGENDAR Estagnado`, `Saúde — AGENDAR
+Estagnado`) — nenhuma outra ocorrência tratando `AGENDAR` como etapa
+corrente.
+
+**Resumo (23/09/2026) — peça 1:** migrada a seção 1 inteira de
+`build-wesales.md` (tabela de etapas, tabela de tradução 1.0, tabela de
+frameworks de mercado 1.1, canvas operacional das Etapas 1-3) — 8 pontos
+de edição, incluindo a correção da nota que dizia `ghl_api.py` ainda
+pendente. **Escopo desta rodada, pendência explícita e não lacuna
+esquecida:** as seções 2 em diante de `build-wesales.md` (39 ocorrências
+medidas antes desta rodada, a maioria dentro da família F-05 peça 5/seção
+2.23, do Pós-ligação/Pós-agendamento, e do checklist de teste, seção 10)
+e as ocorrências em `ROADMAP-SALES-ENGAGEMENT.md` seguem chamando a etapa
+de `AGENDAR` — próxima peça deste mesmo item, mesmo padrão de "uma seção
+por rodada" que fechou o G-02 em seis rodadas. Zero campo, zero tag, zero
+escrita no CRM: item de documentação pura, não depende de `APROVADO.md`.
 
 ---
 
@@ -3847,3 +3903,36 @@ no CRM: item de coerência entre documentos, não depende de `APROVADO.md`.
 Com isso, G-11 (item 1) entra na mesma fila de decisão do dono que G-03,
 G-04 (peça 2), F-09 e F-10; os itens 2 e 3 entram na mesma fila de execução
 manual (tela/`wesales/tools/`) que F-11, F-12, F-13, F-15, G-07 e G-08.
+
+**G-12 aberto e peça 1 fechada em 23/09/2026, sessão automática seguinte —
+lacuna não é nova, é o mesmo padrão do G-11 (achado que já estava escrito em
+nota, nunca virou item com "pronto quando" próprio).** CRM reconfirmado por
+API nesta rodada: 56 oportunidades (49 `NOVO LEAD` open + 1 `CONECTAR` open +
+2 `CONECTAR` lost de teste + 3 `NEGOCIAR` [2 open + 1 lost]), 56 campos de
+contato, pipeline com a mesma etapa `3d26fcd1-...` agora chamada `REUNIÃO DE
+DIAGNÓSTICO` na tela (`dateUpdated` 2026-09-23T00:59Z, sem mudança desde a
+leitura do G-11) — G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) seguem
+aguardando o dono, sem novidade. Nenhum G/R/F estava desbloqueado; seguindo a
+própria instrução desta seção (reler o "por quê estamos esperando" antes de
+procurar lacuna nova), a releitura caiu sobre a nota de 23/09/2026 dentro da
+seção 1 de `build-wesales.md` (a mesma que registrou a segunda renomeação de
+etapa) — ela descrevia um trabalho de migração de texto e nunca tinha virado
+item com dono e "pronto quando" claros, o mesmo buraco que já tinha sido
+achado duas vezes antes neste roadmap (F-12, sobre `Motivo da
+desqualificação`; F-13, sobre a Etapa 3 sem monitor). Fechada a peça 1: seção
+1 inteira de `build-wesales.md` migrada para `REUNIÃO DE DIAGNÓSTICO`, e a
+nota corrigida quanto a `wesales/tools/ghl_api.py` (já tinha as duas chaves,
+por fora desta sessão — o aviso dizendo "ainda não foi feita" estava
+desatualizado só nessa parte). Zero campo, zero tag, zero escrita no CRM:
+item de documentação pura, não depende de `APROVADO.md`. Detalhe completo no
+próprio G-12, acima.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) esperam decisão do
+dono; R-14 tem desenho completo e espera a operação mandar a primeira
+mensagem real; F-11, F-12, F-13, F-15, G-07, G-08 e G-11 (itens 2 e 3) têm
+desenho completo e só faltam ser montados/aplicados na tela; F-14 é
+checklist de gestor, pronto para uso assim que o número começar a discar de
+verdade; G-12 tem a peça 1 fechada e a peça 2 (seções 2 em diante de
+`build-wesales.md` e `ROADMAP-SALES-ENGAGEMENT.md`) pronta para a próxima
+rodada sem CRM desbloqueado.

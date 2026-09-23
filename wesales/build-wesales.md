@@ -168,7 +168,7 @@ feito.
 |---|---|---|---|
 | 0 | `NOVO LEAD` | 30% | `#2563EB` |
 | 1 | `CONECTAR` | 40% | `#8B5CF6` |
-| 2 | `AGENDAR` | 50% | `#2DD4BF` |
+| 2 | `REUNIÃO DE DIAGNÓSTICO` (renomeada de `AGENDAR` em 23/09/2026, mesmo `id`) | 50% | `#2DD4BF` |
 | 3 | `NEGOCIAR` | 60% | `#D97706` |
 | 4 | `FORMALIZAR` | 70% | `#059669` |
 
@@ -192,7 +192,7 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 |---|---|---|
 | `Novo lead` | `NOVO LEAD` | Mesma etapa, só o nome mudou |
 | `Em cadência` | `CONECTAR` | Mesma etapa — é aqui que o portão de toda tentativa (nó 3, seção 2.4) passa a checar |
-| `Conectado` | `AGENDAR` | Mesma etapa |
+| `Conectado` | `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id` — ver nota abaixo) | Mesma etapa |
 | `Retorno agendado` | **continua em `CONECTAR`** | Deixou de ser etapa própria — "pediu retorno" não move a oportunidade, só grava `Resultado da tentativa = Pediu retorno`. Todo gatilho `Opportunity Stage Changed → Retorno agendado` vira **sem gatilho de etapa nenhum**: o lead nunca sai de `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo campo |
 | `Reunião agendada` | `NEGOCIAR` | Absorve também a negociação do closer (proposta, condições), que no plano de 7 ficava fora do pipeline — agora está dentro, porque o dono optou por 1 pipeline só |
 | `Nutrição` | **status da oportunidade = `abandoned`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Nutrição` vira **`Contact Tag Added → nutricao-90d`** (gatilho nativo já usado em outro lugar do projeto) — a tag continua sendo o sinal de quem está nutrição, o status só formaliza isso no campo nativo do GHL |
@@ -204,18 +204,26 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 > `wesales/PLANO-MULTICANAL.md` (D1/E2), renomear a etapa `AGENDAR` para
 > `REUNIÃO DE DIAGNÓSTICO` — **mesmo `id`**
 > (`3d26fcd1-220d-49ed-8325-705dfe9055b1`), confirmado por
-> `opportunities_get-pipelines` nesta rodada (`dateUpdated`
-> 2026-09-23T00:59Z). Todo workflow publicado que decide por `pipelineStageId`
-> (não por nome) continua funcionando sem tocar em nada — é o caso de todos
-> os já montados. O que fica desatualizado é só texto: toda vez que este
-> documento (daqui em diante) e o `ROADMAP-SALES-ENGAGEMENT.md` dizem
-> `AGENDAR`, é o nome antigo da mesma etapa. Migração completa (trocar o
-> texto em toda seção 2 em diante, mais `wesales/tools/ghl_api.py` `STAGES`)
-> ainda não foi feita — mesmo estado de "em andamento" que a tabela acima já
-> assume para o plano de 7, agora com uma segunda camada por cima. Não
-> reescrevi esta tabela nem fiz o grep de migração nesta rodada: registro
-> aqui para a próxima sessão não tratar `AGENDAR` como etapa corrente e não
-> recriar uma etapa nova por engano.
+> `opportunities_get-pipelines` de novo em 23/09/2026, sessão seguinte
+> (`dateUpdated` ainda 2026-09-23T00:59Z, sem mudança). Todo workflow
+> publicado que decide por `pipelineStageId` (não por nome) continua
+> funcionando sem tocar em nada — é o caso de todos os já montados. O que
+> fica desatualizado é só texto. **Atualização desta rodada:** o código já
+> não está mais desatualizado — `wesales/tools/ghl_api.py` (`STAGES`) já
+> tem as duas chaves, `"AGENDAR"` e `"REUNIÃO DE DIAGNÓSTICO"`, apontando
+> para o mesmo `id`, com comentário explicando o apelido — feito por fora
+> desta sessão, entre a rodada que escreveu este parágrafo e esta. Migração
+> de **texto puro** segue incompleta: promovida a item próprio,
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-12. A tabela desta seção (1) e a linha
+> `Conectado` da tabela acima já foram migradas nesta rodada, primeiro
+> pedaço do G-12; o resto — seções 2 em diante deste documento e
+> `ROADMAP-SALES-ENGAGEMENT.md` — segue chamando a etapa de `AGENDAR`, e
+> continua correto ler como "nome antigo da mesma etapa" até cada seção ser
+> migrada. Nomes próprios publicados na tela com "AGENDAR" no texto (o
+> workflow `AGENDAR Estagnado`, a lista `Saúde — AGENDAR Estagnado`) **não**
+> entram nesta migração — são o nome real do objeto, trocar o texto aqui
+> sem renomear o objeto na tela criaria uma divergência nova, pior que a
+> atual. Detalhe da régua (o que migra, o que fica) em G-12.
 
 **Por que isso é simplificação, não perda:** `CONECTAR` continua etapa
 própria porque é o único estado que um portão de workflow *precisa*
@@ -246,7 +254,7 @@ agora **vivem dentro** deste mesmo pipeline, nas etapas `NEGOCIAR` e
 | Framework de mercado | Nossa etapa/estado correspondente | Por que a granularidade difere |
 |---|---|---|
 | Topo do funil — Prospecção / Não contatado | `NOVO LEAD` | Igual — é o mesmo conceito |
-| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `AGENDAR` | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
+| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `REUNIÃO DE DIAGNÓSTICO` (`AGENDAR` até 22/09/2026) | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
 | Fundo do funil — Apresentação/Demonstração | `NEGOCIAR` (metade "comparecimento e veredito") | É o ponto de handoff: o SDR agenda, o **closer** apresenta |
 | Fundo do funil — Proposta, Negociação, Ganho/Perdido | `NEGOCIAR` (metade "negociação") → `FORMALIZAR` (`status = won`) ou saída com `status = lost` | Agora dentro deste pipeline (ver "Mudança relevante" acima) — administrado pelo closer, mas sem pipeline separado para administrar |
 | — (nenhum framework genérico tem isto) | Status `abandoned` (tag `nutricao-90d`), etapa como estava | É onde o Sales Model Canvas simplifica demais: o binário "Ganho ou Perdido" não tem espaço para "sem fit **agora**, mas com fit daqui a 90 dias". A reativação automática (R-08) trata isso como terceiro estado — nenhuma das fontes citadas pelo dono documenta isso como etapa própria, só como "relatório de nutrição vencida" manual |
@@ -292,23 +300,23 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Bloco | Conteúdo |
 |---|---|
 | Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
-| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `AGENDAR`) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
+| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `REUNIÃO DE DIAGNÓSTICO`, `AGENDAR` até 22/09/2026) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
 | Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
 | Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data de retorno`/`Hora do retorno` — **os dois já existem na tela desde 21/09/2026**, `CONFERENCIA-CAMPOS.md` Tabela K) continua valendo aqui dentro, não em etapa separada |
 | Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
 | Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
 
-#### Etapa 2 — `AGENDAR`
+#### Etapa 2 — `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id`)
 
 | Bloco | Conteúdo |
 |---|---|
 | Objetivo | Qualificar e agendar com o closer na mesma ligação (briefing-sdr.md, "A máquina") |
 | Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
 | Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 5 — seção 2.23) monitora 24h sem sair de `AGENDAR` depois de atender. Esta linha dizia "sem monitor ainda" até 22/09/2026 — ficou parada desde antes de a peça 5 fechar; a mesma ressalva que a linha de `CONECTAR` já dá logo acima |
-| Motivos de perda | ~~**Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa~~ — **L-08 fechada em 21/09/2026 (R-18):** o ramo `Desqualificado` do Pós-ligação (seção 4) sai por `status` antes de chegar em `AGENDAR`, então a maioria dos "sem fit na ligação" nem entra mais nesta etapa. O que resta em `AGENDAR` sem agendar é só "atendeu, era fit, não fechou horário" — o gap de medição da linha abaixo |
-| Taxa de conversão esperada | Com o L-08 fechado, a métrica de `AGENDAR` já mede só "não conseguiu horário" — o motivo "sem fit" saiu antes, pelo ramo `Desqualificado` |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 5 — seção 2.23) monitora 24h sem sair de `REUNIÃO DE DIAGNÓSTICO` depois de atender. Esta linha dizia "sem monitor ainda" até 22/09/2026 — ficou parada desde antes de a peça 5 fechar; a mesma ressalva que a linha de `CONECTAR` já dá logo acima |
+| Motivos de perda | ~~**Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa~~ — **L-08 fechada em 21/09/2026 (R-18):** o ramo `Desqualificado` do Pós-ligação (seção 4) sai por `status` antes de chegar em `REUNIÃO DE DIAGNÓSTICO`, então a maioria dos "sem fit na ligação" nem entra mais nesta etapa. O que resta em `REUNIÃO DE DIAGNÓSTICO` sem agendar é só "atendeu, era fit, não fechou horário" — o gap de medição da linha abaixo |
+| Taxa de conversão esperada | Com o L-08 fechado, a métrica de `REUNIÃO DE DIAGNÓSTICO` já mede só "não conseguiu horário" — o motivo "sem fit" saiu antes, pelo ramo `Desqualificado` |
 | Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
 
 #### Etapa 3 — `NEGOCIAR` (absorve `Reunião agendada` + a negociação do closer)
@@ -321,7 +329,7 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) ficou sem monitor até 22/09/2026: F-05 fechou com seis peças sem incorporar este gap, apesar de citado aqui como candidato desde a etapa ser escrita. Fechado como item próprio, F-13 (roadmap), seção 2.28 abaixo |
 | Motivos de perda | No-show 2x seguido (R-12: `status = lost` mantendo a oportunidade em `NEGOCIAR`, não um "mover para `Descartado`" — migrado nas seções 5.3 e 5.4 em 19/09/2026; este parágrafo dizia "ainda usa a redação antiga e entra na fila" até 21/09, quando a fila já não existia), `Reunião foi qualificada` = `Não` (→ roteamento da seção 5.1, mesma troca de "mover etapa" por "mudar status") |
 | Taxa de conversão esperada | "nota ≥ 70 acerta X%" é exatamente o que a lista `Calibração da Régua` (8.7, F-03) mede |
-| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `AGENDAR` |
+| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `REUNIÃO DE DIAGNÓSTICO` |
 
 #### Etapa 4 — `FORMALIZAR` (novo, não existia no plano de 7)
 
