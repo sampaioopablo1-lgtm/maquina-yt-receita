@@ -4369,11 +4369,15 @@ gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 > semana em vez de 1/5, e com o lote conservador de 6/dia bate 120 ligações
 > contra a meta de 100/dia.
 >
-> No mesmo commit veio o `Monitor de Capacidade` (publicado). Conferi o que ele
-> é: **1 nó, `internal_notification`** — avisa o gestor de que a capacidade é 100
-> toques/dia e de que há tarefas vencidas. É aviso, não teto: não represa tarefa,
-> não adia toque, não redistribui. Serve para o gestor ver a segunda-feira
-> chegando, não para impedi-la.
+> No mesmo commit veio o `Monitor de Capacidade` (publicado), e ele é **1 nó,
+> `internal_notification`** — avisa o gestor. ⚠️ **Eu usei isso para dizer que a
+> regra de capacidade não é aplicada, e estava errado** (correção na §2.33.6): o
+> Monitor nunca foi o ponto de aplicação. Quem aplica é a `faxina_tarefas.py`
+> (linhas 197-213), que liga a tag `sdr-lotado` por SDR, e a `Cadência 12x30`
+> parte 1 e parte 2, que têm **6 nós cada** condicionando nessa tag — o laço de
+> espera de 1 h. A capacidade **é** represada na 12x30. O que **não** tem portão é
+> a `Cadência Inbound` (0 nós), que é por onde os leads entram hoje — e esse é o
+> achado de verdade, na §2.33.6.
 >
 > Então a aritmética abaixo continua valendo inteira, e a pergunta que sobra não
 > é mais "dias úteis ou corridos" — é **se o lote de entrada vai ser calibrado
@@ -5274,6 +5278,84 @@ patch não vai saber traduzir a etapa dele.
 `Cadência 12x30` parte 1", que é a única exceção que o próprio docstring
 justifica. Não faço porque o script escreve na conta e roda no PC — é edição do
 dono.
+
+### 2.33.6 A `Cadência Inbound` não tem o portão de capacidade — e eu havia lido o `Monitor de Capacidade` errado
+
+Fui conferir se os guias (`GUIA-SDR.md`, escritos às 01:19) envelheceram com o
+que entrou no ar depois. Envelheceram menos do que eu esperava, e o que apareceu
+foi outra coisa.
+
+**Primeiro, a correção de uma leitura minha.** Eu escrevi, na §2.29 e em várias
+rodadas de check-in, que o `Monitor de Capacidade` "avisa, **não represa**" — e
+usei isso para dizer que a regra de capacidade da D14 não é aplicada. O fato é
+verdadeiro (o Monitor é 1 nó de `internal_notification`) e **a implicação era
+falsa**: o Monitor nunca foi o ponto de aplicação. A regra é aplicada em dois
+lugares que eu não tinha olhado:
+
+| Peça | Papel |
+|---|---|
+| `faxina_tarefas.py` (linhas 197-213) | conta, **por SDR**, vencidas abertas e toques de hoje; liga e desliga a tag `sdr-lotado` nos leads em `CONECTAR` daquele SDR |
+| `Cadência 12x30` parte 1 e parte 2 | **6 nós cada** condicionando em `sdr-lotado` — é o laço de espera de 1 h que represa o toque |
+
+Ou seja: a capacidade **é** represada, e o guia está certo quando promete isso ao
+SDR. Eu tinha um fato certo e tirei dele uma conclusão errada, por não ter
+procurado o mecanismo fora do workflow que tem "Capacidade" no nome.
+
+**Segundo, o achado que isso destravou:**
+
+| Cadência | Nós condicionando em `sdr-lotado` |
+|---|---|
+| `Cadência 12x30` | **6** |
+| `Cadência 12x30 — parte 2` | **6** |
+| **`Cadência Inbound`** (272 nós, publicada) | **0** |
+
+**A `Cadência Inbound` não tem portão de capacidade nenhum.** E ela é justamente
+a cadência que carrega os leads agora: o "só inbound" do `bff2514` marcou **49
+leads** com `cad-inbound`, e o nó 0 da Inbound é o portão que os admite. Então a
+D14 — "com 50 ou mais tarefas vencidas, nenhuma tarefa nova de cadência é criada
+para ele" — vale para a 12x30 e **não vale para o caminho por onde os leads
+entram hoje**.
+
+Pior detalhe: a Faxina **põe** a tag nos leads em `CONECTAR` do SDR lotado,
+inclusive nos inbound. A tag é aplicada e a Inbound **não a lê**. O freio existe,
+está engatado, e a roda que gira não está ligada nele.
+
+**Consequência prática, e é a que o guia promete ao SDR:** o `GUIA-SDR.md` diz,
+sem ressalva, "se você passar de 100 toques no dia ou tiver 50 ou mais tarefas
+vencidas, o sistema segura os toques novos". Para um lead que entrou pela Inbound,
+não segura. Com a régua concentrando a segunda-feira em +82% (§2.29), é
+exatamente aí que o teto deveria valer.
+
+**Correção sugerida:** portar os 6 nós de portão da 12x30 para a `Cadência
+Inbound` — mesmo padrão, mesma tag, mesmo laço de 1 h. É edição de workflow
+(tela ou `wesales/tools/`), não sai por este MCP. Enquanto não for, o guia
+precisaria dizer "vale para a cadência outbound" — mas a correção certa é o
+portão, não a ressalva.
+
+### 2.33.7 `Canal que conectou` é campo de preenchimento manual — minha §2.34 leu a D10 errado
+
+Na §2.34 eu escrevi que `Canal que conectou` "existe e ninguém escreve nele", e
+que por isso "a pergunta que o multicanal existe para responder nunca vai ter
+resposta". A primeira metade é verdadeira para **workflow**; a segunda é falsa, e
+o `GUIA-SDR.md` mostra por quê:
+
+> **Canal que conectou** (quando atendeu): Ligação WhatsApp, Ligação normal ou
+> Mensagem. É assim que a gente descobre qual canal funciona melhor.
+
+Ele está na mesma família de `Resultado da tentativa`: **o SDR preenche na tela**.
+A D10 diz "marcado junto com o resultado" — e quem marca o resultado é o humano,
+não o workflow. Logo "junto com o resultado" significa *o SDR marca os dois*, que
+é o que o guia instrui. Minha leitura de que a D10 pedia escrita automática foi
+invenção minha.
+
+**O que isso muda na pendência 9c:** deixa de ser lacuna e volta a ser **decisão**
+— manual (como está documentado e instruído) ou automático (um
+`update_contact_field` por ramo no `Pós-ligação v2`, que tiraria uma marcação da
+mão do SDR e garantiria o dado). Há argumento para os dois: manual capta o que só
+o humano sabe (ele ligou pelo WhatsApp e a pessoa respondeu por texto); automático
+não depende de disciplina. Recomendo **automático onde o ramo já sabe** (o nó que
+trata "atendeu no WhatsApp" pode gravar `Ligação WhatsApp` sozinho) e manual só
+onde o ramo não sabe. Mas é escolha do dono, e o estado atual não é defeito.
 
 ### 2.33.1 A `auditoria_final.py` do dono diz "0 problemas" e isso não cobre estes achados
 

@@ -160,6 +160,44 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## Fato certo, implicação errada: procurei o mecanismo no workflow que tem o nome dele — 23/09/2026, sessão na nuvem
+
+Eu li o `Monitor de Capacidade`, vi que é **1 nó de `internal_notification`**, e
+concluí — na §2.29 e em várias rodadas de check-in — que "avisa, não represa", ou
+seja, que a regra de capacidade da D14 não é aplicada. O fato estava certo. A
+implicação estava errada, e o motivo é bobo: **procurei o mecanismo no workflow que
+tem "Capacidade" no nome.** Ele está em dois lugares que eu não abri:
+
+- `faxina_tarefas.py` (197-213): conta, por SDR, vencidas e toques de hoje, e liga
+  a tag `sdr-lotado` nos leads em `CONECTAR` daquele SDR;
+- `Cadência 12x30` parte 1 e parte 2: **6 nós cada** condicionando em `sdr-lotado` —
+  o laço de espera de 1 h que efetivamente represa.
+
+**A regra:** quando um documento descreve um mecanismo e um workflow tem o nome
+dele, não presumir que o nome é o lugar. Mecanismo de controle quase sempre mora em
+**dois** pontos — quem mede e quem obedece — e o que tem o nome bonito costuma ser
+quem mede. Procurar a tag, não o título.
+
+**E foi essa correção que destravou o achado real:** comparando os três lugares,
+`Cadência 12x30` tem 6 nós de portão, a parte 2 tem 6, e a **`Cadência Inbound` tem
+0**. A Faxina põe `sdr-lotado` inclusive nos leads inbound, e a Inbound não lê a
+tag — **o freio está engatado e a roda que gira não está ligada nele**. E é a
+Inbound que carrega os 49 leads do "só inbound". O `GUIA-SDR.md` promete o teto ao
+SDR sem ressalva.
+
+Segunda correção da mesma rodada, mesma família: eu havia escrito que
+`Canal que conectou` "existe e ninguém escreve nele, logo a pergunta nunca terá
+resposta". Ninguém escreve **por workflow** — e o `GUIA-SDR.md` instrui o SDR a
+preencher na tela, junto com `Resultado da tentativa`. A D10 diz "marcado junto com
+o resultado", e quem marca o resultado é o humano. **Eu li "junto com o resultado"
+como "o workflow grava junto" porque era a leitura que confirmava meu achado.**
+Deixou de ser lacuna e voltou a ser decisão.
+
+O padrão das duas: **eu concluí a partir da ausência de automação, sem procurar a
+presença de instrução humana.** Neste projeto metade do mecanismo é gente — o SDR
+marca resultado, move etapa, preenche canal. Auditoria que só lê workflow vê metade
+da máquina e acha que a outra metade não existe.
+
 ## Cobertura por lista fixa parece varredura e não é — `ALVOS` no `patch_condicoes_etapa.py` — 23/09/2026, sessão na nuvem
 
 Auditei os quatro monitores do F-05 de propósito: são os dumps mais velhos que eu
