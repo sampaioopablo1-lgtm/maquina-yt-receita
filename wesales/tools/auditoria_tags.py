@@ -76,6 +76,38 @@ def ids_alvo(atributos):
     return []
 
 
+def frescor():
+    """Para cada dump vivo, diz se existe backup `_antes-*` MAIS NOVO que ele.
+
+    Se existe, o dump esta velho: alguem aplicou patch na conta e exportou o
+    backup sem re-exportar o arquivo principal. Achado tirado de dump velho e
+    achado de mentira — foi o que aconteceu em 23/09/2026, quando esta auditoria
+    reportou 5 tags sem segunda rede e 3 delas ja estavam resolvidas na conta
+    (a `Triagem da Nutricao` tinha sido publicada as 03:24 e o dump dela ainda
+    dizia `draft`).
+    """
+    atraso = {}
+    for caminho in sorted(glob.glob(os.path.join(DUMPS, "*.json"))):
+        nome = os.path.basename(caminho)
+        try:
+            with open(caminho, encoding="utf-8") as fh:
+                meu = (json.load(fh).get("workflow") or {}).get("updatedAt") or ""
+        except (ValueError, OSError):
+            continue
+        mais_novo = ""
+        for backup in glob.glob(os.path.join(DUMPS, "_antes-*", nome)):
+            try:
+                with open(backup, encoding="utf-8") as fh:
+                    u = (json.load(fh).get("workflow") or {}).get("updatedAt") or ""
+            except (ValueError, OSError):
+                continue
+            if u > mais_novo:
+                mais_novo = u
+        if mais_novo and mais_novo > meu:
+            atraso[nome[:-5]] = (meu, mais_novo)
+    return atraso
+
+
 def carrega():
     """Um registro por dump vivo: nome, status, id e os nos."""
     vivos = {}
@@ -146,6 +178,18 @@ def main():
 
     print("%d workflows com dump (%d publicados)\n" % (
         len(vivos), sum(1 for w in vivos.values() if w["status"] == "published")))
+
+    atraso = frescor()
+    if atraso:
+        print("=" * 72)
+        print("AVISO DE FRESCOR — %d dump(s) com backup `_antes-*` MAIS NOVO que eles." % len(atraso))
+        print("O arquivo principal nao foi re-exportado depois de um patch na conta.")
+        print("QUALQUER achado abaixo que envolva estes workflows pode ja estar resolvido:")
+        for nome, (meu, novo) in sorted(atraso.items()):
+            print("   %-34s dump %s  <  backup %s" % (nome, meu[:19], novo[:19]))
+        print("Conferir ao vivo antes de reportar. Em 23/09/2026 esta auditoria")
+        print("reportou 5 tags sem segunda rede e 3 ja estavam resolvidas por isto.")
+        print("=" * 72 + "\n")
 
     # ---- PERGUNTA 1 ----
     print("PERGUNTA 1 — limpeza de tag pulada por `remove_from_workflow`")
@@ -236,4 +280,13 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except BrokenPipeError:
+        # `... | head` fecha o pipe. Sem esta guarda o script morre com traceback
+        # e exit=1, que parece falha de auditoria — a confusao que ele evita.
+        try:
+            sys.stdout.close()
+        except Exception:
+            pass
+        sys.exit(0)

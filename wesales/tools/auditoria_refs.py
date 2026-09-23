@@ -107,4 +107,13 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except BrokenPipeError:
+        # `... | head` fecha o pipe. Sem esta guarda o script morre com traceback
+        # e exit=1, que parece falha de auditoria — a confusao que ele evita.
+        try:
+            sys.stdout.close()
+        except Exception:
+            pass
+        sys.exit(0)
