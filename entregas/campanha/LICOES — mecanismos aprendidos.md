@@ -1642,3 +1642,33 @@ formulário. Aceitar em https://www.facebook.com/legal/leadgen/tos
 creative_id existente (dá o motivo real) → `ads_get_ad_account_pages` (confere o ToS de
 lead) → `ads_get_errors` no nível da conta (fatura). Nessa ordem, em três chamadas, sai o
 diagnóstico inteiro.
+
+
+## O status que explica tudo: UNSETTLED — e ele não está só nesta conta (23/09 03h15)
+
+Depois de rodar a receita das três chamadas, faltava o campo decisivo, e ele não está em
+nenhum endpoint de erro: está em `ads_get_ad_accounts`, **na terceira página da paginação**.
+
+```
+"ad_account_name": "O Próximo Cliente",
+"account_status": "UNSETTLED",
+"has_payment_method": true,
+"is_queryable": false
+```
+
+**UNSETTLED** é o termo da Meta para conta com valor não liquidado, e é o que produz o
+`Ad account not writable: ineligible to manage ads`. Não há contorno por API, por outro
+conector ou por outro token — pesquisa em documentação e fóruns só devolve "resolva o
+status da conta". Escrita volta quando liquidar, não antes.
+
+**O achado que importa mais que o erro:** varrendo a lista inteira de contas, **sete estão
+em UNSETTLED ao mesmo tempo** — O Próximo Cliente, Nova Design T7, Eliane Oliveira, CA
+SuperGeeks SJC, Upper Sales, Pinheiro's Planejados e Moriart Planejados T7. São negócios
+diferentes, e **todas com `has_payment_method: true`**. Cartão cadastrado e cobrança não
+passando em sete contas ao mesmo tempo não é problema de uma conta: é do meio de pagamento
+compartilhado. Trocar o cartão em uma destrava uma.
+
+**Regra:** quando a escrita falhar, o `account_status` de `ads_get_ad_accounts` vale mais
+que qualquer mensagem de erro — e vale paginar até achar a conta, porque ela pode não estar
+na primeira página. Com `is_queryable: false` e `not_queryable_reason: "Unknown error"`, o
+motivo verdadeiro está no `account_status`, não no campo de motivo.
