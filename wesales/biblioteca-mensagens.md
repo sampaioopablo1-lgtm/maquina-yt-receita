@@ -402,6 +402,14 @@ de venda não inventa prova.
 > Sucesso!
 > {{user.first_name}}
 
+## Nutrição e Triagem (23/09/2026) — automáticas pela Stevo
+
+Textos em `tools/build_nutricao.py` (N1-v1 a N6-v1, 1 a cada 15 dias; TRI-1-v1,
+triagem da resposta) e em `tools/build_w12.py` (MI-0 na entrada da Inbound;
+MIF-v2 na passagem para a 12x30 — versão sem o link quebrado do MI-F). A 12x30
+usa MT1/MT4/MT8/MT11/MT12 (`tools/build_w11.py`); o Fechar Horário, MFH1/MFH2.
+Nenhum texto cita caso ou número de cliente.
+
 ## Template Meta para envio fora da janela de 24h — G-05
 
 Descoberto em 21/09/2026 (roadmap, G-05): o WhatsApp Business API só aceita

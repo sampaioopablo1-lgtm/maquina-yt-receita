@@ -42,3 +42,12 @@ pela lista de execução no fim.
 Notas: nó `sms` aceito pela API (formato {type:sms, body, attachments}) — gravado no rascunho ZZ TESTE API; prova de entrega pela Stevo pendente. Pausa do retorno = laço de 1 h enquanto Resultado = Pediu retorno (sem espera por data). Pós-agendamento não tirava o lead da Inbound nem do Reengajamento — incluído no patch.
 
 - [x] E15 `Espelho de Etapa` publicado + 26 condições de oportunidade trocadas por tag em 10 workflows + tags dos 55 leads (23/09). Ver APRENDIZADOS.
+
+## 23/09/2026 madrugada — rodada final
+
+- [x] **Só inbound (decisão do dono):** a Porta de Entrada não marcava `cad-inbound` em ninguém — a Cadência Inbound nunca rodava. Agora todo contato novo nasce com `cad-inbound` (testado com contato novo) e os 49 leads em NOVO LEAD foram marcados. Promovido para CONECTAR → Inbound (MI-0 + 5 toques) → passa para a 12x30.
+- [x] **Nutrição nova** (substitui o Reengajamento, mesmo id `37eb32e4`): 6 mensagens de WhatsApp, 1 a cada 15 dias, 100% automática; nunca manda para `telefone-invalido`. **Triagem da Nutrição** (`e7738b57`): o lead respondeu → espera 2 min (Opt-out primeiro) → mensagem TRI-1 (1 quero / 2 agora não / 3 sem interesse) → 1 volta para CONECTAR e para a 12x30 (tag `reengajado`, entra pela tag `cad-outbound`); 3 desliga (DND, nao-perturbe, perdido); 2 segue na nutrição; outra coisa → tarefa [SINAL] para o SDR. 12x30 parte 1 com reentrada ligada.
+- [x] Opção **Desqualificado** criada em `Resultado da tentativa` (pela tela).
+- [x] **Faxina:** integração privada "Faxina de Tarefas" (4 escopos) criada; token no segredo `GHL_TOKEN`; testada em modo relatório com dados reais (User-Agent obrigatório; id da tarefa = `_id`).
+- [ ] Agendador `.github/workflows/faxina-tarefas.yml` — precisa de permissão `workflow`: prompt para o Claude Code no navegador.
+- [ ] Teste real de mensagem automática e da triagem com o número de WhatsApp do dono.

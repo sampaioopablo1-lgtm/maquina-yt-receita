@@ -69,8 +69,10 @@ def familia(titulo):
 
 def validas(etapa, status, resultado):
     """Familias que podem ficar abertas neste estado do lead."""
+    if status == "abandoned":
+        return {"SINAL"}                               # nutricao: so a triagem manual da resposta
     if status != "open" or etapa is None:
-        return set()                                   # perdido, nutricao, ganho, sem oportunidade
+        return set()                                   # perdido, ganho, sem oportunidade
     if etapa == "CONECTAR":
         if resultado == "Pediu retorno":
             return {"RETORNO", "SINAL"}

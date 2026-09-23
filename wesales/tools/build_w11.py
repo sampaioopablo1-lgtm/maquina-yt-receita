@@ -370,7 +370,9 @@ if not SO_MONTAR:
 if SO_MONTAR:
     tpl = g.montar(passos)
 else:
-    g.preencher(c, WF, NOME, passos, [gatilho], allow_reentry=(PARTE == 2),
+    # reentrada ligada nas duas partes (23/09): o lead reengajado pela nutricao
+    # volta para CONECTAR e precisa entrar de novo na 12x30
+    g.preencher(c, WF, NOME, passos, [gatilho], allow_reentry=True,
                 stop_on_response=True,
                 janela=None if TAG_TESTE else   # copia de teste roda a qualquer hora
                 {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30,

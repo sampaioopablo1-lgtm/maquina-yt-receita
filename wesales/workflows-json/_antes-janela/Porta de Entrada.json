@@ -6,20 +6,21 @@
     "companyAge": 29,
     "name": "Porta de Entrada",
     "status": "published",
-    "version": 5,
+    "version": 4,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e08a1580-975b-4c0f-934e-582fc6a0dbaa/5",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe08a1580-975b-4c0f-934e-582fc6a0dbaa%2F5?alt=media&token=09bedb6a-5cd7-492a-bde8-56bfc9f4991c",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e08a1580-975b-4c0f-934e-582fc6a0dbaa/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe08a1580-975b-4c0f-934e-582fc6a0dbaa%2F4?alt=media&token=a56c8d9e-44dd-4aa7-b8dc-d3b1e420d21f",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "parentId": null,
+    "updatedBy": "JdvhvOTEBTvUyRi0BXU8",
     "createdAt": "2026-09-19T02:15:44.594Z",
-    "updatedAt": "2026-09-23T02:31:45.951Z",
+    "updatedAt": "2026-09-19T02:25:15.214Z",
     "deleted": false,
     "allowMultipleOpportunity": true,
     "creationSource": "builder",
@@ -30,12 +31,12 @@
     "window": null,
     "workflowNote": null,
     "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e08a1580-975b-4c0f-934e-582fc6a0dbaa/3",
-    "senderAddress": null,
     "id": "e08a1580-975b-4c0f-934e-582fc6a0dbaa",
     "workflowData": {
       "templates": [
         {
           "id": "20048b39-ac21-42a0-8f6b-5114c9232157",
+          "order": 0,
           "attributes": {
             "fields": [],
             "type": "create_opportunity",
@@ -47,22 +48,7 @@
             "monetary_value": "5000"
           },
           "name": "Criar ou atualizar oportunidade",
-          "type": "create_opportunity",
-          "order": 0,
-          "parentKey": null,
-          "next": "b7a96823-df0a-412a-84ed-86fde961b259"
-        },
-        {
-          "id": "b7a96823-df0a-412a-84ed-86fde961b259",
-          "name": "Add Tag",
-          "type": "add_contact_tag",
-          "attributes": {
-            "tags": [
-              "cad-inbound"
-            ]
-          },
-          "order": 1,
-          "parentKey": "20048b39-ac21-42a0-8f6b-5114c9232157"
+          "type": "create_opportunity"
         }
       ]
     },
