@@ -39,7 +39,13 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ghl_api as g
 
-NOME = os.environ.get("W11_NOME", "Cadência 12x30")
+# DIVIDIDA EM 2 (23/09/2026): 724 nos numa peca so -> o GHL recusa ("too big
+# to be saved"). Parte 1 = entrada + T1-T6; ao fim poe a tag TAG_P2, que
+# dispara a Parte 2 = T7-T12 + ida para nutricao.
+PARTE = int(os.environ.get("W11_PARTE", "1"))
+TAG_P2 = "cadencia-12x30-p2"
+NOME = os.environ.get("W11_NOME") or ("Cadência 12x30" if PARTE == 1
+                                      else "Cadência 12x30 — parte 2")
 TAG_TESTE = os.environ.get("W11_TAG")            # so na copia de teste
 C = json.load(open(os.path.join(os.path.dirname(__file__), "campos.json"),
                    encoding="utf-8"))
@@ -191,7 +197,7 @@ def tentou():
 def avaliacao(n, proximo, liga=True):
     """Depois da espera: conta WhatsApp nao atendido, pausa no retorno,
     sai no Atendeu, marca 'Nao atendeu' se ficou vazio e segue."""
-    seguir = list(proximo) if proximo else fim_da_cadencia()
+    seguir = list(proximo) if proximo else fim()
     marcar = [campos_step([f(RESULT, "Resultado da tentativa", "Não atendeu", "select")]),
               g.tag_step(["limpar-tarefas"]), g.goto_step(raiz_id(seguir))]
     b_vazio = g.Branch("T%d · Sem resposta registrada?" % n,
@@ -284,8 +290,15 @@ def fim_da_cadencia():
                      nao=[])]
 
 
+def fim():
+    """Depois do ultimo toque desta parte."""
+    if PARTE == 1:
+        return [g.tag_step(["fila-tel", "fila-wa"], remove=True), g.tag_step([TAG_P2])]
+    return fim_da_cadencia()
+
+
 proximo = []
-for linha in reversed(TOQUES_TAB):
+for linha in reversed(TOQUES_TAB[:6] if PARTE == 1 else TOQUES_TAB[6:]):
     proximo = bloco_toque(*linha, proximo=proximo)
 cadencia = proximo
 
@@ -326,7 +339,12 @@ passos = [g.Branch("É lead de outra régua?",
                     g.cond("contact_detail", "tags", "index-of-true", ["reengajamento-ativo"])],
                    operador="or", sim=[], nao=sem_telefone)]
 
-if TAG_TESTE:
+if PARTE == 2:
+    passos = [g.tag_step([TAG_P2], remove=True)] + cadencia
+    gatilho = g.tag_trigger("Continua da parte 1", TAG_P2)
+    if not SO_MONTAR:
+        c.create_location_tag(TAG_P2)
+elif TAG_TESTE:
     gatilho = g.tag_trigger("Teste 12x30", TAG_TESTE)
     if not SO_MONTAR:
         c.create_location_tag(TAG_TESTE)
@@ -347,7 +365,8 @@ if not SO_MONTAR:
 if SO_MONTAR:
     tpl = g.montar(passos)
 else:
-    g.preencher(c, WF, NOME, passos, [gatilho], allow_reentry=False, stop_on_response=True,
+    g.preencher(c, WF, NOME, passos, [gatilho], allow_reentry=(PARTE == 2),
+                stop_on_response=True,
                 janela=None if TAG_TESTE else   # copia de teste roda a qualquer hora
                 {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30,
                  "endHour": 18, "endMinute": 30})
@@ -360,7 +379,8 @@ quebrados = [s["id"] for s in tpl if s["type"] == "goto"
              and (s.get("attributes") or {}).get("targetNodeId") not in vivos]
 print("gotos quebrados: %d" % len(quebrados))
 tarefas = [s["attributes"]["title"] for s in tpl if s["type"] == "task-notification"]
-print("tarefas: %d (esperado 22 = 11 toques x 2 variantes)" % len(tarefas))
+print("tarefas: %d (esperado %d)" % (len(tarefas), 12 if PARTE == 1 else 10))
+print("limite:", "OK" if len(tpl) <= g.MAX_NOS else "ACIMA DE %d" % g.MAX_NOS)
 print("mensagens:", [s["name"] for s in tpl if s["type"] == "sms"])
 print("'sim' no relógio:", sum(1 for s in tpl if s["type"] == "update_contact_field"
                                and any(x.get("value") == "sim" for x in s["attributes"]["fields"])))

@@ -33,7 +33,8 @@ C = json.load(open(os.path.join(os.path.dirname(__file__), "campos.json"), encod
 RESULT = C["Resultado da tentativa"]["id"]
 TEMPLATE = C["Template usado"]["id"]
 JSON_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "workflows-json"))
-CADENCIAS = ["c64a808b-3040-431e-8015-642a265e1022",    # Cadência 12x30
+CADENCIAS = ["c64a808b-3040-431e-8015-642a265e1022",    # Cadência 12x30 (parte 1)
+             "17e6dc19-3eca-42e8-83ff-e25a9d5c28e8",    # Cadência 12x30 — parte 2
              "c2375e2f-b4cb-4947-8377-7c1e0529ba82",    # Cadência Inbound
              "37eb32e4-4c21-4c69-bba1-36879ae0886c"]    # Reengajamento 90 dias
 
