@@ -56,6 +56,27 @@ não ser esquecida quando passar a importar.
 Se a tela não oferecer filtro por tag na entrada do agente, isto vira
 pendência e o agente **não deve ficar como Agente Principal** até existir.
 
+**Segunda camada, que não depende da tela — G-22
+(`ROADMAP-SALES-ENGAGEMENT.md`), especificada em 23/09/2026.** O filtro
+acima é uma configuração de tela nunca confirmada (item 3 da seção 8), e a
+pesquisa que abriu o G-22 achou que "Channel Management" roteia por
+prioridade de tag, não por lista de exclusão — não é garantido que a tela
+ofereça o que este parágrafo pede do jeito que pede. Existe uma proteção
+que não depende de nenhuma tela: a ação de workflow nativa `Update
+Conversation AI Bot and Status`, que liga/desliga um bot específico por
+contato (`Active`/`Inactive`), chamada por dois workflows novos e
+isolados (não editam a Cadência 12x30 nem o Pós-ligação v2 já publicados):
+
+| Workflow novo | Gatilho | Condições | Ação |
+|---|---|---|---|
+| **"Bot IA — Pausar por Fila"** | `Tag Added` — `fila-tel` OU `fila-wa` OU `conectado-hoje` OU `nao-perturbe` OU `pausado` OU `fechar-horario` | — | `Update Conversation AI Bot and Status` → bot `Conexão — Inbound` → `Inactive` |
+| **"Bot IA — Retomar"** | `Tag Removed` — mesma lista de 6 tags | If/Else: nenhuma das 6 tags presente no contato | Verdadeiro → `Update Conversation AI Bot and Status` → bot `Conexão — Inbound` → `Active`. Falso → fim, sem ação |
+
+Fica valendo em paralelo ao filtro de tag da tela, se ele existir — as
+duas camadas não competem. Detalhe completo, fontes da pesquisa e por que
+o roteamento por prioridade não bastava sozinho: `G-22` no
+`ROADMAP-SALES-ENGAGEMENT.md`.
+
 ## 2. Aba Geral — valores
 
 | Campo | Valor | Por que |
@@ -311,8 +332,23 @@ agente de inbound.
    agente não vê a Stevo, mesmo com ela conectada e recebendo mensagem —
    mesma pergunta que o G-09 deixou em aberto para os workflows por trás do
    canal WhatsApp deste projeto.
+
+   **Reduzido em 23/09/2026 (G-22, roadmap), sem fechar por inteiro:**
+   pesquisado (`WebSearch`, confiança média — documentação oficial da
+   HighLevel, `help.gohighlevel.com` bloqueado pelo proxy deste ambiente
+   para leitura direta, não testado nesta subconta) — Instagram **é** canal
+   nativamente suportado por Conversation AI Bot Channels, a IA v2 não está
+   limitada a WhatsApp por desenho de plataforma. O que resta em aberto não
+   é mais "o produto suporta isto?" — é só "esta subconta específica tem o
+   canal Instagram ligado à aba `IA · proximo-cliente-1`?", a mesma
+   pergunta de tela do parágrafo acima, agora estendida de WhatsApp/Stevo
+   para Instagram também.
 3. **Se existe filtro de entrada por tag** (seção 1). Sem ele, não ligue o
-   Agente Principal.
+   Agente Principal **como única proteção** — a seção 1 já ganhou uma
+   segunda camada que não depende desta confirmação de tela (G-22,
+   workflows "Bot IA — Pausar por Fila"/"Bot IA — Retomar"). Continue
+   preferindo o filtro de tela se ele existir (reduz ainda mais a chance de
+   sobreposição), mas a ausência dele deixou de ser bloqueio sozinha.
 4. **Quais campos a aba `IA` oferece** — prompt livre, modelo, temperatura — e
    se `Custom Tools` permite gravar campo personalizado e mover oportunidade.
    É isso que decide se a seção 7 sai por configuração ou vira workflow.

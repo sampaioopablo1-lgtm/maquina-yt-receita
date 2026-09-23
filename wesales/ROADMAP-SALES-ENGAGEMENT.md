@@ -1916,6 +1916,110 @@ o `dac443f`) e passou a citar o patch e o G-21; `build-wesales.md` §2.34
 sequenciamento com o G-18) ganhou uma nota apontando para o §2.41, para
 ninguém implementar a sugestão antiga por cima do patch do G-18.
 
+### G-22 · O agente de IA que existe só para alcançar os 5 leads do Instagram nunca confirmou se alcança — e a "regra do portão" mais importante do próprio desenho depende de um filtro de tela nunca visto — **especificado em 23/09/2026 (pesquisa + desenho alternativo mais seguro)**
+**Por quê:** `AGENTE-IA-CONEXAO.md` diz da própria razão de existir, na
+abertura: "Leads reais do Instagram, sem telefone e sem e-mail: **5**... O
+trabalho do agente é esse: ser o canal de quem chega por mensagem e não
+tem telefone... Não é 'mais um canal' — é o único caminho para essa fatia
+da base" (confirmado pelo F-15: dos 9 contatos sem telefone, 8 também não
+têm e-mail, e nenhuma régua de e-mail os alcança). A própria seção 8 do
+documento, item 2, registra em aberto desde 22/09/2026: "Se ele só
+responde WhatsApp, não alcança os 5 do Instagram — que são o motivo
+principal dele existir" — dúvida sobre o único canal que resgata esses 5
+leads, nunca promovida a item rastreável (mesma classe de
+G-16/G-17/G-19/G-21: achado registrado em documento vizinho, nunca virou
+item de roadmap com "Pronto quando"). Mais grave: a seção 1 do mesmo
+documento — título do próprio documento para ela, "a regra do portão — a
+mais importante" (não deixar o agente responder lead que já está com o
+SDR: tags `fila-tel`/`conectado-hoje`/`nao-perturbe`/`pausado`/
+`fechar-horario`) — depende de um filtro de tag na aba de configuração do
+agente que ninguém confirmou existir; o item 3 da mesma seção 8 já avisa
+"se a tela não oferecer filtro por tag... o agente não deve ficar como
+Agente Principal até existir". Ou seja: a única proteção contra o SDR e a
+IA falando com o mesmo lead ao mesmo tempo pode não existir na tela, e
+ninguém saberia até testar ao vivo com lead real.
+**Como:** pesquisado antes de decidir (`WebSearch`, confiança média —
+documentação oficial da HighLevel e convergência entre buscas com termos
+diferentes; `help.gohighlevel.com` bloqueado pelo proxy deste ambiente
+para leitura direta via `WebFetch`, mesma limitação já registrada no
+G-05/F-08/F-12 — não testado nesta subconta). Duas respostas: uma reduz a
+dúvida do item 2, a outra substitui a dúvida do item 1 por um mecanismo
+mais confiável, sem esperar tela nenhuma.
+
+1. **Item 2 (alcance) — resposta parcial.** Instagram é canal nativamente
+   suportado por Conversation AI Bot Channels ("Manage Conversation AI Bot
+   Channels and Routing", HighLevel Support Portal) — a IA v2 não está
+   limitada a WhatsApp por design da plataforma. Continua sem confirmação
+   de tela **qual canal/página** a aba `IA · proximo-cliente-1` desta
+   subconta tem ligada de fato (mesma pendência de tela que o G-09 já
+   deixou para WhatsApp/Stevo, agora estendida a Instagram) — a pergunta
+   deixa de ser "o produto suporta isto?" (respondida) e vira "esta
+   subconta está configurada assim?" (só a tela responde).
+
+2. **Item 1 (portão) — troca de mecanismo.** A mesma documentação descreve
+   "Channel Management" como roteamento por página/número/widget **e tag
+   de contato**, com a regra "atribuição mais específica vence a mais
+   genérica" — é roteamento por **prioridade**, não uma lista de exclusão
+   como a seção 1 do `AGENTE-IA-CONEXAO.md` assume ("o agente não responde
+   contato que tenha qualquer destas tags"). Usar esse caminho exigiria uma
+   combinação de prioridade por tag para cada uma das 5 tags de bloqueio, e
+   continua sem confirmação de tela. Existe um caminho mais direto,
+   documentado com o mesmo nome em três fontes independentes (HighLevel
+   Support Portal, HighLevel Changelog/Ideas, e um tutorial de terceiro
+   descrevendo a mesma tela): a ação de workflow nativa **`Update
+   Conversation AI Bot and Status`**, que liga/desliga um bot específico
+   **por contato** (`Active`/`Inactive`), chamável de **qualquer**
+   workflow — mesma classe de ação já usada no projeto inteiro (`Update
+   Contact Field`, `Add/Remove Contact Tag`), não uma configuração de tela
+   nova. Diferente do filtro da aba `IA`, aqui a garantia não depende de
+   nenhuma tela: é o próprio conjunto de tags que já existe que liga e
+   desliga o bot.
+
+   **Desenho novo, isolado do que já está publicado — não toca a Cadência
+   12x30 nem o Pós-ligação v2 já no ar** (regra de não editar workflow
+   publicado por este conector, e de não arriscar automação viva por uma
+   peça nova), no mesmo padrão de "removedor em workflow à parte" que o
+   dono já escolheu para `conectado-hoje` (`ESTADO-E-PLANO.md`, pendência
+   7 — sidecar por tag, gatilho nativo, zero edição em workflow publicado):
+
+   | Workflow novo | Gatilho | Condições | Ação |
+   |---|---|---|---|
+   | **"Bot IA — Pausar por Fila"** | `Tag Added` — `fila-tel` OU `fila-wa` OU `conectado-hoje` OU `nao-perturbe` OU `pausado` OU `fechar-horario` (confirmar na tela se o gatilho aceita lista "qualquer uma destas" num filtro só, ou se precisa de 6 gatilhos separados no mesmo workflow apontando pro mesmo primeiro nó — o removedor de `conectado-hoje` que o dono já publicou usa `Tag Added`, então o gatilho em si já está testado neste projeto) | — | `Update Conversation AI Bot and Status` → bot `Conexão — Inbound` → `Inactive` |
+   | **"Bot IA — Retomar"** | `Tag Removed` — mesma lista de 6 tags | If/Else: nenhuma das 6 tags presente no contato (checar as 6, não só a que disparou o gatilho — remover uma não garante que as outras sumiram) | Verdadeiro → `Update Conversation AI Bot and Status` → bot `Conexão — Inbound` → `Active`. Falso → fim, sem ação (ainda bloqueado por outra tag) |
+
+   Fica valendo em paralelo ao filtro de tag da tela, se ele existir de
+   verdade — as duas camadas não competem (a de workflow é a que este item
+   garante; a de tela, se existir, só reduz ainda mais a chance de
+   sobreposição).
+
+**Zero campo, zero tag novos** (as 6 tags já existem, `campos-e-tags.md`);
+**zero escrita no CRM** — as leituras de `locations_get-custom-fields` e
+`opportunities_search-opportunity` desta rodada foram conferência de
+coerência (56 campos, 56 oportunidades, mesma composição da leitura do
+G-21), sem gravar nada: item de pesquisa e especificação, não depende de
+`APROVADO.md` — a criação dos dois workflows novos não sai por API (mesma
+limitação de sempre), fica para a montagem manual, mesma fila do resto do
+projeto.
+**Pronto quando:** os dois workflows ("Bot IA — Pausar por Fila", "Bot IA
+— Retomar") estão publicados e testados contra um contato de teste
+(aplicar cada uma das 6 tags, uma de cada vez, confirmar que o bot vai
+para `Inactive`; remover todas, confirmar `Active`); `AGENTE-IA-CONEXAO.md`
+§1 e §8 (itens 2 e 3) não descrevem mais o filtro de tela como única
+defesa; e a pergunta "esta subconta tem Instagram ligado à aba `IA ·
+proximo-cliente-1`?" (item 2) tem resposta de tela, não só de
+documentação de produto.
+
+**Resumo:** achado por releitura de documento represado (mesma família de
+G-16/G-17/G-19/G-21 — "achado técnico completo num documento vizinho,
+nunca promovido a item rastreável"), desta vez sobre
+`AGENTE-IA-CONEXAO.md`; a pesquisa de mercado que este roadmap sempre
+manda fazer, aplicada desta vez à própria plataforma que Reev/Meetime/
+Outreach/Salesloft tentam imitar por fora (não a um concorrente), trocou
+uma dependência de tela não confirmada por um mecanismo de workflow
+nativo, testável e que não compete com o que já existe.
+`AGENTE-IA-CONEXAO.md` (§1, §8) atualizado nesta rodada com o achado e a
+tabela acima.
+
 ---
 
 ## Bloco 1 — Medição (a maior lacuna)
@@ -5248,3 +5352,47 @@ conferir se alguma outra linha de `ESTADO-E-PLANO.md` (ou de
 `PLANO-MULTICANAL.md`, que o G-19 já apontou como não lido por inteiro)
 tem decisão e patch prontos represados do mesmo jeito, antes de assumir
 que a fonte dessa classe de achado secou.
+
+**G-22 aberto e especificado em 23/09/2026, sessão automática seguinte —
+`git fetch` limpo (nenhum commit novo na janela desta leitura), CRM
+reconfirmado sem mudança (56 oportunidades, mesma composição da leitura
+do G-21; 56 campos de contato): as seis decisões do dono e os dez itens
+com desenho completo represados por tela/PC seguem exatamente onde
+estavam, sem novidade.** A lacuna veio da mesma regra do G-16/G-17/G-19/
+G-21 ("documento medido não é o mesmo que documento rastreado"), aplicada
+desta vez a `AGENTE-IA-CONEXAO.md` — nunca cruzado por nenhuma rodada de
+coerência anterior (G-10/G-13/G-14 cruzaram `PLANO-MULTICANAL.md` e
+`ESTADO-E-PLANO.md`; nenhuma tinha chegado neste). O documento já carregava,
+desde 22/09/2026, uma dúvida em aberto sobre a própria razão de existir
+(seção 8, item 2: "se o agente só responde WhatsApp, não alcança os 5 do
+Instagram — que são o motivo principal dele existir") e uma proteção
+central sem confirmação de tela (seção 1, "a regra do portão — a mais
+importante", que o item 3 da seção 8 já avisava poder não existir na
+tela). Diferente dos quatro achados anteriores desta família (que tinham
+decisão e patch prontos, só sem ponte para o roadmap), aqui não havia
+decisão nem patch — só pesquisa pendente. `WebSearch` (confiança média,
+`help.gohighlevel.com` bloqueado pelo proxy como de costume) confirmou que
+Instagram é canal nativo do Conversation AI Bot (reduz a dúvida do item 2
+a uma pergunta de configuração desta subconta, não de suporte da
+plataforma) e achou, em três fontes convergentes, uma ação de workflow
+nativa (`Update Conversation AI Bot and Status`) que resolve a proteção do
+item 1 sem depender de nenhum filtro de tela nunca confirmado — dois
+workflows novos, sidecar por tag no mesmo padrão que o dono já escolheu
+para o removedor de `conectado-hoje`, sem tocar a Cadência 12x30 nem o
+Pós-ligação v2 publicados. Fechado como **G-22**: especificação nó a nó
+completa, zero campo, zero tag, zero escrita no CRM (pesquisa e desenho,
+não depende de `APROVADO.md`); `AGENTE-IA-CONEXAO.md` (§1, §8) atualizado
+com o achado. Detalhe completo no próprio G-22, acima.
+
+Com isso, G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam
+sendo as seis decisões que esperam o dono; F-11, F-12, F-13, F-15, G-07,
+G-08, G-11 (itens 2/3), G-17, G-18, G-21 e agora **G-22** são os itens com
+desenho completo (a maioria com patch validado; G-22 com dois workflows
+novos especificados nó a nó) e só faltam ser montados/aplicados na tela ou
+no PC — a lista cresceu em um, desta vez por lacuna de pesquisa nova, não
+por releitura de pendência represada como as quatro promoções anteriores.
+A próxima rodada sem tela nem decisão desbloqueada repete o mesmo caminho
+de sempre — variando a fonte da varredura de coerência a cada vez, para
+não esgotar sempre o mesmo documento: `AGENTE-IA-CONEXAO.md` acabou de ser
+cruzado; `script-de-ligacao.md`, `GUIA-CLOSER.md`, `GUIA-SDR.md` e
+`conectar.md` ainda não passaram por nenhuma rodada desta família.

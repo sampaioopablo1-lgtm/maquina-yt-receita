@@ -6428,3 +6428,74 @@ múltiplo/contagem específicos (regra "número fixo só na fonte", a mesma que
 o G-20 já tinha aplicado a campo/tag) e passaram a apontar para a leitura
 mais recente do F-10. Zero campo, zero tag, zero escrita no CRM: leitura por
 API, não depende de `APROVADO.md`.
+
+## `AGENTE-IA-CONEXAO.md` nunca tinha sido cruzado por nenhuma rodada de coerência — e carregava, desde 22/09, uma dúvida sobre a própria razão de existir nunca promovida a item rastreável — G-22, 23/09/2026, sessão automática
+
+Sweep de sempre limpo: `git fetch` sem commit novo, CRM reconfirmado sem
+mudança (56 oportunidades, mesma composição da leitura do G-21; 56 campos
+de contato). A varredura de coerência das últimas seis rodadas (G-16 a
+G-21) tinha cruzado `ESTADO-E-PLANO.md`, `git log`, `PLANO-MULTICANAL.md` e
+a soma de campos/tags — nunca `AGENTE-IA-CONEXAO.md`, apesar de ele
+descrever o único canal que alcança 5 leads reais presos num ciclo morto
+de 90 em 90 dias (achado do F-15). Lendo o documento de propósito (a
+mesma pergunta generalizável do G-16/G-17/G-19/G-21, "que documento ainda
+não foi cruzado?"), duas pendências da própria seção 8 saltaram: item 2
+("se o agente só responde WhatsApp, não alcança os 5 do Instagram — que
+são o motivo principal dele existir") e item 3 ("se a tela não oferecer
+filtro por tag... o agente não deve ficar como Agente Principal até
+existir") — a segunda descrevendo a única proteção contra o SDR e a IA
+falando com o mesmo lead ao mesmo tempo, sem confirmação nenhuma de que
+existe.
+
+**Diferença desta vez, dentro da mesma família de achado:** os quatro
+casos anteriores (G-16/G-17/G-19/G-21) tinham decisão do dono e/ou patch
+prontos, só sem ponte para o roadmap — bastava promover. Aqui não havia
+nem decisão nem patch, só uma pergunta de pesquisa nunca respondida.
+Pesquisado nesta rodada (`WebSearch`; `help.gohighlevel.com` bloqueado
+pelo proxy deste ambiente para `WebFetch` direto — mesma limitação que o
+G-05/F-08/F-12/R-14 já registraram, contornada com duas buscas de termos
+diferentes convergindo no mesmo achado, confiança média, não testado
+nesta subconta): Instagram é canal nativo do Conversation AI Bot
+(reduz a dúvida do item 2 a uma pergunta de configuração desta subconta
+específica, não mais de suporte de plataforma); e existe uma ação de
+workflow nativa, `Update Conversation AI Bot and Status`
+(`Active`/`Inactive` por contato, chamável de qualquer workflow, três
+fontes convergentes — HighLevel Support Portal, HighLevel Changelog/
+Ideas, tutorial de terceiro), que resolve a proteção do item 3 sem
+depender de nenhum filtro de tela nunca confirmado.
+
+**Achado lateral, sobre o próprio mecanismo de "Channel Management" que o
+item 3 pressupunha:** a documentação descreve esse roteamento como
+prioridade (assinalação mais específica vence a mais genérica), não como
+lista de exclusão — diferente do que a seção 1 do `AGENTE-IA-CONEXAO.md`
+assumia ("o agente não responde contato que tenha qualquer destas
+tags"). Antes de aceitar que "existe filtro de tag na tela" resolveria o
+problema do jeito descrito, valeria checar se o mecanismo real (prioridade)
+cobre o mesmo caso de uso (exclusão) — aqui a saída foi não apostar nisso e
+usar a ação de workflow, que não tem essa ambiguidade.
+
+**Regra prática, generalizável — estende a família G-16/G-17/G-19/G-21 de
+"achado com decisão/patch represados" para "achado só com pergunta de
+pesquisa represada":** a pergunta "que documento ainda não foi cruzado?"
+não deveria se limitar a documentos com decisão pronta — um documento
+pode carregar só uma dúvida em aberto (sem patch, sem decisão do dono) e
+ainda assim estar a uma pesquisa de virar item rastreável com "Pronto
+quando" próprio. `AGENTE-IA-CONEXAO.md` é o quinto documento nessa
+categoria (depois de `ESTADO-E-PLANO.md` três vezes e `PLANO-MULTICANAL.md`
+uma vez) — a lista de "documentos ainda não cruzados" não é ilimitada, mas
+também não secou: `script-de-ligacao.md`, `GUIA-CLOSER.md`, `GUIA-SDR.md`
+e `conectar.md` seguem sem nenhuma rodada desta família ter passado por
+eles.
+
+**Correção aplicada:** achado promovido a `G-22` no
+`ROADMAP-SALES-ENGAGEMENT.md` (por quê, pesquisa com fontes e nível de
+confiança, desenho de dois workflows novos — "Bot IA — Pausar por Fila"/
+"Bot IA — Retomar" — especificados nó a nó, "Pronto quando"), com a
+narrativa da "Ordem sugerida" e a tabela "Com isso" atualizadas no mesmo
+padrão do G-16 a G-21; `AGENTE-IA-CONEXAO.md` (§1, com a tabela dos dois
+workflows novos como segunda camada de proteção; §8, itens 2 e 3, com o
+achado da pesquisa e o redimensionamento de "bloqueio" para "preferível
+mas não único"). Zero campo, zero tag novos (as 6 tags do portão já
+existem); zero escrita no CRM: item de pesquisa e especificação, não
+depende de `APROVADO.md` — os dois workflows novos não saem por API (mesma
+limitação de sempre), ficam para a montagem manual.
