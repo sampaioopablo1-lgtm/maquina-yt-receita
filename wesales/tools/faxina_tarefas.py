@@ -96,7 +96,9 @@ def motivo(etapa, status, resultado):
 class Api:
     def __init__(self, token):
         self.h = {"Authorization": "Bearer " + token, "Version": "2021-07-28",
-                  "Accept": "application/json", "Content-Type": "application/json"}
+                  "Accept": "application/json", "Content-Type": "application/json",
+                  # sem User-Agent a API responde 403 (medido 23/09/2026)
+                  "User-Agent": "Mozilla/5.0 (Faxina-WeSales)"}
 
     def req(self, metodo, caminho, corpo=None):
         dados = json.dumps(corpo).encode() if corpo is not None else None
@@ -264,7 +266,7 @@ def main():
         api.req("POST", "/contacts/%s/notes" % contato,
                 {"body": "Tarefa \"%s\" (criada %s UTC) cancelada automaticamente pela "
                          "Faxina de Tarefas: %s." % (t.get("title"), quando, m)})
-        api.req("DELETE", "/contacts/%s/tasks/%s" % (contato, t["id"]))
+        api.req("DELETE", "/contacts/%s/tasks/%s" % (contato, t.get("id") or t["_id"]))
         feitos += 1
     print("excluidas: %d (nota registrada em cada contato)" % feitos)
 
