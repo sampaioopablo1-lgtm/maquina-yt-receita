@@ -5712,3 +5712,58 @@ nacional, **1.793 ativos, o maior de todos**; 26 páginas, 26 alvos, **nenhuma d
 a regra do ticket no seu caso mais limpo: caro demais para app, específico demais para
 curso**; defeito dominante é repetição em escala; **defeito novo: URL crua no lugar da
 headline**).
+
+---
+
+## ADVOCACIA CRIMINAL — prisão em flagrante (23/09, nacional)
+
+Varredura: `prisão em flagrante advogado`, BR, ACTIVE. **360 anúncios ativos**, 19 páginas
+distintas. Uma delas é curso (Professor Felipe Novaes, o "FlagranteDay"), sobram **18
+alvos** — e **16 deles são Trilha A**. É a melhor proporção de todas as varreduras, melhor
+que o Méier (9 de 12) e que a holding (18 de 25). Advocacia criminal é negócio de nome
+próprio: quase ninguém anuncia como "escritório", anunciam como pessoa.
+
+**Terceira confirmação da regra do tema ensinável**, e a mais escancarada: o Professor
+Felipe Novaes sozinho mantém **mais de 20 anúncios ativos** vendendo um evento gratuito
+sobre flagrante — para advogados, não para réus. Como em holding familiar, o tema virou
+produto de ensino e o curso divide o leilão com quem presta o serviço.
+
+**Trilha A (16):** Gonçalves e Dutra Advogados, Dr. Abilio Tavares, Gilderson Advogado,
+Edivar Souza Advocacia, Wander Sander Advocacia, Amorim Advogados Associados, Paulo
+Machado, Guilherme André Advogado, Ediomar Fabiano Fernandes, drfelipearauj_, Leonardo
+Soares Advogado Criminalista, Dr. Lucas Schneider Vargas, gabrielacavalcanteadv,
+geversonchagas.adv, Advogado Thiago Gouveia, Dra. Luciana Ramos.
+
+**Demais alvos (2):** "Escritório de Advocacia" (a página se chama isso mesmo, o que já é
+o defeito), ocriminalista2018.
+
+**Defeitos:**
+- **Repetição em escala, o pior caso já visto**: Advogado Thiago Gouveia mantém **13
+  anúncios ativos com a headline idêntica** — "Fale com um advogado". Treze. Pior que os 14
+  de Brüno Deretti, que ao menos alternava duas frases.
+- **URL crua no lugar da headline** — 2ª, 3ª e 4ª aparições, o defeito deixa de ser
+  curiosidade e vira padrão: Guilherme André (`api.whatsapp.com`), Wander Sander e
+  ocriminalista2018 (`instagram.com`).
+- **Carrossel com card sem headline** — 7ª e 8ª aparições: Paulo Machado, drfelipearauj_.
+- **Título vazio**: Dr. Abilio Tavares, Amorim, Leonardo Soares, gabrielacavalcanteadv (2),
+  geversonchagas.adv, Escritório de Advocacia.
+
+**ERRO DE AUDIÊNCIA, e é um achado novo:** a Dra. Luciana Ramos anuncia "🚨 Você foi preso
+em flagrante, você precisa de um advogado!". Fala com o preso. **Quem está preso não está
+no Instagram** — quem procura advogado às duas da manhã é a mãe, a esposa, o irmão. O
+anúncio inteiro está escrito para a pessoa errada. Vale como padrão a procurar: em serviço
+de urgência, o comprador quase nunca é o usuário.
+
+**Quem escreve bem, e é aula:** o **Gilderson Advogado** roda três anúncios com **três
+headlines diferentes, três ângulos diferentes** — "As primeiras 24 horas depois de uma
+prisão" (tempo), "A defesa começa na delegacia" (lugar e momento), "Atendimento criminal à
+noite e nos fins de semana" (disponibilidade, que é a objeção real de quem liga de
+madrugada). É exatamente o contrário do Thiago Gouveia: mesmo nicho, mesma semana, mesmo
+leilão — um testa três coisas, o outro repete uma treze vezes.
+
+LISTA DE ATAQUE: **178 → 196**.
+
+Combos varridos até aqui: + advocacia criminal (prisão em flagrante, nacional, 360 ativos —
+**16 de 18 em Trilha A, recorde de proporção: o nicho anuncia por nome próprio**; terceira
+confirmação do tema ensinável, com um curso sozinho rodando 20+ anúncios; **achado novo:
+erro de audiência — anunciar para o preso e não para a família que procura por ele**).
