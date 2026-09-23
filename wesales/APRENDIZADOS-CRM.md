@@ -2,6 +2,49 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Condição de etapa não funciona em workflow que não é disparado por oportunidade — 11 workflows testavam etapa às cegas — 23/09/2026, sessão do PC
+
+**Medido** no registro de execução da `ZZ TESTE 12X30` (gatilho de tag): o
+passo `Pipeline stage is "[FUNIL DE VENDAS] - CONECTAR"` leu **valor vazio** e
+deu falso — a oportunidade não está no contexto quando o gatilho é tag,
+contato, resposta, link ou agendamento. Nenhum erro aparece: o lead só segue
+pelo "não".
+
+Varredura dos publicados: **11 workflows** tinham condição de oportunidade com
+gatilho que não é de oportunidade — CONECTAR Estagnado, 12x30 parte 2, Fechar
+Horário, Interceptação (Clique e Resposta), Opt-out, Recuperação de No-show,
+Reengajamento 90d, Retorno Vencido, SLA do Closer. Os antigos provavelmente
+nunca funcionaram como escrito.
+
+**Correção:** workflow novo **`Espelho de Etapa`** (`2b1667a4`, gatilho de
+etapa + 4 de status, sem janela) mantém no contato uma tag de estado —
+`etapa-novo-lead|conectar|reuniao|negociar|formalizar` (aberta) ou
+`status-nutricao|perdido|ganho`. As 26 condições foram trocadas pela tag
+(`tools/patch_condicoes_etapa.py`); tags dos 55 leads existentes preenchidas.
+Testado: mover para REUNIÃO → `etapa-reuniao` em segundos; e a cópia de teste,
+com a tag, passou o portão e criou a T1. **Corrida:** o Reengajamento reabre a
+oportunidade e testa a etapa no nó seguinte — os nós de tag que já existiam
+passaram a gravar `etapa-conectar`/tirar `status-nutricao` na hora. A 12x30
+parte 1 (gatilho de etapa) mantém a condição de oportunidade de propósito.
+
+**Regra:** condição de oportunidade só em workflow com gatilho de oportunidade.
+Em qualquer outro, teste a tag do Espelho.
+
+## Outros três achados da mesma noite
+
+- **Limite de tamanho:** o GHL recusa salvar workflow grande ("too big to be
+  saved": 724 nós recusado, 410 aceito). O `preencher` reapontava os gatilhos
+  ANTES de salvar os nós — a recusa deixou o gatilho principal da 12x30
+  INATIVO e apontando para nó inexistente (restaurado; só reativa passando de
+  rascunho para publicado). Agora há trava `MAX_NOS = 450` antes de tocar no
+  CRM, e a 12x30 virou 2 workflows (380 + 347 nós), ligados pela tag
+  `cadencia-12x30-p2`.
+- **Vencimento da tarefa:** a tarefa de cadência nasce com `dueDate` = 00:00
+  (Brasília) do próprio dia. "Vencida" para a trava de capacidade = de um dia
+  anterior, não "antes de agora".
+- **Canal:** confirmado pelo dono na tela — mandar pelo canal "SMS" entrega
+  WhatsApp (Stevo). É o canal das mensagens automáticas.
+
 ## Documento que contém um artefato colável tem duas naturezas — não anotar dentro do artefato — 23/09/2026, sessão na nuvem
 
 Consertando a coerência do `AGENTE-IA-CONEXAO.md` depois da renomeação de etapa,
@@ -2633,7 +2676,6 @@ exatamente isso que salvou o `Pós-agendamento` na segunda rodada.
 
 Nenhum dos dois aparece no salvamento do rascunho. Só na publicação.
 
-
 ## Revisão dos workflows que já existiam: três defeitos, um deles apagava a régua inteira — 22/09/2026
 
 A pedido do dono, revisei os publicados que não foram montados nesta
@@ -2686,7 +2728,6 @@ Nenhum apareceu lendo a documentação — dois deles a documentação
 descrevia **errado**. Todos apareceram lendo o **JSON real** do workflow
 publicado. Para este projeto, a fonte de verdade é a subconta, não o
 documento; e nó que existe com nome certo não quer dizer nó configurado.
-
 
 ## A simulação de uso real pegou o que a leitura de JSON não pegaria: espera por horário NÃO espera — 21/09/2026, PC do dono
 
@@ -2746,7 +2787,6 @@ Cruza os 24 workflows e procura o que só aparece no conjunto: gatilho
 órfão, `goto` morto, referência a workflow inexistente, publicado vazio ou
 sem gatilho, configuração diferente da spec, e o mapa de quem dispara quem
 por tag. Rodar depois de qualquer mudança — foi ele que pegou o defeito 3.
-
 
 ## Montagem programática funcionou: 9 workflows criados, testados e publicados pela API interna — 21/09/2026, PC do dono
 
@@ -2822,7 +2862,6 @@ depois de digitar para filtrar.
 | `Contador de Toques` (W1) | tag `toque` em `ZZ TESTE ESTRUTURA` | tag removida sozinha e `Toques na semana` = 1 — exatamente o que a seção de teste da W1 previa |
 | `Loop do closer v2` (W6) | `Reunião foi qualificada` = `Parcial` em `Teste Atendeu` | nota "Veredito do closer: Parcial · motivo: Sem fit · nota 80", oportunidade → `abandoned`, tag `nutricao-90d`, `Data do veredito` = hoje, **etapa intacta em NEGOCIAR** |
 | `Loop do closer v2` (W6) | depois `= Não` (motivo `Sem fit`) | oportunidade → `lost`, etapa intacta. Só passou **depois** de corrigir o Allow Re-entry que a publicação havia zerado |
-
 
 ## Como a comunidade cria workflow sem clicar: API interna (`backend.leadconnectorhq.com`), extensão de JSON e "Copiar workflow" — 21/09/2026, ao vivo em chat
 

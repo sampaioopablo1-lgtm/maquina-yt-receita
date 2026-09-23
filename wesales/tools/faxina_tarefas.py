@@ -191,11 +191,15 @@ def capacidade(api, abertas, aplicar):
     """Por SDR: vencidas abertas e toques de hoje. Liga/desliga a tag
     `sdr-lotado` nos leads em CONECTAR daquele SDR (a 12x30 espera enquanto
     a tag existir). Nunca imprime dado de contato."""
-    agora = dt.datetime.now(dt.timezone.utc)
+    # O GHL grava o vencimento da tarefa de cadencia como 00:00 (Brasilia) do
+    # PROPRIO dia (medido 23/09: criada 22:57, dueDate 03:00Z). Comparar com
+    # "agora" contaria toda tarefa de hoje como vencida. Vencida = de um dia
+    # anterior.
+    hoje_brt = dt.datetime.now(BRT).date()
     vencidas, hoje = {}, {}
     for t in abertas:
         d = quando(t, "dueDate", "due_date")
-        if d and d < agora:
+        if d and d.astimezone(BRT).date() < hoje_brt:
             vencidas[dono(t)] = vencidas.get(dono(t), 0) + 1
     for t in tarefas_criadas_hoje(api):
         hoje[dono(t)] = hoje.get(dono(t), 0) + 1
