@@ -986,12 +986,14 @@ novo. Conferindo offline, duas consequências que nenhum dos dois desenhos vê:
 3. **O dump de 3 workflows ficou descrevendo a conta pré-patch.**
    `patch_remove_parte2.py` exportava o backup e nunca re-exportava o estado
    novo (o script irmão `patch_funil_reuniao.py` faz isso na linha 150). Corrigi
-   a ferramenta nesta rodada. A consequência que **fica em aberto** é a mais
-   consequente de todas: não dá para verificar pelo repositório se a
-   `Cadência 12x30 — parte 2` entrou nas listas de remoção. Se não entrou, o
-   lead que agenda continua recebendo toque **automático** da segunda metade da
-   régua. Resolve com um comando no PC, sem escrever nada:
-   `python patch_remove_parte2.py` sem `--aplicar`.
+   a ferramenta nesta rodada. O que fica em aberto é uma **confirmação**, não um
+   defeito provável: o assunto do commit `23db864` diz *"parte 2 nas remoções"*,
+   logo há evidência de que o script rodou com `--aplicar` — só não dá para
+   verificar pelo repositório quantos nós ele pegou, e o script varre apenas os
+   publicados (workflow em rascunho na hora ficou de fora). Vale confirmar
+   porque, se algum nó ficou para trás, o lead que agenda continua recebendo
+   toque **automático** da segunda metade da régua. Um comando no PC, sem
+   escrever nada: `python patch_remove_parte2.py` sem `--aplicar`.
 
 **Medido em 23/09:** `conectado-hoje` em 2 contatos (os dois de teste do
 projeto), `fechar-horario` em 0 (remedido depois da publicação). **Zero lead

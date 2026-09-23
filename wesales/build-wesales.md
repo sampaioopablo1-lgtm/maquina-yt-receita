@@ -4842,16 +4842,24 @@ antes só caía no lugar certo se o script fosse rodado de dentro de
 `wesales/tools/`. Nada disso toca a conta; é o repositório voltando a contar a
 verdade na próxima execução.
 
-**O que continua em aberto, e é a verificação mais consequente de agora:** se a
-`Cadência 12x30 — parte 2` entrou ou não nas listas de remoção. Se não entrou,
-o lead que agenda continua recebendo toque automático da segunda metade da
-régua — o pior defeito possível numa máquina de pré-venda. O `--aplicar` do
-script imprime `conferido: ... com parte 2=N` no momento em que roda, e essa
-saída não está no repositório. Daqui não dá para ler workflow (o MCP
-`GHL CRM` não tem ferramenta de workflow). Resolve em um comando, no PC:
-`python patch_remove_parte2.py` **sem** `--aplicar` — ele lista quantos nós
-ainda faltam por workflow e não escreve nada. Zero nó listado = a parte 2 já
-está em todas as listas.
+**O que continua em aberto, e o tamanho certo dele.** Depois de escrever o
+parágrafo acima fui ler o assunto do commit `23db864` e ele diz, na própria
+linha de título: *"parte 2 nas remoções"*. Ou seja, **há evidência de que o
+dono rodou o script com `--aplicar`** — o que falta não é o conserto, é a
+confirmação de quantos nós ele pegou. Deixo o item registrado nesse tamanho, e
+não maior: não é um defeito provável, é uma confirmação pendente.
+
+Por que ainda vale confirmar: o script só acrescenta a parte 2 aos nós que já
+citam a parte 1, e varre apenas os **publicados** — um workflow que estivesse
+em rascunho na hora da execução ficou de fora. E a consequência, se algum nó
+tiver ficado para trás, é a pior possível numa máquina de pré-venda: o lead que
+agenda continua recebendo toque **automático** da segunda metade da régua.
+
+Nem o dump nem o MCP respondem isso — o dump é o pré-patch (acima) e o
+`GHL CRM` não tem ferramenta de workflow. Resolve em um comando, no PC, que não
+escreve nada: `python patch_remove_parte2.py` **sem** `--aplicar`. Ele lista
+quantos nós ainda faltam por workflow; **zero nó listado = confirmado, nada a
+fazer**.
 
 ---
 

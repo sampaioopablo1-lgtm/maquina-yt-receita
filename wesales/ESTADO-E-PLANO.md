@@ -218,7 +218,7 @@ entra no funil. Hoje não há regra nenhuma.
 | 5 | Marcar as 6 tags e os 4 campos no `APROVADO.md` | coerência do freio de mão |
 | 6 | Pré-requisito 6 do W20 (`Conexão real = vazio` antes de cada tentativa) | sem ele, um `Sim` antigo sobrevive às tentativas seguintes |
 | 7 | **`conectado-hoje` sem removedor** (F-16 / G-11) — escolher entre as 4 saídas da seção 2.31 do `build-wesales.md`; recomendo a A (`Wait 24h` → `Remove Tag` dentro do `Pós-ligação v2`) | as duas filas do SDR (8.2 e 8.3). Com o `Atendeu` ficando em `CONECTAR`, quem atende uma vez e não fecha horário some das filas para sempre |
-| 8 | **Um comando no seu PC:** `python patch_remove_parte2.py` **sem** `--aplicar` (não escreve nada, só lista) | se a `Cadência 12x30 — parte 2` não entrou nas listas de remoção, o lead que agenda continua recebendo toque automático da segunda metade da régua. O dump do repositório não responde isso (seção 2.31.3) |
+| 8 | **Confirmar com um comando no seu PC:** `python patch_remove_parte2.py` **sem** `--aplicar` (não escreve nada, só lista) | o assunto do `23db864` diz "parte 2 nas remoções", então provavelmente já está feito — o que falta é confirmar quantos nós o script pegou, porque ele varre só os publicados. Se algum ficou para trás, o lead que agenda continua recebendo toque automático da segunda metade da régua. O dump não responde isso (seção 2.31.3) |
 | 9 | **`Remove Tag fechar-horario` no nó 4 do `Pós-agendamento v2`** | a tag só é removida dentro do `Fechar Horário`, e quem agenda é arrancado do workflow sem passar pelas saídas dele — fica com a tag para sempre, e ela é a única da conta sem segunda rede no Mestre de saída (seção 2.31.2) |
 
 **Sobre as pendências 7, 8 e 9 (novas em 23/09):** as três nasceram dos commits
@@ -229,8 +229,9 @@ antigas. Medi a conta antes de escrever: `conectado-hoje` está em 2 contatos
 (os dois de teste do projeto) e `fechar-horario` em 0. **Nenhum lead real
 afetado** — as três são armadilha, não incêndio, e é exatamente por isso que
 precisam ser resolvidas *antes* da Etapa A, não depois: o primeiro lote que
-entrar em cadência é quem começa a pagar. A 8 é a mais urgente das três
-porque é a única que eu não consigo nem verificar daqui.
+entrar em cadência é quem começa a pagar. A 8 é a única que eu não consigo verificar
+daqui — e, pelo assunto do commit, é provável que já esteja resolvida; é
+confirmação, não conserto.
 
 ---
 
