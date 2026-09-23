@@ -6659,3 +6659,60 @@ anúncios de 20 cards em branco cada**; **título-domínio pela terceira varredu
 nicho sem relação — regra fechada**; **regra nova: em bairro de ticket alto o termo de busca
 é o nome do empreendimento, não o bairro**; regra nova: termo de ticket alto puxa cupom e
 leilão).
+
+## Imobiliária — Madureira: o combo NÃO EXISTE (23/09, 19h)
+
+Três termos, registrados para ninguém repetir:
+
+| termo | ativos | do Rio? |
+|---|---|---|
+| `apartamento à venda Madureira Rio de Janeiro` | **1** | não |
+| `imóveis Madureira RJ apartamento` | **0** | — |
+| `apartamento Madureira` | 69 | **2** |
+
+**Só 2 dos 69 são do Rio de Janeiro.** É o pior aproveitamento de termo de toda a base, e
+ele prova que a regra antiga sobre Madureira estava incompleta.
+
+### Por que o termo falha — três motivos ao mesmo tempo
+
+1. **Existe um bairro Madureira em Caxias do Sul/RS**, e é ele que domina o termo. A própria
+   Perfil Imóveis sobe um anúncio com o título literal **"Madureira em Caxias do Sul"**.
+   Junto vêm Válum Imóveis, Imofar Caxias, Dornelles Imóveis, Fabricia Oscari, Patricia Zan
+   ("Apartamento no Madureira — 3 Dormitórios com Suíte") — todos gaúchos. **A Perfil Imóveis
+   sozinha responde por 8 dos 69 anúncios.**
+2. **Madureira é sobrenome comum**, e puxa gente que não é do nicho: Camila Madureira
+   Almeida, Marcia Madureira – Negócios Imobiliários (é de BH: "150 m² no Funcionários |
+   R$ 1.590.000") e **Marcondes Madureira Advocacia**, que nem imobiliária é.
+3. **Puxa São Paulo junto**: THURA com seis anúncios idênticos da Vila Clementino, Today
+   Smart Life by Canopus com sete cards repetindo "Today Vila Clementino | Canopus".
+
+### A correção da regra
+
+A regra antiga dizia "bairro que também é sobrenome precisa de reforço geográfico". **Falso
+aqui: com reforço o termo devolve 1 anúncio, sem reforço devolve 69 de outros estados.**
+
+**Regra nova e dura: Madureira/RJ não tem mercado imobiliário anunciado. Não é problema de
+termo — o nicho não existe nesse bairro.** Ninguém anuncia apartamento em Madureira no
+Facebook. Não gastar mais rodada nisso. O mesmo vale como alerta para qualquer bairro de
+ticket baixo: a ausência de anúncio não é falha da varredura, é o mercado dizendo que ali
+não se vende apartamento por tráfego pago.
+
+**Fecha a regra do ticket, que a Barra abriu uma hora atrás:** ticket alto (Barra) → o termo
+é o nome do empreendimento; ticket médio (Méier, Niterói, Tijuca) → o termo é o bairro;
+ticket baixo (Madureira) → **não há termo, porque não há anunciante.**
+
+### Os dois únicos do Rio
+
+- **Imóvel a venda** — `Apto 65m² em Cascadura | R$ 160 mil`. Título com bairro, metragem e
+  preço, do jeito certo, e o bairro é Cascadura, não Madureira. Trilha B (nome genérico).
+- **Iara Constança** — `Lançamento em Olaria`, três anúncios ativos com a **mesma headline**.
+  Trilha A. Zona Norte de verdade, e já com auto-concorrência.
+
+LISTA DE ATAQUE: **560 → 562**.
+
+Combos varridos até aqui: + imobiliária Madureira — **combo morto, registrado para não se
+repetir** (3 termos testados: 1, 0 e 69 ativos, dos quais só 2 do Rio; o termo é dominado
+pelo bairro Madureira de **Caxias do Sul/RS**, pelo sobrenome Madureira e por São Paulo).
+**Regra nova: em bairro de ticket baixo não existe termo, porque não existe anunciante** —
+e com isso a escala do ticket fica completa: empreendimento (alto), bairro (médio), nada
+(baixo).
