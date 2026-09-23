@@ -4,6 +4,17 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+
+## Tag que "vale por um dia": workflow à parte com espera — e tag pela API dispara gatilho — 23/09/2026, rodada autônoma
+
+`conectado-hoje` (F-16) não tinha removedor. Em vez de mexer no Pós-ligação v2
+(grande, publicado), um workflow de 2 nós: gatilho "tag adicionada" → espera →
+remove. **Medido**: tag posta pela API pública (`POST /contacts/{id}/tags`, MCP
+GHL) dispara o gatilho `contact_tag` — saiu 2 min depois na cópia de teste.
+Serve para qualquer tag de validade curta. Ao trocar cópia ZZ pela real: cópia
+para rascunho ANTES de publicar a real (as duas usariam o mesmo gatilho).
+Pouca RAM (136 MB livres): o Claude Code mata processo em segundo plano (até um
+`sleep`) — conferir na rodada seguinte em vez de esperar.
 ## Inserir nó no começo de um ramo: renumerar `order` de TODOS os irmãos — 23/09/2026, rodada autônoma
 
 Nos workflows desta conta, os nós de um ramo têm `parent` = id do ramo e `order`
