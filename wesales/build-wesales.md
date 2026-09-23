@@ -8504,3 +8504,58 @@ Os três portões agora protegem uma cadência que **nenhum lead alcança**. O
 gatilho da `Cadência Inbound` só escuta `CONECTAR`, e os 49 leads continuam em
 `NOVO LEAD` — §2.42. O G-17 no ar cumpre a promessa do `GUIA-SDR.md` linhas
 74-76 e a precondição do **lote de 6/dia**; não cumpre nem substitui a L-07.
+
+## 2.44 O G-16 previu e aconteceu 4h45 depois — e a causa raiz pode ser mais larga do que ele escreveu
+
+O G-16 (`ROADMAP-SALES-ENGAGEMENT.md`, **FEITO em 23/09/2026**) resgatou a
+`Francisca` e escreveu a previsão: *"Qualquer outra pessoa da vida pessoal do dono
+que mandar mensagem para esse número recebe o mesmo tratamento: vira oportunidade
+em `NOVO LEAD`, ganha `cad-inbound`."*
+
+Às **21:54:22 UTC de 23/09** — 4 h 45 min depois de a `Francisca` ter sido posta em
+`abandoned` — apareceu o segundo caso. Medido por API no check-in das 21:54:
+
+| | |
+|---|---|
+| oportunidade | `JudIT5DF7JinFbBqcwYU`, `NOVO LEAD`/`open`, criada **21:54:22** |
+| contato | `d0ZJyFlxl1GZNDUiICnt`, nome = o próprio número (`554791548812`) |
+| tags | `cad-inbound`, `etapa-novo-lead` |
+| `assignedTo` | `JdvhvOTEBTvUyRi0BXU8` — o mesmo do `O Próximo Cliente` |
+| fio | 6 mensagens pela Stevo (`type 20`), 21:54:20 a 21:54:59 |
+
+O conteúdo do fio não é de lead: *"Não estou tendo certo, sucesso com o suporte.
+Pode me ajudar?"*, *"Comprei o número telefônico"*, *"E também sobre 20 dias a mais
+do teste, não habilitou"*, *"Se poder checar"*, mais uma imagem. É o dono falando
+com **suporte/fornecedor**, não alguém perguntando sobre anúncios.
+
+`NOVO LEAD` foi de 49 para **50**. Nada foi escrito por mim: nenhuma linha
+disto está `[x]` no `APROVADO.md`.
+
+### O que isto muda no G-16
+
+Duas coisas, e a segunda é candidata, não item:
+
+1. **O G-16 está `FEITO` e a classe não está.** O que fechou foi o resgate da
+   `Francisca` e o passo preventivo no `GUIA-SDR.md` (ler o fio antes de tratar a
+   `TI1` como prospect). O filtro estrutural o próprio G-16 declarou impossível
+   para um workflow decidir sozinho. Então um segundo caso **não é achado novo** —
+   é a previsão do G-16 se cumprindo, e a medida que sobra é aquele passo do guia
+   funcionar. Quem ler "FEITO" sem ler o corpo vai achar que a porta foi
+   consertada.
+2. **CANDIDATO, a confirmar na tela:** o G-16 diz que o gatilho dispara "para
+   qualquer primeira mensagem **recebida**". Neste fio, as 6 mensagens que a API
+   devolve são **todas `outbound`** (`from: Pablo Santos's Account`), e a mais
+   antiga é 2 s anterior à criação da oportunidade, com `nextPage: false`. Se a
+   porta também dispara em conversa que o **dono inicia**, o alcance é maior do
+   que o G-16 escreveu: todo fornecedor e todo suporte que o dono contatar por
+   aquele aparelho entra como lead. Não afirmo: mensagem inbound pode não estar
+   sincronizada ou pode não vir nesse endpoint. Confirma-se lendo o fio na tela,
+   ou vendo se existe mensagem inbound antes de 21:54:20.
+
+### O que segura o dano hoje, e por que isso não é consolo
+
+Nenhuma mensagem automática vai para esse contato — porque a `Cadência Inbound`
+só escuta `CONECTAR` e ele está em `NOVO LEAD` (§2.42), e a `Triagem da Nutrição`
+exige `status-nutricao`, que só chega no fim da cadência. **É o funil quebrado
+protegendo o contato.** No dia em que a L-07 for resolvida, esta proteção
+acidental cai junto — e aí o passo do `GUIA-SDR.md` é a única rede.
