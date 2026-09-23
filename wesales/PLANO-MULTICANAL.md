@@ -52,3 +52,25 @@ Notas: nó `sms` aceito pela API (formato {type:sms, body, attachments}) — gra
 - [x] Agendador `.github/workflows/faxina-tarefas.yml` criado (pelo Claude Code no navegador) no branch padrão. 1ª execução em modo relatório OK (3 abertas, 1 a excluir, SDR 3 vencidas); variável `FAXINA_APLICAR=1` ligada em 23/09 e execução real: 1 excluída com nota. Roda a cada 10 min seg–sex 08–20h e de hora em hora fora disso. Desligar: apagar a variável `FAXINA_APLICAR`.
 - [x] Mensagem automática PROVADA no número do dono (1407; conta Stevo = 9940): entregue como WhatsApp. Textos corrigidos (marca fixa).
 - [ ] Triagem: armada no contato "Pablo Sampaio" (`rdaijzR0ZVCmXLAJ6jT2`, número 9940, tag `status-nutricao`). O 1407 é o número CONECTADO à Stevo (telefone da empresa) — responder dele aparece como mensagem da conta. Dispara quando o 9940 RESPONDER à N1 (mensagem vinda do lead, não enviada pela conta); a TRI-1 sai na janela (seg–sex 08:30–18:30). Depois de testar: tirar `status-nutricao` e desligar o `ZZ TESTE MENSAGEM` (`6bcaba47`).
+
+
+## Fila autônoma (dono ausente, ciclo de 15 min, a partir de 23/09/2026 00:30)
+
+Regras de cada rodada: 1) se houver script/navegador rodando, não interromper —
+usar a rodada para ler documentação e revisar; 2) pegar o PRIMEIRO item `[ ]`
+abaixo, fazer, TESTAR (com o número oficial de teste 9940 / contatos de teste,
+nunca lead real), marcar `[x]` com data e evidência; 3) registrar o aprendizado
+em `APRENDIZADOS-CRM.md`; 4) commit + push; 5) pensar no USUÁRIO (SDR, closer,
+gestor): nomes claros, tarefas acionáveis, nada que dependa de decorar id.
+Proibido sem o dono: excluir workflow/contato, mandar mensagem para lead real,
+mudar preço/plano, mexer em outro projeto.
+
+- [ ] A1 08:30+: conferir que a TRI-1 saiu UMA vez para o 9940 (a marca antes da espera evita duplicata). Registrar. Depois de o dono responder 1/2/3, conferir o desfecho.
+- [ ] A2 Revisão do Pós-agendamento com olhos de usuário: confirmações e lembretes da reunião (PA-CONF, PA-R24, PA-R3H, PA-R30 da biblioteca) agora podem sair pela Stevo (nó `sms`) — sobe comparecimento. Montar, testar com o 9940, publicar.
+- [ ] A3 Recuperação de No-show: mensagem NS-1 automática pela Stevo antes da NS1 (hoje só tarefa).
+- [ ] A4 Closer: ao "Reunião foi qualificada = Sim", criar tarefa `[CLOSER] Apresentar proposta` (a Faxina já reconhece o prefixo) — o closer hoje não tem tarefa nenhuma. Conferir o Loop do closer nó a nó.
+- [ ] A5 Negociação Estagnada (W22, F-13): está especificado e não publicado — revisar, montar com portão por tag (`etapa-negociar`), testar, publicar.
+- [ ] A6 Documentação do usuário: reescrever `briefing-sdr.md` (rotina do SDR multicanal, prioridades, o que cada resultado faz, Faxina, limite 100/dia) e um guia curto do closer. Linguagem de quem usa, não de quem constrói.
+- [ ] A7 Listas inteligentes (tela): Fila Telefone Hoje, Retornos, Fechar Horário, No-show, Nutrição — filtros por tag `etapa-*`/`status-*`; conferir colunas úteis ao SDR.
+- [ ] A8 Auditoria completa de novo (`tools/auditoria_final.py`) + releitura de cada workflow publicado pensando no usuário (nomes dos nós, textos de tarefa, notificações).
+- [ ] A9 Limpeza de testes: contato 9940 (tirar `status-nutricao`, `triagem-enviada` depois do A1), `ZZ TESTE MENSAGEM` e cópias ZZ em rascunho; `ZZ Teste Porta Inbound`.

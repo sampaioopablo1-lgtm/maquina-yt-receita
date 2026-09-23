@@ -161,11 +161,13 @@ def triagem():
                      sim=desligar, nao=[b_dep])
     # espera 2 min e confere o Opt-out: se a 1a resposta foi "pare de me mandar
     # mensagem", o Opt-out ja pos nao-perturbe e a triagem nao responde
-    primeira = [g.wait_step(2, "minutes"),
+    # a marca vem ANTES da espera (medido 23/09: 3 mensagens seguidas do lead
+    # abriram 3 triagens em paralelo, e sairiam 3 TRI-1 iguais). Quem chega
+    # depois ja encontra `triagem-enviada` e nao dispara outra.
+    primeira = [g.tag_step(["triagem-enviada"]), g.wait_step(2, "minutes"),
                 g.Branch("Triagem · Não pediu para parar?", [sem_tag("nao-perturbe")],
-                         sim=sms("TRI-1-v1") + [g.tag_step(["triagem-enviada"]),
-                                                g.note_step("Nutrição", "Lead respondeu à nutrição — triagem enviada.")],
-                         nao=[])]
+                         sim=sms("TRI-1-v1") + [g.note_step("Nutrição", "Lead respondeu à nutrição — triagem enviada.")],
+                         nao=[g.tag_step(["triagem-enviada"], remove=True)])]
     b_tri = g.Branch("Já recebeu a triagem?", [tag("triagem-enviada")], sim=[b_neg], nao=primeira)
     return [g.Branch("Está em nutrição?", [tag("status-nutricao"), sem_tag("nao-perturbe")],
                      sim=[b_tri], nao=[])]
@@ -173,9 +175,11 @@ def triagem():
 
 def resposta(canal):
     return {"status": "draft", "schedule_config": {}, "type": "customer_reply",
-            "masterType": "highlevel", "name": "Cliente Respondeu" + (" — Stevo" if canal == 20 else ""),
+            "masterType": "highlevel", "name": "Cliente Respondeu" + (" — qualquer canal (Stevo)" if canal == 20 else ""),
             "active": True, "triggersChanged": True, "location_id": g.LOC,
-            "conditions": [{"operator": "==", "field": "message.type", "value": canal,
+            # Stevo: SEM filtro de canal - "message.type == 20" nunca dispara (medido 23/09)
+            "conditions": [] if canal == 20 else
+                          [{"operator": "==", "field": "message.type", "value": canal,
                             "title": "Canal de resposta", "type": "select"}]}
 
 
