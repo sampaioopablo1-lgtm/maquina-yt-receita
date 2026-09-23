@@ -4861,6 +4861,81 @@ escreve nada: `python patch_remove_parte2.py` **sem** `--aplicar`. Ele lista
 quantos nós ainda faltam por workflow; **zero nó listado = confirmado, nada a
 fazer**.
 
+
+---
+
+## 2.32 O Espelho de Etapa está em rascunho e 8 workflows publicados já dependem dele — F-17
+
+Achado conferindo o `61eb167`, do PC do dono. O achado **dele** é excelente e
+maior que o meu: num workflow cujo gatilho **não é oportunidade** (tag, contato,
+resposta, link, agendamento), a condição `Pipeline stage is …` lê **valor vazio**
+e dá falso — sem erro nenhum, o lead só segue pelo "não". Ele mediu isso no
+registro de execução da `ZZ TESTE 12X30` e achou **11 workflows publicados**
+testando etapa às cegas. A solução dele é certa: um workflow `Espelho de Etapa`,
+esse sim com gatilho de oportunidade, que mantém no contato exatamente uma tag de
+estado (`etapa-novo-lead`, `etapa-conectar`, `etapa-reuniao`, `etapa-negociar`,
+`etapa-formalizar`, `status-nutricao`, `status-perdido`, `status-ganho`), e os
+outros passam a testar a **tag**, que funciona com qualquer gatilho.
+
+**O problema é a ordem de publicação, e é a terceira vez nesta mesma noite:**
+
+| Papel | Peça | Estado ao vivo |
+|---|---|---|
+| **produtor** — único que aplica as 8 tags (16 nós) | `Espelho de Etapa` | **`draft`**, v3, 36 nós |
+| **consumidores** — já testam as tags | `CONECTAR Estagnado`, `Fechar Horário`, `Interceptação de Sinal — Clique v2`, `Interceptação de Sinal — Resposta v2`, `Opt-out por Palavra-chave`, `Recuperação de No-show`, `Reengajamento 90 dias`, `Retorno Vencido`, `SLA do Closer — No-show` | **`published`**, os 8 (9 peças, `Reengajamento` conta uma vez) |
+| consumidor ainda em rascunho | `Cadência 12x30 — parte 2` | `draft` |
+
+Enquanto o Espelho estiver em rascunho, os 8 publicados testam uma tag que
+**ninguém aplica**. A condição lê tag ausente e vai pelo "não" — que é
+exatamente o mesmo desvio silencioso que o patch foi feito para consertar. Antes
+lia etapa vazia e ia pelo "não"; agora lê tag ausente e vai pelo "não". **O
+comportamento não mudou; só mudou o motivo.** O conserto está escrito e não está
+no ar.
+
+Uma exceção parcial, para a tabela não exagerar: o `Reengajamento 90 dias`
+(publicado) aplica `etapa-conectar` no nó 6 e remove `status-nutricao` no nó 5 por
+conta própria. É um aplicador local de um ramo, não o espelho — não cobre os
+outros 7 nem os outros estados.
+
+**Medido ao vivo, para separar armadilha de incêndio:** `etapa-conectar` está em
+**1 contato** — `teste não atende`, o contato de teste do dono (carrega
+`teste-12x30`, `dateUpdated` 23/09 02:00), e chegou lá pelo nó 6 do
+`Reengajamento`, não pelo espelho. **Zero lead real.** Como nas outras duas,
+armadilha e não incêndio — e a janela fecha com um clique.
+
+**O que fazer, e é ordem e não decisão:** publicar o `Espelho de Etapa` **antes**
+de ligar a esteira, e de preferência antes de qualquer teste novo nos 8. Como o
+espelho tem gatilho de oportunidade e re-entrada ligada, publicá-lo com as 50
+oportunidades já existentes deve etiquetar o acervo — conferir isso ao publicar,
+porque se o gatilho só pegar mudança futura de etapa, as 45 oportunidades paradas
+em `NOVO LEAD` nunca recebem `etapa-novo-lead` e continuam invisíveis às
+condições. **Essa é a pergunta a fazer na tela**, e é a única parte que o dump não
+responde (gatilho não entra nesta exportação — seção 6 do `ESTADO-E-PLANO.md`).
+
+**As 8 tags novas estão fora do `APROVADO.md`.** Entraram por ação do dono, no
+próprio commit — não são criação minha e não estou desfazendo nada. Ficam
+registradas em `campos-e-tags.md` e sinalizadas no `APROVADO.md`, na mesma
+convenção do `teste-regua` e do `fechar-horario`, só para a contagem do gate parar
+de divergir da conta. Com elas, a conta tem 25 tags: 15 do projeto, `teste-regua`,
+`fechar-horario`, `cadencia-12x30-p2`, `teste-12x30` e as 8 do espelho.
+
+### 2.32.1 A regra que já custou três achados na mesma noite
+
+| Ordem | Produtor | Consumidor | Resultado |
+|---|---|---|---|
+| errada | rascunho | publicado | consumidor testa/espera algo que ninguém produz, e vai pelo ramo errado **sem erro** |
+| certa | publicado | publicado ou rascunho | consumidor que entra depois já encontra o estado montado |
+
+Três instâncias em uma noite: `fechar-horario` (§2.31.1, fechada pelo dono no
+mesmo dia), as 8 tags do espelho (aqui, aberta) e — a mesma família — a tag
+aplicada por workflow no ar cuja limpeza mora num workflow em rascunho.
+
+**Checagem barata, para entrar em toda rodada:** para cada tag que apareça em
+condição de workflow publicado, procurar quem a aplica e conferir o `status` de
+quem aplica. Se o aplicador está em `draft` e o consumidor em `published`, é
+defeito ativo e silencioso. O comando que achou este caso está no
+`APRENDIZADOS-CRM.md`, na entrada desta data.
+
 ---
 
 ## 3. Workflow "Mestre de saída" — migrado para as 5 etapas reais em 18/09/2026

@@ -2,6 +2,59 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Produtor em rascunho + consumidor publicado = defeito ativo e silencioso — três casos em uma noite — 23/09/2026, sessão na nuvem
+
+Padrão que apareceu três vezes na mesma noite e merece checagem fixa. Quando um
+workflow **publicado** depende de um estado (tag) que só um workflow em
+**rascunho** produz, a condição lê o estado ausente e desce pelo ramo errado.
+**Nenhum erro aparece** — é o pior formato possível.
+
+| Caso | Produtor | Consumidor | Situação |
+|---|---|---|---|
+| `fechar-horario` | `Pós-ligação v2` aplicava (publicado) | `Fechar Horário` removia e era gatilhado pela tag (rascunho) | fechado pelo dono no mesmo dia, janela limpa |
+| 8 tags do **Espelho de Etapa** | `Espelho de Etapa` (**rascunho**, 16 nós) | **8 workflows publicados** testam as tags | **aberto** |
+| limpeza de tag | workflow no ar aplica | limpeza mora em workflow em rascunho | mesma família |
+
+O caso do espelho é o mais instrutivo porque a correção do dono está certa e
+mesmo assim o defeito continua no ar: antes a condição lia **etapa vazia** e ia
+pelo "não"; agora lê **tag ausente** e vai pelo "não". O comportamento não mudou,
+só o motivo. Conserto escrito ≠ conserto no ar.
+
+**A checagem, barata e para entrar em toda rodada** — para cada tag citada em
+condição de workflow publicado, achar quem aplica e olhar o `status` de quem
+aplica:
+
+```
+cd wesales/workflows-json && python3 - <<'EOF'
+import json,glob
+from collections import defaultdict
+TAGS={'etapa-conectar','etapa-reuniao','status-nutricao'}   # as que interessam
+aplica=defaultdict(list); testa=defaultdict(list)
+for f in sorted(glob.glob("*.json")):
+    w=json.load(open(f)).get('workflow') or json.load(open(f))
+    for i,t in enumerate(w['workflowData']['templates']):
+        a=t.get('attributes',{}) or {}
+        if t.get('type') in ('add_contact_tag','remove_contact_tag'):
+            for tg in (a.get('tags') or []):
+                if tg in TAGS: aplica[(f,w.get('status'))].append(tg)
+        else:
+            blob=json.dumps(a,ensure_ascii=False)
+            h=[tg for tg in TAGS if '"'+tg+'"' in blob]
+            if h: testa[(f,w.get('status'))].append(h)
+print("APLICA:",dict(aplica)); print("TESTA:",dict(testa))
+EOF
+```
+
+Aplicador em `draft` com consumidor em `published` = defeito ativo. Atenção a
+dois detalhes que custaram tempo: o campo do nó é **`type`**, não `actionType`;
+e um dump pode estar pré-patch (comparar com o backup irmão antes de concluir).
+
+**Regra de ordem:** publicar sempre o produtor primeiro. E ao publicar um
+produtor com gatilho de oportunidade, conferir na tela se ele etiqueta o
+**acervo** ou só mudança futura — se for só futura, as oportunidades já paradas
+nunca recebem a tag e seguem invisíveis às condições. O dump não responde isso:
+gatilho não entra nesta exportação.
+
 ## Condição de etapa não funciona em workflow que não é disparado por oportunidade — 11 workflows testavam etapa às cegas — 23/09/2026, sessão do PC
 
 **Medido** no registro de execução da `ZZ TESTE 12X30` (gatilho de tag): o
