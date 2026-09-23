@@ -2,6 +2,24 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+
+## Patch cirúrgico que acrescenta tarefa pode tirar o workflow da regra do fim de semana — 23/09/2026, rodada autônoma
+
+**Medido** pela `auditoria_final.py`: o `Loop do closer v2` nasceu sem janela
+(não criava tarefa, só avisava). O patch do A4 inseriu a tarefa
+`[CLOSER] Apresentar proposta` e o workflow passou a criar tarefa **sem janela**
+— sábado às 22h ela nasceria. Mesma falha no builder novo `build_estagnacao.py`.
+Regra: todo builder/patch que põe `task-notification` ou `sms` passa `janela=`
+seg–sex 08:30–18:30 (cópias ZZ de teste ficam sem, para rodar na hora); e rodar
+a auditoria **depois** de cada patch, não só no fim da obra.
+`tools/patch_janela.py "Nome" --aplicar` põe a janela num publicado (mesmo id,
+backup em `workflows-json/_antes-janela/`).
+
+Também medido: `[CLOSER] Decidir a negociação` é família CLOSER e vale em
+NEGOCIAR; a Faxina (Actions run 35816989927) apagou as duas `Apresentar proposta`
+do 9940 (uma por etapa, outra por duplicata) com nota, e manteve a Decidir.
+Os alertas de estagnação foram provados em cópias `ZZ TESTE` com esperas de
+2 min (`TESTE=1`) — padrão bom para qualquer espera de dias.
 ## Nenhuma data de marco do funil era gravada — campo DATA não aceita `{{right_now.date}}` — 23/09/2026, rodada autônoma
 
 **Medido** no registro de execução do Loop do closer (teste com o contato 9940):

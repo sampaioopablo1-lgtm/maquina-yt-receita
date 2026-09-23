@@ -24,3 +24,11 @@ calculada e o formulário preenchido.
 - No-show: responda em até 2 h (remarcar pelo calendário ou deixar o SDR
   recuperar). Dois no-shows seguidos → o lead é descartado sozinho.
 - Tarefas suas começam com **[CLOSER]**.
+
+## Os dois alertas do gestor
+
+- **Proposta parada**: você marcou **Sim** e, 3 dias depois, o lead ainda está em
+  REUNIÃO DE DIAGNÓSTICO. O gestor é avisado. Apresentou a proposta? Mova para NEGOCIAR.
+- **Negociação parada**: 5 dias em NEGOCIAR sem Ganho nem Perdido. O gestor é
+  avisado e você recebe a tarefa **[CLOSER] Decidir a negociação** — ligue e
+  registre o desfecho (FORMALIZAR + Ganho, ou Perdido com motivo).
