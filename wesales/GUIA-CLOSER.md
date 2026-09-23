@@ -32,3 +32,19 @@ calculada e o formulário preenchido.
 - **Negociação parada**: 5 dias em NEGOCIAR sem Ganho nem Perdido. O gestor é
   avisado e você recebe a tarefa **[CLOSER] Decidir a negociação** — ligue e
   registre o desfecho (FORMALIZAR + Ganho, ou Perdido com motivo).
+
+
+## Antes da reunião: leia o formulário do SDR e escolha a conversa
+
+O lead já recebeu lembretes na mesma linha — ele chega esperando esta
+conversa. Olhe dois campos na nota "REUNIÃO AGENDADA":
+
+| Investe em anúncios | Quem atende os leads | Trilha | Abra a reunião por |
+|---|---|---|---|
+| Sim | Dono / Ninguém fixo | **Atendimento** | "Quanto do que você já investe esfria antes do primeiro contato?" O problema provável não é lead, é aproveitar o que já entra. Oferta: **a O Próximo Cliente atende esses leads e agenda a visita/reunião direto na agenda do vendedor.** |
+| Sim | SDR / Vendedor | **Processo** | Velocidade da 1ª resposta, nº de tentativas, o que fica registrado. Oferta: processo + atendimento como reforço do time. |
+| Nunca / Já investiu e parou | — | **Demanda** | "O anúncio gerou contato? O que aconteceu depois do clique?" Oferta: demanda qualificada **com** atendimento — nunca só lead. |
+| em branco | em branco | **Geral** | Pergunte os dois números que o lembrete D-1 pediu: contatos que chegaram no último mês e quantos viraram venda. |
+
+Se o SDR preencheu **Dor principal**, o lead recebeu 3 h antes: "Você comentou
+que o maior desafio hoje é: …" — **comece exatamente por ela.**

@@ -494,3 +494,14 @@ Edite só a tabela "Templates ativos" e adicione a seção do texto novo abaixo
 das existentes — nunca troque o texto de uma seção já publicada. Atualize o
 nó de envio correspondente em `build-wesales.md`, seção 2.6, para o novo
 código.
+
+
+## Lembretes da Reunião v2 (23/09/2026) — `tools/build_lembretes_reuniao_v2.py`
+
+Substituem PA-CONF/R24/R3H/R30 (que nunca chegaram a ser ligados). Pedido do
+dono: WhatsApp + e-mail, 3 dias / 1 dia / 3 h / 10 min, com link, curtos,
+gerando valor, conforme o formulário do SDR. Textos completos no construtor
+(fonte única). Pontos: **LR-CONF** (WA+e-mail), **LR-D3-{ATENDIMENTO,
+PROCESSO, DEMANDA, GERAL}** (WA), **LR-D1** (WA+e-mail), **LR-H3-DOR** ou
+**LR-H3-{trilha}** (WA), **LR-M10** (WA+e-mail). Sem nome, sem {{user.*}},
+sem "amanhã/hoje", sem número inventado. Link = `{{appointment.meeting_location}}`.
