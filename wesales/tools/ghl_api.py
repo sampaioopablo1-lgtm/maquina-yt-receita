@@ -25,6 +25,7 @@ STAGES = {
     "FORMALIZAR": "b8485ec0-98e8-459f-b990-f40a5e3bd25b",
 }
 USER = "JdvhvOTEBTvUyRi0BXU8"
+MAX_NOS = 450          # acima disto o GHL pode recusar salvar (724 recusado, 410 aceito)
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 BEARER_FILE = os.path.join(_HERE, "..", ".local", "_ghl_bearer.txt")
@@ -447,6 +448,13 @@ def preencher(c, wf: str, name: str, steps: list, triggers: list,
     """
     guard(wf)
     steps = montar(steps)
+    # TRAVA (23/09/2026): o GHL recusa workflow grande ("too big to be saved";
+    # 724 nos falhou, 410 salvou). Como os gatilhos sao reapontados ANTES de
+    # salvar os nos, uma recusa deixava o gatilho apontando para no inexistente
+    # e INATIVO - a 12x30 ficou sem entrada ate ser restaurada. Barra antes.
+    if len(steps) > MAX_NOS:
+        raise SystemExit("ABORTADO antes de tocar no CRM: %d nós em '%s' (limite seguro %d). "
+                         "Divida o workflow." % (len(steps), name, MAX_NOS))
 
     for t in (tags_to_create or []):
         c.create_location_tag(t)

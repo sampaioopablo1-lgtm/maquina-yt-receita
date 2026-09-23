@@ -1,0 +1,4140 @@
+{
+  "workflow": {
+    "_id": "0e82d852-15f4-4219-9d0d-da0cccf11826",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Pós-ligação v2",
+    "version": 4,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/4",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F4?alt=media&token=d477f194-02b6-4c9e-8eb5-7bd565256f72",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T12:35:58.574Z",
+    "updatedAt": "2026-09-23T01:35:50.970Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/0e82d852-15f4-4219-9d0d-da0cccf11826/3",
+    "window": null,
+    "workflowNote": null,
+    "id": "0e82d852-15f4-4219-9d0d-da0cccf11826",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "a5bcc794-0f3e-4fa4-8900-27a74720da98",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "1215b612-d858-439c-aa5f-e68841e5f94e",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "3e60ff4d-d801-4b77-a77f-02ecfa6bf40e",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "has_no_value",
+                        "__conditionId": "053a8b33-104e-42a1-8a00-49c90e242c69",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "1215b612-d858-439c-aa5f-e68841e5f94e",
+            "cc63d6ea-d824-490e-9779-b1a0b43e2580"
+          ],
+          "comments": [],
+          "nodeType": "condition-node"
+        },
+        {
+          "id": "1215b612-d858-439c-aa5f-e68841e5f94e",
+          "parent": "a5bcc794-0f3e-4fa4-8900-27a74720da98",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "cc63d6ea-d824-490e-9779-b1a0b43e2580"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "a5bcc794-0f3e-4fa4-8900-27a74720da98"
+        },
+        {
+          "id": "cc63d6ea-d824-490e-9779-b1a0b43e2580",
+          "parent": "a5bcc794-0f3e-4fa4-8900-27a74720da98",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "4be950b2-47ea-4411-9455-f3f7c5c2582d",
+          "sibling": [
+            "1215b612-d858-439c-aa5f-e68841e5f94e"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "a5bcc794-0f3e-4fa4-8900-27a74720da98"
+        },
+        {
+          "id": "4be950b2-47ea-4411-9455-f3f7c5c2582d",
+          "stepIndex": 1,
+          "parent": "cc63d6ea-d824-490e-9779-b1a0b43e2580",
+          "order": 0,
+          "attributes": {
+            "selectField": "JUBhmz0DGQMvjLCxSNrk",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "JUBhmz0DGQMvjLCxSNrk",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "a8e5013c-15ba-4def-b006-2b57e10c9b0b",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "d1f24887-6ba0-4413-9d29-f7fc1b366075",
+          "parentKey": "cc63d6ea-d824-490e-9779-b1a0b43e2580"
+        },
+        {
+          "id": "d1f24887-6ba0-4413-9d29-f7fc1b366075",
+          "parent": "cc63d6ea-d824-490e-9779-b1a0b43e2580",
+          "order": 1,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "2f5388a8-dd69-4e46-a699-aa7028ce1c94",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "785fda2b-af67-4b08-a3e4-294478986697",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "e3aa3419-df75-4416-ac9d-1becccdaae08",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "2f5388a8-dd69-4e46-a699-aa7028ce1c94",
+            "6d23e081-9036-4838-a242-53d019d92136"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "4be950b2-47ea-4411-9455-f3f7c5c2582d"
+        },
+        {
+          "id": "2f5388a8-dd69-4e46-a699-aa7028ce1c94",
+          "parent": "d1f24887-6ba0-4413-9d29-f7fc1b366075",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "80b72918-bbf0-4792-98fc-ad2e30d72d19",
+          "sibling": [
+            "6d23e081-9036-4838-a242-53d019d92136"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "d1f24887-6ba0-4413-9d29-f7fc1b366075"
+        },
+        {
+          "id": "80b72918-bbf0-4792-98fc-ad2e30d72d19",
+          "stepIndex": 2,
+          "parent": "2f5388a8-dd69-4e46-a699-aa7028ce1c94",
+          "order": 0,
+          "attributes": {
+            "selectField": "5j9SerJeZ6ngfZCPb2Wg",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "5j9SerJeZ6ngfZCPb2Wg",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "c55f9344-4ad4-4d89-a695-855230583dc6",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "parentKey": "2f5388a8-dd69-4e46-a699-aa7028ce1c94"
+        },
+        {
+          "id": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "parent": "2f5388a8-dd69-4e46-a699-aa7028ce1c94",
+          "order": 1,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "7df71897-6d0d-4acc-8180-906bc9fac3a7",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Atendeu",
+                        "__conditionId": "ce618146-c118-4a47-b3b9-89da3b789f20",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "f85fb4d6-645e-477d-93ec-824871c592e4",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "a7b6adb4-4766-4031-8aa0-33888c1ac904",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Caixa Postal",
+                        "__conditionId": "20d0f8d9-d27d-4e51-9769-c974aa8c4e4c",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1ca60334-da5a-445c-afdf-c8d369232e98",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Não atendeu",
+                        "__conditionId": "0d93fa3f-9a6b-4e32-80de-47ad1a8b8ed8",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "f504cf64-9679-414e-b281-242882acc198",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "89b62988-0091-43a5-83ac-398db3394caf",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Pediu retorno",
+                        "__conditionId": "5c4d6c94-15d5-4687-8bda-e51ca6a12929",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "18753435-2ab1-4416-a347-8e6245673e11",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "d31fdc9d-ac31-471b-8e8c-13ac6179e20f",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "1ae7b758-11e0-4cbe-b374-7382c50dbc2a",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "77003d93-17dd-4b03-a360-aad706f07cb3",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "c48a79f4-06f4-4fda-989a-eddd2d2c0f4c",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Número errado",
+                        "__conditionId": "2d657270-66f8-4c4f-a986-812a0143c02d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "77003d93-17dd-4b03-a360-aad706f07cb3",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "80b72918-bbf0-4792-98fc-ad2e30d72d19"
+        },
+        {
+          "id": "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "39ca7568-c306-4ad7-bf0f-3eb32d5a4017",
+          "sibling": [
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "77003d93-17dd-4b03-a360-aad706f07cb3",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e"
+        },
+        {
+          "id": "39ca7568-c306-4ad7-bf0f-3eb32d5a4017",
+          "parent": "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "d7ab2d44-912c-4407-b48a-0f4ef49599d3",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "75bcd80b-98bf-4194-bd9b-a9985d87e296",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+            "0c84a52f-8ef8-4506-bb40-eff49df9f8e1"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "c415c0ce-543d-4ead-817f-f0e9513bf2c1"
+        },
+        {
+          "id": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "parent": "39ca7568-c306-4ad7-bf0f-3eb32d5a4017",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "9565c8f3-74c6-4773-aecb-2855817c8595",
+          "sibling": [
+            "0c84a52f-8ef8-4506-bb40-eff49df9f8e1"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "39ca7568-c306-4ad7-bf0f-3eb32d5a4017"
+        },
+        {
+          "id": "9565c8f3-74c6-4773-aecb-2855817c8595",
+          "stepIndex": 4,
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 0,
+          "attributes": {
+            "selectField": "Og1CkI9x9OztsV242nIM",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "Og1CkI9x9OztsV242nIM",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "e6c09781-b57d-45df-ba1a-6cce083e9804",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "c14d4a15-b227-40b6-acf0-f11f7c09e636",
+          "parentKey": "00b10fab-7b2c-4c6e-9118-a17e34808ebe"
+        },
+        {
+          "id": "c14d4a15-b227-40b6-acf0-f11f7c09e636",
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "e526c8f4-333e-4b5c-b13e-ad008ad7413a",
+          "parentKey": "9565c8f3-74c6-4773-aecb-2855817c8595"
+        },
+        {
+          "id": "e526c8f4-333e-4b5c-b13e-ad008ad7413a",
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "conectado-hoje",
+              "fechar-horario"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "6a204db9-c7f5-4e45-a189-f08f00dfe488",
+          "parentKey": "c14d4a15-b227-40b6-acf0-f11f7c09e636"
+        },
+        {
+          "id": "6a204db9-c7f5-4e45-a189-f08f00dfe488",
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "b4ebdcad-3b89-47e0-a3a2-0174396ef27c",
+          "parentKey": "e526c8f4-333e-4b5c-b13e-ad008ad7413a"
+        },
+        {
+          "id": "b4ebdcad-3b89-47e0-a3a2-0174396ef27c",
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 4,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "62a57a2a-e386-40d5-aec7-6022c2b14c3d",
+          "parentKey": "6a204db9-c7f5-4e45-a189-f08f00dfe488"
+        },
+        {
+          "id": "62a57a2a-e386-40d5-aec7-6022c2b14c3d",
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 5,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "uJnePU1Tl1Zr1fTxYKIz",
+                "value": "",
+                "title": "Data conectado",
+                "type": "date",
+                "date": "currentDate"
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "ea6c7817-fd1d-42ba-979b-4ca649af71a7",
+          "parentKey": "b4ebdcad-3b89-47e0-a3a2-0174396ef27c"
+        },
+        {
+          "id": "ea6c7817-fd1d-42ba-979b-4ca649af71a7",
+          "stepIndex": 1,
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 6,
+          "attributes": {
+            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "next": "627573c8-908c-4f3c-a274-6530f05f45b7",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "62a57a2a-e386-40d5-aec7-6022c2b14c3d"
+        },
+        {
+          "id": "627573c8-908c-4f3c-a274-6530f05f45b7",
+          "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
+          "order": 7,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Atendeu</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Atendeu"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "ea6c7817-fd1d-42ba-979b-4ca649af71a7"
+        },
+        {
+          "id": "0c84a52f-8ef8-4506-bb40-eff49df9f8e1",
+          "parent": "39ca7568-c306-4ad7-bf0f-3eb32d5a4017",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "a39fe8fc-88d8-4f49-bd32-15dede515f2c",
+          "sibling": [
+            "00b10fab-7b2c-4c6e-9118-a17e34808ebe"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "39ca7568-c306-4ad7-bf0f-3eb32d5a4017"
+        },
+        {
+          "id": "a39fe8fc-88d8-4f49-bd32-15dede515f2c",
+          "stepIndex": 5,
+          "parent": "0c84a52f-8ef8-4506-bb40-eff49df9f8e1",
+          "order": 0,
+          "attributes": {
+            "selectField": "LB11ao0AdSI1QSHyZBOP",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "LB11ao0AdSI1QSHyZBOP",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "af5abbdf-3e9b-4325-be0e-3d7a1c3a28a5",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "parentKey": "0c84a52f-8ef8-4506-bb40-eff49df9f8e1"
+        },
+        {
+          "id": "f85fb4d6-645e-477d-93ec-824871c592e4",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "4e95edf4-edde-4696-8d3a-04fa3ee13dd8",
+          "sibling": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "77003d93-17dd-4b03-a360-aad706f07cb3",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e"
+        },
+        {
+          "id": "4e95edf4-edde-4696-8d3a-04fa3ee13dd8",
+          "parent": "f85fb4d6-645e-477d-93ec-824871c592e4",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "fa0418c0-97e3-42ab-8d52-47df20520415",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "d7ab2d44-912c-4407-b48a-0f4ef49599d3",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "75bcd80b-98bf-4194-bd9b-a9985d87e296",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "fa0418c0-97e3-42ab-8d52-47df20520415",
+            "7cc93eaa-a537-4662-bbbf-a299a0bda492"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "f85fb4d6-645e-477d-93ec-824871c592e4"
+        },
+        {
+          "id": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "parent": "4e95edf4-edde-4696-8d3a-04fa3ee13dd8",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "b12c1754-499c-4f86-ab8f-dc584eb3eed0",
+          "sibling": [
+            "7cc93eaa-a537-4662-bbbf-a299a0bda492"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "4e95edf4-edde-4696-8d3a-04fa3ee13dd8"
+        },
+        {
+          "id": "b12c1754-499c-4f86-ab8f-dc584eb3eed0",
+          "stepIndex": 6,
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 0,
+          "attributes": {
+            "selectField": "Og1CkI9x9OztsV242nIM",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "Og1CkI9x9OztsV242nIM",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "e6c09781-b57d-45df-ba1a-6cce083e9804",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "9d876f39-9cbb-4436-a9a9-e120aef19701",
+          "parentKey": "fa0418c0-97e3-42ab-8d52-47df20520415"
+        },
+        {
+          "id": "9d876f39-9cbb-4436-a9a9-e120aef19701",
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "83965e7e-9c66-4ff1-967f-b9e3b71f8faa",
+          "parentKey": "b12c1754-499c-4f86-ab8f-dc584eb3eed0"
+        },
+        {
+          "id": "83965e7e-9c66-4ff1-967f-b9e3b71f8faa",
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "conectado-hoje",
+              "fechar-horario"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "7ea08a43-8185-4921-ac1f-d827a5019a50",
+          "parentKey": "9d876f39-9cbb-4436-a9a9-e120aef19701"
+        },
+        {
+          "id": "7ea08a43-8185-4921-ac1f-d827a5019a50",
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "02b2d15f-91e4-4c62-92f0-b9d7fbfa0097",
+          "parentKey": "83965e7e-9c66-4ff1-967f-b9e3b71f8faa"
+        },
+        {
+          "id": "02b2d15f-91e4-4c62-92f0-b9d7fbfa0097",
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 4,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "8e1e6d8f-0da1-42dc-9f7c-216558040b7f",
+          "parentKey": "7ea08a43-8185-4921-ac1f-d827a5019a50"
+        },
+        {
+          "id": "8e1e6d8f-0da1-42dc-9f7c-216558040b7f",
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 5,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "uJnePU1Tl1Zr1fTxYKIz",
+                "value": "",
+                "title": "Data conectado",
+                "type": "date",
+                "date": "currentDate"
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "25cb931b-d8b6-479f-a882-fbdb11c1769c",
+          "parentKey": "02b2d15f-91e4-4c62-92f0-b9d7fbfa0097"
+        },
+        {
+          "id": "25cb931b-d8b6-479f-a882-fbdb11c1769c",
+          "stepIndex": 2,
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 6,
+          "attributes": {
+            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "next": "4ef91a6e-fbe2-47c9-901e-0cf7bb82b0bc",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "8e1e6d8f-0da1-42dc-9f7c-216558040b7f"
+        },
+        {
+          "id": "4ef91a6e-fbe2-47c9-901e-0cf7bb82b0bc",
+          "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
+          "order": 7,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Atendeu</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Atendeu"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "25cb931b-d8b6-479f-a882-fbdb11c1769c"
+        },
+        {
+          "id": "7cc93eaa-a537-4662-bbbf-a299a0bda492",
+          "parent": "4e95edf4-edde-4696-8d3a-04fa3ee13dd8",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "650140d4-a45b-4698-8a47-46cc743fa7a0",
+          "sibling": [
+            "fa0418c0-97e3-42ab-8d52-47df20520415"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "4e95edf4-edde-4696-8d3a-04fa3ee13dd8"
+        },
+        {
+          "id": "650140d4-a45b-4698-8a47-46cc743fa7a0",
+          "stepIndex": 7,
+          "parent": "7cc93eaa-a537-4662-bbbf-a299a0bda492",
+          "order": 0,
+          "attributes": {
+            "selectField": "LB11ao0AdSI1QSHyZBOP",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "LB11ao0AdSI1QSHyZBOP",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "af5abbdf-3e9b-4325-be0e-3d7a1c3a28a5",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "parentKey": "7cc93eaa-a537-4662-bbbf-a299a0bda492"
+        },
+        {
+          "id": "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "77003d93-17dd-4b03-a360-aad706f07cb3",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "next": "6b9e5225-1bad-4d2a-a248-8c64bc9e6a16"
+        },
+        {
+          "id": "6b9e5225-1bad-4d2a-a248-8c64bc9e6a16",
+          "parent": "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "8bc0f19a-dea7-4033-babb-46f9457ef00e",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "1097a587-83f5-40c7-807b-77a62af192da",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4",
+            "763149b2-1e70-44d5-8fcd-821c02c7848c"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3"
+        },
+        {
+          "id": "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4",
+          "parent": "6b9e5225-1bad-4d2a-a248-8c64bc9e6a16",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "7cc801e2-bf4b-4302-9362-573175123215",
+          "sibling": [
+            "763149b2-1e70-44d5-8fcd-821c02c7848c"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "6b9e5225-1bad-4d2a-a248-8c64bc9e6a16"
+        },
+        {
+          "id": "7cc801e2-bf4b-4302-9362-573175123215",
+          "stepIndex": 15,
+          "parent": "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4",
+          "order": 0,
+          "attributes": {
+            "selectField": "tQ7Fzo6cWeBDmEoaTBIZ",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "tQ7Fzo6cWeBDmEoaTBIZ",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "f220c103-786b-486a-af75-ee3b16172128",
+                "value": 1
+              }
+            ],
+            "updateFieldType": "numerical"
+          },
+          "name": "Total de conexões +1",
+          "type": "math_operation",
+          "next": "62b8cdcb-fafb-481b-ada3-bc6adea0d99d",
+          "parentKey": "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4"
+        },
+        {
+          "id": "62b8cdcb-fafb-481b-ada3-bc6adea0d99d",
+          "parent": "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "2706270c-7dec-4e81-9469-039e4cc2d788",
+          "parentKey": "7cc801e2-bf4b-4302-9362-573175123215"
+        },
+        {
+          "id": "2706270c-7dec-4e81-9469-039e4cc2d788",
+          "parent": "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "parentKey": "62b8cdcb-fafb-481b-ada3-bc6adea0d99d"
+        },
+        {
+          "id": "763149b2-1e70-44d5-8fcd-821c02c7848c",
+          "parent": "6b9e5225-1bad-4d2a-a248-8c64bc9e6a16",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "68fc6b3a-d130-4522-a3a7-e4dca3581a15",
+          "sibling": [
+            "25ce51b1-cc74-4b5c-8764-fd5cf7d374b4"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "6b9e5225-1bad-4d2a-a248-8c64bc9e6a16"
+        },
+        {
+          "id": "68fc6b3a-d130-4522-a3a7-e4dca3581a15",
+          "stepIndex": 16,
+          "parent": "763149b2-1e70-44d5-8fcd-821c02c7848c",
+          "order": 0,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Zera WA não atendidas seguidas",
+          "type": "update_contact_field",
+          "next": "734b365e-f310-4fd8-b090-fb32957be460",
+          "parentKey": "763149b2-1e70-44d5-8fcd-821c02c7848c"
+        },
+        {
+          "id": "734b365e-f310-4fd8-b090-fb32957be460",
+          "parent": "763149b2-1e70-44d5-8fcd-821c02c7848c",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "71712c41-47a1-452b-b216-da8eb69bda39",
+          "parentKey": "68fc6b3a-d130-4522-a3a7-e4dca3581a15"
+        },
+        {
+          "id": "71712c41-47a1-452b-b216-da8eb69bda39",
+          "parent": "763149b2-1e70-44d5-8fcd-821c02c7848c",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "parentKey": "734b365e-f310-4fd8-b090-fb32957be460"
+        },
+        {
+          "id": "f504cf64-9679-414e-b281-242882acc198",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "2749da04-2721-4ca1-b753-905eefe9fee9",
+          "sibling": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "77003d93-17dd-4b03-a360-aad706f07cb3",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e"
+        },
+        {
+          "id": "2749da04-2721-4ca1-b753-905eefe9fee9",
+          "parent": "f504cf64-9679-414e-b281-242882acc198",
+          "order": 0,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "chuJMRlKzY0Uq1f0lSkX",
+                "value": 5,
+                "title": "Prioridade",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "0af58aaa-748c-444b-bcaa-6f3b077910df",
+          "parentKey": "f504cf64-9679-414e-b281-242882acc198"
+        },
+        {
+          "id": "0af58aaa-748c-444b-bcaa-6f3b077910df",
+          "parent": "f504cf64-9679-414e-b281-242882acc198",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "e0373809-0591-42d6-84d7-fcfc07f3b8c2",
+          "parentKey": "2749da04-2721-4ca1-b753-905eefe9fee9"
+        },
+        {
+          "id": "e0373809-0591-42d6-84d7-fcfc07f3b8c2",
+          "parent": "f504cf64-9679-414e-b281-242882acc198",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "fila-quente"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "a0c0d700-122e-4d8f-8b79-881eec6f4d9a",
+          "parentKey": "0af58aaa-748c-444b-bcaa-6f3b077910df"
+        },
+        {
+          "id": "a0c0d700-122e-4d8f-8b79-881eec6f4d9a",
+          "stepIndex": 3,
+          "parent": "f504cf64-9679-414e-b281-242882acc198",
+          "order": 3,
+          "attributes": {
+            "title": "[RETORNO] Ligar de volta",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead pediu retorno na ligação. Ligar de volta.</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 1,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": false
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "e0373809-0591-42d6-84d7-fcfc07f3b8c2"
+        },
+        {
+          "id": "18753435-2ab1-4416-a347-8e6245673e11",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "15609525-ea0e-4b25-930c-9709ec37483a",
+          "sibling": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "77003d93-17dd-4b03-a360-aad706f07cb3",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e"
+        },
+        {
+          "id": "15609525-ea0e-4b25-930c-9709ec37483a",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 0,
+          "attributes": {
+            "tags": [
+              "nao-perturbe"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "36fb9b9c-e0b3-46df-81e4-0e9f14dc8cfe",
+          "parentKey": "18753435-2ab1-4416-a347-8e6245673e11"
+        },
+        {
+          "id": "36fb9b9c-e0b3-46df-81e4-0e9f14dc8cfe",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 1,
+          "attributes": {
+            "type": "dnd_contact",
+            "dnd_direction": "outbound",
+            "dnd_contact": "enable",
+            "specific_channels": []
+          },
+          "name": "Habilitar/desabilitar DND",
+          "type": "dnd_contact",
+          "next": "2803b89f-db1b-45ae-9463-8c8b6128b1c1",
+          "parentKey": "15609525-ea0e-4b25-930c-9709ec37483a"
+        },
+        {
+          "id": "2803b89f-db1b-45ae-9463-8c8b6128b1c1",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 2,
+          "attributes": {
+            "type": "dnd_contact",
+            "dnd_direction": "inbound",
+            "dnd_contact": "enable",
+            "specific_channels": []
+          },
+          "name": "Habilitar/desabilitar DND",
+          "type": "dnd_contact",
+          "next": "a407fbdc-8cda-4d5d-a75a-6812e51cde60",
+          "parentKey": "36fb9b9c-e0b3-46df-81e4-0e9f14dc8cfe"
+        },
+        {
+          "id": "a407fbdc-8cda-4d5d-a75a-6812e51cde60",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-quente",
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "bc47a7a3-efe7-43ac-a391-365f28e96a5a",
+          "parentKey": "2803b89f-db1b-45ae-9463-8c8b6128b1c1"
+        },
+        {
+          "id": "bc47a7a3-efe7-43ac-a391-365f28e96a5a",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 4,
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "c64a808b-3040-431e-8015-642a265e1022",
+              "319ae603-2e33-4ea9-a8b7-fe63a914a40e"
+            ]
+          },
+          "name": "Remove from Workflow",
+          "type": "remove_from_workflow",
+          "next": "a15ad436-188a-4c9e-8038-b2952d6c5e00",
+          "parentKey": "a407fbdc-8cda-4d5d-a75a-6812e51cde60"
+        },
+        {
+          "id": "a15ad436-188a-4c9e-8038-b2952d6c5e00",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 5,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "opportunity_status": "lost",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "b56dc04f-a5e5-4c3c-8ec0-7a7beb298bf0",
+          "parentKey": "bc47a7a3-efe7-43ac-a391-365f28e96a5a"
+        },
+        {
+          "id": "b56dc04f-a5e5-4c3c-8ec0-7a7beb298bf0",
+          "parent": "18753435-2ab1-4416-a347-8e6245673e11",
+          "order": 6,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Opt-out registrado</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "a15ad436-188a-4c9e-8038-b2952d6c5e00"
+        },
+        {
+          "id": "77003d93-17dd-4b03-a360-aad706f07cb3",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "5c27163f-5535-476e-8241-8b63b827056b",
+          "sibling": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "8af64241-6f27-4fae-98b2-38ab9688d450"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e"
+        },
+        {
+          "id": "5c27163f-5535-476e-8241-8b63b827056b",
+          "parent": "77003d93-17dd-4b03-a360-aad706f07cb3",
+          "order": 0,
+          "attributes": {
+            "tags": [
+              "telefone-invalido"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "0c8361ff-0992-441c-b13f-9bd7a8decbeb",
+          "parentKey": "77003d93-17dd-4b03-a360-aad706f07cb3"
+        },
+        {
+          "id": "0c8361ff-0992-441c-b13f-9bd7a8decbeb",
+          "parent": "77003d93-17dd-4b03-a360-aad706f07cb3",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "314c7b8e-c43e-4bca-a158-d85554089b86",
+          "parentKey": "5c27163f-5535-476e-8241-8b63b827056b"
+        },
+        {
+          "id": "314c7b8e-c43e-4bca-a158-d85554089b86",
+          "parent": "77003d93-17dd-4b03-a360-aad706f07cb3",
+          "order": 2,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "d6e55896-e980-47c0-a5ef-d37be47a4b08",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "048732b9-760b-45db-afa6-de62e304c2da",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "email",
+                        "conditionOperator": "has_value",
+                        "__conditionId": "86c38f5d-31cd-4887-a1d0-81111857118e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "2tLo2m4KLTcP6fTEq3LG",
+                        "conditionOperator": "has_value",
+                        "__conditionId": "17d7b154-c19e-4f27-8d63-08f3c6efb0d7",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "d6e55896-e980-47c0-a5ef-d37be47a4b08",
+            "295dada0-de7a-4640-b471-7d6157c687a9"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "0c8361ff-0992-441c-b13f-9bd7a8decbeb"
+        },
+        {
+          "id": "d6e55896-e980-47c0-a5ef-d37be47a4b08",
+          "parent": "314c7b8e-c43e-4bca-a158-d85554089b86",
+          "order": 3,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "271266ea-be69-4b59-84ae-5b6772ae4672",
+          "sibling": [
+            "295dada0-de7a-4640-b471-7d6157c687a9"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "314c7b8e-c43e-4bca-a158-d85554089b86"
+        },
+        {
+          "id": "271266ea-be69-4b59-84ae-5b6772ae4672",
+          "parent": "d6e55896-e980-47c0-a5ef-d37be47a4b08",
+          "order": 0,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "opportunity_status": "abandoned",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "2ded0e6d-640a-4d3d-8435-7f0e4ea3b7e5",
+          "parentKey": "d6e55896-e980-47c0-a5ef-d37be47a4b08"
+        },
+        {
+          "id": "2ded0e6d-640a-4d3d-8435-7f0e4ea3b7e5",
+          "parent": "d6e55896-e980-47c0-a5ef-d37be47a4b08",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "nutricao-90d"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "b4b9d1ca-dbf2-4f90-b63f-c63fe6efa8dc",
+          "parentKey": "271266ea-be69-4b59-84ae-5b6772ae4672"
+        },
+        {
+          "id": "b4b9d1ca-dbf2-4f90-b63f-c63fe6efa8dc",
+          "parent": "d6e55896-e980-47c0-a5ef-d37be47a4b08",
+          "order": 2,
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Telefone inválido: {{contact.name}} — revisar a fonte da lista",
+              "title": "Checar telefone",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ],
+              "redirectPage": "contact"
+            }
+          },
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "parentKey": "2ded0e6d-640a-4d3d-8435-7f0e4ea3b7e5",
+          "stats": {
+            "id": "b2374d9e-964e-4f7e-b41d-e6346e6f71d6",
+            "stats": {
+              "delivered": "0%",
+              "opened": "0%",
+              "clicked": "0%",
+              "replied": "0%",
+              "bounced": "0%",
+              "unsubscribed": "0%"
+            },
+            "total": "0"
+          }
+        },
+        {
+          "id": "295dada0-de7a-4640-b471-7d6157c687a9",
+          "parent": "314c7b8e-c43e-4bca-a158-d85554089b86",
+          "order": 3,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "62552870-cba0-42d4-ad7f-fd067ecdcb19",
+          "sibling": [
+            "d6e55896-e980-47c0-a5ef-d37be47a4b08"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "314c7b8e-c43e-4bca-a158-d85554089b86"
+        },
+        {
+          "id": "62552870-cba0-42d4-ad7f-fd067ecdcb19",
+          "parent": "295dada0-de7a-4640-b471-7d6157c687a9",
+          "order": 0,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "opportunity_status": "lost",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "83d9b7aa-6dbb-44ad-9298-3d3463146a5b",
+          "parentKey": "295dada0-de7a-4640-b471-7d6157c687a9"
+        },
+        {
+          "id": "83d9b7aa-6dbb-44ad-9298-3d3463146a5b",
+          "parent": "295dada0-de7a-4640-b471-7d6157c687a9",
+          "order": 1,
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Telefone inválido: {{contact.name}} — revisar a fonte da lista",
+              "title": "Checar telefone",
+              "redirectPage": "contact",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ]
+            }
+          },
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "parentKey": "62552870-cba0-42d4-ad7f-fd067ecdcb19",
+          "stats": {
+            "id": "3ad84e18-6d73-4906-8027-e0b83262e4fb",
+            "stats": {
+              "delivered": "0%",
+              "opened": "0%",
+              "clicked": "0%",
+              "replied": "0%",
+              "bounced": "0%",
+              "unsubscribed": "0%"
+            },
+            "total": "0"
+          }
+        },
+        {
+          "id": "8af64241-6f27-4fae-98b2-38ab9688d450",
+          "parent": "c87bd778-03a4-4d47-bc07-402532da171e",
+          "order": 2,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "c415c0ce-543d-4ead-817f-f0e9513bf2c1",
+            "f85fb4d6-645e-477d-93ec-824871c592e4",
+            "3f8ee6fe-c63a-4dd7-b9d1-2da52aa649d3",
+            "f504cf64-9679-414e-b281-242882acc198",
+            "18753435-2ab1-4416-a347-8e6245673e11",
+            "77003d93-17dd-4b03-a360-aad706f07cb3"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "c87bd778-03a4-4d47-bc07-402532da171e"
+        },
+        {
+          "id": "6d23e081-9036-4838-a242-53d019d92136",
+          "parent": "d1f24887-6ba0-4413-9d29-f7fc1b366075",
+          "order": 2,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "4ddbe9ba-79a2-49cc-87c1-9a381eef515d",
+          "sibling": [
+            "2f5388a8-dd69-4e46-a699-aa7028ce1c94"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "d1f24887-6ba0-4413-9d29-f7fc1b366075"
+        },
+        {
+          "id": "4ddbe9ba-79a2-49cc-87c1-9a381eef515d",
+          "stepIndex": 3,
+          "parent": "6d23e081-9036-4838-a242-53d019d92136",
+          "order": 0,
+          "attributes": {
+            "selectField": "wCzdqF7uLQwtrZ1JyZRn",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "wCzdqF7uLQwtrZ1JyZRn",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "fdd06348-5355-4ff8-afab-b7e632a303f2",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "parentKey": "6d23e081-9036-4838-a242-53d019d92136",
+          "next": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        },
+        {
+          "id": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "parent": "6d23e081-9036-4838-a242-53d019d92136",
+          "order": 1,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "ebd12e91-858d-4575-9103-40c97ec88b53",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "7df71897-6d0d-4acc-8180-906bc9fac3a7",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Atendeu",
+                        "__conditionId": "ce618146-c118-4a47-b3b9-89da3b789f20",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "a1e7268e-859d-4950-8860-43bf3dcff879",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "a7b6adb4-4766-4031-8aa0-33888c1ac904",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Caixa Postal",
+                        "__conditionId": "20d0f8d9-d27d-4e51-9769-c974aa8c4e4c",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "f2f321bd-7c9b-44d0-9694-1005630eafde",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1ca60334-da5a-445c-afdf-c8d369232e98",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Não atendeu",
+                        "__conditionId": "0d93fa3f-9a6b-4e32-80de-47ad1a8b8ed8",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "89b62988-0091-43a5-83ac-398db3394caf",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Pediu retorno",
+                        "__conditionId": "5c4d6c94-15d5-4687-8bda-e51ca6a12929",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "53328770-553d-415b-95bb-efd621395d67",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "d31fdc9d-ac31-471b-8e8c-13ac6179e20f",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "1ae7b758-11e0-4cbe-b374-7382c50dbc2a",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              },
+              {
+                "id": "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "c48a79f4-06f4-4fda-989a-eddd2d2c0f4c",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "==",
+                        "conditionValue": "Número errado",
+                        "__conditionId": "2d657270-66f8-4c4f-a986-812a0143c02d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition - telefone",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "4ddbe9ba-79a2-49cc-87c1-9a381eef515d"
+        },
+        {
+          "id": "ebd12e91-858d-4575-9103-40c97ec88b53",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "e7312d0d-2f33-41f9-81df-bacf0bb3166c",
+          "sibling": [
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        },
+        {
+          "id": "e7312d0d-2f33-41f9-81df-bacf0bb3166c",
+          "parent": "ebd12e91-858d-4575-9103-40c97ec88b53",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "58c853a6-3b39-4ab3-970f-a20833927c33",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "d7ab2d44-912c-4407-b48a-0f4ef49599d3",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "75bcd80b-98bf-4194-bd9b-a9985d87e296",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "58c853a6-3b39-4ab3-970f-a20833927c33",
+            "a1fa1716-3565-4b00-b5cd-853970c6df37"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "ebd12e91-858d-4575-9103-40c97ec88b53"
+        },
+        {
+          "id": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "parent": "e7312d0d-2f33-41f9-81df-bacf0bb3166c",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "244b75e7-4be2-49f3-92a9-1408732895c1",
+          "sibling": [
+            "a1fa1716-3565-4b00-b5cd-853970c6df37"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "e7312d0d-2f33-41f9-81df-bacf0bb3166c"
+        },
+        {
+          "id": "244b75e7-4be2-49f3-92a9-1408732895c1",
+          "stepIndex": 11,
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 0,
+          "attributes": {
+            "selectField": "tQ7Fzo6cWeBDmEoaTBIZ",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "tQ7Fzo6cWeBDmEoaTBIZ",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "312a8131-2d73-421a-99c8-eaf911067ea5",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "ce13b704-9fa1-4283-9624-822787ce764e",
+          "parentKey": "58c853a6-3b39-4ab3-970f-a20833927c33"
+        },
+        {
+          "id": "ce13b704-9fa1-4283-9624-822787ce764e",
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "ba540981-e98a-422e-81c2-3dcca71d3be8",
+          "parentKey": "244b75e7-4be2-49f3-92a9-1408732895c1"
+        },
+        {
+          "id": "ba540981-e98a-422e-81c2-3dcca71d3be8",
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "conectado-hoje",
+              "fechar-horario"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "030cc0d8-f91e-43c7-b39c-c9c408a37414",
+          "parentKey": "ce13b704-9fa1-4283-9624-822787ce764e"
+        },
+        {
+          "id": "030cc0d8-f91e-43c7-b39c-c9c408a37414",
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "6728ebb2-adfc-4b34-9a22-02024fb98bb1",
+          "parentKey": "ba540981-e98a-422e-81c2-3dcca71d3be8"
+        },
+        {
+          "id": "6728ebb2-adfc-4b34-9a22-02024fb98bb1",
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 4,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "d23291df-ff95-4727-9bf2-621b4922b058",
+          "parentKey": "030cc0d8-f91e-43c7-b39c-c9c408a37414"
+        },
+        {
+          "id": "d23291df-ff95-4727-9bf2-621b4922b058",
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 5,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "uJnePU1Tl1Zr1fTxYKIz",
+                "value": "",
+                "title": "Data conectado",
+                "type": "date",
+                "date": "currentDate"
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "c5a3b98d-0f51-4086-968e-744ea567da12",
+          "parentKey": "6728ebb2-adfc-4b34-9a22-02024fb98bb1"
+        },
+        {
+          "id": "c5a3b98d-0f51-4086-968e-744ea567da12",
+          "stepIndex": 6,
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 6,
+          "attributes": {
+            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "next": "ca6a4dba-37db-41fa-973c-4c0caebc98b9",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "d23291df-ff95-4727-9bf2-621b4922b058"
+        },
+        {
+          "id": "ca6a4dba-37db-41fa-973c-4c0caebc98b9",
+          "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
+          "order": 7,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Atendeu</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Atendeu"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "c5a3b98d-0f51-4086-968e-744ea567da12"
+        },
+        {
+          "id": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "parent": "e7312d0d-2f33-41f9-81df-bacf0bb3166c",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "ddd76173-40ac-43e0-9717-eda969856362",
+          "sibling": [
+            "58c853a6-3b39-4ab3-970f-a20833927c33"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "e7312d0d-2f33-41f9-81df-bacf0bb3166c"
+        },
+        {
+          "id": "ddd76173-40ac-43e0-9717-eda969856362",
+          "stepIndex": 12,
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 0,
+          "attributes": {
+            "selectField": "LB11ao0AdSI1QSHyZBOP",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "LB11ao0AdSI1QSHyZBOP",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "af5abbdf-3e9b-4325-be0e-3d7a1c3a28a5",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "3e7eb6d1-100a-4172-84bf-6d083089b630",
+          "parentKey": "a1fa1716-3565-4b00-b5cd-853970c6df37"
+        },
+        {
+          "id": "3e7eb6d1-100a-4172-84bf-6d083089b630",
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "d02021fd-022c-425a-ba80-7ea77db2f463",
+          "parentKey": "ddd76173-40ac-43e0-9717-eda969856362"
+        },
+        {
+          "id": "d02021fd-022c-425a-ba80-7ea77db2f463",
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "conectado-hoje",
+              "fechar-horario"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "fe597964-3358-4aaf-97ba-cf6314503b91",
+          "parentKey": "3e7eb6d1-100a-4172-84bf-6d083089b630"
+        },
+        {
+          "id": "fe597964-3358-4aaf-97ba-cf6314503b91",
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "bcf3ee19-1f65-4b1f-8659-5922772cbacb",
+          "parentKey": "d02021fd-022c-425a-ba80-7ea77db2f463"
+        },
+        {
+          "id": "bcf3ee19-1f65-4b1f-8659-5922772cbacb",
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 4,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "feb677cf-fa3c-4589-a3b7-bd9e3e4a525a",
+          "parentKey": "fe597964-3358-4aaf-97ba-cf6314503b91"
+        },
+        {
+          "id": "feb677cf-fa3c-4589-a3b7-bd9e3e4a525a",
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 5,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "uJnePU1Tl1Zr1fTxYKIz",
+                "value": "",
+                "title": "Data conectado",
+                "type": "date",
+                "date": "currentDate"
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "0ed90d2b-f043-4ece-881a-d50d51bcb5cf",
+          "parentKey": "bcf3ee19-1f65-4b1f-8659-5922772cbacb"
+        },
+        {
+          "id": "0ed90d2b-f043-4ece-881a-d50d51bcb5cf",
+          "stepIndex": 9,
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 6,
+          "attributes": {
+            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;margin: 0px;\">Lead atendeu a ligação. Qualificar e agendar reunião.</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "next": "b5167da9-7748-4cc7-948d-22be94620c00",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "feb677cf-fa3c-4589-a3b7-bd9e3e4a525a"
+        },
+        {
+          "id": "b5167da9-7748-4cc7-948d-22be94620c00",
+          "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
+          "order": 7,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Atendeu</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Atendeu"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "0ed90d2b-f043-4ece-881a-d50d51bcb5cf"
+        },
+        {
+          "id": "a1e7268e-859d-4950-8860-43bf3dcff879",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "3148b9e1-7cc1-4c04-bcd7-b020e1b3c57b",
+          "sibling": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        },
+        {
+          "id": "3148b9e1-7cc1-4c04-bcd7-b020e1b3c57b",
+          "parent": "a1e7268e-859d-4950-8860-43bf3dcff879",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "d7ab2d44-912c-4407-b48a-0f4ef49599d3",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "75bcd80b-98bf-4194-bd9b-a9985d87e296",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+            "89424369-89f7-4a60-a1a5-098a22907117"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "a1e7268e-859d-4950-8860-43bf3dcff879"
+        },
+        {
+          "id": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "parent": "3148b9e1-7cc1-4c04-bcd7-b020e1b3c57b",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "4a6a0abe-5d4c-418e-a3dd-c5e61bf7fce1",
+          "sibling": [
+            "89424369-89f7-4a60-a1a5-098a22907117"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "3148b9e1-7cc1-4c04-bcd7-b020e1b3c57b"
+        },
+        {
+          "id": "4a6a0abe-5d4c-418e-a3dd-c5e61bf7fce1",
+          "stepIndex": 13,
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 0,
+          "attributes": {
+            "selectField": "Og1CkI9x9OztsV242nIM",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "Og1CkI9x9OztsV242nIM",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "e6c09781-b57d-45df-ba1a-6cce083e9804",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "next": "48def432-1619-40a3-bd54-ca6a052a0719",
+          "parentKey": "bf237ddf-0a0a-4f86-b195-50393a1c26fd"
+        },
+        {
+          "id": "48def432-1619-40a3-bd54-ca6a052a0719",
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 1,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "af6d5064-fb7e-42c9-adad-40524cefa494",
+          "parentKey": "4a6a0abe-5d4c-418e-a3dd-c5e61bf7fce1"
+        },
+        {
+          "id": "af6d5064-fb7e-42c9-adad-40524cefa494",
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "conectado-hoje",
+              "fechar-horario"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "912bc93f-aa8c-4198-8ede-5f5e19dff2f3",
+          "parentKey": "48def432-1619-40a3-bd54-ca6a052a0719"
+        },
+        {
+          "id": "912bc93f-aa8c-4198-8ede-5f5e19dff2f3",
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "43aad612-6529-4d8f-af5d-c31afd59dfd0",
+          "parentKey": "af6d5064-fb7e-42c9-adad-40524cefa494"
+        },
+        {
+          "id": "43aad612-6529-4d8f-af5d-c31afd59dfd0",
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 4,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "5332a0e6-17c0-4b87-9040-672643268ac1",
+          "parentKey": "912bc93f-aa8c-4198-8ede-5f5e19dff2f3"
+        },
+        {
+          "id": "5332a0e6-17c0-4b87-9040-672643268ac1",
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 5,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "uJnePU1Tl1Zr1fTxYKIz",
+                "value": "",
+                "title": "Data conectado",
+                "type": "date",
+                "date": "currentDate"
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "cfefa06c-78d1-427a-abe6-57f3e666d3db",
+          "parentKey": "43aad612-6529-4d8f-af5d-c31afd59dfd0"
+        },
+        {
+          "id": "cfefa06c-78d1-427a-abe6-57f3e666d3db",
+          "stepIndex": 7,
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 6,
+          "attributes": {
+            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "next": "81d51265-d8cc-4ad4-988e-9f55c8ef1e87",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "5332a0e6-17c0-4b87-9040-672643268ac1"
+        },
+        {
+          "id": "81d51265-d8cc-4ad4-988e-9f55c8ef1e87",
+          "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
+          "order": 7,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Atendeu</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Atendeu"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "cfefa06c-78d1-427a-abe6-57f3e666d3db"
+        },
+        {
+          "id": "89424369-89f7-4a60-a1a5-098a22907117",
+          "parent": "3148b9e1-7cc1-4c04-bcd7-b020e1b3c57b",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "307c5921-72c8-4e33-9218-fb53a9fb3144",
+          "sibling": [
+            "bf237ddf-0a0a-4f86-b195-50393a1c26fd"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "3148b9e1-7cc1-4c04-bcd7-b020e1b3c57b"
+        },
+        {
+          "id": "307c5921-72c8-4e33-9218-fb53a9fb3144",
+          "stepIndex": 14,
+          "parent": "89424369-89f7-4a60-a1a5-098a22907117",
+          "order": 0,
+          "attributes": {
+            "selectField": "LB11ao0AdSI1QSHyZBOP",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "LB11ao0AdSI1QSHyZBOP",
+            "updateFieldType": "numerical",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "af5abbdf-3e9b-4325-be0e-3d7a1c3a28a5",
+                "value": 1
+              }
+            ]
+          },
+          "name": "Math operation",
+          "type": "math_operation",
+          "parentKey": "89424369-89f7-4a60-a1a5-098a22907117",
+          "next": "fae0f409-ee90-4eea-a52f-5d2a3d24d5d8"
+        },
+        {
+          "id": "fae0f409-ee90-4eea-a52f-5d2a3d24d5d8",
+          "parent": "89424369-89f7-4a60-a1a5-098a22907117",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "0433aa62-000e-45e0-8581-c434ecf058fc",
+          "parentKey": "307c5921-72c8-4e33-9218-fb53a9fb3144"
+        },
+        {
+          "id": "0433aa62-000e-45e0-8581-c434ecf058fc",
+          "parent": "89424369-89f7-4a60-a1a5-098a22907117",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "parentKey": "fae0f409-ee90-4eea-a52f-5d2a3d24d5d8"
+        },
+        {
+          "id": "f2f321bd-7c9b-44d0-9694-1005630eafde",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "next": "448c3732-4a00-41c5-953c-a06a2a5e9351"
+        },
+        {
+          "id": "448c3732-4a00-41c5-953c-a06a2a5e9351",
+          "parent": "f2f321bd-7c9b-44d0-9694-1005630eafde",
+          "order": 0,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "603b62b2-94e5-4d83-8a41-0018a36e4d80",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "8bc0f19a-dea7-4033-babb-46f9457ef00e",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "fila-wa"
+                        ],
+                        "__conditionId": "1097a587-83f5-40c7-807b-77a62af192da",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "603b62b2-94e5-4d83-8a41-0018a36e4d80",
+            "9042c89f-aa12-4e0f-9d3c-3f969e4b829f"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "f2f321bd-7c9b-44d0-9694-1005630eafde"
+        },
+        {
+          "id": "603b62b2-94e5-4d83-8a41-0018a36e4d80",
+          "parent": "448c3732-4a00-41c5-953c-a06a2a5e9351",
+          "order": 1,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "dc36c17f-8340-4540-9b14-56ee528a9215",
+          "sibling": [
+            "9042c89f-aa12-4e0f-9d3c-3f969e4b829f"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "448c3732-4a00-41c5-953c-a06a2a5e9351"
+        },
+        {
+          "id": "dc36c17f-8340-4540-9b14-56ee528a9215",
+          "stepIndex": 17,
+          "parent": "603b62b2-94e5-4d83-8a41-0018a36e4d80",
+          "order": 0,
+          "attributes": {
+            "selectField": "tQ7Fzo6cWeBDmEoaTBIZ",
+            "selectFieldtype": "numerical",
+            "sourceCustomValueId": "",
+            "updateField": "tQ7Fzo6cWeBDmEoaTBIZ",
+            "targetCustomValueId": "",
+            "operators": [
+              {
+                "operator": "add",
+                "__id": "f220c103-786b-486a-af75-ee3b16172128",
+                "value": 1
+              }
+            ],
+            "updateFieldType": "numerical"
+          },
+          "name": "Total de conexões +1",
+          "type": "math_operation",
+          "next": "4ac2f772-146f-4e8d-b966-2ed748a9f566",
+          "parentKey": "603b62b2-94e5-4d83-8a41-0018a36e4d80"
+        },
+        {
+          "id": "4ac2f772-146f-4e8d-b966-2ed748a9f566",
+          "parent": "603b62b2-94e5-4d83-8a41-0018a36e4d80",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "32afc47c-d8df-4ea9-9608-cfc6346fcd02",
+          "parentKey": "dc36c17f-8340-4540-9b14-56ee528a9215"
+        },
+        {
+          "id": "32afc47c-d8df-4ea9-9608-cfc6346fcd02",
+          "parent": "603b62b2-94e5-4d83-8a41-0018a36e4d80",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "parentKey": "4ac2f772-146f-4e8d-b966-2ed748a9f566"
+        },
+        {
+          "id": "9042c89f-aa12-4e0f-9d3c-3f969e4b829f",
+          "parent": "448c3732-4a00-41c5-953c-a06a2a5e9351",
+          "order": 1,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "7b35e5ff-7d14-444e-8fe4-a10082113aa8",
+          "sibling": [
+            "603b62b2-94e5-4d83-8a41-0018a36e4d80"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "448c3732-4a00-41c5-953c-a06a2a5e9351"
+        },
+        {
+          "id": "7b35e5ff-7d14-444e-8fe4-a10082113aa8",
+          "stepIndex": 18,
+          "parent": "9042c89f-aa12-4e0f-9d3c-3f969e4b829f",
+          "order": 0,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "FnphiGDVkijSNDEP53c3",
+                "value": 0,
+                "title": "WA não atendidas seguidas",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Zera WA não atendidas seguidas",
+          "type": "update_contact_field",
+          "next": "af3e8155-4c9b-42bc-8ba7-23e8ad1c22bd",
+          "parentKey": "9042c89f-aa12-4e0f-9d3c-3f969e4b829f"
+        },
+        {
+          "id": "af3e8155-4c9b-42bc-8ba7-23e8ad1c22bd",
+          "parent": "9042c89f-aa12-4e0f-9d3c-3f969e4b829f",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "97a4f08c-9a4c-4e1d-b957-6d3589dfcff9",
+          "parentKey": "7b35e5ff-7d14-444e-8fe4-a10082113aa8"
+        },
+        {
+          "id": "97a4f08c-9a4c-4e1d-b957-6d3589dfcff9",
+          "parent": "9042c89f-aa12-4e0f-9d3c-3f969e4b829f",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "limpar-tarefas"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "parentKey": "af3e8155-4c9b-42bc-8ba7-23e8ad1c22bd"
+        },
+        {
+          "id": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "c5fd5c0f-252f-4793-a725-29f941f17ee9",
+          "sibling": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        },
+        {
+          "id": "c5fd5c0f-252f-4793-a725-29f941f17ee9",
+          "parent": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+          "order": 0,
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "chuJMRlKzY0Uq1f0lSkX",
+                "value": 5,
+                "title": "Prioridade",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "next": "4a813fb3-9150-46c2-b1a1-fdf43352d11a",
+          "parentKey": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63"
+        },
+        {
+          "id": "4a813fb3-9150-46c2-b1a1-fdf43352d11a",
+          "parent": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "b65a2a16-bc22-4276-b4b4-d7c58cbfa98c",
+          "parentKey": "c5fd5c0f-252f-4793-a725-29f941f17ee9"
+        },
+        {
+          "id": "b65a2a16-bc22-4276-b4b4-d7c58cbfa98c",
+          "parent": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+          "order": 2,
+          "attributes": {
+            "tags": [
+              "fila-quente"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "5fb79716-28d4-4ae5-9566-d4bdad035c6f",
+          "parentKey": "4a813fb3-9150-46c2-b1a1-fdf43352d11a"
+        },
+        {
+          "id": "5fb79716-28d4-4ae5-9566-d4bdad035c6f",
+          "stepIndex": 8,
+          "parent": "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+          "order": 3,
+          "attributes": {
+            "title": "[RETORNO] Ligar de volta",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead pediu retorno na ligação. Ligar de volta.</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 1,
+              "unit": "days",
+              "time": 1789815600000,
+              "skipWeekends": false
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "name": "Add task",
+          "type": "task-notification",
+          "workflowsActionType": "INTERNAL",
+          "parentKey": "b65a2a16-bc22-4276-b4b4-d7c58cbfa98c"
+        },
+        {
+          "id": "53328770-553d-415b-95bb-efd621395d67",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "308a9b70-660a-491d-a324-a63ebc1dbf8e",
+          "sibling": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        },
+        {
+          "id": "308a9b70-660a-491d-a324-a63ebc1dbf8e",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 0,
+          "attributes": {
+            "tags": [
+              "nao-perturbe"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "547fd069-9e80-4bb3-8c7b-66ec08505f68",
+          "parentKey": "53328770-553d-415b-95bb-efd621395d67"
+        },
+        {
+          "id": "547fd069-9e80-4bb3-8c7b-66ec08505f68",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 1,
+          "attributes": {
+            "type": "dnd_contact",
+            "dnd_direction": "outbound",
+            "dnd_contact": "enable",
+            "specific_channels": []
+          },
+          "name": "Habilitar/desabilitar DND",
+          "type": "dnd_contact",
+          "next": "3e421ab9-c6eb-4ad1-a08c-27a705d59df3",
+          "parentKey": "308a9b70-660a-491d-a324-a63ebc1dbf8e"
+        },
+        {
+          "id": "3e421ab9-c6eb-4ad1-a08c-27a705d59df3",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 2,
+          "attributes": {
+            "type": "dnd_contact",
+            "dnd_direction": "inbound",
+            "dnd_contact": "enable",
+            "specific_channels": []
+          },
+          "name": "Habilitar/desabilitar DND",
+          "type": "dnd_contact",
+          "next": "8b81e74c-71f6-492e-8b7f-fbf843be9228",
+          "parentKey": "547fd069-9e80-4bb3-8c7b-66ec08505f68"
+        },
+        {
+          "id": "8b81e74c-71f6-492e-8b7f-fbf843be9228",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 3,
+          "attributes": {
+            "tags": [
+              "fila-quente",
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "8c31b36e-0113-4b15-bac5-14f9267588fb",
+          "parentKey": "3e421ab9-c6eb-4ad1-a08c-27a705d59df3"
+        },
+        {
+          "id": "8c31b36e-0113-4b15-bac5-14f9267588fb",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 4,
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "c64a808b-3040-431e-8015-642a265e1022",
+              "319ae603-2e33-4ea9-a8b7-fe63a914a40e"
+            ]
+          },
+          "name": "Remove from Workflow",
+          "type": "remove_from_workflow",
+          "next": "09a5dc33-71da-4b3a-878e-cdb8f89d6030",
+          "parentKey": "8b81e74c-71f6-492e-8b7f-fbf843be9228"
+        },
+        {
+          "id": "09a5dc33-71da-4b3a-878e-cdb8f89d6030",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 5,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "opportunity_status": "lost",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "60043d36-0e23-417c-a52b-21747300b59a",
+          "parentKey": "8c31b36e-0113-4b15-bac5-14f9267588fb"
+        },
+        {
+          "id": "60043d36-0e23-417c-a52b-21747300b59a",
+          "parent": "53328770-553d-415b-95bb-efd621395d67",
+          "order": 6,
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Opt-out registrado</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes"
+          },
+          "name": "Note",
+          "type": "add_notes",
+          "parentKey": "09a5dc33-71da-4b3a-878e-cdb8f89d6030"
+        },
+        {
+          "id": "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "0b1a0dd3-ea91-4a8a-b837-c2b62f700d47",
+          "sibling": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "3762df18-e564-4cad-9ca3-4980dddfd6d4"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        },
+        {
+          "id": "0b1a0dd3-ea91-4a8a-b837-c2b62f700d47",
+          "parent": "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+          "order": 0,
+          "attributes": {
+            "tags": [
+              "telefone-invalido"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "961cde47-83f2-4cb2-bef9-77c71d904357",
+          "parentKey": "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a"
+        },
+        {
+          "id": "961cde47-83f2-4cb2-bef9-77c71d904357",
+          "parent": "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "fila-tel",
+              "fila-wa"
+            ],
+            "type": "remove_contact_tag"
+          },
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "next": "8c8fccdc-996c-43fd-b2cd-5890d548a44b",
+          "parentKey": "0b1a0dd3-ea91-4a8a-b837-c2b62f700d47"
+        },
+        {
+          "id": "8c8fccdc-996c-43fd-b2cd-5890d548a44b",
+          "parent": "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a",
+          "order": 2,
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "6990f600-b033-4061-8265-f0dfffe83f31",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "048732b9-760b-45db-afa6-de62e304c2da",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "email",
+                        "conditionOperator": "has_value",
+                        "__conditionId": "86c38f5d-31cd-4887-a1d0-81111857118e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "2tLo2m4KLTcP6fTEq3LG",
+                        "conditionOperator": "has_value",
+                        "__conditionId": "17d7b154-c19e-4f27-8d63-08f3c6efb0d7",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": "O nome da filial não pode estar vazio!"
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "name": "yes",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "6990f600-b033-4061-8265-f0dfffe83f31",
+            "f5562f79-8ca8-4827-a579-6f2290d70ca8"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "parentKey": "961cde47-83f2-4cb2-bef9-77c71d904357"
+        },
+        {
+          "id": "6990f600-b033-4061-8265-f0dfffe83f31",
+          "parent": "8c8fccdc-996c-43fd-b2cd-5890d548a44b",
+          "order": 3,
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "c147e70b-4974-41d6-8bde-e9cb3c72bc4e",
+          "sibling": [
+            "f5562f79-8ca8-4827-a579-6f2290d70ca8"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "parentKey": "8c8fccdc-996c-43fd-b2cd-5890d548a44b"
+        },
+        {
+          "id": "c147e70b-4974-41d6-8bde-e9cb3c72bc4e",
+          "parent": "6990f600-b033-4061-8265-f0dfffe83f31",
+          "order": 0,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "opportunity_status": "abandoned",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "8c69f04c-fb8d-4802-8929-476b6b3f2208",
+          "parentKey": "6990f600-b033-4061-8265-f0dfffe83f31"
+        },
+        {
+          "id": "8c69f04c-fb8d-4802-8929-476b6b3f2208",
+          "parent": "6990f600-b033-4061-8265-f0dfffe83f31",
+          "order": 1,
+          "attributes": {
+            "tags": [
+              "nutricao-90d"
+            ]
+          },
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "next": "a97324cb-ceee-4315-b714-cbc4ca643381",
+          "parentKey": "c147e70b-4974-41d6-8bde-e9cb3c72bc4e"
+        },
+        {
+          "id": "a97324cb-ceee-4315-b714-cbc4ca643381",
+          "parent": "6990f600-b033-4061-8265-f0dfffe83f31",
+          "order": 2,
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Telefone inválido: {{contact.name}} — revisar a fonte da lista",
+              "title": "Checar telefone",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ],
+              "redirectPage": "contact"
+            }
+          },
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "parentKey": "8c69f04c-fb8d-4802-8929-476b6b3f2208",
+          "stats": {
+            "id": "5528f83e-0f35-4c56-8099-93c272c91724",
+            "stats": {
+              "delivered": "0%",
+              "opened": "0%",
+              "clicked": "0%",
+              "replied": "0%",
+              "bounced": "0%",
+              "unsubscribed": "0%"
+            },
+            "total": "0"
+          }
+        },
+        {
+          "id": "f5562f79-8ca8-4827-a579-6f2290d70ca8",
+          "parent": "8c8fccdc-996c-43fd-b2cd-5890d548a44b",
+          "order": 3,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": "380772b5-e28c-4c6a-82a7-1c509484bd2e",
+          "sibling": [
+            "6990f600-b033-4061-8265-f0dfffe83f31"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "8c8fccdc-996c-43fd-b2cd-5890d548a44b"
+        },
+        {
+          "id": "380772b5-e28c-4c6a-82a7-1c509484bd2e",
+          "parent": "f5562f79-8ca8-4827-a579-6f2290d70ca8",
+          "order": 0,
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "opportunity_status": "lost",
+            "opportunity_name": "",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "name": "Criar ou atualizar oportunidade",
+          "type": "create_opportunity",
+          "next": "3c79e109-1f11-40c5-895b-b5251e9d4947",
+          "parentKey": "f5562f79-8ca8-4827-a579-6f2290d70ca8"
+        },
+        {
+          "id": "3c79e109-1f11-40c5-895b-b5251e9d4947",
+          "parent": "f5562f79-8ca8-4827-a579-6f2290d70ca8",
+          "order": 1,
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "Telefone inválido: {{contact.name}} — revisar a fonte da lista",
+              "title": "Checar telefone",
+              "redirectPage": "contact",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ]
+            }
+          },
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "parentKey": "380772b5-e28c-4c6a-82a7-1c509484bd2e",
+          "stats": {
+            "id": "f241cba5-201d-4233-acd1-bdd2e1e1f207",
+            "stats": {
+              "delivered": "0%",
+              "opened": "0%",
+              "clicked": "0%",
+              "replied": "0%",
+              "bounced": "0%",
+              "unsubscribed": "0%"
+            },
+            "total": "0"
+          }
+        },
+        {
+          "id": "3762df18-e564-4cad-9ca3-4980dddfd6d4",
+          "parent": "32b9d49a-df00-40bc-8817-dd987c3663a2",
+          "order": 2,
+          "attributes": {
+            "else": true
+          },
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "ebd12e91-858d-4575-9103-40c97ec88b53",
+            "a1e7268e-859d-4950-8860-43bf3dcff879",
+            "f2f321bd-7c9b-44d0-9694-1005630eafde",
+            "94ce4a5e-d0ac-4944-9589-a50f07dd6e63",
+            "53328770-553d-415b-95bb-efd621395d67",
+            "8560e81a-bcb8-4fcd-83ac-5d8f8dce999a"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "parentKey": "32b9d49a-df00-40bc-8817-dd987c3663a2"
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "XMB7vya7jqxOABie2shv",
+      "date_added": "2026-09-22T12:35:59.335Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "0e82d852-15f4-4219-9d0d-da0cccf11826",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "has-changed",
+          "field": "contact.nPafc9c0JdSSptdPhUlF",
+          "title": "Resultado da tentativa",
+          "type": "select",
+          "id": "nPafc9c0JdSSptdPhUlF"
+        }
+      ],
+      "type": "contact_changed",
+      "masterType": "highlevel",
+      "workflow_id": "0e82d852-15f4-4219-9d0d-da0cccf11826",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Contato Alterado",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "a5bcc794-0f3e-4fa4-8900-27a74720da98",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T12:39:40.108Z",
+      "active": true
+    }
+  ]
+}
