@@ -1695,10 +1695,15 @@ segmentação íntegra (Brasil inteiro, só Taubaté excluída, nenhum estado, a
 
 Uma coisa que vale separar, porque não é a mesma história: os erros de *"Terms of Service
 Not Accepted — you can't run lead ads until your Facebook Page accepts the Lead Generation
-Terms"* aparecem em oito anúncios, e **todos os oito são da leva ZZ FORM ANTIGO**, que está
-pausada desde sempre. Nenhum anúncio ativo carrega esse erro. Não é bloqueio de campanha,
-é lixo antigo. Registro para que a próxima rodada não confunda um com o outro ao ler a
-mesma saída de `ads_get_errors`.
+Terms"* aparecem em oito anúncios, e todos os oito são da leva ZZ FORM ANTIGO, que está
+pausada desde sempre. Nenhum anúncio ativo carrega esse erro.
+
+> **CORREÇÃO, 23/09 03h — eu tinha chamado isso de "lixo antigo" e estava errado.**
+> `ads_get_ad_account_pages` devolve `leadgen_tos_accepted: false` para a página O Próximo
+> Cliente (1117439194786453). **Não é herança dos anúncios velhos: é a página inteira que
+> nunca aceitou os Termos de Geração de Leads.** Os oito anúncios só são os únicos a exibir
+> o erro porque são os únicos que a Meta chegou a avaliar. Qualquer anúncio de formulário
+> novo esbarra na mesma trava. Aceitar em https://www.facebook.com/legal/leadgen/tos
 
 O buraco do funil (32 leads → 7 reuniões, os 25 sem destino conhecido) segue sem
 instrumento, e nesta rodada segue sem novidade: com entrega zerada não entra lead novo,

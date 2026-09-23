@@ -1615,3 +1615,30 @@ isso de saída do que descobrir depois de montar tudo.
 **O que destrava:** quitar a fatura. Se depois disso a escrita continuar fechada, o
 caminho seguinte é autorizar o conector Windsor (que serve para `create_ad`), e não
 insistir no Facebook MCP.
+
+
+## As duas travas reais da conta, com a mensagem exata (23/09 03h)
+
+A tabela da seção anterior listava conectores e concluía "escrita fechada". Insistindo pelo
+próprio MCP, com outra chamada, a Meta deu a mensagem precisa — e são **duas travas
+independentes**, não uma:
+
+**1. A conta não é gravável.** `ads_create_ad` com um `creative_id` que já existe devolve:
+
+> `Ad account not writable: Ad account status is ineligible to manage ads. To create or
+> edit ads, resolve the account status issue.` (code 200, subcode 2490592)
+
+Isso é o que vale. O `Permission Error` que o `ads_create_creative` devolve é genérico e
+levou a diagnóstico vago; **o caminho certo para descobrir o estado de escrita é
+`ads_create_ad` com creative_id existente**, que atravessa a validação e devolve o motivo
+verdadeiro.
+
+**2. A página nunca aceitou os Termos de Geração de Leads.**
+`ads_get_ad_account_pages` devolve `leadgen_tos_accepted: false` para O Próximo Cliente.
+Mesmo com a conta destravada, **anúncio de formulário não roda** — e toda a campanha é de
+formulário. Aceitar em https://www.facebook.com/legal/leadgen/tos
+
+**Ordem de leitura para a próxima vez que a escrita falhar:** `ads_create_ad` com
+creative_id existente (dá o motivo real) → `ads_get_ad_account_pages` (confere o ToS de
+lead) → `ads_get_errors` no nível da conta (fatura). Nessa ordem, em três chamadas, sai o
+diagnóstico inteiro.
