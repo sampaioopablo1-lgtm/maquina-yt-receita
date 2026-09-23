@@ -41,6 +41,11 @@ BASE = "https://services.leadconnectorhq.com"
 CARENCIA_MIN = 5          # tarefa mais nova que isto nunca e excluida (corrida com o workflow)
 TETO_EXCLUSOES = 200      # por execucao
 TETO_FRACAO = 0.5         # se for excluir mais que isto das tarefas automaticas abertas, so relata
+# D14 capacidade do SDR: ate 100 toques/dia; com 50+ vencidas nao recebe toque novo
+LIMITE_TOQUES_DIA = 100
+LIMITE_VENCIDAS = 50
+TAG_LOTADO = "sdr-lotado"
+BRT = dt.timezone(dt.timedelta(hours=-3))
 
 
 def familia(titulo):
@@ -143,6 +148,80 @@ def idade_min(t):
     return (dt.datetime.now(dt.timezone.utc) - d).total_seconds() / 60
 
 
+def quando(t, *campos):
+    for k in campos:
+        s = t.get(k)
+        if s:
+            try:
+                return dt.datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+            except ValueError:
+                pass
+    return None
+
+
+def tarefas_criadas_hoje(api):
+    """Toques ([CADENCIA]) criados hoje (Brasilia), abertos ou concluidos.
+    Premissa a conferir no 1o uso real: a busca devolve as mais novas
+    primeiro; para por seguranca em 20 paginas."""
+    hoje = dt.datetime.now(BRT).date()
+    out = []
+    for concluida in (False, True):
+        for pagina in range(20):
+            lote = api.req("POST", "/locations/%s/tasks/search" % LOC,
+                           {"completed": concluida, "limit": 100, "skip": pagina * 100}
+                           ).get("tasks") or []
+            velhas = 0
+            for t in lote:
+                d = quando(t, "dateAdded", "createdAt")
+                if d and d.astimezone(BRT).date() == hoje:
+                    if familia(t.get("title")) == "CADENCIA":
+                        out.append(t)
+                else:
+                    velhas += 1
+            if len(lote) < 100 or (lote and velhas == len(lote)):
+                break
+    return out
+
+
+def dono(t):
+    return t.get("assignedTo") or t.get("assigned_to") or "sem-dono"
+
+
+def capacidade(api, abertas, aplicar):
+    """Por SDR: vencidas abertas e toques de hoje. Liga/desliga a tag
+    `sdr-lotado` nos leads em CONECTAR daquele SDR (a 12x30 espera enquanto
+    a tag existir). Nunca imprime dado de contato."""
+    agora = dt.datetime.now(dt.timezone.utc)
+    vencidas, hoje = {}, {}
+    for t in abertas:
+        d = quando(t, "dueDate", "due_date")
+        if d and d < agora:
+            vencidas[dono(t)] = vencidas.get(dono(t), 0) + 1
+    for t in tarefas_criadas_hoje(api):
+        hoje[dono(t)] = hoje.get(dono(t), 0) + 1
+    ops = api.req("GET", "/opportunities/search?location_id=%s&pipeline_id=%s"
+                  "&pipeline_stage_id=%s&status=open&limit=100"
+                  % (LOC, PIPELINE, "deb60542-a5cd-43ae-b875-b467b120a72c")
+                  ).get("opportunities") or []
+    mudou = 0
+    usuarios = set(vencidas) | set(hoje) | {o.get("assignedTo") or "sem-dono" for o in ops}
+    for u in sorted(usuarios):
+        lotado = vencidas.get(u, 0) >= LIMITE_VENCIDAS or hoje.get(u, 0) >= LIMITE_TOQUES_DIA
+        print("SDR %s…: vencidas=%d toques_hoje=%d -> %s" % (u[:4], vencidas.get(u, 0),
+              hoje.get(u, 0), "LOTADO" if lotado else "ok"))
+        for o in ops:
+            if (o.get("assignedTo") or "sem-dono") != u:
+                continue
+            ct = o.get("contact") or {}
+            tem = TAG_LOTADO in (ct.get("tags") or [])
+            if lotado != tem and ct.get("id"):
+                mudou += 1
+                if aplicar:
+                    api.req("POST" if lotado else "DELETE", "/contacts/%s/tags" % ct["id"],
+                            {"tags": [TAG_LOTADO]})
+    print("tag %s: %d contato(s) %s" % (TAG_LOTADO, mudou, "alterados" if aplicar else "a alterar"))
+
+
 def main():
     aplicar = "--aplicar" in sys.argv
     token = os.environ.get("GHL_TOKEN")
@@ -168,6 +247,7 @@ def main():
     if auto and len(excluir) > max(10, TETO_FRACAO * len(auto)):
         print("TRAVA: exclusao anormal (> %d%% das automaticas) — so relatorio" % (TETO_FRACAO * 100))
         aplicar = False
+    capacidade(api, todas, aplicar)
     if not aplicar:
         fams = {}
         for _, t, _m in excluir:

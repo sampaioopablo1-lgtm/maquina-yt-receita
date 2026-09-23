@@ -28,7 +28,7 @@ pela lista de execução no fim.
 - [x] E1 Inventário ao vivo — 24 publicados, `INVENTARIO-WORKFLOWS.md` (22/09). Achado: Interceptação Resposta v2 e Opt-out filtram canal 19 (WhatsApp oficial); a Stevo chega como 20 → hoje nenhuma resposta pela Stevo dispara os dois (E10).
 - [x] E2 Etapa renomeada pelo dono na tela (23/09), mesmo id; `ghl_api.STAGES` ganhou `REUNIÃO DE DIAGNÓSTICO` (AGENDAR fica como apelido)
 - [x] E3 Campo `Canal que conectou` criado (`TxJmoWdkA8rTqC1uEsMW`, `contact.canal_que_conectou`). Falta na tela: opção `Desqualificado` em `Resultado da tentativa` (dono)
-- [ ] E4 Cadência 12x30 multicanal com fase "fechar horário" e pausa no retorno (D2, D3, D5, D6, D9)
+- [~] E4 `tools/build_w11.py` reescrito e validado offline (`--so-montar`: 724 nós, 0 goto quebrado, 22 tarefas, 5 mensagens MT1/MT4/MT8/MT11/MT12, 0 'sim'). Falta: montar a cópia `ZZ TESTE 12X30` (W11_NOME/W11_TAG), testar, depois gravar na real e publicar. Fase "fechar horário" = workflow novo `tools/build_fechar_horario.py` (41 nós, validado offline), dispara pela tag `fechar-horario`
 - [~] E5-E7 prontos em `tools/patch_funil_reuniao.py` (simulado: Pós-agendamento 2, Loop do closer 3, No-show 6, SLA 2, Pós-ligação 15 mudanças); aplicação bloqueada pelo modo automático. E5 Pós-ligação v2: Atendeu não move etapa; resultado → manter/excluir/reagendar (D3, D9)
 - [ ] E6 Pós-agendamento v2: reunião marcada → REUNIÃO DE DIAGNÓSTICO (D4)
 - [ ] E7 Loop do closer, Registro de Comparecimento, SLA/Recuperação de no-show → nova etapa (D4)
@@ -37,7 +37,7 @@ pela lista de execução no fim.
 - [~] E10 Gatilho canal 20 (Stevo) acrescentado na Interceptação Resposta v2 e no Opt-out, ativos (23/09, `tools/gatilho_stevo.py`). Falta o teste real com mensagem do número do dono
 - [ ] E11 Mestre de saída, W15, W17b, W18 (meta em toques), listas e painel
 - [ ] E12 Testes ponta a ponta com contato de teste + auditoria final
-- [ ] E13 Faxina: capacidade por SDR (D14) + agendador no GitHub Actions + token do GHL (dono cria)
+- [~] E13 Faxina com capacidade por SDR (D14) escrita (`capacidade()`: vencidas + toques de hoje por SDR → tag `sdr-lotado` nos leads em CONECTAR). Falta: permissão `workflow` no gh (dono), token GHL (dono), 1ª execução em modo relatório
 - [ ] E14 Janela seg-sex em todo workflow que cria tarefa (D13)
 
 
