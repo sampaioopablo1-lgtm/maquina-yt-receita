@@ -24,7 +24,7 @@
 > DIAGNÓSTICO` (mesmo `id`, confirmado por API em 23/09) e reformula boa
 > parte da Cadência 12x30/Pós-ligação/Pós-agendamento (D2–D9). Nenhuma
 > dessas mudanças foi propagada para este roadmap nem para `build-wesales.md`
-> ainda — os blocos abaixo (G-01 a G-09, R-01 a R-18, F-01 a F-16) continuam
+> ainda — os itens G/R/F já registrados abaixo continuam
 > descrevendo o desenho "100% telefone" pré-`PLANO-MULTICANAL`, e a execução
 > real (`PLANO-MULTICANAL.md`, checklist E1-E14) está rodando por fora,
 > pela API interna (`wesales/tools/`), não pelo `GHL CRM` (MCP) que esta
@@ -960,6 +960,17 @@ visível a partir daqui, não a executa.
 ---
 
 ### G-11 · A mudança de etapa aplicada ao vivo em `1d04af2` deixa duas armadilhas nos filtros e numa tag nova — **ABERTO, decisão do dono (23/09/2026)**
+
+> **Nota de coerência, 23/09/2026 — este item é o mesmo achado que
+> `campos-e-tags.md` (T-05), `IMPLEMENTACAO-WORKFLOWS.md`, `APRENDIZADOS-CRM.md`
+> e `ESTADO-E-PLANO.md` citam como `F-16`.** O commit que abriu os dois
+> (`2d6a778`) já escrevia "F-16 / G-11" no próprio assunto, mas só criou
+> cabeçalho aqui, em G-11 — `build-wesales.md` ganhou a seção **2.31** com o
+> rótulo `F-16` (numeração do Bloco 6) sem nunca ganhar um `### F-16` próprio
+> neste roadmap. Quem chegar aqui a partir de uma referência a "F-16": é este
+> item, item 1 abaixo. Não crio o cabeçalho `### F-16` separado — duplicaria a
+> decisão pendente em dois lugares e o dono teria que revogar/aprovar nos
+> dois; a referência cruzada é o suficiente para a busca não bater em vazio.
 
 **Por quê:** o commit `1d04af2` (PC do dono) aplicou a mudança de etapa em 5
 workflows ao vivo — `REUNIÃO DE DIAGNÓSTICO` no lugar de `NEGOCIAR` no Loop do
@@ -3738,3 +3749,38 @@ diretório `wesales/` (não só os arquivos já conhecidos) deveria entrar na
 varredura de coerência de toda rodada a partir de agora, junto com o grep
 de nome de etapa e contagem duplicada. Detalhe completo no próprio G-10 e
 em `APRENDIZADOS-CRM.md`.
+
+**G-11 aberto em 23/09/2026, do PC do dono (commit `2d6a778`) — não é lacuna
+achada por esta seção, é item que já nasceu com cabeçalho e nunca foi
+somado à narrativa daqui, porque as sessões que o escreveram e as que
+fecharam G-06 a G-10 rodaram em paralelo.** O commit que abriu G-11 aplicou
+ao vivo, na tela, a mudança de etapa `AGENDAR` → `REUNIÃO DE DIAGNÓSTICO`
+em 5 workflows e fez `Atendeu` passar a **ficar** em `CONECTAR` — e essa
+segunda mudança reativou uma contradição antiga e inofensiva (`conectado-hoje`
+prometia ser "do dia" mas nunca tinha removedor) transformando-a em exclusão
+permanente das duas filas do SDR. **Zero lead real afetado ainda** (medido em
+23/09: `conectado-hoje` em 2 contatos, os dois de teste) — é armadilha, não
+incêndio. G-11 tem três itens, nenhum executável por este MCP (edição de
+workflow e de lista inteligente não têm ferramenta aqui — é tela ou
+`wesales/tools/`): item 1 precisa de **decisão do dono** entre quatro saídas
+(recomendação: A); itens 2 e 3 já têm a saída escrita, só falta **execução**
+manual. Nesta rodada, o trabalho possível era só de coerência: item 1 é o
+mesmo achado que `campos-e-tags.md`, `IMPLEMENTACAO-WORKFLOWS.md`,
+`APRENDIZADOS-CRM.md` e `ESTADO-E-PLANO.md` citam como `F-16` (mesmo commit
+`2d6a778`, que já escrevia "F-16 / G-11" no assunto) — mas só G-11 tinha
+cabeçalho aqui, e nenhum dos quatro documentos linkava de volta para ele.
+Corrigida a referência cruzada dentro do próprio G-11 (nota no topo do item,
+acima), e a linha desta seção (topo do arquivo) que ainda dizia "G-01 a
+G-09... F-01 a F-16" como se cada número tivesse cabeçalho próprio —
+generalizada para não fixar contagem que já estava errada (G-10 e G-11
+existem, F-16 nunca teve cabeçalho separado), a mesma regra de "número fixo
+só na fonte" que este roadmap já aplica a campo e tag. CRM reconfirmado por
+API nesta rodada: 55 oportunidades (49 `NOVO LEAD` open + 3 `CONECTAR`
+[2 lost + 1 open] + 3 `NEGOCIAR` [2 open + 1 lost]), 56 campos de contato —
+`Canal que conectou` (`TxJmoWdkA8rTqC1uEsMW`), o campo do D10 do
+`PLANO-MULTICANAL.md`, já existe na tela e está documentado em
+`campos-e-tags.md`. Zero campo, zero tag novos por esta sessão, zero escrita
+no CRM: item de coerência entre documentos, não depende de `APROVADO.md`.
+Com isso, G-11 (item 1) entra na mesma fila de decisão do dono que G-03,
+G-04 (peça 2), F-09 e F-10; os itens 2 e 3 entram na mesma fila de execução
+manual (tela/`wesales/tools/`) que F-11, F-12, F-13, F-15, G-07 e G-08.
