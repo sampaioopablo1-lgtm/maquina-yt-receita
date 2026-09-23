@@ -134,6 +134,18 @@ arquivo do dia anterior.
 | `JAZZ_CNM_ESCONDER_ENDERECO` | `1` esconde o endereço de todos | desligado |
 | `JAZZ_CNM_LINK_TEMPLATE` | link do imóvel no site; `{codigo}` é substituído | vazio |
 
+## Como vai ao ar
+
+Dois passos no projeto da Jazz: a migração `20260918_feed_chavesnamao.sql` e o
+deploy desta função. Existem dois caminhos, descritos com os segredos exatos em
+`jazz/docs/PORTAL-CHAVES-NA-MAO.md` — o conector Supabase da conta (que hoje
+está em `needs_reconnect`) ou o workflow `jazz-publicar-feed-chavesnamao.yml`,
+que roda os dois passos no runner do Actions e não depende do conector.
+
+O contêiner das sessões do Claude não alcança `*.supabase.co` (egresso
+bloqueado pela política do ambiente), então publicar daqui por HTTP direto não
+é opção nem com chave em mãos.
+
 ## Pendências conhecidas
 
 1. Conferir o mapa de áreas comum/privativa contra as listas oficiais do

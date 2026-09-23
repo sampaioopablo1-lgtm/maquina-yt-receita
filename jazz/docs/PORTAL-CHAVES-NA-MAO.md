@@ -150,16 +150,41 @@ Especificações do imóvel:
 
 ## Antes de enviar a URL ao portal
 
-Nesta sessão não houve acesso ao Supabase da Jazz, então estes três passos
-ficam para quem tem a credencial:
+O feed precisa de dois passos no Supabase da Jazz: aplicar a migração
+`20260918_feed_chavesnamao.sql` (bucket público `feeds-portais` + cron
+`feed-precomputar-chavesnamao`) e publicar a Edge Function `chavesnamao-feed`.
+Só depois disso a URL responde.
 
-1. Aplicar a migração `20260918_feed_chavesnamao.sql` (cria o bucket público
-   `feeds-portais` e agenda `feed-precomputar-chavesnamao`).
-2. Publicar a Edge Function `chavesnamao-feed` e rodar
-   `{"acao":"prever"}` — devolve quantos imóveis entram, o tamanho do arquivo e
-   uma amostra, **sem** publicar nada.
-3. Com o número conferido, rodar `{"acao":"precomputar"}`, abrir a URL pública
-   e só então informá-la ao portal.
+Nenhuma sessão do Claude consegue fazer isso hoje: o conector Supabase da conta
+está em `needs_reconnect`, e o contêiner das sessões não tem rota de rede para
+`*.supabase.co` (a política de egresso do ambiente bloqueia). São dois caminhos
+possíveis, e qualquer um resolve:
+
+**Caminho 1 — religar o conector (mais rápido, sem segredo novo).** Em
+claude.ai → Configurações → Conectores → Supabase → reconectar. Com ele de pé,
+a própria sessão aplica a migração e publica a função, como foi feito com todas
+as migrações anteriores da Jazz.
+
+**Caminho 2 — pelo GitHub Actions (não depende do conector).** O workflow
+`jazz-publicar-feed-chavesnamao.yml` faz os dois passos no runner, que tem rede
+aberta. Exige três segredos do projeto da Jazz em Settings → Secrets → Actions:
+
+| Segredo | O que é | Onde achar |
+|---|---|---|
+| `JAZZ_SUPABASE_DB_URL` | string de conexão postgres | painel do Supabase → Project Settings → Database → Connection string |
+| `JAZZ_SUPABASE_ACCESS_TOKEN` | personal access token | supabase.com/dashboard/account/tokens |
+| `JAZZ_SUPABASE_PUBLISHABLE_KEY` | chave publishable | Project Settings → API (é a mesma que os crons já usam) |
+
+Depois é Actions → "Jazz — publicar feed Chaves na Mão" → Run workflow, com
+`etapas: tudo` e `pós-deploy: prever`.
+
+**Em qualquer caminho, a ordem de conferência é a mesma:**
+
+1. Migração aplicada.
+2. Função publicada e `{"acao":"prever"}` rodado — devolve quantos imóveis
+   entram, o tamanho do arquivo e uma amostra, **sem** publicar nada.
+3. Com o número conferido, `{"acao":"precomputar"}`, abrir a URL pública e só
+   então informá-la ao portal.
 
 Detalhes técnicos, variáveis de ambiente e decisões do gerador estão em
 `jazz/supabase/functions/chavesnamao-feed/README.md`.
