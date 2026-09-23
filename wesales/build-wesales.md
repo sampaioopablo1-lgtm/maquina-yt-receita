@@ -8169,3 +8169,78 @@ muda é o tamanho: **dois**, não três, e os dois já têm patch pronto.
 `Canal que conectou` continua aparecendo na `auditoria_campos.py` — o que está
 certo, e agora está escrito no `porque` da base para ninguém reportar como
 novidade.
+
+---
+
+## 2.41 `patch_canal_conectou.py` — a metade automática do 9c, e por que ela para antes do `Pós-ligação v2`
+
+Você decidiu o 9c: **automático onde o ramo já sabe, manual no resto.** Este é
+o patch da parte automática que não depende de mais nada.
+
+O campo `Canal que conectou` (`TxJmoWdkA8rTqC1uEsMW`, `SINGLE_OPTIONS`:
+`Ligação WhatsApp` / `Ligação normal` / `Mensagem`) existe desde 23/09 01:06 e
+**nenhum workflow escreve nele** — é por isso que ele aparece na
+`auditoria_campos.py` como "nem escrito nem lido".
+
+### Onde grava, e só aqui
+
+| workflow | ramo | grava |
+|---|---|---|
+| `Interceptação de Sinal — Resposta v2` | sinal quente | `Mensagem` |
+| `Triagem da Nutrição` | `Quer conversar?` ("1") | `Mensagem` |
+
+### O que fica fora, de propósito
+
+Isto é a parte que importa, porque a tentação é gravar em tudo que tem gatilho
+de resposta:
+
+- **`Opt-out por Palavra-chave`** também é `customer_reply`, mas "pare de me
+  mandar mensagem" **não é conexão comercial**. Contar isso encheria justamente
+  a métrica que o campo existe para responder.
+- **`Triagem`, ramos "2 agora não" e "3 sem interesse"**: são respostas, não
+  conexões que levam a conversa. O "3" já liga o DND. Somar os três inflaria a
+  conta pelo mesmo motivo do opt-out.
+
+### E o `Pós-ligação v2`, que sabe o canal e ficou de fora
+
+Ele **entra** na parte automática — o ramo sabe: testa `fila-wa` logo depois do
+`Resultado da tentativa`, e presente significa ligação por WhatsApp, ausente
+ligação normal. Mas ficou para depois **por sequenciamento, não por dúvida**:
+
+> a sessão paralela tem o `patch_remove_atendeu.py` ainda sem `--aplicar`,
+> inserindo nos **mesmos ramos `Atendeu`**. Dois patches montados a partir de
+> leituras diferentes se atropelam — um sobrescreve o outro.
+
+Ordem correta: aplicar o `patch_remove_atendeu.py`, re-exportar o dump, depois
+estender este patch. Registrado no docstring para quem pegar isto depois.
+
+### Por que quase não cria nó
+
+30 nós deste projeto já gravam **vários** campos num único
+`update_contact_field` (a `Cadência 12x30 — parte 2` grava três de uma vez),
+logo a forma é aceita pelo GHL. Onde o ramo já tem um `update_contact_field`,
+o patch **só acrescenta o campo ao array `fields` que existe**: zero nó novo,
+zero religação de cadeia, zero risco de quebrar o fluxo. Só cria nó onde o ramo
+não tem nenhum — hoje, um caso.
+
+| workflow | como | nós |
+|---|---|---|
+| `Resposta v2` | campo acrescentado ao nó `003eb01e`, que já gravava `Sinal recebido` | 18 → **18** |
+| `Triagem da Nutrição` | nó novo depois do `add_contact_tag` do `reengajado` | 37 → **38** |
+
+### Medido, incluindo o que eu afirmei sobre ele
+
+| conferência | resultado |
+|---|---|
+| `--dump` nos dois | conferência ok, exit 0 |
+| campo gravado por workflow | exatamente **1x** |
+| `next` quebrado / `parentKey` órfão | nenhum / nenhum |
+| **idempotência** (aplicar 2x) | 2ª passada não faz nada: mesmos nós, campo 1x |
+| forma do campo | `{"field": "TxJmoWdkA8rTqC1uEsMW", "value": "Mensagem", "title": "Canal que conectou", "type": "select", "date": ""}` |
+
+A idempotência não ficou só afirmada no docstring — rodei duas vezes e conferi
+que a segunda não duplica nem mexe na contagem de nós. Importa porque edição de
+workflow publicado costuma ser rodada mais de uma vez, entre tentativas.
+
+Zero escrita na conta: sem `--aplicar` o patch não escreve, e ele não foi
+executado. O campo continua contando na `auditoria_campos.py` até você rodar.
