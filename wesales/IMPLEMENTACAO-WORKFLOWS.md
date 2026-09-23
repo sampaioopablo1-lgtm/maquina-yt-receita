@@ -58,8 +58,8 @@ etapa do GHL a etapa aparece como `[FUNIL DE VENDAS] - NOME`.
 | Etapa | id | Papel |
 |---|---|---|
 | `NOVO LEAD` | `7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d` | Entrou pela Porta de Entrada, ainda sem cadência |
-| `CONECTAR` | `deb60542-a5cd-43ae-b875-b467b120a72c` | Correndo a cadência (12x30, Inbound ou Reengajamento) |
-| `AGENDAR` | `3d26fcd1-220d-49ed-8325-705dfe9055b1` | Atendeu, ainda sem reunião marcada |
+| `CONECTAR` | `deb60542-a5cd-43ae-b875-b467b120a72c` | Correndo a cadência (12x30, Inbound ou Reengajamento) **ou**, desde 23/09/2026 (D3, G-13), atendido e fechando horário da reunião (tag `fechar-horario`, workflow `Fechar Horário`) — as duas fases não mudam etapa |
+| `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`, mesmo id, renomeada na tela em 23/09/2026) | `3d26fcd1-220d-49ed-8325-705dfe9055b1` | **Papel mudou junto com o nome (D1/D3 do `PLANO-MULTICANAL.md`, G-13):** só é alcançada com reunião marcada. Atendeu sem reunião marcada agora **fica em `CONECTAR`** (fase "fechar horário", tag `fechar-horario`) — não é mais esta etapa |
 | `NEGOCIAR` | `cbcf0229-5e19-4fdb-8c50-6c641b78b3bb` | Reunião marcada / com o closer |
 | `FORMALIZAR` | `b8485ec0-98e8-459f-b990-f40a5e3bd25b` | Fechamento (closer) |
 
@@ -650,7 +650,13 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | 3c | Remove Contact Tag | `retorno-vencido` — incondicional (qualquer resultado novo é "o SDR agiu"; F-05 peça 6, quando a tag existir) | 4 |
 | 4 | If/Else múltiplo (Condition) | por `Resultado da tentativa`: ramos abaixo, incluindo `Desqualificado` (novo, R-18) | ramo |
 
-**Ramo `Atendeu`**
+**Ramo `Atendeu`** — **corrigido em 23/09/2026 (G-13):** A6-A9 antigas
+descreviam o nó que movia a oportunidade para `AGENDAR`. Desde a D3 do
+`PLANO-MULTICANAL.md` (executada e publicada em 23/09, E5-E7), o ramo não
+move mais etapa — confirmado no dump ao vivo (`INVENTARIO-WORKFLOWS.md`,
+"Pós-ligação v2": `create_opportunity ... etapa:CONECTAR`, tarefa
+`[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico`). Tabela
+abaixo já reflete o publicado.
 
 | # | Ação | Configuração exata |
 |---|---|---|
@@ -658,13 +664,19 @@ removidas, `limpar-tarefas` aplicada, nota gravada. Depois volte para `open`.
 | A2 | Math | `Total de conexões` + 1 — **retoque: este nó não existe/não grava na versão publicada** (24 execuções, `Conexões telefone` = 8, `Total de conexões` vazio) |
 | A3 | Update Contact Field | `WA não atendidas seguidas` = `0` |
 | A4 | Add Contact Tag | `conectado-hoje` |
+| A4b | Add Contact Tag | `fechar-horario` — estado "conectou, fechando o horário da reunião de diagnóstico" (`build-wesales.md`, seção 2.31/T-05) |
 | A5 | Remove Contact Tag | `fila-tel`, `fila-wa` |
-| A6 | Update Opportunity | Etapa → `AGENDAR` (status fica `open`) |
+| A6 | Update/Create Opportunity | Etapa **permanece** `CONECTAR` (status `open`) — sem movimento de etapa; só entra em `REUNIÃO DE DIAGNÓSTICO` pelo `Pós-agendamento v2` quando a reunião é marcada (D4) |
 | A7 | Update Contact Field | `Data conectado` = data atual |
 | A7b | Date/Time Formatter | entrada `{{right_now}}` · formato `HH` — grava em `Hora da conexão` (`contact.hora_da_conexo`), **campo já criado em 21/09 23:17**; o que ainda depende de decisão é o `{{right_now}}` (seção 0.3), não o campo |
 | A7c | Update Contact Field | `Hora da conexão` = saída do A7b |
-| A8 | Add Task | Título `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir `Contact Owner` |
+| A8 | Add Task | Título `[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico` · vence hoje · Atribuir `Contact Owner` — título trocado do antigo `[CONECTADO] Qualificar e agendar` |
 | A9 | Add Note | `Atendeu na T{{contact.tentativa_n}}` |
+
+**Continua enrolado na cadência:** o dump não mostra `remove_from_workflow`
+neste ramo (diferente do ramo `Não ligar`) — o contato segue inscrito em
+`Cadência 12x30` depois de `Atendeu`. Se é intencional ou vazamento não está
+registrado em nenhum documento; ver `ROADMAP-SALES-ENGAGEMENT.md`, G-13.
 
 **Ramo `Desqualificado` — novo, ainda não montado na tela (fecha L-08, R-18)**
 
@@ -1357,7 +1369,17 @@ publicar, `Add to Workflow` em massa nos leads já parados.
 
 ---
 
-## W17d · AGENDAR Estagnado — `build-wesales.md` 2.23 (F-05 peça 5)
+## W17d · AGENDAR Estagnado — `build-wesales.md` 2.23 (F-05 peça 5) — **NÃO MONTAR: despublicado em 23/09/2026, premissa superada (G-13)**
+
+> Depois da D3 do `PLANO-MULTICANAL.md`, `REUNIÃO DE DIAGNÓSTICO` só é
+> alcançada com reunião já marcada — o portão do nó 2 abaixo (`etapa é
+> AGENDAR/REUNIÃO DE DIAGNÓSTICO E status open`) nunca mais vê o caso que
+> motivou este workflow. O dono já tinha despublicado o `W17d` na tela
+> (`PLANO-MULTICANAL.md`, E8) antes de qualquer documento registrar o
+> porquê. Substituto publicado: `Fechar Horário` (não documentado neste
+> arquivo ainda — ver `tools/build_fechar_horario.py` e
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-13, para o que ele cobre e o que não
+> cobre). Tabela abaixo fica só como registro do desenho original.
 
 **Gatilho:** `Opportunity Stage Changed` → Pipeline `FUNIL DE VENDAS` · Para a etapa `AGENDAR`
 

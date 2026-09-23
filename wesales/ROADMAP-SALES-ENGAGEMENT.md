@@ -1172,6 +1172,91 @@ depende de `APROVADO.md`. Com isso, G-12 fecha por inteiro.
 
 ---
 
+### G-13 · O ramo `Atendeu` mudou de comportamento em 23/09/2026 (D3) e a especificação nunca acompanhou — duas seções de `build-wesales.md` e um workflow inteiro descreviam um nó que já não existe — **FEITO em 23/09/2026 (especificação)**
+
+**Por quê:** o G-12 (acima, peça 2) já tinha passado pela seção 2.23 e pela
+seção 4 nesta mesma varredura de nomes e não achou nada errado — porque
+procurava **nome** de etapa desatualizado, não **comportamento**
+desatualizado, e as duas coisas divergiram aqui de um jeito que só aparece
+lendo o que o nó faz, não como ele se chama. A D3 do `PLANO-MULTICANAL.md`
+(22/09/2026, executada e publicada em 23/09, E5-E7) mudou o ramo `Atendeu`
+do `Pós-ligação v2`: ele deixou de mover a oportunidade para `REUNIÃO DE
+DIAGNÓSTICO` — agora fica em `CONECTAR`, ganha a tag `fechar-horario` e a
+tarefa `[FECHAR HORÁRIO]`; só o `Pós-agendamento v2` move para lá, quando a
+reunião é marcada de fato (D4). A própria seção 2.31/F-16 deste roadmap-irmão
+já tinha essa mudança **auditada por dump ao vivo** (`Pós-ligação v2`, nós
+13/26/77/86/97) — mas duas outras partes do mesmo `build-wesales.md` nunca
+leram esse achado: a seção 4 ("Ramo `Atendeu`", nó 6, "Mover oportunidade →
+REUNIÃO DE DIAGNÓSTICO") e a seção 2.23 (F-05 peça 5, todo um workflow —
+"AGENDAR Estagnado"/W17d — cujo gatilho passou a vigiar um estado que não
+pode mais existir: "atendeu e ficou em REUNIÃO DE DIAGNÓSTICO sem reunião
+marcada" é agora uma contradição em termos, porque só se entra ali **com**
+reunião marcada). `IMPLEMENTACAO-WORKFLOWS.md` (W4 e W17d) e
+`campos-e-tags.md`/`APROVADO.md` (T-19) repetiam a mesma versão velha, cada
+um por conta própria. O dono já tinha chegado à mesma conclusão pelo lado da
+tela — despublicou o W17d (`PLANO-MULTICANAL.md`, E8) — sem que nenhum
+documento registrasse o motivo; quem lesse só a especificação teria montado
+o nó errado e reativado um workflow que o próprio dono já tinha desligado de
+propósito.
+
+**Como:** corrigidas, sem inventar comportamento novo — só transcrevendo o
+que já estava auditado em outro lugar (§2.31, `PLANO-MULTICANAL.md` E5-E7,
+`INVENTARIO-WORKFLOWS.md`) ou no próprio código que montou o substituto
+(`tools/build_fechar_horario.py`):
+- `build-wesales.md`, seção 4, ramo `Atendeu`: nós reescritos (tag
+  `fechar-horario`, sem movimento de etapa, tarefa renomeada
+  `[FECHAR HORÁRIO]`), com nota explicando a mudança e uma pendência nova
+  registrada (o ramo não tira mais o lead da `Cadência 12x30` — nenhum
+  documento diz se é intencional).
+- `build-wesales.md`, seção 2.23: aviso no topo (não apaguei o desenho
+  original — regra 1, e serve de registro) explicando que a premissa caiu,
+  que `Fechar Horário` é o substituto publicado, e a diferença real entre os
+  dois (`Fechar Horário` reengaja por mensagem; **não avisa o gestor**, ao
+  contrário desta peça — decisão de desenho em aberto, não resolvida aqui).
+  Mesmo tratamento que a seção 2.32 já deu ao F-17 (retirado sem apagar).
+- `build-wesales.md`, seção 3 (Mestre de saída): o exemplo que citava o nó
+  velho, corrigido — a conclusão do parágrafo (por que a lista é nomeada e
+  não `All Except Current`) continua de pé pelo outro exemplo (Pós-agendamento).
+- `build-wesales.md`, seção 1.1 (Sales Model Canvas etapa a etapa): as
+  tabelas de `CONECTAR` e `REUNIÃO DE DIAGNÓSTICO` — a raiz que F-05, F-13 e
+  outros itens citam como fonte do "tempo de estagnação" de cada etapa —
+  reescritas para a fase "fechar horário" dentro de `CONECTAR` e para a
+  entrada de `REUNIÃO DE DIAGNÓSTICO` exigir reunião já marcada.
+- `IMPLEMENTACAO-WORKFLOWS.md`: W4 (ramo `Atendeu`, A6-A9) reescrito igual;
+  W17d marcado "não montar, despublicado"; a linha `AGENDAR`/`CONECTAR` do
+  dicionário de nomes (seção 0.1) corrigida para o papel novo das duas
+  etapas.
+- `campos-e-tags.md` (T-19) e `APROVADO.md` (linha da 19ª tag): avisadas de
+  que o desenho que aprovariam está obsoleto — não recomendado aprovar como
+  está.
+
+**Pronto quando (cumprido):** `grep -n "Mover oportunidade → REUNIÃO DE
+DIAGNÓSTICO\|Etapa → \`AGENDAR\`\|\[CONECTADO\] Qualificar e agendar"
+wesales/build-wesales.md wesales/IMPLEMENTACAO-WORKFLOWS.md` não acha mais
+nenhuma ocorrência **fora** de nota histórica datada ou do próprio aviso de
+correção; as duas specs do ramo `Atendeu` (build-wesales.md §4 e
+`IMPLEMENTACAO-WORKFLOWS.md` W4) descrevem o publicado; W17d/§2.23 avisam
+claramente para não montar. **Pendências explícitas, não resolvidas por
+este item, registradas para quem continuar:**
+1. Decisão do dono: `Fechar Horário` precisa de um aviso ao gestor
+   equivalente ao antigo nó 4 do W17d, ou a falta de visibilidade é
+   aceitável porque o workflow já reengaja o lead sozinho? Se sim, é um nó
+   novo (`Internal Notification`) em `Fechar Horário` — não sai por API.
+2. O ramo `Atendeu` do `Pós-ligação v2` não remove o contato da `Cadência
+   12x30` (confirmado no dump) — ele continua recebendo toques automáticos
+   de tentativa **depois** de já ter atendido e estar fechando horário.
+   Intencional (a régua serve de lembrete extra) ou vazamento (dobra de
+   contato pelo mesmo lead, por dois workflows diferentes, na mesma janela)?
+   Não decidido em nenhum documento deste projeto até esta rodada.
+3. T-19 (`agendar-estagnado`) segue `[ ]` — se algum dia aprovada, precisa
+   ser o desenho revisado (que ainda não existe), não o original.
+
+Zero campo, zero tag novos, zero escrita no CRM: item de documentação e
+correção de spec, não depende de `APROVADO.md` (a única interação com ele é
+o aviso na linha já existente da 19ª tag, sem mudar `[ ]`/`[x]`).
+
+---
+
 
 ## Bloco 1 — Medição (a maior lacuna)
 
@@ -3991,3 +4076,37 @@ verdade; G-12 fechou por inteiro (peças 1 e 2). Não sobra item de
 documentação pura óbvio esperando uma sessão sem tela nem volume — a
 próxima rodada nessas condições volta à varredura de coerência de sempre e,
 se ela não achar nada, a uma lacuna nova.
+
+**G-13 aberto e fechado (especificação) em 23/09/2026, sessão automática
+seguinte — a varredura de coerência de sempre achou algo, e não era nome de
+etapa.** CRM reconfirmado por API: 56 oportunidades (mesma composição da
+leitura anterior, sem oportunidade nova), 56 campos de contato, pipeline com
+a mesma etapa `3d26fcd1-...`/`REUNIÃO DE DIAGNÓSTICO` — G-03, G-04 (peça 2),
+F-09, F-10 e G-11 (item 1) seguem aguardando o dono, sem novidade. O `grep`
+por nome de etapa (o mesmo que fechou G-02/G-12) não achou nada novo; o que
+achou foi ler `PLANO-MULTICANAL.md` (D3, E5-E7, E8) lado a lado com
+`build-wesales.md` seção 4 e perguntar não "o nome bate?" mas "o
+**comportamento** bate com o que está publicado?" — não batia: o ramo
+`Atendeu` do Pós-ligação ainda estava especificado como no desenho de
+18/09/2026, movendo a oportunidade para a etapa que a D3 tirou dessa função
+em 23/09/2026. Efeito em cascata: um workflow inteiro (`AGENDAR
+Estagnado`/W17d, seção 2.23, F-05 peça 5) tinha a premissa do próprio
+gatilho invalidada e ninguém tinha escrito por quê — o dono já tinha
+despublicado o workflow na tela antes de qualquer documento explicar o
+motivo. Corrigidas as duas seções de `build-wesales.md`, o W4/W17d/dicionário
+de `IMPLEMENTACAO-WORKFLOWS.md`, e avisadas `campos-e-tags.md`/`APROVADO.md`
+(T-19) para não aprovar o desenho velho. Zero campo, zero tag novos, zero
+escrita no CRM: item de documentação e correção de spec, não depende de
+`APROVADO.md`. Detalhe completo no próprio G-13, acima. **Regra prática,
+generalizável — diferente de G-02/G-12 (que procuravam nome desatualizado):**
+depois de uma decisão do dono mudar o **comportamento** de um nó (não só o
+nome de uma etapa), a varredura de coerência precisa perguntar duas coisas
+separadas — o nome bate? e o nó ainda faz o que a decisão nova manda? — porque
+uma sessão pode responder sim à primeira e não notar que a segunda ainda é
+não, exatamente o que aconteceu aqui com o próprio G-12.
+
+Com isso, G-13 fecha por inteiro (especificação); as pendências que ele deixa
+registradas (aviso ao gestor equivalente no `Fechar Horário`, se o ramo
+`Atendeu` deveria sair da `Cadência 12x30`, e T-19 revisada) entram na mesma
+fila de decisão do dono que G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) —
+nenhuma delas executa sozinha nem por este MCP.

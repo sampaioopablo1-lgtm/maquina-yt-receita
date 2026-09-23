@@ -5755,3 +5755,49 @@ M1.3a/M1.3b/M2.2/M3.2, `biblioteca-mensagens.md` tabela de Templates Meta),
 não depende de `APROVADO.md` — nem a guarda nem o Template saem por API; a
 submissão do Template à Meta é ação do dono no Business Manager, fora deste
 conector.
+
+## Coerência de nome não é coerência de comportamento — G-13, 23/09/2026, sessão automática
+
+Todo item numerado (G/R/F) do roadmap estava fechado ou represado por
+decisão do dono; CRM reconfirmado sem mudança via API (56 campos, 56
+oportunidades). Seguindo a própria instrução do roadmap para essa condição
+(varredura de coerência antes de procurar lacuna nova), o `grep` por nome de
+etapa de sempre não achou nada — a mesma varredura que já tinha fechado
+G-02/G-12. A lacuna apareceu ao trocar a pergunta: em vez de "o nome da
+etapa está atualizado em todo lugar?" (já respondida, duas vezes), "o
+**comportamento** de um nó que menciona essa etapa ainda é o que está
+publicado?" `build-wesales.md`, seção 4 (`Pós-ligação`, ramo `Atendeu`),
+ainda dizia que a conexão movia a oportunidade para `REUNIÃO DE
+DIAGNÓSTICO` — desenho de 18/09/2026. A D3 do `PLANO-MULTICANAL.md`
+(22/09/2026, publicada em 23/09) mudou isso: `Atendeu` fica em `CONECTAR`,
+ganha `fechar-horario`, só agenda move para lá. A seção 2.31/F-16 do mesmo
+arquivo já tinha essa mudança auditada por dump ao vivo — a seção 4 nunca
+leu esse achado, contradição dentro do próprio documento.
+
+**O efeito em cascata é o que torna isso mais que um erro de texto:** um
+workflow inteiro (`AGENDAR Estagnado`/W17d, F-05 peça 5, `build-wesales.md`
+§2.23) tinha o gatilho vigiando um estado que a D3 tornou logicamente
+impossível ("atendido, em `REUNIÃO DE DIAGNÓSTICO`, sem reunião marcada" —
+agora só se entra ali **com** reunião marcada). O dono já tinha chegado à
+mesma conclusão pela tela e despublicado o W17d (`PLANO-MULTICANAL.md`, E8)
+**antes** de qualquer documento registrar o motivo — quem tivesse lido só a
+especificação teria remontado um workflow que o próprio dono já tinha
+desligado de propósito. O G-12 (mesmo dia, sessão anterior) tinha passado
+pela seção 2.23 procurando nome desatualizado, viu "AGENDAR Estagnado" como
+nome próprio já publicado e seguiu — nunca perguntou se o workflow atrás do
+nome ainda fazia sentido.
+
+**Regra prática, generalizável, e diferente de toda a família G-02/G-06 a
+G-12 (que procuravam "canal novo sem guarda" ou "nome sem migrar"):**
+quando uma decisão do dono muda o **comportamento** de um nó (não só o nome
+de uma etapa ou a lista de canais aceitos), a varredura de coerência
+precisa fazer duas perguntas separadas, porque responder "sim" à primeira
+não implica "sim" à segunda: (1) os nomes usados aqui ainda existem/têm o
+papel que o texto assume? (2) o nó ainda faz, hoje, o que o texto diz que
+ele faz? A auditoria de dump ao vivo (§2.31) já tinha a resposta certa da
+pergunta 2 havia dois dias; só não tinha sido cruzada com as outras duas
+seções do mesmo arquivo que descreviam o mesmo nó por um caminho diferente
+(a explicação nó a nó, não a auditoria de tag). Onde um workflow é descrito
+em mais de um lugar (spec "por que", spec "como clicar", auditoria de dump),
+uma mudança de comportamento só está de fato propagada quando os três
+concordam — não quando o mais recente está certo e os outros dois, calados.

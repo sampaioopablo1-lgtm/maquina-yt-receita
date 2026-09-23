@@ -294,29 +294,39 @@ L-07 já registrada, só que agora com o efeito colateral dela em cima de
 uma métrica que achávamos fechada (R-02). Registrado aqui para quem for
 priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 
-#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado`)
+#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado` **e**, desde 23/09/2026, a fase "fechar horário" — ver aviso abaixo, G-13)
+
+> **Correção de 23/09/2026 (G-13):** as linhas "Validação de passagem" e
+> "Motivos de perda" abaixo diziam que `Atendeu` move a oportunidade para
+> `REUNIÃO DE DIAGNÓSTICO`. Isso valia até a D3 do `PLANO-MULTICANAL.md`
+> (22/09/2026, publicada em 23/09): hoje `Atendeu` **fica** em `CONECTAR`,
+> numa fase própria ("fechar horário": tag `fechar-horario`, workflow
+> `Fechar Horário`, até 3 dias reengajando por mensagem antes de cair em
+> nutrição). Só o agendamento de fato (`Pós-agendamento v2`) move a
+> oportunidade para `REUNIÃO DE DIAGNÓSTICO`. Detalhe em `build-wesales.md`
+> seção 4 (ramo `Atendeu`) e `ROADMAP-SALES-ENGAGEMENT.md`, G-13.
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
-| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `REUNIÃO DE DIAGNÓSTICO`, `AGENDAR` até 22/09/2026) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
-| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data de retorno`/`Hora do retorno` — **os dois já existem na tela desde 21/09/2026**, `CONFERENCIA-CAMPOS.md` Tabela K) continua valendo aqui dentro, não em etapa separada |
-| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
-| Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
+| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias, **e então** fechar o horário da reunião de diagnóstico — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
+| Validação de passagem | `Resultado da tentativa` = `Atendeu` **não** muda mais etapa (nó A6 do ramo `Atendeu`, seção 4) — o lead fica em `CONECTAR`, fase "fechar horário". Só sai para `REUNIÃO DE DIAGNÓSTICO` quando a reunião é de fato marcada no calendário (`Pós-agendamento v2`, seção 5, nó 1). `Pediu retorno` também **não muda etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
+| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md`; **fase "fechar horário":** tag `fechar-horario`, tarefa `[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico`, workflow `Fechar Horário` (mensagens `MFH1-v1`/`MFH2-v1`) |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço na fase de tentativa; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). A fase "fechar horário" tem o próprio relógio dentro do workflow `Fechar Horário` (3 dias até nutrição) — não tem alerta ao gestor ainda, pendência aberta no G-13. O antigo gap "retorno vencido sem nova ligação" (S-01, `Data de retorno`/`Hora do retorno`, na tela desde 21/09/2026) continua valendo aqui dentro |
+| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`**; conectado e sem fechar horário em 3 dias → mesmo destino (`abandoned` + `nutricao-90d`), pelo `Fechar Horário` — todas sem movimento de etapa (era "→ `Nutrição`" no plano de 7) |
+| Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada; taxa de quem conecta e **fecha horário** dentro dos 3 dias ainda não medida (canal novo, G-13) |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
 
-#### Etapa 2 — `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id`)
+#### Etapa 2 — `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id`) — **entrada mudou em 23/09/2026, ver aviso na Etapa 1 (G-13)**
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Qualificar e agendar com o closer na mesma ligação (briefing-sdr.md, "A máquina") |
-| Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
-| Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 5 — seção 2.23) monitora 24h sem sair de `REUNIÃO DE DIAGNÓSTICO` depois de atender. Esta linha dizia "sem monitor ainda" até 22/09/2026 — ficou parada desde antes de a peça 5 fechar; a mesma ressalva que a linha de `CONECTAR` já dá logo acima |
-| Motivos de perda | ~~**Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa~~ — **L-08 fechada em 21/09/2026 (R-18):** o ramo `Desqualificado` do Pós-ligação (seção 4) sai por `status` antes de chegar em `REUNIÃO DE DIAGNÓSTICO`, então a maioria dos "sem fit na ligação" nem entra mais nesta etapa. O que resta em `REUNIÃO DE DIAGNÓSTICO` sem agendar é só "atendeu, era fit, não fechou horário" — o gap de medição da linha abaixo |
-| Taxa de conversão esperada | Com o L-08 fechado, a métrica de `REUNIÃO DE DIAGNÓSTICO` já mede só "não conseguiu horário" — o motivo "sem fit" saiu antes, pelo ramo `Desqualificado` |
-| Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
+| Objetivo | Reunião marcada; qualificação (formulário do closer) e fechamento de horário já aconteceram **antes** de entrar aqui, dentro de `CONECTAR` (D2 do `PLANO-MULTICANAL.md`) — esta etapa é a espera até a reunião acontecer e o veredito do closer |
+| Validação de passagem | Agendamento no calendário `Reunião com closer`, feito pelo SDR ainda em `CONECTAR` — dispara o `Pós-agendamento v2` (seção 5), que move para cá |
+| Ferramentas | Calendário + confirmação/lembretes (`Pós-agendamento v2`, seção 5) |
+| Tempo de estagnação | **Não coberto mais por monitor nenhum** (peça 5 do F-05/W17d foi despublicada, premissa impossível — `build-wesales.md` seção 2.23, G-13). Como a entrada aqui já exige reunião marcada, o relógio relevante é o `No-show`/`SLA do Closer` (seção 5.3/5.4), não um "ficou parado" genérico |
+| Motivos de perda | O ramo `Desqualificado` do Pós-ligação (R-18, seção 4) já tira a maioria dos "sem fit na ligação" **antes** de chegar aqui, ainda em `CONECTAR`. O que chega em `REUNIÃO DE DIAGNÓSTICO` tem reunião marcada; perda a partir daqui é veredito do closer (Loop do closer, seção 5.1) ou no-show |
+| Taxa de conversão esperada | Reunião realizada vs. agendada (no-show) — não é mais "sem fit", que sai antes |
+| Meta de avanço | Ligado à meta de conexões que fecham horário (etapa anterior) — sem meta própria adicional |
 
 #### Etapa 3 — `NEGOCIAR` (absorve `Reunião agendada` + a negociação do closer)
 
@@ -3323,9 +3333,46 @@ silencioso que o G-03 só foi achado porque alguém olhou o dado direto.
 
 ---
 
-## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) sem fechar o loop) — F-05 fechado
+## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) sem fechar o loop) — F-05 fechado, **premissa superada em 23/09/2026 (G-13)**
 
-**Por quê:** a invariante que a "Adição de 18/09/2026" do roadmap
+> **Este desenho parou de poder acontecer.** A premissa do gatilho abaixo é
+> que `REUNIÃO DE DIAGNÓSTICO` é alcançada por uma conexão (`Atendeu`) que
+> ainda não fechou horário. Com a D3 do `PLANO-MULTICANAL.md` (23/09/2026),
+> `Atendeu` deixou de mover a oportunidade — ela **só** entra em `REUNIÃO DE
+> DIAGNÓSTICO` quando a reunião é marcada (`Pós-agendamento v2`, D4). Não há
+> mais como estar nessa etapa **sem** reunião marcada, então o portão do nó 2
+> (`etapa é REUNIÃO DE DIAGNÓSTICO E status é open`) nunca mais vê o caso que
+> o alerta existia para pegar. O dono já tinha chegado à mesma conclusão por
+> outro caminho e despublicado o workflow desta seção (`W17d`,
+> `PLANO-MULTICANAL.md` E8, 23/09/2026) antes de qualquer documento registrar
+> o motivo.
+>
+> **O que substitui esta peça, e o que ela não cobre.** `Fechar Horário`
+> (`tools/build_fechar_horario.py`, publicado) monitora a fase nova —
+> conectado, ainda em `CONECTAR`, tag `fechar-horario` — com um relógio de 3
+> dias: dia 1 tarefa + mensagem automática `MFH1-v1`, dia 2 tarefa + `MFH2-v1`,
+> dia 3 sem reunião → `abandoned` + `nutricao-90d`. Sai sozinho quando a
+> reunião é marcada. **A diferença real com esta peça 5:** o novo workflow
+> reengaja o lead por mensagem, mas **não avisa o gestor** em nenhum passo —
+> o `Internal Notification` do nó 4 abaixo não tem equivalente em
+> `Fechar Horário`. Se a visibilidade do gestor sobre "conectou e não fechou
+> horário" ainda é necessária, é decisão de desenho nova (somar um aviso ao
+> `Fechar Horário`, não ressuscitar esta peça — a etapa que ela vigiava não
+> aceita mais o estado que ela procurava).
+>
+> **Consequência para T-19 (`agendar-estagnado`, `campos-e-tags.md`):**
+> continua `[ ]` em `APROVADO.md`, nunca criada — e não deveria ser aprovada
+> como está especificada aqui, porque o workflow que a aplicaria (nó 3 abaixo)
+> foi despublicado. Detalhe completo, e o que fica em aberto, em
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-13. O texto abaixo fica como registro do
+> desenho original — não é para montar.
+>
+> **Pronto quando:** decisão do dono sobre se `Fechar Horário` precisa de um
+> aviso ao gestor equivalente ao nó 4 abaixo; se sim, especificar o nó novo
+> nesta seção; se não, marcar esta peça como retirada (mesmo tratamento que a
+> seção 2.32 já deu ao F-17) e considerar T-19 encerrada sem criação.
+
+**Por quê (desenho original, 18/09/2026 — não monte, ver aviso acima):** a invariante que a "Adição de 18/09/2026" do roadmap
 acrescentou ao F-05 original, ao aplicar o tempo de estagnação do Sales
 Model Canvas etapa a etapa: `Conectado` (hoje `REUNIÃO DE DIAGNÓSTICO`, tabela 1.0) sem
 avançar para `Reunião agendada` (`NEGOCIAR`) em mais de 24h — o SDR atendeu
@@ -5332,7 +5379,7 @@ documento:
 | Quem dispara | O que ainda faltava rodar nele | O que `All Except Current` mataria |
 |---|---|---|
 | Pós-agendamento, nó 1 (`move para NEGOCIAR`) | nós 4 a 10: a `Nota de qualificação`, a confirmação no WhatsApp e os **três lembretes** (24h, 3h, 30min antes da reunião) | os lembretes de **toda reunião agendada** — o ativo mais caro do funil |
-| Pós-ligação, ramo `Atendeu`, nó 6 (`move para REUNIÃO DE DIAGNÓSTICO`) | nós 7 a 9: `Data conectado`, `Hora da conexão` (C-25), a tarefa `[CONECTADO] Qualificar e agendar` e a nota | a **próxima tarefa do SDR** depois de uma conexão — o lead atende e desaparece da fila |
+| ~~Pós-ligação, ramo `Atendeu`, nó 6 (`move para REUNIÃO DE DIAGNÓSTICO`)~~ — **exemplo retirado em 23/09/2026 (G-13):** desde a D3 do `PLANO-MULTICANAL.md`, o ramo `Atendeu` não move mais etapa (seção 4) — deixou de existir este segundo caso. A linha acima (Pós-agendamento) já sustenta sozinha a decisão de manter a lista nomeada em vez de `All Except Current Workflow` | — | — |
 
 E como o Mestre roda como workflow separado, o corte chegaria em momentos
 diferentes a cada vez: às vezes depois do lembrete, às vezes antes. Bug não
@@ -5537,25 +5584,51 @@ agiu sobre o lead"; um `Remove Contact Tag` incondicional aqui, antes da
 ramificação do nó 4, fecha o caminho de recuperação sem depender de etapa
 mudar. Detalhe completo na seção 2.24.
 
-#### Ramo `Atendeu`
+#### Ramo `Atendeu` — reescrito em 23/09/2026 (G-13): a D3 do `PLANO-MULTICANAL.md` mudou o que este ramo faz, e esta seção nunca tinha acompanhado
+
+> **O que havia aqui até 23/09/2026** dizia que o nó 6 movia a oportunidade
+> para `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`). Isso descrevia o desenho
+> de 18/09/2026, anterior à decisão D3 do dono (`PLANO-MULTICANAL.md`,
+> 22/09/2026: *"`Atendeu` não move mais de etapa. O lead fica em `CONECTAR`
+> na fase 'fechar horário'... até agendar"*), executada e publicada em
+> 23/09/2026 (E5-E7). A própria seção 2.31/F-16 deste arquivo já tinha
+> auditado o comportamento novo por dump ao vivo (`Pós-ligação v2`, nós
+> 13/26/77/86/97) e registrado a tag `fechar-horario` — só esta tabela
+> continuava descrevendo o nó antigo. Contradição dentro do mesmo documento:
+> quem lesse só esta seção montaria o ramo errado. Fonte da correção: a
+> auditoria da seção 2.31 (dump `status: published`, versão 4) e
+> `PLANO-MULTICANAL.md` E5-E7.
+
 | # | Ação |
 |---|---|
 | 1 | If/Else | A tentativa foi de WhatsApp? (mesma checagem do nó 2) → Math: `Conexões WhatsApp` + 1. Senão → Math: `Conexões telefone` + 1 |
 | 2 | Math: `Total de conexões` + 1 |
 | 3 | Update: `WA não atendidas seguidas` = 0 |
 | 4 | Add Contact Tag `conectado-hoje` |
-| 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| 6 | Mover oportunidade → `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) (dispara o Mestre de saída pelo gatilho de etapa, que faz a limpeza) |
-| 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
-| 7b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
-| 7c | Update Contact Field | `Hora da conexão` = saída do nó 7b |
-| 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
-| 9 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
+| 5 | Add Contact Tag `fechar-horario` (estado "conectou, fechando o horário da reunião de diagnóstico" — seção 2.31/T-05 do `campos-e-tags.md`) |
+| 6 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 7 | Update/Create Opportunity → etapa **permanece** `CONECTAR` (sem mudança de etapa — é o que a D3 pede; confirmado no dump como `create_opportunity ... etapa:CONECTAR`, não como movimento para `REUNIÃO DE DIAGNÓSTICO`) |
+| 8 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
+| 8b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
+| 8c | Update Contact Field | `Hora da conexão` = saída do nó 8b |
+| 9 | Add Task `[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) — título trocado do antigo `[CONECTADO] Qualificar e agendar`, confirmado no dump ao vivo |
+| 10 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
 
-O nó 6 move **toda** ligação atendida para `REUNIÃO DE DIAGNÓSTICO`, sem olhar se a conversa
+**O que este ramo não faz mais, e por quê:** não dispara mais o Mestre de
+saída por mudança de etapa (§3, gatilho 1) — porque não há mudança de etapa.
+A oportunidade só entra em `REUNIÃO DE DIAGNÓSTICO` pelo `Pós-agendamento v2`
+quando a reunião é de fato marcada (D4). **Pendência em aberto, não
+resolvida por esta correção:** com isso, o contato conectado e ainda não
+agendado permanece inscrito em `Cadência 12x30` (o dump não mostra
+`remove_from_workflow` no ramo `Atendeu`, diferente do ramo `Não ligar`) —
+se isso é intencional (a régua continua tentando até o lead fechar horário)
+ou um vazamento, não está registrado em nenhum documento deste projeto.
+Fica como pergunta para quem revisar a fase "fechar horário" na tela.
+
+O nó 9 (task) nasce para **toda** ligação atendida, sem olhar se a conversa
 já mostrou que não há fit — é a lacuna **L-08** (`briefing-sdr.md`), fechada
-nesta rodada pelo ramo `Desqualificado` abaixo (R-18): quem atende e claramente
-não serve não deveria abrir tarefa de agendamento nenhuma.
+pelo ramo `Desqualificado` abaixo (R-18): quem atende e claramente não serve
+não deveria abrir tarefa de fechamento de horário nenhuma.
 
 #### Ramo `Desqualificado` — novo nesta rodada, fecha L-08 (R-18)
 

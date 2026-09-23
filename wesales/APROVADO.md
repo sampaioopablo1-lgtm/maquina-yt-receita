@@ -171,6 +171,14 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       motivo e mesma regra das três linhas acima: nasce `[ ]`, vira `[x]`
       quando o dono trocar, num commit que não é o meu.
 
+      **Aviso de 23/09/2026 (G-13), antes de marcar `[x]`:** o desenho que
+      esta linha aprovaria ficou obsoleto — o workflow que aplicaria a tag
+      foi despublicado (você mesmo fez isso, `PLANO-MULTICANAL.md` E8, antes
+      de qualquer documento explicar o porquê: desde a D3, a etapa que ele
+      vigiava só é alcançada com reunião já marcada). Detalhe e o que decidir
+      em `build-wesales.md`, seção 2.23, e `ROADMAP-SALES-ENGAGEMENT.md`,
+      G-13.
+
 - [ ] Criar a 20ª tag, `retorno-vencido` — nasceu no F-05 (Monitor de Saúde
       da Operação, peça 6: `Data de retorno` prometida que vence sem o SDR
       reclassificar `Resultado da tentativa`), especificada em
