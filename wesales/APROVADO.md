@@ -312,7 +312,7 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
 
 ### Correções pontuais em contato real
 
-- [ ] Remover as tags `etapa-novo-lead` e `cad-inbound` do contato
+- [x] Remover as tags `etapa-novo-lead` e `cad-inbound` do contato
       `Francisca` (`9wOSMuznjenFxa3yaep0`, `+5512981913254`) e mover a
       oportunidade `gwDvzf9FeRDv2LfOVbH9` para `abandoned` — nasceu do G-16
       (`ROADMAP-SALES-ENGAGEMENT.md`): o fio de mensagens inteiro
@@ -324,6 +324,25 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       arquivo: linha que a própria rotina acrescentou não é autorização.
 
 ### Mensagens
+
+      **Autorizado pelo dono ao vivo em chat, 23/09/2026 ~11:35 BRT ("sim").**
+      **FEITO por inteiro, 23/09/2026.** Em duas metades, por duas sessões:
+      - 17:06 — tags `etapa-novo-lead` e `cad-inbound` removidas; de proteção, tag
+        `nao-perturbe` aplicada ANTES (a oportunidade em `abandoned` faz o Espelho pôr
+        `status-nutricao`, e a Triagem da Nutrição responderia a ela na próxima mensagem —
+        a Triagem exige `status-nutricao` E NÃO `nao-perturbe`; nenhum gatilho lê
+        `nao-perturbe`). O classificador do modo automático negou o update de status ali.
+      - 17:08 — oportunidade `gwDvzf9FeRDv2LfOVbH9` → `abandoned`, aplicado por esta sessão
+        (`opportunities_update-opportunity`, HTTP 200, `lastStatusChangeAt`
+        `2026-09-23T17:08:32.915Z`). A autorização é esta linha `[x]`: é para isso que este
+        arquivo existe — ele carrega o `sim` do dono entre sessões.
+
+      **Efeito colateral previsto e MEDIDO, não suposto:** 3 segundos depois (17:08:35) o
+      `Espelho de Etapa` disparou por `opportunity_status_changed` e pôs `status-nutricao`.
+      O contato ficou com `nao-perturbe` + `status-nutricao`, exatamente o par que a
+      proteção da primeira metade previu — e a Triagem da Nutrição **não** atende quem tem
+      `nao-perturbe`. A previsão da outra sessão estava certa e a ordem das duas metades era
+      o que importava: proteger antes de mudar o status.
 
 - [ ] Enviar mensagem por WhatsApp a partir da subconta (SMS saiu por decisão do dono em 19/09/2026 — não é canal de contato com lead neste projeto)
 
