@@ -2,6 +2,38 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Teste que cria oportunidade deixa pegada indistinguível de lead — e uma pendência fechada por medição em vez de por tela — 23/09/2026, sessão na nuvem
+
+Check-in das 02:29. Nada novo no git, todos os gabaritos batendo — e a medição do
+CRM mostrou duas coisas que nenhum commit contava.
+
+**1. O `Espelho de Etapa` etiqueta o ACERVO, não só mudança futura.** Essa era a
+pergunta que eu tinha registrado como "só a tela responde". Respondida sem tela:
+das **53 oportunidades `open`, 53 carregam a tag de etapa certa**, 0 sem tag, 0
+divergente — incluindo as criadas em 20 e 21/09, antes da publicação. **A regra:**
+antes de mandar o dono conferir na tela, ver se a consequência é mensurável pela
+API. Tag no contato é mensurável; gatilho não é. Eu quase gastei uma pendência do
+dono numa coisa que eu mesmo podia medir.
+
+**2. Cinco oportunidades nascidas de teste estão indistinguíveis de lead.** A
+validação do multicanal de ontem à noite (22:34–00:45) criou contato e
+oportunidade `open` em `NOVO LEAD` para `Sem Nome`, `O Próximo Cliente`,
+`Pablo Sampaio`, `Francisca` e `156766977421470` — **sem `source` e sem prefixo
+`ZZ`**, que é a convenção do projeto para marcar teste. Se a esteira ligar assim,
+a máquina liga para o dono e para a própria agência.
+
+Duas consequências práticas:
+- **A base mudou de composição e o número que eu repetia estava velho.** Eu
+  carregava "39 leads reais"; são **37** de `source: Facebook` mais 5 de Instagram
+  sem telefone, e os 5 de teste por cima. Número repetido entre rodadas envelhece
+  — a mesma regra de "número fixo só na fonte" vale para número que eu carrego no
+  prompt de check-in.
+- **Teste que escreve no funil precisa da marcação na hora de escrever**, não
+  depois: `ZZ` no nome e `source` dizendo que é teste. Sem isso, o teste de hoje
+  vira lead de amanhã, e quem descobre é o SDR ligando para o dono. Os 3 testes
+  antigos (`ZZ Teste Porta Inbound`, `ZZ TESTE ESTRUTURA`, `Teste Não Ligar`) foram
+  feitos assim e não dão trabalho nenhum — a convenção funciona quando é usada.
+
 ## `testpaths = ["tests"]` encerra a conferência de CI commit por commit — e duas coisas que saíram de varrer um commit de token — 23/09/2026, sessão na nuvem
 
 **CI, a razão definitiva.** Eu vinha provando "o CI não mudou" commit a commit

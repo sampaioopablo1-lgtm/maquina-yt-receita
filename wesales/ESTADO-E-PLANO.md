@@ -217,13 +217,33 @@ entra no funil. Hoje não há regra nenhuma.
 | 4 | Entrada de leads parada (Gerenciador de Anúncios) | a esteira sem alimentação |
 | 5 | Marcar as 6 tags e os 4 campos no `APROVADO.md` | coerência do freio de mão |
 | 6 | Pré-requisito 6 do W20 (`Conexão real = vazio` antes de cada tentativa) | sem ele, um `Sim` antigo sobrevive às tentativas seguintes |
-| 6b | **Conferir na tela se o gatilho do `Espelho de Etapa` etiqueta o acervo ou só mudança futura** (ele já está publicado) | se for só mudança futura, as 45 oportunidades paradas em `NOVO LEAD` nunca recebem `etapa-novo-lead` e seguem invisíveis às condições dos 11 workflows que passaram a testar tag. Nenhum dump responde isso — gatilho não entra na exportação |
+| ~~6b~~ | ~~Conferir na tela se o gatilho do `Espelho de Etapa` etiqueta o acervo~~ — **FECHADA por medição em 23/09 02:35**, não precisou de tela | etiqueta o acervo inteiro: das **53 oportunidades `open`, 53 têm a tag de etapa certa**, 0 sem tag, 0 divergente — inclusive as criadas em 20 e 21/09, antes da publicação. As condições dos 11 workflows têm dado |
 | 7 | **`conectado-hoje` sem removedor** (F-16 / G-11) — escolher entre as 4 saídas da seção 2.31 do `build-wesales.md`; recomendo a A (`Wait 24h` → `Remove Tag` dentro do `Pós-ligação v2`) | as duas filas do SDR (8.2 e 8.3). Com o `Atendeu` ficando em `CONECTAR`, quem atende uma vez e não fecha horário some das filas para sempre |
 | 8 | **Confirmar com um comando no seu PC:** `python patch_remove_parte2.py` **sem** `--aplicar` (não escreve nada, só lista) | o assunto do `23db864` diz "parte 2 nas remoções", então provavelmente já está feito — o que falta é confirmar quantos nós o script pegou, porque ele varre só os publicados. Se algum ficou para trás, o lead que agenda continua recebendo toque automático da segunda metade da régua. O dump não responde isso (seção 2.31.3) |
 | 9 | **Três `Remove Tag` em dois workflows** — `fechar-horario` e `nutricao-90d` e `cadencia-12x30-p2` ao lado dos `remove_from_workflow` do `Pós-agendamento v2` (nó 4) e do `Fechar Horário` (nó 0) | `remove_from_workflow` não roda os nós de saída do alvo. As três tags são limpas **só** dentro de workflows de que outros arrancam o contato, então ficam para sempre em quem agenda. A `cadencia-12x30-p2` é a mais cara: a parte 1 passou a ter portão por tag, e o lead marcado pode não conseguir reentrar (seções 2.31.2 e 2.33) |
+| 0 | **Separar do funil as 5 oportunidades que nasceram dos testes de ontem à noite** (`Sem Nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca`, `156766977421470` — criadas entre 22/09 22:34 e 23/09 00:45, sem `source`, sem prefixo `ZZ`) | elas estão `open` em `NOVO LEAD` e **indistinguíveis de lead**. Se a esteira ligar assim, a máquina liga para você e para a própria agência. É a única pendência que vem **antes** do lote, e é sua porque eu não escrevo em oportunidade que não está no `APROVADO.md` |
 | 11 | **Escolher como a Faxina roda:** workflow do Actions com `schedule` usando o `secrets.GHL_TOKEN`, **ou** rotina de agente pelo MCP (aí o `GHL_TOKEN` não serve) | o segredo foi criado no `0aebc38` e **nenhum** `.github/workflows/*.yml` o cita; o script está validado e sem gatilho. Ter as duas meio-feitas é o formato em que ninguém percebe que a faxina não rodou (`rotina-limpar-tarefas.md`, seção final) |
 | 12 | **Revogar o PIT antigo** (o que apareceu no histórico de chat) — Settings → Private Integrations | varri o repositório: nenhum consumidor automatizado dele aqui (o `ghl_api.py` usa o bearer interno, a Faxina usa o `GHL_TOKEN` novo, o `conectar.md` só documenta a receita). Revogar não quebra nada **deste repositório**. O limite é esse: se ele foi colado em algo fora (Zapier, Make, n8n), revogar quebra aquilo, e isso eu não vejo |
 | 10 | **Decidir o `fila-wa`**: apagar a lista 8.3 e tirar os 75 nós, ou devolver fila própria ao WhatsApp | a tag é removida em 75 nós e aplicada em nenhum — a `Fila WhatsApp Hoje` nunca pode encher. Não é bug: o `PLANO-MULTICANAL.md` fez o WhatsApp virar parte do toque. O desatualizado é a lista 8.3. Recomendo apagar (seção 2.33) |
+
+**Medição de 23/09 02:35 — a composição do `NOVO LEAD` mudou e o número que eu
+vinha carregando ("39 leads reais") está desatualizado.** São **50 oportunidades
+`open` em `NOVO LEAD`** (eram 45), e elas não são todas lead:
+
+| O que é | Quantas | Quem |
+|---|---|---|
+| **lead pago de verdade** | **37** | `source: Facebook` |
+| lead de Instagram sem `source` | 5 | `TINTIM`, `Dkw.oficial`, `Nathalia.ggss` e mais 2 — os que não têm telefone nem e-mail, alvo do agente de IA |
+| **teste de ontem à noite, sem marcação** | **5** | `Sem Nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca`, `156766977421470` — criadas 22/09 22:34 a 23/09 00:45, durante a validação do multicanal |
+| teste já marcado | 3 | `ZZ Teste Porta Inbound`, `ZZ TESTE ESTRUTURA`, `Teste Não Ligar` |
+
+Então o lote da Etapa A é sobre **42 candidatos** (37 + 5), não 39 — e só depois de
+tirar os 5 da terceira linha, que é a pendência 0 acima.
+
+**A entrada de anúncio continua parada.** O lead mais novo com `source: Facebook`
+segue sendo `Carlos Andrade`, 21/09 09:17 — mais de **41 horas**. As 6
+oportunidades novas desta noite são todas de teste seu, nenhuma veio do
+Gerenciador.
 
 **Sobre as pendências 7, 8 e 9 (novas em 23/09):** as três nasceram dos commits
 `1d04af2` e `23db864`, que vieram do seu PC (mudança de etapa em 5 workflows,
