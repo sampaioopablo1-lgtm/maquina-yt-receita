@@ -5966,3 +5966,59 @@ em Trilha A, o piso da curva nome-próprio × entrega técnica**; defeito novo e
 página com 11 anúncios repetidos competindo contra ela mesma**, munição direta para a nossa
 copy; a personalização por cidade na headline se confirmou num segundo nicho; gancho novo:
 o benefício que o leitor já paga, tipo Wellhub).
+
+---
+
+## ARQUITETURA E INTERIORES — escritório (23/09, nacional)
+
+Varredura: `escritório de arquitetura projeto de interiores`, BR, ACTIVE. **628 anúncios
+ativos**, 31 páginas distintas, **23 alvos** (fora seis páginas de imóveis, duas de curso
+para arquiteto — Renata Pocztaruk e Agilizarq — e três de fornecedor: Talismã Pedras,
+Design Supplier, Rede Sim).
+
+**A regra "arquitetura puxa imobiliária" não se resolve com termo mais específico.** Eu
+somei "projeto de interiores" achando que isso filtraria, e ainda vieram seis páginas de
+imóveis: Bossa Nova Sotheby's, Tatiana Machado Broker, daniel.o.corretor, Eduardo Cleoni,
+Sheyla Siqueira, Guilherme Neilly. O motivo é o inverso do que eu supunha: não é o termo que
+está largo, **é o anúncio de imóvel de alto padrão que escreve "projeto assinado por" e
+"arquitetura autoral" dentro do texto.** Filtrar pelo termo não resolve; é preciso filtrar
+pela página.
+
+**Trilha A: 14 de 23** — Rafael Ramos, Ana Bonim, Jackelyne Tavares, Travagli, Paula
+Knabben, Mazur, Rita Braga, Letícia Broch, Thaíres Marques, Natália Bittencourt, Edilene
+Savazzi, Patricia Kogake, Guilherme Rahde, Dua. É a segunda melhor proporção de todas, atrás
+só da advocacia criminal — **e desmonta a leitura simples que eu tinha feito em solar.** Não
+é "entrega técnica esconde o dono": arquitetura é técnica e o dono está em quase todo nome.
+O que decide é **se o cliente escolhe uma pessoa ou contrata uma capacidade.** Advogado e
+arquiteto a pessoa escolhe; instalador de painel solar e clínica 24h ela contrata.
+
+**Defeito novo e recorde: a descrição inteira do imóvel dentro do campo de título.** A Bossa
+Nova Sotheby's roda três anúncios em que a headline tem **milhares de caracteres** — seis
+descrições completas de imóvel emendadas com "|", cada uma com metragem, número de suítes,
+vagas e nome do paisagista. Nenhuma dessas linhas aparece legível no feed; o campo corta na
+primeira dúzia de palavras. É uma página cara rodando anúncio que ninguém consegue ler.
+
+**A auto-concorrência se confirmou num segundo nicho:** a AUPI Arquitetura roda **seis
+anúncios ativos** com a mesma headline "Saiba mais". Junto com a Fisio Nova (11 anúncios),
+já são dois nichos sem relação nenhuma cometendo o mesmo erro. Vira padrão, não caso isolado.
+
+Título vazio: 13 páginas. Nome da página como headline: A2, Atrio (com "Átrio Lab"
+alternando em sete cards), offset arquitetos (com o título do perfil do Instagram inteiro,
+repetido seis vezes). URL crua: digitalarquitetura.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A melhor headline de todas as varreduras apareceu aqui**, da Thaíres Marques: **"Seu
+projeto pode ser lindo no papel e virar outra coisa na obra."** Não promete, não cita preço,
+não diz quem ela é — nomeia um medo que o cliente já tem e que ninguém verbaliza. É o modelo
+exato do que a gente quer no bloco "geramos, atendemos e agendamos": *o lead pode ser ótimo
+no relatório e virar outra coisa no telefone.*
+
+LISTA DE ATAQUE: **289 → 312**.
+
+Combos varridos até aqui: + arquitetura e interiores (nacional, 628 ativos — 23 alvos, **14
+em Trilha A, segunda melhor proporção**; corrige a regra de solar: o que decide o nome
+próprio não é ser técnico, é **se o cliente escolhe uma pessoa ou contrata uma capacidade**;
+"projeto de interiores" NÃO limpa o ruído de imobiliária, porque é o anúncio de alto padrão
+que usa a palavra; defeito recorde: **descrição inteira do imóvel dentro do campo de
+título**; auto-concorrência confirmada num segundo nicho, AUPI com 6 anúncios iguais).
