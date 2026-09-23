@@ -59,6 +59,7 @@ e **expressão que concorde com a frase**. Foto de pessoa rindo não recebe copy
 | Fontes reais (Montserrat + Playfair) | Liberation dá cara de PowerPoint. |
 | **Laranja só sobre fundo escuro** | Medido: `#FF7A1A` sobre creme dá **2,29** de contraste, sobre branco **2,61** — o mínimo legível é 4,5. Sobre grafite dá 7,30. Em fundo claro usar `LARANJA_ESCURO #B04406` (5,02) ou preto. |
 | **Laranja sobre foto só em área escura** | A foto tem regiões claras. Onde o texto laranja cair, a vinheta precisa garantir fundo escuro — senão some, mesmo com a cor certa. |
+| **Preço nunca aparece antes da palavra que o define como custo** | Ordem do Pablo em 23/09. "R$5.000 por mês" isolado e em corpo grande lê-se como **renda**, não como preço — é o formato de vaga e de infoproduto. Escrever "nossa mensalidade é R$5.000", "você paga R$5.000", "cobramos R$5.000". Nunca o número sozinho no topo. |
 | Rodapé sempre fechado | Sem ele sobram ~200px mortos no pé. |
 
 ## Como rodar
