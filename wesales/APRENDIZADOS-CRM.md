@@ -4,6 +4,22 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## Voltar a oportunidade de etapa NÃO desinscreve do workflow — e a MI-0 da Inbound não olhava a etapa — 23/09/2026, sessão local
+
+Carlos Andrade (lead real) foi a CONECTAR às 19:01 e voltou a NOVO LEAD 10 s
+depois. Ficou inscrito na Inbound, na 12x30 e no Speed-to-lead. A 12x30 sai
+sozinha (`cad-inbound` → outra régua) e o Speed-to-lead confere a etapa antes
+de alertar; a **Inbound mandaria a MI-0** na manhã seguinte: fora da janela a
+execução fica parada NO nó da mensagem, e as 3 checagens antes dela (tag,
+telefone, permissão) não olham etapa. Campos e tags rodam na hora mesmo fora
+da janela (medido: permissão gravada 19:01); só a mensagem espera.
+
+**Conserto:** `patch_guarda_mi0.py` — `if_else` "MI-0 · Ainda vale mandar?"
+com as condições do `TI1 · Ainda vale ligar?` antes da MI-0. **Limite:** quem
+já está parado na MI-0 não passa pela trava nova → Carlos com DND até a
+abertura. Ao clonar `if_else`, remapeie só uuid que não aparece fora do grupo:
+o id da etapa CONECTAR também tem formato uuid.
+
 ## A própria seção "Ordem sugerida" pode ficar incoerente — o G-23 fechou sem o parágrafo de recapitulação que a família G-16...G-22 sempre escreve (G-24) — 23/09/2026, sessão automática
 
 Toda rodada desta família fecha um item com dois movimentos: escreve o
