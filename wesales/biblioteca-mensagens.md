@@ -193,6 +193,17 @@ porque não há pergunta de diagnóstico aqui.
 > escolher um novo horário aqui: [Agendar com o closer]. Se preferir, me
 > chama por aqui mesmo que eu te ajudo a remarcar.
 
+**Versão no ar (23/09/2026, `NS-1` v2 — sem link):**
+
+> Oi {{contact.first_name}}, vi que não conseguimos nos falar no horário
+> combinado — imagino que bateu algum imprevisto! Sem problema nenhum: me
+> responde por aqui com o melhor dia e horário que eu remarco a nossa reunião
+> de diagnóstico pra você.
+
+Por que sem link: o link de agenda do closer não está conferido, e a resposta
+por texto já vira sinal para o SDR na conversa (mesmo caminho das `MFH1`/`MFH2`).
+Quando o link existir, volta a versão acima.
+
 ## NS-2 — handoff de volta para a nutrição (Recuperação de No-show — R-12)
 
 Especificada em `build-wesales.md`, seção 5.3, fim do ramo Recuperação.

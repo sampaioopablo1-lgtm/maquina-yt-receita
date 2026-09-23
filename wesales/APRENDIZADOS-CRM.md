@@ -3,6 +3,18 @@
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
+
+## Inserir nó no começo de um ramo: renumerar `order` de TODOS os irmãos — 23/09/2026, rodada autônoma
+
+Nos workflows desta conta, os nós de um ramo têm `parent` = id do ramo e `order`
+0, 1, 2…; o encadeamento é `ramo.next` → 1º nó, e `parentKey` do nó = anterior.
+Para pôr um nó na frente (NS-1 na Recuperação de No-show): novo nó com
+`parent`/`parentKey` = ramo, `next` = antigo 1º, `order` 0; antigo 1º ganha
+`parentKey` = novo; e **todos** os irmãos `order += 1` (o patch do A4 só mexeu
+num porque o ramo tinha 1 nó). Conferido pela leitura de volta (`tools/ver_wf.py
+"Nome"` lista ordem/tipo/pai). Ao importar `patch_funil_reuniao` (que já embrulha
+o stdout), não embrulhe de novo — dá "I/O operation on closed file". E rode a
+auditoria com `PYTHONIOENCODING=utf-8` (a seta "→" quebra o console cp1252).
 ## Patch cirúrgico que acrescenta tarefa pode tirar o workflow da regra do fim de semana — 23/09/2026, rodada autônoma
 
 **Medido** pela `auditoria_final.py`: o `Loop do closer v2` nasceu sem janela
