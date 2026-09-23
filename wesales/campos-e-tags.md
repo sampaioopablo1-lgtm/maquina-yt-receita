@@ -330,7 +330,7 @@ conector; nenhum nó de `build-wesales.md` o lê ou escreve ainda, porque
 `build-wesales.md` segue descrevendo o desenho anterior ao `PLANO-
 MULTICANAL.md`.
 
-## Etapa 3 — Tags (20, cinco pendentes de aprovação)
+## Etapa 3 — Tags (21, seis pendentes de aprovação)
 
 | # | Tag | Função na máquina |
 |---|---|---|
