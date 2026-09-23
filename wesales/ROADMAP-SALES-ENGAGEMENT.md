@@ -959,7 +959,7 @@ visível a partir daqui, não a executa.
 
 ---
 
-### G-11 · A mudança de etapa aplicada ao vivo em `1d04af2` deixa duas armadilhas nos filtros e numa tag nova — **ABERTO, decisão do dono (23/09/2026)**
+### G-11 · A mudança de etapa aplicada ao vivo em `1d04af2` deixa três coisas para trás: um filtro que virou exclusão permanente, uma tag que sobrevive a quem agenda, e um dump que parou de contar a verdade — **ABERTO, decisão do dono (23/09/2026)**
 
 > **Nota de coerência, 23/09/2026 — este item é o mesmo achado que
 > `campos-e-tags.md` (T-05), `IMPLEMENTACAO-WORKFLOWS.md`, `APRENDIZADOS-CRM.md`

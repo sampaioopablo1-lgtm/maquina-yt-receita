@@ -330,7 +330,15 @@ conector; nenhum nó de `build-wesales.md` o lê ou escreve ainda, porque
 `build-wesales.md` segue descrevendo o desenho anterior ao `PLANO-
 MULTICANAL.md`.
 
-## Etapa 3 — Tags (21, seis pendentes de aprovação)
+## Etapa 3 — Tags (21 numeradas, seis pendentes de aprovação — e 10 na conta fora da numeração)
+
+As 21 são as tags **deste projeto**: T-01 a T-15 criadas, T-16 a T-21 esperando
+`[x]` no `APROVADO.md`. A conta tem outras **10**, criadas por ação do dono e
+registradas abaixo nas linhas `—` (`teste-regua`, `fechar-horario`,
+`cadencia-12x30-p2`, `teste-12x30` e as 8 do Espelho de Etapa) — ficam fora da
+numeração de propósito, para o `T-nn` continuar significando "tag que a rotina
+só cria com aprovação". **Total na conta hoje: 25.** Dois números diferentes
+porque contam coisas diferentes; quem for conferir na tela vê 25.
 
 | # | Tag | Função na máquina |
 |---|---|---|
