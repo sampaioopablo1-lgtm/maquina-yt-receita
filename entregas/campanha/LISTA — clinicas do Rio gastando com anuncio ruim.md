@@ -6261,3 +6261,41 @@ Combos varridos até aqui: + academia (nacional, 27 ativos — mas **só 8 anunc
 contar páginas antes de concluir qualquer coisa sobre o tamanho do mercado; WGP Fight Gym com
 10 anúncios iguais; academianewlifesc com 6 de título vazio desde maio; variante nova do
 botão padrão — headline "Instagram" da Panobianco).
+
+---
+
+## ODONTOLOGIA — Copacabana (23/09, Rio)
+
+Varredura: `dentista Copacabana`, BR, ACTIVE. **117 anúncios ativos** — e **apenas 3 páginas
+distintas**, **3 alvos**.
+
+**Esta varredura é a prova definitiva da regra escrita na rodada anterior.** Dos 50 anúncios
+que a Biblioteca devolveu, **42 são de uma página só**: a Odontovic, rodando "Agende sua
+avaliação de Implantes Dentários" dezenas de vezes, mais seis com "Implantes dentários em
+Campo Grande" e cinco com título vazio. A Realizart roda outros **7 idênticos** ("Dentista em
+Copacabana"). Sobra **um** anunciante com uma peça só: Dr. José Ed. Carvalho.
+
+Ou seja: o combo que parecia ter 117 concorrentes tem **três**. Se eu tivesse lido o número
+como mercado, teria descartado Copacabana como bairro saturado — e é o contrário, é o bairro
+mais vazio que a gente varreu no Rio.
+
+**E tem um detalhe que muda a leitura do nicho inteiro:** a Odontovic **nem é de
+Copacabana** — é de Campo Grande. Ela aparece aqui porque roda dezenas de variações
+geográficas da mesma peça. **Regra nova: em varredura por bairro, conferir se a página é
+mesmo do bairro antes de contar como alvo local.** O nome do bairro no título não garante
+nada; garante só que alguém comprou aquela palavra.
+
+**Trilha A: 1 de 3** — Dr. José Ed. Carvalho.
+
+**Os três são alvo, e por motivos diferentes:** a Odontovic gasta muito e compete contra si
+mesma em escala industrial; a Realizart faz o mesmo em escala pequena; o Dr. José Ed.
+Carvalho tem uma peça só, com headline genérica ("Agende sua consulta!"), e é o caso clássico
+de quem anuncia pouco e mal.
+
+LISTA DE ATAQUE: **402 → 405**.
+
+Combos varridos até aqui: + odontologia Copacabana (Rio, 117 ativos mas **só 3 páginas** —
+prova definitiva de que anúncio ≠ concorrente: 42 dos 50 retornados são de uma página só;
+**regra nova: em varredura por bairro, conferir se a página é do bairro — a Odontovic domina
+o termo "Copacabana" sendo de Campo Grande**; Copacabana é o bairro mais VAZIO varrido no
+Rio, não o mais saturado).
