@@ -7822,3 +7822,109 @@ Rodei a tabela nova contra os 10 backups pré-patch, offline:
 
 Zero escrita na conta: o patch não foi executado, e sem `--aplicar` ele não
 escreve. O que vai para a conta continua sendo decisão do dono.
+
+---
+
+## 2.37 O portão de capacidade da `Cadência Inbound` — patch escrito e validado, esperando o dono (9e / F-05)
+
+O `GUIA-SDR.md`, linhas 74–76, promete ao SDR **sem ressalva**: "se você
+passar de 100 toques no dia ou tiver 50 ou mais tarefas vencidas, o sistema
+segura os toques novos". Na `Cadência 12x30` isso é verdade. Na `Cadência
+Inbound` é falso — e lead de anúncio é justamente quem mais entra.
+
+### Contado nó a nó, não estimado
+
+| portão | 12x30 p1 | 12x30 p2 | Inbound |
+|---|---|---|---|
+| `Teto de toques da semana?` (campo `c1xuCuLyJheHOQoJ3grH` ≥ 6) | 6 | 6 | **0** |
+| `SDR lotado?` (tag `sdr-lotado`) | 6 | 6 | **0** |
+
+Os 5 toques da Inbound (TI1–TI5) têm `Lead pausado?` e `Ainda vale ligar?`,
+mas **nada que olhe capacidade**. A `faxina_tarefas.py` (197-213) aplica
+`sdr-lotado` e a Inbound nunca lê a tag.
+
+**Correção de um número meu:** eu vinha dizendo "portar os 6 nós". Errado. São
+2 portões × 5 toques = **10 portões lógicos**, e cada portão lógico são **5
+nós** (`if_else` + `Branch` + `None` + `wait` + `goto`, o `goto` voltando ao
+próprio portão — é o `wait`+`goto` que *segura* o toque). São **50 nós**, de
+272 para 322. Por isso isto é script, não clique.
+
+### `patch_portao_inbound.py`
+
+Não monta nó à mão: **clona** o grupo de 5 nós que já existe e já funciona na
+`Cadência 12x30 — parte 2`, remapeando todo uuid que aparece dentro do grupo
+(`id`, `next`, `parent`, `parentKey`, `branches[].id`, `__segmentId`,
+`__conditionId`, `goto.targetNodeId`). Os atributos vão byte a byte iguais ao
+que o GHL já aceitou — nenhum `nestedDropdownTypes` inventado, nenhum campo
+faltando. É a lição do `build_*` aplicada ao contrário: em vez de reproduzir a
+especificação, copiar o que a plataforma já validou.
+
+Ordem resultante em cada toque, igual à do 12x30:
+
+```
+Lead pausado?  ->  Teto de toques da semana?  ->  SDR lotado?  ->  Ainda vale ligar?
+```
+
+### Validado antes de existir aprovação
+
+O modo `--dump` roda em qualquer máquina, **sem token e sem rede**: lê
+`wesales/workflows-json/`, monta o resultado em memória e passa pelas mesmas
+conferências do caminho ao vivo. Medido em 23/09/2026:
+
+| conferência | resultado |
+|---|---|
+| nós | 272 → 322 (+50, exatamente 10 por toque) |
+| ids repetidos | nenhum |
+| `parentKey` órfão | nenhum |
+| `goto` apontando para nó inexistente | nenhum |
+| cada portão aparece | 5× |
+| cadeia por toque | a ordem acima, nos 5 toques |
+| condição dos clones vs. doador | idêntica nos 10 |
+| uuid do doador vazado para o alvo | nenhum |
+
+### A única escolha de desenho, que é sua
+
+Os parâmetros foram copiados do 12x30: teto semanal `≥ 6` esperando **1 dia**,
+`sdr-lotado` esperando **1 hora**. O `Lead pausado?` da Inbound espera 30 min
+— a Inbound é mais apertada de propósito, e não mexi nele. Copiei o tempo do
+12x30 nos dois portões novos porque o que eles esperam é o mesmo: um contador
+de semana e uma sobrecarga de dia. Se a Inbound deve ter teto próprio (mais
+folgado, porque lead que acabou de levantar a mão esfria mais rápido), é aí
+que muda.
+
+### Não precisa de `APROVADO.md`, mas precisa de você
+
+Nenhuma tag nova, nenhum campo novo — `sdr-lotado` e `c1xuCuLyJheHOQoJ3grH` já
+existem e o 12x30 já os lê. Mas isto **altera um workflow publicado que toca
+lead real**, então `--aplicar` só roda depois de você ver o plano. E **não sai
+por MCP**: o conector não cria nem edita workflow. São dois caminhos:
+
+**Caminho A, o script (recomendado).** Do seu PC, na pasta `wesales/tools/`:
+
+```
+python patch_portao_inbound.py --dump      # confere sem rede, deve dar 272 -> 322
+python patch_portao_inbound.py             # mesmo plano, agora contra a conta ao vivo
+python patch_portao_inbound.py --aplicar   # grava, com backup em _antes-portao-inbound/
+```
+
+O `--aplicar` faz backup antes, grava, relê da API e imprime status, contagem
+de nós, gatilhos ativos e quantas vezes cada portão aparece ao vivo. Se
+qualquer conferência falhar, ele não grava.
+
+**Caminho B, na tela.** Possível, mas são 50 nós — 10 repetições de cinco
+cliques. Para cada toque TI1…TI5, no ramo **Não** (`None`) do `TI{n} · Lead
+pausado?`, antes do `TI{n} · Ainda vale ligar?`:
+
+1. **Condição** `TI{n} · Teto de toques da semana?` → campo personalizado
+   `Toques na semana` **maior ou igual a** `6`.
+2. No ramo **Sim** dela: **Esperar** `1 dia` → **Ir para** essa mesma condição.
+3. No ramo **Não** dela: **Condição** `TI{n} · SDR lotado?` → tag
+   `sdr-lotado` **está presente**.
+4. No ramo **Sim** dela: **Esperar** `1 hora` → **Ir para** essa mesma condição.
+5. O ramo **Não** dela segue para o `TI{n} · Ainda vale ligar?` que já existia.
+
+Repetido 5 vezes. O `Ir para` apontando para o próprio portão é o que segura o
+lead sem perdê-lo — sem ele, o toque é descartado em vez de adiado.
+
+Zero escrita na conta nesta seção: o patch não foi executado, e sem
+`--aplicar` ele não escreve.
