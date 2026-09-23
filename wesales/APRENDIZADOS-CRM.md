@@ -4,6 +4,61 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## O parágrafo "Com isso" do próprio roadmap pode divergir das entradas que ele resume — a varredura de coerência nunca tinha testado o roadmap contra ele mesmo — 23/09/2026, sessão automática
+
+CRM reconfirmado por API antes de investigar: 56 oportunidades (49 `NOVO
+LEAD` `open` + 1 `CONECTAR` `open` + 2 `CONECTAR` `lost` + 2 `NEGOCIAR`
+`open` + 1 `NEGOCIAR` `lost` + 1 `REUNIÃO DE DIAGNÓSTICO` `open`) e 56
+campos de contato — nenhuma mudança desde a última leitura registrada no
+roadmap. Com todo item numerado (G/R/F) `FEITO` ou aguardando o dono/volume
+real/tela (nenhum desbloqueado), o passo seguinte era a varredura de
+coerência de sempre.
+
+**O que achei, e não é o padrão de sempre (nome de etapa órfão, merge
+field, contagem duplicada entre documentos):** o próprio
+`ROADMAP-SALES-ENGAGEMENT.md` cita, a cada item fechado, um parágrafo "Com
+isso, ... esperam decisão do dono" — uma lista que deveria ser um espelho
+fiel de quais itens ainda têm `Pronto quando` sem decisão. G-12, G-13 e
+G-14 (fechados em 23/09) mantiveram essa lista correta (cinco itens: G-03,
+G-04 peça 2, F-09, F-10, G-11 item 1). O "Com isso" que fechou o **G-15**
+— o item seguinte, sobre dedupe cross-canal — perdeu F-09 e F-10 da lista,
+sem nenhuma linha explicando por quê, e a rodada seguinte (extensão do
+F-08/Local Presence) copiou a lista de três em vez de conferir contra as
+próprias entradas do F-09 e F-10 (que continuavam dizendo, ao pé da letra,
+"decisão do dono ainda em aberto"). O erro sobreviveu até o parágrafo final
+do documento — o texto que qualquer sessão nova lê primeiro para saber "o
+que está aberto". Uma sessão que confiasse só nesse parágrafo final teria
+reportado ao dono só 3 decisões pendentes, quando eram 5 — duas reais
+(F-09: freio de canal do telefone; F-10: alarme de ausência de entrada)
+ficariam invisíveis até alguém reler as entradas originais.
+
+**Por que aconteceu:** todo item fechado neste roadmap reescreve o
+parágrafo de resumo que vem depois dele, mas a instrução implícita sempre
+foi "acrescente o que mudou nesta rodada", nunca "confira se a lista nova
+ainda contém tudo que a lista anterior tinha". É fácil de acontecer porque
+nenhuma rodada lê o parágrafo anterior lado a lado com o novo — só o
+escreve de novo, de memória do que a própria rodada tratou.
+
+**Correção aplicada:** os dois parágrafos ("Com isso" do G-15 e o parágrafo
+final) voltaram a listar as cinco decisões; a menção na extensão do F-08
+também foi corrigida. `IMPLEMENTACAO-WORKFLOWS.md` §3.6 (checklist de
+go-live, item 1 "Decisões do dono") tinha o mesmo problema por um motivo
+diferente — citava só G-03/G-04 e uma lista fixa de "cinco tags do F-05"
+que já eram seis (T-16 a T-21, com a T-21 do F-13) — trocada a lista fixa
+por uma referência a `APROVADO.md` como fonte única, para não desatualizar
+de novo.
+
+**Regra prática, generalizável — nova classe de varredura de coerência:**
+além de grep por nome de etapa antigo e merge field órfão em documentos
+vizinhos, a varredura de coerência de uma rodada sem item desbloqueado
+deveria também comparar o parágrafo "Com isso" mais recente do roadmap
+contra o anterior, item a item — não só ler o mais recente e assumir que
+ele está completo. Documento nenhum sofre revisão externa entre rodadas;
+se o próprio roadmap pode divergir de si mesmo sem ninguém notar por três
+rodadas seguidas, qualquer lista "resumo do estado atual" em qualquer
+documento do projeto merece o mesmo tipo de conferência de tempos em
+tempos, não só quando um grep por texto aponta problema.
+
 ## Auditoria diária (só leitura): a entrada de anúncio dobrou o tempo parada (25h→49h) e o pipeline saiu do zero absoluto só por teste manual, não por lead real — 23/09/2026, sessão automática (auditor diário)
 
 Segunda rodada do **Auditor diário** (read-only, GHL-CRM MCP, sem acesso à

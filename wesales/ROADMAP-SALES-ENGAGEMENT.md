@@ -4325,9 +4325,10 @@ item de especificação e achado de limite de plataforma, não depende de
 `APROVADO.md`. Detalhe completo no próprio G-15, acima.
 
 Com isso, G-15 fecha por inteiro (especificação); nenhum item numerado
-segue sem especificação — G-03, G-04 (peça 2) e G-11 (item 1) continuam
-sendo os únicos que ainda esperam decisão do dono. A próxima rodada sem
-tela nem decisão desbloqueada
+segue sem especificação — G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1)
+continuam sendo as cinco decisões que ainda esperam o dono (ver correção de
+23/09/2026 logo abaixo: esta lista tinha perdido F-09 e F-10 por várias
+rodadas seguidas). A próxima rodada sem tela nem decisão desbloqueada
 repete o mesmo caminho: varredura de coerência primeiro, releitura das
 premissas técnicas represadas (mensagem real, volume de ligação, plano com
 Custom Metrics, número de WhatsApp para teste, domínio de e-mail
@@ -4338,9 +4339,12 @@ segue desde o G-01.
 que estende o F-08 em vez de abrir item próprio.** CRM reconfirmado por API:
 56 campos de contato (sem mudança), pipeline com as mesmas 5 etapas, 56
 oportunidades (53 `open` + 0 `won` + 3 `lost` + 0 `abandoned`) — mesma
-composição da leitura do G-15, G-03/G-04 (peça 2)/G-11 (item 1) seguem sem
-novidade. A varredura de coerência (grep por `AGENDAR` como etapa corrente
-em todo `wesales/`) não achou nada novo: toda ocorrência fora de
+composição da leitura do G-15, G-03/G-04 (peça 2)/F-09/F-10/G-11 (item 1)
+seguem sem novidade (a lista de cinco só foi restaurada na correção de
+coerência de 23/09/2026 mais abaixo — nesta rodada ela já estava incompleta
+sem que ninguém tivesse notado). A varredura de coerência (grep por
+`AGENDAR` como etapa corrente em todo `wesales/`) não achou nada novo: toda
+ocorrência fora de
 `build-wesales.md`/`ROADMAP-SALES-ENGAGEMENT.md` (já migrados pelo G-12) é
 nota histórica datada (decisão de 18/09/2026, antes da segunda renomeação)
 ou nome próprio já publicado na tela (`AGENDAR Estagnado`), a mesma classe
@@ -4370,7 +4374,42 @@ tabela do F-08 (`build-wesales.md`, seção 2.26) e instrução nova em
 distinto do que o F-08 já cumpriu. Zero campo, zero tag, zero escrita no
 CRM. Detalhe completo no próprio F-08, acima.
 
+**Sessão automática seguinte, 23/09/2026 — sem item numerado novo; corrigida
+uma quebra de coerência dentro do próprio roadmap, achada pela varredura de
+sempre olhando para um alvo que ela nunca tinha checado antes: o próprio
+arquivo.** CRM reconfirmado por API: 56 oportunidades (49 `NOVO LEAD` `open`
++ 1 `CONECTAR` `open` + 2 `CONECTAR` `lost` + 2 `NEGOCIAR` `open` + 1
+`NEGOCIAR` `lost` + 1 `REUNIÃO DE DIAGNÓSTICO` `open` — mesma composição da
+última leitura, nenhum lead novo) e 56 campos de contato (sem mudança) —
+nada de nome de etapa nem merge field órfão para o sweep de sempre corrigir
+a partir daí. O achado desta vez não veio de `grep` por nome antigo: veio de
+perguntar, pela primeira vez, "os parágrafos que resumem o estado do roadmap
+concordam com as próprias entradas que eles resumem?" — não concordavam. O
+"Com isso" que fechou o G-15 e o parágrafo final do documento (a última
+rodada, sobre o F-08/Local Presence) listavam só G-03, G-04 (peça 2) e G-11
+(item 1) como decisões pendentes do dono, mas as entradas do F-09 ("Pronto
+quando: o dono escolher A, B ou C") e do F-10 ("decisão do dono ainda em
+aberto", a opção (b) do alarme) nunca fecharam — nenhuma das duas foi
+decidida entre a rodada que ainda as listava corretamente (G-14) e a
+seguinte (G-15), que as deixou cair da lista sem nenhuma linha explicando
+por quê. Mesma classe de erro que o G-10/G-14 já corrigiram entre
+documentos diferentes (uma correção feita num lugar não se propaga sozinha
+para quem cita o mesmo fato); a novidade é que desta vez o par de documentos
+era o roadmap contra ele mesmo — um parágrafo de resumo divergiu da fonte
+que deveria resumir, e a rodada seguinte (a extensão do F-08, acima) copiou
+a lista errada adiante sem checar a fonte, o mesmo erro sobrevivendo por
+duas rodadas antes de alguém notar. Corrigidos os dois — o "Com isso" do
+G-15 e a menção dentro da extensão do F-08, acima. Zero campo, zero tag,
+zero escrita no CRM: item de coerência entre documentos, não depende de
+`APROVADO.md`. **Regra prática,
+generalizável:** a varredura de coerência de sempre procura nome de etapa e
+merge field órfão em documentos vizinhos; nunca tinha testado se os
+parágrafos "Com isso" deste roadmap continuam contendo tudo o que o
+parágrafo anterior continha, não só o que mudou nesta rodada — quando um
+`G-1x`/`F-1x` fecha e reescreve a lista de pendências, conferir a lista nova
+contra a lista anterior item a item, não só contra o achado do dia.
+
 Com isso, nenhum item numerado (G/R/F) muda de estado nesta rodada: G-03,
-G-04 (peça 2) e G-11 (item 1) continuam sendo os únicos que esperam decisão
-do dono — a próxima rodada sem tela nem decisão desbloqueada repete o mesmo
+G-04 (peça 2), F-09, F-10 e G-11 (item 1) são as cinco decisões que esperam
+o dono — a próxima rodada sem tela nem decisão desbloqueada repete o mesmo
 caminho de sempre.

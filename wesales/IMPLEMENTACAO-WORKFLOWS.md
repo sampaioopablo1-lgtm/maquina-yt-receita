@@ -1780,10 +1780,12 @@ no nó 2.5c/3c), segundo SDR (1.10).
 
 ## 3.6 Checklist de go-live (na ordem)
 
-1. **Decisões do dono:** G-03, G-04, coluna `Empresa` das listas (Tabela J),
-   `{{right_now}}` (testar na tela), número de teste para WhatsApp
-   (`APROVADO.md`), `[x]` das cinco tags do F-05 (`novo-lead-estagnado`,
-   `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido`).
+1. **Decisões do dono:** G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1),
+   coluna `Empresa` das listas (Tabela J), `{{right_now}}` (testar na tela),
+   número de teste para WhatsApp (`APROVADO.md`), `[x]` das tags do Monitor
+   de Saúde (F-05) e da Negociação Estagnada (F-13) que ainda aguardam em
+   `APROVADO.md` (lista completa lá, não repetida aqui para não desatualizar
+   de novo).
 2. **Estrutura:** criar os 5 campos (1.2); corrigir `Plataformas de anúncio`;
    aplicar a decisão G-04 nos campos e nos 8 formulários do Meta; criar as
    5 tags (por API, depois do `[x]`).
