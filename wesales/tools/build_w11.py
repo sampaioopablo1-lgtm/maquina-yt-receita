@@ -198,6 +198,7 @@ def avaliacao(n, proximo, liga=True):
     """Depois da espera: conta WhatsApp nao atendido, pausa no retorno,
     sai no Atendeu, marca 'Nao atendeu' se ficou vazio e segue."""
     seguir = list(proximo) if proximo else fim()
+    tira_fila = g.tag_step(["fila-tel", "fila-wa"], remove=True)
     marcar = [campos_step([f(RESULT, "Resultado da tentativa", "Não atendeu", "select")]),
               g.tag_step(["limpar-tarefas"]), g.goto_step(raiz_id(seguir))]
     b_vazio = g.Branch("T%d · Sem resposta registrada?" % n,
@@ -211,14 +212,14 @@ def avaliacao(n, proximo, liga=True):
                          sim=[], nao=[b_atendeu])
     b_retorno.sim = [g.wait_step(1, "hours"), g.goto_step(b_retorno.id)]
     if not liga:                       # T12: so mensagem, nada de WhatsApp a contar
-        return [b_retorno]
+        return [tira_fila, b_retorno]
     # D6: conta ligacao de WhatsApp nao atendida (so enquanto WhatsApp vem primeiro)
     conta = g.Branch("T%d · WhatsApp não atendido?" % n, sem_conversa(), operador="or",
                      sim=[g.math_step(WA_NAO, "+", 1), g.goto_step(b_retorno.id)],
                      nao=[b_retorno])
-    return [g.Branch("T%d · WhatsApp ainda vem primeiro?" % n,
-                     [g.cond("contact_detail", WA_NAO, ">=", "3")],
-                     sim=[g.goto_step(b_retorno.id)], nao=[conta])]
+    return [tira_fila, g.Branch("T%d · WhatsApp ainda vem primeiro?" % n,
+                                [g.cond("contact_detail", WA_NAO, ">=", "3")],
+                                sim=[g.goto_step(b_retorno.id)], nao=[conta])]
 
 
 def corpo_toque(n, espera_h, codigo, liga, proximo):
@@ -241,7 +242,7 @@ def corpo_toque(n, espera_h, codigo, liga, proximo):
         resto = ([g.wait_step(antes, "hours")] if antes else []) + [b_msg]
     else:
         resto = [g.wait_step(espera_h, "hours")] + avaliacao(n, proximo, liga)
-    fim = [g.tag_step(["fila-tel", "fila-wa"], remove=True)] + resto
+    fim = resto
     if not liga:
         return passos + fim
     # tarefa: WhatsApp primeiro, salvo 3 nao atendidas seguidas (D6)
@@ -256,8 +257,12 @@ def corpo_toque(n, espera_h, codigo, liga, proximo):
 
 def bloco_toque(n, espera_h, codigo, liga, proximo):
     corpo = corpo_toque(n, espera_h, codigo, liga, proximo)
-    conds = [g.cond("opportunities", "pipelineStageId", "==", g.STAGES["CONECTAR"]),
-             g.cond("opportunities", "status", "==", "open"),
+    # parte 1 tem gatilho de etapa (a oportunidade esta no contexto); a parte 2
+    # e disparada por tag e so enxerga a tag do Espelho de Etapa (23/09/2026)
+    etapa = ([g.cond("opportunities", "pipelineStageId", "==", g.STAGES["CONECTAR"]),
+              g.cond("opportunities", "status", "==", "open")] if PARTE == 1 and not TAG_TESTE
+             else [g.cond("contact_detail", "tags", "index-of-true", ["etapa-conectar"])])
+    conds = etapa + [
              g.cond("contact_detail", "tags", "index-of-false", ["nao-perturbe"]),
              g.cond("contact_detail", RESULT, "!=", "Não ligar"),
              g.cond("contact_detail", "tags", "index-of-false", ["telefone-invalido"])]
@@ -280,8 +285,7 @@ def bloco_toque(n, espera_h, codigo, liga, proximo):
 def fim_da_cadencia():
     """12 toques sem conversa: nutricao (a regra da secao 1.2)."""
     return [g.Branch("Fim · Ainda em CONECTAR e aberta?",
-                     [g.cond("opportunities", "pipelineStageId", "==", g.STAGES["CONECTAR"]),
-                      g.cond("opportunities", "status", "==", "open")],
+                     [g.cond("contact_detail", "tags", "index-of-true", ["etapa-conectar"])],
                      sim=[g.opp_step("abandoned", g.STAGES["CONECTAR"]),
                           g.tag_step(["nutricao-90d"]),
                           g.tag_step(["fila-tel", "fila-wa", "toque"], remove=True),

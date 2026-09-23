@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Reengajamento 90 dias",
-    "version": 18,
+    "version": 17,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/18",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F18?alt=media&token=5a1f6165-7da2-4a55-b23a-e17f0010f966",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/17",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F17?alt=media&token=ae943406-965e-402e-b014-48b94dd64941",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:33:43.759Z",
-    "updatedAt": "2026-09-23T01:55:43.655Z",
+    "updatedAt": "2026-09-22T22:23:36.735Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -98,13 +98,11 @@
                     "operator": "and",
                     "conditions": [
                       {
-                        "conditionType": "contact_detail",
-                        "conditionSubType": "tags",
-                        "conditionOperator": "index-of-true",
-                        "conditionValue": [
-                          "status-nutricao"
-                        ],
-                        "__conditionId": "5dfa3719-aeef-4ac2-8837-b20367d60d47",
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "abandoned",
+                        "__conditionId": "b0bb9970-e946-46de-b13c-e443311aa889",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -358,8 +356,7 @@
           "type": "remove_contact_tag",
           "attributes": {
             "tags": [
-              "nutricao-90d",
-              "status-nutricao"
+              "nutricao-90d"
             ]
           },
           "order": 1,
@@ -380,8 +377,7 @@
           "type": "add_contact_tag",
           "attributes": {
             "tags": [
-              "reengajamento-ativo",
-              "etapa-conectar"
+              "reengajamento-ativo"
             ]
           },
           "order": 2,
@@ -488,13 +484,46 @@
                     "operator": "and",
                     "conditions": [
                       {
-                        "conditionType": "contact_detail",
-                        "conditionSubType": "tags",
-                        "conditionOperator": "index-of-true",
-                        "conditionValue": [
-                          "etapa-conectar"
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "320b45db-d560-4364-b46c-d916c53bd894",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
                         ],
-                        "__conditionId": "296c24fb-7114-4aed-8c12-b7364c3d5aa0",
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "147eab3a-7a54-4b61-900a-20d885dba255",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1261,13 +1290,46 @@
                     "operator": "and",
                     "conditions": [
                       {
-                        "conditionType": "contact_detail",
-                        "conditionSubType": "tags",
-                        "conditionOperator": "index-of-true",
-                        "conditionValue": [
-                          "etapa-conectar"
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "3d4dd450-12dd-4545-8611-424f7d61e8ba",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
                         ],
-                        "__conditionId": "01cd63a8-062c-4717-868f-3e38127997a9",
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "f4bf632e-bc5b-4f05-a43e-fa9a75251b54",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -1984,13 +2046,46 @@
                     "operator": "and",
                     "conditions": [
                       {
-                        "conditionType": "contact_detail",
-                        "conditionSubType": "tags",
-                        "conditionOperator": "index-of-true",
-                        "conditionValue": [
-                          "etapa-conectar"
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "c2204a4b-94b2-455a-b417-d899008ed6e9",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
                         ],
-                        "__conditionId": "30eb95fe-cde2-4d55-a39c-12ae622ebd90",
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "268c5116-d9b9-4b50-b00c-7cd159688809",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,
@@ -2707,13 +2802,46 @@
                     "operator": "and",
                     "conditions": [
                       {
-                        "conditionType": "contact_detail",
-                        "conditionSubType": "tags",
-                        "conditionOperator": "index-of-true",
-                        "conditionValue": [
-                          "etapa-conectar"
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "67ded5c2-e110-44d7-ba95-e75bc64b55e4",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
                         ],
-                        "__conditionId": "03484d48-d9f6-40ad-9774-3da3dba3bafd",
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "fd5ee3fb-1086-45f4-b511-5d2775f55cc5",
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false,

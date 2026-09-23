@@ -2,6 +2,49 @@
 
 Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
+## Condição de etapa não funciona em workflow que não é disparado por oportunidade — 11 workflows testavam etapa às cegas — 23/09/2026, sessão do PC
+
+**Medido** no registro de execução da `ZZ TESTE 12X30` (gatilho de tag): o
+passo `Pipeline stage is "[FUNIL DE VENDAS] - CONECTAR"` leu **valor vazio** e
+deu falso — a oportunidade não está no contexto quando o gatilho é tag,
+contato, resposta, link ou agendamento. Nenhum erro aparece: o lead só segue
+pelo "não".
+
+Varredura dos publicados: **11 workflows** tinham condição de oportunidade com
+gatilho que não é de oportunidade — CONECTAR Estagnado, 12x30 parte 2, Fechar
+Horário, Interceptação (Clique e Resposta), Opt-out, Recuperação de No-show,
+Reengajamento 90d, Retorno Vencido, SLA do Closer. Os antigos provavelmente
+nunca funcionaram como escrito.
+
+**Correção:** workflow novo **`Espelho de Etapa`** (`2b1667a4`, gatilho de
+etapa + 4 de status, sem janela) mantém no contato uma tag de estado —
+`etapa-novo-lead|conectar|reuniao|negociar|formalizar` (aberta) ou
+`status-nutricao|perdido|ganho`. As 26 condições foram trocadas pela tag
+(`tools/patch_condicoes_etapa.py`); tags dos 55 leads existentes preenchidas.
+Testado: mover para REUNIÃO → `etapa-reuniao` em segundos; e a cópia de teste,
+com a tag, passou o portão e criou a T1. **Corrida:** o Reengajamento reabre a
+oportunidade e testa a etapa no nó seguinte — os nós de tag que já existiam
+passaram a gravar `etapa-conectar`/tirar `status-nutricao` na hora. A 12x30
+parte 1 (gatilho de etapa) mantém a condição de oportunidade de propósito.
+
+**Regra:** condição de oportunidade só em workflow com gatilho de oportunidade.
+Em qualquer outro, teste a tag do Espelho.
+
+## Outros três achados da mesma noite
+
+- **Limite de tamanho:** o GHL recusa salvar workflow grande ("too big to be
+  saved": 724 nós recusado, 410 aceito). O `preencher` reapontava os gatilhos
+  ANTES de salvar os nós — a recusa deixou o gatilho principal da 12x30
+  INATIVO e apontando para nó inexistente (restaurado; só reativa passando de
+  rascunho para publicado). Agora há trava `MAX_NOS = 450` antes de tocar no
+  CRM, e a 12x30 virou 2 workflows (380 + 347 nós), ligados pela tag
+  `cadencia-12x30-p2`.
+- **Vencimento da tarefa:** a tarefa de cadência nasce com `dueDate` = 00:00
+  (Brasília) do próprio dia. "Vencida" para a trava de capacidade = de um dia
+  anterior, não "antes de agora".
+- **Canal:** confirmado pelo dono na tela — mandar pelo canal "SMS" entrega
+  WhatsApp (Stevo). É o canal das mensagens automáticas.
+
 ## Duas trilhas de execução deste projeto não se enxergam — checar `PLANO-MULTICANAL.md` antes de tratar o roadmap como única fonte de estado — 23/09/2026, sessão na nuvem
 
 Esta sessão (MCP `GHL CRM`, sem bearer da API interna) leu o roadmap inteiro,

@@ -90,8 +90,8 @@ def ainda_sem_reuniao(nome, sim):
                      sim=[], nao=sim)
     b_ret.sim = [g.wait_step(1, "hours"), g.goto_step(b_ret.id)]
     return [g.Branch(nome + " · Ainda em CONECTAR, sem reunião?",
-                     [g.cond("opportunities", "pipelineStageId", "==", g.STAGES["CONECTAR"]),
-                      g.cond("opportunities", "status", "==", "open")],
+                     # gatilho de tag nao enxerga a oportunidade: usa a tag do Espelho de Etapa
+                     [g.cond("contact_detail", "tags", "index-of-true", ["etapa-conectar"])],
                      sim=[b_ret], nao=[g.tag_step([TAG], remove=True)])]
 
 
