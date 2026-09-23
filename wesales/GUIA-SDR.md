@@ -80,6 +80,15 @@ primeiro.
   Se responder, o sistema pergunta "1 quero conversar / 2 agora não / 3 sem
   interesse" — quem responde **1** volta para você com uma tarefa nova.
 
+## Lead que chegou pelo Instagram
+
+O agente de IA não sabe se essa pessoa já existe no CRM por telefone (o
+Instagram não traz telefone nem e-mail). Antes de tratar um handoff do
+Instagram como lead novo, busque o nome/empresa na busca de contatos — se já
+existir alguém com o mesmo telefone ou o mesmo negócio, é a mesma pessoa:
+avise o gestor para fundir os dois contatos (Configurações → Contatos →
+Duplicate Management & Merge Tool), não abra uma cadência nova por cima.
+
 ## Se algo parecer errado
 
 Não apague nada. Anote o nome do lead e o que aconteceu e avise o gestor.

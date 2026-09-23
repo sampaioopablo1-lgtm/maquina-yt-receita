@@ -6487,6 +6487,45 @@ veredito pós-reunião.
 
 ---
 
+## 5.5 Deduplicação entre canais (G-15) — por que isto **não** é um workflow
+
+O Meta Lead Ads grava telefone; a `Qualificação por IA no WhatsApp`/Instagram
+(seção 6) não tem telefone nem e-mail no perfil do contato. Um lead que
+preencheu o formulário há meses, esfriou (`nutricao-90d`) e volta pelo
+Instagram vira um **segundo contato**, com uma **segunda cadência**, sem
+ninguém perceber que é a mesma pessoa — a fusão automática nativa (R-13, seção
+1.3) só age na criação de um contato novo, nunca revisitando dois que já
+existem separados.
+
+**Por que não dá para resolver com um nó de workflow:** o GHL tem uma ação
+nativa, `Merge Contact`, que funde duplicatas por Telefone, E-mail ou os dois
+— mas o único gatilho do projeto que reage a mudança de campo, `Contact
+Changed` (usado em 2.4/2.9/4.1/5.1), filtra hoje só por Usuário atribuído,
+DND, Tag, Custom Field, Endereço e Website. **Telefone e e-mail não estão na
+lista de campos filtráveis** — pedido em aberto no board de ideias da própria
+HighLevel, sem previsão (`ideas.gohighlevel.com`, achado por citação repetida
+em buscas com termos diferentes, mesmo padrão de confiança do G-05/R-14). Sem
+esse gatilho, nada dispara o `Merge Contact` no momento em que um contato do
+Instagram ganha telefone (ou vice-versa) — não é falta de desenho, é limite
+de plataforma. Não tente resenhar isto como workflow numa próxima rodada.
+
+**O que fazer em vez disso** (ferramenta nativa + rotina humana, mesmo padrão
+de R-11/R-14 para o que workflow não alcança):
+1. Tela → Configurações → Contatos → **Duplicate Management & Merge Tool**:
+   agrupa por Nome, Telefone ou E-mail, funde até 10 de uma vez. Para um
+   contato sem telefone nem e-mail (todo lead que só existe via Instagram), o
+   único critério que serve é **Nome** — passível de falso-positivo (dois
+   donos de negócio homônimos), então a fusão por Nome é revisada, nunca em
+   lote automático.
+2. SDR (`GUIA-SDR.md`): antes de tratar um handoff vindo do Instagram como
+   "lead novo", buscar o nome/empresa na busca de contatos.
+3. Gestor: rodar a Duplicate Management & Merge Tool por Nome uma vez por
+   semana.
+
+Zero campo, zero tag, zero workflow — item de rotina manual, não sai por API.
+
+---
+
 ## 6. Workflow "Qualificação por IA no WhatsApp"
 
 ### Entrada

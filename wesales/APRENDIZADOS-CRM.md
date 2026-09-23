@@ -5947,3 +5947,42 @@ pedem leituras diferentes: nome desatualizado pede grep pelo termo; **lógica
 ou filosofia substituída** (concluir vs. excluir, aqui) só aparece lendo a
 seção de justificativa do documento contra a decisão mais recente — grep
 nenhum acha isso sozinho.
+
+## `Contact Changed` não filtra por Telefone nem E-mail — a ação `Merge Contact` existe, mas não tem como ser acionada sozinha — G-15, 23/09/2026, sessão automática
+
+Sweep de coerência limpo (nenhum nome de etapa órfão novo, `AGENTE-IA-
+CONEXAO.md` já explicava por que "ETAPA 4 — AGENDAR" dentro do prompt da IA
+não é a etapa do funil — falso positivo do próprio grep, não achado); CRM
+reconfirmado por API sem mudança de composição (56 oportunidades, mesmos
+campos). A lacuna veio de ler `conversations_search-conversation` (55
+conversas, todas as 55 desta vez, não só as 20 do limite padrão) com uma
+pergunta que nenhuma rodada tinha feito: os contatos que chegam pelo
+Instagram (`Qualificação por IA no WhatsApp`, seção 6) não têm telefone nem
+e-mail — o que impede a mesma pessoa de já existir como contato por
+telefone (Meta Lead Ads) e virar um segundo contato, com uma segunda
+cadência, sem ninguém perceber?
+
+**Pesquisado antes de desenhar** (`WebSearch`, `help.gohighlevel.com` e
+`ideas.gohighlevel.com`, confiança média — página oficial e board de ideias
+citados em buscas com termos diferentes, mesmo padrão de confiança já usado
+no G-05/R-14): o GHL tem uma ação nativa de workflow, **`Merge Contact`**,
+que funde duplicatas comparando Telefone, E-mail, ou os dois — parecia
+resolver o problema inteiro sozinha. **Não resolve, porque o gatilho que a
+chamaria não existe:** `Contact Changed` — o único gatilho deste projeto
+que reage a mudança de campo, já usado em várias seções do
+`build-wesales.md` com filtro por Custom Field — hoje só aceita filtrar por
+Usuário atribuído, DND, Tag, Custom Field, Endereço e Website. **Telefone e
+E-mail não estão nessa lista**, e são pedido em aberto no próprio board de
+ideias da HighLevel (`ideas.gohighlevel.com/automations/p/add-phone-and-
+email-changes-to-the-contact-changed-trigger`), sem previsão de entrega.
+
+**Regra prática, generalizável:** antes de desenhar qualquer automação em
+cima de uma ação nativa nova, a pergunta não é só "a ação existe?" — é "o
+gatilho que a chamaria no momento certo também existe?". Uma ação pode
+estar documentada e disponível (`Merge Contact` está) e ainda assim ser
+inacionável de forma automática porque a plataforma não expõe o gatilho
+certo — o mesmo tipo de parede que o R-11/F-05 já bateram para contagem
+agregada (`Scheduler`/Custom Metrics, entrada acima), agora para mudança de
+campo padrão (Telefone/E-mail) em vez de custom field. Onde isso acontece,
+a saída não é insistir no workflow: é a ferramenta nativa de tela mais uma
+rotina humana (mesmo padrão do R-11/R-14) — `build-wesales.md`, seção 5.5.

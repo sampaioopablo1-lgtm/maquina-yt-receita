@@ -1325,6 +1325,65 @@ e correção de spec, não depende de `APROVADO.md`.
 
 ---
 
+### G-15 · Lead que já circulou por telefone reaparece pelo Instagram sem telefone nem e-mail — o GHL nunca compara os dois, e a plataforma não deixa nem tentar por workflow — **FEITO em 23/09/2026 (especificação + achado de limite de plataforma)**
+
+**Por quê:** a fusão automática nativa (R-13, preferências de deduplicação) só
+age na **criação**: contato novo com telefone/e-mail igual a um existente
+vira atualização, não duplicata. Ela nunca revisita dois contatos que **já
+existem separados**. Isso importa porque a base tem dois pontos de entrada
+sem identificador em comum: Meta Lead Ads grava telefone; o Instagram (DM
+da `Qualificação por IA no WhatsApp`, seção 6) não tem telefone nem e-mail
+no perfil. Um lead que preencheu o formulário há 60 dias, esfriou e caiu em
+`nutricao-90d`, e meses depois manda DM no Instagram pelo mesmo negócio,
+vira um **segundo contato**, com uma **segunda cadência** rodando por cima
+da primeira — o SDR liga pela régua antiga enquanto o agente de IA já está
+agendando pela conversa nova, e nenhuma tela mostra que é a mesma pessoa.
+Mesmo padrão de "estrago silencioso" que motivou o F-05, agora entre
+contatos, não dentro de um.
+
+**Pesquisado antes de desenhar** (`WebSearch`, confiança média — página
+oficial da HighLevel e o próprio board de ideias da comunidade, citados em
+buscas com termos diferentes, mesmo padrão de confiança do G-05/R-14):
+existe uma ação nativa de workflow, `Merge Contact`, que funde duplicatas
+por Telefone, E-mail ou os dois — pareceria resolver isto sozinha. **Mas o
+gatilho que a acionaria não existe:** o `Contact Changed` (o único gatilho
+deste projeto que reage a mudança de campo, já usado em várias seções do
+`build-wesales.md` com filtro por Custom Field) hoje só filtra por Usuário
+atribuído, DND, Tag,
+Custom Field, Endereço e Website — **Telefone e E-mail não estão na
+lista**, pedido em aberto no board de ideias da própria HighLevel, sem
+previsão. Sem esse gatilho não há como disparar o `Merge Contact`
+automaticamente no momento em que um contato do Instagram ganha telefone
+(ou vice-versa) — a peça que falta não é a ação, é o gatilho que a
+chamaria. Registrado em `APRENDIZADOS-CRM.md` para a próxima sessão não
+tentar desenhar o mesmo workflow de novo.
+
+**Como:** sem automação (a lacuna é de plataforma, não de desenho), a saída
+é a mesma que R-11/R-14 já usaram para o que workflow não alcança —
+**ferramenta nativa + rotina humana**, não um workflow novo:
+- A tela tem uma **Duplicate Management & Merge Tool** (Configurações →
+  Contatos), que agrupa por Nome, Telefone ou E-mail e funde até 10 contatos
+  de uma vez — o único critério dela que serve para um contato sem telefone
+  nem e-mail é o **Nome**.
+- Passo novo no fluxo do SDR (`GUIA-SDR.md`): antes de tratar um handoff
+  vindo do Instagram como "lead novo", buscar o nome/empresa na busca de
+  contatos — se já existir alguém com o mesmo telefone ou o mesmo negócio,
+  é fusão, não lead novo.
+- Rotina do gestor: rodar a Duplicate Management & Merge Tool filtrando por
+  Nome uma vez por semana, revisando os pares sugeridos antes de fundir (a
+  fusão por Nome tem falso-positivo: dois donos de negócio homônimos não são
+  a mesma pessoa).
+
+**Pronto quando:** o passo de checagem está escrito no `GUIA-SDR.md` e a
+rotina semanal está registrada aqui; nenhuma automação por API é prometida
+— a limitação de plataforma (`Contact Changed` sem Telefone/E-mail) fica
+documentada para ninguém tentar o mesmo desenho de novo antes que a
+HighLevel resolva o pedido em aberto. Zero campo, zero tag, zero escrita no
+CRM: item de especificação e achado de limite de plataforma, não depende de
+`APROVADO.md`.
+
+---
+
 
 ## Bloco 1 — Medição (a maior lacuna)
 
@@ -4223,3 +4282,37 @@ nem decisão desbloqueada repete o mesmo caminho: varredura de coerência
 primeiro (agora incluindo `GUIA-MONTAGEM.md`, `rotina-limpar-tarefas.md` e
 `README.md` na lista de arquivos a cruzar, não só `build-wesales.md`/
 `IMPLEMENTACAO-WORKFLOWS.md`/roadmap), e só depois lacuna nova.
+
+**G-15 aberto e fechado em 23/09/2026, sessão automática seguinte — a
+varredura de coerência veio limpa de novo, e a lacuna nova desta vez não
+veio de nome de etapa nem de documento esquecido.** CRM reconfirmado por
+API: 56 oportunidades (mesma composição da leitura do G-14, sem mudança),
+mesmos campos de contato — G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1)
+seguem aguardando o dono, sem novidade. `conversations_search-conversation`
+(55 conversas, todas as 55 lidas) mostrou que a Cadência Inbound já está
+ativa de verdade (contatos reais com tag `cad-inbound`, mensagem automática
+saindo para pelo menos um contato de teste do próprio dono) — mas nenhum
+lead **real** recebeu mensagem automática ainda, então R-14 e F-06
+continuam corretamente bloqueadas por "aguarda volume real", sem mudança de
+status. A leitura desses dados ao vivo (não prevista pela varredura de
+sempre) foi o que trouxe a pergunta do G-15: com dois canais de entrada sem
+identificador em comum (telefone do Meta Lead Ads, sem telefone/e-mail no
+Instagram), o que impede o mesmo lead de virar dois contatos com duas
+cadências? Pesquisado antes de desenhar (`WebSearch`, GHL): existe ação
+nativa `Merge Contact`, mas o gatilho `Contact Changed` não filtra por
+Telefone/E-mail — pedido em aberto da comunidade, sem previsão. Sem gatilho,
+sem automação; a solução é ferramenta nativa (Duplicate Management & Merge
+Tool, por Nome) mais rotina humana, registrada no próprio G-15 e num passo
+novo já escrito em `GUIA-SDR.md`. Zero campo, zero tag, zero escrita no CRM:
+item de especificação e achado de limite de plataforma, não depende de
+`APROVADO.md`. Detalhe completo no próprio G-15, acima.
+
+Com isso, G-15 fecha por inteiro (especificação); nenhum item numerado
+segue sem especificação — G-03, G-04 (peça 2) e G-11 (item 1) continuam
+sendo os únicos que ainda esperam decisão do dono. A próxima rodada sem
+tela nem decisão desbloqueada
+repete o mesmo caminho: varredura de coerência primeiro, releitura das
+premissas técnicas represadas (mensagem real, volume de ligação, plano com
+Custom Metrics, número de WhatsApp para teste, domínio de e-mail
+verificado) e só depois lacuna nova — a mesma ordem que este roadmap já
+segue desde o G-01.
