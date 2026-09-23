@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Pós-ligação v2",
-    "version": 4,
+    "version": 3,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/4",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F4?alt=media&token=d477f194-02b6-4c9e-8eb5-7bd565256f72",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/0e82d852-15f4-4219-9d0d-da0cccf11826/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F0e82d852-15f4-4219-9d0d-da0cccf11826%2F3?alt=media&token=dd4ed791-83c9-449b-afd9-c805020dd06d",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T12:35:58.574Z",
-    "updatedAt": "2026-09-23T01:35:50.970Z",
+    "updatedAt": "2026-09-22T12:39:40.596Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -798,8 +798,7 @@
           "order": 2,
           "attributes": {
             "tags": [
-              "conectado-hoje",
-              "fechar-horario"
+              "conectado-hoje"
             ]
           },
           "name": "Add Tag",
@@ -831,7 +830,7 @@
             "fields": [],
             "type": "create_opportunity",
             "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
-            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "pipeline_stage_id": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
             "opportunity_name": "",
             "opportunity_source": "",
             "monetary_value": ""
@@ -869,7 +868,7 @@
           "parent": "00b10fab-7b2c-4c6e-9118-a17e34808ebe",
           "order": 6,
           "attributes": {
-            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "title": "[CONECTADO] Qualificar e agendar",
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
             "assignedTo": "contact.assigned_user",
             "dueDate": {
@@ -1120,8 +1119,7 @@
           "order": 2,
           "attributes": {
             "tags": [
-              "conectado-hoje",
-              "fechar-horario"
+              "conectado-hoje"
             ]
           },
           "name": "Add Tag",
@@ -1153,7 +1151,7 @@
             "fields": [],
             "type": "create_opportunity",
             "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
-            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "pipeline_stage_id": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
             "opportunity_name": "",
             "opportunity_source": "",
             "monetary_value": ""
@@ -1191,7 +1189,7 @@
           "parent": "fa0418c0-97e3-42ab-8d52-47df20520415",
           "order": 6,
           "attributes": {
-            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "title": "[CONECTADO] Qualificar e agendar",
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
             "assignedTo": "contact.assigned_user",
             "dueDate": {
@@ -2639,8 +2637,7 @@
           "order": 2,
           "attributes": {
             "tags": [
-              "conectado-hoje",
-              "fechar-horario"
+              "conectado-hoje"
             ]
           },
           "name": "Add Tag",
@@ -2672,7 +2669,7 @@
             "fields": [],
             "type": "create_opportunity",
             "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
-            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "pipeline_stage_id": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
             "opportunity_name": "",
             "opportunity_source": "",
             "monetary_value": ""
@@ -2710,7 +2707,7 @@
           "parent": "58c853a6-3b39-4ab3-970f-a20833927c33",
           "order": 6,
           "attributes": {
-            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "title": "[CONECTADO] Qualificar e agendar",
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
             "assignedTo": "contact.assigned_user",
             "dueDate": {
@@ -2813,8 +2810,7 @@
           "order": 2,
           "attributes": {
             "tags": [
-              "conectado-hoje",
-              "fechar-horario"
+              "conectado-hoje"
             ]
           },
           "name": "Add Tag",
@@ -2846,7 +2842,7 @@
             "fields": [],
             "type": "create_opportunity",
             "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
-            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "pipeline_stage_id": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
             "opportunity_name": "",
             "opportunity_source": "",
             "monetary_value": ""
@@ -2884,7 +2880,7 @@
           "parent": "a1fa1716-3565-4b00-b5cd-853970c6df37",
           "order": 6,
           "attributes": {
-            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "title": "[CONECTADO] Qualificar e agendar",
             "body": "<p style=\"margin:0px; padding-left: 0px!important;margin: 0px;\">Lead atendeu a ligação. Qualificar e agendar reunião.</p>",
             "assignedTo": "contact.assigned_user",
             "dueDate": {
@@ -3093,8 +3089,7 @@
           "order": 2,
           "attributes": {
             "tags": [
-              "conectado-hoje",
-              "fechar-horario"
+              "conectado-hoje"
             ]
           },
           "name": "Add Tag",
@@ -3126,7 +3121,7 @@
             "fields": [],
             "type": "create_opportunity",
             "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
-            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "pipeline_stage_id": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
             "opportunity_name": "",
             "opportunity_source": "",
             "monetary_value": ""
@@ -3164,7 +3159,7 @@
           "parent": "bf237ddf-0a0a-4f86-b195-50393a1c26fd",
           "order": 6,
           "attributes": {
-            "title": "[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico",
+            "title": "[CONECTADO] Qualificar e agendar",
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">[CONECTADO] Qualificar e agendar</p>",
             "assignedTo": "contact.assigned_user",
             "dueDate": {

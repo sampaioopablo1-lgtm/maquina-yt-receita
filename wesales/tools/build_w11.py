@@ -348,8 +348,9 @@ if SO_MONTAR:
     tpl = g.montar(passos)
 else:
     g.preencher(c, WF, NOME, passos, [gatilho], allow_reentry=False, stop_on_response=True,
-                janela={"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30,
-                        "endHour": 18, "endMinute": 30})
+                janela=None if TAG_TESTE else   # copia de teste roda a qualquer hora
+                {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30,
+                 "endHour": 18, "endMinute": 30})
     doc = g.export(c, WF, os.path.join(JSON_DIR, NOME + ".json"))
     tpl = (doc["workflow"].get("workflowData") or {}).get("templates") or []
 

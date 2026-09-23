@@ -29,10 +29,8 @@ pela lista de execução no fim.
 - [x] E2 Etapa renomeada pelo dono na tela (23/09), mesmo id; `ghl_api.STAGES` ganhou `REUNIÃO DE DIAGNÓSTICO` (AGENDAR fica como apelido)
 - [x] E3 Campo `Canal que conectou` criado (`TxJmoWdkA8rTqC1uEsMW`, `contact.canal_que_conectou`). Falta na tela: opção `Desqualificado` em `Resultado da tentativa` (dono)
 - [~] E4 `tools/build_w11.py` reescrito e validado offline (`--so-montar`: 724 nós, 0 goto quebrado, 22 tarefas, 5 mensagens MT1/MT4/MT8/MT11/MT12, 0 'sim'). Falta: montar a cópia `ZZ TESTE 12X30` (W11_NOME/W11_TAG), testar, depois gravar na real e publicar. Fase "fechar horário" = workflow novo `tools/build_fechar_horario.py` (41 nós, validado offline), dispara pela tag `fechar-horario`
-- [~] E5-E7 prontos em `tools/patch_funil_reuniao.py` (simulado: Pós-agendamento 2, Loop do closer 3, No-show 6, SLA 2, Pós-ligação 15 mudanças); aplicação bloqueada pelo modo automático. E5 Pós-ligação v2: Atendeu não move etapa; resultado → manter/excluir/reagendar (D3, D9)
-- [ ] E6 Pós-agendamento v2: reunião marcada → REUNIÃO DE DIAGNÓSTICO (D4)
-- [ ] E7 Loop do closer, Registro de Comparecimento, SLA/Recuperação de no-show → nova etapa (D4)
-- [ ] E8 W17d (AGENDAR Estagnado) → "atendeu e não agendou" dentro de CONECTAR; W22 conta desde a proposta
+- [x] E5-E7 APLICADOS em 23/09 (`patch_funil_reuniao.py --aplicar`, backup `_antes-patch-funil/`): Pós-agendamento → REUNIÃO DE DIAGNÓSTICO e passa a tirar da Inbound, Reengajamento e Fechar Horário; Loop do closer, No-show e SLA em REUNIÃO; Pós-ligação: Atendeu fica em CONECTAR + tarefa [FECHAR HORÁRIO] + tag fechar-horario. Conferido: mesmos ids, publicados, gatilhos ativos.
+- [~] E8 Workflow `Fechar Horário` criado em RASCUNHO (`82dd1fad-1bdd-44f7-8214-3a685521e2b4`, 41 nós) — falta publicar e despublicar o W17d. W17d (AGENDAR Estagnado) → "atendeu e não agendou" dentro de CONECTAR; W22 conta desde a proposta
 - [ ] E9 Cadência Inbound multicanal (D7) e Reengajamento 90d coerente
 - [~] E10 Gatilho canal 20 (Stevo) acrescentado na Interceptação Resposta v2 e no Opt-out, ativos (23/09, `tools/gatilho_stevo.py`). Falta o teste real com mensagem do número do dono
 - [ ] E11 Mestre de saída, W15, W17b, W18 (meta em toques), listas e painel
