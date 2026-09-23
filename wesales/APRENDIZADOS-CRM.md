@@ -20,6 +20,45 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## Minha auditoria contava rascunho como rede de segurança — errar para o lado permissivo é o pior jeito de errar — 23/09/2026, sessão na nuvem
+
+Duas correções no `auditoria_tags.py` que eu escrevi uma hora antes, e a segunda
+era defeito de verdade.
+
+**1. Julgamento sobre tag vence quando o papel da tag muda.** Eu havia excluído
+`cad-inbound` da pergunta 1 raciocinando "marcador de origem que persiste não é
+defeito". No `bff2514` o **nó 0 da `Cadência Inbound` passou a ser um `if_else`
+que testa `cad-inbound`** — a tag virou o **portão** da cadência, e o nó 254 a
+remove na saída. Portão cuja remoção é pulada deixa o portão aberto. É o F-16
+outra vez, agora contra uma exceção que eu mesmo tinha codificado: **exceção em
+auditoria precisa de data e de motivo, porque o motivo expira.** Deixei o
+comentário no script dizendo quando saiu e por quê.
+
+**2. O script creditava workflow em `draft` como rede de segurança.** Foi assim
+que ele parou de acusar `nutricao-90d` e `cad-inbound`: quem as limpa sem ser
+arrancado é a `Triagem da Nutrição`, em rascunho. Hoje **nada publicado remove
+`nutricao-90d`**. O efeito foi a auditoria ficar **permissiva**, e isso é pior que
+um alarme falso: alarme falso a gente investiga e descarta; silêncio a gente
+acredita. Corrigido — a rede tem de estar `published`, e o relatório passou a
+dizer qual rascunho viraria rede.
+
+**A assimetria que fica, e que vale para qualquer checagem:** `draft` num dump não
+serve para **acusar** (armadilha do F-17, que me custou um achado inteiro), mas
+serve para **não creditar** uma proteção. As duas direções não são simétricas —
+na dúvida, não credite; nunca acuse.
+
+Resultado: de 3 achados para 5, e agora com o caminho barato visível — **publicar
+a `Triagem da Nutrição` fecha 3 dos 5**.
+
+**E uma reconciliação, porque duas auditorias dizendo coisas diferentes confundem
+mais que uma só:** o `auditoria_final.py` do dono (`beebd23`) diz "26 publicados,
+0 problemas" e está certo — ele faz **seis** perguntas, nenhuma delas é a minha. O
+cruzamento completo está na §2.33.1 do `build-wesales.md`. A dele ainda tem uma
+vantagem que a minha não tem: lê **ao vivo pela API**, inclusive o gatilho, então
+não sofre da defasagem de dump e vê o dado que falta para fechar minha pergunta 1
+com certeza. Caminho de melhoria registrado: unir as perguntas na fonte ao vivo,
+quando alguém estiver no PC.
+
 ## Teste que cria oportunidade deixa pegada indistinguível de lead — e uma pendência fechada por medição em vez de por tela — 23/09/2026, sessão na nuvem
 
 Check-in das 02:29. Nada novo no git, todos os gabaritos batendo — e a medição do
