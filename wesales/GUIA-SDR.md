@@ -25,7 +25,8 @@ NOVO LEAD → **CONECTAR** (você) → **REUNIÃO DE DIAGNÓSTICO** (closer) →
 3. **Lead novo inbound** (tarefa TI1) — ligue em até 15 min.
 4. **[CADENCIA] T1 → T12** — a fila do dia (T1 antes de T12: lead novo atende mais).
 5. **[FECHAR HORÁRIO]** — atendeu mas não marcou reunião.
-6. **[CADENCIA] NS1–NS3** — recuperar quem faltou à reunião.
+6. **[CADENCIA] NS1–NS3** — recuperar quem faltou à reunião. A mensagem de
+   remarcar já sai sozinha pelo WhatsApp quando o closer marca No Show — você só liga.
 
 Blocos sugeridos: ligações **09:00–11:30** e **14:00–16:30**; entre eles,
 responder mensagens e registrar resultados. Termine o dia sem tarefa aberta.
