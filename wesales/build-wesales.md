@@ -8559,3 +8559,22 @@ só escuta `CONECTAR` e ele está em `NOVO LEAD` (§2.42), e a `Triagem da Nutri
 exige `status-nutricao`, que só chega no fim da cadência. **É o funil quebrado
 protegendo o contato.** No dia em que a L-07 for resolvida, esta proteção
 acidental cai junto — e aí o passo do `GUIA-SDR.md` é a única rede.
+
+### Confirmado às 22:07: é a suporte da própria WeSales, e a limpeza A9 não a tirou
+
+O contato ganhou nome às 22:07:33 — **`Rafaela de Paula - We Sales`**. Não é
+"fornecedor" genérico: é a atendente da plataforma em que este CRM roda. O dono
+pedindo ajuda ao suporte da WeSales entrou no funil de vendas dele como lead
+atribuído.
+
+E ela **continua lá depois da faxina**. A `A9` (commit `994c97e`, 22:0x) limpou a
+fila de `NOVO LEAD` de 7 contatos de casa/teste; medido às 22:1x, `NOVO LEAD` tem
+**42 oportunidades `open`** e a mais nova de todas ainda é a
+`JudIT5DF7JinFbBqcwYU`, com `cad-inbound` + `etapa-novo-lead` e `assignedTo`. A
+faxina pegou o que era obviamente de teste e não tinha como pegar esta: o nome
+só apareceu depois, e antes dele o contato era um número solto — indistinguível
+de um lead de WhatsApp.
+
+Continua valendo o que a seção diz: **eu não escrevo nada** sem `[x]`. A decisão
+é de uma linha — resgatar como a `Francisca` (tirar as duas tags, oportunidade
+para `abandoned`) ou deixar e confiar no passo do `GUIA-SDR.md`.
