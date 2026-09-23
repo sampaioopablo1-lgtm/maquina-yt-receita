@@ -1,0 +1,405 @@
+{
+  "workflow": {
+    "_id": "ba916ae8-4968-4784-9711-ed7cdd3ceee2",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "ZZ TESTE Negociação Estagnada",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/ba916ae8-4968-4784-9711-ed7cdd3ceee2/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fba916ae8-4968-4784-9711-ed7cdd3ceee2%2F3?alt=media&token=116d993a-ed9d-4c82-8dd2-b90fb8313343",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-23T03:47:21.000Z"
+      }
+    },
+    "createdAt": "2026-09-23T03:47:19.620Z",
+    "updatedAt": "2026-09-23T03:47:23.153Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/ba916ae8-4968-4784-9711-ed7cdd3ceee2/3",
+    "window": null,
+    "workflowNote": null,
+    "id": "ba916ae8-4968-4784-9711-ed7cdd3ceee2",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "c11f17a9-9540-4bc0-a6bb-ea30b5295512",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "proposta-pendente",
+              "negociacao-estagnada"
+            ]
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "4e12f01e-6a71-40a2-8895-f46d7613dd1f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "4e12f01e-6a71-40a2-8895-f46d7613dd1f",
+          "name": "Wait 2 Minutes",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "minutes",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Minutes",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 1,
+          "parentKey": "c11f17a9-9540-4bc0-a6bb-ea30b5295512",
+          "next": "61c63474-6da1-4cac-94b0-eb77d61e4d30",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "61c63474-6da1-4cac-94b0-eb77d61e4d30",
+          "order": 2,
+          "name": "Ainda em NEGOCIAR e aberta?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "409fef3a-070b-45bf-9fa7-816922f10961",
+            "4f7281fe-f78a-4335-a6af-b53c9d4f0ea9"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "409fef3a-070b-45bf-9fa7-816922f10961",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "cc340aa6-c5cf-4956-818e-f87e646b2782",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
+                        "__conditionId": "09114253-e9c0-4940-8eb0-02b34ac8a234",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "51774756-09e7-4cf6-b6cf-9a1891af6d13",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parentKey": "4e12f01e-6a71-40a2-8895-f46d7613dd1f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "409fef3a-070b-45bf-9fa7-816922f10961",
+          "parent": "61c63474-6da1-4cac-94b0-eb77d61e4d30",
+          "parentKey": "61c63474-6da1-4cac-94b0-eb77d61e4d30",
+          "order": 3,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "4f7281fe-f78a-4335-a6af-b53c9d4f0ea9"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "ebb26ac6-d1ba-4cf0-a3fa-fca7f894cfb1",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "4f7281fe-f78a-4335-a6af-b53c9d4f0ea9",
+          "parent": "61c63474-6da1-4cac-94b0-eb77d61e4d30",
+          "parentKey": "61c63474-6da1-4cac-94b0-eb77d61e4d30",
+          "order": 3,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "409fef3a-070b-45bf-9fa7-816922f10961"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "ebb26ac6-d1ba-4cf0-a3fa-fca7f894cfb1",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "negociacao-estagnada"
+            ]
+          },
+          "order": 0,
+          "parent": "409fef3a-070b-45bf-9fa7-816922f10961",
+          "parentKey": "409fef3a-070b-45bf-9fa7-816922f10961",
+          "next": "9262871e-7b15-4f1c-9a12-6ec3e86a3b6c",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "9262871e-7b15-4f1c-9a12-6ec3e86a3b6c",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "{{contact.name}} está em NEGOCIAR há 5 dias sem ganho nem perda. Cobrar do closer uma decisão.",
+              "title": "Negociação parada",
+              "redirectPage": "contact",
+              "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
+              "userType": "user"
+            }
+          },
+          "order": 1,
+          "parent": "409fef3a-070b-45bf-9fa7-816922f10961",
+          "parentKey": "ebb26ac6-d1ba-4cf0-a3fa-fca7f894cfb1",
+          "next": "6a612a22-2fe4-497d-9824-a963e0b5d2d7",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "6a612a22-2fe4-497d-9824-a963e0b5d2d7",
+          "name": "Add Task",
+          "type": "task-notification",
+          "attributes": {
+            "title": "[CLOSER] Decidir a negociação",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">A proposta está em NEGOCIAR há 5 dias sem decisão. Ligue para o lead e registre: fechou (mover para FORMALIZAR + Ganho) ou perdeu (Perdido + motivo).</p>",
+            "assignedTo": "contact.assigned_user",
+            "type": "task_notification",
+            "dueDate": "0",
+            "__customInputs__": {
+              "dueDate": "duration-picker"
+            }
+          },
+          "order": 2,
+          "parent": "409fef3a-070b-45bf-9fa7-816922f10961",
+          "parentKey": "9262871e-7b15-4f1c-9a12-6ec3e86a3b6c",
+          "next": "e87e5e79-14a2-4331-96aa-6803560a82c7",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "e87e5e79-14a2-4331-96aa-6803560a82c7",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">NEGOCIAR há 5 dias sem decisão do closer.</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Alerta de saúde"
+          },
+          "order": 3,
+          "parent": "409fef3a-070b-45bf-9fa7-816922f10961",
+          "parentKey": "6a612a22-2fe4-497d-9824-a963e0b5d2d7",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "N2JHG2LDphTU0wcvFWd5",
+      "date_added": "2026-09-23T03:47:20.571Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "ba916ae8-4968-4784-9711-ed7cdd3ceee2",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineId",
+          "value": "0Fo2xbeayE4EP6yuSUtq",
+          "title": "No pipeline",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "opportunity.pipelineStageId",
+          "value": "cbcf0229-5e19-4fdb-8c50-6c641b78b3bb",
+          "title": "Movido para o estágio",
+          "type": "select",
+          "id": "moved-to-stage"
+        }
+      ],
+      "type": "pipeline_stage_updated",
+      "masterType": "highlevel",
+      "workflow_id": "ba916ae8-4968-4784-9711-ed7cdd3ceee2",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Movido para NEGOCIAR",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "c11f17a9-9540-4bc0-a6bb-ea30b5295512",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-23T03:47:21.758Z"
+    }
+  ]
+}
