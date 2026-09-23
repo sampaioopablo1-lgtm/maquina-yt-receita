@@ -21,3 +21,4 @@ storage-state.json
 gohighlevel-cli/
 ghl-automation-builder/
 wesales/tools/__pycache__/
+wesales/tools/*.log
