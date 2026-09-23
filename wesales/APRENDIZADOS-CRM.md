@@ -160,6 +160,37 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## Classifiquei cinco contatos por nome e acertei um — o telefone é que diz o que a coisa é — 23/09/2026, sessão na nuvem
+
+Eu disse que cinco oportunidades eram "teste sem marcação, indistinguíveis de lead",
+e que o A9 do dono perdia justamente essas cinco. Fui conferir contato por contato
+pelo MCP. **Errado nos dois pontos:**
+
+| Nome | Telefone / e-mail | O que é de verdade |
+|---|---|---|
+| `Pablo Sampaio` | +5521987429940 | **o 9940**, número oficial de teste — o A9 **já nomeia** |
+| `O Próximo Cliente` | +5512982381407 | **o 1407**, o conectado à Stevo, citado no `692c504` |
+| `Sem Nome` | `agencia.proximocliente@gmail.com` | **a própria agência** |
+| `156766977421470` | +18005551470 (800 dos EUA), nome = id de plataforma | artefato sintético |
+| `Francisca` | +5512981913254 | **não consigo classificar** |
+
+Quatro dos cinco são do próprio projeto, e dois deles o dono já rastreava. Eu havia
+classificado pelo **nome** — "Pablo Sampaio parece o dono, logo é teste dele" acertou
+por acidente; "Francisca parece pessoa, logo é teste também" não tem base nenhuma.
+**O telefone é que diz o que a coisa é**, e eu não tinha olhado: um 800 dos EUA com
+`country: BR`, o e-mail da própria agência, os dois números de teste do projeto.
+
+**E a conclusão vira do avesso.** O que sobra é menor e mais urgente do que eu disse:
+só a `Francisca`. Se ela é pessoa de verdade que escreveu no WhatsApp, **é lead
+inbound parado `open` em NOVO LEAD sem dono** desde 22/09 23:34 — não é "teste sem
+marcação", é o risco **contrário**, e pior. Item virou uma pergunta de uma linha em
+vez de uma limpeza de cinco.
+
+**As duas regras:** (1) para classificar contato, ler o **identificador** (telefone,
+e-mail, id), nunca o nome — nome é o campo mais fácil de encher de qualquer coisa;
+(2) antes de dizer que o backlog do dono "perdeu" um item, conferir se ele não está
+lá com outro nome — o 9940 estava no A9 desde o começo, e eu li o A9.
+
 ## Levei dado velho ao dono duas vezes — 3 dos 5 achados já estavam resolvidos quando reportei — 23/09/2026, sessão na nuvem
 
 A pior da noite, e não é erro de raciocínio: é erro de **fonte**, o terceiro da

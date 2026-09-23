@@ -88,10 +88,22 @@ mudar preço/plano, mexer em outro projeto.
       > pulada por `remove_from_workflow`, e tag só removida e nunca aplicada. Hoje devolve
       > **5 achados**, e **3 deles saem publicando a `Triagem da Nutrição`**.
 - [ ] A9 (ZZ publicados → rascunho feito em 23/09 01:10) Limpeza de testes: contato 9940 (tirar `status-nutricao`, `triagem-enviada` depois do A1), `ZZ TESTE MENSAGEM` e cópias ZZ em rascunho; `ZZ Teste Porta Inbound`.
-      > **Faltam cinco, e são as que dão problema.** Medido em 23/09 02:35: a validação do
-      > multicanal de 22:34 a 00:45 criou contato **e oportunidade `open` em `NOVO LEAD`**
-      > para `Sem Nome`, `O Próximo Cliente`, `Pablo Sampaio`, `Francisca` e
-      > `156766977421470` — **sem `source` e sem prefixo `ZZ`**. As que o A9 lista já estão
-      > marcadas e por isso são fáceis; estas cinco são indistinguíveis de lead, e se a
-      > esteira ligar assim a máquina liga para o dono e para a própria agência. Elas
-      > também inflam a base: o `NOVO LEAD` tem 50 `open` e só **37** são lead pago.
+      > **Correção da minha nota anterior (23/09 05:45).** Eu escrevi aqui que
+      > "faltam cinco" e que eram "as que dão problema". Fui conferir contato por
+      > contato pelo MCP e **estava errado nos dois pontos**: quatro dos cinco são
+      > contatos do próprio projeto, e dois deles este item já nomeia ou o dono já
+      > rastreia.
+      >
+      > | Nome | Telefone | O que é |
+      > |---|---|---|
+      > | `Pablo Sampaio` | +5521987429940 | **é o 9940**, o número oficial de teste que este item já lista |
+      > | `O Próximo Cliente` | +5512982381407 | **é o 1407**, o conectado à Stevo (`692c504`) |
+      > | `Sem Nome` | +552123915933, e-mail `agencia.proximocliente@gmail.com` | **a própria agência** |
+      > | `156766977421470` | +18005551470 (800 dos EUA), nome = id de plataforma | artefato sintético de teste |
+      > | **`Francisca`** | **+5512981913254** | **não consigo classificar** |
+      >
+      > **O que sobra, e é menor e mais urgente do que eu disse:** só a `Francisca`.
+      > Se ela é uma pessoa de verdade que escreveu no WhatsApp, **é lead inbound** —
+      > e está `open` em `NOVO LEAD` **sem dono** desde 22/09 23:34. Não é "teste sem
+      > marcação", é o risco contrário: lead real parado. Uma pergunta, não uma
+      > limpeza: `Francisca` é você testando ou é gente?
