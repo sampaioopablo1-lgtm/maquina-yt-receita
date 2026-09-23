@@ -92,7 +92,8 @@ checa **etapa E status**.
 | `conectar-estagnado` | F-05 peça 3: `CONECTAR` sem tentativa nova em 14 dias | **não** — `[ ]` em `APROVADO.md` |
 | `agendar-estagnado` | F-05 peça 5: `AGENDAR` sem reunião nem descarte em 24h | **não** — `[ ]` em `APROVADO.md` |
 | `retorno-vencido` | F-05 peça 6: `Data de retorno` passou sem reclassificação | **não** — `[ ]` em `APROVADO.md` |
-| `negociacao-estagnada` | F-13: `Reunião foi qualificada` = `Sim` há 3 dias sem `won` nem `lost` | **não** — `[ ]` em `APROVADO.md` |
+| `negociacao-estagnada` | Publicado real (G-23): 5 dias em `NEGOCIAR`/`open`, gatilho `Opportunity Stage Changed → NEGOCIAR` (desenho original do F-13 dizia `Reunião foi qualificada` = `Sim` há 3 dias) | **sim** — criada pelo dono via `tools/build_estagnacao.py`, 23/09/2026, fora do `[x]` (`APROVADO.md`) |
+| `proposta-pendente` | G-23: `Reunião foi qualificada` = `Sim` há 3 dias sem sair de `REUNIÃO DE DIAGNÓSTICO` (tag `etapa-reuniao` ainda presente) | **sim** — mesmo pacote da linha acima |
 
 ### 0.3 Campos personalizados (nome na tela → chave de merge field → tipo → opções exatas)
 
@@ -310,8 +311,10 @@ na hora). Minúsculas, hífen, exatamente como a seção 0.2. Estado: as 15
 primeiras existem (aplicadas ao contato `ZZ TESTE ESTRUTURA`); faltam as
 cinco do F-05 — `novo-lead-estagnado` (W17), `fila-travada` (W17b),
 `conectar-estagnado` (W17c), `agendar-estagnado` (W17d), `retorno-vencido`
-(W17e) — e a do F-13, `negociacao-estagnada` (W22) — todas `[ ]` em
-`APROVADO.md`; só saem por API depois do `[x]` do dono.
+(W17e) — todas `[ ]` em `APROVADO.md`, só saem por API depois do `[x]` do
+dono. As duas do W22 (`negociacao-estagnada`, `proposta-pendente`) fogem
+dessa regra: o dono já criou e publicou as duas pelo próprio caminho
+(`tools/build_estagnacao.py`, G-23) — ver seção 0.2 acima.
 
 Três famílias, e a regra de quem mexe:
 
@@ -319,7 +322,7 @@ Três famílias, e a regra de quem mexe:
 |---|---|---|
 | **Fila** (aparece nas listas do dia) | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin` | **só workflow**. O SDR nunca aplica nem remove à mão — a fila do dia é consequência da cadência, não decisão |
 | **Estado** (sobrevive à saída de cadência) | `nao-perturbe`, `telefone-invalido`, `nutricao-90d`, `cad-inbound`, `cad-outbound`, `conectado-hoje` (**ver nota abaixo — o nome dela diz "hoje" e o comportamento é permanente**), `pausado` | workflow, exceto `pausado` (**SDR**, à mão, para represar um lead sem opt-out) e `cad-inbound` (integração/formulário na entrada) |
-| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido`, `negociacao-estagnada` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20–8.24, 8.28), não aplica |
+| **Pulso e alarme** | `toque`, `limpar-tarefas`, `atraso-1a-tentativa`, `reengajamento-ativo`, `novo-lead-estagnado`, `fila-travada`, `conectar-estagnado`, `agendar-estagnado`, `retorno-vencido`, `negociacao-estagnada`, `proposta-pendente` | só workflow; o gestor **lê** (listas 8.5, 8.8, 8.14, 8.20–8.24, 8.28, 8.29), não aplica |
 
 **Nota de 23/09/2026 — `conectado-hoje` está nesta família e não deveria estar sem reset.**
 Nenhum dos 26 dumps remove esta tag e nenhum documento especifica reset diário, de
@@ -454,6 +457,7 @@ Fonte da lógica: `build-wesales.md`, 8.
 | 8.26 | `Auditoria — tag sem DND nativo` | tag `nao-perturbe` **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled) | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status | Data de criação desc | Gestor — R-14 |
 | 8.27 | `Auditoria — DND sem tag` | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag `nao-perturbe` ausente | Nome · Telefone · Tags · Etapa/status | Data de criação desc | Gestor — R-14 |
 | 8.28 | `Saúde — Negociação Estagnada` | tag `negociacao-estagnada` | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` | `Data do veredito do closer` asc | Gestor — diário |
+| 8.29 | `Saúde — Proposta Pendente` | tag `proposta-pendente` | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` | `Data do veredito do closer` asc | Gestor — diário |
 
 Com um segundo SDR: duplicar 8.1, 8.2 e 8.3 por pessoa acrescentando o
 filtro `Atribuído a = <nome>` (o GHL não tem "usuário atual" em lista).
@@ -533,7 +537,7 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 19 | Higiene de Número (opcional) | não existe | Number Validation ligado |
 | 20 | Qualidade da Conexão (F-06) | não existe | ~~campos C-29 a C-32~~ **já existem na tela desde 22/09/2026** (`APRENDIZADOS-CRM.md`) — falta só gravação de chamada habilitada |
 | 21 | Reentrada por Formulário (F-11) | não existe | — |
-| 22 | Negociação Estagnada (F-13) | não existe | tag `negociacao-estagnada` (`APROVADO.md`) |
+| 22 | Negociação Estagnada (F-13) + Proposta Pendente (G-23, pacote irmão) | **publicado** (`53334baa` / `14fdf9fa`, `tools/build_estagnacao.py`) | tags `negociacao-estagnada`, `proposta-pendente` (já criadas pelo dono, fora do `[x]`) |
 
 ---
 
@@ -603,9 +607,16 @@ to Workflow` em massa.
 | 2b | Remove from Workflow | `Cadência Inbound` (quando existir) | 2c |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (quando existir) | 3 |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` | 4 |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada`, `conectar-estagnado`, `retorno-vencido`, `negociacao-estagnada` (as quatro últimas quando existirem) | 5 |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa`, `reengajamento-ativo`, `pausado`, `fila-travada`, `conectar-estagnado`, `retorno-vencido`, `negociacao-estagnada`, `proposta-pendente` (as cinco últimas quando existirem — as duas do W22 já existem, ver nota abaixo) | 5 |
 | 5 | Add Contact Tag | `limpar-tarefas` | 6 |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` | fim |
+
+**Divergência conhecida do publicado (G-23):** o `Mestre de saída v2`
+(`tools/patch_mestre_tags.py`, `PLANO-MULTICANAL.md` A8) já está no ar com
+uma lista maior — soma também `cad-outbound`, `cadencia-12x30-p2`,
+`fechar-horario`, `toque`. Reconciliar a tabela acima por inteiro com o
+publicado é trabalho maior que o achado de G-23; registrado para a próxima
+varredura não redescobrir.
 
 **Retoques obrigatórios na versão publicada (evidência em 21/09):**
 1. **Nó 1 — `NOVO LEAD` também encerra.** Confirmado por API: a Porta de
@@ -1546,7 +1557,45 @@ aplicada: nada muda na oportunidade, e o gestor recebe a notificação.
 
 ---
 
-## W22 · Negociação Estagnada — `build-wesales.md` 2.28 (F-13, fechado em 22/09/2026)
+## W22 · Negociação Estagnada — `build-wesales.md` 2.28 (F-13, especificado em 22/09/2026) — **PUBLICADO em 23/09/2026 com desenho diferente, ver abaixo (G-23)**
+
+> **O que está de fato no ar não é a tabela original abaixo — é isto.** O
+> dono construiu e testou pelo próprio caminho (`tools/build_estagnacao.py`,
+> `PLANO-MULTICANAL.md` item A5, ids `53334baa`/`14fdf9fa`, testado com o
+> contato 9940) **dois workflows separados**, não um workflow com dois
+> ramos como a especificação original previa:
+>
+> **"Negociação Estagnada" (`53334baa`) — gatilho `Opportunity Stage
+> Changed → NEGOCIAR`** (não `Contact Changed`):
+> | # | Ação | Configuração exata |
+> |---|---|---|
+> | 1 | Remove Contact Tag | `proposta-pendente`, `negociacao-estagnada` — incondicional, na entrada (nova rodada em `NEGOCIAR`; a proposta deixou de estar pendente) |
+> | 2 | Wait → Time Delay | 5 dias corridos |
+> | 3 | If/Else | `Pipeline stage` é `NEGOCIAR` **E** `Opportunity status` é `open` → 4 · None → FIM |
+> | 4 | Add Contact Tag + Internal Notification + Add Task + Add Note | tag `negociacao-estagnada`; aviso ao gestor "{{contact.name}} está em NEGOCIAR há 5 dias sem ganho nem perda"; tarefa `[CLOSER] Decidir a negociação`; nota |
+>
+> **"Proposta Pendente" (`14fdf9fa`) — gatilho `Contact Changed` em
+> `Reunião foi qualificada`, mesmo evento do original:**
+> | # | Ação | Configuração exata |
+> |---|---|---|
+> | 1 | If/Else | `Reunião foi qualificada` é `Sim` → 2 · None → FIM |
+> | 2 | Wait → Time Delay | 3 dias corridos |
+> | 3 | If/Else | tag `etapa-reuniao` presente **E** tag `proposta-pendente` ausente **E** `Reunião foi qualificada` é `Sim` → 4 · None → FIM |
+> | 4 | Add Contact Tag + Internal Notification + Add Note | tag `proposta-pendente`; aviso ao gestor "{{contact.name}} foi aprovado na reunião de diagnóstico há 3 dias e a proposta ainda não foi apresentada"; nota |
+>
+> Duas diferenças de desenho que valem registrar: (1) condiciona pela tag
+> `etapa-reuniao` (Espelho de Etapa), não por `Pipeline stage is …` direto —
+> mesmo motivo do G-08 (a condição de oportunidade lê vazio num workflow
+> cujo gatilho não é de oportunidade); (2) o alerta de `NEGOCIAR` não checa
+> mais `Reunião foi qualificada` (o gatilho por mudança de etapa já implica
+> isso, porque só se chega a `NEGOCIAR` depois do `Sim`, por `GUIA-CLOSER.md`).
+> Fonte: `wesales/tools/build_estagnacao.py`, lido nó a nó — mais confiável
+> que reconstruir de memória. Tags já criadas pelo dono, fora do `[x]` de
+> `APROVADO.md` (T-21/T-22, `campos-e-tags.md`). Detalhe em
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-23.
+
+**Especificação original (22/09/2026), mantida como registro — não é o que
+está publicado, ver acima.**
 
 **Gatilho:** `Contact Changed` — Custom Field `Reunião foi qualificada`
 alterado. Mesmo evento do W6 (Loop do closer) — os dois reagem à mesma
@@ -1568,17 +1617,15 @@ escrita do closer.
 | 5 | Internal Notification | ao gestor: `{{contact.name}} foi qualificado pelo closer (Sim) há mais de 3 dias e segue em NEGOCIAR sem fechar nem perder. Veredito em: {{contact.data_do_veredito_do_closer}}.` | 6 |
 | 6 | Add Note | `Alerta de saúde: NEGOCIAR sem decisão do closer em 3 dias · {{right_now}}` | fim |
 
-**Pré-requisito:** tag `negociacao-estagnada` (`APROVADO.md`, `[ ]`, T-21).
-Sem tratamento incondicional no Mestre de saída (W3) — diferente de
-`novo-lead-estagnado`/`agendar-estagnado`, `NEGOCIAR` não está na lista de
-no-op do nó 1, então toda saída real já alcança o nó 4 pela via normal
-(somar `negociacao-estagnada` à lista existente basta).
+**Pré-requisito:** tag `negociacao-estagnada` (`APROVADO.md`, `[ ]`, T-21) —
+**já criada, ver aviso no topo desta seção.** Sem tratamento incondicional
+no Mestre de saída (W3) — diferente de `novo-lead-estagnado`/
+`agendar-estagnado`, `NEGOCIAR` não está na lista de no-op do nó 1, então
+toda saída real já alcança o nó 4 pela via normal (somar `negociacao-
+estagnada` à lista existente basta).
 
-**Teste:** no contato de estrutura ou num contato fictício já em `NEGOCIAR`,
-preencha `Reunião foi qualificada` = `Sim`, reduza o `Wait` para minutos e
-confirme: tag `negociacao-estagnada` aplicada, notificação ao gestor.
-Repita marcando `status = won` (ou `lost`) antes do `Wait` estourar: o nó 3
-deve encerrar sem aplicar a tag.
+**Teste:** já executado ao vivo pelo dono contra o desenho publicado (acima),
+não contra esta tabela — ver `PLANO-MULTICANAL.md`, item A5.
 
 ---
 

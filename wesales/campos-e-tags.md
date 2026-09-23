@@ -335,7 +335,7 @@ por `--dump` e **ainda não aplicado**. Registro, não aprovação — o campo j
 existe na tela, criado por fora deste conector. Acompanhamento e "Pronto
 quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 
-## Etapa 3 — Tags (21 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
+## Etapa 3 — Tags (22 numeradas, cinco pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
 > linha abaixo contam; qualquer outro documento que precisar dizer "a conta
@@ -348,13 +348,19 @@ quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 > e o "25" (na verdade 27) para `build-wesales.md` §2.32; os dois corrigidos
 > junto — detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-20.
 
-As 21 são as tags **deste projeto**: T-01 a T-15 criadas, T-16 a T-21 esperando
-`[x]` no `APROVADO.md`. A conta tem outras **12**, criadas por ação do dono e
+As 22 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
+T-20 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
+`[x]`** — o dono criou as duas direto pelo próprio caminho (`tools/
+build_estagnacao.py`, PC dele, 23/09/2026, depois do horário em que a T-21
+foi especificada aqui) junto com os dois workflows que as aplicam; ver as
+duas linhas abaixo e G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) para o que isso
+corrigiu. A conta tem outras **12**, criadas por ação do dono e
 registradas abaixo nas linhas `—` (`teste-regua`, `fechar-horario`,
 `cadencia-12x30-p2`, `teste-12x30` e as 8 do Espelho de Etapa) — ficam fora da
 numeração de propósito, para o `T-nn` continuar significando "tag que a rotina
-só cria com aprovação". **Total na conta hoje: 27.** Dois números diferentes
-porque contam coisas diferentes; quem for conferir na tela vê 27.
+só cria com aprovação". **Total na conta hoje: 29** (17 numeradas já criadas
++ 12 fora da numeração). Dois números diferentes porque contam coisas
+diferentes; quem for conferir na tela vê 29.
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -382,7 +388,8 @@ porque contam coisas diferentes; quem for conferir na tela vê 27.
 | T-18 | `conectar-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.22 do `build-wesales.md`): aplicada pelo workflow "Cadência Sem Avanço" quando a oportunidade segue em `CONECTAR`/`open` sem nenhuma tentativa nova em 14 dias corridos (sinal de cadência realmente parada, não só uma tentativa travada — diferença explicada na seção 2.22); limpa pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de cadência de verdade) e filtra a lista 8.22 |
 | T-19 | `agendar-estagnado` | **Não recomendado para aprovação — premissa superada em 23/09/2026 (G-13, `ROADMAP-SALES-ENGAGEMENT.md`).** O workflow que a aplicaria ("AGENDAR Estagnado"/W17d) foi despublicado pelo dono (`PLANO-MULTICANAL.md`, E8): desde a D3, `REUNIÃO DE DIAGNÓSTICO` só é alcançada com reunião marcada, então "24h em `AGENDAR` sem reunião marcada" deixou de poder acontecer. Substituto publicado (`Fechar Horário`) cobre a fase nova por mensagem, sem tag nem aviso ao gestor equivalente — detalhe e decisão pendente em `build-wesales.md`, seção 2.23. Continua `[ ]` em `APROVADO.md`; se aprovar, aprove o desenho revisado, não este |
 | T-20 | `retorno-vencido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.24 do `build-wesales.md`): aplicada pelo workflow "Retorno Vencido" quando `Data de retorno` (S-01) passa sem o SDR reclassificar `Resultado da tentativa`; limpa pelo nó 3c novo do Pós-ligação (seção 4, incondicional, a cada resultado novo) e, como rede de segurança, pelo nó 4 do Mestre de saída (seção 3); filtra a lista 8.24 |
-| T-21 | `negociacao-estagnada` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação, extensão à negociação (F-13, seção 2.28 do `build-wesales.md`): aplicada pelo workflow "Negociação Estagnada" quando o closer marca `Reunião foi qualificada` = `Sim` e a oportunidade passa 3 dias corridos em `NEGOCIAR`/`open` sem virar `won` nem `lost`; limpa pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de `NEGOCIAR` de verdade) |
+| T-21 | `negociacao-estagnada` | **Já criada e publicada — pelo dono, não por este `[x]`.** O workflow que a aplica saiu do papel em 23/09/2026 (`tools/build_estagnacao.py`, id `53334baa`, testado com o contato 9940), com desenho **diferente** do que a especificação original do F-13 (`build-wesales.md`, seção 2.28) previa: gatilho `Opportunity Stage Changed → NEGOCIAR` (não `Contact Changed` em `Reunião foi qualificada`) e **5 dias** de espera (não 3) — o dono ajustou os dois na hora de montar. Aplicada quando a oportunidade fica 5 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost`; a entrada do workflow já remove `proposta-pendente`/`negociacao-estagnada` de rodadas anteriores, e o `Mestre de saída v2` (`tools/patch_mestre_tags.py`) também limpa as duas. G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) registra a divergência entre a especificação e o publicado |
+| T-22 | `proposta-pendente` | **Já criada e publicada — pelo dono, não por este `[x]`.** Segundo alerta do mesmo pacote da T-21 (`tools/build_estagnacao.py`, id `14fdf9fa`, 23/09/2026, testado com o 9940): o closer marca `Reunião foi qualificada` = `Sim` e 3 dias depois a tag `etapa-reuniao` (Espelho de Etapa) ainda está presente — ou seja, ninguém moveu a oportunidade para `NEGOCIAR`. É o buraco que a especificação da T-21 nunca cobriu (o gatilho dela só olhava `NEGOCIAR`) e que nenhum documento deste projeto tinha especificado antes do próprio dono construir. Gatilho `Contact Changed` em `Reunião foi qualificada`, portão de aviso único pela própria tag. Limpa pelo `Mestre de saída v2` e pela entrada do workflow da T-21 (acima). G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) tem o detalhe completo |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -402,7 +409,12 @@ só para aquela. **T-17 (`fila-travada`, nascida do F-05 peça 2 nesta
 rodada) segue a mesma regra desde o nascimento** — nasce `[ ]`, não `[x]`.
 **T-18 (`conectar-estagnado`, nascida do F-05 peça 3), T-19
 (`agendar-estagnado`, nascida do F-05 peça 5) e T-20 (`retorno-vencido`,
-nascida do F-05 peça 6) idem — nenhuma das três saiu por API ainda.**
+nascida do F-05 peça 6) idem — nenhuma das três saiu por API ainda.** T-21
+(`negociacao-estagnada`) e T-22 (`proposta-pendente`) fogem da regra por um
+motivo diferente dos dois incidentes acima: não foi esta rotina que escreveu
+o próprio `[x]`, foi o **dono**, pelo caminho de sempre (`tools/`, fora
+deste conector) — mesmo tratamento que `fechar-horario`/Espelho de Etapa já
+recebem. Ver as duas linhas da tabela acima.
 
 ## O que eu preciso de você para executar
 

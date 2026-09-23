@@ -4,6 +4,38 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## "Buraco nunca especificado" pode já estar publicado — quase desenhei em cima do que o dono já tinha construído e testado (G-23) — 23/09/2026, sessão automática
+
+Cruzando `GUIA-CLOSER.md` contra `build-wesales.md` (F-13), achei dois
+sinais que pareciam confirmar um bug: o texto dizia "Negociação parada: 5
+dias" enquanto a especificação dizia 3, e "Proposta parada" (Sim do closer,
+3 dias, ainda em REUNIÃO DE DIAGNÓSTICO) não tinha workflow nenhum em
+lugar nenhum do projeto. Cheguei a **escrever um desenho novo do zero**
+(nome de tag incluído, `proposta-parada`) e editar seis documentos antes de
+seguir a própria regra deste roadmap ("verificar `PLANO-MULTICANAL.md`
+inteiro, inclusive a 'Fila autônoma', antes de aceitar que uma lacuna é
+nova" — já escrita pelo G-19, nunca seguida à risca por mim nesta rodada).
+
+Um `grep -rn "negociacao-estagnada\|proposta" wesales/*.md` bem mais cedo
+teria mostrado direto: `PLANO-MULTICANAL.md`, item A5, já registrava os
+dois alertas publicados e testados pelo dono (`tools/build_estagnacao.py`),
+com tag `proposta-pendente` (não `proposta-parada`) e 5 dias para
+negociação (não 3) — `GUIA-CLOSER.md` estava certo o tempo todo, e a
+"correção" que eu ia aplicar nele teria introduzido um erro real num
+documento que não tinha nenhum.
+
+**Regra prática:** antes de especificar qualquer workflow "novo" para
+fechar uma lacuna achada por leitura de documento (não por dado do CRM),
+rodar `grep` pelo nome do alerta/tag candidato e por palavras-chave do
+comportamento em `PLANO-MULTICANAL.md` inteiro e em `wesales/tools/*.py`
+— os scripts no repo são a fonte mais confiável de "o que está publicado
+de verdade" quando o MCP não tem endpoint de workflow, mais confiável que
+reconstruir de memória ou que a prosa de um documento de estado. Reverti
+os seis arquivos com `git checkout --` e recomecei do zero a partir do
+`grep` certo — nenhum dano ficou, porque o revert aconteceu antes do
+commit, mas o tempo perdido (e o risco, se eu tivesse commitado antes de
+notar) foi real.
+
 ## Dump de workflow que foi SUBSTITUÍDO continua no repositório dizendo `published` — o G-17 chamou de "pior caso" uma cadência que não existia mais — 23/09/2026, sessão local
 
 O `Reengajamento 90 dias` virou a `Nutrição — WhatsApp a cada 15 dias` em

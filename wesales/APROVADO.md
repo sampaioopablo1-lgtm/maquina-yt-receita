@@ -195,6 +195,19 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       (seção 2.28). Mesmo motivo e mesma regra das cinco linhas acima: nasce
       `[ ]`, vira `[x]` quando o dono trocar, num commit que não é o meu.
 
+      **Registro, não aprovação — 23/09/2026, achado por G-23
+      (`ROADMAP-SALES-ENGAGEMENT.md`):** a tag **já existe e está em uso** —
+      o dono criou e publicou o workflow que a aplica pelo próprio caminho
+      (`tools/build_estagnacao.py`, PC dele, `PLANO-MULTICANAL.md` item A5,
+      23/09/2026, testado com o contato 9940), com um desenho diferente do
+      que esta linha e a seção 2.28 de `build-wesales.md` descreviam: **5
+      dias** de espera (não 3) e gatilho na mudança de etapa para `NEGOCIAR`
+      (não na mudança do campo `Reunião foi qualificada`). Mesmo caso já
+      registrado para `fechar-horario` e o Espelho de Etapa: campo/tag na
+      tela sem `[x]` aqui é o dono decidindo direto pelo próprio caminho, não
+      a rotina se autorizando — **não marquei o `[x]`**. Detalhe completo em
+      `campos-e-tags.md` (T-21) e `build-wesales.md` (seção 2.28).
+
 - [ ] Criar o campo `Tel não atendidas seguidas` (NUMERICAL) — nasceu no
       F-09 (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 22/09/2026, corrigido em
       22/09/2026): o telefone carrega os **12 de 12** toques da régua (era
@@ -270,6 +283,19 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       estão vazios, sem valor gravado ainda. **O que isso não resolve:** a
       decisão de gravar toda ligação de saída (LGPD + custo, acima) segue sem
       `[x]`, e é ela — não mais a falta de campo — que trava o W20.
+
+- [ ] Criar a 22ª tag, `proposta-pendente` — nasceu junto com a T-21, mesmo
+      pacote (`tools/build_estagnacao.py`, `PLANO-MULTICANAL.md` item A5),
+      mas nunca tinha linha própria aqui porque nenhum documento deste
+      projeto a tinha especificado antes do dono construir. Nasce `[ ]` pela
+      mesma regra de sempre, **e já existe e está em uso** — mesmo "Registro,
+      não aprovação" da linha da T-21 acima: o closer marca `Reunião foi
+      qualificada` = `Sim` e, 3 dias depois, a oportunidade ainda não foi
+      movida para `NEGOCIAR` (tag `etapa-reuniao` do Espelho de Etapa ainda
+      presente) — aviso ao gestor, sem tarefa. Detalhe completo em
+      `campos-e-tags.md` (T-22), `build-wesales.md` (seção 2.28) e G-23
+      (`ROADMAP-SALES-ENGAGEMENT.md`). **Não marquei o `[x]`** — mesmo
+      motivo da linha acima.
 
 ### Contatos de teste
 

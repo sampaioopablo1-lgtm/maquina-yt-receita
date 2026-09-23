@@ -2022,6 +2022,106 @@ tabela acima.
 
 ---
 
+### G-23 · O F-13 (`negociacao-estagnada`) já estava publicado com um desenho diferente do especificado, e um segundo alerta (`proposta-pendente`) já cobria um buraco que nenhum documento tinha registrado — achado ao cruzar `GUIA-CLOSER.md`, nunca lido lado a lado com `PLANO-MULTICANAL.md` — **FEITO em 23/09/2026 (coerência entre spec e publicado — a execução já existia)**
+
+**Por quê:** seguindo a instrução de sempre ("variando a fonte da
+varredura de coerência a cada vez"), esta rodada cruzou `GUIA-CLOSER.md` —
+nenhuma rodada da família G-16/G-17/G-19/G-21/G-22 tinha chegado nele
+ainda. Ele descreve dois alertas do gestor: **"Proposta parada"** (Sim do
+closer, 3 dias, ainda em REUNIÃO DE DIAGNÓSTICO) e **"Negociação parada"**
+(5 dias em NEGOCIAR). A especificação do F-13 (`build-wesales.md`, seção
+2.28) só cobre o segundo, e com **3 dias**, não 5 — a primeira reação foi
+tratar isso como número desatualizado em `GUIA-CLOSER.md` (mesma classe de
+F-09/F-14) e desenhar do zero um workflow novo para o primeiro alerta, que
+parecia nunca ter sido especificado.
+
+**As duas coisas estavam erradas, e um `grep` por `PLANO-MULTICANAL.md`
+antes de escrever a primeira linha do desenho evitou publicar em cima do
+que já existe.** O item A5 daquele documento (23/09 01:10, `tools/
+build_estagnacao.py`, lido nó a nó direto do script no repo) mostra que o
+**dono já construiu e testou os dois alertas**, com um desenho que diverge
+do F-13 em três pontos: (1) `Negociação Estagnada` usa **5 dias**, não 3 —
+`GUIA-CLOSER.md` estava certo, a especificação é que ficou para trás; (2)
+o gatilho real é `Opportunity Stage Changed → NEGOCIAR`, não `Contact
+Changed` em `Reunião foi qualificada`; (3) existe um segundo workflow,
+**"Proposta Pendente"** (tag `proposta-pendente`, nunca catalogada em
+nenhum documento até este achado), cobrindo exatamente o buraco que o F-13
+original deixava — closer marca `Sim` e nunca move a oportunidade para
+`NEGOCIAR` — com gatilho `Contact Changed`, 3 dias, condicionando pela tag
+`etapa-reuniao` (Espelho de Etapa) em vez de ler a etapa da oportunidade
+direto, mesmo motivo já registrado no G-08. As duas tags já existem na
+subconta (criadas pelo dono, fora do `[x]` deste projeto) e os dois
+workflows já foram testados contra o contato 9940.
+
+Por um instante esta rodada quase repetiu, na prática, o próprio erro que
+motivou a "regra do `git fetch`" do G-10/G-16 (reconciliação em paralelo):
+a diferença é que aqui não havia commit paralelo para achar com `git
+fetch` — o trabalho já publicado vivia num documento (`PLANO-MULTICANAL.md`,
+seção "Fila autônoma") que o próprio G-19 já tinha marcado como não lido
+por inteiro por nenhuma rodada desta família, e que esta rodada só
+consultou depois de já ter escrito um desenho especulativo e precisar
+revertê-lo.
+
+**Como:** nenhum workflow novo — reconciliação de seis documentos com o
+publicado, usando `wesales/tools/build_estagnacao.py` como fonte primária
+(mais confiável que reconstruir de memória ou pela descrição em prosa do
+`PLANO-MULTICANAL.md`):
+
+1. `campos-e-tags.md` — T-21 (`negociacao-estagnada`) corrigida (5 dias,
+   gatilho real, já criada pelo dono, não `[ ]` pendente); T-22
+   (`proposta-pendente`) criada, mesmo tratamento.
+2. `APROVADO.md` — nota "Registro, não aprovação" sob a linha da T-21 (mesmo
+   padrão de `fechar-horario`/Espelho de Etapa: campo/tag que o dono cria
+   pelo próprio caminho não é esta rotina se autorizando) e linha nova para
+   a T-22.
+3. `build-wesales.md`, seção 2.28 — aviso no topo apontando para o
+   publicado real (nós do "Proposta Pendente" incluídos), "Pronto quando"
+   do F-13 e do novo item marcados como cumpridos pelo desenho real, nó 4
+   do Mestre de saída ganhou `proposta-pendente`, Smart List nova 8.29
+   `Saúde — Proposta Pendente` especificada (espelho da 8.28).
+4. `IMPLEMENTACAO-WORKFLOWS.md` — tabela de status de tags, registro W22
+   (com o desenho publicado real, nó a nó, e a especificação original
+   preservada como registro), tabela de Smart Lists (8.29 nova), nó 4 do
+   Mestre de saída.
+5. `GUIA-MONTAGEM.md` — as duas linhas da "Ordem de montagem" que ainda
+   diziam "dá para fazer quando alguém abrir a tela" riscadas como já
+   feitas, com nota do que de fato falta (só as duas Smart Lists).
+
+**Divergência que fica registrada, não resolvida nesta rodada:** o
+`Mestre de saída v2` publicado (`tools/patch_mestre_tags.py`,
+`PLANO-MULTICANAL.md` A8) já limpa quatro tags a mais do que a seção 3 de
+`build-wesales.md`/`IMPLEMENTACAO-WORKFLOWS.md` documentam
+(`cad-outbound`, `cadencia-12x30-p2`, `fechar-horario`, `toque`) — fora do
+escopo do F-13/G-23, registrado nos dois documentos para a próxima rodada
+não redescobrir.
+
+**Zero campo, zero tag criados por esta sessão (as duas já existiam antes
+de esta rodada começar), zero escrita no CRM: item de coerência entre
+especificação e publicado, não depende de `APROVADO.md`.** CRM
+reconfirmado por API nesta rodada: 56 oportunidades, mesma composição da
+leitura do G-22 (48 `NOVO LEAD` open + 1 `NOVO LEAD` abandoned + 1 `REUNIÃO
+DE DIAGNÓSTICO` open + 1 `CONECTAR` open + 2 `CONECTAR` lost + 2 `NEGOCIAR`
+open + 1 `NEGOCIAR` lost), 56 campos de contato — `git fetch` limpo
+(nenhum commit novo na janela desta leitura): G-03, G-04 (peça 2), F-09,
+F-10, G-11 (item 1) e G-19 seguem sendo as seis decisões que esperam o
+dono, sem novidade.
+
+**Pronto quando:** feito. Os seis documentos citados em "Como" batem com o
+que `tools/build_estagnacao.py` e `PLANO-MULTICANAL.md` A5/A8 já
+publicaram; falta só montar as duas Smart Lists na tela (mesma fila manual
+do resto do projeto, sem bloqueio novo).
+
+**Resumo:** achado por varredura de coerência sobre um documento nunca
+cruzado (`GUIA-CLOSER.md`) — mas, diferente de G-16/G-17/G-19/G-21/G-22
+(achado represado que nunca tinha desenho), aqui o desenho, a publicação
+**e** o teste já existiam; o trabalho real desta rodada foi perceber isso
+antes de duplicar, e só depois reconciliar a documentação com a realidade.
+O lembrete que fica: quando um achado parece "buraco nunca especificado",
+checar `PLANO-MULTICANAL.md` (seção "Fila autônoma") e `wesales/tools/`
+antes de desenhar — a resposta pode já estar publicada.
+
+---
+
 ## Bloco 1 — Medição (a maior lacuna)
 
 Hoje a máquina executa e não se mede. Um SDR sem medição é um SDR com opinião.

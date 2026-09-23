@@ -4297,7 +4297,36 @@ próprios nós.
 
 ## 2.28 Monitor de Saúde da Operação — extensão à negociação — F-13
 
-**Por quê:** achado ao conferir a Etapa 3 (`NEGOCIAR`) deste documento, seção
+> **Publicado em 23/09/2026 com um desenho diferente do especificado
+> abaixo — o texto original fica como registro do raciocínio, não como
+> retrato do que está no ar.** O dono construiu e testou os dois alertas
+> pelo próprio caminho (`tools/build_estagnacao.py`, `PLANO-MULTICANAL.md`
+> item A5, ids `53334baa`/`14fdf9fa`) antes de qualquer sessão cruzar
+> `GUIA-CLOSER.md` contra este documento (G-23, `ROADMAP-SALES-
+> ENGAGEMENT.md`). Três diferenças do real para o desenho abaixo:
+>
+> 1. **`Negociação Estagnada` usa 5 dias, não 3** — o dono ajustou o prazo
+>    na hora de montar.
+> 2. **O gatilho real é `Opportunity Stage Changed → NEGOCIAR`**, não
+>    `Contact Changed` em `Reunião foi qualificada` — dispara na entrada em
+>    `NEGOCIAR`, não na resposta do closer.
+> 3. **Existe um segundo workflow, "Proposta Pendente"** (tag
+>    `proposta-pendente`, T-22 em `campos-e-tags.md`), cobrindo exatamente o
+>    buraco que o nó 3 abaixo deixava: closer marca `Sim` e nunca move a
+>    oportunidade para `NEGOCIAR`. Gatilho `Contact Changed` em `Reunião foi
+>    qualificada`, 3 dias, condiciona pela tag `etapa-reuniao` (Espelho de
+>    Etapa) em vez de ler a etapa da oportunidade direto — mesmo motivo já
+>    registrado no G-08 (condição `Pipeline stage is …` lê vazio num
+>    workflow cujo gatilho não é de oportunidade).
+>
+> Fonte primária: `wesales/tools/build_estagnacao.py` (no repo, lido nó a
+> nó) — mais confiável que reconstruir de memória. Detalhe completo,
+> inclusive o que isso muda em `campos-e-tags.md`/`APROVADO.md`/
+> `IMPLEMENTACAO-WORKFLOWS.md`, em G-23.
+
+**Por quê (desenho original, 22/09/2026 — mantido como registro do
+raciocínio que levou ao alerta; ver publicado real acima):** achado ao
+conferir a Etapa 3 (`NEGOCIAR`) deste documento, seção
 1.1 acima — a linha "Tempo de estagnação" registrava, desde antes de F-05
 existir, que a metade "comparecimento" tem monitor (R-12, SLA do closer) mas
 a metade "negociação" não. F-05 fechou em 21/09/2026 com seis peças
@@ -4409,6 +4438,16 @@ quanto essa.
 passa 3 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost` gera aviso ao
 gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
 `NOVO LEAD` a `FORMALIZAR`) que ainda dizia "sem monitor" agora tem um.
+**Cumprido, pelo desenho publicado (5 dias, `Opportunity Stage Changed`),
+não pelo desenho acima — ver o aviso no topo desta seção.**
+
+**Pronto quando (G-23):** uma reunião qualificada pelo closer (`Sim`) que
+passa 3 dias em `REUNIÃO DE DIAGNÓSTICO`/`open` sem ser movida para
+`NEGOCIAR` também gera aviso ao gestor sozinho. **Já cumprido** pelo
+workflow "Proposta Pendente" (tag `proposta-pendente`), publicado no mesmo
+pacote da T-21 — o buraco que motivou G-23 já estava fechado antes de a
+sessão que abriu o item saber disso; o trabalho de G-23 foi achar e
+documentar, não desenhar.
 
 ---
 
@@ -5568,9 +5607,18 @@ condição que cobre os dois:
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10, quando existir) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12, quando existir) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4), `negociacao-estagnada` (F-13, seção 2.28) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4), `negociacao-estagnada` (F-13, seção 2.28), `proposta-pendente` (G-23, seção 2.28) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
+
+**Nó 4, divergência conhecida do publicado (G-23, 23/09/2026):** o `Mestre
+de saída v2` (`tools/patch_mestre_tags.py`, `PLANO-MULTICANAL.md` item A8)
+já está no ar com uma lista maior que a linha acima — soma também
+`cad-outbound`, `cadencia-12x30-p2`, `fechar-horario` e `toque`. Reconciliar
+a lista inteira desta seção com o que está publicado é trabalho maior que
+o achado de G-23 (que só cobria os dois alertas do closer); fica registrado
+aqui para a próxima varredura de coerência que passar por este nó não
+precisar redescobrir.
 
 **Por que o nó 0 é incondicional, e não mais uma linha do nó 4 (achado de
 21/09/2026, F-05, seção 2.20):** `novo-lead-estagnado` marca um lead parado
@@ -7232,7 +7280,24 @@ saúde (8.20-8.23) já seguem.
 A tag só existe porque o workflow da seção 2.28 (F-13) já esperou 3 dias
 corridos desde o veredito `Sim` e conferiu de novo (etapa, `status` e o
 próprio veredito) antes de aplicá-la — mesma garantia de "não é palpite" que
-as listas de saúde 8.20-8.24 já seguem.
+as listas de saúde 8.20-8.24 já seguem. **Divergência conhecida do publicado
+(G-23):** o workflow real espera 5 dias, não 3 — ver o aviso no topo da
+seção 2.28. Esta lista ainda não foi montada na tela (só o workflow e a
+tag saíram do papel, `PLANO-MULTICANAL.md` A5).
+
+### 8.29 `Saúde — Proposta Pendente` — G-23
+| Item | Configuração |
+|---|---|
+| Filtros | tag `proposta-pendente` presente |
+| Colunas | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` |
+| Ordenação | `Data do veredito do closer` asc (quem foi qualificado há mais tempo sem ser movido para NEGOCIAR aparece primeiro) |
+
+Espelho da 8.28: esta lista pega quem o closer qualificou (`Sim`) e não
+moveu para `NEGOCIAR` em 3 dias; a 8.28 pega quem já está em `NEGOCIAR` e
+não fecha. A tag só existe porque o workflow "Proposta Pendente"
+(`tools/build_estagnacao.py`, seção 2.28) já esperou 3 dias e conferiu de
+novo (tag `etapa-reuniao`, veredito) antes de aplicá-la. Ainda não montada
+na tela — mesma pendência da 8.28.
 
 ### 8.25 `Entrada do Dia` — F-10
 
