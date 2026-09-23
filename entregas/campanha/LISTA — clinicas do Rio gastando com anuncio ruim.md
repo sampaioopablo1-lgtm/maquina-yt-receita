@@ -6299,3 +6299,56 @@ prova definitiva de que anúncio ≠ concorrente: 42 dos 50 retornados são de u
 **regra nova: em varredura por bairro, conferir se a página é do bairro — a Odontovic domina
 o termo "Copacabana" sendo de Campo Grande**; Copacabana é o bairro mais VAZIO varrido no
 Rio, não o mais saturado).
+
+---
+
+## ESTÉTICA — preenchimento labial, Tijuca/RJ (23/09, Rio)
+
+Varredura: `preenchimento labial Tijuca RJ`, BR, ACTIVE. **48 anúncios ativos**, 20 páginas
+distintas, **19 alvos** (fora HOF Na Prática, que é curso para o profissional — a regra do
+tema ensinável puxando curso se confirma pela quarta vez).
+
+**A regra do procedimento funcionou.** "Harmonização facial <bairro>" rendia quase nada;
+trocar pelo procedimento trouxe 48 anúncios e uma lista limpa de clínica de rua. Fica
+confirmada.
+
+**Recorde de anúncio abandonado no Rio, e o pior caso combinado da base inteira:** a **Huff
+Life — Barra da Tijuca** roda **12 anúncios ativos**, quase todos com **título vazio**, o
+mais antigo de **19 de janeiro de 2026** — oito meses. É auto-concorrência e abandono ao
+mesmo tempo, na mesma página: doze peças comprando o mesmo público, e ninguém abriu o campo
+do título desde janeiro. A unidade de Petrópolis faz igual, em escala menor.
+
+**A rede Espaço Facial mostra o mesmo erro em três endereços:** Tijuca, Shopping Downtown e
+Shopping Millennium, quatro anúncios cada, todos com "AGENDE JÁ" ou "AGENDE AQUI". Doze
+peças, duas headlines. A Clínica Araujo RJ roda quatro com "Converse conosco" — o botão
+padrão no título de novo, agora no Rio.
+
+**Trilha A: 9 de 19** — Dra. Maria Beatriz Viana, Paulo Vitor, Iana Simão, Fábio Motta, Dra.
+Thaiana Fernandes, Mirian Silva, Lana Faria, Arthur Morais, Willmed. Coerente com a regra
+corrigida: procedimento estético a pessoa escolhe quem vai aplicar, não onde aplicar.
+
+**Alvos do Rio nesta varredura:** Espaço Facial Tijuca, Dom Esthétic (Tijuca), Huff Life
+Barra da Tijuca, Huff Life Petrópolis, Botopremium Recreio, Botopremium Downtown e Clínica
+Araujo RJ.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A oferta de entrada aqui é o preço de custo, não o desconto.** Fábio Motta anuncia
+"Harmonização Facial pagando apenas o material na Barra da Tijuca" e Arthur Morais, "Pague o
+Valor de Custo na sua Harmonização". Não é "50% off": é abrir a estrutura de custo e abrir
+mão da margem na primeira vez. Some com o "exame grátis + armação cortesia" das óticas e vira
+padrão: **em nicho onde o cliente volta, a primeira vez é vendida no custo para comprar a
+segunda.** É o argumento que falta no nosso bloco de fundo de funil.
+
+E uma headline que merece registro pelo avesso: a Iana Simão roda **"Lábios lindos sem
+volumizar"** — vende o procedimento pela objeção de quem tem medo de exagerar. Nomear o medo
+do cliente vale mais que prometer o resultado.
+
+LISTA DE ATAQUE: **405 → 424**.
+
+Combos varridos até aqui: + estética preenchimento labial Tijuca/RJ (48 ativos — 19 alvos,
+9 em Trilha A; **a regra do procedimento em vez de "harmonização facial" está confirmada**;
+pior caso combinado da base: Huff Life Barra com 12 anúncios, título vazio, desde janeiro;
+rede Espaço Facial com 12 peças e 2 headlines em três endereços; **oferta de entrada no
+preço de custo — o mesmo mecanismo do exame grátis das óticas**; e a headline pela objeção,
+"lábios lindos sem volumizar").
