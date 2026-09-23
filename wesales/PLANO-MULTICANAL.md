@@ -50,4 +50,5 @@ Notas: nó `sms` aceito pela API (formato {type:sms, body, attachments}) — gra
 - [x] Opção **Desqualificado** criada em `Resultado da tentativa` (pela tela).
 - [x] **Faxina:** integração privada "Faxina de Tarefas" (4 escopos) criada; token no segredo `GHL_TOKEN`; testada em modo relatório com dados reais (User-Agent obrigatório; id da tarefa = `_id`).
 - [ ] Agendador `.github/workflows/faxina-tarefas.yml` — precisa de permissão `workflow`: prompt para o Claude Code no navegador.
-- [ ] Teste real de mensagem automática e da triagem com o número de WhatsApp do dono.
+- [x] Mensagem automática PROVADA no número do dono (1407; conta Stevo = 9940): entregue como WhatsApp. Textos corrigidos (marca fixa).
+- [ ] Triagem: armada no contato "O Próximo Cliente" (`reK2QWECS9mgPVH1FKTJ`, tag `status-nutricao`). Dispara quando o 1407 RESPONDER à N1 (mensagem vinda do lead, não enviada pela conta); a TRI-1 sai na janela (seg–sex 08:30–18:30). Depois de testar: tirar `status-nutricao` e desligar o `ZZ TESTE MENSAGEM` (`6bcaba47`).
