@@ -1255,6 +1255,74 @@ Zero campo, zero tag novos, zero escrita no CRM: item de documentação e
 correção de spec, não depende de `APROVADO.md` (a única interação com ele é
 o aviso na linha já existente da 19ª tag, sem mudar `[ ]`/`[x]`).
 
+### G-14 · O G-10/G-13 corrigiram seis documentos e esqueceram os dois que o dono e o SDR mais abrem — `GUIA-MONTAGEM.md`, `rotina-limpar-tarefas.md`, `IMPLEMENTACAO-WORKFLOWS.md` (§3.3) e o índice do `README.md` ainda descreviam a conta de antes de 23/09 — **FEITO em 23/09/2026 (coerência entre documentos)**
+
+**Por quê:** o G-10 listou seis lugares para cruzar `PLANO-MULTICANAL.md`
+(topo deste arquivo, `build-wesales.md`, `APROVADO.md`, `campos-e-tags.md`,
+`PLANO-MULTICANAL.md` e `wesales/tools/ghl_api.py`) e o G-13 corrigiu
+`build-wesales.md`, `IMPLEMENTACAO-WORKFLOWS.md` (W4/W17d/dicionário) e
+avisou `campos-e-tags.md`/`APROVADO.md` sobre o T-19 — mas nenhum dos dois
+tocou `GUIA-MONTAGEM.md`, o documento que o próprio `IMPLEMENTACAO-
+WORKFLOWS.md` define como "a ordem das fases e o **estado** do que já foi
+montado". Ele ainda descrevia, sem nenhuma nota, a subconta de 22/09/2026:
+uma linha "dá para fazer HOJE" (nó 0 do Mestre de saída) recomendando somar
+a tag `agendar-estagnado` — o mesmo desenho que o G-13 já classificou como
+"não recomendado" em dois outros documentos — e o inventário de workflows
+listava `AGENDAR Estagnado`/W17d como rascunho pendente de publicar, quando
+na verdade ele foi publicado e depois **despublicado** (G-13). Um segundo
+achado, categoria diferente: `rotina-limpar-tarefas.md` (Etapa 5) é um
+prompt para colar numa rotina horária que **conclui** tarefa fora de lugar
+pela etapa — e a tabela do PASSO 3 mapeia `AGENDAR`/`open` para
+`[CONECTADO]`, prefixo que não existe mais desde a D3 (quem atende fica em
+`CONECTAR` com `[FECHAR HORÁRIO]`). Pior que o nome: a filosofia do
+documento ("por que concluir e não excluir") é o **oposto** da decisão mais
+recente do dono (`PLANO-MULTICANAL.md`, D12 — "concluir inventa histórico
+falso", por isso a Faxina exclui). Se alguém colasse este prompt numa
+rotina nova hoje, ele concluiria por engano a tarefa `[FECHAR HORÁRIO]` de
+todo lead que acabou de ser atendido. `IMPLEMENTACAO-WORKFLOWS.md`, §3.3
+(rotina do gestor), ainda apontava para este prompt como o mecanismo "a
+cada hora" — quando quem roda de verdade, a cada 10 min, é a Faxina
+(`tools/faxina_tarefas.py`, D12), com a tabela de prefixo já corrigida
+dentro do próprio script (`validas()`). Por fim, o índice do `README.md`
+("O que vive aqui") nunca ganhou uma linha para `PLANO-MULTICANAL.md` desde
+que ele existe (22/09/2026) — quem abrisse só o README para se orientar não
+saberia que o documento existe.
+
+**Como:** sem reescrever nenhum dos quatro documentos por inteiro (mesma
+régua do G-10: "trabalho grande demais para uma rodada, e não é o que este
+achado pede"):
+- `GUIA-MONTAGEM.md`: aviso datado logo no topo, apontando para
+  `PLANO-MULTICANAL.md` como a foto mais recente; a linha "dá para fazer
+  HOJE" da tag `agendar-estagnado` riscada com nota "não recomendada,
+  premissa superada"; as duas células do inventário de workflows
+  (`AGENDAR Estagnado`/W17d) corrigidas para "despublicado em 23/09,
+  não republicar".
+- `rotina-limpar-tarefas.md`: aviso datado logo no topo explicando as duas
+  divergências (prefixo por etapa vencido; filosofia concluir vs. excluir
+  substituída pelo D12) e apontando para `tools/faxina_tarefas.py` como o
+  mecanismo que roda de verdade hoje. A tabela do PASSO 3 não foi
+  reescrita — o aviso já deixa claro que ela é histórico, não instrução.
+- `IMPLEMENTACAO-WORKFLOWS.md`, §3.3: a linha "a cada hora (automático)"
+  trocada para descrever a Faxina (10 min, exclui, aponta para o script);
+  a linha "diário" (listas de saúde 8.20-8.24) ganhou a mesma ressalva do
+  T-19 sobre a 8.23.
+- `README.md`: nova linha para `PLANO-MULTICANAL.md` no índice, com a nota
+  de que ele é o estado mais recente quando divergir de documento mais
+  antigo.
+
+**Pronto quando (cumprido):** `grep -rn "AGENDAR" wesales/*.md` não devolve
+mais nenhuma instrução ativa (linha "dá para fazer hoje", tabela de rotina
+automática ou índice de leitura) descrevendo o desenho anterior à D3/G-13
+sem um aviso datado ao lado explicando o que mudou; `PLANO-MULTICANAL.md`
+aparece no índice do `README.md`. **Pendência que este item não resolve, e
+não tentou:** as seções "Estado da montagem"/"Estado final" do
+`GUIA-MONTAGEM.md` continuam descrevendo 22/09/2026 sem incorporar os 20+
+workflows criados/reformulados em 23/09 pela API interna — reescrever isso
+é a mesma classe de trabalho grande que o G-10 já tinha adiado; o aviso no
+topo do arquivo é o que impede a leitura errada até alguém fazer essa
+reescrita. Zero campo, zero tag, zero escrita no CRM: item de documentação
+e correção de spec, não depende de `APROVADO.md`.
+
 ---
 
 
@@ -4110,3 +4178,48 @@ registradas (aviso ao gestor equivalente no `Fechar Horário`, se o ramo
 `Atendeu` deveria sair da `Cadência 12x30`, e T-19 revisada) entram na mesma
 fila de decisão do dono que G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) —
 nenhuma delas executa sozinha nem por este MCP.
+
+**G-14 aberto e fechado em 23/09/2026, sessão automática seguinte — a
+varredura de coerência de sempre, desta vez sobre os próprios G-10/G-13.**
+CRM reconfirmado por API: 56 oportunidades (mesma composição do G-13, sem
+mudança), 56 campos de contato — G-03, G-04 (peça 2), F-09, F-10 e G-11
+(item 1) seguem aguardando o dono, sem novidade. O `grep` por "AGENDAR" de
+sempre desta vez não parou em `build-wesales.md`/`IMPLEMENTACAO-
+WORKFLOWS.md` (já corrigidos pelo G-13) — foi perguntar "quem mais cita a
+etapa antiga ou a rotina antiga, e o G-10/G-13 já cruzaram esse arquivo?"
+`GUIA-MONTAGEM.md` nunca tinha sido tocado por nenhum dos dois, apesar de
+ser o documento que o próprio `IMPLEMENTACAO-WORKFLOWS.md` define como "o
+estado do que já foi montado" — tinha uma recomendação "dá para fazer hoje"
+para a tag que o G-13 já invalidou em outro lugar, e o inventário de
+workflows ainda listava `AGENDAR Estagnado`/W17d como rascunho, não como
+despublicado. Achado mais sério, categoria diferente: `rotina-limpar-
+tarefas.md` não cita só o nome errado da etapa — sua filosofia inteira
+("concluir, nunca excluir") foi trocada pela decisão mais recente do dono
+(D12, "concluir inventa histórico falso"), e colar aquele prompt numa
+rotina hoje concluiria por engano a tarefa `[FECHAR HORÁRIO]` de todo lead
+atendido. `IMPLEMENTACAO-WORKFLOWS.md` (§3.3, rotina do gestor) apontava
+para esse prompt como o mecanismo "a cada hora", quando quem roda de
+verdade, a cada 10 min, é a Faxina. E o `README.md` nunca ganhou uma linha
+para `PLANO-MULTICANAL.md` desde que ele existe (22/09/2026) — o documento
+mais recente do projeto ficava invisível para quem só abrisse o índice.
+Fechado com avisos datados (não reescrita completa, mesma régua do G-10) nos
+quatro documentos — detalhe completo no próprio G-14, acima. **Regra
+prática, generalizável — estende a do G-10 (duas trilhas de execução podem
+não se ver) para "coerência já feita":** corrigir um achado em alguns
+documentos não garante que todos os que citam o mesmo fato foram
+encontrados — vale reabrir a pergunta "quem mais fala disso?" depois de
+qualquer G-10/G-12/G-13 fechado, não só uma vez. Zero campo, zero tag, zero
+escrita no CRM: item de coerência entre documentos, não depende de
+`APROVADO.md`.
+
+Com isso, nenhum item numerado (G/R/F) resta sem especificação nem sem dono
+claro: G-03, G-04 (peça 2), F-09, F-10 e G-11 (item 1) esperam decisão do
+dono; R-14 tem desenho completo e espera a operação mandar a primeira
+mensagem real; F-11, F-12, F-13, F-15, G-07, G-08 e G-11 (itens 2 e 3) têm
+desenho completo e só faltam ser montados/aplicados na tela; F-14 é
+checklist de gestor, pronto para uso assim que o número começar a discar de
+verdade; G-12, G-13 e G-14 fecharam por inteiro. A próxima rodada sem tela
+nem decisão desbloqueada repete o mesmo caminho: varredura de coerência
+primeiro (agora incluindo `GUIA-MONTAGEM.md`, `rotina-limpar-tarefas.md` e
+`README.md` na lista de arquivos a cruzar, não só `build-wesales.md`/
+`IMPLEMENTACAO-WORKFLOWS.md`/roadmap), e só depois lacuna nova.

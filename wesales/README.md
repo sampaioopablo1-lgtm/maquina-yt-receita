@@ -31,6 +31,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `AGENTE-IA-CONEXAO.md` | Definição do agente de IA "Conexão — Inbound" para a tela (Agentes de AI → IA v2): trabalho do agente, regra do portão, valores de cada aba, prompt do sistema e os rótulos exatos dos campos |
 | `CONFERENCIA-CAMPOS.md` | O que a tela tem contra o que o `campos-e-tags.md` pede, campo por campo, depois da Fase 2 montada — o que falta, o que divergiu de nome, de opção e de tipo |
 | `ESTADO-E-PLANO.md` | Leitura completa da subconta (documentos + API ao vivo + workflows), pedida pelo dono antes de implementar — o que está medido, o que os dumps de workflow não dizem, e o plano de continuidade por etapas |
+| `PLANO-MULTICANAL.md` | **Adicionado ao README em 23/09/2026 (G-14) — estava sem linha aqui desde que existe (22/09/2026, G-10).** Decisão do dono ao vivo (D1-D14): renomeia `AGENDAR` para `REUNIÃO DE DIAGNÓSTICO`, reformula o ramo `Atendeu`, reintroduz WhatsApp/Stevo, cadência 100/dia. É o **estado da obra mais recente** — mais novo que `GUIA-MONTAGEM.md`/`IMPLEMENTACAO-WORKFLOWS.md` em tudo que os dois ainda não incorporaram; se um documento antigo divergir, este manda para o que ele decidiu |
 
 ## Estado do acesso (18/09/2026)
 

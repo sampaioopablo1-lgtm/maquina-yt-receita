@@ -1,5 +1,27 @@
 # Etapa 5 — rotina horária de manutenção de tarefas
 
+> **Aviso de 23/09/2026 (G-14, `ROADMAP-SALES-ENGAGEMENT.md`) — não cole este
+> prompt numa rotina nova sem ler isto primeiro.** Duas coisas envelheceram
+> desde que este documento foi escrito, e as duas fazem a rotina abaixo agir
+> errado se rodar como está: (1) o PASSO 3 mapeia a etapa `AGENDAR` (hoje
+> `REUNIÃO DE DIAGNÓSTICO`, mesmo id) para o prefixo `[CONECTADO]` — mas
+> desde a D3/G-13 (23/09/2026) quem atende fica em `CONECTAR` com a tarefa
+> `[FECHAR HORÁRIO]`, e só chega em `REUNIÃO DE DIAGNÓSTICO` com reunião já
+> marcada (tarefas válidas: `[CLOSER]`, incluindo `[CLOSER] Apresentar
+> Proposta`, e as de no-show) — rodar o PASSO 3 como está concluiria
+> `[FECHAR HORÁRIO]` por engano, um lead atendido de verdade perderia a
+> tarefa que lembra o SDR de fechar horário. (2) a seção "Por que a rotina é
+> assim" (concluir, nunca excluir) foi **substituída** pela decisão do dono
+> em `PLANO-MULTICANAL.md` D12: tarefa automática que perdeu o contexto agora
+> é **excluída** (com nota no contato) porque "concluir inventa histórico
+> falso" — o oposto do que este documento defende abaixo. **O que já roda de
+> verdade hoje é `tools/faxina_tarefas.py`** (D12, GitHub Actions, a cada
+> 10 min em horário comercial), com a tabela de prefixo por etapa já
+> corrigida (`validas()`, no próprio script) — use-o em vez deste prompt.
+> Este documento fica como registro de como a manutenção de tarefas era
+> feita antes de a Faxina existir (regra 1, nunca apagar), não como
+> instrução válida para hoje.
+
 Cole o prompt abaixo numa rotina agendada de hora em hora. Ele é autocontido:
 não depende desta conversa nem dos outros documentos.
 

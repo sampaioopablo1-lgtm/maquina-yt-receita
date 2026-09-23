@@ -11,6 +11,21 @@ Fonte de toda a especificação: `build-wesales.md`. Este guia não repete o
 conteúdo dele — só organiza a ordem e detalha o clique que o outro
 documento não detalha.
 
+> **Aviso de 23/09/2026 (G-14, `ROADMAP-SALES-ENGAGEMENT.md`) — este
+> documento não é a foto mais recente da conta.** As seções "Estado da
+> montagem"/"Estado final" abaixo descrevem a subconta até 22/09/2026. No
+> dia seguinte o dono aplicou `PLANO-MULTICANAL.md` inteiro ao vivo (D1-D14):
+> a etapa `AGENDAR` foi renomeada para `REUNIÃO DE DIAGNÓSTICO` (mesmo id),
+> o ramo `Atendeu` deixou de mover para lá (G-13 — agora fica em `CONECTAR`,
+> fase "fechar horário"), o workflow `AGENDAR Estagnado`/W17d foi
+> despublicado, e mais de 20 workflows foram criados ou reformulados pela
+> API interna (`wesales/tools/`, fora do que este MCP alcança). Antes de
+> seguir qualquer célula com "AGENDAR" ou qualquer linha "dá para fazer
+> HOJE" das seções abaixo como instrução válida para hoje, leia
+> `PLANO-MULTICANAL.md` (estado da obra mais recente) e confira contra a
+> tela — este arquivo não foi reescrito depois de 22/09, só remendado nos
+> pontos abaixo que davam instrução ativamente errada.
+
 ## Visão geral das fases
 
 - [x] **Fase 1 — Pipeline** — concluída, mas com 5 etapas (`NOVO LEAD`/`CONECTAR`/`AGENDAR`/`NEGOCIAR`/`FORMALIZAR`), não as 7 originais — decisão do dono ao vivo, ver seção abaixo
@@ -664,7 +679,7 @@ ainda não existe:
 | **`Pós-agendamento`, nó 3 — dá para fazer HOJE** | Trocar o `Remove from Workflow` nomeado (seis réguas, incluindo `Recuperação de No-show`/`SLA do Closer — No-show`) por `Remove Workflows` → `All Except Current Workflow` (`build-wesales.md`, seção 5, nó 3) | Mesma lista incompleta do Mestre de saída, um nível abaixo, e a mais longa das quatro. F-05, achado de 21/09/2026: cobre `Recuperação de No-show`/`SLA do Closer — No-show` (R-12) e qualquer régua futura sem precisar nomear nenhuma — também não depende de nenhum workflow novo existir |
 | `Interceptação de Sinal — Clique` e `— Resposta`, nó 2 | No If/Else, somar à condição de etapa: `status` da oportunidade **não é** `lost` | Um clique de quem pediu `Não ligar` (ou de número errado) virava tarefa `ligar agora`. `abandoned` continua passando de propósito — é o lead em nutrição esquentando, ver a nota na seção 2.9.2 |
 | `Interceptação de Sinal — Resposta`, gatilho — achado em 21/09/2026 (R-17) | Acrescentar filtro `Doesn't Contain` (uma linha por frase de opt-out) e criar o workflow novo `Opt-out por Palavra-chave` (`build-wesales.md`, seção 2.9.5) | Este workflow **já está publicado** (1 inscrito, tabela abaixo) e hoje trata qualquer resposta de WhatsApp — incluindo "pare, não me manda mais mensagem" — como sinal quente, gerando tarefa `ligar agora` para quem pediu silêncio. Baixa exposição enquanto a `Cadência 12x30` segue em rascunho; cresce sozinha quando ela publicar — priorize antes disso |
-| **`Mestre de saída`, nó 0 — dá para fazer HOJE** | Somar `agendar-estagnado` à lista de `Remove Contact Tag` do nó 0 (junto com `novo-lead-estagnado`, F-05, seção 2.23) | Achado em 21/09 ao desenhar a peça 5 do Monitor de Saúde: por precaução contra a lacuna L-08 (`briefing-sdr.md`, `AGENDAR` sem caminho formal de desqualificação), que poderia um dia devolver a oportunidade para `CONECTAR` na mão e cair no mesmo no-op que motivou o nó 0 para `novo-lead-estagnado`. Não depende do workflow novo `AGENDAR Estagnado` existir para a edição em si, só para limpar algo de verdade. **L-08 em si foi fechada em 21/09/2026 pelo ramo `Desqualificado` do Pós-ligação (R-18, linha acima) — o caminho formal passou a existir antes de chegar em `AGENDAR`.** Esta precaução continua valendo: cobre quem for desqualificado manualmente na tela já dentro de `AGENDAR`, caminho que o R-18 não fecha |
+| ~~`Mestre de saída`, nó 0 — dá para fazer HOJE~~ **NÃO FAÇA — premissa superada (G-14, 23/09/2026)** | ~~Somar `agendar-estagnado` à lista de `Remove Contact Tag` do nó 0~~ | Linha escrita em 21/09 para a tag `agendar-estagnado`/T-19 (F-05 peça 5), que o G-13 já marcou "não recomendada para aprovação" em `campos-e-tags.md` e `APROVADO.md`: o workflow que a aplicaria (`AGENDAR Estagnado`/W17d) foi despublicado em 23/09 porque `REUNIÃO DE DIAGNÓSTICO` só é alcançada com reunião marcada — "24h em AGENDAR sem reunião" não pode mais acontecer. T-19 segue `[ ]`; se algum dia for aprovada, é com o desenho revisado (`build-wesales.md`, seção 2.23), não este |
 | **`Mestre de saída`, nó 4 — dá para fazer HOJE, mas depende do workflow novo existir para valer algo** | Somar `retorno-vencido` à lista de `Remove Contact Tag` do nó 4 (F-05, seção 2.24) | Achado em 21/09 ao desenhar a peça 6 do Monitor de Saúde: rede de segurança para quando o lead sai de `CONECTAR`/`open` por um caminho que não passa pelo Pós-ligação — a limpeza principal é o nó 3c do Pós-ligação (linha abaixo) |
 | **`Pós-ligação`, novo nó 3c — dá para fazer HOJE** | Depois do nó 3b (`Remove Contact Tag: fila-quente`), inserir `Remove Contact Tag: retorno-vencido`, incondicional, antes da ramificação do nó 4 (F-05, seção 2.24) | Achado em 21/09 ao desenhar a peça 6: o caminho mais comum de recuperação (o SDR liga de volta e reclassifica `Resultado da tentativa`) não muda etapa nem `status` na maioria dos resultados — o Mestre de saída nunca dispara para limpar. O gatilho deste workflow (`Resultado da tentativa` alterado) já é a definição de "alguém agiu sobre o lead", mesmo raciocínio já usado para o nó 3b |
 | **`Pós-agendamento`, nós 7-10 — dá para fazer HOJE se o número de WhatsApp já existir na subconta, senão espera o passo 1 do G-05** | Inserir `WhatsApp: Customer Service Window Check` antes de cada um dos quatro `Send WhatsApp` e ramificar (dentro da janela: texto livre já publicado; fora da janela: modo Template) + um `Update Contact Field: Template usado` (`PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`) depois de cada envio (`build-wesales.md`, seção 5; `IMPLEMENTACAO-WORKFLOWS.md`, W5) | G-05, peça 2 (22/09/2026): os quatro envios são texto livre sem guarda, publicados e ativos (3 inscritos) — quase todo lead cai fora da janela de 24h do WhatsApp Business API, e sem a guarda a Meta recusa o envio em silêncio. Os quatro textos (`PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`) também não tinham código nem versão até esta rodada; escritos em `biblioteca-mensagens.md` |
@@ -898,7 +913,7 @@ Ferramentas em `wesales/tools/`, JSON e PNG de cada workflow em
 
 | `CONECTAR Estagnado` (W17c) | rascunho, 20 nós | os dois laços de volta ao Wait de 14 dias fechados por `goto`; a tela confirma `If "Checkpoint — Tentativa nº" não é igual a "{{contact.tentativa_n}}"` e `If "Tags" não inclui "conectar-estagnado"` |
 | `Alerta de Speed-to-lead` (W15) | rascunho, 12 nós | os Waits de 15 min e 1 h convergem no mesmo portão por `goto` |
-| `AGENDAR Estagnado` (W17d) | rascunho, 7 nós | igual ao W17, etapa `AGENDAR`, tag `agendar-estagnado` |
+| `AGENDAR Estagnado` (W17d) | **publicado em seguida, despublicado em 23/09/2026 (G-13) — não republicar** | igual ao W17, etapa `AGENDAR`; a premissa ("atendeu e ficou em AGENDAR sem reunião") deixou de poder ocorrer quando o ramo `Atendeu` parou de mover para lá (D3). Substituto: `Fechar Horário` |
 | `Lead Esquecido em NOVO LEAD` (W17) | rascunho, 7 nós | preencheu um rascunho vazio que já existia |
 | `Registro de Comparecimento` (W7) | rascunho, 6 nós | gatilho `Appointment Status` = `showed` no calendário `Reunião com closer` (`3uNQFjCEDe7b4gKZJuOZ`) |
 
@@ -946,7 +961,7 @@ ficaram em rascunho, sem nenhum nó alterado — reversível com um clique).
 | `Pós-ligação v2` | 142 | | `Retorno Vencido` | 11 |
 | `Reengajamento 90 dias` | 105 | | `Mestre de saída v2` | 10 |
 | `Recuperação de No-show` | 40 | | `Fila Travada` | 8 |
-| `Loop do closer v2` | 31 | | `Lead Esquecido` / `AGENDAR Estagnado` | 7 + 7 |
+| `Loop do closer v2` | 31 | | `Lead Esquecido` / ~~`AGENDAR Estagnado`~~ (despublicado 23/09, G-13) | 7 + 7 |
 | `CONECTAR Estagnado` | 20 | | `Registro de Comparecimento` | 6 |
 | `Interceptação — Resposta v2` | 18* | | `Contador de Toques` | 4 |
 | `Interceptação — Clique v2` | 15* | | `Porta de Entrada` | 1 |

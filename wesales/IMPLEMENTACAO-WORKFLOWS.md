@@ -1726,12 +1726,12 @@ Reengajamento, 90 dias depois de `nutricao-90d`); apagar `nao-perturbe`/DND.
 | Cadência | O que olhar | Sinal de problema |
 |---|---|---|
 | **diário, 08:15** | `Sem resultado ontem` (8.5) | lista crescendo = tentativa que o SDR não fez, classificada às 18:30 pelo nó 10b |
-| diário | `Atraso na 1ª Tentativa` (8.8) e as listas de saúde 8.20–8.24 (`NOVO LEAD` estagnado, fila travada, `CONECTAR` sem avanço, `AGENDAR` sem loop, retorno vencido) | qualquer linha: speed-to-lead estourou (15 min inbound / 1 h outbound), lead esquecido, motor travado, promessa de retorno vencida |
+| diário | `Atraso na 1ª Tentativa` (8.8) e as listas de saúde 8.20–8.24 (`NOVO LEAD` estagnado, fila travada, `CONECTAR` sem avanço, retorno vencido — a 8.23, `AGENDAR` sem loop, tem premissa superada em 23/09/2026, G-13/T-19: o workflow que a alimentaria foi despublicado, ignore até o desenho ser revisado) | qualquer linha: speed-to-lead estourou (15 min inbound / 1 h outbound), lead esquecido, motor travado, promessa de retorno vencida |
 | **11:00 e 15:00** (W18 lembra) | `Estouro da Fila` no dashboard / `Fila do Dia — Total` (8.16) | positivo = mais de 100 tarefas hoje → segurar entrada ou remanejar SDR |
 | semanal | `Conexão por Tentativa` (8.6), `Calibração da Régua` (8.7), `Pausados Individualmente` (8.15), `Higiene — Sem Telefone Válido` (8.18) | tentativa que nunca conecta (cortar da régua); nota ≥ 70 com veredito `Não` repetido (régua 9.1 desregulada); pausado há semanas (decidir); lista suja (fonte de lead) |
 | mensal | `Funil — Entraram/Conectaram/Agendaram/Compareceram no Mês` (8.9–8.12), `Resposta por Template` (8.13), `Conexão por Segmento e Horário` (8.19) | taxa de conexão = 8.10 ÷ 8.9; declarar vencedor do A/B (editar o Split para 100/0 e registrar em `biblioteca-mensagens.md`); ajustar horário por segmento (2.18) quando houver volume |
 | por notificação | alertas "ao gestor": telefone inválido (W4-N4, W11-0.0c), speed-to-lead (W15), calibração (W6-5/6), no-show sem retorno (W9-6), descarte por 2º no-show (W8-D5), lead esquecido (W17), fila travada (W17b), opt-out WhatsApp (W14-6b), opt-out e-mail (W24-6b) | cada um diz o que fazer no próprio texto |
-| a cada hora (automático) | `rotina-limpar-tarefas.md` fecha as tarefas `[CADENCIA]` vencidas de quem tem `limpar-tarefas` | se parar de rodar, tarefas vencidas se acumulam na tela do SDR |
+| a cada 10 min, seg-sex 08-20h (automático) | Faxina de Tarefas (`tools/faxina_tarefas.py`, D12 `PLANO-MULTICANAL.md`, GitHub Actions) **exclui** tarefa automática que perdeu o contexto (nota fica no contato) — substituiu `rotina-limpar-tarefas.md` (que concluía em vez de excluir; ver aviso de 23/09/2026 no topo dele) | se parar de rodar (variável `FAXINA_APLICAR` apagada), tarefas fora de contexto se acumulam na tela do SDR |
 
 **Decisões que só o gestor/dono toma** (nada disso sai por API nem por
 rotina): G-03 (promoção `NOVO LEAD` → `CONECTAR`), G-04 (só a parte que

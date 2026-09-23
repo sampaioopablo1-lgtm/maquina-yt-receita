@@ -5831,3 +5831,49 @@ seções do mesmo arquivo que descreviam o mesmo nó por um caminho diferente
 em mais de um lugar (spec "por que", spec "como clicar", auditoria de dump),
 uma mudança de comportamento só está de fato propagada quando os três
 concordam — não quando o mais recente está certo e os outros dois, calados.
+
+## Corrigir a coerência não fecha a pergunta "quem mais cita isso?" — G-14, 23/09/2026, sessão automática
+
+CRM reconfirmado sem mudança via API (56 campos, 56 oportunidades, mesma
+composição do G-13) — nenhum G/R/F desbloqueado. A varredura de coerência de
+sempre, desta vez, não foi sobre o produto (nome de etapa, comportamento de
+nó) — foi sobre o **próprio processo de correção**: o G-10 listou seis
+documentos para cruzar com `PLANO-MULTICANAL.md` e o G-13 corrigiu mais
+dois (`build-wesales.md`, `IMPLEMENTACAO-WORKFLOWS.md`) e avisou dois
+(`campos-e-tags.md`, `APROVADO.md`). Pergunta que ninguém tinha feito depois
+de qualquer um dos dois fechar: **essa lista de documentos está completa?**
+Não estava. `GUIA-MONTAGEM.md` — que o próprio `IMPLEMENTACAO-WORKFLOWS.md`
+define como o documento do "estado do que já foi montado" — nunca apareceu
+em nenhuma das duas listas, apesar de citar a mesma etapa e a mesma tag que
+o G-13 já tinha corrigido em outro lugar. Pior: uma das suas linhas era uma
+instrução ativa ("dá para fazer HOJE") recomendando o desenho que o G-13 já
+tinha classificado como "não recomendado" — ou seja, dois documentos
+diziam coisas opostas sobre a mesma tag, e nenhum apontava para o outro.
+
+**Achado de categoria diferente, no mesmo grep:** `rotina-limpar-
+tarefas.md` não é só um caso de nome de etapa desatualizado — a **filosofia
+operacional inteira** do documento (concluir tarefa fora de lugar, nunca
+excluir) foi invertida por uma decisão posterior do dono (`PLANO-
+MULTICANAL.md`, D12: "concluir inventa histórico falso", por isso a Faxina
+**exclui**). Um grep por "AGENDAR" acharia a etapa errada na tabela; não
+acharia que a lógica de fundo do documento foi substituída — isso só
+aparece lendo a seção "Por que a rotina é assim" contra a decisão mais
+recente, não contra o vocabulário. `IMPLEMENTACAO-WORKFLOWS.md` (§3.3)
+citava esse prompt como o mecanismo "a cada hora" quando o que roda de
+verdade, a cada 10 min, é a Faxina — nem esse documento, já corrigido pelo
+G-13 para o nome da etapa, tinha notado que a própria referência ao
+mecanismo de manutenção estava desatualizada.
+
+**Regra prática, generalizável — a mais importante desta família:** fechar
+um achado de coerência em N documentos não é o mesmo que fechar a pergunta
+"quem mais fala disso?" — é fechar "os N que eu olhei estão certos agora".
+A cada G-10/G-12/G-13 (ou qualquer item futuro da mesma família), antes de
+declarar o achado resolvido, valeria repetir a busca (grep pelo termo,
+grep pelo nome do documento/mecanismo que mudou) **sobre a lista inteira de
+arquivos do projeto**, não só sobre os que a memória da rodada já tinha em
+mente — porque a lista de "quem cita isso" costuma ser maior do que o
+primeiro grep que a achou. E dentro dessa busca, dois tipos de divergência
+pedem leituras diferentes: nome desatualizado pede grep pelo termo; **lógica
+ou filosofia substituída** (concluir vs. excluir, aqui) só aparece lendo a
+seção de justificativa do documento contra a decisão mais recente — grep
+nenhum acha isso sozinho.
