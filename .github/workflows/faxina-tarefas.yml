@@ -1,0 +1,26 @@
+name: Faxina de Tarefas — CRM WeSales
+on:
+  schedule:
+    - cron: "*/10 11-22 * * 1-5"
+    - cron: "0 * * * *"
+  workflow_dispatch:
+concurrency:
+  group: faxina-tarefas
+  cancel-in-progress: false
+jobs:
+  faxina:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/amazing-johnson-mclksg
+          sparse-checkout: wesales/tools/faxina_tarefas.py
+          sparse-checkout-cone-mode: false
+      - name: Rodar a faxina
+        env:
+          GHL_TOKEN: ${{ secrets.GHL_TOKEN }}
+          FAXINA_APLICAR: ${{ vars.FAXINA_APLICAR }}
+        run: |
+          if [ -z "$GHL_TOKEN" ]; then echo "sem GHL_TOKEN configurado - nada a fazer"; exit 0; fi
+          if [ "$FAXINA_APLICAR" = "1" ]; then python3 wesales/tools/faxina_tarefas.py --aplicar; else python3 wesales/tools/faxina_tarefas.py; fi
