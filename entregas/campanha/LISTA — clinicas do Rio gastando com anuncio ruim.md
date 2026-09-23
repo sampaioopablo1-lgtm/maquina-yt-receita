@@ -6216,3 +6216,48 @@ recorde de anúncio abandonado: Flor Dicão há 17 meses com título vazio; bot�
 título agora em inglês, "Chat with us"; auto-concorrência na sexta aparição; **regra nova de
 diagnóstico: título acima de ~40 caracteres é legenda no lugar errado**; e o argumento de
 abordagem para nicho magro — "seus concorrentes não estão anunciando").
+
+---
+
+## ACADEMIA (23/09, nacional)
+
+Varredura: `academia musculação plano mensal sem taxa`, BR, ACTIVE. **27 anúncios ativos**,
+9 páginas distintas, **8 alvos** (fora a totalpass, que é plataforma de benefício, não
+academia).
+
+**Aqui a auto-concorrência deixou de ser um defeito de uma página e virou a explicação do
+número do nicho.** Das 27 peças ativas, **22 saem de quatro páginas**:
+
+| página | anúncios iguais | headline repetida |
+|---|---|---|
+| WGP Fight Gym | **10** | "Agende sua aula experimental" |
+| academianewlifesc | **6** | (título vazio nos seis) |
+| Studio Prime Jackeline Panceri | 4 | "Agende sua aula gratuita!" |
+| Sky Fit Monte Alto | 2 | nome da página + "Fale conosco" ×7 cards |
+
+**Isso muda como eu leio o tamanho de um nicho.** "27 anúncios ativos" parecia mercado
+magro; na verdade são **oito anunciantes**, e metade deles multiplicando a mesma peça. O
+número da Biblioteca mede volume de anúncio, não volume de concorrente — e em nicho magro a
+diferença é de três para um. **Regra nova: em combo com menos de ~50 ativos, contar páginas
+antes de concluir qualquer coisa sobre o tamanho do mercado.**
+
+**A academianewlifesc junta os dois piores defeitos ao mesmo tempo:** seis anúncios ativos,
+todos com **título vazio**, o mais antigo de **maio de 2026**. Está competindo consigo mesma
+com peças que ninguém consegue ler, há quatro meses.
+
+**Variante nova do botão padrão no título:** a Panobianco roda a headline **"Instagram"** —
+literalmente o nome da rede no campo do título. Some com "Converse conosco" (5 óticas),
+"Chat with us" (Cantinho do Cão), "Fale conosco" (Sky Fit ×7, Mercadão) e a família passa de
+dez páginas.
+
+**Trilha A: 2 de 8** — Studio Prime Jackeline Panceri e nalukecastle. Baixo, e coerente:
+academia o cliente contrata uma estrutura, não escolhe uma pessoa. A exceção é justamente o
+studio de personal, que é o formato em que a pessoa é o produto.
+
+LISTA DE ATAQUE: **394 → 402**.
+
+Combos varridos até aqui: + academia (nacional, 27 ativos — mas **só 8 anunciantes: 22 das
+27 peças saem de 4 páginas**, o que obriga uma regra nova: em combo com menos de ~50 ativos,
+contar páginas antes de concluir qualquer coisa sobre o tamanho do mercado; WGP Fight Gym com
+10 anúncios iguais; academianewlifesc com 6 de título vazio desde maio; variante nova do
+botão padrão — headline "Instagram" da Panobianco).
