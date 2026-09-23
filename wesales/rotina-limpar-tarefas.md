@@ -152,7 +152,66 @@ sinal de rotina eficiente, é sinal de SDR não classificando as tentativas.
 
 ---
 
-## O token existe, o agendador não — conferido em 23/09/2026
+## O agendador existe, e eu tinha olhado no lugar errado — corrigido em 23/09/2026 03:20
+
+**Retrato do que eu escrevi abaixo: estava errado, e o erro foi de método.** Eu
+afirmei que "nenhum workflow do Actions usa `GHL_TOKEN`" apoiado em
+`git grep -ln 'GHL_TOKEN' .github/`. O grep é verdadeiro e a conclusão é falsa: o
+grep vê **só a branch em que eu estou**, e o workflow vive em outra. Ele existe:
+
+| | |
+|---|---|
+| arquivo | `.github/workflows/faxina-tarefas.yml` |
+| nome | `Faxina de Tarefas — CRM WeSales` |
+| criado | 23/09/2026 00:12 BRT, `state: active` |
+| execuções | 2, as duas `workflow_dispatch`, as duas `success` (03:12 UTC) |
+
+**A regra que fica:** workflow agendado roda a partir da branch em que o arquivo
+está, não da branch em que você está trabalhando — então `git grep` na branch
+local **não responde** "existe workflow do Actions para isto?". A fonte é a API
+do Actions (`list_workflows`). É o mesmo erro do F-17 com uma roupa nova: eu
+confirmei fora do dump e não confirmei fora da **branch**.
+
+### Mas o agendamento não é o que este documento especifica
+
+O arquivo tem **dois** `cron`, e em GitHub Actions eles **somam**:
+
+```
+schedule:
+  - cron: "*/10 11-22 * * 1-5"    # a cada 10 min, 11h-22h UTC, seg-sex
+  - cron: "0 * * * *"             # de hora em hora, TODOS os dias
+```
+
+| | Documentado acima | No ar |
+|---|---|---|
+| dia útil, janela 08–19 BRT (11–22 UTC) | 12 execuções (horária) | **84** |
+| sábado e domingo | **0** ("não há tarefa nascendo e não há SDR trabalhando") | **24 por dia** |
+| madrugada | 0 | 1 por hora |
+
+São **7× a cadência documentada** dentro da janela, mais 24 execuções por dia
+fora dela, onde este documento diz explicitamente zero. Não é erro de código: é o
+`cron` dizendo uma coisa e o documento outra, e alguém vai acreditar no documento.
+
+**Por que a diferença importa, e não é só custo de minuto de Actions:** a proteção
+contra corrida com o workflow do GHL é a **carência de 5 minutos** (tarefa criada
+há menos de 5 min não é tocada). Com execução de hora em hora, 5 minutos de
+carência é folga enorme. Com execução a cada 10 minutos, a carência cobre metade
+do intervalo — a margem some. O teto de 200 por execução e a trava de "mais da
+metade das tarefas abertas" continuam valendo, então o risco não é destruição; é a
+margem de segurança ter encolhido sem ninguém decidir isso.
+
+**Decisão, e é sua:** ou o `cron` passa a valer (`0 11-22 * * 1-5`, horária na
+janela, e some o `0 * * * *`), ou este documento passa a descrever a cadência de 10
+minutos e a carência de 5 minutos é revista para caber nela. As duas são válidas —
+ter as duas escritas diferente não é.
+
+**Um detalhe frágil no mesmo arquivo:** o `checkout` está pinado em
+`ref: claude/amazing-johnson-mclksg`, a branch deste PR. Quando o PR for mesclado e
+a branch apagada, o workflow quebra no primeiro `checkout` — e ele roda sozinho, de
+madrugada, sem ninguém olhando. Trocar por `main` (ou pela branch padrão) no mesmo
+movimento em que o PR entrar.
+
+### O que eu havia escrito antes, e o que dele sobrevive
 
 Depois do `0aebc38` (integração privada "Faxina de Tarefas" criada com 4 escopos,
 token guardado no segredo `GHL_TOKEN`), a Faxina tem **duas** encarnações e
@@ -161,12 +220,13 @@ nenhuma das duas está agendada de fato:
 | Caminho | O que é | Estado |
 |---|---|---|
 | o prompt acima | rotina horária de agente, dias úteis 08:00–19:00, fuso da subconta | é a forma descrita neste documento; depende de alguém colar o prompt numa rotina |
-| `wesales/tools/faxina_tarefas.py` | script Python, lê `GHL_TOKEN` do ambiente, validado com token real no `0aebc38` | **nada o chama**: nenhum `.github/workflows/*.yml` cita `GHL_TOKEN` nem `wesales/` |
+| `wesales/tools/faxina_tarefas.py` | script Python, lê `GHL_TOKEN` do ambiente, validado com token real no `0aebc38` | ~~nada o chama~~ — **errado, ver a seção acima**: o `faxina-tarefas.yml` existe e já rodou. O que falta é acertar a cadência |
 
-Conferido com `git grep -ln 'GHL_TOKEN' .github/` e `git grep -ln 'wesales'
-.github/workflows/` — os dois vêm vazios. Então o segredo está guardado e sem
-consumidor, e o script está validado e sem gatilho. Não é defeito de código: é
-um elo que falta.
+~~Conferido com `git grep -ln 'GHL_TOKEN' .github/`~~ — **essa conferência não
+serve**, e é o erro corrigido na seção acima: o grep vê só a branch local, e o
+workflow vive em outra. O segredo tem consumidor e o script tem gatilho. O que
+sobrevive desta seção é só a distinção entre os dois caminhos, abaixo — e a
+escolha já foi feita por ação: é o Actions.
 
 **Duas saídas, e elas não se misturam:**
 

@@ -58,6 +58,44 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## `git grep` numa branch não responde "existe workflow do Actions para isto?" — segundo erro de fonte no mesmo dia — 23/09/2026, sessão na nuvem
+
+Eu afirmei, e commitei, que "nenhum workflow do Actions usa `GHL_TOKEN`", apoiado
+em `git grep -ln 'GHL_TOKEN' .github/`. O grep é verdadeiro e a conclusão é falsa:
+ele vê **só a branch em que eu estou**. O `faxina-tarefas.yml` existe desde
+23/09 00:12, está `active` e já rodou 2× com sucesso — mora em outra branch.
+
+**A regra:** workflow agendado roda a partir da branch onde o arquivo está, não da
+branch de trabalho. Para responder "existe workflow do Actions para isto?", a
+fonte é a **API do Actions** (`list_workflows`), nunca `git grep` na branch local.
+
+É o segundo erro de fonte no mesmo dia, com a mesma forma: no F-17 eu confirmei
+fora do dump e não fora do **tempo** (dump de 4 segundos antes); aqui confirmei
+fora do dump e não fora da **branch**. A lição comum, mais forte que as duas:
+**antes de afirmar que algo não existe, perguntar "qual é o escopo do que eu
+olhei?"** — um arquivo, uma branch, um instante. Ausência dentro de um escopo
+estreito não é ausência.
+
+**E quando fui olhar direito, o achado real estava no conteúdo, não na existência.**
+O workflow tem dois `cron` e em Actions eles somam: `*/10 11-22 * * 1-5` mais
+`0 * * * *` dá **84 execuções por dia útil** e **24 por dia no fim de semana**,
+contra as 12 em dia útil e 0 no fim de semana que o `rotina-limpar-tarefas.md`
+especifica. 7× na janela, e roda de madrugada e no sábado, onde o documento diz
+explicitamente que não há tarefa nascendo nem SDR trabalhando.
+
+Por que importa além do custo de minuto: a proteção contra corrida com o workflow
+do GHL é a **carência de 5 minutos**. Desenhada para cadência horária, 5 min é
+folga; com execução a cada 10 min, cobre metade do intervalo. O teto de 200 por
+execução e a trava de "mais da metade das tarefas abertas" continuam de pé, então
+não é destruição — é margem de segurança que encolheu sem ninguém decidir.
+**Regra:** ao mudar a cadência de uma rotina, reler as proteções que foram
+dimensionadas para a cadência antiga. Carência, teto e janela são todos relativos
+ao intervalo.
+
+E um detalhe frágil do mesmo arquivo: o `checkout` está pinado em
+`ref: claude/amazing-johnson-mclksg`. Quando o PR for mesclado e a branch apagada,
+o workflow quebra sozinho, de madrugada, sem ninguém olhando.
+
 ## Minha auditoria contava rascunho como rede de segurança — errar para o lado permissivo é o pior jeito de errar — 23/09/2026, sessão na nuvem
 
 Duas correções no `auditoria_tags.py` que eu escrevi uma hora antes, e a segunda
