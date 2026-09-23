@@ -29,10 +29,7 @@ chamadas do arquivo. Fontes por `producao/padrao/fontes.sh`.
 | Peça | Quando | Onde |
 |---|---|---|
 | IG11 | 23/09/2026 02:42 UTC (22/09 23:42 BRT) | https://www.instagram.com/p/DdnQv0vDX0M/ (media 18230455786323292) |
-| IG12 | agendada 23/09 07:30 BRT | — |
-| IG13 | agendada 24/09 07:30 BRT | — |
-| IG14 | agendada 25/09 07:30 BRT (lembrete a criar na rodada de 24/09) | — |
-| IG15 | agendada 26/09 07:30 BRT | — |
+| IG12–IG15 | uma por dia, 7h30 BRT, pela rotina diária `trig_01DSSqbPGaS9qZX2mPuG787s` | ver `../FILA.md` |
 
 Entrega no Drive: `OPC — entregas / 01 — Topo de Funil / Imagens`
 (pasta `1V2HUnoPpHhJRv4nSDwmkR7_q1hxutqS5`): as cinco artes e as cinco legendas.
