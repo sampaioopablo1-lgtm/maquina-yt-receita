@@ -4,6 +4,86 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## Auditoria diária (só leitura): a entrada de anúncio dobrou o tempo parada (25h→49h) e o pipeline saiu do zero absoluto só por teste manual, não por lead real — 23/09/2026, sessão automática (auditor diário)
+
+Segunda rodada do **Auditor diário** (read-only, GHL-CRM MCP, sem acesso à
+tela). Lido às 23/09 10:43 UTC. Compara contra a primeira rodada
+(`APRENDIZADOS-CRM.md`, entrada de 22/09 10:31 UTC, abaixo) e contra
+`ESTADO-E-PLANO.md` (leitura de 22/09 19:55 UTC e a medição de 23/09 02:35
+dentro dele).
+
+**Números brutos:** 56 contatos, 56 oportunidades (1:1, era 50/50). Por
+etapa/status: `NOVO LEAD` **49** `open` · `CONECTAR` 1 `open` + 2 `lost` ·
+`NEGOCIAR` 2 `open` + 1 `lost` · `REUNIÃO DE DIAGNÓSTICO` **1** `open` ·
+`FORMALIZAR` 0. Os +6 em relação à leitura anterior (50→56) e as primeiras
+oportunidades que `CONECTAR`/`REUNIÃO DE DIAGNÓSTICO` já viram são os 6
+contatos de teste que o dono criou na madrugada de 22→23/09 testando o
+checklist (`Sem Nome`, `O Próximo Cliente`, `Pablo Sampaio` — o 9940 oficial
+— `Francisca`, `156766977421470`, `ZZ Teste Porta Inbound`), já
+identificados em `ESTADO-E-PLANO.md`.
+
+**Excluindo teste/estrutura da métrica de lead real** (7 contatos com
+`source` explicitamente de teste + os 5 acima, com `Francisca` mantida como
+questão em aberto, não contada nem excluída): **44 leads reais** (39
+`Facebook` + 5 Instagram sem telefone/e-mail). **Todos os 44 continuam em
+`NOVO LEAD`** — nenhum lead real jamais chegou a `CONECTAR`,
+`REUNIÃO DE DIAGNÓSTICO` ou além; os 4 registros que essas três etapas têm
+hoje são 100% contato de teste (`Teste Não Atende`, `Teste Retorno`, `Teste
+Número Errado`, `Pablo Sampaio`). **O achado "CONECTAR deixou de ser
+sempre-zero" de 22/09 (linha 2240) segue valendo pelo mesmo motivo: é
+pipeline sendo exercitado por teste manual, não a esteira ligada.**
+
+**1. A entrada de anúncio piorou de ~25h14 para ~49h27 sem lead novo —
+dobrou, não é ruído.** O lead `Facebook` mais novo continua sendo `Carlos
+Andrade`, `createdAt` 21/09 09:17:26; às 23/09 10:43 UTC isso são **49h27**
+sem nenhum lead pago novo, contra as 25h14 medidas na auditoria de 22/09 e
+os ~22h47 da manhã de 22/09 — a régua "pior caso" segue subindo (1,53× →
+1,67× → agora **3,27×** o pior caso histórico de 15h06). Nenhuma das 6
+oportunidades novas desta janela é de anúncio; todas são teste. **O
+Gerenciador de Anúncios continua parado — pendência 4 de `ESTADO-E-PLANO.md`,
+sem mudança.**
+
+**2. O lead real mais antigo em `NOVO LEAD` está parado há ~104h (4d8h),
+sem dono, sem tag de fila.** É `Andre` (e o lote inteiro carregado em 19/09
+02:18 UTC, 33 leads `Facebook` no mesmo segundo) — nenhum tem `assignedTo`
+nem tag além de `etapa-novo-lead`/`cad-inbound`. Isso não é regressão: é a
+mesma esteira desligada (L-07/G-03) só que 2 dias mais velha. `NOVO LEAD`
+segue sem nenhuma das 6 tags de alarme do F-05
+(`novo-lead-estagnado`/`fila-travada`/`conectar-estagnado`/
+`agendar-estagnado`/`retorno-vencido`/`negociacao-estagnada` — 0 ocorrência
+nos 56 contatos, tags seguem `[ ]` em `APROVADO.md`, não existem na tela).
+`fila-tel`/`fila-wa` aparecem só em `ZZ TESTE ESTRUTURA` (fixture
+permanente com todas as tags por desenho) — nenhum lead real preso em fila
+desde ontem, porque nenhum lead real chegou perto de uma fila.
+
+**3. Campo novo criado direto na tela, fora de todo documento:** `Canal que
+conectou` (`fieldKey contact.canal_que_conectou`, `id
+TxJmoWdkA8rTqC1uEsMW`, `SINGLE_OPTIONS`: `Ligação WhatsApp` · `Ligação
+normal` · `Mensagem`), criado 23/09 01:06 UTC — resposta em campo à
+pendência 9c de `ESTADO-E-PLANO.md` ("é manual ou automático?"). Nenhum dos
+56 contatos tem valor gravado ainda; `grep` em `IMPLEMENTACAO-WORKFLOWS.md`
+não encontra o `fieldKey`. Registrar aqui para a próxima rodada não tratar
+como órfão nem tentar recriar (mesma regra da tag `teste-regua`, entrada de
+22/09).
+
+**4. Preenchimento da régua de qualificação por Meta Lead Ads não mudou:**
+`Urgência` 40/56, `Necessidade` 34/56, `Investimento mensal em anúncios`
+32/56 — números idênticos aos medidos em `ESTADO-E-PLANO.md` (22/09). O
+resto da régua (`Decisor`, `Budget`, `Prazo`, `Tem time comercial`) continua
+em ~3 contatos, todos de teste. Nenhum lead real foi qualificado.
+
+**5. `Francisca` (+55 12 98191-3254) segue sem resposta do dono — e agora
+está parada há ~35h em `NOVO LEAD`, sem dono.** Pergunta aberta desde
+`ESTADO-E-PLANO.md`: é o dono testando ou é lead inbound real? Enquanto não
+houver resposta, ela continua fora da contagem de 44 leads reais (por
+cautela) e fora da lista de teste conhecida (por não ter confirmação) —
+**decisão do dono, não dado que uma auditoria resolve sozinha.**
+
+**O que ficou saudável e sem mudança:** pipeline com as 5 etapas certas
+(`opportunities_get-pipelines` confere nome e ordem, incluindo
+`REUNIÃO DE DIAGNÓSTICO` já renomeada), 1:1 contato↔oportunidade mantido,
+nenhum telefone/e-mail duplicado, nenhuma tag de alarme falsa disparando.
+
 ## `Local Presence Dialing` do HighLevel é US/Canada only — não pesquise de novo para número brasileiro — 23/09/2026, sessão automática
 
 Pesquisando um diferencial de Bloco 6 (o que Outreach/Salesloft/Kixie/Aircall
