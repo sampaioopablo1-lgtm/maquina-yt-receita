@@ -54,6 +54,7 @@ e **expressão que concorde com a frase**. Foto de pessoa rindo não recebe copy
 | Teto de 25% de texto | Ordem do Pablo. `monta_lote` **mede e recusa** quem passar — não avisa, recusa. |
 | Largura é negociável, corpo de letra não | `encaixa` reduz até o piso e para. Não coube no piso? Reescreve-se a copy, não se diminui a fonte. |
 | Nunca a foto do Pablo | Ordem permanente. A imagem TF03 está banida em definitivo. |
+| **Nem foto que se PAREÇA com ele** | Ordem do Pablo em 23/09. Não basta não ser ele: modelo de banco com traços próximos (homem, 30–45, pele negra ou parda, barba curta, cabelo raspado) faz o leitor achar que é. Na dúvida sobre uma foto, não usar. |
 | Sem preço, sem promessa em reais, sem "Rio", sem "90 dias" | Briefing da campanha. |
 | Fontes reais (Montserrat + Playfair) | Liberation dá cara de PowerPoint. |
 | Rodapé sempre fechado | Sem ele sobram ~200px mortos no pé. |
