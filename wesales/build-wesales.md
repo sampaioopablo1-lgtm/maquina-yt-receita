@@ -4775,6 +4775,16 @@ começa a produzir o vazamento a partir da primeira conexão.
 > (conferido: `Cadência 12x30` adiciona nos nós 48/108/161/214/274/327 e remove nos
 > 64/117/170/230/283/336). Se `fila-tel` só existe enquanto a tentativa está
 > liberada, ele já carrega a informação que a cláusula `não conectado-hoje` tentava
+> **Estado confirmado em 23/09 04:55:** a real `Limpa conectado-hoje (24 h)`
+> (`e3c012bf`) está **no ar** com `startAfter: {"type":"days","value":1}`, e a cópia
+> `ZZ TESTE` (espera 2 min) fica em **rascunho** — o dono mediu o teste antes de mim
+> (tag posta no 9940 às 04:32:29, saiu às 04:34:31) e minha leitura foi confirmação
+> independente, não a resposta a um item aberto. Ele registrou também o detalhe de
+> gatilho que vale reter: **contatos que já carregavam a tag não disparam** o
+> removedor, porque gatilho de tag dispara na aplicação e a tag já estava lá — hoje
+> são só os de teste, e saem na limpeza do A9. É a mesma mecânica do
+> `fechar-horario` (§2.31.1), aplicada certo.
+>
 > dar. Minha saída A trata o sintoma (a tag não expirava); a dele tira a cláusula da
 > equação. **As duas juntas são o certo:** a tag passa a expirar (higiene do estado)
 > e a lista deixa de depender dela (o filtro fica com uma cláusula em vez de duas —

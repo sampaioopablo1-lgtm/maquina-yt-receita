@@ -147,6 +147,27 @@ Corrigido em todas as mensagens publicadas e nos builders
 mensagem automática, use só merge field do CONTATO; marca e remetente vão fixos
 no texto. Mensagem de automação só está testada depois de ser lida no celular.
 
+## Duplicata de workflow com temporizador: o risco não é disparar duas vezes, é a espera mais curta ganhar — 23/09/2026, sessão na nuvem
+
+Anotação curta, de uma coisa que eu ia descrever errado. O item A7 diz para tirar a
+cópia `ZZ TESTE Limpa conectado-hoje` antes de publicar a real, e eu repeti o motivo
+como "senão as duas disparam". Disparar as duas é **inofensivo**: as duas removem a
+**mesma** tag, e remover tag ausente é no-op.
+
+O risco real é outro, e é sério: **a espera mais curta ganha.** A cópia ZZ espera 2
+minutos e a real espera 1 dia. Com as duas no ar, a tag sai em 2 minutos, e o lead
+volta para a fila do dia minutos depois de ter sido conectado — exatamente o
+contrário do que o removedor existe para fazer. A janela não duplica, ela encolhe de
+1440 para 2 minutos.
+
+**A regra, que generaliza para qualquer par original/cópia-de-teste com
+temporizador:** duplicata de workflow que só difere no tempo de espera não é
+redundância, é um **encurtador** do prazo. Antes de publicar o original, conferir que
+a cópia curta está desligada — e conferir **por efeito**, não pelo `status` do dump
+(que é a afirmação mais frágil do arquivo): aplicar a tag num contato de teste e ver
+se ela sobrevive ao prazo curto. No caso concreto não houve problema — o dono deixou
+a ZZ em rascunho e publicou só a real — mas a razão certa ficou registrada.
+
 ## O dono resolveu o F-16 melhor do que eu havia recomendado — tirar a cláusula vence consertar a cláusula — 23/09/2026, sessão na nuvem
 
 Eu recomendei a saída A para o F-16: dar a `conectado-hoje` o reset que o nome
