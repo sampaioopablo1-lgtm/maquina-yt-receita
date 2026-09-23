@@ -5055,6 +5055,65 @@ Limite que vale para as duas: leem os dumps, e dump pode estar defasado da conta
 Comparar com o backup irmão em `_antes-*/` antes de concluir — e, para `draft`,
 não concluir nada sem confirmar fora do arquivo.
 
+### 2.33.1 A `auditoria_final.py` do dono diz "0 problemas" e isso não cobre estes achados
+
+O `beebd23` trouxe `wesales/tools/auditoria_final.py` com o resultado "26
+publicados, 0 problemas". As duas auditorias não se contradizem: **fazem
+perguntas diferentes.** Registro o cruzamento para ninguém ler "0 problemas"
+como "nada a corrigir".
+
+| Pergunta | Onde está |
+|---|---|
+| condição de oportunidade em workflow sem gatilho de oportunidade | `auditoria_final.py` (1) |
+| nó apontando para workflow inexistente ou desligado | `auditoria_final.py` (2) e `auditoria_refs.py` |
+| relógio errado (`sim` ou `{{right_now}}` puro) nos campos de data | `auditoria_final.py` (3) |
+| tarefa com prefixo que a Faxina não reconhece | `auditoria_final.py` (4) |
+| workflow que cria tarefa sem janela; mensagem sem janela | `auditoria_final.py` (5, 6) |
+| **limpeza de tag pulada por `remove_from_workflow`** | **`auditoria_tags.py` (1) — só aqui** |
+| **tag só removida, nunca aplicada** | **`auditoria_tags.py` (3) — só aqui** |
+
+**E a dele tem uma vantagem que a minha não tem:** lê **ao vivo pela API**
+(`GET /workflow/...` e `GET /workflow/.../trigger`), não os dumps. Ou seja, ela
+não sofre da defasagem que me fez errar o F-17, **e vê o gatilho** — que é
+exatamente o dado que falta para fechar a pergunta 1 do `auditoria_tags.py` com
+certeza. Caminho de melhoria, quando alguém estiver no PC: mover as duas
+perguntas do `auditoria_tags.py` para dentro do `auditoria_final.py`, ou dar ao
+`auditoria_tags.py` a mesma fonte. Da nuvem eu não consigo — não há ferramenta de
+workflow no MCP.
+
+### 2.33.2 Dois consertos na minha própria auditoria, e o segundo era um defeito de verdade
+
+**1. O `cad-inbound` mudou de papel, e meu julgamento sobre ele venceu.** Eu o
+havia excluído da pergunta 1 raciocinando "marcador de origem que persiste não é
+defeito". No `bff2514` o **nó 0 da `Cadência Inbound` passou a ser um `if_else`
+que testa `cad-inbound`**: a tag virou o **portão** da cadência, e o nó 254 a
+remove na saída. Remoção de portão pulada não é inofensiva — um lead que sai pelo
+`Fechar Horário` ou pelo `Pós-agendamento v2` fica com o portão aberto. É o F-16
+outra vez: **quando o papel de uma tag muda, todo julgamento antigo sobre ela
+vence.** Tirei da lista de exceções.
+
+**2. O script contava workflow em `draft` como rede de segurança.** Foi assim que
+ele deixou de acusar `nutricao-90d` e `cad-inbound`: quem as limpa livre de
+arranco é a `Triagem da Nutrição`, que está em **rascunho**. Rede que não está
+publicada não salva ninguém, e o efeito foi a auditoria ficar **permissiva** — o
+pior jeito de errar, porque silencia em vez de gritar. Corrigido: a rede tem de
+estar `published`, e o relatório agora diz qual rascunho viraria rede.
+
+Nota sobre `draft` nas duas correções: aqui ele **não** serve para acusar (essa é
+a armadilha do F-17), só para **não creditar** uma rede. Direção segura.
+
+**O relatório depois dos dois consertos — 5 achados, e 3 saem com um clique:**
+
+| Tag | Limpa em | Resolve com |
+|---|---|---|
+| `nutricao-90d` | `Reengajamento 90 dias` | **publicar a `Triagem da Nutrição`** |
+| `cad-inbound` | `Reengajamento 90 dias` e `Cadência Inbound` | **publicar a `Triagem da Nutrição`** |
+| `fechar-horario` | `Fechar Horário` | `Remove Tag` no nó 4 do `Pós-agendamento v2` |
+| `cadencia-12x30-p2` | `Cadência 12x30 — parte 2` | `Remove Tag` nos três que arrancam |
+
+Ou seja: **publicar a `Triagem da Nutrição` fecha 3 dos 5**, e sobram os dois
+`Remove Tag` que a §2.31.2 já pedia.
+
 ---
 
 

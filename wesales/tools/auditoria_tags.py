@@ -44,10 +44,22 @@ from collections import defaultdict
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DUMPS = os.path.join(AQUI, "..", "workflows-json")
-# Tags que NAO nascem de workflow por decisao de projeto — nao acusar como
-# "ninguem aplica". Fonte: IMPLEMENTACAO-WORKFLOWS.md, tabela das tres familias
-# ("exceto `pausado` (SDR, a mao) e `cad-inbound` (integracao/formulario)").
-FORA_DO_WORKFLOW = {"pausado", "cad-inbound"}
+# Tags que NAO nascem de workflow por decisao de projeto — nao acusar na
+# pergunta 2 como "ninguem aplica". Fonte: IMPLEMENTACAO-WORKFLOWS.md, tabela
+# das tres familias ("exceto `pausado` (SDR, a mao) e `cad-inbound`
+# (integracao/formulario)").
+NASCEM_FORA = {"pausado", "cad-inbound"}
+
+# Tags cuja limpeza pulada NAO e alarme na pergunta 1, porque persistir e o
+# ponto delas. Lista curta de proposito.
+#
+# CUIDADO — `cad-inbound` SAIU desta lista em 23/09/2026. Eu a tinha posto aqui
+# raciocinando "marcador de origem que persiste nao e defeito". O papel da tag
+# mudou no `bff2514`: o no 0 da `Cadencia Inbound` e um `if_else` que TESTA
+# `cad-inbound`, ou seja, ela virou a tag de PORTAO da cadencia, e o no 254 a
+# remove na saida. Remocao de portao pulada nao e inofensiva. E o F-16 de novo:
+# quando o papel de uma tag muda, todo julgamento antigo sobre ela vence.
+PERSISTIR_E_O_PONTO = {"pausado"}
 
 
 def ids_alvo(atributos):
@@ -140,26 +152,35 @@ def main():
     print("(nos de saida do alvo nao rodam quando um terceiro arranca o contato)\n")
     graves = []
     for tag in sorted(limpa):
-        if tag in FORA_DO_WORKFLOW:
-            # Marcador de origem que persiste nao e defeito: `cad-inbound` diz de
-            # onde o lead veio, e isso nao expira. `pausado` e do SDR. Limpeza
-            # pulada nessas duas nao vira alarme.
+        if tag in PERSISTIR_E_O_PONTO:
             continue
         donos = limpa[tag]
         expostos = sorted(w for w in donos if arranca.get(w))
         if not expostos:
             continue
-        # Segunda rede = existe algum removedor que NINGUEM arranca. A limpeza
-        # dele sempre roda, entao a tag tem por onde sair. Nao basta procurar o
-        # "Mestre de saida" pelo nome: o `toque`, por exemplo, e limpo pelo
-        # Contador de Toques, que e rede legitima.
-        tem_rede = any(not arranca.get(w) for w in donos)
+        # Segunda rede = existe removedor que ninguem arranca E QUE ESTA NO AR.
+        # Duas correcoes que custaram alarme errado:
+        #  - nao basta procurar o "Mestre de saida" pelo nome: o `toque` e limpo
+        #    pelo Contador de Toques, que e rede legitima (alarme falso, 23/09);
+        #  - removedor em `draft` NAO e rede: em 23/09 o script deixou de acusar
+        #    `nutricao-90d` e `cad-inbound` porque quem as limpa e a `Triagem da
+        #    Nutricao`, que esta em rascunho. Rede que nao esta publicada nao
+        #    salva ninguem, e o resultado foi a auditoria ficar PERMISSIVA, que e
+        #    o pior jeito de errar.
+        # Nota sobre `draft`: aqui ele nao serve para ACUSAR (isso e a armadilha
+        # do F-17), so para NAO CREDITAR uma rede. Direcao segura.
+        livres = [w for w in donos if not arranca.get(w)]
+        tem_rede = any(status(w) == "published" for w in livres)
+        rede_em_rascunho = [w for w in livres if status(w) != "published"]
         for w in expostos:
             quem = sorted(arranca[w], key=nome)
-            marca = "" if tem_rede else "   <<< SEM SEGUNDA REDE"
+            marca = "" if tem_rede else "   <<< SEM SEGUNDA REDE NO AR"
             print("  %-22s limpa em %-26s [%s]%s" % (tag, nome(w), status(w), marca))
             for outro in quem:
                 print("      arrancado por: %s [%s]" % (nome(outro), status(outro)))
+            if not tem_rede and rede_em_rascunho:
+                print("      vira rede quando publicarem: %s" % ", ".join(
+                    "%s [%s]" % (nome(r), status(r)) for r in rede_em_rascunho))
             if not tem_rede:
                 graves.append((tag, nome(w)))
     if not any(arranca.get(w) for donos in limpa.values() for w in donos):
@@ -171,7 +192,7 @@ def main():
     print("contando contatos com a tag antes de registrar qualquer coisa.\n")
     perguntas = 0
     for tag in sorted(testa):
-        if tag in FORA_DO_WORKFLOW:
+        if tag in NASCEM_FORA:
             continue
         consumidores = [w for w in testa[tag] if status(w) == "published"]
         produtores = aplica.get(tag) or set()
@@ -192,7 +213,7 @@ def main():
     print("aqui e uma decisao — tirar os nos, ou voltar a aplicar a tag.\n")
     orfas = 0
     for tag in sorted(limpa):
-        if tag in FORA_DO_WORKFLOW or aplica.get(tag):
+        if tag in NASCEM_FORA or aplica.get(tag):
             continue
         onde = sorted(limpa[tag], key=nome)
         nos = sum(1 for w in onde for no in vivos[w]["nos"]
@@ -206,11 +227,11 @@ def main():
 
     print()
     if graves:
-        print("%d tag(s) com limpeza pulada E sem segunda rede — conferir na tela:" % len(graves))
+        print("%d tag(s) com limpeza pulada E sem segunda rede NO AR — conferir na tela:" % len(graves))
         for tag, onde in graves:
             print("   %s (limpa em %s)" % (tag, onde))
         return 1
-    print("nenhuma tag com limpeza pulada sem segunda rede")
+    print("nenhuma tag com limpeza pulada sem segunda rede no ar")
     return 0
 
 
