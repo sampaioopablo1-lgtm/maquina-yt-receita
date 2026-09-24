@@ -21,10 +21,11 @@ jobs:
       - name: Generate read-only report
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
-        run: python wesales/tools/report_overdue_tasks.py > overdue-tasks-report.json
+        run: |`n          set -o pipefail`n          python wesales/tools/report_overdue_tasks.py 2>&1 | tee overdue-tasks-report.json
       - name: Upload sanitized report
         uses: actions/upload-artifact@v4
         with:
           name: overdue-tasks-report-${{ github.run_id }}
           path: overdue-tasks-report.json
           retention-days: 14
+
