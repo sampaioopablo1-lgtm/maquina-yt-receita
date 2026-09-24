@@ -1,0 +1,30 @@
+﻿name: WeSales - Relatorio de tarefas vencidas
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  overdue-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate read-only report
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/report_overdue_tasks.py > overdue-tasks-report.json
+      - name: Upload sanitized report
+        uses: actions/upload-artifact@v4
+        with:
+          name: overdue-tasks-report-${{ github.run_id }}
+          path: overdue-tasks-report.json
+          retention-days: 14
