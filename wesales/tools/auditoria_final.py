@@ -44,7 +44,11 @@ for wid, w in todos.items():
                     prob.append('7 campo de data com formato que dá erro: %s / %s' % (w['name'], f.get('title')))
         if t['type'] == 'task-notification' and familia(a.get('title')) is None:
             prob.append('4 prefixo desconhecido: %s: %s' % (w['name'], a.get('title')))
-    if any(t['type'] == 'task-notification' for t in tpl) and not d.get('window'):
+    # Pós-ligação: reage ao clique do SDR em "Resultado da tentativa" — a tarefa
+    # nasce de ação humana, e "Não ligar" às 18:40 de sexta não pode esperar a
+    # janela de segunda (DND/saída das réguas). Exceção deliberada, 23/09/2026.
+    reage_ao_sdr = w['name'].startswith('Pós-ligação')
+    if any(t['type'] == 'task-notification' for t in tpl) and not d.get('window') and not reage_ao_sdr:
         prob.append('5 tarefa sem janela: %s' % w['name'])
     # Lembretes da Reunião: toda mensagem espera um horário RELATIVO À REUNIÃO
     # (wait type=appointment) — janela seg-sex 08:30-18:30 atrasaria o aviso de

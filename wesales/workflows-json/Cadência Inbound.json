@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Cadência Inbound",
-    "version": 19,
+    "version": 21,
     "dataVersion": 7,
     "allowMultiple": false,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c2375e2f-b4cb-4947-8377-7c1e0529ba82/19",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc2375e2f-b4cb-4947-8377-7c1e0529ba82%2F19?alt=media&token=2d940e54-54ea-46df-98b0-61870575d644",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c2375e2f-b4cb-4947-8377-7c1e0529ba82/21",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc2375e2f-b4cb-4947-8377-7c1e0529ba82%2F21?alt=media&token=e67f1913-c94e-489e-bc51-fb772753d4eb",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:28:59.384Z",
-    "updatedAt": "2026-09-23T22:07:25.080Z",
+    "updatedAt": "2026-09-23T23:59:54.990Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -1141,7 +1141,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "Oi {{contact.first_name}}, aqui é da O Próximo Cliente. Recebi seu contato agora e já vou te ligar em poucos minutos. Se preferir me responder por aqui enquanto isso, também tá valendo.",
+            "body": "Oi! Aqui é da O Próximo Cliente. Recebemos seu contato e vamos te ligar em breve, em horário comercial. Se preferir, responde por aqui o melhor horário pra falar.",
             "attachments": []
           },
           "order": 1,
@@ -2501,7 +2501,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 1 de 5.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(ignorou 3 ligações de WhatsApp seguidas)</i><br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -2546,7 +2551,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 1 de 5.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -2592,7 +2602,7 @@
             "type": "notification",
             "notification": {
               "type": "send_notification",
-              "body": "Lead inbound {{contact.name}} aguardando retorno — TI1.",
+              "body": "Novo lead inbound: {{contact.name}} ({{contact.phone}}). Ligue em até 15 min — tarefa TI1.",
               "title": "Lead inbound aguardando retorno",
               "redirectPage": "contact",
               "userType": "assign",
@@ -2670,7 +2680,7 @@
         {
           "id": "4a001400-b18d-4d80-a363-0f4ec47517b5",
           "order": 5,
-          "name": "TI1 · WhatsApp ainda vem primeiro?",
+          "name": "TI1 · WhatsApp rebaixado (3+ sem atender)?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
@@ -3170,7 +3180,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "4a14ff55-9075-490a-a94e-9a11dd1f43ed",
+          "next": "f16de880-a64b-4a32-92fe-f52aea5f754e",
           "advanceCanvasMeta": {
             "position": {
               "x": 19000,
@@ -3203,6 +3213,281 @@
           }
         },
         {
+          "id": "f16de880-a64b-4a32-92fe-f52aea5f754e",
+          "order": 0,
+          "name": "TI1 · Retorno: ainda em CONECTAR?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "ec151879-a850-4b5a-8aa1-97556ba78c43",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "e03d247c-4d77-4063-bfc1-fca2bdcfae1d",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "28ee61f9-4efa-44b0-80e1-d2ab1115f50f",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "d828ca52-1183-42bc-8828-817783611adf",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "65bbbd6a-e92b-445f-8deb-28ffb5026778",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "d93fc58d-d515-44e1-bb96-e9413e116aea",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "3b0ef583-57cd-4801-a158-65135cfc1a9f",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "92a3f489-193f-44f1-ab20-fd1e81a315a7",
+          "parentKey": "92a3f489-193f-44f1-ab20-fd1e81a315a7",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "ec151879-a850-4b5a-8aa1-97556ba78c43",
+            "013c7d63-55ed-480c-a558-7df16db2f96c"
+          ]
+        },
+        {
+          "id": "ec151879-a850-4b5a-8aa1-97556ba78c43",
+          "parent": "f16de880-a64b-4a32-92fe-f52aea5f754e",
+          "parentKey": "f16de880-a64b-4a32-92fe-f52aea5f754e",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "013c7d63-55ed-480c-a558-7df16db2f96c"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "4a14ff55-9075-490a-a94e-9a11dd1f43ed"
+        },
+        {
+          "id": "013c7d63-55ed-480c-a558-7df16db2f96c",
+          "parent": "f16de880-a64b-4a32-92fe-f52aea5f754e",
+          "parentKey": "f16de880-a64b-4a32-92fe-f52aea5f754e",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "ec151879-a850-4b5a-8aa1-97556ba78c43"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "4a14ff55-9075-490a-a94e-9a11dd1f43ed",
           "name": "Wait 1 Hours",
           "type": "wait",
@@ -3222,8 +3507,8 @@
             "transitions": []
           },
           "order": 0,
-          "parent": "92a3f489-193f-44f1-ab20-fd1e81a315a7",
-          "parentKey": "92a3f489-193f-44f1-ab20-fd1e81a315a7",
+          "parent": "ec151879-a850-4b5a-8aa1-97556ba78c43",
+          "parentKey": "ec151879-a850-4b5a-8aa1-97556ba78c43",
           "next": "f9f1a02e-94bb-4582-beb7-20367456467b",
           "advanceCanvasMeta": {
             "position": {
@@ -3504,7 +3789,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "8fc10781-fdb4-4f3e-a7f0-54b1e9659c12",
+          "next": "c5fb34e9-7fc1-4d29-824b-985748242a9c",
           "advanceCanvasMeta": {
             "position": {
               "x": 21700,
@@ -3537,6 +3822,281 @@
           }
         },
         {
+          "id": "c5fb34e9-7fc1-4d29-824b-985748242a9c",
+          "order": 0,
+          "name": "TI1 · Ainda em CONECTAR? (antes do Não atendeu automático)",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "b036557e-e554-44c7-ba7d-1386b04f66c1",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "9a10c9dd-a13e-492c-9ecd-fec5e726c91e",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "bcf0c0c4-5dda-4799-a914-b4b384126eba",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "931ae106-4c4e-4126-ab1f-5b4c1956bc58",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "33538894-187b-4ae2-9277-ac28c1856da2",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "6cd66b45-254a-4011-a33e-afc718d58f40",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "9791935d-1301-44c4-b3d5-0f8311f9a73e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "15003ff6-d2ae-426b-9568-4e89b8d2feaa",
+          "parentKey": "15003ff6-d2ae-426b-9568-4e89b8d2feaa",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "b036557e-e554-44c7-ba7d-1386b04f66c1",
+            "7fbbda2b-5583-4ec8-b268-4bfffed0d79b"
+          ]
+        },
+        {
+          "id": "b036557e-e554-44c7-ba7d-1386b04f66c1",
+          "parent": "c5fb34e9-7fc1-4d29-824b-985748242a9c",
+          "parentKey": "c5fb34e9-7fc1-4d29-824b-985748242a9c",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "7fbbda2b-5583-4ec8-b268-4bfffed0d79b"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "8fc10781-fdb4-4f3e-a7f0-54b1e9659c12"
+        },
+        {
+          "id": "7fbbda2b-5583-4ec8-b268-4bfffed0d79b",
+          "parent": "c5fb34e9-7fc1-4d29-824b-985748242a9c",
+          "parentKey": "c5fb34e9-7fc1-4d29-824b-985748242a9c",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "b036557e-e554-44c7-ba7d-1386b04f66c1"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "8fc10781-fdb4-4f3e-a7f0-54b1e9659c12",
           "name": "Update contact field",
           "type": "update_contact_field",
@@ -3554,8 +4114,8 @@
             ]
           },
           "order": 0,
-          "parent": "15003ff6-d2ae-426b-9568-4e89b8d2feaa",
-          "parentKey": "15003ff6-d2ae-426b-9568-4e89b8d2feaa",
+          "parent": "b036557e-e554-44c7-ba7d-1386b04f66c1",
+          "parentKey": "b036557e-e554-44c7-ba7d-1386b04f66c1",
           "next": "64d12337-3cae-4412-bfdf-94128a8bf2a6",
           "advanceCanvasMeta": {
             "position": {
@@ -4633,7 +5193,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 2 de 5.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(ignorou 3 ligações de WhatsApp seguidas)</i><br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -4678,7 +5243,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 2 de 5.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -4707,41 +5277,10 @@
           "order": 1,
           "parent": "e8eb6ca8-1986-4751-8336-2ec12b5bb224",
           "parentKey": "ee8c1106-5a02-431f-bc90-9ea91741c5cb",
-          "next": "9696e813-8ab7-4586-a19e-263ecfbc090e",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 28000,
-              "y": 0
-            }
-          },
-          "cat": ""
-        },
-        {
-          "id": "9696e813-8ab7-4586-a19e-263ecfbc090e",
-          "name": "Internal Notification",
-          "type": "internal_notification",
-          "attributes": {
-            "type": "notification",
-            "notification": {
-              "type": "send_notification",
-              "body": "Lead inbound {{contact.name}} aguardando retorno — TI2.",
-              "title": "Lead inbound aguardando retorno",
-              "redirectPage": "contact",
-              "userType": "assign",
-              "assignedOwners": [
-                "contact_owner"
-              ],
-              "alsoNotifyContactFollowers": false,
-              "alsoNotifyOpportunityFollowers": false
-            }
-          },
-          "order": 2,
-          "parent": "e8eb6ca8-1986-4751-8336-2ec12b5bb224",
-          "parentKey": "615d903d-60dd-415d-9831-7f2534ff4b85",
           "next": "2c891536-bc0a-450e-a968-963b014e9fec",
           "advanceCanvasMeta": {
             "position": {
-              "x": 28300,
+              "x": 28000,
               "y": 0
             }
           },
@@ -4768,7 +5307,7 @@
           },
           "order": 3,
           "parent": "e8eb6ca8-1986-4751-8336-2ec12b5bb224",
-          "parentKey": "9696e813-8ab7-4586-a19e-263ecfbc090e",
+          "parentKey": "615d903d-60dd-415d-9831-7f2534ff4b85",
           "next": "650fc5ca-f5bb-48c0-8e10-26fa703c9fc1",
           "advanceCanvasMeta": {
             "position": {
@@ -4802,7 +5341,7 @@
         {
           "id": "d19bd7ba-9a15-49f9-a0b1-af4d2d837768",
           "order": 5,
-          "name": "TI2 · WhatsApp ainda vem primeiro?",
+          "name": "TI2 · WhatsApp rebaixado (3+ sem atender)?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
@@ -5302,7 +5841,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "0ac415ba-65f9-4a5e-a8a3-e075a3dea726",
+          "next": "50976b77-5bad-43b2-8747-fc0c802a073d",
           "advanceCanvasMeta": {
             "position": {
               "x": 32200,
@@ -5335,6 +5874,281 @@
           }
         },
         {
+          "id": "50976b77-5bad-43b2-8747-fc0c802a073d",
+          "order": 0,
+          "name": "TI2 · Retorno: ainda em CONECTAR?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "eac28ac8-2c80-4845-8f5e-a79c3aa25182",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "bf687c01-51ad-475f-aee1-2c2da4eb4aad",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "67a68b04-fad9-4e3a-a06a-70f601e739cc",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "96685e7e-abfa-4676-a174-373e60220801",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "b3b8f764-3b0b-4957-bc47-da18edcd45c8",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "3f7323e9-4db6-4173-b381-8bc78df52822",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "181bb443-3ea9-435f-b65f-cc8d9f1f0f2d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "f50d4dc8-a0d0-4df5-88fc-66a5ad173a22",
+          "parentKey": "f50d4dc8-a0d0-4df5-88fc-66a5ad173a22",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "eac28ac8-2c80-4845-8f5e-a79c3aa25182",
+            "842e2885-ca0c-469a-93c3-ad159d9a6b34"
+          ]
+        },
+        {
+          "id": "eac28ac8-2c80-4845-8f5e-a79c3aa25182",
+          "parent": "50976b77-5bad-43b2-8747-fc0c802a073d",
+          "parentKey": "50976b77-5bad-43b2-8747-fc0c802a073d",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "842e2885-ca0c-469a-93c3-ad159d9a6b34"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "0ac415ba-65f9-4a5e-a8a3-e075a3dea726"
+        },
+        {
+          "id": "842e2885-ca0c-469a-93c3-ad159d9a6b34",
+          "parent": "50976b77-5bad-43b2-8747-fc0c802a073d",
+          "parentKey": "50976b77-5bad-43b2-8747-fc0c802a073d",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "eac28ac8-2c80-4845-8f5e-a79c3aa25182"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "0ac415ba-65f9-4a5e-a8a3-e075a3dea726",
           "name": "Wait 1 Hours",
           "type": "wait",
@@ -5354,8 +6168,8 @@
             "transitions": []
           },
           "order": 0,
-          "parent": "f50d4dc8-a0d0-4df5-88fc-66a5ad173a22",
-          "parentKey": "f50d4dc8-a0d0-4df5-88fc-66a5ad173a22",
+          "parent": "eac28ac8-2c80-4845-8f5e-a79c3aa25182",
+          "parentKey": "eac28ac8-2c80-4845-8f5e-a79c3aa25182",
           "next": "b2c74e5f-b4ff-4d54-b4ad-392daf97e091",
           "advanceCanvasMeta": {
             "position": {
@@ -5636,7 +6450,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "ea8c8967-b09f-46b8-9a9e-85e86993be74",
+          "next": "4fafc5f4-7ae5-402e-a70d-2829cc9ff6d9",
           "advanceCanvasMeta": {
             "position": {
               "x": 34900,
@@ -5669,6 +6483,281 @@
           }
         },
         {
+          "id": "4fafc5f4-7ae5-402e-a70d-2829cc9ff6d9",
+          "order": 0,
+          "name": "TI2 · Ainda em CONECTAR? (antes do Não atendeu automático)",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "2f50e1c2-5f15-4915-8b73-e845e0de6a67",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1149d84f-e211-4a8c-9f2d-0bbca0ba735f",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "c40832c8-eceb-4062-a549-2ac41af63564",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "79e9e258-2a3a-48ce-93fc-8bbd52790de6",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "85df11aa-193c-443a-9028-84481b914356",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "55e5b329-fc4e-40af-bfe3-1c63cd1a4727",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "004fb8f2-cb20-4c92-9609-f27689a22033",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "89e3074d-a146-4011-9ab2-45ca675a43fb",
+          "parentKey": "89e3074d-a146-4011-9ab2-45ca675a43fb",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "2f50e1c2-5f15-4915-8b73-e845e0de6a67",
+            "854bdd8c-65ab-4578-aa31-7e708870176b"
+          ]
+        },
+        {
+          "id": "2f50e1c2-5f15-4915-8b73-e845e0de6a67",
+          "parent": "4fafc5f4-7ae5-402e-a70d-2829cc9ff6d9",
+          "parentKey": "4fafc5f4-7ae5-402e-a70d-2829cc9ff6d9",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "854bdd8c-65ab-4578-aa31-7e708870176b"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "ea8c8967-b09f-46b8-9a9e-85e86993be74"
+        },
+        {
+          "id": "854bdd8c-65ab-4578-aa31-7e708870176b",
+          "parent": "4fafc5f4-7ae5-402e-a70d-2829cc9ff6d9",
+          "parentKey": "4fafc5f4-7ae5-402e-a70d-2829cc9ff6d9",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "2f50e1c2-5f15-4915-8b73-e845e0de6a67"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "ea8c8967-b09f-46b8-9a9e-85e86993be74",
           "name": "Update contact field",
           "type": "update_contact_field",
@@ -5686,8 +6775,8 @@
             ]
           },
           "order": 0,
-          "parent": "89e3074d-a146-4011-9ab2-45ca675a43fb",
-          "parentKey": "89e3074d-a146-4011-9ab2-45ca675a43fb",
+          "parent": "2f50e1c2-5f15-4915-8b73-e845e0de6a67",
+          "parentKey": "2f50e1c2-5f15-4915-8b73-e845e0de6a67",
           "next": "cff12886-bd0b-47f5-9a34-0071261f92ae",
           "advanceCanvasMeta": {
             "position": {
@@ -6765,7 +7854,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 3 de 5.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(ignorou 3 ligações de WhatsApp seguidas)</i><br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -6810,7 +7904,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 3 de 5.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -6839,41 +7938,10 @@
           "order": 1,
           "parent": "bfb3b3ba-ca23-42d0-9cb0-ca69d932df50",
           "parentKey": "dd6ae7d4-2549-46a5-bed3-7597ed6b0603",
-          "next": "abee0589-e970-4ca4-a709-d121d0d97362",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 41200,
-              "y": 0
-            }
-          },
-          "cat": ""
-        },
-        {
-          "id": "abee0589-e970-4ca4-a709-d121d0d97362",
-          "name": "Internal Notification",
-          "type": "internal_notification",
-          "attributes": {
-            "type": "notification",
-            "notification": {
-              "type": "send_notification",
-              "body": "Lead inbound {{contact.name}} aguardando retorno — TI3.",
-              "title": "Lead inbound aguardando retorno",
-              "redirectPage": "contact",
-              "userType": "assign",
-              "assignedOwners": [
-                "contact_owner"
-              ],
-              "alsoNotifyContactFollowers": false,
-              "alsoNotifyOpportunityFollowers": false
-            }
-          },
-          "order": 2,
-          "parent": "bfb3b3ba-ca23-42d0-9cb0-ca69d932df50",
-          "parentKey": "70d0b173-a319-4ec5-b15f-47bfbf2956d5",
           "next": "52063020-172d-4540-8320-d1783de69e4c",
           "advanceCanvasMeta": {
             "position": {
-              "x": 41500,
+              "x": 41200,
               "y": 0
             }
           },
@@ -6900,7 +7968,7 @@
           },
           "order": 3,
           "parent": "bfb3b3ba-ca23-42d0-9cb0-ca69d932df50",
-          "parentKey": "abee0589-e970-4ca4-a709-d121d0d97362",
+          "parentKey": "70d0b173-a319-4ec5-b15f-47bfbf2956d5",
           "next": "1f4204f2-a080-4478-a454-28924355b82c",
           "advanceCanvasMeta": {
             "position": {
@@ -6934,7 +8002,7 @@
         {
           "id": "2d263633-2038-4d7a-8040-da03bdb09330",
           "order": 5,
-          "name": "TI3 · WhatsApp ainda vem primeiro?",
+          "name": "TI3 · WhatsApp rebaixado (3+ sem atender)?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
@@ -7434,7 +8502,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "fc6d255a-8dbd-4c86-b605-f85976305fc0",
+          "next": "6ecceefc-a41b-4039-96ca-631782f612ad",
           "advanceCanvasMeta": {
             "position": {
               "x": 45400,
@@ -7467,6 +8535,281 @@
           }
         },
         {
+          "id": "6ecceefc-a41b-4039-96ca-631782f612ad",
+          "order": 0,
+          "name": "TI3 · Retorno: ainda em CONECTAR?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "ebff34cb-87ef-471b-aaa2-94003fb4bf79",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "5e35a495-d5e1-43f1-8bbc-d94d8b9f11fd",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "907b018d-79b6-4356-83f3-e462f93a5192",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "e7dd44e1-9807-458c-9a19-04a62f526c6e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "b24e4643-add2-4e68-8573-3bdb76cc4e85",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "5fac9c7f-ef3a-4403-aa8f-fe66dbbe3713",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "6770b562-550f-4026-8709-2e1499371a5a",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "6f5cde91-46b9-4a28-aa19-ba083fc8dcf9",
+          "parentKey": "6f5cde91-46b9-4a28-aa19-ba083fc8dcf9",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "ebff34cb-87ef-471b-aaa2-94003fb4bf79",
+            "e0b6e6fc-0617-418d-babb-eadae6862cb6"
+          ]
+        },
+        {
+          "id": "ebff34cb-87ef-471b-aaa2-94003fb4bf79",
+          "parent": "6ecceefc-a41b-4039-96ca-631782f612ad",
+          "parentKey": "6ecceefc-a41b-4039-96ca-631782f612ad",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "e0b6e6fc-0617-418d-babb-eadae6862cb6"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "fc6d255a-8dbd-4c86-b605-f85976305fc0"
+        },
+        {
+          "id": "e0b6e6fc-0617-418d-babb-eadae6862cb6",
+          "parent": "6ecceefc-a41b-4039-96ca-631782f612ad",
+          "parentKey": "6ecceefc-a41b-4039-96ca-631782f612ad",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "ebff34cb-87ef-471b-aaa2-94003fb4bf79"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "fc6d255a-8dbd-4c86-b605-f85976305fc0",
           "name": "Wait 1 Hours",
           "type": "wait",
@@ -7486,8 +8829,8 @@
             "transitions": []
           },
           "order": 0,
-          "parent": "6f5cde91-46b9-4a28-aa19-ba083fc8dcf9",
-          "parentKey": "6f5cde91-46b9-4a28-aa19-ba083fc8dcf9",
+          "parent": "ebff34cb-87ef-471b-aaa2-94003fb4bf79",
+          "parentKey": "ebff34cb-87ef-471b-aaa2-94003fb4bf79",
           "next": "1f597b78-7b58-4be6-be32-5380970bdfbb",
           "advanceCanvasMeta": {
             "position": {
@@ -7768,7 +9111,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "1c8817a9-9ece-4089-a72b-6e917c15187b",
+          "next": "04534f5c-783f-451f-90ea-bcfbc9a3a1f7",
           "advanceCanvasMeta": {
             "position": {
               "x": 48100,
@@ -7801,6 +9144,281 @@
           }
         },
         {
+          "id": "04534f5c-783f-451f-90ea-bcfbc9a3a1f7",
+          "order": 0,
+          "name": "TI3 · Ainda em CONECTAR? (antes do Não atendeu automático)",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "d8fd4d8c-3921-4572-b5e0-922f175ccf0d",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "33a37cf2-c8e9-4ae9-891e-a3db361b0546",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "6401ba42-d6f2-4892-97c3-616c2f06502b",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "b6f573c4-f2ba-48ea-aed9-a5cace6152f0",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "2d864520-87d3-493b-8474-c59d03cd48b0",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "46409208-7dc7-4c3c-9212-876b4083b0b7",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "3d7daaa8-550c-45d4-8e35-55ab0c76665b",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "f17fe18f-5c1a-41dd-b35a-61ce20be6010",
+          "parentKey": "f17fe18f-5c1a-41dd-b35a-61ce20be6010",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "d8fd4d8c-3921-4572-b5e0-922f175ccf0d",
+            "b7bb0825-3633-40c0-8eb7-3ad206572693"
+          ]
+        },
+        {
+          "id": "d8fd4d8c-3921-4572-b5e0-922f175ccf0d",
+          "parent": "04534f5c-783f-451f-90ea-bcfbc9a3a1f7",
+          "parentKey": "04534f5c-783f-451f-90ea-bcfbc9a3a1f7",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "b7bb0825-3633-40c0-8eb7-3ad206572693"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "1c8817a9-9ece-4089-a72b-6e917c15187b"
+        },
+        {
+          "id": "b7bb0825-3633-40c0-8eb7-3ad206572693",
+          "parent": "04534f5c-783f-451f-90ea-bcfbc9a3a1f7",
+          "parentKey": "04534f5c-783f-451f-90ea-bcfbc9a3a1f7",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "d8fd4d8c-3921-4572-b5e0-922f175ccf0d"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "1c8817a9-9ece-4089-a72b-6e917c15187b",
           "name": "Update contact field",
           "type": "update_contact_field",
@@ -7818,8 +9436,8 @@
             ]
           },
           "order": 0,
-          "parent": "f17fe18f-5c1a-41dd-b35a-61ce20be6010",
-          "parentKey": "f17fe18f-5c1a-41dd-b35a-61ce20be6010",
+          "parent": "d8fd4d8c-3921-4572-b5e0-922f175ccf0d",
+          "parentKey": "d8fd4d8c-3921-4572-b5e0-922f175ccf0d",
           "next": "b05f3ed1-8ed5-4ecc-ab54-e6531431d1b9",
           "advanceCanvasMeta": {
             "position": {
@@ -8897,7 +10515,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 4 de 5.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(ignorou 3 ligações de WhatsApp seguidas)</i><br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -8942,7 +10565,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 4 de 5.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -8971,41 +10599,10 @@
           "order": 1,
           "parent": "a8ab8720-6553-44e8-8372-cf9ecc53eb2b",
           "parentKey": "0915492d-e999-4fe4-b69f-aeb8da27c127",
-          "next": "cf925ee2-9658-49cf-8fec-123ab92a35d5",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 54400,
-              "y": 0
-            }
-          },
-          "cat": ""
-        },
-        {
-          "id": "cf925ee2-9658-49cf-8fec-123ab92a35d5",
-          "name": "Internal Notification",
-          "type": "internal_notification",
-          "attributes": {
-            "type": "notification",
-            "notification": {
-              "type": "send_notification",
-              "body": "Lead inbound {{contact.name}} aguardando retorno — TI4.",
-              "title": "Lead inbound aguardando retorno",
-              "redirectPage": "contact",
-              "userType": "assign",
-              "assignedOwners": [
-                "contact_owner"
-              ],
-              "alsoNotifyContactFollowers": false,
-              "alsoNotifyOpportunityFollowers": false
-            }
-          },
-          "order": 2,
-          "parent": "a8ab8720-6553-44e8-8372-cf9ecc53eb2b",
-          "parentKey": "3d521969-be94-457f-a1b9-c155e601b734",
           "next": "3d8b4d0d-9e26-49dd-89a5-0cd31e4b972c",
           "advanceCanvasMeta": {
             "position": {
-              "x": 54700,
+              "x": 54400,
               "y": 0
             }
           },
@@ -9032,7 +10629,7 @@
           },
           "order": 3,
           "parent": "a8ab8720-6553-44e8-8372-cf9ecc53eb2b",
-          "parentKey": "cf925ee2-9658-49cf-8fec-123ab92a35d5",
+          "parentKey": "3d521969-be94-457f-a1b9-c155e601b734",
           "next": "e37c327c-5206-48ef-aed5-ff9de1cda809",
           "advanceCanvasMeta": {
             "position": {
@@ -9066,7 +10663,7 @@
         {
           "id": "6b61a44b-2388-472c-be3e-3ca6a9969f89",
           "order": 5,
-          "name": "TI4 · WhatsApp ainda vem primeiro?",
+          "name": "TI4 · WhatsApp rebaixado (3+ sem atender)?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
@@ -9566,7 +11163,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "132c8523-fd0f-4c42-b003-617183632eff",
+          "next": "f20be795-6556-4722-8e26-4f8caecc8cea",
           "advanceCanvasMeta": {
             "position": {
               "x": 58600,
@@ -9599,6 +11196,281 @@
           }
         },
         {
+          "id": "f20be795-6556-4722-8e26-4f8caecc8cea",
+          "order": 0,
+          "name": "TI4 · Retorno: ainda em CONECTAR?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "7537789a-a695-46ba-9242-9c393cd343ce",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "c286434b-22fe-435e-9180-b8c6c77cfddf",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "326cfc0f-f680-4a9c-96ab-3a0c23f102ad",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "fd6f875e-b167-4271-a72e-6a9ac7e3147f",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "7b25a54c-5278-4154-a7b4-8670c581b2e6",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "a9bd16be-ca0e-4deb-98d8-9c309bcc6fdb",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "95288c41-d89c-4529-887b-7a3df375f6fa",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "9c2496d1-67ed-48c9-b05a-eb1412ce8860",
+          "parentKey": "9c2496d1-67ed-48c9-b05a-eb1412ce8860",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "7537789a-a695-46ba-9242-9c393cd343ce",
+            "bc44491a-e25a-41f0-9436-239ccb919e32"
+          ]
+        },
+        {
+          "id": "7537789a-a695-46ba-9242-9c393cd343ce",
+          "parent": "f20be795-6556-4722-8e26-4f8caecc8cea",
+          "parentKey": "f20be795-6556-4722-8e26-4f8caecc8cea",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "bc44491a-e25a-41f0-9436-239ccb919e32"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "132c8523-fd0f-4c42-b003-617183632eff"
+        },
+        {
+          "id": "bc44491a-e25a-41f0-9436-239ccb919e32",
+          "parent": "f20be795-6556-4722-8e26-4f8caecc8cea",
+          "parentKey": "f20be795-6556-4722-8e26-4f8caecc8cea",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "7537789a-a695-46ba-9242-9c393cd343ce"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "132c8523-fd0f-4c42-b003-617183632eff",
           "name": "Wait 1 Hours",
           "type": "wait",
@@ -9618,8 +11490,8 @@
             "transitions": []
           },
           "order": 0,
-          "parent": "9c2496d1-67ed-48c9-b05a-eb1412ce8860",
-          "parentKey": "9c2496d1-67ed-48c9-b05a-eb1412ce8860",
+          "parent": "7537789a-a695-46ba-9242-9c393cd343ce",
+          "parentKey": "7537789a-a695-46ba-9242-9c393cd343ce",
           "next": "3a72238a-03ff-411a-86a4-1a56789dc62a",
           "advanceCanvasMeta": {
             "position": {
@@ -9900,7 +11772,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "f00523a7-f225-49c9-91b2-5bdbd3131771",
+          "next": "16ff0823-ff61-41c5-9ce9-836eb67ef952",
           "advanceCanvasMeta": {
             "position": {
               "x": 61300,
@@ -9933,6 +11805,281 @@
           }
         },
         {
+          "id": "16ff0823-ff61-41c5-9ce9-836eb67ef952",
+          "order": 0,
+          "name": "TI4 · Ainda em CONECTAR? (antes do Não atendeu automático)",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "64db86f0-a9fe-454e-b083-dbe93c9f1c9f",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "be184c57-4932-43a9-b967-c5a0fdcce1f6",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "d6dd27d3-dd58-4eaa-be76-4feb360d1f09",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "97527405-62b4-4805-85b9-7ba9cc37f418",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "793d1efb-a2d4-41ac-bd24-b9733703a58c",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "2a364b6a-5082-4e83-afcd-b83de2c8edd4",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "12154f40-de61-4bf3-854e-bb94b6621abc",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "441df08a-c5cd-4c1d-b5ea-aef13de57cda",
+          "parentKey": "441df08a-c5cd-4c1d-b5ea-aef13de57cda",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "64db86f0-a9fe-454e-b083-dbe93c9f1c9f",
+            "c2266a95-0edd-43b4-a045-66af89d88c2a"
+          ]
+        },
+        {
+          "id": "64db86f0-a9fe-454e-b083-dbe93c9f1c9f",
+          "parent": "16ff0823-ff61-41c5-9ce9-836eb67ef952",
+          "parentKey": "16ff0823-ff61-41c5-9ce9-836eb67ef952",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "c2266a95-0edd-43b4-a045-66af89d88c2a"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "f00523a7-f225-49c9-91b2-5bdbd3131771"
+        },
+        {
+          "id": "c2266a95-0edd-43b4-a045-66af89d88c2a",
+          "parent": "16ff0823-ff61-41c5-9ce9-836eb67ef952",
+          "parentKey": "16ff0823-ff61-41c5-9ce9-836eb67ef952",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "64db86f0-a9fe-454e-b083-dbe93c9f1c9f"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "f00523a7-f225-49c9-91b2-5bdbd3131771",
           "name": "Update contact field",
           "type": "update_contact_field",
@@ -9950,8 +12097,8 @@
             ]
           },
           "order": 0,
-          "parent": "441df08a-c5cd-4c1d-b5ea-aef13de57cda",
-          "parentKey": "441df08a-c5cd-4c1d-b5ea-aef13de57cda",
+          "parent": "64db86f0-a9fe-454e-b083-dbe93c9f1c9f",
+          "parentKey": "64db86f0-a9fe-454e-b083-dbe93c9f1c9f",
           "next": "d46e861c-a0b3-4edf-ac2f-53d3ffb0e794",
           "advanceCanvasMeta": {
             "position": {
@@ -11029,7 +13176,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 5 de 5.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(ignorou 3 ligações de WhatsApp seguidas)</i><br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -11074,7 +13226,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead inbound: retorno rápido — toque 5 de 5.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu? Converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -11103,41 +13260,10 @@
           "order": 1,
           "parent": "53ede9cb-5600-48b2-b529-459b27b0a77d",
           "parentKey": "358c66d5-2f4e-4bf9-9c38-82c3de69901e",
-          "next": "c43b549b-d11d-42c4-8353-bd08a46943f0",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 67600,
-              "y": 0
-            }
-          },
-          "cat": ""
-        },
-        {
-          "id": "c43b549b-d11d-42c4-8353-bd08a46943f0",
-          "name": "Internal Notification",
-          "type": "internal_notification",
-          "attributes": {
-            "type": "notification",
-            "notification": {
-              "type": "send_notification",
-              "body": "Lead inbound {{contact.name}} aguardando retorno — TI5.",
-              "title": "Lead inbound aguardando retorno",
-              "redirectPage": "contact",
-              "userType": "assign",
-              "assignedOwners": [
-                "contact_owner"
-              ],
-              "alsoNotifyContactFollowers": false,
-              "alsoNotifyOpportunityFollowers": false
-            }
-          },
-          "order": 2,
-          "parent": "53ede9cb-5600-48b2-b529-459b27b0a77d",
-          "parentKey": "4ec0c74c-02f2-498a-a3be-6507615e0a75",
           "next": "45c9cfb5-f232-492b-b691-548cf0870719",
           "advanceCanvasMeta": {
             "position": {
-              "x": 67900,
+              "x": 67600,
               "y": 0
             }
           },
@@ -11164,7 +13290,7 @@
           },
           "order": 3,
           "parent": "53ede9cb-5600-48b2-b529-459b27b0a77d",
-          "parentKey": "c43b549b-d11d-42c4-8353-bd08a46943f0",
+          "parentKey": "4ec0c74c-02f2-498a-a3be-6507615e0a75",
           "next": "bb3c2d58-7cfb-41c6-a124-022a749a4a1e",
           "advanceCanvasMeta": {
             "position": {
@@ -11198,7 +13324,7 @@
         {
           "id": "508a00a3-7514-4130-9f45-4f08c7bdd7c5",
           "order": 5,
-          "name": "TI5 · WhatsApp ainda vem primeiro?",
+          "name": "TI5 · WhatsApp rebaixado (3+ sem atender)?",
           "type": "if_else",
           "cat": "conditions",
           "next": [
@@ -11698,7 +13824,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "59ae7cfb-8c5e-447e-b560-b634bf995f27",
+          "next": "94aad96f-ec9f-48bc-a269-55f1cd7848f1",
           "advanceCanvasMeta": {
             "position": {
               "x": 71800,
@@ -11731,6 +13857,281 @@
           }
         },
         {
+          "id": "94aad96f-ec9f-48bc-a269-55f1cd7848f1",
+          "order": 0,
+          "name": "TI5 · Retorno: ainda em CONECTAR?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "ae7028e9-a047-4017-a156-36f2b29616e0",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "13b4390c-aa40-4007-bb19-ec852c36515d",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "4393f0ac-5a27-46f9-b1b0-b41461fb1792",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "591b6cdd-476d-46c3-9fd7-8206a5b57f67",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "95f4d7a7-4a1e-4f0a-bc14-558c844f9d27",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "c1db0ea6-05db-44d8-b3f9-23457729580f",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "e0ff8cb9-4e5e-4bd2-94a1-d2e88cff240e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "99918b51-a01e-49ed-9718-f7cb17795699",
+          "parentKey": "99918b51-a01e-49ed-9718-f7cb17795699",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "ae7028e9-a047-4017-a156-36f2b29616e0",
+            "324caf1b-fd00-48c3-85d1-da9b0c2115ce"
+          ]
+        },
+        {
+          "id": "ae7028e9-a047-4017-a156-36f2b29616e0",
+          "parent": "94aad96f-ec9f-48bc-a269-55f1cd7848f1",
+          "parentKey": "94aad96f-ec9f-48bc-a269-55f1cd7848f1",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "324caf1b-fd00-48c3-85d1-da9b0c2115ce"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "59ae7cfb-8c5e-447e-b560-b634bf995f27"
+        },
+        {
+          "id": "324caf1b-fd00-48c3-85d1-da9b0c2115ce",
+          "parent": "94aad96f-ec9f-48bc-a269-55f1cd7848f1",
+          "parentKey": "94aad96f-ec9f-48bc-a269-55f1cd7848f1",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "ae7028e9-a047-4017-a156-36f2b29616e0"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "59ae7cfb-8c5e-447e-b560-b634bf995f27",
           "name": "Wait 1 Hours",
           "type": "wait",
@@ -11750,8 +14151,8 @@
             "transitions": []
           },
           "order": 0,
-          "parent": "99918b51-a01e-49ed-9718-f7cb17795699",
-          "parentKey": "99918b51-a01e-49ed-9718-f7cb17795699",
+          "parent": "ae7028e9-a047-4017-a156-36f2b29616e0",
+          "parentKey": "ae7028e9-a047-4017-a156-36f2b29616e0",
           "next": "73e66a91-960a-40b0-b78f-2becfa8e14cd",
           "advanceCanvasMeta": {
             "position": {
@@ -12032,7 +14433,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "71015b51-68ee-4668-a92f-8fb658a5c15c",
+          "next": "26421a87-588a-47ee-8b63-9d84d5b480cd",
           "advanceCanvasMeta": {
             "position": {
               "x": 74500,
@@ -12056,10 +14457,285 @@
           "attributes": {
             "else": true
           },
-          "next": "1ef37d68-ddd8-42bc-9edc-346a27082398",
+          "next": "a1a3563f-c94c-43cb-a24e-11a01352b1fd",
           "advanceCanvasMeta": {
             "position": {
               "x": 74800,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "26421a87-588a-47ee-8b63-9d84d5b480cd",
+          "order": 0,
+          "name": "TI5 · Ainda em CONECTAR? (antes do Não atendeu automático)",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "2596c7d0-c55e-4f22-9d29-d9679676a656",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "92a32a69-a0be-4610-bb46-ed7f53e293a9",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "912c4fff-558f-49e6-b47f-09f2219929bf",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "61df3ee2-f5a9-4324-a9a2-858e35a9ac52",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "406df9e0-d32f-46b8-8a24-e600523243b2",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "455b7be8-e33d-4687-b2de-2d3269463885",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "46b8ebcc-b557-4349-9893-9576b3e51a55",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "eba8e239-d641-441b-9f76-0c700cc8f929",
+          "parentKey": "eba8e239-d641-441b-9f76-0c700cc8f929",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "2596c7d0-c55e-4f22-9d29-d9679676a656",
+            "f5923445-3e22-425c-a6b8-5a3ca4ed1382"
+          ]
+        },
+        {
+          "id": "2596c7d0-c55e-4f22-9d29-d9679676a656",
+          "parent": "26421a87-588a-47ee-8b63-9d84d5b480cd",
+          "parentKey": "26421a87-588a-47ee-8b63-9d84d5b480cd",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "f5923445-3e22-425c-a6b8-5a3ca4ed1382"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "71015b51-68ee-4668-a92f-8fb658a5c15c"
+        },
+        {
+          "id": "f5923445-3e22-425c-a6b8-5a3ca4ed1382",
+          "parent": "26421a87-588a-47ee-8b63-9d84d5b480cd",
+          "parentKey": "26421a87-588a-47ee-8b63-9d84d5b480cd",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "2596c7d0-c55e-4f22-9d29-d9679676a656"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
               "y": 0
             }
           }
@@ -12082,8 +14758,8 @@
             ]
           },
           "order": 0,
-          "parent": "eba8e239-d641-441b-9f76-0c700cc8f929",
-          "parentKey": "eba8e239-d641-441b-9f76-0c700cc8f929",
+          "parent": "2596c7d0-c55e-4f22-9d29-d9679676a656",
+          "parentKey": "2596c7d0-c55e-4f22-9d29-d9679676a656",
           "next": "8ccaa093-d72f-43fa-b14b-4ad5654aa134",
           "advanceCanvasMeta": {
             "position": {
@@ -12134,17 +14810,292 @@
           "cat": ""
         },
         {
+          "id": "a1a3563f-c94c-43cb-a24e-11a01352b1fd",
+          "order": 0,
+          "name": "MIF · Ainda vale mandar?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "46f9e857-69ab-4e58-8cd5-19cc15da5277",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "c214a7c4-1cd3-404e-b35a-c3ee7202ade4",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "pipelineStageId",
+                        "conditionOperator": "==",
+                        "conditionValue": "deb60542-a5cd-43ae-b875-b467b120a72c",
+                        "__conditionId": "8615e6a2-c058-4eed-a2b9-ba23cdefc100",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "opportunities",
+                        "conditionSubType": "status",
+                        "conditionOperator": "==",
+                        "conditionValue": "open",
+                        "__conditionId": "061e3e37-27fa-4192-ba61-cc3d95814084",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "90c5cb29-ecfa-4b45-9992-ffb668a95905",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
+                        "conditionOperator": "!=",
+                        "conditionValue": "Não ligar",
+                        "__conditionId": "c0facf12-496b-416e-8aa3-8564c0eec1e3",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "telefone-invalido"
+                        ],
+                        "__conditionId": "72359eaf-ec24-4bb9-af93-c16f90a61fc9",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "cf854b48-d316-4750-b290-2c9b6b646b99",
+          "parentKey": "cf854b48-d316-4750-b290-2c9b6b646b99",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "next": [
+            "46f9e857-69ab-4e58-8cd5-19cc15da5277",
+            "fa1c0a63-4b43-4db9-8542-bfc4b57cb737"
+          ]
+        },
+        {
+          "id": "46f9e857-69ab-4e58-8cd5-19cc15da5277",
+          "parent": "a1a3563f-c94c-43cb-a24e-11a01352b1fd",
+          "parentKey": "a1a3563f-c94c-43cb-a24e-11a01352b1fd",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "fa1c0a63-4b43-4db9-8542-bfc4b57cb737"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "next": "1ef37d68-ddd8-42bc-9edc-346a27082398"
+        },
+        {
+          "id": "fa1c0a63-4b43-4db9-8542-bfc4b57cb737",
+          "parent": "a1a3563f-c94c-43cb-a24e-11a01352b1fd",
+          "parentKey": "a1a3563f-c94c-43cb-a24e-11a01352b1fd",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "46f9e857-69ab-4e58-8cd5-19cc15da5277"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11500,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "1ef37d68-ddd8-42bc-9edc-346a27082398",
           "name": "WhatsApp · MIF-v2",
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, tentei falar com você algumas vezes nos últimos dias sem sucesso. Vou continuar te procurando — se preferir, me responde por aqui o melhor horário pra eu te ligar.",
+            "body": "Oi, aqui é da O Próximo Cliente. Tentei te ligar algumas vezes nos últimos dias e não consegui falar com você. Se ainda fizer sentido, me responde com o melhor dia e horário pra eu te ligar.",
             "attachments": []
           },
           "order": 0,
-          "parent": "cf854b48-d316-4750-b290-2c9b6b646b99",
-          "parentKey": "cf854b48-d316-4750-b290-2c9b6b646b99",
+          "parent": "46f9e857-69ab-4e58-8cd5-19cc15da5277",
+          "parentKey": "46f9e857-69ab-4e58-8cd5-19cc15da5277",
           "next": "2546a099-5326-4013-91a6-51668bb3b5f6",
           "advanceCanvasMeta": {
             "position": {

@@ -1,0 +1,16 @@
+# Reunião Cancelada  (37ee2c13-3492-4f80-9471-835f3976fd09, 10 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO appointment (ativo=True): appointment.eventType == normal; calendar.id == 3uNQFjCEDe7b4gKZJuOZ; appointment.status == cancelled; contactMode is-any-of ['contact']
+
+[5aa78ccb] TIRA DE: Lembretes da Reunião v3[published], Pós-agendamento v2[published]  «Sai dos lembretes e do pós-agendamento»
+[2691364e] -TAG lr-conf-agora  «Remove Tag»
+[b6224151] SE «Pode receber mensagem?»: tags index-of-false ["nao-perturbe"]
+  SIM:
+    [4f096401] WHATSAPP → lead:
+        │ Oi! Vi que a nossa reunião de diagnóstico foi cancelada. Sem problema — quer que eu te mande outros horários? É só responder aqui.
+    [1b48b4be] TAREFA: [NO-SHOW] Reunião cancelada — remarcar com o lead | O lead cancelou a reunião de diagnóstico. Ligue ou responda no WhatsApp e marque um novo horário no calendário "Reunião com closer". Se ele desistiu, marque a oportunidade como perdida com o motivo. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Tarefa · remarcar»
+    [ed2fd241] NOTA: Reunião cancelada pelo lead · lembretes interrompidos · tarefa de remarcar criada  «Note»
+  NÃO:
+    [a5ec5816] TAREFA: [NO-SHOW] Reunião cancelada — remarcar com o lead | O lead cancelou a reunião de diagnóstico. Ligue ou responda no WhatsApp e marque um novo horário no calendário "Reunião com closer". Se ele desistiu, marque a oportunidade como perdida com o motivo. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Tarefa · remarcar»
+    [15fc912a] NOTA: Reunião cancelada pelo lead · lembretes interrompidos · tarefa de remarcar criada  «Note»

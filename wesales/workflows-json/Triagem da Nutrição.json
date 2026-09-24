@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Triagem da Nutrição",
-    "version": 18,
+    "version": 21,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/18",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F18?alt=media&token=64c57064-01de-4809-8119-dfa8f1b7c3a6",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/21",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F21?alt=media&token=f5b5c895-33f8-4154-9b23-0f8fc2c835ae",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T02:28:04.232Z",
-    "updatedAt": "2026-09-23T21:42:48.915Z",
+    "updatedAt": "2026-09-24T00:04:50.363Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -409,26 +409,6 @@
                         "ifElseNodeId": "",
                         "__customFieldType__": "standard",
                         "isWait": false
-                      },
-                      {
-                        "conditionType": "contact_reply",
-                        "conditionSubType": "message.body",
-                        "conditionOperator": "contain",
-                        "conditionValue": "não quero",
-                        "__conditionId": "2648a496-f6c6-436a-b295-7cafd52d4e45",
-                        "ifElseNodeId": "",
-                        "__customFieldType__": "standard",
-                        "isWait": false
-                      },
-                      {
-                        "conditionType": "contact_reply",
-                        "conditionSubType": "message.body",
-                        "conditionOperator": "contain",
-                        "conditionValue": "nao quero",
-                        "__conditionId": "e2ada6e2-343b-40f3-befa-0859c9d94a65",
-                        "ifElseNodeId": "",
-                        "__customFieldType__": "standard",
-                        "isWait": false
                       }
                     ]
                   }
@@ -539,7 +519,7 @@
           "order": 1,
           "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
           "parentKey": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
-          "next": "f230980a-216a-4c67-8260-bc2130a40d40",
+          "next": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
           "advanceCanvasMeta": {
             "position": {
               "x": 3400,
@@ -547,6 +527,20 @@
             }
           },
           "cat": ""
+        },
+        {
+          "id": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
+          "name": "WhatsApp · TRI-OK3",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Entendido, não vou mais te mandar mensagens. Obrigado pelo retorno!",
+            "attachments": []
+          },
+          "parentKey": "83763403-2f6a-466b-968f-b5c621047985",
+          "parent": "83763403-2f6a-466b-968f-b5c621047985",
+          "order": 2,
+          "next": "f230980a-216a-4c67-8260-bc2130a40d40"
         },
         {
           "id": "f230980a-216a-4c67-8260-bc2130a40d40",
@@ -559,8 +553,8 @@
             "specific_channels": []
           },
           "order": 2,
-          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
-          "parentKey": "83763403-2f6a-466b-968f-b5c621047985",
+          "parent": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
+          "parentKey": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
           "next": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
           "advanceCanvasMeta": {
             "position": {
@@ -742,7 +736,7 @@
             "operator": "or",
             "branches": []
           },
-          "next": "b0641070-8c8d-427d-b821-a5d72e2a8c99",
+          "next": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
           "advanceCanvasMeta": {
             "position": {
               "x": 4900,
@@ -775,27 +769,6 @@
           }
         },
         {
-          "id": "b0641070-8c8d-427d-b821-a5d72e2a8c99",
-          "name": "Remove Tag",
-          "type": "remove_contact_tag",
-          "attributes": {
-            "tags": [
-              "triagem-enviada"
-            ]
-          },
-          "order": 0,
-          "parent": "18db56cc-fc78-450d-9ce9-96be12cce012",
-          "parentKey": "18db56cc-fc78-450d-9ce9-96be12cce012",
-          "next": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
-          "advanceCanvasMeta": {
-            "position": {
-              "x": 5500,
-              "y": 0
-            }
-          },
-          "cat": ""
-        },
-        {
           "id": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
           "name": "Note",
           "type": "add_notes",
@@ -807,14 +780,28 @@
           },
           "order": 1,
           "parent": "18db56cc-fc78-450d-9ce9-96be12cce012",
-          "parentKey": "b0641070-8c8d-427d-b821-a5d72e2a8c99",
+          "parentKey": "18db56cc-fc78-450d-9ce9-96be12cce012",
           "advanceCanvasMeta": {
             "position": {
               "x": 5800,
               "y": 0
             }
           },
-          "cat": ""
+          "cat": "",
+          "next": "7553bed1-d969-400d-8944-b93538f227e2"
+        },
+        {
+          "id": "7553bed1-d969-400d-8944-b93538f227e2",
+          "name": "WhatsApp · TRI-OK2",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Tranquilo! Sigo mandando só uma dica curta a cada 15 dias. Se quiser parar, responde 3.",
+            "attachments": []
+          },
+          "parentKey": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+          "parent": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+          "order": 2
         },
         {
           "id": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
@@ -1088,6 +1075,20 @@
               }
             ]
           },
+          "next": "d92c81e4-c121-4441-9d77-505957241f93"
+        },
+        {
+          "id": "d92c81e4-c121-4441-9d77-505957241f93",
+          "name": "WhatsApp · TRI-OK1",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Combinado! Vou te ligar no próximo horário comercial. Se tiver um horário melhor, me diz aqui.",
+            "attachments": []
+          },
+          "parentKey": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "parent": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "order": 2,
           "next": "a282a31b-9c17-40ba-b850-08946824e4aa"
         },
         {
@@ -1110,8 +1111,8 @@
             }
           },
           "order": 3,
-          "parent": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
-          "parentKey": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "parent": "d92c81e4-c121-4441-9d77-505957241f93",
+          "parentKey": "d92c81e4-c121-4441-9d77-505957241f93",
           "next": "62704529-9311-4eed-8ffc-c1b0c3092c7c",
           "advanceCanvasMeta": {
             "position": {
@@ -1151,7 +1152,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">O lead em nutrição respondeu à triagem com algo que o sistema não entendeu. Leia a conversa: se quer conversar, mova para CONECTAR; se não quer, marque <b>Não ligar</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -1320,7 +1326,7 @@
             "operator": "and",
             "branches": []
           },
-          "next": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
+          "next": "db5c2fce-9add-483f-a9e1-47f48c2d29e6",
           "advanceCanvasMeta": {
             "position": {
               "x": 9700,
@@ -1353,17 +1359,524 @@
           }
         },
         {
+          "id": "db5c2fce-9add-483f-a9e1-47f48c2d29e6",
+          "order": 0,
+          "name": "1ª resposta · Já disse que não tem interesse?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "576dfb6d-9345-4c2d-ad34-83180a64a021",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "4d1963b9-3d45-45cc-ab84-607df8826b64",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "3",
+                        "__conditionId": "b08a8e55-0002-427f-a4bb-79119d54fe7a",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "não tenho interesse",
+                        "__conditionId": "4246bbd5-be3c-4e27-9a52-11c6847afc11",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "nao tenho interesse",
+                        "__conditionId": "87879f53-24a7-4f94-82e0-6a4b6110359e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "sem interesse",
+                        "__conditionId": "9107833a-7211-4666-8bf1-fd4f1a3fa5c7",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      }
+                    ]
+                  }
+                ],
+                "operator": "or",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "or",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          },
+          "next": [
+            "576dfb6d-9345-4c2d-ad34-83180a64a021",
+            "2473951a-d36f-48da-813d-02050e343751"
+          ]
+        },
+        {
+          "id": "576dfb6d-9345-4c2d-ad34-83180a64a021",
+          "parent": "db5c2fce-9add-483f-a9e1-47f48c2d29e6",
+          "parentKey": "db5c2fce-9add-483f-a9e1-47f48c2d29e6",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "2473951a-d36f-48da-813d-02050e343751"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "or",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          },
+          "next": "780940cf-a4bb-4d33-8ff9-e426b7955cb5"
+        },
+        {
+          "id": "780940cf-a4bb-4d33-8ff9-e426b7955cb5",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
+            "type": "goto"
+          },
+          "parentKey": "576dfb6d-9345-4c2d-ad34-83180a64a021",
+          "parent": "576dfb6d-9345-4c2d-ad34-83180a64a021",
+          "order": 1
+        },
+        {
+          "id": "2473951a-d36f-48da-813d-02050e343751",
+          "parent": "db5c2fce-9add-483f-a9e1-47f48c2d29e6",
+          "parentKey": "db5c2fce-9add-483f-a9e1-47f48c2d29e6",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "576dfb6d-9345-4c2d-ad34-83180a64a021"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2800,
+              "y": 0
+            }
+          },
+          "next": "5348c695-7da6-4854-9ac9-4e1f0de55f09"
+        },
+        {
+          "id": "5348c695-7da6-4854-9ac9-4e1f0de55f09",
+          "order": 0,
+          "name": "1ª resposta · Já disse que agora não?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "e36b2912-416f-4fbd-9650-5ef462a41741",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "67ea1123-f1e3-4154-a790-762736c9dcd4",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "2",
+                        "__conditionId": "478a29a1-16ef-4873-8291-3ec70f48b2d2",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "agora não",
+                        "__conditionId": "2514d6f6-c95e-420f-bf5c-001eb8fd3b56",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "agora nao",
+                        "__conditionId": "e6c2c595-82c7-4a7b-bbd2-69a2bef851ac",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "mais pra frente",
+                        "__conditionId": "c2fbcb00-db29-44ed-bbdb-6a13dfffd795",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "mais para frente",
+                        "__conditionId": "70010242-c193-4bff-8791-c32172031597",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "outro momento",
+                        "__conditionId": "2c173617-62b2-4c44-a4bb-e465b1a571b5",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      }
+                    ]
+                  }
+                ],
+                "operator": "or",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "or",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "2473951a-d36f-48da-813d-02050e343751",
+          "parentKey": "2473951a-d36f-48da-813d-02050e343751",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4600,
+              "y": 0
+            }
+          },
+          "next": [
+            "e36b2912-416f-4fbd-9650-5ef462a41741",
+            "060d6124-dac0-43dc-a314-02f0d89d0750"
+          ]
+        },
+        {
+          "id": "e36b2912-416f-4fbd-9650-5ef462a41741",
+          "parent": "5348c695-7da6-4854-9ac9-4e1f0de55f09",
+          "parentKey": "5348c695-7da6-4854-9ac9-4e1f0de55f09",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "060d6124-dac0-43dc-a314-02f0d89d0750"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "or",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4900,
+              "y": 0
+            }
+          },
+          "next": "2d4b7080-4782-469d-b276-375080919ca2"
+        },
+        {
+          "id": "2d4b7080-4782-469d-b276-375080919ca2",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+            "type": "goto"
+          },
+          "parentKey": "e36b2912-416f-4fbd-9650-5ef462a41741",
+          "parent": "e36b2912-416f-4fbd-9650-5ef462a41741",
+          "order": 1
+        },
+        {
+          "id": "060d6124-dac0-43dc-a314-02f0d89d0750",
+          "parent": "5348c695-7da6-4854-9ac9-4e1f0de55f09",
+          "parentKey": "5348c695-7da6-4854-9ac9-4e1f0de55f09",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "e36b2912-416f-4fbd-9650-5ef462a41741"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5200,
+              "y": 0
+            }
+          },
+          "next": "643d4cb0-0ddf-4dee-b14d-90ea77b43190"
+        },
+        {
+          "id": "643d4cb0-0ddf-4dee-b14d-90ea77b43190",
+          "order": 0,
+          "name": "1ª resposta · Já disse que quer conversar?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "a559adfb-cdad-4cc2-a3e5-cfa3de5a15de",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "618c2782-91b2-4d48-b352-8d89fc763986",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "1",
+                        "__conditionId": "f9806b82-d7b4-432f-9069-43726289f314",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "sim",
+                        "__conditionId": "1e9b27b0-05af-4a10-9080-54f6a49476ca",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "Sim",
+                        "__conditionId": "bb31dec9-1baa-4ae7-9b7d-68501fae68f1",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "quero conversar",
+                        "__conditionId": "07c1edb2-d4b2-4acc-a7a7-9c8ce0e15f26",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "tenho interesse",
+                        "__conditionId": "85bb36dd-d53d-460e-bf0e-e46009b36329",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "pode ligar",
+                        "__conditionId": "3d1f4080-138d-4f8f-a778-2adb2f2a6345",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "pode me ligar",
+                        "__conditionId": "3963fa2d-7a4e-421e-92f5-f1d5b8804c9a",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "vamos conversar",
+                        "__conditionId": "6c67ef17-262a-4bbe-a5e4-71462414e401",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      }
+                    ]
+                  }
+                ],
+                "operator": "or",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "or",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "060d6124-dac0-43dc-a314-02f0d89d0750",
+          "parentKey": "060d6124-dac0-43dc-a314-02f0d89d0750",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6100,
+              "y": 0
+            }
+          },
+          "next": [
+            "a559adfb-cdad-4cc2-a3e5-cfa3de5a15de",
+            "703f6fd0-2965-4075-a01f-55352cd193d6"
+          ]
+        },
+        {
+          "id": "a559adfb-cdad-4cc2-a3e5-cfa3de5a15de",
+          "parent": "643d4cb0-0ddf-4dee-b14d-90ea77b43190",
+          "parentKey": "643d4cb0-0ddf-4dee-b14d-90ea77b43190",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "703f6fd0-2965-4075-a01f-55352cd193d6"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "or",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6400,
+              "y": 0
+            }
+          },
+          "next": "5a4d4472-be5b-493c-89f4-cc60ee80de4d"
+        },
+        {
+          "id": "5a4d4472-be5b-493c-89f4-cc60ee80de4d",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "fe62712e-6c37-4207-879b-95071f3d1f40",
+            "type": "goto"
+          },
+          "parentKey": "a559adfb-cdad-4cc2-a3e5-cfa3de5a15de",
+          "parent": "a559adfb-cdad-4cc2-a3e5-cfa3de5a15de",
+          "order": 1
+        },
+        {
+          "id": "703f6fd0-2965-4075-a01f-55352cd193d6",
+          "parent": "643d4cb0-0ddf-4dee-b14d-90ea77b43190",
+          "parentKey": "643d4cb0-0ddf-4dee-b14d-90ea77b43190",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "a559adfb-cdad-4cc2-a3e5-cfa3de5a15de"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6700,
+              "y": 0
+            }
+          },
+          "next": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d"
+        },
+        {
           "id": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
           "name": "WhatsApp · TRI-1-v1",
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "Que bom falar com você, {{contact.first_name}}! Pra eu não te incomodar à toa, me responde só com o número:\n1 — quero conversar sobre trazer mais clientes\n2 — agora não, me chama mais pra frente\n3 — não tenho interesse",
+            "body": "Obrigado pela resposta! Pra eu não te incomodar à toa, responde só com o número:\n1 — quero conversar sobre aproveitar melhor os contatos dos meus anúncios\n2 — agora não, me chama mais pra frente\n3 — não tenho interesse, pode parar",
             "attachments": []
           },
           "order": 0,
-          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
-          "parentKey": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parent": "703f6fd0-2965-4075-a01f-55352cd193d6",
+          "parentKey": "703f6fd0-2965-4075-a01f-55352cd193d6",
           "next": "0e279bd9-8a16-4173-bc24-35824ec80a68",
           "advanceCanvasMeta": {
             "position": {
@@ -1383,7 +1896,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "TRI-1-v1",
+                "value": "TRI-1-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""

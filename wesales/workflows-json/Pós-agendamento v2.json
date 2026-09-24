@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Pós-agendamento v2",
-    "version": 15,
+    "version": 16,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/81815fcc-ff4f-4b72-8a1f-7dbf44ce6911/15",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F81815fcc-ff4f-4b72-8a1f-7dbf44ce6911%2F15?alt=media&token=afce5672-a1ae-43f1-a940-27d19d3d18eb",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/81815fcc-ff4f-4b72-8a1f-7dbf44ce6911/16",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F81815fcc-ff4f-4b72-8a1f-7dbf44ce6911%2F16?alt=media&token=17b5a8b7-42ae-436f-8ed8-6a0f60c7212f",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T11:55:46.614Z",
-    "updatedAt": "2026-09-23T03:42:52.507Z",
+    "updatedAt": "2026-09-23T23:48:48.959Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -184,70 +184,13 @@
           "type": "add_notes",
           "id": "67dba2f3-1493-42de-8d27-41cd05f51b28",
           "name": "Adicionar Nota de qualificação",
-          "next": "43c4ee5e-69b9-4dd3-8df5-dd65938c1c04",
+          "next": "a402e970-80b1-4bb2-9890-016e6ee74963",
           "attributes": {
-            "html": "REUNIÃO AGENDADA · nota {{contact.nota_de_qualificao}}/100 Agendado por: {{user.name}} · Para: {{appointment.start_time}} Empresa: {{contact.empresa}} · Segmento: {{contact.segmento}} Site: {{contact.site}} · IG: {{contact.instagram}} BANT Budget: {{contact.budget}} · Decisor: {{contact.decisor}} · Prazo: {{contact.prazo}} Diagnóstico Clientes novos/mês: {{contact.clientes_novos_por_ms}} Anúncios: {{contact.investe_em_anncios}} · Investimento: {{contact.investimento_mensal_em_anncios}} Plataformas: {{contact.plataformas_de_anncio}} Agência: {{contact.j_teve_agncia}} — {{contact.experincia_com_agncia}} Time: {{contact.tem_time_comercial}} · Atende leads: {{contact.quem_atende_os_leads}} CRM: {{contact.usa_crm}} · Canal principal: {{contact.canal_principal_de_venda}} Dor principal: {{contact.dor_principal}} Preenchido por: {{contact.qualificao}} Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}} conexões, atendeu na T{{contact.tentativa_n}}.",
+            "html": "REUNIÃO AGENDADA · nota {{contact.nota_de_qualificao}}/100 Qualificado por: {{contact.qualificao}} · Para: {{appointment.only_start_date}} às {{appointment.only_start_time}} Empresa: {{contact.empresa}} · Segmento: {{contact.segmento}} Site: {{contact.site}} · IG: {{contact.instagram}} BANT Budget: {{contact.budget}} · Decisor: {{contact.decisor}} · Prazo: {{contact.prazo}} Diagnóstico Clientes novos/mês: {{contact.clientes_novos_por_ms}} Anúncios: {{contact.investe_em_anncios}} · Investimento: {{contact.investimento_mensal_em_anncios}} Plataformas: {{contact.plataformas_de_anncio}} Agência: {{contact.j_teve_agncia}} — {{contact.experincia_com_agncia}} Time: {{contact.tem_time_comercial}} · Atende leads: {{contact.quem_atende_os_leads}} CRM: {{contact.usa_crm}} · Canal principal: {{contact.canal_principal_de_venda}} Dor principal: {{contact.dor_principal}} Preenchido por: {{contact.qualificao}} Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}} conexões, atendeu na T{{contact.tentativa_n}}.",
             "title": "Nota de qualificação",
             "type": "add_notes"
           },
           "order": 4
-        },
-        {
-          "type": "wait",
-          "id": "43c4ee5e-69b9-4dd3-8df5-dd65938c1c04",
-          "name": "Aguardar até 24h antes da reunião",
-          "next": "2e715cb6-a376-4c17-856b-287bd71a1348",
-          "attributes": {
-            "type": "appointment",
-            "convertToMultipath": false,
-            "hybridActionType": "wait",
-            "isHybridAction": true,
-            "name": "Aguardar até 24h antes da reunião",
-            "cat": "action",
-            "transitions": [],
-            "appointmentStartAfter": {
-              "when": "before",
-              "type": "hours",
-              "value": 24,
-              "action_in": 0,
-              "distributed": {
-                "months": 0,
-                "days": 1,
-                "hours": 0,
-                "minutes": 0
-              }
-            },
-            "appointmentCondition": "next",
-            "appointmentSpecificStep": ""
-          },
-          "parentKey": "67dba2f3-1493-42de-8d27-41cd05f51b28",
-          "parent": "c36abc06-7c06-4a6a-93e9-8657d9d2f4d7",
-          "order": 5
-        },
-        {
-          "type": "wait",
-          "id": "2e715cb6-a376-4c17-856b-287bd71a1348",
-          "name": "Aguardar até 3h antes da reunião",
-          "next": "a402e970-80b1-4bb2-9890-016e6ee74963",
-          "attributes": {
-            "type": "time",
-            "convertToMultipath": false,
-            "hybridActionType": "wait",
-            "isHybridAction": true,
-            "name": "Aguardar até 3h antes da reunião",
-            "cat": "action",
-            "transitions": [],
-            "startAfter": {
-              "when": "after",
-              "type": "hour",
-              "value": 3
-            },
-            "timePeriodInputMode": "standard",
-            "unitInputMode": "standard"
-          },
-          "parentKey": "43c4ee5e-69b9-4dd3-8df5-dd65938c1c04",
-          "parent": "c36abc06-7c06-4a6a-93e9-8657d9d2f4d7",
-          "order": 6
         },
         {
           "type": "wait",
@@ -271,7 +214,7 @@
             "appointmentCondition": "next",
             "appointmentSpecificStep": ""
           },
-          "parentKey": "2e715cb6-a376-4c17-856b-287bd71a1348",
+          "parentKey": "67dba2f3-1493-42de-8d27-41cd05f51b28",
           "parent": "c36abc06-7c06-4a6a-93e9-8657d9d2f4d7",
           "order": 7
         },
@@ -307,8 +250,7 @@
         {
           "type": "internal_notification",
           "id": "ade7fb03-8baa-4285-8010-156c000706d1",
-          "name": "Notificação interna ao closer",
-          "next": "eca9b406-6c97-4033-8349-3cb9c3045e16",
+          "name": "Aviso ao closer 30 min antes (briefing)",
           "attributes": {
             "type": "notification",
             "email": null,
@@ -316,8 +258,8 @@
             "userType": "assign",
             "whatsapp": null,
             "notification": {
-              "title": "Reunião Confirmada",
-              "body": "Reunião agendada e confirmada para o contato.\nVerifique os detalhes do compromisso.",
+              "title": "Reunião em 30 min · {{contact.name}} · nota {{contact.nota_de_qualificao}}/100",
+              "body": "{{contact.name}} — {{contact.empresa}}\nHoje às {{appointment.only_start_time}} (60 min) · Link: {{appointment.meeting_location}}\nTel: {{contact.phone}}\nNota: {{contact.nota_de_qualificao}}/100\nInveste em anúncios: {{contact.investe_em_anncios}} · {{contact.investimento_mensal_em_anncios}}\nQuem atende os leads: {{contact.quem_atende_os_leads}}\nDecisor: {{contact.decisor}} · Budget: {{contact.budget}} · Prazo: {{contact.prazo}}\nDor principal: \"{{contact.dor_principal}}\" — comece por ela.\nTrilha: Sim + Dono/Ninguém = ATENDIMENTO · Sim + SDR/Vendedor = PROCESSO · Nunca/Parou = DEMANDA · vazio = GERAL.\nDepois: marque Compareceu/No Show e preencha \"Reunião foi qualificada\" hoje.",
               "redirectPage": "contact",
               "userType": "assign",
               "assignedOwners": [
@@ -332,19 +274,6 @@
           "order": 9
         },
         {
-          "type": "add_notes",
-          "id": "eca9b406-6c97-4033-8349-3cb9c3045e16",
-          "name": "Autoauditoria checklist (nota interna)",
-          "attributes": {
-            "html": "[CHECKLIST DE AUTOAUDITORIA: Confira abaixo se todos os nós estão configurados conforme solicitado. 1 - Find opportunity (pipeline FUNIL DE VENDAS): correto; 2 - Criar/atualizar oportunidade no pipeline/etapa: correto; 3 - Atualizar campo Data agendado: correto; 4 - Remover dos workflows listados: correto; 5 - Nota de qualificação (custom code): correto, campos e critérios conforme orientado; 6 - Atualizar campo Prioridade=5: correto; 7 - Nota de agendamento: correto, com variáveis detalhadas; 8 a 14 - Mensagens e waits WhatsApp: corretas, tempos e textos; 15 - Atribuir usuário: correto; 16 - Notificação interna: correto. Se algum campo/ação estiver incompleto, revisar antes da publicação.",
-            "title": "Checklist de Autoauditoria",
-            "color": "#FEF0C7"
-          },
-          "parentKey": "ade7fb03-8baa-4285-8010-156c000706d1",
-          "parent": "c36abc06-7c06-4a6a-93e9-8657d9d2f4d7",
-          "order": 10
-        },
-        {
           "id": "20681ff4-8812-4a4b-856b-51034cdd5822",
           "name": "Opportunity Not Found",
           "type": "transition",
@@ -357,7 +286,39 @@
           "parentKey": "aa0e10a3-0332-41b4-8479-7ef12dd27993",
           "parent": "aa0e10a3-0332-41b4-8479-7ef12dd27993",
           "cat": "transition",
-          "order": 1
+          "order": 1,
+          "next": "2c993196-777f-49e4-ae49-6b73749511c7"
+        },
+        {
+          "id": "2c993196-777f-49e4-ae49-6b73749511c7",
+          "name": "Sem oportunidade: criar em REUNIÃO DE DIAGNÓSTICO",
+          "type": "create_opportunity",
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "3d26fcd1-220d-49ed-8325-705dfe9055b1",
+            "opportunity_name": "{{contact.name}}",
+            "opportunity_status": "open",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "parentKey": "20681ff4-8812-4a4b-856b-51034cdd5822",
+          "parent": "20681ff4-8812-4a4b-856b-51034cdd5822",
+          "order": 2,
+          "next": "491f5fac-271d-43b3-b774-663bdfaca8f1"
+        },
+        {
+          "id": "491f5fac-271d-43b3-b774-663bdfaca8f1",
+          "name": "Go To",
+          "type": "goto",
+          "attributes": {
+            "targetNodeId": "6a5f65bb-ee4e-4291-9373-de35d3a4c7b0",
+            "type": "goto"
+          },
+          "parentKey": "2c993196-777f-49e4-ae49-6b73749511c7",
+          "parent": "2c993196-777f-49e4-ae49-6b73749511c7",
+          "order": 2
         },
         {
           "id": "13911caf-fecb-4c8f-b7a8-79150462b1f7",
@@ -4250,7 +4211,7 @@
           "name": "Go To",
           "type": "goto",
           "attributes": {
-            "targetNodeId": "83f36ebe-d7e0-4bb1-961f-045fccdd5c8d",
+            "targetNodeId": "67dba2f3-1493-42de-8d27-41cd05f51b28",
             "type": "goto"
           },
           "order": 1,
@@ -4400,7 +4361,7 @@
           "name": "Go To",
           "type": "goto",
           "attributes": {
-            "targetNodeId": "83f36ebe-d7e0-4bb1-961f-045fccdd5c8d",
+            "targetNodeId": "67dba2f3-1493-42de-8d27-41cd05f51b28",
             "type": "goto"
           },
           "order": 1,
@@ -4550,7 +4511,7 @@
           "name": "Go To",
           "type": "goto",
           "attributes": {
-            "targetNodeId": "83f36ebe-d7e0-4bb1-961f-045fccdd5c8d",
+            "targetNodeId": "67dba2f3-1493-42de-8d27-41cd05f51b28",
             "type": "goto"
           },
           "order": 1,
@@ -4700,7 +4661,7 @@
           "name": "Go To",
           "type": "goto",
           "attributes": {
-            "targetNodeId": "83f36ebe-d7e0-4bb1-961f-045fccdd5c8d",
+            "targetNodeId": "67dba2f3-1493-42de-8d27-41cd05f51b28",
             "type": "goto"
           },
           "order": 1,

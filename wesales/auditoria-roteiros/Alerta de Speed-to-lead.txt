@@ -1,0 +1,16 @@
+# Alerta de Speed-to-lead  (0ce8937d-f994-4a5d-9551-442c3299cf03, 11 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.pipelineStageId == CONECTAR
+
+[8e2debfb] SE «É inbound?»: tags index-of-true ["cad-inbound"]
+  SIM:
+    [b80fb680] ESPERA 15 minutes  «Wait 15 Minutes»
+    [c8e86070] VAI PARA → 2586ab6b  «Go To»
+  NÃO:
+    [78d3804d] ESPERA 1 hour  «Wait 1 Hours»
+    [2586ab6b] SE «Ainda sem ligação registrada?»: pipelineStageId == "CONECTAR" AND status == "open" AND Resultado da tentativa has_no_value  AND tags index-of-false ["pausado"]
+      SIM:
+        [3aca552f] +TAG atraso-1a-tentativa  «Add Tag»
+        [557ec820] AVISO INTERNO (notification): {{contact.name}} ({{contact.phone}}) entrou em CONECTAR às {{contact.entrada_em}} e ainda não tem ligação registrada. Ligue agora e marque o Resultado da tentativa.  «Internal Notification»
+      NÃO:

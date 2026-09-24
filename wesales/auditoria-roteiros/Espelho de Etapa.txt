@@ -1,0 +1,45 @@
+# Espelho de Etapa  (2b1667a4-e289-4d27-b6cf-824b93971b32, 36 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO opportunity_status_changed (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.status == open
+GATILHO opportunity_status_changed (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.status == won
+GATILHO opportunity_status_changed (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.status == abandoned
+GATILHO opportunity_status_changed (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.status == lost
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq
+
+[ec212470] -TAG etapa-novo-lead, etapa-conectar, etapa-reuniao, etapa-negociar, etapa-formalizar, status-nutricao, status-perdido, status-ganho, novo-lead-estagnado  «Remove Tag»
+[c9bb3717] SE «Oportunidade aberta?»: status == "open"
+  SIM:
+    [b5b698bb] SE «É NOVO LEAD?»: pipelineStageId == "NOVO LEAD"
+      SIM:
+        [3a78d315] +TAG etapa-novo-lead  «Add Tag»
+      NÃO:
+        [59955269] SE «É CONECTAR?»: pipelineStageId == "CONECTAR"
+          SIM:
+            [3e253903] +TAG etapa-conectar  «Add Tag»
+          NÃO:
+            [0d880973] SE «É REUNIÃO DE DIAGNÓSTICO?»: pipelineStageId == "REUNIÃO DE DIAGNÓSTICO"
+              SIM:
+                [77ce90d9] +TAG etapa-reuniao  «Add Tag»
+              NÃO:
+                [d257bf1c] SE «É NEGOCIAR?»: pipelineStageId == "NEGOCIAR"
+                  SIM:
+                    [34a44b7c] +TAG etapa-negociar  «Add Tag»
+                  NÃO:
+                    [39795ed9] SE «É FORMALIZAR?»: pipelineStageId == "FORMALIZAR"
+                      SIM:
+                        [4fdae2ff] +TAG etapa-formalizar  «Add Tag»
+                      NÃO:
+  NÃO:
+    [9fd99ea5] SE «É abandoned?»: status == "abandoned"
+      SIM:
+        [4e5913fd] +TAG status-nutricao  «Add Tag»
+      NÃO:
+        [e8ba7814] SE «É lost?»: status == "lost"
+          SIM:
+            [b0f82843] +TAG status-perdido  «Add Tag»
+          NÃO:
+            [92f77d82] SE «É won?»: status == "won"
+              SIM:
+                [d57c3e41] +TAG status-ganho  «Add Tag»
+              NÃO:

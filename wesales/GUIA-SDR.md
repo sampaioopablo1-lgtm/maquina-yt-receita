@@ -51,10 +51,10 @@ WhatsApp seguidas: comece pelo telefone.
 |---|---|
 | **Atendeu** | Sai da cadência. Se já marcou a reunião, pronto. Se não marcou, nasce a tarefa **[FECHAR HORÁRIO]** e o sistema tenta mais 2 dias com você. |
 | **Não atendeu** / **Caixa Postal** | Segue a cadência; a próxima tarefa aparece no dia certo. |
-| **Pediu retorno** | A cadência **pausa**. Preencha **Data de retorno** e **Hora do retorno**; ligue no horário e marque o novo resultado. |
-| **Número errado** | O número sai de circulação. Se tiver site/Instagram, o lead vai para a nutrição; se não, é perdido. |
+| **Pediu retorno** | A cadência **pausa**. Preencha **Data de retorno** e **Hora do retorno** *antes* de marcar o resultado: aí nasce a tarefa **[RETORNO] Ligar no horário combinado**. Se esquecer, nasce **[RETORNO] Preencher Data e Hora do retorno**. |
+| **Número errado** | O número sai de circulação e o lead sai das cadências. Se tiver e-mail ou Instagram, fica **abandonado** e você recebe o aviso para achar outro contato; se não, é perdido. |
 | **Não ligar** | O lead é bloqueado para contato (DND) e sai de tudo. |
-| **Desqualificado** | Conversou e não tem fit: sai como perdido, sem agendar. |
+| **Desqualificado** | Conversou e não tem fit: sai das cadências como perdido. **Preencha o Motivo da desqualificação** — sem ele você recebe um aviso, e é esse campo que mostra onde o funil perde. |
 
 **Canal que conectou** (quando atendeu): Ligação WhatsApp, Ligação normal ou
 Mensagem. É assim que a gente descobre qual canal funciona melhor.
@@ -115,3 +115,18 @@ nem etapa sozinho para isso, mesmo parecendo óbvio).
 ## Se algo parecer errado
 
 Não apague nada. Anote o nome do lead e o que aconteceu e avise o gestor.
+
+
+## A "Dor principal" é lida pelo lead
+
+Escreva a **Dor principal** nas palavras do próprio lead, como ele falou
+("os leads chegam e ninguém responde rápido"), nunca como anotação interna
+("dono enrolado", "não responde lead"). Três horas antes da reunião o lead
+recebe: *"Você comentou que o maior desafio hoje é: '…'. É por aí que a gente
+começa."* — e o closer abre a reunião por ela.
+
+## Tarefas vencem às 18:00
+
+Toda tarefa automática vence às 18:00 do dia em que nasce (nunca mais "já
+nasce vencida"). O que ficar aberto de um dia para o outro conta como vencida
+para a trava de 50.

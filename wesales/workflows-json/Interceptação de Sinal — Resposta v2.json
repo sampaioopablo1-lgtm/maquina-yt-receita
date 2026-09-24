@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Interceptação de Sinal — Resposta v2",
-    "version": 9,
+    "version": 10,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/9",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F9?alt=media&token=ab7d3118-f61e-4a97-9c29-3ca9f9b14a83",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/42bfaf59-ba56-455d-bb4c-8ecd39efbcd1/10",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F42bfaf59-ba56-455d-bb4c-8ecd39efbcd1%2F10?alt=media&token=1043b5e1-6045-40d1-bc4c-afde163637f9",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:20:45.605Z",
-    "updatedAt": "2026-09-23T21:42:45.269Z",
+    "updatedAt": "2026-09-24T00:07:11.109Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -1083,7 +1083,7 @@
           "attributes": {
             "type": "whatsapp",
             "whatsapp": {
-              "body": "<p style=\"padding-left: 0px!important;\"><span data-cv-variable=\"contact.first_name\" data-cv-token=\"true\">{{contact.first_name}}</span> respondeu agora fora do fluxo normal. Prioridade 5.",
+              "body": "<p style=\"padding-left: 0px!important;\">{{contact.name}} ({{contact.phone}}) respondeu no WhatsApp agora. Responda ou ligue em até 5 min.</p>",
               "userType": "assign",
               "assignedOwners": [
                 "contact_owner"

@@ -1,0 +1,23 @@
+[
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"36d769f1","op":"set","campo":"tags","valor":["triagem-enviada","reengajamento-ativo","reengajado"]},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"37a0e14d","op":"set","campo":"body","valor":"Oi, aqui é da O Próximo Cliente. Uma dica rápida: lead de anúncio respondido nos primeiros minutos conversa muito mais do que o respondido no dia seguinte. Se hoje o seu time demora, dá pra resolver sem aumentar a verba. Quer que eu te mostre como? Se preferir não receber, responde PARAR."},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"ce3c0f0c","op":"set","campo":"body","valor":"Pergunta rápida da O Próximo Cliente: dos contatos que seus anúncios trouxeram no último mês, quantos viraram conversa de verdade? Se não sabe o número, provavelmente tem dinheiro parado aí. Em 10 minutos a gente enxerga isso juntos — é só responder."},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"8c27d01c","op":"set","campo":"body","valor":"Dica curta: antes de aumentar a verba do anúncio, confira quanto tempo o seu time leva pra responder quem chega. Na maioria das vezes o gargalo está no atendimento, não no anúncio."},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"6d666618","op":"set","campo":"body","valor":"Pouca gente sabe: além dos anúncios, a O Próximo Cliente também pode atender os leads que você já recebe e marcar a reunião ou a visita direto na agenda do seu vendedor. Se isso resolveria um problema aí, me responde que eu te explico. Se preferir não receber, responde PARAR."},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"1075472b","op":"set","campo":"body","valor":"Já testou trocar o \"fale conosco\" do anúncio por uma oferta específica, como um diagnóstico ou um orçamento rápido? Costuma trazer contato mais qualificado. Se quiser, te mostro como ficaria no seu caso."},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"1d41123d","op":"set","campo":"body","valor":"Esta é a minha última mensagem por aqui. Se em algum momento quiser aproveitar melhor os contatos que seus anúncios já trazem, é só responder esta conversa que eu retomo. Sucesso!"},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"bb652428","op":"trocar","de":"N1-v1","para":"N1-v2"},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"1a2c97da","op":"trocar","de":"N2-v1","para":"N2-v2"},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"66462f59","op":"trocar","de":"N3-v1","para":"N3-v2"},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"f7037b8a","op":"trocar","de":"N4-v1","para":"N4-v2"},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"9253dd12","op":"trocar","de":"N5-v1","para":"N5-v2"},
+ {"wf":"Nutrição — WhatsApp a cada 15 dias","no":"24ad2f16","op":"trocar","de":"N6-v1","para":"N6-v2"},
+ {"wf":"Triagem da Nutrição","no":"fd3d4f52","op":"set","campo":"body","valor":"Obrigado pela resposta! Pra eu não te incomodar à toa, responde só com o número:\n1 — quero conversar sobre aproveitar melhor os contatos dos meus anúncios\n2 — agora não, me chama mais pra frente\n3 — não tenho interesse, pode parar"},
+ {"wf":"Triagem da Nutrição","no":"0e279bd9","op":"trocar","de":"TRI-1-v1","para":"TRI-1-v2"},
+ {"wf":"Triagem da Nutrição","no":"d563fd0a","op":"tirar_cond","valores":["não quero","nao quero"]},
+ {"wf":"Triagem da Nutrição","no":"b0641070","op":"remover"},
+ {"wf":"Triagem da Nutrição","no":"7e724760","op":"inserir","tipo":"sms","nome":"WhatsApp · TRI-OK1","texto":"Combinado! Vou te ligar no próximo horário comercial. Se tiver um horário melhor, me diz aqui."},
+ {"wf":"Triagem da Nutrição","no":"1a89207e","op":"inserir","tipo":"sms","nome":"WhatsApp · TRI-OK2","texto":"Tranquilo! Sigo mandando só uma dica curta a cada 15 dias. Se quiser parar, responde 3."},
+ {"wf":"Triagem da Nutrição","no":"83763403","op":"inserir","tipo":"sms","nome":"WhatsApp · TRI-OK3","texto":"Entendido, não vou mais te mandar mensagens. Obrigado pelo retorno!"},
+ {"wf":"Opt-out por Palavra-chave","no":"364a3ccd","op":"add_cond","sub":"message.body","operador":"==","valores":["parar","Parar","PARAR","sair","Sair","SAIR","stop","Stop","STOP"]}
+]

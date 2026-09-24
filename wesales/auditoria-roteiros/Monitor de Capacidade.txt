@@ -1,0 +1,6 @@
+# Monitor de Capacidade  (63cbb270-5fc8-4c04-8c30-e5ebeaa2eb6d, 1 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO scheduler_trigger (ativo=True): scheduler.interval == cron; scheduler.cron.expression == 0 11,15 * * 1-5
+
+[2ead5053] AVISO INTERNO (notification): Capacidade do SDR: no máximo 100 ligações (toques) por dia. Com 50 ou mais tarefas vencidas, o sistema segura sozinho os toques novos da cadência (tag sdr-lotado) até as vencidas caírem abaixo de 50. Confira em Contatos → Smart Lists → "Fila do Dia — Total" e zere as vencidas antes do fim do expedie  «Avisar o gestor para conferir a fila do dia»

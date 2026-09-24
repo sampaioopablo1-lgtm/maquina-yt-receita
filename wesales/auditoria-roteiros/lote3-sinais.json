@@ -1,0 +1,4 @@
+[
+ {"wf":"Interceptação de Sinal — Clique v2","no":"d22830d2","op":"set","campo":"whatsapp.body","valor":"<p style=\"padding-left: 0px!important;\">{{contact.name}} ({{contact.phone}}) clicou no link de agendar agora. Ligue em até 5 min.</p>"},
+ {"wf":"Interceptação de Sinal — Resposta v2","no":"bc860e05","op":"set","campo":"whatsapp.body","valor":"<p style=\"padding-left: 0px!important;\">{{contact.name}} ({{contact.phone}}) respondeu no WhatsApp agora. Responda ou ligue em até 5 min.</p>"}
+]

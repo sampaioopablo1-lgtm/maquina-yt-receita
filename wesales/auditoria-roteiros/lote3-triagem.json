@@ -1,0 +1,5 @@
+[
+ {"wf":"Triagem da Nutrição","no":"fd3d4f52","op":"guardar","doador":"d563fd0a","inverter":true,"sim_vai":"a0fe8430","nome":"1ª resposta · Já disse que não tem interesse?"},
+ {"wf":"Triagem da Nutrição","no":"fd3d4f52","op":"guardar","doador":"011cc75e","inverter":true,"sim_vai":"1a89207e","nome":"1ª resposta · Já disse que agora não?"},
+ {"wf":"Triagem da Nutrição","no":"fd3d4f52","op":"guardar","doador":"fde53848","inverter":true,"sim_vai":"fe62712e","nome":"1ª resposta · Já disse que quer conversar?"}
+]

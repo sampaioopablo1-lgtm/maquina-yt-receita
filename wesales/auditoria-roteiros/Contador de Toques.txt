@@ -1,0 +1,9 @@
+# Contador de Toques  (f0e8a0f8-d18e-4f0e-86ef-75315b5fa616, 4 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO contact_tag (ativo=True): tagsAdded index-of-true toque
+
+[e068b87c] -TAG toque  «Remove Tag»
+[201343b4] CONTA: {"selectField": "c1xuCuLyJheHOQoJ3grH", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "c1xuCuLyJheHOQoJ3grH", "updateFieldType": "nu  «Math operation»
+[5c7cd406] ESPERA 7 days  «Wait 7 Days»
+[200f7977] CONTA: {"selectField": "c1xuCuLyJheHOQoJ3grH", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "c1xuCuLyJheHOQoJ3grH", "updateFieldType": "nu  «Math operation»

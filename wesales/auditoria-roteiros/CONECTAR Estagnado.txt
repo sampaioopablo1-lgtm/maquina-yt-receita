@@ -1,0 +1,25 @@
+# CONECTAR Estagnado  (249232e3-e9e3-4338-8956-5f6ea0776af1, 20 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO contact_changed (ativo=True): contact.qHJGJKZBccASOKkKP8ge == 0
+
+[44c361a8] CAMPO: Checkpoint — Tentativa nº = {{contact.tentativa_n}}  «Update contact field»
+[b59577aa] ESPERA 14 days  «Wait 14 Days»
+[63c7df9f] SE «Ainda em CONECTAR e aberta?»: tags index-of-true ["etapa-conectar"]
+  SIM:
+    [b85c1786] SE «A régua andou?»: Checkpoint Tentativa nº != "{{contact.tentativa_n}}"
+      SIM:
+        [59ccc6aa] -TAG conectar-estagnado  «Remove Tag»
+        [62f9b176] CAMPO: Checkpoint — Tentativa nº = {{contact.tentativa_n}}  «Update contact field»
+        [19e3a694] VAI PARA → b59577aa  «Go To»
+      NÃO:
+        [99116934] SE «Já foi alertado?»: tags index-of-false ["conectar-estagnado"]
+          SIM:
+            [a2fcbf2b] +TAG conectar-estagnado  «Add Tag»
+            [9c876898] AVISO INTERNO (notification): {{contact.name}} está em CONECTAR sem tentativa nova há pelo menos 14 dias. Tentativa nº atual: {{contact.tentativa_n}}.  «Internal Notification»
+            [4d8bfe1e] NOTA: Alerta de saúde: CONECTAR sem avanço em 14 dias · {{right_now}}  «Note»
+            [739a3fa9] CAMPO: Checkpoint — Tentativa nº = {{contact.tentativa_n}}  «Update contact field»
+            [c1660743] VAI PARA → b59577aa  «Go To»
+          NÃO:
+            [93ebedcc] VAI PARA → 739a3fa9  «Go To»
+  NÃO:

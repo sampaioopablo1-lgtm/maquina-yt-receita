@@ -1,0 +1,14 @@
+# Negociação Estagnada  (53334baa-2d3d-40e0-9992-6dafd0c85538, 9 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.pipelineStageId == NEGOCIAR
+
+[54083825] -TAG proposta-pendente, negociacao-estagnada  «Remove Tag»
+[f1b03091] ESPERA 5 days  «Wait 5 Days»
+[5decf899] SE «Ainda em NEGOCIAR e aberta?»: pipelineStageId == "NEGOCIAR" AND status == "open"
+  SIM:
+    [4a6a4de6] +TAG negociacao-estagnada  «Add Tag»
+    [fb7f56d8] AVISO INTERNO (notification): {{contact.name}} está em NEGOCIAR há 5 dias sem ganho nem perda. Cobrar do closer uma decisão.  «Internal Notification»
+    [3dd49d88] TAREFA: [CLOSER] Decidir a negociação | A proposta está em NEGOCIAR há 5 dias sem decisão. Ligue para o lead e registre: fechou (mover para FORMALIZAR + Ganho) ou perdeu (Perdido + motivo). | vence: {'duration': 1, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+    [38a14483] NOTA: NEGOCIAR há 5 dias sem decisão do closer.  «Note»
+  NÃO:

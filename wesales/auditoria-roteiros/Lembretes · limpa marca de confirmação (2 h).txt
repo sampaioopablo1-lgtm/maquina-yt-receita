@@ -1,0 +1,7 @@
+# Lembretes · limpa marca de confirmação (2 h)  (eaedda3f-3845-43f1-8443-90a6c37ffa52, 2 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO contact_tag (ativo=True): tagsAdded index-of-true lr-conf-agora
+
+[fbaf88e0] ESPERA 2 hour  «Wait 2 Hours»
+[ec15f036] -TAG lr-conf-agora  «Remove Tag»

@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Nutrição — WhatsApp a cada 15 dias",
-    "version": 31,
+    "version": 32,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/31",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F31?alt=media&token=e9646e84-bab0-4ad2-b851-3a4580c34baf",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37eb32e4-4c21-4c69-bba1-36879ae0886c/32",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37eb32e4-4c21-4c69-bba1-36879ae0886c%2F32?alt=media&token=93e9f708-5295-4be6-8900-74072a0a29e4",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:33:43.759Z",
-    "updatedAt": "2026-09-23T03:23:36.419Z",
+    "updatedAt": "2026-09-23T23:41:04.220Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -52,7 +52,8 @@
           "attributes": {
             "tags": [
               "triagem-enviada",
-              "reengajamento-ativo"
+              "reengajamento-ativo",
+              "reengajado"
             ]
           },
           "order": 0,
@@ -344,7 +345,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "Oi {{contact.first_name}}, aqui é da O Próximo Cliente. Passando rápido: uma coisa que muda o resultado de anúncio é responder o lead nos primeiros minutos — depois disso a chance de conversar cai muito. Se quiser, te mostro como organizar isso aí. É só responder.",
+            "body": "Oi, aqui é da O Próximo Cliente. Uma dica rápida: lead de anúncio respondido nos primeiros minutos conversa muito mais do que o respondido no dia seguinte. Se hoje o seu time demora, dá pra resolver sem aumentar a verba. Quer que eu te mostre como? Se preferir não receber, responde PARAR.",
             "attachments": []
           },
           "order": 0,
@@ -369,7 +370,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "N1-v1",
+                "value": "N1-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""
@@ -668,7 +669,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, uma pergunta rápida: hoje você sabe quanto custa cada cliente que chega pelos seus anúncios? Se a resposta for \"mais ou menos\", vale uma conversa de 10 minutos. Me responde aqui.",
+            "body": "Pergunta rápida da O Próximo Cliente: dos contatos que seus anúncios trouxeram no último mês, quantos viraram conversa de verdade? Se não sabe o número, provavelmente tem dinheiro parado aí. Em 10 minutos a gente enxerga isso juntos — é só responder.",
             "attachments": []
           },
           "order": 0,
@@ -693,7 +694,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "N2-v1",
+                "value": "N2-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""
@@ -992,7 +993,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, dica curta de tráfego pago: antes de aumentar a verba, confira se quem chega pelo anúncio está sendo atendido no mesmo dia. Muitas vezes o gargalo está aí, não no anúncio.",
+            "body": "Dica curta: antes de aumentar a verba do anúncio, confira quanto tempo o seu time leva pra responder quem chega. Na maioria das vezes o gargalo está no atendimento, não no anúncio.",
             "attachments": []
           },
           "order": 0,
@@ -1017,7 +1018,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "N3-v1",
+                "value": "N3-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""
@@ -1316,7 +1317,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, estou organizando a agenda das próximas semanas. Se trazer mais clientes com anúncio estiver nos seus planos, me responde que eu separo um horário pra você.",
+            "body": "Pouca gente sabe: além dos anúncios, a O Próximo Cliente também pode atender os leads que você já recebe e marcar a reunião ou a visita direto na agenda do seu vendedor. Se isso resolveria um problema aí, me responde que eu te explico. Se preferir não receber, responde PARAR.",
             "attachments": []
           },
           "order": 0,
@@ -1341,7 +1342,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "N4-v1",
+                "value": "N4-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""
@@ -1640,7 +1641,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, você já testou anunciar com uma oferta específica em vez de \"fale conosco\"? Costuma trazer contato mais qualificado. Se quiser trocar uma ideia sobre isso, é só responder.",
+            "body": "Já testou trocar o \"fale conosco\" do anúncio por uma oferta específica, como um diagnóstico ou um orçamento rápido? Costuma trazer contato mais qualificado. Se quiser, te mostro como ficaria no seu caso.",
             "attachments": []
           },
           "order": 0,
@@ -1665,7 +1666,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "N5-v1",
+                "value": "N5-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""
@@ -1964,7 +1965,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, esta é minha última mensagem por aqui por um tempo. Se um dia quiser conversar sobre trazer mais clientes com anúncio, é só me responder — eu retomo de onde paramos.",
+            "body": "Esta é a minha última mensagem por aqui. Se em algum momento quiser aproveitar melhor os contatos que seus anúncios já trazem, é só responder esta conversa que eu retomo. Sucesso!",
             "attachments": []
           },
           "order": 0,
@@ -1989,7 +1990,7 @@
             "fields": [
               {
                 "field": "StguwRaz0AVlQqzaAoFh",
-                "value": "N6-v1",
+                "value": "N6-v2",
                 "title": "Template usado",
                 "type": "text",
                 "date": ""

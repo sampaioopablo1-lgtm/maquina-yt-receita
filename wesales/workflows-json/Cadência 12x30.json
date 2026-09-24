@@ -6,20 +6,20 @@
     "companyAge": 29,
     "name": "Cadência 12x30",
     "status": "published",
-    "version": 33,
+    "version": 35,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c64a808b-3040-431e-8015-642a265e1022/33",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc64a808b-3040-431e-8015-642a265e1022%2F33?alt=media&token=ec1f7615-0aee-4f93-9081-5b7cac9ea12d",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/c64a808b-3040-431e-8015-642a265e1022/35",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fc64a808b-3040-431e-8015-642a265e1022%2F35?alt=media&token=42b213be-ca7b-4cf7-b4b3-e19777b0b56f",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "parentId": null,
     "createdAt": "2026-09-19T02:44:22.215Z",
-    "updatedAt": "2026-09-23T02:55:42.534Z",
+    "updatedAt": "2026-09-23T23:59:44.115Z",
     "deleted": false,
     "allowMultipleOpportunity": false,
     "creationSource": "builder",
@@ -2151,7 +2151,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 1 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT1-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -2196,7 +2201,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 1 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT1-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -2437,7 +2447,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "Oi {{contact.first_name}}, aqui é da O Próximo Cliente. Acabei de tentar te ligar sobre o seu cadastro. Queria te fazer 2 perguntas rápidas sobre como vocês trazem cliente novo hoje. Qual o melhor horário pra eu te ligar: manhã ou tarde?",
+            "body": "Oi! Aqui é da O Próximo Cliente. Tentei te ligar há pouco. Queria te fazer 2 perguntas rápidas sobre como vocês trazem cliente novo hoje. Qual o melhor horário pra eu te ligar: manhã ou tarde?",
             "attachments": []
           },
           "order": 0,
@@ -4485,7 +4495,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 2 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -4530,7 +4545,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 2 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -6553,7 +6573,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 3 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -6598,7 +6623,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 3 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -8621,7 +8651,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 4 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT4-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -8666,7 +8701,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 4 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT4-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -8907,7 +8947,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, tentei te ligar de novo agora. Sei que a rotina é corrida — se preferir, me responde por aqui mesmo: hoje o cliente novo de vocês vem mais de indicação ou de anúncio?",
+            "body": "Oi, tentei te ligar de novo hoje. Sei que a rotina é corrida — se preferir, responde por aqui mesmo: hoje o cliente novo de vocês vem mais de indicação ou de anúncio?",
             "attachments": []
           },
           "order": 0,
@@ -10955,7 +10995,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 5 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -11000,7 +11045,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 5 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -13023,7 +13073,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 6 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -13068,7 +13123,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 6 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }

@@ -1,0 +1,207 @@
+# Lembretes da Reunião v3  (10065adb-aad7-4d12-92df-6941f05d130c, 151 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO appointment (ativo=True): appointment.eventType == normal; calendar.id == 3uNQFjCEDe7b4gKZJuOZ; appointment.status == confirmed; contactMode is-any-of ['contact']
+
+[1caacf99] SE «Confirmação · Pode receber mensagem?»: tags index-of-false ["nao-perturbe"]
+  SIM:
+    [b01ea94e] WHATSAPP → lead:
+        │ Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.
+        │ Link: {{appointment.meeting_location}}
+        │ 
+        │ Na reunião a gente olha o caminho do seu cliente — do anúncio até a venda — e você sai com ajustes que dá pra aplicar na mesma semana. Se precisar remarcar, é só responder aqui.
+    [e3ad223d] +TAG lr-conf-agora  «Add Tag»
+    [82a997ab] E-MAIL → lead | assunto: Reunião confirmada — {{appointment.only_start_date}} às {{appointment.only_start_time}}
+        │ Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.
+        │ Link: {{appointment.meeting_location}}
+        │ Na reunião a gente olha o caminho do seu cliente — do anúncio até a venda — e você sai com ajustes que dá pra aplicar na mesma semana. Se precisar remarcar, é só responder aqui.
+    [13bb0cdd] SE «Trilha · Investe em anúncios?»: Investe em anúncios == "Sim"
+      SIM:
+        [b5187fce] SE «Trilha · Quem atende tem time?»: Quem atende os leads == "SDR" OR Quem atende os leads == "Vendedor"
+          SIM:
+            [415acad4] ESPERA até 4320 minutes before da reunião (skip)  «Aguardar até 3 dias antes da reunião»
+            [c68a933c] SE «3 dias · PROCESSO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+              SIM:
+                [795abe36] WHATSAPP → lead:
+        │ Um ponto pra nossa conversa: quando o lead chega no time, três coisas decidem a venda — a velocidade da primeira resposta, quantas tentativas são feitas e o que fica registrado. Vamos olhar essas três no seu processo.
+                [075dd59a] ESPERA até 1440 minutes before da reunião (skip)  «Aguardar até 1 dia antes da reunião»
+                [80ed09ee] SE «1 dia · PROCESSO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+                  SIM:
+                    [c3588d10] WHATSAPP → lead:
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [82e509f2] E-MAIL → lead | assunto: Nossa reunião: {{appointment.only_start_date}} às {{appointment.only_start_time}}
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [be8f14de] ESPERA até 180 minutes before da reunião (skip)  «Aguardar até 3 h antes da reunião»
+                    [134ae02d] SE «3 h · PROCESSO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                      SIM:
+                        [fe057fbb] SE «H-3 · PROCESSO · SDR preencheu a dor?»: Dor principal has_value 
+                          SIM:
+                            [db1826db] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Você comentou que o maior desafio hoje é: "{{contact.dor_principal}}". É por aí que a gente começa.
+                            [4e1132a7] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [a3f0f402] SE «10 min · PROCESSO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [b85e9c8a] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [de60cfa1] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                          NÃO:
+                            [d6b42f3a] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Além de gerar demanda, a O Próximo Cliente também pode atender esses leads por você e agendar a visita ou a reunião direto na agenda do seu vendedor.
+                            [020c9221] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [e73737c0] SE «10 min · PROCESSO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [5e6f65a4] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [3db172af] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                      NÃO:
+                  NÃO:
+                    [7ee9f55f] VAI PARA → be8f14de  «Go To»
+              NÃO:
+                [fae30c6a] VAI PARA → 075dd59a  «Go To»
+          NÃO:
+            [ba36f34c] ESPERA até 4320 minutes before da reunião (skip)  «Aguardar até 3 dias antes da reunião»
+            [56748afc] SE «3 dias · ATENDIMENTO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+              SIM:
+                [8df54d1d] WHATSAPP → lead:
+        │ Um ponto pra nossa conversa: lead de anúncio esfria rápido. Depois dos primeiros minutos sem resposta, a chance de conversar cai muito. Na reunião vamos ver quanto do que você já investe está se perdendo antes do primeiro contato.
+                [0aacf411] ESPERA até 1440 minutes before da reunião (skip)  «Aguardar até 1 dia antes da reunião»
+                [fba26205] SE «1 dia · ATENDIMENTO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+                  SIM:
+                    [3cce8505] WHATSAPP → lead:
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [a7c110e8] E-MAIL → lead | assunto: Nossa reunião: {{appointment.only_start_date}} às {{appointment.only_start_time}}
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [30a5e9f2] ESPERA até 180 minutes before da reunião (skip)  «Aguardar até 3 h antes da reunião»
+                    [62273420] SE «3 h · ATENDIMENTO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                      SIM:
+                        [674156cb] SE «H-3 · ATENDIMENTO · SDR preencheu a dor?»: Dor principal has_value 
+                          SIM:
+                            [16bbd274] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Você comentou que o maior desafio hoje é: "{{contact.dor_principal}}". É por aí que a gente começa.
+                            [f35829e4] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [daa13dea] SE «10 min · ATENDIMENTO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [98d36b62] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [e4ab69fa] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                          NÃO:
+                            [2d34bd48] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Além de gerar demanda, a O Próximo Cliente também pode atender esses leads por você e agendar a visita ou a reunião direto na agenda do seu vendedor.
+                            [ab0c3544] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [67d9c1ef] SE «10 min · ATENDIMENTO · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [06e4ef2e] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [c1bac335] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                      NÃO:
+                  NÃO:
+                    [d4f62612] VAI PARA → 30a5e9f2  «Go To»
+              NÃO:
+                [dcd82688] VAI PARA → 0aacf411  «Go To»
+      NÃO:
+        [ce0196ad] SE «Trilha · Nunca investiu ou parou?»: Investe em anúncios == "Nunca" OR Investe em anúncios == "Já investiu e parou"
+          SIM:
+            [d81df4c3] ESPERA até 4320 minutes before da reunião (skip)  «Aguardar até 3 dias antes da reunião»
+            [c6cba0d8] SE «3 dias · DEMANDA · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+              SIM:
+                [1e09f108] WHATSAPP → lead:
+        │ Um ponto pra nossa conversa: muito anúncio que "não funcionou" gerou contato, sim — o problema foi o que aconteceu depois do clique. Vamos ver onde o seu funil perde gente antes de você colocar mais dinheiro.
+                [4088cc12] ESPERA até 1440 minutes before da reunião (skip)  «Aguardar até 1 dia antes da reunião»
+                [0f212371] SE «1 dia · DEMANDA · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+                  SIM:
+                    [ba7131c5] WHATSAPP → lead:
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [266ce968] E-MAIL → lead | assunto: Nossa reunião: {{appointment.only_start_date}} às {{appointment.only_start_time}}
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [7e33e6f7] ESPERA até 180 minutes before da reunião (skip)  «Aguardar até 3 h antes da reunião»
+                    [86967fd9] SE «3 h · DEMANDA · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                      SIM:
+                        [56b8d432] SE «H-3 · DEMANDA · SDR preencheu a dor?»: Dor principal has_value 
+                          SIM:
+                            [29bf8e07] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Você comentou que o maior desafio hoje é: "{{contact.dor_principal}}". É por aí que a gente começa.
+                            [8f75b389] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [4ef5f7a9] SE «10 min · DEMANDA · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [f4a9c114] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [ff3d4869] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                          NÃO:
+                            [ab16456c] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. A gente vai falar de gerar demanda qualificada — e de quem atende esse contato quando ele chega. Além de gerar demanda, a O Próximo Cliente também pode atender esses leads por você e agendar a visita ou a reunião direto na agenda do seu vendedor.
+                            [6e6fa2b2] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [0fd8b84b] SE «10 min · DEMANDA · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [8624150f] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [ca57f9cb] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                      NÃO:
+                  NÃO:
+                    [320af7e6] VAI PARA → 7e33e6f7  «Go To»
+              NÃO:
+                [4cad4d92] VAI PARA → 4088cc12  «Go To»
+          NÃO:
+            [50c0fd7f] ESPERA até 4320 minutes before da reunião (skip)  «Aguardar até 3 dias antes da reunião»
+            [0ea12860] SE «3 dias · GERAL · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+              SIM:
+                [6137d10b] WHATSAPP → lead:
+        │ Um ponto pra nossa conversa: na maioria das empresas, o problema não é falta de contato, é o que acontece com ele depois que chega. Vamos olhar isso no seu caso.
+                [506e870e] ESPERA até 1440 minutes before da reunião (skip)  «Aguardar até 1 dia antes da reunião»
+                [f382efc8] SE «1 dia · GERAL · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["lr-conf-agora"]
+                  SIM:
+                    [4cc095fa] WHATSAPP → lead:
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [d0bd4bc3] E-MAIL → lead | assunto: Nossa reunião: {{appointment.only_start_date}} às {{appointment.only_start_time}}
+        │ Pra aproveitar bem a nossa reunião ({{appointment.only_start_date}} às {{appointment.only_start_time}}): pensa em dois números do último mês — quantos contatos chegaram e quantos viraram venda. Só com eles a gente já enxerga onde tem dinheiro parado.
+        │ Link: {{appointment.meeting_location}}
+                    [98150b5a] ESPERA até 180 minutes before da reunião (skip)  «Aguardar até 3 h antes da reunião»
+                    [aa206799] SE «3 h · GERAL · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                      SIM:
+                        [61c4565b] SE «H-3 · GERAL · SDR preencheu a dor?»: Dor principal has_value 
+                          SIM:
+                            [66734cf2] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Você comentou que o maior desafio hoje é: "{{contact.dor_principal}}". É por aí que a gente começa.
+                            [08d8e9bc] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [cf72287a] SE «10 min · GERAL · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [d35fbe39] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [9bb86ca7] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                          NÃO:
+                            [b94fcca3] WHATSAPP → lead:
+        │ Daqui a pouco, às {{appointment.only_start_time}}. Além de gerar demanda, a O Próximo Cliente também pode atender esses leads por você e agendar a visita ou a reunião direto na agenda do seu vendedor.
+                            [3797b382] ESPERA até 10 minutes before da reunião (skip)  «Aguardar até 10 min antes da reunião»
+                            [b6fca2c7] SE «10 min · GERAL · Reunião ainda de pé?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"]
+                              SIM:
+                                [68f11193] WHATSAPP → lead:
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                                [dc87fe99] E-MAIL → lead | assunto: Começamos em 10 minutos
+        │ Começamos em 10 minutos. Link: {{appointment.meeting_location}}
+                              NÃO:
+                      NÃO:
+                  NÃO:
+                    [e0494b0c] VAI PARA → 98150b5a  «Go To»
+              NÃO:
+                [93cb7df8] VAI PARA → 506e870e  «Go To»
+  NÃO:

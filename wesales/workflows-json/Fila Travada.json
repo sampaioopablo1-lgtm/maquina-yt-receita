@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Fila Travada",
-    "version": 7,
+    "version": 8,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/23c33803-c760-49fd-a189-8d1a86bf3d9e/7",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F23c33803-c760-49fd-a189-8d1a86bf3d9e%2F7?alt=media&token=26dac8e4-9de7-4e7a-9733-47f7ebdb0d01",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/23c33803-c760-49fd-a189-8d1a86bf3d9e/8",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F23c33803-c760-49fd-a189-8d1a86bf3d9e%2F8?alt=media&token=d7b46269-82d1-406f-9cfa-2c1a616ba468",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:18:33.646Z",
-    "updatedAt": "2026-09-22T01:42:07.258Z",
+    "updatedAt": "2026-09-23T23:49:02.905Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -28,7 +28,19 @@
     "senderAddress": null,
     "status": "published",
     "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/23c33803-c760-49fd-a189-8d1a86bf3d9e/7",
-    "window": null,
+    "window": {
+      "days": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "startHour": 8,
+      "startMinute": 30,
+      "endHour": 18,
+      "endMinute": 30
+    },
     "workflowNote": null,
     "id": "23c33803-c760-49fd-a189-8d1a86bf3d9e",
     "workflowData": {
@@ -280,7 +292,7 @@
             "type": "notification",
             "notification": {
               "type": "send_notification",
-              "body": "{{contact.name}} está com fila-tel/fila-wa presa desde antes de hoje às 18:30 — o nó 9 da cadência não rodou. Tentativa nº {{contact.tentativa_n}}.",
+              "body": "{{contact.name}}: tarefa de ligação sem resultado registrado há 8 h (T{{contact.tentativa_n}}). Marque o Resultado da tentativa ou avise o gestor.",
               "title": "Fila travada",
               "redirectPage": "contact",
               "selectedUser": "JdvhvOTEBTvUyRi0BXU8",
@@ -304,7 +316,7 @@
           "name": "Note",
           "type": "add_notes",
           "attributes": {
-            "html": "<p style=\"padding-left: 0px!important;\">Alerta de saúde: fila-tel/fila-wa travada, nó 9 não removeu até 18:30 · <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
+            "html": "<p style=\"padding-left: 0px!important;\">Alerta de saúde: fila-tel/fila-wa travada, tarefa de ligação sem resultado registrado há 8 h · <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
             "color": "#FEF0C7",
             "type": "add_notes",
             "title": "Alerta de saúde"

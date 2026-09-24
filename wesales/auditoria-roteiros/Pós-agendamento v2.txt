@@ -1,0 +1,184 @@
+# Pós-agendamento v2  (81815fcc-ff4f-4b72-8a1f-7dbf44ce6911, 179 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO appointment (ativo=True): appointment.eventType == normal; calendar.id == 3uNQFjCEDe7b4gKZJuOZ; appointment.status == confirmed; contactMode is-any-of ['contact']
+
+[aa0e10a3] ACHA OPORTUNIDADE «Find Opportunity in FUNIL DE VENDAS»
+  [c36abc06] RAMO «Opportunity Found»
+  [3172f378] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status open  «Criar/Atualizar Oportunidade em REUNIÃO DE DIAGNÓSTICO»
+  [6a5f65bb] CAMPO: Data agendado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}; Prioridade = 6  «Atualizar campo Data agendado»
+  [30e71e73] TIRA DE: Cadência 12x30[published], Qualificação por IA no WhatsApp[draft], Recuperação de No-show[published], SLA do Closer — No-show[published], Cadência Inbound[published], Nutrição — WhatsApp a cada 15 dias[published], Fechar Horário[published], Cadência 12x30 — parte 2[published]  «Remover dos Workflows Paralelos»
+  [39ad3cf9] CAMPO: Prioridade = 5  «Atualizar Prioridade para 5»
+  [13911caf] CAMPO: Nota de qualificação = 0  «Update contact field»
+  [1753498d] SE «Clientes novos por mês = 10?»: Clientes novos por mês == "10"
+    SIM:
+      [e1cd802c] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+      [9ddbc333] VAI PARA → f754af9b  «Go To»
+    NÃO:
+      [3d9d8d1a] SE «Clientes novos por mês = 11-30?»: Clientes novos por mês == "11-30"
+        SIM:
+          [de2f91db] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+          [c4a11341] VAI PARA → f754af9b  «Go To»
+        NÃO:
+          [98e6605e] SE «Clientes novos por mês = 31-100?»: Clientes novos por mês == "31-100"
+            SIM:
+              [a18344ff] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+              [e9d6f443] VAI PARA → f754af9b  «Go To»
+            NÃO:
+              [d94c1299] SE «Clientes novos por mês = +101?»: Clientes novos por mês == "+101"
+                SIM:
+                  [2d5cd37c] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                  [f315ed35] VAI PARA → f754af9b  «Go To»
+                NÃO:
+                  [f754af9b] SE «Tem time comercial = Só dono?»: Tem time comercial == "Só dono"
+                    SIM:
+                      [f3d7668d] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                      [d9e808df] VAI PARA → 89bf8b99  «Go To»
+                    NÃO:
+                      [54efe2f2] SE «Tem time comercial = 1-5?»: Tem time comercial == "1-5"
+                        SIM:
+                          [07249917] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                          [39cf7b8f] VAI PARA → 89bf8b99  «Go To»
+                        NÃO:
+                          [79454983] SE «Tem time comercial = 6-10?»: Tem time comercial == "6-10"
+                            SIM:
+                              [2b30a57b] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                              [04528d4b] VAI PARA → 89bf8b99  «Go To»
+                            NÃO:
+                              [aeddfb7c] SE «Tem time comercial = +10?»: Tem time comercial == "+10"
+                                SIM:
+                                  [1f8a0140] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                  [eda91c4e] VAI PARA → 89bf8b99  «Go To»
+                                NÃO:
+                                  [89bf8b99] SE «Quem atende os leads = Ninguém fixo?»: Quem atende os leads == "Ninguém fixo"
+                                    SIM:
+                                      [48021859] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                      [6a2b35e8] VAI PARA → 30103ffb  «Go To»
+                                    NÃO:
+                                      [74ab2d45] SE «Quem atende os leads = Dono?»: Quem atende os leads == "Dono"
+                                        SIM:
+                                          [3b148420] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                          [6f9c824e] VAI PARA → 30103ffb  «Go To»
+                                        NÃO:
+                                          [971462f7] SE «Quem atende os leads = Vendedor?»: Quem atende os leads == "Vendedor"
+                                            SIM:
+                                              [2456c8f9] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                              [5e7cbd40] VAI PARA → 30103ffb  «Go To»
+                                            NÃO:
+                                              [5b94af34] SE «Quem atende os leads = SDR?»: Quem atende os leads == "SDR"
+                                                SIM:
+                                                  [9c8f4a6e] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                  [f9db02d0] VAI PARA → 30103ffb  «Go To»
+                                                NÃO:
+                                                  [30103ffb] SE «Investe em anúncios = Sim?»: Investe em anúncios == "Sim"
+                                                    SIM:
+                                                      [63a860cb] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                      [f45c8026] VAI PARA → edb9f4b0  «Go To»
+                                                    NÃO:
+                                                      [b2cb0239] SE «Investe em anúncios = Já investiu e parou?»: Investe em anúncios == "Já investiu e parou"
+                                                        SIM:
+                                                          [0472bea8] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                          [147688f0] VAI PARA → edb9f4b0  «Go To»
+                                                        NÃO:
+                                                          [e69e4ad8] SE «Investe em anúncios = Nunca?»: Investe em anúncios == "Nunca"
+                                                            SIM:
+                                                              [3baa55cc] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                              [773a6646] VAI PARA → edb9f4b0  «Go To»
+                                                            NÃO:
+                                                              [edb9f4b0] SE «Investimento mensal em anúncios = Acima de 10k?»: Investimento mensal em anúncios == "Acima de 10k"
+                                                                SIM:
+                                                                  [132a086e] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                  [5036a326] VAI PARA → abbac97d  «Go To»
+                                                                NÃO:
+                                                                  [4ae24e0e] SE «Investimento mensal em anúncios = 5k a 10k?»: Investimento mensal em anúncios == "5k a 10k"
+                                                                    SIM:
+                                                                      [b22469d5] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                      [27526ea9] VAI PARA → abbac97d  «Go To»
+                                                                    NÃO:
+                                                                      [260464f4] SE «Investimento mensal em anúncios = 1k a 5k?»: Investimento mensal em anúncios == "1k a 5k"
+                                                                        SIM:
+                                                                          [8f6238bc] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                          [68c4f8a1] VAI PARA → abbac97d  «Go To»
+                                                                        NÃO:
+                                                                          [a242208e] SE «Investimento mensal em anúncios = Até 1k?»: Investimento mensal em anúncios == "Até 1k"
+                                                                            SIM:
+                                                                              [8cd534aa] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                              [6fe63279] VAI PARA → abbac97d  «Go To»
+                                                                            NÃO:
+                                                                              [abbac97d] SE «Budget = Tem?»: Budget == "Tem"
+                                                                                SIM:
+                                                                                  [d671b92d] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                  [8e8dcac5] VAI PARA → aee3f293  «Go To»
+                                                                                NÃO:
+                                                                                  [4d942b1a] SE «Budget = Precisa aprovar?»: Budget == "Precisa aprovar"
+                                                                                    SIM:
+                                                                                      [c68e97c8] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                      [7bddb5df] VAI PARA → aee3f293  «Go To»
+                                                                                    NÃO:
+                                                                                      [3169f6fd] SE «Budget = Não tem?»: Budget == "Não tem"
+                                                                                        SIM:
+                                                                                          [859b79e3] VAI PARA → aee3f293  «Go To»
+                                                                                        NÃO:
+                                                                                          [aee3f293] SE «Decisor = Sim?»: Decisor == "Sim"
+                                                                                            SIM:
+                                                                                              [68b72350] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                              [0d1b3518] VAI PARA → be61f327  «Go To»
+                                                                                            NÃO:
+                                                                                              [b071ac07] SE «Decisor = Influencia?»: Decisor == "Influencia"
+                                                                                                SIM:
+                                                                                                  [5540ebab] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                  [d9174dae] VAI PARA → be61f327  «Go To»
+                                                                                                NÃO:
+                                                                                                  [9222e01e] SE «Decisor = Não decide?»: Decisor == "Não decide"
+                                                                                                    SIM:
+                                                                                                      [4215a3e6] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                      [04d9d01f] VAI PARA → be61f327  «Go To»
+                                                                                                    NÃO:
+                                                                                                      [be61f327] SE «Prazo = Pra ontem?»: Prazo == "Pra ontem"
+                                                                                                        SIM:
+                                                                                                          [fe3268e7] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                          [34892680] VAI PARA → 67dba2f3  «Go To»
+                                                                                                        NÃO:
+                                                                                                          [98e96d3a] SE «Prazo = Espera 30 dias?»: Prazo == "Espera 30 dias"
+                                                                                                            SIM:
+                                                                                                              [bff1e043] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                              [4e35a3b7] VAI PARA → 67dba2f3  «Go To»
+                                                                                                            NÃO:
+                                                                                                              [38f12555] SE «Prazo = Este ano?»: Prazo == "Este ano"
+                                                                                                                SIM:
+                                                                                                                  [60799896] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                                  [17e99c9b] VAI PARA → 67dba2f3  «Go To»
+                                                                                                                NÃO:
+                                                                                                                  [7763632f] SE «Prazo = Sem prazo?»: Prazo == "Sem prazo"
+                                                                                                                    SIM:
+                                                                                                                      [462d9163] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                                      [ccce7585] VAI PARA → 67dba2f3  «Go To»
+                                                                                                                    NÃO:
+                                                                                                                      [83f36ebe] SE «Urgência = Pra ontem?»: Urgência == "Pra ontem"
+                                                                                                                        SIM:
+                                                                                                                          [f87ebc52] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                                          [c0cfaa54] VAI PARA → 67dba2f3  «Go To»
+                                                                                                                        NÃO:
+                                                                                                                          [2ff4effb] SE «Urgência = Espera 30 dias?»: Urgência == "Espera 30 dias"
+                                                                                                                            SIM:
+                                                                                                                              [e32521c6] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                                              [75369c1c] VAI PARA → 67dba2f3  «Go To»
+                                                                                                                            NÃO:
+                                                                                                                              [1cd44d9a] SE «Urgência = Este ano?»: Urgência == "Este ano"
+                                                                                                                                SIM:
+                                                                                                                                  [6108221f] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                                                  [efd696be] VAI PARA → 67dba2f3  «Go To»
+                                                                                                                                NÃO:
+                                                                                                                                  [43c48e38] SE «Urgência = Sem prazo?»: Urgência == "Sem prazo"
+                                                                                                                                    SIM:
+                                                                                                                                      [2949248e] CONTA: {"selectField": "FHoXQnLYA8LW5mFzfdIq", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FHoXQnLYA8LW5mFzfdIq", "updateFieldType": "nu  «Math operation»
+                                                                                                                                      [3c050944] VAI PARA → 67dba2f3  «Go To»
+                                                                                                                                    NÃO:
+                                                                                                                                      [c0c525a7] VAI PARA → 67dba2f3  «Go To»
+  [20681ff4] RAMO «Opportunity Not Found»
+  [2c993196] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status open  «Sem oportunidade: criar em REUNIÃO DE DIAGNÓSTICO»
+  [491f5fac] VAI PARA → 6a5f65bb  «Go To»
+[67dba2f3] NOTA: REUNIÃO AGENDADA · nota {{contact.nota_de_qualificao}}/100 Qualificado por: {{contact.qualificao}} · Para: {{appointment.only_start_date}} às {{appointment.only_start_time}} Empresa: {{contact.empresa}} · Segmento: {{contact.segmento}} Site: {{contact.site}} · IG: {{contact.instagram}} BANT Budget:   «Adicionar Nota de qualificação»
+[a402e970] ESPERA até 30 minutes before da reunião (next)  «Aguardar até 30min antes do compromisso»
+[9e2be874] ATRIBUI dono {"only_unassigned_contact": false, "total_index": 1, "traffic_split": "equally", "traffic_weightage": {"JdvhvOTEBTvUyRi0  «Atribuir contato ao dono do horário»
+[ade7fb03] AVISO INTERNO (notification): {{contact.name}} — {{contact.empresa}} / Hoje às {{appointment.only_start_time}} (60 min) · Link: {{appointment.meeting_location}} / Tel: {{contact.phone}} / Nota: {{contact.nota_de_qualificao}}/100 / Investe em anúncios: {{contact.investe_em_anncios}} · {{contact.investimento_mensal_em_anncios}} / Quem atend  «Aviso ao closer 30 min antes (briefing)»

@@ -1,0 +1,17 @@
+# SLA do Closer — No-show  (b83870d3-5d3f-4eec-9447-4be1392c061c, 12 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO appointment (ativo=True): appointment.eventType == normal; calendar.id == 3uNQFjCEDe7b4gKZJuOZ; appointment.status == noshow; contactMode is-any-of ['contact']
+
+[fbff7dea] SE «Em REUNIÃO DE DIAGNÓSTICO e aberta?»: tags index-of-true ["etapa-reuniao"]
+  SIM:
+    [0f0e17ed] SE «Já teve 2 ou mais no-shows?»: Nº de no-shows >= "2"
+      SIM:
+      NÃO:
+        [bffb6418] AVISO INTERNO (notification): {{contact.name}} não compareceu à reunião de {{appointment.start_time}}. A recuperação automática (NS1) já dispara em instantes — se preferir reagendar você mesmo agora, é mais rápido para o lead e evita o SDR ligar à toa.  «Internal Notification»
+        [d8f33fbd] ESPERA 2 hour  «Wait 2 Hours»
+        [110a83aa] SE «Ainda em REUNIÃO DE DIAGNÓSTICO e aberta?»: tags index-of-true ["etapa-reuniao"]
+          SIM:
+            [64210fc5] AVISO INTERNO (notification): Closer não deu retorno em 2h após o no-show de {{contact.name}} ({{appointment.start_time}}) — a recuperação automática (NS1) já está tentando reconectar, mas vale conferir com o closer.  «Internal Notification»
+          NÃO:
+  NÃO:

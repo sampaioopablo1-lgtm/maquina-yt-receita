@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Negociação Estagnada",
-    "version": 7,
+    "version": 8,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/53334baa-2d3d-40e0-9992-6dafd0c85538/7",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F53334baa-2d3d-40e0-9992-6dafd0c85538%2F7?alt=media&token=75997e38-8858-46f5-975b-c66f1b525c3b",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/53334baa-2d3d-40e0-9992-6dafd0c85538/8",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F53334baa-2d3d-40e0-9992-6dafd0c85538%2F8?alt=media&token=c586e299-ff4a-4e11-8bcb-5ed4d0e154a4",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T04:03:50.229Z",
-    "updatedAt": "2026-09-23T04:05:44.875Z",
+    "updatedAt": "2026-09-24T00:00:11.167Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -317,7 +317,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">A proposta está em NEGOCIAR há 5 dias sem decisão. Ligue para o lead e registre: fechou (mover para FORMALIZAR + Ganho) ou perdeu (Perdido + motivo).</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 1,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }

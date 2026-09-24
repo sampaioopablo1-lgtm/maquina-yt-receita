@@ -6,20 +6,20 @@
     "companyAge": 29,
     "name": "Recuperação de No-show",
     "status": "published",
-    "version": 21,
+    "version": 23,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/050052db-5ae8-43fe-8e94-b0f747563d57/21",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F050052db-5ae8-43fe-8e94-b0f747563d57%2F21?alt=media&token=2f628433-57f0-4667-b516-90c5d70b9f4e",
-    "stopOnResponse": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/050052db-5ae8-43fe-8e94-b0f747563d57/23",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F050052db-5ae8-43fe-8e94-b0f747563d57%2F23?alt=media&token=4d3505b5-868b-4ddc-9f1a-b4a2f1582479",
+    "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "parentId": null,
     "createdAt": "2026-09-19T06:36:27.303Z",
-    "updatedAt": "2026-09-23T21:40:40.467Z",
+    "updatedAt": "2026-09-24T00:00:17.432Z",
     "deleted": false,
     "allowMultipleOpportunity": false,
     "creationSource": "workflow_ai",
@@ -332,7 +332,7 @@
           "attributes": {
             "else": true
           },
-          "next": "b14157d9-bc3f-4b86-9585-dfb231cbed73",
+          "next": "a0d5fbb1-1b14-4bb4-82cb-f83e464d3650",
           "advanceCanvasMeta": {
             "position": {
               "x": 2200,
@@ -457,17 +457,224 @@
           "cat": ""
         },
         {
+          "id": "a0d5fbb1-1b14-4bb4-82cb-f83e464d3650",
+          "order": 5,
+          "name": "NS-1 · Pode receber mensagem?",
+          "type": "if_else",
+          "cat": "conditions",
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "5772c03b-48bb-4f51-91ac-65cee61f8689",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "40352163-a3ee-4e38-9536-43bddaa5405a",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "etapa-reuniao"
+                        ],
+                        "__conditionId": "8d5887c4-ec45-4855-bb99-cd70c93ba74d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "3796ac33-d90a-4fbb-8302-5dfbc776389e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "pausado"
+                        ],
+                        "__conditionId": "525127be-7a21-42c5-9f79-c7e88164f67b",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parentKey": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5200,
+              "y": 0
+            }
+          },
+          "next": [
+            "5772c03b-48bb-4f51-91ac-65cee61f8689",
+            "8dc06c68-8d95-4fa8-807c-94b6db09ec96"
+          ]
+        },
+        {
+          "id": "5772c03b-48bb-4f51-91ac-65cee61f8689",
+          "parent": "a0d5fbb1-1b14-4bb4-82cb-f83e464d3650",
+          "parentKey": "a0d5fbb1-1b14-4bb4-82cb-f83e464d3650",
+          "order": 5,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "8dc06c68-8d95-4fa8-807c-94b6db09ec96"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5500,
+              "y": 0
+            }
+          },
+          "next": "b14157d9-bc3f-4b86-9585-dfb231cbed73"
+        },
+        {
+          "id": "8dc06c68-8d95-4fa8-807c-94b6db09ec96",
+          "parent": "a0d5fbb1-1b14-4bb4-82cb-f83e464d3650",
+          "parentKey": "a0d5fbb1-1b14-4bb4-82cb-f83e464d3650",
+          "order": 5,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "5772c03b-48bb-4f51-91ac-65cee61f8689"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5800,
+              "y": 0
+            }
+          }
+        },
+        {
           "id": "b14157d9-bc3f-4b86-9585-dfb231cbed73",
           "name": "WhatsApp · NS-1 (remarcar)",
           "type": "sms",
-          "parent": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
-          "parentKey": "54a5ddc8-9b5c-48bc-81d3-f8bf960aea03",
+          "parent": "5772c03b-48bb-4f51-91ac-65cee61f8689",
+          "parentKey": "5772c03b-48bb-4f51-91ac-65cee61f8689",
           "next": "f2f138a8-7a7a-4d43-98f4-75ce73ca6b16",
           "order": 0,
           "cat": "",
           "attributes": {
             "type": "sms",
-            "body": "Oi {{contact.first_name}}, vi que não conseguimos nos falar no horário combinado — imagino que bateu algum imprevisto! Sem problema nenhum: me responde por aqui com o melhor dia e horário que eu remarco a nossa reunião de diagnóstico pra você.",
+            "body": "Oi! Vi que não conseguimos nos falar no horário combinado — imagino que bateu algum imprevisto. Sem problema: me responde aqui com o melhor dia e horário que eu remarco a nossa reunião de diagnóstico.",
             "attachments": []
           },
           "advanceCanvasMeta": {
@@ -507,7 +714,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead nao compareceu. Tentativa 1 de 3. A mensagem NS-1 (remarcar) já saiu sozinha pelo WhatsApp — não mande de novo; ligue.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -1177,7 +1389,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead nao compareceu. Tentativa 2 de 3.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -1847,7 +2064,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Lead nao compareceu. Tentativa 3 de 3.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }

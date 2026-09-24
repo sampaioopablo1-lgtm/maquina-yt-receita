@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Registro de Comparecimento",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/2bec8c21-7da5-4641-842e-c256360a434e/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F2bec8c21-7da5-4641-842e-c256360a434e%2F6?alt=media&token=4268fb65-c893-4f54-af85-e47450409cab",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/2bec8c21-7da5-4641-842e-c256360a434e/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F2bec8c21-7da5-4641-842e-c256360a434e%2F7?alt=media&token=fd2d70ed-7ccc-4d2d-a799-90c11bd54854",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T00:16:28.243Z",
-    "updatedAt": "2026-09-23T03:42:55.677Z",
+    "updatedAt": "2026-09-23T23:48:57.051Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -239,7 +239,23 @@
               "y": 0
             }
           },
-          "cat": ""
+          "cat": "",
+          "next": "5738b1d7-8b13-461e-aa77-ee61aacc0d25"
+        },
+        {
+          "id": "5738b1d7-8b13-461e-aa77-ee61aacc0d25",
+          "name": "Compareceu: sai da recuperação de no-show",
+          "type": "remove_from_workflow",
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "050052db-5ae8-43fe-8e94-b0f747563d57",
+              "b83870d3-5d3f-4eec-9447-4be1392c061c"
+            ]
+          },
+          "parentKey": "0b89aceb-da0b-4769-a1cf-2652c4dc8c47",
+          "parent": "0b89aceb-da0b-4769-a1cf-2652c4dc8c47",
+          "order": 3
         }
       ]
     },

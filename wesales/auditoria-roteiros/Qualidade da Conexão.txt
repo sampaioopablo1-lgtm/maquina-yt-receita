@@ -1,0 +1,13 @@
+# Qualidade da Conexão  (5fbb2e5d-88f5-4d84-a7ec-4c87c7078198, 8 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO transcript_generated (ativo=True): call_type == call; call_direction == outbound
+
+[22c80ac4] CAMPO: Duração da ligação = {{transcript_generated.call_duration}}  «1. Gravar a duração da ligação»
+[7e9e8f93] CONTA: {"selectField": "JejovPl6Vf0SBtAiVIpw", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "JejovPl6Vf0SBtAiVIpw", "updateFieldType": "nu  «2. Contar +1 ligação com transcrição»
+[64106625] SE «3. A ligação durou 60s ou mais?»: Duração da ligação >= "60"
+  SIM:
+    [f748992e] CAMPO: Conexão real = Sim  «4. Conexão real = Sim (falou 60s ou mais)»
+    [3898ce7a] CONTA: {"selectField": "2BSLMqty4LEwdoyNTdU8", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "2BSLMqty4LEwdoyNTdU8", "updateFieldType": "nu  «6. Contar +1 conexão real no telefone»
+  NÃO:
+    [d36220b5] CAMPO: Conexão real = Não  «5. Conexão real = Não (menos de 60s)»

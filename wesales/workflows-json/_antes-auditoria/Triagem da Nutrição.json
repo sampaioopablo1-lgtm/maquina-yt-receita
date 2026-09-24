@@ -1,0 +1,1525 @@
+{
+  "workflow": {
+    "_id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Triagem da Nutrição",
+    "version": 20,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/e7738b57-b047-4fdb-b3cb-06c72f2ca103/20",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2Fe7738b57-b047-4fdb-b3cb-06c72f2ca103%2F20?alt=media&token=9dd8d9a3-4a4a-460a-bf40-1e0c84500cb3",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-23T02:28:04.232Z",
+    "updatedAt": "2026-09-24T00:00:22.218Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/e7738b57-b047-4fdb-b3cb-06c72f2ca103/17",
+    "window": {
+      "days": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "startHour": 8,
+      "startMinute": 30,
+      "endHour": 18,
+      "endMinute": 30
+    },
+    "workflowNote": null,
+    "id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "order": 0,
+          "name": "Está em nutrição?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+            "497f8c02-c54b-419c-9757-364b639af998"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1f7ea9d3-3804-4bed-b3ca-89527807f1ce",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "status-nutricao"
+                        ],
+                        "__conditionId": "029420b6-fb4f-410c-b54e-80d56104c3e0",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      },
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "fcfe5114-7fa9-45f2-b4b0-6f9f8f693448",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+          "parent": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "parentKey": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "497f8c02-c54b-419c-9757-364b639af998"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "497f8c02-c54b-419c-9757-364b639af998",
+          "parent": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "parentKey": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "5dfd2342-904d-4ec6-a804-52d0a9a05639"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "order": 0,
+          "name": "Já recebeu a triagem?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "3547732b-370d-4db2-947a-597dd76b7a38",
+            "70609ac8-1d51-4fd9-bcd7-7403f5fc6593"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "3547732b-370d-4db2-947a-597dd76b7a38",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "5095ee11-5172-40ec-9518-567383f6e343",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-true",
+                        "conditionValue": [
+                          "triagem-enviada"
+                        ],
+                        "__conditionId": "e3364430-7faa-4d30-b232-a36c7d17ad9e",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+          "parentKey": "5dfd2342-904d-4ec6-a804-52d0a9a05639",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "3547732b-370d-4db2-947a-597dd76b7a38",
+          "parent": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "parentKey": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "70609ac8-1d51-4fd9-bcd7-7403f5fc6593"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parent": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "parentKey": "6be640f3-ff56-4ece-a9a1-c480aab9087c",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "3547732b-370d-4db2-947a-597dd76b7a38"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "b83b545b-4efe-4bac-adc8-d5eb3cdb637f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "order": 0,
+          "name": "Sem interesse?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+            "e3b3104f-069e-4608-889f-2ba555b7bbba"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "e52b26b9-11d3-4ee4-8cb0-a0596b433bd5",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "3",
+                        "__conditionId": "d31cc5ce-43ad-4ff9-9f59-d5818589187b",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "não tenho interesse",
+                        "__conditionId": "39a23c3b-bda2-4ffa-8ed2-eab5c8410a72",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "nao tenho interesse",
+                        "__conditionId": "900e9b3b-4271-45df-963d-df84a98cad75",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "sem interesse",
+                        "__conditionId": "209e6bf2-e10a-4d9f-ae83-a84e381949af",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      }
+                    ]
+                  }
+                ],
+                "operator": "or",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "or",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "3547732b-370d-4db2-947a-597dd76b7a38",
+          "parentKey": "3547732b-370d-4db2-947a-597dd76b7a38",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parent": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "parentKey": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "e3b3104f-069e-4608-889f-2ba555b7bbba"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "or",
+            "branches": []
+          },
+          "next": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "e3b3104f-069e-4608-889f-2ba555b7bbba",
+          "parent": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "parentKey": "d563fd0a-1a40-40fe-baa9-988ae97b0404",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "a6fd0239-35f1-41d1-9c36-47f31e05ce6c"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2800,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "nao-perturbe"
+            ]
+          },
+          "order": 0,
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "next": "83763403-2f6a-466b-968f-b5c621047985",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3100,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "83763403-2f6a-466b-968f-b5c621047985",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "triagem-enviada",
+              "nutricao-90d",
+              "reengajamento-ativo"
+            ]
+          },
+          "order": 1,
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "a0fe8430-b801-4ba3-ac51-75a9efb9a158",
+          "next": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
+          "name": "WhatsApp · TRI-OK3",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Entendido, não vou mais te mandar mensagens. Obrigado pelo retorno!",
+            "attachments": []
+          },
+          "parentKey": "83763403-2f6a-466b-968f-b5c621047985",
+          "parent": "83763403-2f6a-466b-968f-b5c621047985",
+          "order": 2,
+          "next": "f230980a-216a-4c67-8260-bc2130a40d40"
+        },
+        {
+          "id": "f230980a-216a-4c67-8260-bc2130a40d40",
+          "name": "Set Contact DND",
+          "type": "dnd_contact",
+          "attributes": {
+            "type": "dnd_contact",
+            "dnd_direction": "outbound",
+            "dnd_contact": "enable",
+            "specific_channels": []
+          },
+          "order": 2,
+          "parent": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
+          "parentKey": "878b1c1f-d1d4-4884-959b-11dd9eaf3e3e",
+          "next": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
+          "name": "Oportunidade → lost",
+          "type": "create_opportunity",
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "{{contact.name}}",
+            "opportunity_status": "lost",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "order": 3,
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "f230980a-216a-4c67-8260-bc2130a40d40",
+          "next": "2e0f7368-871a-4e71-be2c-c0b0ab08a2ac",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4000,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "2e0f7368-871a-4e71-be2c-c0b0ab08a2ac",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Respondeu à triagem: não tem interesse. Lead desligado (DND, nao-perturbe, perdido).</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Nutrição"
+          },
+          "order": 4,
+          "parent": "a6fd0239-35f1-41d1-9c36-47f31e05ce6c",
+          "parentKey": "0f33c2aa-d8ec-43c7-9594-0f4cdcc8169e",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "order": 0,
+          "name": "Agora não?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "18db56cc-fc78-450d-9ce9-96be12cce012",
+            "132be0ce-e569-4784-87a4-5c73dd59bd2e"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "18db56cc-fc78-450d-9ce9-96be12cce012",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "e593095f-4c32-4052-bb0f-6591a22e00f9",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "2",
+                        "__conditionId": "587abb54-bec7-4649-b6c4-1e6c45e7cdef",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "agora não",
+                        "__conditionId": "b442ce3d-4ec4-473f-a32c-f112e33d8bcb",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "agora nao",
+                        "__conditionId": "191a654d-b11e-4824-8a66-d777480d1dfa",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "mais pra frente",
+                        "__conditionId": "de4e1fff-2932-4832-9166-9e7945d70276",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "mais para frente",
+                        "__conditionId": "331f7947-11e9-4b6b-b697-cd8839eb9d87",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "outro momento",
+                        "__conditionId": "997d2b9a-e9b9-47e5-b513-149f5c628587",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      }
+                    ]
+                  }
+                ],
+                "operator": "or",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "or",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "e3b3104f-069e-4608-889f-2ba555b7bbba",
+          "parentKey": "e3b3104f-069e-4608-889f-2ba555b7bbba",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "parent": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "parentKey": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "132be0ce-e569-4784-87a4-5c73dd59bd2e"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "or",
+            "branches": []
+          },
+          "next": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 4900,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "132be0ce-e569-4784-87a4-5c73dd59bd2e",
+          "parent": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "parentKey": "011cc75e-f543-4c84-95e5-8b8eab000c4f",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "18db56cc-fc78-450d-9ce9-96be12cce012"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5200,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Respondeu à triagem: agora não. Segue na nutrição.</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Nutrição"
+          },
+          "order": 1,
+          "parent": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "parentKey": "18db56cc-fc78-450d-9ce9-96be12cce012",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 5800,
+              "y": 0
+            }
+          },
+          "cat": "",
+          "next": "7553bed1-d969-400d-8944-b93538f227e2"
+        },
+        {
+          "id": "7553bed1-d969-400d-8944-b93538f227e2",
+          "name": "WhatsApp · TRI-OK2",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Tranquilo! Sigo mandando só uma dica curta a cada 15 dias. Se quiser parar, responde 3.",
+            "attachments": []
+          },
+          "parentKey": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+          "parent": "1a89207e-deb7-479c-86b3-dceb8b4c366a",
+          "order": 2
+        },
+        {
+          "id": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "order": 0,
+          "name": "Quer conversar?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+            "a7611d61-4c87-4c94-b453-44ad492b4845"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "29004589-8bad-4d20-aa80-b56e59f42b72",
+                    "operator": "or",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "1",
+                        "__conditionId": "cea98c05-36fd-453b-be8b-44ba889367c1",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "sim",
+                        "__conditionId": "f4f72408-7d16-428c-be31-d08ccbe29464",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "==",
+                        "conditionValue": "Sim",
+                        "__conditionId": "fa6c2691-3452-4933-9a5b-d6182d2f63bf",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "quero conversar",
+                        "__conditionId": "2670c53f-99d3-4aa9-9f1b-5f650506e732",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "tenho interesse",
+                        "__conditionId": "e5a6626e-93dd-4f6b-87a8-38edaff8043d",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "pode ligar",
+                        "__conditionId": "789ec432-3bbe-4903-9292-db0ed7687fb2",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "pode me ligar",
+                        "__conditionId": "93156845-3902-4975-a6e1-831c38f1be45",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      },
+                      {
+                        "conditionType": "contact_reply",
+                        "conditionSubType": "message.body",
+                        "conditionOperator": "contain",
+                        "conditionValue": "vamos conversar",
+                        "__conditionId": "a8ae93b7-5a16-4854-8261-887522e32034",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false
+                      }
+                    ]
+                  }
+                ],
+                "operator": "or",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "or",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "132be0ce-e569-4784-87a4-5c73dd59bd2e",
+          "parentKey": "132be0ce-e569-4784-87a4-5c73dd59bd2e",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6100,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parent": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "parentKey": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "a7611d61-4c87-4c94-b453-44ad492b4845"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "or",
+            "branches": []
+          },
+          "next": "fe62712e-6c37-4207-879b-95071f3d1f40",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "a7611d61-4c87-4c94-b453-44ad492b4845",
+          "parent": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "parentKey": "fde53848-9fb8-4e12-afc9-c5f655cf019e",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "369debf4-aa7a-4a9b-9b41-a75a9526c4f3"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "1b8b8a2a-0a32-402c-808e-f2147ad5af46",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 6700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "fe62712e-6c37-4207-879b-95071f3d1f40",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "triagem-enviada",
+              "nutricao-90d",
+              "status-nutricao",
+              "reengajamento-ativo",
+              "cad-inbound",
+              "cad-outbound"
+            ]
+          },
+          "order": 0,
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "next": "882b979e-cdb0-4167-81df-5d91e493a014",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7000,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "882b979e-cdb0-4167-81df-5d91e493a014",
+          "name": "Oportunidade → open",
+          "type": "create_opportunity",
+          "attributes": {
+            "fields": [],
+            "type": "create_opportunity",
+            "pipeline_id": "0Fo2xbeayE4EP6yuSUtq",
+            "pipeline_stage_id": "deb60542-a5cd-43ae-b875-b467b120a72c",
+            "opportunity_name": "{{contact.name}}",
+            "opportunity_status": "open",
+            "opportunity_source": "",
+            "monetary_value": ""
+          },
+          "order": 1,
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "fe62712e-6c37-4207-879b-95071f3d1f40",
+          "next": "be530dec-1f77-4aa8-922f-b79c4c0be097",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "be530dec-1f77-4aa8-922f-b79c4c0be097",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "reengajado",
+              "etapa-conectar",
+              "cad-outbound"
+            ]
+          },
+          "order": 2,
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "882b979e-cdb0-4167-81df-5d91e493a014",
+          "next": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "parent": "be530dec-1f77-4aa8-922f-b79c4c0be097",
+          "parentKey": "be530dec-1f77-4aa8-922f-b79c4c0be097",
+          "order": 1,
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "TxJmoWdkA8rTqC1uEsMW",
+                "value": "Mensagem",
+                "title": "Canal que conectou",
+                "type": "select",
+                "date": ""
+              }
+            ]
+          },
+          "next": "d92c81e4-c121-4441-9d77-505957241f93"
+        },
+        {
+          "id": "d92c81e4-c121-4441-9d77-505957241f93",
+          "name": "WhatsApp · TRI-OK1",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Combinado! Vou te ligar no próximo horário comercial. Se tiver um horário melhor, me diz aqui.",
+            "attachments": []
+          },
+          "parentKey": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "parent": "7e724760-9ea4-4420-b7b8-fa06fe61b072",
+          "order": 2,
+          "next": "a282a31b-9c17-40ba-b850-08946824e4aa"
+        },
+        {
+          "id": "a282a31b-9c17-40ba-b850-08946824e4aa",
+          "name": "Internal Notification",
+          "type": "internal_notification",
+          "attributes": {
+            "type": "notification",
+            "notification": {
+              "type": "send_notification",
+              "body": "{{contact.name}} respondeu à nutrição que quer conversar e voltou para CONECTAR — a cadência 12x30 já criou o 1º toque.",
+              "title": "Lead reengajado pela nutrição",
+              "redirectPage": "contact",
+              "userType": "assign",
+              "assignedOwners": [
+                "contact_owner"
+              ],
+              "alsoNotifyContactFollowers": false,
+              "alsoNotifyOpportunityFollowers": false
+            }
+          },
+          "order": 3,
+          "parent": "d92c81e4-c121-4441-9d77-505957241f93",
+          "parentKey": "d92c81e4-c121-4441-9d77-505957241f93",
+          "next": "62704529-9311-4eed-8ffc-c1b0c3092c7c",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 7900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "62704529-9311-4eed-8ffc-c1b0c3092c7c",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Respondeu à triagem: quer conversar. Voltou para CONECTAR e para a cadência 12x30.</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Nutrição"
+          },
+          "order": 4,
+          "parent": "369debf4-aa7a-4a9b-9b41-a75a9526c4f3",
+          "parentKey": "a282a31b-9c17-40ba-b850-08946824e4aa",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "1b8b8a2a-0a32-402c-808e-f2147ad5af46",
+          "name": "Add Task",
+          "type": "task-notification",
+          "attributes": {
+            "title": "[SINAL] Nutrição: respondeu — ler a mensagem e decidir",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">O lead em nutrição respondeu à triagem com algo que o sistema não entendeu. Leia a conversa: se quer conversar, mova para CONECTAR; se não quer, marque <b>Não ligar</b>.</p>",
+            "assignedTo": "contact.assigned_user",
+            "type": "task_notification",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
+            "__customInputs__": {
+              "dueDate": "duration-picker"
+            }
+          },
+          "order": 0,
+          "parent": "a7611d61-4c87-4c94-b453-44ad492b4845",
+          "parentKey": "a7611d61-4c87-4c94-b453-44ad492b4845",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8500,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "b83b545b-4efe-4bac-adc8-d5eb3cdb637f",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "triagem-enviada"
+            ]
+          },
+          "order": 0,
+          "parent": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parentKey": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "next": "5bae0eb7-00a7-4e7b-b39b-415ae9b2cc62",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 8800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "5bae0eb7-00a7-4e7b-b39b-415ae9b2cc62",
+          "name": "Wait 2 Minutes",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "minutes",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Minutes",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "order": 1,
+          "parent": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parentKey": "b83b545b-4efe-4bac-adc8-d5eb3cdb637f",
+          "next": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 9100,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "order": 2,
+          "name": "Triagem · Não pediu para parar?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+            "d0d3109a-5901-420a-8ff6-5fcb8be467f9"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1f2da875-57c9-45b3-93c3-baee941ac24a",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "03c8e9de-7376-480e-9138-7adb78f9dbe5",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parent": "70609ac8-1d51-4fd9-bcd7-7403f5fc6593",
+          "parentKey": "5bae0eb7-00a7-4e7b-b39b-415ae9b2cc62",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 9400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parent": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "parentKey": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "order": 3,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "d0d3109a-5901-420a-8ff6-5fcb8be467f9"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 9700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "d0d3109a-5901-420a-8ff6-5fcb8be467f9",
+          "parent": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "parentKey": "0c45b76a-0524-482e-8571-e371a6a737c4",
+          "order": 3,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "67031b10-18c8-40ec-9c88-ff0dfb99effc"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "b42965b0-4a45-4c25-991b-380071635347",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
+          "name": "WhatsApp · TRI-1-v1",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "body": "Obrigado pela resposta! Pra eu não te incomodar à toa, responde só com o número:\n1 — quero conversar sobre aproveitar melhor os contatos dos meus anúncios\n2 — agora não, me chama mais pra frente\n3 — não tenho interesse, pode parar",
+            "attachments": []
+          },
+          "order": 0,
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "next": "0e279bd9-8a16-4173-bc24-35824ec80a68",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "0e279bd9-8a16-4173-bc24-35824ec80a68",
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "StguwRaz0AVlQqzaAoFh",
+                "value": "TRI-1-v2",
+                "title": "Template usado",
+                "type": "text",
+                "date": ""
+              }
+            ]
+          },
+          "order": 1,
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "fd3d4f52-c0f8-47c3-a36b-ad4eb982888d",
+          "next": "3b24dcfb-17e8-4326-8711-fc7663427ac5",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "3b24dcfb-17e8-4326-8711-fc7663427ac5",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Lead respondeu à nutrição — triagem enviada.</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Nutrição"
+          },
+          "order": 2,
+          "parent": "67031b10-18c8-40ec-9c88-ff0dfb99effc",
+          "parentKey": "0e279bd9-8a16-4173-bc24-35824ec80a68",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 10900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "b42965b0-4a45-4c25-991b-380071635347",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "triagem-enviada"
+            ]
+          },
+          "order": 0,
+          "parent": "d0d3109a-5901-420a-8ff6-5fcb8be467f9",
+          "parentKey": "d0d3109a-5901-420a-8ff6-5fcb8be467f9",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 11200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "CDEGvjwSodmsv99JYpgJ",
+      "date_added": "2026-09-23T02:28:05.785Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
+          "type": "add_to_workflow"
+        }
+      ],
+      "type": "customer_reply",
+      "masterType": "highlevel",
+      "workflow_id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "name": "Cliente Respondeu",
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "message.type",
+          "value": 19,
+          "title": "Canal de resposta",
+          "type": "select"
+        }
+      ],
+      "targetActionId": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+      "date_updated": "2026-09-23T03:24:05.904Z",
+      "active": true
+    },
+    {
+      "id": "tOY951puDH3mv8TiY2oz",
+      "date_added": "2026-09-23T02:28:05.065Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
+          "type": "add_to_workflow"
+        }
+      ],
+      "type": "customer_reply",
+      "masterType": "highlevel",
+      "workflow_id": "e7738b57-b047-4fdb-b3cb-06c72f2ca103",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "targetActionId": "430c607b-c27d-45ec-8e47-5dffd32cc6c7",
+      "name": "Cliente Respondeu — qualquer canal (Stevo)",
+      "conditions": [],
+      "date_updated": "2026-09-23T03:24:05.960Z",
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+# Cadência 12x30  (c64a808b-3040-431e-8015-642a265e1022, 381 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: True
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.pipelineStageId == CONECTAR
+GATILHO contact_tag (ativo=True): tagsAdded index-of-true cad-outbound
+
+[545d6ed9] SE «É lead de outra régua?»: tags index-of-true ["cad-inbound"] OR tags index-of-true ["reengajamento-ativo"]
+  SIM:
+  NÃO:
+    [4d578da0] SE «Contato sem telefone?»: phone has_no_value 
+      SIM:
+        [a191eb8b] +TAG telefone-invalido  «Add Tag»
+        [211e6316] SE «Tem site ou Instagram?»: Site has_value  OR Instagram has_value 
+          SIM:
+            [54b037ff] OPORTUNIDADE → etapa CONECTAR, status abandoned  «Update Opportunity»
+            [df157d53] +TAG nutricao-90d  «Add Tag»
+          NÃO:
+            [754b781a] OPORTUNIDADE → etapa CONECTAR, status lost  «Update Opportunity»
+            [d0eb8dc1] AVISO INTERNO (notification): Lead sem telefone: {{contact.name}} — revisar a fonte da lista antes de qualquer tentativa.  «Internal Notification»
+      NÃO:
+        [ca90da1b] +TAG etapa-conectar  «Add Tag»
+        [b6701db6] CAMPO: Tentativa nº = 0; WA não atendidas seguidas = 0; Resultado da tentativa = ; Conexão real =   «Inicializa contadores»
+        [b0d693d9] SE «Permissão de WhatsApp em branco?»: Permissão WhatsApp has_no_value 
+          SIM:
+            [2e40b42d] CAMPO: Permissão WhatsApp = Não solicitado  «Update contact field»
+            [3be7590c] VAI PARA → c36cffea  «Go To»
+          NÃO:
+            [c36cffea] CAMPO: Prioridade = 3; Entrada em = {{right_now.date}} {{right_now.time}}  «Update contact field»
+            [9b7f3489] SE «Sem dono?»: assigned_to has_no_value 
+              SIM:
+                [c52e8c39] ATRIBUI dono {"only_unassigned_contact": false, "total_index": 1, "traffic_split": "equally", "traffic_weightage": {"JdvhvOTEBTvUyRi0  «Assign user»
+                [6caab9f0] VAI PARA → 7d818869  «Go To»
+              NÃO:
+                [7d818869] SE «T1 · Lead pausado?»: tags index-of-true ["pausado"]
+                  SIM:
+                    [63ff4c16] ESPERA 1 days  «Wait 1 Days»
+                    [8514ecf1] VAI PARA → 7d818869  «Go To»
+                  NÃO:
+                    [d68b07e0] SE «T1 · Teto de toques da semana?»: Toques na semana >= "6"
+                      SIM:
+                        [2b2fd69b] ESPERA 1 days  «Wait 1 Days»
+                        [ea357eb8] VAI PARA → d68b07e0  «Go To»
+                      NÃO:
+                        [7c1f5b40] SE «T1 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                          SIM:
+                            [f3c7abd5] ESPERA 1 hour  «Wait 1 Hours»
+                            [a4c2cd60] VAI PARA → 7c1f5b40  «Go To»
+                          NÃO:
+                            [d43f6504] SE «T1 · Ainda vale tentar?»: tags index-of-true ["etapa-conectar"] AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                              SIM:
+                                [5ef46b1c] CAMPO: Resultado da tentativa = ; Tentativa nº = 1; Conexão real =   «Update contact field»
+                                [d9879e2b] CAMPO: 1ª tentativa em = {{right_now.date}} {{right_now.time}}  «Update contact field»
+                                [8ead4f8e] -TAG atraso-1a-tentativa  «Remove Tag»
+                                [d69e9a95] +TAG fila-tel  «Add Tag»
+                                [22b2258f] SE «T1 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                  SIM:
+                                    [789d0018] TAREFA: [CADENCIA] T1 · Ligar → WhatsApp | Cadência 12x30 — toque 1 de 12.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (o lead já ignorou 3 ligações de WhatsApp seguida | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                    [ed188534] VAI PARA → dadf9087  «Go To»
+                                  NÃO:
+                                    [e790a8c3] TAREFA: [CADENCIA] T1 · WhatsApp → Ligar | Cadência 12x30 — toque 1 de 12.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+3. 💬 Marcando Não atendeu ou Caixa Postal, a mens | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                    [dadf9087] +TAG toque  «Add Tag»
+                                    [4b88e43b] ESPERA 2 hour  «Wait 2 Hours»
+                                    [e73e41af] SE «T1 · Tentou e não conversou? (mensagem)»: Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                      SIM:
+                                        [32443ee5] WHATSAPP → lead:
+        │ Oi! Aqui é da O Próximo Cliente. Tentei te ligar há pouco. Queria te fazer 2 perguntas rápidas sobre como vocês trazem cliente novo hoje. Qual o melhor horário pra eu te ligar: manhã ou tarde?
+                                        [5278420b] CAMPO: Template usado = MT1-v1  «Update contact field»
+                                        [f080165d] VAI PARA → 7e08b1b5  «Go To»
+                                      NÃO:
+                                        [7e08b1b5] ESPERA 2 hour  «Wait 2 Hours»
+                                        [7043f5ee] -TAG fila-tel, fila-wa  «Remove Tag»
+                                        [afd1aba9] SE «T1 · WhatsApp ainda vem primeiro?»: WA não atendidas seguidas >= "3"
+                                          SIM:
+                                            [7319d379] VAI PARA → 7ddebcbf  «Go To»
+                                          NÃO:
+                                            [5a733f8f] SE «T1 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                              SIM:
+                                                [eff0b97b] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                [75cf7330] VAI PARA → 7ddebcbf  «Go To»
+                                              NÃO:
+                                                [7ddebcbf] SE «T1 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                  SIM:
+                                                    [d88fca51] ESPERA 1 hour  «Wait 1 Hours»
+                                                    [0a3ac93d] VAI PARA → 7ddebcbf  «Go To»
+                                                  NÃO:
+                                                    [2f3f65a8] SE «T1 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                      SIM:
+                                                        [ec76c3fb] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                      NÃO:
+                                                        [f13daf76] SE «T1 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                          SIM:
+                                                            [f18e988f] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                            [d2c5d6c2] +TAG limpar-tarefas  «Add Tag»
+                                                            [c0a3433b] VAI PARA → 11cbfc1c  «Go To»
+                                                          NÃO:
+                                                            [11cbfc1c] SE «T2 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                              SIM:
+                                                                [a7e8a1aa] ESPERA 1 days  «Wait 1 Days»
+                                                                [c24f524d] VAI PARA → 11cbfc1c  «Go To»
+                                                              NÃO:
+                                                                [754ccb77] SE «T2 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                  SIM:
+                                                                    [36dd5250] ESPERA 1 days  «Wait 1 Days»
+                                                                    [3695049f] VAI PARA → 754ccb77  «Go To»
+                                                                  NÃO:
+                                                                    [8b2d52f2] SE «T2 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                      SIM:
+                                                                        [8f7898a4] ESPERA 1 hour  «Wait 1 Hours»
+                                                                        [dd872376] VAI PARA → 8b2d52f2  «Go To»
+                                                                      NÃO:
+                                                                        [bd0dd3ba] SE «T2 · Ainda vale tentar?»: tags index-of-true ["etapa-conectar"] AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                          SIM:
+                                                                            [a9518763] CAMPO: Resultado da tentativa = ; Tentativa nº = 2; Conexão real =   «Update contact field»
+                                                                            [30712c76] +TAG fila-tel  «Add Tag»
+                                                                            [67181043] SE «T2 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                              SIM:
+                                                                                [08bf9a38] TAREFA: [CADENCIA] T2 · Ligar → WhatsApp | Cadência 12x30 — toque 2 de 12.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (o lead já ignorou 3 ligações de WhatsApp seguida | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                [77a8a55b] VAI PARA → 6b16fd69  «Go To»
+                                                                              NÃO:
+                                                                                [e26be456] TAREFA: [CADENCIA] T2 · WhatsApp → Ligar | Cadência 12x30 — toque 2 de 12.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu em qualquer passo? Pare o roteiro, conve | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                [6b16fd69] +TAG toque  «Add Tag»
+                                                                                [7a8f3bce] ESPERA 20 hour  «Wait 20 Hours»
+                                                                                [609db57e] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                [f7ca7af6] SE «T2 · WhatsApp ainda vem primeiro?»: WA não atendidas seguidas >= "3"
+                                                                                  SIM:
+                                                                                    [958516d1] VAI PARA → 0037b8d5  «Go To»
+                                                                                  NÃO:
+                                                                                    [244ddf07] SE «T2 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                      SIM:
+                                                                                        [49d91c8d] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                        [3d4355e0] VAI PARA → 0037b8d5  «Go To»
+                                                                                      NÃO:
+                                                                                        [0037b8d5] SE «T2 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                          SIM:
+                                                                                            [4e85bb1c] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                            [359a972e] VAI PARA → 0037b8d5  «Go To»
+                                                                                          NÃO:
+                                                                                            [2c3a4e0e] SE «T2 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                              SIM:
+                                                                                                [9fc57f77] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                              NÃO:
+                                                                                                [2c03b97d] SE «T2 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                  SIM:
+                                                                                                    [6c7b3be1] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                    [ddbd1586] +TAG limpar-tarefas  «Add Tag»
+                                                                                                    [be9ca830] VAI PARA → 2f987e8d  «Go To»
+                                                                                                  NÃO:
+                                                                                                    [2f987e8d] SE «T3 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                      SIM:
+                                                                                                        [df0b823a] ESPERA 1 days  «Wait 1 Days»
+                                                                                                        [f59286e9] VAI PARA → 2f987e8d  «Go To»
+                                                                                                      NÃO:
+                                                                                                        [fd124bc0] SE «T3 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                          SIM:
+                                                                                                            [760add32] ESPERA 1 days  «Wait 1 Days»
+                                                                                                            [d7b0726c] VAI PARA → fd124bc0  «Go To»
+                                                                                                          NÃO:
+                                                                                                            [4a8c02f7] SE «T3 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                              SIM:
+                                                                                                                [a4171623] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                [48a7aace] VAI PARA → 4a8c02f7  «Go To»
+                                                                                                              NÃO:
+                                                                                                                [223b9790] SE «T3 · Ainda vale tentar?»: tags index-of-true ["etapa-conectar"] AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                  SIM:
+                                                                                                                    [1d29dcba] CAMPO: Resultado da tentativa = ; Tentativa nº = 3; Conexão real =   «Update contact field»
+                                                                                                                    [d6d6d17f] +TAG fila-tel  «Add Tag»
+                                                                                                                    [54c98060] SE «T3 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                      SIM:
+                                                                                                                        [47f21970] TAREFA: [CADENCIA] T3 · Ligar → WhatsApp | Cadência 12x30 — toque 3 de 12.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (o lead já ignorou 3 ligações de WhatsApp seguida | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                        [55cccef4] VAI PARA → 8c7df9d6  «Go To»
+                                                                                                                      NÃO:
+                                                                                                                        [cc6a7104] TAREFA: [CADENCIA] T3 · WhatsApp → Ligar | Cadência 12x30 — toque 3 de 12.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu em qualquer passo? Pare o roteiro, conve | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                        [8c7df9d6] +TAG toque  «Add Tag»
+                                                                                                                        [0421b152] ESPERA 24 hour  «Wait 24 Hours»
+                                                                                                                        [8150e6a2] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                        [142021a9] SE «T3 · WhatsApp ainda vem primeiro?»: WA não atendidas seguidas >= "3"
+                                                                                                                          SIM:
+                                                                                                                            [4f82872e] VAI PARA → 2fedbbd7  «Go To»
+                                                                                                                          NÃO:
+                                                                                                                            [e4ffa91f] SE «T3 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                              SIM:
+                                                                                                                                [1cb7f69e] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                [1d44db6c] VAI PARA → 2fedbbd7  «Go To»
+                                                                                                                              NÃO:
+                                                                                                                                [2fedbbd7] SE «T3 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                  SIM:
+                                                                                                                                    [37f71656] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                    [7cf9a32e] VAI PARA → 2fedbbd7  «Go To»
+                                                                                                                                  NÃO:
+                                                                                                                                    [e1f85c67] SE «T3 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                      SIM:
+                                                                                                                                        [3745b9db] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                                      NÃO:
+                                                                                                                                        [26099b82] SE «T3 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                          SIM:
+                                                                                                                                            [73c02511] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                            [e574aa27] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                            [cbf734f9] VAI PARA → 82f1c8d6  «Go To»
+                                                                                                                                          NÃO:
+                                                                                                                                            [82f1c8d6] SE «T4 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                                                              SIM:
+                                                                                                                                                [0ae1a6ea] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                [c60c833b] VAI PARA → 82f1c8d6  «Go To»
+                                                                                                                                              NÃO:
+                                                                                                                                                [4fb27a61] SE «T4 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                                                                  SIM:
+                                                                                                                                                    [d1258ea1] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                    [e5728aa2] VAI PARA → 4fb27a61  «Go To»
+                                                                                                                                                  NÃO:
+                                                                                                                                                    [2c7dd0f3] SE «T4 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                                                                      SIM:
+                                                                                                                                                        [6fe54f92] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                        [79f0ec89] VAI PARA → 2c7dd0f3  «Go To»
+                                                                                                                                                      NÃO:
+                                                                                                                                                        [fb5eb7a5] SE «T4 · Ainda vale tentar?»: tags index-of-true ["etapa-conectar"] AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                          SIM:
+                                                                                                                                                            [6e23bbb3] CAMPO: Resultado da tentativa = ; Tentativa nº = 4; Conexão real =   «Update contact field»
+                                                                                                                                                            [022e8337] +TAG fila-tel  «Add Tag»
+                                                                                                                                                            [c4a0471d] SE «T4 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                              SIM:
+                                                                                                                                                                [bff4a959] TAREFA: [CADENCIA] T4 · Ligar → WhatsApp | Cadência 12x30 — toque 4 de 12.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (o lead já ignorou 3 ligações de WhatsApp seguida | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                [2e236cb4] VAI PARA → 62236279  «Go To»
+                                                                                                                                                              NÃO:
+                                                                                                                                                                [ae387ef9] TAREFA: [CADENCIA] T4 · WhatsApp → Ligar | Cadência 12x30 — toque 4 de 12.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+3. 💬 Marcando Não atendeu ou Caixa Postal, a mens | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                [62236279] +TAG toque  «Add Tag»
+                                                                                                                                                                [270aa2f6] ESPERA 2 hour  «Wait 2 Hours»
+                                                                                                                                                                [538e03c0] SE «T4 · Tentou e não conversou? (mensagem)»: Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                                                                  SIM:
+                                                                                                                                                                    [afa33deb] WHATSAPP → lead:
+        │ Oi, tentei te ligar de novo hoje. Sei que a rotina é corrida — se preferir, responde por aqui mesmo: hoje o cliente novo de vocês vem mais de indicação ou de anúncio?
+                                                                                                                                                                    [8c7751e6] CAMPO: Template usado = MT4-v1  «Update contact field»
+                                                                                                                                                                    [e4eb743f] VAI PARA → 822c5aa9  «Go To»
+                                                                                                                                                                  NÃO:
+                                                                                                                                                                    [822c5aa9] ESPERA 46 hour  «Wait 46 Hours»
+                                                                                                                                                                    [52a7151f] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                                                                    [b0bb857b] SE «T4 · WhatsApp ainda vem primeiro?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                      SIM:
+                                                                                                                                                                        [dfc89221] VAI PARA → 49ffcc9c  «Go To»
+                                                                                                                                                                      NÃO:
+                                                                                                                                                                        [da325290] SE «T4 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                                                                          SIM:
+                                                                                                                                                                            [ee0be954] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                                                            [c721a819] VAI PARA → 49ffcc9c  «Go To»
+                                                                                                                                                                          NÃO:
+                                                                                                                                                                            [49ffcc9c] SE «T4 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                                                              SIM:
+                                                                                                                                                                                [9203ad1b] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                [7b61ae51] VAI PARA → 49ffcc9c  «Go To»
+                                                                                                                                                                              NÃO:
+                                                                                                                                                                                [955f049c] SE «T4 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                                                                  SIM:
+                                                                                                                                                                                    [3bad04a3] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                    [a7885fc5] SE «T4 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                                                                      SIM:
+                                                                                                                                                                                        [c951a641] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                                                                        [784f4ffd] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                        [78d782c7] VAI PARA → 7565cf34  «Go To»
+                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                        [7565cf34] SE «T5 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                                                                                                          SIM:
+                                                                                                                                                                                            [58f534f8] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                                                            [ab40b983] VAI PARA → 7565cf34  «Go To»
+                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                            [697ce86c] SE «T5 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                [f29b77e6] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                                                                [31108c02] VAI PARA → 697ce86c  «Go To»
+                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                [dc849b60] SE «T5 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                    [07d8dec9] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                                    [c42178c8] VAI PARA → dc849b60  «Go To»
+                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                    [16cef0ab] SE «T5 · Ainda vale tentar?»: tags index-of-true ["etapa-conectar"] AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                        [bdfac5c2] CAMPO: Resultado da tentativa = ; Tentativa nº = 5; Conexão real =   «Update contact field»
+                                                                                                                                                                                                        [114e5d8d] +TAG fila-tel  «Add Tag»
+                                                                                                                                                                                                        [ec07270d] SE «T5 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                                                          SIM:
+                                                                                                                                                                                                            [fe1bce93] TAREFA: [CADENCIA] T5 · Ligar → WhatsApp | Cadência 12x30 — toque 5 de 12.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (o lead já ignorou 3 ligações de WhatsApp seguida | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                                                            [390249e0] VAI PARA → 8a899d31  «Go To»
+                                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                                            [8b07538b] TAREFA: [CADENCIA] T5 · WhatsApp → Ligar | Cadência 12x30 — toque 5 de 12.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu em qualquer passo? Pare o roteiro, conve | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                                                            [8a899d31] +TAG toque  «Add Tag»
+                                                                                                                                                                                                            [92ff9a85] ESPERA 48 hour  «Wait 48 Hours»
+                                                                                                                                                                                                            [5af479cc] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                                                                                                            [5f284070] SE «T5 · WhatsApp ainda vem primeiro?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                [95580e9d] VAI PARA → 8782727a  «Go To»
+                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                                [b937dd89] SE «T5 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                                    [3da80e29] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                                                                                                    [1e066ccf] VAI PARA → 8782727a  «Go To»
+                                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                                    [8782727a] SE «T5 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                                        [24c94613] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                                                        [9ede790a] VAI PARA → 8782727a  «Go To»
+                                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                                        [ac772d90] SE «T5 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                                                                                                          SIM:
+                                                                                                                                                                                                                            [dd2f70bc] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                                                            [083551e1] SE «T5 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                                [f3317f7d] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                                                                                                                [69baf6ac] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                                                                [6fc32df5] VAI PARA → 37c187ee  «Go To»
+                                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                                                [37c187ee] SE «T6 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                                                    [821d4d6d] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                                                                                                    [2e3aa37d] VAI PARA → 37c187ee  «Go To»
+                                                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                                                    [46ec4dac] SE «T6 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                                                        [c2ae88a3] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                                                                                                        [0624938b] VAI PARA → 46ec4dac  «Go To»
+                                                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                                                        [d941befe] SE «T6 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                                                                                                                                                          SIM:
+                                                                                                                                                                                                                                            [14815a5c] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                                                                            [2b855c92] VAI PARA → d941befe  «Go To»
+                                                                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                                                                            [243114d6] SE «T6 · Ainda vale tentar?»: tags index-of-true ["etapa-conectar"] AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                                                [6ead7577] CAMPO: Resultado da tentativa = ; Tentativa nº = 6; Conexão real =   «Update contact field»
+                                                                                                                                                                                                                                                [b1b48abf] +TAG fila-tel  «Add Tag»
+                                                                                                                                                                                                                                                [80e8dd6f] SE «T6 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                                                                    [b6b6ebdd] TAREFA: [CADENCIA] T6 · Ligar → WhatsApp | Cadência 12x30 — toque 6 de 12.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (o lead já ignorou 3 ligações de WhatsApp seguida | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                                                                                                    [73cfa8c9] VAI PARA → cf6e3ce0  «Go To»
+                                                                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                                                                    [6e27bc73] TAREFA: [CADENCIA] T6 · WhatsApp → Ligar | Cadência 12x30 — toque 6 de 12.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu em qualquer passo? Pare o roteiro, conve | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                                                                                                    [cf6e3ce0] +TAG toque  «Add Tag»
+                                                                                                                                                                                                                                                    [325969a2] ESPERA 72 hour  «Wait 72 Hours»
+                                                                                                                                                                                                                                                    [71f6cd55] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                                                                                                                                                    [5b10b69b] SE «T6 · WhatsApp ainda vem primeiro?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                                                                        [e40b264e] VAI PARA → d07fc8e4  «Go To»
+                                                                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                                                                        [95c8800c] SE «T6 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                                                                                                                                                          SIM:
+                                                                                                                                                                                                                                                            [97099057] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                                                                                                                                            [a21d2198] VAI PARA → d07fc8e4  «Go To»
+                                                                                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                                                                                            [d07fc8e4] SE «T6 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                                                                [11c8de34] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                                                                                                [8d8752f4] VAI PARA → d07fc8e4  «Go To»
+                                                                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                                                                                [7dcb2045] SE «T6 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                                                                                    [e04475e3] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                                                                                    [0da0fe51] SE «T6 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                                                                                        [22691344] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                                                                                                                                                        [065a3a27] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                                                                                                        [35ca8bd8] VAI PARA → 4d170112  «Go To»
+                                                                                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                                                                                        [4d170112] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                                                                                                                                                                        [fc3bdf8c] +TAG cadencia-12x30-p2  «Add Tag»
+                                                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                                                                [df4465c2] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                                                                                                                                                [d369425f] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                                                                                [7b092a1e] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                        [50cf8560] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                                                                                                        [16849e94] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                                        [7dab869d] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                                                          NÃO:
+                                                                                                                                                            [54e15d91] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                                                            [ea467191] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                            [25482ba4] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                                                                  NÃO:
+                                                                                                                    [6fd5bd2e] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                    [046975a5] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                    [97084433] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                                                                          NÃO:
+                                                                            [23a690f8] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                            [356f5521] +TAG limpar-tarefas  «Add Tag»
+                                                                            [a4b3f09a] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»
+                              NÃO:
+                                [b9fb8f1a] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                [79bfe97c] +TAG limpar-tarefas  «Add Tag»
+                                [f621cd42] TIRA DE: Cadência 12x30[published]  «Remove from Workflow»

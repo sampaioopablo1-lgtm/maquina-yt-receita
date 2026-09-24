@@ -1,0 +1,20 @@
+# Opt-out por Palavra-chave  (849051a8-31c2-44f1-8968-b94dcc5f5fe6, 14 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO customer_reply (ativo=True): message.type == 19
+GATILHO customer_reply (ativo=True): 
+
+[364a3ccd] SE «Pediu para parar?»: message.body contain "pare de" OR message.body contain "pare com" OR message.body contain "para de mandar" OR message.body contain "para de me mandar" OR message.body contain "não quero mais mensagem" OR message.body contain "não quero mais contato" OR message.body contain "não quero receber mensagem" OR message.body contain "não quero receber mais" OR message.body contain "remove meu contato" OR message.body contain "tira meu número" OR message.body contain "descadastr" OR message.body contain "cancelar inscri" OR message.body contain "não me liga mais" OR message.body contain "não me mande mais" OR message.body contain "sai da lista" OR message.body contain "me tira da lista" OR message.body contain "unsubscribe" OR message.body == "parar" OR message.body == "Parar" OR message.body == "PARAR" OR message.body == "sair" OR message.body == "Sair" OR message.body == "SAIR" OR message.body == "stop" OR message.body == "Stop" OR message.body == "STOP"
+  SIM:
+    [2d365988] +TAG nao-perturbe  «Add Tag»
+    [cfa93315] DND {"type": "dnd_contact", "dnd_direction": "outbound", "dnd_contact": "enable", "specific_channels": []}  «Set Contact DND»
+    [b68ca051] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+    [c1ba1028] REMOVE_FROM_ALL_WORKFLOWS {"type": "remove_from_all_workflows", "includeCurrent": false}  «Remove from Workflows»
+    [8455ff37] SE «Ainda em CONECTAR e aberta?»: tags index-of-true ["etapa-conectar"]
+      SIM:
+        [d4d1f11c] OPORTUNIDADE → etapa CONECTAR, status lost  «Update Opportunity»
+        [7f6d8b72] VAI PARA → 92b7810b  «Go To»
+      NÃO:
+        [92b7810b] AVISO INTERNO (notification): Opt-out por palavra-chave: {{contact.name}} — DND ligado e saiu de todas as réguas. Mensagem que disparou: revisar no histórico. Se foi falso positivo, desligar o DND na mão é a única volta.  «Internal Notification»
+        [4ddca3bf] NOTA: Opt-out por palavra-chave detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas  «Note»
+  NÃO:

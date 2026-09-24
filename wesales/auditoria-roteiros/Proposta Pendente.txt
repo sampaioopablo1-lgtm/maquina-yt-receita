@@ -1,0 +1,15 @@
+# Proposta Pendente  (14fdf9fa-e85c-4212-a0b0-6b03c51c5f14, 10 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO contact_changed (ativo=True): contact.c470gqXWCkwqE9yVrcEi has-changed None
+
+[43b2f894] SE «Veredito é Sim?»: Reunião foi qualificada == "Sim"
+  SIM:
+    [fd3ba465] ESPERA 3 days  «Wait 3 Days»
+    [0cc9028d] SE «Ainda em REUNIÃO, sem aviso anterior?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["proposta-pendente"] AND Reunião foi qualificada == "Sim"
+      SIM:
+        [e166140f] +TAG proposta-pendente  «Add Tag»
+        [ffe90825] AVISO INTERNO (notification): {{contact.name}} foi aprovado na reunião de diagnóstico há 3 dias e a proposta ainda não foi apresentada (continua em REUNIÃO DE DIAGNÓSTICO).  «Internal Notification»
+        [f160ed81] NOTA: Qualificado pelo closer há 3 dias e sem proposta apresentada.  «Note»
+      NÃO:
+  NÃO:

@@ -1,0 +1,37 @@
+# Loop do closer v2  (db2f9531-39e4-4107-ad65-33666ab0fd35, 32 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO contact_changed (ativo=True): contact.c470gqXWCkwqE9yVrcEi has-changed None
+
+[d05be523] SE «Veredito está vazio?»: Reunião foi qualificada has_no_value 
+  SIM:
+  NÃO:
+    [513904c2] CAMPO: Data do veredito do closer = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}  «Update contact field»
+    [ecfa130a] NOTA: Veredito do closer: {{contact.reunio_foi_qualificada}} · motivo: {{contact.motivo_da_desqualificao}} · nota do SDR/IA na hora: {{contact.nota_de_qualificao}}  «Note»
+    [9f08a337] SE «Veredito é Sim?»: Reunião foi qualificada == "Sim"
+      SIM:
+        [341af936] TAREFA: [CLOSER] Apresentar proposta | Reunião de diagnóstico qualificada. Monte e apresente a proposta. Ao apresentar, mova o lead para NEGOCIAR — esta tarefa sai sozinha quando ele mudar de etapa. | vence: {'duration': 2, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Tarefa do closer — apresentar proposta»
+        [e580cf90] VAI PARA → adf80448  «Go To»
+      NÃO:
+        [5cc96c6f] SE «Veredito é Parcial?»: Reunião foi qualificada == "Parcial"
+          SIM:
+            [e071d947] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status abandoned  «Update Opportunity»
+            [288b9f07] +TAG nutricao-90d  «Add Tag»
+            [742dcfd7] VAI PARA → adf80448  «Go To»
+          NÃO:
+            [dcaf00d7] SE «Motivo é Timing errado?»: Motivo da desqualificação == "Timing errado"
+              SIM:
+                [656a3249] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status abandoned  «Update Opportunity»
+                [e335d9d4] +TAG nutricao-90d  «Add Tag»
+                [f6746022] VAI PARA → adf80448  «Go To»
+              NÃO:
+                [da6a08e2] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status lost  «Update Opportunity»
+                [adf80448] SE «Nota alta mas closer reprovou?»: Nota de qualificação >= "70" AND Reunião foi qualificada == "Não"
+                  SIM:
+                    [9e9e1894] AVISO INTERNO (notification): Nota {{contact.nota_de_qualificao}} mas o closer marcou Não ({{contact.motivo_da_desqualificao}}) — revisar a régua da seção 9 com {{contact.name}}.  «Internal Notification»
+                    [b73745f1] VAI PARA → eedc7260  «Go To»
+                  NÃO:
+                    [eedc7260] SE «Nota baixa mas closer aprovou?»: Nota de qualificação < "45" AND Reunião foi qualificada == "Sim"
+                      SIM:
+                        [a7a8fea3] AVISO INTERNO (notification): Nota baixa ({{contact.nota_de_qualificao}}) mas o closer marcou Sim — a régua pode estar descartando lead bom. Revisar {{contact.name}}.  «Internal Notification»
+                      NÃO:

@@ -1,0 +1,70 @@
+# Recuperação de No-show  (050052db-5ae8-43fe-8e94-b0f747563d57, 64 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO appointment (ativo=True): appointment.eventType == normal; calendar.id == 3uNQFjCEDe7b4gKZJuOZ; appointment.status == noshow; contactMode is-any-of ['contact']
+
+[9bed961a] SE «Em REUNIÃO DE DIAGNÓSTICO e aberta?»: tags index-of-true ["etapa-reuniao"]
+  SIM:
+    [8471d0e4] CONTA: {"selectField": "ONBBDPg4LPIoRhv09Nf3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "ONBBDPg4LPIoRhv09Nf3", "updateFieldType": "nu  «Math operation»
+    [63f80a06] SE «Já é o segundo no-show?»: Nº de no-shows >= "2"
+      SIM:
+        [7f7e9665] -TAG fila-tel  «Remove Tag»
+        [29ab2980] +TAG limpar-tarefas  «Add Tag»
+        [45a1e56a] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status lost  «Update Opportunity»
+        [e7bb2223] NOTA: Descartado após o 2º no-show seguido sem reagendar — regra de proteção de agenda do closer (R-12)  «Note»
+        [a4f44c78] AVISO INTERNO (notification): {{contact.name}} descartado automaticamente após o 2º no-show — nenhuma ação necessária, é a regra de proteção de agenda.  «Internal Notification»
+      NÃO:
+        [a0d5fbb1] SE «NS-1 · Pode receber mensagem?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["pausado"]
+          SIM:
+            [b14157d9] WHATSAPP → lead:
+        │ Oi! Vi que não conseguimos nos falar no horário combinado — imagino que bateu algum imprevisto. Sem problema: me responde aqui com o melhor dia e horário que eu remarco a nossa reunião de diagnóstico.
+            [f2f138a8] +TAG fila-tel  «Add Tag»
+            [08b41130] TAREFA: [CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show | Lead nao compareceu. Tentativa 1 de 3. A mensagem NS-1 (remarcar) já saiu sozinha pelo WhatsApp — não mande de novo; ligue. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+            [50068e96] +TAG toque  «Add Tag»
+            [7979e560] ESPERA 1 days  «Wait 1 Days»
+            [72990e55] SE «NS1 · Ainda vale recuperar?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["pausado"]
+              SIM:
+                [85b49f5c] SE «NS1 · Teto de toques da semana?»: Toques na semana >= "6"
+                  SIM:
+                    [65f32b06] ESPERA 1 days  «Wait 1 Days»
+                    [0cd6cf08] VAI PARA → 85b49f5c  «Go To»
+                  NÃO:
+                    [40e11d9c] SE «NS1 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                      SIM:
+                        [b1481749] ESPERA 1 hour  «Wait 1 Hours»
+                        [66b60b61] VAI PARA → 40e11d9c  «Go To»
+                      NÃO:
+                        [61a817f3] +TAG fila-tel  «Add Tag»
+                        [5a2a85f8] TAREFA: [CADENCIA] NS2 · Ligar (telefone) — Recuperação de no-show | Lead nao compareceu. Tentativa 2 de 3. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                        [75c1f9fd] +TAG toque  «Add Tag»
+                        [3d79e038] ESPERA 2 days  «Wait 2 Days»
+                        [aa213c6f] SE «NS2 · Ainda vale recuperar?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["pausado"]
+                          SIM:
+                            [078863ea] SE «NS2 · Teto de toques da semana?»: Toques na semana >= "6"
+                              SIM:
+                                [f16b4a09] ESPERA 1 days  «Wait 1 Days»
+                                [36f4f1e5] VAI PARA → 078863ea  «Go To»
+                              NÃO:
+                                [07b830e8] SE «NS2 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                  SIM:
+                                    [185f8d86] ESPERA 1 hour  «Wait 1 Hours»
+                                    [facb3fdf] VAI PARA → 07b830e8  «Go To»
+                                  NÃO:
+                                    [b42b42f4] +TAG fila-tel  «Add Tag»
+                                    [62d8c591] TAREFA: [CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show | Lead nao compareceu. Tentativa 3 de 3. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                    [01d49c84] +TAG toque  «Add Tag»
+                                    [65e4f963] ESPERA 1 days  «Wait 1 Days»
+                                    [429a3277] SE «NS3 · Ainda vale recuperar?»: tags index-of-true ["etapa-reuniao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["pausado"]
+                                      SIM:
+                                        [9a545e47] CAMPO: Resultado da tentativa =   «Update contact field»
+                                        [6ca46820] -TAG fila-tel  «Remove Tag»
+                                        [bf83840e] +TAG nutricao-90d  «Add Tag»
+                                        [5d23bbfd] OPORTUNIDADE → etapa REUNIÃO DE DIAGNÓSTICO, status abandoned  «Update Opportunity»
+                                      NÃO:
+                                        [48932044] TIRA DE: Recuperação de No-show[published]  «Remove from Workflow»
+                          NÃO:
+                            [0f0e3fc8] TIRA DE: Recuperação de No-show[published]  «Remove from Workflow»
+              NÃO:
+                [418b01be] TIRA DE: Recuperação de No-show[published]  «Remove from Workflow»
+          NÃO:
+  NÃO:

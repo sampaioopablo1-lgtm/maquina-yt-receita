@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Fechar Horário",
-    "version": 7,
+    "version": 9,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/82dd1fad-1bdd-44f7-8214-3a685521e2b4/7",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F82dd1fad-1bdd-44f7-8214-3a685521e2b4%2F7?alt=media&token=709ec0a5-3621-404b-a17b-3973837132d8",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/82dd1fad-1bdd-44f7-8214-3a685521e2b4/9",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F82dd1fad-1bdd-44f7-8214-3a685521e2b4%2F9?alt=media&token=66084d24-d8b2-445a-a4f8-926a20118c91",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T01:36:33.076Z",
-    "updatedAt": "2026-09-23T21:50:47.800Z",
+    "updatedAt": "2026-09-24T00:00:00.583Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -418,7 +418,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "Oi! Foi bom falar com você. Pra gente seguir, qual o melhor dia e horário para a nossa reunião de diagnóstico (30 minutos)? Pode me responder por aqui mesmo.",
+            "body": "Oi! Foi bom falar com você. Pra gente seguir, qual o melhor dia e horário para a nossa reunião de diagnóstico (1 hora)? Pode me responder por aqui mesmo.",
             "attachments": []
           },
           "order": 0,
@@ -471,7 +471,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Fechar horário — tentativa 2 de 3. O lead já conversou com você e ainda não marcou a reunião de diagnóstico.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b>).<br>2. 📞 Se não atender, ligar pelo telefone.<br>3. 💬 A mensagem <b>MFH1-v1</b> já saiu sozinha agora.<br><br>Marcou? Agende no calendário do closer — o lead sai daqui sozinho.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -892,7 +897,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Fechar horário — tentativa 3 de 3. O lead já conversou com você e ainda não marcou a reunião de diagnóstico.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b>).<br>2. 📞 Se não atender, ligar pelo telefone.<br>3. 💬 A mensagem <b>MFH2-v1</b> já saiu sozinha agora.<br><br>Marcou? Agende no calendário do closer — o lead sai daqui sozinho.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }

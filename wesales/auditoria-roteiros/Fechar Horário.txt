@@ -1,0 +1,52 @@
+# Fechar Horário  (82dd1fad-1bdd-44f7-8214-3a685521e2b4, 41 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO contact_tag (ativo=True): tagsAdded index-of-true fechar-horario
+
+[5c57e7ec] TIRA DE: Cadência 12x30[published], Cadência Inbound[published], Nutrição — WhatsApp a cada 15 dias[published], Cadência 12x30 — parte 2[published]  «Sai das cadências de tentativa»
+[62534d46] ESPERA 1 days  «Wait 1 Days»
+[b7df5995] SE «FH2 · Ainda em CONECTAR, sem reunião?»: tags index-of-true ["etapa-conectar"]
+  SIM:
+    [92595790] SE «FH2 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+      SIM:
+        [6b2d0db9] ESPERA 1 hour  «Wait 1 Hours»
+        [6e8f9665] VAI PARA → 92595790  «Go To»
+      NÃO:
+        [50840639] WHATSAPP → lead:
+        │ Oi! Foi bom falar com você. Pra gente seguir, qual o melhor dia e horário para a nossa reunião de diagnóstico (1 hora)? Pode me responder por aqui mesmo.
+        [f62b3a32] CAMPO: Template usado = MFH1-v1  «Update contact field»
+        [423c11ba] TAREFA: [FECHAR HORÁRIO] FH2 · WhatsApp → Ligar para marcar a reunião | Fechar horário — tentativa 2 de 3. O lead já conversou com você e ainda não marcou a reunião de diagnóstico.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp).
+2. 📞 Se não atender, ligar pelo telefo | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+        [b872780a] ESPERA 1 days  «Wait 1 Days»
+        [600a68f3] SE «FH3 · Ainda em CONECTAR, sem reunião?»: tags index-of-true ["etapa-conectar"]
+          SIM:
+            [b06b38f7] SE «FH3 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+              SIM:
+                [20b3db01] ESPERA 1 hour  «Wait 1 Hours»
+                [6141baf0] VAI PARA → b06b38f7  «Go To»
+              NÃO:
+                [f3b453e0] WHATSAPP → lead:
+        │ Oi! Passando pra fechar a nossa reunião de diagnóstico. Tenho horários nos próximos dias, de manhã e à tarde — qual fica melhor pra você?
+                [6cc0efb3] CAMPO: Template usado = MFH2-v1  «Update contact field»
+                [b1f5ada5] TAREFA: [FECHAR HORÁRIO] FH3 · WhatsApp → Ligar para marcar a reunião | Fechar horário — tentativa 3 de 3. O lead já conversou com você e ainda não marcou a reunião de diagnóstico.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp).
+2. 📞 Se não atender, ligar pelo telefo | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                [5ced22fb] ESPERA 1 days  «Wait 1 Days»
+                [36a1b18c] SE «Fim · Ainda em CONECTAR, sem reunião?»: tags index-of-true ["etapa-conectar"]
+                  SIM:
+                    [590ca2e6] SE «Fim · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                      SIM:
+                        [d17af44e] ESPERA 1 hour  «Wait 1 Hours»
+                        [bd6261c8] VAI PARA → 590ca2e6  «Go To»
+                      NÃO:
+                        [60058bc8] OPORTUNIDADE → etapa CONECTAR, status abandoned  «Update Opportunity»
+                        [e395146e] +TAG nutricao-90d  «Add Tag»
+                        [477c84b3] -TAG fechar-horario  «Remove Tag»
+                        [d001c51f] NOTA: Atendeu, mas não marcou a reunião em 3 dias úteis de tentativa — lead foi para nutrição (90 dias).  «Note»
+                  NÃO:
+                    [582a3324] -TAG fechar-horario  «Remove Tag»
+          NÃO:
+            [57817ba1] -TAG fechar-horario  «Remove Tag»
+  NÃO:
+    [ab711352] -TAG fechar-horario  «Remove Tag»

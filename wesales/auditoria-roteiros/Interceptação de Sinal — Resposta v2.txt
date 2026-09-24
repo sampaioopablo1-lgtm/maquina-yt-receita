@@ -1,0 +1,24 @@
+# Interceptação de Sinal — Resposta v2  (42bfaf59-ba56-455d-bb4c-8ecd39efbcd1, 18 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO customer_reply (ativo=True): 
+GATILHO customer_reply (ativo=True): message.type == 19
+
+[f23db06d] SE «Pediu para parar?»: message.body contain "pare de" OR message.body contain "pare com" OR message.body contain "para de mandar" OR message.body contain "para de me mandar" OR message.body contain "não quero mais mensagem" OR message.body contain "não quero mais contato" OR message.body contain "não quero receber mensagem" OR message.body contain "não quero receber mais" OR message.body contain "remove meu contato" OR message.body contain "tira meu número" OR message.body contain "descadastr" OR message.body contain "cancelar inscri" OR message.body contain "não me liga mais" OR message.body contain "não me mande mais" OR message.body contain "sai da lista" OR message.body contain "me tira da lista" OR message.body contain "unsubscribe"
+  SIM:
+  NÃO:
+    [74233785] ACHA OPORTUNIDADE «Find opportunity»
+      [d49c8960] RAMO «Opportunity Found»
+      [326e680b] SE «yes»: tags index-of-true ["etapa-conectar"]
+        SIM:
+          [ba3776bc] SE «yes»: tags index-of-true ["nao-perturbe"]
+            SIM:
+            NÃO:
+              [df70464b] CAMPO: Prioridade = 5  «Update contact field»
+              [003eb01e] CAMPO: Sinal recebido = Resposta de mensagem; Canal que conectou = Mensagem  «Update contact field»
+              [01af2b58] +TAG fila-quente  «Add Tag»
+              [09bdf141] TAREFA: [CADENCIA] Sinal: respondeu mensagem — ligar agora | Lead respondeu mensagem fora do fluxo normal da cadência. Ligar imediatamente, prioridade 5. | vence: {{right_now.date}}  «Sinal clique»
+              [bc860e05] AVISO INTERNO (whatsapp): {{contact.first_name}} respondeu agora fora do fluxo normal. Prioridade 5.  «Internal Notification»
+              [1922626c] NOTA: Sinal: resposta de mensagem  «Note»
+        NÃO:
+      [886ec445] RAMO «Opportunity Not Found»

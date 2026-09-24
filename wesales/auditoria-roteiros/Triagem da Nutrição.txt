@@ -1,0 +1,65 @@
+# Triagem da Nutrição  (e7738b57-b047-4fdb-b3cb-06c72f2ca103, 52 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO customer_reply (ativo=True): message.type == 19
+GATILHO customer_reply (ativo=True): 
+
+[430c607b] SE «Está em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"]
+  SIM:
+    [6be640f3] SE «Já recebeu a triagem?»: tags index-of-true ["triagem-enviada"]
+      SIM:
+        [d563fd0a] SE «Sem interesse?»: message.body == "3" OR message.body contain "não tenho interesse" OR message.body contain "nao tenho interesse" OR message.body contain "sem interesse"
+          SIM:
+            [a0fe8430] +TAG nao-perturbe  «Add Tag»
+            [83763403] -TAG triagem-enviada, nutricao-90d, reengajamento-ativo  «Remove Tag»
+            [878b1c1f] WHATSAPP → lead:
+        │ Entendido, não vou mais te mandar mensagens. Obrigado pelo retorno!
+            [f230980a] DND {"type": "dnd_contact", "dnd_direction": "outbound", "dnd_contact": "enable", "specific_channels": []}  «Set Contact DND»
+            [0f33c2aa] OPORTUNIDADE → etapa CONECTAR, status lost  «Oportunidade → lost»
+            [2e0f7368] NOTA: Respondeu à triagem: não tem interesse. Lead desligado (DND, nao-perturbe, perdido).  «Note»
+          NÃO:
+            [011cc75e] SE «Agora não?»: message.body == "2" OR message.body contain "agora não" OR message.body contain "agora nao" OR message.body contain "mais pra frente" OR message.body contain "mais para frente" OR message.body contain "outro momento"
+              SIM:
+                [1a89207e] NOTA: Respondeu à triagem: agora não. Segue na nutrição.  «Note»
+                [7553bed1] WHATSAPP → lead:
+        │ Tranquilo! Sigo mandando só uma dica curta a cada 15 dias. Se quiser parar, responde 3.
+              NÃO:
+                [fde53848] SE «Quer conversar?»: message.body == "1" OR message.body == "sim" OR message.body == "Sim" OR message.body contain "quero conversar" OR message.body contain "tenho interesse" OR message.body contain "pode ligar" OR message.body contain "pode me ligar" OR message.body contain "vamos conversar"
+                  SIM:
+                    [fe62712e] -TAG triagem-enviada, nutricao-90d, status-nutricao, reengajamento-ativo, cad-inbound, cad-outbound  «Remove Tag»
+                    [882b979e] OPORTUNIDADE → etapa CONECTAR, status open  «Oportunidade → open»
+                    [be530dec] +TAG reengajado, etapa-conectar, cad-outbound  «Add Tag»
+                    [7e724760] CAMPO: Canal que conectou = Mensagem  «Update contact field»
+                    [d92c81e4] WHATSAPP → lead:
+        │ Combinado! Vou te ligar no próximo horário comercial. Se tiver um horário melhor, me diz aqui.
+                    [a282a31b] AVISO INTERNO (notification): {{contact.name}} respondeu à nutrição que quer conversar e voltou para CONECTAR — a cadência 12x30 já criou o 1º toque.  «Internal Notification»
+                    [62704529] NOTA: Respondeu à triagem: quer conversar. Voltou para CONECTAR e para a cadência 12x30.  «Note»
+                  NÃO:
+                    [1b8b8a2a] TAREFA: [SINAL] Nutrição: respondeu — ler a mensagem e decidir | O lead em nutrição respondeu à triagem com algo que o sistema não entendeu. Leia a conversa: se quer conversar, mova para CONECTAR; se não quer, marque Não ligar. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+      NÃO:
+        [b83b545b] +TAG triagem-enviada  «Add Tag»
+        [5bae0eb7] ESPERA 2 minutes  «Wait 2 Minutes»
+        [0c45b76a] SE «Triagem · Não pediu para parar?»: tags index-of-false ["nao-perturbe"]
+          SIM:
+            [db5c2fce] SE «1ª resposta · Já disse que não tem interesse?»: message.body == "3" OR message.body contain "não tenho interesse" OR message.body contain "nao tenho interesse" OR message.body contain "sem interesse"
+              SIM:
+                [780940cf] VAI PARA → a0fe8430  «Go To»
+              NÃO:
+                [5348c695] SE «1ª resposta · Já disse que agora não?»: message.body == "2" OR message.body contain "agora não" OR message.body contain "agora nao" OR message.body contain "mais pra frente" OR message.body contain "mais para frente" OR message.body contain "outro momento"
+                  SIM:
+                    [2d4b7080] VAI PARA → 1a89207e  «Go To»
+                  NÃO:
+                    [643d4cb0] SE «1ª resposta · Já disse que quer conversar?»: message.body == "1" OR message.body == "sim" OR message.body == "Sim" OR message.body contain "quero conversar" OR message.body contain "tenho interesse" OR message.body contain "pode ligar" OR message.body contain "pode me ligar" OR message.body contain "vamos conversar"
+                      SIM:
+                        [5a4d4472] VAI PARA → fe62712e  «Go To»
+                      NÃO:
+                        [fd3d4f52] WHATSAPP → lead:
+        │ Obrigado pela resposta! Pra eu não te incomodar à toa, responde só com o número:
+        │ 1 — quero conversar sobre aproveitar melhor os contatos dos meus anúncios
+        │ 2 — agora não, me chama mais pra frente
+        │ 3 — não tenho interesse, pode parar
+                        [0e279bd9] CAMPO: Template usado = TRI-1-v2  «Update contact field»
+                        [3b24dcfb] NOTA: Lead respondeu à nutrição — triagem enviada.  «Note»
+          NÃO:
+            [b42965b0] -TAG triagem-enviada  «Remove Tag»
+  NÃO:

@@ -1,0 +1,16 @@
+# Mestre de saída v2  (c616e2d7-a618-4581-94f4-7eefbcef8047, 9 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO opportunity_status_changed (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.status == lost
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq
+GATILHO opportunity_status_changed (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.status == abandoned
+
+[c18abc2b] SE «Acabou de chegar em NOVO LEAD?»: pipelineStageId == "NOVO LEAD"
+  SIM:
+  NÃO:
+    [86aee23c] SE «Está em CONECTAR e aberta?»: pipelineStageId == "CONECTAR" AND status == "open"
+      SIM:
+      NÃO:
+        [7badae52] TIRA DE: Interceptação de Sinal — Clique v2[published]  «Remove from Workflow»
+        [22b51014] -TAG fila-quente, fila-tel, fila-wa, reengajamento-ativo, pausado, fila-linkedin, atraso-1a-tentativa, cad-outbound, cadencia-12x30-p2, fechar-horario, toque, proposta-pendente, negociacao-estagnada  «Remove Tag»
+        [e5e18dfc] +TAG limpar-tarefas  «Add Tag»

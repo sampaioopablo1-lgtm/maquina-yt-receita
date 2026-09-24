@@ -1,0 +1,421 @@
+{
+  "workflow": {
+    "_id": "37ee2c13-3492-4f80-9471-835f3976fd09",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Reunião Cancelada",
+    "version": 3,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/37ee2c13-3492-4f80-9471-835f3976fd09/3",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F37ee2c13-3492-4f80-9471-835f3976fd09%2F3?alt=media&token=7a23b2f2-f29e-4229-be58-f8c726e8629e",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "meta": {
+      "advanceCanvasMeta": {
+        "enabled": true,
+        "enabledAt": "2026-09-24T00:01:37.000Z"
+      }
+    },
+    "createdAt": "2026-09-24T00:01:34.482Z",
+    "updatedAt": "2026-09-24T00:01:37.865Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "status": "draft",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/37ee2c13-3492-4f80-9471-835f3976fd09/3",
+    "window": {
+      "days": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "startHour": 8,
+      "startMinute": 30,
+      "endHour": 18,
+      "endMinute": 30
+    },
+    "workflowNote": null,
+    "id": "37ee2c13-3492-4f80-9471-835f3976fd09",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "5aa78ccb-fb8a-4913-b6d4-944d1a4766dc",
+          "name": "Sai dos lembretes e do pós-agendamento",
+          "type": "remove_from_workflow",
+          "attributes": {
+            "type": "remove_from_workflow",
+            "workflow_id": [
+              "10065adb-aad7-4d12-92df-6941f05d130c",
+              "81815fcc-ff4f-4b72-8a1f-7dbf44ce6911"
+            ]
+          },
+          "order": 0,
+          "parentKey": null,
+          "next": "2691364e-cb21-40e2-a7bb-dc246a19f199",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "2691364e-cb21-40e2-a7bb-dc246a19f199",
+          "name": "Remove Tag",
+          "type": "remove_contact_tag",
+          "attributes": {
+            "tags": [
+              "lr-conf-agora"
+            ]
+          },
+          "order": 1,
+          "parentKey": "5aa78ccb-fb8a-4913-b6d4-944d1a4766dc",
+          "next": "b6224151-7b35-4212-805a-73a0c079868b",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "b6224151-7b35-4212-805a-73a0c079868b",
+          "order": 2,
+          "name": "Pode receber mensagem?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "562785c0-5c11-403e-bbca-02c383e898ec",
+            "888630d3-bb71-429e-b817-1677f8c49b86"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "562785c0-5c11-403e-bbca-02c383e898ec",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "1fe5d94a-24eb-455f-829d-61206b757db4",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "tags",
+                        "conditionOperator": "index-of-false",
+                        "conditionValue": [
+                          "nao-perturbe"
+                        ],
+                        "__conditionId": "2251422c-3cb5-481f-ab8d-df3e81535826",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "parentKey": "2691364e-cb21-40e2-a7bb-dc246a19f199",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "562785c0-5c11-403e-bbca-02c383e898ec",
+          "parent": "b6224151-7b35-4212-805a-73a0c079868b",
+          "parentKey": "b6224151-7b35-4212-805a-73a0c079868b",
+          "order": 3,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "888630d3-bb71-429e-b817-1677f8c49b86"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "4f096401-daac-453e-8b39-8e05418ce3a8",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "888630d3-bb71-429e-b817-1677f8c49b86",
+          "parent": "b6224151-7b35-4212-805a-73a0c079868b",
+          "parentKey": "b6224151-7b35-4212-805a-73a0c079868b",
+          "order": 3,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "562785c0-5c11-403e-bbca-02c383e898ec"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "next": "a5ec5816-d9ad-45bb-a0b4-af121b377277",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "4f096401-daac-453e-8b39-8e05418ce3a8",
+          "name": "WhatsApp · CANC-1",
+          "type": "sms",
+          "attributes": {
+            "type": "sms",
+            "attachments": [],
+            "body": "Oi! Vi que a nossa reunião de diagnóstico foi cancelada. Sem problema — quer que eu te mande outros horários? É só responder aqui."
+          },
+          "order": 0,
+          "parent": "562785c0-5c11-403e-bbca-02c383e898ec",
+          "parentKey": "562785c0-5c11-403e-bbca-02c383e898ec",
+          "next": "1b48b4be-207b-4467-bbf4-d2f2190dcfaf",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "1b48b4be-207b-4467-bbf4-d2f2190dcfaf",
+          "name": "Tarefa · remarcar",
+          "type": "task-notification",
+          "workflowsActionType": "INTERNAL",
+          "attributes": {
+            "title": "[NO-SHOW] Reunião cancelada — remarcar com o lead",
+            "body": "<p>O lead cancelou a reunião de diagnóstico. Ligue ou responda no WhatsApp e marque um novo horário no calendário \"Reunião com closer\". Se ele desistiu, marque a oportunidade como perdida com o motivo.</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "order": 1,
+          "parent": "562785c0-5c11-403e-bbca-02c383e898ec",
+          "parentKey": "4f096401-daac-453e-8b39-8e05418ce3a8",
+          "next": "ed2fd241-3808-4814-8d0d-7e6751b81b21",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2200,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "ed2fd241-3808-4814-8d0d-7e6751b81b21",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Reunião cancelada pelo lead · lembretes interrompidos · tarefa de remarcar criada</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Nota"
+          },
+          "order": 2,
+          "parent": "562785c0-5c11-403e-bbca-02c383e898ec",
+          "parentKey": "1b48b4be-207b-4467-bbf4-d2f2190dcfaf",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2500,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "a5ec5816-d9ad-45bb-a0b4-af121b377277",
+          "name": "Tarefa · remarcar",
+          "type": "task-notification",
+          "workflowsActionType": "INTERNAL",
+          "attributes": {
+            "title": "[NO-SHOW] Reunião cancelada — remarcar com o lead",
+            "body": "<p>O lead cancelou a reunião de diagnóstico. Ligue ou responda no WhatsApp e marque um novo horário no calendário \"Reunião com closer\". Se ele desistiu, marque a oportunidade como perdida com o motivo.</p>",
+            "assignedTo": "contact.assigned_user",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
+            "type": "task_notification",
+            "__customInputs__": {}
+          },
+          "order": 0,
+          "parent": "888630d3-bb71-429e-b817-1677f8c49b86",
+          "parentKey": "888630d3-bb71-429e-b817-1677f8c49b86",
+          "next": "15fc912a-1299-4ed1-9e31-628884771d6c",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 2800,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "15fc912a-1299-4ed1-9e31-628884771d6c",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Reunião cancelada pelo lead · lembretes interrompidos · tarefa de remarcar criada</p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Nota"
+          },
+          "order": 1,
+          "parent": "888630d3-bb71-429e-b817-1677f8c49b86",
+          "parentKey": "a5ec5816-d9ad-45bb-a0b4-af121b377277",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 3100,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "0up1OuRjLXYZTBy2Kcqo",
+      "date_added": "2026-09-24T00:01:35.373Z",
+      "deleted": false,
+      "active": false,
+      "actions": [
+        {
+          "workflow_id": "37ee2c13-3492-4f80-9471-835f3976fd09",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "appointment.eventType",
+          "value": "normal",
+          "title": "Tipo de evento",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "calendar.id",
+          "value": "3uNQFjCEDe7b4gKZJuOZ",
+          "title": "In calendar",
+          "type": "select",
+          "id": "b6a669b9-1f3d-4ab1-989d-c383ee3ca0c1"
+        },
+        {
+          "operator": "==",
+          "field": "appointment.status",
+          "value": "cancelled",
+          "title": "Appointment status is",
+          "type": "select",
+          "id": "ad120252-8bf6-4a05-8cd8-a4746be3b8ef"
+        },
+        {
+          "operator": "is-any-of",
+          "field": "contactMode",
+          "value": [
+            "contact"
+          ],
+          "type": "input"
+        }
+      ],
+      "type": "appointment",
+      "masterType": "highlevel",
+      "workflow_id": "37ee2c13-3492-4f80-9471-835f3976fd09",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Reunião cancelada",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "5aa78ccb-fb8a-4913-b6d4-944d1a4766dc",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-24T00:01:36.395Z"
+    }
+  ]
+}

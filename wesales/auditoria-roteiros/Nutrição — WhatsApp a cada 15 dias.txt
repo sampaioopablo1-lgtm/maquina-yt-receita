@@ -1,0 +1,48 @@
+# Nutrição — WhatsApp a cada 15 dias  (37eb32e4-4c21-4c69-bba1-36879ae0886c, 37 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO contact_tag (ativo=True): tagsAdded index-of-true nutricao-90d
+
+[36d769f1] -TAG triagem-enviada, reengajamento-ativo, reengajado  «Remove Tag»
+[7478ea7e] ESPERA 15 days  «Wait 15 Days»
+[4bf7f1a2] SE «N1 · Ainda em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["reengajado"] AND tags index-of-false ["telefone-invalido"]
+  SIM:
+    [37a0e14d] WHATSAPP → lead:
+        │ Oi, aqui é da O Próximo Cliente. Uma dica rápida: lead de anúncio respondido nos primeiros minutos conversa muito mais do que o respondido no dia seguinte. Se hoje o seu time demora, dá pra resolver sem aumentar a verba. Quer que eu te mostre como? Se preferir não receber, responde PARAR.
+    [bb652428] CAMPO: Template usado = N1-v2  «Update contact field»
+    [c1a8c660] ESPERA 15 days  «Wait 15 Days»
+    [79098f29] SE «N2 · Ainda em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["reengajado"] AND tags index-of-false ["telefone-invalido"]
+      SIM:
+        [ce3c0f0c] WHATSAPP → lead:
+        │ Pergunta rápida da O Próximo Cliente: dos contatos que seus anúncios trouxeram no último mês, quantos viraram conversa de verdade? Se não sabe o número, provavelmente tem dinheiro parado aí. Em 10 minutos a gente enxerga isso juntos — é só responder.
+        [1a2c97da] CAMPO: Template usado = N2-v2  «Update contact field»
+        [7521987e] ESPERA 15 days  «Wait 15 Days»
+        [a4835e38] SE «N3 · Ainda em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["reengajado"] AND tags index-of-false ["telefone-invalido"]
+          SIM:
+            [8c27d01c] WHATSAPP → lead:
+        │ Dica curta: antes de aumentar a verba do anúncio, confira quanto tempo o seu time leva pra responder quem chega. Na maioria das vezes o gargalo está no atendimento, não no anúncio.
+            [66462f59] CAMPO: Template usado = N3-v2  «Update contact field»
+            [549181e9] ESPERA 15 days  «Wait 15 Days»
+            [0f8f85af] SE «N4 · Ainda em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["reengajado"] AND tags index-of-false ["telefone-invalido"]
+              SIM:
+                [6d666618] WHATSAPP → lead:
+        │ Pouca gente sabe: além dos anúncios, a O Próximo Cliente também pode atender os leads que você já recebe e marcar a reunião ou a visita direto na agenda do seu vendedor. Se isso resolveria um problema aí, me responde que eu te explico. Se preferir não receber, responde PARAR.
+                [f7037b8a] CAMPO: Template usado = N4-v2  «Update contact field»
+                [99615a9c] ESPERA 15 days  «Wait 15 Days»
+                [d4955b9a] SE «N5 · Ainda em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["reengajado"] AND tags index-of-false ["telefone-invalido"]
+                  SIM:
+                    [1075472b] WHATSAPP → lead:
+        │ Já testou trocar o "fale conosco" do anúncio por uma oferta específica, como um diagnóstico ou um orçamento rápido? Costuma trazer contato mais qualificado. Se quiser, te mostro como ficaria no seu caso.
+                    [9253dd12] CAMPO: Template usado = N5-v2  «Update contact field»
+                    [cee55019] ESPERA 15 days  «Wait 15 Days»
+                    [28f4f5e3] SE «N6 · Ainda em nutrição?»: tags index-of-true ["status-nutricao"] AND tags index-of-false ["nao-perturbe"] AND tags index-of-false ["reengajado"] AND tags index-of-false ["telefone-invalido"]
+                      SIM:
+                        [1d41123d] WHATSAPP → lead:
+        │ Esta é a minha última mensagem por aqui. Se em algum momento quiser aproveitar melhor os contatos que seus anúncios já trazem, é só responder esta conversa que eu retomo. Sucesso!
+                        [24ad2f16] CAMPO: Template usado = N6-v2  «Update contact field»
+                      NÃO:
+                  NÃO:
+              NÃO:
+          NÃO:
+      NÃO:
+  NÃO:

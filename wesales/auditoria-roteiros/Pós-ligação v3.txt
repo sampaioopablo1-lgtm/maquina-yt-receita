@@ -1,0 +1,85 @@
+# Pós-ligação v3  (8b86e5cb-97ae-4c84-ae3a-6fa11f9fe1a4, 80 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO contact_changed (ativo=True): contact.nPafc9c0JdSSptdPhUlF has-changed None
+
+[65062b7d] SE «Resultado vazio?»: Resultado da tentativa has_no_value 
+  SIM:
+  NÃO:
+    [32f4f43c] CONTA: {"selectField": "JUBhmz0DGQMvjLCxSNrk", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "JUBhmz0DGQMvjLCxSNrk", "updateFieldType": "nu  «Total de ligações +1»
+    [0e83c66e] SE «Ligação pelo WhatsApp?»: tags index-of-true ["fila-wa"]
+      SIM:
+        [d2eedad9] CONTA: {"selectField": "5j9SerJeZ6ngfZCPb2Wg", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "5j9SerJeZ6ngfZCPb2Wg", "updateFieldType": "nu  «Tentativas WhatsApp +1»
+        [3fa24e91] VAI PARA → 59f07cfb  «Go To»
+      NÃO:
+        [d560032b] CONTA: {"selectField": "wCzdqF7uLQwtrZ1JyZRn", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "wCzdqF7uLQwtrZ1JyZRn", "updateFieldType": "nu  «Tentativas telefone +1»
+        [59f07cfb] SE «Atendeu?»: Resultado da tentativa == "Atendeu"
+          SIM:
+            [232f5964] SE «Atendeu pelo WhatsApp?»: tags index-of-true ["fila-wa"]
+              SIM:
+                [526c4a8b] CONTA: {"selectField": "Og1CkI9x9OztsV242nIM", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "Og1CkI9x9OztsV242nIM", "updateFieldType": "nu  «Conexões WhatsApp +1»
+                [6aba8f7d] CAMPO: Canal que conectou = Ligação WhatsApp  «Canal = Ligação WhatsApp»
+                [5c9a25a3] VAI PARA → 458cfd0b  «Go To»
+              NÃO:
+                [d00c0db7] CONTA: {"selectField": "LB11ao0AdSI1QSHyZBOP", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "LB11ao0AdSI1QSHyZBOP", "updateFieldType": "nu  «Conexões telefone +1»
+                [68a10fcc] CAMPO: Canal que conectou = Ligação normal  «Canal = Ligação normal»
+                [458cfd0b] CONTA: {"selectField": "tQ7Fzo6cWeBDmEoaTBIZ", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "tQ7Fzo6cWeBDmEoaTBIZ", "updateFieldType": "nu  «Total de conexões +1»
+                [0ffee815] CAMPO: WA não atendidas seguidas = 0; Data conectado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}  «Zera WA seguidas + Data conectado»
+                [5c735adc] +TAG conectado-hoje, fechar-horario  «Add Tag»
+                [5b6f24ca] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                [c868fb2d] TIRA DE: Cadência 12x30[published], Cadência 12x30 — parte 2[published], Cadência Inbound[published]  «Sai das cadências»
+                [a6815ce6] TAREFA: [FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico | O lead atendeu e ainda não tem reunião. Hoje: confirme a dor principal, preencha o formulário de qualificação e marque no calendário "Reunião com closer" (60 min). Se marcar, o resto sai sozinho. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Tarefa · [FECHAR HORÁRIO] Qualificar e agendar a »
+                [aa54610d] NOTA: Atendeu · canal {{contact.canal_que_conectou}} · Fechar Horário ativo  «Note»
+          NÃO:
+            [e14d009e] SE «Não atendeu ou caixa postal?»: Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+              SIM:
+                [49e68349] SE «Não atendeu pelo WhatsApp?»: tags index-of-true ["fila-wa"]
+                  SIM:
+                    [d7857ec9] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «WA não atendidas seguidas +1»
+                    [62512c26] VAI PARA → d24f4556  «Go To»
+                  NÃO:
+                    [d24f4556] -TAG fila-tel, fila-wa  «Remove Tag»
+                    [fae5f0e0] +TAG limpar-tarefas  «Add Tag»
+              NÃO:
+                [d0eb76c2] SE «Pediu retorno?»: Resultado da tentativa == "Pediu retorno"
+                  SIM:
+                    [8d8eb118] -TAG fila-tel, fila-wa  «Remove Tag»
+                    [89f4d123] SE «Data de retorno preenchida?»: Data de retorno has_value 
+                      SIM:
+                        [0dc5ce5f] TAREFA: [RETORNO] Ligar no horário combinado: {{contact.data_de_retorno}} às {{contact.hora_do_retorno}} | O lead pediu para você ligar neste horário. Ligue e marque o novo Resultado da tentativa. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Tarefa · [RETORNO] Ligar no horário combinado: {{»
+                      NÃO:
+                        [7689038d] TAREFA: [RETORNO] Preencher Data e Hora do retorno | O lead pediu retorno, mas a data não foi preenchida. Preencha "Data de retorno" e "Hora do retorno" com o que foi combinado — senão ninguém é avisado. | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Tarefa · [RETORNO] Preencher Data e Hora do retor»
+                  NÃO:
+                    [608ac82f] SE «Não ligar?»: Resultado da tentativa == "Não ligar"
+                      SIM:
+                        [2c398e16] +TAG nao-perturbe  «Add Tag»
+                        [8e5b5aa2] DND {"type": "dnd_contact", "dnd_direction": "outbound", "dnd_contact": "enable", "specific_channels": []}  «DND de saída»
+                        [adff7be9] -TAG fila-tel, fila-wa, fila-quente, fechar-horario, retorno-vencido  «Remove Tag»
+                        [3767e07f] REMOVE_FROM_ALL_WORKFLOWS {"type": "remove_from_all_workflows", "includeCurrent": false}  «Sai de todas as réguas»
+                        [35d70c87] OPORTUNIDADE → etapa None, status lost  «Perdido (não ligar)»
+                        [608163e1] NOTA: Não ligar — pedido do lead na ligação. DND de saída ligado e fora de todas as réguas.  «Note»
+                      NÃO:
+                        [84fe3333] SE «Número errado?»: Resultado da tentativa == "Número errado"
+                          SIM:
+                            [fe773e25] +TAG telefone-invalido  «Add Tag»
+                            [ad908f3f] -TAG fila-tel, fila-wa, fila-quente, fechar-horario  «Remove Tag»
+                            [f63d4887] TIRA DE: Cadência 12x30[published], Cadência 12x30 — parte 2[published], Cadência Inbound[published], Fechar Horário[published]  «Sai das cadências»
+                            [3de06aca] SE «Tem outro contato (e-mail ou Instagram)?»: email has_value  OR Instagram has_value 
+                              SIM:
+                                [3461d16d] OPORTUNIDADE → etapa None, status abandoned  «Abandonado (achar outro contato)»
+                                [b32a4746] AVISO INTERNO (notification): Número errado: {{contact.name}} · {{contact.phone}} · origem {{contact.source}}. Procure outro contato (e-mail/Instagram/site) e corrija o telefone. Se achar, mova de volta para CONECTAR.  «Aviso · Número errado — ache outro contato»
+                              NÃO:
+                                [7a002466] OPORTUNIDADE → etapa None, status lost  «Perdido (número errado, sem outro contato)»
+                                [b13dba12] AVISO INTERNO (notification): Número errado e sem outro contato: {{contact.name}} · {{contact.phone}}. Marcado como perdido.  «Aviso · Número errado — perdido»
+                          NÃO:
+                            [3fed299e] SE «Desqualificado?»: Resultado da tentativa == "Desqualificado"
+                              SIM:
+                                [ea65d5d3] -TAG fila-tel, fila-wa, fila-quente, fechar-horario  «Remove Tag»
+                                [af1d4bfb] TIRA DE: Cadência 12x30[published], Cadência 12x30 — parte 2[published], Cadência Inbound[published], Fechar Horário[published]  «Sai das cadências»
+                                [e789b646] OPORTUNIDADE → etapa None, status lost  «Perdido (desqualificado)»
+                                [96cf2d1f] NOTA: Desqualificado pelo SDR — motivo: {{contact.motivo_da_desqualificao}}  «Note»
+                                [e4b2f77e] SE «Motivo preenchido?»: Motivo da desqualificação has_value 
+                                  SIM:
+                                  NÃO:
+                                    [eab0841f] AVISO INTERNO (notification): {{contact.name}} foi marcado como Desqualificado sem motivo. Preencha "Motivo da desqualificação" — é o que mostra onde o funil perde.  «Aviso · Preencha o motivo da desqualificação»
+                              NÃO:

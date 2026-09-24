@@ -1,0 +1,81 @@
+# Pós-ligação v2  (0e82d852-15f4-4219-9d0d-da0cccf11826, 146 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO contact_changed (ativo=True): contact.nPafc9c0JdSSptdPhUlF has-changed None
+
+[a5bcc794] SE «yes»: Resultado da tentativa has_no_value 
+  SIM:
+  NÃO:
+    [4be950b2] CONTA: {"selectField": "JUBhmz0DGQMvjLCxSNrk", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "JUBhmz0DGQMvjLCxSNrk", "updateFieldType": "nu  «Math operation»
+    [d1f24887] SE «yes»: tags index-of-true ["fila-wa"]
+      SIM:
+        [80b72918] CONTA: {"selectField": "5j9SerJeZ6ngfZCPb2Wg", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "5j9SerJeZ6ngfZCPb2Wg", "updateFieldType": "nu  «Math operation»
+        [c87bd778] SE «yes»: Resultado da tentativa == "Atendeu"
+          SIM:
+            [39ca7568] SE «yes»: tags index-of-true ["fila-wa"]
+              SIM:
+                [9565c8f3] CONTA: {"selectField": "Og1CkI9x9OztsV242nIM", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "Og1CkI9x9OztsV242nIM", "updateFieldType": "nu  «Math operation»
+                [c14d4a15] CAMPO: WA não atendidas seguidas = 0  «Update contact field»
+                [e526c8f4] +TAG conectado-hoje, fechar-horario  «Add Tag»
+                [6a204db9] -TAG fila-tel, fila-wa  «Remove Tag»
+                [b4ebdcad] OPORTUNIDADE → etapa CONECTAR, status (mantém)  «Criar ou atualizar oportunidade»
+                [62a57a2a] CAMPO: Data conectado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}; Canal que conectou = Ligação WhatsApp  «Update contact field»
+                [ea6c7817] TAREFA: [FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico | [CONECTADO] Qualificar e agendar | vence: {'duration': 0, 'unit': 'days', 'time': 1789815600000, 'skipWeekends': True}  «Add task»
+                [627573c8] NOTA: Atendeu  «Note»
+                [921f2cf0] TIRA DE: Cadência 12x30[published], Qualificação por IA no WhatsApp[draft], Cadência 12x30 — parte 2[published]  «Remove from Workflow»
+              NÃO:
+                [a39fe8fc] CONTA: {"selectField": "LB11ao0AdSI1QSHyZBOP", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "LB11ao0AdSI1QSHyZBOP", "updateFieldType": "nu  «Math operation»
+                [7c564ce6] TIRA DE: Cadência 12x30[published], Qualificação por IA no WhatsApp[draft], Cadência 12x30 — parte 2[published]  «Remove from Workflow»
+          NÃO:
+            [4e95edf4] SE «yes»: tags index-of-true ["fila-wa"]
+              SIM:
+                [b12c1754] CONTA: {"selectField": "Og1CkI9x9OztsV242nIM", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "Og1CkI9x9OztsV242nIM", "updateFieldType": "nu  «Math operation»
+                [9d876f39] CAMPO: WA não atendidas seguidas = 0  «Update contact field»
+                [83965e7e] +TAG conectado-hoje, fechar-horario  «Add Tag»
+                [7ea08a43] -TAG fila-tel, fila-wa  «Remove Tag»
+                [02b2d15f] OPORTUNIDADE → etapa CONECTAR, status (mantém)  «Criar ou atualizar oportunidade»
+                [8e1e6d8f] CAMPO: Data conectado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}  «Update contact field»
+                [25cb931b] TAREFA: [FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico | [CONECTADO] Qualificar e agendar | vence: {'duration': 0, 'unit': 'days', 'time': 1789815600000, 'skipWeekends': True}  «Add task»
+                [4ef91a6e] NOTA: Atendeu  «Note»
+              NÃO:
+                [650140d4] CONTA: {"selectField": "LB11ao0AdSI1QSHyZBOP", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "LB11ao0AdSI1QSHyZBOP", "updateFieldType": "nu  «Math operation»
+      NÃO:
+        [4ddbe9ba] CONTA: {"selectField": "wCzdqF7uLQwtrZ1JyZRn", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "wCzdqF7uLQwtrZ1JyZRn", "updateFieldType": "nu  «Math operation»
+        [32b9d49a] SE «yes»: Resultado da tentativa == "Atendeu"
+          SIM:
+            [e7312d0d] SE «yes»: tags index-of-true ["fila-wa"]
+              SIM:
+                [244b75e7] CONTA: {"selectField": "tQ7Fzo6cWeBDmEoaTBIZ", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "tQ7Fzo6cWeBDmEoaTBIZ", "updateFieldType": "nu  «Math operation»
+                [ce13b704] CAMPO: WA não atendidas seguidas = 0  «Update contact field»
+                [ba540981] +TAG conectado-hoje, fechar-horario  «Add Tag»
+                [030cc0d8] -TAG fila-tel, fila-wa  «Remove Tag»
+                [6728ebb2] OPORTUNIDADE → etapa CONECTAR, status (mantém)  «Criar ou atualizar oportunidade»
+                [d23291df] CAMPO: Data conectado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}; Canal que conectou = Ligação WhatsApp  «Update contact field»
+                [c5a3b98d] TAREFA: [FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico | [CONECTADO] Qualificar e agendar | vence: {'duration': 0, 'unit': 'days', 'time': 1789815600000, 'skipWeekends': True}  «Add task»
+                [ca6a4dba] NOTA: Atendeu  «Note»
+                [246d6544] TIRA DE: Cadência 12x30[published], Qualificação por IA no WhatsApp[draft], Cadência 12x30 — parte 2[published]  «Remove from Workflow»
+              NÃO:
+                [ddd76173] CONTA: {"selectField": "LB11ao0AdSI1QSHyZBOP", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "LB11ao0AdSI1QSHyZBOP", "updateFieldType": "nu  «Math operation»
+                [3e7eb6d1] CAMPO: WA não atendidas seguidas = 0  «Update contact field»
+                [d02021fd] +TAG conectado-hoje, fechar-horario  «Add Tag»
+                [fe597964] -TAG fila-tel, fila-wa  «Remove Tag»
+                [bcf3ee19] OPORTUNIDADE → etapa CONECTAR, status (mantém)  «Criar ou atualizar oportunidade»
+                [feb677cf] CAMPO: Data conectado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}; Canal que conectou = Ligação normal  «Update contact field»
+                [0ed90d2b] TAREFA: [FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico | Lead atendeu a ligação. Qualificar e agendar reunião. | vence: {'duration': 0, 'unit': 'days', 'time': 1789815600000, 'skipWeekends': True}  «Add task»
+                [b5167da9] NOTA: Atendeu  «Note»
+                [cde13e9d] TIRA DE: Cadência 12x30[published], Qualificação por IA no WhatsApp[draft], Cadência 12x30 — parte 2[published]  «Remove from Workflow»
+          NÃO:
+            [3148b9e1] SE «yes»: tags index-of-true ["fila-wa"]
+              SIM:
+                [4a6a0abe] CONTA: {"selectField": "Og1CkI9x9OztsV242nIM", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "Og1CkI9x9OztsV242nIM", "updateFieldType": "nu  «Math operation»
+                [48def432] CAMPO: WA não atendidas seguidas = 0  «Update contact field»
+                [af6d5064] +TAG conectado-hoje, fechar-horario  «Add Tag»
+                [912bc93f] -TAG fila-tel, fila-wa  «Remove Tag»
+                [43aad612] OPORTUNIDADE → etapa CONECTAR, status (mantém)  «Criar ou atualizar oportunidade»
+                [5332a0e6] CAMPO: Data conectado = {{right_now.year}}-{{right_now.month}}-{{right_now.day}}  «Update contact field»
+                [cfefa06c] TAREFA: [FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico | [CONECTADO] Qualificar e agendar | vence: {'duration': 0, 'unit': 'days', 'time': 1789815600000, 'skipWeekends': True}  «Add task»
+                [81d51265] NOTA: Atendeu  «Note»
+              NÃO:
+                [307c5921] CONTA: {"selectField": "LB11ao0AdSI1QSHyZBOP", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "LB11ao0AdSI1QSHyZBOP", "updateFieldType": "nu  «Math operation»
+                [fae0f409] -TAG fila-tel, fila-wa  «Remove Tag»
+                [0433aa62] +TAG limpar-tarefas  «Add Tag»

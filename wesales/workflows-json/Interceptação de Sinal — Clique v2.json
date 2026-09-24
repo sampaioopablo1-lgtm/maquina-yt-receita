@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Interceptação de Sinal — Clique v2",
-    "version": 6,
+    "version": 7,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/30b5fc0d-a955-4a80-8b28-a43a37475f83/6",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F30b5fc0d-a955-4a80-8b28-a43a37475f83%2F6?alt=media&token=3fed1ee0-7f32-45e2-8e1c-b7abc3d648e9",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/30b5fc0d-a955-4a80-8b28-a43a37475f83/7",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F30b5fc0d-a955-4a80-8b28-a43a37475f83%2F7?alt=media&token=a8dd4345-527a-4f10-a478-44af0a64cd87",
     "stopOnResponse": false,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-22T01:20:42.111Z",
-    "updatedAt": "2026-09-23T02:05:02.380Z",
+    "updatedAt": "2026-09-24T00:07:08.501Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -403,7 +403,7 @@
           "attributes": {
             "type": "whatsapp",
             "whatsapp": {
-              "body": "<p style=\"padding-left: 0px!important;\"><span data-cv-variable=\"contact.first_name\" data-cv-token=\"true\">{{contact.first_name}}</span> clicou no link de agendar agora. Prioridade 5.",
+              "body": "<p style=\"padding-left: 0px!important;\">{{contact.name}} ({{contact.phone}}) clicou no link de agendar agora. Ligue em até 5 min.</p>",
               "userType": "assign",
               "assignedOwners": [
                 "contact_owner"

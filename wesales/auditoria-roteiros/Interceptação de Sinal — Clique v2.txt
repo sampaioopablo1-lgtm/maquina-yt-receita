@@ -1,0 +1,20 @@
+# Interceptação de Sinal — Clique v2  (30b5fc0d-a955-4a80-8b28-a43a37475f83, 15 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: True | para ao responder: False
+GATILHO trigger_link (ativo=True): link.id == vSUOvEbVZfxBlWFlTvDV
+
+[e940cc9e] ACHA OPORTUNIDADE «Find opportunity»
+  [8a8baf60] RAMO «Opportunity Found»
+  [3f62735b] SE «yes»: tags index-of-true ["etapa-conectar"]
+    SIM:
+      [c926ba5a] SE «yes»: tags index-of-true ["nao-perturbe"]
+        SIM:
+        NÃO:
+          [b04fa9df] CAMPO: Prioridade = 5  «Update contact field»
+          [856a3160] CAMPO: Sinal recebido = Clique em link  «Update contact field»
+          [4d32be0f] +TAG fila-quente  «Add Tag»
+          [76c9d406] TAREFA: [CADENCIA] Sinal: clicou no link — ligar agora | Lead clicou no link "Agendar com o closer" agora. Ligar imediatamente, prioridade 5. | vence: {{right_now.date}}  «Sinal clique»
+          [d22830d2] AVISO INTERNO (whatsapp): {{contact.first_name}} clicou no link de agendar agora. Prioridade 5.  «Internal Notification»
+          [1c6b9276] NOTA: Sinal: clique em link  «Note»
+    NÃO:
+  [19e5a9e3] RAMO «Opportunity Not Found»

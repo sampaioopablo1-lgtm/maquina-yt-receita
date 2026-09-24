@@ -1,0 +1,7 @@
+# Porta de Entrada  (e08a1580-975b-4c0f-934e-582fc6a0dbaa, 2 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO contact_created (ativo=True): 
+
+[20048b39] OPORTUNIDADE → etapa NOVO LEAD, status open  «Criar ou atualizar oportunidade»
+[b7a96823] +TAG cad-inbound  «Add Tag»

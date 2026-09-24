@@ -1,0 +1,313 @@
+{
+  "workflow": {
+    "_id": "2bec8c21-7da5-4641-842e-c256360a434e",
+    "locationId": "1D53YTI9C7oIMBavcQxV",
+    "companyId": "V9n74ao2srzj0EnvdoDd",
+    "companyAge": 29,
+    "name": "Registro de Comparecimento",
+    "version": 6,
+    "dataVersion": 7,
+    "allowMultiple": true,
+    "timezone": "account",
+    "removeContactFromLastStep": true,
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/2bec8c21-7da5-4641-842e-c256360a434e/6",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F2bec8c21-7da5-4641-842e-c256360a434e%2F6?alt=media&token=4268fb65-c893-4f54-af85-e47450409cab",
+    "stopOnResponse": false,
+    "autoMarkAsRead": false,
+    "permission": 380,
+    "type": "workflow",
+    "createdAt": "2026-09-22T00:16:28.243Z",
+    "updatedAt": "2026-09-23T03:42:55.677Z",
+    "deleted": false,
+    "creationSource": "builder",
+    "isTriggerBucketMigrated": true,
+    "originType": "user",
+    "__v": 0,
+    "allowMultipleOpportunity": false,
+    "eventStartDate": null,
+    "senderAddress": null,
+    "window": null,
+    "workflowNote": null,
+    "status": "published",
+    "triggersFilePath": "location/1D53YTI9C7oIMBavcQxV/workflow-triggers/2bec8c21-7da5-4641-842e-c256360a434e/4",
+    "id": "2bec8c21-7da5-4641-842e-c256360a434e",
+    "workflowData": {
+      "templates": [
+        {
+          "id": "d2708a1c-df6a-459b-879f-f9e180d97acf",
+          "order": 0,
+          "name": "Ainda sem data de comparecimento?",
+          "type": "if_else",
+          "cat": "conditions",
+          "next": [
+            "38a98bbc-44a0-436f-9beb-4de402b864b6",
+            "72d4202d-a5a4-435d-b4e4-ecbbdbef4488"
+          ],
+          "comments": [],
+          "nodeType": "condition-node",
+          "attributes": {
+            "currentRecipeType": "CUSTOM",
+            "branches": [
+              {
+                "id": "38a98bbc-44a0-436f-9beb-4de402b864b6",
+                "name": "Branch",
+                "segments": [
+                  {
+                    "__segmentId": "c6608d6b-bff1-456d-b953-3f527067f1ed",
+                    "operator": "and",
+                    "conditions": [
+                      {
+                        "conditionType": "contact_detail",
+                        "conditionSubType": "EsisfhEZWFLcnEYEzx3k",
+                        "conditionOperator": "has_no_value",
+                        "conditionValue": null,
+                        "__conditionId": "3979d0c6-495c-46a3-8d10-11f21e06778c",
+                        "ifElseNodeId": "",
+                        "__customFieldType__": "standard",
+                        "isWait": false,
+                        "nestedDropdownTypes": [
+                          "inboundWebhookRequest",
+                          "sheet",
+                          "datetime_formatter",
+                          "custom_webhook",
+                          "array_functions",
+                          "ivr_gather",
+                          "ivr_connect_call",
+                          "custom_code",
+                          "ai_agent",
+                          "task-notification",
+                          "event"
+                        ],
+                        "allowIsOperatorTypes": [
+                          "contact_reply",
+                          "inboundWebhookRequest",
+                          "custom_webhook",
+                          "custom_code",
+                          "ai_agent",
+                          "contact_detail",
+                          "array_functions",
+                          "appointment",
+                          "service_booking",
+                          "rental_booking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "operator": "and",
+                "showErrors": false,
+                "branchNameError": false
+              }
+            ],
+            "operator": "and",
+            "if": true,
+            "conditionName": "Condition",
+            "version": 2,
+            "noneBranchName": "None"
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 400,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "38a98bbc-44a0-436f-9beb-4de402b864b6",
+          "parent": "d2708a1c-df6a-459b-879f-f9e180d97acf",
+          "parentKey": "d2708a1c-df6a-459b-879f-f9e180d97acf",
+          "order": 1,
+          "name": "Branch",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "72d4202d-a5a4-435d-b4e4-ecbbdbef4488"
+          ],
+          "comments": [],
+          "nodeType": "branch-yes",
+          "attributes": {
+            "if": false,
+            "conditionName": "Condition",
+            "operator": "and",
+            "branches": []
+          },
+          "next": "d396759e-b6a4-4f75-adda-14a491adc69e",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 700,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "72d4202d-a5a4-435d-b4e4-ecbbdbef4488",
+          "parent": "d2708a1c-df6a-459b-879f-f9e180d97acf",
+          "parentKey": "d2708a1c-df6a-459b-879f-f9e180d97acf",
+          "order": 1,
+          "name": "None",
+          "type": "if_else",
+          "cat": "conditions",
+          "sibling": [
+            "38a98bbc-44a0-436f-9beb-4de402b864b6"
+          ],
+          "comments": [],
+          "nodeType": "branch-no",
+          "attributes": {
+            "else": true
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1000,
+              "y": 0
+            }
+          }
+        },
+        {
+          "id": "d396759e-b6a4-4f75-adda-14a491adc69e",
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "EsisfhEZWFLcnEYEzx3k",
+                "value": "{{right_now.year}}-{{right_now.month}}-{{right_now.day}}",
+                "title": "Data compareceu",
+                "type": "date",
+                "date": ""
+              }
+            ]
+          },
+          "order": 0,
+          "parent": "38a98bbc-44a0-436f-9beb-4de402b864b6",
+          "parentKey": "38a98bbc-44a0-436f-9beb-4de402b864b6",
+          "next": "22b8e912-e1f4-4b78-831c-290b228c3b71",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1300,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "22b8e912-e1f4-4b78-831c-290b228c3b71",
+          "name": "Update contact field",
+          "type": "update_contact_field",
+          "attributes": {
+            "type": "update_contact_field",
+            "actionType": "update_field_data",
+            "fields": [
+              {
+                "field": "ONBBDPg4LPIoRhv09Nf3",
+                "value": 0,
+                "title": "Nº de no-shows",
+                "type": "numerical",
+                "date": ""
+              }
+            ]
+          },
+          "order": 1,
+          "parent": "38a98bbc-44a0-436f-9beb-4de402b864b6",
+          "parentKey": "d396759e-b6a4-4f75-adda-14a491adc69e",
+          "next": "0b89aceb-da0b-4769-a1cf-2652c4dc8c47",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1600,
+              "y": 0
+            }
+          },
+          "cat": ""
+        },
+        {
+          "id": "0b89aceb-da0b-4769-a1cf-2652c4dc8c47",
+          "name": "Note",
+          "type": "add_notes",
+          "attributes": {
+            "html": "<p style=\"padding-left: 0px!important;\">Compareceu à reunião · <span data-cv-variable=\"right_now\" data-cv-token=\"true\">{{right_now}}</span></p>",
+            "color": "#FEF0C7",
+            "type": "add_notes",
+            "title": "Compareceu à reunião"
+          },
+          "order": 2,
+          "parent": "38a98bbc-44a0-436f-9beb-4de402b864b6",
+          "parentKey": "22b8e912-e1f4-4b78-831c-290b228c3b71",
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 1900,
+              "y": 0
+            }
+          },
+          "cat": ""
+        }
+      ]
+    },
+    "permissionMeta": {
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "triggers": [
+    {
+      "id": "0jb8gN8ZYwwqvIzwUOBm",
+      "date_added": "2026-09-22T00:16:29.084Z",
+      "deleted": false,
+      "actions": [
+        {
+          "workflow_id": "2bec8c21-7da5-4641-842e-c256360a434e",
+          "type": "add_to_workflow"
+        }
+      ],
+      "conditions": [
+        {
+          "operator": "==",
+          "field": "appointment.eventType",
+          "value": "normal",
+          "title": "Tipo de evento",
+          "type": "select"
+        },
+        {
+          "operator": "==",
+          "field": "calendar.id",
+          "value": "3uNQFjCEDe7b4gKZJuOZ",
+          "title": "In calendar",
+          "type": "select",
+          "id": "5af209cd-af98-4d72-8ce2-14bcd17251cf"
+        },
+        {
+          "operator": "==",
+          "field": "appointment.status",
+          "value": "showed",
+          "title": "Appointment status is",
+          "type": "select",
+          "id": "1ae630d9-9af8-4846-b122-8e95eb448aed"
+        },
+        {
+          "operator": "is-any-of",
+          "field": "contactMode",
+          "value": [
+            "contact"
+          ],
+          "type": "input"
+        }
+      ],
+      "type": "appointment",
+      "masterType": "highlevel",
+      "workflow_id": "2bec8c21-7da5-4641-842e-c256360a434e",
+      "location_id": "1D53YTI9C7oIMBavcQxV",
+      "name": "Status Do Agendamento",
+      "belongs_to": "workflow",
+      "schedule_config": {},
+      "targetActionId": "d2708a1c-df6a-459b-879f-f9e180d97acf",
+      "advanceCanvasMeta": {
+        "position": {
+          "x": 57.5,
+          "y": -73
+        }
+      },
+      "date_updated": "2026-09-22T00:36:08.318Z",
+      "active": true
+    }
+  ]
+}

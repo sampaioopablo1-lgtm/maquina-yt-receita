@@ -1,0 +1,16 @@
+# Retorno Vencido  (70ca5354-18e8-4d17-b929-b13d4e71aacf, 11 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO contact_changed (ativo=True): contact.IBOMNQecWtIUruHpNAs1 has-changed None
+
+[9458f766] CAMPO: Checkpoint — Data de retorno = {{contact.data_de_retorno}}  «Update contact field»
+[61b7a7e4] ESPERA 2 days  «Wait 2 Days»
+[497d8261] SE «A data ainda é a mesma?»: Data de retorno == "{{contact.checkpoint__data_de_retorno}}"
+  SIM:
+    [89ced2bb] SE «Promessa vencida sem reclassificar?»: Resultado da tentativa == "Pediu retorno" AND tags index-of-true ["etapa-conectar"]
+      SIM:
+        [fb0303b0] +TAG retorno-vencido  «Add Tag»
+        [a42b444c] AVISO INTERNO (notification): {{contact.name}} tinha retorno prometido para {{contact.data_de_retorno}} e ainda não foi reclassificado.  «Internal Notification»
+        [439bf785] NOTA: Alerta de saúde: retorno vencido sem nova classificação · {{right_now}}  «Note»
+      NÃO:
+  NÃO:

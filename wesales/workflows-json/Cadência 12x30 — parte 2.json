@@ -5,19 +5,19 @@
     "companyId": "V9n74ao2srzj0EnvdoDd",
     "companyAge": 29,
     "name": "Cadência 12x30 — parte 2",
-    "version": 8,
+    "version": 11,
     "dataVersion": 7,
     "allowMultiple": true,
     "timezone": "account",
     "removeContactFromLastStep": true,
-    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/17e6dc19-3eca-42e8-83ff-e25a9d5c28e8/8",
-    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F17e6dc19-3eca-42e8-83ff-e25a9d5c28e8%2F8?alt=media&token=9b9526c1-7995-4010-b9cd-11c637c835c5",
+    "filePath": "location/1D53YTI9C7oIMBavcQxV/workflows/17e6dc19-3eca-42e8-83ff-e25a9d5c28e8/11",
+    "fileUrl": "https://firebasestorage.googleapis.com/v0/b/automation-workflows-production/o/location%2F1D53YTI9C7oIMBavcQxV%2Fworkflows%2F17e6dc19-3eca-42e8-83ff-e25a9d5c28e8%2F11?alt=media&token=18289185-858b-4710-ad44-67c9a757f0c1",
     "stopOnResponse": true,
     "autoMarkAsRead": false,
     "permission": 380,
     "type": "workflow",
     "createdAt": "2026-09-23T01:44:01.632Z",
-    "updatedAt": "2026-09-23T01:59:58.374Z",
+    "updatedAt": "2026-09-24T00:03:25.615Z",
     "deleted": false,
     "creationSource": "builder",
     "isTriggerBucketMigrated": true,
@@ -1059,7 +1059,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 7 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -1104,7 +1109,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 7 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -3127,7 +3137,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 8 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT8-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -3172,7 +3187,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 8 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT8-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -3413,7 +3433,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, tentei falar com você algumas vezes e não quero ser chato. Uma linha só: hoje vocês trazem cliente novo mais por indicação ou por anúncio? Me responde por aqui que eu te ligo no horário que for melhor pra você.",
+            "body": "Oi, tentei falar com você algumas vezes e não quero incomodar. Uma linha só: hoje vocês trazem cliente novo mais por indicação ou por anúncio? Me responde por aqui que eu ligo no horário que for melhor pra você.",
             "attachments": []
           },
           "order": 0,
@@ -5461,7 +5481,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 9 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -5506,7 +5531,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 9 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -7529,7 +7559,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 10 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -7574,7 +7609,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 10 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -9597,7 +9637,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 11 de 12.<br>1. 📞 Ligar pelo telefone (botão de ligar do contato).<br>2. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa). <i>(o lead já ignorou 3 ligações de WhatsApp seguidas: WhatsApp só depois)</i><br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT11-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -9642,7 +9687,12 @@
             "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 11 de 12.<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT11-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
             "assignedTo": "contact.assigned_user",
             "type": "task_notification",
-            "dueDate": "0",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
             "__customInputs__": {
               "dueDate": "duration-picker"
             }
@@ -9883,7 +9933,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, última tentativa de te pegar por telefone. Se captar cliente novo não é prioridade agora, sem problema, me diz que eu respeito. Se for, 10 minutos de conversa já mostram se faz sentido a gente ajudar.",
+            "body": "Oi, tentei mais uma vez por telefone. Se captar cliente novo não é prioridade agora, tudo bem, é só me dizer. Se for, 10 minutos de conversa já mostram se faz sentido a gente ajudar.",
             "attachments": []
           },
           "order": 0,
@@ -11760,7 +11810,7 @@
           "order": 0,
           "parent": "607a7ebb-d47c-4429-a709-1235f1d9f927",
           "parentKey": "607a7ebb-d47c-4429-a709-1235f1d9f927",
-          "next": "24cc7526-b2e0-4ece-a2a2-b44f2957e0a6",
+          "next": "aa7714ab-421a-49a5-84b6-70ccf2b9c22d",
           "advanceCanvasMeta": {
             "position": {
               "x": 89800,
@@ -11770,9 +11820,112 @@
           "cat": ""
         },
         {
+          "id": "aa7714ab-421a-49a5-84b6-70ccf2b9c22d",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "fila-tel"
+            ]
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 72100,
+              "y": 0
+            }
+          },
+          "cat": "",
+          "parentKey": "85f91b0e-d157-42ad-bb10-e11fa77fb1ca",
+          "parent": "85f91b0e-d157-42ad-bb10-e11fa77fb1ca",
+          "order": 1,
+          "next": "002c6e4e-3c9c-48cb-8051-c06ddcdb2400"
+        },
+        {
+          "id": "002c6e4e-3c9c-48cb-8051-c06ddcdb2400",
+          "name": "Add Task",
+          "type": "task-notification",
+          "attributes": {
+            "title": "[CADENCIA] T12 · WhatsApp → Ligar",
+            "body": "<p style=\"margin:0px; padding-left: 0px!important;\">Cadência 12x30 — toque 12 de 12 (última).<br>1. 🟢 Ligar pelo WhatsApp (botão <b>Ligar via WhatsApp</b> na conversa).<br>2. 📞 Ligar pelo telefone (botão de ligar do contato).<br>3. 💬 Marcando <b>Não atendeu</b> ou <b>Caixa Postal</b>, a mensagem <b>MT12-v1</b> sai sozinha pelo WhatsApp em até 2 h — não precisa mandar.<br><br>Atendeu em qualquer passo? Pare o roteiro, converse, qualifique e tente agendar. Marque <b>Resultado da tentativa</b> e <b>Canal que conectou</b>.</p>",
+            "assignedTo": "contact.assigned_user",
+            "type": "task_notification",
+            "dueDate": {
+              "duration": 0,
+              "unit": "days",
+              "time": 1789851600000,
+              "skipWeekends": true
+            },
+            "__customInputs__": {
+              "dueDate": "duration-picker"
+            }
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 73900,
+              "y": 0
+            }
+          },
+          "cat": "",
+          "parentKey": "aa7714ab-421a-49a5-84b6-70ccf2b9c22d",
+          "parent": "aa7714ab-421a-49a5-84b6-70ccf2b9c22d",
+          "order": 1,
+          "next": "ae0f6b98-623d-4f70-87ee-c5099a64e780"
+        },
+        {
+          "id": "ae0f6b98-623d-4f70-87ee-c5099a64e780",
+          "name": "Add Tag",
+          "type": "add_contact_tag",
+          "attributes": {
+            "tags": [
+              "toque"
+            ]
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 74200,
+              "y": 0
+            }
+          },
+          "cat": "",
+          "parentKey": "002c6e4e-3c9c-48cb-8051-c06ddcdb2400",
+          "parent": "002c6e4e-3c9c-48cb-8051-c06ddcdb2400",
+          "order": 1,
+          "next": "5d8955f0-8219-4a8b-8287-1e58a7a40240"
+        },
+        {
+          "id": "5d8955f0-8219-4a8b-8287-1e58a7a40240",
+          "name": "Wait 2 Hours",
+          "type": "wait",
+          "cat": "",
+          "attributes": {
+            "type": "time",
+            "startAfter": {
+              "type": "hour",
+              "value": 2,
+              "when": "after"
+            },
+            "name": "Wait 2 Hours",
+            "cat": "",
+            "isHybridAction": true,
+            "hybridActionType": "wait",
+            "convertToMultipath": false,
+            "transitions": []
+          },
+          "advanceCanvasMeta": {
+            "position": {
+              "x": 74500,
+              "y": 0
+            }
+          },
+          "parentKey": "ae0f6b98-623d-4f70-87ee-c5099a64e780",
+          "parent": "ae0f6b98-623d-4f70-87ee-c5099a64e780",
+          "order": 1,
+          "next": "24cc7526-b2e0-4ece-a2a2-b44f2957e0a6"
+        },
+        {
           "id": "24cc7526-b2e0-4ece-a2a2-b44f2957e0a6",
           "order": 1,
-          "name": "T12 · Tentou e não conversou? (mensagem)",
+          "name": "T12 · Não atendeu a última ligação? (despedida)",
           "type": "if_else",
           "cat": "conditions",
           "next": [
@@ -11792,41 +11945,6 @@
                     "__segmentId": "8d527785-c478-47c8-a38d-188f0473df08",
                     "operator": "or",
                     "conditions": [
-                      {
-                        "conditionType": "contact_detail",
-                        "conditionSubType": "nPafc9c0JdSSptdPhUlF",
-                        "conditionOperator": "has_no_value",
-                        "conditionValue": null,
-                        "__conditionId": "f618f30d-fd6e-48f8-90af-1dbf8fd5f235",
-                        "ifElseNodeId": "",
-                        "__customFieldType__": "standard",
-                        "isWait": false,
-                        "nestedDropdownTypes": [
-                          "inboundWebhookRequest",
-                          "sheet",
-                          "datetime_formatter",
-                          "custom_webhook",
-                          "array_functions",
-                          "ivr_gather",
-                          "ivr_connect_call",
-                          "custom_code",
-                          "ai_agent",
-                          "task-notification",
-                          "event"
-                        ],
-                        "allowIsOperatorTypes": [
-                          "contact_reply",
-                          "inboundWebhookRequest",
-                          "custom_webhook",
-                          "custom_code",
-                          "ai_agent",
-                          "contact_detail",
-                          "array_functions",
-                          "appointment",
-                          "service_booking",
-                          "rental_booking"
-                        ]
-                      },
                       {
                         "conditionType": "contact_detail",
                         "conditionSubType": "nPafc9c0JdSSptdPhUlF",
@@ -11911,8 +12029,8 @@
             "version": 2,
             "noneBranchName": "None"
           },
-          "parent": "607a7ebb-d47c-4429-a709-1235f1d9f927",
-          "parentKey": "85f91b0e-d157-42ad-bb10-e11fa77fb1ca",
+          "parent": "5d8955f0-8219-4a8b-8287-1e58a7a40240",
+          "parentKey": "5d8955f0-8219-4a8b-8287-1e58a7a40240",
           "advanceCanvasMeta": {
             "position": {
               "x": 90100,
@@ -11977,7 +12095,7 @@
           "type": "sms",
           "attributes": {
             "type": "sms",
-            "body": "{{contact.first_name}}, vou parar de te procurar por aqui. Se um dia quiser falar sobre trazer mais clientes com anúncio, é só responder esta mensagem que eu retomo de onde paramos. Sucesso!",
+            "body": "Oi, vou parar de te ligar por enquanto. Se quiser falar sobre trazer mais clientes — ou aproveitar melhor os contatos que seus anúncios já trazem —, é só responder esta mensagem que eu retomo de onde paramos. Sucesso!",
             "attachments": []
           },
           "order": 0,

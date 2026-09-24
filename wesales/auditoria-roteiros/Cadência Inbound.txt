@@ -1,0 +1,391 @@
+# Cadência Inbound  (c2375e2f-b4cb-4947-8377-7c1e0529ba82, 354 nós)
+janela: {"days": [1, 2, 3, 4, 5], "startHour": 8, "startMinute": 30, "endHour": 18, "endMinute": 30}
+reentrada: False | para ao responder: True
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.pipelineStageId == CONECTAR
+
+[1e49e2a0] SE «É lead de inbound?»: tags index-of-true ["cad-inbound"]
+  SIM:
+    [0fdb9fbd] SE «Contato sem telefone?»: phone has_no_value 
+      SIM:
+        [b4232a22] +TAG telefone-invalido  «Add Tag»
+        [e2d3362c] SE «Tem site ou Instagram?»: Site has_value  OR Instagram has_value 
+          SIM:
+            [bf1bc540] OPORTUNIDADE → etapa CONECTAR, status abandoned  «Update Opportunity»
+            [309429e6] +TAG nutricao-90d  «Add Tag»
+          NÃO:
+            [8d919940] OPORTUNIDADE → etapa CONECTAR, status lost  «Update Opportunity»
+            [5bdf1579] AVISO INTERNO (notification): Lead inbound sem telefone: {{contact.name}} — revisar o formulário de origem.  «Internal Notification»
+      NÃO:
+        [e6fa43ae] CAMPO: Tentativa nº = 0; WA não atendidas seguidas = 0; Resultado da tentativa = ; Conexão real =   «Inicializa contadores»
+        [382bcfdc] SE «Permissão de WhatsApp em branco?»: Permissão WhatsApp has_no_value 
+          SIM:
+            [7be1a63b] CAMPO: Permissão WhatsApp = Não solicitado  «Update contact field»
+            [2782f18f] VAI PARA → 58ccea54  «Go To»
+          NÃO:
+            [58ccea54] CAMPO: Prioridade = 5; Entrada em = {{right_now.date}} {{right_now.time}}  «Update contact field»
+            [4a7984f3] SE «MI-0 · Ainda vale mandar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+              SIM:
+                [bb08de48] WHATSAPP → lead:
+        │ Oi! Aqui é da O Próximo Cliente. Recebemos seu contato e vamos te ligar em breve, em horário comercial. Se preferir, responde por aqui o melhor horário pra falar.
+                [267b52c3] CAMPO: Template usado = MI-0  «Update contact field»
+                [f1533476] +TAG fila-quente  «Add Tag»
+                [5ccecfb1] SE «Sem dono?»: assigned_to has_no_value 
+                  SIM:
+                    [fbe9ac9c] ATRIBUI dono {"only_unassigned_contact": false, "total_index": 1, "traffic_split": "equally", "traffic_weightage": {"JdvhvOTEBTvUyRi0  «Assign user»
+                    [6d01c2a6] VAI PARA → cc67e45b  «Go To»
+                  NÃO:
+                    [cc67e45b] ESPERA 5 minutes  «Wait 5 Minutes»
+                    [5a8399f3] SE «TI1 · Lead pausado?»: tags index-of-true ["pausado"]
+                      SIM:
+                        [dc77a610] ESPERA 30 minutes  «Wait 30 Minutes»
+                        [c98e014d] VAI PARA → 5a8399f3  «Go To»
+                      NÃO:
+                        [3701ecfa] SE «TI1 · Teto de toques da semana?»: Toques na semana >= "6"
+                          SIM:
+                            [24159f25] ESPERA 1 days  «Wait 1 Days»
+                            [a9409ad9] VAI PARA → 3701ecfa  «Go To»
+                          NÃO:
+                            [b06bdd11] SE «TI1 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                              SIM:
+                                [7e97b180] ESPERA 1 hour  «Wait 1 Hours»
+                                [281e189d] VAI PARA → b06bdd11  «Go To»
+                              NÃO:
+                                [e5253a57] SE «TI1 · Ainda vale ligar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                  SIM:
+                                    [25e73d05] CAMPO: Resultado da tentativa = ; Tentativa nº = 1; Conexão real =   «Update contact field»
+                                    [1de893c6] CAMPO: 1ª tentativa em = {{right_now.date}} {{right_now.time}}  «Update contact field»
+                                    [06448077] -TAG atraso-1a-tentativa  «Remove Tag»
+                                    [1a621cad] +TAG fila-tel  «Add Tag»
+                                    [65ad60c1] SE «TI1 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                      SIM:
+                                        [977f0014] TAREFA: [CADENCIA] TI1 · Ligar → WhatsApp — Inbound | Lead inbound: retorno rápido — toque 1 de 5.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (ignorou 3 ligações de WhatsApp segu | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                        [e21c9704] VAI PARA → ef0bc365  «Go To»
+                                      NÃO:
+                                        [0f2f2afb] TAREFA: [CADENCIA] TI1 · WhatsApp → Ligar — Inbound | Lead inbound: retorno rápido — toque 1 de 5.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu? Converse, qualifique e ten | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                        [ef0bc365] +TAG toque  «Add Tag»
+                                        [e3840225] AVISO INTERNO (notification): Novo lead inbound: {{contact.name}} ({{contact.phone}}). Ligue em até 15 min — tarefa TI1.  «Internal Notification»
+                                        [a234143f] ESPERA 25 minutes  «Wait 25 Minutes»
+                                        [e162dc1b] -TAG fila-tel, fila-wa  «Remove Tag»
+                                        [4a001400] SE «TI1 · WhatsApp rebaixado (3+ sem atender)?»: WA não atendidas seguidas >= "3"
+                                          SIM:
+                                            [f1227cf6] VAI PARA → ec7b2c14  «Go To»
+                                          NÃO:
+                                            [8ec7ed8f] SE «TI1 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                              SIM:
+                                                [66a70a9d] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                [b5b3289b] VAI PARA → ec7b2c14  «Go To»
+                                              NÃO:
+                                                [ec7b2c14] SE «TI1 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                  SIM:
+                                                    [f16de880] SE «TI1 · Retorno: ainda em CONECTAR?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                      SIM:
+                                                        [4a14ff55] ESPERA 1 hour  «Wait 1 Hours»
+                                                        [f9f1a02e] VAI PARA → ec7b2c14  «Go To»
+                                                      NÃO:
+                                                  NÃO:
+                                                    [844b438d] SE «TI1 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                      SIM:
+                                                        [eaa0953f] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                      NÃO:
+                                                        [267e3743] SE «TI1 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                          SIM:
+                                                            [c5fb34e9] SE «TI1 · Ainda em CONECTAR? (antes do Não atendeu automático)»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                              SIM:
+                                                                [8fc10781] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                [64d12337] +TAG limpar-tarefas  «Add Tag»
+                                                                [da257d66] VAI PARA → 40149cfd  «Go To»
+                                                              NÃO:
+                                                          NÃO:
+                                                            [40149cfd] SE «TI2 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                              SIM:
+                                                                [538ede0f] ESPERA 30 minutes  «Wait 30 Minutes»
+                                                                [1163e477] VAI PARA → 40149cfd  «Go To»
+                                                              NÃO:
+                                                                [089811d9] SE «TI2 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                  SIM:
+                                                                    [467d5beb] ESPERA 1 days  «Wait 1 Days»
+                                                                    [0386f431] VAI PARA → 089811d9  «Go To»
+                                                                  NÃO:
+                                                                    [76319bfa] SE «TI2 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                      SIM:
+                                                                        [445a9b26] ESPERA 1 hour  «Wait 1 Hours»
+                                                                        [96867748] VAI PARA → 76319bfa  «Go To»
+                                                                      NÃO:
+                                                                        [47903ab6] SE «TI2 · Ainda vale ligar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                          SIM:
+                                                                            [f94ef690] CAMPO: Resultado da tentativa = ; Tentativa nº = 2; Conexão real =   «Update contact field»
+                                                                            [3e61118d] +TAG fila-tel  «Add Tag»
+                                                                            [546d6187] SE «TI2 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                              SIM:
+                                                                                [95dbcb0e] TAREFA: [CADENCIA] TI2 · Ligar → WhatsApp — Inbound | Lead inbound: retorno rápido — toque 2 de 5.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (ignorou 3 ligações de WhatsApp segu | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                [a1fcf245] VAI PARA → 615d903d  «Go To»
+                                                                              NÃO:
+                                                                                [ee8c1106] TAREFA: [CADENCIA] TI2 · WhatsApp → Ligar — Inbound | Lead inbound: retorno rápido — toque 2 de 5.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu? Converse, qualifique e ten | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                [615d903d] +TAG toque  «Add Tag»
+                                                                                [2c891536] ESPERA 90 minutes  «Wait 90 Minutes»
+                                                                                [650fc5ca] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                [d19bd7ba] SE «TI2 · WhatsApp rebaixado (3+ sem atender)?»: WA não atendidas seguidas >= "3"
+                                                                                  SIM:
+                                                                                    [498fbb35] VAI PARA → a9605e05  «Go To»
+                                                                                  NÃO:
+                                                                                    [f6e7544c] SE «TI2 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                      SIM:
+                                                                                        [5d588fc9] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                        [8b43c217] VAI PARA → a9605e05  «Go To»
+                                                                                      NÃO:
+                                                                                        [a9605e05] SE «TI2 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                          SIM:
+                                                                                            [50976b77] SE «TI2 · Retorno: ainda em CONECTAR?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                              SIM:
+                                                                                                [0ac415ba] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                [b2c74e5f] VAI PARA → a9605e05  «Go To»
+                                                                                              NÃO:
+                                                                                          NÃO:
+                                                                                            [ffc55d6f] SE «TI2 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                              SIM:
+                                                                                                [1484e8dd] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                              NÃO:
+                                                                                                [32e6ae55] SE «TI2 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                  SIM:
+                                                                                                    [4fafc5f4] SE «TI2 · Ainda em CONECTAR? (antes do Não atendeu automático)»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                      SIM:
+                                                                                                        [ea8c8967] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                        [cff12886] +TAG limpar-tarefas  «Add Tag»
+                                                                                                        [2fbd5b07] VAI PARA → b6695c1b  «Go To»
+                                                                                                      NÃO:
+                                                                                                  NÃO:
+                                                                                                    [b6695c1b] SE «TI3 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                      SIM:
+                                                                                                        [2d508cdb] ESPERA 30 minutes  «Wait 30 Minutes»
+                                                                                                        [9aaad5a1] VAI PARA → b6695c1b  «Go To»
+                                                                                                      NÃO:
+                                                                                                        [5cc6e910] SE «TI3 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                          SIM:
+                                                                                                            [f8c9cd5d] ESPERA 1 days  «Wait 1 Days»
+                                                                                                            [8eb3b89a] VAI PARA → 5cc6e910  «Go To»
+                                                                                                          NÃO:
+                                                                                                            [00a8f09a] SE «TI3 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                              SIM:
+                                                                                                                [d104ae00] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                [46905cb7] VAI PARA → 00a8f09a  «Go To»
+                                                                                                              NÃO:
+                                                                                                                [93cca9ab] SE «TI3 · Ainda vale ligar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                  SIM:
+                                                                                                                    [b050bc19] CAMPO: Resultado da tentativa = ; Tentativa nº = 3; Conexão real =   «Update contact field»
+                                                                                                                    [9d112c94] +TAG fila-tel  «Add Tag»
+                                                                                                                    [46310672] SE «TI3 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                      SIM:
+                                                                                                                        [4e6ef53d] TAREFA: [CADENCIA] TI3 · Ligar → WhatsApp — Inbound | Lead inbound: retorno rápido — toque 3 de 5.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (ignorou 3 ligações de WhatsApp segu | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                        [61c9afb6] VAI PARA → 70d0b173  «Go To»
+                                                                                                                      NÃO:
+                                                                                                                        [dd6ae7d4] TAREFA: [CADENCIA] TI3 · WhatsApp → Ligar — Inbound | Lead inbound: retorno rápido — toque 3 de 5.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu? Converse, qualifique e ten | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                        [70d0b173] +TAG toque  «Add Tag»
+                                                                                                                        [52063020] ESPERA 22 hour  «Wait 22 Hours»
+                                                                                                                        [1f4204f2] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                        [2d263633] SE «TI3 · WhatsApp rebaixado (3+ sem atender)?»: WA não atendidas seguidas >= "3"
+                                                                                                                          SIM:
+                                                                                                                            [a9ab09ca] VAI PARA → ef11ea3d  «Go To»
+                                                                                                                          NÃO:
+                                                                                                                            [d412ff21] SE «TI3 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                              SIM:
+                                                                                                                                [fbfb325c] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                [1d1beae4] VAI PARA → ef11ea3d  «Go To»
+                                                                                                                              NÃO:
+                                                                                                                                [ef11ea3d] SE «TI3 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                  SIM:
+                                                                                                                                    [6ecceefc] SE «TI3 · Retorno: ainda em CONECTAR?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                      SIM:
+                                                                                                                                        [fc6d255a] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                        [1f597b78] VAI PARA → ef11ea3d  «Go To»
+                                                                                                                                      NÃO:
+                                                                                                                                  NÃO:
+                                                                                                                                    [f0c76ca9] SE «TI3 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                      SIM:
+                                                                                                                                        [ae135710] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                                                                      NÃO:
+                                                                                                                                        [3be5ecfe] SE «TI3 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                          SIM:
+                                                                                                                                            [04534f5c] SE «TI3 · Ainda em CONECTAR? (antes do Não atendeu automático)»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                              SIM:
+                                                                                                                                                [1c8817a9] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                                [b05f3ed1] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                [8f1f9c4b] VAI PARA → 92d1d876  «Go To»
+                                                                                                                                              NÃO:
+                                                                                                                                          NÃO:
+                                                                                                                                            [92d1d876] SE «TI4 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                                                              SIM:
+                                                                                                                                                [b7843703] ESPERA 30 minutes  «Wait 30 Minutes»
+                                                                                                                                                [95f7e095] VAI PARA → 92d1d876  «Go To»
+                                                                                                                                              NÃO:
+                                                                                                                                                [0435bfc1] SE «TI4 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                                                                  SIM:
+                                                                                                                                                    [7bacb3ca] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                    [01b23ba8] VAI PARA → 0435bfc1  «Go To»
+                                                                                                                                                  NÃO:
+                                                                                                                                                    [299a5aa7] SE «TI4 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                                                                      SIM:
+                                                                                                                                                        [79cfa482] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                        [ae19a3ab] VAI PARA → 299a5aa7  «Go To»
+                                                                                                                                                      NÃO:
+                                                                                                                                                        [cb23fc2d] SE «TI4 · Ainda vale ligar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                          SIM:
+                                                                                                                                                            [dfba7f4c] CAMPO: Resultado da tentativa = ; Tentativa nº = 4; Conexão real =   «Update contact field»
+                                                                                                                                                            [9afa8299] +TAG fila-tel  «Add Tag»
+                                                                                                                                                            [dba0bd1c] SE «TI4 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                              SIM:
+                                                                                                                                                                [5b741e93] TAREFA: [CADENCIA] TI4 · Ligar → WhatsApp — Inbound | Lead inbound: retorno rápido — toque 4 de 5.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (ignorou 3 ligações de WhatsApp segu | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                [0eee2f35] VAI PARA → 3d521969  «Go To»
+                                                                                                                                                              NÃO:
+                                                                                                                                                                [0915492d] TAREFA: [CADENCIA] TI4 · WhatsApp → Ligar — Inbound | Lead inbound: retorno rápido — toque 4 de 5.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu? Converse, qualifique e ten | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                [3d521969] +TAG toque  «Add Tag»
+                                                                                                                                                                [3d8b4d0d] ESPERA 2 days  «Wait 2 Days»
+                                                                                                                                                                [e37c327c] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                                                                [6b61a44b] SE «TI4 · WhatsApp rebaixado (3+ sem atender)?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                  SIM:
+                                                                                                                                                                    [8203eb33] VAI PARA → e4590117  «Go To»
+                                                                                                                                                                  NÃO:
+                                                                                                                                                                    [745d26bc] SE «TI4 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                                                                      SIM:
+                                                                                                                                                                        [75765d3f] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                                                        [d53467fe] VAI PARA → e4590117  «Go To»
+                                                                                                                                                                      NÃO:
+                                                                                                                                                                        [e4590117] SE «TI4 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                                                          SIM:
+                                                                                                                                                                            [f20be795] SE «TI4 · Retorno: ainda em CONECTAR?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                              SIM:
+                                                                                                                                                                                [132c8523] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                [3a72238a] VAI PARA → e4590117  «Go To»
+                                                                                                                                                                              NÃO:
+                                                                                                                                                                          NÃO:
+                                                                                                                                                                            [81963da8] SE «TI4 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                                                              SIM:
+                                                                                                                                                                                [17e91336] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                                                                                                              NÃO:
+                                                                                                                                                                                [a91c0652] SE «TI4 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                                                                  SIM:
+                                                                                                                                                                                    [16ff0823] SE «TI4 · Ainda em CONECTAR? (antes do Não atendeu automático)»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                      SIM:
+                                                                                                                                                                                        [f00523a7] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                                                                        [d46e861c] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                        [58c346d0] VAI PARA → 3d22b9d2  «Go To»
+                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                    [3d22b9d2] SE «TI5 · Lead pausado?»: tags index-of-true ["pausado"]
+                                                                                                                                                                                      SIM:
+                                                                                                                                                                                        [0f045433] ESPERA 30 minutes  «Wait 30 Minutes»
+                                                                                                                                                                                        [27e3928b] VAI PARA → 3d22b9d2  «Go To»
+                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                        [d2f9f933] SE «TI5 · Teto de toques da semana?»: Toques na semana >= "6"
+                                                                                                                                                                                          SIM:
+                                                                                                                                                                                            [1dcc703d] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                                                            [75b14e66] VAI PARA → d2f9f933  «Go To»
+                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                            [9a36ff5c] SE «TI5 · SDR lotado?»: tags index-of-true ["sdr-lotado"]
+                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                [b1be05b3] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                                [2c5b27be] VAI PARA → 9a36ff5c  «Go To»
+                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                [c0e59260] SE «TI5 · Ainda vale ligar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                    [7e80a784] CAMPO: Resultado da tentativa = ; Tentativa nº = 5; Conexão real =   «Update contact field»
+                                                                                                                                                                                                    [ed83d2bf] +TAG fila-tel  «Add Tag»
+                                                                                                                                                                                                    [ece52b09] SE «TI5 · WhatsApp bloqueado para este lead?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                        [64a40a5e] TAREFA: [CADENCIA] TI5 · Ligar → WhatsApp — Inbound | Lead inbound: retorno rápido — toque 5 de 5.
+1. 📞 Ligar pelo telefone (botão de ligar do contato).
+2. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa). (ignorou 3 ligações de WhatsApp segu | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                                                        [2bb4684c] VAI PARA → 4ec0c74c  «Go To»
+                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                        [358c66d5] TAREFA: [CADENCIA] TI5 · WhatsApp → Ligar — Inbound | Lead inbound: retorno rápido — toque 5 de 5.
+1. 🟢 Ligar pelo WhatsApp (botão Ligar via WhatsApp na conversa).
+2. 📞 Ligar pelo telefone (botão de ligar do contato).
+
+Atendeu? Converse, qualifique e ten | vence: {'duration': 0, 'unit': 'days', 'time': 1789851600000, 'skipWeekends': True}  «Add Task»
+                                                                                                                                                                                                        [4ec0c74c] +TAG toque  «Add Tag»
+                                                                                                                                                                                                        [45c9cfb5] ESPERA 1 days  «Wait 1 Days»
+                                                                                                                                                                                                        [bb3c2d58] -TAG fila-tel, fila-wa  «Remove Tag»
+                                                                                                                                                                                                        [508a00a3] SE «TI5 · WhatsApp rebaixado (3+ sem atender)?»: WA não atendidas seguidas >= "3"
+                                                                                                                                                                                                          SIM:
+                                                                                                                                                                                                            [17f9c9d7] VAI PARA → c58cc258  «Go To»
+                                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                                            [a77b7835] SE «TI5 · WhatsApp não atendido?»: Resultado da tentativa has_no_value  OR Resultado da tentativa == "Não atendeu" OR Resultado da tentativa == "Caixa Postal"
+                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                [31ae1014] CONTA: {"selectField": "FnphiGDVkijSNDEP53c3", "selectFieldtype": "numerical", "sourceCustomValueId": "", "updateField": "FnphiGDVkijSNDEP53c3", "updateFieldType": "nu  «Math operation»
+                                                                                                                                                                                                                [32cd6d4e] VAI PARA → c58cc258  «Go To»
+                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                                [c58cc258] SE «TI5 · Pediu retorno? (pausa)»: Resultado da tentativa == "Pediu retorno"
+                                                                                                                                                                                                                  SIM:
+                                                                                                                                                                                                                    [94aad96f] SE «TI5 · Retorno: ainda em CONECTAR?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                                        [59ae7cfb] ESPERA 1 hour  «Wait 1 Hours»
+                                                                                                                                                                                                                        [73e66a91] VAI PARA → c58cc258  «Go To»
+                                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                                    [aa899114] SE «TI5 · Atendeu?»: Resultado da tentativa == "Atendeu"
+                                                                                                                                                                                                                      SIM:
+                                                                                                                                                                                                                        [9e57598e] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                                                                                                                                                      NÃO:
+                                                                                                                                                                                                                        [7166033f] SE «TI5 · Sem resposta registrada?»: Resultado da tentativa has_no_value 
+                                                                                                                                                                                                                          SIM:
+                                                                                                                                                                                                                            [26421a87] SE «TI5 · Ainda em CONECTAR? (antes do Não atendeu automático)»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                                [71015b51] CAMPO: Resultado da tentativa = Não atendeu  «Update contact field»
+                                                                                                                                                                                                                                [8ccaa093] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                                                                [8450bdf7] VAI PARA → 1ef37d68  «Go To»
+                                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                                          NÃO:
+                                                                                                                                                                                                                            [a1a3563f] SE «MIF · Ainda vale mandar?»: pipelineStageId == "CONECTAR" AND status == "open" AND tags index-of-false ["nao-perturbe"] AND Resultado da tentativa != "Não ligar" AND tags index-of-false ["telefone-invalido"]
+                                                                                                                                                                                                                              SIM:
+                                                                                                                                                                                                                                [1ef37d68] WHATSAPP → lead:
+        │ Oi, aqui é da O Próximo Cliente. Tentei te ligar algumas vezes nos últimos dias e não consegui falar com você. Se ainda fizer sentido, me responde com o melhor dia e horário pra eu te ligar.
+                                                                                                                                                                                                                                [2546a099] CAMPO: Template usado = MIF-v2  «Update contact field»
+                                                                                                                                                                                                                                [01c8208e] -TAG cad-inbound  «Remove Tag»
+                                                                                                                                                                                                                                [22093784] +TAG cad-outbound  «Add Tag»
+                                                                                                                                                                                                                                [6c64d058] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                                                                                                                                                              NÃO:
+                                                                                                                                                                                                  NÃO:
+                                                                                                                                                                                                    [96a338df] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                                                                                                    [c3a3fecb] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                                                                    [89b565a4] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                                                                                          NÃO:
+                                                                                                                                                            [1206d9f8] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                                                            [738d5673] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                                                            [8231770b] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                                                                  NÃO:
+                                                                                                                    [002d6bd6] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                                                                    [3ba3e57f] +TAG limpar-tarefas  «Add Tag»
+                                                                                                                    [1d394fcb] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                                                          NÃO:
+                                                                            [56658753] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                                                            [9eda0804] +TAG limpar-tarefas  «Add Tag»
+                                                                            [fa9d5035] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+                                  NÃO:
+                                    [35a68d60] -TAG fila-tel, fila-wa, fila-quente  «Remove Tag»
+                                    [e2c43565] +TAG limpar-tarefas  «Add Tag»
+                                    [83ff8176] TIRA DE: Cadência Inbound[published]  «Remove from Workflow»
+              NÃO:
+  NÃO:

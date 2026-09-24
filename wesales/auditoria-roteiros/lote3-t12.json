@@ -1,0 +1,8 @@
+[
+ {"wf":"Cadência 12x30 — parte 2","no":"85f91b0e","op":"inserir","tipo":"clonar","modelo":"51312d4d"},
+ {"wf":"Cadência 12x30 — parte 2","no":"85f91b0e","op":"inserir","tipo":"clonar","modelo":"21abed58"},
+ {"wf":"Cadência 12x30 — parte 2","no":"85f91b0e","op":"inserir","tipo":"clonar","modelo":"92e819cb","trocas":[["T11","T12"],["toque 11 de 12","toque 12 de 12 (última)"]]},
+ {"wf":"Cadência 12x30 — parte 2","no":"85f91b0e","op":"inserir","tipo":"clonar","modelo":"d96c0005"},
+ {"wf":"Cadência 12x30 — parte 2","no":"24cc7526","op":"tirar_cond","valores":[null]},
+ {"wf":"Cadência 12x30 — parte 2","no":"24cc7526","op":"nome","valor":"T12 · Não atendeu a última ligação? (despedida)"}
+]

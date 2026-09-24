@@ -1,0 +1,226 @@
+[
+ {
+  "id": "2BSLMqty4LEwdoyNTdU8",
+  "name": "Conexões reais telefone"
+ },
+ {
+  "id": "2LnUD4KYSGkIBwiUdzl3",
+  "name": "Urgência"
+ },
+ {
+  "id": "2tLo2m4KLTcP6fTEq3LG",
+  "name": "Instagram"
+ },
+ {
+  "id": "3dphGCPCoFcYXEQC2jeB",
+  "name": "Decisor"
+ },
+ {
+  "id": "5L0RMR1HZVQ7IevyjOQX",
+  "name": "Motivo da desqualificação"
+ },
+ {
+  "id": "5hU72B0HuoMApZvO1Qk7",
+  "name": "Hora da conexão"
+ },
+ {
+  "id": "5j9SerJeZ6ngfZCPb2Wg",
+  "name": "Tentativas WhatsApp"
+ },
+ {
+  "id": "7wtFfDDxOpYCfHzBsZXP",
+  "name": "Conexão real"
+ },
+ {
+  "id": "BRcN6IGXtDr0u52QtfiF",
+  "name": "Checkpoint Tentativa nº"
+ },
+ {
+  "id": "EsisfhEZWFLcnEYEzx3k",
+  "name": "Data compareceu"
+ },
+ {
+  "id": "FHoXQnLYA8LW5mFzfdIq",
+  "name": "Nota de qualificação"
+ },
+ {
+  "id": "FnphiGDVkijSNDEP53c3",
+  "name": "WA não atendidas seguidas"
+ },
+ {
+  "id": "IBOMNQecWtIUruHpNAs1",
+  "name": "Data de retorno"
+ },
+ {
+  "id": "IHXNFnguTPyNj5Q59ea2",
+  "name": "Hora do retorno"
+ },
+ {
+  "id": "JUBhmz0DGQMvjLCxSNrk",
+  "name": "Total de ligações"
+ },
+ {
+  "id": "JejovPl6Vf0SBtAiVIpw",
+  "name": "Ligações com transcrição"
+ },
+ {
+  "id": "LB11ao0AdSI1QSHyZBOP",
+  "name": "Conexões telefone"
+ },
+ {
+  "id": "O500dbTabWUJwnBKwuUl",
+  "name": "Já teve agência?"
+ },
+ {
+  "id": "OJQEsl5dV37pfVY2sIaB",
+  "name": "Necessidade"
+ },
+ {
+  "id": "ONBBDPg4LPIoRhv09Nf3",
+  "name": "Nº de no-shows"
+ },
+ {
+  "id": "Og1CkI9x9OztsV242nIM",
+  "name": "Conexões WhatsApp"
+ },
+ {
+  "id": "PKzNljzDoU77O14nHLrV",
+  "name": "1ª tentativa em"
+ },
+ {
+  "id": "PLjkuvnoDk7Hvt4qv0a8",
+  "name": "Duração da ligação"
+ },
+ {
+  "id": "QyEDg0qFlQ3gra5qZsJF",
+  "name": "Experiência com agência"
+ },
+ {
+  "id": "SZVgh0Y5HRcWWZG4fO9V",
+  "name": "Budget"
+ },
+ {
+  "id": "StguwRaz0AVlQqzaAoFh",
+  "name": "Template usado"
+ },
+ {
+  "id": "TxJmoWdkA8rTqC1uEsMW",
+  "name": "Canal que conectou"
+ },
+ {
+  "id": "Z7qwvDlagOLEhoCz5G5v",
+  "name": "Segmento"
+ },
+ {
+  "id": "aY5cwLe9y13CEyv8ecwv",
+  "name": "Data agendado"
+ },
+ {
+  "id": "bQithNwReQIBGlZBaNlI",
+  "name": "Investimento mensal em anúncios"
+ },
+ {
+  "id": "c1xuCuLyJheHOQoJ3grH",
+  "name": "Toques na semana"
+ },
+ {
+  "id": "c470gqXWCkwqE9yVrcEi",
+  "name": "Reunião foi qualificada"
+ },
+ {
+  "id": "chuJMRlKzY0Uq1f0lSkX",
+  "name": "Prioridade"
+ },
+ {
+  "id": "dYKivcXqdw4MToQLwoA9",
+  "name": "Usa CRM"
+ },
+ {
+  "id": "el7xNMvPE8ZiyfysRff9",
+  "name": "Checkpoint Data de retorno"
+ },
+ {
+  "id": "f1jNltRYjcrgKUZlxo8z",
+  "name": "Site"
+ },
+ {
+  "id": "f5bd9nBObV1cGgejAzdv",
+  "name": "Plataformas de anúncio"
+ },
+ {
+  "id": "ffIpN8kTlhncr7K00Xzy",
+  "name": "Data do veredito do closer"
+ },
+ {
+  "id": "jfQgrZFnxhbn1qmCeFDC",
+  "name": "Sinal recebido"
+ },
+ {
+  "id": "kdKnJecyZtssILfPPigl",
+  "name": "Permissão WhatsApp"
+ },
+ {
+  "id": "lAqbaJE9K4LDkq3t2zzc",
+  "name": "Prazo"
+ },
+ {
+  "id": "mJv4YcFBH4NsPfbh5Q3G",
+  "name": "Qualificação"
+ },
+ {
+  "id": "nPafc9c0JdSSptdPhUlF",
+  "name": "Resultado da tentativa"
+ },
+ {
+  "id": "qHJGJKZBccASOKkKP8ge",
+  "name": "Tentativa nº"
+ },
+ {
+  "id": "qmIKSSDVYNLl5E8vnr3f",
+  "name": "Dor principal"
+ },
+ {
+  "id": "qxJhMydTz6DcM4td4F08",
+  "name": "Canal principal de venda"
+ },
+ {
+  "id": "sJY6q3X7deZ5yGbjiORT",
+  "name": "Tem time comercial"
+ },
+ {
+  "id": "tQ7Fzo6cWeBDmEoaTBIZ",
+  "name": "Total de conexões"
+ },
+ {
+  "id": "uJnePU1Tl1Zr1fTxYKIz",
+  "name": "Data conectado"
+ },
+ {
+  "id": "uWUGz5gVGAFmNuk5GXbX",
+  "name": "Entrada em"
+ },
+ {
+  "id": "uXf6nG2tKQ7EtGCbHkfy",
+  "name": "Data e hora do sinal"
+ },
+ {
+  "id": "wCzdqF7uLQwtrZ1JyZRn",
+  "name": "Tentativas telefone"
+ },
+ {
+  "id": "wmod0p91VuukwWDwKCgi",
+  "name": "Clientes novos por mês"
+ },
+ {
+  "id": "x5JUx0YCWaZmH3Q85psI",
+  "name": "Investe em anúncios"
+ },
+ {
+  "id": "xjEcIFfdt2h29wBaKMQO",
+  "name": "Quem atende os leads"
+ },
+ {
+  "id": "zs7KhkmfUMyuXWQlyUv7",
+  "name": "Empresa"
+ }
+]

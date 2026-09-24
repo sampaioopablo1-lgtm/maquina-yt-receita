@@ -1,0 +1,12 @@
+# Lead Esquecido em NOVO LEAD  (60268916-7522-4a32-b9ee-0f00993988fb, 7 nós)
+janela: null
+reentrada: True | para ao responder: False
+GATILHO pipeline_stage_updated (ativo=True): opportunity.pipelineId == 0Fo2xbeayE4EP6yuSUtq; opportunity.pipelineStageId == NOVO LEAD
+
+[ef191aca] ESPERA 24 hour  «Wait 24 Hours»
+[64b2abd5] SE «Ainda em NOVO LEAD e aberta?»: pipelineStageId == "NOVO LEAD" AND status == "open"
+  SIM:
+    [8e5b11ca] +TAG novo-lead-estagnado  «Add Tag»
+    [a60fb980] AVISO INTERNO (notification): {{contact.name}} ({{contact.phone}}) está há 24h em NOVO LEAD sem ninguém mover. Origem: {{contact.source}}. Mova para CONECTAR e ligue, ou marque como perdido.  «Internal Notification»
+    [014e1775] NOTA: Alerta de saúde: NOVO LEAD sem revisão em 24h · {{right_now}}  «Note»
+  NÃO:
